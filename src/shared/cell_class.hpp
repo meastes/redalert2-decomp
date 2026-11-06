@@ -441,6 +441,9 @@ public:
             unsigned IsBridgeSurface:1;         // bit 12
             unsigned :3;
             unsigned IsOvershadowed:1;          // bit 16
+#ifdef RA2_CELL_RECALC_ATTRIBUTES
+            unsigned IsAnimAttached:1;          // bit 17 (TibSun name; Recalc_Attributes 0x00472540)
+#endif
         };
     };
     int unknown_144;                            // +0x144

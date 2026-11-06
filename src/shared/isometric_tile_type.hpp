@@ -120,6 +120,10 @@ public:
     // The pixel size of sub tile `tile` (wrapping), taller by its extra image; false without an
     // image (0x0052B690; TibSun Get_Tile_Pixel_Dimensions).
     bool Get_Tile_Pixel_Dimensions(int tile, int &width, int &height);
+#ifdef RA2_CELL_RECALC_ATTRIBUTES
+    // The land type of sub tile `tile` (0x00529300; TibSun Land_Type).
+    int Land_Type(int tile);
+#endif
     // Unpacks sub tile `tile` (wrapping) into a cleared width x height byte image through the
     // diamond mask, then its extra image; false when it does not fit (0x0052DD70; TibSun
     // Get_Tile_Image).

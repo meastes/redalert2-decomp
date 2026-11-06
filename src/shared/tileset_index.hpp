@@ -42,4 +42,13 @@ extern int unknown_tileset_a6e038;
 extern int unknown_tileset_a6e0e0;
 extern int unknown_tileset_a6e0f8;
 
+#ifdef RA2_CELL_RECALC_ATTRIBUTES
+// The four tunnel tile sets (TibSun Tunnels, TrackTunnels, DirtTunnels, DirtTrackTunnels;
+// CellClass Recalc_Attributes 0x00472540).
+extern int unknown_tileset_a52ea4;
+extern int unknown_tileset_a6cf50;
+extern int unknown_tileset_a52f04;
+extern int unknown_tileset_a6cb78;
+#endif
+
 #endif
