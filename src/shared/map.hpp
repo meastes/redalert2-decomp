@@ -445,6 +445,11 @@ public:
     bool Unknown_0054E410();
     // Removes the crate at a cell (0x0054E6E0; TibSun Remove_Crate).
     bool Remove_Crate(Cell const &cell);
+#ifdef RA2_MAP_CLOSE_OBJECT
+    // The clickable object closest to coord in its cell and the eight around it, if within 0xB5 leptons
+    // (0x0054E8D0; TibSun Close_Object).
+    ObjectClass *Close_Object(CoordStruct const &coord);
+#endif
     virtual void unknown_slot28(Rect const *rect, bool arg2, bool arg3, bool arg4);   // slot 28 0x005484E0 (callee pops 4 arguments, ret 0x10)
     virtual void unknown_slot29(Rect const &rect);                                      // slot 29 0x00549AE0 (sets the map size; hypothesis)
 

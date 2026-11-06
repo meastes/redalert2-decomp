@@ -44,6 +44,9 @@ public:
     int unknown_dc;                 // +0xDC per-house bits (as shared/cell.hpp)
     char unknown_e0[0xE4 - 0xE0];
     class ObjectClass *OccupierPtr; // +0xE4 (as shared/cell.hpp)
+#ifdef RA2_MAP_CLOSE_OBJECT
+    class ObjectClass *Cell_Occupier() const { return OccupierPtr; } // (TibSun Cell_Occupier; MapClass 0x0054E8D0)
+#endif
     char unknown_e8[0xEC - 0xE8];
     int unknown_ec;                 // +0xEC the land type (as shared/cell.hpp)
     char unknown_f0[0x100 - 0xF0];

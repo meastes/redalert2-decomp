@@ -98,8 +98,17 @@ public:
     bool unknown_7d;                        // +0x7D (as shared/object.hpp)
     char unknown_7e[0x1B4 - 0x7E];
     HouseClass *House;                      // +0x1B4 (as shared/techno.hpp)
+#ifdef RA2_MAP_CLOSE_OBJECT
+    int unknown_1b8;                        // +0x1B8 (as shared/techno.hpp; 2 when cloaked: MapClass 0x0054E8D0)
+    char unknown_1bc[0x32D - 0x1BC];
+#else
     char unknown_1b8[0x32D - 0x1B8];
+#endif
     bool unknown_32d;                       // +0x32D (as shared/techno.hpp)
+#ifdef RA2_MAP_CLOSE_OBJECT
+    char unknown_32e[0x372 - 0x32E];
+    bool unknown_372;                       // +0x372 (as shared/techno.hpp; owned by the player: MapClass 0x0054E8D0)
+#endif
 };
 
 // A building type as MapClass 0x0055ACD0 and the wall placement 0x0056A660 see it
@@ -148,7 +157,11 @@ public:
     bool unknown_44d880();                  // 0x0044D880 (as shared/building_class.hpp)
     bool unknown_44d7d0();                  // 0x0044D7D0 (as shared/building_class.hpp)
 
+#ifdef RA2_MAP_CLOSE_OBJECT
+    char unknown_374[0x418 - 0x374];        // the TechnoClass stand-in reaches +0x372 in this unit
+#else
     char unknown_330[0x418 - 0x330];
+#endif
     BuildingTypeClass *Type;                // +0x418
 };
 
