@@ -38,9 +38,9 @@ public:
 
     static void __fastcall Configure(unsigned short socket, int conn_num, int arg3, int arg4, int arg5, int arg6, int arg7);   // 0x00523C30
     static int Start_Listening();                                   // 0x00523C80
-    static int Stop_Listening();                                    // 0x00523CF0
+    static int __cdecl Stop_Listening();                                    // 0x00523CF0
     static void __fastcall Open_Socket(unsigned short socket);      // 0x00523D30
-    static void Close_Socket();                                     // 0x00523D70
+    static void __cdecl Close_Socket();                                     // 0x00523D70
     static int __fastcall Broadcast(char *buf, int buflen);         // 0x00523F70
 
     IPXAddressClass Address;            // +0x4C
