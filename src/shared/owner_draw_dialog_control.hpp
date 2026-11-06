@@ -235,7 +235,13 @@ BOOL __fastcall Is_Listed_Kind_5e8590(int kind);
 inline UnknownControlRecord *Get_Record(HWND window)
 {
     UnknownControlRecord *record = 0;
+#ifdef RA2_COMBO_DROP_UNIT
+    // wlib Dictionary<HWND, ...>::getPointer(window, ...): the key is the window parameter itself, so the
+    // inline's copy of it is made before record is cleared (0x005F9FB0).
+    unknown_registry_a73640.Get((unsigned int const &)window, record);
+#else
     unknown_registry_a73640.Get((unsigned int)window, record);
+#endif
     return record;
 }
 // The original window procedures of the subclassed controls, keyed by window (0x00A73688; the same hash
