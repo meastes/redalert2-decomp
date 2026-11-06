@@ -166,8 +166,9 @@ public:
             return new T(name, description, ini_name, unknown_4, unknown_5, id);
         }
     };
-    // Registers a mode by name (0x005B8490; reads its settings).
-    static void __fastcall unknown_register_5b8490(Wstring const &name, InitializerBase const &initializer);
+    // Reads the [section] modes of MPModes.ini and registers them through the initializer
+    // (0x005B8490; ra2-decomp Read_Game_Modes).
+    static void __fastcall Read_Game_Modes_5b8490(Wstring const &section, InitializerBase &initializer);
     // Recreates the mode list: deletes the old modes and registers the six
     // modes (0x005B8BD0).
     static void __fastcall unknown_init_modes_5b8bd0();

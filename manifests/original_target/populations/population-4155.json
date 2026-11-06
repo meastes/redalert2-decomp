@@ -4,8 +4,8 @@
     "id": "population-4155",
     "inventory_sha256": "aa83c0168130455e49d71c201c869c2bb11171ed5732bf9ff3e33478fe10e684",
     "gaps_sha256": "2b2d104173c6bd81a5dc944a5eb9ec23faf8638d1af89699889f6c69f8cf1d94",
-    "historical_population_sha256": "e51b675efda7b7513f6cf6730b3473a0393794cad6104f1e5ce31da99df097db",
-    "historical_acceptance_sha256": "881aab9f30c7342ef8f50d4f84ba4bbc13f8abc30a3b5b5b3d2862b079f88e80"
+    "historical_population_sha256": "fc882bae379c42189ecea4ed530cbd6ffc3b928fcf28cd704c45e666c9abb5d8",
+    "historical_acceptance_sha256": "b9a5d1ddbc90c4c3da9d34f74c0935222a29ab021ac77eee6e366d8754ada865"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1813,7 +1813,7 @@
     "??0MultiplayerManBattle@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z": 5928112,
     "??0MultiplayerSiege@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z": 5944736,
     "??0?$DynamicVectorClass@PAVMultiplayerGameMode@@@@QAE@IPBQAVMultiplayerGameMode@@@Z": 6002112,
-    "?unknown_register_5b8490@MultiplayerGameMode@@SIXABVWstring@@ABVInitializerBase@1@@Z": 5997712,
+    "?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z": 5997712,
     "??_7InitializerBase@MultiplayerGameMode@@6B@": 8024752,
     "??_GInitializerBase@MultiplayerGameMode@@UAEPAXI@Z": 6000320,
     "??_7?$Initializer@VMultiplayerBattle@@@MultiplayerGameMode@@6B@": 8024824,
@@ -12663,7 +12663,20 @@
     "??_GCounterClass@@UAEPAXI@Z": 4792064,
     "??0CounterClass@@QAE@XZ": 4791296,
     "??_7CounterClass@@6B@": 7988652,
-    "??_ECounterClass@@UAEPAXI@Z": 4792064
+    "??_ECounterClass@@UAEPAXI@Z": 4792064,
+    "?Clear@?$WolArrayList@VWstring@@@@QAEXXZ": 7758272,
+    "?Remove@?$WolArrayList@VWstring@@@@QAE_NH@Z": 7758320,
+    "?Create_Starting_Objects_005b7ce0@MultiplayerGameMode@@QAE_NXZ": 5995744,
+    "?unknown_slot24@Tactical@@UAE_NABUCoordStruct@@0H_N@Z": 6996320,
+    "__real@8@4003f000000000000000": 8053472,
+    "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z": 6312432,
+    "??0?$DynamicVectorClass@PAVPlanningMemberClass@@@@QAE@IPBQAVPlanningMemberClass@@@Z": 6401152,
+    "??0?$DynamicVectorClass@PAVPlanningBranchClass@@@@QAE@IPBQAVPlanningBranchClass@@@Z": 6401936,
+    "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z": 7310144,
+    "__real@4@4003f000000000000000": 8030272,
+    "__real@4@40068c00000000000000": 8030200,
+    "__real@4@4005d800000000000000": 8030196,
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488
   },
   "regions": [
     {
@@ -23164,7 +23177,7 @@
         {
           "offset": 123,
           "kind": 20,
-          "symbol": "?unknown_register_5b8490@MultiplayerGameMode@@SIXABVWstring@@ABVInitializerBase@1@@Z",
+          "symbol": "?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z",
           "target": 5997712,
           "addend": 0,
           "resolved": 4294965313
@@ -23204,7 +23217,7 @@
         {
           "offset": 167,
           "kind": 20,
-          "symbol": "?unknown_register_5b8490@MultiplayerGameMode@@SIXABVWstring@@ABVInitializerBase@1@@Z",
+          "symbol": "?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z",
           "target": 5997712,
           "addend": 0,
           "resolved": 4294965269
@@ -23244,7 +23257,7 @@
         {
           "offset": 211,
           "kind": 20,
-          "symbol": "?unknown_register_5b8490@MultiplayerGameMode@@SIXABVWstring@@ABVInitializerBase@1@@Z",
+          "symbol": "?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z",
           "target": 5997712,
           "addend": 0,
           "resolved": 4294965225
@@ -23284,7 +23297,7 @@
         {
           "offset": 255,
           "kind": 20,
-          "symbol": "?unknown_register_5b8490@MultiplayerGameMode@@SIXABVWstring@@ABVInitializerBase@1@@Z",
+          "symbol": "?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z",
           "target": 5997712,
           "addend": 0,
           "resolved": 4294965181
@@ -23324,7 +23337,7 @@
         {
           "offset": 299,
           "kind": 20,
-          "symbol": "?unknown_register_5b8490@MultiplayerGameMode@@SIXABVWstring@@ABVInitializerBase@1@@Z",
+          "symbol": "?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z",
           "target": 5997712,
           "addend": 0,
           "resolved": 4294965137
@@ -23364,7 +23377,7 @@
         {
           "offset": 343,
           "kind": 20,
-          "symbol": "?unknown_register_5b8490@MultiplayerGameMode@@SIXABVWstring@@ABVInitializerBase@1@@Z",
+          "symbol": "?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z",
           "target": 5997712,
           "addend": 0,
           "resolved": 4294965093
@@ -23378,7 +23391,7 @@
           "resolved": 1789100
         }
       ],
-      "source_sha256": "854a6d9fbada541acdb23e5ef5a7f48b6538927912fba6d090bb279bf248a3a3",
+      "source_sha256": "2cde104131f306ee952da0303ffd387230fe1da674e3084a7092c565c356b8ab",
       "source": "src/recovered/classes/MultiplayerGameMode/MultiplayerGameMode_unknown_init_modes_005b8bd0.cpp",
       "population": "population-4155",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

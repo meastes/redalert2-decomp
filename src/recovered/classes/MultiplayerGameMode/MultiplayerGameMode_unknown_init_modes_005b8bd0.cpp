@@ -11,7 +11,7 @@
 // @ref ??0MultiplayerManBattle@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z=005a74b0
 // @ref ??0MultiplayerSiege@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z=005ab5a0
 // @ref ??0?$DynamicVectorClass@PAVMultiplayerGameMode@@@@QAE@IPBQAVMultiplayerGameMode@@@Z=005b95c0
-// @ref ?unknown_register_5b8490@MultiplayerGameMode@@SIXABVWstring@@ABVInitializerBase@1@@Z=005b8490
+// @ref ?Read_Game_Modes_5b8490@MultiplayerGameMode@@SIXABVWstring@@AAVInitializerBase@1@@Z=005b8490
 // @ref ??_7InitializerBase@MultiplayerGameMode@@6B@=007a72b0
 // @ref ??_GInitializerBase@MultiplayerGameMode@@UAEPAXI@Z=005b8ec0
 // @ref ??_7?$Initializer@VMultiplayerBattle@@@MultiplayerGameMode@@6B@=007a72f8
@@ -26,15 +26,15 @@ void MultiplayerGameMode::unknown_init_modes_5b8bd0()
 {
     unknown_delete_modes_5b8d40();
     Initializer<MultiplayerBattle> battle;
-    unknown_register_5b8490("Battle", battle);
+    Read_Game_Modes_5b8490("Battle", battle);
     Initializer<MultiplayerManBattle> man_battle;
-    unknown_register_5b8490("ManBattle", man_battle);
+    Read_Game_Modes_5b8490("ManBattle", man_battle);
     Initializer<MultiplayerSiege> siege;
-    unknown_register_5b8490("Siege", siege);
+    Read_Game_Modes_5b8490("Siege", siege);
     Initializer<UnholyAlliance> unholy;
-    unknown_register_5b8490("Unholy", unholy);
+    Read_Game_Modes_5b8490("Unholy", unholy);
     Initializer<FreeForAll> free_for_all;
-    unknown_register_5b8490("FreeForAll", free_for_all);
+    Read_Game_Modes_5b8490("FreeForAll", free_for_all);
     Initializer<MPCooperative> cooperative;
-    unknown_register_5b8490("Cooperative", cooperative);
+    Read_Game_Modes_5b8490("Cooperative", cooperative);
 }
