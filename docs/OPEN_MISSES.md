@@ -2223,3 +2223,6 @@ Unknown_Cell_Score_0056dff0 is really a thiscall member.
 
 ## Scout824 (2026-11-06, closed; 656 B: Desired_Load_Dir 0x704730 from ra2-decomp 0x740B60; NOTES and keep/ in build/class-work/Scout824/)
 - Tunnel_AI 0x6FAA30 42.86 to 50.39 (keep/tunnel_tu5_5039.cpp; needs RA2_COORD_LENGTH and RA2_COORD_PLUS_POINT2D as unit macros, not yet checked population-wide; original calls operator- 0x4348F0 out of line at the first Distance; frame 0x90 vs 0x70). Assign_Destination 0x7053F0 79.36 unchanged (frame +4; blockers as Scout780). Draw_Voxel 0x6FF690 50.91 (YR twin 0x73B470 much larger). 0x6FA20F (20 B, pass 5) looks like a bad bound one byte before HeaderStatics 0x6FA210.
+
+## Scout826 (2026-11-06, closed; 1,680 B: Calculated_Cell 0x49A700 from ra2-decomp 0x004AA440; NOTES and tools in build/class-work/Scout826/)
+- Dropship_Screen 0x4A6B90 (10,797 B) unchanged under SP3: 99.83 (ds_c4_9983), add order at 0x1171/0x11C6 is `candidates[candidate_index]` (the nested-member form would need the protected .Vector), lea order 0x2444, one register 0x1508. Set_Cursor_Pos 0x4994D0 78.48 (overlay h/shared/map_view.hpp). Mouse_Left_Up 0x49B0F0 (2,145 B code + 463 B tables to 0x49BB20, jt.py decodes them) 62.22; the two 0x6F6740 blocks are not tail-merged, likely two linker-folded functions.
