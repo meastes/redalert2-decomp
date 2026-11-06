@@ -1,3 +1,5 @@
+// Tactical::Draw_Tile_Shadows(int, Rect const &) 0x006A88A0 is declared for this unit.
+#define RA2_TACTICAL_TILE_SHADOWS_AREA
 #define RA2_TACTICAL_SHADOW_COORD_CTOR_DECL
 #define CELL_DECLARE_DRAW_IT
 #define RA2_COORD_AS_CELL

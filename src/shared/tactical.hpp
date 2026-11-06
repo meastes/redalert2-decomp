@@ -181,6 +181,11 @@ public:
     void Draw_Tiles(Rect const &area, Rect const &cliprect);
     void Draw_Tiles(Cell const &cell, Rect const &cliprect);
     void Draw_Tile_Shadows(Rect const &area, Rect const &cliprect);
+#ifdef RA2_TACTICAL_TILE_SHADOWS_AREA
+    // The tile shadows inside an area, clipped to it, from the area's map corner moved back onto the
+    // map (0x006A88A0; ra2-decomp Tactical::Draw_Tile_Shadows(int, Rect const &)).
+    void Draw_Tile_Shadows(int, Rect const &area);
+#endif
     void Render_Buildings(Rect const &xpanrect, Rect const &ypanrect, bool fullredraw);   // 0x006A4100
     void Render_Fogged_Objects(Rect const &xpanrect, Rect const &ypanrect, bool fullredraw); // 0x006A3D00
     // Moves the dirty areas by the scroll offset and clips them to the view, then wipes the depth of the cells
