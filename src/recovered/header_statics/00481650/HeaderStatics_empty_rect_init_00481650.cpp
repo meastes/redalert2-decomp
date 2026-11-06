@@ -1,3 +1,6 @@
+#define RA2_CONQUER_IPX_CALL_BACK    // Conquer.CPP: IPX_Call_Back 0x00482110 members (session_state.hpp, ipx_address.hpp, unknown_globals.hpp, unknown_player_entry.hpp)
+#define UNKNOWN_BEACONS_DECLARE_TEXT     // IPX_Call_Back 0x00482110: the beacon text and removal messages
+#define UNKNOWN_BEACONS_DECLARE_MEMBERS
 #define VECTOR_IMPLEMENT_VECTOR_ACCESSORS
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
 // Header-static dynamic initializers of the unit at 0x00481650: the shape_file.hpp empty rect and the

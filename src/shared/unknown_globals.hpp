@@ -167,6 +167,26 @@ struct UnknownGlobalPacket {
         struct {
             int Percent;                // +0x2F the sender's loading progress (UnknownSessionState 0x00672160)
         } Progress;                     // command 0x0F
+#ifdef RA2_CONQUER_IPX_CALL_BACK
+        struct {
+            unsigned char Recipients;   // +0x2F the router's recipient mask
+            unsigned char ID;           // +0x30 the packed taunt (low nibble taunt, high nibble country)
+            char unknown_31[0x35 - 0x31];
+            int NameCRC;                // +0x35 0x005BBA50 of the host's name
+        } Taunt;                        // command 0x1D (shared/taunt_packet.hpp)
+        struct {
+            int X;                      // +0x2F
+            int Y;                      // +0x33
+            int Z;                      // +0x37
+            char Slot;                  // +0x3B
+            char House;                 // +0x3C
+        } Beacon;                       // commands 0x20, 0x21 (shared/beacon.hpp UnknownBeaconPacket)
+        struct {
+            char Slot;                  // +0x2F
+            char House;                 // +0x30
+            unsigned short Text[0x80];  // +0x31
+        } BeaconText;                   // command 0x22 (shared/beacon.hpp UnknownBeaconTextPacket)
+#endif
         struct {
             char unknown_2f[0xAF - 0x2F];
             unsigned int FileLength;    // +0xAF the file's length

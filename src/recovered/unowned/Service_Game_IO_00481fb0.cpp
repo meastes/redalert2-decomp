@@ -3,13 +3,13 @@
 #include "shared/movie.hpp"
 extern DynamicVectorClass<MovieHandle *> queued_movies_00af8fd8;
 void __cdecl Audio_Update();
-void __cdecl Service_Network_Handshake_00482110();
+void __fastcall IPX_Call_Back();
 extern int unknown_login_state_00b2abe4;
 extern long last_online_poll_00850e10;
 extern "C" long __cdecl time(long *result);
 // @ref ?queued_movies_00af8fd8@@=00af8fd8
 // @ref ?Audio_Update@@=00406ea0
-// @ref ?Service_Network_Handshake_00482110@@=00482110
+// @ref ?IPX_Call_Back@@=00482110
 // @ref ?unknown_login_state_00b2abe4@@=00b2abe4
 // @ref ?last_online_poll_00850e10@@=00850e10
 // @ref ?unknown_b2abda@@=00b2abda
@@ -25,7 +25,7 @@ void __fastcall Service_Game_IO_00481fb0()
         if (movie) movie->Unknown_Slot2();
     }
     if (unknown_game_mode_a3d298==3 || unknown_game_mode_a3d298==4)
-        Service_Network_Handshake_00482110();
+        IPX_Call_Back();
     if (unknown_game_mode_a3d298!=1) {
         if (unknown_game_mode_a3d298!=2) goto online;
     } else if (!(serial_session_flags_00a3fac0&1)) return;

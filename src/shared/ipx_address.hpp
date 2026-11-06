@@ -34,6 +34,10 @@ public:
     bool operator>=(IPXAddressClass &address);                      // 0x005237E0
     bool operator<=(IPXAddressClass &address);                      // 0x00523810
     static void __fastcall Set_Protocol(int protocol);              // 0x00523950
+#ifdef RA2_CONQUER_IPX_CALL_BACK
+    // Under UDP the port is the first word (inline; IPX_Call_Back 0x00482110).
+    unsigned short Get_Port() { return *(unsigned short *)NetworkNumber; }
+#endif
 
     NetNumType NetworkNumber;           // +0x00
     NetNodeType NodeAddress;            // +0x04

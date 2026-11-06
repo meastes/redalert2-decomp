@@ -178,7 +178,13 @@ struct UnknownSessionState {
     char unknown_1e74[0x1E88 - 0x1E74];
     bool LANTaunts;                         // +0x1E88 RA2.INI [MultiPlayer] LANTaunts
     bool WOLTaunts;                         // +0x1E89 [MultiPlayer] WOLTaunts
+#ifdef RA2_CONQUER_IPX_CALL_BACK
+    // The text of the last chat message received (wide; IPX_Call_Back 0x00482110 copies it; length hypothesis).
+    unsigned short LastMessage[112];        // +0x1E8A
+    char unknown_1f6a[0x1F70 - 0x1F6A];
+#else
     char unknown_1e8a[0x1F70 - 0x1E8A];
+#endif
     bool LANScrollText;                     // +0x1F70 [MultiPlayer] LANScrollText
     bool WOLScrollText;                     // +0x1F71 [MultiPlayer] WOLScrollText
     char unknown_1f72[0x1F74 - 0x1F72];
@@ -199,10 +205,25 @@ struct UnknownSessionState {
     unsigned Record : 1;                    // +0x2368 bit 0 (Red Alert's Session.Record; hypothesis)
     unsigned Play : 1;                      //         bit 1 (Red Alert's Session.Play: SyncBug settings are read)
     unsigned Attract : 1;                   //         bit 2 (Red Alert's Session.Attract; Parse_Command_Line -ATTRACT)
+#ifdef RA2_CONQUER_IPX_CALL_BACK
+    char unknown_236c[0x237D - 0x236C];
+    bool NetProtect;                        // +0x237D messages must carry the game's name CRC (Red Alert's Session.NetProtect)
+    bool NetOpen;                           // +0x237E the game is open (also unknown_session_a3f616; Red Alert's Session.NetOpen)
+    char unknown_237f;
+#else
     char unknown_236c[0x2380 - 0x236C];
+#endif
     unsigned short HostName_2380[20];       // +0x2380 the host's name (wide; also unknown_host_name_a3f618)
     UnknownGlobalPacket GPacket;            // +0x23A8 (also unknown_gpacket_a3f640; Red Alert's Session.GPacket)
+#ifdef RA2_CONQUER_IPX_CALL_BACK
+    char unknown_256f;
+    int GPacketlen;                         // +0x2570 the length of GPacket (Red Alert's Session.GPacketlen)
+    IPXAddressClass GAddress;               // +0x2574 its sender (also unknown_address_a3f80c; Red Alert's Session.GAddress)
+    unsigned short GProductID;              // +0x2580 its product id (Red Alert's Session.GProductID)
+    char unknown_2582[0x27B4 - 0x2582];
+#else
     char unknown_256f[0x27B4 - 0x256F];
+#endif
     DynamicVectorClass<NodeNameType *> NodeList_27b4;  // +0x27B4 (a third of Red Alert's Games / Players / Chat lists)
     DynamicVectorClass<NodeNameType *> NodeList_27cc;  // +0x27CC
     // The player list (the object at 0x00A3FA7C, shared/unknown_player_entry.hpp unknown_players_a3fa7c).
