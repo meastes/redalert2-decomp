@@ -487,7 +487,11 @@ struct AudioChannelBuffer {
     AudioBlockFunction Decode_Block;    // +0xB0
     AudioAdpcmState Adpcm[2];       // +0xB4 one per channel
     char unknown_c4[0xcc - 0xc4];
+#ifdef RA2_AUDIO_DS_START
+    int volatile unknown_cc;        // +0xCC
+#else
     int unknown_cc;                 // +0xCC
+#endif
     int volatile unknown_d0;        // +0xD0
     int volatile unknown_d4;        // +0xD4
     int unknown_d8;                 // +0xD8

@@ -13,6 +13,7 @@
 // @ref ?Audio_Thread_Proc@@YGKPAX@Z=004094d0
 // @ref ?Audio_Thread_Running@@3HA=008315a8
 // @ref ?Audio_Thread_Users@@3HC=00831588
+#define RA2_AUDIO_DS_START
 #include "shared/audio.hpp"
 #include "shared/debug_printf.hpp"
 
