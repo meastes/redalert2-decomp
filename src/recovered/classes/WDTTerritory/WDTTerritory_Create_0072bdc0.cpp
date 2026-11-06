@@ -5,11 +5,14 @@
 // @ref ??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z=0051e600
 // @ref ??_G?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z=0051e600
 #define VECTOR_IMPLEMENT_DYNAMIC_ADD
+#define VECTOR_IMPLEMENT_DYNAMIC_ASSIGN
 #define VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR
 #define VECTOR_IMPLEMENT_DYNAMIC_CLEAR
 #define VECTOR_IMPLEMENT_VECTOR_CLEAR
 #define VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR
 #define WDT_STATE_DECLARE_CONSTRUCTORS
+// TibSun vector.h signed VectorClass size (the WDTState() 0x0072BEF0 temporary expands inline).
+#define RA2_VECTOR_SIGNED_SIZE
 #include "shared/wdt_territory.hpp"
 
 rc_ptr<WDTTerritory> __fastcall WDTTerritory::Create()

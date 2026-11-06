@@ -17,7 +17,13 @@ template <class T>
 class VectorClass {
 public:
     VectorClass(NoInitClass const &noinit);
+#ifdef RA2_VECTOR_SIGNED_SIZE
+    // Signed size profile: Westwood's TibSun vector.h (the YR twin of WDTState() 0x0072BEF0
+    // compiles exact with it; the unsigned form refuses the temporary's inline constructor).
+    VectorClass(int size = 0, T const *array = 0);
+#else
     VectorClass(unsigned size = 0, T const *array = 0);
+#endif
     VectorClass(VectorClass<T> const &vector);
     virtual ~VectorClass();
 

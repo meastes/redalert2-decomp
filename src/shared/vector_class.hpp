@@ -182,7 +182,11 @@ VectorClass<T>::VectorClass(NoInitClass const &)
 // Empty storage of `size` elements: uses `array` in place without owning it
 // when supplied, otherwise allocates and owns. A zero size ignores `array`.
 template <class T>
+#ifdef RA2_VECTOR_SIGNED_SIZE
+VectorClass<T>::VectorClass(int size, T const *array)
+#else
 VectorClass<T>::VectorClass(unsigned size, T const *array)
+#endif
     : Vector(0), VectorMax(size), IsValid(true), IsAllocated(false)
 {
     if (size) {
