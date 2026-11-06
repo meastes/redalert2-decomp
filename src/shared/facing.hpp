@@ -33,6 +33,10 @@ struct UnknownFacingDir {
     UnknownFacingDir(int facing) : Facing((short)facing) {}
     UnknownFacingDir Left_90() const { return UnknownFacingDir((int)Facing - 0x3fff); }
 #endif
+#ifdef RA2_FACING_DIFFERENCE
+    // TibSun DirType::operator-: the signed difference of two directions.
+    UnknownFacingDir operator-(UnknownFacingDir const &other) const { return UnknownFacingDir(Facing - other.Facing); }
+#endif
     UnknownFacingDir(CoordStruct const &from, CoordStruct const &to);   // 0x00423EF0 (the direction from one coordinate to another)
     // TibSun DirType::Direction: the same code as the constructor above (the
     // AnimClass unit calls it on a default-constructed direction and reads the

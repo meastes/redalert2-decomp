@@ -1,3 +1,6 @@
+#define RA2_FACING_LEFT90
+#define RA2_FACING_DIFFERENCE  // DirType(int) and DirType::operator- for Barrel_Pitch 0x0043B7E0 (TibSun face.h)
+#define RA2_COORD_LENGTH
 #define RA2_BUILDING_RAW_DELAY_COORD
 #define RA2_COORD_TPOINT3D
 #define RA2_BUILDING_TRANSLATION_VALUES
