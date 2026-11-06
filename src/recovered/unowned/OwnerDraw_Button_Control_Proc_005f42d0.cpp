@@ -130,8 +130,7 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
         break;
     case 0x497: {
         WNDPROC previous=0;
-        WNDPROC *slot=unknown_window_procs_a73688.Find(window);
-        if(slot)previous=*slot;
+        unknown_window_proc_table_a73688.Get_Value(window, previous);
         data->unknown_e8=CallWindowProcA(previous,window,0xf0,0,0);
         break;
     }
@@ -146,16 +145,14 @@ LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wpa
     case 0x202: {
         LockWindowUpdate(GetParent(window));
         WNDPROC previous=0;
-        WNDPROC *slot=unknown_window_procs_a73688.Find(window);
-        if(slot)previous=*slot;
+        unknown_window_proc_table_a73688.Get_Value(window, previous);
         LRESULT result=CallWindowProcA(previous,window,0x202,wparam,lparam);
         LockWindowUpdate(0);
         return result;
     }
     }
     WNDPROC previous=0;
-    WNDPROC *slot=unknown_window_procs_a73688.Find(window);
-    if(slot)previous=*slot;
+    unknown_window_proc_table_a73688.Get_Value(window, previous);
     return CallWindowProcA(previous,window,message,wparam,lparam);
 }
 }

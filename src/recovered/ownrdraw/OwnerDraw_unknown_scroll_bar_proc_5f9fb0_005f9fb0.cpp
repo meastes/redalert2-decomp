@@ -7,7 +7,7 @@
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
 // @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
-// @ref ?unknown_window_procs_a73688@OwnerDraw@@3VUnknownWindowProcIndex@1@A=00a73688
+// @ref ?unknown_window_proc_table_a73688@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A=00a73688
 // @ref ?unknown_surface_count_a763d8@OwnerDraw@@3HA=00a763d8
 // @ref ?unknown_bitmap_writer_a76378@@3VUnknownBitmapWriter@@A=00a76378
 // @ref ?Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z=0068ca40
@@ -190,10 +190,7 @@ LRESULT __stdcall unknown_scroll_bar_proc_5f9fb0(HWND window, UINT message, WPAR
     case 0x84:
     case 0x87: {
         WNDPROC proc = 0;
-        WNDPROC *found = 0;
-        if (unknown_window_procs_a73688.Get(window, found) && found) {
-            proc = *found;
-        }
+        unknown_window_proc_table_a73688.Get_Value(window, proc);
         return CallWindowProcA(proc, window, message, wparam, lparam);
     }
     case 0x14:

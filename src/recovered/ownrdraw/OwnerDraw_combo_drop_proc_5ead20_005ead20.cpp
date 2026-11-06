@@ -96,11 +96,7 @@ struct UnknownListItem {
 inline int Get_Item_Text(HWND owner, int const &index, wchar_t *text, int size)
 {
     WNDPROC proc = 0;
-    WNDPROC *found = 0;
-    unknown_window_procs_a73688.Get(owner, found);
-    if (found) {
-        proc = *found;
-    }
+    unknown_window_proc_table_a73688.Get_Value(owner, proc);
     text[0] = 0;
     int item = CallWindowProcA(proc, owner, 0x199, index, 0);
     if (item == -1 || item == 0) {

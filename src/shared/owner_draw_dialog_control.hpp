@@ -244,6 +244,10 @@ inline UnknownControlRecord *Get_Record(HWND window)
 #endif
     return record;
 }
+#ifdef RA2_OWNERDRAW_WNDPROC_DICTIONARY
+// The ownrdraw unit reaches the window procedures at 0x00A73688 as wlib's Dictionary<HWND, WNDPROC>
+// (unknown_window_proc_table_a73688, shared/wol_dictionary.hpp; defined by its initializer 0x005DE9C0).
+#else
 // The original window procedures of the subclassed controls, keyed by window (0x00A73688; the same hash
 // table shape as unknown_registry_a73640).
 class UnknownWindowProcIndex {
@@ -291,6 +295,7 @@ public:
 #endif
 };
 extern UnknownWindowProcIndex unknown_window_procs_a73688;
+#endif
 // The text of an edit control as wide text without line breaks (a trailing "\r\n" if it had any), and the
 // caret's character index (0x005F2120).
 int __fastcall unknown_edit_text_5f2120(HWND window, wchar_t *text, int size, int *caret);

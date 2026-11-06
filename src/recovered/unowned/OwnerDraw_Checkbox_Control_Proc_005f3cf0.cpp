@@ -93,8 +93,7 @@ zero_result:
     }
     case 0x497: {
         WNDPROC previous=0;
-        WNDPROC *slot=unknown_window_procs_a73688.Find(window);
-        if(slot)previous=*slot;
+        unknown_window_proc_table_a73688.Get_Value(window, previous);
         data->unknown_e8=CallWindowProcA(previous,window,0xf0,0,0);
         break;
     }
@@ -113,8 +112,7 @@ zero_result:
     case 0x4e7:return data->unknown_da;
     }
     WNDPROC previous=0;
-    WNDPROC *slot=unknown_window_procs_a73688.Find(window);
-    if(slot)previous=*slot;
+    unknown_window_proc_table_a73688.Get_Value(window, previous);
     return CallWindowProcA(previous,window,message,wparam,lparam);
     }
     return 0;

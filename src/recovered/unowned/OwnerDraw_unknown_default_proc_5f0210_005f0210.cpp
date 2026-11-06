@@ -9,8 +9,7 @@ namespace OwnerDraw {
 LRESULT __stdcall unknown_default_proc_5f0210(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     WNDPROC proc = 0;
-    WNDPROC *found = unknown_window_procs_a73688.Find(window);
-    if (found) proc = *found;
+    unknown_window_proc_table_a73688.Get_Value(window, proc);
     RECT area;
     Window_Rect_In_Main_Client(window, &area);
     RECT client;

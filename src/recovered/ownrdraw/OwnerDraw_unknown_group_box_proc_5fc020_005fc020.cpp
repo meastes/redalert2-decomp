@@ -2,7 +2,7 @@
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
 // @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
 // @ref ?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z=00601710
-// @ref ?unknown_window_procs_a73688@OwnerDraw@@3VUnknownWindowProcIndex@1@A=00a73688
+// @ref ?unknown_window_proc_table_a73688@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A=00a73688
 // @ref ?unknown_color_a733e4@OwnerDraw@@3HA=00a733e4
 // @ref ?unknown_color_a76158@OwnerDraw@@3HA=00a76158
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
@@ -31,23 +31,11 @@ namespace OwnerDraw {
 LRESULT __stdcall unknown_group_box_proc_5fc020(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     switch (message) {
-    default: {
-        WNDPROC proc = 0;
-        WNDPROC *found = unknown_window_procs_a73688.Find(window);
-        if (found) {
-            proc = *found;
-        }
-        return CallWindowProcA(proc, window, message, wparam, lparam);
-    }
-    case 0x14:
-        return 1;
-    case 0x85:
-        break;
     case 0xf: {
         int gap = 0;
         UnknownControlRecord *record = Get_Record(window);
         if (!record) {
-            break;
+            return 0;
         }
         wchar_t const *text = record->text_28;
         if (!text) {
@@ -72,10 +60,16 @@ LRESULT __stdcall unknown_group_box_proc_5fc020(HWND window, UINT message, WPARA
         unknown_surface_839958->Draw_Line(Point2D(area.left, area.bottom), Point2D(area.right, area.bottom), color);
         unknown_surface_839958->Draw_Line(Point2D(area.right, middle), Point2D(area.right, area.bottom), color);
         ValidateRect(window, 0);
-        break;
+        return 0;
     }
+    case 0x14:
+        return 1;
+    case 0x85:
+        return 0;
     }
-    return 0;
+    WNDPROC proc = 0;
+    unknown_window_proc_table_a73688.Get_Value(window, proc);
+    return CallWindowProcA(proc, window, message, wparam, lparam);
 }
 
 }

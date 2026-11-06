@@ -28,8 +28,7 @@ void __fastcall unknown_draw_edit_text_600830(Surface *,Rect &,wchar_t const *,i
 LRESULT __stdcall unknown_edit_control_proc_5f1900(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
 {
     WNDPROC previous=0;
-    WNDPROC *slot=unknown_window_procs_a73688.Find(window);
-    if(slot)previous=*slot;
+    unknown_window_proc_table_a73688.Get_Value(window, previous);
     UnknownControlRecord *data=unknown_registry_a73640.Find((unsigned int)window);
     char class_name[32];
     char narrow[0x800];

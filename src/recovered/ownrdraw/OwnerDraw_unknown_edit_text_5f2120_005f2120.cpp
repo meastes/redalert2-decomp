@@ -1,5 +1,5 @@
 // @ref ??_C@_15BFAC@?$AA?$AN?$AA?6?$AA?$AA@=007eaea8
-// @ref ?unknown_window_procs_a73688@OwnerDraw@@3VUnknownWindowProcIndex@1@A=00a73688
+// @ref ?unknown_window_proc_table_a73688@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A=00a73688
 // @ref __imp__CallWindowProcA@20=0079a4c0
 // @ref __imp__MultiByteToWideChar@24=0079a1b8
 // @ref __mbsnbcnt=00784d8d
@@ -20,10 +20,7 @@ namespace OwnerDraw {
 int __fastcall unknown_edit_text_5f2120(HWND window, wchar_t *text, int size, int *caret)
 {
     WNDPROC proc = 0;
-    WNDPROC *found = unknown_window_procs_a73688.Find(window);
-    if (found) {
-        proc = *found;
-    }
+    unknown_window_proc_table_a73688.Get_Value(window, proc);
     char buffer[1024];
     int start = 0;
     buffer[0] = 0;

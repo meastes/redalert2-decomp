@@ -1,7 +1,7 @@
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
 // @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
-// @ref ?unknown_window_procs_a73688@OwnerDraw@@3VUnknownWindowProcIndex@1@A=00a73688
+// @ref ?unknown_window_proc_table_a73688@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A=00a73688
 // @ref ?unknown_surface_count_a763d8@OwnerDraw@@3HA=00a763d8
 // @ref ?unknown_color_a733e4@OwnerDraw@@3HA=00a733e4
 // @ref ?unknown_hotkey_text_5fc600@OwnerDraw@@YIXGPAG@Z=005fc600
@@ -67,10 +67,7 @@ LRESULT __stdcall unknown_hotkey_proc_5fc330(HWND window, UINT message, WPARAM w
         return 0;
     }
     WNDPROC proc = 0;
-    WNDPROC *found = unknown_window_procs_a73688.Find(window);
-    if (found) {
-        proc = *found;
-    }
+    unknown_window_proc_table_a73688.Get_Value(window, proc);
     return CallWindowProcA(proc, window, message, wparam, lparam);
 }
 

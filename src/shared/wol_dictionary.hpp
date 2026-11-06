@@ -347,42 +347,48 @@ template<class K, class V> void WolDictionary<K, V>::Shrink_Table()
 }
 
 #ifdef RA2_WOL_DICTIONARY_REMOVE_SPECIALIZATION
+// wlib remove(key, value) statement for statement (its IL size sets the /Ob2 budget of 0x005EDD30).
 template<class K, class V> bool WolDictionary<K, V>::Remove_Entry(K const &key, V *old_value)
 {
-        if (Count == 0) return false;
-        float load = (float)(Count - 1);
-        load /= (float)BucketCount;
-        unsigned int bucket = Key_Hash(key);
-        Node *head = Buckets[bucket];
-        Node *previous = head;
-        if (!head) return false;
-        if (head->Key == key) {
-            *old_value = head->Value;
-            Node *removed = Buckets[bucket];
-            Node *next = removed->Next;
-            delete removed;
-            Buckets[bucket] = next;
-            --Count;
-            if (load <= ShrinkLimit) Shrink_Table();
-            return true;
-        }
-        Node *node = head->Next;
-        bool removed = false;
-        while (node) {
-            if (node->Key == key) {
-                *old_value = node->Value;
-                previous->Next = node->Next;
-                --Count;
-                delete node;
-                removed = true;
-                break;
-            }
-            previous = node;
-            node = node->Next;
-        }
-        if (load <= ShrinkLimit) Shrink_Table();
-        return removed;
+    int offset;
+    Node *node;
+    Node *last;
+    Node *temp;
+    float percent;
+    bool retval;
+    if (Count == 0) return false;
+    percent = (float)(Count - 1);
+    percent /= (float)Get_Size();
+    offset = Key_Hash(key);
+    node = Buckets[offset];
+    last = node;
+    if (node == 0) return false;
+    if (node->Key == key) {
+        *old_value = node->Value;
+        temp = Buckets[offset]->Next;
+        delete Buckets[offset];
+        Buckets[offset] = temp;
+        --Count;
+        if (percent <= ShrinkLimit) Shrink_Table();
+        return true;
     }
+    retval = false;
+    node = node->Next;
+    while (node != 0) {
+        if (node->Key == key) {
+            *old_value = node->Value;
+            last->Next = node->Next;
+            --Count;
+            delete node;
+            retval = true;
+            break;
+        }
+        last = node;
+        node = node->Next;
+    }
+    if (percent <= ShrinkLimit) Shrink_Table();
+    return retval;
+}
 #endif
 
 #ifdef RA2_WOL_DICTIONARY_KEY_SPECIALIZATIONS
