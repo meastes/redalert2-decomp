@@ -16,6 +16,14 @@ so; everything else was measured here.
 
 - One executable, one size, one hash. Hash before using any address. A later
   patch or a second game is a separate target with its own manifest.
+- Read the target's own toolchain record before pinning a compiler. The PE
+  Rich header lists the compiler build of every object; here it says 505 game
+  C++ objects at VC6 SP3 (8447) while the CRT members are RTM (8168). The
+  project ran RTM for 17 days because the toolchain was chosen from what was
+  on hand, the byte test could not refute it (the two back ends agree on
+  17,841 of 17,861 sources), and the only build number anyone compared was
+  the CRT's, which really is RTM. One near miss that would not close
+  (Plan_Route, 99.90 under RTM, 100 under SP3) finally forced the question.
 - Decide what counts. The C runtime and compiler-generated code (about 2% of
   this target's `.text`) are never source credit; report the in-scope share as
   well as the raw `.text` share so progress is not understated.
