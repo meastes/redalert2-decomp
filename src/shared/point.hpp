@@ -43,4 +43,21 @@ public:
     T Y;
 };
 
+#ifdef RA2_WAVE_FLOAT_POINT3D
+// ra2-decomp point.h TPoint3D (the float points of WaveClass 0x007238B0): a
+// point in three dimensions and its length through the fast square root.
+// Guarded: shared/fast_math.hpp must be declared before use; not for units
+// that define RA2_COORD_TPOINT3D (shared/coord.hpp's own TPoint3D).
+template<class T>
+class TPoint3D : public TPoint2D<T> {
+public:
+    TPoint3D() {}
+    TPoint3D(T x, T y, T z) : TPoint2D<T>(x, y), Z(z) {}
+
+    T Length() const { return T(Fast_Sqrt((double)this->X * (double)this->X + (double)this->Y * (double)this->Y + (double)Z * (double)Z)); }
+
+    T Z;
+};
+#endif
+
 #endif
