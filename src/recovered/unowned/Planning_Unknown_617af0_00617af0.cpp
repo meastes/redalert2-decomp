@@ -16,15 +16,6 @@
 // @ref ?Unknown_0062E670@@YG_NVEventClass@@@Z=0062e670
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 
-// AbstractClass::Is_Techno as ra2-decomp writes it (not in this unit's
-// ObjectClass declaration).
-static inline bool Is_Techno(ObjectClass const *object)
-{
-    if (object == 0) return false;
-    unsigned char flag = object->AbstractFlags.IsTechno;
-    return flag != 0;
-}
-
 static inline void Connect_Node_Target(PlanningNodeClass *node, TechnoClass *techno)
 {
     EventClass packet = node->Member_Event(0);

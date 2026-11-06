@@ -1,8 +1,13 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 #define RA2_COORD_EQUAL_MEMBER
 // void PlanningTokenClass::Copy_Nodes_To(TechnoClass *techno, int start, int count) (0x00613550)
 // Adds the nodes start..start+count-1 of this path to techno's path: each
 // node gets a member for techno with a copy of this owner's order there,
-// aimed at techno (Planning_Copy_Members 0x006167F0 per node).
+// aimed at techno.
+// Shape from ra2-decomp 0x006367B0 (PlanningTokenClass::Share_Range, src/planmgr.cpp).
 #include "shared/planning.hpp"
 
 void PlanningTokenClass::Copy_Nodes_To(TechnoClass *techno, int start, int count)
@@ -12,21 +17,8 @@ void PlanningTokenClass::Copy_Nodes_To(TechnoClass *techno, int start, int count
     }
     for (int i = start; i < start + count; i++) {
         PlanningNodeClass *node = Nodes[i];
-        TechnoClass *owner = Owner;
-        PlanningMemberClass *source = node->Member_For(owner);
-        EventClass event = *source->Event;
+        EventClass event = node->Event_For(Owner);
         event.TargetAt(0x07) = TargetClass(techno);
-        PlanningMemberClass *member = new PlanningMemberClass;
-        member->Owner = techno;
-        EventClass *copy = new EventClass;
-        *copy = event;
-        member->Event = copy;
-        node->Members.Add(member);
-        PlanningTokenClass *token = Planning_Token(techno);
-        token->Nodes.Add(node);
-        if (token->unknown_8c == -1) {
-            token->unknown_8c = token->Nodes.Count() - 1;
-        }
-        node->unknown_611bd0(member);
+        node->Add_Member(techno, event);
     }
 }
