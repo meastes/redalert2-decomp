@@ -40,6 +40,12 @@ public:
     MouseClass();                                               // 0x0059F020
     // Restore-in-place form, inline in MouseClass::unknown_slot30.
     MouseClass(NoInitClass const &noinit) : ScrollClass(noinit) {}
+#ifdef RA2_MAP_GLOBAL
+    // User-declared and empty: the Map global's atexit destructor (0x0040D080) and the
+    // deleting destructor (0x0040D160) store MouseClass's two vtables before the inlined
+    // member destructors, and none of the implicit ScrollClass..PowerClass ones.
+    ~MouseClass() {}
+#endif
 
     virtual void One_Time();                                    // slot 5  0x0059F4F0
     virtual void Init_Clear();                                  // slot 7  0x0059F510

@@ -1,3 +1,6 @@
+// The unit defines Map after its header statics (Map_0040d060.cpp): MouseClass's user-declared
+// destructor and the strips' StageClass (shared/mouse_class.hpp, shared/sidebar.hpp).
+#define RA2_MAP_GLOBAL
 // Header-static dynamic initializers of the unit at 0x0040CE70: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x0040CE70-0x0040D051); the other
 // drafts of this plan are emitted by these includes.

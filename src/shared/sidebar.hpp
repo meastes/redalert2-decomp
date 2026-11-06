@@ -254,7 +254,14 @@ public:
         }
         bool Unknown_006816D0(int value, int type, int id);  // 0x006816D0 sets a buildable's +0x0C by type and id
 
+#ifdef RA2_MAP_GLOBAL
+        // TibSun's StripClass is a StageClass, whose countdown is a StageTimerClass: the one
+        // more inline level makes the Map global's inlined ~MouseClass call ~CDTimerClass out
+        // of line (0x0040D1D0, this = strip + 4), as the original does.
+        StageClass unknown_00;                          // +0x00
+#else
         UnknownStage unknown_00;                        // +0x00
+#endif
         bool unknown_18;                                // +0x18 (set by Activate)
         int unknown_1c;                                 // +0x1C
         int unknown_20;                                 // +0x20
