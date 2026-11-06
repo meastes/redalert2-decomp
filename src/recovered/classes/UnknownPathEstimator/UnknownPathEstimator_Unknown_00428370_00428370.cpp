@@ -5,7 +5,8 @@
 #include "shared/crt_memory.hpp"
 // @ref ?unknown_path_levels_84c858@@3PAHA=0084c858
 // @ref _?path@?1??Unknown_00428370@UnknownPathEstimator@@QAEPAUUnknownPathType@@PAUUnknownPathNode@@PAH@Z@4U3@A=0084c810
-// @ref _?$S40@?1??Unknown_00428370@UnknownPathEstimator@@QAEPAUUnknownPathType@@PAUUnknownPathNode@@PAH@Z@4EA=0084e7d4
+// @ref _?$S43@?1??Unknown_00428370@UnknownPathEstimator@@QAEPAUUnknownPathType@@PAUUnknownPathNode@@PAH@Z@4EA=0084e7d4
+// @ref _$E44=004284d0
 
 UnknownPathType *UnknownPathEstimator::Unknown_00428370(UnknownPathNode *node, int *buffer)
 {

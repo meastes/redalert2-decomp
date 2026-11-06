@@ -165,6 +165,11 @@ struct UnknownPathType {
 // (size not established beyond +0xBC).
 struct UnknownPathEstimator {
     void Apply_Path_Collision_Avoidance_004285d0(FootClass *foot);
+#ifdef RA2_PATH_MOVEMENT_COST
+    // The cost of a step from one map cell slot to another for a move result
+    // (0x00427110; TS Get_Movement_Cost).
+    double Unknown_00427110(CellClass **from, CellClass **to, bool bridge, int move, FootClass *foot);
+#endif
     // Runs hierarchical and regular searches, retrying blocked corridors (0x0042A1D0).
     UnknownPathType *Find_Path_0042a1d0(Cell const &from, Cell const &to, FootClass *foot, int *moves, int max_loops, int zone, int avoidance);
     // Searches the cells within the selected corridor (0x00427370).
