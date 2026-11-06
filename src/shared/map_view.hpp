@@ -113,6 +113,9 @@ public:
     void Unknown_0054AF70(Cell const &cell, ObjectClass *object);         // 0x0054AF70
     bool Unknown_0054F7C0(Cell const &from, Cell const &to, int zone, bool arg4, bool bridge, bool arg6);   // 0x0054F7C0
     int Zone(Cell const &cell, int zone_type, bool alt);                  // 0x0054F8F0
+#ifdef RA2_UNIT_PLAN_ROUTE
+    Cell Unknown_005651E0(Cell const &cell, Cell const &from);   // 0x005651E0 (as shared/map.hpp)
+#endif
     void Unknown_0054FB20(Cell const &cell);                              // 0x0054FB20
     int Unknown_0055A280(CoordStruct const &coord);                             // 0x0055A280
     void Collapse_Cliff(CellClass *cell);    // 0x00562F50 (TibSun name)

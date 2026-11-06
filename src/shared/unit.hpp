@@ -165,6 +165,9 @@ public:
     void unknown_704a80();                                            // 0x00704A80 (restarts the +0x2A8 change over the type's DeployTime; AI and slot 95 expand it inline)
     void unknown_704aa0();                                            // 0x00704AA0
     bool unknown_709790(Cell const *from, Cell const *to);   // 0x00709790 (hypothesis: whether a trip should use the path estimator)
+#ifdef RA2_UNIT_PLAN_ROUTE
+    AbstractClass *Plan_Route_00707f60(AbstractClass *target);   // 0x00707F60 (YR UnitClass::Plan_Route 0x007447B0: splits a trip at bridge ends)
+#endif
     bool unknown_707170(TechnoClass *target);                         // 0x00707170 (hypothesis: may crush the target)
     void Unknown_006FAA30(); // 0x006FAA30; observed no-argument ECX call
     void Unknown_00709EC0(); // 0x00709EC0; observed no-argument ECX call
