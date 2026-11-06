@@ -274,7 +274,12 @@ struct UnknownSessionState {
     bool unknown_3014;                      // +0x3014
     char unknown_3015;
     unsigned short unknown_3016;            // +0x3016
+#ifdef RA2_INIT_SELECT_GAME
+    unsigned short unknown_3018;            // +0x3018 Select_Game 0x005135F0 clears this WORD (0x00A402B0)
+    char unknown_301a[0x301C - 0x301A];
+#else
     char unknown_3018[0x301C - 0x3018];
+#endif
     int MasterPlayerID;                     // +0x301C
     bool unknown_3020;                      // +0x3020
     char unknown_3021;

@@ -39,13 +39,7 @@ int __stdcall Unknown_005171D0(HWND window, UINT message, WPARAM wparam, LPARAM 
 void __fastcall Unknown_00517370(bool force);
 
 // A typed code (0x007DB500, four entries: PENGO, THETEAM, HIRES, TOGGLE) and the flag it toggles.
-struct UnknownCheatCode {
-    bool *Flag;
-    char const *Code;
-    char const *unknown_8;
-    int unknown_c;
-};
-extern UnknownCheatCode unknown_cheat_codes_7db500[4];
+#include "shared/init_cheat_codes.hpp"
 extern char unknown_cheat_text_a4169c[32];   // 0x00A4169C the letters typed so far
 
 // Feeds a typed letter to the code recognizer: toggles a code's flag the moment its text appears in

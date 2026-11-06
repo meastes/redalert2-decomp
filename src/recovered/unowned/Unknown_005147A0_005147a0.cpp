@@ -43,10 +43,7 @@ extern AudioEventHandle unknown_side_sound_a411e8;   // 0x00A411E8
 extern bool unknown_flag_a6ebd0;              // 0x00A6EBD0
 
 // What the dialog's long 8 points at: the chosen campaign (-1 cancel) and whether one was chosen.
-struct UnknownCampaignChoice {
-    int Campaign;
-    bool Chosen;
-};
+#include "shared/campaign_choice.hpp"
 
 // The campaign choice dialog (pointer only): the Allied (0x6EA), Soviet (0x6EC) and boot camp
 // (0x6EB) buttons highlight under the mouse and play their side sound when clicked; list 0x455
