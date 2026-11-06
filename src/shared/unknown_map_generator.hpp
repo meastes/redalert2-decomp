@@ -68,6 +68,10 @@ public:
     void unknown_0057c4f0();
     void unknown_0057c0d0(DynamicVectorClass<Rect> *regions,int count,Rect const &area); //0057C5B7 ECX owner, RET12
     int unknown_0057d3a0(int count,Rect const &area,Point2D const &seed,bool flag,Cell const &origin,double weight,bool last); //RET32; source intent hypotheses
+#ifdef RA2_MAPGEN_SHAPE_MEMBER
+    // A member: both callers (0x57C9E0, 0x57D3A0) pass this in ECX; ECX is not read (ra2-decomp FUN_0059BAB0).
+    bool Cell_In_Generation_Shape_0057d290(Cell const &position,Rect const &area,bool ellipse,double x_weight,double y_weight);
+#endif
     void unknown_0057c780();
     void unknown_0057c9e0();
     bool unknown_0057ecf0(Cell const &point,double value,bool flag); //actualcallee, sourceintentqualified
