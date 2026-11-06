@@ -5,9 +5,8 @@
 #include "shared/house.hpp"
 #include "shared/house_type.hpp"
 #include "shared/rules.hpp"
-extern char const unknown_neutral_name_7e14b8[];
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
-// @ref ?unknown_neutral_name_7e14b8@@=007e14b8
+// @ref ??_C@_07BKIB@Neutral?$AA@=007e14b8
 // @ref ?Map_Random_Range_005797a0@@=005797a0
 // @ref ?FUN_0056dac0@seed_0056dac0@@YI_NPAF@Z=0056dac0
 namespace seed_0056dac0 {
@@ -19,7 +18,7 @@ bool __fastcall FUN_0056dac0(short *position)
 }
 void MapRegionClass::Place_Neutral_Tech_Building_00576cd0()
 {
-    HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index(unknown_neutral_name_7e14b8));
+    HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index("Neutral"));
     bool placed=false;
     int tries=0;
     BuildingClass *building=new BuildingClass(Rules->NeutralTechBuildings[Map_Random_Range_005797a0(0,Rules->NeutralTechBuildings.Count()-1)],neutral);

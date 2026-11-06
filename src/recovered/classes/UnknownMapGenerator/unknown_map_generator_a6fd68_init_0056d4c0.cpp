@@ -22,5 +22,5 @@ MapGaussianClass unknown_map_gaussian_a6fd50(Map_Random_Fraction_00579770);
 // @ref ?Regions@MapRegionClass@@2V?$DynamicVectorClass@PAVMapRegionClass@@@@A=00a6fd28
 // @ref ??_7?$DynamicVectorClass@PAVMapRegionClass@@@@6B@=007a5d90
 // @ref ??_7?$VectorClass@PAVMapRegionClass@@@@6B@=007a5db0
-// @ref _$S74=00a6fd40
+// @ref _$S103=00a6fd40
 DynamicVectorClass<MapRegionClass *> MapRegionClass::Regions;

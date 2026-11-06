@@ -9,15 +9,14 @@
 #include "shared/map_view.hpp"
 #include "shared/house.hpp"
 #include "shared/house_type.hpp"
-extern char const unknown_neutral_name_7e14b8[];
 extern char const *unknown_rural_unit_names_7e0cf0[6];
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
-// @ref ?unknown_neutral_name_7e14b8@@=007e14b8
+// @ref ??_C@_07BKIB@Neutral?$AA@=007e14b8
 // @ref ?unknown_rural_unit_names_7e0cf0@@=007e0cf0
 // @ref ?Map_Random_Range_005797a0@@=005797a0
 void UnknownMapGenerator::Generate_Rural_Units_00589f00(Cell const &origin)
 {
-    HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index(unknown_neutral_name_7e14b8));
+    HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index("Neutral"));
     int count=Map_Random_Range_005797a0(1,4);
     int tries=0;
     int placed=0;

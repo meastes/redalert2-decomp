@@ -6,10 +6,9 @@
 #include "shared/house.hpp"
 #include "shared/house_type.hpp"
 #include "shared/rules.hpp"
-extern char const unknown_neutral_name_7e14b8[];
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
-// @ref ?unknown_neutral_name_7e14b8@@=007e14b8
+// @ref ??_C@_07BKIB@Neutral?$AA@=007e14b8
 // @ref ?Map_Random_Range_005797a0@@=005797a0
 // @ref ?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A=00a6fd28
 inline int Region_Size(MapRegionClass const *region)
@@ -44,7 +43,7 @@ void UnknownMapGenerator::Generate_Neutral_Tech_Buildings_0058ad90()
             }
         }
     } else {
-        HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index(unknown_neutral_name_7e14b8));
+        HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index("Neutral"));
         int count=Map_Random_Range_005797a0(0,4);
         for(int pass=count;pass>0;pass--) {
             bool placed=false;

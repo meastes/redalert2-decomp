@@ -6,10 +6,9 @@
 #include "shared/house_type.hpp"
 #include "shared/building_type_list.hpp"
 extern char *unknown_urban_building_names_7e0be8[18];
-extern char const unknown_neutral_name_7e14b8[];
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 // @ref ?unknown_urban_building_names_7e0be8@@=007e0be8
-// @ref ?unknown_neutral_name_7e14b8@@=007e14b8
+// @ref ??_C@_07BKIB@Neutral?$AA@=007e14b8
 // @ref ?Map_Random_Range_005797a0@@=005797a0
 void UnknownMapGenerator::Generate_Urban_Buildings_00587cf0(DynamicVectorClass<Cell> &cells)
 {
@@ -18,7 +17,7 @@ void UnknownMapGenerator::Generate_Urban_Buildings_00587cf0(DynamicVectorClass<C
     int placed=0;
     DynamicVectorClass<char *> names;
     for(int index=0;index<18;++index)names.Add(unknown_urban_building_names_7e0be8[index]);
-    HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index(unknown_neutral_name_7e14b8));
+    HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index("Neutral"));
     if(count>0) {
         while(true) {
             if(tries>=2*count || names.Count()<=1)break;
