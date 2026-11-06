@@ -1,3 +1,4 @@
+#define RA2_CDTIMER_CONVERSION_VALUE_BODY
 #define RA2_POINT2D_SCALE_OPERATOR
 // Surface::Surface(int, int) (0x0049ED90)
 // Inline constructor defined in the shared header (surface.hpp).

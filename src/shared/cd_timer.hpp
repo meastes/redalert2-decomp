@@ -45,6 +45,37 @@ public:
         }
         return remain;
     }
+#elif defined(RA2_CDTIMER_CONVERSION_VALUE_BODY)
+    // TibSun timer.h's operator long: Value's body written out again, so
+    // Techno.CPP's UnknownStage::Graphic_Logic calls its own COMDAT (0x00453EB0).
+    operator long() const
+    {
+        long remain = DelayTime;
+        if (Started != 0xFFFFFFFFU) {
+            long value = Timer - Started;
+            if (value < remain) {
+                return remain - value;
+            } else {
+                return 0;
+            }
+        }
+        return remain;
+    }
+    // TibSun timer.h's function operator, the same count again (TechnoClass
+    // 0x006D8820 calls it out of line as 0x004A4D20).
+    long operator()() const
+    {
+        long remain = DelayTime;
+        if (Started != 0xFFFFFFFFU) {
+            long value = Timer - Started;
+            if (value < remain) {
+                return remain - value;
+            } else {
+                return 0;
+            }
+        }
+        return remain;
+    }
 #else
     operator long() const { return Value(); }
 #endif

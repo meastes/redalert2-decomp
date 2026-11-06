@@ -15,7 +15,7 @@ extern void *unknown_convert_8323c8;
 extern Rect unknown_rect_839630;
 void __fastcall Draw_Double_Selection_Bracket_006c3950(::Coord const &,::Coord const &,int);
 // @ref ?unknown_47cb50@CellClass@@QAE_NXZ=0047cb50
-// @ref ?Value@?$CDTimerClass@VSystemTimerClass@@@@QBEJXZ=004de200
+// @ref ??B?$CDTimerClass@VSystemTimerClass@@@@QBEJXZ=004de200
 // @ref ?unknown_slot66@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z=00423dd0
 // @ref ?unknown_convert_8323c8@@3PAXA=008323c8
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
