@@ -31,6 +31,13 @@ public:
     DSurface();                                                     // 0x004AA610
     DSurface(int width, int height, unsigned char system_memory);            // 0x004AA4A0
     DSurface(IDirectDrawSurface *surface);                          // 0x004AAB60
+#ifdef RA2_DSURFACE_DRAW_TRAIL_LINE
+    // A line from startpoint to endpoint clipped to cliprect in color at intensity, between the
+    // two depths (not virtual; LineTrail::Draw 0x005395C0, ra2-decomp's FUN_004BEAC0; set by the
+    // LineTrail unit's first row).
+    bool Draw_Trail_Line_4AE9C0(Rect const &cliprect, Point2D const &startpoint, Point2D const &endpoint,
+                                RGBClass const &color, int intensity, int start_depth, int end_depth);  // 0x004AE9C0
+#endif
     virtual ~DSurface();                                            // 0x004AA5A0
 
     virtual bool Copy_From(Rect const &toclip, Rect const &toarea, Surface &source,

@@ -1,3 +1,4 @@
+#define RA2_DSURFACE_DRAW_TRAIL_LINE
 #define VECTOR_ADD_NAMED_LENGTH
 // Header-static dynamic initializers of the unit at 0x00539170 and the
 // unit's LineTrail list; the other drafts of this plan are emitted by this file.
