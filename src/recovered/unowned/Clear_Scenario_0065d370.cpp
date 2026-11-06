@@ -99,7 +99,7 @@ void Clear_Scenario_0065d370()
     unknown_map_list_83252c.Clear();
     TagClass::Clear_All();
     // Expand the existing global-variable setter for the scenario reset loop.
-    for (unsigned variable = 0; variable < 50; ++variable) {
+    for (int variable = 0; variable < 50; ++variable) {
         UnknownIDSource *scenario = unknown_id_source_a3d290;
         if (variable * sizeof(scenario->Variables[0]) < sizeof(scenario->Variables)) {
                 UnknownScenarioVariable_004B5AB0 &state = scenario->Variables[variable];

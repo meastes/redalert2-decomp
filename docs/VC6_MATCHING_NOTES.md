@@ -2073,3 +2073,6 @@ Credit: gibbo101/ra2-decomp AGENTS.md ("What has worked", "Known dead ends"), me
 
 ## Cell comparison form (Scout812)
 - Member `Cell::operator==` and `TPoint2D::operator!=` written `X != r.X || Y != r.Y` (the YR twin's form) sit one inline level shallower than a free `operator!=(Cell,Cell) { return !(a == b); }`. The extra level shifts VC6's temporary numbering at every comparison, which flips each later DynamicVectorClass::Add's `Length()+GrowthStep` operand order and the tail merges after it (Plan_Route 0x707F60: 91.20 to 99.90 under RA2_COORD_AS_CELL). Check this on parked rows in populations using the free form.
+
+## Compiler version (Scout812, Scout816)
+- The original was compiled with VC6 SP3 (C2 build 8447; the project used RTM 8168 until 2026-11-06). The two back ends agree almost everywhere; known differences: SP3 keeps the count-store-first order in some inlined DynamicVectorClass::Add tails (Plan_Route 0x707F60), and SP3 emits an unsigned loop exit (`jb`) for a signed counter compared with an unsigned bound where RTM emitted `jl`; the original source there compares signed. A row that plateaued under RTM on a scheduling or register tie may simply need SP3.

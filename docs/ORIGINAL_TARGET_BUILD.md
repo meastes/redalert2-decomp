@@ -37,7 +37,7 @@ Configuration keys:
 | `assembler` | Optional clang path; otherwise `xcrun --find clang` honors `DEVELOPER_DIR` |
 | `populations` | Map each catalog population ID to absolute `inventory` and `gaps` JSONL input paths |
 
-Compiler/linker components are pinned by `manifests/toolchain.json`. Each catalog population's frozen original inventory/gap pair is pinned by catalog hashes.
+Compiler/linker components are pinned by `manifests/toolchain.json`. Since 2026-11-06 the compiler is Visual C++ 6.0 Service Pack 3 (C1/C1XX/C2 build 8447, CL.EXE and MSPDB60.DLL unchanged from RTM); the original's PE Rich header records all 505 game C++ objects at build 8447 (the 8168 entries are LIBCMT members), and the RTM 8168 back end fails Plan_Route 0x707F60 where SP3 matches. The switch needed three signed loop bounds (0x40DB60, 0x40DB90, 0x65D370, exact under both compilers) and re-pinned the two A14 compiler-output policies (`@comp.id` carries the C2 build). The SP3 files come from the VS6 SP3 disc (TNSB9908.iso); the private config's `compiler_directory` points at them, and the remote host keeps them in `C:/ra2/remote-sp3` (pass `compiler=C:/ra2/remote-sp3` in the remote URL). Each catalog population's frozen original inventory/gap pair is pinned by catalog hashes.
 These private files contain original analysis/byte evidence; no ignored authored
 Python is loaded. A fresh checkout needs these legitimate private inputs, existing
 tools/bottle and Python dependencies supplied explicitly. It does not need old
@@ -468,7 +468,7 @@ assembly, link, verification and packaging stay local. Opt in per shell or
 per config:
 
 ```sh
-export RA2_REMOTE_COMPILE='ssh://USER@HOST/C:/ra2/remote?identity=~/.ssh/KEY&jobs=6'
+export RA2_REMOTE_COMPILE='ssh://USER@HOST/C:/ra2/remote?identity=~/.ssh/KEY&jobs=6&compiler=C:/ra2/remote-sp3'
 # or "remote_compile": "<same URL>" in the private config; RA2_REMOTE_COMPILE=off disables it
 ```
 

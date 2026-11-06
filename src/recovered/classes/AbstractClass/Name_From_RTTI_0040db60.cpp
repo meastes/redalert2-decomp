@@ -6,7 +6,7 @@
 
 char const *__fastcall Name_From_RTTI(RTTIType rtti)
 {
-    for (int index = 0; index < sizeof(RTTINames) / sizeof(RTTINames[0]); index++) {
+    for (int index = 0; index < (int)(sizeof(RTTINames) / sizeof(RTTINames[0])); index++) {
         if (RTTINames[index].Type == rtti) {
             return RTTINames[index].Name;
         }
