@@ -37,7 +37,7 @@ void JumpjetLocomotionClass::unknown_530b00()
 {
     bool need_mark=unknown_4c!=2 && unknown_4c!=3;
     bool was_down=LinkedTo->unknown_74;
-    if (need_mark) LinkedTo->unknown_slot71(0);
+    if (need_mark) LinkedTo->Mark(0);
     else LinkedTo->unknown_74=false;
     if (unknown_70>unknown_68) {
         unknown_68+=Accel;
@@ -88,7 +88,7 @@ void JumpjetLocomotionClass::unknown_530b00()
     }
     if (moved) {
         LinkedTo->unknown_func_5d4920(height);
-        if (need_mark) LinkedTo->unknown_slot71(0);
+        if (need_mark) LinkedTo->Mark(0);
     }
     CoordStruct start=Object_Coord(LinkedTo);
     int distance=(int)unknown_68;
@@ -98,6 +98,6 @@ void JumpjetLocomotionClass::unknown_530b00()
     if (building && building->Type->FirestormWall && building->House->unknown_142)
         building->unknown_450cb0(LinkedTo,true);
     LinkedTo->unknown_2e0.Set_Current(unknown_50.Current());
-    if (need_mark) LinkedTo->unknown_slot71(1);
+    if (need_mark) LinkedTo->Mark(1);
     else LinkedTo->unknown_74=was_down;
 }

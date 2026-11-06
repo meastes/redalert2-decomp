@@ -82,7 +82,7 @@ void InfantryClass::AI()
     }
 scatter_done:
     if (unknown_slot29() != 2) {
-        unknown_slot71(2);
+        Mark(2);
     }
     if (unknown_57d && StageClass::Rate == 0) {
         unknown_57d = false;

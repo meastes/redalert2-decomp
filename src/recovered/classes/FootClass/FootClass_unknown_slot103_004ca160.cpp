@@ -7,9 +7,9 @@
 void FootClass::unknown_slot103(CoordStruct const &coord)
 {
     if (unknown_74) {
-        unknown_slot71(0);
+        Mark(0);
         ObjectClass::unknown_slot103(coord);
-        unknown_slot71(1);
+        Mark(1);
     } else {
         ObjectClass::unknown_slot103(coord);
     }

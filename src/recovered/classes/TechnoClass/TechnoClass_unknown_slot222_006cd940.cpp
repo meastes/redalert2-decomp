@@ -43,11 +43,11 @@ bool TechnoClass::unknown_slot222(HouseClass *house, int arg2)
         }
         House->unknown_53b8 = house->Type->House;
         if (!unknown_76) {
-            unknown_slot71(0);
+            Mark(0);
         }
         Unknown_006D7C80(this);
         if (!unknown_76) {
-            unknown_slot71(3);
+            Mark(3);
         }
         UnknownCellClass *cell = 0;
         if (!unknown_76) {

@@ -104,7 +104,7 @@ public:
     virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);    // 0x00420E20
     virtual Cell const *unknown_slot64(int arg1);                 // 0x00421520 (no cell: a local static)
     virtual void unknown_slot67(int arg1, int arg2);                    // 0x00420E50
-    virtual bool unknown_slot71(int arg1);                              // 0x00421500
+    virtual bool Mark(int arg1);                              // 0x00421500
     virtual int unknown_slot110() const;                                // 0x004230E0
     virtual int unknown_slot116();                                      // 0x00421580 (new: bounce step)
     virtual int unknown_slot117() const;                                // 0x00422EB0 (new: Class->End)
@@ -189,7 +189,7 @@ struct UnknownAnimCell {
     unsigned long Flags;                    // +0x140
 
     int Unknown_0047A220();                 // 0x0047A220 the cell's tiberium index (-1: none; hypothesis)
-    void Unknown_00472540(int value);       // 0x00472540
+    void Recalc_Attributes(int value);       // 0x00472540
     void Unknown_00475DB0(int value);       // 0x00475DB0 (AnimClass scorch/crater: 6)
     UnknownAnimCell *Unknown_00476AC0(int facing);   // 0x00476AC0 the adjacent cell (hypothesis)
 };

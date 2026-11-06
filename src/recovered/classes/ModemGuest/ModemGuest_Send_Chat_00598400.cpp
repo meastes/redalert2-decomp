@@ -15,7 +15,7 @@
 #include "shared/map_preview.hpp"
 #include "shared/options_dialog.hpp"
 // @ref ??_C@_1BA@FNA@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$AA@=007e1e78
-// @ref ?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z=005c2da0
+// @ref ?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z=005c2da0
 // @ref ?Unknown_006FA180@@YIPAGPBD@Z=006fa180
 // @ref ?serial_manager_00a40a28@@3VNullModemClass@@A=00a40a28
 // @ref ?Show_Chat_00598510@ModemGuest@@QAEXPBGH0@Z=00598510

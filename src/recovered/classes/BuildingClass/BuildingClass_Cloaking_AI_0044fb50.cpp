@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void BuildingClass::unknown_slot234(int fast) 0x0044FB50 (slot 234, Cloaking_AI), from ra2-decomp
+// void BuildingClass::Cloaking_AI(int fast) 0x0044FB50 (slot 234, Cloaking_AI), from ra2-decomp
 // BuildingClass::Cloaking_AI (YR 0x00454DB0, src/building.cpp): steps the translucency of a cloaking or
 // uncloaking building, restarts its natural particle system when it is fully visible, and grows or
 // shrinks a cloak generator's covered circle one cell of radius per call.
@@ -19,7 +19,7 @@
 #include "shared/cell.hpp"
 #include "shared/particle_system.hpp"
 #include "shared/surface.hpp"
-void BuildingClass::unknown_slot234(int fast)
+void BuildingClass::Cloaking_AI(int fast)
 {
     if (!Type) return;
     Cell center=Cell(Center_Coord());

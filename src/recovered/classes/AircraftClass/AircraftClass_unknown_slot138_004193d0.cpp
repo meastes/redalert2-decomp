@@ -117,9 +117,9 @@ int AircraftClass::unknown_slot138()
             unknown_slot149(3);
             if (passenger->unknown_slot150(2, contact) == 1) {
                 Cargo.Unknown_00468960(passenger);
-                unknown_slot71(0);
+                Mark(0);
                 unknown_416420();
-                unknown_slot71(1);
+                Mark(1);
             } else {
                 unknown_slot260(unknown_4198b0(), 1);
             }

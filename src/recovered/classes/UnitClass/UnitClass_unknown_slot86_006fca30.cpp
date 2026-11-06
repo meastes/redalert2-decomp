@@ -101,7 +101,7 @@ int UnitClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *warhe
             }
         }
 remove_passengers:
-        unknown_slot71(0);
+        Mark(0);
         if (!Type->Crashable) {
             while (Cargo.Object) {
                 FootClass *passenger = unknown_4ccfc0();

@@ -3,7 +3,7 @@
 #include "shared/techno.hpp"
 #include "shared/building_type.hpp"
 // @ref ?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ=0040dc20
-bool ObjectClass::unknown_slot71(int request)
+bool ObjectClass::Mark(int request)
 {
     int action = request;
     if (!unknown_76) {

@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// bool BuildingClass::unknown_slot71(int mark) 0x0043BFC0 (slot 71, Mark), from ra2-decomp BuildingClass::Mark
+// bool BuildingClass::Mark(int mark) 0x0043BFC0 (slot 71, Mark), from ra2-decomp BuildingClass::Mark
 // (YR 0x0043F180, src/building.cpp): lifts the building's cell content, or puts it down: a building that turns
 // into isometric tiles lays them over its clear foundation cells (clearing smudges, revealing for the player)
 // and deletes itself; a wall becomes its overlay; anything else occupies its cell, snaps its coordinate,
@@ -17,9 +17,9 @@
 // @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
 #include "shared/overlay.hpp"
 #include "shared/isometric_tile_type.hpp"
-bool BuildingClass::unknown_slot71(int mark)
+bool BuildingClass::Mark(int mark)
 {
-    if (TechnoClass::unknown_slot71(mark)) {
+    if (TechnoClass::Mark(mark)) {
         Cell cell = unknown_slot104();
 
         switch (mark) {
@@ -82,11 +82,11 @@ bool BuildingClass::unknown_slot71(int mark)
                             unknown_slot60();
                             return true;
                         } else {
-                            TechnoClass::unknown_slot71(0);
+                            TechnoClass::Mark(0);
                             return false;
                         }
                     } else {
-                        TechnoClass::unknown_slot71(0);
+                        TechnoClass::Mark(0);
                         return false;
                     }
                 } else if (Type->Wall) {
@@ -139,7 +139,7 @@ bool BuildingClass::unknown_slot71(int mark)
                 break;
 
             case 2:
-                unknown_44d190();
+                Update_Anim_Appearance_0044d190();
                 break;
 
             default:

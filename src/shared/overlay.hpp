@@ -49,7 +49,7 @@ public:
     virtual ObjectTypeClass *Class_Of() const;                          // 0x005DC170 slot 33
     virtual void unknown_slot67(int arg1, int arg2) {}                  // 0x005DC2F0 (inline)
     virtual void unknown_slot68(int arg1, int arg2);                    // 0x005DBD00
-    virtual bool unknown_slot71(int arg1);                              // 0x005DA970
+    virtual bool Mark(int arg1);                              // 0x005DA970
 
     static Point2D __fastcall Draw_Offset(int overlay);                 // 0x005DC050 (pixel offset of an overlay image; hypothesis)
     static int __fastcall To_Tiberium(int overlay);                     // 0x005DC0B0 (the tiberium type of an ore overlay, -1)

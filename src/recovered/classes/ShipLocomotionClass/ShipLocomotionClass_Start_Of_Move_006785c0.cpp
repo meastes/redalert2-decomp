@@ -221,9 +221,9 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         Cell destcell = (dest).As_Cell();
         CellClass *destptr = &Map[destcell];
         bool crushable_dest = false;
-        LinkedTo->unknown_slot71(0);
+        LinkedTo->Mark(0);
         int cando = LinkedTo->unknown_slot101(destptr, facing, cell_height, 0, true);
-        LinkedTo->unknown_slot71(1);
+        LinkedTo->Mark(1);
 
         if (cando < 7 && LinkedTo->unknown_slot32()->IsTrain) {
             cando = 0;

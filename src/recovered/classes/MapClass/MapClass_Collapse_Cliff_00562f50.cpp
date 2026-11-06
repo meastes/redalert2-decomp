@@ -33,7 +33,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         object->unknown_slot103(origin);
         object->unknown_76 = false;
         object->unknown_74 = true;
-        object->unknown_slot71(0);
+        object->Mark(0);
         delete object;
 
         ObjectClass *slope1 = IsoTileTypes[unknown_tileset_a6e038]->unknown_slot35(0);
@@ -53,7 +53,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                 Cell here = origin + Cell(x, y);
                 if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && Unknown_0055A660(here, true)) {
                     Fine_Subzone(here) = 0;
-                    Map[here].Unknown_00472540(-1);
+                    Map[here].Recalc_Attributes(-1);
                 }
             }
         }
@@ -114,7 +114,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         object->unknown_slot103(origin);
         object->unknown_76 = false;
         object->unknown_74 = true;
-        object->unknown_slot71(0);
+        object->Mark(0);
         delete object;
 
         ObjectClass *slope1 = IsoTileTypes[unknown_tileset_a6e038 + 3]->unknown_slot35(0);
@@ -136,7 +136,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                 Cell here = origin + Cell(x, y);
                 if (image->Tiles[y * row_width + x] != 0 && Unknown_0055A660(here, true)) {
                     Fine_Subzone(here) = 0;
-                    Map[here].Unknown_00472540(-1);
+                    Map[here].Recalc_Attributes(-1);
                 }
             }
         }

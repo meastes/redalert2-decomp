@@ -6,7 +6,7 @@
 #include "shared/wave.hpp"
 int __fastcall Wave_Direction_00721db0(Point2D const &start, Point2D const &end);
 // @ref ?Wave_Direction_00721db0@@YIHABUPoint2D@@0@Z=00721db0
-// @ref ?unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z=007238b0
+// @ref ?Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z=007238b0
 // @ref ?Update_Wave_00724200@WaveClass@@QAEXXZ=00724200
 WaveClass::WaveClass(CoordStruct const &start, CoordStruct const &end, TechnoClass *owner, int type, ObjectClass *target) : Target(target), Type(type), unknown_118(true), unknown_119(false), unknown_11c(100), unknown_120(0), unknown_128(0), Polygon_130(), Scanlines_168(), unknown_198(0), Owner(owner), Cells(5)
 {
@@ -33,7 +33,7 @@ WaveClass::WaveClass(CoordStruct const &start, CoordStruct const &end, TechnoCla
     int *intensity = Wave_Intensity_Table_00af95d8;
     for (int value = 110; value < 214; value += 8) *intensity++ = value;
     }
-    unknown_func_7238b0(start, end);
+    Draw_NonMagnetic_007238b0(start, end);
     Scanlines_168.Spans = 0;
     unknown_194 = Wave_Direction_00721db0(unknown_b8, unknown_d0);
     WaveClass::unknown_slot53(&unknown_a0, 0);

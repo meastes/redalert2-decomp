@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void MapClass::Unknown_00568B00() (0x00568B00), from ra2-decomp MapClass::Set_WasUnderBridge_Flags
+// void MapClass::Set_WasUnderBridge_Flags() (0x00568B00), from ra2-decomp MapClass::Set_WasUnderBridge_Flags
 // (YR 0x00586BF0, src/map.cpp; layout twin): every impassable bridge connection (type 0) walks from
 // its From cell to its To cell; each spanned cell that is not itself under the bridge marks a four-cell
 // strip across it as having been under a bridge, with the strip's direction in IsBridgeEastWest (set
@@ -17,7 +17,7 @@ static inline Cell Bridge_Start_Cell(Cell const &cell, FacingType facing)
     return Adjacent_Cell(cell, facing);
 }
 
-void MapClass::Unknown_00568B00()
+void MapClass::Set_WasUnderBridge_Flags()
 {
     for (int index = ZoneConnections.Count() - 1; index >= 0; index--) {
         ZoneConnectionClass *con = &ZoneConnections[index];

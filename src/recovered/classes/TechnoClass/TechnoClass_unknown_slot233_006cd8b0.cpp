@@ -11,7 +11,7 @@
 
 void TechnoClass::unknown_slot233()
 {
-    unknown_slot71(2);
+    Mark(2);
     int strength = unknown_slot32()->MaxStrength;
     Strength = strength;
     unknown_70 = strength;

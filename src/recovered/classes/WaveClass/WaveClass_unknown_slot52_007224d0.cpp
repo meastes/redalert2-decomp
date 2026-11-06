@@ -12,7 +12,7 @@ bool WaveClass::unknown_slot52()
 {
     if (unknown_flag_a40958 && !unknown_76) {
         unknown_slot54(1);
-        unknown_slot71(0);
+        Mark(0);
         Map.Remove(this);
         unknown_list_832470.Remove(this);
         unknown_slot69();

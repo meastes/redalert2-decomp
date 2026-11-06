@@ -8,7 +8,7 @@
 // @ref ?unknown_slot52@ObjectClass@@UAE_NXZ=005d3700
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?unknown_a40774@@3HA=00a40774
-// @ref ?Unknown_00472540@CellClass@@QAEXH@Z=00472540
+// @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 
 bool TerrainClass::unknown_slot52()
 {
@@ -23,7 +23,7 @@ bool TerrainClass::unknown_slot52()
     }
     Cell cell = unknown_slot104();
     bool result = ObjectClass::unknown_slot52();
-    Map[cell].Unknown_00472540(-1);
+    Map[cell].Recalc_Attributes(-1);
     if (unknown_a40774 == 0) {
         Map.Unknown_0054FB20(cell);
         Map.Unknown_00566340(cell);

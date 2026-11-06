@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void CellClass::Unknown_00472540(int cell_height) (0x00472540): Recalc_Attributes.
+// void CellClass::Recalc_Attributes(int cell_height) (0x00472540): Recalc_Attributes.
 // Adopted from ra2-decomp CellClass::Recalc_Attributes (YR 0x0047D2B0).
 // Recomputes the cell's land type (+0xEC), ramp (+0x11C) and elevation (+0x11D)
 // from its overlay and tile, makes a tunnel's tube, attaches the tile's
@@ -33,7 +33,7 @@
 // The tube facing of each tunnel tile (0x007D2B08, a function-local static of the original).
 extern int unknown_tube_facings_7d2b08[];
 
-void CellClass::Unknown_00472540(int cell_height)
+void CellClass::Recalc_Attributes(int cell_height)
 {
     if (this == &unknown_dummy_cell_a6f9f8) {
         return;

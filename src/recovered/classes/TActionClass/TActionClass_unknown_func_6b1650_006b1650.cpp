@@ -15,7 +15,7 @@ bool TActionClass::unknown_func_6b1650(HouseClass *house, ObjectClass *object, T
     Map.Unknown_0055A550();
     CellClass *walk = Map.Unknown_0055A490();
     while (walk != 0) {
-        walk->Unknown_00472540(-1);
+        walk->Recalc_Attributes(-1);
         walk = Map.Unknown_0055A490();
     }
     Map.Unknown_0054EBD0();

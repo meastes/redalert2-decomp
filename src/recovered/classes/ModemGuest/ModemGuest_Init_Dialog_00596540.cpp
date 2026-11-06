@@ -56,7 +56,7 @@
 // @ref ?Find_Combo_Item_Data_00736e10@@YIHPAUHWND__@@HH@Z=00736e10
 // @ref ?Free_Pointers_005a7480@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z=005a7480
 // @ref ?Init_Clipping_00713160@UnknownVersionObject@@QAEXXZ=00713160
-// @ref ?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z=005c2da0
+// @ref ?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z=005c2da0
 // @ref ?Unknown_006FA0C0@@YIXPAGPBDH@Z=006fa0c0
 // @ref ?Unknown_006FA180@@YIPAGPBD@Z=006fa180
 // @ref ?serial_manager_00a40a28@@3VNullModemClass@@A=00a40a28

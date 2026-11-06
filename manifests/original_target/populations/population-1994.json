@@ -4,8 +4,8 @@
     "id": "population-1994",
     "inventory_sha256": "7366f56550082f415b7c6e8fe6b702ad4edb7bc120f7941695839f53c9feb111",
     "gaps_sha256": "acb3b845037eb518afd01d3c211608acf469f2367d5be31cba19136ba8397000",
-    "historical_population_sha256": "43053fd63fa9ac785af96e4ce6367331750169dc0f328cc544a4df0c3291ef86",
-    "historical_acceptance_sha256": "db5ed0e74694894e87cb54bd09e9d24e049056725079eb96a534277f2e0b07a3"
+    "historical_population_sha256": "15cde11a8aa7a729843bfba10093722c896eed7f7eb9e38ce73438568fabe640",
+    "historical_acceptance_sha256": "0ddf2f2aff835a1e67b66fdffed033851e35d944394986839c5ea8a278e67f6e"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -93,10 +93,10 @@
     "__real@8@3ffdccccccccccccd000": 7979624,
     "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z@4_NA": 10948517,
     "?unknown_sqrt_table_817dfc@@3PAIA": 8486396,
-    "?Fast_Acos@@YAMN@Z": 4957520,
+    "?Fast_Asin_004ba550@@YAMN@Z": 4957520,
     "__real@4@c00a8000000000000000": 7999368,
-    "?unknown_acos_table_80bdd4@@3PAMA": 8437204,
-    "?Fast_Asin@@YAMN@Z": 4957568,
+    "?unknown_asin_table_80bdd4@@3PAMA": 8437204,
+    "?Fast_Acos_004ba580@@YAMN@Z": 4957568,
     "__real@8@4000c000000000000000": 7981704,
     "?Remap_Sine_Table_004ba8b0@@YAXXZ": 4958384,
     "?unknown_sin_table_801dc4@@3PAMA": 8396228,
@@ -104,8 +104,8 @@
     "?unknown_sin_scale_7d8048@@3MA": 8224840,
     "?Fast_Sin_Float_004ba920@@YIMM@Z": 4958496,
     "?unknown_cos_scale_7d804c@@3MA": 8224844,
-    "?unknown_acos_step_007a0fa0@@3NB": 7999392,
-    "?Fast_Acos_Float_004baa30@@YIMM@Z": 4958768,
+    "?unknown_asin_step_007a0fa0@@3NB": 7999392,
+    "?Fast_Asin_Float_004baa30@@YIMM@Z": 4958768,
     "?unknown_sin_table_80fde4@@3PAMA": 8453604,
     "__real@4@3ff38000000000000000": 7999408,
     "__real@8@3ff08001000200040000": 8059176,
@@ -125,15 +125,15 @@
     "__real@8@bffcc90fdaa22168c000": 7983248,
     "__purecall": 4950368,
     "?unknown_sine_step_007a0f98@@": 7999384,
-    "?unknown_acos_step_007a0fa0@@": 7999392,
+    "?unknown_asin_step_007a0fa0@@": 7999392,
     "?Fast_Cos_Float_004ba970@@YIMM@Z": 4958576,
-    "?Fast_Asin_Float_004baa60@@YIMM@Z": 4958816,
-    "?Remap_Acos_Table_004ba9d0@@YAXXZ": 4958672,
+    "?Fast_Acos_Float_004baa60@@YIMM@Z": 4958816,
+    "?Remap_Asin_Table_004ba9d0@@YAXXZ": 4958672,
     "?unknown_sin_scale_7d8048@@": 8224840,
     "?unknown_cos_scale_7d804c@@": 8224844,
     "?unknown_sin_table_801dc4@@": 8396228,
     "?unknown_sin_table_80fde4@@": 8453604,
-    "?unknown_acos_table_80bdd4@@": 8437204,
+    "?unknown_asin_table_80bdd4@@": 8437204,
     "?Fast_Sin@@": 4957312,
     "?Fast_Cos@@": 4957392,
     "__real@8@4008a2f9836e4e441800": 7999360,
@@ -376,7 +376,7 @@
           "resolved": 8437192
         }
       ],
-      "source_sha256": "144bb64f9c6fe80796d1d6a27fb34e526602d6fdce87c79ce76aa6240d6e0312",
+      "source_sha256": "f4aa50e46cffffa8db8b200b6c201bfcd321e7604ead7dd1ee2bd4afa2977cdf",
       "source": "src/recovered/unowned/Remap_Sine_Table_004ba8b0.cpp",
       "population": "population-1994",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -435,7 +435,7 @@
           "resolved": 8396228
         }
       ],
-      "source_sha256": "bc5d7f814d762704c45f973c206f32633d44d4e729db9acccb504fb3dc1c20e8",
+      "source_sha256": "06e9c01d8033e487266a7eff7b81fa235cacdfdc79ccfa6977b5d39892458aee",
       "source": "src/recovered/unowned/Fast_Sin_Float_004ba920.cpp",
       "population": "population-1994",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -506,8 +506,8 @@
     {
       "entry": 4958672,
       "method": "004ba9d0",
-      "symbol": "?Remap_Acos_Table_004ba9d0@@YAXXZ",
-      "symbol_prefix": "?Remap_Acos_Table_004ba9d0@@YAXXZ",
+      "symbol": "?Remap_Asin_Table_004ba9d0@@YAXXZ",
+      "symbol_prefix": "?Remap_Asin_Table_004ba9d0@@YAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -523,7 +523,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "?unknown_acos_table_80bdd4@@3PAMA",
+          "symbol": "?unknown_asin_table_80bdd4@@3PAMA",
           "target": 8437204,
           "addend": 0,
           "resolved": 8437204
@@ -531,7 +531,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?unknown_acos_step_007a0fa0@@3NB",
+          "symbol": "?unknown_asin_step_007a0fa0@@3NB",
           "target": 7999392,
           "addend": 0,
           "resolved": 7999392
@@ -571,7 +571,7 @@
         {
           "offset": 52,
           "kind": 6,
-          "symbol": "?unknown_acos_table_80bdd4@@3PAMA",
+          "symbol": "?unknown_asin_table_80bdd4@@3PAMA",
           "target": 8437204,
           "addend": 0,
           "resolved": 8437204
@@ -579,26 +579,26 @@
         {
           "offset": 68,
           "kind": 6,
-          "symbol": "?unknown_acos_table_80bdd4@@3PAMA",
+          "symbol": "?unknown_asin_table_80bdd4@@3PAMA",
           "target": 8437204,
           "addend": 16388,
           "resolved": 8453592
         }
       ],
-      "source_sha256": "c5c3125a25a2c5b18646eaa192db30f99b3928df853485079435dadbc5db275b",
-      "source": "src/recovered/unowned/Remap_Acos_Table_004ba9d0.cpp",
+      "source_sha256": "cfd54fb66951c3eb6ce5215d8d570f3720ffc5c2a20a7d8bf9db409b3f158f74",
+      "source": "src/recovered/unowned/Remap_Asin_Table_004ba9d0.cpp",
       "population": "population-1994",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Remap_Acos_Table_004ba9d0",
+      "semantic_name": "Remap_Asin_Table_004ba9d0",
       "source_order": 69102
     },
     {
       "entry": 4958768,
       "method": "004baa30",
-      "symbol": "?Fast_Acos_Float_004baa30@@YIMM@Z",
-      "symbol_prefix": "?Fast_Acos_Float_004baa30@@YIMM@Z",
+      "symbol": "?Fast_Asin_Float_004baa30@@YIMM@Z",
+      "symbol_prefix": "?Fast_Asin_Float_004baa30@@YIMM@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -638,26 +638,26 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_acos_table_80bdd4@@3PAMA",
+          "symbol": "?unknown_asin_table_80bdd4@@3PAMA",
           "target": 8437204,
           "addend": 0,
           "resolved": 8437204
         }
       ],
-      "source_sha256": "d0d065f6548126d475271250864e50b402b608848717ee95a3b6089afc902be0",
-      "source": "src/recovered/unowned/Fast_Acos_Float_004baa30.cpp",
+      "source_sha256": "9c182e1a921d869c0b1f68a3dd941f6889ef5755914dc08cf2982458ebe488a2",
+      "source": "src/recovered/unowned/Fast_Asin_Float_004baa30.cpp",
       "population": "population-1994",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Fast_Acos_Float_004baa30",
+      "semantic_name": "Fast_Asin_Float_004baa30",
       "source_order": 69103
     },
     {
       "entry": 4958816,
       "method": "004baa60",
-      "symbol": "?Fast_Asin_Float_004baa60@@YIMM@Z",
-      "symbol_prefix": "?Fast_Asin_Float_004baa60@@YIMM@Z",
+      "symbol": "?Fast_Acos_Float_004baa60@@YIMM@Z",
+      "symbol_prefix": "?Fast_Acos_Float_004baa60@@YIMM@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -697,7 +697,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_acos_table_80bdd4@@3PAMA",
+          "symbol": "?unknown_asin_table_80bdd4@@3PAMA",
           "target": 8437204,
           "addend": 0,
           "resolved": 8437204
@@ -711,13 +711,13 @@
           "resolved": 7976496
         }
       ],
-      "source_sha256": "9a787f4f7ec087b4b8f6465454d00786dd2197b3812d7737e68dd5b4599e80dd",
-      "source": "src/recovered/unowned/Fast_Asin_Float_004baa60.cpp",
+      "source_sha256": "a2ab986e47939d74ad4b9f8a2afa80998e8e554ff5e2d8723b05ae6d8da53ec6",
+      "source": "src/recovered/unowned/Fast_Acos_Float_004baa60.cpp",
       "population": "population-1994",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Fast_Asin_Float_004baa60",
+      "semantic_name": "Fast_Acos_Float_004baa60",
       "source_order": 69104
     },
     {

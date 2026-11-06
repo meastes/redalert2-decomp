@@ -34,7 +34,7 @@ bool __stdcall TunnelLocomotionClass::Process()
             break;
         case 3:
             if (height == -0x100) {
-                LinkedTo->unknown_slot71(0);
+                LinkedTo->Mark(0);
                 unknown_18 = 4;
             } else {
                 unknown_6f0690();

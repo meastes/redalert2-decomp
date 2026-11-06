@@ -14,7 +14,7 @@ void MapClass::Unknown_005688A0(DynamicVectorClass<Cell> &cells)
         if (Unknown_0055A660(cells[index], true)) {
             *(short *)(unknown_6c + Unknown_0054FAB0(cells[index]) * 10) = 0;
             CellClass *cellptr = &Map[cells[index]];
-            cellptr->Unknown_00472540(-1);
+            cellptr->Recalc_Attributes(-1);
         }
     }
     for (index = cells.Count() - 1; index >= 0; index--) {

@@ -147,7 +147,7 @@ void TechnoClass::AI()
         ++Strength;
         if ((Health_Ratio()>Rules->unknown_1368 || unknown_slot108()<-10) && unknown_25c[3]) unknown_25c[3]->unknown_slot60();
     }
-    unknown_slot234(0);
+    Cloaking_AI(0);
     if (SpawnManager) SpawnManager->AI();
     if (unknown_1b8==0 && Map[Center_Coord()].Is_House_Bit(House->ArrayIndex)) unknown_slot238();
     if (unknown_1b8==2 && !Map[Center_Coord()].Is_House_Bit(House->ArrayIndex)) unknown_slot238();
@@ -173,10 +173,10 @@ void TechnoClass::AI()
     if (Kind_Of()!=6) StageClass::Graphic_Logic();
     unsigned old_flash=FlashCount;
     bool was_flash_on=(old_flash&2)==2;
-    if (FlasherClass::Process()) unknown_slot71(2);
+    if (FlasherClass::Process()) Mark(2);
     if (old_flash && old_flash!=FlashCount && Kind_Of()==6 && was_flash_on!=((FlashCount&2)==2)) {
         unknown_tactical_83996c->Register_Dirty_Area(unknown_slot73(),false);
-        static_cast<BuildingClass *>(this)->unknown_44d190();
+        static_cast<BuildingClass *>(this)->Update_Anim_Appearance_0044d190();
     }
     TechnoTypeClass const *type=unknown_slot32();
     if (type->unknown_a9b && Health_Ratio()<Rules->unknown_1368 && unknown_slot108()>-10) {

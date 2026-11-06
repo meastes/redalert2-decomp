@@ -141,6 +141,6 @@ void BuildingClass::Update_Animations_0044BD40()
             StageClass::Set_Rate(state->unknown_08);
         }
         StageClass::Stage=state->unknown_00;
-        unknown_slot71(2);
+        Mark(2);
     }
 }

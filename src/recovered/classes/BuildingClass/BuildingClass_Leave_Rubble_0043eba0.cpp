@@ -21,7 +21,7 @@ void BuildingClass::Leave_Rubble_0043eba0()
             cell.unknown_47c080();
             cell.OverlayIndex = 0xef;
             cell.unknown_40 = 0;
-            cell.Unknown_00472540(-1);
+            cell.Recalc_Attributes(-1);
             Map.Unknown_0054FB20(cell.MapCoords);
             Map.Unknown_00566340(cell.MapCoords);
             Unknown_006D7C80(&cell);

@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void WaveClass::unknown_func_7238b0(CoordStruct const &source, CoordStruct const &target) -- 0x007238B0
+// void WaveClass::Draw_NonMagnetic_007238b0(CoordStruct const &source, CoordStruct const &target) -- 0x007238B0
 // From ra2-decomp WaveClass::Draw_NonMagnetic (YR 0x00761640), without its YR-only
 // fourth wave type; Scout801's draft for the rest.
 // Purpose: places the wave between the two coordinates (shortened by the type's
@@ -13,7 +13,7 @@
 extern float const Wave_Length_Factors_007aec8c[3];
 // @ref ?Wave_Length_Factors_007aec8c@@3QBMB=007aec8c
 
-void WaveClass::unknown_func_7238b0(CoordStruct const &source, CoordStruct const &target)
+void WaveClass::Draw_NonMagnetic_007238b0(CoordStruct const &source, CoordStruct const &target)
 {
     static Vector3 sizes[3][4] = {
         {Vector3(-30,-100,0),Vector3(-30,100,0),Vector3(30,-100,0),Vector3(30,100,0)},
@@ -50,7 +50,7 @@ void WaveClass::unknown_func_7238b0(CoordStruct const &source, CoordStruct const
     double length=heading.Length();
     if(length<dx)dx=length;
     if(-dx>length)dx=-length;
-    double theta=Fast_Asin(dx/length);
+    double theta=Fast_Acos_004ba580(dx/length);
     if(start.Y>end.Y)theta=-theta;
     Matrix3D matrix;
     matrix.Make_Identity();
@@ -74,9 +74,9 @@ void WaveClass::unknown_func_7238b0(CoordStruct const &source, CoordStruct const
     Facing=Owner->unknown_2f8;
 }
 
-// @ref _?$S43@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4EA=00af9140
+// @ref _?$S43@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4EA=00af9140
 
-// @ref _?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A=00af9148
+// @ref _?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A=00af9148
 
 // @ref _$E44=007241f0
 

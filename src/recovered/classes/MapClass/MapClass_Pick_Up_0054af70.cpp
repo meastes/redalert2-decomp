@@ -9,7 +9,7 @@
 #include "shared/map_techno.hpp"
 // @ref ?unknown_dummy_cell_a6f9f8@@3VCellClass@@A=00a6f9f8
 // @ref ?unknown_473d20@CellClass@@QAEXPAVObjectClass@@_N@Z=00473d20
-// @ref ?Unknown_00472540@CellClass@@QAEXH@Z=00472540
+// @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 // @ref ?Copy_Cell_List_00482e10@@YIXPBVCell@@HPAV1@@Z=00482e10
 
 void __fastcall Copy_Cell_List_00482e10(Cell const *input, int capacity, Cell *output);
@@ -26,7 +26,7 @@ void MapClass::Unknown_0054AF70(Cell const &cell, ObjectClass *object)
             Cell newcell = cell + *list;
             if (Has_Cell(newcell)) {
                 (*this)[newcell].unknown_473d20(object, object->unknown_79);
-                (*this)[newcell].Unknown_00472540(-1);
+                (*this)[newcell].Recalc_Attributes(-1);
             }
             list++;
         }

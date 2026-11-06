@@ -17,6 +17,6 @@ void __cdecl Unknown_005c2d10(int color, unsigned short const *format, ...)
             }
             list = GetDlgItem(window, 0x5b5);
         }
-        Unknown_005C2DA0(color, buffer, list);
+        _DrawMessage_005c2da0(color, buffer, list);
     }
 }

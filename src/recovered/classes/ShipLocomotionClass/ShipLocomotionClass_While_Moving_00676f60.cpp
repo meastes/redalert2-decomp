@@ -130,7 +130,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
     nextface = LinkedTo->Path[0];
 
     if (nextface == 8 && unknown_58 == -1) {
-        LinkedTo->unknown_slot71(0);
+        LinkedTo->Mark(0);
         Stop_Driver();
 
         CellClass *cell = (CellClass *)LinkedTo->unknown_slot105();
@@ -214,7 +214,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 Cell newcell = newcoord.As_Cell();
 
                 if (a0 != b0) {
-                    LinkedTo->unknown_slot71(0);
+                    LinkedTo->Mark(0);
                     LinkedTo->unknown_slot103(newcoord);
                     CellClass *oldcellptr = &Map[oldcell];
                     CellClass *newcellptr = &Map[newcell];
@@ -242,7 +242,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                         }
                     }
                     if (!LinkedTo->unknown_7d) return false;
-                    LinkedTo->unknown_slot71(1);
+                    LinkedTo->Mark(1);
 
                     if (newcellptr->OverlayIndex != -1) {
                         OverlayTypeClass *otype = OverlayTypes[newcellptr->OverlayIndex];
@@ -347,10 +347,10 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
 
                 Cell here = Object_Coord(LinkedTo).As_Cell();
                 if (here != unknown_40.As_Cell()) {
-                    LinkedTo->unknown_slot71(0);
+                    LinkedTo->Mark(0);
                     LinkedTo->unknown_slot103(unknown_40);
                     LinkedTo->unknown_slot109(0);
-                    LinkedTo->unknown_slot71(1);
+                    LinkedTo->Mark(1);
                 } else {
                     bool down = LinkedTo->unknown_74;
                     LinkedTo->unknown_74 = false;
@@ -442,7 +442,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             CellClass *newcellptr = &Map[CoordStruct(coord)];
 
             if (coord.As_Cell() != Object_Coord(LinkedTo).As_Cell()) {
-                LinkedTo->unknown_slot71(0);
+                LinkedTo->Mark(0);
                 LinkedTo->unknown_slot103(coord);
                 if (newcellptr->unknown_11b == oldcellptr->unknown_11b - 4 && newcellptr->IsUnderBridge) {
                     LinkedTo->unknown_79 = true;
@@ -450,7 +450,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
                     LinkedTo->unknown_79 = false;
                 }
-                LinkedTo->unknown_slot71(1);
+                LinkedTo->Mark(1);
             } else {
                 bool down = LinkedTo->unknown_74;
                 LinkedTo->unknown_74 = false;

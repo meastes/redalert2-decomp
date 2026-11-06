@@ -15,7 +15,7 @@ void HouseClass::unknown_func_4ec9b0()
             if (building != 0 && building->Kind_Of() == 6 && !building->unknown_372 &&
                 ((UnknownBuildingTypeView *)building->Type)->unknown_c68 > 0 &&
                 (building->unknown_1a8 & (1 << unknown_player_a35db4->Type->House)) != 0) {
-                building->unknown_slot71(2);
+                building->Mark(2);
             }
         }
     }

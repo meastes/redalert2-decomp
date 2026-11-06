@@ -13,7 +13,7 @@ void TemporalClass::Unknown_006E2610()
             seed_0044d380::FUN_0044d380((int)building);
             building->House->unknown_144=true;
         }
-        Target->unknown_slot71(2);
+        Target->Mark(2);
     }
 }
 // @ref ?FUN_0044d380@seed_0044d380@@YIXH@Z=0044d380

@@ -21,9 +21,9 @@ void JumpjetLocomotionClass::unknown_530940()
     Map[coord];
     if (Map.Unknown_0054AAB0(Coord_Cell(coord))) {
         Map.Remove(LinkedTo);
-        LinkedTo->unknown_slot71(0);
+        LinkedTo->Mark(0);
         LinkedTo->unknown_slot103(coord);
-        LinkedTo->unknown_slot71(1);
+        LinkedTo->Mark(1);
         Map.Submit(LinkedTo);
     }
     if (LinkedTo->unknown_slot108() <= 0) {

@@ -5,7 +5,7 @@
 // @ref ?Spring_Low_Bridge_Destroyed_NS@MapClass@@QAEXVCell@@@Z=0055e930
 // @ref ?unknown_474eb0@CellClass@@QBE?AVRect@@XZ=00474eb0
 // @ref ?unknown_475100@CellClass@@QBE?AVRect@@XZ=00475100
-// @ref ?Unknown_00472540@CellClass@@QAEXH@Z=00472540
+// @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 // @ref ?Unknown_0047CC10@CellClass@@QAEXXZ=0047cc10
 // @ref ??$Union@VRect@@@@YI?BVRect@@ABV0@0@Z=0045efe0
 // @ref ??GRectPoint2D@@QBE?AU0@ABU0@@Z=0047d040
@@ -49,9 +49,9 @@ void MapClass::Damage_Low_Bridge_Piece_EW_0055FCC0(Cell const &cell)
             Map.Unknown_00631570(cell + Cell(0, 1));
             Map.Unknown_00631570(cell - Cell(0, 1));
         }
-        center->Unknown_00472540(-1);
-        side1->Unknown_00472540(-1);
-        side2->Unknown_00472540(-1);
+        center->Recalc_Attributes(-1);
+        side1->Recalc_Attributes(-1);
+        side2->Recalc_Attributes(-1);
         center->Unknown_0047CC10();
         side1->Unknown_0047CC10();
         side2->Unknown_0047CC10();

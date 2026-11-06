@@ -64,13 +64,13 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
                         break;
                     }
                 }
-                unknown_slot71(0);
+                Mark(0);
                 Locomotor.Checked()->Mark_All_Occupation_Bits(0);
                 if (!Type->DeploysInto->unknown_slot42(cell, 0)) {
                     action = 0x1e;
                 }
                 Locomotor.Checked()->Mark_All_Occupation_Bits(1);
-                unknown_slot71(1);
+                Mark(1);
             } else if (!Type->IsSimpleDeployer) {
                 if (Type->Passengers > 0) {
                     if (Cargo.Count == 0) {

@@ -76,7 +76,7 @@ void CellClass::unknown_475960(bool flag)
                 recalc_around = true;
             }
 
-            newcell.Unknown_00472540(-1);
+            newcell.Recalc_Attributes(-1);
 
             if (newcell.unknown_4c != old_passability) {
                 if (recalc_around) {

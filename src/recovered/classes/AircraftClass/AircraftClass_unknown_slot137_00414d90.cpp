@@ -60,9 +60,9 @@ choose_destination:
         if (!unknown_370) {
             if (Cargo.Object) {
                 if (Type->Carryall) {
-                    unknown_slot71(0);
+                    Mark(0);
                     unknown_416420();
-                    unknown_slot71(1);
+                    Mark(1);
                 } else {
                 FootClass *passenger = (FootClass *)Cargo.unknown_4689f0();
                 Map.Unknown_0054AF70(unknown_slot104(), this);

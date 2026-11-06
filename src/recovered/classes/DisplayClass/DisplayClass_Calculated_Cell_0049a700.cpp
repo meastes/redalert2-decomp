@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// Cell DisplayClass::Unknown_0049A700(int dir, Cell const &waypoint, Cell const &cell, int loco, bool zonecheck, int mzone) (0x0049A700)
+// Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &cell, int loco, bool zonecheck, int mzone) (0x0049A700)
 // TibSun DisplayClass::Calculated_Cell: a reinforcement cell on the map edge nearest the waypoint
 // (else the cell, else a random point on edge dir); the south edge collects candidates and picks the
 // closest. From ra2-decomp DisplayClass::Calculated_Cell (YR 0x004AA440, src/display.cpp), adapted to
@@ -41,7 +41,7 @@
 // @ref ?Fetch@?$VectorClass@VCell@@@@UBE?AVCell@@H@Z=0042cc60
 
 
-Cell DisplayClass::Unknown_0049A700(int dir, Cell const &waypoint, Cell const &cell, int loco, bool zonecheck, int mzone)
+Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &cell, int loco, bool zonecheck, int mzone)
 {
     bool vert = false;
     bool horz = false;

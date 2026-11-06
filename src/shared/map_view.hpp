@@ -133,7 +133,7 @@ public:
     void Unknown_0056A870(int value);                                           // 0x0056A870
 #endif
     void Unknown_0054FDA0();                                                    // 0x0054FDA0 (shared/map.hpp)
-    void Unknown_00568B00();                                                    // 0x00568B00
+    void Set_WasUnderBridge_Flags();                                                    // 0x00568B00
     bool Unknown_0054E410();                                                    // 0x0054E410 (places a crate on a random cell)
     void Unknown_0055D990(Cell const &cell);                              // 0x0055D990
     void Unknown_00562F50(CellClass *cell); // 00562F50: observed thiscall/RET4; unused return hypothesis
@@ -198,7 +198,7 @@ public:
     void Submit(ObjectClass *object);                                           // 0x00499A40
     void Remove(ObjectClass *object);                                           // 0x00499A90
     CoordStruct Unknown_0049CB70(CoordStruct const &coord, bool any);           // 0x0049CB70
-    Cell Unknown_0049A700(int edge, Cell const &cell1, Cell const &cell2, int arg4, bool zonecheck, int arg6);   // 0x0049A700
+    Cell Calculated_Cell(int edge, Cell const &cell1, Cell const &cell2, int arg4, bool zonecheck, int arg6);   // 0x0049A700
     void Unknown_0049E5E0();                                                    // 0x0049E5E0 (every cell runs 0x004798F0)
     ObjectClass *Unknown_0049EC40();                                            // 0x0049EC40
     void Unknown_0049EC60(ObjectClass *object);                                 // 0x0049EC60

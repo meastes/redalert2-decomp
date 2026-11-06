@@ -15,7 +15,7 @@ extern int unknown_tileset_a6cf4c;
 // @ref __real@8@3fe3a8000000a8000000=007a6010
 // @ref ?unknown_cells_428ac0@@YIHXZ=00428ac0
 // @ref ?unknown_tileset_a6cf4c@@3HA=00a6cf4c
-// @ref ?Unknown_00472540@CellClass@@QAEXH@Z=00472540
+// @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 // Same-file bodies of MapRegionClass::Pick_Random_Map_Cell 0x56D720 and Pick_Random_Clear_Map_Cell 0x56D7A0,
 // accepted in their own population; this unit expands them.
 inline bool Overlay_Is_Clear(CellClass const *cell)
@@ -105,7 +105,7 @@ void UnknownMapGenerator::Generate_Vegetation_005852c0()
                 Set_Overlay(target,Map_Random_Range_005797a0(0,4)+0xad);
             }
             target->OverlayData=0;
-            target->Unknown_00472540(-1);
+            target->Recalc_Attributes(-1);
             placed++;
         }
     }

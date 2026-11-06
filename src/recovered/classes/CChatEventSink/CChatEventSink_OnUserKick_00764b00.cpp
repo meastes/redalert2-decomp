@@ -49,7 +49,7 @@ HRESULT __stdcall CChatEventSink::OnUserKick(HRESULT result, WOL::Channel *chann
             ++unknown_b2abec;
         } else {
             HWND dialog = (HWND)Unknown_00735940(0x113);
-            if (dialog) Unknown_005C2DA0(unknown_color_7a7360, text.Get(), GetDlgItem(dialog, 0x53f));
+            if (dialog) _DrawMessage_005c2da0(unknown_color_7a7360, text.Get(), GetDlgItem(dialog, 0x53f));
         }
     } else if (!Slots_Filled_005c9440()) {
         Unknown_005C2C80(unknown_color_7a7360, StringTable::Load_String("TXT_USER_KICKED", 0, "D:\\Ra2\\wonline.cpp", 0x1dd3), Unknown_006FA180(kicked->name), Unknown_006FA180(name), Unknown_006FA180(kicker->name));

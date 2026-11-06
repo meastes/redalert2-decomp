@@ -2,7 +2,7 @@
 // @ref ??_C@_0M@PKKJ@GasCloudSys?$AA@=007f2048
 // @ref ?Initialize_Wave_Tables_00721bf0@@YIXXZ=00721bf0
 // @ref ?Unknown_0054FDA0@MapClass@@QAEXXZ=0054fda0
-// @ref ?Unknown_00568B00@MapClass@@QAEXXZ=00568b00
+// @ref ?Set_WasUnderBridge_Flags@MapClass@@QAEXXZ=00568b00
 // @ref ?unknown_gas_cloud_system_a40d20@@3PAVParticleSystemClass@@A=00a40d20
 // @ref ?unknown_set_buffer_zone_0053d830@@YIXH@Z=0053d830
 // @ref ?unknown_slot52@RadarClass@@UAEXABUCoordStruct@@@Z=00630320
@@ -97,12 +97,12 @@ void __fastcall Fill_In_Data_0065cdd0()
     Initialize_Wave_Tables_00721bf0();
     Map.Unknown_0055A550();
     for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
-        cell->Unknown_00472540(-1);
+        cell->Recalc_Attributes(-1);
     }
     Map.Unknown_0054FDA0();
     Map.Unknown_0054EBD0();
     Map.Unknown_00563D40();
-    Map.Unknown_00568B00();
+    Map.Set_WasUnderBridge_Flags();
 
     if (unknown_gas_cloud_system_a40d20 == 0) {
         unknown_gas_cloud_system_a40d20 = new ParticleSystemClass(

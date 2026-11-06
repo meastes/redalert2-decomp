@@ -5,7 +5,7 @@
 #include "shared/unknown_player_entry.hpp"
 #include "shared/session_state.hpp"
 // @ref ?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A=00a40978
-// @ref ?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z=005c2da0
+// @ref ?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z=005c2da0
 // @ref ?Unknown_00735B10@@YIPAUHWND__@@XZ=00735b10
 // @ref ??_C@_0DB@HONA@Player?5?$CFs?5votes?5to?5kick?5player?5?$CF@=007ecb40
 // @ref ??_C@_0BM@LLBA@TXT_RECONNECT_KICK_RECEIVED?$AA@=007ecb24
@@ -33,7 +33,7 @@ void __fastcall Unknown_00627210(int id, int index)
         swprintf(buffer, StringTable::Load_String("TXT_RECONNECT_KICK_RECEIVED", 0, "D:\\Ra2\\Queue.CPP", 3488), name, unknown_ipx_manager_a40978.Connection_Name(index));
         HWND dialog = Unknown_00735B10();
         HWND list = GetDlgItem(dialog, 0x651);
-        Unknown_005C2DA0(-1, buffer, list);
+        _DrawMessage_005c2da0(-1, buffer, list);
         Unknown_00626FA0(list);
     }
 }

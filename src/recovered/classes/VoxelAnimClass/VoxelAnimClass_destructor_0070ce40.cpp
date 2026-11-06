@@ -107,7 +107,7 @@
 // @ref ?unknown_slot68@ObjectClass@@UAEXHH@Z=005d4e70
 // @ref ?unknown_slot69@ObjectClass@@UAEXXZ=005d2c80
 // @ref ?unknown_slot70@ObjectClass@@UAEX_N0@Z=005d2c90
-// @ref ?unknown_slot71@ObjectClass@@UAE_NH@Z=005d4160
+// @ref ?Mark@ObjectClass@@UAE_NH@Z=005d4160
 // @ref ?unknown_slot72@ObjectClass@@UAE?AVRect@@XZ=005d3060
 // @ref ?unknown_slot73@ObjectClass@@UAEHH@Z=005d31c0
 // @ref ?unknown_slot74@ObjectClass@@UAEXH@Z=0041b2f0

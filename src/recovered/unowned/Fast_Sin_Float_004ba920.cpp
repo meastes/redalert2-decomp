@@ -18,7 +18,7 @@ inline int Nearest_Trig_Index(int doubled_index, int quarter_offset)
 // @ref __real@4@3fff8000000000000000=0079b7f8
 // @ref __real@4@c00a8000000000000000=007a0f88
 // @ref __real@8@3fffc90fdaa22168c000=0079b630
-// @ref ?unknown_acos_table_80bdd4@@=0080bdd4
+// @ref ?unknown_asin_table_80bdd4@@=0080bdd4
 float __fastcall Fast_Sin_Float_004ba920(float angle)
 {
     return unknown_sin_table_801dc4[Nearest_Trig_Index((int)(angle * unknown_sin_scale_7d8048), 0)];

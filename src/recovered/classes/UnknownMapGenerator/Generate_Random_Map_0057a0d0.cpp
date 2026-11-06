@@ -182,7 +182,7 @@ void UnknownMapGenerator::Unknown_0057A0D0(int fullInit,int dialogValue)
     Grow_Adjacent_Empty_Tiles_0057cf20();
     Debug_Printf(unknown_rmg_message_007e1950);
     Map.Unknown_0055A550();
-    for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Unknown_00472540(-1);
+    for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Recalc_Attributes(-1);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Report_Generation_Progress_0057be50(75);
     Debug_Printf(unknown_rmg_message_007e1930);
@@ -212,7 +212,7 @@ void UnknownMapGenerator::Unknown_0057A0D0(int fullInit,int dialogValue)
     unknown_map_region_next_index_a70a28=0;
     Debug_Printf(unknown_rmg_message_007e1950);
     Map.Unknown_0055A550();
-    for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Unknown_00472540(-1);
+    for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Recalc_Attributes(-1);
     Report_Generation_Progress_0057be50(80);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
@@ -231,7 +231,7 @@ void UnknownMapGenerator::Unknown_0057A0D0(int fullInit,int dialogValue)
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Debug_Printf(unknown_rmg_message_007e1950);
     Map.Unknown_0055A550();
-    for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Unknown_00472540(-1);
+    for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Recalc_Attributes(-1);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Debug_Printf(unknown_rmg_message_007e18e4);
     Generate_Hills_00584dd0();
@@ -263,7 +263,7 @@ void UnknownMapGenerator::Unknown_0057A0D0(int fullInit,int dialogValue)
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Debug_Printf(unknown_rmg_message_007e1950);
     Map.Unknown_0055A550();
-    for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Unknown_00472540(-1);
+    for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Recalc_Attributes(-1);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     TiberiumClass::Init_Growth();
     TiberiumClass::Init_Spread();

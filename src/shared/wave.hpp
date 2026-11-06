@@ -54,7 +54,7 @@ public:
     void unknown_func_722040(Cell const &cell);                         // 0x00722040 (adds a cell to Cells once)
     void unknown_func_721cc0();                                        // 0x00721CC0 (neighbour offsets from the surface stride)
     void Damage_Cell_00721eb0(CoordStruct const &coord);                // 0x00721EB0
-    void unknown_func_7238b0(CoordStruct const &start, CoordStruct const &end); // 0x007238B0
+    void Draw_NonMagnetic_007238b0(CoordStruct const &start, CoordStruct const &end); // 0x007238B0
     void Wave_Recalc_Affected_Cells();                                  // 0x00723360
     void Update_Wave_00724200();                                        // 0x00724200
     void unknown_func_7225b0(int arg1, int arg2);                      // 0x007225B0 (draws type 0)

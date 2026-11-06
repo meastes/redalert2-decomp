@@ -7,7 +7,7 @@ bool UnitClass::unknown_7049c0(int arg1)
 {
     if (arg1 != -1 && unknown_5b4 == -1) {
         unknown_5b4 = arg1;
-        unknown_slot71(2);
+        Mark(2);
         return true;
     }
     return false;

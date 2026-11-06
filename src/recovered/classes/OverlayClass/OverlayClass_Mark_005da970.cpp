@@ -14,21 +14,21 @@
 // @ref ?Set_Under_Bridge@CellClass@@QAEXI_N@Z=004732d0
 // @ref ?Set_Under_Rail_Bridge@CellClass@@QAEXI_N@Z=00473700
 
-// @ref _?$S41@?EA@??unknown_slot71@OverlayClass@@UAE_NH@Z@4EA=00a73120
-// @ref _?_type_to_offset@?EA@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAVCell@@A=00a730a8
-// @ref _?_offset_fixup@?EA@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAY02VCell@@A=00a730e0
-// @ref _?_type_to_direction@?EA@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8a90
-// @ref _?_type_to_overlay@?EA@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8aa0
-// @ref _?_type_to_join_direction@?EA@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8ab0
-// @ref _?_overlay_fixup@?EA@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8ac0
-// @ref _?_direction_to_end@?EA@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8ac8
-// @ref _?_type_to_offset2@?FM@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAVCell@@A=00a730b8
-// @ref _?_offset_fixup2@?FM@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAY02VCell@@A=00a730f8
-// @ref _?_type_to_direction2@?FM@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8ad8
-// @ref _?_type_to_overlay2@?FM@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8ae8
-// @ref _?_type_to_join_direction2@?FM@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8af8
-// @ref _?_overlay_fixup2@?FM@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8b08
-// @ref _?_direction_to_end2@?FM@??unknown_slot71@OverlayClass@@UAE_NH@Z@4PAHA=007e8b10
+// @ref _?$S41@?EA@??Mark@OverlayClass@@UAE_NH@Z@4EA=00a73120
+// @ref _?_type_to_offset@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAVCell@@A=00a730a8
+// @ref _?_offset_fixup@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAY02VCell@@A=00a730e0
+// @ref _?_type_to_direction@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8a90
+// @ref _?_type_to_overlay@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8aa0
+// @ref _?_type_to_join_direction@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8ab0
+// @ref _?_overlay_fixup@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8ac0
+// @ref _?_direction_to_end@?EA@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8ac8
+// @ref _?_type_to_offset2@?FM@??Mark@OverlayClass@@UAE_NH@Z@4PAVCell@@A=00a730b8
+// @ref _?_offset_fixup2@?FM@??Mark@OverlayClass@@UAE_NH@Z@4PAY02VCell@@A=00a730f8
+// @ref _?_type_to_direction2@?FM@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8ad8
+// @ref _?_type_to_overlay2@?FM@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8ae8
+// @ref _?_type_to_join_direction2@?FM@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8af8
+// @ref _?_overlay_fixup2@?FM@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8b08
+// @ref _?_direction_to_end2@?FM@??Mark@OverlayClass@@UAE_NH@Z@4PAHA=007e8b10
 
 #define MAX(a,b) (((a) > (b)) ? (a) : (b))
 
@@ -41,11 +41,11 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 #endif
 
 
-bool OverlayClass::unknown_slot71(int mark)
+bool OverlayClass::Mark(int mark)
 {
     int i;
 
-    if (ObjectClass::unknown_slot71(mark)) {
+    if (ObjectClass::Mark(mark)) {
         if (mark == 1 || mark == 3) {
             Cell cell = unknown_slot104();
             CellClass *cellptr = &Map[cell];
@@ -141,7 +141,7 @@ bool OverlayClass::unknown_slot71(int mark)
                         CellClass *cptr = &Map[work_cell];
                         cptr->OverlayIndex = _type_to_overlay[index];
                         cptr->OverlayData = i;
-                        cptr->Unknown_00472540(-1);
+                        cptr->Recalc_Attributes(-1);
                         work_cell = Adjacent_Cell(work_cell, direction);
                     }
                     int join_direction = _type_to_join_direction[index];
@@ -167,7 +167,7 @@ bool OverlayClass::unknown_slot71(int mark)
                                 CellClass *cptr = &Map[sum];
                                 cptr->OverlayIndex = _overlay_fixup[(fixup_direction % 4) / 2] + (unknown_id_source_a3d290->RandomNumber() & 0x03);
                                 cptr->OverlayData = j;
-                                cptr->Unknown_00472540(-1);
+                                cptr->Recalc_Attributes(-1);
                             }
                             work_cell = Adjacent_Cell(work_cell, fixup_direction);
                         }
@@ -206,7 +206,7 @@ bool OverlayClass::unknown_slot71(int mark)
                         CellClass *cptr = &Map[work_cell];
                         cptr->OverlayIndex = _type_to_overlay2[index];
                         cptr->OverlayData = i;
-                        cptr->Unknown_00472540(-1);
+                        cptr->Recalc_Attributes(-1);
                         work_cell = Adjacent_Cell(work_cell, direction);
                     }
                     int join_direction = _type_to_join_direction2[index];
@@ -232,7 +232,7 @@ bool OverlayClass::unknown_slot71(int mark)
                                 CellClass *cptr = &Map[sum];
                                 cptr->OverlayIndex = _overlay_fixup2[(fixup_direction % 4) / 2] + (unknown_id_source_a3d290->RandomNumber() & 0x03);
                                 cptr->OverlayData = j;
-                                cptr->Unknown_00472540(-1);
+                                cptr->Recalc_Attributes(-1);
                             }
                             work_cell = Adjacent_Cell(work_cell, fixup_direction);
                         }
@@ -295,7 +295,7 @@ bool OverlayClass::unknown_slot71(int mark)
                 }
             }
 
-            cellptr->Unknown_00472540(-1);
+            cellptr->Recalc_Attributes(-1);
 
             unknown_74 = false;
             unknown_76 = true;

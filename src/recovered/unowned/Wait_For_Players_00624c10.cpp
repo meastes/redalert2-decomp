@@ -125,16 +125,16 @@ static inline int Process_Reconnect_Dialog(ConnManClass *net, CDTimerClass<Syste
                     } else {
                         swprintf(buf, QTEXT("TXT_RECONNECTING_TO", 3917), unknown_session_a3d298.Players[1]->Name);
                     }
-                    Unknown_005C2DA0(-1, (unsigned short const *)buf, list);
-                    Unknown_005C2DA0(-1, unknown_blank_839d4c, list);
+                    _DrawMessage_005c2da0(-1, (unsigned short const *)buf, list);
+                    _DrawMessage_005c2da0(-1, unknown_blank_839d4c, list);
                     if (unknown_session_a3d298.Type == 4) {
                         wcscpy(buf, QTEXT("TXT_RECONNECT_HELP3", 3931));
                         wcscat(buf, (wchar_t const *)unknown_crlf_7d64f4);
                         wcscat(buf, QTEXT("TXT_RECONNECT_HELP3B", 3933));
                         wcscat(buf, (wchar_t const *)unknown_crlf_7d64f4);
                         wcscat(buf, QTEXT("TXT_RECONNECT_HELP3C", 3935));
-                        Unknown_005C2DA0(-1, (unsigned short const *)buf, list);
-                        Unknown_005C2DA0(-1, unknown_blank_839d4c, list);
+                        _DrawMessage_005c2da0(-1, (unsigned short const *)buf, list);
+                        _DrawMessage_005c2da0(-1, unknown_blank_839d4c, list);
                     }
                     if (unknown_session_a3d298.Type == 4 || unknown_session_a3d298.Type == 3) {
                         wcscpy(buf, QTEXT("TXT_RECONNECT_HELP2", 3942));
@@ -144,16 +144,16 @@ static inline int Process_Reconnect_Dialog(ConnManClass *net, CDTimerClass<Syste
                         } else if (unknown_session_a3d298.Type == 3) {
                             wcscat(buf, QTEXT("TXT_RECONNECT_HELP4", 3948));
                         }
-                        Unknown_005C2DA0(-1, (unsigned short const *)buf, list);
-                        Unknown_005C2DA0(-1, unknown_blank_839d4c, list);
+                        _DrawMessage_005c2da0(-1, (unsigned short const *)buf, list);
+                        _DrawMessage_005c2da0(-1, unknown_blank_839d4c, list);
                     }
-                    Unknown_005C2DA0(-1, unknown_blank_839d4c, list);
-                    Unknown_005C2DA0(-1, (unsigned short const *)QTEXT("TXT_RECONNECT_HELP5", 3958), list);
-                    Unknown_005C2DA0(-1, (unsigned short const *)QTEXT("TXT_RECONNECT_HELP1", 3963), list);
-                    Unknown_005C2DA0(-1, unknown_blank_839d4c, list);
+                    _DrawMessage_005c2da0(-1, unknown_blank_839d4c, list);
+                    _DrawMessage_005c2da0(-1, (unsigned short const *)QTEXT("TXT_RECONNECT_HELP5", 3958), list);
+                    _DrawMessage_005c2da0(-1, (unsigned short const *)QTEXT("TXT_RECONNECT_HELP1", 3963), list);
+                    _DrawMessage_005c2da0(-1, unknown_blank_839d4c, list);
                 } else {
                     swprintf(buf, QTEXT("TXT_WAITING_FOR_CONNECTIONS", 3966));
-                    Unknown_005C2DA0(-1, (unsigned short const *)buf, list);
+                    _DrawMessage_005c2da0(-1, (unsigned short const *)buf, list);
                 }
             }
         }

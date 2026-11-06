@@ -68,7 +68,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
             cell=nearby;
         }
     }
-    unknown_slot71(0);
+    Mark(0);
     if(path_offset==0) Path[0]=-1;
     bool found=false;
     UnknownPathType saved_path;
@@ -82,7 +82,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         unknown_slot305((int)&saved_path);
         memcpy(&Path[path_offset],work_path,Path_Min(path->Length,24-path_offset)*sizeof(Path[0]));
     }
-    unknown_slot71(1);
+    Mark(1);
     unknown_530=0;
     if(Kind_Of()==1 && Path[0]!=-1) {
         UnitClass *unit=static_cast<UnitClass *>(this);

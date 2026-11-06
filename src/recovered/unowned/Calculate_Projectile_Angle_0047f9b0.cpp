@@ -47,7 +47,7 @@ bool __fastcall Calculate_Projectile_Angle(bool high_arc, int speed, int distanc
     value = numerator / denominator;
 
     if (value >= 0.0) {
-        angle = Fast_Asin(Fast_Sqrt(value) / v);    // ra2-decomp fastmath::acos: 0x004BA580 (our Fast_Asin is pi/2 less the 0x004BA550 table, i.e. the arc cosine; the two names look swapped)
+        angle = Fast_Acos_004ba580(Fast_Sqrt(value) / v);    // ra2-decomp fastmath::acos: 0x004BA580 (pi/2 less the 0x004BA550 arc-sine table)
         return true;
     }
     return false;

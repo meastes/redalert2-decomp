@@ -15,7 +15,7 @@
 #include "shared/map_preview.hpp"
 #include "shared/options_dialog.hpp"
 // @ref ??_C@_1BA@FNA@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$AA@=007e1e78
-// @ref ?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z=005c2da0
+// @ref ?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z=005c2da0
 // @ref ?unknown_color_7a737c@@3HA=007a737c
 // @ref ?unknown_color_values_7e6d94@@3QBHB=007e6d94
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
@@ -31,7 +31,7 @@ void ModemGuest::Show_Chat_00598510(unsigned short const *name, int color, unsig
             int rgb = Player_Color_RGB(color);
             unsigned short line[256];
             swprintf(line, L"[%s] %s", name, text);
-            Unknown_005C2DA0(rgb, line, list);
+            _DrawMessage_005c2da0(rgb, line, list);
         }
     }
 }

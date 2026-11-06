@@ -18,7 +18,7 @@
 #include "shared/crt_memory.hpp"
 // @ref ?unknown_coord_852998@@3UCoordStruct@@A=00852998
 // @ref ?DriveTrackControl@@3QBUTrackControlStruct@@B=007a0180
-// @ref _unknown_geometry_g=00ab9200
+// @ref _unknown_geometry_g=008529d0
 // @ref ?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A=00a35de8
 // @ref ?AdjacentCell@@3QBUCell@@B=00851a70
 // @ref ?unknown_adjacent_offsets_00851ac0@@3QBUPoint2D@@B=00851ac0
@@ -221,9 +221,9 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         Cell destcell = (dest).As_Cell();
         CellClass *destptr = &Map[destcell];
         bool crushable_dest = false;
-        LinkedTo->unknown_slot71(0);
+        LinkedTo->Mark(0);
         int cando = LinkedTo->unknown_slot101(destptr, facing, cell_height, 0, true);
-        LinkedTo->unknown_slot71(1);
+        LinkedTo->Mark(1);
 
         if (cando < 7 && LinkedTo->unknown_slot32()->IsTrain) {
             cando = 0;

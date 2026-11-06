@@ -21,7 +21,7 @@ bool BuildingClass::unknown_slot287()
             unknown_32b=true;
             if(House->Unknown_004F52B0()) Speech_Play_Name("EVA_PrimaryBuildingSelected",-1,-1);
         }
-        unknown_slot71(2);
+        Mark(2);
     }
     return unknown_32b;
 }

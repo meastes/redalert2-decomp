@@ -7,7 +7,7 @@
 #include "shared/house.hpp"
 #include "shared/rules.hpp"
 // @ref ?unknown_475d60@CellClass@@=00475d60
-// @ref ?Unknown_00472540@CellClass@@=00472540
+// @ref ?Recalc_Attributes@CellClass@@=00472540
 // @ref ??0AnimClass@@=00420110
 // @ref ?unknown_450cb0@BuildingClass@@=00450cb0
 void BuildingClass::Update_Firestorm_Wall_00450950()
@@ -20,7 +20,7 @@ void BuildingClass::Update_Firestorm_Wall_00450950()
     if (frame != (unsigned)unknown_4f0) {
         unknown_4f0 = frame;
         unknown_75 = true;
-        cell->Unknown_00472540(-1);
+        cell->Recalc_Attributes(-1);
     }
     unsigned connections = frame & 15;
     if (active && connections != 10 && connections != 5 && !unknown_454[10]) {

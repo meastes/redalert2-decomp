@@ -49,7 +49,7 @@ Quaternion __fastcall Trackball(float x0, float y0, float x1, float y1, float ra
     else if (distance < -1.0f) distance = -1.0f;
     // Existing accepted name for the original 004BA550 inverse-trig callee;
     // its asin/acos identity is still a separate hypothesis.
-    angle = 2.0 * Fast_Acos(distance);
+    angle = 2.0 * Fast_Asin_004ba550(distance);
     return Axis_To_Quat(axis, angle);
 }
 

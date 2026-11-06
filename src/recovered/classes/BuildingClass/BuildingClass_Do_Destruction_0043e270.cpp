@@ -77,7 +77,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         if (unknown_5bc==0) unknown_5bc=Type->CloakRadiusInCells;
         unknown_75=true;
         unknown_5bc=1;
-        unknown_slot234(1);
+        Cloaking_AI(1);
     }
     if (Type->LaserFencePost) unknown_44dc40(true);
     if (unknown_slot32()->DieSound.Count()==0) Voc_Static_Add(Rules->BuildingDieSound,Position_Coord_00450950(*this),0);

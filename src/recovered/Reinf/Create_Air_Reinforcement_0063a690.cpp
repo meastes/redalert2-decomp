@@ -32,7 +32,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
                 source = 0;
                 break;
         }
-        Cell newcell = Map.Unknown_0049A700(source, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
+        Cell newcell = Map.Calculated_Cell(source, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
 
         obj->unknown_slot116(mission, false);
         if (navcom != 0) {

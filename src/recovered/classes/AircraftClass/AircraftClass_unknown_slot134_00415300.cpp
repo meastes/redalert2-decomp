@@ -5,7 +5,7 @@
 #include "shared/aircraft.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0049A700@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z=0049a700
+// @ref ?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z=0049a700
 // @ref _unknown_geometry_k=0083c478
 
 int AircraftClass::unknown_slot134()
@@ -15,7 +15,7 @@ int AircraftClass::unknown_slot134()
         if (edge < 0 || edge > 3) {
             edge = 0;
         }
-        Cell cell = Map.Unknown_0049A700(edge, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
+        Cell cell = Map.Calculated_Cell(edge, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
         if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
             unknown_slot260((AbstractClass *)&Map[cell], 1);
             return 3;

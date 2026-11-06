@@ -22,7 +22,7 @@ bool ObjectClass::unknown_slot52()
     if (!unknown_flag_a40958 || unknown_76) return false;
     unknown_slot81();
     unknown_slot54(true);
-    unknown_slot71(0);
+    Mark(0);
     Map.Remove(this);
     unknown_3c.Unknown_00405D50();
     unknown_50.Unknown_00405FE0();

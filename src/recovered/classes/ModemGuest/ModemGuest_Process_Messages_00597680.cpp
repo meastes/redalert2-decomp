@@ -48,7 +48,7 @@
 // @ref ?Set_Host_00597130@ModemGuest@@QAEXPBGHH@Z=00597130
 // @ref ?Show_Options_00597220@ModemGuest@@QAEXXZ=00597220
 // @ref ?Start_Game_005986f0@ModemGuest@@QAE_N_N@Z=005986f0
-// @ref ?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z=005c2da0
+// @ref ?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z=005c2da0
 // @ref ?Unknown_006FA180@@YIPAGPBD@Z=006fa180
 // @ref ?serial_local_player_00a3fb38@@3HA=00a3fb38
 // @ref ?serial_manager_00a40a28@@3VNullModemClass@@A=00a40a28

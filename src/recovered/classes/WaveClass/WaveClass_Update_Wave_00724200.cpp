@@ -25,7 +25,7 @@ void WaveClass::Update_Wave_00724200()
 update_geometry:
     if (unknown_118) {
         TechnoClass *owner = Owner;
-        unknown_func_7238b0(owner->unknown_slot43(0), Target->unknown_slot22());
+        Draw_NonMagnetic_007238b0(owner->unknown_slot43(0), Target->unknown_slot22());
     }
     if (unknown_120 < 1.0 && unknown_118) {
         unknown_120 += Wave_Advance_Step_007aec88;

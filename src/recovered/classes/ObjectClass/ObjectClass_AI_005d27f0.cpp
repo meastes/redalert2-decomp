@@ -44,9 +44,9 @@ void ObjectClass::AI()
     int new_height = (int)((unsigned int)unknown_slot110() +
                           (unsigned int)unknown_24.unknown_08);
     if (unknown_74) {
-        unknown_slot71(0);
+        Mark(0);
         Coord.Z = new_height;
-        unknown_slot71(1);
+        Mark(1);
     } else {
         Coord.Z = new_height;
     }

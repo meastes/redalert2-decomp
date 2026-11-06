@@ -12,7 +12,7 @@ void AnimClass::Detach(AbstractClass *target, bool all)
         Map.Remove(this);
         unknown_b4 = 0;
         unknown_17b = true;
-        unknown_slot71(0);
+        Mark(0);
     }
     if (Class == target) {
         Class = 0;

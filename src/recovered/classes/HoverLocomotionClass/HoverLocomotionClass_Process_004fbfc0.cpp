@@ -153,7 +153,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             coord.X = moved.X;
             coord.Y = moved.Y;
             if (coord.As_Cell() != Object_Coord(LinkedTo).As_Cell()) {
-                LinkedTo->unknown_slot71(0);
+                LinkedTo->Mark(0);
                 LinkedTo->unknown_slot103(coord);
                 LinkedTo->unknown_func_5d4920(height);
                 CellClass *cellptr = &Map[coord];
@@ -163,7 +163,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
                 if (LinkedTo->unknown_79 == true && !Hover_Under_Bridge_004fbfc0(cellptr)) {
                     LinkedTo->unknown_79 = false;
                 }
-                LinkedTo->unknown_slot71(1);
+                LinkedTo->Mark(1);
             } else {
                 bool wasdown = LinkedTo->unknown_74;
                 LinkedTo->unknown_74 = false;

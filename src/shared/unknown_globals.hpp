@@ -100,7 +100,7 @@ extern int unknown_color_7a7360;
 // The same into the list 0x5B5 (0x005C2D10).
 void __cdecl Unknown_005c2d10(int color, unsigned short const *format, ...);
 // Adds a line to a dialog list box (0x005C2DA0; hypothesis: color -1 is the default; moved from shared/queue.hpp).
-void __fastcall Unknown_005C2DA0(int color, unsigned short const *text, HWND list);
+void __fastcall _DrawMessage_005c2da0(int color, unsigned short const *text, HWND list);
 // The session's map name (0x00A3D342, session +0xAA; the lobby's map messages print it).
 extern unsigned short unknown_map_name_a3d342[];
 // 0x005159B0 (the lobby dialog opener calls it with 0, true before creating its dialog; moved from

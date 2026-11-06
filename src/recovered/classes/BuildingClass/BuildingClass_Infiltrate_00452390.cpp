@@ -105,5 +105,5 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
         }
     }
 finished:
-    unknown_slot71(2);
+    Mark(2);
 }

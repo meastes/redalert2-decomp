@@ -23,12 +23,12 @@ void TeamClass::TMission_unknown_6bb8b0(ScriptMissionClass const &mission, bool 
             if (mcv) {
                 finished = false;
                 if (unit->unknown_slot91() != 0x10) {
-                    unit->unknown_slot71(0);
+                    unit->Mark(0);
                     if (!((UnitClass *)unit)->Type->DeploysInto->unknown_slot42(unit->unknown_slot104(), 0)) {
                         ((UnitClass *)unit)->Type->DeploysInto->unknown_458b10(unit->unknown_slot104(), unit->House);
-                        unit->unknown_slot71(1);
+                        unit->Mark(1);
                     } else {
-                        unit->unknown_slot71(1);
+                        unit->Mark(1);
                         unit->unknown_slot260(0, 1);
                         unit->unknown_slot220(0);
                         unit->unknown_slot116(0x10, false);

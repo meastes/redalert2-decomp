@@ -13,7 +13,7 @@
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
 // @ref ?Unknown_00405D50@UnknownAudioController@@QAEXXZ=00405d50
 // @ref ?Unknown_0047A220@UnknownAnimCell@@QAEHXZ=0047a220
-// @ref ?Unknown_00472540@UnknownAnimCell@@QAEXH@Z=00472540
+// @ref ?Recalc_Attributes@UnknownAnimCell@@QAEXH@Z=00472540
 // @ref ?Unknown_00475DB0@UnknownAnimCell@@QAEXH@Z=00475db0
 // @ref ?unknown_tiberiums_ac0b30@@3V?$DynamicVectorClass@PAUUnknownAnimTiberium@@@@A=00ac0b30
 // @ref ?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z=0047e2c0
@@ -25,7 +25,7 @@
 
 void AnimClass::unknown_func_4226d0()
 {
-    unknown_slot71(2);
+    Mark(2);
     if (!unknown_178 && Class->StartSound != -1) {
         Voc_Play_At(Class->StartSound, Center_Coord(), &unknown_180);
     } else {
@@ -52,7 +52,7 @@ void AnimClass::unknown_func_4226d0()
                 CoordStruct coord = Coord;
                 Unknown_0047E2C0(coord, Rules->unknown_488, 0, Rules->unknown_c74, 0);
             }
-            cell->Unknown_00472540(-1);
+            cell->Recalc_Attributes(-1);
             Map.Unknown_0054FB20(cell->unknown_24);
             Map.Unknown_00566340(cell->unknown_24);
         }

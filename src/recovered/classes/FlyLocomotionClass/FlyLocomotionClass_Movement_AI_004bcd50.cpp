@@ -95,9 +95,9 @@ void FlyLocomotionClass::unknown_4bcd50()
         Map[coord];
         if (Map.Unknown_0054AAB0(Cell(coord))) {
             Map.Remove(LinkedTo);
-            LinkedTo->unknown_slot71(0);
+            LinkedTo->Mark(0);
             LinkedTo->unknown_slot103(coord);
-            LinkedTo->unknown_slot71(1);
+            LinkedTo->Mark(1);
             Map.Submit(LinkedTo);
         }
         if (LinkedTo->unknown_slot108()<=0) {
@@ -139,7 +139,7 @@ void FlyLocomotionClass::unknown_4bcd50()
     TechnoTypeClass *ttype=LinkedTo->unknown_slot32();
     bool is_dropship=ttype->IsDropship;
     bool is_hunter_seeker=ttype->HunterSeeker;
-    LinkedTo->unknown_slot71(0);
+    LinkedTo->Mark(0);
     coord=Object_Coord(LinkedTo);
     Physics_004bdc20(coord,LinkedTo->unknown_2e0.Current());
     if (!Map.Unknown_0054AAB0(Cell(coord)) && LinkedTo->unknown_slot282()) {
@@ -294,5 +294,5 @@ void FlyLocomotionClass::unknown_4bcd50()
             unknown_48=MAX(unknown_48-0.1,unknown_40);
         }
     }
-    LinkedTo->unknown_slot71(1);
+    LinkedTo->Mark(1);
 }

@@ -62,7 +62,7 @@ bool __stdcall TeleportLocomotionClass::Process()
                     if (LinkedTo->unknown_580 != 0) {
                         LinkedTo->unknown_580->unknown_588->Unknown_00607440();
                     }
-                    LinkedTo->unknown_slot71(0);
+                    LinkedTo->Mark(0);
                     {
                         FootClass *linked = LinkedTo;
                         int sound = linked->unknown_slot32()->ChronoOutSound;
@@ -80,7 +80,7 @@ bool __stdcall TeleportLocomotionClass::Process()
                         LinkedTo->unknown_79 = false;
                     }
                     LinkedTo->unknown_slot109(0);
-                    LinkedTo->unknown_slot71(1);
+                    LinkedTo->Mark(1);
                     {
                         FootClass *linked = LinkedTo;
                         int sound = linked->unknown_slot32()->ChronoInSound;
@@ -114,7 +114,7 @@ bool __stdcall TeleportLocomotionClass::Process()
     }
     if (unknown_38 == 2) {
         new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
-        LinkedTo->unknown_slot71(0);
+        LinkedTo->Mark(0);
         {
             FootClass *linked = LinkedTo;
             int sound = linked->unknown_slot32()->ChronoOutSound;
@@ -145,14 +145,14 @@ bool __stdcall TeleportLocomotionClass::Process()
         unknown_6dff00(LinkedTo->unknown_21c, true);
         LinkedTo->unknown_slot103(unknown_28);
         LinkedTo->unknown_slot109(0);
-        LinkedTo->unknown_slot71(1);
+        LinkedTo->Mark(1);
         unknown_38++;
         return false;
     }
     if (unknown_38 == 5) {
         LinkedTo->unknown_slot103(unknown_28);
         LinkedTo->unknown_slot109(0);
-        LinkedTo->unknown_slot71(1);
+        LinkedTo->Mark(1);
         {
             FootClass *linked = LinkedTo;
             int sound = linked->unknown_slot32()->ChronoInSound;

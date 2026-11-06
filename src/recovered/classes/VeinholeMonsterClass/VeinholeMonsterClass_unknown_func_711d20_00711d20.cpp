@@ -8,7 +8,7 @@ void VeinholeMonsterClass::unknown_func_711d20()
     CellClass &cptr = Map[Cell];
     cptr.OverlayIndex = 0x7e;
     cptr.OverlayData = 0;
-    cptr.Unknown_00472540(-1);
+    cptr.Recalc_Attributes(-1);
     for (int dir = 0; dir < 8; dir++) {
         CellClass &adj = cptr.Adjacent_Cell(dir);
         if (dir % 2 != 0) {
@@ -23,7 +23,7 @@ void VeinholeMonsterClass::unknown_func_711d20()
         for (int x = -2; x <= 2; x++) {
             CellClass &cptr2 = Map[::Cell(x, y) + Cell];
             cptr2.unknown_47ad00();
-            cptr2.Unknown_00472540(-1);
+            cptr2.Recalc_Attributes(-1);
         }
     }
     unknown_func_711aa0();

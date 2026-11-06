@@ -11,7 +11,7 @@ void __stdcall TunnelLocomotionClass::Move_To(CoordStruct to)
         if (from != unknown_coord_ac0f30) {
             if (LinkedTo->unknown_slot108() < 0 && unknown_18 != 3 && unknown_18 != 5 && unknown_18 != 1
                 && unknown_18 != 6 && unknown_18 != 2) {
-                LinkedTo->unknown_slot71(0);
+                LinkedTo->Mark(0);
                 unknown_18 = 4;
             }
         }

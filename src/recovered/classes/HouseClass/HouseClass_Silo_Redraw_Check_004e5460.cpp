@@ -19,7 +19,7 @@ void HouseClass::Silo_Redraw_Check(int tiberium, int capacity)
             UnknownBuildingView *building = (UnknownBuildingView *)Buildings[index];
             if (building != 0 && !building->unknown_76 &&
                 ((UnknownBuildingTypeView *)building->Type)->unknown_1348) {
-                building->unknown_slot71(2);
+                building->Mark(2);
             }
         }
     }

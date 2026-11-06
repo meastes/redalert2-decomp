@@ -64,12 +64,12 @@ void JumpjetLocomotionClass::unknown_530550()
     }
     if (height == 0) {
         LinkedTo->unknown_slot306(0);
-        LinkedTo->unknown_slot71(0);
+        LinkedTo->Mark(0);
         LinkedTo->unknown_slot103(unknown_3c);
         if (Object_Coord(LinkedTo).Z > Map.Unknown_0055A280(Object_Coord(LinkedTo)) && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100)) {
             LinkedTo->unknown_79 = true;
         }
-        LinkedTo->unknown_slot71(1);
+        LinkedTo->Mark(1);
         unknown_3c = unknown_coord_a6e3e0;
         unknown_48 = false;
         LinkedTo->unknown_slot93(2);

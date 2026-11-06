@@ -35,7 +35,7 @@ void TunnelLocomotionClass::unknown_6f0730()
   } else {
    if(LinkedTo->unknown_slot108()>-50) Voc_Play_At(Rules->unknown_16c,CoordStruct(LinkedTo->Coord),0);
    unknown_18=5;
-   LinkedTo->unknown_slot71(1);
+   LinkedTo->Mark(1);
    unknown_38=false;
   }
  } else {

@@ -269,7 +269,7 @@ public:
     void Unknown_0055FA60(Cell cell);                                   // 0x0055FA60 (north/south)
     void Unknown_0055FB90(Cell cell);                                   // 0x0055FB90 (east/west)
     // Marks the cells under impassable bridge connections (TibSun Set_WasUnderBridge_Flags).
-    void Unknown_00568B00();                                    // 0x00568B00
+    void Set_WasUnderBridge_Flags();                                    // 0x00568B00
     Cell Unknown_00568ED0(Cell const &cell, Cell const &from);   // 0x00568ED0 (FootClass 0x004C4C30)
     Cell Unknown_005651E0(Cell const &cell, Cell const &from);   // 0x005651E0 (the end of the zone connection at cell nearer to from, else 0x005653C0)
     Cell Unknown_005653C0(Cell const &cell, Cell const &from);   // 0x005653C0

@@ -1,4 +1,4 @@
-// void BuildingClass::unknown_44d190() (0x0044D190)
+// void BuildingClass::Update_Anim_Appearance_0044d190() (0x0044D190)
 // Gives every animation in unknown_454 whose type has +0x318 set the slot
 // 115 value and the frame (the height level of its cell, slot 254, adjusted
 // by 0x006D86F0 when slot 203 holds; also kept in unknown_5c4), then the
@@ -8,7 +8,7 @@
 #include "shared/building.hpp"
 // @ref ?unknown_6d86f0@TechnoClass@@QAEHH@Z=006d86f0
 
-void BuildingClass::unknown_44d190()
+void BuildingClass::Update_Anim_Appearance_0044d190()
 {
     int value = unknown_slot115();
     int height = ((UnknownBuildingSlot105 *)unknown_slot105())->unknown_10a;

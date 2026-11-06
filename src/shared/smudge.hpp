@@ -52,7 +52,7 @@ public:
     virtual int Size_Of() const { return sizeof(SmudgeClass); }         // 0x00687A90 slot 12 (inline)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x00687A80 slot 33 (inline)
     virtual void unknown_slot67(int arg1, int arg2) {}                  // 0x00687AF0 (inline)
-    virtual bool unknown_slot71(int arg1);                              // 0x00687750
+    virtual bool Mark(int arg1);                              // 0x00687750
 
     SmudgeTypeClass *Class;                 // +0x098
 };

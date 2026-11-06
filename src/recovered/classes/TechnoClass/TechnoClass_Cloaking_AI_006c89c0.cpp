@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void TechnoClass::unknown_slot234(int arg1) 0x006C89C0 (slot 234, Cloaking_AI), from ra2-decomp
+// void TechnoClass::Cloaking_AI(int arg1) 0x006C89C0 (slot 234, Cloaking_AI), from ra2-decomp
 // TechnoClass::Cloaking_AI (YR 0x006FB740, src/techno.cpp), cases in the twin's order (uncloaking,
 // cloaking, cloaked): uncloaked, an object that may cloak (slot 154 and none of slots 201/202/111/112,
 // or the rank's ability 6) and is not docked at a weapons factory steps the cloak stage and starts
@@ -12,7 +12,7 @@
 // and a computer unit scatters; while still dark a hurt object may give up (slot 252, 10%). Cloaked (2)
 // uncloaks when slot 161 says so. arg1 is not read.
 // Name map: Cloak = unknown_1b8, CloakingDevice = unknown_1bc, CloakDelay = unknown_1d4,
-// Visual_Character = unknown_slot25, Mark = unknown_slot71, Has_Ability = unknown_6d7910,
+// Visual_Character = unknown_slot25, Has_Ability = unknown_6d7910,
 // Is_Ready_To_Cloak/Should_Uncloak = unknown_slot160/161, Do_Uncloak/Do_Cloak = unknown_slot252/253,
 // Detach_All = unknown_slot54, Assign_Target = unknown_slot220, Do_Shimmer = unknown_slot61,
 // Scatter = unknown_slot87, ConditionRed = unknown_1370, Array = Technos.
@@ -42,7 +42,7 @@
 // @ref ?Resize@?$DynamicVectorClass@PAVTechnoClass@@@@UAE_NHPBQAVTechnoClass@@@Z=0040b9f0
 // @ref ??0?$VectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z=0040bc10
 
-void TechnoClass::unknown_slot234(int arg1)
+void TechnoClass::Cloaking_AI(int arg1)
 {
     if (unknown_1b8 == 0) {
         if ((unknown_slot154() && !unknown_slot201() && !unknown_slot202() && !unknown_slot111() && !unknown_slot112())
@@ -68,14 +68,14 @@ void TechnoClass::unknown_slot234(int arg1)
         }
         switch (unknown_1b8) {
         case 3:
-            unknown_slot71(2);
+            Mark(2);
             switch (unknown_slot25(true, 0)) {
             case 0:
                 unknown_1bc.Set_Rate(0);
                 unknown_1bc.Set_Stage(0);
                 unknown_1b8 = 0;
                 unknown_1d4 = CDTimerClass<FrameTimerClass>((int)(Rules->CloakDelay * 900.0));
-                unknown_slot71(2);
+                Mark(2);
                 break;
             case 1:
                 if (unknown_slot160()) {
@@ -85,7 +85,7 @@ void TechnoClass::unknown_slot234(int arg1)
             }
             break;
         case 1:
-            unknown_slot71(2);
+            Mark(2);
             if (!unknown_1bc.Fetch_Rate()) {
                 unknown_1bc.Set_Rate(1);
             }
@@ -100,7 +100,7 @@ void TechnoClass::unknown_slot234(int arg1)
                 unknown_1b8 = 2;
                 unknown_1bc.Set_Rate(0);
                 unknown_1bc.Set_Stage(0);
-                unknown_slot71(2);
+                Mark(2);
                 if (Kind_Of() == 1 && ((UnitClass *)this)->unknown_5b4 != -1) {
                     unknown_slot61();
                 } else {

@@ -16,7 +16,7 @@ void TunnelLocomotionClass::unknown_6f0690()
         }
         LinkedTo->unknown_slot103(coord);
     } else {
-        LinkedTo->unknown_slot71(0);
+        LinkedTo->Mark(0);
         unknown_18 = 4;
     }
 }

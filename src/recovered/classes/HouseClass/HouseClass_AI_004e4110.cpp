@@ -173,7 +173,7 @@ void HouseClass::AI()
         }
     }
     ObjectClass *flag=static_cast<ObjectClass *>(unknown_5308);
-    if (flag && flag->Kind_Of()==1) flag->unknown_slot71(2);
+    if (flag && flag->Kind_Of()==1) flag->Mark(2);
     if (unknown_5690.Value()==0 || unknown_18d) {
         unknown_5690=CDTimerClass<FrameTimerClass>(90);
         unknown_18d=false;

@@ -139,7 +139,7 @@ public:
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x0060A7D0 slot 33 (inline)
     virtual Cell const *unknown_slot64(int arg1);                 // 0x0060A550
     virtual void unknown_slot67(int arg1, int arg2);                    // 0x00609D10
-    virtual bool unknown_slot71(int arg1);                              // 0x0060A530
+    virtual bool Mark(int arg1);                              // 0x0060A530
     virtual int unknown_slot116();                                      // 0x0060A670 (new)
 
     void unknown_func_608bb0();                 // 0x00608BB0 behaviour 0

@@ -205,7 +205,7 @@ int BuildingClass::unknown_slot140()
                     if(!unknown_5bc) unknown_5bc=Type->CloakRadiusInCells;
                     unknown_75=true;
                     unknown_5bc=1;
-                    unknown_slot234(1);
+                    Cloaking_AI(1);
                 }
             }
         }

@@ -18,7 +18,7 @@ void ModemHost::Show_Chat_0059c0b0(unsigned short const *name, int color, unsign
             int rgb = Player_Color_RGB(color);
             unsigned short line[256];
             swprintf(line, L"[%s] %s", name, text);
-            Unknown_005C2DA0(rgb, line, list);
+            _DrawMessage_005c2da0(rgb, line, list);
         }
     }
 }

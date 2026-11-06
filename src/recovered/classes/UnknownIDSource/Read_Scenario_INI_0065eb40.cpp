@@ -316,7 +316,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     Service_Game_IO_00481fb0();
     Map.Unknown_0055A550();
     for (CellClass *cell = Map.Unknown_0055A490(); cell; cell = Map.Unknown_0055A490()) {
-        cell->Unknown_00472540(-1);
+        cell->Recalc_Attributes(-1);
     }
     OverlayClass::unknown_func_5dc180();
     TerrainClass::Read_INI(ini);

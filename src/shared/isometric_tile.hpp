@@ -43,7 +43,7 @@ public:
     virtual bool unknown_slot52();                                 // 0x00528190
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);   // 0x00528160
     virtual void unknown_slot67(int arg1, int arg2) {}              // 0x00528250 (inline)
-    virtual bool unknown_slot71(int arg1);                          // 0x00527A80
+    virtual bool Mark(int arg1);                          // 0x00527A80
 
     IsometricTileTypeClass *Type;   // +0x98
 };

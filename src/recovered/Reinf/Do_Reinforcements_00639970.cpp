@@ -116,7 +116,7 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
                     source = 0;
                     break;
             }
-            dest = Map.Unknown_0049A700(source, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
+            dest = Map.Calculated_Cell(source, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
         }
 
         plane->unknown_slot116(0x1A, false);

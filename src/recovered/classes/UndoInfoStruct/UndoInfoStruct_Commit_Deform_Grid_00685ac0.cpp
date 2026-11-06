@@ -15,7 +15,7 @@
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_4752b0@CellClass@@QBE?AVRect@@XZ=004752b0
-// @ref ?Unknown_00472540@CellClass@@QAEXH@Z=00472540
+// @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 // @ref ?unknown_47be60@CellClass@@QAEXXZ=0047be60
 // @ref ?unknown_471d10@CellClass@@QAE_NXZ=00471d10
 // @ref ?Unknown_0056A870@MapClass@@QAEXH@Z=0056a870
@@ -69,7 +69,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                 }
                 int index;
                 for (index = 0; index < objects.Count(); index++) {
-                    objects[index]->unknown_slot71(0);
+                    objects[index]->Mark(0);
                 }
                 Rect cell_bound(0, 0, 0, 0);
                 cell_bound = cell->unknown_4752b0();
@@ -79,7 +79,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                 if (old_height != cell->unknown_11b) {
                     cell->unknown_47be60();
                 }
-                cell->Unknown_00472540(-1);
+                cell->Recalc_Attributes(-1);
                 if (cell->SmudgeIndex != -1) {
                     SmudgeTypeClass *smudge = SmudgeTypes[cell->SmudgeIndex];
                     Cell smudge_cell = cell->MapCoords;
@@ -109,7 +109,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
  } else {
  cell->IsoTileIndex = ramp - 1 + unknown_tileset_a6e018;
  }
-                        cell->Unknown_00472540(-1);
+                        cell->Recalc_Attributes(-1);
                         Cell id(cell->Fetch_CellID());
                         Map.Unknown_00631570(id);
                         cell_bound = Union(cell_bound, cell->unknown_4752b0());
@@ -122,7 +122,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                 }
                 bound = Union(bound, cell_bound);
                 for (index = 0; index < objects.Count(); index++) {
-                    objects[index]->unknown_slot71(1);
+                    objects[index]->Mark(1);
                     objects[index]->unknown_slot109(0);
                 }
             }

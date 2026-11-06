@@ -11,7 +11,7 @@ int ObjectClass::unknown_slot95(RadioClass *from, int message, long &param)
         }
         return 10;
     case 0x0D:
-        unknown_slot71(2);
+        Mark(2);
         return 1;
     }
     return 0;

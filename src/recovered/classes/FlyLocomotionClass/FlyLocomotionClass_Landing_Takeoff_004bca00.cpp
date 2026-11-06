@@ -24,7 +24,7 @@ bool FlyLocomotionClass::unknown_4bca00()
     }
     if (LinkedTo->Strength>0 && (unknown_51 || unknown_50)) {
         int layer=LinkedTo->unknown_slot29();
-        LinkedTo->unknown_slot71(0);
+        LinkedTo->Mark(0);
         Map.Remove(LinkedTo);
         if (unknown_51) Process_Landing_004bdfb0();
         if (unknown_50) Process_Take_Off_004bddf0();
@@ -34,9 +34,9 @@ bool FlyLocomotionClass::unknown_4bca00()
                 if (!LinkedTo->unknown_slot309(&Map[Object_Coord(LinkedTo)])) {
                     unknown_50=true;
                     LinkedTo->unknown_79=false;
-                    LinkedTo->unknown_slot71(0);
+                    LinkedTo->Mark(0);
                     LinkedTo->unknown_slot109(LinkedTo->unknown_slot108()+10);
-                    LinkedTo->unknown_slot71(1);
+                    LinkedTo->Mark(1);
                     ok=false;
                 }
             }
@@ -55,7 +55,7 @@ bool FlyLocomotionClass::unknown_4bca00()
             }
         }
         Map.Submit(LinkedTo);
-        LinkedTo->unknown_slot71(1);
+        LinkedTo->Mark(1);
     }
     return false;
 }

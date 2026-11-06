@@ -45,7 +45,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
             seed_0044d320::FUN_0044d320((int)building);
             building->House->unknown_144=true;
         }
-        Target->unknown_slot71(2);
+        Target->Mark(2);
         TemporalClass *target_link=(TemporalClass *)Target->unknown_208;
         if(target_link!=0 && target_link->Target!=0) target_link->Let_Go_Of_Target();
     }

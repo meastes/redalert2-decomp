@@ -45,7 +45,7 @@ static inline Cell Offset_Cell_6fd930(Cell const &offset, Cell const &position)
 bool UnitClass::unknown_6fd930()
 {
     if (Type->DeploysInto == 0) return true;
-    unknown_slot71(0);
+    Mark(0);
     for (int index = 0; index < Rules->unknown_7c8.Count(); index++) {
         if (Rules->unknown_7c8[index] == Type->DeploysInto) {
             if (Owning_House()->unknown_139) {
@@ -70,7 +70,7 @@ bool UnitClass::unknown_6fd930()
     if (!unknown_494) {
         {
         if (Type->DeploysInto->unknown_slot42(Deploy_Origin_6fd930(Coord_Cell(Center_Coord())), 0)) {
-            unknown_slot71(1);
+            Mark(1);
             return true;
         }
         }
@@ -124,7 +124,7 @@ bool UnitClass::unknown_6fd930()
         }
     }
 finish:
-    unknown_slot71(1);
+    Mark(1);
     if (!unknown_494 && !House->Unknown_004F52F0()) unknown_slot87(unknown_geometry_l, false, false);
     return false;
 }

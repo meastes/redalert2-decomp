@@ -16,7 +16,7 @@ Quaternion __fastcall Slerp(Quaternion const &a, Quaternion const &b, float t)
 
     if ((cos_t + 1.0) > SLERP_EPSILON) {
         if ((1.0 - cos_t) > SLERP_EPSILON) {
-            theta = Fast_Asin(cos_t);
+            theta = Fast_Acos_004ba580(cos_t);
             sin_t = Fast_Sin(theta);
             beta = Fast_Sin((1.0f - t) * theta) / sin_t;
             alpha = Fast_Sin(t * theta) / sin_t;
@@ -36,7 +36,7 @@ Quaternion __fastcall Slerp(Quaternion const &a, Quaternion const &b, float t)
     }
     return res;
 }
-// @ref ?Fast_Asin@@YAMN@Z=004ba580
+// @ref ?Fast_Acos_004ba580@@YAMN@Z=004ba580
 // @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref __real@4@3fff8000000000000000=0079b7f8
 // @ref __real@8@3feea7c5ac471b478800=0079c520

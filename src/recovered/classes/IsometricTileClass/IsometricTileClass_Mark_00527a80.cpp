@@ -1,4 +1,4 @@
-// bool IsometricTileClass::unknown_slot71(int mark) (0x00527A80)
+// bool IsometricTileClass::Mark(int mark) (0x00527A80)
 // Takes the tile off the map (mark 0) or puts it on (marks 1 and 3): for
 // every cell of the type's grid that has an image tile, the cell's tile
 // index, sub-tile and height are reset or set, its smudge and overlay are
@@ -17,10 +17,10 @@
 // @ref ?unknown_tileset_a52f00@@3HA=00a52f00
 // @ref ?unknown_tileset_a6e038@@3HA=00a6e038
 
-bool IsometricTileClass::unknown_slot71(int mark)
+bool IsometricTileClass::Mark(int mark)
 {
     IsoTileImageStruct *image = (IsoTileImageStruct *)unknown_slot26();
-    if (image == 0 || !ObjectClass::unknown_slot71(mark)) {
+    if (image == 0 || !ObjectClass::Mark(mark)) {
         return false;
     }
     for (int row = 0; row < Type->unknown_2b8; row++) {
@@ -102,7 +102,7 @@ bool IsometricTileClass::unknown_slot71(int mark)
                 here.Adjacent_Cell(4).unknown_471d10();
                 here.Adjacent_Cell(6).unknown_471d10();
             }
-            here.Unknown_00472540(-1);
+            here.Recalc_Attributes(-1);
         }
     }
     if (mark == 1 || mark == 3) {

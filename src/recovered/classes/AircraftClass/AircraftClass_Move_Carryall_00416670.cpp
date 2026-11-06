@@ -136,14 +136,14 @@ select_destination:
             return 1;
         }
         if (Cargo.Object) {
-            unknown_slot71(0);
+            Mark(0);
             unknown_416420();
-            unknown_slot71(1);
+            Mark(1);
             unknown_a8 = 0;
             return 1;
         }
         Debug_Printf(unknown_aircraft_move_log_7ce6e0);
-        unknown_slot71(0);
+        Mark(0);
         bridge_position = Coord;
         occupant_position = Coord;
         FootClass *passenger = reinterpret_cast<UnknownCellClass *>(&Map[occupant_position])->Unknown_00473E30(
@@ -162,7 +162,7 @@ select_destination:
         unknown_a8 = 0;
 finalize_pickup:
         unknown_slot149(3);
-        unknown_slot71(1);
+        Mark(1);
         unknown_5bc = true;
         unknown_slot261(false, true);
         return 1;

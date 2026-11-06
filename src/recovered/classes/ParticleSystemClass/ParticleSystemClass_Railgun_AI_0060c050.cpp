@@ -17,8 +17,8 @@ CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, floa
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Fast_Acos@@YAMN@Z=004ba550
-// @ref ?Fast_Asin@@YAMN@Z=004ba580
+// @ref ?Fast_Asin_004ba550@@YAMN@Z=004ba550
+// @ref ?Fast_Acos_004ba580@@YAMN@Z=004ba580
 // @ref ?unknown_sin_4ba480@@YANN@Z=004ba480
 // @ref ?unknown_cos_4ba4d0@@YANN@Z=004ba4d0
 // @ref ?Make_Identity@Matrix3D@@QAEXXZ=00590060
@@ -78,8 +78,8 @@ void ParticleSystemClass::unknown_func_60c050()
         if (clamped_x <= -horiz_dist) clamped_x = -horiz_dist;
         int num_particles = (int)((double)total_dist * Class->ParticlesPerCoord);
         float dist_f = (float)total_dist;
-        float elevation = Fast_Acos((double)clamped_z / dist_f);
-        float azimuth = Fast_Asin((double)clamped_x / horiz_dist);
+        float elevation = Fast_Asin_004ba550((double)clamped_z / dist_f);
+        float azimuth = Fast_Acos_004ba580((double)clamped_x / horiz_dist);
         if (dy < 0) {
             azimuth = -azimuth;
         }

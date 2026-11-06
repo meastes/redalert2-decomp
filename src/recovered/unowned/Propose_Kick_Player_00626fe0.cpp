@@ -5,7 +5,7 @@
 #include "shared/lobby.hpp"
 #include "shared/session_state.hpp"
 // @ref ?unknown_ipx_manager_a40978@@3VIPXManagerClass@@A=00a40978
-// @ref ?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z=005c2da0
+// @ref ?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z=005c2da0
 // @ref ??_C@_0BI@DEM@TXT_RECONNECT_KICK_SELF?$AA@=007ecadc
 // @ref ??_C@_0O@NJFP@TXT_CANT_KICK?$AA@=007ecacc
 // @ref ??_C@_0BN@FDKG@Sending?5kick?5proposal?5to?5?$CFs?6?$AA@=007ecaac
@@ -21,12 +21,12 @@ void __fastcall Propose_Kick_Player(HWND dialog, int index)
         unknown_session_a3d298.Players[0]->ID);
     HWND list = GetDlgItem(dialog, 0x651);
     if (index == 0) {
-        Unknown_005C2DA0(-1, StringTable::Load_String("TXT_RECONNECT_KICK_SELF", 0, "D:\\Ra2\\Queue.CPP", 3378), list);
+        _DrawMessage_005c2da0(-1, StringTable::Load_String("TXT_RECONNECT_KICK_SELF", 0, "D:\\Ra2\\Queue.CPP", 3378), list);
         Unknown_00626FA0(list);
         return;
     }
     if (unknown_session_a3d298.Type == 4 && unknown_b2a7ec) {
-        Unknown_005C2DA0(-1, StringTable::Load_String("TXT_CANT_KICK", 0, "D:\\Ra2\\Queue.CPP", 3388), list);
+        _DrawMessage_005c2da0(-1, StringTable::Load_String("TXT_CANT_KICK", 0, "D:\\Ra2\\Queue.CPP", 3388), list);
         Unknown_00626FA0(list);
         return;
     }

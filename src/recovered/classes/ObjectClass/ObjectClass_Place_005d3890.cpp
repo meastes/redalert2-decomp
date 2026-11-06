@@ -39,7 +39,7 @@ bool ObjectClass::unknown_slot53(CoordStruct const *coord, int direction)
     CoordStruct placed = *coord;
     if (type) placed = type->unknown_slot27(*coord);
     unknown_slot103(placed);
-    if (unknown_slot71(1)) {
+    if (Mark(1)) {
         if (unknown_7d) {
             if (unknown_slot29() != -1) Map.Submit(this);
             if (type) {

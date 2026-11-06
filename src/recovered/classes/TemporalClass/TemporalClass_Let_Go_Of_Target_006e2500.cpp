@@ -20,7 +20,7 @@ void TemporalClass::Let_Go_Of_Target()
                 seed_0044d380::FUN_0044d380((int)building);
                 building->House->unknown_144=true;
             }
-            Target->unknown_slot71(2);
+            Target->Mark(2);
         }
     } else {
         if(unknown_44!=0) {

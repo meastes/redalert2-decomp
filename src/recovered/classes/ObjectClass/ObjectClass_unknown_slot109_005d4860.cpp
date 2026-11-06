@@ -10,10 +10,10 @@ void ObjectClass::unknown_slot109(int height)
         height += unknown_geometry_j;
     }
     if (unknown_74) {
-        unknown_slot71(0);
+        Mark(0);
         CoordStruct coord = Coord;
         Coord.Z = Map.Unknown_0055A280(coord) + height;
-        unknown_slot71(1);
+        Mark(1);
     } else {
         CoordStruct coord = Coord;
         Coord.Z = Map.Unknown_0055A280(coord) + height;

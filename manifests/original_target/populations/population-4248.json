@@ -4,8 +4,8 @@
     "id": "population-4248",
     "inventory_sha256": "756ed369d2d6372466a6e95d150f1c4dbabe49f7d504b7801b76e4360a95fb52",
     "gaps_sha256": "7141d33b1d4a10fec7c68601749a101c0e291bf8c5f048c84a3f9f0d37258256",
-    "historical_population_sha256": "2ea3ff6670eaf43d6e02dba4d40ae7252335a2b0ec2fd185b8a262e13afea39b",
-    "historical_acceptance_sha256": "97ea47397bf5dd5342e7ef6b7f46af6b0eab3b67857cb82f7cbac8a2713d1ff6"
+    "historical_population_sha256": "a517f0856dd04ff08103c3621406fd2e211c8e6a93f90c5ac83ce3ab10bf2c7a",
+    "historical_acceptance_sha256": "cf698358b2729540a6223be86ea2a7a4c68396b0c7dc45ca22b5500c8af66790"
   },
   "references": {
     "?OnServerTime@CChatEventSink@@UAGJJJ@Z": 7756112,
@@ -5209,7 +5209,7 @@
     "?Draw@MSOverlayAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5953200,
     "?unknown_slot32@UnitTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7383504,
     "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@": 8007396,
-    "?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z": 6040992,
+    "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z": 6040992,
     "?Destroy_Connection_005bb5d0@@YIXHH@Z": 6010320,
     "__real@4@c004f000000000000000": 8029820,
     "?unknown_a3d8c8@@3HA": 10737864,
@@ -10566,7 +10566,7 @@
     "?Unknown_00631BA0@RadarClass@@QAE?AUPoint2D@@ABU2@_N@Z": 6495136,
     "?Unknown_006331E0@RadarClass@@QAEX_N@Z": 6500832,
     "?Unknown_00634030@RadarClass@@QAEXXZ": 6504496,
-    "?Unknown_0049A700@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z": 4826880,
+    "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z": 4826880,
     "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
     "?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
@@ -11169,7 +11169,7 @@
     "?Unknown_00565610@MapClass@@QAE?AVCell@@ABV2@HI@Z": 5658128,
     "?Unknown_0054A720@MapClass@@QAEXABUCoordStruct@@H@Z": 5547808,
     "?Unknown_0055A300@MapClass@@QAEXXZ": 5612288,
-    "?Unknown_00568B00@MapClass@@QAEXXZ": 5671680,
+    "?Set_WasUnderBridge_Flags@MapClass@@QAEXXZ": 5671680,
     "?Unknown_006328F0@RadarClass@@QAEXABVCell@@@Z": 6498544,
     "?Unknown_0054FC60@MapClass@@QAEXABVCell@@@Z": 5569632,
     "?Unknown_006E7890@ThemeClass@@QAEXAAVCCINIClass@@@Z": 7239824,
@@ -13367,9 +13367,9 @@
     "?Unknown_006AA5A0@Tactical@@QAEXABUPoint2D@@@Z": 6989216,
     "?Unknown_006AA770@Tactical@@QAEXXZ": 6989680,
     "?unknown_sqrt_table_817dfc@@3PAIA": 8486396,
-    "?Fast_Acos@@YAMN@Z": 4957520,
-    "?unknown_acos_table_80bdd4@@3PAMA": 8437204,
-    "?Fast_Asin@@YAMN@Z": 4957568,
+    "?Fast_Asin_004ba550@@YAMN@Z": 4957520,
+    "?unknown_asin_table_80bdd4@@3PAMA": 8437204,
+    "?Fast_Acos_004ba580@@YAMN@Z": 4957568,
     "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z": 6958256,
     "?unknown_sin_table_801dc4@@3PAMA": 8396228,
     "?unknown_sin_scale_7d8048@@3MA": 8224840,
@@ -14929,7 +14929,20 @@
     "?CreateInstance@?$TClassFactory@VNeuronClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z": 6914096,
     "?CreateInstance@?$TClassFactory@VFoggedObjectClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z": 6914480,
     "?Unknown_005651E0@MapClass@@QAE?AVCell@@ABV2@0@Z": 5657056,
-    "?Start_Listening@IPXConnClass@@SIHXZ": 5389440
+    "?Start_Listening@IPXConnClass@@SIHXZ": 5389440,
+    "??0WaveClass@@QAE@XZ": 7476944,
+    "??1WaveClass@@UAE@XZ": 7477504,
+    "??_7WaveClass@@6BIPersistStream@@@": 8056016,
+    "??_7WaveClass@@6BIRTTITypeInfo@@@": 8055988,
+    "??_7WaveClass@@6BINoticeSink@@@": 8055980,
+    "??_7WaveClass@@6BINoticeSource@@@": 8055972,
+    "??_GWaveClass@@UAEPAXI@Z": 7489024,
+    "?IPX_Call_Back@@YIXXZ": 4727056,
+    "??0WaveClass@@QAE@ABUCoordStruct@@0PAVTechnoClass@@HPAVObjectClass@@@Z": 7476128,
+    "_iswgraph": 7883494,
+    "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
+    "??_7WaveClass@@6B@": 8056016,
+    "??_EWaveClass@@UAEPAXI@Z": 7489024
   },
   "regions": [
     {
@@ -24921,7 +24934,7 @@
         {
           "offset": 481,
           "kind": 20,
-          "symbol": "?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z",
+          "symbol": "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z",
           "target": 6040992,
           "addend": 0,
           "resolved": 4293255355
@@ -25031,7 +25044,7 @@
           "resolved": 4294814619
         }
       ],
-      "source_sha256": "ec3714ef37ef4caab5f60cc5332af78b0d6e340af6e2f5aa9cd35889a6a0dcff",
+      "source_sha256": "76ac10e7de7693384447987670380fc1b57cb226c0add78e534776cc8cc0a0b2",
       "source": "src/recovered/classes/CChatEventSink/CChatEventSink_OnUserKick_00764b00.cpp",
       "population": "population-4248",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

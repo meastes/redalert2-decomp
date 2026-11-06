@@ -389,7 +389,7 @@ public:
     virtual void unknown_slot66(Point2D const &point, Rect const &window);            // slot 66 0x006C2C40
     virtual void unknown_slot69();                              // slot 69 0x006C2520
     virtual void unknown_slot70(bool arg1, bool arg2);            // slot 70 0x006D5AA0
-    virtual bool unknown_slot71(int arg1);                      // slot 71 0x006C2550
+    virtual bool Mark(int arg1);                      // slot 71 0x006C2550
     virtual void unknown_slot79(int arg1);                      // slot 79 0x006C7440
     virtual bool unknown_slot80();                              // slot 80 0x006C91C0
     virtual void unknown_slot82(int arg1);                      // slot 82 0x006D86B0
@@ -491,7 +491,7 @@ public:
     virtual WeaponStruct *unknown_slot231(int index);      // slot 231 (+0x39C) 0x006D8540
     virtual bool unknown_slot232();                                 // slot 232 (+0x3A0) 0x0041B3F0 (kept copy elsewhere)
     virtual void unknown_slot233();                                 // slot 233 (+0x3A4) 0x006CD8B0
-    virtual void unknown_slot234(int arg1);                         // slot 234 (+0x3A8) 0x006C89C0
+    virtual void Cloaking_AI(int arg1);                         // slot 234 (+0x3A8) 0x006C89C0
     virtual void unknown_slot235();                                  // slot 235 (+0x3AC) 0x006C83F0
     virtual void unknown_slot236();                                  // slot 236 (+0x3B0) 0x006C86F0
     virtual void unknown_slot237();                                 // slot 237 (+0x3B4) 0x006D6230

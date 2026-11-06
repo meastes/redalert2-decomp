@@ -191,7 +191,7 @@ void BuildingClass::AI()
             unknown_slot86(&damage, 0, Rules->unknown_c74, (TechnoClass *)unknown_438, true, 0);
         }
         if (!unknown_7d) return;
-        unknown_slot71(2);
+        Mark(2);
     }
     if (Type->FirestormWall && (Frame & 7) == 0) {
         int frame = unknown_4f0 & 15;

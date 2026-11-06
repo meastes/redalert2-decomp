@@ -12,11 +12,11 @@ void ObjectClass::unknown_slot57()
 {
     unknown_7a = true;
     unknown_7c = true;
-    unknown_slot71(0);
+    Mark(0);
     Map.Remove(this);
     unknown_79 = false;
     Map.Submit(this);
-    unknown_slot71(1);
+    Mark(1);
     bool foot;
     if (this != 0) {
         foot = AbstractFlags.IsFoot;

@@ -4,8 +4,8 @@
     "id": "population-4260",
     "inventory_sha256": "f86644b9db7412aa0475437fc93dc008f6402ce2e12f5d0ba2faa599333ade5a",
     "gaps_sha256": "58fea66ddbec081c7e9dc97ed9a7f0fdb6e52c0fe76a6a039fb917dad688ab80",
-    "historical_population_sha256": "cbf43a63b930c944c711e4bec93a8bfade4998725f4a75091b1d109037cb0f52",
-    "historical_acceptance_sha256": "8071b3cac4a022b3f2c75eb58060f7a181d3553f904cb32c4814e92d105dc6ba"
+    "historical_population_sha256": "cf78a52d3e9e8dcbf11e4fb057612079a45ae18cc5d5bf62f4055ba1f4247a82",
+    "historical_acceptance_sha256": "5aa952dd1618aae1c7c54ef07c85cb49853c6412aecc56e8c135ad77df0e3c7a"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1644,7 +1644,7 @@
     "?ID@?$DynamicVectorClass@PAVCellClass@@@@UAEHPBQAVCellClass@@@Z": 5824064,
     "??_7?$DynamicVectorClass@PAVCellClass@@@@6B@": 8019708,
     "?Wave_Direction_00721db0@@YIHABUPoint2D@@0@Z": 7478704,
-    "?unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z": 7485616,
+    "?Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z": 7485616,
     "?Update_Wave_00724200@WaveClass@@QAEXXZ": 7488000,
     "?Unknown_006ECB90@@YIXPAVObjectClass@@_N@Z": 7261072,
     "?Waves@@3V?$DynamicVectorClass@PAVWaveClass@@@@A": 10750952,
@@ -1683,8 +1683,8 @@
     "?Wave_Advance_Step_007aec88@@3MB": 8055944,
     "?Add@?$DynamicVectorClass@PAVCellClass@@@@QAE_NABQAVCellClass@@@Z": 7489328,
     "?Wave_Length_Factors_007aec8c@@3QBMB": 8055948,
-    "_?$S43@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4EA": 11505984,
-    "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
+    "_?$S43@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4EA": 11505984,
+    "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
     "_$E44": 7487984,
     "??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z": 5837696,
     "_$E2": 7475632,
@@ -4479,8 +4479,8 @@
     "?Unknown_004717B0@UnknownAircraftCell@@QAEPAUUnknownAircraftBuilding@@XZ": 4659120,
     "?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ": 4659120,
     "?Unknown_004718B0@UnknownPlacementCellView@@QAE_NHPBVTechnoTypeClass@@PAVHouseClass@@@Z": 4659376,
-    "?Unknown_00472540@CellClass@@QAEXH@Z": 4662592,
-    "?Unknown_00472540@UnknownAnimCell@@QAEXH@Z": 4662592,
+    "?Recalc_Attributes@CellClass@@QAEXH@Z": 4662592,
+    "?Recalc_Attributes@UnknownAnimCell@@QAEXH@Z": 4662592,
     "?Unknown_004764B0@UnknownCellClass@@QAE?AUCoordStruct@@ABU2@H_N@Z": 4678832,
     "?Unknown_00476920@UnknownCellClass@@QAEXPBUCoordStruct@@_N11@Z": 4679968,
     "?Unknown_00476AC0@UnknownCellClass@@QAEPAV1@H@Z": 4680384,
@@ -4497,7 +4497,7 @@
     "?Unknown_0047CE70@UnknownCellClass@@QAEHXZ": 4705904,
     "?Unknown_0047FB70@@YIHHN@Z": 4717424,
     "?Unknown_0047FCD0@@YANXZ": 4717776,
-    "?Unknown_0049A700@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z": 4826880,
+    "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z": 4826880,
     "?Unknown_0049C7C0@DisplayClass@@QAEXH@Z": 4835264,
     "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z": 4835424,
     "?Unknown_0049C980@DisplayClass@@QAEXH@Z": 4835712,
@@ -5239,7 +5239,7 @@
     "?unknown_slot231@TechnoClass@@UAEPAUWeaponStruct@@H@Z": 7177536,
     "?unknown_slot232@BuildingClass@@UAE_NXZ": 4512208,
     "?unknown_slot233@TechnoClass@@UAEXXZ": 7133360,
-    "?unknown_slot234@BuildingClass@@UAEXH@Z": 4520784,
+    "?Cloaking_AI@BuildingClass@@UAEXH@Z": 4520784,
     "?unknown_slot239@TechnoClass@@UAEXXZ": 7111312,
     "?unknown_slot239@UnitClass@@UAEXXZ": 7322432,
     "?unknown_slot240@InfantryClass@@UAEXXZ": 5267920,
@@ -5538,13 +5538,13 @@
     "?unknown_slot69@TechnoClass@@UAEXXZ": 7087392,
     "?unknown_slot70@AircraftClass@@UAEX_N0@Z": 4302128,
     "?unknown_slot70@ObjectClass@@UAEX_N0@Z": 6106256,
-    "?unknown_slot71@AnimClass@@UAE_NH@Z": 4330752,
-    "?unknown_slot71@BulletClass@@UAE_NH@Z": 4585200,
-    "?unknown_slot71@FootClass@@UAE_NH@Z": 4992608,
-    "?unknown_slot71@ObjectClass@@UAE_NH@Z": 6111584,
-    "?unknown_slot71@ParticleClass@@UAE_NH@Z": 6333744,
-    "?unknown_slot71@TechnoClass@@UAE_NH@Z": 7087440,
-    "?unknown_slot71@TerrainClass@@UAE_NH@Z": 7223264,
+    "?Mark@AnimClass@@UAE_NH@Z": 4330752,
+    "?Mark@BulletClass@@UAE_NH@Z": 4585200,
+    "?Mark@FootClass@@UAE_NH@Z": 4992608,
+    "?Mark@ObjectClass@@UAE_NH@Z": 6111584,
+    "?Mark@ParticleClass@@UAE_NH@Z": 6333744,
+    "?Mark@TechnoClass@@UAE_NH@Z": 7087440,
+    "?Mark@TerrainClass@@UAE_NH@Z": 7223264,
     "?unknown_slot75@ObjectClass@@UAEXXZ": 6108896,
     "?unknown_slot76@ObjectClass@@UAE_NXZ": 6116528,
     "?unknown_slot77@AircraftClass@@UAE_NHHH_N@Z": 4289888,
@@ -5814,9 +5814,9 @@
     "?unknown_atan_table_813df4@@3PAMA": 8470004,
     "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z@4_NA": 10948517,
     "?unknown_sqrt_table_817dfc@@3PAIA": 8486396,
-    "?Fast_Acos@@YAMN@Z": 4957520,
-    "?unknown_acos_table_80bdd4@@3PAMA": 8437204,
-    "?Fast_Asin@@YAMN@Z": 4957568,
+    "?Fast_Asin_004ba550@@YAMN@Z": 4957520,
+    "?unknown_asin_table_80bdd4@@3PAMA": 8437204,
+    "?Fast_Acos_004ba580@@YAMN@Z": 4957568,
     "?unknown_sin_table_801dc4@@3PAMA": 8396228,
     "?unknown_sin_scale_7d8048@@3MA": 8224840,
     "?unknown_cos_scale_7d804c@@3MA": 8224844,
@@ -8726,7 +8726,7 @@
     "?unknown_slot29@MapClass@@UAEXABVRect@@@Z": 5544672,
     "?Detach@MapClass@@UAEXPAVAbstractClass@@_N@Z": 5610880,
     "?Detach@ParasiteClass@@UAEXPAVAbstractClass@@_N@Z": 6320640,
-    "?unknown_slot71@IsometricTileClass@@UAE_NH@Z": 5405312,
+    "?Mark@IsometricTileClass@@UAE_NH@Z": 5405312,
     "??0BaseClass@@QAE@XZ": 4374384,
     "?Load@BaseClass@@UAGJPAUIStream@@@Z": 4376224,
     "?Increase_Table_Size@?$IndexClass@HPAVMapRegionClass@@@@QAE_NH@Z": 5828944,
@@ -8748,10 +8748,10 @@
     "?unknown_slot86@TerrainClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 7221616,
     "?unknown_slot67@TerrainClass@@UAEXHH@Z": 7223696,
     "?unknown_slot32@UnitTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7383504,
-    "?unknown_slot71@SmudgeClass@@UAE_NH@Z": 6846288,
+    "?Mark@SmudgeClass@@UAE_NH@Z": 6846288,
     "?Suggested_New_Team@HouseClass@@QAE?AV?$TypeList@PBVTeamTypeClass@@@@_N@Z": 5135600,
     "??0EventClass@@QAE@HVTargetClass@@E00JJ@Z": 4940272,
-    "?Unknown_005C2DA0@@YIXHPBGPAUHWND__@@@Z": 6040992,
+    "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z": 6040992,
     "?Destroy_Connection_005bb5d0@@YIXHH@Z": 6010320,
     "?unknown_a3d8c8@@3HA": 10737864,
     "?Send_Port_Unreachable@@YIXXZ": 6481984,
@@ -9044,7 +9044,7 @@
     "??0CCINIClass@@QAE@XZ": 5352928,
     "?unknown_5d47d0@ObjectClass@@QAEHXZ": 6113232,
     "?unknown_slot218@UnitClass@@UAEHPAVAbstractClass@@H_N@Z": 7359488,
-    "?Unknown_00568B00@MapClass@@QAEXXZ": 5671680,
+    "?Set_WasUnderBridge_Flags@MapClass@@QAEXXZ": 5671680,
     "?unknown_set_buffer_zone_0053d830@@YIXH@Z": 5494832,
     "?unknown_5d4c00@TechnoClass@@QAEHPAVCellClass@@@Z": 6114304,
     "?Unknown_006328F0@RadarClass@@QAEXABVCell@@@Z": 6498544,
@@ -9820,7 +9820,7 @@
     "?Unknown_0042E370@Unknown84E8D0@@QAEXHUCoordStruct@@H@Z": 4383600,
     "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z": 7509264,
     "?unknown_slot221@AircraftClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z": 4282256,
-    "?unknown_slot71@OverlayClass@@UAE_NH@Z": 6138224,
+    "?Mark@OverlayClass@@UAE_NH@Z": 6138224,
     "?Stop@HoverLocomotionClass@@QAEXXZ": 5233232,
     "?Process@HoverLocomotionClass@@UAGEXZ": 5226432,
     "?unknown_slot140@BuildingClass@@UAEHXZ": 4479792,
@@ -11010,8 +11010,8 @@
     "?unknown_waypoint_sound_6b0ec0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7016128,
     "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
     "_?direction@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA": 11235436,
-    "?unknown_slot71@BuildingClass@@UAE_NH@Z": 4440000,
-    "?unknown_slot234@TechnoClass@@UAEXH@Z": 7113152,
+    "?Mark@BuildingClass@@UAE_NH@Z": 4440000,
+    "?Cloaking_AI@TechnoClass@@UAEXH@Z": 7113152,
     "?unknown_slot182@UnitClass@@UAEHPAVAbstractClass@@PAVCell@@@Z": 7358256,
     "??_ENode@?$WolDictionary@VWstring@@ULadder@WOL@@@@QAEPAXI@Z": 7759744,
     "??_ENode@?$WolDictionary@VWstring@@UChannel@WOL@@@@QAEPAXI@Z": 7759840,
@@ -12064,7 +12064,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
-      "source_sha256": "c026ec36b228fdacd2848e64aa3f4e6d4dd82cbbc23880a04b6581bd0034207c",
+      "source_sha256": "d47183b6e16eb13bcdf789ca51bf344ed98253fe743785a1c368ef15e22310fe",
       "source": "src/recovered/classes/WaveClass/WaveClass_Draw_NonMagnetic_sizes_atexit_007241f0.cpp",
       "population": "population-4260",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12337,7 +12337,7 @@
           "resolved": 4292984417
         }
       ],
-      "source_sha256": "eee1dcc8fe28bd1cc39e96b78a39fdb4b0425a261c9d4bf07b89e5cc4cb47f9c",
+      "source_sha256": "2760a68ddde210fe9c8d9f851063589265af02ec6edd61481ac90e6bb9b2e7e6",
       "source": "src/recovered/classes/WaveClass/WaveClass_unknown_slot52_007224d0.cpp",
       "population": "population-4260",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -12757,7 +12757,7 @@
           "resolved": 4292984440
         }
       ],
-      "source_sha256": "86281eb048f07710f7a87b08d587454f8ba441354bd6db595c04c81c940fcecb",
+      "source_sha256": "b6dd66a24db6df435a75ab5f25b9115b67a5b7fc71169b86f737212947ff3d20",
       "source": "src/recovered/classes/WaveClass/WaveClass_unknown_slot53_00722410.cpp",
       "population": "population-4260",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -13280,7 +13280,7 @@
         {
           "offset": 637,
           "kind": 20,
-          "symbol": "?unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z",
+          "symbol": "?Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z",
           "target": 7485616,
           "addend": 0,
           "resolved": 8847
@@ -13310,7 +13310,7 @@
           "resolved": 11073
         }
       ],
-      "source_sha256": "833c6517a2abc7ac6fee05a8ba1c2f29ef55fb16af559fbb79bf1b757b139e78",
+      "source_sha256": "1f04e90722a0e23fbeaed1a5188cf8d5b1eac33ce7b3e1c76b4028f4253fedf4",
       "source": "src/recovered/classes/WaveClass/WaveClass_constructor_007213a0.cpp",
       "population": "population-4260",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -13994,7 +13994,7 @@
         {
           "offset": 334,
           "kind": 20,
-          "symbol": "?unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z",
+          "symbol": "?Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z",
           "target": 7485616,
           "addend": 0,
           "resolved": 4294964574
@@ -14200,7 +14200,7 @@
           "resolved": 4294962558
         }
       ],
-      "source_sha256": "1e0a66ba1848cf71af689c733abb1c413447af48febabab4a28a928744e2a977",
+      "source_sha256": "3c1fabc726e594348080b8cad550f062e99441cda9924656b5c776755a4c81b3",
       "source": "src/recovered/classes/WaveClass/WaveClass_Update_Wave_00724200.cpp",
       "population": "population-4260",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -15031,8 +15031,8 @@
     {
       "entry": 7485616,
       "method": "007238b0",
-      "symbol": "?unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z",
-      "symbol_prefix": "?unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z",
+      "symbol": "?Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z",
+      "symbol_prefix": "?Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15048,7 +15048,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "_?$S43@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4EA",
+          "symbol": "_?$S43@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4EA",
           "target": 11505984,
           "addend": 0,
           "resolved": 11505984
@@ -15056,7 +15056,7 @@
         {
           "offset": 63,
           "kind": 6,
-          "symbol": "_?$S43@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4EA",
+          "symbol": "_?$S43@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4EA",
           "target": 11505984,
           "addend": 0,
           "resolved": 11505984
@@ -15064,7 +15064,7 @@
         {
           "offset": 80,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 0,
           "resolved": 11505992
@@ -15072,7 +15072,7 @@
         {
           "offset": 98,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 4,
           "resolved": 11505996
@@ -15080,7 +15080,7 @@
         {
           "offset": 116,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 8,
           "resolved": 11506000
@@ -15088,7 +15088,7 @@
         {
           "offset": 133,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 12,
           "resolved": 11506004
@@ -15096,7 +15096,7 @@
         {
           "offset": 151,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 16,
           "resolved": 11506008
@@ -15104,7 +15104,7 @@
         {
           "offset": 169,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 20,
           "resolved": 11506012
@@ -15112,7 +15112,7 @@
         {
           "offset": 186,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 24,
           "resolved": 11506016
@@ -15120,7 +15120,7 @@
         {
           "offset": 204,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 28,
           "resolved": 11506020
@@ -15128,7 +15128,7 @@
         {
           "offset": 222,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 32,
           "resolved": 11506024
@@ -15136,7 +15136,7 @@
         {
           "offset": 239,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 36,
           "resolved": 11506028
@@ -15144,7 +15144,7 @@
         {
           "offset": 257,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 40,
           "resolved": 11506032
@@ -15152,7 +15152,7 @@
         {
           "offset": 275,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 44,
           "resolved": 11506036
@@ -15160,7 +15160,7 @@
         {
           "offset": 292,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 48,
           "resolved": 11506040
@@ -15168,7 +15168,7 @@
         {
           "offset": 310,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 52,
           "resolved": 11506044
@@ -15176,7 +15176,7 @@
         {
           "offset": 328,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 56,
           "resolved": 11506048
@@ -15184,7 +15184,7 @@
         {
           "offset": 345,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 60,
           "resolved": 11506052
@@ -15192,7 +15192,7 @@
         {
           "offset": 363,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 64,
           "resolved": 11506056
@@ -15200,7 +15200,7 @@
         {
           "offset": 381,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 68,
           "resolved": 11506060
@@ -15208,7 +15208,7 @@
         {
           "offset": 398,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 72,
           "resolved": 11506064
@@ -15216,7 +15216,7 @@
         {
           "offset": 416,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 76,
           "resolved": 11506068
@@ -15224,7 +15224,7 @@
         {
           "offset": 434,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 80,
           "resolved": 11506072
@@ -15232,7 +15232,7 @@
         {
           "offset": 451,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 84,
           "resolved": 11506076
@@ -15240,7 +15240,7 @@
         {
           "offset": 469,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 88,
           "resolved": 11506080
@@ -15248,7 +15248,7 @@
         {
           "offset": 487,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 92,
           "resolved": 11506084
@@ -15256,7 +15256,7 @@
         {
           "offset": 500,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 96,
           "resolved": 11506088
@@ -15264,7 +15264,7 @@
         {
           "offset": 510,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 100,
           "resolved": 11506092
@@ -15272,7 +15272,7 @@
         {
           "offset": 516,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 104,
           "resolved": 11506096
@@ -15280,7 +15280,7 @@
         {
           "offset": 557,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 108,
           "resolved": 11506100
@@ -15288,7 +15288,7 @@
         {
           "offset": 563,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 112,
           "resolved": 11506104
@@ -15296,7 +15296,7 @@
         {
           "offset": 569,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 116,
           "resolved": 11506108
@@ -15304,7 +15304,7 @@
         {
           "offset": 610,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 120,
           "resolved": 11506112
@@ -15312,7 +15312,7 @@
         {
           "offset": 616,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 124,
           "resolved": 11506116
@@ -15320,7 +15320,7 @@
         {
           "offset": 622,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 128,
           "resolved": 11506120
@@ -15336,7 +15336,7 @@
         {
           "offset": 668,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 132,
           "resolved": 11506124
@@ -15344,7 +15344,7 @@
         {
           "offset": 674,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 136,
           "resolved": 11506128
@@ -15352,7 +15352,7 @@
         {
           "offset": 680,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 140,
           "resolved": 11506132
@@ -15496,7 +15496,7 @@
         {
           "offset": 1209,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 0,
           "resolved": 11505992
@@ -15504,7 +15504,7 @@
         {
           "offset": 1219,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 4,
           "resolved": 11505996
@@ -15512,7 +15512,7 @@
         {
           "offset": 1233,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 8,
           "resolved": 11506000
@@ -15520,7 +15520,7 @@
         {
           "offset": 1263,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 12,
           "resolved": 11506004
@@ -15528,7 +15528,7 @@
         {
           "offset": 1276,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 16,
           "resolved": 11506008
@@ -15536,7 +15536,7 @@
         {
           "offset": 1296,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 20,
           "resolved": 11506012
@@ -15544,7 +15544,7 @@
         {
           "offset": 1335,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 24,
           "resolved": 11506016
@@ -15552,7 +15552,7 @@
         {
           "offset": 1348,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 28,
           "resolved": 11506020
@@ -15560,7 +15560,7 @@
         {
           "offset": 1368,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 32,
           "resolved": 11506024
@@ -15568,7 +15568,7 @@
         {
           "offset": 1407,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 36,
           "resolved": 11506028
@@ -15576,7 +15576,7 @@
         {
           "offset": 1417,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 40,
           "resolved": 11506032
@@ -15584,7 +15584,7 @@
         {
           "offset": 1427,
           "kind": 6,
-          "symbol": "_?sizes@?1??unknown_func_7238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
+          "symbol": "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A",
           "target": 11505992,
           "addend": 44,
           "resolved": 11506036
@@ -15600,7 +15600,7 @@
         {
           "offset": 1676,
           "kind": 20,
-          "symbol": "?Fast_Asin@@YAMN@Z",
+          "symbol": "?Fast_Acos_004ba580@@YAMN@Z",
           "target": 4957568,
           "addend": 0,
           "resolved": 4292437568
@@ -15814,7 +15814,7 @@
           "resolved": 4294436957
         }
       ],
-      "source_sha256": "d2e12a583d2c048d7dce459c96de607150550fa60780b008d4d96d36588ec6fc",
+      "source_sha256": "53953effa7f791420973b43536f560431e97a85aad1ac9469c6c9645d2c7152b",
       "source": "src/recovered/classes/WaveClass/WaveClass_Draw_NonMagnetic_007238b0.cpp",
       "population": "population-4260",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

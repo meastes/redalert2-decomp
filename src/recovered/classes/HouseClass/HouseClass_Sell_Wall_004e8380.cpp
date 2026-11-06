@@ -40,7 +40,7 @@ void HouseClass::Sell_Wall(Cell const &cell, bool quiet)
                         Map[cell].OverlayIndex = -1;
                         Map[cell].OverlayData = 0;
                         Map[cell].unknown_50 = -1;
-                        Map[cell].Unknown_00472540(-1);
+                        Map[cell].Recalc_Attributes(-1);
                         Map[cell].unknown_475960(false);
                         Map.Unknown_00631570(cell);
                         Unknown_006D7C80(&Map[cell]);

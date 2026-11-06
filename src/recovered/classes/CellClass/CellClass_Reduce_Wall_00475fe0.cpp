@@ -44,7 +44,7 @@ int CellClass::unknown_475fe0(int damage)
                     unknown_50 = -1;
                     OverlayIndex = -1;
                     OverlayData = 0;
-                    Unknown_00472540(-1);
+                    Recalc_Attributes(-1);
                     Map.Unknown_0054FB20(MapCoords);
                     Map.Unknown_00566340(MapCoords);
                     Map.Unknown_00631570(MapCoords);

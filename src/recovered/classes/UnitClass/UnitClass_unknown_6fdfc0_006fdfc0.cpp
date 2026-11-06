@@ -30,7 +30,7 @@ bool UnitClass::unknown_6fdfc0()
         if (unknown_494) return false;
         if (Locomotor.Checked()->Is_Moving()) return false;
         if (Type->DeploysInto == 0) return false;
-        unknown_slot71(0);
+        Mark(0);
         Locomotor.Checked()->Mark_All_Occupation_Bits(0);
         Cell cell = unknown_slot104();
         Cell origin;
@@ -43,10 +43,10 @@ bool UnitClass::unknown_6fdfc0()
             if (House->Unknown_004F52B0()) Speech_Play_Name("EVA_CannotDeployHere", -1, -1);
             if (!House->Unknown_004F52F0()) Type->DeploysInto->unknown_458b10(origin, House);
             Locomotor.Checked()->Mark_All_Occupation_Bits(1);
-            unknown_slot71(1);
+            Mark(1);
         } else {
             Locomotor.Checked()->Mark_All_Occupation_Bits(1);
-            unknown_slot71(1);
+            Mark(1);
             int facing = Type->DeploysInto->unknown_func_45ec90();
             if (Dir_To_256(unknown_2e0.Current()) != facing) {
                 if (!Locomotor.Checked()->Is_Moving_Now()) {
@@ -57,7 +57,7 @@ bool UnitClass::unknown_6fdfc0()
                 return true;
             }
             bool selected = unknown_77;
-            unknown_slot71(0);
+            Mark(0);
             Locomotor.Checked()->Mark_All_Occupation_Bits(0);
             BuildingClass *building = new BuildingClass(Type->DeploysInto, House);
             if (building) {
@@ -120,7 +120,7 @@ bool UnitClass::unknown_6fdfc0()
                 delete building;
             }
             Locomotor.Checked()->Mark_All_Occupation_Bits(1);
-            unknown_slot71(1);
+            Mark(1);
         }
     }
     unknown_57c = false;

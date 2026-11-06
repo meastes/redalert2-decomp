@@ -9,7 +9,7 @@
 #include "shared/techno_type.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0049A700@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z=0049a700
+// @ref ?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z=0049a700
 // @ref ?Unknown_006BFA90@TeamTypeClass@@QBE?AVCell@@XZ=006bfa90
 // @ref ?Control@MissionClass@@QBEPAVMissionControlClass@@XZ=005950d0
 // @ref __real@8@4008e100000000000000=0079b608
@@ -24,11 +24,11 @@ int FootClass::unknown_slot134()
         } else {
             Cell cell(0, 0);
             if (Team != 0 && Team->Class->Unknown_006BFA90() != unknown_geometry_k) {
-                cell = Map.Unknown_0049A700(House->unknown_128, Team->Class->Unknown_006BFA90(),
+                cell = Map.Calculated_Cell(House->unknown_128, Team->Class->Unknown_006BFA90(),
                     Coord_Cell(Center_Coord()), unknown_slot32()->SpeedType, 1, 0);
             }
             if (cell == unknown_geometry_k) {
-                cell = Map.Unknown_0049A700(House->unknown_128, unknown_geometry_k,
+                cell = Map.Calculated_Cell(House->unknown_128, unknown_geometry_k,
                     Coord_Cell(Center_Coord()), unknown_slot32()->SpeedType, 1, 0);
             }
             unknown_slot260((AbstractClass *)&Map[cell], 1);

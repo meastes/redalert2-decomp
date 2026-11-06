@@ -10,7 +10,7 @@ void TechnoClass::unknown_slot239()
     int ammo = unknown_slot32()->Ammo;
     if (ammo != -1 && unknown_254 < ammo && unknown_194.Value() == 0) {
         unknown_254++;
-        unknown_slot71(2);
+        Mark(2);
         unknown_6c8300();
     }
 }

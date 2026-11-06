@@ -27,7 +27,7 @@ bool HouseClass::unknown_func_4e7070(TechnoClass *builder, BuildingClass *buildi
         Map.unknown_11a8 = ArrayIndex;
         Map.Unknown_00498F10(building->unknown_slot64(1));
         Map.Unknown_004994D0(builder->unknown_slot104());
-        builder->unknown_slot71(2);
+        builder->Mark(2);
         return true;
     }
     return false;

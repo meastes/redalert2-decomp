@@ -257,7 +257,7 @@ public:
     virtual ObjectTypeClass *Class_Of() const { return (ObjectTypeClass *)Type; }   // 0x00463EF0 slot 33 (inline)
     virtual Cell const *unknown_slot64(int arg1);                 // 0x0045F690
     virtual void unknown_slot67(int arg1, int arg2);                    // 0x004610D0
-    virtual bool unknown_slot71(int arg1);                              // 0x0045F6F0
+    virtual bool Mark(int arg1);                              // 0x0045F6F0
     virtual int unknown_slot116();                                      // 0x00461040 (new: shape frame)
     virtual void Set_Target(AbstractClass *target) { Target = target; } // 0x00463EE0 slot 117 (inline, new)
     virtual bool unknown_slot118(CoordStruct const &coord, BulletVelocity const &velocity);   // 0x004616B0 (new: place and launch; false if it cannot be placed)

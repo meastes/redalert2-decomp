@@ -186,7 +186,7 @@ public:
     virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);  // slot 63 0x0043A200
     virtual void unknown_slot67(int arg1, int arg2);                  // slot 67 0x0043A5E0
     virtual void unknown_slot68(int arg1, int arg2);                  // slot 68 0x0043A380
-    virtual bool unknown_slot71(int arg1);                            // slot 71 0x0043BFC0
+    virtual bool Mark(int arg1);                            // slot 71 0x0043BFC0
     virtual Rect unknown_slot73();                                    // slot 73 0x00450DD0
     virtual void unknown_slot74(int arg1);                            // slot 74 0x004519D0
     virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);  // slot 77 0x0043FFE0
@@ -232,7 +232,7 @@ public:
     virtual bool unknown_slot222(HouseClass *house, int arg2);                  // slot 222 0x00444660
     virtual WeaponStruct *unknown_slot231(int index);                 // slot 231 0x0044D980
     virtual bool unknown_slot232();                                   // slot 232 0x0044D9D0
-    virtual void unknown_slot234(int arg1);                           // slot 234 0x0044FB50
+    virtual void Cloaking_AI(int arg1);                           // slot 234 0x0044FB50
     virtual int unknown_slot254(int arg1);                            // slot 254 0x004521B0
     virtual void unknown_slot260(AbstractClass *target, int arg2);     // slot 260 0x00450F00
     virtual bool unknown_slot261(bool arg1, bool arg2);     // slot 261 0x004490B0
@@ -320,7 +320,7 @@ public:
     bool unknown_44daa0(ObjectClass *object);                         // 0x0044DAA0 (whether the object's centre is within the type's PsychicDetectionRadius cells)
     void Spawn_Survivors_0043f8e0(ObjectClass *attacker); // private owned hypothesis, RET4
     bool unknown_44db40(CellClass *cell);                             // 0x0044DB40 (the same for a cell's centre)
-    void unknown_44d190();                                            // 0x0044D190 (slot 79's animation refresh: the slot 115 value and the cell's height level to every animation with +0x318, then the layer)
+    void Update_Anim_Appearance_0044d190();                                            // 0x0044D190 (slot 79's animation refresh: the slot 115 value and the cell's height level to every animation with +0x318, then the layer)
     void unknown_44d3e0();                                            // 0x0044D3E0 (powers the building on)
     void unknown_44d530();                                            // 0x0044D530 (powers the building off)
     Cell Offset_Toward_Map_Center_0044aa40(int mode); // private nominal class hypothesis, RET8 hidden Cell result

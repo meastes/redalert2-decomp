@@ -38,7 +38,7 @@ void UnknownMapGenerator::Generate_Urban_Units_00588100(DynamicVectorClass<Cell>
                     int strength=unit->unknown_slot32()->MaxStrength;
                     unit->Strength=strength;
                     unit->unknown_70=strength;
-                    unit->unknown_slot71(2);
+                    unit->Mark(2);
                     wasPlaced=true;
                     ++placed;
                 }

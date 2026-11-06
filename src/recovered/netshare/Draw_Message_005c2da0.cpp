@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void __fastcall Unknown_005C2DA0(int color, wchar_t const *message, HWND list) -- 0x005C2DA0
+// void __fastcall _DrawMessage_005c2da0(int color, wchar_t const *message, HWND list) -- 0x005C2DA0
 // From ra2-decomp _DrawMessage (YR 0x005E2820).
 // Purpose: adds message to the owner-drawn list box as lines that fit its
 // width (breaking at a newline or the last non-graphic character), each
@@ -13,7 +13,7 @@
 #include "shared/win32_window.hpp"
 #include "shared/win32_gdi.hpp"
 
-void __fastcall Unknown_005C2DA0(int color, unsigned short const *message, HWND window)
+void __fastcall _DrawMessage_005c2da0(int color, unsigned short const *message, HWND window)
 {
     RECT rect;
     struct { HDC hdc; struct { long cx; long cy; } size; } l;    // the twin's { HDC; SIZE } (no SIZE declared here)

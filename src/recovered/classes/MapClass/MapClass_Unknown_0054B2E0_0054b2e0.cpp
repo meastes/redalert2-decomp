@@ -57,7 +57,7 @@ int MapClass::Unknown_0054B2E0()
         }
 
         value += iter->unknown_476ba0(false);
-        iter->Unknown_00472540(-1);
+        iter->Recalc_Attributes(-1);
         if (iter->OverlayIndex != -1) {
             if (unknown_overlay_types_a35de8[iter->OverlayIndex]->unknown_278) {
                 iter->unknown_4724a0();

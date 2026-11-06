@@ -90,7 +90,7 @@ int ObjectClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
                 if (!unknown_7d) goto damage_done;
                 if (state == 0) goto damage_done;
                 if (!unknown_77) goto damage_done;
-                unknown_slot71(2);
+                Mark(2);
                 goto damage_done;
             }
         }

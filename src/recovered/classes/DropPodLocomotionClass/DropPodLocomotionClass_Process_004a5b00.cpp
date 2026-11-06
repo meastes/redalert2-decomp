@@ -52,7 +52,7 @@ bool __stdcall DropPodLocomotionClass::Process()
             } else {
                 new AnimClass(Rules->DropPod[0], coord, 0, 1, 0x600, 0);
             }
-            linked->unknown_slot71(1);
+            linked->Mark(1);
             linked->unknown_slot109(0);
             linked->unknown_slot261(false, true);
             linked->unknown_slot117();

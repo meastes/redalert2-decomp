@@ -64,9 +64,9 @@ void MapClass::Repair_Low_Bridge2_EW(Cell const &cell)
                 Map.Unknown_00631570(cursor + Cell(0, 1));
                 Map.Unknown_00631570(cursor - Cell(0, 1));
             }
-            center->Unknown_00472540(-1);
-            side1->Unknown_00472540(-1);
-            side2->Unknown_00472540(-1);
+            center->Recalc_Attributes(-1);
+            side1->Recalc_Attributes(-1);
+            side2->Recalc_Attributes(-1);
         }
         ++cursor.X;
         low_bridge = (unsigned char)Unknown_00562980(cursor);

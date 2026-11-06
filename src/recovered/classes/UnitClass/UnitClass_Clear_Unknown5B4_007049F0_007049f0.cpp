@@ -4,7 +4,7 @@ bool UnitClass::Clear_Unknown5B4_007049F0()
 {
     if (unknown_5b4 != -1) {
         unknown_5b4 = -1;
-        unknown_slot71(2);
+        Mark(2);
         return true;
     }
     return false;

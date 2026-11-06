@@ -54,7 +54,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
     if (nextface == 8) {
         int tubenum = Map[Object_Coord(LinkedTo)].unknown_116;
         if (tubenum >= 0 && tubenum < unknown_TubeClass_list_008661c8.Count()) {
-            LinkedTo->unknown_slot71(0);
+            LinkedTo->Mark(0);
             LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
             TubeClass *tube = unknown_TubeClass_list_008661c8[tubenum];
             Cell exit = tube->ExitCell;

@@ -56,7 +56,7 @@ void UnitClass::AI()
     if (unknown_5c0 != -1) {
         if (unknown_5c0++ >= Type->MaxDeathCounter) {
             unknown_6fd3a0();
-            unknown_slot71(0);
+            Mark(0);
             unknown_slot60();
             return;
         }

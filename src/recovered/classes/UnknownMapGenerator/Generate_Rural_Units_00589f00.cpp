@@ -37,7 +37,7 @@ void UnknownMapGenerator::Generate_Rural_Units_00589f00(Cell const &origin)
                     int strength=unit->unknown_slot32()->MaxStrength;
                     unit->Strength=strength;
                     unit->unknown_70=strength;
-                    unit->unknown_slot71(2);
+                    unit->Mark(2);
                     wasPlaced=true;
                     ++placed;
                 }

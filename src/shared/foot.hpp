@@ -164,7 +164,7 @@ public:
     virtual void unknown_slot54(bool arg1);  // slot 54 0x004C8220
     virtual void unknown_slot60();  // slot 60 0x004CCE40
     virtual void unknown_slot67(int arg1, int arg2);  // slot 67 0x004C9BC0
-    virtual bool unknown_slot71(int arg1);  // slot 71 0x004C2E60
+    virtual bool Mark(int arg1);  // slot 71 0x004C2E60
     virtual bool unknown_slot78(int arg1, int arg2, bool arg3);  // slot 78 0x004C61A0
     virtual void unknown_slot82(int arg1);  // slot 82 0x004CD3F0
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x004C6000
