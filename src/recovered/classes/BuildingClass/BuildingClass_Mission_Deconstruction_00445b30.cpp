@@ -1,4 +1,5 @@
-// Building selling and undeployment state machine, original00445B30 body3308+4.
+// Building selling and undeployment state machine, original00445B30 body3308+4. The crew exit cell sums the
+// random foundation entry in place (from TibSun building.cpp Mission_Deconstruction).
 #include "shared/building.hpp"
 #include "shared/house.hpp"
 #include "shared/gscreen.hpp"
@@ -87,8 +88,7 @@ int BuildingClass::unknown_slot140()
                     if(crew) infantry=new InfantryClass(crew,House);
                     if(infantry) {
                         ++unknown_a40774;
-                        int choice=unknown_id_source_a3d290->RandomNumber(0,cells-1);
-                        Cell cell=unknown_slot104()+foundation[choice];
+                        Cell cell=unknown_slot104()+foundation[unknown_id_source_a3d290->RandomNumber(0,cells-1)];
                         CoordStruct position=CoordStruct(cell)+CoordStruct(0,36,0);
                         position=Map[position].Closest_Free_Spot(position,false,false);
                         if(position==unknown_geometry_l || !infantry->unknown_slot53(&position,0)) {

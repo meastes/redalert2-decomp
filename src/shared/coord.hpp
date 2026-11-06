@@ -25,6 +25,10 @@ class Cell;
 #ifdef RA2_TPOINT3D_DIFFERENCE
 double __cdecl unknown_sqrt_4ba410(double value);     // 0x004BA410
 #endif
+#ifdef RA2_BUILDING_RAW_DELAY_COORD
+// BuildingClass +0x5CC (Building.cpp under RA2_COORD_TPOINT3D).
+struct RawCoordStruct { int X, Y, Z; };
+#endif
 #ifdef RA2_COORD_TPOINT3D
 // Coord's point base (layout and sum hypothesis evidenced by AnimClass 00420110).
 template<class T> class TPoint3D : public TPoint2D<T> {
@@ -59,7 +63,11 @@ struct CoordStruct : public TPoint3D<int> {
 struct CoordStruct {
 #endif
     CoordStruct() {}
-#ifdef RA2_BUILDING_DELAY_POINT
+#ifdef RA2_BUILDING_RAW_DELAY_COORD
+    CoordStruct(RawCoordStruct const &data);
+    operator RawCoordStruct() const;
+#endif
+#if defined(RA2_BUILDING_DELAY_POINT) && !defined(RA2_COORD_TPOINT3D)
     CoordStruct(TPoint3D<int> const &point);
 #endif
 #ifdef RA2_SHIP_MOVE_TO_VALUE

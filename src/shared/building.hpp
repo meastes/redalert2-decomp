@@ -9,7 +9,12 @@
 #include "shared/building_type.hpp"
 #include "shared/building_class.hpp"
 
-#ifdef RA2_BUILDING_DELAY_POINT
+#ifdef RA2_BUILDING_RAW_DELAY_COORD
+// The delayed-fire point at +0x5CC as a plain three-int record, converted member-wise at the call boundary.
+inline CoordStruct::CoordStruct(RawCoordStruct const &data) { X = data.X; Y = data.Y; Z = data.Z; }
+inline CoordStruct::operator RawCoordStruct() const { RawCoordStruct data; data.X = X; data.Y = Y; data.Z = Z; return data; }
+#endif
+#if defined(RA2_BUILDING_DELAY_POINT) && !defined(RA2_COORD_TPOINT3D)
 // Convert the pending three-field value into a coordinate at the call boundary.
 inline CoordStruct::CoordStruct(TPoint3D<int> const &point)
 {

@@ -8,16 +8,16 @@ static inline CoordStruct Add_Pixel_Offset(CoordStruct &coord,Point2D const &poi
 CoordStruct BuildingClass::unknown_slot43(int weapon)
 {
     if(Type->CanBeOccupied && unknown_554.Count()>0) {
-        CoordStruct offset=Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(Type->MuzzleFlash[unknown_56c]));
+        CoordStruct offset(unknown_tactical_83996c->Unknown_006A2900(Type->MuzzleFlash[unknown_56c]),0);
         return unknown_slot42()+offset;
     } else {
         Point2D const &pixel=Type->PrimaryFirePixelOffset;
         if(Fire_Pixels_Differ_0043bbd0(pixel,Point2D(65535,65535))) {
             if(Type->PrimaryFireDualOffset) {
-                CoordStruct offset=Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(pixel));
+                CoordStruct offset(unknown_tactical_83996c->Unknown_006A2900(pixel),0);
                 return TechnoClass::unknown_slot43(weapon)+offset;
             } else {
-                CoordStruct offset=Projected_Coord_0043bbd0(unknown_tactical_83996c->Unknown_006A2900(pixel));
+                CoordStruct offset(unknown_tactical_83996c->Unknown_006A2900(pixel),0);
                 return unknown_slot42()+offset;
             }
         } else {

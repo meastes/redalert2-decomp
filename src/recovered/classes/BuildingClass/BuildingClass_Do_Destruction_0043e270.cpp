@@ -30,10 +30,6 @@ extern CoordStruct const Destruction_No_Coord_0084ed30;
 // @ref ??_7?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@6B@=0079d0cc
 // @ref ??_7?$VectorClass@PBVParticleSystemTypeClass@@@@6B@=0079d0ac
 // Private source hypothesis: a world-coordinate constructor over the shared three-int layout.
-struct DestructionCellCoordinate_0043e270 : CoordStruct {
-    DestructionCellCoordinate_0043e270(Cell const &cell,int z=0)
-        : CoordStruct((int)cell.X*256+128,(int)cell.Y*256+128,z) {}
-};
 // The original unit has one const-particle vector construction, calling454AD0.
 // This declaration is paired with the complete original-bounded specialization later in the plan.
 // @ref ??_E?$VectorClass@PBVParticleSystemTypeClass@@@@UAEPAXI@Z=00454710
@@ -88,8 +84,8 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
     if (Type->Width()>=2 && Type->Foundation_Height(false)>=2) {
         if (Type->Width()>2) Random_Pick(0,Type->Width()-2);
         if (Type->Foundation_Height(false)>2) Random_Pick(0,Type->Foundation_Height(false)-2);
-        if (Random_Pick(0,99)<50) SmudgeTypeClass::Create_Scorch(DestructionCellCoordinate_0043e270(Cell(Position_Coord_00450950(*this))),100,100,true);
-        else SmudgeTypeClass::Create_Crater(DestructionCellCoordinate_0043e270(Cell(Position_Coord_00450950(*this))),100,100,true);
+        if (Random_Pick(0,99)<50) SmudgeTypeClass::Create_Scorch(CoordStruct(Cell(Position_Coord_00450950(*this))),100,100,true);
+        else SmudgeTypeClass::Create_Crater(CoordStruct(Cell(Position_Coord_00450950(*this))),100,100,true);
     }
     while (*offset!=Cell(32767,32767)) {
         CoordStruct position;
@@ -98,7 +94,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         Cell cell=Cell(unknown_slot42())+*current;
         if (Type->Explosion.Count()>0) {
             height_offset.Z=Position_Coord_00450950(*this).Z;
-            position=height_offset+Coord_Scatter(DestructionCellCoordinate_0043e270(cell),64,false);
+            position=height_offset+Coord_Scatter(CoordStruct(cell),64,false);
             new AnimClass(Type->Explosion.Pick(unknown_id_source_a3d290->Random()()),position,Random_Pick(0,3),1,0x600,0);
         }
     }

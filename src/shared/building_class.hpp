@@ -411,7 +411,9 @@ public:
     char unknown_5c6;                       // +0x5C6 (count of unknown_4c0)
     char unknown_5c7;                       // +0x5C7 (-1)
     int unknown_5c8;                        // +0x5C8
-#ifdef RA2_BUILDING_DELAY_POINT
+#if defined(RA2_BUILDING_RAW_DELAY_COORD)
+    RawCoordStruct unknown_5cc;
+#elif defined(RA2_BUILDING_DELAY_POINT)
     TPoint3D<int> unknown_5cc;
 #else
     CoordStruct unknown_5cc;
