@@ -6,7 +6,7 @@
 #include "shared/foot.hpp"
 #include "shared/techno_type.hpp"
 #include "shared/fast_math.hpp"
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
+// @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Release_Held@?$UnknownComPtr@UUnknownFlyInterface@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEXXZ=004bfbc0
 // @ref __real@8@3ffda0d97bb4e7870000=007a1100
 // @ref __real@8@3ffe8000000000000000=0079a728

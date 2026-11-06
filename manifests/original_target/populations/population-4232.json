@@ -4,8 +4,8 @@
     "id": "population-4232",
     "inventory_sha256": "baae139af77921fc838a1d38044737dbe94d64deacddbc6f4b661e2af7748e92",
     "gaps_sha256": "8f4f6f10ea471dd4dab8b7ce8bb2ea1442c289d5a1f188ae7ceb0f52db095794",
-    "historical_population_sha256": "4193b893f918c47a0f39103c48630a4c145711313b66ad51f5a2a2f63837caed",
-    "historical_acceptance_sha256": "84b96e637bfe7a97a482e0cda69f932a9487b9b68f9ffc7cbe25193983ce6031"
+    "historical_population_sha256": "c3102444df867dd5a5df939bb2cc960d4dd932210146b7c0905f2e3a37dadd68",
+    "historical_acceptance_sha256": "73a8c93ae1500eacdbef753ffdcf54ee77c7e77ba82ca4ccb574e91358d10254"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1629,7 +1629,7 @@
     "??_7?$VectorClass@UDirtyAreaStruct@@@@6B@": 8045796,
     "??_7?$DynamicVectorClass@PAVShadowControlClass@@@@6B@": 8045828,
     "??_7?$VectorClass@PAVShadowControlClass@@@@6B@": 8045860,
-    "?Fast_Sin@@YAMN@Z": 4957312,
+    "?Fast_Sin@@YANN@Z": 4957312,
     "??_E?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEPAXI@Z": 7000080,
     "??_G?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEPAXI@Z": 7000080,
     "?Clear@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEXXZ": 6998128,
@@ -4468,7 +4468,7 @@
     "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
     "?Rotate_X@Matrix3D@@QAEXM@Z": 5834592,
     "?Shear_Y@Matrix3D@@QAEXMM@Z": 5833712,
-    "?Fast_Cos@@YAMN@Z": 4957392,
+    "?Fast_Cos@@YANN@Z": 4957392,
     "?Rotate_X@Matrix3D@@QAEXMM@Z": 5834752,
     "?Rotate_Y@Matrix3D@@QAEXM@Z": 5834880,
     "?Rotate_Y@Matrix3D@@QAEXMM@Z": 5835040,
@@ -13757,7 +13757,7 @@
           "resolved": 11265388
         }
       ],
-      "source_sha256": "aa325430a7066b05e1a21121c0032b845a5d12164274ca920609464785f9ebc8",
+      "source_sha256": "bdb0c41180fceecdddac5854745d307ef7eea4f2edebc663ea70a9469f681ef0",
       "source": "src/recovered/classes/Tactical/Tactical_file_statics_init_006a22d0.cpp",
       "population": "population-4232",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -15219,7 +15219,7 @@
         {
           "offset": 32,
           "kind": 20,
-          "symbol": "?Fast_Sin@@YAMN@Z",
+          "symbol": "?Fast_Sin@@YANN@Z",
           "target": 4957312,
           "addend": 0,
           "resolved": 4292968476
@@ -15286,7 +15286,7 @@
         {
           "offset": 14,
           "kind": 20,
-          "symbol": "?Fast_Sin@@YAMN@Z",
+          "symbol": "?Fast_Sin@@YANN@Z",
           "target": 4957312,
           "addend": 0,
           "resolved": 4292968430

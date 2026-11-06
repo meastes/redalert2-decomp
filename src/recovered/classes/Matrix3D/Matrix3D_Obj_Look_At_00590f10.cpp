@@ -3,8 +3,8 @@
 // built from the forward, up and right vectors (Westwood's wwmath Obj_Look_At). The up vector is
 // assigned member by member and the length is held as a double (both fix the original's load order).
 #include "shared/matrix3d.hpp"
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
 // @ref ?Fast_Atan2@@YAMNN@Z=004ba600
 // @ref __real@4@00000000000000000000=0079a738

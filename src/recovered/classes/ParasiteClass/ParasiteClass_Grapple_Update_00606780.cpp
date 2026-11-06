@@ -14,6 +14,10 @@
 
 void __fastcall Make_Wakes_00606E10(FootClass *victim, CoordStruct coord);
 
+// Original float angle-scale pool operand used by the grapple oscillation.
+// @ref ?Grapple_Angle_Scale_007a7d00@@3MB=007a7d00
+extern float const Grapple_Angle_Scale_007a7d00;
+
 void ParasiteClass::Unknown_00606780()
 {
     int damage;
@@ -60,7 +64,7 @@ void ParasiteClass::Unknown_00606780()
                 Grapple_Frame_006066B0();
             }
             double angle = unknown_4c * sign * 0.3141592653589793;
-            unknown_28->unknown_280 = Fast_Sin(angle) * 0.78539819f;
+            unknown_28->unknown_280 = Fast_Sin(angle) * Grapple_Angle_Scale_007a7d00;
             break;
         }
         case 4: {

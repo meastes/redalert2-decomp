@@ -4,8 +4,8 @@
     "id": "population-4214",
     "inventory_sha256": "c918b16fbbdb9ff12a56e940f85b8885b32f01b6879f9f207e05fbe91271cf21",
     "gaps_sha256": "29612fd36fc68d14ddf66ecf474746bf7e17bfb91418dd1046ff2ae728a7b7e7",
-    "historical_population_sha256": "ee271f0486b4dfa7901ea48b5165f8b9033a3a07643465758d2f361d68608f6e",
-    "historical_acceptance_sha256": "0d8af308ca4fb68d329c0be195796b2611af830151a169ede2a7e548b64ad6f1"
+    "historical_population_sha256": "043ce5819f3e53c6548309dc2b41ae0682c5cc18fca0cd61ebda656823e4105a",
+    "historical_acceptance_sha256": "50c8ed54ff9c8963d72af92d79ee77b23e3c916f7e59244f7fc908edbc7bcdf7"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -5079,8 +5079,8 @@
     "??0Matrix3D@@QAE@MMMMMMMMMMMM@Z": 5832240,
     "??0Matrix3D@@QAE@ABUVector3@@000@Z": 5832336,
     "??0Matrix3D@@QAE@MM@Z": 5832432,
-    "?Fast_Sin@@YAMN@Z": 4957312,
-    "?Fast_Cos@@YAMN@Z": 4957392,
+    "?Fast_Sin@@YANN@Z": 4957312,
+    "?Fast_Cos@@YANN@Z": 4957392,
     "?Fast_Atan2@@YAMNN@Z": 4957696,
     "?Fast_Atan@@YAMN@Z": 4957616,
     "?unknown_atan_step_817df8@@3MA": 8486392,
@@ -12259,7 +12259,7 @@
         {
           "offset": 557,
           "kind": 20,
-          "symbol": "?Fast_Sin@@YAMN@Z",
+          "symbol": "?Fast_Sin@@YANN@Z",
           "target": 4957312,
           "addend": 0,
           "resolved": 35151

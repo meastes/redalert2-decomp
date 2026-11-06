@@ -37,7 +37,7 @@ Quaternion __fastcall Slerp(Quaternion const &a, Quaternion const &b, float t)
     return res;
 }
 // @ref ?Fast_Asin@@YAMN@Z=004ba580
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
+// @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref __real@4@3fff8000000000000000=0079b7f8
 // @ref __real@8@3feea7c5ac471b478800=0079c520
 // @ref __real@8@3fff8000000000000000=0079a708

@@ -1,5 +1,5 @@
 #include "shared/fast_math.hpp"
-float __cdecl Fast_Cos(double angle)
+double __cdecl Fast_Cos(double angle)
 {
     float value = (float)angle;
     int doubled = (int)(value * unknown_cos_scale_7d804c);
@@ -11,6 +11,7 @@ float __cdecl Fast_Cos(double angle)
         if (index < 10239) ++index;
     }
     double sample=unknown_sin_table_801dc4[index];
-    return sample;
+    // Preserve the original single-precision result store before returning it.
+    return (float)sample;
 }
 

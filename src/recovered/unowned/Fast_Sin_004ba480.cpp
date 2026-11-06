@@ -1,5 +1,5 @@
 #include "shared/fast_math.hpp"
-float __cdecl Fast_Sin(double angle)
+double __cdecl Fast_Sin(double angle)
 {
     float value = (float)angle;
     int doubled = (int)(value * unknown_sin_scale_7d8048);
@@ -10,6 +10,7 @@ float __cdecl Fast_Sin(double angle)
         if (index < 8191) ++index;
     }
     double sample=unknown_sin_table_801dc4[index];
-    return sample;
+    // Preserve the original single-precision result store before returning it.
+    return (float)sample;
 }
 

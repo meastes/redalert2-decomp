@@ -1,7 +1,7 @@
 // Matrix3D pre-multiplication by a Y rotation; original00590550.
 #include "shared/matrix3d.hpp"
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
 void Matrix3D::Pre_Rotate_Y(float angle)
 {
     float sine = Fast_Sin(angle);

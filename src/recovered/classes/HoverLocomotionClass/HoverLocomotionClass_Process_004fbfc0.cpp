@@ -12,8 +12,8 @@
 // @ref ?Equal_XY_004bfb60@CoordStruct@@QBEHABU1@@Z=004bfb60
 // @ref ?Fast_Atan2@@YAMNN@Z=004ba600
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
 // @ref ?unknown_coord_a41080@@3UCoordStruct@@A=00a41080
 // @ref ?unknown_facing_origin_79b630@@3NB=0079b630
 // @ref ?unknown_facing_scale_79b628@@3NB=0079b628

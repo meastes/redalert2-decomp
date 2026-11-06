@@ -4,8 +4,8 @@
     "id": "population-4207",
     "inventory_sha256": "e2f0b4d381ce0b8414dc743b715ea21ae265ff7fa89ff20f8288e1ba9a6ec396",
     "gaps_sha256": "50df54e4f89cbf47cc885c25505689a8d78e0fb0d2032fba39a09cbebf9a8ccc",
-    "historical_population_sha256": "0151b6e3c825c3d24277de64af83e2dd739abe5ec5a5836dbc2f74df7afb3479",
-    "historical_acceptance_sha256": "2c05e488d4d277aeadb7135e808d63947d0725de5675c93cf25261b0275063ed"
+    "historical_population_sha256": "512c1017c74d55ffe05054871213a5bbb6ef76eb445fdc00e40778942b97deae",
+    "historical_acceptance_sha256": "a562bb7bea03580ab63816ff3cdf5f49e42ce31f12743c7880eb1788563071e0"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8755,8 +8755,8 @@
     "__imp__GetCapture@0": 7971820,
     "__imp__ReleaseCapture@0": 7971816,
     "?Shear_Y@Matrix3D@@QAEXMM@Z": 5833712,
-    "?Fast_Sin@@YAMN@Z": 4957312,
-    "?Fast_Cos@@YAMN@Z": 4957392,
+    "?Fast_Sin@@YANN@Z": 4957312,
+    "?Fast_Cos@@YANN@Z": 4957392,
     "?Rotate_X@Matrix3D@@QAEXMM@Z": 5834752,
     "?Rotate_Y@Matrix3D@@QAEXM@Z": 5834880,
     "?Rotate_Y@Matrix3D@@QAEXMM@Z": 5835040,
@@ -13155,7 +13155,7 @@
         {
           "offset": 383,
           "kind": 20,
-          "symbol": "?Fast_Sin@@YAMN@Z",
+          "symbol": "?Fast_Sin@@YANN@Z",
           "target": 4957312,
           "addend": 0,
           "resolved": 4293581629
@@ -13171,7 +13171,7 @@
         {
           "offset": 415,
           "kind": 20,
-          "symbol": "?Fast_Cos@@YAMN@Z",
+          "symbol": "?Fast_Cos@@YANN@Z",
           "target": 4957392,
           "addend": 0,
           "resolved": 4293581677

@@ -21,8 +21,8 @@ extern "C" double __cdecl fabs(double);
 #include "shared/vector3.hpp"
 #include "shared/fast_math.hpp"
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
 // @ref __real@8@3ff2d1b71758e2196800=007a4620
 // @ref __real@8@3fefa7c5ac471b478800=007a4628
 double __cdecl unknown_sin_4ba480(double angle);    // 0x004BA480

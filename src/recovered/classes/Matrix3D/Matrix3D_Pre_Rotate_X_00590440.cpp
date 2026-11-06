@@ -1,8 +1,8 @@
 // ?Pre_Rotate_X@Matrix3D@@QAEXM@Z (0x00590440)
 // Rotates about the world X axis by theta (rows 1 and 2 mixed).
 #include "shared/matrix3d.hpp"
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
 
 void Matrix3D::Pre_Rotate_X(float theta)
 {

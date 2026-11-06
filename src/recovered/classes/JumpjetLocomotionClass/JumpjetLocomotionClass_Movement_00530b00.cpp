@@ -1,7 +1,7 @@
 // @ref ??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z=00548000
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280

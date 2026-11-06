@@ -20,7 +20,7 @@
 // @ref ??_7?$DynamicVectorClass@PAVShadowControlClass@@@@6B@=007ac504
 // @ref ??_7?$VectorClass@PAVShadowControlClass@@@@6B@=007ac524
 // @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
+// @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ??_E?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEPAXI@Z=006ad010
 // @ref ??_G?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEPAXI@Z=006ad010
 // @ref ?Resize@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAE_NHPBUDirtyAreaStruct@@@Z=006acbe0

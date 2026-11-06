@@ -4,8 +4,8 @@
     "id": "population-4001",
     "inventory_sha256": "79499b51e2af7b3ec6e08dd611343e01517f348e3913c62956b233baf0307bb4",
     "gaps_sha256": "348637b49dbecf22b4d8c27f7636ed47a13d002cd3327b2c04a3a7c6e0deef5f",
-    "historical_population_sha256": "76b006833c4ddc2cb6388bb485a661d1abec0e82ddeeae7f00f86b28669bdab3",
-    "historical_acceptance_sha256": "7fe76264e4f44710c928a179f0469424edbe2c5d13ee7fb9051daef2476a81ea"
+    "historical_population_sha256": "8a50b69ffac68fdd1d388bdc8c157f74dac2feddb00ed8818bce9ad31a7d5916",
+    "historical_acceptance_sha256": "f3a906deea9f27dc9bea805e7f9efee0bd4832e7bd88e6c4beb43ca14171511a"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5770,8 +5770,8 @@
     "?unknown_471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?Is_Near_Tunnel_NW@CellClass@@QAE_NXZ": 4693232,
     "?Is_Near_Tunnel_ES@CellClass@@QAE_NXZ": 4693872,
-    "?Fast_Sin@@YAMN@Z": 4957312,
-    "?Fast_Cos@@YAMN@Z": 4957392,
+    "?Fast_Sin@@YANN@Z": 4957312,
+    "?Fast_Cos@@YANN@Z": 4957392,
     "?Fast_Atan2@@YAMNN@Z": 4957696,
     "?Fast_Atan@@YAMN@Z": 4957616,
     "?unknown_atan_step_817df8@@3MA": 8486392,
@@ -11850,7 +11850,7 @@
         {
           "offset": 552,
           "kind": 20,
-          "symbol": "?Fast_Sin@@YAMN@Z",
+          "symbol": "?Fast_Sin@@YANN@Z",
           "target": 4957312,
           "addend": 0,
           "resolved": 4292447924
@@ -12164,7 +12164,7 @@
         {
           "offset": 466,
           "kind": 20,
-          "symbol": "?Fast_Sin@@YAMN@Z",
+          "symbol": "?Fast_Sin@@YANN@Z",
           "target": 4957312,
           "addend": 0,
           "resolved": 4292447194
@@ -12294,7 +12294,7 @@
         {
           "offset": 122,
           "kind": 20,
-          "symbol": "?Fast_Sin@@YAMN@Z",
+          "symbol": "?Fast_Sin@@YANN@Z",
           "target": 4957312,
           "addend": 0,
           "resolved": 4292446226
@@ -12368,7 +12368,7 @@
         {
           "offset": 38,
           "kind": 20,
-          "symbol": "?Fast_Sin@@YAMN@Z",
+          "symbol": "?Fast_Sin@@YANN@Z",
           "target": 4957312,
           "addend": 0,
           "resolved": 4292445862
@@ -12376,7 +12376,7 @@
         {
           "offset": 57,
           "kind": 20,
-          "symbol": "?Fast_Cos@@YAMN@Z",
+          "symbol": "?Fast_Cos@@YANN@Z",
           "target": 4957392,
           "addend": 0,
           "resolved": 4292445923

@@ -10,8 +10,8 @@
 // The float square root itself (TibSun fastmath::sqrtf; __stdcall, see its source).
 float __stdcall Fast_Sqrt_Float_004BA830(float value); // 0x004BA830
 float __cdecl Fast_Sqrt(double value);              // 0x004BA410
-float __cdecl Fast_Sin(double angle);               // 0x004BA480
-float __cdecl Fast_Cos(double angle);               // 0x004BA4D0
+double __cdecl Fast_Sin(double angle);               // 0x004BA480
+double __cdecl Fast_Cos(double angle);               // 0x004BA4D0
 float __cdecl Fast_Sin_4096(double angle);          // 0x004BA520 (4096-entry table; name hypothesis)
 float __cdecl Fast_Acos(double value);              // 0x004BA550
 float __cdecl Fast_Asin(double value);              // 0x004BA580

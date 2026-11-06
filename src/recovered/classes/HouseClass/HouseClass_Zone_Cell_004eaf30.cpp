@@ -5,8 +5,8 @@
 #include "shared/techno.hpp"
 #include "shared/fast_math.hpp"
 #include "shared/unknown_vector3.hpp"
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
 // @ref ??0UnknownVector3@@QAE@HHH@Z=0041b630
 
 // A coordinate moved a distance along a direction (raw 16-bit, 0 north,

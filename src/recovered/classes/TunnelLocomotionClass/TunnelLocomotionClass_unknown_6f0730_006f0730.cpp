@@ -46,5 +46,5 @@ void TunnelLocomotionClass::unknown_6f0730()
 // @ref _unknown_geometry_k=00ac0f10
 // @ref __real@8@40039800000000000000=007adca8
 // @ref ?Fast_Atan2@@YAMNN@Z=004ba600
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0

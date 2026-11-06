@@ -13,8 +13,8 @@
 // @ref ?Distance_To@ObjectClass@@QBEHPBVAbstractClass@@@Z=005d4c00
 // @ref ?unknown_func_733f70@WeaponTypeClass@@QBEHH@Z=00733f70
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
 // @ref __real@8@bff1c9116cc4faf2b800=0079b620
 // @ref __real@8@3ffee666666666666800=007ad028
 

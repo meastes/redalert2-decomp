@@ -1,4 +1,4 @@
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
+// @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Frame@@3HA=00a40d2c
 // @ref ?Is_Powered@LocomotionClass@@UAG_NXZ=0053d230
 // @ref ?Map@@3VMouseClass@@A=008324e0

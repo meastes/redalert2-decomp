@@ -6,8 +6,8 @@
 #include "shared/unknown_vector3.hpp"
 extern double const unknown_facing_radians_79b620;
 // @ref ?unknown_facing_radians_79b620@@3NB=0079b620
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
 // @ref ??0UnknownVector3@@QAE@HHH@Z=0041b630
 // Actual three-component position, preserving the out-of-line vector constructor.
 inline UnknownVector3 Compute_Scatter_Vector(CoordStruct const &coord,double radians,int distance)

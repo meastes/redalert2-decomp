@@ -3,8 +3,8 @@
 // @ref ??D@YI?AVMatrix3D@@ABV0@0@Z=00591180
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
 // @ref ?Draw_Matrix@LocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z=0053d030
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Make_Identity@Matrix3D@@QAEXXZ=00590060
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Rotate_X@Matrix3D@@QAEXM@Z=00590760

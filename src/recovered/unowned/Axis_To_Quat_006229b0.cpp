@@ -30,5 +30,5 @@ Quaternion __fastcall Axis_To_Quat(Vector3 const &axis, float angle)
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
 // @ref __real@8@00000000000000000000=0079b610
 // @ref __real@4@3ffe8000000000000000=0079dd80
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0

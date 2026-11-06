@@ -144,8 +144,8 @@ BulletClass *AircraftClass::unknown_slot221(AbstractClass *target, int arg2)
 // @ref ?Velocity_Length3_0041B7C0@@YINPBUBulletVelocity@@@Z=0041b7c0
 // @ref __real@8@bff1c9116cc4faf2b800=0079b620
 // @ref __real@8@00000000000000000000=0079b610
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
 // @ref ?Ensure_VelocityXY_0041B860@@YIXPAUBulletVelocity@@@Z=0041b860
 // @ref ?Velocity_LengthXY_0041B830@@YINPBUBulletVelocity@@@Z=0041b830

@@ -1,8 +1,8 @@
 // ?Rotate_Y@Matrix3D@@QAEXM@Z (0x00590880)
 // Rotates about the local Y axis by theta.
 #include "shared/matrix3d.hpp"
-// @ref ?Fast_Sin@@YAMN@Z=004ba480
-// @ref ?Fast_Cos@@YAMN@Z=004ba4d0
+// @ref ?Fast_Sin@@YANN@Z=004ba480
+// @ref ?Fast_Cos@@YANN@Z=004ba4d0
 
 void Matrix3D::Rotate_Y(float theta)
 {
