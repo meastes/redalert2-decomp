@@ -16,7 +16,12 @@ enum FacingType {
     FACING_COUNT
 };
 
+#ifdef RA2_DIR_AS_FACING
+// TibSun face.h names for the facings the recovered code uses.
+enum Dir256 { DIR_MIN=0, DIR_N=0, DIR_W=6<<5, DIR_MAX=255 };
+#else
 enum Dir256 { DIR_MIN=0, DIR_MAX=255 };
+#endif
 
 class DirType {
 public:
@@ -53,6 +58,10 @@ public:
     int As_Dir256() const { return (int)(Round_To_256() % 256); }
     DirType const &Snap_To_8() { Facing &= 0xE000; return *this; }
     int As_Int() const { return Facing; }
+#ifdef RA2_DIR_AS_FACING
+    // TibSun face.h: the nearest of the eight facings.
+    FacingType As_Facing() const { return (FacingType)((((((unsigned int)Facing >> 12) + 1) >> 1)) % (8)); }
+#endif
 
     union {
         short Facing;
