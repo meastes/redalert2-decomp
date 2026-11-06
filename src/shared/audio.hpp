@@ -793,7 +793,11 @@ struct AudioEventType : AudioListNode {
     int unknown_14;                 // +0x14 starts as 0x20
     AudioLevel VolumeLevel;         // +0x18 (Current at +0x1C is the 16.16 volume)
     int unknown_40;                 // +0x40 starts as 2
+#ifdef RA2_AUDIO_EVENT_SERVICE
+    int Count;                      // +0x44 events of this type listed in Local this frame
+#else
     char unknown_44[0x48 - 0x44];
+#endif
     int unknown_48;                 // +0x48 starts as 3
     int LoopCount;                  // +0x4C 0: loop forever
     int unknown_50;                 // +0x50 starts as 10
@@ -804,7 +808,16 @@ struct AudioEventType : AudioListNode {
     int unknown_64;                 // +0x64 high end
     int unknown_68;                 // +0x68 percent, 0..100
     char Name[0x1f + 1];            // +0x6C
+#ifdef RA2_AUDIO_EVENT_SERVICE
+    AudioListNode Local;            // +0x8C this frame's events of this type, loudest first
+    int LastFrame;                  // +0x98 the frame Local was rebuilt in
+    unsigned int LastBucketStamp;   // +0x9C the bucket pass BucketNode was placed in
+    int MaxPriority;                // +0xA0 highest priority among its events this pass
+    AudioListNode BucketNode;       // +0xA4 its place in Audio_Priority_Lists
+    unsigned int MaxVolume;         // +0xB0 loudest volume step among them
+#else
     char unknown_8c[0xb4 - 0x8c];
+#endif
     int Samples[0x20];              // +0xB4 bag entries (0x004015C0 finds them by name)
     int SampleCount;                // +0x134
     int Intro;                      // +0x138 samples played first (0: none)
@@ -827,9 +840,13 @@ enum {
 struct AudioEventHandle;
 
 struct AudioEvent : AudioListNode {
+#ifdef RA2_AUDIO_EVENT_SERVICE
+    AudioListNode Local;            // +0x0C its place in its type's Local list
+#else
     int unknown_0c;
     int unknown_10;
     int unknown_14;
+#endif
     unsigned int volatile Flags;    // +0x18 AUDIO_EVENT_*
     int volatile State;             // +0x1C 2: playing
     int unknown_20;
@@ -874,7 +891,10 @@ extern AudioEventKeyword Audio_Event_Keywords[];        // 0x007CCB18
 
 extern AudioListNode Audio_Priority_Lists[][10];         // 0x00830B58 rows of ten lists (0x78 bytes a row); users unknown
 
+// The event list is file-local to the event unit, which defines it (0x00403EB0).
+#ifndef RA2_AUDIO_EVENT_LIST_STATIC
 extern AudioListNode Audio_Event_List;                  // 0x00830EA0
+#endif
 extern int Audio_Event_Count;                           // 0x00830FA4
 extern int Audio_Events_Ready;                          // 0x00830FB8
 extern AudioPool *Audio_Event_Pool;                     // 0x00830FC0
@@ -930,6 +950,10 @@ void __fastcall Audio_Event_Free(AudioEvent *event);                            
 void __fastcall Audio_Event_Stop(AudioEvent *event);                                        // 0x00405300
 void __fastcall Audio_Event_Pause(AudioEvent *event);                                       // 0x004053F0
 void __fastcall Audio_Event_Resume(AudioEvent *event);                                      // 0x00405440
+#ifdef RA2_AUDIO_EVENT_SERVICE
+int __fastcall Audio_Event_Is_Paused(AudioEvent *event);                                  // 0x004054A0 its pause count
+void Audio_Events_Free_Stopped();                                                           // 0x004050A0
+#endif
 void __fastcall Audio_Event_Finish(AudioEvent *event);                                      // 0x00405590
 AudioEvent *__fastcall Audio_Event_Create(AudioEventType *type);                          // 0x00405170
 void __fastcall Audio_Level_Fade_To_Zero(AudioLevel *level);                               // 0x00406FA0 ramps a level to 0

@@ -2,7 +2,12 @@
 // Purpose: starts the event system: empties the event lists, resets the
 // shared levels and, when there is a bag, builds the sample bank and the event
 // pool. Returns 1 when everything needed exists.
+#define RA2_AUDIO_EVENT_LIST_STATIC
+#define RA2_AUDIO_EVENT_SERVICE
 #include "shared/audio_event.hpp"
+
+static AudioListNode Audio_Event_List;                  // 0x00830EA0
+// @ref _Audio_Event_List=00830ea0
 
 int __fastcall Audio_Events_Init(AudioDevice *device, AudioBag *bag)
 {
