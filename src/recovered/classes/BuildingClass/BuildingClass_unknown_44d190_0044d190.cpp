@@ -2,7 +2,9 @@
 // Gives every animation in unknown_454 whose type has +0x318 set the slot
 // 115 value and the frame (the height level of its cell, slot 254, adjusted
 // by 0x006D86F0 when slot 203 holds; also kept in unknown_5c4), then the
-// building's layer.
+// building's layer. Written as ra2-decomp's Update_Anim_Appearance (YR 0x00452000): the drawer loop is the
+// Set_Anim_Drawer call 0x0044D0F0 and it is passed the stored member (Brightness); that smaller body lets Mark
+// 0x0043BFC0 expand it.
 #include "shared/building.hpp"
 // @ref ?unknown_6d86f0@TechnoClass@@QAEHH@Z=006d86f0
 
@@ -15,16 +17,6 @@ void BuildingClass::unknown_44d190()
         level = unknown_6d86f0(level);
     }
     unknown_5c4 = level;
-    int frame = (unsigned short)level;
-    for (int index = 0; index < 18; index++) {
-        UnknownBuildingAnim *anim = (UnknownBuildingAnim *)unknown_454[index];
-        if (anim != 0) {
-            if (anim->Type != 0 && anim->Type->unknown_318) {
-                anim->unknown_bc = value;
-                anim->unknown_e4 = frame;
-            }
-            unknown_44d2d0(unknown_5bd);
-        }
-    }
+    unknown_44d0f0(value, (unsigned short)unknown_5c4);
     unknown_44d2d0(unknown_5bd);
 }
