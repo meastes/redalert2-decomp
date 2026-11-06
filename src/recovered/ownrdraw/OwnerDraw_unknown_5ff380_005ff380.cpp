@@ -7,7 +7,8 @@ namespace OwnerDraw {
 // Deletes a registered control's surface (+0x10).
 void __fastcall unknown_5ff380(unsigned int key)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find(key);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer(key, &record);
     if (record && record->surface_10) {
         delete record->surface_10;
         record->surface_10 = 0;

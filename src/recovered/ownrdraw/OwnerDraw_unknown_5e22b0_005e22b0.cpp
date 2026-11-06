@@ -328,10 +328,17 @@
 
 namespace OwnerDraw {
 
+// The kind of the control registered under key (record +0x6C), 0 when it has no record (inline here:
+// its record pointer gets no frame slot in 0x005E22B0).
+inline int Record_Kind(unsigned int key)
+{
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer(key, &record);
+    return record != 0 ? record->unknown_6c : 0;
+}
 char const *__fastcall unknown_5e22b0(unsigned int key, HWND window)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find(key);
-    int kind = record != 0 ? record->unknown_6c : 0;
+    int kind = Record_Kind(key);
     int id = GetDlgCtrlID(window);
     if (kind == 0xe2) {
         if (id == 0x683) {

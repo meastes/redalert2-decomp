@@ -4,7 +4,7 @@
 // @ref ?Is_Listed_Kind_5e0da0@OwnerDraw@@YI_NH@Z=005e0da0
 // @ref ?FUN_005df660@seed_005df660@@YIEH@Z=005df660
 // @ref ?OwnerDraw_Control_Test_005e6860@@YI_NIPAUHWND__@@@Z=005e6860
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 
@@ -40,12 +40,14 @@ inline bool Is_Owner_Button(HWND window)
 }
 inline bool Is_Free_Record(HWND window)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)window);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)window, &record);
     return record != 0 && record->unknown_68 == 0;
 }
 inline int Kind_Of(unsigned int key)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find(key);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer(key, &record);
     return record != 0 ? record->unknown_6c : 0;
 }
 // EnumChildWindows callback (0x005E4780): stores lparam in the control's record +0xBC for the listed

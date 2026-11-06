@@ -1,8 +1,7 @@
 // The ownrdraw control registry at 0x00A73640 as wlib's chained dictionary (shared/wol_dictionary.hpp),
 // keyed by window handle value: its dynamic initializer (0x005DED60) inlines the constructor and
 // registers the atexit destructor (0x005DEE00, the next draft), which inlines the destructor with each
-// record's destructor, clear() and shrink(). The same object is unknown_registry_a73640
-// (UnknownControlIndex) to the unit's other functions (hypothesis: one wlib Dictionary instance).
+// record's destructor, clear() and shrink(). TibSun's ODWinData (Dictionary<HWND, WinData>).
 // @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 // @ref ?unknown_hash_key_5de970@@YIIABI@Z=005de970
 // @ref ??_GWideString@@QAEPAXI@Z=00601430

@@ -3,7 +3,7 @@
 // @ref ?unknown_surface_839950@@3PAVSurface@@A=00839950
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 // @ref ?unknown_surface_count_a763d8@OwnerDraw@@3HA=00a763d8
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??0Buffer@@QAE@PAXJ@Z=004382c0
@@ -23,7 +23,7 @@ void __fastcall unknown_draw_dimmed_back_5fe490(Rect const &area, HWND window, i
 {
     UnknownControlRecord *record = 0;
     UnknownControlRecord *parent_record = 0;
-    unknown_registry_a73640.Get(*(unsigned int *)&window, record);
+    unknown_control_table_a73640.Get_Pointer(*(unsigned int *)&window, &record);
     RECT client;
     GetClientRect(window, &client);
     RECT screen;
@@ -35,7 +35,7 @@ void __fastcall unknown_draw_dimmed_back_5fe490(Rect const &area, HWND window, i
         unknown_surface_count_a763d8++;
         Rect full(0, 0, client.right + 1, client.bottom + 1);
         HWND parent = GetParent(window);
-        unknown_registry_a73640.Get(*(unsigned int *)&parent, parent_record);
+        unknown_control_table_a73640.Get_Pointer(*(unsigned int *)&parent, &parent_record);
         Surface *parent_surface = parent_record->surface_10;
         if (parent_surface) {
             RECT parent_screen;

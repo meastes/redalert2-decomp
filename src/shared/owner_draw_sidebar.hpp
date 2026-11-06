@@ -26,7 +26,12 @@ inline int Sidebar_Inset(int width, unsigned char flag)
 }
 inline int Sidebar_Margin(HWND window, int width)
 {
+#ifdef RA2_OWNERDRAW_CONTROL_DICTIONARY
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)window, &record);
+#else
     UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)window);
+#endif
     if (record && record->unknown_dc) return record->unknown_dc;
     return (unknown_int_7add80 - width) / 2;
 }

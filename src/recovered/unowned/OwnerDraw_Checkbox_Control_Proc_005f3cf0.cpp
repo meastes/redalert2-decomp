@@ -23,7 +23,7 @@ LRESULT __stdcall unknown_checkbox_proc_5f3cf0(HWND window,UINT message,WPARAM w
     unsigned int key=(unsigned int)window;
     UnknownControlRecord *record=0;
     UnknownControlRecord *&data=record;
-    unknown_registry_a73640.Get(key,data);
+    unknown_control_table_a73640.Get_Pointer(key, &data);
     if(data) {
     switch(message) {
     case 0xf:

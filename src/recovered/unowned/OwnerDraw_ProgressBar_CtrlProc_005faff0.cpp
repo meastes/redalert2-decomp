@@ -12,7 +12,8 @@ LRESULT __stdcall unknown_progress_proc_5faff0(HWND window, UINT message, WPARAM
 {
     RECT rect;
     Window_Rect_In_Main_Client(window, &rect);
-    UnknownControlRecord *data = unknown_registry_a73640.Find((unsigned int)window);
+    UnknownControlRecord *data = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)window, &data);
     if (data) {
         switch (message) {
         case 0x497:

@@ -1,4 +1,4 @@
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 // @ref ?unknown_art_ac1074@@3PAXA=00ac1074
 // @ref ?unknown_shape_ac1104@@3PAUShapeFileStruct@@A=00ac1104
 // @ref ?unknown_shape_ac110c@@3PAUShapeFileStruct@@A=00ac110c
@@ -20,7 +20,8 @@ namespace OwnerDraw {
 // (unknown_74) and the two shapes unknown_e0 / unknown_e4.
 void __fastcall unknown_set_control_art_5ea960(unsigned int key)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find(key);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer(key, &record);
     if (record != 0) {
         int kind = record->unknown_6c;
         if (kind == 0x94) {

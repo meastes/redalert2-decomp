@@ -131,19 +131,19 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
     }
     UnknownControlRecord *parent_data = 0;
     if (parent) {
-        unknown_registry_a73640.Get((unsigned int const &)parent, parent_data);
+        unknown_control_table_a73640.Get_Pointer((unsigned int const &)parent, &parent_data);
         Window_Rect_In_Main_Client(parent, &parent_rect);
     }
     unknown_dropdown_owner_a763e8 = parent;
     unknown_dropdown_window_a763e4 = window;
     UnknownControlRecord *data = 0;
-    unknown_registry_a73640.Get((unsigned int const &)window, data);
+    unknown_control_table_a73640.Get_Pointer((unsigned int const &)window, &data);
     if (data == 0) {
         Debug_Printf("ComboBox dropdown windata = NULL\n");
     }
     UnknownControlRecord *master = 0;
     if (unknown_combo_owner_a763f4) {
-        unknown_registry_a73640.Get((unsigned int const &)unknown_combo_owner_a763f4, master);
+        unknown_control_table_a73640.Get_Pointer((unsigned int const &)unknown_combo_owner_a763f4, &master);
     }
     if (message != 0x146 && message != 0x154 && message != 0x115) {
         int item_count = SendMessageA(unknown_combo_owner_a763f4, 0x146, 0, 0);
@@ -462,7 +462,7 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
             data->scroll_width_04 = scrollbar_width;
             unknown_5ed180(scroll, 0);
             UnknownControlRecord *scroll_data = 0;
-            unknown_registry_a73640.Get((unsigned int const &)data->attached_0c, scroll_data);
+            unknown_control_table_a73640.Get_Pointer((unsigned int const &)data->attached_0c, &scroll_data);
             scroll_data->owner_08 = window;
             scroll_data->alternate_cd = data->alternate_cd;
             UnknownScrollInfo info;

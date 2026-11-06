@@ -1,5 +1,5 @@
 // @ref ?Unknown_00672F10@UnknownSessionState@@QAEEXZ=00672f10
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 // @ref ?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z=00713db0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?unknown_5e5150@OwnerDraw@@YIXPAUHWND__@@_N@Z=005e5150
@@ -18,7 +18,8 @@ bool __fastcall unknown_show_dialog_5e61b0(HWND dialog)
     if (unknown_session_a3d298.Unknown_00672F10()) {
         return false;
     }
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)dialog);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)dialog, &record);
     if (!record) {
         return false;
     }

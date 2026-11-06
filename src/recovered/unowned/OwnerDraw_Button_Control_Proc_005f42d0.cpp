@@ -19,7 +19,7 @@ namespace OwnerDraw {
 LRESULT __stdcall unknown_button_proc_5f42d0(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
 {
     UnknownControlRecord *data=0;
-    unknown_registry_a73640.Get((unsigned int)window,data);
+    unknown_control_table_a73640.Get_Pointer((unsigned int)window, &data);
     RECT display; memset(&display,0,sizeof(display));
     Window_Rect_In_Main_Client(window,&display);
     Rect origin;

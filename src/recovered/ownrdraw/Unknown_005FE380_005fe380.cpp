@@ -1,7 +1,7 @@
 // @ref ?unknown_surface_839950@@3PAVSurface@@A=00839950
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 #include "shared/unknown_globals.hpp"
 #include "shared/win32_api.hpp"
 #include "shared/win32_window.hpp"
@@ -27,7 +27,8 @@ void __fastcall Unknown_005FE380(long item)
         }
         if (draw->CtlType == 4) {
             HWND window = draw->hwndItem;
-            OwnerDraw::UnknownControlRecord *record = OwnerDraw::unknown_registry_a73640.Find((unsigned int)window);
+            OwnerDraw::UnknownControlRecord *record = 0;
+            unknown_control_table_a73640.Get_Pointer((unsigned int)window, &record);
             if (record) {
                 record->unknown_e8 = draw->itemState;
                 InvalidateRect(window, &draw->rcItem, FALSE);

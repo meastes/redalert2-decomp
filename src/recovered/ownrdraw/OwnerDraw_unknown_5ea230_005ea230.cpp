@@ -9,14 +9,14 @@ inline UnknownControlRecord *unknown_control_record(HWND control)
 {
     unsigned int key = (unsigned int)control;
     UnknownControlRecord *record = 0;
-    unknown_registry_a73640.Get(key, record);
+    unknown_control_table_a73640.Get_Pointer(key, &record);
     return record;
 }
 
 bool __fastcall unknown_5ea230(HWND control)
 {
     UnknownControlRecord *record = 0;
-    unknown_registry_a73640.Get(*(unsigned int *)&control, record);
+    unknown_control_table_a73640.Get_Pointer(*(unsigned int *)&control, &record);
     if (!record) {
         return false;
     }

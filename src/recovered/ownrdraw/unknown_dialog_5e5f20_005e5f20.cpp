@@ -1,4 +1,4 @@
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 // @ref ?unknown_5e5150@OwnerDraw@@YIXPAUHWND__@@_N@Z=005e5150
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
@@ -8,7 +8,8 @@
 // and clears the flag (0x005E5F20).
 void __fastcall unknown_dialog_5e5f20(HWND window)
 {
-    OwnerDraw::UnknownControlRecord *record = OwnerDraw::unknown_registry_a73640.Find((unsigned int)window);
+    OwnerDraw::UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)window, &record);
     if (record && record->unknown_be) {
         HWND item = GetDlgItem(window, 0x71a);
         if (item) {

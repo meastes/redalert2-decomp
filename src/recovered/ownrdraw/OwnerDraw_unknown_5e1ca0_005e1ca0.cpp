@@ -13,7 +13,7 @@ namespace OwnerDraw {
 int __fastcall unknown_5e1ca0(HWND dialog, HWND window)
 {
     UnknownControlRecord *record = 0;
-    unknown_registry_a73640.Get((unsigned int)dialog, record);
+    unknown_control_table_a73640.Get_Pointer((unsigned int)dialog, &record);
     if (record) {
     int kind = record->unknown_6c;
     if (kind == 0x10d || kind == 0xd9 || kind == 0xf0 || kind == 0xce || kind == 0x120 ||
@@ -29,7 +29,7 @@ int __fastcall unknown_5e1ca0(HWND dialog, HWND window)
         }
         bool wants;
         UnknownControlRecord *control;
-        if (strcmp(name, "ListBox") == 0 && unknown_registry_a73640.Get(handle, control)) {
+        if (strcmp(name, "ListBox") == 0 && unknown_control_table_a73640.Get_Pointer(handle, &control)) {
             wants = control->unknown_68 == 1;
         } else if (strcmp(name, "ComboBox") == 0) {
             wants = (GetWindowLongA((HWND)handle, GWL_STYLE) & 3) != 3;

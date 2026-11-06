@@ -5,6 +5,9 @@
 #include "shared/rect.hpp"
 #include "shared/string_table.hpp"
 #include "shared/unknown_node_list.hpp"
+#ifdef RA2_OWNERDRAW_CONTROL_DICTIONARY
+#include "shared/wol_dictionary.hpp"
+#endif
 // RTTI establishes this hierarchy; 0x6010c0 clears +4 and +8.
 // The fields are placed in SimpleDialogControl as an ownership hypothesis;
 // no base-field ownership claim is made from constructor omission alone.
@@ -181,6 +184,11 @@ struct UnknownControlRecord {
     char unknown_f4[0x200 - 0xf4];
 #endif
 };
+#ifdef RA2_OWNERDRAW_CONTROL_DICTIONARY
+// The ownrdraw unit reaches the control registry at 0x00A73640 as wlib's Dictionary keyed by the window
+// handle's value (TibSun's ODWinData): WolDictionary<unsigned int, UnknownControlRecord>
+// unknown_control_table_a73640 (shared/wol_dictionary.hpp; defined by its initializer 0x005DED60).
+#else
 class UnknownControlIndex {
 public:
     struct Node { unsigned int Key; UnknownControlRecord Value; Node *Next; };
@@ -227,10 +235,24 @@ public:
 #endif
 };
 extern UnknownControlIndex unknown_registry_a73640;
+#endif
 #ifdef RA2_OWNERDRAW_RECORD_DTOR
 // Whether kind is one of the listed dialog kinds (0x005E8590).
 BOOL __fastcall Is_Listed_Kind_5e8590(int kind);
 #endif
+#ifdef RA2_OWNERDRAW_CONTROL_DICTIONARY
+} // namespace OwnerDraw
+extern WolDictionary<unsigned int, OwnerDraw::UnknownControlRecord> unknown_control_table_a73640;
+namespace OwnerDraw {
+// A control's registry record, or null: getPointer one inline level down (0x005FC020 then calls
+// 0x00601710 out of line; 0x005E6450, 0x005F9FB0 and 0x005FB270 expand it).
+inline UnknownControlRecord *Get_Record(HWND window)
+{
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int const &)window, &record);
+    return record;
+}
+#else
 // A control's registry record through the out-of-line Get, or null (0x005FC020).
 inline UnknownControlRecord *Get_Record(HWND window)
 {
@@ -244,6 +266,7 @@ inline UnknownControlRecord *Get_Record(HWND window)
 #endif
     return record;
 }
+#endif
 #ifdef RA2_OWNERDRAW_WNDPROC_DICTIONARY
 // The ownrdraw unit reaches the window procedures at 0x00A73688 as wlib's Dictionary<HWND, WNDPROC>
 // (unknown_window_proc_table_a73688, shared/wol_dictionary.hpp; defined by its initializer 0x005DE9C0).

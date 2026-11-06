@@ -333,8 +333,13 @@ template<class K, class V> void WolDictionary<K, V>::Shrink_Table()
         for (int index = 0; index < old_count; ++index) {
             Node *node = old_buckets[index];
             while (node) {
+#ifdef RA2_OWNERDRAW_CONTROL_DICTIONARY
+                // wlib shrink() rehashes through keyHash (0x005EAD20 calls Key_Hash 0x00602020 there).
+                unsigned int bucket = Key_Hash(node->Key);
+#else
                 unsigned int hash = Hash(node->Key);
                 unsigned int bucket = ((1u << Bits) - 1) & hash;
+#endif
                 Node *head = Buckets[bucket];
                 Buckets[bucket] = node;
                 Node *next = node->Next;

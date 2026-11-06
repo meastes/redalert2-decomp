@@ -1,5 +1,5 @@
 // @ref ?Remove_Entry@?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@QAE_NABQAUHWND__@@PAP6GJPAU2@IIJ@Z@Z=00601950
-// @ref ?Remove@UnknownControlIndex@OwnerDraw@@QAE_NABIAAUUnknownControlRecord@2@@Z=00601c50
+// @ref ?Remove_Entry@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QAE_NABIPAUUnknownControlRecord@OwnerDraw@@@Z=00601c50
 // @ref ?Unknown_Remove_Modeless_Dialog_00522b80@@YIXPAUHWND__@@@Z=00522b80
 // @ref ?unknown_window_table_a73400@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A=00a73400
 // @ref ?Shrink_Table@?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@QAEXXZ=00602730
@@ -14,7 +14,7 @@ namespace OwnerDraw {
 BOOL __stdcall unknown_restore_child_5edd30(HWND window, LPARAM lparam)
 {
     unknown_window_proc_table_a73688.Remove(window);
-    unknown_registry_a73640.Remove((unsigned int const &)window);
+    unknown_control_table_a73640.Remove((unsigned int const &)window);
     unknown_window_table_a73400.Remove(window);
     void *data = (void *)GetWindowLongA(window, -21);
     if (data != 0) {

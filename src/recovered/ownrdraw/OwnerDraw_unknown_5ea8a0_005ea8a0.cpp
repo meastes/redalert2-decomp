@@ -5,11 +5,9 @@ namespace OwnerDraw {
 
 int __fastcall unknown_5ea8a0(HWND control)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)control);
-    if (record) {
-        return record->unknown_e0;
-    }
-    return 0;
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)control, &record);
+    return record ? record->unknown_e0 : 0;
 }
 
 }

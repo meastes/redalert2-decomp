@@ -10,7 +10,7 @@
 // @ref ?unknown_rect_ac11f4@@3PAVRect@@A=00ac11f4
 // @ref ?unknown_shape_ac10b8@@3PAUShapeFileStruct@@A=00ac10b8
 // @ref ?unknown_shape_ac0ff8@@3PAUShapeFileStruct@@A=00ac0ff8
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 // @ref __imp__GetParent@4=0079a500
 // @ref __imp__GetWindowRect@8=0079a398
 // @ref __imp__GetClientRect@8=0079a4b8

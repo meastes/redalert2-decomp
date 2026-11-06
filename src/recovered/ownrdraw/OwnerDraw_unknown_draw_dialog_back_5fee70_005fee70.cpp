@@ -1,5 +1,5 @@
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
-// @ref ?Bucket_Index@UnknownControlIndex@OwnerDraw@@QBEIABI@Z=00602020
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
+// @ref ?Key_Hash@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QBEIABI@Z=00602020
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
 // @ref ?unknown_surface_count_a763d8@OwnerDraw@@3HA=00a763d8
@@ -59,7 +59,7 @@ extern char const *unknown_dialog_back_name_7e8d1c;
 // One more inline level over Get: at this depth Bucket_Index stays out of line (0x00602020).
 static inline void Lookup(unsigned int const &key, UnknownControlRecord *&record)
 {
-    unknown_registry_a73640.Get(key, record);
+    unknown_control_table_a73640.Get_Pointer(key, &record);
 }
 void __fastcall unknown_draw_dialog_back_5fee70(HWND window)
 {

@@ -20,7 +20,7 @@ bool __fastcall unknown_control_test_601260(HWND window)
     if(!strcmp(name,control_list_class_7e8de0)) {
         UnknownControlRecord *record=0;
         unsigned int const &key=(unsigned int const &)window;
-        if(unknown_registry_a73640.Get(key,record))return record->unknown_68==1;
+        if(unknown_control_table_a73640.Get_Pointer(key, &record))return record->unknown_68==1;
     }
     if(!strcmp(name,control_combo_class_7e8dd4))return (GetWindowLongA(window,-16)&3)!=3;
     return false;

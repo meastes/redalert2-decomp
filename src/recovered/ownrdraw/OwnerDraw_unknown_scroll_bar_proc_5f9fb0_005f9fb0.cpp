@@ -6,7 +6,7 @@
 // Adopted from ra2-decomp OwnerDraw::ScrollBarHandler (YR 0x0061C690).
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
 // @ref ?unknown_window_proc_table_a73688@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A=00a73688
 // @ref ?unknown_surface_count_a763d8@OwnerDraw@@3HA=00a763d8
 // @ref ?unknown_bitmap_writer_a76378@@3VUnknownBitmapWriter@@A=00a76378
@@ -208,7 +208,7 @@ LRESULT __stdcall unknown_scroll_bar_proc_5f9fb0(HWND window, UINT message, WPAR
         HWND parent = GetParent(window);
         UnknownControlRecord *parent_data = 0;
         if (parent) {
-            unknown_registry_a73640.Get((unsigned int const &)parent, parent_data);
+            unknown_control_table_a73640.Get_Pointer((unsigned int const &)parent, &parent_data);
         }
         RECT parent_display;
         Window_Rect_In_Main_Client(parent, &parent_display);

@@ -1,7 +1,7 @@
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 // @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
-// @ref ?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z=00601710
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
+// @ref ?Get_Pointer@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QBE_NABIPAPAUUnknownControlRecord@OwnerDraw@@@Z=00601710
 // @ref ?unknown_window_proc_table_a73688@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A=00a73688
 // @ref ?unknown_color_a733e4@OwnerDraw@@3HA=00a733e4
 // @ref ?unknown_color_a76158@OwnerDraw@@3HA=00a76158

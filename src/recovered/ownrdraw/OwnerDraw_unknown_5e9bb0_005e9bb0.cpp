@@ -7,7 +7,7 @@
 // @ref ?OwnerDraw_Control_Test_005e6860@@YI_NIPAUHWND__@@@Z=005e6860
 // @ref ?unknown_5e72c0@OwnerDraw@@YI_NIPAUHWND__@@@Z=005e72c0
 // @ref ?unknown_dialog_a763cc@OwnerDraw@@3PAUHWND__@@A=00a763cc
-// @ref ?Bucket_Index@UnknownControlIndex@OwnerDraw@@QBEIABI@Z=00602020
+// @ref ?Key_Hash@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QBEIABI@Z=00602020
 // @ref ?unknown_5e8ba0@OwnerDraw@@YIXPAUHWND__@@ABVRect@@@Z=005e8ba0
 // @ref ?unknown_5e8c50@OwnerDraw@@YIXPAUHWND__@@ABUPoint2D@@@Z=005e8c50
 // @ref ?unknown_5e8e20@OwnerDraw@@YIXPAUHWND__@@ABUPoint2D@@@Z=005e8e20
@@ -17,7 +17,7 @@
 // @ref ?unknown_5e9260@OwnerDraw@@YIXPAUHWND__@@@Z=005e9260
 // @ref ?unknown_5e9410@OwnerDraw@@YIXPAUHWND__@@@Z=005e9410
 // @ref ?Select_Control_Rect_005e6450@OwnerDraw@@YI_NPAUHWND__@@0PAVRect@@@Z=005e6450
-// @ref ?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z=00601710
+// @ref ?Get_Pointer@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QBE_NABIPAPAUUnknownControlRecord@OwnerDraw@@@Z=00601710
 // @ref ?FUN_005df660@seed_005df660@@YIEH@Z=005df660
 #include "shared/owner_draw_sidebar.hpp"
 namespace OwnerDraw {
@@ -31,18 +31,10 @@ void __fastcall unknown_5e91a0(HWND window);
 void __fastcall unknown_5e9260(HWND window);
 void __fastcall unknown_5e9410(HWND window);
 
-inline bool Is_Placed_Control(unsigned int key, HWND window)
-{
-    return ::OwnerDraw_Control_Test_005e6860(key, window);
-}
-inline void Adjust_Control(HWND window)
-{
-    unknown_5e9410(window);
-}
 inline bool Is_Lobby_Control(unsigned int key, HWND window)
 {
     UnknownControlRecord *record = 0;
-    unknown_registry_a73640.Get(key, record);
+    unknown_control_table_a73640.Get_Pointer(key, &record);
     int kind = record != 0 ? record->unknown_6c : 0;
     int id = GetDlgCtrlID(window);
     if (kind == 0xe2) {
@@ -60,7 +52,7 @@ BOOL __stdcall unknown_5e9bb0(HWND window, LPARAM lparam)
             unknown_5e8ba0(window, rect);
         } else if (unknown_5e7230((unsigned int)parent, window)) {
             unknown_5e8c50(window, size);
-        } else if (Is_Placed_Control((unsigned int)parent, window)) {
+        } else if (::OwnerDraw_Control_Test_005e6860((unsigned int)parent, window)) {
             unknown_5e8e20(window, size);
         } else if (unknown_5e7620((unsigned int)parent, window)) {
             unknown_5e8fa0(window);
@@ -73,7 +65,7 @@ BOOL __stdcall unknown_5e9bb0(HWND window, LPARAM lparam)
         } else {
             unknown_5e9390(window, size);
         }
-        Adjust_Control(window);
+        unknown_5e9410(window);
     }
     return TRUE;
 }

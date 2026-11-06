@@ -10,7 +10,8 @@ namespace OwnerDraw {
 
 bool __fastcall unknown_5e76b0(unsigned int key, HWND window)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find(key);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer(key, &record);
     int kind = record != 0 ? record->unknown_6c : 0;
     int id = GetDlgCtrlID(window);
     if (seed_005df660::FUN_005df660(kind) && id == 0x695) {

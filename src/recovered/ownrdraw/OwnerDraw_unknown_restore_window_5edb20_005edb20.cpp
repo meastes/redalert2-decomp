@@ -2,7 +2,7 @@
 // Undoes the owner-draw subclassing of a window and its children (EnumChildWindows with 0x005EDD30): drops its
 // window procedure, registry record and 0x00A73400 entry, frees its GWL_USERDATA block and removes it from the
 // modeless dialogs (0x00522B80). No callers in the image. Name hypothesis.
-// @ref ?Remove@UnknownControlIndex@OwnerDraw@@QAE_NABIAAUUnknownControlRecord@2@@Z=00601c50
+// @ref ?Remove_Entry@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QAE_NABIPAUUnknownControlRecord@OwnerDraw@@@Z=00601c50
 // @ref ?Unknown_Remove_Modeless_Dialog_00522b80@@YIXPAUHWND__@@@Z=00522b80
 // @ref ?unknown_window_table_a73400@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A=00a73400
 // @ref ?Shrink_Table@?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@QAEXXZ=00602730

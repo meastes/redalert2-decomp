@@ -6,7 +6,8 @@ namespace OwnerDraw {
 
 void __fastcall unknown_5e1f30(HWND control, Surface *image)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)control);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)control, &record);
     if (record) {
         record->unknown_70 = 2;
         record->image_14 = image;

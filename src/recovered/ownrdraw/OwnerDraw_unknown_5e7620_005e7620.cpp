@@ -10,7 +10,8 @@ bool __fastcall unknown_5e7620(unsigned int key, HWND window)
     if ((GetWindowLongA(window, GWL_STYLE) & BS_OWNERDRAW) != BS_OWNERDRAW) {
         return false;
     }
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)window);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)window, &record);
     if (record && record->unknown_68 == 0) {
         return unknown_5e72c0(key, window);
     }

@@ -3,7 +3,8 @@ namespace OwnerDraw {
 // Enables the owner-draw flags for the original ordered dialog-kind set, 005E9FA0.
 bool __fastcall unknown_5e9fa0(HWND dialog)
 {
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)dialog);
+    UnknownControlRecord *record = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)dialog, &record);
     if (!record) return false;
     int kind = record->unknown_6c;
     bool special = kind == 0x10c ||

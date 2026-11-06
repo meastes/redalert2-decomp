@@ -15,7 +15,7 @@ LRESULT __stdcall unknown_default_proc_5f0210(HWND window, UINT message, WPARAM 
     RECT client;
     GetClientRect(window, &client);
     UnknownControlRecord *record = 0;
-    unknown_registry_a73640.Get((unsigned int const &)window, record);
+    unknown_control_table_a73640.Get_Pointer((unsigned int const &)window, &record);
     if (message == 0x133) {
         SetTextColor((HDC)wparam, unknown_color_a733e4);
         SetBkMode((HDC)wparam, 1);

@@ -14,8 +14,8 @@
 // @ref ?Unknown_00672F10@UnknownSessionState@@QAEEXZ=00672f10
 // @ref ?unknown_screen_widths_7add68@@3PAHA=007add68
 // @ref ?unknown_screen_heights_7add74@@3PAHA=007add74
-// @ref ?unknown_registry_a73640@OwnerDraw@@3VUnknownControlIndex@1@A=00a73640
-// @ref ?Get@UnknownControlIndex@OwnerDraw@@QBE_NABIAAPAUUnknownControlRecord@2@@Z=00601710
+// @ref ?unknown_control_table_a73640@@3V?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@A=00a73640
+// @ref ?Get_Pointer@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QBE_NABIPAPAUUnknownControlRecord@OwnerDraw@@@Z=00601710
 #include "shared/win32_api.hpp"
 #include "shared/win32_window.hpp"
 #include "shared/unknown_globals.hpp"

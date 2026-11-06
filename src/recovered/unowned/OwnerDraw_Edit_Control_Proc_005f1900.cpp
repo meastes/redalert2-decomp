@@ -29,7 +29,8 @@ LRESULT __stdcall unknown_edit_control_proc_5f1900(HWND window,UINT message,WPAR
 {
     WNDPROC previous=0;
     unknown_window_proc_table_a73688.Get_Value(window, previous);
-    UnknownControlRecord *data=unknown_registry_a73640.Find((unsigned int)window);
+    UnknownControlRecord *data = 0;
+    unknown_control_table_a73640.Get_Pointer((unsigned int)window, &data);
     char class_name[32];
     char narrow[0x800];
     unsigned short wide[0x800];
