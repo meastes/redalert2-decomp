@@ -14,6 +14,10 @@ public:
     // Empty but user-declared (TibSun timer.h ~TTimerClass): TickCount (0x00839980) registers an
     // atexit destructor that only returns (0x0040EA20).
     ~TTimerClass() {}
+    // Original count-up conversion, emitted in its serial_ed unit.
+#ifdef RA2_TTIMER_CONVERSION_INT
+    operator int() const;
+#endif
     long Time() const
     {
         long value = Accumulated;
