@@ -1,3 +1,5 @@
+// Unknown535910 0x005359E0/0x00535AB0 read the three areas as Rects.
+#define RA2_LOAD_PROGRESS_RECTS
 // Header-static dynamic initializers of the unit at 0x00535720: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x00535720-0x00535901); the other
 // drafts of this plan are emitted by these includes.

@@ -442,6 +442,9 @@ struct Point2D;
 class CCFileClass;
 class MixFileClass;
 class Rect;
+#ifdef RA2_LOAD_PROGRESS_RECTS
+#include "shared/rect.hpp"
+#endif
 struct Unknown535910 {
     Unknown535910();                        // 0x005359A0
     virtual bool Message_00536ea0(int message, void *data);      // slot 0
@@ -454,9 +457,17 @@ struct Unknown535910 {
     void Unknown_00536E20();                // 0x00536E20 (frees its buffers and surfaces)
 
     MixFileClass *LoadMix;     // +0x04 LOAD.MIX
+#ifdef RA2_LOAD_PROGRESS_RECTS
+    // The title bar, picture and text bar areas (ra2-decomp TitleBarRect,
+    // LoadBarSHPRect, LoadScreenSHPRect; placed by 0x005359E0).
+    Rect unknown_08;                        // +0x08
+    Rect unknown_18;                        // +0x18
+    Rect unknown_28;                        // +0x28
+#else
     int unknown_08[4];                      // +0x08 (x, y, width, height; 0x005359E0)
     int unknown_18[4];                      // +0x18 (x, y, width, height; 0x005359E0)
     int unknown_28[4];                      // +0x28 (x, y, width, height; 0x005359E0)
+#endif
     int unknown_38;                         // +0x38
     int unknown_3c;                         // +0x3C
     void *unknown_40;                       // +0x40 buffer, owned when unknown_4c
