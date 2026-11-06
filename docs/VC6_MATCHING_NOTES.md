@@ -2070,3 +2070,6 @@ Credit: gibbo101/ra2-decomp AGENTS.md ("What has worked", "Known dead ends"), me
 
 ## Declaration order of real locals (Scout810)
 - VC6 numbers locals in declaration order; that order picks spill slots, the load order of register-held locals and the operand order of commutative adds between them. TrackBarHandler 0x5FB270: the twin's order 98.62, `maximum` and `thumb_pos` declared ahead of range/value/minimum 100. A permutation of real locals is natural source. Scout811 swept it over ten near misses at 86-99 (perm.py) and it moved none: where VC6's weight-based slot order decides, declaration order does not break the tie. Expect it to help only where weights are equal.
+
+## Cell comparison form (Scout812)
+- Member `Cell::operator==` and `TPoint2D::operator!=` written `X != r.X || Y != r.Y` (the YR twin's form) sit one inline level shallower than a free `operator!=(Cell,Cell) { return !(a == b); }`. The extra level shifts VC6's temporary numbering at every comparison, which flips each later DynamicVectorClass::Add's `Length()+GrowthStep` operand order and the tail merges after it (Plan_Route 0x707F60: 91.20 to 99.90 under RA2_COORD_AS_CELL). Check this on parked rows in populations using the free form.

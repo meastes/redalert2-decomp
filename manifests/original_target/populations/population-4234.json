@@ -4,8 +4,8 @@
     "id": "population-4234",
     "inventory_sha256": "2dcfd779055735201e63c5da7c2ea8b388e7b0a2d926e9855cc46e7d4f273462",
     "gaps_sha256": "55b397fb3ddad3605dc383a3183b602bea2e04cbf32c493dec4c0dfc2a84c07a",
-    "historical_population_sha256": "08d3b34e534ddd6140f19c019d05f8481ebd1fde14b996d09c362d201fc6e851",
-    "historical_acceptance_sha256": "479873ad4e09f93f9c69c57d4ec15e3082e2ddf1c3972a339cc58a6270cb35d1"
+    "historical_population_sha256": "de7b4efdc9597c747437a82330eb7cfa9dd1915b07d45dc09502c04c6c7cfe8b",
+    "historical_acceptance_sha256": "a9fa35df03895e95b8961759e2fa9f4f6912c3d36941a6620a14289dd417b1a4"
   },
   "references": {
     "_stricmp": 7872288,
@@ -443,7 +443,7 @@
     "?Unknown_005cbdb0@@YI_NPAUHWND__@@H_N1@Z": 6077872,
     "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
     "?RadarEventClass_unknown_none@@YA_NXZ": 6537328,
-    "?unknown_forward@UnknownLink_0068e270@@QAEXXZ": 6873712,
+    "?Top_Level_Exception_Filter_0068e270@@YIHPAU_EXCEPTION_POINTERS@@@Z": 6873712,
     "?unknown_take@UnknownFloats_0069ae70@@QAEMMH@Z": 6925936,
     "?unknown_theme_length@ThemeClass@@QBEHI@Z": 7242064,
     "?unknown_select_color@@YIXH@Z": 7292320,
@@ -3106,7 +3106,7 @@
     "??8?$VectorClass@PAUIConnectionPoint@@@@UBE_NABV0@@Z": 4797504,
     "??_G?$VectorClass@UtagCONNECTDATA@@@@UAEPAXI@Z": 4798112,
     "??_G?$VectorClass@PAUIConnectionPoint@@@@UAEPAXI@Z": 4798192,
-    "?get@Leaf_495590@@QAEEXZ": 4806032,
+    "?Init_Language_Resources_00495590@@YI_N_N@Z": 4806032,
     "?get@Leaf_4955a0@@QAEXXZ": 4806048,
     "?get@Leaf_4955b0@@QAEXXZ": 4806064,
     "?get@Leaf_496460@@QAEXXZ": 4809824,
@@ -8210,7 +8210,13 @@
     "?Increase_Table_Size@?$IndexClass@HPAVObjectClass@@@@QAE_NH@Z": 6482496,
     "?search_compfunc@?$IndexClass@HPAVObjectClass@@@@CAHPBX0@Z": 6482640,
     "?Read_INI@UnitTypeClass@@UAE_NAAVCCINIClass@@@Z": 7383872,
-    "_?direction@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA": 11235436
+    "_?direction@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA": 11235436,
+    "__imp__SetUnhandledExceptionFilter@4": 7971132,
+    "?Handle_Exception_004b87f0@@YIHIPAU_EXCEPTION_POINTERS@@@Z": 4950000,
+    "__imp__SetUnhandledExceptionFilter": 7971132,
+    "??_7exception@@6B@": 8067116,
+    "??_Eexception@@": 7909647,
+    "??_Gexception@@": 7909647
   },
   "regions": [
     {
@@ -8302,8 +8308,8 @@
     {
       "entry": 6873712,
       "method": "0068e270",
-      "symbol": "?unknown_forward@UnknownLink_0068e270@@QAEXXZ",
-      "symbol_prefix": "?unknown_forward@UnknownLink_0068e270@@QAEXXZ",
+      "symbol": "?Top_Level_Exception_Filter_0068e270@@YIHPAU_EXCEPTION_POINTERS@@@Z",
+      "symbol_prefix": "?Top_Level_Exception_Filter_0068e270@@YIHPAU_EXCEPTION_POINTERS@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8319,19 +8325,19 @@
         {
           "offset": 7,
           "kind": 20,
-          "symbol": "?unknown_call_4b87f0@@YIXPAXPAUUnknownLink_0068e270@@@Z",
+          "symbol": "?Handle_Exception_004b87f0@@YIHIPAU_EXCEPTION_POINTERS@@@Z",
           "target": 4950000,
           "addend": 0,
           "resolved": 4293043573
         }
       ],
-      "source_sha256": "6cf4d220b21a38638050a099835fceaaf6fec2a2365f907b8afd1321ca1b8bc1",
-      "source": "src/recovered/unowned/unknown_forward_owner_0068e270.cpp",
+      "source_sha256": "042455906484c20d2465b7182841cffabf62f0263644cb0bef14e4097093c50b",
+      "source": "src/recovered/unowned/Top_Level_Exception_Filter_0068e270.cpp",
       "population": "population-4234",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "unknown_forward_owner_0068e270",
+      "semantic_name": "Top_Level_Exception_Filter_0068e270",
       "source_order": 217529
     },
     {
