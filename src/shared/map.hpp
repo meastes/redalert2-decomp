@@ -452,7 +452,7 @@ public:
     // (0x0054E8D0; TibSun Close_Object).
     ObjectClass *Close_Object(CoordStruct const &coord);
 #endif
-    virtual void unknown_slot28(Rect const *rect, bool arg2, bool arg3, bool arg4);   // slot 28 0x005484E0 (callee pops 4 arguments, ret 0x10)
+    virtual void unknown_slot28(Rect const *rect, bool arg2, int arg3, bool arg4);   // slot 28 0x005484E0 (callee pops 4 arguments, ret 0x10)
     virtual void unknown_slot29(Rect const &rect);                                      // slot 29 0x00549AE0 (sets the map size; hypothesis)
 
     // Cell at coord (leptons, 256 per cell), or the dummy cell when off map.

@@ -47,7 +47,7 @@ The Claude owner on the Ultra account hands integration to the other account. St
     - 0x6130B0 is at 78.61.
   - Queue.CPP is paused after three lanes (Process_Receive_Packet 87.67, Queue_AI exact but waiting on QAM 84.67).
 - **Open owner items.**
-  - Retire the bogus 0x68633A one-byte row when 0x685AC0 is bounded; pass 7 left 0x685AC0 ambiguous.
+  - 0x68633A is covered: accepted Commit_Deform_Grid 0x685AC0 contains it (Scout934); inventory rows inside accepted extents are not counted as unaccepted, so no retire is needed.
   - 0x7053F0..0x706A03 is a function missing from every pass.
   - Planning_House_Index and unknown_delete_all_a76648 declarations need to move to planning.hpp; main_loop.hpp holds a copy (Scout583).
 - **Today's matching rules** are at the end of VC6_MATCHING_NOTES:

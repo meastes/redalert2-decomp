@@ -197,7 +197,7 @@ public:
     // Slot 33 returns the help text of a button id (PowerClass answers 999).
     virtual wchar_t const *unknown_slot33(int id);      // slot 33 0x00634AA0
     virtual void unknown_slot34();                      // slot 34 0x006306D0
-    virtual void unknown_slot28(Rect const *rect, bool arg2, bool arg3, bool arg4);   // slot 28 0x00630300 (thunk passing the four arguments on to MapClass's)
+    virtual void unknown_slot28(Rect const *rect, bool arg2, int arg3, bool arg4);   // slot 28 0x00630300 (thunk passing the four arguments on to MapClass's)
     virtual void unknown_slot29(Rect const &rect);              // slot 29 0x00630840 (MapClass's slot) fits the radar to the map
     virtual HRESULT unknown_slot30(IStream *stream);    // slot 30 0x00632BF0 load
     virtual HRESULT unknown_slot31(IStream *stream);    // slot 31 0x00632E10 save
