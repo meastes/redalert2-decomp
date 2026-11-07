@@ -2904,3 +2904,8 @@ New rulings are recorded at their rows as before.
 - YR-twin-shape pass: no workable row is left whose matched twin shape has not been tried (anchor-window and whole-YR searches against ra2-decomp 6e6f6a1; Scout808 twinmap rechecked). Table and reasons in NOTES. The MISSES_INDEX "twin" column over-reports (the word appears in multi-row summaries) and some rows with history are missing from the index (0x6F81B0, 0x5BEFE0, 0x70BBC0).
 - UICmnds 0x6F81B0 99.60 unchanged (Scout778 keep/lb_9960.cpp): epilogue tie, original `test eax,eax; pop ebp; mov [0xAC132C],0`.
 - OWNER DECISION: the twin-shape and sibling sweeps are both spent. The slot is not refilled until the 22:30Z usage reading; two lanes (Scout1009, Scout1010) run meanwhile.
+
+## Scout1009 (2026-11-07, closed; r1 TechnoClass::unknown_6d0dc0 0x6D0DC0 1,508 B LANDED b5325bc26; NOTES, keep/, roles.sh, dsm.py in build/class-work/Scout1009/)
+- Exact from TibSun's `Build_Hicolor_Pixel(RGBClass const &)` overload (local static inline) and `int i=1; int j=63; while (i<=64) {...; i++; j--; }` with ratio j*4 (`64-i` 96.33; `j--` in a for header 85.44). techno.hpp declaration guarded under RA2_TECHNO_STATIC_TIMERS (unguarded moves Print_CRCs 0x62A360, 0x589AC0, 0x4F1190). False inventory row 0x6D10BD dropped. If 0x6D0990 lands, the pixel helper and Line_End_Rect move to its file (earlier in the unit).
+- 0x6D0990 70.83 unchanged (keep/990_while_6991.cpp 69.91 reproduces the multiplies and k-vs-0x100 test but gives phase esi and spills k).
+- codex1 r1318 landed BlitTransXlat<unsigned short>::BlitForward 0x4861C0 (70 B, evidenced inline asm, TibSun blitblit.h:2352/2362); evidenced inline assembly now 850 B.

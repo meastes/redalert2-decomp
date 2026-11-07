@@ -2,6 +2,7 @@
 // TibSun Find_Nearby_Shroud: up to 24 shrouded cells (0x00568140 at the ground height) that
 // pass 0x0055A660 are gathered from square rings around the object's cell, out to the map's
 // width plus height but at most 32 rings; one of them at random, else the object's own cell.
+// Each test coordinate is TibSun's `Coord coord(cell, 0)` (CoordStruct(Cell, z); Scout1010).
 #include "shared/map.hpp"
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
@@ -29,7 +30,7 @@ CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
 
             Cell cell = Cell(xx + x, yy - ring);
             if (Unknown_0055A660(cell, true)) {
-                CoordStruct coord = Cell_Coord(cell);
+                CoordStruct coord = CoordStruct(cell, 0);
                 coord.Z = Unknown_0055A280(coord);
                 if (Unknown_00568140(coord)) {
                     cells[found++] = cell;
@@ -41,7 +42,7 @@ CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
 
             cell = Cell(xx + x, yy + ring);
             if (Unknown_0055A660(cell, true)) {
-                CoordStruct coord = Cell_Coord(cell);
+                CoordStruct coord = CoordStruct(cell, 0);
                 coord.Z = Unknown_0055A280(coord);
                 if (Unknown_00568140(coord)) {
                     cells[found++] = cell;
@@ -59,7 +60,7 @@ CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
 
             Cell cell = Cell(xx - ring, yy + y);
             if (Unknown_0055A660(cell, true)) {
-                CoordStruct coord = Cell_Coord(cell);
+                CoordStruct coord = CoordStruct(cell, 0);
                 coord.Z = Unknown_0055A280(coord);
                 if (Unknown_00568140(coord)) {
                     cells[found++] = cell;
@@ -71,7 +72,7 @@ CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
 
             cell = Cell(xx + ring, yy + y);
             if (Unknown_0055A660(cell, true)) {
-                CoordStruct coord = Cell_Coord(cell);
+                CoordStruct coord = CoordStruct(cell, 0);
                 coord.Z = Unknown_0055A280(coord);
                 if (Unknown_00568140(coord)) {
                     cells[found++] = cell;

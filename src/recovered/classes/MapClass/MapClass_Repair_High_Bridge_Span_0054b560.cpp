@@ -32,7 +32,8 @@
 // centre piece gets its three cells' heights back and its 2 x 5 cells queued) and stops at the far end piece
 // (Set_Bridge_End_State). When an end was found the span is walked again laying the bridge overlay (OverlayTypes
 // 24 / 25) on each repaired cell, the dirty rectangle spans both ends, and the zones / queued cells are
-// recalculated. Draft by codex2 (86.96); the walks name the cell before Adjacent_Cell, and the dirty corner
+// recalculated. Draft by codex2 (86.96); both walks step with TibSun's
+// `Adjacent_Cell(cursor->Fetch_CellID(), direction)` (Scout1010, TPoint3D coordinate profile), and the dirty corner
 // uses always.h min (two /Ob2 sites the original needs to call operator+ 0x0042ADD0 out of line).
 #include "shared/dir_type.hpp"
 #include "shared/map.hpp"
@@ -58,8 +59,7 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
     DynamicVectorClass<Cell> changed;
     int length = 1;
     while (length < 30) {
-        Cell id = cursor->Fetch_CellID();
-        Cell next = Adjacent_Cell(id, direction);
+        Cell next = Adjacent_Cell(cursor->Fetch_CellID(), direction);
         last = next;
         cursor = &Map[next];
         int tile = cursor->IsoTileIndex - unknown_tileset_a52c74 + 1;
@@ -138,8 +138,7 @@ void MapClass::Repair_High_Bridge_Span_0054b560(CellClass *start, FacingType dir
                 if (direction == 2) new OverlayClass(OverlayTypes[24], cursor->Fetch_CellID(), -1);
                 else new OverlayClass(OverlayTypes[25], cursor->Fetch_CellID(), -1);
             }
-            Cell id = cursor->Fetch_CellID();
-            Cell next = Adjacent_Cell(id, direction);
+            Cell next = Adjacent_Cell(cursor->Fetch_CellID(), direction);
             last = next;
             cursor = &Map[next];
             --remaining;

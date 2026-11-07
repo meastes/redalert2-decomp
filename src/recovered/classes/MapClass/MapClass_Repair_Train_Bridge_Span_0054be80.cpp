@@ -57,8 +57,7 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
     DynamicVectorClass<Cell> changed;
     int length = 1;
     while (length < 30) {
-        Cell id = cursor->Fetch_CellID();
-        Cell next = Adjacent_Cell(id, direction);
+        Cell next = Adjacent_Cell(cursor->Fetch_CellID(), direction);
         last = next;
         cursor = &Map[next];
         int tile = cursor->IsoTileIndex - unknown_tileset_a6cb68 + 1;
@@ -137,8 +136,7 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
                 if (direction == 2) new OverlayClass(OverlayTypes[237], cursor->Fetch_CellID(), -1);
                 else new OverlayClass(OverlayTypes[238], cursor->Fetch_CellID(), -1);
             }
-            Cell id = cursor->Fetch_CellID();
-            Cell next = Adjacent_Cell(id, direction);
+            Cell next = Adjacent_Cell(cursor->Fetch_CellID(), direction);
             last = next;
             cursor = &Map[next];
             --remaining;

@@ -3,8 +3,8 @@
 // overlay (+0xBEC), looks along each of the four straight directions up to the type's
 // ThreatRange cells for a cell with that overlay owned by the house (+0x50), and fills
 // the gap with new buildings of the type (slot 35, placed with slot 53); a cell where
-// the type may not be placed (0x004718B0) ends the direction. `range` and `cellptr` are
-// real symbols of the function: both operand orders depend on the symbol count mod 8.
+// the type may not be placed (0x004718B0) ends the direction. TibSun's locals: the threat
+// range and the cell are read in place (Scout1010, under the TPoint3D coordinate profile).
 #include "shared/map.hpp"
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
@@ -22,8 +22,8 @@ void MapClass::Unknown_0056A660(Cell const &cell, HouseClass *house, BuildingTyp
 
     for (int dir = 0; dir < 8; dir += 2) {
         Cell current_cell = cell;
-        int range = type->ThreatRange;
-        int radius = range >> 8;
+
+        int radius = type->ThreatRange >> 8;
 
         for (int distance = 0; distance < radius; distance++) {
             current_cell = (Cell)Adjacent_Cell(current_cell, dir);
@@ -41,8 +41,7 @@ void MapClass::Unknown_0056A660(Cell const &cell, HouseClass *house, BuildingTyp
                 break;
             }
 
-            CellClass *cellptr = &Map[current_cell];
-            if (!cellptr->unknown_4718b0(type->Speed, type, house)) {
+            if (!Map[current_cell].unknown_4718b0(type->Speed, type, house)) {
                 break;
             }
         }

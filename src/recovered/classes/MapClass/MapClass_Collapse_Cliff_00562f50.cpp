@@ -3,6 +3,8 @@
 // or north-south (tile set +1) bridge tile is replaced by its wrecked twin, the two end pieces
 // (tile sets 0xA6E038 +0/+1, +3/+2) are placed, the zones of the tile's cells are rebuilt, the
 // screen area is redrawn and grey debris (XGRYMED1/XGRYMED2/XGRYSML1) falls over the span.
+// The debris statements are TibSun's (Scen->RandomNumber for the switch and the offsets, a named
+// AnimClass result, no Cell casts in the dirty corners; Scout1010, TPoint3D coordinate profile).
 #include "shared/map.hpp"
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
@@ -79,7 +81,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         Point2D start;
         Point2D end;
         unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(origin, Map[origin].unknown_11b * unknown_geometry_g), start);
-        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct((Cell)(origin + Cell(5, 3)), Map[origin + Cell(5, 3)].unknown_11b * unknown_geometry_g), end);
+        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(origin + Cell(5, 3), Map[origin + Cell(5, 3)].unknown_11b * unknown_geometry_g), end);
         unknown_tactical_83996c->Register_Dirty_Area(Rect(start.X - 120, start.Y - 60, end.X - start.X + 240, end.Y - start.Y + 120), false);
 
         AnimTypeClass *med1 = AnimTypes[AnimTypeClass::From_Name("XGRYMED1")];
@@ -89,21 +91,20 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         for (y = origin.Y; y < origin.Y + 3; y++) {
             for (x = origin.X; x < origin.X + 5; x++) {
                 Cell piece = Cell(x, y);
-                AnimTypeClass *anim = 0;
+                AnimTypeClass *type = 0;
                 for (int i = 0; i < 2; i++) {
-                    switch (Random_Pick(0, 2)) {
+                    switch (unknown_id_source_a3d290->RandomNumber(0, 2)) {
                     case 0:
-                        anim = med1;
+                        type = med1;
                         break;
                     case 1:
-                        anim = med2;
+                        type = med2;
                         break;
                     case 2:
-                        anim = sml1;
+                        type = sml1;
                         break;
                     }
-                    CoordStruct coord;
-                    new AnimClass(anim, coord = CoordStruct(piece, Map[piece].unknown_11b * unknown_geometry_g) + CoordStruct(Random_Pick(-12, 12), Random_Pick(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
+                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].unknown_11b * unknown_geometry_g) + CoordStruct(unknown_id_source_a3d290->RandomNumber(-12, 12), unknown_id_source_a3d290->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
                 }
             }
         }
@@ -165,7 +166,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         Point2D start;
         Point2D end;
         unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(origin, Map[origin].unknown_11b * unknown_geometry_g), start);
-        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct((Cell)(origin + Cell(3, 5)), Map[origin + Cell(3, 5)].unknown_11b * unknown_geometry_g), end);
+        unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(origin + Cell(3, 5), Map[origin + Cell(3, 5)].unknown_11b * unknown_geometry_g), end);
         unknown_tactical_83996c->Register_Dirty_Area(Rect(end.X - 120, start.Y - 60, start.X - end.X + 240, end.Y - start.Y + 120), false);
 
         AnimTypeClass *med1 = AnimTypes[AnimTypeClass::From_Name("XGRYMED1")];
@@ -175,21 +176,20 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         for (y = origin.Y; y < origin.Y + 5; y++) {
             for (x = origin.X; x < origin.X + 3; x++) {
                 Cell piece = Cell(x, y);
-                AnimTypeClass *anim = 0;
+                AnimTypeClass *type = 0;
                 for (int i = 0; i < 2; i++) {
-                    switch (Random_Pick(0, 2)) {
+                    switch (unknown_id_source_a3d290->RandomNumber(0, 2)) {
                     case 0:
-                        anim = med1;
+                        type = med1;
                         break;
                     case 1:
-                        anim = med2;
+                        type = med2;
                         break;
                     case 2:
-                        anim = sml1;
+                        type = sml1;
                         break;
                     }
-                    CoordStruct coord;
-                    new AnimClass(anim, coord = CoordStruct(piece, Map[piece].unknown_11b * unknown_geometry_g) + CoordStruct(Random_Pick(-12, 12), Random_Pick(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
+                    AnimClass *anim = new AnimClass(type, CoordStruct(piece, Map[piece].unknown_11b * unknown_geometry_g) + CoordStruct(unknown_id_source_a3d290->RandomNumber(-12, 12), unknown_id_source_a3d290->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, 0x600, 0);
                 }
             }
         }

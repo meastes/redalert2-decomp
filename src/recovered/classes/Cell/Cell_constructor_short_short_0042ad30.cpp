@@ -1,3 +1,5 @@
+#define RA2_COORD_TPOINT3D  // Map.CPP coordinates: CoordStruct over TPoint3D<int> (TibSun coord.h), shared/coord.hpp
+#define RA2_COORD_CELL_BASE_INIT  // CoordStruct(Cell, z) : TPoint3D(x, y, z) as TibSun Coord(Cell, z)
 #define RA2_CELL_FULL_ASSIGN
 #define RA2_POINT_LENGTH
 #define RA2_MAP_COLLAPSE_CLIFF
