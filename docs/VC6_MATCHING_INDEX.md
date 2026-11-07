@@ -229,4 +229,6 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2126-2139 Frame-slot model (Scout972 lab, 2026-11-07; build/class-work/Scout972/MODEL.md, lab/, lab.py) (8): R1 processing order: frame variables (spilled webs, temps, address-taken locals) by size ascending, then refs…
 - L2140-2144 Shared epilogue and jump threading (Scout989, 2026-11-07) (0): 
 - L2145-2147 Multi-path flag set: one statement gives the register form (Scout997) (0): 
-- L2148-2149 Header include order inside a joined unit (Scout1014) (0): 
+- L2148-2150 Header include order inside a joined unit (Scout1014) (0): 
+- L2151-2153 new[] size reuse is matched only to `a[n - 1]` (Scout1019) (0): 
+- L2154-2155 Memory-resident loop variables block strength reduction (Scout1020) (0): 

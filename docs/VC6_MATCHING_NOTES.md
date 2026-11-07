@@ -2147,3 +2147,9 @@ A flag set on several paths (register on the set paths, memory home reloaded at 
 
 ## Header include order inside a joined unit (Scout1014)
 A row that becomes a unit's first includer of a header moves where that header's include guard fires. Defines that later rows place before their includes (VECTOR_IMPLEMENT_*, accessor and delete-variant switches) then come too late, and a template member is only declared, so a neighbouring row calls it out of line (Destroy_Null_Connection 0x5CEBA0 68.12). When a new row breaks a neighbour, bisect its includes one header at a time before suspecting the inline budget; move the defines to the new first include point.
+
+## new[] size reuse is matched only to `a[n - 1]` (Scout1019)
+After `int *a = new int[n];`, VC6 reuses the computed `n*4` for an `a[n - 1]` index (any spelling of -1), not for -2 or -3, and never for a variable defined after the call. When the original recomputes the address after the call, name the value separately after the allocation (`int total = count + 3; ... a[total - 1]`) so it is a distinct value (OwnerDraw 0x5E5150).
+
+## Memory-resident loop variables block strength reduction (Scout1020)
+If the target's inner loop recomputes `base + index` in each arm and reloads base/offset with no pointer induction variable, the source variables were memory-resident (address-taken, struct fields or similar), not register candidates; a named local index is always strength-reduced to a stepping pointer (CacheBMP 0x68C040 diagnostic).
