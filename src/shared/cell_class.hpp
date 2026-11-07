@@ -379,6 +379,11 @@ public:
     void *unknown_e0;                           // +0x0E0
     ObjectClass *OccupierPtr;                   // +0x0E4
     ObjectClass *AltOccupierPtr;                // +0x0E8
+#ifdef RA2_CELL_OCCUPIER
+    // TibSun cell.h Cell_Occupier (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; see THIRD_PARTY.md):
+    // the first object in the cell, or on its bridge. Guarded: BuildingLightClass's unit defines the macro in its first row.
+    ObjectClass * Cell_Occupier(bool bridge=false) const {return(bridge ? AltOccupierPtr : OccupierPtr);}
+#endif
     int unknown_ec;                             // +0x0EC
     double unknown_f0;                          // +0x0F0
     void *unknown_f8;                           // +0x0F8

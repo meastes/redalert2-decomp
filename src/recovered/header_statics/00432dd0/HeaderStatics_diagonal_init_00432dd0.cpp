@@ -1,3 +1,7 @@
+#define RA2_BUILDING_LIGHT_DISTANCE
+#define RA2_COORD_TPOINT3D
+#define RA2_TPOINT3D_DIFFERENCE
+#define RA2_CELL_OCCUPIER
 // Header-static dynamic initializers of the unit at 0x00432DD0:  the
 // shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
 // (0x00432DD0-0x00432FB6); the other
