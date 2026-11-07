@@ -2153,3 +2153,9 @@ After `int *a = new int[n];`, VC6 reuses the computed `n*4` for an `a[n - 1]` in
 
 ## Memory-resident loop variables block strength reduction (Scout1020)
 If the target's inner loop recomputes `base + index` in each arm and reloads base/offset with no pointer induction variable, the source variables were memory-resident (address-taken, struct fields or similar), not register candidates; a named local index is always strength-reduced to a stepping pointer (CacheBMP 0x68C040 diagnostic).
+
+## Initialisation form changes the inline cost (Scout1024)
+`Rect area = Rect(a, b, c, d);` and `Rect area(a, b, c, d);` cost differently under VC6's ~175-unit auto-inline cap: the copy-initialised form brought a by-value Point2D helper (0x536C70) under the cap where the direct form did not. If-return chains with no else and a trailing `return 0;` are cheaper than if/else chains, which restores a neighbour's inline decision when the budget is at its edge.
+
+## Function IL size gates inner-loop reassociation (Scout1022)
+A function's own pre-optimisation size (not the unit's, not code position) can decide whether an inner loop keeps `base + index` address arithmetic or strength-reduces to stepping pointers: CacheBMP 0x68C040 matches only within a narrow size window (calibrated with a dead `if (0)` block: 11-21 extra increments). When a loop's shape is right in a diagnostic padded variant, look for natural code-neutral source (inline helpers, accessors that fold) that the original carried; never deliver the padding.

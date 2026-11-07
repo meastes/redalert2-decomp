@@ -17,6 +17,8 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 98,395 (2.61% of .text; 3,688 matched) |
 | Handwritten blitter/codec assembly bytes (7 owner-ruled ranges plus evidenced inline asm; own ledger) | 12,660 (0.34% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,200,716 of 3,516,169 (91.03%) |
+| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,845 of 17,996 (99.16%) |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 123 of 151 scored) | 98.73% by bytes, 99.71% per function |
 | Original .text scaffold bytes | 421,079 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 693 |
@@ -2135,6 +2137,7 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `8058f3a7d` | 2026-11-07 16:00 -0600 | 17,954 | 3,197,830 | +453 | 3,874 |
 | `ee452133c` | 2026-11-07 16:08 -0600 | 17,955 | 3,200,410 | +2,580 | 18,502 |
 | `e0ec2e587` | 2026-11-07 17:00 -0600 | 17,956 | 3,203,945 | +3,535 | 4,136 |
+| `7498401ba` | 2026-11-07 17:16 -0600 | 17,957 | 3,204,404 | +459 | 1,704 |
 
 <!-- /generated:status -->
 

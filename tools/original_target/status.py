@@ -110,6 +110,60 @@ def ledger(catalog, text, text_start=TEXT_START):
                 in_scope_matched=matched, in_scope_total=text - crt_bytes - asm_bytes - padding)
 
 
+def best_scores(index_path, sweep_path):
+    """Best recorded score per unaccepted entry: the per-row miss index (docs/MISSES_INDEX.md) first,
+    then the seed sweep's results.jsonl (private build output, optional)."""
+    best = {}
+    if sweep_path and sweep_path.exists():
+        for line in sweep_path.read_text().splitlines():
+            try:
+                row = json.loads(line)
+            except ValueError:
+                continue
+            if row.get('score') is None or row.get('entry') is None:
+                continue
+            entry = int(row['entry'], 16)
+            best[entry] = max(best.get(entry, 0.0), float(row['score']))
+    if index_path and index_path.exists():
+        for line in index_path.read_text().splitlines():
+            cells = [c.strip() for c in line.strip().strip('|').split('|')]
+            if len(cells) > 2 and cells[0].startswith('0x'):
+                try:
+                    best[int(cells[0], 16)] = float(cells[2])
+                except ValueError:
+                    pass
+    return best
+
+
+def functions(treemap, false_rows, best):
+    """In-scope function counts and the partial-match average. In scope: entry below CRT_START, outside
+    the HANDWRITTEN ranges, not a known false row. Each unaccepted function counts at its best recorded
+    score (0 when none is recorded), weighted by bytes and per function."""
+    asm = [(a, b) for a, b, _ in HANDWRITTEN]
+    rows = [r for r in treemap if r['entry'] < CRT_START and not inside(r['entry'], asm)
+            and r['entry'] not in false_rows]
+    done = [r for r in rows if r['status'] == 'exact']
+    open_rows = [r for r in rows if r['status'] != 'exact']
+    scored = [r for r in open_rows if r['entry'] in best]
+    total = sum(r['bytes'] for r in rows)
+    weighted = sum(r['bytes'] for r in done) + sum(r['bytes'] * best.get(r['entry'], 0.0) / 100 for r in open_rows)
+    per_function = (len(done) * 100 + sum(best.get(r['entry'], 0.0) for r in open_rows)) / len(rows) if rows else 0.0
+    return dict(total=len(rows), done=len(done), scored=len(scored), open=len(open_rows),
+                fuzzy_bytes=100.0 * weighted / total if total else 0.0, fuzzy_functions=per_function)
+
+
+def load_functions(repository=REPOSITORY):
+    """Function stats from build/treemap.json (treemap.py --json, regenerated at each landing). None when
+    the treemap is absent, so STATUS still renders."""
+    path = repository / 'build/treemap.json'
+    if not path.exists():
+        return None
+    false_path = repository / 'manifests/original_target/false_rows.json'
+    false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']} if false_path.exists() else set()
+    best = best_scores(repository / 'docs/MISSES_INDEX.md', repository / 'build/sweep-6b/results.jsonl')
+    return functions(json.loads(path.read_text()), false_rows, best)
+
+
 def coverage(catalog):
     regions = catalog['regions']
     return dict(regions=len(regions), body=sum(r['body_bytes'] for r in regions if not evidenced_inline_asm(r)),
@@ -150,7 +204,7 @@ def text_bytes(executable):
     return next(s.Misc_VirtualSize for s in pe.sections if s.Characteristics & 0x20)
 
 
-def render(catalog, text, rows):
+def render(catalog, text, rows, funcs=None):
     now = coverage(catalog)
     scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm']
     populations = Counter(r['population'] for r in catalog['regions'])
@@ -172,6 +226,14 @@ def render(catalog, text, rows):
              '| {:,} of {:,} ({:.2f}%) |'.format(split['in_scope_matched'], split['in_scope_total'],
                                                100.0 * split['in_scope_matched'] / split['in_scope_total']
                                                if split['in_scope_total'] else 0.0),
+             ] + ([
+             '| In-scope functions matched (game code below 0x{:X}, handwritten ranges and known false rows '
+             'excluded) | {:,} of {:,} ({:.2f}%) |'.format(CRT_START, funcs['done'], funcs['total'],
+                                                       100.0 * funcs['done'] / funcs['total']),
+             '| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; {:,} of {:,} '
+             'scored) | {:.2f}% by bytes, {:.2f}% per function |'.format(funcs['scored'], funcs['open'],
+                                                                       funcs['fuzzy_bytes'], funcs['fuzzy_functions']),
+             ] if funcs else []) + [
              '| Original .text scaffold bytes | {:,} |'.format(scaffold),
              '| Logical .text bytes | {:,} |'.format(text),
              '| Compiler populations | {} |'.format(len(populations)), '']
@@ -201,7 +263,7 @@ def main():
     args = parser.parse_args()
     catalog = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
     text = args.text_bytes or text_bytes(json.loads(args.config.read_bytes())['executable'])
-    block = render(catalog, text, history())
+    block = render(catalog, text, history(), load_functions())
     if not args.write:
         print(block); return
     path = REPOSITORY / 'docs/STATUS.md'

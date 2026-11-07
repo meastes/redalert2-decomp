@@ -2958,3 +2958,15 @@ New rulings are recorded at their rows as before.
 ## Scout1021 (2026-11-07, closed; 0 B; LoadProgressManager draw 0x535BF0 63.76 -> 69.60; NOTES, keep/, bchk.py, slots.py in build/class-work/Scout1021/)
 - Bound proven: 3,978 B, rets at 0x536182 and 0x536B79, 6 B padding to 0x536B80; 0x535F90 is a false row. Ported to the Rect members; Pixel_To_RGB2 replaced by two exact re-rolls (0x536ED0 in the RGBClass ctor form, 0x536D30 calling it), land only with the draw. Unit_Area per-arm stores and X-then-Y campaign origin give 69.60.
 - Left: frame 0x1180 vs 0x1184 (one extra 4-byte slot below screen; multiplayer `side` alone at 0x58; return temps at 0x5C), the stored-then-reloaded point copy at every 0x6F1AE0 site, BitFont spill at inlined 0x536D30 sites; inline budget at its edge.
+
+## codex1 r1334 (2026-11-07, Astra; LANDED Build_Region_Border_Cell_List 0x581EE0 459 B + 5 padding)
+- Uses the existing In_Zone_Map_Bounds helper from Create_Zone_Region. Same helper in the batch: 0x57D3A0 74.12, Forest 0x585DC0 98.58 (still expands the deleting destructor), Water 0x5820B0 69.17 (Mac best 84.67 stands).
+
+## Scout1024 (2026-11-07, closed; 0 B; LoadProgressManager draw 0x535BF0 69.60 -> 90.55 (loose 97.16, shape 99.20), frame 0x1184 and every inline decision matching; keep/ld_u3_9055.cpp, s.sh, NOTES in build/class-work/Scout1024/)
+- 0x536C70 takes `Point2D point` by value; `Rect area = Rect(point.X, point.Y, w, h);` keeps it under the ~175-unit auto-inline cap (exact; `Rect area(...)` 66.67). Briefing/Unit_Name/Country_Name as if-return chains with a trailing `return 0;` restore the budget. 0x536D30 with `BitFontClass *font = BitFont;` first reproduces the BitFont spill (exact). Name_Area/Unit_Area: X/Y in the arms, Width/Height once after.
+- Left: Text_Color_Scheme 0x61EE80 is called before To_RGB's hidden return pointer is pushed in the original; every order-correct form swaps ebx/ebp globally and grows the frame to 0x1188.
+- Landing needs a signature spec first (0x536C70 `int x, int y` -> `Point2D point`) plus the three exact re-rolls (c70, d30 font-local, ed0).
+
+## Scout1022 (2026-11-07, closed; 0 B; CacheBMP 0x68C040 85.14 natural; NOTES, keep/, loopcmp.py in build/class-work/Scout1022/)
+- Mechanism: the function's own pre-optimisation size gates the inner-loop shape. c4 plus 11-21 dead increments in an `if (0)` block is byte-exact (diagnostic only, not deliverable); <=10 stays ~85, 22-70 flips the loop with an esi/edi swap. Not unit-wide, not position-dependent. Scout1020's address-taken reading is not needed (the frame argues against it). hicolor.hpp's inline Build_Hicolor_Pixel adds about one unit with identical code.
+- Resume: about 10 more units of natural, code-neutral source (inline per-pixel/row helper, folding Surface accessors, an MSBitmap struct view, inline wrappers on the dictionary calls); calibrate each against the dead-block probe.

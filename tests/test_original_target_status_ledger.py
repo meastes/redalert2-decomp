@@ -74,3 +74,18 @@ class HandwrittenListTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class FunctionStatsTest(unittest.TestCase):
+    def test_counts_and_partial_average(self):
+        import status
+        treemap = [dict(entry=0x401000, bytes=100, status='exact'),
+                   dict(entry=0x402000, bytes=100, status='draft'),
+                   dict(entry=0x403000, bytes=100, status='remaining'),
+                   dict(entry=0x404001, bytes=5, status='remaining'),      # false row
+                   dict(entry=0x534D40, bytes=407, status='remaining'),    # handwritten range
+                   dict(entry=0x781100, bytes=50, status='remaining')]     # CRT
+        out = status.functions(treemap, {0x404001}, {0x402000: 90.0})
+        self.assertEqual((out['total'], out['done'], out['open'], out['scored']), (3, 1, 2, 1))
+        self.assertAlmostEqual(out['fuzzy_bytes'], 100.0 * (100 + 90) / 300)
+        self.assertAlmostEqual(out['fuzzy_functions'], (100 + 90 + 0) / 3)
