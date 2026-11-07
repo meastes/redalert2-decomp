@@ -319,7 +319,11 @@ inline CoordStruct::CoordStruct(Cell const &cell, int z) {
 #else
 inline CoordStruct::CoordStruct(Cell const &cell, int z) : X(cell.X * 256 + 128), Y(cell.Y * 256 + 128), Z(z) {}
 #endif
+// A unit that also defines RA2_COORD_FROM_CELL calls the out-of-line copy 0x0061EA80 (reinf.cpp:
+// Do_Reinforcements) while its CoordStruct(Cell) conversions inline (Create_Reinforcement).
+#ifndef RA2_COORD_FROM_CELL
 inline UnknownCoord434820::UnknownCoord434820(Cell const &cell, int z) : CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, z) {}
+#endif
 #endif
 
 #ifdef RA2_COORD_AS_CELL
