@@ -26,6 +26,12 @@ public:
     BasicTimerClass(long set = 0) : Started(Timer - set) {}
     BasicTimerClass(NoInitClass const &);
     ~BasicTimerClass();
+#ifdef RA2_BASIC_TIMER_VALUE
+    // The time since Started (TibSun timer.h); wonline.cpp's OnPublicGameOptions
+    // 0x00761890 compares its static preview timer against 900 through it.
+    long Value() const { return Timer - Started; }
+    operator long() const { return Value(); }
+#endif
 
     long Started;           // +0x00
     T Timer;                // +0x04

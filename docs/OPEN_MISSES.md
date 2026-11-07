@@ -2800,3 +2800,6 @@ Unknown_Cell_Score_0056dff0 is really a thiscall member.
 
 ## Scout988 (2026-11-07, closed; 0 B; one-attempt pass; NOTES, pool.py, w/ in build/class-work/Scout988/)
 - Pick_Random_Tile_Variant 0x55D640 75.88 -> 82.49 (w/q1.cpp, overlay h1: map_isotile ArrayIndex +0x264; not-clear tested first in the last arms). Sidebar slot 54 0x67E210 99.04: only its else-arm site has the (62c - term) - abcd64 tree; ternaries give the tree but wrong registers. Wait_For_Players 0x65C520 90.40 shape 100 (drop-loop register permutation). Reset_Subzone 0x563D80 76.89 and Place_Veins 0x47AD00 78.39 unchanged.
+
+## Scout989 (2026-11-07, closed; r1 OnPublicGameOptions 0x761890 946 B queued (new population with the 0x765980 atexit thunk); NOTES, lab/ in build/class-work/Scout989/)
+- Exact: preview else-arm without a return, then `if (request) { ...; return S_OK; } return S_OK;` (TibSun Handle_Public_Game_Options ends the request block with `return(S_OK)`). OWNER DECISION: accepted with flags (file-local inline copies of accepted 0x73C3C0/0x73C340/0x73C370 per the 0x761C50 precedent; the request block's own return; the inherited `goto checked`).
