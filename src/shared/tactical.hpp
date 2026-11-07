@@ -48,10 +48,6 @@ Point2D __fastcall Rectangular_To_Isometric(Point2D point);
 // 0x006A2710 and 0x006AC800). Stand-in: only the members the screen code uses,
 // layout padding otherwise; the AbstractClass overrides (slots 3, 5, 6, 8,
 // 10-12, 23) are not declared yet.
-// Called by Render (0x006A45A0) once per frame with no arguments, after the effect Update_All calls;
-// walks the building list (0x006AC420; owner unknown, hypothesis).
-void __fastcall Unknown_006AC420();
-
 class Tactical : public AbstractClass {
 public:
 #ifdef TACTICAL_DECLARE_LEPTON_TO_MAP_PIXEL
@@ -131,6 +127,9 @@ public:
     int Cell_Shadow(Cell const &cell, bool fog);
     void Unknown_006AADD0(CellClass *cell);        // 0x006AADD0 (DisplayClass slot 37: a cell to redraw; hypothesis)
     void Draw_Rally_Points(bool inshroud);         // 0x006AAFD0 (TibSun name)
+    // Draws the radial indicators of the current objects, then the selected building's (0x006AC420; TibSun
+    // Tactical::Draw_Radial_Indicators; Render calls it with this in ECX after the effect Update_All calls).
+    void Draw_Radial_Indicators();
 #ifdef RA2_TACTICAL_CELL_PROJECT_GEOMETRY
     void Debug_Draw_Occupier_Links(); // original 0x006AB810, thiscall/plain RET
 #endif
