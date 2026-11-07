@@ -73,6 +73,9 @@ public:
 };
 
 #ifndef RA2_BULLET_MISSILE_VELOCITY
+#ifdef RA2_BULLET_VELOCITY_DIRS
+#include "shared/dir_type.hpp"
+#endif
 double __cdecl unknown_math_4ba600(double y, double x);  // 0x004BA600 (atan2-like; hypothesis)
 // Fast_Sin / Fast_Cos (shared/fast_math.hpp) declared returning double, as
 // shared/unknown_geometry.hpp declares their neighbours (BulletClass 0x00463C50).
@@ -97,6 +100,10 @@ struct BulletVelocityXY {
     }
     // A zero vector becomes 100 along X, so it has a direction (kept copy 0x0041B860).
     void Nonzero_Check() { if (X == unknown_double_79b610 && Y == unknown_double_79b610) X = 100.0; }
+#ifdef RA2_BULLET_VELOCITY_DIRS
+    // TibSun velocity.h TVelocity2D::Get_Yaw (BulletClass Draw_It 0x004610D0).
+    DirType Get_Yaw() const { return(unknown_math_4ba600(-Y, X)); }
+#endif
     double X;
     double Y;
 };
@@ -112,12 +119,17 @@ struct BulletVelocity : public BulletVelocityXY {
     BulletVelocityXY const &XY() const { return *this; }
 
     // The horizontal speed (kept copy 0x0041B830) and the speed (kept copy 0x0041B7C0).
+#ifdef RA2_BULLET_VELOCITY_DIRS
+    // TibSun velocity.h Horizontal_Speed (BulletClass Draw_It 0x004610D0 inlines it).
+    double Horizontal_Speed() const { return(unknown_sqrt_4ba410(X * X + Y * Y)); }
+#else
     double Horizontal_Speed() const
     {
         double y = Y;
         double x = X;
         return unknown_sqrt_4ba410(x * x + y * y);
     }
+#endif
     double Speed() const
     {
         return unknown_sqrt_4ba410(X * X + Y * Y + Z * Z);
@@ -125,7 +137,10 @@ struct BulletVelocity : public BulletVelocityXY {
     // A zero vector becomes 100 along X (kept copy 0x0041B7F0).
     void Nonzero_Check() { if (X == unknown_double_79b610 && Y == unknown_double_79b610 && Z == unknown_double_79b610) X = 100.0; }
     // The pitch: the angle above the horizontal plane (kept copy 0x0041B6E0).
-#ifdef RA2_AIRCRAFT_OWNER_FIRE
+#if defined(RA2_BULLET_VELOCITY_DIRS)
+    // TibSun velocity.h Get_Pitch as DirType (BulletClass Draw_It 0x004610D0).
+    DirType Get_Pitch() const { return(unknown_math_4ba600(Z, Horizontal_Speed())); }
+#elif defined(RA2_AIRCRAFT_OWNER_FIRE)
     UnknownFacingDir Get_Pitch() const; // independently defined at0041B6E0, called at both native sites
 #else
     UnknownFacingDir Get_Pitch() const

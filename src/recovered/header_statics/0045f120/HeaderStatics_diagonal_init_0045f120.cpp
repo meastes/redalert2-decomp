@@ -1,3 +1,7 @@
+#define RA2_DIR_MISSILE_ANGLES
+#define RA2_DIR_RADIAN32
+#define RA2_BULLET_VELOCITY_DIRS
+#define SHAPE_FILE_EMPTY_RECT unknown_static_rect
 // Select the actual full BuildingClass before shared/techno.hpp.
 #define RA2_BUILDING_FULL
 // Bullet.cpp: the unit's header-static dynamic initializers and

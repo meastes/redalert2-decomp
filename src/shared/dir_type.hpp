@@ -46,6 +46,13 @@ public:
     void From_Radian(double radians) { Facing = short((radians - 1.5707963267948966) * -10430.060040584269); }
     double As_Radian() const { return double((Facing - 16383) * -9.5876725168303271e-05); }
 #endif
+#ifdef RA2_DIR_RADIAN32
+    // TibSun face.h: the nearest of 32 directions and its angle (Dir32 from
+    // shared/facing.hpp, which shared/bullet.hpp includes first).
+    unsigned int Round_To_32() const { return ((((unsigned int)Raw >> 10) + 1) >> 1); }
+    Dir32 As_Dir32() const { return (Dir32)(Round_To_32() % 32); }
+    double As_Radian32() const { return (double)((As_Dir32() - 8) * -0.19634954084936207); }
+#endif
     DirType const &Snap_To_256() { Facing &= 0xFF00; return *this; }
 
     void From_Facing(FacingType dir)
