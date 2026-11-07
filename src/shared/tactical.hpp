@@ -181,6 +181,11 @@ public:
     void Draw_Tiles(Rect const &area, Rect const &cliprect);
     void Draw_Tiles(Cell const &cell, Rect const &cliprect);
     void Draw_Tile_Shadows(Rect const &area, Rect const &cliprect);
+#ifdef RA2_TACTICAL_OCCUPATION_FLAGS
+    // Plots the occupation bits of every cell in view, ground and bridge deck (0x006ABC20;
+    // TibSun Tactical::Debug_Draw_Occupation_Flags).
+    void Debug_Draw_Occupation_Flags();
+#endif
 #ifdef RA2_TACTICAL_TILE_SHADOWS_AREA
     // The tile shadows inside an area, clipped to it, from the area's map corner moved back onto the
     // map (0x006A88A0; ra2-decomp Tactical::Draw_Tile_Shadows(int, Rect const &)).

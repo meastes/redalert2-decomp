@@ -7,12 +7,17 @@
 #define RA2_COORD_POINT_Z
 #define RA2_COORD_TPOINT3D
 #define RA2_RECT_CORNER_INLINE
+// The Rect/RectPoint2D corner arithmetic expands inline in this unit where /Ob2 allows (Debug_Draw_Occupation_Flags
+// 0x006ABC20 calls the RectPoint2D sum 0x00435540 and the corner constructor 0x00453E40 at six of its eight sites).
+#define RA2_RECT_POINT_INLINE
 #define RA2_POINT_ADD_IN_PLACE
 #define RA2_MOUSE_FRAME_QUERIES
 #define RA2_TACTICAL_PLACEMENT
 #define RA2_TACTICAL_PICK_OBJECT
 // Tactical::Draw_Objects 0x006A93F0 is declared for this unit.
 #define RA2_TACTICAL_DRAW_OBJECTS
+// Tactical::Debug_Draw_Occupation_Flags 0x006ABC20 is declared for this unit.
+#define RA2_TACTICAL_OCCUPATION_FLAGS
 // Header-static dynamic initializers of the unit at 0x006A20E0:  the
 // shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
 // (0x006A20E0-0x006A22C6); the other
