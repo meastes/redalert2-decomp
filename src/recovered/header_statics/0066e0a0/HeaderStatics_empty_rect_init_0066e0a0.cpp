@@ -1,3 +1,8 @@
+#define RA2_SESSION_STATE_DEFINED
+#define RA2_SESSION_CTOR_FIELDS
+// Session unit profile: the constructor 0x0066E380 sees the ctor-only fields; Cell compares as the YR twin's
+// member operators (Read_MultiPlayer_Settings 0x0066F3A0 with the TargetClass TrapTarget).
+#define RA2_COORD_AS_CELL
 #define RA2_SESSION_MAP_PLAYER_ACCESSORS
 // Header-static dynamic initializers of the unit at 0x0066E0A0: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x0066E0A0-0x0066E281); the other

@@ -263,8 +263,8 @@ void UnknownSessionState::Read_MultiPlayer_Settings()
         int z;
         sscanf(buf, "%d,%d,%d", &x, &y, &z);
         int target = unknown_ini_839740.Get_Int("SyncBug", "Target", -1);
-        TrapTargetKind = target >> 24;
-        TrapTarget = target & 0xFFFFFF;
+        TrapTarget.Kind = target >> 24;
+        TrapTarget.ID = target & 0xFFFFFF;
 
         unknown_ini_839740.Get_String("SyncBug", "Cell", "0,0", buf, 0x50);
         sscanf(buf, "%d,%d", &x, &y);

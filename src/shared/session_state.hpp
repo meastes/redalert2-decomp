@@ -7,6 +7,10 @@
 #include "shared/cd_timer.hpp"
 #include "shared/system_timer.hpp"
 #include "shared/session_blocks.hpp"
+#ifdef RA2_SESSION_CTOR_FIELDS
+#include "shared/network_statistics.hpp"
+#include "shared/target.hpp"
+#endif
 #include "shared/serial_settings.hpp"
 #include "shared/message_list.hpp"
 #include "shared/mplayer_score_type.hpp"
@@ -90,7 +94,12 @@ struct UnknownSessionState {
         struct {
             int Type;                       // +0x00 the game mode (also unknown_game_mode_a3d298; Red Alert's Session.Type)
             MultiplayerGameMode *Mode;      // +0x04 the game mode object (also unknown_session_a3d29c)
-            char unknown_08[0x18 - 0x08];
+            
+#ifdef RA2_SESSION_CTOR_FIELDS
+    char unknown_08[4]; int unknown_0c; int unknown_10; int unknown_14;
+#else
+    char unknown_08[0x18 - 0x08];
+#endif
             // +0x18 the first word of the 0xEC-byte options block at 0x00A3D2B0 (UnknownLobbyState in
             // shared/lobby.hpp; its 0x00672810 clears AICount and the AI tables): the game mode index that
             // UnknownGameOptions::GameMode saves (0x005CC890).
@@ -135,10 +144,20 @@ struct UnknownSessionState {
     UnknownGameOptions LANOptions;          // +0x1B8
     UnknownGameOptions WonlineOptions;      // +0x234
     int unknown_2b0;                        // +0x2B0 (also unknown_int_a3d548)
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    int unknown_2b4;
+#else
     char unknown_2b4[0x2B8 - 0x2B4];
+#endif
     bool WOLLimitResolution;                // +0x2B8
     int LastNickSlot;                       // +0x2BC
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    int unknown_2c0;
+#else
     char unknown_2c0[0x2C4 - 0x2C0];
+#endif
     int NumPlayers;                         // +0x2C4 the players in the game (Red Alert's Session.NumPlayers; Log_To_File)
     unsigned int MaxAhead_2c8;              // +0x2C8 the frames ahead (set by the game speed; also unknown_max_ahead_a3d560)
     unsigned int unknown_2cc;               // +0x2CC
@@ -147,9 +166,20 @@ struct UnknownSessionState {
     unsigned int unknown_2e0;               // +0x2E0 (MaxAhead_2c8 at the start of a cooperative map)
     unsigned int unknown_2e4;               // +0x2E4 (from MaxAhead_2c8 by the ping class, a multiple of 10)
     unsigned int unknown_2e8;               // +0x2E8 (by the game speed; 0 without pings; also unknown_a3d580)
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    UnknownNetworkPlayerStatistics unknown_2ec[8];
+    bool unknown_62c; bool unknown_62d; char unknown_62e[2];
+#else
     char unknown_2ec[0x630 - 0x2EC];
+#endif
     int LoadGame;                           // +0x630 (Red Alert's Session.LoadGame; Log_To_File prints it)
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    int unknown_634;
+#else
     char unknown_634[0x638 - 0x634];
+#endif
     bool unknown_638;                       // +0x638 (cleared by 0x00672440)
     bool unknown_639;                       // +0x639 (cleared before the load wait, 0x0065C7D0)
     bool unknown_63a;                       // +0x63A (cleared before the load wait, 0x0065C7D0)
@@ -168,20 +198,34 @@ struct UnknownSessionState {
     // ScenarioRequests and RequestCount; Send_Remote_File 0x0066BB20 sends to them).
     char ScenarioRequests[0x890 - 0x888];       // +0x888
     int RequestCount;                           // +0x890
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    IPXAddressClass unknown_894;
+#else
     char unknown_894[0x8A0 - 0x894];
+#endif
     // +0x8A0 copies of received global packets (RTTI DynamicVectorClass<GlobalPacketType *>,
     // vtable 0x007A9584; Unknown_00627190 adds them).
     DynamicVectorClass<UnknownGlobalPacket *> GlobalPackets_8a0;
     int KickVotes[8];                       // +0x8B8 per connection: the kick votes received (0x00627210)
     UnknownKickVoters KickVoters[8];        // +0x8D8 per connection: the voters' ids
     MessageListClass Messages;              // +0x9D8 the on-screen messages (Red Alert's Session.Messages; 0x00A3DC70)
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    IPXAddressClass unknown_1e74; char unknown_1e80[8];
+#else
     char unknown_1e74[0x1E88 - 0x1E74];
+#endif
     bool LANTaunts;                         // +0x1E88 RA2.INI [MultiPlayer] LANTaunts
     bool WOLTaunts;                         // +0x1E89 [MultiPlayer] WOLTaunts
 #ifdef RA2_CONQUER_IPX_CALL_BACK
     // The text of the last chat message received (wide; IPX_Call_Back 0x00482110 copies it; length hypothesis).
     unsigned short LastMessage[112];        // +0x1E8A
     char unknown_1f6a[0x1F70 - 0x1F6A];
+#elif defined(RA2_SESSION_CTOR_FIELDS)
+    unsigned short LastMessage[112];        // +0x1E8A (the constructor clears the first character)
+    char unknown_1f6a[0x1F6C - 0x1F6A];
+    unsigned WWChat : 1;                    // +0x1F6C bit 0 (YR twin SessionClass::WWChat; the constructor clears it)
 #else
     char unknown_1e8a[0x1F70 - 0x1E8A];
 #endif
@@ -210,6 +254,11 @@ struct UnknownSessionState {
     bool NetProtect;                        // +0x237D messages must carry the game's name CRC (Red Alert's Session.NetProtect)
     bool NetOpen;                           // +0x237E the game is open (also unknown_session_a3f616; Red Alert's Session.NetOpen)
     char unknown_237f;
+#elif defined(RA2_SESSION_CTOR_FIELDS)
+    int unknown_236c; IPXAddressClass unknown_2370; bool unknown_237c;
+    bool NetProtect;                        // +0x237D
+    bool NetOpen;                           // +0x237E
+    char unknown_237f;
 #else
     char unknown_236c[0x2380 - 0x236C];
 #endif
@@ -221,6 +270,13 @@ struct UnknownSessionState {
     IPXAddressClass GAddress;               // +0x2574 its sender (also unknown_address_a3f80c; Red Alert's Session.GAddress)
     unsigned short GProductID;              // +0x2580 its product id (Red Alert's Session.GProductID)
     char unknown_2582[0x27B4 - 0x2582];
+#elif defined(RA2_SESSION_CTOR_FIELDS)
+    char unknown_256f;
+    int GPacketlen;                         // +0x2570
+    IPXAddressClass GAddress;               // +0x2574
+    unsigned short GProductID;              // +0x2580
+    char unknown_2582[0x27B0 - 0x2582];
+    int unknown_27b0;                       // +0x27B0 (the constructor sets 0x22E; YR twin MetaSize, MAX_IPX_PACKET_SIZE)
 #else
     char unknown_256f[0x27B4 - 0x256F];
 #endif
@@ -232,10 +288,21 @@ struct UnknownSessionState {
     // +0x2800 the eight lobby player slots (also unknown_player_slots_a3fa98, shared/unknown_player_entry.hpp;
     // 0x005CA540 strength-reduces them and AIColor onto one pointer, so both are read through the session).
     NodeNameType *PlayerSlots[8];
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    bool unknown_2820; char unknown_2821[3]; int unknown_2824;
+    unsigned ModemService : 1;              // +0x2828 bit 0 (YR twin SessionClass::ModemService; the constructor sets it)
+#else
     char unknown_2820[0x282C - 0x2820];
+#endif
     int CurPhoneIdx;                        // +0x282C
     SerialSettingsType SerialDefaults;      // +0x2830
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    int unknown_28a0;
+#else
     char unknown_28a0[0x28A4 - 0x28A0];
+#endif
     DynamicVectorClass<PhoneEntryClass *> PhoneBook;   // +0x28A4
     DynamicVectorClass<char *> InitStrings;            // +0x28BC
     // The modem call-waiting strings (wide; 0x0066EAA0 adds the four TXT_CWAIT_* texts).
@@ -243,9 +310,19 @@ struct UnknownSessionState {
     int unknown_frames_behind_28ec[8];       // +0x28EC frames behind per player (also unknown_a3fb84)
     int unknown_290c;                       // +0x290C the ping class (1: below 1000 ms, 2: above)
     bool ViaPacketRouter;                   // +0x2910 (also unknown_flag_a3fba8)
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    char unknown_2911[3]; IPXAddressClass unknown_2914; IPXAddressClass unknown_2920;
+#else
     char unknown_2911[0x292C - 0x2911];
+#endif
     unsigned short unknown_292c;            // +0x292C (the network reset 0x00514EE0 clears it; also unknown_forward_port_a3fbc4)
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    char unknown_292e[2]; IPXAddressClass unknown_2930;
+#else
     char unknown_292e[0x293C - 0x292E];
+#endif
     UnknownSessionBlock_293C unknown_293c;  // +0x293C (MPCooperative slot 34 saves it, slot 37 restores it)
     UnknownSessionBlock_299C unknown_299c;  // +0x299C (the same)
     int unknown_29bc[128];                  // +0x29BC (the network reset 0x00514EE0 clears it)
@@ -274,7 +351,7 @@ struct UnknownSessionState {
     bool unknown_3014;                      // +0x3014
     char unknown_3015;
     unsigned short unknown_3016;            // +0x3016
-#ifdef RA2_INIT_SELECT_GAME
+#if defined(RA2_INIT_SELECT_GAME) || defined(RA2_SESSION_CTOR_FIELDS)
     unsigned short unknown_3018;            // +0x3018 Select_Game 0x005135F0 clears this WORD (0x00A402B0)
     char unknown_301a[0x301C - 0x301A];
 #else
@@ -295,9 +372,19 @@ struct UnknownSessionState {
     int unknown_3050;                       // +0x3050 (-1)
     int TrapFrame;                          // +0x3054 [SyncBug] Frame (Red Alert's TrapFrame)
     int TrapObjType;                        // +0x3058 [SyncBug] Type (an RTTI number)
+    
+#ifdef RA2_SESSION_CTOR_FIELDS
+    int unknown_305c; CoordStruct unknown_3060;
+#else
     char unknown_305c[0x306C - 0x305C];
+#endif
+#ifdef RA2_SESSION_CTOR_FIELDS
+    TargetClass TrapTarget;                 // +0x306C [SyncBug] Target (TibSun/YR SessionClass::TrapTarget; its inline
+                                            // default constructor clears Kind before the constructor body)
+#else
     int TrapTarget;                         // +0x306C [SyncBug] Target (low 24 bits)
     char TrapTargetKind;                    // +0x3070 [SyncBug] Target (high byte)
+#endif
     char unknown_3071[0x3074 - 0x3071];
     CellClass *TrapCell;                    // +0x3074 [SyncBug] Cell
     int TrapCheckHeap;                      // +0x3078 [MultiPlayer] CheckHeap
