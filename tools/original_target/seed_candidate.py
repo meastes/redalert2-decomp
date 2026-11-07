@@ -1309,6 +1309,84 @@ def stack_artifacts(body, params, convention):
     return body
 
 
+def floating_operand_globals(body, row, params=()):
+    """Recover the storage width of bare operands of original x87 memory operations."""
+    view = code_view(body)
+    # The export must itself use the global as a numeric operand of a floating
+    # expression. A pointer or integer expression cannot acquire a new type
+    # just because the original also reads the same absolute address with x87.
+    symbols = list(DATA.finditer(view))
+    if not symbols or not row:
+        return {}
+    types = variable_types(body, params)
+    floats = {name for name, kind in types.items() if kind in ('float', 'double')}
+    floating = r'(?:(?:\(\s*(?:float|double)\s*\)\s*)[A-Za-z_]\w*'
+    if floats:
+        floating += '|' + '|'.join(re.escape(name) for name in sorted(floats))
+    floating += ')'
+    address_counts = {}
+    wanted = {}
+    previous_end = None
+    for match in symbols:
+        name = match.group()
+        address = int(name[-8:], 16)
+        address_counts[address] = address_counts.get(address, 0) + 1
+        left = view[:match.start()]
+        right = view[match.end():]
+        if name.startswith('LAB_') or re.match(r'\s*(?:\[|\.|->|\()', right):
+            continue
+        arithmetic = re.search(r'(?<![\w.])' + floating + r'\s*([*+/-])\s*$', left)
+        if arithmetic:
+            prefix = left[:arithmetic.start()].rstrip()
+            if prefix and prefix[-1] not in '=(,;{' and not re.search(r'\breturn$', prefix):
+                arithmetic = None
+        if arithmetic:
+            allowed = {'*': ('fmul',), '+': ('fadd',), '-': ('fsub',), '/': ('fdiv',)}[arithmetic[1]]
+        elif previous_end is not None and re.fullmatch(r'\s*\*\s*', view[previous_end:match.start()]):
+            allowed = ('fmul',)
+        elif re.match(r'\s*(?:<=?|>=?)\s*' + floating + r'\b', right):
+            allowed = ('fcom', 'fcomp')
+        else:
+            continue
+        wanted[address] = (name, allowed)
+        previous_end = match.end() if allowed == ('fmul',) else None
+    wanted = {address: fact for address, fact in wanted.items() if address_counts[address] == 1}
+    if not wanted:
+        return {}
+    import capstone
+    from capstone import x86_const as x86
+    decoder = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32)
+    decoder.detail = True
+    evidence = {}
+    for span in row.get('ranges', ()):
+        raw = bytes.fromhex(span['bytes_hex'])
+        covered = 0
+        for ins in decoder.disasm(raw, int(span['start'], 16)):
+            covered += ins.size
+            for operand in ins.operands:
+                if operand.type == x86.X86_OP_IMM:
+                    address = operand.imm & 0xffffffff
+                    if address in wanted:
+                        evidence[address] = None
+                    continue
+                if operand.type != x86.X86_OP_MEM:
+                    continue
+                mem = operand.mem
+                address = mem.disp & 0xffffffff
+                if address not in wanted:
+                    continue
+                symbol, allowed = wanted[address]
+                width = {4: 'float', 8: 'double'}.get(operand.size)
+                if (address in evidence or mem.base or mem.index or mem.segment or
+                        ins.mnemonic not in allowed or len(ins.operands) != 1):
+                    width = None
+                evidence[address] = width
+        if covered != len(raw):
+            return {}
+    return {wanted[address][0]: kind for address, kind in evidence.items() if kind}
+
+
+
 def pointer_global_type(body, symbol):
     """Reuse an unambiguous local pointer type; prefixes alone do not fix layout."""
     types = variable_types(body)
@@ -2918,6 +2996,9 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     evidence_root = (REPOSITORY / 'private/original-target-20261020/inventory').resolve()
     shared = (shared_pointer_types() if any(p.resolve().is_relative_to(evidence_root) for p in inventory.passes) else {})
     body, global_types = recover_global_pointers(body, params, shared)
+    for symbol, kind in floating_operand_globals(body, inventory.function(entry)[1], params).items():
+        if symbol not in global_types and int(symbol[-8:], 16) not in shared:
+            global_types[symbol] = kind
     body, byte_field_notes = low_offset_byte_fields(body, params, global_types, shared, entry, inventory)
     notes.extend(byte_field_notes)
     for symbol, kind in sorted(global_types.items()):

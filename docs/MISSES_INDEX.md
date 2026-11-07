@@ -57,7 +57,7 @@
 | 0x6A8560 | 824 | 63.04 | 7 | Scout876 |  | inline frame register | tibsun twin | w/r1.cpp | 304.0 |
 | 0x500AA0 | 4,617 | 93.45 | 9 | Scout982 |  | register frame layout | tibsun twin | w/c4.cpp | 302.0 |
 | 0x563D80 | 1,287 | 76.89 | 6 | Scout988 |  | register frame order | tibsun | w/q1.cpp | 297.0 |
-| 0x5484E0 | 5,322 | 94.54 | 10 | Scout1010 |  | register layout frame | tibsun twin | keep/z3_9454.cpp | 290.0 |
+| 0x5484E0 | 5,322 | 94.60 | 11 | Scout1013 |  | register layout frame | tibsun twin | keep/smd_9460.cpp | 287.0 |
 | 0x78E854 | 846 | 67.04 | 3 | Scout769 |  | inline | twin | keep/f_ap.cpp | 278.0 |
 | 0x5F7170 | 267 | - | 4 | Scout1012 |  | bound |  | keep/sm3_8635.cpp | 267 |
 | 0x67F800 | 2,741 | 90.46 | 4 | Scout921 |  | order register switch |  | w/sd0.cpp | 261.0 |
@@ -94,7 +94,6 @@
 | 0x65C520 | 676 | 90.40 | 2 | Scout999 |  | register frame inline |  | shared/session_state.hpp | 64.0 |
 | 0x5E7EB0 | 593 | 89.55 | 3 | Scout722 |  | frame |  |  | 61.0 |
 | 0x5F990C | 58 | - | 1 | Scout784 |  |  |  |  | 58 |
-| 0x5CDEFA | 2,567 | 97.85 | 1 | Scout1012 |  | inline switch | tibsun |  | 55.0 |
 | 0x525F60 | 2,691 | 97.99 | 13 | Scout946 |  | register frame order | tibsun twin | w/w3.cpp | 54.0 |
 | 0x616A50 | 239 | 77.83 | 5 | Scout923 |  | register inline layout | twin | src/shared/audio_event.hpp | 52.0 |
 | 0x6F71E0 | 196 | 73.33 | 2 | Scout825 |  | layout inline bound | twin |  | 52.0 |
@@ -160,6 +159,7 @@
 | 0x6FA20F | 1 | - | 1 | Scout824 |  | frame inline bound | twin | keep/tunnel_tu5_5039.cpp | 1 |
 | 0x73A680 | 106 | 99.75 | 1 | Scout1003 |  |  |  |  | 0.0 |
 | 0x682540 | 59 | 99.75 | 2 | Scout1003 |  | inline asm | twin |  | 0.0 |
+| 0x5CDEFA | 6 | 97.85 | 1 | Scout1012 |  | inline switch | tibsun |  | 0.0 |
 | 0x473F20 | 832 | 100.00 | 7 | Scout924 |  | inline frame register | twin | w/lp.cpp | 0.0 |
 | 0x5E9410 | 1,938 | 100.00 | 9 | Scout910 |  | frame order register |  | w/keep/e9_k111A_9979.cpp | 0.0 |
 | 0x5EE460 | 1,003 | 100.00 | 3 | Scout813 |  | frame layout register | twin |  | 0.0 |

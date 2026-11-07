@@ -2144,3 +2144,6 @@ Condition temporaries (Scout994): the 12-byte temporaries of an `&&` chain share
 
 ## Multi-path flag set: one statement gives the register form (Scout997)
 A flag set on several paths (register on the set paths, memory home reloaded at the join) gets that form only from a single `if ((a || b) && !c) flag = true;` statement; two separate set statements leave it in memory, and term order matters. Seen at UnitClass::Assign_Destination 0x7053F0 (useplan).
+
+## Header include order inside a joined unit (Scout1014)
+A row that becomes a unit's first includer of a header moves where that header's include guard fires. Defines that later rows place before their includes (VECTOR_IMPLEMENT_*, accessor and delete-variant switches) then come too late, and a template member is only declared, so a neighbouring row calls it out of line (Destroy_Null_Connection 0x5CEBA0 68.12). When a new row breaks a neighbour, bisect its includes one header at a time before suspecting the inline budget; move the defines to the new first include point.
