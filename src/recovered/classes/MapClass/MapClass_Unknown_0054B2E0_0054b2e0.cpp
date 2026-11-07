@@ -29,7 +29,7 @@ int MapClass::Unknown_0054B2E0()
 
     CellClass *iter = Unknown_0055A490();
     while (iter) {
-        iter->unknown_140 &= ~0x00300000;
+        iter->IsHorizontalLine = false; iter->IsVerticalLine = false;
         iter = Unknown_0055A490();
     }
 
@@ -40,18 +40,18 @@ int MapClass::Unknown_0054B2E0()
 
         iter->unknown_30 = 0;
         iter->Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
-        iter->unknown_140 &= ~0x00020000;
+        iter->IsAnimAttached = false;
 
         if (iter->unknown_3c) {
 
             if (iter->unknown_3c->unknown_func_6b3da0()) {
                 for (i = 0; i < Map.unknown_128; i++) {
-                    Map[XY_Cell(i + unknown_120, iter->MapCoords.Y)].unknown_140 |= 0x00100000;
+                    Map[XY_Cell(i + unknown_120, iter->MapCoords.Y)].IsHorizontalLine = true;
                 }
             }
             else if (iter->unknown_3c->unknown_func_6b3d90()) {
                 for (i = 0; i < Map.unknown_12c; i++) {
-                    Map[XY_Cell(iter->MapCoords.X, i + unknown_124)].unknown_140 |= 0x00200000;
+                    Map[XY_Cell(iter->MapCoords.X, i + unknown_124)].IsVerticalLine = true;
                 }
             }
         }

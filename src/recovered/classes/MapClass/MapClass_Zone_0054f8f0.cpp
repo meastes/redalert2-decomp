@@ -11,7 +11,7 @@
 int MapClass::Zone(Cell const &cell, int zone_type, bool alt)
 {
     Cell const *p;
-    if (alt && (Map[cell].unknown_140 & 0x100)) {
+    if (alt && (Map[cell].IsUnderBridge)) {
         int index = Unknown_005500D0(cell, 1, 0);
         if (index != -1) {
             ZoneConnectionClass &connection = ZoneConnections[index];
@@ -20,7 +20,7 @@ int MapClass::Zone(Cell const &cell, int zone_type, bool alt)
             } else {
                 CellClass *cptr = &Map[cell];
                 int facing = connection.From.X == connection.To.X ? 4 : 2;
-                while (cptr->unknown_140 & 0x100) {
+                while (cptr->IsUnderBridge) {
                     cptr = &cptr->Adjacent_Cell(facing);
                 }
                 if ((cptr->unknown_47b960() || cptr->unknown_47b980()) && cptr->unknown_ec != 3) {

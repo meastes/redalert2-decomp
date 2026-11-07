@@ -16,7 +16,7 @@ void MapClass::Internal_Damage_High_Bridge_EW_TopLeft(Cell const &cell, int dir)
 {
     Cell adjacent = Adjacent_Cell(cell, dir);
     CellClass *adjacentptr = &Map[adjacent];
-    if (adjacentptr->unknown_140 & 0x80) {
+    if (adjacentptr->IsBridgeDeck) {
         if (adjacentptr->OverlayData > 3) {
             if (adjacentptr->OverlayData == 4) {
                 adjacentptr->OverlayData = 6;

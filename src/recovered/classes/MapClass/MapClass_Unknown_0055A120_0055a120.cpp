@@ -21,10 +21,10 @@ void MapClass::Unknown_0055A120()
         unknown_player_a35db4->unknown_188 = true;
         Map.Unknown_0055A550();
         for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
-            cell->unknown_12c |= 0x18;
+            cell->IsMapped = true; cell->IsVisible = true;
             cell->unknown_130 = 0;
             cell->unknown_134 = 0;
-            cell->unknown_140 |= 3;
+            cell->IsFogVisible = true; cell->IsFogMapped = true;
         }
         Map.Unknown_0049DE00(false, false);
         Map.Unknown_00634030();

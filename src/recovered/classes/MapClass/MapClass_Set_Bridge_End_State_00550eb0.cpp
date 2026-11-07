@@ -31,8 +31,8 @@ void MapClass::Set_Bridge_End_State(Cell const &cell, bool damaged, bool recursi
         unknown_tactical_83996c->Register_Dirty_Area(Rect(point.X - 128, point.Y - 128, 256, 256), 0);
     }
 
-    if (damaged != (bool)((cellptr->unknown_140 >> 13) & 1)) {
-        cellptr->unknown_140 = (cellptr->unknown_140 & ~0x2000) | ((damaged & 1) << 13);
+    if (damaged != (bool)cellptr->IsBridgeDamaged) {
+        cellptr->IsBridgeDamaged = damaged;
         int ittype = cellptr->IsoTileIndex;
         Map.Unknown_00631570(cellptr->MapCoords);
         int facing = 0;

@@ -17,7 +17,7 @@ bool MapClass::Unknown_005683C0(CoordStruct const &coord)
             int offset = level / 2 + 1;
             Cell cell = Cell(coord.X / 256, coord.Y / 256);
             cellptr = &Map[Cell(cell.X - offset, cell.Y - offset)];
-            if (cellptr->unknown_140 & 2) {
+            if (cellptr->IsFogMapped) {
                 return false;
             }
             cellptr = &cellptr->Adjacent_Cell(3);
@@ -26,7 +26,7 @@ bool MapClass::Unknown_005683C0(CoordStruct const &coord)
             Cell cell = Cell(coord.X / 256, coord.Y / 256);
             cellptr = &Map[Cell(cell.X - offset, cell.Y - offset)];
         }
-        if (!(cellptr->unknown_140 & 2)) {
+        if (!cellptr->IsFogMapped) {
             return true;
         }
     }

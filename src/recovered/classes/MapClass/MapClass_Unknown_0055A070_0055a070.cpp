@@ -19,8 +19,8 @@ void MapClass::Unknown_0055A070()
     for (CellClass *cell = Unknown_0055A490(); cell != 0; cell = Unknown_0055A490()) {
         cell->unknown_47c8a0();
         if (cell->unknown_130 >= 0) {
-            cell->unknown_12c &= ~0x18;
-            cell->unknown_140 &= ~3;
+            cell->IsMapped = false; cell->IsVisible = false;
+            cell->IsFogVisible = false; cell->IsFogMapped = false;
         }
     }
     Map.Unknown_0049E110(false, false);

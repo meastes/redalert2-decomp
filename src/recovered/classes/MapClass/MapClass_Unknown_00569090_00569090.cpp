@@ -26,8 +26,8 @@ bool MapClass::Unknown_00569090(Cell *cell)
     } else {
         int ittype = cptr->IsoTileIndex - unknown_tileset_a52c74 + 1;
         CellClass *bcptr = 0;
-        if (cptr->unknown_140 & 0x100) {
-            if (cptr->unknown_140 & 0x80) {
+        if (cptr->IsUnderBridge) {
+            if (cptr->IsBridgeDeck) {
                 bcptr = &Map[cptr->Fetch_CellID()];
             } else {
                 bcptr = &Map[cptr->unknown_2c->Fetch_CellID()];

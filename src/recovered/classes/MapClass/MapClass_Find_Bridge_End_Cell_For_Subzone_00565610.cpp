@@ -8,8 +8,8 @@
 Cell MapClass::Unknown_00565610(Cell const &cell, int layer, unsigned int subzone)
 {
     CellClass *cellptr = &Map[cell];
-    if (!(cellptr->unknown_140 & 0x100)) return cellptr->MapCoords;
-    int facing = (cellptr->unknown_140 & 0x800) ? 2 : 4;
+    if (!cellptr->IsUnderBridge) return cellptr->MapCoords;
+    int facing = cellptr->IsBridgeEastWest ? 2 : 4;
     int opposite = (facing - 4) & 7;
     CellClass *forward = cellptr;
     CellClass *back = cellptr;
@@ -17,19 +17,19 @@ Cell MapClass::Unknown_00565610(Cell const &cell, int layer, unsigned int subzon
     TPoint2D<short> front_end = unknown_cell_a6f238;
     Cell back_end = unknown_cell_a6f238;
     while (true) {
-        if (forward->unknown_140 & 0x100) {
+        if (forward->IsUnderBridge) {
             forward = &forward->Adjacent_Cell(facing);
-            if (!(forward->unknown_140 & 0x100) &&
+            if (!forward->IsUnderBridge &&
                 (forward->unknown_47b960() || forward->unknown_47b980()) && forward->unknown_ec != 3)
                 front_end = forward->MapCoords;
         }
-        if (back->unknown_140 & 0x100) {
+        if (back->IsUnderBridge) {
             back = &back->Adjacent_Cell(opposite);
-            if (!(back->unknown_140 & 0x100) &&
+            if (!back->IsUnderBridge &&
                 (back->unknown_47b960() || back->unknown_47b980()) && back->unknown_ec != 3)
                 back_end = back->MapCoords;
         }
-        if (!(back->unknown_140 & 0x100) && !(forward->unknown_140 & 0x100)) break;
+        if (!back->IsUnderBridge && !forward->IsUnderBridge) break;
     }
     Cell candidates[6];
     candidates[0] = front_end;

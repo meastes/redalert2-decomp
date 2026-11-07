@@ -16,7 +16,7 @@ void MapClass::Internal_Damage_High_Bridge_NS_TopRight(Cell const &cell, int dir
 {
     Cell adjacent = Adjacent_Cell(cell, dir);
     CellClass *adjacentptr = &Map[adjacent];
-    if (adjacentptr->unknown_140 & 0x80) {
+    if (adjacentptr->IsBridgeDeck) {
         if (adjacentptr->OverlayData >= 9) {
             if (adjacentptr->OverlayData > 0xC) {
                 if (adjacentptr->OverlayData == 0xE) {

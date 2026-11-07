@@ -399,6 +399,9 @@ public:
     CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any, int alt) const;   // 0x004764B0 (int alt)
     void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 (Cell_Color)
     void Unknown_004798F0();        // 0x004798F0 (unknown_4798f0 above)
+#ifdef RA2_CELL_FULL_ASSIGN
+    void Set_CellID(Cell const &cell);  // 0x0047A450 (TibSun Set_CellID)
+#endif
 #ifdef RA2_MAP_CLOSE_OBJECT
     ObjectClass *Cell_Occupier() const { return OccupierPtr; } // (TibSun Cell_Occupier; MapClass 0x0054E8D0)
 #endif
@@ -433,7 +436,11 @@ public:
     Rect unknown_68;                            // +0x068 (Westwood's LastBridgeDrawRect)
     unsigned int unknown_78;                    // +0x078
     short unknown_7c[24];                       // +0x07C
+#ifdef RA2_CELL_FULL_ASSIGN
+    unsigned short unknown_ac[24];              // +0x0AC [YR DisguiseSensorsOfHouses]
+#else
     int unknown_ac[12];                         // +0x0AC
+#endif
     int unknown_dc;                             // +0x0DC
     void *unknown_e0;                           // +0x0E0
     ObjectClass *OccupierPtr;                   // +0x0E4
@@ -468,7 +475,49 @@ public:
     char unknown_120;                           // +0x120
     char unknown_121;                           // +0x121
     char unknown_122;                           // +0x122
+#ifndef RA2_CELL_FULL_ASSIGN
     char unknown_123;
+#endif
+#ifdef RA2_CELL_FULL_ASSIGN
+    // The Westwood form (TibSun cell.h / YR): plain bit fields, so the implicit operator=
+    // (Set_Map_Dimensions 0x005484E0) copies them one by one.
+    CellOccupyFlags Occupy_124;                 // +0x124 [Flag]
+    CellOccupyFlags Occupy_128;                 // +0x128 [BridgeFlag]
+    unsigned IsPlot:1;                          // +0x12C bit 0
+    unsigned IsCursorHere:1;                    // bit 1
+    unsigned IsFoundationCopyHere:1;            // bit 2
+    unsigned IsMapped:1;                        // bit 3 (IGameMap::Is_Visible reads it)
+    unsigned IsVisible:1;                       // bit 4
+    int unknown_130;                            // +0x130
+    int unknown_134;                            // +0x134
+    bool unknown_138;                           // +0x138
+    int unknown_13c;                            // +0x13C
+    unsigned IsFogVisible:1;                    // +0x140 bit 0 (set when layer 1 is fully shrouded)
+    unsigned IsFogMapped:1;                     // bit 1
+    unsigned IsWaypoint:1;                      // bit 2
+    unsigned IsRadarCursor:1;                   // bit 3
+    unsigned IsFlagged:1;                       // bit 4
+    unsigned IsToShroud:1;                      // bit 5
+    unsigned IsToFog:1;                         // bit 6
+    unsigned IsBridgeDeck:1;                    // bit 7
+    unsigned IsUnderBridge:1;                   // bit 8
+    unsigned IsBridgeTraversable:1;             // bit 9
+    unsigned WasUnderBridge:1;                  // bit 10
+    unsigned IsBridgeEastWest:1;                // bit 11
+    unsigned IsBridgeSurface:1;                 // bit 12
+    unsigned IsBridgeDamaged:1;                 // bit 13
+    unsigned IsToGrowIce:1;                     // bit 14
+    unsigned IsToGrowVeins:1;                   // bit 15
+    unsigned IsOvershadowed:1;                  // bit 16
+    unsigned IsAnimAttached:1;                  // bit 17
+    unsigned IsPredictedPath:1;                 // bit 18
+    unsigned IsAffectedByEMP:1;                 // bit 19
+    unsigned IsHorizontalLine:1;                // bit 20
+    unsigned IsVerticalLine:1;                  // bit 21
+    unsigned IsFogged:1;                        // bit 22
+    unsigned :32;                               // +0x144 (RA2 only; the implicit operator= does not copy it)
+};
+#else
     // +0x124 occupation flags (Westwood's Flag: the five sub-cell spots, then Vehicle, Monolith,
     // Building); +0x128 the same for the bridge (BridgeFlag). unknown_124/unknown_128 read them as a
     // byte (Westwood's Composite), Occupy_124/Occupy_128 bit by bit (Closest_Free_Spot 0x004764B0).
@@ -551,5 +600,6 @@ public:
     };
     int unknown_144;                            // +0x144 (not in the YR twin)
 };
+#endif
 
 #endif

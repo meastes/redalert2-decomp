@@ -113,13 +113,13 @@ void MapClass::Unknown_00549C50(CoordStruct const &xcoord, int sightrange, House
         }
 
         if (ok) {
-            cellptr->unknown_140 &= ~0x40;
+            cellptr->IsToFog = false;
             if (unfog) {
-                if ((!(cellptr->unknown_140 & 1) || !(cellptr->unknown_140 & 2)) && (cellptr->unknown_12c & 8)) {
+                if ((!cellptr->IsFogVisible || !cellptr->IsFogMapped) && cellptr->IsMapped) {
                     Map.unknown_slot38(newcell, house);
                 }
             } else {
-                if ((!(cellptr->unknown_12c & 8) || !(cellptr->unknown_12c & 0x10) || !(cellptr->unknown_140 & 1) || !(cellptr->unknown_140 & 2)) && !dont_map) {
+                if ((!cellptr->IsMapped || !cellptr->IsVisible || !cellptr->IsFogVisible || !cellptr->IsFogMapped) && !dont_map) {
                     if (arg8) {
                         Map.unknown_slot37(newcell, house, false);
                     } else {

@@ -14,9 +14,9 @@ void MapClass::Unknown_0055A300()
     Unknown_0055A550();
     CellClass *cellptr = Unknown_0055A490();
     while (cellptr != 0) {
-        if (cellptr->unknown_140 & 0x20) {
-            cellptr->unknown_12c &= ~0x18;
-            cellptr->unknown_140 &= ~0x23;
+        if (cellptr->IsToShroud) {
+            cellptr->IsMapped = false; cellptr->IsVisible = false;
+            cellptr->IsFogVisible = false; cellptr->IsFogMapped = false; cellptr->IsToShroud = false;
             cellptr->unknown_138 = true;
             unknown_tactical_83996c->Unknown_006AADD0(cellptr);
             if (cellptr->unknown_120 == -2) {

@@ -105,9 +105,9 @@ void MapClass::Sight_From(CoordStruct const &xcoord, int sightrange, HouseClass 
         }
 
         if (ok) {
-            cellptr->unknown_140 &= ~0x40;
+            cellptr->IsToFog = false;
             if (unfog) {
-                if ((!(cellptr->unknown_140 & 1) || !(cellptr->unknown_140 & 2)) && (cellptr->unknown_12c & 8)) {
+                if ((!cellptr->IsFogVisible || !cellptr->IsFogMapped) && cellptr->IsMapped) {
                     Map.unknown_slot38(newcell, house);
                 }
             } else {

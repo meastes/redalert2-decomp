@@ -15,7 +15,7 @@ Cell MapClass::Unknown_00564F70(CellClass *cptr, bool isbridge)
 {
     Cell ncell;
 
-    if (isbridge && (cptr->unknown_140 & 0x100)) {
+    if (isbridge && cptr->IsUnderBridge) {
         int cidx = Map.Unknown_005500D0(cptr->MapCoords, 2, 0);
         if (cidx == -1) {
             ncell = Unknown_005653C0(cptr->MapCoords, cptr->MapCoords);
@@ -25,7 +25,7 @@ Cell MapClass::Unknown_00564F70(CellClass *cptr, bool isbridge)
         }
 
         ZoneConnectionClass *zcon = &Map.ZoneConnections[cidx];
-        if (cptr->unknown_140 & 0x800) {
+        if (cptr->IsBridgeEastWest) {
             ncell = Cell(0, cptr->MapCoords.Y - zcon->From.Y);
         } else {
             ncell = Cell(cptr->MapCoords.X - zcon->From.X, 0);
@@ -43,7 +43,7 @@ Cell MapClass::Unknown_00564F70(CellClass *cptr, bool isbridge)
             }
         } else {
             int facing = zcon->From.X != zcon->To.X ? 2 : 4;
-            while (cptr->unknown_140 & 0x100) {
+            while (cptr->IsUnderBridge) {
                 cptr = &cptr->Adjacent_Cell(facing);
             }
             if ((cptr->unknown_47b960() || cptr->unknown_47b980()) && cptr->unknown_ec != 3) {

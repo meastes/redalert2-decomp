@@ -16,11 +16,11 @@ Cell MapClass::Unknown_005653C0(Cell const &cell, Cell const &reference)
 {
     CellClass *cptr = &Map[cell];
 
-    if (!(cptr->unknown_140 & 0x100)) {
+    if (!cptr->IsUnderBridge) {
         return cptr->MapCoords;
     }
 
-    int fwd = (cptr->unknown_140 & 0x800) ? 2 : 4;
+    int fwd = cptr->IsBridgeEastWest ? 2 : 4;
     int bwd = (fwd - 4) & 7;
 
     CellClass *fcell = cptr;
@@ -30,19 +30,19 @@ Cell MapClass::Unknown_005653C0(Cell const &cell, Cell const &reference)
     Cell bresult = unknown_cell_a6f238;
 
     while (true) {
-        if (fcell->unknown_140 & 0x100) {
+        if (fcell->IsUnderBridge) {
             fcell = &fcell->Adjacent_Cell(fwd);
-            if (!(fcell->unknown_140 & 0x100) &&
+            if (!fcell->IsUnderBridge &&
                 (fcell->unknown_47b960() || fcell->unknown_47b980()) && fcell->unknown_ec != 3)
                 fresult = fcell->MapCoords;
         }
-        if (bcell->unknown_140 & 0x100) {
+        if (bcell->IsUnderBridge) {
             bcell = &bcell->Adjacent_Cell(bwd);
-            if (!(bcell->unknown_140 & 0x100) &&
+            if (!bcell->IsUnderBridge &&
                 (bcell->unknown_47b960() || bcell->unknown_47b980()) && bcell->unknown_ec != 3)
                 bresult = bcell->MapCoords;
         }
-        if (!(bcell->unknown_140 & 0x100) && !(fcell->unknown_140 & 0x100)) break;
+        if (!bcell->IsUnderBridge && !fcell->IsUnderBridge) break;
     }
 
     Cell result = unknown_cell_a6f238;

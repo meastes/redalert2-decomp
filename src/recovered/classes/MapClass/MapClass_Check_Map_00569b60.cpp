@@ -50,9 +50,9 @@ bool MapClass::Check_Map()
 
                     from_ground = unknown_table_7e00c4[mzone][from->unknown_4c] == 1;
 
-                    from_bridge = (from->unknown_140 & 0x100)
-                        && (((from->unknown_140 & 0x800) && ((bcptr = from->unknown_2c) == 0 || bcptr->MapCoords.Y - from->MapCoords.Y != 2))
-                            || (!(from->unknown_140 & 0x800) && ((bcptr = from->unknown_2c) == 0 || bcptr->MapCoords.X - from->MapCoords.X != 2)));
+                    from_bridge = from->IsUnderBridge
+                        && ((from->IsBridgeEastWest && ((bcptr = from->unknown_2c) == 0 || bcptr->MapCoords.Y - from->MapCoords.Y != 2))
+                            || (!from->IsBridgeEastWest && ((bcptr = from->unknown_2c) == 0 || bcptr->MapCoords.X - from->MapCoords.X != 2)));
 
                     if (from_ground || from_bridge) {
                         unknown_118 = MapLocalSize.X + 1 + MapLocalSize.Y;
@@ -62,9 +62,9 @@ bool MapClass::Check_Map()
 
                             if ((to->MapCoords.X + to->MapCoords.Y > from->MapCoords.X + from->MapCoords.Y) || (to->MapCoords.X + to->MapCoords.Y == from->MapCoords.X + from->MapCoords.Y && to->MapCoords.X - to->MapCoords.Y > from->MapCoords.X - from->MapCoords.Y)) {
                                 to_ground = unknown_table_7e00c4[mzone][to->unknown_4c] == 1;
-                                to_bridge = (to->unknown_140 & 0x100)
-                                    && (((to->unknown_140 & 0x800) && ((bcptr = to->unknown_2c) == 0 || bcptr->MapCoords.Y - to->MapCoords.Y != 2))
-                                        || (!(to->unknown_140 & 0x800) && ((bcptr = to->unknown_2c) == 0 || bcptr->MapCoords.X - to->MapCoords.X != 2)));
+                                to_bridge = to->IsUnderBridge
+                                    && ((to->IsBridgeEastWest && ((bcptr = to->unknown_2c) == 0 || bcptr->MapCoords.Y - to->MapCoords.Y != 2))
+                                        || (!to->IsBridgeEastWest && ((bcptr = to->unknown_2c) == 0 || bcptr->MapCoords.X - to->MapCoords.X != 2)));
 
                                 if (to_ground
                                     && from_ground

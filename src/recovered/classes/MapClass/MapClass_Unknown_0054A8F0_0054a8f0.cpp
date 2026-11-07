@@ -20,8 +20,8 @@ void MapClass::Unknown_0054A8F0(CoordStruct const &coord, int radius)
                 Cell newcell = XY_Cell(cell.X + x, cell.Y + y);
                 Map[newcell].unknown_130 = 0;
                 Map[newcell].unknown_134 = 0;
-                Map[newcell].unknown_12c |= 0x10;
-                Map[newcell].unknown_12c |= 8;
+                Map[newcell].IsVisible = true;
+                Map[newcell].IsMapped = true;
             }
         }
     }

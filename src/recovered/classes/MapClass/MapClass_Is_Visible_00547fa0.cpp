@@ -6,5 +6,5 @@
 
 long __stdcall MapClass::Is_Visible(Cell cell)
 {
-    return ((*this)[Cell(cell.X, cell.Y)].unknown_12c >> 3) & 1;
+    return (*this)[Cell(cell.X, cell.Y)].IsMapped;
 }

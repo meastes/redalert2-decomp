@@ -8,7 +8,7 @@ void MapClass::Unknown_005685F0()
 {
     Unknown_0055A550();
     for (CellClass *cell = Unknown_0055A490(); cell != 0; cell = Unknown_0055A490()) {
-        if (!(cell->unknown_140 & 2)) {
+        if (!cell->IsFogMapped) {
             cell->unknown_47bc80();
         }
     }

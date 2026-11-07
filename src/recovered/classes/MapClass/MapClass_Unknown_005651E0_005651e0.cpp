@@ -28,7 +28,7 @@ Cell MapClass::Unknown_005651E0(Cell const &cell, Cell const &from)
         }
         int facing = (short)(connection.From.X - connection.To.X) ? 2 : 4;
         CellClass *cellptr = &Map[cell];
-        while (cellptr->unknown_140 & 0x100) {
+        while (cellptr->IsUnderBridge) {
             cellptr = &cellptr->Adjacent_Cell(facing);
         }
         if ((cellptr->unknown_47b960() || cellptr->unknown_47b980()) && cellptr->unknown_ec != 3) {
