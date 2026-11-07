@@ -10,14 +10,14 @@ original code is still scaffold. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| Accepted regions | 17,944 |
-| Matched C/C++ body bytes | 3,191,713 (84.67% of .text) |
+| Accepted regions | 17,945 |
+| Matched C/C++ body bytes | 3,193,094 (84.70% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 780 (0.02% of .text) |
-| Frozen padding bytes | 142,524 |
+| Frozen padding bytes | 142,535 |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 98,395 (2.61% of .text; 3,688 matched) |
 | Handwritten blitter/codec assembly bytes (7 owner-ruled ranges plus evidenced inline asm; own ledger) | 12,660 (0.34% of .text) |
-| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,188,025 of 3,516,230 (90.67%) |
-| Original .text scaffold bytes | 434,788 |
+| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,189,406 of 3,516,219 (90.71%) |
+| Original .text scaffold bytes | 433,396 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 692 |
 
