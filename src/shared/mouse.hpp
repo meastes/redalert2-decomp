@@ -39,4 +39,12 @@ public:
 // and its Draw_Mouse/Erase_Mouse bracket MSEngine blits.
 extern Mouse *WWMouse;      // 0x00839C68
 
+#ifdef RA2_XMOUSE_WRAPPERS
+// Westwood's global mouse wrappers (Commando/Library _xmouse.h, as used by TibSun's
+// dropship.cpp): inline forwards to the game's mouse object.
+inline void Hide_Mouse() {WWMouse->Hide_Mouse();}
+inline void Show_Mouse() {WWMouse->Show_Mouse();}
+inline Point2D Get_Mouse_Point() {return(WWMouse->Get_Mouse_XY());}
+#endif
+
 #endif

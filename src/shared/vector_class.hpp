@@ -640,7 +640,12 @@ bool DynamicVectorClass<T>::Delete(int index)
     if (index < ActiveCount) {
         ActiveCount--;
         for (int i = index; i < ActiveCount; i++) {
+#ifdef RA2_VECTOR_DELETE_THIS_INDEX
+            // Westwood vector.h: the move goes through operator[] (the Dropship unit).
+            (*this)[i] = (*this)[i + 1];
+#else
             Vector[i] = Vector[i + 1];
+#endif
         }
         return true;
     }

@@ -1,3 +1,8 @@
+#define RA2_WDT_MAP_LOAD_LAYOUT
+#define RA2_VECTOR_DELETE_THIS_INDEX
+#define RA2_SHAPE_BUTTON_SHAPE_DATA
+#define RA2_XMOUSE_WRAPPERS
+#define SHAPE_FILE_EMPTY_RECT unknown_static_rect
 // Header-static dynamic initializers of the unit at 0x004A6720:  the
 // shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
 // (0x004A6720-0x004A6906); the other

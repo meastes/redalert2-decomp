@@ -6,11 +6,10 @@
 #include "shared/id_source.hpp"
 int __fastcall Unknown4A6AE0Owner::Find_Type_Index_004A6B50(TechnoTypeClass *type)
 {
-    int count = unknown_id_source_a3d290->AllowableUnits.Count();
-    if (!count) return -1;
-    for (int index = 0; index < count; ++index) {
-        if (unknown_id_source_a3d290->AllowableUnits[index] == type
-            && unknown_id_source_a3d290->AllowableUnitMaximums[index] != -1) return index;
+    TypeList<TechnoTypeClass *> &units = unknown_id_source_a3d290->AllowableUnits;
+    if (!units.Count()) return -1;
+    for (int index = 0; index < units.Count(); ++index) {
+        if (units[index] == type && unknown_id_source_a3d290->AllowableUnitMaximums[index] != -1) return index;
     }
     return -1;
 }

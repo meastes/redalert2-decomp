@@ -2104,3 +2104,6 @@ Second case (Scout898, Infantry Scatter 0x504120): the same direct reads decide 
 
 ## A user-declared base destructor makes a ctor site charged (Scout903, 2026-11-07)
 Under /Ob2, a constructor of a class whose base has a user-declared destructor is a charged inline site; with no such destructor it is free. TechnoClass NoInit 0x6C1F10: eleven CDTimerClass members built on BasicTimerClass (user dtor) spend the budget, so the VectorClass ctors stay out of line as in the original. When ctors in an init list inline that the original calls, check the members' class hierarchy against TibSun/YR.
+
+## An inlined callee's source form sets the caller's ties (Scout899, 2026-11-07)
+When a helper the original never calls is inlined into a big caller, the helper's own source shape (locals, references, loop form) feeds the caller's symbol counts and register ties. Dropship_Screen 0x4A6B90's two ties were set by Find_Type_Index 0x4A6B50's form (inlined at five sites): re-rolling the callee (still exact on its own) fixed the caller. Before inventing sites in the caller, check which accepted rows are inlined into it and try their natural alternative forms.

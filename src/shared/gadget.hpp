@@ -227,6 +227,10 @@ public:
     bool Unknown_00675370() const;                                  // 0x00675370 returns +0x34
     void Free_Shape();                                              // 0x006751A0 frees an allocated shape (Sidebar slot 50; name hypothesis)
     void Set_Allocated(bool allocated);                             // 0x006751D0 sets IsShapeAllocated (Sidebar slot 53)
+#ifdef RA2_SHAPE_BUTTON_SHAPE_DATA
+    // TibSun ShapeButtonClass::Get_Shape_Data (shapebtn.h): the shape the button draws.
+    void const *Get_Shape_Data() { return Shape; }
+#endif
 
     bool unknown_34;            // +0x34
     int unknown_38;             // +0x38
