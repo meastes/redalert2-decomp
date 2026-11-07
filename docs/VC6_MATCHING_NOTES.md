@@ -2114,3 +2114,6 @@ In inline accessors, Westwood's `return(expr);` and a bare `return expr;` can sc
 ## Merged vs separate empty case labels (Scout911, 2026-11-07)
 `case a: case b: break;` and `case a: break; case b: break;` emit different jump tables: merged labels let VC6 thread both entries past a later known-value test, which keeps the switch variable in a register across the table; separate labels give each entry its own target (and, in Take_Damage 0x6CDC40, the original's reload). When a switch row misses only on a reload or table target, try splitting or merging empty labels as the twin writes them.
 Refinement (Scout914): `return(expr);` changes scheduling only when expr already has the function's return type (a double sqrt returned as double, a `(double)(...)` cast); with an implicit conversion around expr the parentheses are inert. The effect is per site and can go either way, so copy TibSun header text site by site; never parenthesize a whole header.
+
+## Field signedness decides immediate caching (Scout929, 2026-11-07)
+A struct field's signedness can decide whether VC6 caches a test immediate in a byte register: AudioEvent +0x18 as signed `volatile int` lets an inlined loop hold 0x80 in bl (`mov bl,0x80; test bl,al`), unsigned does not. Header-bisect minimal TUs one declaration at a time; field types from the twin headers are evidence.

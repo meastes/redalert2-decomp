@@ -851,7 +851,11 @@ struct AudioEvent : AudioListNode {
     int unknown_10;
     int unknown_14;
 #endif
+#ifdef RA2_AUDIO_EVENT_SERVICE
+    int volatile Flags;             // +0x18 AUDIO_EVENT_* (signed in the event code: ra2-decomp `volatile int flags`)
+#else
     unsigned int volatile Flags;    // +0x18 AUDIO_EVENT_*
+#endif
     int volatile State;             // +0x1C 2: playing
     int unknown_20;
     AudioEventType *Type;           // +0x24
