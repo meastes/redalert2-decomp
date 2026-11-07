@@ -40,7 +40,7 @@ void MapClass::Unknown_0054A550(CoordStruct const &coord, int start, int sightra
         while (count--) {
             Cell newcell = *ptr++ + cell;
             CellClass &cellptr = (*this)[newcell];
-            unsigned char frame = unknown_tactical_83996c->Cell_Shadow(newcell, 0);
+            signed char frame = unknown_tactical_83996c->Cell_Shadow(newcell, 0);
             if (frame != cellptr.unknown_120) {
                 cellptr.unknown_120 = frame;
                 cellptr.unknown_138 = true;

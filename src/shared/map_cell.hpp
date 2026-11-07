@@ -1,16 +1,20 @@
-// CellClass as the Map units see it (moved out of shared/map.hpp so the
-// layer headers only declare CellClass; units that include the real
-// shared/cell.hpp must not include this stand-in).
+// CellClass as the Map units see it: the real class (shared/cell_class.hpp)
+// with the Map units' declarations of the members they call (RA2_CELL_MAP_VIEW:
+// the manglings their accepted rows bind). Units that include the real
+// shared/cell.hpp first see the class without them.
 #ifndef RA2_SHARED_MAP_CELL_HPP
 #define RA2_SHARED_MAP_CELL_HPP
 
 #include "shared/coord.hpp"
 #include "shared/rect.hpp"
 
-// Stand-in for CellClass (an AbstractClass: slot 8 of its primary vtable is
-// the virtual destructor, as in AbstractClass): only the members the map
-// code touches; the first eight slots are placeholders. The complete
-// evidenced layout, with the TibSun/YR names, is in shared/cell_class.hpp.
+#ifndef RA2_SHARED_GHIDRA_TYPES_HPP
+#define RA2_CELL_MAP_VIEW
+#include "shared/cell_class.hpp"
+#else
+// Seed units on shared/ghidra_types.hpp (its Win32 names clash with
+// shared/abstract_class.hpp's) keep the earlier stand-in: only the members the
+// map code touches, with placeholder slots; the layout is shared/cell_class.hpp's.
 class CellClass {
 public:
     void unknown_471d10(); //actual declaration from shared/cell.hpp, original RET0
@@ -148,5 +152,6 @@ public:
     void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 the two radar colours of the cell
     void Init_Drawer(class LightConvertClass *drawer, int intensity, int ambient, int brightness, int tile_brightness, int alt_brightness);   // 0x004790F0 (DisplayClass 0x0049E570)
 };
+#endif
 
 #endif

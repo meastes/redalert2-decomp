@@ -378,6 +378,40 @@ public:
 #endif
     void Recalc_Attributes(int value);           // 0x00472540 (clears an overlay with -1: AnimClass 0x004226D0, TerrainClass slot 52)
     int unknown_4706c0(Point2D const &point) const;       // 0x004706C0 (height at a lepton position in the cell; hypothesis)
+#ifdef RA2_CELL_MAP_VIEW
+    // The Map units' declarations (shared/map_cell.hpp; the manglings their accepted rows call).
+    // Several are the members above under other names or parameter types; one declaration each
+    // waits for a rename round.
+    void unknown_473000();          // 0x00473000 (Destroy_Bridge above)
+    bool unknown_47a270();          // 0x0047A270 (Is_Tile_Water above, declared non-const here)
+    void unknown_47c930();          // 0x0047C930 (TibSun On_Bridge_Collapse)
+    void unknown_47c900();          // 0x0047C900 (maps the cell for the player; MapClass 0x00549C50)
+    void unknown_473b30(ObjectClass *object, bool alt);   // 0x00473B30 (TibSun Occupy_Down)
+#ifdef RA2_MAP_BRIDGE_PIECES
+    void Unknown_0047CC10();        // 0x0047CC10 (TibSun Kill_Illegal_Occupiers)
+    class TubeClass *Unknown_0047A130();   // 0x0047A130 (the cell's tube; TibSun Get_Tunnel)
+#endif
+    // Whether a building of the type may be placed in the cell for the house (0x004718B0;
+    // TibSun Is_Clear_To_Build; declared above with ints).
+    bool unknown_4718b0(int speed, class BuildingTypeClass const *type, class HouseClass *house);
+    bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);   // 0x00478760 (unknown_478760 above)
+    ObjectClass *Unknown_00471660(Point2D const &point, int arg2, int arg3);   // 0x00471660 (unknown_471660 above)
+    CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any, int alt) const;   // 0x004764B0 (int alt)
+    void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 (Cell_Color)
+    void Unknown_004798F0();        // 0x004798F0 (unknown_4798f0 above)
+#ifdef RA2_MAP_CLOSE_OBJECT
+    ObjectClass *Cell_Occupier() const { return OccupierPtr; } // (TibSun Cell_Occupier; MapClass 0x0054E8D0)
+#endif
+    // The cell of the bridge deck piece over this cell (TibSun Get_Bridge_Deck_Cell).
+    Cell Get_Bridge_Deck_Cell() const
+    {
+        if (IsBridgeDeck) {
+            return Fetch_CellID();
+        } else {
+            return unknown_2c->Fetch_CellID();
+        }
+    }
+#endif
 
     Cell MapCoords;                       // +0x024
     DynamicVectorClass<FoggedObjectClass *> *FoggedObjects;   // +0x028

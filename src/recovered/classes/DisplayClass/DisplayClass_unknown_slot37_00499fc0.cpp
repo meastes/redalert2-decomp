@@ -31,12 +31,12 @@ bool DisplayClass::unknown_slot37(Cell const &cell, HouseClass *house, bool arg3
     } else {
         target.unknown_47c840();
     }
-    unsigned char frame = unknown_tactical_83996c->Cell_Shadow(cell, 0);
+    signed char frame = unknown_tactical_83996c->Cell_Shadow(cell, 0);
     if (frame != target.unknown_120) {
         changed = true;
         target.unknown_120 = frame;
     }
-    if (target.unknown_120 == 0xFF) {
+    if (target.unknown_120 == -1) {
         target.unknown_12c |= 0x10;
     }
     frame = unknown_tactical_83996c->Cell_Shadow(cell, 1);
@@ -44,7 +44,7 @@ bool DisplayClass::unknown_slot37(Cell const &cell, HouseClass *house, bool arg3
         changed = true;
         target.unknown_121 = frame;
     }
-    if (target.unknown_121 == 0xFF) {
+    if (target.unknown_121 == -1) {
         target.unknown_140 |= 1;
     }
     if (changed) {
