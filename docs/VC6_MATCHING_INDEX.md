@@ -227,4 +227,5 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2118-2120 Field signedness decides immediate caching (Scout929, 2026-11-07) (0): 
 - L2121-2125 Spill-slot assignment order (Scout944, 2026-11-07) (0): 
 - L2126-2139 Frame-slot model (Scout972 lab, 2026-11-07; build/class-work/Scout972/MODEL.md, lab/, lab.py) (8): R1 processing order: frame variables (spilled webs, temps, address-taken locals) by size ascending, then refs…
-- L2140-2143 Shared epilogue and jump threading (Scout989, 2026-11-07) (0): 
+- L2140-2144 Shared epilogue and jump threading (Scout989, 2026-11-07) (0): 
+- L2145-2146 Multi-path flag set: one statement gives the register form (Scout997) (0): 

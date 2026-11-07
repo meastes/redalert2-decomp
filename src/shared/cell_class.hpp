@@ -4,45 +4,70 @@
 // 0x0079DAD8 INoticeSource). Moved out of shared/map.hpp, where a stand-in
 // with placeholder slots stood for it.
 //
-// Layout (from the constructor 0x00470F10, the NoInitClass constructor
-// 0x00470680, the destructor 0x00470E80, Load 0x00478CB0 and Save
-// 0x00478ED0; names are hypotheses unless stated):
+// Layout (complete, 0x148 bytes): offsets and widths from the constructor
+// 0x00470F10, the NoInitClass constructor 0x00470680, the destructor
+// 0x00470E80, Load 0x00478CB0, Save 0x00478ED0 and the implicit operator=
+// that Set_Map_Dimensions 0x005484E0 expands (it copies every member one by
+// one, the +0x12C/+0x140 flags bit by bit, +0x0AC as 24 shorts and not
+// +0x144). The member order is TibSun cell.h's; every offset up to +0x144
+// equals the YR twin's (ra2-decomp include/cell.h). Names in [] are the
+// TibSun/YR names; members keep their unknown_ names until a rename lands.
 //   +0x000  AbstractClass (0x24)
-//   +0x024  Cell MapCoords      the zero cell when constructed
-//   +0x028  DynamicVectorClass<FoggedObjectClass *> *FoggedObjects (owned;
-//           saved as a count and pointers, swizzled)
-//   +0x02C  CellClass *unknown_2c     (swizzled; bridge owner cell)
-//   +0x030  void *unknown_30          (swizzled)
-//   +0x034  LightConvertClass *unknown_34  the tile drawer (Westwood's Drawer;
-//           counted at its +0x194, Init_Drawer 0x004790F0)
-//   +0x038  int IsoTileIndex          0xFFFF when constructed
-//   +0x03C  TagClass *unknown_3c (swizzled; the cell tag: counted at +0x2C,
-//           cells with one are listed in the map at 0x00833638)
-//   +0x040  void * (swizzled)
-//   +0x044  int OverlayIndex, +0x048 int SmudgeIndex (-1)
-//   +0x04C  int unknown_4c            (cleared by the NoInit constructor)
-//   +0x050..+0x064  int unknown_50[6] (-1)
-//   +0x068  Rect unknown_68           (0)
-//   +0x078  unsigned int unknown_78   per-house bit mask
-//   +0x07C  short unknown_7c[24]      per-house counters (zero-filled)
-//   +0x0AC  int unknown_ac[12]        (zero-filled)
-//   +0x0DC  int, +0x0E0 void * (swizzled; Set_unknown_e0)
-//   +0x0E4  ObjectClass *OccupierPtr, +0x0E8 ObjectClass *AltOccupierPtr
-//           (swizzled; chained through ObjectClass +0x30)
-//   +0x0EC  int unknown_ec            the land type (index into Ground,
-//           0x00850EA0)
-//   +0x0F0  double unknown_f0         (Reduce_f0 0x0047CEC0)
-//   +0x0F8  void * (swizzled), +0x0FC owned object (deleted by the destructor)
-//   +0x100  int, +0x104 int (0x10000)
-//   +0x108  short, +0x10A..+0x114 short (1000), +0x116 short (-1)
-//   +0x118..+0x122  chars (+0x118 -1, +0x120/+0x121 -2; +0x11C blocks
-//           smudges, +0x11E OverlayData, +0x11F SmudgeData, +0x122 adjacent
-//           terrain count)
-//   +0x124, +0x128  unsigned char
-//   +0x12C  flag bits (bits 0..4 cleared when constructed)
-//   +0x130  int (1), +0x134 int, +0x138 bool, +0x13C int
-//   +0x140  flag bits (bits 0..22 cleared when constructed)
-//   size 0x148
+//   +0x024  Cell MapCoords               [CellID] the zero cell when constructed
+//   +0x028  FoggedObjects                [FoggedObjects] owned list, saved as a count and pointers
+//   +0x02C  CellClass *unknown_2c        [BridgeDeckCell] swizzled
+//   +0x030  void *unknown_30             [UnusedCell] swizzled
+//   +0x034  LightConvertClass *unknown_34 [Drawer] counted at its +0x194 (Init_Drawer 0x004790F0)
+//   +0x038  int IsoTileIndex             [ITType] 0xFFFF when constructed
+//   +0x03C  TagClass *unknown_3c         [Tag] swizzled; tagged cells listed at 0x00833638
+//   +0x040  void *unknown_40             [YR Rubble: BuildingTypeClass *] swizzled
+//   +0x044  int OverlayIndex             [Overlay] -1
+//   +0x048  int SmudgeIndex              [Smudge] -1
+//   +0x04C  int unknown_4c               [Passability] (Recalc_Passability 0x00478F40)
+//   +0x050  int unknown_50               [Owner] the wall owner's house (0x004724A0) -1
+//   +0x054  int unknown_54               [InfType] -1
+//   +0x058  int unknown_58               [BridgeInfType] -1
+//   +0x05C  int unknown_5c               [LastRedrawFrame] -1
+//   +0x060  int unknown_60               [LastUnknownDrawFrame] -1
+//   +0x064  int unknown_64               [LastBridgeDrawFrame] -1
+//   +0x068  Rect unknown_68              [LastBridgeDrawRect] 0
+//   +0x078  unsigned int unknown_78      [CloakedBy] per-house bits
+//   +0x07C  short unknown_7c[24]         [YR SensorsOfHouses; TibSun SensedBy bits] Is_Sensed 0x0047C2E0 tests > 0
+//   +0x0AC  int unknown_ac[12]           [YR DisguiseSensorsOfHouses: unsigned short [24]] the operator= copy is 24 shorts
+//   +0x0DC  int unknown_dc               [OccupiedBy] per-house bits (Is_House_Bit 0x0047C2C0)
+//   +0x0E0  void *unknown_e0             [YR Jumpjet: FootClass *] swizzled (Set_unknown_e0 0x0047CF30)
+//   +0x0E4  ObjectClass *OccupierPtr     [OccupierPtr] swizzled; chained through ObjectClass +0x30
+//   +0x0E8  ObjectClass *AltOccupierPtr  [BridgeOccupierPtr] swizzled
+//   +0x0EC  int unknown_ec               [Land] index into Ground 0x00850EA0
+//   +0x0F0  double unknown_f0            [YR RadLevel] (Reduce_f0 0x0047CEC0, RadLevelMax 0x0047CE70)
+//   +0x0F8  void *unknown_f8             [YR RadSite] swizzled
+//   +0x0FC  UnknownCellOwned *unknown_fc [YR PixelFX] owned (deleted by the destructor)
+//   +0x100  int unknown_100              [YR OccupyHeightsCoveringMe] counted by the buildings that hide the cell
+//   +0x104  int unknown_104              [Intensity] 0x10000
+//   +0x108  short unknown_108            [Ambient]
+//   +0x10A..+0x114  short                [Brightness, TileBrightness, AltBrightness, RedTint, GreenTint, BlueTint] 1000
+//   +0x116  short unknown_116            [Tube] -1
+//   +0x118  unsigned char unknown_118    [LastBridgeDrawRedraws] 0xFF
+//   +0x119  char unknown_119             [IsIceGrowthAllowed]
+//   +0x11A  char unknown_11a             [SubTile]
+//   +0x11B  char unknown_11b             [Height] signed
+//   +0x11C  unsigned char unknown_11c    [Ramp] (blocks smudges; Force_New_Slope argument)
+//   +0x11D  char unknown_11d             [Elevation]
+//   +0x11E  unsigned char OverlayData    [OverlayData]
+//   +0x11F  unsigned char SmudgeData     [SmudgeData]
+//   +0x120  char unknown_120             [ShadowFrame] -2 (map_cell.hpp reads it unsigned)
+//   +0x121  char unknown_121             [FogFrame] -2 (likewise)
+//   +0x122  char unknown_122             [AdjacentObjectCount]
+//   +0x124  occupation flags             [Flag: Occupy bits / Composite byte]
+//   +0x128  the same for the bridge      [BridgeFlag]
+//   +0x12C  5 flag bits                  [YR IsPlot, IsCursorHere, IsFoundationCopyHere, IsMapped, IsVisible]
+//   +0x130  int unknown_130              [YR ShroudCounter] 1 (0x0047C840/0x0047C8A0)
+//   +0x134  int unknown_134              [YR GapsCoveringThisCell]
+//   +0x138  bool unknown_138             [YR VisibilityChanged]
+//   +0x13C  int unknown_13c              [YR unknown_13C]
+//   +0x140  23 flag bits                 [IsFogVisible .. IsFogged, TibSun/YR order; names below]
+//   +0x144  int unknown_144              not in the YR twin; the implicit operator= does not copy it
+//   size 0x148 (Size_Of 0x0047CF90)
 #ifndef RA2_SHARED_CELL_CLASS_HPP
 #define RA2_SHARED_CELL_CLASS_HPP
 
@@ -426,6 +451,17 @@ public:
         struct {
             unsigned Flags_12c:5;
         };
+#ifdef RA2_CELL_FLAG_NAMES
+        // The YR names (ra2-decomp include/cell.h). Guarded: any added member, named or not, moves
+        // AI_Build_Defense 0x004F1190 (declaration-count fragile row); units that use them define the macro.
+        struct {
+            unsigned IsPlot:1;                  // bit 0
+            unsigned IsCursorHere:1;            // bit 1
+            unsigned IsFoundationCopyHere:1;    // bit 2
+            unsigned IsMapped:1;                // bit 3 (IGameMap::Is_Visible reads it)
+            unsigned IsVisible:1;               // bit 4
+        };
+#endif
     };
     int unknown_130;                            // +0x130
     int unknown_134;                            // +0x134
@@ -436,6 +472,33 @@ public:
         struct {
             unsigned Flags_140:23;
         };
+#ifdef RA2_CELL_FLAG_NAMES
+        struct {                                // TibSun cell.h / YR names and order; bits 7-12 and 16 from Set_Under_Bridge 0x004732D0
+            unsigned IsFogVisible:1;            // bit 0 (set when layer 1 is fully shrouded)
+            unsigned IsFogMapped:1;             // bit 1
+            unsigned IsWaypoint:1;              // bit 2
+            unsigned IsRadarCursor:1;           // bit 3
+            unsigned IsFlagged:1;               // bit 4
+            unsigned IsToShroud:1;              // bit 5
+            unsigned IsToFog:1;                 // bit 6
+            unsigned IsBridgeDeck:1;            // bit 7
+            unsigned IsUnderBridge:1;           // bit 8
+            unsigned IsBridgeTraversable:1;     // bit 9
+            unsigned WasUnderBridge:1;          // bit 10
+            unsigned IsBridgeEastWest:1;        // bit 11
+            unsigned IsBridgeSurface:1;         // bit 12
+            unsigned IsBridgeDamaged:1;         // bit 13
+            unsigned IsToGrowIce:1;             // bit 14
+            unsigned IsToGrowVeins:1;           // bit 15
+            unsigned IsOvershadowed:1;          // bit 16
+            unsigned IsAnimAttached:1;          // bit 17 (Recalc_Attributes 0x00472540)
+            unsigned IsPredictedPath:1;         // bit 18
+            unsigned IsAffectedByEMP:1;         // bit 19
+            unsigned IsHorizontalLine:1;        // bit 20
+            unsigned IsVerticalLine:1;          // bit 21
+            unsigned IsFogged:1;                // bit 22
+        };
+#else
         struct {                                // TibSun names, from Set_Under_Bridge 0x004732D0
             unsigned :7;
             unsigned IsBridgeDeck:1;            // bit 7
@@ -450,8 +513,9 @@ public:
             unsigned IsAnimAttached:1;          // bit 17 (TibSun name; Recalc_Attributes 0x00472540)
 #endif
         };
+#endif
     };
-    int unknown_144;                            // +0x144
+    int unknown_144;                            // +0x144 (not in the YR twin)
 };
 
 #endif

@@ -9,7 +9,8 @@
 
 // Stand-in for CellClass (an AbstractClass: slot 8 of its primary vtable is
 // the virtual destructor, as in AbstractClass): only the members the map
-// code touches; the first eight slots are placeholders.
+// code touches; the first eight slots are placeholders. The complete
+// evidenced layout, with the TibSun/YR names, is in shared/cell_class.hpp.
 class CellClass {
 public:
     void unknown_471d10(); //actual declaration from shared/cell.hpp, original RET0
@@ -29,9 +30,9 @@ public:
 
     char unknown_04[0x24 - 0x04];
     Cell MapCoords;           // +0x24 the cell's own coordinates
-    int unknown_28;                 // +0x28
+    int unknown_28;                 // +0x28 (cell_class.hpp FoggedObjects)
     CellClass *unknown_2c;          // +0x2C cleared by MapClass slot 23 (TibSun BridgeDeckCell)
-    int unknown_30;                 // +0x30 cleared by MapClass slot 23
+    int unknown_30;                 // +0x30 cleared by MapClass slot 23 (TibSun UnusedCell)
     class LightConvertClass *unknown_34;    // +0x34 the tile drawer (as shared/cell_class.hpp)
     int IsoTileIndex;               // +0x38
     class TagClass *unknown_3c;     // +0x3C
@@ -63,16 +64,16 @@ public:
     unsigned char unknown_11c;      // +0x11C
     char unknown_11d;               // +0x11D
     unsigned char OverlayData;      // +0x11E
-    char unknown_11f;               // +0x11F
-    unsigned char unknown_120;      // +0x120 the shroud frame of layer 0 (0xFF: fully shrouded; hypothesis)
-    unsigned char unknown_121;      // +0x121 the same for layer 1
+    char unknown_11f;               // +0x11F (cell_class.hpp SmudgeData)
+    unsigned char unknown_120;      // +0x120 the shroud frame of layer 0 (0xFF: fully shrouded; TibSun/YR ShadowFrame, a char)
+    unsigned char unknown_121;      // +0x121 the same for layer 1 (TibSun/YR FogFrame, a char)
     char unknown_122[0x12C - 0x122];
-    unsigned int unknown_12c;       // +0x12C flags; bit 3 answers IGameMap::Is_Visible
+    unsigned int unknown_12c;       // +0x12C flags; bit 3 (YR IsMapped) answers IGameMap::Is_Visible
     int unknown_130;                // +0x130 (1 after MapClass 0x00559F10)
     int unknown_134;                // +0x134 (0 after MapClass 0x00559F10)
     bool unknown_138;               // +0x138 (as shared/cell.hpp)
     int unknown_13c;                // +0x13C (as shared/cell.hpp; positive: MapClass 0x00568280)
-    union {                         // +0x140 flags (bit 1: mapped, bit 0 set when layer 1 is fully shrouded)
+    union {                         // +0x140 flags (bit 1 YR IsFogMapped; bit 0 YR IsFogVisible, set when layer 1 is fully shrouded)
         unsigned int unknown_140;
         struct {                    // TibSun names (as shared/cell_class.hpp)
             unsigned :7;
