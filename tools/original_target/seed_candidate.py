@@ -1196,6 +1196,13 @@ def byte_update_artifacts(body, params=()):
     """
     view = code_view(body)
     slots = {name: (kind, None) for kind, name in map(param_parts, params) if name}
+    declarations = {name: 1 for name in slots}
+    # A two-word cast is not an unnamed declaration followed by a comma.
+    declaration_view = re.sub(r'\(\s*(?:unsigned|signed)\s+(?:long|short|int|char)'
+                              r'(?:\s+int)?\s*\)', lambda m: ' ' * len(m[0]), view)
+    declared, comma_declarations = scalar_declarations(declaration_view)
+    for _, name, _ in declared:
+        declarations[name] = declarations.get(name, 0) + 1
     for kind, name, array in LOCAL.findall(view):
         if kind.strip().split()[0] in ('return', 'goto', 'delete', 'throw', 'break', 'continue'):
             continue
@@ -1223,15 +1230,29 @@ def byte_update_artifacts(body, params=()):
             continue
         cursor = match.end()
         cast = re.match(r'\(([\w\t ]+(?:\s*\*)*)\)\s*', view[cursor:])
+        mixed_cast = False
         if cast:
-            if clean_type(cast[1]) != kind:
-                continue
+            cast_kind = clean_type(cast[1])
+            if cast_kind != kind:
+                # On the pinned 32-bit target these integral/pointer casts
+                # change neither representation nor the preserved high bytes.
+                # A narrow/wide/FP cast, qualified storage or a shadowed slot
+                # cannot use this mixed-storage repair.
+                if (declarations.get(name) != 1 or comma_declarations or cast_kind in slots or '#' in view or
+                        'CONCAT31' in slots or
+                        re.search(r'\b(?:typedef|using|namespace|class|struct|union|enum)\b', view) or
+                        re.search(r'\b(?:const|volatile|__ptr64|__far|__huge|far|near)\b', cast[1]) or
+                        not (cast_kind in INTEGRAL32 or cast_kind in POINTER_ALIASES or '*' in cast_kind)):
+                    continue
+                mixed_cast = True
             cursor += cast.end()
         concat = re.match(r'CONCAT31\s*\(', view[cursor:])
         if not concat:
             continue
         opening = cursor + concat.end() - 1
         closing = matching_paren(view, opening)
+        if mixed_cast and body[match.start('slot'):closing+1] != view[match.start('slot'):closing+1]:
+            continue  # Preserve comments/literals inside a newly recognized store.
         args = split_args(body[opening+1:closing])
         if len(args) != 2 or re.sub(r'\s+', '', args[0]) != slot + '._1_3_':
             continue

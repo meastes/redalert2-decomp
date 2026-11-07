@@ -2120,3 +2120,4 @@ A struct field's signedness can decide whether VC6 caches a test immediate in a 
 
 ## Spill-slot assignment order (Scout944, 2026-11-07)
 For equal-size spilled webs, VC6 creates frame slots in processing order (first web processed -> first new slot), and a later temporary joins the newest compatible slot. Among webs first defined inside the same loop, the earlier in-loop first definition is processed later (dead definitions count; definitions outside the loop do not). Use a /FAs frame map with ref counts (build/class-work/Scout944/fa.sh) before trying declaration shuffles.
+Further (Scout946): moving declarations changed no slot in five rows (first definitions and weights decide); a dead initialisation of another variable adds no ref to the target web; address-taken locals in one block scope never share a slot even with disjoint live ranges, while compiler temporaries share with either.
