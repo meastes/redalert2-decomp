@@ -867,7 +867,11 @@ struct AudioEvent : AudioListNode {
     AudioLevelSet Levels;           // +0xB8
     char unknown_130[0x138 - 0x130];
     int unknown_138;
+#ifdef RA2_AUDIO_EVENT_SERVICE
+    unsigned int volatile unknown_13c;  // +0x13C delay before the next sample (ra2-decomp `volatile unsigned delay`)
+#else
     int unknown_13c;
+#endif
     __int64 volatile unknown_140;   // +0x140 time the event was started or last resumed
     int volatile unknown_148;                // the source waiting for the delay to pass
     int unknown_14c;                // frequency the event's channel starts at
