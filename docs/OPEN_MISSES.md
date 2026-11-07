@@ -2557,3 +2557,12 @@ Unknown_Cell_Score_0056dff0 is really a thiscall member.
 
 ## Scout915 (2026-11-07, closed; 0 B; NOTES, rss.py (remote sweep_seeds), sweep/queue.md in build/class-work/Scout915/)
 - Fresh SP3 seed sweep with the current seed_candidate over 201 unaccepted rows (252,826 B; 705 rows, 339,850 B in all): 0 byte-exact, none at 95+; every parked draft beats its seed. The automated seed queue is spent for game code. Preview_Tile 0x52E390 (52 B) flat at 81.25 (pt/w1.cpp; `level` load order before `pop esi`). Fill_Color_Combo 0x4D2080's 53 B bound is a Ghidra no-return cut; real body is the Near517 draft at 86.09.
+
+## Scout914 (2026-11-07, closed; 0 B; NOTES, t/, w/pm*.cpp, h/all, h/u1 in build/class-work/Scout914/)
+- Westwood `return(e);` across all 1,203 shared-header sites (lab overlay h/all) and TibSun's Union text moved none of AnimClass AI, Place_Tiberium, Bounce, Repair_Bridge, 0x569320, Mech. Ship Draw_Matrix: TibSun's whole timer chain leaves the natural Slope_Ratio at 82.37; parked.
+- Projectile_Motion 0x593870 (2,101 B) 99.22 (w/pmD1.cpp): with double-returning sqrt/atan2 helpers, bare returns give 97.19 and `return(...)` restores 99.22; outer parentheses on As_Radian cost 97.34. Two FP scheduling ties left (sub esp,8 placement after 0x41B630; delta.Z load order). Landing needs porting onto shared dir_type.hpp / bullet_velocity.hpp / TPoint3D under first-row guards (0x593680).
+- RA2_DIR_MISSILE_ANGLES in dir_type.hpp writes As_Radian as `double(...)` (TibSun `(double)(...)`); rows inlining As_Radian should be scored with the C-style form.
+
+## Scout916 (2026-11-07, closed; 0 B; NOTES, rls.py (remote lscore), js.py, scan.py, x/scanall.json in build/class-work/Scout916/)
+- No parked switch row is decided by merged/separate labels, default placement or break/return. Egos 0x4B37C0 99.54, Missile 0x448400 99.77 (two instruction-order ties in EMP case 2), Host_Dialog_Proc 0x5BEFE0 99.07 unchanged; Building Take_Damage 0x43EE70 now 88.74 on HEAD (site-2 inline budget). Wait_Callback 0x73E100 and Draw_Placement_Cursor 0x473F20 have no switch.
+- Lead: Mouse_Left_Up 0x49B0F0 61.78 -> 62.84 by re-rolling the inlined helper DisplayClass::Unknown_0049EAD0 (switch on `mouse`; exact standalone in five forms) to `default: return mouse;` or an early-return guard; a helper's return vs assignment form moves where the caller loads the switch variable.

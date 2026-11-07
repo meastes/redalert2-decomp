@@ -1044,6 +1044,76 @@ def byte_update_value_safe(value):
     return True
 
 
+def floating_word_store_artifacts(body, params=()):
+    """Recover a low DWORD stored in Ghidra's merged double stack carrier.
+
+    slot=(double)CONCAT44(slot._4_4_, value) is a storage reconstruction:
+    preserve the upper word without reading it. A bare float operand supplies
+    its 32 representation bits, not an integer conversion of its FP value.
+    Only unambiguous declared double slots and known DWORD values qualify.
+    Numeric conversions with non-preserving high words stay unresolved.
+    """
+    if 'CONCAT44' not in body:
+        return body
+    view = code_view(body)
+    declarations, comma = scalar_declarations(view)
+    if comma or '#' in view:
+        return body
+    slots = {}
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind.strip(), None))
+    for kind, name, array in declarations:
+        slots.setdefault(name, []).append((kind, array))
+    if ('CONCAT44' in slots or re.search(r'\(\s*\*\s*CONCAT44\s*\)', view+' '+' '.join(params))):
+        return body
+    pattern = re.compile(r'^[\t ]*(?P<slot>[A-Za-z_]\w*)[\t ]*=(?!=)\s*'
+                         r'\(\s*double\s*\)\s*CONCAT44\s*\(', re.M)
+    edits = []
+    for match in pattern.finditer(view):
+        before = view[:match.start()].rstrip()
+        if before and before[-1] not in '{;}':
+            continue
+        slot = match['slot']
+        if slots.get(slot) != [('double', None)]:
+            continue
+        opening = match.end()-1
+        closing = matching_paren(view, opening)
+        end = closing+1
+        while end < len(view) and view[end].isspace():
+            end += 1
+        if end >= len(view) or view[end] != ';':
+            continue
+        if body[match.start('slot'):closing+1] != view[match.start('slot'):closing+1]:
+            continue  # Do not discard comments inside the reconstructed store.
+        args = split_args(body[opening+1:closing])
+        if len(args) != 2 or not re.fullmatch(re.escape(slot)+r'\s*\.\s*_4_4_',code_view(args[0]).strip()):
+            continue
+        value = args[1].strip()
+        token = code_view(value).strip()
+        rhs = None
+        if re.fullmatch(r'-?(?:0[xX][0-9a-fA-F]+|[0-9]+)[uUlL]*', token):
+            rhs = '(uint)('+value+')'
+        elif re.fullmatch(r'[A-Za-z_]\w*', token):
+            declared = slots.get(token, [])
+            if len(declared) != 1:
+                continue
+            kind, array = declared[0]
+            if array or '&' in kind or re.search(r'\bvolatile\b',kind):
+                continue
+            kind = clean_type(kind)
+            if kind == 'float':
+                rhs = '*((uint const *)&('+value+'))'
+            elif kind in INTEGRAL32 or kind in POINTER_ALIASES or '*' in kind:
+                rhs = '(uint)('+value+')'
+        if rhs is None:
+            continue
+        edits.append((match.start('slot'),end+1,'*((uint *)&('+slot+')) = '+rhs+';'))
+    for start, end, replacement in reversed(edits):
+        body = body[:start]+replacement+body[end:]
+    return body
+
+
 def partial_byte_update_artifacts(body, params=()):
     """Recover a byte-two store hidden inside a self-preserving low-three slice.
 
@@ -2687,6 +2757,7 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     body = terminal_label_statements(body)
     body, switch_notes = indexed_switch_artifacts(body, entry, params)
     body = nan_artifacts(body, params, named_calls(body, inventory) if re.search(r'\bNAN\s*\(', code_view(body)) else ())
+    body = floating_word_store_artifacts(body, params)
     body = partial_byte_update_artifacts(body, params)
     body = byte_update_artifacts(body, params)
     body, word_store_notes = word_store_artifacts(body, params, entry, inventory)
