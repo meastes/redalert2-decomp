@@ -6,8 +6,10 @@
 #include "shared/map_region.hpp"
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
-// Operation name and cdecl free-function spelling are hypotheses; original ignores ECX.
-void Clear_Map_Cell_Traversal_Marks_00582a50()
+#include "shared/unknown_map_generator.hpp"
+// Clears every map cell's spread mark (TibSun MapGeneratorClass::Clear_Cell_Data_Spreads,
+// a member in RA2's TibSun-ordered run 0x581870-0x582A50; never called, ECX not read).
+void UnknownMapGenerator::Clear_Cell_Data_Spreads_00582a50()
 {
     Map.Unknown_0055A550();
     for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {

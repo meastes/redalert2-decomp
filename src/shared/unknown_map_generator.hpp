@@ -58,6 +58,10 @@ public:
     void Set_Cell_Data_Spread_005818e0(Cell const &cell, int patch_id);
     // The spread that last reached a cell's generator record (TibSun Get_Cell_Data_Spread; RET4).
     int Get_Cell_Data_Spread_00581910(Cell const &cell);
+#ifdef RA2_MAPGEN_CLEAR_SPREADS_MEMBER
+    // Clears every map cell's spread mark (TibSun Clear_Cell_Data_Spreads; never called, ECX not read).
+    void Clear_Cell_Data_Spreads_00582a50();
+#endif
     ~UnknownMapGenerator();
     UnknownMapGenerator(); //00577010 remains parked, no body promoted
     // Proposed rename-only owner correction; same int,int/ECX/RET8 physical ABI.
