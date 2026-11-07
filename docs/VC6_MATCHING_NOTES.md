@@ -2097,3 +2097,4 @@ Limits (Scout891): in some rows (Exit_Object) the window follows the total symbo
 
 ## Direct field reads change later sum grouping (Scout894, 2026-11-07)
 Direct reads of a local struct's fields (`cell.X`, `cell.Y`) earlier in a function let VC6 reassociate a later `(X + Y) - b` into `(Y - b) + X`, losing a sum shared with a test; the same reads through inline member accessors do not. When a sum/operand-order miss sits after direct field reads, try the twin's accessor form (RTactical Action 0x62FE30).
+Second case (Scout898, Infantry Scatter 0x504120): the same direct reads decide whether a later product reuses its operand's register (`imul edi,[g]` vs `mov eax,[g]; imul eax,edi`); the head of the function, not the product site, decides. Compile the twin text with its own headers and cut regions out to find which region decides.
