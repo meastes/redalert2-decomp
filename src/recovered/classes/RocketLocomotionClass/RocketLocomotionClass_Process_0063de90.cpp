@@ -6,28 +6,10 @@
 // trail anim, move along facing and pitch, and detonate on zero strength.
 // False when the rocket detonated at the target (0x0063DCF0). Needs
 // RA2_COORD_LENGTH (CoordStruct::Length), defined at the top of the unit.
+// Its pitch toward the destination (0x0063DE10, the row before) is inlined here.
 #include "shared/rocket_locomotion.hpp"
 #include "shared/fast_math.hpp"
 #include "shared/point.hpp"
-
-static inline int Square(int x) { return x * x; }
-
-// double RocketLocomotionClass::unknown_63de10() (0x0063DE10): the pitch from
-// the rocket to its destination, the arctangent of the height over the ground
-// distance (straight down with no ground distance). The original emits it out
-// of line with no callers; its standalone copy is not reproduced yet (88.89:
-// the two squares take the opposite registers), so it is defined inline here
-// and 0x0063DE10 stays unaccepted. Its two inlined copies below are exact.
-inline double RocketLocomotionClass::unknown_63de10()
-{
-    CoordStruct coord = Object_Coord(LinkedTo);
-    CoordStruct delta = unknown_18 - coord;
-    float distance = Fast_Sqrt((double)(Square(delta.X) + Square(delta.Y)));
-    if (distance > 0.0) {
-        return Fast_Atan((double)(delta.Z / distance));
-    }
-    return -1.5707963267948966;
-}
 
 #include "shared/aircraft.hpp"
 #include "shared/rules.hpp"
@@ -90,8 +72,7 @@ static inline UnknownFacingDir Direction_To(ObjectClass *object, CoordStruct con
 
 static inline int Distance(CoordStruct const &coord1, CoordStruct const &coord2)
 {
-    CoordStruct delta = coord1 - coord2;
-    return delta.Length();
+    return (coord1 - coord2).Length();
 }
 
 static inline int Distance_To(ObjectClass *object, CoordStruct const &to)
