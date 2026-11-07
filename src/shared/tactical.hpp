@@ -48,6 +48,10 @@ Point2D __fastcall Rectangular_To_Isometric(Point2D point);
 // 0x006A2710 and 0x006AC800). Stand-in: only the members the screen code uses,
 // layout padding otherwise; the AbstractClass overrides (slots 3, 5, 6, 8,
 // 10-12, 23) are not declared yet.
+// Called by Render (0x006A45A0) once per frame with no arguments, after the effect Update_All calls;
+// walks the building list (0x006AC420; owner unknown, hypothesis).
+void __fastcall Unknown_006AC420();
+
 class Tactical : public AbstractClass {
 public:
 #ifdef TACTICAL_DECLARE_LEPTON_TO_MAP_PIXEL
@@ -79,7 +83,10 @@ public:
     // intersection of the two rectangles (hypothesis).
     void Unknown_006A9E10(bool arg1, Rect const &rect1, Rect const &rect2);
     void Unknown_006A9F60(bool arg1, Rect const &rect1, Rect const &rect2);
-    bool Unknown_006AA510(ObjectClass *object, int x, int y);   // 0x006AA510 (lists an object's pixel when it is near the tactical area; 0x006AA300 expands it)
+    // Lists an object with its view-relative pixel in the selectable table when the pixel lies within
+    // 32 of the tactical area (0x006AA510; ra2-decomp YR Tactical::Add_To_Selectables 0x006D9EF0 name and ABI).
+    // The point is passed by value: Veinhole Draw_It 0x710880 builds it as a temporary.
+    bool Add_To_Selectables(ObjectClass *object, Point2D point);   // 0x006AA510 (0x006AA300 expands it)
     int Unknown_006AA6A0();                         // 0x006AA6A0 (1 when an object pixel lies inside the selection band; hypothesis)
     void Unknown_006AA790();                        // 0x006AA790 (draws the selection band rectangle; hypothesis)
     void Unknown_006AABC0(Rect const *rect, void (__fastcall *callback)(ObjectClass *object));   // 0x006AABC0 (hypothesis)

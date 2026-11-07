@@ -67,7 +67,7 @@ void AircraftClass::unknown_slot67(int screen_point_address, int clip_address)
         }
         unknown_slot109(saved_height);
         unknown_5a0 = saved_flag;
-        unknown_tactical_83996c->Unknown_006AA510(this, draw_point.X, draw_point.Y);
+        unknown_tactical_83996c->Add_To_Selectables(this, draw_point);
 
         int scenario_scale;
         if (Unknown_0051FC50()) scenario_scale = unknown_id_source_a3d290->IonLevel;

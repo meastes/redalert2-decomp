@@ -56,7 +56,7 @@ void InfantryClass::unknown_slot67(int point_arg,int window_arg)
             ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(unknown_slot26());
             if (!shape) return;
             Cell target_cell=unknown_slot106();
-            unknown_tactical_83996c->Unknown_006AA510(this,point.X,point.Y);
+            unknown_tactical_83996c->Add_To_Selectables(this, point);
             int level_light;
             if (Unknown_0051FC50()) level_light=unknown_id_source_a3d290->IonLevel;
             else if (Unknown_0051FC60()) level_light=unknown_id_source_a3d290->unknown_22f4;
@@ -85,6 +85,6 @@ void InfantryClass::unknown_slot67(int point_arg,int window_arg)
             signed char draw_offset=*reinterpret_cast<signed char const *>(&unknown_59e);
             unknown_slot293(shape,unknown_500350(),&(point+Point2D(0,-draw_offset)),&window,0,256,unknown_infantry_zadjust_007daeb8,2,0,brightness,0,0,Point2D(0,0),0);
         }
-    } else unknown_tactical_83996c->Unknown_006AA510(this,point.X,point.Y);
+    } else unknown_tactical_83996c->Add_To_Selectables(this, point);
     FootClass::unknown_slot67(reinterpret_cast<int>(&point),window_arg);
 }

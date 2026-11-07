@@ -21,7 +21,7 @@ void Tactical::Add_Buildings_To_Selectable(Rect rect)
             if (point.X >= top_left.X && point.X <= bottom_right.X && point.Y >= top_left.Y && point.Y <= bottom_right.Y) {
                 Point2D view(TacPixelX, TacPixelY);
                 point = point - view;
-                Unknown_006AA510(bptr, point.X, point.Y);
+                Add_To_Selectables(bptr, point);
             }
         }
     }

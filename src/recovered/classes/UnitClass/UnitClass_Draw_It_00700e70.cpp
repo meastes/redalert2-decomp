@@ -57,7 +57,7 @@ void UnitClass::unknown_slot67(int point_arg, int window_arg)
     }
     Cell cell = unknown_slot104();
     if (unknown_slot25(false, 0) != 5) {
-        unknown_tactical_83996c->Unknown_006AA510(this, adjusted_point.X, adjusted_point.Y);
+        unknown_tactical_83996c->Add_To_Selectables(this, adjusted_point);
         int height = unknown_slot108();
         CellClass *cptr = &Map[CoordStruct(Coord)];
         int brightness;

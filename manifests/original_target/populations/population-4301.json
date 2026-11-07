@@ -4,8 +4,8 @@
     "id": "population-4301",
     "inventory_sha256": "e3904bfa22cf989d2d26a0e016aa2ca52c5e3d67a4090506b1b079d75be5f0b8",
     "gaps_sha256": "4f9095dc7124eab2120fdf153a9045bf73f463ee8ba9a29887bab38154c7913f",
-    "historical_population_sha256": "271a8275ceac806d616d6fd6c5ded54572675c70dc3ca70b1291ced7cf9366e7",
-    "historical_acceptance_sha256": "b8cdc137d14cd047e1e8d8d6121088f0cd8ae3689c73bd3dd9741cf871e42780"
+    "historical_population_sha256": "1aeb6d2d96709b1ed30d9b8e01525d6c137d468051757f5b7cea0157c3d3c2f5",
+    "historical_acceptance_sha256": "96c5d74c68e43b05061534b783a90fa10801125cade66fdadea1d3238040cb33"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -11560,7 +11560,7 @@
     "?Unknown_006A9E10@Tactical@@QAEX_NABVRect@@1@Z": 6987280,
     "?Unknown_006A9F60@Tactical@@QAEX_NABVRect@@1@Z": 6987616,
     "?Rectangular_To_Isometric@@YI?AUPoint2D@@U1@@Z": 6956864,
-    "?Unknown_006AA510@Tactical@@QAE_NPAVObjectClass@@HH@Z": 6989072,
+    "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z": 6989072,
     "?unknown_tactical_pixels_abe5f8@@3PAUTacticalObjectPixel@@A": 11265528,
     "?Unknown_006AA6A0@Tactical@@QAEHXZ": 6989472,
     "?Unknown_006F76B0@@YA_NXZ": 7304880,
@@ -11797,7 +11797,12 @@
     "?Debug_Draw_Occupier_Links@Tactical@@QAEXXZ": 6993936,
     "?Draw_Objects@Tactical@@QAEX_N@Z": 6984688,
     "?Draw_Tile_Shadows@Tactical@@QAEXHABVRect@@@Z": 6981792,
-    "?Debug_Draw_Occupation_Flags@Tactical@@QAEXXZ": 6994976
+    "?Debug_Draw_Occupation_Flags@Tactical@@QAEXXZ": 6994976,
+    "?Plan_Naval_Yard_Path_004eecb0@HouseClass@@QAEXH@Z": 5172400,
+    "?Move_To@FlyLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 4965344,
+    "?Move_To@RocketLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 6548096,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "?unknown_slot67@BulletClass@@UAEXHH@Z": 4591824
   },
   "regions": [
     {
@@ -21360,7 +21365,7 @@
         {
           "offset": 561,
           "kind": 20,
-          "symbol": "?Unknown_006AA510@Tactical@@QAE_NPAVObjectClass@@HH@Z",
+          "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
           "target": 6989072,
           "addend": 0,
           "resolved": 1744267
@@ -21664,7 +21669,7 @@
         {
           "offset": 1325,
           "kind": 20,
-          "symbol": "?Unknown_006AA510@Tactical@@QAE_NPAVObjectClass@@HH@Z",
+          "symbol": "?Add_To_Selectables@Tactical@@QAE_NPAVObjectClass@@UPoint2D@@@Z",
           "target": 6989072,
           "addend": 0,
           "resolved": 1743503
@@ -21678,7 +21683,7 @@
           "resolved": 4294742318
         }
       ],
-      "source_sha256": "0b437dbd4ec1455e48933e58d344f2967470fb3b8201018dce5135a8efbb454e",
+      "source_sha256": "e99468e59720ec902b5aca11ded4a0f4cd6d400deea806defda9934805ad37ce",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Draw_It_00500550.cpp",
       "population": "population-4301",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
