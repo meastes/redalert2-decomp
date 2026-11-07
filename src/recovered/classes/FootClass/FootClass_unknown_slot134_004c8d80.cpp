@@ -31,7 +31,7 @@ int FootClass::unknown_slot134()
                 cell = Map.Calculated_Cell(House->unknown_128, unknown_geometry_k,
                     Coord_Cell(Center_Coord()), unknown_slot32()->SpeedType, 1, 0);
             }
-            unknown_slot260((AbstractClass *)&Map[cell], 1);
+            Assign_Destination((AbstractClass *)&Map[cell], true);
             unknown_a8 = 1;
         }
         break;

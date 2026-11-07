@@ -27,7 +27,7 @@ void JumpjetLocomotionClass::unknown_530550()
         if (unknown_tracker_839ea0.Unknown_004132E0(LinkedTo)) {
             int facing = Random_Pick(0, 7);
             CellClass *here = (CellClass *)LinkedTo->unknown_slot105();
-            LinkedTo->unknown_slot260(&here->Adjacent_Cell(facing), 1);
+            LinkedTo->Assign_Destination(&here->Adjacent_Cell(facing), true);
             unknown_4c = 3;
         } else {
             ((CellClass *)LinkedTo->unknown_slot105())->Set_unknown_e0(LinkedTo);
@@ -73,7 +73,7 @@ void JumpjetLocomotionClass::unknown_530550()
         unknown_3c = unknown_coord_a6e3e0;
         unknown_48 = false;
         LinkedTo->unknown_slot93(2);
-        LinkedTo->unknown_slot260(0, 1);
+        LinkedTo->Assign_Destination(0, true);
         if (LinkedTo->unknown_7d && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
             LinkedTo->unknown_slot263(0, 0, 0, 0);
             if (LinkedTo->unknown_7d) {

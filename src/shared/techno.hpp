@@ -517,7 +517,7 @@ public:
     virtual bool unknown_slot257();                             // slot 257 (+0x404) 0x006D4890
     virtual bool unknown_slot258();                                 // slot 258 (+0x408) 0x0041B440 (kept copy elsewhere)
     virtual void unknown_slot259(int arg1);                         // slot 259 (+0x40C) 0x006D48D0
-    virtual void unknown_slot260(AbstractClass *target, int arg2);               // slot 260 (+0x410) 0x006D48E0
+    virtual void Assign_Destination(AbstractClass *target, bool immediate);               // slot 260 (+0x410) 0x006D48E0
     virtual bool unknown_slot261(bool arg1, bool arg2);           // slot 261 (+0x414) 0x006D48F0
     virtual void unknown_slot262(bool arg1, bool arg2, bool arg3, HouseClass *house); // slot 262 (+0x418) 0x006D5C30 (the counterpart of slot 263: byte flags and a house, DisplayClass 0x0049DE00)
     virtual void unknown_slot263(bool arg1, bool arg2, bool arg3, HouseClass *house); // slot 263 (+0x41C) 0x006D5E90

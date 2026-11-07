@@ -45,7 +45,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, long &param)
     }
     case 23:
         unknown_slot116(2, false);
-        unknown_slot260(unknown_4198b0(), 1);
+        Assign_Destination(unknown_4198b0(), true);
         unknown_slot149(3);
         break;
     case 18: {
@@ -54,10 +54,10 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, long &param)
         if (destination && destination->Kind_Of() == 6) {
             if (unknown_slot150(15, destination->As_Techno()) != 1) return 10;
             unknown_slot116(7, false);
-            unknown_slot260(destination, 1);
+            Assign_Destination(destination, true);
         } else {
             unknown_slot116(2, false);
-            unknown_slot260(destination, 1);
+            Assign_Destination(destination, true);
         }
         unknown_slot117();
         return 1;
@@ -75,7 +75,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, long &param)
         InfantryClass *infantry = Aircraft_Radio_Infantry(radio);
         if (infantry && infantry->Type->Civilian && !infantry->unknown_5c1) {
             unknown_slot220(0);
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             unknown_slot116(4, false);
         }
         return 5;

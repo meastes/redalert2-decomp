@@ -22,7 +22,7 @@ inline UnitClass *As_Unit(AbstractClass *object)
     if (object==0) return 0;
     return object->Kind_Of()==1 ? (UnitClass *)object : 0;
 }
-void InfantryClass::unknown_slot260(AbstractClass *target,int immediate)
+void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
 {
     if (Owning_House()->unknown_func_4f52f0()) {
         if (Sequence==27 || Sequence==28 || Sequence==29 || Sequence==30) return;
@@ -91,5 +91,5 @@ void InfantryClass::unknown_slot260(AbstractClass *target,int immediate)
             if (piggy && piggy.Checked()->Is_Piggybacking() && piggy.Checked()->Is_Ok_To_End()) { piggy.Checked()->End_Piggyback(&Locomotor); }
         }
     }
-    FootClass::unknown_slot260(target,immediate);
+    FootClass::Assign_Destination(target,immediate);
 }

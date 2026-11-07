@@ -3,7 +3,7 @@
 
 void HoverLocomotionClass::Stop()
 {
-    LinkedTo->unknown_slot260(0, 1);
+    LinkedTo->Assign_Destination(0, true);
     unknown_50 = 0;
     unknown_48 = 0;
     LinkedTo->unknown_slot306(0);

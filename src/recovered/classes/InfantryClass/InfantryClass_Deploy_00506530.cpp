@@ -30,7 +30,7 @@ int InfantryClass::unknown_slot137()
             }
         }
         unknown_slot118(5);
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
         if (delay > -1) {
             return delay;
         }

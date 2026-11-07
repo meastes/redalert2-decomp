@@ -10,7 +10,7 @@ bool FootClass::unknown_slot277()
     unknown_4c1 = false;
     if (unknown_4b8 != 0) {
         unknown_slot116(2, true);
-        unknown_slot260(unknown_4b8, true);
+        Assign_Destination(unknown_4b8, true);
     } else if (unknown_4bc != 0) {
         unknown_slot116(1, true);
         unknown_slot220(unknown_4bc);

@@ -20,7 +20,7 @@ void ParasiteClass::Unknown_00607980(FootClass *target)
         Map.Unknown_0054A550(CoordStruct(Owner->Coord), Unknown_1f4_Of_00607980(Owner) - 3, Unknown_1f4_Of_00607980(Owner) + 2, 0);
         if (!Owner->unknown_slot270()) {
             Owner->unknown_slot220(0);
-            Owner->unknown_slot260(0, 1);
+            Owner->Assign_Destination(0, true);
         }
         Owner->unknown_slot261(false, true);
         return;

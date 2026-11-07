@@ -1,4 +1,4 @@
-// void FootClass::unknown_slot260(AbstractClass *target, int arg2) (0x004C8030)
+// void FootClass::Assign_Destination(AbstractClass *target, bool immediate) (0x004C8030)
 // Sets the navigation target (+0x494; hypothesis: Assign_Destination):
 // with a target, the old waypoint marker (+0x25C) goes, a hover locomotor
 // restarts its timer +0x530, and unless +0x598 asks to skip once the
@@ -18,7 +18,7 @@
 
 extern "C" GUID const CLSID_HoverLocomotionClass;   // 0x007A1F80
 
-void FootClass::unknown_slot260(AbstractClass *target, int arg2)
+void FootClass::Assign_Destination(AbstractClass *target, bool immediate)
 {
     unknown_490 = 0;
     unknown_494 = target;

@@ -184,7 +184,7 @@ drop_crate:
         if (Team || !source || unknown_370 || House->Is_Ally(source) || House->Unknown_004F52F0())
             return result;
         if (unknown_707170(source)) {
-            unknown_slot260(source, 1);
+            Assign_Destination(source, true);
             unknown_slot116(2, false);
             return result;
         }

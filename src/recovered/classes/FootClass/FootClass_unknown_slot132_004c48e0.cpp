@@ -27,25 +27,25 @@ int FootClass::unknown_slot132()
     if (!unknown_slot32()->StupidHunt && unknown_slot209(&(coord = Coord), 0)) {
         InfantryClass *infantry = Kind_Of() == 15 ? (InfantryClass *)this : 0;
         if (infantry != 0 && infantry->Type->Engineer && !infantry->Type->C4 && !infantry->unknown_6d7910(14)) {
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             unknown_slot116(8, false);
             if (unknown_slot122()) {
                 unknown_slot117();
             }
         } else if (infantry != 0 && (infantry->Type->C4 || infantry->unknown_6d7910(14)) && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             unknown_slot116(17, false);
             if (unknown_slot122()) {
                 unknown_slot117();
             }
         } else if (infantry != 0 && infantry->Type->VehicleThief) {
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             unknown_slot116(8, false);
             if (unknown_slot122()) {
                 unknown_slot117();
             }
         } else if (infantry != 0) {
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             unknown_slot304();
         } else {
             unknown_slot304();
@@ -54,7 +54,7 @@ int FootClass::unknown_slot132()
         Cell cell = unknown_geometry_k;
         cell = Coord_Cell(unknown_player_a35db4->BaseCenter);
         if (cell != unknown_geometry_k) {
-            unknown_slot260((AbstractClass *)&Map[cell], 1);
+            Assign_Destination((AbstractClass *)&Map[cell], true);
             unknown_slot116(2, true);
         }
     } else {

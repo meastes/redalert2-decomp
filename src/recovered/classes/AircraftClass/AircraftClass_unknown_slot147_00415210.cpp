@@ -26,7 +26,7 @@ int AircraftClass::unknown_slot147()
                 return 5;
             }
             unknown_slot220(0);
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             unknown_slot116(RetreatMission, false);
             return 5;
         } else {
@@ -38,7 +38,7 @@ int AircraftClass::unknown_slot147()
         unknown_5ba = false;
     }
     unknown_slot220(0);
-    unknown_slot260(0, 1);
+    Assign_Destination(0, true);
     unknown_slot116(RetreatMission, false);
     return 5;
 }

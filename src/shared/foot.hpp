@@ -192,7 +192,7 @@ public:
     virtual CoordStruct unknown_slot241();  // slot 241 0x004C71B0
     virtual void unknown_slot243(bool arg1, int arg2);  // slot 243 0x004CA8B0
     virtual void unknown_slot246(UnknownObjectPair const &voxel, int frame, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, int brightness, unsigned flags);  // slot 246 0x004C9880
-    virtual void unknown_slot260(AbstractClass *target, int arg2);  // slot 260 0x004C8030
+    virtual void Assign_Destination(AbstractClass *target, bool immediate);  // slot 260 0x004C8030
     virtual bool unknown_slot261(bool arg1, bool arg2);  // slot 261 0x004C6F10
     virtual int unknown_slot268(UnknownSlot268Arg const *arg);  // slot 268 0x004CD9C0
     virtual void unknown_slot269();  // slot 269 0x004CDA80

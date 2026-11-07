@@ -46,9 +46,9 @@ int FootClass::unknown_slot144()
         {
             Cell cell = House->Unknown_004EB270(this);
             if (cell != unknown_geometry_k) {
-                unknown_slot260((AbstractClass *)&Map[cell], 1);
+                Assign_Destination((AbstractClass *)&Map[cell], true);
             } else {
-                unknown_slot260(0, 1);
+                Assign_Destination(0, true);
             }
         }
         unknown_6d6e50(0);

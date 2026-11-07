@@ -4,8 +4,8 @@
     "id": "population-4235",
     "inventory_sha256": "3f54c0e551b036669c18b4d4a5d9e97c28493eca113b04be1d91fece82ac5cbd",
     "gaps_sha256": "9ef6f5269597739e9db790831568d18a6c710427f5d7be98f87bb75e668ae6b1",
-    "historical_population_sha256": "0123eab665eae8fcb1cfc3d695e7a7cfc2ab5dc2baf5dff90eb0c4beeafe6381",
-    "historical_acceptance_sha256": "cea1305c883075b63e1e43e5ee0410e9f2128aa4aa54704d01eca07081852f50"
+    "historical_population_sha256": "a9a0a53490606731b0266ecfe42c79776d2a9c799cd33e5ff2e5b396d58580d1",
+    "historical_acceptance_sha256": "f5b99b07554b9f2b90f5a8136513bc7b9e8368f313103c6a1c001516a2c4114b"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -7003,9 +7003,9 @@
     "?unknown_slot25@MultiplayerGameMode@@UAEXHPAD@Z": 5907504,
     "?unknown_slot25@TechnoClass@@UAEH_NH@Z": 7140288,
     "?unknown_slot25@UDPInterfaceClass@@UAE_NXZ": 7784144,
-    "?unknown_slot260@BuildingClass@@UAEXPAVAbstractClass@@H@Z": 4525824,
-    "?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z": 5013552,
-    "?unknown_slot260@TechnoClass@@UAEXPAVAbstractClass@@H@Z": 7162080,
+    "?Assign_Destination@BuildingClass@@UAEXPAVAbstractClass@@_N@Z": 4525824,
+    "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z": 5013552,
+    "?Assign_Destination@TechnoClass@@UAEXPAVAbstractClass@@_N@Z": 7162080,
     "?unknown_slot261@FootClass@@UAE_N_N0@Z": 5009168,
     "?unknown_slot261@InfantryClass@@UAE_N_N0@Z": 5258240,
     "?unknown_slot261@TechnoClass@@UAE_N_N0@Z": 7162096,
@@ -7610,7 +7610,7 @@
     "?unknown_slot255@UnitClass@@UAEXPAVTechnoClass@@@Z": 7380080,
     "?unknown_slot137@AircraftClass@@UAEHXZ": 4279696,
     "?unknown_slot261@BuildingClass@@UAE_N_N0@Z": 4493488,
-    "?unknown_slot260@AircraftClass@@UAEXPAVAbstractClass@@H@Z": 4301248,
+    "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
     "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,

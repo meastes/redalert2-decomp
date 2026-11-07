@@ -49,7 +49,7 @@ int AircraftClass::unknown_slot129()
         }
         if (unknown_slot231(0)->WeaponType == 0) {
             CoordStruct coord = Coord;
-            unknown_slot260((AbstractClass *)&Map[coord], true);
+            Assign_Destination((AbstractClass *)&Map[coord], true);
             unknown_slot116(2, false);
             return 1;
         }
@@ -105,7 +105,7 @@ rearm:
         TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
         if (dock != 0) {
             unknown_slot116(7, false);
-            unknown_slot260(dock, true);
+            Assign_Destination(dock, true);
             unknown_slot220(0);
             return 1;
         }

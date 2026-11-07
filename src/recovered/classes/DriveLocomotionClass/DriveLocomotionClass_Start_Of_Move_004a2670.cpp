@@ -91,7 +91,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 return false;
             }
             if (!LinkedTo->unknown_slot171(unknown_34)) {
-                LinkedTo->unknown_slot260(0, 1);
+                LinkedTo->Assign_Destination(0, true);
                 return false;
             }
 
@@ -292,7 +292,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>((int)(Rules->unknown_13c8 * 900.0));
                         return true;
                     }
-                    LinkedTo->unknown_slot260(0, 1);
+                    LinkedTo->Assign_Destination(0, true);
                     return false;
                 }
             }
@@ -387,7 +387,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         return found;
                     }
                     if (!LinkedTo->unknown_slot171(unknown_34)) {
-                        LinkedTo->unknown_slot260(0, 1);
+                        LinkedTo->Assign_Destination(0, true);
                     }
                 }
                 nextface = LinkedTo->Path[1];

@@ -76,14 +76,14 @@ int AircraftClass::Move_Carryall_00416670()
                     }
                     unknown_slot149(7);
                 } else {
-                    unknown_slot260(0, 1);
+                    Assign_Destination(0, true);
                     unknown_slot261(false, true);
                     break;
                 }
             }
         }
 select_destination:
-        unknown_slot260(Select_Landing_Destination_004185b0(unknown_494), 1);
+        Assign_Destination(Select_Landing_Destination_004185b0(unknown_494), true);
         if (Team) Team->unknown_func_6b79e0(unknown_494);
         unknown_a8 = 1;
         Debug_Printf(unknown_aircraft_move_log_7ce818);

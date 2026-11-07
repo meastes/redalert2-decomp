@@ -24,7 +24,7 @@ int AircraftClass::unknown_slot145()
         if (!unknown_494) {
             unknown_slot261(false, true);
         } else {
-            unknown_slot260(Select_Landing_Destination_004185b0(unknown_494), 1);
+            Assign_Destination(Select_Landing_Destination_004185b0(unknown_494), true);
             if (Team) {
                 Team->unknown_func_6b79e0(unknown_494);
             }

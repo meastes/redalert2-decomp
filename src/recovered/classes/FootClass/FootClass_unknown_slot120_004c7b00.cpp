@@ -6,7 +6,7 @@
 bool FootClass::unknown_slot120()
 {
     if (TechnoClass::unknown_slot120()) {
-        unknown_slot260(unknown_498, 1);
+        Assign_Destination(unknown_498, true);
         return true;
     }
     return false;

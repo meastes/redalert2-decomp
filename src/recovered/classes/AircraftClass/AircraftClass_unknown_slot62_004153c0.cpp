@@ -24,7 +24,7 @@ int AircraftClass::unknown_slot62(TechnoClass *techno)
     CoordStruct coord = Coord;
     if (techno->unknown_slot53(&coord, Dir_To_256(dir))) {
         techno->unknown_slot116(2, false);
-        techno->unknown_slot260((AbstractClass *)&Map[cell], 1);
+        techno->Assign_Destination((AbstractClass *)&Map[cell], true);
         if (unknown_slot150(2, techno) == 1) {
             unknown_slot149(9);
         }

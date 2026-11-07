@@ -41,14 +41,14 @@ int FootClass::unknown_slot138()
                 piggyback.Checked()->End_Piggyback(&Locomotor.Pointer);
             }
             if (unknown_478.Count() > 0) {
-                unknown_slot260(unknown_478[0], 0);
+                Assign_Destination(unknown_478[0], false);
                 unknown_478.Delete(0);
             }
         } else if (unknown_slot32()->Teleporter) {
             AbstractClass *target = unknown_494;
             unknown_490 = 0;
             unknown_494 = 0;
-            unknown_slot260(target, 1);
+            Assign_Destination(target, true);
         }
     } else {
         if (!unknown_6d8080() && (unknown_494 == 0 || (unknown_494->Kind_Of() != 1 && unknown_494->Kind_Of() != 2))) {

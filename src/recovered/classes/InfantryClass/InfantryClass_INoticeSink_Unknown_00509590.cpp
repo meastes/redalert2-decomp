@@ -16,7 +16,7 @@ bool InfantryClass::INoticeSink_Unknown(int code, int arg)
     if ((Type->BalloonHover || Type->JumpJet) && code == 0x117B && In_Radio_Contact()) {
         unknown_slot149(8);
         if (unknown_1b0 != 0 && unknown_1b0 != unknown_494) {
-            unknown_slot260(unknown_1b0, 1);
+            Assign_Destination(unknown_1b0, true);
             return true;
         }
         Unknown_004CD9B0();

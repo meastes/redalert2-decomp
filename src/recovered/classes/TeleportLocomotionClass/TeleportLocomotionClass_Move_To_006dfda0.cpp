@@ -25,6 +25,6 @@ void __stdcall TeleportLocomotionClass::Move_To(CoordStruct to)
         unknown_34 = true;
         unknown_1c = unknown_28;
     } else {
-        LinkedTo->unknown_slot260(0, 1);
+        LinkedTo->Assign_Destination(0, true);
     }
 }

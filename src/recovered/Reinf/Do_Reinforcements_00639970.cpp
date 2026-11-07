@@ -120,7 +120,7 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
         }
 
         plane->unknown_slot116(0x1A, false);
-        plane->unknown_slot260(0, 1);
+        plane->Assign_Destination(0, true);
         plane->unknown_slot220((AbstractClass *)&Map[origin]);
 
         unknown_a40774++;

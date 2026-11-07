@@ -53,7 +53,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
             int walk=unknown_path_estimator_8315c8.Unknown_0042AA30(nearby,cell,this,
                 (Map[nearby].unknown_140&0x100)!=0,(Map[cell].unknown_140&0x100)!=0,check?0:-1);
             if(walk<=max_distance+6) {
-                unknown_slot260(&Map[nearby],1);
+                Assign_Destination(&Map[nearby],true);
                 cell=nearby;
             }
         }
@@ -64,7 +64,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
             bool check=unknown_slot32()->unknown_af5 && Map[cell].unknown_47c200();
             Cell nearby=Map.Unknown_005502E0(cell,unknown_slot32()->SpeedType,
                 Map.Zone(unknown_slot104(),zone,unknown_79),zone,unknown_79,Point2D(1,1),false,true,check,true,unknown_slot104(),0);
-            unknown_slot260(&Map[nearby],1);
+            Assign_Destination(&Map[nearby],true);
             cell=nearby;
         }
     }
@@ -97,7 +97,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
                 AbstractClass *destination=follower->unknown_494;
                 if(!destination || Coord_Cell(destination->unknown_slot19(0))!=next_cell) {
                     follower->unknown_slot116(2,false);
-                    follower->unknown_slot260(&Map[next_cell],1);
+                    follower->Assign_Destination(&Map[next_cell],true);
                     follower->unknown_4c3000(next_cell,0,0);
                 }
                 follower=static_cast<UnitClass *>(follower)->unknown_5b0;
@@ -119,13 +119,13 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
             Team->Unknown_006B8FB0(this,-1,false);
             Locomotor.Checked()->Unlock();
         }
-        unknown_slot260(0,1);
+        Assign_Destination(0,true);
         unknown_slot220(0);
         if(!House->Unknown_004F52F0()) {
             unknown_slot116(11,false);
             if(unknown_game_mode_a3d298!=0) {
                 Cell guard=House->Unknown_004EB270(this);
-                if(guard!=unknown_geometry_k) unknown_slot260(&Map[guard],1);
+                if(guard!=unknown_geometry_k) Assign_Destination(&Map[guard],true);
             }
         } else unknown_slot116(5,false);
     }

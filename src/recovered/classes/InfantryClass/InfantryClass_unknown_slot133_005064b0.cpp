@@ -10,7 +10,7 @@ int InfantryClass::unknown_slot133()
 {
     if (Sequence == 27 || Sequence == 28 || Sequence == 29 || Sequence == 30) {
         if (Owning_House()->Unknown_004F52F0()) {
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             return 1;
         }
         if (Type->UndeployDelay <= -1) {

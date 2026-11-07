@@ -34,13 +34,13 @@ bool InfantryClass::unknown_507170()
         if (UnknownCoord434820(Locomotor.Checked()->Destination())!=unknown_geometry_l) {
             if (reinterpret_cast<UnknownVector3 const &>(vehicle->Center_Coord()).Distance_To(reinterpret_cast<UnknownVector3 const &>(UnknownCoord434820(Locomotor.Checked()->Destination())))<=128) return false;
         }
-        unknown_slot260(unknown_494,1);
+        Assign_Destination(unknown_494,true);
     } else {
         if (UnknownCoord434820(Locomotor.Checked()->Destination())!=unknown_geometry_l) {
             if (Coord_Cell(vehicle->unknown_slot19(this))==Coord_Cell(UnknownCoord434820(Locomotor.Checked()->Destination()))) return false;
         }
     }
     // The original calls this again after the near-target branch.
-    unknown_slot260(unknown_494,1);
+    Assign_Destination(unknown_494,true);
     return false;
 }

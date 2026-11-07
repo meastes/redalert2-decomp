@@ -38,7 +38,7 @@ void TeamClass::TMission_unknown_6bb5f0(ScriptMissionClass const &mission, bool 
             if (unit->unknown_slot91() != 7) {
                 unit->unknown_slot116(7, false);
                 unit->unknown_slot220(0);
-                unit->unknown_slot260(trans, 1);
+                unit->Assign_Destination(trans, true);
                 break;
             }
         }

@@ -81,7 +81,7 @@ void FootClass::unknown_slot93(int why)
         }
 
         if ((unknown_slot91() == 21 || unknown_slot91() == 11 || unknown_slot91() == 1 || unknown_slot91() == 15) && inrange && unknown_478.Count() == 0) {
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             Path[0] = -1;
         }
 

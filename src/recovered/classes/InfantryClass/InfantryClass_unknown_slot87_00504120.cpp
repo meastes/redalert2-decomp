@@ -61,7 +61,7 @@ void InfantryClass::unknown_slot87(CoordStruct const &threat, bool forced, bool 
             facing=facing+unknown_id_source_a3d290->Random()(0,4)-2;
             Cell nearby=Map.Unknown_005502E0(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,unknown_79,Point2D(1,1),0,1,0,1,Cell(0,0),0);
             if (nearby!=unknown_invalid_cell_a410d8) {
-                unknown_slot260(&Map[nearby],1);
+                Assign_Destination(&Map[nearby],true);
                 Locomotor.Checked()->Process();
                 return;
             }
@@ -93,7 +93,7 @@ void InfantryClass::unknown_slot87(CoordStruct const &threat, bool forced, bool 
         if (chosen==unknown_invalid_cell_a410d8) chosen=alternate;
         if (chosen!=unknown_invalid_cell_a410d8) {
             unknown_slot116(2,false);
-            unknown_slot260(&Map[chosen],1);
+            Assign_Destination(&Map[chosen],true);
         }
     }
 }

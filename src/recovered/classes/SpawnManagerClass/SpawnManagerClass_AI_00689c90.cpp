@@ -73,10 +73,10 @@ void SpawnManagerClass::AI()
                     Destination = Target;
                     Target = 0;
                 }
-                unit->unknown_slot260(Destination, 1);
+                unit->Assign_Destination(Destination, true);
             } else {
                 CellClass &cell = Map[Owner->unknown_slot104()];
-                unit->unknown_slot260(&cell.Adjacent_Cell(0), 1);
+                unit->Assign_Destination(&cell.Adjacent_Cell(0), true);
             }
             unit->unknown_slot116(2, false);
             break;
@@ -96,13 +96,13 @@ void SpawnManagerClass::AI()
                 Target = 0;
             }
             if (Destination == 0) {
-                unit->unknown_slot260(Owner, 1);
+                unit->Assign_Destination(Owner, true);
                 unit->unknown_slot220(0);
                 unit->unknown_slot116(2, false);
                 SpawnedNodes[i]->Status = 4;
             } else {
                 CellClass &cell = Map[Owner->unknown_slot104()];
-                unit->unknown_slot260(&cell.Adjacent_Cell(4), 1);
+                unit->Assign_Destination(&cell.Adjacent_Cell(4), true);
                 unit->unknown_slot116(2, false);
             }
             break;
@@ -113,7 +113,7 @@ void SpawnManagerClass::AI()
                 Target = 0;
             }
             if (unit->unknown_254 == 0 || Destination == 0) {
-                unit->unknown_slot260(Owner, 1);
+                unit->Assign_Destination(Owner, true);
                 unit->unknown_slot220(0);
                 unit->unknown_slot116(2, false);
                 SpawnedNodes[i]->Status = 4;
@@ -137,7 +137,7 @@ void SpawnManagerClass::AI()
                 SpawnedNodes[i]->Status = 6;
                 SpawnedNodes[i]->Timer = ReloadRate;
             } else {
-                unit->unknown_slot260(Owner, 1);
+                unit->Assign_Destination(Owner, true);
                 unit->unknown_slot220(0);
                 unit->unknown_slot116(2, false);
             }

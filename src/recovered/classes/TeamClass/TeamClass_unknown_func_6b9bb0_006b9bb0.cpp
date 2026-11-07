@@ -43,7 +43,7 @@ void TeamClass::unknown_func_6b9bb0()
                 unit->unknown_slot149(3);
                 unit->unknown_slot116(1, false);
                 unit->unknown_slot220(0);
-                unit->unknown_slot260(0, 1);
+                unit->Assign_Destination(0, true);
             }
             if (unit->unknown_228 != unknown_40 && unit->unknown_228 == 0) {
                 unit->unknown_slot220(unknown_40);

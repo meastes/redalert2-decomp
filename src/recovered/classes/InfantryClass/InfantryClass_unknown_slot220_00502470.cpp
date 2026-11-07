@@ -27,9 +27,9 @@ void InfantryClass::unknown_slot220(AbstractClass *target)
             AbstractClass *object = target;
             BuildingClass *building = (object != 0 && object->Kind_Of() == 6) ? (BuildingClass *)object : 0;
             if (!Type->Agent && building != 0 && building->Type->Capturable) {
-                unknown_slot260(object, 1);
+                Assign_Destination(object, true);
             } else if (Type->Agent && building != 0 && building->Type->Spyable) {
-                unknown_slot260(object, 1);
+                Assign_Destination(object, true);
             }
         }
         unknown_57e = false;

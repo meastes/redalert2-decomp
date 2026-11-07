@@ -219,7 +219,7 @@ public:
     virtual void unknown_slot256();   // slot 256 0x00509330 ret 0
     virtual bool unknown_slot257();   // slot 257 0x00508320 ret 0
     virtual bool unknown_slot258();   // slot 258 0x00503E00 ret 0
-    virtual void unknown_slot260(AbstractClass *target, int arg2);   // slot 260 0x00501CE0 ret 8
+    virtual void Assign_Destination(AbstractClass *target, bool immediate);   // slot 260 0x00501CE0 ret 8
     virtual bool unknown_slot261(bool arg1, bool arg2);   // slot 261 0x00503C00 ret 8
     virtual bool unknown_slot274();   // slot 274 0x00509450 ret 
     virtual bool unknown_slot275();   // slot 275 0x00509460 ret 

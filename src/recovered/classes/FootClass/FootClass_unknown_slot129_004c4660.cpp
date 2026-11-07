@@ -48,7 +48,7 @@ int FootClass::unknown_slot129()
             unknown_slot258();
         }
     } else if (unknown_slot32()->HoverAttack && unknown_slot108() == 0) {
-        unknown_slot260((AbstractClass *)&Map[unknown_6cf130(this)], 1);
+        Assign_Destination((AbstractClass *)&Map[unknown_6cf130(this)], true);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
     if (this != 0 && Kind_Of() == 15 && !House->Unknown_004F52F0()

@@ -23,11 +23,11 @@ bool TeamClass::unknown_func_6b9f40()
                     retval = false;
                     unit->unknown_slot116(2, false);
                     Cell dest = unit->unknown_4c8af0(Coord_Cell(unknown_34->Center_Coord()));
-                    unit->unknown_slot260(&Map[dest], 1);
+                    unit->Assign_Destination(&Map[dest], true);
                 }
             } else if (unit->unknown_slot91() != 0xB) {
                 unit->unknown_slot116(5, false);
-                unit->unknown_slot260(0, 1);
+                unit->Assign_Destination(0, true);
             }
         }
         unit = (FootClass *)unit->unknown_4c8;

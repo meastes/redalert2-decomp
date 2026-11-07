@@ -34,7 +34,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
         if (!unknown_32c) goto select_destination;
         if (!Team) {
             mission = 16;
-            unknown_slot260(unknown_4198b0(), 1);
+            Assign_Destination(unknown_4198b0(), true);
             goto choose_mission;
         }
         goto default_mission;
@@ -54,7 +54,7 @@ check_weapon:
             if (!unknown_254) {
                 if (Team) Team->Unknown_006B8FB0(this, -1, 0);
                 unknown_slot220(0);
-                unknown_slot260(0, 1);
+                Assign_Destination(0, true);
                 mission = 4;
             } else if (!Team) mission = 15;
             goto choose_mission;
@@ -67,9 +67,9 @@ check_weapon:
             (!unknown_32d && Team)) goto choose_mission;
         {
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             if (dock && unknown_slot150(2, dock) == 1) {
-                unknown_slot260(dock, 1);
+                Assign_Destination(dock, true);
                 mission = 7;
                 goto choose_mission;
             }
@@ -84,7 +84,7 @@ check_weapon:
         goto select_destination;
     }
 select_destination:
-    unknown_slot260(unknown_4198b0(), 1);
+    Assign_Destination(unknown_4198b0(), true);
     mission = 2;
     goto choose_mission;
 grounded:
@@ -92,12 +92,12 @@ grounded:
         if (Cargo.Object) mission = Team ? 5 : 16;
         else if (!Team) {
             unknown_slot220(0);
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             mission = 4;
         }
         goto choose_mission;
     }
-    unknown_slot260(0, 1);
+    Assign_Destination(0, true);
     unknown_slot220(0);
     if (!House->unknown_func_4f52f0() && !Team && unknown_slot163()) {
         mission = 11;
@@ -109,7 +109,7 @@ choose_mission:
     if (!unknown_254 && unknown_slot163() && !In_Radio_Contact()) {
         TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
         if (dock) {
-            unknown_slot260(dock, 1);
+            Assign_Destination(dock, true);
             unknown_slot220(0);
             mission = 7;
         } else if (Type->AirportBound) {

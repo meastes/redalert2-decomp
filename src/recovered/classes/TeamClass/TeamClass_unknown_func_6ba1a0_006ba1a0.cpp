@@ -60,13 +60,13 @@ void TeamClass::unknown_func_6ba1a0()
                             }
                         }
                         if (unit->unknown_494 == 0) {
-                            unit->unknown_slot260(unknown_40, 1);
+                            unit->Assign_Destination(unknown_40, true);
                         }
                         AbstractClass *navcom = unit->unknown_494;
                         if (navcom != unknown_40) {
                             if (unit->unknown_slot32()->BalloonHover
                                 || (navcom != unknown_40 && unit->Kind_Of() == 2 && navcom == unit->unknown_slot105())) {
-                                unit->unknown_slot260(unknown_40, 1);
+                                unit->Assign_Destination(unknown_40, true);
                             }
                         }
                         finished = false;
@@ -75,7 +75,7 @@ void TeamClass::unknown_func_6ba1a0()
                             && (unit->unknown_494 == 0
                                 || (unit->unknown_5d4c00(unit->unknown_494) <= Rules->unknown_1380 && !unit->Locomotor.Checked()->Is_Moving()))
                             && unit->unknown_228 == 0) {
-                            unit->unknown_slot260(0, 1);
+                            unit->Assign_Destination(0, true);
                             unit->unknown_slot261(false, true);
                         }
                     }

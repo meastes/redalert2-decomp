@@ -23,7 +23,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
             if (unit->Cargo.Object != 0) {
                 finished = false;
                 if (Map[unit->Center_Coord()].unknown_4717b0() == 0 && unit->unknown_slot91() != 0x10) {
-                    unit->unknown_slot260(0, 1);
+                    unit->Assign_Destination(0, true);
                     unit->unknown_slot220(0);
                     unit->unknown_slot116(0x10, false);
                     finished = false;
@@ -44,13 +44,13 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
             if (mode == 1 || mode == 3) {
                 Unknown_006B8FB0(unit, -1, false);
                 unit->unknown_slot220(0);
-                unit->unknown_slot260(0, 1);
+                unit->Assign_Destination(0, true);
             }
         } else if (unit->unknown_slot32()->Passengers > 0) {
             if (Class->TransportsReturnOnUnload) {
                 Unknown_006B8FB0(unit, -1, false);
                 unit->unknown_slot220(0);
-                unit->unknown_slot260(unit->unknown_1b0, 1);
+                unit->Assign_Destination(unit->unknown_1b0, true);
                 unit->unknown_slot116(2, false);
                 if (unit->unknown_slot122()) {
                     unit->unknown_slot117();
@@ -59,7 +59,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
             } else if (mode == 3 || mode == 2) {
                 Unknown_006B8FB0(unit, -1, false);
                 unit->unknown_slot220(0);
-                unit->unknown_slot260(0, 1);
+                unit->Assign_Destination(0, true);
             }
         }
         unit = next;

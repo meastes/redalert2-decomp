@@ -61,7 +61,7 @@ int AircraftClass::unknown_slot138()
                     unknown_5bc = true;
                 }
                 if (MissionQueue == -1) {
-                    unknown_slot260(0, 1);
+                    Assign_Destination(0, true);
                     unknown_slot261(false, true);
                     unknown_5bc = true;
                     return 1;
@@ -121,7 +121,7 @@ int AircraftClass::unknown_slot138()
                 unknown_416420();
                 Mark(1);
             } else {
-                unknown_slot260(unknown_4198b0(), 1);
+                Assign_Destination(unknown_4198b0(), true);
             }
             unknown_slot116(MoveMission, false);
         } else {

@@ -4,8 +4,8 @@
     "id": "population-4301",
     "inventory_sha256": "e3904bfa22cf989d2d26a0e016aa2ca52c5e3d67a4090506b1b079d75be5f0b8",
     "gaps_sha256": "4f9095dc7124eab2120fdf153a9045bf73f463ee8ba9a29887bab38154c7913f",
-    "historical_population_sha256": "79b71766383e5670672718e10cc90228922af4db248878e1963e92d9fbfbff3a",
-    "historical_acceptance_sha256": "2bd4bc077830651f5461e15af101cc8413d7375c79e25e7f647b1bc9c42e2071"
+    "historical_population_sha256": "7e2e33304cfdc80649ee1366899defea1a9c5ed9bd112975607de06dfed93c9b",
+    "historical_acceptance_sha256": "a5aa721b741f38bfd44b72edc31d7873a66a1beb68296908e4f712349b3d331c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2583,7 +2583,7 @@
     "?unknown_6d1430@TechnoClass@@QBEPAVUnknownTechno408@@XZ": 7148592,
     "?unknown_slot242@TechnoClass@@UAE_NXZ": 7148640,
     "?get@Leaf_6d4880@@QAEII@Z": 7161984,
-    "?unknown_slot260@TechnoClass@@UAEXPAVAbstractClass@@H@Z": 7162080,
+    "?Assign_Destination@TechnoClass@@UAEXPAVAbstractClass@@_N@Z": 7162080,
     "?unknown_slot167@TechnoClass@@UAEHXZ": 7166032,
     "?unknown_slot111@TechnoClass@@UAE_NXZ": 7171568,
     "?unknown_slot112@TechnoClass@@UAE_NXZ": 7171584,
@@ -5439,7 +5439,7 @@
     "?unknown_slot122@BuildingClass@@UAE_NXZ": 4518832,
     "?Compute_CRC@BuildingClass@@UBEXAAVWWCRCEngine@@@Z": 4518848,
     "?unknown_slot25@BuildingClass@@UAEH_NH@Z": 4519424,
-    "?unknown_slot260@BuildingClass@@UAEXPAVAbstractClass@@H@Z": 4525824,
+    "?Assign_Destination@BuildingClass@@UAEXPAVAbstractClass@@_N@Z": 4525824,
     "?unknown_slot153@BuildingClass@@UAE_NXZ": 4525904,
     "?unknown_slot264@BuildingClass@@UAEXXZ": 4528128,
     "?unknown_slot265@BuildingClass@@UAEXXZ": 4528224,
@@ -5847,7 +5847,7 @@
     "?unknown_slot171@FootClass@@UAE_NABUCoordStruct@@@Z": 4992752,
     "?unknown_slot138@FootClass@@UAEHXZ": 5013008,
     "?Query@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z": 4541552,
-    "?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z": 5013552,
+    "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z": 5013552,
     "?Query@?$UnknownComPtr@UIPersist@@$1?unknown_uuid_IPersist_7cf208@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z": 4541424,
     "?unknown_slot101@FootClass@@UAEHPAVCellClass@@HHH_N@Z": 5015264,
     "?AI@FootClass@@UAEXXZ": 5017584,
@@ -6547,7 +6547,7 @@
     "?unknown_slot261@BuildingClass@@UAE_N_N0@Z": 4493488,
     "?unknown_453900@BuildingClass@@QAE?AVMatrix3D@@XZ": 4536576,
     "__real@8@bffcc90fdaa22168c000": 7983248,
-    "?unknown_slot260@AircraftClass@@UAEXPAVAbstractClass@@H@Z": 4301248,
+    "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
     "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
@@ -8641,7 +8641,7 @@
     "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
     "?Add@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QAE_NABIABUUnknownControlRecord@OwnerDraw@@@Z": 6296800,
     "?Pre_Rotate_Y@Matrix3D@@QAEXM@Z": 5834064,
-    "?unknown_slot260@InfantryClass@@UAEXPAVAbstractClass@@H@Z": 5250272,
+    "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z": 5250272,
     "?unknown_6ca340@TechnoClass@@QAEXH@Z": 7119680,
     "?unknown_475d60@UnknownCellClass@@QBE?AUCoordStruct@@XZ": 4676960,
     "__real@8@400f8000000000000000": 8017344,
@@ -9125,7 +9125,7 @@
     "?unknown_slot86@InfantryClass@@": 5241712,
     "?unknown_500350@InfantryClass@@": 5243728,
     "?unknown_slot67@InfantryClass@@": 5244240,
-    "?unknown_slot260@InfantryClass@@": 5250272,
+    "?Assign_Destination@InfantryClass@@": 5250272,
     "?unknown_slot220@InfantryClass@@": 5252208,
     "?unknown_slot101@InfantryClass@@": 5255568,
     "?unknown_slot218@InfantryClass@@": 5257824,
@@ -11802,7 +11802,9 @@
     "?Move_To@FlyLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 4965344,
     "?Move_To@RocketLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 6548096,
     "__real@8@3ffaa3d70a3d70a3d800": 7998288,
-    "?unknown_slot67@BulletClass@@UAEXHH@Z": 4591824
+    "?unknown_slot67@BulletClass@@UAEXHH@Z": 4591824,
+    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
+    "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984
   },
   "regions": [
     {
@@ -13782,7 +13784,7 @@
           "resolved": 1865170
         }
       ],
-      "source_sha256": "736669654b16a9d676ed748f6a5f5fd8f08c81c7457bc7caba0ff1e2d756f28b",
+      "source_sha256": "768f3e36aae9068fd5f55d61f81e7ad7ee4601a304b29e270637b0651d322e72",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot220_00502470.cpp",
       "population": "population-4301",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -14615,7 +14617,7 @@
           "resolved": 4294697187
         }
       ],
-      "source_sha256": "b014f2d1c9f07e5526e1c648b40b5f83d4d5c31b794a8f7ee9d8163365325223",
+      "source_sha256": "fd0cd97bc1418d5b9e3331400f0add3d0f57b992b470bc5ce64c58964cc7fc7b",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot126_00506280.cpp",
       "population": "population-4301",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -14666,7 +14668,7 @@
           "resolved": 4294698105
         }
       ],
-      "source_sha256": "0f639c2f8b3b816689bf149e693803688a9c9c6efa3900653ddb2bec6cb792f3",
+      "source_sha256": "af69e7f816b50a33a5dbbe9d6fae8787775a97b43acba84bba9e3ac0ec450047",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot132_005063e0.cpp",
       "population": "population-4301",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14795,7 +14797,7 @@
           "resolved": 4294693794
         }
       ],
-      "source_sha256": "56615870bc10a69d18f0e4f7f13fcfe327dad5b4050b0db79c11dd18f194984b",
+      "source_sha256": "c2d216cbbbba28fbc3c9586e7f59967d7e1e2222c7185c7e5916072d4346638d",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot133_005064b0.cpp",
       "population": "population-4301",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -16130,7 +16132,7 @@
           "resolved": 4294222210
         }
       ],
-      "source_sha256": "d9ae53cfd920c76680e447f4cea79a2ce39b914e984112c26c9700979b989511",
+      "source_sha256": "ab9e4432280cec6a15b815e3a8119daef2ba8caedb9c7c75049aa793e605c282",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_5094b0_005094b0.cpp",
       "population": "population-4301",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -16259,7 +16261,7 @@
           "resolved": 10752248
         }
       ],
-      "source_sha256": "f35ccec19bd683a25cc889dd1699214de9f4f7baca4cab5c57e701881937516a",
+      "source_sha256": "dc02201b6bc04534940d006b0990b1f7c6a615360c8c8e5cd3e5086e294820f4",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_INoticeSink_Unknown_00509590.cpp",
       "population": "population-4301",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -17454,7 +17456,7 @@
           "resolved": 8010288
         }
       ],
-      "source_sha256": "2b811f0482ef1f2d77456d3cd0e7ffe1a02e185b6dff5d0b3cfc7aea3468eafb",
+      "source_sha256": "e8cfef2a438f50546a7334725560d8860db677d08a5bd4fc622d92fa52ea201d",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Update_Movement_00507b90.cpp",
       "population": "population-4301",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -17692,7 +17694,7 @@
           "resolved": 18958
         }
       ],
-      "source_sha256": "eae7a4545748c816ad2106b0c65c78d8fd8c5bfe62e5808e3fec7ce8585c603d",
+      "source_sha256": "ac2492f2d3c27afd06f25be275e6352e59905011f72897d9d352bf91def466da",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_AI_00502d20.cpp",
       "population": "population-4301",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -18678,7 +18680,7 @@
           "resolved": 4294715179
         }
       ],
-      "source_sha256": "c749b06ddb788f97712a95e1c200b5d7b8bdaecc5b3997f254468be399c04f7b",
+      "source_sha256": "40565f23bb5f15a87632acac10f7de220a022ba6bd4bc6f34790089f0914f30e",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Deploy_00506530.cpp",
       "population": "population-4301",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -20393,7 +20395,7 @@
           "resolved": 2679968
         }
       ],
-      "source_sha256": "3fca4104340be5a3d0599de26699ea581f31a905e3952ee4d2e0b4dc8f763754",
+      "source_sha256": "a716aa09c1079a539d965cd37cab51ab552aa44ea188295881c3d802f85443d4",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_00507170.cpp",
       "population": "population-4301",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -22011,8 +22013,8 @@
     {
       "entry": 5250272,
       "method": "00501ce0",
-      "symbol": "?unknown_slot260@InfantryClass@@UAEXPAVAbstractClass@@H@Z",
-      "symbol_prefix": "?unknown_slot260@InfantryClass@@",
+      "symbol": "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z",
+      "symbol_prefix": "?Assign_Destination@InfantryClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -22356,13 +22358,13 @@
         {
           "offset": 1922,
           "kind": 20,
-          "symbol": "?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z",
+          "symbol": "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z",
           "target": 5013552,
           "addend": 0,
           "resolved": 4294728650
         }
       ],
-      "source_sha256": "042594698dcb425f7574f792ac0424e4f4dd92653d6f0055edcfc4a287cd4b79",
+      "source_sha256": "fc380138f69ac56634e60bb1af4ab517bace608f77045d4540e12e9086730d32",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Assign_Destination_00501ce0.cpp",
       "population": "population-4301",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -22829,7 +22831,7 @@
           "resolved": 276808
         }
       ],
-      "source_sha256": "84c7b94b337d3ace4694d2085ae2b6ce50b2728da1a7f6bb1cb2aadbd7c6d9c7",
+      "source_sha256": "902370cd9f12bc1b34f3db386c2e9d810431d72da81ae0440930254b8bb65c53",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot87_00504120.cpp",
       "population": "population-4301",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

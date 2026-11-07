@@ -12,7 +12,7 @@ int InfantryClass::unknown_slot132()
     if (!House->Unknown_004F52F0() && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
         if (Type->Infiltrate
             || ((Type->Occupier || Type->Assaulter) && ((BuildingClass *)unknown_228)->Unknown_00452EB0(this))) {
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             unknown_slot118(8);
             return 1;
         }

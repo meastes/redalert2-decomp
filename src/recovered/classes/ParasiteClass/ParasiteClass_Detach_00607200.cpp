@@ -44,7 +44,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
                 if (!Owner->unknown_slot270()) {
                     Owner->unknown_6d6e50(0);
                     Owner->unknown_slot220(0);
-                    Owner->unknown_slot260(0, 1);
+                    Owner->Assign_Destination(0, true);
                 }
                 Owner->unknown_slot261(0, 1);
                 Owner->unknown_slot262(0, 0, 0, 0);

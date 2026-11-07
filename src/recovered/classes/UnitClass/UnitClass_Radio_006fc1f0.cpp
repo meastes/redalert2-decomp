@@ -27,7 +27,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, long &param)
         return unknown_574 == -1 ? 1 : 10;
     case 7:
         FootClass::unknown_slot95(radio, message, param);
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
         unknown_slot220(0);
         unknown_slot116(0, false);
         unknown_4c8c90();
@@ -91,11 +91,11 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, long &param)
                 sender_zone = Map.Zone(((FootClass *)radio)->unknown_454,
                                        sender->unknown_slot32()->MovementZone, false);
             if (own_zone != sender_zone) {
-                unknown_slot260(radio, 1);
+                Assign_Destination(radio, true);
                 return 14;
             }
             if (!unknown_494 && tile.unknown_ec == 2) {
-                unknown_slot260(radio, 1);
+                Assign_Destination(radio, true);
                 return 14;
             }
         }

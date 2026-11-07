@@ -41,9 +41,9 @@ void AircraftClass::unknown_416420()
             unknown_slot149(3);
         }
         if (next != unknown_geometry_k) {
-            unknown_slot260(&Map[next], 1);
+            Assign_Destination(&Map[next], true);
             return;
         }
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
     }
 }

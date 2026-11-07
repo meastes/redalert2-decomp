@@ -36,7 +36,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
 
         obj->unknown_slot116(mission, false);
         if (navcom != 0) {
-            obj->unknown_slot260(navcom, 1);
+            obj->Assign_Destination(navcom, true);
         }
         if (tarcom != 0) {
             obj->unknown_slot220(tarcom);

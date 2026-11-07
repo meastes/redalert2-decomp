@@ -5,12 +5,12 @@
 #include "shared/aircraft.hpp"
 #include "shared/house.hpp"
 // @ref ?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
-// @ref ?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z=004c8030
+// @ref ?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z=004c8030
 // @ref ?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ=004198b0
 // @ref ?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z=006d6e50
 // @ref ?Unknown_0051FC80@HouseClass@@QAE_NXZ=0051fc80
 
-void AircraftClass::unknown_slot260(AbstractClass *target, int arg2)
+void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
 {
     if (target) {
         if (target->unknown_slot21()) {
@@ -25,7 +25,7 @@ void AircraftClass::unknown_slot260(AbstractClass *target, int arg2)
                     if (building->Type->unknown_1365) {
                         TechnoClass *dock = unknown_slot299(
                             (DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
-                        unknown_slot260(0, 1);
+                        Assign_Destination(0, true);
                         int next_mission = 2;
                         if (dock && unknown_slot150(15, dock) == 1) {
                             unknown_slot150(2, dock);
@@ -89,5 +89,5 @@ void AircraftClass::unknown_slot260(AbstractClass *target, int arg2)
         }
     }
 set_destination:
-    FootClass::unknown_slot260(target, arg2);
+    FootClass::Assign_Destination(target, immediate);
 }

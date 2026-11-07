@@ -42,7 +42,7 @@ bool FlyLocomotionClass::unknown_4bca00()
             }
             if (ok) {
                 if (LinkedTo->unknown_slot29()==2) {
-                    LinkedTo->unknown_slot260(0,1);
+                    LinkedTo->Assign_Destination(0,true);
                     LinkedTo->unknown_slot149(0x18);
                     LinkedTo->unknown_slot263(0,0,0,0);
                     LinkedTo->unknown_slot262(0,0,0,0);

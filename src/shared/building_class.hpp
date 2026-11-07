@@ -234,7 +234,7 @@ public:
     virtual bool unknown_slot232();                                   // slot 232 0x0044D9D0
     virtual void Cloaking_AI(int arg1);                           // slot 234 0x0044FB50
     virtual int unknown_slot254(int arg1);                            // slot 254 0x004521B0
-    virtual void unknown_slot260(AbstractClass *target, int arg2);     // slot 260 0x00450F00
+    virtual void Assign_Destination(AbstractClass *target, bool immediate);     // slot 260 0x00450F00
     virtual bool unknown_slot261(bool arg1, bool arg2);     // slot 261 0x004490B0
     virtual void unknown_slot264();                                   // slot 264 0x00451800
     virtual void unknown_slot265();                                   // slot 265 0x00451860

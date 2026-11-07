@@ -15,7 +15,7 @@ bool FootClass::unknown_4cb830(int arg1, bool arg2)
             if (cell.X == here.X && cell.Y == here.Y) {
                 return true;
             }
-            unknown_slot260((AbstractClass *)&Map[cell], true);
+            Assign_Destination((AbstractClass *)&Map[cell], true);
         }
     }
     return false;

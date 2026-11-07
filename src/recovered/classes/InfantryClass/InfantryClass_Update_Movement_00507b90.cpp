@@ -16,7 +16,7 @@ void InfantryClass::Update_Movement_00507b90()
         if (unknown_494 == 0) {
             unknown_slot261(false, true);
         } else {
-            unknown_slot260(unknown_494, 1);
+            Assign_Destination(unknown_494, true);
             unknown_slot306(1.0);
         }
     }
@@ -30,7 +30,7 @@ void InfantryClass::Update_Movement_00507b90()
             if (!Map.Unknown_0054F7C0(current_cell, target_cell, Type->MovementZone,
             unknown_slot46(0), (unsigned char)((Map[target_cell].unknown_140 >> 8) & 1), unknown_slot189())
             && !Type->Infiltrate && unknown_slot91() != 7) {
-                unknown_slot260(0, 1);
+                Assign_Destination(0, true);
             }
         }
     }

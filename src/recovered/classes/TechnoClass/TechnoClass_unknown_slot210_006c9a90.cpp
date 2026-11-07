@@ -8,7 +8,7 @@
 void TechnoClass::unknown_slot210()
 {
     unknown_slot220(0);
-    unknown_slot260(0, 1);
+    Assign_Destination(0, true);
     unknown_slot152(3);
     if (SpawnManager) {
         SpawnManager->Kill_Nodes();

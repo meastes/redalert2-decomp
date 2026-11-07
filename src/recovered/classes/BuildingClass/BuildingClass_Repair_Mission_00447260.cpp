@@ -187,7 +187,7 @@ int BuildingClass::unknown_slot141()
                             FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             if (mover->unknown_1b0 && !mover->House->unknown_func_4f52f0()) {
                                 mover->unknown_slot116(2, false);
-                                mover->unknown_slot260(mover->unknown_1b0, 1);
+                                mover->Assign_Destination(mover->unknown_1b0, true);
                                 mover->unknown_6d6e50(0);
                                 unknown_slot149(3);
                                 mover->unknown_3f8 = 0;
@@ -197,7 +197,7 @@ int BuildingClass::unknown_slot141()
                             if (unknown_1b0) exit = Building_Repair_Archive_Cell_00447260(*unknown_1b0);
                             if (exit != *(Cell const *)&unknown_84ed10) {
                                 mover->unknown_slot116(2, false);
-                                mover->unknown_slot260(&Map[exit], 1);
+                                mover->Assign_Destination(&Map[exit], true);
                                 unknown_slot149(3);
                                 mover->unknown_3f8 = 0;
                                 return 1;
@@ -248,7 +248,7 @@ int BuildingClass::unknown_slot141()
                             mover->Locomotor.Checked()->Power_On();
                             if (mover->unknown_1b0 && !mover->House->unknown_func_4f52f0()) {
                                 mover->unknown_slot116(2, false);
-                                mover->unknown_slot260(mover->unknown_1b0, 1);
+                                mover->Assign_Destination(mover->unknown_1b0, true);
                                 mover->unknown_6d6e50(0);
                                 mover->unknown_3f8 = 0;
                                 unknown_slot149(3);
@@ -257,7 +257,7 @@ int BuildingClass::unknown_slot141()
                                 if (unknown_1b0) exit = Building_Repair_Archive_Cell_00447260(*unknown_1b0);
                                 if (exit != *(Cell const *)&unknown_84ed10) {
                                     mover->unknown_slot116(2, false);
-                                    mover->unknown_slot260(&Map[exit], 1);
+                                    mover->Assign_Destination(&Map[exit], true);
                                     mover->unknown_6d6e50(0);
                                     unknown_slot149(3);
                                     mover->unknown_3f8 = 0;

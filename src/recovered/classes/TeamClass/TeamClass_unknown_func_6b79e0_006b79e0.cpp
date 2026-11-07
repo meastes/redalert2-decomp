@@ -16,7 +16,7 @@ void TeamClass::unknown_func_6b79e0(AbstractClass *target)
                 if (target_hit || destination_hit) {
                     member->unknown_slot116(5, false);
                     if (destination_hit) {
-                        member->unknown_slot260(0, 1);
+                        member->Assign_Destination(0, true);
                     }
                     if (target_hit) {
                         member->unknown_slot220(0);
@@ -33,7 +33,7 @@ void TeamClass::unknown_func_6b79e0(AbstractClass *target)
         if (!Map.Unknown_0055A740((CellClass *)target, 1)) {
             TargetNotAssigned = true;
             for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-                member->unknown_slot260(0, 1);
+                member->Assign_Destination(0, true);
             }
         } else {
             TargetNotAssigned = false;

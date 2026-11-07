@@ -67,7 +67,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
             bool placed = false;
             if (drop_pod) {
                 object->unknown_slot103(CoordStruct(newcell));
-                object->unknown_slot260((AbstractClass *)&Map[newcell], 1);
+                object->Assign_Destination((AbstractClass *)&Map[newcell], true);
                 object->Locomotor.Checked()->Move_To(Cell_Coord(newcell));
                 object->unknown_slot262(false, false, false, 0);
                 CoordStruct coord = object->Coord;
@@ -78,7 +78,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                 placed = object->unknown_slot53(&coord, desiredfacing.As_Dir256());
                 if (placed) {
                     object->unknown_slot103(object->Position_Coord_004f3f40() + CoordStruct(0, 0, -256 - object->unknown_slot110()));
-                    object->unknown_slot260((AbstractClass *)&Map[newcell], 1);
+                    object->Assign_Destination((AbstractClass *)&Map[newcell], true);
                     object->unknown_slot306(1.0);
                     object->Locomotor.Checked()->Move_To(Cell_Coord(newcell));
                 }

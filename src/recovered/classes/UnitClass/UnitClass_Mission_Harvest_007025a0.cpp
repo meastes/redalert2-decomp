@@ -95,7 +95,7 @@ int UnitClass::unknown_slot131()
             {
                 bool hastarget = true;
                 if (unknown_1b0 != 0) {
-                    unknown_slot260(unknown_1b0, 1);
+                    Assign_Destination(unknown_1b0, true);
                     unknown_6d6e50(0);
                     hastarget = false;
                 }
@@ -114,7 +114,7 @@ int UnitClass::unknown_slot131()
                     GUID clsid;
                     persist.Checked()->GetClassID(&clsid);
                     if (memcmp(&clsid, &CLSID_TeleportLocomotionClass, sizeof(GUID)) == 0 && unknown_494 != 0) {
-                        unknown_slot260(0, 1);
+                        Assign_Destination(0, true);
                     }
                     ok = unknown_4cb830(Rules->TiberiumFarScan / 256, hastarget);
                 }
@@ -127,7 +127,7 @@ int UnitClass::unknown_slot131()
                 }
                 if (unknown_494 == 0) {
                     if (unknown_1b0 != 0) {
-                        unknown_slot260(unknown_1b0, 1);
+                        Assign_Destination(unknown_1b0, true);
                     } else {
                         unknown_a8 = GOINGTOIDLE;
                         unknown_328 = true;
@@ -206,9 +206,9 @@ int UnitClass::unknown_slot131()
                         here.Y += dock->QueueingCell.Y;
                         here = Map.Unknown_005502E0(here, 2, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
                         if (!(here == unknown_cell_ad0488)) {
-                            unknown_slot260(&Map[here], 1);
+                            Assign_Destination(&Map[here], true);
                         } else {
-                            unknown_slot260(0, 1);
+                            Assign_Destination(0, true);
                         }
                     }
                 }
@@ -230,7 +230,7 @@ int UnitClass::unknown_slot131()
                 if (object != 0) {
                     BuildingTypeClass *type = ((UnknownBuildingView_007025a0 *)object)->Type;
                     if (type->Refinery || type->Weeder) {
-                        unknown_slot260(&Map[unknown_6cf130(object)], 1);
+                        Assign_Destination(&Map[unknown_6cf130(object)], true);
                     }
                 }
             }

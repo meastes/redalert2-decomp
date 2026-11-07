@@ -20,7 +20,7 @@ void HouseClass::Unknown_004F6310()
                 (!techno->unknown_slot32()->DeploysInto ||
                  !techno->unknown_slot32()->DeploysInto->ConstructionYard) &&
                 Coord_Cell(BaseCenter)!=unknown_cell_a40f10) {
-                techno->unknown_slot260(&Map[destination],1);
+                techno->Assign_Destination(&Map[destination],true);
                 techno->unknown_6d6e50(0);
                 techno->unknown_slot116(2,false);
             }

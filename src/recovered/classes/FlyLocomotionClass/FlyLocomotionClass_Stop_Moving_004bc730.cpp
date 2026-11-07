@@ -21,7 +21,7 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
                 AbstractClass *destination;
                 if (LinkedTo->unknown_slot91() == 1) destination = aircraft->unknown_4198b0();
                 else destination = aircraft->Select_Landing_Destination_004185b0(&Map[cell]);
-                LinkedTo->unknown_slot260(destination, 1);
+                LinkedTo->Assign_Destination(destination, true);
                 return;
             }
         } else {
@@ -30,8 +30,8 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
                 CoordStruct destination = Fly_Cell_Coord_004bdfb0(nearby);
                 destination.Z = Map.Unknown_0055A280(destination);
                 if ((reinterpret_cast<UnknownLocoCell *>(&Map[nearby])->Flags & 0x100)) destination.Z += unknown_geometry_j;
-                LinkedTo->unknown_slot260(&Map[destination], 1);
-                if (!unknown_51) LinkedTo->unknown_slot260(&Map[destination], 1);
+                LinkedTo->Assign_Destination(&Map[destination], true);
+                if (!unknown_51) LinkedTo->Assign_Destination(&Map[destination], true);
                 return;
             }
             if (LinkedTo->Strength <= 0) return;

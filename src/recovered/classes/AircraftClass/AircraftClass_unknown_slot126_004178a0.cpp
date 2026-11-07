@@ -43,7 +43,7 @@ int AircraftClass::unknown_slot126()
         if (unknown_228 == 0 || unknown_254 == 0) {
             unknown_a8 = 10;
         } else {
-            unknown_slot260(unknown_418f10(unknown_228), 1);
+            Assign_Destination(unknown_418f10(unknown_228), true);
             if (unknown_494 != 0) {
                 unknown_a8 = 3;
             } else {
@@ -63,7 +63,7 @@ int AircraftClass::unknown_slot126()
                     unknown_a8 = 4;
                     return 1;
                 }
-                unknown_slot260(unknown_228, 1);
+                Assign_Destination(unknown_228, true);
             } else {
                 if (Is_Fighter() || !Locomotor.Checked()->Is_Moving_Now()) {
                     unknown_a8 = 4;
@@ -79,7 +79,7 @@ int AircraftClass::unknown_slot126()
                 unknown_2f8.Set_Desired(Direction_To(unknown_228));
                 if (distance < 0x10) {
                     unknown_a8 = 4;
-                    unknown_slot260(0, 1);
+                    Assign_Destination(0, true);
                 }
             } else {
                 unknown_2f8.Set_Desired(UnknownFacingDir(unknown_slot43(0), unknown_494->Center_Coord()));
@@ -203,13 +203,13 @@ int AircraftClass::unknown_slot126()
         }
         switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
         case 8:
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
         case 0:
         case 2:
         case 9: {
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
             Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             unknown_a8 = 7;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
@@ -227,13 +227,13 @@ int AircraftClass::unknown_slot126()
         }
         switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
         case 8:
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
         case 0:
         case 2:
         case 9: {
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
             Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             unknown_a8 = 8;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
@@ -251,13 +251,13 @@ int AircraftClass::unknown_slot126()
         }
         switch (unknown_slot218(unknown_228, unknown_slot174(unknown_228), 1)) {
         case 8:
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
         case 0:
         case 2:
         case 9: {
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
             Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             unknown_a8 = 9;
             return unknown_slot231(0)->WeaponType->unknown_b0;
         }
@@ -307,7 +307,7 @@ int AircraftClass::unknown_slot126()
             return 1;
         }
         unknown_5ba = false;
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
         unknown_5bd = false;
         unknown_slot261(false, true);
         unknown_5bd = true;

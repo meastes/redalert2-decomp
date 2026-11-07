@@ -91,12 +91,12 @@ bool __stdcall TeleportLocomotionClass::Process()
                     LinkedTo->unknown_slot93(2);
                     Stop_Moving();
                     cell->unknown_476cc0(LinkedTo);
-                    LinkedTo->unknown_slot260(0, 1);
+                    LinkedTo->Assign_Destination(0, true);
                     new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
                     LinkedTo->unknown_214 = 0;
                     return false;
                 }
-                LinkedTo->unknown_slot260(0, 1);
+                LinkedTo->Assign_Destination(0, true);
                 Stop_Moving();
                 return false;
             }
@@ -170,7 +170,7 @@ bool __stdcall TeleportLocomotionClass::Process()
             LinkedTo->unknown_slot93(2);
             Stop_Moving();
             LinkedTo->unknown_6d6e50(0);
-            LinkedTo->unknown_slot260(0, 1);
+            LinkedTo->Assign_Destination(0, true);
             unknown_3c = LinkedTo->unknown_218;
             new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
             unknown_38++;
@@ -185,7 +185,7 @@ bool __stdcall TeleportLocomotionClass::Process()
     if (unknown_38 == 7) {
         LinkedTo->unknown_205 = false;
         LinkedTo->unknown_6d6e50(0);
-        LinkedTo->unknown_slot260(0, 1);
+        LinkedTo->Assign_Destination(0, true);
         unknown_34 = false;
         LinkedTo->unknown_214 = 0;
         unknown_38 = 0;

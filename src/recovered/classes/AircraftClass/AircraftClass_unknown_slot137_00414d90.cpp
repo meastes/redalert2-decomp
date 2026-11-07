@@ -32,17 +32,17 @@ mission_delay:
 choose_destination:
         if (!unknown_494 && Type->IsDropship && unknown_slot108() > 0) {
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
-            if (dock) unknown_slot260(dock, 1);
-            else unknown_slot260(unknown_4198b0(), 1);
+            if (dock) Assign_Destination(dock, true);
+            else Assign_Destination(unknown_4198b0(), true);
         } else if (!unknown_494) {
             unknown_a8 = 2;
         } else if (unknown_slot309(unknown_494)) {
             FootClass *passenger = (FootClass *)Cargo.unknown_468a10();
             if (!passenger || !passenger->Team || passenger->Team->Class->Waypoint_Location() == unknown_geometry_k) {
-                unknown_slot260(Select_Landing_Destination_004185b0(&Map[unknown_id_source_a3d290->Get_Waypoint_Location(99)]), 1);
+                Assign_Destination(Select_Landing_Destination_004185b0(&Map[unknown_id_source_a3d290->Get_Waypoint_Location(99)]), true);
                 if (Team) Team->unknown_func_6b79e0(unknown_494);
             } else {
-                unknown_slot260(Select_Landing_Destination_004185b0(&Map[passenger->Team->Class->Waypoint_Location()]), 1);
+                Assign_Destination(Select_Landing_Destination_004185b0(&Map[passenger->Team->Class->Waypoint_Location()]), true);
             }
         } else {
             int flight_level = Type->Flight_Level();

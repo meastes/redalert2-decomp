@@ -9,7 +9,7 @@ void FootClass::unknown_4c8b00()
     if (unknown_494 == 0 && unknown_49c.Count() != 0) {
         AbstractClass *next = unknown_49c[0];
         if (next != 0) {
-            unknown_slot260(next, true);
+            Assign_Destination(next, true);
             unknown_49c.Delete(0);
             if (unknown_59b) {
                 unknown_49c.Add(next);

@@ -5,7 +5,7 @@
 
 void FootClass::unknown_slot210()
 {
-    unknown_slot260(0, 1);
+    Assign_Destination(0, true);
     unknown_4d0 = -1;
     unknown_slot291();
     TechnoClass::unknown_slot210();

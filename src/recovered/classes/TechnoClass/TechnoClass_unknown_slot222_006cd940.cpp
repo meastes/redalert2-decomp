@@ -24,7 +24,7 @@ bool TechnoClass::unknown_slot222(HouseClass *house, int arg2)
 {
     if (house != House) {
         unknown_slot220(0);
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
         unknown_6155e0();
         House->Unknown_004ED440(this, false);
         unknown_slot55(0);
@@ -72,7 +72,7 @@ bool TechnoClass::unknown_slot222(HouseClass *house, int arg2)
             if (Kind_Of() != 6 || Mission != 16 || !((BuildingClass *)this)->Type->WeaponsFactory) {
                 TechnoClass *contact;
                 if (Contact(0) == 0 || (contact = Contact(0))->Kind_Of() != 6 || !((BuildingClass *)contact)->Type->WeaponsFactory) {
-                    unknown_slot260(0, 1);
+                    Assign_Destination(0, true);
                     unknown_slot220(0);
                     unknown_slot261(false, true);
                 }

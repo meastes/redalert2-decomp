@@ -19,12 +19,12 @@ bool TechnoClass::unknown_6d7f70()
             if (unknown_slot150(2, techno) == 1) {
                 if (unknown_slot150(15, techno) == 1) {
                     unknown_slot116(7, false);
-                    unknown_slot260(techno, 1);
+                    Assign_Destination(techno, true);
                     unknown_3f8 = 0;
                     return true;
                 }
                 unknown_slot116(-1, false);
-                unknown_slot260(0, 1);
+                Assign_Destination(0, true);
                 unknown_3f8 = 0;
                 unknown_slot150(3, techno);
                 return true;

@@ -70,7 +70,7 @@ void UnitClass::unknown_slot87(CoordStruct const &source, bool forced, bool noki
         Cell found = Map.Unknown_005502E0(Coord_Cell(unknown_slot19(0)), Type->SpeedType, -1, 0, unknown_79,
             Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
         if (found != unknown_cell_ad0488) {
-            unknown_slot260(&Map[found], 1);
+            Assign_Destination(&Map[found], true);
         }
     } else {
         if (Control()->unknown_07) {
@@ -122,7 +122,7 @@ void UnitClass::unknown_slot87(CoordStruct const &source, bool forced, bool noki
             }
             if (dest != unknown_cell_ad0488) {
                 unknown_slot116(2, false);
-                unknown_slot260(&Map[dest], 1);
+                Assign_Destination(&Map[dest], true);
             }
         }
     }

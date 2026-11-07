@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "8c53c2fe344486223c2271c8858794fa7326cf35d1bdff06e2e3b293d82a453f",
-    "historical_acceptance_sha256": "28fde3bfb245ec05d6709fe136ce0dcd1f824d3b218d95f7e530c77d93f73d78"
+    "historical_population_sha256": "1b67b8fee2fae947348c0dbffa155e3e838ac5cfbbd3ab4d0b586947b6f9524b",
+    "historical_acceptance_sha256": "ec293ece79fad35243fdc418e65057acf4fa4eca473b688a371afd8cb1ed5835"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1711,7 +1711,7 @@
     "?unknown_slot218@TechnoClass@@UAEHPAVAbstractClass@@H_N@Z": 7115360,
     "?Direction_To@ObjectClass@@QBE?AUUnknownFacingDir@@PBVAbstractClass@@@Z": 6104880,
     "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
-    "?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z": 5013552,
+    "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z": 5013552,
     "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z": 7171664,
     "?Unknown_0051FC80@HouseClass@@QAE_NXZ": 5373056,
     "??_C@_0CE@FLLK@?$CFs?0?$CFs?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFs?0?$CFs?0?$CFd?0?$CFd?0?$CFd@": 8186256,
@@ -1814,7 +1814,7 @@
     "?unknown_slot129@AircraftClass@@UAEHXZ": 4300032,
     "?unknown_slot130@AircraftClass@@": 4300928,
     "?unknown_slot218@AircraftClass@@": 4301088,
-    "?unknown_slot260@AircraftClass@@": 4301248,
+    "?Assign_Destination@AircraftClass@@": 4301248,
     "?unknown_slot29@AircraftClass@@": 4302080,
     "?unknown_slot70@AircraftClass@@": 4302128,
     "?Write_INI_0041A6C0@AircraftClass@@SIXAAVCCINIClass@@@Z": 4302528,
@@ -5388,9 +5388,9 @@
     "?unknown_slot25@MultiplayerGameMode@@UAEXHPAD@Z": 5907504,
     "?unknown_slot25@TechnoClass@@UAEH_NH@Z": 7140288,
     "?unknown_slot25@UDPInterfaceClass@@UAE_NXZ": 7784144,
-    "?unknown_slot260@AircraftClass@@UAEXPAVAbstractClass@@H@Z": 4301248,
-    "?unknown_slot260@BuildingClass@@UAEXPAVAbstractClass@@H@Z": 4525824,
-    "?unknown_slot260@TechnoClass@@UAEXPAVAbstractClass@@H@Z": 7162080,
+    "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
+    "?Assign_Destination@BuildingClass@@UAEXPAVAbstractClass@@_N@Z": 4525824,
+    "?Assign_Destination@TechnoClass@@UAEXPAVAbstractClass@@_N@Z": 7162080,
     "?unknown_slot261@InfantryClass@@UAE_N_N0@Z": 5258240,
     "?unknown_slot261@TechnoClass@@UAE_N_N0@Z": 7162096,
     "?unknown_slot261@UnitClass@@UAE_N_N0@Z": 7329328,
@@ -10837,7 +10837,7 @@
     "?unknown_slot137@UnitClass@@UAEHXZ": 7345536,
     "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
     "?Add@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QAE_NABIABUUnknownControlRecord@OwnerDraw@@@Z": 6296800,
-    "?unknown_slot260@InfantryClass@@UAEXPAVAbstractClass@@H@Z": 5250272,
+    "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z": 5250272,
     "?unknown_6ca340@TechnoClass@@QAEXH@Z": 7119680,
     "?unknown_475d60@UnknownCellClass@@QBE?AUCoordStruct@@XZ": 4676960,
     "__real@8@400f8000000000000000": 8017344,
@@ -10921,7 +10921,11 @@
     "?Move_To@RocketLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 6548096,
     "__real@8@3ffaa3d70a3d70a3d800": 7998288,
     "?unknown_slot67@BulletClass@@UAEXHH@Z": 4591824,
-    "??_EMouseClass@@UAEPAXI@Z": 4247904
+    "??_EMouseClass@@UAEPAXI@Z": 4247904,
+    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
+    "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984,
+    "?unknown_slot311@UnitClass@@UAEXUPoint2D@@VRect@@H@Z": 7341488,
+    "?unknown_invalid_cell_a410d8@@3VCell@@A": 10752216
   },
   "regions": [
     {
@@ -13177,7 +13181,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "210b796e455262823de40520e2611c0783e78423bf4e19430e039373f044f678",
+      "source_sha256": "e669bc6552a055f6233bbffcee55b43743a8a85165f0494203515784eda1fc0b",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot146_00415190.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -13268,7 +13272,7 @@
           "resolved": 1256696
         }
       ],
-      "source_sha256": "f9cebb943795baf87f2269e7900421d7493e9bb8ea653e65dd4f0e85ff31c1d6",
+      "source_sha256": "2baedf2fed04e1e674ca1fd33e61ba7aa2164e092dec41862857a990572867da",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot134_00415300.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -13367,7 +13371,7 @@
           "resolved": 1256354
         }
       ],
-      "source_sha256": "c40f7d250dfe47130a13d0f4d19733622871d9a80ca0fb76cd4e98c64c268185",
+      "source_sha256": "20f3c97953395540bf70ce570ac929e7a05f2c7f4e72424542ec9a3f25aad62b",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot62_004153c0.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15186,7 +15190,7 @@
           "resolved": 697840
         }
       ],
-      "source_sha256": "a83c890e28b761c3b52f804f36835b405f1ed03ef6b40856e899f6b62cd165d2",
+      "source_sha256": "59917e759367f7902da6e0f47ac04a68c35d203bcd1fe9e6435fe6eea6b094d9",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot129_00419d00.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -16651,7 +16655,7 @@
           "resolved": 343202
         }
       ],
-      "source_sha256": "e62306eb371bb9f5190026b2a448a4f46ee5083cd1602409ce33ed5a494fa95c",
+      "source_sha256": "0735450c2a740fe057bcf11cec379134658ba65944cde4aeedfef415fb44d830",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_AI_004147f0.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -17550,7 +17554,7 @@
           "resolved": 4280677
         }
       ],
-      "source_sha256": "ac73572c4f79994f65f5a31624f855766a9c172b8425f8b18d43b38a316c1c52",
+      "source_sha256": "790c8856b915b193acb95f6cdb984298ad854fcb7aab687554ee76d8d37018d3",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot137_00414d90.cpp",
       "population": "population-3943",
@@ -17746,7 +17750,7 @@
           "resolved": 1251877
         }
       ],
-      "source_sha256": "72ea078f166d011a01fc3c300b4cdfcc6472aae202f162958313306d6e64b86e",
+      "source_sha256": "2609a3e15ee8420f3eaf78c5b56a8a8daac61cef4671c6bcad547a2bda437384",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_416420_00416420.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -17758,8 +17762,8 @@
     {
       "entry": 4301248,
       "method": "0041a1c0",
-      "symbol": "?unknown_slot260@AircraftClass@@UAEXPAVAbstractClass@@H@Z",
-      "symbol_prefix": "?unknown_slot260@AircraftClass@@",
+      "symbol": "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z",
+      "symbol_prefix": "?Assign_Destination@AircraftClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -17775,7 +17779,7 @@
         {
           "offset": 39,
           "kind": 20,
-          "symbol": "?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z",
+          "symbol": "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z",
           "target": 5013552,
           "addend": 0,
           "resolved": 712261
@@ -17879,7 +17883,7 @@
         {
           "offset": 647,
           "kind": 20,
-          "symbol": "?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z",
+          "symbol": "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z",
           "target": 5013552,
           "addend": 0,
           "resolved": 711653
@@ -17927,13 +17931,13 @@
         {
           "offset": 821,
           "kind": 20,
-          "symbol": "?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z",
+          "symbol": "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z",
           "target": 5013552,
           "addend": 0,
           "resolved": 711479
         }
       ],
-      "source_sha256": "5881bb813467cd7b25fd01fff1beceb304e4d6e0f3c08e27631d41da309c1d6f",
+      "source_sha256": "087f70aff44c5569f9703ea1e7a3d8391f19ccc672145a3e331d08f2da0ecef4",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot260_0041a1c0.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -18737,7 +18741,7 @@
           "resolved": 4287102
         }
       ],
-      "source_sha256": "ac3c4f9713df34f9907c80a84f445d17985e2a9659066c5cb4a5367212490d5e",
+      "source_sha256": "e59da72ddeec297f156ec010a272220cf07527ad7c041c9f19862aab188263c6",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Move_Carryall_00416670.cpp",
       "population": "population-3943",
@@ -18861,7 +18865,7 @@
           "resolved": 2226877
         }
       ],
-      "source_sha256": "d4f557e61260676ba494c3fab5bae8344912de7964ad475b55fdf09412b84930",
+      "source_sha256": "4887ed001b067a3786442f099b200c7ba96a91b0d7c16a47acadd51dee1c0f1d",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Select_Mission_00417010.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -19220,7 +19224,7 @@
           "resolved": 4298329
         }
       ],
-      "source_sha256": "9f2c7e2ce4ef810950ccf579c59caec6b9997f21229201cb57beadeb83db7de4",
+      "source_sha256": "22a9617b270764cbcb39175f1fee81d8cdef31a44147abc3cb637b162c3545ef",
       "switch_data_bytes": 32,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot138_004193d0.cpp",
       "population": "population-3943",
@@ -19288,7 +19292,7 @@
           "resolved": 608
         }
       ],
-      "source_sha256": "0bf71e5b9a6448007960f3fad1f9e4a7bcbc4543a07c8eee2213160717feedcb",
+      "source_sha256": "9807035a2eb5c43132d55cefc932c782a3d1480503d5ea1deca1c704b08bcb92",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot147_00415210.cpp",
       "population": "population-3943",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -19515,7 +19519,7 @@
           "resolved": 4285181
         }
       ],
-      "source_sha256": "dc660c0ab8a82d57f987b2e7d81ba7e2304910f98ebae45cd131b673365264be",
+      "source_sha256": "0692a156b7f9fb41a60690b510a5cf04ea68c8ef7fc4e9c7b0d2f1c3f4a84810",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_416010_00416010.cpp",
       "population": "population-3943",
@@ -20026,7 +20030,7 @@
           "resolved": 4288336
         }
       ],
-      "source_sha256": "57d97d8478738876c3662fc8e36cbac63e9d8a1b6d4fcf2973d7b226ceb02ce3",
+      "source_sha256": "ea1997fa0d4ae01820df300fbbe333163125dc4baf7e861b88e82a66be9195b0",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot145_00416c20.cpp",
       "population": "population-3943",
@@ -20433,7 +20437,7 @@
           "resolved": 4294998
         }
       ],
-      "source_sha256": "45185c20ea873e27dfbe10e927f072cf4f6d8dc8ad6e229cf83d11610e88dd16",
+      "source_sha256": "a6b47a50075b12d49e15209057d01ad88ed55516a571f7aae7db8f10aecab4b3",
       "switch_data_bytes": 70,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot95_00418840.cpp",
       "population": "population-3943",
@@ -21432,7 +21436,7 @@
           "resolved": 4293576
         }
       ],
-      "source_sha256": "ae38522eb35e655cc44b088ba2a0e695dc3e1e079e0122dbd3ace052d204cb3d",
+      "source_sha256": "03aff77769ac08e0ffb0343888aee4bfbf1eaabf7df7c0cf9f1db17f09b59986",
       "switch_data_bytes": 198,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot126_004178a0.cpp",
       "population": "population-3943",

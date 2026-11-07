@@ -131,7 +131,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
         if (Cell(LinkedTo->Center_Coord())==Cell(unknown_1c) || Map[Cell(unknown_1c)].unknown_4717b0()==LinkedTo->Contact(0)) {
             unknown_34=false;
             Move_To(CoordStruct(unknown_geometry_l.X,unknown_geometry_l.Y,unknown_geometry_l.Z));
-            LinkedTo->unknown_slot260(0,1);
+            LinkedTo->Assign_Destination(0,true);
         }
     }
     return has_landed;

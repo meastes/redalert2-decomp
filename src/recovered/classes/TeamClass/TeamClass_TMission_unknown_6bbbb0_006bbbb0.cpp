@@ -19,16 +19,16 @@ void TeamClass::TMission_unknown_6bbbb0(ScriptMissionClass const &mission, bool 
             if (unit->unknown_228 == 0 && unit->unknown_494 == 0
                 && unit->unknown_5d4c00(unknown_34) > Unknown_006BE6A0() * 2 && do_mission != 0xB) {
                 unit->unknown_slot116(2, false);
-                unit->unknown_slot260(unknown_34, 1);
+                unit->Assign_Destination(unknown_34, true);
                 unit->unknown_slot116(2, false);
                 Cell dest = unit->unknown_4c8af0(Coord_Cell(unknown_34->Center_Coord()));
-                unit->unknown_slot260(&Map[dest], 1);
+                unit->Assign_Destination(&Map[dest], true);
             } else if (unit->unknown_228 == 0 && unit->unknown_494 == 0 && unit->unknown_slot91() != do_mission
                 && (do_mission != 5 || unit->unknown_slot91() != 0x10)) {
                 unit->unknown_6d6e50(0);
                 unit->unknown_slot116(do_mission, false);
                 unit->unknown_slot220(0);
-                unit->unknown_slot260(0, 1);
+                unit->Assign_Destination(0, true);
             }
         }
         unit = (FootClass *)unit->unknown_4c8;

@@ -31,7 +31,7 @@ bool CaptureManagerClass::Capture(TechnoClass *target)
     if (unknown_24 != 0 && unknown_24->AbstractFlags.IsFoot && ((FootClass *)unknown_24)->Team != 0) {
         ((FootClass *)unknown_24)->Team->Unknown_006B8FB0((FootClass *)unknown_24, -1, 0);
     }
-    unknown_24->unknown_slot260(0, true);
+    unknown_24->Assign_Destination(0, true);
     unknown_24->unknown_slot220(0);
     unknown_24->unknown_6d6e50(0);
     unknown_24->unknown_slot116(5, true);

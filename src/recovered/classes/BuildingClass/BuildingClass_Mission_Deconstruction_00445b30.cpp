@@ -159,7 +159,7 @@ int BuildingClass::unknown_slot140()
                         unit->unknown_118=unknown_118;
                         if(Type->Artillary) unit->unknown_2c8.Set_Current(UnknownFacingDir((Dir256)Type->BarrelStartPitch));
                         if(archive) {
-                            unit->unknown_slot260(archive,1);
+                            unit->Assign_Destination(archive,true);
                             unit->unknown_slot116(2,false);
                         }
                         if(unknown_34) {

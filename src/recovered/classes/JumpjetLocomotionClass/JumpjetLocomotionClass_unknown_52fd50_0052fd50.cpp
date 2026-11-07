@@ -36,7 +36,7 @@ void JumpjetLocomotionClass::unknown_52fd50()
         if (unknown_tracker_839ea0.Unknown_004132E0(LinkedTo)) {
             int facing = Random_Pick(0, 7);
             CellClass &here = Map[cell];
-            LinkedTo->unknown_slot260(&here.Adjacent_Cell(facing), 1);
+            LinkedTo->Assign_Destination(&here.Adjacent_Cell(facing), true);
             unknown_4c = 3;
         } else {
             ((CellClass *)LinkedTo->unknown_slot105())->Set_unknown_e0(LinkedTo);

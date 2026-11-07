@@ -19,7 +19,7 @@ int FootClass::unknown_slot128()
     InfantryClass *infantry = As_Infantry(this);
     if (unknown_228 != 0 && unknown_228->Kind_Of() == 6 && unknown_494 == 0 && infantry != 0) {
         if (infantry->Type->C4 || infantry->unknown_6d7910(14) || infantry->Type->Engineer) {
-            unknown_slot260(unknown_228, true);
+            Assign_Destination(unknown_228, true);
         }
     }
     if (unknown_494 == 0) {
@@ -30,7 +30,7 @@ int FootClass::unknown_slot128()
     }
     if (unknown_228 == 0 && !House->Unknown_004F52F0()) {
         unknown_slot220(0);
-        unknown_slot260(0, true);
+        Assign_Destination(0, true);
         unknown_slot116(5, false);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);

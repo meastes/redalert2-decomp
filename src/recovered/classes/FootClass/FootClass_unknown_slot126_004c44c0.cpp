@@ -15,7 +15,7 @@
 int FootClass::unknown_slot126()
 {
     if (unknown_slot32()->HoverAttack && unknown_slot108() == 0) {
-        unknown_slot260((AbstractClass *)&Map[unknown_6cf130(this)], true);
+        Assign_Destination((AbstractClass *)&Map[unknown_6cf130(this)], true);
     }
     if (unknown_57e) {
         CoordStruct coord = Coord;

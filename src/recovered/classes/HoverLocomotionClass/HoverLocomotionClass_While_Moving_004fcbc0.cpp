@@ -76,7 +76,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             LinkedTo->Path[0] = -1;
             unknown_24 = unknown_coord_a41080;
             Stop();
-            LinkedTo->unknown_slot260(0, 1);
+            LinkedTo->Assign_Destination(0, true);
         }
         return 7;
     }
@@ -147,7 +147,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
                     && abs(unknown_18.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g
                     && Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                     Stop_Moving();
-                    LinkedTo->unknown_slot260(0, 1);
+                    LinkedTo->Assign_Destination(0, true);
                     return 7;
                 }
                 bool bridge;

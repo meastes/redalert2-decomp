@@ -27,7 +27,7 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
             was_piggybacking=true;
         }
         if (unknown_478.Count()>0) {
-            unknown_slot260(unknown_478[0],0);
+            Assign_Destination(unknown_478[0],false);
             unknown_478.Delete(0);
             return true;
         }
@@ -46,7 +46,7 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
                     unknown_slot116(2,false);
                     unknown_6d6e50(0);
                 }
-                unknown_slot260(target,1);
+                Assign_Destination(target,true);
             }
         }
         unknown_slot306(0.0);

@@ -138,7 +138,7 @@ public:
     virtual void unknown_slot239();                                    // slot 239 0x006FBB40
     virtual void unknown_slot255(TechnoClass *techno);                           // slot 255 0x00709C70
     virtual void unknown_slot256();                                   // slot 256 0x00709D20
-    virtual void unknown_slot260(AbstractClass *target, int arg2);                 // slot 260 0x007053F0
+    virtual void Assign_Destination(AbstractClass *target, bool immediate);                 // slot 260 0x007053F0
     virtual bool unknown_slot261(bool arg1, bool arg2);                 // slot 261 0x006FD630
     virtual bool unknown_slot274();                                   // slot 274 0x0070A260 (inline in the original: a jump to TechnoClass's copy, which ours inlines)
     virtual bool unknown_slot275();                                   // slot 275 0x0070A270 (as slot 274)

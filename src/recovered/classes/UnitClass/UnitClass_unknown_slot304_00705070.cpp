@@ -21,12 +21,12 @@ void UnitClass::unknown_slot304()
         ObjectClass *object = As_Object(unknown_228);
         if ((Type->Crusher || unknown_6d7910(17)) && unknown_5d4c00(unknown_228) < Rules->unknown_1390
             && object && object->Class_Of()->unknown_1fd && (Type->AutoCrush || !House->Unknown_004F52F0())) {
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             return;
         }
     }
     if (Type->BalloonHover) {
-        unknown_slot260(unknown_228, 1);
+        Assign_Destination(unknown_228, true);
         return;
     }
     FootClass::unknown_slot304();

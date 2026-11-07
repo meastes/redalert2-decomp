@@ -74,7 +74,7 @@ int FootClass::unknown_slot145()
                 }
             }
 
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             unknown_slot220(target);
             unknown_a8 = 1;
 
@@ -97,7 +97,7 @@ int FootClass::unknown_slot145()
             if (unknown_228 != 0) {
                 break;
             }
-            unknown_slot260(unknown_1b0, 1);
+            Assign_Destination(unknown_1b0, true);
             unknown_6d6e50(0);
             unknown_4cc = 0;
             unknown_a8 = 0;
@@ -110,7 +110,7 @@ int FootClass::unknown_slot145()
             int weapon = unknown_slot174(scan);
             if (scan != 0 && (unknown_slot212(scan, weapon) || unknown_path_estimator_8315c8.Unknown_0042AA30(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(scan->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, scan->unknown_slot46(0), -1) < dist)) {
                 unknown_slot220(target);
-                unknown_slot260(0, 1);
+                Assign_Destination(0, true);
                 return 1;
             }
         }
@@ -123,9 +123,9 @@ int FootClass::unknown_slot145()
             UnknownCellClass *acell = (UnknownCellClass *)&Map[unknown_1b0->Center_Coord()];
             int patrolwalk = unknown_path_estimator_8315c8.Unknown_0042AA30(tcell->unknown_24, ((UnknownCellClass *)unknown_4cc)->unknown_24, this, onbridge, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, -1);
             if (patrolwalk < unknown_path_estimator_8315c8.Unknown_0042AA30(tcell->unknown_24, acell->unknown_24, this, onbridge, acell->Flags >> 8 & 1, -1)) {
-                unknown_slot260(unknown_4cc, 1);
+                Assign_Destination(unknown_4cc, true);
             } else {
-                unknown_slot260(unknown_1b0, 1);
+                Assign_Destination(unknown_1b0, true);
             }
             return 1;
         }
@@ -142,7 +142,7 @@ int FootClass::unknown_slot145()
 
         if (optr != 0 && (unknown_slot212(optr, primary) || unknown_path_estimator_8315c8.Unknown_0042AA30(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->unknown_slot46(0), -1) < dist)) {
             unknown_slot220(target);
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             unknown_a8 = 1;
             break;
         }
@@ -150,7 +150,7 @@ int FootClass::unknown_slot145()
         if (unknown_494 == 0) {
             unknown_slot220(0);
             if (unknown_1b0 != 0) {
-                unknown_slot260(unknown_1b0, 1);
+                Assign_Destination(unknown_1b0, true);
                 unknown_6d6e50(0);
                 unknown_a8 = 0;
                 unknown_4cc = 0;

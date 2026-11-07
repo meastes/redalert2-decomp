@@ -279,7 +279,7 @@ void EventClass::Execute()
                 }
                 if (techno && foot) {
                     techno->unknown_slot220(0);
-                    techno->unknown_slot260(TargetAt(0x0E).As_Abstract(), 1);
+                    techno->Assign_Destination(TargetAt(0x0E).As_Abstract(), true);
                     techno->unknown_6d6e50(TargetAt(0x0E).As_Abstract());
                     break;
                 }
@@ -289,7 +289,7 @@ void EventClass::Execute()
                 footp->unknown_4c8c90();
             }
             techno->unknown_slot220(TargetAt(0x0E).As_Abstract());
-            techno->unknown_slot260(TargetAt(0x13).As_Abstract(), 1);
+            techno->Assign_Destination(TargetAt(0x13).As_Abstract(), true);
             if (TargetAt(0x18).Is_Valid()) {
                 techno->unknown_slot259((int)TargetAt(0x18).As_Abstract());
             }
@@ -318,7 +318,7 @@ void EventClass::Execute()
                 ((FootClass *)techno)->unknown_420 = Cell(0, 0);
             }
             techno->unknown_slot152(3);
-            techno->unknown_slot260(0, 1);
+            techno->Assign_Destination(0, true);
             techno->unknown_slot220(0);
             if (techno->SpawnManager) {
                 techno->SpawnManager->Abandon_Target();
@@ -348,7 +348,7 @@ void EventClass::Execute()
                     }
                 }
                 techno->unknown_slot149(3);
-                techno->unknown_slot260(0, 1);
+                techno->Assign_Destination(0, true);
                 techno->unknown_slot220(0);
                 techno->unknown_slot116(0x10, false);
             }

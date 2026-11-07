@@ -4,8 +4,8 @@
     "id": "population-4304",
     "inventory_sha256": "8846afd6e81536f62a87eb1fd08d96e34907c9e41725b51187f53f93ac94a7d5",
     "gaps_sha256": "a5ae73248cbf6ad2c48cea37f365397a261dba8cc7ddee79b3bd82d572300466",
-    "historical_population_sha256": "8aee006bc16d8e2d3a4f0239bd03fbbc2ca1daf383b492b9ef12cd4317193206",
-    "historical_acceptance_sha256": "f37c1eeaebe2f988fc2620f446499e15567f16403349b1d7d0de498007bf4e2d"
+    "historical_population_sha256": "e1cb4beebf77b0ff01e1aa288cc4e0728c557d835986538b545db6a33cfee648",
+    "historical_acceptance_sha256": "3cd09452492aaf7eb4f76f0287d9a9e514bdd396719feeab8313bb6d5273c6a8"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5165,9 +5165,9 @@
     "?unknown_slot25@MultiplayerGameMode@@UAEXHPAD@Z": 5907504,
     "?unknown_slot25@TechnoClass@@UAEH_NH@Z": 7140288,
     "?unknown_slot25@UDPInterfaceClass@@UAE_NXZ": 7784144,
-    "?unknown_slot260@BuildingClass@@UAEXPAVAbstractClass@@H@Z": 4525824,
-    "?unknown_slot260@FootClass@@UAEXPAVAbstractClass@@H@Z": 5013552,
-    "?unknown_slot260@TechnoClass@@UAEXPAVAbstractClass@@H@Z": 7162080,
+    "?Assign_Destination@BuildingClass@@UAEXPAVAbstractClass@@_N@Z": 4525824,
+    "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z": 5013552,
+    "?Assign_Destination@TechnoClass@@UAEXPAVAbstractClass@@_N@Z": 7162080,
     "?unknown_slot261@FootClass@@UAE_N_N0@Z": 5009168,
     "?unknown_slot261@InfantryClass@@UAE_N_N0@Z": 5258240,
     "?unknown_slot261@TechnoClass@@UAE_N_N0@Z": 7162096,
@@ -5776,7 +5776,7 @@
     "?unknown_slot137@AircraftClass@@UAEHXZ": 4279696,
     "?unknown_slot285@BuildingClass@@UAE?AUUnknownFacingDir@@PAVAbstractClass@@@Z": 4438992,
     "?unknown_slot261@BuildingClass@@UAE_N_N0@Z": 4493488,
-    "?unknown_slot260@AircraftClass@@UAEXPAVAbstractClass@@H@Z": 4301248,
+    "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
     "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
@@ -10766,7 +10766,7 @@
     "?unknown_slot137@UnitClass@@UAEHXZ": 7345536,
     "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
     "?Add@?$WolDictionary@IUUnknownControlRecord@OwnerDraw@@@@QAE_NABIABUUnknownControlRecord@OwnerDraw@@@Z": 6296800,
-    "?unknown_slot260@InfantryClass@@UAEXPAVAbstractClass@@H@Z": 5250272,
+    "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z": 5250272,
     "?unknown_6ca340@TechnoClass@@QAEXH@Z": 7119680,
     "?unknown_475d60@UnknownCellClass@@QBE?AUCoordStruct@@XZ": 4676960,
     "?Delete@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@QAE_NH@Z": 6482432,
@@ -11066,7 +11066,14 @@
     "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
     "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
     "??4?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QAEAAV0@PAUILocomotion@@@Z": 5281840,
-    "??4?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEAAV0@PAUIPiggyback@@@Z": 4537968
+    "??4?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEAAV0@PAUIPiggyback@@@Z": 4537968,
+    "?Draw_Fogged_Objects@Tactical@@QAEXABVRect@@@Z": 6987600,
+    "?Draw_Fogged_Objects@@YIXABVRect@@@Z": 4984848,
+    "?Move_To@RocketLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 6548096,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "?unknown_slot67@BulletClass@@UAEXHH@Z": 4591824,
+    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
+    "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984
   },
   "regions": [
     {
@@ -13594,7 +13601,7 @@
           "resolved": 4294823417
         }
       ],
-      "source_sha256": "ee2b73628b25a8ec47c808b1f516c7cf01e0cb60f5411c75f076b5ff505fd33b",
+      "source_sha256": "dee25490c55cb932357f1f9914dd0586db521bf133ed5cef4d5d941df27ad90f",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Landing_Takeoff_004bca00.cpp",
       "population": "population-4304",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -14426,7 +14433,7 @@
           "resolved": 8805888
         }
       ],
-      "source_sha256": "3579fa7059342bccada4267fd6f905d266e0d994254b986e4b14597a57351653",
+      "source_sha256": "bf836e5e97cad1058b4c73d8fc39422f4da68a46f5888261e3d2c58c7df21bd3",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Process_Landing_004bdfb0.cpp",
       "population": "population-4304",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14833,7 +14840,7 @@
           "resolved": 8805888
         }
       ],
-      "source_sha256": "a57af124a212603491f14d5db9f32b067c3c1a627b4bed1eabcf27cb7d57d06e",
+      "source_sha256": "53c651ca2d10f8b596ff942f30168aca9ef2923d76fdc51fc37a2746db9da897",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Stop_Moving_004bc730.cpp",
       "population": "population-4304",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

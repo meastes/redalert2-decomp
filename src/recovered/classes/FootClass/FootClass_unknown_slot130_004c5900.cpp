@@ -82,7 +82,7 @@ int FootClass::unknown_slot130()
     if (unknown_1b0 != 0) {
         if (!unknown_57d && unknown_494 == 0 && unknown_5d4c00(unknown_1b0) > maxrange) {
             unknown_slot220(0);
-            unknown_slot260(unknown_1b0, 1);
+            Assign_Destination(unknown_1b0, true);
         }
 
         if (unknown_228 == 0) {

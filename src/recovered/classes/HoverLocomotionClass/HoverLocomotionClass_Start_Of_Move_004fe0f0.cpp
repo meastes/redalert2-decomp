@@ -48,7 +48,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
     if (unknown_18!=unknown_coord_a41080) {
         if (LinkedTo->unknown_slot104()==Coord_Cell(unknown_18) && abs(LinkedTo->unknown_slot19(0).Z-unknown_18.Z)<2*unknown_geometry_g) {
             Stop_Moving();
-            LinkedTo->unknown_slot260(0,1);
+            LinkedTo->Assign_Destination(0,true);
             return;
         }
     }
@@ -59,16 +59,16 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
     if (!LinkedTo->unknown_4c3000(Coord_Cell(unknown_18),0,num)) {
         LinkedTo->unknown_530=CDTimerClass<FrameTimerClass>((int)(Rules->unknown_13c8*900));
         if (!LinkedTo->unknown_slot171(unknown_18)) {
-            LinkedTo->unknown_slot260(0,1);
+            LinkedTo->Assign_Destination(0,true);
             return;
         }
         if (!LinkedTo->unknown_4c8d60() && Hover_Foot_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && (LinkedTo->unknown_slot91()==2 || LinkedTo->unknown_slot91()==11)) {
-            LinkedTo->unknown_slot260(0,1);
+            LinkedTo->Assign_Destination(0,true);
             if (!LinkedTo->unknown_7d) return;
         } else {
             if (LinkedTo->unknown_53c>0) --LinkedTo->unknown_53c;
             else {
-                LinkedTo->unknown_slot260(0,1);
+                LinkedTo->Assign_Destination(0,true);
                 if (!LinkedTo->unknown_7d) return;
                 if (LinkedTo->unknown_57a) Voc_Play(Rules->unknown_620,1.0f,0x2000,0);
                 LinkedTo->unknown_57a=false;
@@ -96,7 +96,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             if (blockage && LinkedTo->House->Is_Ally(blockage)) {
                 if (Hover_Close_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && !LinkedTo->In_Radio_Contact() && abs(unknown_18.Z-Object_Coord(LinkedTo).Z)<2*unknown_geometry_g && Map[Object_Coord(LinkedTo)].unknown_ec!=10) {
                     Stop_Moving();
-                    LinkedTo->unknown_slot260(0,1);
+                    LinkedTo->Assign_Destination(0,true);
                     return;
                 } else {
                     bool bridge=(cellptr->unknown_140&0x100) && abs(Object_Coord(LinkedTo).Z/unknown_geometry_g-cellptr->unknown_11b)>2;

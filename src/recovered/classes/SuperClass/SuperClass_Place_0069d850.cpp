@@ -162,7 +162,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                         }
                         foot->unknown_210 = true;
                         foot->unknown_21c = coord;
-                        foot->unknown_slot260(&Map[*offset + cell], true);
+                        foot->Assign_Destination(&Map[*offset + cell], true);
                     }
                 }
                 object = object->unknown_30;

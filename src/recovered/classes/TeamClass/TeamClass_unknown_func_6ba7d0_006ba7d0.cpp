@@ -14,7 +14,7 @@ bool TeamClass::unknown_func_6ba7d0(FootClass *member)
             if (member->unknown_494 == 0) {
                 member->unknown_slot116(2, false);
                 member->unknown_slot220(0);
-                member->unknown_slot260(unknown_34, 1);
+                member->Assign_Destination(unknown_34, true);
             }
             return true;
         }

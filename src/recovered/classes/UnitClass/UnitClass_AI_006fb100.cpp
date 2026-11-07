@@ -48,7 +48,7 @@ void UnitClass::AI()
     if ((unknown_slot112() && unknown_20c) || unknown_slot111()) {
         if (unknown_228) unknown_slot220(0);
         if (unknown_494) {
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
             return;
         }
         return;
@@ -133,7 +133,7 @@ void UnitClass::AI()
                 }
                 unknown_slot116(7, false);
                 unknown_slot220(0);
-                unknown_slot260(repair_building, 1);
+                Assign_Destination(repair_building, true);
             }
         }
         if (Type->Harvester && !House->unknown_func_4f52f0() && Frame - unknown_ac > 300 && !Locomotor.Checked()->Is_Moving()) {
@@ -142,7 +142,7 @@ void UnitClass::AI()
                 if (unknown_slot104() == Unit_AI_Refinery_Exit_Cell(refinery->unknown_slot104())) {
                     ObjectClass *contact = Map[CoordStruct(Coord)].unknown_4717b0();
                     if (In_Radio_Contact()) unknown_slot149(3);
-                    unknown_slot260(&Map[unknown_6cf130(contact)], 1);
+                    Assign_Destination(&Map[unknown_6cf130(contact)], true);
                     unknown_slot116(2, true);
                 }
             }

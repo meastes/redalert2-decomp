@@ -31,7 +31,7 @@ void AircraftClass::AI()
     }
     if ((unknown_slot112() && unknown_20c) || unknown_slot111()) {
         if (unknown_228) unknown_slot220(0);
-        if (unknown_494) unknown_slot260(0, 1);
+        if (unknown_494) Assign_Destination(0, true);
         return;
     }
     if (unknown_228) {
@@ -70,12 +70,12 @@ void AircraftClass::AI()
         return;
     }
     if (unknown_494 == &unknown_dummy_cell_a6f9f8) {
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
         unknown_slot220(0);
         unknown_slot261(false, true);
     }
     if (unknown_228 == &unknown_dummy_cell_a6f9f8) {
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
         unknown_slot220(0);
         unknown_slot261(false, true);
     }

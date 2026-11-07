@@ -89,7 +89,7 @@ int BuildingClass::unknown_slot137()
                             unit->unknown_slot86(&damage,0,Rules->unknown_c74,0,true,0);
                         }
                     } else if(!(classid==CLSID_DriveLocomotionClass)) {
-                        unit->unknown_slot260(&Map[unknown_slot104()+Cell(5,1)],true);
+                        unit->Assign_Destination(&Map[unknown_slot104()+Cell(5,1)],true);
                     } else {
                         unit->Locomotor.Checked()->Force_Track(66,destination);
                     }

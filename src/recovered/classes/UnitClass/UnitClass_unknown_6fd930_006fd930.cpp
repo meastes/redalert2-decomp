@@ -59,7 +59,7 @@ bool UnitClass::unknown_6fd930()
                         Cell zero(0, 0);
                         first = Map.Unknown_005502E0(first, 1, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->unknown_7c8)->Width() + 1, House->unknown_func_4ef600(Rules->unknown_7c8)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
                     }
-                    if (first != unknown_geometry_k) unknown_slot260(&Map[first], 1);
+                    if (first != unknown_geometry_k) Assign_Destination(&Map[first], true);
                     Owning_House()->unknown_139 = false;
                 }
                 goto finish;
@@ -117,7 +117,7 @@ bool UnitClass::unknown_6fd930()
                 Cell adjacent = Offset_Cell_6fd930(offsets[offset_index], unknown_slot104());
                 Cell placement = adjacent + AdjacentCell[7];
                 if (Type->DeploysInto->unknown_slot42(placement, 0)) {
-                    unknown_slot260(&Map[adjacent], 1);
+                    Assign_Destination(&Map[adjacent], true);
                     break;
                 }
             }

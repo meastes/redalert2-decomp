@@ -19,7 +19,7 @@ void InfantryClass::unknown_5094b0(BuildingClass *building)
     }
     if (Type->Assaulter) {
         building->Unknown_004536D0(this);
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
         unknown_slot87(building->Center_Coord(), true, true);
     }
 }

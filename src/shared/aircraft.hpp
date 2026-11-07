@@ -160,7 +160,7 @@ public:
     virtual int unknown_slot218(AbstractClass *target, int weapon, bool check_range);        // slot 218 0x0041A120
     virtual BulletClass *unknown_slot221(AbstractClass *target, int arg2);                  // slot 221 0x00415790
     virtual bool unknown_slot242();                                   // slot 242 0x0041B110
-    virtual void unknown_slot260(AbstractClass *target, int arg2);                 // slot 260 0x0041A1C0
+    virtual void Assign_Destination(AbstractClass *target, bool immediate);                 // slot 260 0x0041A1C0
     virtual bool unknown_slot261(bool arg1, bool arg2);                 // slot 261 0x00417010
     virtual bool unknown_slot282();                                   // slot 282 0x0041AFD0
     virtual TechnoClass *unknown_slot299(DynamicVectorClass<TechnoTypeClass *> const *types, int arg2, int arg3);    // slot 299 0x0041B1E0

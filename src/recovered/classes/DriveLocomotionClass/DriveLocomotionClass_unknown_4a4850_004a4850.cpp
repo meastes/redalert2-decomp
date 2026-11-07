@@ -7,7 +7,7 @@
 bool DriveLocomotionClass::unknown_4a4850()
 {
     if (LinkedTo->unknown_478.Count() == 0) {
-        LinkedTo->unknown_slot260(0, 1);
+        LinkedTo->Assign_Destination(0, true);
         return false;
     }
     LinkedTo->unknown_4cd9b0();

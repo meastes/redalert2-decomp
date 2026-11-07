@@ -65,7 +65,7 @@ void ParasiteClass::Unknown_00607440()
         if (!Owner->unknown_slot270()) {
             Owner->unknown_6d6e50(0);
             Owner->unknown_slot220(0);
-            Owner->unknown_slot260(0, 1);
+            Owner->Assign_Destination(0, true);
         }
         Owner->unknown_slot261(false, true);
         Owner->unknown_slot262(false, false, false, 0);

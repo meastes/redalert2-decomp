@@ -35,7 +35,7 @@ void UnitClass::unknown_6fbf40()
             if (object && object->Kind_Of() == 1 && ((UnitClass *)object)->Type->SmallVisceroid) {
                 UnitClass *other = (UnitClass *)object;
                 if (other->unknown_494 || other->unknown_228) return;
-                other->unknown_slot260(this, 1);
+                other->Assign_Destination(this, true);
                 unknown_5bc = -1;
                 return;
             }
@@ -51,7 +51,7 @@ void UnitClass::unknown_6fbf40()
     }
     CellClass *destination = &Map[Unit_Adjacent_Cell(position, direction)];
     if (unknown_slot101(destination, direction, unknown_5d47d0(), (int)&Map[position], 1) == 0) {
-        unknown_slot260(destination, 1);
+        Assign_Destination(destination, true);
         return;
     }
     unknown_5bc = -1;

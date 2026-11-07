@@ -23,7 +23,7 @@ int InfantryClass::unknown_slot126()
         if (unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
             BuildingTypeClass *type = ((BuildingClass *)unknown_228)->Type;
             if (type->CanC4 && !type->InvisibleInGame) {
-                unknown_slot260(unknown_228, 1);
+                Assign_Destination(unknown_228, true);
                 unknown_slot116(17, false);
                 return 1;
             }
@@ -32,7 +32,7 @@ int InfantryClass::unknown_slot126()
     if (!House->Unknown_004F52F0() && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
         if (Type->Infiltrate
             || ((Type->Occupier || Type->Assaulter) && ((BuildingClass *)unknown_228)->Unknown_00452EB0(this))) {
-            unknown_slot260(unknown_228, 1);
+            Assign_Destination(unknown_228, true);
             unknown_slot118(8);
             return 1;
         }

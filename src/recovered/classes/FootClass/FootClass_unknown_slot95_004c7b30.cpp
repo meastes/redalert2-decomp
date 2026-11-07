@@ -33,7 +33,7 @@ int FootClass::unknown_slot95(RadioClass *from, int message, long &param)
         break;
     case 23:
         if (In_Radio_Contact() && unknown_494 == Contact(0)) {
-            unknown_slot260(0, 1);
+            Assign_Destination(0, true);
         }
         if (unknown_slot91() == 0) {
             unknown_slot116(5, false);
@@ -67,7 +67,7 @@ int FootClass::unknown_slot95(RadioClass *from, int message, long &param)
         if (MissionQueue == 7 && unknown_slot122()) {
             unknown_slot117();
         }
-        unknown_slot260((AbstractClass *)param, 1);
+        Assign_Destination((AbstractClass *)param, true);
         Timer = 0;
         return 1;
     case 17:

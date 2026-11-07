@@ -77,7 +77,7 @@ void UnitClass::unknown_slot93(int reason)
                     transport->Cargo.Unknown_00468960(this);
                     unknown_slot69();
                 } else {
-                    unknown_slot260(0,1);
+                    Assign_Destination(0,true);
                     unknown_slot116(5,false);
                     unknown_slot87(unknown_coord_ad04c0,true,true);
                 }
@@ -104,14 +104,14 @@ void UnitClass::unknown_slot93(int reason)
                                     Cell where=House->Unknown_004EB270(this);
                                     if (where!=unknown_cell_ad0488) {
                                         unknown_slot116(2,false);
-                                        unknown_slot260(&Map[where],1);
+                                        Assign_Destination(&Map[where],true);
                                         unknown_slot117();
                                         unknown_6d6e50(&Map[where]);
                                         unknown_slot116(11,false);
                                     } else unknown_6d6e50(0);
                                 } else {
                                     AbstractClass *destination=unknown_1b0;
-                                    if (destination && destination!=unknown_494) unknown_slot260(destination,1);
+                                    if (destination && destination!=unknown_494) Assign_Destination(destination,true);
                                     else { unknown_4cd9b0();unknown_slot87(unknown_coord_ad04c0,true,false); }
                                 }
                             } else unknown_slot116(10,true);
@@ -119,7 +119,7 @@ void UnitClass::unknown_slot93(int reason)
                     } else if (response!=10 && (Type->Harvester || Type->Weeder)) {
                         if (unknown_1b0) {
                             unknown_slot116(10,false);
-                            unknown_slot260(unknown_1b0,1);
+                            Assign_Destination(unknown_1b0,true);
                             unknown_6d6e50(0);
                         } else if (!unknown_494) unknown_slot87(unknown_coord_ad04c0,true,false);
                     }

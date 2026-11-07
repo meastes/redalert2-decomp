@@ -84,7 +84,7 @@ void FootClass::unknown_slot304()
     if (!in_range) {
         if (Mission==6) {
             unknown_slot220(0);
-            unknown_slot260(0,1);
+            Assign_Destination(0,true);
             return;
         }
         if (!unknown_slot32()->CanApproachTarget) {
@@ -93,7 +93,7 @@ void FootClass::unknown_slot304()
             if (Mission==11 && House->unknown_func_4f52f0()) pursue=true;
             if ((Mission!=15 || House->unknown_func_4f52f0()) && !pursue) {
                 unknown_slot220(0);
-                unknown_slot260(0,1);
+                Assign_Destination(0,true);
                 return;
             }
         }
@@ -123,7 +123,7 @@ void FootClass::unknown_slot304()
     }
     if ((!unknown_494 || unknown_slot21()) && (!in_range || !unknown_32d || require_deploy_cell)) {
     if (unknown_478.Count()>0) {
-        unknown_slot260(unknown_478[0],0);
+        Assign_Destination(unknown_478[0],false);
         unknown_478.Delete(0);
         return;
     }
@@ -214,16 +214,16 @@ void FootClass::unknown_slot304()
     } while ((floating_radius=(double)(radius-=256))>204.8);
     }
     if (found) {
-        unknown_slot260(&Map[trial_cell],1);
+        Assign_Destination(&Map[trial_cell],true);
     } else if (unknown_slot32()->HunterSeeker || (Kind_Of()==15 && ((InfantryClass *)this)->Type->VehicleThief)) {
-        unknown_slot260(unknown_228,1);
+        Assign_Destination(unknown_228,true);
     } else {
         trial_cell=Map.Unknown_005502E0(trial_cell,unknown_slot32()->SpeedType,
             Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,unknown_slot46(0)),movement_zone,
             (Map[trial_cell].unknown_140&0x100)!=0,Point2D(1,1),false,true,false,false,Cell(0,0),0);
         unknown_slot220(0);
-        if (trial_cell!=unknown_approach_none_865f00) unknown_slot260(&Map[trial_cell],1);
-        else unknown_slot260(0,1);
+        if (trial_cell!=unknown_approach_none_865f00) Assign_Destination(&Map[trial_cell],true);
+        else Assign_Destination(0,true);
     }
     }
     }

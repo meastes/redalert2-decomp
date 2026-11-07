@@ -6,6 +6,6 @@ void FootClass::unknown_slot288()
 {
     if (unknown_slot91() == 15) {
         unknown_slot220(0);
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
     }
 }

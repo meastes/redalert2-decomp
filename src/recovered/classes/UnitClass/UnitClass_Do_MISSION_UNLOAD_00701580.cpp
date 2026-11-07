@@ -39,7 +39,7 @@ int UnitClass::unknown_slot137()
                 CellClass &current_cell=Map[current];
                 if (!unknown_494 && current_cell.unknown_ec==2) {
                     Cell destination=Map.Unknown_005502E0(unknown_slot104(),2,-1,0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
-                    unknown_slot260(&Map[destination],1);
+                    Assign_Destination(&Map[destination],true);
                     return 10;
                 }
                 int passengers=Cargo.Count;
@@ -88,8 +88,8 @@ int UnitClass::unknown_slot137()
                         --unknown_a40774;
                         if (placed) {
                             passenger->unknown_slot116(2,false);
-                            if (prefer_far) passenger->unknown_slot260(&Map[far_cell],1);
-                            else passenger->unknown_slot260(&Map[near_cell],1);
+                            if (prefer_far) passenger->Assign_Destination(&Map[far_cell],true);
+                            else passenger->Assign_Destination(&Map[near_cell],true);
                             if (Team) Team->unknown_func_6b8cc0(passenger);
                         }
                         break;

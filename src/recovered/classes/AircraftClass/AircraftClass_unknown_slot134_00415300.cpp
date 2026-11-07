@@ -17,11 +17,11 @@ int AircraftClass::unknown_slot134()
         }
         Cell cell = Map.Calculated_Cell(edge, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
         if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
-            unknown_slot260((AbstractClass *)&Map[cell], 1);
+            Assign_Destination((AbstractClass *)&Map[cell], true);
             return 3;
         }
     } else if (unknown_494 == unknown_slot105()) {
-        unknown_slot260(0, 1);
+        Assign_Destination(0, true);
     }
     return 3;
 }
