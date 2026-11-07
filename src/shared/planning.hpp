@@ -153,6 +153,8 @@ int __fastcall Planning_Adjusted_Pixel(RGBClass const &color, RGBClass const &ta
 void __fastcall Planning_Uncount(int house);
 // Takes a techno out of the planning list, lowering its house's counter (0x00614550).
 void __fastcall Planning_Unlist_Techno(TechnoClass *techno);
+// Takes a token out of the token list unless the planning lists are being torn down (0x006144F0).
+void __fastcall Planning_Unlist_Token(PlanningTokenClass *token);
 extern int unknown_counts_a76684[8];            // 0x00A76684
 extern bool unknown_flag_a767a5;                // 0x00A767A5 (the planning lists are being torn down)
 extern bool unknown_flag_a767a4;                // 0x00A767A4
@@ -403,9 +405,9 @@ class PlanningTokenClass {
 public:
     PlanningTokenClass(TechnoClass *owner);                   // 0x00612CC0
     ~PlanningTokenClass();                                    // 0x00612D20
-    void unknown_6144f0();                                    // 0x006144F0
     bool Reached(int slot) const;                             // 0x00613B40
-    void unknown_612ec0();                                    // 0x00612EC0
+    void Cancel_Owner();                                      // 0x00612EC0
+    void Destroy();                                           // 0x006130B0
     void unknown_6138f0(int index);                           // 0x006138F0
     void Add_Node(PlanningNodeClass *node);                   // 0x00613BA0
     EventClass unknown_613330();                              // 0x00613330
@@ -422,7 +424,7 @@ public:
 #ifdef RA2_COORD_EQUAL_MEMBER
     bool unknown_613310() const;                              // 0x00613310
     // The small accessors of the path (0x00612EB0, 0x00613B60, 0x00613B30, 0x006132C0-E0,
-    // 0x00613D60, 0x00613D70, 0x00613DA0, 0x00613DB0).
+    // 0x00613D60, 0x00613D70, 0x00613DA0, 0x00613DB0, 0x00613DC0, 0x00613DD0).
     TechnoClass *Get_Owner() const { return Owner; }
     int Get_Node_Count() const { return Nodes.Count(); }
     int Get_8c() const { return unknown_8c; }
@@ -433,6 +435,10 @@ public:
     int Get_LoopStart() const { return LoopStart; }
     bool Loop_Past_Start() const { return LoopStart > 0; }
     bool Loop_At_Start() const { return LoopStart == 0; }
+    // Closes the path into a loop of length nodes from start (0x00613D40).
+    void Set_Loop(int length, int start) { LoopLength = length; LoopStart = start; unknown_98 = true; }
+    bool Get_98() const { return unknown_98; }
+    bool Get_99() const { return unknown_99; }
 #endif
     bool Has_Node(PlanningNodeClass *node);                   // 0x00613C60
     void unknown_613c80(PlanningNodeClass *node);             // 0x00613C80

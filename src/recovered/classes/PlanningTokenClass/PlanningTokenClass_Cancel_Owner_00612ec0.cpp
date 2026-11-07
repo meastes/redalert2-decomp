@@ -1,11 +1,11 @@
 #define RA2_COORD_EQUAL_MEMBER
-// void PlanningTokenClass::unknown_612ec0() (0x00612EC0)
+// void PlanningTokenClass::Cancel_Owner() (0x00612EC0)
 // Drops the whole path: takes the owner out of every node (nodes left empty
 // delete themselves), unlists the owner and forgets the loop.
 #include "shared/planning.hpp"
 // @ref ?Clear@?$VectorClass@PAVPlanningMemberClass@@@@UAEXXZ=0061abf0
 
-void PlanningTokenClass::unknown_612ec0()
+void PlanningTokenClass::Cancel_Owner()
 {
     int count = Nodes.Count();
     bool none = count == 0;

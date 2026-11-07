@@ -6,7 +6,7 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| [unowned](../src/recovered/unowned/) | 1391 | 430,386 | 1391 | 0x00401000–0x0078FB6B |
+| [unowned](../src/recovered/unowned/) | 1392 | 430,471 | 1392 | 0x00401000–0x0078FB6B |
 | [classes/MapClass](../src/recovered/classes/MapClass/) | 208 | 118,295 | 208 | 0x0049ED10–0x0056A9D0 |
 | [classes/BuildingClass](../src/recovered/classes/BuildingClass/) | 198 | 91,321 | 198 | 0x00438A60–0x004D3450 |
 | [classes/HouseClass](../src/recovered/classes/HouseClass/) | 214 | 84,401 | 214 | 0x004D3590–0x004F8EF0 |
@@ -142,11 +142,11 @@
 | [Reinf](../src/recovered/Reinf/) | 4 | 3,803 | 4 | 0x00639970–0x0063A690 |
 | [classes/SmudgeTypeClass](../src/recovered/classes/SmudgeTypeClass/) | 24 | 3,798 | 24 | 0x004D3B10–0x00688C20 |
 | [classes/PlayerProfile](../src/recovered/classes/PlayerProfile/) | 15 | 3,779 | 14 | 0x00738670–0x0073A090 |
-| [classes/PlanningTokenClass](../src/recovered/classes/PlanningTokenClass/) | 22 | 3,660 | 22 | 0x006106C0–0x006144F0 |
 | [classes/ParticleTypeClass](../src/recovered/classes/ParticleTypeClass/) | 20 | 3,655 | 20 | 0x004D4010–0x00621E80 |
 | [classes/BinkClass](../src/recovered/classes/BinkClass/) | 22 | 3,628 | 22 | 0x0042FE50–0x00430BB0 |
 | [classes/ListClass](../src/recovered/classes/ListClass/) | 29 | 3,612 | 28 | 0x00539BF0–0x0053AA20 |
 | [classes/VoxelAnimTypeClass](../src/recovered/classes/VoxelAnimTypeClass/) | 19 | 3,586 | 19 | 0x004D3F10–0x0070EF40 |
+| [classes/PlanningTokenClass](../src/recovered/classes/PlanningTokenClass/) | 21 | 3,575 | 21 | 0x006106C0–0x00613DE0 |
 | [classes/EBolt](../src/recovered/classes/EBolt/) | 11 | 3,555 | 11 | 0x004B1770–0x004B2580 |
 | [classes/TextPrint](../src/recovered/classes/TextPrint/) | 13 | 3,549 | 13 | 0x00497360–0x00498160 |
 | [classes/TerrainTypeClass](../src/recovered/classes/TerrainTypeClass/) | 23 | 3,542 | 23 | 0x004D3B90–0x006E5AE0 |

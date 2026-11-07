@@ -9,6 +9,6 @@ PlanningTokenClass::~PlanningTokenClass()
     if (Owner != 0) {
         Owner->unknown_6d1420(0);
     }
-    unknown_6144f0();
-    unknown_612ec0();
+    Planning_Unlist_Token(this);
+    Cancel_Owner();
 }
