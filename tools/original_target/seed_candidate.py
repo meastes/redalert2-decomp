@@ -862,6 +862,11 @@ def large_integer_member_artifacts(body, params=()):
                 continue
             if re.match(r'\s*\.\s*(?:LowPart|HighPart|QuadPart)\b', suffix):
                 continue
+            # A frozen export may mix named SDK halves with raw DWORD slices.
+            # Only recognize the two complete in-bounds words; scalar_partials
+            # still lowers each slice later with its original unsigned width.
+            if re.match(r'\._(?:0|4)_4_\b', suffix):
+                continue
             if before.endswith('&') and unary_operator(view, len(before)-1):
                 continue  # The same local's address, including an explicit cast.
             refused = True
