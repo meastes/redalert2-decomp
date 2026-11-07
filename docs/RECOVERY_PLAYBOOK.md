@@ -168,6 +168,20 @@ so; everything else was measured here.
   graph cannot give on a vtable-heavy codebase. Trace the original once to get
   it, and rank remaining work by whether a launch needs it.
 
+## 9a. When the fresh pool is gone (measured 2026-11-07, at 84.5%)
+
+Every workable row had a draft by the time 84% of `.text` was exact. Lanes
+sent to grind parked rows returned 4.4 KB per three lane-hours; the same lanes
+on units with TibSun shapes returned 24.6 KB. Selection is the lever, not
+effort, and the order of leverage is: a standing layout-completion slot for
+the half-done classes (one layout unblocks many rows); rulings resolved in a
+batch before any pass touches their rows; one mechanism lab at a time, scored
+by rows closed and retired after two empty attempts; source evidence (archive
+text, twin body) in every brief, rows without it last; the C runtime and
+handwritten assembly booked as their own categories with an in-scope
+percentage reported beside the `.text` figure. One-attempt passes ranked by
+bytes x (100 - score) are the default for the rest.
+
 ## 10. Yuri's Revenge specifically
 
 Measured against gamemd.exe 1.001 on 2026-10-31: about 44% of this project's

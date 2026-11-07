@@ -784,6 +784,8 @@ class Audit:
         require(candidate is not None, 'Accepted interval absent from frozen candidate population')
         require(row['symbol_prefix'] == candidate['symbol_prefix'] and row.get('references', {}) == candidate.get('references', {}), 'Accepted symbol selector/reference bindings differ from frozen candidate')
         require(row['padding_provenance'] == candidate['padding_provenance'], 'Accepted padding provenance differs')
+        require(all(row.get(k) == candidate.get(k) for k in ('inline_asm', 'inline_asm_citation')),
+                'Accepted inline-assembly ledger flag differs from frozen candidate')
         case = cases.get((row['method'], row['variant']))
         require(case is not None and case['status'] == 'extent-exact', 'Missing exact compiler case')
         require(case['source_sha256'] == row['source_sha256'] and case['object_sha256'] == row['object_sha256'] and case['options'] == row['options'], 'Compiler case provenance differs')

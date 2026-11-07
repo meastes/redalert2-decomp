@@ -22,7 +22,11 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   Unknown extents, references or constants refuse acceptance.
 - **No fake source:** no instruction arrays or original inline assembly in C
   candidates. Original-byte scaffolding, original data, identified library code
-  and evidenced handwritten assembly are separate ledger categories.
+  and evidenced handwritten assembly are separate ledger categories. Exception
+  (user, 2026-11-07): "evidenced inline assembly" — an `__asm` block only where
+  the TibSun archive shows the author's own `__asm` at that point (cited), with the
+  archive's instructions only, flagged `inline_asm: evidenced` in the manifest,
+  enforced by the strict audit and reported as its own category.
 - **Fidelity:** preserve widths, wrapping, signed division, FP stores, layouts and
   ordered reads/writes/calls. Type/ABI/class hypotheses stay explicit until evidenced.
 - **Private material:** executables, assets, compiler/media, extracted data,

@@ -13,7 +13,8 @@ import time
 
 from build import check_toolchain, compile_units, write_json
 from verify_manifest import local_label_target, prefix_bound_values, switch_data_start
-from canonical import RECORDED_OPTIONS, compiler_arguments, sha, validate_headers, validate_includes
+from canonical import (RECORDED_OPTIONS, TIBSUN_ARCHIVE, compiler_arguments, sha, validate_headers,
+                       validate_includes, validate_inline_asm)
 from coff import Coff
 from verify_manifest import Audit, require, TARGET_SHA256
 import catalog_io
@@ -191,6 +192,9 @@ def compile_population(manifest_path, output, config, replacing=(), retiring=())
     headers = validate_headers(REPOSITORY, catalog)
     for candidate in population['candidates']:
         validate_includes(audit.read(candidate['source']), headers)
+        # `__asm` only as cited, archive-verified evidenced inline assembly.
+        validate_inline_asm(audit.read(candidate['source']), candidate, REPOSITORY / TIBSUN_ARCHIVE,
+                            require_archive=True)
         require(not any(r['entry'] < candidate['entry'] + candidate['region_bytes'] and
                         candidate['entry'] < r['entry'] + r['full_extent_bytes']
                         for r in catalog['regions'] if not (r['entry'] in replacing and

@@ -42,6 +42,9 @@ from regenerate_seeds import sync_headers
 import catalog_io
 
 SYMBOLS = REPOSITORY / 'manifests/symbols.json'
+# Plan-item keys of evidenced inline assembly (canonical.validate_inline_asm),
+# carried into the frozen candidate and the canonical region.
+INLINE_ASM_KEYS = ('inline_asm', 'inline_asm_citation')
 
 
 def named_symbols():
@@ -539,7 +542,8 @@ def main():
                                    body_bytes=len(body),
                                    body_sha256=sha(body), region_bytes=len(region), region_sha256=sha(region),
                                    padding_hex=pad_hex, padding_provenance=provenance,
-                                   original_inventory_row=bound))
+                                   original_inventory_row=bound,
+                                   **{k: item[k] for k in INLINE_ASM_KEYS if k in item}))
         population = dict(executable_sha256=TARGET_SHA256, inventory=str((directory / 'functions.jsonl').relative_to(REPOSITORY)),
                           inventory_sha256=sha((directory / 'functions.jsonl').read_bytes()),
                           gap_inventory_sha256=sha(gaps_path.read_bytes()), source_model='hand-written-' + plan['name'],
@@ -594,6 +598,8 @@ def main():
                           source_quality_family='hand-written')
             if item.get('semantic_name'):
                 region['semantic_name'] = item['semantic_name']
+            # Evidenced inline assembly is its own ledger category (status.py).
+            region.update({k: item[k] for k in INLINE_ASM_KEYS if k in item})
             destination = REPOSITORY / item['source']
             if destination.exists() and destination.read_bytes() != (REPOSITORY / item['draft']).read_bytes() and \
                     not (existing.get(row['entry']) and existing[row['entry']]['source'] == item['source']):

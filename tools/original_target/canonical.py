@@ -62,6 +62,112 @@ def validate_headers(repository, catalog, read=None):
     return blobs
 
 
+# Evidenced inline assembly (user decision 2026-11-07, AGENTS.md "No fake source"):
+# a C/C++ candidate may hold an `__asm` block only where the TibSun archive shows
+# the author's own `__asm` at that point. The row carries `inline_asm: evidenced`
+# and `inline_asm_citation` ("TibSun conquer.cpp:346", or a list, one per block in
+# source order), the source quotes each citation, and each block holds exactly the
+# cited archive block's instructions. Only these archive files are eligible.
+INLINE_ASM_FILES = ('conquer.cpp', 'keyboard.cpp', 'mpu.cpp', 'lcw.cpp', 'blitblit.h', 'rlerle.h')
+INLINE_ASM_CITATION = re.compile(r'TibSun (%s):([1-9][0-9]*)' % '|'.join(map(re.escape, INLINE_ASM_FILES)))
+TIBSUN_ARCHIVE = Path('private/reference/TibSun/code')
+_ASM_TOKEN = re.compile(r'(?<![A-Za-z0-9_$])(?:__asm|_asm)(?![A-Za-z0-9_$])')
+
+
+def _mask_comments_and_literals(text):
+    """`text` with comments blanked and literal contents blanked (same length, newlines kept)."""
+    tokens = r'"(?:\\.|[^"\\\n])*"|\'(?:\\.|[^\'\\\n])*\'|/\*.*?\*/|//[^\n]*'
+    def blank(match):
+        value = match[0]
+        if value.startswith(('/*', '//')):
+            return re.sub(r'[^\n]', ' ', value)
+        return value[0] + ' ' * (len(value) - 2) + value[-1]
+    return re.sub(tokens, blank, text, flags=re.S)
+
+
+def _asm_instructions(body):
+    lines = []
+    for line in body.splitlines():
+        line = line.split(';', 1)[0]                  # MASM comment inside an __asm block
+        line = re.sub(r'\s*,\s*', ', ', ' '.join(line.split()))
+        if line:
+            lines.append(line)
+    return lines
+
+
+def inline_asm_blocks(text, start=0):
+    """[(offset, [instruction, ...])] of every `__asm`/`_asm` block from `start`.
+    Comments are ignored (a commented-out `__asm` is no block)."""
+    masked = _mask_comments_and_literals(text)
+    blocks, position = [], start
+    while True:
+        match = _ASM_TOKEN.search(masked, position)
+        if match is None:
+            return blocks
+        cursor = match.end()
+        while cursor < len(masked) and masked[cursor] in ' \t\r\n':
+            cursor += 1
+        if not masked.startswith('{', cursor):
+            cursor = match.end()
+        if masked.startswith('{', cursor):
+            depth, end = 0, cursor
+            while end < len(masked):
+                depth += {'{': 1, '}': -1}.get(masked[end], 0)
+                if depth == 0:
+                    break
+                end += 1
+            require(depth == 0, 'Unterminated __asm block')
+            body, position = masked[cursor + 1:end], end + 1
+        else:
+            # Single-line form: up to the end of the line or the next __asm on it.
+            end = masked.find('\n', cursor)
+            end = len(masked) if end < 0 else end
+            following = _ASM_TOKEN.search(masked, cursor, end)
+            end = following.start() if following else end
+            body, position = masked[cursor:end], end
+        blocks.append((match.start(), _asm_instructions(body)))
+
+
+def validate_inline_asm(data, row, archive=None, require_archive=False):
+    """Refuse `__asm` in a candidate unless `row` is flagged as evidenced inline
+    assembly with eligible TibSun citations; with `archive` (the TibSun code
+    directory), each block must equal the archive block that starts on its cited
+    line. Returns the number of blocks."""
+    text = data.decode(errors='replace') if isinstance(data, bytes) else data
+    blocks = inline_asm_blocks(text)
+    flag, citations = row.get('inline_asm'), row.get('inline_asm_citation')
+    if not blocks:
+        require(flag is None and citations is None, 'inline_asm flag on a source without an __asm block')
+        return 0
+    require(flag == 'evidenced', 'Inline assembly (__asm) in a C/C++ candidate without inline_asm: evidenced')
+    citations = [citations] if isinstance(citations, str) else citations
+    require(isinstance(citations, list) and citations and
+            all(isinstance(c, str) and INLINE_ASM_CITATION.fullmatch(c) for c in citations),
+            'inline_asm_citation must be "TibSun <file>:<line>" with <file> one of ' + ', '.join(INLINE_ASM_FILES))
+    require(len(citations) == len(blocks), 'One inline_asm_citation per __asm block, in source order')
+    for citation in citations:
+        require(citation in text, 'Inline-assembly citation %s not quoted in the source' % citation)
+    if archive is None or not Path(archive).is_dir():
+        require(not require_archive, 'TibSun archive unavailable: evidenced inline assembly cannot be verified')
+        return len(blocks)
+    for index, ((_, instructions), citation) in enumerate(zip(blocks, citations)):
+        # A repeated citation names the next block on the same archive line
+        # (`__asm _emit 0x0f __asm _emit 0x31`).
+        repeat = citations[:index].count(citation)
+        name, line = INLINE_ASM_CITATION.fullmatch(citation).groups()
+        path = Path(archive) / name
+        require(path.is_file(), 'Cited TibSun archive file missing: %s' % name)
+        source = path.read_text(errors='replace')
+        lines = source.splitlines(keepends=True)
+        require(int(line) <= len(lines), 'Cited TibSun line out of range: %s' % citation)
+        first = sum(len(l) for l in lines[:int(line) - 1])
+        cited = [b for b in inline_asm_blocks(source, first) if b[0] < first + len(lines[int(line) - 1])]
+        require(len(cited) > repeat, 'No __asm block starts on the cited TibSun line: %s' % citation)
+        require(instructions == cited[repeat][1],
+                'Inline-assembly block differs from the cited TibSun archive block %s' % citation)
+    return len(blocks)
+
+
 def validate_includes(data, headers):
     # Apply preprocessing character/line/comment phases before recognizing
     # directives, so comments or continuations cannot hide a dependency.
@@ -127,7 +233,9 @@ def validate_catalog(repository, catalog):
     require(catalog['target'] == dict(size=TARGET_BYTES, sha256=TARGET_SHA256), 'Wrong catalog target')
     read = {}
     headers = validate_headers(repository, catalog, read)
-    for data in headers.values(): validate_includes(data, headers)
+    for data in headers.values():
+        validate_includes(data, headers)
+        require(not inline_asm_blocks(data.decode(errors='replace')), 'Inline assembly (__asm) in a shared header')
     ids = [p['id'] for p in catalog['populations']]
     require(len(ids) == len(set(ids)), 'Duplicate populations')
     entries, paths, orders = set(), set(), set()
@@ -150,6 +258,7 @@ def validate_catalog(repository, catalog):
         data = read[resolved] = resolved.read_bytes()
         require(sha(data) == row['source_sha256'], 'Source hash drift')
         validate_includes(data, headers)
+        validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
         entries.add(va); paths.add(row['source']); orders.add(row['source_order'])
         cursor = va + row['full_extent_bytes']
     require(bool(entries), 'Empty canonical source catalog')

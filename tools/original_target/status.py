@@ -22,10 +22,17 @@ REPOSITORY = Path(__file__).resolve().parents[2]
 BEGIN, END = '<!-- generated:status -->', '<!-- /generated:status -->'
 
 
+def evidenced_inline_asm(region):
+    """Regions whose source holds cited TibSun `__asm` (canonical.validate_inline_asm):
+    their own ledger category beside library code, not C/C++ source credit."""
+    return region.get('inline_asm') == 'evidenced'
+
+
 def coverage(catalog):
     regions = catalog['regions']
-    return dict(regions=len(regions), body=sum(r['body_bytes'] for r in regions),
-                padding=sum(r['padding_bytes'] for r in regions))
+    return dict(regions=len(regions), body=sum(r['body_bytes'] for r in regions if not evidenced_inline_asm(r)),
+                padding=sum(r['padding_bytes'] for r in regions),
+                evidenced_inline_asm=sum(r['body_bytes'] for r in regions if evidenced_inline_asm(r)))
 
 
 def history(repository=REPOSITORY, cache_path=None):
@@ -63,12 +70,15 @@ def text_bytes(executable):
 
 def render(catalog, text, rows):
     now = coverage(catalog)
-    scaffold = text - now['body'] - now['padding']
+    scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm']
     populations = Counter(r['population'] for r in catalog['regions'])
     lines = [BEGIN, '',
              '| Measure | Value |', '| --- | ---: |',
              '| Accepted regions | {:,} |'.format(now['regions']),
              '| Matched C/C++ body bytes | {:,} ({:.2f}% of .text) |'.format(now['body'], 100.0 * now['body'] / text),
+             '| Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, '
+             'not C/C++ credit) | {:,} ({:.2f}% of .text) |'.format(now['evidenced_inline_asm'],
+                                                            100.0 * now['evidenced_inline_asm'] / text),
              '| Frozen padding bytes | {:,} |'.format(now['padding']),
              '| Original .text scaffold bytes | {:,} |'.format(scaffold),
              '| Logical .text bytes | {:,} |'.format(text),

@@ -2812,3 +2812,26 @@ Unknown_Cell_Score_0056dff0 is really a thiscall member.
 
 ## Scout992 (2026-11-07, closed; r1 Pick_Random_Tile_Variant 0x55D640 848 B queued; NOTES, keep/ in build/class-work/Scout992/)
 - Exact from the jump-threading rule (predicted, first compile): the last arm ends with a `place` flag whose threaded `if (place)` test lays the Set/region run after the main return (TibSun's `continue` stays at 82.49; the layout is the evidence; flagged). Headers: map_isotile.hpp `int ArrayIndex` at +0x264 (TibSun HeapID), map_cell.hpp `unknown_47b7c0` declaration. OWNER DECISION: accepted. Upload_Map_Preview 0x5C7EF0 76.90 -> 88.77 (keep/upload_k7_8877.cpp; `direct &&` in the player-loop condition). Get_Z_Adjust 0x6CFEA0 81.20 is not a threading case. Stale: 0x516F00, 0x55CEF0, 0x629220, 0x466A50, 0x467330 are already accepted.
+
+## OWNER RULINGS SITTING (2026-11-07 ~19:00Z, per the endgame process)
+Most "pending" mentions in this file are pending inline sites (measurements), not rulings. The real open rulings and their decisions:
+- RulesClass::Process 0x6433A0 returns void (rename pending, line ~24): APPROVED as a rename round when the row is next worked.
+- AI_Build_Wall (unknown_func_4f2350, Scout680) and Update_Present_Super_Weapons (unknown_func_4f4b20): APPROVED renames (TibSun names), land with the next House round.
+- Init_Drawer rename (LightConvertClass *, line ~730): APPROVED (evidenced type).
+- Barrel 0x43B7E0 file-local XY helper: moot (landed by Scout852 with the helper flagged).
+- Main_Game 0x481BF0 (YR twin with an `__asm` block storing esp/ebp/return label): HELD for the evidenced-assembly ledger (AGENTS.md: no original inline assembly in C candidates; such bodies go to the separate ledger category, which is a user-level project).
+- Scenario NoInit ctor 0x65B780 (Scout906 empty ctor): HELD (stands).
+- Get_Row_Text helper (ListBox, Scout941): REJECTED (stands). Spring_Light/Is_Light_Target (Scout933): REJECTED, superseded by Scout942.
+- Set_Map_Dimensions Map unit header swap (Scout936): HELD as a layout-completion task (Map is a candidate for the standing layout slot).
+- UICmnds 0x6F7020 declaration question (Scout991): DEFERRED to the next lane that works it with the true 353 B body.
+New rulings are recorded at their rows as before.
+
+## Scout993 (2026-11-07, closed; 0 B; RadBeam 0x636130 95.83 / 0x635C30 96.92 parked; NOTES, scan.py, w/ in build/class-work/Scout993/)
+- Two separate causes: (1) a channel read through the inlined `RGBClass const &from` cannot move above the `fst [esi+0xa8]`; a direct this-based `Color.Red` can (aliasing); (2) the `xor` zero-extends interleaved into the abs sequence are a back-end scheduling effect after a call-fed abs; a non-intrinsic abs gives the interleave but not cdq. Only 0x636255 in the binary has a xor inside a call-fed abs. Parked.
+
+## Scout994 (2026-11-07, closed; 0 B; Assign_Destination 0x7053F0 76.96 -> 85.14 / loose 99.11, frame 0x80 and all slots matching; NOTES, best-draft.cpp, tibsun-bridge.cpp, lab/m6-m8 in build/class-work/Scout994/)
+- The frame comes from the tunnel doswap condition written as a declaration `bool canburrow = ... && ...; if (canburrow)`: temps of an `&&` chain share one slot inside an if condition but interfere in a declaration (identical code). Member-pointer stores do not extend an escaped local's life (refines R4). Only the needsswap/useplan region is left (10 lines): splitting the bridge block reproduces the needsswap reload (not TibSun nesting, flag); useplan in al with a spill slot not reproduced. OWNER DECISION: `canburrow` (a named condition) and the bridge split are acceptable, flagged.
+
+## Scout995 (2026-11-07, closed; 0 B; Upload_Map_Preview 0x5C7EF0 natural 87.21 with exact block layout; lab 99.46/99.73; NOTES, keep/ in build/class-work/Scout995/)
+- Layout solved (firewall if/else with the loop in the else; rotated `for (i = 1; i < Count(); i++)`; NAT/IP else-if prints then `if (!direct) break;`; `if (!direct) { Z3; return; }`): flag threading, rotation and ebp=-1 now match. Left: Scout971's ebx tie (original holds 0x1C7 in ebx 0x1c8-0x37b, zero web from 0x3df; ours holds zero throughout). The original has about one plain-weight zero reference fewer (or one 0x1C7 more) at allocation time; threaded duplicates never count. About 90 natural variants flat (NOTES).
+- OWNER DECISION: parked under the yield redirect (no retry without a new mechanism). Resume ideas recorded: a post-allocation-merged 0x1C7 duplicate (Scout797), a TU-local CDTimer Value() copy lab (Scout709), a two-use position scan (Scout796). The member-to-free rename (map_preview.hpp:19; callers 0x5C08A0, 0x761C50, 0x57A0D0) lands only with an exact body.
