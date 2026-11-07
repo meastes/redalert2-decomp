@@ -1015,6 +1015,101 @@ def extend_artifacts(body):
         body = body[:match.start()] + '((%s)(%s)(%s))' % (destination, source, args[0]) + body[end + 1:]
 
 
+def byte_update_value_safe(value):
+    """Existing preserved-byte rule: evaluate a pure value once, at its width."""
+    value_view = code_view(value)
+    # A call or write can change the slot while the high bytes are being
+    # assembled. Do not replace that expression with a different ordering.
+    if re.search(r'\+\+|--|(?<![=!<>])=(?!=)|,|\b\w+\s*\(', value_view):
+        return False
+    calls = False
+    for parenthesis in re.finditer(r'\)\s*\(', value_view):
+        end = parenthesis.start()
+        depth, start = 1, end - 1
+        while start >= 0 and depth:
+            depth += (value_view[start] == ')') - (value_view[start] == '(')
+            start -= 1
+        inside = clean_type(value_view[start+2:end])
+        scalar_kinds = INTEGRAL32 | {'char', 'uchar', 'byte', 'undefined1', 'ushort', 'short', 'undefined2'}
+        # A scalar pointer cast followed by a parenthesized address is not
+        # an indirect call: *(undefined1 *)(base + offset). Keep unknown,
+        # qualified and function-pointer casts unresolved.
+        pointer_cast = (inside.endswith('*') and clean_type(inside[:-1]) in scalar_kinds
+                        and not re.search(r'\b(?:const|volatile)\b', value_view[start+2:end]))
+        if inside not in scalar_kinds and not pointer_cast:
+            calls = True
+            break
+    if calls:
+        return False
+    return True
+
+
+def partial_byte_update_artifacts(body, params=()):
+    """Recover a byte-two store hidden inside a self-preserving low-three slice.
+
+    x._0_3_ = CONCAT12(value, (ushort)x) preserves bytes zero, one and three.
+    x._0_3_ = (uint3)(ushort)x does the same with a zero byte two. Do not read
+    those preserved bytes or invent a three-byte primitive lvalue. Only an
+    unambiguous, mutable, declared four-byte scalar/pointer slot qualifies;
+    arbitrary slices, array elements and used assignment results stay refused.
+    """
+    if '._0_3_' not in body:
+        return body
+    view = code_view(body)
+    declarations, comma = scalar_declarations(view)
+    if comma or '#' in view:
+        return body
+    slots = {}
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind.strip(), None))
+    for kind, name, array in declarations:
+        slots.setdefault(name, []).append((kind, array))
+    if any(name in slots for name in ('CONCAT12', 'uint3', 'ushort')):
+        return body
+    pattern = re.compile(r'^[\t ]*(?P<slot>[A-Za-z_]\w*)\._0_3_[\t ]*=(?!=)\s*', re.M)
+    edits = []
+    for match in pattern.finditer(view):
+        before = view[:match.start()].rstrip()
+        if before and before[-1] not in '{;}':
+            continue
+        slot = match['slot']
+        declared = slots.get(slot, [])
+        if len(declared) != 1:
+            continue
+        kind, array = declared[0]
+        if array or '&' in kind or re.search(r'\b(?:const|volatile)\b', kind):
+            continue
+        kind = clean_type(kind)
+        if kind not in INTEGRAL32 and kind not in POINTER_ALIASES and '*' not in kind:
+            continue
+        end = expression_end(view, match.end())
+        if end >= len(view) or view[end] != ';':
+            continue
+        rhs = view[match.end():end].strip()
+        if re.fullmatch(r'\(\s*uint3\s*\)\s*\(\s*ushort\s*\)\s*'+re.escape(slot), rhs):
+            value = '0'
+        else:
+            concat = re.match(r'CONCAT12\s*\(', view[match.end():])
+            if not concat:
+                continue
+            opening = match.end()+concat.end()-1
+            closing = matching_paren(view, opening)
+            if view[closing+1:end].strip():
+                continue
+            args = split_args(body[opening+1:closing])
+            if len(args) != 2 or not re.fullmatch(r'\s*\(\s*ushort\s*\)\s*'+re.escape(slot)+r'\s*', code_view(args[1])):
+                continue
+            value = args[0]
+            if not value.strip() or not byte_update_value_safe(value):
+                continue
+        replacement = '((uchar *)&(%s))[2] = (uchar)(%s);' % (slot, value)
+        edits.append((match.start('slot'), end+1, replacement))
+    for start, end, replacement in reversed(edits):
+        body = body[:start]+replacement+body[end:]
+    return body
+
+
 def byte_update_artifacts(body, params=()):
     """Recover standalone low-byte stores, without reading an invented uint24.
 
@@ -1066,29 +1161,7 @@ def byte_update_artifacts(body, params=()):
         if len(args) != 2 or re.sub(r'\s+', '', args[0]) != slot + '._1_3_':
             continue
         value = args[1]
-        value_view = code_view(value)
-        # A call or write can change the slot while the high bytes are being
-        # assembled. Do not replace that expression with a different ordering.
-        if re.search(r'\+\+|--|(?<![=!<>])=(?!=)|,|\b\w+\s*\(', value_view):
-            continue
-        calls = False
-        for parenthesis in re.finditer(r'\)\s*\(', value_view):
-            end = parenthesis.start()
-            depth, start = 1, end - 1
-            while start >= 0 and depth:
-                depth += (value_view[start] == ')') - (value_view[start] == '(')
-                start -= 1
-            inside = clean_type(value_view[start+2:end])
-            scalar_kinds = INTEGRAL32 | {'char', 'uchar', 'byte', 'undefined1', 'ushort', 'short', 'undefined2'}
-            # A scalar pointer cast followed by a parenthesized address is not
-            # an indirect call: *(undefined1 *)(base + offset). Keep unknown,
-            # qualified and function-pointer casts unresolved.
-            pointer_cast = (inside.endswith('*') and clean_type(inside[:-1]) in scalar_kinds
-                            and not re.search(r'\b(?:const|volatile)\b', value_view[start+2:end]))
-            if inside not in scalar_kinds and not pointer_cast:
-                calls = True
-                break
-        if calls:
+        if not byte_update_value_safe(value):
             continue
         tail = re.match(r'\s*(?:&\s*(0x[0-9a-fA-F]+|\d+)[uU]?)?\s*;', view[closing+1:])
         if not tail:
@@ -2614,6 +2687,7 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     body = terminal_label_statements(body)
     body, switch_notes = indexed_switch_artifacts(body, entry, params)
     body = nan_artifacts(body, params, named_calls(body, inventory) if re.search(r'\bNAN\s*\(', code_view(body)) else ())
+    body = partial_byte_update_artifacts(body, params)
     body = byte_update_artifacts(body, params)
     body, word_store_notes = word_store_artifacts(body, params, entry, inventory)
     body = stack_artifacts(extend_artifacts(concat_artifacts(body)), params, conv)
