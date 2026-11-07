@@ -159,7 +159,7 @@ struct UnknownSerialPacket {
             unsigned unknown_2c : 1;        // bit 6 session +0x2C
             unsigned unknown_34 : 1;        // bit 7 session +0x34
             unsigned unknown_bits_8 : 24;
-            unsigned int Seed;              // +0x92 the random seed (Seed 0x00A40D3C)
+            int Seed;                       // +0x92 the random seed (Seed 0x00A40D3C; signed: Select_Serial_Dialog's Test_Null_Modem compares it with jle)
             SpecialClass Special;           // +0x96 the game options word
             unsigned long unknown_9a;       // +0x9A
             int FileLength;                 // +0x9E session ScenarioFileLength_87c

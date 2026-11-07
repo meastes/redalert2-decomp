@@ -1,3 +1,5 @@
+#define RA2_TTIMER_CONVERSION_INT
+#define RA2_CDTIMER_CONVERSION_BODY
 // Header-static dynamic initializers of the unit at 0x005CDD10: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x005CDD10-0x005CDEF1); the other
 // drafts of this plan are emitted by these includes.

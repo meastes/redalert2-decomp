@@ -10,14 +10,14 @@ original code is still scaffold. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| Accepted regions | 17,954 |
-| Matched C/C++ body bytes | 3,197,830 (84.83% of .text) |
+| Accepted regions | 17,955 |
+| Matched C/C++ body bytes | 3,200,410 (84.90% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 1,721 (0.05% of .text) |
-| Frozen padding bytes | 142,583 |
+| Frozen padding bytes | 142,595 |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 98,395 (2.61% of .text; 3,688 matched) |
 | Handwritten blitter/codec assembly bytes (7 owner-ruled ranges plus evidenced inline asm; own ledger) | 12,660 (0.34% of .text) |
-| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,194,142 of 3,516,187 (90.84%) |
-| Original .text scaffold bytes | 427,671 |
+| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,196,722 of 3,516,175 (90.91%) |
+| Original .text scaffold bytes | 425,079 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 693 |
 
@@ -2132,6 +2132,7 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `34386123d` | 2026-11-07 15:22 -0600 | 17,949 | 3,197,377 | +2,570 | 25,210 |
 | `92f3eb5ba` | 2026-11-07 15:38 -0600 | 17,949 | 3,197,377 | +0 | 0 |
 | `5298300be` | 2026-11-07 15:53 -0600 | 17,952 | 3,197,377 | +0 | 0 |
+| `8058f3a7d` | 2026-11-07 16:00 -0600 | 17,954 | 3,197,830 | +453 | 3,874 |
 
 <!-- /generated:status -->
 

@@ -24,6 +24,9 @@ public:
     int RC;                             // +0x04
     bool Changed;                       // +0x08
     char Number[21];                    // +0x09
+    // The rest of the object: not used by the recovered members; size 0x8C from the stack object
+    // in Select_Serial_Dialog (0x005CDF00, frame layout).
+    char unknown_1e[0x8C - 0x1E];
 };
 
 class PhoneEntryEdit {
