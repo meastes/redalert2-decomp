@@ -2991,13 +2991,20 @@ def main():
             config_path=seed_config_path(args.config)
             if not config_path.is_file():parser.error('Typed seed compile validation needs --config pointing to an existing compiler configuration')
             config=json.loads(config_path.read_bytes())
-            choice=choose_seed(entry,inventory,accepted,seed,
-                lambda text,mode:compile_seed_text(entry,text,path.parent/('check-'+mode),config),baseline)
-            text=choice.pop('source')
+        try:
+            if validate:
+                choice=choose_seed(entry,inventory,accepted,seed,
+                    lambda text,mode:compile_seed_text(entry,text,path.parent/('check-'+mode),config),baseline)
+                text=choice.pop('source')
+            else:
+                text=seed(entry,inventory,accepted)
+        except ValueError as error:
+            print('%08x refused: %s' % (entry, error), file=sys.stderr)
+            failed=True
+            continue
+        if validate:
             with open((path.parent/'seed-choice.json'),'w',encoding='utf-8',newline='\n') as stream: stream.write(json.dumps(choice,indent=2)+'\n')
             failed=failed or not choice['compiled']
-        else:
-            text=seed(entry,inventory,accepted)
         with open(path,'w',encoding='utf-8',newline='\n') as stream: stream.write(text)
         print(path)
     return int(failed)
