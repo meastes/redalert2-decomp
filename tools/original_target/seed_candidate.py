@@ -2297,18 +2297,38 @@ def declare_import(body, name, fact):
 KEYWORDS = {'if', 'while', 'for', 'switch', 'return', 'sizeof', 'do'}
 
 
-def named_calls(body, inventory):
-    """Non-FUN_ callees Ghidra named (operator_new, _strcmp...) -> address."""
+def inventory_call_names(inventory):
     names = getattr(inventory, '_seed_named_calls', None)
     if names is None:
         names = {}
         for directory in inventory.passes:
             for entry, row in inventory.rows(directory).items():
-                if not row['name'].startswith('FUN_') and re.match(r'^[A-Za-z_]\w*$', row['name']):
-                    names.setdefault(row['name'], entry)
+                name = row['name']
+                if not name.startswith('FUN_') and re.fullmatch(r'[A-Za-z_]\w*', name):
+                    names.setdefault(name, set()).add(entry)
         inventory._seed_named_calls = names
-    return {n: names[n] for n in set(re.findall(r'\b([A-Za-z_]\w*)\s*\(', code_view(body)))
-            if n in names and n not in KEYWORDS}
+    return names
+
+
+def named_calls(body, inventory, direct_targets, excluded=()):
+    """Bind duplicate function names using the caller's original direct targets."""
+    names = inventory_call_names(inventory)
+    view = code_view(body)
+    result = {}
+    for name in sorted(set(re.findall(r'\b([A-Za-z_]\w*)\s*\(', view)) - KEYWORDS):
+        addresses = names.get(name)
+        if not addresses or name in excluded:
+            continue
+        if len(addresses) > 1:
+            addresses = addresses.intersection(direct_targets)
+            if len(addresses) != 1:
+                raise ValueError('Ambiguous Ghidra callee name: ' + name)
+            if re.search(r'::\s*' + re.escape(name) + r'\s*\(', view):
+                target = next(iter(addresses))
+                raise ValueError('Qualified Ghidra callee %s at %08x needs a member prototype' %
+                                 (name, target))
+        result[name] = next(iter(addresses))
+    return result
 
 
 def named_thunk_values(body, entry, inventory, params=()):
@@ -2836,7 +2856,8 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     body, labels = local_labels(body)
     body = terminal_label_statements(body)
     body, switch_notes = indexed_switch_artifacts(body, entry, params)
-    body = nan_artifacts(body, params, named_calls(body, inventory) if re.search(r'\bNAN\s*\(', code_view(body)) else ())
+    owners = ecx_owners(inventory.function(entry)[1])
+    body = nan_artifacts(body, params, inventory_call_names(inventory) if re.search(r'\bNAN\s*\(', code_view(body)) else ())
     body = floating_word_store_artifacts(body, params)
     body = partial_byte_update_artifacts(body, params)
     body = byte_update_artifacts(body, params)
@@ -2850,7 +2871,6 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     body, scalar_view_notes = scalar_address_views(body, params)
     body, rtti_notes = rtti_address_labels(body)
     declarations, notes = [], list(rtti_notes) + switch_notes + scalar_view_notes + word_store_notes
-    owners = ecx_owners(inventory.function(entry)[1])
     this_name = param_parts(params[0])[1] if conv == '__thiscall' and params else None
     for callee in sorted(set(CALLEE.findall(code_view(body))) - {name}):
         address = int(callee[4:], 16)
@@ -2892,9 +2912,7 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
         declarations.append(declaration)
         if api in alias_imports:
             alias_declarations[api] = declaration
-    for library, address in sorted(named_calls(body, inventory).items()):
-        if library in imports:
-            continue
+    for library, address in sorted(named_calls(body, inventory, owners, imports).items()):
         declarations.append('extern "C" undefined4 __cdecl %s(...);  // @ref _%s=%08x' % (library, library, address))
     declarations.extend(named_thunk_values(body, entry, inventory, params))
     evidence_root = (REPOSITORY / 'private/original-target-20261020/inventory').resolve()
