@@ -6,19 +6,19 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| [unowned](../src/recovered/unowned/) | 1388 | 416,782 | 1388 | 0x00401000–0x0078FB6B |
+| [unowned](../src/recovered/unowned/) | 1389 | 416,821 | 1389 | 0x00401000–0x0078FB6B |
 | [classes/MapClass](../src/recovered/classes/MapClass/) | 207 | 116,914 | 207 | 0x0049ED10–0x0056A9D0 |
 | [classes/BuildingClass](../src/recovered/classes/BuildingClass/) | 197 | 91,204 | 197 | 0x00438A60–0x004D3450 |
 | [classes/HouseClass](../src/recovered/classes/HouseClass/) | 212 | 80,545 | 212 | 0x004D3590–0x004F8EF0 |
 | [classes/TechnoClass](../src/recovered/classes/TechnoClass/) | 229 | 76,612 | 226 | 0x0041B370–0x006D9750 |
 | [classes/RulesClass](../src/recovered/classes/RulesClass/) | 51 | 74,018 | 51 | 0x00640460–0x00654100 |
 | [ownrdraw](../src/recovered/ownrdraw/) | 138 | 67,680 | 138 | 0x005DE880–0x006025A0 |
-| [classes/UnknownMapGenerator](../src/recovered/classes/UnknownMapGenerator/) | 52 | 54,861 | 52 | 0x0056D4C0–0x0058AD90 |
+| [classes/UnknownMapGenerator](../src/recovered/classes/UnknownMapGenerator/) | 54 | 54,957 | 54 | 0x0056D4C0–0x0058AD90 |
 | [classes/UnitClass](../src/recovered/classes/UnitClass/) | 91 | 53,468 | 91 | 0x004D3510–0x0070A330 |
 | [classes/FootClass](../src/recovered/classes/FootClass/) | 125 | 46,400 | 121 | 0x0041B470–0x004CDE10 |
 | [classes/CellClass](../src/recovered/classes/CellClass/) | 129 | 43,673 | 125 | 0x00470680–0x0047CFC0 |
 | [classes/BuildingTypeClass](../src/recovered/classes/BuildingTypeClass/) | 62 | 40,277 | 62 | 0x00454EE0–0x004D3C50 |
-| (discovery: address-named) | 1192 | 33,787 | 17 | 0x004010A0–0x00797198 |
+| (discovery: address-named) | 1189 | 33,652 | 17 | 0x004010A0–0x00797198 |
 | [classes/Tactical](../src/recovered/classes/Tactical/) | 93 | 33,169 | 86 | 0x006A22D0–0x006AC800 |
 | [classes/MapRegionClass](../src/recovered/classes/MapRegionClass/) | 50 | 32,850 | 50 | 0x0056D530–0x0058DA70 |
 | [classes/InfantryClass](../src/recovered/classes/InfantryClass/) | 90 | 32,065 | 90 | 0x004D3390–0x00509810 |

@@ -122,9 +122,20 @@ inline UnknownMapGenerationCell &MapRegionClass::Get_Cell_Data(Cell const &posit
 {
     return unknown_map_cells_a70a24[position.X+position.Y*unknown_map_cell_side_84e804];
 }
+#ifdef RA2_MAPGEN_CELL_DATA_CHAIN
+// TibSun CellData::Get_Region with the grid index spelled out: the form 0x56E9A0 has
+// standalone (two out-of-line calls in Split_Region 0x56EF20), and the inline cost the
+// map generator rows have.
+inline int UnknownMapGenerationCell::Get_Region(Cell const &position)
+{
+    if(!unknown_map_cells_a70a24)return -1;
+    return unknown_map_cells_a70a24[position.X+position.Y*unknown_map_cell_side_84e804].RegionIndex;
+}
+#else
 inline int UnknownMapGenerationCell::Get_Region(Cell const &position)
 {
     if(!unknown_map_cells_a70a24)return -1;
     return MapRegionClass::Get_Cell_Data(position).RegionIndex;
 }
+#endif
 #endif
