@@ -2698,3 +2698,9 @@ Unknown_Cell_Score_0056dff0 is really a thiscall member.
 
 ## Scout954 (2026-11-07, closed; 0 B; Per_Cell_Process 0x500AA0 parked at 86.18 natural; NOTES, w/c4.cpp in build/class-work/Scout954/)
 - Real-CellClass rewrite (cell_class.hpp, Cell_Unit/Cell_Aircraft, IsoTileIndex/OverlayIndex, IsUnderBridge bitfield) compiles in the population and scores exactly 86.18; `Kind_Of()==6` already gives the plain `cmp eax,6; jne`. The only miss is the engineer-block register contest (target keeps building in ebx). Over 300 code-identical variants across four lanes; parked. Possible lead: header-level declaration order/type count in BuildingClass/TechnoClass (no twin to bisect against).
+
+## Scout953 (2026-11-07, closed; 0 B; NOTES, w/pa.cpp, w/H_pt1_n5.cpp, tohigh.py in build/class-work/Scout953/)
+- Damage_Train_Bridge 0x5539B0: best deliverable still codex4's draft (73.90 here). Per-case full tails with `return(true)` in cases 6/7/8/15/16/17 (VC6 cross-jumps them into one tail) give the original's arm registers; `middle_cell + Cell(dx, dy)` coordinate sites add pending inline sites. w/pa.cpp 63.96 has entry/guard/switch registers right with only the NS Clear 0x42CFB0 inlining; a lab probe with 2-5 empty inline calls after the NS block gives every instruction (87.44, frame slots left). Needs natural 2-5 pending sites there. Damage_High_Bridge 0x559000 51.03 -> 56.15 (two group tails must stay apart).
+
+## Scout956 (2026-11-07, closed; 0 B; NOTES, w/ in build/class-work/Scout956/)
+- Laser 0x6C9DF0 (560 B; bound: ret 10h at 0x6CA01D, ends at accepted 0x6CA020) 78.05: the residue is one register decision (our cached 0 in ebp beats `depth`, original keeps depth in edi); about 30 natural forms flat. Evaluate_Object 0x6C5570 91.81 (method web in eax vs edx at the 0x800 test). Area_Modify 0x6C5270 96.38: VC6 normalises source operand order of the sums; the difference is a register-tuple tie at site 4. Tunnel depth 0x6CFB60 was already accepted.
