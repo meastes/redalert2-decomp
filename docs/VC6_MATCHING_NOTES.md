@@ -2110,3 +2110,6 @@ When a helper the original never calls is inlined into a big caller, the helper'
 
 ## Westwood `return(expr);` parentheses in inline accessors (Scout913, 2026-11-07)
 In inline accessors, Westwood's `return(expr);` and a bare `return expr;` can schedule the caller differently once inlined (Bullet Draw_It 0x4610D0: 100 vs 98.91, fixing two distant misses at once). Use the Westwood spelling from TibSun headers verbatim, parentheses included, before concluding an accessor shape is wrong.
+
+## Merged vs separate empty case labels (Scout911, 2026-11-07)
+`case a: case b: break;` and `case a: break; case b: break;` emit different jump tables: merged labels let VC6 thread both entries past a later known-value test, which keeps the switch variable in a register across the table; separate labels give each entry its own target (and, in Take_Damage 0x6CDC40, the original's reload). When a switch row misses only on a reload or table target, try splitting or merging empty labels as the twin writes them.
