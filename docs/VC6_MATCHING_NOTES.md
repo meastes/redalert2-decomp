@@ -2139,3 +2139,4 @@ T1 limit (Scout982): VC6 does not cross-jump multi-block tails that end in a ret
 
 ## Shared epilogue and jump threading (Scout989, 2026-11-07)
 VC6's shared return epilogue is the one ending the last block in the layout. A block can sit after the shared exit only when its join is jump-threaded past the next test (a flag known false on that path): `if (!p) {..flag = true..} else {B} if (flag) {R; return 0;} return 0;` puts B after the exit with its own epilogue copy, and early returns land after R. This refines the "last bare return written" rule, which holds only where VC6 does not thread or move blocks.
+R4 refinement (Scout990 lab): an escaped local stays live past its block when a pointer variable is assigned inside that local's scope (from a call result or a load) and dereferenced later; it stays live up to the last such dereference. Passing the pointer to a call does not extend it; assigning it after the block does not.

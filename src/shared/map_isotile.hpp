@@ -45,7 +45,9 @@ public:
     // TibSun Is_Randomized).
     bool unknown_func_52b730(int subtile);
 
-    char unknown_24[0x2B4 - 0x24];
+    char unknown_24[0x264 - 0x24];
+    int ArrayIndex;                                     // +0x264 (TibSun HeapID)
+    char unknown_268[0x2B4 - 0x268];
     int unknown_2b4;                                    // +0x2B4 cells across
     int unknown_2b8;                                    // +0x2B8 cells down
 };

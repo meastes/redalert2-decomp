@@ -108,6 +108,7 @@ public:
     bool unknown_47b590() const;    // 0x0047B590 (no tile: 0 or 0xFFFF; as shared/cell.hpp)
 #ifdef RA2_MAP_BRIDGE_PIECES
     bool unknown_47b7e0() const;     // 0x0047B7E0 (TibSun Is_Tile_With_Water)
+    bool unknown_47b7c0() const;     // 0x0047B7C0 (TibSun Is_Tile_Shore; as shared/cell_class.hpp)
 #endif
     void unknown_4724a0();          // 0x004724A0 (a wall overlay: its owner; TibSun Set_Wall_Owner; as shared/cell.hpp)
     int unknown_476ba0(bool pregame);   // 0x00476BA0 (TibSun Tiberium_Adjust; as shared/cell.hpp)
