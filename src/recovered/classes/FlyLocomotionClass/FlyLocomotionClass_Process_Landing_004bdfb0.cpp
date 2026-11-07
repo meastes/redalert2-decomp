@@ -78,7 +78,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
             CoordStruct next=Fly_Cell_Coord_004bdfb0(nearby);
             next.Z=Map.Unknown_0055A280(next);
             if ((reinterpret_cast<UnknownLocoCell *>(&Map[nearby])->Flags&0x100)) next.Z+=unknown_geometry_j;
-            Move_To(CoordStruct(next.X,next.Y,next.Z));
+            Move_To(next);
         } else {
             LinkedTo->unknown_slot86(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,1);
             unknown_1c=unknown_geometry_l;

@@ -27,23 +27,6 @@ struct UnknownFlyBuilding {
     char unknown_000[0x418];
     UnknownFlyBuildingType *Type;       // +0x418
 };
-// The smart pointer built from the linked unit: the query is the row 0x004BFC20.
-struct UnknownFlyControlPtr : UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> {
-    UnknownFlyControlPtr(FootClass * const &other)
-    {
-        if (other) {
-            HRESULT result=Query_From(other);
-            if (FAILED(result) && result!=E_NOINTERFACE) {
-                _com_issue_error(result);
-            }
-        }
-    }
-    bool operator!=(int null_value) const
-    {
-        if (null_value!=0) _com_issue_error((long)0x80004003);
-        return Pointer!=0;
-    }
-};
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
 inline int Fly_Land_004bcd50(CellClass const &cell)
@@ -171,7 +154,7 @@ void FlyLocomotionClass::unknown_4bcd50()
     int dist=Fly_Distance_004bcd50(dest,Object_Coord(LinkedTo));
     if (current_height<unknown_38 && LinkedTo->Strength>0) {
         bool is_loaded=false;
-        UnknownFlyControlPtr flyctrl(LinkedTo);
+        UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
         if (flyctrl!=0) {
             is_loaded=flyctrl->Is_Loaded()!=0;
         }
@@ -244,7 +227,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         }
     }
     if (LinkedTo->Strength>0 && unknown_4bf3c0() && unknown_1c!=unknown_coord_865df8) {
-        UnknownFlyControlPtr flyctrl(LinkedTo);
+        UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
         if (!unknown_4bf8f0()) {
             unknown_40=1.0;
         } else if (LinkedTo->unknown_slot32()->HunterSeeker) {

@@ -1,11 +1,2 @@
-#include "shared/fly_locomotion.hpp"
-#include "shared/aircraft.hpp"
-// All native Fly.cpp held-release calls stay out of line; Attach releases its pointer directly.
-#pragma auto_inline(off)
-
-void UnknownComPtr<IFlyControl, &unknown_uuid_7d80a8>::Release_Held()
-{
-    if (Pointer) Pointer->Release();
-}
-
-#pragma auto_inline(on)
+// UnknownComPtr<IFlyControl>::Release_Held 0x004BFBC0: out-of-line copy of the inline member (shared/fly_control_ptr.hpp)
+// emitted by this unit where VC6 refuses to expand it; no source of its own.

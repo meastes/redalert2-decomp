@@ -51,26 +51,48 @@ struct UnknownFlyPtr : UnknownFlyPtrBase {
 };
 
 
-// The instance declaration is light enough for the separate null-comparison unit.
+// comip's _com_ptr_t members for the IFlyControl instance, all inline: the destructor and Attach
+// call Release_Held (comip _Release), operator= calls Add_Held (comip _AddRef), Query_From is
+// comip's _QueryInterface through GetIID. Where VC6 refuses them this unit emits the out-of-line
+// copies 0x004BFB90 (operator==), 0x004BFBC0 (Release_Held) and 0x004BFC20 (Query_From).
 #include "shared/cell.hpp"
 #include "shared/aircraft.hpp"
 #include "shared/fly_control_ptr.hpp"
 inline UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8>::UnknownComPtr(UnknownComPtr const &other)
     : Pointer(other.Pointer) { if (Pointer) Pointer->AddRef(); }
 inline UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8>::~UnknownComPtr()
-{ if (Pointer) Pointer->Release(); }
+{ Release_Held(); }
 inline void UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8>::Attach(IFlyControl *pointer)
-{ if (Pointer) Pointer->Release(); Pointer=pointer; }
+{ Release_Held(); Pointer=pointer; }
 inline UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> &
 UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8>::operator=(IFlyControl *pointer)
 {
     if (Pointer!=pointer) {
         IFlyControl *old=Pointer;
         Pointer=pointer;
-        if (Pointer) Pointer->AddRef();
+        Add_Held();
         if (old) old->Release();
     }
     return *this;
+}
+inline void UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8>::Release_Held()
+{ if (Pointer) Pointer->Release(); }
+inline long UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8>::Query_From(FootClass * const &other)
+{
+    long result;
+    if (other) {
+        IFlyControl *pointer;
+        result=other->QueryInterface(GetIID(),(void**)&pointer);
+        if (result<0) {
+            Attach(0);
+            return result;
+        }
+        Attach(pointer);
+    } else {
+        operator=((IFlyControl *)0);
+        result=(long)0x80004002;
+    }
+    return result;
 }
 class FlyLocomotionClass : public LocomotionClass {
 public:
@@ -90,7 +112,8 @@ public:
     virtual Point2D __stdcall Draw_Point();                                     // 0x004BEFB0
     virtual Point2D __stdcall Shadow_Point();                                   // 0x004BF0C0
     virtual bool __stdcall Process();                                           // 0x004BC2B0
-    virtual void __stdcall Move_To(CoordStruct to);                             // 0x004BC3E0
+    // ILocomotion's COM coordinate (the unit defines RA2_SHIP_MOVE_TO_VALUE in its first row, 0x004BBF20).
+    virtual void __stdcall Move_To(COMCoordStruct to);                          // 0x004BC3E0
     virtual void __stdcall Stop_Moving();                                       // 0x004BC730
     virtual void __stdcall Do_Turn(UnknownFacingDir dir);                       // 0x004BF390
     virtual bool __stdcall Power_Off();                                         // 0x004BF4A0

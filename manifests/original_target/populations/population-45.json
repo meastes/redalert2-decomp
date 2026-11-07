@@ -519,40 +519,6 @@
       "source_quality_family": "ghidra-seed-sweep"
     },
     {
-      "entry": 4979600,
-      "method": "004bfb90",
-      "symbol": "??8?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QBE_NH@Z",
-      "symbol_prefix": "??8?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 34,
-      "body_sha256": "5db35d0f594ad893b58c88987a9f69228f7dfe903f55bb720a8bfb07981c2eb8",
-      "padding_bytes": 14,
-      "full_extent_bytes": 48,
-      "full_extent_sha256": "c61d798c5b7f7bda97d55ceb39d32133f52f9dcc7be9701390faa576f4a8e362",
-      "relocations": [
-        {
-          "offset": 17,
-          "kind": 20,
-          "symbol": "?_com_issue_error@@YGXJ@Z",
-          "target": 7952704,
-          "addend": 0,
-          "resolved": 2973083
-        }
-      ],
-      "source_sha256": "4c39b7b71d2af5b5bce32ae98aacc7764e4b9cfd008bbe345c3fd0243079b6fa",
-      "source": "src/recovered/classes/FlyLocomotionClass/IFlyControl_Null_004bfb90.cpp",
-      "source_order": 7266,
-      "population": "population-45",
-      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written"
-    },
-    {
       "entry": 5037712,
       "method": "004cde90",
       "symbol": "?FUN_004cde90@seed_004cde90@@YIHPAH@Z",

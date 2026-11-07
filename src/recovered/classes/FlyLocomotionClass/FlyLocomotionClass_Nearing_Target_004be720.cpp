@@ -10,28 +10,6 @@
 #include "shared/house.hpp"
 extern double const unknown_fly_land_speed_7a10f8;
 // @ref ?unknown_fly_land_speed_7a10f8@@3NB=007a10f8
-// The pointer as Nearing_Target holds it: the query stays out of line here.
-struct UnknownFlyNearPtr : UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> {
-    UnknownFlyNearPtr(FootClass * const &other)
-    {
-        if (other) {
-            HRESULT result=Query_From(other);
-            if (FAILED(result) && result!=E_NOINTERFACE) {
-                _com_issue_error(result);
-            }
-        }
-    }
-    bool operator!=(int null_value) const
-    {
-        if (null_value!=0) _com_issue_error((long)0x80004003);
-        return Pointer!=0;
-    }
-    bool operator==(int null_value) const
-    {
-        if (null_value!=0) _com_issue_error((long)0x80004003);
-        return Pointer==0;
-    }
-};
 inline UnknownFacingDir Fly_Direction_XY_004be720(CoordStruct const &from,CoordStruct const &to)
 {
     UnknownFacingDir dir;
@@ -59,7 +37,7 @@ inline int Fly_Distance_XY_004be720(CoordStruct const &from,CoordStruct const &t
 int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
 {
     LinkedTo->unknown_slot104();
-    UnknownFlyNearPtr flyctrl(LinkedTo);
+    UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
     if (flyctrl!=0 && LinkedTo->unknown_228!=0 && LinkedTo->unknown_254!=0 && flyctrl->Is_Strafe()) {
         stage=false;
     }

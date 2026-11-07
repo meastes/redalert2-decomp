@@ -1,6 +1,2 @@
-#include "shared/fly_control_ptr.hpp"
-bool UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8>::operator==(int null_value) const
-{
-    if (null_value!=0) _com_issue_error((long)0x80004003);
-    return Pointer==0;
-}
+// UnknownComPtr<IFlyControl>::operator==(int) 0x004BFB90: out-of-line copy of the inline member (shared/fly_control_ptr.hpp)
+// emitted by this unit where VC6 refuses to expand it; no source of its own.
