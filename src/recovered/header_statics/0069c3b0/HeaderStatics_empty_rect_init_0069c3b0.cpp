@@ -1,3 +1,6 @@
+#define RA2_BUILDING_LOCOMOTOR_ADDREF_DECL
+#define RA2_COORD_TPOINT3D
+#define RA2_OBJECT_IS_FOOT
 // Header-static dynamic initializers of the unit at 0x0069C3B0: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x0069C3B0-0x0069C591); the other
 // drafts of this plan are emitted by these includes.

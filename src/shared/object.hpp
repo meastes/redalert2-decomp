@@ -189,6 +189,19 @@ public:
     ObjectClass();                                                         // 0x005D22E0
     ObjectClass(NoInitClass const &noinit);                                // 0x005D2500
     virtual ~ObjectClass();                                                // 0x005D2530
+#ifdef RA2_OBJECT_IS_FOOT
+    // ra2-decomp's ObjectClass::Is_Foot (YR include/object.h; GPL-3.0-or-later,
+    // Copyright 2026 ra2-decomp contributors, THIRD_PARTY.md): the flag is read
+    // into a named byte (SuperClass::Place 0x0069D850 keeps its store at [esp+0x43]).
+    bool Is_Foot() const
+    {
+        if (this == 0) {
+            return false;
+        }
+        unsigned char flag = AbstractFlags.IsFoot;
+        return flag != 0;
+    }
+#endif
 
     // The direction from this object toward target (0x005D2730; hypothesis).
     UnknownFacingDir Direction_To(AbstractClass const *target) const;
