@@ -2101,3 +2101,6 @@ Second case (Scout898, Infantry Scatter 0x504120): the same direct reads decide 
 
 ## Early return vs wrapping block changes store scheduling (Scout901, 2026-11-07)
 `if (p == 0) return X; <body>` and `if (p != NULL) { <body> } return X;` emit the same branches but schedule differently: with the early return VC6 kept copy stores in source order against later loads through `*p`; inside the wrapper block it moved a store past the loads (AI_Building 0x4E9660). Try the twin's block structure when a store order is the only miss.
+
+## A user-declared base destructor makes a ctor site charged (Scout903, 2026-11-07)
+Under /Ob2, a constructor of a class whose base has a user-declared destructor is a charged inline site; with no such destructor it is free. TechnoClass NoInit 0x6C1F10: eleven CDTimerClass members built on BasicTimerClass (user dtor) spend the budget, so the VectorClass ctors stay out of line as in the original. When ctors in an init list inline that the original calls, check the members' class hierarchy against TibSun/YR.

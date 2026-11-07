@@ -29,7 +29,12 @@ public:
     virtual CoordStruct __stdcall Destination();                                // 0x0063DBB0
     virtual Matrix3D * __stdcall Draw_Matrix(Matrix3D *matrix, int *key);                           // 0x0063EC00
     virtual bool __stdcall Process();                                           // 0x0063DE90
+#ifdef RA2_SHIP_MOVE_TO_VALUE
+    // ILocomotion's COM coordinate (the unit defines RA2_SHIP_MOVE_TO_VALUE in its first row).
+    virtual void __stdcall Move_To(COMCoordStruct to);                          // 0x0063EA80
+#else
     virtual void __stdcall Move_To(CoordStruct to);                             // 0x0063EA80
+#endif
     virtual void __stdcall Stop_Moving();                                       // 0x0063EB50
     virtual int __stdcall Layer();                                              // 0x0063EBF0
     virtual bool __stdcall Is_Moving_Now();                                     // 0x0063DB90

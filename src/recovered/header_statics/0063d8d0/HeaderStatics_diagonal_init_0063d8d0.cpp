@@ -1,3 +1,4 @@
+#define RA2_SHIP_MOVE_TO_VALUE  // ILocomotion::Move_To takes the COM coordinate (shared/ilocomotion.hpp): Move_To 0x0063EA80
 // CoordStruct on TPoint3D (RocketLocomotionClass 0x0063DE10 square sum and Process 0x0063DE90).
 #define RA2_COORD_TPOINT3D
 // Header-static dynamic initializers of the unit at 0x0063D8D0:  the
