@@ -1,3 +1,8 @@
-
-class Leaf_7380b0 { public: unsigned int get(); };
-unsigned int Leaf_7380b0::get() { unsigned int ecx = (unsigned int)this; unsigned int eax; unsigned int edx; eax = *(unsigned int*)(0xb263f8); return eax; }
+// IME_Get_Default_Result_007380b0: result returned after IME_Process_Message handles a message.
+// Original getter reads only the global, with no object/this access.
+// @ref ?IMEDefaultResult@@3JA=00b263f8
+#include "shared/win_stub.hpp"
+LRESULT __fastcall IME_Get_Default_Result_007380b0()
+{
+    return IMEDefaultResult;
+}
