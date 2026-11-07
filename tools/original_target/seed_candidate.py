@@ -581,10 +581,30 @@ def strict_hwnd_sdk_type(preamble, body, params=(), result='void'):
             slots.setdefault(name, []).append((kind, None))
     for kind, name, array in scalar_declarations(function_view)[0]:
         slots.setdefault(name, []).append((kind, array))
+    # A handle assignment can follow a control block. Distinguish that closing
+    # brace from the end of an aggregate declaring a new object of the same name.
+    control_starts = set()
+    for match in re.finditer(r'\b(?:if|while|for|switch)\s*\(', function_view):
+        try:
+            end_condition = matching_paren(function_view, match.end() - 1)
+        except ValueError:
+            return preamble
+        brace = re.match(r'\s*\{', function_view[end_condition + 1:])
+        if brace:
+            control_starts.add(end_condition + brace.end())
+    control_starts.update(match.end() - 1 for match in re.finditer(r'\b(?:else|do)\s*\{', function_view))
+    control_ends = set()
+    stack = []
+    for match in re.finditer(r'[{}]', function_view):
+        if match.group() == '{':
+            stack.append(match.start())
+        elif stack.pop() in control_starts:
+            control_ends.add(match.start())
     for name, declarations in slots.items():
         if len(declarations) != 1 or declarations[0][1] or clean_type(declarations[0][0]) != 'HWND':
             continue
-        if re.search(r'}\s*[*&]*\s*\b' + re.escape(name) + r'\b', function_view):
+        if any(match.start() not in control_ends for match in
+               re.finditer(r'}\s*[*&]*\s*\b' + re.escape(name) + r'\b', function_view)):
             continue  # Anonymous/tagged aggregate declarator missed by the index.
         if (ambiguous_parenthesized_name(name) or pointer_declaration(name) or
                 re.search(r'\b' + re.escape(name) + r'\s*\(', function_view)):
