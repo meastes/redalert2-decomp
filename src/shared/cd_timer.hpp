@@ -13,6 +13,41 @@ public:
     operator long() const { return Frame; }
 };
 
+#ifdef RA2_CDTIMER_BASIC_BASE
+// Westwood's timer hierarchy (TibSun/YR timer.h): BasicTimerClass holds the
+// start stamp and the time source and has a user destructor, CDTimerClass
+// derives from it. The layout is unchanged; the base makes the NoInitClass
+// constructor a charged /Ob2 site, which is what keeps the VectorClass
+// constructors out of line in TechnoClass(NoInitClass) 0x006C1F10 (ra2-decomp's
+// headers reproduce it the same way).
+template <class T>
+class BasicTimerClass {
+public:
+    BasicTimerClass(long set = 0) : Started(Timer - set) {}
+    BasicTimerClass(NoInitClass const &);
+    ~BasicTimerClass();
+
+    long Started;           // +0x00
+    T Timer;                // +0x04
+};
+
+template <class T>
+inline BasicTimerClass<T>::BasicTimerClass(NoInitClass const &)
+{
+}
+
+template <class T>
+inline BasicTimerClass<T>::~BasicTimerClass()
+{
+}
+
+template <class T>
+class CDTimerClass : public BasicTimerClass<T> {
+public:
+    CDTimerClass() : BasicTimerClass<T>(0), DelayTime(0) {}
+    CDTimerClass(long set) : BasicTimerClass<T>(0), DelayTime(set) {}
+    CDTimerClass(NoInitClass const &noinit) : BasicTimerClass<T>(noinit) {}
+#else
 template <class T>
 class CDTimerClass {
 public:
@@ -28,6 +63,7 @@ public:
     CDTimerClass(long set) : Started(Timer), DelayTime(set) {}
 #endif
     CDTimerClass(NoInitClass const &noinit) {}
+#endif
     // Empty but user-declared (TS's TTimerClass has ~TTimerClass() {}): the
     // static timers of Scroll.cpp (0x00AB7048) and Mouse.cpp (0x00A70F70)
     // register atexit destructors that only set their guard bits.
@@ -119,8 +155,10 @@ public:
         }
     }
 
+#ifndef RA2_CDTIMER_BASIC_BASE
     long Started;           // +0x00
     T Timer;                // +0x04
+#endif
     long DelayTime;         // +0x08
 };
 

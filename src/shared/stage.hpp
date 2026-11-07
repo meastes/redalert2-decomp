@@ -98,7 +98,13 @@ public:
     }
 
     int Stage;                                  // +0x00
+#ifdef RA2_STAGE_PLAIN_TIMER
+    // Plain countdown (TibSun/YR stage.h `CDTimerClass<FrameTimerClass> Timer;`):
+    // its NoInitClass constructor expands inline (TechnoClass(NoInitClass) 0x006C1F10).
+    CDTimerClass<FrameTimerClass> StageTimer;   // +0x04
+#else
     StageTimerClass StageTimer;                 // +0x04
+#endif
     int Rate;                                   // +0x10
     int Step;                                   // +0x14 frame step (1; -1 for Reverse types)
 };
