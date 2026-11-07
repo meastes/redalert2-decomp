@@ -1,6 +1,6 @@
 #ifndef RA2_SHARED_INFANTRY_PIGGYBACK_PTR_HPP
 #define RA2_SHARED_INFANTRY_PIGGYBACK_PTR_HPP
-// Interface-specific recovered COM pointer API and destructor (0x00509860).
+// Interface-specific recovered COM pointer API and release (0x00509860).
 // Compiler COM support: preserves the reconstructed full pointer API and one-pointer layout.
 #include "shared/infantry.hpp"
 #include "shared/locomotion.hpp"
@@ -37,7 +37,18 @@ public:
             Pointer->AddRef();
         }
     }
-    ~UnknownComPtr();
+    // comip's ~_com_ptr_t() { _Release(); }: the release is its own inline
+    // level (Release_Held, out of line at 0x00509860).
+    ~UnknownComPtr() { Release_Held(); }
+    // comip's comparisons with NULL (operator!= is !operator==).
+    bool operator==(int null) const
+    {
+        if (null != 0) {
+            _com_issue_error(E_POINTER);
+        }
+        return Pointer == 0;
+    }
+    bool operator!=(int null) const { return !(operator==(null)); }
 
     operator Interface *() const { return Pointer; }
     Interface *operator->() const { return Pointer; }
