@@ -1,5 +1,8 @@
 // Building selling and undeployment state machine, original00445B30 body3308+4. The crew exit cell sums the
 // random foundation entry in place (from TibSun building.cpp Mission_Deconstruction).
+// The repair-pad test Distance_To(Contact(0)) is TibSun object.h's ObjectClass::Distance_To chain over the TibSun
+// TPoint3D operations (shared/object.hpp, shared/coord.hpp; RA2_POINT3D_TIBSUN): the TPoint3D ctor and Length stay
+// out of line (0x0041B630, 0x0041B780) as in the original.
 #include "shared/building.hpp"
 #include "shared/house.hpp"
 #include "shared/gscreen.hpp"
@@ -13,26 +16,17 @@
 #include "shared/tag.hpp"
 #include "shared/rules.hpp"
 #include "shared/storage_class.hpp"
-#include "shared/unknown_vector3.hpp"
-inline UnknownVector3 Coord_Difference(CoordStruct const &,CoordStruct const &);
 void __fastcall Building_Refresh_House_Buildings_0044fa40(HouseClass *house);
 extern "C" char const deconstruction_eva_unit_sold_007cf9c4[];
 extern "C" char const deconstruction_eva_structure_sold_007cf9d4[];
 // @ref _deconstruction_eva_unit_sold_007cf9c4=007cf9c4
+// @ref ?Length@?$TPoint3D@H@@QBEHXZ=0041b780
+// @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
 // @ref _deconstruction_eva_structure_sold_007cf9d4=007cf9d4
 // Snap to the cell center with the original signed 32-bit division.
 inline CoordStruct Snap_To_Cell_Center(CoordStruct const &coord)
 {
     return CoordStruct(coord.X/256*256+128,coord.Y/256*256+128,coord.Z);
-}
-inline int ObjectClass::Distance(CoordStruct const &coord) const
-{
-    UnknownVector3 difference=Coord_Difference(Center_Coord(),coord);
-    return difference.Length();
-}
-inline int ObjectClass::Distance_To(AbstractClass const *target) const
-{
-    return Distance(target->Center_Coord());
 }
 int BuildingClass::unknown_slot140()
 {

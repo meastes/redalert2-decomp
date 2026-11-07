@@ -1,6 +1,6 @@
+#define RA2_POINT3D_TIBSUN     // TibSun TPoint3D operator-/Length/Distance_To and ObjectClass::Distance/Distance_To
 #define RA2_FACING_LEFT90
 #define RA2_FACING_DIFFERENCE  // DirType(int) and DirType::operator- for Barrel_Pitch 0x0043B7E0 (TibSun face.h)
-#define RA2_COORD_LENGTH
 #define RA2_BUILDING_RAW_DELAY_COORD
 #define RA2_COORD_TPOINT3D
 #define RA2_BUILDING_TRANSLATION_VALUES
@@ -12,7 +12,6 @@
 #define RA2_BUILDING_LOCOMOTOR_ADDREF_DECL
 #define RA2_BUILDING_MISSION_NORMAL_DELAY
 #define RA2_FACING_DIR256
-#define RA2_BUILDING_SPATIAL_DISTANCE
 #define RA2_BUILDING_DELAY_POINT
 #define RA2_STAGE_SETTERS
 #define RA2_COORD_FROM_CELL_INLINE

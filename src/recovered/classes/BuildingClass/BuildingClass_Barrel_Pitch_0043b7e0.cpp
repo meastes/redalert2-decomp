@@ -26,11 +26,6 @@
 // @ref __real@8@3fffc90fdaa22168c000=0079b630
 // @ref __real@8@c00ca5f9836e4e441800=0079b628
 
-// TibSun TPoint3D::Length.
-inline int CoordStruct::Length() const
-{
-    return (int)Fast_Sqrt((double)X * X + (double)Y * Y + (double)Z * Z);
-}
 // TibSun ::Direction(Coord, Coord) (the twin discards its result).
 inline UnknownFacingDir Direction_0043b7e0(CoordStruct const &from, CoordStruct const &to)
 {

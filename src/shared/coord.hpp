@@ -29,6 +29,9 @@ double __cdecl unknown_sqrt_4ba410(double value);     // 0x004BA410
 // BuildingClass +0x5CC (Building.cpp under RA2_COORD_TPOINT3D).
 struct RawCoordStruct { int X, Y, Z; };
 #endif
+#ifdef RA2_POINT3D_TIBSUN
+#include "shared/fast_math.hpp"
+#endif
 #ifdef RA2_COORD_TPOINT3D
 // Coord's point base (layout and sum hypothesis evidenced by AnimClass 00420110).
 template<class T> class TPoint3D : public TPoint2D<T> {
@@ -53,6 +56,16 @@ public:
     T Length_YZX() const { double y = this->Y; double z = Z; double x = this->X; return T(unknown_sqrt_4ba410(y * y + (z * z + x * x))); }
     T Distance_YZX(TPoint3D<T> const &point) const { return (*this - point).Length_YZX(); }
 #endif
+#endif
+#ifdef RA2_POINT3D_TIBSUN
+    // TibSun point.h (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; Copyright 2025 Electronic Arts Inc.;
+    // Copyright 2026 OpenTS contributors; derived from EA source, EA's GPLv3 Section 7 terms apply):
+    // the member-wise difference, the length through the fast square root and the distance built on them.
+    // Building.cpp's ObjectClass::Distance chain (shared/object.hpp); not expanded, Length is the 0x0041B780 copy.
+    // Guarded: the Building unit defines RA2_POINT3D_TIBSUN in its first row (0x00438500).
+    TPoint3D<T> const operator - (TPoint3D<T> const & rvalue) const {return(TPoint3D<T>(this->X - rvalue.X, this->Y - rvalue.Y, Z - rvalue.Z));}
+    T Length(void) const {return(T(Fast_Sqrt((double)this->X*(double)this->X + (double)this->Y*(double)this->Y + (double)Z*(double)Z)));}
+    T Distance_To(TPoint3D<T> const & point) const {return((*this - point).Length());}
 #endif
     T Z;
 };
@@ -99,7 +112,7 @@ struct CoordStruct {
     // From the point an INI reader returns (defined in shared/ini_class.hpp).
     CoordStruct(INIPoint3D const &point);
     // Member-wise difference (0x004348F0 is the out-of-line copy the BuildingLight unit keeps).
-#ifdef RA2_TPOINT3D_DIFFERENCE
+#if defined(RA2_TPOINT3D_DIFFERENCE) || defined(RA2_POINT3D_TIBSUN)
     using BASECLASS::operator-;
 #elif defined(RA2_COORD_MINUS_SOURCE)
     // The member's own source supplies the independently bounded out-of-line copy.

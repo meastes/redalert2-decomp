@@ -198,7 +198,14 @@ public:
     int Distance(CoordStruct const &coord) const { return Center_Coord().Distance_To(coord); }
     int Distance_YZX(CoordStruct const &coord) const { return Center_Coord().Distance_YZX(coord); }
 #endif
-#ifdef RA2_BUILDING_SPATIAL_DISTANCE
+#ifdef RA2_POINT3D_TIBSUN
+    // TibSun object.h (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; Copyright 2025 Electronic Arts Inc.;
+    // Copyright 2026 OpenTS contributors; derived from EA source, EA's GPLv3 Section 7 terms apply):
+    // the distance to a coordinate or an object through TPoint3D::Distance_To (shared/coord.hpp).
+    // Guarded: the Building unit defines RA2_POINT3D_TIBSUN in its first row (0x00438500).
+    int Distance(CoordStruct const & coord) const {return(Center_Coord().Distance_To(coord));}
+    int Distance_To(AbstractClass const * obj) const {return(Distance(obj->Center_Coord()));}
+#elif defined(RA2_BUILDING_SPATIAL_DISTANCE)
     int Distance(CoordStruct const &coord) const;
     int Distance_To(AbstractClass const *target) const;
 #endif
