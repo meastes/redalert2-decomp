@@ -1,3 +1,8 @@
+#define RA2_RECT_POINT_INLINE
+#define RA2_COORD_TPOINT3D
+#define RA2_COORD_FROM_CELL_INLINE
+#define RA2_TPOINT3D_DIFFERENCE
+#define RA2_VECTOR_SIGNED_INDEX
 // Header-static dynamic initializers of the unit at 0x004BFCD0 and its
 // list globals (FoggedObjectClass); the other drafts of this plan are emitted by this file.
 // A list whose atexit thunk tests and sets a guard bit is a static data

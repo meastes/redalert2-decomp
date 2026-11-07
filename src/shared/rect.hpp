@@ -159,6 +159,8 @@ public:
     // The rectangle moved by a point (TibSun TRect::operator+, here member-wise inline).
     Rect operator+(Point2D const &point) const { return Rect(X + point.X, Y + point.Y, Width, Height); }
 #ifdef RA2_RECT_POINT_INLINE
+    // TibSun TRect::operator+= (TPoint2D): the rectangle moved by a corner point (Draw_Fogged_Objects 0x004C1010).
+    Rect const &operator+=(RectPoint2D const &point) { X += point.X; Y += point.Y; return(*this); }
     // TibSun rect.h's form: the corner moved by a point (RadarEventClass::Draw 0x0063BB90 calls its
     // RectPoint2D sum 0x00435540 and the corner constructor 0x00453E40 out of line).
     Rect operator+(RectPoint2D const &point) const { return Rect(Top_Left() + point, Width, Height); }

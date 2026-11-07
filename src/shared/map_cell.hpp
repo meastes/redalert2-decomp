@@ -32,7 +32,7 @@ public:
     int unknown_28;                 // +0x28
     CellClass *unknown_2c;          // +0x2C cleared by MapClass slot 23 (TibSun BridgeDeckCell)
     int unknown_30;                 // +0x30 cleared by MapClass slot 23
-    char unknown_34[0x38 - 0x34];
+    class LightConvertClass *unknown_34;    // +0x34 the tile drawer (as shared/cell_class.hpp)
     int IsoTileIndex;               // +0x38
     class TagClass *unknown_3c;     // +0x3C
     char unknown_40[0x44 - 0x40];
@@ -51,7 +51,10 @@ public:
     int unknown_ec;                 // +0xEC the land type (as shared/cell.hpp)
     char unknown_f0[0x100 - 0xF0];
     int unknown_100;                // +0x100 counted up by the buildings that hide the cell (as shared/cell_class.hpp)
-    char unknown_104[0x116 - 0x104];
+    char unknown_104[0x10A - 0x104];
+    short unknown_10a;              // +0x10A (as shared/cell_class.hpp)
+    short unknown_10c;              // +0x10C (as shared/cell_class.hpp)
+    char unknown_10e[0x116 - 0x10E];
     short unknown_116;              // +0x116 the index of the tube that enters here, -1 for none (as shared/cell.hpp)
     char unknown_118;               // +0x118
     char unknown_119;               // +0x119
@@ -90,6 +93,8 @@ public:
             return unknown_2c->Fetch_CellID();
         }
     }
+    void unknown_474830(Point2D const &point, Rect const &clip);   // 0x00474830 (as shared/cell_class.hpp)
+    void unknown_4749c0(Point2D const &point, Rect const &clip);   // 0x004749C0 (as shared/cell_class.hpp)
     void unknown_47a340(class AbstractClass *target);  // 0x0047A340 forgets a target (as shared/cell.hpp)
     unsigned short const *unknown_47a200() const;   // 0x0047A200 the tiberium's UI name (as shared/cell.hpp; wchar_t is not declared here)
     bool unknown_47c2e0(int house) const;       // 0x0047C2E0 (unknown_7c[house] > 0; TibSun Is_Sensed; DisplayClass slot 33)
