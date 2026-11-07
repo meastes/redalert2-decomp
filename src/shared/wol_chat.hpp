@@ -87,7 +87,7 @@ struct __declspec(novtable) IChat : public IUnknown {
 #endif
     virtual HRESULT __stdcall unknown_slot21(User *user) = 0;
     virtual void __stdcall unknown_slot22() = 0;
-    virtual HRESULT __stdcall Game_Icon(long id, long format, void **bitmap, void **palette, int *width, int *height) = 0;
+    virtual HRESULT __stdcall GetGametypeInfo(unsigned int game_type, int icon_size, unsigned char **bitmap, int *bitmap_bytes, char const **name, char const **url) = 0;
     virtual HRESULT __stdcall unknown_slot24(User *user) = 0;   // OnBuddyList: a zeroed User with the name
     virtual void __stdcall unknown_slot25() = 0;
 #ifdef RA2_WOL_CHAT_SETTINGS_SIGNATURES

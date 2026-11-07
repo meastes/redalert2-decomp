@@ -24,7 +24,7 @@ class UnknownBitmapWriter {
 public:
     UnknownBitmapWriter();                  // 0x0068BD50
     ~UnknownBitmapWriter();                 // 0x0068BE30
-    void Write_0068c040(char const *file, void *bitmap, void *palette, int format);
+    bool CacheBMP_0068c040(char const *file, void *bitmap, int bitmap_bytes, int format);
 #ifdef PCX_CACHE_DECLARE_UNLOAD
     // Removes the image of name from the cache and deletes it (0x0068CB30; no caller found, name hypothesis).
     void Unload_Image_0068cb30(char const *name);

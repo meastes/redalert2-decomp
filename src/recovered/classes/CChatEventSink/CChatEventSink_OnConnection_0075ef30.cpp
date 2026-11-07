@@ -52,12 +52,13 @@ HRESULT __stdcall CChatEventSink::OnConnection(HRESULT result, char const *motd)
             char *token = strtok(copy, ",");
             while (token) {
                 long id = atol(token);
-                int width, height;
-                void *bitmap, *palette;
-                unknown_chat_a72cfc->Game_Icon(id, unknown_icon_format_7fd304, &bitmap, &palette, &width, &height);
+                char const *game_name, *url;
+                unsigned char *bitmap;
+                int bitmap_bytes;
+                unknown_chat_a72cfc->GetGametypeInfo(id, unknown_icon_format_7fd304, &bitmap, &bitmap_bytes, &game_name, &url);
                 char file[64];
                 sprintf(file, "gt%d.bmp", id);
-                unknown_bitmap_writer_a76378.Write_0068c040(file, bitmap, palette, 2);
+                unknown_bitmap_writer_a76378.CacheBMP_0068c040(file, bitmap, bitmap_bytes, 2);
                 token = strtok(0, ",");
             }
             delete [] copy;
@@ -76,7 +77,7 @@ HRESULT __stdcall CChatEventSink::OnConnection(HRESULT result, char const *motd)
     return S_OK;
 }
 // @ref ?unknown_bitmap_writer_a76378=00a76378
-// @ref ?Write_0068c040@UnknownBitmapWriter@@=0068c040
+// @ref ?CacheBMP_0068c040@UnknownBitmapWriter@@=0068c040
 // @ref ?Find_Local_Address_0074fcb0=0074fcb0
 // @ref ?unknown_pending_channel_b26a60=00b26a60
 // @ref ?unknown_connection_result_b2ac10=00b2ac10
