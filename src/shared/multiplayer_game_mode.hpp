@@ -153,6 +153,9 @@ public:
     // InitializerBase, vtable 0x007A72B0, and Initializer<T>).
     class InitializerBase {
     public:
+#ifdef RA2_MPG_INITIALIZER_BASE_CONSTRUCTOR
+        InitializerBase();
+#endif
         virtual ~InitializerBase() {}                                     // scalar deleting 0x005B8EC0
         virtual MultiplayerGameMode *Create(WideString const &name, WideString const &description, Wstring const &ini_name,
         Wstring const &unknown_4, bool unknown_5, int id) = 0;
