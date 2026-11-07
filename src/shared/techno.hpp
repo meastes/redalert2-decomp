@@ -543,6 +543,11 @@ public:
     UnknownTechno408 *unknown_6d1430() const;                   // 0x006D1430
     void unknown_6d6e50(AbstractClass *value);                  // 0x006D6E50
     void unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass color);   // 0x006D0990 (draws a line; CaptureManagerClass 0x00468150)
+    // Guarded like the static timers below: Techno.CPP only. One more member declaration here shifts
+    // VC6's per-unit counters of Print_CRCs 0x0062A360, 0x00589AC0 and 0x004F1190 (Scout633 fragile_probe).
+#ifdef RA2_TECHNO_STATIC_TIMERS
+    void unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass color, bool shadow);   // 0x006D0DC0 (a 64-step line shaded from unknown_rgb_ab6841 to color; never called)
+#endif
     void Unknown_006D9610(AbstractClass *cell);                 // 0x006D9610 (InfantryClass slot 93: an occupied building, its cell)
     bool unknown_6d7f70();                                      // 0x006D7F70 (FootClass::AI, after the movement; the result is unused there)
     int unknown_6d7e20(int extra);                              // 0x006D7E20 (fires the death weapon at itself; returns the damage)
