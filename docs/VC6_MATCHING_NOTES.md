@@ -2122,3 +2122,14 @@ A struct field's signedness can decide whether VC6 caches a test immediate in a 
 For equal-size spilled webs, VC6 creates frame slots in processing order (first web processed -> first new slot), and a later temporary joins the newest compatible slot. Among webs first defined inside the same loop, the earlier in-loop first definition is processed later (dead definitions count; definitions outside the loop do not). Use a /FAs frame map with ref counts (build/class-work/Scout944/fa.sh) before trying declaration shuffles.
 Further (Scout946): moving declarations changed no slot in five rows (first definitions and weights decide); a dead initialisation of another variable adds no ref to the target web; address-taken locals in one block scope never share a slot even with disjoint live ranges, while compiler temporaries share with either.
 Density (Scout969): frame slots are laid out sorted by density (total references divided by slot size), denser slots at lower addresses; the sort is not stable, so exact density ties fall to slot creation order. Count references per slot (build/class-work/Scout969/fa.py) before reordering source.
+
+## Frame-slot model (Scout972 lab, 2026-11-07; build/class-work/Scout972/MODEL.md, lab/, lab.py)
+Measured with VC6 SP3, superseding the partial rules above where they disagree:
+- R1 processing order: frame variables (spilled webs, temps, address-taken locals) by size ascending, then refs descending, then earlier last reference. Declaration and first-definition order do not matter (40/40 and 30/30 random checks). Scout944's in-loop definition rule did not reproduce in isolation: for webs defined in a loop and read after it, the later use's argument evaluation order decides.
+- R2 slot choice: first compatible of dead argument slots (first-dead first), then existing slots newest first, else a new slot.
+- R3 size classes 1B/2B/4B/8B/>8B = 0..4; a variable joins a slot only if within one class of the slot's largest member (so 12-byte temps can only join slots holding an 8-byte member).
+- R4 a local whose address reaches a real call is live over its enclosing block from the block's first call.
+- R5 argument slots are not reused when the frame with reuse would be 112 bytes or more.
+- R6 frames over 128 bytes keep pass-1 slots and re-sort them by (sum of member refs) / slot size, densest lowest; R7 the sort is the K&R qsort (middle pivot, Lomuto, strict <) over pass-1 creation order, which decides density ties.
+- R8 placement runs from the frame top downward in reverse list order.
+- R9-R10 `and esp,-8` is triggered by a non-address-taken double kept in memory with about 4+ uses; then double slots are 8-aligned and rounded up (4-byte holes).
