@@ -3,6 +3,7 @@
 // (0x004FF450-0x004FF636); the other
 // drafts of this plan are emitted by these includes.
 #define RA2_COORD_AS_CELL
+#define RA2_SHIP_MOVE_TO_VALUE  // ILocomotion::Move_To takes the COM coordinate (shared/ilocomotion.hpp): JumpJet_To_Walk 0x508AB0
 #define RA2_INFANTRY_COMIP_PERSIST  // comip levels of UnknownPersistPtr (shared/infantry.hpp)
 #define RA2_CELL_FROM_COORD_AS_CELL  // the unit converts through CoordStruct::As_Cell (shared/coord.hpp)
 #include "shared/unknown_geometry.hpp"

@@ -95,6 +95,17 @@ so; everything else was measured here.
   12 at the lightest setting and 17 at the heaviest, with less code per unit
   of effort, so they ran it in the middle. Measure this per target with the
   throughput tool before fixing a setting.
+- Escalating a stuck row to a stronger model or higher effort was measured
+  here on 2026-11-07 (nine reproducible rows parked at 99.0-99.8, 1-3.6 KB
+  each): Opus at high effort, five rows, one exact (1,571 B, found through a
+  TibSun shape rather than effort); Fable, two rows with the full hour and
+  about 500 remote compiles each, none exact. A Fable lane cost about 2%/h of
+  the weekly card, two to four Opus lanes, so it needs about 3 KB per lane-hour
+  to pay. Both Fable lanes named the mechanism precisely (a period-32 symbol
+  number window; a weighted reference-web rule for ebp) and showed that the
+  original differs by something that emits no bytes. On this compiler the 99+
+  residue is unobservable source, not a reasoning deficit; it needs evidence of
+  the original text (twins, archives, debug builds), not a bigger model.
 - Expect low per-try success. FNV measured 42 tries that do not build, 55 that
   build and differ, and 3 that match per hundred, on a better-behaved compiler
   than VC6. Count the same three outcomes here; the "does not build" share is
