@@ -45,7 +45,8 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
     Units.Add(this);
     unknown_2f8.Set_Current(unknown_2e0.Current());
     if (Type) {
-        Locomotor = UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600>(Type->Locomotor);
+        // Interface* assignment: this unit's Assign_Destination 0x007053F0 specializes the ILocomotion copy assignment.
+        Locomotor = (ILocomotion *)UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600>(Type->Locomotor);
         Locomotor.Checked()->Link_To_Object(this);
     }
     if (Type) {

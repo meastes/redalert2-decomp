@@ -1,6 +1,7 @@
 // Voxel cache index: signed keys, lazy sorting and archive lookup.
 #define RA2_UNIT_PLAN_ROUTE   // Unit.CPP unit: UnitClass::Plan_Route 0x00707F60 and MapClass::Unknown_005651E0 declarations
 #define RA2_COORD_AS_CELL     // Unit.CPP unit: member Cell comparisons (YR twin Plan_Route shape)
+#define RA2_BUILDING_LOCOMOTOR_ADDREF_DECL   // Unit.CPP unit: comip _AddRef declarations (UnitClass::Assign_Destination 0x007053F0)
 #include "shared/unknown_geometry.hpp"
 #include "shared/unknown_static_rect.hpp"
 #include "shared/unit.hpp"
