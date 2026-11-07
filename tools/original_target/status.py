@@ -28,6 +28,88 @@ def evidenced_inline_asm(region):
     return region.get('inline_asm') == 'evidenced'
 
 
+TEXT_START = 0x401000
+# C runtime and linked libraries: everything from 0x781000 to the end of .text (the boundary the
+# treemap uses for its 'C runtime' group). Library ledger, not C/C++ source credit; the handwritten
+# ranges below take precedence where they overlap it (sosCODEC and ASM_UnVQ run to 0x781571).
+CRT_START = 0x781000
+# Handwritten blitters/codecs: the owner's evidenced handwritten-assembly ledger (Rich header: 48
+# Masm613 build-7299 objects). Byte-free [start, end) ranges; each entry cites the OPEN_MISSES ruling
+# that classed it and the bound used (Ghidra inventory body, a hypothesis like every unaccepted bound).
+# A range that later lands as an accepted `inline_asm: evidenced` region is counted once (union).
+HANDWRITTEN = (
+    # LCW_Comp: TibSun ships it as `__asm` (OPEN_MISSES Scout805, Scout848 ruling, Scout922); inventory body 407 B.
+    (0x534D40, 0x534ED7, 'LCW_Comp'),
+    # RDTSC and Get_RDTSC_CPU_Speed `__asm` (OPEN_MISSES Scout805, Scout848 ruling, Scout922); inventory 14 B and 450 B.
+    (0x5ABF60, 0x5ABF6E, 'RDTSC'),
+    (0x5ABF70, 0x5AC132, 'Get_RDTSC_CPU_Speed'),
+    # XSurface::Fill_Rect (Westwood `_asm` surface_quick_fill; OPEN_MISSES Surf66 list, Scout848 ruling); 748 B.
+    (0x7743C0, 0x7746AC, 'XSurface::Fill_Rect'),
+    # BlitTrans BlitForward specialisations (TibSun blitblit.h `__asm`; Surf66 list, Scout848 ruling); 45 B and 70 B.
+    (0x775980, 0x7759AD, 'BlitTrans<uchar>::BlitForward'),
+    (0x4861C0, 0x486206, 'BlitTrans BlitForward'),
+    # VQA32 MASM tail: AudioUnzap, VQA_LCW_Uncompress, sosCODEC, ASM_UnVQ_*, cpuid/rdtsc/FPU helpers
+    # (OPEN_MISSES Abuf490, Scout845, Scout848 ruling, Scout922: ra2-decomp .asm twins); 0x77EDD0-0x781571 inclusive.
+    (0x77EDD0, 0x781572, 'VQA32 assembly tail'),
+)
+
+
+def merge(intervals):
+    out = []
+    for a, b in sorted(i for i in intervals if i[0] < i[1]):
+        if out and a <= out[-1][1]:
+            out[-1][1] = max(out[-1][1], b)
+        else:
+            out.append([a, b])
+    return out
+
+
+def measure(intervals):
+    return sum(b - a for a, b in merge(intervals))
+
+
+def clip(intervals, start, end):
+    return [(max(a, start), min(b, end)) for a, b in intervals if min(b, end) > max(a, start)]
+
+
+def inside(entry, intervals):
+    return any(a <= entry < b for a, b in intervals)
+
+
+def ledger(catalog, text, text_start=TEXT_START):
+    """Split .text into CRT/library, handwritten assembly and in-scope game code.
+
+    Categories are disjoint: handwritten ranges (plus accepted evidenced inline-asm regions) first,
+    then CRT for the rest of [CRT_START, end of .text). In-scope matched bytes are accepted C/C++
+    bodies outside both; the in-scope total is .text minus both categories minus the frozen padding
+    of in-scope regions (padding of unaccepted code is not yet known)."""
+    end = text_start + text
+    regions = catalog['regions']
+    located = [r for r in regions if 'entry' in r]
+    asm = merge(clip([(a, b) for a, b, _ in HANDWRITTEN] +
+                     [(r['entry'], r['entry'] + r['body_bytes']) for r in located if evidenced_inline_asm(r)],
+                     text_start, end))
+    crt_span = clip([(CRT_START, end)], text_start, end)
+    asm_bytes, crt_total = measure(asm), measure(crt_span)
+    crt_bytes = crt_total - measure(clip(asm, CRT_START, end))
+    crt = [tuple(i) for i in crt_span]
+
+    def scope(r):
+        if 'entry' not in r:
+            return 'game'
+        if inside(r['entry'], asm):
+            return 'asm'
+        return 'crt' if inside(r['entry'], crt) else 'game'
+    in_scope = [r for r in regions if scope(r) == 'game']
+    matched = sum(r['body_bytes'] for r in in_scope if not evidenced_inline_asm(r))
+    padding = sum(r['padding_bytes'] for r in in_scope)
+    return dict(crt=crt_bytes, crt_matched=sum(r['body_bytes'] for r in regions
+                                               if scope(r) == 'crt' and not evidenced_inline_asm(r)),
+                asm=asm_bytes, asm_matched=sum(r['body_bytes'] for r in regions if scope(r) == 'asm'
+                                               and not evidenced_inline_asm(r)),
+                in_scope_matched=matched, in_scope_total=text - crt_bytes - asm_bytes - padding)
+
+
 def coverage(catalog):
     regions = catalog['regions']
     return dict(regions=len(regions), body=sum(r['body_bytes'] for r in regions if not evidenced_inline_asm(r)),
@@ -72,6 +154,7 @@ def render(catalog, text, rows):
     now = coverage(catalog)
     scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm']
     populations = Counter(r['population'] for r in catalog['regions'])
+    split = ledger(catalog, text)
     lines = [BEGIN, '',
              '| Measure | Value |', '| --- | ---: |',
              '| Accepted regions | {:,} |'.format(now['regions']),
@@ -80,6 +163,15 @@ def render(catalog, text, rows):
              'not C/C++ credit) | {:,} ({:.2f}% of .text) |'.format(now['evidenced_inline_asm'],
                                                             100.0 * now['evidenced_inline_asm'] / text),
              '| Frozen padding bytes | {:,} |'.format(now['padding']),
+             '| C runtime / library bytes (.text >= 0x{:X}; library ledger, not source credit) '
+             '| {:,} ({:.2f}% of .text; {:,} matched) |'.format(CRT_START, split['crt'], 100.0 * split['crt'] / text,
+                                                              split['crt_matched']),
+             '| Handwritten blitter/codec assembly bytes ({} owner-ruled ranges plus evidenced inline asm; '
+             'own ledger) | {:,} ({:.2f}% of .text) |'.format(len(HANDWRITTEN), split['asm'], 100.0 * split['asm'] / text),
+             '| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) '
+             '| {:,} of {:,} ({:.2f}%) |'.format(split['in_scope_matched'], split['in_scope_total'],
+                                               100.0 * split['in_scope_matched'] / split['in_scope_total']
+                                               if split['in_scope_total'] else 0.0),
              '| Original .text scaffold bytes | {:,} |'.format(scaffold),
              '| Logical .text bytes | {:,} |'.format(text),
              '| Compiler populations | {} |'.format(len(populations)), '']
