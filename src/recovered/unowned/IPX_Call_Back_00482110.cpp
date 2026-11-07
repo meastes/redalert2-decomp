@@ -24,8 +24,8 @@ extern int unknown_probe_delay_7d333c;
 extern "C" void *__cdecl memset(void *dest, int value, unsigned int count);
 #pragma intrinsic(memset)
 // @ref ?unknown_probe_delay_7d333c@@3HA=007d333c
-// @ref _$E65=00482aa0
-// @ref _?$S64@?1??IPX_Call_Back@@YIXXZ@4EA=00850db4
+// @ref _$E66=00482aa0
+// @ref _?$S65@?1??IPX_Call_Back@@YIXXZ@4EA=00850db4
 // @ref _?_probe_timer@?1??IPX_Call_Back@@YIXXZ@4V?$CDTimerClass@VSystemTimerClass@@@@A=00850d90
 // @ref ??_C@_0CN@LJHO@Sending?5NET_PORT_PROBE?5packets?5i@=007d3560
 // @ref ??_C@_0P@PHPO@Sending?5to?5?$CFs?6?$AA@=007d3550
