@@ -74,6 +74,9 @@ public:
     bool Add(T const &object);
     bool Add_Head(T const &object);
     bool Insert_After(T const &object, int index);   // inserts after the element at index (0x004F7270 for BaseNodeClass)
+#ifdef VECTOR_IMPLEMENT_DYNAMIC_INSERT_AFTER_INDEX
+    bool Insert_After(int index, T const &object);   // the index-first overload (TibSun vector.h; always inlined)
+#endif
     bool Add_After(T const &object, T const &after);
     bool Delete(T const &object);
     bool Delete(int index);

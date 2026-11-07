@@ -97,9 +97,9 @@ void HouseClass::unknown_func_4f4070()
         while (defense_node<unknown_55f0.Nodes.Count()) {
             if (unknown_55f0.Nodes[defense_node].Type==-1) {
                 if (building->Type==Rules->unknown_78c) {
-                    unknown_55f0.Nodes.Insert_After(BaseNodeClass(
+                    unknown_55f0.Nodes.Insert_After(defense_node,BaseNodeClass(
                         ((BuildingTypeClass *)building->unknown_4c0[building->unknown_5c6-1])->ArrayIndex,
-                        Coord_Cell(building->Position_Coord_004f3f40())),defense_node);
+                        Coord_Cell(building->Position_Coord_004f3f40())));
                     unknown_55f0.Nodes[defense_node].Type=building->Type->ArrayIndex;
                     unknown_55f0.Nodes[defense_node].Cell=Coord_Cell(building->Position_Coord_004f3f40());
                     ++defense_node;
@@ -131,8 +131,8 @@ void HouseClass::unknown_func_4f4070()
                 power+=planned_type->Power;
                 drain+=planned_type->PowerDrain_c6c;
                 if (power_node>0 && power<drain+unknown_15f88) {
-                    unknown_55f0.Nodes.Insert_After(BaseNodeClass(building->Type->ArrayIndex,
-                        Coord_Cell(building->Position_Coord_004f3f40())),power_node-1);
+                    unknown_55f0.Nodes.Insert_After(power_node-1,BaseNodeClass(building->Type->ArrayIndex,
+                        Coord_Cell(building->Position_Coord_004f3f40())));
                     power+=building->Type->Power;
                     drain-=planned_type->PowerDrain_c6c;
                     ++power_node;
@@ -157,8 +157,8 @@ void HouseClass::unknown_func_4f4070()
                         power+=planned_type->Power;
                         drain+=planned_type->PowerDrain_c6c;
                         if (power_node>0 && power<drain+unknown_15f88) {
-                            unknown_55f0.Nodes.Insert_After(BaseNodeClass(Rules->GDIPowerTurbine->ArrayIndex,
-                                Coord_Cell(building->Position_Coord_004f3f40())),power_node-1);
+                            unknown_55f0.Nodes.Insert_After(power_node-1,BaseNodeClass(Rules->GDIPowerTurbine->ArrayIndex,
+                                Coord_Cell(building->Position_Coord_004f3f40())));
                             power+=Rules->GDIPowerTurbine->Power;
                             drain-=planned_type->PowerDrain_c6c;
                             ++power_node;

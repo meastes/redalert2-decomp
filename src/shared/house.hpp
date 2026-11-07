@@ -253,6 +253,11 @@ public:
     // TibSun Calculate_Enemy_Predictions: RA2 leaves every prediction at 0.33 (out of line 0x004F2330).
     void Calculate_Enemy_Predictions() { unknown_15f84 = 0.33f; unknown_15f80 = 0.33f; unknown_15f7c = 0.33f; }
     bool AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells);   // 0x004F1190 (AI_Building: places a base node)
+#ifdef RA2_HOUSE_NAVAL_YARD_PATH
+    // Plans the naval yard node `node` by the water: the reachable shore cell nearest the base by path,
+    // BuildDummy nodes every third step of a test harvester's path there (0x004EECB0; no caller; name a hypothesis).
+    void Plan_Naval_Yard_Path_004eecb0(int node);
+#endif
     bool unknown_func_4ef740(BuildingTypeClass *type, DynamicVectorClass<BuildingTypeClass const *> &owned, int count);   // 0x004EF740 (whether owned holds the type's prerequisites)
     int AI_Infantry();                                     // 0x004EA1B0 (RA's AI_Infantry: picks unknown_5544 from the teams' needs)
     int AI_Aircraft();                                     // 0x004EA4D0 (RA's AI_Aircraft: picks unknown_5548)

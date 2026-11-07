@@ -552,6 +552,30 @@ bool DynamicVectorClass<T>::Add_After(T const &object, T const &after)
 template <class T>
 bool DynamicVectorClass<T>::Insert_After(T const &object, int index)
 {
+    if (ActiveCount >= Length()) {
+        if ((IsAllocated || !VectorMax) && GrowthStep > 0) {
+            if (!Resize(Length() + GrowthStep)) {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    if (index < ActiveCount - 1) {
+        memmove(&Vector[index + 2], &Vector[index + 1], (ActiveCount - (index + 1)) * sizeof(T));
+    }
+    Vector[index + 1] = object;
+    ActiveCount++;
+    return true;
+}
+#endif
+#ifdef VECTOR_IMPLEMENT_DYNAMIC_INSERT_AFTER_INDEX
+// The index-first overload (TibSun vector.h has both orders); House.CPP's AI_Takeover
+// 0x004F4070 inlines it at its three sites. Its growth sum reads VectorMax directly,
+// the object-first overload's reads Length().
+template <class T>
+bool DynamicVectorClass<T>::Insert_After(int index, T const &object)
+{
     if (ActiveCount >= VectorMax) {
         if ((IsAllocated || !VectorMax) && GrowthStep > 0) {
             if (!Resize(VectorMax + GrowthStep)) {
