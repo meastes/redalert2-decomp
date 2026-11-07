@@ -2895,3 +2895,12 @@ New rulings are recorded at their rows as before.
 ## Scout1007 (2026-11-07, closed; 0 B; NOTES, w/, site.sh in build/class-work/Scout1007/)
 - Zone_Span 0x54F250 under VECTOR_ADD_NAMED_LENGTH is BLOCKED by Register_Subzone_Connection 0x566F90: the macro flips all six inlined Add sites and shrinks the frame 0x50 -> 0x4C; every source form (YR twin shape, helper, temporaries, dead-local probes) stays at 75.87, so the Add body itself is the cause. Mark_Fill_Area 0x567710 99.04 under the macro (YR twin `Cell c; c.X = x; c.Y = y;`; first Add tie left), Build_Reachable_Subzones 0x565EB0 97.85.
 - Without the macro Zone_Span stays 99.59; the 4th Add site depends on what the two span-end Add_Object blocks contribute (deleting them flips it), about 3 inline sites of budget spare. OWNER DECISION: parked; resume only with a natural form for the two span-end blocks.
+
+## Scout1008 (2026-11-07, closed; r1 BuildingClass::unknown_4444b0 0x4444B0 205 B; NOTES, w/, keep/ in build/class-work/Scout1008/)
+- 0x4444B0 exact from the YR twin FUN_00448070 demote body (`if (take) { ...; } goto done;`; Scout610's form was 34.78).
+- Misses: Beacon Place 0x42E370 87.04 (free-slot loop exits straight to `delete beacon; return;`; only `goto found` reproduces it and it costs two spills; `slot != -1` arm relocated to the end, Scout878 rule), Draw_Pixel_Effects 0x6A7E80 86.26 (px/py swap, pitch multiply hoisted), SchemeTable lazy make 0x603750 70.35 (edi/ebp swap, shape 98.84), Create_Preview 0x61D660 62.63 (real body 1,558 B; frame 0x98 vs 0x84, slot order).
+
+## Scout1011 (2026-11-07, closed; 0 B; twinwin.py, twinall.py, rank.py, calls.py, NOTES in build/class-work/Scout1011/)
+- YR-twin-shape pass: no workable row is left whose matched twin shape has not been tried (anchor-window and whole-YR searches against ra2-decomp 6e6f6a1; Scout808 twinmap rechecked). Table and reasons in NOTES. The MISSES_INDEX "twin" column over-reports (the word appears in multi-row summaries) and some rows with history are missing from the index (0x6F81B0, 0x5BEFE0, 0x70BBC0).
+- UICmnds 0x6F81B0 99.60 unchanged (Scout778 keep/lb_9960.cpp): epilogue tie, original `test eax,eax; pop ebp; mov [0xAC132C],0`.
+- OWNER DECISION: the twin-shape and sibling sweeps are both spent. The slot is not refilled until the 22:30Z usage reading; two lanes (Scout1009, Scout1010) run meanwhile.
