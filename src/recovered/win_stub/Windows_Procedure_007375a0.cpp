@@ -19,7 +19,7 @@ extern char const ime_processed_007fd18c[], focus_gained_007fd170[], focus_lost_
 extern char const sidebar_down_007dd0f8[], sidebar_up_007dcf9c[];
 void __fastcall Execute_Command_By_Name(char const *name);
 extern "C" unsigned int __cdecl wcslen(wchar_t const *text);
-unsigned short __fastcall Char_To_Wide_00738130(unsigned int character);
+unsigned short __fastcall Char_To_Wide_00738130(unsigned int character, long key_data);
 LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     if (PacketTransport && (message == PacketTransport->unknown_slot14(-1) || message == 0x475)) {
@@ -106,7 +106,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
     if (WWKeyboard->Message_Handler(window, message, wparam, lparam)) return 0;
     if (message == 0x286) {
         int index = wcslen(IMEResultString);
-        IMEResultString[index] = Char_To_Wide_00738130(wparam);
+        IMEResultString[index] = Char_To_Wide_00738130(wparam,lparam);
         IMEResultString[index + 1] = 0;
         return 0;
     }
