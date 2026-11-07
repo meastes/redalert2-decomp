@@ -1079,7 +1079,13 @@ def byte_update_artifacts(body, params=()):
                 depth += (value_view[start] == ')') - (value_view[start] == '(')
                 start -= 1
             inside = clean_type(value_view[start+2:end])
-            if inside not in INTEGRAL32 | {'char', 'uchar', 'byte', 'undefined1', 'ushort', 'short', 'undefined2'}:
+            scalar_kinds = INTEGRAL32 | {'char', 'uchar', 'byte', 'undefined1', 'ushort', 'short', 'undefined2'}
+            # A scalar pointer cast followed by a parenthesized address is not
+            # an indirect call: *(undefined1 *)(base + offset). Keep unknown,
+            # qualified and function-pointer casts unresolved.
+            pointer_cast = (inside.endswith('*') and clean_type(inside[:-1]) in scalar_kinds
+                            and not re.search(r'\b(?:const|volatile)\b', value_view[start+2:end]))
+            if inside not in scalar_kinds and not pointer_cast:
                 calls = True
                 break
         if calls:

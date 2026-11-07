@@ -2409,3 +2409,13 @@ Unknown_Cell_Score_0056dff0 is really a thiscall member.
 
 ## Scout873 (2026-11-07, closed; 0 B structural: Angle_Score 0x582970 in the YR twin's text with pooled literals; NOTES, probes pb.py/pb2.py in build/class-work/Scout873/)
 - Grow_Water_Region 0x5820B0 72.66 (w/gw_best_natural_DGT.cpp): the original calls operator+ 0x42ADD0 (inside Adjacent_Cell) and ??_GUnknownVeinHeap 0x58DB20 out of line; ours inlines both. ??_G needs the end budget under about 50 (ours 280-310); dead locals count toward the IL of non-inline unit functions but not in-class inlines. Leads: TibSun's `bool Insert(T&)` and Extract_Min as a real template under a unit macro; larger-IL TibSun three-level CellData helper chains.
+
+## Scout876 (2026-11-07, closed; 0 B; Tactical pair parked after four lanes; NOTES, w/o3.cpp, w/z1.cpp in build/class-work/Scout876/)
+- Pixel_To_Cell 0x6A6BD0 55.19 (scan kept in memory via `abspixel = scan + Point2D(...)`, late `int count`): the original stores scan.X and xy.X separately, VC6 forwards one into the other in every form; the twin-shaped `Point2D(TacPixelX, TacPixelY) + point - Point2D(rect.X, rect.Y)` gives the first block exactly but costs one inline site. Bridge_Edges stays provisional (no out-parameter-free form keeps the call pattern). Draw_Tiles(Cell, Rect) 0x6A8560 63.04: the original re-reads Elevation +0x11D at each use (cellptr 5 refs, slot [14]); ours keeps it in al, which also swaps the pixel slots.
+
+## Scout878 (2026-11-07, closed; 0 B; Captured 0x444660 76.83 to 78.35 (w/cu2.cpp, TibSun-shaped `captured` flag); block relocation rule in VC6 notes)
+- Next: fix newowner's register (the original keeps it in ebp; ours spills it, which also moves the Is_Present found arm to the function end), together with Scout875's zero-register and ebx/ebp swap.
+
+## Scout880 (2026-11-07, closed; 3,777 B: Unlimbo 0x43D3A0, TibSun/YR twin shapes; NOTES in build/class-work/Scout880/)
+- Flags accepted: `Cell(occupy->operator+(cell))` in Should_Fog 0x452BE0 because 0x442060's file-local free operator+(Cell, Cell) would otherwise bind (drop that local operator later); Scout753's stand-in UnknownCellObjectMap cast for 0x49A5B0 Cell_Object (owner class unproven); two free __fastcall helpers kept. RA2_COORD_AS_CELL now in the Building first row.
+- Mechanism: TibSun's REFRESH_EOL loop test `while (*occupy != Cell(32767, 32767))` together with `coord->As_Cell()` fixed the cross-jump direction (either alone drops to about 61); reading Position_Coord through the inline by-value accessor fixed the particle sum and reload order. Try the REFRESH_EOL + As_Cell pair on other Occupy_List or foundation loops.
