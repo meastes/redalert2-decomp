@@ -1884,6 +1884,60 @@ def unsigned_pointer_ordering(body, params=(), globals_=None):
     return body
 
 
+def primitive_pointer_ordering(body, params=(), globals_=None):
+    """Compare incompatible primitive pointer views as i386 address bits.
+
+    Only bare, uniquely declared primitive pointers and addresses of known
+    primitive storage qualify. Unknown/class/function/qualified types and
+    compound operands are unchanged. No load, stride or access width changes.
+    """
+    view = code_view(body)
+    if '#' in view or re.search(r'\b(?:typedef|using|class|struct|union|enum)\b', view):
+        return body
+    declared, comma = scalar_declarations(view)
+    if comma:
+        return body
+    declarations, types = {}, dict(globals_ or {})
+    for kind, name, array in declared:
+        declarations[name] = declarations.get(name, 0) + 1
+        types[name] = kind + (' *' if array else '')
+    for kind, name in map(param_parts, params):
+        if name:
+            declarations[name] = declarations.get(name, 0) + 1
+            types[name] = kind
+    primitives = {'char', 'signed char', 'unsigned char', 'byte', 'uchar',
+                  'short', 'unsigned short', 'ushort', 'int', 'unsigned int',
+                  'uint', 'undefined1', 'undefined2', 'undefined4', 'long',
+                  'unsigned long', 'ulong', 'float', 'double', 'bool'}
+    def operand_type(value):
+        match = re.fullmatch(r'(&\s*)?([A-Za-z_]\w*)', value.strip())
+        if not match or declarations.get(match[2], 0) > 1:
+            return None
+        kind = ' '.join(types.get(match[2], '').split())
+        if not re.fullmatch(r'[A-Za-z_][\w ]*(?:\s*\*\s*)*', kind):
+            return None
+        base = kind.replace('*', '').strip()
+        if base not in primitives:
+            return None
+        depth = kind.count('*') + bool(match[1])
+        return (base, depth) if depth else None
+    edits = []
+    for match in re.finditer(r'(?<![<>=!])(?:<=|>=|<|>)(?![<>=])', view):
+        spans = [equality_operand(view, match.start(), -1),
+                 equality_operand(view, match.end(), 1)]
+        values = [view[first:last] for first, last in spans]
+        kinds = [operand_type(value) for value in values]
+        if None in kinds or kinds[0] == kinds[1]:
+            continue
+        for first, last in spans:
+            if any(first < b and last > a for a, b in edits):
+                return body
+            edits.append((first, last))
+    for first, last in sorted(edits, reverse=True):
+        body = body[:first] + '(uint)(' + body[first:last] + ')' + body[last:]
+    return body
+
+
 def normalize_import_exrefs(body, facts=None):
     """Resolve only known imported-function external-reference spellings."""
     if facts is None:
@@ -2867,6 +2921,7 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     body = cast_void_global_offsets(body, global_types)
     body = pointer_equality_boundaries(body, params, global_types)
     body = unsigned_pointer_ordering(body, params, global_types)
+    body = primitive_pointer_ordering(body, params, global_types)
     body = cast_storage_boundaries(body, params, global_types)
     body = address_stores(cast_assignments(body, params))
     body = return_boundaries(body, ret)
