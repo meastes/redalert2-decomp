@@ -1,6 +1,7 @@
 // Building repair mission: construction-yard, hospital, armory and unit service states.
 // Original 00447260: 4503-byte complete body and 9 bytes of frozen padding.
 // Repair states: 0 initializes service, 1 waits for the client, 2 performs service.
+// The first contact is read through Contact_With_Whom() throughout (TibSun Mission_Repair shape).
 #include "shared/unit.hpp"
 #include "shared/building.hpp"
 #include "shared/foot.hpp"
@@ -109,7 +110,7 @@ int BuildingClass::unknown_slot141()
         case 2: {
                 unknown_4f4.Graphic_Logic();
                 if (unknown_4f4.Fetch_Stage() >= Rules->IRepairRate * 900.0) {
-                    TechnoClass *contact = Contact(0);
+                    TechnoClass *contact = Contact_With_Whom();
                     if (contact->unknown_118.unknown_713400()) contact->unknown_118.unknown_713520(true);
                     else contact->unknown_118.Unknown_00713550(true);
                     unknown_slot62((TechnoClass *)Cargo.unknown_4689f0());
@@ -135,13 +136,13 @@ int BuildingClass::unknown_slot141()
                 }
                 unknown_5ad = false;
                 int distance = 100;
-                FootClass *contact = (FootClass *)Contact(0);
+                FootClass *contact = (FootClass *)Contact_With_Whom();
                 UnknownComPtr<IPersist, &unknown_uuid_IPersist_7cf208> persist(contact->Locomotor);
                 GUID clsid;
                 persist.Checked()->GetClassID(&clsid);
                 if (clsid == CLSID_HoverLocomotionClass) distance = 200;
                 if (clsid == CLSID_ShipLocomotionClass) distance = 200;
-                if (unknown_slot149(19) == 1 && unknown_slot281(Contact(0)) < distance) {
+                if (unknown_slot149(19) == 1 && unknown_slot281(Contact_With_Whom()) < distance) {
                     unknown_a8 = 1;
                     return 3;
                 }
@@ -183,7 +184,7 @@ int BuildingClass::unknown_slot141()
                             unknown_44c920(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
                             unknown_44c920(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
                             unknown_a8 = 1;
-                            FootClass *mover = Building_Radio_Foot_004397f0(Contact(0));
+                            FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             if (mover->unknown_1b0 && !mover->House->unknown_func_4f52f0()) {
                                 mover->unknown_slot116(2, false);
                                 mover->unknown_slot260(mover->unknown_1b0, 1);
@@ -192,7 +193,7 @@ int BuildingClass::unknown_slot141()
                                 mover->unknown_3f8 = 0;
                                 return 1;
                             }
-                            Cell exit = unknown_slot280(Contact(0));
+                            Cell exit = unknown_slot280(Contact_With_Whom());
                             if (unknown_1b0) exit = Building_Repair_Archive_Cell_00447260(*unknown_1b0);
                             if (exit != *(Cell const *)&unknown_84ed10) {
                                 mover->unknown_slot116(2, false);
@@ -224,18 +225,18 @@ int BuildingClass::unknown_slot141()
                     return 1;
                 }
                 if (unknown_454[8]) return 1;
-                FootClass *contact = (FootClass *)Contact(0);
-                if (unknown_slot281(Contact(0)) < 200) {
+                FootClass *contact = (FootClass *)Contact_With_Whom();
+                if (unknown_slot281(Contact_With_Whom()) < 200) {
                     if (contact->Locomotor.Checked()->Is_Powered()) {
                         if (!contact->Locomotor.Checked()->Is_Moving()) contact->Locomotor.Checked()->Power_Off();
                         return 1;
                     }
-                    if (!contact->Locomotor.Checked()->Is_Powered() && ((FootClass *)Contact(0))->unknown_494) {
-                        ((FootClass *)Contact(0))->unknown_4cd9b0();
+                    if (!contact->Locomotor.Checked()->Is_Powered() && ((FootClass *)Contact_With_Whom())->unknown_494) {
+                        ((FootClass *)Contact_With_Whom())->unknown_4cd9b0();
                     }
                 }
                 if (unknown_slot149(19) == 1) {
-                    TechnoClass *client = Contact(0);
+                    TechnoClass *client = Contact_With_Whom();
                     bool damaged = client->Health_Ratio() < Rules->unknown_1360;
                     bool manual_reload = client->unknown_slot32()->ManualReload;
                     int reply = unknown_slot149(28);
@@ -243,7 +244,7 @@ int BuildingClass::unknown_slot141()
                     bool all_done = reply == 33;
                     if ((!damaged && !manual_reload) || (!roger && !all_done)) {
                         if (client->Health_Ratio() == Rules->unknown_1360 && !((FootClass *)client)->Locomotor.Checked()->Is_Powered()) {
-                            FootClass *mover = Building_Radio_Foot_004397f0(Contact(0));
+                            FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             mover->Locomotor.Checked()->Power_On();
                             if (mover->unknown_1b0 && !mover->House->unknown_func_4f52f0()) {
                                 mover->unknown_slot116(2, false);
@@ -252,7 +253,7 @@ int BuildingClass::unknown_slot141()
                                 mover->unknown_3f8 = 0;
                                 unknown_slot149(3);
                             } else {
-                                Cell exit = unknown_slot280(Contact(0));
+                                Cell exit = unknown_slot280(Contact_With_Whom());
                                 if (unknown_1b0) exit = Building_Repair_Archive_Cell_00447260(*unknown_1b0);
                                 if (exit != *(Cell const *)&unknown_84ed10) {
                                     mover->unknown_slot116(2, false);
@@ -278,7 +279,7 @@ int BuildingClass::unknown_slot141()
                         unknown_5ad = true;
                     }
                 } else if (!reinterpret_cast<Leaf_51fc80 *>(House)->get()) {
-                    if (!((FootClass *)Contact(0))->Locomotor.Checked()->Is_Powered()) ((FootClass *)Contact(0))->Locomotor.Checked()->Power_On();
+                    if (!((FootClass *)Contact_With_Whom())->Locomotor.Checked()->Is_Powered()) ((FootClass *)Contact_With_Whom())->Locomotor.Checked()->Power_On();
                 }
 
                 break;

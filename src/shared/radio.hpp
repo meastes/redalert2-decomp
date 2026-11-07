@@ -44,6 +44,10 @@ public:
 
     void Set_Radio_Count(int count);                            // 0x00636F40 (grows RadioLinks, clearing new entries; name hypothesis)
     TechnoClass *Contact(int index) const;                      // 0x00636E10
+#ifdef RA2_RADIO_CONTACT_WITH_WHOM
+    // The first contact (TibSun radio.h Contact_With_Whom; with several links it reads link 0).
+    TechnoClass *Contact_With_Whom() const { return Contact(0); }
+#endif
     TechnoClass *Contact2(int index) const;                     // 0x00636E20 (identical copy)
 
     int Old[3];                             // +0xBC the last three messages received, newest first (TibSun Old)
