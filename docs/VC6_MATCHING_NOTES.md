@@ -2093,3 +2093,7 @@ Credit: gibbo101/ra2-decomp AGENTS.md ("What has worked", "Known dead ends"), me
 
 ## Symbol-count windows for register ties (Scout886, 2026-11-07)
 A register tie between two equal-weight sums can follow the number of symbols created before one operand's local (locals, inline parameters/locals, and distinct global data keys incl. global struct fields and string literals; not `this->` fields, functions, double literals or immediates). AnimClass::AI 0x421710 flips on count mod 32 in [13,29]; symbols declared after the local do nothing. Measure with a dead-local calibration (Scout886 cal.py), then look for a real inline helper that supplies the count; dead probes never land.
+Limits (Scout891): in some rows (Exit_Object) the window follows the total symbol count regardless of position, and two ties can want incompatible counts; in small functions extra symbols change the frame size first (Place_Tiberium), and some ties are not count-driven at all (0x5E9410). Calibrate before assuming the mechanism.
+
+## Direct field reads change later sum grouping (Scout894, 2026-11-07)
+Direct reads of a local struct's fields (`cell.X`, `cell.Y`) earlier in a function let VC6 reassociate a later `(X + Y) - b` into `(Y - b) + X`, losing a sum shared with a test; the same reads through inline member accessors do not. When a sum/operand-order miss sits after direct field reads, try the twin's accessor form (RTactical Action 0x62FE30).

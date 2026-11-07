@@ -1,3 +1,5 @@
+// CoordStruct(Cell) is inline here: RTacticalClass::Action 0x0062FE30 converts its cell as TibSun Coord(cell).
+#define RA2_COORD_FROM_CELL_INLINE
 // Rect corner point operators are inline where Render_Radar 0x00633210 expands them.
 #define RA2_RECT_POINT_INLINE
 #define RA2_RECT_MINUS_INLINE
