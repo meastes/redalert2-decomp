@@ -2117,3 +2117,6 @@ Refinement (Scout914): `return(expr);` changes scheduling only when expr already
 
 ## Field signedness decides immediate caching (Scout929, 2026-11-07)
 A struct field's signedness can decide whether VC6 caches a test immediate in a byte register: AudioEvent +0x18 as signed `volatile int` lets an inlined loop hold 0x80 in bl (`mov bl,0x80; test bl,al`), unsigned does not. Header-bisect minimal TUs one declaration at a time; field types from the twin headers are evidence.
+
+## Spill-slot assignment order (Scout944, 2026-11-07)
+For equal-size spilled webs, VC6 creates frame slots in processing order (first web processed -> first new slot), and a later temporary joins the newest compatible slot. Among webs first defined inside the same loop, the earlier in-loop first definition is processed later (dead definitions count; definitions outside the loop do not). Use a /FAs frame map with ref counts (build/class-work/Scout944/fa.sh) before trying declaration shuffles.

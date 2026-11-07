@@ -1,3 +1,4 @@
+#define RA2_WOL_PRIVATE_OPTIONS
 #include "shared/wol_sink.hpp"
 // @ref ?unknown_b2aaf8=00b2aaf8
 // @ref ?unknown_b26568=00b26568

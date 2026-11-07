@@ -928,7 +928,12 @@ public:
 #endif
     bool Get(WOL::User &user, int index) const; // 0x00766020
     bool Get(WOL::User *&user, int index) const {
+#ifdef RA2_WOL_PRIVATE_OPTIONS
+        // ArrayList's pointer query keeps the selected entry as a local before storing it.
+        if(index >= 0 && index < Count) { WOL::User *node=Items+index; user=node; return true; }
+#else
         if (index >= 0 && index < Count) { user = Items + index; return true; }
+#endif
         return false;
     }
     // Inline forms (the out-of-line COMDATs above are the same bodies where a caller did not inline them).
