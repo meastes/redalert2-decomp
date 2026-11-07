@@ -57,8 +57,8 @@ public:
     void Draw_NonMagnetic_007238b0(CoordStruct const &start, CoordStruct const &end); // 0x007238B0
     void Wave_Recalc_Affected_Cells();                                  // 0x00723360
     void Update_Wave_00724200();                                        // 0x00724200
-    void unknown_func_7225b0(int arg1, int arg2);                      // 0x007225B0 (draws type 0)
-    void unknown_func_722cb0(int arg1, int arg2);                      // 0x00722CB0 (draws types 1 and 2)
+    void Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect);                      // 0x007225B0 (draws type 0)
+    void Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect);                      // 0x00722CB0 (draws types 1 and 2)
     void unknown_func_7232d0();                                        // 0x007232D0 (type 0 step)
     void unknown_func_723340();                                        // 0x00723340 (types 1 and 2 step)
     virtual void unknown_slot67(int arg1, int arg2);                // 0x00722530

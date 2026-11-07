@@ -3,8 +3,8 @@
 #include "shared/wave.hpp"
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?Unknown_005683C0@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
-// @ref ?unknown_func_7225b0@WaveClass@@QAEXHH@Z=007225b0
-// @ref ?unknown_func_722cb0@WaveClass@@QAEXHH@Z=00722cb0
+// @ref ?Draw_Sonic_007225b0@WaveClass@@QAEXABUPoint2D@@ABVRect@@@Z=007225b0
+// @ref ?Draw_Laser_00722cb0@WaveClass@@QAEXABUPoint2D@@ABVRect@@@Z=00722cb0
 
 void WaveClass::unknown_slot67(int arg1, int arg2)
 {
@@ -13,11 +13,11 @@ void WaveClass::unknown_slot67(int arg1, int arg2)
     }
     switch (Type) {
     case 0:
-        unknown_func_7225b0(arg1, arg2);
+        Draw_Sonic_007225b0(*(Point2D const *)arg1, *(Rect const *)arg2);
         break;
     case 1:
     case 2:
-        unknown_func_722cb0(arg1, arg2);
+        Draw_Laser_00722cb0(*(Point2D const *)arg1, *(Rect const *)arg2);
         break;
     }
 }
