@@ -3113,3 +3113,6 @@ New rulings are recorded at their rows as before.
 ## Scout1063 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1063/)
 - Fire_At 0x6CA890 99.14 -> 99.37 (keep/F_9937_random_double.cpp): Random_Direction's fmul order fixed with the accepted Veinhole AI 0x710250 Random_Double helper shape. Left: zadjust scratch registers at 0x11E1 and the inlined DynamicVectorClass::Add orientation at 0x170A (RA2_RADAR_ADD_THREADED fixes it but breaks 0x6C0CD0, 0x6C1F10, 0x6D6850, 0x6D9080). Area_Modify 0x6C5270 96.38 (site-4 Map[] argument scheduling), Evaluate_Object 0x6C5570 91.81 unchanged.
 - OWNER DECISION: no tree-wide Add form change without evidence; the Add orientation question goes to a corpus lab (Scout1065).
+
+## Scout1064 (2026-11-08, closed; LANDED 4f17146fb + 343910893 (renames, no bytes) + 3ee6ad5d6 (native))
+- 29 of 30 shared signature mismatches fixed byte-neutrally for the native link (owner full build exact). Held: 0x49CFD0 DisplayClass::unknown_slot32 -> (CCINIClass &) moves Print_CRCs 0x62A360 and SidebarClass 0x6809F0 (needs a natural Print_CRCs re-roll; header copy at build/class-work/Scout1064/d/held/). Flags (casts under the 2026-11-05 rulings, an unused WOL::User * parameter on 0x74D7D0) in d/r1/README. Native: wrong ctor/dtor suffix alias removed (~UnknownArtData had been bound to the free-all-art function).

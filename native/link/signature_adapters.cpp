@@ -230,87 +230,83 @@ extern "C" void ra2_adapter_0053(void * a0, void * a1, int a2, int a3) { ra2_ada
 extern "C" void ra2_adapter_target_0054(void *, int, int, int) __asm__("__ZN11TechnoClass15unknown_slot119Eiii");
 extern "C" int ra2_adapter_0054(void * a0, int a1, int a2, int a3) __asm__("__ZN13Call_4c7ac0_06targetEjjj");
 extern "C" int ra2_adapter_0054(void * a0, int a1, int a2, int a3) { ra2_adapter_target_0054(a0, a1, a2, a3); return 0; }
-// 0x006F2390 UnknownArtData_006f2390::~UnknownArtData_006f2390() -> unknown_free_art_6f2390() [structor returns this, this dropped]
-extern "C" void ra2_adapter_target_0055(void) __asm__("__Z23unknown_free_art_6f2390v");
-extern "C" void * ra2_adapter_0055(void * a0) __asm__("__ZN23UnknownArtData_006f2390D1Ev");
-extern "C" void * ra2_adapter_0055(void * a0) { ra2_adapter_target_0055(); return a0; }
 // 0x006F5940 Target_51bf20::target() -> Unknown_006F5940() [seed view result 0, this dropped]
-extern "C" void ra2_adapter_target_0056(void) __asm__("__Z16Unknown_006F5940v");
-extern "C" int ra2_adapter_0056(void * a0) __asm__("__ZN13Target_51bf206targetEv");
-extern "C" int ra2_adapter_0056(void * a0) { ra2_adapter_target_0056(); return 0; }
+extern "C" void ra2_adapter_target_0055(void) __asm__("__Z16Unknown_006F5940v");
+extern "C" int ra2_adapter_0055(void * a0) __asm__("__ZN13Target_51bf206targetEv");
+extern "C" int ra2_adapter_0055(void * a0) { ra2_adapter_target_0055(); return 0; }
 // 0x006F5B10 Target_51bfa0::target() -> Unknown_006F5B10() [seed view result 0, this dropped]
-extern "C" void ra2_adapter_target_0057(void) __asm__("__Z16Unknown_006F5B10v");
-extern "C" int ra2_adapter_0057(void * a0) __asm__("__ZN13Target_51bfa06targetEv");
-extern "C" int ra2_adapter_0057(void * a0) { ra2_adapter_target_0057(); return 0; }
+extern "C" void ra2_adapter_target_0056(void) __asm__("__Z16Unknown_006F5B10v");
+extern "C" int ra2_adapter_0056(void * a0) __asm__("__ZN13Target_51bfa06targetEv");
+extern "C" int ra2_adapter_0056(void * a0) { ra2_adapter_target_0056(); return 0; }
 // 0x006F5BC0 Target_51be20::target() -> Unknown_006F5BC0() [seed view result 0, this dropped]
-extern "C" void ra2_adapter_target_0058(void) __asm__("__Z16Unknown_006F5BC0v");
-extern "C" int ra2_adapter_0058(void * a0) __asm__("__ZN13Target_51be206targetEv");
-extern "C" int ra2_adapter_0058(void * a0) { ra2_adapter_target_0058(); return 0; }
+extern "C" void ra2_adapter_target_0057(void) __asm__("__Z16Unknown_006F5BC0v");
+extern "C" int ra2_adapter_0057(void * a0) __asm__("__ZN13Target_51be206targetEv");
+extern "C" int ra2_adapter_0057(void * a0) { ra2_adapter_target_0057(); return 0; }
 // 0x006F5C50 Target_51bea0::target() -> Unknown_006F5C50() [seed view result 0, this dropped]
-extern "C" void ra2_adapter_target_0059(void) __asm__("__Z16Unknown_006F5C50v");
-extern "C" int ra2_adapter_0059(void * a0) __asm__("__ZN13Target_51bea06targetEv");
-extern "C" int ra2_adapter_0059(void * a0) { ra2_adapter_target_0059(); return 0; }
+extern "C" void ra2_adapter_target_0058(void) __asm__("__Z16Unknown_006F5C50v");
+extern "C" int ra2_adapter_0058(void * a0) __asm__("__ZN13Target_51bea06targetEv");
+extern "C" int ra2_adapter_0058(void * a0) { ra2_adapter_target_0058(); return 0; }
 // 0x006F5D10 Target_51c020::target() -> Unknown_006F5D10() [seed view result 0, this dropped]
-extern "C" void ra2_adapter_target_0060(void) __asm__("__Z16Unknown_006F5D10v");
-extern "C" int ra2_adapter_0060(void * a0) __asm__("__ZN13Target_51c0206targetEv");
-extern "C" int ra2_adapter_0060(void * a0) { ra2_adapter_target_0060(); return 0; }
+extern "C" void ra2_adapter_target_0059(void) __asm__("__Z16Unknown_006F5D10v");
+extern "C" int ra2_adapter_0059(void * a0) __asm__("__ZN13Target_51c0206targetEv");
+extern "C" int ra2_adapter_0059(void * a0) { ra2_adapter_target_0059(); return 0; }
 // 0x006F6380 Target_51c430::target() -> Unknown_006F6380() [seed view result 0, this dropped]
-extern "C" void ra2_adapter_target_0061(void) __asm__("__Z16Unknown_006F6380v");
-extern "C" int ra2_adapter_0061(void * a0) __asm__("__ZN13Target_51c4306targetEv");
-extern "C" int ra2_adapter_0061(void * a0) { ra2_adapter_target_0061(); return 0; }
+extern "C" void ra2_adapter_target_0060(void) __asm__("__Z16Unknown_006F6380v");
+extern "C" int ra2_adapter_0060(void * a0) __asm__("__ZN13Target_51c4306targetEv");
+extern "C" int ra2_adapter_0060(void * a0) { ra2_adapter_target_0060(); return 0; }
 // 0x006F6490 Target_51da30::target() -> unknown_dispatch() [seed view result 0, this dropped]
-extern "C" void ra2_adapter_target_0062(void) __asm__("__Z16unknown_dispatchv");
-extern "C" int ra2_adapter_0062(void * a0) __asm__("__ZN13Target_51da306targetEv");
-extern "C" int ra2_adapter_0062(void * a0) { ra2_adapter_target_0062(); return 0; }
+extern "C" void ra2_adapter_target_0061(void) __asm__("__Z16unknown_dispatchv");
+extern "C" int ra2_adapter_0061(void * a0) __asm__("__ZN13Target_51da306targetEv");
+extern "C" int ra2_adapter_0061(void * a0) { ra2_adapter_target_0061(); return 0; }
 // 0x006F88F0 Target_51c640::target() -> Unknown_006F88F0() [seed view result 0, this dropped]
-extern "C" void ra2_adapter_target_0063(void) __asm__("__Z16Unknown_006F88F0v");
-extern "C" int ra2_adapter_0063(void * a0) __asm__("__ZN13Target_51c6406targetEv");
-extern "C" int ra2_adapter_0063(void * a0) { ra2_adapter_target_0063(); return 0; }
+extern "C" void ra2_adapter_target_0062(void) __asm__("__Z16Unknown_006F88F0v");
+extern "C" int ra2_adapter_0062(void * a0) __asm__("__ZN13Target_51c6406targetEv");
+extern "C" int ra2_adapter_0062(void * a0) { ra2_adapter_target_0062(); return 0; }
 // 0x0070B7D0 VQAClass::Unknown_0070B7D0() -> Hicolor_Clear_Table() [this dropped]
-extern "C" void ra2_adapter_target_0064(void) __asm__("__Z19Hicolor_Clear_Tablev");
-extern "C" void ra2_adapter_0064(void * a0) __asm__("__ZN8VQAClass16Unknown_0070B7D0Ev");
-extern "C" void ra2_adapter_0064(void * a0) { ra2_adapter_target_0064(); }
+extern "C" void ra2_adapter_target_0063(void) __asm__("__Z19Hicolor_Clear_Tablev");
+extern "C" void ra2_adapter_0063(void * a0) __asm__("__ZN8VQAClass16Unknown_0070B7D0Ev");
+extern "C" void ra2_adapter_0063(void * a0) { ra2_adapter_target_0063(); }
 // 0x00715FB0 Unknown_Play_Taunt_00715fb0(char) -> Taunt_Play(int) [result ignored, width]
-extern "C" int ra2_adapter_target_0065(int) __asm__("__Z10Taunt_Playi");
-extern "C" void ra2_adapter_0065(signed char a0) __asm__("__Z27Unknown_Play_Taunt_00715fb0c");
-extern "C" void ra2_adapter_0065(signed char a0) { ra2_adapter_target_0065((int)(unsigned int)(int)a0); }
+extern "C" int ra2_adapter_target_0064(int) __asm__("__Z10Taunt_Playi");
+extern "C" void ra2_adapter_0064(signed char a0) __asm__("__Z27Unknown_Play_Taunt_00715fb0c");
+extern "C" void ra2_adapter_0064(signed char a0) { ra2_adapter_target_0064((int)(unsigned int)(int)a0); }
 // 0x00729510 WorldDominationTour::Map::Load(INIClass&, MSEngine*, bool) -> WorldDominationTour::Map::Load(INIClass&, MSEngine*, int) [width]
-extern "C" void ra2_adapter_target_0066(void *, void *, void *, int) __asm__("__ZN19WorldDominationTour3Map4LoadER8INIClassP8MSEnginei");
-extern "C" void ra2_adapter_0066(void * a0, void * a1, void * a2, bool a3) __asm__("__ZN19WorldDominationTour3Map4LoadER8INIClassP8MSEngineb");
-extern "C" void ra2_adapter_0066(void * a0, void * a1, void * a2, bool a3) { ra2_adapter_target_0066(a0, a1, a2, (int)(unsigned int)(int)a3); }
+extern "C" void ra2_adapter_target_0065(void *, void *, void *, int) __asm__("__ZN19WorldDominationTour3Map4LoadER8INIClassP8MSEnginei");
+extern "C" void ra2_adapter_0065(void * a0, void * a1, void * a2, bool a3) __asm__("__ZN19WorldDominationTour3Map4LoadER8INIClassP8MSEngineb");
+extern "C" void ra2_adapter_0065(void * a0, void * a1, void * a2, bool a3) { ra2_adapter_target_0065(a0, a1, a2, (int)(unsigned int)(int)a3); }
 // 0x007359E0 Unknown_007359e0(HWND__*, bool (*)(), int, int, int) -> Dialog_Loop_007359e0(HWND__*, bool (*)(), int, bool, bool) [width]
-extern "C" int ra2_adapter_target_0067(void *, void *, int, bool, bool) __asm__("__Z20Dialog_Loop_007359e0P6HWND__PFbvEibb");
-extern "C" int ra2_adapter_0067(void * a0, void * a1, int a2, int a3, int a4) __asm__("__Z16Unknown_007359e0P6HWND__PFbvEiii");
-extern "C" int ra2_adapter_0067(void * a0, void * a1, int a2, int a3, int a4) { return ra2_adapter_target_0067(a0, a1, a2, (((unsigned int)(int)a3 & 0xFFu) != 0), (((unsigned int)(int)a4 & 0xFFu) != 0)); }
+extern "C" int ra2_adapter_target_0066(void *, void *, int, bool, bool) __asm__("__Z20Dialog_Loop_007359e0P6HWND__PFbvEibb");
+extern "C" int ra2_adapter_0066(void * a0, void * a1, int a2, int a3, int a4) __asm__("__Z16Unknown_007359e0P6HWND__PFbvEiii");
+extern "C" int ra2_adapter_0066(void * a0, void * a1, int a2, int a3, int a4) { return ra2_adapter_target_0066(a0, a1, a2, (((unsigned int)(int)a3 & 0xFFu) != 0), (((unsigned int)(int)a4 & 0xFFu) != 0)); }
 // 0x00735BC0 seed_00735ba0::FUN_00735bc0(void*, int) -> unknown_prepare_control_735bc0(HWND__*, long) [widen]
-extern "C" int ra2_adapter_target_0068(void *, long long) __asm__("__Z30unknown_prepare_control_735bc0P6HWND__l");
-extern "C" int ra2_adapter_0068(void * a0, int a1) __asm__("__ZN13seed_00735ba012FUN_00735bc0EPvi");
-extern "C" int ra2_adapter_0068(void * a0, int a1) { return ra2_adapter_target_0068(a0, (long long)(int)a1); }
+extern "C" int ra2_adapter_target_0067(void *, long long) __asm__("__Z30unknown_prepare_control_735bc0P6HWND__l");
+extern "C" int ra2_adapter_0067(void * a0, int a1) __asm__("__ZN13seed_00735ba012FUN_00735bc0EPvi");
+extern "C" int ra2_adapter_0067(void * a0, int a1) { return ra2_adapter_target_0067(a0, (long long)(int)a1); }
 // 0x007368A0 unknown_dialog_context_menu_7368a0(unsigned long) -> unknown_context_help_7368a0(HWND__*) [pointer-sized]
-extern "C" void ra2_adapter_target_0069(void *) __asm__("__Z27unknown_context_help_7368a0P6HWND__");
-extern "C" void ra2_adapter_0069(long long a0) __asm__("__Z34unknown_dialog_context_menu_7368a0m");
-extern "C" void ra2_adapter_0069(long long a0) { ra2_adapter_target_0069((void *)(intptr_t)a0); }
-// 0x00736D80 unknown_moving_736d80(HWND__*, unsigned long, long) -> Unknown_Clamp_Rect_To_Screen_00736D80(void*, unsigned int, Rect*) [pointer-sized, wparam]
-extern "C" bool ra2_adapter_target_0070(void *, int, void *) __asm__("__Z37Unknown_Clamp_Rect_To_Screen_00736D80PvjP4Rect");
-extern "C" bool ra2_adapter_0070(void * a0, long long a1, long long a2) __asm__("__Z21unknown_moving_736d80P6HWND__ml");
-extern "C" bool ra2_adapter_0070(void * a0, long long a1, long long a2) { return ra2_adapter_target_0070(a0, (int)(unsigned int)a1, (void *)(intptr_t)a2); }
+extern "C" void ra2_adapter_target_0068(void *) __asm__("__Z27unknown_context_help_7368a0P6HWND__");
+extern "C" void ra2_adapter_0068(long long a0) __asm__("__Z34unknown_dialog_context_menu_7368a0m");
+extern "C" void ra2_adapter_0068(long long a0) { ra2_adapter_target_0068((void *)(intptr_t)a0); }
+// 0x00736D80 unknown_moving_736d80(HWND__*, unsigned long, Rect*) -> Unknown_Clamp_Rect_To_Screen_00736D80(void*, unsigned int, Rect*) [wparam]
+extern "C" bool ra2_adapter_target_0069(void *, int, void *) __asm__("__Z37Unknown_Clamp_Rect_To_Screen_00736D80PvjP4Rect");
+extern "C" bool ra2_adapter_0069(void * a0, long long a1, void * a2) __asm__("__Z21unknown_moving_736d80P6HWND__mP4Rect");
+extern "C" bool ra2_adapter_0069(void * a0, long long a1, void * a2) { return ra2_adapter_target_0069(a0, (int)(unsigned int)a1, a2); }
 // 0x00739A50 Unknown_00739a50(HWND__*, char) -> Unknown_Persona_Stats_Text_00739a50(HWND__*, bool) [width]
-extern "C" void ra2_adapter_target_0071(void *, bool) __asm__("__Z35Unknown_Persona_Stats_Text_00739a50P6HWND__b");
-extern "C" void ra2_adapter_0071(void * a0, signed char a1) __asm__("__Z16Unknown_00739a50P6HWND__c");
-extern "C" void ra2_adapter_0071(void * a0, signed char a1) { ra2_adapter_target_0071(a0, (((unsigned int)(int)a1 & 0xFFu) != 0)); }
+extern "C" void ra2_adapter_target_0070(void *, bool) __asm__("__Z35Unknown_Persona_Stats_Text_00739a50P6HWND__b");
+extern "C" void ra2_adapter_0070(void * a0, signed char a1) __asm__("__Z16Unknown_00739a50P6HWND__c");
+extern "C" void ra2_adapter_0070(void * a0, signed char a1) { ra2_adapter_target_0070(a0, (((unsigned int)(int)a1 & 0xFFu) != 0)); }
 // 0x0075B910 Unknown_0075B910(char const*, bool) -> Handle_Matchmaking_Command_0075b910(char const*, char) [width]
-extern "C" void ra2_adapter_target_0072(void *, signed char) __asm__("__Z35Handle_Matchmaking_Command_0075b910PKcc");
-extern "C" void ra2_adapter_0072(void * a0, bool a1) __asm__("__Z16Unknown_0075B910PKcb");
-extern "C" void ra2_adapter_0072(void * a0, bool a1) { ra2_adapter_target_0072(a0, (signed char)(unsigned int)(int)a1); }
+extern "C" void ra2_adapter_target_0071(void *, signed char) __asm__("__Z35Handle_Matchmaking_Command_0075b910PKcc");
+extern "C" void ra2_adapter_0071(void * a0, bool a1) __asm__("__Z16Unknown_0075B910PKcb");
+extern "C" void ra2_adapter_0071(void * a0, bool a1) { ra2_adapter_target_0071(a0, (signed char)(unsigned int)(int)a1); }
 // 0x00770110 Call_7701b0_0::target(unsigned int) -> WideString::Remove_Character(unsigned short) [return width, width]
-extern "C" bool ra2_adapter_target_0073(void *, unsigned short) __asm__("__ZN10WideString16Remove_CharacterEt");
-extern "C" int ra2_adapter_0073(void * a0, int a1) __asm__("__ZN13Call_7701b0_06targetEj");
-extern "C" int ra2_adapter_0073(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0073(a0, (unsigned short)(unsigned int)(int)a1); }
+extern "C" bool ra2_adapter_target_0072(void *, unsigned short) __asm__("__ZN10WideString16Remove_CharacterEt");
+extern "C" int ra2_adapter_0072(void * a0, int a1) __asm__("__ZN13Call_7701b0_06targetEj");
+extern "C" int ra2_adapter_0072(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0072(a0, (unsigned short)(unsigned int)(int)a1); }
 // 0x00770110 Call_7701b0_1::target(unsigned int) -> WideString::Remove_Character(unsigned short) [return width, width]
-extern "C" bool ra2_adapter_target_0074(void *, unsigned short) __asm__("__ZN10WideString16Remove_CharacterEt");
-extern "C" int ra2_adapter_0074(void * a0, int a1) __asm__("__ZN13Call_7701b0_16targetEj");
-extern "C" int ra2_adapter_0074(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0074(a0, (unsigned short)(unsigned int)(int)a1); }
+extern "C" bool ra2_adapter_target_0073(void *, unsigned short) __asm__("__ZN10WideString16Remove_CharacterEt");
+extern "C" int ra2_adapter_0073(void * a0, int a1) __asm__("__ZN13Call_7701b0_16targetEj");
+extern "C" int ra2_adapter_0073(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0073(a0, (unsigned short)(unsigned int)(int)a1); }
 // 0x00776160 Unknown839C6C::Unknown_00776160(int) -> ABuffer::Clear(unsigned short) [width]
-extern "C" void ra2_adapter_target_0075(void *, unsigned short) __asm__("__ZN7ABuffer5ClearEt");
-extern "C" void ra2_adapter_0075(void * a0, int a1) __asm__("__ZN13Unknown839C6C16Unknown_00776160Ei");
-extern "C" void ra2_adapter_0075(void * a0, int a1) { ra2_adapter_target_0075(a0, (unsigned short)(unsigned int)(int)a1); }
+extern "C" void ra2_adapter_target_0074(void *, unsigned short) __asm__("__ZN7ABuffer5ClearEt");
+extern "C" void ra2_adapter_0074(void * a0, int a1) __asm__("__ZN13Unknown839C6C16Unknown_00776160Ei");
+extern "C" void ra2_adapter_0074(void * a0, int a1) { ra2_adapter_target_0074(a0, (unsigned short)(unsigned int)(int)a1); }

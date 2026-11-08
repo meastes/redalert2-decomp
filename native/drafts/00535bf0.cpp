@@ -3,7 +3,7 @@
 // origin lane: Scout1024 (build/class-work/Scout1024/keep/ld_u3_9055.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1061 (native/drafts.json). Not original bytes.
-// @ref ?Unknown_00536c70@@YIXPBGPAVSurface@@UPoint2D@@HH_N@Z=00536c70
+// @ref ?Unknown_00536c70@@YIXPBGPAVSurface@@HHHH_N@Z=00536c70
 // @ref ??_C@_09HFNC@Name?3Para?$AA@=007df574
 // @ref ??_C@_09IFOG@Name?3DESO?$AA@=007df52c
 // @ref ??_C@_09JKBK@Name?3TTNK?$AA@=007df514
@@ -68,7 +68,6 @@ void *Unknown_Get_Art_6f2450();
 void *Unknown_Get_Art_6f2470();
 void *Unknown_Get_Art_6f25b0();
 Point2D __fastcall Unknown_Point_Copy_006F1AE0(Point2D const *source);
-void __fastcall Unknown_00536c70(wchar_t const *text, Surface *surface, Point2D point, int width, int flags, bool fill);
 extern char const *unknown_name_7df370;
 extern char const *unknown_name_7df374;
 extern char const *unknown_name_7df378;
@@ -342,7 +341,7 @@ void Unknown535910::Unknown_00535BF0()
         int height = 0;
         BitFont->Get_Text_Area(text, &width, &height, 400);
         Rect area(point.X, point.Y, width, height);
-        Unknown_00536c70(text, unknown_5c, point, 400, 0, false);
+        Unknown_00536c70(text, unknown_5c, point.X, point.Y, 400, 0, false);
         Unknown_00536d30(text, unknown_5c, area, pixel, 0);
         return;
     }
@@ -363,7 +362,7 @@ void Unknown535910::Unknown_00535BF0()
 
     Rect area = Name_Area();
     point = Unknown_Point_Copy_006F1AE0((Point2D const *)&area);
-    Unknown_00536c70(name, unknown_5c, point, area.Width, 2, false);
+    Unknown_00536c70(name, unknown_5c, point.X, point.Y, area.Width, 2, false);
     Unknown_00536d30(name, unknown_5c, area, pixel, 2);
 
     if (!Is_Observer()) {
@@ -376,14 +375,14 @@ void Unknown535910::Unknown_00535BF0()
         wchar_t const *brief = Briefing(side);
         area = Unknown_00536b80();
         point = Unknown_Point_Copy_006F1AE0((Point2D const *)&area);
-        Unknown_00536c70(brief, unknown_5c, point, area.Width, 0, true);
+        Unknown_00536c70(brief, unknown_5c, point.X, point.Y, area.Width, 0, true);
         Unknown_00536d30(brief, unknown_5c, area, pixel, 0);
     }
 
     wchar_t const *loading = StringTable::Load_String("GUI:LoadingEx", 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x2ED);
     area = Unknown_00536c00();
     point = Unknown_Point_Copy_006F1AE0((Point2D const *)&area);
-    Unknown_00536c70(loading, unknown_5c, point, area.Width, 0, false);
+    Unknown_00536c70(loading, unknown_5c, point.X, point.Y, area.Width, 0, false);
     Unknown_00536d30(loading, unknown_5c, area, pixel, 0);
     }
 }

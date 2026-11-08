@@ -58,6 +58,13 @@ SCAFFOLD = re.compile(r'^(seed_[0-9a-fA-F]+::|Leaf_[0-9a-fA-F]+::|recover_)')
 IR_LINE = re.compile(r'^(declare|define)\s+(.*?)@("?)([^"(\s]+)\3\((.*)\)')
 
 
+def structor(q):
+    """A constructor or destructor (Class::Class, Class::~Class): its last name repeats the
+    class name, so an address suffix there names the class, not the member's address."""
+    parts = q.split('::')
+    return len(parts) > 1 and parts[-1].lstrip('~') == parts[-2]
+
+
 def ir_signatures(entry):
     """{symbol: signature} of the declare/define lines of one unit."""
     args = shlex.split(entry['command']) if 'command' in entry else list(entry['arguments'])
@@ -420,7 +427,7 @@ def main():
             continue
         addrs = set(addr_of.get(q, ()))
         m = re.search(r'_(?:0x)?([0-9a-fA-F]{6,8})$', q)
-        if m and not addrs:
+        if m and not addrs and not structor(q):
             addrs.add(int(m.group(1), 16))
         for a in addrs:
             by_addr.setdefault(a, []).append((sym, dem))
@@ -429,7 +436,7 @@ def main():
         q = qualified(row['name'])
         addrs = set(addr_of.get(q, ()))
         m = re.search(r'_(?:0x)?([0-9a-fA-F]{6,8})$', q)
-        if m and not addrs:
+        if m and not addrs and not structor(q):
             addrs.add(int(m.group(1), 16))
         cands = [(a, t) for a in sorted(addrs) for t in by_addr.get(a, [])]
         if cands:
