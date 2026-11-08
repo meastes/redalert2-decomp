@@ -47,6 +47,10 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   `src/recovered` and `src/shared`; unmatched functions are carried as their best
   parked draft (flagged non-exact with its score) or a behaviour-written
   implementation, never empty stubs. Native work earns no exact-match credit.
+  User decision (2026-11-08): the native port may read data the original stores
+  (file names, dialog templates, tables, COM class ids) from the user's installed
+  `game.exe` and `Ra2.tlb` at run time, like other game files; never copied into
+  the repo or shipped.
 
 ## How to work
 
