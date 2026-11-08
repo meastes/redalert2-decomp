@@ -443,13 +443,6 @@
    "verified": false
   },
   {
-   "source": "src/recovered/unowned/unknown_color_scheme_00663d30.cpp",
-   "old": "// As shared/ccini_extra.hpp's ColorScheme (name at +0x304, +0x310).\nclass ColorScheme {\npublic:\n    unsigned char unknown_0x000[0x304];\n    char const *Name;                   // +0x304\n    unsigned char unknown_0x308[0x08];\n    int unknown_0x310;                  // +0x310\n};",
-   "new": "#include \"shared/color_scheme.hpp\"   // NATIVE: the shared ColorScheme layout (Name +0x304, +0x310 in VC6)",
-   "why": "The row's local ColorScheme view places Name and the +0x310 kind by byte padding; natively the shared ColorScheme (color_scheme.hpp: Index, Palette[256], Name, BaseColor, Converter, +0x310) puts the pointers at other offsets, so the lookup compared the wrong field and every ColorScheme lookup returned null (LoadProgressManager's Text_Color_Scheme faulted). The native view uses the shared class; same members, same VC6 offsets; the exact build is unchanged.",
-   "verified": false
-  },
-  {
    "source": "src/shared/pcx_cache.hpp",
    "old": "#ifdef PCX_CACHE_DECLARE_IMAGES",
    "new": "#if 1 // NATIVE: PCX_CACHE_DECLARE_IMAGES in every unit",
@@ -478,13 +471,6 @@
    "verified": true
   },
   {
-   "source": "src/recovered/unowned/Unknown_Reload_Art_006f44d0.cpp",
-   "old": "void __fastcall Unknown_6F4450()\n{",
-   "new": "void __fastcall Unknown_Reload_Art_6F44D0()   // NATIVE: the row's own name (src/ calls it Unknown_6F4450)\n{",
-   "why": "0x006F44D0 (releases and reloads the sidebar art, then lays out the sidebar with 0x006F4C90) is defined as Unknown_6F4450, the name of the different row 0x006F4450 (Unknown_Release_Art_006f4450.cpp). The exact build compares each row on its own; the native link sees one name twice, select-any keeps 0x006F4450's body, and Unknown_006F44D0 (0x0051A330's call) aliased to it, so the sidebar rectangles (0x00AC11D4..0x00AC1210) were never allocated and TabClass 0x006A0670 faulted on unknown_rect_ac1210 (Scout1083). The native name is unique; data/address_aliases.tsv binds Unknown_006F44D0 to it. src/ should rename the row.",
-   "verified": true
-  },
-  {
    "source": "src/shared/house.hpp",
    "old": "#include \"shared/region.hpp\"",
    "new": "#include \"shared/region.hpp\"\n#include \"shared/counter_class.hpp\"   // NATIVE: the subobjects' real classes (see below)\n#include \"shared/unknown_loadout.hpp\"",
@@ -503,27 +489,6 @@
    "old": "    void unknown_func_4a6b10();             // 0x004A6B10 (after loading)\n    char unknown_00[0x2C];",
    "new": "    void unknown_func_4a6b10();             // 0x004A6B10 (after loading)\n    Unknown4A6AE0Owner loadout_native;      // NATIVE: VC6 0x2C bytes = Unknown4A6AE0Owner (constructor 0x004A6910)",
    "why": "UnknownHouseBase's constructor 0x004A6910 is Unknown4A6AE0Owner's (Unknown4A6AE0Owner_Constructor_004a6910.cpp; unknown_loadout.hpp checks sizeof 44); it holds five TechnoTypeClass pointers, so natively it is larger than 0x2C bytes of char. The native member is the real class at offset 0; i686 size unchanged.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/unowned/unknown_color_scheme_index_00663d90.cpp",
-   "old": "// As shared/ccini_extra.hpp's ColorScheme (name at +0x304, +0x310).\nclass ColorScheme {\npublic:\n    unsigned char unknown_0x000[0x304];\n    char const *Name;                   // +0x304\n    unsigned char unknown_0x308[0x08];\n    int unknown_0x310;                  // +0x310\n};",
-   "new": "#include \"shared/color_scheme.hpp\"   // NATIVE: the shared ColorScheme layout (Name +0x304, +0x310 in VC6)",
-   "why": "Same as 0x00663D30: the row's local ColorScheme view places Name and +0x310 by byte padding; natively the shared class (Index, Palette[256], Name, BaseColor, Converter, +0x310) moves them, so the lookup read the wrong fields and returned -1; Assign_Houses then indexed ColorSchemes[-1] in HouseClass::Update_Color (ASan heap-buffer-overflow, fault; Scout1083). Same members, same VC6 offsets.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/ColorScheme/ColorScheme_destructor_00663bb0.cpp",
-   "old": "class ColorScheme {\npublic:\n    ~ColorScheme();\n\n    unsigned char unknown_0x000[0x304];\n    char *Name;                         // +0x304\n    unsigned char unknown_0x308[0x04];\n    ConvertClass *Converter;            // +0x30C\n};",
-   "new": "#include \"shared/color_scheme.hpp\"   // NATIVE: the shared ColorScheme layout (Name +0x304, Converter +0x30C in VC6)",
-   "why": "The destructor's local ColorScheme view places Name and Converter by byte padding; natively the shared class puts them at other offsets, so it freed whatever lay at the padded offsets. Same members, same VC6 offsets (Scout1083).",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/ColorScheme/ColorScheme_destructor_00663bb0.cpp",
-   "old": "        free(Name);",
-   "new": "        free((void *)Name);   // NATIVE: the shared Name is char const *",
-   "why": "The shared class declares Name char const * (the local view had char *); C++ needs the cast to free it. Same call.",
    "verified": true
   },
   {
@@ -571,14 +536,14 @@
   {
    "source": "src/shared/map_view.hpp",
    "old": "    char unknown_130[0x11A0 - 0x130];\n",
-   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_130[0x1250 - 0x1B8];   // NATIVE: unknown_11a0 at 0x1250 (full MapClass is 0x1210 bytes)\n#else\n    char unknown_130[0x11A0 - 0x130];\n#endif\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_130[0x1258 - 0x1B8];   // NATIVE: unknown_11a0 at 0x1258 (display.hpp +0x118C/+0x1190 are pointers) (full MapClass is 0x1210 bytes)\n#else\n    char unknown_130[0x11A0 - 0x130];\n#endif\n",
    "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
    "verified": false
   },
   {
    "source": "src/shared/map_view.hpp",
    "old": "    char unknown_11c8[0x1220 - 0x11C8];\n",
-   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_11c8[0x12E8 - 0x1284];   // NATIVE: unknown_1220 at 0x12E8\n#else\n    char unknown_11c8[0x1220 - 0x11C8];\n#endif\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_11c8[0x12F0 - 0x128C];   // NATIVE: unknown_1220 at 0x12F0\n#else\n    char unknown_11c8[0x1220 - 0x11C8];\n#endif\n",
    "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
    "verified": false
   },
@@ -592,7 +557,7 @@
   {
    "source": "src/shared/map_view.hpp",
    "old": "    char unknown_1238[0x1540 - 0x1238];\n",
-   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_1238[0x16E0 - 0x1308];   // NATIVE: Column at 0x16E0\n#else\n    char unknown_1238[0x1540 - 0x1238];\n#endif\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_1238[0x16E8 - 0x1310];   // NATIVE: Column at 0x16E8\n#else\n    char unknown_1238[0x1540 - 0x1238];\n#endif\n",
    "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
    "verified": false
   },
@@ -685,13 +650,6 @@
    "old": "struct UnknownTerrainCellArg {\n    char unknown_00[0x24];\n",
    "new": "struct UnknownTerrainCellArg {\n#if defined(__LP64__)\n    char unknown_00[0x32];   // NATIVE: CellClass::MapCoords is at +0x32 on arm64 (in AbstractClass's tail padding; static_assert in behaviour_map_dimensions.cpp)\n#else\n    char unknown_00[0x24];\n#endif\n",
    "why": "The cell argument's view places MapCoords at the VC6 +0x24 (after the 0x24-byte AbstractClass); natively CellClass::MapCoords is at +0x32 (clang places it in AbstractClass's tail padding), so the view read garbage cells (the ASan skirmish run placed map buildings through BuildingClass slot 101 at wrong cells). Native only.",
-   "verified": false
-  },
-  {
-   "source": "src/shared/cell_class.hpp",
-   "old": "#ifdef RA2_SHIP_CELL_ACCESSORS\n    // Native ShipProcess retains the address of MapCoords through the comparison.\n",
-   "new": "#ifndef RA2_CELL_MAP_VIEW\n    bool unknown_4718b0(int speed, class BuildingTypeClass const *type, class HouseClass *house);   // NATIVE: 0x004718B0 (the Map view's declaration, for the Cell unit's draft native/drafts/004718b0.cpp)\n#endif\n#ifdef RA2_SHIP_CELL_ACCESSORS\n    // Native ShipProcess retains the address of MapCoords through the comparison.\n",
-   "why": "Declares Is_Clear_To_Build 0x004718B0 with the Map view's signature in every unit (a member function declaration: no layout change), so its adapted draft can live in the Cell unit as Scout998 scored it. The draft's overlay h2 declared it there.",
    "verified": false
   }
  ]

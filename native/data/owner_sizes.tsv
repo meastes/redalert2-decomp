@@ -152,7 +152,7 @@ _IsoTiles	32	IsoTiles	DynamicVectorClass<IsometricTileClass*>
 _KamikazeTracker	48	KamikazeTracker	KamikazeTrackerClass
 _LIBID_TiberianSun	16	LIBID_TiberianSun	GUID
 _Logic	32	Logic	LogicClass
-_Map	23120	Map	MouseClass
+_Map	23128	Map	MouseClass
 _MillisecondTimer	8	MillisecondTimer	MillisecondTimerClass
 _MissionControl	960	MissionControl	MissionControlClass[30]
 _MouseThreadInfo	32	MouseThreadInfo	MouseThreadInfoStruct
@@ -264,7 +264,6 @@ _unknown_abstracts_ac0d08	32	unknown_abstracts_ac0d08	DynamicVectorClass<Abstrac
 _unknown_address_a3db2c	12	unknown_address_a3db2c	IPXAddressClass
 _unknown_address_a3f80c	12	unknown_address_a3f80c	IPXAddressClass
 _unknown_address_a3fbc8	12	unknown_address_a3fbc8	IPXAddressClass
-_unknown_addresses_a3fbd4	96	unknown_addresses_a3fbd4	IPXAddressClass[8]
 _unknown_adjacent_offsets_00851ac0	64	unknown_adjacent_offsets_00851ac0	Point2D[8]
 _unknown_anims_a35e60	32	unknown_anims_a35e60	DynamicVectorClass<AnimClass*>
 _unknown_application_object_84c7dc	8	unknown_application_object_84c7dc	ApplicationClass
@@ -435,7 +434,6 @@ _unknown_palette_entries_00851fcc	1024	unknown_palette_entries_00851fcc	PALETTEE
 _unknown_password_b2a63c	8	unknown_password_b2a63c	Wstring
 _unknown_path_estimator_8315c8	3304	unknown_path_estimator_8315c8	UnknownPathEstimator
 _unknown_player_b29cf0	2368	unknown_player_b29cf0	WolPlayerData[16]
-_unknown_player_slots_a3fa98	64	unknown_player_slots_a3fa98	NodeNameType*[8]
 _unknown_players_a3fa7c	32	unknown_players_a3fa7c	DynamicVectorClass<NodeNameType*>
 _unknown_point_a76728	8	unknown_point_a76728	Point2D
 _unknown_profile_ptr_b28cc0	16	unknown_profile_ptr_b28cc0	rc_ptr<PlayerProfile>
@@ -470,7 +468,7 @@ _unknown_score_audio_abd6a0	40	unknown_score_audio_abd6a0	UnknownAudioController
 _unknown_score_empty_rect_ab6f20	16	unknown_score_empty_rect_ab6f20	Rect
 _unknown_score_sounds_ab6fa8	48	unknown_score_sounds_ab6fa8	ScoreFontSound[3]
 _unknown_servers_b2a700	16	unknown_servers_b2a700	WolServerArray
-_unknown_session_a3d298	15184	unknown_session_a3d298	UnknownSessionState
+_unknown_session_a3d298	12592	unknown_session_a3d298	UnknownSessionState
 _unknown_shape_empty_rect_84ed88	16	unknown_shape_empty_rect_84ed88	Rect
 _unknown_shapes_abcd20	64	unknown_shapes_abcd20	void*[8]
 _unknown_shore_offsets_a6f91c	168	unknown_shore_offsets_a6f91c	Cell[42]
@@ -537,6 +535,5 @@ _unknown_wstring_b2a71c	8	unknown_wstring_b2a71c	Wstring
 _unknown_wstring_b2a724	8	unknown_wstring_b2a724	Wstring
 _unknown_zone_connections_83252c	32	unknown_zone_connections_83252c	DynamicVectorClass<ZoneConnectionClass>
 _version_object_00a40c88	80	version_object_00a40c88	VersionClass
-_wol_addresses_a3fbd4	96	wol_addresses_a3fbd4	IPXAddressClass[8]
 _wol_firewall_a71b18	16	wol_firewall_a71b18	FirewallSettings
 _wol_module_b292f8	240	wol_module_b292f8	_ATL_MODULE

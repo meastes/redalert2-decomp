@@ -5,5 +5,5 @@
 #include "shared/vector_class.hpp"
 #include "shared/reference_counted.hpp"
 #include "shared/vector_elements.hpp"
-#include "shared/world_domination_tour.hpp"
-template class VectorClass<rc_ptr<WorldDominationTour::Territory>>;  // instance: VectorClass<rc_ptr<WorldDominationTour::Territory>>::
+#include "shared/wdt_game_options.hpp"
+template class VectorClass<rc_ptr<WorldDominationTour::GameOption>>;  // instance: VectorClass<rc_ptr<WorldDominationTour::GameOption>>::

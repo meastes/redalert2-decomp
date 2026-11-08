@@ -3,6 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/hash_object.hpp"
-#include "shared/map_elements.hpp"
-template class VectorClass<HashObject<unsigned int, SubzoneConnectionStruct>>;  // instance: VectorClass<HashObject<unsigned int, SubzoneConnectionStruct>>::
+#include "shared/fogged_object.hpp"
+template class VectorClass<FoggedObjectClass::DrawRecord>;  // instance: VectorClass<FoggedObjectClass::DrawRecord>::

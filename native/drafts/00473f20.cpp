@@ -56,7 +56,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
                 }
             } else {
                 if (Map.unknown_117c && Map.unknown_11a4 != 0 && ((ObjectTypeClass const *)Map.unknown_11a4)->Kind_Of() == 7
-                        && unknown_4718b0(loco, (int)Map.unknown_11a4, (int)unknown_player_a35db4)
+                        && unknown_4718b0(loco, (BuildingTypeClass const *)Map.unknown_11a4, unknown_player_a35db4)
                         && !(((BuildingTypeClass *)Map.unknown_11a4)->unknown_bf0 != 0 && unknown_ec == 1)) {
                     ok = true;
                 }

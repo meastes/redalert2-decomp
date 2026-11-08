@@ -3,5 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/coord.hpp"
-template class VectorClass<Cell>;  // instance: VectorClass<Cell>::
+#include "shared/house_nodes.hpp"
+template class VectorClass<BaseNodeClass>;  // instance: VectorClass<BaseNodeClass>::

@@ -3,5 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/map_elements.hpp"
-template class VectorClass<ZoneConnectionClass>;  // instance: VectorClass<ZoneConnectionClass>::
+#include "shared/wstring.hpp"
+template class VectorClass<Wstring>;  // instance: VectorClass<Wstring>::

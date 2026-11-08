@@ -4131,1159 +4131,1189 @@ extern "C" unsigned char ra2_place_1516[] __asm__("_bullet_normal_drawer");
 extern "C" unsigned char ra2_place_1517[] __asm__("_unknown_convert_8323c8");
 extern "C" unsigned char ra2_place_1518[] __asm__("_DAT_008323cc");
 extern "C" unsigned char ra2_place_1519[] __asm__("_WWKeyboard");
-extern "C" unsigned char ra2_place_1520[] __asm__("_unknown_833680");
-extern "C" unsigned char ra2_place_1521[] __asm__("_unknown_833684");
-extern "C" unsigned char ra2_place_1522[] __asm__("_unknown_833968");
-extern "C" unsigned char ra2_place_1523[] __asm__("_MultiMix");
-extern "C" unsigned char ra2_place_1524[] __asm__("_unknown_ra2_mix_8374b8");
-extern "C" unsigned char ra2_place_1525[] __asm__("_unknown_language_mix_8374bc");
-extern "C" unsigned char ra2_place_1526[] __asm__("_unknown_theater_mix_8374c0");
-extern "C" unsigned char ra2_place_1527[] __asm__("_unknown_theater_mix_8374c4");
-extern "C" unsigned char ra2_place_1528[] __asm__("_unknown_theater_mix_8374c8");
-extern "C" unsigned char ra2_place_1529[] __asm__("_unknown_theater_mix_8374cc");
-extern "C" unsigned char ra2_place_1530[] __asm__("_unknown_theater_mix_8374d0");
-extern "C" unsigned char ra2_place_1531[] __asm__("_MoviesMix");
-extern "C" unsigned char ra2_place_1532[] __asm__("_unknown_mix_8374d8");
-extern "C" unsigned char ra2_place_1533[] __asm__("_MainMix");
-extern "C" unsigned char ra2_place_1534[] __asm__("_ConquerMix");
-extern "C" unsigned char ra2_place_1535[] __asm__("_CameoMix");
-extern "C" unsigned char ra2_place_1536[] __asm__("_unknown_cache_mix_8374e8");
-extern "C" unsigned char ra2_place_1537[] __asm__("_unknown_local_mix_8374ec");
-extern "C" unsigned char ra2_place_1538[] __asm__("_unknown_mix_8374f0");
-extern "C" unsigned char ra2_place_1539[] __asm__("_MapsMix");
-extern "C" unsigned char ra2_place_1540[] __asm__("_unknown_mix_8374f8");
-extern "C" unsigned char ra2_place_1541[] __asm__("_unknown_mix_8374fc");
-extern "C" unsigned char ra2_place_1542[] __asm__("_unknown_side_mix_837500");
-extern "C" unsigned char ra2_place_1543[] __asm__("_unknown_side_nc_mix_837504");
-extern "C" unsigned char ra2_place_1544[] __asm__("_unknown_int_839620");
-extern "C" unsigned char ra2_place_1545[] __asm__("_unknown_ini_8396d0");
-extern "C" unsigned char ra2_place_1546[] __asm__("_Rules");
-extern "C" unsigned char ra2_place_1547[] __asm__("_unknown_surface_839944");
-extern "C" unsigned char ra2_place_1548[] __asm__("_unknown_surface_839948");
-extern "C" unsigned char ra2_place_1549[] __asm__("_unknown_surface_839950");
-extern "C" unsigned char ra2_place_1550[] __asm__("_unknown_surface_839954");
-extern "C" unsigned char ra2_place_1551[] __asm__("_unknown_surface_839958");
-extern "C" unsigned char ra2_place_1552[] __asm__("_unknown_surface_83995c");
-extern "C" unsigned char ra2_place_1553[] __asm__("_unknown_surface_839964");
-extern "C" unsigned char ra2_place_1554[] __asm__("_unknown_surface_839968");
-extern "C" unsigned char ra2_place_1555[] __asm__("_DAT_0083996c");
-extern "C" unsigned char ra2_place_1556[] __asm__("_ToolTips");
-extern "C" unsigned char ra2_place_1557[] __asm__("_unknown_use_voxel_cache_839a58");
-extern "C" unsigned char ra2_place_1558[] __asm__("_unknown_camera_angle_839a5c");
-extern "C" unsigned char ra2_place_1559[] __asm__("_unknown_839a60");
-extern "C" unsigned char ra2_place_1560[] __asm__("_unknown_voxel_transform_839a70");
-extern "C" unsigned char ra2_place_1561[] __asm__("_unknown_839aa4");
-extern "C" unsigned char ra2_place_1562[] __asm__("_unknown_839aa8");
-extern "C" unsigned char ra2_place_1563[] __asm__("_unknown_839aac");
-extern "C" unsigned char ra2_place_1564[] __asm__("_unknown_839ab0");
-extern "C" unsigned char ra2_place_1565[] __asm__("_PacketTransport");
-extern "C" unsigned char ra2_place_1566[] __asm__("_WWMouse");
-extern "C" unsigned char ra2_place_1567[] __asm__("_ABufferPtr");
-extern "C" unsigned char ra2_place_1568[] __asm__("_buddy_00839d4c");
-extern "C" unsigned char ra2_place_1569[] __asm__("__AHandleCallbackFunc1");
-extern "C" unsigned char ra2_place_1570[] __asm__("__AHandleCallbackFunc2");
-extern "C" unsigned char ra2_place_1571[] __asm__("__handles");
-extern "C" unsigned char ra2_place_1572[] __asm__("_unknown_flag_83c4d4");
-extern "C" unsigned char ra2_place_1573[] __asm__("_unknown_flag_83c4d5");
-extern "C" unsigned char ra2_place_1574[] __asm__("_unknown_83c550");
-extern "C" unsigned char ra2_place_1575[] __asm__("_unknown_left_rotor_83c554");
-extern "C" unsigned char ra2_place_1576[] __asm__("_unknown_right_rotor_83c558");
-extern "C" unsigned char ra2_place_1577[] __asm__("_session_empty");
-extern "C" unsigned char ra2_place_1578[] __asm__("_unknown_alpha_table_83c670");
-extern "C" unsigned char ra2_place_1579[] __asm__("_unknown_alpha_table_ready_84c684");
-extern "C" unsigned char ra2_place_1580[] __asm__("_unknown_application_84c7dc");
-extern "C" unsigned char ra2_place_1581[] __asm__("_unknown_path_facing_offsets_84c838");
-extern "C" unsigned char ra2_place_1582[] __asm__("_unknown_path_levels_84c858");
-extern "C" unsigned char ra2_place_1583[] __asm__("_unknown_path_level_scale_84e800");
-extern "C" unsigned char ra2_place_1584[] __asm__("_DAT_0084e804");
-extern "C" unsigned char ra2_place_1585[] __asm__("_unknown_house_84e894");
-extern "C" unsigned char ra2_place_1586[] __asm__("_unknown_beacon_shape_84e98c");
-extern "C" unsigned char ra2_place_1587[] __asm__("_unknown_radar_beacon_shape_84e990");
-extern "C" unsigned char ra2_place_1588[] __asm__("_unknown_volume_84e9a8");
-extern "C" unsigned char ra2_place_1589[] __asm__("_BitText");
-extern "C" unsigned char ra2_place_1590[] __asm__("_BitFont");
-extern "C" unsigned char ra2_place_1591[] __asm__("_Blit_RLE_Default_Depth");
-extern "C" unsigned char ra2_place_1592[] __asm__("_exit_cell_none_0084ed10");
-extern "C" unsigned char ra2_place_1593[] __asm__("_Building_Radio_No_Coord_0084ed30");
-extern "C" unsigned char ra2_place_1594[] __asm__("_unknown_shape_empty_rect_84ed88");
-extern "C" unsigned char ra2_place_1595[] __asm__("_unknown_850298");
-extern "C" unsigned char ra2_place_1596[] __asm__("_unknown_building_depth_shape_85029c");
-extern "C" unsigned char ra2_place_1597[] __asm__("_unknown_cloak_surface_8502a0");
-extern "C" unsigned char ra2_place_1598[] __asm__("_unknown_poweroff_shape_8502a4");
-extern "C" unsigned char ra2_place_1599[] __asm__("_unknown_wrench_shape_8502a8");
-extern "C" unsigned char ra2_place_1600[] __asm__("_bullet_bridge_height");
-extern "C" unsigned char ra2_place_1601[] __asm__("_unknown_level_height_850348");
-extern "C" unsigned char ra2_place_1602[] __asm__("_unknown_score_list_850448");
-extern "C" unsigned char ra2_place_1603[] __asm__("_unknown_end_score_campaign_850488");
-extern "C" unsigned char ra2_place_1604[] __asm__("_unknown_end_score_time_85049c");
-extern "C" unsigned char ra2_place_1605[] __asm__("_unknown_end_score_list_8504a8");
-extern "C" unsigned char ra2_place_1606[] __asm__("_unknown_score_ready_8504c8");
-extern "C" unsigned char ra2_place_1607[] __asm__("_unknown_end_score_difficulty_8504d0");
-extern "C" unsigned char ra2_place_1608[] __asm__("_unknown_end_score_count_8504e8");
-extern "C" unsigned char ra2_place_1609[] __asm__("_unknown_score_850504");
-extern "C" unsigned char ra2_place_1610[] __asm__("_unknown_score_time_850508");
-extern "C" unsigned char ra2_place_1611[] __asm__("_unknown_score_count_85050c");
-extern "C" unsigned char ra2_place_1612[] __asm__("_unknown_score_flag_850510");
-extern "C" unsigned char ra2_place_1613[] __asm__("_unknown_score_name_850514");
-extern "C" unsigned char ra2_place_1614[] __asm__("_unknown_end_score_name_850554");
-extern "C" unsigned char ra2_place_1615[] __asm__("__ZN2CD7IsLocalE");
-extern "C" unsigned char ra2_place_1616[] __asm__("__ZN11CDFileClass5FirstE");
-extern "C" unsigned char ra2_place_1617[] __asm__("__ZN11CDFileClass14CurrentCDDriveE");
-extern "C" unsigned char ra2_place_1618[] __asm__("__ZN11CDFileClass11LastCDDriveE");
-extern "C" unsigned char ra2_place_1619[] __asm__("__ZN11CDFileClass7RawPathE");
-extern "C" unsigned char ra2_place_1620[] __asm__("_Clear_Icon_Large");
-extern "C" unsigned char ra2_place_1621[] __asm__("_unknown_cell_850bd8");
-extern "C" unsigned char ra2_place_1622[] __asm__("_unknown_level_850c40");
-extern "C" unsigned char ra2_place_1623[] __asm__("_Clear_Icon_Init");
-extern "C" unsigned char ra2_place_1624[] __asm__("_last_online_poll_00850e10");
-extern "C" unsigned char ra2_place_1625[] __asm__("_unknown_cell_offsets_00850e50");
-extern "C" unsigned char ra2_place_1626[] __asm__("_Ground");
-extern "C" unsigned char ra2_place_1627[] __asm__("_CrateData");
-extern "C" unsigned char ra2_place_1628[] __asm__("_CrateWater");
-extern "C" unsigned char ra2_place_1629[] __asm__("_unknown_encoded_buffer_00851170");
-extern "C" unsigned char ra2_place_1630[] __asm__("_unknown_decoded_buffer_00851570");
-extern "C" unsigned char ra2_place_1631[] __asm__("_unknown_campaign_buffer_008519c8");
-extern "C" unsigned char ra2_place_1632[] __asm__("_grand_south_step_00851a80");
-extern "C" unsigned char ra2_place_1633[] __asm__("_unknown_unload_offset_851a88");
-extern "C" unsigned char ra2_place_1634[] __asm__("_launcher_message_00851b3c");
-extern "C" unsigned char ra2_place_1635[] __asm__("_unknown_instance_00851ca8");
-extern "C" unsigned char ra2_place_1636[] __asm__("_unknown_flag_851cb0");
-extern "C" unsigned char ra2_place_1637[] __asm__("_unknown_palette_00851cc8");
-extern "C" unsigned char ra2_place_1638[] __asm__("_unknown_palette_00851fc8");
-extern "C" unsigned char ra2_place_1639[] __asm__("_unknown_palette_entries_00851fcc");
-extern "C" unsigned char ra2_place_1640[] __asm__("_DirectDrawObject");
-extern "C" unsigned char ra2_place_1641[] __asm__("_unknown_palette_attached_008523d4");
-extern "C" unsigned char ra2_place_1642[] __asm__("_PrimarySurface_8523d8");
-extern "C" unsigned char ra2_place_1643[] __asm__("_unknown_redraw_8523dc");
-extern "C" unsigned char ra2_place_1644[] __asm__("_direct_draw_width_008523e0");
-extern "C" unsigned char ra2_place_1645[] __asm__("_direct_draw_height_008523e4");
-extern "C" unsigned char ra2_place_1646[] __asm__("_direct_draw_depth_008523e8");
-extern "C" unsigned char ra2_place_1647[] __asm__("_direct_draw_error_handler_008523ec");
-extern "C" unsigned char ra2_place_1648[] __asm__("_unknown_dial_drag_00852478");
-extern "C" unsigned char ra2_place_1649[] __asm__("_unknown_buffer_852480");
-extern "C" unsigned char ra2_place_1650[] __asm__("_unknown_cell_852610");
-extern "C" unsigned char ra2_place_1651[] __asm__("__ZN12DisplayClass12TransIconsetE");
-extern "C" unsigned char ra2_place_1652[] __asm__("__ZN12DisplayClass14unknown_852630E");
-extern "C" unsigned char ra2_place_1653[] __asm__("_unknown_rect_85291c");
-extern "C" unsigned char ra2_place_1654[] __asm__("__ZN12DisplayClass12ShadowShapesE");
-extern "C" unsigned char ra2_place_1655[] __asm__("_unknown_height_step_852948");
-extern "C" unsigned char ra2_place_1656[] __asm__("_unknown_coord_852998");
-extern "C" unsigned char ra2_place_1657[] __asm__("_unknown_coord_852a20");
-extern "C" unsigned char ra2_place_1658[] __asm__("_counter_current_text_00852a68");
-extern "C" unsigned char ra2_place_1659[] __asm__("_counter_previous_text_00852ab8");
-extern "C" unsigned char ra2_place_1660[] __asm__("_PrimaryPixelFormat_852b38");
-extern "C" unsigned char ra2_place_1661[] __asm__("_unknown_clipper_852fb4");
-extern "C" unsigned char ra2_place_1662[] __asm__("_unknown_shift_852fb8");
-extern "C" unsigned char ra2_place_1663[] __asm__("_unknown_shift_852fbc");
-extern "C" unsigned char ra2_place_1664[] __asm__("_unknown_shift_852fc0");
-extern "C" unsigned char ra2_place_1665[] __asm__("_unknown_shift_852fc4");
-extern "C" unsigned char ra2_place_1666[] __asm__("_unknown_shift_852fc8");
-extern "C" unsigned char ra2_place_1667[] __asm__("_unknown_shift_852fcc");
-extern "C" unsigned char ra2_place_1668[] __asm__("_unknown_quarter_mask_852fd2");
-extern "C" unsigned char ra2_place_1669[] __asm__("_unknown_eighth_mask_852fd4");
-extern "C" unsigned char ra2_place_1670[] __asm__("_AllowStretchBlits_852fd6");
-extern "C" unsigned char ra2_place_1671[] __asm__("_unknown_flag_852fd7");
-extern "C" unsigned char ra2_place_1672[] __asm__("_unknown_direct3d2_852fdc");
-extern "C" unsigned char ra2_place_1673[] __asm__("_unknown_device_852fe0");
-extern "C" unsigned char ra2_place_1674[] __asm__("_unknown_viewport_852fe4");
-extern "C" unsigned char ra2_place_1675[] __asm__("_unknown_direct3d_852fe8");
-extern "C" unsigned char ra2_place_1676[] __asm__("_unknown_ebolt_zero_00853028");
-extern "C" unsigned char ra2_place_1677[] __asm__("_unknown_surface_853118");
-extern "C" unsigned char ra2_place_1678[] __asm__("_labels_0085311c");
-extern "C" unsigned char ra2_place_1679[] __asm__("_TaskForceText_00855960");
-extern "C" unsigned char ra2_place_1680[] __asm__("_DAT_008559f0");
-extern "C" unsigned char ra2_place_1681[] __asm__("_unknown_event_counter_855b9c");
-extern "C" unsigned char ra2_place_1682[] __asm__("_exception_text_00855ba8");
-extern "C" unsigned char ra2_place_1683[] __asm__("_ExceptionReturnStack");
-extern "C" unsigned char ra2_place_1684[] __asm__("_ExceptionReturnAddress");
-extern "C" unsigned char ra2_place_1685[] __asm__("_ImageHelp_00865c20");
-extern "C" unsigned char ra2_place_1686[] __asm__("_unknown_coord_865df8");
-extern "C" unsigned char ra2_place_1687[] __asm__("_unknown_approach_none_865f00");
-extern "C" unsigned char ra2_place_1688[] __asm__("_unknown_approach_bridge_height_865f60");
-extern "C" unsigned char ra2_place_1689[] __asm__("__ZN11GadgetClass7StuckOnE");
-extern "C" unsigned char ra2_place_1690[] __asm__("__ZN11GadgetClass8LastListE");
-extern "C" unsigned char ra2_place_1691[] __asm__("__ZN11GadgetClass7FocusedE");
-extern "C" unsigned char ra2_place_1692[] __asm__("__ZN11GadgetClass9MouseOverE");
-extern "C" unsigned char ra2_place_1693[] __asm__("_unknown_color_entries_8660d8");
-extern "C" unsigned char ra2_place_1694[] __asm__("_player_restarts_866250");
-extern "C" unsigned char ra2_place_1695[] __asm__("_DAT_00a35cdc");
-extern "C" unsigned char ra2_place_1696[] __asm__("_DAT_00a35d0c");
-extern "C" unsigned char ra2_place_1697[] __asm__("_LogicTriggerID");
-extern "C" unsigned char ra2_place_1698[] __asm__("_DAT_00a35d64");
-extern "C" unsigned char ra2_place_1699[] __asm__("_player_aborts_a35db0");
-extern "C" unsigned char ra2_place_1700[] __asm__("_player_wins_a35db1");
-extern "C" unsigned char ra2_place_1701[] __asm__("_global_6bc210_a35db4");
-extern "C" unsigned char ra2_place_1702[] __asm__("_unknown_buffer_a35e20");
-extern "C" unsigned char ra2_place_1703[] __asm__("_unknown_tag_position_a35e24");
-extern "C" unsigned char ra2_place_1704[] __asm__("_unknown_scenario_name_a35ea8");
-extern "C" unsigned char ra2_place_1705[] __asm__("_unknown_CellCount_a35f28");
-extern "C" unsigned char ra2_place_1706[] __asm__("_unknown_a3d23c");
-extern "C" unsigned char ra2_place_1707[] __asm__("_unknown_a3d258");
-extern "C" unsigned char ra2_place_1708[] __asm__("_DAT_00a3d290");
-extern "C" unsigned char ra2_place_1709[] __asm__("_unknown_a3d29c");
-extern "C" unsigned char ra2_place_1710[] __asm__("_unknown_lobby_state_a3d2b0");
-extern "C" unsigned char ra2_place_1711[] __asm__("_unknown_session_a3d2c4");
-extern "C" unsigned char ra2_place_1712[] __asm__("_player_statistics_00a3d584");
-extern "C" unsigned char ra2_place_1713[] __asm__("_DAT_00a3d8dc");
-extern "C" unsigned char ra2_place_1714[] __asm__("_unknown_address_a3db2c");
-extern "C" unsigned char ra2_place_1715[] __asm__("_unknown_flags_a3f600");
-extern "C" unsigned char ra2_place_1716[] __asm__("_unknown_dest_net_a3f608");
-extern "C" unsigned char ra2_place_1717[] __asm__("_unknown_address_a3f80c");
-extern "C" unsigned char ra2_place_1718[] __asm__("_DAT_00a3fa80");
-extern "C" unsigned char ra2_place_1719[] __asm__("_unknown_forward_address_a3fbac");
-extern "C" unsigned char ra2_place_1720[] __asm__("_unknown_forward_address_a3fbb8");
-extern "C" unsigned char ra2_place_1721[] __asm__("_unknown_forward_port_a3fbc4");
-extern "C" unsigned char ra2_place_1722[] __asm__("_unknown_address_a3fbc8");
-extern "C" unsigned char ra2_place_1723[] __asm__("_unknown_special_a40920");
-extern "C" unsigned char ra2_place_1724[] __asm__("_unknown_connection_a409c4");
-extern "C" unsigned char ra2_place_1725[] __asm__("_unknown_placing_a40b32");
-extern "C" unsigned char ra2_place_1726[] __asm__("_unknown_gas_cloud_system_a40d20");
-extern "C" unsigned char ra2_place_1727[] __asm__("_CustomSeed");
-extern "C" unsigned char ra2_place_1728[] __asm__("_unknown_flag_a40d44");
-extern "C" unsigned char ra2_place_1729[] __asm__("_unknown_flag_a40d45");
-extern "C" unsigned char ra2_place_1730[] __asm__("_unknown_int_a40d48");
-extern "C" unsigned char ra2_place_1731[] __asm__("_ReadyToQuit");
-extern "C" unsigned char ra2_place_1732[] __asm__("_unknown_flag_a40d84");
-extern "C" unsigned char ra2_place_1733[] __asm__("__ZN12GScreenClass7ButtonsE");
-extern "C" unsigned char ra2_place_1734[] __asm__("_unknown_cell_a40f10");
-extern "C" unsigned char ra2_place_1735[] __asm__("_unknown_coord_a40f48");
-extern "C" unsigned char ra2_place_1736[] __asm__("_low_power_notice_a40fc8");
-extern "C" unsigned char ra2_place_1737[] __asm__("_unknown_coord_a41080");
-extern "C" unsigned char ra2_place_1738[] __asm__("_unknown_invalid_cell_a410d8");
-extern "C" unsigned char ra2_place_1739[] __asm__("_unknown_coord_a410f8");
-extern "C" unsigned char ra2_place_1740[] __asm__("_unknown_bridge_height_a41120");
-extern "C" unsigned char ra2_place_1741[] __asm__("_unknown_level_height_a41130");
-extern "C" unsigned char ra2_place_1742[] __asm__("_unknown_infantry_shadow_00a41134");
-extern "C" unsigned char ra2_place_1743[] __asm__("_unknown_invalid_coord_a41170");
-extern "C" unsigned char ra2_place_1744[] __asm__("_unknown_a411b0");
-extern "C" unsigned char ra2_place_1745[] __asm__("_unknown_side_sound_a411e8");
-extern "C" unsigned char ra2_place_1746[] __asm__("_unknown_profile_cpu_text_a411fc");
-extern "C" unsigned char ra2_place_1747[] __asm__("_unknown_profile_text_a4127c");
-extern "C" unsigned char ra2_place_1748[] __asm__("_unknown_profile_vram_text_a41308");
-extern "C" unsigned char ra2_place_1749[] __asm__("_unknown_profile_ram_text_a41388");
-extern "C" unsigned char ra2_place_1750[] __asm__("_unknown_profile_blit_text_a41408");
-extern "C" unsigned char ra2_place_1751[] __asm__("_DAT_00a4149c");
-extern "C" unsigned char ra2_place_1752[] __asm__("_unknown_command_text_a4153c");
-extern "C" unsigned char ra2_place_1753[] __asm__("_unknown_record_mode_a41664");
-extern "C" unsigned char ra2_place_1754[] __asm__("_unknown_loading_time_a41668");
-extern "C" unsigned char ra2_place_1755[] __asm__("_unknown_grfxtxt_palette_a41670");
-extern "C" unsigned char ra2_place_1756[] __asm__("_unknown_grfxtxt_shape_a41674");
-extern "C" unsigned char ra2_place_1757[] __asm__("_unknown_grfxtxt_drawer_a41678");
-extern "C" unsigned char ra2_place_1758[] __asm__("_unknown_hover_time_a41680");
-extern "C" unsigned char ra2_place_1759[] __asm__("_unknown_hover_id_a41688");
-extern "C" unsigned char ra2_place_1760[] __asm__("_unknown_campaign_list_a4168d");
-extern "C" unsigned char ra2_place_1761[] __asm__("_unknown_pressed_a41690");
-extern "C" unsigned char ra2_place_1762[] __asm__("_unknown_a41698");
-extern "C" unsigned char ra2_place_1763[] __asm__("_unknown_cheat_text_a4169c");
-extern "C" unsigned char ra2_place_1764[] __asm__("_unknown_show_cursor_position_a416bc");
-extern "C" unsigned char ra2_place_1765[] __asm__("_unknown_flag_a417c8");
-extern "C" unsigned char ra2_place_1766[] __asm__("_StormActive");
-extern "C" unsigned char ra2_place_1767[] __asm__("_StormDeferment");
-extern "C" unsigned char ra2_place_1768[] __asm__("_DAT_00a5193c");
-extern "C" unsigned char ra2_place_1769[] __asm__("_StormOwner");
-extern "C" unsigned char ra2_place_1770[] __asm__("_StormTimeToEnd");
-extern "C" unsigned char ra2_place_1771[] __asm__("_DAT_00a51fd0");
-extern "C" unsigned char ra2_place_1772[] __asm__("_DAT_00a521d0");
-extern "C" unsigned char ra2_place_1773[] __asm__("_DAT_00a521dc");
-extern "C" unsigned char ra2_place_1774[] __asm__("_DAT_00a521e0");
-extern "C" unsigned char ra2_place_1775[] __asm__("_DAT_00a521e4");
-extern "C" unsigned char ra2_place_1776[] __asm__("_DAT_00a521e8");
-extern "C" unsigned char ra2_place_1777[] __asm__("_DAT_00a521f0");
-extern "C" unsigned char ra2_place_1778[] __asm__("_DAT_00a521f8");
-extern "C" unsigned char ra2_place_1779[] __asm__("_DAT_00a52200");
-extern "C" unsigned char ra2_place_1780[] __asm__("_DAT_00a52260");
-extern "C" unsigned char ra2_place_1781[] __asm__("_DAT_00a52264");
-extern "C" unsigned char ra2_place_1782[] __asm__("_DAT_00a52268");
-extern "C" unsigned char ra2_place_1783[] __asm__("_DAT_00a52280");
-extern "C" unsigned char ra2_place_1784[] __asm__("_unknown_message_count_a52298");
-extern "C" unsigned char ra2_place_1785[] __asm__("_DAT_00a5229c");
-extern "C" unsigned char ra2_place_1786[] __asm__("_DAT_00a522a0");
-extern "C" unsigned char ra2_place_1787[] __asm__("_DAT_00a522a4");
-extern "C" unsigned char ra2_place_1788[] __asm__("_DAT_00a522a8");
-extern "C" unsigned char ra2_place_1789[] __asm__("_DAT_00a522ac");
-extern "C" unsigned char ra2_place_1790[] __asm__("_DAT_00a522b0");
-extern "C" unsigned char ra2_place_1791[] __asm__("_DAT_00a522b4");
-extern "C" unsigned char ra2_place_1792[] __asm__("_DAT_00a522b8");
-extern "C" unsigned char ra2_place_1793[] __asm__("_DAT_00a522bc");
-extern "C" unsigned char ra2_place_1794[] __asm__("_DAT_00a522c0");
-extern "C" unsigned char ra2_place_1795[] __asm__("_DAT_00a522c4");
-extern "C" unsigned char ra2_place_1796[] __asm__("_DAT_00a522c8");
-extern "C" unsigned char ra2_place_1797[] __asm__("_DAT_00a522cc");
-extern "C" unsigned char ra2_place_1798[] __asm__("_DAT_00a522d0");
-extern "C" unsigned char ra2_place_1799[] __asm__("_DAT_00a522d4");
-extern "C" unsigned char ra2_place_1800[] __asm__("_DAT_00a522d8");
-extern "C" unsigned char ra2_place_1801[] __asm__("_DAT_00a522dc");
-extern "C" unsigned char ra2_place_1802[] __asm__("_DAT_00a522e0");
-extern "C" unsigned char ra2_place_1803[] __asm__("_unknown_address_text_a522e4");
-extern "C" unsigned char ra2_place_1804[] __asm__("__ZN12IPXConnClass14unknown_a52370E");
-extern "C" unsigned char ra2_place_1805[] __asm__("__ZN12IPXConnClass14unknown_a52398E");
-extern "C" unsigned char ra2_place_1806[] __asm__("__ZN12IPXConnClass13ConnectionNumE");
-extern "C" unsigned char ra2_place_1807[] __asm__("__ZN12IPXConnClass14unknown_a523c4E");
-extern "C" unsigned char ra2_place_1808[] __asm__("__ZN12IPXConnClass14unknown_a523d4E");
-extern "C" unsigned char ra2_place_1809[] __asm__("__ZN12IPXConnClass14unknown_a523e0E");
-extern "C" unsigned char ra2_place_1810[] __asm__("__ZN12IPXConnClass10ConfiguredE");
-extern "C" unsigned char ra2_place_1811[] __asm__("__ZN12IPXConnClass10SocketOpenE");
-extern "C" unsigned char ra2_place_1812[] __asm__("__ZN12IPXConnClass9ListeningE");
-extern "C" unsigned char ra2_place_1813[] __asm__("_unknown_cell_a52520");
-extern "C" unsigned char ra2_place_1814[] __asm__("_DAT_00a52580");
-extern "C" unsigned char ra2_place_1815[] __asm__("_unknown_tileset_a52584");
-extern "C" unsigned char ra2_place_1816[] __asm__("_unknown_tileset_a52588");
-extern "C" unsigned char ra2_place_1817[] __asm__("_unknown_tileset_a5258c");
-extern "C" unsigned char ra2_place_1818[] __asm__("_unknown_tileset_a52590");
-extern "C" unsigned char ra2_place_1819[] __asm__("_unknown_tileset_a52c60");
-extern "C" unsigned char ra2_place_1820[] __asm__("_unknown_tileset_a52c64");
-extern "C" unsigned char ra2_place_1821[] __asm__("_unknown_tileset_a52c68");
-extern "C" unsigned char ra2_place_1822[] __asm__("_unknown_tileset_a52c70");
-extern "C" unsigned char ra2_place_1823[] __asm__("_unknown_tileset_a52c74");
-extern "C" unsigned char ra2_place_1824[] __asm__("_unknown_tileset_a52c80");
-extern "C" unsigned char ra2_place_1825[] __asm__("_unknown_tileset_a52e64");
-extern "C" unsigned char ra2_place_1826[] __asm__("_unknown_tileset_a52e68");
-extern "C" unsigned char ra2_place_1827[] __asm__("_unknown_tileset_a52e6c");
-extern "C" unsigned char ra2_place_1828[] __asm__("_unknown_tileset_a52e70");
-extern "C" unsigned char ra2_place_1829[] __asm__("__ZN22IsometricTileTypeClass17ShadowCasterTilesE");
-extern "C" unsigned char ra2_place_1830[] __asm__("_unknown_tileset_a52ea0");
-extern "C" unsigned char ra2_place_1831[] __asm__("_unknown_tileset_a52ea4");
-extern "C" unsigned char ra2_place_1832[] __asm__("_unknown_tileset_a52ea8");
-extern "C" unsigned char ra2_place_1833[] __asm__("_unknown_cell_a52eac");
-extern "C" unsigned char ra2_place_1834[] __asm__("_SlopeZShapes");
-extern "C" unsigned char ra2_place_1835[] __asm__("_DAT_00a52eb4");
-extern "C" unsigned char ra2_place_1836[] __asm__("_DAT_00a52eb8");
-extern "C" unsigned char ra2_place_1837[] __asm__("_DAT_00a52ebc");
-extern "C" unsigned char ra2_place_1838[] __asm__("_unknown_tileset_a52ee0");
-extern "C" unsigned char ra2_place_1839[] __asm__("_unknown_tileset_a52ee4");
-extern "C" unsigned char ra2_place_1840[] __asm__("_unknown_tileset_a52ee8");
-extern "C" unsigned char ra2_place_1841[] __asm__("_unknown_tileset_a52eec");
-extern "C" unsigned char ra2_place_1842[] __asm__("_unknown_tileset_a52ef0");
-extern "C" unsigned char ra2_place_1843[] __asm__("_unknown_tileset_a52ef4");
-extern "C" unsigned char ra2_place_1844[] __asm__("_unknown_tileset_a52ef8");
-extern "C" unsigned char ra2_place_1845[] __asm__("_unknown_tileset_a52efc");
-extern "C" unsigned char ra2_place_1846[] __asm__("_unknown_tileset_a52f00");
-extern "C" unsigned char ra2_place_1847[] __asm__("_unknown_tileset_a52f04");
-extern "C" unsigned char ra2_place_1848[] __asm__("_unknown_tileset_a52f80");
-extern "C" unsigned char ra2_place_1849[] __asm__("_unknown_tileset_a52f84");
-extern "C" unsigned char ra2_place_1850[] __asm__("_unknown_tile_sets_a52f90");
-extern "C" unsigned char ra2_place_1851[] __asm__("_unknown_tileset_a53390");
-extern "C" unsigned char ra2_place_1852[] __asm__("_unknown_tileset_a53394");
-extern "C" unsigned char ra2_place_1853[] __asm__("_unknown_tileset_a6cb68");
-extern "C" unsigned char ra2_place_1854[] __asm__("_unknown_tileset_a6cb6c");
-extern "C" unsigned char ra2_place_1855[] __asm__("_unknown_tileset_a6cb70");
-extern "C" unsigned char ra2_place_1856[] __asm__("_unknown_tileset_a6cb74");
-extern "C" unsigned char ra2_place_1857[] __asm__("_unknown_tileset_a6cb78");
-extern "C" unsigned char ra2_place_1858[] __asm__("_unknown_tileset_a6cb7c");
-extern "C" unsigned char ra2_place_1859[] __asm__("_unknown_tileset_a6cf4c");
-extern "C" unsigned char ra2_place_1860[] __asm__("_unknown_tileset_a6cf50");
-extern "C" unsigned char ra2_place_1861[] __asm__("_unknown_tileset_a6cf54");
-extern "C" unsigned char ra2_place_1862[] __asm__("_unknown_tileset_a6cf58");
-extern "C" unsigned char ra2_place_1863[] __asm__("_unknown_tileset_a6dd00");
-extern "C" unsigned char ra2_place_1864[] __asm__("_unknown_tileset_a6dd04");
-extern "C" unsigned char ra2_place_1865[] __asm__("_unknown_tileset_a6dd08");
-extern "C" unsigned char ra2_place_1866[] __asm__("_unknown_tileset_a6dd0c");
-extern "C" unsigned char ra2_place_1867[] __asm__("_unknown_tileset_a6e010");
-extern "C" unsigned char ra2_place_1868[] __asm__("_unknown_tileset_a6e014");
-extern "C" unsigned char ra2_place_1869[] __asm__("_unknown_tileset_a6e018");
-extern "C" unsigned char ra2_place_1870[] __asm__("_unknown_tileset_a6e028");
-extern "C" unsigned char ra2_place_1871[] __asm__("_unknown_tileset_a6e038");
-extern "C" unsigned char ra2_place_1872[] __asm__("_unknown_tileset_a6e0e0");
-extern "C" unsigned char ra2_place_1873[] __asm__("_unknown_tileset_a6e0e4");
-extern "C" unsigned char ra2_place_1874[] __asm__("_unknown_tileset_a6e0e8");
-extern "C" unsigned char ra2_place_1875[] __asm__("_unknown_tileset_a6e0f8");
-extern "C" unsigned char ra2_place_1876[] __asm__("_unknown_tileset_a6e0fc");
-extern "C" unsigned char ra2_place_1877[] __asm__("_DAT_00a6e38c");
-extern "C" unsigned char ra2_place_1878[] __asm__("_unknown_tile_set_count_a6e390");
-extern "C" unsigned char ra2_place_1879[] __asm__("_unknown_coord_a6e3e0");
-extern "C" unsigned char ra2_place_1880[] __asm__("_unknown_load_progress_a6e7c4");
-extern "C" unsigned char ra2_place_1881[] __asm__("_unknown_coord_a6ea60");
-extern "C" unsigned char ra2_place_1882[] __asm__("_COMReferences_00a6eb14");
-extern "C" unsigned char ra2_place_1883[] __asm__("_unknown_frames_this_second_a6eb18");
-extern "C" unsigned char ra2_place_1884[] __asm__("_unknown_a6eb1c");
-extern "C" unsigned char ra2_place_1885[] __asm__("_accumulated_fps_00a6eb20");
-extern "C" unsigned char ra2_place_1886[] __asm__("_fps_sample_count_00a6eb24");
-extern "C" unsigned char ra2_place_1887[] __asm__("_unknown_detail_reduced_a6eb28");
-extern "C" unsigned char ra2_place_1888[] __asm__("_unknown_main_loop_flag_a6eb30");
-extern "C" unsigned char ra2_place_1889[] __asm__("_unknown_team_event_a6ebc4");
-extern "C" unsigned char ra2_place_1890[] __asm__("_unknown_team_number_a6ebc8");
-extern "C" unsigned char ra2_place_1891[] __asm__("_unknown_net_frame_delay_a6ebcc");
-extern "C" unsigned char ra2_place_1892[] __asm__("_unknown_flag_a6ebd0");
-extern "C" unsigned char ra2_place_1893[] __asm__("_unknown_scroll_keys_a6ebdc");
-extern "C" unsigned char ra2_place_1894[] __asm__("_unknown_chat_target_a6ebe0");
-extern "C" unsigned char ra2_place_1895[] __asm__("_unknown_cell_a6f238");
-extern "C" unsigned char ra2_place_1896[] __asm__("_unknown_shore_offsets_a6f91c");
-extern "C" unsigned char ra2_place_1897[] __asm__("_unknown_int_a6fa2c");
-extern "C" unsigned char ra2_place_1898[] __asm__("_unknown_zone_a6fc34");
-extern "C" unsigned char ra2_place_1899[] __asm__("_unknown_preview_a6fee4");
-extern "C" unsigned char ra2_place_1900[] __asm__("_unknown_vegetation_min_a6fff0");
-extern "C" unsigned char ra2_place_1901[] __asm__("_unknown_vegetation_max_a7000c");
-extern "C" unsigned char ra2_place_1902[] __asm__("_unknown_generate_flag_a70068");
-extern "C" unsigned char ra2_place_1903[] __asm__("_unknown_seed_text_a709c8");
-extern "C" unsigned char ra2_place_1904[] __asm__("_unknown_map_min_a70a1c");
-extern "C" unsigned char ra2_place_1905[] __asm__("_unknown_map_max_a70a20");
-extern "C" unsigned char ra2_place_1906[] __asm__("_DAT_00a70a24");
-extern "C" unsigned char ra2_place_1907[] __asm__("_unknown_map_region_next_index_a70a28");
-extern "C" unsigned char ra2_place_1908[] __asm__("_unknown_access_min_a70a2c");
-extern "C" unsigned char ra2_place_1909[] __asm__("_unknown_urban_min_a70a54");
-extern "C" unsigned char ra2_place_1910[] __asm__("_unknown_coord_a70b18");
-extern "C" unsigned char ra2_place_1911[] __asm__("_unknown_modem_host_a70de4");
-extern "C" unsigned char ra2_place_1912[] __asm__("_unknown_mono_text_color_a70de8");
-extern "C" unsigned char ra2_place_1913[] __asm__("_mono_test_streams_a70dec");
-extern "C" unsigned char ra2_place_1914[] __asm__("_unknown_mono_back_color_a70e00");
-extern "C" unsigned char ra2_place_1915[] __asm__("_unknown_mono_pages_a70e40");
-extern "C" unsigned char ra2_place_1916[] __asm__("_mono_test_handle_a70e70");
-extern "C" unsigned char ra2_place_1917[] __asm__("_unknown_mono_height_a70ea0");
-extern "C" unsigned char ra2_place_1918[] __asm__("_mono_audio_toggle_a70eec");
-extern "C" unsigned char ra2_place_1919[] __asm__("_mono_voice_index_a70ef0");
-extern "C" unsigned char ra2_place_1920[] __asm__("_mono_test_handle_a70ef4");
-extern "C" unsigned char ra2_place_1921[] __asm__("_mono_stream_count_a70ef8");
-extern "C" unsigned char ra2_place_1922[] __asm__("_mono_voice_priority_a70efc");
-extern "C" unsigned char ra2_place_1923[] __asm__("_unknown_mono_instance_a70f00");
-extern "C" unsigned char ra2_place_1924[] __asm__("_unknown_mono_parent_a70f04");
-extern "C" unsigned char ra2_place_1925[] __asm__("_unknown_mono_allowed_a70f08");
-extern "C" unsigned char ra2_place_1926[] __asm__("_DAT_00a70f09");
-extern "C" unsigned char ra2_place_1927[] __asm__("_DAT_00a70f0a");
-extern "C" unsigned char ra2_place_1928[] __asm__("_DAT_00a70f0c");
-extern "C" unsigned char ra2_place_1929[] __asm__("_unknown_mono_window_a70f10");
-extern "C" unsigned char ra2_place_1930[] __asm__("_unknown_mono_font_a70f14");
-extern "C" unsigned char ra2_place_1931[] __asm__("__ZN10MouseClass11MouseShapesE");
-extern "C" unsigned char ra2_place_1932[] __asm__("__ZN10MouseClass20MouseShapesAllocatedE");
-extern "C" unsigned char ra2_place_1933[] __asm__("_unknown_audio_paused_a7101c");
-extern "C" unsigned char ra2_place_1934[] __asm__("_unknown_colors_a71118");
-extern "C" unsigned char ra2_place_1935[] __asm__("_unknown_sorted_scores_a715f0");
-extern "C" unsigned char ra2_place_1936[] __asm__("_unknown_score_a71684");
-extern "C" unsigned char ra2_place_1937[] __asm__("_unknown_score_a71688");
-extern "C" unsigned char ra2_place_1938[] __asm__("_Message_Intercept_Handler");
-extern "C" unsigned char ra2_place_1939[] __asm__("_unknown_flag_a71a3c");
-extern "C" unsigned char ra2_place_1940[] __asm__("_unknown_flag_a71a3d");
-extern "C" unsigned char ra2_place_1941[] __asm__("_unknown_a71b28");
-extern "C" unsigned char ra2_place_1942[] __asm__("_unknown_a71bc4");
-extern "C" unsigned char ra2_place_1943[] __asm__("_net2_useroptions_a71bdc");
-extern "C" unsigned char ra2_place_1944[] __asm__("_unknown_column_a71de8");
-extern "C" unsigned char ra2_place_1945[] __asm__("_unknown_column_a71e18");
-extern "C" unsigned char ra2_place_1946[] __asm__("_unknown_column_a71e28");
-extern "C" unsigned char ra2_place_1947[] __asm__("_unknown_lobby_result_a71e8c");
-extern "C" unsigned char ra2_place_1948[] __asm__("_unknown_game_index_a71e90");
-extern "C" unsigned char ra2_place_1949[] __asm__("_unknown_join_state_a71e94");
-extern "C" unsigned char ra2_place_1950[] __asm__("_unknown_lock_a71e98");
-extern "C" unsigned char ra2_place_1951[] __asm__("_unknown_a71e99");
-extern "C" unsigned char ra2_place_1952[] __asm__("_unknown_a71e9c");
-extern "C" unsigned char ra2_place_1953[] __asm__("_unknown_a71ea0");
-extern "C" unsigned char ra2_place_1954[] __asm__("_unknown_a71ea4");
-extern "C" unsigned char ra2_place_1955[] __asm__("_unknown_list_text_a71ea8");
-extern "C" unsigned char ra2_place_1956[] __asm__("_unknown_color_list_old_a726b0");
-extern "C" unsigned char ra2_place_1957[] __asm__("_unknown_color_list_a726d4");
-extern "C" unsigned char ra2_place_1958[] __asm__("_unknown_country_list_a726f8");
-extern "C" unsigned char ra2_place_1959[] __asm__("_unknown_slot_names_a72734");
-extern "C" unsigned char ra2_place_1960[] __asm__("_unknown_sent_file_name_a72890");
-extern "C" unsigned char ra2_place_1961[] __asm__("_unknown_sent_digest_a728a0");
-extern "C" unsigned char ra2_place_1962[] __asm__("_unknown_lobby_map_a728d0");
-extern "C" unsigned char ra2_place_1963[] __asm__("_unknown_lobby_dialog_a728e0");
-extern "C" unsigned char ra2_place_1964[] __asm__("_unknown_slot_names_old_a728e4");
-extern "C" unsigned char ra2_place_1965[] __asm__("_unknown_country_list_old_a72a44");
-extern "C" unsigned char ra2_place_1966[] __asm__("_unknown_lobby_map_name_a72a68");
-extern "C" unsigned char ra2_place_1967[] __asm__("_global_5cd380_a72c68");
-extern "C" unsigned char ra2_place_1968[] __asm__("_unknown_lobby_map_a72c80");
-extern "C" unsigned char ra2_place_1969[] __asm__("_unknown_sent_map_name_a72c90");
-extern "C" unsigned char ra2_place_1970[] __asm__("_unknown_dialog_preview_a72ce8");
-extern "C" unsigned char ra2_place_1971[] __asm__("_unknown_chat_a72cfc");
-extern "C" unsigned char ra2_place_1972[] __asm__("_unknown_ladder_client_a72d00");
-extern "C" unsigned char ra2_place_1973[] __asm__("_unknown_download_a72d04");
-extern "C" unsigned char ra2_place_1974[] __asm__("_unknown_a72d08");
-extern "C" unsigned char ra2_place_1975[] __asm__("_unknown_lobby_texts_a72d0c");
-extern "C" unsigned char ra2_place_1976[] __asm__("_unknown_house_a72d28");
-extern "C" unsigned char ra2_place_1977[] __asm__("_DAT_00a72d2c");
-extern "C" unsigned char ra2_place_1978[] __asm__("_DAT_00a72d30");
-extern "C" unsigned char ra2_place_1979[] __asm__("_DAT_00a72d34");
-extern "C" unsigned char ra2_place_1980[] __asm__("_DAT_00a72d38");
-extern "C" unsigned char ra2_place_1981[] __asm__("_DAT_00a72d3c");
-extern "C" unsigned char ra2_place_1982[] __asm__("_DAT_00a72d40");
-extern "C" unsigned char ra2_place_1983[] __asm__("_DAT_00a72d44");
-extern "C" unsigned char ra2_place_1984[] __asm__("_unknown_sent_time_a72d48");
-extern "C" unsigned char ra2_place_1985[] __asm__("_unknown_send_pending_a72d4c");
-extern "C" unsigned char ra2_place_1986[] __asm__("_unknown_sent_2a_a72d4d");
-extern "C" unsigned char ra2_place_1987[] __asm__("_unknown_sent_2b_a72d4e");
-extern "C" unsigned char ra2_place_1988[] __asm__("_unknown_sent_2c_a72d4f");
-extern "C" unsigned char ra2_place_1989[] __asm__("_unknown_sent_a8_a72d50");
-extern "C" unsigned char ra2_place_1990[] __asm__("_unknown_sent_crates_a72d51");
-extern "C" unsigned char ra2_place_1991[] __asm__("_unknown_a72d52");
-extern "C" unsigned char ra2_place_1992[] __asm__("_unknown_extra_slot_a72d5c");
-extern "C" unsigned char ra2_place_1993[] __asm__("_DialString");
-extern "C" unsigned char ra2_place_1994[] __asm__("_DialSettings");
-extern "C" unsigned char ra2_place_1995[] __asm__("_ModemRXString");
-extern "C" unsigned char ra2_place_1996[] __asm__("_unknown_modem_aborted_a72ec4");
-extern "C" unsigned char ra2_place_1997[] __asm__("_unknown_a72fdc");
-extern "C" unsigned char ra2_place_1998[] __asm__("_DAT_00a72fe0");
-extern "C" unsigned char ra2_place_1999[] __asm__("_DAT_00a72fe4");
-extern "C" unsigned char ra2_place_2000[] __asm__("_DAT_00a72fe8");
-extern "C" unsigned char ra2_place_2001[] __asm__("_DAT_00a72fec");
-extern "C" unsigned char ra2_place_2002[] __asm__("_DAT_00a72ff0");
-extern "C" unsigned char ra2_place_2003[] __asm__("_DAT_00a72ff1");
-extern "C" unsigned char ra2_place_2004[] __asm__("_DAT_00a72ff2");
-extern "C" unsigned char ra2_place_2005[] __asm__("_DAT_00a72ff3");
-extern "C" unsigned char ra2_place_2006[] __asm__("_SpotLight_Surfaces");
-extern "C" unsigned char ra2_place_2007[] __asm__("_SpotLight_MMX_Buffer");
-extern "C" unsigned char ra2_place_2008[] __asm__("__ZN9OwnerDraw20unknown_color_a7338cE");
-extern "C" unsigned char ra2_place_2009[] __asm__("_unknown_active_messages_a73398");
-extern "C" unsigned char ra2_place_2010[] __asm__("__ZN9OwnerDraw20unknown_color_a733d0E");
-extern "C" unsigned char ra2_place_2011[] __asm__("__ZN9OwnerDraw20unknown_color_a733e4E");
-extern "C" unsigned char ra2_place_2012[] __asm__("__ZN9OwnerDraw20unknown_color_a7363cE");
-extern "C" unsigned char ra2_place_2013[] __asm__("__ZN9OwnerDraw20unknown_color_a736d0E");
-extern "C" unsigned char ra2_place_2014[] __asm__("__ZN9OwnerDraw20unknown_color_a737e0E");
-extern "C" unsigned char ra2_place_2015[] __asm__("__ZN9OwnerDraw28unknown_visible_count_a737e4E");
-extern "C" unsigned char ra2_place_2016[] __asm__("__ZN9OwnerDraw20unknown_color_a737e8E");
-extern "C" unsigned char ra2_place_2017[] __asm__("__ZN9OwnerDraw20unknown_color_a737ecE");
-extern "C" unsigned char ra2_place_2018[] __asm__("__ZN9OwnerDraw22unknown_tooltip_a737f0E");
-extern "C" unsigned char ra2_place_2019[] __asm__("_g4_5edf60_a73800");
-extern "C" unsigned char ra2_place_2020[] __asm__("__ZN9OwnerDraw20unknown_color_a73910E");
-extern "C" unsigned char ra2_place_2021[] __asm__("_unknown_modal_windows_a73918");
-extern "C" unsigned char ra2_place_2022[] __asm__("__ZN9OwnerDraw20unknown_color_a73928E");
-extern "C" unsigned char ra2_place_2023[] __asm__("_unknown_edit_buffer_a7393c");
-extern "C" unsigned char ra2_place_2024[] __asm__("__ZN9OwnerDraw20unknown_color_a7613cE");
-extern "C" unsigned char ra2_place_2025[] __asm__("__ZN9OwnerDraw20unknown_color_a76140E");
-extern "C" unsigned char ra2_place_2026[] __asm__("__ZN9OwnerDraw20unknown_color_a76150E");
-extern "C" unsigned char ra2_place_2027[] __asm__("__ZN9OwnerDraw20unknown_color_a76154E");
-extern "C" unsigned char ra2_place_2028[] __asm__("__ZN9OwnerDraw20unknown_color_a76158E");
-extern "C" unsigned char ra2_place_2029[] __asm__("__ZN9OwnerDraw20unknown_color_a7615cE");
-extern "C" unsigned char ra2_place_2030[] __asm__("__ZN9OwnerDraw20unknown_color_a763b0E");
-extern "C" unsigned char ra2_place_2031[] __asm__("__ZN9OwnerDraw28unknown_visible_count_a763b4E");
-extern "C" unsigned char ra2_place_2032[] __asm__("__ZN9OwnerDraw20unknown_color_a763b8E");
-extern "C" unsigned char ra2_place_2033[] __asm__("__ZN9OwnerDraw21unknown_dialog_a763ccE");
-extern "C" unsigned char ra2_place_2034[] __asm__("__ZN9OwnerDraw20unknown_color_a763d4E");
-extern "C" unsigned char ra2_place_2035[] __asm__("__ZN9OwnerDraw28unknown_surface_count_a763d8E");
-extern "C" unsigned char ra2_place_2036[] __asm__("__ZN9OwnerDraw27unknown_caret_hidden_a763ecE");
-extern "C" unsigned char ra2_place_2037[] __asm__("__ZN9OwnerDraw33unknown_classes_registered_a763f0E");
-extern "C" unsigned char ra2_place_2038[] __asm__("__ZN9OwnerDraw26unknown_masks_ready_a763f8E");
-extern "C" unsigned char ra2_place_2039[] __asm__("__ZN9OwnerDraw27unknown_tooltip_time_a763fcE");
-extern "C" unsigned char ra2_place_2040[] __asm__("__ZN9OwnerDraw34unknown_mouse_release_depth_a76410E");
-extern "C" unsigned char ra2_place_2041[] __asm__("_unknown_scheme_table_a76414");
-extern "C" unsigned char ra2_place_2042[] __asm__("_unknown_sink_a76680");
-extern "C" unsigned char ra2_place_2043[] __asm__("_DAT_00a76684");
-extern "C" unsigned char ra2_place_2044[] __asm__("_DAT_00a766b0");
-extern "C" unsigned char ra2_place_2045[] __asm__("_unknown_counts_a766b4");
-extern "C" unsigned char ra2_place_2046[] __asm__("_unknown_flag_a766c8");
-extern "C" unsigned char ra2_place_2047[] __asm__("_DAT_00a766f8");
-extern "C" unsigned char ra2_place_2048[] __asm__("_unknown_a766fc");
-extern "C" unsigned char ra2_place_2049[] __asm__("_unknown_point_a76728");
-extern "C" unsigned char ra2_place_2050[] __asm__("_DAT_00a76750");
-extern "C" unsigned char ra2_place_2051[] __asm__("_unknown_flag_a76770");
-extern "C" unsigned char ra2_place_2052[] __asm__("_unknown_flag_a76788");
-extern "C" unsigned char ra2_place_2053[] __asm__("_unknown_node_a7678c");
-extern "C" unsigned char ra2_place_2054[] __asm__("_unknown_flag_a76790");
-extern "C" unsigned char ra2_place_2055[] __asm__("_DAT_00a767a4");
-extern "C" unsigned char ra2_place_2056[] __asm__("_unknown_flag_a767a5");
-extern "C" unsigned char ra2_place_2057[] __asm__("_unknown_flag_a767a6");
-extern "C" unsigned char ra2_place_2058[] __asm__("_unknown_text_a767e0");
-extern "C" unsigned char ra2_place_2059[] __asm__("__ZN10PowerClass10PowerShapeE");
-extern "C" unsigned char ra2_place_2060[] __asm__("__ZN10PowerClass19PowerShapeAllocatedE");
-extern "C" unsigned char ra2_place_2061[] __asm__("_unknown_mouse_x_a76b70");
-extern "C" unsigned char ra2_place_2062[] __asm__("_unknown_sync_counts_a76b74");
-extern "C" unsigned char ra2_place_2063[] __asm__("_GameCRC");
-extern "C" unsigned char ra2_place_2064[] __asm__("_unknown_mouse_y_a76c78");
-extern "C" unsigned char ra2_place_2065[] __asm__("_unknown_response_times_a76c88");
-extern "C" unsigned char ra2_place_2066[] __asm__("_unknown_megamission_lists_a76ca8");
-extern "C" unsigned char ra2_place_2067[] __asm__("_unknown_reconnect_dialog_a780d4");
-extern "C" unsigned char ra2_place_2068[] __asm__("_unknown_random_aabce0");
-extern "C" unsigned char ra2_place_2069[] __asm__("_unknown_megamission_counts_aabdb0");
-extern "C" unsigned char ra2_place_2070[] __asm__("_unknown_elapsed_aabe90");
-extern "C" unsigned char ra2_place_2071[] __asm__("_unknown_megamission_frames_aabe94");
-extern "C" unsigned char ra2_place_2072[] __asm__("_unknown_reconnect_result_ab5ed0");
-extern "C" unsigned char ra2_place_2073[] __asm__("_unknown_flag_ab5ed8");
-extern "C" unsigned char ra2_place_2074[] __asm__("_CRC");
-extern "C" unsigned char ra2_place_2075[] __asm__("_unknown_ab62dc");
-extern "C" unsigned char ra2_place_2076[] __asm__("_unknown_ab62e0");
-extern "C" unsigned char ra2_place_2077[] __asm__("_unknown_frame_syncs_ab62e4");
-extern "C" unsigned char ra2_place_2078[] __asm__("_unknown_extra_sync_info_ab62e8");
-extern "C" unsigned char ra2_place_2079[] __asm__("_unknown_ab62ec");
-extern "C" unsigned char ra2_place_2080[] __asm__("_unknown_ab62f0");
-extern "C" unsigned char ra2_place_2081[] __asm__("_unknown_ab62f4");
-extern "C" unsigned char ra2_place_2082[] __asm__("_unknown_ab62f5");
-extern "C" unsigned char ra2_place_2083[] __asm__("_unknown_ab62f8");
-extern "C" unsigned char ra2_place_2084[] __asm__("_unknown_flag_ab62fc");
-extern "C" unsigned char ra2_place_2085[] __asm__("_unknown_seconds_ab6300");
-extern "C" unsigned char ra2_place_2086[] __asm__("_unknown_last_kick_ab6304");
-extern "C" unsigned char ra2_place_2087[] __asm__("__ZN10RadarClass20unknown_shape_ab6318E");
-extern "C" unsigned char ra2_place_2088[] __asm__("__ZN10RadarClass19unknown_rect_ab6320E");
-extern "C" unsigned char ra2_place_2089[] __asm__("_unknown_int_ab6338");
-extern "C" unsigned char ra2_place_2090[] __asm__("__ZN10RadarClass20unknown_shape_ab6350E");
-extern "C" unsigned char ra2_place_2091[] __asm__("__ZN10RadarClass30unknown_shape_ab6318_allocatedE");
-extern "C" unsigned char ra2_place_2092[] __asm__("__ZN10RadarClass30unknown_shape_ab6350_allocatedE");
-extern "C" unsigned char ra2_place_2093[] __asm__("_unknown_int_ab6468");
-extern "C" unsigned char ra2_place_2094[] __asm__("_Audio_Stream_In_Read");
-extern "C" unsigned char ra2_place_2095[] __asm__("_Restate_Text_00ab66e8");
-extern "C" unsigned char ra2_place_2096[] __asm__("_unknown_event_cells_ab6788");
-extern "C" unsigned char ra2_place_2097[] __asm__("_unknown_event_empty_cell_ab67a8");
-extern "C" unsigned char ra2_place_2098[] __asm__("_g2_63b590_ab67b8");
-extern "C" unsigned char ra2_place_2099[] __asm__("_g2_63b590_ab67ba");
-extern "C" unsigned char ra2_place_2100[] __asm__("_unknown_event_last_ab67c8");
-extern "C" unsigned char ra2_place_2101[] __asm__("_unknown_event_current_ab6818");
-extern "C" unsigned char ra2_place_2102[] __asm__("_unknown_rgb_ab682c");
-extern "C" unsigned char ra2_place_2103[] __asm__("_unknown_mode_ab6831");
-extern "C" unsigned char ra2_place_2104[] __asm__("_unknown_flag_ab6832");
-extern "C" unsigned char ra2_place_2105[] __asm__("_unknown_flag_ab6833");
-extern "C" unsigned char ra2_place_2106[] __asm__("_unknown_rgb_ab6834");
-extern "C" unsigned char ra2_place_2107[] __asm__("_unknown_rgb_ab6839");
-extern "C" unsigned char ra2_place_2108[] __asm__("_unknown_rgb_ab683c");
-extern "C" unsigned char ra2_place_2109[] __asm__("_unknown_rgb_ab6841");
-extern "C" unsigned char ra2_place_2110[] __asm__("_unknown_rgb_ab6844");
-extern "C" unsigned char ra2_place_2111[] __asm__("_unknown_rgb_ab6849");
-extern "C" unsigned char ra2_place_2112[] __asm__("_unknown_rgb_ab684c");
-extern "C" unsigned char ra2_place_2113[] __asm__("_unknown_coord_ab6888");
-extern "C" unsigned char ra2_place_2114[] __asm__("_CoopCampUniqueID");
-extern "C" unsigned char ra2_place_2115[] __asm__("_CoopCampLoaded");
-extern "C" unsigned char ra2_place_2116[] __asm__("_DAT_00ab6e88");
-extern "C" unsigned char ra2_place_2117[] __asm__("__DAT_00ab6ea8");
-extern "C" unsigned char ra2_place_2118[] __asm__("_DAT_00ab6eac");
-extern "C" unsigned char ra2_place_2119[] __asm__("__DAT_00ab6eb0");
-extern "C" unsigned char ra2_place_2120[] __asm__("_unknown_was_paused_ab6ef4");
-extern "C" unsigned char ra2_place_2121[] __asm__("_unknown_score_empty_rect_ab6f20");
-extern "C" unsigned char ra2_place_2122[] __asm__("_unknown_score_print_ab6f9c");
-extern "C" unsigned char ra2_place_2123[] __asm__("_unknown_score_fonts_ab6fa4");
-extern "C" unsigned char ra2_place_2124[] __asm__("_unknown_score_sounds_ab6fa8");
-extern "C" unsigned char ra2_place_2125[] __asm__("_unknown_cell_ab7068");
-extern "C" unsigned char ra2_place_2126[] __asm__("_unknown_coord_ab7088");
-extern "C" unsigned char ra2_place_2127[] __asm__("_unknown_cell_none_ab71d8");
-extern "C" unsigned char ra2_place_2128[] __asm__("_unknown_ab9174");
-extern "C" unsigned char ra2_place_2129[] __asm__("_unknown_ports_read_ab9178");
-extern "C" unsigned char ra2_place_2130[] __asm__("_unknown_coord_ab91c8");
-extern "C" unsigned char ra2_place_2131[] __asm__("_unknown_text_ab9274");
-extern "C" unsigned char ra2_place_2132[] __asm__("__ZN12SidebarClass20unknown_shape_ab9480E");
-extern "C" unsigned char ra2_place_2133[] __asm__("_unknown_text_ab9484");
-extern "C" unsigned char ra2_place_2134[] __asm__("__ZN12SidebarClass10StripClass19unknown_rect_ab9688E");
-extern "C" unsigned char ra2_place_2135[] __asm__("_unknown_cell_ab9698");
-extern "C" unsigned char ra2_place_2136[] __asm__("_unknown_shapes_abcd20");
-extern "C" unsigned char ra2_place_2137[] __asm__("_unknown_shapes_allocated_abcd40");
-extern "C" unsigned char ra2_place_2138[] __asm__("_unknown_abcd48");
-extern "C" unsigned char ra2_place_2139[] __asm__("_unknown_abcd4c");
-extern "C" unsigned char ra2_place_2140[] __asm__("_unknown_abcd50");
-extern "C" unsigned char ra2_place_2141[] __asm__("_unknown_abcd54");
-extern "C" unsigned char ra2_place_2142[] __asm__("_unknown_abcd58");
-extern "C" unsigned char ra2_place_2143[] __asm__("_unknown_abcd5c");
-extern "C" unsigned char ra2_place_2144[] __asm__("_unknown_abcd60");
-extern "C" unsigned char ra2_place_2145[] __asm__("_unknown_abcd64");
-extern "C" unsigned char ra2_place_2146[] __asm__("_unknown_abcd68");
-extern "C" unsigned char ra2_place_2147[] __asm__("_unknown_abcd6c");
-extern "C" unsigned char ra2_place_2148[] __asm__("_unknown_int_abcd70");
-extern "C" unsigned char ra2_place_2149[] __asm__("_unknown_abcd74");
-extern "C" unsigned char ra2_place_2150[] __asm__("_unknown_abcd78");
-extern "C" unsigned char ra2_place_2151[] __asm__("_unknown_abcd7c");
-extern "C" unsigned char ra2_place_2152[] __asm__("_unknown_abcd80");
-extern "C" unsigned char ra2_place_2153[] __asm__("_unknown_flag_abcd84");
-extern "C" unsigned char ra2_place_2154[] __asm__("_unknown_flag_abcd85");
-extern "C" unsigned char ra2_place_2155[] __asm__("_SkirmishDialog");
-extern "C" unsigned char ra2_place_2156[] __asm__("_unknown_undo_cells_abceac");
-extern "C" unsigned char ra2_place_2157[] __asm__("__ZN19SoundControlsDialog17DialogInitializedE");
-extern "C" unsigned char ra2_place_2158[] __asm__("_data_6927b0_0");
-extern "C" unsigned char ra2_place_2159[] __asm__("_unknown_handle_abd47c");
-extern "C" unsigned char ra2_place_2160[] __asm__("_unknown_handle_abd480");
-extern "C" unsigned char ra2_place_2161[] __asm__("_unknown_active_object_abd484");
-extern "C" unsigned char ra2_place_2162[] __asm__("_unknown_block_abd488");
-extern "C" unsigned char ra2_place_2163[] __asm__("_unknown_flag_abd48c");
-extern "C" unsigned char ra2_place_2164[] __asm__("_unknown_flag_abd48d");
-extern "C" unsigned char ra2_place_2165[] __asm__("_GameTimer");
-extern "C" unsigned char ra2_place_2166[] __asm__("_DAT_00abd4c4");
-extern "C" unsigned char ra2_place_2167[] __asm__("_unknown_elapsed_abd4e0");
-extern "C" unsigned char ra2_place_2168[] __asm__("_unknown_flag_abd500");
-extern "C" unsigned char ra2_place_2169[] __asm__("_GameTimerInUse");
-extern "C" unsigned char ra2_place_2170[] __asm__("_unknown_abd530");
-extern "C" unsigned char ra2_place_2171[] __asm__("_unknown_line_buffer_abd548");
-extern "C" unsigned char ra2_place_2172[] __asm__("_unknown_score_audio_abd6a0");
-extern "C" unsigned char ra2_place_2173[] __asm__("_unknown_score_audio_on_abd6d4");
-extern "C" unsigned char ra2_place_2174[] __asm__("_unknown_cell_abd768");
-extern "C" unsigned char ra2_place_2175[] __asm__("__ZN8TabClass12ButtonShapesE");
-extern "C" unsigned char ra2_place_2176[] __asm__("_unknown_int_abd910");
-extern "C" unsigned char ra2_place_2177[] __asm__("_unknown_int_abe278");
-extern "C" unsigned char ra2_place_2178[] __asm__("_unknown_int_abe290");
-extern "C" unsigned char ra2_place_2179[] __asm__("_unknown_int_abe294");
-extern "C" unsigned char ra2_place_2180[] __asm__("_unknown_int_abe2a8");
-extern "C" unsigned char ra2_place_2181[] __asm__("_unknown_int_abe2ac");
-extern "C" unsigned char ra2_place_2182[] __asm__("_unknown_int_abe2b8");
-extern "C" unsigned char ra2_place_2183[] __asm__("_unknown_int_abe2bc");
-extern "C" unsigned char ra2_place_2184[] __asm__("__ZN8TabClass10SlotButtonE");
-extern "C" unsigned char ra2_place_2185[] __asm__("__ZN8TabClass20ButtonShapeAllocatedE");
-extern "C" unsigned char ra2_place_2186[] __asm__("_unknown_int_abe36c");
-extern "C" unsigned char ra2_place_2187[] __asm__("_unknown_int_abe370");
-extern "C" unsigned char ra2_place_2188[] __asm__("_unknown_int_abe374");
-extern "C" unsigned char ra2_place_2189[] __asm__("_unknown_int_abe378");
-extern "C" unsigned char ra2_place_2190[] __asm__("_unknown_int_abe37c");
-extern "C" unsigned char ra2_place_2191[] __asm__("_unknown_int_abe388");
-extern "C" unsigned char ra2_place_2192[] __asm__("_unknown_int_abe460");
-extern "C" unsigned char ra2_place_2193[] __asm__("_unknown_int_abe464");
-extern "C" unsigned char ra2_place_2194[] __asm__("_unknown_int_abe468");
-extern "C" unsigned char ra2_place_2195[] __asm__("_unknown_int_abe478");
-extern "C" unsigned char ra2_place_2196[] __asm__("_unknown_abe490");
-extern "C" unsigned char ra2_place_2197[] __asm__("_Waypoint_Text");
-extern "C" unsigned char ra2_place_2198[] __asm__("_unknown_abe520");
-extern "C" unsigned char ra2_place_2199[] __asm__("_unknown_abe540");
-extern "C" unsigned char ra2_place_2200[] __asm__("_unknown_scrolled_off_screen_abfd6c");
-extern "C" unsigned char ra2_place_2201[] __asm__("_unknown_last_time_abfd70");
-extern "C" unsigned char ra2_place_2202[] __asm__("_Waypoint_Mouse_Shapes");
-extern "C" unsigned char ra2_place_2203[] __asm__("_unknown_radial_pulse_abfd78");
-extern "C" unsigned char ra2_place_2204[] __asm__("_unknown_cell_abfdb0");
-extern "C" unsigned char ra2_place_2205[] __asm__("_unknown_cell_ac0050");
-extern "C" unsigned char ra2_place_2206[] __asm__("_unknown_cell_ac00c8");
-extern "C" unsigned char ra2_place_2207[] __asm__("_unknown_cell_ac0148");
-extern "C" unsigned char ra2_place_2208[] __asm__("_unknown_coord_ac0188");
-extern "C" unsigned char ra2_place_2209[] __asm__("_unknown_talk_techno_ac01c4");
-extern "C" unsigned char ra2_place_2210[] __asm__("_unknown_talk_value_ac01c8");
-extern "C" unsigned char ra2_place_2211[] __asm__("_unknown_ac01cc");
-extern "C" unsigned char ra2_place_2212[] __asm__("_unknown_cell_ac01e8");
-extern "C" unsigned char ra2_place_2213[] __asm__("_unknown_coord_ac0280");
-extern "C" unsigned char ra2_place_2214[] __asm__("_DAT_00ac0b34");
-extern "C" unsigned char ra2_place_2215[] __asm__("_unknown_coord_ac0f30");
-extern "C" unsigned char ra2_place_2216[] __asm__("_unknown_color_ac0fe8");
-extern "C" unsigned char ra2_place_2217[] __asm__("_unknown_art_ac0fec");
-extern "C" unsigned char ra2_place_2218[] __asm__("_unknown_art_ac0ff0");
-extern "C" unsigned char ra2_place_2219[] __asm__("_unknown_int_ac0ff4");
-extern "C" unsigned char ra2_place_2220[] __asm__("_unknown_art_ac0ff8");
-extern "C" unsigned char ra2_place_2221[] __asm__("_unknown_color_ac1008");
-extern "C" unsigned char ra2_place_2222[] __asm__("_unknown_art_ac100c");
-extern "C" unsigned char ra2_place_2223[] __asm__("_unknown_art_ac1010");
-extern "C" unsigned char ra2_place_2224[] __asm__("_unknown_color_ac1028");
-extern "C" unsigned char ra2_place_2225[] __asm__("_unknown_count_ac102c");
-extern "C" unsigned char ra2_place_2226[] __asm__("_unknown_art_ac1040");
-extern "C" unsigned char ra2_place_2227[] __asm__("_unknown_art_ac1044");
-extern "C" unsigned char ra2_place_2228[] __asm__("_unknown_art_ac1048");
-extern "C" unsigned char ra2_place_2229[] __asm__("_unknown_art_ac1058");
-extern "C" unsigned char ra2_place_2230[] __asm__("_unknown_art_ac105c");
-extern "C" unsigned char ra2_place_2231[] __asm__("_unknown_art_ac1060");
-extern "C" unsigned char ra2_place_2232[] __asm__("_unknown_art_ac1070");
-extern "C" unsigned char ra2_place_2233[] __asm__("_unknown_art_ac1074");
-extern "C" unsigned char ra2_place_2234[] __asm__("_unknown_art_ac1078");
-extern "C" unsigned char ra2_place_2235[] __asm__("_unknown_art_ac107c");
-extern "C" unsigned char ra2_place_2236[] __asm__("_unknown_value_ac1080");
-extern "C" unsigned char ra2_place_2237[] __asm__("_unknown_art_ac1094");
-extern "C" unsigned char ra2_place_2238[] __asm__("_unknown_art_ac1098");
-extern "C" unsigned char ra2_place_2239[] __asm__("_unknown_mode_ac109c");
-extern "C" unsigned char ra2_place_2240[] __asm__("_unknown_flag_ac109d");
-extern "C" unsigned char ra2_place_2241[] __asm__("_unknown_flag_ac109e");
-extern "C" unsigned char ra2_place_2242[] __asm__("_unknown_value_ac10a0");
-extern "C" unsigned char ra2_place_2243[] __asm__("_unknown_art_ac10a4");
-extern "C" unsigned char ra2_place_2244[] __asm__("_unknown_art_ac10b0");
-extern "C" unsigned char ra2_place_2245[] __asm__("_unknown_art_ac10b4");
-extern "C" unsigned char ra2_place_2246[] __asm__("_unknown_art_ac10b8");
-extern "C" unsigned char ra2_place_2247[] __asm__("_unknown_art_ac10bc");
-extern "C" unsigned char ra2_place_2248[] __asm__("_unknown_art_ac10c0");
-extern "C" unsigned char ra2_place_2249[] __asm__("_unknown_art_ac10c4");
-extern "C" unsigned char ra2_place_2250[] __asm__("_unknown_value_ac10c8");
-extern "C" unsigned char ra2_place_2251[] __asm__("_unknown_value_ac10cc");
-extern "C" unsigned char ra2_place_2252[] __asm__("_unknown_art_ac10d8");
-extern "C" unsigned char ra2_place_2253[] __asm__("_unknown_art_ac10e8");
-extern "C" unsigned char ra2_place_2254[] __asm__("_unknown_art_ac10ec");
-extern "C" unsigned char ra2_place_2255[] __asm__("_unknown_art_ac10f0");
-extern "C" unsigned char ra2_place_2256[] __asm__("_unknown_color_ac10f4");
-extern "C" unsigned char ra2_place_2257[] __asm__("_unknown_art_ac10f8");
-extern "C" unsigned char ra2_place_2258[] __asm__("_unknown_art_ac10fc");
-extern "C" unsigned char ra2_place_2259[] __asm__("_unknown_color_ac1100");
-extern "C" unsigned char ra2_place_2260[] __asm__("_unknown_art_ac1104");
-extern "C" unsigned char ra2_place_2261[] __asm__("_unknown_art_ac1108");
-extern "C" unsigned char ra2_place_2262[] __asm__("_unknown_art_ac110c");
-extern "C" unsigned char ra2_place_2263[] __asm__("_unknown_art_ac1120");
-extern "C" unsigned char ra2_place_2264[] __asm__("_unknown_color_ac1124");
-extern "C" unsigned char ra2_place_2265[] __asm__("_unknown_art_ac1128");
-extern "C" unsigned char ra2_place_2266[] __asm__("_unknown_art_ac1130");
-extern "C" unsigned char ra2_place_2267[] __asm__("_unknown_art_ac1134");
-extern "C" unsigned char ra2_place_2268[] __asm__("_unknown_art_ac1138");
-extern "C" unsigned char ra2_place_2269[] __asm__("_unknown_art_ac113c");
-extern "C" unsigned char ra2_place_2270[] __asm__("_unknown_art_ac1140");
-extern "C" unsigned char ra2_place_2271[] __asm__("_unknown_art_ac1144");
-extern "C" unsigned char ra2_place_2272[] __asm__("_unknown_art_ac1148");
-extern "C" unsigned char ra2_place_2273[] __asm__("_unknown_art_ac114c");
-extern "C" unsigned char ra2_place_2274[] __asm__("_unknown_art_ac1150");
-extern "C" unsigned char ra2_place_2275[] __asm__("_unknown_art_ac1154");
-extern "C" unsigned char ra2_place_2276[] __asm__("_unknown_art_ac1158");
-extern "C" unsigned char ra2_place_2277[] __asm__("_unknown_art_ac115c");
-extern "C" unsigned char ra2_place_2278[] __asm__("_unknown_art_ac1160");
-extern "C" unsigned char ra2_place_2279[] __asm__("_unknown_art_ac1164");
-extern "C" unsigned char ra2_place_2280[] __asm__("_unknown_art_ac1168");
-extern "C" unsigned char ra2_place_2281[] __asm__("_unknown_art_ac116c");
-extern "C" unsigned char ra2_place_2282[] __asm__("_unknown_art_ac1170");
-extern "C" unsigned char ra2_place_2283[] __asm__("_unknown_art_ac1174");
-extern "C" unsigned char ra2_place_2284[] __asm__("_unknown_art_ac1178");
-extern "C" unsigned char ra2_place_2285[] __asm__("_unknown_art_ac117c");
-extern "C" unsigned char ra2_place_2286[] __asm__("_unknown_art_ac1184");
-extern "C" unsigned char ra2_place_2287[] __asm__("_unknown_art_ac1188");
-extern "C" unsigned char ra2_place_2288[] __asm__("_unknown_art_ac118c");
-extern "C" unsigned char ra2_place_2289[] __asm__("_unknown_art_ac1190");
-extern "C" unsigned char ra2_place_2290[] __asm__("_unknown_art_ac1194");
-extern "C" unsigned char ra2_place_2291[] __asm__("_unknown_art_ac1198");
-extern "C" unsigned char ra2_place_2292[] __asm__("_unknown_flag_ac119c");
-extern "C" unsigned char ra2_place_2293[] __asm__("_unknown_art_ac11a0");
-extern "C" unsigned char ra2_place_2294[] __asm__("_unknown_art_ac11a4");
-extern "C" unsigned char ra2_place_2295[] __asm__("_unknown_art_ac11a8");
-extern "C" unsigned char ra2_place_2296[] __asm__("_unknown_art_ac11ac");
-extern "C" unsigned char ra2_place_2297[] __asm__("_unknown_flag_ac11b0");
-extern "C" unsigned char ra2_place_2298[] __asm__("_unknown_art_ac11b4");
-extern "C" unsigned char ra2_place_2299[] __asm__("_unknown_art_ac11b8");
-extern "C" unsigned char ra2_place_2300[] __asm__("_unknown_art_ac11bc");
-extern "C" unsigned char ra2_place_2301[] __asm__("_unknown_art_ac11c0");
-extern "C" unsigned char ra2_place_2302[] __asm__("_unknown_art_ac11c4");
-extern "C" unsigned char ra2_place_2303[] __asm__("_unknown_art_ac11c8");
-extern "C" unsigned char ra2_place_2304[] __asm__("_unknown_art_ac11cc");
-extern "C" unsigned char ra2_place_2305[] __asm__("_unknown_art_ac11d0");
-extern "C" unsigned char ra2_place_2306[] __asm__("_unknown_art_acac11d4");
-extern "C" unsigned char ra2_place_2307[] __asm__("_unknown_art_acac11d8");
-extern "C" unsigned char ra2_place_2308[] __asm__("_unknown_art_acac11dc");
-extern "C" unsigned char ra2_place_2309[] __asm__("_unknown_art_acac11e0");
-extern "C" unsigned char ra2_place_2310[] __asm__("_unknown_art_acac11e4");
-extern "C" unsigned char ra2_place_2311[] __asm__("_unknown_art_acac11e8");
-extern "C" unsigned char ra2_place_2312[] __asm__("_unknown_art_acac11ec");
-extern "C" unsigned char ra2_place_2313[] __asm__("_unknown_art_acac11f0");
-extern "C" unsigned char ra2_place_2314[] __asm__("_unknown_art_acac11f4");
-extern "C" unsigned char ra2_place_2315[] __asm__("_unknown_art_acac11f8");
-extern "C" unsigned char ra2_place_2316[] __asm__("_unknown_ac11fc");
-extern "C" unsigned char ra2_place_2317[] __asm__("_unknown_art_acac1200");
-extern "C" unsigned char ra2_place_2318[] __asm__("_unknown_art_acac1204");
-extern "C" unsigned char ra2_place_2319[] __asm__("_unknown_art_acac1208");
-extern "C" unsigned char ra2_place_2320[] __asm__("_unknown_art_acac120c");
-extern "C" unsigned char ra2_place_2321[] __asm__("_unknown_art_acac1210");
-extern "C" unsigned char ra2_place_2322[] __asm__("_unknown_flag_ac1214");
-extern "C" unsigned char ra2_place_2323[] __asm__("_unknown_flag_ac1215");
-extern "C" unsigned char ra2_place_2324[] __asm__("_unknown_flag_ac1216");
-extern "C" unsigned char ra2_place_2325[] __asm__("_unknown_flag_ac1217");
-extern "C" unsigned char ra2_place_2326[] __asm__("_unknown_art_ac1218");
-extern "C" unsigned char ra2_place_2327[] __asm__("_unknown_art_ac121c");
-extern "C" unsigned char ra2_place_2328[] __asm__("_unknown_art_ac1220");
-extern "C" unsigned char ra2_place_2329[] __asm__("_unknown_flag_ac1224");
-extern "C" unsigned char ra2_place_2330[] __asm__("_unknown_flag_ac1225");
-extern "C" unsigned char ra2_place_2331[] __asm__("_unknown_flag_ac1226");
-extern "C" unsigned char ra2_place_2332[] __asm__("_unknown_flag_ac1227");
-extern "C" unsigned char ra2_place_2333[] __asm__("_unknown_flag_ac1228");
-extern "C" unsigned char ra2_place_2334[] __asm__("_unknown_flag_ac1229");
-extern "C" unsigned char ra2_place_2335[] __asm__("_unknown_flag_ac122a");
-extern "C" unsigned char ra2_place_2336[] __asm__("_unknown_flag_ac122b");
-extern "C" unsigned char ra2_place_2337[] __asm__("_unknown_flag_ac122c");
-extern "C" unsigned char ra2_place_2338[] __asm__("_unknown_flag_ac122d");
-extern "C" unsigned char ra2_place_2339[] __asm__("_unknown_flag_ac122e");
-extern "C" unsigned char ra2_place_2340[] __asm__("_unknown_flag_ac122f");
-extern "C" unsigned char ra2_place_2341[] __asm__("_unknown_flag_ac1230");
-extern "C" unsigned char ra2_place_2342[] __asm__("_unknown_flag_ac1231");
-extern "C" unsigned char ra2_place_2343[] __asm__("_unknown_flag_ac1232");
-extern "C" unsigned char ra2_place_2344[] __asm__("_unknown_flag_ac1233");
-extern "C" unsigned char ra2_place_2345[] __asm__("_unknown_flag_ac1234");
-extern "C" unsigned char ra2_place_2346[] __asm__("_unknown_flag_ac1235");
-extern "C" unsigned char ra2_place_2347[] __asm__("_unknown_flag_ac1236");
-extern "C" unsigned char ra2_place_2348[] __asm__("_unknown_flag_ac1237");
-extern "C" unsigned char ra2_place_2349[] __asm__("_unknown_flag_ac1238");
-extern "C" unsigned char ra2_place_2350[] __asm__("_unknown_flag_ac1239");
-extern "C" unsigned char ra2_place_2351[] __asm__("_unknown_flag_ac123a");
-extern "C" unsigned char ra2_place_2352[] __asm__("_unknown_flag_ac123b");
-extern "C" unsigned char ra2_place_2353[] __asm__("_unknown_flag_ac123c");
-extern "C" unsigned char ra2_place_2354[] __asm__("_unknown_flag_ac123d");
-extern "C" unsigned char ra2_place_2355[] __asm__("_unknown_flag_ac123e");
-extern "C" unsigned char ra2_place_2356[] __asm__("_unknown_flag_ac123f");
-extern "C" unsigned char ra2_place_2357[] __asm__("_unknown_flag_ac1240");
-extern "C" unsigned char ra2_place_2358[] __asm__("_unknown_flag_ac1241");
-extern "C" unsigned char ra2_place_2359[] __asm__("_unknown_flag_ac1242");
-extern "C" unsigned char ra2_place_2360[] __asm__("_unknown_flag_ac1243");
-extern "C" unsigned char ra2_place_2361[] __asm__("_unknown_flag_ac1244");
-extern "C" unsigned char ra2_place_2362[] __asm__("_unknown_flag_ac1245");
-extern "C" unsigned char ra2_place_2363[] __asm__("_unknown_state_ac1248");
-extern "C" unsigned char ra2_place_2364[] __asm__("_unknown_state_ac132c");
-extern "C" unsigned char ra2_place_2365[] __asm__("_unknown_flag_ac1330");
-extern "C" unsigned char ra2_place_2366[] __asm__("_DAT_00ac1334");
-extern "C" unsigned char ra2_place_2367[] __asm__("_DAT_00ac1338");
-extern "C" unsigned char ra2_place_2368[] __asm__("_unknown_flag_ac133c");
-extern "C" unsigned char ra2_place_2369[] __asm__("_DAT_00ac133d");
-extern "C" unsigned char ra2_place_2370[] __asm__("_unknown_time_ac1340");
-extern "C" unsigned char ra2_place_2371[] __asm__("_unknown_list_ac1344");
-extern "C" unsigned char ra2_place_2372[] __asm__("_unknown_cheer_frame_ac134c");
-extern "C" unsigned char ra2_place_2373[] __asm__("_unknown_narrow_buffers_ac136c");
-extern "C" unsigned char ra2_place_2374[] __asm__("_unknown_text_ac3378");
-extern "C" unsigned char ra2_place_2375[] __asm__("_unknown_label_ac4380");
-extern "C" unsigned char ra2_place_2376[] __asm__("_unknown_csf_name_ac5388");
-extern "C" unsigned char ra2_place_2377[] __asm__("_unknown_wide_buffers_ac53fc");
-extern "C" unsigned char ra2_place_2378[] __asm__("_unknown_wide_text_ac93fc");
-extern "C" unsigned char ra2_place_2379[] __asm__("_unknown_reversed_text_acd410");
-extern "C" unsigned char ra2_place_2380[] __asm__("_unknown_line_acf410");
-extern "C" unsigned char ra2_place_2381[] __asm__("_unknown_max_label_length_ad0428");
-extern "C" unsigned char ra2_place_2382[] __asm__("_unknown_text_file_ad0430");
-extern "C" unsigned char ra2_place_2383[] __asm__("_unknown_file_name_ad0434");
-extern "C" unsigned char ra2_place_2384[] __asm__("_unknown_label_count_ad0438");
-extern "C" unsigned char ra2_place_2385[] __asm__("_unknown_count_ad043c");
-extern "C" unsigned char ra2_place_2386[] __asm__("_unknown_index_ad0440");
-extern "C" unsigned char ra2_place_2387[] __asm__("_unknown_table_ad0444");
-extern "C" unsigned char ra2_place_2388[] __asm__("_unknown_speech_ad0448");
-extern "C" unsigned char ra2_place_2389[] __asm__("_unknown_initialized_ad044c");
-extern "C" unsigned char ra2_place_2390[] __asm__("_DAT_00ad0450");
-extern "C" unsigned char ra2_place_2391[] __asm__("_unknown_chunks_ad0454");
-extern "C" unsigned char ra2_place_2392[] __asm__("_unknown_chunks_ad0458");
-extern "C" unsigned char ra2_place_2393[] __asm__("_unknown_narrow_index_ad045c");
-extern "C" unsigned char ra2_place_2394[] __asm__("_unknown_wide_index_ad0460");
-extern "C" unsigned char ra2_place_2395[] __asm__("_unknown_cell_ad0488");
-extern "C" unsigned char ra2_place_2396[] __asm__("_Unit_Radio_Zero_Coord_00AD04C0");
-extern "C" unsigned char ra2_place_2397[] __asm__("_unknown_bridge_height_ad057c");
-extern "C" unsigned char ra2_place_2398[] __asm__("_unknown_level_height_ad0588");
-extern "C" unsigned char ra2_place_2399[] __asm__("_unknown_ad0600");
-extern "C" unsigned char ra2_place_2400[] __asm__("_unknown_surface_ad0604");
-extern "C" unsigned char ra2_place_2401[] __asm__("_unknown_drawer_ad0608");
-extern "C" unsigned char ra2_place_2402[] __asm__("_VisceroidSmallShape");
-extern "C" unsigned char ra2_place_2403[] __asm__("_VisceroidLargeShape");
-extern "C" unsigned char ra2_place_2404[] __asm__("_HicolorTable");
-extern "C" unsigned char ra2_place_2405[] __asm__("_DAT_00ad074c");
-extern "C" unsigned char ra2_place_2406[] __asm__("_unknown_veinhole_shape_ad079c");
-extern "C" unsigned char ra2_place_2407[] __asm__("_DAT_00ad07a0");
-extern "C" unsigned char ra2_place_2408[] __asm__("_unknown_voc_cell_ad07c0");
-extern "C" unsigned char ra2_place_2409[] __asm__("_unknown_voc_static_list_ad07d0");
-extern "C" unsigned char ra2_place_2410[] __asm__("_unknown_voc_static_pool_ad0844");
-extern "C" unsigned char ra2_place_2411[] __asm__("_Audio_Static_Sound_Count");
-extern "C" unsigned char ra2_place_2412[] __asm__("_Audio_Static_Sound_Maximum");
-extern "C" unsigned char ra2_place_2413[] __asm__("_unknown_voc_control_ad0850");
-extern "C" unsigned char ra2_place_2414[] __asm__("_unknown_vox_type_ad0858");
-extern "C" unsigned char ra2_place_2415[] __asm__("_unknown_vox_list_ad0868");
-extern "C" unsigned char ra2_place_2416[] __asm__("_unknown_vox_ad0878");
-extern "C" unsigned char ra2_place_2417[] __asm__("_unknown_vox_priority_ad0880");
-extern "C" unsigned char ra2_place_2418[] __asm__("_unknown_vox_list_ad0890");
-extern "C" unsigned char ra2_place_2419[] __asm__("_unknown_countdown_ad08c8");
-extern "C" unsigned char ra2_place_2420[] __asm__("_unknown_vox_lists_ad08e0");
-extern "C" unsigned char ra2_place_2421[] __asm__("_unknown_count_ad0910");
-extern "C" unsigned char ra2_place_2422[] __asm__("_DAT_00ad0934");
-extern "C" unsigned char ra2_place_2423[] __asm__("_unknown_vox_pending_ad0948");
-extern "C" unsigned char ra2_place_2424[] __asm__("_unknown_vox_enabled_ad094c");
-extern "C" unsigned char ra2_place_2425[] __asm__("_unknown_vox_serial_ad0950");
-extern "C" unsigned char ra2_place_2426[] __asm__("_unknown_vox_playing_ad0954");
-extern "C" unsigned char ra2_place_2427[] __asm__("_unknown_flag_ad0958");
-extern "C" unsigned char ra2_place_2428[] __asm__("_unknown_object_ad095c");
-extern "C" unsigned char ra2_place_2429[] __asm__("_unknown_vox_delay_ad0960");
-extern "C" unsigned char ra2_place_2430[] __asm__("_unknown_active_ad0968");
-extern "C" unsigned char ra2_place_2431[] __asm__("_unknown_table_ad0970");
-extern "C" unsigned char ra2_place_2432[] __asm__("_unknown_buffer_ad0a70");
-extern "C" unsigned char ra2_place_2433[] __asm__("_unknown_voxel16_colors_ae0a7c");
-extern "C" unsigned char ra2_place_2434[] __asm__("_unknown_voxel_record_count_ae0cb0");
-extern "C" unsigned char ra2_place_2435[] __asm__("_unknown_ae2fe8");
-extern "C" unsigned char ra2_place_2436[] __asm__("_unknown_voxel_shadow_count_ae3000");
-extern "C" unsigned char ra2_place_2437[] __asm__("_unknown_ae3004");
-extern "C" unsigned char ra2_place_2438[] __asm__("_VoxelRGBColors");
-extern "C" unsigned char ra2_place_2439[] __asm__("_unknown_buffer_ae3408");
-extern "C" unsigned char ra2_place_2440[] __asm__("_VoxelPaletteTranslateTable");
-extern "C" unsigned char ra2_place_2441[] __asm__("_unknown_af6608");
-extern "C" unsigned char ra2_place_2442[] __asm__("_unknown_af660c");
-extern "C" unsigned char ra2_place_2443[] __asm__("_unknown_af6610");
-extern "C" unsigned char ra2_place_2444[] __asm__("_unknown_af6614");
-extern "C" unsigned char ra2_place_2445[] __asm__("_unknown_vqa_paused_af901c");
-extern "C" unsigned char ra2_place_2446[] __asm__("_unknown_vqa_options_af9020");
-extern "C" unsigned char ra2_place_2447[] __asm__("_unknown_coord_af9060");
-extern "C" unsigned char ra2_place_2448[] __asm__("_Wave_Sine_Table_00af91e4");
-extern "C" unsigned char ra2_place_2449[] __asm__("_Wave_Intensity_Table_00af95d8");
-extern "C" unsigned char ra2_place_2450[] __asm__("_Wave_Distance_Table_00af9620");
-extern "C" unsigned char ra2_place_2451[] __asm__("_Wave_Tables_Initialized_00b25554");
-extern "C" unsigned char ra2_place_2452[] __asm__("_SerialPort");
-extern "C" unsigned char ra2_place_2453[] __asm__("_DialogStack");
-extern "C" unsigned char ra2_place_2454[] __asm__("_g4_735d70_b25dc8");
-extern "C" unsigned char ra2_place_2455[] __asm__("_g4_735d70_b25dd0");
-extern "C" unsigned char ra2_place_2456[] __asm__("_CurrentDialog");
-extern "C" unsigned char ra2_place_2457[] __asm__("_CurrentDialogResource");
-extern "C" unsigned char ra2_place_2458[] __asm__("_DAT_00b25ddc");
-extern "C" unsigned char ra2_place_2459[] __asm__("_DialogStackCount");
-extern "C" unsigned char ra2_place_2460[] __asm__("_unknown_template_size_b25de4");
-extern "C" unsigned char ra2_place_2461[] __asm__("_unknown_version_name_b25df0");
-extern "C" unsigned char ra2_place_2462[] __asm__("_unknown_buffer_b25ef0");
-extern "C" unsigned char ra2_place_2463[] __asm__("_unknown_label_buffer_b25f10");
-extern "C" unsigned char ra2_place_2464[] __asm__("_unknown_window_section_b25f28");
-extern "C" unsigned char ra2_place_2465[] __asm__("_unknown_dragging_b25f2c");
-extern "C" unsigned char ra2_place_2466[] __asm__("_unknown_tree_b25f30");
-extern "C" unsigned char ra2_place_2467[] __asm__("_unknown_drag_item_b25f34");
-extern "C" unsigned char ra2_place_2468[] __asm__("_unknown_drag_image_b25f38");
-extern "C" unsigned char ra2_place_2469[] __asm__("_main_thread_00b25f78");
-extern "C" unsigned char ra2_place_2470[] __asm__("_IMEResultString");
-extern "C" unsigned char ra2_place_2471[] __asm__("_ProgramInstance");
-extern "C" unsigned char ra2_place_2472[] __asm__("_IMECompositionString");
-extern "C" unsigned char ra2_place_2473[] __asm__("_unknown_b263a8");
-extern "C" unsigned char ra2_place_2474[] __asm__("_unknown_command_show_b263cc");
-extern "C" unsigned char ra2_place_2475[] __asm__("_unknown_cursor_b263d0");
-extern "C" unsigned char ra2_place_2476[] __asm__("_unknown_icon_b263d4");
-extern "C" unsigned char ra2_place_2477[] __asm__("_MainWindow");
-extern "C" unsigned char ra2_place_2478[] __asm__("_DAT_00b263dc");
-extern "C" unsigned char ra2_place_2479[] __asm__("_IMEContext");
-extern "C" unsigned char ra2_place_2480[] __asm__("_unknown_mouse_captured_b263e8");
-extern "C" unsigned char ra2_place_2481[] __asm__("_window_mouse_wheel_b263e9");
-extern "C" unsigned char ra2_place_2482[] __asm__("_IMECompositionLength");
-extern "C" unsigned char ra2_place_2483[] __asm__("_IMECursorPosition");
-extern "C" unsigned char ra2_place_2484[] __asm__("_IMEComposing");
-extern "C" unsigned char ra2_place_2485[] __asm__("_IMEDefaultResult");
-extern "C" unsigned char ra2_place_2486[] __asm__("_unknown_b264f0");
-extern "C" unsigned char ra2_place_2487[] __asm__("_wol_wait_events_b264f8");
-extern "C" unsigned char ra2_place_2488[] __asm__("_unknown_server_list_event_b264fc");
-extern "C" unsigned char ra2_place_2489[] __asm__("_unknown_b26500");
-extern "C" unsigned char ra2_place_2490[] __asm__("_unknown_channel_event_b26504");
-extern "C" unsigned char ra2_place_2491[] __asm__("_unknown_b2650c");
-extern "C" unsigned char ra2_place_2492[] __asm__("_game_exit_event_b26510");
-extern "C" unsigned char ra2_place_2493[] __asm__("_game_start_event_b26514");
-extern "C" unsigned char ra2_place_2494[] __asm__("_unknown_b26518");
-extern "C" unsigned char ra2_place_2495[] __asm__("_unknown_b2651c");
-extern "C" unsigned char ra2_place_2496[] __asm__("_unknown_b26524");
-extern "C" unsigned char ra2_place_2497[] __asm__("_unknown_b26530");
-extern "C" unsigned char ra2_place_2498[] __asm__("_unknown_b26540");
-extern "C" unsigned char ra2_place_2499[] __asm__("_wol_net_sink_b26560");
-extern "C" unsigned char ra2_place_2500[] __asm__("_unknown_b26564");
-extern "C" unsigned char ra2_place_2501[] __asm__("_unknown_b26568");
-extern "C" unsigned char ra2_place_2502[] __asm__("_player_list_column_00b2657c");
-extern "C" unsigned char ra2_place_2503[] __asm__("_match_start_buffer_00b2658c");
-extern "C" unsigned char ra2_place_2504[] __asm__("_unknown_b2668c");
-extern "C" unsigned char ra2_place_2505[] __asm__("_unknown_selected_users_b26694");
-extern "C" unsigned char ra2_place_2506[] __asm__("_account_birth_month_b26894");
-extern "C" unsigned char ra2_place_2507[] __asm__("_unknown_b26898");
-extern "C" unsigned char ra2_place_2508[] __asm__("_ladder_column_losses_b2692c");
-extern "C" unsigned char ra2_place_2509[] __asm__("_account_birth_day_b26930");
-extern "C" unsigned char ra2_place_2510[] __asm__("_player_list_column_00b26958");
-extern "C" unsigned char ra2_place_2511[] __asm__("_unknown_wdt_address_b269ac");
-extern "C" unsigned char ra2_place_2512[] __asm__("_wol_connection_status_b26a2c");
-extern "C" unsigned char ra2_place_2513[] __asm__("_unknown_pending_channel_b26a60");
-extern "C" unsigned char ra2_place_2514[] __asm__("_ladder_column_name_b26c80");
-extern "C" unsigned char ra2_place_2515[] __asm__("_unknown_lobby_names_b26c94");
-extern "C" unsigned char ra2_place_2516[] __asm__("_buddy_column_b26cb4");
-extern "C" unsigned char ra2_place_2517[] __asm__("_session_ctor_trace_b26cbc");
-extern "C" unsigned char ra2_place_2518[] __asm__("_unknown_profile_b28cc4");
-extern "C" unsigned char ra2_place_2519[] __asm__("_lobby_territory_name_00b28cc8");
-extern "C" unsigned char ra2_place_2520[] __asm__("_unknown_game_server_b28cd0");
-extern "C" unsigned char ra2_place_2521[] __asm__("_unknown_player_ready_b28dc4");
-extern "C" unsigned char ra2_place_2522[] __asm__("_unknown_game_port_b28dd4");
-extern "C" unsigned char ra2_place_2523[] __asm__("_wol_download_sink_b28de0");
-extern "C" unsigned char ra2_place_2524[] __asm__("_wol_ping_tooltip_b28de4");
-extern "C" unsigned char ra2_place_2525[] __asm__("_unknown_b28ff4");
-extern "C" unsigned char ra2_place_2526[] __asm__("_unknown_b28ff8");
-extern "C" unsigned char ra2_place_2527[] __asm__("_unknown_game_port_b28ffc");
-extern "C" unsigned char ra2_place_2528[] __asm__("_unknown_ladder_address_b29018");
-extern "C" unsigned char ra2_place_2529[] __asm__("_account_newsletter_b29098");
-extern "C" unsigned char ra2_place_2530[] __asm__("_unknown_wol_allow_page_b290a0");
-extern "C" unsigned char ra2_place_2531[] __asm__("_wol_player_tooltip_b290a4");
-extern "C" unsigned char ra2_place_2532[] __asm__("_session_ctor_trace_b291a4");
-extern "C" unsigned char ra2_place_2533[] __asm__("_player_list_column_00b292a4");
-extern "C" unsigned char ra2_place_2534[] __asm__("_game_ping_column_b292a8");
-extern "C" unsigned char ra2_place_2535[] __asm__("_wol_pending_pings_b292ac");
-extern "C" unsigned char ra2_place_2536[] __asm__("_unknown_irc_index_b292d8");
-extern "C" unsigned char ra2_place_2537[] __asm__("_unknown_b292dc");
-extern "C" unsigned char ra2_place_2538[] __asm__("_player_list_column_00b292e0");
-extern "C" unsigned char ra2_place_2539[] __asm__("_wol_pending_allow_page_b292e4");
-extern "C" unsigned char ra2_place_2540[] __asm__("_DAT_00b292e8");
-extern "C" unsigned char ra2_place_2541[] __asm__("_DAT_00b292ec");
-extern "C" unsigned char ra2_place_2542[] __asm__("__Module");
-extern "C" unsigned char ra2_place_2543[] __asm__("_unknown_squad_2_b293d8");
-extern "C" unsigned char ra2_place_2544[] __asm__("_buddy_column_b29460");
-extern "C" unsigned char ra2_place_2545[] __asm__("_address_snmp_query_b294b0");
-extern "C" unsigned char ra2_place_2546[] __asm__("_wol_pending_allow_find_b294f0");
-extern "C" unsigned char ra2_place_2547[] __asm__("_unknown_selected_actions_b294f4");
-extern "C" unsigned char ra2_place_2548[] __asm__("_wol_pending_display_asian_b29730");
-extern "C" unsigned char ra2_place_2549[] __asm__("_player_list_locale_00b29738");
-extern "C" unsigned char ra2_place_2550[] __asm__("_player_list_column_00b297b8");
-extern "C" unsigned char ra2_place_2551[] __asm__("_ladder_column_points_b297c0");
-extern "C" unsigned char ra2_place_2552[] __asm__("_unknown_wol_lob_music_b297c8");
-extern "C" unsigned char ra2_place_2553[] __asm__("_wol_pending_lob_music_b297cc");
-extern "C" unsigned char ra2_place_2554[] __asm__("_wol_pending_lang_filter_b29810");
-extern "C" unsigned char ra2_place_2555[] __asm__("_g4_73bd20_b29828");
-extern "C" unsigned char ra2_place_2556[] __asm__("_g4_73bd20_b2982c");
-extern "C" unsigned char ra2_place_2557[] __asm__("_g4_73bd20_b29830");
-extern "C" unsigned char ra2_place_2558[] __asm__("_unknown_wdt_server_b29880");
-extern "C" unsigned char ra2_place_2559[] __asm__("_wol_pending_display_latin_b29978");
-extern "C" unsigned char ra2_place_2560[] __asm__("_ladder_column_disconnects_b2999c");
-extern "C" unsigned char ra2_place_2561[] __asm__("_game_observer_column_b299a0");
-extern "C" unsigned char ra2_place_2562[] __asm__("_unknown_wdt_port_b299bc");
-extern "C" unsigned char ra2_place_2563[] __asm__("_unknown_b299c0");
-extern "C" unsigned char ra2_place_2564[] __asm__("_unknown_b299d4");
-extern "C" unsigned char ra2_place_2565[] __asm__("_lobby_title_column_b29acc");
-extern "C" unsigned char ra2_place_2566[] __asm__("_unknown_account_checkbox_b29ad0");
-extern "C" unsigned char ra2_place_2567[] __asm__("_wol_useroptions_b29ad4");
-extern "C" unsigned char ra2_place_2568[] __asm__("_online_last_name_00b29cd8");
-extern "C" unsigned char ra2_place_2569[] __asm__("_ladder_top_rung_b29ce8");
-extern "C" unsigned char ra2_place_2570[] __asm__("_unknown_player_b29cf0");
-extern "C" unsigned char ra2_place_2571[] __asm__("_unknown_b2a630");
-extern "C" unsigned char ra2_place_2572[] __asm__("_unknown_wol_show_all_b2a634");
-extern "C" unsigned char ra2_place_2573[] __asm__("_unknown_game_start_time_b2a638");
-extern "C" unsigned char ra2_place_2574[] __asm__("_wol_pending_show_all_b2a644");
-extern "C" unsigned char ra2_place_2575[] __asm__("_unknown_user_b2a658");
-extern "C" unsigned char ra2_place_2576[] __asm__("_account_birth_year_b2a6d4");
-extern "C" unsigned char ra2_place_2577[] __asm__("_unknown_b2a6d8");
-extern "C" unsigned char ra2_place_2578[] __asm__("_buddy_refresh_time_b2a6f0");
-extern "C" unsigned char ra2_place_2579[] __asm__("_game_private_column_b2a6f4");
-extern "C" unsigned char ra2_place_2580[] __asm__("_game_type_column_b2a6f8");
-extern "C" unsigned char ra2_place_2581[] __asm__("_address_snmp_alloc_b2a718");
-extern "C" unsigned char ra2_place_2582[] __asm__("_wol_chat_sink_b2a720");
-extern "C" unsigned char ra2_place_2583[] __asm__("_unknown_pings_b2a734");
-extern "C" unsigned char ra2_place_2584[] __asm__("_address_snmp_init_b2a754");
-extern "C" unsigned char ra2_place_2585[] __asm__("_unknown_game_address_b2a758");
-extern "C" unsigned char ra2_place_2586[] __asm__("_unknown_wol_lang_filter_b2a7e4");
-extern "C" unsigned char ra2_place_2587[] __asm__("_unknown_b2a7e8");
-extern "C" unsigned char ra2_place_2588[] __asm__("_unknown_b2a7ec");
-extern "C" unsigned char ra2_place_2589[] __asm__("_unknown_b2a7f0");
-extern "C" unsigned char ra2_place_2590[] __asm__("_unknown_irc_index_b2a7f4");
-extern "C" unsigned char ra2_place_2591[] __asm__("_unknown_b2a7f8");
-extern "C" unsigned char ra2_place_2592[] __asm__("_unknown_b2a7fc");
-extern "C" unsigned char ra2_place_2593[] __asm__("_ladder_column_rung_b2a800");
-extern "C" unsigned char ra2_place_2594[] __asm__("_unknown_b2a804");
-extern "C" unsigned char ra2_place_2595[] __asm__("_unknown_b2a808");
-extern "C" unsigned char ra2_place_2596[] __asm__("_unknown_wol_allow_find_b2a818");
-extern "C" unsigned char ra2_place_2597[] __asm__("_player_list_column_00b2a81c");
-extern "C" unsigned char ra2_place_2598[] __asm__("_unknown_squad_1_b2a820");
-extern "C" unsigned char ra2_place_2599[] __asm__("_unknown_b2a8a4");
-extern "C" unsigned char ra2_place_2600[] __asm__("_game_name_column_b2a8a8");
-extern "C" unsigned char ra2_place_2601[] __asm__("_unknown_ladder_port_b2a8ac");
-extern "C" unsigned char ra2_place_2602[] __asm__("_unknown_squad_name_b2a8b0");
-extern "C" unsigned char ra2_place_2603[] __asm__("_address_snmp_free_b2a8dc");
-extern "C" unsigned char ra2_place_2604[] __asm__("_unknown_connection_error_b2a8ec");
-extern "C" unsigned char ra2_place_2605[] __asm__("_unknown_b2aaf8");
-extern "C" unsigned char ra2_place_2606[] __asm__("_ladder_column_wins_b2aafc");
-extern "C" unsigned char ra2_place_2607[] __asm__("_unknown_game_address_b2ab00");
-extern "C" unsigned char ra2_place_2608[] __asm__("_player_list_column_00b2ab80");
-extern "C" unsigned char ra2_place_2609[] __asm__("_unknown_b2ab84");
-extern "C" unsigned char ra2_place_2610[] __asm__("_unknown_b2ab88");
-extern "C" unsigned char ra2_place_2611[] __asm__("_unknown_time_b2abd0");
-extern "C" unsigned char ra2_place_2612[] __asm__("_unknown_time_b2abd4");
-extern "C" unsigned char ra2_place_2613[] __asm__("_unknown_b2abd8");
-extern "C" unsigned char ra2_place_2614[] __asm__("_DAT_00b2abd9");
-extern "C" unsigned char ra2_place_2615[] __asm__("_unknown_b2abda");
-extern "C" unsigned char ra2_place_2616[] __asm__("_wol_max_players_b2abdc");
-extern "C" unsigned char ra2_place_2617[] __asm__("_unknown_b2abe0");
-extern "C" unsigned char ra2_place_2618[] __asm__("_unknown_login_state_00b2abe4");
-extern "C" unsigned char ra2_place_2619[] __asm__("_unknown_b2abe8");
-extern "C" unsigned char ra2_place_2620[] __asm__("_unknown_b2abec");
-extern "C" unsigned char ra2_place_2621[] __asm__("_host_leave_b2abf0");
-extern "C" unsigned char ra2_place_2622[] __asm__("_unknown_query_count_b2abf4");
-extern "C" unsigned char ra2_place_2623[] __asm__("_unknown_squad_query_b2abf8");
-extern "C" unsigned char ra2_place_2624[] __asm__("_unknown_own_squad_b2abfc");
-extern "C" unsigned char ra2_place_2625[] __asm__("_server_request_status_b2ac00");
-extern "C" unsigned char ra2_place_2626[] __asm__("_unknown_b2ac04");
-extern "C" unsigned char ra2_place_2627[] __asm__("_unknown_newnick_result_b2ac08");
-extern "C" unsigned char ra2_place_2628[] __asm__("_unknown_b2ac0c");
-extern "C" unsigned char ra2_place_2629[] __asm__("_unknown_connection_result_b2ac10");
-extern "C" unsigned char ra2_place_2630[] __asm__("_unknown_b2ac18");
-extern "C" unsigned char ra2_place_2631[] __asm__("_unknown_b2ac1c");
-extern "C" unsigned char ra2_place_2632[] __asm__("_unknown_b2ac20");
-extern "C" unsigned char ra2_place_2633[] __asm__("_unknown_ladder_cache_b2ac24");
-extern "C" unsigned char ra2_place_2634[] __asm__("_unknown_wdt_sounds_initialized_b2ac28");
-extern "C" unsigned char ra2_place_2635[] __asm__("_unknown_b2ac2c");
-extern "C" unsigned char ra2_place_2636[] __asm__("_unknown_router_b2ac30");
-extern "C" unsigned char ra2_place_2637[] __asm__("_unknown_mangler_count_b2ac34");
-extern "C" unsigned char ra2_place_2638[] __asm__("_unknown_mangler_index_b2ac38");
-extern "C" unsigned char ra2_place_2639[] __asm__("_unknown_b2ac40");
-extern "C" unsigned char ra2_place_2640[] __asm__("_unknown_b2ac44");
-extern "C" unsigned char ra2_place_2641[] __asm__("_unknown_b2ac45");
-extern "C" unsigned char ra2_place_2642[] __asm__("_receiving_host_preview_00b2ac46");
-extern "C" unsigned char ra2_place_2643[] __asm__("_guest_last_pager_b2ac48");
-extern "C" unsigned char ra2_place_2644[] __asm__("_unknown_b2ac58");
-extern "C" unsigned char ra2_place_2645[] __asm__("_profile_url_value_b2ac5c");
-extern "C" unsigned char ra2_place_2646[] __asm__("_wol_chat_cookie_b2ac60");
-extern "C" unsigned char ra2_place_2647[] __asm__("_wol_net_cookie_b2ac64");
-extern "C" unsigned char ra2_place_2648[] __asm__("_wol_download_cookie_b2ac68");
-extern "C" unsigned char ra2_place_2649[] __asm__("_unknown_b2ac6c");
-extern "C" unsigned char ra2_place_2650[] __asm__("_unknown_b2ac70");
-extern "C" unsigned char ra2_place_2651[] __asm__("_remember_password_b2ac74");
-extern "C" unsigned char ra2_place_2652[] __asm__("_game_list_refreshing_b2ac80");
-extern "C" unsigned char ra2_place_2653[] __asm__("_wol_initialized_b2ac81");
-extern "C" unsigned char ra2_place_2654[] __asm__("_last_game_name_b2ac84");
-extern "C" unsigned char ra2_place_2655[] __asm__("_unknown_account_input_events_b2ac98");
-extern "C" unsigned char ra2_place_2656[] __asm__("_unknown_options_b2aca0");
-extern "C" unsigned char ra2_place_2657[] __asm__("_account_dialog_updating_b2aca8");
-extern "C" unsigned char ra2_place_2658[] __asm__("__pModule");
-extern "C" unsigned char ra2_place_2659[] __asm__("_unknown_icons_b2acc4");
-extern "C" unsigned char ra2_place_2660[] __asm__("_unknown_b2acc8");
-extern "C" unsigned char ra2_place_2661[] __asm__("_DAT_00b2ad60");
-extern "C" unsigned char ra2_place_2662[] __asm__("_DAT_00b2ad70");
-extern "C" unsigned char ra2_place_2663[] __asm__("_WDT_Chosen_Side_b2ada4");
-extern "C" unsigned char ra2_place_2664[] __asm__("_WDT_Chosen_Theater_b2ada8");
-extern "C" unsigned char ra2_place_2665[] __asm__("_unknown_malformed_seen_b2ae24");
-extern "C" unsigned char ra2_place_2666[] __asm__("__ZN21WinsockInterfaceClass14unknown_b2ae9cE");
-extern "C" unsigned char ra2_place_2667[] __asm__("__ZN21WinsockInterfaceClass14unknown_b2aea0E");
-extern "C" unsigned char ra2_place_2668[] __asm__("_unknown_b2af1c");
-extern "C" unsigned char ra2_place_2669[] __asm__("_DAT_00b2b33c");
-extern "C" unsigned char ra2_place_2670[] __asm__("_unknown_kick_channel_b2b3c0");
-extern "C" unsigned char ra2_place_2671[] __asm__("_unknown_query_b2b420");
-extern "C" unsigned char ra2_place_2672[] __asm__("_unknown_cache_empty_b2b624");
+extern "C" unsigned char ra2_place_1520[] __asm__("_DAT_0083366c");
+extern "C" unsigned char ra2_place_1521[] __asm__("_DAT_00833670");
+extern "C" unsigned char ra2_place_1522[] __asm__("_unknown_833680");
+extern "C" unsigned char ra2_place_1523[] __asm__("_unknown_833684");
+extern "C" unsigned char ra2_place_1524[] __asm__("_unknown_833968");
+extern "C" unsigned char ra2_place_1525[] __asm__("_MultiMix");
+extern "C" unsigned char ra2_place_1526[] __asm__("_unknown_ra2_mix_8374b8");
+extern "C" unsigned char ra2_place_1527[] __asm__("_unknown_language_mix_8374bc");
+extern "C" unsigned char ra2_place_1528[] __asm__("_unknown_theater_mix_8374c0");
+extern "C" unsigned char ra2_place_1529[] __asm__("_unknown_theater_mix_8374c4");
+extern "C" unsigned char ra2_place_1530[] __asm__("_unknown_theater_mix_8374c8");
+extern "C" unsigned char ra2_place_1531[] __asm__("_unknown_theater_mix_8374cc");
+extern "C" unsigned char ra2_place_1532[] __asm__("_unknown_theater_mix_8374d0");
+extern "C" unsigned char ra2_place_1533[] __asm__("_MoviesMix");
+extern "C" unsigned char ra2_place_1534[] __asm__("_unknown_mix_8374d8");
+extern "C" unsigned char ra2_place_1535[] __asm__("_MainMix");
+extern "C" unsigned char ra2_place_1536[] __asm__("_ConquerMix");
+extern "C" unsigned char ra2_place_1537[] __asm__("_CameoMix");
+extern "C" unsigned char ra2_place_1538[] __asm__("_unknown_cache_mix_8374e8");
+extern "C" unsigned char ra2_place_1539[] __asm__("_unknown_local_mix_8374ec");
+extern "C" unsigned char ra2_place_1540[] __asm__("_unknown_mix_8374f0");
+extern "C" unsigned char ra2_place_1541[] __asm__("_MapsMix");
+extern "C" unsigned char ra2_place_1542[] __asm__("_unknown_mix_8374f8");
+extern "C" unsigned char ra2_place_1543[] __asm__("_unknown_mix_8374fc");
+extern "C" unsigned char ra2_place_1544[] __asm__("_unknown_side_mix_837500");
+extern "C" unsigned char ra2_place_1545[] __asm__("_unknown_side_nc_mix_837504");
+extern "C" unsigned char ra2_place_1546[] __asm__("_unknown_int_839620");
+extern "C" unsigned char ra2_place_1547[] __asm__("_unknown_ini_8396d0");
+extern "C" unsigned char ra2_place_1548[] __asm__("_Rules");
+extern "C" unsigned char ra2_place_1549[] __asm__("_unknown_surface_839944");
+extern "C" unsigned char ra2_place_1550[] __asm__("_unknown_surface_839948");
+extern "C" unsigned char ra2_place_1551[] __asm__("_unknown_surface_839950");
+extern "C" unsigned char ra2_place_1552[] __asm__("_unknown_surface_839954");
+extern "C" unsigned char ra2_place_1553[] __asm__("_unknown_surface_839958");
+extern "C" unsigned char ra2_place_1554[] __asm__("_unknown_surface_83995c");
+extern "C" unsigned char ra2_place_1555[] __asm__("_unknown_surface_839964");
+extern "C" unsigned char ra2_place_1556[] __asm__("_unknown_surface_839968");
+extern "C" unsigned char ra2_place_1557[] __asm__("_DAT_0083996c");
+extern "C" unsigned char ra2_place_1558[] __asm__("_ToolTips");
+extern "C" unsigned char ra2_place_1559[] __asm__("_unknown_use_voxel_cache_839a58");
+extern "C" unsigned char ra2_place_1560[] __asm__("_unknown_camera_angle_839a5c");
+extern "C" unsigned char ra2_place_1561[] __asm__("_unknown_839a60");
+extern "C" unsigned char ra2_place_1562[] __asm__("_unknown_voxel_transform_839a70");
+extern "C" unsigned char ra2_place_1563[] __asm__("_unknown_839aa4");
+extern "C" unsigned char ra2_place_1564[] __asm__("_unknown_839aa8");
+extern "C" unsigned char ra2_place_1565[] __asm__("_unknown_839aac");
+extern "C" unsigned char ra2_place_1566[] __asm__("_unknown_839ab0");
+extern "C" unsigned char ra2_place_1567[] __asm__("_PacketTransport");
+extern "C" unsigned char ra2_place_1568[] __asm__("_WWMouse");
+extern "C" unsigned char ra2_place_1569[] __asm__("_ABufferPtr");
+extern "C" unsigned char ra2_place_1570[] __asm__("_buddy_00839d4c");
+extern "C" unsigned char ra2_place_1571[] __asm__("__AHandleCallbackFunc1");
+extern "C" unsigned char ra2_place_1572[] __asm__("__AHandleCallbackFunc2");
+extern "C" unsigned char ra2_place_1573[] __asm__("__handles");
+extern "C" unsigned char ra2_place_1574[] __asm__("_unknown_flag_83c4d4");
+extern "C" unsigned char ra2_place_1575[] __asm__("_unknown_flag_83c4d5");
+extern "C" unsigned char ra2_place_1576[] __asm__("_unknown_83c550");
+extern "C" unsigned char ra2_place_1577[] __asm__("_unknown_left_rotor_83c554");
+extern "C" unsigned char ra2_place_1578[] __asm__("_unknown_right_rotor_83c558");
+extern "C" unsigned char ra2_place_1579[] __asm__("_session_empty");
+extern "C" unsigned char ra2_place_1580[] __asm__("_unknown_alpha_table_83c670");
+extern "C" unsigned char ra2_place_1581[] __asm__("_unknown_alpha_table_ready_84c684");
+extern "C" unsigned char ra2_place_1582[] __asm__("_unknown_application_84c7dc");
+extern "C" unsigned char ra2_place_1583[] __asm__("_unknown_path_facing_offsets_84c838");
+extern "C" unsigned char ra2_place_1584[] __asm__("_unknown_path_levels_84c858");
+extern "C" unsigned char ra2_place_1585[] __asm__("_unknown_path_level_scale_84e800");
+extern "C" unsigned char ra2_place_1586[] __asm__("_DAT_0084e804");
+extern "C" unsigned char ra2_place_1587[] __asm__("_unknown_house_84e894");
+extern "C" unsigned char ra2_place_1588[] __asm__("_unknown_beacon_shape_84e98c");
+extern "C" unsigned char ra2_place_1589[] __asm__("_unknown_radar_beacon_shape_84e990");
+extern "C" unsigned char ra2_place_1590[] __asm__("_unknown_volume_84e9a8");
+extern "C" unsigned char ra2_place_1591[] __asm__("_BitText");
+extern "C" unsigned char ra2_place_1592[] __asm__("_BitFont");
+extern "C" unsigned char ra2_place_1593[] __asm__("_Blit_RLE_Default_Depth");
+extern "C" unsigned char ra2_place_1594[] __asm__("_exit_cell_none_0084ed10");
+extern "C" unsigned char ra2_place_1595[] __asm__("_Building_Radio_No_Coord_0084ed30");
+extern "C" unsigned char ra2_place_1596[] __asm__("_unknown_shape_empty_rect_84ed88");
+extern "C" unsigned char ra2_place_1597[] __asm__("_unknown_850298");
+extern "C" unsigned char ra2_place_1598[] __asm__("_unknown_building_depth_shape_85029c");
+extern "C" unsigned char ra2_place_1599[] __asm__("_unknown_cloak_surface_8502a0");
+extern "C" unsigned char ra2_place_1600[] __asm__("_unknown_poweroff_shape_8502a4");
+extern "C" unsigned char ra2_place_1601[] __asm__("_unknown_wrench_shape_8502a8");
+extern "C" unsigned char ra2_place_1602[] __asm__("_bullet_bridge_height");
+extern "C" unsigned char ra2_place_1603[] __asm__("_unknown_level_height_850348");
+extern "C" unsigned char ra2_place_1604[] __asm__("_unknown_score_list_850448");
+extern "C" unsigned char ra2_place_1605[] __asm__("_unknown_end_score_campaign_850488");
+extern "C" unsigned char ra2_place_1606[] __asm__("_unknown_end_score_time_85049c");
+extern "C" unsigned char ra2_place_1607[] __asm__("_unknown_end_score_list_8504a8");
+extern "C" unsigned char ra2_place_1608[] __asm__("_unknown_score_ready_8504c8");
+extern "C" unsigned char ra2_place_1609[] __asm__("_unknown_end_score_difficulty_8504d0");
+extern "C" unsigned char ra2_place_1610[] __asm__("_unknown_end_score_count_8504e8");
+extern "C" unsigned char ra2_place_1611[] __asm__("_unknown_score_850504");
+extern "C" unsigned char ra2_place_1612[] __asm__("_unknown_score_time_850508");
+extern "C" unsigned char ra2_place_1613[] __asm__("_unknown_score_count_85050c");
+extern "C" unsigned char ra2_place_1614[] __asm__("_unknown_score_flag_850510");
+extern "C" unsigned char ra2_place_1615[] __asm__("_unknown_score_name_850514");
+extern "C" unsigned char ra2_place_1616[] __asm__("_unknown_end_score_name_850554");
+extern "C" unsigned char ra2_place_1617[] __asm__("__ZN2CD7IsLocalE");
+extern "C" unsigned char ra2_place_1618[] __asm__("__ZN11CDFileClass5FirstE");
+extern "C" unsigned char ra2_place_1619[] __asm__("__ZN11CDFileClass14CurrentCDDriveE");
+extern "C" unsigned char ra2_place_1620[] __asm__("__ZN11CDFileClass11LastCDDriveE");
+extern "C" unsigned char ra2_place_1621[] __asm__("__ZN11CDFileClass7RawPathE");
+extern "C" unsigned char ra2_place_1622[] __asm__("_Clear_Icon_Large");
+extern "C" unsigned char ra2_place_1623[] __asm__("_unknown_cell_850bd8");
+extern "C" unsigned char ra2_place_1624[] __asm__("_unknown_level_850c40");
+extern "C" unsigned char ra2_place_1625[] __asm__("_Clear_Icon_Init");
+extern "C" unsigned char ra2_place_1626[] __asm__("_last_online_poll_00850e10");
+extern "C" unsigned char ra2_place_1627[] __asm__("_unknown_cell_offsets_00850e50");
+extern "C" unsigned char ra2_place_1628[] __asm__("_Ground");
+extern "C" unsigned char ra2_place_1629[] __asm__("_CrateData");
+extern "C" unsigned char ra2_place_1630[] __asm__("_CrateWater");
+extern "C" unsigned char ra2_place_1631[] __asm__("_unknown_encoded_buffer_00851170");
+extern "C" unsigned char ra2_place_1632[] __asm__("_unknown_decoded_buffer_00851570");
+extern "C" unsigned char ra2_place_1633[] __asm__("_unknown_campaign_buffer_008519c8");
+extern "C" unsigned char ra2_place_1634[] __asm__("_grand_south_step_00851a80");
+extern "C" unsigned char ra2_place_1635[] __asm__("_unknown_unload_offset_851a88");
+extern "C" unsigned char ra2_place_1636[] __asm__("_launcher_message_00851b3c");
+extern "C" unsigned char ra2_place_1637[] __asm__("_unknown_instance_00851ca8");
+extern "C" unsigned char ra2_place_1638[] __asm__("_unknown_flag_851cb0");
+extern "C" unsigned char ra2_place_1639[] __asm__("_unknown_palette_00851cc8");
+extern "C" unsigned char ra2_place_1640[] __asm__("_unknown_palette_00851fc8");
+extern "C" unsigned char ra2_place_1641[] __asm__("_unknown_palette_entries_00851fcc");
+extern "C" unsigned char ra2_place_1642[] __asm__("_DirectDrawObject");
+extern "C" unsigned char ra2_place_1643[] __asm__("_unknown_palette_attached_008523d4");
+extern "C" unsigned char ra2_place_1644[] __asm__("_PrimarySurface_8523d8");
+extern "C" unsigned char ra2_place_1645[] __asm__("_unknown_redraw_8523dc");
+extern "C" unsigned char ra2_place_1646[] __asm__("_direct_draw_width_008523e0");
+extern "C" unsigned char ra2_place_1647[] __asm__("_direct_draw_height_008523e4");
+extern "C" unsigned char ra2_place_1648[] __asm__("_direct_draw_depth_008523e8");
+extern "C" unsigned char ra2_place_1649[] __asm__("_direct_draw_error_handler_008523ec");
+extern "C" unsigned char ra2_place_1650[] __asm__("_unknown_dial_drag_00852478");
+extern "C" unsigned char ra2_place_1651[] __asm__("_unknown_buffer_852480");
+extern "C" unsigned char ra2_place_1652[] __asm__("_unknown_cell_852610");
+extern "C" unsigned char ra2_place_1653[] __asm__("__ZN12DisplayClass12TransIconsetE");
+extern "C" unsigned char ra2_place_1654[] __asm__("__ZN12DisplayClass14unknown_852630E");
+extern "C" unsigned char ra2_place_1655[] __asm__("_unknown_rect_85291c");
+extern "C" unsigned char ra2_place_1656[] __asm__("__ZN12DisplayClass12ShadowShapesE");
+extern "C" unsigned char ra2_place_1657[] __asm__("_unknown_height_step_852948");
+extern "C" unsigned char ra2_place_1658[] __asm__("_unknown_coord_852998");
+extern "C" unsigned char ra2_place_1659[] __asm__("_unknown_coord_852a20");
+extern "C" unsigned char ra2_place_1660[] __asm__("_counter_current_text_00852a68");
+extern "C" unsigned char ra2_place_1661[] __asm__("_counter_previous_text_00852ab8");
+extern "C" unsigned char ra2_place_1662[] __asm__("_PrimaryPixelFormat_852b38");
+extern "C" unsigned char ra2_place_1663[] __asm__("_unknown_clipper_852fb4");
+extern "C" unsigned char ra2_place_1664[] __asm__("_unknown_shift_852fb8");
+extern "C" unsigned char ra2_place_1665[] __asm__("_unknown_shift_852fbc");
+extern "C" unsigned char ra2_place_1666[] __asm__("_unknown_shift_852fc0");
+extern "C" unsigned char ra2_place_1667[] __asm__("_unknown_shift_852fc4");
+extern "C" unsigned char ra2_place_1668[] __asm__("_unknown_shift_852fc8");
+extern "C" unsigned char ra2_place_1669[] __asm__("_unknown_shift_852fcc");
+extern "C" unsigned char ra2_place_1670[] __asm__("_unknown_quarter_mask_852fd2");
+extern "C" unsigned char ra2_place_1671[] __asm__("_unknown_eighth_mask_852fd4");
+extern "C" unsigned char ra2_place_1672[] __asm__("_AllowStretchBlits_852fd6");
+extern "C" unsigned char ra2_place_1673[] __asm__("_unknown_flag_852fd7");
+extern "C" unsigned char ra2_place_1674[] __asm__("_unknown_direct3d2_852fdc");
+extern "C" unsigned char ra2_place_1675[] __asm__("_unknown_device_852fe0");
+extern "C" unsigned char ra2_place_1676[] __asm__("_unknown_viewport_852fe4");
+extern "C" unsigned char ra2_place_1677[] __asm__("_unknown_direct3d_852fe8");
+extern "C" unsigned char ra2_place_1678[] __asm__("_unknown_ebolt_zero_00853028");
+extern "C" unsigned char ra2_place_1679[] __asm__("_unknown_surface_853118");
+extern "C" unsigned char ra2_place_1680[] __asm__("_labels_0085311c");
+extern "C" unsigned char ra2_place_1681[] __asm__("_TaskForceText_00855960");
+extern "C" unsigned char ra2_place_1682[] __asm__("_DAT_008559f0");
+extern "C" unsigned char ra2_place_1683[] __asm__("_unknown_event_counter_855b9c");
+extern "C" unsigned char ra2_place_1684[] __asm__("_exception_text_00855ba8");
+extern "C" unsigned char ra2_place_1685[] __asm__("_ExceptionReturnStack");
+extern "C" unsigned char ra2_place_1686[] __asm__("_ExceptionReturnAddress");
+extern "C" unsigned char ra2_place_1687[] __asm__("_ImageHelp_00865c20");
+extern "C" unsigned char ra2_place_1688[] __asm__("_unknown_coord_865df8");
+extern "C" unsigned char ra2_place_1689[] __asm__("_unknown_approach_none_865f00");
+extern "C" unsigned char ra2_place_1690[] __asm__("_unknown_approach_bridge_height_865f60");
+extern "C" unsigned char ra2_place_1691[] __asm__("__ZN11GadgetClass7StuckOnE");
+extern "C" unsigned char ra2_place_1692[] __asm__("__ZN11GadgetClass8LastListE");
+extern "C" unsigned char ra2_place_1693[] __asm__("__ZN11GadgetClass7FocusedE");
+extern "C" unsigned char ra2_place_1694[] __asm__("__ZN11GadgetClass9MouseOverE");
+extern "C" unsigned char ra2_place_1695[] __asm__("_unknown_color_entries_8660d8");
+extern "C" unsigned char ra2_place_1696[] __asm__("_player_restarts_866250");
+extern "C" unsigned char ra2_place_1697[] __asm__("_DAT_00a35cdc");
+extern "C" unsigned char ra2_place_1698[] __asm__("_DAT_00a35d0c");
+extern "C" unsigned char ra2_place_1699[] __asm__("_LogicTriggerID");
+extern "C" unsigned char ra2_place_1700[] __asm__("_DAT_00a35d64");
+extern "C" unsigned char ra2_place_1701[] __asm__("_player_aborts_a35db0");
+extern "C" unsigned char ra2_place_1702[] __asm__("_player_wins_a35db1");
+extern "C" unsigned char ra2_place_1703[] __asm__("_global_6bc210_a35db4");
+extern "C" unsigned char ra2_place_1704[] __asm__("_unknown_buffer_a35e20");
+extern "C" unsigned char ra2_place_1705[] __asm__("_unknown_tag_position_a35e24");
+extern "C" unsigned char ra2_place_1706[] __asm__("_unknown_scenario_name_a35ea8");
+extern "C" unsigned char ra2_place_1707[] __asm__("_unknown_CellCount_a35f28");
+extern "C" unsigned char ra2_place_1708[] __asm__("_unknown_a3d23c");
+extern "C" unsigned char ra2_place_1709[] __asm__("_unknown_a3d258");
+extern "C" unsigned char ra2_place_1710[] __asm__("_DAT_00a3d290");
+extern "C" unsigned char ra2_place_1711[] __asm__("_unknown_a3d29c");
+extern "C" unsigned char ra2_place_1712[] __asm__("_unknown_lobby_state_a3d2b0");
+extern "C" unsigned char ra2_place_1713[] __asm__("_unknown_session_a3d2c4");
+extern "C" unsigned char ra2_place_1714[] __asm__("_player_statistics_00a3d584");
+extern "C" unsigned char ra2_place_1715[] __asm__("_DAT_00a3d8dc");
+extern "C" unsigned char ra2_place_1716[] __asm__("_unknown_address_a3db2c");
+extern "C" unsigned char ra2_place_1717[] __asm__("_unknown_flags_a3f600");
+extern "C" unsigned char ra2_place_1718[] __asm__("_unknown_dest_net_a3f608");
+extern "C" unsigned char ra2_place_1719[] __asm__("_unknown_address_a3f80c");
+extern "C" unsigned char ra2_place_1720[] __asm__("_DAT_00a3fa80");
+extern "C" unsigned char ra2_place_1721[] __asm__("_unknown_forward_address_a3fbac");
+extern "C" unsigned char ra2_place_1722[] __asm__("_unknown_forward_address_a3fbb8");
+extern "C" unsigned char ra2_place_1723[] __asm__("_unknown_forward_port_a3fbc4");
+extern "C" unsigned char ra2_place_1724[] __asm__("_unknown_address_a3fbc8");
+extern "C" unsigned char ra2_place_1725[] __asm__("_unknown_spare_ticks_a4031c");
+extern "C" unsigned char ra2_place_1726[] __asm__("_unknown_flag_a40380");
+extern "C" unsigned char ra2_place_1727[] __asm__("_unknown_a40770");
+extern "C" unsigned char ra2_place_1728[] __asm__("_unknown_a40774");
+extern "C" unsigned char ra2_place_1729[] __asm__("_unknown_special_a40920");
+extern "C" unsigned char ra2_place_1730[] __asm__("_DAT_00a40958");
+extern "C" unsigned char ra2_place_1731[] __asm__("_unknown_connection_a409c4");
+extern "C" unsigned char ra2_place_1732[] __asm__("_unknown_placing_a40b32");
+extern "C" unsigned char ra2_place_1733[] __asm__("_unknown_int_a40b54");
+extern "C" unsigned char ra2_place_1734[] __asm__("_unknown_radio_param_a40be0");
+extern "C" unsigned char ra2_place_1735[] __asm__("_unknown_target_scan_a40be4");
+extern "C" unsigned char ra2_place_1736[] __asm__("_unknown_sound_enabled_a40c18");
+extern "C" unsigned char ra2_place_1737[] __asm__("_unknown_a40c38");
+extern "C" unsigned char ra2_place_1738[] __asm__("_player_loses_a40c78");
+extern "C" unsigned char ra2_place_1739[] __asm__("_unknown_flag_a40d04");
+extern "C" unsigned char ra2_place_1740[] __asm__("_unknown_flag_a40d05");
+extern "C" unsigned char ra2_place_1741[] __asm__("_Debug_MotionCapture");
+extern "C" unsigned char ra2_place_1742[] __asm__("_unknown_allow_mode_toggle_a40d0b");
+extern "C" unsigned char ra2_place_1743[] __asm__("_unknown_flag_a40d0c");
+extern "C" unsigned char ra2_place_1744[] __asm__("_unknown_flag_a40d10");
+extern "C" unsigned char ra2_place_1745[] __asm__("_unknown_a40d13");
+extern "C" unsigned char ra2_place_1746[] __asm__("_unknown_trap_check_heap_a40d1a");
+extern "C" unsigned char ra2_place_1747[] __asm__("_unknown_debug_print_events_a40d1c");
+extern "C" unsigned char ra2_place_1748[] __asm__("_unknown_gas_cloud_system_a40d20");
+extern "C" unsigned char ra2_place_1749[] __asm__("_unknown_ini_format_a40d24");
+extern "C" unsigned char ra2_place_1750[] __asm__("_unknown_flag_a40d28");
+extern "C" unsigned char ra2_place_1751[] __asm__("_Frame");
+extern "C" unsigned char ra2_place_1752[] __asm__("_unknown_int_a40d34");
+extern "C" unsigned char ra2_place_1753[] __asm__("_unknown_a40d39");
+extern "C" unsigned char ra2_place_1754[] __asm__("_Seed");
+extern "C" unsigned char ra2_place_1755[] __asm__("_CustomSeed");
+extern "C" unsigned char ra2_place_1756[] __asm__("_unknown_flag_a40d44");
+extern "C" unsigned char ra2_place_1757[] __asm__("_unknown_flag_a40d45");
+extern "C" unsigned char ra2_place_1758[] __asm__("_unknown_int_a40d48");
+extern "C" unsigned char ra2_place_1759[] __asm__("_ReadyToQuit");
+extern "C" unsigned char ra2_place_1760[] __asm__("_unknown_flag_a40d84");
+extern "C" unsigned char ra2_place_1761[] __asm__("__ZN12GScreenClass7ButtonsE");
+extern "C" unsigned char ra2_place_1762[] __asm__("_unknown_cell_a40f10");
+extern "C" unsigned char ra2_place_1763[] __asm__("_unknown_coord_a40f48");
+extern "C" unsigned char ra2_place_1764[] __asm__("_low_power_notice_a40fc8");
+extern "C" unsigned char ra2_place_1765[] __asm__("_unknown_coord_a41080");
+extern "C" unsigned char ra2_place_1766[] __asm__("_unknown_invalid_cell_a410d8");
+extern "C" unsigned char ra2_place_1767[] __asm__("_unknown_coord_a410f8");
+extern "C" unsigned char ra2_place_1768[] __asm__("_unknown_bridge_height_a41120");
+extern "C" unsigned char ra2_place_1769[] __asm__("_unknown_level_height_a41130");
+extern "C" unsigned char ra2_place_1770[] __asm__("_unknown_infantry_shadow_00a41134");
+extern "C" unsigned char ra2_place_1771[] __asm__("_unknown_invalid_coord_a41170");
+extern "C" unsigned char ra2_place_1772[] __asm__("_unknown_a411b0");
+extern "C" unsigned char ra2_place_1773[] __asm__("_unknown_side_sound_a411e8");
+extern "C" unsigned char ra2_place_1774[] __asm__("_unknown_profile_cpu_text_a411fc");
+extern "C" unsigned char ra2_place_1775[] __asm__("_unknown_profile_text_a4127c");
+extern "C" unsigned char ra2_place_1776[] __asm__("_unknown_profile_vram_text_a41308");
+extern "C" unsigned char ra2_place_1777[] __asm__("_unknown_profile_ram_text_a41388");
+extern "C" unsigned char ra2_place_1778[] __asm__("_unknown_profile_blit_text_a41408");
+extern "C" unsigned char ra2_place_1779[] __asm__("_DAT_00a4149c");
+extern "C" unsigned char ra2_place_1780[] __asm__("_unknown_command_text_a4153c");
+extern "C" unsigned char ra2_place_1781[] __asm__("_unknown_record_mode_a41664");
+extern "C" unsigned char ra2_place_1782[] __asm__("_unknown_loading_time_a41668");
+extern "C" unsigned char ra2_place_1783[] __asm__("_unknown_grfxtxt_palette_a41670");
+extern "C" unsigned char ra2_place_1784[] __asm__("_unknown_grfxtxt_shape_a41674");
+extern "C" unsigned char ra2_place_1785[] __asm__("_unknown_grfxtxt_drawer_a41678");
+extern "C" unsigned char ra2_place_1786[] __asm__("_unknown_hover_time_a41680");
+extern "C" unsigned char ra2_place_1787[] __asm__("_unknown_hover_id_a41688");
+extern "C" unsigned char ra2_place_1788[] __asm__("_unknown_campaign_list_a4168d");
+extern "C" unsigned char ra2_place_1789[] __asm__("_unknown_pressed_a41690");
+extern "C" unsigned char ra2_place_1790[] __asm__("_unknown_a41698");
+extern "C" unsigned char ra2_place_1791[] __asm__("_unknown_cheat_text_a4169c");
+extern "C" unsigned char ra2_place_1792[] __asm__("_unknown_show_cursor_position_a416bc");
+extern "C" unsigned char ra2_place_1793[] __asm__("_unknown_flag_a417c8");
+extern "C" unsigned char ra2_place_1794[] __asm__("_StormActive");
+extern "C" unsigned char ra2_place_1795[] __asm__("_StormDeferment");
+extern "C" unsigned char ra2_place_1796[] __asm__("_DAT_00a5193c");
+extern "C" unsigned char ra2_place_1797[] __asm__("_StormOwner");
+extern "C" unsigned char ra2_place_1798[] __asm__("_StormTimeToEnd");
+extern "C" unsigned char ra2_place_1799[] __asm__("_DAT_00a51fd0");
+extern "C" unsigned char ra2_place_1800[] __asm__("_DAT_00a521d0");
+extern "C" unsigned char ra2_place_1801[] __asm__("_DAT_00a521dc");
+extern "C" unsigned char ra2_place_1802[] __asm__("_DAT_00a521e0");
+extern "C" unsigned char ra2_place_1803[] __asm__("_DAT_00a521e4");
+extern "C" unsigned char ra2_place_1804[] __asm__("_DAT_00a521e8");
+extern "C" unsigned char ra2_place_1805[] __asm__("_DAT_00a521f0");
+extern "C" unsigned char ra2_place_1806[] __asm__("_DAT_00a521f8");
+extern "C" unsigned char ra2_place_1807[] __asm__("_DAT_00a52200");
+extern "C" unsigned char ra2_place_1808[] __asm__("_DAT_00a52260");
+extern "C" unsigned char ra2_place_1809[] __asm__("_DAT_00a52264");
+extern "C" unsigned char ra2_place_1810[] __asm__("_DAT_00a52268");
+extern "C" unsigned char ra2_place_1811[] __asm__("_DAT_00a52280");
+extern "C" unsigned char ra2_place_1812[] __asm__("_unknown_message_count_a52298");
+extern "C" unsigned char ra2_place_1813[] __asm__("_DAT_00a5229c");
+extern "C" unsigned char ra2_place_1814[] __asm__("_DAT_00a522a0");
+extern "C" unsigned char ra2_place_1815[] __asm__("_DAT_00a522a4");
+extern "C" unsigned char ra2_place_1816[] __asm__("_DAT_00a522a8");
+extern "C" unsigned char ra2_place_1817[] __asm__("_DAT_00a522ac");
+extern "C" unsigned char ra2_place_1818[] __asm__("_DAT_00a522b0");
+extern "C" unsigned char ra2_place_1819[] __asm__("_DAT_00a522b4");
+extern "C" unsigned char ra2_place_1820[] __asm__("_DAT_00a522b8");
+extern "C" unsigned char ra2_place_1821[] __asm__("_DAT_00a522bc");
+extern "C" unsigned char ra2_place_1822[] __asm__("_DAT_00a522c0");
+extern "C" unsigned char ra2_place_1823[] __asm__("_DAT_00a522c4");
+extern "C" unsigned char ra2_place_1824[] __asm__("_DAT_00a522c8");
+extern "C" unsigned char ra2_place_1825[] __asm__("_DAT_00a522cc");
+extern "C" unsigned char ra2_place_1826[] __asm__("_DAT_00a522d0");
+extern "C" unsigned char ra2_place_1827[] __asm__("_DAT_00a522d4");
+extern "C" unsigned char ra2_place_1828[] __asm__("_DAT_00a522d8");
+extern "C" unsigned char ra2_place_1829[] __asm__("_DAT_00a522dc");
+extern "C" unsigned char ra2_place_1830[] __asm__("_DAT_00a522e0");
+extern "C" unsigned char ra2_place_1831[] __asm__("_unknown_address_text_a522e4");
+extern "C" unsigned char ra2_place_1832[] __asm__("__ZN12IPXConnClass14unknown_a52370E");
+extern "C" unsigned char ra2_place_1833[] __asm__("__ZN12IPXConnClass14unknown_a52398E");
+extern "C" unsigned char ra2_place_1834[] __asm__("__ZN12IPXConnClass13ConnectionNumE");
+extern "C" unsigned char ra2_place_1835[] __asm__("__ZN12IPXConnClass14unknown_a523c4E");
+extern "C" unsigned char ra2_place_1836[] __asm__("__ZN12IPXConnClass14unknown_a523d4E");
+extern "C" unsigned char ra2_place_1837[] __asm__("__ZN12IPXConnClass14unknown_a523e0E");
+extern "C" unsigned char ra2_place_1838[] __asm__("__ZN12IPXConnClass10ConfiguredE");
+extern "C" unsigned char ra2_place_1839[] __asm__("__ZN12IPXConnClass10SocketOpenE");
+extern "C" unsigned char ra2_place_1840[] __asm__("__ZN12IPXConnClass9ListeningE");
+extern "C" unsigned char ra2_place_1841[] __asm__("_unknown_cell_a52520");
+extern "C" unsigned char ra2_place_1842[] __asm__("_DAT_00a52580");
+extern "C" unsigned char ra2_place_1843[] __asm__("_unknown_tileset_a52584");
+extern "C" unsigned char ra2_place_1844[] __asm__("_unknown_tileset_a52588");
+extern "C" unsigned char ra2_place_1845[] __asm__("_unknown_tileset_a5258c");
+extern "C" unsigned char ra2_place_1846[] __asm__("_unknown_tileset_a52590");
+extern "C" unsigned char ra2_place_1847[] __asm__("_unknown_tileset_a52c60");
+extern "C" unsigned char ra2_place_1848[] __asm__("_unknown_tileset_a52c64");
+extern "C" unsigned char ra2_place_1849[] __asm__("_unknown_tileset_a52c68");
+extern "C" unsigned char ra2_place_1850[] __asm__("_unknown_tileset_a52c70");
+extern "C" unsigned char ra2_place_1851[] __asm__("_unknown_tileset_a52c74");
+extern "C" unsigned char ra2_place_1852[] __asm__("_unknown_tileset_a52c80");
+extern "C" unsigned char ra2_place_1853[] __asm__("_unknown_tileset_a52e64");
+extern "C" unsigned char ra2_place_1854[] __asm__("_unknown_tileset_a52e68");
+extern "C" unsigned char ra2_place_1855[] __asm__("_unknown_tileset_a52e6c");
+extern "C" unsigned char ra2_place_1856[] __asm__("_unknown_tileset_a52e70");
+extern "C" unsigned char ra2_place_1857[] __asm__("__ZN22IsometricTileTypeClass17ShadowCasterTilesE");
+extern "C" unsigned char ra2_place_1858[] __asm__("_unknown_tileset_a52ea0");
+extern "C" unsigned char ra2_place_1859[] __asm__("_unknown_tileset_a52ea4");
+extern "C" unsigned char ra2_place_1860[] __asm__("_unknown_tileset_a52ea8");
+extern "C" unsigned char ra2_place_1861[] __asm__("_unknown_cell_a52eac");
+extern "C" unsigned char ra2_place_1862[] __asm__("_SlopeZShapes");
+extern "C" unsigned char ra2_place_1863[] __asm__("_DAT_00a52eb4");
+extern "C" unsigned char ra2_place_1864[] __asm__("_DAT_00a52eb8");
+extern "C" unsigned char ra2_place_1865[] __asm__("_DAT_00a52ebc");
+extern "C" unsigned char ra2_place_1866[] __asm__("_unknown_tileset_a52ee0");
+extern "C" unsigned char ra2_place_1867[] __asm__("_unknown_tileset_a52ee4");
+extern "C" unsigned char ra2_place_1868[] __asm__("_unknown_tileset_a52ee8");
+extern "C" unsigned char ra2_place_1869[] __asm__("_unknown_tileset_a52eec");
+extern "C" unsigned char ra2_place_1870[] __asm__("_unknown_tileset_a52ef0");
+extern "C" unsigned char ra2_place_1871[] __asm__("_unknown_tileset_a52ef4");
+extern "C" unsigned char ra2_place_1872[] __asm__("_unknown_tileset_a52ef8");
+extern "C" unsigned char ra2_place_1873[] __asm__("_unknown_tileset_a52efc");
+extern "C" unsigned char ra2_place_1874[] __asm__("_unknown_tileset_a52f00");
+extern "C" unsigned char ra2_place_1875[] __asm__("_unknown_tileset_a52f04");
+extern "C" unsigned char ra2_place_1876[] __asm__("_unknown_tileset_a52f80");
+extern "C" unsigned char ra2_place_1877[] __asm__("_unknown_tileset_a52f84");
+extern "C" unsigned char ra2_place_1878[] __asm__("_unknown_tile_sets_a52f90");
+extern "C" unsigned char ra2_place_1879[] __asm__("_unknown_tileset_a53390");
+extern "C" unsigned char ra2_place_1880[] __asm__("_unknown_tileset_a53394");
+extern "C" unsigned char ra2_place_1881[] __asm__("_unknown_tileset_a6cb68");
+extern "C" unsigned char ra2_place_1882[] __asm__("_unknown_tileset_a6cb6c");
+extern "C" unsigned char ra2_place_1883[] __asm__("_unknown_tileset_a6cb70");
+extern "C" unsigned char ra2_place_1884[] __asm__("_unknown_tileset_a6cb74");
+extern "C" unsigned char ra2_place_1885[] __asm__("_unknown_tileset_a6cb78");
+extern "C" unsigned char ra2_place_1886[] __asm__("_unknown_tileset_a6cb7c");
+extern "C" unsigned char ra2_place_1887[] __asm__("_unknown_tileset_a6cf4c");
+extern "C" unsigned char ra2_place_1888[] __asm__("_unknown_tileset_a6cf50");
+extern "C" unsigned char ra2_place_1889[] __asm__("_unknown_tileset_a6cf54");
+extern "C" unsigned char ra2_place_1890[] __asm__("_unknown_tileset_a6cf58");
+extern "C" unsigned char ra2_place_1891[] __asm__("_unknown_tileset_a6dd00");
+extern "C" unsigned char ra2_place_1892[] __asm__("_unknown_tileset_a6dd04");
+extern "C" unsigned char ra2_place_1893[] __asm__("_unknown_tileset_a6dd08");
+extern "C" unsigned char ra2_place_1894[] __asm__("_unknown_tileset_a6dd0c");
+extern "C" unsigned char ra2_place_1895[] __asm__("_unknown_tileset_a6e010");
+extern "C" unsigned char ra2_place_1896[] __asm__("_unknown_tileset_a6e014");
+extern "C" unsigned char ra2_place_1897[] __asm__("_unknown_tileset_a6e018");
+extern "C" unsigned char ra2_place_1898[] __asm__("_unknown_tileset_a6e028");
+extern "C" unsigned char ra2_place_1899[] __asm__("_unknown_tileset_a6e038");
+extern "C" unsigned char ra2_place_1900[] __asm__("_unknown_tileset_a6e0e0");
+extern "C" unsigned char ra2_place_1901[] __asm__("_unknown_tileset_a6e0e4");
+extern "C" unsigned char ra2_place_1902[] __asm__("_unknown_tileset_a6e0e8");
+extern "C" unsigned char ra2_place_1903[] __asm__("_unknown_tileset_a6e0f8");
+extern "C" unsigned char ra2_place_1904[] __asm__("_unknown_tileset_a6e0fc");
+extern "C" unsigned char ra2_place_1905[] __asm__("_DAT_00a6e38c");
+extern "C" unsigned char ra2_place_1906[] __asm__("_unknown_tile_set_count_a6e390");
+extern "C" unsigned char ra2_place_1907[] __asm__("_unknown_coord_a6e3e0");
+extern "C" unsigned char ra2_place_1908[] __asm__("_unknown_load_progress_a6e7c4");
+extern "C" unsigned char ra2_place_1909[] __asm__("_unknown_coord_a6ea60");
+extern "C" unsigned char ra2_place_1910[] __asm__("_COMReferences_00a6eb14");
+extern "C" unsigned char ra2_place_1911[] __asm__("_unknown_frames_this_second_a6eb18");
+extern "C" unsigned char ra2_place_1912[] __asm__("_unknown_a6eb1c");
+extern "C" unsigned char ra2_place_1913[] __asm__("_accumulated_fps_00a6eb20");
+extern "C" unsigned char ra2_place_1914[] __asm__("_fps_sample_count_00a6eb24");
+extern "C" unsigned char ra2_place_1915[] __asm__("_unknown_detail_reduced_a6eb28");
+extern "C" unsigned char ra2_place_1916[] __asm__("_unknown_main_loop_flag_a6eb30");
+extern "C" unsigned char ra2_place_1917[] __asm__("_unknown_team_event_a6ebc4");
+extern "C" unsigned char ra2_place_1918[] __asm__("_unknown_team_number_a6ebc8");
+extern "C" unsigned char ra2_place_1919[] __asm__("_unknown_net_frame_delay_a6ebcc");
+extern "C" unsigned char ra2_place_1920[] __asm__("_unknown_flag_a6ebd0");
+extern "C" unsigned char ra2_place_1921[] __asm__("_unknown_scroll_keys_a6ebdc");
+extern "C" unsigned char ra2_place_1922[] __asm__("_unknown_chat_target_a6ebe0");
+extern "C" unsigned char ra2_place_1923[] __asm__("_unknown_cell_a6f238");
+extern "C" unsigned char ra2_place_1924[] __asm__("_unknown_shore_offsets_a6f91c");
+extern "C" unsigned char ra2_place_1925[] __asm__("_unknown_int_a6fa2c");
+extern "C" unsigned char ra2_place_1926[] __asm__("_unknown_zone_a6fc34");
+extern "C" unsigned char ra2_place_1927[] __asm__("_unknown_preview_a6fee4");
+extern "C" unsigned char ra2_place_1928[] __asm__("_unknown_vegetation_min_a6fff0");
+extern "C" unsigned char ra2_place_1929[] __asm__("_unknown_vegetation_max_a7000c");
+extern "C" unsigned char ra2_place_1930[] __asm__("_unknown_generate_flag_a70068");
+extern "C" unsigned char ra2_place_1931[] __asm__("_unknown_seed_text_a709c8");
+extern "C" unsigned char ra2_place_1932[] __asm__("_unknown_map_min_a70a1c");
+extern "C" unsigned char ra2_place_1933[] __asm__("_unknown_map_max_a70a20");
+extern "C" unsigned char ra2_place_1934[] __asm__("_DAT_00a70a24");
+extern "C" unsigned char ra2_place_1935[] __asm__("_unknown_map_region_next_index_a70a28");
+extern "C" unsigned char ra2_place_1936[] __asm__("_unknown_access_min_a70a2c");
+extern "C" unsigned char ra2_place_1937[] __asm__("_unknown_urban_min_a70a54");
+extern "C" unsigned char ra2_place_1938[] __asm__("_unknown_coord_a70b18");
+extern "C" unsigned char ra2_place_1939[] __asm__("_unknown_modem_host_a70de4");
+extern "C" unsigned char ra2_place_1940[] __asm__("_unknown_mono_text_color_a70de8");
+extern "C" unsigned char ra2_place_1941[] __asm__("_mono_test_streams_a70dec");
+extern "C" unsigned char ra2_place_1942[] __asm__("_unknown_mono_back_color_a70e00");
+extern "C" unsigned char ra2_place_1943[] __asm__("_unknown_mono_pages_a70e40");
+extern "C" unsigned char ra2_place_1944[] __asm__("_mono_test_handle_a70e70");
+extern "C" unsigned char ra2_place_1945[] __asm__("_unknown_mono_height_a70ea0");
+extern "C" unsigned char ra2_place_1946[] __asm__("_mono_audio_toggle_a70eec");
+extern "C" unsigned char ra2_place_1947[] __asm__("_mono_voice_index_a70ef0");
+extern "C" unsigned char ra2_place_1948[] __asm__("_mono_test_handle_a70ef4");
+extern "C" unsigned char ra2_place_1949[] __asm__("_mono_stream_count_a70ef8");
+extern "C" unsigned char ra2_place_1950[] __asm__("_mono_voice_priority_a70efc");
+extern "C" unsigned char ra2_place_1951[] __asm__("_unknown_mono_instance_a70f00");
+extern "C" unsigned char ra2_place_1952[] __asm__("_unknown_mono_parent_a70f04");
+extern "C" unsigned char ra2_place_1953[] __asm__("_unknown_mono_allowed_a70f08");
+extern "C" unsigned char ra2_place_1954[] __asm__("_DAT_00a70f09");
+extern "C" unsigned char ra2_place_1955[] __asm__("_DAT_00a70f0a");
+extern "C" unsigned char ra2_place_1956[] __asm__("_DAT_00a70f0c");
+extern "C" unsigned char ra2_place_1957[] __asm__("_unknown_mono_window_a70f10");
+extern "C" unsigned char ra2_place_1958[] __asm__("_unknown_mono_font_a70f14");
+extern "C" unsigned char ra2_place_1959[] __asm__("__ZN10MouseClass11MouseShapesE");
+extern "C" unsigned char ra2_place_1960[] __asm__("__ZN10MouseClass20MouseShapesAllocatedE");
+extern "C" unsigned char ra2_place_1961[] __asm__("_unknown_audio_paused_a7101c");
+extern "C" unsigned char ra2_place_1962[] __asm__("_unknown_colors_a71118");
+extern "C" unsigned char ra2_place_1963[] __asm__("_unknown_sorted_scores_a715f0");
+extern "C" unsigned char ra2_place_1964[] __asm__("_unknown_score_a71684");
+extern "C" unsigned char ra2_place_1965[] __asm__("_unknown_score_a71688");
+extern "C" unsigned char ra2_place_1966[] __asm__("_Message_Intercept_Handler");
+extern "C" unsigned char ra2_place_1967[] __asm__("_unknown_flag_a71a3c");
+extern "C" unsigned char ra2_place_1968[] __asm__("_unknown_flag_a71a3d");
+extern "C" unsigned char ra2_place_1969[] __asm__("_unknown_a71b28");
+extern "C" unsigned char ra2_place_1970[] __asm__("_unknown_a71bc4");
+extern "C" unsigned char ra2_place_1971[] __asm__("_net2_useroptions_a71bdc");
+extern "C" unsigned char ra2_place_1972[] __asm__("_unknown_column_a71de8");
+extern "C" unsigned char ra2_place_1973[] __asm__("_unknown_column_a71e18");
+extern "C" unsigned char ra2_place_1974[] __asm__("_unknown_column_a71e28");
+extern "C" unsigned char ra2_place_1975[] __asm__("_unknown_lobby_result_a71e8c");
+extern "C" unsigned char ra2_place_1976[] __asm__("_unknown_game_index_a71e90");
+extern "C" unsigned char ra2_place_1977[] __asm__("_unknown_join_state_a71e94");
+extern "C" unsigned char ra2_place_1978[] __asm__("_unknown_lock_a71e98");
+extern "C" unsigned char ra2_place_1979[] __asm__("_unknown_a71e99");
+extern "C" unsigned char ra2_place_1980[] __asm__("_unknown_a71e9c");
+extern "C" unsigned char ra2_place_1981[] __asm__("_unknown_a71ea0");
+extern "C" unsigned char ra2_place_1982[] __asm__("_unknown_a71ea4");
+extern "C" unsigned char ra2_place_1983[] __asm__("_unknown_list_text_a71ea8");
+extern "C" unsigned char ra2_place_1984[] __asm__("_unknown_color_list_old_a726b0");
+extern "C" unsigned char ra2_place_1985[] __asm__("_unknown_color_list_a726d4");
+extern "C" unsigned char ra2_place_1986[] __asm__("_unknown_country_list_a726f8");
+extern "C" unsigned char ra2_place_1987[] __asm__("_unknown_slot_names_a72734");
+extern "C" unsigned char ra2_place_1988[] __asm__("_unknown_sent_file_name_a72890");
+extern "C" unsigned char ra2_place_1989[] __asm__("_unknown_sent_digest_a728a0");
+extern "C" unsigned char ra2_place_1990[] __asm__("_unknown_lobby_map_a728d0");
+extern "C" unsigned char ra2_place_1991[] __asm__("_unknown_lobby_dialog_a728e0");
+extern "C" unsigned char ra2_place_1992[] __asm__("_unknown_slot_names_old_a728e4");
+extern "C" unsigned char ra2_place_1993[] __asm__("_unknown_country_list_old_a72a44");
+extern "C" unsigned char ra2_place_1994[] __asm__("_unknown_lobby_map_name_a72a68");
+extern "C" unsigned char ra2_place_1995[] __asm__("_global_5cd380_a72c68");
+extern "C" unsigned char ra2_place_1996[] __asm__("_unknown_lobby_map_a72c80");
+extern "C" unsigned char ra2_place_1997[] __asm__("_unknown_sent_map_name_a72c90");
+extern "C" unsigned char ra2_place_1998[] __asm__("_unknown_dialog_preview_a72ce8");
+extern "C" unsigned char ra2_place_1999[] __asm__("_unknown_chat_a72cfc");
+extern "C" unsigned char ra2_place_2000[] __asm__("_unknown_ladder_client_a72d00");
+extern "C" unsigned char ra2_place_2001[] __asm__("_unknown_download_a72d04");
+extern "C" unsigned char ra2_place_2002[] __asm__("_unknown_a72d08");
+extern "C" unsigned char ra2_place_2003[] __asm__("_unknown_lobby_texts_a72d0c");
+extern "C" unsigned char ra2_place_2004[] __asm__("_unknown_house_a72d28");
+extern "C" unsigned char ra2_place_2005[] __asm__("_DAT_00a72d2c");
+extern "C" unsigned char ra2_place_2006[] __asm__("_DAT_00a72d30");
+extern "C" unsigned char ra2_place_2007[] __asm__("_DAT_00a72d34");
+extern "C" unsigned char ra2_place_2008[] __asm__("_DAT_00a72d38");
+extern "C" unsigned char ra2_place_2009[] __asm__("_DAT_00a72d3c");
+extern "C" unsigned char ra2_place_2010[] __asm__("_DAT_00a72d40");
+extern "C" unsigned char ra2_place_2011[] __asm__("_DAT_00a72d44");
+extern "C" unsigned char ra2_place_2012[] __asm__("_unknown_sent_time_a72d48");
+extern "C" unsigned char ra2_place_2013[] __asm__("_unknown_send_pending_a72d4c");
+extern "C" unsigned char ra2_place_2014[] __asm__("_unknown_sent_2a_a72d4d");
+extern "C" unsigned char ra2_place_2015[] __asm__("_unknown_sent_2b_a72d4e");
+extern "C" unsigned char ra2_place_2016[] __asm__("_unknown_sent_2c_a72d4f");
+extern "C" unsigned char ra2_place_2017[] __asm__("_unknown_sent_a8_a72d50");
+extern "C" unsigned char ra2_place_2018[] __asm__("_unknown_sent_crates_a72d51");
+extern "C" unsigned char ra2_place_2019[] __asm__("_unknown_a72d52");
+extern "C" unsigned char ra2_place_2020[] __asm__("_unknown_extra_slot_a72d5c");
+extern "C" unsigned char ra2_place_2021[] __asm__("_DialString");
+extern "C" unsigned char ra2_place_2022[] __asm__("_DialSettings");
+extern "C" unsigned char ra2_place_2023[] __asm__("_ModemRXString");
+extern "C" unsigned char ra2_place_2024[] __asm__("_unknown_modem_aborted_a72ec4");
+extern "C" unsigned char ra2_place_2025[] __asm__("_unknown_a72fdc");
+extern "C" unsigned char ra2_place_2026[] __asm__("_DAT_00a72fe0");
+extern "C" unsigned char ra2_place_2027[] __asm__("_DAT_00a72fe4");
+extern "C" unsigned char ra2_place_2028[] __asm__("_DAT_00a72fe8");
+extern "C" unsigned char ra2_place_2029[] __asm__("_DAT_00a72fec");
+extern "C" unsigned char ra2_place_2030[] __asm__("_DAT_00a72ff0");
+extern "C" unsigned char ra2_place_2031[] __asm__("_DAT_00a72ff1");
+extern "C" unsigned char ra2_place_2032[] __asm__("_DAT_00a72ff2");
+extern "C" unsigned char ra2_place_2033[] __asm__("_DAT_00a72ff3");
+extern "C" unsigned char ra2_place_2034[] __asm__("_SpotLight_Surfaces");
+extern "C" unsigned char ra2_place_2035[] __asm__("_SpotLight_MMX_Buffer");
+extern "C" unsigned char ra2_place_2036[] __asm__("__ZN9OwnerDraw20unknown_color_a7338cE");
+extern "C" unsigned char ra2_place_2037[] __asm__("_unknown_active_messages_a73398");
+extern "C" unsigned char ra2_place_2038[] __asm__("__ZN9OwnerDraw20unknown_color_a733d0E");
+extern "C" unsigned char ra2_place_2039[] __asm__("__ZN9OwnerDraw20unknown_color_a733e4E");
+extern "C" unsigned char ra2_place_2040[] __asm__("__ZN9OwnerDraw20unknown_color_a7363cE");
+extern "C" unsigned char ra2_place_2041[] __asm__("__ZN9OwnerDraw20unknown_color_a736d0E");
+extern "C" unsigned char ra2_place_2042[] __asm__("__ZN9OwnerDraw20unknown_color_a737e0E");
+extern "C" unsigned char ra2_place_2043[] __asm__("__ZN9OwnerDraw28unknown_visible_count_a737e4E");
+extern "C" unsigned char ra2_place_2044[] __asm__("__ZN9OwnerDraw20unknown_color_a737e8E");
+extern "C" unsigned char ra2_place_2045[] __asm__("__ZN9OwnerDraw20unknown_color_a737ecE");
+extern "C" unsigned char ra2_place_2046[] __asm__("__ZN9OwnerDraw22unknown_tooltip_a737f0E");
+extern "C" unsigned char ra2_place_2047[] __asm__("_g4_5edf60_a73800");
+extern "C" unsigned char ra2_place_2048[] __asm__("__ZN9OwnerDraw20unknown_color_a73910E");
+extern "C" unsigned char ra2_place_2049[] __asm__("_unknown_modal_windows_a73918");
+extern "C" unsigned char ra2_place_2050[] __asm__("__ZN9OwnerDraw20unknown_color_a73928E");
+extern "C" unsigned char ra2_place_2051[] __asm__("_unknown_edit_buffer_a7393c");
+extern "C" unsigned char ra2_place_2052[] __asm__("__ZN9OwnerDraw20unknown_color_a7613cE");
+extern "C" unsigned char ra2_place_2053[] __asm__("__ZN9OwnerDraw20unknown_color_a76140E");
+extern "C" unsigned char ra2_place_2054[] __asm__("__ZN9OwnerDraw20unknown_color_a76150E");
+extern "C" unsigned char ra2_place_2055[] __asm__("__ZN9OwnerDraw20unknown_color_a76154E");
+extern "C" unsigned char ra2_place_2056[] __asm__("__ZN9OwnerDraw20unknown_color_a76158E");
+extern "C" unsigned char ra2_place_2057[] __asm__("__ZN9OwnerDraw20unknown_color_a7615cE");
+extern "C" unsigned char ra2_place_2058[] __asm__("__ZN9OwnerDraw20unknown_color_a763b0E");
+extern "C" unsigned char ra2_place_2059[] __asm__("__ZN9OwnerDraw28unknown_visible_count_a763b4E");
+extern "C" unsigned char ra2_place_2060[] __asm__("__ZN9OwnerDraw20unknown_color_a763b8E");
+extern "C" unsigned char ra2_place_2061[] __asm__("__ZN9OwnerDraw21unknown_dialog_a763ccE");
+extern "C" unsigned char ra2_place_2062[] __asm__("__ZN9OwnerDraw20unknown_color_a763d4E");
+extern "C" unsigned char ra2_place_2063[] __asm__("__ZN9OwnerDraw28unknown_surface_count_a763d8E");
+extern "C" unsigned char ra2_place_2064[] __asm__("__ZN9OwnerDraw27unknown_caret_hidden_a763ecE");
+extern "C" unsigned char ra2_place_2065[] __asm__("__ZN9OwnerDraw33unknown_classes_registered_a763f0E");
+extern "C" unsigned char ra2_place_2066[] __asm__("__ZN9OwnerDraw26unknown_masks_ready_a763f8E");
+extern "C" unsigned char ra2_place_2067[] __asm__("__ZN9OwnerDraw27unknown_tooltip_time_a763fcE");
+extern "C" unsigned char ra2_place_2068[] __asm__("__ZN9OwnerDraw34unknown_mouse_release_depth_a76410E");
+extern "C" unsigned char ra2_place_2069[] __asm__("_unknown_scheme_table_a76414");
+extern "C" unsigned char ra2_place_2070[] __asm__("_unknown_sink_a76680");
+extern "C" unsigned char ra2_place_2071[] __asm__("_DAT_00a76684");
+extern "C" unsigned char ra2_place_2072[] __asm__("_DAT_00a766b0");
+extern "C" unsigned char ra2_place_2073[] __asm__("_unknown_counts_a766b4");
+extern "C" unsigned char ra2_place_2074[] __asm__("_unknown_flag_a766c8");
+extern "C" unsigned char ra2_place_2075[] __asm__("_DAT_00a766f8");
+extern "C" unsigned char ra2_place_2076[] __asm__("_unknown_a766fc");
+extern "C" unsigned char ra2_place_2077[] __asm__("_unknown_point_a76728");
+extern "C" unsigned char ra2_place_2078[] __asm__("_DAT_00a76750");
+extern "C" unsigned char ra2_place_2079[] __asm__("_unknown_flag_a76770");
+extern "C" unsigned char ra2_place_2080[] __asm__("_unknown_flag_a76788");
+extern "C" unsigned char ra2_place_2081[] __asm__("_unknown_node_a7678c");
+extern "C" unsigned char ra2_place_2082[] __asm__("_unknown_flag_a76790");
+extern "C" unsigned char ra2_place_2083[] __asm__("_DAT_00a767a4");
+extern "C" unsigned char ra2_place_2084[] __asm__("_unknown_flag_a767a5");
+extern "C" unsigned char ra2_place_2085[] __asm__("_unknown_flag_a767a6");
+extern "C" unsigned char ra2_place_2086[] __asm__("_unknown_text_a767e0");
+extern "C" unsigned char ra2_place_2087[] __asm__("__ZN10PowerClass10PowerShapeE");
+extern "C" unsigned char ra2_place_2088[] __asm__("__ZN10PowerClass19PowerShapeAllocatedE");
+extern "C" unsigned char ra2_place_2089[] __asm__("_unknown_mouse_x_a76b70");
+extern "C" unsigned char ra2_place_2090[] __asm__("_unknown_sync_counts_a76b74");
+extern "C" unsigned char ra2_place_2091[] __asm__("_GameCRC");
+extern "C" unsigned char ra2_place_2092[] __asm__("_unknown_mouse_y_a76c78");
+extern "C" unsigned char ra2_place_2093[] __asm__("_unknown_response_times_a76c88");
+extern "C" unsigned char ra2_place_2094[] __asm__("_unknown_megamission_lists_a76ca8");
+extern "C" unsigned char ra2_place_2095[] __asm__("_unknown_reconnect_dialog_a780d4");
+extern "C" unsigned char ra2_place_2096[] __asm__("_unknown_random_aabce0");
+extern "C" unsigned char ra2_place_2097[] __asm__("_unknown_megamission_counts_aabdb0");
+extern "C" unsigned char ra2_place_2098[] __asm__("_unknown_elapsed_aabe90");
+extern "C" unsigned char ra2_place_2099[] __asm__("_unknown_megamission_frames_aabe94");
+extern "C" unsigned char ra2_place_2100[] __asm__("_unknown_reconnect_result_ab5ed0");
+extern "C" unsigned char ra2_place_2101[] __asm__("_unknown_flag_ab5ed8");
+extern "C" unsigned char ra2_place_2102[] __asm__("_CRC");
+extern "C" unsigned char ra2_place_2103[] __asm__("_unknown_ab62dc");
+extern "C" unsigned char ra2_place_2104[] __asm__("_unknown_ab62e0");
+extern "C" unsigned char ra2_place_2105[] __asm__("_unknown_frame_syncs_ab62e4");
+extern "C" unsigned char ra2_place_2106[] __asm__("_unknown_extra_sync_info_ab62e8");
+extern "C" unsigned char ra2_place_2107[] __asm__("_unknown_ab62ec");
+extern "C" unsigned char ra2_place_2108[] __asm__("_unknown_ab62f0");
+extern "C" unsigned char ra2_place_2109[] __asm__("_unknown_ab62f4");
+extern "C" unsigned char ra2_place_2110[] __asm__("_unknown_ab62f5");
+extern "C" unsigned char ra2_place_2111[] __asm__("_unknown_ab62f8");
+extern "C" unsigned char ra2_place_2112[] __asm__("_unknown_flag_ab62fc");
+extern "C" unsigned char ra2_place_2113[] __asm__("_unknown_seconds_ab6300");
+extern "C" unsigned char ra2_place_2114[] __asm__("_unknown_last_kick_ab6304");
+extern "C" unsigned char ra2_place_2115[] __asm__("__ZN10RadarClass20unknown_shape_ab6318E");
+extern "C" unsigned char ra2_place_2116[] __asm__("__ZN10RadarClass19unknown_rect_ab6320E");
+extern "C" unsigned char ra2_place_2117[] __asm__("_unknown_int_ab6338");
+extern "C" unsigned char ra2_place_2118[] __asm__("__ZN10RadarClass20unknown_shape_ab6350E");
+extern "C" unsigned char ra2_place_2119[] __asm__("__ZN10RadarClass30unknown_shape_ab6318_allocatedE");
+extern "C" unsigned char ra2_place_2120[] __asm__("__ZN10RadarClass30unknown_shape_ab6350_allocatedE");
+extern "C" unsigned char ra2_place_2121[] __asm__("_unknown_int_ab6468");
+extern "C" unsigned char ra2_place_2122[] __asm__("_unknown_shape_ab64a0");
+extern "C" unsigned char ra2_place_2123[] __asm__("_Audio_Stream_In_Read");
+extern "C" unsigned char ra2_place_2124[] __asm__("_Restate_Text_00ab66e8");
+extern "C" unsigned char ra2_place_2125[] __asm__("_unknown_event_cells_ab6788");
+extern "C" unsigned char ra2_place_2126[] __asm__("_unknown_event_empty_cell_ab67a8");
+extern "C" unsigned char ra2_place_2127[] __asm__("_g2_63b590_ab67b8");
+extern "C" unsigned char ra2_place_2128[] __asm__("_g2_63b590_ab67ba");
+extern "C" unsigned char ra2_place_2129[] __asm__("_unknown_event_last_ab67c8");
+extern "C" unsigned char ra2_place_2130[] __asm__("_unknown_event_current_ab6818");
+extern "C" unsigned char ra2_place_2131[] __asm__("_unknown_rgb_ab682c");
+extern "C" unsigned char ra2_place_2132[] __asm__("_unknown_mode_ab6831");
+extern "C" unsigned char ra2_place_2133[] __asm__("_unknown_flag_ab6832");
+extern "C" unsigned char ra2_place_2134[] __asm__("_unknown_flag_ab6833");
+extern "C" unsigned char ra2_place_2135[] __asm__("_unknown_rgb_ab6834");
+extern "C" unsigned char ra2_place_2136[] __asm__("_unknown_rgb_ab6839");
+extern "C" unsigned char ra2_place_2137[] __asm__("_unknown_rgb_ab683c");
+extern "C" unsigned char ra2_place_2138[] __asm__("_unknown_rgb_ab6841");
+extern "C" unsigned char ra2_place_2139[] __asm__("_unknown_rgb_ab6844");
+extern "C" unsigned char ra2_place_2140[] __asm__("_unknown_rgb_ab6849");
+extern "C" unsigned char ra2_place_2141[] __asm__("_unknown_rgb_ab684c");
+extern "C" unsigned char ra2_place_2142[] __asm__("_unknown_coord_ab6888");
+extern "C" unsigned char ra2_place_2143[] __asm__("_CoopCampUniqueID");
+extern "C" unsigned char ra2_place_2144[] __asm__("_CoopCampLoaded");
+extern "C" unsigned char ra2_place_2145[] __asm__("_DAT_00ab6e88");
+extern "C" unsigned char ra2_place_2146[] __asm__("__DAT_00ab6ea8");
+extern "C" unsigned char ra2_place_2147[] __asm__("_DAT_00ab6eac");
+extern "C" unsigned char ra2_place_2148[] __asm__("__DAT_00ab6eb0");
+extern "C" unsigned char ra2_place_2149[] __asm__("_unknown_was_paused_ab6ef4");
+extern "C" unsigned char ra2_place_2150[] __asm__("_unknown_score_empty_rect_ab6f20");
+extern "C" unsigned char ra2_place_2151[] __asm__("_unknown_score_print_ab6f9c");
+extern "C" unsigned char ra2_place_2152[] __asm__("_unknown_score_fonts_ab6fa4");
+extern "C" unsigned char ra2_place_2153[] __asm__("_unknown_score_sounds_ab6fa8");
+extern "C" unsigned char ra2_place_2154[] __asm__("_unknown_cell_ab7068");
+extern "C" unsigned char ra2_place_2155[] __asm__("_unknown_coord_ab7088");
+extern "C" unsigned char ra2_place_2156[] __asm__("_unknown_cell_none_ab71d8");
+extern "C" unsigned char ra2_place_2157[] __asm__("_unknown_ab9174");
+extern "C" unsigned char ra2_place_2158[] __asm__("_unknown_ports_read_ab9178");
+extern "C" unsigned char ra2_place_2159[] __asm__("_unknown_coord_ab91c8");
+extern "C" unsigned char ra2_place_2160[] __asm__("_unknown_text_ab9274");
+extern "C" unsigned char ra2_place_2161[] __asm__("__ZN12SidebarClass20unknown_shape_ab9480E");
+extern "C" unsigned char ra2_place_2162[] __asm__("_unknown_text_ab9484");
+extern "C" unsigned char ra2_place_2163[] __asm__("__ZN12SidebarClass10StripClass19unknown_rect_ab9688E");
+extern "C" unsigned char ra2_place_2164[] __asm__("_unknown_cell_ab9698");
+extern "C" unsigned char ra2_place_2165[] __asm__("_unknown_shapes_abcd20");
+extern "C" unsigned char ra2_place_2166[] __asm__("_unknown_shapes_allocated_abcd40");
+extern "C" unsigned char ra2_place_2167[] __asm__("_unknown_abcd48");
+extern "C" unsigned char ra2_place_2168[] __asm__("_unknown_abcd4c");
+extern "C" unsigned char ra2_place_2169[] __asm__("_unknown_abcd50");
+extern "C" unsigned char ra2_place_2170[] __asm__("_unknown_abcd54");
+extern "C" unsigned char ra2_place_2171[] __asm__("_unknown_abcd58");
+extern "C" unsigned char ra2_place_2172[] __asm__("_unknown_abcd5c");
+extern "C" unsigned char ra2_place_2173[] __asm__("_unknown_abcd60");
+extern "C" unsigned char ra2_place_2174[] __asm__("_unknown_abcd64");
+extern "C" unsigned char ra2_place_2175[] __asm__("_unknown_abcd68");
+extern "C" unsigned char ra2_place_2176[] __asm__("_unknown_abcd6c");
+extern "C" unsigned char ra2_place_2177[] __asm__("_unknown_int_abcd70");
+extern "C" unsigned char ra2_place_2178[] __asm__("_unknown_abcd74");
+extern "C" unsigned char ra2_place_2179[] __asm__("_unknown_abcd78");
+extern "C" unsigned char ra2_place_2180[] __asm__("_unknown_abcd7c");
+extern "C" unsigned char ra2_place_2181[] __asm__("_unknown_abcd80");
+extern "C" unsigned char ra2_place_2182[] __asm__("_unknown_flag_abcd84");
+extern "C" unsigned char ra2_place_2183[] __asm__("_unknown_flag_abcd85");
+extern "C" unsigned char ra2_place_2184[] __asm__("_SkirmishDialog");
+extern "C" unsigned char ra2_place_2185[] __asm__("_unknown_undo_cells_abceac");
+extern "C" unsigned char ra2_place_2186[] __asm__("__ZN19SoundControlsDialog17DialogInitializedE");
+extern "C" unsigned char ra2_place_2187[] __asm__("_data_6927b0_0");
+extern "C" unsigned char ra2_place_2188[] __asm__("_unknown_handle_abd47c");
+extern "C" unsigned char ra2_place_2189[] __asm__("_unknown_handle_abd480");
+extern "C" unsigned char ra2_place_2190[] __asm__("_unknown_active_object_abd484");
+extern "C" unsigned char ra2_place_2191[] __asm__("_unknown_block_abd488");
+extern "C" unsigned char ra2_place_2192[] __asm__("_unknown_flag_abd48c");
+extern "C" unsigned char ra2_place_2193[] __asm__("_unknown_flag_abd48d");
+extern "C" unsigned char ra2_place_2194[] __asm__("_GameTimer");
+extern "C" unsigned char ra2_place_2195[] __asm__("_DAT_00abd4c4");
+extern "C" unsigned char ra2_place_2196[] __asm__("_unknown_elapsed_abd4e0");
+extern "C" unsigned char ra2_place_2197[] __asm__("_unknown_flag_abd500");
+extern "C" unsigned char ra2_place_2198[] __asm__("_GameTimerInUse");
+extern "C" unsigned char ra2_place_2199[] __asm__("_unknown_abd530");
+extern "C" unsigned char ra2_place_2200[] __asm__("_unknown_line_buffer_abd548");
+extern "C" unsigned char ra2_place_2201[] __asm__("_unknown_score_audio_abd6a0");
+extern "C" unsigned char ra2_place_2202[] __asm__("_unknown_score_audio_on_abd6d4");
+extern "C" unsigned char ra2_place_2203[] __asm__("_unknown_cell_abd768");
+extern "C" unsigned char ra2_place_2204[] __asm__("__ZN8TabClass12ButtonShapesE");
+extern "C" unsigned char ra2_place_2205[] __asm__("_unknown_int_abd910");
+extern "C" unsigned char ra2_place_2206[] __asm__("_unknown_int_abe278");
+extern "C" unsigned char ra2_place_2207[] __asm__("_unknown_int_abe290");
+extern "C" unsigned char ra2_place_2208[] __asm__("_unknown_int_abe294");
+extern "C" unsigned char ra2_place_2209[] __asm__("_unknown_int_abe2a8");
+extern "C" unsigned char ra2_place_2210[] __asm__("_unknown_int_abe2ac");
+extern "C" unsigned char ra2_place_2211[] __asm__("_unknown_int_abe2b8");
+extern "C" unsigned char ra2_place_2212[] __asm__("_unknown_int_abe2bc");
+extern "C" unsigned char ra2_place_2213[] __asm__("__ZN8TabClass10SlotButtonE");
+extern "C" unsigned char ra2_place_2214[] __asm__("__ZN8TabClass20ButtonShapeAllocatedE");
+extern "C" unsigned char ra2_place_2215[] __asm__("_unknown_int_abe36c");
+extern "C" unsigned char ra2_place_2216[] __asm__("_unknown_int_abe370");
+extern "C" unsigned char ra2_place_2217[] __asm__("_unknown_int_abe374");
+extern "C" unsigned char ra2_place_2218[] __asm__("_unknown_int_abe378");
+extern "C" unsigned char ra2_place_2219[] __asm__("_unknown_int_abe37c");
+extern "C" unsigned char ra2_place_2220[] __asm__("_unknown_int_abe388");
+extern "C" unsigned char ra2_place_2221[] __asm__("_unknown_int_abe460");
+extern "C" unsigned char ra2_place_2222[] __asm__("_unknown_int_abe464");
+extern "C" unsigned char ra2_place_2223[] __asm__("_unknown_int_abe468");
+extern "C" unsigned char ra2_place_2224[] __asm__("_unknown_int_abe478");
+extern "C" unsigned char ra2_place_2225[] __asm__("_unknown_abe490");
+extern "C" unsigned char ra2_place_2226[] __asm__("_Waypoint_Text");
+extern "C" unsigned char ra2_place_2227[] __asm__("_unknown_abe520");
+extern "C" unsigned char ra2_place_2228[] __asm__("_unknown_abe540");
+extern "C" unsigned char ra2_place_2229[] __asm__("_unknown_scrolled_off_screen_abfd6c");
+extern "C" unsigned char ra2_place_2230[] __asm__("_unknown_last_time_abfd70");
+extern "C" unsigned char ra2_place_2231[] __asm__("_Waypoint_Mouse_Shapes");
+extern "C" unsigned char ra2_place_2232[] __asm__("_unknown_radial_pulse_abfd78");
+extern "C" unsigned char ra2_place_2233[] __asm__("_unknown_cell_abfdb0");
+extern "C" unsigned char ra2_place_2234[] __asm__("_unknown_cell_ac0050");
+extern "C" unsigned char ra2_place_2235[] __asm__("_unknown_cell_ac00c8");
+extern "C" unsigned char ra2_place_2236[] __asm__("_unknown_cell_ac0148");
+extern "C" unsigned char ra2_place_2237[] __asm__("_unknown_coord_ac0188");
+extern "C" unsigned char ra2_place_2238[] __asm__("_unknown_talk_techno_ac01c4");
+extern "C" unsigned char ra2_place_2239[] __asm__("_unknown_talk_value_ac01c8");
+extern "C" unsigned char ra2_place_2240[] __asm__("_unknown_ac01cc");
+extern "C" unsigned char ra2_place_2241[] __asm__("_unknown_cell_ac01e8");
+extern "C" unsigned char ra2_place_2242[] __asm__("_unknown_coord_ac0280");
+extern "C" unsigned char ra2_place_2243[] __asm__("_DAT_00ac0b34");
+extern "C" unsigned char ra2_place_2244[] __asm__("_unknown_coord_ac0f30");
+extern "C" unsigned char ra2_place_2245[] __asm__("_unknown_color_ac0fe8");
+extern "C" unsigned char ra2_place_2246[] __asm__("_unknown_art_ac0fec");
+extern "C" unsigned char ra2_place_2247[] __asm__("_unknown_art_ac0ff0");
+extern "C" unsigned char ra2_place_2248[] __asm__("_unknown_int_ac0ff4");
+extern "C" unsigned char ra2_place_2249[] __asm__("_unknown_art_ac0ff8");
+extern "C" unsigned char ra2_place_2250[] __asm__("_unknown_color_ac1008");
+extern "C" unsigned char ra2_place_2251[] __asm__("_unknown_art_ac100c");
+extern "C" unsigned char ra2_place_2252[] __asm__("_unknown_art_ac1010");
+extern "C" unsigned char ra2_place_2253[] __asm__("_unknown_color_ac1028");
+extern "C" unsigned char ra2_place_2254[] __asm__("_unknown_count_ac102c");
+extern "C" unsigned char ra2_place_2255[] __asm__("_unknown_art_ac1040");
+extern "C" unsigned char ra2_place_2256[] __asm__("_unknown_art_ac1044");
+extern "C" unsigned char ra2_place_2257[] __asm__("_unknown_art_ac1048");
+extern "C" unsigned char ra2_place_2258[] __asm__("_unknown_art_ac1058");
+extern "C" unsigned char ra2_place_2259[] __asm__("_unknown_art_ac105c");
+extern "C" unsigned char ra2_place_2260[] __asm__("_unknown_art_ac1060");
+extern "C" unsigned char ra2_place_2261[] __asm__("_unknown_art_ac1070");
+extern "C" unsigned char ra2_place_2262[] __asm__("_unknown_art_ac1074");
+extern "C" unsigned char ra2_place_2263[] __asm__("_unknown_art_ac1078");
+extern "C" unsigned char ra2_place_2264[] __asm__("_unknown_art_ac107c");
+extern "C" unsigned char ra2_place_2265[] __asm__("_unknown_value_ac1080");
+extern "C" unsigned char ra2_place_2266[] __asm__("_unknown_art_ac1094");
+extern "C" unsigned char ra2_place_2267[] __asm__("_unknown_art_ac1098");
+extern "C" unsigned char ra2_place_2268[] __asm__("_unknown_mode_ac109c");
+extern "C" unsigned char ra2_place_2269[] __asm__("_unknown_flag_ac109d");
+extern "C" unsigned char ra2_place_2270[] __asm__("_unknown_flag_ac109e");
+extern "C" unsigned char ra2_place_2271[] __asm__("_unknown_value_ac10a0");
+extern "C" unsigned char ra2_place_2272[] __asm__("_unknown_art_ac10a4");
+extern "C" unsigned char ra2_place_2273[] __asm__("_unknown_art_ac10b0");
+extern "C" unsigned char ra2_place_2274[] __asm__("_unknown_art_ac10b4");
+extern "C" unsigned char ra2_place_2275[] __asm__("_unknown_art_ac10b8");
+extern "C" unsigned char ra2_place_2276[] __asm__("_unknown_art_ac10bc");
+extern "C" unsigned char ra2_place_2277[] __asm__("_unknown_art_ac10c0");
+extern "C" unsigned char ra2_place_2278[] __asm__("_unknown_art_ac10c4");
+extern "C" unsigned char ra2_place_2279[] __asm__("_unknown_value_ac10c8");
+extern "C" unsigned char ra2_place_2280[] __asm__("_unknown_value_ac10cc");
+extern "C" unsigned char ra2_place_2281[] __asm__("_unknown_art_ac10d8");
+extern "C" unsigned char ra2_place_2282[] __asm__("_unknown_art_ac10e8");
+extern "C" unsigned char ra2_place_2283[] __asm__("_unknown_art_ac10ec");
+extern "C" unsigned char ra2_place_2284[] __asm__("_unknown_art_ac10f0");
+extern "C" unsigned char ra2_place_2285[] __asm__("_unknown_color_ac10f4");
+extern "C" unsigned char ra2_place_2286[] __asm__("_unknown_art_ac10f8");
+extern "C" unsigned char ra2_place_2287[] __asm__("_unknown_art_ac10fc");
+extern "C" unsigned char ra2_place_2288[] __asm__("_unknown_color_ac1100");
+extern "C" unsigned char ra2_place_2289[] __asm__("_unknown_art_ac1104");
+extern "C" unsigned char ra2_place_2290[] __asm__("_unknown_art_ac1108");
+extern "C" unsigned char ra2_place_2291[] __asm__("_unknown_art_ac110c");
+extern "C" unsigned char ra2_place_2292[] __asm__("_unknown_art_ac1120");
+extern "C" unsigned char ra2_place_2293[] __asm__("_unknown_color_ac1124");
+extern "C" unsigned char ra2_place_2294[] __asm__("_unknown_art_ac1128");
+extern "C" unsigned char ra2_place_2295[] __asm__("_unknown_art_ac1130");
+extern "C" unsigned char ra2_place_2296[] __asm__("_unknown_art_ac1134");
+extern "C" unsigned char ra2_place_2297[] __asm__("_unknown_art_ac1138");
+extern "C" unsigned char ra2_place_2298[] __asm__("_unknown_art_ac113c");
+extern "C" unsigned char ra2_place_2299[] __asm__("_unknown_art_ac1140");
+extern "C" unsigned char ra2_place_2300[] __asm__("_unknown_art_ac1144");
+extern "C" unsigned char ra2_place_2301[] __asm__("_unknown_art_ac1148");
+extern "C" unsigned char ra2_place_2302[] __asm__("_unknown_art_ac114c");
+extern "C" unsigned char ra2_place_2303[] __asm__("_unknown_art_ac1150");
+extern "C" unsigned char ra2_place_2304[] __asm__("_unknown_art_ac1154");
+extern "C" unsigned char ra2_place_2305[] __asm__("_unknown_art_ac1158");
+extern "C" unsigned char ra2_place_2306[] __asm__("_unknown_art_ac115c");
+extern "C" unsigned char ra2_place_2307[] __asm__("_unknown_art_ac1160");
+extern "C" unsigned char ra2_place_2308[] __asm__("_unknown_art_ac1164");
+extern "C" unsigned char ra2_place_2309[] __asm__("_unknown_art_ac1168");
+extern "C" unsigned char ra2_place_2310[] __asm__("_unknown_art_ac116c");
+extern "C" unsigned char ra2_place_2311[] __asm__("_unknown_art_ac1170");
+extern "C" unsigned char ra2_place_2312[] __asm__("_unknown_art_ac1174");
+extern "C" unsigned char ra2_place_2313[] __asm__("_unknown_art_ac1178");
+extern "C" unsigned char ra2_place_2314[] __asm__("_unknown_art_ac117c");
+extern "C" unsigned char ra2_place_2315[] __asm__("_unknown_art_ac1184");
+extern "C" unsigned char ra2_place_2316[] __asm__("_unknown_art_ac1188");
+extern "C" unsigned char ra2_place_2317[] __asm__("_unknown_art_ac118c");
+extern "C" unsigned char ra2_place_2318[] __asm__("_unknown_art_ac1190");
+extern "C" unsigned char ra2_place_2319[] __asm__("_unknown_art_ac1194");
+extern "C" unsigned char ra2_place_2320[] __asm__("_unknown_art_ac1198");
+extern "C" unsigned char ra2_place_2321[] __asm__("_unknown_flag_ac119c");
+extern "C" unsigned char ra2_place_2322[] __asm__("_unknown_art_ac11a0");
+extern "C" unsigned char ra2_place_2323[] __asm__("_unknown_art_ac11a4");
+extern "C" unsigned char ra2_place_2324[] __asm__("_unknown_art_ac11a8");
+extern "C" unsigned char ra2_place_2325[] __asm__("_unknown_art_ac11ac");
+extern "C" unsigned char ra2_place_2326[] __asm__("_unknown_flag_ac11b0");
+extern "C" unsigned char ra2_place_2327[] __asm__("_unknown_art_ac11b4");
+extern "C" unsigned char ra2_place_2328[] __asm__("_unknown_art_ac11b8");
+extern "C" unsigned char ra2_place_2329[] __asm__("_unknown_art_ac11bc");
+extern "C" unsigned char ra2_place_2330[] __asm__("_unknown_art_ac11c0");
+extern "C" unsigned char ra2_place_2331[] __asm__("_unknown_art_ac11c4");
+extern "C" unsigned char ra2_place_2332[] __asm__("_unknown_art_ac11c8");
+extern "C" unsigned char ra2_place_2333[] __asm__("_unknown_art_ac11cc");
+extern "C" unsigned char ra2_place_2334[] __asm__("_unknown_art_ac11d0");
+extern "C" unsigned char ra2_place_2335[] __asm__("_unknown_art_acac11d4");
+extern "C" unsigned char ra2_place_2336[] __asm__("_unknown_art_acac11d8");
+extern "C" unsigned char ra2_place_2337[] __asm__("_unknown_art_acac11dc");
+extern "C" unsigned char ra2_place_2338[] __asm__("_unknown_art_acac11e0");
+extern "C" unsigned char ra2_place_2339[] __asm__("_unknown_art_acac11e4");
+extern "C" unsigned char ra2_place_2340[] __asm__("_unknown_art_acac11e8");
+extern "C" unsigned char ra2_place_2341[] __asm__("_unknown_art_acac11ec");
+extern "C" unsigned char ra2_place_2342[] __asm__("_unknown_art_acac11f0");
+extern "C" unsigned char ra2_place_2343[] __asm__("_unknown_art_acac11f4");
+extern "C" unsigned char ra2_place_2344[] __asm__("_unknown_art_acac11f8");
+extern "C" unsigned char ra2_place_2345[] __asm__("_unknown_ac11fc");
+extern "C" unsigned char ra2_place_2346[] __asm__("_unknown_art_acac1200");
+extern "C" unsigned char ra2_place_2347[] __asm__("_unknown_art_acac1204");
+extern "C" unsigned char ra2_place_2348[] __asm__("_unknown_art_acac1208");
+extern "C" unsigned char ra2_place_2349[] __asm__("_unknown_art_acac120c");
+extern "C" unsigned char ra2_place_2350[] __asm__("_unknown_art_acac1210");
+extern "C" unsigned char ra2_place_2351[] __asm__("_unknown_flag_ac1214");
+extern "C" unsigned char ra2_place_2352[] __asm__("_unknown_flag_ac1215");
+extern "C" unsigned char ra2_place_2353[] __asm__("_unknown_flag_ac1216");
+extern "C" unsigned char ra2_place_2354[] __asm__("_unknown_flag_ac1217");
+extern "C" unsigned char ra2_place_2355[] __asm__("_unknown_art_ac1218");
+extern "C" unsigned char ra2_place_2356[] __asm__("_unknown_art_ac121c");
+extern "C" unsigned char ra2_place_2357[] __asm__("_unknown_art_ac1220");
+extern "C" unsigned char ra2_place_2358[] __asm__("_unknown_flag_ac1224");
+extern "C" unsigned char ra2_place_2359[] __asm__("_unknown_flag_ac1225");
+extern "C" unsigned char ra2_place_2360[] __asm__("_unknown_flag_ac1226");
+extern "C" unsigned char ra2_place_2361[] __asm__("_unknown_flag_ac1227");
+extern "C" unsigned char ra2_place_2362[] __asm__("_unknown_flag_ac1228");
+extern "C" unsigned char ra2_place_2363[] __asm__("_unknown_flag_ac1229");
+extern "C" unsigned char ra2_place_2364[] __asm__("_unknown_flag_ac122a");
+extern "C" unsigned char ra2_place_2365[] __asm__("_unknown_flag_ac122b");
+extern "C" unsigned char ra2_place_2366[] __asm__("_unknown_flag_ac122c");
+extern "C" unsigned char ra2_place_2367[] __asm__("_unknown_flag_ac122d");
+extern "C" unsigned char ra2_place_2368[] __asm__("_unknown_flag_ac122e");
+extern "C" unsigned char ra2_place_2369[] __asm__("_unknown_flag_ac122f");
+extern "C" unsigned char ra2_place_2370[] __asm__("_unknown_flag_ac1230");
+extern "C" unsigned char ra2_place_2371[] __asm__("_unknown_flag_ac1231");
+extern "C" unsigned char ra2_place_2372[] __asm__("_unknown_flag_ac1232");
+extern "C" unsigned char ra2_place_2373[] __asm__("_unknown_flag_ac1233");
+extern "C" unsigned char ra2_place_2374[] __asm__("_unknown_flag_ac1234");
+extern "C" unsigned char ra2_place_2375[] __asm__("_unknown_flag_ac1235");
+extern "C" unsigned char ra2_place_2376[] __asm__("_unknown_flag_ac1236");
+extern "C" unsigned char ra2_place_2377[] __asm__("_unknown_flag_ac1237");
+extern "C" unsigned char ra2_place_2378[] __asm__("_unknown_flag_ac1238");
+extern "C" unsigned char ra2_place_2379[] __asm__("_unknown_flag_ac1239");
+extern "C" unsigned char ra2_place_2380[] __asm__("_unknown_flag_ac123a");
+extern "C" unsigned char ra2_place_2381[] __asm__("_unknown_flag_ac123b");
+extern "C" unsigned char ra2_place_2382[] __asm__("_unknown_flag_ac123c");
+extern "C" unsigned char ra2_place_2383[] __asm__("_unknown_flag_ac123d");
+extern "C" unsigned char ra2_place_2384[] __asm__("_unknown_flag_ac123e");
+extern "C" unsigned char ra2_place_2385[] __asm__("_unknown_flag_ac123f");
+extern "C" unsigned char ra2_place_2386[] __asm__("_unknown_flag_ac1240");
+extern "C" unsigned char ra2_place_2387[] __asm__("_unknown_flag_ac1241");
+extern "C" unsigned char ra2_place_2388[] __asm__("_unknown_flag_ac1242");
+extern "C" unsigned char ra2_place_2389[] __asm__("_unknown_flag_ac1243");
+extern "C" unsigned char ra2_place_2390[] __asm__("_unknown_flag_ac1244");
+extern "C" unsigned char ra2_place_2391[] __asm__("_unknown_flag_ac1245");
+extern "C" unsigned char ra2_place_2392[] __asm__("_unknown_state_ac1248");
+extern "C" unsigned char ra2_place_2393[] __asm__("_unknown_state_ac132c");
+extern "C" unsigned char ra2_place_2394[] __asm__("_unknown_flag_ac1330");
+extern "C" unsigned char ra2_place_2395[] __asm__("_DAT_00ac1334");
+extern "C" unsigned char ra2_place_2396[] __asm__("_DAT_00ac1338");
+extern "C" unsigned char ra2_place_2397[] __asm__("_unknown_flag_ac133c");
+extern "C" unsigned char ra2_place_2398[] __asm__("_DAT_00ac133d");
+extern "C" unsigned char ra2_place_2399[] __asm__("_unknown_time_ac1340");
+extern "C" unsigned char ra2_place_2400[] __asm__("_unknown_list_ac1344");
+extern "C" unsigned char ra2_place_2401[] __asm__("_unknown_cheer_frame_ac134c");
+extern "C" unsigned char ra2_place_2402[] __asm__("_unknown_narrow_buffers_ac136c");
+extern "C" unsigned char ra2_place_2403[] __asm__("_unknown_text_ac3378");
+extern "C" unsigned char ra2_place_2404[] __asm__("_unknown_label_ac4380");
+extern "C" unsigned char ra2_place_2405[] __asm__("_unknown_csf_name_ac5388");
+extern "C" unsigned char ra2_place_2406[] __asm__("_unknown_wide_buffers_ac53fc");
+extern "C" unsigned char ra2_place_2407[] __asm__("_unknown_wide_text_ac93fc");
+extern "C" unsigned char ra2_place_2408[] __asm__("_unknown_reversed_text_acd410");
+extern "C" unsigned char ra2_place_2409[] __asm__("_unknown_line_acf410");
+extern "C" unsigned char ra2_place_2410[] __asm__("_unknown_max_label_length_ad0428");
+extern "C" unsigned char ra2_place_2411[] __asm__("_unknown_text_file_ad0430");
+extern "C" unsigned char ra2_place_2412[] __asm__("_unknown_file_name_ad0434");
+extern "C" unsigned char ra2_place_2413[] __asm__("_unknown_label_count_ad0438");
+extern "C" unsigned char ra2_place_2414[] __asm__("_unknown_count_ad043c");
+extern "C" unsigned char ra2_place_2415[] __asm__("_unknown_index_ad0440");
+extern "C" unsigned char ra2_place_2416[] __asm__("_unknown_table_ad0444");
+extern "C" unsigned char ra2_place_2417[] __asm__("_unknown_speech_ad0448");
+extern "C" unsigned char ra2_place_2418[] __asm__("_unknown_initialized_ad044c");
+extern "C" unsigned char ra2_place_2419[] __asm__("_DAT_00ad0450");
+extern "C" unsigned char ra2_place_2420[] __asm__("_unknown_chunks_ad0454");
+extern "C" unsigned char ra2_place_2421[] __asm__("_unknown_chunks_ad0458");
+extern "C" unsigned char ra2_place_2422[] __asm__("_unknown_narrow_index_ad045c");
+extern "C" unsigned char ra2_place_2423[] __asm__("_unknown_wide_index_ad0460");
+extern "C" unsigned char ra2_place_2424[] __asm__("_unknown_cell_ad0488");
+extern "C" unsigned char ra2_place_2425[] __asm__("_Unit_Radio_Zero_Coord_00AD04C0");
+extern "C" unsigned char ra2_place_2426[] __asm__("_unknown_bridge_height_ad057c");
+extern "C" unsigned char ra2_place_2427[] __asm__("_unknown_level_height_ad0588");
+extern "C" unsigned char ra2_place_2428[] __asm__("_unknown_ad0600");
+extern "C" unsigned char ra2_place_2429[] __asm__("_unknown_surface_ad0604");
+extern "C" unsigned char ra2_place_2430[] __asm__("_unknown_drawer_ad0608");
+extern "C" unsigned char ra2_place_2431[] __asm__("_VisceroidSmallShape");
+extern "C" unsigned char ra2_place_2432[] __asm__("_VisceroidLargeShape");
+extern "C" unsigned char ra2_place_2433[] __asm__("_HicolorTable");
+extern "C" unsigned char ra2_place_2434[] __asm__("_DAT_00ad074c");
+extern "C" unsigned char ra2_place_2435[] __asm__("_DAT_00ad0758");
+extern "C" unsigned char ra2_place_2436[] __asm__("_unknown_veinhole_shape_ad079c");
+extern "C" unsigned char ra2_place_2437[] __asm__("_DAT_00ad07a0");
+extern "C" unsigned char ra2_place_2438[] __asm__("_unknown_voc_cell_ad07c0");
+extern "C" unsigned char ra2_place_2439[] __asm__("_unknown_voc_static_list_ad07d0");
+extern "C" unsigned char ra2_place_2440[] __asm__("_unknown_voc_static_pool_ad0844");
+extern "C" unsigned char ra2_place_2441[] __asm__("_Audio_Static_Sound_Count");
+extern "C" unsigned char ra2_place_2442[] __asm__("_Audio_Static_Sound_Maximum");
+extern "C" unsigned char ra2_place_2443[] __asm__("_unknown_voc_control_ad0850");
+extern "C" unsigned char ra2_place_2444[] __asm__("_unknown_vox_type_ad0858");
+extern "C" unsigned char ra2_place_2445[] __asm__("_unknown_vox_list_ad0868");
+extern "C" unsigned char ra2_place_2446[] __asm__("_unknown_vox_ad0878");
+extern "C" unsigned char ra2_place_2447[] __asm__("_unknown_vox_priority_ad0880");
+extern "C" unsigned char ra2_place_2448[] __asm__("_unknown_vox_list_ad0890");
+extern "C" unsigned char ra2_place_2449[] __asm__("_unknown_countdown_ad08c8");
+extern "C" unsigned char ra2_place_2450[] __asm__("_unknown_vox_lists_ad08e0");
+extern "C" unsigned char ra2_place_2451[] __asm__("_unknown_count_ad0910");
+extern "C" unsigned char ra2_place_2452[] __asm__("_DAT_00ad0934");
+extern "C" unsigned char ra2_place_2453[] __asm__("_unknown_vox_pending_ad0948");
+extern "C" unsigned char ra2_place_2454[] __asm__("_unknown_vox_enabled_ad094c");
+extern "C" unsigned char ra2_place_2455[] __asm__("_unknown_vox_serial_ad0950");
+extern "C" unsigned char ra2_place_2456[] __asm__("_unknown_vox_playing_ad0954");
+extern "C" unsigned char ra2_place_2457[] __asm__("_unknown_flag_ad0958");
+extern "C" unsigned char ra2_place_2458[] __asm__("_unknown_object_ad095c");
+extern "C" unsigned char ra2_place_2459[] __asm__("_unknown_vox_delay_ad0960");
+extern "C" unsigned char ra2_place_2460[] __asm__("_unknown_active_ad0968");
+extern "C" unsigned char ra2_place_2461[] __asm__("_unknown_table_ad0970");
+extern "C" unsigned char ra2_place_2462[] __asm__("_unknown_buffer_ad0a70");
+extern "C" unsigned char ra2_place_2463[] __asm__("_unknown_voxel16_colors_ae0a7c");
+extern "C" unsigned char ra2_place_2464[] __asm__("_unknown_voxel_record_count_ae0cb0");
+extern "C" unsigned char ra2_place_2465[] __asm__("_unknown_ae2fe8");
+extern "C" unsigned char ra2_place_2466[] __asm__("_unknown_voxel_shadow_count_ae3000");
+extern "C" unsigned char ra2_place_2467[] __asm__("_unknown_ae3004");
+extern "C" unsigned char ra2_place_2468[] __asm__("_VoxelRGBColors");
+extern "C" unsigned char ra2_place_2469[] __asm__("_unknown_buffer_ae3408");
+extern "C" unsigned char ra2_place_2470[] __asm__("_VoxelPaletteTranslateTable");
+extern "C" unsigned char ra2_place_2471[] __asm__("_unknown_af6608");
+extern "C" unsigned char ra2_place_2472[] __asm__("_unknown_af660c");
+extern "C" unsigned char ra2_place_2473[] __asm__("_unknown_af6610");
+extern "C" unsigned char ra2_place_2474[] __asm__("_unknown_af6614");
+extern "C" unsigned char ra2_place_2475[] __asm__("_unknown_vqa_paused_af901c");
+extern "C" unsigned char ra2_place_2476[] __asm__("_unknown_vqa_options_af9020");
+extern "C" unsigned char ra2_place_2477[] __asm__("_unknown_coord_af9060");
+extern "C" unsigned char ra2_place_2478[] __asm__("_Wave_Sine_Table_00af91e4");
+extern "C" unsigned char ra2_place_2479[] __asm__("_Wave_Intensity_Table_00af95d8");
+extern "C" unsigned char ra2_place_2480[] __asm__("_Wave_Distance_Table_00af9620");
+extern "C" unsigned char ra2_place_2481[] __asm__("_Wave_Tables_Initialized_00b25554");
+extern "C" unsigned char ra2_place_2482[] __asm__("_SerialPort");
+extern "C" unsigned char ra2_place_2483[] __asm__("_DialogStack");
+extern "C" unsigned char ra2_place_2484[] __asm__("_g4_735d70_b25dc8");
+extern "C" unsigned char ra2_place_2485[] __asm__("_g4_735d70_b25dd0");
+extern "C" unsigned char ra2_place_2486[] __asm__("_CurrentDialog");
+extern "C" unsigned char ra2_place_2487[] __asm__("_CurrentDialogResource");
+extern "C" unsigned char ra2_place_2488[] __asm__("_DAT_00b25ddc");
+extern "C" unsigned char ra2_place_2489[] __asm__("_DialogStackCount");
+extern "C" unsigned char ra2_place_2490[] __asm__("_unknown_template_size_b25de4");
+extern "C" unsigned char ra2_place_2491[] __asm__("_unknown_version_name_b25df0");
+extern "C" unsigned char ra2_place_2492[] __asm__("_unknown_buffer_b25ef0");
+extern "C" unsigned char ra2_place_2493[] __asm__("_unknown_label_buffer_b25f10");
+extern "C" unsigned char ra2_place_2494[] __asm__("_unknown_window_section_b25f28");
+extern "C" unsigned char ra2_place_2495[] __asm__("_unknown_dragging_b25f2c");
+extern "C" unsigned char ra2_place_2496[] __asm__("_unknown_tree_b25f30");
+extern "C" unsigned char ra2_place_2497[] __asm__("_unknown_drag_item_b25f34");
+extern "C" unsigned char ra2_place_2498[] __asm__("_unknown_drag_image_b25f38");
+extern "C" unsigned char ra2_place_2499[] __asm__("_main_thread_00b25f78");
+extern "C" unsigned char ra2_place_2500[] __asm__("_IMEResultString");
+extern "C" unsigned char ra2_place_2501[] __asm__("_ProgramInstance");
+extern "C" unsigned char ra2_place_2502[] __asm__("_IMECompositionString");
+extern "C" unsigned char ra2_place_2503[] __asm__("_unknown_b263a8");
+extern "C" unsigned char ra2_place_2504[] __asm__("_unknown_command_show_b263cc");
+extern "C" unsigned char ra2_place_2505[] __asm__("_unknown_cursor_b263d0");
+extern "C" unsigned char ra2_place_2506[] __asm__("_unknown_icon_b263d4");
+extern "C" unsigned char ra2_place_2507[] __asm__("_MainWindow");
+extern "C" unsigned char ra2_place_2508[] __asm__("_DAT_00b263dc");
+extern "C" unsigned char ra2_place_2509[] __asm__("_IMEContext");
+extern "C" unsigned char ra2_place_2510[] __asm__("_unknown_mouse_captured_b263e8");
+extern "C" unsigned char ra2_place_2511[] __asm__("_window_mouse_wheel_b263e9");
+extern "C" unsigned char ra2_place_2512[] __asm__("_IMECompositionLength");
+extern "C" unsigned char ra2_place_2513[] __asm__("_IMECursorPosition");
+extern "C" unsigned char ra2_place_2514[] __asm__("_IMEComposing");
+extern "C" unsigned char ra2_place_2515[] __asm__("_IMEDefaultResult");
+extern "C" unsigned char ra2_place_2516[] __asm__("_unknown_b264f0");
+extern "C" unsigned char ra2_place_2517[] __asm__("_wol_wait_events_b264f8");
+extern "C" unsigned char ra2_place_2518[] __asm__("_unknown_server_list_event_b264fc");
+extern "C" unsigned char ra2_place_2519[] __asm__("_unknown_b26500");
+extern "C" unsigned char ra2_place_2520[] __asm__("_unknown_channel_event_b26504");
+extern "C" unsigned char ra2_place_2521[] __asm__("_unknown_b2650c");
+extern "C" unsigned char ra2_place_2522[] __asm__("_game_exit_event_b26510");
+extern "C" unsigned char ra2_place_2523[] __asm__("_game_start_event_b26514");
+extern "C" unsigned char ra2_place_2524[] __asm__("_unknown_b26518");
+extern "C" unsigned char ra2_place_2525[] __asm__("_unknown_b2651c");
+extern "C" unsigned char ra2_place_2526[] __asm__("_unknown_b26524");
+extern "C" unsigned char ra2_place_2527[] __asm__("_unknown_b26530");
+extern "C" unsigned char ra2_place_2528[] __asm__("_unknown_b26540");
+extern "C" unsigned char ra2_place_2529[] __asm__("_wol_net_sink_b26560");
+extern "C" unsigned char ra2_place_2530[] __asm__("_unknown_b26564");
+extern "C" unsigned char ra2_place_2531[] __asm__("_unknown_b26568");
+extern "C" unsigned char ra2_place_2532[] __asm__("_player_list_column_00b2657c");
+extern "C" unsigned char ra2_place_2533[] __asm__("_match_start_buffer_00b2658c");
+extern "C" unsigned char ra2_place_2534[] __asm__("_unknown_b2668c");
+extern "C" unsigned char ra2_place_2535[] __asm__("_unknown_selected_users_b26694");
+extern "C" unsigned char ra2_place_2536[] __asm__("_account_birth_month_b26894");
+extern "C" unsigned char ra2_place_2537[] __asm__("_unknown_b26898");
+extern "C" unsigned char ra2_place_2538[] __asm__("_ladder_column_losses_b2692c");
+extern "C" unsigned char ra2_place_2539[] __asm__("_account_birth_day_b26930");
+extern "C" unsigned char ra2_place_2540[] __asm__("_player_list_column_00b26958");
+extern "C" unsigned char ra2_place_2541[] __asm__("_unknown_wdt_address_b269ac");
+extern "C" unsigned char ra2_place_2542[] __asm__("_wol_connection_status_b26a2c");
+extern "C" unsigned char ra2_place_2543[] __asm__("_unknown_pending_channel_b26a60");
+extern "C" unsigned char ra2_place_2544[] __asm__("_ladder_column_name_b26c80");
+extern "C" unsigned char ra2_place_2545[] __asm__("_unknown_lobby_names_b26c94");
+extern "C" unsigned char ra2_place_2546[] __asm__("_buddy_column_b26cb4");
+extern "C" unsigned char ra2_place_2547[] __asm__("_session_ctor_trace_b26cbc");
+extern "C" unsigned char ra2_place_2548[] __asm__("_unknown_profile_b28cc4");
+extern "C" unsigned char ra2_place_2549[] __asm__("_lobby_territory_name_00b28cc8");
+extern "C" unsigned char ra2_place_2550[] __asm__("_unknown_game_server_b28cd0");
+extern "C" unsigned char ra2_place_2551[] __asm__("_unknown_player_ready_b28dc4");
+extern "C" unsigned char ra2_place_2552[] __asm__("_unknown_game_port_b28dd4");
+extern "C" unsigned char ra2_place_2553[] __asm__("_wol_download_sink_b28de0");
+extern "C" unsigned char ra2_place_2554[] __asm__("_wol_ping_tooltip_b28de4");
+extern "C" unsigned char ra2_place_2555[] __asm__("_unknown_b28ff4");
+extern "C" unsigned char ra2_place_2556[] __asm__("_unknown_b28ff8");
+extern "C" unsigned char ra2_place_2557[] __asm__("_unknown_game_port_b28ffc");
+extern "C" unsigned char ra2_place_2558[] __asm__("_unknown_ladder_address_b29018");
+extern "C" unsigned char ra2_place_2559[] __asm__("_account_newsletter_b29098");
+extern "C" unsigned char ra2_place_2560[] __asm__("_unknown_wol_allow_page_b290a0");
+extern "C" unsigned char ra2_place_2561[] __asm__("_wol_player_tooltip_b290a4");
+extern "C" unsigned char ra2_place_2562[] __asm__("_session_ctor_trace_b291a4");
+extern "C" unsigned char ra2_place_2563[] __asm__("_player_list_column_00b292a4");
+extern "C" unsigned char ra2_place_2564[] __asm__("_game_ping_column_b292a8");
+extern "C" unsigned char ra2_place_2565[] __asm__("_wol_pending_pings_b292ac");
+extern "C" unsigned char ra2_place_2566[] __asm__("_unknown_irc_index_b292d8");
+extern "C" unsigned char ra2_place_2567[] __asm__("_unknown_b292dc");
+extern "C" unsigned char ra2_place_2568[] __asm__("_player_list_column_00b292e0");
+extern "C" unsigned char ra2_place_2569[] __asm__("_wol_pending_allow_page_b292e4");
+extern "C" unsigned char ra2_place_2570[] __asm__("_DAT_00b292e8");
+extern "C" unsigned char ra2_place_2571[] __asm__("_DAT_00b292ec");
+extern "C" unsigned char ra2_place_2572[] __asm__("__Module");
+extern "C" unsigned char ra2_place_2573[] __asm__("_unknown_squad_2_b293d8");
+extern "C" unsigned char ra2_place_2574[] __asm__("_buddy_column_b29460");
+extern "C" unsigned char ra2_place_2575[] __asm__("_address_snmp_query_b294b0");
+extern "C" unsigned char ra2_place_2576[] __asm__("_wol_pending_allow_find_b294f0");
+extern "C" unsigned char ra2_place_2577[] __asm__("_unknown_selected_actions_b294f4");
+extern "C" unsigned char ra2_place_2578[] __asm__("_wol_pending_display_asian_b29730");
+extern "C" unsigned char ra2_place_2579[] __asm__("_player_list_locale_00b29738");
+extern "C" unsigned char ra2_place_2580[] __asm__("_player_list_column_00b297b8");
+extern "C" unsigned char ra2_place_2581[] __asm__("_ladder_column_points_b297c0");
+extern "C" unsigned char ra2_place_2582[] __asm__("_unknown_wol_lob_music_b297c8");
+extern "C" unsigned char ra2_place_2583[] __asm__("_wol_pending_lob_music_b297cc");
+extern "C" unsigned char ra2_place_2584[] __asm__("_wol_pending_lang_filter_b29810");
+extern "C" unsigned char ra2_place_2585[] __asm__("_g4_73bd20_b29828");
+extern "C" unsigned char ra2_place_2586[] __asm__("_g4_73bd20_b2982c");
+extern "C" unsigned char ra2_place_2587[] __asm__("_g4_73bd20_b29830");
+extern "C" unsigned char ra2_place_2588[] __asm__("_unknown_wdt_server_b29880");
+extern "C" unsigned char ra2_place_2589[] __asm__("_wol_pending_display_latin_b29978");
+extern "C" unsigned char ra2_place_2590[] __asm__("_ladder_column_disconnects_b2999c");
+extern "C" unsigned char ra2_place_2591[] __asm__("_game_observer_column_b299a0");
+extern "C" unsigned char ra2_place_2592[] __asm__("_unknown_wdt_port_b299bc");
+extern "C" unsigned char ra2_place_2593[] __asm__("_unknown_b299c0");
+extern "C" unsigned char ra2_place_2594[] __asm__("_unknown_b299d4");
+extern "C" unsigned char ra2_place_2595[] __asm__("_lobby_title_column_b29acc");
+extern "C" unsigned char ra2_place_2596[] __asm__("_unknown_account_checkbox_b29ad0");
+extern "C" unsigned char ra2_place_2597[] __asm__("_wol_useroptions_b29ad4");
+extern "C" unsigned char ra2_place_2598[] __asm__("_online_last_name_00b29cd8");
+extern "C" unsigned char ra2_place_2599[] __asm__("_ladder_top_rung_b29ce8");
+extern "C" unsigned char ra2_place_2600[] __asm__("_unknown_player_b29cf0");
+extern "C" unsigned char ra2_place_2601[] __asm__("_unknown_b2a630");
+extern "C" unsigned char ra2_place_2602[] __asm__("_unknown_wol_show_all_b2a634");
+extern "C" unsigned char ra2_place_2603[] __asm__("_unknown_game_start_time_b2a638");
+extern "C" unsigned char ra2_place_2604[] __asm__("_wol_pending_show_all_b2a644");
+extern "C" unsigned char ra2_place_2605[] __asm__("_unknown_user_b2a658");
+extern "C" unsigned char ra2_place_2606[] __asm__("_account_birth_year_b2a6d4");
+extern "C" unsigned char ra2_place_2607[] __asm__("_unknown_b2a6d8");
+extern "C" unsigned char ra2_place_2608[] __asm__("_buddy_refresh_time_b2a6f0");
+extern "C" unsigned char ra2_place_2609[] __asm__("_game_private_column_b2a6f4");
+extern "C" unsigned char ra2_place_2610[] __asm__("_game_type_column_b2a6f8");
+extern "C" unsigned char ra2_place_2611[] __asm__("_address_snmp_alloc_b2a718");
+extern "C" unsigned char ra2_place_2612[] __asm__("_wol_chat_sink_b2a720");
+extern "C" unsigned char ra2_place_2613[] __asm__("_unknown_pings_b2a734");
+extern "C" unsigned char ra2_place_2614[] __asm__("_address_snmp_init_b2a754");
+extern "C" unsigned char ra2_place_2615[] __asm__("_unknown_game_address_b2a758");
+extern "C" unsigned char ra2_place_2616[] __asm__("_unknown_wol_lang_filter_b2a7e4");
+extern "C" unsigned char ra2_place_2617[] __asm__("_unknown_b2a7e8");
+extern "C" unsigned char ra2_place_2618[] __asm__("_unknown_b2a7ec");
+extern "C" unsigned char ra2_place_2619[] __asm__("_unknown_b2a7f0");
+extern "C" unsigned char ra2_place_2620[] __asm__("_unknown_irc_index_b2a7f4");
+extern "C" unsigned char ra2_place_2621[] __asm__("_unknown_b2a7f8");
+extern "C" unsigned char ra2_place_2622[] __asm__("_unknown_b2a7fc");
+extern "C" unsigned char ra2_place_2623[] __asm__("_ladder_column_rung_b2a800");
+extern "C" unsigned char ra2_place_2624[] __asm__("_unknown_b2a804");
+extern "C" unsigned char ra2_place_2625[] __asm__("_unknown_b2a808");
+extern "C" unsigned char ra2_place_2626[] __asm__("_unknown_wol_allow_find_b2a818");
+extern "C" unsigned char ra2_place_2627[] __asm__("_player_list_column_00b2a81c");
+extern "C" unsigned char ra2_place_2628[] __asm__("_unknown_squad_1_b2a820");
+extern "C" unsigned char ra2_place_2629[] __asm__("_unknown_b2a8a4");
+extern "C" unsigned char ra2_place_2630[] __asm__("_game_name_column_b2a8a8");
+extern "C" unsigned char ra2_place_2631[] __asm__("_unknown_ladder_port_b2a8ac");
+extern "C" unsigned char ra2_place_2632[] __asm__("_unknown_squad_name_b2a8b0");
+extern "C" unsigned char ra2_place_2633[] __asm__("_address_snmp_free_b2a8dc");
+extern "C" unsigned char ra2_place_2634[] __asm__("_unknown_connection_error_b2a8ec");
+extern "C" unsigned char ra2_place_2635[] __asm__("_unknown_b2aaf8");
+extern "C" unsigned char ra2_place_2636[] __asm__("_ladder_column_wins_b2aafc");
+extern "C" unsigned char ra2_place_2637[] __asm__("_unknown_game_address_b2ab00");
+extern "C" unsigned char ra2_place_2638[] __asm__("_player_list_column_00b2ab80");
+extern "C" unsigned char ra2_place_2639[] __asm__("_unknown_b2ab84");
+extern "C" unsigned char ra2_place_2640[] __asm__("_unknown_b2ab88");
+extern "C" unsigned char ra2_place_2641[] __asm__("_unknown_time_b2abd0");
+extern "C" unsigned char ra2_place_2642[] __asm__("_unknown_time_b2abd4");
+extern "C" unsigned char ra2_place_2643[] __asm__("_unknown_b2abd8");
+extern "C" unsigned char ra2_place_2644[] __asm__("_DAT_00b2abd9");
+extern "C" unsigned char ra2_place_2645[] __asm__("_unknown_b2abda");
+extern "C" unsigned char ra2_place_2646[] __asm__("_wol_max_players_b2abdc");
+extern "C" unsigned char ra2_place_2647[] __asm__("_unknown_b2abe0");
+extern "C" unsigned char ra2_place_2648[] __asm__("_unknown_login_state_00b2abe4");
+extern "C" unsigned char ra2_place_2649[] __asm__("_unknown_b2abe8");
+extern "C" unsigned char ra2_place_2650[] __asm__("_unknown_b2abec");
+extern "C" unsigned char ra2_place_2651[] __asm__("_host_leave_b2abf0");
+extern "C" unsigned char ra2_place_2652[] __asm__("_unknown_query_count_b2abf4");
+extern "C" unsigned char ra2_place_2653[] __asm__("_unknown_squad_query_b2abf8");
+extern "C" unsigned char ra2_place_2654[] __asm__("_unknown_own_squad_b2abfc");
+extern "C" unsigned char ra2_place_2655[] __asm__("_server_request_status_b2ac00");
+extern "C" unsigned char ra2_place_2656[] __asm__("_unknown_b2ac04");
+extern "C" unsigned char ra2_place_2657[] __asm__("_unknown_newnick_result_b2ac08");
+extern "C" unsigned char ra2_place_2658[] __asm__("_unknown_b2ac0c");
+extern "C" unsigned char ra2_place_2659[] __asm__("_unknown_connection_result_b2ac10");
+extern "C" unsigned char ra2_place_2660[] __asm__("_unknown_b2ac18");
+extern "C" unsigned char ra2_place_2661[] __asm__("_unknown_b2ac1c");
+extern "C" unsigned char ra2_place_2662[] __asm__("_unknown_b2ac20");
+extern "C" unsigned char ra2_place_2663[] __asm__("_unknown_ladder_cache_b2ac24");
+extern "C" unsigned char ra2_place_2664[] __asm__("_unknown_wdt_sounds_initialized_b2ac28");
+extern "C" unsigned char ra2_place_2665[] __asm__("_unknown_b2ac2c");
+extern "C" unsigned char ra2_place_2666[] __asm__("_unknown_router_b2ac30");
+extern "C" unsigned char ra2_place_2667[] __asm__("_unknown_mangler_count_b2ac34");
+extern "C" unsigned char ra2_place_2668[] __asm__("_unknown_mangler_index_b2ac38");
+extern "C" unsigned char ra2_place_2669[] __asm__("_unknown_b2ac40");
+extern "C" unsigned char ra2_place_2670[] __asm__("_unknown_b2ac44");
+extern "C" unsigned char ra2_place_2671[] __asm__("_unknown_b2ac45");
+extern "C" unsigned char ra2_place_2672[] __asm__("_receiving_host_preview_00b2ac46");
+extern "C" unsigned char ra2_place_2673[] __asm__("_guest_last_pager_b2ac48");
+extern "C" unsigned char ra2_place_2674[] __asm__("_unknown_b2ac58");
+extern "C" unsigned char ra2_place_2675[] __asm__("_profile_url_value_b2ac5c");
+extern "C" unsigned char ra2_place_2676[] __asm__("_wol_chat_cookie_b2ac60");
+extern "C" unsigned char ra2_place_2677[] __asm__("_wol_net_cookie_b2ac64");
+extern "C" unsigned char ra2_place_2678[] __asm__("_wol_download_cookie_b2ac68");
+extern "C" unsigned char ra2_place_2679[] __asm__("_unknown_b2ac6c");
+extern "C" unsigned char ra2_place_2680[] __asm__("_unknown_b2ac70");
+extern "C" unsigned char ra2_place_2681[] __asm__("_remember_password_b2ac74");
+extern "C" unsigned char ra2_place_2682[] __asm__("_game_list_refreshing_b2ac80");
+extern "C" unsigned char ra2_place_2683[] __asm__("_wol_initialized_b2ac81");
+extern "C" unsigned char ra2_place_2684[] __asm__("_last_game_name_b2ac84");
+extern "C" unsigned char ra2_place_2685[] __asm__("_unknown_account_input_events_b2ac98");
+extern "C" unsigned char ra2_place_2686[] __asm__("_unknown_options_b2aca0");
+extern "C" unsigned char ra2_place_2687[] __asm__("_account_dialog_updating_b2aca8");
+extern "C" unsigned char ra2_place_2688[] __asm__("__pModule");
+extern "C" unsigned char ra2_place_2689[] __asm__("_unknown_icons_b2acc4");
+extern "C" unsigned char ra2_place_2690[] __asm__("_unknown_b2acc8");
+extern "C" unsigned char ra2_place_2691[] __asm__("_DAT_00b2ad60");
+extern "C" unsigned char ra2_place_2692[] __asm__("_DAT_00b2ad70");
+extern "C" unsigned char ra2_place_2693[] __asm__("_WDT_Chosen_Side_b2ada4");
+extern "C" unsigned char ra2_place_2694[] __asm__("_WDT_Chosen_Theater_b2ada8");
+extern "C" unsigned char ra2_place_2695[] __asm__("_unknown_malformed_seen_b2ae24");
+extern "C" unsigned char ra2_place_2696[] __asm__("__ZN21WinsockInterfaceClass14unknown_b2ae9cE");
+extern "C" unsigned char ra2_place_2697[] __asm__("__ZN21WinsockInterfaceClass14unknown_b2aea0E");
+extern "C" unsigned char ra2_place_2698[] __asm__("_unknown_b2af1c");
+extern "C" unsigned char ra2_place_2699[] __asm__("_DAT_00b2b33c");
+extern "C" unsigned char ra2_place_2700[] __asm__("_unknown_kick_channel_b2b3c0");
+extern "C" unsigned char ra2_place_2701[] __asm__("_unknown_query_b2b420");
+extern "C" unsigned char ra2_place_2702[] __asm__("_unknown_cache_empty_b2b624");
 
 extern "C" const ra2_original_global ra2_original_globals[] = {
     {ra2_orig_0000, 0x0079A6A0u, 88u, 0},
@@ -8287,1158 +8317,1188 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x008323C8u, 8u, ra2_place_1517, 0},
     {0x008323CCu, 124u, ra2_place_1518, 0},
     {0x00832468u, 8u, ra2_place_1519, 0},
-    {0x00833680u, 8u, ra2_place_1520, 0},
-    {0x00833684u, 8u, ra2_place_1521, 0},
-    {0x00833968u, 16u, ra2_place_1522, 0},
-    {0x00837498u, 8u, ra2_place_1523, 0},
-    {0x008374B8u, 8u, ra2_place_1524, 0},
-    {0x008374BCu, 8u, ra2_place_1525, 0},
-    {0x008374C0u, 8u, ra2_place_1526, 0},
-    {0x008374C4u, 8u, ra2_place_1527, 0},
-    {0x008374C8u, 8u, ra2_place_1528, 0},
-    {0x008374CCu, 8u, ra2_place_1529, 0},
-    {0x008374D0u, 8u, ra2_place_1530, 0},
-    {0x008374D4u, 8u, ra2_place_1531, 0},
-    {0x008374D8u, 8u, ra2_place_1532, 0},
-    {0x008374DCu, 8u, ra2_place_1533, 0},
-    {0x008374E0u, 8u, ra2_place_1534, 0},
-    {0x008374E4u, 8u, ra2_place_1535, 0},
-    {0x008374E8u, 8u, ra2_place_1536, 0},
-    {0x008374ECu, 8u, ra2_place_1537, 0},
-    {0x008374F0u, 8u, ra2_place_1538, 0},
-    {0x008374F4u, 8u, ra2_place_1539, 0},
-    {0x008374F8u, 8u, ra2_place_1540, 0},
-    {0x008374FCu, 8u, ra2_place_1541, 0},
-    {0x00837500u, 8u, ra2_place_1542, 0},
-    {0x00837504u, 12u, ra2_place_1543, 0},
-    {0x00839620u, 8u, ra2_place_1544, 0},
-    {0x008396D0u, 16u, ra2_place_1545, 0},
-    {0x00839848u, 24u, ra2_place_1546, 0},
-    {0x00839944u, 8u, ra2_place_1547, 0},
-    {0x00839948u, 8u, ra2_place_1548, 0},
-    {0x00839950u, 8u, ra2_place_1549, 0},
-    {0x00839954u, 8u, ra2_place_1550, 0},
-    {0x00839958u, 8u, ra2_place_1551, 0},
-    {0x0083995Cu, 8u, ra2_place_1552, 0},
-    {0x00839964u, 8u, ra2_place_1553, 0},
-    {0x00839968u, 8u, ra2_place_1554, 0},
-    {0x0083996Cu, 8u, ra2_place_1555, 0},
-    {0x008399B0u, 8u, ra2_place_1556, 0},
-    {0x00839A58u, 8u, ra2_place_1557, 0},
-    {0x00839A5Cu, 8u, ra2_place_1558, 0},
-    {0x00839A60u, 16u, ra2_place_1559, 0},
-    {0x00839A70u, 48u, ra2_place_1560, 0},
-    {0x00839AA4u, 8u, ra2_place_1561, 0},
-    {0x00839AA8u, 8u, ra2_place_1562, 0},
-    {0x00839AACu, 8u, ra2_place_1563, 0},
-    {0x00839AB0u, 80u, ra2_place_1564, 0},
-    {0x00839C50u, 24u, ra2_place_1565, 0},
-    {0x00839C68u, 8u, ra2_place_1566, 0},
-    {0x00839C6Cu, 224u, ra2_place_1567, 0},
-    {0x00839D4Cu, 56u, ra2_place_1568, 0},
-    {0x00839D84u, 8u, ra2_place_1569, 0},
-    {0x00839D88u, 8u, ra2_place_1570, 0},
-    {0x00839D90u, 272u, ra2_place_1571, 0},
-    {0x0083C4D4u, 8u, ra2_place_1572, 0},
-    {0x0083C4D5u, 71u, ra2_place_1573, 0},
-    {0x0083C550u, 8u, ra2_place_1574, 0},
-    {0x0083C554u, 8u, ra2_place_1575, 0},
-    {0x0083C558u, 8u, ra2_place_1576, 0},
-    {0x0083C55Cu, 124u, ra2_place_1577, 0},
-    {0x0083C670u, 65556u, ra2_place_1578, 0},
-    {0x0084C684u, 44u, ra2_place_1579, 0},
-    {0x0084C7DCu, 52u, ra2_place_1580, 0},
-    {0x0084C838u, 32u, ra2_place_1581, 0},
-    {0x0084C858u, 8060u, ra2_place_1582, 0},
-    {0x0084E800u, 8u, ra2_place_1583, 0},
-    {0x0084E804u, 144u, ra2_place_1584, 0},
-    {0x0084E894u, 60u, ra2_place_1585, 0},
-    {0x0084E98Cu, 8u, ra2_place_1586, 0},
-    {0x0084E990u, 24u, ra2_place_1587, 0},
-    {0x0084E9A8u, 40u, ra2_place_1588, 0},
-    {0x0084E9D0u, 24u, ra2_place_1589, 0},
-    {0x0084E9E8u, 144u, ra2_place_1590, 0},
-    {0x0084EA78u, 256u, ra2_place_1591, 0},
-    {0x0084ED10u, 32u, ra2_place_1592, 0},
-    {0x0084ED30u, 24u, ra2_place_1593, 0},
-    {0x0084ED88u, 72u, ra2_place_1594, 0},
-    {0x00850298u, 8u, ra2_place_1595, 0},
-    {0x0085029Cu, 8u, ra2_place_1596, 0},
-    {0x008502A0u, 8u, ra2_place_1597, 0},
-    {0x008502A4u, 8u, ra2_place_1598, 0},
-    {0x008502A8u, 24u, ra2_place_1599, 0},
-    {0x00850338u, 16u, ra2_place_1600, 0},
-    {0x00850348u, 256u, ra2_place_1601, 0},
-    {0x00850448u, 64u, ra2_place_1602, 0},
-    {0x00850488u, 20u, ra2_place_1603, 0},
-    {0x0085049Cu, 12u, ra2_place_1604, 0},
-    {0x008504A8u, 32u, ra2_place_1605, 0},
-    {0x008504C8u, 8u, ra2_place_1606, 0},
-    {0x008504D0u, 24u, ra2_place_1607, 0},
-    {0x008504E8u, 28u, ra2_place_1608, 0},
-    {0x00850504u, 8u, ra2_place_1609, 0},
-    {0x00850508u, 8u, ra2_place_1610, 0},
-    {0x0085050Cu, 8u, ra2_place_1611, 0},
-    {0x00850510u, 8u, ra2_place_1612, 0},
-    {0x00850514u, 64u, ra2_place_1613, 0},
-    {0x00850554u, 76u, ra2_place_1614, 0},
-    {0x00850828u, 8u, ra2_place_1615, 0},
-    {0x00850898u, 8u, ra2_place_1616, 0},
-    {0x0085089Cu, 8u, ra2_place_1617, 0},
-    {0x008508A0u, 8u, ra2_place_1618, 0},
-    {0x008508A4u, 516u, ra2_place_1619, 0},
-    {0x00850AA8u, 256u, ra2_place_1620, 0},
-    {0x00850BD8u, 24u, ra2_place_1621, 0},
-    {0x00850C40u, 8u, ra2_place_1622, 0},
-    {0x00850C47u, 329u, ra2_place_1623, 0},
-    {0x00850E10u, 64u, ra2_place_1624, 0},
-    {0x00850E50u, 80u, ra2_place_1625, 0},
-    {0x00850EA0u, 216u, ra2_place_1626, 0},
-    {0x00851080u, 152u, ra2_place_1627, 0},
-    {0x00851118u, 56u, ra2_place_1628, 0},
-    {0x00851170u, 1024u, ra2_place_1629, 0},
-    {0x00851570u, 1080u, ra2_place_1630, 0},
-    {0x008519C8u, 168u, ra2_place_1631, 0},
-    {0x00851A80u, 8u, ra2_place_1632, 0},
-    {0x00851A88u, 8u, ra2_place_1633, 0},
-    {0x00851B3Cu, 132u, ra2_place_1634, 0},
-    {0x00851CA8u, 8u, ra2_place_1635, 0},
-    {0x00851CB0u, 24u, ra2_place_1636, 0},
-    {0x00851CC8u, 768u, ra2_place_1637, 0},
-    {0x00851FC8u, 8u, ra2_place_1638, 0},
-    {0x00851FCCu, 1024u, ra2_place_1639, 0},
-    {0x008523CCu, 8u, ra2_place_1640, 0},
-    {0x008523D4u, 8u, ra2_place_1641, 0},
-    {0x008523D8u, 8u, ra2_place_1642, 0},
-    {0x008523DCu, 8u, ra2_place_1643, 0},
-    {0x008523E0u, 8u, ra2_place_1644, 0},
-    {0x008523E4u, 8u, ra2_place_1645, 0},
-    {0x008523E8u, 8u, ra2_place_1646, 0},
-    {0x008523ECu, 140u, ra2_place_1647, 0},
-    {0x00852478u, 8u, ra2_place_1648, 0},
-    {0x00852480u, 48u, ra2_place_1649, 0},
-    {0x00852610u, 8u, ra2_place_1650, 0},
-    {0x00852614u, 28u, ra2_place_1651, 0},
-    {0x00852630u, 8u, ra2_place_1652, 0},
-    {0x0085291Cu, 24u, ra2_place_1653, 0},
-    {0x00852934u, 20u, ra2_place_1654, 0},
-    {0x00852948u, 8u, ra2_place_1655, 0},
-    {0x00852998u, 136u, ra2_place_1656, 0},
-    {0x00852A20u, 72u, ra2_place_1657, 0},
-    {0x00852A68u, 80u, ra2_place_1658, 0},
-    {0x00852AB8u, 128u, ra2_place_1659, 0},
-    {0x00852B38u, 1148u, ra2_place_1660, 0},
-    {0x00852FB4u, 8u, ra2_place_1661, 0},
-    {0x00852FB8u, 8u, ra2_place_1662, 0},
-    {0x00852FBCu, 8u, ra2_place_1663, 0},
-    {0x00852FC0u, 8u, ra2_place_1664, 0},
-    {0x00852FC4u, 8u, ra2_place_1665, 0},
-    {0x00852FC8u, 8u, ra2_place_1666, 0},
-    {0x00852FCCu, 8u, ra2_place_1667, 0},
-    {0x00852FD2u, 8u, ra2_place_1668, 0},
-    {0x00852FD4u, 8u, ra2_place_1669, 0},
-    {0x00852FD6u, 8u, ra2_place_1670, 0},
-    {0x00852FD7u, 8u, ra2_place_1671, 0},
-    {0x00852FDCu, 8u, ra2_place_1672, 0},
-    {0x00852FE0u, 8u, ra2_place_1673, 0},
-    {0x00852FE4u, 8u, ra2_place_1674, 0},
-    {0x00852FE8u, 64u, ra2_place_1675, 0},
-    {0x00853028u, 40u, ra2_place_1676, 0},
-    {0x00853118u, 10264u, ra2_place_1677, 0},
-    {0x0085311Cu, 10260u, ra2_place_1678, 0},
-    {0x00855960u, 144u, ra2_place_1679, 0},
-    {0x008559F0u, 56u, ra2_place_1680, 0},
-    {0x00855B9Cu, 12u, ra2_place_1681, 0},
-    {0x00855BA8u, 65644u, ra2_place_1682, 0},
-    {0x00865C14u, 8u, ra2_place_1683, 0},
-    {0x00865C18u, 8u, ra2_place_1684, 0},
-    {0x00865C20u, 472u, ra2_place_1685, 0},
-    {0x00865DF8u, 64u, ra2_place_1686, 0},
-    {0x00865F00u, 56u, ra2_place_1687, 0},
-    {0x00865F60u, 64u, ra2_place_1688, 0},
-    {0x00865FF0u, 8u, ra2_place_1689, 0},
-    {0x00865FF4u, 8u, ra2_place_1690, 0},
-    {0x00865FF8u, 8u, ra2_place_1691, 0},
-    {0x00865FFCu, 120u, ra2_place_1692, 0},
-    {0x008660D8u, 136u, ra2_place_1693, 0},
-    {0x00866250u, 8u, ra2_place_1694, 0},
-    {0x00A35CDCu, 20u, ra2_place_1695, 0},
-    {0x00A35D0Cu, 28u, ra2_place_1696, 0},
-    {0x00A35D44u, 8u, ra2_place_1697, 0},
-    {0x00A35D64u, 20u, ra2_place_1698, 0},
-    {0x00A35DB0u, 8u, ra2_place_1699, 0},
-    {0x00A35DB1u, 8u, ra2_place_1700, 0},
-    {0x00A35DB4u, 8u, ra2_place_1701, 0},
-    {0x00A35E20u, 8u, ra2_place_1702, 0},
-    {0x00A35E24u, 8u, ra2_place_1703, 0},
-    {0x00A35EA8u, 128u, ra2_place_1704, 0},
-    {0x00A35F28u, 8u, ra2_place_1705, 0},
-    {0x00A3D23Cu, 8u, ra2_place_1706, 0},
-    {0x00A3D258u, 8u, ra2_place_1707, 0},
-    {0x00A3D290u, 8u, ra2_place_1708, 0},
-    {0x00A3D29Cu, 8u, ra2_place_1709, 0},
-    {0x00A3D2B0u, 8u, ra2_place_1710, 0},
-    {0x00A3D2C4u, 8u, ra2_place_1711, 0},
-    {0x00A3D584u, 416u, ra2_place_1712, 0},
-    {0x00A3D8DCu, 20u, ra2_place_1713, 0},
-    {0x00A3DB2Cu, 324u, ra2_place_1714, 0},
-    {0x00A3F600u, 8u, ra2_place_1715, 0},
-    {0x00A3F608u, 12u, ra2_place_1716, 0},
-    {0x00A3F80Cu, 12u, ra2_place_1717, 0},
-    {0x00A3FA80u, 12u, ra2_place_1718, 0},
-    {0x00A3FBACu, 12u, ra2_place_1719, 0},
-    {0x00A3FBB8u, 12u, ra2_place_1720, 0},
-    {0x00A3FBC4u, 8u, ra2_place_1721, 0},
-    {0x00A3FBC8u, 12u, ra2_place_1722, 0},
-    {0x00A40920u, 8u, ra2_place_1723, 0},
-    {0x00A409C4u, 100u, ra2_place_1724, 0},
-    {0x00A40B32u, 8u, ra2_place_1725, 0},
-    {0x00A40D20u, 8u, ra2_place_1726, 0},
-    {0x00A40D40u, 8u, ra2_place_1727, 0},
-    {0x00A40D44u, 8u, ra2_place_1728, 0},
-    {0x00A40D45u, 8u, ra2_place_1729, 0},
-    {0x00A40D48u, 56u, ra2_place_1730, 0},
-    {0x00A40D80u, 8u, ra2_place_1731, 0},
-    {0x00A40D84u, 84u, ra2_place_1732, 0},
-    {0x00A40EECu, 1704u, ra2_place_1733, 0},
-    {0x00A40F10u, 16u, ra2_place_1734, 0},
-    {0x00A40F48u, 24u, ra2_place_1735, 0},
-    {0x00A40FC8u, 184u, ra2_place_1736, 0},
-    {0x00A41080u, 60u, ra2_place_1737, 0},
-    {0x00A410D8u, 32u, ra2_place_1738, 0},
-    {0x00A410F8u, 40u, ra2_place_1739, 0},
-    {0x00A41120u, 16u, ra2_place_1740, 0},
-    {0x00A41130u, 8u, ra2_place_1741, 0},
-    {0x00A41134u, 60u, ra2_place_1742, 0},
-    {0x00A41170u, 12u, ra2_place_1743, 0},
-    {0x00A411B0u, 56u, ra2_place_1744, 0},
-    {0x00A411E8u, 20u, ra2_place_1745, 0},
-    {0x00A411FCu, 128u, ra2_place_1746, 0},
-    {0x00A4127Cu, 140u, ra2_place_1747, 0},
-    {0x00A41308u, 128u, ra2_place_1748, 0},
-    {0x00A41388u, 128u, ra2_place_1749, 0},
-    {0x00A41408u, 148u, ra2_place_1750, 0},
-    {0x00A4149Cu, 160u, ra2_place_1751, 0},
-    {0x00A4153Cu, 296u, ra2_place_1752, 0},
-    {0x00A41664u, 8u, ra2_place_1753, 0},
-    {0x00A41668u, 8u, ra2_place_1754, 0},
-    {0x00A41670u, 8u, ra2_place_1755, 0},
-    {0x00A41674u, 8u, ra2_place_1756, 0},
-    {0x00A41678u, 8u, ra2_place_1757, 0},
-    {0x00A41680u, 8u, ra2_place_1758, 0},
-    {0x00A41688u, 8u, ra2_place_1759, 0},
-    {0x00A4168Du, 8u, ra2_place_1760, 0},
-    {0x00A41690u, 8u, ra2_place_1761, 0},
-    {0x00A41698u, 8u, ra2_place_1762, 0},
-    {0x00A4169Cu, 32u, ra2_place_1763, 0},
-    {0x00A416BCu, 8u, ra2_place_1764, 0},
-    {0x00A417C8u, 24u, ra2_place_1765, 0},
-    {0x00A51934u, 8u, ra2_place_1766, 0},
-    {0x00A51938u, 8u, ra2_place_1767, 0},
-    {0x00A5193Cu, 8u, ra2_place_1768, 0},
-    {0x00A51940u, 8u, ra2_place_1769, 0},
-    {0x00A51944u, 8u, ra2_place_1770, 0},
-    {0x00A51FD0u, 512u, ra2_place_1771, 0},
-    {0x00A521D0u, 12u, ra2_place_1772, 0},
-    {0x00A521DCu, 8u, ra2_place_1773, 0},
-    {0x00A521E0u, 8u, ra2_place_1774, 0},
-    {0x00A521E4u, 8u, ra2_place_1775, 0},
-    {0x00A521E8u, 8u, ra2_place_1776, 0},
-    {0x00A521F0u, 8u, ra2_place_1777, 0},
-    {0x00A521F8u, 8u, ra2_place_1778, 0},
-    {0x00A52200u, 96u, ra2_place_1779, 0},
-    {0x00A52260u, 8u, ra2_place_1780, 0},
-    {0x00A52264u, 8u, ra2_place_1781, 0},
-    {0x00A52268u, 24u, ra2_place_1782, 0},
-    {0x00A52280u, 24u, ra2_place_1783, 0},
-    {0x00A52298u, 8u, ra2_place_1784, 0},
-    {0x00A5229Cu, 8u, ra2_place_1785, 0},
-    {0x00A522A0u, 8u, ra2_place_1786, 0},
-    {0x00A522A4u, 8u, ra2_place_1787, 0},
-    {0x00A522A8u, 8u, ra2_place_1788, 0},
-    {0x00A522ACu, 8u, ra2_place_1789, 0},
-    {0x00A522B0u, 8u, ra2_place_1790, 0},
-    {0x00A522B4u, 8u, ra2_place_1791, 0},
-    {0x00A522B8u, 8u, ra2_place_1792, 0},
-    {0x00A522BCu, 8u, ra2_place_1793, 0},
-    {0x00A522C0u, 8u, ra2_place_1794, 0},
-    {0x00A522C4u, 8u, ra2_place_1795, 0},
-    {0x00A522C8u, 8u, ra2_place_1796, 0},
-    {0x00A522CCu, 8u, ra2_place_1797, 0},
-    {0x00A522D0u, 8u, ra2_place_1798, 0},
-    {0x00A522D4u, 8u, ra2_place_1799, 0},
-    {0x00A522D8u, 8u, ra2_place_1800, 0},
-    {0x00A522DCu, 8u, ra2_place_1801, 0},
-    {0x00A522E0u, 8u, ra2_place_1802, 0},
-    {0x00A522E4u, 140u, ra2_place_1803, 0},
-    {0x00A52370u, 40u, ra2_place_1804, 0},
-    {0x00A52398u, 24u, ra2_place_1805, 0},
-    {0x00A523B0u, 20u, ra2_place_1806, 0},
-    {0x00A523C4u, 12u, ra2_place_1807, 0},
-    {0x00A523D4u, 12u, ra2_place_1808, 0},
-    {0x00A523E0u, 36u, ra2_place_1809, 0},
-    {0x00A52404u, 8u, ra2_place_1810, 0},
-    {0x00A52408u, 8u, ra2_place_1811, 0},
-    {0x00A5240Cu, 192u, ra2_place_1812, 0},
-    {0x00A52520u, 96u, ra2_place_1813, 0},
-    {0x00A52580u, 8u, ra2_place_1814, 0},
-    {0x00A52584u, 8u, ra2_place_1815, 0},
-    {0x00A52588u, 8u, ra2_place_1816, 0},
-    {0x00A5258Cu, 8u, ra2_place_1817, 0},
-    {0x00A52590u, 1744u, ra2_place_1818, 0},
-    {0x00A52C60u, 8u, ra2_place_1819, 0},
-    {0x00A52C64u, 8u, ra2_place_1820, 0},
-    {0x00A52C68u, 8u, ra2_place_1821, 0},
-    {0x00A52C70u, 8u, ra2_place_1822, 0},
-    {0x00A52C74u, 12u, ra2_place_1823, 0},
-    {0x00A52C80u, 8u, ra2_place_1824, 0},
-    {0x00A52E64u, 8u, ra2_place_1825, 0},
-    {0x00A52E68u, 8u, ra2_place_1826, 0},
-    {0x00A52E6Cu, 8u, ra2_place_1827, 0},
-    {0x00A52E70u, 8u, ra2_place_1828, 0},
-    {0x00A52E74u, 20u, ra2_place_1829, 0},
-    {0x00A52EA0u, 8u, ra2_place_1830, 0},
-    {0x00A52EA4u, 8u, ra2_place_1831, 0},
-    {0x00A52EA8u, 8u, ra2_place_1832, 0},
-    {0x00A52EACu, 8u, ra2_place_1833, 0},
-    {0x00A52EB0u, 16u, ra2_place_1834, 0},
-    {0x00A52EB4u, 8u, ra2_place_1835, 0},
-    {0x00A52EB8u, 8u, ra2_place_1836, 0},
-    {0x00A52EBCu, 12u, ra2_place_1837, 0},
-    {0x00A52EE0u, 8u, ra2_place_1838, 0},
-    {0x00A52EE4u, 8u, ra2_place_1839, 0},
-    {0x00A52EE8u, 8u, ra2_place_1840, 0},
-    {0x00A52EECu, 8u, ra2_place_1841, 0},
-    {0x00A52EF0u, 8u, ra2_place_1842, 0},
-    {0x00A52EF4u, 8u, ra2_place_1843, 0},
-    {0x00A52EF8u, 8u, ra2_place_1844, 0},
-    {0x00A52EFCu, 8u, ra2_place_1845, 0},
-    {0x00A52F00u, 8u, ra2_place_1846, 0},
-    {0x00A52F04u, 124u, ra2_place_1847, 0},
-    {0x00A52F80u, 8u, ra2_place_1848, 0},
-    {0x00A52F84u, 12u, ra2_place_1849, 0},
-    {0x00A52F90u, 1024u, ra2_place_1850, 0},
-    {0x00A53390u, 8u, ra2_place_1851, 0},
-    {0x00A53394u, 104404u, ra2_place_1852, 0},
-    {0x00A6CB68u, 8u, ra2_place_1853, 0},
-    {0x00A6CB6Cu, 8u, ra2_place_1854, 0},
-    {0x00A6CB70u, 8u, ra2_place_1855, 0},
-    {0x00A6CB74u, 8u, ra2_place_1856, 0},
-    {0x00A6CB78u, 8u, ra2_place_1857, 0},
-    {0x00A6CB7Cu, 8u, ra2_place_1858, 0},
-    {0x00A6CF4Cu, 8u, ra2_place_1859, 0},
-    {0x00A6CF50u, 8u, ra2_place_1860, 0},
-    {0x00A6CF54u, 8u, ra2_place_1861, 0},
-    {0x00A6CF58u, 3496u, ra2_place_1862, 0},
-    {0x00A6DD00u, 8u, ra2_place_1863, 0},
-    {0x00A6DD04u, 8u, ra2_place_1864, 0},
-    {0x00A6DD08u, 8u, ra2_place_1865, 0},
-    {0x00A6DD0Cu, 8u, ra2_place_1866, 0},
-    {0x00A6E010u, 8u, ra2_place_1867, 0},
-    {0x00A6E014u, 8u, ra2_place_1868, 0},
-    {0x00A6E018u, 16u, ra2_place_1869, 0},
-    {0x00A6E028u, 16u, ra2_place_1870, 0},
-    {0x00A6E038u, 8u, ra2_place_1871, 0},
-    {0x00A6E0E0u, 8u, ra2_place_1872, 0},
-    {0x00A6E0E4u, 8u, ra2_place_1873, 0},
-    {0x00A6E0E8u, 16u, ra2_place_1874, 0},
-    {0x00A6E0F8u, 8u, ra2_place_1875, 0},
-    {0x00A6E0FCu, 8u, ra2_place_1876, 0},
-    {0x00A6E38Cu, 8u, ra2_place_1877, 0},
-    {0x00A6E390u, 80u, ra2_place_1878, 0},
-    {0x00A6E3E0u, 72u, ra2_place_1879, 0},
-    {0x00A6E7C4u, 8u, ra2_place_1880, 0},
-    {0x00A6EA60u, 180u, ra2_place_1881, 0},
-    {0x00A6EB14u, 8u, ra2_place_1882, 0},
-    {0x00A6EB18u, 8u, ra2_place_1883, 0},
-    {0x00A6EB1Cu, 8u, ra2_place_1884, 0},
-    {0x00A6EB20u, 8u, ra2_place_1885, 0},
-    {0x00A6EB24u, 8u, ra2_place_1886, 0},
-    {0x00A6EB28u, 8u, ra2_place_1887, 0},
-    {0x00A6EB30u, 48u, ra2_place_1888, 0},
-    {0x00A6EBC4u, 8u, ra2_place_1889, 0},
-    {0x00A6EBC8u, 8u, ra2_place_1890, 0},
-    {0x00A6EBCCu, 8u, ra2_place_1891, 0},
-    {0x00A6EBD0u, 8u, ra2_place_1892, 0},
-    {0x00A6EBDCu, 8u, ra2_place_1893, 0},
-    {0x00A6EBE0u, 88u, ra2_place_1894, 0},
-    {0x00A6F238u, 16u, ra2_place_1895, 0},
-    {0x00A6F91Cu, 88u, ra2_place_1896, 0},
-    {0x00A6FA2Cu, 292u, ra2_place_1897, 0},
-    {0x00A6FC34u, 244u, ra2_place_1898, 0},
-    {0x00A6FEE4u, 268u, ra2_place_1899, 0},
-    {0x00A6FFF0u, 28u, ra2_place_1900, 0},
-    {0x00A7000Cu, 92u, ra2_place_1901, 0},
-    {0x00A70068u, 56u, ra2_place_1902, 0},
-    {0x00A709C8u, 84u, ra2_place_1903, 0},
-    {0x00A70A1Cu, 8u, ra2_place_1904, 0},
-    {0x00A70A20u, 8u, ra2_place_1905, 0},
-    {0x00A70A24u, 8u, ra2_place_1906, 0},
-    {0x00A70A28u, 8u, ra2_place_1907, 0},
-    {0x00A70A2Cu, 40u, ra2_place_1908, 0},
-    {0x00A70A54u, 196u, ra2_place_1909, 0},
-    {0x00A70B18u, 180u, ra2_place_1910, 0},
-    {0x00A70DE4u, 8u, ra2_place_1911, 0},
-    {0x00A70DE8u, 8u, ra2_place_1912, 0},
-    {0x00A70DECu, 24u, ra2_place_1913, 0},
-    {0x00A70E00u, 64u, ra2_place_1914, 0},
-    {0x00A70E40u, 48u, ra2_place_1915, 0},
-    {0x00A70E70u, 48u, ra2_place_1916, 0},
-    {0x00A70EA0u, 32u, ra2_place_1917, 0},
-    {0x00A70EECu, 8u, ra2_place_1918, 0},
-    {0x00A70EF0u, 8u, ra2_place_1919, 0},
-    {0x00A70EF4u, 8u, ra2_place_1920, 0},
-    {0x00A70EF8u, 8u, ra2_place_1921, 0},
-    {0x00A70EFCu, 8u, ra2_place_1922, 0},
-    {0x00A70F00u, 8u, ra2_place_1923, 0},
-    {0x00A70F04u, 8u, ra2_place_1924, 0},
-    {0x00A70F08u, 8u, ra2_place_1925, 0},
-    {0x00A70F09u, 8u, ra2_place_1926, 0},
-    {0x00A70F0Au, 8u, ra2_place_1927, 0},
-    {0x00A70F0Cu, 8u, ra2_place_1928, 0},
-    {0x00A70F10u, 8u, ra2_place_1929, 0},
-    {0x00A70F14u, 8u, ra2_place_1930, 0},
-    {0x00A70F64u, 12u, ra2_place_1931, 0},
-    {0x00A70FA4u, 8u, ra2_place_1932, 0},
-    {0x00A7101Cu, 52u, ra2_place_1933, 0},
-    {0x00A71118u, 292u, ra2_place_1934, 0},
-    {0x00A715F0u, 148u, ra2_place_1935, 0},
-    {0x00A71684u, 8u, ra2_place_1936, 0},
-    {0x00A71688u, 244u, ra2_place_1937, 0},
-    {0x00A719A4u, 60u, ra2_place_1938, 0},
-    {0x00A71A3Cu, 8u, ra2_place_1939, 0},
-    {0x00A71A3Du, 219u, ra2_place_1940, 0},
-    {0x00A71B28u, 144u, ra2_place_1941, 0},
-    {0x00A71BC4u, 24u, ra2_place_1942, 0},
-    {0x00A71BDCu, 524u, ra2_place_1943, 0},
-    {0x00A71DE8u, 48u, ra2_place_1944, 0},
-    {0x00A71E18u, 16u, ra2_place_1945, 0},
-    {0x00A71E28u, 32u, ra2_place_1946, 0},
-    {0x00A71E8Cu, 8u, ra2_place_1947, 0},
-    {0x00A71E90u, 8u, ra2_place_1948, 0},
-    {0x00A71E94u, 8u, ra2_place_1949, 0},
-    {0x00A71E98u, 8u, ra2_place_1950, 0},
-    {0x00A71E99u, 8u, ra2_place_1951, 0},
-    {0x00A71E9Cu, 8u, ra2_place_1952, 0},
-    {0x00A71EA0u, 8u, ra2_place_1953, 0},
-    {0x00A71EA4u, 8u, ra2_place_1954, 0},
-    {0x00A71EA8u, 2056u, ra2_place_1955, 0},
-    {0x00A726B0u, 36u, ra2_place_1956, 0},
-    {0x00A726D4u, 36u, ra2_place_1957, 0},
-    {0x00A726F8u, 60u, ra2_place_1958, 0},
-    {0x00A72734u, 348u, ra2_place_1959, 0},
-    {0x00A72890u, 16u, ra2_place_1960, 0},
-    {0x00A728A0u, 48u, ra2_place_1961, 0},
-    {0x00A728D0u, 16u, ra2_place_1962, 0},
-    {0x00A728E0u, 8u, ra2_place_1963, 0},
-    {0x00A728E4u, 352u, ra2_place_1964, 0},
-    {0x00A72A44u, 36u, ra2_place_1965, 0},
-    {0x00A72A68u, 512u, ra2_place_1966, 0},
-    {0x00A72C68u, 24u, ra2_place_1967, 0},
-    {0x00A72C80u, 16u, ra2_place_1968, 0},
-    {0x00A72C90u, 88u, ra2_place_1969, 0},
-    {0x00A72CE8u, 20u, ra2_place_1970, 0},
-    {0x00A72CFCu, 8u, ra2_place_1971, 0},
-    {0x00A72D00u, 8u, ra2_place_1972, 0},
-    {0x00A72D04u, 8u, ra2_place_1973, 0},
-    {0x00A72D08u, 8u, ra2_place_1974, 0},
-    {0x00A72D0Cu, 32u, ra2_place_1975, 0},
-    {0x00A72D28u, 8u, ra2_place_1976, 0},
-    {0x00A72D2Cu, 8u, ra2_place_1977, 0},
-    {0x00A72D30u, 8u, ra2_place_1978, 0},
-    {0x00A72D34u, 8u, ra2_place_1979, 0},
-    {0x00A72D38u, 8u, ra2_place_1980, 0},
-    {0x00A72D3Cu, 8u, ra2_place_1981, 0},
-    {0x00A72D40u, 8u, ra2_place_1982, 0},
-    {0x00A72D44u, 8u, ra2_place_1983, 0},
-    {0x00A72D48u, 8u, ra2_place_1984, 0},
-    {0x00A72D4Cu, 8u, ra2_place_1985, 0},
-    {0x00A72D4Du, 8u, ra2_place_1986, 0},
-    {0x00A72D4Eu, 8u, ra2_place_1987, 0},
-    {0x00A72D4Fu, 8u, ra2_place_1988, 0},
-    {0x00A72D50u, 8u, ra2_place_1989, 0},
-    {0x00A72D51u, 8u, ra2_place_1990, 0},
-    {0x00A72D52u, 10u, ra2_place_1991, 0},
-    {0x00A72D5Cu, 28u, ra2_place_1992, 0},
-    {0x00A72D78u, 64u, ra2_place_1993, 0},
-    {0x00A72DC4u, 76u, ra2_place_1994, 0},
-    {0x00A72E10u, 180u, ra2_place_1995, 0},
-    {0x00A72EC4u, 72u, ra2_place_1996, 0},
-    {0x00A72FDCu, 8u, ra2_place_1997, 0},
-    {0x00A72FE0u, 8u, ra2_place_1998, 0},
-    {0x00A72FE4u, 8u, ra2_place_1999, 0},
-    {0x00A72FE8u, 8u, ra2_place_2000, 0},
-    {0x00A72FECu, 8u, ra2_place_2001, 0},
-    {0x00A72FF0u, 8u, ra2_place_2002, 0},
-    {0x00A72FF1u, 8u, ra2_place_2003, 0},
-    {0x00A72FF2u, 8u, ra2_place_2004, 0},
-    {0x00A72FF3u, 181u, ra2_place_2005, 0},
-    {0x00A731E0u, 408u, ra2_place_2006, 0},
-    {0x00A73378u, 20u, ra2_place_2007, 0},
-    {0x00A7338Cu, 12u, ra2_place_2008, 0},
-    {0x00A73398u, 56u, ra2_place_2009, 0},
-    {0x00A733D0u, 16u, ra2_place_2010, 0},
-    {0x00A733E4u, 28u, ra2_place_2011, 0},
-    {0x00A7363Cu, 8u, ra2_place_2012, 0},
-    {0x00A736D0u, 272u, ra2_place_2013, 0},
-    {0x00A737E0u, 8u, ra2_place_2014, 0},
-    {0x00A737E4u, 8u, ra2_place_2015, 0},
-    {0x00A737E8u, 8u, ra2_place_2016, 0},
-    {0x00A737ECu, 8u, ra2_place_2017, 0},
-    {0x00A737F0u, 152u, ra2_place_2018, 0},
-    {0x00A73800u, 8u, ra2_place_2019, 0},
-    {0x00A73910u, 8u, ra2_place_2020, 0},
-    {0x00A73918u, 16u, ra2_place_2021, 0},
-    {0x00A73928u, 20u, ra2_place_2022, 0},
-    {0x00A7393Cu, 10240u, ra2_place_2023, 0},
-    {0x00A7613Cu, 8u, ra2_place_2024, 0},
-    {0x00A76140u, 16u, ra2_place_2025, 0},
-    {0x00A76150u, 8u, ra2_place_2026, 0},
-    {0x00A76154u, 8u, ra2_place_2027, 0},
-    {0x00A76158u, 8u, ra2_place_2028, 0},
-    {0x00A7615Cu, 540u, ra2_place_2029, 0},
-    {0x00A763B0u, 8u, ra2_place_2030, 0},
-    {0x00A763B4u, 8u, ra2_place_2031, 0},
-    {0x00A763B8u, 20u, ra2_place_2032, 0},
-    {0x00A763CCu, 8u, ra2_place_2033, 0},
-    {0x00A763D4u, 8u, ra2_place_2034, 0},
-    {0x00A763D8u, 8u, ra2_place_2035, 0},
-    {0x00A763ECu, 8u, ra2_place_2036, 0},
-    {0x00A763F0u, 8u, ra2_place_2037, 0},
-    {0x00A763F8u, 8u, ra2_place_2038, 0},
-    {0x00A763FCu, 20u, ra2_place_2039, 0},
-    {0x00A76410u, 8u, ra2_place_2040, 0},
-    {0x00A76414u, 28u, ra2_place_2041, 0},
-    {0x00A76680u, 8u, ra2_place_2042, 0},
-    {0x00A76684u, 44u, ra2_place_2043, 0},
-    {0x00A766B0u, 8u, ra2_place_2044, 0},
-    {0x00A766B4u, 20u, ra2_place_2045, 0},
-    {0x00A766C8u, 16u, ra2_place_2046, 0},
-    {0x00A766F8u, 8u, ra2_place_2047, 0},
-    {0x00A766FCu, 8u, ra2_place_2048, 0},
-    {0x00A76728u, 8u, ra2_place_2049, 0},
-    {0x00A76750u, 8u, ra2_place_2050, 0},
-    {0x00A76770u, 24u, ra2_place_2051, 0},
-    {0x00A76788u, 8u, ra2_place_2052, 0},
-    {0x00A7678Cu, 8u, ra2_place_2053, 0},
-    {0x00A76790u, 20u, ra2_place_2054, 0},
-    {0x00A767A4u, 8u, ra2_place_2055, 0},
-    {0x00A767A5u, 8u, ra2_place_2056, 0},
-    {0x00A767A6u, 58u, ra2_place_2057, 0},
-    {0x00A767E0u, 316u, ra2_place_2058, 0},
-    {0x00A7691Cu, 8u, ra2_place_2059, 0},
-    {0x00A76920u, 200u, ra2_place_2060, 0},
-    {0x00A76B70u, 8u, ra2_place_2061, 0},
-    {0x00A76B74u, 256u, ra2_place_2062, 0},
-    {0x00A76C74u, 8u, ra2_place_2063, 0},
-    {0x00A76C78u, 16u, ra2_place_2064, 0},
-    {0x00A76C88u, 32u, ra2_place_2065, 0},
-    {0x00A76CA8u, 5144u, ra2_place_2066, 0},
-    {0x00A780D4u, 8u, ra2_place_2067, 0},
-    {0x00AABCE0u, 16u, ra2_place_2068, 0},
-    {0x00AABDB0u, 32u, ra2_place_2069, 0},
-    {0x00AABE90u, 8u, ra2_place_2070, 0},
-    {0x00AABE94u, 36u, ra2_place_2071, 0},
-    {0x00AB5ED0u, 8u, ra2_place_2072, 0},
-    {0x00AB5ED8u, 8u, ra2_place_2073, 0},
-    {0x00AB5EDCu, 1024u, ra2_place_2074, 0},
-    {0x00AB62DCu, 8u, ra2_place_2075, 0},
-    {0x00AB62E0u, 8u, ra2_place_2076, 0},
-    {0x00AB62E4u, 8u, ra2_place_2077, 0},
-    {0x00AB62E8u, 8u, ra2_place_2078, 0},
-    {0x00AB62ECu, 8u, ra2_place_2079, 0},
-    {0x00AB62F0u, 8u, ra2_place_2080, 0},
-    {0x00AB62F4u, 8u, ra2_place_2081, 0},
-    {0x00AB62F5u, 8u, ra2_place_2082, 0},
-    {0x00AB62F8u, 8u, ra2_place_2083, 0},
-    {0x00AB62FCu, 8u, ra2_place_2084, 0},
-    {0x00AB6300u, 8u, ra2_place_2085, 0},
-    {0x00AB6304u, 20u, ra2_place_2086, 0},
-    {0x00AB6318u, 8u, ra2_place_2087, 0},
-    {0x00AB6320u, 16u, ra2_place_2088, 0},
-    {0x00AB6338u, 8u, ra2_place_2089, 0},
-    {0x00AB6350u, 24u, ra2_place_2090, 0},
-    {0x00AB6368u, 8u, ra2_place_2091, 0},
-    {0x00AB6369u, 8u, ra2_place_2092, 0},
-    {0x00AB6468u, 8u, ra2_place_2093, 0},
-    {0x00AB663Cu, 172u, ra2_place_2094, 0},
-    {0x00AB66E8u, 128u, ra2_place_2095, 0},
-    {0x00AB6788u, 32u, ra2_place_2096, 0},
-    {0x00AB67A8u, 16u, ra2_place_2097, 0},
-    {0x00AB67B8u, 8u, ra2_place_2098, 0},
-    {0x00AB67BAu, 14u, ra2_place_2099, 0},
-    {0x00AB67C8u, 32u, ra2_place_2100, 0},
-    {0x00AB6818u, 20u, ra2_place_2101, 0},
-    {0x00AB682Cu, 8u, ra2_place_2102, 0},
-    {0x00AB6831u, 8u, ra2_place_2103, 0},
-    {0x00AB6832u, 8u, ra2_place_2104, 0},
-    {0x00AB6833u, 8u, ra2_place_2105, 0},
-    {0x00AB6834u, 8u, ra2_place_2106, 0},
-    {0x00AB6839u, 8u, ra2_place_2107, 0},
-    {0x00AB683Cu, 8u, ra2_place_2108, 0},
-    {0x00AB6841u, 8u, ra2_place_2109, 0},
-    {0x00AB6844u, 8u, ra2_place_2110, 0},
-    {0x00AB6849u, 8u, ra2_place_2111, 0},
-    {0x00AB684Cu, 60u, ra2_place_2112, 0},
-    {0x00AB6888u, 92u, ra2_place_2113, 0},
-    {0x00AB6DECu, 8u, ra2_place_2114, 0},
-    {0x00AB6DF0u, 152u, ra2_place_2115, 0},
-    {0x00AB6E88u, 32u, ra2_place_2116, 0},
-    {0x00AB6EA8u, 8u, ra2_place_2117, 0},
-    {0x00AB6EACu, 8u, ra2_place_2118, 0},
-    {0x00AB6EB0u, 68u, ra2_place_2119, 0},
-    {0x00AB6EF4u, 8u, ra2_place_2120, 0},
-    {0x00AB6F20u, 48u, ra2_place_2121, 0},
-    {0x00AB6F9Cu, 8u, ra2_place_2122, 0},
-    {0x00AB6FA4u, 8u, ra2_place_2123, 0},
-    {0x00AB6FA8u, 24u, ra2_place_2124, 0},
-    {0x00AB7068u, 8u, ra2_place_2125, 0},
-    {0x00AB7088u, 24u, ra2_place_2126, 0},
-    {0x00AB71D8u, 8092u, ra2_place_2127, 0},
-    {0x00AB9174u, 8u, ra2_place_2128, 0},
-    {0x00AB9178u, 80u, ra2_place_2129, 0},
-    {0x00AB91C8u, 168u, ra2_place_2130, 0},
-    {0x00AB9274u, 524u, ra2_place_2131, 0},
-    {0x00AB9480u, 8u, ra2_place_2132, 0},
-    {0x00AB9484u, 132u, ra2_place_2133, 0},
-    {0x00AB9688u, 16u, ra2_place_2134, 0},
-    {0x00AB9698u, 32u, ra2_place_2135, 0},
-    {0x00ABCD20u, 32u, ra2_place_2136, 0},
-    {0x00ABCD40u, 8u, ra2_place_2137, 0},
-    {0x00ABCD48u, 8u, ra2_place_2138, 0},
-    {0x00ABCD4Cu, 8u, ra2_place_2139, 0},
-    {0x00ABCD50u, 8u, ra2_place_2140, 0},
-    {0x00ABCD54u, 8u, ra2_place_2141, 0},
-    {0x00ABCD58u, 8u, ra2_place_2142, 0},
-    {0x00ABCD5Cu, 8u, ra2_place_2143, 0},
-    {0x00ABCD60u, 8u, ra2_place_2144, 0},
-    {0x00ABCD64u, 8u, ra2_place_2145, 0},
-    {0x00ABCD68u, 8u, ra2_place_2146, 0},
-    {0x00ABCD6Cu, 8u, ra2_place_2147, 0},
-    {0x00ABCD70u, 8u, ra2_place_2148, 0},
-    {0x00ABCD74u, 8u, ra2_place_2149, 0},
-    {0x00ABCD78u, 8u, ra2_place_2150, 0},
-    {0x00ABCD7Cu, 8u, ra2_place_2151, 0},
-    {0x00ABCD80u, 8u, ra2_place_2152, 0},
-    {0x00ABCD84u, 8u, ra2_place_2153, 0},
-    {0x00ABCD85u, 119u, ra2_place_2154, 0},
-    {0x00ABCDFCu, 28u, ra2_place_2155, 0},
-    {0x00ABCEACu, 260u, ra2_place_2156, 0},
-    {0x00ABCFB0u, 120u, ra2_place_2157, 0},
-    {0x00ABD408u, 32u, ra2_place_2158, 0},
-    {0x00ABD47Cu, 8u, ra2_place_2159, 0},
-    {0x00ABD480u, 8u, ra2_place_2160, 0},
-    {0x00ABD484u, 8u, ra2_place_2161, 0},
-    {0x00ABD488u, 8u, ra2_place_2162, 0},
-    {0x00ABD48Cu, 8u, ra2_place_2163, 0},
-    {0x00ABD48Du, 51u, ra2_place_2164, 0},
-    {0x00ABD4C0u, 8u, ra2_place_2165, 0},
-    {0x00ABD4C4u, 28u, ra2_place_2166, 0},
-    {0x00ABD4E0u, 32u, ra2_place_2167, 0},
-    {0x00ABD500u, 24u, ra2_place_2168, 0},
-    {0x00ABD52Cu, 8u, ra2_place_2169, 0},
-    {0x00ABD530u, 24u, ra2_place_2170, 0},
-    {0x00ABD548u, 312u, ra2_place_2171, 0},
-    {0x00ABD6A0u, 52u, ra2_place_2172, 0},
-    {0x00ABD6D4u, 148u, ra2_place_2173, 0},
-    {0x00ABD768u, 56u, ra2_place_2174, 0},
-    {0x00ABD8A0u, 104u, ra2_place_2175, 0},
-    {0x00ABD910u, 8u, ra2_place_2176, 0},
-    {0x00ABE278u, 24u, ra2_place_2177, 0},
-    {0x00ABE290u, 8u, ra2_place_2178, 0},
-    {0x00ABE294u, 8u, ra2_place_2179, 0},
-    {0x00ABE2A8u, 8u, ra2_place_2180, 0},
-    {0x00ABE2ACu, 12u, ra2_place_2181, 0},
-    {0x00ABE2B8u, 8u, ra2_place_2182, 0},
-    {0x00ABE2BCu, 12u, ra2_place_2183, 0},
-    {0x00ABE2C8u, 100u, ra2_place_2184, 0},
-    {0x00ABE32Cu, 28u, ra2_place_2185, 0},
-    {0x00ABE36Cu, 8u, ra2_place_2186, 0},
-    {0x00ABE370u, 8u, ra2_place_2187, 0},
-    {0x00ABE374u, 8u, ra2_place_2188, 0},
-    {0x00ABE378u, 8u, ra2_place_2189, 0},
-    {0x00ABE37Cu, 12u, ra2_place_2190, 0},
-    {0x00ABE388u, 8u, ra2_place_2191, 0},
-    {0x00ABE460u, 8u, ra2_place_2192, 0},
-    {0x00ABE464u, 8u, ra2_place_2193, 0},
-    {0x00ABE468u, 16u, ra2_place_2194, 0},
-    {0x00ABE478u, 8u, ra2_place_2195, 0},
-    {0x00ABE490u, 44u, ra2_place_2196, 0},
-    {0x00ABE4C8u, 24u, ra2_place_2197, 0},
-    {0x00ABE520u, 8u, ra2_place_2198, 0},
-    {0x00ABE540u, 16u, ra2_place_2199, 0},
-    {0x00ABFD6Cu, 8u, ra2_place_2200, 0},
-    {0x00ABFD70u, 8u, ra2_place_2201, 0},
-    {0x00ABFD74u, 20u, ra2_place_2202, 0},
-    {0x00ABFD78u, 16u, ra2_place_2203, 0},
-    {0x00ABFDB0u, 152u, ra2_place_2204, 0},
-    {0x00AC0050u, 120u, ra2_place_2205, 0},
-    {0x00AC00C8u, 128u, ra2_place_2206, 0},
-    {0x00AC0148u, 32u, ra2_place_2207, 0},
-    {0x00AC0188u, 60u, ra2_place_2208, 0},
-    {0x00AC01C4u, 8u, ra2_place_2209, 0},
-    {0x00AC01C8u, 8u, ra2_place_2210, 0},
-    {0x00AC01CCu, 28u, ra2_place_2211, 0},
-    {0x00AC01E8u, 152u, ra2_place_2212, 0},
-    {0x00AC0280u, 96u, ra2_place_2213, 0},
-    {0x00AC0B34u, 12u, ra2_place_2214, 0},
-    {0x00AC0F30u, 184u, ra2_place_2215, 0},
-    {0x00AC0FE8u, 8u, ra2_place_2216, 0},
-    {0x00AC0FECu, 8u, ra2_place_2217, 0},
-    {0x00AC0FF0u, 8u, ra2_place_2218, 0},
-    {0x00AC0FF4u, 8u, ra2_place_2219, 0},
-    {0x00AC0FF8u, 16u, ra2_place_2220, 0},
-    {0x00AC1008u, 8u, ra2_place_2221, 0},
-    {0x00AC100Cu, 8u, ra2_place_2222, 0},
-    {0x00AC1010u, 24u, ra2_place_2223, 0},
-    {0x00AC1028u, 8u, ra2_place_2224, 0},
-    {0x00AC102Cu, 20u, ra2_place_2225, 0},
-    {0x00AC1040u, 8u, ra2_place_2226, 0},
-    {0x00AC1044u, 8u, ra2_place_2227, 0},
-    {0x00AC1048u, 16u, ra2_place_2228, 0},
-    {0x00AC1058u, 8u, ra2_place_2229, 0},
-    {0x00AC105Cu, 8u, ra2_place_2230, 0},
-    {0x00AC1060u, 16u, ra2_place_2231, 0},
-    {0x00AC1070u, 8u, ra2_place_2232, 0},
-    {0x00AC1074u, 8u, ra2_place_2233, 0},
-    {0x00AC1078u, 8u, ra2_place_2234, 0},
-    {0x00AC107Cu, 8u, ra2_place_2235, 0},
-    {0x00AC1080u, 20u, ra2_place_2236, 0},
-    {0x00AC1094u, 8u, ra2_place_2237, 0},
-    {0x00AC1098u, 8u, ra2_place_2238, 0},
-    {0x00AC109Cu, 8u, ra2_place_2239, 0},
-    {0x00AC109Du, 8u, ra2_place_2240, 0},
-    {0x00AC109Eu, 8u, ra2_place_2241, 0},
-    {0x00AC10A0u, 8u, ra2_place_2242, 0},
-    {0x00AC10A4u, 12u, ra2_place_2243, 0},
-    {0x00AC10B0u, 8u, ra2_place_2244, 0},
-    {0x00AC10B4u, 8u, ra2_place_2245, 0},
-    {0x00AC10B8u, 8u, ra2_place_2246, 0},
-    {0x00AC10BCu, 8u, ra2_place_2247, 0},
-    {0x00AC10C0u, 8u, ra2_place_2248, 0},
-    {0x00AC10C4u, 8u, ra2_place_2249, 0},
-    {0x00AC10C8u, 8u, ra2_place_2250, 0},
-    {0x00AC10CCu, 12u, ra2_place_2251, 0},
-    {0x00AC10D8u, 16u, ra2_place_2252, 0},
-    {0x00AC10E8u, 8u, ra2_place_2253, 0},
-    {0x00AC10ECu, 8u, ra2_place_2254, 0},
-    {0x00AC10F0u, 8u, ra2_place_2255, 0},
-    {0x00AC10F4u, 8u, ra2_place_2256, 0},
-    {0x00AC10F8u, 8u, ra2_place_2257, 0},
-    {0x00AC10FCu, 8u, ra2_place_2258, 0},
-    {0x00AC1100u, 8u, ra2_place_2259, 0},
-    {0x00AC1104u, 8u, ra2_place_2260, 0},
-    {0x00AC1108u, 8u, ra2_place_2261, 0},
-    {0x00AC110Cu, 20u, ra2_place_2262, 0},
-    {0x00AC1120u, 8u, ra2_place_2263, 0},
-    {0x00AC1124u, 8u, ra2_place_2264, 0},
-    {0x00AC1128u, 8u, ra2_place_2265, 0},
-    {0x00AC1130u, 8u, ra2_place_2266, 0},
-    {0x00AC1134u, 8u, ra2_place_2267, 0},
-    {0x00AC1138u, 8u, ra2_place_2268, 0},
-    {0x00AC113Cu, 8u, ra2_place_2269, 0},
-    {0x00AC1140u, 8u, ra2_place_2270, 0},
-    {0x00AC1144u, 8u, ra2_place_2271, 0},
-    {0x00AC1148u, 8u, ra2_place_2272, 0},
-    {0x00AC114Cu, 8u, ra2_place_2273, 0},
-    {0x00AC1150u, 8u, ra2_place_2274, 0},
-    {0x00AC1154u, 8u, ra2_place_2275, 0},
-    {0x00AC1158u, 8u, ra2_place_2276, 0},
-    {0x00AC115Cu, 8u, ra2_place_2277, 0},
-    {0x00AC1160u, 8u, ra2_place_2278, 0},
-    {0x00AC1164u, 8u, ra2_place_2279, 0},
-    {0x00AC1168u, 8u, ra2_place_2280, 0},
-    {0x00AC116Cu, 8u, ra2_place_2281, 0},
-    {0x00AC1170u, 8u, ra2_place_2282, 0},
-    {0x00AC1174u, 8u, ra2_place_2283, 0},
-    {0x00AC1178u, 8u, ra2_place_2284, 0},
-    {0x00AC117Cu, 8u, ra2_place_2285, 0},
-    {0x00AC1184u, 8u, ra2_place_2286, 0},
-    {0x00AC1188u, 8u, ra2_place_2287, 0},
-    {0x00AC118Cu, 8u, ra2_place_2288, 0},
-    {0x00AC1190u, 8u, ra2_place_2289, 0},
-    {0x00AC1194u, 8u, ra2_place_2290, 0},
-    {0x00AC1198u, 8u, ra2_place_2291, 0},
-    {0x00AC119Cu, 8u, ra2_place_2292, 0},
-    {0x00AC11A0u, 8u, ra2_place_2293, 0},
-    {0x00AC11A4u, 8u, ra2_place_2294, 0},
-    {0x00AC11A8u, 8u, ra2_place_2295, 0},
-    {0x00AC11ACu, 8u, ra2_place_2296, 0},
-    {0x00AC11B0u, 8u, ra2_place_2297, 0},
-    {0x00AC11B4u, 8u, ra2_place_2298, 0},
-    {0x00AC11B8u, 8u, ra2_place_2299, 0},
-    {0x00AC11BCu, 8u, ra2_place_2300, 0},
-    {0x00AC11C0u, 8u, ra2_place_2301, 0},
-    {0x00AC11C4u, 8u, ra2_place_2302, 0},
-    {0x00AC11C8u, 8u, ra2_place_2303, 0},
-    {0x00AC11CCu, 8u, ra2_place_2304, 0},
-    {0x00AC11D0u, 8u, ra2_place_2305, 0},
-    {0x00AC11D4u, 8u, ra2_place_2306, 0},
-    {0x00AC11D8u, 8u, ra2_place_2307, 0},
-    {0x00AC11DCu, 8u, ra2_place_2308, 0},
-    {0x00AC11E0u, 8u, ra2_place_2309, 0},
-    {0x00AC11E4u, 8u, ra2_place_2310, 0},
-    {0x00AC11E8u, 8u, ra2_place_2311, 0},
-    {0x00AC11ECu, 8u, ra2_place_2312, 0},
-    {0x00AC11F0u, 8u, ra2_place_2313, 0},
-    {0x00AC11F4u, 8u, ra2_place_2314, 0},
-    {0x00AC11F8u, 8u, ra2_place_2315, 0},
-    {0x00AC11FCu, 8u, ra2_place_2316, 0},
-    {0x00AC1200u, 8u, ra2_place_2317, 0},
-    {0x00AC1204u, 8u, ra2_place_2318, 0},
-    {0x00AC1208u, 8u, ra2_place_2319, 0},
-    {0x00AC120Cu, 8u, ra2_place_2320, 0},
-    {0x00AC1210u, 8u, ra2_place_2321, 0},
-    {0x00AC1214u, 8u, ra2_place_2322, 0},
-    {0x00AC1215u, 8u, ra2_place_2323, 0},
-    {0x00AC1216u, 8u, ra2_place_2324, 0},
-    {0x00AC1217u, 8u, ra2_place_2325, 0},
-    {0x00AC1218u, 8u, ra2_place_2326, 0},
-    {0x00AC121Cu, 8u, ra2_place_2327, 0},
-    {0x00AC1220u, 8u, ra2_place_2328, 0},
-    {0x00AC1224u, 8u, ra2_place_2329, 0},
-    {0x00AC1225u, 8u, ra2_place_2330, 0},
-    {0x00AC1226u, 8u, ra2_place_2331, 0},
-    {0x00AC1227u, 8u, ra2_place_2332, 0},
-    {0x00AC1228u, 8u, ra2_place_2333, 0},
-    {0x00AC1229u, 8u, ra2_place_2334, 0},
-    {0x00AC122Au, 8u, ra2_place_2335, 0},
-    {0x00AC122Bu, 8u, ra2_place_2336, 0},
-    {0x00AC122Cu, 8u, ra2_place_2337, 0},
-    {0x00AC122Du, 8u, ra2_place_2338, 0},
-    {0x00AC122Eu, 8u, ra2_place_2339, 0},
-    {0x00AC122Fu, 8u, ra2_place_2340, 0},
-    {0x00AC1230u, 8u, ra2_place_2341, 0},
-    {0x00AC1231u, 8u, ra2_place_2342, 0},
-    {0x00AC1232u, 8u, ra2_place_2343, 0},
-    {0x00AC1233u, 8u, ra2_place_2344, 0},
-    {0x00AC1234u, 8u, ra2_place_2345, 0},
-    {0x00AC1235u, 8u, ra2_place_2346, 0},
-    {0x00AC1236u, 8u, ra2_place_2347, 0},
-    {0x00AC1237u, 8u, ra2_place_2348, 0},
-    {0x00AC1238u, 8u, ra2_place_2349, 0},
-    {0x00AC1239u, 8u, ra2_place_2350, 0},
-    {0x00AC123Au, 8u, ra2_place_2351, 0},
-    {0x00AC123Bu, 8u, ra2_place_2352, 0},
-    {0x00AC123Cu, 8u, ra2_place_2353, 0},
-    {0x00AC123Du, 8u, ra2_place_2354, 0},
-    {0x00AC123Eu, 8u, ra2_place_2355, 0},
-    {0x00AC123Fu, 8u, ra2_place_2356, 0},
-    {0x00AC1240u, 8u, ra2_place_2357, 0},
-    {0x00AC1241u, 8u, ra2_place_2358, 0},
-    {0x00AC1242u, 8u, ra2_place_2359, 0},
-    {0x00AC1243u, 8u, ra2_place_2360, 0},
-    {0x00AC1244u, 8u, ra2_place_2361, 0},
-    {0x00AC1245u, 8u, ra2_place_2362, 0},
-    {0x00AC1248u, 228u, ra2_place_2363, 0},
-    {0x00AC132Cu, 8u, ra2_place_2364, 0},
-    {0x00AC1330u, 8u, ra2_place_2365, 0},
-    {0x00AC1334u, 8u, ra2_place_2366, 0},
-    {0x00AC1338u, 8u, ra2_place_2367, 0},
-    {0x00AC133Cu, 8u, ra2_place_2368, 0},
-    {0x00AC133Du, 8u, ra2_place_2369, 0},
-    {0x00AC1340u, 8u, ra2_place_2370, 0},
-    {0x00AC1344u, 8u, ra2_place_2371, 0},
-    {0x00AC134Cu, 32u, ra2_place_2372, 0},
-    {0x00AC136Cu, 8204u, ra2_place_2373, 0},
-    {0x00AC3378u, 4104u, ra2_place_2374, 0},
-    {0x00AC4380u, 4104u, ra2_place_2375, 0},
-    {0x00AC5388u, 116u, ra2_place_2376, 0},
-    {0x00AC53FCu, 16384u, ra2_place_2377, 0},
-    {0x00AC93FCu, 24596u, ra2_place_2378, 0},
-    {0x00ACD410u, 8192u, ra2_place_2379, 0},
-    {0x00ACF410u, 4120u, ra2_place_2380, 0},
-    {0x00AD0428u, 8u, ra2_place_2381, 0},
-    {0x00AD0430u, 8u, ra2_place_2382, 0},
-    {0x00AD0434u, 8u, ra2_place_2383, 0},
-    {0x00AD0438u, 8u, ra2_place_2384, 0},
-    {0x00AD043Cu, 8u, ra2_place_2385, 0},
-    {0x00AD0440u, 8u, ra2_place_2386, 0},
-    {0x00AD0444u, 8u, ra2_place_2387, 0},
-    {0x00AD0448u, 8u, ra2_place_2388, 0},
-    {0x00AD044Cu, 8u, ra2_place_2389, 0},
-    {0x00AD0450u, 8u, ra2_place_2390, 0},
-    {0x00AD0454u, 8u, ra2_place_2391, 0},
-    {0x00AD0458u, 8u, ra2_place_2392, 0},
-    {0x00AD045Cu, 8u, ra2_place_2393, 0},
-    {0x00AD0460u, 8u, ra2_place_2394, 0},
-    {0x00AD0488u, 8u, ra2_place_2395, 0},
-    {0x00AD04C0u, 40u, ra2_place_2396, 0},
-    {0x00AD057Cu, 12u, ra2_place_2397, 0},
-    {0x00AD0588u, 120u, ra2_place_2398, 0},
-    {0x00AD0600u, 8u, ra2_place_2399, 0},
-    {0x00AD0604u, 8u, ra2_place_2400, 0},
-    {0x00AD0608u, 8u, ra2_place_2401, 0},
-    {0x00AD060Cu, 8u, ra2_place_2402, 0},
-    {0x00AD0610u, 8u, ra2_place_2403, 0},
-    {0x00AD0614u, 308u, ra2_place_2404, 0},
-    {0x00AD074Cu, 12u, ra2_place_2405, 0},
-    {0x00AD079Cu, 8u, ra2_place_2406, 0},
-    {0x00AD07A0u, 32u, ra2_place_2407, 0},
-    {0x00AD07C0u, 16u, ra2_place_2408, 0},
-    {0x00AD07D0u, 72u, ra2_place_2409, 0},
-    {0x00AD0844u, 8u, ra2_place_2410, 0},
-    {0x00AD0848u, 8u, ra2_place_2411, 0},
-    {0x00AD084Cu, 8u, ra2_place_2412, 0},
-    {0x00AD0850u, 8u, ra2_place_2413, 0},
-    {0x00AD0858u, 16u, ra2_place_2414, 0},
-    {0x00AD0868u, 16u, ra2_place_2415, 0},
-    {0x00AD0878u, 8u, ra2_place_2416, 0},
-    {0x00AD0880u, 16u, ra2_place_2417, 0},
-    {0x00AD0890u, 56u, ra2_place_2418, 0},
-    {0x00AD08C8u, 24u, ra2_place_2419, 0},
-    {0x00AD08E0u, 48u, ra2_place_2420, 0},
-    {0x00AD0910u, 32u, ra2_place_2421, 0},
-    {0x00AD0934u, 12u, ra2_place_2422, 0},
-    {0x00AD0948u, 8u, ra2_place_2423, 0},
-    {0x00AD094Cu, 8u, ra2_place_2424, 0},
-    {0x00AD0950u, 8u, ra2_place_2425, 0},
-    {0x00AD0954u, 8u, ra2_place_2426, 0},
-    {0x00AD0958u, 8u, ra2_place_2427, 0},
-    {0x00AD095Cu, 8u, ra2_place_2428, 0},
-    {0x00AD0960u, 8u, ra2_place_2429, 0},
-    {0x00AD0968u, 8u, ra2_place_2430, 0},
-    {0x00AD0970u, 256u, ra2_place_2431, 0},
-    {0x00AD0A70u, 65536u, ra2_place_2432, 0},
-    {0x00AE0A7Cu, 516u, ra2_place_2433, 0},
-    {0x00AE0CB0u, 8u, ra2_place_2434, 0},
-    {0x00AE2FE8u, 8u, ra2_place_2435, 0},
-    {0x00AE3000u, 8u, ra2_place_2436, 0},
-    {0x00AE3004u, 8u, ra2_place_2437, 0},
-    {0x00AE3008u, 768u, ra2_place_2438, 0},
-    {0x00AE3408u, 65536u, ra2_place_2439, 0},
-    {0x00AF4608u, 8192u, ra2_place_2440, 0},
-    {0x00AF6608u, 8u, ra2_place_2441, 0},
-    {0x00AF660Cu, 8u, ra2_place_2442, 0},
-    {0x00AF6610u, 8u, ra2_place_2443, 0},
-    {0x00AF6614u, 8u, ra2_place_2444, 0},
-    {0x00AF901Cu, 8u, ra2_place_2445, 0},
-    {0x00AF9020u, 64u, ra2_place_2446, 0},
-    {0x00AF9060u, 224u, ra2_place_2447, 0},
-    {0x00AF91E4u, 1012u, ra2_place_2448, 0},
-    {0x00AF95D8u, 72u, ra2_place_2449, 0},
-    {0x00AF9620u, 180020u, ra2_place_2450, 0},
-    {0x00B25554u, 60u, ra2_place_2451, 0},
-    {0x00B25BB0u, 8u, ra2_place_2452, 0},
-    {0x00B25BB8u, 528u, ra2_place_2453, 0},
-    {0x00B25DC8u, 8u, ra2_place_2454, 0},
-    {0x00B25DD0u, 8u, ra2_place_2455, 0},
-    {0x00B25DD4u, 8u, ra2_place_2456, 0},
-    {0x00B25DD8u, 8u, ra2_place_2457, 0},
-    {0x00B25DDCu, 8u, ra2_place_2458, 0},
-    {0x00B25DE0u, 8u, ra2_place_2459, 0},
-    {0x00B25DE4u, 12u, ra2_place_2460, 0},
-    {0x00B25DF0u, 256u, ra2_place_2461, 0},
-    {0x00B25EF0u, 32u, ra2_place_2462, 0},
-    {0x00B25F10u, 24u, ra2_place_2463, 0},
-    {0x00B25F28u, 8u, ra2_place_2464, 0},
-    {0x00B25F2Cu, 8u, ra2_place_2465, 0},
-    {0x00B25F30u, 8u, ra2_place_2466, 0},
-    {0x00B25F34u, 8u, ra2_place_2467, 0},
-    {0x00B25F38u, 64u, ra2_place_2468, 0},
-    {0x00B25F78u, 8u, ra2_place_2469, 0},
-    {0x00B25F7Cu, 516u, ra2_place_2470, 0},
-    {0x00B26180u, 40u, ra2_place_2471, 0},
-    {0x00B261A8u, 512u, ra2_place_2472, 0},
-    {0x00B263A8u, 36u, ra2_place_2473, 0},
-    {0x00B263CCu, 8u, ra2_place_2474, 0},
-    {0x00B263D0u, 8u, ra2_place_2475, 0},
-    {0x00B263D4u, 8u, ra2_place_2476, 0},
-    {0x00B263D8u, 8u, ra2_place_2477, 0},
-    {0x00B263DCu, 8u, ra2_place_2478, 0},
-    {0x00B263E4u, 8u, ra2_place_2479, 0},
-    {0x00B263E8u, 8u, ra2_place_2480, 0},
-    {0x00B263E9u, 8u, ra2_place_2481, 0},
-    {0x00B263ECu, 8u, ra2_place_2482, 0},
-    {0x00B263F0u, 8u, ra2_place_2483, 0},
-    {0x00B263F4u, 8u, ra2_place_2484, 0},
-    {0x00B263F8u, 32u, ra2_place_2485, 0},
-    {0x00B264F0u, 8u, ra2_place_2486, 0},
-    {0x00B264F8u, 8u, ra2_place_2487, 0},
-    {0x00B264FCu, 8u, ra2_place_2488, 0},
-    {0x00B26500u, 8u, ra2_place_2489, 0},
-    {0x00B26504u, 8u, ra2_place_2490, 0},
-    {0x00B2650Cu, 8u, ra2_place_2491, 0},
-    {0x00B26510u, 8u, ra2_place_2492, 0},
-    {0x00B26514u, 8u, ra2_place_2493, 0},
-    {0x00B26518u, 8u, ra2_place_2494, 0},
-    {0x00B2651Cu, 8u, ra2_place_2495, 0},
-    {0x00B26524u, 12u, ra2_place_2496, 0},
-    {0x00B26530u, 16u, ra2_place_2497, 0},
-    {0x00B26540u, 32u, ra2_place_2498, 0},
-    {0x00B26560u, 8u, ra2_place_2499, 0},
-    {0x00B26564u, 8u, ra2_place_2500, 0},
-    {0x00B26568u, 8u, ra2_place_2501, 0},
-    {0x00B2657Cu, 8u, ra2_place_2502, 0},
-    {0x00B2658Cu, 256u, ra2_place_2503, 0},
-    {0x00B2668Cu, 8u, ra2_place_2504, 0},
-    {0x00B26694u, 512u, ra2_place_2505, 0},
-    {0x00B26894u, 8u, ra2_place_2506, 0},
-    {0x00B26898u, 136u, ra2_place_2507, 0},
-    {0x00B2692Cu, 8u, ra2_place_2508, 0},
-    {0x00B26930u, 20u, ra2_place_2509, 0},
-    {0x00B26958u, 8u, ra2_place_2510, 0},
-    {0x00B269ACu, 128u, ra2_place_2511, 0},
-    {0x00B26A2Cu, 36u, ra2_place_2512, 0},
-    {0x00B26A60u, 544u, ra2_place_2513, 0},
-    {0x00B26C80u, 8u, ra2_place_2514, 0},
-    {0x00B26C94u, 32u, ra2_place_2515, 0},
-    {0x00B26CB4u, 8u, ra2_place_2516, 0},
-    {0x00B26CBCu, 8196u, ra2_place_2517, 0},
-    {0x00B28CC4u, 8u, ra2_place_2518, 0},
-    {0x00B28CC8u, 8u, ra2_place_2519, 0},
-    {0x00B28CD0u, 244u, ra2_place_2520, 0},
-    {0x00B28DC4u, 8u, ra2_place_2521, 0},
-    {0x00B28DD4u, 12u, ra2_place_2522, 0},
-    {0x00B28DE0u, 8u, ra2_place_2523, 0},
-    {0x00B28DE4u, 528u, ra2_place_2524, 0},
-    {0x00B28FF4u, 8u, ra2_place_2525, 0},
-    {0x00B28FF8u, 8u, ra2_place_2526, 0},
-    {0x00B28FFCu, 8u, ra2_place_2527, 0},
-    {0x00B29018u, 128u, ra2_place_2528, 0},
-    {0x00B29098u, 8u, ra2_place_2529, 0},
-    {0x00B290A0u, 8u, ra2_place_2530, 0},
-    {0x00B290A4u, 256u, ra2_place_2531, 0},
-    {0x00B291A4u, 256u, ra2_place_2532, 0},
-    {0x00B292A4u, 8u, ra2_place_2533, 0},
-    {0x00B292A8u, 8u, ra2_place_2534, 0},
-    {0x00B292ACu, 44u, ra2_place_2535, 0},
-    {0x00B292D8u, 8u, ra2_place_2536, 0},
-    {0x00B292DCu, 8u, ra2_place_2537, 0},
-    {0x00B292E0u, 8u, ra2_place_2538, 0},
-    {0x00B292E4u, 8u, ra2_place_2539, 0},
-    {0x00B292E8u, 8u, ra2_place_2540, 0},
-    {0x00B292ECu, 8u, ra2_place_2541, 0},
-    {0x00B292F8u, 120u, ra2_place_2542, 0},
-    {0x00B293D8u, 132u, ra2_place_2543, 0},
-    {0x00B29460u, 8u, ra2_place_2544, 0},
-    {0x00B294B0u, 8u, ra2_place_2545, 0},
-    {0x00B294F0u, 8u, ra2_place_2546, 0},
-    {0x00B294F4u, 516u, ra2_place_2547, 0},
-    {0x00B29730u, 8u, ra2_place_2548, 0},
-    {0x00B29738u, 128u, ra2_place_2549, 0},
-    {0x00B297B8u, 8u, ra2_place_2550, 0},
-    {0x00B297C0u, 8u, ra2_place_2551, 0},
-    {0x00B297C8u, 8u, ra2_place_2552, 0},
-    {0x00B297CCu, 8u, ra2_place_2553, 0},
-    {0x00B29810u, 24u, ra2_place_2554, 0},
-    {0x00B29828u, 8u, ra2_place_2555, 0},
-    {0x00B2982Cu, 8u, ra2_place_2556, 0},
-    {0x00B29830u, 8u, ra2_place_2557, 0},
-    {0x00B29880u, 248u, ra2_place_2558, 0},
-    {0x00B29978u, 8u, ra2_place_2559, 0},
-    {0x00B2999Cu, 8u, ra2_place_2560, 0},
-    {0x00B299A0u, 16u, ra2_place_2561, 0},
-    {0x00B299BCu, 8u, ra2_place_2562, 0},
-    {0x00B299C0u, 20u, ra2_place_2563, 0},
-    {0x00B299D4u, 12u, ra2_place_2564, 0},
-    {0x00B29ACCu, 8u, ra2_place_2565, 0},
-    {0x00B29AD0u, 8u, ra2_place_2566, 0},
-    {0x00B29AD4u, 512u, ra2_place_2567, 0},
-    {0x00B29CD8u, 12u, ra2_place_2568, 0},
-    {0x00B29CE8u, 8u, ra2_place_2569, 0},
-    {0x00B29CF0u, 2368u, ra2_place_2570, 0},
-    {0x00B2A630u, 8u, ra2_place_2571, 0},
-    {0x00B2A634u, 8u, ra2_place_2572, 0},
-    {0x00B2A638u, 8u, ra2_place_2573, 0},
-    {0x00B2A644u, 8u, ra2_place_2574, 0},
-    {0x00B2A658u, 112u, ra2_place_2575, 0},
-    {0x00B2A6D4u, 8u, ra2_place_2576, 0},
-    {0x00B2A6D8u, 24u, ra2_place_2577, 0},
-    {0x00B2A6F0u, 8u, ra2_place_2578, 0},
-    {0x00B2A6F4u, 8u, ra2_place_2579, 0},
-    {0x00B2A6F8u, 8u, ra2_place_2580, 0},
-    {0x00B2A718u, 8u, ra2_place_2581, 0},
-    {0x00B2A720u, 8u, ra2_place_2582, 0},
-    {0x00B2A734u, 32u, ra2_place_2583, 0},
-    {0x00B2A754u, 8u, ra2_place_2584, 0},
-    {0x00B2A758u, 128u, ra2_place_2585, 0},
-    {0x00B2A7E4u, 8u, ra2_place_2586, 0},
-    {0x00B2A7E8u, 8u, ra2_place_2587, 0},
-    {0x00B2A7ECu, 8u, ra2_place_2588, 0},
-    {0x00B2A7F0u, 8u, ra2_place_2589, 0},
-    {0x00B2A7F4u, 8u, ra2_place_2590, 0},
-    {0x00B2A7F8u, 8u, ra2_place_2591, 0},
-    {0x00B2A7FCu, 8u, ra2_place_2592, 0},
-    {0x00B2A800u, 8u, ra2_place_2593, 0},
-    {0x00B2A804u, 8u, ra2_place_2594, 0},
-    {0x00B2A808u, 16u, ra2_place_2595, 0},
-    {0x00B2A818u, 8u, ra2_place_2596, 0},
-    {0x00B2A81Cu, 8u, ra2_place_2597, 0},
-    {0x00B2A820u, 132u, ra2_place_2598, 0},
-    {0x00B2A8A4u, 8u, ra2_place_2599, 0},
-    {0x00B2A8A8u, 8u, ra2_place_2600, 0},
-    {0x00B2A8ACu, 8u, ra2_place_2601, 0},
-    {0x00B2A8B0u, 44u, ra2_place_2602, 0},
-    {0x00B2A8DCu, 16u, ra2_place_2603, 0},
-    {0x00B2A8ECu, 524u, ra2_place_2604, 0},
-    {0x00B2AAF8u, 8u, ra2_place_2605, 0},
-    {0x00B2AAFCu, 8u, ra2_place_2606, 0},
-    {0x00B2AB00u, 128u, ra2_place_2607, 0},
-    {0x00B2AB80u, 8u, ra2_place_2608, 0},
-    {0x00B2AB84u, 8u, ra2_place_2609, 0},
-    {0x00B2AB88u, 16u, ra2_place_2610, 0},
-    {0x00B2ABD0u, 8u, ra2_place_2611, 0},
-    {0x00B2ABD4u, 8u, ra2_place_2612, 0},
-    {0x00B2ABD8u, 8u, ra2_place_2613, 0},
-    {0x00B2ABD9u, 8u, ra2_place_2614, 0},
-    {0x00B2ABDAu, 8u, ra2_place_2615, 0},
-    {0x00B2ABDCu, 8u, ra2_place_2616, 0},
-    {0x00B2ABE0u, 8u, ra2_place_2617, 0},
-    {0x00B2ABE4u, 8u, ra2_place_2618, 0},
-    {0x00B2ABE8u, 8u, ra2_place_2619, 0},
-    {0x00B2ABECu, 8u, ra2_place_2620, 0},
-    {0x00B2ABF0u, 8u, ra2_place_2621, 0},
-    {0x00B2ABF4u, 8u, ra2_place_2622, 0},
-    {0x00B2ABF8u, 8u, ra2_place_2623, 0},
-    {0x00B2ABFCu, 8u, ra2_place_2624, 0},
-    {0x00B2AC00u, 8u, ra2_place_2625, 0},
-    {0x00B2AC04u, 8u, ra2_place_2626, 0},
-    {0x00B2AC08u, 8u, ra2_place_2627, 0},
-    {0x00B2AC0Cu, 8u, ra2_place_2628, 0},
-    {0x00B2AC10u, 8u, ra2_place_2629, 0},
-    {0x00B2AC18u, 8u, ra2_place_2630, 0},
-    {0x00B2AC1Cu, 8u, ra2_place_2631, 0},
-    {0x00B2AC20u, 8u, ra2_place_2632, 0},
-    {0x00B2AC24u, 8u, ra2_place_2633, 0},
-    {0x00B2AC28u, 8u, ra2_place_2634, 0},
-    {0x00B2AC2Cu, 8u, ra2_place_2635, 0},
-    {0x00B2AC30u, 8u, ra2_place_2636, 0},
-    {0x00B2AC34u, 8u, ra2_place_2637, 0},
-    {0x00B2AC38u, 8u, ra2_place_2638, 0},
-    {0x00B2AC40u, 8u, ra2_place_2639, 0},
-    {0x00B2AC44u, 8u, ra2_place_2640, 0},
-    {0x00B2AC45u, 8u, ra2_place_2641, 0},
-    {0x00B2AC46u, 8u, ra2_place_2642, 0},
-    {0x00B2AC48u, 16u, ra2_place_2643, 0},
-    {0x00B2AC58u, 8u, ra2_place_2644, 0},
-    {0x00B2AC5Cu, 8u, ra2_place_2645, 0},
-    {0x00B2AC60u, 8u, ra2_place_2646, 0},
-    {0x00B2AC64u, 8u, ra2_place_2647, 0},
-    {0x00B2AC68u, 8u, ra2_place_2648, 0},
-    {0x00B2AC6Cu, 8u, ra2_place_2649, 0},
-    {0x00B2AC70u, 8u, ra2_place_2650, 0},
-    {0x00B2AC74u, 12u, ra2_place_2651, 0},
-    {0x00B2AC80u, 8u, ra2_place_2652, 0},
-    {0x00B2AC81u, 8u, ra2_place_2653, 0},
-    {0x00B2AC84u, 20u, ra2_place_2654, 0},
-    {0x00B2AC98u, 8u, ra2_place_2655, 0},
-    {0x00B2ACA0u, 8u, ra2_place_2656, 0},
-    {0x00B2ACA8u, 24u, ra2_place_2657, 0},
-    {0x00B2ACC0u, 8u, ra2_place_2658, 0},
-    {0x00B2ACC4u, 8u, ra2_place_2659, 0},
-    {0x00B2ACC8u, 8u, ra2_place_2660, 0},
-    {0x00B2AD60u, 8u, ra2_place_2661, 0},
-    {0x00B2AD70u, 8u, ra2_place_2662, 0},
-    {0x00B2ADA4u, 8u, ra2_place_2663, 0},
-    {0x00B2ADA8u, 124u, ra2_place_2664, 0},
-    {0x00B2AE24u, 120u, ra2_place_2665, 0},
-    {0x00B2AE9Cu, 8u, ra2_place_2666, 0},
-    {0x00B2AEA0u, 124u, ra2_place_2667, 0},
-    {0x00B2AF1Cu, 20u, ra2_place_2668, 0},
-    {0x00B2B33Cu, 76u, ra2_place_2669, 0},
-    {0x00B2B3C0u, 64u, ra2_place_2670, 0},
-    {0x00B2B420u, 512u, ra2_place_2671, 0},
-    {0x00B2B624u, 8u, ra2_place_2672, 0},
+    {0x0083366Cu, 8u, ra2_place_1520, 0},
+    {0x00833670u, 8u, ra2_place_1521, 0},
+    {0x00833680u, 8u, ra2_place_1522, 0},
+    {0x00833684u, 8u, ra2_place_1523, 0},
+    {0x00833968u, 16u, ra2_place_1524, 0},
+    {0x00837498u, 8u, ra2_place_1525, 0},
+    {0x008374B8u, 8u, ra2_place_1526, 0},
+    {0x008374BCu, 8u, ra2_place_1527, 0},
+    {0x008374C0u, 8u, ra2_place_1528, 0},
+    {0x008374C4u, 8u, ra2_place_1529, 0},
+    {0x008374C8u, 8u, ra2_place_1530, 0},
+    {0x008374CCu, 8u, ra2_place_1531, 0},
+    {0x008374D0u, 8u, ra2_place_1532, 0},
+    {0x008374D4u, 8u, ra2_place_1533, 0},
+    {0x008374D8u, 8u, ra2_place_1534, 0},
+    {0x008374DCu, 8u, ra2_place_1535, 0},
+    {0x008374E0u, 8u, ra2_place_1536, 0},
+    {0x008374E4u, 8u, ra2_place_1537, 0},
+    {0x008374E8u, 8u, ra2_place_1538, 0},
+    {0x008374ECu, 8u, ra2_place_1539, 0},
+    {0x008374F0u, 8u, ra2_place_1540, 0},
+    {0x008374F4u, 8u, ra2_place_1541, 0},
+    {0x008374F8u, 8u, ra2_place_1542, 0},
+    {0x008374FCu, 8u, ra2_place_1543, 0},
+    {0x00837500u, 8u, ra2_place_1544, 0},
+    {0x00837504u, 12u, ra2_place_1545, 0},
+    {0x00839620u, 8u, ra2_place_1546, 0},
+    {0x008396D0u, 16u, ra2_place_1547, 0},
+    {0x00839848u, 24u, ra2_place_1548, 0},
+    {0x00839944u, 8u, ra2_place_1549, 0},
+    {0x00839948u, 8u, ra2_place_1550, 0},
+    {0x00839950u, 8u, ra2_place_1551, 0},
+    {0x00839954u, 8u, ra2_place_1552, 0},
+    {0x00839958u, 8u, ra2_place_1553, 0},
+    {0x0083995Cu, 8u, ra2_place_1554, 0},
+    {0x00839964u, 8u, ra2_place_1555, 0},
+    {0x00839968u, 8u, ra2_place_1556, 0},
+    {0x0083996Cu, 8u, ra2_place_1557, 0},
+    {0x008399B0u, 8u, ra2_place_1558, 0},
+    {0x00839A58u, 8u, ra2_place_1559, 0},
+    {0x00839A5Cu, 8u, ra2_place_1560, 0},
+    {0x00839A60u, 16u, ra2_place_1561, 0},
+    {0x00839A70u, 48u, ra2_place_1562, 0},
+    {0x00839AA4u, 8u, ra2_place_1563, 0},
+    {0x00839AA8u, 8u, ra2_place_1564, 0},
+    {0x00839AACu, 8u, ra2_place_1565, 0},
+    {0x00839AB0u, 80u, ra2_place_1566, 0},
+    {0x00839C50u, 24u, ra2_place_1567, 0},
+    {0x00839C68u, 8u, ra2_place_1568, 0},
+    {0x00839C6Cu, 224u, ra2_place_1569, 0},
+    {0x00839D4Cu, 56u, ra2_place_1570, 0},
+    {0x00839D84u, 8u, ra2_place_1571, 0},
+    {0x00839D88u, 8u, ra2_place_1572, 0},
+    {0x00839D90u, 272u, ra2_place_1573, 0},
+    {0x0083C4D4u, 8u, ra2_place_1574, 0},
+    {0x0083C4D5u, 71u, ra2_place_1575, 0},
+    {0x0083C550u, 8u, ra2_place_1576, 0},
+    {0x0083C554u, 8u, ra2_place_1577, 0},
+    {0x0083C558u, 8u, ra2_place_1578, 0},
+    {0x0083C55Cu, 124u, ra2_place_1579, 0},
+    {0x0083C670u, 65556u, ra2_place_1580, 0},
+    {0x0084C684u, 44u, ra2_place_1581, 0},
+    {0x0084C7DCu, 52u, ra2_place_1582, 0},
+    {0x0084C838u, 32u, ra2_place_1583, 0},
+    {0x0084C858u, 8060u, ra2_place_1584, 0},
+    {0x0084E800u, 8u, ra2_place_1585, 0},
+    {0x0084E804u, 144u, ra2_place_1586, 0},
+    {0x0084E894u, 60u, ra2_place_1587, 0},
+    {0x0084E98Cu, 8u, ra2_place_1588, 0},
+    {0x0084E990u, 24u, ra2_place_1589, 0},
+    {0x0084E9A8u, 40u, ra2_place_1590, 0},
+    {0x0084E9D0u, 24u, ra2_place_1591, 0},
+    {0x0084E9E8u, 144u, ra2_place_1592, 0},
+    {0x0084EA78u, 256u, ra2_place_1593, 0},
+    {0x0084ED10u, 32u, ra2_place_1594, 0},
+    {0x0084ED30u, 24u, ra2_place_1595, 0},
+    {0x0084ED88u, 72u, ra2_place_1596, 0},
+    {0x00850298u, 8u, ra2_place_1597, 0},
+    {0x0085029Cu, 8u, ra2_place_1598, 0},
+    {0x008502A0u, 8u, ra2_place_1599, 0},
+    {0x008502A4u, 8u, ra2_place_1600, 0},
+    {0x008502A8u, 24u, ra2_place_1601, 0},
+    {0x00850338u, 16u, ra2_place_1602, 0},
+    {0x00850348u, 256u, ra2_place_1603, 0},
+    {0x00850448u, 64u, ra2_place_1604, 0},
+    {0x00850488u, 20u, ra2_place_1605, 0},
+    {0x0085049Cu, 12u, ra2_place_1606, 0},
+    {0x008504A8u, 32u, ra2_place_1607, 0},
+    {0x008504C8u, 8u, ra2_place_1608, 0},
+    {0x008504D0u, 24u, ra2_place_1609, 0},
+    {0x008504E8u, 28u, ra2_place_1610, 0},
+    {0x00850504u, 8u, ra2_place_1611, 0},
+    {0x00850508u, 8u, ra2_place_1612, 0},
+    {0x0085050Cu, 8u, ra2_place_1613, 0},
+    {0x00850510u, 8u, ra2_place_1614, 0},
+    {0x00850514u, 64u, ra2_place_1615, 0},
+    {0x00850554u, 76u, ra2_place_1616, 0},
+    {0x00850828u, 8u, ra2_place_1617, 0},
+    {0x00850898u, 8u, ra2_place_1618, 0},
+    {0x0085089Cu, 8u, ra2_place_1619, 0},
+    {0x008508A0u, 8u, ra2_place_1620, 0},
+    {0x008508A4u, 516u, ra2_place_1621, 0},
+    {0x00850AA8u, 256u, ra2_place_1622, 0},
+    {0x00850BD8u, 24u, ra2_place_1623, 0},
+    {0x00850C40u, 8u, ra2_place_1624, 0},
+    {0x00850C47u, 329u, ra2_place_1625, 0},
+    {0x00850E10u, 64u, ra2_place_1626, 0},
+    {0x00850E50u, 80u, ra2_place_1627, 0},
+    {0x00850EA0u, 216u, ra2_place_1628, 0},
+    {0x00851080u, 152u, ra2_place_1629, 0},
+    {0x00851118u, 56u, ra2_place_1630, 0},
+    {0x00851170u, 1024u, ra2_place_1631, 0},
+    {0x00851570u, 1080u, ra2_place_1632, 0},
+    {0x008519C8u, 168u, ra2_place_1633, 0},
+    {0x00851A80u, 8u, ra2_place_1634, 0},
+    {0x00851A88u, 8u, ra2_place_1635, 0},
+    {0x00851B3Cu, 132u, ra2_place_1636, 0},
+    {0x00851CA8u, 8u, ra2_place_1637, 0},
+    {0x00851CB0u, 24u, ra2_place_1638, 0},
+    {0x00851CC8u, 768u, ra2_place_1639, 0},
+    {0x00851FC8u, 8u, ra2_place_1640, 0},
+    {0x00851FCCu, 1024u, ra2_place_1641, 0},
+    {0x008523CCu, 8u, ra2_place_1642, 0},
+    {0x008523D4u, 8u, ra2_place_1643, 0},
+    {0x008523D8u, 8u, ra2_place_1644, 0},
+    {0x008523DCu, 8u, ra2_place_1645, 0},
+    {0x008523E0u, 8u, ra2_place_1646, 0},
+    {0x008523E4u, 8u, ra2_place_1647, 0},
+    {0x008523E8u, 8u, ra2_place_1648, 0},
+    {0x008523ECu, 140u, ra2_place_1649, 0},
+    {0x00852478u, 8u, ra2_place_1650, 0},
+    {0x00852480u, 48u, ra2_place_1651, 0},
+    {0x00852610u, 8u, ra2_place_1652, 0},
+    {0x00852614u, 28u, ra2_place_1653, 0},
+    {0x00852630u, 8u, ra2_place_1654, 0},
+    {0x0085291Cu, 24u, ra2_place_1655, 0},
+    {0x00852934u, 20u, ra2_place_1656, 0},
+    {0x00852948u, 8u, ra2_place_1657, 0},
+    {0x00852998u, 136u, ra2_place_1658, 0},
+    {0x00852A20u, 72u, ra2_place_1659, 0},
+    {0x00852A68u, 80u, ra2_place_1660, 0},
+    {0x00852AB8u, 128u, ra2_place_1661, 0},
+    {0x00852B38u, 1148u, ra2_place_1662, 0},
+    {0x00852FB4u, 8u, ra2_place_1663, 0},
+    {0x00852FB8u, 8u, ra2_place_1664, 0},
+    {0x00852FBCu, 8u, ra2_place_1665, 0},
+    {0x00852FC0u, 8u, ra2_place_1666, 0},
+    {0x00852FC4u, 8u, ra2_place_1667, 0},
+    {0x00852FC8u, 8u, ra2_place_1668, 0},
+    {0x00852FCCu, 8u, ra2_place_1669, 0},
+    {0x00852FD2u, 8u, ra2_place_1670, 0},
+    {0x00852FD4u, 8u, ra2_place_1671, 0},
+    {0x00852FD6u, 8u, ra2_place_1672, 0},
+    {0x00852FD7u, 8u, ra2_place_1673, 0},
+    {0x00852FDCu, 8u, ra2_place_1674, 0},
+    {0x00852FE0u, 8u, ra2_place_1675, 0},
+    {0x00852FE4u, 8u, ra2_place_1676, 0},
+    {0x00852FE8u, 64u, ra2_place_1677, 0},
+    {0x00853028u, 40u, ra2_place_1678, 0},
+    {0x00853118u, 10264u, ra2_place_1679, 0},
+    {0x0085311Cu, 10260u, ra2_place_1680, 0},
+    {0x00855960u, 144u, ra2_place_1681, 0},
+    {0x008559F0u, 56u, ra2_place_1682, 0},
+    {0x00855B9Cu, 12u, ra2_place_1683, 0},
+    {0x00855BA8u, 65644u, ra2_place_1684, 0},
+    {0x00865C14u, 8u, ra2_place_1685, 0},
+    {0x00865C18u, 8u, ra2_place_1686, 0},
+    {0x00865C20u, 472u, ra2_place_1687, 0},
+    {0x00865DF8u, 64u, ra2_place_1688, 0},
+    {0x00865F00u, 56u, ra2_place_1689, 0},
+    {0x00865F60u, 64u, ra2_place_1690, 0},
+    {0x00865FF0u, 8u, ra2_place_1691, 0},
+    {0x00865FF4u, 8u, ra2_place_1692, 0},
+    {0x00865FF8u, 8u, ra2_place_1693, 0},
+    {0x00865FFCu, 120u, ra2_place_1694, 0},
+    {0x008660D8u, 136u, ra2_place_1695, 0},
+    {0x00866250u, 8u, ra2_place_1696, 0},
+    {0x00A35CDCu, 20u, ra2_place_1697, 0},
+    {0x00A35D0Cu, 28u, ra2_place_1698, 0},
+    {0x00A35D44u, 8u, ra2_place_1699, 0},
+    {0x00A35D64u, 20u, ra2_place_1700, 0},
+    {0x00A35DB0u, 8u, ra2_place_1701, 0},
+    {0x00A35DB1u, 8u, ra2_place_1702, 0},
+    {0x00A35DB4u, 8u, ra2_place_1703, 0},
+    {0x00A35E20u, 8u, ra2_place_1704, 0},
+    {0x00A35E24u, 8u, ra2_place_1705, 0},
+    {0x00A35EA8u, 128u, ra2_place_1706, 0},
+    {0x00A35F28u, 8u, ra2_place_1707, 0},
+    {0x00A3D23Cu, 8u, ra2_place_1708, 0},
+    {0x00A3D258u, 8u, ra2_place_1709, 0},
+    {0x00A3D290u, 8u, ra2_place_1710, 0},
+    {0x00A3D29Cu, 8u, ra2_place_1711, 0},
+    {0x00A3D2B0u, 8u, ra2_place_1712, 0},
+    {0x00A3D2C4u, 8u, ra2_place_1713, 0},
+    {0x00A3D584u, 416u, ra2_place_1714, 0},
+    {0x00A3D8DCu, 20u, ra2_place_1715, 0},
+    {0x00A3DB2Cu, 324u, ra2_place_1716, 0},
+    {0x00A3F600u, 8u, ra2_place_1717, 0},
+    {0x00A3F608u, 12u, ra2_place_1718, 0},
+    {0x00A3F80Cu, 12u, ra2_place_1719, 0},
+    {0x00A3FA80u, 12u, ra2_place_1720, 0},
+    {0x00A3FBACu, 12u, ra2_place_1721, 0},
+    {0x00A3FBB8u, 12u, ra2_place_1722, 0},
+    {0x00A3FBC4u, 8u, ra2_place_1723, 0},
+    {0x00A3FBC8u, 12u, ra2_place_1724, 0},
+    {0x00A4031Cu, 8u, ra2_place_1725, 0},
+    {0x00A40380u, 24u, ra2_place_1726, 0},
+    {0x00A40770u, 8u, ra2_place_1727, 0},
+    {0x00A40774u, 8u, ra2_place_1728, 0},
+    {0x00A40920u, 8u, ra2_place_1729, 0},
+    {0x00A40958u, 8u, ra2_place_1730, 0},
+    {0x00A409C4u, 100u, ra2_place_1731, 0},
+    {0x00A40B32u, 8u, ra2_place_1732, 0},
+    {0x00A40B54u, 12u, ra2_place_1733, 0},
+    {0x00A40BE0u, 8u, ra2_place_1734, 0},
+    {0x00A40BE4u, 8u, ra2_place_1735, 0},
+    {0x00A40C18u, 8u, ra2_place_1736, 0},
+    {0x00A40C38u, 16u, ra2_place_1737, 0},
+    {0x00A40C78u, 8u, ra2_place_1738, 0},
+    {0x00A40D04u, 8u, ra2_place_1739, 0},
+    {0x00A40D05u, 8u, ra2_place_1740, 0},
+    {0x00A40D09u, 8u, ra2_place_1741, 0},
+    {0x00A40D0Bu, 8u, ra2_place_1742, 0},
+    {0x00A40D0Cu, 8u, ra2_place_1743, 0},
+    {0x00A40D10u, 8u, ra2_place_1744, 0},
+    {0x00A40D13u, 8u, ra2_place_1745, 0},
+    {0x00A40D1Au, 8u, ra2_place_1746, 0},
+    {0x00A40D1Cu, 8u, ra2_place_1747, 0},
+    {0x00A40D20u, 8u, ra2_place_1748, 0},
+    {0x00A40D24u, 8u, ra2_place_1749, 0},
+    {0x00A40D28u, 8u, ra2_place_1750, 0},
+    {0x00A40D2Cu, 8u, ra2_place_1751, 0},
+    {0x00A40D34u, 8u, ra2_place_1752, 0},
+    {0x00A40D39u, 8u, ra2_place_1753, 0},
+    {0x00A40D3Cu, 8u, ra2_place_1754, 0},
+    {0x00A40D40u, 8u, ra2_place_1755, 0},
+    {0x00A40D44u, 8u, ra2_place_1756, 0},
+    {0x00A40D45u, 8u, ra2_place_1757, 0},
+    {0x00A40D48u, 56u, ra2_place_1758, 0},
+    {0x00A40D80u, 8u, ra2_place_1759, 0},
+    {0x00A40D84u, 84u, ra2_place_1760, 0},
+    {0x00A40EECu, 1704u, ra2_place_1761, 0},
+    {0x00A40F10u, 16u, ra2_place_1762, 0},
+    {0x00A40F48u, 24u, ra2_place_1763, 0},
+    {0x00A40FC8u, 184u, ra2_place_1764, 0},
+    {0x00A41080u, 60u, ra2_place_1765, 0},
+    {0x00A410D8u, 32u, ra2_place_1766, 0},
+    {0x00A410F8u, 40u, ra2_place_1767, 0},
+    {0x00A41120u, 16u, ra2_place_1768, 0},
+    {0x00A41130u, 8u, ra2_place_1769, 0},
+    {0x00A41134u, 60u, ra2_place_1770, 0},
+    {0x00A41170u, 12u, ra2_place_1771, 0},
+    {0x00A411B0u, 56u, ra2_place_1772, 0},
+    {0x00A411E8u, 20u, ra2_place_1773, 0},
+    {0x00A411FCu, 128u, ra2_place_1774, 0},
+    {0x00A4127Cu, 140u, ra2_place_1775, 0},
+    {0x00A41308u, 128u, ra2_place_1776, 0},
+    {0x00A41388u, 128u, ra2_place_1777, 0},
+    {0x00A41408u, 148u, ra2_place_1778, 0},
+    {0x00A4149Cu, 160u, ra2_place_1779, 0},
+    {0x00A4153Cu, 296u, ra2_place_1780, 0},
+    {0x00A41664u, 8u, ra2_place_1781, 0},
+    {0x00A41668u, 8u, ra2_place_1782, 0},
+    {0x00A41670u, 8u, ra2_place_1783, 0},
+    {0x00A41674u, 8u, ra2_place_1784, 0},
+    {0x00A41678u, 8u, ra2_place_1785, 0},
+    {0x00A41680u, 8u, ra2_place_1786, 0},
+    {0x00A41688u, 8u, ra2_place_1787, 0},
+    {0x00A4168Du, 8u, ra2_place_1788, 0},
+    {0x00A41690u, 8u, ra2_place_1789, 0},
+    {0x00A41698u, 8u, ra2_place_1790, 0},
+    {0x00A4169Cu, 32u, ra2_place_1791, 0},
+    {0x00A416BCu, 8u, ra2_place_1792, 0},
+    {0x00A417C8u, 24u, ra2_place_1793, 0},
+    {0x00A51934u, 8u, ra2_place_1794, 0},
+    {0x00A51938u, 8u, ra2_place_1795, 0},
+    {0x00A5193Cu, 8u, ra2_place_1796, 0},
+    {0x00A51940u, 8u, ra2_place_1797, 0},
+    {0x00A51944u, 8u, ra2_place_1798, 0},
+    {0x00A51FD0u, 512u, ra2_place_1799, 0},
+    {0x00A521D0u, 12u, ra2_place_1800, 0},
+    {0x00A521DCu, 8u, ra2_place_1801, 0},
+    {0x00A521E0u, 8u, ra2_place_1802, 0},
+    {0x00A521E4u, 8u, ra2_place_1803, 0},
+    {0x00A521E8u, 8u, ra2_place_1804, 0},
+    {0x00A521F0u, 8u, ra2_place_1805, 0},
+    {0x00A521F8u, 8u, ra2_place_1806, 0},
+    {0x00A52200u, 96u, ra2_place_1807, 0},
+    {0x00A52260u, 8u, ra2_place_1808, 0},
+    {0x00A52264u, 8u, ra2_place_1809, 0},
+    {0x00A52268u, 24u, ra2_place_1810, 0},
+    {0x00A52280u, 24u, ra2_place_1811, 0},
+    {0x00A52298u, 8u, ra2_place_1812, 0},
+    {0x00A5229Cu, 8u, ra2_place_1813, 0},
+    {0x00A522A0u, 8u, ra2_place_1814, 0},
+    {0x00A522A4u, 8u, ra2_place_1815, 0},
+    {0x00A522A8u, 8u, ra2_place_1816, 0},
+    {0x00A522ACu, 8u, ra2_place_1817, 0},
+    {0x00A522B0u, 8u, ra2_place_1818, 0},
+    {0x00A522B4u, 8u, ra2_place_1819, 0},
+    {0x00A522B8u, 8u, ra2_place_1820, 0},
+    {0x00A522BCu, 8u, ra2_place_1821, 0},
+    {0x00A522C0u, 8u, ra2_place_1822, 0},
+    {0x00A522C4u, 8u, ra2_place_1823, 0},
+    {0x00A522C8u, 8u, ra2_place_1824, 0},
+    {0x00A522CCu, 8u, ra2_place_1825, 0},
+    {0x00A522D0u, 8u, ra2_place_1826, 0},
+    {0x00A522D4u, 8u, ra2_place_1827, 0},
+    {0x00A522D8u, 8u, ra2_place_1828, 0},
+    {0x00A522DCu, 8u, ra2_place_1829, 0},
+    {0x00A522E0u, 8u, ra2_place_1830, 0},
+    {0x00A522E4u, 140u, ra2_place_1831, 0},
+    {0x00A52370u, 40u, ra2_place_1832, 0},
+    {0x00A52398u, 24u, ra2_place_1833, 0},
+    {0x00A523B0u, 20u, ra2_place_1834, 0},
+    {0x00A523C4u, 12u, ra2_place_1835, 0},
+    {0x00A523D4u, 12u, ra2_place_1836, 0},
+    {0x00A523E0u, 36u, ra2_place_1837, 0},
+    {0x00A52404u, 8u, ra2_place_1838, 0},
+    {0x00A52408u, 8u, ra2_place_1839, 0},
+    {0x00A5240Cu, 192u, ra2_place_1840, 0},
+    {0x00A52520u, 96u, ra2_place_1841, 0},
+    {0x00A52580u, 8u, ra2_place_1842, 0},
+    {0x00A52584u, 8u, ra2_place_1843, 0},
+    {0x00A52588u, 8u, ra2_place_1844, 0},
+    {0x00A5258Cu, 8u, ra2_place_1845, 0},
+    {0x00A52590u, 1744u, ra2_place_1846, 0},
+    {0x00A52C60u, 8u, ra2_place_1847, 0},
+    {0x00A52C64u, 8u, ra2_place_1848, 0},
+    {0x00A52C68u, 8u, ra2_place_1849, 0},
+    {0x00A52C70u, 8u, ra2_place_1850, 0},
+    {0x00A52C74u, 12u, ra2_place_1851, 0},
+    {0x00A52C80u, 8u, ra2_place_1852, 0},
+    {0x00A52E64u, 8u, ra2_place_1853, 0},
+    {0x00A52E68u, 8u, ra2_place_1854, 0},
+    {0x00A52E6Cu, 8u, ra2_place_1855, 0},
+    {0x00A52E70u, 8u, ra2_place_1856, 0},
+    {0x00A52E74u, 20u, ra2_place_1857, 0},
+    {0x00A52EA0u, 8u, ra2_place_1858, 0},
+    {0x00A52EA4u, 8u, ra2_place_1859, 0},
+    {0x00A52EA8u, 8u, ra2_place_1860, 0},
+    {0x00A52EACu, 8u, ra2_place_1861, 0},
+    {0x00A52EB0u, 16u, ra2_place_1862, 0},
+    {0x00A52EB4u, 8u, ra2_place_1863, 0},
+    {0x00A52EB8u, 8u, ra2_place_1864, 0},
+    {0x00A52EBCu, 12u, ra2_place_1865, 0},
+    {0x00A52EE0u, 8u, ra2_place_1866, 0},
+    {0x00A52EE4u, 8u, ra2_place_1867, 0},
+    {0x00A52EE8u, 8u, ra2_place_1868, 0},
+    {0x00A52EECu, 8u, ra2_place_1869, 0},
+    {0x00A52EF0u, 8u, ra2_place_1870, 0},
+    {0x00A52EF4u, 8u, ra2_place_1871, 0},
+    {0x00A52EF8u, 8u, ra2_place_1872, 0},
+    {0x00A52EFCu, 8u, ra2_place_1873, 0},
+    {0x00A52F00u, 8u, ra2_place_1874, 0},
+    {0x00A52F04u, 124u, ra2_place_1875, 0},
+    {0x00A52F80u, 8u, ra2_place_1876, 0},
+    {0x00A52F84u, 12u, ra2_place_1877, 0},
+    {0x00A52F90u, 1024u, ra2_place_1878, 0},
+    {0x00A53390u, 8u, ra2_place_1879, 0},
+    {0x00A53394u, 104404u, ra2_place_1880, 0},
+    {0x00A6CB68u, 8u, ra2_place_1881, 0},
+    {0x00A6CB6Cu, 8u, ra2_place_1882, 0},
+    {0x00A6CB70u, 8u, ra2_place_1883, 0},
+    {0x00A6CB74u, 8u, ra2_place_1884, 0},
+    {0x00A6CB78u, 8u, ra2_place_1885, 0},
+    {0x00A6CB7Cu, 8u, ra2_place_1886, 0},
+    {0x00A6CF4Cu, 8u, ra2_place_1887, 0},
+    {0x00A6CF50u, 8u, ra2_place_1888, 0},
+    {0x00A6CF54u, 8u, ra2_place_1889, 0},
+    {0x00A6CF58u, 3496u, ra2_place_1890, 0},
+    {0x00A6DD00u, 8u, ra2_place_1891, 0},
+    {0x00A6DD04u, 8u, ra2_place_1892, 0},
+    {0x00A6DD08u, 8u, ra2_place_1893, 0},
+    {0x00A6DD0Cu, 8u, ra2_place_1894, 0},
+    {0x00A6E010u, 8u, ra2_place_1895, 0},
+    {0x00A6E014u, 8u, ra2_place_1896, 0},
+    {0x00A6E018u, 16u, ra2_place_1897, 0},
+    {0x00A6E028u, 16u, ra2_place_1898, 0},
+    {0x00A6E038u, 8u, ra2_place_1899, 0},
+    {0x00A6E0E0u, 8u, ra2_place_1900, 0},
+    {0x00A6E0E4u, 8u, ra2_place_1901, 0},
+    {0x00A6E0E8u, 16u, ra2_place_1902, 0},
+    {0x00A6E0F8u, 8u, ra2_place_1903, 0},
+    {0x00A6E0FCu, 8u, ra2_place_1904, 0},
+    {0x00A6E38Cu, 8u, ra2_place_1905, 0},
+    {0x00A6E390u, 80u, ra2_place_1906, 0},
+    {0x00A6E3E0u, 72u, ra2_place_1907, 0},
+    {0x00A6E7C4u, 8u, ra2_place_1908, 0},
+    {0x00A6EA60u, 180u, ra2_place_1909, 0},
+    {0x00A6EB14u, 8u, ra2_place_1910, 0},
+    {0x00A6EB18u, 8u, ra2_place_1911, 0},
+    {0x00A6EB1Cu, 8u, ra2_place_1912, 0},
+    {0x00A6EB20u, 8u, ra2_place_1913, 0},
+    {0x00A6EB24u, 8u, ra2_place_1914, 0},
+    {0x00A6EB28u, 8u, ra2_place_1915, 0},
+    {0x00A6EB30u, 48u, ra2_place_1916, 0},
+    {0x00A6EBC4u, 8u, ra2_place_1917, 0},
+    {0x00A6EBC8u, 8u, ra2_place_1918, 0},
+    {0x00A6EBCCu, 8u, ra2_place_1919, 0},
+    {0x00A6EBD0u, 8u, ra2_place_1920, 0},
+    {0x00A6EBDCu, 8u, ra2_place_1921, 0},
+    {0x00A6EBE0u, 88u, ra2_place_1922, 0},
+    {0x00A6F238u, 16u, ra2_place_1923, 0},
+    {0x00A6F91Cu, 88u, ra2_place_1924, 0},
+    {0x00A6FA2Cu, 292u, ra2_place_1925, 0},
+    {0x00A6FC34u, 244u, ra2_place_1926, 0},
+    {0x00A6FEE4u, 268u, ra2_place_1927, 0},
+    {0x00A6FFF0u, 28u, ra2_place_1928, 0},
+    {0x00A7000Cu, 92u, ra2_place_1929, 0},
+    {0x00A70068u, 56u, ra2_place_1930, 0},
+    {0x00A709C8u, 84u, ra2_place_1931, 0},
+    {0x00A70A1Cu, 8u, ra2_place_1932, 0},
+    {0x00A70A20u, 8u, ra2_place_1933, 0},
+    {0x00A70A24u, 8u, ra2_place_1934, 0},
+    {0x00A70A28u, 8u, ra2_place_1935, 0},
+    {0x00A70A2Cu, 40u, ra2_place_1936, 0},
+    {0x00A70A54u, 196u, ra2_place_1937, 0},
+    {0x00A70B18u, 180u, ra2_place_1938, 0},
+    {0x00A70DE4u, 8u, ra2_place_1939, 0},
+    {0x00A70DE8u, 8u, ra2_place_1940, 0},
+    {0x00A70DECu, 24u, ra2_place_1941, 0},
+    {0x00A70E00u, 64u, ra2_place_1942, 0},
+    {0x00A70E40u, 48u, ra2_place_1943, 0},
+    {0x00A70E70u, 48u, ra2_place_1944, 0},
+    {0x00A70EA0u, 32u, ra2_place_1945, 0},
+    {0x00A70EECu, 8u, ra2_place_1946, 0},
+    {0x00A70EF0u, 8u, ra2_place_1947, 0},
+    {0x00A70EF4u, 8u, ra2_place_1948, 0},
+    {0x00A70EF8u, 8u, ra2_place_1949, 0},
+    {0x00A70EFCu, 8u, ra2_place_1950, 0},
+    {0x00A70F00u, 8u, ra2_place_1951, 0},
+    {0x00A70F04u, 8u, ra2_place_1952, 0},
+    {0x00A70F08u, 8u, ra2_place_1953, 0},
+    {0x00A70F09u, 8u, ra2_place_1954, 0},
+    {0x00A70F0Au, 8u, ra2_place_1955, 0},
+    {0x00A70F0Cu, 8u, ra2_place_1956, 0},
+    {0x00A70F10u, 8u, ra2_place_1957, 0},
+    {0x00A70F14u, 8u, ra2_place_1958, 0},
+    {0x00A70F64u, 12u, ra2_place_1959, 0},
+    {0x00A70FA4u, 8u, ra2_place_1960, 0},
+    {0x00A7101Cu, 52u, ra2_place_1961, 0},
+    {0x00A71118u, 292u, ra2_place_1962, 0},
+    {0x00A715F0u, 148u, ra2_place_1963, 0},
+    {0x00A71684u, 8u, ra2_place_1964, 0},
+    {0x00A71688u, 244u, ra2_place_1965, 0},
+    {0x00A719A4u, 60u, ra2_place_1966, 0},
+    {0x00A71A3Cu, 8u, ra2_place_1967, 0},
+    {0x00A71A3Du, 219u, ra2_place_1968, 0},
+    {0x00A71B28u, 144u, ra2_place_1969, 0},
+    {0x00A71BC4u, 24u, ra2_place_1970, 0},
+    {0x00A71BDCu, 524u, ra2_place_1971, 0},
+    {0x00A71DE8u, 48u, ra2_place_1972, 0},
+    {0x00A71E18u, 16u, ra2_place_1973, 0},
+    {0x00A71E28u, 32u, ra2_place_1974, 0},
+    {0x00A71E8Cu, 8u, ra2_place_1975, 0},
+    {0x00A71E90u, 8u, ra2_place_1976, 0},
+    {0x00A71E94u, 8u, ra2_place_1977, 0},
+    {0x00A71E98u, 8u, ra2_place_1978, 0},
+    {0x00A71E99u, 8u, ra2_place_1979, 0},
+    {0x00A71E9Cu, 8u, ra2_place_1980, 0},
+    {0x00A71EA0u, 8u, ra2_place_1981, 0},
+    {0x00A71EA4u, 8u, ra2_place_1982, 0},
+    {0x00A71EA8u, 2056u, ra2_place_1983, 0},
+    {0x00A726B0u, 36u, ra2_place_1984, 0},
+    {0x00A726D4u, 36u, ra2_place_1985, 0},
+    {0x00A726F8u, 60u, ra2_place_1986, 0},
+    {0x00A72734u, 348u, ra2_place_1987, 0},
+    {0x00A72890u, 16u, ra2_place_1988, 0},
+    {0x00A728A0u, 48u, ra2_place_1989, 0},
+    {0x00A728D0u, 16u, ra2_place_1990, 0},
+    {0x00A728E0u, 8u, ra2_place_1991, 0},
+    {0x00A728E4u, 352u, ra2_place_1992, 0},
+    {0x00A72A44u, 36u, ra2_place_1993, 0},
+    {0x00A72A68u, 512u, ra2_place_1994, 0},
+    {0x00A72C68u, 24u, ra2_place_1995, 0},
+    {0x00A72C80u, 16u, ra2_place_1996, 0},
+    {0x00A72C90u, 88u, ra2_place_1997, 0},
+    {0x00A72CE8u, 20u, ra2_place_1998, 0},
+    {0x00A72CFCu, 8u, ra2_place_1999, 0},
+    {0x00A72D00u, 8u, ra2_place_2000, 0},
+    {0x00A72D04u, 8u, ra2_place_2001, 0},
+    {0x00A72D08u, 8u, ra2_place_2002, 0},
+    {0x00A72D0Cu, 32u, ra2_place_2003, 0},
+    {0x00A72D28u, 8u, ra2_place_2004, 0},
+    {0x00A72D2Cu, 8u, ra2_place_2005, 0},
+    {0x00A72D30u, 8u, ra2_place_2006, 0},
+    {0x00A72D34u, 8u, ra2_place_2007, 0},
+    {0x00A72D38u, 8u, ra2_place_2008, 0},
+    {0x00A72D3Cu, 8u, ra2_place_2009, 0},
+    {0x00A72D40u, 8u, ra2_place_2010, 0},
+    {0x00A72D44u, 8u, ra2_place_2011, 0},
+    {0x00A72D48u, 8u, ra2_place_2012, 0},
+    {0x00A72D4Cu, 8u, ra2_place_2013, 0},
+    {0x00A72D4Du, 8u, ra2_place_2014, 0},
+    {0x00A72D4Eu, 8u, ra2_place_2015, 0},
+    {0x00A72D4Fu, 8u, ra2_place_2016, 0},
+    {0x00A72D50u, 8u, ra2_place_2017, 0},
+    {0x00A72D51u, 8u, ra2_place_2018, 0},
+    {0x00A72D52u, 10u, ra2_place_2019, 0},
+    {0x00A72D5Cu, 28u, ra2_place_2020, 0},
+    {0x00A72D78u, 64u, ra2_place_2021, 0},
+    {0x00A72DC4u, 76u, ra2_place_2022, 0},
+    {0x00A72E10u, 180u, ra2_place_2023, 0},
+    {0x00A72EC4u, 72u, ra2_place_2024, 0},
+    {0x00A72FDCu, 8u, ra2_place_2025, 0},
+    {0x00A72FE0u, 8u, ra2_place_2026, 0},
+    {0x00A72FE4u, 8u, ra2_place_2027, 0},
+    {0x00A72FE8u, 8u, ra2_place_2028, 0},
+    {0x00A72FECu, 8u, ra2_place_2029, 0},
+    {0x00A72FF0u, 8u, ra2_place_2030, 0},
+    {0x00A72FF1u, 8u, ra2_place_2031, 0},
+    {0x00A72FF2u, 8u, ra2_place_2032, 0},
+    {0x00A72FF3u, 181u, ra2_place_2033, 0},
+    {0x00A731E0u, 408u, ra2_place_2034, 0},
+    {0x00A73378u, 20u, ra2_place_2035, 0},
+    {0x00A7338Cu, 12u, ra2_place_2036, 0},
+    {0x00A73398u, 56u, ra2_place_2037, 0},
+    {0x00A733D0u, 16u, ra2_place_2038, 0},
+    {0x00A733E4u, 28u, ra2_place_2039, 0},
+    {0x00A7363Cu, 8u, ra2_place_2040, 0},
+    {0x00A736D0u, 272u, ra2_place_2041, 0},
+    {0x00A737E0u, 8u, ra2_place_2042, 0},
+    {0x00A737E4u, 8u, ra2_place_2043, 0},
+    {0x00A737E8u, 8u, ra2_place_2044, 0},
+    {0x00A737ECu, 8u, ra2_place_2045, 0},
+    {0x00A737F0u, 152u, ra2_place_2046, 0},
+    {0x00A73800u, 8u, ra2_place_2047, 0},
+    {0x00A73910u, 8u, ra2_place_2048, 0},
+    {0x00A73918u, 16u, ra2_place_2049, 0},
+    {0x00A73928u, 20u, ra2_place_2050, 0},
+    {0x00A7393Cu, 10240u, ra2_place_2051, 0},
+    {0x00A7613Cu, 8u, ra2_place_2052, 0},
+    {0x00A76140u, 16u, ra2_place_2053, 0},
+    {0x00A76150u, 8u, ra2_place_2054, 0},
+    {0x00A76154u, 8u, ra2_place_2055, 0},
+    {0x00A76158u, 8u, ra2_place_2056, 0},
+    {0x00A7615Cu, 540u, ra2_place_2057, 0},
+    {0x00A763B0u, 8u, ra2_place_2058, 0},
+    {0x00A763B4u, 8u, ra2_place_2059, 0},
+    {0x00A763B8u, 20u, ra2_place_2060, 0},
+    {0x00A763CCu, 8u, ra2_place_2061, 0},
+    {0x00A763D4u, 8u, ra2_place_2062, 0},
+    {0x00A763D8u, 8u, ra2_place_2063, 0},
+    {0x00A763ECu, 8u, ra2_place_2064, 0},
+    {0x00A763F0u, 8u, ra2_place_2065, 0},
+    {0x00A763F8u, 8u, ra2_place_2066, 0},
+    {0x00A763FCu, 20u, ra2_place_2067, 0},
+    {0x00A76410u, 8u, ra2_place_2068, 0},
+    {0x00A76414u, 28u, ra2_place_2069, 0},
+    {0x00A76680u, 8u, ra2_place_2070, 0},
+    {0x00A76684u, 44u, ra2_place_2071, 0},
+    {0x00A766B0u, 8u, ra2_place_2072, 0},
+    {0x00A766B4u, 20u, ra2_place_2073, 0},
+    {0x00A766C8u, 16u, ra2_place_2074, 0},
+    {0x00A766F8u, 8u, ra2_place_2075, 0},
+    {0x00A766FCu, 8u, ra2_place_2076, 0},
+    {0x00A76728u, 8u, ra2_place_2077, 0},
+    {0x00A76750u, 8u, ra2_place_2078, 0},
+    {0x00A76770u, 24u, ra2_place_2079, 0},
+    {0x00A76788u, 8u, ra2_place_2080, 0},
+    {0x00A7678Cu, 8u, ra2_place_2081, 0},
+    {0x00A76790u, 20u, ra2_place_2082, 0},
+    {0x00A767A4u, 8u, ra2_place_2083, 0},
+    {0x00A767A5u, 8u, ra2_place_2084, 0},
+    {0x00A767A6u, 58u, ra2_place_2085, 0},
+    {0x00A767E0u, 316u, ra2_place_2086, 0},
+    {0x00A7691Cu, 8u, ra2_place_2087, 0},
+    {0x00A76920u, 200u, ra2_place_2088, 0},
+    {0x00A76B70u, 8u, ra2_place_2089, 0},
+    {0x00A76B74u, 256u, ra2_place_2090, 0},
+    {0x00A76C74u, 8u, ra2_place_2091, 0},
+    {0x00A76C78u, 16u, ra2_place_2092, 0},
+    {0x00A76C88u, 32u, ra2_place_2093, 0},
+    {0x00A76CA8u, 5144u, ra2_place_2094, 0},
+    {0x00A780D4u, 8u, ra2_place_2095, 0},
+    {0x00AABCE0u, 16u, ra2_place_2096, 0},
+    {0x00AABDB0u, 32u, ra2_place_2097, 0},
+    {0x00AABE90u, 8u, ra2_place_2098, 0},
+    {0x00AABE94u, 36u, ra2_place_2099, 0},
+    {0x00AB5ED0u, 8u, ra2_place_2100, 0},
+    {0x00AB5ED8u, 8u, ra2_place_2101, 0},
+    {0x00AB5EDCu, 1024u, ra2_place_2102, 0},
+    {0x00AB62DCu, 8u, ra2_place_2103, 0},
+    {0x00AB62E0u, 8u, ra2_place_2104, 0},
+    {0x00AB62E4u, 8u, ra2_place_2105, 0},
+    {0x00AB62E8u, 8u, ra2_place_2106, 0},
+    {0x00AB62ECu, 8u, ra2_place_2107, 0},
+    {0x00AB62F0u, 8u, ra2_place_2108, 0},
+    {0x00AB62F4u, 8u, ra2_place_2109, 0},
+    {0x00AB62F5u, 8u, ra2_place_2110, 0},
+    {0x00AB62F8u, 8u, ra2_place_2111, 0},
+    {0x00AB62FCu, 8u, ra2_place_2112, 0},
+    {0x00AB6300u, 8u, ra2_place_2113, 0},
+    {0x00AB6304u, 20u, ra2_place_2114, 0},
+    {0x00AB6318u, 8u, ra2_place_2115, 0},
+    {0x00AB6320u, 16u, ra2_place_2116, 0},
+    {0x00AB6338u, 8u, ra2_place_2117, 0},
+    {0x00AB6350u, 24u, ra2_place_2118, 0},
+    {0x00AB6368u, 8u, ra2_place_2119, 0},
+    {0x00AB6369u, 8u, ra2_place_2120, 0},
+    {0x00AB6468u, 8u, ra2_place_2121, 0},
+    {0x00AB64A0u, 64u, ra2_place_2122, 0},
+    {0x00AB663Cu, 172u, ra2_place_2123, 0},
+    {0x00AB66E8u, 128u, ra2_place_2124, 0},
+    {0x00AB6788u, 32u, ra2_place_2125, 0},
+    {0x00AB67A8u, 16u, ra2_place_2126, 0},
+    {0x00AB67B8u, 8u, ra2_place_2127, 0},
+    {0x00AB67BAu, 14u, ra2_place_2128, 0},
+    {0x00AB67C8u, 32u, ra2_place_2129, 0},
+    {0x00AB6818u, 20u, ra2_place_2130, 0},
+    {0x00AB682Cu, 8u, ra2_place_2131, 0},
+    {0x00AB6831u, 8u, ra2_place_2132, 0},
+    {0x00AB6832u, 8u, ra2_place_2133, 0},
+    {0x00AB6833u, 8u, ra2_place_2134, 0},
+    {0x00AB6834u, 8u, ra2_place_2135, 0},
+    {0x00AB6839u, 8u, ra2_place_2136, 0},
+    {0x00AB683Cu, 8u, ra2_place_2137, 0},
+    {0x00AB6841u, 8u, ra2_place_2138, 0},
+    {0x00AB6844u, 8u, ra2_place_2139, 0},
+    {0x00AB6849u, 8u, ra2_place_2140, 0},
+    {0x00AB684Cu, 60u, ra2_place_2141, 0},
+    {0x00AB6888u, 92u, ra2_place_2142, 0},
+    {0x00AB6DECu, 8u, ra2_place_2143, 0},
+    {0x00AB6DF0u, 152u, ra2_place_2144, 0},
+    {0x00AB6E88u, 32u, ra2_place_2145, 0},
+    {0x00AB6EA8u, 8u, ra2_place_2146, 0},
+    {0x00AB6EACu, 8u, ra2_place_2147, 0},
+    {0x00AB6EB0u, 68u, ra2_place_2148, 0},
+    {0x00AB6EF4u, 8u, ra2_place_2149, 0},
+    {0x00AB6F20u, 48u, ra2_place_2150, 0},
+    {0x00AB6F9Cu, 8u, ra2_place_2151, 0},
+    {0x00AB6FA4u, 8u, ra2_place_2152, 0},
+    {0x00AB6FA8u, 24u, ra2_place_2153, 0},
+    {0x00AB7068u, 8u, ra2_place_2154, 0},
+    {0x00AB7088u, 24u, ra2_place_2155, 0},
+    {0x00AB71D8u, 8092u, ra2_place_2156, 0},
+    {0x00AB9174u, 8u, ra2_place_2157, 0},
+    {0x00AB9178u, 80u, ra2_place_2158, 0},
+    {0x00AB91C8u, 168u, ra2_place_2159, 0},
+    {0x00AB9274u, 524u, ra2_place_2160, 0},
+    {0x00AB9480u, 8u, ra2_place_2161, 0},
+    {0x00AB9484u, 132u, ra2_place_2162, 0},
+    {0x00AB9688u, 16u, ra2_place_2163, 0},
+    {0x00AB9698u, 32u, ra2_place_2164, 0},
+    {0x00ABCD20u, 32u, ra2_place_2165, 0},
+    {0x00ABCD40u, 8u, ra2_place_2166, 0},
+    {0x00ABCD48u, 8u, ra2_place_2167, 0},
+    {0x00ABCD4Cu, 8u, ra2_place_2168, 0},
+    {0x00ABCD50u, 8u, ra2_place_2169, 0},
+    {0x00ABCD54u, 8u, ra2_place_2170, 0},
+    {0x00ABCD58u, 8u, ra2_place_2171, 0},
+    {0x00ABCD5Cu, 8u, ra2_place_2172, 0},
+    {0x00ABCD60u, 8u, ra2_place_2173, 0},
+    {0x00ABCD64u, 8u, ra2_place_2174, 0},
+    {0x00ABCD68u, 8u, ra2_place_2175, 0},
+    {0x00ABCD6Cu, 8u, ra2_place_2176, 0},
+    {0x00ABCD70u, 8u, ra2_place_2177, 0},
+    {0x00ABCD74u, 8u, ra2_place_2178, 0},
+    {0x00ABCD78u, 8u, ra2_place_2179, 0},
+    {0x00ABCD7Cu, 8u, ra2_place_2180, 0},
+    {0x00ABCD80u, 8u, ra2_place_2181, 0},
+    {0x00ABCD84u, 8u, ra2_place_2182, 0},
+    {0x00ABCD85u, 119u, ra2_place_2183, 0},
+    {0x00ABCDFCu, 28u, ra2_place_2184, 0},
+    {0x00ABCEACu, 260u, ra2_place_2185, 0},
+    {0x00ABCFB0u, 120u, ra2_place_2186, 0},
+    {0x00ABD408u, 32u, ra2_place_2187, 0},
+    {0x00ABD47Cu, 8u, ra2_place_2188, 0},
+    {0x00ABD480u, 8u, ra2_place_2189, 0},
+    {0x00ABD484u, 8u, ra2_place_2190, 0},
+    {0x00ABD488u, 8u, ra2_place_2191, 0},
+    {0x00ABD48Cu, 8u, ra2_place_2192, 0},
+    {0x00ABD48Du, 51u, ra2_place_2193, 0},
+    {0x00ABD4C0u, 8u, ra2_place_2194, 0},
+    {0x00ABD4C4u, 28u, ra2_place_2195, 0},
+    {0x00ABD4E0u, 32u, ra2_place_2196, 0},
+    {0x00ABD500u, 24u, ra2_place_2197, 0},
+    {0x00ABD52Cu, 8u, ra2_place_2198, 0},
+    {0x00ABD530u, 24u, ra2_place_2199, 0},
+    {0x00ABD548u, 312u, ra2_place_2200, 0},
+    {0x00ABD6A0u, 52u, ra2_place_2201, 0},
+    {0x00ABD6D4u, 148u, ra2_place_2202, 0},
+    {0x00ABD768u, 56u, ra2_place_2203, 0},
+    {0x00ABD8A0u, 104u, ra2_place_2204, 0},
+    {0x00ABD910u, 8u, ra2_place_2205, 0},
+    {0x00ABE278u, 24u, ra2_place_2206, 0},
+    {0x00ABE290u, 8u, ra2_place_2207, 0},
+    {0x00ABE294u, 8u, ra2_place_2208, 0},
+    {0x00ABE2A8u, 8u, ra2_place_2209, 0},
+    {0x00ABE2ACu, 12u, ra2_place_2210, 0},
+    {0x00ABE2B8u, 8u, ra2_place_2211, 0},
+    {0x00ABE2BCu, 12u, ra2_place_2212, 0},
+    {0x00ABE2C8u, 100u, ra2_place_2213, 0},
+    {0x00ABE32Cu, 28u, ra2_place_2214, 0},
+    {0x00ABE36Cu, 8u, ra2_place_2215, 0},
+    {0x00ABE370u, 8u, ra2_place_2216, 0},
+    {0x00ABE374u, 8u, ra2_place_2217, 0},
+    {0x00ABE378u, 8u, ra2_place_2218, 0},
+    {0x00ABE37Cu, 12u, ra2_place_2219, 0},
+    {0x00ABE388u, 8u, ra2_place_2220, 0},
+    {0x00ABE460u, 8u, ra2_place_2221, 0},
+    {0x00ABE464u, 8u, ra2_place_2222, 0},
+    {0x00ABE468u, 16u, ra2_place_2223, 0},
+    {0x00ABE478u, 8u, ra2_place_2224, 0},
+    {0x00ABE490u, 44u, ra2_place_2225, 0},
+    {0x00ABE4C8u, 24u, ra2_place_2226, 0},
+    {0x00ABE520u, 8u, ra2_place_2227, 0},
+    {0x00ABE540u, 16u, ra2_place_2228, 0},
+    {0x00ABFD6Cu, 8u, ra2_place_2229, 0},
+    {0x00ABFD70u, 8u, ra2_place_2230, 0},
+    {0x00ABFD74u, 20u, ra2_place_2231, 0},
+    {0x00ABFD78u, 16u, ra2_place_2232, 0},
+    {0x00ABFDB0u, 152u, ra2_place_2233, 0},
+    {0x00AC0050u, 120u, ra2_place_2234, 0},
+    {0x00AC00C8u, 128u, ra2_place_2235, 0},
+    {0x00AC0148u, 32u, ra2_place_2236, 0},
+    {0x00AC0188u, 60u, ra2_place_2237, 0},
+    {0x00AC01C4u, 8u, ra2_place_2238, 0},
+    {0x00AC01C8u, 8u, ra2_place_2239, 0},
+    {0x00AC01CCu, 28u, ra2_place_2240, 0},
+    {0x00AC01E8u, 152u, ra2_place_2241, 0},
+    {0x00AC0280u, 96u, ra2_place_2242, 0},
+    {0x00AC0B34u, 12u, ra2_place_2243, 0},
+    {0x00AC0F30u, 184u, ra2_place_2244, 0},
+    {0x00AC0FE8u, 8u, ra2_place_2245, 0},
+    {0x00AC0FECu, 8u, ra2_place_2246, 0},
+    {0x00AC0FF0u, 8u, ra2_place_2247, 0},
+    {0x00AC0FF4u, 8u, ra2_place_2248, 0},
+    {0x00AC0FF8u, 16u, ra2_place_2249, 0},
+    {0x00AC1008u, 8u, ra2_place_2250, 0},
+    {0x00AC100Cu, 8u, ra2_place_2251, 0},
+    {0x00AC1010u, 24u, ra2_place_2252, 0},
+    {0x00AC1028u, 8u, ra2_place_2253, 0},
+    {0x00AC102Cu, 20u, ra2_place_2254, 0},
+    {0x00AC1040u, 8u, ra2_place_2255, 0},
+    {0x00AC1044u, 8u, ra2_place_2256, 0},
+    {0x00AC1048u, 16u, ra2_place_2257, 0},
+    {0x00AC1058u, 8u, ra2_place_2258, 0},
+    {0x00AC105Cu, 8u, ra2_place_2259, 0},
+    {0x00AC1060u, 16u, ra2_place_2260, 0},
+    {0x00AC1070u, 8u, ra2_place_2261, 0},
+    {0x00AC1074u, 8u, ra2_place_2262, 0},
+    {0x00AC1078u, 8u, ra2_place_2263, 0},
+    {0x00AC107Cu, 8u, ra2_place_2264, 0},
+    {0x00AC1080u, 20u, ra2_place_2265, 0},
+    {0x00AC1094u, 8u, ra2_place_2266, 0},
+    {0x00AC1098u, 8u, ra2_place_2267, 0},
+    {0x00AC109Cu, 8u, ra2_place_2268, 0},
+    {0x00AC109Du, 8u, ra2_place_2269, 0},
+    {0x00AC109Eu, 8u, ra2_place_2270, 0},
+    {0x00AC10A0u, 8u, ra2_place_2271, 0},
+    {0x00AC10A4u, 12u, ra2_place_2272, 0},
+    {0x00AC10B0u, 8u, ra2_place_2273, 0},
+    {0x00AC10B4u, 8u, ra2_place_2274, 0},
+    {0x00AC10B8u, 8u, ra2_place_2275, 0},
+    {0x00AC10BCu, 8u, ra2_place_2276, 0},
+    {0x00AC10C0u, 8u, ra2_place_2277, 0},
+    {0x00AC10C4u, 8u, ra2_place_2278, 0},
+    {0x00AC10C8u, 8u, ra2_place_2279, 0},
+    {0x00AC10CCu, 12u, ra2_place_2280, 0},
+    {0x00AC10D8u, 16u, ra2_place_2281, 0},
+    {0x00AC10E8u, 8u, ra2_place_2282, 0},
+    {0x00AC10ECu, 8u, ra2_place_2283, 0},
+    {0x00AC10F0u, 8u, ra2_place_2284, 0},
+    {0x00AC10F4u, 8u, ra2_place_2285, 0},
+    {0x00AC10F8u, 8u, ra2_place_2286, 0},
+    {0x00AC10FCu, 8u, ra2_place_2287, 0},
+    {0x00AC1100u, 8u, ra2_place_2288, 0},
+    {0x00AC1104u, 8u, ra2_place_2289, 0},
+    {0x00AC1108u, 8u, ra2_place_2290, 0},
+    {0x00AC110Cu, 20u, ra2_place_2291, 0},
+    {0x00AC1120u, 8u, ra2_place_2292, 0},
+    {0x00AC1124u, 8u, ra2_place_2293, 0},
+    {0x00AC1128u, 8u, ra2_place_2294, 0},
+    {0x00AC1130u, 8u, ra2_place_2295, 0},
+    {0x00AC1134u, 8u, ra2_place_2296, 0},
+    {0x00AC1138u, 8u, ra2_place_2297, 0},
+    {0x00AC113Cu, 8u, ra2_place_2298, 0},
+    {0x00AC1140u, 8u, ra2_place_2299, 0},
+    {0x00AC1144u, 8u, ra2_place_2300, 0},
+    {0x00AC1148u, 8u, ra2_place_2301, 0},
+    {0x00AC114Cu, 8u, ra2_place_2302, 0},
+    {0x00AC1150u, 8u, ra2_place_2303, 0},
+    {0x00AC1154u, 8u, ra2_place_2304, 0},
+    {0x00AC1158u, 8u, ra2_place_2305, 0},
+    {0x00AC115Cu, 8u, ra2_place_2306, 0},
+    {0x00AC1160u, 8u, ra2_place_2307, 0},
+    {0x00AC1164u, 8u, ra2_place_2308, 0},
+    {0x00AC1168u, 8u, ra2_place_2309, 0},
+    {0x00AC116Cu, 8u, ra2_place_2310, 0},
+    {0x00AC1170u, 8u, ra2_place_2311, 0},
+    {0x00AC1174u, 8u, ra2_place_2312, 0},
+    {0x00AC1178u, 8u, ra2_place_2313, 0},
+    {0x00AC117Cu, 8u, ra2_place_2314, 0},
+    {0x00AC1184u, 8u, ra2_place_2315, 0},
+    {0x00AC1188u, 8u, ra2_place_2316, 0},
+    {0x00AC118Cu, 8u, ra2_place_2317, 0},
+    {0x00AC1190u, 8u, ra2_place_2318, 0},
+    {0x00AC1194u, 8u, ra2_place_2319, 0},
+    {0x00AC1198u, 8u, ra2_place_2320, 0},
+    {0x00AC119Cu, 8u, ra2_place_2321, 0},
+    {0x00AC11A0u, 8u, ra2_place_2322, 0},
+    {0x00AC11A4u, 8u, ra2_place_2323, 0},
+    {0x00AC11A8u, 8u, ra2_place_2324, 0},
+    {0x00AC11ACu, 8u, ra2_place_2325, 0},
+    {0x00AC11B0u, 8u, ra2_place_2326, 0},
+    {0x00AC11B4u, 8u, ra2_place_2327, 0},
+    {0x00AC11B8u, 8u, ra2_place_2328, 0},
+    {0x00AC11BCu, 8u, ra2_place_2329, 0},
+    {0x00AC11C0u, 8u, ra2_place_2330, 0},
+    {0x00AC11C4u, 8u, ra2_place_2331, 0},
+    {0x00AC11C8u, 8u, ra2_place_2332, 0},
+    {0x00AC11CCu, 8u, ra2_place_2333, 0},
+    {0x00AC11D0u, 8u, ra2_place_2334, 0},
+    {0x00AC11D4u, 8u, ra2_place_2335, 0},
+    {0x00AC11D8u, 8u, ra2_place_2336, 0},
+    {0x00AC11DCu, 8u, ra2_place_2337, 0},
+    {0x00AC11E0u, 8u, ra2_place_2338, 0},
+    {0x00AC11E4u, 8u, ra2_place_2339, 0},
+    {0x00AC11E8u, 8u, ra2_place_2340, 0},
+    {0x00AC11ECu, 8u, ra2_place_2341, 0},
+    {0x00AC11F0u, 8u, ra2_place_2342, 0},
+    {0x00AC11F4u, 8u, ra2_place_2343, 0},
+    {0x00AC11F8u, 8u, ra2_place_2344, 0},
+    {0x00AC11FCu, 8u, ra2_place_2345, 0},
+    {0x00AC1200u, 8u, ra2_place_2346, 0},
+    {0x00AC1204u, 8u, ra2_place_2347, 0},
+    {0x00AC1208u, 8u, ra2_place_2348, 0},
+    {0x00AC120Cu, 8u, ra2_place_2349, 0},
+    {0x00AC1210u, 8u, ra2_place_2350, 0},
+    {0x00AC1214u, 8u, ra2_place_2351, 0},
+    {0x00AC1215u, 8u, ra2_place_2352, 0},
+    {0x00AC1216u, 8u, ra2_place_2353, 0},
+    {0x00AC1217u, 8u, ra2_place_2354, 0},
+    {0x00AC1218u, 8u, ra2_place_2355, 0},
+    {0x00AC121Cu, 8u, ra2_place_2356, 0},
+    {0x00AC1220u, 8u, ra2_place_2357, 0},
+    {0x00AC1224u, 8u, ra2_place_2358, 0},
+    {0x00AC1225u, 8u, ra2_place_2359, 0},
+    {0x00AC1226u, 8u, ra2_place_2360, 0},
+    {0x00AC1227u, 8u, ra2_place_2361, 0},
+    {0x00AC1228u, 8u, ra2_place_2362, 0},
+    {0x00AC1229u, 8u, ra2_place_2363, 0},
+    {0x00AC122Au, 8u, ra2_place_2364, 0},
+    {0x00AC122Bu, 8u, ra2_place_2365, 0},
+    {0x00AC122Cu, 8u, ra2_place_2366, 0},
+    {0x00AC122Du, 8u, ra2_place_2367, 0},
+    {0x00AC122Eu, 8u, ra2_place_2368, 0},
+    {0x00AC122Fu, 8u, ra2_place_2369, 0},
+    {0x00AC1230u, 8u, ra2_place_2370, 0},
+    {0x00AC1231u, 8u, ra2_place_2371, 0},
+    {0x00AC1232u, 8u, ra2_place_2372, 0},
+    {0x00AC1233u, 8u, ra2_place_2373, 0},
+    {0x00AC1234u, 8u, ra2_place_2374, 0},
+    {0x00AC1235u, 8u, ra2_place_2375, 0},
+    {0x00AC1236u, 8u, ra2_place_2376, 0},
+    {0x00AC1237u, 8u, ra2_place_2377, 0},
+    {0x00AC1238u, 8u, ra2_place_2378, 0},
+    {0x00AC1239u, 8u, ra2_place_2379, 0},
+    {0x00AC123Au, 8u, ra2_place_2380, 0},
+    {0x00AC123Bu, 8u, ra2_place_2381, 0},
+    {0x00AC123Cu, 8u, ra2_place_2382, 0},
+    {0x00AC123Du, 8u, ra2_place_2383, 0},
+    {0x00AC123Eu, 8u, ra2_place_2384, 0},
+    {0x00AC123Fu, 8u, ra2_place_2385, 0},
+    {0x00AC1240u, 8u, ra2_place_2386, 0},
+    {0x00AC1241u, 8u, ra2_place_2387, 0},
+    {0x00AC1242u, 8u, ra2_place_2388, 0},
+    {0x00AC1243u, 8u, ra2_place_2389, 0},
+    {0x00AC1244u, 8u, ra2_place_2390, 0},
+    {0x00AC1245u, 8u, ra2_place_2391, 0},
+    {0x00AC1248u, 228u, ra2_place_2392, 0},
+    {0x00AC132Cu, 8u, ra2_place_2393, 0},
+    {0x00AC1330u, 8u, ra2_place_2394, 0},
+    {0x00AC1334u, 8u, ra2_place_2395, 0},
+    {0x00AC1338u, 8u, ra2_place_2396, 0},
+    {0x00AC133Cu, 8u, ra2_place_2397, 0},
+    {0x00AC133Du, 8u, ra2_place_2398, 0},
+    {0x00AC1340u, 8u, ra2_place_2399, 0},
+    {0x00AC1344u, 8u, ra2_place_2400, 0},
+    {0x00AC134Cu, 32u, ra2_place_2401, 0},
+    {0x00AC136Cu, 8204u, ra2_place_2402, 0},
+    {0x00AC3378u, 4104u, ra2_place_2403, 0},
+    {0x00AC4380u, 4104u, ra2_place_2404, 0},
+    {0x00AC5388u, 116u, ra2_place_2405, 0},
+    {0x00AC53FCu, 16384u, ra2_place_2406, 0},
+    {0x00AC93FCu, 24596u, ra2_place_2407, 0},
+    {0x00ACD410u, 8192u, ra2_place_2408, 0},
+    {0x00ACF410u, 4120u, ra2_place_2409, 0},
+    {0x00AD0428u, 8u, ra2_place_2410, 0},
+    {0x00AD0430u, 8u, ra2_place_2411, 0},
+    {0x00AD0434u, 8u, ra2_place_2412, 0},
+    {0x00AD0438u, 8u, ra2_place_2413, 0},
+    {0x00AD043Cu, 8u, ra2_place_2414, 0},
+    {0x00AD0440u, 8u, ra2_place_2415, 0},
+    {0x00AD0444u, 8u, ra2_place_2416, 0},
+    {0x00AD0448u, 8u, ra2_place_2417, 0},
+    {0x00AD044Cu, 8u, ra2_place_2418, 0},
+    {0x00AD0450u, 8u, ra2_place_2419, 0},
+    {0x00AD0454u, 8u, ra2_place_2420, 0},
+    {0x00AD0458u, 8u, ra2_place_2421, 0},
+    {0x00AD045Cu, 8u, ra2_place_2422, 0},
+    {0x00AD0460u, 8u, ra2_place_2423, 0},
+    {0x00AD0488u, 8u, ra2_place_2424, 0},
+    {0x00AD04C0u, 40u, ra2_place_2425, 0},
+    {0x00AD057Cu, 12u, ra2_place_2426, 0},
+    {0x00AD0588u, 120u, ra2_place_2427, 0},
+    {0x00AD0600u, 8u, ra2_place_2428, 0},
+    {0x00AD0604u, 8u, ra2_place_2429, 0},
+    {0x00AD0608u, 8u, ra2_place_2430, 0},
+    {0x00AD060Cu, 8u, ra2_place_2431, 0},
+    {0x00AD0610u, 8u, ra2_place_2432, 0},
+    {0x00AD0614u, 308u, ra2_place_2433, 0},
+    {0x00AD074Cu, 12u, ra2_place_2434, 0},
+    {0x00AD0758u, 68u, ra2_place_2435, 0},
+    {0x00AD079Cu, 8u, ra2_place_2436, 0},
+    {0x00AD07A0u, 32u, ra2_place_2437, 0},
+    {0x00AD07C0u, 16u, ra2_place_2438, 0},
+    {0x00AD07D0u, 72u, ra2_place_2439, 0},
+    {0x00AD0844u, 8u, ra2_place_2440, 0},
+    {0x00AD0848u, 8u, ra2_place_2441, 0},
+    {0x00AD084Cu, 8u, ra2_place_2442, 0},
+    {0x00AD0850u, 8u, ra2_place_2443, 0},
+    {0x00AD0858u, 16u, ra2_place_2444, 0},
+    {0x00AD0868u, 16u, ra2_place_2445, 0},
+    {0x00AD0878u, 8u, ra2_place_2446, 0},
+    {0x00AD0880u, 16u, ra2_place_2447, 0},
+    {0x00AD0890u, 56u, ra2_place_2448, 0},
+    {0x00AD08C8u, 24u, ra2_place_2449, 0},
+    {0x00AD08E0u, 48u, ra2_place_2450, 0},
+    {0x00AD0910u, 32u, ra2_place_2451, 0},
+    {0x00AD0934u, 12u, ra2_place_2452, 0},
+    {0x00AD0948u, 8u, ra2_place_2453, 0},
+    {0x00AD094Cu, 8u, ra2_place_2454, 0},
+    {0x00AD0950u, 8u, ra2_place_2455, 0},
+    {0x00AD0954u, 8u, ra2_place_2456, 0},
+    {0x00AD0958u, 8u, ra2_place_2457, 0},
+    {0x00AD095Cu, 8u, ra2_place_2458, 0},
+    {0x00AD0960u, 8u, ra2_place_2459, 0},
+    {0x00AD0968u, 8u, ra2_place_2460, 0},
+    {0x00AD0970u, 256u, ra2_place_2461, 0},
+    {0x00AD0A70u, 65536u, ra2_place_2462, 0},
+    {0x00AE0A7Cu, 516u, ra2_place_2463, 0},
+    {0x00AE0CB0u, 8u, ra2_place_2464, 0},
+    {0x00AE2FE8u, 8u, ra2_place_2465, 0},
+    {0x00AE3000u, 8u, ra2_place_2466, 0},
+    {0x00AE3004u, 8u, ra2_place_2467, 0},
+    {0x00AE3008u, 768u, ra2_place_2468, 0},
+    {0x00AE3408u, 65536u, ra2_place_2469, 0},
+    {0x00AF4608u, 8192u, ra2_place_2470, 0},
+    {0x00AF6608u, 8u, ra2_place_2471, 0},
+    {0x00AF660Cu, 8u, ra2_place_2472, 0},
+    {0x00AF6610u, 8u, ra2_place_2473, 0},
+    {0x00AF6614u, 8u, ra2_place_2474, 0},
+    {0x00AF901Cu, 8u, ra2_place_2475, 0},
+    {0x00AF9020u, 64u, ra2_place_2476, 0},
+    {0x00AF9060u, 224u, ra2_place_2477, 0},
+    {0x00AF91E4u, 1012u, ra2_place_2478, 0},
+    {0x00AF95D8u, 72u, ra2_place_2479, 0},
+    {0x00AF9620u, 180020u, ra2_place_2480, 0},
+    {0x00B25554u, 60u, ra2_place_2481, 0},
+    {0x00B25BB0u, 8u, ra2_place_2482, 0},
+    {0x00B25BB8u, 528u, ra2_place_2483, 0},
+    {0x00B25DC8u, 8u, ra2_place_2484, 0},
+    {0x00B25DD0u, 8u, ra2_place_2485, 0},
+    {0x00B25DD4u, 8u, ra2_place_2486, 0},
+    {0x00B25DD8u, 8u, ra2_place_2487, 0},
+    {0x00B25DDCu, 8u, ra2_place_2488, 0},
+    {0x00B25DE0u, 8u, ra2_place_2489, 0},
+    {0x00B25DE4u, 12u, ra2_place_2490, 0},
+    {0x00B25DF0u, 256u, ra2_place_2491, 0},
+    {0x00B25EF0u, 32u, ra2_place_2492, 0},
+    {0x00B25F10u, 24u, ra2_place_2493, 0},
+    {0x00B25F28u, 8u, ra2_place_2494, 0},
+    {0x00B25F2Cu, 8u, ra2_place_2495, 0},
+    {0x00B25F30u, 8u, ra2_place_2496, 0},
+    {0x00B25F34u, 8u, ra2_place_2497, 0},
+    {0x00B25F38u, 64u, ra2_place_2498, 0},
+    {0x00B25F78u, 8u, ra2_place_2499, 0},
+    {0x00B25F7Cu, 516u, ra2_place_2500, 0},
+    {0x00B26180u, 40u, ra2_place_2501, 0},
+    {0x00B261A8u, 512u, ra2_place_2502, 0},
+    {0x00B263A8u, 36u, ra2_place_2503, 0},
+    {0x00B263CCu, 8u, ra2_place_2504, 0},
+    {0x00B263D0u, 8u, ra2_place_2505, 0},
+    {0x00B263D4u, 8u, ra2_place_2506, 0},
+    {0x00B263D8u, 8u, ra2_place_2507, 0},
+    {0x00B263DCu, 8u, ra2_place_2508, 0},
+    {0x00B263E4u, 8u, ra2_place_2509, 0},
+    {0x00B263E8u, 8u, ra2_place_2510, 0},
+    {0x00B263E9u, 8u, ra2_place_2511, 0},
+    {0x00B263ECu, 8u, ra2_place_2512, 0},
+    {0x00B263F0u, 8u, ra2_place_2513, 0},
+    {0x00B263F4u, 8u, ra2_place_2514, 0},
+    {0x00B263F8u, 32u, ra2_place_2515, 0},
+    {0x00B264F0u, 8u, ra2_place_2516, 0},
+    {0x00B264F8u, 8u, ra2_place_2517, 0},
+    {0x00B264FCu, 8u, ra2_place_2518, 0},
+    {0x00B26500u, 8u, ra2_place_2519, 0},
+    {0x00B26504u, 8u, ra2_place_2520, 0},
+    {0x00B2650Cu, 8u, ra2_place_2521, 0},
+    {0x00B26510u, 8u, ra2_place_2522, 0},
+    {0x00B26514u, 8u, ra2_place_2523, 0},
+    {0x00B26518u, 8u, ra2_place_2524, 0},
+    {0x00B2651Cu, 8u, ra2_place_2525, 0},
+    {0x00B26524u, 12u, ra2_place_2526, 0},
+    {0x00B26530u, 16u, ra2_place_2527, 0},
+    {0x00B26540u, 32u, ra2_place_2528, 0},
+    {0x00B26560u, 8u, ra2_place_2529, 0},
+    {0x00B26564u, 8u, ra2_place_2530, 0},
+    {0x00B26568u, 8u, ra2_place_2531, 0},
+    {0x00B2657Cu, 8u, ra2_place_2532, 0},
+    {0x00B2658Cu, 256u, ra2_place_2533, 0},
+    {0x00B2668Cu, 8u, ra2_place_2534, 0},
+    {0x00B26694u, 512u, ra2_place_2535, 0},
+    {0x00B26894u, 8u, ra2_place_2536, 0},
+    {0x00B26898u, 136u, ra2_place_2537, 0},
+    {0x00B2692Cu, 8u, ra2_place_2538, 0},
+    {0x00B26930u, 20u, ra2_place_2539, 0},
+    {0x00B26958u, 8u, ra2_place_2540, 0},
+    {0x00B269ACu, 128u, ra2_place_2541, 0},
+    {0x00B26A2Cu, 36u, ra2_place_2542, 0},
+    {0x00B26A60u, 544u, ra2_place_2543, 0},
+    {0x00B26C80u, 8u, ra2_place_2544, 0},
+    {0x00B26C94u, 32u, ra2_place_2545, 0},
+    {0x00B26CB4u, 8u, ra2_place_2546, 0},
+    {0x00B26CBCu, 8196u, ra2_place_2547, 0},
+    {0x00B28CC4u, 8u, ra2_place_2548, 0},
+    {0x00B28CC8u, 8u, ra2_place_2549, 0},
+    {0x00B28CD0u, 244u, ra2_place_2550, 0},
+    {0x00B28DC4u, 8u, ra2_place_2551, 0},
+    {0x00B28DD4u, 12u, ra2_place_2552, 0},
+    {0x00B28DE0u, 8u, ra2_place_2553, 0},
+    {0x00B28DE4u, 528u, ra2_place_2554, 0},
+    {0x00B28FF4u, 8u, ra2_place_2555, 0},
+    {0x00B28FF8u, 8u, ra2_place_2556, 0},
+    {0x00B28FFCu, 8u, ra2_place_2557, 0},
+    {0x00B29018u, 128u, ra2_place_2558, 0},
+    {0x00B29098u, 8u, ra2_place_2559, 0},
+    {0x00B290A0u, 8u, ra2_place_2560, 0},
+    {0x00B290A4u, 256u, ra2_place_2561, 0},
+    {0x00B291A4u, 256u, ra2_place_2562, 0},
+    {0x00B292A4u, 8u, ra2_place_2563, 0},
+    {0x00B292A8u, 8u, ra2_place_2564, 0},
+    {0x00B292ACu, 44u, ra2_place_2565, 0},
+    {0x00B292D8u, 8u, ra2_place_2566, 0},
+    {0x00B292DCu, 8u, ra2_place_2567, 0},
+    {0x00B292E0u, 8u, ra2_place_2568, 0},
+    {0x00B292E4u, 8u, ra2_place_2569, 0},
+    {0x00B292E8u, 8u, ra2_place_2570, 0},
+    {0x00B292ECu, 8u, ra2_place_2571, 0},
+    {0x00B292F8u, 120u, ra2_place_2572, 0},
+    {0x00B293D8u, 132u, ra2_place_2573, 0},
+    {0x00B29460u, 8u, ra2_place_2574, 0},
+    {0x00B294B0u, 8u, ra2_place_2575, 0},
+    {0x00B294F0u, 8u, ra2_place_2576, 0},
+    {0x00B294F4u, 516u, ra2_place_2577, 0},
+    {0x00B29730u, 8u, ra2_place_2578, 0},
+    {0x00B29738u, 128u, ra2_place_2579, 0},
+    {0x00B297B8u, 8u, ra2_place_2580, 0},
+    {0x00B297C0u, 8u, ra2_place_2581, 0},
+    {0x00B297C8u, 8u, ra2_place_2582, 0},
+    {0x00B297CCu, 8u, ra2_place_2583, 0},
+    {0x00B29810u, 24u, ra2_place_2584, 0},
+    {0x00B29828u, 8u, ra2_place_2585, 0},
+    {0x00B2982Cu, 8u, ra2_place_2586, 0},
+    {0x00B29830u, 8u, ra2_place_2587, 0},
+    {0x00B29880u, 248u, ra2_place_2588, 0},
+    {0x00B29978u, 8u, ra2_place_2589, 0},
+    {0x00B2999Cu, 8u, ra2_place_2590, 0},
+    {0x00B299A0u, 16u, ra2_place_2591, 0},
+    {0x00B299BCu, 8u, ra2_place_2592, 0},
+    {0x00B299C0u, 20u, ra2_place_2593, 0},
+    {0x00B299D4u, 12u, ra2_place_2594, 0},
+    {0x00B29ACCu, 8u, ra2_place_2595, 0},
+    {0x00B29AD0u, 8u, ra2_place_2596, 0},
+    {0x00B29AD4u, 512u, ra2_place_2597, 0},
+    {0x00B29CD8u, 12u, ra2_place_2598, 0},
+    {0x00B29CE8u, 8u, ra2_place_2599, 0},
+    {0x00B29CF0u, 2368u, ra2_place_2600, 0},
+    {0x00B2A630u, 8u, ra2_place_2601, 0},
+    {0x00B2A634u, 8u, ra2_place_2602, 0},
+    {0x00B2A638u, 8u, ra2_place_2603, 0},
+    {0x00B2A644u, 8u, ra2_place_2604, 0},
+    {0x00B2A658u, 112u, ra2_place_2605, 0},
+    {0x00B2A6D4u, 8u, ra2_place_2606, 0},
+    {0x00B2A6D8u, 24u, ra2_place_2607, 0},
+    {0x00B2A6F0u, 8u, ra2_place_2608, 0},
+    {0x00B2A6F4u, 8u, ra2_place_2609, 0},
+    {0x00B2A6F8u, 8u, ra2_place_2610, 0},
+    {0x00B2A718u, 8u, ra2_place_2611, 0},
+    {0x00B2A720u, 8u, ra2_place_2612, 0},
+    {0x00B2A734u, 32u, ra2_place_2613, 0},
+    {0x00B2A754u, 8u, ra2_place_2614, 0},
+    {0x00B2A758u, 128u, ra2_place_2615, 0},
+    {0x00B2A7E4u, 8u, ra2_place_2616, 0},
+    {0x00B2A7E8u, 8u, ra2_place_2617, 0},
+    {0x00B2A7ECu, 8u, ra2_place_2618, 0},
+    {0x00B2A7F0u, 8u, ra2_place_2619, 0},
+    {0x00B2A7F4u, 8u, ra2_place_2620, 0},
+    {0x00B2A7F8u, 8u, ra2_place_2621, 0},
+    {0x00B2A7FCu, 8u, ra2_place_2622, 0},
+    {0x00B2A800u, 8u, ra2_place_2623, 0},
+    {0x00B2A804u, 8u, ra2_place_2624, 0},
+    {0x00B2A808u, 16u, ra2_place_2625, 0},
+    {0x00B2A818u, 8u, ra2_place_2626, 0},
+    {0x00B2A81Cu, 8u, ra2_place_2627, 0},
+    {0x00B2A820u, 132u, ra2_place_2628, 0},
+    {0x00B2A8A4u, 8u, ra2_place_2629, 0},
+    {0x00B2A8A8u, 8u, ra2_place_2630, 0},
+    {0x00B2A8ACu, 8u, ra2_place_2631, 0},
+    {0x00B2A8B0u, 44u, ra2_place_2632, 0},
+    {0x00B2A8DCu, 16u, ra2_place_2633, 0},
+    {0x00B2A8ECu, 524u, ra2_place_2634, 0},
+    {0x00B2AAF8u, 8u, ra2_place_2635, 0},
+    {0x00B2AAFCu, 8u, ra2_place_2636, 0},
+    {0x00B2AB00u, 128u, ra2_place_2637, 0},
+    {0x00B2AB80u, 8u, ra2_place_2638, 0},
+    {0x00B2AB84u, 8u, ra2_place_2639, 0},
+    {0x00B2AB88u, 16u, ra2_place_2640, 0},
+    {0x00B2ABD0u, 8u, ra2_place_2641, 0},
+    {0x00B2ABD4u, 8u, ra2_place_2642, 0},
+    {0x00B2ABD8u, 8u, ra2_place_2643, 0},
+    {0x00B2ABD9u, 8u, ra2_place_2644, 0},
+    {0x00B2ABDAu, 8u, ra2_place_2645, 0},
+    {0x00B2ABDCu, 8u, ra2_place_2646, 0},
+    {0x00B2ABE0u, 8u, ra2_place_2647, 0},
+    {0x00B2ABE4u, 8u, ra2_place_2648, 0},
+    {0x00B2ABE8u, 8u, ra2_place_2649, 0},
+    {0x00B2ABECu, 8u, ra2_place_2650, 0},
+    {0x00B2ABF0u, 8u, ra2_place_2651, 0},
+    {0x00B2ABF4u, 8u, ra2_place_2652, 0},
+    {0x00B2ABF8u, 8u, ra2_place_2653, 0},
+    {0x00B2ABFCu, 8u, ra2_place_2654, 0},
+    {0x00B2AC00u, 8u, ra2_place_2655, 0},
+    {0x00B2AC04u, 8u, ra2_place_2656, 0},
+    {0x00B2AC08u, 8u, ra2_place_2657, 0},
+    {0x00B2AC0Cu, 8u, ra2_place_2658, 0},
+    {0x00B2AC10u, 8u, ra2_place_2659, 0},
+    {0x00B2AC18u, 8u, ra2_place_2660, 0},
+    {0x00B2AC1Cu, 8u, ra2_place_2661, 0},
+    {0x00B2AC20u, 8u, ra2_place_2662, 0},
+    {0x00B2AC24u, 8u, ra2_place_2663, 0},
+    {0x00B2AC28u, 8u, ra2_place_2664, 0},
+    {0x00B2AC2Cu, 8u, ra2_place_2665, 0},
+    {0x00B2AC30u, 8u, ra2_place_2666, 0},
+    {0x00B2AC34u, 8u, ra2_place_2667, 0},
+    {0x00B2AC38u, 8u, ra2_place_2668, 0},
+    {0x00B2AC40u, 8u, ra2_place_2669, 0},
+    {0x00B2AC44u, 8u, ra2_place_2670, 0},
+    {0x00B2AC45u, 8u, ra2_place_2671, 0},
+    {0x00B2AC46u, 8u, ra2_place_2672, 0},
+    {0x00B2AC48u, 16u, ra2_place_2673, 0},
+    {0x00B2AC58u, 8u, ra2_place_2674, 0},
+    {0x00B2AC5Cu, 8u, ra2_place_2675, 0},
+    {0x00B2AC60u, 8u, ra2_place_2676, 0},
+    {0x00B2AC64u, 8u, ra2_place_2677, 0},
+    {0x00B2AC68u, 8u, ra2_place_2678, 0},
+    {0x00B2AC6Cu, 8u, ra2_place_2679, 0},
+    {0x00B2AC70u, 8u, ra2_place_2680, 0},
+    {0x00B2AC74u, 12u, ra2_place_2681, 0},
+    {0x00B2AC80u, 8u, ra2_place_2682, 0},
+    {0x00B2AC81u, 8u, ra2_place_2683, 0},
+    {0x00B2AC84u, 20u, ra2_place_2684, 0},
+    {0x00B2AC98u, 8u, ra2_place_2685, 0},
+    {0x00B2ACA0u, 8u, ra2_place_2686, 0},
+    {0x00B2ACA8u, 24u, ra2_place_2687, 0},
+    {0x00B2ACC0u, 8u, ra2_place_2688, 0},
+    {0x00B2ACC4u, 8u, ra2_place_2689, 0},
+    {0x00B2ACC8u, 8u, ra2_place_2690, 0},
+    {0x00B2AD60u, 8u, ra2_place_2691, 0},
+    {0x00B2AD70u, 8u, ra2_place_2692, 0},
+    {0x00B2ADA4u, 8u, ra2_place_2693, 0},
+    {0x00B2ADA8u, 124u, ra2_place_2694, 0},
+    {0x00B2AE24u, 120u, ra2_place_2695, 0},
+    {0x00B2AE9Cu, 8u, ra2_place_2696, 0},
+    {0x00B2AEA0u, 124u, ra2_place_2697, 0},
+    {0x00B2AF1Cu, 20u, ra2_place_2698, 0},
+    {0x00B2B33Cu, 76u, ra2_place_2699, 0},
+    {0x00B2B3C0u, 64u, ra2_place_2700, 0},
+    {0x00B2B420u, 512u, ra2_place_2701, 0},
+    {0x00B2B624u, 8u, ra2_place_2702, 0},
     {0u, 0u, 0, 0},
 };

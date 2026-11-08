@@ -4,4 +4,4 @@
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
 #include "shared/house_nodes.hpp"
-template class VectorClass<BaseNodeClass>;  // instance: VectorClass<BaseNodeClass>::
+template class VectorClass<AngerStruct>;  // instance: VectorClass<AngerStruct>::

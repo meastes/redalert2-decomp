@@ -3,5 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/vector_elements.hpp"
-template class VectorClass<SwizzlePointerClass>;  // instance: VectorClass<SwizzlePointerClass>::
+#include "shared/subzone_tracking.hpp"
+template class VectorClass<SubzoneTrackingStruct>;  // instance: VectorClass<SubzoneTrackingStruct>::

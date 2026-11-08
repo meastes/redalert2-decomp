@@ -126,15 +126,3 @@ void __fastcall unknown_set_buffer_zone_0053d830(int width)
     unknown_detail_buffer_zone_7dfb38 = width;
 }
 
-// --- CCToolTip's destructor (the first frame's sidebar draw calls ToolTips->Refresh) ---
-#include "shared/tool_tip.hpp"
-
-// 0x00738420 CCToolTip scalar deleting destructor (the row's seed: restores the
-// vtable, runs ToolTipManager's destructor body 0x006EB390, frees on flag 1;
-// TibSun cctooltip.h: an empty virtual destructor). Out of line it is the
-// class's key function natively, so the vtable the constructor stores
-// (Windows_Procedure 0x007375A0's unit, where the inline constructor lives) is
-// emitted here; without it the vtable was a zero link-closure placeholder.
-CCToolTip::~CCToolTip()
-{
-}

@@ -4,6 +4,5 @@
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
 #include "shared/reference_counted.hpp"
-#include "shared/vector_elements.hpp"
-#include "shared/world_domination_tour.hpp"
-template class VectorClass<rc_ptr<WorldDominationTour::Conflict>>;  // instance: VectorClass<rc_ptr<WorldDominationTour::Conflict>>::
+#include "shared/wdt_territory.hpp"
+template class VectorClass<rc_ptr<WDTTerritory>>;  // instance: VectorClass<rc_ptr<WDTTerritory>>::

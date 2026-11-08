@@ -137,6 +137,7 @@ template class DynamicVectorClass<ScoreSoundClass*>;  // instance: DynamicVector
 template class DynamicVectorClass<TechnoTypeClass const*>;  // instance: DynamicVectorClass<TechnoTypeClass const*>::
 template class DynamicVectorClass<UnknownGlobalPacket*>;  // instance: DynamicVectorClass<UnknownGlobalPacket*>::
 template class DynamicVectorClass<WIN32_FIND_DATA*>;  // instance: DynamicVectorClass<WIN32_FIND_DATA*>::
+template class DynamicVectorClass<char*>;  // instance: DynamicVectorClass<char*>::
 template class DynamicVectorClass<double>;  // instance: DynamicVectorClass<double>::
 template class DynamicVectorClass<unsigned short const*>;  // instance: DynamicVectorClass<unsigned short const*>::
 template class VectorClass<AITriggerTypeClass*>;  // instance: VectorClass<AITriggerTypeClass*>::
@@ -270,7 +271,7 @@ template class VectorClass<unsigned int>;  // instance: VectorClass<unsigned int
 template class VectorClass<unsigned short>;  // instance: VectorClass<unsigned short>::
 template class VectorClass<unsigned short const*>;  // instance: VectorClass<unsigned short const*>::
 template class VectorClass<unsigned short*>;  // instance: VectorClass<unsigned short*>::
-// not instantiated: DynamicVectorClass<PassabilityType>: element type needs its definition
+// not instantiated: DynamicVectorClass<HashObject<HashString, SchemeNode*>>: element type needs its definition
 // not instantiated: VectorClass<HashObject<HashString, SchemeNode*>>: element type needs its definition
 // not instantiated: VectorClass<PassabilityType>: element type needs its definition
 // not instantiated: VectorClass<WorldDominationTour::Map::AnimationPalette*>: does not compile alone

@@ -3,5 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/fogged_object.hpp"
-template class VectorClass<FoggedObjectClass::DrawRecord>;  // instance: VectorClass<FoggedObjectClass::DrawRecord>::
+#include "shared/multi_mission.hpp"
+template class VectorClass<DiskID>;  // instance: VectorClass<DiskID>::

@@ -11,8 +11,7 @@
 // 500-entry drawn-object table (0x00ABE5F8, 12-byte entries); when it is the
 // pending placement object (Map +0x118C), clears the placement cursor
 // (DisplayClass 0x00499070 with no list) and +0x118C/+0x1190, and sets +0x1194
-// to -1. display.hpp declares +0x118C an int (it holds an object pointer: the
-// int/pointer conflict listed for src/shared), compared here as the int it holds.
+// to -1 (display.hpp: +0x118C the placement ObjectClass pointer, +0x1190 its type).
 void Tactical::Detach(AbstractClass *target, bool all)
 {
     for (int index = 0; index < 500; index++) {
@@ -20,7 +19,7 @@ void Tactical::Detach(AbstractClass *target, bool all)
             unknown_tactical_pixels_abe5f8[index].Object = 0;
         }
     }
-    if ((int)(intptr_t)target == Map.unknown_118c) {
+    if ((void *)target == (void *)Map.unknown_118c) {
         Map.Set_Cursor_Shape(0);
         Map.unknown_118c = 0;
         Map.unknown_1190 = 0;

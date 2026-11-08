@@ -3,5 +3,6 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/multi_mission.hpp"
-template class VectorClass<DiskID>;  // instance: VectorClass<DiskID>::
+#include "shared/discrete_distribution.hpp"
+#include "shared/aircraft.hpp"
+template class VectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass*>>;  // instance: VectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass*>>::

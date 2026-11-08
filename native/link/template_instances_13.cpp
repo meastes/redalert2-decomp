@@ -4,4 +4,5 @@
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
 #include "shared/hash_object.hpp"
-template class VectorClass<HashObject<unsigned int, unsigned int>>;  // instance: VectorClass<HashObject<unsigned int, unsigned int>>::
+#include "shared/map_elements.hpp"
+template class VectorClass<HashObject<unsigned int, SubzoneConnectionStruct>>;  // instance: VectorClass<HashObject<unsigned int, SubzoneConnectionStruct>>::

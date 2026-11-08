@@ -5,4 +5,4 @@
 #include "shared/vector_class.hpp"
 #include "shared/discrete_distribution.hpp"
 #include "shared/aircraft.hpp"
-template class VectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass*>>;  // instance: VectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass*>>::
+template class VectorClass<DiscreteDistributionClass<BuildingTypeClass>::DistributionObject<BuildingTypeClass*>>;  // instance: VectorClass<DiscreteDistributionClass<BuildingTypeClass>::DistributionObject<BuildingTypeClass*>>::

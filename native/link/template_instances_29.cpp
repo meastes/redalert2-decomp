@@ -3,6 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/reference_counted.hpp"
-#include "shared/wdt_territory.hpp"
-template class VectorClass<rc_ptr<WDTTerritory>>;  // instance: VectorClass<rc_ptr<WDTTerritory>>::
+#include "shared/map_elements.hpp"
+template class VectorClass<ZoneConnectionClass>;  // instance: VectorClass<ZoneConnectionClass>::

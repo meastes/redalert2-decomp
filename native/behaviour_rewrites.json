@@ -1145,16 +1145,6 @@
    "source": "seed src/recovered/0049ec40.cpp"
   },
   {
-   "entry": "0x00738420",
-   "name": "CCToolTip::~CCToolTip()",
-   "symbol": "__ZN9CCToolTipD2Ev",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_scenario.cpp",
-   "source": "seed src/recovered/classes/CCToolTip/00738420.cpp; TibSun cctooltip.h (empty virtual destructor); natively the key function that emits the CCToolTip vtable"
-  },
-  {
    "entry": "0x00405110",
    "name": "Audio_Event_Type_Range(AudioEventType *)",
    "symbol": "__Z22Audio_Event_Type_RangeP14AudioEventType",

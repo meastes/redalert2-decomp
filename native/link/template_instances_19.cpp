@@ -3,5 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/rect.hpp"
-template class VectorClass<Rect>;  // instance: VectorClass<Rect>::
+#include "shared/rgb_class.hpp"
+template class VectorClass<RGBClass>;  // instance: VectorClass<RGBClass>::

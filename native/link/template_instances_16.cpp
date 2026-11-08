@@ -3,5 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/light_source.hpp"
-template class VectorClass<LightSourceClass::PendingCellClass*>;  // instance: VectorClass<LightSourceClass::PendingCellClass*>::
+#include "shared/isometric_tile_type.hpp"
+template class VectorClass<IsometricTileTypeClass::TileInsertType*>;  // instance: VectorClass<IsometricTileTypeClass::TileInsertType*>::

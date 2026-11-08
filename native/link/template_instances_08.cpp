@@ -4,5 +4,5 @@
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
 #include "shared/discrete_distribution.hpp"
-#include "shared/aircraft.hpp"
-template class VectorClass<DiscreteDistributionClass<BuildingTypeClass>::DistributionObject<BuildingTypeClass*>>;  // instance: VectorClass<DiscreteDistributionClass<BuildingTypeClass>::DistributionObject<BuildingTypeClass*>>::
+#include "shared/ai_trigger_type.hpp"
+template class VectorClass<DiscreteDistributionClass<AITriggerTypeClass>::DistributionObject<AITriggerTypeClass*>>;  // instance: VectorClass<DiscreteDistributionClass<AITriggerTypeClass>::DistributionObject<AITriggerTypeClass*>>::

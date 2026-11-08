@@ -3,5 +3,5 @@
 // (weak definitions; the unit that owns an instantiation wins when present).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-#include "shared/house.hpp"
-template class VectorClass<HouseClass::BuildChoiceClass*>;  // instance: VectorClass<HouseClass::BuildChoiceClass*>::
+#include "shared/hash_object.hpp"
+template class VectorClass<HashObject<unsigned int, unsigned int>>;  // instance: VectorClass<HashObject<unsigned int, unsigned int>>::
