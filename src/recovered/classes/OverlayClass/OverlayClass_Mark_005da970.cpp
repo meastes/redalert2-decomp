@@ -10,7 +10,7 @@
 #include "shared/id_source.hpp"
 #include "shared/crt_memory.hpp"
 
-// @ref ?unknown_4718b0@CellClass@@QAE_NHHH@Z=004718b0
+// @ref ?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z=004718b0
 // @ref ?Set_Under_Bridge@CellClass@@QAEXI_N@Z=004732d0
 // @ref ?Set_Under_Rail_Bridge@CellClass@@QAEXI_N@Z=00473700
 

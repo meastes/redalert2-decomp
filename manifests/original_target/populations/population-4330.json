@@ -4,8 +4,8 @@
     "id": "population-4330",
     "inventory_sha256": "bad0f33838e36bddcee701832520ee66db8125916393bbd0664ee6b5ef0a9302",
     "gaps_sha256": "acb888c7d3364c75dbd2e4e89b8b6e1a33bad2ee39e959f0ff00f98e4b97e999",
-    "historical_population_sha256": "b464e3a342672f0d7c0322a5b506d11ed7630483324edbc99a9af4761d55690a",
-    "historical_acceptance_sha256": "3c85f973d1a10b7f6c993ac28da57457b9cb22050fdccaa7e7e00271e838cfc7"
+    "historical_population_sha256": "365c774d48d0023335e977e20e3741553c91ca48cd19dec77abd33b3cf0f9ff8",
+    "historical_acceptance_sha256": "c58794450b30c0c0f3c065b4cb35b162719bb6cb40d91a320e9310208938889f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -6637,7 +6637,7 @@
     "__imp__GetTickCount@0": 7971020,
     "?Increase_Table_Size@?$IndexClass@HPAVCommandClass@@@@QAE_NH@Z": 5367648,
     "?Unknown_007168C0@@YIXH@Z": 7432384,
-    "?Unknown_006F44D0@@YAXXZ": 7292112,
+    "?Unknown_Reload_Art_006F44D0@@YIXXZ": 7292112,
     "?unknown_map_name_a3d342@@3PAGA": 10736450,
     "?unknown_max_players_a3d558@@3HA": 10736984,
     "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z": 6082608,
@@ -13375,7 +13375,6 @@
     "?Destroy_High_Bridge_Connections_00558BD0@MapClass@@QAEXABVCell@@@Z": 5606352,
     "?Destroy_High_Bridge_Span_00558660@MapClass@@QAE_NABVCell@@W4FacingType@@PAVRect@@@Z": 5604960,
     "?Query_From@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEJABQAVFootClass@@@Z": 4979744,
-    "?unknown_4718b0@CellClass@@QAE_NHHH@Z": 4659376,
     "?Unknown_00630840@RadarClass@@QAEXABVRect@@@Z": 6490176,
     "??8?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QBE_NH@Z": 4979600,
     "?Get_Pitch@BulletVelocity@@QBE?AVDirType@@XZ": 4306656,
@@ -13517,7 +13516,14 @@
     "?FUN_00448070@": 4489328,
     "__real@8@3ffe947ae147ae147800": 8049000,
     "?unknown_slot67@BuildingLightClass@@UAEXHH@Z": 4404096,
-    "__real@8@3fe3c8000000c8000000": 8019992
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "?unknown_rgb_ab6841@@3VRGBClass@@A": 11233345,
+    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
+    "??K?$TPoint3D@H@@QBE?BV0@H@Z": 7182192,
+    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944,
+    "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 4409584,
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
+    "?Update_All@RadBeam@@SIXXZ": 6509792
   },
   "regions": [
     {
@@ -38529,7 +38535,7 @@
         {
           "offset": 304,
           "kind": 20,
-          "symbol": "?unknown_4718b0@CellClass@@QAE_NHHH@Z",
+          "symbol": "?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z",
           "target": 4659376,
           "addend": 0,
           "resolved": 219068
@@ -38927,7 +38933,7 @@
           "resolved": 4440105
         }
       ],
-      "source_sha256": "b77422cb06fb3c75864fe3bc15fa77c830c7a0a9a85f652da4c4a31fc1e8fc82",
+      "source_sha256": "3301be50915b84a47cf1a3ea6ee12b72948271170a511a824eb814708cdd9864",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Mark_0043bfc0.cpp",
       "population": "population-4330",

@@ -3166,3 +3166,6 @@ New rulings are recorded at their rows as before.
 
 ## Scout1090 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1090/)
 - Only two rows fit the scratch-only filter. Evaluate_Object 0x6C5570 91.81: the single 0x40 `method&` site decides the method web (replacing just that read with a global gives loose 99.89, shape 100); no natural form keeps the 0x901 test out of the web. Area_Modify 0x6C5270 96.38: probes alias the Cell const & loads; site-4 order recorded.
+
+## Scout1093 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1093/)
+- Beacon Place 0x42E370 87.04 -> 92.94 (keep/beacon_bf4_9294.cpp, shape 99.63): `bool full` flag set in the `slot == -1` arm and tested after the if/else (Scout989 jump threading) puts the found arm after the player ret; left: the break path re-tests `cmp eax,3`; fully threaded forms recolour (this in esi vs the original's ebp). Evaluate_Object 91.81, Fire_At 99.37, Set_Cursor_Pos 78.48, CacheBMP 85.14 unchanged.

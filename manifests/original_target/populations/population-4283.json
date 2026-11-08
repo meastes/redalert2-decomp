@@ -4,8 +4,8 @@
     "id": "population-4283",
     "inventory_sha256": "932e7eea617aad407e52e8beaf1445dfac13b2bb8514370f40a8376a15e3629c",
     "gaps_sha256": "505039293e7b075f1c27bf6adbe450cf099275f160863bddccd80994050c6630",
-    "historical_population_sha256": "3aca6366fb8d5db7b5dc591d5b2adcf4e1f4f1d988fba09b7b521918121111fa",
-    "historical_acceptance_sha256": "830d3ae698eaae3dffdc5716f1f62949b265b90fbe55575c110d197146db507a"
+    "historical_population_sha256": "d016e7e80d7627913c34e4e74b14cc3d485e83c964a163395bbe37f5ffef85fe",
+    "historical_acceptance_sha256": "2dfe35695bbe1c5b0ad93bce90b861b18157979cb1554eab2d602cb84ad7f59b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2387,7 +2387,7 @@
     "?unknown_side_mix_837500@@3PAVMixFileClass@@A": 8615168,
     "?unknown_side_nc_mix_837504@@3PAVMixFileClass@@A": 8615172,
     "?Unknown_007168C0@@YIXH@Z": 7432384,
-    "?Unknown_006F44D0@@YAXXZ": 7292112,
+    "?Unknown_Reload_Art_006F44D0@@YIXXZ": 7292112,
     "?unknown_select_color@@YIXH@Z": 7292320,
     "??_C@_0CP@PBMJ@?5?5?5?5?5FAILED?$CB?5?5This?5was?5not?5disk?5@": 8247696,
     "??_C@_0CD@FHGP@Preparing?5Mixfiles?5for?5Side?5?$CF02d@": 8247660,
@@ -15546,7 +15546,6 @@
     "?Get_Pitch@BulletVelocity@@QBE?AUUnknownFacingDir@@XZ": 4306656,
     "?Query_From@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEJABQAVFootClass@@@Z": 4979744,
     "?Mark@OverlayClass@@UAE_NH@Z": 6138224,
-    "?unknown_4718b0@CellClass@@QAE_NHHH@Z": 4659376,
     "?unknown_slot140@BuildingClass@@UAEHXZ": 4479792,
     "?unknown_slot67@VoxelAnimClass@@UAEXHH@Z": 7393216,
     "?Unknown_0047A130@CellClass@@QAEPAVTubeClass@@XZ": 4694320,
@@ -16070,7 +16069,9 @@
     "?AI@BuildingLightClass@@UAEXXZ": 4405616,
     "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z": 7361520,
     "__real@8@3ffe947ae147ae147800": 8049000,
-    "__real@8@3fe3c8000000c8000000": 8019992
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "?unknown_slot53@BuildingClass@@UAE_NPBUCoordStruct@@H@Z": 4445088,
+    "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112
   },
   "regions": [
     {
@@ -24951,7 +24952,7 @@
         {
           "offset": 639,
           "kind": 20,
-          "symbol": "?Unknown_006F44D0@@YAXXZ",
+          "symbol": "?Unknown_Reload_Art_006F44D0@@YIXXZ",
           "target": 7292112,
           "addend": 0,
           "resolved": 1941277
@@ -25109,7 +25110,7 @@
           "resolved": 4294003927
         }
       ],
-      "source_sha256": "bfb3e8090b139f6f7952a76b6450a4d111cdda586bce08a5889a493947969e79",
+      "source_sha256": "774d347306873293b4c29c00fababa22690250eb3a84b4d27200c17ea85adaed",
       "source": "src/recovered/unowned/Unknown_0051a330_0051a330.cpp",
       "population": "population-4283",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

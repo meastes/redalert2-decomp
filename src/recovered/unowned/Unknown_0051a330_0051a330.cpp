@@ -14,7 +14,7 @@
 // @ref ?unknown_side_nc_mix_837504@@3PAVMixFileClass@@A=00837504
 // @ref ??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@=007d2208
 // @ref ?Unknown_007168C0@@YIXH@Z=007168c0
-// @ref ?Unknown_006F44D0@@YAXXZ=006f44d0
+// @ref ?Unknown_Reload_Art_006F44D0@@YIXXZ=006f44d0
 // @ref ?unknown_select_color@@YIXH@Z=006f45a0
 // @ref ??_C@_0CP@PBMJ@?5?5?5?5?5FAILED?$CB?5?5This?5was?5not?5disk?5@=007dd990
 // @ref ??_C@_0CD@FHGP@Preparing?5Mixfiles?5for?5Side?5?$CF02d@=007dd96c
@@ -76,7 +76,7 @@ bool __fastcall Unknown_0051a330(int side)
         unknown_side_nc_mix_837504 = new MixFileClass(filename, &FastKey);
     }
 
-    Unknown_006F44D0();
+    Unknown_Reload_Art_006F44D0();
     unknown_select_color(side);
 
     CCFileClass file("UI.INI");

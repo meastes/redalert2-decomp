@@ -41,7 +41,7 @@ bool BuildingClass::Mark(int mark)
                         for (y = 0; y < h; y++) {
                             for (x = 0; x < w; x++) {
                                 Cell newcell = cell + Cell(x, y);
-                                if (Map[newcell].unknown_4718b0(Type->SpeedType, (int)Type, (int)House)) {
+                                if (Map[newcell].unknown_4718b0(Type->SpeedType, Type, House)) {
                                     if (Map[newcell].IsoTileIndex != Type->unknown_bf0->ArrayIndex && Map[newcell].unknown_ec != 1) {
                                         CellClass *cptr = &Map[newcell];
                                         if (cptr->SmudgeIndex != -1) {

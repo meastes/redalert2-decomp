@@ -420,7 +420,7 @@ extern unsigned int CustomSeed;
 // Records the side for the interface (stores it at 0x00AD0958; 0x007168C0).
 void __fastcall Unknown_007168C0(int side);
 // Called by Unknown_0051a330 before the side colour is chosen (0x006F44D0).
-void Unknown_006F44D0();
+void __fastcall Unknown_Reload_Art_006F44D0();
 // Copies one of two colours (0 or else) into the interface colour (0x006F45A0).
 void __fastcall unknown_select_color(int which);
 void __fastcall Init_Theater_00519e70(int theater);         // 0x00519E70

@@ -364,7 +364,9 @@ public:
     void Set_Under_Bridge(unsigned facing, bool state);                  // 0x004732D0 (TibSun name: marks the cells one high-bridge deck piece covers; OverlayClass slot 71)
     void Set_Under_Rail_Bridge(unsigned facing, bool state);             // 0x00473700 (TibSun name: the train bridge counterpart; OverlayClass slot 71)
     void Destroy_Bridge();                                               // 0x00473000 (TibSun name hypothesis: called when a bridge flag is cleared)
-    bool unknown_4718b0(int arg1, int arg2, int arg3);                   // 0x004718B0 (whether a wall may be placed; hypothesis)
+    // Whether a building of the type may be placed in the cell for the house (0x004718B0;
+    // TibSun Is_Clear_To_Build).
+    bool unknown_4718b0(int speed, class BuildingTypeClass const *type, class HouseClass *house);
 #ifdef RA2_TACTICAL_PLACEMENT
     bool Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bool drawtrans);   // 0x00473F20 (TibSun name)
 #endif
@@ -391,9 +393,6 @@ public:
     void Unknown_0047CC10();        // 0x0047CC10 (TibSun Kill_Illegal_Occupiers)
     class TubeClass *Unknown_0047A130();   // 0x0047A130 (the cell's tube; TibSun Get_Tunnel)
 #endif
-    // Whether a building of the type may be placed in the cell for the house (0x004718B0;
-    // TibSun Is_Clear_To_Build; declared above with ints).
-    bool unknown_4718b0(int speed, class BuildingTypeClass const *type, class HouseClass *house);
     bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);   // 0x00478760 (unknown_478760 above)
     ObjectClass *Unknown_00471660(Point2D const &point, bool alt, ObjectClass *except) const;   // 0x00471660 (unknown_471660 above)
     CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any, int alt) const;   // 0x004764B0 (int alt)

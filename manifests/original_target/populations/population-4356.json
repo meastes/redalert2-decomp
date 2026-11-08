@@ -4,8 +4,8 @@
     "id": "population-4356",
     "inventory_sha256": "f217dc778b95d385cb628f2c70fd6da280d13129e051e084596c9549edce9062",
     "gaps_sha256": "9ed2f8ffea466304caa17300dae10b757387bf0f11bdff5407d866cc63747bb9",
-    "historical_population_sha256": "8f0c6159d7f3046e8b71349ea80716d3c8750cc05c53edd1eda21611e8313bc8",
-    "historical_acceptance_sha256": "6fed7da6d8f6a91b750a17b4f707c210fbb50dc742ba6786258dc4f0262100fb"
+    "historical_population_sha256": "80cd49af7ef1aff7b5e012221a77a0080b70ad6a0c3fc0764b405a8fa378bd47",
+    "historical_acceptance_sha256": "e4ab6fa100423c261d840e1586d172b92341371e190973addac546e834944576"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1750,7 +1750,7 @@
     "?Draw_Fence_Placement@Tactical@@QAEX_NVCell@@@Z": 6970736,
     "?Draw_Firestorm_Wall_Placement@Tactical@@QAEX_NVCell@@@Z": 6971408,
     "?TransIconset@DisplayClass@@2PBXB": 8726036,
-    "?unknown_4718b0@CellClass@@QAE_NHHH@Z": 4659376,
+    "?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z": 4659376,
     "?unknown_4749c0@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671936,
     "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
     "?Unknown_0041F5E0@@YIXABVRect@@@Z": 4322784,
@@ -10354,7 +10354,7 @@
     "?CustomSeed@@3IA": 10751296,
     "?Seed@@3IA": 10751292,
     "?Unknown_007168C0@@YIXH@Z": 7432384,
-    "?Unknown_006F44D0@@YAXXZ": 7292112,
+    "?Unknown_Reload_Art_006F44D0@@YIXXZ": 7292112,
     "?unknown_map_name_a3d342@@3PAGA": 10736450,
     "?unknown_max_players_a3d558@@3HA": 10736984,
     "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z": 6082608,
@@ -12407,7 +12407,6 @@
     "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z": 7508704,
     "?Create@WDTTerritory@@SI?AV?$rc_ptr@VWDTTerritory@@@@XZ": 7519680,
     "?Pick_Random_Tile_Variant@MapClass@@QAE_NHHHHAA_N_N@Z": 5625408,
-    "?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z": 4659376,
     "?Print@MSFont@@UAEXPAVSurface@@PBGHHH@Z": 5981424,
     "?Draw_Me@TextLabelClass@@UAEHH@Z": 7280160,
     "?Place@SuperClass@@QAEXABVCell@@_N@Z": 6936656,
@@ -13052,7 +13051,8 @@
     "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112,
     "??H?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 6941936,
     "??K?$TPoint3D@H@@QBE?BV0@H@Z": 7182192,
-    "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 4409584
+    "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 4409584,
+    "?Update_All@RadBeam@@SIXXZ": 6509792
   },
   "regions": [
     {
@@ -19876,7 +19876,7 @@
         {
           "offset": 228,
           "kind": 20,
-          "symbol": "?unknown_4718b0@CellClass@@QAE_NHHH@Z",
+          "symbol": "?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z",
           "target": 4659376,
           "addend": 0,
           "resolved": 4292654392
@@ -19978,7 +19978,7 @@
           "resolved": 4292839812
         }
       ],
-      "source_sha256": "f607c8c128eedbfdcb5730bd19f606d82d90648656188f3a467d031d4063a8d8",
+      "source_sha256": "d64707afa7ae42df3b2370e9a95e98d021bf1fe448f3b76df45f0d7df9a672df",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Wall_Placement_006a6290.cpp",
       "population": "population-4356",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -20690,7 +20690,7 @@
         {
           "offset": 201,
           "kind": 20,
-          "symbol": "?unknown_4718b0@CellClass@@QAE_NHHH@Z",
+          "symbol": "?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z",
           "target": 4659376,
           "addend": 0,
           "resolved": 4292655059
@@ -20776,7 +20776,7 @@
           "resolved": 4292840552
         }
       ],
-      "source_sha256": "1f5fdbae3167bad2dcdebcd00b253741994c7452fff723787dd4a86392c1a4f6",
+      "source_sha256": "9db18e907c694a629bbf4a8491594667cf489d4aad7b74dd7422f5096a3e3789",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Firestorm_Wall_Placement_006a6010.cpp",
       "population": "population-4356",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
