@@ -406,7 +406,9 @@ def integrate(config, audit, manifest, destination, library=None):
         (scaffold/(name+'.bin')).write_bytes(section.get_data()[:min(section.Misc_VirtualSize,section.SizeOfRawData)])
     parts, receipts = transferred_parts(audit,manifest)
     import library_build
-    library_parts, library_receipts = library_build.parts(audit, library)
+    library_parts, library_receipts = library_build.parts(audit, library, manifest['accepted'])
+    library_notes = [r for r in library_receipts if 'superseded_by_accepted_source' in r]
+    library_receipts = [r for r in library_receipts if 'entry' in r]
     parts = sorted(parts + library_parts, key=lambda p: p[0])      # .text$VA names sort by address
     container = write_coff(parts)
     discard_receipt = verify_discard_transfer(audit, receipts, parts, container)
@@ -439,7 +441,7 @@ def integrate(config, audit, manifest, destination, library=None):
     if not assembler:
         assembler=subprocess.check_output(['xcrun','--find','clang'],text=True).strip()
     run([assembler,'--target=i686-pc-windows-msvc','-c',str(source),'-o',str(destination/'original.obj')],destination,'assemble')
-    write_json(destination/'integration-receipt.json',dict(regions=receipts, library_regions=library_receipts,
+    write_json(destination/'integration-receipt.json',dict(regions=receipts, library_regions=library_receipts, library_notes=library_notes,
                library_bytes=sum(r['bytes'] for r in library_receipts),
                remaining_text_scaffold_bytes=limit-base-text.VirtualAddress-sum(r['bytes'] for r in receipts)-sum(r['bytes'] for r in library_receipts),
                assembler=assembler,assembler_sha256=sha(Path(assembler).read_bytes())))

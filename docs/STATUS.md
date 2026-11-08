@@ -10,18 +10,18 @@ original code is still scaffold. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members; 100% when done) | **3,434,692 of 3,769,805 (91.11%)** |
+| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members; 100% when done) | **3,436,720 of 3,769,805 (91.16%)** |
 | Accepted regions | 17,892 |
 | Matched C/C++ body bytes | 3,204,135 (84.99% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 1,721 (0.05% of .text) |
 | Frozen padding bytes | 142,648 |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 554 matched) |
-| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP; manifests/original_target/library.json; not source credit) | 86,188 in 507 sections (2.29% of .text) |
+| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 88,216 in 845 sections (2.34% of .text) |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,203,581 of 3,516,032 (91.11%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,852 of 17,987 (99.25%) |
 | Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 125 of 135 scored) | 98.78% by bytes, 99.80% per function |
-| Original .text scaffold bytes | 335,113 |
+| Original .text scaffold bytes | 333,085 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 693 |
 
@@ -2147,6 +2147,8 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `7aa048d43` | 2026-11-07 19:39 -0600 | 17,960 | 3,206,523 | +0 | 0 |
 | `92bb78b03` | 2026-11-07 20:28 -0600 | 17,962 | 3,206,535 | +12 | 15 |
 | `70ec9b4ba` | 2026-11-07 20:33 -0600 | 17,963 | 3,207,269 | +734 | 10,612 |
+| `ab585efa2` | 2026-11-07 20:36 -0600 | 17,892 | 3,204,135 | -3,134 | -58,762 |
+| `d12d1d9d0` | 2026-11-07 20:38 -0600 | 17,892 | 3,204,135 | +0 | 0 |
 
 <!-- /generated:status -->
 

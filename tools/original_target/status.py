@@ -245,7 +245,7 @@ def render(catalog, text, rows, funcs=None, lib=None):
              '| {:,} ({:.2f}% of .text; {:,} matched) |'.format(CRT_START, split['crt'], 100.0 * split['crt'] / text,
                                                               split['crt_matched']),
              ] + ([
-             '| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP; '
+             '| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; '
              'manifests/original_target/library.json; not source credit) | {:,} in {:,} sections ({:.2f}% of .text) |'
              .format(lib['bytes'], lib['sections'], 100.0 * lib['bytes'] / text),
              ] if lib else []) + [

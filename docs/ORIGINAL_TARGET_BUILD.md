@@ -63,6 +63,15 @@ They count under `library_bytes`/`library_regions` in the build receipt and the
 library ledger, never as source credit; the whole-file comparison is unchanged.
 Sections overlapping an accepted source region are left out
 (`skipped_overlapping_accepted`) until that source is retired to the ledger.
+Linker import thunks (`jmp dword ptr [IAT slot]`, 6 bytes each) are identified by
+the import the slot names against the VC98 import library of that DLL: a
+long-format library (OLEAUT32) supplies the thunk as a member section; for a
+short-format import object the linker synthesizes the thunk itself, so the row
+(`kind: linker-import-thunk`) names the import object and the build emits the
+fixed form, checked against the original. Thunks whose import convention differs
+from the VC98 library (WSOCK32 and COMCTL32 were linked against other import
+libraries) and BINKW32's (RAD's library, not on the disc) stay scaffold and are
+listed under `skipped_other`.
 
 ## Commands and acceptance
 
