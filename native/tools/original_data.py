@@ -128,6 +128,39 @@ def record_fields(base):
     return out if 0 < len(out) <= 15 else ''
 
 
+def scalar_record_size(base):
+    """Size of struct `base` when every member is a scalar or a fixed array of
+    scalars (char/short/int/float/double, enums as int; no pointers, no member
+    functions): natural alignment, which VC6 (/Zp8) and arm64 lay out alike, so
+    the original bytes load as they are. Else 0."""
+    m = re.search(r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base), shared_text())
+    if not m:
+        return 0
+    off = 0
+    align = 1
+    for line in m.group(1).split('\n'):
+        line = line.split('//')[0].strip()
+        if not line or line in ('public:', 'private:', 'protected:'):
+            continue
+        f = re.match(r'^([A-Za-z_][\w\s]*?)\s+(\w+)\s*((?:\[\s*(?:0x[0-9A-Fa-f]+|\d+)\s*\])*)\s*;$', line)
+        if not f:
+            return 0
+        t = ' '.join(f.group(1).split())
+        if t in SCALAR_WIDTH and t not in ('long', 'unsigned long', 'LONG'):
+            width = SCALAR_WIDTH[t]
+        elif t in ('long', 'unsigned long', 'LONG') or re.search(r'\benum\s+%s\b' % re.escape(t), shared_text()):
+            width = 4
+        else:
+            return 0
+        count = 1
+        for dim in re.findall(r'\[\s*(0x[0-9A-Fa-f]+|\d+)\s*\]', f.group(3)):
+            count *= int(dim, 0)
+        off = (off + width - 1) & ~(width - 1)
+        off += width * count
+        align = max(align, width)
+    return (off + align - 1) & ~(align - 1) if off else 0
+
+
 def declared_count(name, lines):
     for line in lines:
         m = re.search(r'\b%s\s*\[\s*(\w+)\s*\]' % re.escape(name), line)
@@ -172,11 +205,25 @@ def main():
             if count and width:
                 r['extent'] = max(r['extent'], width * count)
     skipped = []
+    # Names data/address_aliases.tsv binds to another name's storage (one storage
+    # per address): their storage is the other name's, never loaded twice.
+    aliased = set()
+    aliases = ROOT / 'native/data/address_aliases.tsv'
+    if aliases.exists():
+        for line in aliases.read_text().splitlines():
+            f = line.split('\t')
+            if len(f) > 3 and f[3] == 'data':
+                aliased.add(f[0])
+    for sym in [s for s in rows if s in aliased]:
+        del rows[sym]
     for line in TSV.read_text().splitlines():
         if line.startswith('#') or line.startswith('address\t'):
             continue
         addr, section, extent, sym, name, msvc, user = (line.split('\t') + [''] * 7)[:7]
         if sym in rows:
+            continue
+        if sym in aliased:
+            skipped.append(dict(symbol=sym, address=addr, reason='address alias'))
             continue
         decl = declaration(name, index.get(name, []))
         if decl is None:
@@ -222,6 +269,16 @@ def main():
                 skipped.append(dict(symbol=sym, address=addr, reason='pointer struct array without a count'))
                 continue
             shape, extent = 'ptrs', 4 * pointer_struct(base) * count
+        elif stars == 0 and scalar_record_size(base):
+            # A struct of scalars and scalar arrays only (TheaterTypeStruct): the
+            # same layout on both targets, so its bytes load as they are. The
+            # extent is the declared elements, else the TSV extent (an unsized
+            # array runs to the next known symbol).
+            size = scalar_record_size(base)
+            count = declared_count(name, index.get(name, [])) if array else 1
+            if count:
+                extent = size * count
+            shape = 'bytes'
         else:
             skipped.append(dict(symbol=sym, address=addr, reason='shape %s%s%s' % (base, '*' * stars, '[]' if array else '')))
             continue

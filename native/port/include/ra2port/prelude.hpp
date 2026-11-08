@@ -65,6 +65,36 @@ template <class T> struct vector_object_ref {
 };
 template <class T> struct delete_object_arg { typedef T const &type; };
 template <> struct delete_object_arg<int> { typedef vector_object_ref<int> type; };
+
+// An isometric tile image's per-cell record reference (IsoTileImageStruct::Tiles,
+// 4 bytes per cell in the .tem/.sno/... file): the file stores the offset of the
+// cell's record from the image start; VC6 code converts it in place to a 32-bit
+// pointer (Load_Tile_Data 0x0052B560, Read_Control_File 0x00529870) and casts it
+// back ((IsoTileCellStruct *)image->Tiles[i]). A 64-bit pointer does not fit, so
+// natively Resolve stores the record's distance from the slot itself with the
+// high bit set (idempotent, as the original's "already converted" test), a
+// pointer cast returns the record, and the int value still tests against 0.
+struct IsoTileRef {
+    int v;
+    operator int() const { return v; }
+    void *get() const { return v < 0 ? (char *)this + (v & 0x7FFFFFFF) : (void *)0; }
+    template <class T> explicit operator T *() const { return (T *)get(); }
+    void Resolve(void const *base)
+    {
+        if (v > 0) {
+            v = (int)(((char const *)base + v - (char const *)this) | 0x80000000);
+        }
+    }
+};
+static_assert(sizeof(IsoTileRef) == 4, "IsoTileRef keeps the file's 4-byte slot");
+
+// Allocation for the COM class factories' light views (native_units.py RULES):
+// twice the VC6-sized view, room for the real class's arm64 layout.
+struct factory_tag {};
+constexpr factory_tag factory_alloc = {};
 }  // namespace ra2port
+
+inline void *operator new(size_t size, ra2port::factory_tag) { return ::operator new(2 * size); }
+inline void operator delete(void *p, ra2port::factory_tag) { ::operator delete(p); }
 
 #endif

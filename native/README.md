@@ -22,14 +22,21 @@ build/native/ra2-native --data-dir <installation> --run-to=menu   # start-up tes
 `link_closure.py` treats the sanitizer runtime's exports as system symbols. Run
 with `ASAN_OPTIONS=detect_leaks=0:halt_on_error=0:symbolize=0` (in-process
 symbolisation hangs under the SDL host) and symbolise the `ra2-native:arm64+0x...`
-offsets afterwards with `atos -o ra2-native -l 0x100000000`.
+offsets afterwards with `atos -o ra2-native -l 0x100000000` (the printed offset
+already includes the 0x100000000 base). Under the SDL host `lldb` hangs at `run`;
+use the ASan build, `RA2_NATIVE_CRASH_TRACE=1`, the macOS crash report
+(`~/Library/Logs/DiagnosticReports/ra2-native-*.ips`, for SIGTRAP/heap aborts the
+host does not catch) or temporary `dprintf(2, ...)` in a scratch worktree (sources
+are copied into `gen/units` at configure time: reconfigure after editing them).
 
 Full-tree smoke test: all 3,610 original static initialisers run (in `_initterm`
 order), main is reached and prints `initterm: main reached ...`, and exit-time
 destructors complete. Diagnostics: `RA2_NATIVE_INIT_TRACE=1` prints each unit's
 first original initterm index as it starts, `RA2_NATIVE_CRASH_TRACE=1` prints the
 last index and a backtrace on a fault, `RA2_NATIVE_TRAP_CONTINUE=1` lists every
-link-closure trap on the path instead of stopping at the first.
+link-closure trap on the path instead of stopping at the first,
+`RA2_NATIVE_PRESENT_DUMP=<file.bmp>` writes every presented 16-bit primary frame
+there as a 24-bit BMP (the file holds the last one; test runs only).
 
 ## Start-up test runs
 
@@ -70,7 +77,11 @@ file name, or any file name), sets Select_Game's own menu bypass
 interface-art load is skipped while its 19 file names are unsourced (menu art).
 Milestones: `init` (Init_Game succeeded), `scenario` (Start_Scenario loaded the
 map), `frame` (first Main_Loop iteration), `frames` (N of them); notes
-`harness-art`, `harness-map`, `harness-stop`. `--game-args` is WinMain's command
+`harness-art`, `harness-map`, `harness-stop`. With `--skirmish='#0'` (MP02T2.MAP) the
+run reaches `scenario`, `frame` and `frames` (60 checked) without traps; the frames
+render (in-game message text and the mouse cursor; the map stays black because
+the houses get no starting units and are defeated in the first frames: next
+target). `--game-args` is WinMain's command
 line: `-noaudio` skips the audio device, `-CD.` makes every file local (no CD
 check; Parse_Command_Line's `-CD<path>`). The native game skips the CD check
 (user decision 2026-11-08): the host adds `-CD.` unless the command line names
@@ -93,7 +104,9 @@ null). `port/src/original_image.cpp` maps the executable's sections (after
 checking size and SHA-256 against the pinned target) and fills them before
 WinMain (milestone `original-data`; static initialisers run before main and see
 zeros). `RA2_GAME_EXE=<path>` names the supported executable when the
-installation carries another build. Class-typed globals and pointers to
+installation carries another build. Structs of scalars and fixed scalar arrays
+only (TheaterTypeStruct, the track-control tables, GUIDs) load as `bytes`: VC6
+(/Zp8) and arm64 lay them out alike. Other class-typed globals and pointers to
 pointers are not loaded (`--report`).
 
 ## Layers
@@ -186,7 +199,20 @@ pointers are not loaded (`--report`).
 names of class-typed globals and of pointer/scalar arrays bound to the member or
 element at their native offset (a class-typed name at the start of a class-typed
 member is that member), and the native size of every class-typed global and
-array, which `data_globals.py` gives its BSS storage at least.
+array, which `data_globals.py` gives its BSS storage at least. A class defined in
+several headers takes its layout from the header named after it (MouseClass:
+`mouse_class.hpp`, not `map_view.hpp`'s light view). The tool keeps the rows it
+wrote before, so a layout change needs a fresh pass: header-only TSV, rebuild,
+`member_aliases.py --fresh`, `data_globals.py`, `original_data.py`, rebuild, then
+repeat the last three until `bss_globals.cpp` no longer changes.
+   **Light views** (`map_view.hpp`'s screen layers, `house_screen.hpp`'s HouseClass,
+   `unit.hpp`'s house views): their VC6 padding is respelled by `port/fixups.json` to the
+   full classes' arm64 offsets under `#if defined(__LP64__)` (the i686 branch keeps the VC6
+   text for `member_aliases.py`); `link/check_light_views*.cpp` and the behaviour files
+   static_assert both sides. **COM class factories** (`TClassFactory<X>::CreateInstance`,
+   74 rows) allocate their light in-file view through `ra2port::factory_alloc` (twice the
+   VC6 size; `native_units.py` RULES). **IsoTileImageStruct::Tiles** is `ra2port::IsoTileRef`
+   natively (tagged self-relative record offsets instead of 32-bit pointers).
 `member_aliases.cpp`: names of members of class-typed globals (an interior
    address such as 0x00A3D8D8, the session's Scenarios) bound to the member
    through a reference, with a fixup renaming the declaration in the native view.

@@ -6,6 +6,7 @@
 // written from the recovered skirmish dialog (Skirmish_Command 0x006829F0, its
 // 0x617 "start" branch) and Select_Game's own menu bypass (unknown_a40d13).
 #define MULTI_MISSION_ACCESSORS
+#define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS   // Count() for the harness-objects note
 #include "shared/win32_api.hpp"
 #include "shared/session_state.hpp"
 #include "shared/id_source.hpp"
@@ -18,6 +19,9 @@
 #include "shared/unknown_player_entry.hpp"
 #include "shared/unknown_globals.hpp"
 #include "shared/debug_printf.hpp"
+
+class TechnoClass;
+extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.hpp)
 
 extern "C" {
 const char *ra2port_skirmish_map(void);
@@ -185,6 +189,16 @@ bool Native_Select_Game_Seam(bool fade)
     bool started_game = Select_Game(fade);
     if (started_game) {
         ra2port_progress("scenario", unknown_id_source_a3d290->FileName);
+        // What the scenario start made: the technos (0x00A40C20) and the
+        // session's start-unit settings (Create_Units 0x00660320 / the game mode).
+        char made[96] = "technos ";
+        Append_Int(made, Technos.Count(), sizeof made);
+        Append(made, ", UnitCount ", sizeof made);
+        Append_Int(made, unknown_session_a3d298.UnitCount, sizeof made);
+        Append(made, ", bases ", sizeof made);
+        Append_Int(made, unknown_session_a3d298.unknown_bases_20 ? 1 : 0, sizeof made);
+        Append(made, unknown_session_a3d298.Mode ? ", game mode set" : ", no game mode", sizeof made);
+        ra2port_progress("harness-objects", made);
     } else {
         ra2port_progress("harness-stop", "Select_Game returned false: Start_Scenario failed");
     }

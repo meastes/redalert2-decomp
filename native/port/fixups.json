@@ -525,6 +525,174 @@
    "new": "        free((void *)Name);   // NATIVE: the shared Name is char const *",
    "why": "The shared class declares Name char const * (the local view had char *); C++ needs the cast to free it. Same call.",
    "verified": true
+  },
+  {
+   "source": "src/shared/map.hpp",
+   "old": "    void Unknown_00563D80(int index);                   // 0x00563D80\n",
+   "new": "    void Unknown_00563D80(int index);                   // 0x00563D80\n    int Unknown_00564290(struct CellSubzoneStruct *seed, int level, unsigned int id, Rect const &bounds, Cell const &cell);   // 0x00564290 (NATIVE: TibSun Subzone_Span; for the drafts 0x563D80/0x564290)\n",
+   "why": "Declares the unrecovered 0x00564290 (TibSun map.h Subzone_Span, as Scout660's overlay w/h2 map.hpp declares it) so the native drafts of 0x00563D80 (its caller) and 0x00564290 compile. A non-virtual member declaration: no layout or slot change. Move into src/shared with the row.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "    char unknown_010[0x6C - 0x10];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_010[0xB8 - 0x14];   // NATIVE: arm64 offsets of the full MapClass (unknown_6c at 0xB8)\n#else\n    char unknown_010[0x6C - 0x10];\n#endif\n",
+   "why": "Native layout of the light screen-layer views (VC6 offsets kept by the full headers): map_view.hpp places the data other units read by fixed VC6 padding, so on LP64 they land at different offsets from the full classes the Map object (MouseClass, 0x008324E0) is built with (pointer and vector members double). Each pad is respelled with the arm64 distance between the members in the full headers (measured with clang offsetof on the port-rewritten map.hpp/display.hpp/radar.hpp/sidebar.hpp; native/link/behaviour_map_dimensions.cpp static_asserts the full side, this header the light side). Found on the skirmish path: 0x00429A90 read Map.unknown_70 through the view at the wrong offset (garbage counts, bad_alloc). VC6 layout unchanged; native only.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "    char unknown_07c[0x88 - 0x7C];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_07c[0xE8 - 0xCC];   // NATIVE: SubzoneTracking at 0xE8\n#else\n    char unknown_07c[0x88 - 0x7C];\n#endif\n",
+   "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "    char unknown_0d0[0xE8 - 0xD0];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_0d0[0x168 - 0x148];   // NATIVE: MapSize at 0x168\n#else\n    char unknown_0d0[0xE8 - 0xD0];\n#endif\n",
+   "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "    char unknown_07c[0xE8 - 0x7C];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_07c[0x168 - 0xCC];   // NATIVE: MapSize at 0x168\n#else\n    char unknown_07c[0xE8 - 0x7C];\n#endif\n",
+   "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "    char unknown_108[0x120 - 0x108];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_108[0x1A8 - 0x188];   // NATIVE: unknown_120 at 0x1A8\n#else\n    char unknown_108[0x120 - 0x108];\n#endif\n",
+   "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "    char unknown_130[0x11A0 - 0x130];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_130[0x1250 - 0x1B8];   // NATIVE: unknown_11a0 at 0x1250 (full MapClass is 0x1210 bytes)\n#else\n    char unknown_130[0x11A0 - 0x130];\n#endif\n",
+   "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "    char unknown_11c8[0x1220 - 0x11C8];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_11c8[0x12E8 - 0x1284];   // NATIVE: unknown_1220 at 0x12E8\n#else\n    char unknown_11c8[0x1220 - 0x11C8];\n#endif\n",
+   "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "        char unknown_0[0xE64];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n        char unknown_0[0x10C0];   // NATIVE: sizeof(StripClass) on arm64\n#else\n        char unknown_0[0xE64];\n#endif\n",
+   "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_view.hpp",
+   "old": "    char unknown_1238[0x1540 - 0x1238];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_1238[0x16E0 - 0x1308];   // NATIVE: Column at 0x16E0\n#else\n    char unknown_1238[0x1540 - 0x1238];\n#endif\n",
+   "why": "As the first map_view.hpp fixup (native offsets of the full screen layers).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/isometric_tile_type.hpp",
+   "old": "    int Tiles[1];                                       // +0x10 per-cell tile offsets\n",
+   "new": "    ra2port::IsoTileRef Tiles[1];                       // +0x10 per-cell tile offsets (NATIVE: ra2port::IsoTileRef)\n",
+   "why": "IsoTileImageStruct::Tiles holds 4-byte record offsets that VC6 code converts in place to 32-bit pointers (0x0052B560 Load_Tile_Data, 0x00529870 Read_Control_File) and casts back to record pointers in about 15 readers (Cell_Color 0x004712C0, Build_Preview_Tiles 0x0052E3D0, Get_Tile_Image 0x0052DD70, ...). On arm64 the int cast truncates the heap pointer (skirmish fault in 0x0052E3D0). ra2port::IsoTileRef (prelude) keeps the 4-byte slot: Resolve stores a tagged self-relative distance, a pointer cast returns the record, int tests against 0 are unchanged. Native only; VC6 layout and file format unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_isotile.hpp",
+   "old": "    int Tiles[1];                                       // +0x10 per-cell tile offsets, 0 where the cell has no tile\n",
+   "new": "    ra2port::IsoTileRef Tiles[1];                       // +0x10 per-cell tile offsets, 0 where the cell has no tile (NATIVE: ra2port::IsoTileRef)\n",
+   "why": "As isometric_tile_type.hpp's IsoTileImageStruct (the Map units' copy).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Load_Tile_Data_0052b560.cpp",
+   "old": "            if ((unsigned char *)image->Tiles[i] < ptr) {\n                image->Tiles[i] = (int)(ptr + image->Tiles[i]);\n            }\n",
+   "new": "            image->Tiles[i].Resolve(ptr);   // NATIVE: offset -> record reference (ra2port::IsoTileRef; the original's 'not yet a pointer' test is Resolve's)\n",
+   "why": "See the isometric_tile_type.hpp fixup: the in-place offset-to-pointer conversion becomes IsoTileRef::Resolve against the image start.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Read_Control_File_00529870.cpp",
+   "old": "                        void **record = (void **)&mixfile_set->Tiles[j];\n                        if (*record != 0 && (unsigned int)*record < (unsigned int)mixfile_set) {\n                            *record = (void *)((unsigned int)mixfile_set + (unsigned int)*record);\n                        }\n",
+   "new": "                        mixfile_set->Tiles[j].Resolve(mixfile_set);   // NATIVE: ra2port::IsoTileRef (the original converts each 4-byte offset once, through a void ** view)\n",
+   "why": "See the isometric_tile_type.hpp fixup. The original reads and writes each slot through a void ** (4 bytes on x86; 8 natively, which would overwrite the next slot).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_unknown_slot36_00529450.cpp",
+   "old": "    int const *tile = image->Tiles;\n",
+   "new": "    ra2port::IsoTileRef const *tile = image->Tiles;   // NATIVE: the slots' type (each still tested against 0)\n",
+   "why": "See the isometric_tile_type.hpp IsoTileImageStruct fixup: the walk over the 4-byte slots keeps its element type.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/unit.hpp",
+   "old": "    char unknown_000[0x168];\n    DynamicVectorClass<UnitTypeClass *> unknown_168;    // +0x168\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_000[0x188];   // NATIVE: arm64 offset of HouseTypeClass::VeteranUnits\n    DynamicVectorClass<UnitTypeClass *> unknown_168;    // +0x168\n#else\n    char unknown_000[0x168];\n    DynamicVectorClass<UnitTypeClass *> unknown_168;    // +0x168\n#endif\n",
+   "why": "unit.hpp's house views lay HouseClass/HouseTypeClass members by VC6 padding (+0x34 Type, +0x207, HouseTypeClass +0x168 VeteranUnits); on arm64 the full classes put them at 0x58, 0x29B and 0x188 (clang offsetof on the port-rewritten house.hpp/house_type.hpp; static_asserts in native/link/behaviour_scenario.cpp). Skirmish fault: UnitClass 0x006FA400 walked a vector read at the VC6 offset. Native only.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/unit.hpp",
+   "old": "    char unknown_000[0x34];\n    UnknownUnitHouseType *unknown_34;       // +0x34\n    char unknown_038[0x207 - 0x38];\n",
+   "new": "#if defined(__LP64__)   // NATIVE: arm64 offsets of the full classes; the i686 layout (member_aliases.py) keeps the VC6 text\n    char unknown_000[0x58];   // NATIVE: arm64 offset of HouseClass::Type\n    UnknownUnitHouseType *unknown_34;       // +0x34\n    char unknown_038[0x29B - 0x60];   // NATIVE: HouseClass::unknown_207 at 0x29B\n#else\n    char unknown_000[0x34];\n    UnknownUnitHouseType *unknown_34;       // +0x34\n    char unknown_038[0x207 - 0x38];\n#endif\n",
+   "why": "As the first unit.hpp fixup.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/house_screen.hpp",
+   "old": "    char unknown_000[0x30];\n    int ArrayIndex;                     // +0x030 index in Houses (bit in house masks; TechnoClass::Owner)\n    HouseTypeClass *Type;               // +0x034 (strip sort order: Type->Side)\n    char unknown_038[0x68 - 0x38];\n    DynamicVectorClass<UnknownBuilding *> Buildings;    // +0x068 (PowerClass help text; Vector +0x6C, ActiveCount +0x78)\n    char unknown_080[0x130 - 0x80];\n    int unknown_130;                    // +0x130 (TechnoClass constructor)\n    bool unknown_134;                   // +0x134 (as shared/house.hpp)\n    bool unknown_135;                   // +0x135 (as shared/house.hpp; Tactical 0x006AAD70 tests it in the campaign)\n    char unknown_136[0x13D - 0x136];\n    bool unknown_13d;                   // +0x13D (radar: forces mode 1 in multiplayer)\n    char unknown_13e[0x142 - 0x13E];\n    bool FirestormActive;               // +0x142 (TibSun FirestormDefenseActivated; Map 0x00569FB0)\n    char unknown_143[0x154 - 0x143];\n    int unknown_154;                    // +0x154 the current waypoint path (-1)\n    class WaypointPathClass *WaypointPaths[12];   // +0x158 (overlay)\n    bool unknown_188;                   // +0x188 (cleared by MapClass 0x00559F10 / 0x00559FD0)\n    char unknown_189[0x19C - 0x189];\n    DynamicVectorClass<SuperClass *> Supers;    // +0x19C (Vector +0x1A0, ActiveCount +0x1AC)\n    char unknown_1b4[0x206 - 0x1B4];\n    bool unknown_206;                   // +0x206 (Get_Cameo_Data: infantry alt cameo)\n    bool unknown_207;                   // +0x207 (Get_Cameo_Data: unit alt cameo)\n    char unknown_208[0x230 - 0x208];\n    int unknown_230;                    // +0x230 (SidebarClass::AI: the sidebar's +0x4EE5 state follows it being positive)\n    char unknown_234[0x52D0 - 0x234];\n    int PowerOutput;                    // +0x52D0 (power bar help text; hypothesis)\n    int PowerDrain;                     // +0x52D4\n    char unknown_52d8[0x5310 - 0x52D8];\n    int unknown_5310[20];               // +0x5310 per house index: units, infantry, aircraft killed (as shared/house.hpp)\n    int unknown_5360;                   // +0x5360\n    int unknown_5364[20];               // +0x5364 per house index: buildings killed\n    char unknown_53b4[0x53BC - 0x53B4];\n    CoordStruct BaseCenter;             // +0x53BC (as shared/house.hpp)\n    char unknown_53c8[0x5414 - 0x53C8];\n    unsigned int unknown_5414;          // +0x5414 house bits that see this house's sight (TibSun RadarSpied; MapClass 0x00549C50)\n    char unknown_5418[0x56D0 - 0x5418];\n    int unknown_56d0[0x4204];           // +0x56D0 a value per 4 x 4 cell block (MapClass 0x0054E3A0)\n    char IniName[0x15];                 // +0x15EE0 the [Houses] entry value\n    char unknown_15ef5[0x15F16 - 0x15EF5];\n    wchar_t UIName[21];                 // +0x15F16 the type's UIName (radar player list)\n    int ColorSchemeIndex;               // +0x15F40 (as shared/house.hpp)\n",
+   "new": "#if defined(__LP64__)\n    // NATIVE: the full HouseClass's arm64 offsets (port/fixups.json; check_light_views.cpp asserts them).\n    char unknown_000[0x50];\n    int ArrayIndex;                     // +0x030 (native 0x50)\n    char unknown_054[0x58 - 0x54];\n    HouseTypeClass *Type;               // +0x034 (native 0x58)\n    char unknown_038[0xA0 - 0x60];\n    DynamicVectorClass<UnknownBuilding *> Buildings;    // +0x068 (native 0xA0)\n    char unknown_080[0x188 - 0xC0];\n    int unknown_130;                    // +0x130 (native 0x188)\n    bool unknown_134;                   // +0x134\n    bool unknown_135;                   // +0x135\n    char unknown_136[0x195 - 0x18E];\n    bool unknown_13d;                   // +0x13D (native 0x195)\n    char unknown_13e[0x19A - 0x196];\n    bool FirestormActive;               // +0x142 (native 0x19A)\n    char unknown_143[0x1AC - 0x19B];\n    int unknown_154;                    // +0x154 (native 0x1AC)\n    class WaypointPathClass *WaypointPaths[12];   // +0x158 (native 0x1B0)\n    bool unknown_188;                   // +0x188 (native 0x210)\n    char unknown_189[0x228 - 0x211];\n    DynamicVectorClass<SuperClass *> Supers;    // +0x19C (native 0x228)\n    char unknown_1b4[0x29A - 0x248];\n    bool unknown_206;                   // +0x206 (native 0x29A)\n    bool unknown_207;                   // +0x207\n    char unknown_208[0x2C4 - 0x29C];\n    int unknown_230;                    // +0x230 (native 0x2C4)\n    char unknown_234[0x5364 - 0x2C8];\n    int PowerOutput;                    // +0x52D0 (native 0x5364)\n    int PowerDrain;                     // +0x52D4\n    char unknown_52d8[0x53D4 - 0x536C];\n    int unknown_5310[20];               // +0x5310 (native 0x53D4)\n    int unknown_5360;                   // +0x5360\n    int unknown_5364[20];               // +0x5364\n    char unknown_53b4[0x5480 - 0x5478];\n    CoordStruct BaseCenter;             // +0x53BC (native 0x5480)\n    char unknown_53c8[0x54E0 - 0x548C];\n    unsigned int unknown_5414;          // +0x5414 (native 0x54E0)\n    char unknown_5418[0x58A0 - 0x54E4];\n    int unknown_56d0[0x4204];           // +0x56D0 (native 0x58A0)\n    char IniName[0x15];                 // +0x15EE0 (native 0x160B0)\n    char unknown_15ef5[0x160E6 - 0x160C5];\n    wchar_t UIName[21];                 // +0x15F16 (native 0x160E6)\n    int ColorSchemeIndex;               // +0x15F40 (native 0x16110)\n#else\n    char unknown_000[0x30];\n    int ArrayIndex;                     // +0x030 index in Houses (bit in house masks; TechnoClass::Owner)\n    HouseTypeClass *Type;               // +0x034 (strip sort order: Type->Side)\n    char unknown_038[0x68 - 0x38];\n    DynamicVectorClass<UnknownBuilding *> Buildings;    // +0x068 (PowerClass help text; Vector +0x6C, ActiveCount +0x78)\n    char unknown_080[0x130 - 0x80];\n    int unknown_130;                    // +0x130 (TechnoClass constructor)\n    bool unknown_134;                   // +0x134 (as shared/house.hpp)\n    bool unknown_135;                   // +0x135 (as shared/house.hpp; Tactical 0x006AAD70 tests it in the campaign)\n    char unknown_136[0x13D - 0x136];\n    bool unknown_13d;                   // +0x13D (radar: forces mode 1 in multiplayer)\n    char unknown_13e[0x142 - 0x13E];\n    bool FirestormActive;               // +0x142 (TibSun FirestormDefenseActivated; Map 0x00569FB0)\n    char unknown_143[0x154 - 0x143];\n    int unknown_154;                    // +0x154 the current waypoint path (-1)\n    class WaypointPathClass *WaypointPaths[12];   // +0x158 (overlay)\n    bool unknown_188;                   // +0x188 (cleared by MapClass 0x00559F10 / 0x00559FD0)\n    char unknown_189[0x19C - 0x189];\n    DynamicVectorClass<SuperClass *> Supers;    // +0x19C (Vector +0x1A0, ActiveCount +0x1AC)\n    char unknown_1b4[0x206 - 0x1B4];\n    bool unknown_206;                   // +0x206 (Get_Cameo_Data: infantry alt cameo)\n    bool unknown_207;                   // +0x207 (Get_Cameo_Data: unit alt cameo)\n    char unknown_208[0x230 - 0x208];\n    int unknown_230;                    // +0x230 (SidebarClass::AI: the sidebar's +0x4EE5 state follows it being positive)\n    char unknown_234[0x52D0 - 0x234];\n    int PowerOutput;                    // +0x52D0 (power bar help text; hypothesis)\n    int PowerDrain;                     // +0x52D4\n    char unknown_52d8[0x5310 - 0x52D8];\n    int unknown_5310[20];               // +0x5310 per house index: units, infantry, aircraft killed (as shared/house.hpp)\n    int unknown_5360;                   // +0x5360\n    int unknown_5364[20];               // +0x5364 per house index: buildings killed\n    char unknown_53b4[0x53BC - 0x53B4];\n    CoordStruct BaseCenter;             // +0x53BC (as shared/house.hpp)\n    char unknown_53c8[0x5414 - 0x53C8];\n    unsigned int unknown_5414;          // +0x5414 house bits that see this house's sight (TibSun RadarSpied; MapClass 0x00549C50)\n    char unknown_5418[0x56D0 - 0x5418];\n    int unknown_56d0[0x4204];           // +0x56D0 a value per 4 x 4 cell block (MapClass 0x0054E3A0)\n    char IniName[0x15];                 // +0x15EE0 the [Houses] entry value\n    char unknown_15ef5[0x15F16 - 0x15EF5];\n    wchar_t UIName[21];                 // +0x15F16 the type's UIName (radar player list)\n    int ColorSchemeIndex;               // +0x15F40 (as shared/house.hpp)\n#endif\n",
+   "why": "house_screen.hpp's light HouseClass places the members other units read by VC6 padding and computes the IHouse subobject as this + 0x24. On arm64 the full HouseClass (house.hpp) has them elsewhere (AbstractClass is 0x38 bytes, pointers and vectors double): skirmish fault in CreditClass::AI 0x00494650 (As_IHouse()->Available_Money on the wrong subobject). The LP64 branch respells the pads with the full class's arm64 offsets (clang offsetof; asserted on both sides: native/link/check_light_views.cpp and behaviour_scenario.cpp); the i686 branch keeps the VC6 text for member_aliases.py's 32-bit layouts. Native only.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/house_screen.hpp",
+   "old": "    IHouse *As_IHouse() { return reinterpret_cast<IHouse *>(reinterpret_cast<char *>(this) + 0x24); }\n",
+   "new": "#if defined(__LP64__)\n    IHouse *As_IHouse() { return reinterpret_cast<IHouse *>(reinterpret_cast<char *>(this) + 0x38); }   // NATIVE: IHouse follows the 0x38-byte AbstractClass\n#else\n    IHouse *As_IHouse() { return reinterpret_cast<IHouse *>(reinterpret_cast<char *>(this) + 0x24); }\n#endif\n",
+   "why": "As the house_screen.hpp layout fixup: the IHouse base subobject of the full HouseClass is at +0x38 on arm64 (static_assert in check_light_views.cpp).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TechnoClass/TechnoClass_AI_006c74c0.cpp",
+   "old": "namespace seed_00496ce0 { void __fastcall FUN_00496ce0(int timer); }\n",
+   "new": "namespace seed_00496ce0 { void __fastcall FUN_00496ce0(int timer); }\nvoid Native_Timed_Finish_00496ce0(UnknownTimed *timed);   // NATIVE: native/link/behaviour_frame.cpp\n",
+   "why": "TechnoClass::AI 0x006C74C0 calls the unrecovered 0x00496CE0 (UnknownTimed: ends a finished timed change) through its seed with the object address cast to int, which truncates on arm64. Natively the call goes to a behaviour-written body taking the pointer (same operation, the seed's logic).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TechnoClass/TechnoClass_AI_006c74c0.cpp",
+   "old": "seed_00496ce0::FUN_00496ce0(reinterpret_cast<int>(&unknown_2a8));",
+   "new": "Native_Timed_Finish_00496ce0(&unknown_2a8);   /* NATIVE: was seed_00496ce0::FUN_00496ce0(reinterpret_cast<int>(&unknown_2a8)) */",
+   "why": "See the declaration fixup above (pointer kept whole).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_unknown_slot101_004453b0.cpp",
+   "old": "struct UnknownBuildingCellArg {\n    char unknown_00[0x24];\n",
+   "new": "struct UnknownBuildingCellArg {\n#if defined(__LP64__)\n    char unknown_00[0x32];   // NATIVE: CellClass::MapCoords is at +0x32 on arm64 (in AbstractClass's tail padding; static_assert in behaviour_map_dimensions.cpp)\n#else\n    char unknown_00[0x24];\n#endif\n",
+   "why": "The cell argument's view places MapCoords at the VC6 +0x24 (after the 0x24-byte AbstractClass); natively CellClass::MapCoords is at +0x32 (clang places it in AbstractClass's tail padding), so the view read garbage cells (the ASan skirmish run placed map buildings through BuildingClass slot 101 at wrong cells). Native only.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TerrainClass/TerrainClass_unknown_slot101_006e3cb0.cpp",
+   "old": "struct UnknownTerrainCellArg {\n    char unknown_00[0x24];\n",
+   "new": "struct UnknownTerrainCellArg {\n#if defined(__LP64__)\n    char unknown_00[0x32];   // NATIVE: CellClass::MapCoords is at +0x32 on arm64 (in AbstractClass's tail padding; static_assert in behaviour_map_dimensions.cpp)\n#else\n    char unknown_00[0x24];\n#endif\n",
+   "why": "The cell argument's view places MapCoords at the VC6 +0x24 (after the 0x24-byte AbstractClass); natively CellClass::MapCoords is at +0x32 (clang places it in AbstractClass's tail padding), so the view read garbage cells (the ASan skirmish run placed map buildings through BuildingClass slot 101 at wrong cells). Native only.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/cell_class.hpp",
+   "old": "#ifdef RA2_SHIP_CELL_ACCESSORS\n    // Native ShipProcess retains the address of MapCoords through the comparison.\n",
+   "new": "#ifndef RA2_CELL_MAP_VIEW\n    bool unknown_4718b0(int speed, class BuildingTypeClass const *type, class HouseClass *house);   // NATIVE: 0x004718B0 (the Map view's declaration, for the Cell unit's draft native/drafts/004718b0.cpp)\n#endif\n#ifdef RA2_SHIP_CELL_ACCESSORS\n    // Native ShipProcess retains the address of MapCoords through the comparison.\n",
+   "why": "Declares Is_Clear_To_Build 0x004718B0 with the Map view's signature in every unit (a member function declaration: no layout change), so its adapted draft can live in the Cell unit as Scout998 scored it. The draft's overlay h2 declared it there.",
+   "verified": false
   }
  ]
 }

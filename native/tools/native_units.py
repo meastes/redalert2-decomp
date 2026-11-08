@@ -48,6 +48,14 @@ SUBSYSTEMS = {
 LONG_PROTECT = [(re.compile(r'\blong(\s+)long\b'), 'RA2_LL_PLACEHOLDER'),
                 (re.compile(r'\blong(\s+)double\b'), 'RA2_LD_PLACEHOLDER')]
 RULES = [
+    # COM class factories (TClassFactory<X>::CreateInstance, 74 accepted rows)
+    # allocate X through a light in-file view padded to the VC6 size; the real
+    # constructor then fills the arm64 layout, which is larger (pointers and
+    # vectors double). The native view allocates through ra2port::factory_tag
+    # (prelude: twice the light size, the same LP64 bound data_globals uses);
+    # the constructor call and its arguments are unchanged.
+    (re.compile(r'(TClassFactory<(\w+)>::CreateInstance\b(?:(?!TClassFactory<)[\s\S])*?)\bnew \2\('),
+     r'\1new (ra2port::factory_alloc) \2('),
     # The dialog's DWL_USER slot (index 8) carries a pointer (`(LONG)&result`,
     # `(LONG)this`; read back as `(int *)GetWindowLongA(window, 8)`). A 32-bit
     # LONG truncates it on LP64: the native view stores and reads the pointer

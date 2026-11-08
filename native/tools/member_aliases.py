@@ -255,6 +255,11 @@ def main():
         for m in re.finditer(r'^\s*(?:class|struct)\s+(?:__declspec\(\w+\)\s+)?([A-Za-z_]\w*)\s*(?::[^;{]*)?\{',
                              h.read_text(errors='replace'), re.M):
             class_header.setdefault(m.group(1), h.name)
+            # A class defined in several headers (light views such as map_view.hpp's
+            # screen layers): the header named after the class holds the full layout
+            # (MouseClass -> mouse_class.hpp), which the object is built with.
+            if h.stem == re.sub(r'(?<!^)(?=[A-Z])', '_', m.group(1)).lower():
+                class_header[m.group(1)] = h.name
     owners, header_types = [], {}
     skipped_owners = []
     for n in names.values():

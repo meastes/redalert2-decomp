@@ -1,0 +1,131 @@
+// Set_Map_Dimensions support (Scout1089; skirmish harness, Read_Scenario_INI ->
+// RadarClass slot 28): the RadarClass thunk to MapClass's slot 28 and the
+// real-layout accessors the adapted draft native/drafts/005484e0.cpp calls in
+// place of its overlay's stand-in members. NOT EXACT; never original code or bytes.
+#define RA2_CELL_FULL_ASSIGN   // as the Map unit: declares Set_CellID (same layout)
+#include "shared/map_cell.hpp"   // the Map units' view: declares Set_CellID (first: later headers bring the plain class)
+#include "shared/map.hpp"
+#include "shared/radar.hpp"
+#include "shared/object.hpp"
+#include "shared/anim.hpp"
+#include "shared/particle_system.hpp"
+#include "shared/sidebar.hpp"
+#include "shared/building_type_class.hpp"
+#include <cstddef>
+
+// The arm64 offsets the light views of shared/map_view.hpp are respelled to
+// (port/fixups.json; check_map_view_layout.cpp asserts the light side).
+static_assert(offsetof(MapClass, unknown_6c) == 0xB8, "full MapClass::unknown_6c");
+static_assert(offsetof(MapClass, unknown_70) == 0xC0, "full MapClass::unknown_70");
+static_assert(offsetof(MapClass, SubzoneTracking) == 0xE8, "full MapClass::SubzoneTracking");
+static_assert(offsetof(MapClass, MapSize) == 0x168, "full MapClass::MapSize");
+static_assert(offsetof(MapClass, MapLocalSize) == 0x178, "full MapClass::MapLocalSize");
+static_assert(offsetof(MapClass, unknown_120) == 0x1A8, "full MapClass::unknown_120");
+static_assert(sizeof(MapClass) == 0x1210, "full MapClass");
+static_assert(offsetof(DisplayClass, unknown_11a0) == 0x1250, "full DisplayClass::unknown_11a0");
+static_assert(offsetof(DisplayClass, unknown_11b4) == 0x126C, "full DisplayClass::unknown_11b4");
+static_assert(offsetof(RadarClass, unknown_11b8) == 0x1270, "full RadarClass::unknown_11b8");
+static_assert(offsetof(RadarClass, unknown_1220) == 0x12E8, "full RadarClass::unknown_1220");
+static_assert(offsetof(SidebarClass, Column) == 0x16E0, "full SidebarClass::Column");
+static_assert(sizeof(SidebarClass::StripClass) == 0x10C0, "full StripClass");
+static_assert(offsetof(CellClass, MapCoords) == 0x32, "Building/Terrain slot 101 cell views (port/fixups.json)");
+
+// 0x00630300 RadarClass::unknown_slot28 (the accepted leaf src/recovered/classes/
+// RadarClass/00630300.cpp passes its four arguments on to the target unchanged;
+// radar.hpp: "thunk passing the four arguments on to MapClass's"): MapClass's
+// slot 28, Set_Map_Dimensions 0x005484E0, called non-virtually.
+void RadarClass::unknown_slot28(Rect const *rect, bool arg2, int arg3, bool arg4)
+{
+    MapClass::unknown_slot28(rect, arg2, arg3, arg4);
+}
+
+// The draft's stand-in reads, on the real classes (TibSun map.cpp Set_Map_Dimensions:
+// Get_Coord, PositionCell, anim->xObject, ParticleSystemClass Class->Behaves_Like()).
+
+// ObjectClass +0x88 Coord (object.hpp Position_Coord_004f3f40).
+CoordStruct ra2native_object_coord_5484e0(ObjectClass const *object)
+{
+    return object->Position_Coord_004f3f40();
+}
+
+// ObjectClass slot 104 (+0x1A0, 0x0041B320): the object's cell.
+Cell ra2native_object_cell_5484e0(ObjectClass const *object)
+{
+    return object->unknown_slot104();
+}
+
+// AnimClass +0xB4: the object the animation is attached to.
+bool ra2native_anim_attached_5484e0(ObjectClass const *anim)
+{
+    return static_cast<AnimClass const *>(anim)->unknown_b4 != 0;
+}
+
+// A particle system (Kind_Of 0x18) whose type's BehavesLike (+0x284) is 1 (Gas).
+bool ra2native_is_gas_system_5484e0(ObjectClass const *object)
+{
+    return static_cast<ParticleSystemClass const *>(object)->Class->BehavesLike == 1;
+}
+
+// 0x0047A450 CellClass::Set_CellID (TibSun cell.h Set_CellID; the row's leaf
+// src/recovered/0047a450.cpp copies the 4-byte cell into +0x24): MapCoords = cell.
+void CellClass::Set_CellID(Cell const &cell)
+{
+    MapCoords = cell;
+}
+
+// 0x0047C2E0 CellClass::unknown_47c2e0 (seed src/recovered/0047c2e0.cpp; TibSun
+// Is_Sensed): whether the house's sensor count (+0x7C, a short per house) is
+// positive. techno.hpp's cell view UnknownCellClass names the same function.
+bool CellClass::unknown_47c2e0(int house) const
+{
+    return unknown_7c[house] > 0;
+}
+
+class UnknownCellClass {
+public:
+    bool unknown_47c2e0(int house);     // 0x0047C2E0 (as shared/techno.hpp's view)
+};
+
+bool UnknownCellClass::unknown_47c2e0(int house)
+{
+    return ((CellClass const *)this)->unknown_47c2e0(house);
+}
+
+// 0x00633130 (leaf src/recovered/00633130.cpp): whether the radar is on (+0x14D4).
+bool RadarClass::Unknown_00633130()
+{
+    return unknown_14d4;
+}
+
+// 0x00633140 (seed src/recovered/00633140.cpp): turns the radar on or off. On a
+// change it stores the state, reports it (Debug_Printf 0x004068F0, empty in the
+// original), and activates or deactivates it with sound (0x00632F30) in mode 1,
+// else switches to mode 1 with sound (0x00633000).
+void RadarClass::Unknown_00633140(bool on)
+{
+    if (unknown_14d4 != on) {
+        unknown_14d4 = on;
+        if (unknown_14ac == 1) {
+            Unknown_00632F30(on, true);
+            return;
+        }
+        Unknown_00633000(1, true);
+    }
+}
+
+// 0x004718B0 under object.hpp's placement view (TechnoTypeClass slot 42 and
+// BuildingClass/TerrainClass slot 101 call it on Map[cell]): the cell's
+// Is_Clear_To_Build, carried as the adapted draft native/drafts/004718b0.cpp
+// (CellClass::unknown_4718b0; the type is a BuildingTypeClass there).
+bool UnknownPlacementCellView::Unknown_004718B0(int speed, TechnoTypeClass const *type, HouseClass *house)
+{
+    return ((CellClass *)this)->unknown_4718b0(speed, (BuildingTypeClass const *)type, house);
+}
+
+// 0x006328D0 (leaf src/recovered/006328d0.cpp): the radar dot offsets of a
+// building type's foundation, element Foundation (+0xC78) of the 22 vectors at
+// +0x1274 (built by 0x00632700).
+DynamicVectorClass<Point2D> *RadarClass::Unknown_006328D0(BuildingTypeClass *type)
+{
+    return &unknown_1274[type->Foundation];
+}

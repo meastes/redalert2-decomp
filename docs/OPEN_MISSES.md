@@ -3163,3 +3163,6 @@ New rulings are recorded at their rows as before.
 ## Scout1088 (2026-11-08, closed; LANDED RadBeam Update_All 0x6354E0 459 B (8a57ab050); NOTES, keep/ in build/class-work/Scout1088/)
 - Closed with the scratch-cursor rule: `int total = RadBeamList::Array.Count();` read once and used by both loops (a two-use value takes first-free). OWNER DECISION: the accepted 0x635E00 is rewritten from `return ++unknown_6c >= Period;` to `unknown_6c++; return unknown_6c >= Period;` (TibSun's shape; same bytes for that row, keeps it out of line in Update_All as in the original); accepted as evidenced by TibSun although the YR twin uses `++`.
 - IonBlast One_Time 89.61 (row's register does not follow the cursor), Fire_At 0x6CA890 99.37 (0x11E1 = fire_coord.Y first-free in the original; best partial 95.47; the 0x170A Add orientation still blocks).
+
+## Scout1090 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1090/)
+- Only two rows fit the scratch-only filter. Evaluate_Object 0x6C5570 91.81: the single 0x40 `method&` site decides the method web (replacing just that read with a global gives loose 99.89, shape 100); no natural form keeps the 0x901 test out of the web. Area_Modify 0x6C5270 96.38: probes alias the Cell const & loads; site-4 order recorded.

@@ -123,6 +123,34 @@ struct Surface {
 
     ULONG refs = 1;
     LONG width = 0, height = 0, pitch = 0, bytes = 2;
+    // RA2_NATIVE_PRESENT_DUMP=<file.bmp>: every presented 16-bit (RGB565) frame
+    // is written there as a 24-bit BMP (overwritten each time, so the file holds
+    // the last frame; test runs only).
+    void dump_presented()
+    {
+        const char *path = getenv("RA2_NATIVE_PRESENT_DUMP");
+        if (!path || !*path || bytes != 2 || width <= 0 || height <= 0) return;
+        FILE *f = fopen(path, "wb");
+        if (!f) return;
+        uint32_t row = ((uint32_t)width * 3 + 3) & ~3u, size = 54 + row * (uint32_t)height;
+        unsigned char h[54] = {'B', 'M'};
+        auto put32 = [&](int at, uint32_t v) { for (int i = 0; i < 4; ++i) h[at + i] = (unsigned char)(v >> (8 * i)); };
+        put32(2, size); put32(10, 54); put32(14, 40); put32(18, (uint32_t)width); put32(22, (uint32_t)height);
+        h[26] = 1; h[28] = 24; put32(34, row * (uint32_t)height);
+        fwrite(h, 1, 54, f);
+        std::vector<unsigned char> line(row, 0);
+        for (LONG y = height - 1; y >= 0; --y) {
+            const uint16_t *src = (const uint16_t *)(pixels.data() + (size_t)y * pitch);
+            for (LONG x = 0; x < width; ++x) {
+                uint16_t c = src[x];
+                line[x * 3 + 0] = (unsigned char)((c & 0x1F) << 3);
+                line[x * 3 + 1] = (unsigned char)(((c >> 5) & 0x3F) << 2);
+                line[x * 3 + 2] = (unsigned char)(((c >> 11) & 0x1F) << 3);
+            }
+            fwrite(line.data(), 1, row, f);
+        }
+        fclose(f);
+    }
     DWORD caps = 0, colorkey = 0;
     bool primary = false;
     Clipper *clipper = nullptr;
@@ -180,6 +208,7 @@ struct Surface {
     void present()
     {
         if (host() && host()->present) host()->present(pixels.data(), (int)width, (int)height, (int)pitch, (int)bytes * 8);
+        dump_presented();
         char detail[64];
         snprintf(detail, sizeof detail, "%dx%d %d bpp", (int)width, (int)height, (int)bytes * 8);
         progress("present", detail);
