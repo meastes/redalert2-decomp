@@ -3132,3 +3132,6 @@ New rulings are recorded at their rows as before.
 ## Scout1071 (2026-11-08, closed; 0 B; NOTES, c/, ov/ in build/class-work/Scout1071/)
 - Draw_Placement_Cursor 0x473F20: no Find_Object form serves both the cursor and Closest_Free_Spot 0x4764B0 (the cursor's budget at the call is lower than Closest's site-2 budget). Closest needs ~30 IL of real charged work before Get_Gate site 1 (Spot_Index +30 IL works, Get_Gate +16 works), or extra pending sites after site 2; no natural form found (TibSun/YR text has the same shape). Get_Gate rename (unknown_476750 -> BuildingClass *Get_Gate() const) simulated: safe, Closest exact with HEAD Find_Object; spec details in NOTES (not written: renames land only with bytes).
 - OWNER DECISION: parked; resume only with a real charged helper or site in Closest.
+
+## Scout1073 (2026-11-08, closed; 0 B; NOTES, w/ in build/class-work/Scout1073/)
+- Net2SetHouseAndColor 0x5BCCF0 86.25 parked: a one-use weight tie between name and country (not count-driven); lab forms give the whole allocation but drop or move real code (declaring `entry = slots[slot]` before the second Find reaches 97.76 with the entry load early). Reduce_Tiberium 0x475DB0 76.24 parked: the surrounding code decides the Union result's colouring order (Reduce_Wall 0x475FE0 has the same Union text and is exact). RadBeam 0x635C30 not worked (scheduler).
