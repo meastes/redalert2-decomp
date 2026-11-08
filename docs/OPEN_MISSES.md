@@ -3135,3 +3135,6 @@ New rulings are recorded at their rows as before.
 
 ## Scout1073 (2026-11-08, closed; 0 B; NOTES, w/ in build/class-work/Scout1073/)
 - Net2SetHouseAndColor 0x5BCCF0 86.25 parked: a one-use weight tie between name and country (not count-driven); lab forms give the whole allocation but drop or move real code (declaring `entry = slots[slot]` before the second Find reaches 97.76 with the entry load early). Reduce_Tiberium 0x475DB0 76.24 parked: the surrounding code decides the Union result's colouring order (Reduce_Wall 0x475FE0 has the same Union text and is exact). RadBeam 0x635C30 not worked (scheduler).
+
+## Scout1074 (2026-11-08, closed; LANDED StripClass draw 0x67F800 2,741 B + 16 B table; NOTES in build/class-work/Scout1074/)
+- Mechanism recorded in VC6_MATCHING_NOTES (named constant local). Misses: Mouse_Left_Up 0x49B0F0 61.75 (original merges identical switch blocks), OwnerDraw 0x5E8130 49.20 and 0x5E8720 48.71 (caller inline budget; 0x5E8720 needs body_bytes 1136), Sidebar AI 0x67DC90 skipped. 0x68CCE0 99.37 (one swapped reload at the outer-loop exit).
