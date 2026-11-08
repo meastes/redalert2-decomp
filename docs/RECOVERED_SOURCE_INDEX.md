@@ -6,7 +6,7 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| [unowned](../src/recovered/unowned/) | 1400 | 434,035 | 1400 | 0x00401000–0x0077A940 |
+| [unowned](../src/recovered/unowned/) | 1404 | 434,086 | 1404 | 0x00401000–0x0077A940 |
 | [classes/MapClass](../src/recovered/classes/MapClass/) | 214 | 127,804 | 214 | 0x0049ED10–0x0056A9D0 |
 | [classes/BuildingClass](../src/recovered/classes/BuildingClass/) | 200 | 91,643 | 200 | 0x00438A60–0x004D3450 |
 | [classes/HouseClass](../src/recovered/classes/HouseClass/) | 214 | 84,401 | 214 | 0x004D3590–0x004F8EF0 |
@@ -22,7 +22,7 @@
 | [classes/InfantryClass](../src/recovered/classes/InfantryClass/) | 92 | 34,203 | 92 | 0x004D3390–0x00509810 |
 | [classes/MapRegionClass](../src/recovered/classes/MapRegionClass/) | 50 | 32,850 | 50 | 0x0056D530–0x0058DA70 |
 | [classes/AircraftClass](../src/recovered/classes/AircraftClass/) | 87 | 30,616 | 87 | 0x004139F0–0x004D34D0 |
-| (discovery: address-named) | 1096 | 30,159 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 1092 | 30,108 | 17 | 0x004010A0–0x00793976 |
 | [VQA32](../src/recovered/VQA32/) | 81 | 29,339 | 81 | 0x00776380–0x0077E9E0 |
 | [classes/UnknownIDSource](../src/recovered/classes/UnknownIDSource/) | 51 | 29,041 | 51 | 0x0065B4F0–0x00663440 |
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 94 | 0x004D3690–0x006BE740 |
@@ -49,7 +49,7 @@
 | [classes/ScoreClass](../src/recovered/classes/ScoreClass/) | 18 | 14,254 | 18 | 0x00663FE0–0x006677F0 |
 | [classes/HoverLocomotionClass](../src/recovered/classes/HoverLocomotionClass/) | 35 | 13,615 | 35 | 0x004FB8D0–0x004FEED0 |
 | [classes/UnknownPathEstimator](../src/recovered/classes/UnknownPathEstimator/) | 27 | 12,892 | 27 | 0x00427060–0x0042AD50 |
-| [classes/ObjectClass](../src/recovered/classes/ObjectClass/) | 129 | 12,425 | 105 | 0x0041B240–0x005D5540 |
+| [classes/ObjectClass](../src/recovered/classes/ObjectClass/) | 129 | 12,425 | 106 | 0x0041B240–0x005D5540 |
 | [classes/AnimClass](../src/recovered/classes/AnimClass/) | 43 | 11,749 | 43 | 0x00420110–0x004D44D0 |
 | [classes/VeinholeMonsterClass](../src/recovered/classes/VeinholeMonsterClass/) | 32 | 11,618 | 32 | 0x0070F780–0x00712730 |
 | [classes/WorldDominationTour__Selection](../src/recovered/classes/WorldDominationTour__Selection/) | 32 | 11,346 | 31 | 0x0072D560–0x00730290 |
