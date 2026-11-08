@@ -38,7 +38,11 @@ const char *const ORDER[] = {
     "surfaces",   // an off-screen surface after the primary (Allocate_Surfaces)
     "dialog",     // the first dialog requested (owner-drawn menus: templates)
     "present",    // the first frame presented
+    "init",       // Init_Game returned success (Main_Game goes on to Select_Game)
     "menu",       // the main menu shown (not detected yet: a dialog, blocked with the templates)
+    "scenario",   // --skirmish: Start_Scenario loaded the map (Select_Game returned true)
+    "frame",      // --skirmish: the first Main_Loop iteration returned
+    "frames",     // --skirmish: --skirmish-frames=N iterations returned
 };
 const int ORDER_COUNT = sizeof(ORDER) / sizeof(ORDER[0]);
 
@@ -201,6 +205,20 @@ void ra2port_run_to(const char *target, int seconds)
 }
 
 int ra2port_run_active(void) { return ra2port::state().active ? 1 : 0; }
+
+// Milestones reported from the dialect side (native/link/harness_skirmish.cpp).
+void ra2port_progress(const char *milestone, const char *detail) { ra2port::progress(milestone, detail); }
+
+// --skirmish=<map> [--skirmish-frames=N] (platform/sdl/main.cpp): the test
+// harness that starts a skirmish without the menu dialogs.
+namespace { const char *skirmish_map = nullptr; int skirmish_frames = 1; }
+void ra2port_set_skirmish(const char *map, int frames)
+{
+    skirmish_map = map;
+    skirmish_frames = frames > 0 ? frames : 1;
+}
+const char *ra2port_skirmish_map(void) { return skirmish_map; }
+int ra2port_skirmish_frames(void) { return skirmish_frames; }
 
 // The run ended another way (WinMain returned): print the summary.
 void ra2port_run_end(const char *why)

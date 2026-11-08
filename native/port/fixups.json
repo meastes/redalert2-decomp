@@ -322,6 +322,104 @@
    "new": "    // NATIVE: the evidenced inline-assembly exception-return capture (TibSun conquer.cpp)\n    // records esp/ebp/resume address for the Win32 SEH handler; there is no SEH\n    // natively, so the values stay 0 and only the debug prints read them.\n",
    "why": "Main_Game 0x00481BF0 is accepted with the author's evidenced inline assembly (x86 registers). Natively nothing resumes through ExceptionReturn*: WinMain's native adaptation has no __try/__except, so the capture is dropped and the rest of the accepted body is compiled as is.",
    "verified": false
+  },
+  {
+   "source": "src/shared/pcx_cache.hpp",
+   "old": "#ifdef PCX_CACHE_DECLARE_DRAWS",
+   "new": "#if 1 // native: PCX_CACHE_DECLARE_DRAWS (declaration only; draft 0x68CCE0 defines it)",
+   "why": "The declaration of UnknownBitmapWriter::Draw_0068cce0 is guarded so the exact build's fragile units see no extra member; natively a declaration changes no code, and the launch-path draft 0x0068CCE0 (owner-draw scroll bar/trackbar/button callers) needs it.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/dsurface.hpp",
+   "old": "#ifdef RA2_DSURFACE_DRAW_TRAIL_LINE",
+   "new": "#if 1 // native: RA2_DSURFACE_DRAW_TRAIL_LINE (declaration only; draft 0x4AE9C0)",
+   "why": "Declaration-only guard (the exact build declares DSurface::Draw_Trail_Line_4AE9C0 only in the LineTrail unit); natively a declaration changes no code and the launch-path draft 0x004AE9C0 (LineTrail::Draw 0x005395C0) defines it.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/isometric_tile_type.hpp",
+   "old": "        int arg7, int arg8, int arg9, int arg10, int arg11, int arg12, int arg13, int arg14);\n",
+   "new": "        int arg7, int arg8, int arg9, int arg10, int arg11, int arg12, int arg13, int arg14);\n    // native: the draft 0x0052C230's own spelling of the same entry (TibSun Draw_Tile).\n    void Draw_Tile(LightConvertClass *drawer, int subtile, Surface &surface, int x, int y, Rect cliprect, int height,\n        int brightness, bool use_z, int cell_variation, bool fill, bool depth_only, bool fog, signed int fog_color) const;\n",
+   "why": "Declaration of the launch-path draft 0x0052C230's TibSun spelling (Draw_Tile); the draft adapts the callers' unknown_func_52c230 view to it (VC6 passed each bool in a 32-bit slot, the callee reads the low byte; Surface & and Surface * are the same pointer). A declaration changes no code.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/tactical.hpp",
+   "old": "    void Draw_Tiles(Rect const &area, Rect const &cliprect);\n",
+   "new": "    void Draw_Tiles(Rect const &area, Rect const &cliprect);\n    // native: ore/gem glints (0x006A7E80, launch-path draft; caller Tactical::Render 0x006A45A0).\n    void Draw_Pixel_Effects(Rect const &area, Rect const &cliprect);\n",
+   "why": "Declaration for the launch-path draft 0x006A7E80 (its lane declared it in a private overlay); a declaration changes no code.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "    int unknown_6c4a70(ObjectClass *other);                     // 0x006C4A70\n",
+   "new": "    int unknown_6c4a70(ObjectClass *other);                     // 0x006C4A70\n    double unknown_6c5270(Cell const &cell);                    // native: 0x006C5270 (launch-path draft; caller 0x006C5570)\n",
+   "why": "Declaration for the launch-path draft 0x006C5270 (fire-suppression factor), called by the draft 0x006C5570; its lane declared it in a private overlay. A declaration changes no code.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/bounce.hpp",
+   "old": "#ifdef RA2_BOUNCE_DECLARE_MEMBERS\n",
+   "new": "#if 1 // native: RA2_BOUNCE_DECLARE_MEMBERS (declarations only; drafts 0x0070C800, 0x004370E0)\n",
+   "why": "Declaration-only guard: the BounceClass unit's members (TibSun bounce.cpp) are declared only in the exact build's Bounce unit. Natively declarations change no code; the launch-path drafts VoxelAnimClass ctor 0x0070C800 (calls BounceClass::Init) and BounceClass::AI 0x004370E0 need them.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/cell_class.hpp",
+   "old": "#ifdef RA2_TACTICAL_PLACEMENT\n    bool Draw_Placement_Cursor(",
+   "new": "#if 1 // native: RA2_TACTICAL_PLACEMENT (declaration only; draft 0x00473F20)\n    bool Draw_Placement_Cursor(",
+   "why": "Declaration-only guard; natively a declaration changes no code and the launch-path draft CellClass::Draw_Placement_Cursor 0x00473F20 (Tactical::Draw_Placement 0x006A5670) defines it.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Main_Game_00481bf0.cpp",
+   "old": "bool __fastcall Select_Game(bool fade);                 // 0x005135F0\n",
+   "new": "bool __fastcall Select_Game(bool fade);                 // 0x005135F0\n// native: test-harness seams (native/link/harness_skirmish.cpp); without --skirmish they call Select_Game / Main_Loop.\nbool Native_Select_Game_Seam(bool fade);\nbool Native_Main_Loop_Seam();\n",
+   "why": "Test-harness seam (README 'Skirmish harness'): Main_Game's Select_Game and Main_Loop (unknown_53fbd0) calls go through native seams that call them unchanged unless ra2-native runs with --skirmish, which starts a skirmish without the menu dialogs and counts frames. Native-only; the exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Main_Game_00481bf0.cpp",
+   "old": "    while (Select_Game(fade)) {",
+   "new": "    while (Native_Select_Game_Seam(fade)) {",
+   "why": "Seam call (see the declaration fixup above).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Main_Game_00481bf0.cpp",
+   "old": "            if (unknown_53fbd0()) {",
+   "new": "            if (Native_Main_Loop_Seam()) {",
+   "why": "Seam call (see the declaration fixup above).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Init_Game_005116a0.cpp",
+   "old": "void __fastcall Unknown_006F1B60();                     // 0x006F1B60\n",
+   "new": "void __fastcall Unknown_006F1B60();                     // 0x006F1B60\nvoid Native_Interface_Art_Seam();                       // native: test-harness seam (native/link/harness_skirmish.cpp)\n",
+   "why": "Test-harness seam: Bootstrap's interface-art load (0x006F1B60) goes through a native seam that calls it unchanged, except under --skirmish while its 19 file names are unsourced data (null), where the menu-only art is skipped and the run notes it.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Init_Game_005116a0.cpp",
+   "old": "    Unknown_006F1B60();\n    Audio_Init",
+   "new": "    Native_Interface_Art_Seam();\n    Audio_Init",
+   "why": "Seam call (see the declaration fixup above).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_run_716f40_00716f40.cpp",
+   "old": "    UnknownWorker_716f40 worker(unknown_buffer_ae3008, unknown_buffer_af4608);\n    int result = worker.Run(source);\n    unknown_ae3004 = worker.unknown_00;\n    unknown_af660c = worker.unknown_04;\n    unknown_ae2fe8 = worker.unknown_08;\n    unknown_af6608 = worker.unknown_0c;",
+   "new": "    // native: the worker is UnknownVoxelPalette (shared/unknown_voxel_palette.hpp; same ctor 0x0071BD00, Run 0x0071BDE0, dtor 0x0071BD70).\n    UnknownVoxelPalette worker((unsigned char *)unknown_buffer_ae3008, (unsigned char *)unknown_buffer_af4608);\n    int result = worker.Run((FileClass *)source);\n    unknown_ae3004 = worker.Header.unknown_00;\n    unknown_af660c = worker.Header.unknown_04;\n    unknown_ae2fe8 = worker.Header.unknown_08;\n    unknown_af6608 = worker.Header.unknown_0c;",
+   "why": "The row's local view UnknownWorker_716f40 (ctor 0x0071BD00, Run 0x0071BDE0, dtor 0x0071BD70) is the accepted UnknownVoxelPalette at the same addresses; its 0x20-byte layout matches (Header's four words first). The local constructor's declaration disagrees with the definition (listed in Scout1061's signature mismatches), so natively the unit uses the shared class. VC6 meaning unchanged.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_run_716f40_00716f40.cpp",
+   "old": "class UnknownWorker_716f40 {",
+   "new": "#include \"shared/unknown_voxel_palette.hpp\"\nclass FileClass;\nclass UnknownWorker_716f40 {",
+   "why": "Include for the fixup above.",
+   "verified": true
   }
  ]
 }

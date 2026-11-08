@@ -1,5 +1,5 @@
 {
- "about": "Behaviour rewrites of the functions the original implements in handwritten assembly (the link-closure \"c-function\" handwritten-assembly class, src/recovered/asm, manifests/original_target/assembly.json) and of the accepted rows whose body is evidenced inline assembly (native_units.py skips them). Each is portable C++ written from the adopted TibSun archive text, never original code or bytes, and is NOT EXACT: the exact build keeps the assembled procedures. Tests run each on synthetic inputs against references built from the algorithm (native-asm-check).",
+ "about": "Behaviour rewrites of the functions the original implements in handwritten assembly (the link-closure \"c-function\" handwritten-assembly class, src/recovered/asm, manifests/original_target/assembly.json) and of the accepted rows whose body is evidenced inline assembly (native_units.py skips them). Each is portable C++ written from the adopted TibSun archive text, never original code or bytes, and is NOT EXACT: the exact build keeps the assembled procedures. Tests run each on synthetic inputs against references built from the algorithm (native-asm-check). Rows with origin_class \"unmatched (launch path)\" are behaviour rewrites of unmatched rows the skirmish harness (ra2-native --skirmish) reaches or of Scout1050's launch-path rows without a usable draft (Scout1069): written from the row's seed/decompile, its header's comment or TibSun, NOT EXACT; where the original reads a data table that is still unsourced the row says what the native body does instead (notes).",
  "rows": [
   {
    "entry": "0x00781130",
@@ -285,6 +285,269 @@
    "source": "src/recovered/unowned/Main_Game_00481bf0.cpp (evidenced __asm, TibSun conquer.cpp)",
    "notes": "already compiled natively through the Scout1058 fixup: the esp/ebp/resume-address capture for the SEH handler is dropped (no SEH natively)",
    "test": null
+  },
+  {
+   "entry": "0x004CF290",
+   "name": "GadgetClass::Extract_At",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row decompile; GadgetClass::Input 0x004CF330",
+   "reached": "launch path 0x4CF290 (skirmish frame, Scout1050); blocked draft was a raw seed",
+   "notes": "NATIVE: starting width/height pair (0x007ADD70/0x007ADD7C) unsourced: the first containing gadget always qualifies"
+  },
+  {
+   "entry": "0x00403820",
+   "name": "AudioTimeSpan::Reset",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf src/recovered/00403820.cpp",
+   "reached": "harness trap (Audio_Init)"
+  },
+  {
+   "entry": "0x00406F40",
+   "name": "Audio_Get_Device",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "audio.hpp; the row leaf",
+   "reached": "harness trap (Speech_Init)"
+  },
+  {
+   "entry": "0x00407080",
+   "name": "AudioLevel::Set",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed",
+   "reached": "harness trap (Audio_Init level sets)"
+  },
+  {
+   "entry": "0x004070D0",
+   "name": "AudioLevel::Set_Rate",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed",
+   "reached": "harness trap (Audio_Init level sets)"
+  },
+  {
+   "entry": "0x00431460",
+   "name": "BitFontClass::Set_Clip_Box",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed",
+   "reached": "harness trap (Bootstrap, BitText)"
+  },
+  {
+   "entry": "0x004318D0",
+   "name": "BitFontClass::Set_unknown_20",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x00432150",
+   "name": "BitFontClass::Release_Surface",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (Unlock, slot 24)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x00470470",
+   "name": "CDFileClass::Find_Close",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed",
+   "reached": "harness trap (Init_Secondary_Mixfiles)"
+  },
+  {
+   "entry": "0x00406F30",
+   "name": "unknown_check_406f30",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed (Audio_Main_Device != 0)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x006FA0C0",
+   "name": "Unknown_006FA0C0",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed",
+   "reached": "harness trap (narrow to wide copy)"
+  },
+  {
+   "entry": "0x006E8590",
+   "name": "ThemeClass::Set_Volume",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (clamp 255)",
+   "reached": "harness trap (Options)"
+  },
+  {
+   "entry": "0x0067B880",
+   "name": "SidebarClass::Unknown_0067B880",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (bare return)",
+   "reached": "harness trap (Options)"
+  },
+  {
+   "entry": "0x00406530",
+   "name": "Audio_Event_Type_Set_Intro",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (+0x138)",
+   "reached": "harness trap (VocClass::Process, SOUND.INI)"
+  },
+  {
+   "entry": "0x00406540",
+   "name": "Audio_Event_Type_Set_Outro",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (+0x13C)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x00406550",
+   "name": "Audio_Event_Type_Set_Priority",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (+0x40)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x004065D0",
+   "name": "Audio_Event_Type_Set_Type",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (+0x14)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x004065E0",
+   "name": "Audio_Event_Type_Set_Limit",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (+0x48)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x004065F0",
+   "name": "Audio_Event_Type_Set_Range",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (+0x50)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x00406600",
+   "name": "Audio_Event_Type_Set_Min_Volume",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (+0x54)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x00406610",
+   "name": "Audio_Event_Type_Set_Delay",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed (+0x58, +0x5C)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x00406620",
+   "name": "Audio_Event_Type_Set_FShift",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed (+0x60, +0x64)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x00406650",
+   "name": "Audio_Event_Type_Set_Loop",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row leaf (+0x4C)",
+   "reached": "harness trap"
+  },
+  {
+   "entry": "0x004067E0",
+   "name": "Audio_Priority_From_Name",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed",
+   "reached": "harness trap (SOUND.INI)",
+   "notes": "NATIVE: the {name, priority} table 0x007CCAE8 is unsourced: no name is found, priority 0"
+  },
+  {
+   "entry": "0x00406830",
+   "name": "Audio_Control_Apply_Keyword",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "the row seed",
+   "reached": "harness trap (SOUND.INI)",
+   "notes": "NATIVE: the {name, flag} table 0x007CCB90 is unsourced: no keyword is found, flags unchanged"
+  },
+  {
+   "entry": "0x00577010",
+   "name": "UnknownMapGenerator::UnknownMapGenerator",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_mapgen.cpp",
+   "source": "the row decompile (Scout530 sweep seed)",
+   "reached": "launch path 0x577010 (startup, Scout1050); written before Scout1069, listed here"
   }
  ]
 }

@@ -28,6 +28,7 @@ void ra2_install_sdl_host();
 extern "C" int ra2port_initterm_last(int *units);
 extern "C" void ra2port_run_to(const char *target, int seconds);
 extern "C" void ra2port_run_end(const char *why);
+extern "C" void ra2port_set_skirmish(const char *map, int frames);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -44,13 +45,24 @@ int main(int argc, char **argv)
     const char *run_to = nullptr;
     const char *write_dir = nullptr;
     int run_seconds = 5;
+    // Skirmish harness (README "Skirmish harness"): Main_Game starts a skirmish
+    // on <map> without the menu dialogs and runs N Main_Loop frames.
+    const char *skirmish = nullptr;
+    int skirmish_frames = 1;
+    // The game's own command line (WinMain's lpCmdLine, e.g. "-noaudio").
+    const char *game_args = "";
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--data-dir") && i + 1 < argc) data = argv[++i];
         else if (!strcmp(argv[i], "--smoke-test")) smoke = true;
         else if (!strncmp(argv[i], "--run-to=", 9)) run_to = argv[i] + 9;
         else if (!strncmp(argv[i], "--run-seconds=", 14)) run_seconds = atoi(argv[i] + 14);
         else if (!strncmp(argv[i], "--write-dir=", 12)) write_dir = argv[i] + 12;
+        else if (!strncmp(argv[i], "--skirmish=", 11)) skirmish = argv[i] + 11;
+        else if (!strncmp(argv[i], "--game-args=", 12)) game_args = argv[i] + 12;
+        else if (!strncmp(argv[i], "--skirmish-frames=", 18)) skirmish_frames = atoi(argv[i] + 18);
     }
+    if (skirmish && !run_to) { fprintf(stderr, "--skirmish is a test harness: use it with --run-to=<milestone> (e.g. frame)\n"); return 64; }
+    if (skirmish) ra2port_set_skirmish(skirmish, skirmish_frames);
     static char write_template[1024];
     if (run_to && !write_dir) {
         const char *tmp = getenv("TMPDIR");
@@ -84,7 +96,8 @@ int main(int argc, char **argv)
         // Hand over to the game: it creates its window through CreateWindowExA
         // (the host hook opens the SDL window) and runs its own message loop.
         ra2_install_sdl_host();
-        static char command_line[] = "";
+        static char command_line[1024];
+        snprintf(command_line, sizeof command_line, "%s", game_args);
         // The native game is its own launcher: RA2.EXE created this mutex and
         // event before starting GAME.EXE, which checks the first (0x004918F0)
         // and signals the second (0x00491930). Same names (data/startup_winmain.cpp).

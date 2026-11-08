@@ -43,6 +43,25 @@ create/write/delete goes to `--write-dir` (default a fresh `$TMPDIR/ra2-native-r
 and reads look there first. Message boxes print to stderr; no modal UI is shown.
 The host plays the launcher's part (the launch mutex and event RA2.EXE created).
 
+### Skirmish harness
+
+`ra2-native --skirmish=<map> [--skirmish-frames=N] --run-to=<milestone> --game-args="-noaudio -CD." --data-dir <installation>`
+exercises the skirmish path before the menu dialogs exist (a test harness, not
+game behaviour; `link/harness_skirmish.cpp`). Main_Game calls Select_Game and
+Main_Loop through native seams (`port/fixups.json`) that call them unchanged
+without `--skirmish`. With it, the seam does what the skirmish dialog's start
+button stores (Skirmish_Command 0x006829F0: session type 5, the rules'
+countries/sides/house types, one human and one computer player, the saved
+options; `<map>` is `#<n>` for the n-th scenario description, a description's
+file name, or any file name), sets Select_Game's own menu bypass
+(`unknown_a40d13`) and calls Select_Game, which starts the scenario. Bootstrap's
+interface-art load is skipped while its 19 file names are unsourced (menu art).
+Milestones: `init` (Init_Game succeeded), `scenario` (Start_Scenario loaded the
+map), `frame` (first Main_Loop iteration), `frames` (N of them); notes
+`harness-art`, `harness-map`, `harness-stop`. `--game-args` is WinMain's command
+line: `-noaudio` skips the audio device, `-CD.` makes every file local (no CD
+check; Parse_Command_Line's `-CD<path>`).
+
 ## Layers
 
 1. **Native view** (`tools/native_units.py`, run at configure time). Reads the
@@ -132,7 +151,9 @@ The host plays the launcher's part (the launch mutex and event RA2.EXE created).
    seed/scaffold explicit initialisers (`Initterm_<entry>`, called at their
    positions); `behaviour_*.cpp` hold behaviour-written bodies of unmatched rows on
    the start-up/exit path, each citing its evidence (`behaviour_winmain.cpp`,
-   `behaviour_surface.cpp`, `behaviour_map.cpp`: the WinMain path). Fixups run
+   `behaviour_surface.cpp`, `behaviour_map.cpp`: the WinMain path;
+   `behaviour_launch.cpp`: rows the skirmish harness reaches and launch-path rows
+   without a usable draft, listed in `behaviour_rewrites.json`). Fixups run
    before the inline-assembly check, so a fixup can give an evidenced `__asm` block
    its native meaning (Main_Game's exception-return capture).
    **Handwritten assembly** (`behaviour_asm_vqa.cpp`, `behaviour_asm_draw.cpp`,
