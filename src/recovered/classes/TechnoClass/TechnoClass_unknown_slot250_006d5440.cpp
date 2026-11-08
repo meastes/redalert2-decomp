@@ -10,7 +10,7 @@
 // @ref ?unknown_713400@UnknownTechnoPair@@QBE_NXZ=00713400
 // @ref ?unknown_drawer_8323c4@@3PAVConvertClass@@A=008323c4
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 
 void TechnoClass::unknown_slot250(Point2D const &point, Rect const &window)
 {

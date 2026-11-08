@@ -55,4 +55,4 @@ void __fastcall Load_Title_Screen_00738190(char const *name, Surface *surface, P
 // @ref ??_7CCFileClass@@6B@=0079a6a0
 // @ref ??_7CDFileClass@@6B@=0079a658
 // @ref ??_7XSurface@@6B@=0079af8c
-// @ref ?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2HHHHHH@Z=0049f3a0
+// @ref ?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z=0049f3a0

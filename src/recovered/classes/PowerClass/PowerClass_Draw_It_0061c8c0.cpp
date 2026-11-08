@@ -24,7 +24,7 @@
 // @ref ?unknown_surface_839948@@3PAVSurface@@A=00839948
 // @ref ?unknown_drawer_8323cc@@3PAVConvertClass@@A=008323cc
 // @ref ?PowerShape@PowerClass@@2PBXB=00a7691c
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 
 void PowerClass::Draw_It(bool complete)
 {

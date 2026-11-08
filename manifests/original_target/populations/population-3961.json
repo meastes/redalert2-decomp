@@ -4,8 +4,8 @@
     "id": "population-3961",
     "inventory_sha256": "7c93e0e0ffb024f6f3938abd1198dbe5cf03632b37dee1109c848a98d75bb596",
     "gaps_sha256": "f56ce2bf65f22675f3be45e88fbe60a530ffa9bebaf5d442b3dc614ebad6c064",
-    "historical_population_sha256": "35efcaa578f236c5f738db95b9375dc4cc4a613798e17d24d909d7c048bf1f4f",
-    "historical_acceptance_sha256": "bb5528e182039c4431c98ae1f09529b916b3605b65dc1ad32fef58b4d30fa39c"
+    "historical_population_sha256": "3ef0de3890bcb3ad006dabf2d785aef45d87a88b7aa6aa76d3376f9305910241",
+    "historical_acceptance_sha256": "c37b12ffc01eaef7c58fa9f528d0dcb0518b14d0394142138c5a73399082446c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -9250,7 +9250,7 @@
     "?Process_Mouse@WWMouseClass@@QAEXXZ": 7812096,
     "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z": 7805472,
     "??_7WWMouseClass@@6B@": 8059884,
-    "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2HHHHHH@Z": 4846496,
+    "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z": 4846496,
     "?Draw_Box@@YIXABVRect@@H_N@Z": 4813776,
     "?Simple_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIH@Z": 4814896,
     "?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ": 5238864,
@@ -12296,7 +12296,7 @@
         {
           "offset": 509,
           "kind": 20,
-          "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2HHHHHH@Z",
+          "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
           "target": 4846496,
           "addend": 0,
           "resolved": 4292420063
@@ -12440,13 +12440,13 @@
         {
           "offset": 881,
           "kind": 20,
-          "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2HHHHHH@Z",
+          "symbol": "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z",
           "target": 4846496,
           "addend": 0,
           "resolved": 4292419691
         }
       ],
-      "source_sha256": "8b908943a577ad3324d7584bc85440bcc9cb512f44ea8567fb4434fc89df69f2",
+      "source_sha256": "44fb64b4e98a7ef98567c2d44433fa5eb4856e7bbdad5784c32320e855ff3b2d",
       "source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_Draw_0070cfc0.cpp",
       "population": "population-3961",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

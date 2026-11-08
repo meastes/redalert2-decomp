@@ -9,7 +9,7 @@
 // @ref ?unknown_tileset_a52ee8@@3HA=00a52ee8
 // @ref ?unknown_tileset_a6e038@@3HA=00a6e038
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 
 extern Rect unknown_rect_839630;
 

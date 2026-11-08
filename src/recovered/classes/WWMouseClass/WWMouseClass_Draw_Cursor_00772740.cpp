@@ -5,7 +5,7 @@
 // Unresolved: the drawing function 0x0049F3A0 and its trailing arguments (0, 0, 0, 0, 1000, 0).
 #include "shared/wwmouse.hpp"
 // @ref ?unknown_convert_8323c8@@3PAXA=008323c8
-// @ref ?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2HHHHHH@Z=0049f3a0
+// @ref ?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z=0049f3a0
 // @ref ??_7BSurface@@6B@=0079aef8
 // @ref ??_7XSurface@@6B@=0079af8c
 

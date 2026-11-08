@@ -18,7 +18,7 @@
 // @ref ?unknown_flag_abcd84@@3_NA=00abcd84
 // @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?Draw_It@SidebarClass@@UAEX_N@Z=0067cf80
 // @ref ?Draw_Me@ShapeButtonClass@@UAEHH@Z=006751e0
 // @ref ?Unknown_00494530@UnknownTab4EEC@@QAEX_N@Z=00494530

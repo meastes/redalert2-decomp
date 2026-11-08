@@ -27,7 +27,7 @@ extern int unknown_flat_voxel_7d11a4;
 // @ref ?unknown_voxel_light_839ab0@@=00839ab0
 // @ref ?unknown_flat_voxel_7d11a4@@=007d11a4
 // @ref ?Select_Blitter_00485AA0@ConvertClass@@=00485aa0
-// @ref ?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2HHHHHH@Z=0049f3a0
+// @ref ?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z=0049f3a0
 void BulletClass::Draw_Voxel_00463a00(UnknownObjectPair const &pair, Matrix3D const &matrix,
                                    RectPoint2D const &point, Rect const &window, unsigned frame,
                                    unsigned flags, int brightness)
@@ -56,7 +56,7 @@ void BulletClass::Draw_Voxel_00463a00(UnknownObjectPair const &pair, Matrix3D co
     }
     unknown_blit_49f3a0(*unknown_surface_83995c, ColorSchemes[Type->Color]->Converter, Voxel_Render_Surface_00717040(),
                        bounds.rectangle, point + bounds.offset, window, 0,
-                       (int)ColorSchemes[Type->Color]->Converter->Select_Blitter_00485AA0(draw_flags), flat,
+                       ColorSchemes[Type->Color]->Converter->Select_Blitter_00485AA0(draw_flags), flat,
                        Type->Flat ? 0 : 2, brightness, 0);
 }
 

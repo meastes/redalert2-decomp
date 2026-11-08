@@ -4,8 +4,8 @@
     "id": "population-3021",
     "inventory_sha256": "c4bab5dd10b39188fe23ac8e5f651c2921a0fce52ce6b4d6cf18bb2ab1c1e4ab",
     "gaps_sha256": "e1c040e0b5439ba91fadc63526d0d321b3019c2dc26c88c16d690f4e1cfde86c",
-    "historical_population_sha256": "2c2fa3122fb86b9c09ba417a6d0c057b0da8e41ae8954819229869ec1a049e2f",
-    "historical_acceptance_sha256": "d5ea47fdf2b998684a39db6b1e71301f521cae9a91d2cc2703d2c5a4c590d816"
+    "historical_population_sha256": "4d0c5deadc8a39a94bd7f379b766d39bc2f418c8e9e0549c3835c9a99cb2d0be",
+    "historical_acceptance_sha256": "39d2d0e777722aad360ad68fe29a190ab5aaf63f886736e022f4f8697ce226b3"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -6007,7 +6007,7 @@
     "?From_Buffer@@YI_NAAVSurface@@ABVRect@@AAVBuffer@@@Z": 4409888,
     "?Bit_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVBlitter@@HHHH@Z": 4410176,
     "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@01ABVRLEBlitter@@HHHH@Z": 4411488,
-    "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHHUBlitPair@@@Z": 4411584,
+    "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHPAV1@UBlitPair@@@Z": 4411584,
     "?BlitForward@?$BlitPlain@E@@UBEXPAXPBXHHHHHH@Z": 7821920,
     "?BlitForward@?$BlitPlain@G@@UBEXPAXPBXHHHHHH@Z": 7822000,
     "?BlitForward@?$BlitTrans@G@@UBEXPAXPBXHHHHHH@Z": 7822080,
@@ -6070,7 +6070,7 @@
     "?unknown_int_839648@@3HA": 8623688,
     "?Erase_Mouse@WWMouseClass@@UAEXPAVSurface@@_N@Z": 7808544,
     "?unknown_convert_8323c8@@3PAXA": 8594376,
-    "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2HHHHHH@Z": 4846496,
+    "?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z": 4846496,
     "?Low_Show_Mouse@WWMouseClass@@QAEXXZ": 7809184,
     "?Low_Hide_Mouse@WWMouseClass@@QAEXXZ": 7809536,
     "?Show_Mouse@WWMouseClass@@UAEXXZ": 7809728,
@@ -6194,7 +6194,7 @@
     "?Unknown_005233F0@@YIFH@Z": 5387248,
     "?Available@WWKeyboardClass@@QAEHXZ": 5451360,
     "??0CCFileClass@@QAE@ABVWstring@@@Z": 4624272,
-    "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z": 4845216,
+    "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z": 4845216,
     "?Unknown_Slot7@MSBinkAnim@@UAE_NXZ": 5954048,
     "?Draw@MSBinkAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5954288,
     "?unknown_volume_a40b44@@3MA": 10750788,

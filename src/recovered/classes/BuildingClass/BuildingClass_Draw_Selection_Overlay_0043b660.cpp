@@ -9,8 +9,8 @@ struct ShapeFileStruct;
 class ConvertClass;
 class Surface;
 void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileStruct const *shape, int frame,
-    Point2D const &point, Rect const &window, int flags, int unknown8, int unknown9, int unknown10,
-    int brightness, int unknown12, int unknown13, Point2D offset);
+    Point2D const &point, Rect const &window, int flags, unsigned char const *unknown8, int unknown9, int unknown10,
+    int brightness, ShapeFileStruct const *unknown12, int unknown13, Point2D offset);
 extern ConvertClass *unknown_drawer_8323c4;
 // @ref ?unknown_drawer_8323c4@@=008323c4
 // @ref ?unknown_surface_83995c@@=0083995c

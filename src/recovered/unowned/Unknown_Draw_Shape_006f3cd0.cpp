@@ -1,7 +1,7 @@
 // void __fastcall Unknown_6F3CD0(Surface *surface, Rect const &window) -- 0x6F3CD0
 // Runs 0x006F34D0 and 0x006F3650 then draws the backdrop shape (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHUPoint2D@@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z=0049eea0
 // @ref ?Unknown_006F34D0@@YIXPAVSurface@@ABVRect@@@Z=006f34d0
 // @ref ?Unknown_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z=006f3650
 // @ref ?unknown_point_ac11c0@@3PAUPoint2D@@A=00ac11c0
@@ -12,8 +12,8 @@ class Surface;
 class ConvertClass;
 struct ShapeFileStruct;
 void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileStruct const *shape, int frame,
-                              Point2D const &point, Rect const &window, int flags, int unknown8,
-                              int unknown9, int unknown10, int brightness, int unknown12,
+                              Point2D const &point, Rect const &window, int flags, unsigned char const *unknown8,
+                              int unknown9, int unknown10, int brightness, ShapeFileStruct const *unknown12,
                               int unknown13, Point2D offset);   // 0x0049EEA0
 void __fastcall Unknown_006F34D0(Surface *surface, Rect const &window);
 void __fastcall Unknown_006F3650(Surface *surface, Rect const &window, bool arg3);

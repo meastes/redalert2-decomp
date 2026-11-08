@@ -2,7 +2,7 @@
 // Draws the current frame into the background surface at its fade level
 // (while active).
 #include "shared/ms_anim.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_fade_flags_7e57f0@@3PAHA=007e57f0
 
 void MSOverlayAnim::Unknown_Slot8(int unknown1)

@@ -4,8 +4,8 @@
     "id": "population-1441",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "1dbc3f4f2ce470e48ae70598ce273e65e21d3dc73f2359d9ce376814601cb120",
-    "historical_acceptance_sha256": "50971b7e55319fb027952a9f24b35195989047d61e8da1b2fa2947bdf425203e"
+    "historical_population_sha256": "ce5d7b3e5b6d5f5248bc5f4621356eddbb08acb8abdc1b3b520a9e7fe6dcca29",
+    "historical_acceptance_sha256": "137dca4478e47e9d5db07342d7118882bd60a66f0a1331ac3917945685dee421"
   },
   "references": {
     "?ZBufferPtr@@3PAVZBuffer@@A": 8590772,
@@ -301,7 +301,7 @@
     "?From_Buffer@@YI_NAAVSurface@@ABVRect@@AAVBuffer@@@Z": 4409888,
     "?Bit_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVBlitter@@HHHH@Z": 4410176,
     "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@01ABVRLEBlitter@@HHHH@Z": 4411488,
-    "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHHUBlitPair@@@Z": 4411584,
+    "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHPAV1@UBlitPair@@@Z": 4411584,
     "?BlitForward@?$BlitPlain@E@@UBEXPAXPBXHHHHHH@Z": 7821920,
     "?BlitForward@?$BlitPlain@G@@UBEXPAXPBXHHHHHH@Z": 7822000,
     "?BlitForward@?$BlitTrans@G@@UBEXPAXPBXHHHHHH@Z": 7822080,

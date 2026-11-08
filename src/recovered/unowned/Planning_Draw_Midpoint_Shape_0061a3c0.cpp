@@ -11,8 +11,8 @@ class ConvertClass;
 struct ShapeFileStruct;
 extern ConvertClass *unknown_drawer_8323c8;
 void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileStruct const *shape, int frame,
-                              Point2D const &point, Rect const &window, int flags, int unknown8,
-                              int unknown9, int unknown10, int brightness, int unknown12,
+                              Point2D const &point, Rect const &window, int flags, unsigned char const *unknown8,
+                              int unknown9, int unknown10, int brightness, ShapeFileStruct const *unknown12,
                               int unknown13, Point2D offset);
 
 void __fastcall Planning_Draw_Midpoint_Shape(Point2D start, Point2D end, int color, int fill, int frame)

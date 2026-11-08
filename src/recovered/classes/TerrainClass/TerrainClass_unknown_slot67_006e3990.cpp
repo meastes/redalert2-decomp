@@ -15,7 +15,7 @@
 // @ref ?unknown_drawer_8323bc@@3PAVConvertClass@@A=008323bc
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_flag_7d88d5@@3_NA=007d88d5
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 
 
 // The object is animated or crumbling (local helper; slot 67's shadow flags).

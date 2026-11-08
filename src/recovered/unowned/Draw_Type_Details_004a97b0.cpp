@@ -12,7 +12,7 @@ extern char const type_green_scheme_007d61fc[];
 extern char const type_red_scheme_007d61f8[];
 ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name,int kind);
 void __fastcall unknown_blit_49f3a0(Surface &dest,void *convert,Surface &source,Rect const &sourcerect,
-    RectPoint2D const &destpoint,Rect const &destclip,int unknown1,int unknown2,int unknown3,int unknown4,int unknown5,int unknown6);
+    RectPoint2D const &destpoint,Rect const &destclip,unsigned char const *unknown1, class Blitter const *unknown2,int unknown3,int unknown4,int unknown5,int unknown6);
 // @ref ?type_name_format_007d627c@@=007d627c
 // @ref ?type_cost_format_007d6268@@=007d6268
 // @ref ?type_cost_unavailable_007d6254@@=007d6254
@@ -44,7 +44,7 @@ void __fastcall Draw_Type_Details_004a97b0(Surface *background, ConvertClass *co
     RectPoint2D zero(0,0);
     // Preserve the existing unresolved blit prototype's 32-bit payload spelling.
     unknown_blit_49f3a0(*unknown_surface_839954,converter,*background,source_area,
-        zero,clip,0,reinterpret_cast<int>(converter->Select_Blitter_00485AA0(0)),0,0,1000,0);
+        zero,clip,0,converter->Select_Blitter_00485AA0(0),0,0,1000,0);
     }
     if (type) {
         wchar_t name[40];

@@ -222,7 +222,7 @@ public:
     // slot 293 (kept copy 0x0041B490): passes its arguments on to the
     // TechnoClass shape drawer 0x006D1510 (ret 0x3C).
     virtual void unknown_slot293(void const *shape, int drawer, Point2D const *point, Rect const *bounds, int arg5,
-                                 int arg6, int z, int arg8, int arg9, int height, int arg11, int arg12, Point2D offset,
+                                 int arg6, int z, int arg8, int arg9, int height, ShapeFileStruct const *arg11, int arg12, Point2D offset,
                                  int arg15)
     {
         unknown_6d1510(shape, drawer, point, bounds, arg5, arg6, z, arg8, arg9, height, arg11, arg12, offset, arg15);
@@ -260,7 +260,7 @@ public:
     bool unknown_4c3000(Cell dest, int arg2, int arg3);   // 0x004C3000 (plans a path to dest; hypothesis: Basic_Path)
     struct UnknownPathType *Unknown_004BB350(Cell *dest, int *buffer, int length, int arg4, int arg5, int arg6);  // 0x004BB350 (hypothesis: Find_Path)
     Cell Unknown_004BB3F0(Cell const &from, Cell const &to, int arg3, int arg4);   // 0x004BB3F0 (hypothesis: TS Safety_Point; TeamClass 0x006B88B0 Regroup)
-    void unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, unsigned unknown_1, unsigned unknown_2, unsigned unknown_3);  // 0x004C9A40 (the shadow draw; AircraftClass, UnitClass)
+    void unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x004C9A40 (the shadow draw; AircraftClass, UnitClass)
     void Unknown_004CCE80(FootClass *passenger);                // 0x004CCE80 (a passenger enters this transport)
     virtual int unknown_slot298();                              // slot 298 0x004C86D0 (0)
     virtual TechnoClass *unknown_slot299(DynamicVectorClass<TechnoTypeClass *> const *types, int arg2, int arg3);  // (hypothesis: the nearest dock of any of the types)   // slot 299 (AircraftClass 0x0041B1E0: ret 0xC, returns +0x5B4)

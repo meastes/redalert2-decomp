@@ -162,6 +162,6 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destrect, Surface &source, R
 bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &destrect, Surface &source,
                          Rect const &sourcewindow, Rect const &sourcerect, RLEBlitter const &blitter,
                          int unknown1, int unknown2, int unknown3, int unknown4,
-                         int unknown5, BlitPair unknown6);
+                         Surface *unknown5, BlitPair unknown6);
 
 #endif

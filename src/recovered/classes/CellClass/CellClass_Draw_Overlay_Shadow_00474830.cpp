@@ -13,7 +13,7 @@
 #include "shared/unknown_globals.hpp"
 // @ref ?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z=004790f0
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 void CellClass::unknown_474830(Point2D const &xpoint, Rect const &clip)
 {
     int yoffset = unknown_11b * 15;

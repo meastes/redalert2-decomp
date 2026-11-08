@@ -4,8 +4,8 @@
     "id": "population-4166",
     "inventory_sha256": "dfcbaa7cd2a23d9715b4c5f67c132a0881924f9e8ba74e97a74fbc8b711ecc79",
     "gaps_sha256": "4b9dd7d97a121e1783d13a25ddba17449988926439eeae7259f11c429ebdc80c",
-    "historical_population_sha256": "067402838e9ae3d4d65b5c774ac7244437330722ecb6c82e2a1c0ec8b1b2ae88",
-    "historical_acceptance_sha256": "6c8d4b382f08eb7b2259b7c8d5cd057bf0bd7a617739dd672fb7d16f789c3553"
+    "historical_population_sha256": "df148bee040164a366a06e50f21b8151e635023c867ee01a5c977aca441a00e5",
+    "historical_acceptance_sha256": "fb1afcba5275657e01bda3e174c7c9e60d79c0d9968588e88796dadf3b444fbb"
   },
   "references": {
     "?target@Call_402190_0@@QAEIXZ": 4198400,
@@ -586,7 +586,7 @@
     "?From_Buffer@@YI_NAAVSurface@@ABVRect@@AAVBuffer@@@Z": 4409888,
     "?Bit_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVBlitter@@HHHH@Z": 4410176,
     "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@01ABVRLEBlitter@@HHHH@Z": 4411488,
-    "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHHUBlitPair@@@Z": 4411584,
+    "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHPAV1@UBlitPair@@@Z": 4411584,
     "?BlitForward@?$BlitPlain@E@@UBEXPAXPBXHHHHHH@Z": 7821920,
     "?BlitForward@?$BlitPlain@G@@UBEXPAXPBXHHHHHH@Z": 7822000,
     "?BlitForward@?$BlitTrans@G@@UBEXPAXPBXHHHHHH@Z": 7822080,
@@ -1464,7 +1464,22 @@
     "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
     "__real@8@4003f000000000000000": 8053472,
     "?Action@SelectClass@StripClass@SidebarClass@@UAEHIAAI@Z": 6818288,
-    "__real@4@4003f000000000000000": 8030272
+    "__real@4@4003f000000000000000": 8030272,
+    "?Draw_Fogged_Objects@Tactical@@QAEXABVRect@@@Z": 6987600,
+    "?Draw_Fogged_Objects@@YIXABVRect@@@Z": 4984848,
+    "__real@4@40068c00000000000000": 8030200,
+    "__real@4@4005d800000000000000": 8030196,
+    "_?direction@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA": 11235436,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "?Action@RTacticalClass@@UAEHIAAI@Z": 6487600,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "?BlitForward@?$BlitTransXlat@G@@UBEXPAXPBXHHHHHH@Z": 4743616,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992
   },
   "regions": [
     {
@@ -1674,13 +1689,13 @@
         {
           "offset": 83,
           "kind": 20,
-          "symbol": "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHHUBlitPair@@@Z",
+          "symbol": "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHPAV1@UBlitPair@@@Z",
           "target": 4411584,
           "addend": 0,
           "resolved": 9
         }
       ],
-      "source_sha256": "60a21219bda78beae9f1beca9d70568e964f4ceb2235d9bc17a83ca887314f68",
+      "source_sha256": "5910e68aee122fa959e38f9f0019c28b5d9fd9654a6ef59012186f40a8d7368d",
       "source": "src/recovered/classes/Blit/Blit_RLE_Blit_00435060.cpp",
       "population": "population-4166",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -1923,8 +1938,8 @@
     {
       "entry": 4411584,
       "method": "004350c0",
-      "symbol": "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHHUBlitPair@@@Z",
-      "symbol_prefix": "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHHUBlitPair@@@Z",
+      "symbol": "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHPAV1@UBlitPair@@@Z",
+      "symbol_prefix": "?RLE_Blit@@YI_NAAVSurface@@ABVRect@@1011ABVRLEBlitter@@HHHHPAV1@UBlitPair@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -2050,7 +2065,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "a2113c34e868a94b68e83df814fa235c55b39e92ffc5dc7a6a2d9237ab2e103d",
+      "source_sha256": "a2d4897ae5ae0733dd215e946ff6d76f2061f0454d2612f42797ee2a2e87396e",
       "source": "src/recovered/unowned/RLE_Blit_004350c0.cpp",
       "population": "population-4166",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

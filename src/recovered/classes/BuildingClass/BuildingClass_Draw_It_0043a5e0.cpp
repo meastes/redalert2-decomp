@@ -70,7 +70,7 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
     if(bounds.Height>0) {
         int frame=unknown_43be20()<shape->Get_Count()/2 ? unknown_43be20() : shape->Get_Count()/2;
         unknown_6d1510(shape,frame,&draw_point,&bounds,0,256,
-            z_adjust-Unknown_006A2970(unknown_slot110()),2,1,Map[cell].unknown_10a+Type->ExtraLight,(int)depth_shape,0,depth_point,0);
+            z_adjust-Unknown_006A2970(unknown_slot110()),2,1,Map[cell].unknown_10a+Type->ExtraLight,depth_shape,0,depth_point,0);
     }
     if(Type->unknown_11cc && unknown_42c!=0) {
         unknown_6d1510(Type->unknown_11cc,unknown_43be20(),&draw_point,&bounds,0,256,

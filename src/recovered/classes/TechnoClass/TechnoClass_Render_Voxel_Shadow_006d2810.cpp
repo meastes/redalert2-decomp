@@ -14,8 +14,8 @@ extern ConvertClass *unknown_drawer_8323c4;
 // @ref ?unknown_voxel_transform_839a70@@3VMatrix3D@@A=00839a70
 // @ref ?unknown_839a60@@3UVector3@@A=00839a60
 // @ref ?unknown_drawer_8323c4@@3PAVConvertClass@@A=008323c4
-// @ref ?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2HHHHHH@Z=0049f3a0
-SurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel,Matrix3D const &transform,Point2D const &point,Rect const &cliprect,int layer,unsigned flags,bool cached,unsigned unknown_1,unsigned unknown_2,unsigned unknown_3)
+// @ref ?unknown_blit_49f3a0@@YIXAAVSurface@@PAX0ABVRect@@ABURectPoint2D@@2PBEPBVBlitter@@HHHH@Z=0049f3a0
+SurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel,Matrix3D const &transform,Point2D const &point,Rect const &cliprect,int layer,unsigned flags,bool cached,Surface *mask,unsigned unknown_2,unsigned unknown_3)
 {
     UnknownPairSecond *motion=voxel.unknown_04;
     Matrix3D combined;
@@ -28,12 +28,12 @@ SurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const 
     basis.Make_Identity();
     if (unknown_slot32()->ConsideredAircraft) basis.Scale(0.5f);
     VoxelDrawSystem::Reset();
-    VoxelDrawSystem::Prep_For_Shadow(voxel.unknown_00,layer,0,unknown_voxel_transform_839a70*basis,combined,unknown_839a60,(Surface *)unknown_1,unknown_2,unknown_3);
+    VoxelDrawSystem::Prep_For_Shadow(voxel.unknown_00,layer,0,unknown_voxel_transform_839a70*basis,combined,unknown_839a60,mask,unknown_2,unknown_3);
     SurfaceRegion region=VoxelDrawSystem::Render();
     if (!cached) {
         (void)VoxelDrawSystem::Get_Surface()->Get_Rect();
         Point2D destination=region.Point+point;
-        unknown_blit_49f3a0(*unknown_surface_83995c,unknown_drawer_8323c4,*VoxelDrawSystem::Get_Surface(),region.Bounds,RectPoint2D(destination.X,destination.Y),cliprect,0,(int)unknown_drawer_8323c4->Select_Blitter_00485AA0(flags),unknown_slot176(),unknown_slot177(),1000,0);
+        unknown_blit_49f3a0(*unknown_surface_83995c,unknown_drawer_8323c4,*VoxelDrawSystem::Get_Surface(),region.Bounds,RectPoint2D(destination.X,destination.Y),cliprect,0,unknown_drawer_8323c4->Select_Blitter_00485AA0(flags),unknown_slot176(),unknown_slot177(),1000,0);
     }
     return region;
 }

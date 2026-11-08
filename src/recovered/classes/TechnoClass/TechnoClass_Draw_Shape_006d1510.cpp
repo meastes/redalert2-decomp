@@ -13,7 +13,7 @@ extern ConvertClass *unknown_drawer_ad0608;
 // @ref ?unknown_unit_composite_rect_ad0490@@3VRect@@A=00ad0490
 
 void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *point, Rect const *bounds,
-    int rotation, int scale, int z, int gradient, int zwrite, int brightness, int zshape, int zframe,
+    int rotation, int scale, int z, int gradient, int zwrite, int brightness, ShapeFileStruct const *zshape, int zframe,
     Point2D offset, int negative_flags)
 {
     if (shape) {

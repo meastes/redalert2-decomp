@@ -16,7 +16,7 @@
 // @ref ?unknown_flag_abcd84@@3_NA=00abcd84
 // @ref ?ToolTips@@3PAVCCToolTip@@A=008399b0
 // @ref ?Refresh@CCToolTip@@UAEX_N@Z=0046e230
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?Draw_It@PowerClass@@UAEX_N@Z=0061c8c0
 // @ref ?Draw_Me@ShapeButtonClass@@UAEHH@Z=006751e0
 // @ref ?Unknown_0067F800@StripClass@SidebarClass@@QAEX_N@Z=0067f800

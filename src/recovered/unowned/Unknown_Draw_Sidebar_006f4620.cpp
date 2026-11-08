@@ -3,7 +3,7 @@
 // 0x006F4C60 expanded inline, the layout 0x006F4C90), clears the surface and
 // draws the sidebar pieces at their layout rectangles; the bottom bar is
 // clipped to the tactical width, and `tabs` selects the repeated tab strip.
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_flag_ac11b0@@3_NA=00ac11b0
 // @ref ?unknown_value_8523e0@@3HA=008523e0
 // @ref ?unknown_value_8523e4@@3HA=008523e4
@@ -47,8 +47,8 @@
 
 class ConvertClass;
 void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileStruct const *shape, int frame,
-                              Point2D const &point, Rect const &window, int flags, int unknown8,
-                              int unknown9, int unknown10, int brightness, int unknown12,
+                              Point2D const &point, Rect const &window, int flags, unsigned char const *unknown8,
+                              int unknown9, int unknown10, int brightness, ShapeFileStruct const *unknown12,
                               int unknown13, Point2D offset);   // 0x0049EEA0
 void __fastcall Unknown_Load_Art_Buffers_006F4B00();
 void __fastcall Unknown_Load_Art_Pairs_006F4C60();

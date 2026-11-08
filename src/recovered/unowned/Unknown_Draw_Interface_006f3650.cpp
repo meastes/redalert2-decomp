@@ -1,7 +1,7 @@
 // void __fastcall Unknown_006F3650(Surface *surface, Rect const &window, bool arg3) -- 0x006F3650
 // Loads the interface art once, then draws the panel frame shapes clipped to the window (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHUPoint2D@@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z=0049eea0
 // @ref ?Unknown_0051A2B0@@YIXXZ=0051a2b0
 // @ref ?Unknown_006F3D50@@YIXXZ=006f3d50
 // @ref ?unknown_load_art_6f1fa0@@YIXPBDPAPAX1@Z=006f1fa0
@@ -39,8 +39,8 @@ class Surface;
 class ConvertClass;
 struct ShapeFileStruct;
 void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileStruct const *shape, int frame,
-                              Point2D const &point, Rect const &window, int flags, int unknown8,
-                              int unknown9, int unknown10, int brightness, int unknown12,
+                              Point2D const &point, Rect const &window, int flags, unsigned char const *unknown8,
+                              int unknown9, int unknown10, int brightness, ShapeFileStruct const *unknown12,
                               int unknown13, Point2D offset);   // 0x0049EEA0
 void __fastcall Unknown_0051A2B0();
 void __fastcall Unknown_006F3D50();

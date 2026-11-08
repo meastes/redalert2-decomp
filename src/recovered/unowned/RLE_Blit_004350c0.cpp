@@ -9,7 +9,7 @@ extern unsigned char Blit_RLE_Default_Depth[];
 bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &destarea,
     Surface &source, Rect const &sourcewindow, Rect const &sourcearea,
     RLEBlitter const &blitter, int depth, int ramp_index, int alpha, int unknown,
-    int depth_shape_address, BlitPair depth_point)
+    Surface *depth_shape, BlitPair depth_point)
 {
     unsigned int depth_pointer = 0;
     unsigned int alpha_pointer = 0;
@@ -26,7 +26,6 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
     int ratio = 0;
     int shape_width = 0;
     BlitRamp *ramp = &BlitRamps[ramp_index];
-    Surface *depth_shape = (Surface *)depth_shape_address;
     if (!Clip_Blit_Rects(dst, destwindow, src, sourcewindow)) return false;
     int left = src.X - sourcewindow.X;
     int top = src.Y - sourcewindow.Y;

@@ -18,7 +18,7 @@
 #include "shared/unknown_globals.hpp"
 // @ref ?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z=004790f0
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_drawer_8323b8@@3PAVConvertClass@@A=008323b8
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 // @ref ?Frame@@3HA=00a40d2c
@@ -73,7 +73,7 @@ void CellClass::unknown_4749c0(Point2D const &xpoint, Rect const &clip)
         }
         ShapeFileStruct *tibshape = (ShapeFileStruct *)tib_overlay->unknown_slot39();
         if (unknown_11c != 0) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, (int)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(0, 0));
+            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, (ShapeFileStruct const *)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(0, 0));
         } else {
             CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, 0, 0, Point2D(0, 0));
         }
@@ -81,7 +81,7 @@ void CellClass::unknown_4749c0(Point2D const &xpoint, Rect const &clip)
         CC_Draw_Shape(unknown_surface_83995c, ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 2, unknown_10a, 0, 0, Point2D(0, 0));
     } else if (otype->ArrayIndex == 0x7E) {
         if (unknown_11c != 0) {
-            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10c, (int)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(30, -2));
+            CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10c, (ShapeFileStruct const *)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(30, -2));
         } else {
             CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, shape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, unknown_10c, 0, 0, Point2D(0, 0));
         }

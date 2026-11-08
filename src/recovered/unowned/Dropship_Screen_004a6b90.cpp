@@ -125,7 +125,7 @@
 
 extern "C" __declspec(dllimport) unsigned long __stdcall timeGetTime();
 void __fastcall Draw_Updated_Counter_004a95c0(int current, int previous, Surface *background,
-    Point2D &position, wchar_t const *prefix, bool centered, void *convert, int unknown_blit_flags);
+    Point2D &position, wchar_t const *prefix, bool centered, void *convert, class Blitter const *blitter);
 void __fastcall Draw_Type_Details_004a97b0(Surface *surface, ConvertClass *drawer, TechnoTypeClass *techtype,
     bool allowed);
 
@@ -646,7 +646,7 @@ void __fastcall Dropship_Screen_004A6B90()
                             RectPoint2D(0, 0),
                             Rect(light_x, light_y, shape->Get_Width(), shape->Get_Height()),
                             0,
-                            (int)plain_blitter, 0, 0, 1000, 0);
+                            plain_blitter, 0, 0, 1000, 0);
                         light_frame[i] = (unsigned int)-1;
                     } else {
                         CC_Draw_Shape(
@@ -722,10 +722,10 @@ void __fastcall Dropship_Screen_004A6B90()
                     if (alpha != effect->Alpha || overlap_drawn) {
                         effect->Alpha = alpha;
                         if (draw_background) {
-                            unknown_blit_49f3a0(*unknown_surface_839954, drawer_dropship, *effect->FromSurface, effect->FromRect, RectPoint2D(0, 0), effect->DestRect, 0, (int)effect->FromBlitter, 0, 0, 1000, 0);
+                            unknown_blit_49f3a0(*unknown_surface_839954, drawer_dropship, *effect->FromSurface, effect->FromRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->FromBlitter, 0, 0, 1000, 0);
                         }
                         ZBufferPtr->Clear_Region_00411090(effect->Alpha, effect->DestRect);
-                        unknown_blit_49f3a0(*unknown_surface_839954, drawer_cameo, *effect->ToSurface, effect->ToRect, RectPoint2D(0, 0), effect->DestRect, 0, (int)effect->ToBlitter, 0, 0, 1000, 0);
+                        unknown_blit_49f3a0(*unknown_surface_839954, drawer_cameo, *effect->ToSurface, effect->ToRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->ToBlitter, 0, 0, 1000, 0);
                         effect->WasDrawn = true;
                         redraw = true;
                     }
@@ -775,7 +775,7 @@ void __fastcall Dropship_Screen_004A6B90()
 
                 money_display += delta;
                 Point2D money_point = screen_origin + Point2D(500, 385);
-                Draw_Updated_Counter_004a95c0(money_display, previous_display, background_surface, money_point, StringTable::Load_String("TXT_CREDITS_COLON", 0, "D:\\Ra2\\Dropship.cpp", 873), false, drawer_dropship, (int)plain_blitter);
+                Draw_Updated_Counter_004a95c0(money_display, previous_display, background_surface, money_point, StringTable::Load_String("TXT_CREDITS_COLON", 0, "D:\\Ra2\\Dropship.cpp", 873), false, drawer_dropship, plain_blitter);
                 redraw = true;
                 money_display_time = now;
             }
@@ -792,7 +792,7 @@ void __fastcall Dropship_Screen_004A6B90()
                     redraw = true;
                 } else {
                     pilot_frame = -1;
-                    unknown_blit_49f3a0(*unknown_surface_839954, drawer_dropship, *background_surface, Rect(284, 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), RectPoint2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, (int)plain_blitter, 0, 0, 1000, 0);
+                    unknown_blit_49f3a0(*unknown_surface_839954, drawer_dropship, *background_surface, Rect(284, 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), RectPoint2D(0, 0), Rect(screen_origin.X + 284, screen_origin.Y + 151, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), 0, plain_blitter, 0, 0, 1000, 0);
                     pilot_timer = 60;
                     redraw = true;
                 }

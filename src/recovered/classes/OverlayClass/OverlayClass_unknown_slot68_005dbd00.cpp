@@ -12,7 +12,7 @@
 #include "shared/anim_type.hpp"
 #include "shared/house.hpp"
 // @ref ?Unknown_006A2970@@YIHH@Z=006a2970
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_int_839634@@3HA=00839634
 // @ref ?unknown_short_8325d0@@3FA=008325d0

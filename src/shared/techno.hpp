@@ -551,7 +551,7 @@ public:
     void Unknown_006D9610(AbstractClass *cell);                 // 0x006D9610 (InfantryClass slot 93: an occupied building, its cell)
     bool unknown_6d7f70();                                      // 0x006D7F70 (FootClass::AI, after the movement; the result is unused there)
     int unknown_6d7e20(int extra);                              // 0x006D7E20 (fires the death weapon at itself; returns the damage)
-    void Unknown_006D21E0(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, unsigned unknown_1, unsigned unknown_2, unsigned unknown_3);  // 0x006D21E0 (the shadow draw; FootClass 0x004C9A40)
+    void Unknown_006D21E0(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x006D21E0 (the shadow draw; FootClass 0x004C9A40)
     int unknown_6d6750();                                       // 0x006D6750
     bool unknown_6d83d0();                                      // 0x006D83D0
     bool unknown_6d83e0();                                      // 0x006D83E0
@@ -561,7 +561,7 @@ public:
     bool unknown_615360();                                      // 0x00615360 (out of this unit; returns al)
     static void __fastcall unknown_6d79c0(bool value);          // 0x006D79C0
     SurfaceRegion Render_Voxel_Object_006d24e0(UnknownObjectPair const &voxel, Matrix3D const &transform, Point2D const &point, Rect const &cliprect, int frame, unsigned flags, int brightness);
-    SurfaceRegion Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel, Matrix3D const &transform, Point2D const &point, Rect const &cliprect, int layer, unsigned flags, bool cached, unsigned unknown_1, unsigned unknown_2, unsigned unknown_3);
+    SurfaceRegion Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel, Matrix3D const &transform, Point2D const &point, Rect const &cliprect, int layer, unsigned flags, bool cached, Surface *mask, unsigned unknown_2, unsigned unknown_3);
     void Blit_Voxel_006d29d0(void const *entry, Point2D const &point, Rect const &cliprect, unsigned flags, int brightness);
     static void unknown_6d7990();                               // 0x006D7990 (restarts unknown_timer_ac0178 at 25)
     // TibSun TechnoClass::ActionLineTimer / TalkBubbleTimer: Techno.CPP defines them
@@ -584,7 +584,7 @@ public:
     // hypotheses; BuildingClass slot 68). Words 13 and 14 are a Point2D passed
     // on by value as CC_Draw_Shape's last argument.
     void unknown_6d1510(void const *shape, int drawer, Point2D const *point, Rect const *bounds, int arg5, int arg6,
-                        int z, int arg8, int arg9, int height, int arg11, int arg12, Point2D offset, int arg15);
+                        int z, int arg8, int arg9, int height, ShapeFileStruct const *arg11, int arg12, Point2D offset, int arg15);
     int unknown_6d86f0(int value);                              // 0x006D86F0 (adjusts the slot 254 value when slot 203 holds; BuildingClass slot 79)
     void unknown_6cdc00(HouseClass *house);                     // 0x006CDC00 (sets House; +0x372 when it is the player's)
     void unknown_6d95a0(UnknownCellClass *cell);                // 0x006D95A0

@@ -5,7 +5,7 @@
 #include "shared/palette.hpp"
 #include "shared/unknown_globals.hpp"
 // @ref ?Draw_Me@ControlClass@@UAEHH@Z=00483530
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_surface_839948@@3PAVSurface@@A=00839948
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_window_839640@@3VRect@@A=00839640

@@ -7,7 +7,7 @@ extern wchar_t const counter_text_format_007d61ec[];
 extern char const counter_scheme_007d61e4[];
 ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name,int kind);
 void __fastcall unknown_blit_49f3a0(Surface &dest,void *convert,Surface &source,Rect const &sourcerect,
-    RectPoint2D const &destpoint,Rect const &destclip,int unknown1,int unknown2,int unknown3,int unknown4,int unknown5,int unknown6);
+    RectPoint2D const &destpoint,Rect const &destclip,unsigned char const *unknown1, class Blitter const *unknown2,int unknown3,int unknown4,int unknown5,int unknown6);
 // @ref ?counter_current_text_00852a68@@3PAGA=00852a68
 // @ref ?counter_previous_text_00852ab8@@3PAGA=00852ab8
 // @ref ?counter_text_format_007d61ec@@3QBGB=007d61ec
@@ -37,7 +37,7 @@ inline Rect Merge_Counter_Areas(Rect const &first,Rect const &second)
 }
 // Restore the union of old/new text bounds, then print the updated value.
 void __fastcall Draw_Updated_Counter_004a95c0(int current,int previous,Surface *background,
-    Point2D &position,wchar_t const *prefix,bool centered,void *convert,int unknown_blit_flags)
+    Point2D &position,wchar_t const *prefix,bool centered,void *convert, class Blitter const *blitter)
 {
     unsigned style=0x46;
     if(centered) style=0x146;
@@ -59,7 +59,7 @@ void __fastcall Draw_Updated_Counter_004a95c0(int current,int previous,Surface *
     Rect area=screen_area;
     area.X-=(unknown_surface_839954->Get_Width()-background->Get_Width())/2;
     area.Y-=(unknown_surface_839954->Get_Height()-background->Get_Height())/2;
-    unknown_blit_49f3a0(*unknown_surface_839954,convert,*background,area,RectPoint2D(0,0),screen_area,0,unknown_blit_flags,0,0,1000,0);
+    unknown_blit_49f3a0(*unknown_surface_839954,convert,*background,area,RectPoint2D(0,0),screen_area,0,blitter,0,0,1000,0);
     Fancy_Text_Printf(counter_current_text_00852a68,unknown_surface_839954,
         &unknown_surface_839954->Get_Rect(),&position,
         unknown_color_scheme_663d30(counter_scheme_007d61e4,1),0,style);

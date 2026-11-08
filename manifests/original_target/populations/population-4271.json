@@ -4,8 +4,8 @@
     "id": "population-4271",
     "inventory_sha256": "3c6766b8d38f1c381b63611e1082dff0b25351e4f57b354ab7ee286819317929",
     "gaps_sha256": "0e2f6f05e6615016d6f8ea5bef735db25a18ce10b8e3cbb67d4dadb46cbfbc88",
-    "historical_population_sha256": "d0b10eca7eaa1a2dfdfdf5f8a4c404d7bcfb06bde065e6a11e8a0a1445576595",
-    "historical_acceptance_sha256": "1ff28c7a9202578251b827fd6ce8aa5770ff83e1fb07f3bbc000e1ca842a5280"
+    "historical_population_sha256": "295ec087847093efa529ade20d39edf69bdb65c959f18e88d2a9f662687a694f",
+    "historical_acceptance_sha256": "ef9689bf92ff16ab731103961e3a5122d8acb4d1d4484ba21d7feb81610880de"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1946,7 +1946,7 @@
     "?unknown_int_839624@@3HA": 8623652,
     "?unknown_surface_839948@@3PAVSurface@@A": 8624456,
     "?unknown_drawer_8323cc@@3PAVConvertClass@@A": 8594380,
-    "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z": 4845216,
+    "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z": 4845216,
     "?Unknown_0061C700@PowerClass@@QAEHAAH00@Z": 6407936,
     "?unknown_flag_8373c2@@3_NA": 8614850,
     "?Flag_To_Redraw@GScreenClass@@UAEXH@Z": 5114272,
@@ -7676,7 +7676,7 @@
     "?unknown_6d7f70@TechnoClass@@QAE_NXZ": 7176048,
     "?unknown_slot246@FootClass@@UAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@HI@Z": 5019776,
     "?unknown_slot246@TechnoClass@@UAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@HI@Z": 7150848,
-    "?Unknown_006D21E0@TechnoClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NIII@Z": 7152096,
+    "?Unknown_006D21E0@TechnoClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z": 7152096,
     "?unknown_slot144@FootClass@@UAEHXZ": 5031936,
     "?unknown_slot194@FootClass@@UAEXXZ": 5033456,
     "?unknown_slot60@FootClass@@UAEXXZ": 5033536,
@@ -9632,7 +9632,7 @@
     "?unknown_func_6b1f10@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7020304,
     "?unknown_slot159@TechnoClass@@UAE_NXZ": 4305776,
     "?unknown_slot203@TechnoClass@@UAE_NXZ": 4305808,
-    "?unknown_6d1510@TechnoClass@@QAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHHHU2@H@Z": 7148816,
+    "?unknown_6d1510@TechnoClass@@QAEXPBXHPBUPoint2D@@PBVRect@@HHHHHHPBUShapeFileStruct@@HU2@H@Z": 7148816,
     "?unknown_slot138@AircraftClass@@UAEHXZ": 4297680,
     "?Unknown_004717B0@CellClass@@QAEPAVBuildingClass@@XZ": 4659120,
     "?unknown_slot73@TerrainClass@@UAE?AVRect@@XZ": 7227664,
@@ -10333,7 +10333,7 @@
     "?unknown_slot141@BuildingClass@@UAEHXZ": 4485728,
     "?Blit_Voxel_006d29d0@TechnoClass@@QAEXPBXABUPoint2D@@ABVRect@@IH@Z": 7154128,
     "?Render_Voxel_Object_006d24e0@TechnoClass@@QAE?AUSurfaceRegion@@ABVUnknownObjectPair@@ABVMatrix3D@@ABUPoint2D@@ABVRect@@HIH@Z": 7152864,
-    "?Render_Voxel_Shadow_006d2810@TechnoClass@@QAE?AUSurfaceRegion@@ABVUnknownObjectPair@@ABVMatrix3D@@ABUPoint2D@@ABVRect@@HI_NIII@Z": 7153680,
+    "?Render_Voxel_Shadow_006d2810@TechnoClass@@QAE?AUSurfaceRegion@@ABVUnknownObjectPair@@ABVMatrix3D@@ABUPoint2D@@ABVRect@@HI_NPAVSurface@@II@Z": 7153680,
     "?unknown_slot286@BuildingClass@@UAEXPAVTechnoClass@@0_NPBVCell@@@Z": 4448880,
     "?unknown_slot235@TechnoClass@@UAEXXZ": 7111664,
     "?unknown_slot236@TechnoClass@@UAEXXZ": 7112432,
@@ -10427,7 +10427,29 @@
     "?Get_All@@YI_NPAUIStream@@_N@Z": 6646656,
     "?Unknown_00567D20@MapClass@@QAEHPAVHouseClass@@HHH@Z": 5668128,
     "?Unknown_00630840@RadarClass@@QAEXABVRect@@@Z": 6490176,
-    "?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z": 5648208
+    "?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z": 5648208,
+    "??1WDTState@@UAE@XZ": 7520976,
+    "??_7WDTState@@6B@": 8057608,
+    "?Create_Reinforcement@@YI_NPAVTeamTypeClass@@PAVFootClass@@ABVCell@@_N@Z": 6529104,
+    "??0WDTState@@QAE@PAE@Z": 7520160,
+    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
+    "??0WDTState@@QAE@XZ": 7519984,
+    "__real@8@400d8000000000000000": 7983264,
+    "?Debug_Draw_Occupation_Flags@Tactical@@QAEXXZ": 6994976,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "?unknown_slot53@BuildingClass@@UAE_NPBUCoordStruct@@H@Z": 4445088,
+    "?Action@RTacticalClass@@UAEHIAAI@Z": 6487600,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
+    "?OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z": 7739536,
+    "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z": 7361520,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
+    "?Unknown_0054F250@MapClass@@QAEHPAUUnknownMapElem4@@HAAH@Z": 5567056,
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "??_EWDTState@@": 7522816,
+    "??_GWDTState@@": 7522816
   },
   "regions": [
     {
@@ -12417,7 +12439,7 @@
         {
           "offset": 243,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4293403881
@@ -12449,7 +12471,7 @@
         {
           "offset": 340,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4293403784
@@ -12481,7 +12503,7 @@
         {
           "offset": 425,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4293403699
@@ -12513,7 +12535,7 @@
         {
           "offset": 518,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4293403606
@@ -12545,7 +12567,7 @@
         {
           "offset": 611,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4293403513
@@ -12559,7 +12581,7 @@
           "resolved": 76348
         }
       ],
-      "source_sha256": "568aa2dfb382cf5065c5372231a9756ac2413e69d6c97dfae1eabb880882716e",
+      "source_sha256": "4f8de33758c14a5acfd4cfdc9dc972419076e769c7374175ed325c2c942504af",
       "source": "src/recovered/classes/PowerClass/PowerClass_Draw_It_0061c8c0.cpp",
       "population": "population-4271",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

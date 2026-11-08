@@ -3,7 +3,7 @@
 #include "shared/surface.hpp"
 #include "shared/palette.hpp"
 #include "shared/msfont.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_score_empty_rect_ab6f20@@3VRect@@B=00ab6f20
 
 void ScoreFontClass::Print_Char(Surface *surface, unsigned short character, int x, int y, int frame, int unused)

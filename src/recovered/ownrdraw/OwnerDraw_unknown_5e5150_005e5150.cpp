@@ -29,7 +29,7 @@
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?Unknown_Point_Copy_006F1AE0@@YI?AUPoint2D@@PBU1@@Z=006f1ae0
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_8523e0@@3HA=008523e0
 // @ref ?unknown_7add6c@OwnerDraw@@3HA=007add6c
 // @ref ?Audio_Update@@YAXXZ=00406ea0

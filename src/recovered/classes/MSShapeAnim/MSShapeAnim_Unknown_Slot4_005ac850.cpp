@@ -1,6 +1,6 @@
 // @ref ??0Rect@@QAE@HHHH@Z=0042bcd0
 // @ref ??BSystemTimerClass@@QBEJXZ=0069a430
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 #include "shared/ms_anim.hpp"
 bool MSShapeAnim::Unknown_Slot4(Surface *surface, Rect *dirty)

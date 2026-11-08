@@ -6,7 +6,7 @@
 
 // @ref __com_issue_error@4=00795940
 
-void FootClass::unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, unsigned unknown_1, unsigned unknown_2, unsigned unknown_3)
+void FootClass::unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3)
 {
     if (Locomotor != 0 && Locomotor.Checked()->Is_To_Have_Shadow() == true) {
         Point2D point = draw_point;
@@ -14,7 +14,7 @@ void FootClass::unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int ke
             Point2D offset = Locomotor.Checked()->Shadow_Point();
             point = Point2D_Sum(draw_point, offset);
         }
-        Unknown_006D21E0(voxel, layer, key, cache, cliprect, point, transform, force_cache, unknown_1, unknown_2, unknown_3);
+        Unknown_006D21E0(voxel, layer, key, cache, cliprect, point, transform, force_cache, mask, unknown_2, unknown_3);
     }
 }
-// @ref ?Unknown_006D21E0@TechnoClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NIII@Z=006d21e0
+// @ref ?Unknown_006D21E0@TechnoClass@@QAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@_NPAVSurface@@II@Z=006d21e0

@@ -4,12 +4,12 @@
 #include "shared/blit.hpp"
 
 void __fastcall CC_Draw_Shape(Surface *destination, ConvertClass *convert, ShapeFileStruct const *file, int frame,
-                              Point2D const &point, Rect const &window, int flags, int remap_bits,
-                              int height_offset, int gradient, int intensity, int depth_file_bits,
+                              Point2D const &point, Rect const &window, int flags, unsigned char const *remap,
+                              int height_offset, int gradient, int intensity, ShapeFileStruct const *depth_file,
                               int depth_frame, Point2D depth_offset)
 {
     if (!file) return;
-    convert->ActiveRemap = reinterpret_cast<unsigned char const *>(remap_bits);
+    convert->ActiveRemap = remap;
     int x = point.X;
     int y = point.Y;
     Rect area = file->Get_Frame_Rect(frame);
@@ -20,7 +20,6 @@ void __fastcall CC_Draw_Shape(Surface *destination, ConvertClass *convert, Shape
     Point2D depth_point = depth_offset;
     BSurface *depth_shape;
     Rect depth_area;
-    ShapeFileStruct const *depth_file = reinterpret_cast<ShapeFileStruct const *>(depth_file_bits);
     if (depth_file) {
         depth_area = depth_file->Get_Frame_Rect(depth_frame);
         depth_shape = new BSurface(depth_area.Width, depth_area.Height, 1,
@@ -46,13 +45,13 @@ void __fastcall CC_Draw_Shape(Surface *destination, ConvertClass *convert, Shape
         area = area.Intersect(Rect(-depth_point.X, -depth_point.Y, depth_area.Width, depth_area.Height));
         if (area.Width <= 0 || area.Height <= 0) goto cleanup;
     }
-    if (remap_bits) flags |= 0x10;
+    if (remap) flags |= 0x10;
     {
         if (file->Is_RLE_Compressed(frame)) {
             RLEBlitter const *blitter = convert->RLEBlitter_From_Flags_00485d60(flags);
             if (blitter) RLE_Blit(*destination, window, Rect(x, y, area.Width, area.Height), shape, area, area,
                                   *blitter, height_offset, gradient, intensity, 0,
-                                  reinterpret_cast<int>(depth_shape), BlitPair(depth_point.X, depth_point.Y));
+                                  depth_shape, BlitPair(depth_point.X, depth_point.Y));
         } else {
             Blitter const *blitter = convert->Select_Blitter_00485AA0(flags);
             if (blitter) Bit_Blit(*destination, window, Rect(x, y, area.Width, area.Height), shape,

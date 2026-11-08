@@ -6,7 +6,7 @@
 // @ref ?unknown_drawer_8323cc@@3PAVConvertClass@@A=008323cc
 // @ref ?unknown_buffer_ac10f8@@3PAXA=00ac10f8
 // @ref ?unknown_flag_abcd84@@3_NA=00abcd84
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 
 void TabClass::Unknown_006A1710()
 {

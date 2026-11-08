@@ -19,7 +19,7 @@
 // @ref ?Unknown_0053D840@@YAIXZ=0053d840
 // @ref ?unknown_a6eb1c@@3IA=00a6eb1c
 // @ref ?Unknown_006A2970@@YIHH@Z=006a2970
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 // @ref _unknown_empty_rect=0084c690

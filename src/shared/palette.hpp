@@ -29,8 +29,8 @@ class Surface;
 // every caller seen (MSFont 0x005B43D0/0x005B44F0, MSShapeAnim 0x005ACBB0):
 // a Point2D passed by value (hypothesis).
 void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileStruct const *shape, int frame,
-                              Point2D const &point, Rect const &window, int flags, int unknown8,
-                              int unknown9, int unknown10, int brightness, int unknown12,
+                              Point2D const &point, Rect const &window, int flags, unsigned char const *unknown8,
+                              int unknown9, int unknown10, int brightness, ShapeFileStruct const *unknown12,
                               int unknown13, Point2D offset);                  // 0x0049EEA0
 
 // Reads a whole file into a new heap block (released with operator delete).

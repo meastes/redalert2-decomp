@@ -159,7 +159,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                                 CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum, shapepoint, cliprect, 0x4e00, 0, zlepton - 2, 0, brightness, 0, 0, Point2D(0, 0));
                                 CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum + shape->Get_Count() / 2, shapepoint, cliprect, 0x4e01, 0, zlepton - 2, 0, 1000, 0, 0, Point2D(0, 0));
                             } else {
-                                CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum, shapepoint, cliprect, 0x4e00, 0, zlepton + zadjust - 2, 2, brightness, (int)zshapefile, 0, zdrawpoint);
+                                CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum, shapepoint, cliprect, 0x4e00, 0, zlepton + zadjust - 2, 2, brightness, zshapefile, 0, zdrawpoint);
                                 CC_Draw_Shape(unknown_surface_83995c, drawconvert, shape, shapenum + shape->Get_Count() / 2, shapepoint, cliprect, 0x4e01, 0, zlepton - 2, 0, 1000, 0, 0, Point2D(0, 0));
                             }
                         }

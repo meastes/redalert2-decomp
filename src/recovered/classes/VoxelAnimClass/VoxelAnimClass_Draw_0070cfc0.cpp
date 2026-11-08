@@ -78,7 +78,7 @@ void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window)
     {
         RectPoint2D draw(pixel.X + offset_x, pixel.Y + offset_y);
         unknown_blit_49f3a0(*unknown_surface_83995c, unknown_drawer_8323b4, Voxel_Render_Surface_00717040(), rect, draw, window, 0,
-                            (int)unknown_drawer_8323b4->Select_Blitter_00485AA0(0x2001), -4 - Unknown_006A2970(level), 0, 1000, 0);
+                            unknown_drawer_8323b4->Select_Blitter_00485AA0(0x2001), -4 - Unknown_006A2970(level), 0, 1000, 0);
     }
     matrix = BounceClass::unknown_matrix_436fc0();
     Prepare_Voxel_Lighting_00717050(voxel, 0, 0, matrix, unknown_voxel_light_839ab0);
@@ -106,6 +106,6 @@ void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window)
     {
         RectPoint2D draw2(position.X + offset_x, position.Y + offset_y);
         unknown_blit_49f3a0(*unknown_surface_83995c, drawer, Voxel_Render_Surface_00717040(), rect, draw2, window, 0,
-                            (int)drawer->Select_Blitter_00485AA0(flags), -2 - Unknown_006A2970(unknown_slot110()), 0, brightness, 0);
+                            drawer->Select_Blitter_00485AA0(flags), -2 - Unknown_006A2970(unknown_slot110()), 0, brightness, 0);
     }
 }

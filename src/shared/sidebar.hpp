@@ -130,8 +130,8 @@ inline void Unknown_Play_Sound(int sound)
     Voc_Play(sound, 1.0f, 0x2000, 0);
 }
 void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileStruct const *shape, int frame,
-                              Point2D const &point, Rect const &window, int flags, int unknown8,
-                              int unknown9, int unknown10, int brightness, int unknown12,
+                              Point2D const &point, Rect const &window, int flags, unsigned char const *unknown8,
+                              int unknown9, int unknown10, int brightness, ShapeFileStruct const *unknown12,
                               int unknown13, Point2D offset);
 // A window rectangle the sidebar resets (0x008336E8).
 extern Rect unknown_rect_8336e8;

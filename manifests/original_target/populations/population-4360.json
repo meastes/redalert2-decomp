@@ -4,8 +4,8 @@
     "id": "population-4360",
     "inventory_sha256": "e1bd2c745daac9aef725b85053ec64bd51223d03e913a502443ef5a04cd74155",
     "gaps_sha256": "592eed44f82fb72503dec8689311b4f6ffa08ad686d92365ffacfe83b61e166b",
-    "historical_population_sha256": "0bebd527fc5d27eb3f5f40b5df0ddb53929b288ccdf627c9844a92284318b04b",
-    "historical_acceptance_sha256": "cef0318de768eea34e51b7e4e55486b623a342b029f23a5d987c8806f45af2d7",
+    "historical_population_sha256": "a7bf861caca60e44038faa666029cfa27374ee7bfe81d6d10c5e8ff6629565a6",
+    "historical_acceptance_sha256": "81ae3caccd445402be78aee13ca6f35deb822b1a488fcf24b158912726c6de55",
     "separate_units": true
   },
   "references": {
@@ -405,7 +405,7 @@
     "?unknown_name_7f8724@@3QBDB": 8357668,
     "?unknown_art_ac1194@@3PAXA": 11276692,
     "?unknown_art_ac1198@@3PAXA": 11276696,
-    "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHUPoint2D@@@Z": 4845216,
+    "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z": 4845216,
     "?Unknown_006F3D50@@YIXXZ": 7290192,
     "?Unknown_006F34D0@@YIXPAVSurface@@ABVRect@@@Z": 7288016,
     "?unknown_count_ac102c@@3HA": 11276332,
@@ -1468,7 +1468,7 @@
     "?Set_Frame@MSShapeAnim@@QAEXH@Z": 5949280,
     "?Get_Rect@MSShapeAnim@@UAE?AVRect@@XZ": 5950720,
     "?Get_Rect@MSBitPrintAnim@@UAE?AVRect@@XZ": 5956896,
-    "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z": 4845216,
+    "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z": 4845216,
     "?Get_Rect@MSBinkAnim@@UAE?AVRect@@XZ": 5954000,
     "?Get_Rect@MSVQAnim@@UAE?AVRect@@XZ": 5956576,
     "?Get_Rect@MSPCXAnim@@UAE?AVRect@@XZ": 5962688,
@@ -8227,7 +8227,7 @@
         {
           "offset": 282,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4292523826
@@ -8267,7 +8267,7 @@
         {
           "offset": 367,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4292523741
@@ -8315,7 +8315,7 @@
         {
           "offset": 486,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4292523622
@@ -8363,7 +8363,7 @@
         {
           "offset": 586,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4292523522
@@ -8411,13 +8411,13 @@
         {
           "offset": 712,
           "kind": 20,
-          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z",
+          "symbol": "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z",
           "target": 4845216,
           "addend": 0,
           "resolved": 4292523396
         }
       ],
-      "source_sha256": "367f1fbcd012a4eaf3a2899ca534bc49b433393f99bcbded488d1094dc075ff4",
+      "source_sha256": "408ebed09d77390220d59fff7eba3a2da5bf3ab5a0c391a476c133c1ed4c9d24",
       "source": "src/recovered/unowned/Unknown_Draw_Interface_006f3650.cpp",
       "population": "population-4360",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

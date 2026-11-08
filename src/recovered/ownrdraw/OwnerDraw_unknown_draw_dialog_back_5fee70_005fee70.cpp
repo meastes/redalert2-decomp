@@ -21,7 +21,7 @@
 // @ref ?unknown_art_ac1218@@3PAXA=00ac1218
 // @ref ?unknown_art_ac121c@@3PAXA=00ac121c
 // @ref ?unknown_art_ac1220@@3PAXA=00ac1220
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
+// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_bitmap_writer_a76378@@3VUnknownBitmapWriter@@A=00a76378
 // @ref ?Get_Image_0068ca40@UnknownBitmapWriter@@QAEPAVSurface@@PBDH@Z=0068ca40
 // @ref ?unknown_dialog_back_name_7e8d1c@OwnerDraw@@3PBDB=007e8d1c
