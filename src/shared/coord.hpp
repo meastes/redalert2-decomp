@@ -73,6 +73,9 @@ public:
     T Length(void) const {return(T(Fast_Sqrt((double)this->X*(double)this->X + (double)this->Y*(double)this->Y + (double)Z*(double)Z)));}
     T Distance_To(TPoint3D<T> const & point) const {return((*this - point).Length());}
 #endif
+#ifdef RA2_TPOINT3D_DIVIDE
+    TPoint3D<T> const operator/(T rvalue) const { if (rvalue == T(0)) return TPoint3D<T>(0, 0, 0); return TPoint3D<T>(this->X / rvalue, this->Y / rvalue, Z / rvalue); }
+#endif
     T Z;
 };
 struct CoordStruct : public TPoint3D<int> {

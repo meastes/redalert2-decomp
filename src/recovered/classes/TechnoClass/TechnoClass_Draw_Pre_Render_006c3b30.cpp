@@ -3,7 +3,7 @@
 #include "shared/techno.hpp"
 #include "shared/selection_coord.hpp"
 #include "shared/convert.hpp"
-// @ref ??0CoordStruct@@QAE@HHH@Z=0041b630
+// @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
 void TechnoClass::unknown_slot65(int point, int cliprect)
 {
     if (Kind_Of() == 6 && unknown_77 && Kind_Of() != 15) {

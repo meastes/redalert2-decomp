@@ -1,6 +1,7 @@
 // TechnoClass slot 66 0x006C2C40: Draw_Post_Render (TibSun techno.cpp 1225).
-// @ref ??0CoordStruct@@QAE@HHH@Z=0041b630
-// @ref ??HCoordStruct@@QBE?AU0@ABU0@@Z=0069ecf0
+// @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
+// @ref ??H?$TPoint3D@H@@QBE?BV0@ABV0@@Z=0069ecf0
+// @ref ??K?$TPoint3D@H@@QBE?BV0@H@Z=006d9770
 #include "shared/techno.hpp"
 #include "shared/cell.hpp"
 #include "shared/building_class.hpp"
@@ -24,15 +25,14 @@ inline void __fastcall Draw_Single_Selection_Bracket(::Coord const &from, ::Coor
 {
     ::Coord quarter = (from + from + from + to) / 4;
     if (from.Z > quarter.Z) {
-        unknown_tactical_83996c->unknown_slot24(from, quarter, color, 0);
+        unknown_tactical_83996c->unknown_slot24(reinterpret_cast<CoordStruct const &>(from), reinterpret_cast<CoordStruct const &>(quarter), color, 0);
     } else {
-        unknown_tactical_83996c->unknown_slot24(quarter, from, color, 0);
+        unknown_tactical_83996c->unknown_slot24(reinterpret_cast<CoordStruct const &>(quarter), reinterpret_cast<CoordStruct const &>(from), color, 0);
     }
 }
 // Read accessors of the tail tests (their sites decide the bracket refusals above).
 inline bool Flag_380(TechnoClass const *techno) { return techno->unknown_380; }
 inline bool Is_Selected(TechnoClass const *techno) { return techno->unknown_77; }
-inline TechnoClass *Talk_Owner() { return unknown_talk_techno_ac01c4; }
 void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
 {
     bool sensed_underground = false;
@@ -112,7 +112,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
 
 
 
-        if (Talk_Owner() == this && unknown_talk_value_ac01c8 > 0 && (long)TalkBubbleTimer > 0) {
+        if (unknown_talk_techno_ac01c4 == this && unknown_talk_value_ac01c8 > 0 && (long)TalkBubbleTimer > 0) {
             CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4,
                 static_cast<ShapeFileStruct const *>(unknown_talkbubl_shapes_a72fec), unknown_talk_value_ac01c8 - 1,
                 point, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));

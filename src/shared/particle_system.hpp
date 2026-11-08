@@ -91,8 +91,16 @@ class ParticleSystemClass : public ObjectClass {
 public:
     // A new system of type at coord for owner, aimed at target or
     // target_coord (argument names hypotheses; AircraftClass slot 86).
+#ifdef RA2_PARTICLE_SYSTEM_POINT3D
+    // Under the TibSun TPoint3D coordinate profile the position binds a TPoint3D sum without a
+    // CoordStruct conversion (TechnoClass::AI 0x006C74C0 evaluates the smoke offset before the
+    // centre only so). Parameter type hypothesis; the Techno unit defines the macro in its first row.
+    ParticleSystemClass(ParticleSystemTypeClass *type, TPoint3D<int> const &coord, AbstractClass *target,
+                        ObjectClass *owner, CoordStruct const &target_coord);   // 0x0060AA70
+#else
     ParticleSystemClass(ParticleSystemTypeClass *type, CoordStruct const &coord, AbstractClass *target,
                         ObjectClass *owner, CoordStruct const &target_coord);   // 0x0060AA70
+#endif
     ParticleSystemClass();                                              // 0x0060AD30
     ParticleSystemClass(NoInitClass const &noinit) : ObjectClass(noinit) {}   // inline (Load)
     virtual ~ParticleSystemClass();                                     // 0x0060AE80

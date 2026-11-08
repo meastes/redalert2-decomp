@@ -44,6 +44,7 @@ extern double const unknown_random_scale_79c280;
 // @ref ?Process@FlasherClass@@QAE_NXZ=004bbf00
 // @ref ?FUN_00496ce0@seed_00496ce0@@YIXH@Z=00496ce0
 // @ref ?Damage_Smoke_Offset@TechnoTypeClass@@QBE?AUCoordStruct@@XZ=006df6c0
+// @ref ??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z=0060aa70
 // @ref ??_C@_0BB@KGAO@EVA_UnitPromoted?$AA@=007f7140
 // @ref ?unknown_random_scale_79c280@@3NB=0079c280
 // @ref ?unknown_coord_ac0188@@3UCoordStruct@@A=00ac0188

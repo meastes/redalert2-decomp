@@ -32,6 +32,7 @@ inline bool Has_Ability_L(TechnoClass *t, int ability)
     return false;
 }
 // @ref ?Damage_Smoke_Offset@TechnoTypeClass@@QBE?AUCoordStruct@@XZ=006df6c0
+// @ref ??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z=0060aa70
 int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *attacker, bool forced, int no_crew)
 {
     bool healing=*damage<0;
@@ -195,7 +196,7 @@ int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
             bool retaliate=unknown_slot212(target,which);
             if (!retaliate) {
                 if (House->unknown_func_4f52f0()) {
-                    CoordStruct difference=Center_Coord()-target->Center_Coord();
+                    TPoint3D<int> difference=Center_Coord()-target->Center_Coord();
                     double range=(int)unknown_sqrt_4ba410((double)difference.X*(double)difference.X+(double)difference.Z*(double)difference.Z+(double)difference.Y*(double)difference.Y);
                     retaliate=range<=(unknown_slot32()->Sight+0.5)*256.0;
                 } else {
