@@ -6,7 +6,6 @@ The sources are the TibSun archive's `.asm` files adopted unchanged (THIRD_PARTY
 the original executable was assembled with MASM 6.13 (Rich header, 48 objects) and
 MASM 6.15 from the VC6 Processor Pack reproduces the same bytes for these files.
 """
-import fcntl
 import hashlib
 import json
 import os
@@ -52,25 +51,28 @@ def assemble(config, sources, destination):
     directory = assembler_directory(config)
     for name in ('ML.EXE', 'ML.ERR'):
         shutil.copyfile(directory / name, destination / name)
-    env = dict(os.environ, WINEPREFIX=config['wine_prefix'], WINEDEBUG='-all')
+    native = os.name == 'nt'                     # the Windows gate runs ML.EXE natively (codex4 r172)
+    env = os.environ.copy()
+    if not native:
+        env.update(WINEPREFIX=config['wine_prefix'], WINEDEBUG='-all')
     for include in sorted({inc for source in sources for inc in (REPOSITORY / source).parent.glob('*.inc')}):
         shutil.copyfile(include, destination / include.name)        # archive tables the sources include
     objects = {}
-    with open(config['lock'], 'a+') as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX)
+    from build import exclusive_lock             # the build's cross-platform compiler lock
+    with exclusive_lock(config['lock']):
         for source in sources:
             src = REPOSITORY / source
             local = destination / src.name
             shutil.copyfile(src, local)
             obj = destination / (src.stem + '.obj')
             obj.unlink(missing_ok=True)
-            command = [config['wine'], 'ML.EXE', *ML_FLAGS, '/Fo' + obj.name, local.name]
+            program = [str((destination / 'ML.EXE').resolve())] if native else [config['wine'], 'ML.EXE']
+            command = [*program, *ML_FLAGS, '/Fo' + obj.name, local.name]
             proc = subprocess.run(command, cwd=destination, env=env, capture_output=True, text=True, timeout=600)
             (destination / (src.stem + '.log')).write_text((proc.stdout + proc.stderr).replace('\r', ''))
             if proc.returncode != 0 or not obj.exists():
                 raise SystemExit('assembler failed on %s: %s' % (source, (proc.stdout + proc.stderr)[-400:]))
             objects[source] = obj
-        fcntl.flock(lock, fcntl.LOCK_UN)
     return objects
 
 
