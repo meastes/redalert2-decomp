@@ -9,6 +9,7 @@ build) and never changes `src/`, the catalog or `tools/original_target`.
 
 ```
 cmake -S native -B build/native -G Ninja && cmake --build build/native
+cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all   # whole tree (3,279 groups)
 ctest --test-dir build/native            # native-core-check
 build/native/ra2-native --smoke-test     # SDL3 host window
 ```
@@ -23,12 +24,22 @@ build/native/ra2-native --smoke-test     # SDL3 host window
    header. Rewrites are mechanical and keep VC6 x86 meaning on LP64:
    `long` to a 32-bit `RA2_LONG`, `L` literal suffixes dropped, `operator new(unsigned int`
    to `size_t`, 32-bit layout size checks disabled, VC6 for-init scope hoisted,
-   VC6 wide CRT calls renamed `ra2_*`. Rows with `__asm` are skipped and listed.
-   `port/fixups.json` holds the few per-file substitutions clang needs (each
-   should move into `src/` once the exact build proves the edit byte-neutral).
+   VC6 wide CRT calls renamed `ra2_*`, opaque enums given VC6's fixed `int`
+   (`enum X;` and its definition become `enum X : int`), reference casts of
+   rvalues wrapped in `ra2port::as_lvalue` (VC6 reinterprets a temporary).
+   Rows with `__asm` are skipped and listed. `port/fixups.json` holds the
+   per-file substitutions clang needs (sources and `src/shared` headers, each
+   with the VC6 meaning it keeps and its evidence) plus qualified-name
+   `renames`; each should move into `src/` once the exact build proves the
+   edit byte-neutral. `--win64-params` (off) makes WPARAM/LPARAM/LRESULT/*_PTR
+   pointer-sized; 21 sources still spell those parameters as 32-bit types.
+   `--drafts` appends the non-exact launch-path drafts listed in `drafts.json`
+   (entry, score, draft path, host group; only those marked `compiles`) and
+   writes `gen/drafts.json`; drafts live in private lane scratch
+   (`-DRA2_NATIVE_DRAFTS=ON -DRA2_NATIVE_DRAFT_ROOT=<checkout>`).
 2. **Dialect** (`port/include/ra2port/prelude.hpp`, forced include, plus flags
    `-fms-extensions -fms-compatibility -fdelayed-template-parsing -Xclang -fno-wchar
-   -fshort-wchar -fwrapv -fno-strict-aliasing`): calling conventions vanish,
+   -fshort-wchar -fwrapv -fno-strict-aliasing -Wno-register -Wno-c++11-narrowing`): calling conventions vanish,
    `wchar_t` is VC6's `unsigned short`, signed overflow wraps.
 3. **Recovered code** (`ra2_recovered`): accepted sources; unmatched rows enter as
    their best parked draft (flagged non-exact with its score) or a behaviour-written

@@ -39,4 +39,28 @@ typedef size_t RA2_SIZE_T;
 static_assert(sizeof(RA2_LONG) == 4 && sizeof(RA2_ULONG) == 4, "VC6 long is 32 bits");
 static_assert(sizeof(wchar_t) == 2, "build with -fshort-wchar: RA2 strings are UTF-16");
 
+// Port helpers referenced by native_units.py rewrites and port/fixups.json.
+namespace ra2port {
+// VC6 accepts a cast of an rvalue to a reference type and reinterprets a
+// temporary copy. native_units.py wraps such cast operands in as_lvalue: it
+// binds the temporary until the end of the full expression (the lifetime VC6
+// gives it) and is the identity on lvalues.
+template <class T> inline T &as_lvalue(T &&value) { return value; }
+
+// DynamicVectorClass<T> declares Delete(T const &) and Delete(int). For T = int
+// ISO C++ finds an int argument ambiguous; VC6 always takes Delete(int index)
+// (verified inline at 0x0047D910, 0x0047D970, 0x004F9D84, 0x0057C30A: each
+// shifts the elements after the argument used as an index, with no ID call).
+// The by-object overload's parameter goes through this trait, which for int is
+// a wrapper reachable only through a user conversion, so Delete(int) wins as on
+// VC6; for every other T it is exactly T const &.
+template <class T> struct vector_object_ref {
+    T const &value;
+    vector_object_ref(T const &v) : value(v) {}
+    operator T const &() const { return value; }
+};
+template <class T> struct delete_object_arg { typedef T const &type; };
+template <> struct delete_object_arg<int> { typedef vector_object_ref<int> type; };
+}  // namespace ra2port
+
 #endif

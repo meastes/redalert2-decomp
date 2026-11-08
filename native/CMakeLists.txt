@@ -15,22 +15,30 @@ endif()
 set(RA2_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/..")
 set(RA2_NATIVE_SUBSYSTEM "core" CACHE STRING "Compile groups to build (native_units.py --subsystem)")
 option(RA2_NATIVE_SDL "Build the SDL3 host executable" ON)
+option(RA2_NATIVE_DRAFTS "Append the non-exact launch-path drafts (native/drafts.json) to their groups" OFF)
+set(RA2_NATIVE_DRAFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "Checkout whose build/class-work holds the lane drafts")
 
 # 1. Generate the native view: port-rewritten shared headers and one TU per
 #    catalog compile group (the exact build's unit structure). Re-run by
 #    reconfiguring after src/ or the catalog changes.
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
+set(ra2_draft_args "")
+if(RA2_NATIVE_DRAFTS)
+  set(ra2_draft_args --drafts --draft-root "${RA2_NATIVE_DRAFT_ROOT}")
+endif()
 set(RA2_NATIVE_GEN "${CMAKE_CURRENT_BINARY_DIR}/gen")
 execute_process(
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/native_units.py"
           --out "${RA2_NATIVE_GEN}" --subsystem "${RA2_NATIVE_SUBSYSTEM}"
+          ${ra2_draft_args}
   RESULT_VARIABLE ra2_gen_result)
 if(NOT ra2_gen_result EQUAL 0)
   message(FATAL_ERROR "native_units.py failed")
 endif()
 include("${RA2_NATIVE_GEN}/units.cmake")
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
-  "${CMAKE_CURRENT_SOURCE_DIR}/tools/native_units.py" "${CMAKE_CURRENT_SOURCE_DIR}/port/fixups.json")
+  "${CMAKE_CURRENT_SOURCE_DIR}/tools/native_units.py" "${CMAKE_CURRENT_SOURCE_DIR}/port/fixups.json"
+  "${CMAKE_CURRENT_SOURCE_DIR}/drafts.json")
 
 # 2. The VC6 dialect on clang/arm64 (port/include/ra2port/prelude.hpp explains
 #    each choice). -fwrapv and -fno-strict-aliasing restore what VC6 x86 code
@@ -40,7 +48,7 @@ target_compile_options(ra2_dialect INTERFACE
   -fms-extensions -fms-compatibility -fdelayed-template-parsing
   "SHELL:-Xclang -fno-wchar" -fshort-wchar
   -fwrapv -fno-strict-aliasing
-  -Wno-error=address-of-temporary -w
+  -Wno-error=address-of-temporary -Wno-register -Wno-c++11-narrowing -w
   "SHELL:-include ${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp")
 target_include_directories(ra2_dialect INTERFACE "${RA2_NATIVE_GEN}/overlay")
 

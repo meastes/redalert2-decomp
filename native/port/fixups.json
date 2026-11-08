@@ -1,10 +1,236 @@
 {
- "about": "Native-only text substitutions where clang rejects VC6 dialect that native_units.py cannot rewrite generically. Each must keep the original behaviour; migrate a fixup into src/ once the exact build proves the edited file still matches, then delete it here. 'verified' says whether the chosen meaning was checked against the original code.",
+ "about": "Native-only text substitutions where clang rejects VC6 dialect that native_units.py cannot rewrite generically. 'source' is a src/recovered file or a src/shared header (applied to the overlay copy). Each must keep the original behaviour, and 'why' states the VC6 meaning kept (with the original address that evidences it where a choice was made). Migrate a fixup into src/ once the exact build proves the edited file still matches, then delete it here. 'renames' are applied to every source and header: qualified-name renames for VC6-only name hiding.",
+ "renames": [
+  {
+   "from": "AircraftTypeClass::Init",
+   "to": "AircraftTypeClass::Init_Static_0041beb0",
+   "why": "Static AircraftTypeClass::Init (0x0041BEB0) hides the virtual AbstractClass::Init in VC6; see the aircraft_type.hpp fixup. Covers its definition and the qualified caller Init_Bulk_Data (0x00516900)."
+  }
+ ],
  "fixups": [
-  {"source": "src/recovered/classes/UnknownMapGenerator/UnknownMapGenerator_Partition_Area_0057c0d0.cpp",
-   "old": "choices.Delete((int)selected);",
-   "new": "(choices.*static_cast<bool (DynamicVectorClass<int>::*)(int)>(&DynamicVectorClass<int>::Delete))((int)selected);",
-   "why": "DynamicVectorClass<int>: Delete(int) and Delete(int const &) are ambiguous in ISO C++; VC6 resolved it. Native picks delete-by-index (selected is an index into choices).",
-   "verified": false}
+  {
+   "source": "src/shared/aircraft_type.hpp",
+   "old": "static void Init();",
+   "new": "static void Init_Static_0041beb0();",
+   "why": "VC6 lets the static AircraftTypeClass::Init (0x0041BEB0, rotor shapes) hide AbstractClass's virtual Init (slot 9); ISO C++ rejects a static member that overrides a virtual. Native renames the static (its definition and the one qualified caller, Init_Bulk_Data, through 'renames'); the virtual slot 9 is unchanged, as in the original vtable.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/vector_class_decl.hpp",
+   "old": "    bool Delete(T const &object);\n",
+   "new": "    bool Delete(typename ra2port::delete_object_arg<T>::type object);\n",
+   "why": "DynamicVectorClass<int>: ISO C++ finds Delete(int) / Delete(int const &) ambiguous for an int argument. VC6 takes Delete(int index) at every such call (verified inline: 0x0047D910, 0x0047D970, 0x004F9D84 HouseTypeClass::Read_INI, 0x0057C30A UnknownMapGenerator::Partition_Area all shift the vector at the argument as index, no ID call). ra2port::delete_object_arg (prelude) is T const & for every T except int, where only a user conversion reaches it, so overload resolution matches VC6.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/vector_class.hpp",
+   "old": "bool DynamicVectorClass<T>::Delete(T const &object)\n",
+   "new": "bool DynamicVectorClass<T>::Delete(typename ra2port::delete_object_arg<T>::type object)\n",
+   "why": "Definition of the by-object Delete, same parameter spelling as vector_class_decl.hpp (see there).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/wide_string.hpp",
+   "old": "    WideString operator+(unsigned short const *string) const;\n",
+   "new": "    WideString operator+(unsigned short const *string) const;\n    // native: VC6 resolves (non-const WideString) + (wide pointer) to the const pointer\n    // overload above (0x0076FED0; e.g. 0x00728710 in RangedGameOption::Describe);\n    // ISO C++ finds it ambiguous with operator+(WideString const &). This forwarder\n    // makes that choice explicit.\n    WideString operator+(unsigned short const *string) { return static_cast<WideString const &>(*this) + string; }\n",
+   "why": "WideString + wchar_t pointer on a non-const left operand: ISO ambiguity between the non-const member operator+(WideString const &) (0x0076FFA0) and the const member operator+(unsigned short const *) (0x0076FED0). VC6 calls 0x0076FED0 (0x00728690 calls 0x00771460 then 0x0076FED0 for prefix + separator + text). The overlay adds a non-const forwarder to 0x0076FED0's declaration.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/wdt_game_options.hpp",
+   "old": "swprintf(buffer, format.Get(), number);",
+   "new": "swprintf(buffer, format.Get(), number.Buffer);",
+   "why": "Wstring passed through varargs: VC6 copies the object onto the stack and the callee reads its first dword, Wstring::Buffer (+0x00). ISO clang would emit a trap. Pass the member VC6 effectively passed.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/wonline/Host_Game_007459a0.cpp",
+   "old": "wol_game_name_format_7fe938,unknown_wstring_b26cb8);",
+   "new": "wol_game_name_format_7fe938,unknown_wstring_b26cb8.Buffer);",
+   "why": "Wstring through sprintf varargs: the callee reads the copy's first dword, Wstring::Buffer (+0x00); clang would trap on a non-POD vararg.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Theater_Choice_Menu_00768dd0.cpp",
+   "old": "\"TheaterChoice%sMenu\", Faction_Name(faction));",
+   "new": "\"TheaterChoice%sMenu\", Faction_Name(faction).Buffer);",
+   "why": "Wstring through sprintf varargs: %s reads the copy's first dword, Wstring::Buffer (+0x00).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/UnknownIDSource/UnknownIDSource_Save_00660f60.cpp",
+   "old": "ElapsedTimer = %ld\\n\", ElapsedTime);",
+   "new": "ElapsedTimer = %ld\\n\", ElapsedTime.Started);",
+   "why": "TTimerClass<SystemTimerClass> through Debug_Printf varargs: VC6 pushes the 12-byte object and %ld reads its first dword, Started (+0x00).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/UnknownIDSource/UnknownIDSource_Load_006610c0.cpp",
+   "old": "ElapsedTimer = %ld\\n\", ElapsedTime);",
+   "new": "ElapsedTimer = %ld\\n\", ElapsedTime.Started);",
+   "why": "TTimerClass<SystemTimerClass> through Debug_Printf varargs: VC6 pushes the 12-byte object and %ld reads its first dword, Started (+0x00).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/MapSelectData/MapSelectData_Load_005b0030.cpp",
+   "old": "\"MapSelect: Failed to create stage %s\\n\", value);",
+   "new": "\"MapSelect: Failed to create stage %s\\n\", value.Buffer);",
+   "why": "Wstring through Debug_Printf varargs: %s reads Wstring::Buffer (+0x00).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/MapSelectData/MapSelectData_Load_005b0030.cpp",
+   "old": "\"Failed to create anim %s\\n\", value);",
+   "new": "\"Failed to create anim %s\\n\", value.Buffer);",
+   "why": "Wstring through Debug_Printf varargs: %s reads Wstring::Buffer (+0x00).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/MainLoop/Multiplayer_Debug_Print_005419e0.cpp",
+   "old": "L\"NFT : %d\", unknown_net_frame_timer_839970);",
+   "new": "L\"NFT : %d\", unknown_net_frame_timer_839970.Started);",
+   "why": "CDTimerClass<MSTimerClass> through swprintf varargs: %d reads the copy's first dword, Started (+0x00).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/ComPtr_IPersist_Query_00454bf0.cpp",
+   "old": "other->QueryInterface(*iid,",
+   "new": "other->QueryInterface(unknown_uuid_IPersist_7cf208,",
+   "why": "Inside an explicit specialisation the class template parameter `iid` is not in scope in ISO C++ (VC6 kept it). It is &unknown_uuid_IPersist_7cf208 in this specialisation, so *iid is that GUID.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/ComPtr_IPiggyback_Query_00454c70.cpp",
+   "old": "other->QueryInterface(*iid,",
+   "new": "other->QueryInterface(unknown_uuid_IPiggyback_7cfc30,",
+   "why": "As ComPtr_IPersist_Query: iid is &unknown_uuid_IPiggyback_7cfc30 in this specialisation.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/TeleportLocomotionClass/TeleportLocomotionClass_unknown_6dff00_006dff00.cpp",
+   "old": "bool alt = cell->unknown_4788d0;",
+   "new": "bool alt = &CellClass::unknown_4788d0 != 0;",
+   "why": "The original reads the address of CellClass::unknown_4788d0, not its value (shared/cell_class.hpp note: VC6 converts the non-null member pointer, so alt is always true). ISO C++ requires the explicit &Class::member form; the value is the same (true).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/AnimTypeClass/AnimTypeClass_unknown_slot40_00425490.cpp",
+   "old": "(char const *)unknown_1c8 : ID, \".SHP\")",
+   "new": "(char const *)unknown_1c8 : (char const *)ID, \".SHP\")",
+   "why": "ISO ambiguity (char const * <-> FixedString<25>). VC6 converts ID to its buffer pointer: 0x004254F1 lea eax,[ebp+0x24] selects ID in place, no FixedString temporary.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Process_Deferred_Deletion_006ecf10.cpp",
+   "old": "#include \"shared/object.hpp\"\n",
+   "new": "#include \"shared/object.hpp\"\n#include \"shared/infantry.hpp\"\n#include \"shared/aircraft.hpp\"\n",
+   "why": "typeid of a class the unit only declares: VC6 emits the type descriptor by name; ISO C++ needs the complete class. Including the class headers gives the same type identity.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/interpal/Int_statics_init_0051e7f0.cpp",
+   "old": "int BigInt::Error = 0;\nbool BigInt::Carry = false;\nbool BigInt::Borrow = false;\nBigInt BigInt::Remainder;",
+   "new": "template<> int BigInt::Error = 0;\ntemplate<> bool BigInt::Carry = false;\ntemplate<> bool BigInt::Borrow = false;\ntemplate<> BigInt BigInt::Remainder{};",
+   "why": "Defining Int<64>'s statics needs `template<>` in ISO C++ (VC6 accepted the bare form). `{}` keeps Remainder a definition (a bare explicit specialisation would only declare it); it runs the same default constructor (XMP_Init of 64 digits).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/CDTimerClass_FrameTimerClass/CDTimerClass_FrameTimerClass_Stop_006b32c0.cpp",
+   "old": "template<> void CDTimerClass<FrameTimerClass>::Stop()\n{\n    if (Started != -1) {\n        DelayTime = Value();\n        Started = -1;\n    }\n}",
+   "new": "template <class T> void CDTimerClass<T>::Stop()\n{\n    if (Started != -1) {\n        DelayTime = Value();\n        Started = -1;\n    }\n}",
+   "why": "RA2_CDTIMER_STOP_SOURCE declares Stop only; an earlier file of the group (TActionClass 0x006B0A60) calls CDTimerClass<FrameTimerClass>::Stop before this explicit specialisation, which ISO C++ forbids (VC6 accepted it). Native states the same body as the member template's generic definition (identical to cd_timer.hpp's inline Stop); FrameTimerClass is the only instantiation that reaches it in this unit.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/WolDictionary_UnknownPairKey_bool/WolDictionary_UnknownPairKey_bool_Key_Hash_00602340.cpp",
+   "old": "template<> unsigned int WolDictionary<OwnerDraw::UnknownPairKey, bool>::Key_Hash(OwnerDraw::UnknownPairKey const &key) const\n{\n    unsigned int hash = Hash(key);\n    return ((1u << Bits) - 1) & hash;\n}",
+   "new": "template unsigned int WolDictionary<OwnerDraw::UnknownPairKey, bool>::Key_Hash(OwnerDraw::UnknownPairKey const &key) const;",
+   "why": "ISO C++ forbids an explicit specialisation after the member's first use, which VC6 accepted: in this compile group an earlier file includes the header first, so the inline generic body is the one in effect and was already instantiated. The specialisation's body is the generic body token for token, so native emits an explicit instantiation of it (same code and symbol).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/FixedString_32/FixedString_32_operator_assign_006b3230.cpp",
+   "old": "template<> FixedString<32> FixedString<32>::operator=(FixedString<32> const &other)\n{\n    if (&other != this) memcpy(Buffer, other.Buffer, 32);\n    return *this;\n}",
+   "new": "template <int N> FixedString<N> FixedString<N>::operator=(FixedString<N> const &other)\n{\n    if (&other != this) memcpy(Buffer, other.Buffer, N);\n    return *this;\n}",
+   "why": "RA2_FIXEDSTRING_COPY_ASSIGN_SOURCE declares the by-value copy assignment only; TActionClass 0x006B0BA0, earlier in the group, uses FixedString<32>::operator= before this explicit specialisation, which ISO C++ forbids. Native states the same body as the member template's generic definition (N = 32 is the instantiation used).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/IndexClass_int_INISection_ptr/Index_INISection_Constructor_004910c0.cpp",
+   "old": "template<> IndexClass<int, INIClass::INISection *>::IndexClass() :\n    IndexTable(0), IndexCount(0), IndexSize(0), IsSorted(false), Archive(0)\n{\n}",
+   "new": "template IndexClass<int, INIClass::INISection *>::IndexClass();",
+   "why": "ISO C++ forbids an explicit specialisation after the member's first use, which VC6 accepted: in this compile group an earlier file includes the header first, so the inline generic body is the one in effect and was already instantiated. The specialisation's body is the generic body token for token, so native emits an explicit instantiation of it (same code and symbol). (shared/ini_class.hpp's generic IndexClass() initialises the same five members to 0/false.)",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/GenericList/List_INISection_Pointer_Constructor_00490ff0.cpp",
+   "old": "template<> List<INIClass::INISection *>::List() {}",
+   "new": "template <class T> List<T>::List() {}",
+   "why": "The group's first file defines LIST_DECLARE_CONSTRUCTOR, so List() is declared only, and INIClass's inline constructor (ini_class.hpp) uses List<INISection *>::List before this explicit specialisation, which ISO C++ forbids. The specialisation is empty, as is the generic body (the non-declared form is `List() {}`), so native defines the generic member out of line: same empty constructor.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/HashTableClass_unsigned_SubzoneConnectionStruct/HashTableClass_unsigned_SubzoneConnectionStruct_Add_Object_0056bc00.cpp",
+   "old": "template <> bool HashTableClass<unsigned int, SubzoneConnectionStruct>::Add_Object(int bucket_index, HashObject<unsigned int, SubzoneConnectionStruct> const &object)\n{\n    DynamicVectorClass<HashObject<unsigned int, SubzoneConnectionStruct> > &bucket = Buckets[bucket_index];\n    HashObject<unsigned int, SubzoneConnectionStruct> *item = &bucket[0];\n    for (int remaining = bucket.Count() - 1; remaining >= 0; --remaining) {\n        if (object.Key == item->Key) return false;\n        ++item;\n    }\n    bucket.Add(object);\n    return true;\n}",
+   "new": "template <class K, class V> bool HashTableClass<K, V>::Add_Object(int bucket_index, HashObject<K, V> const &object)\n{\n    DynamicVectorClass<HashObject<K, V> > &bucket = Buckets[bucket_index];\n    HashObject<K, V> *item = &bucket[0];\n    for (int remaining = bucket.Count() - 1; remaining >= 0; --remaining) {\n        if (object.Key == item->Key) return false;\n        ++item;\n    }\n    bucket.Add(object);\n    return true;\n}",
+   "why": "RA2_MAP_HASH_ADD_SOURCE declares Add_Object only; MapClass 0x00564B60 (earlier in the group) calls it before this explicit specialisation, which ISO C++ forbids. Native states the same body as the member template's generic definition; the only instantiation in the tree is <unsigned int, SubzoneConnectionStruct>, so the code is the same.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/DynamicVectorClass_HashObject_unsigned_int_unsigned_int/DynamicVectorClass_HashObject_unsigned_int_unsigned_int_Clear_0056ad40.cpp",
+   "old": "template <class A0, class A1>\nstruct HashObject;",
+   "new": "#include \"shared/hash_object.hpp\"",
+   "why": "Explicit instantiation over an element type the file only forward-declares: VC6 compiles delete[] of an incomplete type as a plain array free; ISO C++ must complete the class template. Native includes the element's definition (no destructor, so delete[] frees the same way).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/VectorClass_HashObject_unsigned_int_unsigned_int/VectorClass_HashObject_unsigned_int_unsigned_int_Clear_0056c590.cpp",
+   "old": "template <class A0, class A1>\nstruct HashObject;",
+   "new": "#include \"shared/hash_object.hpp\"",
+   "why": "Explicit instantiation over an element type the file only forward-declares: VC6 compiles delete[] of an incomplete type as a plain array free; ISO C++ must complete the class template. Native includes the element's definition (no destructor, so delete[] frees the same way).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/DynamicVectorClass_SubzoneConnectionHash/DynamicVectorClass_SubzoneConnectionHash_Clear_0056adb0.cpp",
+   "old": "class SubzoneConnectionStruct;\n\ntemplate <class A0, class A1>\nstruct HashObject;",
+   "new": "#include \"shared/map_elements.hpp\"\n#include \"shared/hash_object.hpp\"",
+   "why": "Explicit instantiation over an element type the file only forward-declares: VC6 compiles delete[] of an incomplete type as a plain array free; ISO C++ must complete the class template. Native includes the element's definition (no destructor, so delete[] frees the same way).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/VectorClass_SubzoneConnectionHash/VectorClass_SubzoneConnectionHash_Clear_0056c7d0.cpp",
+   "old": "class SubzoneConnectionStruct;\n\ntemplate <class A0, class A1>\nstruct HashObject;",
+   "new": "#include \"shared/map_elements.hpp\"\n#include \"shared/hash_object.hpp\"",
+   "why": "Explicit instantiation over an element type the file only forward-declares: VC6 compiles delete[] of an incomplete type as a plain array free; ISO C++ must complete the class template. Native includes the element's definition (no destructor, so delete[] frees the same way).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/VectorClass_TPoint3D_int/VectorClass_TPoint3D_int_Clear_0045ef30.cpp",
+   "old": "template <class A0>\nstruct TPoint3D;",
+   "new": "#define RA2_COORD_TPOINT3D\n#include \"shared/coord.hpp\"",
+   "why": "Explicit instantiation over an element type the file only forward-declares: VC6 compiles delete[] of an incomplete type as a plain array free; ISO C++ must complete the class template. Native includes the element's definition (no destructor, so delete[] frees the same way). TPoint3D<T> is shared/coord.hpp's, enabled by RA2_COORD_TPOINT3D (this group holds this file only).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/VectorClass_TRect_int/VectorClass_TRect_int_Clear_0058e690.cpp",
+   "old": "template <class A0>\nstruct TRect;",
+   "new": "#include \"shared/trect.hpp\"",
+   "why": "Explicit instantiation over an element type the file only forward-declares: VC6 compiles delete[] of an incomplete type as a plain array free; ISO C++ must complete the class template. Native includes the element's definition (no destructor, so delete[] frees the same way).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/wol_sink.hpp",
+   "old": "return (IUnknown *)((int)this + _GetEntries()->offset);",
+   "new": "return (IUnknown *)((char *)this + _GetEntries()->offset);",
+   "why": "Pointer width: ATL's _GetRawUnknown adds the interface-map offset to this through int, which truncates a 64-bit pointer. Byte arithmetic on char * gives the same address VC6 computed on x86.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/vector_class.hpp",
+   "old": "return ((unsigned long)ptr - (unsigned long)Vector) / sizeof(T);",
+   "new": "return (unsigned long)((char const *)ptr - (char const *)Vector) / sizeof(T);",
+   "why": "Pointer width: VectorClass::ID(T const *) takes the unsigned byte distance of two pointers truncated to 32 bits. The 32-bit value of the char * difference is the same (modulo 2^32, including VC6's wrap for ptr below Vector), without truncating the pointers first.",
+   "verified": true
+  }
  ]
 }
