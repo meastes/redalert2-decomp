@@ -22,7 +22,7 @@
 | [classes/Tactical](../src/recovered/classes/Tactical/) | 93 | 33,169 | 86 | 0x006A22D0–0x006AC800 |
 | [classes/MapRegionClass](../src/recovered/classes/MapRegionClass/) | 50 | 32,850 | 50 | 0x0056D530–0x0058DA70 |
 | [classes/AircraftClass](../src/recovered/classes/AircraftClass/) | 87 | 30,616 | 87 | 0x004139F0–0x004D34D0 |
-| (discovery: address-named) | 1098 | 30,223 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 1097 | 30,168 | 17 | 0x004010A0–0x00793976 |
 | [VQA32](../src/recovered/VQA32/) | 81 | 29,339 | 81 | 0x00776380–0x0077E9E0 |
 | [classes/UnknownIDSource](../src/recovered/classes/UnknownIDSource/) | 51 | 29,041 | 51 | 0x0065B4F0–0x00663440 |
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 94 | 0x004D3690–0x006BE740 |
@@ -102,7 +102,7 @@
 | [classes/VocClass](../src/recovered/classes/VocClass/) | 26 | 5,339 | 26 | 0x00713790–0x00714D10 |
 | [classes/SavegameInformation](../src/recovered/classes/SavegameInformation/) | 32 | 5,291 | 32 | 0x00659240–0x0065ABF0 |
 | [classes/UDPInterfaceClass](../src/recovered/classes/UDPInterfaceClass/) | 24 | 5,289 | 24 | 0x0076C050–0x0076D460 |
-| [classes/FirewallSettings](../src/recovered/classes/FirewallSettings/) | 13 | 5,218 | 13 | 0x005B9E40–0x005BAF50 |
+| [classes/FirewallSettings](../src/recovered/classes/FirewallSettings/) | 14 | 5,273 | 14 | 0x005B9E40–0x005BAF50 |
 | [classes/HouseTypeClass](../src/recovered/classes/HouseTypeClass/) | 24 | 5,209 | 24 | 0x004D3890–0x004FB6D0 |
 | [classes/WorldDominationTour__Map](../src/recovered/classes/WorldDominationTour__Map/) | 11 | 5,065 | 10 | 0x007292E0–0x007302B0 |
 | [classes/MapSeedClass](../src/recovered/classes/MapSeedClass/) | 20 | 5,057 | 14 | 0x00576F50–0x0058DA50 |
