@@ -40,6 +40,10 @@ static_assert(sizeof(RA2_LONG) == 4 && sizeof(RA2_ULONG) == 4, "VC6 long is 32 b
 static_assert(sizeof(wchar_t) == 2, "build with -fshort-wchar: RA2 strings are UTF-16");
 
 // Port helpers referenced by native_units.py rewrites and port/fixups.json.
+// A dialog's DWL_USER slot, pointer-sized (port/src/user32.cpp): native_units.py
+// rewrites SetWindowLongA(w, 8, (LONG)p) / GetWindowLongA(w, 8) to these.
+extern "C" intptr_t ra2port_set_dialog_user(const volatile void *window, const volatile void *value);
+extern "C" intptr_t ra2port_get_dialog_user(const volatile void *window);
 namespace ra2port {
 // VC6 accepts a cast of an rvalue to a reference type and reinterprets a
 // temporary copy. native_units.py wraps such cast operands in as_lvalue: it

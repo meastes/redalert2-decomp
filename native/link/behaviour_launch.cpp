@@ -466,3 +466,129 @@ bool __fastcall Unknown_00529710(int time, bool flag)
 {
     return false;
 }
+
+// --- Scenario post-load / building placement (Clear_Scenario path; Scout1081) --
+
+class BuildingClass;
+extern int unknown_group_frame_7f8bcc;     // 0x007F8BCC (data/original_data.cpp)
+
+// 0x006F89E0 Unknown_006F89E0 (the row's leaf src/recovered/006f89e0.cpp: 0x007F8BCC
+// and 0x007F8BD4 = -100, 0x007F8BD0 = -1). Only 0x007F8BCC has a reader in the
+// recovered tree (Unknown_Group_Press 0x006F5F00); the other two words have no
+// name natively. NOT EXACT.
+void Unknown_006F89E0()
+{
+    unknown_group_frame_7f8bcc = -100;
+}
+
+// The two pending placements 0x00AC1334 / 0x00AC1338 (the seeds 006f8a00.cpp and
+// 006f8a20.cpp: a building whose owner's +0xBA0 is 5 goes in the second slot).
+// Pointer-sized here: the BSS storage of both names is 16 bytes (data/bss_globals.cpp).
+extern "C" BuildingClass *ra2_pending_placement_ac1334 __asm__("_DAT_00ac1334");
+extern "C" BuildingClass *ra2_pending_placement_ac1338 __asm__("_DAT_00ac1338");
+
+// 0x006F8A20 Unknown_006F8A20 (seed 006f8a20.cpp): null forgets both, else the
+// slot that holds the building. NOT EXACT.
+void __fastcall Unknown_006F8A20(BuildingClass *building)
+{
+    if (building == 0) {
+        ra2_pending_placement_ac1334 = 0;
+        ra2_pending_placement_ac1338 = 0;
+        return;
+    }
+    if (building == ra2_pending_placement_ac1334) {
+        ra2_pending_placement_ac1334 = 0;
+        return;
+    }
+    if (building == ra2_pending_placement_ac1338) {
+        ra2_pending_placement_ac1338 = 0;
+    }
+}
+
+// --- INI type names (CCINIClass::Get_*Type defaults; Scout1081) ---------------
+// The three seeds (src/recovered/00482f00.cpp, 00482f60.cpp, 00482fc0.cpp) index
+// a name table (LandNames 12, SpeedNames 8, LayerNames 5; read from game.exe at
+// run time, data/original_data.cpp) and return "<none>" (0x007CDECC) past it.
+// The declarations in ccini_extra.hpp use enums the units define; plain ints
+// carry them here (VC6 passes an enum as a 32-bit slot). NOT EXACT.
+enum LandType : int;
+enum SpeedType : int;
+enum LayerType : int;
+extern char const *LandNames[12];
+extern char const *SpeedNames[8];
+extern char const *LayerNames[5];
+extern "C" char s__none__007cdecc[];
+
+char const *__fastcall Name_From_Land(LandType land)
+{
+    if ((unsigned)land < 12) {
+        return LandNames[land];
+    }
+    return s__none__007cdecc;
+}
+
+char const *__fastcall Name_From_Speed(SpeedType speed)
+{
+    if ((unsigned)speed < 8) {
+        return SpeedNames[speed];
+    }
+    return s__none__007cdecc;
+}
+
+char const *__fastcall Name_From_Layer(LayerType layer)
+{
+    if ((unsigned)layer < 5) {
+        return LayerNames[layer];
+    }
+    return s__none__007cdecc;
+}
+
+// 0x007168C0 Unknown_007168C0 (the row's leaf src/recovered/007168c0.cpp stores
+// its ECX argument at 0x00AD0958, unknown_flag_ad0958 in vox_speech.hpp: the
+// side whose speech files EVA plays). Scout1081. NOT EXACT.
+extern int unknown_flag_ad0958;
+void __fastcall Unknown_007168C0(int side)
+{
+    unknown_flag_ad0958 = side;
+}
+
+// --- Owner-draw dialogs (main menu path; Scout1081) ---------------------------
+
+// 0x005DE970 unknown_hash_key_5de970 (the row's seed: `return *key;`): the
+// owner-draw control registry's hash of a window key is the key itself. NOT EXACT.
+unsigned int __fastcall unknown_hash_key_5de970(unsigned int const &key)
+{
+    return key;
+}
+
+// 0x00522B20 Unknown_Add_Modeless_Dialog_00522b20 (the row's seed): while the
+// registry is active (0x00A522B0), files the dialog in the first free slot of
+// the block 0x00A522B4 (0x00A521DC slots, slot 0 unused) unless it is there,
+// counting it in 0x00A522B8. Slots hold 32-bit handles as in VC6 (port window
+// handles are small tokens). NOT EXACT.
+extern "C" int DAT_00a521dc;
+extern "C" int DAT_00a522b0;
+extern "C" void *DAT_00a522b4;
+extern "C" int DAT_00a522b8;
+void __fastcall Unknown_Add_Modeless_Dialog_00522b20(HWND__ *dialog)
+{
+    unsigned int handle = (unsigned int)(uintptr_t)dialog;
+    if (DAT_00a522b0 == 0 || handle == 0) {
+        return;
+    }
+    unsigned int *slot = (unsigned int *)DAT_00a522b4;
+    unsigned int *free_slot = 0;
+    for (int index = 1; index < DAT_00a521dc; index++, slot++) {
+        if (*slot == 0) {
+            if (free_slot == 0) {
+                free_slot = slot;
+            }
+        } else if (*slot == handle) {
+            return;
+        }
+    }
+    if (free_slot != 0) {
+        *free_slot = handle;
+        DAT_00a522b8++;
+    }
+}

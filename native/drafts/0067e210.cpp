@@ -28,7 +28,7 @@
 // @ref ?unknown_int_839624@@3HA=00839624
 // @ref ?unknown_abcd64@@3HA=00abcd64
 
-static inline int Bottom_Extra()
+static inline int Bottom_Extra_67e210()
 {
     if (unknown_id_source_a3d290->unknown_2239) {
         return 26;
@@ -38,7 +38,7 @@ static inline int Bottom_Extra()
 
 static inline int Max_Visible_Cameos()
 {
-    return (unknown_int_839624 + unknown_int_83962c - unknown_abcd64 - Bottom_Extra() - 7) / 50;
+    return (unknown_int_839624 + unknown_int_83962c - unknown_abcd64 - Bottom_Extra_67e210() - 7) / 50;
 }
 
 bool SidebarClass::unknown_slot54(int control)

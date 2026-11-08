@@ -753,6 +753,96 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "row code (xor al, al; ret)"
+  },
+  {
+   "entry": "0x006F89E0",
+   "name": "Unknown_006F89E0()",
+   "symbol": "__Z16Unknown_006F89E0v",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "row leaf src/recovered/006f89e0.cpp"
+  },
+  {
+   "entry": "0x006F8A20",
+   "name": "Unknown_006F8A20(BuildingClass*)",
+   "symbol": "__Z16Unknown_006F8A20P13BuildingClass",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "seed src/recovered/006f8a20.cpp"
+  },
+  {
+   "entry": "0x00482F00",
+   "name": "Name_From_Land(LandType)",
+   "symbol": "__Z14Name_From_Land8LandType",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "seed src/recovered/00482f00.cpp"
+  },
+  {
+   "entry": "0x00482F60",
+   "name": "Name_From_Speed(SpeedType)",
+   "symbol": "__Z15Name_From_Speed9SpeedType",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "seed src/recovered/00482f60.cpp"
+  },
+  {
+   "entry": "0x00482FC0",
+   "name": "Name_From_Layer(LayerType)",
+   "symbol": "__Z15Name_From_Layer9LayerType",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "seed src/recovered/00482fc0.cpp"
+  },
+  {
+   "entry": "0x00603D50",
+   "name": "Unknown_00603D50()",
+   "symbol": "__Z16Unknown_00603D50v",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_scheme.cpp",
+   "source": "seed (scheme table walk) + UnknownSchemeListIterator::Next 0x00603640"
+  },
+  {
+   "entry": "0x007168C0",
+   "name": "Unknown_007168C0(int)",
+   "symbol": "__Z16Unknown_007168C0i",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "row leaf src/recovered/007168c0.cpp"
+  },
+  {
+   "entry": "0x005DE970",
+   "name": "unknown_hash_key_5de970(unsigned int const&)",
+   "symbol": "__Z23unknown_hash_key_5de970RKj",
+   "origin_class": "unmatched (menu path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "seed src/recovered/005de970.cpp"
+  },
+  {
+   "entry": "0x00522B20",
+   "name": "Unknown_Add_Modeless_Dialog_00522b20(HWND__*)",
+   "symbol": "__Z36Unknown_Add_Modeless_Dialog_00522b20P6HWND__",
+   "origin_class": "unmatched (menu path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "seed src/recovered/00522b20.cpp"
   }
  ]
 }

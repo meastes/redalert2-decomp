@@ -129,6 +129,25 @@ void on_signal(int sig, siginfo_t *info, void *context)
     void *frames[48];
     int n = backtrace(frames, 48);
     backtrace_symbols_fd(frames, n, 2);
+#if defined(__APPLE__) && defined(__arm64__)
+    // A call through a bad pointer leaves pc outside any image, and backtrace()
+    // stops there: walk the faulting thread's frame chain from the context.
+    if (context && !where.dli_sname) {
+        uintptr_t lr = (uintptr_t)((ucontext_t *)context)->uc_mcontext->__ss.__lr;
+        uintptr_t *fp = (uintptr_t *)((ucontext_t *)context)->uc_mcontext->__ss.__fp;
+        char line[256];
+        for (int i = 0; i < 24; ++i) {
+            Dl_info at = {};
+            dladdr((void *)lr, &at);
+            int len = snprintf(line, sizeof line, "fault frame %d: %s+%ld\n", i, at.dli_sname ? at.dli_sname : "?",
+                               at.dli_sname ? (long)(lr - (uintptr_t)at.dli_saddr) : 0L);
+            if (len > 0) write(2, line, (size_t)len < sizeof line ? (size_t)len : sizeof line - 1);
+            if (!fp || ((uintptr_t)fp & 7)) break;
+            lr = fp[1];
+            fp = (uintptr_t *)fp[0];
+        }
+    }
+#endif
     _exit(4);
 }
 

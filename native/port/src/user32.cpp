@@ -247,6 +247,23 @@ BOOL LockWindowUpdate(HWND hwnd) { (void)hwnd; return 1; }
 void *GetMenu(HWND hwnd) { (void)hwnd; return nullptr; }
 
 // GWL_WNDPROC (-4), GWL_ID (-12), GWL_STYLE (-16), GWL_EXSTYLE (-20), GWL_USERDATA (-21).
+// A dialog's DWL_USER slot (index 8), pointer-sized: the native view stores and
+// reads the pointers the recovered dialogs keep there through these
+// (native_units.py rewrites SetWindowLongA(w, 8, (LONG)p) / GetWindowLongA(w, 8)).
+extern "C" intptr_t ra2port_set_dialog_user(const volatile void *window, const volatile void *value)
+{
+    Window *w = win((HWND)window);
+    if (!w) return 0;
+    intptr_t old = w->dialog_user;
+    w->dialog_user = (intptr_t)value;
+    return old;
+}
+extern "C" intptr_t ra2port_get_dialog_user(const volatile void *window)
+{
+    Window *w = win((HWND)window);
+    return w ? w->dialog_user : 0;
+}
+
 // LONG is 32 bits as on Win32: a window procedure stored through here would be
 // truncated, so GWL_WNDPROC is refused and logged.
 LONG GetWindowLongA(HWND hwnd, int index)
@@ -258,6 +275,7 @@ LONG GetWindowLongA(HWND hwnd, int index)
     case -16: return w->style;
     case -20: return w->exstyle;
     case -21: return w->userdata;
+    case 8: return (LONG)w->dialog_user;     // DWL_USER (pointer stores use ra2port_set_dialog_user)
     case -4: unimplemented("GetWindowLongA(GWL_WNDPROC)"); return 0;
     }
     return 0;
@@ -272,6 +290,7 @@ LONG SetWindowLongA(HWND hwnd, int index, LONG value)
     case -16: w->style = value; break;
     case -20: w->exstyle = value; break;
     case -21: w->userdata = value; break;
+    case 8: w->dialog_user = value; break;
     case -4: unimplemented("SetWindowLongA(GWL_WNDPROC)"); break;
     }
     return old;

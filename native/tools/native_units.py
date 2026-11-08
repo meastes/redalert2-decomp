@@ -48,6 +48,14 @@ SUBSYSTEMS = {
 LONG_PROTECT = [(re.compile(r'\blong(\s+)long\b'), 'RA2_LL_PLACEHOLDER'),
                 (re.compile(r'\blong(\s+)double\b'), 'RA2_LD_PLACEHOLDER')]
 RULES = [
+    # The dialog's DWL_USER slot (index 8) carries a pointer (`(LONG)&result`,
+    # `(LONG)this`; read back as `(int *)GetWindowLongA(window, 8)`). A 32-bit
+    # LONG truncates it on LP64: the native view stores and reads the pointer
+    # through pointer-sized port calls (port/src/user32.cpp; Win64's
+    # Set/GetWindowLongPtr(DWLP_USER) shape). Same meaning.
+    (re.compile(r'\bSetWindowLongA\(\s*([^,()]+?)\s*,\s*(?:8|DWL_USER)\s*,\s*\(\s*(?:LONG|long|int)\s*\)\s*'),
+     r'ra2port_set_dialog_user(\1, '),
+    (re.compile(r'\bGetWindowLongA\(\s*([^,()]+?)\s*,\s*(?:8|DWL_USER)\s*\)'), r'ra2port_get_dialog_user(\1)'),
     (re.compile(r'\bunsigned\s+long(\s+int)?\b'), 'RA2_ULONG'),
     (re.compile(r'\bsigned\s+long(\s+int)?\b'), 'RA2_LONG'),
     (re.compile(r'\blong\s+int\b'), 'RA2_LONG'),
@@ -347,13 +355,21 @@ def emit(target, text):
         target.write_text(text)
 
 
-def load_drafts():
+def load_drafts(catalog, report):
     """Unmatched launch-path functions carried as their best parked draft
     (native/drafts.json; never exact, each flagged with its score). A draft is
     appended to the compile group of its host_source, as the exact-tree join
-    puts a candidate into its unit."""
+    puts a candidate into its unit. A draft whose entry has since been accepted
+    as a real function (a catalog region that is not a seed leaf: Leaf_/seed_
+    owners only hold the original bytes' shape) is left out: the exact source
+    supersedes it."""
+    accepted = {int(r['entry']) for r in catalog['regions']
+                if not re.search(r'@Leaf_[0-9a-f]+@@|@seed_[0-9a-f]+@@', r['symbol'])}
     by_host = OrderedDict()
     for d in json.loads((ROOT / 'native/drafts.json').read_text())['drafts']:
+        if int(d['entry'], 16) in accepted:
+            report.setdefault('superseded_drafts', []).append(d['entry'])
+            continue
         by_host.setdefault(d['host_source'], []).append(d)
     return by_host
 
@@ -494,6 +510,34 @@ def initterm_order(names, unit_of, texts, out, unit_texts):
                          skipped=skipped, out_of_order=deviations)
 
 
+def place_member_aliases(unit_texts):
+    """data/member_aliases.tsv (tools/member_aliases.py): a name inside a
+    class-typed global is an assembler alias of the owner's symbol plus the
+    member's native offset, emitted in the unit that defines the owner (one
+    assembly file, so the offset resolves); owners with BSS storage get theirs
+    in data/bss_globals.cpp (tools/data_globals.py)."""
+    tsv = ROOT / 'native/data/member_aliases.tsv'
+    if not tsv.exists():
+        return {}
+    by_owner = OrderedDict()
+    for line in tsv.read_text().split('\n'):
+        if line and not line.startswith(('#', 'symbol\t')):
+            r = line.split('\t')
+            by_owner.setdefault((r[1], r[6]), []).append(r)
+    placed = {}
+    for (owner_symbol, owner), rows in by_owner.items():
+        rx = re.compile(r'^(?!extern\b|static\b|typedef\b|return\b)[A-Za-z_][^;(){}=\n]*?[\s*&]%s\s*(?:;|=|\(|\{)'
+                        % re.escape(owner), re.M)
+        for unit, text in unit_texts.items():
+            if rx.search(text):
+                unit_texts[unit] = text + '\n// native member aliases (data/member_aliases.tsv)\n' + ''.join(
+                    '__asm__(".globl %s\\n.set %s, %s + %s\\n");  // %s: %s %s\n'
+                    % (r[0], r[0], owner_symbol, r[2], r[5], r[4], r[7][-60:]) for r in rows)
+                placed[owner] = dict(unit=unit, names=len(rows))
+                break
+    return placed
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--out', type=Path, required=True)
@@ -519,7 +563,7 @@ def main():
     prefixes = None if args.subsystem == 'all' else SUBSYSTEMS[args.subsystem]
     report = dict(subsystem=args.subsystem, groups=[], skipped=[])
     names = []
-    by_host = load_drafts() if args.drafts else {}
+    by_host = load_drafts(catalog, report) if args.drafts else {}
     manifest = []
     unit_texts = OrderedDict()
     for index, (key, rows) in enumerate(groups(catalog).items()):
@@ -571,6 +615,7 @@ def main():
                 unit_of[source] = 'units/' + g['unit']
         names, report['initterm'] = initterm_order(names, unit_of, texts, out, unit_texts)
     names += own_units
+    report['member_aliases'] = place_member_aliases(unit_texts)
     for name, text in unit_texts.items():
         emit(out / name, text)
     (out / 'units.cmake').write_text('set(RA2_NATIVE_UNITS\n%s)\n' % ''.join(

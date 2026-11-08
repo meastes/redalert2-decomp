@@ -258,6 +258,33 @@ int load_original_data(const ra2_original_global *table, const ra2_original_plac
             if (original_bytes(g->address, g->storage, g->extent)) ++done;
             continue;
         }
+        if ((g->shape & 0xF) == 3) {
+            // Records of 4-byte fields: bits 4-7 the field count, bits 8-22 the
+            // pointer fields (8-byte native slots, natural alignment).
+            uint32_t n = (g->shape >> 4) & 0xF, mask = g->shape >> 8, offsets[16], off = 0;
+            for (uint32_t f = 0; f < n; ++f) {
+                if (mask & (1u << f)) off = (off + 7) & ~7u;
+                offsets[f] = off;
+                off += (mask & (1u << f)) ? 8 : 4;
+            }
+            uint32_t align = mask ? 8 : 4, size = (off + align - 1) & ~(align - 1);
+            for (uint32_t i = 0; n && i < g->extent / (4 * n); ++i) {
+                for (uint32_t f = 0; f < n; ++f) {
+                    uint32_t word = 0;
+                    if (!original_bytes(g->address + 4 * (i * n + f), &word, 4)) break;
+                    unsigned char *slot = (unsigned char *)g->storage + i * size + offsets[f];
+                    if (mask & (1u << f)) {
+                        void *ptr = original_data_pointer(word);
+                        if (word && !ptr) ++dropped;
+                        memcpy(slot, &ptr, sizeof ptr);
+                    } else {
+                        memcpy(slot, &word, 4);
+                    }
+                }
+            }
+            ++done;
+            continue;
+        }
         uint32_t count = g->shape == 1 ? 1 : g->extent / 4;
         for (uint32_t i = 0; i < count; ++i) {
             uint32_t va = 0;
