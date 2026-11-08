@@ -683,6 +683,76 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "vector_class.hpp template body (multi_mission.hpp declares the specialisation)"
+  },
+  {
+   "entry": "0x0051FBB0",
+   "name": "Unknown_0051FBB0()",
+   "symbol": "__Z16Unknown_0051FBB0v",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "disassembly of the row (two byte globals, StormActive/StormTimeToEnd names from the tree)"
+  },
+  {
+   "entry": "0x0051AF90 and 206 CommandClass name slots",
+   "name": "CommandClass::Get_UI_Name and the subclasses' Get_Name/Get_UI_Name/Get_Category/Get_Description",
+   "symbol": "(native/link/behaviour_commands.cpp)",
+   "origin_class": "unmatched (Init_Commands, Load_Keyboard_Hotkeys)",
+   "plan": "behaviour rewrite (generated: native/tools/command_rewrites.py)",
+   "exact": false,
+   "file": "native/link/behaviour_commands.cpp",
+   "source": "each row's leaf/request scaffold and the catalog's bindings of its label/file addresses; strings read from game.exe at run time"
+  },
+  {
+   "entry": "0x006AC2E0",
+   "name": "Tactical::GetClassID",
+   "symbol": "__ZN8Tactical10GetClassIDEP5_GUID",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "row code (E_POINTER, CLSID 0x007A1E90)"
+  },
+  {
+   "entry": "0x006A2710",
+   "name": "Tactical::~Tactical",
+   "symbol": "__ZN8TacticalD2Ev",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "row code (clears 0x0083996C)"
+  },
+  {
+   "entry": "0x006AC7E0",
+   "name": "Tactical::Kind_Of",
+   "symbol": "__ZNK8Tactical7Kind_OfEv",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "row code (0x38)"
+  },
+  {
+   "entry": "0x006AC7F0",
+   "name": "Tactical::Size_Of",
+   "symbol": "__ZNK8Tactical7Size_OfEv",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "row code (0xE18)"
+  },
+  {
+   "entry": "0x00529710",
+   "name": "Unknown_00529710(int, bool)",
+   "symbol": "__Z16Unknown_00529710ib",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "row code (xor al, al; ret)"
   }
  ]
 }

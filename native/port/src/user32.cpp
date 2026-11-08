@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <string>
+#include <thread>
 #include <vector>
 
 using namespace ra2port;
@@ -28,6 +29,12 @@ struct Window : HandleObject {
     bool visible = false, enabled = true;
     std::string cls, title;
     void *host_window = nullptr;
+    // Dialogs built from a template: the controls in template order, the
+    // DWL_USER slot (index 8; pointer-sized natively), the modal result.
+    std::vector<HWND> children;
+    bool is_dialog = false, ended = false, checked = false;
+    intptr_t dialog_user = 0, result = 0;
+    unsigned template_id = 0;
 };
 
 struct WNDCLASSA_PORT {
@@ -44,6 +51,7 @@ std::deque<MSG> queue;
 std::map<std::string, WNDPROC> classes;
 HWND main_hwnd = nullptr, focus_hwnd = nullptr, capture_hwnd = nullptr;
 int cursor_count = 0;
+int dialogs_shown = 0;   // dialogs from templates shown so far (--run-to `menu`)
 POINT cursor = {0, 0};
 
 struct Timer { HWND window; uintptr_t id; UINT period; std::chrono::steady_clock::time_point next; void *proc; };
@@ -150,6 +158,15 @@ BOOL ShowWindow(HWND hwnd, int cmd)
     if (!w) return 0;
     bool was = w->visible;
     w->visible = cmd != 0;
+    // --run-to `menu`: the first dialog built from a game.exe template that is
+    // shown (Select_Game's main menu on the start-up path; the detail names
+    // the template so a run log shows which one).
+    if (!was && w->visible && w->is_dialog) {
+        char detail[96];
+        snprintf(detail, sizeof detail, "dialog #%u shown (%zu controls)", w->template_id, w->children.size());
+        progress_count("dialogs shown", detail);
+        if (dialogs_shown++ == 0) progress("menu", detail);
+    }
     // Showing the application's first top-level window makes it the active,
     // foreground window, as Windows does for a newly started program: the
     // window receives WM_ACTIVATEAPP(TRUE) and WM_ACTIVATE(WA_ACTIVE) then.
@@ -485,9 +502,133 @@ int MessageBoxA(HWND hwnd, const char *text, const char *caption, UINT type)
 BOOL WinHelpA(HWND hwnd, const char *file, UINT cmd, uintptr_t data) { (void)hwnd; (void)file; (void)cmd; (void)data; return 0; }
 
 // ---- dialogs (templates are resources of the user's game executable) -------
+// The templates (RT_DIALOG) are read from the supported game.exe at run time
+// (ra2port::original_resource; AGENTS.md "Native phase", user decision
+// 2026-11-08), never copied. Both forms are parsed: DLGTEMPLATE and
+// DLGTEMPLATEEX. Each control becomes a child window (its class: the registered
+// window class of that name, or a predefined control kept as data: Button,
+// Edit, Static, ListBox, ScrollBar, ComboBox); dialog units scale by the
+// MS Sans Serif 8 base units (6 x 13). The dialog procedure receives
+// WM_INITDIALOG; a modal box pumps messages until EndDialog.
 
-// Logs a dialog request (--run-to): the resource id or name, and the "dialog"
-// milestone; the templates are the open question (NOTES: dialog templates).
+} // extern "C"
+namespace ra2port { const void *original_resource(uintptr_t type, uintptr_t name, size_t *size); }
+namespace {
+
+struct TemplateReader {
+    const unsigned char *p;
+    uint16_t word() { uint16_t v = (uint16_t)(p[0] | p[1] << 8); p += 2; return v; }
+    uint32_t dword() { uint32_t v = (uint32_t)p[0] | (uint32_t)p[1] << 8 | (uint32_t)p[2] << 16 | (uint32_t)p[3] << 24; p += 4; return v; }
+    void align4(const unsigned char *base) { while ((p - base) & 3) ++p; }
+    // sz_Or_Ord: 0 none, 0xFFFF + ordinal, else a NUL-terminated UTF-16 string (kept as Latin-1).
+    std::string sz_or_ord(unsigned *ordinal = nullptr)
+    {
+        uint16_t first = word();
+        if (first == 0) return std::string();
+        if (first == 0xFFFF) { uint16_t o = word(); if (ordinal) *ordinal = o; return std::string(); }
+        std::string out(1, (char)(first < 256 ? first : '?'));
+        for (uint16_t c; (c = word()) != 0;) out += (char)(c < 256 ? c : '?');
+        return out;
+    }
+};
+
+const char *predefined_class(unsigned atom)
+{
+    switch (atom) {
+    case 0x80: return "Button";
+    case 0x81: return "Edit";
+    case 0x82: return "Static";
+    case 0x83: return "ListBox";
+    case 0x84: return "ScrollBar";
+    case 0x85: return "ComboBox";
+    }
+    return "";
+}
+
+int dialog_units_x(int x) { return x * 6 / 4; }
+int dialog_units_y(int y) { return y * 13 / 8; }
+
+
+HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPARAM init, const char *api)
+{
+    if (!templ) return nullptr;
+    const unsigned char *base = (const unsigned char *)templ;
+    TemplateReader r{base};
+    bool ex = base[2] == 0xFF && base[3] == 0xFF && base[0] == 1 && base[1] == 0;
+    uint32_t style, exstyle;
+    if (ex) { r.word(); r.word(); r.dword(); exstyle = r.dword(); style = r.dword(); }
+    else { style = r.dword(); exstyle = r.dword(); }
+    int count = r.word();
+    int x = (int16_t)r.word(), y = (int16_t)r.word(), cx = (int16_t)r.word(), cy = (int16_t)r.word();
+    r.sz_or_ord();                                   // menu
+    unsigned cls_atom = 0;
+    std::string cls = r.sz_or_ord(&cls_atom);        // window class (none: the dialog class)
+    std::string title = r.sz_or_ord();
+    if (style & 0x40) {                              // DS_SETFONT (DS_SHELLFONT includes it)
+        r.word();
+        if (ex) { r.word(); r.p += 2; }
+        r.sz_or_ord();
+    }
+    Window *dlg = new Window;
+    dlg->kind = H_WINDOW;
+    dlg->cls = cls.empty() ? "#32770" : cls;
+    dlg->title = title;
+    dlg->style = (LONG)style;
+    dlg->exstyle = (LONG)exstyle;
+    dlg->parent = parent;
+    dlg->dlgproc = proc;
+    dlg->is_dialog = true;
+    dlg->template_id = id;
+    dlg->rect = {dialog_units_x(x), dialog_units_y(y), dialog_units_x(x + cx), dialog_units_y(y + cy)};
+    HWND hdlg = handle_new(dlg);
+    for (int i = 0; i < count; ++i) {
+        r.align4(base);
+        uint32_t cstyle, cex, cid;
+        if (ex) { r.dword(); cex = r.dword(); cstyle = r.dword(); }
+        else { cstyle = r.dword(); cex = r.dword(); }
+        int ix = (int16_t)r.word(), iy = (int16_t)r.word(), icx = (int16_t)r.word(), icy = (int16_t)r.word();
+        cid = ex ? r.dword() : r.word();
+        unsigned atom = 0;
+        std::string ccls = r.sz_or_ord(&atom);
+        if (ccls.empty()) ccls = predefined_class(atom);
+        std::string text = r.sz_or_ord();
+        uint16_t extra = r.word();
+        r.p += extra;
+        Window *c = new Window;
+        c->kind = H_WINDOW;
+        c->cls = ccls;
+        c->title = text;
+        c->style = (LONG)cstyle;
+        c->exstyle = (LONG)cex;
+        c->id = (LONG)cid;
+        c->parent = hdlg;
+        c->visible = (cstyle & 0x10000000u) != 0;
+        c->enabled = (cstyle & 0x08000000u) == 0;
+        auto it = classes.find(ccls);
+        c->proc = it != classes.end() ? it->second : nullptr;
+        c->rect = {dialog_units_x(ix), dialog_units_y(iy), dialog_units_x(ix + icx), dialog_units_y(iy + icy)};
+        HWND hc = handle_new(c);
+        dlg->children.push_back(hc);
+        if (c->proc) c->proc(hc, 0x0001, 0, 0);     // WM_CREATE
+    }
+    char detail[160];
+    snprintf(detail, sizeof detail, "%s #%u: %d controls, %dx%d%s", api, id, count,
+             dlg->rect.right - dlg->rect.left, dlg->rect.bottom - dlg->rect.top, ex ? " (extended template)" : "");
+    progress_count("dialogs created", detail);
+    if (proc) proc(hdlg, 0x0110, (WPARAM)(dlg->children.empty() ? nullptr : dlg->children[0]), init);   // WM_INITDIALOG
+    if (style & 0x10000000u) ShowWindow(hdlg, 5);    // WS_VISIBLE
+    return hdlg;
+}
+
+const void *dialog_template(const char *name)
+{
+    return ra2port::original_resource(5, (uintptr_t)name, nullptr);   // RT_DIALOG
+}
+
+}  // namespace
+extern "C" {
+
+// Logs a dialog request (--run-to): the resource id or name, and the "dialog" milestone.
 static void note_dialog(const char *api, const void *name)
 {
     char detail[128];
@@ -498,45 +639,114 @@ static void note_dialog(const char *api, const void *name)
     progress("dialog", detail);
 }
 
+static unsigned dialog_id(const char *name) { return (uintptr_t)name < 0x10000 ? (unsigned)(uintptr_t)name : 0; }
+
 HWND CreateDialogParamA(HINSTANCE instance, const char *name, HWND parent, DLGPROC proc, LPARAM init)
 {
-    (void)instance; (void)name; (void)parent; (void)proc; (void)init;
+    (void)instance;
     note_dialog("CreateDialogParamA", name);
-    unimplemented("CreateDialogParamA");
-    return nullptr;
+    const void *templ = dialog_template(name);
+    if (!templ) { unimplemented("CreateDialogParamA (no template: game.exe not supported or id missing)"); return nullptr; }
+    return build_dialog(templ, dialog_id(name), parent, proc, init, "CreateDialogParamA");
 }
 HWND CreateDialogIndirectParamA(HINSTANCE instance, const void *templ, HWND parent, DLGPROC proc, LPARAM init)
 {
-    (void)instance; (void)templ; (void)parent; (void)proc; (void)init;
+    (void)instance;
     note_dialog("CreateDialogIndirectParamA", nullptr);
-    unimplemented("CreateDialogIndirectParamA");
-    return nullptr;
+    return build_dialog(templ, 0, parent, proc, init, "CreateDialogIndirectParamA");
+}
+static intptr_t run_modal(HWND hdlg)
+{
+    Window *d = win(hdlg);
+    if (!d) return -1;
+    if (!d->visible) ShowWindow(hdlg, 5);
+    while (win(hdlg) && !win(hdlg)->ended) {
+        MSG msg;
+        if (PeekMessageA(&msg, nullptr, 0, 0, 1)) {
+            if (msg.message == 0x0012) { PostQuitMessage((int)msg.wParam); break; }   // WM_QUIT
+            DispatchMessageA(&msg);
+        } else {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        }
+    }
+    Window *w = win(hdlg);
+    intptr_t result = w ? w->result : -1;
+    if (w) DestroyWindow(hdlg);
+    return result;
 }
 intptr_t DialogBoxParamA(HINSTANCE instance, const char *name, HWND parent, DLGPROC proc, LPARAM init)
 {
-    (void)instance; (void)name; (void)parent; (void)proc; (void)init;
+    (void)instance;
     note_dialog("DialogBoxParamA", name);
-    unimplemented("DialogBoxParamA");
-    return -1;
+    const void *templ = dialog_template(name);
+    if (!templ) { unimplemented("DialogBoxParamA (no template: game.exe not supported or id missing)"); return -1; }
+    return run_modal(build_dialog(templ, dialog_id(name), parent, proc, init, "DialogBoxParamA"));
 }
 intptr_t DialogBoxIndirectParamA(HINSTANCE instance, const void *templ, HWND parent, DLGPROC proc, LPARAM init)
 {
-    (void)instance; (void)templ; (void)parent; (void)proc; (void)init;
+    (void)instance;
     note_dialog("DialogBoxIndirectParamA", nullptr);
-    unimplemented("DialogBoxIndirectParamA");
-    return -1;
+    return run_modal(build_dialog(templ, 0, parent, proc, init, "DialogBoxIndirectParamA"));
 }
-BOOL EndDialog(HWND dialog, intptr_t result) { (void)dialog; (void)result; return 1; }
-HWND GetDlgItem(HWND dialog, int id) { (void)dialog; (void)id; return nullptr; }
+BOOL EndDialog(HWND dialog, intptr_t result)
+{
+    Window *d = win(dialog);
+    if (!d || !d->is_dialog) return 0;
+    d->ended = true;
+    d->result = result;
+    d->visible = false;
+    return 1;
+}
+HWND GetDlgItem(HWND dialog, int id)
+{
+    Window *d = win(dialog);
+    if (!d) return nullptr;
+    for (HWND c : d->children) {
+        Window *w = win(c);
+        if (w && w->id == id) return c;
+    }
+    return nullptr;
+}
 LRESULT SendDlgItemMessageA(HWND dialog, int id, UINT message, WPARAM wparam, LPARAM lparam)
 {
     return SendMessageA(GetDlgItem(dialog, id), message, wparam, lparam);
 }
-BOOL SetDlgItemTextA(HWND dialog, int id, const char *text) { (void)dialog; (void)id; (void)text; return 0; }
-BOOL CheckDlgButton(HWND dialog, int id, UINT check) { (void)dialog; (void)id; (void)check; return 0; }
-UINT IsDlgButtonChecked(HWND dialog, int id) { (void)dialog; (void)id; return 0; }
-HWND GetNextDlgTabItem(HWND dialog, HWND control, BOOL previous) { (void)dialog; (void)control; (void)previous; return nullptr; }
+BOOL SetDlgItemTextA(HWND dialog, int id, const char *text)
+{
+    Window *c = win(GetDlgItem(dialog, id));
+    if (!c) return 0;
+    c->title = text ? text : "";
+    return 1;
+}
+BOOL CheckDlgButton(HWND dialog, int id, UINT check)
+{
+    Window *c = win(GetDlgItem(dialog, id));
+    if (!c) return 0;
+    c->checked = check != 0;
+    return 1;
+}
+UINT IsDlgButtonChecked(HWND dialog, int id) { Window *c = win(GetDlgItem(dialog, id)); return c && c->checked ? 1 : 0; }
+HWND GetNextDlgTabItem(HWND dialog, HWND control, BOOL previous)
+{
+    Window *d = win(dialog);
+    if (!d || d->children.empty()) return nullptr;
+    size_t n = d->children.size(), at = n;
+    for (size_t i = 0; i < n; ++i) if (d->children[i] == control) at = i;
+    for (size_t step = 1; step <= n; ++step) {
+        size_t i = at == n ? (previous ? n - step : step - 1) : (previous ? (at + n - step) % n : (at + step) % n);
+        Window *w = win(d->children[i]);
+        if (w && w->visible && w->enabled && (w->style & 0x00010000)) return d->children[i];   // WS_TABSTOP
+    }
+    return nullptr;
+}
 typedef BOOL (*WNDENUMPROC)(HWND, LPARAM);
-BOOL EnumChildWindows(HWND parent, WNDENUMPROC proc, LPARAM lparam) { (void)parent; (void)proc; (void)lparam; return 1; }
+BOOL EnumChildWindows(HWND parent, WNDENUMPROC proc, LPARAM lparam)
+{
+    Window *d = win(parent);
+    if (!d || !proc) return 0;
+    std::vector<HWND> children = d->children;
+    for (HWND c : children) if (win(c) && !proc(c, lparam)) break;
+    return 1;
+}
 
 }  // extern "C"

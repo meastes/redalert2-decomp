@@ -419,6 +419,10 @@ def main():
         k = msvc_key(r['symbol'])
         if k:
             addr_of.setdefault(k[0], set()).add(int(r['entry']))
+    # Included drafts (native/drafts.json) define their entry under the name they record.
+    for d in json.loads((ROOT / 'native/drafts.json').read_text())['drafts']:
+        if d.get('draft') and d.get('native') == 'compiles' and not d.get('name', 'FUN_').startswith('FUN_'):
+            addr_of.setdefault(d['name'], set()).add(int(d['entry'], 16))
     # Generated data (tables, BSS storage) carries its address in the name or a comment.
     by_addr = {}
     for sym, dem in zip(defined, demangle(defined)):

@@ -32,6 +32,8 @@ void __cdecl Video_Debug_Log_00496460(char const *format, ...) {}
 // 0x004068F0 under its other declared name (Debug_Printf's address; empty in
 // this build, link/behaviour_startup.cpp).
 void __cdecl Debug_Print_004068f0(char const *format, ...) {}
+// ... and its third (Read_Game_Modes' declaration; Scout1076).
+void __cdecl Unknown_004068F0(char const *format, ...) {}
 
 // 0x00406F70 (shared/debug_printf.hpp: the focus nesting counter's release;
 // the row's seed, src/recovered/00406f70.cpp): counts 0x00831440 down and, on

@@ -10,6 +10,7 @@
 // null). No code is ever taken from it.
 #include "ra2port/win32_port.hpp"
 
+#include <ctype.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -88,6 +89,7 @@ struct Image {
     std::vector<unsigned char> mem;
     struct Range { uint32_t start, end, raw_end; bool exec; };
     std::vector<Range> sections;
+    uint32_t resource_rva = 0, resource_size = 0;   // data directory 2 (.rsrc)
 };
 
 Image &image()
@@ -123,6 +125,10 @@ Image &image()
     const unsigned char *o = p + pe + 24;
     img.base = rd32(o + 28);
     img.size = rd32(o + 56);
+    if (rd32(o + 92) > 2) {                         // NumberOfRvaAndSizes
+        img.resource_rva = rd32(o + 96 + 8 * 2);
+        img.resource_size = rd32(o + 96 + 8 * 2 + 4);
+    }
     img.mem.assign(img.size, 0);
     const unsigned char *s = o + opt;
     for (int i = 0; i < nsec; ++i, s += 40) {
@@ -139,7 +145,8 @@ Image &image()
 }  // namespace
 
 struct ra2_original_global { void *storage; uint32_t address; uint32_t extent; uint32_t shape; };
-struct ra2_original_place { uint32_t address; uint32_t extent; void *storage; };
+// pointers: the storage holds pointer slots (8 bytes natively for the original's 4).
+struct ra2_original_place { uint32_t address; uint32_t extent; void *storage; uint32_t pointers; };
 
 namespace {
 const ra2_original_place *g_places = nullptr;
@@ -162,11 +169,70 @@ void *original_data_pointer(uint32_t va)
     }
     if (lo > 0) {
         const ra2_original_place &p = g_places[lo - 1];
-        if (va < p.address + p.extent) return (unsigned char *)p.storage + (va - p.address);
+        if (va < p.address + p.extent) {
+            uint32_t offset = va - p.address;
+            if (!p.pointers) return (unsigned char *)p.storage + offset;
+            if (offset % 4 == 0) return (unsigned char *)p.storage + 2 * offset;
+        }
     }
     for (const Image::Range &r : img.sections)
         if (va >= r.start && va < r.end) return r.exec || va >= r.raw_end ? nullptr : img.mem.data() + (va - img.base);
     return nullptr;
+}
+
+// A resource the original stores (PE resource directory, data directory 2):
+// type and name are integer ids (MAKEINTRESOURCE) or names (case-insensitive,
+// as FindResource matches them); the first language. Returns the data in the
+// mapped image and its size, or null. Dialog templates (RT_DIALOG 5), string
+// and other resources: read at run time, never copied (AGENTS.md "Native phase").
+namespace {
+bool resource_name_matches(const Image &img, uint32_t entry_name, const char *want)
+{
+    if (!(entry_name & 0x80000000u)) return false;
+    const unsigned char *str = img.mem.data() + img.resource_rva + (entry_name & 0x7FFFFFFFu);
+    uint16_t len = rd16(str);
+    if (strlen(want) != len) return false;
+    for (uint16_t i = 0; i < len; ++i) {
+        uint16_t c = rd16(str + 2 + 2 * i);
+        int a = c < 128 ? toupper(c) : c, b = toupper((unsigned char)want[i]);
+        if (a != b) return false;
+    }
+    return true;
+}
+// The entry of directory dir matching key (an id <= 0xFFFF, else a name); its offset field or 0.
+uint32_t resource_entry(const Image &img, uint32_t dir, uintptr_t key)
+{
+    const unsigned char *d = img.mem.data() + img.resource_rva + dir;
+    int named = rd16(d + 12), ids = rd16(d + 14);
+    const unsigned char *e = d + 16;
+    for (int i = 0; i < named + ids; ++i, e += 8) {
+        uint32_t name = rd32(e), offset = rd32(e + 4);
+        if (key <= 0xFFFF ? (!(name & 0x80000000u) && name == key)
+                          : resource_name_matches(img, name, (const char *)key))
+            return offset;
+    }
+    return 0;
+}
+}  // namespace
+
+const void *original_resource(uintptr_t type, uintptr_t name, size_t *size)
+{
+    Image &img = image();
+    if (!img.loaded || !img.resource_rva || img.resource_rva >= img.size) return nullptr;
+    if (name > 0xFFFF && ((const char *)name)[0] == '#') name = (uintptr_t)strtoul((const char *)name + 1, nullptr, 10);
+    uint32_t t = resource_entry(img, 0, type);
+    if (!(t & 0x80000000u)) return nullptr;
+    uint32_t n = resource_entry(img, t & 0x7FFFFFFFu, name);
+    if (!(n & 0x80000000u)) return nullptr;
+    const unsigned char *langs = img.mem.data() + img.resource_rva + (n & 0x7FFFFFFFu);
+    if (rd16(langs + 12) + rd16(langs + 14) == 0) return nullptr;
+    uint32_t leaf = rd32(langs + 16 + 4);
+    if (leaf & 0x80000000u) return nullptr;
+    const unsigned char *entry = img.mem.data() + img.resource_rva + leaf;
+    uint32_t rva = rd32(entry), length = rd32(entry + 4);
+    if ((uint64_t)rva + length > img.size) return nullptr;
+    if (size) *size = length;
+    return img.mem.data() + rva;
 }
 
 // Copies n bytes the original stores at va; false when unavailable.

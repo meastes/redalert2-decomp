@@ -862,16 +862,27 @@ void *GetProcAddress(HINSTANCE module, const char *name)
     return nullptr;
 }
 BOOL FreeLibrary(HINSTANCE module) { (void)module; return 1; }
-// Resources (dialog templates, icons, version info) live in the user's game
-// executable; reading them at run time is a later step.
+// Resources (dialog templates, icons, version info) are read from the supported
+// game.exe at run time (ra2port::original_resource; AGENTS.md "Native phase").
+// The resource handle is the data's address in the mapped image (load and lock
+// return it unchanged, as Win32 does for a module's resources).
+} // extern "C"
+namespace ra2port { const void *original_resource(uintptr_t type, uintptr_t name, size_t *size); }
+extern "C" {
 HANDLE FindResourceA(HINSTANCE module, const char *name, const char *type)
 {
-    (void)module; (void)name; (void)type;
-    unimplemented("FindResourceA");
-    return nullptr;
+    (void)module;
+    const void *data = ra2port::original_resource((uintptr_t)type, (uintptr_t)name, nullptr);
+    if (!data) {
+        char what[96];
+        if ((uintptr_t)name < 0x10000) snprintf(what, sizeof what, "FindResourceA (#%u type %u: not in the supported game.exe)", (unsigned)(uintptr_t)name, (unsigned)(uintptr_t)type);
+        else snprintf(what, sizeof what, "FindResourceA (\"%.40s\": not in the supported game.exe)", name);
+        unimplemented(what);
+    }
+    return (HANDLE)data;
 }
-HANDLE LoadResource(HINSTANCE module, HANDLE resource) { (void)module; (void)resource; return nullptr; }
-void *LockResource(HANDLE resource) { (void)resource; return nullptr; }
+HANDLE LoadResource(HINSTANCE module, HANDLE resource) { (void)module; return resource; }
+void *LockResource(HANDLE resource) { return (void *)resource; }
 
 // ---- strings, locale, misc -----------------------------------------------
 

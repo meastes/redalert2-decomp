@@ -30,10 +30,14 @@ starts the game (WinMain, `native/drafts.json` 0x68E280) and logs each start-up
 milestone to stderr as the port sees it: `main`, `winmain`, `ini` (RA2.INI opened),
 `mix` (first MIX), `strings` (ra2.csf as a loose file; from a MIX it is implied by
 `window`), `window`, `ddraw`, `primary` (first DirectDraw primary surface),
-`surfaces` (off-screen surfaces after it), `dialog` (first dialog requested: the
-templates are the open question), `present` (first frame presented), `menu` (not
-detected yet: the main menu is a dialog, blocked with the templates; use it as the
-run-as-far-as-possible target). The
+`surfaces` (off-screen surfaces after it), `dialog` (first dialog requested),
+`present` (first frame presented), `menu` (the first dialog built from a game.exe
+template is shown: Select_Game's main menu on the start-up path; the detail names
+the template). Dialog templates (RT_DIALOG, DLGTEMPLATE and DLGTEMPLATEEX) and
+FindResourceA/LoadResource/LockResource read the supported game.exe's resource
+directory at run time (`ra2port::original_resource`); CreateDialog*/DialogBox*
+build the dialog and its controls as port windows and send WM_INITDIALOG; a modal
+box pumps messages until EndDialog. The
 run ends by itself at the requested milestone (exit 0), the first link-closure
 trap (3), a fault (4, with a backtrace), WinMain returning, or the time limit
 (default 5 s; exit 2, with the main thread's backtrace), and prints a summary:
@@ -71,7 +75,9 @@ installed `game.exe` at run time, never copied here. `tools/original_data.py`
 writes `data/original_data.cpp` (names, addresses, extents and shapes only) from
 `data/unsourced_initialised.tsv` and the globals' declarations in `src/`: one
 storage per original address, shape `bytes` (scalars and scalar arrays: copied),
-`ptr`/`ptrs` (data pointers: the native storage of the global pointed at, from
+`ptr`/`ptrs` (data pointers: the native storage of the global pointed at (a `ptr`
+place covers its one pointer, a `ptrs` place its declared elements, pointer slots
+scaled to 8 bytes; the TSV extent runs on into the literals that follow), from
 this file and `bss_globals.cpp`, else the mapped image's initialised data, else
 null). `port/src/original_image.cpp` maps the executable's sections (after
 checking size and SHA-256 against the pinned target) and fills them before
@@ -166,6 +172,12 @@ pointers are not loaded (`--report`).
    inputs without its own outputs, or keeps what it wrote before); after a landing
    re-run `data_globals.py --build <dir>`, rebuild, `address_aliases.py --build <dir>`,
    rebuild, `template_instances.py --build <dir>`, rebuild.
+   `member_aliases.cpp`: names of members of class-typed globals (an interior
+   address such as 0x00A3D8D8, the session's Scenarios) bound to the member
+   through a reference, with a fixup renaming the declaration in the native view.
+   `behaviour_commands.cpp` (`tools/command_rewrites.py`): the keyboard commands'
+   name slots (stored names and labels read from game.exe), which give the 56
+   CommandClass subclasses their vtables.
    `template_instances*.cpp` (`tools/template_instances.py`)
    explicitly instantiate the recovered VectorClass/DynamicVectorClass bodies for
    element types whose owner unit is missing; `initterm_rewrites.cpp` rewrites the

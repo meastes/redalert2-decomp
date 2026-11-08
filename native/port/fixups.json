@@ -420,6 +420,34 @@
    "new": "#include \"shared/unknown_voxel_palette.hpp\"\nclass FileClass;\nclass UnknownWorker_716f40 {",
    "why": "Include for the fixup above.",
    "verified": true
+  },
+  {
+   "source": "src/shared/multi_mission.hpp",
+   "old": "extern DynamicVectorClass<MultiMission *> unknown_multi_missions_a3d8d8;",
+   "new": "extern DynamicVectorClass<MultiMission *> &unknown_multi_missions_a3d8d8_native;   // NATIVE: UnknownSessionState::Scenarios (link/member_aliases.cpp)\n#define unknown_multi_missions_a3d8d8 unknown_multi_missions_a3d8d8_native",
+   "why": "0x00A3D8D8 is the session object's Scenarios member (unknown_session_a3d298 +0x640, session_state.hpp). VC6 binds both names to one address; natively the separate BSS storage of this name left Start_Scenario reading an empty list while Read_Scenario_Descriptions filled the member. The native view names the member through a reference (link/member_aliases.cpp); the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Clear_Scenario_0065d370.cpp",
+   "old": "inline void __fastcall FUN_00663220(int scenario)",
+   "new": "inline void __fastcall FUN_00663220(UnknownIDSource *scenario)",
+   "why": "Clear_All_Waypoints (0x00663220, expanded) takes the scenario pointer as a 32-bit int and writes 101 cells at +0x632. Natively the pointer is 64-bit (the int cast truncates it) and the layout differs; the native view passes the pointer and writes UnknownIDSource::Waypoints (+0x632, id_source.hpp). Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Clear_Scenario_0065d370.cpp",
+   "old": "(unsigned int *)(scenario + 0x632);",
+   "new": "(unsigned int *)scenario->Waypoints;   // NATIVE",
+   "why": "Clear_All_Waypoints (0x00663220, expanded) takes the scenario pointer as a 32-bit int and writes 101 cells at +0x632. Natively the pointer is 64-bit (the int cast truncates it) and the layout differs; the native view passes the pointer and writes UnknownIDSource::Waypoints (+0x632, id_source.hpp). Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Clear_Scenario_0065d370.cpp",
+   "old": "FUN_00663220((int)unknown_id_source_a3d290);",
+   "new": "FUN_00663220(unknown_id_source_a3d290);   // NATIVE",
+   "why": "Clear_All_Waypoints (0x00663220, expanded) takes the scenario pointer as a 32-bit int and writes 101 cells at +0x632. Natively the pointer is 64-bit (the int cast truncates it) and the layout differs; the native view passes the pointer and writes UnknownIDSource::Waypoints (+0x632, id_source.hpp). Same meaning; the exact build is unchanged.",
+   "verified": false
   }
  ]
 }

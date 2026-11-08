@@ -12,6 +12,8 @@
 #include <pthread.h>
 #include <mutex>
 #include <signal.h>
+#include <dlfcn.h>
+#include <sys/ucontext.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -109,11 +111,20 @@ void on_stall(int)
     backtrace_symbols_fd(frames, n, 2);
 }
 
-void on_signal(int sig)
+void on_signal(int sig, siginfo_t *info, void *context)
 {
-    // Best effort from a signal handler: the run is ending anyway.
-    char what[48];
-    snprintf(what, sizeof what, "signal %d", sig);
+    // Best effort from a signal handler: the run is ending anyway. The faulting
+    // pc and address (a frameless leaf does not appear in the backtrace).
+    char what[128];
+    uintptr_t pc = 0;
+#if defined(__APPLE__) && defined(__arm64__)
+    if (context) pc = (uintptr_t)((ucontext_t *)context)->uc_mcontext->__ss.__pc;
+#endif
+    Dl_info where = {};
+    if (pc) dladdr((void *)pc, &where);
+    snprintf(what, sizeof what, "signal %d at %s+%ld (fault address %p)", sig,
+             where.dli_sname ? where.dli_sname : "?", where.dli_sname ? (long)(pc - (uintptr_t)where.dli_saddr) : 0L,
+             info ? info->si_addr : nullptr);
     summary_locked(what);
     void *frames[48];
     int n = backtrace(frames, 48);
@@ -183,11 +194,11 @@ void ra2port_run_to(const char *target, int seconds)
     s.target = target ? target : "";
     s.seconds = seconds > 0 ? seconds : 5;
     s.start = std::chrono::steady_clock::now();
-    signal(SIGSEGV, on_signal);
-    signal(SIGBUS, on_signal);
-    signal(SIGILL, on_signal);
-    signal(SIGFPE, on_signal);
-    signal(SIGABRT, on_signal);
+    struct sigaction action = {};
+    action.sa_sigaction = on_signal;
+    action.sa_flags = SA_SIGINFO;
+    sigemptyset(&action.sa_mask);
+    for (int sig : {SIGSEGV, SIGBUS, SIGILL, SIGFPE, SIGABRT}) sigaction(sig, &action, nullptr);
     main_thread = pthread_self();
     signal(SIGUSR2, on_stall);
     std::thread([] {
@@ -244,6 +255,9 @@ void ra2port_trap_reached(const char *name)
     std::lock_guard<std::mutex> g(s.lock);
     std::string what = std::string("unrecovered ") + name;
     summary_locked(what.c_str());
+    void *frames[48];                       // the trap's callers
+    int n = backtrace(frames, 48);
+    backtrace_symbols_fd(frames, n, 2);
     _exit(3);
 }
 

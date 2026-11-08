@@ -3138,3 +3138,9 @@ New rulings are recorded at their rows as before.
 
 ## Scout1074 (2026-11-08, closed; LANDED StripClass draw 0x67F800 2,741 B + 16 B table; NOTES in build/class-work/Scout1074/)
 - Mechanism recorded in VC6_MATCHING_NOTES (named constant local). Misses: Mouse_Left_Up 0x49B0F0 61.75 (original merges identical switch blocks), OwnerDraw 0x5E8130 49.20 and 0x5E8720 48.71 (caller inline budget; 0x5E8720 needs body_bytes 1136), Sidebar AI 0x67DC90 skipped. 0x68CCE0 99.37 (one swapped reload at the outer-loop exit).
+
+## Scout1075 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1075/)
+- Pixel_To_Cell 0x6A6BD0 55.19 -> 79.35 (keep/ptc_q4_7935.cpp, call list exact; needs the twin operator form, copy-initialised topcoord and `tmp = coord; tmp.X &= 255; tmp.Y &= 255;` together). Set_Cursor_Pos 0x4994D0 78.48 now in natural source (register rotation left). Beacon Place 0x42E370 87.04, Read_Text_File 0x6F9790 82.14, One_Time 0x5DD760 61.54, darken bevel 0x5FE9B0 22.54 unchanged.
+
+## Scout1077 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1077/)
+- The named-constant lever reaches only 0x67F800. Sidebar slot 54 0x67E210 99.04 (rows-sum tree order at the else arm; ternary forms give the tree but swap eax/edx function-wide, 91.08, keep/s6a.cpp), slot 34 0x6819A0 98.22 (same rows-sum puzzle), UnVQ1_4x2_Table 0x70C0A0 75.95 (`mov ebp,2` hoist is a use-count threshold; no single TibSun arm causes it) parked.

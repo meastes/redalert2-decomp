@@ -118,8 +118,16 @@ def main():
            '#include <stddef.h>',
            '#include <stdint.h>',
            'struct ra2_original_global { void *storage; uint32_t address; uint32_t extent; uint32_t shape; };',
-           'struct ra2_original_place { uint32_t address; uint32_t extent; void *storage; };',
+           'struct ra2_original_place { uint32_t address; uint32_t extent; void *storage; uint32_t pointers; };',
            '']
+    declared = {}
+    for sym, r in rows.items():
+        if r['shape'] == 'ptrs':
+            for line in index.get(r['name'], []):
+                m = re.search(r'\b%s\s*\[\s*(\d+)\s*\]' % re.escape(r['name']), line)
+                if m:
+                    declared[int(r['address'], 16)] = min(r['extent'], 4 * int(m.group(1)))
+                    break
     by_addr = {}
     for sym, r in rows.items():
         by_addr.setdefault(int(r['address'], 16), []).append((sym, r))
@@ -138,23 +146,32 @@ def main():
         for sym, _ in group[1:]:
             out.append('__asm__(".globl %s\\n.set %s, %s\\n");' % (sym, sym, main_sym))
         table.append('    {ra2_orig_%04d, 0x%08Xu, %du, %d},' % (k, addr, n, {'bytes': 0, 'ptr': 1, 'ptrs': 2}[shape]))
-        places.append((addr, n, 'ra2_orig_%04d' % k))
+        # A place covers what the native storage holds: one pointer for `ptr`, the
+        # declared elements for `ptrs` (the TSV extent runs to the next symbol and
+        # can include the string literals that follow; pointers to those must
+        # stay in the image). Pointer slots are 8 bytes natively (pointers=1).
+        if shape == 'ptr':
+            places.append((addr, 4, 'ra2_orig_%04d' % k, 1))
+        elif shape == 'ptrs':
+            places.append((addr, declared.get(addr, n), 'ra2_orig_%04d' % k, 1))
+        else:
+            places.append((addr, n, 'ra2_orig_%04d' % k, 0))
     bss = re.compile(r'^alignas\(\d+\) unsigned char (ra2_bss_\d+)\[(\d+)\] __asm__\("([^"]+)"\);\s*// 0x([0-9A-Fa-f]{8})')
     for line in (ROOT / 'native/data/bss_globals.cpp').read_text().splitlines():
         m = bss.match(line)
         if m and int(m.group(4), 16) not in by_addr:
             k = len(places)
             out.append('extern "C" unsigned char ra2_place_%04d[] __asm__("%s");' % (k, m.group(3)))
-            places.append((int(m.group(4), 16), int(m.group(2)) // 2, 'ra2_place_%04d' % k))
+            places.append((int(m.group(4), 16), int(m.group(2)) // 2, 'ra2_place_%04d' % k, 0))
     out.append('')
     out.append('extern "C" const ra2_original_global ra2_original_globals[] = {')
     out += table
     out.append('    {0, 0u, 0u, 0},')
     out.append('};')
     out.append('extern "C" const ra2_original_place ra2_original_storage[] = {')
-    for addr, n, name in sorted(places):
-        out.append('    {0x%08Xu, %du, %s},' % (addr, max(1, n), name))
-    out.append('    {0u, 0u, 0},')
+    for addr, n, name, pointers in sorted(places):
+        out.append('    {0x%08Xu, %du, %s, %d},' % (addr, max(1, n), name, pointers))
+    out.append('    {0u, 0u, 0, 0},')
     out.append('};')
     OUT.write_text('\n'.join(out) + '\n')
     shapes = {}

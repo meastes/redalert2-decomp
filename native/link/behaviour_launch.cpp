@@ -371,6 +371,17 @@ bool Unknown_0051FC50()
     return StormActive;
 }
 
+// 0x0051FBB0 Unknown_0051FBB0 (Clear_Scenario, a trigger action and a team
+// mission call it; the row's code: while a storm is active, set the byte at
+// 0x00A51944, StormTimeToEnd). Scout1076. NOT EXACT.
+extern bool StormTimeToEnd;
+void Unknown_0051FBB0()
+{
+    if (StormActive) {
+        StormTimeToEnd = true;
+    }
+}
+
 // 0x005D7C20 ObjectTypeClass::Generic_Naming_Convention (object_type.hpp;
 // the decompile stores 'G' at buffer[1]; TibSun objtype.cpp: the theater
 // letter of a file name becomes the generic one). NOT EXACT.
@@ -410,4 +421,48 @@ VectorClass<Wstring>::VectorClass(unsigned size, Wstring const *array)
             IsAllocated = true;
         }
     }
+}
+
+// --- Tactical (vtable 0x007AC570): the slots that make the native vtable ------
+// Tactical's key function (GetClassID) had no definition, so natively the class
+// had no vtable and `delete` of the view (Delete_All_Objects, Clear_Scenario)
+// called a zero slot. Written from each row's code (Scout1076). NOT EXACT.
+// Save 0x006AC400 and Detach 0x006AAB60 stay unrecovered (link-closure traps).
+#include "shared/tactical.hpp"
+
+struct ra2_guid_bytes { unsigned int a; unsigned short b, c; unsigned char d[8]; };
+extern "C" const ra2_guid_bytes Startup_CLSID_Tactical;   // 0x007A1E90 (data/com_guids.cpp)
+
+// 0x006AC2E0: E_POINTER for null, else the class id at 0x007A1E90; S_OK.
+HRESULT __stdcall Tactical::GetClassID(GUID *clsid)
+{
+    if (clsid == 0) {
+        return (HRESULT)0x80004003;
+    }
+    *clsid = *(GUID const *)&Startup_CLSID_Tactical;
+    return 0;
+}
+
+// 0x006A2710: clears the view pointer 0x0083996C (then ~AbstractClass).
+Tactical::~Tactical()
+{
+    unknown_tactical_83996c = 0;
+}
+
+// 0x006AC7E0 / 0x006AC7F0: the kind (0x38) and the original object size (0xE18).
+int Tactical::Kind_Of() const
+{
+    return 0x38;
+}
+
+int Tactical::Size_Of() const
+{
+    return 0xE18;
+}
+
+// 0x00529710 Unknown_00529710 (the row's code is `xor al, al; ret`: false, nothing freed;
+// LightSourceClass 0x00537830 and MapClass slot 23 call it). Scout1076. NOT EXACT.
+bool __fastcall Unknown_00529710(int time, bool flag)
+{
+    return false;
 }
