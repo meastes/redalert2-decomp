@@ -129,7 +129,42 @@ def place(text, base, lo, hi, archives):
         for h in free:
             taken[h:h + n] = b'\1' * n
             rows.append((base + h, s))
-    # Second pass: a group of byte-identical sections (the same deleting destructor
+    # Second pass (after codex4 r171): a member's sections are laid out in object order, so
+    # unplaced sections between two placed neighbours of the same member, whose lengths
+    # exactly fill the gap, are placed by position and checked with relocation sites
+    # masked. This reaches the 5-33 byte thunks and stubs no byte search can place.
+    by_member = {}
+    for va, s in rows:
+        by_member.setdefault((s['order'], s['member_index']), []).append((va, s))
+    sections_by_member = {}
+    for s in allsec:
+        sections_by_member.setdefault((s['order'], s['member_index']), {})[s['section_index']] = s
+    for key, placed in by_member.items():
+        placed.sort()
+        members = sections_by_member.get(key, {})
+        for (va1, s1), (va2, s2) in zip(placed, placed[1:]):
+            if s2['section_index'] <= s1['section_index'] + 1:
+                continue
+            between = [members[i] for i in range(s1['section_index'] + 1, s2['section_index']) if i in members]
+            if len(between) != s2['section_index'] - s1['section_index'] - 1:
+                continue
+            start, stop = va1 + len(s1['raw']), va2
+            if sum(len(s['raw']) for s in between) != stop - start:
+                continue
+            pos = start; ok = True; run = []
+            for s in between:
+                n = len(s['raw']); off = pos - base
+                if any(taken[off:off + n]) or any(b for b, m in zip(text[off:off + n], s['mask']) if m and b != s['raw'][off - (pos - base)] and False):
+                    ok = False; break
+                if any(m and text[off + k] != s['raw'][k] for k, m in enumerate(s['mask'])):
+                    ok = False; break
+                run.append((pos, s)); pos += n
+            if not ok:
+                continue
+            for pos, s in run:
+                n = len(s['raw']); taken[pos - base:pos - base + n] = b'\1' * n
+                rows.append((pos, dict(s, assignment='by position between placed sections of the member')))
+    # Third pass: a group of byte-identical sections (the same deleting destructor
     # emitted for several classes, two copies of a helper) whose free hits are no more
     # numerous than the sections is assigned in address order to the sections in
     # archive/member/section order; bytes and member provenance are exact, only the

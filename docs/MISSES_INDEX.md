@@ -147,7 +147,6 @@
 | 0x4AF547 | 9 | - | 1 | Scout1033 |  | order | tibsun twin |  | 9 |
 | 0x4D2080 | 53 | 86.09 | 3 | Scout1018 |  | register order layout | tibsun twin | pt/w1.cpp | 7.0 |
 | 0x4ABB39 | 7 | - | 1 | Scout1033 |  | order | tibsun twin |  | 7 |
-| 0x555A60 | 2,743 | 99.75 | 7 | Scout1003 |  | order frame register | tibsun twin | w/am0.cpp | 6.0 |
 | 0x43EE70 | 2,464 | 99.74 | 10 | Scout919 |  | inline order ruling | tibsun twin | build/class-work/Scout919 | 6.0 |
 | 0x475DB0 | 556 | 98.91 | 5 | Scout998 |  | register inline asm | tibsun | w/lp.cpp | 6.0 |
 | 0x54F250 | 1,386 | 99.59 | 4 | Scout1007 |  | register frame order | tibsun twin | w/zs_9959.cpp | 5.0 |
@@ -161,7 +160,7 @@
 | 0x773F00 | 511 | 99.44 | 3 | Scout849 |  | frame | tibsun | w/et2.cpp | 2.0 |
 | 0x68CCE0 | 408 | 99.37 | 5 | Scout946 |  | register order frame | tibsun twin | keep/px_8626.cpp | 2.0 |
 | 0x451BEE | 2 | - | 1 | Scout1033 |  | order | tibsun twin |  | 2 |
-| 0x6C9DF0 | 368 | 99.46 | 6 | Scout1020 |  | register bound layout |  | keep/lz_c103_9946.cpp | 1.0 |
+| 0x6C9DF0 | 368 | 99.46 | 7 | Scout1037 |  | register bound layout |  | keep/lz_c103_9946.cpp | 1.0 |
 | 0x6FA20F | 1 | - | 2 | Scout1030 |  | frame inline bound | tibsun twin | keep/tunnel_tu5_5039.cpp | 1 |
 | 0x56CD5F | 1 | - | 1 | Scout1033 |  | order | tibsun twin |  | 1 |
 | 0x535F90 | 4 | 86.09 | 3 | Scout1021 |  | bound layout register | tibsun twin |  | 0.0 |

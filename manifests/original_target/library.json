@@ -10,19 +10,13 @@
    "name": "LIBCMT.LIB",
    "role": "VC6 SP3",
    "sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "members_used": 526
-  },
-  {
-   "name": "LIBCMT.LIB",
-   "role": "VC6 RTM",
-   "sha256": "1ef9c27b4f76031e40fcbdf7d518adc4969f90d6a00dd1ea88697907268c1b2b",
-   "members_used": 1
+   "members_used": 539
   },
   {
    "name": "COMSUPP.LIB",
    "role": "VC6 RTM",
    "sha256": "8fa400883dcada21b59d9768d7b2d66426a2e646c95097f540ffe6724511ee95",
-   "members_used": 13
+   "members_used": 14
   },
   {
    "name": "ADVAPI32.LIB",
@@ -6627,13 +6621,13 @@
    "archive": "LIBCMT.LIB",
    "archive_role": "VC6 SP3",
    "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "member": "rtti.obj",
-   "member_index": 75,
-   "section_index": 2,
-   "assignment": "by order among 11 identical sections",
+   "member": "typinfo.obj",
+   "member_index": 77,
+   "section_index": 1,
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
-    "??_G__non_rtti_object@@UAEPAXI@Z"
+    "??_Gtype_info@@UAEPAXI@Z"
    ],
    "relocations": [
     {
@@ -8119,6 +8113,23 @@
    "sha256": "bd1ea3bc9f169d9ebde3847ca42ec2ae6d360a44525e0d5269ec354b5c8380fb"
   },
   {
+   "entry": "00782cf0",
+   "bytes": 8,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "_ctype.obj",
+   "member_index": 0,
+   "section_index": 12,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "___toascii"
+   ],
+   "relocations": [],
+   "sha256": "6848bbc5b147fdd273c915c33d5a0f2a76cbb6e974091aacc90986ab0f0694e2"
+  },
+  {
    "entry": "00782cf8",
    "bytes": 61,
    "archive": "LIBCMT.LIB",
@@ -8228,6 +8239,29 @@
     }
    ],
    "sha256": "1c28dee985509288e03e7cb39ad98f4d8bd7eb9c7cc58863a5d697c84615b7ce"
+  },
+  {
+   "entry": "00782dfd",
+   "bytes": 11,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "atox.obj",
+   "member_index": 5,
+   "section_index": 1,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "_atoi"
+   ],
+   "relocations": [
+    {
+     "offset": 5,
+     "type": 20,
+     "resolved": 4294967148
+    }
+   ],
+   "sha256": "de8e53f3edb8d03fe276f4726fdf910ba2b7b005346cdbdad94cf3cb7728cff7"
   },
   {
    "entry": "00782e08",
@@ -9332,11 +9366,11 @@
    "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
    "member": "rtti.obj",
    "member_index": 75,
-   "section_index": 6,
-   "assignment": "by order among 11 identical sections",
+   "section_index": 2,
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
-    "??_Gbad_typeid@@UAEPAXI@Z"
+    "??_G__non_rtti_object@@UAEPAXI@Z"
    ],
    "relocations": [
     {
@@ -9353,6 +9387,29 @@
    "sha256": "90f442dd7f1980e8b0cc2576c4b24c0f74716501909daf8e9167d0e45528653e"
   },
   {
+   "entry": "00783baf",
+   "bytes": 5,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 3,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "??1__non_rtti_object@@UAE@XZ"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 20,
+     "resolved": 30237
+    }
+   ],
+   "sha256": "ddafda04524a4aac29091d5b4d9fb8010eada6c929501a062ab10b4becd433ed"
+  },
+  {
    "entry": "00783bb4",
    "bytes": 24,
    "archive": "LIBCMT.LIB",
@@ -9361,7 +9418,7 @@
    "member": "rtti.obj",
    "member_index": 75,
    "section_index": 4,
-   "assignment": "by order among 8 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
     "??0__non_rtti_object@@QAE@ABV0@@Z"
@@ -9389,7 +9446,7 @@
    "member": "rtti.obj",
    "member_index": 75,
    "section_index": 5,
-   "assignment": "by order among 8 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
     "??0bad_typeid@@QAE@ABV0@@Z"
@@ -9416,11 +9473,11 @@
    "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
    "member": "rtti.obj",
    "member_index": 75,
-   "section_index": 12,
-   "assignment": "by order among 11 identical sections",
+   "section_index": 6,
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
-    "??_Gbad_cast@@UAEPAXI@Z"
+    "??_Gbad_typeid@@UAEPAXI@Z"
    ],
    "relocations": [
     {
@@ -9435,6 +9492,29 @@
     }
    ],
    "sha256": "1a0b4227ffa46613b0768cf8cf89c8a0fd2d277cfdd1f961df53fd23381ae4e9"
+  },
+  {
+   "entry": "00783c00",
+   "bytes": 5,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 7,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "??1bad_typeid@@UAE@XZ"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 20,
+     "resolved": 30156
+    }
+   ],
+   "sha256": "653a92d33740e19cf463dd79b4163aa430e17cabe5927cdd58b6046b2ab522f2"
   },
   {
    "entry": "00783c05",
@@ -9686,7 +9766,7 @@
    "member": "rtti.obj",
    "member_index": 75,
    "section_index": 11,
-   "assignment": "by order among 8 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
     "??0bad_cast@@QAE@ABQBD@Z"
@@ -9711,13 +9791,13 @@
    "archive": "LIBCMT.LIB",
    "archive_role": "VC6 SP3",
    "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "member": "stdexcpt.obj",
-   "member_index": 76,
-   "section_index": 1,
-   "assignment": "by order among 11 identical sections",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 12,
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
-    "??_Gexception@@UAEPAXI@Z"
+    "??_Gbad_cast@@UAEPAXI@Z"
    ],
    "relocations": [
     {
@@ -9734,6 +9814,29 @@
    "sha256": "c8d36605e15ba1dc8daf45ebdc5abbb04b383527ba9459f6515b3db0ac1a550f"
   },
   {
+   "entry": "00783e2f",
+   "bytes": 5,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 13,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "??1bad_cast@@UAE@XZ"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 20,
+     "resolved": 29597
+    }
+   ],
+   "sha256": "04b831e11ea52fbfd7bdcebd33a73211eff6521f939bf4409ee27c301cef0383"
+  },
+  {
    "entry": "00783e34",
    "bytes": 24,
    "archive": "LIBCMT.LIB",
@@ -9742,7 +9845,7 @@
    "member": "rtti.obj",
    "member_index": 75,
    "section_index": 14,
-   "assignment": "by order among 8 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
     "??0bad_cast@@QAE@ABV0@@Z"
@@ -10154,6 +10257,29 @@
    "sha256": "34d87eec0fcf304ea2dc5d19e57e00ae4dcdde1c05da775a6a52f95e21beb545"
   },
   {
+   "entry": "00784455",
+   "bytes": 9,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fflush.obj",
+   "member_index": 391,
+   "section_index": 3,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "__flushall"
+   ],
+   "relocations": [
+    {
+     "offset": 3,
+     "type": 20,
+     "resolved": 2
+    }
+   ],
+   "sha256": "7727cf1cb5a5144037ec6202bde31bb3f9b026e35b009c17c76e42132ed915b7"
+  },
+  {
    "entry": "0078445e",
    "bytes": 164,
    "archive": "LIBCMT.LIB",
@@ -10351,6 +10477,39 @@
     }
    ],
    "sha256": "cc30cea9acd0eecb2d414d0fa357b0444fade5753c2bf94d4f712d6aafe6718a"
+  },
+  {
+   "entry": "007845e5",
+   "bytes": 20,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "_file.obj",
+   "member_index": 378,
+   "section_index": 1,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "___endstdio"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 20,
+     "resolved": 4294966891
+    },
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 11710452
+    },
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 28825
+    }
+   ],
+   "sha256": "93879240945dcf4488714d621b498135a52d0d3bbcf862318ef1c61919911eac"
   },
   {
    "entry": "007845f9",
@@ -10711,13 +10870,13 @@
    "archive": "LIBCMT.LIB",
    "archive_role": "VC6 SP3",
    "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "member": "new.obj",
-   "member_index": 140,
-   "section_index": 0,
-   "assignment": "by order among 6 identical sections",
+   "member": "_wctype.obj",
+   "member_index": 3,
+   "section_index": 2,
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
-    "??2@YAPAXI@Z"
+    "_iswupper"
    ],
    "relocations": [
     {
@@ -11442,6 +11601,52 @@
     }
    ],
    "sha256": "7bfdfc4a41fc4194ba95cbfbd69acc3fe99c0bdaeff66e3f4679388ec5b2a4cf"
+  },
+  {
+   "entry": "00784fc1",
+   "bytes": 9,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "crt0dat.obj",
+   "member_index": 338,
+   "section_index": 6,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "__lockexit"
+   ],
+   "relocations": [
+    {
+     "offset": 3,
+     "type": 20,
+     "resolved": 3262
+    }
+   ],
+   "sha256": "04b177fcd43a3ee9324887d6be5aa897248c47932914438a6830a3c10d2b8a8d"
+  },
+  {
+   "entry": "00784fca",
+   "bytes": 9,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "crt0dat.obj",
+   "member_index": 338,
+   "section_index": 7,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "__unlockexit"
+   ],
+   "relocations": [
+    {
+     "offset": 3,
+     "type": 20,
+     "resolved": 3350
+    }
+   ],
+   "sha256": "f908224b1b984b7648900977697ed0813fe14a8d80fb0331321c0c4a4fd2bc7c"
   },
   {
    "entry": "00784fd3",
@@ -13349,6 +13554,23 @@
     }
    ],
    "sha256": "0bb75a8aa437384da5c97611869b4d4e957dda19472f026aa537cd70381280a4"
+  },
+  {
+   "entry": "007862d6",
+   "bytes": 3,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "setlocal.obj",
+   "member_index": 310,
+   "section_index": 4,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "___init_dummy"
+   ],
+   "relocations": [],
+   "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e"
   },
   {
    "entry": "007862d9",
@@ -15404,6 +15626,29 @@
     }
    ],
    "sha256": "3f2f036dbde195721c00a7ec934ec40e03a0a77f79c7041ba6c5b7129963d35f"
+  },
+  {
+   "entry": "00788972",
+   "bytes": 6,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "handler.obj",
+   "member_index": 135,
+   "section_index": 1,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "?_query_new_handler@@YAP6AHI@ZXZ"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 11710656
+    }
+   ],
+   "sha256": "5a8d56fd0767d73d2c9f3405e7d628f132ab0d0eadee68f95f8c356207409b64"
   },
   {
    "entry": "00788978",
@@ -17964,13 +18209,13 @@
    "archive": "LIBCMT.LIB",
    "archive_role": "VC6 SP3",
    "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "member": "typinfo.obj",
-   "member_index": 77,
+   "member": "stdexcpt.obj",
+   "member_index": 76,
    "section_index": 1,
-   "assignment": "by order among 11 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
-    "??_Gtype_info@@UAEPAXI@Z"
+    "??_Gexception@@UAEPAXI@Z"
    ],
    "relocations": [
     {
@@ -18980,6 +19225,34 @@
    "sha256": "a8cf0d27cbebfa6cf1cff2f63a9c737f60b6d102b8bdab0d27f9ad9df6d89443"
   },
   {
+   "entry": "0078baea",
+   "bytes": 16,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "mbctype.obj",
+   "member_index": 205,
+   "section_index": 5,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [
+    "__getmbcp"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 11712092
+    },
+    {
+     "offset": 11,
+     "type": 6,
+     "resolved": 11712072
+    }
+   ],
+   "sha256": "c6e9ee034c956dca16555d49649f7b188219869c328c5c7e21192f0516b9dff7"
+  },
+  {
    "entry": "0078bafa",
    "bytes": 28,
    "archive": "LIBCMT.LIB",
@@ -19593,6 +19866,27 @@
     }
    ],
    "sha256": "846b0b1e5e332f656e5a3d27275232663d69d20b62ec132d90fcf449b436ff61"
+  },
+  {
+   "entry": "0078c826",
+   "bytes": 11,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "winput.obj",
+   "member_index": 444,
+   "section_index": 2,
+   "assignment": "by position between placed sections of the member",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 5,
+     "type": 20,
+     "resolved": 27206
+    }
+   ],
+   "sha256": "6af6a4b0cb1cbe7cbcf9ed7d5a275a67756e35d9a035d8e3d9eacb0a5571b673"
   },
   {
    "entry": "0078c831",
@@ -25009,7 +25303,7 @@
    "member": "intrncvt.obj",
    "member_index": 581,
    "section_index": 8,
-   "assignment": "by order among 4 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
     "__ld12tod"
@@ -25037,7 +25331,7 @@
    "member": "intrncvt.obj",
    "member_index": 581,
    "section_index": 9,
-   "assignment": "by order among 4 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
     "__ld12tof"
@@ -31120,16 +31414,16 @@
   {
    "entry": "00796012",
    "bytes": 28,
-   "archive": "LIBCMT.LIB",
+   "archive": "COMSUPP.LIB",
    "archive_role": "VC6 RTM",
-   "archive_sha256": "1ef9c27b4f76031e40fcbdf7d518adc4969f90d6a00dd1ea88697907268c1b2b",
-   "member": "rtti.obj",
-   "member_index": 75,
+   "archive_sha256": "8fa400883dcada21b59d9768d7b2d66426a2e646c95097f540ffe6724511ee95",
+   "member": "comraise.obj",
+   "member_index": 1,
    "section_index": 2,
-   "assignment": "by order among 11 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
-    "??_G__non_rtti_object@@UAEPAXI@Z"
+    "??_G_com_error@@UAEPAXI@Z"
    ],
    "relocations": [
     {
@@ -32978,7 +33272,7 @@
    "member": "getch.obj",
    "member_index": 178,
    "section_index": 4,
-   "assignment": "by order among 6 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
     "__kbhit"
@@ -33073,7 +33367,7 @@
    "member": "getch.obj",
    "member_index": 178,
    "section_index": 6,
-   "assignment": "by order among 4 identical sections",
+   "assignment": "by position between placed sections of the member",
    "section": ".text",
    "symbols": [
     "__ungetch"
@@ -34021,13 +34315,13 @@
    "archive": "LIBCMT.LIB",
    "archive_role": "VC6 SP3",
    "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "member": "putch.obj",
-   "member_index": 179,
-   "section_index": 0,
+   "member": "getch.obj",
+   "member_index": 178,
+   "section_index": 6,
    "assignment": "by order among 4 identical sections",
    "section": ".text",
    "symbols": [
-    "__putch"
+    "__ungetch"
    ],
    "relocations": [
     {
