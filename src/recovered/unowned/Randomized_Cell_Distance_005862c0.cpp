@@ -14,5 +14,5 @@ double __stdcall Randomized_Cell_Distance_005862c0(Cell const &a,Cell const &b)
     int dy=(int)a.Y-(int)b.Y;
     int square=(int)((unsigned)dy*(unsigned)dy+(unsigned)dx*(unsigned)dx);
     double distance=unknown_sqrt_4ba410((double)square);
-    return distance+(unsigned int)unknown_map_random_a705c0()*unknown_random_scale_7a5dd0*unknown_distance_scale_007a5d38;
+    return distance+Map_Random_Fraction_00579770()*unknown_distance_scale_007a5d38;
 }

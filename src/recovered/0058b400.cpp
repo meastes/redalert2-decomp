@@ -1,6 +1,6 @@
-// @ref _$E115=0058b420
-// @ref _$E116=0058d970
-// @ref _$E118=0058b400
+// @ref _$E116=0058b420
+// @ref _$E117=0058d970
+// @ref _$E119=0058b400
 #include "shared/map_generation_path.hpp"
 // @ref ?unknown_map_paths_a700a0@@3PAVUnknownMapGenerationPath@@A=00a700a0
 UnknownMapGenerationPath unknown_map_paths_a700a0[109] = {
