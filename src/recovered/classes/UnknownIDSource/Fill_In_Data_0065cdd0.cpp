@@ -41,7 +41,7 @@ void __fastcall Fill_In_Data_0065cdd0()
 
     Map.Flag_To_Redraw(2);
 
-    if (!unknown_a40d13) {
+    if (!Debug_Map) {
         Map.unknown_slot54(1);
         if (unknown_game_mode_a3d298 == 0) {
             Cell cell = unknown_id_source_a3d290->Waypoints[unknown_scenario_checkpoint_00855a90.Variables[0] ? unknown_id_source_a3d290->AltHomeCell : unknown_id_source_a3d290->HomeCell];

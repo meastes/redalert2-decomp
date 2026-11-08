@@ -15,7 +15,7 @@ void BuildingClass::unknown_slot79(int arg1)
         unknown_75 = true;
     }
     TechnoClass::unknown_slot79(arg1);
-    int value = unknown_slot115();
+    ConvertClass *value = unknown_slot115();
     int height = ((UnknownBuildingSlot105 *)unknown_slot105())->unknown_10a;
     int level = unknown_slot254(height);
     if (unknown_slot203()) {

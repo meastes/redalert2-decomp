@@ -92,7 +92,7 @@ bool __fastcall Parse_Command_Line(int argc, char *argv[])
 {
     unknown_special_a40920.Init();
 
-    unknown_a40d13 = false;
+    Debug_Map = false;
 
     for (int index = 1; index < argc; index++) {
         char *string;

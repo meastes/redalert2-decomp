@@ -14,7 +14,7 @@
 // @ref ?unknown_cell_852610@@3VCell@@A=00852610
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?Width@BuildingTypeClass@@QBEHXZ=00458930
 // @ref ?Foundation_Height@BuildingTypeClass@@QBEH_N@Z=00458940
 
@@ -24,7 +24,7 @@ bool DisplayClass::Passes_Proximity_Check_004991D0(ObjectTypeClass const *object
         return true;
     }
 
-    if (unknown_a40d13) {
+    if (Debug_Map) {
         return true;
     }
 

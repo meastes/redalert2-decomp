@@ -6,7 +6,7 @@
 #include "shared/planning_mouse.hpp"
 // @ref ?unknown_flag_a40380@@3_NA=00a40380
 // @ref ?unknown_flag_a40d04@@3_NA=00a40d04
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_flag_a40958@@3_NA=00a40958
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
@@ -35,7 +35,7 @@ void ScrollClass::Unknown_0066A400(HWND window, unsigned &message, unsigned &wpa
     if (!unknown_flag_a40380) {
         return;
     }
-    if (!unknown_flag_a40d04 && !unknown_a40d13) {
+    if (!unknown_flag_a40d04 && !Debug_Map) {
         return;
     }
     if (!unknown_flag_a40958 || unknown_tactical_83996c == 0 || WWMouse == 0) {

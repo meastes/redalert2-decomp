@@ -13,7 +13,7 @@
 //   +0x0B0  AnimTypeClass *Class  (swizzled; slot 33 returns it)
 //   +0x0B4  ObjectClass *unknown_b4   the object the animation is attached
 //           to (swizzled; Detach clears it)
-//   +0x0B8  int unknown_b8 (-1), +0x0BC int unknown_bc, +0x0C0 int unknown_c0 (-1)
+//   +0x0B8  int unknown_b8 (-1), +0x0BC ConvertClass *unknown_bc, +0x0C0 int unknown_c0 (-1)
 //   +0x0C4  PaletteName Palette (32 bytes; Load resolves it through
 //           PaletteName::Load 0x00603380)
 //   +0x0E4  int unknown_e4 (1000), +0x0E8 int ZAdjust, +0x0EC int YSortAdjust
@@ -41,13 +41,15 @@
 
 // UnknownQuaternion (four floats, out-of-line constructor 0x00622160): shared/bounce.hpp.
 
-// Entries of the list at 0x00AB6EF8 (type unknown); AnimClass saves the
-// index of the entry whose +0x30C value equals its unknown_bc.
+// A light view of the ColorSchemes entries (shared/color_scheme.hpp; +0x30C is Converter),
+// no longer used: kept declared because removing it moves AI_Build_Defense 0x4F1190.
 struct UnknownAB6EF8Entry {
     char unknown_000[0x30C];
     int unknown_30c;                        // +0x30C
 };
 extern DynamicVectorClass<UnknownAB6EF8Entry *> unknown_list_ab6ef8;   // 0x00AB6EF8
+// AnimClass saves the index of the ColorSchemes entry whose Converter equals its unknown_bc.
+class ColorScheme;
 
 // What PaletteName::Load returns, as AnimClass::Load uses it (hypothesis: a
 // palette collection; virtual slot 6 looks up an entry of the 0x00AB6EF8
@@ -60,7 +62,7 @@ public:
     virtual void unknown_slot3();
     virtual void unknown_slot4();
     virtual void unknown_slot5();
-    virtual UnknownAB6EF8Entry *unknown_slot6(int arg1);
+    virtual ColorScheme *unknown_slot6(int arg1);
 };
 
 extern "C" GUID const CLSID_AnimClass;      // 0x007A1BE0
@@ -124,7 +126,7 @@ public:
     AnimTypeClass *Class;                   // +0x0B0
     ObjectClass *unknown_b4;                // +0x0B4
     int unknown_b8;                         // +0x0B8
-    int unknown_bc;                         // +0x0BC
+    ConvertClass *unknown_bc;               // +0x0BC (a ColorSchemes entry's Converter)
     int unknown_c0;                         // +0x0C0
     PaletteName Palette;                    // +0x0C4 (Load resolves it through 0x00603380)
     int unknown_e4;                         // +0x0E4

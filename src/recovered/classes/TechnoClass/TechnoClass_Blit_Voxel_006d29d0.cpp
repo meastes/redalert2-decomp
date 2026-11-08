@@ -14,7 +14,7 @@ void TechnoClass::Blit_Voxel_006d29d0(void const *image,Point2D const &point,Rec
     flags&=~0x10U;
     ConvertClass *converter;
     if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=unknown_drawer_ad0608;
-    else converter=(ConvertClass *)unknown_slot115();
+    else converter=unknown_slot115();
     RLEBlitter const *blitter=converter->RLEBlitter_From_Flags_00485d60(flags);
     int phase=0;
     if (flags&8) phase=(Fetch_ID()+(int)unknown_1e0)%400;

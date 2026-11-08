@@ -56,7 +56,7 @@
 // @ref ?unknown_slot112@ObjectClass@@UAE_NXZ=00423e30
 // @ref ?unknown_slot113@ObjectClass@@UAE_NXZ=00423e40
 // @ref ?unknown_slot114@ObjectClass@@UAE_NXZ=00423e50
-// @ref ?unknown_slot115@ObjectClass@@UAEHXZ=00423e60
+// @ref ?unknown_slot115@ObjectClass@@UAEPAVConvertClass@@XZ=00423e60
 // @ref ?unknown_slot16@AbstractClass@@UBEHXZ=00410250
 // @ref ?unknown_slot17@ObjectClass@@UBE_NXZ=005d4f10
 // @ref ?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z=00410290

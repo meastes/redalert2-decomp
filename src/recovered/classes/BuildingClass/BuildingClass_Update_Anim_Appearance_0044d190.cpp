@@ -10,7 +10,7 @@
 
 void BuildingClass::Update_Anim_Appearance_0044d190()
 {
-    int value = unknown_slot115();
+    ConvertClass *value = unknown_slot115();
     int height = ((UnknownBuildingSlot105 *)unknown_slot105())->unknown_10a;
     int level = unknown_slot254(height);
     if (unknown_slot203()) {

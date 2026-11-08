@@ -1,9 +1,9 @@
 // void __fastcall Write_Scenario_INI_0065f980(char const *filename, bool flag) (0x0065F980)
 // Writes the scenario INI file (Westwood's Write_Scenario_INI; called by the
 // map saver 0x0057823B with flag set): starts from the existing file when
-// unknown_a40d13 is set, writes [Basic] and the rest of the scenario's
+// Debug_Map is set, writes [Basic] and the rest of the scenario's
 // sections, the preview (or the houses without flag), the map, the objects,
-// the teams and AI triggers (unless flag and not unknown_a40d13), the triggers
+// the teams and AI triggers (unless flag and not Debug_Map), the triggers
 // and tags, and saves the INI.
 // @ref ?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A=00a6fee4
 // @ref ??0UnknownPreview_0061D430@@QAE@XZ=0061d430
@@ -39,7 +39,7 @@
 void __fastcall Write_Scenario_INI_0065f980(char const *filename, bool flag)
 {
     CCINIClass ini;
-    if (unknown_a40d13) {
+    if (Debug_Map) {
         if (CCFileClass(filename).Is_Available()) {
             CCFileClass file(filename);
             ini.Load(file, true, false);
@@ -66,7 +66,7 @@ void __fastcall Write_Scenario_INI_0065f980(char const *filename, bool flag)
     OverlayClass::Write_INI(ini);
     SmudgeClass::Write_INI(ini);
     TubeClass::Write_INI(ini);
-    if (!flag || unknown_a40d13) {
+    if (!flag || Debug_Map) {
         Unknown_00668EA0(ini, 0);
         TaskForceClass::Write_Scenario_INI(ini, 0);
         TeamTypeClass::Write_Scenario_INI(ini, 0);

@@ -14,7 +14,7 @@
 // @ref __imp__ClientToScreen@8=0079a4ac
 // @ref __imp__Sleep@4=0079a1e4
 // @ref ?unknown_flag_a40b30@@3_NA=00a40b30
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_surface_839948@@3PAVSurface@@A=00839948
 // @ref ?unknown_surface_839950@@3PAVSurface@@A=00839950
 // @ref ?unknown_int_839648@@3HA=00839648
@@ -63,7 +63,7 @@ void __fastcall GScreenClass::Blit(bool mouse, Surface *surface, Rect const *are
         }
     }
 
-    if (!unknown_flag_a40b30 && !unknown_a40d13) {
+    if (!unknown_flag_a40b30 && !Debug_Map) {
         dest_rect.X += (((unknown_surface_839948->Get_Width() < unknown_int_839648 - dest_rect.Width) ? unknown_surface_839948->Get_Width() : unknown_int_839648 - dest_rect.Width) > 0)
             ? ((unknown_surface_839948->Get_Width() < unknown_int_839648 - dest_rect.Width) ? unknown_surface_839948->Get_Width() : unknown_int_839648 - dest_rect.Width)
             : 0;

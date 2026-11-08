@@ -7,6 +7,7 @@
 // up, damages the area and clears the cell.
 #include "shared/random.hpp"
 #include "shared/anim.hpp"
+#include "shared/color_scheme.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
@@ -45,7 +46,7 @@ void AnimClass::unknown_func_4226d0()
                 AnimClass *anim = new AnimClass(
                     tiberium->unknown_c4[unknown_id_source_a3d290->Random()(0, tiberium->unknown_c4.Count() - 1)],
                     Center_Coord() + CoordStruct(0, 0, 10), 0, 1, 0x600, 0);
-                anim->unknown_bc = unknown_list_ab6ef8[tiberium->unknown_c0]->unknown_30c;
+                anim->unknown_bc = ColorSchemes[tiberium->unknown_c0]->Converter;
                 anim->unknown_e4 = cell->unknown_10a;
             }
             {

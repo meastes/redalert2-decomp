@@ -10,7 +10,7 @@
 // @ref ?Unknown_00406F70@@YAXXZ=00406f70
 // @ref ?unknown_mouse_captured_b263e8@@3_NA=00b263e8
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_flag_a40d04@@3_NA=00a40d04
 // @ref ?unknown_flag_851cb0@@3_NA=00851cb0
 // @ref ?unknown_flag_8373c3@@3_NA=008373c3
@@ -48,7 +48,7 @@ void Focus_Restore()
     Debug_Printf("Focus_Restore()\n");
     Unknown_00406F70();
     Debug_Printf("Focus_Restore(): _MouseCaptured = %s\n", unknown_mouse_captured_b263e8 ? "true" : "false");
-    if (WWMouse != 0 && unknown_mouse_captured_b263e8 == true && !unknown_a40d13) {
+    if (WWMouse != 0 && unknown_mouse_captured_b263e8 == true && !Debug_Map) {
         WWMouse->Capture_Mouse();
     }
     if (!unknown_flag_851cb0) {

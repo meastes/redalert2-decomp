@@ -81,7 +81,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                         if (unknown_player_a35db4 == this) {
                             if (tech->unknown_7d && !tech->unknown_373) tech->unknown_slot96(this);
                             Voc_Play(Rules->BuildingSlam, 1.0f, 0x2000, 0);
-                            if (!unknown_a40d13) {
+                            if (!Debug_Map) {
                                 Map.Set_Cursor_Shape(0);
                                 Map.unknown_118c = 0;
                                 Map.unknown_1190 = 0;
@@ -94,7 +94,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                     } else {
                         placed = false;
                         if (this == unknown_player_a35db4) Speech_Play_Name("EVA_CannotDeployHere", -1, -1);
-                        if (!unknown_a40d13 && this == unknown_player_a35db4) {
+                        if (!Debug_Map && this == unknown_player_a35db4) {
                             Map.unknown_11a0 = Map.unknown_118c;
                             Map.unknown_11a4 = Map.unknown_1190;
                             Map.unknown_11a8 = Map.unknown_1194;

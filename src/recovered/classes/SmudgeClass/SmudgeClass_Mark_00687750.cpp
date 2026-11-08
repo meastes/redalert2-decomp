@@ -5,7 +5,7 @@
 #include "shared/smudge.hpp"
 // @ref ?Mark@ObjectClass@@UAE_NH@Z=005d4160
 // @ref ?unknown_a40774@@3HA=00a40774
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?Can_Place@SmudgeTypeClass@@QBE_NABVCell@@_N@Z=00688a40
 // @ref ?Place@SmudgeTypeClass@@QBEXABVCell@@@Z=00688b40
 
@@ -13,7 +13,7 @@ bool SmudgeClass::Mark(int arg1)
 {
     if (ObjectClass::Mark(arg1) && (arg1 == 1 || arg1 == 3)) {
         Cell cell = Cell(unknown_slot104());
-        if (unknown_a40774 > 0 || unknown_a40d13 || Class->Can_Place(cell, true)) {
+        if (unknown_a40774 > 0 || Debug_Map || Class->Can_Place(cell, true)) {
             Class->Place(cell);
         }
         unknown_74 = false;

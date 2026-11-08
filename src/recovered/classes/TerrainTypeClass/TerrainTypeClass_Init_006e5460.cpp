@@ -6,7 +6,7 @@
 #include "shared/anim_type.hpp"
 #include "shared/cc_file_class.hpp"
 #include "shared/mix_file_class.hpp"
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_loaded_theater_7d88dc@@3HA=007d88dc
 // @ref ?Theaters@@3PAUTheaterTypeStruct@@A=0079ab68
 // @ref ?Retrieve@MixFileClass@@SIPBXPBD@Z=005956c0
@@ -15,7 +15,7 @@
 
 void __fastcall TerrainTypeClass::Init(int theater)
 {
-    if (unknown_a40d13 || theater != unknown_loaded_theater_7d88dc) {
+    if (Debug_Map || theater != unknown_loaded_theater_7d88dc) {
         for (int index = 0; index < TerrainTypes.Count(); index++) {
             TerrainTypeClass *terrain = TerrainTypes[index];
             if (terrain->unknown_1fc) {

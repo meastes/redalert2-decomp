@@ -13,7 +13,7 @@
 #include "shared/rect.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?Width@BuildingTypeClass@@QBEHXZ=00458930
 // @ref ?Foundation_Height@BuildingTypeClass@@QBEH_N@Z=00458940
 // @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
@@ -24,7 +24,7 @@ bool DisplayClass::Unknown_00499390(BuildingTypeClass *type, int house, int arg3
     if (house != unknown_player_a35db4->ArrayIndex) {
         return true;
     }
-    if (unknown_a40d13) {
+    if (Debug_Map) {
         return true;
     }
     if (arg3 == 0 || *cell == unknown_geometry_k) {

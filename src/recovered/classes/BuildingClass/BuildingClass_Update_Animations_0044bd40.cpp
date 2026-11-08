@@ -35,14 +35,14 @@ inline int Refinery_Storage_Stage_0044BD40(BuildingClass *building)
     }
     return stored;
 }
-inline void Apply_Frame_And_Layer_0044BD40(BuildingClass *building,int value,int level)
+inline void Apply_Frame_And_Layer_0044BD40(BuildingClass *building,ConvertClass *value,int level)
 {
     building->unknown_44d0f0(value,(unsigned short)level);
     building->unknown_44d2d0(building->unknown_5bd);
 }
 inline void Refresh_Building_Frame_0044BD40(BuildingClass *building)
 {
-    int value=building->unknown_slot115();
+    ConvertClass *value=building->unknown_slot115();
     CellClass *cell=static_cast<CellClass *>(building->unknown_slot105());
     int level=building->unknown_4521e0(cell->unknown_10a);
     building->unknown_5c4=(short)level;

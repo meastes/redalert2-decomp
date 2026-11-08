@@ -22,7 +22,7 @@ int Tactical::Unknown_006AA840(int direction)
     int newy = directions[direction].Y + y;
     if (newx != x || newy != y) {
         Point2D point(newx, newy);
-        if (Unknown_006A8C80(&point) && !unknown_a40d13) {
+        if (Unknown_006A8C80(&point) && !Debug_Map) {
             newx = point.X;
             newy = point.Y;
         }

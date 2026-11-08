@@ -6,7 +6,7 @@
 #include "shared/particle.hpp"
 #include "shared/crt_memory.hpp"
 // @ref ?unknown_flag_a40380@@3_NA=00a40380
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_flag_a40958@@3_NA=00a40958
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?Map@@3VMouseClass@@A=008324e0
@@ -39,7 +39,7 @@ void ScrollClass::Unknown_0066A7A0(Point2D const &xy)
     if (!unknown_flag_a40958) {
         return;
     }
-    if (!unknown_flag_a40380 && !unknown_a40d13) {
+    if (!unknown_flag_a40380 && !Debug_Map) {
         return;
     }
     if (!unknown_4f28) {

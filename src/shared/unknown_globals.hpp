@@ -546,8 +546,8 @@ extern int unknown_a40b2c;          // 0x00A40B2C (LineTrail::Set_Decrement keep
 extern bool unknown_flag_a40b30;  // 0x00A40B30 the sidebar is on the left
 extern float unknown_volume_a40b44;  // 0x00A40B44 sound effect volume scale
 extern bool unknown_flag_a40d04;  // 0x00A40D04 (FootClass::Detach keeps a live parasite while it is set)
-extern bool unknown_a40d13;
-extern bool unknown_flag_a40d13;  // 0x00A40D13
+extern bool Debug_Map;  // 0x00A40D13 (TibSun Debug_Map: the scenario editor flag)
+extern bool unknown_flag_a40d13;  // 0x00A40D13 (Debug_Map)
 extern int unknown_ini_format_a40d24;
 extern bool unknown_flag_a40d28;  // 0x00A40D28 application active (focus)
 extern bool unknown_flag_a40d44;  // 0x00A40D44

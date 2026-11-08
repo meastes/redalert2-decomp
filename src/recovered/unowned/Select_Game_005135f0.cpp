@@ -242,7 +242,7 @@ top:
         } else {
             selection = (unknown_session_a3d298.Type == 4) ? 0x11 : 0x10;
         }
-        if (!unknown_a40d13) {
+        if (!Debug_Map) {
             if (unknown_session_a3d298.Play && unknown_session_a3d298.RecordFile.Is_Available()) {
                 if (unknown_session_a3d298.RecordFile.Open(1)) {
                     Load_Recording_Values(unknown_session_a3d298.RecordFile);
@@ -574,13 +574,13 @@ top:
             }
             if (unknown_session_a3d298.Type == 0 && !unknown_flag_a40d05 && !unknown_session_a3d298.Play) {
                 if (!Start_Scenario_0065bc70(Campaigns[unknown_id_source_a3d290->unknown_224c]->Scenario, true, unknown_id_source_a3d290->unknown_224c)) {
-                    if (unknown_a40d13) {
+                    if (Debug_Map) {
                         return false;
                     }
                     goto top;
                 }
             } else if (!Start_Scenario_0065bc70(unknown_id_source_a3d290->FileName, true, -1)) {
-                if (unknown_a40d13) {
+                if (Debug_Map) {
                     return false;
                 }
                 goto top;
@@ -616,7 +616,7 @@ top:
         unknown_surface_83995c = unknown_surface_839954;
         Map.Override_Mouse_Shape(0x13, false);
         Map.Revert_Mouse_Shape();
-        if (!unknown_a40d13) {
+        if (!Debug_Map) {
             Map.unknown_slot54(1);
         }
         Map.Flag_To_Redraw(false);

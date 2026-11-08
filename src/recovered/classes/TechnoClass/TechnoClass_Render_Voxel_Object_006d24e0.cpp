@@ -54,7 +54,7 @@ SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const 
     flags&=~0x10U;
     ConvertClass *converter;
     if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=unknown_drawer_ad0608;
-    else converter=(ConvertClass *)unknown_slot115();
+    else converter=unknown_slot115();
     int phase=0;
     if (flags&8) phase=(Fetch_ID()+(int)unknown_1e0)%400;
     Point2D destination=region.Point+point;

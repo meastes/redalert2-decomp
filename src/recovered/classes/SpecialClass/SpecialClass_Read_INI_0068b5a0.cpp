@@ -19,10 +19,10 @@
 // @ref ??_C@_0O@LPPE@FixedAlliance?$AA@=007f4474
 // @ref ??_C@_0P@BEDI@InitialVeteran?$AA@=007f4484
 // @ref ?unknown_a3d298@@3HA=00a3d298
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 
 extern int unknown_a3d298;      // 0x00A3D298
-extern bool unknown_a40d13;     // 0x00A40D13
+extern bool Debug_Map;     // 0x00A40D13
 
 // The original keeps this pointer (to "SpecialFlags") as function-local static data.
 extern char *unknown_special_section_7f43f4;    // 0x007f43f4
@@ -35,7 +35,7 @@ void SpecialClass::Read_INI(INIClass &ini)
     IonStorms = ini.Get_Bool(unknown_special_section_7f43f4, "IonStorms", IonStorms);
     Meteorites = ini.Get_Bool(unknown_special_section_7f43f4, "Meteorites", Meteorites);
     Visceroids = ini.Get_Bool(unknown_special_section_7f43f4, "Visceroids", Visceroids);
-    if (unknown_a3d298 == 0 || unknown_a40d13) {
+    if (unknown_a3d298 == 0 || Debug_Map) {
         TiberiumGrows = ini.Get_Bool(unknown_special_section_7f43f4, "TiberiumGrows", TiberiumGrows);
         TiberiumSpreads = ini.Get_Bool(unknown_special_section_7f43f4, "TiberiumSpreads", TiberiumSpreads);
         DestroyableBridges = ini.Get_Bool(unknown_special_section_7f43f4, "DestroyableBridges", DestroyableBridges);

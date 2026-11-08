@@ -24,7 +24,7 @@
 
 void __fastcall Unknown_0065e8c0(bool official)
 {
-    if (unknown_players_a3fa7c.Count() + unknown_session_a3d298.AICount < Rules->MaxPlayers && !unknown_a40d13) {
+    if (unknown_players_a3fa7c.Count() + unknown_session_a3d298.AICount < Rules->MaxPlayers && !Debug_Map) {
         for (int index = 0; index < Houses.Count(); index++) {
             if (!Houses[index]->unknown_134 && !Houses[index]->Type->MultiplayPassive && unknown_session_a3d298.AICount < 1) {
                 Houses[index]->unknown_func_4e7150();
@@ -32,7 +32,7 @@ void __fastcall Unknown_0065e8c0(bool official)
         }
     }
     Service_Game_IO_00481fb0();
-    if (!unknown_a40d13) {
+    if (!Debug_Map) {
         int saved = unknown_a40774;
         unknown_a40774 = 0;
         if (unknown_session_a3d29c != 0) {

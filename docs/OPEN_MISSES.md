@@ -3175,3 +3175,18 @@ New rulings are recorded at their rows as before.
 - Damage_Low_Bridge family 0x55DEF0/0x55E410/0x55F020/0x55F540 98.73: first inlined Union third compare, original computes rect2 sum first. Unused locals (1-32) change nothing; 5+ initialised dead locals inline the second Union.
 - Do_Chrono_Reinforcements 0x63A880 88.45 (ch2; index 94.67 was pre-SP3): original keeps zero in eax across the loop, which needs a single latch; single-latch ch0 swaps esi/edi (83.71).
 - 0x5E9410 99.79 (e9_k111A): one eax/ecx step in `height != old_height`.
+
+## Scout1096 (2026-11-08, 0 B; NOTES and keep/ in build/class-work/Scout1096/)
+- Colouring-time-block sweep. Lab probe `if (zz1) zz2 = 1;` locates where one vanishing block flips colours; only duplicated tails merged after colouring vanish (jump threading runs before colouring).
+- Net2SetHouseAndColor 0x5BCCF0 86.25: flip zones after the slot loop / in its break arm; `if (i < 8) slot = i;` form gets all registers but keeps `cmp ebx,8; jge` (91.85).
+- Do_Chrono_Reinforcements 0x63A880 88.45: RA2_SHIP_MOVE_TO_VALUE macro not needed (keep/chrono_zm2_8845_nomacro.cpp); one extra zero use after `int tries = 0;` gives loose 99.90 (lab).
+- Bounce AI 0x4370E0 99.77: flip window between `double elasticity` and the gravity line has no if.
+
+## Scout1097 (2026-11-08, 0 B; NOTES and keep/ in build/class-work/Scout1097/)
+- StripClass draw 0x67F800 91.18 (keep/strip_67f800_s0_9118.cpp): VC6 rewrites `row*2 + ID*60` as `(row + ID*30)*2`; only `int slot = row*2;` in the row loop stops it (89.18) but slot is hoisted. Dead IL padding is flat (not IL-gated).
+- Shrapnel 0x462C50 now 76.03 at HEAD (recorded 88.69: metric or header drift unexplained): frame 0xB0 vs 0xA8, original shares slot 0x4C between the first-loop Cell copy and the inlined Create_Bullet spill.
+- MISSES_INDEX 0x52C230 81.25 is Preview_Tile's score; Draw_Tile is 49.64.
+
+## Scout1099 (2026-11-08, 0 B; NOTES and keep/ in build/class-work/Scout1099/)
+- Get_Z_Adjust 0x6CFEA0 81.20 -> 91.41 (keep/zA_9141.cpp): rock return as a flag (new note). Left: one scratch-rotation step from the first loop's `return zadjust - 1` (target's own copy in edx), the -2 return and single ramp2 return follow from it; `behind` Cell sum operand order is a tie-break.
+- Walk 0x71E220 57.72 -> 74.48 (keep/walk_W5f_7448_float_angle.cpp, Scout905 W5 base): `float angle` removes `and esp,-8` (new note). Left: frame 0x54 vs 0x38, CoordStruct ctor 0x41B630 inlined at the first Adjacent_Coord site (target calls it), 0xd4-0x13e +0x480/+0x48 virtual call order.

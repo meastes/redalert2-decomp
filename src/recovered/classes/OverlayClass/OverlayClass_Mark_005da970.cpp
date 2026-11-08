@@ -288,7 +288,7 @@ bool OverlayClass::Mark(int mark)
                     if (tibtype != -1) {
                         TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tibtype];
                         if (tiberium != 0) {
-                            aptr->unknown_bc = (int)ColorSchemes[tiberium->unknown_c0]->Converter;
+                            aptr->unknown_bc = ColorSchemes[tiberium->unknown_c0]->Converter;
                             aptr->unknown_e4 = cellptr->unknown_10a;
                         }
                     }

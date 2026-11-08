@@ -4,8 +4,8 @@
     "id": "population-4283",
     "inventory_sha256": "932e7eea617aad407e52e8beaf1445dfac13b2bb8514370f40a8376a15e3629c",
     "gaps_sha256": "505039293e7b075f1c27bf6adbe450cf099275f160863bddccd80994050c6630",
-    "historical_population_sha256": "d016e7e80d7627913c34e4e74b14cc3d485e83c964a163395bbe37f5ffef85fe",
-    "historical_acceptance_sha256": "2dfe35695bbe1c5b0ad93bce90b861b18157979cb1554eab2d602cb84ad7f59b"
+    "historical_population_sha256": "bcd8dd8b0a5ad4f6850c7c6c29d7d01876e1e6e2f6e570eebaff95ba75a401df",
+    "historical_acceptance_sha256": "db757e1b4d7e58f5102c98a5914f62659f0424a2c9ad08a86ea56f4170aa1e80"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -7870,7 +7870,7 @@
     "?unknown_b263d8@@3HA": 11690968,
     "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
     "?unknown_timer_ac0178@@3V?$CDTimerClass@VFrameTimerClass@@@@A": 11272568,
-    "?unknown_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?Name_From@AnimTypeClass@@SIPBDH@Z": 4347424,
     "?unknown_string_83c55c@@3PADA": 8635740,
     "??_7WarheadTypeClass@@6BIPersistStream@@@": 8055816,
@@ -8820,7 +8820,6 @@
     "?Generic_Naming_Convention@ObjectTypeClass@@SIXPAD@Z": 6126624,
     "?Find_Or_Make_Type@@YIPAVAnimTypeClass@@PBDAAV?$TypeList@PAVAnimTypeClass@@@@@Z": 4352144,
     "?Anim_From_Name@@YIHPBD@Z": 4328656,
-    "?unknown_list_ab6ef8@@3V?$DynamicVectorClass@PAUUnknownAB6EF8Entry@@@@A": 11235064,
     "??0UnknownBulletData@@QAE@XZ": 5041648,
     "?Construct@BulletClass@@QAEXPAVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPAVWarheadTypeClass@@H_N@Z": 4584688,
     "?unknown_slot64@BulletClass@@UAEPBVCell@@H@Z": 4585104,
@@ -9370,7 +9369,7 @@
     "?unknown_6d1440@TechnoClass@@QAE_NXZ": 7148608,
     "?unknown_613b60@UnknownTechno408@@QAEHXZ": 6372192,
     "?unknown_6d1470@TechnoClass@@QAE_NXZ": 7148656,
-    "?unknown_slot115@TechnoClass@@UAEHXZ": 7148672,
+    "?unknown_slot115@TechnoClass@@UAEPAVConvertClass@@XZ": 7148672,
     "?unknown_6b8fb0@UnknownPassengerTeam@@QAEXPAVObjectClass@@H_N@Z": 7049136,
     "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ": 4622832,
     "?unknown_slot184@TechnoClass@@UAEPAVInfantryTypeClass@@XZ": 7155888,
@@ -15490,7 +15489,7 @@
     "?unknown_name_7ee068@@3PBDB": 8314984,
     "?unknown_int_ab6470@@3HA": 11232368,
     "?unknown_int_ab6474@@3HA": 11232372,
-    "?unknown_int_ac1070@@3HA": 11276400,
+    "?unknown_art_ac1070@@3PAXA": 11276400,
     "?unknown_int_ab6340@@3HA": 11232064,
     "?unknown_int_ab6344@@3HA": 11232068,
     "?Hover@Selection@WorldDominationTour@@QAE_NABUPoint2D@@@Z": 7530064,
@@ -16071,7 +16070,29 @@
     "__real@8@3ffe947ae147ae147800": 8049000,
     "__real@8@3fe3c8000000c8000000": 8019992,
     "?unknown_slot53@BuildingClass@@UAE_NPBUCoordStruct@@H@Z": 4445088,
-    "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112
+    "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112,
+    "?player_statistics_00a3d584@@3PAUUnknownNetworkPlayerStatistics@@A": 10737028,
+    "?Debug_Draw_Occupation_Flags@Tactical@@QAEXXZ": 6994976,
+    "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@IPBQAUButtonFadeEffect@@@Z": 4891152,
+    "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@IPBQAUCrossDissolveEffect@@@Z": 4891232,
+    "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
+    "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
+    "?OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z": 7739536,
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "?Plan_Naval_Yard_Path_004eecb0@HouseClass@@QAEXH@Z": 5172400,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "?Audio_Event_Serial@@3HA": 8178652,
+    "?Main_Game@@YIXHQAPAD@Z": 4725744,
+    "?Select_Serial_Dialog@@YIHXZ": 6086400,
+    "?unknown_megamission_lists_a76ca8@@3PAY0CIA@DA": 10972328,
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
+    "?Unknown_0054F250@MapClass@@QAEHPAUUnknownMapElem4@@HAAH@Z": 5567056
   },
   "regions": [
     {
@@ -34121,7 +34142,7 @@
         {
           "offset": 32,
           "kind": 6,
-          "symbol": "?unknown_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -35159,7 +35180,7 @@
           "resolved": 8239332
         }
       ],
-      "source_sha256": "9987dc935d1bd31bd38c69d3a29fd94790e856abe5d81d4908e3bddc6d1933cc",
+      "source_sha256": "2db9377370b265244ec63ec0d499fe12e033e2d2e2005cab12897208a9c44de6",
       "source": "src/recovered/unowned/Parse_Command_Line_00515110.cpp",
       "population": "population-4283",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -46292,7 +46313,7 @@
         {
           "offset": 391,
           "kind": 6,
-          "symbol": "?unknown_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -48644,7 +48665,7 @@
         {
           "offset": 3312,
           "kind": 6,
-          "symbol": "?unknown_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -48668,7 +48689,7 @@
         {
           "offset": 3358,
           "kind": 6,
-          "symbol": "?unknown_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -49548,7 +49569,7 @@
         {
           "offset": 4296,
           "kind": 6,
-          "symbol": "?unknown_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -49922,7 +49943,7 @@
           "resolved": 5325219
         }
       ],
-      "source_sha256": "6e19c7659364ea2be8bb55ec045276a66d625b6d33d4cc93e8cb455874e3ada0",
+      "source_sha256": "38cf53ad3c8df10f0d1cb0bbdff048284c48b68d827134896ad83a764ba7944b",
       "switch_data_bytes": 160,
       "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
       "population": "population-4283",

@@ -3,7 +3,7 @@
 // @ref ?unknown_name_7ee068@@3PBDB=007ee068
 // @ref ?unknown_int_ab6470@@3HA=00ab6470
 // @ref ?unknown_int_ab6474@@3HA=00ab6474
-// @ref ?unknown_int_ac1070@@3HA=00ac1070
+// @ref ?unknown_art_ac1070@@3PAXA=00ac1070
 // @ref ?unknown_int_ab6340@@3HA=00ab6340
 // @ref ?unknown_int_ab6344@@3HA=00ab6344
 // Radar Init_For_House0062F310, independent372+12.
@@ -36,6 +36,6 @@ void RadarClass::unknown_slot53()
     unknown_int_ab6474=((ShapeFileStruct const *)unknown_shape_ab6350)->Height;
     unknown_int_ab6340=((ShapeFileStruct const *)unknown_shape_ab6318)->Width;
     unknown_int_ab6344=((ShapeFileStruct const *)unknown_shape_ab6318)->Height;
-    RadarButton.unknown_28=(void *)unknown_int_ac1070;
+    RadarButton.unknown_28=unknown_art_ac1070;
     unknown_1204=Build_Hicolor_Pixel(unknown_color_ac1028.Get_Red(),unknown_color_ac1028.Get_Green(),unknown_color_ac1028.Get_Blue());
 }

@@ -6,6 +6,7 @@
 // then the bouncing shadow, the tiled column, the flat or upright frame and
 // the shadow frame.
 #include "shared/anim.hpp"
+#include "shared/color_scheme.hpp"
 #include "shared/map_view.hpp"
 #include "shared/cell_class.hpp"
 #include "shared/house.hpp"
@@ -82,7 +83,7 @@ void AnimClass::unknown_slot67(int arg1, int arg2)
             ConvertClass *convert;
 
             if (Class->IsVeins) {
-                convert = (ConvertClass *)unknown_list_ab6ef8[unknown_player_a35db4->ColorSchemeIndex]->unknown_30c;
+                convert = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
                 if (!Class->UseNormalLight) {
                     brightness = Map[unknown_slot42()].unknown_10c;
                 }
@@ -96,14 +97,14 @@ void AnimClass::unknown_slot67(int arg1, int arg2)
                     brightness = cellptr->unknown_10c;
                 }
             } else if (unknown_bc != 0) {
-                convert = (ConvertClass *)unknown_bc;
+                convert = unknown_bc;
                 if (!Class->UseNormalLight) {
                     brightness = unknown_e4;
                 }
             } else {
                 convert = Unit_Draw_Convert_008323C0;
                 if (Class->AltPalette) {
-                    convert = (ConvertClass *)unknown_list_ab6ef8[0]->unknown_30c;
+                    convert = ColorSchemes[0]->Converter;
                 }
                 if (!Class->UseNormalLight) {
                     brightness = Map[Cell(unknown_slot42())].unknown_10a;

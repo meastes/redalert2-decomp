@@ -404,7 +404,7 @@ public:
     virtual bool unknown_slot112();                             // slot 112 0x006D6E00
     virtual bool unknown_slot113();                             // slot 113 0x006D6E10
     virtual bool unknown_slot114();                             // slot 114 0x006D6E30
-    virtual int unknown_slot115();                              // slot 115 0x006D1480
+    virtual ConvertClass *unknown_slot115();                              // slot 115 0x006D1480
     virtual void unknown_slot119(int mission, int unknown2, int unknown3);  // slot 119 0x006CD840
     virtual bool unknown_slot120();                             // slot 120 0x006CD880
 

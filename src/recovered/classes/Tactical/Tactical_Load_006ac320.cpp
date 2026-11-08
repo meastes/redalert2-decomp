@@ -20,7 +20,7 @@ HRESULT __stdcall Tactical::Load(IStream *stream)
         Point2D point = unknown_d64;
         int x;
         int y;
-        if (Unknown_006A8C80(&point) && !unknown_a40d13) {
+        if (Unknown_006A8C80(&point) && !Debug_Map) {
             x = point.X;
             y = point.Y;
         } else {

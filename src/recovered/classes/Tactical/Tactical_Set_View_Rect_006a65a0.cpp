@@ -3,7 +3,7 @@
 // requested view position through 0x006A8C80, which becomes the view position.
 // @ref ?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z=006a8c80
 // @ref ?Unknown_006A9170@Tactical@@QAEXXZ=006a9170
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_rect_abe560@@3VRect@@A=00abe560
 #include "shared/tactical.hpp"
 #include "shared/unknown_globals.hpp"
@@ -16,7 +16,7 @@ void Tactical::Unknown_006A65A0(Rect const &rect)
     Point2D clamped = unknown_d74;
     int x;
     int y;
-    if (Unknown_006A8C80(&clamped) && !unknown_a40d13) {
+    if (Unknown_006A8C80(&clamped) && !Debug_Map) {
         x = clamped.X;
         y = clamped.Y;
     } else {

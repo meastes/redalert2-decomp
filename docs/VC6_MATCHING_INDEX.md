@@ -233,4 +233,15 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2151-2153 new[] size reuse is matched only to `a[n - 1]` (Scout1019) (0): 
 - L2154-2156 Memory-resident loop variables block strength reduction (Scout1020) (0): 
 - L2157-2159 Initialisation form changes the inline cost (Scout1024) (0): 
-- L2160-2161 Function IL size gates inner-loop reassociation (Scout1022) (0): 
+- L2160-2162 Function IL size gates inner-loop reassociation (Scout1022) (0): 
+- L2163-2165 Frame layout counts final instructions, not IL references (Scout1039 lab) (0): 
+- L2166-2168 Split-web reload at an emptied if-join counts once per incoming edge (Scout1041 lab) (0): 
+- L2169-2171 Register priority: what counts (Scout1047 lab) (0): 
+- L2172-2174 Inlined DynamicVectorClass::Add orientation is a whole-function count effect (Scout1065 lab) (0): 
+- L2175-2177 A named constant local is propagated after reassociation (Scout1074) (0): 
+- L2178-2180 Division by a negative constant depends on the destination (Scout1078) (0): 
+- L2181-2183 Each return statement takes its own scratch-rotation step (Scout1082) (0): 
+- L2184-2186 Reading an operand into a local first fixes a subtraction tree's order (Scout1079) (0): 
+- L2187-2189 What advances the scratch cursor (Scout1086 lab) (0): 
+- L2190-2192 A flag-collapsed return keeps duplicated arms apart (Scout1099) (0): 
+- L2193-2194 A named double local forces `and esp,-8`; a float local does not (Scout1099) (0): 

@@ -4,7 +4,7 @@
 // view position through the clamp 0x006A8C80, restarts the update-count timer
 // at Rules->WaypointAnimationSpeed once it ran out, and applies a requested
 // view position (unknown_d74) when the animation did not move it.
-// Assumptions: unknown_a40d04 / unknown_a40d13 are game flags of unknown
+// Assumptions: unknown_a40d04 / Debug_Map are game flags of unknown
 // meaning; the comparison with 0x00ABE540 is by value.
 #include "shared/tactical.hpp"
 #include "shared/rules.hpp"
@@ -39,7 +39,7 @@ void Tactical::AI()
             Point2D point = pos;
             int x;
             int y;
-            if (Unknown_006A8C80(&point) && !unknown_a40d13) {
+            if (Unknown_006A8C80(&point) && !Debug_Map) {
                 x = point.X;
                 y = point.Y;
             } else {
@@ -62,7 +62,7 @@ void Tactical::AI()
         Point2D point = unknown_d74;
         int x;
         int y;
-        if (Unknown_006A8C80(&point) && !unknown_a40d13) {
+        if (Unknown_006A8C80(&point) && !Debug_Map) {
             x = point.X;
             y = point.Y;
         } else {

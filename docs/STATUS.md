@@ -20,8 +20,8 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,215,684 of 3,515,959 (91.46%) |
-| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,854 of 17,987 (99.26%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 122 of 133 scored) | 98.72% by bytes, 99.79% per function |
+| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,860 of 17,987 (99.29%) |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 116 of 127 scored) | 98.73% by bytes, 99.79% per function |
 | Original .text scaffold bytes | 303,512 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 694 |

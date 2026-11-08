@@ -6,7 +6,7 @@
 #include "shared/keyboard.hpp"
 #include "shared/planning_mouse.hpp"
 // @ref ?unknown_flag_a40d44@@3_NA=00a40d44
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
 // @ref ?WWKeyboard@@3PAVWWKeyboardClass@@A=00832468
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
@@ -47,7 +47,7 @@ void ScrollClass::Unknown_0066A290()
         if (Unknown_00669650(xy, cell, coord, object, arg5, arg6)) {
             Map.unknown_slot46(cell, arg6, object, Unknown_00669960(cell, object, true), false);
         }
-        if (unknown_4f29 && !unknown_a40d13) {
+        if (unknown_4f29 && !Debug_Map) {
             Edge_Scroll_00669EC0(xy);
         }
     }

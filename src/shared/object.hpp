@@ -328,7 +328,7 @@ public:
     virtual bool unknown_slot112();                                        // slot 112 (+0x1C0) 0x423e30
     virtual bool unknown_slot113();                                        // slot 113 (+0x1C4) 0x423e40
     virtual bool unknown_slot114();                                        // slot 114 (+0x1C8) 0x423e50
-    virtual int unknown_slot115();                                         // slot 115 (+0x1CC) 0x423e60
+    virtual ConvertClass *unknown_slot115();                                         // slot 115 (+0x1CC) 0x423e60
 
     void unknown_func_5d2710();                                            // 0x005D2710
     bool Attach_Tag(TagClass *tag);                                        // 0x005D4430 (name hypothesis)

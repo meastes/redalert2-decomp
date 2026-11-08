@@ -44,7 +44,7 @@ void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *po
             brightness=cell->unknown_10c;
         } else {
             if (Kind_Of()==1 && static_cast<UnitClass *>(this)->unknown_5bb) converter=unknown_drawer_ad0608;
-            else converter=reinterpret_cast<ConvertClass *>(unknown_slot115());
+            else converter=unknown_slot115();
         }
         Point2D draw_point=*point;
         int z_adjust=z;

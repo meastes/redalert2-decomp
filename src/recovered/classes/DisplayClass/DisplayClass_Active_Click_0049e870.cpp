@@ -12,7 +12,7 @@
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
-// @ref ?unknown_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 // @ref ?unknown_sound_enabled_7d88d6@@3_NA=007d88d6
 
@@ -30,7 +30,7 @@ void DisplayClass::Active_Click_0049E870(ObjectClass *object, Cell cell, int act
     int waypoint_path = -1;
     char waypoint_id = 0;
 
-    if (unknown_a40d13) {
+    if (Debug_Map) {
         return;
     }
 

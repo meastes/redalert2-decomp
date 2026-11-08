@@ -6,7 +6,7 @@
 
 void AnimTypeClass::unknown_slot24(int theater)
 {
-    if (!unknown_a40d13 && theater == unknown_loaded_theater_7d88dc) {
+    if (!Debug_Map && theater == unknown_loaded_theater_7d88dc) {
         return;
     }
     if (unknown_1fc && !DemandLoad) {

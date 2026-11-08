@@ -95,7 +95,7 @@ extern char const *unknown_name_7ee068;
 // rules or scenario data; hypothesis).
 class RGBClass;
 extern RGBClass unknown_color_ac1028;
-extern int unknown_int_ac1070;
+extern void *unknown_art_ac1070;   // 0x00AC1070 the radar button shape (Load_Art_Buffers 0x006F4B00 stores it)
 // Loads a shape file, noting whether it was allocated (0x00495270; shared/power.hpp).
 void const *__fastcall Unknown_Load_Shape_00495270(char const *filename, bool &allocated);
 extern int unknown_int_ab6468;      // 0x00AB6468 button 0xF2 X
