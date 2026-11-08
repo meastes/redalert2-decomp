@@ -187,8 +187,8 @@ bool Native_Select_Game_Seam(bool fade)
     Set_Up_Skirmish(map);
     // Select_Game resets the per-game state, skips its menu loop (the
     // Native_Skirmish_Menu_Bypass seam) and starts the scenario in
-    // unknown_id_source_a3d290->FileName. unknown_a40d13 stays false: it is
-    // Debug_Map (the editor flag), under which the multiplayer setup makes no
+    // unknown_id_source_a3d290->FileName. Debug_Map stays false: it is
+    // Westwood's editor flag, under which the multiplayer setup makes no
     // computer houses or start units (0x0065E8C0) and the view runs in editor mode.
     bool started_game = Select_Game(fade);
     if (started_game) {

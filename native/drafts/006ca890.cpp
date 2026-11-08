@@ -36,7 +36,7 @@ struct Point3F_006ca890 : public Point2F_006ca890 {
     float Z;
 };
 inline int Planar_006ca890(CoordStruct const &c) { double y = c.Y; return (int)unknown_sqrt_4ba410(y * y + (double)c.X * (double)c.X); }
-extern bool unknown_flag_a40d13;
+extern bool Debug_Map;
 extern CoordStruct const unknown_coord_none_ac0188;
 extern double const unknown_facing_scale_79b628;
 extern double const unknown_facing_origin_79b630;
@@ -116,7 +116,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
     }
     ObjectClass *object = target == 0 ? 0 : (target->AbstractFlags.IsObject ? static_cast<ObjectClass *>(target) : 0);
     BulletTypeClass *btype = weapon->Projectile;
-    if (unknown_flag_a40d13 || target == 0 || (object != 0 && object->unknown_76)) {
+    if (Debug_Map || target == 0 || (object != 0 && object->unknown_76)) {
         return 0;
     }
     if (weapon->unknown_11c) {

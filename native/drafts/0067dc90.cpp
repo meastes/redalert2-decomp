@@ -17,7 +17,7 @@
 #include "shared/rules.hpp"
 // @ref ?unknown_mouse_8324e0@@3VMouseClass@@A=008324e0
 // @ref ?unknown_rect_839620@@3VRect@@A=00839620
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?AI@StripClass@SidebarClass@@QAE_NAAHABUPoint2D@@@Z=0067f050
 // @ref ?unknown_shapes_abcd20@@3PAPBXA=00abcd20
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
@@ -41,7 +41,7 @@
 void SidebarClass::AI(int &input, Point2D const &xy)
 {
     Point2D point(xy.X - unknown_rect_839620.X, xy.Y);
-    if (!unknown_flag_a40d13) {
+    if (!Debug_Map) {
         unknown_slot54(1);
         for (int index = 0; index < 4; index++) {
             Column[index].AI(input, point);

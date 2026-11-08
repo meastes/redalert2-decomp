@@ -30,7 +30,7 @@ static inline bool Same_Buildable(UnknownBuildable30 const &a, UnknownBuildable3
 
 bool SidebarClass::StripClass::Unknown_006802D0()
 {
-    if (unknown_flag_a40d13 || !BuildableCount) {
+    if (Debug_Map || !BuildableCount) {
         return false;
     }
     bool scroll = false;

@@ -341,8 +341,7 @@ alignas(16) unsigned char ra2_bss_0263[16] __asm__("_Debug_MotionCapture");  // 
 alignas(16) unsigned char ra2_bss_0264[16] __asm__("_unknown_allow_mode_toggle_a40d0b");  // 0x00A40D0B unknown_allow_mode_toggle_a40d0b (?unknown_allow_mode_toggle_a40d0b@@3_NA)
 alignas(16) unsigned char ra2_bss_0265[16] __asm__("_unknown_flag_a40d0c");  // 0x00A40D0C unknown_flag_a40d0c (?unknown_flag_a40d0c@@3DA)
 alignas(16) unsigned char ra2_bss_0266[16] __asm__("_unknown_flag_a40d10");  // 0x00A40D10 unknown_flag_a40d10 (?unknown_flag_a40d10@@3_NA)
-alignas(16) unsigned char ra2_bss_0267[16] __asm__("_unknown_a40d13");  // 0x00A40D13 unknown_a40d13 (?unknown_a40d13@@3_NA)
-__asm__(".globl _unknown_flag_a40d13\n.set _unknown_flag_a40d13, _unknown_a40d13\n");  // same address: unknown_flag_a40d13
+alignas(16) unsigned char ra2_bss_0267[16] __asm__("_Debug_Map");  // 0x00A40D13 Debug_Map (?Debug_Map@@3_NA)
 alignas(16) unsigned char ra2_bss_0268[16] __asm__("_unknown_trap_check_heap_a40d1a");  // 0x00A40D1A unknown_trap_check_heap_a40d1a (?unknown_trap_check_heap_a40d1a@@3_NA)
 alignas(16) unsigned char ra2_bss_0269[16] __asm__("_unknown_debug_print_events_a40d1c");  // 0x00A40D1C unknown_debug_print_events_a40d1c (?unknown_debug_print_events_a40d1c@@3_NA)
 __asm__(".globl _unknown_flag_a40d1c\n.set _unknown_flag_a40d1c, _unknown_debug_print_events_a40d1c\n");  // same address: unknown_flag_a40d1c
@@ -963,7 +962,6 @@ alignas(16) unsigned char ra2_bss_0782[32] __asm__("_unknown_art_ac1060");  // 0
 __asm__(".globl _unknown_shape_ac1060\n.set _unknown_shape_ac1060, _unknown_art_ac1060\n");  // same address: unknown_shape_ac1060
 alignas(16) unsigned char ra2_bss_0783[16] __asm__("_unknown_art_ac1070");  // 0x00AC1070 unknown_art_ac1070 (?unknown_art_ac1070@@3PAXA)
 __asm__(".globl _unknown_buffer_ac1070\n.set _unknown_buffer_ac1070, _unknown_art_ac1070\n");  // same address: unknown_buffer_ac1070
-__asm__(".globl _unknown_int_ac1070\n.set _unknown_int_ac1070, _unknown_art_ac1070\n");  // same address: unknown_int_ac1070
 __asm__(".globl _unknown_shape_ac1070\n.set _unknown_shape_ac1070, _unknown_art_ac1070\n");  // same address: unknown_shape_ac1070
 alignas(16) unsigned char ra2_bss_0784[16] __asm__("_unknown_art_ac1074");  // 0x00AC1074 unknown_art_ac1074 (?unknown_art_ac1074@@3PAXA)
 alignas(16) unsigned char ra2_bss_0785[16] __asm__("_unknown_art_ac1078");  // 0x00AC1078 unknown_art_ac1078 (?unknown_art_ac1078@@3PAXA)

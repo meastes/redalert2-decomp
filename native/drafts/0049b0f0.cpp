@@ -41,7 +41,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     }
     if (object != 0) {
         TechnoClass *techno = object->As_Techno();
-        if (techno != 0 && (techno->Kind_Of() != 6 || !((BuildingClass *)techno)->Type->InvisibleInGame) && !unknown_a40d13) {
+        if (techno != 0 && (techno->Kind_Of() != 6 || !((BuildingClass *)techno)->Type->InvisibleInGame) && !Debug_Map) {
             techno->unknown_380 = true;
         }
     }

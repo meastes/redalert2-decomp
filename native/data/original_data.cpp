@@ -4356,7 +4356,7 @@ extern "C" unsigned char ra2_place_1741[] __asm__("_Debug_MotionCapture");
 extern "C" unsigned char ra2_place_1742[] __asm__("_unknown_allow_mode_toggle_a40d0b");
 extern "C" unsigned char ra2_place_1743[] __asm__("_unknown_flag_a40d0c");
 extern "C" unsigned char ra2_place_1744[] __asm__("_unknown_flag_a40d10");
-extern "C" unsigned char ra2_place_1745[] __asm__("_unknown_a40d13");
+extern "C" unsigned char ra2_place_1745[] __asm__("_Debug_Map");
 extern "C" unsigned char ra2_place_1746[] __asm__("_unknown_trap_check_heap_a40d1a");
 extern "C" unsigned char ra2_place_1747[] __asm__("_unknown_debug_print_events_a40d1c");
 extern "C" unsigned char ra2_place_1748[] __asm__("_unknown_gas_cloud_system_a40d20");

@@ -74,7 +74,7 @@ countries/sides/house types, one human and one computer player, the saved
 options; `<map>` is `#<n>` for the n-th scenario description, a description's
 file name, or any file name) and calls Select_Game, which skips its menu loop
 through a seam (`Native_Skirmish_Menu_Bypass`) and starts the scenario. It must
-not set `unknown_a40d13`: that is Westwood's Debug_Map (the scenario editor
+not set `Debug_Map` (0x00A40D13, Westwood's scenario editor
 flag), under which the multiplayer setup 0x0065E8C0 makes no start units and the
 human house is defeated at once (Scout1091). The cursor is parked in the
 tactical area (the host's (0, 0) edge-scrolls the map every frame). Bootstrap's

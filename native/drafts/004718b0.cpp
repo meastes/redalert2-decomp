@@ -69,7 +69,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
         }
     }
 
-    if (unknown_flag_a40d13) {
+    if (Debug_Map) {
         if (!Map.Unknown_0054AAB0(MapCoords)) {
             return false;
         }
@@ -114,7 +114,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
             }
         }
 
-        if (!unknown_flag_a40d13 || OverlayTypes[OverlayIndex]->Wall) {
+        if (!Debug_Map || OverlayTypes[OverlayIndex]->Wall) {
             return false;
         }
     }

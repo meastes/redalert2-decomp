@@ -16,7 +16,7 @@ UnknownCoord434820::UnknownCoord434820(int x, int y, int z)
 
 // 0x00423E60 ObjectClass::unknown_slot115 (leaf src/recovered/classes/ObjectClass/00423e60.cpp:
 // returns 0): no converter of its own.
-intptr_t ObjectClass::unknown_slot115()
+ConvertClass *ObjectClass::unknown_slot115()
 {
     return 0;
 }

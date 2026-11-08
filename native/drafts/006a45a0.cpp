@@ -141,7 +141,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
             return;
         }
 
-        if (!unknown_flag_a40d13) {
+        if (!Debug_Map) {
             Register_Dirty_Buildings(Rect(unknown_rect_839630.X - 64, unknown_rect_839630.Y - 64,
                 unknown_rect_839630.Width + 128, unknown_rect_839630.Height + 128));
         }
