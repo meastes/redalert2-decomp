@@ -4,8 +4,8 @@
     "id": "population-4136",
     "inventory_sha256": "13cf0ffeec18693fc2cf1b8401ea36f0290b5b722628721d64b8b2a819fa88db",
     "gaps_sha256": "ef726fa32fef57074fb033a40e10b26da6c1a3d19675814c79e01f2466d8b4d5",
-    "historical_population_sha256": "898bf34e3a14fe2c1e08e727a43b59a962b9e9daabb1fa1be13af586bfb6e0c8",
-    "historical_acceptance_sha256": "dc85ac34d71341f82f326a2a0dcf5f1459f0397990ff4130bf452f64ccff58c1"
+    "historical_population_sha256": "99bf9f842302a5422aaa925ebf0b8754504b23f502d10ec65bf28258a43eba73",
+    "historical_acceptance_sha256": "8814f16137093074c63e63882b9c9cc6e1ab3fdf1f6f415f87553789cdeefa49"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -5531,8 +5531,8 @@
     "?unknown_slot283@FootClass@@UAE_NXZ": 5023776,
     "?unknown_slot288@FootClass@@UAEXXZ": 5023872,
     "?unknown_slot282@FootClass@@UAE_NXZ": 5025760,
-    "?unknown_slot46@FootClass@@UAE_NH@Z": 5031088,
-    "?unknown_slot46@ObjectClass@@UAE_NH@Z": 6116080,
+    "?unknown_slot46@FootClass@@UAE_NPAVTechnoClass@@@Z": 5031088,
+    "?unknown_slot46@ObjectClass@@UAE_NPAVTechnoClass@@@Z": 6116080,
     "?unknown_slot202@FootClass@@UAE_NXZ": 5034112,
     "?unknown_slot301@FootClass@@UAEPAVTechnoClass@@PAVTechnoTypeClass@@HH@Z": 5035824,
     "?unknown_slot273@FootClass@@UAE?AUCoordStruct@@XZ": 5036752,
@@ -14203,8 +14203,8 @@
     {
       "entry": 5031088,
       "method": "004cc4b0",
-      "symbol": "?unknown_slot46@FootClass@@UAE_NH@Z",
-      "symbol_prefix": "?unknown_slot46@FootClass@@UAE_NH@Z",
+      "symbol": "?unknown_slot46@FootClass@@UAE_NPAVTechnoClass@@@Z",
+      "symbol_prefix": "?unknown_slot46@FootClass@@UAE_NPAVTechnoClass@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -14220,13 +14220,13 @@
         {
           "offset": 21,
           "kind": 20,
-          "symbol": "?unknown_slot46@ObjectClass@@UAE_NH@Z",
+          "symbol": "?unknown_slot46@ObjectClass@@UAE_NPAVTechnoClass@@@Z",
           "target": 6116080,
           "addend": 0,
           "resolved": 1084967
         }
       ],
-      "source_sha256": "03b9a02f84c7d6ec9656ff38b5c4d4b7c185f11d6ebda589154bc5938c1d7d54",
+      "source_sha256": "580532a4ef74d8f150eb78670b0fa69a8f5039c496c21d2500becb7a952530e2",
       "source": "src/recovered/classes/FootClass/FootClass_unknown_slot46_004cc4b0.cpp",
       "population": "population-4136",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

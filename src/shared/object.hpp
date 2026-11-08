@@ -259,7 +259,7 @@ public:
     virtual CoordStruct unknown_slot43(int arg1);                        // slot 43 (+0xAC) 0x423d50
     virtual CoordStruct unknown_slot44(int arg1);                          // slot 44 (+0xB0) 0x41b2a0 (the center; ret 8)
     virtual int unknown_slot45() const;                                    // slot 45 (+0xB4) 0x5d5450
-    virtual bool unknown_slot46(int arg1);                                  // slot 46 (+0xB8) 0x5d52f0
+    virtual bool unknown_slot46(TechnoClass *techno);                       // slot 46 (+0xB8) 0x5d52f0
     virtual bool unknown_slot47();                                         // slot 47 (+0xBC) 0x423d90
     virtual bool unknown_slot48();                                         // slot 48 (+0xC0) 0x423da0
     virtual bool unknown_slot49(HouseClass *house);                                 // slot 49 (+0xC4) 0x423db0

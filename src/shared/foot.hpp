@@ -158,7 +158,7 @@ public:
     virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);  // slot 27 0x004CC650
     virtual int unknown_slot28(ObjectClass *object, bool arg2);  // slot 28 0x004CC740
     virtual bool unknown_slot37();  // slot 37 0x004C8940
-    virtual bool unknown_slot46(int arg1);  // slot 46 0x004CC4B0
+    virtual bool unknown_slot46(TechnoClass *techno);  // slot 46 0x004CC4B0
     virtual bool unknown_slot52();  // slot 52 0x004C9BD0
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);  // slot 53 0x004C5E40
     virtual void unknown_slot54(bool arg1);  // slot 54 0x004C8220
