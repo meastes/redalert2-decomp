@@ -4,7 +4,7 @@
 // @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
 template <>
 void BlitTransLucent75Alpha<unsigned short>::BlitForward(void *target, void const *source, int length,
-                                                        int, int, int buffer, int level, int) const
+                                                        int, void *, void *buffer, int level, int) const
 {
     unsigned short *alpha = (unsigned short *)buffer;
     int row = level > 0 ? level : 0;

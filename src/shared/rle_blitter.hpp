@@ -14,7 +14,7 @@ class RLEBlitter {
 public:
     virtual ~RLEBlitter() {}
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int unknown5, int unknown6, int unknown7, int unknown8, int unknown9, int unknown10) const = 0;
+                      int unknown5, void *unknown6, void *unknown7, int unknown8, int unknown9, void *unknown10) const = 0;
 };
 template <class T>
 class RLEBlitTransXlat : public RLEBlitter {
@@ -22,7 +22,7 @@ public:
     RLEBlitTransXlat(T const * palette) : Palette(palette) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int, int, int, int) const;
+                      int, void *, void *, int, int, void *) const;
     T const *Palette; // +0x04 translation table indexed by the nonzero source byte
 };
 template <class T>
@@ -32,7 +32,7 @@ public:
     virtual ~RLEBlitTransXlatAlpha() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int buffer, int level, int, int) const;
+                      int, void *, void *buffer, int level, int, void *) const;
     T const *Palette; // +0x04
     unsigned short const (*AlphaTable)[256]; // +0x08
 };
@@ -43,7 +43,7 @@ public:
     virtual ~RLEBlitTransLucent75Alpha() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int buffer, int level, int, int) const;
+                      int, void *, void *buffer, int level, int, void *) const;
     T const *Palette; // +0x04
     unsigned short const (*AlphaTable)[256]; // +0x08
     unsigned short ChannelMask; // +0x0C excludes carry bits between packed colour channels
@@ -55,7 +55,7 @@ public:
     virtual ~RLEBlitTransLucent25Alpha() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int buffer, int level, int, int) const;
+                      int, void *, void *buffer, int level, int, void *) const;
     T const *Palette; // +0x04
     unsigned short const (*AlphaTable)[256]; // +0x08
     unsigned short ChannelMask; // +0x0C excludes carry bits between packed colour channels
@@ -67,7 +67,7 @@ public:
     virtual ~RLEBlitTransLucent50Alpha() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int buffer, int level, int, int) const;
+                      int, void *, void *buffer, int level, int, void *) const;
     T const *Palette; // +0x04
     unsigned short const (*AlphaTable)[256]; // +0x08
     unsigned short ChannelMask; // +0x0C excludes carry bits between packed colour channels
@@ -79,7 +79,7 @@ public:
     virtual ~RLEBlitTransZRemapXlatAlpha() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int buffer, int level, int, int) const;
+                      int, void *, void *buffer, int level, int, void *) const;
     unsigned char const *const *RemapTable; // +0x04 points to the active remapping table
     T const *Palette; // +0x08
     unsigned short const (*AlphaTable)[256]; // +0x0C

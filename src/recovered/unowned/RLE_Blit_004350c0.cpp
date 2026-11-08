@@ -85,7 +85,7 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
     int rows = src.Height < dst.Height ? src.Height : dst.Height;
     for (int row = 0; row < rows; ++row) {
         blitter.Blit(dest_pixels, (unsigned short *)source_pixels + 1, src.Width, left,
-            depth_level, (int)depth_pointer, (int)alpha_pointer, alpha, 0, (int)shape_pixels);
+            depth_level, (void *)depth_pointer, (void *)alpha_pointer, alpha, 0, shape_pixels);
         source_pixels = (unsigned char *)source_pixels + *(unsigned short *)source_pixels;
         dest_pixels = (char *)dest_pixels + dest_pitch;
         if (ABufferPtr) {

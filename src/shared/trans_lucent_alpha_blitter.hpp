@@ -9,8 +9,8 @@ public:
     BlitTransLucent75Alpha(T const * palette, int count, unsigned short mask) : Palette(palette), AlphaTable(0), ChannelMask(mask) { AlphaTable = AlphaTableCache_008315B8.Get(count); }
     virtual ~BlitTransLucent75Alpha() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
-    virtual void BlitForward(void *target, void const *source, int length, int, int, int buffer, int level, int) const;
-    virtual void BlitBackward(void *target, void const *source, int length, int a, int b, int c, int d) const {
+    virtual void BlitForward(void *target, void const *source, int length, int, void *, void *buffer, int level, int) const;
+    virtual void BlitBackward(void *target, void const *source, int length, int a, void *b, void *c, int d) const {
         BlitForward(target, source, length, a, b, c, d, 0);
     }
     T const *Palette; // +0x04
@@ -23,8 +23,8 @@ public:
     BlitTransLucent25Alpha(T const * palette, int count, unsigned short mask) : Palette(palette), AlphaTable(0), ChannelMask(mask) { AlphaTable = AlphaTableCache_008315B8.Get(count); }
     virtual ~BlitTransLucent25Alpha() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
-    virtual void BlitForward(void *target, void const *source, int length, int, int, int buffer, int level, int) const;
-    virtual void BlitBackward(void *target, void const *source, int length, int a, int b, int c, int d) const {
+    virtual void BlitForward(void *target, void const *source, int length, int, void *, void *buffer, int level, int) const;
+    virtual void BlitBackward(void *target, void const *source, int length, int a, void *b, void *c, int d) const {
         BlitForward(target, source, length, a, b, c, d, 0);
     }
     T const *Palette; // +0x04
@@ -37,8 +37,8 @@ public:
     BlitTransLucent50Alpha(T const * palette, int count, unsigned short mask) : Palette(palette), AlphaTable(0), ChannelMask(mask) { AlphaTable = AlphaTableCache_008315B8.Get(count); }
     virtual ~BlitTransLucent50Alpha() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
-    virtual void BlitForward(void *target, void const *source, int length, int, int, int buffer, int level, int) const;
-    virtual void BlitBackward(void *target, void const *source, int length, int a, int b, int c, int d) const {
+    virtual void BlitForward(void *target, void const *source, int length, int, void *, void *buffer, int level, int) const;
+    virtual void BlitBackward(void *target, void const *source, int length, int a, void *b, void *c, int d) const {
         BlitForward(target, source, length, a, b, c, d, 0);
     }
     T const *Palette; // +0x04

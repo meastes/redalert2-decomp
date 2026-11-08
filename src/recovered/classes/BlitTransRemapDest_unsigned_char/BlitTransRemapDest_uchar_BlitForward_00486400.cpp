@@ -2,7 +2,7 @@
 #include "shared/destination_blitters.hpp"
 template <>
 void BlitTransRemapDest<unsigned char>::BlitForward(void *target, void const *source, int length,
-                              int, int, int, int, int) const
+                              int, void *, void *, int, int) const
 {
     if (length > 0) {
         int count = length;

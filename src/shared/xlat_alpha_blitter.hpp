@@ -9,9 +9,9 @@ public:
     BlitTransXlatWriteAlpha() {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int level, int unknown5, int buffer, int unknown7, int unknown8) const;
+                             int level, void *unknown5, void *buffer, int unknown7, int unknown8) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int a, int b, int c, int d) const {
+                              int a, void *b, void *c, int d) const {
         BlitForward(target, source, length, a, b, c, d, 0);
     }
 };

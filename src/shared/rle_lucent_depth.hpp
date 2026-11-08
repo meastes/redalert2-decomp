@@ -8,7 +8,7 @@ public:
     RLEBlitTransLucent75ZRead(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };
@@ -17,7 +17,7 @@ public:
     RLEBlitTransLucent50ZRead(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };
@@ -26,7 +26,7 @@ public:
     RLEBlitTransLucent25ZRead(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };
@@ -35,7 +35,7 @@ public:
     RLEBlitTransLucent75ZReadWarp(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };
@@ -44,7 +44,7 @@ public:
     RLEBlitTransLucent50ZReadWarp(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };
@@ -53,7 +53,7 @@ public:
     RLEBlitTransLucent25ZReadWarp(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };
@@ -62,7 +62,7 @@ public:
     RLEBlitTransLucent75ZReadWrite(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };
@@ -71,7 +71,7 @@ public:
     RLEBlitTransLucent50ZReadWrite(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };
@@ -80,7 +80,7 @@ public:
     RLEBlitTransLucent25ZReadWrite(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette;            // +0x04
     unsigned short ChannelMask;  // +0x08; bits retained after shifting a packed pixel
 };

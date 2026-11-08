@@ -10,9 +10,9 @@ public:
     BlitPlainXlat(T const * palette) : Palette(palette) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int, int, int, int, int) const;
+                             int, void *, void *, int, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     T const *Palette; // +0x04
 };
 template <class T>
@@ -21,9 +21,9 @@ public:
     BlitTransXlat(T const * palette) : Palette(palette) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int, int, int, int, int) const;
+                             int, void *, void *, int, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     T const *Palette; // +0x04
 };
 template <class T>
@@ -32,9 +32,9 @@ public:
     BlitTransZRemapXlat(unsigned char const *const * remap, T const * palette) : RemapTable(remap), Palette(palette) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int, int, int, int, int) const;
+                             int, void *, void *, int, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     unsigned char const *const *RemapTable; // +0x04
     T const *Palette; // +0x08
 };
@@ -44,9 +44,9 @@ public:
     BlitTransRemapXlat(unsigned char const * remap, T const * palette) : RemapTable(remap), Palette(palette) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int, int, int, int, int) const;
+                             int, void *, void *, int, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     unsigned char const *RemapTable; // +0x04
     T const *Palette; // +0x08
 };

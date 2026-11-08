@@ -8,7 +8,7 @@ public:
     RLEBlitTransDarken(unsigned short mask) : ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int, int, int, int) const;
+                      int, void *, void *, int, int, void *) const;
     unsigned short ChannelMask; // +0x04
 };
 template <class T> class RLEBlitTransLucent75 : public RLEBlitter {
@@ -16,7 +16,7 @@ public:
     RLEBlitTransLucent75(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int, int, int, int) const;
+                      int, void *, void *, int, int, void *) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };
@@ -25,7 +25,7 @@ public:
     RLEBlitTransLucent50(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int, int, int, int) const;
+                      int, void *, void *, int, int, void *) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };
@@ -34,7 +34,7 @@ public:
     RLEBlitTransLucent25(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int, int, int, int) const;
+                      int, void *, void *, int, int, void *) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };

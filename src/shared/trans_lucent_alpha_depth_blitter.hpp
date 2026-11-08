@@ -10,9 +10,9 @@ public:
     virtual ~BlitTransLucent75AlphaZReadWrite() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int depth, int depth_buffer, int buffer, int level, int) const;
+                             int depth, void *depth_buffer, void *buffer, int level, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int a, int b, int c, int d) const {
+                              int a, void *b, void *c, int d) const {
         BlitForward(target, source, length, a, b, c, d, 0);
     }
     T const *Palette; // +0x04 palette indexed by source byte OR the alpha-row value
@@ -26,9 +26,9 @@ public:
     virtual ~BlitTransLucent50AlphaZReadWrite() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int depth, int depth_buffer, int buffer, int level, int) const;
+                             int depth, void *depth_buffer, void *buffer, int level, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int a, int b, int c, int d) const {
+                              int a, void *b, void *c, int d) const {
         BlitForward(target, source, length, a, b, c, d, 0);
     }
     T const *Palette; // +0x04 palette indexed by source byte OR the alpha-row value
@@ -42,9 +42,9 @@ public:
     virtual ~BlitTransLucent25AlphaZReadWrite() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int depth, int depth_buffer, int buffer, int level, int) const;
+                             int depth, void *depth_buffer, void *buffer, int level, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int a, int b, int c, int d) const {
+                              int a, void *b, void *c, int d) const {
         BlitForward(target, source, length, a, b, c, d, 0);
     }
     T const *Palette; // +0x04 palette indexed by source byte OR the alpha-row value

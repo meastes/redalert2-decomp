@@ -15,7 +15,7 @@
 // The archive disables optimization around the assembler specializations (blitblit.h:2319).
 #pragma optimize("", off)
 template <>
-void BlitTransXlat<unsigned short>::BlitForward(void *dest,void const *source,int len,int,int,int,int,int) const
+void BlitTransXlat<unsigned short>::BlitForward(void *dest,void const *source,int len,int,void *,void *,int,int) const
 {
     unsigned short const * xlator = Palette;
 

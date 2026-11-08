@@ -80,7 +80,7 @@ bool __fastcall Bit_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
         int rows = src.Height < dst.Height ? src.Height : dst.Height;
         if (overlap) {
             for (int row = 0; row < rows; ++row) {
-                blitter.BlitBackward(dest_pixels, source_pixels, src.Width, depth_level, (int)depth_pointer, (int)alpha_pointer, alpha);
+                blitter.BlitBackward(dest_pixels, source_pixels, src.Width, depth_level, (void *)depth_pointer, (void *)alpha_pointer, alpha);
                 dest_pixels = (char *)dest_pixels + dest_pitch;
                 source_pixels = (char *)source_pixels + source_pitch;
                 if (ABufferPtr) {
@@ -99,7 +99,7 @@ bool __fastcall Bit_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
             }
         } else {
             for (int row = 0; row < rows; ++row) {
-                blitter.BlitForward(dest_pixels, source_pixels, src.Width, depth_level, (int)depth_pointer, (int)alpha_pointer, alpha, 0);
+                blitter.BlitForward(dest_pixels, source_pixels, src.Width, depth_level, (void *)depth_pointer, (void *)alpha_pointer, alpha, 0);
                 dest_pixels = (char *)dest_pixels + dest_pitch;
                 source_pixels = (char *)source_pixels + source_pitch;
                 if (ABufferPtr) {

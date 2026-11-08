@@ -6,7 +6,7 @@
 // @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
 template <>
 void RLEBlitTransLucent75AlphaZReadWrite<unsigned short>::Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int buffer, int level, int, int adjustment) const
+                      int depth, void *depth_buffer, void *buffer, int level, int, void *adjustment) const
 {
     unsigned short *output=(unsigned short *)target;
     unsigned short *depth_ptr = (unsigned short *)depth_buffer;

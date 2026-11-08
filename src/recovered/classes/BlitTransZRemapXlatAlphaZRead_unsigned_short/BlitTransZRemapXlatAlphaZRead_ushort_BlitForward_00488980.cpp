@@ -5,7 +5,7 @@
 // @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
 template <>
 void BlitTransZRemapXlatAlphaZRead<unsigned short>::BlitForward(void *target, void const *source, int length,
-                                                        int depth, int depth_buffer, int buffer, int level, int) const
+                                                        int depth, void *depth_buffer, void *buffer, int level, int) const
 {
     unsigned short *depth_ptr = (unsigned short *)depth_buffer;
     unsigned short *alpha = (unsigned short *)buffer;

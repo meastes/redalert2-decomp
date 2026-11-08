@@ -6,7 +6,7 @@
 // @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
 template <>
 void RLEBlitTransLucent50AlphaZReadWarp<unsigned short>::Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int buffer, int level, int warp_offset, int adjustment) const
+                      int depth, void *depth_buffer, void *buffer, int level, int warp_offset, void *adjustment) const
 {
     unsigned char const *input = (unsigned char const *)source;
     unsigned short *alpha=(unsigned short *)buffer;

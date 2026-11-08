@@ -4,7 +4,7 @@
 // @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
 template <>
 void BlitTransXlatMultWriteAlpha<unsigned short>::BlitForward(void *target, void const *source, int length,
-                                                         int level, int, int buffer, int scale, int) const
+                                                         int level, void *, void *buffer, int scale, int) const
 {
     unsigned short *dest = (unsigned short *)buffer;
     if (length > 0) {

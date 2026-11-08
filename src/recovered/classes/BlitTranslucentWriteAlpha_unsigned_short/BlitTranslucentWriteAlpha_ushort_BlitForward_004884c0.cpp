@@ -18,7 +18,7 @@ inline RGBClass Expand_Hicolor_Pixel(unsigned short pixel)
 }
 template <>
 void BlitTranslucentWriteAlpha<unsigned short>::BlitForward(void *target, void const *source, int length,
-                                                          int, int, int buffer, int, int) const
+                                                          int, void *, void *buffer, int, int) const
 {
     unsigned short *alpha = (unsigned short *)buffer;
     if (length > 0) {

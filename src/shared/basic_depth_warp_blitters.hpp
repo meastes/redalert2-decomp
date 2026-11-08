@@ -8,9 +8,9 @@ public:
     BlitTransLucent75ZReadWarp(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int depth, int depth_buffer, int, int, int warp_offset) const;
+                             int depth, void *depth_buffer, void *, int, int warp_offset) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };
@@ -19,9 +19,9 @@ public:
     BlitTransLucent50ZReadWarp(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int depth, int depth_buffer, int, int, int warp_offset) const;
+                             int depth, void *depth_buffer, void *, int, int warp_offset) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };
@@ -30,9 +30,9 @@ public:
     BlitTransLucent25ZReadWarp(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int depth, int depth_buffer, int, int, int warp_offset) const;
+                             int depth, void *depth_buffer, void *, int, int warp_offset) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };

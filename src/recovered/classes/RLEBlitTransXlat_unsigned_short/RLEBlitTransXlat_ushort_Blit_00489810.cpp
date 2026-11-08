@@ -2,7 +2,7 @@
 #include "shared/rle_blitter.hpp"
 template <>
 void RLEBlitTransXlat<unsigned short>::Blit(void *target, void const *source, int length, int skip,
-                                          int, int, int, int, int, int) const
+                                          int, void *, void *, int, int, void *) const
 {
     int pixels_to_skip = skip;
     unsigned short *dest = (unsigned short *)target;

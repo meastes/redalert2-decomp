@@ -2,7 +2,7 @@
 #include "shared/basic_lucent_blitters.hpp"
 template <>
 void BlitTransLucent75<unsigned short>::BlitForward(void *target, void const *source, int length,
-                                      int, int, int, int, int) const
+                                      int, void *, void *, int, int) const
 {
     if (length > 0) {
         int count = length;

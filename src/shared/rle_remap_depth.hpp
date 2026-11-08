@@ -8,7 +8,7 @@ public:
     RLEBlitTransZRemapXlatZRead(unsigned char const *const * remap, T const * palette) : RemapTable(remap), Palette(palette) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     unsigned char const *const *RemapTable; // +0x04; shared current-remap pointer cell
     T const *Palette;                       // +0x08
 };
@@ -17,7 +17,7 @@ public:
     RLEBlitTransZRemapXlatZReadWrite(unsigned char const *const * remap, T const * palette) : RemapTable(remap), Palette(palette) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     unsigned char const *const *RemapTable; // +0x04; shared current-remap pointer cell
     T const *Palette;                       // +0x08
 };

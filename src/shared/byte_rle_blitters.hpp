@@ -8,7 +8,7 @@ public:
     RLEBlitTransZRemapXlat(unsigned char const *const * remap, T const * palette) : RemapTable(remap), Palette(palette) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int, int, int, int) const;
+                      int, void *, void *, int, int, void *) const;
     unsigned char const *const *RemapTable; // +0x04
     T const *Palette; // +0x08
 };
@@ -17,7 +17,7 @@ public:
     RLEBlitTransRemapXlat(unsigned char const * remap, T const * palette) : RemapTable(remap), Palette(palette) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int, int, int, int) const;
+                      int, void *, void *, int, int, void *) const;
     unsigned char const *RemapTable; // +0x04
     T const *Palette; // +0x08
 };
@@ -26,7 +26,7 @@ public:
     RLEBlitTransRemapDest(T const * palette) : Palette(palette) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int, int, int, int, int, int) const;
+                      int, void *, void *, int, int, void *) const;
     T const *Palette; // +0x04
 };
 #endif

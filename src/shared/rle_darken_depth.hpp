@@ -8,7 +8,7 @@ public:
     RLEBlitTransDarkenZRead(unsigned short mask) : ChannelMask(mask) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     unsigned short ChannelMask; // +0x04; original word mask accesses
 };
 #endif

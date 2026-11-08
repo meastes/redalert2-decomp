@@ -7,7 +7,7 @@ public:
     RLEBlitTransZRemapXlatAlphaZRead(unsigned char const *const * remap, T const * palette, int count) : RemapTable(remap), Palette(palette), AlphaTable(0) { AlphaTable = AlphaTableCache_008315B8.Get(count); }
     virtual ~RLEBlitTransZRemapXlatAlphaZRead() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
- virtual void Blit(void *target, void const *source, int length, int skip, int depth, int depth_buffer, int buffer, int level, int, int adjustments) const;
+ virtual void Blit(void *target, void const *source, int length, int skip, int depth, void *depth_buffer, void *buffer, int level, int, void *adjustments) const;
  unsigned char const *const *RemapTable; // +4; current remap pointer cell
  T const *Palette; // +8
  unsigned short const (*AlphaTable)[256]; // +12
@@ -17,7 +17,7 @@ public:
     RLEBlitTransZRemapXlatAlphaZReadWrite(unsigned char const *const * remap, T const * palette, int count) : RemapTable(remap), Palette(palette), AlphaTable(0) { AlphaTable = AlphaTableCache_008315B8.Get(count); }
     virtual ~RLEBlitTransZRemapXlatAlphaZReadWrite() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
- virtual void Blit(void *target, void const *source, int length, int skip, int depth, int depth_buffer, int buffer, int level, int, int adjustments) const;
+ virtual void Blit(void *target, void const *source, int length, int skip, int depth, void *depth_buffer, void *buffer, int level, int, void *adjustments) const;
  unsigned char const *const *RemapTable; // +4; current remap pointer cell
  T const *Palette; // +8
  unsigned short const (*AlphaTable)[256]; // +12

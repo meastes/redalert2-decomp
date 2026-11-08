@@ -19,7 +19,7 @@ public:
 
     RLEBlitTransXlatZReadWrite(T const * palette) : Palette(palette) {}
 
- virtual void Blit(void *target, void const *source, int length, int skip, int depth, int depth_buffer, int, int, int, int adjustments) const;
+ virtual void Blit(void *target, void const *source, int length, int skip, int depth, void *depth_buffer, void *, int, int, void *adjustments) const;
  T const *Palette; // +4
 };
 template<class T> class RLEBlitTransDarkenZReadWrite : public RLEBlitter {
@@ -37,7 +37,7 @@ public:
 
     RLEBlitTransDarkenZReadWrite(unsigned short mask) : ChannelMask(mask) {}
 
- virtual void Blit(void *target, void const *source, int length, int skip, int depth, int depth_buffer, int, int, int, int adjustments) const;
+ virtual void Blit(void *target, void const *source, int length, int skip, int depth, void *depth_buffer, void *, int, int, void *adjustments) const;
  unsigned short ChannelMask; // +4
 };
 #endif

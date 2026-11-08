@@ -20,10 +20,10 @@ public:
     // middle arguments and the last flag are unused by the plain and
     // transparent blitters (their meaning is not established).
     virtual void BlitForward(void *target, void const *source, int length,
-                             int unknown4, int unknown5, int unknown6, int unknown7, int unknown8) const = 0;
+                             int unknown4, void *unknown5, void *unknown6, int unknown7, int unknown8) const = 0;
     // The same for overlapping memory (copies last to first where it matters).
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int unknown4, int unknown5, int unknown6, int unknown7) const = 0;
+                              int unknown4, void *unknown5, void *unknown6, int unknown7) const = 0;
 };
 
 // Copies every pixel.
@@ -31,12 +31,12 @@ template <class T>
 class BlitPlain : public Blitter {
 public:
     virtual void BlitForward(void *target, void const *source, int length,
-                             int, int, int, int, int) const
+                             int, void *, void *, int, int) const
     {
         memcpy(target, source, length * sizeof(T));
     }
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const
+                              int, void *, void *, int) const
     {
         memmove(target, source, length * sizeof(T));
     }
@@ -49,9 +49,9 @@ template <class T>
 class BlitTrans : public Blitter {
 public:
     virtual void BlitForward(void *target, void const *source, int length,
-                             int unknown4, int unknown5, int unknown6, int unknown7, int unknown8) const;
+                             int unknown4, void *unknown5, void *unknown6, int unknown7, int unknown8) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int unknown4, int unknown5, int unknown6, int unknown7) const
+                              int unknown4, void *unknown5, void *unknown6, int unknown7) const
     {
         BlitForward(target, source, length, unknown4, unknown5, unknown6, unknown7, 0);
     }
@@ -59,7 +59,7 @@ public:
 
 template <class T>
 void BlitTrans<T>::BlitForward(void *target, void const *source, int length,
-                               int, int, int, int, int) const
+                               int, void *, void *, int, int) const
 {
     for (int index = 0; index < length; index++) {
         T color = *(T const *)source;
@@ -74,7 +74,7 @@ void BlitTrans<T>::BlitForward(void *target, void const *source, int length,
 // The 8-bit transparent copy is handwritten assembly (0x00775980).
 template <>
 void BlitTrans<unsigned char>::BlitForward(void *target, void const *source, int length,
-                                           int, int, int, int, int) const;
+                                           int, void *, void *, int, int) const;
 
 // Copies sourcerect of source to destrect of dest through blitter
 // (0x00434AE0). The four trailing arguments are passed as 0, 3, 1000, 0 by

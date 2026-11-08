@@ -8,9 +8,9 @@ public:
     BlitTransLucent75(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int, int, int, int, int) const;
+                             int, void *, void *, int, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };
@@ -19,9 +19,9 @@ public:
     BlitTransLucent50(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int, int, int, int, int) const;
+                             int, void *, void *, int, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };
@@ -30,9 +30,9 @@ public:
     BlitTransLucent25(T const * palette, unsigned short mask) : Palette(palette), ChannelMask(mask) {}
 
     virtual void BlitForward(void *target, void const *source, int length,
-                             int, int, int, int, int) const;
+                             int, void *, void *, int, int) const;
     virtual void BlitBackward(void *target, void const *source, int length,
-                              int, int, int, int) const;
+                              int, void *, void *, int) const;
     T const *Palette; // +0x04
     unsigned short ChannelMask; // +0x08
 };

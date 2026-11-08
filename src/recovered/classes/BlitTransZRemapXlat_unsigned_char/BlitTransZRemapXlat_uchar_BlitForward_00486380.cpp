@@ -2,7 +2,7 @@
 #include "shared/basic_xlat_blitters.hpp"
 template <>
 void BlitTransZRemapXlat<unsigned char>::BlitForward(void *target, void const *source, int length,
-                                      int, int, int, int, int) const
+                                      int, void *, void *, int, int) const
 {
     unsigned char const *remap = *RemapTable;
     if (length > 0) {

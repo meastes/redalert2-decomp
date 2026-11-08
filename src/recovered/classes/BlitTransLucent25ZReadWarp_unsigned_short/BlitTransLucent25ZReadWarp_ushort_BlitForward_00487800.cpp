@@ -4,7 +4,7 @@
 // @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
 template <>
 void BlitTransLucent25ZReadWarp<unsigned short>::BlitForward(void *target, void const *source, int length,
-                                      int depth, int depth_buffer, int, int, int warp_offset) const
+                                      int depth, void *depth_buffer, void *, int, int warp_offset) const
 {
     unsigned short *depth_ptr = (unsigned short *)depth_buffer;
     if (length > 0) {

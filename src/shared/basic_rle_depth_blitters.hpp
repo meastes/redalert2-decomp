@@ -8,7 +8,7 @@ public:
     RLEBlitTransXlatZRead(T const * palette) : Palette(palette) {}
 
     virtual void Blit(void *target, void const *source, int length, int skip,
-                      int depth, int depth_buffer, int, int, int, int adjustment) const;
+                      int depth, void *depth_buffer, void *, int, int, void *adjustment) const;
     T const *Palette; // +0x04
 };
 #endif

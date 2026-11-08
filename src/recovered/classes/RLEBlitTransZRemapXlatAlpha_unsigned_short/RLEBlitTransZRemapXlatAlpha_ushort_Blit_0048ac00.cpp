@@ -4,7 +4,7 @@
 // @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
 template <>
 void RLEBlitTransZRemapXlatAlpha<unsigned short>::Blit(void *target, void const *source, int length, int skip,
-                                                int, int, int buffer, int level, int, int) const
+                                                int, void *, void *buffer, int level, int, void *) const
 {
     unsigned char const *input = (unsigned char const *)source;
     unsigned short *dest = (unsigned short *)target;

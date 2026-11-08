@@ -6,7 +6,7 @@
 // @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
 template <>
 void RLEBlitTransXlatAlphaZRead<unsigned short>::Blit(void *target, void const *source, int length, int skip,
-                                                    int depth, int depth_buffer, int buffer, int level, int, int adjustments) const
+                                                    int depth, void *depth_buffer, void *buffer, int level, int, void *adjustments) const
 {
     unsigned char const *input = (unsigned char const *)source;
     char const *delta = (char const *)adjustments;

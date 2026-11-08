@@ -7,7 +7,7 @@ public:
     RLEBlitTransXlatAlphaZRead(T const * palette, int count) : Palette(palette), AlphaTable(0) { AlphaTable = AlphaTableCache_008315B8.Get(count); }
     virtual ~RLEBlitTransXlatAlphaZRead() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
- virtual void Blit(void *target, void const *source, int length, int skip, int depth, int depth_buffer, int buffer, int level, int, int adjustments) const;
+ virtual void Blit(void *target, void const *source, int length, int skip, int depth, void *depth_buffer, void *buffer, int level, int, void *adjustments) const;
  T const *Palette; // +4
  unsigned short const (*AlphaTable)[256]; // +8
 };
@@ -16,7 +16,7 @@ public:
     RLEBlitTransXlatAlphaZReadWrite(T const * palette, int count) : Palette(palette), AlphaTable(0) { AlphaTable = AlphaTableCache_008315B8.Get(count); }
     virtual ~RLEBlitTransXlatAlphaZReadWrite() { AlphaTableCache_008315B8.Release(AlphaTable); AlphaTable = 0; }
 
- virtual void Blit(void *target, void const *source, int length, int skip, int depth, int depth_buffer, int buffer, int level, int, int adjustments) const;
+ virtual void Blit(void *target, void const *source, int length, int skip, int depth, void *depth_buffer, void *buffer, int level, int, void *adjustments) const;
  T const *Palette; // +4
  unsigned short const (*AlphaTable)[256]; // +8
 };
