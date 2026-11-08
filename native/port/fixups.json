@@ -1,0 +1,10 @@
+{
+ "about": "Native-only text substitutions where clang rejects VC6 dialect that native_units.py cannot rewrite generically. Each must keep the original behaviour; migrate a fixup into src/ once the exact build proves the edited file still matches, then delete it here. 'verified' says whether the chosen meaning was checked against the original code.",
+ "fixups": [
+  {"source": "src/recovered/classes/UnknownMapGenerator/UnknownMapGenerator_Partition_Area_0057c0d0.cpp",
+   "old": "choices.Delete((int)selected);",
+   "new": "(choices.*static_cast<bool (DynamicVectorClass<int>::*)(int)>(&DynamicVectorClass<int>::Delete))((int)selected);",
+   "why": "DynamicVectorClass<int>: Delete(int) and Delete(int const &) are ambiguous in ISO C++; VC6 resolved it. Native picks delete-by-index (selected is an index into choices).",
+   "verified": false}
+ ]
+}

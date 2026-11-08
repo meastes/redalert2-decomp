@@ -3075,3 +3075,7 @@ New rulings are recorded at their rows as before.
 
 ## Scout1047 (2026-11-08, closed; lab; NOTES, web.py, q.py in build/class-work/Scout1047/)
 - Register-priority corpus (4,303 functions from accepted bodies): best rule 46% held out (85% of forced pairs); facts recorded in VC6_MATCHING_NOTES. Wait_For_Players 0x65C520 90.40: original i=esi, entry/house=edi, name=ebp, player=ebx (cached 1, `mov esi, ebx` initialises i); our i is coloured after name despite more refs, so a hidden web or a split. Untried: find a fifth web live in our drop loop (Count() reload, array base, hp); declare i outside the for.
+
+## Scout1049 (2026-11-08, closed; 0 B; NOTES, w/ in build/class-work/Scout1049/)
+- Wait_For_Players 0x65C520 90.40 -> 96.97 (w/wfp_9697.cpp, shape 100): `i--` in both Am_I_Master arms (merged by VC6 into one `dec esi` at the join; lab fact 1: merged uses still count) gives every callee-saved role; `player++, i++` in the for header. Left: scratch ties in the Destroy_Connection/Houses[house] block (our hp reuses the dying house register). OWNER NOTE: the both-arm `i--` needs a naturalness ruling before landing (check TibSun's Wait_For_Players arms first).
+- Unchanged: Extract_At 0x4CF290 90.91, RadBeam Update_All 0x6354E0 79.45 (scratch registers only), Net2SetHouseAndColor 0x5BCCF0 86.25.
