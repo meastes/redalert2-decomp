@@ -22,7 +22,7 @@
 | [classes/Tactical](../src/recovered/classes/Tactical/) | 93 | 33,169 | 86 | 0x006A22D0–0x006AC800 |
 | [classes/MapRegionClass](../src/recovered/classes/MapRegionClass/) | 50 | 32,850 | 50 | 0x0056D530–0x0058DA70 |
 | [classes/AircraftClass](../src/recovered/classes/AircraftClass/) | 87 | 30,616 | 87 | 0x004139F0–0x004D34D0 |
-| (discovery: address-named) | 1097 | 30,168 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 1096 | 30,159 | 17 | 0x004010A0–0x00793976 |
 | [VQA32](../src/recovered/VQA32/) | 81 | 29,339 | 81 | 0x00776380–0x0077E9E0 |
 | [classes/UnknownIDSource](../src/recovered/classes/UnknownIDSource/) | 51 | 29,041 | 51 | 0x0065B4F0–0x00663440 |
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 94 | 0x004D3690–0x006BE740 |
@@ -189,8 +189,8 @@
 | [classes/LightSourceClass](../src/recovered/classes/LightSourceClass/) | 19 | 2,706 | 14 | 0x00537120–0x00537C30 |
 | [classes/UnknownBitmapWriter](../src/recovered/classes/UnknownBitmapWriter/) | 7 | 2,663 | 7 | 0x0068BD50–0x0068CE80 |
 | [classes/TagClass](../src/recovered/classes/TagClass/) | 32 | 2,613 | 32 | 0x006B37F0–0x006B42E0 |
+| [classes/MultiMission](../src/recovered/classes/MultiMission/) | 8 | 2,603 | 8 | 0x00671670–0x006720E0 |
 | [classes/TriggerClass](../src/recovered/classes/TriggerClass/) | 30 | 2,601 | 30 | 0x004D2E90–0x006EDBA0 |
-| [classes/MultiMission](../src/recovered/classes/MultiMission/) | 7 | 2,594 | 7 | 0x00671670–0x006720E0 |
 | [classes/SpotLightClass](../src/recovered/classes/SpotLightClass/) | 9 | 2,521 | 9 | 0x005DD510–0x005DE2E0 |
 | [classes/TaskForceClass](../src/recovered/classes/TaskForceClass/) | 24 | 2,515 | 24 | 0x004D3910–0x006B71B0 |
 | [classes/ModemRegistryEntryClass](../src/recovered/classes/ModemRegistryEntryClass/) | 4 | 2,512 | 4 | 0x0059CBA0–0x0059D500 |
