@@ -25,9 +25,14 @@ from pathlib import Path
 REPOSITORY = Path(__file__).resolve().parents[2]
 SECTION = re.compile(r'^## +(\S+) +\((\d{4}-\d{2}-\d{2})?[^)]*\)')
 ADDR = re.compile(r'\b0x([0-9A-Fa-f]{5,8})\b')
-SCORE = re.compile(r'(?<![\d.])(\d{1,2}\.\d{2}|100(?:\.00?)?)(?![\d.])')
-ARROW = re.compile(r'(\d{1,2}\.\d{2})\s*(?:->|→|to)\s*(\d{1,2}\.\d{2}|100)')
-DRAFT = re.compile(r'\b((?:build/class-work/\S+?|[A-Za-z0-9_./-]*(?:w|keep|best|hold|draft|rd|hm|h1|lab|v|t|d)/[A-Za-z0-9_./-]+\.(?:cpp|hpp|c|h)))\b')
+SCORE = re.compile(r'(?<![\d.,])(\d{1,2}\.\d{2}|100(?:\.00?)?)(?!\d|\.\d|,\d)')
+ARROW = re.compile(r'\s*(?:->|→|to)\s*(\d{1,2}\.\d{2}|100(?:\.00?)?)(?!\d|\.\d)')
+QUANTIFIED_BEFORE = re.compile(r'\b(?:all|both|each)\s*(?:at\s*)?$')
+QUANTIFIED_AFTER = re.compile(r'\s*each\b')
+SHAPE = re.compile(r'\b(?:shape|raw)\s*$')
+DRAFT = re.compile(r'(?<![\w/.-])((?:build/class-work/|[A-Za-z0-9_.-]*(?:w|keep|best|hold|draft|rd|hm|h1|lab|v|t|d)/)[A-Za-z0-9_./-]*?\.(?:cpp|hpp|c|h))(?![\w])')
+BARE = re.compile(r'(?<![\w/.-])([A-Za-z0-9_][A-Za-z0-9_-]*\.(?:cpp|hpp|c|h))(?![\w.])')
+LANE = re.compile(r'\b((?:Scout|codex)[0-9][\w-]*)\s+$')
 CAUSES = OrderedDict([
     ('ruling', r'PENDING|ruling|OWNER DECISION'),
     ('layout', r'\blayout\b|\bheader\b|\bstruct\b|\bmember\b|\boffset\b'),
@@ -59,16 +64,128 @@ def sections(text):
         yield lane, date, buf
 
 
-def scores_near(line, pos):
-    window = line[pos:pos + 90]
-    m = ARROW.search(window)
-    if m:
-        return float(m.group(2))
-    m = SCORE.search(window)
-    return float(m.group(1)) if m else None
+def depths(line):
+    """Paren depth before each character."""
+    out, d = [], 0
+    for ch in line:
+        if ch == ')':
+            d -= 1
+        out.append(d)
+        if ch == '(':
+            d += 1
+    return out
 
 
-def build(open_misses, treemap):
+def clause_end(line, depth, start, base, stops, commas):
+    """End of the clause that starts at `start` at paren depth `base`: a ';' or a sentence '.' at that depth, a ')'
+    closing the enclosing parenthesis, or (with `commas`) a ', ' list separator; `stops` cuts it at the next address."""
+    for i in range(start, len(line)):
+        if i in stops:
+            return i
+        ch = line[i]
+        if depth[i] < base:
+            return i
+        if depth[i] == base and (ch == ';' or (ch == '.' and (i + 1 == len(line) or line[i + 1].isspace()))
+                                 or (commas and ch == ',' and i + 1 < len(line) and line[i + 1] == ' ')):
+            return i
+    return len(line)
+
+
+def first_score(text):
+    """First score in `text` that is a match score (not a shape/raw score); an arrow chain gives its last value."""
+    found = find_score(text)
+    return found[0] if found else None
+
+
+def find_score(text):
+    for m in SCORE.finditer(text):
+        if SHAPE.search(text[:m.start()]):
+            continue
+        value, pos = m.group(1), m.end()
+        while True:
+            a = ARROW.match(text, pos)
+            if not a:
+                break
+            value, pos = a.group(1), a.end()
+        return float(value), m.start(), pos
+    return None
+
+
+def drafts_in(text, lane, resolve):
+    """Draft paths in `text`, qualified with the lane folder (an explicit lane name just before the path wins).
+    A bare file name counts only when `resolve` finds it in that lane's folder."""
+    found = []
+    for m in DRAFT.finditer(text):
+        named = LANE.search(text[:m.start()])
+        path = m.group(1)
+        if not path.startswith('build/'):
+            path = 'build/class-work/%s/%s' % (named.group(1) if named else lane, path)
+        found.append((m.start(), path))
+    if resolve:
+        for m in BARE.finditer(text):
+            named = LANE.search(text[:m.start()])
+            path = resolve(named.group(1) if named else lane, m.group(1))
+            if path:
+                found.append((m.start(), path))
+    out = []
+    for _, path in sorted(found):
+        if path not in out:
+            out.append(path)
+    return out
+
+
+def lane_resolver(root):
+    """Find a bare draft name in build/class-work/<lane>/ or one folder below it."""
+    def resolve(lane, name):
+        folder = root / 'build/class-work' / lane
+        if not folder.is_dir():
+            return None
+        if (folder / name).is_file():
+            return 'build/class-work/%s/%s' % (lane, name)
+        for sub in sorted(p for p in folder.iterdir() if p.is_dir()):
+            if (sub / name).is_file():
+                return 'build/class-work/%s/%s/%s' % (lane, sub.name, name)
+        return None
+    return resolve
+
+
+def bind(line, lane, resolve=None):
+    """Per address on the line: the score and drafts bound to it without ambiguity.
+
+    A score binds when it is the first match score in the address's own list item (to the next ';', sentence '.',
+    ', ' or closing parenthesis) with no other 0x address before it. A draft binds when it is in the address's clause
+    (same, without the comma stop) or in the innermost parenthesis around the address when that parenthesis names
+    no other address. A score shared by an address list counts for each address only when the note says so
+    ("all 98.73", "98.73 each"). A score or draft in the same clause but behind another address is ambiguous: '?'."""
+    depth = depths(line)
+    addrs = list(ADDR.finditer(line))
+    starts = {m.start() for m in addrs}
+    out = []
+    for m in addrs:
+        base = depth[m.start()]
+        stops = {s for s in starts if s > m.start()}
+        item = line[m.end():clause_end(line, depth, m.end(), base, stops, True)]
+        clause = line[m.end():clause_end(line, depth, m.end(), base, stops, False)]
+        whole = line[m.end():clause_end(line, depth, m.end(), base, set(), False)]
+        score = first_score(item)
+        shared = find_score(whole) if score is None else None
+        if shared and (QUANTIFIED_BEFORE.search(whole[:shared[1]]) or QUANTIFIED_AFTER.match(whole, shared[2])):
+            score, shared = shared[0], None  # "0xA/0xB 98.73 each", "0xA (w/a.cpp), 0xB (w/b.cpp) all 98.73"
+        score_q = shared is not None
+        drafts = drafts_in(clause, lane, resolve)
+        if base > 0:
+            lo = max(i for i in range(m.start()) if line[i] == '(' and depth[i] == base - 1)
+            hi = next((i for i in range(m.start(), len(line)) if depth[i] < base), len(line))
+            if not any(lo < s < hi and s != m.start() for s in starts):
+                for d in drafts_in(line[lo:hi], lane, resolve):
+                    if d not in drafts:
+                        drafts.append(d)
+        draft_q = not drafts and bool(drafts_in(whole, lane, resolve))
+        out.append((m, score, score_q, drafts, draft_q))
+    return out
+
+
+def build(open_misses, treemap, resolve=None):
     rows = {}
     if treemap:
         for r in treemap:
@@ -79,13 +196,13 @@ def build(open_misses, treemap):
     for lane, date, buf in sections(open_misses):
         seen = set()
         for line in buf:
-            for m in ADDR.finditer(line):
+            for m, score, score_q, drafts, draft_q in bind(line, lane, resolve):
                 e = int(m.group(1), 16)
                 if e < 0x400000 or e > 0x800000 or (e, line) in seen:
                     continue
                 seen.add((e, line))
-                hist[e].append(dict(lane=lane, date=date, score=scores_near(line, m.end()),
-                                    drafts=sorted(set(DRAFT.findall(line))),
+                hist[e].append(dict(lane=lane, date=date, score=score, score_ambiguous=score_q,
+                                    drafts=drafts, draft_ambiguous=draft_q,
                                     causes=[k for k, rx in CAUSES.items() if re.search(rx, line)],
                                     evidence=[k for k, rx in EVIDENCE.items() if re.search(rx, line)],
                                     state=[k for k, rx in STATE.items() if re.search(rx, line)],
@@ -111,22 +228,36 @@ def build(open_misses, treemap):
             if 'PENDING' in x['text']:
                 pending = True
         best = max(scores) if scores else None
-        r.update(best=best, attempts=len(lanes), lanes=lanes, last_lane=lanes[-1], last_date=max(x['date'] for x in h),
+        # the draft of the first note that records the highest score among notes naming a draft; else the latest draft
+        scored = [x for x in h if x['drafts'] and x['score'] is not None and x['score'] <= 100]
+        if scored:
+            top = max(x['score'] for x in scored)
+            draft = next(x for x in scored if x['score'] == top)['drafts'][0]
+        else:
+            draft = drafts[-1] if drafts else None
+        r.update(best=best, best_ambiguous=best is None and any(x['score_ambiguous'] for x in h),
+                 attempts=len(lanes), lanes=lanes, last_lane=lanes[-1], last_date=max(x['date'] for x in h),
                  pending=pending, causes=sorted(causes, key=lambda c: -causes[c])[:3], evidence=sorted(evidence),
-                 drafts=drafts[-3:], rank=(r['bytes'] or 0) * (100 - (best if best is not None else 0)),
-                 history=h)
+                 drafts=drafts, draft=draft, draft_ambiguous=draft is None and any(x['draft_ambiguous'] for x in h),
+                 rank=(r['bytes'] or 0) * (100 - (best if best is not None else 0)), history=h)
         out.append(r)
     out.sort(key=lambda r: -r['rank'])
     return out
+
+
+def short_draft(path):
+    return path[len('build/class-work/'):] if path.startswith('build/class-work/') else path
 
 
 def render(out, markdown):
     head = ['entry', 'bytes', 'best', 'tries', 'last', 'pending', 'causes', 'evidence', 'draft', 'rank']
     lines = []
     for r in out:
-        lines.append(['0x%06X' % r['entry'], format(r['bytes'], ','), ('%.2f' % r['best']) if r['best'] is not None else '-',
+        best = ('%.2f' % r['best']) if r['best'] is not None else ('?' if r['best_ambiguous'] else '-')
+        draft = short_draft(r['draft'])[-48:] if r['draft'] else ('?' if r['draft_ambiguous'] else '')
+        lines.append(['0x%06X' % r['entry'], format(r['bytes'], ','), best,
                       str(r['attempts']), r['last_lane'], 'yes' if r['pending'] else '', ' '.join(r['causes']),
-                      ' '.join(r['evidence']), (r['drafts'][-1] if r['drafts'] else '')[-48:], format(r['rank'] // 100, ',')])
+                      ' '.join(r['evidence']), draft, format(r['rank'] // 100, ',')])
     if markdown:
         s = ['| ' + ' | '.join(head) + ' |', '|' + '---|' * len(head)]
         s += ['| ' + ' | '.join(c.replace('|', '/') for c in cells) + ' |' for cells in lines]
@@ -141,6 +272,8 @@ def main():
     ap.add_argument('--treemap', type=Path, default=REPOSITORY / 'build/treemap.json', help='treemap.py --json output (bytes, status)')
     ap.add_argument('--json', type=Path, help='write the full index (with per-lane history) here')
     ap.add_argument('--markdown', type=Path, help='write the ranked table as markdown here')
+    ap.add_argument('--lanes-root', type=Path, default=REPOSITORY,
+                    help='checkout whose build/class-work/<lane>/ folders resolve bare draft names (default: this one)')
     ap.add_argument('--entry', help='print one row with its full history')
     ap.add_argument('--top', type=int, default=60, help='rows to print on stdout')
     args = ap.parse_args()
@@ -151,15 +284,17 @@ def main():
         treemap = d if isinstance(d, list) else d.get('functions', d)
     else:
         print('no treemap table at %s: bytes and status unknown, accepted rows not filtered' % args.treemap, file=sys.stderr)
-    out = build(text, treemap)
+    out = build(text, treemap, lane_resolver(args.lanes_root))
     if args.entry:
         e = int(args.entry, 16)
         for r in out:
             if r['entry'] == e:
-                print('0x%06X %s %s bytes, best %s, %d lanes, pending=%s, causes=%s, evidence=%s' % (
-                    e, r['name'], format(r['bytes'], ','), r['best'], r['attempts'], r['pending'], r['causes'], r['evidence']))
+                print('0x%06X %s %s bytes, best %s, %d lanes, pending=%s, causes=%s, evidence=%s, draft %s' % (
+                    e, r['name'], format(r['bytes'], ','), r['best'] if r['best'] is not None else ('?' if r['best_ambiguous'] else '-'),
+                    r['attempts'], r['pending'], r['causes'], r['evidence'], r['draft'] or ('?' if r['draft_ambiguous'] else '-')))
                 for x in r['history']:
-                    print('  %s %s %s  %s' % (x['date'], x['lane'], x['score'] if x['score'] is not None else '-', x['text'][:220]))
+                    print('  %s %s %s  %s' % (x['date'], x['lane'], x['score'] if x['score'] is not None else
+                                             ('?' if x['score_ambiguous'] else '-'), x['text'][:220]))
                 return
         print('no notes mention 0x%06X' % e)
         return
