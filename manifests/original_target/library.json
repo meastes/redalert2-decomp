@@ -10,7 +10,7 @@
    "name": "LIBCMT.LIB",
    "role": "VC6 SP3",
    "sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "members_used": 424
+   "members_used": 494
   },
   {
    "name": "LIBCMT.LIB",
@@ -22,7 +22,7 @@
    "name": "COMSUPP.LIB",
    "role": "VC6 RTM",
    "sha256": "8fa400883dcada21b59d9768d7b2d66426a2e646c95097f540ffe6724511ee95",
-   "members_used": 12
+   "members_used": 13
   }
  ],
  "regions": [
@@ -61,6 +61,27 @@
     }
    ],
    "sha256": "9ebeeb29c08b871af0a8ce436700429b32964ef003b8f2ffc0e0bb0efcb9965d"
+  },
+  {
+   "entry": "00781cd1",
+   "bytes": 27,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "typinfo.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [
+    "??8type_info@@QBEHABV0@@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 13,
+     "type": 20,
+     "resolved": 16446
+    }
+   ],
+   "sha256": "b3a0ba2a7b1fdce3ab65d95d70406eb884767005f05d6df0c07759548b3a85fc"
   },
   {
    "entry": "00781cec",
@@ -306,6 +327,77 @@
    "sha256": "663ba6aaa3b3b04e9853d090430ae5a1baafbeb5387e6f61d10835cc72459401"
   },
   {
+   "entry": "0078215e",
+   "bytes": 56,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fpinit.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [
+    "__cfltcvt_init"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 7893352
+    },
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 8581476
+    },
+    {
+     "offset": 11,
+     "type": 6,
+     "resolved": 7892498
+    },
+    {
+     "offset": 16,
+     "type": 6,
+     "resolved": 8581472
+    },
+    {
+     "offset": 22,
+     "type": 6,
+     "resolved": 8581480
+    },
+    {
+     "offset": 26,
+     "type": 6,
+     "resolved": 7892600
+    },
+    {
+     "offset": 32,
+     "type": 6,
+     "resolved": 8581484
+    },
+    {
+     "offset": 36,
+     "type": 6,
+     "resolved": 7892408
+    },
+    {
+     "offset": 42,
+     "type": 6,
+     "resolved": 8581488
+    },
+    {
+     "offset": 46,
+     "type": 6,
+     "resolved": 7892576
+    },
+    {
+     "offset": 51,
+     "type": 6,
+     "resolved": 8581492
+    }
+   ],
+   "sha256": "f3c0ed8d31faf2a74b4feb5287044fb91561c6f9c4c0bfe8e19f4bf3dcf24ee8"
+  },
+  {
    "entry": "007821b0",
    "bytes": 541,
    "archive": "LIBCMT.LIB",
@@ -482,6 +574,57 @@
    "sha256": "84d17e172ff5e6bce23b7837cc15439649f685d00b3cdff9cc07cae79a0a88f2"
   },
   {
+   "entry": "007825e8",
+   "bytes": 72,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "free.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_free"
+   ],
+   "relocations": [
+    {
+     "offset": 12,
+     "type": 20,
+     "resolved": 13966
+    },
+    {
+     "offset": 18,
+     "type": 20,
+     "resolved": 21583
+    },
+    {
+     "offset": 31,
+     "type": 20,
+     "resolved": 21613
+    },
+    {
+     "offset": 38,
+     "type": 20,
+     "resolved": 14037
+    },
+    {
+     "offset": 50,
+     "type": 20,
+     "resolved": 14025
+    },
+    {
+     "offset": 60,
+     "type": 6,
+     "resolved": 11712924
+    },
+    {
+     "offset": 66,
+     "type": 6,
+     "resolved": 7971432
+    }
+   ],
+   "sha256": "42f760d7b7177b4a1dd974c25a87c857440001d78cd21b3270ffda09de460b26"
+  },
+  {
    "entry": "00782630",
    "bytes": 18,
    "archive": "LIBCMT.LIB",
@@ -534,6 +677,83 @@
    "sha256": "b87944dacdea8a026e3c629745444f3f05fe6c5a182beb20c1bfccfc3a53cdc8"
   },
   {
+   "entry": "0078266e",
+   "bytes": 78,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "malloc.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [
+    "__heap_alloc"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 8581652
+    },
+    {
+     "offset": 17,
+     "type": 20,
+     "resolved": 13827
+    },
+    {
+     "offset": 23,
+     "type": 20,
+     "resolved": 22298
+    },
+    {
+     "offset": 32,
+     "type": 20,
+     "resolved": 13909
+    },
+    {
+     "offset": 65,
+     "type": 6,
+     "resolved": 11712924
+    },
+    {
+     "offset": 71,
+     "type": 6,
+     "resolved": 7971440
+    }
+   ],
+   "sha256": "9d274bb24ebad271e052b02f39b6140cc287cbb7c9f36754ca9fffe0c795f326"
+  },
+  {
+   "entry": "007826bc",
+   "bytes": 47,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fread.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_fread"
+   ],
+   "relocations": [
+    {
+     "offset": 8,
+     "type": 20,
+     "resolved": 7985
+    },
+    {
+     "offset": 25,
+     "type": 20,
+     "resolved": 18
+    },
+    {
+     "offset": 35,
+     "type": 20,
+     "resolved": 8040
+    }
+   ],
+   "sha256": "e690422800cdd762b740387766c1bfb4f9504c958fc8dd833796795ea480c448"
+  },
+  {
    "entry": "007826eb",
    "bytes": 232,
    "archive": "LIBCMT.LIB",
@@ -563,6 +783,37 @@
     }
    ],
    "sha256": "fd65a3cfb30c7b84ea60707f503bb5b8f8f903150867cdbd4372a0bc4e8cb44c"
+  },
+  {
+   "entry": "007827d3",
+   "bytes": 47,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fread.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_fread"
+   ],
+   "relocations": [
+    {
+     "offset": 8,
+     "type": 20,
+     "resolved": 7706
+    },
+    {
+     "offset": 25,
+     "type": 20,
+     "resolved": 18
+    },
+    {
+     "offset": 35,
+     "type": 20,
+     "resolved": 7761
+    }
+   ],
+   "sha256": "b1dc354cae9dabeb4ae4192595fd7734a3c88ce7f336465b13afd85468d7c2e3"
   },
   {
    "entry": "00782802",
@@ -685,6 +936,73 @@
     }
    ],
    "sha256": "8e762405f5faa4519e1a6863f59eb36f21acede3d53f52284d761599fea09285"
+  },
+  {
+   "entry": "0078298a",
+   "bytes": 18,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "onexit.obj",
+   "section_index": 1,
+   "section": ".text",
+   "symbols": [
+    "_atexit"
+   ],
+   "relocations": [
+    {
+     "offset": 5,
+     "type": 20,
+     "resolved": 4294967161
+    }
+   ],
+   "sha256": "f08b5f4550f61873da85812c9ed808ffb1b8d3a95f4c91123034d42c9cadc5e1"
+  },
+  {
+   "entry": "0078299c",
+   "bytes": 47,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "onexit.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [
+    "___onexitinit"
+   ],
+   "relocations": [
+    {
+     "offset": 6,
+     "type": 20,
+     "resolved": 4294966410
+    },
+    {
+     "offset": 14,
+     "type": 6,
+     "resolved": 11712952
+    },
+    {
+     "offset": 23,
+     "type": 20,
+     "resolved": 12785
+    },
+    {
+     "offset": 28,
+     "type": 6,
+     "resolved": 11712952
+    },
+    {
+     "offset": 37,
+     "type": 6,
+     "resolved": 11712952
+    },
+    {
+     "offset": 42,
+     "type": 6,
+     "resolved": 11712948
+    }
+   ],
+   "sha256": "e2e1c8a0856f510bd20757f9be103127537bc501ac363df2718fde9d85db3f1c"
   },
   {
    "entry": "007829d3",
@@ -1722,6 +2040,21 @@
    "sha256": "cd85d053ea31b7d2a9bdf9d0c4bcbcf21c444761c995a77852a080b61188c314"
   },
   {
+   "entry": "00783605",
+   "bytes": 29,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "wcslen.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_wcslen"
+   ],
+   "relocations": [],
+   "sha256": "66e3418a1b5d16894ce1d41355c902b4edcfab4f1a2d9781a8529990682ce603"
+  },
+  {
    "entry": "00783622",
    "bytes": 61,
    "archive": "LIBCMT.LIB",
@@ -2073,6 +2406,58 @@
     }
    ],
    "sha256": "6e1011dd034a6b2c3d860d6138562b390ea5f24f2dd86aa04b86531c307b5469"
+  },
+  {
+   "entry": "00783a14",
+   "bytes": 49,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fopen.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__fsopen"
+   ],
+   "relocations": [
+    {
+     "offset": 2,
+     "type": 20,
+     "resolved": 30236
+    },
+    {
+     "offset": 29,
+     "type": 20,
+     "resolved": 29841
+    },
+    {
+     "offset": 37,
+     "type": 20,
+     "resolved": 3086
+    }
+   ],
+   "sha256": "f3abe1270a2d0ef029cc1d015dad4976809ad9d29fe749bf8aa55bb028c177ec"
+  },
+  {
+   "entry": "00783a45",
+   "bytes": 19,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fopen.obj",
+   "section_index": 1,
+   "section": ".text",
+   "symbols": [
+    "_fopen"
+   ],
+   "relocations": [
+    {
+     "offset": 11,
+     "type": 20,
+     "resolved": 4294967232
+    }
+   ],
+   "sha256": "009e28bec388b5a3a6c6dd7d876ea8e0b3273502f59125715f63c1dd258be5b6"
   },
   {
    "entry": "00783a58",
@@ -2451,6 +2836,19 @@
    "sha256": "bb2f9ddfb06888e08583218d6e5661122c62cc070ee7c93cc2844fa662363bdf"
   },
   {
+   "entry": "00783e4c",
+   "bytes": 26,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "section_index": 15,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "b206e75e4cc36ca3fc0f2591db372bf78ed149fb28c4d7f7ebb054cf1f30af49"
+  },
+  {
    "entry": "00783e66",
    "bytes": 90,
    "archive": "LIBCMT.LIB",
@@ -2735,6 +3133,42 @@
    "sha256": "5085fa1398eaf1c1d89ee051b69e25f844a7c3a009160bd01bdbbf4cc790514b"
   },
   {
+   "entry": "0078439c",
+   "bytes": 47,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fflush.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_fflush"
+   ],
+   "relocations": [
+    {
+     "offset": 11,
+     "type": 20,
+     "resolved": 179
+    },
+    {
+     "offset": 21,
+     "type": 20,
+     "resolved": 580
+    },
+    {
+     "offset": 27,
+     "type": 20,
+     "resolved": 16
+    },
+    {
+     "offset": 35,
+     "type": 20,
+     "resolved": 648
+    }
+   ],
+   "sha256": "3aff6ba7b834a4733bfaef6843c13c090ceae4e9bdd17db19b7a49f4a29a226e"
+  },
+  {
    "entry": "007843cb",
    "bytes": 46,
    "archive": "LIBCMT.LIB",
@@ -2849,6 +3283,47 @@
     }
    ],
    "sha256": "d1fcb7ffa88bcc9b976dd19920bc4ba3657a1e90adf6c2d1c28d9805db7bf7b6"
+  },
+  {
+   "entry": "00784502",
+   "bytes": 59,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "vfprintf.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_vfprintf"
+   ],
+   "relocations": [
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 234
+    },
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 26874
+    },
+    {
+     "offset": 31,
+     "type": 20,
+     "resolved": 8208
+    },
+    {
+     "offset": 40,
+     "type": 20,
+     "resolved": 26990
+    },
+    {
+     "offset": 46,
+     "type": 20,
+     "resolved": 279
+    }
+   ],
+   "sha256": "e7cbb43d02a0b8785408218283218b59e19dff4add47dd024f6b71fefe09bec2"
   },
   {
    "entry": "0078453d",
@@ -2973,6 +3448,32 @@
    "sha256": "34851c8b827a12a2d3119d84ff6fa931a3b58138512330358338d93825d422f4"
   },
   {
+   "entry": "00784628",
+   "bytes": 35,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "_file.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [
+    "__lock_file2"
+   ],
+   "relocations": [
+    {
+     "offset": 14,
+     "type": 20,
+     "resolved": 5708
+    },
+    {
+     "offset": 30,
+     "type": 6,
+     "resolved": 7971292
+    }
+   ],
+   "sha256": "59ffb7ce21025e64b9cf6b3a12494f2971e863c277adf22822966e4d74be4496"
+  },
+  {
    "entry": "0078464b",
    "bytes": 47,
    "archive": "LIBCMT.LIB",
@@ -3007,6 +3508,32 @@
     }
    ],
    "sha256": "6602d8669fa85d3dae2e2334fc93668bc8dd704b95f8e094a87cedae6f76b13a"
+  },
+  {
+   "entry": "0078467a",
+   "bytes": 35,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "_file.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [
+    "__lock_file2"
+   ],
+   "relocations": [
+    {
+     "offset": 14,
+     "type": 20,
+     "resolved": 5723
+    },
+    {
+     "offset": 30,
+     "type": 6,
+     "resolved": 7971296
+    }
+   ],
+   "sha256": "5e6599cca012bde6d508ae06b94575099ca07611bb93c462007532447df9dde1"
   },
   {
    "entry": "007846aa",
@@ -3288,6 +3815,27 @@
    "sha256": "11fe55b47d3b3282ce368de09d5d36f9b9609daa6c7138dac3ab581b0acdf12e"
   },
   {
+   "entry": "00784aa8",
+   "bytes": 14,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "_wctype.obj",
+   "section_index": 6,
+   "section": ".text",
+   "symbols": [
+    "_iswspace"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 20,
+     "resolved": 28925
+    }
+   ],
+   "sha256": "40d1ca3ff9bc523a717b0333dc4b459b7e052488b00723ab90e6d6552b7eed9e"
+  },
+  {
    "entry": "00784ab6",
    "bytes": 14,
    "archive": "LIBCMT.LIB",
@@ -3349,6 +3897,27 @@
     }
    ],
    "sha256": "c315f785031b6e93ae04d52488ca9adbfeaf8d82bc5cb14a9a3c20cb47f4e936"
+  },
+  {
+   "entry": "00784ae6",
+   "bytes": 17,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "_wctype.obj",
+   "section_index": 10,
+   "section": ".text",
+   "symbols": [
+    "_iswgraph"
+   ],
+   "relocations": [
+    {
+     "offset": 10,
+     "type": 20,
+     "resolved": 28860
+    }
+   ],
+   "sha256": "4ec92d5ba0fcc46e98b19b6d591c926caf2da0425e227cbc2b22534a98c1d4fe"
   },
   {
    "entry": "00784af7",
@@ -3504,6 +4073,37 @@
    "sha256": "cf2ce676b0a31fba3fd6df43462014151f8fe2be5d15f82977e2068e0986a640"
   },
   {
+   "entry": "00784e11",
+   "bytes": 33,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getenv.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_getenv"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 3693
+    },
+    {
+     "offset": 13,
+     "type": 20,
+     "resolved": 16
+    },
+    {
+     "offset": 22,
+     "type": 20,
+     "resolved": 3772
+    }
+   ],
+   "sha256": "d2d84a7857ccc9adf3b14a8b685bc3df968c7b217bae849db854665d72dbfa9b"
+  },
+  {
    "entry": "00784e32",
    "bytes": 125,
    "archive": "LIBCMT.LIB",
@@ -3558,6 +4158,78 @@
     }
    ],
    "sha256": "d8afd2bbfdb7c0c6232811eedfdcf2704c899f5fa31a90bb6b62aeb82ef72fa4"
+  },
+  {
+   "entry": "00784eaf",
+   "bytes": 45,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "crt0dat.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__cinit"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 8580088
+    },
+    {
+     "offset": 12,
+     "type": 6,
+     "resolved": 8177796
+    },
+    {
+     "offset": 17,
+     "type": 6,
+     "resolved": 8177776
+    },
+    {
+     "offset": 22,
+     "type": 20,
+     "resolved": 266
+    },
+    {
+     "offset": 27,
+     "type": 6,
+     "resolved": 8177772
+    },
+    {
+     "offset": 32,
+     "type": 6,
+     "resolved": 8163328
+    },
+    {
+     "offset": 37,
+     "type": 20,
+     "resolved": 251
+    }
+   ],
+   "sha256": "3713e286b1661f8712f77bca0860df5dffde3c3f95f628aa65ba56090247ef45"
+  },
+  {
+   "entry": "00784edc",
+   "bytes": 17,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "crt0dat.obj",
+   "section_index": 1,
+   "section": ".text",
+   "symbols": [
+    "_exit"
+   ],
+   "relocations": [
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 51
+    }
+   ],
+   "sha256": "951d26fa2a645bfa4990b06ee69c44bdc91cf55c52faa9aa7deae09b70543589"
   },
   {
    "entry": "00784eed",
@@ -3727,6 +4399,19 @@
    "sha256": "7bfdfc4a41fc4194ba95cbfbd69acc3fe99c0bdaeff66e3f4679388ec5b2a4cf"
   },
   {
+   "entry": "00784fd3",
+   "bytes": 26,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "crt0dat.obj",
+   "section_index": 8,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "614c2d6418a410ec481cd0421a3de459f2e61b3861c7e2b7906f555cc009c801"
+  },
+  {
    "entry": "00784fed",
    "bytes": 19,
    "archive": "LIBCMT.LIB",
@@ -3795,6 +4480,27 @@
    "sha256": "9041b15004a47ae4fbb8488deb706b66b62f99df03cfc4ab5ac4f44286dd5546"
   },
   {
+   "entry": "00785049",
+   "bytes": 22,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "ieee87.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [
+    "__controlfp"
+   ],
+   "relocations": [
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 4294967224
+    }
+   ],
+   "sha256": "9ffb02f2ce6982c63e331e60204a6fde04b97dff50cf0018aec9f03368da2959"
+  },
+  {
    "entry": "0078505f",
    "bytes": 43,
    "archive": "LIBCMT.LIB",
@@ -3845,6 +4551,19 @@
    "symbols": [],
    "relocations": [],
    "sha256": "f7b93698cb00bf421cb8e5906d7d4e6948e8b0cecf3b662de09ec85edb65dc49"
+  },
+  {
+   "entry": "007851a5",
+   "bytes": 53,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "ieee87.obj",
+   "section_index": 7,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "47ec978d271475112b4ec23a5b6502e4da00c47bac6a7863e0e94aaa11b85032"
   },
   {
    "entry": "007851dc",
@@ -4164,6 +4883,37 @@
    "sha256": "c8611e3198477311c4dfeac419433cd488d2cbee66a8ff69b395bd740bf97064"
   },
   {
+   "entry": "00785678",
+   "bytes": 42,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rmdir.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__rmdir"
+   ],
+   "relocations": [
+    {
+     "offset": 6,
+     "type": 6,
+     "resolved": 7971112
+    },
+    {
+     "offset": 16,
+     "type": 6,
+     "resolved": 7971316
+    },
+    {
+     "offset": 30,
+     "type": 20,
+     "resolved": 16913
+    }
+   ],
+   "sha256": "7b8bd11f137356d4137b2858a515f871f99b1bf03c505294f897366be996606c"
+  },
+  {
    "entry": "007856ad",
    "bytes": 126,
    "archive": "LIBCMT.LIB",
@@ -4412,6 +5162,32 @@
     }
    ],
    "sha256": "f1a40bf348a4696a87aed34f28510c13949b91ba8b003d858b3557e386ede7ee"
+  },
+  {
+   "entry": "007858af",
+   "bytes": 25,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "ctime.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_ctime"
+   ],
+   "relocations": [
+    {
+     "offset": 5,
+     "type": 20,
+     "resolved": 34278
+    },
+    {
+     "offset": 16,
+     "type": 20,
+     "resolved": 34025
+    }
+   ],
+   "sha256": "4f0e31368264f396deb352ad5375128dc71e16a865370a44d8803f106fd8e46a"
   },
   {
    "entry": "007858d0",
@@ -4744,6 +5520,47 @@
     }
    ],
    "sha256": "c8e47aabf2f287ad593fdd9081c3548bd95168820c20de5dfe008d6f69df26a8"
+  },
+  {
+   "entry": "00785bf1",
+   "bytes": 41,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "mlock.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__mtinitlocks"
+   ],
+   "relocations": [
+    {
+     "offset": 3,
+     "type": 6,
+     "resolved": 7971304
+    },
+    {
+     "offset": 9,
+     "type": 6,
+     "resolved": 8580988
+    },
+    {
+     "offset": 17,
+     "type": 6,
+     "resolved": 8580972
+    },
+    {
+     "offset": 25,
+     "type": 6,
+     "resolved": 8580956
+    },
+    {
+     "offset": 33,
+     "type": 6,
+     "resolved": 8580924
+    }
+   ],
+   "sha256": "642cfb601279a3fdd2b87062dda9fc11c747cc7e3f4c804405957ce928a3ad78"
   },
   {
    "entry": "00785c1a",
@@ -5512,6 +6329,47 @@
    "sha256": "51ff513d7e01e6fe055c483114d0a8573980de4590a0c8fdb6ae2a3087ae50ae"
   },
   {
+   "entry": "007863ca",
+   "bytes": 83,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "setlocal.obj",
+   "section_index": 7,
+   "section": ".text",
+   "symbols": [
+    "___lc_lctostr"
+   ],
+   "relocations": [
+    {
+     "offset": 11,
+     "type": 20,
+     "resolved": 29447
+    },
+    {
+     "offset": 28,
+     "type": 6,
+     "resolved": 8189744
+    },
+    {
+     "offset": 39,
+     "type": 20,
+     "resolved": 4294967012
+    },
+    {
+     "offset": 64,
+     "type": 6,
+     "resolved": 8240708
+    },
+    {
+     "offset": 75,
+     "type": 20,
+     "resolved": 4294966976
+    }
+   ],
+   "sha256": "56c8f0eafd7a8aba78cc48979a9f2fce4d5be883b54a980f232a9efb4cb065c6"
+  },
+  {
    "entry": "0078641d",
    "bytes": 280,
    "archive": "LIBCMT.LIB",
@@ -5859,6 +6717,27 @@
     }
    ],
    "sha256": "9bfcb6c87e82e7113264f86175a304743888349564947d1146fe8ecdccf6f9ee"
+  },
+  {
+   "entry": "00786d3f",
+   "bytes": 18,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fp8.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__setdefaultprecision"
+   ],
+   "relocations": [
+    {
+     "offset": 11,
+     "type": 20,
+     "resolved": 4294959867
+    }
+   ],
+   "sha256": "7135ff9c1e93b0333b8c70520eaa28b03ee2aa1435de78eefa90f4666707e8f1"
   },
   {
    "entry": "00786d51",
@@ -6242,6 +7121,30 @@
     }
    ],
    "sha256": "44b7a47fd466967e627031bbdcb26ae436194d897e0dcf10dddaa1fd2e23fabf"
+  },
+  {
+   "entry": "007871b9",
+   "bytes": 37,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "cvt.obj",
+   "section_index": 10,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 16,
+     "type": 20,
+     "resolved": 9827
+    },
+    {
+     "offset": 27,
+     "type": 20,
+     "resolved": 4294951096
+    }
+   ],
+   "sha256": "fe4bba584fd67933fde96265c19d8ab9bb745e842a1dcdb9740723c19b6acd2f"
   },
   {
    "entry": "007871e0",
@@ -6732,6 +7635,57 @@
     }
    ],
    "sha256": "1c88e52450160c9091aa04f8c119642fd78a63f7a485f2e3a2f59e42e0f93a08"
+  },
+  {
+   "entry": "00787a0f",
+   "bytes": 62,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "sbheap.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [
+    "___sbh_heap_init"
+   ],
+   "relocations": [
+    {
+     "offset": 9,
+     "type": 6,
+     "resolved": 11712924
+    },
+    {
+     "offset": 15,
+     "type": 6,
+     "resolved": 7971440
+    },
+    {
+     "offset": 22,
+     "type": 6,
+     "resolved": 11712920
+    },
+    {
+     "offset": 31,
+     "type": 6,
+     "resolved": 11712912
+    },
+    {
+     "offset": 38,
+     "type": 6,
+     "resolved": 11712916
+    },
+    {
+     "offset": 46,
+     "type": 6,
+     "resolved": 11712908
+    },
+    {
+     "offset": 52,
+     "type": 6,
+     "resolved": 11712900
+    }
+   ],
+   "sha256": "c46294839192f847e9bde7066c769d991d9f31c5bd13026e941a7389d78e7c39"
   },
   {
    "entry": "00787a4d",
@@ -7282,6 +8236,27 @@
    "sha256": "3f2f036dbde195721c00a7ec934ec40e03a0a77f79c7041ba6c5b7129963d35f"
   },
   {
+   "entry": "00788978",
+   "bytes": 27,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "handler.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [
+    "__callnewh"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 11710656
+    }
+   ],
+   "sha256": "193040d69880b00ccd8b17bf761580dca8ce933d684a240c0428816ab826969c"
+  },
+  {
    "entry": "00788993",
    "bytes": 220,
    "archive": "LIBCMT.LIB",
@@ -7316,6 +8291,57 @@
     }
    ],
    "sha256": "826b412301bbfd1f29d2587f177c149b638822f42412675bdacc40d479ca18c2"
+  },
+  {
+   "entry": "00788a6f",
+   "bytes": 101,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "lseek.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__lseek"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 11712896
+    },
+    {
+     "offset": 26,
+     "type": 6,
+     "resolved": 11712640
+    },
+    {
+     "offset": 43,
+     "type": 20,
+     "resolved": 37216
+    },
+    {
+     "offset": 57,
+     "type": 20,
+     "resolved": 40
+    },
+    {
+     "offset": 65,
+     "type": 20,
+     "resolved": 37289
+    },
+    {
+     "offset": 78,
+     "type": 20,
+     "resolved": 3677
+    },
+    {
+     "offset": 89,
+     "type": 20,
+     "resolved": 3675
+    }
+   ],
+   "sha256": "0565449848bcc18aeeb30f65d4000204b34e74c411b93f6d776fa5131f3f4f2c"
   },
   {
    "entry": "00788ad4",
@@ -7628,6 +8654,57 @@
     }
    ],
    "sha256": "5a2aa6e1084a4b762ee242ba3147e18186b04d84ef3e892a5f3c5b5e0379bb81"
+  },
+  {
+   "entry": "00788fe5",
+   "bytes": 101,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "lseek.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__lseek"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 11712896
+    },
+    {
+     "offset": 26,
+     "type": 6,
+     "resolved": 11712640
+    },
+    {
+     "offset": 43,
+     "type": 20,
+     "resolved": 35818
+    },
+    {
+     "offset": 57,
+     "type": 20,
+     "resolved": 40
+    },
+    {
+     "offset": 65,
+     "type": 20,
+     "resolved": 35891
+    },
+    {
+     "offset": 78,
+     "type": 20,
+     "resolved": 2279
+    },
+    {
+     "offset": 89,
+     "type": 20,
+     "resolved": 2277
+    }
+   ],
+   "sha256": "3b987d21dab5663ad963dee71c761f6a9e827019cfb4e4f345a57275ef65695c"
   },
   {
    "entry": "0078904a",
@@ -8036,6 +9113,185 @@
     }
    ],
    "sha256": "6aa4fa49453bc3eb6469cba60b3a0423a794823b1e433be9aaff5ad6a35e9d92"
+  },
+  {
+   "entry": "00789616",
+   "bytes": 84,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "tidtable.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__mtinit"
+   ],
+   "relocations": [
+    {
+     "offset": 2,
+     "type": 20,
+     "resolved": 4294952405
+    },
+    {
+     "offset": 8,
+     "type": 6,
+     "resolved": 7971500
+    },
+    {
+     "offset": 16,
+     "type": 6,
+     "resolved": 8582200
+    },
+    {
+     "offset": 27,
+     "type": 20,
+     "resolved": 8143
+    },
+    {
+     "offset": 42,
+     "type": 6,
+     "resolved": 8582200
+    },
+    {
+     "offset": 48,
+     "type": 6,
+     "resolved": 7971496
+    },
+    {
+     "offset": 58,
+     "type": 20,
+     "resolved": 52
+    },
+    {
+     "offset": 65,
+     "type": 6,
+     "resolved": 7971268
+    }
+   ],
+   "sha256": "b66001c2cb251c1cfbd96cbd95de7df41775a1c7009fd9d2f75c0aaf0512c5cc"
+  },
+  {
+   "entry": "0078966a",
+   "bytes": 30,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "tidtable.obj",
+   "section_index": 1,
+   "section": ".text",
+   "symbols": [
+    "__mtterm"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 20,
+     "resolved": 4294952363
+    },
+    {
+     "offset": 6,
+     "type": 6,
+     "resolved": 8582200
+    },
+    {
+     "offset": 18,
+     "type": 6,
+     "resolved": 7971648
+    },
+    {
+     "offset": 24,
+     "type": 6,
+     "resolved": 8582200
+    }
+   ],
+   "sha256": "904ddff38d64e7b538eba25c1fb0da157e927bdb51029fc836b317e04a3fb81e"
+  },
+  {
+   "entry": "00789688",
+   "bytes": 19,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "tidtable.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [
+    "__initptd"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 8583176
+    }
+   ],
+   "sha256": "c28a0f2eac7f1c4e35b35f117c6f5a2d450b6beecbed13bf99db5cd2680b5fa8"
+  },
+  {
+   "entry": "0078969b",
+   "bytes": 103,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "tidtable.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [
+    "__getptd"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 6,
+     "resolved": 7971316
+    },
+    {
+     "offset": 10,
+     "type": 6,
+     "resolved": 8582200
+    },
+    {
+     "offset": 18,
+     "type": 6,
+     "resolved": 7971504
+    },
+    {
+     "offset": 33,
+     "type": 20,
+     "resolved": 8004
+    },
+    {
+     "offset": 48,
+     "type": 6,
+     "resolved": 8582200
+    },
+    {
+     "offset": 54,
+     "type": 6,
+     "resolved": 7971496
+    },
+    {
+     "offset": 64,
+     "type": 20,
+     "resolved": 4294967209
+    },
+    {
+     "offset": 71,
+     "type": 6,
+     "resolved": 7971268
+    },
+    {
+     "offset": 86,
+     "type": 20,
+     "resolved": 4294952115
+    },
+    {
+     "offset": 94,
+     "type": 6,
+     "resolved": 7971512
+    }
+   ],
+   "sha256": "b56e89772b49ba928705464626d8f59a169df915725650af8c6c0ba21f93d647"
   },
   {
    "entry": "00789702",
@@ -8691,6 +9947,49 @@
    "sha256": "66d417aa241f24f9457c26523e55db076d8e6e28a00d33bbaf45cf916149a9db"
   },
   {
+   "entry": "0078a413",
+   "bytes": 23,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "input.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 16,
+     "type": 20,
+     "resolved": 32801
+    }
+   ],
+   "sha256": "4d0a55e795e34fd3ae27e825c78c49c59e69c31367c2c89dede7ac12c7284b9b"
+  },
+  {
+   "entry": "0078a42a",
+   "bytes": 36,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "input.obj",
+   "section_index": 4,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 13,
+     "type": 20,
+     "resolved": 4294967230
+    },
+    {
+     "offset": 21,
+     "type": 20,
+     "resolved": 4294936478
+    }
+   ],
+   "sha256": "3f2312bb5c012f46ca267a4a562be417356cde470a914d25156cc5a9e197dee1"
+  },
+  {
    "entry": "0078a44e",
    "bytes": 1869,
    "archive": "LIBCMT.LIB",
@@ -8922,6 +10221,25 @@
    "sha256": "8286f550ee834be7bb60ad2c05a3aaa8f5ea3f4d90cdcc0ea708d54f8da632f2"
   },
   {
+   "entry": "0078ab9b",
+   "bytes": 32,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "woutput.obj",
+   "section_index": 1,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 1712
+    }
+   ],
+   "sha256": "ccb0449d949f8112040485da9c00426aeb40772c8dd2ad07450c00477aacce03"
+  },
+  {
    "entry": "0078abbb",
    "bytes": 49,
    "archive": "LIBCMT.LIB",
@@ -9004,6 +10322,57 @@
     }
    ],
    "sha256": "f8e06b9d66bec01fba99e58bb3e57f05f53a7ac0bdb2fcc36323a2da6039566e"
+  },
+  {
+   "entry": "0078ad04",
+   "bytes": 93,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "close.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__close"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 11712896
+    },
+    {
+     "offset": 26,
+     "type": 6,
+     "resolved": 11712640
+    },
+    {
+     "offset": 43,
+     "type": 20,
+     "resolved": 28363
+    },
+    {
+     "offset": 49,
+     "type": 20,
+     "resolved": 40
+    },
+    {
+     "offset": 57,
+     "type": 20,
+     "resolved": 28444
+    },
+    {
+     "offset": 70,
+     "type": 20,
+     "resolved": 4294962128
+    },
+    {
+     "offset": 81,
+     "type": 20,
+     "resolved": 4294962126
+    }
+   ],
+   "sha256": "5c527566100ec5ecdda637a0ea3e9c33c94b946ad0950914ad4f5707dd207ccd"
   },
   {
    "entry": "0078ad61",
@@ -9137,6 +10506,27 @@
     }
    ],
    "sha256": "b51029451e02baf16b663652a4830524d2d53b9265d5e988ddc9088f09960901"
+  },
+  {
+   "entry": "0078ae9c",
+   "bytes": 42,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "_sftbuf.obj",
+   "section_index": 1,
+   "section": ".text",
+   "symbols": [
+    "__ftbuf"
+   ],
+   "relocations": [
+    {
+     "offset": 20,
+     "type": 20,
+     "resolved": 4294939973
+    }
+   ],
+   "sha256": "220b76f59abf7aac779372e9964d981216f3df4dcf3414fb203c9f6d4034ffa3"
   },
   {
    "entry": "0078aec6",
@@ -10233,6 +11623,37 @@
     }
    ],
    "sha256": "a8cf0d27cbebfa6cf1cff2f63a9c737f60b6d102b8bdab0d27f9ad9df6d89443"
+  },
+  {
+   "entry": "0078bafa",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "mbctype.obj",
+   "section_index": 6,
+   "section": ".text",
+   "symbols": [
+    "___initmbctable"
+   ],
+   "relocations": [
+    {
+     "offset": 2,
+     "type": 6,
+     "resolved": 11712944
+    },
+    {
+     "offset": 12,
+     "type": 20,
+     "resolved": 4294966280
+    },
+    {
+     "offset": 19,
+     "type": 6,
+     "resolved": 11712944
+    }
+   ],
+   "sha256": "c316f1e874f5704808471fd471af0d1856e4981be0d952db0e42031b4e0941ea"
   },
   {
    "entry": "0078bb16",
@@ -11737,6 +13158,21 @@
    "sha256": "c3fcbfa233066aae8f3949cfa5b0ae410e8900821d9b6dd6dc63e3cf0e6f7b1f"
   },
   {
+   "entry": "0078d52d",
+   "bytes": 90,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "util.obj",
+   "section_index": 4,
+   "section": ".text",
+   "symbols": [
+    "__sptype"
+   ],
+   "relocations": [],
+   "sha256": "099782e54ee520becf9246bf30e07a85079d97aa3a8b96f62587347469fe0e6d"
+  },
+  {
    "entry": "0078d587",
    "bytes": 193,
    "archive": "LIBCMT.LIB",
@@ -11905,6 +13341,58 @@
    "sha256": "a7a4fb9c87b6e4ed95770fb39cd91c0474782023fccab0566e6fdb5c1e3e69da"
   },
   {
+   "entry": "0078d816",
+   "bytes": 43,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "mbsdup.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__mbsdup"
+   ],
+   "relocations": [
+    {
+     "offset": 11,
+     "type": 20,
+     "resolved": 4294950923
+    },
+    {
+     "offset": 18,
+     "type": 20,
+     "resolved": 4294921732
+    },
+    {
+     "offset": 31,
+     "type": 20,
+     "resolved": 4294966951
+    }
+   ],
+   "sha256": "b338a026fbd26e6edf329392537f036f1d96cb64e30f096c813533e8ec8a3f97"
+  },
+  {
+   "entry": "0078d841",
+   "bytes": 23,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "open.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__open"
+   ],
+   "relocations": [
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 4
+    }
+   ],
+   "sha256": "81a6f29a9d93c5bea70fdb7a2b1f8970da7d25ee872f61e95693d99d1e489688"
+  },
+  {
    "entry": "0078d858",
    "bytes": 719,
    "archive": "LIBCMT.LIB",
@@ -12058,6 +13546,48 @@
    "symbols": [],
    "relocations": [],
    "sha256": "54f936226be9f51f7f9ab44240f5dbece70134c0aa2cd2fcbf98441ee7e33527"
+  },
+  {
+   "entry": "0078dbb0",
+   "bytes": 42,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "xtoa.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [
+    "__ltoa"
+   ],
+   "relocations": [
+    {
+     "offset": 30,
+     "type": 20,
+     "resolved": 4294967170
+    }
+   ],
+   "sha256": "17e5830c77e87ac0f0625ff8c3c173737385d543f49007e31cc1bf931ee73ba1"
+  },
+  {
+   "entry": "0078dbda",
+   "bytes": 27,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "xtoa.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [
+    "__ultoa"
+   ],
+   "relocations": [
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 4294967143
+    }
+   ],
+   "sha256": "c263236314c2328e9fb379e8849476bc76f2d91f31c4faaf72afd28382bea4b6"
   },
   {
    "entry": "0078dbf5",
@@ -12779,6 +14309,47 @@
     }
    ],
    "sha256": "decc67019080a50f5022c7a3ca7365c4328ce4930c9a3155b551f95f8f3c64d6"
+  },
+  {
+   "entry": "0078e606",
+   "bytes": 57,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "crt0msg.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__FF_MSGBANNER"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 11710504
+    },
+    {
+     "offset": 16,
+     "type": 6,
+     "resolved": 8580916
+    },
+    {
+     "offset": 29,
+     "type": 20,
+     "resolved": 24
+    },
+    {
+     "offset": 34,
+     "type": 6,
+     "resolved": 11710996
+    },
+    {
+     "offset": 51,
+     "type": 20,
+     "resolved": 2
+    }
+   ],
+   "sha256": "ac3500692f8def4d07432dd98d58470b11040c3adb0a51c15cea1f8979814c56"
   },
   {
    "entry": "0078e63f",
@@ -14104,6 +15675,60 @@
    "sha256": "c57ba510ab893ba4ce81bf4742c9eed6286cefc0743a750f93c9156f1532136f"
   },
   {
+   "entry": "0078f162",
+   "bytes": 78,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "initmon.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 13,
+     "type": 6,
+     "resolved": 11711368
+    },
+    {
+     "offset": 21,
+     "type": 20,
+     "resolved": 4294915181
+    },
+    {
+     "offset": 29,
+     "type": 20,
+     "resolved": 4294915173
+    },
+    {
+     "offset": 37,
+     "type": 20,
+     "resolved": 4294915165
+    },
+    {
+     "offset": 45,
+     "type": 20,
+     "resolved": 4294915157
+    },
+    {
+     "offset": 53,
+     "type": 20,
+     "resolved": 4294915149
+    },
+    {
+     "offset": 61,
+     "type": 20,
+     "resolved": 4294915141
+    },
+    {
+     "offset": 69,
+     "type": 20,
+     "resolved": 4294915133
+    }
+   ],
+   "sha256": "23be9980372a2adb585d247328a7880c95a78e1bfca2a658a3f7b4853225058b"
+  },
+  {
    "entry": "0078f1b0",
    "bytes": 581,
    "archive": "LIBCMT.LIB",
@@ -15016,6 +16641,55 @@
    "sha256": "e9d4883686aa6c463eb0d4f7a8a501b0eee96b2bc327cd4a3fb8f496b87199df"
   },
   {
+   "entry": "0078f9ad",
+   "bytes": 55,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getqloc.obj",
+   "section_index": 6,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 2,
+     "type": 6,
+     "resolved": 11711084
+    },
+    {
+     "offset": 7,
+     "type": 20,
+     "resolved": 4294942328
+    },
+    {
+     "offset": 23,
+     "type": 6,
+     "resolved": 7928292
+    },
+    {
+     "offset": 28,
+     "type": 6,
+     "resolved": 11711068
+    },
+    {
+     "offset": 34,
+     "type": 6,
+     "resolved": 7971592
+    },
+    {
+     "offset": 40,
+     "type": 6,
+     "resolved": 11711088
+    },
+    {
+     "offset": 49,
+     "type": 6,
+     "resolved": 11711088
+    }
+   ],
+   "sha256": "b768b0157844b5ecc741d284e2be933abe6e05c1efcb7c1fb842f938f311ea25"
+  },
+  {
    "entry": "0078f9e4",
    "bytes": 134,
    "archive": "LIBCMT.LIB",
@@ -15083,6 +16757,40 @@
     }
    ],
    "sha256": "a583db476dde916dc824d3c111b683a0b3946fd640fcc0324482b89557e2e66d"
+  },
+  {
+   "entry": "0078fa6a",
+   "bytes": 26,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getqloc.obj",
+   "section_index": 8,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 3,
+     "type": 6,
+     "resolved": 11711088
+    },
+    {
+     "offset": 11,
+     "type": 6,
+     "resolved": 7971596
+    },
+    {
+     "offset": 16,
+     "type": 6,
+     "resolved": 11711092
+    },
+    {
+     "offset": 21,
+     "type": 6,
+     "resolved": 11711064
+    }
+   ],
+   "sha256": "e945a625f5891bd2a43c566e54ab3586f4cd3760f0278810195e4dd2c429230a"
   },
   {
    "entry": "0078fa84",
@@ -15202,6 +16910,25 @@
    "sha256": "f9d994a4ce03927fc0ebe666264301ce891fe0d3f48383f0efdf5d2bcda56e9b"
   },
   {
+   "entry": "0078fb6b",
+   "bytes": 54,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getqloc.obj",
+   "section_index": 12,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 28,
+     "type": 6,
+     "resolved": 7971196
+    }
+   ],
+   "sha256": "890850ec0157fbd7fe8b87bdaa46ccd4193acfce502b2c0d5923db9607aa3d4f"
+  },
+  {
    "entry": "0078fba1",
    "bytes": 230,
    "archive": "LIBCMT.LIB",
@@ -15279,6 +17006,19 @@
    "sha256": "717caef73c36ca964ff80094b78954bc01803ffe5aa988af83afa94f124e971e"
   },
   {
+   "entry": "0078fcc0",
+   "bytes": 33,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getqloc.obj",
+   "section_index": 15,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "86fb0c65b584a527d98cd5da605d701b65386bbe3f836f12251b09bd9c28534f"
+  },
+  {
    "entry": "0078fcf0",
    "bytes": 88,
    "archive": "LIBCMT.LIB",
@@ -15292,6 +17032,57 @@
    ],
    "relocations": [],
    "sha256": "2af9ec6db955aa74b3de79ebe2752b3fa148e02935ac40304eb9ffc13ccf0d2c"
+  },
+  {
+   "entry": "0078fd48",
+   "bytes": 101,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "lseek.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__lseek"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 11712896
+    },
+    {
+     "offset": 26,
+     "type": 6,
+     "resolved": 11712640
+    },
+    {
+     "offset": 43,
+     "type": 20,
+     "resolved": 7815
+    },
+    {
+     "offset": 57,
+     "type": 20,
+     "resolved": 40
+    },
+    {
+     "offset": 65,
+     "type": 20,
+     "resolved": 7888
+    },
+    {
+     "offset": 78,
+     "type": 20,
+     "resolved": 4294941572
+    },
+    {
+     "offset": 89,
+     "type": 20,
+     "resolved": 4294941570
+    }
+   ],
+   "sha256": "159d10aa174e3a4c46d956ede18db4090d7048c7feb83150e5106e675fe1fb85"
   },
   {
    "entry": "0078fdad",
@@ -15723,6 +17514,32 @@
    "sha256": "2c5b1d37f50cb932041f154e931faf04b6f12f64aab8d87fac070d9c15fcc7b5"
   },
   {
+   "entry": "007903d1",
+   "bytes": 45,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "intrncvt.obj",
+   "section_index": 11,
+   "section": ".text",
+   "symbols": [
+    "__atodbl"
+   ],
+   "relocations": [
+    {
+     "offset": 24,
+     "type": 20,
+     "resolved": 6619
+    },
+    {
+     "offset": 36,
+     "type": 20,
+     "resolved": 4294967090
+    }
+   ],
+   "sha256": "1ec8a0494b0a55fcf9957384f482606b6a62c830312b760b0c885c157fa7e668"
+  },
+  {
    "entry": "007903fe",
    "bytes": 46,
    "archive": "LIBCMT.LIB",
@@ -15747,6 +17564,32 @@
     }
    ],
    "sha256": "91aae307c04cbb9f6f4be903b707f1df4915bdae4b76bed88be3d73704eb1f12"
+  },
+  {
+   "entry": "0079042c",
+   "bytes": 45,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "intrncvt.obj",
+   "section_index": 11,
+   "section": ".text",
+   "symbols": [
+    "__atodbl"
+   ],
+   "relocations": [
+    {
+     "offset": 24,
+     "type": 20,
+     "resolved": 6528
+    },
+    {
+     "offset": 36,
+     "type": 20,
+     "resolved": 4294967021
+    }
+   ],
+   "sha256": "fddda6e975703a2ec82730a9f658be863b40a58b20e25206c95bc010faf4755e"
   },
   {
    "entry": "00790459",
@@ -15819,6 +17662,127 @@
    ],
    "relocations": [],
    "sha256": "4032b729187a5ee2f32cc4785d18fdc9fafcf77e6af6ef954d977201f0743553"
+  },
+  {
+   "entry": "007905f0",
+   "bytes": 3467,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "adj_fdiv.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_fdiv_main_routine"
+   ],
+   "relocations": [
+    {
+     "offset": 40,
+     "type": 6,
+     "resolved": 8585424
+    },
+    {
+     "offset": 110,
+     "type": 6,
+     "resolved": 8585440
+    },
+    {
+     "offset": 118,
+     "type": 6,
+     "resolved": 8585440
+    },
+    {
+     "offset": 133,
+     "type": 6,
+     "resolved": 8585444
+    },
+    {
+     "offset": 141,
+     "type": 6,
+     "resolved": 8585444
+    },
+    {
+     "offset": 248,
+     "type": 6,
+     "resolved": 8585448
+    },
+    {
+     "offset": 288,
+     "type": 6,
+     "resolved": 8585518
+    },
+    {
+     "offset": 2085,
+     "type": 6,
+     "resolved": 8585452
+    },
+    {
+     "offset": 2409,
+     "type": 6,
+     "resolved": 8585500
+    },
+    {
+     "offset": 2436,
+     "type": 6,
+     "resolved": 8585508
+    },
+    {
+     "offset": 2517,
+     "type": 6,
+     "resolved": 8585484
+    },
+    {
+     "offset": 2678,
+     "type": 6,
+     "resolved": 8585476
+    },
+    {
+     "offset": 2688,
+     "type": 6,
+     "resolved": 8585476
+    },
+    {
+     "offset": 2722,
+     "type": 6,
+     "resolved": 8585476
+    },
+    {
+     "offset": 2781,
+     "type": 6,
+     "resolved": 8585452
+    },
+    {
+     "offset": 3105,
+     "type": 6,
+     "resolved": 8585500
+    },
+    {
+     "offset": 3132,
+     "type": 6,
+     "resolved": 8585508
+    },
+    {
+     "offset": 3213,
+     "type": 6,
+     "resolved": 8585484
+    },
+    {
+     "offset": 3377,
+     "type": 6,
+     "resolved": 8585476
+    },
+    {
+     "offset": 3387,
+     "type": 6,
+     "resolved": 8585476
+    },
+    {
+     "offset": 3421,
+     "type": 6,
+     "resolved": 8585476
+    }
+   ],
+   "sha256": "964a9547f4283faa25a053fb5c8399333aa80c7ce0e9900c195e7fa15e704ea3"
   },
   {
    "entry": "0079137b",
@@ -16299,6 +18263,42 @@
    "sha256": "75d752761ccfb787fea371de3cb7ed8c793f6f012ed253021be0414cd9bd62cc"
   },
   {
+   "entry": "00791b15",
+   "bytes": 66,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "osfinfo.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [
+    "__get_osfhandle"
+   ],
+   "relocations": [
+    {
+     "offset": 6,
+     "type": 6,
+     "resolved": 11712896
+    },
+    {
+     "offset": 26,
+     "type": 6,
+     "resolved": 11712640
+    },
+    {
+     "offset": 44,
+     "type": 20,
+     "resolved": 4294933977
+    },
+    {
+     "offset": 55,
+     "type": 20,
+     "resolved": 4294933975
+    }
+   ],
+   "sha256": "866f68c7ec950fb29f77b3bd92fb05476e54acb90a310b6506ee23db13354d8b"
+  },
+  {
    "entry": "00791b57",
    "bytes": 167,
    "archive": "LIBCMT.LIB",
@@ -16404,6 +18404,32 @@
     }
    ],
    "sha256": "18969168eb2dad5ca57f6cdcd940a759b0f0625f6f13dfa3878e14e148b1e5fb"
+  },
+  {
+   "entry": "00791c5d",
+   "bytes": 34,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "osfinfo.obj",
+   "section_index": 6,
+   "section": ".text",
+   "symbols": [
+    "__unlock_fhandle"
+   ],
+   "relocations": [
+    {
+     "offset": 18,
+     "type": 6,
+     "resolved": 11712640
+    },
+    {
+     "offset": 29,
+     "type": 6,
+     "resolved": 7971296
+    }
+   ],
+   "sha256": "f6c49103cf81f6db8ccff50447fd36c553391f63c2f9aa82ae96e6127da20e2d"
   },
   {
    "entry": "00791c7f",
@@ -16856,6 +18882,37 @@
    "sha256": "04614067463d9a7345e7de2955a0c9fb5906c602499fb5df7f220ae231db613b"
   },
   {
+   "entry": "0079241f",
+   "bytes": 41,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "ungetc.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "_ungetc"
+   ],
+   "relocations": [
+    {
+     "offset": 6,
+     "type": 20,
+     "resolved": 4294910416
+    },
+    {
+     "offset": 19,
+     "type": 20,
+     "resolved": 18
+    },
+    {
+     "offset": 30,
+     "type": 20,
+     "resolved": 4294910474
+    }
+   ],
+   "sha256": "617b0e3e07bcd0ab325f056361dbf45280ccbd2fba2b6fa49e057a8c39a87d99"
+  },
+  {
    "entry": "00792448",
    "bytes": 110,
    "archive": "LIBCMT.LIB",
@@ -16875,6 +18932,52 @@
     }
    ],
    "sha256": "65766ca09415602a929818a4ada67d9dacf71effad4d667cce1654754a0a8766"
+  },
+  {
+   "entry": "007924b6",
+   "bytes": 46,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "tzset.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "___tzset"
+   ],
+   "relocations": [
+    {
+     "offset": 2,
+     "type": 6,
+     "resolved": 11711288
+    },
+    {
+     "offset": 12,
+     "type": 20,
+     "resolved": 4294916032
+    },
+    {
+     "offset": 18,
+     "type": 6,
+     "resolved": 11711288
+    },
+    {
+     "offset": 27,
+     "type": 20,
+     "resolved": 37
+    },
+    {
+     "offset": 33,
+     "type": 6,
+     "resolved": 11711288
+    },
+    {
+     "offset": 40,
+     "type": 20,
+     "resolved": 4294916101
+    }
+   ],
+   "sha256": "5ed647b1e85980cc8270065e6f2a47222f07f9bd4be827df7bcb5eb924fb980f"
   },
   {
    "entry": "007924e4",
@@ -17210,6 +19313,37 @@
     }
    ],
    "sha256": "18acbf682822c00b0b38bf574209b79b3cbbd17e5675eb3652b1781e3619bf49"
+  },
+  {
+   "entry": "00792781",
+   "bytes": 33,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "tzset.obj",
+   "section_index": 3,
+   "section": ".text",
+   "symbols": [
+    "__isindst"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 4294915325
+    },
+    {
+     "offset": 13,
+     "type": 20,
+     "resolved": 16
+    },
+    {
+     "offset": 22,
+     "type": 20,
+     "resolved": 4294915404
+    }
+   ],
+   "sha256": "965782cb6008949cca768aed44581b760abd1d100691ba93d5aad6d08cd16301"
   },
   {
    "entry": "007927a2",
@@ -17696,6 +19830,142 @@
     }
    ],
    "sha256": "1a94772db4598714d1075367c7ce8ec81a891136459d2dbb30cfa38e3a60181c"
+  },
+  {
+   "entry": "00792dde",
+   "bytes": 521,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "w_map.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "___crtLCMapStringW"
+   ],
+   "relocations": [
+    {
+     "offset": 6,
+     "type": 6,
+     "resolved": 8069848
+    },
+    {
+     "offset": 11,
+     "type": 6,
+     "resolved": 7885524
+    },
+    {
+     "offset": 17,
+     "type": 6,
+     "resolved": 0
+    },
+    {
+     "offset": 25,
+     "type": 6,
+     "resolved": 0
+    },
+    {
+     "offset": 42,
+     "type": 6,
+     "resolved": 11711300
+    },
+    {
+     "offset": 55,
+     "type": 6,
+     "resolved": 8067080
+    },
+    {
+     "offset": 68,
+     "type": 6,
+     "resolved": 7971492
+    },
+    {
+     "offset": 78,
+     "type": 6,
+     "resolved": 11711300
+    },
+    {
+     "offset": 88,
+     "type": 6,
+     "resolved": 8067076
+    },
+    {
+     "offset": 96,
+     "type": 6,
+     "resolved": 7971488
+    },
+    {
+     "offset": 110,
+     "type": 6,
+     "resolved": 11711300
+    },
+    {
+     "offset": 130,
+     "type": 20,
+     "resolved": 387
+    },
+    {
+     "offset": 140,
+     "type": 6,
+     "resolved": 11711300
+    },
+    {
+     "offset": 169,
+     "type": 6,
+     "resolved": 7971492
+    },
+    {
+     "offset": 193,
+     "type": 6,
+     "resolved": 11710632
+    },
+    {
+     "offset": 220,
+     "type": 6,
+     "resolved": 7971388
+    },
+    {
+     "offset": 244,
+     "type": 20,
+     "resolved": 4294904186
+    },
+    {
+     "offset": 307,
+     "type": 6,
+     "resolved": 7971388
+    },
+    {
+     "offset": 335,
+     "type": 6,
+     "resolved": 7971488
+    },
+    {
+     "offset": 365,
+     "type": 20,
+     "resolved": 4294904065
+    },
+    {
+     "offset": 421,
+     "type": 6,
+     "resolved": 7971488
+    },
+    {
+     "offset": 454,
+     "type": 20,
+     "resolved": 4294898728
+    },
+    {
+     "offset": 487,
+     "type": 6,
+     "resolved": 7971256
+    },
+    {
+     "offset": 512,
+     "type": 6,
+     "resolved": 0
+    }
+   ],
+   "sha256": "3e9fe7a764ad3d912b79006eedbb6f1cb2b6dd5cd3b511574b684a352daa7423"
   },
   {
    "entry": "00792fe7",
@@ -18724,6 +20994,27 @@
    "sha256": "f43b1feb917ed492295d1042698ffa00d0eec8d9c4604290cf2a902916ca180f"
   },
   {
+   "entry": "00793c95",
+   "bytes": 17,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "ismbbyte.obj",
+   "section_index": 8,
+   "section": ".text",
+   "symbols": [
+    "__ismbblead"
+   ],
+   "relocations": [
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 60
+    }
+   ],
+   "sha256": "f6184b692e7837e3188a26416371dfb30bbb496bb3be7951256913f27d80b4dd"
+  },
+  {
    "entry": "00793ca6",
    "bytes": 17,
    "archive": "LIBCMT.LIB",
@@ -19660,6 +21951,21 @@
    "sha256": "260326417260a639916a593fa535539ffe6db6615a42eb36645c63572d7f9be2"
   },
   {
+   "entry": "00794ade",
+   "bytes": 33,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "mantold.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "___addl"
+   ],
+   "relocations": [],
+   "sha256": "eed5524e9b2c24dc67b92bb6fa071dd5ff8931b59f8fb61d02cdf65e5447ef1a"
+  },
+  {
    "entry": "00794aff",
    "bytes": 94,
    "archive": "LIBCMT.LIB",
@@ -20567,6 +22873,27 @@
     }
    ],
    "sha256": "8c382b7acf2802816d5d2c0a5002b5a079cf4705c29d60c383920bcb72e9dfef"
+  },
+  {
+   "entry": "00795940",
+   "bytes": 14,
+   "archive": "COMSUPP.LIB",
+   "archive_role": "VC6 RTM",
+   "archive_sha256": "8fa400883dcada21b59d9768d7b2d66426a2e646c95097f540ffe6724511ee95",
+   "member": "comsupp.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "?_com_issue_error@@YGXJ@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 20,
+     "resolved": 1649
+    }
+   ],
+   "sha256": "e8bedfe129cae5eacc1c9aaa19aa08e85c8b4587f940785ca64165bad8b0fb9b"
   },
   {
    "entry": "0079594e",
@@ -21849,6 +24176,25 @@
    "sha256": "520d7edfcd84eb6631bb1cb5aa5d8f8d772e7e615b5e76ccce181a3aa9ed7a4f"
   },
   {
+   "entry": "00796e52",
+   "bytes": 26,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "cprintf.obj",
+   "section_index": 2,
+   "section": ".text",
+   "symbols": [],
+   "relocations": [
+    {
+     "offset": 5,
+     "type": 20,
+     "resolved": 1346
+    }
+   ],
+   "sha256": "e2c7901fc93968f4f2018d517f4a2d9cf8b896ffb6dcf0ee6722365c7563672c"
+  },
+  {
    "entry": "00796e6c",
    "bytes": 44,
    "archive": "LIBCMT.LIB",
@@ -21988,6 +24334,37 @@
    "sha256": "e21b78761abd762b57f58144e6deddc616e4209a2d05860a06dc12fee4514a06"
   },
   {
+   "entry": "00797033",
+   "bytes": 46,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "wcsdup.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__wcsdup"
+   ],
+   "relocations": [
+    {
+     "offset": 11,
+     "type": 20,
+     "resolved": 4294886851
+    },
+    {
+     "offset": 21,
+     "type": 20,
+     "resolved": 4294882788
+    },
+    {
+     "offset": 34,
+     "type": 20,
+     "resolved": 4294886960
+    }
+   ],
+   "sha256": "641d3234ec463c22792d00181125ff93f9c6e26ad2cfb2836bc67593e0be1de7"
+  },
+  {
    "entry": "00797070",
    "bytes": 48,
    "archive": "LIBCMT.LIB",
@@ -22067,6 +24444,67 @@
     }
    ],
    "sha256": "cc1965d7bbe0297d1230692f0e49221f96c411d2813d452f3eadf5242e575154"
+  },
+  {
+   "entry": "00797198",
+   "bytes": 138,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "flength.obj",
+   "section_index": 0,
+   "section": ".text",
+   "symbols": [
+    "__filelength"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 6,
+     "resolved": 11712896
+    },
+    {
+     "offset": 26,
+     "type": 6,
+     "resolved": 11712640
+    },
+    {
+     "offset": 44,
+     "type": 20,
+     "resolved": 4294945334
+    },
+    {
+     "offset": 54,
+     "type": 20,
+     "resolved": 4294937563
+    },
+    {
+     "offset": 76,
+     "type": 20,
+     "resolved": 4294937541
+    },
+    {
+     "offset": 94,
+     "type": 20,
+     "resolved": 4294937523
+    },
+    {
+     "offset": 103,
+     "type": 20,
+     "resolved": 4294945370
+    },
+    {
+     "offset": 115,
+     "type": 20,
+     "resolved": 4294911759
+    },
+    {
+     "offset": 126,
+     "type": 20,
+     "resolved": 4294911757
+    }
+   ],
+   "sha256": "df0fe73f3a1386f4ed80d8e60e0f5f9d343d71114da04f3db15a4b81f03356b4"
   },
   {
    "entry": "00797222",
@@ -22290,691 +24728,6 @@
    "sha256": "471fbccc1f17b4e0710e87fbfd9e933b7bd1203c21da4b83db7a6e04d0a81337"
   }
  ],
- "skipped_overlapping_accepted": [
-  {
-   "entry": "00781cd1",
-   "bytes": 27,
-   "member": "typinfo.obj",
-   "symbols": [
-    "??8type_info@@QBEHABV0@@Z"
-   ],
-   "accepted_entry": "00781cd1",
-   "accepted_symbol": "?FUN_00781cd1@Owner_00781cd1@seed_00781cd1@@QAE_NH"
-  },
-  {
-   "entry": "0078215e",
-   "bytes": 56,
-   "member": "fpinit.obj",
-   "symbols": [
-    "__cfltcvt_init"
-   ],
-   "accepted_entry": "0078215e",
-   "accepted_symbol": "?get@Leaf_78215e@@QAEXXZ"
-  },
-  {
-   "entry": "007825e8",
-   "bytes": 72,
-   "member": "free.obj",
-   "symbols": [
-    "_free"
-   ],
-   "accepted_entry": "007825e8",
-   "accepted_symbol": "?FUN_007825e8@seed_007825e8@@YAXPAX@Z"
-  },
-  {
-   "entry": "0078266e",
-   "bytes": 78,
-   "member": "malloc.obj",
-   "symbols": [
-    "__heap_alloc"
-   ],
-   "accepted_entry": "0078266e",
-   "accepted_symbol": "?FUN_0078266e@seed_0078266e@@YAPAXI@Z"
-  },
-  {
-   "entry": "007826bc",
-   "bytes": 47,
-   "member": "fread.obj",
-   "symbols": [
-    "_fread"
-   ],
-   "accepted_entry": "007826bc",
-   "accepted_symbol": "?FUN_007826bc@seed_007826bc@@YAIIIII@Z"
-  },
-  {
-   "entry": "007827d3",
-   "bytes": 47,
-   "member": "fread.obj",
-   "symbols": [
-    "_fread"
-   ],
-   "accepted_entry": "007827d3",
-   "accepted_symbol": "?FUN_007827d3@seed_007827d3@@YAIIIII@Z"
-  },
-  {
-   "entry": "0078298a",
-   "bytes": 18,
-   "member": "onexit.obj",
-   "symbols": [
-    "_atexit"
-   ],
-   "accepted_entry": "0078298a",
-   "accepted_symbol": "?FUN_0078298a@seed_0078298a@@YAHI@Z"
-  },
-  {
-   "entry": "0078299c",
-   "bytes": 47,
-   "member": "onexit.obj",
-   "symbols": [
-    "___onexitinit"
-   ],
-   "accepted_entry": "0078299c",
-   "accepted_symbol": "?FUN_0078299c@seed_0078299c@@YAXXZ"
-  },
-  {
-   "entry": "00783605",
-   "bytes": 29,
-   "member": "wcslen.obj",
-   "symbols": [
-    "_wcslen"
-   ],
-   "accepted_entry": "00783605",
-   "accepted_symbol": "?FUN_00783605@seed_00783605@@YAHPAF@Z"
-  },
-  {
-   "entry": "00783a14",
-   "bytes": 49,
-   "member": "fopen.obj",
-   "symbols": [
-    "__fsopen"
-   ],
-   "accepted_entry": "00783a14",
-   "accepted_symbol": "?FUN_00783a14@seed_00783a14@@YAIIII@Z"
-  },
-  {
-   "entry": "00783a45",
-   "bytes": 19,
-   "member": "fopen.obj",
-   "symbols": [
-    "_fopen"
-   ],
-   "accepted_entry": "00783a45",
-   "accepted_symbol": "?FUN_00783a45@seed_00783a45@@YAXII@Z"
-  },
-  {
-   "entry": "00783e4c",
-   "bytes": 26,
-   "member": "rtti.obj",
-   "symbols": [],
-   "accepted_entry": "00783e4c",
-   "accepted_symbol": "?FUN_00783e4c@seed_00783e4c@@YAHPAH@Z"
-  },
-  {
-   "entry": "0078439c",
-   "bytes": 47,
-   "member": "fflush.obj",
-   "symbols": [
-    "_fflush"
-   ],
-   "accepted_entry": "0078439c",
-   "accepted_symbol": "?FUN_0078439c@seed_0078439c@@YAIH@Z"
-  },
-  {
-   "entry": "00784502",
-   "bytes": 59,
-   "member": "vfprintf.obj",
-   "symbols": [
-    "_vfprintf"
-   ],
-   "accepted_entry": "00784502",
-   "accepted_symbol": "?FUN_00784502@seed_00784502@@YAIIII@Z"
-  },
-  {
-   "entry": "00784628",
-   "bytes": 35,
-   "member": "_file.obj",
-   "symbols": [
-    "__lock_file2"
-   ],
-   "accepted_entry": "00784628",
-   "accepted_symbol": "?FUN_00784628@seed_00784628@@YAXHH@Z"
-  },
-  {
-   "entry": "0078467a",
-   "bytes": 35,
-   "member": "_file.obj",
-   "symbols": [
-    "__lock_file2"
-   ],
-   "accepted_entry": "0078467a",
-   "accepted_symbol": "?FUN_0078467a@seed_0078467a@@YAXHH@Z"
-  },
-  {
-   "entry": "00784aa8",
-   "bytes": 14,
-   "member": "_wctype.obj",
-   "symbols": [
-    "_iswspace"
-   ],
-   "accepted_entry": "00784aa8",
-   "accepted_symbol": "?FUN_00784aa8@seed_00784aa8@@YAXI@Z"
-  },
-  {
-   "entry": "00784ae6",
-   "bytes": 17,
-   "member": "_wctype.obj",
-   "symbols": [
-    "_iswgraph"
-   ],
-   "accepted_entry": "00784ae6",
-   "accepted_symbol": "?FUN_00784ae6@seed_00784ae6@@YAXI@Z"
-  },
-  {
-   "entry": "00784e11",
-   "bytes": 33,
-   "member": "getenv.obj",
-   "symbols": [
-    "_getenv"
-   ],
-   "accepted_entry": "00784e11",
-   "accepted_symbol": "?FUN_00784e11@seed_00784e11@@YAII@Z"
-  },
-  {
-   "entry": "00784eaf",
-   "bytes": 45,
-   "member": "crt0dat.obj",
-   "symbols": [
-    "__cinit"
-   ],
-   "accepted_entry": "00784eaf",
-   "accepted_symbol": "?FUN_00784eaf@seed_00784eaf@@YAXXZ"
-  },
-  {
-   "entry": "00784edc",
-   "bytes": 17,
-   "member": "crt0dat.obj",
-   "symbols": [
-    "_exit"
-   ],
-   "accepted_entry": "00784edc",
-   "accepted_symbol": "?FUN_00784edc@seed_00784edc@@YAXI@Z"
-  },
-  {
-   "entry": "00784fd3",
-   "bytes": 26,
-   "member": "crt0dat.obj",
-   "symbols": [],
-   "accepted_entry": "00784fd3",
-   "accepted_symbol": "?FUN_00784fd3@seed_00784fd3@@YAXPAI0@Z"
-  },
-  {
-   "entry": "00785049",
-   "bytes": 22,
-   "member": "ieee87.obj",
-   "symbols": [
-    "__controlfp"
-   ],
-   "accepted_entry": "00785049",
-   "accepted_symbol": "?FUN_00785049@seed_00785049@@YAXII@Z"
-  },
-  {
-   "entry": "007851a5",
-   "bytes": 53,
-   "member": "ieee87.obj",
-   "symbols": [],
-   "accepted_entry": "007851a5",
-   "accepted_symbol": "?FUN_007851a5@seed_007851a5@@YAIE@Z"
-  },
-  {
-   "entry": "00785678",
-   "bytes": 42,
-   "member": "rmdir.obj",
-   "symbols": [
-    "__rmdir"
-   ],
-   "accepted_entry": "00785678",
-   "accepted_symbol": "?FUN_00785678@seed_00785678@@YAIPBD@Z"
-  },
-  {
-   "entry": "007858af",
-   "bytes": 25,
-   "member": "ctime.obj",
-   "symbols": [
-    "_ctime"
-   ],
-   "accepted_entry": "007858af",
-   "accepted_symbol": "?FUN_007858af@seed_007858af@@YAII@Z"
-  },
-  {
-   "entry": "00785bf1",
-   "bytes": 41,
-   "member": "mlock.obj",
-   "symbols": [
-    "__mtinitlocks"
-   ],
-   "accepted_entry": "00785bf1",
-   "accepted_symbol": "?FUN_00785bf1@seed_00785bf1@@YAXXZ"
-  },
-  {
-   "entry": "007863ca",
-   "bytes": 83,
-   "member": "setlocal.obj",
-   "symbols": [
-    "___lc_lctostr"
-   ],
-   "accepted_entry": "007863ca",
-   "accepted_symbol": "?FUN_007863ca@seed_007863ca@@YAXIH@Z"
-  },
-  {
-   "entry": "00786d3f",
-   "bytes": 18,
-   "member": "fp8.obj",
-   "symbols": [
-    "__setdefaultprecision"
-   ],
-   "accepted_entry": "00786d3f",
-   "accepted_symbol": "?FUN_00786d3f@seed_00786d3f@@YAXXZ"
-  },
-  {
-   "entry": "007871b9",
-   "bytes": 37,
-   "member": "cvt.obj",
-   "symbols": [],
-   "accepted_entry": "007871b9",
-   "accepted_symbol": "?FUN_007871b9@seed_007871b9@@YAXPADH@Z"
-  },
-  {
-   "entry": "00787a0f",
-   "bytes": 62,
-   "member": "sbheap.obj",
-   "symbols": [
-    "___sbh_heap_init"
-   ],
-   "accepted_entry": "00787a0f",
-   "accepted_symbol": "?FUN_00787a0f@seed_00787a0f@@YAIXZ"
-  },
-  {
-   "entry": "00788978",
-   "bytes": 27,
-   "member": "handler.obj",
-   "symbols": [
-    "__callnewh"
-   ],
-   "accepted_entry": "00788978",
-   "accepted_symbol": "?FUN_00788978@seed_00788978@@YAII@Z"
-  },
-  {
-   "entry": "00788a6f",
-   "bytes": 101,
-   "member": "lseek.obj",
-   "symbols": [
-    "__lseek"
-   ],
-   "accepted_entry": "00788a6f",
-   "accepted_symbol": "?FUN_00788a6f@seed_00788a6f@@YAIIII@Z"
-  },
-  {
-   "entry": "00788fe5",
-   "bytes": 101,
-   "member": "lseek.obj",
-   "symbols": [
-    "__lseek"
-   ],
-   "accepted_entry": "00788fe5",
-   "accepted_symbol": "?FUN_00788fe5@seed_00788fe5@@YAIIII@Z"
-  },
-  {
-   "entry": "00789616",
-   "bytes": 84,
-   "member": "tidtable.obj",
-   "symbols": [
-    "__mtinit"
-   ],
-   "accepted_entry": "00789616",
-   "accepted_symbol": "?FUN_00789616@seed_00789616@@YAIXZ"
-  },
-  {
-   "entry": "0078966a",
-   "bytes": 30,
-   "member": "tidtable.obj",
-   "symbols": [
-    "__mtterm"
-   ],
-   "accepted_entry": "00789687",
-   "accepted_symbol": "?get@Leaf_789687@@QAEXXZ"
-  },
-  {
-   "entry": "00789688",
-   "bytes": 19,
-   "member": "tidtable.obj",
-   "symbols": [
-    "__initptd"
-   ],
-   "accepted_entry": "00789688",
-   "accepted_symbol": "?FUN_00789688@seed_00789688@@YAXH@Z"
-  },
-  {
-   "entry": "0078969b",
-   "bytes": 103,
-   "member": "tidtable.obj",
-   "symbols": [
-    "__getptd"
-   ],
-   "accepted_entry": "0078969b",
-   "accepted_symbol": "?FUN_0078969b@seed_0078969b@@YAPAIXZ"
-  },
-  {
-   "entry": "0078a413",
-   "bytes": 23,
-   "member": "input.obj",
-   "symbols": [],
-   "accepted_entry": "0078a413",
-   "accepted_symbol": "?FUN_0078a413@seed_0078a413@@YAXHI@Z"
-  },
-  {
-   "entry": "0078a42a",
-   "bytes": 36,
-   "member": "input.obj",
-   "symbols": [],
-   "accepted_entry": "0078a42a",
-   "accepted_symbol": "?FUN_0078a42a@seed_0078a42a@@YAIPAHI@Z"
-  },
-  {
-   "entry": "0078ab9b",
-   "bytes": 32,
-   "member": "woutput.obj",
-   "symbols": [],
-   "accepted_entry": "0078ab9b",
-   "accepted_symbol": "?FUN_0078ab9b@seed_0078ab9b@@YAXIIPAH@Z"
-  },
-  {
-   "entry": "0078ad04",
-   "bytes": 93,
-   "member": "close.obj",
-   "symbols": [
-    "__close"
-   ],
-   "accepted_entry": "0078ad04",
-   "accepted_symbol": "?FUN_0078ad04@seed_0078ad04@@YAII@Z"
-  },
-  {
-   "entry": "0078ae9c",
-   "bytes": 42,
-   "member": "_sftbuf.obj",
-   "symbols": [
-    "__ftbuf"
-   ],
-   "accepted_entry": "0078ae9c",
-   "accepted_symbol": "?FUN_0078ae9c@seed_0078ae9c@@YAXHPAI@Z"
-  },
-  {
-   "entry": "0078bafa",
-   "bytes": 28,
-   "member": "mbctype.obj",
-   "symbols": [
-    "___initmbctable"
-   ],
-   "accepted_entry": "0078bafa",
-   "accepted_symbol": "?FUN_0078bafa@seed_0078bafa@@YAXXZ"
-  },
-  {
-   "entry": "0078d52d",
-   "bytes": 90,
-   "member": "util.obj",
-   "symbols": [
-    "__sptype"
-   ],
-   "accepted_entry": "0078d52d",
-   "accepted_symbol": "?FUN_0078d52d@seed_0078d52d@@YAIHI@Z"
-  },
-  {
-   "entry": "0078d816",
-   "bytes": 43,
-   "member": "mbsdup.obj",
-   "symbols": [
-    "__mbsdup"
-   ],
-   "accepted_entry": "0078d816",
-   "accepted_symbol": "?FUN_0078d816@seed_0078d816@@YAIPAD@Z"
-  },
-  {
-   "entry": "0078d841",
-   "bytes": 23,
-   "member": "open.obj",
-   "symbols": [
-    "__open"
-   ],
-   "accepted_entry": "0078d841",
-   "accepted_symbol": "?FUN_0078d841@seed_0078d841@@YAXIII@Z"
-  },
-  {
-   "entry": "0078dbb0",
-   "bytes": 42,
-   "member": "xtoa.obj",
-   "symbols": [
-    "__ltoa"
-   ],
-   "accepted_entry": "0078dbb0",
-   "accepted_symbol": "?FUN_0078dbb0@seed_0078dbb0@@YAIHIH@Z"
-  },
-  {
-   "entry": "0078dbda",
-   "bytes": 27,
-   "member": "xtoa.obj",
-   "symbols": [
-    "__ultoa"
-   ],
-   "accepted_entry": "0078dbda",
-   "accepted_symbol": "?FUN_0078dbda@seed_0078dbda@@YAIIII@Z"
-  },
-  {
-   "entry": "0078e606",
-   "bytes": 57,
-   "member": "crt0msg.obj",
-   "symbols": [
-    "__FF_MSGBANNER"
-   ],
-   "accepted_entry": "0078e606",
-   "accepted_symbol": "?FUN_0078e606@seed_0078e606@@YAXXZ"
-  },
-  {
-   "entry": "0078f162",
-   "bytes": 78,
-   "member": "initmon.obj",
-   "symbols": [],
-   "accepted_entry": "0078f162",
-   "accepted_symbol": "?FUN_0078f162@seed_0078f162@@YAXH@Z"
-  },
-  {
-   "entry": "0078f9ad",
-   "bytes": 55,
-   "member": "getqloc.obj",
-   "symbols": [],
-   "accepted_entry": "0078f9ad",
-   "accepted_symbol": "?FUN_0078f9ad@seed_0078f9ad@@YAXXZ"
-  },
-  {
-   "entry": "0078fa6a",
-   "bytes": 26,
-   "member": "getqloc.obj",
-   "symbols": [],
-   "accepted_entry": "0078fa6a",
-   "accepted_symbol": "?FUN_0078fa6a@seed_0078fa6a@@YAXXZ"
-  },
-  {
-   "entry": "0078fb6b",
-   "bytes": 54,
-   "member": "getqloc.obj",
-   "symbols": [],
-   "accepted_entry": "0078fb6b",
-   "accepted_symbol": "?FUN_0078fb6b@seed_0078fb6b@@YAIXZ"
-  },
-  {
-   "entry": "0078fcc0",
-   "bytes": 33,
-   "member": "getqloc.obj",
-   "symbols": [],
-   "accepted_entry": "0078fcc0",
-   "accepted_symbol": "?FUN_0078fcc0@seed_0078fcc0@@YAHPAD@Z"
-  },
-  {
-   "entry": "0078fd48",
-   "bytes": 101,
-   "member": "lseek.obj",
-   "symbols": [
-    "__lseek"
-   ],
-   "accepted_entry": "0078fd48",
-   "accepted_symbol": "?FUN_0078fd48@seed_0078fd48@@YAIIII@Z"
-  },
-  {
-   "entry": "007903d1",
-   "bytes": 45,
-   "member": "intrncvt.obj",
-   "symbols": [
-    "__atodbl"
-   ],
-   "accepted_entry": "007903d1",
-   "accepted_symbol": "?FUN_007903d1@seed_007903d1@@YAXII@Z"
-  },
-  {
-   "entry": "0079042c",
-   "bytes": 45,
-   "member": "intrncvt.obj",
-   "symbols": [
-    "__atodbl"
-   ],
-   "accepted_entry": "0079042c",
-   "accepted_symbol": "?FUN_0079042c@seed_0079042c@@YAXII@Z"
-  },
-  {
-   "entry": "007905f0",
-   "bytes": 3467,
-   "member": "adj_fdiv.obj",
-   "symbols": [
-    "_fdiv_main_routine"
-   ],
-   "accepted_entry": "00790de0",
-   "accepted_symbol": "?get@Leaf_790de0@@QAEXXZ"
-  },
-  {
-   "entry": "00791b15",
-   "bytes": 66,
-   "member": "osfinfo.obj",
-   "symbols": [
-    "__get_osfhandle"
-   ],
-   "accepted_entry": "00791b15",
-   "accepted_symbol": "?FUN_00791b15@seed_00791b15@@YAII@Z"
-  },
-  {
-   "entry": "00791c5d",
-   "bytes": 34,
-   "member": "osfinfo.obj",
-   "symbols": [
-    "__unlock_fhandle"
-   ],
-   "accepted_entry": "00791c5d",
-   "accepted_symbol": "?FUN_00791c5d@seed_00791c5d@@YAXI@Z"
-  },
-  {
-   "entry": "0079241f",
-   "bytes": 41,
-   "member": "ungetc.obj",
-   "symbols": [
-    "_ungetc"
-   ],
-   "accepted_entry": "0079241f",
-   "accepted_symbol": "?FUN_0079241f@seed_0079241f@@YAIII@Z"
-  },
-  {
-   "entry": "007924b6",
-   "bytes": 46,
-   "member": "tzset.obj",
-   "symbols": [
-    "___tzset"
-   ],
-   "accepted_entry": "007924b6",
-   "accepted_symbol": "?FUN_007924b6@seed_007924b6@@YAXXZ"
-  },
-  {
-   "entry": "00792781",
-   "bytes": 33,
-   "member": "tzset.obj",
-   "symbols": [
-    "__isindst"
-   ],
-   "accepted_entry": "00792781",
-   "accepted_symbol": "?FUN_00792781@seed_00792781@@YAII@Z"
-  },
-  {
-   "entry": "00792dde",
-   "bytes": 521,
-   "member": "w_map.obj",
-   "symbols": [
-    "___crtLCMapStringW"
-   ],
-   "accepted_entry": "00792ee0",
-   "accepted_symbol": "?FUN_00792ee0@seed_00792ee0@@YAIXZ"
-  },
-  {
-   "entry": "00793c95",
-   "bytes": 17,
-   "member": "ismbbyte.obj",
-   "symbols": [
-    "__ismbblead"
-   ],
-   "accepted_entry": "00793c95",
-   "accepted_symbol": "?FUN_00793c95@seed_00793c95@@YAXI@Z"
-  },
-  {
-   "entry": "00794ade",
-   "bytes": 33,
-   "member": "mantold.obj",
-   "symbols": [
-    "___addl"
-   ],
-   "accepted_entry": "00794ade",
-   "accepted_symbol": "?FUN_00794ade@seed_00794ade@@YAIIIPAI@Z"
-  },
-  {
-   "entry": "00795940",
-   "bytes": 14,
-   "member": "comsupp.obj",
-   "symbols": [
-    "?_com_issue_error@@YGXJ@Z"
-   ],
-   "accepted_entry": "00795940",
-   "accepted_symbol": "?get@Leaf_795940@@QAEII@Z"
-  },
-  {
-   "entry": "00796e52",
-   "bytes": 26,
-   "member": "cprintf.obj",
-   "symbols": [],
-   "accepted_entry": "00796e52",
-   "accepted_symbol": "?FUN_00796e52@seed_00796e52@@YAXIPAH@Z"
-  },
-  {
-   "entry": "00797033",
-   "bytes": 46,
-   "member": "wcsdup.obj",
-   "symbols": [
-    "__wcsdup"
-   ],
-   "accepted_entry": "00797033",
-   "accepted_symbol": "?FUN_00797033@seed_00797033@@YAIH@Z"
-  },
-  {
-   "entry": "00797198",
-   "bytes": 138,
-   "member": "flength.obj",
-   "symbols": [
-    "__filelength"
-   ],
-   "accepted_entry": "00797198",
-   "accepted_symbol": "?FUN_00797198@seed_00797198@@YAHI@Z"
-  }
- ],
+ "skipped_overlapping_accepted": [],
  "skipped_other": []
 }
