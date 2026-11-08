@@ -23,5 +23,6 @@ bool RadBeam::unknown_635e00()
             Draw_Line(Current, unknown_98, Build_Hicolor_Pixel(CurrentColor.Red, CurrentColor.Green, CurrentColor.Blue));
         }
     }
-    return ++unknown_6c >= Period;
+    unknown_6c++;
+    return unknown_6c >= Period;
 }

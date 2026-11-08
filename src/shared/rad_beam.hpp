@@ -42,6 +42,8 @@ public:
 #ifdef RA2_RAD_BEAM_TYPE1_UNIT
     bool unknown_6358d0();
     void unknown_635c30();
+    // Runs every listed beam once a frame (0x006354E0; called by 0x006A4E80).
+    static void __fastcall Update_All();
 #endif
     bool unknown_635e00();                          // 0x00635E00
     // Draws one segment on the current surface (inlined by unknown_635e00).

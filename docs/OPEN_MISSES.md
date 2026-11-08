@@ -3156,3 +3156,6 @@ New rulings are recorded at their rows as before.
 
 ## Scout1086 (2026-11-08, closed; lab; NOTES, lab/, corp*.py in build/class-work/Scout1086/)
 - Scratch-cursor rule recorded in VC6_MATCHING_NOTES. Wait_For_Players 0x65C520 stays 91.92 (natural): V2 stays in ecx in ~30 natural variants; next is a Players.Vector second use removed after allocation (cross-jumped duplicate in an RA2-only arm).
+
+## Scout1087 (2026-11-08, closed; 0 B; Sidebar slot 54 0x67E210 99.04; NOTES, keep/D1.cpp, keep/AT.cpp, lab/ in build/class-work/Scout1087/)
+- Cause proven in the lab: the hide site's subtraction order depends on the number of named locals declared in the function plus the locals of inline expansions before the site (D1 + 15-18 dead locals is byte-exact; +19/20 flips the next site). Own locals, `StripClass &current`, `Activate_Tab(...)` and helpers inlined before the site count; later expansions, globals, calls, padding and file-scope declarations do not. The original has ~15 more counted locals before the hide site than D1; no natural source found (untested: show-branch inline helpers whose locals fold away). Same family as Scout1065's Add-orientation count.
