@@ -217,8 +217,8 @@ public:
     Cell unknown_117e;        // +0x117E
     Cell unknown_1182;        // +0x1182
     Cell const *unknown_1188; // +0x1188 a cell list marked with flag 4
-    int unknown_118c;               // +0x118C
-    int unknown_1190;               // +0x1190
+    ObjectClass *unknown_118c;      // +0x118C the placement object (copied from +0x11A0)
+    ObjectTypeClass const *unknown_1190; // +0x1190 its type (copied from +0x11A4)
     int unknown_1194;               // +0x1194 -1
     bool unknown_1198;              // +0x1198
     void *unknown_119c;             // +0x119C (a pointer: the load swizzles it)

@@ -55,8 +55,8 @@ void DisplayClass::unknown_slot48(CoordStruct const &coord, Cell const &cell, Ob
             else placed = pending->Kind_Of() == 6 ? static_cast<BuildingClass *>(pending) : 0;
             Unknown_006F8A20(placed);
             if (!unknown_flag_a40d13) {
-                unknown_1190 = reinterpret_cast<int>(unknown_11a4);
-                unknown_118c = reinterpret_cast<int>(unknown_11a0);
+                unknown_1190 = unknown_11a4;
+                unknown_118c = unknown_11a0;
                 unknown_117e = cell;
                 unknown_1182 = unknown_1174;
                 unknown_1188 = unknown_1178;
