@@ -728,6 +728,188 @@
    "new": "        Audio_Create_Driver(Native_Audio_Default_Driver());   // NATIVE: Audio_Default_Driver's descriptor holds code addresses (native/link/behaviour_audio_driver.cpp)\n",
    "why": "Audio_Default_Driver (0x007CCFDC) points at the DirectSound descriptor 0x007CCE20, whose Init/Release/Open/Close and channel table (0x007CCDF0) are code addresses in .data; the run-time loader keeps them as 32-bit words, so Audio_Create_Driver 0x00402AF0 called through a garbage pointer (menu run without -noaudio, Scout1091). The native descriptor names the recovered functions at those addresses and reads the other fields from game.exe. Native only.",
    "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "    char unknown_000[0x205];\n    bool unknown_205;                       // +0x205 (as shared/object_type.hpp; TibSun IsFootprint)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_000[0x325];\n    bool unknown_205;                       // NATIVE: arm64 +0x325\n#else\n    char unknown_000[0x205];\n    bool unknown_205;                       // +0x205 (as shared/object_type.hpp; TibSun IsFootprint)\n#endif\n",
+   "why": "Light view (Scout1098): the Map unit's stand-in spells VC6 offsets as char padding; natively the full classes (object_type.hpp, techno_type.hpp, object.hpp, techno.hpp, building_type_class.hpp, overlay_type.hpp, house_type.hpp, building_class.hpp, anim.hpp) place these members at their arm64 offsets, so the Map unit read the wrong bytes (MapClass::Place_Down 0x0054AB70 read IsFootprint false: no techno ever entered a cell's occupier list, Cell_Techno 0x00471660 returned null, start units stacked on one cell). The LP64 branch places each member at the full class's arm64 offset; native/link/check_light_views_map.cpp static_asserts them. The i686 branch keeps the VC6 text.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "    char unknown_000[0x500];\npublic:\n    int unknown_500;                // +0x500 (row of unknown_table_7e00c4)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_000[0x6F0];\npublic:\n    int unknown_500;                // NATIVE: arm64 +0x6F0\n#else\n    char unknown_000[0x500];\npublic:\n    int unknown_500;                // +0x500 (row of unknown_table_7e00c4)\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "    char unknown_24[0x74 - 0x24];\n    bool unknown_74;                        // +0x74 (as shared/object.hpp)\n    char unknown_75;\n    bool unknown_76;                        // +0x76 (as shared/object.hpp)\n    char unknown_77[0x79 - 0x77];\n    bool unknown_79;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_24[0xB8 - 0x31];           // NATIVE: arm64 offsets of shared/object.hpp\n    bool unknown_74;                        // +0xB8\n    char unknown_75;\n    bool unknown_76;                        // +0xBA\n    char unknown_77[0xBD - 0xBB];\n    bool unknown_79;                        // +0xBD\n#else\n    char unknown_24[0x74 - 0x24];\n    bool unknown_74;                        // +0x74 (as shared/object.hpp)\n    char unknown_75;\n    bool unknown_76;                        // +0x76 (as shared/object.hpp)\n    char unknown_77[0x79 - 0x77];\n    bool unknown_79;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "    char unknown_24[0x30 - 0x24];\n    ObjectClass *unknown_30;                // +0x30 the next object in the cell (as shared/object.hpp)\n    char unknown_34[0x74 - 0x34];\n    bool unknown_74;                        // +0x74 (as shared/object.hpp)\n    char unknown_75;\n    bool unknown_76;                        // +0x76 (as shared/object.hpp)\n    char unknown_77[0x7D - 0x77];\n    bool unknown_7d;                        // +0x7D (as shared/object.hpp)\n    char unknown_7e[0x1B4 - 0x7E];\n    HouseClass *House;                      // +0x1B4 (as shared/techno.hpp)\n#ifdef RA2_MAP_CLOSE_OBJECT\n    int unknown_1b8;                        // +0x1B8 (as shared/techno.hpp; 2 when cloaked: MapClass 0x0054E8D0)\n    char unknown_1bc[0x32D - 0x1BC];\n#else\n    char unknown_1b8[0x32D - 0x1B8];\n#endif\n    bool unknown_32d;                       // +0x32D (as shared/techno.hpp)\n#ifdef RA2_MAP_CLOSE_OBJECT\n    char unknown_32e[0x372 - 0x32E];\n    bool unknown_372;                       // +0x372 (as shared/techno.hpp; owned by the player: MapClass 0x0054E8D0)\n#endif\n",
+   "new": "#if defined(__LP64__)\n    char unknown_24[0x40 - 0x31];           // NATIVE: arm64 offsets of shared/object.hpp / techno.hpp\n    ObjectClass *unknown_30;                // +0x40\n    char unknown_34[0xB8 - 0x48];\n    bool unknown_74;                        // +0xB8\n    char unknown_75;\n    bool unknown_76;                        // +0xBA\n    char unknown_77[0xC1 - 0xBB];\n    bool unknown_7d;                        // +0xC1\n    char unknown_7e[0x218 - 0xC2];\n    HouseClass *House;                      // +0x218\n#ifdef RA2_MAP_CLOSE_OBJECT\n    int unknown_1b8;                        // +0x220\n    char unknown_1bc[0x3DD - 0x224];\n#else\n    char unknown_1b8[0x3DD - 0x220];\n#endif\n    bool unknown_32d;                       // +0x3DD\n#ifdef RA2_MAP_CLOSE_OBJECT\n    char unknown_32e[0x422 - 0x3DE];\n    bool unknown_372;                       // +0x422\n#endif\n#else\n    char unknown_24[0x30 - 0x24];\n    ObjectClass *unknown_30;                // +0x30 the next object in the cell (as shared/object.hpp)\n    char unknown_34[0x74 - 0x34];\n    bool unknown_74;                        // +0x74 (as shared/object.hpp)\n    char unknown_75;\n    bool unknown_76;                        // +0x76 (as shared/object.hpp)\n    char unknown_77[0x7D - 0x77];\n    bool unknown_7d;                        // +0x7D (as shared/object.hpp)\n    char unknown_7e[0x1B4 - 0x7E];\n    HouseClass *House;                      // +0x1B4 (as shared/techno.hpp)\n#ifdef RA2_MAP_CLOSE_OBJECT\n    int unknown_1b8;                        // +0x1B8 (as shared/techno.hpp; 2 when cloaked: MapClass 0x0054E8D0)\n    char unknown_1bc[0x32D - 0x1BC];\n#else\n    char unknown_1b8[0x32D - 0x1B8];\n#endif\n    bool unknown_32d;                       // +0x32D (as shared/techno.hpp)\n#ifdef RA2_MAP_CLOSE_OBJECT\n    char unknown_32e[0x372 - 0x32E];\n    bool unknown_372;                       // +0x372 (as shared/techno.hpp; owned by the player: MapClass 0x0054E8D0)\n#endif\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "    char unknown_024[0x504 - 0x24];\n    int ThreatRange;                        // +0x504 (leptons; TibSun Place_Wall reach)\n    char unknown_508[0x5A4 - 0x508];\n    int Speed;                              // +0x5A4 the speed type (TibSun Is_Clear_To_Build argument)\n    char unknown_5a8[0xBEC - 0x5A8];\n    OverlayTypeClass *ToOverlay;            // +0xBEC the wall overlay type\n    char unknown_bf0[0xC80 - 0xBF0];\n    int OccupyHeight;                       // +0xC80 (as shared/building_type_class.hpp)\n    char unknown_c84[0x12C4 - 0xC84];\n    Point2D AddOccupy[8];                   // +0x12C4 (as shared/building_type_class.hpp)\n    Point2D RemoveOccupy[8];                // +0x1304\n    char unknown_1344[0x1351 - 0x1344];\n    bool Gate;                              // +0x1351\n    char unknown_1352[0x135A - 0x1352];\n    bool FirestormWall;                     // +0x135A (TibSun IsFirestormWall; Map 0x00569FB0)\n    char unknown_135b[0x13E6 - 0x135B];\n    bool CanHideThings;                     // +0x13E6 (as shared/building_type_class.hpp)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_024[0x6F4 - 0x31];         // NATIVE: arm64 offsets of shared/techno_type.hpp / building_type_class.hpp\n    int ThreatRange;                        // +0x6F4\n    char unknown_508[0x7BC - 0x6F8];\n    int Speed;                              // +0x7BC\n    char unknown_5a8[0xEF0 - 0x7C0];\n    OverlayTypeClass *ToOverlay;            // +0xEF0\n    char unknown_bf0[0xF9C - 0xEF8];\n    int OccupyHeight;                       // +0xF9C\n    char unknown_c84[0x1614 - 0xFA0];\n    Point2D AddOccupy[8];                   // +0x1614\n    Point2D RemoveOccupy[8];                // +0x1654\n    char unknown_1344[0x16A1 - 0x1694];\n    bool Gate;                              // +0x16A1\n    char unknown_1352[0x16AA - 0x16A2];\n    bool FirestormWall;                     // +0x16AA\n    char unknown_135b[0x1736 - 0x16AB];\n    bool CanHideThings;                     // +0x1736\n#else\n    char unknown_024[0x504 - 0x24];\n    int ThreatRange;                        // +0x504 (leptons; TibSun Place_Wall reach)\n    char unknown_508[0x5A4 - 0x508];\n    int Speed;                              // +0x5A4 the speed type (TibSun Is_Clear_To_Build argument)\n    char unknown_5a8[0xBEC - 0x5A8];\n    OverlayTypeClass *ToOverlay;            // +0xBEC the wall overlay type\n    char unknown_bf0[0xC80 - 0xBF0];\n    int OccupyHeight;                       // +0xC80 (as shared/building_type_class.hpp)\n    char unknown_c84[0x12C4 - 0xC84];\n    Point2D AddOccupy[8];                   // +0x12C4 (as shared/building_type_class.hpp)\n    Point2D RemoveOccupy[8];                // +0x1304\n    char unknown_1344[0x1351 - 0x1344];\n    bool Gate;                              // +0x1351\n    char unknown_1352[0x135A - 0x1352];\n    bool FirestormWall;                     // +0x135A (TibSun IsFirestormWall; Map 0x00569FB0)\n    char unknown_135b[0x13E6 - 0x135B];\n    bool CanHideThings;                     // +0x13E6 (as shared/building_type_class.hpp)\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "    char unknown_000[0x264];\n    int unknown_264;                        // +0x264 compared with a cell's overlay index (TibSun HeapID)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_000[0x3B8];\n    int unknown_264;                        // NATIVE: arm64 +0x3B8\n#else\n    char unknown_000[0x264];\n    int unknown_264;                        // +0x264 compared with a cell's overlay index (TibSun HeapID)\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "#ifdef RA2_MAP_CLOSE_OBJECT\n    char unknown_374[0x418 - 0x374];        // the TechnoClass stand-in reaches +0x372 in this unit\n#else\n    char unknown_330[0x418 - 0x330];\n#endif\n",
+   "new": "#if defined(__LP64__)\n#ifdef RA2_MAP_CLOSE_OBJECT\n    char unknown_374[0x518 - 0x423];        // NATIVE: Type at arm64 +0x518\n#else\n    char unknown_330[0x518 - 0x3DE];\n#endif\n#else\n#ifdef RA2_MAP_CLOSE_OBJECT\n    char unknown_374[0x418 - 0x374];        // the TechnoClass stand-in reaches +0x372 in this unit\n#else\n    char unknown_330[0x418 - 0x330];\n#endif\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "    char unknown_000[0xB8];\n    int House;                              // +0xB8 the index in HouseTypes (as shared/house_type.hpp)\n    char unknown_bc[0x1A7 - 0xBC];\n    bool WallOwner;                         // +0x1A7\n",
+   "new": "#if defined(__LP64__)\n    char unknown_000[0xC8];                 // NATIVE: arm64 offsets of shared/house_type.hpp\n    int House;                              // +0xC8\n    char unknown_bc[0x1DF - 0xCC];\n    bool WallOwner;                         // +0x1DF\n#else\n    char unknown_000[0xB8];\n    int House;                              // +0xB8 the index in HouseTypes (as shared/house_type.hpp)\n    char unknown_bc[0x1A7 - 0xBC];\n    bool WallOwner;                         // +0x1A7\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "#ifdef RA2_MAP_COLLAPSE_CLIFF\n    char unknown_78[0x177 - sizeof(ObjectClass)];\n#else\n    char unknown_24[0x177 - sizeof(AbstractClass)];\n#endif\n    bool unknown_177;                       // +0x177 deleted by the map's Overpass (0x0054B2E0)\n    char unknown_178[0x1A8 - 0x178];        // sizeof(AnimClass) 0x1A8 (as shared/anim.hpp)\n",
+   "new": "#if defined(__LP64__)\n#ifdef RA2_MAP_COLLAPSE_CLIFF\n    char unknown_78[0x1CF - 0xBE];   // NATIVE: arm64 offsets of shared/anim.hpp (members start in the base tail padding)\n#else\n    char unknown_24[0x1CF - 0x31];\n#endif\n    bool unknown_177;                       // +0x1CF\n    char unknown_178[0x228 - 0x1D0];        // sizeof(AnimClass) 0x228 natively\n#else\n#ifdef RA2_MAP_COLLAPSE_CLIFF\n    char unknown_78[0x177 - sizeof(ObjectClass)];\n#else\n    char unknown_24[0x177 - sizeof(AbstractClass)];\n#endif\n    bool unknown_177;                       // +0x177 deleted by the map's Overpass (0x0054B2E0)\n    char unknown_178[0x1A8 - 0x178];        // sizeof(AnimClass) 0x1A8 (as shared/anim.hpp)\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/map_overlay.hpp",
+   "old": "    char unknown_24[0x98 - sizeof(ObjectClass)];\n",
+   "new": "#if defined(__LP64__)\n    char unknown_24[0xE0 - sizeof(ObjectClass)];   // NATIVE: Class at arm64 +0xE0 (shared/overlay.hpp)\n#else\n    char unknown_24[0x98 - sizeof(ObjectClass)];\n#endif\n",
+   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/Tactical/Tactical_file_statics_init_006a22d0.cpp",
+   "old": "static double unknown_scale_abe520 = unknown_geometry_diagonal / (Fast_Sin(unknown_geometry_angle60) * 60.0);\n",
+   "new": "static double unknown_scale_abe520 = unknown_geometry_diagonal / (Fast_Sin(unknown_geometry_angle60) * 60.0);\n// NATIVE (Scout1098): 0x006A2970 and 0x006A29B0 read these two scales through extern names of the same\n// original addresses (unknown_abe490, unknown_abe520), which the native link gives their own zeroed storage;\n// copy the values there when this unit's statics are initialised.\nextern double unknown_abe490;\nextern double unknown_abe520;\nstatic int const native_scale_names_abe490 = (unknown_abe490 = unknown_scale_abe490, unknown_abe520 = unknown_scale_abe520, 0);\n",
+   "why": "The Tactical unit defines the height scales 0x00ABE490 and 0x00ABE520 as file statics (unknown_scale_abe490/abe520); Unknown_006A2970 (height to pixels) and Unknown_006A29B0 (pixels to height) read the same addresses through extern names (unknown_abe490/abe520), which natively are separate zeroed BSS storage, so every height converted to 0 or 1 pixel (Get_Z_Adjust 0x006CFEA0 gave -1 for a unit at level 5: its voxels failed the depth test against the tiles and no unit was visible, Scout1098). The native view copies the two values into the extern names during the unit's static initialisation (same _initterm position). One value per address; src/ should give the statics and the extern names one name (owner item).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "    char unknown_000[0x24];\n    Cell unknown_24;              // +0x024 (the cell's coordinates)\n    DynamicVectorClass<struct UnknownCellEntry28 *> *unknown_28;   // +0x028 (owned entries; TechnoClass slot 27 scans them)\n    char unknown_02c[0x38 - 0x2C];\n    int unknown_38;                     // +0x038 (the iso tile index; InfantryClass slot 93 tests the bridge tiles)\n    TagClass *unknown_3c;               // +0x03C (the cell's tag; FootClass slot 93 springs it)\n    char unknown_040[0x44 - 0x40];\n    int unknown_44;                     // +0x044 (the overlay, -1 none)\n    char unknown_048[0x50 - 0x48];\n    int unknown_50;                     // +0x050 (a house index: the overlay's owner; InfantryClass slot 101)\n    int unknown_54;                     // +0x054 (a house index: the occupying owner, -1 none)\n    int unknown_58;                     // +0x058 (the same on the bridge level)\n    char unknown_05c[0xE4 - 0x5C];\n    ObjectClass *unknown_e4;            // +0x0E4 (the first object in the cell; ObjectClass +0x30 links the rest)\n    ObjectClass *unknown_e8;            // +0x0E8 (the first object on the bridge level)\n    int unknown_ec;                     // +0x0EC (a land type)\n    char unknown_0f0[0x10A - 0xF0];\n    short unknown_10a;                  // +0x10A (ObjectClass slot 56 copies it into the placed animation's +0xE4)\n    char unknown_10c[0x11B - 0x10C];\n    char unknown_11b;                   // +0x11B (the height level)\n    bool unknown_11c;                   // +0x11C (a ramp; FootClass slot 102)\n    char unknown_11d;\n    unsigned char unknown_11e;          // +0x11E\n    char unknown_11f[0x122 - 0x11F];\n    char unknown_122;                   // +0x122 (a count of units around; FootClass slot 52 decrements it)\n    char unknown_123[0x124 - 0x123];\n    UnknownCellOccupy unknown_124;      // +0x124 (occupation: 0x1C the three spots; InfantryClass slots 93, 101)\n    UnknownCellOccupy unknown_128;      // +0x128 (the same on the bridge level)\n    unsigned int unknown_12c;           // +0x12C flags (bit 4: TechnoClass slot 93 reveals to the player)\n    char unknown_130[0x140 - 0x130];\n    unsigned int Flags;                 // +0x140 (0x100: a bridge cell)\n",
+   "new": "#if defined(__LP64__)\n    // NATIVE (Scout1098): CellClass's arm64 offsets (shared/cell_class.hpp; link/check_light_views_cell.cpp)\n    char unknown_000[0x32];\n    Cell unknown_24;              // +0x032 MapCoords\n    char unknown_026[0x38 - 0x36];\n    DynamicVectorClass<struct UnknownCellEntry28 *> *unknown_28;   // +0x038\n    char unknown_02c[0x58 - 0x40];\n    int unknown_38;                     // +0x058 IsoTileIndex\n    char unknown_03a[0x60 - 0x5C];\n    TagClass *unknown_3c;               // +0x060\n    char unknown_040[0x70 - 0x68];\n    int unknown_44;                     // +0x070 OverlayIndex\n    char unknown_048[0x7C - 0x74];\n    int unknown_50;                     // +0x07C\n    int unknown_54;                     // +0x080\n    int unknown_58;                     // +0x084\n    char unknown_05c[0x118 - 0x88];\n    ObjectClass *unknown_e4;            // +0x118 OccupierPtr\n    ObjectClass *unknown_e8;            // +0x120 AltOccupierPtr\n    int unknown_ec;                     // +0x128\n    char unknown_0f0[0x152 - 0x12C];\n    short unknown_10a;                  // +0x152\n    char unknown_10c[0x163 - 0x154];\n    char unknown_11b;                   // +0x163\n    bool unknown_11c;                   // +0x164\n    char unknown_11d;\n    unsigned char unknown_11e;          // +0x166 OverlayData\n    char unknown_11f[0x16A - 0x167];\n    char unknown_122;                   // +0x16A\n    char unknown_123[0x16C - 0x16B];\n    UnknownCellOccupy unknown_124;      // +0x16C\n    UnknownCellOccupy unknown_128;      // +0x170\n    unsigned int unknown_12c;           // +0x174\n    char unknown_130[0x188 - 0x178];\n    unsigned int Flags;                 // +0x188\n#else\n    char unknown_000[0x24];\n    Cell unknown_24;              // +0x024 (the cell's coordinates)\n    DynamicVectorClass<struct UnknownCellEntry28 *> *unknown_28;   // +0x028 (owned entries; TechnoClass slot 27 scans them)\n    char unknown_02c[0x38 - 0x2C];\n    int unknown_38;                     // +0x038 (the iso tile index; InfantryClass slot 93 tests the bridge tiles)\n    TagClass *unknown_3c;               // +0x03C (the cell's tag; FootClass slot 93 springs it)\n    char unknown_040[0x44 - 0x40];\n    int unknown_44;                     // +0x044 (the overlay, -1 none)\n    char unknown_048[0x50 - 0x48];\n    int unknown_50;                     // +0x050 (a house index: the overlay's owner; InfantryClass slot 101)\n    int unknown_54;                     // +0x054 (a house index: the occupying owner, -1 none)\n    int unknown_58;                     // +0x058 (the same on the bridge level)\n    char unknown_05c[0xE4 - 0x5C];\n    ObjectClass *unknown_e4;            // +0x0E4 (the first object in the cell; ObjectClass +0x30 links the rest)\n    ObjectClass *unknown_e8;            // +0x0E8 (the first object on the bridge level)\n    int unknown_ec;                     // +0x0EC (a land type)\n    char unknown_0f0[0x10A - 0xF0];\n    short unknown_10a;                  // +0x10A (ObjectClass slot 56 copies it into the placed animation's +0xE4)\n    char unknown_10c[0x11B - 0x10C];\n    char unknown_11b;                   // +0x11B (the height level)\n    bool unknown_11c;                   // +0x11C (a ramp; FootClass slot 102)\n    char unknown_11d;\n    unsigned char unknown_11e;          // +0x11E\n    char unknown_11f[0x122 - 0x11F];\n    char unknown_122;                   // +0x122 (a count of units around; FootClass slot 52 decrements it)\n    char unknown_123[0x124 - 0x123];\n    UnknownCellOccupy unknown_124;      // +0x124 (occupation: 0x1C the three spots; InfantryClass slots 93, 101)\n    UnknownCellOccupy unknown_128;      // +0x128 (the same on the bridge level)\n    unsigned int unknown_12c;           // +0x12C flags (bit 4: TechnoClass slot 93 reveals to the player)\n    char unknown_130[0x140 - 0x130];\n    unsigned int Flags;                 // +0x140 (0x100: a bridge cell)\n#endif\n",
+   "why": "Light view (Scout1098): techno.hpp's UnknownCellClass (the cell as the Techno/Foot/Infantry units see it through Map_Cell, shared/techno_map.hpp) spells CellClass's VC6 offsets as char padding; natively CellClass places them elsewhere (MapCoords +0x32, OccupierPtr +0x118, the occupy flags +0x16C, ...), so those units read the wrong bytes (InfantryClass::Unlimbo 0x00504FD0's free-spot search 0x004764B0 and FootClass's cell tests: start infantry landed 21 cells from the base on one coordinate). The LP64 branch places each member at CellClass's arm64 offset; native/link/check_light_views_cell.cpp static_asserts them. The i686 branch keeps the VC6 text.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/audio.hpp",
+   "old": "    AudioListNode Local;            // +0x0C its place in its type's Local list\n#else\n    int unknown_0c;\n    int unknown_10;\n    int unknown_14;\n#endif\n",
+   "new": "    AudioListNode Local;            // +0x0C its place in its type's Local list\n#elif defined(__LP64__)\n    AudioListNode unknown_0c;       // NATIVE: the Local node at its native size (the event service unit's view)\n#else\n    int unknown_0c;\n    int unknown_10;\n    int unknown_14;\n#endif\n",
+   "why": "AudioEvent's +0x0C is a list node (AudioListNode Local in the event service unit, RA2_AUDIO_EVENT_SERVICE); other units see three ints. On VC6 both are 12 bytes; natively the node is 24 (two pointers), so Flags, State and every later member sat at different offsets in the two views (Scout1098: skirmish with audio). The native view gives the other units a node of the same size. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Events_Update_004041b0.cpp",
+   "old": "        event = (AudioEvent *)((char *)node - 0x0c);\n",
+   "new": "        event = (AudioEvent *)((char *)node - __builtin_offsetof(AudioEvent, Local));   // NATIVE: was 0x0c (VC6 offset of Local)\n",
+   "why": "The event of a Local list node is found by subtracting Local's VC6 offset (0x0C) from the node; natively Local is at offsetof(AudioEvent, Local) (0x18), so the event pointer was 12 bytes early and Audio_List_Remove faulted on a null link (skirmish with audio, Scout1091/Scout1098). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Events_Update_004041b0.cpp",
+   "old": "        event = (AudioEvent *)((char *)head->Prev - 0x0c);\n",
+   "new": "        event = (AudioEvent *)((char *)head->Prev - __builtin_offsetof(AudioEvent, Local));   // NATIVE: was 0x0c (VC6 offset of Local)\n",
+   "why": "The event of a Local list node is found by subtracting Local's VC6 offset (0x0C) from the node; natively Local is at offsetof(AudioEvent, Local) (0x18), so the event pointer was 12 bytes early and Audio_List_Remove faulted on a null link (skirmish with audio, Scout1091/Scout1098). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/audio.hpp",
+   "old": "    int volatile unknown_148;                // the source waiting for the delay to pass\n",
+   "new": "    intptr_t volatile unknown_148;           // the source waiting for the delay to pass (NATIVE: an AudioSource * at pointer width)\n",
+   "why": "AudioEvent's waiting source is kept in an int (Audio_Event_Start_Pass/Next_Sample results stored with (int) casts in 0x004041B0, 0x004055D0, 0x00405AD0; Audio_Event_Begin 0x004054B0 casts it back to AudioSource *). Natively the member is pointer-sized and native_units.py widens the casts and Audio_Event_Begin's local (Scout1098: skirmish with audio faulted in Audio_Channel_Set_Source). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/audio.hpp",
+   "old": "    int unknown_0c;                 // +0x0C the piece's data\n",
+   "new": "    intptr_t unknown_0c;            // +0x0C the piece's data (NATIVE: pointer width)\n",
+   "why": "The audio library keeps sample data addresses in ints: AudioSourceInfo +0x0C (the piece's data, Init 0x00408500 stores (int)data), AudioSource +0x00 (the owned buffer, Audio_Source_Create 0x00408380 stores (int)operator new), AudioChannel +0x170 (the play position, 0x00402790/0x00402330/0x004022C0/0x004078F0) and AudioChannelBuffer +0x20/+0x28 (Audio_DS_Channel_Start 0x0040A260, Audio_DS_Fill 0x004097A0, which passes +0x28 to the block decoder as its source). Natively each is pointer-sized and native_units.py widens the (int) stores (Scout1098: skirmish with audio faulted in Audio_DS_Decode_Blocks' memcpy from a truncated address). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/audio.hpp",
+   "old": "    int unknown_00;                 // +0x00 data (the owned buffer, or the play position)\n",
+   "new": "    intptr_t unknown_00;            // +0x00 data (the owned buffer, or the play position) (NATIVE: pointer width)\n",
+   "why": "The audio library keeps sample data addresses in ints: AudioSourceInfo +0x0C (the piece's data, Init 0x00408500 stores (int)data), AudioSource +0x00 (the owned buffer, Audio_Source_Create 0x00408380 stores (int)operator new), AudioChannel +0x170 (the play position, 0x00402790/0x00402330/0x004022C0/0x004078F0) and AudioChannelBuffer +0x20/+0x28 (Audio_DS_Channel_Start 0x0040A260, Audio_DS_Fill 0x004097A0, which passes +0x28 to the block decoder as its source). Natively each is pointer-sized and native_units.py widens the (int) stores (Scout1098: skirmish with audio faulted in Audio_DS_Decode_Blocks' memcpy from a truncated address). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/audio.hpp",
+   "old": "    int unknown_170;                                // +0x170\n",
+   "new": "    intptr_t unknown_170;                           // +0x170 (NATIVE: the play position, pointer width)\n",
+   "why": "The audio library keeps sample data addresses in ints: AudioSourceInfo +0x0C (the piece's data, Init 0x00408500 stores (int)data), AudioSource +0x00 (the owned buffer, Audio_Source_Create 0x00408380 stores (int)operator new), AudioChannel +0x170 (the play position, 0x00402790/0x00402330/0x004022C0/0x004078F0) and AudioChannelBuffer +0x20/+0x28 (Audio_DS_Channel_Start 0x0040A260, Audio_DS_Fill 0x004097A0, which passes +0x28 to the block decoder as its source). Natively each is pointer-sized and native_units.py widens the (int) stores (Scout1098: skirmish with audio faulted in Audio_DS_Decode_Blocks' memcpy from a truncated address). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/audio.hpp",
+   "old": "    int unknown_20;                 // +0x20\n    int unknown_24;                 // +0x24\n    int unknown_28;                 // +0x28\n",
+   "new": "    intptr_t unknown_20;            // +0x20 (NATIVE: a data address, pointer width)\n    int unknown_24;                 // +0x24\n    intptr_t unknown_28;            // +0x28 (NATIVE: the decoder's source address, pointer width)\n",
+   "why": "The audio library keeps sample data addresses in ints: AudioSourceInfo +0x0C (the piece's data, Init 0x00408500 stores (int)data), AudioSource +0x00 (the owned buffer, Audio_Source_Create 0x00408380 stores (int)operator new), AudioChannel +0x170 (the play position, 0x00402790/0x00402330/0x004022C0/0x004078F0) and AudioChannelBuffer +0x20/+0x28 (Audio_DS_Channel_Start 0x0040A260, Audio_DS_Fill 0x004097A0, which passes +0x28 to the block decoder as its source). Natively each is pointer-sized and native_units.py widens the (int) stores (Scout1098: skirmish with audio faulted in Audio_DS_Decode_Blocks' memcpy from a truncated address). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Bank_Create_004019e0.cpp",
+   "old": "    bank->Pieces = Audio_Pool_Create(bytes / (block + 0x1c), block + 0x1c);\n    bank->Entries = Audio_Pool_Create(entries, 100);\n",
+   "new": "    bank->Pieces = Audio_Pool_Create(bytes / (block + (int)sizeof(AudioSourceInfo) + 4), block + (int)sizeof(AudioSourceInfo) + 4);   // NATIVE: was block + 0x1c\n    bank->Entries = Audio_Pool_Create(entries, (int)sizeof(AudioBankEntry));   // NATIVE: was 100\n",
+   "why": "The audio pools are sized with VC6 struct sizes: bank pieces block + 0x1C (an AudioSourceInfo header, 0x18 bytes, plus 4, with the data after it), bank entries 100 (sizeof(AudioBankEntry) 0x64) and events 0x280 (sizeof(AudioEvent)). Natively the structs are 0x30, 0x98 and 0x338 bytes, so pieces' data overwrote their own headers and entries/events overran their pool slots (Scout1098: skirmish with audio faulted copying sample data from a garbage piece address). The native view sizes them from the structs (the piece data after the header plus the same 4 bytes). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Bank_Load_00401c00.cpp",
+   "old": "            piece->Init((char *)piece + 0x1c, size);\n",
+   "new": "            piece->Init((char *)piece + sizeof(AudioSourceInfo) + 4, size);   // NATIVE: was + 0x1c\n",
+   "why": "The audio pools are sized with VC6 struct sizes: bank pieces block + 0x1C (an AudioSourceInfo header, 0x18 bytes, plus 4, with the data after it), bank entries 100 (sizeof(AudioBankEntry) 0x64) and events 0x280 (sizeof(AudioEvent)). Natively the structs are 0x30, 0x98 and 0x338 bytes, so pieces' data overwrote their own headers and entries/events overran their pool slots (Scout1098: skirmish with audio faulted copying sample data from a garbage piece address). The native view sizes them from the structs (the piece data after the header plus the same 4 bytes). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Bank_Load_00401c00.cpp",
+   "old": "            int read = Audio_Bag_Read(bank->Bag, (char *)piece + 0x1c, size);\n",
+   "new": "            int read = Audio_Bag_Read(bank->Bag, (char *)piece + sizeof(AudioSourceInfo) + 4, size);   // NATIVE: was + 0x1c\n",
+   "why": "The audio pools are sized with VC6 struct sizes: bank pieces block + 0x1C (an AudioSourceInfo header, 0x18 bytes, plus 4, with the data after it), bank entries 100 (sizeof(AudioBankEntry) 0x64) and events 0x280 (sizeof(AudioEvent)). Natively the structs are 0x30, 0x98 and 0x338 bytes, so pieces' data overwrote their own headers and entries/events overran their pool slots (Scout1098: skirmish with audio faulted copying sample data from a garbage piece address). The native view sizes them from the structs (the piece data after the header plus the same 4 bytes). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Events_Init_00403eb0.cpp",
+   "old": "        Audio_Event_Pool = Audio_Pool_Create(100, 0x280);\n",
+   "new": "        Audio_Event_Pool = Audio_Pool_Create(100, (int)sizeof(AudioEvent));   // NATIVE: was 0x280\n",
+   "why": "The audio pools are sized with VC6 struct sizes: bank pieces block + 0x1C (an AudioSourceInfo header, 0x18 bytes, plus 4, with the data after it), bank entries 100 (sizeof(AudioBankEntry) 0x64) and events 0x280 (sizeof(AudioEvent)). Natively the structs are 0x30, 0x98 and 0x338 bytes, so pieces' data overwrote their own headers and entries/events overran their pool slots (Scout1098: skirmish with audio faulted copying sample data from a garbage piece address). The native view sizes them from the structs (the piece data after the header plus the same 4 bytes). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Pool_Create_00407400.cpp",
+   "old": "    AudioPool *pool = (AudioPool *)operator new((size + 8) * count + 8);\n",
+   "new": "    AudioPool *pool = (AudioPool *)operator new((size + sizeof(AudioPoolBlock)) * count + sizeof(AudioPool));   // NATIVE: was (size + 8) * count + 8\n",
+   "why": "The pool's block link (AudioPoolBlock: a next pointer and an int) and header (AudioPool) are 8 bytes on VC6, spelled as 8 here; Audio_Pool_Alloc/Free 0x00407450/0x00407460 step by the struct (block + 1), which is 16 bytes natively, so the chain and the data overlapped (Scout1098: skirmish with audio faulted in Audio_Pool_Alloc). The native view sizes both from the structs. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Pool_Create_00407400.cpp",
+   "old": "            AudioPoolBlock *next = (AudioPoolBlock *)(size + 8 + (char *)block);\n",
+   "new": "            AudioPoolBlock *next = (AudioPoolBlock *)(size + sizeof(AudioPoolBlock) + (char *)block);   // NATIVE: was size + 8\n",
+   "why": "The pool's block link (AudioPoolBlock: a next pointer and an int) and header (AudioPool) are 8 bytes on VC6, spelled as 8 here; Audio_Pool_Alloc/Free 0x00407450/0x00407460 step by the struct (block + 1), which is 16 bytes natively, so the chain and the data overlapped (Scout1098: skirmish with audio faulted in Audio_Pool_Alloc). The native view sizes both from the structs. Same meaning.",
+   "verified": true
   }
  ]
 }

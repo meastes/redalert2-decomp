@@ -84,12 +84,12 @@ map), `frame` (first Main_Loop iteration), `frames` (N of them); notes
 `harness-art`, `harness-map`, `harness-stop`. With `--skirmish='#0'` (MP02T2.MAP) the
 run reaches `scenario`, `frame` and `frames` (60 checked) without traps; the human
 house gets its start units (MCV, tanks, infantry) and is not defeated. The
-tactical view draws the map tiles under the shroud (best with `'#5'`, MP14T2.MAP,
-centred on the start units); the units themselves are not visible yet (next
-target), and MP02T2 places the infantry 21 cells from the base. `RA2_NATIVE_DEBUG_LOG=1`
+tactical view draws the map tiles under the shroud, the start units (voxel
+vehicles, infantry), trees and cliffs around the base, and the sidebar credits
+count up (Scout1098; best with `'#5'`, MP14T2.MAP). `RA2_NATIVE_DEBUG_LOG=1`
 prints the game's Debug_Printf lines (the original's body is empty). The menu run
-(`--run-to=menu`) also works without `-noaudio`; a skirmish with audio still
-faults in Audio_List_Remove. `--game-args` is WinMain's command
+(`--run-to=menu`) and the skirmish runs also work without `-noaudio` (60 frames
+checked on `'#0'` and `'#5'`). `--game-args` is WinMain's command
 line: `-noaudio` skips the audio device, `-CD.` makes every file local (no CD
 check; Parse_Command_Line's `-CD<path>`). The native game skips the CD check
 (user decision 2026-11-08): the host adds `-CD.` unless the command line names
@@ -114,7 +114,10 @@ WinMain (milestone `original-data`; static initialisers run before main and see
 zeros). `RA2_GAME_EXE=<path>` names the supported executable when the
 installation carries another build. Structs of scalars and fixed scalar arrays
 only (TheaterTypeStruct, the track-control tables, GUIDs) load as `bytes`: VC6
-(/Zp8) and arm64 lay them out alike. Other class-typed globals and pointers to
+(/Zp8) and arm64 lay them out alike; such a struct may be defined in the user
+source itself (one body across `src/recovered`), and multi-dimensional arrays
+count every dimension (Scout1098: the voxel view table, the infantry spot
+sequences, the path and quadrant tables). Other class-typed globals and pointers to
 pointers are not loaded (`--report`).
 
 ## Layers
@@ -135,7 +138,12 @@ pointers are not loaded (`--report`).
    sees, ObjectClass slot 67's point/rect, the blitters' depth/alpha ring arguments
    and Bit_Blit/RLE_Blit's ring locals, CC_Draw_Shape's remap and depth shape,
    unknown_blit_49f3a0's remap/blitter, the voxel shadow mask, the ZBuffer/ABuffer
-   Wrap_ helpers, the RadiusCount table; Scout1091).
+   Wrap_ helpers, the RadiusCount table; Scout1091; the drawer value slot 115
+   hands to building and overlay animations, the audio event's waiting source and
+   sample data addresses; Scout1098). VC6 variadic forwarding
+   (`vswprintf(buf, fmt, (char *)(&last + 1))`) becomes a real va_list from the
+   same parameter (Plain_Text_Print, Fancy_Text_Printf, MonoClass::Printf,
+   JShell_Fatal, the chat lines).
    Rows with `__asm` are skipped and listed. `port/fixups.json` holds the
    per-file substitutions clang needs (sources and `src/shared` headers, each
    with the VC6 meaning it keeps and its evidence) plus qualified-name
@@ -220,10 +228,14 @@ wrote before, so a layout change needs a fresh pass: header-only TSV, rebuild,
 `member_aliases.py --fresh`, `data_globals.py`, `original_data.py`, rebuild, then
 repeat the last three until `bss_globals.cpp` no longer changes.
    **Light views** (`map_view.hpp`'s screen layers, `house_screen.hpp`'s HouseClass,
-   `unit.hpp`'s house views): their VC6 padding is respelled by `port/fixups.json` to the
-   full classes' arm64 offsets under `#if defined(__LP64__)` (the i686 branch keeps the VC6
-   text for `member_aliases.py`); `link/check_light_views*.cpp` and the behaviour files
-   static_assert both sides. **COM class factories** (`TClassFactory<X>::CreateInstance`,
+   `unit.hpp`'s house views, `map_techno.hpp`/`map_overlay.hpp`'s Map-unit stand-ins and
+   `techno.hpp`'s UnknownCellClass, Scout1098): their VC6 padding is respelled by
+   `port/fixups.json` to the full classes' arm64 offsets under `#if defined(__LP64__)` (the
+   i686 branch keeps the VC6 text for `member_aliases.py`); `link/check_light_views*.cpp`
+   and the behaviour files static_assert both sides. Members of a light view start in
+   the base's tail padding natively (AbstractClass's data size 0x31), so the padding
+   arrays are measured from there. Many other stand-ins in `src/shared` still carry
+   VC6 padding (a mismatch reads the wrong bytes silently). **COM class factories** (`TClassFactory<X>::CreateInstance`,
    74 rows) allocate their light in-file view through `ra2port::factory_alloc` (twice the
    VC6 size; `native_units.py` RULES). **IsoTileImageStruct::Tiles** is `ra2port::IsoTileRef`
    natively (tagged self-relative record offsets instead of 32-bit pointers).

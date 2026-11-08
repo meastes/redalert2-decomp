@@ -50,8 +50,9 @@ STRIP = re.compile(r'\b(extern|static|const|volatile|__declspec\(\w+\)|"C")\b|"C
 
 
 def declaration(name, lines):
-    """(base type, stars, is_array) of `name`'s declaration, or None."""
-    rx = re.compile(r'^\s*(?:extern\s+"C"\s+)?(?:extern\s+)?([A-Za-z_][\w\s]*?)\s*(\*+\s*(?:const\s*)?)?\b%s\b\s*(\[[^\]]*\])?\s*(?:;|=|\))' % re.escape(name))
+    """(base type, stars, is_array) of `name`'s declaration, or None. A
+    multi-dimensional array (`unsigned char t[5][4]`) is an array too (Scout1098)."""
+    rx = re.compile(r'^\s*(?:extern\s+"C"\s+)?(?:extern\s+)?([A-Za-z_][\w\s]*?)\s*(\*+\s*(?:const\s*)?)?\b%s\b\s*((?:\[[^\]]*\]\s*)+)?\s*(?:;|=|\))' % re.escape(name))
     for text in [lines]:
         for line in text:
             if name not in line or '(' in line.split(name)[0]:
@@ -77,9 +78,33 @@ def shared_text():
     return _SHARED
 
 
+_RECOVERED = None
+
+
+def struct_source(base):
+    """The text holding struct `base`'s definition: src/shared, else the one body
+    the recovered sources and tracked drafts give it (a struct a user source
+    defines for itself, such as UnknownVoxelView; Scout1098). Two different
+    bodies of one name (light views) give none."""
+    global _RECOVERED
+    pattern = r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base)
+    if re.search(pattern, shared_text()):
+        return shared_text()
+    if _RECOVERED is None:
+        files = sorted((ROOT / 'src/recovered').rglob('*.cpp')) + sorted((ROOT / 'native/drafts').glob('*.cpp'))
+        _RECOVERED = [f.read_text(errors='replace') for f in files]
+    bodies = set()
+    for text in _RECOVERED:
+        if base in text:
+            bodies.update(' '.join(b.split()) for b in re.findall(pattern, text))
+    if len(bodies) == 1:
+        return 'struct %s {%s};' % (base, bodies.pop().replace('; ', ';\n'))
+    return ''
+
+
 def pointer_struct(base):
     """Number of members of struct `base` when every member is a data pointer, else 0."""
-    m = re.search(r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base), shared_text())
+    m = re.search(r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base), struct_source(base))
     if not m:
         return 0
     members = [l.split('//')[0].strip() for l in m.group(1).split('\n')]
@@ -105,7 +130,7 @@ def record_native_size(fields):
 def record_fields(base):
     """'p'/'4' per member of struct `base` when every member is a data pointer or a
     32-bit scalar (at most 15 members), else ''."""
-    m = re.search(r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base), shared_text())
+    m = re.search(r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base), struct_source(base))
     if not m:
         return ''
     out = ''
@@ -133,7 +158,7 @@ def scalar_record_size(base):
     scalars (char/short/int/float/double, enums as int; no pointers, no member
     functions): natural alignment, which VC6 (/Zp8) and arm64 lay out alike, so
     the original bytes load as they are. Else 0."""
-    m = re.search(r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base), shared_text())
+    m = re.search(r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base), struct_source(base))
     if not m:
         return 0
     off = 0
@@ -252,7 +277,11 @@ def main():
             # (shape 3: field count and pointer mask in the high bits).
             fields = record_fields(base)
             count = declared_count(name, index.get(name, [])) if array else 1
-            if count is None:
+            if count is None and 'p' not in fields:
+                # An unsized array of scalar records: the TSV extent (to the next
+                # known symbol) in whole records.
+                count = extent // (4 * len(fields))
+            if not count:
                 skipped.append(dict(symbol=sym, address=addr, reason='record array without a count'))
                 continue
             extent = 4 * len(fields) * count
@@ -302,9 +331,12 @@ def main():
     for sym, r in rows.items():
         if r['shape'] == 'ptrs':
             for line in index.get(r['name'], []):
-                m = re.search(r'\b%s\s*\[\s*(\d+)\s*\]' % re.escape(r['name']), line)
+                m = re.search(r'\b%s\s*((?:\[\s*\d+\s*\]\s*)+)' % re.escape(r['name']), line)
                 if m:
-                    declared[int(r['address'], 16)] = min(r['extent'], 4 * int(m.group(1)))
+                    elements = 1
+                    for dim in re.findall(r'\d+', m.group(1)):
+                        elements *= int(dim)   # every dimension (unknown_road_library_7e0fe4[8][4])
+                    declared[int(r['address'], 16)] = min(r['extent'], 4 * elements)
                     break
             else:
                 declared.setdefault(int(r['address'], 16), r['extent'])

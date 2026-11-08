@@ -1513,6 +1513,66 @@
    "exact": false,
    "file": "native/link/behaviour_audio_m8.cpp",
    "source": "decompile 0x0040A6C0 (returns 0x008315AC)"
+  },
+  {
+   "entry": "0x00423D90",
+   "name": "ObjectClass::unknown_slot47()",
+   "symbol": "__ZN11ObjectClass14unknown_slot47Ev",
+   "origin_class": "unmatched leaf (vtable slot)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m9.cpp",
+   "source": "leaf src/recovered/classes/ObjectClass/00423d90.cpp (returns 1)"
+  },
+  {
+   "entry": "0x00402030",
+   "name": "AudioBankEntry::Get_Source()",
+   "symbol": "__ZN14AudioBankEntry10Get_SourceEv",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m9.cpp",
+   "source": "seed decompile 0x00402030 (returns this + 0x1C: the Source member, shared/audio.hpp)"
+  },
+  {
+   "entry": "0x004026A0",
+   "name": "Audio_Channel_Lock(AudioChannel *)",
+   "symbol": "__Z18Audio_Channel_LockP12AudioChannel",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m9.cpp",
+   "source": "seed decompile 0x004026A0 (tail jump to channel->Driver->Lock, +0x28)"
+  },
+  {
+   "entry": "0x004026B0",
+   "name": "Audio_Channel_Unlock(AudioChannel *)",
+   "symbol": "__Z20Audio_Channel_UnlockP12AudioChannel",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m9.cpp",
+   "source": "seed decompile 0x004026B0 (tail jump to channel->Driver->Unlock, +0x2C)"
+  },
+  {
+   "entry": "0x00401190",
+   "name": "AudioLevelSet::Scale_Frequency(int)",
+   "symbol": "__ZN13AudioLevelSet15Scale_FrequencyEi",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m9.cpp",
+   "source": "seed decompile 0x00401190 ((Frequency.Current >> 16) * value / 100)"
+  },
+  {
+   "entry": "0x006E8440",
+   "name": "ThemeClass::unknown_6e8440(unsigned int)",
+   "symbol": "__ZN10ThemeClass14unknown_6e8440Ej",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m9_theme.cpp",
+   "source": "seed decompile 0x006E8440 (TibSun ThemeClass::Is_Allowed shape)"
   }
  ]
 }
