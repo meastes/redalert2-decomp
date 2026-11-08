@@ -5,9 +5,9 @@
 #include "shared/map_cell.hpp"
 #include "shared/anim.hpp"
 #include "shared/rules.hpp"
-extern int const unknown_cell_count_7a590c;
+extern int const unknown_radius_count_7a5908[];   // 0x007A5908 cells within each radius (MapClass::Sight_From 0x0054A110)
 extern Cell const unknown_cell_offsets_a6f248[];
-// @ref ?unknown_cell_count_7a590c@@3HB=007a590c
+// @ref ?unknown_radius_count_7a5908@@3QBHB=007a5908
 // @ref ?unknown_cell_offsets_a6f248@@3QBVCell@@B=00a6f248
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 
@@ -17,7 +17,7 @@ bool TActionClass::unknown_iron_curtain_at_waypoint(HouseClass *house, ObjectCla
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct position = Map[waypoint].Center_Coord();
     new AnimClass(Rules->IronCurtainInvokeAnim, position + CoordStruct(0,0,5), 0,1,0x600,0);
-    int count = unknown_cell_count_7a590c;
+    int count = unknown_radius_count_7a5908[1];
     for (int index = 0; index < count; ++index) {
         Cell const &offset = unknown_cell_offsets_a6f248[index];
         target_cell = TPoint2D<short>((short)(waypoint.X + offset.X), (short)(waypoint.Y + offset.Y));
