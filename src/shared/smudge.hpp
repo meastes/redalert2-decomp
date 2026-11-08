@@ -51,7 +51,7 @@ public:
     virtual int Kind_Of() const { return 0x1D; }                        // 0x00687AA0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(SmudgeClass); }         // 0x00687A90 slot 12 (inline)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x00687A80 slot 33 (inline)
-    virtual void unknown_slot67(int arg1, int arg2) {}                  // 0x00687AF0 (inline)
+    virtual void unknown_slot67(Point2D const &point, Rect const &window) {}                  // 0x00687AF0 (inline)
     virtual bool Mark(int arg1);                              // 0x00687750
 
     SmudgeTypeClass *Class;                 // +0x098

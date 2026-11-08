@@ -105,7 +105,7 @@ public:
     virtual void unknown_slot60();                                      // 0x00423070
     virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);    // 0x00420E20
     virtual Cell const *unknown_slot64(int arg1);                 // 0x00421520 (no cell: a local static)
-    virtual void unknown_slot67(int arg1, int arg2);                    // 0x00420E50
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x00420E50
     virtual bool Mark(int arg1);                              // 0x00421500
     virtual int unknown_slot110() const;                                // 0x004230E0
     virtual int unknown_slot116();                                      // 0x00421580 (new: bounce step)

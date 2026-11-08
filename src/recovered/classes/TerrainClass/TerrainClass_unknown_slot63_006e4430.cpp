@@ -34,7 +34,7 @@ bool TerrainClass::unknown_slot63(Rect *bounds, bool forced, bool extras_only)
                 point.Y += unknown_rect_839630.Y - bounds->Y;
             }
 
-            unknown_slot67((int)&point, (int)bounds);
+            unknown_slot67(point, *bounds);
             return true;
         }
     }

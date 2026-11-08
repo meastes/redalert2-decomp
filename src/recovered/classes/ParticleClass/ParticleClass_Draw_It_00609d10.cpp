@@ -1,6 +1,6 @@
-// void ParticleClass::unknown_slot67(int arg1, int arg2) (0x00609D10, slot 67)
-// Draws the particle (TibSun ParticleClass::Draw_It) at the screen point arg1
-// within the window arg2, unless the frame rate is too low or it is hidden
+// void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect) (0x00609D10, slot 67)
+// Draws the particle (TibSun ParticleClass::Draw_It) at the screen point point
+// within the window cliprect, unless the frame rate is too low or it is hidden
 // under fog. Shape particles draw their frame lifted by their height, with
 // the type's translucency at full detail; sparks and railgun particles put
 // one pixel blended along the type's colour list, dimmed by the alpha buffer
@@ -27,10 +27,8 @@
 // @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 
-void ParticleClass::unknown_slot67(int arg1, int arg2)
+void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
 {
-    Point2D const &point = *(Point2D const *)arg1;
-    Rect const &cliprect = *(Rect const *)arg2;
     if (unknown_a6eb1c < Unknown_0053D840()) {
         return;
     }

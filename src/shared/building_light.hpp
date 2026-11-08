@@ -61,7 +61,7 @@ public:
     // object.hpp, radio.hpp and techno.hpp).
     virtual bool unknown_slot52();                                  // 0x004347C0
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);              // 0x004347E0
-    virtual void unknown_slot67(int arg1, int arg2);                // 0x00433380
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);                // 0x00433380
 
     double unknown_98;              // +0x98
     CoordStruct unknown_a0;         // +0xA0

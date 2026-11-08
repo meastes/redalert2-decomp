@@ -184,8 +184,8 @@ public:
     virtual void unknown_slot59(CoordStruct const &coord);                             // slot 59 0x0044EF30
     virtual int unknown_slot62(TechnoClass *techno);                   // slot 62 0x00440520
     virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);  // slot 63 0x0043A200
-    virtual void unknown_slot67(int arg1, int arg2);                  // slot 67 0x0043A5E0
-    virtual void unknown_slot68(int arg1, int arg2);                  // slot 68 0x0043A380
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x0043A5E0
+    virtual void unknown_slot68(Point2D const &point, Rect const &window);                  // slot 68 0x0043A380
     virtual bool Mark(int arg1);                            // slot 71 0x0043BFC0
     virtual Rect unknown_slot73();                                    // slot 73 0x00450DD0
     virtual void unknown_slot74(int arg1);                            // slot 74 0x004519D0

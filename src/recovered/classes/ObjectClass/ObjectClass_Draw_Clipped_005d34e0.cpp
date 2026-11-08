@@ -24,6 +24,6 @@ draw_clipped:
         pixel.X = (int)((unsigned)pixel.X + (unsigned)unknown_rect_839630.X - (unsigned)bounds->X);
     if (bounds->Y > unknown_rect_839630.Y)
         pixel.Y = (int)((unsigned)pixel.Y + (unsigned)unknown_rect_839630.Y - (unsigned)bounds->Y);
-    unknown_slot67((int)&pixel, (int)bounds);
+    unknown_slot67(pixel, *bounds);
     return true;
 }

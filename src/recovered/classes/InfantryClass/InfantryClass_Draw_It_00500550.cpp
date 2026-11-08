@@ -31,10 +31,8 @@ bool Unknown_0051FC60();
 // @ref ??_C@_0M@GHLL@INFSHDW?4SHP?$AA@=007daedc
 // @ref ?unknown_level_height_a41130@@3HA=00a41130
 // Existing int formals carry Point2D and Rect pointers; their ABI stays unchanged.
-void InfantryClass::unknown_slot67(int point_arg,int window_arg)
+void InfantryClass::unknown_slot67(Point2D const &input, Rect const &window)
 {
-    Point2D const &input=*reinterpret_cast<Point2D const *>(point_arg);
-    Rect const &window=*reinterpret_cast<Rect const *>(window_arg);
     Point2D point=input;
     Cell cell=unknown_slot106();
     if (unknown_574==-1) {
@@ -86,5 +84,5 @@ void InfantryClass::unknown_slot67(int point_arg,int window_arg)
             unknown_slot293(shape,unknown_500350(),&(point+Point2D(0,-draw_offset)),&window,0,256,unknown_infantry_zadjust_007daeb8,2,0,brightness,0,0,Point2D(0,0),0);
         }
     } else unknown_tactical_83996c->Add_To_Selectables(this, point);
-    FootClass::unknown_slot67(reinterpret_cast<int>(&point),window_arg);
+    FootClass::unknown_slot67(point,window);
 }

@@ -1,6 +1,6 @@
-// void AnimClass::unknown_slot67(int arg1, int arg2) (0x00420E50, slot 67)
-// Draws the animation (TibSun AnimClass::Draw_It) at the screen point arg1
-// within the window arg2: skipped when the frame rate is too low for its
+// void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect) (0x00420E50, slot 67)
+// Draws the animation (TibSun AnimClass::Draw_It) at the screen point point
+// within the window cliprect: skipped when the frame rate is too low for its
 // detail level, when hidden or fogged; the type's translucency at enough
 // detail, the drawer and brightness of its palette, its cell or its own,
 // then the bouncing shadow, the tiled column, the flat or upright frame and
@@ -27,10 +27,8 @@
 // @ref __real@8@3ffdcccccccccccccc00=0079c268
 // @ref __real@8@3ffccccccccccccccc00=0079c260
 
-void AnimClass::unknown_slot67(int arg1, int arg2)
+void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
 {
-    Point2D const &point = *(Point2D const *)arg1;
-    Rect const &cliprect = *(Rect const *)arg2;
     if (unknown_a6eb1c < Unknown_0053D840() && Class->DetailLevel > 1) {
         return;
     }

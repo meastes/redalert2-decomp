@@ -13,7 +13,7 @@
 Matrix3D __fastcall Aircraft_Isometric_View_Matrix_00717f90();
 // @ref ?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ=00717f90
 
-void AircraftClass::unknown_slot67(int screen_point_address, int clip_address)
+void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
     if (!Debug_Map && unknown_b263d8 &&
         (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
@@ -23,10 +23,10 @@ void AircraftClass::unknown_slot67(int screen_point_address, int clip_address)
             Map.Unknown_005683C0(Position_Coord_004f3f40()) && !House->Unknown_004F52B0()) return;
     }
 
-    Point2D draw_point = *reinterpret_cast<Point2D const *>(screen_point_address);
+    Point2D draw_point = point;
     draw_point += Locomotor.Checked()->Draw_Point();
     if (Cargo.Object && Type->Carryall) {
-        Cargo.unknown_468a10()->unknown_slot67(reinterpret_cast<int>(&draw_point), clip_address);
+        Cargo.unknown_468a10()->unknown_slot67(draw_point, window);
     }
     unknown_slot104();
     if (Type->unknown_206 && Type->unknown_b0.unknown_00) {
@@ -62,7 +62,7 @@ void AircraftClass::unknown_slot67(int screen_point_address, int clip_address)
         if (!unknown_325) {
             unknown_4c9a40(Type->unknown_b0, 0,
                 key, &Type->unknown_23c,
-                *reinterpret_cast<Rect const *>(clip_address), shadow_point,
+                window, shadow_point,
                 Aircraft_Isometric_View_Matrix_00717f90() * matrix, true, 0, 0, 0);
         }
         unknown_slot109(saved_height);
@@ -81,11 +81,11 @@ void AircraftClass::unknown_slot67(int screen_point_address, int clip_address)
         matrix = Locomotor.Checked()->Draw_Matrix(&key);
         unknown_slot246(Type->unknown_b0, 0,
             key, &Type->unknown_214,
-            *reinterpret_cast<Rect const *>(clip_address), draw_point,
+            window, draw_point,
             Aircraft_Isometric_View_Matrix_00717f90() * matrix, shadow_height, 0);
     }
     // Original base draw receives the ORIGINAL first argument, not draw_point.
-    FootClass::unknown_slot67(screen_point_address, clip_address);
+    FootClass::unknown_slot67(point, window);
 }
 
 // @ref ??0Matrix3D@@QAE@ABUCOMMatrix3DStruct@@@Z=0058fe10

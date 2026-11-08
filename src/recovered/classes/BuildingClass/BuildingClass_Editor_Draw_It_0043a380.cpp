@@ -5,7 +5,7 @@
 #define SHAPE_FILE_EMPTY_RECT unknown_static_rect
 #include "shared/shape_file.hpp"
 // @ref ?Get_Object@UnknownBuildingFactory@@QAEPAVTechnoClass@@XZ=004b9930
-void BuildingClass::unknown_slot68(int point_address, int bounds_address)
+void BuildingClass::unknown_slot68(Point2D const &point_ref, Rect const &bounds)
 {
     Cell cell = unknown_slot104();
     ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_slot26();
@@ -17,21 +17,20 @@ void BuildingClass::unknown_slot68(int point_address, int bounds_address)
             if (product != 0 && product->unknown_slot32()->JumpJet) shape = (ShapeFileStruct const *)Type->unknown_11b0;
             else shape = (ShapeFileStruct const *)Type->unknown_11a0;
         }
-        Point2D point = *(Point2D const *)point_address;
+        Point2D point = point_ref;
         short shape_height = shape->Get_Height();
         int height = point.Y - shape_height / 2;
-        Rect clip = *(Rect const *)bounds_address;
+        Rect clip = bounds;
         if (clip.Height > height) clip.Height = height;
         if (clip.Height > 0) {
             unknown_6d1510(shape, unknown_43be20(), &point, &clip, 0, 256,
                 -2 - Unknown_006A2970(unknown_slot110()), 2, 0, Map[cell].unknown_10a, 0, 0, Point2D(0, 0), 0);
         }
-        clip = *(Rect const *)bounds_address;
+        clip = bounds;
         clip.Y += height;
         clip.Height = shape_height;
         Point2D lower_point = point;
         lower_point.Y -= height;
-        Rect const &bounds = *(Rect const *)bounds_address;
         if (clip.Y + clip.Height > bounds.Y + bounds.Height) clip.Height = bounds.Y + bounds.Height - clip.Y;
         if (clip.Y < bounds.Y) {
             clip.Height += clip.Y - bounds.Y;

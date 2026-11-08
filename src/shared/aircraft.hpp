@@ -128,7 +128,7 @@ public:
     virtual wchar_t const *unknown_slot35();                          // slot 35 0x0041B5D0 (the type's UIName)
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);                   // slot 53 0x00414020
     virtual int unknown_slot62(TechnoClass *techno);                           // slot 62 0x004153C0
-    virtual void unknown_slot67(int arg1, int arg2);                  // slot 67 0x004141C0
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x004141C0
     virtual void unknown_slot70(bool arg1, bool arg2);                  // slot 70 0x0041A530
     virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);  // slot 77 0x00417560
     virtual bool unknown_slot78(int arg1, int arg2, bool arg3);        // slot 78 0x004174B0

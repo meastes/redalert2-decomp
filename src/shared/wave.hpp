@@ -61,7 +61,7 @@ public:
     void Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect);                      // 0x00722CB0 (draws types 1 and 2)
     void unknown_func_7232d0();                                        // 0x007232D0 (type 0 step)
     void unknown_func_723340();                                        // 0x00723340 (types 1 and 2 step)
-    virtual void unknown_slot67(int arg1, int arg2);                // 0x00722530
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);                // 0x00722530
 
     ObjectClass *Target;                        // +0x98 (constructorlastarg: firingtarget)
     int Type;                                   // +0x9C (0 sonic wave; 1 and 2 magnetron/beam waves; hypothesis)

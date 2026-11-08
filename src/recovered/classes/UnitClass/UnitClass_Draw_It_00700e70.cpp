@@ -1,4 +1,4 @@
-// void UnitClass::unknown_slot67(int point_arg, int window_arg) (0x00700E70, slot 67)
+// void UnitClass::unknown_slot67(Point2D const &point, Rect const &window) (0x00700E70, slot 67)
 // TibSun UnitClass::Draw_It.
 #include "shared/unit.hpp"
 #include "shared/cell.hpp"
@@ -22,8 +22,8 @@ bool Unknown_0051FC60();
 // @ref ?Unknown_0051FC60@@YA_NXZ=0051fc60
 // @ref ??_C@_0M@KLGB@FLAGFLY?4SHP?$AA@=007f8f74
 // @ref ??_C@_0M@CCJA@OREGATH?4SHP?$AA@=007f8f80
-// @ref _?$S49@?1??unknown_slot67@UnitClass@@UAEXHH@Z@4EA=00ad0578
-// @ref _?harvesting_shape@?1??unknown_slot67@UnitClass@@UAEXHH@Z@4PBUShapeFileStruct@@B=00ad0468
+// @ref _?$S49@?1??unknown_slot67@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z@4EA=00ad0578
+// @ref _?harvesting_shape@?1??unknown_slot67@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z@4PBUShapeFileStruct@@B=00ad0468
 // @ref __real@8@4003f000000000000000=007ae2e0
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
 // @ref ?unknown_slot67@FootClass@@=004c9bc0
@@ -43,11 +43,9 @@ inline CoordStruct Move_Coord_00700e70(CoordStruct const &start, UnknownFacingDi
     return CoordStruct((int)(start.X + unknown_cos_4ba4d0(radians) * distance), (int)(start.Y - unknown_sin_4ba480(radians) * distance), start.Z);
 }
 
-void UnitClass::unknown_slot67(int point_arg, int window_arg)
+void UnitClass::unknown_slot67(Point2D const &input, Rect const &window)
 {
     static ShapeFileStruct const *harvesting_shape = (ShapeFileStruct const *)MixFileClass::Retrieve("OREGATH.SHP");
-    Point2D const &input = *reinterpret_cast<Point2D const *>(point_arg);
-    Rect const &window = *reinterpret_cast<Rect const *>(window_arg);
 
     Point2D adjusted_point = input;
     adjusted_point.Y -= *reinterpret_cast<signed char const *>(&unknown_59e);
@@ -119,7 +117,7 @@ void UnitClass::unknown_slot67(int point_arg, int window_arg)
                 (ShapeFileStruct const *)MixFileClass::Retrieve("FLAGFLY.SHP"), Frame % 14, raw_point, window, 0xa00,
                 0, 0, 0, brightness, 0, 0, Point2D(0, 0));
         }
-        FootClass::unknown_slot67(reinterpret_cast<int>(&raw_point), window_arg);
+        FootClass::unknown_slot67(raw_point, window);
         if (unknown_314.Value() != 0) {
             unknown_6cc020();
         }

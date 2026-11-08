@@ -61,7 +61,7 @@ void Tactical::Draw_Placement(bool drawtrans)
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
             if (rtti != 0x12) {
-                Map.unknown_11a0->unknown_slot68((int)&pixel, (int)&unknown_rect_839630);
+                Map.unknown_11a0->unknown_slot68(pixel, unknown_rect_839630);
             }
         }
 

@@ -1,5 +1,5 @@
-// void VoxelAnimClass::unknown_slot67(int screen_point_arg, int clip_rect_arg) (0x0070CFC0, slot 67)
-// Draws the voxel animation at the screen point screen_point_arg within the window clip_rect_arg:
+// void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window) (0x0070CFC0, slot 67)
+// Draws the voxel animation at the screen point point within the window window:
 // its shadow (the voxel flattened onto the ground) and then the voxel itself,
 // lit and rotated by the bounce state.
 #include "shared/voxel_anim.hpp"
@@ -42,16 +42,14 @@ extern ConvertClass *unknown_drawer_8323bc;
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_matrix_436fc0@BounceClass@@QBE?AVMatrix3D@@XZ=00436fc0
-void VoxelAnimClass::unknown_slot67(int screen_point_arg, int clip_rect_arg)
+void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
-    Point2D const *point = (Point2D const *)screen_point_arg;
-    Rect const *window = (Rect const *)clip_rect_arg;
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) != 0) {
         CoordStruct coord = Coord;
         if (Map.Unknown_005683C0(coord)) return;
     }
     Point2D pixel;
-    Point2D position = *point;
+    Point2D position = point;
     int level;
     CoordStruct ground = Coord;
     ground.Z = Map.Unknown_0055A280(ground);
@@ -79,7 +77,7 @@ void VoxelAnimClass::unknown_slot67(int screen_point_arg, int clip_rect_arg)
     Voxel_Render_Bounds_007176c0(&rect, &offset_x, &offset_y);
     {
         RectPoint2D draw(pixel.X + offset_x, pixel.Y + offset_y);
-        unknown_blit_49f3a0(*unknown_surface_83995c, unknown_drawer_8323b4, Voxel_Render_Surface_00717040(), rect, draw, *window, 0,
+        unknown_blit_49f3a0(*unknown_surface_83995c, unknown_drawer_8323b4, Voxel_Render_Surface_00717040(), rect, draw, window, 0,
                             (int)unknown_drawer_8323b4->Select_Blitter_00485AA0(0x2001), -4 - Unknown_006A2970(level), 0, 1000, 0);
     }
     matrix = BounceClass::unknown_matrix_436fc0();
@@ -107,7 +105,7 @@ void VoxelAnimClass::unknown_slot67(int screen_point_arg, int clip_rect_arg)
     }
     {
         RectPoint2D draw2(position.X + offset_x, position.Y + offset_y);
-        unknown_blit_49f3a0(*unknown_surface_83995c, drawer, Voxel_Render_Surface_00717040(), rect, draw2, *window, 0,
+        unknown_blit_49f3a0(*unknown_surface_83995c, drawer, Voxel_Render_Surface_00717040(), rect, draw2, window, 0,
                             (int)drawer->Select_Blitter_00485AA0(flags), -2 - Unknown_006A2970(unknown_slot110()), 0, brightness, 0);
     }
 }

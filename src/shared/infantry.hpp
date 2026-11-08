@@ -190,7 +190,7 @@ public:
     virtual bool unknown_slot56(CoordStruct const &coord);   // slot 56 0x005083B0 ret 4
     virtual void unknown_slot58(CoordStruct const &coord);   // slot 58 0x00508410 ret 4
     virtual void unknown_slot59(CoordStruct const &coord);   // slot 59 0x005084A0 ret 4
-    virtual void unknown_slot67(int arg1, int arg2);   // slot 67 0x00500550 ret 8
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);   // slot 67 0x00500550 ret 8
     virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);   // slot 77 0x00506100 ret 0x10
     virtual bool unknown_slot78(int arg1, int arg2, bool arg3);   // slot 78 0x00506050 ret 0xc
     virtual void unknown_slot82(int arg1);   // slot 82 0x005091C0 ret 4

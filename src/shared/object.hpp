@@ -280,8 +280,8 @@ public:
     virtual Cell const *unknown_slot64(int arg1);                                // slot 64 (+0x100) 0x5d4470
     virtual void unknown_slot65(int arg1, int arg2);                       // slot 65 (+0x104) 0x423dc0
     virtual void unknown_slot66(Point2D const &point, Rect const &window);                       // slot 66 (+0x108) 0x423dd0
-    virtual void unknown_slot67(int arg1, int arg2) {}                     // slot 67 (+0x10C) kept copy 0x595120 (Mission.cpp)
-    virtual void unknown_slot68(int arg1, int arg2);                       // slot 68 (+0x110) 0x5d4e70
+    virtual void unknown_slot67(Point2D const &point, Rect const &window) {}                     // slot 67 (+0x10C) kept copy 0x595120 (Mission.cpp)
+    virtual void unknown_slot68(Point2D const &point, Rect const &window);                       // slot 68 (+0x110) 0x5d4e70
     virtual void unknown_slot69();                                         // slot 69 (+0x114) 0x5d2c80
     virtual void unknown_slot70(bool arg1, bool arg2);                       // slot 70 (+0x118) 0x5d2c90
     virtual bool Mark(int arg1);                                 // slot 71 (+0x11C) 0x5d4160 (callers test al: TechnoClass 0x006C2550, BulletClass 0x0045F6F0)

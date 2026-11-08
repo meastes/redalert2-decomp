@@ -88,8 +88,8 @@ public:
     virtual void unknown_slot58(CoordStruct const &coord);              // 0x006E38F0 (marks the occupation bits)
     virtual void unknown_slot59(CoordStruct const &coord);              // 0x006E3850 (clears them)
     virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);           // 0x006E4430
-    virtual void unknown_slot67(int arg1, int arg2);                    // 0x006E3990
-    virtual void unknown_slot68(int arg1, int arg2);                    // 0x006E3B40
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x006E3990
+    virtual void unknown_slot68(Point2D const &point, Rect const &window);                    // 0x006E3B40
     virtual bool Mark(int arg1);                              // 0x006E37E0
     virtual Rect unknown_slot73();                               // 0x006E4910
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);   // 0x006E3170

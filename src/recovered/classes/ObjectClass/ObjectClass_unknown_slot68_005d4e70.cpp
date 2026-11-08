@@ -1,7 +1,7 @@
-// void ObjectClass::unknown_slot68(int arg1, int arg2) (0x005D4E70)
+// void ObjectClass::unknown_slot68(Point2D const &point, Rect const &window) (0x005D4E70)
 #include "shared/object_type.hpp"
 
-void ObjectClass::unknown_slot68(int arg1, int arg2)
+void ObjectClass::unknown_slot68(Point2D const &point, Rect const &window)
 {
-    unknown_slot67(arg1, arg2);
+    unknown_slot67(point, window);
 }

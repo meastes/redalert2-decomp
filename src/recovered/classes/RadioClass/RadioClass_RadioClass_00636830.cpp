@@ -28,5 +28,5 @@ RadioClass::RadioClass() :
 }
 // @ref ??_GMissionClass@@UAEPAXI@Z=00595130
 // @ref ?unknown_slot122@MissionClass@@UAE_NXZ=004cdde0
-// @ref ?unknown_slot67@ObjectClass@@UAEXHH@Z=00595120
+// @ref ?unknown_slot67@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z=00595120
 // @ref ?unknown_slot151@RadioClass@@UAEHHPAHPAVTechnoClass@@@Z=00636a50

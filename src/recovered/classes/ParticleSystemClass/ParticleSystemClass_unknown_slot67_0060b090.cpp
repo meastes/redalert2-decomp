@@ -1,4 +1,4 @@
-// void ParticleSystemClass::unknown_slot67(int arg1, int arg2) (0x0060B090, slot 67)
+// void ParticleSystemClass::unknown_slot67(Point2D const &point, Rect const &window) (0x0060B090, slot 67)
 // A one-frame light type flashes a spot light sized by how full the system
 // is (the particle count over ParticleCap, between 0.4 and 1).
 #include "shared/particle_system.hpp"
@@ -12,7 +12,7 @@
 // @ref ??1SpotLightClass@@QAE@XZ=005dd610
 // @ref ?unknown_func_5ddb90@SpotLightClass@@QAEXXZ=005ddb90
 
-void ParticleSystemClass::unknown_slot67(int arg1, int arg2)
+void ParticleSystemClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
     if (Class->OneFrameLight && Class->LightSize > 0 && Particles.Count() > 0) {
         // Westwood's Max(0.4, Min(1.0f, fill)) macros: each operand is

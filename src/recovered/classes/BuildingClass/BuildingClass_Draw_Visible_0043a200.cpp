@@ -40,7 +40,7 @@ bool BuildingClass::unknown_slot63(Rect *bounds,bool force,bool alternate)
                 }
             } else {
                 // Existing int/int declaration is a32-bit ABI view; original passes two addresses.
-                unknown_slot67((int)&pixel,(int)bounds);
+                unknown_slot67(pixel,*bounds);
             }
             return true;
         }

@@ -14,7 +14,7 @@
 // @ref ?AI@BuildingLightClass@@UAEXXZ=00433970
 // @ref ?unknown_slot52@BuildingLightClass@@UAE_NXZ=004347c0
 // @ref ?unknown_slot53@BuildingLightClass@@UAE_NHH@Z=004347e0
-// @ref ?unknown_slot67@BuildingLightClass@@UAEXHH@Z=00433380
+// @ref ?unknown_slot67@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z=00433380
 
 HRESULT __stdcall BuildingLightClass::Load(IStream *stream)
 {

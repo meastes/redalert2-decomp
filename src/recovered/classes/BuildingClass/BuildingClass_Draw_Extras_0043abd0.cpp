@@ -45,7 +45,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
                    (!Map.Unknown_005683C0(product->Position_Coord_004f3f40()) && !Map.Unknown_005683C0(destination))) {
                     Point2D point;
                     unknown_tactical_83996c->Coord_To_Pixel(product->unknown_slot42(),point);
-                    product->unknown_slot67((int)&point,(int)&bounds);
+                    product->unknown_slot67(point,bounds);
                 }
             }
         }

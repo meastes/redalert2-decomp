@@ -99,7 +99,7 @@ public:
     virtual void unknown_slot58(CoordStruct const &coord);                             // slot 58 0x00707980
     virtual void unknown_slot59(CoordStruct const &coord);                             // slot 59 0x007079E0
     virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);  // slot 63 0x006FF350
-    virtual void unknown_slot67(int arg1, int arg2);                  // slot 67 0x00700E70
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x00700E70
     virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);  // slot 77 0x006FD610
     virtual bool unknown_slot78(int arg1, int arg2, bool arg3);        // slot 78 0x006FD5A0
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x006FCA30

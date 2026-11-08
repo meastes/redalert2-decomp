@@ -138,7 +138,7 @@ public:
     virtual int unknown_slot29() const;                                 // 0x0060A5B0 (3)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x0060A7D0 slot 33 (inline)
     virtual Cell const *unknown_slot64(int arg1);                 // 0x0060A550
-    virtual void unknown_slot67(int arg1, int arg2);                    // 0x00609D10
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x00609D10
     virtual bool Mark(int arg1);                              // 0x0060A530
     virtual int unknown_slot116();                                      // 0x0060A670 (new)
 

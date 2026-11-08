@@ -163,7 +163,7 @@ public:
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);  // slot 53 0x004C5E40
     virtual void unknown_slot54(bool arg1);  // slot 54 0x004C8220
     virtual void unknown_slot60();  // slot 60 0x004CCE40
-    virtual void unknown_slot67(int arg1, int arg2);  // slot 67 0x004C9BC0
+    virtual void unknown_slot67(Point2D const &point, Rect const &window);  // slot 67 0x004C9BC0
     virtual bool Mark(int arg1);  // slot 71 0x004C2E60
     virtual bool unknown_slot78(int arg1, int arg2, bool arg3);  // slot 78 0x004C61A0
     virtual void unknown_slot82(int arg1);  // slot 82 0x004CD3F0

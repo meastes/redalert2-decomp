@@ -18,7 +18,7 @@
 // @ref ?unknown_496b30@UnknownTimed@@=00496b30
 // @ref ?unknown_496b50@UnknownTimed@@=00496b50
 // @ref ?Progress_00496C70@UnknownTimed@@=00496c70
-void BuildingClass::unknown_slot67(int draw_point_address,int bounds_address)
+void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds)
 {
     Cell cell=unknown_slot104();
     ShapeFileStruct const *shape=(ShapeFileStruct const *)unknown_slot26();
@@ -40,8 +40,6 @@ void BuildingClass::unknown_slot67(int draw_point_address,int bounds_address)
             air_product=true;
         }
     }
-    Point2D const &draw_point=*(Point2D const *)draw_point_address;
-    Rect const &bounds=*(Rect const *)bounds_address;
     if(unknown_slot91()==24 && (unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b30())) {
         int stage=(int)(unknown_2a8.Progress_00496C70()*Type->GateStages);
         if(unknown_2a8.unknown_496ab0()) stage=Type->GateStages-stage;

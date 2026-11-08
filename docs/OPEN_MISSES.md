@@ -3190,3 +3190,7 @@ New rulings are recorded at their rows as before.
 ## Scout1099 (2026-11-08, 0 B; NOTES and keep/ in build/class-work/Scout1099/)
 - Get_Z_Adjust 0x6CFEA0 81.20 -> 91.41 (keep/zA_9141.cpp): rock return as a flag (new note). Left: one scratch-rotation step from the first loop's `return zadjust - 1` (target's own copy in edx), the -2 return and single ramp2 return follow from it; `behind` Cell sum operand order is a tie-break.
 - Walk 0x71E220 57.72 -> 74.48 (keep/walk_W5f_7448_float_angle.cpp, Scout905 W5 base): `float angle` removes `and esp,-8` (new note). Left: frame 0x54 vs 0x38, CoordStruct ctor 0x41B630 inlined at the first Adjacent_Coord site (target calls it), 0xd4-0x13e +0x480/+0x48 virtual call order.
+
+## Scout1101 (2026-11-08, 0 B; NOTES, keep/, bin/ in build/class-work/Scout1101/)
+- Walk 0x71E220 74.48 -> 89.52 (keep/walk_n1_8952.cpp): frame 0x38 exact via TibSun `if (dir == 8) {tube} else {...}` (by-address `cell` live over its block); LinkedTo passed to slot19/slot46 (slot46 param is likely TechnoClass*: needs a declaration spec); slot93(2); one shared IsNewNavCom store. Left: CoordStruct ctor 0x41B630 out of line at first Adjacent site (likely UnknownVector3 = TPoint3D<int> header identity), two vtable-load rotations, first_pass/tail store scheduling, one tail merge.
+- Get_Z_Adjust 0x6CFEA0 91.41 unchanged: target keeps loop1's return as its own copy; `goto done` from dir-else fixes it (diag 91.08) but shifts the cptr arms.

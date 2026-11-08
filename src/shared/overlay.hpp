@@ -47,8 +47,8 @@ public:
     virtual int Kind_Of() const { return 0x14; }                        // 0x005DC2E0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(OverlayClass); }        // 0x005DC290 slot 12 (inline)
     virtual ObjectTypeClass *Class_Of() const;                          // 0x005DC170 slot 33
-    virtual void unknown_slot67(int arg1, int arg2) {}                  // 0x005DC2F0 (inline)
-    virtual void unknown_slot68(int arg1, int arg2);                    // 0x005DBD00
+    virtual void unknown_slot67(Point2D const &point, Rect const &window) {}                  // 0x005DC2F0 (inline)
+    virtual void unknown_slot68(Point2D const &point, Rect const &window);                    // 0x005DBD00
     virtual bool Mark(int arg1);                              // 0x005DA970
 
     static Point2D __fastcall Draw_Offset(int overlay);                 // 0x005DC050 (pixel offset of an overlay image; hypothesis)

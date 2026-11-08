@@ -17,10 +17,8 @@ int __fastcall Bullet_Height_Pixel(int height);
 // @ref ?bullet_bridge_height@@3HA=00850338
 // @ref ?Bullet_Isometric_View@@YI?AVMatrix3D@@XZ=00717f90
 // @ref ?Bullet_Height_Pixel@@YIHH@Z=006a2970
-void BulletClass::unknown_slot67(int point_address, int clip_address)
+void BulletClass::unknown_slot67(Point2D const &point, Rect const &clip)
 {
-    Point2D const &point = *(Point2D const *)point_address;
-    Rect const &clip = *(Rect const *)clip_address;
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Unknown_005683C0(CoordStruct(Coord))) return;
     if (Type->Inviso || SpawnNextAnim) return;
     if (Type->unknown_206) {
@@ -28,7 +26,7 @@ void BulletClass::unknown_slot67(int point_address, int clip_address)
         matrix.Make_Identity();
         matrix.Rotate_Z(Velocity.Get_Yaw().As_Radian32());
         matrix.Rotate_Y(-Velocity.Get_Pitch().As_Radian32());
-        Draw_Voxel_00463a00(Type->unknown_b0, Bullet_Isometric_View() * matrix, *(RectPoint2D const *)point_address, clip, 0, 0x800, 1000);
+        Draw_Voxel_00463a00(Type->unknown_b0, Bullet_Isometric_View() * matrix, *(RectPoint2D const *)&point, clip, 0, 0x800, 1000);
         return;
     }
     ShapeFileStruct const *image = (ShapeFileStruct const *)unknown_slot26();

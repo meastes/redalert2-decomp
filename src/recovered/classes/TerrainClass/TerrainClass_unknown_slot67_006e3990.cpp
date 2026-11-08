@@ -1,6 +1,6 @@
-// void TerrainClass::unknown_slot67(int arg1, int arg2) (0x006E3990, slot 67)
-// Draws the terrain object (hypothesis: Draw_It) at the screen point arg1
-// within the window arg2: the frame follows the animation stage (crumbling
+// void TerrainClass::unknown_slot67(Point2D const &point, Rect const &window) (0x006E3990, slot 67)
+// Draws the terrain object (hypothesis: Draw_It) at the screen point point
+// within the window window: the frame follows the animation stage (crumbling
 // objects offset by their +0xB5 flag; a damaged static object shows frame
 // 1), lifted by its height. Tiberium spawners draw with the 0x008323BC
 // drawer 16 pixels higher; the shadow (second half of the frames) follows
@@ -24,10 +24,8 @@ static inline bool Is_Animating(TerrainClass const *terrain)
     return terrain->Class->IsAnimated || terrain->unknown_b5;
 }
 
-void TerrainClass::unknown_slot67(int arg1, int arg2)
+void TerrainClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
-    Point2D const *point = (Point2D const *)arg1;
-    Rect const *window = (Rect const *)arg2;
     Cell where = unknown_slot104();
     CellClass &cell = Map_Cell(where);
     ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_slot26();
@@ -40,7 +38,7 @@ void TerrainClass::unknown_slot67(int arg1, int arg2)
         } else if (Strength < 2) {
             frame = 1;
         }
-        Point2D position = *point;
+        Point2D position = point;
         int height = -Unknown_006A2970(unknown_slot110());
         if (cell.unknown_34 == 0) {
             cell.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
@@ -61,9 +59,9 @@ void TerrainClass::unknown_slot67(int arg1, int arg2)
         } else {
             flags = 0x4E00;
         }
-        CC_Draw_Shape(unknown_surface_83995c, drawer, shape, frame, position, *window, flags, 0, height - 12, 2, brightness, 0, 0, Point2D(0, 0));
+        CC_Draw_Shape(unknown_surface_83995c, drawer, shape, frame, position, window, flags, 0, height - 12, 2, brightness, 0, 0, Point2D(0, 0));
         if (unknown_flag_7d88d5) {
-            CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)cell.unknown_34, shape, shape->FrameCount / 2 + frame, position, *window, flags | 1, 0, height - 3, 0, 1000, 0, 0, Point2D(0, 0));
+            CC_Draw_Shape(unknown_surface_83995c, (ConvertClass *)cell.unknown_34, shape, shape->FrameCount / 2 + frame, position, window, flags | 1, 0, height - 3, 0, 1000, 0, 0, Point2D(0, 0));
         }
     }
 }

@@ -1,4 +1,4 @@
-// void BuildingLightClass::unknown_slot67(int arg1, int arg2) (0x00433380, slot 67)
+// void BuildingLightClass::unknown_slot67(Point2D const &point, Rect const &window) (0x00433380, slot 67)
 // Draws a building's search light: a spot light at the light's coordinate
 // sized by its distance from the owner, and, past the owner's reach, the two
 // edges of the beam from the owner's top to the points rotated either side of
@@ -36,7 +36,7 @@
 // @ref ?Length@?$TPoint3D@H@@QBEHXZ=0041b780
 // @ref _?_scale@?1??unknown_func_434530@BuildingLightClass@@QBEHXZ@4NB=0079c7a8
 
-void BuildingLightClass::unknown_slot67(int arg1, int arg2)
+void BuildingLightClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
     if (Behavior == 0 || Owner == 0 || Owner->Kind_Of() != 6) {
         return;
