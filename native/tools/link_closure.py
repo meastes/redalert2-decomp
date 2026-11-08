@@ -86,12 +86,30 @@ def main():
     ap.add_argument('--host', nargs='*', default=[])
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--list-undefined', type=Path, help='also write the bare undefined list (for data_globals.py)')
+    ap.add_argument('--aliases', type=Path, nargs='*', default=[], help='alias TSVs (alias, target, ...)')
+    ap.add_argument('--alias-list', type=Path, help='write the applicable aliases as an ld64 -alias_list file')
     args = ap.parse_args()
     paths = [p for p in args.inputs.read_text().split('\n') if p.strip()]
     paths += [p for p in args.host if p.strip()]
     defined, undefined = nm_symbols(paths)
     # ___dso_handle and the Mach-O header are synthesized by the linker.
     missing = sorted(undefined - defined - system_exports() - {'___dso_handle', '__mh_execute_header'})
+    # Names of one original address (address_aliases.py, data_globals.py): bound
+    # to the defined name through ld64 -alias_list instead of a trap.
+    alias_list = []
+    for tsv in args.aliases:
+        if not tsv.exists():
+            continue
+        for line in tsv.read_text().split('\n'):
+            if not line or line.startswith('#') or line.startswith('alias\t'):
+                continue
+            alias, target = line.split('\t')[:2]
+            if alias in missing and target in defined and alias not in defined:
+                alias_list.append((target, alias))
+    taken = {a for _, a in alias_list}
+    missing = [m for m in missing if m not in taken]
+    if args.alias_list:
+        args.alias_list.write_text(''.join('%s %s\n' % pair for pair in sorted(set(alias_list))))
     demangled = subprocess.run(['c++filt'], input='\n'.join(missing), capture_output=True, text=True).stdout.split('\n')
     imports = {i['name'] for i in json.loads((ROOT / 'manifests/imports.json').read_text())['imports']}
     data_names = catalog_data_names()
@@ -143,10 +161,11 @@ def main():
         counts[r['cls']] = counts.get(r['cls'], 0) + 1
     Path(str(args.out.with_suffix('')) + '.json').write_text(json.dumps(dict(
         about='Symbols the ra2-native inputs reference that nothing defines yet (link_closure.py).',
-        total=len(rows), by_class=counts, symbols=rows), indent=0))
+        total=len(rows), by_class=counts, address_aliases=len(taken), symbols=rows), indent=0))
     if args.list_undefined:
         args.list_undefined.write_text('\n'.join(r['symbol'] for r in rows) + '\n')
-    print('link closure: %d undefined (%s)' % (len(rows), ', '.join('%s %d' % kv for kv in sorted(counts.items()))))
+    print('link closure: %d undefined (%s); %d resolved by address aliases' % (
+        len(rows), ', '.join('%s %d' % kv for kv in sorted(counts.items())), len(taken)))
 
 
 if __name__ == '__main__':

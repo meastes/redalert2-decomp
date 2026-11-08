@@ -15,6 +15,13 @@ ctest --test-dir build/native            # native-core-check
 build/native/ra2-native --smoke-test     # SDL3 host window
 ```
 
+Full-tree smoke test: all 3,610 original static initialisers run (in `_initterm`
+order), main is reached and prints `initterm: main reached ...`, and exit-time
+destructors complete. Diagnostics: `RA2_NATIVE_INIT_TRACE=1` prints each unit's
+first original initterm index as it starts, `RA2_NATIVE_CRASH_TRACE=1` prints the
+last index and a backtrace on a fault, `RA2_NATIVE_TRAP_CONTINUE=1` lists every
+link-closure trap on the path instead of stopping at the first.
+
 ## Layers
 
 1. **Native view** (`tools/native_units.py`, run at configure time). Reads the
@@ -53,12 +60,32 @@ build/native/ra2-native --smoke-test     # SDL3 host window
 3. **Recovered code** (`ra2_recovered`): accepted sources; unmatched rows enter as
    their best parked draft (flagged non-exact with its score) or a behaviour-written
    implementation, never empty stubs.
+   **Link adapters** (`link/`, compiled with the dialect, never original code):
+   `address_wrappers.cpp` and `data/address_aliases.tsv` (`tools/address_aliases.py`)
+   bind a name to the recovered body at the same original address (catalog
+   references and region entries) when the native ABI signatures (LLVM IR of the
+   units) agree, or through a converting wrapper when only a float/double return
+   differs (x87 st0); `template_instances*.cpp` (`tools/template_instances.py`)
+   explicitly instantiate the recovered VectorClass/DynamicVectorClass bodies for
+   element types whose owner unit is missing; `initterm_rewrites.cpp` rewrites the
+   seed/scaffold explicit initialisers (`Initterm_<entry>`, called at their
+   positions); `behaviour_*.cpp` hold behaviour-written bodies of unmatched rows on
+   the start-up/exit path, each citing its evidence. Aliases are applied with ld64
+   `-alias_list` (link_closure.py filters them to the current link).
 4. **Native data** (`data/`): globals the code reads from the original's .data/.rdata.
    Each comes from adopted source text (TibSun / ra2-decomp, with attribution), a
    behaviour-written generator, or the game files at run time; never copied bytes.
    `bss_globals.cpp` (`tools/data_globals.py`) defines the zero-initialised ones as
    storage (original extent doubled for LP64); initialised ones without a permitted
    source are listed in `unsourced_initialised.tsv`, never defined from the executable.
+   One storage per original address: other names of a BSS address are assembler
+   aliases (`.set`), names whose address another input defines go to `bss_aliases.tsv`.
+   **Generated data**: `tools/fast_math_tables.py` computes the fast-math tables
+   (sin/cos 10,241, asin 4,097, tan 4,097, atan 4,097 + step, sqrt mantissas 16,384)
+   and their scale constants at configure time: TibSun fastmath.cpp's init loops run
+   as on the chopping x87 (FSIN/FPTAN reduced by the FPU's 66-bit pi and rounded to
+   64 bits, every float store truncated, arctangent limit tan(M_FPI/2 - 0.01)).
+   Checked privately against the pinned target: all 38,927 words identical.
 5. **Platform seams** (`port/src`, `ra2_port`): the imported Win32 API (366 imports:
    KERNEL32, USER32, GDI32, WSOCK32, ole32, binkw32, ...) implemented on POSIX and
    SDL3 under the same C names; DirectDraw/DirectSound as C++ classes with the COM

@@ -20,6 +20,7 @@ struct HINSTANCE__;
 int WinMain(HINSTANCE__ *instance, HINSTANCE__ *previous, char *command_line, int show);
 #endif
 void ra2_install_sdl_host();
+extern "C" int ra2port_initterm_last(int *units);
 #include <stdlib.h>
 #include <string.h>
 
@@ -37,6 +38,13 @@ int main(int argc, char **argv)
     }
     if (data) ra2port::set_data_dir(data);
 #ifdef RA2_NATIVE_GAME
+    {
+        // Every static initialiser has run when main is reached.
+        int units = 0;
+        int last = ra2port_initterm_last(&units);
+        printf("initterm: main reached; %d initialiser units ran, the last starting at original entry #%d\n",
+               units, last);
+    }
     if (!smoke) {
         // Hand over to the game: it creates its window through CreateWindowExA
         // (the host hook opens the SDL window) and runs its own message loop.

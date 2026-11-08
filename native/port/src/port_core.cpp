@@ -3,6 +3,8 @@
 #include "ra2port/win32_port.hpp"
 
 #include <dirent.h>
+#include <execinfo.h>
+#include <signal.h>
 #include <mutex>
 #include <set>
 #include <stdarg.h>
@@ -152,4 +154,47 @@ const Host *host() { return current_host; }
 extern "C" {
 DWORD GetLastError(void) { return ra2port::last_error; }
 void SetLastError(DWORD code) { ra2port::last_error = code; }
+}
+
+// Start-up progress (diagnostic). native_units.py puts a call at the head of
+// every unit that owns original _initterm entries, with the index of its first
+// one, so the last index recorded names the unit whose initialisers were
+// running when a trap or crash stopped start-up. RA2_NATIVE_INIT_TRACE=1
+// prints each mark as it is reached.
+namespace {
+int initterm_last = -1;
+int initterm_units = 0;
+
+// RA2_NATIVE_CRASH_TRACE=1: a fault prints the start-up position and a
+// backtrace (diagnostics while the tree is still being closed).
+void crash_trace(int sig)
+{
+    fprintf(stderr, "ra2-native: signal %d after initterm #%d (%d units)\n", sig, initterm_last, initterm_units);
+    void *frames[48];
+    int n = backtrace(frames, 48);
+    backtrace_symbols_fd(frames, n, 2);
+    signal(sig, SIG_DFL);
+    raise(sig);
+}
+}
+
+extern "C" int ra2port_initterm_mark(int index)
+{
+    if (initterm_units == 0 && getenv("RA2_NATIVE_CRASH_TRACE") != nullptr) {
+        signal(SIGSEGV, crash_trace);
+        signal(SIGBUS, crash_trace);
+        signal(SIGABRT, crash_trace);
+        signal(SIGILL, crash_trace);
+    }
+    initterm_last = index;
+    ++initterm_units;
+    if (getenv("RA2_NATIVE_INIT_TRACE") != nullptr)
+        fprintf(stderr, "ra2-native: initterm #%d\n", index);
+    return index;
+}
+
+extern "C" int ra2port_initterm_last(int *units)
+{
+    if (units) *units = initterm_units;
+    return initterm_last;
 }

@@ -3,7 +3,7 @@
 # this project never touches. Configure:
 #   cmake -S native -B build/native -G Ninja && cmake --build build/native
 cmake_minimum_required(VERSION 3.20)
-project(ra2_native VERSION 0.1.0 LANGUAGES C CXX)
+project(ra2_native VERSION 0.1.0 LANGUAGES C CXX ASM)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -42,18 +42,18 @@ endif()
 include("${RA2_NATIVE_GEN}/units.cmake")
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
   "${CMAKE_CURRENT_SOURCE_DIR}/tools/native_units.py" "${CMAKE_CURRENT_SOURCE_DIR}/port/fixups.json"
-  "${CMAKE_CURRENT_SOURCE_DIR}/drafts.json")
+  "${CMAKE_CURRENT_SOURCE_DIR}/drafts.json" "${CMAKE_CURRENT_SOURCE_DIR}/link/initterm_rewrites.cpp")
 
 # 2. The VC6 dialect on clang/arm64 (port/include/ra2port/prelude.hpp explains
 #    each choice). -fwrapv and -fno-strict-aliasing restore what VC6 x86 code
 #    relies on: wrapping signed arithmetic and type punning through pointers.
 add_library(ra2_dialect INTERFACE)
 target_compile_options(ra2_dialect INTERFACE
-  -fms-extensions -fms-compatibility -fdelayed-template-parsing
-  "SHELL:-Xclang -fno-wchar" -fshort-wchar
-  -fwrapv -fno-strict-aliasing
-  -Wno-error=address-of-temporary -Wno-register -Wno-c++11-narrowing -w
-  "SHELL:-include ${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp")
+  "$<$<COMPILE_LANGUAGE:CXX>:-fms-extensions;-fms-compatibility;-fdelayed-template-parsing>"
+  "$<$<COMPILE_LANGUAGE:CXX>:SHELL:-Xclang -fno-wchar>" "$<$<COMPILE_LANGUAGE:CXX>:-fshort-wchar>"
+  "$<$<COMPILE_LANGUAGE:CXX>:-fwrapv;-fno-strict-aliasing>"
+  "$<$<COMPILE_LANGUAGE:CXX>:-Wno-error=address-of-temporary;-Wno-register;-Wno-c++11-narrowing;-w>"
+  "$<$<COMPILE_LANGUAGE:CXX>:SHELL:-include ${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp>")
 target_include_directories(ra2_dialect INTERFACE "${RA2_NATIVE_GEN}/overlay")
 
 # 3. Recovered code (accepted sources and, later, parked drafts) and the
@@ -70,7 +70,19 @@ target_link_libraries(ra2_recovered PUBLIC ra2_dialect)
 # Native definitions of the data the recovered code reads but does not define
 # (data/README.md): zero-initialised globals by size/alignment from the catalog,
 # adopted tables. Initialised data without a permitted source is listed, not defined.
-file(GLOB RA2_NATIVE_DATA CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/data/*.cpp")
+file(GLOB RA2_NATIVE_DATA CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/data/*.cpp"
+     "${CMAKE_CURRENT_SOURCE_DIR}/link/*.cpp")
+# Generated data: computed by behaviour-written generators (tools/*_tables.py),
+# each checked against the original privately (README "Generated data").
+execute_process(
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/fast_math_tables.py"
+          --out "${RA2_NATIVE_GEN}/fast_math_tables.s"
+  RESULT_VARIABLE ra2_tables_result)
+if(NOT ra2_tables_result EQUAL 0)
+  message(FATAL_ERROR "fast_math_tables.py failed")
+endif()
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tools/fast_math_tables.py")
+list(APPEND RA2_NATIVE_DATA "${RA2_NATIVE_GEN}/fast_math_tables.s")
 add_library(ra2_data OBJECT ${RA2_NATIVE_DATA})
 target_link_libraries(ra2_data PUBLIC ra2_dialect)
 
@@ -110,11 +122,14 @@ if(RA2_NATIVE_SDL)
         target_link_libraries(ra2_host_objs PRIVATE SDL3::SDL3 ra2_port)
         target_compile_definitions(ra2_host_objs PRIVATE RA2_NATIVE_GAME=1)
         add_custom_command(
-          OUTPUT "${RA2_NATIVE_GEN}/link_closure.c" "${RA2_NATIVE_GEN}/link_closure.json"
+          OUTPUT "${RA2_NATIVE_GEN}/link_closure.c" "${RA2_NATIVE_GEN}/link_closure.json" "${RA2_NATIVE_GEN}/alias_list.txt"
           COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
                   --inputs "${RA2_NATIVE_GEN}/link_inputs.txt" --host $<TARGET_OBJECTS:ra2_host_objs>
                   --out "${RA2_NATIVE_GEN}/link_closure.c"
+                  --aliases "${CMAKE_CURRENT_SOURCE_DIR}/data/address_aliases.tsv" "${CMAKE_CURRENT_SOURCE_DIR}/data/bss_aliases.tsv"
+                  --alias-list "${RA2_NATIVE_GEN}/alias_list.txt"
           DEPENDS ra2_recovered_objs ra2_data ra2_port ra2_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
+                  "${CMAKE_CURRENT_SOURCE_DIR}/data/address_aliases.tsv"
                   $<TARGET_OBJECTS:ra2_data> $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:ra2_host_objs>
                   "${RA2_NATIVE_GEN}/units.cmake"
           COMMAND_EXPAND_LISTS VERBATIM)
@@ -123,6 +138,11 @@ if(RA2_NATIVE_SDL)
       endif()
       add_executable(ra2-native ${ra2_game_inputs})
       target_link_libraries(ra2-native PRIVATE SDL3::SDL3 ra2_port)
+      if(RA2_NATIVE_LINK_CLOSURE)
+        # One original address, several names: ld64 aliases (data/address_aliases.tsv).
+        target_link_options(ra2-native PRIVATE "LINKER:-alias_list,${RA2_NATIVE_GEN}/alias_list.txt")
+        set_property(TARGET ra2-native APPEND PROPERTY LINK_DEPENDS "${RA2_NATIVE_GEN}/alias_list.txt")
+      endif()
       target_compile_definitions(ra2-native PRIVATE RA2_NATIVE_GAME=1)
       # Repeated definitions across units get VC6's select-any semantics.
       add_custom_command(TARGET ra2-native PRE_LINK

@@ -3091,3 +3091,9 @@ New rulings are recorded at their rows as before.
 ## Scout1055 (2026-11-08, closed; 0 B; UICmnds 0x6F7360 56.17 unchanged; NOTES, roles.py, rows.py, lab.py in build/class-work/Scout1055/)
 - The planned landing fails even with an exact body: joining 0x6F58E0 into population-4189 makes sibling 0x6F6D00 inline it (95.53; the original calls it), and no natural 58E0 form or position changes that, while 0x6F7360 needs 58E0 present as a refused site. The unit's /Ob2 budget model is wrong somewhere 6D00 and 7360 share; 6D00 is exact today only because 58E0 is outside the unit. Next: UICmnds functions still outside 4189 (0x6F8A70, COMDATs 0x6F8A80/0x6F8B40/0x6F8B90) and a fuller natural 6D00. Registers: 25 census-preserving variants all give the same roles (two failed coalesces).
 - OWNER DECISION: 0x6F7360 parked (four lanes); resume only with the missing-unit-members check.
+
+## codex1 r1429 (2026-11-08, Sol/Astra boundary; LANDED Zone_Span 0x54F250 1,386 B + 6 NOP, 24743e8f0)
+- Type-specific DynamicVectorClass<HashObject<unsigned,unsigned>>::Add in the accepted RadarEvent 0x63B5B0 growth form, guarded by RA2_MAP_ZONE_SPAN (flagged; evidenced by the identical accepted codegen). Validation ran on D: because the Windows C: drive filled; owner deleted the ended workers' gate outputs (codex2/codex3 build/check, ~54 GB): C: free 7.9 -> 61 GB.
+
+## Scout1057 (2026-11-08, closed; 0 B; NOTES, cg3.py, ps.py in build/class-work/Scout1057/)
+- No parked inline row has the 0x6F58E0 pattern (small same-unit function before the row, called by it, accepted elsewhere); eight joins tested, no score moved. Pass-6a instructions.jsonl drops code after operator new 0x782017 (treated as noreturn): use capstone on the bytes for call graphs. New fragile rows: 0x5FB270 and 0x5E5150 (population 4339) break when one declaration is added (added to LANE_BRIEF's fragile list).
