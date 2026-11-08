@@ -1,4 +1,4 @@
-// void Unknown_6F4450() -- 0x006F44D0
+// void Unknown_Reload_Art_006F44D0() -- 0x006F44D0
 // Releases the two art pairs 0x006F4C60 loads and the blocks 0x006F5400 frees (hypothesis).
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?Unknown_006F4B00@@YIXXZ=006f4b00
@@ -35,7 +35,7 @@ extern UnknownArtData_006f2390 *unknown_art_ac11a4;
 extern void *unknown_art_ac11a8;
 extern UnknownArtData_006f2390 *unknown_art_ac11ac;
 
-void __fastcall Unknown_6F4450()
+void __fastcall Unknown_Reload_Art_006F44D0()
 {
     Unknown_006F5150();
     if (unknown_art_ac11a0 != 0) {

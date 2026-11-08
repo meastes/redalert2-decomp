@@ -390,8 +390,9 @@ struct UnknownSessionState {
     int TrapCheckHeap;                      // +0x3078 [MultiPlayer] CheckHeap
     int TrapPrintCRC;                       // +0x307C [SyncBug] PrintCRC
     unsigned char unknown_3080;             // +0x3080 (0x00672F10 returns it; the dialog control test 0x005E0760)
-    char unknown_3081[0x3AA4 - 0x3081];
-    int unknown_3aa4;                       // +0x3AA4 (MPCooperative slot 34 saves it, slot 37 restores it)
+    char unknown_3081[0x3084 - 0x3081];
+    // The object ends here: TerrainTypes is at 0x00A40320 (+0x3088); the word MPCooperative
+    // slots 34/37 save and restore at +0x3AA4 is the random seed unknown_a40d3c.
 
     // Whether the house (null: the player's) is the game master: by MasterPlayerID,
     // else by name, in game mode 4 (0x0066F150; YR's Am_I_Master, hypothesis).

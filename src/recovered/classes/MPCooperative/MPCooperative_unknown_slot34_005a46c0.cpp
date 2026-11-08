@@ -16,6 +16,7 @@
 // @ref ?unknown_833684@@3HA=00833684
 // @ref ?unknown_833688@@3HA=00833688
 // @ref ?unknown_address_a3db2c@@3VIPXAddressClass@@A=00a3db2c
+// @ref ?Seed@@3IA=00a40d3c
 #include "shared/multiplayer_game_mode.hpp"
 #include "shared/coop_campaign.hpp"
 #include "shared/house.hpp"
@@ -91,7 +92,7 @@ void MPCooperative::unknown_slot34(bool player_wins)
     wcscpy(unknown_master_name_168, unknown_session_a3d298.MasterPlayerName);
     unknown_master_id_194 = unknown_session_a3d298.MasterPlayerID;
     unknown_74 = unknown_session_a3d298.unknown_124;
-    unknown_a0 = unknown_session_a3d298.unknown_3aa4;
+    unknown_a0 = Seed;
     unknown_a4 = unknown_house_setting_7d88d8;
     unknown_units_a8 = unknown_session_a3d298.UnitCount;
     unknown_credits_ac = unknown_session_a3d298.unknown_24;
