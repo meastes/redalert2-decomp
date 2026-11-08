@@ -199,7 +199,7 @@ extern "C" void ra2asm_trans_xlat_forward16(void *dest, void const *source, int 
 }
 
 template <>
-void BlitTransXlat<unsigned short>::BlitForward(void *dest, void const *source, int len, int, intptr_t, intptr_t, int, int) const   // pointer-width ring arguments natively (native_units.py)
+void BlitTransXlat<unsigned short>::BlitForward(void *dest, void const *source, int len, int, void *, void *, int, int) const
 {
     ra2asm_trans_xlat_forward16(dest, source, len, Palette);
 }

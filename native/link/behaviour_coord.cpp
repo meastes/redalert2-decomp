@@ -25,8 +25,7 @@ ConvertClass *ObjectClass::unknown_slot115()
 
 // 0x004C9BC0 FootClass::unknown_slot67 (slot 67, Draw_It; leaf
 // src/recovered/classes/FootClass/004c9bc0.cpp: the body is `ret 8`, nothing
-// drawn at this level). Pointer-width parameters as every slot 67 natively
-// (native_units.py).
-void FootClass::unknown_slot67(intptr_t point, intptr_t window)
+// drawn at this level).
+void FootClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
 }

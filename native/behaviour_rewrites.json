@@ -242,7 +242,7 @@
   {
    "entry": "0x004861C0",
    "name": "BlitTransXlat<unsigned short>::BlitForward",
-   "symbol": "__ZNK13BlitTransXlatItE11BlitForwardEPvPKviiiiii",
+   "symbol": "__ZNK13BlitTransXlatItE11BlitForwardEPvPKviiS1_S1_ii",
    "origin_class": "skipped __asm row",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1406,8 +1406,8 @@
   },
   {
    "entry": "0x004C9BC0",
-   "name": "FootClass::unknown_slot67(intptr_t, intptr_t)",
-   "symbol": "__ZN9FootClass14unknown_slot67Ell",
+   "name": "FootClass::unknown_slot67(Point2D const &, Rect const &)",
+   "symbol": "__ZN9FootClass14unknown_slot67ERK7Point2DRK4Rect",
    "origin_class": "unmatched leaf (slot 67)",
    "plan": "behaviour rewrite",
    "exact": false,

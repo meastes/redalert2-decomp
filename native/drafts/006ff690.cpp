@@ -3,7 +3,7 @@
 // origin lane: Scout974 (build/class-work/Scout974/best_8676.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1069 (native/drafts.json). Not original bytes.
-// Native (Scout1091): cache_key (the shadow mask surface) at pointer width; marked NATIVE.
+// The shadow mask surface (cache_key) is a Surface * since Scout1102 r2 (shadow draw 0x004C9A40 takes Surface *mask).
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.
@@ -192,10 +192,10 @@ plain:
         if (unknown_37c && !unknown_79 && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
             (((cell->unknown_140&0x800) && (cell->Adjacent_Cell(0).unknown_140&0x100)) ||
              (!(cell->unknown_140&0x800) && (cell->Adjacent_Cell(6).unknown_140&0x100)))) shadow_drawpoint.Y-=60;
-        intptr_t cache_key;   // NATIVE (Scout1091): the shadow mask surface, pointer width (was int)
+        Surface *cache_key;   // the shadow mask surface
         if (unknown_slot21()) cache_key=0;
         else {
-            cache_key=(uintptr_t)composite_surface;   // NATIVE: was (unsigned)
+            cache_key=composite_surface;
             if (Type->BalloonHover || Type->SpeedType==1 || Type->SpeedType==2) {
                 if (unknown_slot108()<=0) key|=0x80000000;
                 else key=-1;

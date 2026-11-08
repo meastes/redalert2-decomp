@@ -135,15 +135,16 @@ pointers are not loaded (`--report`).
    rvalues wrapped in `ra2port::as_lvalue` (VC6 reinterprets a temporary).
    Pointers carried in VC6 ints get pointer width in the native view by named rules
    (native_units.py: `new <Name>Class(` allocates twice the size a light stand-in
-   sees, ObjectClass slot 67's point/rect, the blitters' depth/alpha ring arguments
-   and Bit_Blit/RLE_Blit's ring locals, CC_Draw_Shape's remap and depth shape,
-   unknown_blit_49f3a0's remap/blitter, the voxel shadow mask, the ZBuffer/ABuffer
-   Wrap_ helpers, the RadiusCount table; Scout1091; the drawer value slot 115
+   sees, Bit_Blit/RLE_Blit's ring locals, the ZBuffer/ABuffer Wrap_ helpers, the
+   RadiusCount table; Scout1091; the drawer value slot 115
    hands to building and overlay animations, the audio event's waiting source and
    sample data addresses; Scout1098). VC6 variadic forwarding
    (`vswprintf(buf, fmt, (char *)(&last + 1))`) becomes a real va_list from the
    same parameter (Plain_Text_Print, Fancy_Text_Printf, MonoClass::Printf,
    JShell_Fatal, the chat lines).
+   Slot 67/68's point/rect, the blitters' ring and depth-shape arguments,
+   CC_Draw_Shape's remap and depth shape, unknown_blit_49f3a0's remap/blitter and
+   the voxel shadow mask are real pointer types in src/ (Scout1102).
    Rows with `__asm` are skipped and listed. `port/fixups.json` holds the
    per-file substitutions clang needs (sources and `src/shared` headers, each
    with the VC6 meaning it keeps and its evidence) plus qualified-name
