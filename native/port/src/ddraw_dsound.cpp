@@ -2,11 +2,16 @@
 // recovered code calls (shared/directdraw.hpp, shared/dsound_api.hpp: same slot
 // order, same argument widths). Surfaces are system-memory pixel buffers; the
 // primary surface is shown through the host on Flip/Blt/Unlock. Sound buffers
-// keep their PCM and advance their play cursor by wall time; mixing them into
-// an SDL audio stream is the next audio step (logged once).
+// keep their PCM; the playing secondary buffers are mixed (resampled to the
+// output rate by their frequency, scaled by volume and pan, 8/16-bit, mono or
+// stereo) into the host's audio stream (Host::open_audio: an SDL3 stream), and
+// their play cursors advance by what the device consumed. Without a host audio
+// device the cursors advance by wall time and the buffers play silently.
 #include "ra2port/win32_port.hpp"
 
 #include <chrono>
+#include <math.h>
+#include <mutex>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -286,6 +291,14 @@ struct WAVEFORMATEX { WORD wFormatTag, nChannels; DWORD nSamplesPerSec, nAvgByte
 struct DSBUFFERDESC { DWORD dwSize, dwFlags, dwBufferBytes, dwReserved; WAVEFORMATEX *lpwfxFormat; };
 struct DSBCAPS { DWORD dwSize, dwFlags, dwBufferBytes, dwUnlockTransferRate, dwPlayCpuOverhead; };
 
+struct SoundBuffer;
+std::mutex &mixer_mutex() { static std::mutex m; return m; }
+bool g_mixer_active = false;
+bool mixer_active() { return g_mixer_active; }
+std::vector<SoundBuffer *> &mixer_buffers() { static std::vector<SoundBuffer *> v; return v; }
+void attach(SoundBuffer *b);
+void detach(SoundBuffer *b);
+
 struct SoundBuffer {
     virtual HRESULT QueryInterface(const void *, void **o) { *o = this; AddRef(); return DD_OK; }
     virtual ULONG AddRef() { return ++refs; }
@@ -293,6 +306,7 @@ struct SoundBuffer {
     virtual HRESULT GetCaps(DSBCAPS *c) { c->dwFlags = flags; c->dwBufferBytes = (DWORD)data.size(); return DD_OK; }
     virtual HRESULT GetCurrentPosition(DWORD *play, DWORD *write)
     {
+        std::lock_guard<std::mutex> lock(mixer_mutex());
         DWORD p = position();
         if (play) *play = p;
         if (write) *write = data.empty() ? 0 : (DWORD)((p + format.nBlockAlign * 64u) % data.size());
@@ -309,6 +323,7 @@ struct SoundBuffer {
     virtual HRESULT GetFrequency(DWORD *f) { *f = frequency; return DD_OK; }
     virtual HRESULT GetStatus(DWORD *s)
     {
+        std::lock_guard<std::mutex> lock(mixer_mutex());
         if (playing && !looping && position_raw() >= data.size()) playing = false;
         *s = playing ? (1u | (looping ? 4u : 0u)) : 0u;
         return DD_OK;
@@ -329,25 +344,43 @@ struct SoundBuffer {
     }
     virtual HRESULT Play(DWORD, DWORD, DWORD f)
     {
-        static bool logged = false;
-        if (!logged) { logged = true; unimplemented("DirectSound mixing (buffers play silently)"); }
-        if (!playing) start = std::chrono::steady_clock::now() - std::chrono::microseconds(offset_us());
+        std::lock_guard<std::mutex> lock(mixer_mutex());
+        if (!mixer_active()) {
+            static bool logged = false;
+            if (!logged) { logged = true; unimplemented("DirectSound output (no host audio device: buffers play silently)"); }
+            if (!playing) start = std::chrono::steady_clock::now() - std::chrono::microseconds(offset_us());
+        } else if (!playing && cursor >= data.size()) {
+            cursor = 0;
+        }
         playing = true;
         looping = f & 1;
         return DD_OK;
     }
-    virtual HRESULT SetCurrentPosition(DWORD p) { cursor = p; start = std::chrono::steady_clock::now(); return DD_OK; }
+    virtual HRESULT SetCurrentPosition(DWORD p)
+    {
+        std::lock_guard<std::mutex> lock(mixer_mutex());
+        cursor = p; frac = 0; start = std::chrono::steady_clock::now();
+        return DD_OK;
+    }
     virtual HRESULT SetFormat(const WAVEFORMATEX *f) { format = *f; frequency = f->nSamplesPerSec; return DD_OK; }
     virtual HRESULT SetVolume(LONG v) { volume = v; return DD_OK; }
     virtual HRESULT SetPan(LONG p) { pan = p; return DD_OK; }
     virtual HRESULT SetFrequency(DWORD f) { frequency = f ? f : format.nSamplesPerSec; return DD_OK; }
-    virtual HRESULT Stop() { cursor = position(); playing = false; return DD_OK; }
+    virtual HRESULT Stop()
+    {
+        std::lock_guard<std::mutex> lock(mixer_mutex());
+        cursor = position(); playing = false;
+        return DD_OK;
+    }
     virtual HRESULT Unlock(void *, DWORD, void *, DWORD) { return DD_OK; }
     virtual HRESULT Restore() { return DD_OK; }
-    virtual ~SoundBuffer() {}
+    SoundBuffer() { attach(this); }
+    SoundBuffer(const SoundBuffer &o) = default;
+    virtual ~SoundBuffer() { detach(this); }
 
     ULONG refs = 1;
     DWORD flags = 0, frequency = 22050, cursor = 0;
+    uint32_t frac = 0;                 // 16.16 fraction of a frame (mixer)
     LONG volume = 0, pan = 0;
     bool playing = false, looping = false;
     WAVEFORMATEX format = {1, 2, 22050, 88200, 4, 16, 0};
@@ -361,7 +394,7 @@ struct SoundBuffer {
     }
     uint64_t position_raw() const
     {
-        if (!playing) return cursor;
+        if (!playing || mixer_active()) return cursor;
         uint64_t us = (uint64_t)std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - start).count();
         uint64_t bytes = us * frequency * format.nBlockAlign / 1000000ull;
         return format.nBlockAlign ? bytes / format.nBlockAlign * format.nBlockAlign : bytes;
@@ -369,10 +402,95 @@ struct SoundBuffer {
     DWORD position() const
     {
         if (data.empty()) return 0;
+        if (mixer_active()) return cursor < data.size() ? cursor : (DWORD)data.size();
         uint64_t p = position_raw();
         return (DWORD)(looping ? p % data.size() : (p < data.size() ? p : data.size()));
     }
 };
+
+void attach(SoundBuffer *b)
+{
+    std::lock_guard<std::mutex> lock(mixer_mutex());
+    mixer_buffers().push_back(b);
+}
+void detach(SoundBuffer *b)
+{
+    std::lock_guard<std::mutex> lock(mixer_mutex());
+    std::vector<SoundBuffer *> &v = mixer_buffers();
+    for (size_t i = 0; i < v.size(); ++i) if (v[i] == b) { v.erase(v.begin() + i); break; }
+}
+
+const int kMixRate = 44100;
+
+// DirectSound attenuation (hundredths of a decibel, 0 .. -10000) as a gain.
+float db_gain(LONG hundredths)
+{
+    if (hundredths >= 0) return 1.0f;
+    if (hundredths <= -10000) return 0.0f;
+    return powf(10.0f, (float)hundredths / 2000.0f);
+}
+
+// One sample of a buffer frame as a signed 16-bit value (channel 0 or 1).
+inline int sample_at(const SoundBuffer *b, uint32_t frame, int channel)
+{
+    const unsigned char *p = b->data.data() + (size_t)frame * b->format.nBlockAlign;
+    int ch = b->format.nChannels > 1 ? channel : 0;
+    if (b->format.wBitsPerSample == 8) return ((int)p[ch] - 128) << 8;
+    return (int)(short)(p[2 * ch] | p[2 * ch + 1] << 8);
+}
+
+// The host's audio thread: mixes every playing secondary buffer into out.
+void mix(short *out, int frames)
+{
+    static std::vector<int> acc;
+    acc.assign((size_t)frames * 2, 0);
+    {
+        std::lock_guard<std::mutex> lock(mixer_mutex());
+        for (SoundBuffer *b : mixer_buffers()) {
+            if (!b->playing || b->data.empty() || b->format.nBlockAlign == 0) continue;
+            if (b->format.wBitsPerSample != 8 && b->format.wBitsPerSample != 16) continue;
+            uint32_t total = (uint32_t)(b->data.size() / b->format.nBlockAlign);
+            if (!total) continue;
+            float volume = db_gain(b->volume);
+            float left = volume * db_gain(b->pan > 0 ? -b->pan : 0);
+            float right = volume * db_gain(b->pan < 0 ? b->pan : 0);
+            int gl = (int)(left * 256.0f), gr = (int)(right * 256.0f);
+            uint32_t step = (uint32_t)(((uint64_t)(b->frequency ? b->frequency : b->format.nSamplesPerSec) << 16) / kMixRate);
+            uint32_t frame = b->cursor / b->format.nBlockAlign;
+            uint32_t frac = b->frac;
+            for (int i = 0; i < frames; ++i) {
+                if (frame >= total) {
+                    if (!b->looping) { b->playing = false; frame = total; break; }
+                    frame %= total;
+                }
+                acc[2 * i] += sample_at(b, frame, 0) * gl >> 8;
+                acc[2 * i + 1] += sample_at(b, frame, 1) * gr >> 8;
+                frac += step;
+                frame += frac >> 16;
+                frac &= 0xFFFF;
+            }
+            if (b->looping && total) frame %= total;
+            b->cursor = frame * b->format.nBlockAlign;
+            b->frac = frac;
+        }
+    }
+    for (int i = 0; i < frames * 2; ++i) {
+        int v = acc[i];
+        out[i] = (short)(v > 32767 ? 32767 : v < -32768 ? -32768 : v);
+    }
+}
+
+void open_mixer()
+{
+    static bool tried = false;
+    if (tried) return;
+    tried = true;
+    const Host *h = host();
+    if (h && h->open_audio && h->open_audio(kMixRate, mix)) {
+        std::lock_guard<std::mutex> lock(mixer_mutex());
+        g_mixer_active = true;
+    }
+}
 
 struct DirectSound {
     virtual HRESULT QueryInterface(const void *, void **o) { *o = this; AddRef(); return DD_OK; }
@@ -399,9 +517,14 @@ struct DirectSound {
     }
     virtual HRESULT DuplicateSoundBuffer(SoundBuffer *o, SoundBuffer **d)
     {
-        SoundBuffer *b = new SoundBuffer(*o);
-        b->refs = 1;
-        b->playing = false;
+        SoundBuffer *b;
+        {
+            std::lock_guard<std::mutex> lock(mixer_mutex());
+            b = new SoundBuffer(*o);
+            b->refs = 1;
+            b->playing = false;
+        }
+        attach(b);
         *d = b;
         return DD_OK;
     }
@@ -427,6 +550,7 @@ HRESULT DirectDrawCreate(void *guid, DirectDraw **out, void *outer)
 HRESULT DirectSoundCreate(const void *guid, DirectSound **out, void *outer)
 {
     (void)guid; (void)outer;
+    open_mixer();
     *out = new DirectSound;
     return DD_OK;
 }

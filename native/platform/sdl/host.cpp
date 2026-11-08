@@ -101,7 +101,33 @@ void set_relative_cursor(bool show)
     if (show) SDL_ShowCursor(); else SDL_HideCursor();
 }
 
-const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor};
+// Audio: an SDL3 playback stream (stereo, signed 16-bit) that asks the port's
+// DirectSound mixer for every block the device consumes.
+void (*audio_mix)(short *out, int frames) = nullptr;
+void SDLCALL audio_callback(void *, SDL_AudioStream *stream, int additional, int)
+{
+    short block[2048 * 2];
+    while (additional > 0) {
+        int frames = additional / 4;
+        if (frames > 2048) frames = 2048;
+        if (frames <= 0) break;
+        audio_mix(block, frames);
+        SDL_PutAudioStreamData(stream, block, frames * 4);
+        additional -= frames * 4;
+    }
+}
+bool open_audio(int rate, void (*mix)(short *out, int frames))
+{
+    if (!SDL_WasInit(SDL_INIT_AUDIO) && !SDL_InitSubSystem(SDL_INIT_AUDIO)) return false;
+    audio_mix = mix;
+    SDL_AudioSpec spec = {SDL_AUDIO_S16, 2, rate};
+    SDL_AudioStream *stream = SDL_OpenAudioDeviceStream(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, &spec, audio_callback, nullptr);
+    if (!stream) return false;
+    SDL_ResumeAudioStreamDevice(stream);
+    return true;
+}
+
+const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio};
 }  // namespace
 
 void ra2_install_sdl_host() { ra2port::set_host(&sdl_host); }

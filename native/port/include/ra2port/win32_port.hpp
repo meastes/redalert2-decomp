@@ -82,12 +82,15 @@ void progress_count(const char *counter, const char *detail = nullptr);
 size_t wlen(const WCHAR *s);
 
 // Host hooks (platform/sdl): main window, event pump into the Win32 queue,
-// frame presentation for the DirectDraw primary surface.
+// frame presentation for the DirectDraw primary surface, audio output (the
+// host opens a stereo 16-bit stream at rate and calls mix for every block it
+// plays; mix runs on the host's audio thread; false when no device opens).
 struct Host {
     void *(*create_window)(const char *title, int width, int height);
     void (*pump_events)();          // translate host events into PostMessage calls
     void (*present)(const void *pixels, int width, int height, int pitch, int bits);
     void (*set_relative_cursor)(bool show);
+    bool (*open_audio)(int rate, void (*mix)(short *out, int frames));
 };
 void set_host(const Host *host);
 const Host *host();

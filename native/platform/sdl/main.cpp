@@ -23,6 +23,13 @@ extern "C" void *CreateMutexA(void *security, int owned, const char *name);
 extern "C" void *CreateEventA(void *security, int manual, int initial, const char *name);
 // C linkage, as the original's entry and the draft declare it.
 extern "C" int WinMain(HINSTANCE__ *instance, HINSTANCE__ *previous, char *command_line, int show);
+// The data the original stores, read from the installed game.exe at run time
+// (native/data/original_data.cpp, port/src/original_image.cpp).
+struct ra2_original_global;
+struct ra2_original_place;
+extern "C" const ra2_original_global ra2_original_globals[];
+extern "C" const ra2_original_place ra2_original_storage[];
+namespace ra2port { int load_original_data(const ra2_original_global *table, const ra2_original_place *places); }
 #endif
 void ra2_install_sdl_host();
 extern "C" int ra2port_initterm_last(int *units);
@@ -77,6 +84,9 @@ int main(int argc, char **argv)
         if (smoke) { fprintf(stderr, "--run-to and --smoke-test exclude each other\n"); return 64; }
         if (!data) { fprintf(stderr, "--run-to needs --data-dir or RA2_DATA_DIR (the game installation, read only)\n"); return 64; }
         setenv("RA2_PORT_QUIET", "1", 0);
+        // Test runs play into SDL's dummy device (consumed in real time, silent)
+        // unless SDL_AUDIO_DRIVER names one.
+        setenv("SDL_AUDIO_DRIVER", "dummy", 0);
         ra2port_run_to(run_to, run_seconds);
     }
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS)) {
@@ -91,6 +101,12 @@ int main(int argc, char **argv)
         int last = ra2port_initterm_last(&units);
         printf("initterm: main reached; %d initialiser units ran, the last starting at original entry #%d\n",
                units, last);
+    }
+    if (!smoke && data) {
+        // Before WinMain: the globals the original stores in game.exe (file
+        // names, tables, constants). The static initialisers ran before main
+        // and saw them zero.
+        ra2port::load_original_data(ra2_original_globals, ra2_original_storage);
     }
     if (!smoke) {
         // Hand over to the game: it creates its window through CreateWindowExA

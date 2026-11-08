@@ -281,8 +281,26 @@ def fix_pointer_width_typedefs(text):
     return TYPEDEF_LIST.sub(split, text)
 
 
+# VC6 CRT functions whose count/size parameter is size_t: the recovered
+# declarations spell it `unsigned int` (VC6's size_t). On arm64 a 32-bit
+# argument's upper register half is unspecified, and libc reads all 64 bits
+# (memset(p, 0, w) with w from a packed Rect faulted). Declare them with
+# size_t: the value is the same 32-bit count, zero-extended at the call.
+CRT_SIZE_DECL = re.compile(r'((?:^|(?<=[;{}]))[ \t]*(?:extern[ \t]+"C"[ \t]*)?(?:__declspec\(\w+\)[ \t]*)?(?:const[ \t]+)?'
+                           r'(?:void|char|int|unsigned(?:[ \t]+int)?|size_t)[ \t]*\*?[ \t]*(?:__cdecl[ \t]+)?'
+                           r'(?:memset|memcpy|memmove|memcmp|memchr|_memicmp|strncpy|strncmp|strncat|_strnicmp|strnicmp|'
+                           r'malloc|calloc|realloc|qsort|bsearch|fread|fwrite)[ \t]*)\(([^;{}]*?)\)(?=[ \t]*(?:;|throw|\{|\n))',
+                           re.M)
+
+
+def fix_crt_sizes(text):
+    return CRT_SIZE_DECL.sub(lambda m: m.group(1) + '(' + re.sub(r'\bunsigned(?:\s+int)?\b(?!\s*(?:char|short|long))',
+                                                                 'RA2_SIZE_T', m.group(2)) + ')', text)
+
+
 def port(text):
     text = fix_pointer_width_typedefs(text)
+    text = fix_crt_sizes(text)
     text = fix_enums(text)
     text = fix_reference_casts(text)
     text = FOR_INIT.sub(lambda m: '%s%s; for(;' % (m.group(1), m.group(2)), text)

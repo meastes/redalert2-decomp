@@ -60,7 +60,25 @@ Milestones: `init` (Init_Game succeeded), `scenario` (Start_Scenario loaded the
 map), `frame` (first Main_Loop iteration), `frames` (N of them); notes
 `harness-art`, `harness-map`, `harness-stop`. `--game-args` is WinMain's command
 line: `-noaudio` skips the audio device, `-CD.` makes every file local (no CD
-check; Parse_Command_Line's `-CD<path>`).
+check; Parse_Command_Line's `-CD<path>`). Test runs play audio into SDL's dummy
+device (silent, consumed in real time) unless `SDL_AUDIO_DRIVER` names one.
+
+### Data the original stores (game.exe at run time)
+
+User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and
+constants the original keeps in its .data/.rdata are read from the user's
+installed `game.exe` at run time, never copied here. `tools/original_data.py`
+writes `data/original_data.cpp` (names, addresses, extents and shapes only) from
+`data/unsourced_initialised.tsv` and the globals' declarations in `src/`: one
+storage per original address, shape `bytes` (scalars and scalar arrays: copied),
+`ptr`/`ptrs` (data pointers: the native storage of the global pointed at, from
+this file and `bss_globals.cpp`, else the mapped image's initialised data, else
+null). `port/src/original_image.cpp` maps the executable's sections (after
+checking size and SHA-256 against the pinned target) and fills them before
+WinMain (milestone `original-data`; static initialisers run before main and see
+zeros). `RA2_GAME_EXE=<path>` names the supported executable when the
+installation carries another build. Class-typed globals and pointers to
+pointers are not loaded (`--report`).
 
 ## Layers
 
@@ -81,6 +99,9 @@ check; Parse_Command_Line's `-CD<path>`).
    `renames`; each should move into `src/` once the exact build proves the
    edit byte-neutral. `--win64-params` (on: `RA2_NATIVE_WIN64_PARAMS`) makes WPARAM/LPARAM/LRESULT/*_PTR
    pointer-sized and respells the (HWND, unsigned, unsigned, long) procedure shape.
+   CRT declarations whose count is VC6's `size_t` (`memset(void *, int, unsigned
+   int)`, memcpy, strncpy, qsort, malloc, ...) get `size_t` (an arm64 32-bit
+   argument's upper half is unspecified; libc reads 64 bits).
    Calls whose libc namesake differs (Winsock, rand, fopen, time, printf/scanf
    family, wide CRT) are renamed `ra2_*` and supplied by the port.
    **Static initialisers**: `initterm.json` (from `tools/initterm_manifest.py`,
@@ -193,7 +214,11 @@ check; Parse_Command_Line's `-CD<path>`).
 5. **Platform seams** (`port/src`, `ra2_port`): the imported Win32 API (366 imports:
    KERNEL32, USER32, GDI32, WSOCK32, ole32, binkw32, ...) implemented on POSIX and
    SDL3 under the same C names; DirectDraw/DirectSound as C++ classes with the COM
-   interface shapes the recovered code calls, backed by SDL3 textures and audio streams.
+   interface shapes the recovered code calls, backed by SDL3 textures and an SDL3
+   audio stream (the host's `open_audio`: playing secondary buffers resampled by
+   frequency, scaled by volume and pan, 8/16-bit mono/stereo, play cursors moved by
+   what the device consumed). GetVolumeInformationA reports the host volume
+   holding the drive's folder (a mounted game disc reports its own label).
    Blowfish.dll's COM server (IBlockCipher, MIX header decryption) is native
    (`port/src/blowfish.cpp`, TibSun blowfish.cpp); comctl32's DllGetVersion
    reports 5.81; FindWindowA, OpenMutexA, RegisterActiveObject,

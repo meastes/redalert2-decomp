@@ -548,6 +548,141 @@
    "file": "native/link/behaviour_mapgen.cpp",
    "source": "the row decompile (Scout530 sweep seed)",
    "reached": "launch path 0x577010 (startup, Scout1050); written before Scout1069, listed here"
+  },
+  {
+   "entry": "0x0049E7D0",
+   "name": "DisplayClass::unknown_slot34",
+   "symbol": "__ZN12DisplayClass14unknown_slot34Ev",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "accepted seed src/recovered/classes/DisplayClass/0049e7d0.cpp (free function; the vtable name never binds to it)",
+   "notes": "closes and clears the window handle at 0x00B263DC"
+  },
+  {
+   "entry": "0x00458370",
+   "name": "Unknown_00458370",
+   "symbol": "__Z16Unknown_00458370v",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "decompile (empty body); Init_Bulk_Data order"
+  },
+  {
+   "entry": "0x004E2E30",
+   "name": "Unknown_004E2E30",
+   "symbol": "__Z16Unknown_004E2E30v",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "decompile (empty body); TibSun HouseClass::One_Time position"
+  },
+  {
+   "entry": "0x0063CFB0",
+   "name": "RGBClass::Difference",
+   "symbol": "__ZNK8RGBClass10DifferenceERKS_",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "accepted seed src/recovered/0063cfb0.cpp (owner view)"
+  },
+  {
+   "entry": "0x0077F14D",
+   "name": "unknown_cpu_probe_77f14d",
+   "symbol": "__Z24unknown_cpu_probe_77f14dv",
+   "origin_class": "handwritten assembly",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "instruction listing (handwritten assembly, CPUID/EFLAGS probe)",
+   "notes": "NATIVE: reports family 6, model 0, no MMX; vendor text left as stored"
+  },
+  {
+   "entry": "0x0077F20F",
+   "name": "unknown_cpu_family_probe_77f20f",
+   "symbol": "__Z31unknown_cpu_family_probe_77f20fv",
+   "origin_class": "handwritten assembly",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "instruction listing (handwritten assembly, CMOV probe)",
+   "notes": "NATIVE: no CMOV (0x008015A0/A1 = 0)"
+  },
+  {
+   "entry": "0x0079777A",
+   "name": "FUN_0079777a",
+   "symbol": "__Z12FUN_0079777aPK12PaletteClassPtiiiiPKh",
+   "origin_class": "handwritten assembly",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "decompile (handwritten assembly: MMX, CMOV and plain paths)",
+   "notes": "5:5:5 light table; the plain path"
+  },
+  {
+   "entry": "0x00797440",
+   "name": "FUN_00797440",
+   "symbol": "__Z12FUN_00797440PK12PaletteClassPtiiiiPKh",
+   "origin_class": "handwritten assembly",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "decompile (handwritten assembly: MMX, CMOV and plain paths)",
+   "notes": "5:6:5 light table; the plain path"
+  },
+  {
+   "entry": "0x004070A0",
+   "name": "AudioLevel::Set_Target",
+   "symbol": "__ZN10AudioLevel10Set_TargetEi",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "seed (seeded-pass6a 0x004070A0)"
+  },
+  {
+   "entry": "0x0051FC50",
+   "name": "Unknown_0051FC50",
+   "symbol": "__Z16Unknown_0051FC50v",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "seed (returns StormActive 0x00A51934)"
+  },
+  {
+   "entry": "0x005D7C20",
+   "name": "ObjectTypeClass::Generic_Naming_Convention",
+   "symbol": "__ZN15ObjectTypeClass25Generic_Naming_ConventionEPc",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "decompile (buffer[1] = 'G'); TibSun objtype.cpp"
+  },
+  {
+   "entry": "0x00674AA0",
+   "name": "VectorClass<DiskID>::VectorClass(unsigned, DiskID const *)",
+   "symbol": "__ZN11VectorClassI6DiskIDEC2EjPKS0_",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "decompile; vector_class.hpp template body (multi_mission.hpp declares the specialisation)"
+  },
+  {
+   "entry": "0x00674AF0",
+   "name": "VectorClass<Wstring>::VectorClass(unsigned, Wstring const *)",
+   "symbol": "__ZN11VectorClassI7WstringEC2EjPKS0_",
+   "origin_class": "unmatched (launch path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_launch.cpp",
+   "source": "vector_class.hpp template body (multi_mission.hpp declares the specialisation)"
   }
  ]
 }

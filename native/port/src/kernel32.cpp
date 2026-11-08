@@ -185,6 +185,9 @@ HANDLE CreateFileA(const char *name, DWORD access, DWORD share, void *security, 
                    DWORD flags, HANDLE templ)
 {
     (void)share; (void)security; (void)flags; (void)templ;
+    // Windows: an empty name is not a path, and a directory opens only with
+    // FILE_FLAG_BACKUP_SEMANTICS (0x02000000); otherwise access is denied.
+    if (!name || !*name) { set_last_error(ERROR_PATH_NOT_FOUND); return RA2_INVALID_HANDLE; }
     char path[1024];
     bool rd = access & 0x80000000u, wr = access & 0x40000000u;
     bool writes = wr || disposition == 1 || disposition == 2 || disposition == 4 || disposition == 5;
@@ -203,6 +206,12 @@ HANDLE CreateFileA(const char *name, DWORD access, DWORD share, void *security, 
     if (fd < 0) {
         set_last_error(errno_to_win32(errno));
         trace("CreateFileA %s -> %s failed", name, path);
+        return RA2_INVALID_HANDLE;
+    }
+    struct stat st;
+    if (!(flags & 0x02000000u) && fstat(fd, &st) == 0 && S_ISDIR(st.st_mode)) {
+        close(fd);
+        set_last_error(5);  // ERROR_ACCESS_DENIED
         return RA2_INVALID_HANDLE;
     }
     File *f = new File;
@@ -435,11 +444,23 @@ DWORD GetLogicalDriveStringsA(DWORD size, char *buffer)
 BOOL GetVolumeInformationA(const char *root, char *name, DWORD name_size, DWORD *serial, DWORD *max_component,
                            DWORD *flags, char *fs_name, DWORD fs_size)
 {
-    // The CD check reads the volume label; the native build has no disc.
-    (void)root; (void)name; (void)name_size; (void)serial; (void)max_component; (void)flags; (void)fs_name; (void)fs_size;
-    unimplemented("GetVolumeInformationA");
-    set_last_error(21);  // ERROR_NOT_READY
-    return 0;
+    // The volume that holds the drive's folder (every drive letter maps onto
+    // the installation): its mount name as the label, its file-system id as the
+    // serial, its type as the file-system name. A disc mounted by the host
+    // reports its own label (RA1/RA2 for the game discs).
+    char path[1024];
+    host_path(root && *root ? root : "C:\\", path, sizeof path);
+    struct statfs st;
+    if (statfs(path, &st) != 0 && statfs(data_dir(), &st) != 0) { set_last_error(21); return 0; }  // ERROR_NOT_READY
+    const char *label = strrchr(st.f_mntonname, '/');
+    label = label && label[1] ? label + 1 : "";
+    if (name && name_size) { strncpy(name, label, name_size - 1); name[name_size - 1] = 0; }
+    if (serial) *serial = (DWORD)st.f_fsid.val[0] ^ (DWORD)st.f_fsid.val[1];
+    if (max_component) *max_component = 255;
+    if (flags) *flags = 0x3;   // FS_CASE_SENSITIVE | FS_CASE_IS_PRESERVED
+    if (fs_name && fs_size) { strncpy(fs_name, st.f_fstypename, fs_size - 1); fs_name[fs_size - 1] = 0; }
+    set_last_error(0);
+    return 1;
 }
 
 DWORD GetModuleFileNameA(HINSTANCE module, char *buffer, DWORD size)
