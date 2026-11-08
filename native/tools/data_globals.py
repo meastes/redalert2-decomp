@@ -17,7 +17,8 @@ the pinned target's PE section headers (hash-checked; only the headers are read)
     Listed in data/unsourced_initialised.tsv with size and users; each needs
     adopted source text, a generator, or a run-time read of game files.
 
-    python3 native/tools/data_globals.py --undefined build/.../undefined.txt
+    python3 native/tools/data_globals.py --build build/native [--exe <pinned game.exe>]
+    python3 native/tools/data_globals.py --undefined undefined.txt [--defined defined.txt]
 """
 import argparse
 import bisect
@@ -74,11 +75,30 @@ def demangle(symbols):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--undefined', type=Path, required=True)
+    ap.add_argument('--undefined', type=Path, help='undefined symbols (one per line); or --build')
+    ap.add_argument('--build', type=Path, help='a built full tree (RA2_NATIVE_LINK_CLOSURE=ON): the undefined and '
+                    'defined lists are computed from gen/link_inputs.txt without data/bss_globals.cpp (idempotent)')
     ap.add_argument('--exe', type=Path, default=DEFAULT_EXE)
     ap.add_argument('--out-dir', type=Path, default=ROOT / 'native/data')
     ap.add_argument('--defined', type=Path, help='symbols the other link inputs define (one per line)')
     args = ap.parse_args()
+    if args.build:
+        import tempfile
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import link_closure
+        build = args.build.resolve()
+        inputs = [p for p in (build / 'gen/link_inputs.txt').read_text().split('\n')
+                  if p.strip() and not p.endswith('/data/bss_globals.cpp.o')]
+        inputs += sorted(str(h) for h in build.glob('CMakeFiles/ra2_host_objs.dir/**/*.o'))
+        missing, _ = link_closure.missing_symbols(inputs)
+        defined, _ = link_closure.nm_symbols([p for p in inputs if p.endswith('.o')])
+        tmp = Path(tempfile.mkdtemp(prefix='ra2-data-globals-'))
+        args.undefined = tmp / 'undefined.txt'
+        args.undefined.write_text('\n'.join(missing) + '\n')
+        args.defined = tmp / 'defined.txt'
+        args.defined.write_text('\n'.join(sorted(defined)) + '\n')
+    elif not args.undefined:
+        ap.error('--undefined or --build is required')
     secs = sections(args.exe)
     catalog = catalog_io.load(catalog_io.locate(ROOT), references=True)
     refs, users = {}, {}

@@ -9,7 +9,7 @@ build) and never changes `src/`, the catalog or `tools/original_target`.
 
 ```
 cmake -S native -B build/native -G Ninja && cmake --build build/native
-cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all   # whole tree (3,279 groups) + ra2-native game link
+cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all   # whole tree (3,279 groups) + drafts + ra2-native game link
 cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON   # link with traps; gen/link_closure.json
 ctest --test-dir build/native            # native-core-check
 build/native/ra2-native --smoke-test     # SDL3 host window
@@ -75,12 +75,38 @@ The host plays the launcher's part (the launch mutex and event RA2.EXE created).
    writes `gen/drafts.json`; a draft with `host_source: null` is its own unit,
    linked after the initialiser units (WinMain: no accepted Startup.CPP row hosts
    it); an `adapted` draft is a native adaptation of the scored draft (its private
-   headers inlined, non-portable statements marked NATIVE); drafts live in private lane scratch
-   (`-DRA2_NATIVE_DRAFTS=ON -DRA2_NATIVE_DRAFT_ROOT=<checkout>`).
+   headers inlined, non-portable statements marked NATIVE). Each included draft is
+   tracked as `native/drafts/<entry>.cpp` (header: entry, score, origin lane or
+   worker, NON-EXACT DRAFT; `origin`/`author` in drafts.json are provenance only),
+   so the build reads no ignored path. Recovered source text by our lanes, never
+   original bytes; raw Ghidra seeds are not tracked. On by default with
+   `RA2_NATIVE_SUBSYSTEM=all` (`-DRA2_NATIVE_DRAFTS=OFF` builds without them).
+   Refresh a draft by copying the lane's newer text over the file, keeping the header.
 2. **Dialect** (`port/include/ra2port/prelude.hpp`, forced include, plus flags
    `-fms-extensions -fms-compatibility -fdelayed-template-parsing -Xclang -fno-wchar
-   -fshort-wchar -fwrapv -fno-strict-aliasing -Wno-register -Wno-c++11-narrowing`): calling conventions vanish,
-   `wchar_t` is VC6's `unsigned short`, signed overflow wraps.
+   -fshort-wchar -fwrapv -fno-strict-aliasing -fwritable-strings -Wno-register -Wno-c++11-narrowing`):
+   calling conventions vanish, `wchar_t` is VC6's `unsigned short`, signed overflow
+   wraps, string literals are writable (below).
+
+   **Writable string literals.** VC6 put string literals in .data, one copy per
+   occurrence (the exact build has no /GF), and recovered code writes through
+   pointers that callers pass literals to. Clang's `-fwritable-strings` (Apple clang
+   21 accepts it) gives every narrow and wide literal its own `__DATA,__data` object,
+   the same meaning; native-core-check proves it (an in-place upper-casing of a
+   literal and a store into `L""`). A static scan (Scout1061, 2026-11-08: functions
+   that write through a char/wide pointer parameter, directly, through an alias,
+   through a CRT mutator or transitively, joined with the call sites that pass
+   literals there) found 71 literal sites, all one chain: `MixFileClass::Offset`
+   0x595AA0 upper-cases its name in place (`_strupr`), reached by
+   `MixFileClass::Retrieve` 0x5956C0 (53 sites: palettes, shapes, sounds in
+   Init_Game, the One_Time functions, the sidebar), `Load_Cached_Or_Allocated_File`
+   0x495270 (12: MOUSE.SHP, sidebar shapes), `ProgressScreenClass::Load_Shape`
+   0x61EF40 (4), plus `_strupr("TUR")` twice in
+   `BuildingTypeClass::Load_Turret_Voxels` 0x459640. CCFileClass names are copied
+   (`Set_Name`) before `Offset` sees them. Literals stored in pointers and written
+   later, and name tables in native data, are covered by the same flag (it applies
+   to every unit with the dialect, `native/data` and `native/link` included); the
+   platform layer (`ra2_port`) keeps read-only literals.
 3. **Recovered code** (`ra2_recovered`): accepted sources; unmatched rows enter as
    their best parked draft (flagged non-exact with its score) or a behaviour-written
    implementation, never empty stubs.
@@ -89,7 +115,18 @@ The host plays the launcher's part (the launch mutex and event RA2.EXE created).
    bind a name to the recovered body at the same original address (catalog
    references and region entries) when the native ABI signatures (LLVM IR of the
    units) agree, or through a converting wrapper when only a float/double return
-   differs (x87 st0); `template_instances*.cpp` (`tools/template_instances.py`)
+   differs (x87 st0), or through a converting adapter (`signature_adapters.cpp`)
+   when the declarations differ only in integral widths (VC6 passed a 32-bit slot;
+   the callee read its own width), a Win32 handle carried in an int (port handles are
+   small tokens), pointer-sized message parameters, a `this` the free definition
+   never reads, or a result the caller ignores; the remaining mismatches (int for
+   pointer, parameter count, struct by value) are listed with a reason in
+   `gen/address_aliases.json`: one side's declaration is wrong and src/ settles it.
+   The generators are idempotent (each recomputes its queue from the build's link
+   inputs without its own outputs, or keeps what it wrote before); after a landing
+   re-run `data_globals.py --build <dir>`, rebuild, `address_aliases.py --build <dir>`,
+   rebuild, `template_instances.py --build <dir>`, rebuild.
+   `template_instances*.cpp` (`tools/template_instances.py`)
    explicitly instantiate the recovered VectorClass/DynamicVectorClass bodies for
    element types whose owner unit is missing; `initterm_rewrites.cpp` rewrites the
    seed/scaffold explicit initialisers (`Initterm_<entry>`, called at their

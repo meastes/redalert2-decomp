@@ -8,6 +8,8 @@ project(ra2_native VERSION 0.1.0 LANGUAGES C CXX ASM)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+# address_aliases.py and template_instances.py read the compile commands.
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 if(APPLE AND NOT CMAKE_OSX_ARCHITECTURES)
   set(CMAKE_OSX_ARCHITECTURES arm64)
 endif()
@@ -15,9 +17,16 @@ endif()
 set(RA2_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/..")
 set(RA2_NATIVE_SUBSYSTEM "core" CACHE STRING "Compile groups to build (native_units.py --subsystem)")
 option(RA2_NATIVE_SDL "Build the SDL3 host executable" ON)
-option(RA2_NATIVE_DRAFTS "Append the non-exact launch-path drafts (native/drafts.json) to their groups" OFF)
+# The game's start-up path needs the non-exact drafts (WinMain among them), so
+# they are on by default in the whole-tree build. They are tracked text
+# (native/drafts/<entry>.cpp); the build reads no ignored path.
+if(RA2_NATIVE_SUBSYSTEM STREQUAL "all")
+  set(ra2_drafts_default ON)
+else()
+  set(ra2_drafts_default OFF)
+endif()
+option(RA2_NATIVE_DRAFTS "Append the non-exact launch-path drafts (native/drafts.json, native/drafts/) to their groups" ${ra2_drafts_default})
 option(RA2_NATIVE_WIN64_PARAMS "Pointer-sized WPARAM/LPARAM/LRESULT/*_PTR, as on Win64 (native_units.py --win64-params)" ON)
-set(RA2_NATIVE_DRAFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "Checkout whose build/class-work holds the lane drafts")
 
 # 1. Generate the native view: port-rewritten shared headers and one TU per
 #    catalog compile group (the exact build's unit structure). Re-run by
@@ -28,7 +37,7 @@ if(RA2_NATIVE_WIN64_PARAMS)
   list(APPEND ra2_draft_args --win64-params)
 endif()
 if(RA2_NATIVE_DRAFTS)
-  list(APPEND ra2_draft_args --drafts --draft-root "${RA2_NATIVE_DRAFT_ROOT}")
+  list(APPEND ra2_draft_args --drafts)
 endif()
 set(RA2_NATIVE_GEN "${CMAKE_CURRENT_BINARY_DIR}/gen")
 execute_process(
@@ -43,6 +52,8 @@ include("${RA2_NATIVE_GEN}/units.cmake")
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
   "${CMAKE_CURRENT_SOURCE_DIR}/tools/native_units.py" "${CMAKE_CURRENT_SOURCE_DIR}/port/fixups.json"
   "${CMAKE_CURRENT_SOURCE_DIR}/drafts.json" "${CMAKE_CURRENT_SOURCE_DIR}/link/initterm_rewrites.cpp")
+file(GLOB ra2_tracked_drafts CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/drafts/*.cpp")
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${ra2_tracked_drafts})
 
 # 2. The VC6 dialect on clang/arm64 (port/include/ra2port/prelude.hpp explains
 #    each choice). -fwrapv and -fno-strict-aliasing restore what VC6 x86 code
@@ -52,6 +63,12 @@ target_compile_options(ra2_dialect INTERFACE
   "$<$<COMPILE_LANGUAGE:CXX>:-fms-extensions;-fms-compatibility;-fdelayed-template-parsing>"
   "$<$<COMPILE_LANGUAGE:CXX>:SHELL:-Xclang -fno-wchar>" "$<$<COMPILE_LANGUAGE:CXX>:-fshort-wchar>"
   "$<$<COMPILE_LANGUAGE:CXX>:-fwrapv;-fno-strict-aliasing>"
+  # VC6 string literals are writable data (.data, one copy per occurrence: the
+  # exact build has no /GF); recovered code writes through char */wchar_t *
+  # parameters callers pass literals to (MixFileClass::Offset upper-cases its
+  # name in place; README "Writable string literals"). Clang's -fwritable-strings
+  # emits every literal, narrow and wide, as its own __DATA,__data object.
+  "$<$<COMPILE_LANGUAGE:CXX>:-fwritable-strings>"
   "$<$<COMPILE_LANGUAGE:CXX>:-Wno-error=address-of-temporary;-Wno-register;-Wno-c++11-narrowing;-w>"
   "$<$<COMPILE_LANGUAGE:CXX>:SHELL:-include ${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp>")
 target_include_directories(ra2_dialect INTERFACE "${RA2_NATIVE_GEN}/overlay")

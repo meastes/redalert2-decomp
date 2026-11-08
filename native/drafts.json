@@ -1,5 +1,5 @@
 {
- "about": "Unmatched launch-path functions carried in the native tree as their best parked draft (Scout1050 trace table, plans 'draft as-is' (score >= 95) and 'draft, verify'). NON-EXACT: never exact-match credit. score = misses_index best; last_lane_score = the last score a lane reported; draft_found_by: index = misses_index names this draft, search = newest/highest .cpp naming the entry (unconfirmed). The draft text is appended to the compile group of host_source (the neighbouring accepted row's unit), as the exact-tree join does. Drafts live in private lane scratch (build/class-work); a missing file is reported, not fatal. native: 'compiles' = the draft passes clang (arm64) inside its host group and is appended; 'blocked: <first error>' = not appended (it needs header declarations or macros from the lane's private overlay, or it repeats neighbouring definitions); raw_seed = the path is a Ghidra seed (seed_ namespace, Ghidra types), not the scored draft, so it does not define the real symbol. host_source null = the draft is its own unit (linked after the initialiser units); adapted = a native adaptation of the scored draft (private headers inlined, non-portable statements replaced, each marked NATIVE in the text).",
+ "about": "Unmatched launch-path functions carried in the native tree as their best parked draft (Scout1050 trace table, plans 'draft as-is' (score >= 95) and 'draft, verify'). NON-EXACT: never exact-match credit. score = misses_index best; last_lane_score = the last score a lane reported; draft_found_by: index = misses_index names this draft, search = newest/highest .cpp naming the entry (unconfirmed). The draft text is appended to the compile group of host_source (the neighbouring accepted row's unit), as the exact-tree join does. Each included draft is tracked as native/drafts/<entry>.cpp (header: entry, score, origin lane, NON-EXACT DRAFT); origin = the lane scratch path it was copied from (provenance only, never read by the build); author = the lane or worker that wrote it. Blocked rows carry no file (draft null). native: 'compiles' = the draft passes clang (arm64) inside its host group and is appended; 'blocked: <first error>' = not appended (it needs header declarations or macros from the lane's private overlay, or it repeats neighbouring definitions); raw_seed = the path is a Ghidra seed (seed_ namespace, Ghidra types), not the scored draft, so it does not define the real symbol. host_source null = the draft is its own unit (linked after the initialiser units); adapted = a native adaptation of the scored draft (private headers inlined, non-portable statements replaced, each marked NATIVE in the text).",
  "drafts": [
   {
    "entry": "0x42E370",
@@ -9,11 +9,13 @@
    "bytes": 909,
    "score": 87.04,
    "last_lane_score": 87.04,
-   "draft": "build/class-work/Scout1030/w/f1.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/Unknown84E8D0/Unknown84E8D0_Unknown_0042E290_0042e290.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1030/w/f1.cpp",
+   "author": "Scout1030",
+   "draft": "native/drafts/0042e370.cpp"
   },
   {
    "entry": "0x525F60",
@@ -23,11 +25,13 @@
    "bytes": 2691,
    "score": 97.99,
    "last_lane_score": 97.99,
-   "draft": "build/class-work/Scout915/sweep/1/00525f60.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/IPXManagerClass/IPXManagerClass_unknown_525dc0_00525dc0.cpp",
    "raw_seed": true,
-   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )"
+   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )",
+   "origin": "build/class-work/Scout915/sweep/1/00525f60.cpp",
+   "author": "Scout915",
+   "draft": null
   },
   {
    "entry": "0x5E9410",
@@ -37,11 +41,13 @@
    "bytes": 1938,
    "score": 100.0,
    "last_lane_score": 36.27,
-   "draft": "build/class-work/Scout888/w/keep/e9_k111A_9979.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/ownrdraw/OwnerDraw_unknown_5e9390_005e9390.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout888/w/keep/e9_k111A_9979.cpp",
+   "author": "Scout888",
+   "draft": "native/drafts/005e9410.cpp"
   },
   {
    "entry": "0x5EE460",
@@ -51,11 +57,13 @@
    "bytes": 1003,
    "score": 100.0,
    "last_lane_score": 55.31,
-   "draft": "build/class-work/Scout1045/w/y1_a2.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/ownrdraw/OwnerDraw_unknown_5ee3b0_005ee3b0.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1045/w/y1_a2.cpp",
+   "author": "Scout1045",
+   "draft": "native/drafts/005ee460.cpp"
   },
   {
    "entry": "0x68CCE0",
@@ -65,11 +73,13 @@
    "bytes": 408,
    "score": 99.37,
    "last_lane_score": 99.37,
-   "draft": "build/class-work/Scout782/w/bw_9937.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/UnknownBitmapWriter/UnknownBitmapWriter_Unload_Image_0068cb30.cpp",
    "raw_seed": false,
-   "native": "blocked: out-of-line definition of 'Draw_0068cce0' does not match any declaration in 'UnknownBitmapWriter'"
+   "native": "blocked: out-of-line definition of 'Draw_0068cce0' does not match any declaration in 'UnknownBitmapWriter'",
+   "origin": "build/class-work/Scout782/w/bw_9937.cpp",
+   "author": "Scout782",
+   "draft": null
   },
   {
    "entry": "0x4B37C0",
@@ -79,11 +89,13 @@
    "bytes": 2843,
    "score": 99.54,
    "last_lane_score": 99.54,
-   "draft": "build/class-work/Scout912/w/eg_f1.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/EgoClass/EgoClass_Copy_Background_004b3760.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout912/w/eg_f1.cpp",
+   "author": "Scout912",
+   "draft": "native/drafts/004b37c0.cpp"
   },
   {
    "entry": "0x5BCCF0",
@@ -93,11 +105,13 @@
    "bytes": 403,
    "score": 98.94,
    "last_lane_score": 98.88,
-   "draft": "build/class-work/Scout932/keep/n1.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/unowned/Unknown_Find_Player_By_Name_005bcc60.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout932/keep/n1.cpp",
+   "author": "Scout932",
+   "draft": "native/drafts/005bccf0.cpp"
   },
   {
    "entry": "0x673090",
@@ -107,11 +121,13 @@
    "bytes": 1845,
    "score": 94.42,
    "last_lane_score": 94.42,
-   "draft": "build/class-work/Scout775/keep/ap_z1_8290_loose9238.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/UnknownSessionState/UnknownSessionState_Unknown_00673030_00673030.cpp",
    "raw_seed": false,
-   "native": "blocked: no matching function for call to 'strcpy'"
+   "native": "blocked: no matching function for call to 'strcpy'",
+   "origin": "build/class-work/Scout775/keep/ap_z1_8290_loose9238.cpp",
+   "author": "Scout775",
+   "draft": null
   },
   {
    "entry": "0x67E210",
@@ -121,11 +137,13 @@
    "bytes": 1067,
    "score": 99.04,
    "last_lane_score": 99.04,
-   "draft": "build/class-work/Scout915/sweep/1/0067e210.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/SidebarClass/SidebarClass_Unknown_0067E1C0_0067e1c0.cpp",
    "raw_seed": true,
-   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )"
+   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )",
+   "origin": "build/class-work/Scout915/sweep/1/0067e210.cpp",
+   "author": "Scout915",
+   "draft": null
   },
   {
    "entry": "0x421710",
@@ -135,11 +153,13 @@
    "bytes": 3625,
    "score": 99.61,
    "last_lane_score": 99.61,
-   "draft": "build/class-work/Scout766/keep/an_8574.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/AnimClass/AnimClass_unknown_slot116_00421580.cpp",
    "raw_seed": false,
-   "native": "blocked: use of undeclared identifier 'unknown_slot71'"
+   "native": "blocked: use of undeclared identifier 'unknown_slot71'",
+   "origin": "build/class-work/Scout766/keep/an_8574.cpp",
+   "author": "Scout766",
+   "draft": null
   },
   {
    "entry": "0x4370E0",
@@ -149,11 +169,13 @@
    "bytes": 1448,
    "score": 99.77,
    "last_lane_score": 99.77,
-   "draft": "build/class-work/Scout915/sweep/1/004370e0.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/BounceClass/BounceClass_Get_Remaining_Motion_00436ff0.cpp",
    "raw_seed": true,
-   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )"
+   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )",
+   "origin": "build/class-work/Scout915/sweep/1/004370e0.cpp",
+   "author": "Scout915",
+   "draft": null
   },
   {
    "entry": "0x4386F0",
@@ -163,11 +185,13 @@
    "bytes": 865,
    "score": 82.58,
    "last_lane_score": 82.58,
-   "draft": "build/class-work/Scout773/keep/dt_p5_probe_fetch_8927.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/header_statics/00438500/HeaderStatics_static_rect_init_004386d0.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout773/keep/dt_p5_probe_fetch_8927.cpp",
+   "author": "Scout773",
+   "draft": "native/drafts/004386f0.cpp"
   },
   {
    "entry": "0x43EE70",
@@ -177,11 +201,13 @@
    "bytes": 2464,
    "score": 99.74,
    "last_lane_score": 88.74,
-   "draft": "build/class-work/Scout862/w/tdJ_g1.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/BuildingClass/BuildingClass_Leave_Rubble_0043eba0.cpp",
    "raw_seed": false,
-   "native": "blocked: redefinition of 'Coord_Difference'"
+   "native": "blocked: redefinition of 'Coord_Difference'",
+   "origin": "build/class-work/Scout862/w/tdJ_g1.cpp",
+   "author": "Scout862",
+   "draft": null
   },
   {
    "entry": "0x440520",
@@ -191,11 +217,13 @@
    "bytes": 6505,
    "score": 92.27,
    "last_lane_score": 92.27,
-   "draft": "build/class-work/Scout761/keep/eo_F_9193.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/BuildingClass/BuildingClass_Update_Attack_Target_00440450.cpp",
    "raw_seed": false,
-   "native": "blocked: use of overloaded operator '+' is ambiguous (with operand types 'const TPoint2D<short>' and 'Cell')"
+   "native": "blocked: use of overloaded operator '+' is ambiguous (with operand types 'const TPoint2D<short>' and 'Cell')",
+   "origin": "build/class-work/Scout761/keep/eo_F_9193.cpp",
+   "author": "Scout761",
+   "draft": null
   },
   {
    "entry": "0x462C50",
@@ -205,11 +233,13 @@
    "bytes": 2757,
    "score": 88.69,
    "last_lane_score": 88.69,
-   "draft": "build/class-work/Scout631/w/shrapnel_best_88.69.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/BulletClass/BulletClass_unknown_func_462110_00462110.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout631/w/shrapnel_best_88.69.cpp",
+   "author": "Scout631",
+   "draft": "native/drafts/00462c50.cpp"
   },
   {
    "entry": "0x473F20",
@@ -219,11 +249,13 @@
    "bytes": 832,
    "score": 100.0,
    "last_lane_score": 100.0,
-   "draft": "build/class-work/Scout915/sweep/1/00473f20.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/CellClass/CellClass_Cell_Infantry_00473ed0.cpp",
    "raw_seed": true,
-   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )"
+   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )",
+   "origin": "build/class-work/Scout915/sweep/1/00473f20.cpp",
+   "author": "Scout915",
+   "draft": null
   },
   {
    "entry": "0x47C3A0",
@@ -233,11 +265,13 @@
    "bytes": 1181,
    "score": 98.92,
    "last_lane_score": 98.92,
-   "draft": "build/class-work/Scout674/w/keep/place_tiberium_9891.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/CellClass/CellClass_unknown_47c840_0047c840.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout674/w/keep/place_tiberium_9891.cpp",
+   "author": "Scout674",
+   "draft": "native/drafts/0047c3a0.cpp"
   },
   {
    "entry": "0x47E2C0",
@@ -247,11 +281,13 @@
    "bytes": 4611,
    "score": 97.92,
    "last_lane_score": 97.92,
-   "draft": "build/class-work/Scout969/w/b0.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/unowned/Select_Damage_Anim_0047f4d0.cpp",
    "raw_seed": false,
-   "native": "blocked: no member named 'Is_Techno' in 'ObjectClass'"
+   "native": "blocked: no member named 'Is_Techno' in 'ObjectClass'",
+   "origin": "build/class-work/Scout969/w/b0.cpp",
+   "author": "Scout969",
+   "draft": null
   },
   {
    "entry": "0x4AE9C0",
@@ -261,11 +297,13 @@
    "bytes": 2951,
    "score": 99.44,
    "last_lane_score": 90.75,
-   "draft": "build/class-work/Scout795/w/t2.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/DSurface/Brighten_Hicolor_Pixel_004ae8d0.cpp",
    "raw_seed": false,
-   "native": "blocked: out-of-line definition of 'Draw_Trail_Line' does not match any declaration in 'DSurface'"
+   "native": "blocked: out-of-line definition of 'Draw_Trail_Line' does not match any declaration in 'DSurface'",
+   "origin": "build/class-work/Scout795/w/t2.cpp",
+   "author": "Scout795",
+   "draft": null
   },
   {
    "entry": "0x4BBAF0",
@@ -275,11 +313,13 @@
    "bytes": 788,
    "score": 97.38,
    "last_lane_score": 97.0,
-   "draft": "build/class-work/Scout535/w/best_4bbaf0_97.38.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/unowned/Find_First_Impenetrable_Obstacle_004bbaa0.cpp",
    "raw_seed": false,
-   "native": "blocked: redefinition of 'Find_First_Obstacle_004bb890'"
+   "native": "blocked: redefinition of 'Find_First_Obstacle_004bb890'",
+   "origin": "build/class-work/Scout535/w/best_4bbaf0_97.38.cpp",
+   "author": "Scout535",
+   "draft": null
   },
   {
    "entry": "0x4CF290",
@@ -289,11 +329,13 @@
    "bytes": 148,
    "score": 90.91,
    "last_lane_score": 90.91,
-   "draft": "build/class-work/Scout915/sweep/1/004cf290.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/GadgetClass/GadgetClass_Draw_All_004cf260.cpp",
    "raw_seed": true,
-   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )"
+   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )",
+   "origin": "build/class-work/Scout915/sweep/1/004cf290.cpp",
+   "author": "Scout915",
+   "draft": null
   },
   {
    "entry": "0x52C230",
@@ -303,11 +345,13 @@
    "bytes": 6967,
    "score": 81.25,
    "last_lane_score": 49.64,
-   "draft": "build/class-work/Scout978/keep/probe_k6.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/0052c220.cpp",
    "raw_seed": false,
-   "native": "blocked: out-of-line definition of 'Draw_Tile' does not match any declaration in 'IsometricTileTypeClass'"
+   "native": "blocked: out-of-line definition of 'Draw_Tile' does not match any declaration in 'IsometricTileTypeClass'",
+   "origin": "build/class-work/Scout978/keep/probe_k6.cpp",
+   "author": "Scout978",
+   "draft": null
   },
   {
    "entry": "0x535BF0",
@@ -317,25 +361,13 @@
    "bytes": 41,
    "score": 90.55,
    "last_lane_score": 90.55,
-   "draft": "build/class-work/Scout1024/keep/ld_u3_9055.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/LdPrgMgr/Unknown535910_Unknown_00535b90.cpp",
    "raw_seed": false,
-   "native": "compiles"
-  },
-  {
-   "entry": "0x54F250",
-   "name": "FUN_0054f250",
-   "plan": "draft as-is",
-   "tier": "skirmish frame",
-   "bytes": 1386,
-   "score": 99.59,
-   "last_lane_score": 99.59,
-   "draft": "build/class-work/Scout1000/w/zs_9959.cpp",
-   "draft_found_by": "index",
-   "host_source": "src/recovered/classes/MapClass/MapClass_Unknown_0054F7C0_0054f7c0.cpp",
-   "raw_seed": false,
-   "native": "blocked: out-of-line definition of 'Zone_Span' does not match any declaration in 'MapClass'"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1024/keep/ld_u3_9055.cpp",
+   "author": "Scout1024",
+   "draft": "native/drafts/00535bf0.cpp"
   },
   {
    "entry": "0x5539B0",
@@ -345,11 +377,13 @@
    "bytes": 3421,
    "score": 86.94,
    "last_lane_score": 76.6,
-   "draft": "build/class-work/Scout957/w/h4v.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/MapClass/MapClass_Destroy_Train_Bridge_Connections_00553570.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout957/w/h4v.cpp",
+   "author": "Scout957",
+   "draft": "native/drafts/005539b0.cpp"
   },
   {
    "entry": "0x55DEF0",
@@ -359,11 +393,13 @@
    "bytes": 1302,
    "score": 98.73,
    "last_lane_score": 98.73,
-   "draft": "build/class-work/Scout1029/keep/e0.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/MapClass/MapClass_Unknown_0055DCA0_0055dca0.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1029/keep/e0.cpp",
+   "author": "Scout1029",
+   "draft": "native/drafts/0055def0.cpp"
   },
   {
    "entry": "0x55E410",
@@ -373,11 +409,13 @@
    "bytes": 1302,
    "score": 98.73,
    "last_lane_score": 98.73,
-   "draft": "build/class-work/Scout1029/keep/n0.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/MapClass/MapClass_Unknown_0055DCA0_0055dca0.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1029/keep/n0.cpp",
+   "author": "Scout1029",
+   "draft": "native/drafts/0055e410.cpp"
   },
   {
    "entry": "0x55F020",
@@ -387,11 +425,13 @@
    "bytes": 1308,
    "score": 98.73,
    "last_lane_score": 98.73,
-   "draft": "build/class-work/Scout1029/keep/e2.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/MapClass/MapClass_Unknown_0055EDB0_0055edb0.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1029/keep/e2.cpp",
+   "author": "Scout1029",
+   "draft": "native/drafts/0055f020.cpp"
   },
   {
    "entry": "0x55F540",
@@ -401,11 +441,13 @@
    "bytes": 1308,
    "score": 98.73,
    "last_lane_score": 98.73,
-   "draft": "build/class-work/Scout1029/keep/n2.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/MapClass/MapClass_Unknown_0055EDB0_0055edb0.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1029/keep/n2.cpp",
+   "author": "Scout1029",
+   "draft": "native/drafts/0055f540.cpp"
   },
   {
    "entry": "0x569320",
@@ -415,11 +457,13 @@
    "bytes": 2109,
    "score": 99.49,
    "last_lane_score": 99.49,
-   "draft": "build/class-work/Scout889/w/keep/d_9949_head.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/MapClass/MapClass_Unknown_00569090_00569090.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout889/w/keep/d_9949_head.cpp",
+   "author": "Scout889",
+   "draft": "native/drafts/00569320.cpp"
   },
   {
    "entry": "0x576420",
@@ -429,11 +473,13 @@
    "bytes": 925,
    "score": 84.24,
    "last_lane_score": 64.79,
-   "draft": "build/class-work/Scout677/w/keep/start_points_576420_draft.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/MapRegionClass/MapRegionClass_Generate_Starting_Points_00576170.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout677/w/keep/start_points_576420_draft.cpp",
+   "author": "Scout677",
+   "draft": "native/drafts/00576420.cpp"
   },
   {
    "entry": "0x635C30",
@@ -443,11 +489,13 @@
    "bytes": 456,
    "score": 100.0,
    "last_lane_score": 96.92,
-   "draft": "build/class-work/Scout993/w/c0.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/RadBeam/RadBeam_Start_Pass_00635ba0.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout993/w/c0.cpp",
+   "author": "Scout993",
+   "draft": "native/drafts/00635c30.cpp"
   },
   {
    "entry": "0x636130",
@@ -457,11 +505,13 @@
    "bytes": 429,
    "score": 95.83,
    "last_lane_score": 95.83,
-   "draft": "build/class-work/Scout993/w/a3.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/RadBeam/RadBeam_unknown_636020_00636020.cpp",
    "raw_seed": false,
-   "native": "blocked: invalid operands to binary expression ('CoordStruct' and 'int')"
+   "native": "blocked: invalid operands to binary expression ('CoordStruct' and 'int')",
+   "origin": "build/class-work/Scout993/w/a3.cpp",
+   "author": "Scout993",
+   "draft": null
   },
   {
    "entry": "0x65C520",
@@ -471,11 +521,13 @@
    "bytes": 676,
    "score": 90.4,
    "last_lane_score": 90.4,
-   "draft": "build/class-work/Scout1049/w/wfp_9697.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/UnknownIDSource/Toggle_Display_Mode_0065c480.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1049/w/wfp_9697.cpp",
+   "author": "Scout1049",
+   "draft": "native/drafts/0065c520.cpp"
   },
   {
    "entry": "0x6A7E80",
@@ -485,11 +537,13 @@
    "bytes": 954,
    "score": 86.26,
    "last_lane_score": 86.26,
-   "draft": "build/class-work/Scout778/keep/px_8626.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/Tactical/Tactical_Draw_Tiles_006a7ba0.cpp",
    "raw_seed": false,
-   "native": "blocked: out-of-line definition of 'Draw_Pixel_Effects' does not match any declaration in 'Tactical'"
+   "native": "blocked: out-of-line definition of 'Draw_Pixel_Effects' does not match any declaration in 'Tactical'",
+   "origin": "build/class-work/Scout778/keep/px_8626.cpp",
+   "author": "Scout778",
+   "draft": null
   },
   {
    "entry": "0x6C5270",
@@ -499,11 +553,13 @@
    "bytes": 761,
    "score": 96.38,
    "last_lane_score": 96.38,
-   "draft": "build/class-work/Scout898/w/am0.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot84_006c5240.cpp",
    "raw_seed": false,
-   "native": "blocked: out-of-line definition of 'unknown_6c5270' does not match any declaration in 'TechnoClass'"
+   "native": "blocked: out-of-line definition of 'unknown_6c5270' does not match any declaration in 'TechnoClass'",
+   "origin": "build/class-work/Scout898/w/am0.cpp",
+   "author": "Scout898",
+   "draft": null
   },
   {
    "entry": "0x6C5570",
@@ -513,11 +569,13 @@
    "bytes": 2998,
    "score": 91.81,
    "last_lane_score": 91.81,
-   "draft": "build/class-work/Scout668/w/keep/eo_9170.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot84_006c5240.cpp",
    "raw_seed": false,
-   "native": "blocked: use of undeclared identifier 'unknown_6c5270'; did you mean 'unknown_6c4a70'?"
+   "native": "blocked: use of undeclared identifier 'unknown_6c5270'; did you mean 'unknown_6c4a70'?",
+   "origin": "build/class-work/Scout668/w/keep/eo_9170.cpp",
+   "author": "Scout668",
+   "draft": null
   },
   {
    "entry": "0x6C9DF0",
@@ -527,11 +585,13 @@
    "bytes": 368,
    "score": 99.46,
    "last_lane_score": 83.82,
-   "draft": "build/class-work/Scout1020/keep/lz_c103_9946.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/classes/TechnoClass/TechnoClass_Rearm_Delay_006c9c00.cpp",
    "raw_seed": false,
-   "native": "compiles"
+   "native": "compiles",
+   "origin": "build/class-work/Scout1020/keep/lz_c103_9946.cpp",
+   "author": "Scout1020",
+   "draft": "native/drafts/006c9df0.cpp"
   },
   {
    "entry": "0x6CA890",
@@ -541,11 +601,13 @@
    "bytes": 6019,
    "score": 99.14,
    "last_lane_score": 99.14,
-   "draft": "build/class-work/Scout708/w/keep/fm_b_7834_s9926.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_6ca6c0_006ca6c0.cpp",
    "raw_seed": false,
-   "native": "blocked: use of undeclared identifier 'unknown_slot71'"
+   "native": "blocked: use of undeclared identifier 'unknown_slot71'",
+   "origin": "build/class-work/Scout708/w/keep/fm_b_7834_s9926.cpp",
+   "author": "Scout708",
+   "draft": null
   },
   {
    "entry": "0x6D5F40",
@@ -555,11 +617,13 @@
    "bytes": 745,
    "score": 96.38,
    "last_lane_score": 64.37,
-   "draft": "build/class-work/Scout915/sweep/1/006d5f40.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot263_006d5e90.cpp",
    "raw_seed": true,
-   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )"
+   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )",
+   "origin": "build/class-work/Scout915/sweep/1/006d5f40.cpp",
+   "author": "Scout915",
+   "draft": null
   },
   {
    "entry": "0x70C800",
@@ -569,11 +633,13 @@
    "bytes": 1308,
    "score": 99.19,
    "last_lane_score": 99.19,
-   "draft": "build/class-work/Scout931/w/t2.cpp",
    "draft_found_by": "index",
    "host_source": "src/recovered/header_statics/0070c610/HeaderStatics_static_rect_init_0070c7e0.cpp",
    "raw_seed": false,
-   "native": "blocked: no member named 'Init' in 'BounceClass'; did you mean simply 'Init'?"
+   "native": "blocked: no member named 'Init' in 'BounceClass'; did you mean simply 'Init'?",
+   "origin": "build/class-work/Scout931/w/t2.cpp",
+   "author": "Scout931",
+   "draft": null
   },
   {
    "entry": "0x7225B0",
@@ -583,11 +649,13 @@
    "bytes": 1777,
    "score": 100.0,
    "last_lane_score": 100.0,
-   "draft": "build/class-work/Wave362/best/draw_sonic_7225b0_40.47.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/WaveClass/WaveClass_unknown_slot67_00722530.cpp",
    "raw_seed": false,
-   "native": "blocked: out-of-line definition of 'unknown_func_7225b0' does not match any declaration in 'WaveClass'"
+   "native": "blocked: out-of-line definition of 'unknown_func_7225b0' does not match any declaration in 'WaveClass'",
+   "origin": "build/class-work/Wave362/best/draw_sonic_7225b0_40.47.cpp",
+   "author": "Wave362",
+   "draft": null
   },
   {
    "entry": "0x773F00",
@@ -597,11 +665,13 @@
    "bytes": 511,
    "score": 99.44,
    "last_lane_score": 98.91,
-   "draft": "build/class-work/Scout915/sweep/1/00773f00.cpp",
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/XSurface/XSurface_Unknown_Slot16_00773ef0.cpp",
    "raw_seed": true,
-   "native": "compiles"
+   "native": "blocked: raw Ghidra seed (defines seed_ namespace, not the real symbol); seed text stays private",
+   "origin": "build/class-work/Scout915/sweep/1/00773f00.cpp",
+   "author": "Scout915",
+   "draft": null
   },
   {
    "entry": "0x68E280",
@@ -611,12 +681,14 @@
    "bytes": 10080,
    "score": 98.55,
    "last_lane_score": 98.55,
-   "draft": "build/class-work/Scout1058/draft/winmain_68e280_native.cpp",
    "draft_found_by": "codex4 status (residue_batch_96/immediate.cpp, 52 differing bytes)",
    "host_source": null,
    "raw_seed": false,
    "native": "compiles",
-   "adapted": "codex4's private shared/startup_*.hpp inlined; RA2_STARTUP_* header additions spelled locally; SEH __try/__except around Main_Game dropped (no SEH natively)"
+   "adapted": "codex4's private shared/startup_*.hpp inlined; RA2_STARTUP_* header additions spelled locally; SEH __try/__except around Main_Game dropped (no SEH natively)",
+   "origin": "build/class-work/Scout1058/draft/winmain_68e280_native.cpp",
+   "author": "codex4 (residue_batch_96/immediate.cpp, 98.55); native adaptation Scout1058",
+   "draft": "native/drafts/0068e280.cpp"
   }
  ]
 }

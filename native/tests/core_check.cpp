@@ -8,6 +8,17 @@
 static int failures = 0;
 #define CHECK(c) do { if (!(c)) { printf("FAIL %s:%d %s\n", __FILE__, __LINE__, #c); ++failures; } } while (0)
 
+// VC6 string literals are writable (.data); recovered code writes through
+// pointers callers pass literals to (MixFileClass::Offset's _strupr, wcstrim on
+// L""). The dialect's -fwritable-strings keeps that meaning (README).
+static void __attribute__((noinline)) upcase_in_place(char const *text)
+{
+    for (char *p = (char *)text; *p; ++p) {
+        if (*p >= 'a' && *p <= 'z') *p = (char)(*p - 32);
+    }
+}
+static void __attribute__((noinline)) clear_wide(unsigned short const *text) { *(unsigned short *)text = 0; }
+
 int main()
 {
     // RandomClass: Westwood LCG (TibSun random.cpp): seed = seed*0x41C64E6D + 0x3039,
@@ -49,6 +60,14 @@ int main()
             CHECK(got == hi);
             if (got != hi) break;
         }
+    }
+    {
+        char const *name = "rules.ini";
+        upcase_in_place(name);
+        CHECK(name[0] == 'R' && name[4] == 'S' && name[5] == '.');
+        unsigned short const *empty = L"";
+        clear_wide(empty);
+        CHECK(empty[0] == 0);
     }
     printf("RandomClass ok, first value %d\n", RandomClass(1)());
     printf("%s (%d failures)\n", failures ? "FAILED" : "PASSED", failures);

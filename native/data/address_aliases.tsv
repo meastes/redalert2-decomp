@@ -277,6 +277,7 @@ __Z16Unknown_0065C1F0i	__Z20Pause_Count_0065c1f0i	0x0065C1F0	function	same addre
 __Z16Unknown_0065C310v	__Z22Release_Pause_0065c310v	0x0065C310	function	same address, IR signature void ()
 __ZN12NodeNameType18Get_Color_0066e2a0Ev	__ZN12NodeNameType14unknown_66e2a0Ev	0x0066E2A0	function	same address, IR signature i32 (ptr)
 __Z16Unknown_0066F3A0P19UnknownSessionState	__ZN19UnknownSessionState25Read_MultiPlayer_SettingsEv	0x0066F3A0	function	same address, IR signature void (ptr)
+__Z28Write_Chat_Settings_00670730P19UnknownSessionState	__ZN23UnknownOptions_0067073025unknown_save_chat_optionsEv	0x00670730	function	same address, IR signature void (ptr)
 __ZN12MultiMission24Set_Description_00671FA0EPKt	__ZN25UnknownDescribed_00671fa023unknown_set_descriptionEPKt	0x00671FA0	function	same address, IR signature void (ptr, ptr)
 __ZN17UnknownLobbyState4SaveEP7IStream	__ZN19UnknownBlock_a3d2b04SaveEP7IStream	0x00672830	function	same address, IR signature zeroext i1 (ptr, ptr)
 __ZN17UnknownLobbyState4LoadEP7IStream	__ZN19UnknownBlock_a3d2b04LoadEP7IStream	0x00672880	function	same address, IR signature zeroext i1 (ptr, ptr)
@@ -285,6 +286,7 @@ __ZN12SidebarClass16Unknown_00681740EiiP12FactoryClass	__ZN12SidebarClass16Unkno
 __Z16Unknown_00683BF0v	__Z15Skirmish_Dialogv	0x00683BF0	function	same address, IR signature zeroext i1 ()
 __Z16Unknown_00688460RK11CoordStructiib	__ZN15SmudgeTypeClass13Create_ScorchERK11CoordStructiib	0x00688460	function	same address, IR signature void (ptr, i32, i32, i1 zeroext)
 __Z16Unknown_00688750RK11CoordStructiib	__ZN15SmudgeTypeClass13Create_CraterERK11CoordStructiib	0x00688750	function	same address, IR signature void (ptr, i32, i32, i1 zeroext)
+__Z24Register_Game_Start_Timev	__Z33Register_Game_Start_Time_0069a130v	0x0069A130	function	same address, IR signature void ()
 __Z16Unknown_0069A160v	__Z21unknown_restart_timerv	0x0069A160	function	same address, IR signature void ()
 __ZN12StorageClass10Add_AmountEfi	__ZN22UnknownFloats_0069ae5011unknown_addEfi	0x0069AE50	function	same address, IR signature float (ptr, float, i32)
 __ZN12StorageClass13Remove_AmountEfi	__ZN22UnknownFloats_0069ae7012unknown_takeEfi	0x0069AE70	function	same address, IR signature float (ptr, float, i32)
@@ -311,7 +313,9 @@ __Z16unknown_006e7cd0P21unknown_00a35d78_type	__ZN10ThemeClass2AIEv	0x006E7CD0	f
 __ZN13seed_006bc2c015Callee_006e7e2012FUN_006e7e20Ei	__ZN10ThemeClass10Queue_SongEi	0x006E7E20	function	same address, IR signature void (ptr, i32)
 __ZN13seed_0051a87015Callee_006e851012FUN_006e8510EPc	__ZNK10ThemeClass9From_NameEPKc	0x006E8510	function	same address, IR signature i32 (ptr, ptr)
 __Z16Unknown_006e9520v	__ZN13TiberiumClass11Init_SpreadEv	0x006E9520	function	same address, IR signature void ()
+__Z30Clear_Tiberium_Spread_006e9670v	__Z16Unknown_006E9670v	0x006E9670	function	same address, IR signature void ()
 __Z16Unknown_006e9fe0v	__ZN13TiberiumClass11Init_GrowthEv	0x006E9FE0	function	same address, IR signature void ()
+__Z30Clear_Tiberium_Growth_006ea130v	__Z16Unknown_006EA130v	0x006EA130	function	same address, IR signature void ()
 __Z16Unknown_006ECB90P13AbstractClassb	__Z20Detach_This_From_AllP13AbstractClassb	0x006ECB90	function	same address, IR signature void (ptr, i1 zeroext)
 __Z16Unknown_006ECF10v	__Z25Process_Deferred_Deletionv	0x006ECF10	function	same address, IR signature void ()
 __Z16Unknown_006ecf10v	__Z25Process_Deferred_Deletionv	0x006ECF10	function	same address, IR signature void ()
@@ -430,3 +434,16 @@ __Z26Unknown_Territory_00769690i	__Z26Get_WDT_Territory_00769690i	0x00769690	fun
 __Z14Int_To_Wstringi	__Z20Wstring_From_Integeri	0x0076F580	function	same address, IR signature void (ptr dead_on_unwind writable sret(), i32)
 __ZNK10WideString8Is_ASCIIEv	__ZNK10WideString9Is_NarrowEv	0x00771080	function	same address, IR signature zeroext i1 (ptr)
 __Z16unknown_007717c0v	__Z24Process_Mouse_Unthreadedv	0x007717C0	function	same address, IR signature void ()
+__Z23Compare_Narrow_00781f20PKcS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_004067e012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_0040683012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_00663c4012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_00663c7012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_006720c012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_0067214012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+__ZN13seed_006f9f8012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+_unknown_Walk_clsid_007a1fa0	_CLSID_WalkLocomotionClass	0x007A1FA0	data	same address
+_unknown_clsid_7a1fd0	_CLSID_TeleportLocomotionClass	0x007A1FD0	data	same address
+_unknown_iid_7a2c28	_IID_IGameMap	0x007A2C28	data	same address
+_unknown_uuid_IUnknown_7ce610	_IID_IUnknown	0x007CE610	data	same address
+_unknown_uuid_IPersistStream_7d5f38	_IID_IPersistStream_7d5f38	0x007D5F38	data	same address
