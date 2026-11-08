@@ -381,6 +381,36 @@ def qualified(demangled):
     return demangled
 
 
+# A derived class's vtable in the exact tree may reference an inherited slot
+# under the base class's name at the derived override's address (population
+# reference tables: UnitClass's unit maps ?unknown_slot176@TechnoClass to
+# FootClass's 0x004C9930, while TechnoClass's own body is 0x006CFEA0). Binding
+# the base name to the derived override makes the override's base call recurse
+# (Scout1091: FootClass::unknown_slot176 -> TechnoClass::unknown_slot176 ->
+# itself). A candidate that is the same member of a class derived from the
+# wanted name's class is therefore not an alias (RTTI bases,
+# manifests/rtti_classes.json).
+_RTTI_BASES = None
+
+
+def rtti_bases():
+    global _RTTI_BASES
+    if _RTTI_BASES is None:
+        _RTTI_BASES = {}
+        for v in json.loads((ROOT / 'manifests/rtti_classes.json').read_text())['vtables']:
+            _RTTI_BASES.setdefault(v['class_name'], set()).update(b['name'] for b in v.get('bases', []))
+    return _RTTI_BASES
+
+
+def derived_override(wanted, target):
+    """True when target is wanted's member as a class derived from wanted's class."""
+    w = re.match(r'^(.*)::([^:(]+)(\(.*)?$', wanted or '')
+    t = re.match(r'^(.*)::([^:(]+)(\(.*)?$', target or '')
+    if not w or not t or w.group(2) != t.group(2) or w.group(1) == t.group(1):
+        return False
+    return w.group(1) in rtti_bases().get(t.group(1), ())
+
+
 def demangle(symbols):
     out = subprocess.run(['c++filt'], input='\n'.join(symbols), capture_output=True, text=True).stdout
     return out.split('\n')[:len(symbols)]
@@ -442,7 +472,8 @@ def main():
         m = re.search(r'_(?:0x)?([0-9a-fA-F]{6,8})$', q)
         if m and not addrs and not structor(q):
             addrs.add(int(m.group(1), 16))
-        cands = [(a, t) for a in sorted(addrs) for t in by_addr.get(a, [])]
+        cands = [(a, t) for a in sorted(addrs) for t in by_addr.get(a, [])
+                 if not derived_override(q, qualified(t[1] if t[0].startswith('__Z') else t[0][1:]))]
         if cands:
             wanted.append((row, cands))
     # IR signatures of the units (functions only).

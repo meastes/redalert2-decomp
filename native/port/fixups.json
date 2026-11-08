@@ -394,6 +394,20 @@
    "verified": true
   },
   {
+   "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\n// native: test-harness seam (native/link/harness_skirmish.cpp): true only under --skirmish.\nbool Native_Skirmish_Menu_Bypass();\n",
+   "why": "Test-harness seam (README 'Skirmish harness'): Select_Game's menu loop is skipped under --skirmish without setting unknown_a40d13, which is Westwood's Debug_Map (the scenario editor flag: TibSun scenario.cpp Multiplayer_Last_Minute_Fixups skips Remove_AI_Players and Create_Units under it, as 0x0065E8C0 does, and Tactical/Display/Smudge rows test it). Native-only; the exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
+   "old": "        if (!unknown_a40d13) {\n            if (unknown_session_a3d298.Play",
+   "new": "        if (!unknown_a40d13 && !Native_Skirmish_Menu_Bypass()) {\n            if (unknown_session_a3d298.Play",
+   "why": "Seam call (see the declaration fixup above): the menu loop runs unless Debug_Map is set or the harness starts its skirmish.",
+   "verified": true
+  },
+  {
    "source": "src/recovered/unowned/Init_Game_005116a0.cpp",
    "old": "void __fastcall Unknown_006F1B60();                     // 0x006F1B60\n",
    "new": "void __fastcall Unknown_006F1B60();                     // 0x006F1B60\nvoid Native_Interface_Art_Seam();                       // native: test-harness seam (native/link/harness_skirmish.cpp)\n",
@@ -651,6 +665,160 @@
    "new": "struct UnknownTerrainCellArg {\n#if defined(__LP64__)\n    char unknown_00[0x32];   // NATIVE: CellClass::MapCoords is at +0x32 on arm64 (in AbstractClass's tail padding; static_assert in behaviour_map_dimensions.cpp)\n#else\n    char unknown_00[0x24];\n#endif\n",
    "why": "The cell argument's view places MapCoords at the VC6 +0x24 (after the 0x24-byte AbstractClass); natively CellClass::MapCoords is at +0x32 (clang places it in AbstractClass's tail padding), so the view read garbage cells (the ASan skirmish run placed map buildings through BuildingClass slot 101 at wrong cells). Native only.",
    "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ZBuffer/ZBuffer_Get_Buffer_Ptr_00411230.cpp",
+   "old": "    char *result=(char *)((unsigned int)BufferOffset+(unsigned int)pointer);\n    if((unsigned int)result>=(unsigned int)BufferTail) result=(char *)((unsigned int)result-(unsigned int)BufferSize);\n    return (unsigned short *)result;\n",
+   "new": "    char *result=(char *)((uintptr_t)(unsigned int)BufferOffset+(uintptr_t)pointer);\n    if((uintptr_t)result>=(uintptr_t)BufferTail) result=(char *)((uintptr_t)result-(unsigned int)BufferSize);\n    return (unsigned short *)result;\n",
+   "why": "Ring-buffer pointers through 32-bit casts: VC6 folds the ring position on raw x86 addresses ((unsigned int)pointer); on arm64 the cast drops the heap pointer's upper half (skirmish fault drawing the shroud into the 0x008315B4 ring, Scout1091). The native view does the same arithmetic in uintptr_t; same meaning, the exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/ABuffer/ABuffer_Get_Buffer_Ptr_00776340.cpp",
+   "old": "    char *result=(char *)((unsigned int)BufferOffset+(unsigned int)pointer);\n    if((unsigned int)result>=(unsigned int)BufferTail) result=(char *)((unsigned int)result-(unsigned int)BufferSize);\n    return (unsigned short *)result;\n",
+   "new": "    char *result=(char *)((uintptr_t)(unsigned int)BufferOffset+(uintptr_t)pointer);\n    if((uintptr_t)result>=(uintptr_t)BufferTail) result=(char *)((uintptr_t)result-(unsigned int)BufferSize);\n    return (unsigned short *)result;\n",
+   "why": "Ring-buffer pointers through 32-bit casts: VC6 folds the ring position on raw x86 addresses ((unsigned int)pointer); on arm64 the cast drops the heap pointer's upper half (skirmish fault drawing the shroud into the 0x008315B4 ring, Scout1091). The native view does the same arithmetic in uintptr_t; same meaning, the exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/ZBuffer/ZBuffer_Clear_Region_004110b0.cpp",
+   "old": "    unsigned int pointer=(unsigned int)locked+(unsigned int)BufferOffset;\n    if(pointer>=(unsigned int)BufferTail) pointer-=(unsigned int)BufferSize;\n    if(area.Height>0) {\n        int rows=area.Height;\n        do {\n            if(pointer+(unsigned int)area.Width*2u>=(unsigned int)BufferTail) {\n                unsigned int first=((unsigned int)BufferTail-pointer)>>1;\n                Fill_Words((unsigned short *)pointer,first,0x7f);\n                Fill_Words((unsigned short *)BufferHead,area.Width-first,0x7f);\n            } else {\n                Fill_Words((unsigned short *)pointer,area.Width,0x7f);\n            }\n            pointer+=(unsigned int)Width*2u;\n            if(pointer>=(unsigned int)BufferTail) pointer-=(unsigned int)BufferSize;\n        } while(--rows);\n    }\n",
+   "new": "    uintptr_t pointer=   /* NATIVE: pointer width */ (uintptr_t)locked+(unsigned int)BufferOffset;\n    if(pointer>=(uintptr_t)BufferTail) pointer-=(unsigned int)BufferSize;\n    if(area.Height>0) {\n        int rows=area.Height;\n        do {\n            if(pointer+(unsigned int)area.Width*2u>=(uintptr_t)BufferTail) {\n                unsigned int first=((uintptr_t)BufferTail-pointer)>>1;\n                Fill_Words((unsigned short *)pointer,first,0x7f);\n                Fill_Words((unsigned short *)BufferHead,area.Width-first,0x7f);\n            } else {\n                Fill_Words((unsigned short *)pointer,area.Width,0x7f);\n            }\n            pointer+=(unsigned int)Width*2u;\n            if(pointer>=(uintptr_t)BufferTail) pointer-=(unsigned int)BufferSize;\n        } while(--rows);\n    }\n",
+   "why": "Ring-buffer pointers through 32-bit casts: VC6 folds the ring position on raw x86 addresses ((unsigned int)pointer); on arm64 the cast drops the heap pointer's upper half (skirmish fault drawing the shroud into the 0x008315B4 ring, Scout1091). The native view does the same arithmetic in uintptr_t; same meaning, the exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/ABuffer/ABuffer_Clear_Region_007761c0.cpp",
+   "old": "    unsigned int pointer=(unsigned int)locked+(unsigned int)BufferOffset;\n    if(pointer>=(unsigned int)BufferTail) pointer-=(unsigned int)BufferSize;\n    if(area.Height>0) {\n        int rows=area.Height;\n        do {\n            if(pointer+(unsigned int)area.Width*2u>=(unsigned int)BufferTail) {\n                unsigned int first=((unsigned int)BufferTail-pointer)>>1;\n                Fill_Words((unsigned short *)pointer,first,0xffff);\n                Fill_Words((unsigned short *)BufferHead,area.Width-first,0xffff);\n            } else {\n                Fill_Words((unsigned short *)pointer,area.Width,0xffff);\n            }\n            pointer+=(unsigned int)Width*2u;\n            if(pointer>=(unsigned int)BufferTail) pointer-=(unsigned int)BufferSize;\n        } while(--rows);\n    }\n",
+   "new": "    uintptr_t pointer=   /* NATIVE: pointer width */ (uintptr_t)locked+(unsigned int)BufferOffset;\n    if(pointer>=(uintptr_t)BufferTail) pointer-=(unsigned int)BufferSize;\n    if(area.Height>0) {\n        int rows=area.Height;\n        do {\n            if(pointer+(unsigned int)area.Width*2u>=(uintptr_t)BufferTail) {\n                unsigned int first=((uintptr_t)BufferTail-pointer)>>1;\n                Fill_Words((unsigned short *)pointer,first,0xffff);\n                Fill_Words((unsigned short *)BufferHead,area.Width-first,0xffff);\n            } else {\n                Fill_Words((unsigned short *)pointer,area.Width,0xffff);\n            }\n            pointer+=(unsigned int)Width*2u;\n            if(pointer>=(uintptr_t)BufferTail) pointer-=(unsigned int)BufferSize;\n        } while(--rows);\n    }\n",
+   "why": "Ring-buffer pointers through 32-bit casts: VC6 folds the ring position on raw x86 addresses ((unsigned int)pointer); on arm64 the cast drops the heap pointer's upper half (skirmish fault drawing the shroud into the 0x008315B4 ring, Scout1091). The native view does the same arithmetic in uintptr_t; same meaning, the exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/blit.hpp",
+   "old": "    unsigned int Wrap_Overflow(unsigned int position) const {\n        if (position >= (unsigned int)BufferTail) position -= BufferSize;\n",
+   "new": "    uintptr_t Wrap_Overflow(uintptr_t position) const {   // NATIVE: pointer-width ring positions\n        if (position >= (uintptr_t)BufferTail) position -= BufferSize;\n",
+   "why": "ZBuffer/ABuffer ring folds on raw addresses (TibSun zbuffer.h/abuffer.h): pointer-width positions natively; callers' (unsigned int) casts are widened by native_units.py's Wrap_ rule. Ring-buffer pointers through 32-bit casts: VC6 folds the ring position on raw x86 addresses ((unsigned int)pointer); on arm64 the cast drops the heap pointer's upper half (skirmish fault drawing the shroud into the 0x008315B4 ring, Scout1091). The native view does the same arithmetic in uintptr_t; same meaning, the exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/blit.hpp",
+   "old": "    unsigned int Wrap_Underflow(unsigned int position) const {\n        if (position < (unsigned int)BufferHead) position += BufferSize;\n",
+   "new": "    uintptr_t Wrap_Underflow(uintptr_t position) const {   // NATIVE: pointer-width ring positions\n        if (position < (uintptr_t)BufferHead) position += BufferSize;\n",
+   "why": "As Wrap_Overflow above.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/radar.hpp",
+   "old": "extern int unknown_int_ac1070;\n",
+   "new": "extern void *unknown_int_ac1070;   // NATIVE: holds the art pointer (int on VC6)\n",
+   "why": "0x00AC1070 is one storage with four names: unknown_art_ac1070 (void *, Load_Art_Buffers 0x006F4B00 stores the loaded shape), unknown_shape_ac1070, unknown_buffer_ac1070 and radar.hpp's int unknown_int_ac1070, which Init_For_House 0x0062F310 casts back to the RadarButton shape. On arm64 the int view keeps the low half of the pointer (skirmish fault in RadarClass::Draw_It reading the shape's frame count, Scout1091). The native view declares it as the pointer it holds; the name binds the same storage (bss_globals.cpp). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719940_00719940.cpp",
+   "old": "void UnknownPairFirst::unknown_719940(UnknownVoxelDrawState *state, Vector3 const *origin)\n{\n",
+   "new": "// native: the drawer table's entries are code addresses (native/link/behaviour_voxel.cpp maps them).\nvoid (*Native_Voxel_Drawer_7f9de0(int index))(VoxelFuncArgumentStruct *parameters);\nvoid UnknownPairFirst::unknown_719940(UnknownVoxelDrawState *state, Vector3 const *origin)\n{\n",
+   "why": "unknown_drawers_7f9de0 (0x007F9DE0, 32 entries) holds code addresses: the voxel span drawers 0x0071A180-0x0071B7E0 and, in the first half, the winasm.asm MMX drawers 0x00798A00-0x00798F40. The run-time data loader leaves code pointers null (skirmish fault drawing the start units, Scout1091). The native call reads the stored entry from game.exe and calls the recovered drawer at that address; an assembly entry maps to the C drawer at the same index of the table's second half (the original's own non-MMX entries). Native only.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719940_00719940.cpp",
+   "old": "    unknown_drawers_7f9de0[drawer](&parameters);\n",
+   "new": "    Native_Voxel_Drawer_7f9de0(drawer)(&parameters);   // NATIVE: unknown_drawers_7f9de0[drawer]\n",
+   "why": "See the declaration fixup above.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/unknown_pair_first.hpp",
+   "old": "struct UnknownVoxelDrawState {\n    int unknown_00;\n",
+   "new": "struct UnknownVoxelDrawState {\n    void *unknown_00;   // NATIVE: the record's library pointer (UnknownVoxelRecord88::Library; int on VC6)\n",
+   "why": "VoxelDrawSystem::Render 0x007178E0 passes each UnknownVoxelRecord88 (Library pointer, Section, Frame, ..., Points at +0x28) to UnknownPairFirst::unknown_719940 as an UnknownVoxelDrawState, whose first field is an int. On arm64 the pointer is 8 bytes, so the int view read the section from the pointer's upper half and the corners 4 bytes early (skirmish use-after-free reading a voxel tailer, Scout1091). With the field pointer-sized both views agree (section +8, frame +12, view +16, corners +44 natively). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/anim.hpp",
+   "old": "struct UnknownAB6EF8Entry {\n    char unknown_000[0x30C];\n    int unknown_30c;                        // +0x30C\n};\n",
+   "new": "struct UnknownAB6EF8Entry {\n#if defined(__LP64__)   // NATIVE: ColorScheme's arm64 layout (Converter at +0x318; link/check_light_views_scheme.cpp)\n    char unknown_000[0x318];\n    intptr_t unknown_30c;                   // ColorScheme::Converter\n#else\n    char unknown_000[0x30C];\n    int unknown_30c;                        // +0x30C\n#endif\n};\n",
+   "why": "The 0x00AB6EF8 list is ColorSchemes; its +0x30C value is ColorScheme::Converter (shared/color_scheme.hpp), a pointer that TechnoClass slot 115 (0x006D1480) returns as an int and Draw_Shape 0x006D1510, Render_Voxel_Object 0x006D24E0 and Blit_Voxel 0x006D29D0 cast back to ConvertClass *. On arm64 the padded view read 4 bytes of the palette (Converter is at +0x318) and the int return kept half a pointer (skirmish fault in CC_Draw_Shape drawing infantry, Scout1091). The LP64 view reads the real member at pointer width; i686 keeps the VC6 text. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/object.hpp",
+   "old": "    virtual int unknown_slot115();                                         // slot 115 (+0x1CC) 0x423e60\n",
+   "new": "    virtual intptr_t unknown_slot115();   // NATIVE: pointer width (a converter address; int on VC6)   // slot 115 (+0x1CC) 0x423e60\n",
+   "why": "Slot 115 returns a ColorScheme converter address (see the anim.hpp UnknownAB6EF8Entry fixup); the native view returns it at pointer width. Callers that cast it to ConvertClass * are unchanged; callers that keep it in an int still truncate (owner item).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "    virtual int unknown_slot115();                              // slot 115 0x006D1480\n",
+   "new": "    virtual intptr_t unknown_slot115();   // NATIVE: pointer width (see object.hpp)   // slot 115 0x006D1480\n",
+   "why": "As object.hpp's slot 115.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot115_006d1480.cpp",
+   "old": "int TechnoClass::unknown_slot115()\n",
+   "new": "intptr_t TechnoClass::unknown_slot115()   // NATIVE: pointer width\n",
+   "why": "As object.hpp's slot 115.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/object_type.hpp",
+   "old": "    bool unknown_0c;\n    int unknown_10;\n};\n\nvoid operator delete(void *pointer);\n",
+   "new": "    bool unknown_0c;\n    intptr_t unknown_10;   // NATIVE: the archived node pointer (int on VC6)\n};\n\nvoid operator delete(void *pointer);\n",
+   "why": "UnknownBuffer (the voxel cache index) keeps its archive, the last found NodeElement *, in the int at +0x10 (Is_Present 0x0070A350 stores `(int)node`, Is_Archive_Same 0x0070A3F0 and operator[] read it back as a pointer). On arm64 the int kept half the pointer (skirmish fault in TechnoClass 0x006D21E0 drawing a unit's shadow, Scout1091). The native view holds it at pointer width. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/UnknownBuffer/UnknownBuffer_Is_Present_0070a350.cpp",
+   "old": "unknown_10=(int)node;",
+   "new": "unknown_10=(intptr_t)node;   // NATIVE: pointer width",
+   "why": "See the object_type.hpp UnknownBuffer fixup.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/voxel_cache.hpp",
+   "old": "inline void UnknownBuffer::Set_Archive(NodeElement const *node) const { const_cast<UnknownBuffer *>(this)->unknown_10=(int)node; }",
+   "new": "inline void UnknownBuffer::Set_Archive(NodeElement const *node) const { const_cast<UnknownBuffer *>(this)->unknown_10=(intptr_t)node   /* NATIVE: pointer width */; }",
+   "why": "See the object_type.hpp UnknownBuffer fixup (the archive pointer at +0x10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/CellClass/CellClass_Get_Height_004706c0.cpp",
+   "old": "    if (unknown_11c > 0) {\n",
+   "new": "    if (unknown_11c > 0 && unknown_11c <= 20) {   // NATIVE: a ramp past the 20-row table is flat (see fixups.json)\n",
+   "why": "Cell ramps above 20 (Scout1091: 205 = 0xCD on cells of tile types 139 and 144 of MP02T2's temperate set, the TMP record's RampType byte read by 0x0052B6F0 into CellClass +0x11C) index past the 20-row _ramp_control table (Get_Height 0x004706C0) and the 21 slope matrices/quaternions (0x00718D60/0x00718DF0, the drive locomotor's tilt). The original reads whatever follows the tables in its .data; natively that is another object (ASan global-buffer-overflow). The native view treats such a ramp as flat (row 0 / matrix 0). Owner item: check the TMP records (0xCD is MSVC's debug fill) and whether the original's Recalc_Attributes masks them.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_00718D60_00718d60.cpp",
+   "old": "    *matrix = unknown_matrices_af8608[ramp];\n",
+   "new": "    *matrix = unknown_matrices_af8608[(unsigned)ramp <= 20 ? ramp : 0];   // NATIVE: 21 matrices (see the Get_Height fixup)\n",
+   "why": "See the Get_Height fixup.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_00718DF0_00718df0.cpp",
+   "old": "Matrix3D * __fastcall Unknown_00718DF0(Matrix3D *matrix, int from, int to, double alpha)\n{\n",
+   "new": "Matrix3D * __fastcall Unknown_00718DF0(Matrix3D *matrix, int from, int to, double alpha)\n{\n    if ((unsigned)from > 20) from = 0;   // NATIVE: 21 slope entries (see the Get_Height fixup)\n    if ((unsigned)to > 20) to = 0;\n",
+   "why": "See the Get_Height fixup.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Init_00406ad0.cpp",
+   "old": "#include \"shared/mix_file_class.hpp\"\n",
+   "new": "#include \"shared/mix_file_class.hpp\"\nstruct AudioDriverInfo;\nAudioDriverInfo *Native_Audio_Default_Driver();   // native: link/behaviour_audio_driver.cpp\n",
+   "why": "See the Audio_Create_Driver fixup below.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Init_00406ad0.cpp",
+   "old": "        Audio_Create_Driver(Audio_Default_Driver);\n",
+   "new": "        Audio_Create_Driver(Native_Audio_Default_Driver());   // NATIVE: Audio_Default_Driver's descriptor holds code addresses (native/link/behaviour_audio_driver.cpp)\n",
+   "why": "Audio_Default_Driver (0x007CCFDC) points at the DirectSound descriptor 0x007CCE20, whose Init/Release/Open/Close and channel table (0x007CCDF0) are code addresses in .data; the run-time loader keeps them as 32-bit words, so Audio_Create_Driver 0x00402AF0 called through a garbage pointer (menu run without -noaudio, Scout1091). The native descriptor names the recovered functions at those addresses and reads the other fields from game.exe. Native only.",
+   "verified": true
   }
  ]
 }

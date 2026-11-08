@@ -56,6 +56,87 @@ RULES = [
     # the constructor call and its arguments are unchanged.
     (re.compile(r'(TClassFactory<(\w+)>::CreateInstance\b(?:(?!TClassFactory<)[\s\S])*?)\bnew \2\('),
      r'\1new (ra2port::factory_alloc) \2('),
+    # Game objects made through a light view (a stand-in class padded to the
+    # VC6 size, e.g. unit_type.hpp's UnitClass, infantry_type.hpp's
+    # InfantryClass: UnitTypeClass/InfantryTypeClass::Create_One_Of, Create_Units
+    # 0x00660320) get the VC6 size from `new`, and the real constructor then
+    # fills the larger arm64 layout (Scout1091: FootClass's constructor wrote
+    # past a 0x5D8-byte InfantryClass). Every `new <Name>Class(` allocates
+    # through the same tag as the factories (twice the size the unit sees);
+    # the constructor call and its arguments are unchanged.
+    (re.compile(r'(?<![\w:])new\s+([A-Z]\w*Class)\s*\('), r'new (ra2port::factory_alloc) \1('),
+    # The depth/alpha rings' Wrap_Overflow/Wrap_Underflow (shared/blit.hpp) fold
+    # raw addresses; their 80 callers pass `(unsigned int)pointer`, which drops
+    # the upper half on arm64. The native view passes uintptr_t (the helpers
+    # take it there: port/fixups.json blit.hpp). Same meaning.
+    (re.compile(r'\bWrap_(Overflow|Underflow)\(\s*\(\s*unsigned(?:\s+int)?\s*\)'), r'Wrap_\1((uintptr_t)'),
+    # ObjectClass slot 67 (Draw_It: the screen point and clip rectangle) is
+    # declared (int, int) in every class: VC6 passes the two addresses in
+    # 32-bit slots (callers spell `(int)&point`, `reinterpret_cast<int>(&p)`).
+    # The native view gives the slot pointer-width parameters and widens the
+    # callers' casts (Scout1091: UnitClass::Draw_It read a truncated point).
+    (re.compile(r'\bunknown_slot67\(\s*int\s+(\w+)\s*,\s*int\s+(\w+)\s*\)'), r'unknown_slot67(intptr_t \1, intptr_t \2)'),
+    (re.compile(r'\bunknown_slot67\(([^;{}]*?)\);'),
+     lambda m: 'unknown_slot67(' + m.group(1).replace('reinterpret_cast<int>', 'reinterpret_cast<intptr_t>').replace('(int)', '(intptr_t)') + ');'),
+    # unknown_blit_49f3a0 (0x0049F3A0) takes the remap table and the blitter as
+    # int "pointer bits" (its 7th and 8th parameters; callers spell
+    # `(int)converter->Select_Blitter_00485AA0(...)`). The native view widens
+    # both parameters and the callers' casts (Scout1091: a truncated blitter
+    # faulted in Bit_Blit drawing a voxel unit).
+    (re.compile(r'(\bunknown_blit_49f3a0\([^;{}]*?Rect\s+const\s*&\s*\w*\s*,\s*)int(\s+\w+\s*,\s*)int(\s+\w+\s*,)'),
+     r'\1intptr_t\2intptr_t\3'),
+    (re.compile(r'\bunknown_blit_49f3a0\(([^;{}]*?)\);'),
+     lambda m: 'unknown_blit_49f3a0(' + m.group(1).replace('reinterpret_cast<int>', 'reinterpret_cast<intptr_t>').replace('(int)', '(intptr_t)') + ');'),
+    # The voxel shadow draw (FootClass 0x004C9A40 -> TechnoClass 0x006D21E0 ->
+    # Render_Voxel_Shadow 0x006D2810 -> Prep_For_Shadow's Surface *mask) carries
+    # the mask surface as `unsigned unknown_1`. The native view passes it at
+    # pointer width (Scout1091: a truncated mask faulted in Draw_Shadow).
+    (re.compile(r'(\b(?:Unknown_006D21E0|unknown_4c9a40|Render_Voxel_Shadow_006d2810)\([^;{}]*?,\s*)unsigned(\s+unknown_1\s*,)'),
+     r'\1uintptr_t\2'),
+    # Blitter::BlitForward/BlitBackward (the 59 span blitters) take the depth
+    # and alpha ring pointers as their 5th and 6th int arguments (Bit_Blit
+    # 0x00434B40 passes `(int)depth_pointer, (int)alpha_pointer`). The native
+    # view widens both in every declaration and definition and in the calls
+    # (Scout1091: a sign-extended depth pointer faulted in
+    # BlitTransXlatAlphaZRead::BlitForward drawing a unit).
+    (re.compile(r'(\bBlit(?:Forward|Backward)\(\s*void\s*\*\s*\w*\s*,\s*void\s+const\s*\*\s*\w*\s*,\s*int\s*\w*\s*,\s*int\s*\w*\s*,\s*)int(\s*\w*\s*,\s*)int(\s*\w*\s*,)'),
+     r'\1intptr_t\2intptr_t\3'),
+    (re.compile(r'(\.|->)(Blit(?:Forward|Backward))\(([^;{}]*?)\);'),
+     lambda m: m.group(1) + m.group(2) + '(' + m.group(3).replace('reinterpret_cast<int>', 'reinterpret_cast<intptr_t>').replace('(int)', '(intptr_t)') + ');'),
+    # RLEBlitter::Blit (the RLE span blitters) likewise takes the depth ring,
+    # the alpha ring and the shape's pixel start as ints (6th, 7th and 10th
+    # arguments; RLE_Blit 0x004350C0 passes `(int)depth_pointer,
+    # (int)alpha_pointer, ..., (int)shape_pixels`); Bit_Blit and RLE_Blit keep
+    # the ring positions in `unsigned int` locals. All at pointer width natively.
+    (re.compile(r'(\bBlit\(\s*void\s*\*\s*\w*\s*,\s*void\s+const\s*\*\s*\w*\s*,\s*int\s*\w*\s*,\s*int\s*\w*\s*,\s*int\s*\w*\s*,\s*)'
+                r'int(\s*\w*\s*,\s*)int(\s*\w*\s*,\s*int\s*\w*\s*,\s*int\s*\w*\s*,\s*)int(\s*\w*\s*\))'),
+     r'\1intptr_t\2intptr_t\3intptr_t\4'),
+    (re.compile(r'(\.|->)Blit\(([^;{}]*?)\);'),
+     lambda m: m.group(1) + 'Blit(' + m.group(2).replace('reinterpret_cast<int>', 'reinterpret_cast<intptr_t>').replace('(int)', '(intptr_t)') + ');'),
+    (re.compile(r'\bunsigned int (depth_pointer|alpha_pointer) = 0;'), r'uintptr_t \1 = 0;'),
+    (re.compile(r'\(unsigned int\)([AZ]BufferPtr->Get_Buffer_Ptr)'), r'(uintptr_t)\1'),
+    # The sight-scan RadiusCount table (0x007A5908, 12 ints) is split by the
+    # data tables at its second element (unknown_cell_count_7a590c names
+    # 0x007A590C), so natively the unsized array is a 4-byte storage and
+    # Sight_From read past it (Scout1091: the reveal landed on the wrong cells).
+    # The native view reads the whole stored table (link/behaviour_map_m8.cpp).
+    (re.compile(r'\bextern\s+int\s+const\s+(unknown_radius_(?:count|starts)_7a5908)\s*\[\s*\]\s*;'),
+     r'int const *ra2port_radius_count_7a5908();   /* native: the whole stored table */\n#define \1 (ra2port_radius_count_7a5908())'),
+    # CC_Draw_Shape (0x0049EEA0) takes the remap table (8th argument) and the
+    # depth shape (12th) as int bits; TechnoClass::unknown_6d1510 (0x006D1510,
+    # Draw_Shape) forwards the depth shape as its int zshape (11th). Both at
+    # pointer width natively, with the callers' casts (Scout1091: BuildingClass
+    # Draw_It's `(int)depth_shape` faulted in CC_Draw_Shape).
+    (re.compile(r'(\bCC_Draw_Shape\(\s*Surface\s*\*\s*\w*\s*,[^;{}]*?Rect\s+const\s*&\s*\w*\s*,\s*int\s*\w*\s*,\s*)int'
+                r'(\s*\w*\s*,\s*int\s*\w*\s*,\s*int\s*\w*\s*,\s*int\s*\w*\s*,\s*)int(\s*\w*\s*,\s*int\s*\w*\s*,\s*Point2D)'),
+     r'\1intptr_t\2intptr_t\3'),
+    (re.compile(r'(\bunknown_6d1510\(\s*void\s+const\s*\*[^;{}]*?)int(\s+\w+\s*,\s*int\s+\w+\s*,\s*Point2D\s+\w+\s*,)'),
+     r'\1intptr_t\2'),
+    # RLE_Blit's core (0x004350C0) takes the depth shape surface as the int
+    # before its BlitPair (CC_Draw_Shape passes `reinterpret_cast<int>(depth_shape)`).
+    (re.compile(r'(\bRLE_Blit\([^;{}]*?)int(\s*\w*\s*,\s*BlitPair\b)'), r'\1intptr_t\2'),
+    (re.compile(r'\b(CC_Draw_Shape|unknown_6d1510|RLE_Blit)\(([^;{}]*?)\);'),
+     lambda m: m.group(1) + '(' + m.group(2).replace('reinterpret_cast<int>', 'reinterpret_cast<intptr_t>').replace('(int)', '(intptr_t)') + ');'),
     # The dialog's DWL_USER slot (index 8) carries a pointer (`(LONG)&result`,
     # `(LONG)this`; read back as `(int *)GetWindowLongA(window, 8)`). A 32-bit
     # LONG truncates it on LP64: the native view stores and reads the pointer

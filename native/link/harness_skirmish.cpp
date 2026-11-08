@@ -4,7 +4,7 @@
 // Main_Loop and the interface-art load. Without --skirmish each seam calls the
 // recovered function unchanged. Test scaffolding, never game behaviour: it is
 // written from the recovered skirmish dialog (Skirmish_Command 0x006829F0, its
-// 0x617 "start" branch) and Select_Game's own menu bypass (unknown_a40d13).
+// 0x617 "start" branch); Select_Game skips its menu loop through a seam.
 #define MULTI_MISSION_ACCESSORS
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS   // Count() for the harness-objects note
 #include "shared/win32_api.hpp"
@@ -167,6 +167,8 @@ void Set_Up_Skirmish(char const *map)
 }
 
 int frames_done = 0;
+}
+namespace {
 
 }  // namespace
 
@@ -183,9 +185,11 @@ bool Native_Select_Game_Seam(bool fade)
     }
     started = true;
     Set_Up_Skirmish(map);
-    // Select_Game's own menu bypass: it resets the per-game state, skips the
-    // menu loop and starts the scenario in unknown_id_source_a3d290->FileName.
-    unknown_a40d13 = true;
+    // Select_Game resets the per-game state, skips its menu loop (the
+    // Native_Skirmish_Menu_Bypass seam) and starts the scenario in
+    // unknown_id_source_a3d290->FileName. unknown_a40d13 stays false: it is
+    // Debug_Map (the editor flag), under which the multiplayer setup makes no
+    // computer houses or start units (0x0065E8C0) and the view runs in editor mode.
     bool started_game = Select_Game(fade);
     if (started_game) {
         ra2port_progress("scenario", unknown_id_source_a3d290->FileName);
@@ -199,10 +203,20 @@ bool Native_Select_Game_Seam(bool fade)
         Append_Int(made, unknown_session_a3d298.unknown_bases_20 ? 1 : 0, sizeof made);
         Append(made, unknown_session_a3d298.Mode ? ", game mode set" : ", no game mode", sizeof made);
         ra2port_progress("harness-objects", made);
+        // The host's cursor starts at (0, 0), the tactical view's top-left
+        // edge, where the game scrolls the map every frame (edge scrolling).
+        // A test run has no mouse: park the cursor in the tactical area.
+        SetCursorPos(400, 300);
     } else {
         ra2port_progress("harness-stop", "Select_Game returned false: Start_Scenario failed");
     }
     return started_game;
+}
+
+// Select_Game's menu-loop seam (port/fixups.json): skipped under --skirmish.
+bool Native_Skirmish_Menu_Bypass()
+{
+    return ra2port_skirmish_map() != 0;
 }
 
 bool Native_Main_Loop_Seam()

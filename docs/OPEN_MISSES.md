@@ -3169,3 +3169,9 @@ New rulings are recorded at their rows as before.
 
 ## Scout1093 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1093/)
 - Beacon Place 0x42E370 87.04 -> 92.94 (keep/beacon_bf4_9294.cpp, shape 99.63): `bool full` flag set in the `slot == -1` arm and tested after the if/else (Scout989 jump threading) puts the found arm after the player ret; left: the break path re-tests `cmp eax,3`; fully threaded forms recolour (this in esi vs the original's ebp). Evaluate_Object 91.81, Fire_At 99.37, Set_Cursor_Pos 78.48, CacheBMP 85.14 unchanged.
+
+## Scout1095 (2026-11-08, 0 B; NOTES and keep/ in build/class-work/Scout1095/)
+- Area_Modify 0x6C5270 96.38 (am0): site 4 cell reload lands in eax after the X store; original reloads into ecx first and builds Y as `mov ax,di; add ax,[ecx+2]`.
+- Damage_Low_Bridge family 0x55DEF0/0x55E410/0x55F020/0x55F540 98.73: first inlined Union third compare, original computes rect2 sum first. Unused locals (1-32) change nothing; 5+ initialised dead locals inline the second Union.
+- Do_Chrono_Reinforcements 0x63A880 88.45 (ch2; index 94.67 was pre-SP3): original keeps zero in eax across the loop, which needs a single latch; single-latch ch0 swaps esi/edi (83.71).
+- 0x5E9410 99.79 (e9_k111A): one eax/ecx step in `height != old_height`.

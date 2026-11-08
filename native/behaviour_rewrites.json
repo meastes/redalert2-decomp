@@ -1333,6 +1333,186 @@
    "exact": false,
    "file": "native/link/behaviour_map_dimensions.cpp",
    "source": "leaf src/recovered/006328d0.cpp (&this->unknown_1274[type->Foundation])"
+  },
+  {
+   "entry": "0x006816B0",
+   "name": "SidebarClass::SBGadgetClass::Action(unsigned, unsigned &)",
+   "symbol": "__ZN12SidebarClass13SBGadgetClass6ActionEjRj",
+   "origin_class": "unmatched (skirmish path; vtable key function)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_game.cpp",
+   "source": "seed src/recovered/classes/SidebarClass__SBGadgetClass/006816b0.cpp (Map 0x0059F250(0, 0); return 1); TibSun sidebar.cpp"
+  },
+  {
+   "entry": "0x004CF160",
+   "name": "GadgetClass::Is_Enabled()",
+   "symbol": "__ZN11GadgetClass10Is_EnabledEv",
+   "origin_class": "unmatched (skirmish path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_game.cpp",
+   "source": "seed src/recovered/004cf160.cpp (+0x1E == 0)"
+  },
+  {
+   "entry": "0x00474260",
+   "name": "CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const &, Rect const &, int)",
+   "symbol": "__ZN9CellClass24Draw_Shroud_Or_Fog_ShapeERK7Point2DRK4Recti",
+   "origin_class": "unmatched (tactical draw; asm-ledger candidate, OPEN_MISSES)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_cell_draw.cpp",
+   "source": "decompile 0x00474260 (SHROUD.SHP/FOG.SHP frame into the 0x008315B4 depth ring; names and the transparent byte read from game.exe)"
+  },
+  {
+   "entry": "0x00434820",
+   "name": "UnknownCoord434820::UnknownCoord434820(int, int, int)",
+   "symbol": "__ZN18UnknownCoord434820C1Eiii",
+   "origin_class": "unmatched (tactical draw)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_coord.cpp",
+   "source": "shared/coord.hpp inline forms (X, Y, Z stores)"
+  },
+  {
+   "entry": "0x004A0050",
+   "name": "DriveLocomotionClass::Draw_Matrix(Matrix3D *, int *)",
+   "symbol": "__ZN20DriveLocomotionClass11Draw_MatrixEP8Matrix3DPi",
+   "origin_class": "unmatched (unit draw; parked 95.91)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_locomotion.cpp",
+   "source": "decompile 0x004A0050; Scout907 w/d3n.cpp (95.91) with the slope matrix from 0x0049FAA0"
+  },
+  {
+   "entry": "0x006CFEA0",
+   "name": "TechnoClass::unknown_slot176()",
+   "symbol": "__ZN11TechnoClass15unknown_slot176Ev",
+   "origin_class": "unmatched (object draw; was mis-aliased to FootClass's override 0x004C9930)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_techno_z.cpp",
+   "source": "decompile 0x006CFEA0; TibSun techno.cpp TechnoClass::Get_Z_Adjust; statics 0x007F7124/28/2C read from game.exe"
+  },
+  {
+   "entry": "0x00423E60",
+   "name": "ObjectClass::unknown_slot115()",
+   "symbol": "__ZN11ObjectClass15unknown_slot115Ev",
+   "origin_class": "unmatched leaf (vtable slot)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_coord.cpp",
+   "source": "leaf src/recovered/classes/ObjectClass/00423e60.cpp (returns 0)"
+  },
+  {
+   "entry": "0x004C9BC0",
+   "name": "FootClass::unknown_slot67(intptr_t, intptr_t)",
+   "symbol": "__ZN9FootClass14unknown_slot67Ell",
+   "origin_class": "unmatched leaf (slot 67)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_coord.cpp",
+   "source": "leaf src/recovered/classes/FootClass/004c9bc0.cpp (ret 8: an empty body)"
+  },
+  {
+   "entry": "0x0071E220",
+   "name": "WalkLocomotionClass::unknown_71e220(bool)",
+   "symbol": "__ZN19WalkLocomotionClass14unknown_71e220Eb",
+   "origin_class": "unmatched (infantry movement step, 4,967 B)",
+   "plan": "behaviour rewrite (PARTIAL: idle state only; other states trap)",
+   "exact": false,
+   "file": "native/link/behaviour_walk.cpp",
+   "source": "decompile 0x0071E220 idle branch; TibSun walk.cpp Movement_AI"
+  },
+  {
+   "entry": "0x006D8640",
+   "name": "TechnoClass::Unknown_006D8640(WeaponStruct *)",
+   "symbol": "__ZN11TechnoClass16Unknown_006D8640EP12WeaponStruct",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_walk.cpp",
+   "source": "decompile 0x006D8640 (weapon && weapon->WeaponType)"
+  },
+  {
+   "entry": "0x00406660",
+   "name": "Audio_Event_Type_Loops_Forever(AudioEventType *)",
+   "symbol": "__Z30Audio_Event_Type_Loops_ForeverP14AudioEventType",
+   "origin_class": "unmatched leaf (audio)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_audio_m8.cpp",
+   "source": "decompile 0x00406660 (Flags bit 0 && LoopCount == 0)"
+  },
+  {
+   "entry": "0x00402940",
+   "name": "Audio_System_Init()",
+   "symbol": "__Z17Audio_System_Initv",
+   "origin_class": "unmatched (start-up audio path without -noaudio)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_audio_m8.cpp",
+   "source": "instructions 0x00402940 (two list inits, Busy = 0, master levels = &system->Levels, levels Init, initialised flag)"
+  },
+  {
+   "entry": "0x007CCE20",
+   "name": "DirectSound driver descriptor and channel table (data with code addresses)",
+   "symbol": "__Z27Native_Audio_Default_Driverv",
+   "origin_class": "native data view (start-up audio)",
+   "plan": "native table + leaf rows 0x0040A690/0x0040A6A0/0x0040A6B0",
+   "exact": false,
+   "file": "native/link/behaviour_audio_driver.cpp",
+   "source": "descriptor words from game.exe; recovered Audio_DS_* functions; leaves 0040a690.cpp (0x80040000), 0040a6a0/0040a6b0.cpp (Enter/LeaveCriticalSection on 0x00831590)"
+  },
+  {
+   "entry": "0x00403810",
+   "name": "AudioDevice::Run_Update()",
+   "symbol": "__ZN11AudioDevice10Run_UpdateEv",
+   "origin_class": "unmatched (audio thread)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_audio_m8.cpp",
+   "source": "instructions 0x00403810 (jmp [ecx+0x10C])"
+  },
+  {
+   "entry": "0x004010A0",
+   "name": "AudioLevelSet::Changed()",
+   "symbol": "__ZN13AudioLevelSet7ChangedEv",
+   "origin_class": "unmatched leaf (audio)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_audio_m8.cpp",
+   "source": "decompile 0x004010A0"
+  },
+  {
+   "entry": "0x00401170",
+   "name": "AudioLevelSet::Clear_Changed()",
+   "symbol": "__ZN13AudioLevelSet13Clear_ChangedEv",
+   "origin_class": "unmatched leaf (audio)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_audio_m8.cpp",
+   "source": "decompile 0x00401170"
+  },
+  {
+   "entry": "0x004015C0",
+   "name": "Audio_Bag_Find(AudioBag *, char const *)",
+   "symbol": "__Z14Audio_Bag_FindP8AudioBagPKc",
+   "origin_class": "unmatched leaf (audio)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_audio_m8.cpp",
+   "source": "decompile 0x004015C0 (bsearch with _stricmp)"
+  },
+  {
+   "entry": "0x0040A6C0",
+   "name": "unknown_directsound_40a6c0()",
+   "symbol": "__Z26unknown_directsound_40a6c0v",
+   "origin_class": "unmatched leaf (audio)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_audio_m8.cpp",
+   "source": "decompile 0x0040A6C0 (returns 0x008315AC)"
   }
  ]
 }

@@ -9,7 +9,24 @@
 
 // 0x004068F0: empty in this build (the header says so; the row's body is a
 // bare return, src/recovered/004068f0.cpp).
-void __cdecl Debug_Printf(char const *format, ...) {}
+// Native diagnostic (test runs only): RA2_NATIVE_DEBUG_LOG=1 prints the
+// game's debug lines to stderr; the original's body is empty.
+extern "C" char *getenv(char const *);
+extern "C" int vdprintf(int, char const *, __builtin_va_list);
+void __cdecl Debug_Printf(char const *format, ...)
+{
+    static int enabled = -1;
+    if (enabled < 0) {
+        char const *value = getenv("RA2_NATIVE_DEBUG_LOG");
+        enabled = value != 0 && value[0] == '1';
+    }
+    if (enabled && format != 0) {
+        __builtin_va_list args;
+        __builtin_va_start(args, format);
+        vdprintf(2, format, args);
+        __builtin_va_end(args);
+    }
+}
 
 // 0x00613E00 (__fastcall): makes the notice sink the planning mode's sink; the
 // row stores ECX to 0x00A76680 (src/recovered/00613e00.cpp).

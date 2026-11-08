@@ -88,7 +88,8 @@ struct IsoTileRef {
 };
 static_assert(sizeof(IsoTileRef) == 4, "IsoTileRef keeps the file's 4-byte slot");
 
-// Allocation for the COM class factories' light views (native_units.py RULES):
+// Allocation for the COM class factories' light views and every `new <Name>Class(`
+// (native_units.py RULES; a unit may see a light stand-in of the class):
 // twice the VC6-sized view, room for the real class's arm64 layout.
 struct factory_tag {};
 constexpr factory_tag factory_alloc = {};

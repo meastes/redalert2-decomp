@@ -72,16 +72,24 @@ without `--skirmish`. With it, the seam does what the skirmish dialog's start
 button stores (Skirmish_Command 0x006829F0: session type 5, the rules'
 countries/sides/house types, one human and one computer player, the saved
 options; `<map>` is `#<n>` for the n-th scenario description, a description's
-file name, or any file name), sets Select_Game's own menu bypass
-(`unknown_a40d13`) and calls Select_Game, which starts the scenario. Bootstrap's
+file name, or any file name) and calls Select_Game, which skips its menu loop
+through a seam (`Native_Skirmish_Menu_Bypass`) and starts the scenario. It must
+not set `unknown_a40d13`: that is Westwood's Debug_Map (the scenario editor
+flag), under which the multiplayer setup 0x0065E8C0 makes no start units and the
+human house is defeated at once (Scout1091). The cursor is parked in the
+tactical area (the host's (0, 0) edge-scrolls the map every frame). Bootstrap's
 interface-art load is skipped while its 19 file names are unsourced (menu art).
 Milestones: `init` (Init_Game succeeded), `scenario` (Start_Scenario loaded the
 map), `frame` (first Main_Loop iteration), `frames` (N of them); notes
 `harness-art`, `harness-map`, `harness-stop`. With `--skirmish='#0'` (MP02T2.MAP) the
-run reaches `scenario`, `frame` and `frames` (60 checked) without traps; the frames
-render (in-game message text and the mouse cursor; the map stays black because
-the houses get no starting units and are defeated in the first frames: next
-target). `--game-args` is WinMain's command
+run reaches `scenario`, `frame` and `frames` (60 checked) without traps; the human
+house gets its start units (MCV, tanks, infantry) and is not defeated. The
+tactical view draws the map tiles under the shroud (best with `'#5'`, MP14T2.MAP,
+centred on the start units); the units themselves are not visible yet (next
+target), and MP02T2 places the infantry 21 cells from the base. `RA2_NATIVE_DEBUG_LOG=1`
+prints the game's Debug_Printf lines (the original's body is empty). The menu run
+(`--run-to=menu`) also works without `-noaudio`; a skirmish with audio still
+faults in Audio_List_Remove. `--game-args` is WinMain's command
 line: `-noaudio` skips the audio device, `-CD.` makes every file local (no CD
 check; Parse_Command_Line's `-CD<path>`). The native game skips the CD check
 (user decision 2026-11-08): the host adds `-CD.` unless the command line names
@@ -122,6 +130,12 @@ pointers are not loaded (`--report`).
    VC6 wide CRT calls renamed `ra2_*`, opaque enums given VC6's fixed `int`
    (`enum X;` and its definition become `enum X : int`), reference casts of
    rvalues wrapped in `ra2port::as_lvalue` (VC6 reinterprets a temporary).
+   Pointers carried in VC6 ints get pointer width in the native view by named rules
+   (native_units.py: `new <Name>Class(` allocates twice the size a light stand-in
+   sees, ObjectClass slot 67's point/rect, the blitters' depth/alpha ring arguments
+   and Bit_Blit/RLE_Blit's ring locals, CC_Draw_Shape's remap and depth shape,
+   unknown_blit_49f3a0's remap/blitter, the voxel shadow mask, the ZBuffer/ABuffer
+   Wrap_ helpers, the RadiusCount table; Scout1091).
    Rows with `__asm` are skipped and listed. `port/fixups.json` holds the
    per-file substitutions clang needs (sources and `src/shared` headers, each
    with the VC6 meaning it keeps and its evidence) plus qualified-name
