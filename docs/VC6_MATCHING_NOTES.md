@@ -2180,3 +2180,6 @@ VC6 rewrites `x + c*h/-2` as `x - (|c|h)/2` when the result goes to a plain int 
 
 ## Each return statement takes its own scratch-rotation step (Scout1082)
 When several by-value struct returns differ only in the register used for the copy, the original probably had one shared return: each `return` is its own web in the eax/ecx/edx rotation. Storing each result into one local and `break`ing to a single `return local;` reproduced Pixel_To_Cell 0x6A6BD0's registers. Also: a struct copy's constant-zero member (`tmp.Z = coord.Z` where Z is 0) becomes a register web; a literal 0 lets VC6 cache the constant in a callee-saved register across a call for a later store of 0.
+
+## Reading an operand into a local first fixes a subtraction tree's order (Scout1079)
+VC6 canonicalises `a + b - c - (flag ? 26 : 18) - 7` into the `c`-first tree in every if-form spelling (48 leaf orders tried). Reading the strip top into a local before the 26/18 term is assigned (`int top = abcd64; int reserved; if (flag) reserved = 26; else reserved = 18; return (a + b - top - reserved - 7) / 50;`, YR twin Max_Visible_Cameos) gives the original's reserved-first order with the if-form registers; assigning `reserved` before `top` reverts it. Ternaries give the right tree but load the flag early (eax/edx swap). Sidebar slot 34 0x6819A0 became exact this way.
