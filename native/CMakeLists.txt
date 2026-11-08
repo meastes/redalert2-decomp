@@ -119,6 +119,15 @@ target_link_options(native-core-check PRIVATE -Wl,-dead_strip)
 enable_testing()
 add_test(NAME native-core-check COMMAND native-core-check)
 
+# 6. The behaviour rewrites of the handwritten-assembly functions
+#    (link/behaviour_asm_*.cpp, behaviour_rewrites.json) against references
+#    built from each algorithm; the ADPCM tables against the adopted .inc text.
+add_executable(native-asm-check tests/asm_check.cpp link/behaviour_asm_vqa.cpp
+               link/behaviour_asm_draw.cpp link/behaviour_asm_lib.cpp)
+target_link_libraries(native-asm-check PRIVATE ra2_dialect)
+target_compile_definitions(native-asm-check PRIVATE RA2_ASM_DIR="${RA2_ROOT}/src/recovered/asm")
+add_test(NAME native-asm-check COMMAND native-asm-check)
+
 option(RA2_NATIVE_LINK_CLOSURE "Close the ra2-native link with generated trap stubs for still-unrecovered code and placeholders for unsourced data (never shipped; lists them in gen/link_closure.json)" OFF)
 
 if(RA2_NATIVE_SDL)

@@ -3116,3 +3116,10 @@ New rulings are recorded at their rows as before.
 
 ## Scout1064 (2026-11-08, closed; LANDED 4f17146fb + 343910893 (renames, no bytes) + 3ee6ad5d6 (native))
 - 29 of 30 shared signature mismatches fixed byte-neutrally for the native link (owner full build exact). Held: 0x49CFD0 DisplayClass::unknown_slot32 -> (CCINIClass &) moves Print_CRCs 0x62A360 and SidebarClass 0x6809F0 (needs a natural Print_CRCs re-roll; header copy at build/class-work/Scout1064/d/held/). Flags (casts under the 2026-11-05 rulings, an unused WOL::User * parameter on 0x74D7D0) in d/r1/README. Native: wrong ctor/dtor suffix alias removed (~UnknownArtData had been bound to the free-all-art function).
+
+## Scout1065 (2026-11-08, closed; lab; NOTES, lab/, corpus.py, popvar.py in build/class-work/Scout1065/)
+- Add orientation mechanism recorded in VC6_MATCHING_NOTES. Fire_At 0x6CA890 stays 99.37: its site is L in ours, G in the original, and no natural count change flips it (only deleting ~15 sub-blocks). The generic Add is right for 438/440 functions; RA2_RADAR_ADD_THREADED 393/440, VECTOR_ADD_NAMED_LENGTH 196/440.
+
+## Scout1067 (2026-11-08, closed; 0 B; NOTES, w/ in build/class-work/Scout1067/)
+- Ranks 31-60 left four eligible rows. SpotLight One_Time 0x5DD760 37.01 -> 61.54 (copy-initialised `Rect source = Rect(0, 2 * j, 255, 1);` in both copy loops; needs a One_Time declaration in spot_light.hpp; register priority left). Tunnel_AI 0x6FAA30 50.39 -> 58.99 (TibSun `if (finished)` tail and Snap_To_8 form; Move_Coord takes CoordStruct by value; left: out-of-line 0x41B630/0x4348F0 sites, frame 0x90 vs 0x70). Spark AI 0x609540 66.45 unchanged. MISSES_INDEX best scores were wrong for both (index picked another row's score from a summary line): One_Time real prior 55.83, Tunnel_AI 50.39.
+- Tool issue to fix: misses_index.py attributes scores and drafts from multi-row summary lines to the wrong row (Scout1059/1062/1067 all hit it).

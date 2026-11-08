@@ -11,7 +11,7 @@ build) and never changes `src/`, the catalog or `tools/original_target`.
 cmake -S native -B build/native -G Ninja && cmake --build build/native
 cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all   # whole tree (3,279 groups) + drafts + ra2-native game link
 cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON   # link with traps; gen/link_closure.json
-ctest --test-dir build/native            # native-core-check
+ctest --test-dir build/native            # native-core-check, native-asm-check
 build/native/ra2-native --smoke-test     # SDL3 host window
 build/native/ra2-native --data-dir <installation> --run-to=menu   # start-up test run (below)
 ```
@@ -134,7 +134,20 @@ The host plays the launcher's part (the launch mutex and event RA2.EXE created).
    the start-up/exit path, each citing its evidence (`behaviour_winmain.cpp`,
    `behaviour_surface.cpp`, `behaviour_map.cpp`: the WinMain path). Fixups run
    before the inline-assembly check, so a fixup can give an evidenced `__asm` block
-   its native meaning (Main_Game's exception-return capture). Aliases are applied with ld64
+   its native meaning (Main_Game's exception-return capture).
+   **Handwritten assembly** (`behaviour_asm_vqa.cpp`, `behaviour_asm_draw.cpp`,
+   `behaviour_asm_lib.cpp`; listed in `behaviour_rewrites.json`): portable C++
+   for the functions the original implements in assembly (the archive procedures
+   in `src/recovered/asm`: AudioUnzap, VQA_LCW_Uncompress, the VQA SOS ADPCM
+   decoder, the four ASM_UnVQ drawers, Brighten_Color/MMX_Brighten_Color in four
+   pixel formats, the three Asm_Interpolate copies, Get_CPU_Clock) and for the
+   accepted rows whose body is evidenced `__asm` (LCW_Comp, BlitTransXlat<unsigned
+   short>::BlitForward, RDTSC, Get_CPU_Speed). Each is written from the adopted
+   archive text, not exact; the TSC is a virtual 1 GHz counter (Get_CPU_Speed
+   returns 1000). `native-asm-check` (tests/asm_check.cpp) runs each on synthetic
+   inputs against references built from the algorithm (encoders, per-pixel
+   formulas, the textbook IMA ADPCM decoder) and compares the ADPCM tables with
+   the adopted `.inc` text. Aliases are applied with ld64
    `-alias_list` (link_closure.py filters them to the current link).
 4. **Native data** (`data/`): globals the code reads from the original's .data/.rdata.
    Each comes from adopted source text (TibSun / ra2-decomp, with attribution), a
