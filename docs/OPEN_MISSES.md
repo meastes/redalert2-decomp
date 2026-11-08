@@ -3147,3 +3147,12 @@ New rulings are recorded at their rows as before.
 
 ## Scout1078 (2026-11-08, closed; 0 B; Pixel_To_Cell 0x6A6BD0 79.35 -> 93.70, shape 98.90, 365/365 instructions, call list and frame exact; keep/ptc_xy1_9370.cpp, s.sh, NOTES in build/class-work/Scout1078/)
 - TibSun forms together: bridge statements inline (no Bridge_Edges helper), TibSun Coord_Fraction, `Cell_Coord(...) - CoordStruct(128,128,0)`, `top.Y += 30*h/-2` (new note), operator-form xy. Inline budget at the second Coord_To_Pixel measured (must stay < 102). Left: one zero register held in esi across the first Coord_To_Pixel, and the Cell copy registers in three returns (likely one allocation cause).
+
+## Scout1085 (2026-11-08, closed; 0 B; NOTES, ion/, w/ in build/class-work/Scout1085/)
+- IonBlast One_Time 0x521A90 89.61/94.19: one scratch-cursor shift from `row` (VC6 allocates mirror before row; the original row first with mirror still computed after the stores); ~20 natural forms flat. Wait_For_Players 0x65C520: TibSun order with no-hp form 91.92 (w/wfp_t0_9192.cpp; all callee-saved roles right; second Players.Vector load in ecx, dec placement). Exact needs both more weight on i and two hidden cursor steps; only the ruled-out both-arm i-- supplies the first. Parked pending a new mechanism for loop-variable weight.
+
+## Scout1084 (2026-11-08, closed; 0 B; Sidebar slot 54 0x67E210 99.04 unchanged; NOTES, keep/D1.cpp in build/class-work/Scout1084/)
+- Likely original shape: the hide branch is `Column[unknown_4ed8].Deactivate();` (TibSun Activate/Deactivate pair), inlining 0x67E9A0 -> 0x6820F0 -> 0x6820A0, byte-identical to s0 (99.04). The miss is a context effect: at the hide site ebx/edi are free so VC6 puts abcd64 in a free callee-saved register and subtracts it first; in 0x67CF80 and 0x67F800 every callee-saved register is busy at the sum. Next: truncation bisection of 0x67F800 to find what keeps abcd64 out of a free callee-saved register. Population is now 4357 (anchor 0x67F7C0); slot 34 defines Max_Visible_Cameos.
+
+## Scout1086 (2026-11-08, closed; lab; NOTES, lab/, corp*.py in build/class-work/Scout1086/)
+- Scratch-cursor rule recorded in VC6_MATCHING_NOTES. Wait_For_Players 0x65C520 stays 91.92 (natural): V2 stays in ecx in ~30 natural variants; next is a Players.Vector second use removed after allocation (cross-jumped duplicate in an RA2-only arm).
