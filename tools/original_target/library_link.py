@@ -112,6 +112,7 @@ def place(text, base, lo, hi, archives):
         for s in sections:
             s['order'] = order; s['archive'] = name; s['role'] = role; s['archive_sha256'] = sha(path.read_bytes())
     allsec = [s for a in archives for s in a[3]]
+    deferred = {}
     for s in sorted(allsec, key=lambda s: (-len(s['raw']), s['order'])):
         fixed = sum(s['mask'])
         if fixed < 10:
@@ -120,10 +121,29 @@ def place(text, base, lo, hi, archives):
         rx = LI.pattern(s['raw'], s['mask'])
         hits = [m.start() for m in re.finditer(rx, text, re.S)]
         free = [h for h in hits if lo <= base + h < hi and not any(taken[h:h + n])]
-        if not free or (len(free) > 1 and fixed < 24):
+        if not free:
+            continue
+        if len(free) > 1 and fixed < 24:
+            deferred.setdefault((s['raw'], s['mask']), []).append(s)     # identical short sections: second pass
             continue
         for h in free:
             taken[h:h + n] = b'\1' * n
+            rows.append((base + h, s))
+    # Second pass: a group of byte-identical sections (the same deleting destructor
+    # emitted for several classes, two copies of a helper) whose free hits are no more
+    # numerous than the sections is assigned in address order to the sections in
+    # archive/member/section order; bytes and member provenance are exact, only the
+    # symbol naming each copy follows the linker's emission order.
+    for (raw, mask), group in deferred.items():
+        n = len(raw)
+        rx = LI.pattern(raw, mask)
+        free = [m.start() for m in re.finditer(rx, text, re.S) if lo <= base + m.start() < hi and not any(taken[m.start():m.start() + n])]
+        group = sorted(group, key=lambda s: (s['order'], s['member_index'], s['section_index']))
+        if not free or len(free) > len(group):
+            continue
+        for h, s in zip(sorted(free), group):
+            taken[h:h + n] = b'\1' * n
+            s = dict(s, assignment='by order among %d identical sections' % len(group))
             rows.append((base + h, s))
     rows.sort(key=lambda t: t[0])
     return rows
@@ -273,7 +293,7 @@ def main():
             continue
         rows.append(dict(entry='%08x' % va, bytes=n, archive=s['archive'], archive_role=s['role'],
                          archive_sha256=s['archive_sha256'], member=s['member'], member_index=s['member_index'],
-                         section_index=s['section_index'],
+                         section_index=s['section_index'], **({'assignment': s['assignment']} if s.get('assignment') else {}),
                          section=s['section'], symbols=s['symbols'][:8], relocations=relocations, sha256=sha(original)))
     covered = bytearray(len(text))
     for r in rows:

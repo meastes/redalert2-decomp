@@ -73,6 +73,27 @@ from the VC98 library (WSOCK32 and COMCTL32 were linked against other import
 libraries) and BINKW32's (RAD's library, not on the disc) stay scaffold and are
 listed under `skipped_other`.
 
+### Handwritten assembly ledger (archive sources assembled with MASM)
+
+Westwood's assembly (the VQA/audio codecs, clipping, CPU detection, the MMX
+interpolation block) was assembled with MASM 6.13.7299 (Rich header: 48 objects).
+`src/recovered/asm/*.asm` holds the TibSun archive's `.asm` files adopted
+unchanged (THIRD_PARTY.md; SPDX and EA lines inside). `tools/original_target/
+assembly_link.py --write` assembles them with the pinned MASM 6.15.8803
+(`assembler` in `manifests/toolchain.json`; files under the local-config key
+`assembler_directory`, default `toolchain/masm615/`, from the VC6 Processor Pack
+`vcpp5.exe`, SHA-256 `96817df1…cfb6c`), splits each object at its public symbols,
+searches every procedure in `.text` with relocation sites masked, and writes
+`manifests/original_target/assembly.json`: source and its SHA-256, section,
+symbol, offset, length (trailing alignment fill the original does not keep is
+trimmed), relocation values from the original, SHA-256 of the original bytes.
+At build time `assembly_build.py` re-assembles the sources under the compiler
+lock, patches each row and proves it equal to the original before it joins the
+placement container; the receipt reports `assembly_bytes`/`assembly_regions`.
+Procedures the original changed (`Iso_Blit_Asm1`: two `add` operands;
+`Detect_MMX_Availability`; the four `Draw_Voxel_*_Normals_ASM` RA2 dropped) and
+RA2-only code in the MMX block are listed under `misses` and stay scaffold.
+
 ## Commands and acceptance
 
 ```sh

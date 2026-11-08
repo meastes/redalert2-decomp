@@ -397,7 +397,7 @@ def write_coff(parts):
     return struct.pack('<HHIIIHH',0x14c,len(parts),0,offset+len(payload),0,0,0)+b''.join(headers)+payload+strings
 
 
-def integrate(config, audit, manifest, destination, library=None):
+def integrate(config, audit, manifest, destination, library=None, assembly=None):
     pe = audit.pe; base=pe.OPTIONAL_HEADER.ImageBase; text=pe.sections[0]
     require(text.Name.rstrip(b'\0') == b'.text' and text.VirtualAddress == 0x1000, 'Unexpected text layout')
     scaffold = destination/'scaffold'; scaffold.mkdir()
@@ -409,6 +409,11 @@ def integrate(config, audit, manifest, destination, library=None):
     library_parts, library_receipts = library_build.parts(audit, library, manifest['accepted'])
     library_notes = [r for r in library_receipts if 'superseded_by_accepted_source' in r]
     library_receipts = [r for r in library_receipts if 'entry' in r]
+    import assembly_build
+    assembly_parts, assembly_receipts = assembly_build.parts(config, audit, assembly, destination, manifest['accepted'])
+    library_notes += [r for r in assembly_receipts if 'superseded_by_accepted_source' in r]
+    assembly_receipts = [r for r in assembly_receipts if 'entry' in r]
+    library_parts = library_parts + assembly_parts
     parts = sorted(parts + library_parts, key=lambda p: p[0])      # .text$VA names sort by address
     container = write_coff(parts)
     discard_receipt = verify_discard_transfer(audit, receipts, parts, container)
@@ -417,7 +422,7 @@ def integrate(config, audit, manifest, destination, library=None):
     cursor=base+text.VirtualAddress; limit=cursor+min(text.Misc_VirtualSize,text.SizeOfRawData)
     asm=['# Explicit unrecovered original-byte scaffold.','.section .text,"xr"']
     text_path=(scaffold/'.text.bin').as_posix()
-    placed = [(r['entry'], r['full_extent_bytes']) for r in manifest['accepted']] + [(r['entry'], r['bytes']) for r in library_receipts]
+    placed = [(r['entry'], r['full_extent_bytes']) for r in manifest['accepted']] + [(r['entry'], r['bytes']) for r in library_receipts] + [(r['entry'], r['bytes']) for r in assembly_receipts]
     for entry, extent in sorted(placed):
         row = dict(entry=entry, full_extent_bytes=extent)
         require(cursor<=row['entry'] and row['entry']+row['full_extent_bytes']<=limit,'Extent outside text')
@@ -443,7 +448,8 @@ def integrate(config, audit, manifest, destination, library=None):
     run([assembler,'--target=i686-pc-windows-msvc','-c',str(source),'-o',str(destination/'original.obj')],destination,'assemble')
     write_json(destination/'integration-receipt.json',dict(regions=receipts, library_regions=library_receipts, library_notes=library_notes,
                library_bytes=sum(r['bytes'] for r in library_receipts),
-               remaining_text_scaffold_bytes=limit-base-text.VirtualAddress-sum(r['bytes'] for r in receipts)-sum(r['bytes'] for r in library_receipts),
+               assembly_regions=assembly_receipts, assembly_bytes=sum(r['bytes'] for r in assembly_receipts),
+               remaining_text_scaffold_bytes=limit-base-text.VirtualAddress-sum(r['bytes'] for r in receipts)-sum(r['bytes'] for r in library_receipts)-sum(r['bytes'] for r in assembly_receipts),
                assembler=assembler,assembler_sha256=sha(Path(assembler).read_bytes())))
     args=['/nologo','/machine:ix86','/subsystem:windows,4.0','/base:0x400000','/entry:original_entry',
           '/fixed','/align:4096','/nodefaultlib','/incremental:no', '/out:'+win(destination/'linked.exe'),
@@ -533,8 +539,9 @@ def main():
     audit=CanonicalAudit(REPOSITORY,catalog,config)
     toolchain_pins=json.loads((REPOSITORY/'manifests/toolchain.json').read_text())
     tools=check_toolchain(config,toolchain_pins)
-    import library_build
+    import library_build, assembly_build
     library=library_build.load(config, toolchain_pins.get('libraries'))
+    assembly=assembly_build.load(config, toolchain_pins.get('assembler'))
     phase('load and audit setup')
     if args.verify_inputs:
         print(json.dumps(dict(status='input-hashes-and-source-catalog-verified',sources=len(catalog['regions']))));return
@@ -546,8 +553,10 @@ def main():
     # Pin authored tools and source catalog at build start. Verify again at end.
     inputs=[REPOSITORY/'manifests/toolchain.json',
             *[Path(__file__).with_name(name) for name in ['build.py','remote_compile.py','canonical.py','catalog_io.py','source_paths.py','verify_manifest.py','coff.py','compiler_output.py',
-                                                           'library_build.py','library_identity.py','library_link.py']],
-            *([library_build.MANIFEST] if library else [])]
+                                                           'library_build.py','library_identity.py','library_link.py',
+                                                           'assembly_tools.py','assembly_build.py','assembly_link.py']],
+            *([library_build.MANIFEST] if library else []),
+            *([assembly_build.MANIFEST, *[REPOSITORY/s for s in assembly['sources']], *[REPOSITORY/s for s in assembly.get('includes', {})]] if assembly else [])]
     for population in catalog['populations']:
         reference = population.get('compiler_output_policy')
         if reference:
@@ -560,7 +569,7 @@ def main():
     fingerprints[catalog_key]=catalog_io.digest(args.manifest,catalog_blobs)
     compiled=compile_sources(config,catalog,destination); phase('compile')
     manifest=audit.verify_fresh(destination,compiled,jobs=args.verify_jobs); phase('verify fresh objects')
-    integrate(config,audit,manifest,destination,library); phase('integrate and link')
+    integrate(config,audit,manifest,destination,library,assembly); phase('integrate and link')
     original=audit.read(config['executable']);report=package(original,(destination/'linked.exe').read_bytes(),destination); phase('package')
     # Final input checks; each file is read once.
     # 1. Authored tools, toolchain manifest, catalog and policies: the code and
@@ -586,6 +595,8 @@ def main():
                   body_bytes=manifest['body_bytes'],padding_bytes=manifest['frozen_padding_bytes'],
                   library_bytes=0 if not library else sum(r['bytes'] for r in library['regions']),
                   library_regions=0 if not library else len(library['regions']),
+                  assembly_bytes=0 if not assembly else sum(r['bytes'] for r in assembly['regions']),
+                  assembly_regions=0 if not assembly else len(assembly['regions']),
                   toolchain=tools,authored_dependencies=fingerprints,seconds=time.monotonic()-started,
                   compile_policy='Fresh accepted-only sources; historical population/option groups, no candidate-search matrices')
     if not args.keep_intermediates:

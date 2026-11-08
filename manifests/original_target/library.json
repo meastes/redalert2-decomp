@@ -10,7 +10,13 @@
    "name": "LIBCMT.LIB",
    "role": "VC6 SP3",
    "sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "members_used": 494
+   "members_used": 526
+  },
+  {
+   "name": "LIBCMT.LIB",
+   "role": "VC6 RTM",
+   "sha256": "1ef9c27b4f76031e40fcbdf7d518adc4969f90d6a00dd1ea88697907268c1b2b",
+   "members_used": 1
   },
   {
    "name": "COMSUPP.LIB",
@@ -6616,6 +6622,34 @@
    "sha256": "9ebeeb29c08b871af0a8ce436700429b32964ef003b8f2ffc0e0bb0efcb9965d"
   },
   {
+   "entry": "00781cb5",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 2,
+   "assignment": "by order among 11 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??_G__non_rtti_object@@UAEPAXI@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 4294967247
+    },
+    {
+     "offset": 17,
+     "type": 20,
+     "resolved": 113
+    }
+   ],
+   "sha256": "d2a2fb2bdf42a97f343fa6c3b71c756e813e3da39ac80b460464d145e53e3ebf"
+  },
+  {
    "entry": "00781cd1",
    "bytes": 27,
    "archive": "LIBCMT.LIB",
@@ -6830,6 +6864,29 @@
    ],
    "relocations": [],
    "sha256": "61e62304347e294cb52e76f3b5cc064b748e44dd24d48e3550c00e35746640a3"
+  },
+  {
+   "entry": "00782017",
+   "bytes": 14,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "_wctype.obj",
+   "member_index": 3,
+   "section_index": 2,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [
+    "_iswupper"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 20,
+     "resolved": 1568
+    }
+   ],
+   "sha256": "d3e38178edfb4909d0aca5c51ed2bf78204cc60a002ada21cba4927332f74017"
   },
   {
    "entry": "00782025",
@@ -8289,6 +8346,29 @@
    "sha256": "21db4675c2e800ce13b982728ee854a83da5c7d42d4e2eb0c9963d01386c3d51"
   },
   {
+   "entry": "00782fbd",
+   "bytes": 23,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "strtol.obj",
+   "member_index": 14,
+   "section_index": 0,
+   "assignment": "by order among 12 identical sections",
+   "section": ".text",
+   "symbols": [
+    "_strtol"
+   ],
+   "relocations": [
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 4
+    }
+   ],
+   "sha256": "85156f4c3aae70f2384b246c08d9526fa06f098beafe794968df3b46ecc3b745"
+  },
+  {
    "entry": "00782fd4",
    "bytes": 517,
    "archive": "LIBCMT.LIB",
@@ -8357,6 +8437,29 @@
     }
    ],
    "sha256": "175bb9008352f292ee265ae37d6316078abf50779534ca9ec829b66ab789cd3e"
+  },
+  {
+   "entry": "007831d9",
+   "bytes": 23,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "strtol.obj",
+   "member_index": 14,
+   "section_index": 2,
+   "assignment": "by order among 4 identical sections",
+   "section": ".text",
+   "symbols": [
+    "_strtoul"
+   ],
+   "relocations": [
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 4294966760
+    }
+   ],
+   "sha256": "0d2a940e42f3d3bfdec4249b9f8bc19a210b8d8be3e84ea55623ef8d043e3667"
   },
   {
    "entry": "007831f0",
@@ -9222,6 +9325,118 @@
    "sha256": "3cd223c9a2b203048e30d913ff3948adc5e1c6f431c72d852a4c983a7d1fff6f"
   },
   {
+   "entry": "00783b93",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 6,
+   "assignment": "by order among 11 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??_Gbad_typeid@@UAEPAXI@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 20
+    },
+    {
+     "offset": 17,
+     "type": 20,
+     "resolved": 4294959507
+    }
+   ],
+   "sha256": "90f442dd7f1980e8b0cc2576c4b24c0f74716501909daf8e9167d0e45528653e"
+  },
+  {
+   "entry": "00783bb4",
+   "bytes": 24,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 4,
+   "assignment": "by order among 8 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??0__non_rtti_object@@QAE@ABV0@@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 8,
+     "type": 20,
+     "resolved": 30120
+    },
+    {
+     "offset": 14,
+     "type": 6,
+     "resolved": 8066592
+    }
+   ],
+   "sha256": "aedb77d5b30933da1b576d38d80906c6839d31eeb83ae8d9705e9ba7a75db2bb"
+  },
+  {
+   "entry": "00783bcc",
+   "bytes": 24,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 5,
+   "assignment": "by order among 8 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??0bad_typeid@@QAE@ABV0@@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 8,
+     "type": 20,
+     "resolved": 30096
+    },
+    {
+     "offset": 14,
+     "type": 6,
+     "resolved": 8066604
+    }
+   ],
+   "sha256": "b6a3683aee11452145c520e5bbb1b6b2fa814df9830ea4a448290727a30dd653"
+  },
+  {
+   "entry": "00783be4",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 12,
+   "assignment": "by order among 11 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??_Gbad_cast@@UAEPAXI@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 20
+    },
+    {
+     "offset": 17,
+     "type": 20,
+     "resolved": 4294959426
+    }
+   ],
+   "sha256": "1a0b4227ffa46613b0768cf8cf89c8a0fd2d277cfdd1f961df53fd23381ae4e9"
+  },
+  {
    "entry": "00783c05",
    "bytes": 198,
    "archive": "LIBCMT.LIB",
@@ -9461,6 +9676,90 @@
     }
    ],
    "sha256": "bb2f9ddfb06888e08583218d6e5661122c62cc070ee7c93cc2844fa662363bdf"
+  },
+  {
+   "entry": "00783dfb",
+   "bytes": 24,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 11,
+   "assignment": "by order among 8 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??0bad_cast@@QAE@ABQBD@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 8,
+     "type": 20,
+     "resolved": 29476
+    },
+    {
+     "offset": 14,
+     "type": 6,
+     "resolved": 8066736
+    }
+   ],
+   "sha256": "a186ab83af68d1418adae1978bfbc2b8e78aae70328ee510b9bbc40f3d2bc8ba"
+  },
+  {
+   "entry": "00783e13",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "stdexcpt.obj",
+   "member_index": 76,
+   "section_index": 1,
+   "assignment": "by order among 11 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??_Gexception@@UAEPAXI@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 20
+    },
+    {
+     "offset": 17,
+     "type": 20,
+     "resolved": 4294958867
+    }
+   ],
+   "sha256": "c8d36605e15ba1dc8daf45ebdc5abbb04b383527ba9459f6515b3db0ac1a550f"
+  },
+  {
+   "entry": "00783e34",
+   "bytes": 24,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 14,
+   "assignment": "by order among 8 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??0bad_cast@@QAE@ABV0@@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 8,
+     "type": 20,
+     "resolved": 29480
+    },
+    {
+     "offset": 14,
+     "type": 6,
+     "resolved": 8066736
+    }
+   ],
+   "sha256": "44ae863c3f83797c76b31616f9766803acd0682a6d226c63e5881d14045c83f7"
   },
   {
    "entry": "00783e4c",
@@ -10407,6 +10706,29 @@
    "sha256": "7c73024ae982e899a6e5ce41ea3c287a96511118110a81b25bffb43ab1182433"
   },
   {
+   "entry": "00784a6d",
+   "bytes": 14,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "new.obj",
+   "member_index": 140,
+   "section_index": 0,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??2@YAPAXI@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 7,
+     "type": 20,
+     "resolved": 28984
+    }
+   ],
+   "sha256": "06497f3389e6b2b49fe3412b129cd3d4bb274f78c440ab8ca0f6c92f419768a4"
+  },
+  {
    "entry": "00784a7b",
    "bytes": 14,
    "archive": "LIBCMT.LIB",
@@ -10643,6 +10965,29 @@
    "sha256": "9dd3c2a442ab1c0d076f74bdc3daeafe7aa1e09e2de0a5b1aa0f72c7c86111c2"
   },
   {
+   "entry": "00784bb8",
+   "bytes": 23,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "wcstol.obj",
+   "member_index": 21,
+   "section_index": 0,
+   "assignment": "by order among 12 identical sections",
+   "section": ".text",
+   "symbols": [
+    "_wcstol"
+   ],
+   "relocations": [
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 4
+    }
+   ],
+   "sha256": "85156f4c3aae70f2384b246c08d9526fa06f098beafe794968df3b46ecc3b745"
+  },
+  {
    "entry": "00784bcf",
    "bytes": 423,
    "archive": "LIBCMT.LIB",
@@ -10681,6 +11026,29 @@
     }
    ],
    "sha256": "828280c55a62a82a42e39102a11de1dbbe47a56cbbd5590b596296da67c0925d"
+  },
+  {
+   "entry": "00784d76",
+   "bytes": 23,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "wcstol.obj",
+   "member_index": 21,
+   "section_index": 2,
+   "assignment": "by order among 4 identical sections",
+   "section": ".text",
+   "symbols": [
+    "_wcstoul"
+   ],
+   "relocations": [
+    {
+     "offset": 15,
+     "type": 20,
+     "resolved": 4294966854
+    }
+   ],
+   "sha256": "93677701aef8fde253b03a8754e6a7661f484919a0c7da6952329e9eb2efb4f4"
   },
   {
    "entry": "00784d8d",
@@ -13441,6 +13809,51 @@
     }
    ],
    "sha256": "9bfcb6c87e82e7113264f86175a304743888349564947d1146fe8ecdccf6f9ee"
+  },
+  {
+   "entry": "00786d14",
+   "bytes": 13,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "cprintf.obj",
+   "member_index": 387,
+   "section_index": 5,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "639148f2f162bda27c1f66ab90d68794bac59a533c7cbf65580a2c6853ef771f"
+  },
+  {
+   "entry": "00786d21",
+   "bytes": 16,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "cprintf.obj",
+   "member_index": 387,
+   "section_index": 6,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "c0dff18e6194a628974f879b3b458f2c32143e8e460e9f471bbd1d5a2b5e299f"
+  },
+  {
+   "entry": "00786d31",
+   "bytes": 14,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "cprintf.obj",
+   "member_index": 387,
+   "section_index": 7,
+   "assignment": "by order among 4 identical sections",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "5f671d8a996ed9b6b5d29f932ff7a60ca5b1d02836de479b9c8f08e4575cb74a"
   },
   {
    "entry": "00786d3f",
@@ -17113,6 +17526,36 @@
    "sha256": "87fc0b6b6ab29f08917f6e85b523a5bc4148c64af66fd9ed7f591aca59730d14"
   },
   {
+   "entry": "0078ac25",
+   "bytes": 13,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "output.obj",
+   "member_index": 410,
+   "section_index": 4,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "639148f2f162bda27c1f66ab90d68794bac59a533c7cbf65580a2c6853ef771f"
+  },
+  {
+   "entry": "0078ac32",
+   "bytes": 16,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "output.obj",
+   "member_index": 410,
+   "section_index": 5,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "c0dff18e6194a628974f879b3b458f2c32143e8e460e9f471bbd1d5a2b5e299f"
+  },
+  {
    "entry": "0078ac42",
    "bytes": 194,
    "archive": "LIBCMT.LIB",
@@ -17516,6 +17959,34 @@
    "sha256": "1b785e63295ef99869a97f406717db731543f2378e5fba6337f95710014e5462"
   },
   {
+   "entry": "0078b10f",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "typinfo.obj",
+   "member_index": 77,
+   "section_index": 1,
+   "assignment": "by order among 11 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??_Gtype_info@@UAEPAXI@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 186
+    },
+    {
+     "offset": 17,
+     "type": 20,
+     "resolved": 4294929431
+    }
+   ],
+   "sha256": "a76c6bcf6937e8cc03d2907743ae2d75c1d55948a70429a11d2cd8432adc0d67"
+  },
+  {
    "entry": "0078b12b",
    "bytes": 61,
    "archive": "LIBCMT.LIB",
@@ -17753,6 +18224,29 @@
     }
    ],
    "sha256": "f47efc033a51c8f231f9d20c89ba120c8449a103d56f522c4f244489b91c4e81"
+  },
+  {
+   "entry": "0078b351",
+   "bytes": 16,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "iswctype.obj",
+   "member_index": 9,
+   "section_index": 1,
+   "assignment": "by order among 10 identical sections",
+   "section": ".text",
+   "symbols": [
+    "_is_wctype"
+   ],
+   "relocations": [
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 4294966992
+    }
+   ],
+   "sha256": "1c42eb856d48a4404a64a4b2b57388a4224c9cbaae54d56a73a4d544fa8a5503"
   },
   {
    "entry": "0078b361",
@@ -18585,6 +19079,29 @@
     }
    ],
    "sha256": "bdc4d98ae083742b08ac08319d1ccac8d6c4c3b50aea3ff364d87711ea1d197d"
+  },
+  {
+   "entry": "0078bc02",
+   "bytes": 16,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "rotl.obj",
+   "member_index": 306,
+   "section_index": 0,
+   "assignment": "by order among 10 identical sections",
+   "section": ".text",
+   "symbols": [
+    "__lrotl"
+   ],
+   "relocations": [
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 4294967201
+    }
+   ],
+   "sha256": "122820a17ff68bee4c882a3a1b25e61e88833aa65c0e690a8718325e984a7861"
   },
   {
    "entry": "0078bc12",
@@ -24482,6 +24999,62 @@
     }
    ],
    "sha256": "ac4bce6789334fee22ce37080d99a8f1a426503b82faf491ac48588d73aadc4a"
+  },
+  {
+   "entry": "0079032b",
+   "bytes": 22,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "intrncvt.obj",
+   "member_index": 581,
+   "section_index": 8,
+   "assignment": "by order among 4 identical sections",
+   "section": ".text",
+   "symbols": [
+    "__ld12tod"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 8585376
+    },
+    {
+     "offset": 14,
+     "type": 20,
+     "resolved": 4294966914
+    }
+   ],
+   "sha256": "97686100593fd58f3175cb5ec5414e2cee6891facc11b4c8dbd61f5e6d484d9c"
+  },
+  {
+   "entry": "00790341",
+   "bytes": 22,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "intrncvt.obj",
+   "member_index": 581,
+   "section_index": 9,
+   "assignment": "by order among 4 identical sections",
+   "section": ".text",
+   "symbols": [
+    "__ld12tof"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 8585400
+    },
+    {
+     "offset": 14,
+     "type": 20,
+     "resolved": 4294966892
+    }
+   ],
+   "sha256": "057ca1e13d475d31ccf49e07d5f002c5f8e6f8a6284a428a409777b95aaa58bc"
   },
   {
    "entry": "00790357",
@@ -30545,6 +31118,34 @@
    "sha256": "fbd997ebe69c6a9da6b22f2695f3874c74280a1a4544dacf8d41fe3af2e82441"
   },
   {
+   "entry": "00796012",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 RTM",
+   "archive_sha256": "1ef9c27b4f76031e40fcbdf7d518adc4969f90d6a00dd1ea88697907268c1b2b",
+   "member": "rtti.obj",
+   "member_index": 75,
+   "section_index": 2,
+   "assignment": "by order among 11 identical sections",
+   "section": ".text",
+   "symbols": [
+    "??_G__non_rtti_object@@UAEPAXI@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 65
+    },
+    {
+     "offset": 17,
+     "type": 20,
+     "resolved": 4294884628
+    }
+   ],
+   "sha256": "e81aa1ebbb44fb72dcf53847ad5fd956a6061212f65ba8785dd136110dcabf9a"
+  },
+  {
    "entry": "0079602e",
    "bytes": 45,
    "archive": "COMSUPP.LIB",
@@ -32179,6 +32780,72 @@
    "sha256": "c33f5472943f98fd51a08a4f5eec5d26c03d83c9e69e79e9a69a354c6ce55f4d"
   },
   {
+   "entry": "007963f7",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getch.obj",
+   "member_index": 178,
+   "section_index": 0,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [
+    "__getch"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 4294899847
+    },
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 43
+    },
+    {
+     "offset": 18,
+     "type": 20,
+     "resolved": 4294899930
+    }
+   ],
+   "sha256": "b5545301e2e385b33fc4d4482fe40d382149008a5e19e4a388e53d8049962ad9"
+  },
+  {
+   "entry": "00796413",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getch.obj",
+   "member_index": 178,
+   "section_index": 1,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [
+    "__getche"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 4294899819
+    },
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 224
+    },
+    {
+     "offset": 18,
+     "type": 20,
+     "resolved": 4294899902
+    }
+   ],
+   "sha256": "131b3ef7bcce5aa22e2ab3ecf15563ca75e5174cf58f92ce9f524cd10a2d85ee"
+  },
+  {
    "entry": "0079642f",
    "bytes": 209,
    "archive": "LIBCMT.LIB",
@@ -32303,6 +32970,39 @@
    "sha256": "a920c1f8d839020484f3960a360f8b36c01dfec043bc071e243884ae09e9eb96"
   },
   {
+   "entry": "00796538",
+   "bytes": 28,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getch.obj",
+   "member_index": 178,
+   "section_index": 4,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [
+    "__kbhit"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 4294899526
+    },
+    {
+     "offset": 9,
+     "type": 20,
+     "resolved": 15
+    },
+    {
+     "offset": 18,
+     "type": 20,
+     "resolved": 4294899609
+    }
+   ],
+   "sha256": "69db4bb5899f9070633e5b8a8a65b084afc68e04f1977e5e2a11d537fc74ea98"
+  },
+  {
    "entry": "00796554",
    "bytes": 190,
    "archive": "LIBCMT.LIB",
@@ -32363,6 +33063,39 @@
     }
    ],
    "sha256": "fe87f7ba264bee2420e108586fdbe04cfff2eb4310e58a39f81338e9ccd645d4"
+  },
+  {
+   "entry": "00796612",
+   "bytes": 33,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "getch.obj",
+   "member_index": 178,
+   "section_index": 6,
+   "assignment": "by order among 4 identical sections",
+   "section": ".text",
+   "symbols": [
+    "__ungetch"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 4294899308
+    },
+    {
+     "offset": 13,
+     "type": 20,
+     "resolved": 16
+    },
+    {
+     "offset": 22,
+     "type": 20,
+     "resolved": 4294899387
+    }
+   ],
+   "sha256": "d7b5b9c9691a1e99096df0274b496066a73b86a2703efb8f346030b3f0d9ae10"
   },
   {
    "entry": "00796633",
@@ -32767,6 +33500,51 @@
     }
    ],
    "sha256": "7d8ca7980dde74b2585f40ee70b859b66d365f93e936714e5888cfec598476a0"
+  },
+  {
+   "entry": "00796ecb",
+   "bytes": 13,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "woutput.obj",
+   "member_index": 446,
+   "section_index": 4,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "639148f2f162bda27c1f66ab90d68794bac59a533c7cbf65580a2c6853ef771f"
+  },
+  {
+   "entry": "00796ed8",
+   "bytes": 16,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "woutput.obj",
+   "member_index": 446,
+   "section_index": 5,
+   "assignment": "by order among 6 identical sections",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "c0dff18e6194a628974f879b3b458f2c32143e8e460e9f471bbd1d5a2b5e299f"
+  },
+  {
+   "entry": "00796ee8",
+   "bytes": 14,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "output.obj",
+   "member_index": 410,
+   "section_index": 6,
+   "assignment": "by order among 4 identical sections",
+   "section": ".text",
+   "symbols": [],
+   "relocations": [],
+   "sha256": "5f671d8a996ed9b6b5d29f932ff7a60ca5b1d02836de479b9c8f08e4575cb74a"
   },
   {
    "entry": "00796ef6",
@@ -33236,6 +34014,39 @@
     }
    ],
    "sha256": "64e751655435b3e124c754dabfa8aa0b3b43934c08e5e9a4b11993d35c962901"
+  },
+  {
+   "entry": "0079737c",
+   "bytes": 33,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "putch.obj",
+   "member_index": 179,
+   "section_index": 0,
+   "assignment": "by order among 4 identical sections",
+   "section": ".text",
+   "symbols": [
+    "__putch"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 20,
+     "resolved": 4294895874
+    },
+    {
+     "offset": 13,
+     "type": 20,
+     "resolved": 16
+    },
+    {
+     "offset": 22,
+     "type": 20,
+     "resolved": 4294895953
+    }
+   ],
+   "sha256": "c96aef62330359bc5e17c703105b12a6ceadccd4a932a6556d776a44809fb283"
   },
   {
    "entry": "0079739d",

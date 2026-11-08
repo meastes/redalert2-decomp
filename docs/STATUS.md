@@ -10,18 +10,19 @@ original code is still scaffold. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members; 100% when done) | **3,438,000 of 3,769,805 (91.20%)** |
-| Accepted regions | 17,893 |
-| Matched C/C++ body bytes | 3,205,402 (85.03% of .text) |
+| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,455,321 of 3,769,805 (91.66%)** |
+| Accepted regions | 17,874 |
+| Matched C/C++ body bytes | 3,204,999 (85.02% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 1,721 (0.05% of .text) |
 | Frozen padding bytes | 142,661 |
-| C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 554 matched) |
-| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 88,216 in 845 sections (2.34% of .text) |
+| C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 151 matched) |
+| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 88,941 in 878 sections (2.36% of .text) |
+| Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,204,848 of 3,516,019 (91.15%) |
-| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,852 of 17,987 (99.25%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 125 of 135 scored) | 98.78% by bytes, 99.80% per function |
-| Original .text scaffold bytes | 331,805 |
+| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,853 of 17,987 (99.26%) |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 124 of 134 scored) | 98.79% by bytes, 99.80% per function |
+| Original .text scaffold bytes | 314,484 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 693 |
 
@@ -2149,6 +2150,8 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `70ec9b4ba` | 2026-11-07 20:33 -0600 | 17,963 | 3,207,269 | +734 | 10,612 |
 | `ab585efa2` | 2026-11-07 20:36 -0600 | 17,892 | 3,204,135 | -3,134 | -58,762 |
 | `d12d1d9d0` | 2026-11-07 20:38 -0600 | 17,892 | 3,204,135 | +0 | 0 |
+| `3e9a7d531` | 2026-11-07 21:07 -0600 | 17,893 | 3,205,402 | +1,267 | 2,633 |
+| `3e177d422` | 2026-11-07 21:09 -0600 | 17,893 | 3,205,402 | +0 | 0 |
 
 <!-- /generated:status -->
 
@@ -2163,7 +2166,8 @@ Manifest history (body bytes added per commit, and per hour since the previous c
   **in-scope matched C/C++** (Westwood's C/C++ recovered). "Matched C/C++ body bytes" alone cannot reach
   100%: padding, the linked C runtime and handwritten assembly are never C/C++ source.
 - **Not source credit:** linked library members (SP3 LIBCMT/COMSUPP) and evidenced inline assembly are
-  their own ledgers; handwritten blitter/codec ranges and the unexplained CRT runs remain scaffold.
+  their own ledgers; handwritten ranges not yet assembled from TibSun .asm (Iso_Blit_Asm1, Detect_MMX_Availability,
+  RA2-only MMX code at 0x7989C1, blitters) and the unexplained CRT runs remain scaffold.
 - **Inventory is not a denominator:** baseline Ghidra found 8,077 function
   hypotheses, the seeded pass 16,331; region counts are not verified functions.
 - **Readability debt:** early accepted sources include register-transliterated

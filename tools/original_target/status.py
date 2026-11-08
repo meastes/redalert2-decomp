@@ -161,6 +161,16 @@ def functions(treemap, false_rows, best):
                 fuzzy_bytes=100.0 * weighted / total if total else 0.0, fuzzy_functions=per_function)
 
 
+def load_assembly(repository=REPOSITORY):
+    """Handwritten assembly reproduced from source (assembly_link.py --write): procedures assembled from the
+    adopted TibSun .asm files and proved against .text. None when the manifest is absent."""
+    path = repository / 'manifests/original_target/assembly.json'
+    if not path.exists():
+        return None
+    regions = json.loads(path.read_text())['regions']
+    return dict(bytes=sum(r['bytes'] for r in regions), regions=len(regions))
+
+
 def load_library(repository=REPOSITORY):
     """Linked library ledger from manifests/original_target/library.json (library_link.py --write): the
     archive sections the build links in place of scaffold. None when the manifest is absent."""
@@ -223,17 +233,18 @@ def text_bytes(executable):
     return next(s.Misc_VirtualSize for s in pe.sections if s.Characteristics & 0x20)
 
 
-def render(catalog, text, rows, funcs=None, lib=None):
+def render(catalog, text, rows, funcs=None, lib=None, asm=None):
     now = coverage(catalog)
-    scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm'] - (lib['bytes'] if lib else 0)
+    scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm'] - (lib['bytes'] if lib else 0) - (asm['bytes'] if asm else 0)
     populations = Counter(r['population'] for r in catalog['regions'])
     split = ledger(catalog, text)
     lib_bytes = lib['bytes'] if lib else 0
-    reproduced = now['body'] + now['evidenced_inline_asm'] + now['padding'] + lib_bytes
+    asm_bytes = asm['bytes'] if asm else 0
+    reproduced = now['body'] + now['evidenced_inline_asm'] + now['padding'] + lib_bytes + asm_bytes
     lines = [BEGIN, '',
              '| Measure | Value |', '| --- | ---: |',
              '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
-             'evidenced inline asm + frozen padding + linked library members; 100% when done) '
+             'evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) '
              '| **{:,} of {:,} ({:.2f}%)** |'.format(reproduced, text, 100.0 * reproduced / text),
              '| Accepted regions | {:,} |'.format(now['regions']),
              '| Matched C/C++ body bytes | {:,} ({:.2f}% of .text) |'.format(now['body'], 100.0 * now['body'] / text),
@@ -249,6 +260,10 @@ def render(catalog, text, rows, funcs=None, lib=None):
              'manifests/original_target/library.json; not source credit) | {:,} in {:,} sections ({:.2f}% of .text) |'
              .format(lib['bytes'], lib['sections'], 100.0 * lib['bytes'] / text),
              ] if lib else []) + [
+             ] + ([
+             '| Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; '
+             'own ledger) | {:,} in {:,} procedures |'.format(asm['bytes'], asm['regions']),
+             ] if asm else []) + [
              '| Handwritten blitter/codec assembly bytes ({} owner-ruled ranges plus evidenced inline asm; '
              'own ledger) | {:,} ({:.2f}% of .text) |'.format(len(HANDWRITTEN), split['asm'], 100.0 * split['asm'] / text),
              '| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) '
@@ -292,7 +307,7 @@ def main():
     args = parser.parse_args()
     catalog = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
     text = args.text_bytes or text_bytes(json.loads(args.config.read_bytes())['executable'])
-    block = render(catalog, text, history(), load_functions(), load_library())
+    block = render(catalog, text, history(), load_functions(), load_library(), load_assembly())
     if not args.write:
         print(block); return
     path = REPOSITORY / 'docs/STATUS.md'
