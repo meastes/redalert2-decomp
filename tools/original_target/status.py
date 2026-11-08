@@ -158,6 +158,16 @@ def functions(treemap, false_rows, best):
                 fuzzy_bytes=100.0 * weighted / total if total else 0.0, fuzzy_functions=per_function)
 
 
+def load_library(repository=REPOSITORY):
+    """Linked library ledger from manifests/original_target/library.json (library_link.py --write): the
+    archive sections the build links in place of scaffold. None when the manifest is absent."""
+    path = repository / 'manifests/original_target/library.json'
+    if not path.exists():
+        return None
+    regions = json.loads(path.read_text())['regions']
+    return dict(bytes=sum(r['bytes'] for r in regions), sections=len(regions))
+
+
 def load_functions(repository=REPOSITORY):
     """Function stats from build/treemap.json (treemap.py --json, regenerated at each landing). None when
     the treemap is absent, so STATUS still renders."""
@@ -210,7 +220,7 @@ def text_bytes(executable):
     return next(s.Misc_VirtualSize for s in pe.sections if s.Characteristics & 0x20)
 
 
-def render(catalog, text, rows, funcs=None):
+def render(catalog, text, rows, funcs=None, lib=None):
     now = coverage(catalog)
     scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm']
     populations = Counter(r['population'] for r in catalog['regions'])
@@ -226,6 +236,11 @@ def render(catalog, text, rows, funcs=None):
              '| C runtime / library bytes (.text >= 0x{:X}; library ledger, not source credit) '
              '| {:,} ({:.2f}% of .text; {:,} matched) |'.format(CRT_START, split['crt'], 100.0 * split['crt'] / text,
                                                               split['crt_matched']),
+             ] + ([
+             '| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP; '
+             'manifests/original_target/library.json; not source credit) | {:,} in {:,} sections ({:.2f}% of .text) |'
+             .format(lib['bytes'], lib['sections'], 100.0 * lib['bytes'] / text),
+             ] if lib else []) + [
              '| Handwritten blitter/codec assembly bytes ({} owner-ruled ranges plus evidenced inline asm; '
              'own ledger) | {:,} ({:.2f}% of .text) |'.format(len(HANDWRITTEN), split['asm'], 100.0 * split['asm'] / text),
              '| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) '
@@ -269,7 +284,7 @@ def main():
     args = parser.parse_args()
     catalog = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
     text = args.text_bytes or text_bytes(json.loads(args.config.read_bytes())['executable'])
-    block = render(catalog, text, history(), load_functions())
+    block = render(catalog, text, history(), load_functions(), load_library())
     if not args.write:
         print(block); return
     path = REPOSITORY / 'docs/STATUS.md'
