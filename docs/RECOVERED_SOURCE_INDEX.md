@@ -265,7 +265,7 @@
 | [netdlg](../src/recovered/netdlg/) | 6 | 1,447 | 6 | 0x005BB540–0x005BBAD0 |
 | [classes/GaugeClass](../src/recovered/classes/GaugeClass/) | 13 | 1,446 | 13 | 0x004D00F0–0x0053AB60 |
 | [classes/RandomStraw](../src/recovered/classes/RandomStraw/) | 11 | 1,446 | 11 | 0x0063D2D0–0x0063D890 |
-| [classes/CCFileClass](../src/recovered/classes/CCFileClass/) | 17 | 1,442 | 16 | 0x00401980–0x0051AD20 |
+| [classes/CCFileClass](../src/recovered/classes/CCFileClass/) | 17 | 1,442 | 17 | 0x00401980–0x0051AD20 |
 | [classes/WolChannelNameSet](../src/recovered/classes/WolChannelNameSet/) | 6 | 1,397 | 6 | 0x00766070–0x007679A0 |
 | [classes/LocomotionClass](../src/recovered/classes/LocomotionClass/) | 55 | 1,394 | 54 | 0x004A4BF0–0x0053D610 |
 | [classes/PacketClass](../src/recovered/classes/PacketClass/) | 13 | 1,318 | 13 | 0x00602A60–0x00602F60 |
