@@ -3001,3 +3001,11 @@ New rulings are recorded at their rows as before.
 
 ## Scout1031 (2026-11-08, closed; 0 B; NOTES, w/ in build/class-work/Scout1031/)
 - OwnerDraw CtrlProc 0x5EE460 is one 7,252 B window procedure (0x5EE460-0x5F00B4, frame 0x36C, last `ret 0x10` at 0x5F00B1, fill to 0x5F00C0); 0x5EF340 and thunk 0x5EF3F1 are inside it; a lane needs body_bytes 7252. 0x70BD92 and 0x5E8A35 are false rows. Misses: AlphaShapeClass::Draw_In_Area 0x41F1C0 41.92, Wait_For_Players 0x65C520 90.40 (register roles only), OwnerDraw darken bevel 0x5FE9B0 22.54, Compute_Zone_Connections 0x54FDA0 60.63 (cptr/x+y roles block a cross-jump).
+
+## Scout1032 (2026-11-08, closed; lab; corpus.tsv, heldout.json, fit.py, NOTES in build/class-work/Scout1032/)
+- Frame-slot tie-break fitted on accepted bodies (2,291 parsed, 511 with ties; 200 fit / 200 held out): no rule reaches 95%. Best is R1 "earlier last reference first": 76.5% of held-out functions (80.7% of pairs). Memory objects and temporaries only, frames <= 128 B: 92.6% held out (96.5% of pairs). Dominant failure: register-web homes (spilled/split webs take refs and position from the allocator); then /G5 store scheduling below argument pushes; big-frame K&R scrambles follow from those.
+- OWNER DECISION: below the 95% bar, so nothing goes into VC6_MATCHING_NOTES as a rule; the partial rule stays in Scout1032 NOTES as a hint. Next lever recorded there (whether layout counts IL references or final instructions).
+
+## Scout1030 (2026-11-08, closed; 0 B; NOTES, w/, ovr/ in build/class-work/Scout1030/)
+- The <3-attempt rows with twin/TibSun evidence are used up. Beacon Place 0x42E370 87.04 (a `bool found` flag threads the loop like the original but moves registers; the else arm's jmp still open); 0x6F7360 50.20 -> 54.20 (static `Select_Named(list, names)` helper keeps 0x6F6790 out of line; needs the 0x6F7610 rename); RadBeam Update_All 0x6354E0 79.45 (five register ties); 0x6F71E0 73.33 (real 371 B); VQA_Reset 0x77C7D0 75.68 not reworked; 0x682540 99.75 is an unreferenced `??_E` copy.
+- OWNER DECISIONS: false rows 0x432E95, 0x620FDB, 0x6FA20F (initializer padding) and Scout1031's 0x70BD92, 0x5E8A35, 0x5EF340, 0x5EF3F1 added to manifests/original_target/false_rows.json. 0x487080 BlitForward (C prologue + `__asm` blend, no TibSun `__asm`) is booked in the handwritten ledger in status.py.

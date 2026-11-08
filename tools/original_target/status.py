@@ -48,6 +48,9 @@ HANDWRITTEN = (
     # BlitTrans BlitForward specialisations (TibSun blitblit.h `__asm`; Surf66 list, Scout848 ruling); 45 B and 70 B.
     (0x775980, 0x7759AD, 'BlitTrans<uchar>::BlitForward'),
     (0x4861C0, 0x486206, 'BlitTrans BlitForward'),
+    # BlitForward with a C prologue and an `__asm` 50% translucent blend (owner, 2026-11-08, Scout1030): TibSun's
+    # BlitTransLucent50 is plain C, so the evidenced inline-asm exception does not apply; 90 B.
+    (0x487080, 0x4870DA, 'BlitTransLucent50 BlitForward'),
     # VQA32 MASM tail: AudioUnzap, VQA_LCW_Uncompress, sosCODEC, ASM_UnVQ_*, cpuid/rdtsc/FPU helpers
     # (OPEN_MISSES Abuf490, Scout845, Scout848 ruling, Scout922: ra2-decomp .asm twins). Extended to 0x781C8C (owner,
     # 2026-11-07): library_identity.py finds no archive member before typinfo.obj at 0x781C8C and the run jumps back
@@ -222,11 +225,16 @@ def text_bytes(executable):
 
 def render(catalog, text, rows, funcs=None, lib=None):
     now = coverage(catalog)
-    scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm']
+    scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm'] - (lib['bytes'] if lib else 0)
     populations = Counter(r['population'] for r in catalog['regions'])
     split = ledger(catalog, text)
+    lib_bytes = lib['bytes'] if lib else 0
+    reproduced = now['body'] + now['evidenced_inline_asm'] + now['padding'] + lib_bytes
     lines = [BEGIN, '',
              '| Measure | Value |', '| --- | ---: |',
+             '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
+             'evidenced inline asm + frozen padding + linked library members; 100% when done) '
+             '| **{:,} of {:,} ({:.2f}%)** |'.format(reproduced, text, 100.0 * reproduced / text),
              '| Accepted regions | {:,} |'.format(now['regions']),
              '| Matched C/C++ body bytes | {:,} ({:.2f}% of .text) |'.format(now['body'], 100.0 * now['body'] / text),
              '| Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, '

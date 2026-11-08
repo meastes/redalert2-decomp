@@ -10,17 +10,18 @@ original code is still scaffold. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
+| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members; 100% when done) | **3,429,912 of 3,769,805 (90.98%)** |
 | Accepted regions | 17,960 |
 | Matched C/C++ body bytes | 3,206,523 (85.06% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 1,721 (0.05% of .text) |
 | Frozen padding bytes | 142,626 |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 3,688 matched) |
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP; manifests/original_target/library.json; not source credit) | 79,042 in 436 sections (2.10% of .text) |
-| Handwritten blitter/codec assembly bytes (8 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,066 (0.61% of .text) |
-| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,202,835 of 3,516,144 (91.09%) |
-| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,849 of 17,996 (99.18%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 123 of 147 scored) | 98.75% by bytes, 99.73% per function |
-| Original .text scaffold bytes | 418,935 |
+| Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
+| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,202,835 of 3,516,054 (91.09%) |
+| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,849 of 17,995 (99.19%) |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 123 of 146 scored) | 98.75% by bytes, 99.74% per function |
+| Original .text scaffold bytes | 339,893 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 693 |
 
@@ -2154,9 +2155,11 @@ Manifest history (body bytes added per commit, and per hour since the previous c
   fresh complete build (`build/class-work/Owner/C1Ordinary-29c31b59-v1/landing/fresh-build/`)
   compiles all 12,971 accepted sources and reproduces every supplied byte; raw linker output
   differs and original PE metadata is retained explicitly.
-- **Not source credit:** 8,245 exact archive-identity (library) bytes remain
-  scaffold with zero library exceptions; 16 instruction/data-conflict bytes and
-  9 body-without-instruction bytes are unresolved in the A15 ledger.
+- **Headline:** quote **Reproduced .text** (everything the build produces from real inputs) with
+  **in-scope matched C/C++** (Westwood's C/C++ recovered). "Matched C/C++ body bytes" alone cannot reach
+  100%: padding, the linked C runtime and handwritten assembly are never C/C++ source.
+- **Not source credit:** linked library members (SP3 LIBCMT/COMSUPP) and evidenced inline assembly are
+  their own ledgers; handwritten blitter/codec ranges and the unexplained CRT runs remain scaffold.
 - **Inventory is not a denominator:** baseline Ghidra found 8,077 function
   hypotheses, the seeded pass 16,331; region counts are not verified functions.
 - **Readability debt:** early accepted sources include register-transliterated
