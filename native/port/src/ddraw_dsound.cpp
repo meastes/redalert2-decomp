@@ -7,6 +7,7 @@
 #include "ra2port/win32_port.hpp"
 
 #include <chrono>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <vector>
@@ -174,6 +175,9 @@ struct Surface {
     void present()
     {
         if (host() && host()->present) host()->present(pixels.data(), (int)width, (int)height, (int)pitch, (int)bytes * 8);
+        char detail[64];
+        snprintf(detail, sizeof detail, "%dx%d %d bpp", (int)width, (int)height, (int)bytes * 8);
+        progress("present", detail);
     }
 };
 
@@ -196,6 +200,12 @@ struct DirectDraw {
         s->bytes = display_bits / 8;
         s->pitch = ((s->width * s->bytes) + 3) & ~3;
         s->pixels.assign((size_t)s->pitch * (size_t)s->height, 0);
+        {
+            char detail[96];
+            snprintf(detail, sizeof detail, "%dx%d %d bpp caps 0x%x", (int)s->width, (int)s->height, (int)display_bits, (unsigned)s->caps);
+            progress(s->primary ? "primary" : "surfaces", detail);
+            progress_count("surfaces created", detail);
+        }
         *out = s;
         return DD_OK;
     }
@@ -410,6 +420,7 @@ extern "C" {
 HRESULT DirectDrawCreate(void *guid, DirectDraw **out, void *outer)
 {
     (void)guid; (void)outer;
+    progress("ddraw");
     *out = new DirectDraw;
     return DD_OK;
 }

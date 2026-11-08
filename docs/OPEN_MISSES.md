@@ -3097,3 +3097,7 @@ New rulings are recorded at their rows as before.
 
 ## Scout1057 (2026-11-08, closed; 0 B; NOTES, cg3.py, ps.py in build/class-work/Scout1057/)
 - No parked inline row has the 0x6F58E0 pattern (small same-unit function before the row, called by it, accepted elsewhere); eight joins tested, no score moved. Pass-6a instructions.jsonl drops code after operator new 0x782017 (treated as noreturn): use capstone on the bytes for call graphs. New fragile rows: 0x5FB270 and 0x5E5150 (population 4339) break when one declaration is added (added to LANE_BRIEF's fragile list).
+
+## Scout1059 (2026-11-08, closed; 0 B; Techno unit (population-4332) on the TPoint3D profile; NOTES, keep/, ov4/, oh2/ in build/class-work/Scout1059/)
+- Model P1 (profile + RA2_TPOINT3D_DIVIDE + RA2_TPOINT3D_DIFFERENCE; TibSun `class Coord : public TPoint3D<int>` with two ctors): every moved row re-made exact (Draw_Post_Render 0x6C2C40 keep/pa4.cpp via TibSun's `unknown_talk_techno_ac01c4 == this` and an @ref for the out-of-line /4 at 0x6D9770) except AI 0x6C74C0 at 99.44 (TPoint3D sum converted for the ParticleSystemClass argument evaluates the right operand first). Model P2 (own CoordStruct operator+, RA2_COORD_OWN_SUM): AI exact, Take_Damage re-rolled (keep/td3.cpp), but 0x6C2C40 99.91 from the declaration counter (bad at 0-4 extra declarations).
+- Payoff: health bar 0x6C3F00 58.26 with matching calls; 0x6D0990 unchanged. MISSES_INDEX draft paths for several Techno rows point at wrong files (tool issue: path picked from a summary line).

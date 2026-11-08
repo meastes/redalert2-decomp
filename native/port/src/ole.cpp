@@ -14,6 +14,7 @@
 #include <time.h>
 
 using namespace ra2port;
+namespace ra2port { int32_t create_blowfish_object(const void *iid, void **out); }
 
 namespace {
 const HRESULT S_OK = 0, E_NOTIMPL = (HRESULT)0x80004001u, E_POINTER = (HRESULT)0x80004003u,
@@ -76,9 +77,16 @@ HRESULT CoRevokeClassObject(DWORD cookie)
     return S_OK;
 }
 
+// Blowfish.dll (the installation's COM server; CLSID_BlowfishObject from TibSun
+// code/iblowfish_i.c) has no DLL natively: port/src/blowfish.cpp is the server.
+const GUID CLSID_BlowfishObject = {0x1440ad10, 0x6aa8, 0x11d1, {0xb6, 0xf9, 0x00, 0xa0, 0x24, 0xdd, 0xaf, 0xd1}};
+
 HRESULT CoCreateInstance(const GUID *clsid, IUnknownPort *outer, DWORD context, const GUID *iid, void **out)
 {
     (void)context;
+    if (!memcmp(clsid, &CLSID_BlowfishObject, sizeof *clsid)) {
+        return ra2port::create_blowfish_object(iid, out);
+    }
     IClassFactoryPort *factory = nullptr;
     {
         std::lock_guard<std::mutex> g(com_lock);
@@ -158,5 +166,13 @@ WCHAR *SysAllocString(const WCHAR *text)
 void SysFreeString(WCHAR *text) { if (text) free((uint32_t *)text - 1); }
 HRESULT LoadTypeLib(const WCHAR *file, void **out) { (void)file; if (out) *out = nullptr; unimplemented("LoadTypeLib"); return E_NOTIMPL; }
 HRESULT RevokeActiveObject(DWORD cookie, void *reserved) { (void)cookie; (void)reserved; return S_OK; }
+// The running-object table has no other clients natively: registration succeeds.
+HRESULT RegisterActiveObject(IUnknownPort *unknown, const GUID *clsid, DWORD flags, DWORD *cookie)
+{
+    (void)unknown; (void)clsid; (void)flags;
+    static DWORD next = 1;
+    if (cookie) *cookie = next++;
+    return S_OK;
+}
 
 }  // extern "C"

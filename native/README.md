@@ -13,6 +13,7 @@ cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all   # whole tree (3,279
 cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON   # link with traps; gen/link_closure.json
 ctest --test-dir build/native            # native-core-check
 build/native/ra2-native --smoke-test     # SDL3 host window
+build/native/ra2-native --data-dir <installation> --run-to=menu   # start-up test run (below)
 ```
 
 Full-tree smoke test: all 3,610 original static initialisers run (in `_initterm`
@@ -21,6 +22,26 @@ destructors complete. Diagnostics: `RA2_NATIVE_INIT_TRACE=1` prints each unit's
 first original initterm index as it starts, `RA2_NATIVE_CRASH_TRACE=1` prints the
 last index and a backtrace on a fault, `RA2_NATIVE_TRAP_CONTINUE=1` lists every
 link-closure trap on the path instead of stopping at the first.
+
+## Start-up test runs
+
+`ra2-native --run-to=<milestone> [--run-seconds=N] [--write-dir=D] --data-dir <installation>`
+starts the game (WinMain, `native/drafts.json` 0x68E280) and logs each start-up
+milestone to stderr as the port sees it: `main`, `winmain`, `ini` (RA2.INI opened),
+`mix` (first MIX), `strings` (ra2.csf as a loose file; from a MIX it is implied by
+`window`), `window`, `ddraw`, `primary` (first DirectDraw primary surface),
+`surfaces` (off-screen surfaces after it), `dialog` (first dialog requested: the
+templates are the open question), `present` (first frame presented), `menu` (not
+detected yet: the main menu is a dialog, blocked with the templates; use it as the
+run-as-far-as-possible target). The
+run ends by itself at the requested milestone (exit 0), the first link-closure
+trap (3), a fault (4, with a backtrace), WinMain returning, or the time limit
+(default 5 s; exit 2, with the main thread's backtrace), and prints a summary:
+milestones with times, files opened/written, windows, surfaces, dialogs, message
+boxes, unported imports and traps. The installation is never written: every
+create/write/delete goes to `--write-dir` (default a fresh `$TMPDIR/ra2-native-run-*`)
+and reads look there first. Message boxes print to stderr; no modal UI is shown.
+The host plays the launcher's part (the launch mutex and event RA2.EXE created).
 
 ## Layers
 
@@ -51,7 +72,10 @@ link-closure trap on the path instead of stopping at the first.
    in `gen/report.json`).
    `--drafts` appends the non-exact launch-path drafts listed in `drafts.json`
    (entry, score, draft path, host group; only those marked `compiles`) and
-   writes `gen/drafts.json`; drafts live in private lane scratch
+   writes `gen/drafts.json`; a draft with `host_source: null` is its own unit,
+   linked after the initialiser units (WinMain: no accepted Startup.CPP row hosts
+   it); an `adapted` draft is a native adaptation of the scored draft (its private
+   headers inlined, non-portable statements marked NATIVE); drafts live in private lane scratch
    (`-DRA2_NATIVE_DRAFTS=ON -DRA2_NATIVE_DRAFT_ROOT=<checkout>`).
 2. **Dialect** (`port/include/ra2port/prelude.hpp`, forced include, plus flags
    `-fms-extensions -fms-compatibility -fdelayed-template-parsing -Xclang -fno-wchar
@@ -70,7 +94,10 @@ link-closure trap on the path instead of stopping at the first.
    element types whose owner unit is missing; `initterm_rewrites.cpp` rewrites the
    seed/scaffold explicit initialisers (`Initterm_<entry>`, called at their
    positions); `behaviour_*.cpp` hold behaviour-written bodies of unmatched rows on
-   the start-up/exit path, each citing its evidence. Aliases are applied with ld64
+   the start-up/exit path, each citing its evidence (`behaviour_winmain.cpp`,
+   `behaviour_surface.cpp`, `behaviour_map.cpp`: the WinMain path). Fixups run
+   before the inline-assembly check, so a fixup can give an evidenced `__asm` block
+   its native meaning (Main_Game's exception-return capture). Aliases are applied with ld64
    `-alias_list` (link_closure.py filters them to the current link).
 4. **Native data** (`data/`): globals the code reads from the original's .data/.rdata.
    Each comes from adopted source text (TibSun / ra2-decomp, with attribution), a
@@ -80,6 +107,12 @@ link-closure trap on the path instead of stopping at the first.
    source are listed in `unsourced_initialised.tsv`, never defined from the executable.
    One storage per original address: other names of a BSS address are assembler
    aliases (`.set`), names whose address another input defines go to `bss_aliases.tsv`.
+   WinMain path data: `com_guids.cpp` (COM class/interface ids: TibSun MIDL output
+   and public Microsoft ids), `startup_winmain.cpp` (key text, launcher names,
+   flags; TibSun / ra2-decomp text), `base64_tables.cpp` (TibSun base64.cpp),
+   `crc32_table.cpp` (CRC-32 table generated at compile time); each compared
+   privately with the pinned target, nothing copied. Data files are not
+   port-rewritten: spell VC6 `long` as `int` there.
    **Generated data**: `tools/fast_math_tables.py` computes the fast-math tables
    (sin/cos 10,241, asin 4,097, tan 4,097, atan 4,097 + step, sqrt mantissas 16,384)
    and their scale constants at configure time: TibSun fastmath.cpp's init loops run
@@ -90,6 +123,11 @@ link-closure trap on the path instead of stopping at the first.
    KERNEL32, USER32, GDI32, WSOCK32, ole32, binkw32, ...) implemented on POSIX and
    SDL3 under the same C names; DirectDraw/DirectSound as C++ classes with the COM
    interface shapes the recovered code calls, backed by SDL3 textures and audio streams.
+   Blowfish.dll's COM server (IBlockCipher, MIX header decryption) is native
+   (`port/src/blowfish.cpp`, TibSun blowfish.cpp); comctl32's DllGetVersion
+   reports 5.81; FindWindowA, OpenMutexA, RegisterActiveObject,
+   MessageBoxIndirectA and `_controlfp` are ported; showing the first top-level
+   window activates it (WM_ACTIVATEAPP, WM_ACTIVATE) as Windows does.
    Unported imports are logged no-ops returning their Win32 failure value
    (`port/src/win32_unimplemented.cpp` and the `ra2port::unimplemented` calls).
 6. **Host** (`platform/sdl`, `ra2-native`): process, window, event pump

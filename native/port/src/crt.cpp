@@ -438,7 +438,8 @@ int _open(const char *name, int flags, ...)
     if (flags & 0x200) f |= O_TRUNC;
     if (flags & 0x400) f |= O_EXCL;
     char path[1024];
-    host_path(name, path, sizeof path);
+    if (f & (O_WRONLY | O_RDWR | O_CREAT | O_TRUNC)) host_path_write(name, path, sizeof path);
+    else host_path(name, path, sizeof path);
     return open(path, f, 0644);
 }
 int _read(int fd, void *buffer, unsigned int n) { return (int)read(fd, buffer, n); }
@@ -452,14 +453,25 @@ int32_t _filelength(int fd)
 int _unlink(const char *name)
 {
     char path[1024];
-    host_path(name, path, sizeof path);
+    host_path_write(name, path, sizeof path);
     return unlink(path);
 }
 FILE *ra2_fopen(const char *name, const char *mode)
 {
     char path[1024];
-    host_path(name, path, sizeof path);
+    if (mode && (strchr(mode, 'w') || strchr(mode, 'a') || strchr(mode, '+'))) host_path_write(name, path, sizeof path);
+    else host_path(name, path, sizeof path);
     return fopen(path, mode);
+}
+
+// The x87 control word (VC6 CRT _controlfp): kept as a value only. arm64 has
+// no x87; precision/rounding requests (WinMain asks for 64-bit precision,
+// 0x300/0x300) do not change native double arithmetic. Default _CW_DEFAULT.
+unsigned int _controlfp(unsigned int value, unsigned int mask)
+{
+    static unsigned int word = 0x0009001Fu;
+    word = (word & ~mask) | (value & mask);
+    return word;
 }
 
 void __amsg_exit(int code)

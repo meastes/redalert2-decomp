@@ -115,6 +115,12 @@ HWND CreateWindowExA(DWORD exstyle, const char *cls, const char *title, DWORD st
     wnd->rect.right = wnd->rect.left + w;
     wnd->rect.bottom = wnd->rect.top + h;
     HWND hwnd = handle_new(wnd);
+    {
+        char detail[256];
+        snprintf(detail, sizeof detail, "class \"%s\" title \"%s\" %dx%d", wnd->cls.c_str(), wnd->title.c_str(), w, h);
+        progress_count("windows created", detail);
+        if (!parent) progress("window", detail);
+    }
     if (!parent && !main_hwnd) {
         main_hwnd = hwnd;
         focus_hwnd = hwnd;
@@ -137,12 +143,23 @@ BOOL DestroyWindow(HWND hwnd)
 }
 
 BOOL CloseWindow(HWND hwnd) { return win(hwnd) != nullptr; }
+LRESULT SendMessageA(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam);
 BOOL ShowWindow(HWND hwnd, int cmd)
 {
     Window *w = win(hwnd);
     if (!w) return 0;
     bool was = w->visible;
     w->visible = cmd != 0;
+    // Showing the application's first top-level window makes it the active,
+    // foreground window, as Windows does for a newly started program: the
+    // window receives WM_ACTIVATEAPP(TRUE) and WM_ACTIVATE(WA_ACTIVE) then.
+    // (Later focus changes come from the host's SDL focus events.)
+    static bool activated = false;
+    if (!was && w->visible && hwnd == main_hwnd && !activated) {
+        activated = true;
+        SendMessageA(hwnd, 0x001C, 1, 0);   // WM_ACTIVATEAPP
+        SendMessageA(hwnd, 0x0006, 1, 0);   // WM_ACTIVATE, WA_ACTIVE
+    }
     return was;
 }
 BOOL UpdateWindow(HWND hwnd) { return win(hwnd) != nullptr; }
@@ -438,10 +455,30 @@ int wsprintfA(char *out, const char *format, ...)
     return n;
 }
 
+int MessageBoxA(HWND hwnd, const char *text, const char *caption, UINT type);
+
+// One native instance: no other game window exists to find.
+HWND FindWindowA(const char *cls, const char *title) { (void)cls; (void)title; return nullptr; }
+
+struct MSGBOXPARAMSA_PORT {
+    UINT cbSize;
+    HWND hwndOwner;
+    HINSTANCE hInstance;
+    const char *lpszText;
+    const char *lpszCaption;
+    DWORD dwStyle;
+};
+int MessageBoxIndirectA(const MSGBOXPARAMSA_PORT *params)
+{
+    if (!params) return 0;
+    return MessageBoxA(params->hwndOwner, params->lpszText, params->lpszCaption, params->dwStyle);
+}
+
 int MessageBoxA(HWND hwnd, const char *text, const char *caption, UINT type)
 {
     (void)hwnd; (void)type;
     fprintf(stderr, "MessageBox [%s]: %s\n", caption ? caption : "", text ? text : "");
+    progress_count("message boxes", text ? text : "");
     return 1;   // IDOK
 }
 
@@ -449,27 +486,43 @@ BOOL WinHelpA(HWND hwnd, const char *file, UINT cmd, uintptr_t data) { (void)hwn
 
 // ---- dialogs (templates are resources of the user's game executable) -------
 
+// Logs a dialog request (--run-to): the resource id or name, and the "dialog"
+// milestone; the templates are the open question (NOTES: dialog templates).
+static void note_dialog(const char *api, const void *name)
+{
+    char detail[128];
+    if ((uintptr_t)name < 0x10000) snprintf(detail, sizeof detail, "%s #%u", api, (unsigned)(uintptr_t)name);
+    else if (name) snprintf(detail, sizeof detail, "%s \"%.80s\"", api, (const char *)name);
+    else snprintf(detail, sizeof detail, "%s (indirect)", api);
+    progress_count("dialogs requested", detail);
+    progress("dialog", detail);
+}
+
 HWND CreateDialogParamA(HINSTANCE instance, const char *name, HWND parent, DLGPROC proc, LPARAM init)
 {
     (void)instance; (void)name; (void)parent; (void)proc; (void)init;
+    note_dialog("CreateDialogParamA", name);
     unimplemented("CreateDialogParamA");
     return nullptr;
 }
 HWND CreateDialogIndirectParamA(HINSTANCE instance, const void *templ, HWND parent, DLGPROC proc, LPARAM init)
 {
     (void)instance; (void)templ; (void)parent; (void)proc; (void)init;
+    note_dialog("CreateDialogIndirectParamA", nullptr);
     unimplemented("CreateDialogIndirectParamA");
     return nullptr;
 }
 intptr_t DialogBoxParamA(HINSTANCE instance, const char *name, HWND parent, DLGPROC proc, LPARAM init)
 {
     (void)instance; (void)name; (void)parent; (void)proc; (void)init;
+    note_dialog("DialogBoxParamA", name);
     unimplemented("DialogBoxParamA");
     return -1;
 }
 intptr_t DialogBoxIndirectParamA(HINSTANCE instance, const void *templ, HWND parent, DLGPROC proc, LPARAM init)
 {
     (void)instance; (void)templ; (void)parent; (void)proc; (void)init;
+    note_dialog("DialogBoxIndirectParamA", nullptr);
     unimplemented("DialogBoxIndirectParamA");
     return -1;
 }

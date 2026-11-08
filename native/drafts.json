@@ -1,5 +1,5 @@
 {
- "about": "Unmatched launch-path functions carried in the native tree as their best parked draft (Scout1050 trace table, plans 'draft as-is' (score >= 95) and 'draft, verify'). NON-EXACT: never exact-match credit. score = misses_index best; last_lane_score = the last score a lane reported; draft_found_by: index = misses_index names this draft, search = newest/highest .cpp naming the entry (unconfirmed). The draft text is appended to the compile group of host_source (the neighbouring accepted row's unit), as the exact-tree join does. Drafts live in private lane scratch (build/class-work); a missing file is reported, not fatal. native: 'compiles' = the draft passes clang (arm64) inside its host group and is appended; 'blocked: <first error>' = not appended (it needs header declarations or macros from the lane's private overlay, or it repeats neighbouring definitions); raw_seed = the path is a Ghidra seed (seed_ namespace, Ghidra types), not the scored draft, so it does not define the real symbol.",
+ "about": "Unmatched launch-path functions carried in the native tree as their best parked draft (Scout1050 trace table, plans 'draft as-is' (score >= 95) and 'draft, verify'). NON-EXACT: never exact-match credit. score = misses_index best; last_lane_score = the last score a lane reported; draft_found_by: index = misses_index names this draft, search = newest/highest .cpp naming the entry (unconfirmed). The draft text is appended to the compile group of host_source (the neighbouring accepted row's unit), as the exact-tree join does. Drafts live in private lane scratch (build/class-work); a missing file is reported, not fatal. native: 'compiles' = the draft passes clang (arm64) inside its host group and is appended; 'blocked: <first error>' = not appended (it needs header declarations or macros from the lane's private overlay, or it repeats neighbouring definitions); raw_seed = the path is a Ghidra seed (seed_ namespace, Ghidra types), not the scored draft, so it does not define the real symbol. host_source null = the draft is its own unit (linked after the initialiser units); adapted = a native adaptation of the scored draft (private headers inlined, non-portable statements replaced, each marked NATIVE in the text).",
  "drafts": [
   {
    "entry": "0x42E370",
@@ -602,6 +602,21 @@
    "host_source": "src/recovered/classes/XSurface/XSurface_Unknown_Slot16_00773ef0.cpp",
    "raw_seed": true,
    "native": "compiles"
+  },
+  {
+   "entry": "0x68E280",
+   "name": "WinMain",
+   "plan": "draft, adapted",
+   "tier": "menu (startup)",
+   "bytes": 10080,
+   "score": 98.55,
+   "last_lane_score": 98.55,
+   "draft": "build/class-work/Scout1058/draft/winmain_68e280_native.cpp",
+   "draft_found_by": "codex4 status (residue_batch_96/immediate.cpp, 52 differing bytes)",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "adapted": "codex4's private shared/startup_*.hpp inlined; RA2_STARTUP_* header additions spelled locally; SEH __try/__except around Main_Game dropped (no SEH natively)"
   }
  ]
 }

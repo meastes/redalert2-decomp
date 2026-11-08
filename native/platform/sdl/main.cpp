@@ -17,20 +17,55 @@
 // The recovered entry point (0x0068E280). Not yet in the tree: with
 // RA2_NATIVE_LINK_CLOSURE it resolves to a trap that names it.
 struct HINSTANCE__;
-int WinMain(HINSTANCE__ *instance, HINSTANCE__ *previous, char *command_line, int show);
+extern "C" char const launch_mutex_name_007d515c[];
+extern char const launcher_event_007d51f0[];
+extern "C" void *CreateMutexA(void *security, int owned, const char *name);
+extern "C" void *CreateEventA(void *security, int manual, int initial, const char *name);
+// C linkage, as the original's entry and the draft declare it.
+extern "C" int WinMain(HINSTANCE__ *instance, HINSTANCE__ *previous, char *command_line, int show);
 #endif
 void ra2_install_sdl_host();
 extern "C" int ra2port_initterm_last(int *units);
+extern "C" void ra2port_run_to(const char *target, int seconds);
+extern "C" void ra2port_run_end(const char *why);
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 int main(int argc, char **argv)
 {
     const char *data = getenv("RA2_DATA_DIR");
     bool smoke = false;
+    // Test runs (README "Start-up test runs"): --run-to=<milestone> starts the
+    // game, logs each start-up milestone and ends by itself at that milestone,
+    // the first unrecovered function, a fault or --run-seconds (default 5).
+    // The installation is never written: writes go to --write-dir (default a
+    // fresh directory under $TMPDIR). Dialogs and message boxes are never shown.
+    const char *run_to = nullptr;
+    const char *write_dir = nullptr;
+    int run_seconds = 5;
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--data-dir") && i + 1 < argc) data = argv[++i];
         else if (!strcmp(argv[i], "--smoke-test")) smoke = true;
+        else if (!strncmp(argv[i], "--run-to=", 9)) run_to = argv[i] + 9;
+        else if (!strncmp(argv[i], "--run-seconds=", 14)) run_seconds = atoi(argv[i] + 14);
+        else if (!strncmp(argv[i], "--write-dir=", 12)) write_dir = argv[i] + 12;
+    }
+    static char write_template[1024];
+    if (run_to && !write_dir) {
+        const char *tmp = getenv("TMPDIR");
+        snprintf(write_template, sizeof write_template, "%s/ra2-native-run-XXXXXX", tmp && *tmp ? tmp : "/tmp");
+        write_dir = mkdtemp(write_template);
+    }
+    if (write_dir) {
+        ra2port::set_write_dir(write_dir);
+        fprintf(stderr, "run-to: writes go to %s\n", write_dir);
+    }
+    if (run_to) {
+        if (smoke) { fprintf(stderr, "--run-to and --smoke-test exclude each other\n"); return 64; }
+        if (!data) { fprintf(stderr, "--run-to needs --data-dir or RA2_DATA_DIR (the game installation, read only)\n"); return 64; }
+        setenv("RA2_PORT_QUIET", "1", 0);
+        ra2port_run_to(run_to, run_seconds);
     }
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS)) {
         fprintf(stderr, "SDL_Init: %s\n", SDL_GetError());
@@ -50,7 +85,19 @@ int main(int argc, char **argv)
         // (the host hook opens the SDL window) and runs its own message loop.
         ra2_install_sdl_host();
         static char command_line[] = "";
+        // The native game is its own launcher: RA2.EXE created this mutex and
+        // event before starting GAME.EXE, which checks the first (0x004918F0)
+        // and signals the second (0x00491930). Same names (data/startup_winmain.cpp).
+        CreateMutexA(nullptr, 0, launch_mutex_name_007d515c);
+        CreateEventA(nullptr, 0, 0, launcher_event_007d51f0);
+        ra2port::progress("main");
+        ra2port::progress("winmain");
         int code = WinMain((HINSTANCE__ *)(uintptr_t)0x400000, nullptr, command_line, 1);
+        {
+            char why[64];
+            snprintf(why, sizeof why, "WinMain returned %d", code);
+            ra2port_run_end(why);
+        }
         SDL_Quit();
         return code;
     }

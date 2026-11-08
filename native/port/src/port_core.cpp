@@ -23,6 +23,10 @@ std::mutex &table_lock() { static std::mutex m; return m; }
 std::vector<HandleObject *> &table() { static std::vector<HandleObject *> t; return t; }
 thread_local DWORD last_error = 0;
 std::string &data_root() { static std::string d; return d; }
+// Write overlay (--write-dir; always set by --run-to): files the game creates or
+// writes land here instead of the user's installation, which stays read-only;
+// reads look here first so the game sees its own writes.
+std::string &write_root() { static std::string d; return d; }
 const Host *current_host = nullptr;
 const uintptr_t HANDLE_BASE = 0x100;
 }
@@ -34,6 +38,7 @@ void unimplemented(const char *name)
     std::lock_guard<std::mutex> g(m);
     if (seen.insert(name).second && getenv("RA2_PORT_QUIET") == nullptr)
         fprintf(stderr, "ra2_port: %s not implemented (returns failure)\n", name);
+    progress_count("unported imports", name);
 }
 
 void trace(const char *fmt, ...)
@@ -92,6 +97,7 @@ bool handle_close(HANDLE handle)
     return true;
 }
 
+std::string overlay_path(const std::string &host);
 void set_data_dir(const char *dir) { data_root() = dir ? dir : ""; }
 const char *data_dir() { return data_root().empty() ? "." : data_root().c_str(); }
 
@@ -135,7 +141,45 @@ char *host_path(const char *game_path, char *out, size_t n)
         if (slash == std::string::npos) break;
         start = slash + 1;
     }
+    if (!write_root().empty()) {
+        std::string w = overlay_path(result);
+        struct stat st;
+        if (!w.empty() && stat(w.c_str(), &st) == 0) result = w;
+    }
     snprintf(out, n, "%s", result.c_str());
+    return out;
+}
+
+void set_write_dir(const char *dir) { write_root() = dir ? dir : ""; }
+const char *write_dir() { return write_root().empty() ? nullptr : write_root().c_str(); }
+
+// The overlay twin of a host path: paths under the data root keep their
+// relative part, others their last component.
+std::string overlay_path(const std::string &host)
+{
+    if (write_root().empty()) return std::string();
+    const std::string &base = data_root();
+    std::string rel;
+    if (!base.empty() && host.compare(0, base.size(), base) == 0 &&
+        (host.size() == base.size() || host[base.size()] == '/'))
+        rel = host.substr(base.size());
+    else if (host.compare(0, write_root().size(), write_root()) == 0)
+        return host;
+    else
+        rel = "/" + host.substr(host.rfind('/') == std::string::npos ? 0 : host.rfind('/') + 1);
+    return write_root() + rel;
+}
+
+char *host_path_write(const char *game_path, char *out, size_t n)
+{
+    host_path(game_path, out, n);
+    if (write_root().empty()) return out;
+    std::string w = overlay_path(out);
+    // Create the overlay's parent directories.
+    for (size_t i = write_root().size() + 1; i < w.size(); ++i) {
+        if (w[i] == '/') mkdir(w.substr(0, i).c_str(), 0755);
+    }
+    snprintf(out, n, "%s", w.c_str());
     return out;
 }
 

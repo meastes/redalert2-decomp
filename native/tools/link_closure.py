@@ -141,8 +141,10 @@ def main():
            ' * NOT GAME CODE. Traps for unrecovered functions, zero placeholders for',
            ' * unsourced data; see link_closure.json for the classified list. */',
            '#include <stdio.h>', '#include <stdlib.h>',
+           'void ra2port_trap_reached(const char *name);  /* --run-to summary (port) */',
            'static void ra2_unrecovered(const char *name)',
            '{', '    fprintf(stderr, "ra2-native: unrecovered %s reached\\n", name);',
+           '    ra2port_trap_reached(name);',
            '    /* RA2_NATIVE_TRAP_CONTINUE=1 lists every trap on a path instead of stopping',
            '       at the first (diagnostics only: the caller then reads an undefined result). */',
            '    if (!getenv("RA2_NATIVE_TRAP_CONTINUE")) abort();', '}']

@@ -315,6 +315,13 @@
    "new": "0x4b2, 0, (LPARAM)text",
    "why": "SendMessageA lParam carrying a text pointer: on Win32 (long) and (LPARAM) are the same cast; natively LPARAM is pointer-sized and `long` is 32 bits, so the pointer is cast to LPARAM to stay whole.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Main_Game_00481bf0.cpp",
+   "old": "    __asm {\n        mov ExceptionReturnStack, esp\n        mov ExceptionReturnFrame, ebp\n        lea eax, ret_addr\n        mov ExceptionReturnAddress, eax\n    }\n",
+   "new": "    // NATIVE: the evidenced inline-assembly exception-return capture (TibSun conquer.cpp)\n    // records esp/ebp/resume address for the Win32 SEH handler; there is no SEH\n    // natively, so the values stay 0 and only the debug prints read them.\n",
+   "why": "Main_Game 0x00481BF0 is accepted with the author's evidenced inline assembly (x86 registers). Natively nothing resumes through ExceptionReturn*: WinMain's native adaptation has no __try/__except, so the capture is dropped and the rest of the accepted body is compiled as is.",
+   "verified": false
   }
  ]
 }

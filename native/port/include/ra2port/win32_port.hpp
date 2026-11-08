@@ -65,6 +65,18 @@ void set_data_dir(const char *dir);
 const char *data_dir();
 // Writes the host path for a game path into out (size n); returns out.
 char *host_path(const char *game_path, char *out, size_t n);
+// Writes (create, write access, delete, rename) go through host_path_write:
+// with a write directory set (--write-dir, always under --run-to) they land in
+// that overlay and the installation is never modified.
+void set_write_dir(const char *dir);
+const char *write_dir();
+char *host_path_write(const char *game_path, char *out, size_t n);
+
+// Start-up progress (--run-to, platform/sdl/main.cpp): named milestones and
+// counters logged as the game reaches them; reaching the requested one, a trap
+// or the time limit prints the summary and ends the process.
+void progress(const char *milestone, const char *detail = nullptr);
+void progress_count(const char *counter, const char *detail = nullptr);
 
 // UTF-16 helpers (VC6 wchar_t).
 size_t wlen(const WCHAR *s);

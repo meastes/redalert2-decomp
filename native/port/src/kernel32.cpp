@@ -186,9 +186,11 @@ HANDLE CreateFileA(const char *name, DWORD access, DWORD share, void *security, 
 {
     (void)share; (void)security; (void)flags; (void)templ;
     char path[1024];
-    host_path(name, path, sizeof path);
-    int mode = 0;
     bool rd = access & 0x80000000u, wr = access & 0x40000000u;
+    bool writes = wr || disposition == 1 || disposition == 2 || disposition == 4 || disposition == 5;
+    if (writes) host_path_write(name, path, sizeof path);
+    else host_path(name, path, sizeof path);
+    int mode = 0;
     mode = (rd && wr) ? O_RDWR : wr ? O_WRONLY : O_RDONLY;
     switch (disposition) {
     case 1: mode |= O_CREAT | O_EXCL; break;   // CREATE_NEW
@@ -208,6 +210,7 @@ HANDLE CreateFileA(const char *name, DWORD access, DWORD share, void *security, 
     f->fd = fd;
     f->path = path;
     set_last_error(0);
+    progress_count(writes ? "files written" : "files opened", name);
     return handle_new(f);
 }
 
@@ -318,7 +321,7 @@ BOOL CloseHandle(HANDLE handle)
 BOOL DeleteFileA(const char *name)
 {
     char path[1024];
-    host_path(name, path, sizeof path);
+    host_path_write(name, path, sizeof path);
     if (unlink(path) != 0) { set_last_error(errno_to_win32(errno)); return 0; }
     return 1;
 }
@@ -327,7 +330,7 @@ BOOL CopyFileA(const char *from, const char *to, BOOL fail_if_exists)
 {
     char a[1024], b[1024];
     host_path(from, a, sizeof a);
-    host_path(to, b, sizeof b);
+    host_path_write(to, b, sizeof b);
     int in = open(a, O_RDONLY);
     if (in < 0) { set_last_error(errno_to_win32(errno)); return 0; }
     int out = open(b, O_WRONLY | O_CREAT | (fail_if_exists ? O_EXCL : O_TRUNC), 0644);
@@ -344,7 +347,7 @@ BOOL CreateDirectoryA(const char *name, void *security)
 {
     (void)security;
     char path[1024];
-    host_path(name, path, sizeof path);
+    host_path_write(name, path, sizeof path);
     if (mkdir(path, 0755) != 0) { set_last_error(errno == EEXIST ? ERROR_ALREADY_EXISTS : errno_to_win32(errno)); return 0; }
     return 1;
 }
@@ -724,6 +727,16 @@ HANDLE CreateEventA(void *security, BOOL manual, BOOL initial, const char *name)
     return h;
 }
 
+HANDLE OpenMutexA(DWORD access, BOOL inherit, const char *name)
+{
+    // Named objects of this process only (the autoplay/launcher mutexes of
+    // other programs do not exist natively).
+    (void)access; (void)inherit;
+    HANDLE h = find_named(name);
+    if (!h) set_last_error(ERROR_FILE_NOT_FOUND);
+    return h;
+}
+
 HANDLE OpenEventA(DWORD access, BOOL inherit, const char *name)
 {
     (void)access; (void)inherit;
@@ -795,14 +808,38 @@ DWORD WaitForMultipleObjects(DWORD count, const HANDLE *handles, BOOL all, DWORD
 // ---- modules and resources -------------------------------------------------
 
 HINSTANCE GetModuleHandleA(const char *name) { (void)name; return (HINSTANCE)(uintptr_t)0x400000; }
+// System DLLs whose functionality the port itself provides: the common controls
+// (user32.cpp/gdi). Their DllGetVersion reports the version the port stands in
+// for (comctl32 5.81, the Windows 2000 / IE5 common controls; RA2 asks >= 4.70).
+// Any other DLL (Blowfish is a built-in COM server; Bink/WOL helpers are linked
+// or absent) is not found.
+namespace {
+struct DllVersionInfoPort { DWORD cbSize, dwMajorVersion, dwMinorVersion, dwBuildNumber, dwPlatformID; };
+int32_t comctl32_DllGetVersion(DllVersionInfoPort *info)
+{
+    if (!info || info->cbSize < sizeof(DllVersionInfoPort)) return (int32_t)0x80070057u;  // E_INVALIDARG
+    info->dwMajorVersion = 5;
+    info->dwMinorVersion = 81;
+    info->dwBuildNumber = 0;
+    info->dwPlatformID = 2;  // DLLVER_PLATFORM_NT
+    return 0;
+}
+const uintptr_t COMCTL32_MODULE = 0x7E000000;
+}
+
 HINSTANCE LoadLibraryA(const char *name)
 {
-    // No DLLs natively (Blowfish/WOL/Bink helpers are linked or absent).
     trace("LoadLibraryA %s", name ? name : "(null)");
+    if (name && !strcasecmp(name, "comctl32.dll")) return (HINSTANCE)COMCTL32_MODULE;
     set_last_error(126);  // ERROR_MOD_NOT_FOUND
     return nullptr;
 }
-void *GetProcAddress(HINSTANCE module, const char *name) { (void)module; (void)name; return nullptr; }
+void *GetProcAddress(HINSTANCE module, const char *name)
+{
+    if ((uintptr_t)module == COMCTL32_MODULE && name && (uintptr_t)name >= 0x10000 && !strcmp(name, "DllGetVersion"))
+        return (void *)&comctl32_DllGetVersion;
+    return nullptr;
+}
 BOOL FreeLibrary(HINSTANCE module) { (void)module; return 1; }
 // Resources (dialog templates, icons, version info) live in the user's game
 // executable; reading them at run time is a later step.
