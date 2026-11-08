@@ -1,10 +1,5 @@
-// Registry dictionary bucket index00602020: unsigned HWND-value keys, records atA73640.
-// Direct member specialization, as the neighboring HWND/WNDPROC copy00601C30.
+// wlib Dictionary::keyHash, the control registry's out-of-line instance (0x00602020): the template's own
+// instance (shared/wol_dictionary.hpp), emitted for the call sites /Ob2 refuses (see the template).
 #include "shared/wol_dictionary.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
-template<> unsigned int WolDictionary<unsigned int,OwnerDraw::UnknownControlRecord>::Key_Hash(unsigned int const &key) const
-{
-    unsigned int hash = Hash(key);
-    unsigned int bucket = (1u << Bits) - 1;
-    return bucket & hash;
-}
+template unsigned int WolDictionary<unsigned int, OwnerDraw::UnknownControlRecord>::Key_Hash(unsigned int const &key) const;

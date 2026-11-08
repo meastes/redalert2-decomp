@@ -90,6 +90,7 @@ public:
     }
 #endif
 #ifdef RA2_WOL_DICTIONARY_KEY_SPECIALIZATIONS
+    // wlib keyHash, defined out of the class below (not declared inline: /Ob2 decides each site by budget).
     unsigned int Key_Hash(K const &key) const;
 #else
     unsigned int Key_Hash(K const &key) const
@@ -397,11 +398,16 @@ template<class K, class V> bool WolDictionary<K, V>::Remove_Entry(K const &key, 
 #endif
 
 #ifdef RA2_WOL_DICTIONARY_KEY_SPECIALIZATIONS
+// wlib keyHash (TibSun dict.h: hashFunc, then the mask). The ownrdraw population's mixed /Ob2 decisions
+// (0x00602020 called from 0x005E4780, 0x005E5150, 0x005E9BB0, 0x005EAD20, 0x005ECC90, 0x005ED180 and
+// 0x005FEE70, expanded at every other site) fix its IL size: `return mask & hash`, `hash &= mask` and a
+// named mask local each break some of them; this statement keeps all.
 template<class K, class V> unsigned int WolDictionary<K, V>::Key_Hash(K const &key) const
 {
-        unsigned int hash = Hash(key);
-        return ((1u << Bits) - 1) & hash;
-    }
+    unsigned int hash = Hash(key);
+    hash = hash & ((1 << Bits) - 1);
+    return hash;
+}
 #endif
 
 #endif
