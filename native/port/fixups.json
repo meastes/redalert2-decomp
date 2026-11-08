@@ -231,6 +231,90 @@
    "new": "return (unsigned long)((char const *)ptr - (char const *)Vector) / sizeof(T);",
    "why": "Pointer width: VectorClass::ID(T const *) takes the unsigned byte distance of two pointers truncated to 32 bits. The 32-bit value of the char * difference is the same (modulo 2^32, including VC6's wrap for ptr below Vector), without truncating the pointers first.",
    "verified": true
+  },
+  {
+   "source": "src/shared/win_util.hpp",
+   "old": "BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, long parameter);",
+   "new": "BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, LPARAM parameter);",
+   "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/win_util.hpp",
+   "old": "BOOL __stdcall unknown_save_child_window(HWND window, long parameter);",
+   "new": "BOOL __stdcall unknown_save_child_window(HWND window, LPARAM parameter);",
+   "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_restore_child_window_007368f0.cpp",
+   "old": "BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, long parameter)\n",
+   "new": "BOOL __stdcall unknown_restore_child_window_7368f0(HWND window, LPARAM parameter)\n",
+   "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_save_child_window_00736b40.cpp",
+   "old": "BOOL __stdcall unknown_save_child_window(HWND window, long parameter)\n",
+   "new": "BOOL __stdcall unknown_save_child_window(HWND window, LPARAM parameter)\n",
+   "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_restore_window_position_00736a70.cpp",
+   "old": "(long)&ini",
+   "new": "(LPARAM)&ini",
+   "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_save_window_position_00736cd0.cpp",
+   "old": "BOOL __stdcall unknown_save_child_window(HWND window, long parameter);",
+   "new": "BOOL __stdcall unknown_save_child_window(HWND window, LPARAM parameter);",
+   "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_save_window_position_00736cd0.cpp",
+   "old": "(long)&ini",
+   "new": "(LPARAM)&ini",
+   "why": "EnumChildWindows callback and its LPARAM: on Win32 `long` and LPARAM are one type and the parameter carries an INIClass pointer; natively LPARAM is pointer-sized, so the callback and the cast are spelled LPARAM (identical on VC6).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Refresh_Game_List_0073f8f0.cpp",
+   "old": "long __fastcall unknown_get_window_item_text(HWND,unsigned int,Wstring &);",
+   "new": "LRESULT __fastcall unknown_get_window_item_text(HWND,WPARAM,Wstring &);",
+   "why": "The definition (0x00600EB0) is LRESULT (HWND, WPARAM, Wstring &); this redeclaration spells the same VC6 types as long/unsigned int, which overload once WPARAM/LRESULT are pointer-sized.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Refresh_Lobby_List_0073ee80.cpp",
+   "old": "long __fastcall unknown_get_window_item_text(HWND,unsigned int,Wstring &);",
+   "new": "LRESULT __fastcall unknown_get_window_item_text(HWND,WPARAM,Wstring &);",
+   "why": "As Refresh_Game_List: same VC6 types as the 0x00600EB0 definition.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_set_dialog_wide_text_005c3450.cpp",
+   "old": "0x4b2, 0, (long)owner->",
+   "new": "0x4b2, 0, (LPARAM)owner->",
+   "why": "SendMessageA lParam carrying a text pointer: on Win32 (long) and (LPARAM) are the same cast; natively LPARAM is pointer-sized and `long` is 32 bits, so the pointer is cast to LPARAM to stay whole.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_set_dialog_item_text_005c34b0.cpp",
+   "old": "0x4b2, 0, (long)unknown_text_a3d342",
+   "new": "0x4b2, 0, (LPARAM)unknown_text_a3d342",
+   "why": "SendMessageA lParam carrying a text pointer: on Win32 (long) and (LPARAM) are the same cast; natively LPARAM is pointer-sized and `long` is 32 bits, so the pointer is cast to LPARAM to stay whole.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/CampScor/unknown_set_dialog_item_number_00465cc0.cpp",
+   "old": "0x4b2, 0, (long)text",
+   "new": "0x4b2, 0, (LPARAM)text",
+   "why": "SendMessageA lParam carrying a text pointer: on Win32 (long) and (LPARAM) are the same cast; natively LPARAM is pointer-sized and `long` is 32 bits, so the pointer is cast to LPARAM to stay whole.",
+   "verified": true
   }
  ]
 }

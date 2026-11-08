@@ -11,6 +11,15 @@
 // RA2_DATA_DIR); nothing from it is built in.
 #include <SDL3/SDL.h>
 #include <stdio.h>
+#include "ra2port/win32_port.hpp"
+
+#ifdef RA2_NATIVE_GAME
+// The recovered entry point (0x0068E280). Not yet in the tree: with
+// RA2_NATIVE_LINK_CLOSURE it resolves to a trap that names it.
+struct HINSTANCE__;
+int WinMain(HINSTANCE__ *instance, HINSTANCE__ *previous, char *command_line, int show);
+#endif
+void ra2_install_sdl_host();
 #include <stdlib.h>
 #include <string.h>
 
@@ -26,6 +35,18 @@ int main(int argc, char **argv)
         fprintf(stderr, "SDL_Init: %s\n", SDL_GetError());
         return 1;
     }
+    if (data) ra2port::set_data_dir(data);
+#ifdef RA2_NATIVE_GAME
+    if (!smoke) {
+        // Hand over to the game: it creates its window through CreateWindowExA
+        // (the host hook opens the SDL window) and runs its own message loop.
+        ra2_install_sdl_host();
+        static char command_line[] = "";
+        int code = WinMain((HINSTANCE__ *)(uintptr_t)0x400000, nullptr, command_line, 1);
+        SDL_Quit();
+        return code;
+    }
+#endif
     SDL_Window *window = SDL_CreateWindow("Red Alert 2 (native)", 800, 600, SDL_WINDOW_HIGH_PIXEL_DENSITY);
     SDL_Renderer *renderer = window ? SDL_CreateRenderer(window, nullptr) : nullptr;
     if (!renderer) {

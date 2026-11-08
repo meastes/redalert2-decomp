@@ -58,7 +58,17 @@ RULES = [
      r'/* native: 32-bit layout check */ // \1'),
     # VC6 CRT wide-string functions take 16-bit characters; libc's take 32-bit
     # wchar_t. The port supplies UTF-16 versions under ra2_ names.
-    (re.compile(r'(?<![\w.])(_?wcs\w+|_?wcsicmp|_?wcsnicmp|vswprintf|swprintf|_vsnwprintf|_snwprintf|towupper|towlower|iswspace|iswdigit|iswalpha|_wtoi|wtoi)\b(?=\s*\()'),
+    (re.compile(r'(?<![\w.])(_?wcs\w+|_?wcsicmp|_?wcsnicmp|vswprintf|swprintf|_vsnwprintf|_snwprintf|swscanf|mbstowcs|wcstombs|_putws|towupper|towlower|iswspace|iswdigit|iswalpha|_wtoi|wtoi)\b(?=\s*\()'),
+     r'ra2_\1'),
+    # Win32 imports and VC6 CRT functions whose names libc also defines with a
+    # different contract: WSOCK32's sockaddr has no sin_len and SOCKET is an
+    # unsigned int; VC6 rand() is its own LCG; VC6 fopen takes DOS paths; VC6
+    # time_t is 32 bits; VC6 printf/scanf %ld is 32 bits (LP64 libc reads 64). The
+    # port supplies the Win32/VC6 behaviour under ra2_ names, so the process's
+    # own libc (and SDL) keep theirs.
+    (re.compile(r'(?<![\w.>:])(socket|bind|sendto|recvfrom|setsockopt|getsockopt|gethostname|gethostbyname|'
+                r'inet_ntoa|htonl|htons|ntohl|ntohs|rand|srand|fopen|time|ctime|localtime|gmtime|mktime|'
+                r'sprintf|vsprintf|_snprintf|_vsnprintf|sscanf|fprintf|vfprintf|printf)\b(?=\s*\()'),
      r'ra2_\1'),
 ]
 
@@ -217,9 +227,9 @@ def fix_reference_casts(text):
 # typedef of these names (win32_api.hpp, ghidra_types.hpp, seed prologues) is
 # rewritten, so all units agree on the native API's argument widths. Values
 # below 2^31 are unchanged; a pointer is no longer truncated.
-# Off by default (--win64-params): 21 recovered sources still spell these
-# parameters as unsigned int / long in their own prototypes, window and dialog
-# procedures and EnumChildWindows callbacks, and fail with it (native/README.md).
+# On in the CMake build (RA2_NATIVE_WIN64_PARAMS): fix_message_params respells
+# the (HWND, unsigned, unsigned, long) procedure shape and drops conflicting
+# Win32 redeclarations; port/fixups.json retypes the remaining callbacks/casts.
 WIN64_PARAMS = False
 POINTER_WIDTH = {'WPARAM': 'uintptr_t', 'UINT_PTR': 'uintptr_t', 'ULONG_PTR': 'uintptr_t',
                  'DWORD_PTR': 'uintptr_t', 'SIZE_T': 'uintptr_t', 'LPARAM': 'intptr_t',
@@ -228,7 +238,32 @@ TYPEDEF_LIST = re.compile(r'^([ \t]*)typedef[ \t]+([A-Za-z_][\w \t]*?)[ \t]+'
                           r'([A-Za-z_]\w*(?:[ \t]*,[ \t]*[A-Za-z_]\w*)*)[ \t]*;', re.M)
 
 
+# The message-procedure shape (HWND, UINT, WPARAM, LPARAM) is spelled with the
+# underlying VC6 types in many recovered prototypes, procedures, function-pointer
+# typedefs and by-reference message filters: (HWND, unsigned [int], unsigned
+# [int], long) with optional names and '&'. On Win32 these are the same types;
+# with pointer-sized params they must be spelled with the Win32 names again, or
+# the procedure no longer converts to DLGPROC/WNDPROC and redeclarations overload.
+MSG_PARAMS = re.compile(r'\(\s*((?:struct\s+)?HWND(?:__)?\s*\*?\s*\w*)\s*,'
+                        r'\s*(?:unsigned\s+int|unsigned|UINT)\b(\s*&?\s*\w*)\s*,'
+                        r'\s*(?:unsigned\s+int|unsigned|UINT)\b(\s*&?\s*\w*)\s*,'
+                        r'\s*(?:long|LPARAM)\b(\s*&?\s*\w*)\s*\)')
+# Source-level redeclarations of Win32 APIs that win32_api.hpp already declares
+# (with WPARAM/LPARAM); with pointer-sized params they conflict, so they go.
+WIN32_REDECL = re.compile(r'^[ \t]*WIN32_IMPORT[^;\n]*\b(?:SendMessageA|SendDlgItemMessageA|EnumChildWindows)[ \t]*\((?=[^;]*\b(?:unsigned|long)\b)[^;]*\);[ \t]*$', re.M)
+WNDENUMPROC_REDEF = re.compile(r'^[ \t]*typedef[ \t]+BOOL[ \t]*\([ \t]*(?:WINAPI|__stdcall)[ \t]*\*[ \t]*WNDENUMPROC[ \t]*\)(?=[^;]*\blong\b)[^;]*;[ \t]*$', re.M)
+
+
+def fix_message_params(text):
+    if not WIN64_PARAMS or 'HWND' not in text:
+        return text
+    text = WIN32_REDECL.sub('/* native: Win32 redeclaration dropped (win32_api.hpp) */', text)
+    text = MSG_PARAMS.sub(lambda m: '(%s, unsigned int%s, uintptr_t%s, intptr_t%s)' % m.groups(), text)
+    return WNDENUMPROC_REDEF.sub('/* native: WNDENUMPROC from win32_api.hpp */', text)
+
+
 def fix_pointer_width_typedefs(text):
+    text = fix_message_params(text)
     if not WIN64_PARAMS or not any(n in text for n in POINTER_WIDTH):
         return text
     def split(m):
@@ -328,13 +363,90 @@ def draft_part(d, fixups, renames, used, manifest, unit, draft_root):
             % (d['entry'], d['plan'], d['score'], d['draft'], path.as_posix(), port(text)))
 
 
+# Static initialisers. The original's CRT runs _initterm over .CRT$XCA..XCZ
+# before WinMain (native/initterm.json, from initterm_manifest.py). Natively the
+# compiler emits each unit's initialisers into __mod_init_func and the linker
+# keeps input order, so units are listed in the order of their first original
+# initialiser (units without one first, in source order), and the explicit
+# entries (named init functions the table points at) are called from small
+# generated units at their original positions. Seed/scaffold entries
+# (transliterated absolute addresses or truncated function pointers) cannot run
+# natively and are skipped and reported.
+EXPLICIT_DECL = [
+    (re.compile(r'^\?([A-Za-z_]\w*)@@Y[AGI]XXZ$'), lambda m: ('void %s();' % m.group(1), '%s();' % m.group(1))),
+    (re.compile(r'^\?([A-Za-z_]\w*)@([A-Za-z_]\w*)@@Y[AGI]XXZ$'),
+     lambda m: ('namespace %s { void %s(); }' % (m.group(2), m.group(1)), '%s::%s();' % (m.group(2), m.group(1)))),
+    (re.compile(r'^_([A-Za-z_]\w*)$'), lambda m: ('extern "C" void %s();' % m.group(1), '%s();' % m.group(1))),
+]
+
+
+def explicit_call(entry, text):
+    """(declaration, call) for an explicit initialiser, or (None, reason)."""
+    if 'seed-generated' in text or entry['symbol'].startswith(('?get@Leaf_', '_recover_')):
+        return None, 'seed/scaffold source (absolute addresses or truncated pointers): needs a native rewrite'
+    for rx, make in EXPLICIT_DECL:
+        m = rx.match(entry['symbol'])
+        if m:
+            return make(m)
+    return None, 'symbol shape not handled: %s' % entry['symbol']
+
+
+def initterm_order(names, unit_of, texts, out):
+    """Reorder unit names for the original initialiser order; write explicit
+    initialiser units. Returns (ordered names, report)."""
+    manifest = json.loads((ROOT / 'native/initterm.json').read_text())
+    entries = manifest['entries']
+    placed, items, deviations, skipped, called = set(), [], [], [], []
+    pending = []
+
+    def flush():
+        if not pending:
+            return
+        name = 'units/initterm_%04d.cpp' % pending[0][0]['index']
+        decls = '\n'.join(sorted({d for _, d, _ in pending}))
+        calls = '\n'.join('    %s  // %s %s %s' % (c, e['index'], e['entry'], e['source']) for e, _, c in pending)
+        emit(out / name, '// generated by native/tools/native_units.py: explicit _initterm entries %s-%s\n'
+             '// (native/initterm.json), called here so they run at their original position.\n%s\n'
+             'namespace {\nstruct InitTerm { InitTerm() {\n%s\n} } initterm;\n}\n'
+             % (pending[0][0]['index'], pending[-1][0]['index'], decls, calls))
+        items.append(name)
+        del pending[:]
+
+    for e in entries:
+        unit = unit_of.get(e['source'])
+        if e['kind'] == 'explicit':
+            decl, call = explicit_call(e, texts.get(e['source'], ''))
+            if decl is None:
+                skipped.append(dict(index=e['index'], entry=e['entry'], symbol=e['symbol'], source=e['source'], reason=call))
+            else:
+                pending.append((e, decl, call))
+                called.append(e['index'])
+            continue
+        if unit is None:
+            skipped.append(dict(index=e['index'], entry=e['entry'], symbol=e['symbol'], source=e['source'],
+                                reason='source not in this native view'))
+            continue
+        if unit in placed:
+            if pending or (items and items[-1] != unit):
+                deviations.append(dict(index=e['index'], entry=e['entry'], source=e['source'], unit=unit,
+                                       after=items[-1]))
+            continue
+        flush()
+        placed.add(unit)
+        items.append(unit)
+    flush()
+    ordered = [n for n in names if n not in placed] + items
+    return ordered, dict(entries=len(entries), units=len(placed), explicit_called=len(called),
+                         skipped=skipped, out_of_order=deviations)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--subsystem', default='core', choices=sorted(SUBSYSTEMS) + ['all'])
     ap.add_argument('--drafts', action='store_true', help='append the native/drafts.json drafts to their host groups')
     ap.add_argument('--win64-params', action='store_true',
-                    help='pointer-sized WPARAM/LPARAM/LRESULT/*_PTR (milestone-2 work; 21 sources fail with it)')
+                    help='pointer-sized WPARAM/LPARAM/LRESULT/*_PTR, as on Win64 (on in the CMake build)')
     ap.add_argument('--draft-root', type=Path, default=ROOT,
                     help='checkout whose build/class-work holds the lane drafts (default: this one)')
     args = ap.parse_args()
@@ -388,6 +500,12 @@ def main():
         raise SystemExit('fixups for sources not in the tree: %s' % ', '.join(unused))
     report['fixups'] = sorted(set(used))
     report['opaque_enums'] = sorted(OPAQUE_ENUMS)
+    if args.subsystem == 'all':
+        unit_of = {}
+        for g in report['groups']:
+            for source in g['sources']:
+                unit_of[source] = 'units/' + g['unit']
+        names, report['initterm'] = initterm_order(names, unit_of, texts, out)
     (out / 'units.cmake').write_text('set(RA2_NATIVE_UNITS\n%s)\n' % ''.join(
         '  "${RA2_NATIVE_GEN}/%s"\n' % n for n in names))
     (out / 'report.json').write_text(json.dumps(report, indent=1))
