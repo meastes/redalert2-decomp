@@ -24,7 +24,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 122 of 133 scored) | 98.70% by bytes, 99.79% per function |
 | Original .text scaffold bytes | 307,496 |
 | Logical .text bytes | 3,769,805 |
-| Compiler populations | 693 |
+| Compiler populations | 694 |
 
 Manifest history (body bytes added per commit, and per hour since the previous commit):
 
@@ -2159,6 +2159,7 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `24743e8f0` | 2026-11-08 00:53 -0600 | 17,871 | 3,209,087 | +1,386 | 397 |
 | `4f17146fb` | 2026-11-08 02:41 -0600 | 17,871 | 3,209,087 | +0 | 0 |
 | `343910893` | 2026-11-08 02:43 -0600 | 17,871 | 3,209,087 | +0 | 0 |
+| `f75d3c959` | 2026-11-08 04:17 -0600 | 17,872 | 3,211,847 | +2,760 | 1,763 |
 
 <!-- /generated:status -->
 

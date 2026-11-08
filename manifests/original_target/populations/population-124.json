@@ -2783,48 +2783,6 @@
       "source_quality_family": "ghidra-seed-sweep"
     },
     {
-      "entry": 5928112,
-      "method": "005a74b0",
-      "symbol": "?FUN_005a74b0@Owner_005a74b0@seed_005a74b0@@QAEPAIIIIIII@Z",
-      "symbol_prefix": "?FUN_005a74b0@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 52,
-      "body_sha256": "cfd3833094d6160fbe3415177e31d26c01c1fe9a2d62660e55f8b1c26efff715",
-      "padding_bytes": 12,
-      "full_extent_bytes": 64,
-      "full_extent_sha256": "fb93fac79de7900440850083b97ff1dbf01193621f409cc915e4702edaeaeb99",
-      "relocations": [
-        {
-          "offset": 36,
-          "kind": 20,
-          "symbol": "?FUN_005b6cd0@Callee_005b6cd0@seed_005a74b0@@QAEXIIIIEI@Z",
-          "target": 5991632,
-          "addend": 0,
-          "resolved": 63480
-        },
-        {
-          "offset": 42,
-          "kind": 6,
-          "symbol": "_PTR_FUN_007a69dc",
-          "target": 8022492,
-          "addend": 0,
-          "resolved": 8022492
-        }
-      ],
-      "source_sha256": "4f90930d6bce276d3b568acef0bc663287d8c29e472c8b8439e936d078b0af98",
-      "source": "src/recovered/classes/MultiplayerManBattle/005a74b0.cpp",
-      "source_order": 11116,
-      "population": "population-124",
-      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "ghidra-seed-sweep"
-    },
-    {
       "entry": 5941024,
       "method": "005aa720",
       "symbol": "?FUN_005aa720@Owner_005aa720@seed_005aa720@@QAEPAIIIIIII@Z",

@@ -2174,3 +2174,6 @@ Whether a growth site emits `add G,L` (sum in the GrowthStep register) or `add L
 
 ## A named constant local is propagated after reassociation (Scout1074)
 With literal constants VC6 reassociates an index such as `row * 2 + ID * 60 + col` into `(row + ID*30)*2 + col`. When the count is a plain named local (`int columns = 2;`, used at its natural sites: the loop bound and both index expressions), the constant is propagated only after reassociation, giving the original's `a*2 + (b*k')*4` form and its spills. StripClass draw 0x67F800 became exact this way. The reverse also happens: a draft that keeps a constant in a register where the original uses immediates may have a named local the original did not.
+
+## Division by a negative constant depends on the destination (Scout1078)
+VC6 rewrites `x + c*h/-2` as `x - (|c|h)/2` when the result goes to a plain int local, but keeps the `shl / sub / neg / shl 1` form when it goes to a struct member (`top.Y += 30 * h / -2;`). Accepted Rectangular_To_Isometric 0x6A2740 keeps the neg form the same way (`iso.X += y*60/-2`). If a target shows the neg sequence, the original wrote into a member.

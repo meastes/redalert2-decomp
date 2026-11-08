@@ -1280,7 +1280,7 @@
 | [classes/BlitTransRemapXlat_unsigned_char](../src/recovered/classes/BlitTransRemapXlat_unsigned_char/) | 2 | 102 | 2 | 0x00486470–0x0048C850 |
 | [classes/MultiplayerBattle](../src/recovered/classes/MultiplayerBattle/) | 4 | 102 | 4 | 0x005A2320–0x005A2500 |
 | [classes/Point2D](../src/recovered/classes/Point2D/) | 3 | 100 | 3 | 0x0047D040–0x006AC850 |
-| [classes/MultiplayerManBattle](../src/recovered/classes/MultiplayerManBattle/) | 3 | 99 | 0 | 0x005A74B0–0x005A7500 |
+| [classes/MultiplayerManBattle](../src/recovered/classes/MultiplayerManBattle/) | 3 | 99 | 1 | 0x005A74B0–0x005A7500 |
 | [classes/MultiplayerSyncCommandClass](../src/recovered/classes/MultiplayerSyncCommandClass/) | 2 | 99 | 2 | 0x0051D820–0x0051DA60 |
 | [classes/UnknownObjectPair](../src/recovered/classes/UnknownObjectPair/) | 3 | 99 | 3 | 0x004D4620–0x005D4A60 |
 | [classes/SetDefenseTabCommandClass](../src/recovered/classes/SetDefenseTabCommandClass/) | 2 | 97 | 2 | 0x0051B0F0–0x0051DFC0 |

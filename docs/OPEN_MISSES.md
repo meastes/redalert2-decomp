@@ -3144,3 +3144,6 @@ New rulings are recorded at their rows as before.
 
 ## Scout1077 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1077/)
 - The named-constant lever reaches only 0x67F800. Sidebar slot 54 0x67E210 99.04 (rows-sum tree order at the else arm; ternary forms give the tree but swap eax/edx function-wide, 91.08, keep/s6a.cpp), slot 34 0x6819A0 98.22 (same rows-sum puzzle), UnVQ1_4x2_Table 0x70C0A0 75.95 (`mov ebp,2` hoist is a use-count threshold; no single TibSun arm causes it) parked.
+
+## Scout1078 (2026-11-08, closed; 0 B; Pixel_To_Cell 0x6A6BD0 79.35 -> 93.70, shape 98.90, 365/365 instructions, call list and frame exact; keep/ptc_xy1_9370.cpp, s.sh, NOTES in build/class-work/Scout1078/)
+- TibSun forms together: bridge statements inline (no Bridge_Edges helper), TibSun Coord_Fraction, `Cell_Coord(...) - CoordStruct(128,128,0)`, `top.Y += 30*h/-2` (new note), operator-form xy. Inline budget at the second Coord_To_Pixel measured (must stay < 102). Left: one zero register held in esi across the first Coord_To_Pixel, and the Cell copy registers in three returns (likely one allocation cause).
