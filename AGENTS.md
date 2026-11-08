@@ -39,9 +39,14 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   (user, 2026-11-06): text from ra2-decomp and the TibSun archive may be adopted
   with attribution (`THIRD_PARTY.md`); acceptance is unchanged. Do not adopt
   a lifted runtime or OpenRA gameplay.
-- **Native phase is later:** no native/SDL/arm64/gameplay check per recovery
-  batch. Preserve `historical/native-reconstruction/`. The shipped game will be
+- **Native phase:** no native/SDL/arm64/gameplay check per recovery batch.
+  Preserve `historical/native-reconstruction/`. The shipped game will be
   native arm64 with no Wine/CrossOver, Rosetta, VM, emulation or original code.
+  User decision (2026-11-08): one dedicated native lane runs alongside the exact
+  lanes (lane count and usage rule unchanged). It builds the native tree from
+  `src/recovered` and `src/shared`; unmatched functions are carried as their best
+  parked draft (flagged non-exact with its score) or a behaviour-written
+  implementation, never empty stubs. Native work earns no exact-match credit.
 
 ## How to work
 
