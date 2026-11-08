@@ -811,7 +811,14 @@ public:
     bool unknown_59b;                   // +0x59B
     char unknown_59c[0x5AD - 0x59C];
     bool unknown_5ad;                   // +0x5AD (as shared/building_class.hpp; slot 122 tests it)
+#ifdef RA2_BUILDING_LIGHT_DISTANCE_TO
+    // Guarded to the BuildingLight unit: one more member here shifts VC6's per-unit counters (Scout633 fragile_probe).
+    char unknown_5ae[0x5B7 - 0x5AE];
+    bool unknown_5b7;                   // +0x5B7 (BuildingLightClass slot 67 draws no beam while it is set)
+    char unknown_5b8[0x5BD - 0x5B8];
+#else
     char unknown_5ae[0x5BD - 0x5AE];
+#endif
     char unknown_5bd;                   // +0x5BD (as shared/building_class.hpp; HouseClass 0x004F3E00 tests 15)
     char unknown_5be[0x5C6 - 0x5BE];
     char unknown_5c6;                   // +0x5C6 (as shared/building_class.hpp: the upgrades in unknown_4c0)

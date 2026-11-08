@@ -50,7 +50,13 @@ public:
     // TibSun point.h: the member-wise difference and the length through the fast square root.
     TPoint3D<T> const operator-(TPoint3D<T> const &point) const { return TPoint3D<T>(this->X - point.X, this->Y - point.Y, Z - point.Z); }
     // Separate from the out-of-line 0x0041B780 (owner ruling): x, y, z through the fast square root.
+#ifdef RA2_TPOINT3D_LENGTH_TIBSUN
+    // TibSun point.h TPoint3D::Length (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; see THIRD_PARTY.md):
+    // the BuildingLight unit (RA2_TPOINT3D_LENGTH_TIBSUN in its first row 0x00432DD0); its out-of-line copy is 0x0041B780.
+    T Length(void) const {return(T(unknown_sqrt_4ba410((double)this->X*(double)this->X + (double)this->Y*(double)this->Y + (double)Z*(double)Z)));}
+#else
     T Length() const { double x = this->X; double y = this->Y; double z = Z; return T(unknown_sqrt_4ba410(x * x + (y * y + z * z))); }
+#endif
 #if defined(RA2_SHIP_SOM) || defined(RA2_BUILDING_LIGHT_DISTANCE)
     T Distance_To(TPoint3D<T> const &point) const { return (*this - point).Length(); }
     T Length_YZX() const { double y = this->Y; double z = Z; double x = this->X; return T(unknown_sqrt_4ba410(y * y + (z * z + x * x))); }

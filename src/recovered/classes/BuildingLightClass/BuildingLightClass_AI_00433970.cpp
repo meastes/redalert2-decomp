@@ -32,7 +32,7 @@ CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, floa
 // @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
 // @ref ?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z=006b3df0
 // @ref _unknown_geometry_k=0084ea08
-// @ref ?unknown_light_scale_79c7a8@@3NB=0079c7a8
+// @ref _?_scale@?1??unknown_func_434530@BuildingLightClass@@QBEHXZ@4NB=0079c7a8
 // @ref __real@8@bffe8000000000000000=0079c9b0
 
 void BuildingLightClass::AI()
@@ -122,14 +122,16 @@ void BuildingLightClass::AI()
         if (owner_building != 0 && owner_building->unknown_7d && owner_building->unknown_slot195() && owner_building->unknown_34 != 0) {
             bool found = false;
             Cell cell = unknown_slot104();
-            int detection = unknown_func_434530() + 30;
+            int radius = unknown_func_434530();
+            int detection = radius + 30;
             HouseClass *house = Owner->House;
 
             for (int x = -1; x < 2; x++) {
                 for (int y = -1; y < 2; y++) {
                     ObjectClass *occupier = Map[cell + Cell(x, y)].Cell_Occupier();
                     while (occupier != 0) {
-                        if ((occupier->Kind_Of() == 0xf || occupier->Kind_Of() == 1) && !house->Is_Ally((TechnoClass *)occupier)) {
+                        TechnoClass *techno = (TechnoClass *)occupier;
+                        if ((occupier->Kind_Of() == 0xf || occupier->Kind_Of() == 1) && !house->Is_Ally(techno)) {
                             int dist = occupier->Center_Coord().Distance_To(Position_Coord_004f3f40());
                             if (dist < detection) {
                                 found = true;

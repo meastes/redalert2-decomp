@@ -212,6 +212,10 @@ public:
     int Distance(CoordStruct const &coord) const { return Center_Coord().Distance_To(coord); }
     int Distance_YZX(CoordStruct const &coord) const { return Center_Coord().Distance_YZX(coord); }
 #endif
+#ifdef RA2_BUILDING_LIGHT_DISTANCE_TO
+    // TibSun object.h ObjectClass::Distance_To (OpenTS; GPL-3.0-or-later): the distance to an object's centre.
+    int Distance_To(AbstractClass const * obj) const {return(Distance(obj->Center_Coord()));}
+#endif
 #ifdef RA2_POINT3D_TIBSUN
     // TibSun object.h (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; Copyright 2025 Electronic Arts Inc.;
     // Copyright 2026 OpenTS contributors; derived from EA source, EA's GPLv3 Section 7 terms apply):

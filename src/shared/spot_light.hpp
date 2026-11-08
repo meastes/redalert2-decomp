@@ -16,6 +16,10 @@ public:
     void AI();                                      // 0x005DD660
     // Runs AI for every light, last first.
     static void Update_All();                       // 0x005DD6D0
+#ifdef RA2_BUILDING_LIGHT_DISTANCE_TO
+    // TibSun OverlayLightClass::Set_Radius (inline; BuildingLight unit only).
+    void Set_Radius(int radius) { unknown_0c = radius; }
+#endif
     void unknown_func_5ddb90();                     // 0x005DDB90
     // Runs unknown_func_5ddb90 (the drawing) for every light, last first.
     static void Draw_All();                         // 0x005DE2E0
