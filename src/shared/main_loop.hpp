@@ -89,6 +89,7 @@ public:
     MSTimerClass();                         // 0x005B6A00 (timeBeginPeriod(1))
     ~MSTimerClass();                        // 0x005B6A10 (timeEndPeriod(1))
     operator long() const;                  // 0x005B6A20
+    long operator()() const;                // 0x005B6A30 (unreferenced; TibSun mstimer.cpp order)
 };
 // The frame timers (Westwood's FrameTimer and NetFrameTimer, names hypotheses).
 extern CDTimerClass<SystemTimerClass> unknown_frame_timer_839990;     // 0x00839990
