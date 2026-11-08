@@ -8,7 +8,7 @@ WIN32_IMPORT int WINAPI MessageBoxA(HWND window,LPCSTR text,LPCSTR caption,UINT 
 void __fastcall Unknown_Center_Window_00737080(HWND child,HWND parent);
 void __fastcall Unknown_Dialog_Added_00522b20(HWND window);
 void __fastcall Unknown_Dialog_Removed_00522b80(HWND window);
-bool __fastcall unknown_moving_736d80(HWND window, WPARAM wparam, LPARAM lparam);
+bool __fastcall unknown_moving_736d80(HWND window, WPARAM wparam, class Rect *rect);
 extern HWND game_window_00b263d8;
 extern char exception_text_00855ba8[];
 extern char const dialog_init_log_007d794c[];
@@ -44,7 +44,7 @@ int __stdcall Exception_Dialog_Procedure_004b7bf0(HWND window,UINT message,WPARA
         case 0x47d: MessageBoxA(window,abort_message_007d78d8,abort_caption_007d7944,0x30); return 0;
         }
         break;
-    case 0x216: return unknown_moving_736d80(window,wparam,lparam);
+    case 0x216: return unknown_moving_736d80(window,wparam,(Rect *)lparam);
     }
     return 0;
 }

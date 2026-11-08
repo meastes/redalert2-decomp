@@ -12,16 +12,16 @@
 // @ref ??_C@_0BD@PAIN@Movie?5is?5sleeping?6?$AA@=007fb0fc
 // @ref ?Unknown_0069B420@VQAMovieCompanion@@QAE_NH@Z=0069b420
 // @ref ?VQA_Unknown_0070B690@@YIXH@Z=0070b690
-// @ref ?VQA_Unknown_0070B820@@YAXXZ=0070b820
-// @ref ?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXXZ1@Z=0077c440
+// @ref ?VQA_Unknown_0070B820@@YAXPAE00KKK@Z=0070b820
+// @ref ?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z=0077c440
 // @ref ?VQA_Unknown_0077C8A0@@YIHPAUVQAHandle@@H@Z=0077c8a0
 // @ref ?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z=0077c920
 // @ref ?VQA_Unknown_0077CBA0@@YIHPAUVQAHandle@@@Z=0077cba0
-// @ref ?VQA_Unknown_0077FD80@@YAXXZ=0077fd80
-// @ref ?VQA_Unknown_0077FE89@@YAXXZ=0077fe89
-// @ref ?VQA_Unknown_0070BBC0@@YAXXZ=0070bbc0
-// @ref ?VQA_Unknown_0070BF60@@YAXXZ=0070bf60
-// @ref ?VQA_Unknown_0070C0A0@@YAXXZ=0070c0a0
+// @ref ?VQA_Unknown_0077FD80@@YAXPAE00KKK@Z=0077fd80
+// @ref ?VQA_Unknown_0077FE89@@YAXPAE00KKK@Z=0077fe89
+// @ref ?VQA_Unknown_0070BBC0@@YAXPAE00KKK@Z=0070bbc0
+// @ref ?VQA_Unknown_0070BF60@@YAXPAE00KKK@Z=0070bf60
+// @ref ?VQA_Unknown_0070C0A0@@YAXPAE00KKK@Z=0070c0a0
 // @ref ?VQA_Unknown_0071DBA0@@YI_NH@Z=0071dba0
 
 int VQAClass::Unknown_0071CCD0(int frame, bool unknown)

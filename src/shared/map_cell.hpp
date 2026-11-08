@@ -146,7 +146,7 @@ public:
     // Whether the cell can be entered (0x00478760; hypothesis: Is_Clear_To_Move).
     bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);
     // An object in the cell near a point, or 0 (0x00471660; hypothesis).
-    class ObjectClass *Unknown_00471660(Point2D const &point, int arg2, int arg3);
+    class ObjectClass *Unknown_00471660(Point2D const &point, bool alt, class ObjectClass *except) const;
     CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any = false, int alt = 0) const;   // 0x004764B0
     bool unknown_476460(int facing, bool alt) const;   // 0x00476460
     void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 the two radar colours of the cell

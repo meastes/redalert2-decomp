@@ -15,7 +15,7 @@
 
 // Surfaces: the movie is blitted to the one at 0x00839950 at screen
 // coordinates; the one at 0x00839958 is cleared first.
-void __fastcall Unknown_004E0C90(bool unknown1, Surface *surface, int unknown2);  // 0x004E0C90
+void __fastcall Unknown_004E0C90(bool unknown1, Surface *surface, Rect const *rect);  // 0x004E0C90 (GScreenClass::Blit)
 
 // The game window MainWindow is declared in shared/win32_window.hpp.
 

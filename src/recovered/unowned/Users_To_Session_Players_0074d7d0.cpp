@@ -6,7 +6,7 @@ extern char wol_broadcast_address_debug_7f1f94[];
 extern char wol_session_address_debug_7fecd8[];
 // @ref ?wol_broadcast_address_debug_7f1f94@@3PADA=007f1f94
 // @ref ?wol_session_address_debug_7fecd8@@3PADA=007fecd8
-void __fastcall Users_To_Session_Players_0074d7d0()
+void __fastcall Users_To_Session_Players_0074d7d0(WOL::User *users)
 {
     unknown_session_a3d55c=1;
     WOL::User user;

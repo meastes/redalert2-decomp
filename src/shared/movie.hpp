@@ -61,12 +61,12 @@ public:
 // The VQA player library (0x0077xxxx, __fastcall; shared/vqa_player.hpp).
 // Results are VQA error codes (-1 none).
 extern int unknown_int_a40b54;                              // 0x00A40B54 (low 16 bits: VQAConfig +0x84)
-void __fastcall VQA_Unknown_0070B7F0(int unknown1, unsigned unknown2);
+void __fastcall VQA_Unknown_0070B7F0(void *buffer, int count);   // Hicolor_Translate (shared/unvq_table.hpp)
 void __fastcall VQA_Unknown_0070B690(int unknown1);
-void VQA_Unknown_0070B820();
-void VQA_Unknown_0070BBC0();
-void VQA_Unknown_0070BF60();
-void VQA_Unknown_0070C0A0();
+void VQA_Unknown_0070B820(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer, unsigned long blocks_per_row, unsigned long rows, unsigned long width);
+void VQA_Unknown_0070BBC0(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer, unsigned long blocks_per_row, unsigned long rows, unsigned long width);
+void VQA_Unknown_0070BF60(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer, unsigned long blocks_per_row, unsigned long rows, unsigned long width);
+void VQA_Unknown_0070C0A0(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer, unsigned long blocks_per_row, unsigned long rows, unsigned long width);
 extern bool unknown_vqa_paused_af901c;                     // 0x00AF901C the pause was reported
 // Window message helpers (0x00522E90/0x00522ED0, the game's GetMessage /
 // PeekMessage wrappers; __fastcall) and the message counter 0x00A52298.
@@ -110,7 +110,7 @@ public:
     int Unknown_0071D230();                                // 0x0071D230
     bool Unknown_0071D240(int unknown1, int x, int y, int width, int height);   // 0x0071D240
     void Unknown_0071D2B0(int value);                      // 0x0071D2B0
-    void Unknown_0071D2C0(int unknown1, unsigned unknown2);   // 0x0071D2C0
+    void Unknown_0071D2C0(void *buffer, unsigned length);   // 0x0071D2C0
     int Unknown_0071D300();                                // 0x0071D300 (width)
     int Unknown_0071D310();                                // 0x0071D310 (height)
     int Unknown_0071D320();                                // 0x0071D320 callback +0x538

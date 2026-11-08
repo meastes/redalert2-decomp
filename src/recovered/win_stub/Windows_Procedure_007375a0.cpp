@@ -9,7 +9,7 @@
 #include "shared/movie_globals.hpp"
 #include "shared/exit.hpp"
 extern CCToolTip *ToolTips;
-bool __fastcall unknown_moving_736d80(HWND window, unsigned int message, long lparam);
+bool __fastcall unknown_moving_736d80(HWND window, unsigned int message, class Rect *rect);
 // @ref ?WWKeyboard@@3PAVWWKeyboardClass@@A=00832468
 // @ref ?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z=00532a60
 extern bool window_mouse_wheel_b263e9;
@@ -88,7 +88,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
         window_scroll_coasting_8373fc = false;
         break;
     case 0x216:
-        return unknown_moving_736d80(window, wparam, lparam);
+        return unknown_moving_736d80(window, wparam, (Rect *)lparam);
     case 0x20a:
         if (!window_mouse_wheel_b263e9) {
             window_mouse_wheel_b263e9 = true;
@@ -122,7 +122,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
 // @ref ?unknown_redraw_8523dc@@3_NA=008523dc
 // @ref ?Unknown_0066A400@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z=0066a400
 // @ref ?Unknown_0067D420@SidebarClass@@QAEX_N@Z=0067d420
-// @ref ?unknown_moving_736d80@@YI_NPAUHWND__@@IJ@Z=00736d80
+// @ref ?unknown_moving_736d80@@YI_NPAUHWND__@@IPAVRect@@@Z=00736d80
 // @ref ?Execute_Command_By_Name@@YIXPBD@Z=00519480
 // @ref _wcslen=00783605
 // @ref ??0ToolTipManager@@QAE@PAUHWND__@@@Z=006eb2e0
@@ -147,7 +147,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
 // @ref ?ReadyToQuit@@3HA=00a40d80
 // @ref ?ToolTips@@3PAVCCToolTip@@A=008399b0
 // @ref ?Unknown_00406F50@@YAXXZ=00406f50
-// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@H@Z=004e0c90
+// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z=004e0c90
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
 // @ref ?unknown_flag_851cb0@@3_NA=00851cb0
 // @ref ?unknown_flag_a40d04@@3_NA=00a40d04

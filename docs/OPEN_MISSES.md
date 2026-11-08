@@ -3105,3 +3105,11 @@ New rulings are recorded at their rows as before.
 ## Scout1060 (2026-11-08, closed; Techno unit TPoint3D move frozen exact, NOT landed; d/r1, NOTES, keep/ in build/class-work/Scout1060/)
 - Model P1 closes: population-4332 238/238 exact, whole-file exact on 08d041af3. AI 0x6C74C0 needed the ParticleSystemClass ctor 0x60AA70 position parameter as `TPoint3D<int> const &` under RA2_PARTICLE_SYSTEM_POINT3D (type hypothesis, flagged; TibSun's `Coord const &` still converts); Take_Damage 0x6CDC40 `TPoint3D<int> difference = a - b;`. Health bar 0x6C3F00 still 58.26.
 - OWNER DECISION: the round adds no bytes and its payoff row is not exact, so under the bytes-first rule it is held (like Scout1036's OwnerDraw restructure) until a Techno row it unlocks lands with it.
+
+## Scout1062 (2026-11-08, closed; 0 B; NOTES, keep/, rx.env in build/class-work/Scout1062/)
+- Scout1060's Techno TPoint3D round unlocks no row (stays held): Area_Modify 0x6C5270 96.38, Evaluate_Object 0x6C5570 91.81, Laser 99.46, Fire_At 0x6CA890 99.14 (Scout955 F_9914_natural.cpp), Get_Z_Adjust 0x6CFEA0 81.20, 0x6D0990 70.83 unchanged under the profile; 0x6CD340 and Rock 0x6D5F40 drafts no longer compile. MISSES_INDEX draft/score errors: 0x6CA890 points at a lab file, 0x6D5F40 shows Area_Modify's score (real best 64.37).
+- Health bar 0x6C3F00 mechanism: the original's eax read is TibSun's TPoint3D::operator/ inlined with its second ctor refused one level down; needs ~7 more pending inline sites after the half (Nop probes, diagnostic only). Natural plateau 58.26.
+
+## Scout1063 (2026-11-08, closed; 0 B; NOTES, keep/ in build/class-work/Scout1063/)
+- Fire_At 0x6CA890 99.14 -> 99.37 (keep/F_9937_random_double.cpp): Random_Direction's fmul order fixed with the accepted Veinhole AI 0x710250 Random_Double helper shape. Left: zadjust scratch registers at 0x11E1 and the inlined DynamicVectorClass::Add orientation at 0x170A (RA2_RADAR_ADD_THREADED fixes it but breaks 0x6C0CD0, 0x6C1F10, 0x6D6850, 0x6D9080). Area_Modify 0x6C5270 96.38 (site-4 Map[] argument scheduling), Evaluate_Object 0x6C5570 91.81 unchanged.
+- OWNER DECISION: no tree-wide Add form change without evidence; the Add orientation question goes to a corpus lab (Scout1065).

@@ -160,7 +160,7 @@ public:
     Cell Unknown_00565610(Cell const &cell, int layer, unsigned int subzone); // 0x00565610 (a bridge end cell in the subzone, or (0,0); TS Find_Bridge_End_Cell_For_Subzone)
     int Unknown_0054FAB0(Cell const &cell);                               // 0x0054FAB0 (shared/map.hpp)
     // Lists the layer subzones around the cell's (hypothesis); true sends the caller to 0x0042A840 (0x00565EB0).
-    bool Unknown_00565EB0(CellClass &cell, int layer, DynamicVectorClass<unsigned short> *list, int arg4);
+    bool Unknown_00565EB0(CellClass *cptr, int layer, DynamicVectorClass<unsigned short> const &connections, ObjectClass const *foot);
 #ifdef MAP_VIEW_DECLARE_REGION_THREAT
     // The threat between two subzones of a layer for a house (0x00567D20; TS Region_Threat). Behind a
     // guard (the path estimator unit 0x00426E70 defines it): a new declaration here renumbers

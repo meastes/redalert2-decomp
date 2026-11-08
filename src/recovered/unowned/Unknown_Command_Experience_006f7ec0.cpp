@@ -25,7 +25,7 @@
 // @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 // @ref ?unknown_messages_a3dc70@@3UUnknownMessageList@@A=00a3dc70
-// @ref ?Add_Message@UnknownMessageList@@QAEXHHPBGHHHH@Z=005b4da0
+// @ref ?Add_Message@UnknownMessageList@@QAEXPBGH0HIH_N@Z=005b4da0
 // @ref ??0?$DynamicVectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z=006f8a80
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b

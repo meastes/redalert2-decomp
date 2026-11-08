@@ -32,7 +32,7 @@
 // @ref ??_C@_0M@BCEA@NukePayload?$AA@=007d1240
 // @ref ??_C@_0BK@OPHL@EVA_LightningStormCreated?$AA@=007ddbc8
 // @ref ?Unknown_00438B80@@YIXPAVHouseClass@@PAVCellClass@@PAVBulletClass@@PBD@Z=00438b80
-// @ref ?Unknown_0063A690@@YIXPAVHouseClass@@HHHPAVCellClass@@HHH@Z=0063a690
+// @ref ?Unknown_0063A690@@YIHPAVHouseClass@@HHHPAVCellClass@@PAVAbstractClass@@HH@Z=0063a690
 // @ref ??HCoordStruct@@QBE?AU0@ABU0@@Z=0069ecf0
 // @ref ??0CoordStruct@@QAE@HHH@Z=00434820
 // @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
@@ -48,7 +48,7 @@ extern CellClass unknown_dummy_cell_a6f9f8;                       // 0x00A6F9F8
 // The psychic-warning radar note for a launched bullet (0x00438B80; name and types hypotheses).
 void __fastcall Unknown_00438B80(HouseClass *house, CellClass *cell, BulletClass *bullet, char const *name);
 // Drops a paradrop of count infantry of a type from a plane (0x0063A690; hypothesis).
-void __fastcall Unknown_0063A690(HouseClass *house, int plane, int arg3, int arg4, CellClass *cell, int arg6, int type, int count);
+int __fastcall Unknown_0063A690(HouseClass *house, int plane, int arg3, int arg4, CellClass *cell, AbstractClass *arg6, int type, int count);   // Create_Air_Reinforcement
 
 // comip's operator=: the new reference through _AddRef, which stays out of line
 // (0x0069ED20 for IPiggyback, 0x00453EA0 for ILocomotion; as BuildingClass 0x00449290).

@@ -253,7 +253,7 @@ public:
     bool Unknown_0047BB10();            // 0x0047BB10 (FootClass 0x004C4C30)
     bool Unknown_00479CF0();            // 0x00479CF0 (InfantryClass 0x00508DD0)
     int Unknown_0047CF10() const;       // 0x0047CF10 (the height level: +0x11B plus 4 when flag 0x80 is set)
-    TechnoClass *Unknown_00471660(Point2D const &offset, int arg2, int arg3);   // 0x00471660 (an object in the cell; FootClass slot 309)
+    TechnoClass *Unknown_00471660(Point2D const &offset, bool alt, ObjectClass *except) const;   // 0x00471660 (an object in the cell; FootClass slot 309)
     bool Unknown_00478760(int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);   // 0x00478760 (FootClass slot 309)
     int Unknown_0047A230();             // 0x0047A230 (a docking score; FootClass 0x004CB8F0)
     void Unknown_0047C360(int house);   // 0x0047C360 (FootClass slot 285)

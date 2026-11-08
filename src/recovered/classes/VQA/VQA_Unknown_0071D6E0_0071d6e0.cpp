@@ -18,7 +18,7 @@ int __cdecl VQA_Unknown_0071D6E0(VQAHandle *handle, int event, int unknown3, int
         return 0;
     }
     case 3:
-        player->Unknown_0071D2C0(unknown3, unknown4);
+        player->Unknown_0071D2C0((void *)unknown3, unknown4);
         return 0;
     case 4:
     case 5:

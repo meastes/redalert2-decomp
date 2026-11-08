@@ -4,8 +4,8 @@
     "id": "population-4332",
     "inventory_sha256": "ed7c5be99f2aa2e2aca864d4504d22fb9161a2be0696b003139357d1729db4c6",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "ed3f3ef5a69725de9400edb0be60355371688bb513c2bc2c96bae88264072b15",
-    "historical_acceptance_sha256": "0c8d693d8eb626177d74e54c79976ce12bba238868eea9e79a71cda5f43e417c"
+    "historical_population_sha256": "2ba67f254863262ab2c0aa69ccb11853282605ba3acb0248c4fe8ea8fe5490e4",
+    "historical_acceptance_sha256": "9bfa91b633150d1ab54280eeb54dd3f1b62608dc43078e17a6e43de20b139aec"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5582,7 +5582,7 @@
     "?Resize@?$VectorClass@U?$TPoint3D@H@@@@UAE_NHPBU?$TPoint3D@H@@@Z": 4582992,
     "?unknown_slot41@DisplayClass@@UAE_NHPAH_N@Z": 4823904,
     "?Unknown_00478760@CellClass@@QAE_NH_N0HHH0@Z": 4687712,
-    "?Unknown_00471660@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@HH@Z": 4658784,
+    "?Unknown_00471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?Reset_Light_Converts_00529720@@YAXXZ": 5412640,
     "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z": 4690160,
     "?Unknown_004798F0@CellClass@@QAEXXZ": 4692208,
@@ -5875,7 +5875,7 @@
     "?unknown_4cc260@FootClass@@QAE_NAAVCell@@HH@Z": 5030496,
     "?unknown_4cc400@FootClass@@QAE_NH@Z": 5030912,
     "?unknown_slot309@FootClass@@UAE_NPAVAbstractClass@@@Z": 5031120,
-    "?Unknown_00471660@UnknownCellClass@@QAEPAVTechnoClass@@ABUPoint2D@@HH@Z": 4658784,
+    "?Unknown_00471660@UnknownCellClass@@QBEPAVTechnoClass@@ABUPoint2D@@_NPAVObjectClass@@@Z": 4658784,
     "?Unknown_00478760@UnknownCellClass@@QAE_NHHHHHHH@Z": 4687712,
     "?unknown_slot27@TechnoClass@@UAEHPBVCell@@_N1@Z": 7130336,
     "?unknown_slot28@FootClass@@UAEHPAVObjectClass@@_N@Z": 5031744,
@@ -8528,7 +8528,7 @@
     "?unknown_path_levels_84c858@@3PAHA": 8702040,
     "?Unknown_00429570@UnknownPathEstimator@@QAEXPBHHHPAHPAVCell@@@Z": 4363632,
     "?Unknown_004296F0@UnknownPathEstimator@@QAE_NPAHHABVCell@@1PAVFootClass@@H_N@Z": 4364016,
-    "?Unknown_0042A590@UnknownPathEstimator@@QAEXH@Z": 4367760,
+    "?Unknown_0042A590@UnknownPathEstimator@@QAEXPAVFootClass@@@Z": 4367760,
     "?Unknown_0042A840@UnknownPathEstimator@@QAEXIH@Z": 4368448,
     "?Add@?$DynamicVectorClass@I@@QAE_NABI@Z": 4370672,
     "?Unknown_00429B60@UnknownPathEstimator@@QAE_NABVCell@@0HPAVFootClass@@@Z": 4365152,
@@ -9609,7 +9609,7 @@
     "??D@YI?AVMatrix3D@@ABV0@0@Z": 5837184,
     "?unknown_839a60@@3UVector3@@A": 8624736,
     "?unknown_drawer_8323c4@@3PAVConvertClass@@A": 8594372,
-    "?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@1ABUVector3@@III@Z": 7435104,
+    "?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z": 7435104,
     "?RLEBlitter_From_Flags_00485d60@ConvertClass@@QBEPBVRLEBlitter@@I@Z": 4742496,
     "?Detach_Target_468120@CaptureManagerClass@@QAE_NPAVAbstractClass@@@Z": 4620576,
     "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z": 5568448,
@@ -12285,7 +12285,7 @@
     "?Unknown_0055C2C0@MapClass@@QAE_NHH@Z": 5620416,
     "?Unknown_0055ACD0@MapClass@@QAE_NPAVObjectClass@@ABVCell@@@Z": 5614800,
     "?Redraw@ProgressBarClass@@QBEXXZ": 4373120,
-    "?Unknown_00565EB0@MapClass@@QAE_NAAVCellClass@@HPAV?$DynamicVectorClass@G@@H@Z": 5660336,
+    "?Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z": 5660336,
     "?Unknown_00564F70@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z": 5656432,
     "?Unknown_00565610@MapClass@@QAE?AVCell@@ABV2@HI@Z": 5658128,
     "?Unknown_0054A720@MapClass@@QAEXABUCoordStruct@@H@Z": 5547808,
@@ -12384,7 +12384,7 @@
     "??_7CampaignScoreClass@@6B@": 7984932,
     "??1CampaignScoreClass@@UAE@XZ": 4611088,
     "?Add_Message@UnknownMessageList_0051d820@@QAEPAXPBGH0HHH_N@Z": 5983648,
-    "?Add_Message@UnknownMessageList@@QAEXHHPBGHHHH@Z": 5983648,
+    "?Add_Message@UnknownMessageList@@QAEXPBGH0HIH_N@Z": 5983648,
     "?Get_Message@NullModemClass@@QAEHPAXPAH@Z": 6096432,
     "?Update_Messages@MessageListClass@@QAEHXZ": 5985808,
     "??0CampaignScoreClass@@QAE@XZ": 4611056,
@@ -13341,7 +13341,6 @@
     "??0StaticBufferClass@@QAE@H@Z": 6922656,
     "?Precalculate_Light@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@ABUVector3@@@Z": 7434320,
     "?Prep_For_Object@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@@Z": 7435456,
-    "?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z": 7435104,
     "?Draw_Depth_Shaded_Line@DSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z": 4914224,
     "?Draw_Dashed_Line_Depth_Masked@DSurface@@UAEHABUPoint2D@@0HPB_NH_N@Z": 4916816,
     "?Fill_Circle@XSurface@@QAEXUPoint2D@@HVRect@@H@Z": 7818384,
@@ -13407,7 +13406,6 @@
     "?Get_Pitch@BulletVelocity@@QBE?AVDirType@@XZ": 4306656,
     "?Set_Pitch@BulletVelocity@@QAEXABVDirType@@@Z": 5849520,
     "?Grow@?$WolArrayList@VWstring@@@@QAE_NXZ": 7766816,
-    "?Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z": 5660336,
     "??_7?$DynamicVectorClass@PAVtConnInfoStruct@@@@6B@": 8059268,
     "??_7?$DynamicVectorClass@N@@6B@": 8019884,
     "?Get_Pitch@BulletVelocity@@QBE?AUUnknownFacingDir@@XZ": 4306656,
@@ -13551,7 +13549,18 @@
     "_CLSID_VoxelAnimTypeClass": 8002816,
     "?Destroy@PlanningTokenClass@@QAEXXZ": 6369456,
     "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112,
-    "?BlitForward@?$BlitTransXlat@G@@UBEXPAXPBXHHHHHH@Z": 4743616
+    "?BlitForward@?$BlitTransXlat@G@@UBEXPAXPBXHHHHHH@Z": 4743616,
+    "??0HashString@@QAE@XZ": 5116208,
+    "??0HashString@@QAE@ABV0@@Z": 5116288,
+    "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
+    "??0HashString@@QAE@PBD@Z": 5116224,
+    "??8HashString@@QBE_NABV0@@Z": 5116400,
+    "??9HashString@@QBE_NABV0@@Z": 5116480,
+    "??0SchemeNode@@QAE@PBDPAV?$DynamicVectorClass@PAVColorScheme@@@@@Z": 6304256,
+    "??1SchemeNode@@QAE@XZ": 6304320,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "?unknown_slot67@BuildingLightClass@@UAEXHH@Z": 4404096,
+    "__real@8@3fe3c8000000c8000000": 8019992
   },
   "regions": [
     {
@@ -30391,7 +30400,7 @@
         {
           "offset": 225,
           "kind": 20,
-          "symbol": "?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@1ABUVector3@@III@Z",
+          "symbol": "?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z",
           "target": 7435104,
           "addend": 0,
           "resolved": 281195
@@ -30461,7 +30470,7 @@
           "resolved": 4292659705
         }
       ],
-      "source_sha256": "db1253998d1736f4bd054929064de0a8f8e7c896920345f63230a2ca587b2387",
+      "source_sha256": "2fb474c8dc6ec4cbab89b07cb68cf3dfc440ff7e2f1dad4770d85a5f59edda86",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_Render_Voxel_Shadow_006d2810.cpp",
       "population": "population-4332",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

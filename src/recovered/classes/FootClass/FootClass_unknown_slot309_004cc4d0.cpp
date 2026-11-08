@@ -11,7 +11,7 @@
 #include "shared/techno_type.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_00471660@UnknownCellClass@@QAEPAVTechnoClass@@ABUPoint2D@@HH@Z=00471660
+// @ref ?Unknown_00471660@UnknownCellClass@@QBEPAVTechnoClass@@ABUPoint2D@@_NPAVObjectClass@@@Z=00471660
 // @ref ?Unknown_00478760@UnknownCellClass@@QAE_NHHHHHHH@Z=00478760
 // @ref ?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e20
 

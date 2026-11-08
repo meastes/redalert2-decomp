@@ -197,7 +197,7 @@ struct UnknownPathEstimator {
     // cell when it never does) (0x00429570).
     void Unknown_00429570(int const *facings, int index, int stop, int *out_index, Cell *cell);
     // Records the subzone pairs around the start cell +0x70 in each layer's +0x74 list (0x0042A590).
-    void Unknown_0042A590(int arg);
+    void Unknown_0042A590(FootClass *foot);
     // (0x0042A840).
     void Unknown_0042A840(unsigned subzone, int layer);
 #ifdef RA2_PATH_OPTIMIZE_MOVES

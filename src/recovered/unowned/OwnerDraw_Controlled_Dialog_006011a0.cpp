@@ -5,7 +5,7 @@
 #include "shared/keyboard.hpp"
 #include "shared/ms_message_box.hpp"
 namespace OwnerDraw {
-HWND __fastcall unknown_controlled_dialog_6011a0(int resource,DialogProc procedure,DialogControl *control)
+int __fastcall unknown_controlled_dialog_6011a0(int resource,DialogProc procedure,DialogControl *control)
 {
     HWND window=unknown_create_dialog_5ff610(resource,procedure,(int)control);
     if(!window) {
@@ -20,6 +20,6 @@ HWND __fastcall unknown_controlled_dialog_6011a0(int resource,DialogProc procedu
         unknown_517370(false);
     }
     unknown_dialog_5ff6e0(window);
-    return control->Get_Window_00601180();
+    return (int)control->Get_Window_00601180();
 }
 }

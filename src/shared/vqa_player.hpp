@@ -663,9 +663,11 @@ void __fastcall VQA_Unknown_0077C7D0(VQAHandle *handle);
 int __fastcall VQA_Unknown_0077C480(VQAHandle *handle, int buffer, int width, int height, int x, int y);  // VQA_Set_DrawBuffer
 int __fastcall VQA_Unknown_0077C8A0(VQAHandle *handle, int frames);
 int __fastcall VQA_Unknown_0077C920(VQAHandle *handle, int *blockw, int *blockh, int *clrmode);  // VQA_GetBlockInfo
-int __fastcall VQA_Unknown_0077C440(VQAHandle *handle, void (*unvq1)(), void (*unvq2)());       // VQA_SetUnVQ
+int __fastcall VQA_Unknown_0077C440(VQAHandle *handle, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2);       // VQA_SetUnVQ
 int __fastcall VQA_Unknown_0077CBA0(VQAHandle *handle);                                         // VQA_GetMovieTime
-void VQA_Unknown_0077FD80();
-void VQA_Unknown_0077FE89();
+void __cdecl VQA_Unknown_0077FD80(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer,
+    unsigned long blocksperrow, unsigned long numrows, unsigned long bufwidth);   // an UnVQ drawer (VQA_Unknown_0077C440)
+void __cdecl VQA_Unknown_0077FE89(unsigned char *codebook, unsigned char *pointers, unsigned char *buffer,
+    unsigned long blocksperrow, unsigned long numrows, unsigned long bufwidth);   // an UnVQ drawer (VQA_Unknown_0077C440)
 
 #endif

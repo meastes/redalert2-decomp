@@ -395,7 +395,7 @@ public:
     // TibSun Is_Clear_To_Build; declared above with ints).
     bool unknown_4718b0(int speed, class BuildingTypeClass const *type, class HouseClass *house);
     bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);   // 0x00478760 (unknown_478760 above)
-    ObjectClass *Unknown_00471660(Point2D const &point, int arg2, int arg3);   // 0x00471660 (unknown_471660 above)
+    ObjectClass *Unknown_00471660(Point2D const &point, bool alt, ObjectClass *except) const;   // 0x00471660 (unknown_471660 above)
     CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any, int alt) const;   // 0x004764B0 (int alt)
     void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 (Cell_Color)
     void Unknown_004798F0();        // 0x004798F0 (unknown_4798f0 above)

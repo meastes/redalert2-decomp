@@ -56,7 +56,7 @@ typedef bool (__fastcall *UnknownTest)(void *item, int argument);
 
 // The on-screen message list (0x00A3DC70).
 struct UnknownMessageList {
-    void Add_Message(int arg1, int arg2, wchar_t const *text, int color, int style, int delay, int arg7);
+    void Add_Message(wchar_t const *name, int id, wchar_t const *text, int color, unsigned int style, int delay, bool arg7);   // 0x005B4DA0 (MessageListClass::Add_Message)
 };
 extern UnknownMessageList unknown_messages_a3dc70;
 

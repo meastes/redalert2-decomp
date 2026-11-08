@@ -4,8 +4,8 @@
     "id": "population-3745",
     "inventory_sha256": "dc62176afe5c7e1fca8ff2a394bdf0f73d8c3fd19a4465012ed6d6b75b11e3cb",
     "gaps_sha256": "6bbbb1f5ff45e5beb274c1d562b6634b986cc91a326aaccd6995c6a6af088f7f",
-    "historical_population_sha256": "b9be56d7ab0552ee9b3f8f990e6affb57abb88f6ec1c2348803732d22c5800f5",
-    "historical_acceptance_sha256": "accba0b8139c387f7e6607951fa83a18955ae5609b0850c9519e7c159b42b6a2"
+    "historical_population_sha256": "a6a22add6b1cb8a4af9a4e683102393c027d9df7e57bd7411da8088bc4af5318",
+    "historical_acceptance_sha256": "dcd1baf895d29c61996150f1b1106b6ef2a35e95a74d1171d5d00d88c91af049"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -4046,7 +4046,7 @@
     "?unknown_clear@UnknownOwnedList_0063f070@@QAEXXZ": 6549616,
     "?unknown_release@UnknownComHolder_00658050@@QAEXXZ": 6651984,
     "?unknown_release@UnknownComHolder_0065b2a0@@QAEXXZ": 6664864,
-    "?unknown_find_or_make_palette@@YIHPBDHHHH@Z": 6700192,
+    "?unknown_find_or_make_palette@@YIHPBDABVHSVClass@@PAX2H@Z": 6700192,
     "?Resume@ScoreAnimClass@@UAEXXZ": 6718288,
     "?unknown_save_chat_options@UnknownOptions_00670730@@QAEXXZ": 6752048,
     "?unknown_set_description@UnknownDescribed_00671fa0@@QAEXPBG@Z": 6758304,
@@ -5544,7 +5544,6 @@
     "__imp__StringFromGUID2": 7972308,
     "__imp__RevokeActiveObject": 7971668,
     "__imp__LoadTypeLib": 7971672,
-    "?unknown_find_or_make_palette@@YIHPBDABVHSVClass@@PAX2H@Z": 6700192,
     "??_GScoreFontClass@@UAEPAXI@Z": 6718416,
     "??_7ScoreFontClass@@6B@": 8032928,
     "??1ScoreFontClass@@UAE@XZ": 6715568,
@@ -7771,7 +7770,7 @@
     "?Clear_Focus@DropListClass@@UAEXXZ": 4870224,
     "?Draw_Me@StaticButtonClass@@UAEHH@Z": 6916192,
     "?Add_Message@UnknownMessageList_0051d820@@QAEPAXPBGH0HHH_N@Z": 5983648,
-    "?Add_Message@UnknownMessageList@@QAEXHHPBGHHHH@Z": 5983648,
+    "?Add_Message@UnknownMessageList@@QAEXPBGH0HIH_N@Z": 5983648,
     "?Draw_Me@Dial8Class@@UAEHH@Z": 4813104,
     "?Get_Message@NullModemClass@@QAEHPAXPAH@Z": 6096432,
     "?Draw_Me@ShapeButtonClass@@UAEHH@Z": 6771168,

@@ -4,8 +4,8 @@
     "id": "population-4339",
     "inventory_sha256": "c5297442bfd62b0f288cf262200b72bc5892cf13730a99969fc0e06a834ea694",
     "gaps_sha256": "e1c09d77fe09f7c1c72e084992d85ab01a336d3ebf31010be33b3659ff3b89ce",
-    "historical_population_sha256": "3a30ab4dcaecac8c830fe5fa87c90822410d5e0d66a95afeccbc43f8069e66c1",
-    "historical_acceptance_sha256": "110bcfe02fb73de2d63b6cadc07f9ca0981efc56628d753007f976d4cf53d6e9"
+    "historical_population_sha256": "fd0fda29449341834230f18ba829ff6ba4a1cd1fa7a9c6ac591ff7c1f83fa42a",
+    "historical_acceptance_sha256": "5ff5f69ec430c245a75a97184f19a3ca1dfc7e1c425d03e9cb91875ce60961cb"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -6933,7 +6933,7 @@
     "?Create@Territory@WorldDominationTour@@SI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@HABVINIClass@@ABVWstring@@11@Z": 7539584,
     "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@HVWstring@@H0H@Z": 7505872,
     "?Add_Message@UnknownMessageList_0051d820@@QAEPAXPBGH0HHH_N@Z": 5983648,
-    "?Add_Message@UnknownMessageList@@QAEXHHPBGHHHH@Z": 5983648,
+    "?Add_Message@UnknownMessageList@@QAEXPBGH0HIH_N@Z": 5983648,
     "?Open@AnimFile@@UAE_NPAVFileClass@@@Z": 4341872,
     "?Create@WDTState@@SI?AV?$rc_ptr@VWDTState@@@@PAE@Z": 7519920,
     "?Write_MultiPlayer_Settings@UnknownSessionState@@QAEXXZ": 6751104,
@@ -7948,7 +7948,7 @@
     "?Get_Mouse_XY@WWMouseClass@@UBE?AUPoint2D@@XZ": 7812816,
     "?Background@SidebarClass@@2VSBGadgetClass@1@A": 11245336,
     "?Message_Box_Proc@@YGHPAUHWND__@@IIJ@Z": 5982400,
-    "?unknown_moving_736d80@@YI_NPAUHWND__@@IJ@Z": 7564672,
+    "?unknown_moving_736d80@@YI_NPAUHWND__@@IPAVRect@@@Z": 7564672,
     "?Message_Box_Command@@YIXPAUHWND__@@H0I@Z": 5982592,
     "?unknown_sort_end_scores_467a00@@YAXXZ": 4618752,
     "?unknown_end_score_count_8504e8@@3HA": 8717544,
@@ -10928,7 +10928,7 @@
     "?unknown_slot28@RadarClass@@UAEXPBVRect@@_NH1@Z": 6488832,
     "?unknown_copy_6006e0@UnknownControlRecord@OwnerDraw@@QAEAAU12@ABU12@@Z": 6293216,
     "??0DialogControl@OwnerDraw@@QAE@XZ": 6295600,
-    "?unknown_controlled_dialog_6011a0@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZPAVDialogControl@1@@Z": 6295968,
+    "?unknown_controlled_dialog_6011a0@OwnerDraw@@YIHHP6GHPAUHWND__@@IIJ@ZPAVDialogControl@1@@Z": 6295968,
     "?unknown_control_test_601260@OwnerDraw@@YI_NPAUHWND__@@@Z": 6296160,
     "?Find@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAPAVSchemeNode@@ABVHashString@@@Z": 6312128,
     "?Next@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAVHashString@@AAUUnknownSchemeListIterator@@@Z": 6312224,
@@ -11199,7 +11199,10 @@
     "?OnPrivateGameOptions@CChatEventSink@@UAGJJPAUUser@WOL@@PBD@Z": 7740496,
     "?Plan_Naval_Yard_Path_004eecb0@HouseClass@@QAEXH@Z": 5172400,
     "?Select_Serial_Dialog@@YIHXZ": 6086400,
-    "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112
+    "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112,
+    "?Unknown_Clamp_Rect_To_Screen_00736D80@@YI_NPAXIPAVRect@@@Z": 7564672,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992
   },
   "regions": [
     {
@@ -30041,7 +30044,7 @@
     {
       "entry": 6295968,
       "method": "006011a0",
-      "symbol": "?unknown_controlled_dialog_6011a0@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZPAVDialogControl@1@@Z",
+      "symbol": "?unknown_controlled_dialog_6011a0@OwnerDraw@@YIHHP6GHPAUHWND__@@IIJ@ZPAVDialogControl@1@@Z",
       "symbol_prefix": "?unknown_controlled_dialog_6011a0@OwnerDraw@@",
       "options": [
         "/O2",
@@ -30168,7 +30171,7 @@
           "resolved": 4294960278
         }
       ],
-      "source_sha256": "3c55aa2dc4010ad53b1d08305a897e665457c3804ac1bcdbdb78128925f72abc",
+      "source_sha256": "3fc8283b243a8faee15e4f8b238fdee089666378b1c61ed9abd242aa0b55078d",
       "source": "src/recovered/unowned/OwnerDraw_Controlled_Dialog_006011a0.cpp",
       "population": "population-4339",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

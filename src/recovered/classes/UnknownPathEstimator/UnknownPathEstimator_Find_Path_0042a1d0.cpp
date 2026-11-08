@@ -76,7 +76,7 @@ UnknownPathType *UnknownPathEstimator::Find_Path_0042a1d0(Cell const &from, Cell
             Debug_Printf(unknown_path_regular_failure, hs_from.X, hs_from.Y, hs_to.X, hs_to.Y);
         }
         ++attempt;
-        Unknown_0042A590((int)foot);
+        Unknown_0042A590(foot);
         Unknown_00427E90();
         with_hs = unknown_38 ? true : false;
         if (attempt >= tries) {

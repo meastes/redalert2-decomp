@@ -42,7 +42,7 @@ int __stdcall Unknown_00513080(HWND window, UINT message, WPARAM wparam, LPARAM 
         }
         return 0;
     case 0x216:
-        return unknown_moving_736d80(window, wparam, lparam);
+        return unknown_moving_736d80(window, wparam, (Rect *)lparam);
     case 0x111:
         switch (wparam & 0xFFFF) {
         case 2:

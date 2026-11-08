@@ -5,7 +5,7 @@
 #include "shared/map_cell.hpp"
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref ?Unknown_00478760@CellClass@@QAE_NH_N0HHH0@Z=00478760
-// @ref ?Unknown_00471660@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@HH@Z=00471660
+// @ref ?Unknown_00471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
 
 bool DisplayClass::Unknown_0049AD90(Cell const &from, Cell const &to, int speed, int arg4, int arg5)
 {

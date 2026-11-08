@@ -11,12 +11,12 @@
 // @ref ??_C@_0CF@NHAK@VQAClass?3?3Advance_Frame?$CI?$CJ?5?9?5Unpa@=007fb144
 // @ref ?Unknown_0069B420@VQAMovieCompanion@@QAE_NH@Z=0069b420
 // @ref ?VQA_Unknown_0070B690@@YIXH@Z=0070b690
-// @ref ?VQA_Unknown_0070B820@@YAXXZ=0070b820
-// @ref ?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXXZ1@Z=0077c440
+// @ref ?VQA_Unknown_0070B820@@YAXPAE00KKK@Z=0070b820
+// @ref ?VQA_Unknown_0077C440@@YIHPAUVQAHandle@@P6AXPAE11KKK@Z2@Z=0077c440
 // @ref ?VQA_Unknown_0077C8A0@@YIHPAUVQAHandle@@H@Z=0077c8a0
 // @ref ?VQA_Unknown_0077C920@@YIHPAUVQAHandle@@PAH11@Z=0077c920
 // @ref ?VQA_Unknown_0077CBA0@@YIHPAUVQAHandle@@@Z=0077cba0
-// @ref ?VQA_Unknown_0077FD80@@YAXXZ=0077fd80
+// @ref ?VQA_Unknown_0077FD80@@YAXPAE00KKK@Z=0077fd80
 // @ref ?unknown_vqa_paused_af901c@@3_NA=00af901c
 
 bool VQAClass::Unknown_0071CFC0(bool *unknown)

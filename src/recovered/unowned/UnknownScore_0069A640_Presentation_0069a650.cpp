@@ -6,7 +6,7 @@
 // @ref ?Unknown_Free_Art_Flagged_006F2750@@YAXXZ=006f2750
 // @ref ?unknown_dialog_box_5eab60@@YIHHP6GHPAUHWND__@@IIJ@Z_N@Z=005eab60
 // @ref ?Unknown_6F3BF0@@YIXPAVSurface@@ABVRect@@@Z=006f3bf0
-// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@H@Z=004e0c90
+// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z=004e0c90
 // @ref ?Score_Dialog_Proc_0069A7D0@@YGHPAUHWND__@@IIJ@Z=0069a7d0
 #include "shared/id_source.hpp"
 #include "shared/campaign_score.hpp"

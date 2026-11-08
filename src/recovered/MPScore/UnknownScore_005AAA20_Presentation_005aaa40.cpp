@@ -12,7 +12,7 @@ void UnknownScore_005AAA20::Presentation_005AAA40()
     Unknown_004E0C90(true, unknown_surface_839954, 0);
     Unknown_006F2AB0();
 }
-// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@H@Z=004e0c90
+// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z=004e0c90
 // @ref ?Unknown_006F2AB0@@YIXXZ=006f2ab0
 // @ref ?Unknown_6F3CD0@@YIXPAVSurface@@ABVRect@@@Z=006f3cd0
 // @ref ?Unknown_Load_Art_Pair_006F2A30@@YIXH@Z=006f2a30

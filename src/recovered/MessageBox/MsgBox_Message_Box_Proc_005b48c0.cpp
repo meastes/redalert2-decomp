@@ -4,7 +4,7 @@
 #include "shared/ms_message_box.hpp"
 // @ref __imp__GetWindowLongA@8=0079a48c
 // @ref ?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z=005ffb00
-// @ref ?unknown_moving_736d80@@YI_NPAUHWND__@@IJ@Z=00736d80
+// @ref ?unknown_moving_736d80@@YI_NPAUHWND__@@IPAVRect@@@Z=00736d80
 
 int __stdcall Message_Box_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
@@ -17,7 +17,7 @@ int __stdcall Message_Box_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
             Message_Box_Command(window, wparam & 0xFFFF, (HWND)lparam, wparam >> 16);
             break;
         case 0x216:
-            return unknown_moving_736d80(window, wparam, lparam);
+            return unknown_moving_736d80(window, wparam, (Rect *)lparam);
     }
     return 0;
 }

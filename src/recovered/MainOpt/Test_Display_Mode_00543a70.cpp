@@ -16,7 +16,7 @@
 // @ref ?Options@@3VOptionsClass@@A=00a40b18
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ??BSystemTimerClass@@QBEJXZ=0069a430
-// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@H@Z=004e0c90
+// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z=004e0c90
 // @ref ?unknown_5159b0@@YIXH_N@Z=005159b0
 // @ref ?Set_Display_Mode@@YI_NHH@Z=005434e0
 // @ref ?Confirm_Mode_Proc@@YGHPAUHWND__@@IIJ@Z=00543c40

@@ -32,7 +32,7 @@
 // @ref ?Clear@?$VectorClass@G@@UAEXXZ=0042b260
 // @ref ?ID@?$VectorClass@G@@UAEHABG@Z=0042b290
 // @ref ?ID@?$VectorClass@G@@UAEHPBG@Z=0042b2d0
-// @ref ?Unknown_00565EB0@MapClass@@QAE_NAAVCellClass@@HPAV?$DynamicVectorClass@G@@H@Z=00565eb0
+// @ref ?Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z=00565eb0
 
 inline unsigned short Cell_Subzone(MapClass *map, Cell const &cell, int layer)
 {

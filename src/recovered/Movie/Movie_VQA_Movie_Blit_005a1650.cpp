@@ -2,7 +2,7 @@
 // Copies the current movie frame to the screen surface at its window position.
 // @ref ?unknown_surface_839950@@3PAVSurface@@A=00839950
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
-// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@H@Z=004e0c90
+// @ref ?Unknown_004E0C90@@YIX_NPAVSurface@@PBVRect@@@Z=004e0c90
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 #include "shared/movie.hpp"
 #include "shared/movie_globals.hpp"

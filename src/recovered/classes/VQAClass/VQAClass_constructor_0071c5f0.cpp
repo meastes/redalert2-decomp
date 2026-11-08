@@ -9,11 +9,11 @@
 // @ref ?unknown_int_a40b54@@3HA=00a40b54
 // @ref ?Unknown_004122C0@@YAKPAUVQAHandle@@@Z=004122c0
 // @ref ?Unknown_00411420@@YAKPAUVQAHandle@@@Z=00411420
-// @ref ?Unknown_004115A0@@YAHPAUVQAHandle@@HHH@Z=004115a0
+// @ref ?Stream_Audio_Handler@@YAJPAUVQAHandle@@JPAXJ@Z=004115a0
 
 unsigned long __cdecl Unknown_004122C0(VQAHandle *vqa);
 unsigned long __cdecl Unknown_00411420(VQAHandle *vqa);
-int __cdecl Unknown_004115A0(VQAHandle *handle, int action, int buffer, int size);
+long __cdecl Stream_Audio_Handler(VQAHandle *vqa, long action, void *buffer, long nbytes);   // 0x004115A0 (shared/ahandle.hpp)
 
 VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (*callback53c)(),
                    void (*callback540)(), int unknown6, int unknown7)
@@ -83,7 +83,7 @@ VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (
         Config.RefreshRate = 60;
         Config.LatencyAdjustment = unknown_int_a40b54 & 0xFFFF;
     }
-    Config.AudioHandler = Unknown_004115A0;
+    Config.AudioHandler = (VQACallback)Stream_Audio_Handler;
     Config.HMIBufSize = 0x2000;
     CurrentFrame = 0;
     unknown_544 = 0;
