@@ -50,7 +50,9 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   User decision (2026-11-08): the native port may read data the original stores
   (file names, dialog templates, tables, COM class ids) from the user's installed
   `game.exe` and `Ra2.tlb` at run time, like other game files; never copied into
-  the repo or shipped.
+  the repo or shipped. The port reads either the rebuilt target game.exe or the
+  user's installed game.exe (a different build: locate data per build, e.g. by
+  signature or a per-build address map), and skips the CD check (user, 2026-11-08).
 
 ## How to work
 
