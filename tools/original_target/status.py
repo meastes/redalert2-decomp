@@ -49,8 +49,14 @@ HANDWRITTEN = (
     (0x775980, 0x7759AD, 'BlitTrans<uchar>::BlitForward'),
     (0x4861C0, 0x486206, 'BlitTrans BlitForward'),
     # VQA32 MASM tail: AudioUnzap, VQA_LCW_Uncompress, sosCODEC, ASM_UnVQ_*, cpuid/rdtsc/FPU helpers
-    # (OPEN_MISSES Abuf490, Scout845, Scout848 ruling, Scout922: ra2-decomp .asm twins); 0x77EDD0-0x781571 inclusive.
-    (0x77EDD0, 0x781572, 'VQA32 assembly tail'),
+    # (OPEN_MISSES Abuf490, Scout845, Scout848 ruling, Scout922: ra2-decomp .asm twins). Extended to 0x781C8C (owner,
+    # 2026-11-07): library_identity.py finds no archive member before typinfo.obj at 0x781C8C and the run jumps back
+    # into 0x780xxx, so it is the tail of the same handwritten family.
+    (0x77EDD0, 0x781C8C, 'VQA32 assembly tail'),
+    # Westwood MMX lighting code inside the CRT band (owner, 2026-11-07, library_identity.py): push-ebp prologues,
+    # 256-byte-aligned entries, called from LightConvertClass::Set_Tint 0x538D54 and SpotLightClass 0x5DDE06; no
+    # archive member matches. 25 inventory rows.
+    (0x797440, 0x7995CC, 'MMX lighting assembly'),
 )
 
 

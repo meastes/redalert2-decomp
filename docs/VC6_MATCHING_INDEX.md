@@ -231,4 +231,6 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2145-2147 Multi-path flag set: one statement gives the register form (Scout997) (0): 
 - L2148-2150 Header include order inside a joined unit (Scout1014) (0): 
 - L2151-2153 new[] size reuse is matched only to `a[n - 1]` (Scout1019) (0): 
-- L2154-2155 Memory-resident loop variables block strength reduction (Scout1020) (0): 
+- L2154-2156 Memory-resident loop variables block strength reduction (Scout1020) (0): 
+- L2157-2159 Initialisation form changes the inline cost (Scout1024) (0): 
+- L2160-2161 Function IL size gates inner-loop reassociation (Scout1022) (0): 
