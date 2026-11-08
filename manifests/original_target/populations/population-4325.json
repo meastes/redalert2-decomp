@@ -4,8 +4,8 @@
     "id": "population-4325",
     "inventory_sha256": "f7ddb0b6b92bf7dd251e04394e53c5f3a442a680a103437bef94a8752db862b8",
     "gaps_sha256": "b1744b441d9fceece2cf859d039bac44c5a258fd3868c2929580b1a2c3f9cf04",
-    "historical_population_sha256": "949957591a9ce56082147b81a803770cc841d6e59be916f1a4381236fa82e911",
-    "historical_acceptance_sha256": "436d3e49cda2cd66a72dcceedd46fa6922b17f7ce63338bcb2be9445626f57be"
+    "historical_population_sha256": "14bf36e4203e13244de60ddfb467a675532826a9c63ae1bed35139dd55374542",
+    "historical_acceptance_sha256": "daf9d5d3f70559dac97ccf9c3f51b6c94ac5afe1d6a5e8eacc00bf36d62ac809"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -11714,7 +11714,7 @@
     "?unknown_surface_83995c@@3PAVSurface@@A": 8624476,
     "?Render@Tactical@@QAEXPAVSurface@@_NH@Z": 6964640,
     "?unknown_flag_abcd85@@3_NA": 11259269,
-    "?unknown_flag_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?unknown_object_a3dc70@@3VUnknownObjectA3DC70@@A": 10738800,
     "?Unknown_005B5B30@UnknownObjectA3DC70@@QAEXXZ": 5987120,
     "?ToolTips@@3PAVCCToolTip@@A": 8624560,
@@ -11931,7 +11931,6 @@
     "??0AnimTypeClass@@QAE@ABVNoInitClass@@@Z": 4346176,
     "??1AnimTypeClass@@UAE@XZ": 4346224,
     "?Init@AnimTypeClass@@SIXH@Z": 4346416,
-    "?Debug_Map@@3_NA": 10751251,
     "?unknown_loaded_theater_7d88dc@@3HA": 8227036,
     "??_C@_04BOIE@?4SHP?$AA@": 8187156,
     "?unknown_slot24@AnimTypeClass@@UAEXH@Z": 4346816,
@@ -22901,7 +22900,13 @@
     "?unknown_415510@AircraftClass@@QAEHXZ": 4281616,
     "?Move_Carryall_00416670@AircraftClass@@QAEHXZ": 4286064,
     "?unknown_416010@AircraftClass@@QAEHXZ": 4284432,
-    "?unknown_418f10@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z": 4296464
+    "?unknown_418f10@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z": 4296464,
+    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
+    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "?unknown_slot67@BuildingLightClass@@UAEXHH@Z": 4404096,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "?Update_All@RadBeam@@SIXXZ": 6509792
   },
   "regions": [
     {
@@ -33405,7 +33410,7 @@
           "resolved": 489910
         }
       ],
-      "source_sha256": "d5ce2d7ef98904eb80b9af4f8dfaccd8cf677aa2f206bd997d6b1a97222e83e8",
+      "source_sha256": "003bb63a687bfec19244b0164779ff0c6dfc1db7bc3397607eec8786143df5bf",
       "source": "src/recovered/classes/UnknownBuffer/UnknownBuffer_Is_Present_0070a350.cpp",
       "population": "population-4325",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -33431,7 +33436,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "a8fd7d7913c4e1538d4b128475ff23eabd5350cc1a188915078474e8a6686d05",
       "relocations": [],
-      "source_sha256": "916add8667da7f955e3071e10e047eaad1c8434b7ac6178dfccf525f2d872009",
+      "source_sha256": "eb3c7efaef726ad6f3bac01db417b831d90751953192e119b1db76475c54e178",
       "source": "src/recovered/classes/UnknownBuffer/UnknownBuffer_Is_Archive_Same_0070a3f0.cpp",
       "population": "population-4325",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

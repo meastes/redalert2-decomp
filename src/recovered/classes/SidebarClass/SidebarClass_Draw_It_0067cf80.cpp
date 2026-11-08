@@ -12,7 +12,7 @@
 // @ref ?unknown_surface_839948@@3PAVSurface@@A=00839948
 // @ref ?unknown_drawer_8323cc@@3PAVConvertClass@@A=008323cc
 // @ref ?unknown_shapes_abcd20@@3PAPBXA=00abcd20
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_flag_abcd84@@3_NA=00abcd84
 // @ref ?ToolTips@@3PAVCCToolTip@@A=008399b0
 // @ref ?Refresh@CCToolTip@@UAEX_N@Z=0046e230
@@ -35,7 +35,7 @@ void SidebarClass::Draw_It(bool complete)
     Rect window(0, 0, unknown_surface_839948->Get_Width(), unknown_surface_839948->Get_Height());
     complete = complete || unknown_4ee2 || unknown_4ee3;
 
-    if (unknown_4ee1 && complete && !unknown_flag_a40d13) {
+    if (unknown_4ee1 && complete && !Debug_Map) {
         if (unknown_4ee3) {
             drawn = true;
             CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shapes_abcd20[0], 0,

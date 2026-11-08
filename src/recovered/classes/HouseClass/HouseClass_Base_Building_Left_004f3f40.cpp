@@ -4,7 +4,7 @@
 
 void HouseClass::unknown_func_4f3f40(BuildingClass *building)
 {
-    if (unknown_flag_a40d13) return;
+    if (Debug_Map) return;
     CoordStruct position=building->Position_Coord_004f3f40();
     Cell location=Coord_Cell(position);
     int count = unknown_55f0.Nodes.Count();

@@ -14,7 +14,7 @@ extern int unknown_833684;    // 0x00833684
 void __cdecl Clear_Selected_Objects_00482bc0();
 void __fastcall Unknown_006f6780(unsigned int value);
 // @ref ?unknown_833684@@3HA=00833684
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?Clear_Selected_Objects_00482bc0@@YAXXZ=00482bc0
 // @ref ?Unknown_006f6780@@YIXI@Z=006f6780
 // @ref ?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ=0040dc20
@@ -23,11 +23,11 @@ void __fastcall Unknown_006f6780(unsigned int value);
 
 bool ObjectClass::unknown_slot80()
 {
-    if (!unknown_flag_a40d13 && (unknown_76 || unknown_77 || !unknown_slot76())) {
+    if (!Debug_Map && (unknown_76 || unknown_77 || !unknown_slot76())) {
         return false;
     }
     TechnoClass *techno = As_Techno();
-    if (!unknown_flag_a40d13 && unknown_slot39() && techno && techno->unknown_32c) {
+    if (!Debug_Map && unknown_slot39() && techno && techno->unknown_32c) {
         return false;
     }
     if (unknown_833684) {

@@ -4,8 +4,8 @@
     "id": "population-4240",
     "inventory_sha256": "10a21826ac46e2f8c4ce799bb1c6746e81b7a91080a758cc8f1db5bf8fdd48dc",
     "gaps_sha256": "92f725fd5dc8fd9e17ea6b05213c5332bb0b05c98cca066d0633ba08c720f4cb",
-    "historical_population_sha256": "d3e19c290f70e07e4cadb4546f554e2ee2247279a508737360bd2cde5f83757c",
-    "historical_acceptance_sha256": "af1ef51081ae1c5042ff389fa3e7f40472d56befc19d0677e7c41ee23742538c"
+    "historical_population_sha256": "5402c5980685247e2fdf522ecba7e0a3b279bc01f19e6894b1666fca8caa8ee8",
+    "historical_acceptance_sha256": "77991ecbef96540ec61a624bc91b0293c95206b668ca039ab5cdd522c12ed984"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4698,7 +4698,7 @@
     "?unknown_slot52@RadioClass@@UAE_NXZ": 6515552,
     "?Render@GScreenClass@@UAEXXZ": 5114672,
     "?unknown_surface_839964@@3PAVSurface@@A": 8624484,
-    "?unknown_flag_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?unknown_TriggerClass_list_00a40aa0@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A": 10750624,
     "?unknown_slot36@ObjectTypeClass@@UBEPBVCell@@H@Z": 6118800,
     "?unknown_slot69@TechnoClass@@UAEXXZ": 7087392,
@@ -4724,7 +4724,6 @@
     "?unknown_slot38@TechnoTypeClass@@UBEHXZ": 7188032,
     "?unknown_slot29@TechnoTypeClass@@UBEHXZ": 7201312,
     "?unknown_slot40@AnimTypeClass@@UAEXH@Z": 4347024,
-    "?Debug_Map@@3_NA": 10751251,
     "?unknown_string_83c55c@@3PADA": 8635740,
     "?unknown_slot39@AnimTypeClass@@UBEPAXXZ": 4351312,
     "?unknown_slot45@AnimClass@@UBEHXZ": 4328816,
@@ -12177,7 +12176,35 @@
     "?Draw_Tile_Shadows@Tactical@@QAEXHABVRect@@@Z": 6981792,
     "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
     "??_7WaveClass@@6B@": 8056016,
-    "??_EWaveClass@@UAEPAXI@Z": 7489024
+    "??_EWaveClass@@UAEPAXI@Z": 7489024,
+    "?unknown_473000@CellClass@@QAEXXZ": 4665344,
+    "?Create_Reinforcement@@YI_NPAVTeamTypeClass@@PAVFootClass@@ABVCell@@_N@Z": 6529104,
+    "??0WDTState@@QAE@PAE@Z": 7520160,
+    "?Unknown_0047CC10@CellClass@@QAEXXZ": 4705296,
+    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "??_GMouseClass@@UAEPAXI@Z": 4247904,
+    "??0WDTState@@QAE@XZ": 7519984,
+    "__real@8@400d8000000000000000": 7983264,
+    "?Debug_Draw_Occupation_Flags@Tactical@@QAEXXZ": 6994976,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "?unknown_slot53@BuildingClass@@UAE_NPBUCoordStruct@@H@Z": 4445088,
+    "?Action@RTacticalClass@@UAEHIAAI@Z": 6487600,
+    "?unknown_slot87@InfantryClass@@UAEXABUCoordStruct@@_N1@Z": 5259552,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "?unknown_slot67@BulletClass@@UAEXHH@Z": 4591824,
+    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
+    "?OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z": 7739536,
+    "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z": 7361520,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "?unknown_slot67@BuildingLightClass@@UAEXHH@Z": 4404096,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
+    "?Unknown_0054F250@MapClass@@QAEHPAUUnknownMapElem4@@HAAH@Z": 5567056,
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "??_EMouseClass@@UAEPAXI@Z": 4247904
   },
   "regions": [
     {
@@ -18778,7 +18805,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -19160,7 +19187,7 @@
           "resolved": 4294626901
         }
       ],
-      "source_sha256": "746d7efbf7b57b83fbaf8364065fff63aefbe9857581d41f0cf9a23d353982db",
+      "source_sha256": "eab1be50f3023fc36b683f650930f25db80c2fe1ad1f385d2d7f3d5356c2e62a",
       "source": "src/recovered/classes/CellClass/CellClass_Destroy_Bridge_00473000.cpp",
       "population": "population-4240",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

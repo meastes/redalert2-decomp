@@ -15,7 +15,7 @@ Matrix3D __fastcall Aircraft_Isometric_View_Matrix_00717f90();
 
 void AircraftClass::unknown_slot67(int screen_point_address, int clip_address)
 {
-    if (!unknown_flag_a40d13 && unknown_b263d8 &&
+    if (!Debug_Map && unknown_b263d8 &&
         (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
         CoordStruct destination = (CoordStruct)Locomotor.Checked()->Head_To_Coord();
         destination.Z = Position_Coord_004f3f40().Z;

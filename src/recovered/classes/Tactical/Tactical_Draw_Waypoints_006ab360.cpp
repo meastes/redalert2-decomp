@@ -42,7 +42,7 @@ void Tactical::Draw_Waypoints(bool inshroud)
     int phase = (0x7FFFFFFF - Frame) % 15;
     int start_frame = Map.Get_Mouse_Start(0x3C);
     int frame = unknown_da0 % Map.Get_Mouse_Count(0x3C) + start_frame;
-    if (unknown_flag_a40d13) {
+    if (Debug_Map) {
         return;
     }
     Dash_Entries *dashtable = (Dash_Entries *)((unsigned short *)unknown_drawer_8323c8->Table + 1);

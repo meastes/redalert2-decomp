@@ -16,7 +16,7 @@
 // @ref ?unknown_buffer_ac10b0@@3PAXA=00ac10b0
 // @ref ?unknown_int_ac0ff4@@3HA=00ac0ff4
 // @ref ?unknown_flag_abcd84@@3_NA=00abcd84
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HHHHHHHU4@@Z=0049eea0
 // @ref ?Draw_It@SidebarClass@@UAEX_N@Z=0067cf80
@@ -76,7 +76,7 @@ void TabClass::Draw_It(bool complete)
         drawn:;
         }
     }
-    if (!unknown_flag_a40d13) {
+    if (!Debug_Map) {
         Unknown_006A1710();
         unknown_4eec.Unknown_00494530(true);
         if (redraw) {

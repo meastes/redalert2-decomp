@@ -56,8 +56,8 @@ void UnknownMapGenerator::Generate_Lights_0058a9c0()
     if(lightType!=-1) {
         HouseClass *owner=HouseClass::As_Pointer(HouseTypeClass::Find_Index(unknown_special_name_7cdd70));
         if(owner!=0) {
-            bool old=unknown_flag_a40d13;
-            unknown_flag_a40d13=true;
+            bool old=Debug_Map;
+            Debug_Map=true;
             for(int player=0;player<SeedOptions.NumPlayers;++player) {
                 Cell waypoint=unknown_id_source_a3d290->Get_Waypoint_Location(player);
                 int tries=20;
@@ -87,7 +87,7 @@ void UnknownMapGenerator::Generate_Lights_0058a9c0()
                     --tries;
                 }
             }
-            unknown_flag_a40d13=old;
+            Debug_Map=old;
         }
     }
 }

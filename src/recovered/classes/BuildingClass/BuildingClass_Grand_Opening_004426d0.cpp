@@ -132,7 +132,7 @@ void BuildingClass::unknown_slot282(bool captured)
     House->unknown_5668 = true;
     House->unknown_5669 = true;
     if (unknown_slot32()->GapGenerator) unknown_slot235();
-    if (Type->FreeUnit && unknown_a40774 == 0 && !captured && !unknown_flag_a40d13 &&
+    if (Type->FreeUnit && unknown_a40774 == 0 && !captured && !Debug_Map &&
         (!House->unknown_func_4f52f0() || unknown_258 == 0 || unknown_258 > Type->Raw_Cost())) {
         Cell origin(Center_Coord());
         short south_y = (short)(origin.Y + grand_south_step_00851a80.Y);

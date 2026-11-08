@@ -182,13 +182,13 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
         }
         case 0x6c5:
             unknown_map_generator_a6fd68.SeedOptions.Read_Dialog_Parameters_00578420(window);
-            if(unknown_flag_a40d13) {
+            if(Debug_Map) {
                 unknown_map_generator_a6fd68.Unknown_0057A0D0(0,(int)window);
                 unknown_id_source_a3d290->Set_Scenario_Name_0065e730(unknown_random_map_name_7e1608);
                 Write_Scenario_INI_0065f980(unknown_random_map_file_7e15fc,true);
             } else if(!unknown_preview_a6fee4 || !unknown_preview_a6fee4->Is_Present()) {
                 unknown_map_generator_a6fd68.Unknown_0057A0D0(1,(int)window);
-                if(unknown_flag_a40d13) {
+                if(Debug_Map) {
                     unknown_id_source_a3d290->Set_Scenario_Name_0065e730(unknown_random_map_name_7e1608);
                     Write_Scenario_INI_0065f980(unknown_random_map_file_7e15fc,true);
                 }
@@ -200,7 +200,7 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
     case 0x497: {
         unknown_selection_7e0adc=-1;
         HWND preview_handle=GetDlgItem(window,0x620);
-        if(unknown_flag_a40d13)EnableWindow(preview_handle,0);
+        if(Debug_Map)EnableWindow(preview_handle,0);
         else EnableWindow(preview_handle,1);
         if(unknown_map_generator_a6fd68.SeedOptions.Seed==-1) {
             unknown_map_generator_a6fd68.SeedOptions.Seed=unknown_id_source_a3d290->Random()(0,65535);

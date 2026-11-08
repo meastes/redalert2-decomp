@@ -4,8 +4,8 @@
     "id": "population-4355",
     "inventory_sha256": "9e527d7c5d5768b6c305b45d23a740d5faccb8037eed7f886c1d5eabdea3c735",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "8c6d4a4e9c1c9ceb8472e3b28c98d32258500275efb506b3c2184d1c10005b51",
-    "historical_acceptance_sha256": "fc7e587cf1ab388b5764a600907bd1f7bda1eb92629ae5f0024d18c611a5439a"
+    "historical_population_sha256": "40563f95d099c1d86d690c60a2f63408055b9ffc188992c0ededefec5458eb44",
+    "historical_acceptance_sha256": "fb3687fe6aa3a0b305e07188516541bd244bd8967a2422aa8735d4ff6e9c0e62"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4334,7 +4334,7 @@
     "?unknown_surface_839964@@3PAVSurface@@A": 8624484,
     "?unknown_surface_83995c@@3PAVSurface@@A": 8624476,
     "?Render@Tactical@@QAEXPAVSurface@@_NH@Z": 6964640,
-    "?unknown_flag_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?Blit@GScreenClass@@SIX_NPAVSurface@@PBVRect@@@Z": 5115024,
     "?AI@GScreenClass@@UAEXAAHABUPoint2D@@@Z": 5116096,
     "?Is_Visible@MapClass@@UAGJVCell@@@Z": 5537696,
@@ -4451,7 +4451,6 @@
     "??0AnimTypeClass@@QAE@ABVNoInitClass@@@Z": 4346176,
     "??1AnimTypeClass@@UAE@XZ": 4346224,
     "?Init@AnimTypeClass@@SIXH@Z": 4346416,
-    "?Debug_Map@@3_NA": 10751251,
     "?unknown_loaded_theater_7d88dc@@3HA": 8227036,
     "?unknown_slot24@AnimTypeClass@@UAEXH@Z": 4346816,
     "?Name_From@AnimTypeClass@@SIPBDH@Z": 4347424,
@@ -26153,7 +26152,7 @@
         {
           "offset": 56,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -26287,7 +26286,7 @@
           "resolved": 719644
         }
       ],
-      "source_sha256": "8eb5e5d9e0c678320619a58f9096b2669cf202d10b7e4ce52d48fdaff55467e0",
+      "source_sha256": "9001c157f77a71f40720b9957e96bc27952a0b63c89c54b6ff2ba15ff9f9fc26",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot25_006cf3c0.cpp",
       "population": "population-4355",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",

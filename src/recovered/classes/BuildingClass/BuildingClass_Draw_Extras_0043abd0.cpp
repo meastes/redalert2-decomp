@@ -41,7 +41,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
             if(product && !product->unknown_76 && product->Kind_Of()!=6) {
                 CoordStruct destination=product->unknown_slot19(0);
                 destination.Z=product->Position_Coord_004f3f40().Z;
-                if(!unknown_b263d8 || unknown_flag_a40d13 || !(unknown_id_source_a3d290->unknown_000&0x1000) ||
+                if(!unknown_b263d8 || Debug_Map || !(unknown_id_source_a3d290->unknown_000&0x1000) ||
                    (!Map.Unknown_005683C0(product->Position_Coord_004f3f40()) && !Map.Unknown_005683C0(destination))) {
                     Point2D point;
                     unknown_tactical_83996c->Coord_To_Pixel(product->unknown_slot42(),point);

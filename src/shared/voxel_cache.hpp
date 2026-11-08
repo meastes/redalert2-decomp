@@ -40,10 +40,10 @@ inline UnknownBuffer::NodeElement const *UnknownBuffer::Search_For_Node_006d9850
     }
 
 inline void UnknownBuffer::Invalidate_Archive() const { const_cast<UnknownBuffer *>(this)->unknown_10=0; }
-inline void UnknownBuffer::Set_Archive(NodeElement const *node) const { const_cast<UnknownBuffer *>(this)->unknown_10=(int)node; }
+inline void UnknownBuffer::Set_Archive(NodeElement const *node) const { const_cast<UnknownBuffer *>(this)->unknown_10=node; }
 inline bool UnknownBuffer::Is_Archive_Same_0070a3f0(int const &id) const
     {
-        NodeElement const *node=reinterpret_cast<NodeElement const *>(unknown_10);
+        NodeElement const *node=unknown_10;
         if (node && node->ID==id) return true;
         return false;
     }
@@ -62,7 +62,7 @@ inline bool UnknownBuffer::Is_Present_0070a350(int const &id) const
 
 inline void * const &UnknownBuffer::operator[](int const &id) const
 {
-    if (Is_Present_0070a350(id)) return ((NodeElement const *)unknown_10)->Data;
+    if (Is_Present_0070a350(id)) return unknown_10->Data;
     return unknown_cache_empty_b2b624;
 }
 inline bool UnknownBuffer::Add_Index(int const &id,void * const &data)

@@ -78,7 +78,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     }
 
     Unknown535910 *loader = 0;
-    if (!unknown_flag_a40d13) {
+    if (!Debug_Map) {
         int players = 1;
         if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
             players = unknown_players_a3fa7c.Count();
@@ -177,7 +177,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
         unknown_session_a3d298.Unknown_00672440();
     }
     unknown_a40774--;
-    if (!unknown_flag_a40d13 && ok) {
+    if (!Debug_Map && ok) {
         Service_Game_IO_00481fb0();
         while (ProgressScreen.Average_Progress() < 1.0) {
             for (int index = 0; index < unknown_players_a3fa7c.Count(); index++) {

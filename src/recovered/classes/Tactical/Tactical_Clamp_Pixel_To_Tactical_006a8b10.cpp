@@ -7,7 +7,7 @@
 Point2D Tactical::Clamp_Pixel_To_Tactical(Point2D const &pixel)
 {
     Point2D clamped = pixel;
-    if (Unknown_006A8C80(&clamped) && !unknown_flag_a40d13) {
+    if (Unknown_006A8C80(&clamped) && !Debug_Map) {
         return clamped;
     } else {
         return pixel;

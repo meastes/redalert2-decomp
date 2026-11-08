@@ -3,7 +3,7 @@
 // 0xF2 and 0xF3) at their positions with their shapes.
 #include "shared/radar.hpp"
 // @ref ?Init_IO@DisplayClass@@UAEXXZ=00498c50
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_drawer_8323cc@@3PAVConvertClass@@A=008323cc
 // @ref ?unknown_button_ab63e8@RadarClass@@2VShapeButtonClass@@A=00ab63e8
 // @ref ?unknown_button_ab6380@RadarClass@@2VShapeButtonClass@@A=00ab6380
@@ -20,7 +20,7 @@
 void RadarClass::Init_IO()
 {
     DisplayClass::Init_IO();
-    if (!unknown_flag_a40d13) {
+    if (!Debug_Map) {
         unknown_button_ab63e8.ID = 0xF2;
         unknown_button_ab63e8.unknown_4c = true;
         unknown_button_ab63e8.unknown_50 = unknown_drawer_8323cc;

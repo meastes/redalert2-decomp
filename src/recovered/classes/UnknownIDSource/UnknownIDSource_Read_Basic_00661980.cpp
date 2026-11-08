@@ -215,7 +215,7 @@ bool UnknownIDSource::Read_Basic(CCINIClass &ini)
     unknown_player_a35db4->unknown_55e4 = 0;
     unknown_session_a3d298.Loading_Progress_00672160(58);
     Service_Game_IO_00481fb0();
-    if (unknown_flag_a40d13) {
+    if (Debug_Map) {
         Reset_Light_Converts_00529720();
     }
     unknown_session_a3d298.Loading_Progress_00672160(60);

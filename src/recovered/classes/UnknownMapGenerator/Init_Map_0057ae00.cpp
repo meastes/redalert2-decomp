@@ -129,7 +129,7 @@ void UnknownMapGenerator::Init_Map_0057ae00(int fullInit)
     if(!(unsigned char)fullInit) {
         unknown_a40774=(int)((unsigned)unknown_a40774+1u);
         unknown_id_source_a3d290->Set_Scenario_Name_0065e730("");
-        if(unknown_flag_a40d13)Clear_Scenario_0065d370();
+        if(Debug_Map)Clear_Scenario_0065d370();
         Read_Scenario_INI(ini,true);
         Fill_In_Data_0065cdd0();
         Cell center(Map.MapSize.Width/2+Map.MapSize.Height/2+1,Map.MapSize.Width/2+Map.MapSize.Height/2);

@@ -6,7 +6,7 @@
 // @ref ?Is_Archive_Same_0070a3f0@UnknownBuffer@@=0070a3f0
 bool UnknownBuffer::Is_Archive_Same_0070a3f0(int const &id) const
     {
-        NodeElement const *node=reinterpret_cast<NodeElement const *>(unknown_10);
+        NodeElement const *node=unknown_10;
         if (node && node->ID==id) return true;
         return false;
     }

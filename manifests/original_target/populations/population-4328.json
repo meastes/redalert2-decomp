@@ -4,8 +4,8 @@
     "id": "population-4328",
     "inventory_sha256": "5b8d0c9cf5d4c8f299d3982088a09cc6336cedf11653e14651e8848a167ce215",
     "gaps_sha256": "d0c781b708a610675c535432aa5d6141ab1ba546c2321bfeadffb8f517684e2a",
-    "historical_population_sha256": "ad6297be7ba8a6f2e379eb8e23872fb8188771c36267eec46848a69a6e110d8f",
-    "historical_acceptance_sha256": "d7ba39a11e9fe5e3bd34b2927b5b4ff79b54271a9b2f57a874a4797d3e1613ea"
+    "historical_population_sha256": "3608a8817a14a707248e6a1d15a17e06e4bb5f52052bb5c6447f61b3a0f43967",
+    "historical_acceptance_sha256": "b327d4474d85504b6cd07391770f704b8d9ca2f2d0ecc3d37a8de090f4d3fe6b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1979,7 +1979,7 @@
     "??_C@_0L@BIBI@SHADOW?4SHP?$AA@": 8215844,
     "?Init_Clear@MapClass@@UAEXXZ": 5538496,
     "?Init_IO@GScreenClass@@UAEXXZ": 5114256,
-    "?unknown_flag_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?Zap@LinkClass@@UAEXXZ": 5476336,
     "??_C@_0BC@MLFK@Deleting?5ABuffer?6?$AA@": 8215924,
     "??_C@_0BC@NALE@Deleting?5ZBuffer?6?$AA@": 8215972,
@@ -2011,7 +2011,6 @@
     "_?_list@?7??Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z@4PAV3@A": 8725680,
     "_?$S71@?7??Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z@4EA": 8726000,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
-    "?Debug_Map@@3_NA": 10751251,
     "?Foundation_Height@BuildingTypeClass@@QBEH_N@Z": 4557120,
     "?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
     "?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
@@ -14006,7 +14005,8 @@
     "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
     "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944,
     "?unknown_slot67@BuildingLightClass@@UAEXHH@Z": 4404096,
-    "?Update_All@RadBeam@@SIXXZ": 6509792
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "?Hicolor_Translate@@YIXPAXH@Z": 7387120
   },
   "regions": [
     {
@@ -15307,7 +15307,7 @@
         {
           "offset": 9,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -15337,7 +15337,7 @@
           "resolved": 8726800
         }
       ],
-      "source_sha256": "0a78290ec01868cc5128f2a3eb9559cf7b1d2ab3cbe94b1fe212549519ed19bd",
+      "source_sha256": "06c1a8e9ac9ea14b6eeb7f716926be7af26fc5e5d5afe312f5f0b0b12c24a081",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Init_IO_00498c50.cpp",
       "population": "population-4328",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -22659,7 +22659,7 @@
         {
           "offset": 2180,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -22793,7 +22793,7 @@
           "resolved": 4294552343
         }
       ],
-      "source_sha256": "43c2c836efeab0f5046ab5b96f047c473da51b1b5344f945eafb185005437863",
+      "source_sha256": "76ae4e10111e7ed5b6e30bad9c2c1b9e76459f4f47c090ca558a606f9d40daff",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Read_INI_0049cfd0.cpp",
       "population": "population-4328",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -22838,7 +22838,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -22998,7 +22998,7 @@
         {
           "offset": 557,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -23716,7 +23716,7 @@
           "resolved": 2466704
         }
       ],
-      "source_sha256": "84c28be1bb69bba04a0a5cbc4e02cf718ed1078f976f1bd1c541d69974ef3e43",
+      "source_sha256": "b7e850f452b6fd07a38cd35d30e10c2894d1d08102235644bd7425c37f987740",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Mouse_Left_Release_0049bb20.cpp",
       "population": "population-4328",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

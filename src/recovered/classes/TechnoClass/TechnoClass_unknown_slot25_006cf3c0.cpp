@@ -12,7 +12,7 @@
 #include "shared/techno_map.hpp"
 // @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_b263d8@@3HA=00b263d8
 // @ref __real@8@40078000000000000000=0079a700
 
@@ -21,10 +21,10 @@ int TechnoClass::unknown_slot25(bool arg1, int arg2)
     if (unknown_slot32()->Invisible && unknown_372) {
         return 0;
     }
-    if (unknown_slot32()->Invisible && !unknown_372 && !unknown_flag_a40d13) {
+    if (unknown_slot32()->Invisible && !unknown_372 && !Debug_Map) {
         return 5;
     }
-    if (unknown_1b8 == 0 || unknown_flag_a40d13) {
+    if (unknown_1b8 == 0 || Debug_Map) {
         return 0;
     }
     if (Kind_Of() == 6) {

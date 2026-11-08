@@ -4,7 +4,7 @@
 #include "shared/sidebar.hpp"
 // @ref ?Init_IO@RadarClass@@UAEXXZ=0062f490
 // @ref ?Unknown_0067B910@SidebarClass@@QAEXXZ=0067b910
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_drawer_8323cc@@3PAVConvertClass@@A=008323cc
 // @ref ?unknown_abcd4c@@3HA=00abcd4c
 // @ref ?unknown_abcd50@@3HA=00abcd50
@@ -30,7 +30,7 @@ void SidebarClass::Init_IO()
     RadarClass::Init_IO();
     Unknown_0067B910();
     Unknown_0067BA60();
-    if (unknown_flag_a40d13) {
+    if (Debug_Map) {
         return;
     }
 

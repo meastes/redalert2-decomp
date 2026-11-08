@@ -4,8 +4,8 @@
     "id": "population-4356",
     "inventory_sha256": "f217dc778b95d385cb628f2c70fd6da280d13129e051e084596c9549edce9062",
     "gaps_sha256": "9ed2f8ffea466304caa17300dae10b757387bf0f11bdff5407d866cc63747bb9",
-    "historical_population_sha256": "c7ce61fc609ca5237251446f97f5c427b692b5be2904e12520611f0ed6bfe536",
-    "historical_acceptance_sha256": "6cb811ef1f49e2293f857046e59d80a59dec08f23e63f70d01eeb76ddba011e8"
+    "historical_population_sha256": "e0f78f81e9dbf8fcd9611ea52d5319337f6345dc59e2f4168cff65755ab3bdc4",
+    "historical_acceptance_sha256": "36c4d9743be7aba0d9506f6f92032016a394d44bd9f9578248145fa8be6e7187"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4412,7 +4412,7 @@
     "?unknown_surface_839964@@3PAVSurface@@A": 8624484,
     "?unknown_surface_83995c@@3PAVSurface@@A": 8624476,
     "?Render@Tactical@@QAEXPAVSurface@@_NH@Z": 6964640,
-    "?unknown_flag_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?Blit_Display@GScreenClass@@UAEXXZ": 5114960,
     "?AI@GScreenClass@@UAEXAAHABUPoint2D@@@Z": 5116096,
     "?unknown_slot36@ObjectTypeClass@@UBEPBVCell@@H@Z": 6118800,
@@ -4440,7 +4440,6 @@
     "??RWWCRCEngine@@QAEXD@Z": 4799984,
     "?Load@PaletteName@@QAIPAXXZ": 6304640,
     "?Init@AnimTypeClass@@SIXH@Z": 4346416,
-    "?Debug_Map@@3_NA": 10751251,
     "?unknown_slot24@AnimTypeClass@@UAEXH@Z": 4346816,
     "?unknown_string_83c55c@@3PADA": 8635740,
     "?Load@AnimTypeClass@@UAGJPAUIStream@@@Z": 4350272,
@@ -14670,7 +14669,7 @@
         {
           "offset": 112,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -14700,7 +14699,7 @@
           "resolved": 8725944
         }
       ],
-      "source_sha256": "69c8ee704f264a356703e510471bfc801246d7945b12aec40287609fbf0e74e0",
+      "source_sha256": "fc9529b9be97b11544d8a66e1093dd020eba9a419845dc7989a9c3d010b96854",
       "source": "src/recovered/classes/Tactical/Tactical_building_redraw_006a9f60.cpp",
       "population": "population-4356",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -15844,13 +15843,13 @@
         {
           "offset": 36,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
         }
       ],
-      "source_sha256": "6a04ae419fbf38683142a813a6fb1d7ada2b1fb38c2f247bd06a4e8af2488957",
+      "source_sha256": "daa3b9a2d53502ff20063f1abfba98cdc33f559ab3e24f478c2c999577841b22",
       "source": "src/recovered/classes/Tactical/Tactical_Clamp_Pixel_To_Tactical_006a8b10.cpp",
       "population": "population-4356",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -17401,7 +17400,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -17631,7 +17630,7 @@
           "resolved": 4292398329
         }
       ],
-      "source_sha256": "00d607113a9bba2ae974a1b1d4087abe61aefe839135b1bd00fe222f3de9fc0f",
+      "source_sha256": "f2ffa9b42f5303cf7918085484a7342af0d846e57fcb352db1101db9e6d4b52c",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Screen_Text_006a5460.cpp",
       "population": "population-4356",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -19352,7 +19351,7 @@
         {
           "offset": 78,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -19758,7 +19757,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "2441e6192af9dab3d56290c1db8ab8716e47bc1f47959b3715e66b8197ba467b",
+      "source_sha256": "2e53ae980b547638e519a0558c36c3c2ccbeb3189ce0488b3f561aefd6afe44e",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Waypoints_006ab360.cpp",
       "population": "population-4356",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -20198,7 +20197,7 @@
         {
           "offset": 616,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -20462,7 +20461,7 @@
         {
           "offset": 1245,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -20588,7 +20587,7 @@
           "resolved": 4292665832
         }
       ],
-      "source_sha256": "d1a3011c02e6b1430c762fbd5842588d4cf78ba2c34af8a57e1e8479eac5fc8b",
+      "source_sha256": "f0b228ca26eb0b4c99538fa70a62bcb3978039d97bac7dd689b2df39523a7ac2",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Placement_006a5670.cpp",
       "population": "population-4356",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -22823,7 +22822,7 @@
         {
           "offset": 2160,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -22917,7 +22916,7 @@
           "resolved": 8726004
         }
       ],
-      "source_sha256": "dcea59fac74090b256494062da7ca5295b414c4a31d8645549f1c6d560cd7f80",
+      "source_sha256": "3e0511ba277bf318d3da59f125339f86a235376c0301f89f00b4e0d80c6b440d",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Objects_006a93f0.cpp",
       "population": "population-4356",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

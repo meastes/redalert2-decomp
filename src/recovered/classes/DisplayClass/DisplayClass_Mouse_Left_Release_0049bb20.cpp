@@ -32,7 +32,7 @@ extern int unknown_height_step_852948;
 
 void DisplayClass::unknown_slot48(CoordStruct const &coord, Cell const &cell, ObjectClass *object, int action, bool small_mouse)
 {
-    if (object && unknown_flag_a40d04 && unknown_flag_a40958 && !unknown_flag_a40d13 &&
+    if (object && unknown_flag_a40d04 && unknown_flag_a40958 && !Debug_Map &&
         object->unknown_slot25(false, 0) == 5) object = 0;
     if (unknown_11a0) {
         if (unknown_11a4->Kind_Of() == 7) {
@@ -54,7 +54,7 @@ void DisplayClass::unknown_slot48(CoordStruct const &coord, Cell const &cell, Ob
             if (!pending) placed = 0;
             else placed = pending->Kind_Of() == 6 ? static_cast<BuildingClass *>(pending) : 0;
             Unknown_006F8A20(placed);
-            if (!unknown_flag_a40d13) {
+            if (!Debug_Map) {
                 unknown_1190 = unknown_11a4;
                 unknown_118c = unknown_11a0;
                 unknown_117e = cell;

@@ -4,8 +4,8 @@
     "id": "population-4302",
     "inventory_sha256": "a55936908fec21b191390b3febfcf4baf1cb02faf596385e6df3dc603a3978cf",
     "gaps_sha256": "23de4e14877f0fa0c7e5836453b7e1167c4a630816489878e5a15c634eaf158d",
-    "historical_population_sha256": "3402a39b61a33babb7ed1fc624d88bfb938dd41ffad03b3c8ef00193fc30697a",
-    "historical_acceptance_sha256": "f04550b97355a09c70d199dd8c9f87cced9ce1e1707a1685de301f83bf113aae"
+    "historical_population_sha256": "1d735224e902139ab53df981849a8b0b2e1b8809b66a97df3f0640a2271cdf97",
+    "historical_acceptance_sha256": "b2d637025e9b4b06f88f42de2dc959280035a5a5e10ae28047e538e49f54c437"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -3327,7 +3327,7 @@
     "?unknown_surface_839964@@3PAVSurface@@A": 8624484,
     "?unknown_surface_83995c@@3PAVSurface@@A": 8624476,
     "?Render@Tactical@@QAEXPAVSurface@@_NH@Z": 6964640,
-    "?unknown_flag_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?Blit@GScreenClass@@SIX_NPAVSurface@@PBVRect@@@Z": 5115024,
     "?AI@GScreenClass@@UAEXAAHABUPoint2D@@@Z": 5116096,
     "??_7?$VectorClass@PAVBulletClass@@@@6B@": 7983912,
@@ -3450,7 +3450,6 @@
     "??0AnimTypeClass@@QAE@ABVNoInitClass@@@Z": 4346176,
     "??1AnimTypeClass@@UAE@XZ": 4346224,
     "?Init@AnimTypeClass@@SIXH@Z": 4346416,
-    "?Debug_Map@@3_NA": 10751251,
     "?unknown_slot24@AnimTypeClass@@UAEXH@Z": 4346816,
     "?unknown_string_83c55c@@3PADA": 8635740,
     "?From_Name@AnimTypeClass@@SIHPBD@Z": 4347456,
@@ -33359,7 +33358,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -33389,7 +33388,7 @@
           "resolved": 10751760
         }
       ],
-      "source_sha256": "5f8f447d64a8db074fbccff680cf0c3b6b6f17cffe4f355ade6ab6ccf904a5fb",
+      "source_sha256": "2065fb938f317900d611027299655b9d5e46b6a379fa2e5eeb534ce42fece910",
       "source": "src/recovered/classes/HouseClass/HouseClass_Base_Building_Left_004f3f40.cpp",
       "population": "population-4302",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

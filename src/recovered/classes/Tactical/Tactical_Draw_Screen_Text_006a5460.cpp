@@ -16,7 +16,7 @@
 
 void Tactical::Draw_Screen_Text(wchar_t const *text)
 {
-    if (unknown_flag_a40d13) {
+    if (Debug_Map) {
         return;
     }
     if ((text == 0 || !wcslen(text)) && unknown_a4 == -1) {

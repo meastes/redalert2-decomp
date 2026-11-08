@@ -16,7 +16,7 @@ void Tactical::Unknown_006A9F60(bool arg1, Rect const &rect1, Rect const &rect2)
         ObjectClass *object = DisplayClass::Layer[2][index];
         if (object->Kind_Of() == 6) {
             BuildingClass *building = (BuildingClass *)object;
-            if (!building->unknown_5b7 || unknown_flag_a40d13) {
+            if (!building->unknown_5b7 || Debug_Map) {
                 Point2D offset(unknown_rect_839630.X, unknown_rect_839630.Y);
                 Rect area = Offset_Rect(object->unknown_slot73(), offset.X, offset.Y);
                 if (Rects_Overlap(area, clip)) {

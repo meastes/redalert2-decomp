@@ -3,12 +3,12 @@
 // 0x00A40D13 is set.
 #include "shared/tunnel_locomotion.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_47c200@UnknownLocoCellObject@@QAE_NXZ=0047c200
 
 int __stdcall TunnelLocomotionClass::Can_Enter_Cell(Cell cell)
 {
-    if (!unknown_flag_a40d13) {
+    if (!Debug_Map) {
         Cell copy(cell.X, cell.Y);
         if (!Loco_Cell_At(copy)->unknown_47c200()) {
             return 7;

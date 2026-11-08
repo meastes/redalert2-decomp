@@ -47,7 +47,7 @@ struct UnknownVoxelTailer {
 // voxel draw 0x00717xxx): +0x04 section, +0x08 frame, +0x0C view index,
 // +0x28 the section box corners after transformation.
 struct UnknownVoxelDrawState {
-    int unknown_00;
+    void *unknown_00;                   // +0x00 the library (UnknownVoxelRecord88::Library)
     int unknown_04;                     // +0x04 section
     int unknown_08;                     // +0x08 frame
     int unknown_0c;                     // +0x0C view index into unknown_views_7f9e60

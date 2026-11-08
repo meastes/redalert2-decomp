@@ -15,7 +15,7 @@
 // waiting up to 240 ticks while more than five packets are queued.
 void UnknownSessionState::Loading_Progress_00672160(int percent)
 {
-    if (unknown_flag_a40d13) {
+    if (Debug_Map) {
         return;
     }
     int progress = percent;

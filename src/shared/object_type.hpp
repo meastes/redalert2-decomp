@@ -89,7 +89,7 @@ public:
     int unknown_04;
     int unknown_08;
     bool unknown_0c;
-    int unknown_10;
+    NodeElement const *unknown_10;      // +0x10 the last node found (TibSun IndexClass::Archive)
 };
 
 void operator delete(void *pointer);

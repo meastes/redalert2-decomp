@@ -4,8 +4,8 @@
     "id": "population-4357",
     "inventory_sha256": "655f9b7917f1dca06b110cf3e3c7970c92f20fb3b48aa4ce98946169f59c4d13",
     "gaps_sha256": "1d42029e9f0a89b7a77e39f6852fc31359b34dc3ecb45a504041d603f278c2a5",
-    "historical_population_sha256": "aaf925750d9e33bb5370cd7ec7ffd17c06fce0911b04c21636133f51d9980928",
-    "historical_acceptance_sha256": "c510ee45dfec1d50219cf6adaca52e91f3baae4b7391e35d70e3d72e87c8d671"
+    "historical_population_sha256": "75a3c4cd90be900f88a527a265e171040a01381cba4bd5fc3cbc87354e19ffb6",
+    "historical_acceptance_sha256": "4ab1fbcb73e78b6485c62b7939b43f119e62bbb87a3035b6249a4600a4691c57"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1978,7 +1978,7 @@
     "?unknown_abcd74@@3HA": 11259252,
     "?Init_IO@RadarClass@@UAEXXZ": 6485136,
     "?Unknown_0067B910@SidebarClass@@QAEXXZ": 6797584,
-    "?unknown_flag_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?unknown_drawer_8323cc@@3PAVConvertClass@@A": 8594380,
     "?Unknown_00675300@ShapeButtonClass@@QAE_NXZ": 6771456,
     "?Disable@GadgetClass@@UAEXXZ": 5042512,
@@ -7998,7 +7998,6 @@
     "?unknown_b263d8@@3HA": 11690968,
     "?unknown_random_839218@@3VRandom2Class@@A": 8622616,
     "?unknown_timer_ac0178@@3V?$CDTimerClass@VFrameTimerClass@@@@A": 11272568,
-    "?Debug_Map@@3_NA": 10751251,
     "?unknown_slot14@IPXGlobalConnClass@@UAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z": 5392128,
     "?unknown_slot15@IPXGlobalConnClass@@UAEXH@Z": 5392272,
     "?unknown_slot12@UDPInterfaceClass@@UAEXXZ": 7782960,
@@ -12012,7 +12011,8 @@
     "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@IPBQAUCrossDissolveEffect@@@Z": 4891232,
     "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
     "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
-    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088
+    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
+    "?Update_All@RadBeam@@SIXXZ": 6509792
   },
   "regions": [
     {
@@ -14761,7 +14761,7 @@
         {
           "offset": 118,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -15247,7 +15247,7 @@
           "resolved": 10908
         }
       ],
-      "source_sha256": "81f58eda4175618798be2697d73529f455ce64bf80e8e2884403337b00e021ef",
+      "source_sha256": "06a4c6b1e9baa7cc34e0fd06be569d4ca3bee3279a98055029b278beaf9ee361",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_Init_IO_0067bad0.cpp",
       "population": "population-4357",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -19786,7 +19786,7 @@
         {
           "offset": 180,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
@@ -20376,7 +20376,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "1b556401a88067c2fab0a620c7912395d2bb0bc235018f586a7349ba9560e56b",
+      "source_sha256": "f9a3886c54fbff666888926b5503c97d57ef5b4a6b69826cf3d9fa9e3e52ffdd",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_Draw_It_0067cf80.cpp",
       "population": "population-4357",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

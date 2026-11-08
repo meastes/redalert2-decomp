@@ -73,7 +73,7 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
         Type != 0x35 &&
         Type != 0x36 &&
         unknown_func_6e6cf0()) {
-        if (event != Type || unknown_flag_a40d13) {
+        if (event != Type || Debug_Map) {
             return false;
         }
     }

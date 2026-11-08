@@ -1,18 +1,18 @@
 // ObjectClass clipping/draw gate existing ABI/types; diagnostic only.
 #include "shared/techno.hpp"
 #include "shared/tactical.hpp"
-extern bool unknown_flag_a40d13;
+extern bool Debug_Map;
 extern Rect unknown_rect_839630;
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_b263d8@@3HA=00b263d8
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z=006a29d0
 #include "shared/rect_intersect.hpp"
 
 bool ObjectClass::unknown_slot63(Rect *bounds, bool redraw, bool arg3)
 {
     Point2D pixel;
-    if (!unknown_flag_a40d13 && unknown_b263d8 && ((!redraw && !unknown_75) || unknown_76)) goto not_drawable;
+    if (!Debug_Map && unknown_b263d8 && ((!redraw && !unknown_75) || unknown_76)) goto not_drawable;
     unknown_75 = false;
     if (unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), pixel) || Kind_Of() == 24)
         goto draw_clipped;

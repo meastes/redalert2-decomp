@@ -4,8 +4,8 @@
     "id": "population-4337",
     "inventory_sha256": "d6d02805cd37e826b934aa58d648a7ffe1317e0bee5f810b3bf1d0dce5e06892",
     "gaps_sha256": "87a0e05641f30277e6de220b0cec1e14698b772597b4cd08c002c8551d3ae009",
-    "historical_population_sha256": "37a8f53a4412c843071233387d733d1e944ebb93dc9e979e90b10cc5726fc918",
-    "historical_acceptance_sha256": "93bdcfbca44dee765ee2043390d20b6ca6548694374a9607b34b0a422546d1cc"
+    "historical_population_sha256": "c3484edcb8a35b62d6814e7840a22a0d5f7589d00825ce748b8e4134302dd3be",
+    "historical_acceptance_sha256": "3e7ddd74eac845ecbfb37dc4444b6036da4915389023226adc87949e48e64f57"
   },
   "references": {
     "?unknown_value_8523e0@@3HA": 8725472,
@@ -268,7 +268,7 @@
     "__purecall": 4950368,
     "?unknown_window_839640@@3VRect@@A": 8623680,
     "?unknown_flag_a40b30@@3_NA": 10750768,
-    "?unknown_flag_a40d13@@3_NA": 10751251,
+    "?Debug_Map@@3_NA": 10751251,
     "?unknown_surface_839958@@3PAVSurface@@A": 8624472,
     "?unknown_name_7f86f0@@3QBDB": 8357616,
     "?unknown_name_7f86f4@@3QBDB": 8357620,
@@ -2111,7 +2111,9 @@
     "??_7AnimClass@@6BINoticeSource@@@": 7979096,
     "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
     "??_7AnimClass@@6B@": 7979140,
-    "??_EAnimClass@@UAEPAXI@Z": 4341456
+    "??_EAnimClass@@UAEPAXI@Z": 4341456,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992
   },
   "regions": [
     {
@@ -2463,13 +2465,13 @@
         {
           "offset": 56,
           "kind": 6,
-          "symbol": "?unknown_flag_a40d13@@3_NA",
+          "symbol": "?Debug_Map@@3_NA",
           "target": 10751251,
           "addend": 0,
           "resolved": 10751251
         }
       ],
-      "source_sha256": "d649793a2b7a50e20711843f1c480ae38611d000807051b443e9ea16dfad07c5",
+      "source_sha256": "fedf2e2c5c009278e03f8758047eb92acd8d647e1693a4b26ad5fa477af42b19",
       "source": "src/recovered/unowned/Unknown_Tactical_Rect_006f1f30.cpp",
       "population": "population-4337",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

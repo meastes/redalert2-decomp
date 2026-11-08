@@ -13,7 +13,7 @@
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Render@Tactical@@QAEXPAVSurface@@_NH@Z=006a45a0
 // @ref ?unknown_flag_abcd85@@3_NA=00abcd85
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_object_a3dc70@@3VUnknownObjectA3DC70@@A=00a3dc70
 // @ref ?Unknown_005B5B30@UnknownObjectA3DC70@@QAEXXZ=005b5b30
 // @ref ?ToolTips@@3PAVCCToolTip@@A=008399b0
@@ -34,7 +34,7 @@ void GScreenClass::Render()
     Draw_It(complete);
     unknown_tactical_83996c->Render(unknown_surface_839964, any, 2);
 
-    if (unknown_flag_abcd85 && !unknown_flag_a40d13) {
+    if (unknown_flag_abcd85 && !Debug_Map) {
         WWMouse->Erase_Mouse(unknown_surface_839948, true);
         unknown_flag_abcd85 = false;
     }

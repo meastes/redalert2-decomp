@@ -10,7 +10,7 @@ bool UnknownBuffer::Is_Present_0070a350(int const &id) const
         if (Is_Archive_Same_0070a3f0(id)) return true;
         NodeElement const *node=Search_For_Node_006d9850(id);
         if (node) {
-            const_cast<UnknownBuffer *>(this)->unknown_10=(int)node;
+            const_cast<UnknownBuffer *>(this)->unknown_10=node;
             return true;
         }
         return false;

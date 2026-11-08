@@ -18,7 +18,7 @@
 void RadarClass::Draw_It(bool complete)
 {
     bool redraw = false;
-    if (unknown_flag_a40d13) {
+    if (Debug_Map) {
         unknown_14d6 = false;
         unknown_14d5 = false;
         return;

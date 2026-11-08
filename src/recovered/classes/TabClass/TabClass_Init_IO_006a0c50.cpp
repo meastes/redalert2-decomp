@@ -4,7 +4,7 @@
 // at the 0x00AC1204 and 0x00AC1208 rectangles with the 0x00AC1098 shape.
 #include "shared/tab.hpp"
 // @ref ?Init_IO@SidebarClass@@UAEXXZ=0067bad0
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?Unknown_Get_Art_006f4590@@YI_NXZ=006f4590
 // @ref ?Unknown_006A1880@TabClass@@QAEXXZ=006a1880
 // @ref ?unknown_drawer_8323cc@@3PAVConvertClass@@A=008323cc
@@ -19,7 +19,7 @@
 void TabClass::Init_IO()
 {
     SidebarClass::Init_IO();
-    if (!unknown_flag_a40d13 && Unknown_Get_Art_006f4590()) {
+    if (!Debug_Map && Unknown_Get_Art_006f4590()) {
         Unknown_006A1880();
         unknown_button_abe400.ID = 0xF0;
         unknown_button_abe400.unknown_50 = unknown_drawer_8323cc;

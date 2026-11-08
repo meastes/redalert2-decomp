@@ -1,10 +1,10 @@
 // Clip the update bounds, test the translated drawing area, then dispatch a draw.
 #include "shared/building.hpp"
 #include "shared/tactical.hpp"
-extern bool unknown_flag_a40d13;
+extern bool Debug_Map;
 extern HWND MainWindow;
 extern Rect unknown_rect_839630;
-// @ref ?unknown_flag_a40d13@@3_NA=00a40d13
+// @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?MainWindow@@=00b263d8
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
@@ -19,7 +19,7 @@ inline bool Overlap_Draw_Bounds(Rect const &clip,Rect const &draw) {
 inline Rect Offset_Draw_Bounds(Rect const &bounds,Point2D const &pixel);
 bool BuildingClass::unknown_slot63(Rect *bounds,bool force,bool alternate)
 {
-    if(unknown_flag_a40d13 || !MainWindow || ((force || unknown_75) && unknown_74 && !unknown_76)) {
+    if(Debug_Map || !MainWindow || ((force || unknown_75) && unknown_74 && !unknown_76)) {
         unknown_75=false;
         *bounds=bounds->Intersect(unknown_rect_839630);
         Point2D origin=Point2D(unknown_rect_839630.X,unknown_rect_839630.Y);

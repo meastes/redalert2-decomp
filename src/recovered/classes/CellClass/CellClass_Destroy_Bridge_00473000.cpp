@@ -16,7 +16,7 @@
 
 void CellClass::Destroy_Bridge()
 {
-    if (!unknown_flag_a40d13) {
+    if (!Debug_Map) {
         ObjectClass *occupier = OccupierPtr;
         while (occupier != 0) {
             ObjectClass *next = occupier->unknown_30;

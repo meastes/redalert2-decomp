@@ -187,7 +187,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     unknown_session_a3d298.Loading_Progress_00672160(68);
     unknown_481fb0();
 
-    Unknown_0052B2E0(unknown_flag_a40d13 || unknown_flag_a40d05, unknown_id_source_a3d290->unknown_223b);
+    Unknown_0052B2E0(Debug_Map || unknown_flag_a40d05, unknown_id_source_a3d290->unknown_223b);
 
     unknown_session_a3d298.Loading_Progress_00672160(69);
     unknown_481fb0();

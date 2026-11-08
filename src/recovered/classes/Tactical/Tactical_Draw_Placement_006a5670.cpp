@@ -50,7 +50,7 @@ void Tactical::Draw_Placement(bool drawtrans)
 
         int rtti = Map.unknown_11a4->Kind_Of();
 
-        if (unknown_flag_a40d13 && Map.unknown_11a0 != 0) {
+        if (Debug_Map && Map.unknown_11a0 != 0) {
             Cell cell = start + Map.unknown_1170 + Map.unknown_1174;
             CoordStruct coord = CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
             if (rtti == 7) {
@@ -77,7 +77,7 @@ void Tactical::Draw_Placement(bool drawtrans)
         }
     }
 
-    if (!unknown_flag_a40d13 && Map.unknown_1190 != 0) {
+    if (!Debug_Map && Map.unknown_1190 != 0) {
         if (((ObjectTypeClass *)Map.unknown_1190)->Kind_Of() == 7 && ((BuildingTypeClass *)Map.unknown_1190)->Gate) {
             dims = Cell(3, 3);
             start = Cell(-1, -1);
