@@ -2177,3 +2177,6 @@ With literal constants VC6 reassociates an index such as `row * 2 + ID * 60 + co
 
 ## Division by a negative constant depends on the destination (Scout1078)
 VC6 rewrites `x + c*h/-2` as `x - (|c|h)/2` when the result goes to a plain int local, but keeps the `shl / sub / neg / shl 1` form when it goes to a struct member (`top.Y += 30 * h / -2;`). Accepted Rectangular_To_Isometric 0x6A2740 keeps the neg form the same way (`iso.X += y*60/-2`). If a target shows the neg sequence, the original wrote into a member.
+
+## Each return statement takes its own scratch-rotation step (Scout1082)
+When several by-value struct returns differ only in the register used for the copy, the original probably had one shared return: each `return` is its own web in the eax/ecx/edx rotation. Storing each result into one local and `break`ing to a single `return local;` reproduced Pixel_To_Cell 0x6A6BD0's registers. Also: a struct copy's constant-zero member (`tmp.Z = coord.Z` where Z is 0) becomes a register web; a literal 0 lets VC6 cache the constant in a callee-saved register across a call for a later store of 0.
