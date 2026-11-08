@@ -425,6 +425,9 @@ public:
     CellClass *Unknown_0055A910();
     int Unknown_0054B2E0();                                     // 0x0054B2E0 (TibSun Overpass: answers the summed tiberium adjustment)
     int Unknown_0054EBD0();                                     // 0x0054EBD0
+#ifdef RA2_MAP_ZONE_SPAN
+    int Unknown_0054F250(UnknownMapElem4 *data, int zone, int &skip); // native thiscall RET12
+#endif
     virtual ~MapClass();                                                        // 0x00547B90 (??_G 0x0056A9D0)
 
     virtual long __stdcall Is_Visible(Cell cell);                         // slot 3 0x00547FA0

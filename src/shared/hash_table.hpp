@@ -31,6 +31,23 @@ public:
     bool Add_Object(int bucket_index, HashObject<K, V> const &object); // original0056BC00
 #endif
 
+#ifdef RA2_MAP_ZONE_SPAN
+    // From TibSun hashtable.h; SPDX-License-Identifier: GPL-3.0-or-later;
+    // Copyright 2025 Electronic Arts Inc.; Copyright 2026 OpenTS contributors.
+    // Derived from EA source; EA GPLv3 Section7 terms apply (LICENSE.md).
+    bool Add_Object(HashObject<K, V> const &object)
+    {
+        unsigned packed = object.Value | (object.Key << 16);
+        DynamicVectorClass<HashObject<K, V> > &bucket = Buckets[object.Value & 0xF | ((object.Key & 0xF) << 4)];
+        HashObject<K, V> *item = &bucket[0];
+        HashObject<K, V> query(packed, packed);
+        for (int index = bucket.Count() - 1; index >= 0; index--) {
+            if (query == *item) return(false);
+            item++;
+        }
+        return(bucket.Add(query));
+    }
+#endif
     // Files value under key unless the key's bucket already holds it.
     bool Add(K const &key, V const &value)
     {

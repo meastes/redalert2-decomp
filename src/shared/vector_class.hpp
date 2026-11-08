@@ -518,6 +518,33 @@ bool DynamicVectorClass<T>::Add(T const &object)
 
 #endif
 }
+#ifdef RA2_MAP_ZONE_SPAN
+// Reuses the accepted RadarEvent 0063B5B0 growth path for the map packed-zone bucket.
+#include "shared/hash_object.hpp"
+template <>
+inline bool DynamicVectorClass<HashObject<unsigned int,unsigned int> >::Add(HashObject<unsigned int,unsigned int> const &object)
+{
+    if (ActiveCount >= Length()) {
+        bool eligible = false;
+        int length;
+        int growth;
+        if ((IsAllocated || !VectorMax)) {
+            length = Length();
+            growth = GrowthStep;
+            eligible = true;
+        }
+        if (eligible && growth > 0) {
+            if (!Resize(length + growth)) return false;
+        } else {
+            return false;
+        }
+    }
+    (*this)[ActiveCount++] = object;
+    return true;
+
+}
+#endif
+
 #endif
 
 #ifdef VECTOR_IMPLEMENT_DYNAMIC_ADD_AFTER

@@ -10,19 +10,19 @@ original code is still scaffold. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,458,149 of 3,769,805 (91.73%)** |
-| Accepted regions | 17,870 |
-| Matched C/C++ body bytes | 3,207,701 (85.09% of .text) |
+| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,459,541 of 3,769,805 (91.77%)** |
+| Accepted regions | 17,871 |
+| Matched C/C++ body bytes | 3,209,087 (85.13% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 1,721 (0.05% of .text) |
-| Frozen padding bytes | 142,670 |
+| Frozen padding bytes | 142,676 |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,058 in 891 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
-| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,207,591 of 3,516,010 (91.23%) |
+| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,208,977 of 3,516,004 (91.27%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,854 of 17,987 (99.26%) |
 | Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 123 of 133 scored) | 98.79% by bytes, 99.80% per function |
-| Original .text scaffold bytes | 311,656 |
+| Original .text scaffold bytes | 310,264 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 693 |
 
@@ -2155,6 +2155,7 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `45192abcb` | 2026-11-07 21:12 -0600 | 17,874 | 3,204,999 | -403 | -7,009 |
 | `3dd859a9d` | 2026-11-07 21:15 -0600 | 17,875 | 3,207,742 | +2,743 | 56,107 |
 | `dd120165c` | 2026-11-07 21:21 -0600 | 17,875 | 3,207,742 | +0 | 0 |
+| `5edb4c29f` | 2026-11-07 21:24 -0600 | 17,870 | 3,207,701 | -41 | -1,032 |
 
 <!-- /generated:status -->
 
