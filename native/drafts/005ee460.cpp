@@ -431,9 +431,9 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
             bool changed = added || removed || (either && wcscmp(text, new_text) != 0);
             data->Set_Wide_Text_600510((wchar_t const *)lparam);
             data->unknown_2c = 0;
-            if (changed && data->unknown_70 == 1 && data->unknown_94[0xA8 - 0x94]) {
+            if (changed && data->unknown_70 == 1 && data->unknown_a8) {
                 KillTimer(window, 0);
-                data->unknown_94[0xA8 - 0x94] = 0;
+                data->unknown_a8 = 0;
                 SendMessageA(window, 0x4EE, 0, 0);
             }
         }

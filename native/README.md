@@ -16,6 +16,14 @@ build/native/ra2-native --smoke-test     # SDL3 host window
 build/native/ra2-native --data-dir <installation> --run-to=menu   # start-up test run (below)
 ```
 
+**AddressSanitizer runs.** Configure a separate build with
+`-DCMAKE_C_FLAGS="-O1 -g -fsanitize=address -fsanitize-recover=address -fno-omit-frame-pointer"`
+(same for `CMAKE_CXX_FLAGS`, plus `-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address`);
+`link_closure.py` treats the sanitizer runtime's exports as system symbols. Run
+with `ASAN_OPTIONS=detect_leaks=0:halt_on_error=0:symbolize=0` (in-process
+symbolisation hangs under the SDL host) and symbolise the `ra2-native:arm64+0x...`
+offsets afterwards with `atos -o ra2-native -l 0x100000000`.
+
 Full-tree smoke test: all 3,610 original static initialisers run (in `_initterm`
 order), main is reached and prints `initterm: main reached ...`, and exit-time
 destructors complete. Diagnostics: `RA2_NATIVE_INIT_TRACE=1` prints each unit's
@@ -64,7 +72,9 @@ Milestones: `init` (Init_Game succeeded), `scenario` (Start_Scenario loaded the
 map), `frame` (first Main_Loop iteration), `frames` (N of them); notes
 `harness-art`, `harness-map`, `harness-stop`. `--game-args` is WinMain's command
 line: `-noaudio` skips the audio device, `-CD.` makes every file local (no CD
-check; Parse_Command_Line's `-CD<path>`). Test runs play audio into SDL's dummy
+check; Parse_Command_Line's `-CD<path>`). The native game skips the CD check
+(user decision 2026-11-08): the host adds `-CD.` unless the command line names
+`-CD<path>` itself or `--cd-check` asks for the original check. Test runs play audio into SDL's dummy
 device (silent, consumed in real time) unless `SDL_AUDIO_DRIVER` names one.
 
 ### Data the original stores (game.exe at run time)
@@ -172,7 +182,12 @@ pointers are not loaded (`--report`).
    inputs without its own outputs, or keeps what it wrote before); after a landing
    re-run `data_globals.py --build <dir>`, rebuild, `address_aliases.py --build <dir>`,
    rebuild, `template_instances.py --build <dir>`, rebuild.
-   `member_aliases.cpp`: names of members of class-typed globals (an interior
+   `data/member_aliases.tsv` and `data/owner_sizes.tsv` (`tools/member_aliases.py`): interior
+names of class-typed globals and of pointer/scalar arrays bound to the member or
+element at their native offset (a class-typed name at the start of a class-typed
+member is that member), and the native size of every class-typed global and
+array, which `data_globals.py` gives its BSS storage at least.
+`member_aliases.cpp`: names of members of class-typed globals (an interior
    address such as 0x00A3D8D8, the session's Scenarios) bound to the member
    through a reference, with a fixup renaming the declaration in the native view.
    `behaviour_commands.cpp` (`tools/command_rewrites.py`): the keyboard commands'

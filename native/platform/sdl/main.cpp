@@ -58,6 +58,11 @@ int main(int argc, char **argv)
     int skirmish_frames = 1;
     // The game's own command line (WinMain's lpCmdLine, e.g. "-noaudio").
     const char *game_args = "";
+    // The native game skips the CD check (user decision 2026-11-08): unless the
+    // game's command line names a CD path itself (-CD<path>) or --cd-check asks
+    // for the original check, it gets Parse_Command_Line's -CD. (every file is
+    // read from the installation; CD::Force_Available and Get_CD_Index pass).
+    bool cd_check = false;
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--data-dir") && i + 1 < argc) data = argv[++i];
         else if (!strcmp(argv[i], "--smoke-test")) smoke = true;
@@ -67,6 +72,7 @@ int main(int argc, char **argv)
         else if (!strncmp(argv[i], "--skirmish=", 11)) skirmish = argv[i] + 11;
         else if (!strncmp(argv[i], "--game-args=", 12)) game_args = argv[i] + 12;
         else if (!strncmp(argv[i], "--skirmish-frames=", 18)) skirmish_frames = atoi(argv[i] + 18);
+        else if (!strcmp(argv[i], "--cd-check")) cd_check = true;
     }
     if (skirmish && !run_to) { fprintf(stderr, "--skirmish is a test harness: use it with --run-to=<milestone> (e.g. frame)\n"); return 64; }
     if (skirmish) ra2port_set_skirmish(skirmish, skirmish_frames);
@@ -113,7 +119,12 @@ int main(int argc, char **argv)
         // (the host hook opens the SDL window) and runs its own message loop.
         ra2_install_sdl_host();
         static char command_line[1024];
-        snprintf(command_line, sizeof command_line, "%s", game_args);
+        bool has_cd = false;
+        for (const char *p = game_args; *p; ++p) {
+            if ((p == game_args || p[-1] == ' ') && p[0] == '-' && (p[1] == 'C' || p[1] == 'c') && (p[2] == 'D' || p[2] == 'd')) has_cd = true;
+        }
+        snprintf(command_line, sizeof command_line, "%s%s%s", game_args,
+                 cd_check || has_cd ? "" : (*game_args ? " " : ""), cd_check || has_cd ? "" : "-CD.");
         // The native game is its own launcher: RA2.EXE created this mutex and
         // event before starting GAME.EXE, which checks the first (0x004918F0)
         // and signals the second (0x00491930). Same names (data/startup_winmain.cpp).

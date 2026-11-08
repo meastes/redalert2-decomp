@@ -448,6 +448,83 @@
    "new": "#include \"shared/color_scheme.hpp\"   // NATIVE: the shared ColorScheme layout (Name +0x304, +0x310 in VC6)",
    "why": "The row's local ColorScheme view places Name and the +0x310 kind by byte padding; natively the shared ColorScheme (color_scheme.hpp: Index, Palette[256], Name, BaseColor, Converter, +0x310) puts the pointers at other offsets, so the lookup compared the wrong field and every ColorScheme lookup returned null (LoadProgressManager's Text_Color_Scheme faulted). The native view uses the shared class; same members, same VC6 offsets; the exact build is unchanged.",
    "verified": false
+  },
+  {
+   "source": "src/shared/pcx_cache.hpp",
+   "old": "#ifdef PCX_CACHE_DECLARE_IMAGES",
+   "new": "#if 1 // NATIVE: PCX_CACHE_DECLARE_IMAGES in every unit",
+   "why": "UnknownBitmapWriter's Images dictionary (+0x00, sizeof 0x38; constructor 0x0068BD50) is declared only where PCX_CACHE_DECLARE_IMAGES is defined (label numbering of 0x0073FEE0 in the exact build). The unit defining unknown_bitmap_writer_a76378 (0x005DE850) does not define it, so natively the global got 1 byte of storage and the constructor wrote its 0x38-byte dictionary over the neighbouring ownrdraw globals (ASan global-buffer-overflow at static init, Scout1083). The original object is the full dictionary; every native unit sees it.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/MixFileClass_CCFileClass/MixFileClass_constructor_005952f0.cpp",
+   "old": "    unsigned IsEncrypted : 1;\n};",
+   "new": "    unsigned IsEncrypted : 1;\n    unsigned native_rest : 30;   // NATIVE: VC6's 32-bit bit-field unit\n};",
+   "why": "MixFileAlternate under #pragma pack(1): VC6 starts a new 4-byte unsigned unit for the bit-fields after short First (sizeof 6, IsDigest/IsEncrypted bits 0/1 of byte 2); clang's arm64 layout packs them into one byte (sizeof 3), so straw->Get(&alternate, 4) wrote past the local (ASan stack-buffer-overflow, Scout1083). The unnamed rest of the unit restores sizeof 6; the two flags keep their bits.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/owner_draw_dialog_control.hpp",
+   "old": "    char unknown_78[0x90 - 0x78];",
+   "new": "    // NATIVE: named for the animation callback 0x005E8130 (Scout1004 draft, keep/e8130_ke.cpp); VC6 offsets kept.\n    void const *unknown_78;     // +0x78 animation frame data (0x005E1A80)\n    bool unknown_7c;            // +0x7C the data was allocated\n    char unknown_7d[3];\n    int unknown_80;             // +0x80\n    int unknown_84;             // +0x84 0x005DEFB0\n    int unknown_88;             // +0x88 0x005DF8E0\n    int unknown_8c;             // +0x8C 0x005E0010",
+   "why": "UnknownControlRecord +0x78..+0x8F is a char run in src/shared; the EnumChildWindows callback 0x005E8130 (behaviour row, Scout1004's 49.20 draft) stores a frame-data pointer at +0x78 and ints at +0x80..+0x8C. Natively a pointer cannot live in a 4-byte char slot, so the run is named with the draft's types; the i686 offsets are unchanged (0x78 + 4 + 4 + 4*4 = 0x90) and no accepted row names these bytes. Migrate to src/shared when the record is settled.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/owner_draw_dialog_control.hpp",
+   "old": "    char unknown_94[0xb0 - 0x94];",
+   "new": "    // NATIVE: named for 0x005E8130 (see +0x78).\n    int unknown_94;             // +0x94 frame count (the data's fourth short)\n    int unknown_98;             // +0x98 current frame\n    unsigned int unknown_9c;    // +0x9C GetTickCount at start\n    int unknown_a0;             // +0xA0 timer period (0x005E1490)\n    int unknown_a4;\n    bool unknown_a8;            // +0xA8 the timer runs\n    char unknown_a9[0xb0 - 0xa9];",
+   "why": "UnknownControlRecord +0x94..+0xAF: named as the 0x005E8130 draft uses them (ints at +0x94..+0xA0, a bool at +0xA8); i686 offsets unchanged (0x94 + 5*4 + 1 + 7 = 0xB0). No accepted row names these bytes.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Reload_Art_006f44d0.cpp",
+   "old": "void __fastcall Unknown_6F4450()\n{",
+   "new": "void __fastcall Unknown_Reload_Art_6F44D0()   // NATIVE: the row's own name (src/ calls it Unknown_6F4450)\n{",
+   "why": "0x006F44D0 (releases and reloads the sidebar art, then lays out the sidebar with 0x006F4C90) is defined as Unknown_6F4450, the name of the different row 0x006F4450 (Unknown_Release_Art_006f4450.cpp). The exact build compares each row on its own; the native link sees one name twice, select-any keeps 0x006F4450's body, and Unknown_006F44D0 (0x0051A330's call) aliased to it, so the sidebar rectangles (0x00AC11D4..0x00AC1210) were never allocated and TabClass 0x006A0670 faulted on unknown_rect_ac1210 (Scout1083). The native name is unique; data/address_aliases.tsv binds Unknown_006F44D0 to it. src/ should rename the row.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/house.hpp",
+   "old": "#include \"shared/region.hpp\"",
+   "new": "#include \"shared/region.hpp\"\n#include \"shared/counter_class.hpp\"   // NATIVE: the subobjects' real classes (see below)\n#include \"shared/unknown_loadout.hpp\"",
+   "why": "Needed by the two member fixups below (UnknownHouseCounter is a CounterClass, UnknownHouseBase an Unknown4A6AE0Owner).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/house.hpp",
+   "old": "    void Load(IStream *stream);             // 0x00491E10\n    char unknown_00[0x10];",
+   "new": "    void Load(IStream *stream);             // 0x00491E10\n    CounterClass counter_native;            // NATIVE: VC6 0x10 bytes = CounterClass (vptr 0x79E5AC, VectorClass<int>)",
+   "why": "HouseClass's ten UnknownHouseCounter members (+0x5420..) are CounterClass objects: the constructor is 0x00491C00 (CounterClass_Construct_00491c00.cpp) and the methods named here alias CounterClass's (Increment 0x00491C50, ...). src/shared gives them 0x10 bytes of char; CounterClass carries a vptr and a pointer, so natively it is 0x20 bytes and every counter call wrote over the next member. The native member is the real class at offset 0; i686 size unchanged (16).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/house.hpp",
+   "old": "    void unknown_func_4a6b10();             // 0x004A6B10 (after loading)\n    char unknown_00[0x2C];",
+   "new": "    void unknown_func_4a6b10();             // 0x004A6B10 (after loading)\n    Unknown4A6AE0Owner loadout_native;      // NATIVE: VC6 0x2C bytes = Unknown4A6AE0Owner (constructor 0x004A6910)",
+   "why": "UnknownHouseBase's constructor 0x004A6910 is Unknown4A6AE0Owner's (Unknown4A6AE0Owner_Constructor_004a6910.cpp; unknown_loadout.hpp checks sizeof 44); it holds five TechnoTypeClass pointers, so natively it is larger than 0x2C bytes of char. The native member is the real class at offset 0; i686 size unchanged.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_color_scheme_index_00663d90.cpp",
+   "old": "// As shared/ccini_extra.hpp's ColorScheme (name at +0x304, +0x310).\nclass ColorScheme {\npublic:\n    unsigned char unknown_0x000[0x304];\n    char const *Name;                   // +0x304\n    unsigned char unknown_0x308[0x08];\n    int unknown_0x310;                  // +0x310\n};",
+   "new": "#include \"shared/color_scheme.hpp\"   // NATIVE: the shared ColorScheme layout (Name +0x304, +0x310 in VC6)",
+   "why": "Same as 0x00663D30: the row's local ColorScheme view places Name and +0x310 by byte padding; natively the shared class (Index, Palette[256], Name, BaseColor, Converter, +0x310) moves them, so the lookup read the wrong fields and returned -1; Assign_Houses then indexed ColorSchemes[-1] in HouseClass::Update_Color (ASan heap-buffer-overflow, fault; Scout1083). Same members, same VC6 offsets.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/ColorScheme/ColorScheme_destructor_00663bb0.cpp",
+   "old": "class ColorScheme {\npublic:\n    ~ColorScheme();\n\n    unsigned char unknown_0x000[0x304];\n    char *Name;                         // +0x304\n    unsigned char unknown_0x308[0x04];\n    ConvertClass *Converter;            // +0x30C\n};",
+   "new": "#include \"shared/color_scheme.hpp\"   // NATIVE: the shared ColorScheme layout (Name +0x304, Converter +0x30C in VC6)",
+   "why": "The destructor's local ColorScheme view places Name and Converter by byte padding; natively the shared class puts them at other offsets, so it freed whatever lay at the padded offsets. Same members, same VC6 offsets (Scout1083).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/ColorScheme/ColorScheme_destructor_00663bb0.cpp",
+   "old": "        free(Name);",
+   "new": "        free((void *)Name);   // NATIVE: the shared Name is char const *",
+   "why": "The shared class declares Name char const * (the local view had char *); C++ needs the cast to free it. Same call.",
+   "verified": true
   }
  ]
 }

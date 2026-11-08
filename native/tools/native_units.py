@@ -71,12 +71,18 @@ RULES = [
     # Win32 imports and VC6 CRT functions whose names libc also defines with a
     # different contract: WSOCK32's sockaddr has no sin_len and SOCKET is an
     # unsigned int; VC6 rand() is its own LCG; VC6 fopen takes DOS paths; VC6
-    # time_t is 32 bits; VC6 printf/scanf %ld is 32 bits (LP64 libc reads 64). The
+    # time_t is 32 bits; VC6 printf/scanf %ld is 32 bits (LP64 libc reads 64);
+    # VC6 strcpy/strcat copy forward a byte at a time, and recovered code
+    # shifts strings in place with them (strtrim 0x006EEF10: strcpy(s, s + 1)),
+    # which libc leaves undefined for overlapping ranges; VC6's /O2 intrinsic
+    # memcpy is rep movsd/movsb forward, and recovered code fills arrays by
+    # copying onto themselves one element on (WarheadTypeClass 0x00720100:
+    # memcpy(verses + 1, verses, ...) sets every Verses to 1.0). The
     # port supplies the Win32/VC6 behaviour under ra2_ names, so the process's
     # own libc (and SDL) keep theirs.
     (re.compile(r'(?<![\w.>:])(socket|bind|sendto|recvfrom|setsockopt|getsockopt|gethostname|gethostbyname|'
                 r'inet_ntoa|htonl|htons|ntohl|ntohs|rand|srand|fopen|time|ctime|localtime|gmtime|mktime|'
-                r'sprintf|vsprintf|_snprintf|_vsnprintf|sscanf|fprintf|vfprintf|printf)\b(?=\s*\()'),
+                r'sprintf|vsprintf|_snprintf|_vsnprintf|sscanf|fprintf|vfprintf|printf|strcpy|strcat|strncpy|memcpy)\b(?=\s*\()'),
      r'ra2_\1'),
 ]
 

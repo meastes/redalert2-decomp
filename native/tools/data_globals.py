@@ -177,6 +177,14 @@ def main():
             if line and not line.startswith(('#', 'symbol\t')):
                 member_rows.append(line.split('\t'))
     member_of = {r[0] for r in member_rows}
+    # Native sizes of class-typed globals (data/owner_sizes.tsv, member_aliases.py).
+    owner_size = {}
+    sizes_tsv = args.out_dir / 'owner_sizes.tsv'
+    if sizes_tsv.exists():
+        for line in sizes_tsv.read_text().split('\n'):
+            if line and not line.startswith(('#', 'symbol\t')):
+                f = line.split('\t')
+                owner_size[f[0]] = int(f[1])
     bss = [row for row in bss if row['symbol'] not in member_of]
     external, groups = [], {}
     for row in bss:
@@ -201,6 +209,9 @@ def main():
         owner = rows[0]
         size = max(16, 2 * max(r['extent'] for r in rows))
         names_here = {r['symbol'] for r in rows}
+        for sym in names_here:
+            if sym in owner_size:
+                size = max(size, (owner_size[sym] + 15) & ~15)
         for m in member_rows:
             if m[1] in names_here:
                 size = max(size, (int(m[10]) + 15) & ~15)

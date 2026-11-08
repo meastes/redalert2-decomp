@@ -55,6 +55,12 @@ def system_exports():
     for lib in glob.glob('/opt/homebrew/lib/libSDL3*.dylib'):
         out = subprocess.run(['nm', '-gU', lib], capture_output=True, text=True).stdout
         names.update(l.split()[-1] for l in out.splitlines() if l.strip())
+    # A sanitizer build (-fsanitize=address/undefined) links the toolchain's
+    # runtime dylib: its entry points are not unrecovered code.
+    clang_rt = subprocess.run(['xcrun', 'clang', '--print-resource-dir'], capture_output=True, text=True).stdout.strip()
+    for lib in glob.glob(clang_rt + '/lib/darwin/libclang_rt.*san_osx_dynamic.dylib'):
+        out = subprocess.run(['nm', '-gU', lib], capture_output=True, text=True).stdout
+        names.update(l.split()[-1] for l in out.splitlines() if l.strip())
     return names
 
 

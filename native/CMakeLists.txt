@@ -51,7 +51,8 @@ endif()
 include("${RA2_NATIVE_GEN}/units.cmake")
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS
   "${CMAKE_CURRENT_SOURCE_DIR}/tools/native_units.py" "${CMAKE_CURRENT_SOURCE_DIR}/port/fixups.json"
-  "${CMAKE_CURRENT_SOURCE_DIR}/drafts.json" "${CMAKE_CURRENT_SOURCE_DIR}/link/initterm_rewrites.cpp")
+  "${CMAKE_CURRENT_SOURCE_DIR}/drafts.json" "${CMAKE_CURRENT_SOURCE_DIR}/link/initterm_rewrites.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/data/member_aliases.tsv")
 file(GLOB ra2_tracked_drafts CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/drafts/*.cpp")
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${ra2_tracked_drafts})
 

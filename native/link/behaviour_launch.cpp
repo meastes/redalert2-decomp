@@ -592,3 +592,227 @@ void __fastcall Unknown_Add_Modeless_Dialog_00522b20(HWND__ *dialog)
         DAT_00a522b8++;
     }
 }
+
+// --- Menu path (Scout1083) ----------------------------------------------------
+
+// 0x0068CA20 UnknownBitmapWriter::Load_Image_0068ca20 (pcx_cache.hpp; the row's
+// leaf src/recovered/0068ca20.cpp forwards (name, 1, 1) to 0x0068C600).
+#define PCX_CACHE_DECLARE_LOADS 1
+#include "shared/pcx_cache.hpp"
+void UnknownBitmapWriter::Load_Image_0068ca20(char const *name)
+{
+    Load_Image_0068c600(name, 1, 1);
+}
+
+// 0x005DE970 under its window-keyed name (the window table 0x00A73400 and the
+// window procedure table 0x00A73688 declare it over HWND keys; same seed
+// `return *key;`): the hash of a window is its handle value. Port handles are
+// small tokens, so the low 32 bits are the whole handle.
+unsigned int __fastcall unknown_hash_window_5de970(HWND const &key)
+{
+    return (unsigned int)(uintptr_t)key;
+}
+
+// --- Owner-draw dialog preparation (unknown_prepare_dialog's callees; Scout1083) --
+
+#include "shared/win32_api.hpp"
+#include "shared/owner_draw_dialog_control.hpp"
+#include "shared/session_state.hpp"
+
+BOOL __stdcall unknown_prepare_control_735bc0(HWND window, LPARAM lparam);
+
+// 0x00735BA0 (the row's seed src/recovered/00735ba0.cpp): prepares every child
+// of the window, then the window itself, with 0x00735BC0.
+void __fastcall unknown_735ba0(HWND window)
+{
+    EnumChildWindows(window, unknown_prepare_control_735bc0, 1);
+    unknown_prepare_control_735bc0(window, 0);
+}
+
+bool __fastcall OwnerDraw_Control_Test_005e0760(unsigned int key, HWND window);
+int __fastcall OwnerDraw_Control_Height_005defb0(unsigned int key, HWND window);
+int __fastcall OwnerDraw_Control_Kind_005df8e0(unsigned int key, HWND window);
+int __fastcall OwnerDraw_Control_Flags_005e0010(unsigned int key, HWND window);
+
+namespace OwnerDraw {
+bool __fastcall unknown_5e7230(unsigned int key, HWND window);
+bool __fastcall unknown_5e7620(unsigned int key, HWND window);
+bool __fastcall unknown_5e79a0(unsigned int key, HWND window);
+bool __fastcall unknown_5e0e40(unsigned int key, HWND window);
+bool __fastcall unknown_5e0ff0(unsigned int key, HWND window);
+int __fastcall unknown_5e1a20(unsigned int key, HWND window);
+bool __fastcall unknown_5e1050(unsigned int key, HWND window);
+int __fastcall unknown_5e1490(unsigned int key, HWND window);
+void *__fastcall unknown_5e1820(unsigned int key, HWND window);
+int __fastcall unknown_5e06c0(unsigned int key, HWND window);
+void const *__fastcall unknown_5e1a80(unsigned int key, HWND window, bool &allocated);
+
+// 0x005E8720 EnumChildWindows callback (OwnrDraw233 draft c/5e8720e3.cpp, 51.12;
+// Scout720 keep/e8720_n1.cpp 53.29): a registered control's +0xDC and +0xC8 from
+// its dialog.
+BOOL __stdcall unknown_5e8720(HWND window, LPARAM)
+{
+    HWND parent = GetParent(window);
+    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
+    if (record) {
+        record->unknown_dc = unknown_5e12a0((unsigned int)(uintptr_t)parent, window);
+        record->unknown_c8 = unknown_5e1ca0(parent, window);
+    }
+    return TRUE;
+}
+
+// 0x005E7EB0 EnumChildWindows callback (Scout720 draft keep/e7eb0_8955.cpp,
+// 89.55): the record's image state (+0xB0) from the control's tests.
+BOOL __stdcall unknown_5e7eb0(HWND window, LPARAM)
+{
+    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
+    if (record != 0) {
+        unsigned int parent = (unsigned int)(uintptr_t)GetParent(window);
+        if (!unknown_session_a3d298.Unknown_00672F10()) {
+            if (unknown_5e7230(parent, window) || unknown_5e7620(parent, window)) {
+                record->unknown_b0 = 1;
+                return TRUE;
+            }
+        }
+        if (unknown_session_a3d298.Unknown_00672F10()) {
+            if (unknown_5e7230(parent, window) || unknown_5e7620(parent, window)) {
+                record->unknown_b0 = 2;
+                return TRUE;
+            }
+        }
+        if (unknown_5e79a0(parent, window)) {
+            record->unknown_b0 = 3;
+        }
+    }
+    return TRUE;
+}
+
+// 0x005E8130 EnumChildWindows callback (Scout1004 draft keep/e8130_ke.cpp,
+// 49.20): a registered control's animation state: list-style controls get
+// height/kind/flags; image (2), static (3) and animated (4) controls get their
+// frame data and a timer of the control's period.
+BOOL __stdcall unknown_5e8130(HWND window, LPARAM)
+{
+    unsigned int parent = (unsigned int)(uintptr_t)GetParent(window);
+    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
+    if (record == 0) {
+        return TRUE;
+    }
+    if (OwnerDraw_Control_Test_005e0760(parent, window)) {
+        record->unknown_70 = 1;
+        record->unknown_a8 = false;
+        record->unknown_80 = 1;
+        record->unknown_84 = OwnerDraw_Control_Height_005defb0(parent, window);
+        record->unknown_88 = OwnerDraw_Control_Kind_005df8e0(parent, window);
+        record->unknown_8c = OwnerDraw_Control_Flags_005e0010(parent, window);
+        record->unknown_90 = unknown_5e06c0(parent, window);
+        return TRUE;
+    }
+    bool animated = false;
+    if (unknown_5e0e40(parent, window)) {
+        record->unknown_70 = 2;
+        if (record->image_14 == 0) {
+            // NATIVE: 0x005E1A20 returns the image as an int (int/pointer list).
+            record->image_14 = (Surface *)(intptr_t)unknown_5e1a20(parent, window);
+        }
+    } else {
+        if (unknown_5e0ff0(parent, window)) {
+            record->unknown_70 = 3;
+        } else if (unknown_5e1050(parent, window)) {
+            record->unknown_70 = 4;
+            animated = true;
+            if (record->unknown_78 == 0) {
+                bool allocated = false;
+                void *art = unknown_5e1820(parent, window);
+                record->unknown_78 = unknown_5e1a80(parent, window, allocated);
+                // NATIVE: +0x74 is an int in src/shared (int/pointer list): the
+                // art pointer is truncated as in 0x005EA960.
+                record->unknown_74 = (int)(intptr_t)art;
+                record->unknown_7c = allocated;
+            }
+        } else {
+            goto done;
+        }
+    }
+    record->unknown_98 = 0;
+    record->unknown_9c = GetTickCount();
+    record->unknown_a0 = unknown_5e1490(parent, window);
+done:
+    if (record->unknown_a0 < 1) {
+        if (animated && record->unknown_78) {
+            record->unknown_94 = ((short const *)record->unknown_78)[3];
+            record->unknown_a8 = false;
+        }
+    } else {
+        SetTimer(window, 0, record->unknown_a0, 0);
+        if (animated) {
+            record->unknown_a8 = true;
+        }
+    }
+    return TRUE;
+}
+}
+
+// 0x00735B40 (the row's seed src/recovered/00735b40.cpp: eax = 0): the dialog
+// procedure 0x00735BC0 hands Dialog_Template_Size handles no message.
+#include "shared/win_util.hpp"
+BOOL __stdcall unknown_null_dialog_proc_735b40(HWND, UINT, WPARAM, LPARAM)
+{
+    return FALSE;
+}
+
+// --- HouseClass subobjects (Scout1083) ------------------------------------------
+// The constructors/destructors of house.hpp's subobject views. Natively each
+// view holds its real class at offset 0 (port/fixups.json), so these run it.
+#include "shared/house.hpp"
+#include "shared/unit_tracker.hpp"
+
+// 0x00491C00 / 0x00491C20: CounterClass's constructor and destructor
+// (CounterClass_Construct_00491c00.cpp); the member runs them.
+UnknownHouseCounter::UnknownHouseCounter() {}
+UnknownHouseCounter::~UnknownHouseCounter() {}
+// 0x004A6910 (Unknown4A6AE0Owner_Constructor_004a6910.cpp) / 0x004A6930 (the
+// row's seed: an empty body).
+UnknownHouseBase::UnknownHouseBase() {}
+UnknownHouseBase::~UnknownHouseBase() {}
+// 0x0070C440 / 0x0070C480: UnitTrackerClass (same 0x808 bytes on both targets).
+UnknownHouseTracker::UnknownHouseTracker() { new (unknown_000) UnitTrackerClass; }
+UnknownHouseTracker::~UnknownHouseTracker() { ((UnitTrackerClass *)unknown_000)->~UnitTrackerClass(); }
+
+// 0x006751A0 ShapeButtonClass::Free_Shape (the row's seed): frees an owned
+// shape and zeroes the button's size.
+void ShapeButtonClass::Free_Shape()
+{
+    if (IsShapeAllocated && Shape != 0) {
+        operator delete((void *)Shape);
+        Shape = 0;
+        IsShapeAllocated = false;
+        Width = 0;
+        Height = 0;
+    }
+}
+// 0x006751D0 ShapeButtonClass::Set_Allocated (the row's seed).
+void ShapeButtonClass::Set_Allocated(bool allocated)
+{
+    IsShapeAllocated = allocated;
+}
+
+// --- Scenario load (Scout1083) ---------------------------------------------------
+
+// 0x00428AC0 (the row's seed src/recovered/00428ac0.cpp): the cell count the
+// Tiberium growth tables are sized by, (MapSize.Height + 4) * MapSize.Width * 2
+// (DAT_008325d0/d4 are Map's MapSize members, data/member_aliases.tsv).
+extern int DAT_008325d0;
+extern int DAT_008325d4;
+int __fastcall unknown_cells_428ac0()
+{
+    return (DAT_008325d4 + 4) * DAT_008325d0 * 2;
+}
+
+// 0x0068B410 SpecialClass::Unknown_0068B410 (the row's seed
+// src/recovered/0068b410.cpp has an empty body: the original returns at once).
+#include "shared/special.hpp"
+void SpecialClass::Unknown_0068B410()
+{
+}
+

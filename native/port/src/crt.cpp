@@ -502,4 +502,57 @@ int ra2_rand(void)
     return (int)((vc6_seed >> 16) & 0x7FFF);
 }
 
+// VC6 strcpy/strcat: a forward byte copy, so an in-place left shift
+// (strcpy(s, s + 1)) is well defined as it was on the original.
+char *ra2_strcpy(char *dst, const char *src)
+{
+    char *d = dst;
+    while ((*d++ = *src++) != 0) {
+    }
+    return dst;
+}
+// VC6 strncpy: forward, then zero fill to count.
+char *ra2_strncpy(char *dst, const char *src, size_t count)
+{
+    size_t i = 0;
+    for (; i < count && src[i] != 0; ++i) {
+        dst[i] = src[i];
+    }
+    for (; i < count; ++i) {
+        dst[i] = 0;
+    }
+    return dst;
+}
+// VC6 /O2 intrinsic memcpy: rep movsd then rep movsb, forward. Only a
+// destination overlapping the source from above differs from libc: there the
+// copy repeats the source's leading dwords (the fill idiom); otherwise libc.
+void *ra2_memcpy(void *dst, const void *src, size_t count)
+{
+    unsigned char *d = (unsigned char *)dst;
+    const unsigned char *s = (const unsigned char *)src;
+    if (d <= s || d >= s + count) {
+        return memmove(dst, src, count);
+    }
+    size_t i = 0;
+    for (; i + 4 <= count; i += 4) {
+        uint32_t v;
+        memcpy(&v, s + i, 4);
+        memcpy(d + i, &v, 4);
+    }
+    for (; i < count; ++i) {
+        d[i] = s[i];
+    }
+    return dst;
+}
+char *ra2_strcat(char *dst, const char *src)
+{
+    char *d = dst;
+    while (*d) {
+        ++d;
+    }
+    while ((*d++ = *src++) != 0) {
+    }
+    return dst;
+}
+
 }  // extern "C"

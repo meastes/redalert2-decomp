@@ -36,6 +36,10 @@ ROOT = Path(__file__).resolve().parents[2]
 TSV = ROOT / 'native/data/unsourced_initialised.tsv'
 OUT = ROOT / 'native/data/original_data.cpp'
 
+SCALAR_WIDTH = {'char': 1, 'unsigned char': 1, 'signed char': 1, 'bool': 1, 'BYTE': 1, 'byte': 1, 'uchar': 1,
+                'short': 2, 'unsigned short': 2, 'wchar_t': 2, 'WORD': 2, 'ushort': 2, 'int': 4, 'unsigned int': 4,
+                'unsigned': 4, 'long': 4, 'unsigned long': 4, 'float': 4, 'DWORD': 4, 'UINT': 4, 'BOOL': 4,
+                'LONG': 4, 'uint': 4, 'double': 8, '__int64': 8, 'unsigned __int64': 8}
 SCALARS = {'char', 'signed char', 'unsigned char', 'short', 'unsigned short', 'wchar_t', 'int', 'unsigned int',
            'unsigned', 'long', 'unsigned long', 'float', 'double', 'bool', '__int64', 'unsigned __int64',
            'BYTE', 'WORD', 'DWORD', 'UINT', 'BOOL', 'LONG', 'byte', 'ushort', 'uint', 'undefined', 'undefined1',
@@ -157,6 +161,16 @@ def main():
             if 'extern' in line and ';' in line:
                 for w in set(word.findall(line)):
                     index.setdefault(w, []).append(line)
+    # Kept scalar-array rows: extent over the declared elements (see below).
+    for sym, r in rows.items():
+        if r['shape'] != 'bytes':
+            continue
+        decl = declaration(r['name'], index.get(r['name'], []))
+        if decl and decl[1] == 0 and decl[2] and decl[0] in SCALARS:
+            count = declared_count(r['name'], index.get(r['name'], []))
+            width = SCALAR_WIDTH.get(decl[0])
+            if count and width:
+                r['extent'] = max(r['extent'], width * count)
     skipped = []
     for line in TSV.read_text().splitlines():
         if line.startswith('#') or line.startswith('address\t'):
@@ -172,6 +186,14 @@ def main():
         extent = int(extent)
         if stars == 0 and base in SCALARS:
             shape = 'bytes'
+            if array:
+                # A scalar array runs over its declared elements even where an
+                # interior name starts (unknown_screen_widths_7add68[3]: the TSV
+                # extent stops at OwnerDraw::unknown_7add6c, element 1).
+                count = declared_count(name, index.get(name, []))
+                width = SCALAR_WIDTH.get(base)
+                if count and width:
+                    extent = max(extent, width * count)
         elif stars == 1 and not array:
             shape = 'ptr'
         elif stars == 1 and array:

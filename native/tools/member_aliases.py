@@ -21,6 +21,8 @@ Each row is classified by the name's declared type against the member's:
   compatible  both scalars of one width on both targets (int vs unsigned, ...);
   range       the name's extent covers members whose arm64 relative layout is
               the i686 one (scalar runs, char buffers);
+  object      a class-typed name at the start of a class-typed member (a
+              per-file view class of that member's object);
   conflict    anything else (listed, not merged): a pointer in an int slot,
               a name past the members' end, a different width.
 
@@ -45,6 +47,7 @@ import catalog_io  # noqa: E402
 from data_globals import msvc_key, demangle  # noqa: E402
 
 OUT = ROOT / 'native/data/member_aliases.tsv'
+SIZES_OUT = ROOT / 'native/data/owner_sizes.tsv'
 PRELUDE = ROOT / 'native/port/include/ra2port/prelude.hpp'
 FLAGS = ['-std=c++17', '-fms-extensions', '-fms-compatibility', '-fdelayed-template-parsing', '-Xclang', '-fno-wchar',
          '-fshort-wchar', '-w', '-fsyntax-only', '-Xclang', '-fdump-record-layouts-complete']
@@ -255,12 +258,23 @@ def main():
     owners, header_types = [], {}
     skipped_owners = []
     for n in names.values():
+        if n['decl'] and n['decl'][1] and None not in n['decl'][1]:
+            # Arrays of a class: the element's layout sizes the storage (Ground[12]).
+            base = n['decl'][0].split('<')[0]
+            if base in class_header:
+                header_types.setdefault(class_header[base], set()).add(n['decl'][0])
+            continue
         if not n['decl'] or n['decl'][1] is not None:
             continue
         t = n['decl'][0]
         if t.endswith('*') or t in SCALAR:
             continue
         base = t.split('<')[0]
+        # A global declared inside a namespace names its class unqualified
+        # (OwnerDraw::unknown_tooltip_a737f0 is an OwnerDraw::UnknownTooltipState).
+        if '::' in n['name'] and '::' not in t:
+            t = n['name'].rsplit('::', 1)[0] + '::' + t
+            n['decl'] = (t, n['decl'][1])
         if base not in class_header:
             if base[:1].isupper() or '<' in t:
                 skipped_owners.append(dict(name=n['name'], type=t, reason='no src/shared definition'))
@@ -269,6 +283,14 @@ def main():
         header_types.setdefault(class_header[base], set()).add(t)
     l32 = clang_layouts(build, header_types, 'i686')
     l64 = clang_layouts(build, header_types, 'arm64')
+    # Every owner's native size: data_globals.py sizes its BSS storage at least
+    # that large (the original extent to the next known name can be smaller
+    # than the object when seed names split it).
+    sizes = {}
+    for o in owners:
+        t = o['decl'][0]
+        if t in l64 and l64[t][0]:
+            sizes[o['symbol']] = (l64[t][0], o['name'], t)
     addr_index = sorted((n['address'], n['symbol']) for n in names.values())
     keys = [a for a, _ in addr_index]
     rows, conflicts, unmapped = [], [], []
@@ -301,6 +323,49 @@ def main():
                 unmapped.append(row)
             else:
                 rows.append(row)
+    # Array owners (`T name[N]...` with T a pointer or scalar): an interior name
+    # is the element at its index (Audio_Global_Levels[8] pointers, 0x0083144C,
+    # holds unknown_audio_levels_831454 as element 2); pointer elements double.
+    for o in sorted(names.values(), key=lambda n: n['address']):
+        if not o['decl'] or not o['decl'][1] or None in o['decl'][1] or o['object'] is None:
+            continue
+        if o['object'].endswith('/original_data.cpp.o') and (o['decl'][0].endswith('*') or o['decl'][0] in SCALAR):
+            continue   # initialised arrays: original_data.py loads each name from game.exe
+        et = o['decl'][0]
+        e32, e64 = elem_sizes(et, l32, l64)
+        if not (et.endswith('*') or et in SCALAR):
+            # Class elements: size the storage only (interior names stay separate).
+            if e64:
+                sizes[o['symbol']] = (e64 * prod(o['decl'][1]), o['name'], et + ''.join('[%d]' % d for d in o['decl'][1]))
+            continue
+        dims = o['decl'][1]
+        t = et + ''.join('[%d]' % d for d in dims)
+        size32, size64 = e32 * prod(dims), e64 * prod(dims)
+        if e64 != e32:
+            sizes[o['symbol']] = (size64, o['name'], t)
+        nodes32 = [('[]', 0, t, 0)]
+        i = bisect.bisect_right(keys, o['address'])
+        while i < len(keys) and keys[i] < o['address'] + size32:
+            child = names[addr_index[i][1]]
+            i += 1
+            if child['symbol'] == o['symbol'] or child['address'] == o['address']:
+                continue
+            rel = child['address'] - o['address']
+            row = map_member(child, rel, nodes32, {'[]': 0}, l32, l64)
+            row['member'] = row['member'].replace('[]', o['name'].split('::')[-1], 1)
+            row.update(owner=o['name'], owner_symbol=o['symbol'], owner_type=t, offset32=rel, owner_size=size32,
+                       owner_size64=size64, owner_object=Path(o['object']).name)
+            if row['kind'] == 'conflict':
+                conflicts.append(row)
+            elif child['object'] and not child['object'].endswith(('/bss_globals.cpp.o', '/original_data.cpp.o')):
+                row['kind'] = 'defined'
+                unmapped.append(row)
+            else:
+                rows.append(row)
+    SIZES_OUT.write_text('# generated by native/tools/member_aliases.py: native (arm64) sizeof of each class-typed '
+                         'global whose class a src/shared header defines, and of pointer arrays; data_globals.py '
+                         'gives its BSS storage at least this size.\nsymbol\tsize64\tname\ttype\n' +
+                         ''.join('%s\t%d\t%s\t%s\n' % (sym, v[0], v[1], v[2]) for sym, v in sorted(sizes.items())))
     # One owner per name: an owner that is itself merged into another is reached
     # through the outer owner's layout (its members are expanded there); of the
     # remaining owners the innermost (smallest class) holds the name.
@@ -392,6 +457,16 @@ def map_member(child, rel, nodes32, off64, l32, l64):
         elif off == rel and want and canon(typ) == want and not ndims:
             row.update(member=path, member_type=typ, offset64=off64[path], kind='exact')
             return row
+    # A class-typed name at the start of a class-typed member is that member
+    # (per-file view classes of one object: unknown_object_a3dc70 and three
+    # other names over the session's MessageListClass Messages, +0x9D8).
+    if want and not ndims and not want.endswith('*') and want not in SCALAR:
+        for path, off, typ, depth, e32, e64, dims in reversed(chain):
+            t = canon(typ)
+            if (off == rel and not dims and not t.endswith('*') and t not in SCALAR and path in off64
+                    and not path.endswith('(anon)') and 'base:' not in path.rsplit('.', 1)[-1]):
+                row.update(member=path, member_type=typ, offset64=off64[path], kind='object')
+                return row
     # Not an exact member: the innermost scalar or scalar array at rel.
     path, off, typ, depth, e32, e64, dims = chain[-1]
     row.update(member=path, member_type=typ)
