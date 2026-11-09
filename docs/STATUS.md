@@ -13,6 +13,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,503,622 of 3,769,805 (92.94%)** |
 | Accepted regions | 17,888 |
 | Matched C/C++ body bytes | 3,252,976 (86.29% of .text) |
+| Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user's three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) | 14,677 in 8 regions (0.39% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 1,721 (0.05% of .text) |
 | Frozen padding bytes | 142,868 |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |

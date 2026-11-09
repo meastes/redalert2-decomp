@@ -168,6 +168,31 @@ def validate_inline_asm(data, row, archive=None, require_archive=False):
     return len(blocks)
 
 
+# Count-calibrated rows (user decision 2026-11-09, docs/HANDOFF.md): a row whose
+# named locals or helper forms were chosen by a symbol-count or inline-budget
+# calibration is accepted only when every named local holds a real, used value,
+# twin forms and real inline helpers were checked first, and the row says so:
+# `count_calibrated: true` plus a non-empty `count_calibrated_note` naming the
+# chosen forms and the evidence checked first. status.py counts these rows as
+# their own category inside matched C/C++. A plan item may say
+# `count_calibrated: false` to clear an existing region's flag on re-acceptance
+# (accept_sources); a candidate or canonical row never stores false.
+COUNT_CALIBRATED_KEYS = ('count_calibrated', 'count_calibrated_note')
+
+
+def validate_count_calibrated(row):
+    """Refuse a malformed count-calibration flag on a candidate or canonical row;
+    return whether the row is flagged."""
+    flag, note = row.get('count_calibrated'), row.get('count_calibrated_note')
+    if flag is None:
+        require(note is None, 'count_calibrated_note without count_calibrated: true')
+        return False
+    require(flag is True, 'count_calibrated must be true (omit both keys on an uncalibrated row)')
+    require(isinstance(note, str) and note.strip() != '',
+            'count_calibrated: true needs a non-empty count_calibrated_note (chosen forms and evidence checked first)')
+    return True
+
+
 def validate_includes(data, headers):
     # Apply preprocessing character/line/comment phases before recognizing
     # directives, so comments or continuations cannot hide a dependency.
@@ -259,6 +284,7 @@ def validate_catalog(repository, catalog):
         require(sha(data) == row['source_sha256'], 'Source hash drift')
         validate_includes(data, headers)
         validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
+        validate_count_calibrated(row)
         entries.add(va); paths.add(row['source']); orders.add(row['source_order'])
         cursor = va + row['full_extent_bytes']
     require(bool(entries), 'Empty canonical source catalog')

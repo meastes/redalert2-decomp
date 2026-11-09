@@ -39218,7 +39218,9 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
       "semantic_name": "TechnoClass_unknown_slot176_006cfea0",
-      "source_order": 235616
+      "source_order": 235616,
+      "count_calibrated": true,
+      "count_calibrated_note": "Get_Z_Adjust (Scout1150 r1, owner decision 2026-11-09). Calibrated form: Overlay_Is_Rock names its type pointer (OverlayTypeClass *otype, the Westwood otype idiom of CellClass 0x4749C0); it emits no code and supplies the symbol count that orders the ahead/behind cell sites (without it 98.77). Evidence checked first: TibSun techno.cpp Get_Z_Adjust (rock test in place: aaaaCC; in place with scoped otype locals: Caaaaa) and the YR twin gamemd 0x704350 (same 488 instructions, no text change)."
     },
     {
       "entry": 7121040,
@@ -40557,7 +40559,9 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
       "semantic_name": "TechnoClass_unknown_slot221_006ca890",
-      "source_order": 235586
+      "source_order": 235586,
+      "count_calibrated": true,
+      "count_calibrated_note": "Fire_At (Scout1149 r2 over Scout955, owner decision 2026-11-09). Calibrated forms, each +1 symbol (window k=0..1): Is_Foot_006ca890 with its named byte flag (ra2-decomp ObjectClass::Is_Foot text), Has_Ability_006ca890 (TibSun Has_Ability shape), named intermediates int dy, int distance, double length, double angle, int voc, HouseClass *house; they put the inlined DynamicVectorClass::Add at +0x170A in the original orientation. Scout955's named locals (projectile, tarcom, anim_count, building, warhead) were chosen in the same count window. Evidence checked first: YR twin gamemd 0x6FDD50 (zadjust via CoordStruct operator-), TibSun techno.cpp Fire_At, RA2_RADAR_ADD_THREADED (fixes Add but breaks four population rows)."
     }
   ]
 }

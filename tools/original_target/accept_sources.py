@@ -45,6 +45,31 @@ SYMBOLS = REPOSITORY / 'manifests/symbols.json'
 # Plan-item keys of evidenced inline assembly (canonical.validate_inline_asm),
 # carried into the frozen candidate and the canonical region.
 INLINE_ASM_KEYS = ('inline_asm', 'inline_asm_citation')
+# Plan-item keys of a count-calibrated row (canonical.validate_count_calibrated),
+# carried the same way; see carry_count_calibration for re-accepted regions.
+COUNT_CALIBRATED_KEYS = ('count_calibrated', 'count_calibrated_note')
+LEDGER_KEYS = INLINE_ASM_KEYS + COUNT_CALIBRATED_KEYS
+
+
+def carry_count_calibration(plan, existing):
+    """Keep a replaced region's count-calibration flag stable across re-acceptance.
+
+    A plan item that states neither key inherits the existing region's flag and
+    note (whole-population plans re-accept every row, and a plan frozen before the
+    flag existed must not drop it). `count_calibrated: false` clears the flag (the
+    row was re-rolled to a natural form); the region then stores neither key.
+    Returns the entries whose flag was inherited."""
+    inherited = []
+    for item in plan['sources']:
+        old = existing.get(int(item['entry'], 16)) or {}
+        if item.get('count_calibrated') is False:
+            for key in COUNT_CALIBRATED_KEYS:
+                item.pop(key, None)
+            continue
+        if not any(key in item for key in COUNT_CALIBRATED_KEYS) and old.get('count_calibrated'):
+            item.update({key: old[key] for key in COUNT_CALIBRATED_KEYS if key in old})
+            inherited.append(int(item['entry'], 16))
+    return inherited
 
 
 def named_symbols():
@@ -446,6 +471,8 @@ def main():
     sync_headers(catalog); catalog_io.dump(catalog, catalog_path)
     existing = {r['entry']: r for r in catalog['regions']}
     restate_canonical_bounds(plan, existing)
+    for entry in carry_count_calibration(plan, existing):
+        print('note: %08x keeps its count_calibrated flag and note' % entry, file=sys.stderr)
     # A replaced region keeps the bindings it was accepted with (its
     # population's table); the plan's own references take precedence.
     for item in plan['sources']:
@@ -543,7 +570,7 @@ def main():
                                    body_sha256=sha(body), region_bytes=len(region), region_sha256=sha(region),
                                    padding_hex=pad_hex, padding_provenance=provenance,
                                    original_inventory_row=bound,
-                                   **{k: item[k] for k in INLINE_ASM_KEYS if k in item}))
+                                   **{k: item[k] for k in LEDGER_KEYS if k in item}))
         population = dict(executable_sha256=TARGET_SHA256, inventory=str((directory / 'functions.jsonl').relative_to(REPOSITORY)),
                           inventory_sha256=sha((directory / 'functions.jsonl').read_bytes()),
                           gap_inventory_sha256=sha(gaps_path.read_bytes()), source_model='hand-written-' + plan['name'],
@@ -598,8 +625,9 @@ def main():
                           source_quality_family='hand-written')
             if item.get('semantic_name'):
                 region['semantic_name'] = item['semantic_name']
-            # Evidenced inline assembly is its own ledger category (status.py).
-            region.update({k: item[k] for k in INLINE_ASM_KEYS if k in item})
+            # Evidenced inline assembly and count-calibrated rows are their own
+            # ledger categories (status.py).
+            region.update({k: item[k] for k in LEDGER_KEYS if k in item})
             destination = REPOSITORY / item['source']
             if destination.exists() and destination.read_bytes() != (REPOSITORY / item['draft']).read_bytes() and \
                     not (existing.get(row['entry']) and existing[row['entry']]['source'] == item['source']):

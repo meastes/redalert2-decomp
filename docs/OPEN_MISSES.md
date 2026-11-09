@@ -3288,3 +3288,9 @@ New rulings are recorded at their rows as before.
 ## Scout1157 (2026-11-09, 0 B; NOTES, keep/, yr/ in build/class-work/Scout1157/)
 - Damage_High_Bridge 0x559000 56.15 -> 91.17 (keep/high_rt_pa_9117.cpp): earlier drafts had a semantic bug, the original returns TRUE after a middle span collapses (TibSun too; Train 0x5539B0 falls through). Scout953's per-case full-tail switch form plus `return(true)` reproduces registers, frame and tails. Left: the m2 block's DynamicVectorClass dtor inlines Clear 0x42CFB0 (original calls it); needs 3-6 natural inline sites after it or ~170 IL less budget (lab with empty sites: 100.00).
 - Damage_Train_Bridge 0x5539B0 stays 76.60 (Scout957 h4v); lab residue is frame slots (ittype vs the dead `cell` arg slot). YR twins 0x576BA0/0x571490 identical.
+
+## Scout1159/1160 (2026-11-09; NOTES in build/class-work/Scout1159/ and Scout1160/)
+- Landed: BuildingClass Captured 0x444660 (Scout1159 r1; Update_Anim_Appearance calls Tinted_Brightness 0x4521E0 as the YR twin does, TibSun contact-loop order). Cloak generator members guarded by RA2_BUILDING_CLOAK_GENERATOR (same pattern as RA2_CELL_SET_CELLID).
+- Tactical::Render 0x6A45A0 stays 64.69: same 57 calls as the original; whole-function allocation (original re-indexes Supers[i]/Houses[i], never caches Frame, keeps fullredraw on the stack).
+- Draw_Voxel 0x6FF690 86.76 -> 99.44 (keep/dv_b1_9926.cpp): YR twin text (ra2-decomp Unit_Draw_Voxel), Westwood IndexClass Set_Archive/Invalidate_Archive spellings, RA2_LOCOMOTION_COM_VALUE_TYPES population-wide, twin Adjacent_Cell(FACING_N/W) and statement shapes put it inside a ~90-unit /Ob2 window. Left: 8 insns of FP scheduling at barrel.Translate(-translation). Delivery needs locomotion.hpp and cell_class.hpp header changes plus fragile probe.
+- Exit_Object 0x440520 92.27: untried idea, a charged spend between 0xB62 and 0x111B to test whether the ties are budget-coupled.

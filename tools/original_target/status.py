@@ -28,6 +28,18 @@ def evidenced_inline_asm(region):
     return region.get('inline_asm') == 'evidenced'
 
 
+def count_calibrated(region):
+    """Regions whose named-local or helper forms were chosen by count calibration (user decision
+    2026-11-09; canonical.validate_count_calibrated): matched C/C++, reported as their own category."""
+    return region.get('count_calibrated') is True and not evidenced_inline_asm(region)
+
+
+def calibrated_coverage(catalog):
+    """(regions, body bytes) of count-calibrated rows; a subset of the matched C/C++ body bytes."""
+    rows = [r for r in catalog['regions'] if count_calibrated(r)]
+    return len(rows), sum(r['body_bytes'] for r in rows)
+
+
 TEXT_START = 0x401000
 # C runtime and linked libraries: everything from 0x781000 to the end of .text (the boundary the
 # treemap uses for its 'C runtime' group). Library ledger, not C/C++ source credit; the handwritten
@@ -235,6 +247,7 @@ def text_bytes(executable):
 
 def render(catalog, text, rows, funcs=None, lib=None, asm=None):
     now = coverage(catalog)
+    calibrated = calibrated_coverage(catalog)
     scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm'] - (lib['bytes'] if lib else 0) - (asm['bytes'] if asm else 0)
     populations = Counter(r['population'] for r in catalog['regions'])
     split = ledger(catalog, text)
@@ -248,6 +261,9 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None):
              '| **{:,} of {:,} ({:.2f}%)** |'.format(reproduced, text, 100.0 * reproduced / text),
              '| Accepted regions | {:,} |'.format(now['regions']),
              '| Matched C/C++ body bytes | {:,} ({:.2f}% of .text) |'.format(now['body'], 100.0 * now['body'] / text),
+             '| Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user\'s '
+             'three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) '
+             '| {:,} in {:,} regions ({:.2f}% of .text) |'.format(calibrated[1], calibrated[0], 100.0 * calibrated[1] / text),
              '| Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, '
              'not C/C++ credit) | {:,} ({:.2f}% of .text) |'.format(now['evidenced_inline_asm'],
                                                             100.0 * now['evidenced_inline_asm'] / text),

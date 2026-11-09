@@ -19077,7 +19077,9 @@
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 234919
+      "source_order": 234919,
+      "count_calibrated": true,
+      "count_calibrated_note": "SidebarClass::Select_Tab (Scout1126 r1, owner decision 2026-11-09). Calibrated form: Activate_Tab written out with single-use references ShapeButtonClass &old_button, StripClass &old, ShapeButtonClass &button, StripClass &current; they put the /Ob2 size at 148 inside the unit's window (about 147..166; the plain written-out body is 130). Evidence checked first: YR SetTab 0x6A7590 writes Activate_Tab out, and YR Activate_Tab 0x6A74A0 has StripClass &current (the other three references have no twin text)."
     },
     {
       "entry": 6806528,
@@ -20830,7 +20832,9 @@
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "source_order": 234961
+      "source_order": 234961,
+      "count_calibrated": true,
+      "count_calibrated_note": "SidebarClass::Unknown_006820F0 (Scout1126 r1, owner decision 2026-11-09). Calibrated form: int const rows = Unknown_006820A0(); int const count = rows + rows; return count; (inline size 42, charged) instead of return Unknown_006820A0() * 2 (28, free), so the inlined Deactivate in 0x67CA50 keeps this row out of line. Evidence checked first: Recalc 0x6807B9's inlined copy and the 0x67C850 > Unknown_006820F0() form (Scout626); no twin text for the body."
     },
     {
       "entry": 6824960,
@@ -27078,7 +27082,9 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
       "semantic_name": "SidebarClass_unknown_slot34_006819a0",
-      "source_order": 234958
+      "source_order": 234958,
+      "count_calibrated": true,
+      "count_calibrated_note": "SidebarClass slot 34 (fragile declaration-count row; Scout1126 r1, Scout1134 r2, Scout1156 r5 re-rolls, owner decision 2026-11-09). Calibrated form: the operand order and spelling of unknown_rect_839620.X = unknown_int_839638 + unknown_int_839630 (the X + Width sum, read through the unknown_int names of 0x839630/0x839638) re-measured whenever the unit's declaration count changes; no named locals involved. Evidence checked first: the rect .X/.Width spellings in both orders (99.41) and the HEAD form at each re-roll; no twin form known."
     },
     {
       "entry": 6800688,
@@ -28455,7 +28461,9 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
       "semantic_name": "SidebarClass_AI_0067dc90",
-      "source_order": 234922
+      "source_order": 234922,
+      "count_calibrated": true,
+      "count_calibrated_note": "SidebarClass::AI (Scout1134 r2, owner decision 2026-11-09). Calibrated form: scroll-down names a single-use StripClass &strip = Column[unknown_4ed8] and writes Page out with the rows ternary (own unknown_abcd64 text decides the term order of the inlined 0x6820A0 copies); scroll-up keeps Column[unknown_4ed8].Page(true). Evidence checked first: the Scout1124-1131 drafts and the YR Activate_Tab reference idiom (StripClass &current); no twin text for the strip name."
     }
   ]
 }

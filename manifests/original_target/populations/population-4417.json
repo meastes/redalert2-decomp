@@ -16062,7 +16062,9 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
       "semantic_name": "AnimClass_AI_00421710",
-      "source_order": 235772
+      "source_order": 235772,
+      "count_calibrated": true,
+      "count_calibrated_note": "AnimClass::AI (Scout1154 r1, owner decision 2026-11-09). Calibrated forms, fourteen single-use named intermediates (window k=0..3, no margin below): Scout896 cell order Cell(unknown_adjacent_851a70[x&7]+Cell(coord)), CellClass &cell (water test), bool covered, int distance, unsigned char data, bool germinate, PsiWarning arguments CellClass *cell and HouseClass *house, AbstractClass *object (slot 105 result), int land, int z, int height, int first, double sq; they settle the Union Y-bottom and cell+AdjacentCell count ties. Evidence checked first: TibSun anim.cpp AI shape and the Union/Rect text forms (Scout886-896, flat), YR twin forms (Scout1149)."
     }
   ]
 }

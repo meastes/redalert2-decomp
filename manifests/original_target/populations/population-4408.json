@@ -17297,7 +17297,9 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
       "semantic_name": "PlanningNodeClass_Is_At_00611310",
-      "source_order": 234592
+      "source_order": 234592,
+      "count_calibrated": true,
+      "count_calibrated_note": "PlanningNodeClass::Is_At (Scout743, owner decision provisional 2026-11-05). Calibrated form: four chained CoordStruct const & aliases (node_coord, wanted, left, right) that emit nothing and size the inline budget so VC6 refuses the row at the 0x2C site and expands it at 0x2A (Execute 0x614BA0 and Path_Add 0x616350 depend on it). FAILS condition 1 (alias chain, purposeless locals): flagged for the owner, not fixed. Evidence checked first: here == coord forms 84-89, here = Coord(); return here == coord exact for the row but drops Execute to 81.07; no twin form."
     },
     {
       "entry": 6361952,

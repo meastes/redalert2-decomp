@@ -14,7 +14,8 @@ import time
 from build import check_toolchain, compile_units, write_json
 from verify_manifest import bound_values, local_label_target, switch_data_start
 from canonical import (RECORDED_OPTIONS, TIBSUN_ARCHIVE, compiler_arguments, sha, validate_headers,
-                       validate_includes, validate_inline_asm)
+                       validate_includes, validate_inline_asm,
+                       validate_count_calibrated)
 from coff import Coff
 from verify_manifest import Audit, require, TARGET_SHA256
 import catalog_io
@@ -195,6 +196,8 @@ def compile_population(manifest_path, output, config, replacing=(), retiring=())
         # `__asm` only as cited, archive-verified evidenced inline assembly.
         validate_inline_asm(audit.read(candidate['source']), candidate, REPOSITORY / TIBSUN_ARCHIVE,
                             require_archive=True)
+        # Count-calibrated forms only with the flag and its note (user decision 2026-11-09).
+        validate_count_calibrated(candidate)
         require(not any(r['entry'] < candidate['entry'] + candidate['region_bytes'] and
                         candidate['entry'] < r['entry'] + r['full_extent_bytes']
                         for r in catalog['regions'] if not (r['entry'] in replacing and

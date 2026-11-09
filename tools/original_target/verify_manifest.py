@@ -892,6 +892,13 @@ class Audit:
         require(row['padding_provenance'] == candidate['padding_provenance'], 'Accepted padding provenance differs')
         require(all(row.get(k) == candidate.get(k) for k in ('inline_asm', 'inline_asm_citation')),
                 'Accepted inline-assembly ledger flag differs from frozen candidate')
+        require(all(row.get(k) == candidate.get(k) for k in ('count_calibrated', 'count_calibrated_note')),
+                'Accepted count-calibration flag differs from frozen candidate')
+        # Count-calibrated rows (canonical.validate_count_calibrated): the note goes with the flag.
+        calibrated, note = row.get('count_calibrated'), row.get('count_calibrated_note')
+        require(calibrated is None and note is None or
+                calibrated is True and isinstance(note, str) and note.strip() != '',
+                'count_calibrated: true needs a non-empty count_calibrated_note, and the note needs the flag')
         case = cases.get((row['method'], row['variant']))
         require(case is not None and case['status'] == 'extent-exact', 'Missing exact compiler case')
         require(case['source_sha256'] == row['source_sha256'] and case['object_sha256'] == row['object_sha256'] and case['options'] == row['options'], 'Compiler case provenance differs')

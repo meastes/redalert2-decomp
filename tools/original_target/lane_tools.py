@@ -24,6 +24,8 @@ import sys
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 DEFAULT_OPTIONS = [['/O2', '/Ob2', '/G5', '/Gy']]
+# Region keys a plan item carries over (accept_sources.LEDGER_KEYS).
+LEDGER_KEYS = ('inline_asm', 'inline_asm_citation', 'count_calibrated', 'count_calibrated_note')
 
 
 def entry_text(value):
@@ -47,6 +49,8 @@ def build_plan(regions, anchor, name, drafts, copy_dir, copy=shutil.copyfile):
                     symbol_prefix=row['symbol_prefix'])
         if row.get('semantic_name'):
             item['semantic_name'] = row['semantic_name']
+        # Ledger flags travel with the row (evidenced inline asm, count calibration).
+        item.update({key: row[key] for key in LEDGER_KEYS if key in row})
         sources.append(item)
     for entry, draft, symbol in drafts:
         entry = entry_text(entry)
