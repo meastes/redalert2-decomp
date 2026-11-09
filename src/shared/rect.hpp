@@ -164,6 +164,8 @@ public:
     // TibSun rect.h's form: the corner moved by a point (RadarEventClass::Draw 0x0063BB90 calls its
     // RectPoint2D sum 0x00435540 and the corner constructor 0x00453E40 out of line).
     Rect operator+(RectPoint2D const &point) const { return Rect(Top_Left() + point, Width, Height); }
+    // TibSun rect.h:69 TRect::Bias_To: the rectangle moved by another one's corner (XSurface::Fill_Rect 0x007743C0).
+    Rect const Bias_To(Rect const &rect) const { return Rect(Top_Left() + rect.Top_Left(), Width, Height); }
 #endif
 
     // Overlap with another rectangle (the free Intersect below).

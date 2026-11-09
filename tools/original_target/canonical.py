@@ -68,7 +68,7 @@ def validate_headers(repository, catalog, read=None):
 # and `inline_asm_citation` ("TibSun conquer.cpp:346", or a list, one per block in
 # source order), the source quotes each citation, and each block holds exactly the
 # cited archive block's instructions. Only these archive files are eligible.
-INLINE_ASM_FILES = ('conquer.cpp', 'keyboard.cpp', 'mpu.cpp', 'lcw.cpp', 'blitblit.h', 'rlerle.h')
+INLINE_ASM_FILES = ('conquer.cpp', 'xsurface.cpp', 'keyboard.cpp', 'mpu.cpp', 'lcw.cpp', 'blitblit.h', 'rlerle.h')
 INLINE_ASM_CITATION = re.compile(r'TibSun (%s):([1-9][0-9]*)' % '|'.join(map(re.escape, INLINE_ASM_FILES)))
 TIBSUN_ARCHIVE = Path('private/reference/TibSun/code')
 _ASM_TOKEN = re.compile(r'(?<![A-Za-z0-9_$])(?:__asm|_asm)(?![A-Za-z0-9_$])')
