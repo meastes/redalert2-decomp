@@ -126,8 +126,10 @@ and preserve unexpected changes rather than overwriting them.
 - Precedents first: match each case to `docs/DECISIONS.md` (pattern, ruling, reason, example row) and
   decide; a large cost under a fitting precedent is still the owner's call.
 - Second opinion (user, 2026-11-09): only when no precedent fits or the case changes the build or
-  acceptance model. Queue such cases and send them to the Recovery process review session once a day
-  in one message, each with evidence paths and a recommendation; hold the status quo for a queued row
+  acceptance model. Send such cases to the Recovery process review session at the next status or
+  landing point, bundled with anything else queued (not one at a time; about one message per three
+  hours at most; a result that decides several lanes' next work may go at once), each with evidence
+  paths and a recommendation; hold the status quo for a queued row
   (no landing, no revert) while lanes work other rows; add each answer to `docs/DECISIONS.md`. Show
   the "Weekly · Fable" usage in each status; above about 15% in a week, tell the user and send only
   build-model cases until the reset.
