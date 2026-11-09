@@ -380,6 +380,11 @@ public:
 #endif
     void Recalc_Attributes(int value);           // 0x00472540 (clears an overlay with -1: AnimClass 0x004226D0, TerrainClass slot 52)
     int unknown_4706c0(Point2D const &point) const;       // 0x004706C0 (height at a lepton position in the cell; hypothesis)
+#if defined(RA2_CELL_SET_CELLID) || (defined(RA2_CELL_MAP_VIEW) && defined(RA2_CELL_FULL_ASSIGN))
+    // Guarded: the Cell unit defines RA2_CELL_SET_CELLID in its first row; one more declaration in every
+    // cell_class.hpp user moves Print_CRCs 0x0062A360 (a fragile row).
+    void Set_CellID(Cell const &cell);  // 0x0047A450 (TibSun Set_CellID)
+#endif
 #ifdef RA2_CELL_MAP_VIEW
     // The Map units' declarations (shared/map_cell.hpp; the manglings their accepted rows call).
     // Several are the members above under other names or parameter types; one declaration each
@@ -398,9 +403,6 @@ public:
     CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any, int alt) const;   // 0x004764B0 (int alt)
     void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 (Cell_Color)
     void Unknown_004798F0();        // 0x004798F0 (unknown_4798f0 above)
-#ifdef RA2_CELL_FULL_ASSIGN
-    void Set_CellID(Cell const &cell);  // 0x0047A450 (TibSun Set_CellID)
-#endif
 #ifdef RA2_MAP_CLOSE_OBJECT
     ObjectClass *Cell_Occupier() const { return OccupierPtr; } // (TibSun Cell_Occupier; MapClass 0x0054E8D0)
 #endif

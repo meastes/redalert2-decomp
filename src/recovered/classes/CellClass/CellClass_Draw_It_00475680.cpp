@@ -14,8 +14,9 @@
 // @ref ?unknown_tileset_a52f00@@3HA=00a52f00
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_CellCount_a35f28@@3HA=00a35f28
-// @ref _unknown_geometry_g=00850c40
+// @ref ?unknown_level_850c40@@3HA=00850c40
 extern int unknown_CellCount_a35f28;     // 0x00A35F28 (TibSun CellCount)
+extern int unknown_level_850c40;         // 0x00850C40 (TibSun LEVEL_LEPTON_H)
 
 void CellClass::Draw_It(Point2D const &xpoint, Rect const &clip, bool objects)
 {
@@ -42,7 +43,7 @@ void CellClass::Draw_It(Point2D const &xpoint, Rect const &clip, bool objects)
 
         if (SmudgeIndex != -1) {
             Point2D p = point + Point2D(30, unknown_int_839634) - Point2D(clip.X, clip.Y);
-            SmudgeTypes[SmudgeIndex]->unknown_slot40(&p, &clip, SmudgeData, unknown_geometry_g * unknown_11b, &MapCoords);
+            SmudgeTypes[SmudgeIndex]->unknown_slot40(&p, &clip, SmudgeData, unknown_level_850c40 * unknown_11b, &MapCoords);
         }
     }
 }

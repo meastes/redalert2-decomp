@@ -285,6 +285,7 @@ public:
 
     SidebarClass();                                     // 0x0067B700
     SidebarClass(NoInitClass const &noinit);            // 0x0067B7B0
+    void Unknown_0067B880(bool cameo_text);             // 0x0067B880 (empty; OptionsClass SidebarCameoText)
 
     virtual void One_Time();                            // slot 5  0x0067B890
     virtual void Init_Clear();                          // slot 7  0x0067B8B0
