@@ -86,7 +86,18 @@ run reaches `scenario`, `frame` and `frames` (60 checked) without traps; the hum
 house gets its start units (MCV, tanks, infantry) and is not defeated. The
 tactical view draws the map tiles under the shroud, the start units (voxel
 vehicles, infantry), trees and cliffs around the base, and the sidebar credits
-count up (Scout1098; best with `'#5'`, MP14T2.MAP). `RA2_NATIVE_DEBUG_LOG=1`
+count up (Scout1098; best with `'#5'`, MP14T2.MAP).
+`--skirmish-order=<kind>[@<frame>]` (`link/harness_orders.cpp`, test scaffolding)
+queues the orders a player's click would, as MEGAMISSION events
+(Queue_Mission 0x006233A0), for the human player's start units at that frame
+(default 10): `move` (infantry and vehicles 6 cells east), `deploy` (the MCV
+unloads), `both`; the last frame logs `harness-units` (kind:mission@cell of the
+player's technos). With `both`, `'#0'` and `'#5'` run 600 frames without traps:
+infantry walk (Walk 0x0071E220 draft), tanks drive (path search 0x00427370
+draft), the MCV deploys into a construction yard (Scout1103). Longer runs need
+`--run-seconds=300` or more; around frame 650 on `'#5'` HouseClass::AI destroys a
+house's units and a later Evaluate_Cell scan faults on a stale occupier (open).
+`RA2_NATIVE_DEBUG_LOG=1`
 prints the game's Debug_Printf lines (the original's body is empty). The menu run
 (`--run-to=menu`) and the skirmish runs also work without `-noaudio` (60 frames
 checked on `'#0'` and `'#5'`). `--game-args` is WinMain's command
@@ -117,8 +128,15 @@ only (TheaterTypeStruct, the track-control tables, GUIDs) load as `bytes`: VC6
 (/Zp8) and arm64 lay them out alike; such a struct may be defined in the user
 source itself (one body across `src/recovered`), and multi-dimensional arrays
 count every dimension (Scout1098: the voxel view table, the infantry spot
-sequences, the path and quadrant tables). Other class-typed globals and pointers to
-pointers are not loaded (`--report`).
+sequences, the path and quadrant tables). Unsized arrays of records of data
+pointers and 32-bit scalars take their count from the TSV extent when it is whole
+records (Scout1103: DriveRawTracks/ShipRawTracks, the track point pointers).
+Header statics (a shared header's file statics, one copy per original unit at
+its own address, e.g. unknown_geometry.hpp's `unknown_geometry_j` at 0x00AD057C)
+are copied into the zeroed storage of the extern names other units read at the
+same address (`unknown_bridge_height_ad057c`) right after the header-statics
+row's own initialisers (native_units.py `header_static_copies`, Scout1103).
+Other class-typed globals and pointers to pointers are not loaded (`--report`).
 
 ## Layers
 
@@ -176,9 +194,12 @@ pointers are not loaded (`--report`).
    Refresh a draft by copying the lane's newer text over the file, keeping the header.
 2. **Dialect** (`port/include/ra2port/prelude.hpp`, forced include, plus flags
    `-fms-extensions -fms-compatibility -fdelayed-template-parsing -Xclang -fno-wchar
-   -fshort-wchar -fwrapv -fno-strict-aliasing -fwritable-strings -Wno-register -Wno-c++11-narrowing`):
+   -fshort-wchar -fwrapv -fno-strict-aliasing -mms-bitfields -fwritable-strings -Wno-register -Wno-c++11-narrowing`):
    calling conventions vanish, `wchar_t` is VC6's `unsigned short`, signed overflow
-   wraps, string literals are writable (below).
+   wraps, string literals are writable (below), bit-fields take whole units of their
+   declared type as VC6 lays them out (`-mms-bitfields`, Scout1103: the TMP cell
+   record's ramp byte at +0x2A after an `unsigned :1` group; bases and vtables keep
+   the arm64 layout).
 
    **Writable string literals.** VC6 put string literals in .data, one copy per
    occurrence (the exact build has no /GF), and recovered code writes through

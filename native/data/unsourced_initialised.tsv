@@ -7,7 +7,6 @@ address	section	extent	symbol	name	msvc	user
 0x0079C9B8	.rdata	8	_vein_full_angle_79c9b8	vein_full_angle_79c9b8	?vein_full_angle_79c9b8@@3NB	src/recovered/header_statics/0070f590/HeaderStatics_empty_rect_init_0070f590.cpp
 0x0079D558	.rdata	16	_vein_speed_79d558	vein_speed_79d558	?vein_speed_79d558@@3NB	src/recovered/header_statics/0070f590/HeaderStatics_empty_rect_init_0070f590.cpp
 0x0079D9E0	.rdata	20	_clear_storage_slot_0046ce20	clear_storage_slot_0046ce20	_clear_storage_slot_0046ce20	src/recovered/word_storage/CopyWordStorage_0046ce20.cpp
-0x007A00B0	.rdata	208	_DriveRawTracks	DriveRawTracks	?DriveRawTracks@@3QBURawTrackStruct@@B	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 0x007A1FA0	.rdata	16	_unknown_Walk_clsid_007a1fa0	unknown_Walk_clsid_007a1fa0	_unknown_Walk_clsid_007a1fa0	src/recovered/header_statics/004ff450/HeaderStatics_diagonal_init_004ff450.cpp
 0x007A1FD0	.rdata	16	_unknown_clsid_7a1fd0	unknown_clsid_7a1fd0	_unknown_clsid_7a1fd0	src/recovered/header_statics/004b4690/HeaderStatics_diagonal_init_004b4690.cpp
 0x007A2C28	.rdata	20	_unknown_iid_7a2c28	unknown_iid_7a2c28	_unknown_iid_7a2c28	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
@@ -47,7 +46,6 @@ address	section	extent	symbol	name	msvc	user
 0x007A7370	.rdata	4	_guest_action_color_7a7370	guest_action_color_7a7370	?guest_action_color_7a7370@@3HA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007A737C	.rdata	4	_guest_chat_color_7a737c	guest_chat_color_7a737c	?guest_chat_color_7a737c@@3HA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007A9124	.rdata	20	_clear_storage_slot_00654840	clear_storage_slot_00654840	_clear_storage_slot_00654840	src/recovered/word_storage/CopyWordStorage_0046ce20.cpp
-0x007AAD20	.rdata	208	_ShipRawTracks	ShipRawTracks	?ShipRawTracks@@3QBURawTrackStruct@@B	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 0x007ADD6C	.rdata	4	__ZN9OwnerDraw14unknown_7add6cE	OwnerDraw::unknown_7add6c	?unknown_7add6c@OwnerDraw@@3HA	src/recovered/classes/CNetUtilEventSink/0075d1f0.cpp
 0x007ADD78	.rdata	8	__ZN9OwnerDraw14unknown_7add78E	OwnerDraw::unknown_7add78	?unknown_7add78@OwnerDraw@@3HA	src/recovered/classes/CNetUtilEventSink/0075d1f0.cpp
 0x007AE718	.rdata	8	_vein_idle_chance_7ae718	vein_idle_chance_7ae718	?vein_idle_chance_7ae718@@3NB	src/recovered/header_statics/0070f590/HeaderStatics_empty_rect_init_0070f590.cpp
@@ -64,7 +62,6 @@ address	section	extent	symbol	name	msvc	user
 0x007AF708	.rdata	24	__ZN3ATL30CDownloadEventSinkInterfaceMapE	ATL::CDownloadEventSinkInterfaceMap	?CDownloadEventSinkInterfaceMap@ATL@@3QBUInterfaceMapEntry@1@B	src/recovered/classes/CChatEventSink/CChatEventSink_QueryInterface_00765b90.cpp
 0x007AF720	.rdata	28	__ZN3ATL29CNetUtilEventSinkInterfaceMapE	ATL::CNetUtilEventSinkInterfaceMap	?CNetUtilEventSinkInterfaceMap@ATL@@3QBUInterfaceMapEntry@1@B	src/recovered/classes/CChatEventSink/CChatEventSink_QueryInterface_00765b90.cpp
 0x007AF760	.rdata	28	__ZN3ATL26CChatEventSinkInterfaceMapE	ATL::CChatEventSinkInterfaceMap	?CChatEventSinkInterfaceMap@ATL@@3QBUInterfaceMapEntry@1@B	src/recovered/classes/CChatEventSink/CChatEventSink_QueryInterface_00765b90.cpp
-0x007CCB18	.data	120	_Audio_Event_Keywords	Audio_Event_Keywords	?Audio_Event_Keywords@@3PAUAudioEventKeyword@@A	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 0x007CE2A4	.data	84	_wdt_name_key_007ce2a4	wdt_name_key_007ce2a4	?wdt_name_key_007ce2a4@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007CE610	.data	16	_unknown_uuid_IUnknown_7ce610	unknown_uuid_IUnknown_7ce610	_unknown_uuid_IUnknown_7ce610	src/recovered/header_statics/0053cdd0/HeaderStatics_empty_rect_init_0053cdd0.cpp
 0x007CE9C0	.data	8	_comma_7ce9c0	comma_7ce9c0		
@@ -112,7 +109,6 @@ address	section	extent	symbol	name	msvc	user
 0x007E7444	.data	48	_game_observer_image_007e7444	game_observer_image_007e7444	?game_observer_image_007e7444@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007E8248	.data	16	_IntroMovie	IntroMovie	?IntroMovie@@3UMovieEntryStruct@@A	src/recovered/header_statics/00668540/HeaderStatics_c_init_00668590.cpp
 0x007E8258	.data	160	_AlliedMovies	AlliedMovies	?AlliedMovies@@3PAUMovieEntryStruct@@A	src/recovered/header_statics/006b5250/HeaderStatics_diagonal_init_006b5250.cpp
-0x007E82F8	.data	156	_SovietMovies	SovietMovies	?SovietMovies@@3PAUMovieEntryStruct@@A	src/recovered/header_statics/006b5250/HeaderStatics_diagonal_init_006b5250.cpp
 0x007E8C4C	.data	4	_unknown_spot_light_pixel_7e8c4c	unknown_spot_light_pixel_7e8c4c		
 0x007E8D1C	.data	32	__ZN9OwnerDraw31unknown_dialog_back_name_7e8d1cE	OwnerDraw::unknown_dialog_back_name_7e8d1c	?unknown_dialog_back_name_7e8d1c@OwnerDraw@@3PBDB	src/recovered/header_statics/005de660/HeaderStatics_empty_rect_init_005de660.cpp
 0x007EA8D0	.data	20	_game_tooltip_empty_label_007ea8d0	game_tooltip_empty_label_007ea8d0	?game_tooltip_empty_label_007ea8d0@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
@@ -285,7 +281,6 @@ address	section	extent	symbol	name	msvc	user
 0x00800AC0	.data	168	__ZN21WinsockInterfaceClass19SocketReceiveBufferE	WinsockInterfaceClass::SocketReceiveBuffer	?SocketReceiveBuffer@WinsockInterfaceClass@@2HA	src/recovered/header_statics/00769ea0/HeaderStatics_diagonal_init_00769ea0.cpp
 0x00801470	.data	136	_unknown_vqa_default_config_801470	unknown_vqa_default_config_801470	?unknown_vqa_default_config_801470@@3UVQAConfig@@A	src/recovered/VQA32/config_VQA_DefaultConfig_00777850.cpp
 0x0082EC90	.data	676	__iob	_iob	__iob	src/recovered/00402190.cpp
-0x00830B58	.data	840	_Audio_Priority_Lists	Audio_Priority_Lists	?Audio_Priority_Lists@@3PAY09UAudioListNode@@A	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 0x00830ED8	.data	152	_Audio_Event_Levels	Audio_Event_Levels	?Audio_Event_Levels@@3UAudioLevelSet@@A	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 0x00830F70	.data	52	_Audio_Event_Type_List	Audio_Event_Type_List	?Audio_Event_Type_List@@3UAudioListNode@@A	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 0x00830FD8	.data	128	_Audio_Level_Set_830fd8	Audio_Level_Set_830fd8	?Audio_Level_Set_830fd8@@3UAudioLevelSet@@A	src/recovered/unowned/Audio_DS_Fill_004097a0.cpp

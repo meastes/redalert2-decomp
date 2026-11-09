@@ -36,6 +36,7 @@ extern "C" int ra2port_initterm_last(int *units);
 extern "C" void ra2port_run_to(const char *target, int seconds);
 extern "C" void ra2port_run_end(const char *why);
 extern "C" void ra2port_set_skirmish(const char *map, int frames);
+extern "C" void ra2port_set_skirmish_order(const char *order);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -72,6 +73,7 @@ int main(int argc, char **argv)
         else if (!strncmp(argv[i], "--skirmish=", 11)) skirmish = argv[i] + 11;
         else if (!strncmp(argv[i], "--game-args=", 12)) game_args = argv[i] + 12;
         else if (!strncmp(argv[i], "--skirmish-frames=", 18)) skirmish_frames = atoi(argv[i] + 18);
+        else if (!strncmp(argv[i], "--skirmish-order=", 17)) ra2port_set_skirmish_order(argv[i] + 17);
         else if (!strcmp(argv[i], "--cd-check")) cd_check = true;
     }
     if (skirmish && !run_to) { fprintf(stderr, "--skirmish is a test harness: use it with --run-to=<milestone> (e.g. frame)\n"); return 64; }

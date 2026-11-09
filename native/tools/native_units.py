@@ -70,6 +70,32 @@ RULES = [
     # the upper half on arm64. The native view passes uintptr_t (the helpers
     # take it there: port/fixups.json blit.hpp). Same meaning.
     (re.compile(r'\bWrap_(Overflow|Underflow)\(\s*\(\s*unsigned(?:\s+int)?\s*\)'), r'Wrap_\1((uintptr_t)'),
+    # MissionClass slot 119 (0x00594D20, the mission override; Techno 0x006CD840,
+    # Foot 0x004C7AC0, Aircraft 0x0041B1A0) carries the target and destination
+    # objects as `int unknown2, int unknown3` (callers spell `(int)target`,
+    # `(int)&Map[cell]`). Pointer-width in the native view (Scout1103).
+    (re.compile(r'\bunknown_slot119\(\s*int\s+mission\s*,\s*int\s+unknown2\s*,\s*int\s+unknown3\s*\)'),
+     r'unknown_slot119(int mission, intptr_t unknown2, intptr_t unknown3)'),
+    (re.compile(r'\bunknown_slot119\(([^;{}]*?)\);'),
+     lambda m: 'unknown_slot119(' + m.group(1).replace('(int)', '(intptr_t)') + ');'),
+    # ObjectClass slot 101 (Can_Enter_Cell: Unit 0x00703040, Infantry
+    # 0x00503190, Foot, Aircraft, Building, Terrain) takes the adjacent cell
+    # as its 4th argument, `int arg4` (callers spell `(int)&Map[cell]`,
+    # `(int)*slot`); Unit's body hands it to slot 102 as a cell pointer.
+    # Pointer-width in the native view (Scout1103: the moving units' path
+    # search faulted on a truncated cell in FootClass slot 102).
+    (re.compile(r'(\bunknown_slot101\(\s*CellClass\s*\*\s*\w+\s*,\s*int\s+\w+\s*,\s*int\s+\w+\s*,\s*)int(\s+\w+\s*,\s*bool)'),
+     r'\1intptr_t\2'),
+    (re.compile(r'(\bunknown_slot101\([^;{}]*?,[^;{}]*?,[^;{}]*?,\s*)\(int\)'), r'\1(intptr_t)'),
+    # ObjectTypeClass slot 33 (Cost_Of: TechnoType 0x006DAD30, BuildingType
+    # 0x00458A70, ObjectType 0x005D5D60) takes the house as `int house`
+    # (callers spell `(int)this`, `(int)House`). Pointer-width in the native
+    # view (Scout1103: a kill's points read a truncated house in
+    # HouseClass::Cost_Multiplier). The tooltip slot 33 (`int id`) is untouched.
+    (re.compile(r'\bint\s+((?:\w+Class::)?)unknown_slot33\(\s*int\s+(house|arg1)\s*\)\s*const'),
+     r'int \1unknown_slot33(intptr_t \2) const'),
+    (re.compile(r'\bunknown_slot33\(\s*\(int\)'), r'unknown_slot33((intptr_t)'),
+    (re.compile(r'\bunknown_slot33\(\s*reinterpret_cast<int>'), r'unknown_slot33(reinterpret_cast<intptr_t>'),
     # Bit_Blit 0x00434B40 and RLE_Blit 0x004350C0 keep the depth/alpha ring
     # positions in `unsigned int` locals (they fold through Wrap_Overflow/
     # Wrap_Underflow above) and pass them on as `(void *)`: pointer width natively.
@@ -596,6 +622,57 @@ def place_member_aliases(unit_texts):
     return placed
 
 
+
+def bss_symbols():
+    """Original address -> link symbol of the zero storage data/bss_globals.cpp
+    defines for a global the recovered code names (one storage per address)."""
+    out = {}
+    path = Path(__file__).resolve().parent.parent / 'data/bss_globals.cpp'
+    if path.exists():
+        for line in path.read_text().splitlines():
+            m = re.match(r'^alignas\(\d+\) unsigned char \w+\[\d+\] __asm__\("(_\w+)"\);\s*// (0x[0-9A-F]{8}) ', line)
+            if m:
+                out[int(m.group(2), 16)] = m.group(1)
+    return out
+
+
+HEADER_STATIC_COPIES = [0]
+
+
+def header_static_copies(text, bss_by_address):
+    """Header statics (the per-unit copies of a shared header's file statics, e.g.
+    unknown_geometry.hpp's unknown_geometry_j) live at one original address that
+    other units also read through an extern name (unknown_bridge_height_ad057c,
+    0x00AD057C). Natively the extern name is its own zeroed storage
+    (data/bss_globals.cpp); after the header-statics row's own initialisers, copy
+    each static's value there (Scout1103: UnitClass slot 59 cleared the bridge
+    level's vehicle bit because the bridge height read 0, so a deploying MCV
+    still blocked its own cell). Same value at the same _initterm position."""
+    lines = []
+    for m in re.finditer(r'^// @ref _([A-Za-z]\w*)=([0-9a-fA-F]{8})\s*$', text, re.M):
+        name, address = m.group(1), int(m.group(2), 16)
+        symbol = bss_by_address.get(address)
+        if symbol is None or not re.search(r'\bstatic\b[^;\n]*\b%s\b' % re.escape(name), text + header_static_text(text)):
+            continue
+        HEADER_STATIC_COPIES[0] += 1
+        lines.append('extern "C" unsigned char native_hs_%x[] __asm__("%s");\n'
+                     'static int const native_hs_copy_%d = (__builtin_memcpy(native_hs_%x, &%s, sizeof %s), 0);\n'
+                     % (address, symbol, HEADER_STATIC_COPIES[0], address, name, name))
+    if not lines:
+        return ''
+    return '// NATIVE (native_units.py header_static_copies): header statics to their extern names\n' + ''.join(lines)
+
+
+def header_static_text(text):
+    """The src/shared headers a header-statics row includes (where its statics are defined)."""
+    out = ''
+    for inc in re.findall(r'^#include "shared/([\w.]+)"', text, re.M):
+        path = ROOT / 'src/shared' / inc
+        if path.exists():
+            out += path.read_text(errors='replace')
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--out', type=Path, required=True)
@@ -624,6 +701,7 @@ def main():
     by_host = load_drafts(catalog, report) if args.drafts else {}
     manifest = []
     unit_texts = OrderedDict()
+    bss_by_address = bss_symbols()
     for index, (key, rows) in enumerate(groups(catalog).items()):
         sources = [r['source'] for r in rows]
         if prefixes is not None and not any(s.startswith(p) for s in sources for p in prefixes):
@@ -637,6 +715,8 @@ def main():
                 report['skipped'].append(dict(source=r['source'], reason='inline assembly: native implementation needed'))
                 continue
             parts.append('#line 1 "%s"\n%s\n' % ((ROOT / r['source']).as_posix(), port(text)))
+            if '/header_statics/' in r['source']:
+                parts.append(header_static_copies(text, bss_by_address))
         if not parts:
             continue
         name = 'g%04d_%s.cpp' % (index, key[0].replace('population-', 'p'))

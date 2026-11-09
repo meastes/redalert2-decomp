@@ -1106,8 +1106,8 @@
   },
   {
    "entry": "0x00423E00",
-   "name": "ObjectClass::unknown_slot101(CellClass *, int, int, int, bool)",
-   "symbol": "__ZN11ObjectClass15unknown_slot101EP9CellClassiiib",
+   "name": "ObjectClass::unknown_slot101(CellClass *, int, int, intptr_t, bool)",
+   "symbol": "__ZN11ObjectClass15unknown_slot101EP9CellClassiilb",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1415,16 +1415,6 @@
    "source": "leaf src/recovered/classes/FootClass/004c9bc0.cpp (ret 8: an empty body)"
   },
   {
-   "entry": "0x0071E220",
-   "name": "WalkLocomotionClass::unknown_71e220(bool)",
-   "symbol": "__ZN19WalkLocomotionClass14unknown_71e220Eb",
-   "origin_class": "unmatched (infantry movement step, 4,967 B)",
-   "plan": "behaviour rewrite (PARTIAL: idle state only; other states trap)",
-   "exact": false,
-   "file": "native/link/behaviour_walk.cpp",
-   "source": "decompile 0x0071E220 idle branch; TibSun walk.cpp Movement_AI"
-  },
-  {
    "entry": "0x006D8640",
    "name": "TechnoClass::Unknown_006D8640(WeaponStruct *)",
    "symbol": "__ZN11TechnoClass16Unknown_006D8640EP12WeaponStruct",
@@ -1573,6 +1563,136 @@
    "exact": false,
    "file": "native/link/behaviour_m9_theme.cpp",
    "source": "seed decompile 0x006E8440 (TibSun ThemeClass::Is_Allowed shape)"
+  },
+  {
+   "entry": "0x004CDE90",
+   "name": "Unit_Checked_Locomotor_004cde90(UnknownComPtr<ILocomotion> const &)",
+   "symbol": "__Z31Unit_Checked_Locomotor_004cde90RK13UnknownComPtrI11ILocomotionXadL_Z31unknown_uuid_ILocomotion_7ce600EEE",
+   "origin_class": "unmatched (skirmish moves)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10.cpp",
+   "source": "seed decompile 0x004CDE90 (comip checked operator->)"
+  },
+  {
+   "entry": "0x0070A240",
+   "name": "UnitClass::unknown_slot201()",
+   "symbol": "__ZN9UnitClass15unknown_slot201Ev",
+   "origin_class": "unmatched (skirmish moves)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_unit.cpp",
+   "source": "seed decompile 0x0070A240"
+  },
+  {
+   "entry": "0x004C7AC0",
+   "name": "FootClass::unknown_slot119(int, intptr_t, intptr_t)",
+   "symbol": "__ZN9FootClass15unknown_slot119Eill",
+   "origin_class": "accepted as a seed leaf only (no callable body)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10.cpp",
+   "source": "seed leaf 0x004C7AC0 (Leaf_4c7ac0::get); TibSun FootClass::Override_Mission"
+  },
+  {
+   "entry": "0x00496A90",
+   "name": "UnknownTimed::unknown_496a90() const",
+   "symbol": "__ZNK12UnknownTimed14unknown_496a90Ev",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_unit.cpp",
+   "source": "seed decompile 0x00496A90"
+  },
+  {
+   "entry": "0x00496AB0",
+   "name": "UnknownTimed::unknown_496ab0() const",
+   "symbol": "__ZNK12UnknownTimed14unknown_496ab0Ev",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_unit.cpp",
+   "source": "seed decompile 0x00496AB0"
+  },
+  {
+   "entry": "0x00496B30",
+   "name": "UnknownTimed::unknown_496b30() const",
+   "symbol": "__ZNK12UnknownTimed14unknown_496b30Ev",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_unit.cpp",
+   "source": "seed decompile 0x00496B30"
+  },
+  {
+   "entry": "0x0041F1C0",
+   "name": "AlphaShapeClass::Draw_In_Area(Point2D const &, Rect const &)",
+   "symbol": "__ZN15AlphaShapeClass12Draw_In_AreaERK7Point2DRK4Rect",
+   "origin_class": "unmatched (skirmish moves)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_alpha.cpp",
+   "source": "seed decompile 0x0041F1C0; TibSun alphashp.cpp AlphaShapeClass::Draw_In_Area"
+  },
+  {
+   "entry": "0x004CD9B0",
+   "name": "FootClass::unknown_4cd9b0()",
+   "symbol": "__ZN9FootClass14unknown_4cd9b0Ev",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10.cpp",
+   "source": "seed leaf 0x004CD9B0"
+  },
+  {
+   "entry": "0x004131D0",
+   "name": "UnknownTracker839EA0::Unknown_004131D0(AbstractClass *)",
+   "symbol": "__ZN20UnknownTracker839EA015Unknown_004131D0EP13AbstractClass",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10.cpp",
+   "source": "seed leaf 0x004131D0 (ret 4: an empty body)"
+  },
+  {
+   "entry": "0x006331A0",
+   "name": "RadarClass::Unknown_006331A0()",
+   "symbol": "__ZN10RadarClass16Unknown_006331A0Ev",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_radar.cpp",
+   "source": "seed decompile 0x006331A0"
+  },
+  {
+   "entry": "0x004370E0",
+   "name": "UnknownBounce::Unknown_004370E0()",
+   "symbol": "__ZN13UnknownBounce16Unknown_004370E0Ev",
+   "origin_class": "draft forwarder",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_bounce.cpp",
+   "source": "forwarder: bounce.hpp view name of the row whose body is the draft native/drafts/004370e0.cpp (Scout811 99.77, BounceClass::AI)"
+  },
+  {
+   "entry": "0x004C2030",
+   "name": "Unknown_004C2030(UnknownCellEntry28 *)",
+   "symbol": "__Z16Unknown_004C2030P18UnknownCellEntry28",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_fog.cpp",
+   "source": "seed decompile 0x004C2030"
+  },
+  {
+   "entry": "0x00405A00",
+   "name": "Audio_Event_Channel_End(AudioChannel *)",
+   "symbol": "__Z23Audio_Event_Channel_EndP12AudioChannel",
+   "origin_class": "unmatched leaf",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m10_audio.cpp",
+   "source": "seed decompile 0x00405A00"
   }
  ]
 }

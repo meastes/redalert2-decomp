@@ -234,10 +234,10 @@ extern "C" int ra2_adapter_0054(void * a0, int a1, int a2) { return (int)(unsign
 extern "C" bool ra2_adapter_target_0055(void *, void *, int, bool) __asm__("__ZN9TeamClass16Unknown_006B8FB0EP9FootClassib");
 extern "C" void ra2_adapter_0055(void * a0, void * a1, int a2, int a3) __asm__("__ZN15UnknownTeamView19unknown_func_6b8fb0EP11TechnoClassii");
 extern "C" void ra2_adapter_0055(void * a0, void * a1, int a2, int a3) { ra2_adapter_target_0055(a0, a1, a2, (((unsigned int)(int)a3 & 0xFFu) != 0)); }
-// 0x006CD840 Call_4c7ac0_0::target(unsigned int, unsigned int, unsigned int) -> TechnoClass::unknown_slot119(int, int, int) [seed view result 0]
-extern "C" void ra2_adapter_target_0056(void *, int, int, int) __asm__("__ZN11TechnoClass15unknown_slot119Eiii");
+// 0x006CD840 Call_4c7ac0_0::target(unsigned int, unsigned int, unsigned int) -> TechnoClass::unknown_slot119(int, long, long) [seed view result 0, widen]
+extern "C" void ra2_adapter_target_0056(void *, int, long long, long long) __asm__("__ZN11TechnoClass15unknown_slot119Eill");
 extern "C" int ra2_adapter_0056(void * a0, int a1, int a2, int a3) __asm__("__ZN13Call_4c7ac0_06targetEjjj");
-extern "C" int ra2_adapter_0056(void * a0, int a1, int a2, int a3) { ra2_adapter_target_0056(a0, a1, a2, a3); return 0; }
+extern "C" int ra2_adapter_0056(void * a0, int a1, int a2, int a3) { ra2_adapter_target_0056(a0, a1, (long long)(unsigned int)a2, (long long)(unsigned int)a3); return 0; }
 // 0x006F5940 Target_51bf20::target() -> Unknown_006F5940() [seed view result 0, this dropped]
 extern "C" void ra2_adapter_target_0057(void) __asm__("__Z16Unknown_006F5940v");
 extern "C" int ra2_adapter_0057(void * a0) __asm__("__ZN13Target_51bf206targetEv");

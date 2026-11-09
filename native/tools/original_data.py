@@ -277,9 +277,11 @@ def main():
             # (shape 3: field count and pointer mask in the high bits).
             fields = record_fields(base)
             count = declared_count(name, index.get(name, [])) if array else 1
-            if count is None and 'p' not in fields:
-                # An unsized array of scalar records: the TSV extent (to the next
-                # known symbol) in whole records.
+            if count is None and ('p' not in fields or extent % (4 * len(fields)) == 0):
+                # An unsized array of records: the TSV extent (to the next known
+                # symbol) in whole records (Scout1103: DriveRawTracks/ShipRawTracks,
+                # 13 tracks of a points pointer and three ints; a pointer record
+                # array only when the extent is whole records).
                 count = extent // (4 * len(fields))
             if not count:
                 skipped.append(dict(symbol=sym, address=addr, reason='record array without a count'))

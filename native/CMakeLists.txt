@@ -64,6 +64,13 @@ target_compile_options(ra2_dialect INTERFACE
   "$<$<COMPILE_LANGUAGE:CXX>:-fms-extensions;-fms-compatibility;-fdelayed-template-parsing>"
   "$<$<COMPILE_LANGUAGE:CXX>:SHELL:-Xclang -fno-wchar>" "$<$<COMPILE_LANGUAGE:CXX>:-fshort-wchar>"
   "$<$<COMPILE_LANGUAGE:CXX>:-fwrapv;-fno-strict-aliasing>"
+  # VC6 bit-field layout (Scout1103): a bit-field takes a whole unit of its
+  # declared type and the next non-bit-field member starts after that unit
+  # (IsoTileCellStruct's `unsigned :1` flags at +0x24 put the ramp byte at
+  # +0x2A; clang's default packed it into +0x27 and read the TMP's 0xCD fill:
+  # an MCV could not deploy). -mms-bitfields changes bit-fields only; vtables
+  # and bases keep the arm64 layout (hence -Wno-incompatible-ms-struct).
+  "$<$<COMPILE_LANGUAGE:CXX>:-mms-bitfields;-Wno-incompatible-ms-struct>"
   # VC6 string literals are writable data (.data, one copy per occurrence: the
   # exact build has no /GF); recovered code writes through char */wchar_t *
   # parameters callers pass literals to (MixFileClass::Offset upper-cases its

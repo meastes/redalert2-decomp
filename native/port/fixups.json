@@ -910,6 +910,55 @@
    "new": "            AudioPoolBlock *next = (AudioPoolBlock *)(size + sizeof(AudioPoolBlock) + (char *)block);   // NATIVE: was size + 8\n",
    "why": "The pool's block link (AudioPoolBlock: a next pointer and an int) and header (AudioPool) are 8 bytes on VC6, spelled as 8 here; Audio_Pool_Alloc/Free 0x00407450/0x00407460 step by the struct (block + 1), which is 16 bytes natively, so the chain and the data overlapped (Scout1098: skirmish with audio faulted in Audio_Pool_Alloc). The native view sizes both from the structs. Same meaning.",
    "verified": true
+  },
+  {
+   "source": "src/shared/path_estimator.hpp",
+   "old": "    int unknown_0c;                         // +0x0C\n    int unknown_10;                         // +0x10 (-1)\n",
+   "new": "    intptr_t unknown_0c;                    // +0x0C   NATIVE: the highest queued node address (int on VC6)\n    intptr_t unknown_10;                    // +0x10 (-1)   NATIVE: the lowest\n",
+   "why": "The path search priority queues (+0x14 regular, +0x68 subzone; TibSun PriorityQueueClass) keep node pointers in a heap allocated as `new int[max + 1]` and the highest/lowest queued node addresses in ints. Natively the heap holds 8-byte pointers in a 4-byte-slot array (Insert overran it by half) and the address bounds truncated (Scout1103: the moving units' path searches). The native view sizes the heap and the bounds at pointer width. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/path_estimator.hpp",
+   "old": "        unknown_08 = (char *)new int[max + 1];\n        for (int index = 0; index <= unknown_04; index++) {\n            ((int *)unknown_08)[index] = 0;\n",
+   "new": "        unknown_08 = (char *)new intptr_t[max + 1];   // NATIVE: pointer slots (int on VC6)\n        for (int index = 0; index <= unknown_04; index++) {\n            ((intptr_t *)unknown_08)[index] = 0;\n",
+   "why": "See the unknown_0c fixup: the heap's slots are node pointers.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/path_estimator.hpp",
+   "old": "        for (int index = 0; index <= unknown_00; index++) {\n            ((int *)unknown_08)[index] = 0;\n",
+   "new": "        for (int index = 0; index <= unknown_00; index++) {\n            ((intptr_t *)unknown_08)[index] = 0;   // NATIVE: pointer slots\n",
+   "why": "See the unknown_0c fixup (Clear zeroes the pointer slots).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/path_estimator.hpp",
+   "old": "        if ((unsigned)&node > (unsigned)unknown_0c) {\n            unknown_0c = (int)&node;\n        }\n        if ((unsigned)&node < (unsigned)unknown_10) {\n            unknown_10 = (int)&node;\n",
+   "new": "        if ((uintptr_t)&node > (uintptr_t)unknown_0c) {   // NATIVE: full addresses\n            unknown_0c = (intptr_t)&node;\n        }\n        if ((uintptr_t)&node < (uintptr_t)unknown_10) {\n            unknown_10 = (intptr_t)&node;\n",
+   "why": "See the unknown_0c fixup (the queued address bounds at pointer width).",
+   "verified": true
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "struct UnknownTube47A130 {\n    char unknown_00[0x24];\n",
+   "new": "struct UnknownTube47A130 {\n#if defined(__LP64__)   // NATIVE: TubeClass's arm64 offsets (EnterCell +0x32; members start in AbstractClass's tail padding)\n    char unknown_00[0x32];\n#else\n    char unknown_00[0x24];\n#endif\n",
+   "why": "techno.hpp's UnknownTube47A130 is TubeClass (shared/tube.hpp) as the techno units see it, padded to VC6's +0x24; natively TubeClass's EnterCell/ExitCell/Facing are at +0x32/+0x36/+0x3C (AbstractClass ends at dsize 0x31), so the view read 14 bytes early (InfantryClass slot 101's tube entry test). The native view pads to the arm64 offset; link/check_light_views_techno.cpp asserts it (Scout1103). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "struct UnknownCellEntryType {\n    char unknown_000[0x201];\n",
+   "new": "struct UnknownCellEntryType {\n#if defined(__LP64__)   // NATIVE: ObjectTypeClass's arm64 offset of +0x201\n    char unknown_000[0x321];\n#else\n    char unknown_000[0x201];\n#endif\n",
+   "why": "techno.hpp's UnknownCellEntryType is the fogged object's first type (an ObjectTypeClass) as TechnoClass slot 27 sees it; its +0x201 flag is natively at ObjectTypeClass +0x321 (shared/object_type.hpp unknown_201). Asserted in link/check_light_views_techno.cpp (Scout1103). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "struct UnknownCellEntry28 {\n    char unknown_00[0x24];\n    int unknown_24;                     // +0x24 (an overlay type index when +0x30 is 0x14)\n    HouseClass *unknown_28;             // +0x28 (an owner)\n    char unknown_2c[0x30 - 0x2C];\n    int unknown_30;                     // +0x30 (a kind: 0x14, 6)\n    char unknown_34[0x74 - 0x34];\n    bool unknown_74;                    // +0x74 (active)\n};\n",
+   "new": "struct UnknownCellEntry28 {\n#if defined(__LP64__)   // NATIVE: FoggedObjectClass's arm64 offsets (+0x24 -> 0x34, +0x28 -> 0x38, +0x30 -> 0x44, +0x74 -> 0x90)\n    char unknown_00[0x34];\n    int unknown_24;\n    HouseClass *unknown_28;\n    char unknown_2c[0x44 - 0x40];\n    int unknown_30;\n    char unknown_34[0x90 - 0x48];\n    bool unknown_74;\n#else\n    char unknown_00[0x24];\n    int unknown_24;                     // +0x24 (an overlay type index when +0x30 is 0x14)\n    HouseClass *unknown_28;             // +0x28 (an owner)\n    char unknown_2c[0x30 - 0x2C];\n    int unknown_30;                     // +0x30 (a kind: 0x14, 6)\n    char unknown_34[0x74 - 0x34];\n    bool unknown_74;                    // +0x74 (active)\n#endif\n};\n",
+   "why": "techno.hpp's UnknownCellEntry28 is FoggedObjectClass (shared/fogged_object.hpp) as TechnoClass slot 27 scans a cell's FoggedObjects; padded to VC6 offsets, natively it read the wrong owner, kind and active flag. The native view uses FoggedObjectClass's arm64 offsets (measured with offsetof under the dialect flags); link/check_light_views_techno.cpp asserts them (Scout1103). Same meaning.",
+   "verified": true
   }
  ]
 }

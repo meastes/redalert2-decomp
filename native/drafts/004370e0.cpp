@@ -1,11 +1,12 @@
-// NON-EXACT DRAFT 0x4370E0 FUN_004370e0
-// entry 0x4370E0; exact-match score 99.77 (misses_index best), this text 99.55; plan "draft as-is"
-// origin lane: Scout801 (build/class-work/Scout801/w/ba0.cpp)
+// NON-EXACT DRAFT 0x4370E0 UnknownBounce::Unknown_004370E0 (Bounce AI: one step) (1448 B)
+// entry 0x4370E0; exact-match score 99.77 (lane best), this text 99.77; plan "draft, verify"
+// origin lane: Scout811 (build/class-work/Scout811/w/ba0.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
-// Scout1069 (native/drafts.json). Not original bytes.
+// Scout1103 (native/drafts.json, native M10). Not original bytes.
 // @ref __real@4@40069600000000000000=0079caa8
 // @ref __real@8@bff2d1b71758e2196800=0079caa0
 // @ref __real@8@bff39d495182a9930800=0079ca98
+// @ref __real@8@4000a000000000000000=0079ca78
 #include "shared/building_class.hpp"
 #include "shared/tactical.hpp"
 #include "shared/unknown_vector3.hpp"

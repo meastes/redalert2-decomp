@@ -219,6 +219,8 @@ bool Native_Skirmish_Menu_Bypass()
     return ra2port_skirmish_map() != 0;
 }
 
+void Native_Harness_Orders(int frame);   // harness_orders.cpp
+
 bool Native_Main_Loop_Seam()
 {
     bool over = unknown_53fbd0();
@@ -226,6 +228,7 @@ bool Native_Main_Loop_Seam()
         char detail[16] = "";
         Append_Int(detail, ++frames_done, sizeof detail);
         ra2port_progress("frame", detail);
+        Native_Harness_Orders(frames_done);
         if (frames_done >= ra2port_skirmish_frames()) {
             ra2port_progress("frames", detail);
         }

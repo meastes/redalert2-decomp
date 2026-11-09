@@ -248,6 +248,10 @@ void ra2port_set_skirmish(const char *map, int frames)
     skirmish_frames = frames > 0 ? frames : 1;
 }
 const char *ra2port_skirmish_map(void) { return skirmish_map; }
+// --skirmish-order=<kind>[@<frame>] (link/harness_orders.cpp).
+namespace { const char *skirmish_order = nullptr; }
+void ra2port_set_skirmish_order(const char *order) { skirmish_order = order; }
+const char *ra2port_skirmish_order(void) { return skirmish_map ? skirmish_order : nullptr; }
 int ra2port_skirmish_frames(void) { return skirmish_frames; }
 
 // The run ended another way (WinMain returned): print the summary.
