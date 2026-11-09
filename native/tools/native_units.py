@@ -70,32 +70,6 @@ RULES = [
     # the upper half on arm64. The native view passes uintptr_t (the helpers
     # take it there: port/fixups.json blit.hpp). Same meaning.
     (re.compile(r'\bWrap_(Overflow|Underflow)\(\s*\(\s*unsigned(?:\s+int)?\s*\)'), r'Wrap_\1((uintptr_t)'),
-    # MissionClass slot 119 (0x00594D20, the mission override; Techno 0x006CD840,
-    # Foot 0x004C7AC0, Aircraft 0x0041B1A0) carries the target and destination
-    # objects as `int unknown2, int unknown3` (callers spell `(int)target`,
-    # `(int)&Map[cell]`). Pointer-width in the native view (Scout1103).
-    (re.compile(r'\bunknown_slot119\(\s*int\s+mission\s*,\s*int\s+unknown2\s*,\s*int\s+unknown3\s*\)'),
-     r'unknown_slot119(int mission, intptr_t unknown2, intptr_t unknown3)'),
-    (re.compile(r'\bunknown_slot119\(([^;{}]*?)\);'),
-     lambda m: 'unknown_slot119(' + m.group(1).replace('(int)', '(intptr_t)') + ');'),
-    # ObjectClass slot 101 (Can_Enter_Cell: Unit 0x00703040, Infantry
-    # 0x00503190, Foot, Aircraft, Building, Terrain) takes the adjacent cell
-    # as its 4th argument, `int arg4` (callers spell `(int)&Map[cell]`,
-    # `(int)*slot`); Unit's body hands it to slot 102 as a cell pointer.
-    # Pointer-width in the native view (Scout1103: the moving units' path
-    # search faulted on a truncated cell in FootClass slot 102).
-    (re.compile(r'(\bunknown_slot101\(\s*CellClass\s*\*\s*\w+\s*,\s*int\s+\w+\s*,\s*int\s+\w+\s*,\s*)int(\s+\w+\s*,\s*bool)'),
-     r'\1intptr_t\2'),
-    (re.compile(r'(\bunknown_slot101\([^;{}]*?,[^;{}]*?,[^;{}]*?,\s*)\(int\)'), r'\1(intptr_t)'),
-    # ObjectTypeClass slot 33 (Cost_Of: TechnoType 0x006DAD30, BuildingType
-    # 0x00458A70, ObjectType 0x005D5D60) takes the house as `int house`
-    # (callers spell `(int)this`, `(int)House`). Pointer-width in the native
-    # view (Scout1103: a kill's points read a truncated house in
-    # HouseClass::Cost_Multiplier). The tooltip slot 33 (`int id`) is untouched.
-    (re.compile(r'\bint\s+((?:\w+Class::)?)unknown_slot33\(\s*int\s+(house|arg1)\s*\)\s*const'),
-     r'int \1unknown_slot33(intptr_t \2) const'),
-    (re.compile(r'\bunknown_slot33\(\s*\(int\)'), r'unknown_slot33((intptr_t)'),
-    (re.compile(r'\bunknown_slot33\(\s*reinterpret_cast<int>'), r'unknown_slot33(reinterpret_cast<intptr_t>'),
     # Bit_Blit 0x00434B40 and RLE_Blit 0x004350C0 keep the depth/alpha ring
     # positions in `unsigned int` locals (they fold through Wrap_Overflow/
     # Wrap_Underflow above) and pass them on as `(void *)`: pointer width natively.

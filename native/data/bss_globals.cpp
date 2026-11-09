@@ -162,7 +162,6 @@ __asm__(".globl __DAT_0084ed10\n.set __DAT_0084ed10, _exit_cell_none_0084ed10\n"
 __asm__(".globl _unknown_84ed10\n.set _unknown_84ed10, _exit_cell_none_0084ed10\n");  // same address: unknown_84ed10
 alignas(16) unsigned char ra2_bss_0117[48] __asm__("_Building_Radio_No_Coord_0084ed30");  // 0x0084ED30 Building_Radio_No_Coord_0084ed30 (?Building_Radio_No_Coord_0084ed30@@3UCoordStruct@@B)
 __asm__(".globl _Damage_Fire_Offset_End_0084ed30\n.set _Damage_Fire_Offset_End_0084ed30, _Building_Radio_No_Coord_0084ed30\n");  // same address: Damage_Fire_Offset_End_0084ed30
-__asm__(".globl _Destruction_No_Coord_0084ed30\n.set _Destruction_No_Coord_0084ed30, _Building_Radio_No_Coord_0084ed30\n");  // same address: Destruction_No_Coord_0084ed30
 alignas(16) unsigned char ra2_bss_0118[144] __asm__("_unknown_shape_empty_rect_84ed88");  // 0x0084ED88 unknown_shape_empty_rect_84ed88 (?unknown_shape_empty_rect_84ed88@@3VRect@@B)
 alignas(16) unsigned char ra2_bss_0119[16] __asm__("_unknown_850298");  // 0x00850298 unknown_850298 (?unknown_850298@@3HA)
 alignas(16) unsigned char ra2_bss_0120[16] __asm__("_unknown_building_depth_shape_85029c");  // 0x0085029C unknown_building_depth_shape_85029c (?unknown_building_depth_shape_85029c@@3PAUShapeFileStruct@@A)
@@ -1246,8 +1245,6 @@ alignas(16) unsigned char ra2_bss_0944[16] __asm__("_unknown_narrow_index_ad045c
 alignas(16) unsigned char ra2_bss_0945[16] __asm__("_unknown_wide_index_ad0460");  // 0x00AD0460 unknown_wide_index_ad0460 (?unknown_wide_index_ad0460@@3HA)
 alignas(16) unsigned char ra2_bss_0946[16] __asm__("_unknown_cell_ad0488");  // 0x00AD0488 unknown_cell_ad0488 (?unknown_cell_ad0488@@3VCell@@B)
 alignas(16) unsigned char ra2_bss_0947[80] __asm__("_Unit_Radio_Zero_Coord_00AD04C0");  // 0x00AD04C0 Unit_Radio_Zero_Coord_00AD04C0 (?Unit_Radio_Zero_Coord_00AD04C0@@3UCoordStruct@@A)
-__asm__(".globl _unknown_ad04c0\n.set _unknown_ad04c0, _Unit_Radio_Zero_Coord_00AD04C0\n");  // same address: unknown_ad04c0
-__asm__(".globl _unknown_coord_ad04c0\n.set _unknown_coord_ad04c0, _Unit_Radio_Zero_Coord_00AD04C0\n");  // same address: unknown_coord_ad04c0
 alignas(16) unsigned char ra2_bss_0948[24] __asm__("_unknown_bridge_height_ad057c");  // 0x00AD057C unknown_bridge_height_ad057c (?unknown_bridge_height_ad057c@@3HA)
 alignas(16) unsigned char ra2_bss_0949[240] __asm__("_unknown_level_height_ad0588");  // 0x00AD0588 unknown_level_height_ad0588 (?unknown_level_height_ad0588@@3HA)
 alignas(16) unsigned char ra2_bss_0950[16] __asm__("_unknown_ad0600");  // 0x00AD0600 unknown_ad0600 (?unknown_ad0600@@3HA)

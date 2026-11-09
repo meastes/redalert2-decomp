@@ -714,8 +714,8 @@
   },
   {
    "entry": "0x00423E00",
-   "name": "ObjectClass::unknown_slot101(CellClass *, int, int, intptr_t, bool)",
-   "symbol": "__ZN11ObjectClass15unknown_slot101EP9CellClassiilb",
+   "name": "ObjectClass::unknown_slot101(CellClass *, int, int, CellClass *, bool)",
+   "symbol": "__ZN11ObjectClass15unknown_slot101EP9CellClassiiS1_b",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1194,8 +1194,8 @@
   },
   {
    "entry": "0x004C7AC0",
-   "name": "FootClass::unknown_slot119(int, intptr_t, intptr_t)",
-   "symbol": "__ZN9FootClass15unknown_slot119Eill",
+   "name": "FootClass::unknown_slot119(int, AbstractClass *, AbstractClass *)",
+   "symbol": "__ZN9FootClass15unknown_slot119EiP13AbstractClassS1_",
    "origin_class": "accepted as a seed leaf only (no callable body)",
    "plan": "behaviour rewrite",
    "exact": false,

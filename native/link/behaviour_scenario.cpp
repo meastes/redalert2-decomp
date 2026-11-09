@@ -106,7 +106,7 @@ UnknownQuaternion::UnknownQuaternion(float x, float y, float z, float w)
 }
 
 // 0x00423E00, ObjectClass slot 101 (TibSun object.h Can_Enter_Cell): MOVE_OK (0).
-int ObjectClass::unknown_slot101(CellClass *arg1, int arg2, int arg3, intptr_t arg4, bool arg5)   // arg4 pointer-width natively (native_units.py)
+int ObjectClass::unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5)
 {
     return 0;
 }

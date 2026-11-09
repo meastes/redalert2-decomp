@@ -121,7 +121,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         if(object->Kind_Of()!=6) return false;
         if(House->Is_Ally(tech->House)) {
             if(object->Health_Ratio()>Rules->unknown_1370) return false;
-            if(!static_cast<BuildingClass *>(object)->Type->unknown_slot33((int)House)) return false;
+            if(!static_cast<BuildingClass *>(object)->Type->unknown_slot33(House)) return false;
         }
     }
     if((method&0x40) && !tclass->Storage) return false;

@@ -267,7 +267,7 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
             if (!base_level && Unknown_00427F70(0, false, node_index) && (working_node->unknown_04 + 1.009) > unknown_20[node_index]) {
                 continue;
             }
-            int move = foot->unknown_slot101(neighbor_cell, face, CurrentCellHeight, (int)*working_from, unknown_08);
+            int move = foot->unknown_slot101(neighbor_cell, face, CurrentCellHeight, *working_from, unknown_08);
             if (is_train && move < 7) {
                 move = 0;
             }

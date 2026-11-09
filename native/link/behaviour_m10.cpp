@@ -20,11 +20,11 @@ ILocomotion *__fastcall Unit_Checked_Locomotor_004cde90(UnknownComPtr<ILocomotio
 // runs, then slot 260 (Assign_Destination) takes the destination, immediate.
 // TibSun FootClass::Override_Mission has the same shape. The address alias
 // that bound this name to TechnoClass's body skipped both stores.
-void FootClass::unknown_slot119(int mission, intptr_t unknown2, intptr_t unknown3)
+void FootClass::unknown_slot119(int mission, AbstractClass *target, AbstractClass *destination)
 {
     unknown_498 = unknown_494;
-    TechnoClass::unknown_slot119(mission, unknown2, unknown3);
-    Assign_Destination((AbstractClass *)unknown3, true);
+    TechnoClass::unknown_slot119(mission, target, destination);
+    Assign_Destination(destination, true);
 }
 
 #include "shared/foot.hpp"
