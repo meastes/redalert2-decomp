@@ -307,6 +307,10 @@ public:
     void Write_Structure_INI_0044b250(INIClass &ini); // 0x0044B250, nonvirtual
     bool unknown_44c860();                                            // 0x0044C860 (removes the last upgrade; true when there was one)
     void unknown_44d0f0(ConvertClass *value, int frame);                        // 0x0044D0F0 (the animations whose type has +0x318 take the value and frame; all take the layer)
+#ifdef RA2_BUILDING_CLOAK_GENERATOR
+    void Enable_Cloak_Generator_0044fa90();                           // 0x0044FA90 (TibSun Enable_Cloak_Generator: the field starts growing)
+    void Disable_Cloak_Generator_0044fad0();                          // 0x0044FAD0 (TibSun Disable_Cloak_Generator: the field starts collapsing)
+#endif
     bool unknown_44d7d0();                                            // 0x0044D7D0 (a gate not in mission 24, or not settled, is sent to mission 24; true for a non-gate or an open gate)
     void unknown_44d600();                                            // 0x0044D600 (sets unknown_5ba; refreshes the house's buildings, the owned object, the field and the powered animations)
     void unknown_44f8e0();                                            // 0x0044F8E0
