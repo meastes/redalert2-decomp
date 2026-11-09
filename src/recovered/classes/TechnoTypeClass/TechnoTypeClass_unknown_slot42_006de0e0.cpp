@@ -2,24 +2,18 @@
 // Whether the type can be placed at a cell (hypothesis: Legal_Placement):
 // every cell of its occupy list (slot 36) must be open for it, by
 // 0x004718B0 for building types (Kind_Of 7) and 0x00478760 otherwise; a
-// building type flagged at +0xBF0 needs only one open cell.
+// building type with a +0xBF0 tile type (BuildingTypeClass::unknown_bf0) needs only
+// one open cell.
 #include "shared/techno_type.hpp"
 #include "shared/object.hpp"
 #include "shared/map_view.hpp"
+#include "shared/building_type_class.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_004718B0@UnknownPlacementCellView@@QAE_NHPBVTechnoTypeClass@@PAVHouseClass@@@Z=004718b0
 // @ref ?Unknown_00478760@UnknownPlacementCellView@@QAE_NH_N0HHH0@Z=00478760
 // @ref _unknown_geometry_k=00ac01e8
 
-// The cell value meaning "no cell" (0x00AC01E8).
-
 // Member-wise sum of two cells: shared/coord.hpp.
-
-// A building type's flag at +0xBF0 (view).
-struct UnknownBuildingTypeBF0View {
-    char unknown_000[0xBF0];
-    int unknown_bf0;
-};
 
 bool TechnoTypeClass::unknown_slot42(Cell const &cell, HouseClass *house) const
 {
@@ -46,7 +40,7 @@ bool TechnoTypeClass::unknown_slot42(Cell const &cell, HouseClass *house) const
             }
         }
     }
-    if (building && ((UnknownBuildingTypeBF0View *)this)->unknown_bf0) {
+    if (building && static_cast<BuildingTypeClass const *>(this)->unknown_bf0) {
         return open;
     }
     return !blocked;
