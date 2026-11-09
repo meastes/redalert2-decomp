@@ -18,7 +18,7 @@
 // @ref ??_C@_0CC@JMFC@Set_View_Dimensions?$CI?$CFd?0?$CFd?0?$CFd?0?$CFd?$CJ@=007d5db8
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?unknown_rect_85291c@@3VRect@@A=0085291c
+// @ref ?TacButton@DisplayClass@@2VTacticalClass@1@A=00852910
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Unknown_006A65A0@Tactical@@QAEXABVRect@@@Z=006a65a0
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
@@ -64,10 +64,10 @@ void DisplayClass::unknown_slot42(Rect const &rect)
         WWMouse->Show_Mouse();
     }
     Map.unknown_slot34();
-    unknown_rect_85291c.X = unknown_rect_839630.X;
-    unknown_rect_85291c.Y = unknown_rect_839630.Y;
-    unknown_rect_85291c.Width = unknown_rect_839630.Width;
-    unknown_rect_85291c.Height = unknown_rect_839630.Height;
+    TacButton.X = unknown_rect_839630.X;
+    TacButton.Y = unknown_rect_839630.Y;
+    TacButton.Width = unknown_rect_839630.Width;
+    TacButton.Height = unknown_rect_839630.Height;
     if (ToolTips != 0) {
         ToolTip tip;
         tip.unknown_18 = false;

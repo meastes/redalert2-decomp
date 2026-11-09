@@ -5,6 +5,7 @@
 #include "shared/coord.hpp"
 #include "shared/cd_timer.hpp"
 class TechnoClass;
+extern "C" GUID const CLSID_EMPulseClass;     // 0x007A1E80 (GetClassID; WinMain registers it)
 // Original RTTI EMPulseClass, primary vtable 0x7A0DB8.
 // Constructor 0x4B4C00 and CRC 0x4B52F0 establish the four fields.
 class EMPulseClass : public AbstractClass {

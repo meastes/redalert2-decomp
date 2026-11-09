@@ -24,6 +24,8 @@ struct TintStruct {
     int Blue;       // +0x08
 };
 
+extern "C" GUID const CLSID_LightSource;      // 0x007A1E30 (GetClassID; WinMain registers it)
+
 class LightSourceClass : public AbstractClass {
 public:
     class PendingCellClass;

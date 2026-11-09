@@ -4,8 +4,8 @@
     "id": "population-4405",
     "inventory_sha256": "c6b081ea298ce6ce40f3449457e2092b420dd98904de884728f60b0d33e2c164",
     "gaps_sha256": "390084c009b787bbd1e4c6e2bb4bb695461ba9c523b54b50393f91740d7d4717",
-    "historical_population_sha256": "2d92b59971433a1bce838df1c5d5d97239cd313650c7afaf48c314158e1ef202",
-    "historical_acceptance_sha256": "389a5ac1d78ab285116bc19106b5a38b4bd60c1261c074f37fa629fbe4a1ed73"
+    "historical_population_sha256": "8ad0175f5904fff33c2892b250174e29f90c3c1308fc07786968d94b3fa79762",
+    "historical_acceptance_sha256": "ea88e59c848a1edd76a5aa15c040b2cf3818d722806ff302412e1af89de20d4b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -14900,7 +14900,11 @@
     "?Execute@CenterViewCommandClass@@UBEXH@Z": 5357728,
     "??_GWinModemClass@@UAEPAXI@Z": 7558672,
     "??1WinModemClass@@UAE@XZ": 7553392,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "_WinMain@16": 6873728,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "?AI@AnimClass@@UAEXXZ": 4331280
   },
   "regions": [
     {
@@ -19804,33 +19808,33 @@
         {
           "offset": 473,
           "kind": 6,
-          "symbol": "?unknown_rect_85291c@@3VRect@@A",
-          "target": 8726812,
-          "addend": 0,
+          "symbol": "?TacButton@DisplayClass@@2VTacticalClass@1@A",
+          "target": 8726800,
+          "addend": 12,
           "resolved": 8726812
         },
         {
           "offset": 478,
           "kind": 6,
-          "symbol": "?unknown_rect_85291c@@3VRect@@A",
-          "target": 8726812,
-          "addend": 4,
+          "symbol": "?TacButton@DisplayClass@@2VTacticalClass@1@A",
+          "target": 8726800,
+          "addend": 16,
           "resolved": 8726816
         },
         {
           "offset": 484,
           "kind": 6,
-          "symbol": "?unknown_rect_85291c@@3VRect@@A",
-          "target": 8726812,
-          "addend": 8,
+          "symbol": "?TacButton@DisplayClass@@2VTacticalClass@1@A",
+          "target": 8726800,
+          "addend": 20,
           "resolved": 8726820
         },
         {
           "offset": 490,
           "kind": 6,
-          "symbol": "?unknown_rect_85291c@@3VRect@@A",
-          "target": 8726812,
-          "addend": 12,
+          "symbol": "?TacButton@DisplayClass@@2VTacticalClass@1@A",
+          "target": 8726800,
+          "addend": 24,
           "resolved": 8726824
         },
         {
@@ -19938,7 +19942,7 @@
           "resolved": 4294367736
         }
       ],
-      "source_sha256": "c3cd27733c5026546d9fdbb727a50fe87cfccfa603761e0f72d253cec2312f2e",
+      "source_sha256": "b6bac8939debecda67b6f3714aba7767b04cf5637db57abe8241ae3ee1b3dd1e",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_unknown_slot42_00498c80.cpp",
       "population": "population-4405",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

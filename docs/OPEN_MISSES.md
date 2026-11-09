@@ -3363,3 +3363,9 @@ Awaiting user ruling on keeping these two flagged or reverting.
 
 ## Scout1192 (2026-11-09, 0 B; NOTES, mkcomplete.py in build/class-work/Scout1192/)
 - Complete CellClass declaration does not help: Set_Map_Dimensions 0x5484E0 stays 94.60, Get_Obstacle 97.00 (members come after the class symbol); unguarding all members moves Print_CRCs and 0x4F1190. Data members already match ra2-decomp's cell.h one for one. 0x5484E0's residue is body register allocation (cellcount store placement, bit-copy scheduling). Complete CellClass deferred to endgame cleanup. +0x144: likely /Zp8 padding (YR Fetch_Object_Size 0x487E70 would settle).
+
+## Scout1196 (2026-11-09, 0 B; NOTES in build/class-work/Scout1196/)
+- 95-99.9 pool outside today's lanes is used up. Wait_For_Players 0x65C520 stays 96.97 unnatural / 91.92 natural (YR twin 0x684370 identical). 0x682540 = UnknownBuildable30 vector deleting dtor, lands as an empty compiler-generated row once Recalc 0x6802D0 is exact.
+
+## Scout1194 (2026-11-09, 0 B; NOTES, keep/, ovl/, ed2/ in build/class-work/Scout1194/) - do not resume without a new mechanism
+- Mech 0x5919A0 88.22 (visual_cell + flat dispatch 83.71; slot-packing order, not lifetime). Walk 0x71E220 89.83 (site-2 copy is a symptom of the long &unknown_1c web; mischa85's Movement_AI is unmatched). Tactical::Render 0x6A45A0 64.69 (YR GetRechargeTime reads a YR-only field). Explosion_Damage 0x47E2C0 97.92 (HEAD TibSun Delete_All suffices; slot tie needs a layout-time reference). Set_Map_Dimensions 0x5484E0 94.60 (early cellcount store swaps edi/ebp, 85.30).

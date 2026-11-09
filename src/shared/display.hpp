@@ -46,8 +46,6 @@ double __cdecl unknown_sqrt_4ba410(double value);
 extern Rect unknown_rect_839630;
 // The cursor position display toggle (0x00A416BC; CursorPositionCommandClass 0x0051D990 flips it).
 extern bool unknown_show_cursor_position_a416bc;
-// A copy of the view rectangle (0x0085291C; set by slot 42).
-extern Rect unknown_rect_85291c;
 
 // The cell offsets of the eight facings (0x00851A70; Westwood's AdjacentCell;
 // the same block as shared/infantry.hpp).
