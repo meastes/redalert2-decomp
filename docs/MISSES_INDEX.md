@@ -102,7 +102,6 @@
 | 0x77C7D0 | 167 | 75.68 | 3 | Scout1030 |  | register asm inline | tibsun twin |  | 40.0 |
 | 0x728AB0 | 179 | 77.48 | 4 | Scout777 |  | frame |  |  | 40.0 |
 | 0x6F7020 | 179 | 77.52 | 3 | Scout992 |  | layout inline bound | twin |  | 40.0 |
-| 0x6CA890 | 6,019 | 99.37 | 16 | Scout1088 |  | frame register order | twin | Scout1063/keep/F_9937_random_double.cpp | 37.0 |
 | 0x60D110 | 360 | 89.68 | 6 | Scout1016 |  | register bound frame | tibsun |  | 37.0 |
 | 0x760B9F | 37 | - | 3 | Scout1016 |  | bound |  |  | 37 |
 | 0x676010 | 1,189 | 97.08 | 10 | Scout1028 |  | frame bound register | tibsun twin | Scout592/w/dm_best_97.08.cpp | 34.0 |
