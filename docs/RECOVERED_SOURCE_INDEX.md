@@ -187,7 +187,7 @@
 | [classes/MSPrintAnim](../src/recovered/classes/MSPrintAnim/) | 10 | 2,800 | 10 | 0x005AE6C0–0x005AFE80 |
 | [classes/MapSelectData](../src/recovered/classes/MapSelectData/) | 9 | 2,758 | 9 | 0x005AFF10–0x005B0980 |
 | [classes/BitTextClass](../src/recovered/classes/BitTextClass/) | 12 | 2,707 | 12 | 0x00432290–0x00432D20 |
-| [classes/LightSourceClass](../src/recovered/classes/LightSourceClass/) | 19 | 2,706 | 14 | 0x00537120–0x00537C30 |
+| [classes/LightSourceClass](../src/recovered/classes/LightSourceClass/) | 19 | 2,706 | 15 | 0x00537120–0x00537C30 |
 | [classes/UnknownBitmapWriter](../src/recovered/classes/UnknownBitmapWriter/) | 8 | 2,680 | 8 | 0x0068BD50–0x0068CE80 |
 | [classes/TagClass](../src/recovered/classes/TagClass/) | 32 | 2,613 | 32 | 0x006B37F0–0x006B42E0 |
 | [classes/MultiMission](../src/recovered/classes/MultiMission/) | 8 | 2,603 | 8 | 0x00671670–0x006720E0 |
@@ -208,7 +208,7 @@
 | [goptions](../src/recovered/goptions/) | 6 | 2,308 | 6 | 0x004DD7D0–0x004DDF90 |
 | [classes/StringTable](../src/recovered/classes/StringTable/) | 4 | 2,277 | 4 | 0x006F8E30–0x006F9EC0 |
 | [classes/MSVQAnim](../src/recovered/classes/MSVQAnim/) | 10 | 2,268 | 10 | 0x005ADBA0–0x005AFDF0 |
-| [classes/EMPulseClass](../src/recovered/classes/EMPulseClass/) | 17 | 2,249 | 13 | 0x004B4B60–0x004B5410 |
+| [classes/EMPulseClass](../src/recovered/classes/EMPulseClass/) | 17 | 2,249 | 14 | 0x004B4B60–0x004B5410 |
 | [classes/MissionClass](../src/recovered/classes/MissionClass/) | 43 | 2,236 | 42 | 0x004CDDE0–0x00595130 |
 | [MPScore](../src/recovered/MPScore/) | 5 | 2,221 | 5 | 0x005AAA20–0x005AAE40 |
 | [classes/ScriptTypeClass](../src/recovered/classes/ScriptTypeClass/) | 19 | 2,212 | 19 | 0x004D3A10–0x00669310 |
