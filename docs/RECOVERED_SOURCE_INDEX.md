@@ -6,7 +6,7 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| [unowned](../src/recovered/unowned/) | 1435 | 434,759 | 1435 | 0x00401000–0x0077A940 |
+| [unowned](../src/recovered/unowned/) | 1439 | 434,807 | 1439 | 0x00401000–0x0077A940 |
 | [classes/MapClass](../src/recovered/classes/MapClass/) | 214 | 127,804 | 214 | 0x0049ED10–0x0056A9D0 |
 | [classes/BuildingClass](../src/recovered/classes/BuildingClass/) | 200 | 91,643 | 200 | 0x00438A60–0x004D3450 |
 | [classes/HouseClass](../src/recovered/classes/HouseClass/) | 214 | 84,401 | 214 | 0x004D3590–0x004F8EF0 |
@@ -24,9 +24,9 @@
 | [classes/AircraftClass](../src/recovered/classes/AircraftClass/) | 87 | 30,616 | 87 | 0x004139F0–0x004D34D0 |
 | [VQA32](../src/recovered/VQA32/) | 81 | 29,339 | 81 | 0x00776380–0x0077E9E0 |
 | [classes/UnknownIDSource](../src/recovered/classes/UnknownIDSource/) | 51 | 29,041 | 51 | 0x0065B4F0–0x00663440 |
-| [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 94 | 0x004D3690–0x006BE740 |
+| [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 95 | 0x004D3690–0x006BE740 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
-| (discovery: address-named) | 807 | 24,774 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 801 | 24,674 | 17 | 0x004010A0–0x00793976 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
 | [classes/TActionClass](../src/recovered/classes/TActionClass/) | 138 | 23,230 | 138 | 0x006AD2F0–0x006B30D0 |
@@ -35,7 +35,7 @@
 | [classes/SidebarClass](../src/recovered/classes/SidebarClass/) | 88 | 22,096 | 86 | 0x0067B4B0–0x006824A0 |
 | [wonline](../src/recovered/wonline/) | 76 | 21,787 | 76 | 0x0073A8E0–0x00765990 |
 | [classes/RadarClass](../src/recovered/classes/RadarClass/) | 65 | 21,475 | 65 | 0x0062ECF0–0x00634AD0 |
-| [classes/DisplayClass](../src/recovered/classes/DisplayClass/) | 70 | 21,018 | 65 | 0x0040D120–0x006824F0 |
+| [classes/DisplayClass](../src/recovered/classes/DisplayClass/) | 70 | 21,018 | 66 | 0x0040D120–0x006824F0 |
 | [classes/DriveLocomotionClass](../src/recovered/classes/DriveLocomotionClass/) | 56 | 20,543 | 56 | 0x0049F640–0x004A4D90 |
 | [classes/ShipLocomotionClass](../src/recovered/classes/ShipLocomotionClass/) | 56 | 20,430 | 56 | 0x00675600–0x0067AC30 |
 | [classes/DSurface](../src/recovered/classes/DSurface/) | 41 | 19,535 | 41 | 0x004AA4A0–0x004B14F0 |
@@ -81,7 +81,7 @@
 | [classes/EventClass](../src/recovered/classes/EventClass/) | 20 | 7,093 | 20 | 0x004B5E80–0x006103E0 |
 | [classes/OverlayClass](../src/recovered/classes/OverlayClass/) | 19 | 7,046 | 18 | 0x004D3190–0x005DC300 |
 | [classes/TerrainClass](../src/recovered/classes/TerrainClass/) | 31 | 6,926 | 31 | 0x004D3310–0x006E4B50 |
-| [classes/TabClass](../src/recovered/classes/TabClass/) | 41 | 6,873 | 40 | 0x0059FF60–0x006A20B0 |
+| [classes/TabClass](../src/recovered/classes/TabClass/) | 41 | 6,873 | 41 | 0x0059FF60–0x006A20B0 |
 | [classes/AnimTypeClass](../src/recovered/classes/AnimTypeClass/) | 26 | 6,787 | 26 | 0x00424E30–0x004D3DD0 |
 | [sendfile](../src/recovered/sendfile/) | 5 | 6,593 | 5 | 0x0066AEA0–0x0066C5B0 |
 | [classes/TeamTypeClass](../src/recovered/classes/TeamTypeClass/) | 31 | 6,530 | 31 | 0x004D3990–0x006C0280 |
@@ -136,11 +136,11 @@
 | [classes/MapPreviewClass](../src/recovered/classes/MapPreviewClass/) | 9 | 4,081 | 9 | 0x0061D440–0x0061E930 |
 | [classes/MouseClass](../src/recovered/classes/MouseClass/) | 20 | 3,933 | 19 | 0x0040D150–0x0059FF40 |
 | [classes/VQAClass](../src/recovered/classes/VQAClass/) | 33 | 3,918 | 33 | 0x0071C5F0–0x0071D7B0 |
+| [classes/Unknown84E8D0](../src/recovered/classes/Unknown84E8D0/) | 16 | 3,902 | 16 | 0x0042D960–0x0042EFD0 |
 | [startup](../src/recovered/startup/) | 5 | 3,888 | 5 | 0x0068DC70–0x00691320 |
-| [classes/Unknown84E8D0](../src/recovered/classes/Unknown84E8D0/) | 15 | 3,860 | 15 | 0x0042D960–0x0042EFD0 |
 | [vqa](../src/recovered/vqa/) | 15 | 3,857 | 15 | 0x00411420–0x00412380 |
 | [classes/CNetUtilEventSink](../src/recovered/classes/CNetUtilEventSink/) | 9 | 3,840 | 8 | 0x0075D1F0–0x00765D00 |
-| [classes/FactoryClass](../src/recovered/classes/FactoryClass/) | 26 | 3,832 | 22 | 0x004B90A0–0x004D3750 |
+| [classes/FactoryClass](../src/recovered/classes/FactoryClass/) | 26 | 3,832 | 24 | 0x004B90A0–0x004D3750 |
 | [win_stub](../src/recovered/win_stub/) | 16 | 3,823 | 16 | 0x007373A0–0x00738190 |
 | [Reinf](../src/recovered/Reinf/) | 4 | 3,803 | 4 | 0x00639970–0x0063A690 |
 | [classes/SmudgeTypeClass](../src/recovered/classes/SmudgeTypeClass/) | 24 | 3,798 | 24 | 0x004D3B10–0x00688C20 |
@@ -619,6 +619,7 @@
 | [classes/DynamicVectorClass_RadarEventClass_ptr](../src/recovered/classes/DynamicVectorClass_RadarEventClass_ptr/) | 6 | 405 | 5 | 0x0063C7C0–0x0063CB10 |
 | [classes/DynamicVectorClass_SuperClass_ptr](../src/recovered/classes/DynamicVectorClass_SuperClass_ptr/) | 6 | 405 | 5 | 0x004D4A60–0x0069ED90 |
 | [classes/DynamicVectorClass_VeinholeMonsterClass_ptr](../src/recovered/classes/DynamicVectorClass_VeinholeMonsterClass_ptr/) | 6 | 405 | 5 | 0x00712750–0x00712AE0 |
+| [classes/StorageClass](../src/recovered/classes/StorageClass/) | 8 | 401 | 8 | 0x0069ADA0–0x0069AFE0 |
 | [classes/VectorClass_DiskID](../src/recovered/classes/VectorClass_DiskID/) | 6 | 400 | 4 | 0x00673820–0x00674AA0 |
 | [classes/VectorClass_PassabilityType](../src/recovered/classes/VectorClass_PassabilityType/) | 6 | 399 | 3 | 0x0056AD30–0x0056C8C0 |
 | [classes/VectorClass_SideClass_ptr](../src/recovered/classes/VectorClass_SideClass_ptr/) | 5 | 399 | 4 | 0x004D8C70–0x004DC960 |
@@ -626,7 +627,6 @@
 | [classes/DynamicVectorClass_rc_ptr_WorldDominationTour__Conflict](../src/recovered/classes/DynamicVectorClass_rc_ptr_WorldDominationTour__Conflict/) | 4 | 397 | 4 | 0x00726A30–0x00726EC0 |
 | [classes/GenericList](../src/recovered/classes/GenericList/) | 3 | 395 | 3 | 0x0040E220–0x00490FF0 |
 | [classes/EgoClass](../src/recovered/classes/EgoClass/) | 5 | 391 | 5 | 0x004B3620–0x004B3760 |
-| [classes/StorageClass](../src/recovered/classes/StorageClass/) | 7 | 391 | 7 | 0x0069ADA0–0x0069AFE0 |
 | [classes/VectorClass_HashObject_unsigned_int_SubzoneConnectionStruct](../src/recovered/classes/VectorClass_HashObject_unsigned_int_SubzoneConnectionStruct/) | 4 | 391 | 4 | 0x0056AE10–0x0056C800 |
 | [classes/ScriptMissionClass](../src/recovered/classes/ScriptMissionClass/) | 3 | 389 | 3 | 0x006EAF60–0x006EAFE0 |
 | [classes/DynamicVectorClass_tagCONNECTDATA](../src/recovered/classes/DynamicVectorClass_tagCONNECTDATA/) | 5 | 388 | 3 | 0x00493010–0x00493400 |
