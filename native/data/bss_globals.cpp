@@ -14,7 +14,6 @@ alignas(16) unsigned char ra2_bss_0005[320] __asm__("_Audio_Level_Set_831310"); 
 alignas(16) unsigned char ra2_bss_0006[264] __asm__("_Audio_Level_Set_8313b0");  // 0x008313B0 Audio_Level_Set_8313b0 (?Audio_Level_Set_8313b0@@3UAudioLevelSet@@A)
 alignas(16) unsigned char ra2_bss_0007[16] __asm__("_Audio_Main_Bag");  // 0x00831434 Audio_Main_Bag (?Audio_Main_Bag@@3PAUAudioBag@@A)
 alignas(16) unsigned char ra2_bss_0008[16] __asm__("_Audio_Main_Device");  // 0x00831438 Audio_Main_Device (?Audio_Main_Device@@3PAUAudioDevice@@A)
-__asm__(".globl _DAT_00831438\n.set _DAT_00831438, _Audio_Main_Device\n");  // same address: DAT_00831438
 alignas(16) unsigned char ra2_bss_0009[16] __asm__("_Audio_Is_On");  // 0x0083143C Audio_Is_On (?Audio_Is_On@@3HA)
 alignas(16) unsigned char ra2_bss_0010[16] __asm__("_DAT_00831440");  // 0x00831440 DAT_00831440
 alignas(16) unsigned char ra2_bss_0011[16] __asm__("_AudioMix");  // 0x00831444 AudioMix (?AudioMix@@3PAVMixFileClass@@A)
@@ -399,7 +398,6 @@ alignas(16) unsigned char ra2_bss_0313[64] __asm__("_unknown_cheat_text_a4169c")
 alignas(16) unsigned char ra2_bss_0314[16] __asm__("_unknown_show_cursor_position_a416bc");  // 0x00A416BC unknown_show_cursor_position_a416bc (?unknown_show_cursor_position_a416bc@@3_NA)
 alignas(16) unsigned char ra2_bss_0315[48] __asm__("_unknown_flag_a417c8");  // 0x00A417C8 unknown_flag_a417c8 (?unknown_flag_a417c8@@3_NA)
 alignas(16) unsigned char ra2_bss_0316[16] __asm__("_StormActive");  // 0x00A51934 StormActive (?StormActive@@3_NA)
-__asm__(".globl _DAT_00a51934\n.set _DAT_00a51934, _StormActive\n");  // same address: DAT_00a51934
 alignas(16) unsigned char ra2_bss_0317[16] __asm__("_StormDeferment");  // 0x00A51938 StormDeferment (?StormDeferment@@3HA)
 alignas(16) unsigned char ra2_bss_0318[16] __asm__("_DAT_00a5193c");  // 0x00A5193C DAT_00a5193c
 __asm__(".globl _unknown_dominator_state_a5193c\n.set _unknown_dominator_state_a5193c, _DAT_00a5193c\n");  // same address: unknown_dominator_state_a5193c

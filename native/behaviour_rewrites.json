@@ -298,96 +298,6 @@
    "notes": "NATIVE: starting width/height pair (0x007ADD70/0x007ADD7C) unsourced: the first containing gadget always qualifies"
   },
   {
-   "entry": "0x00403820",
-   "name": "AudioTimeSpan::Reset",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf src/recovered/00403820.cpp",
-   "reached": "harness trap (Audio_Init)"
-  },
-  {
-   "entry": "0x00406F40",
-   "name": "Audio_Get_Device",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "audio.hpp; the row leaf",
-   "reached": "harness trap (Speech_Init)"
-  },
-  {
-   "entry": "0x00407080",
-   "name": "AudioLevel::Set",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed",
-   "reached": "harness trap (Audio_Init level sets)"
-  },
-  {
-   "entry": "0x004070D0",
-   "name": "AudioLevel::Set_Rate",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed",
-   "reached": "harness trap (Audio_Init level sets)"
-  },
-  {
-   "entry": "0x00431460",
-   "name": "BitFontClass::Set_Clip_Box",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed",
-   "reached": "harness trap (Bootstrap, BitText)"
-  },
-  {
-   "entry": "0x004318D0",
-   "name": "BitFontClass::Set_unknown_20",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x00432150",
-   "name": "BitFontClass::Release_Surface",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (Unlock, slot 24)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x00470470",
-   "name": "CDFileClass::Find_Close",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed",
-   "reached": "harness trap (Init_Secondary_Mixfiles)"
-  },
-  {
-   "entry": "0x00406F30",
-   "name": "unknown_check_406f30",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed (Audio_Main_Device != 0)",
-   "reached": "harness trap"
-  },
-  {
    "entry": "0x006FA0C0",
    "name": "Unknown_006FA0C0",
    "origin_class": "unmatched (launch path)",
@@ -398,16 +308,6 @@
    "reached": "harness trap (narrow to wide copy)"
   },
   {
-   "entry": "0x006E8590",
-   "name": "ThemeClass::Set_Volume",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (clamp 255)",
-   "reached": "harness trap (Options)"
-  },
-  {
    "entry": "0x0067B880",
    "name": "SidebarClass::Unknown_0067B880",
    "origin_class": "unmatched (launch path)",
@@ -416,128 +316,6 @@
    "file": "native/link/behaviour_launch.cpp",
    "source": "the row leaf (bare return)",
    "reached": "harness trap (Options)"
-  },
-  {
-   "entry": "0x00406530",
-   "name": "Audio_Event_Type_Set_Intro",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (+0x138)",
-   "reached": "harness trap (VocClass::Process, SOUND.INI)"
-  },
-  {
-   "entry": "0x00406540",
-   "name": "Audio_Event_Type_Set_Outro",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (+0x13C)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x00406550",
-   "name": "Audio_Event_Type_Set_Priority",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (+0x40)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x004065D0",
-   "name": "Audio_Event_Type_Set_Type",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (+0x14)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x004065E0",
-   "name": "Audio_Event_Type_Set_Limit",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (+0x48)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x004065F0",
-   "name": "Audio_Event_Type_Set_Range",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (+0x50)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x00406600",
-   "name": "Audio_Event_Type_Set_Min_Volume",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (+0x54)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x00406610",
-   "name": "Audio_Event_Type_Set_Delay",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed (+0x58, +0x5C)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x00406620",
-   "name": "Audio_Event_Type_Set_FShift",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed (+0x60, +0x64)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x00406650",
-   "name": "Audio_Event_Type_Set_Loop",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (+0x4C)",
-   "reached": "harness trap"
-  },
-  {
-   "entry": "0x004067E0",
-   "name": "Audio_Priority_From_Name",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed",
-   "reached": "harness trap (SOUND.INI)",
-   "notes": "NATIVE: the {name, priority} table 0x007CCAE8 is unsourced: no name is found, priority 0"
-  },
-  {
-   "entry": "0x00406830",
-   "name": "Audio_Control_Apply_Keyword",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed",
-   "reached": "harness trap (SOUND.INI)",
-   "notes": "NATIVE: the {name, flag} table 0x007CCB90 is unsourced: no keyword is found, flags unchanged"
   },
   {
    "entry": "0x00577010",
@@ -559,36 +337,6 @@
    "file": "native/link/behaviour_launch.cpp",
    "source": "accepted seed src/recovered/classes/DisplayClass/0049e7d0.cpp (free function; the vtable name never binds to it)",
    "notes": "closes and clears the window handle at 0x00B263DC"
-  },
-  {
-   "entry": "0x00458370",
-   "name": "Unknown_00458370",
-   "symbol": "__Z16Unknown_00458370v",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "decompile (empty body); Init_Bulk_Data order"
-  },
-  {
-   "entry": "0x004E2E30",
-   "name": "Unknown_004E2E30",
-   "symbol": "__Z16Unknown_004E2E30v",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "decompile (empty body); TibSun HouseClass::One_Time position"
-  },
-  {
-   "entry": "0x0063CFB0",
-   "name": "RGBClass::Difference",
-   "symbol": "__ZNK8RGBClass10DifferenceERKS_",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "accepted seed src/recovered/0063cfb0.cpp (owner view)"
   },
   {
    "entry": "0x0077F14D",
@@ -635,36 +383,6 @@
    "notes": "5:6:5 light table; the plain path"
   },
   {
-   "entry": "0x004070A0",
-   "name": "AudioLevel::Set_Target",
-   "symbol": "__ZN10AudioLevel10Set_TargetEi",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed (seeded-pass6a 0x004070A0)"
-  },
-  {
-   "entry": "0x0051FC50",
-   "name": "Unknown_0051FC50",
-   "symbol": "__Z16Unknown_0051FC50v",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed (returns StormActive 0x00A51934)"
-  },
-  {
-   "entry": "0x005D7C20",
-   "name": "ObjectTypeClass::Generic_Naming_Convention",
-   "symbol": "__ZN15ObjectTypeClass25Generic_Naming_ConventionEPc",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "decompile (buffer[1] = 'G'); TibSun objtype.cpp"
-  },
-  {
    "entry": "0x00674AA0",
    "name": "VectorClass<DiskID>::VectorClass(unsigned, DiskID const *)",
    "symbol": "__ZN11VectorClassI6DiskIDEC2EjPKS0_",
@@ -685,26 +403,6 @@
    "source": "vector_class.hpp template body (multi_mission.hpp declares the specialisation)"
   },
   {
-   "entry": "0x0051FBB0",
-   "name": "Unknown_0051FBB0()",
-   "symbol": "__Z16Unknown_0051FBB0v",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "disassembly of the row (two byte globals, StormActive/StormTimeToEnd names from the tree)"
-  },
-  {
-   "entry": "0x0051AF90 and 206 CommandClass name slots",
-   "name": "CommandClass::Get_UI_Name and the subclasses' Get_Name/Get_UI_Name/Get_Category/Get_Description",
-   "symbol": "(native/link/behaviour_commands.cpp)",
-   "origin_class": "unmatched (Init_Commands, Load_Keyboard_Hotkeys)",
-   "plan": "behaviour rewrite (generated: native/tools/command_rewrites.py)",
-   "exact": false,
-   "file": "native/link/behaviour_commands.cpp",
-   "source": "each row's leaf/request scaffold and the catalog's bindings of its label/file addresses; strings read from game.exe at run time"
-  },
-  {
    "entry": "0x006AC2E0",
    "name": "Tactical::GetClassID",
    "symbol": "__ZN8Tactical10GetClassIDEP5_GUID",
@@ -713,36 +411,6 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "row code (E_POINTER, CLSID 0x007A1E90)"
-  },
-  {
-   "entry": "0x006A2710",
-   "name": "Tactical::~Tactical",
-   "symbol": "__ZN8TacticalD2Ev",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "row code (clears 0x0083996C)"
-  },
-  {
-   "entry": "0x006AC7E0",
-   "name": "Tactical::Kind_Of",
-   "symbol": "__ZNK8Tactical7Kind_OfEv",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "row code (0x38)"
-  },
-  {
-   "entry": "0x006AC7F0",
-   "name": "Tactical::Size_Of",
-   "symbol": "__ZNK8Tactical7Size_OfEv",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "row code (0xE18)"
   },
   {
    "entry": "0x00529710",
@@ -773,36 +441,6 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "seed src/recovered/006f8a20.cpp"
-  },
-  {
-   "entry": "0x00482F00",
-   "name": "Name_From_Land(LandType)",
-   "symbol": "__Z14Name_From_Land8LandType",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/00482f00.cpp"
-  },
-  {
-   "entry": "0x00482F60",
-   "name": "Name_From_Speed(SpeedType)",
-   "symbol": "__Z15Name_From_Speed9SpeedType",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/00482f60.cpp"
-  },
-  {
-   "entry": "0x00482FC0",
-   "name": "Name_From_Layer(LayerType)",
-   "symbol": "__Z15Name_From_Layer9LayerType",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/00482fc0.cpp"
   },
   {
    "entry": "0x00603D50",
@@ -975,26 +613,6 @@
    "source": "UnitTrackerClass destructor"
   },
   {
-   "entry": "0x006751A0",
-   "name": "ShapeButtonClass::Free_Shape()",
-   "symbol": "__ZN16ShapeButtonClass10Free_ShapeEv",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/006751a0.cpp"
-  },
-  {
-   "entry": "0x006751D0",
-   "name": "ShapeButtonClass::Set_Allocated(bool)",
-   "symbol": "__ZN16ShapeButtonClass13Set_AllocatedEb",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/006751d0.cpp"
-  },
-  {
    "entry": "0x00428AC0",
    "name": "unknown_cells_428ac0()",
    "symbol": "__Z20unknown_cells_428ac0v",
@@ -1003,16 +621,6 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "seed src/recovered/00428ac0.cpp"
-  },
-  {
-   "entry": "0x0068B410",
-   "name": "SpecialClass::Unknown_0068B410()",
-   "symbol": "__ZN12SpecialClass16Unknown_0068B410Ev",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/0068b410.cpp (empty body)"
   },
   {
    "entry": "0x00630300",

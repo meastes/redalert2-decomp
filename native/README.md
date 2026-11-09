@@ -264,9 +264,6 @@ repeat the last three until `bss_globals.cpp` no longer changes.
 `member_aliases.cpp`: names of members of class-typed globals (an interior
    address such as 0x00A3D8D8, the session's Scenarios) bound to the member
    through a reference, with a fixup renaming the declaration in the native view.
-   `behaviour_commands.cpp` (`tools/command_rewrites.py`): the keyboard commands'
-   name slots (stored names and labels read from game.exe), which give the 56
-   CommandClass subclasses their vtables.
    `template_instances*.cpp` (`tools/template_instances.py`)
    explicitly instantiate the recovered VectorClass/DynamicVectorClass bodies for
    element types whose owner unit is missing; `initterm_rewrites.cpp` rewrites the

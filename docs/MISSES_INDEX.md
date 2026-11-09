@@ -34,7 +34,7 @@
 | 0x760853 | 539 | - | 4 | Scout1016 |  | bound inline |  |  | 539 |
 | 0x427370 | 2,506 | 78.55 | 2 | Scout1006 |  | frame |  | Scout965/keep/a0.cpp | 537.0 |
 | 0x6FF690 | 3,861 | 86.76 | 9 | Scout1025 |  | frame inline layout | tibsun twin | Scout974/best_8676.cpp | 511.0 |
-| 0x71E220 | 4,967 | 89.83 | 10 | Scout1104 |  | frame inline order | tibsun twin | Scout1104/keep/walk_best_8983.cpp | 505.0 |
+| 0x71E220 | 4,967 | 89.83 | 11 | Scout1106 |  | inline frame register | tibsun twin | Scout1104/keep/walk_best_8983.cpp | 505.0 |
 | 0x617340 | 818 | 38.31 | 7 | Scout923 |  | register layout frame | twin | Scout779/keep/ld1_3831.cpp | 504.0 |
 | 0x440520 | 6,505 | 92.27 | 9 | Scout943 |  | frame register order | tibsun twin | Scout761/keep/eo_F_9193.cpp | 502.0 |
 | 0x67DC90 | 1,315 | 62.90 | 3 | Scout1074 |  | inline order layout |  |  | 487.0 |

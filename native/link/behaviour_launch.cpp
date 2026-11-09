@@ -11,49 +11,6 @@
 #include "shared/vector_class.hpp"
 #include "shared/multi_mission.hpp"
 
-// --- Audio library levels (Audio_Init's level sets; audio.hpp) ---------------
-
-// 0x00403820 AudioTimeSpan::Reset (the row's leaf src/recovered/00403820.cpp):
-// every statistic zero, +0x40 = 5000.
-void AudioTimeSpan::Reset()
-{
-    unknown_00 = 0;
-    LateLimit = 0;
-    Elapsed = 0;
-    Peak = 0;
-    PeakWindow = 0;
-    LastTime = 0;
-    Maximum = 0;
-    unknown_38 = 0;
-    unknown_40 = 5000;
-    TickCount = 0;
-    LateCount = 0;
-    unknown_50 = 0;
-    unknown_54 = 0;
-}
-
-// 0x00406F40 Audio_Get_Device (audio.hpp; the row's leaf returns the dword at 0x00831438).
-AudioDevice *Audio_Get_Device()
-{
-    return Audio_Main_Device;
-}
-
-// 0x00407080 AudioLevel::Set (the row's seed): jump to value on the next update.
-void __fastcall AudioLevel::Set(int value)
-{
-    Flags |= AUDIO_LEVEL_PENDING;
-    Target = (unsigned int)value << 16;
-}
-
-// 0x004070D0 AudioLevel::Set_Rate (the row's seed; __fastcall puts step in edx,
-// the 64-bit period on the stack): the step per millisecond in 16.16 is
-// (step << 16) / period (unsigned, low dword of the period), MaxElapsed = period.
-void __fastcall AudioLevel::Set_Rate(__int64 period, int step)
-{
-    MaxElapsed = period;
-    Step = ((unsigned int)step << 16) / (unsigned int)period;
-}
-
 // --- Gadgets -----------------------------------------------------------------
 
 // 0x004CF290 GadgetClass::Extract_At (gadget.hpp; GadgetClass::Input 0x004CF330;
@@ -89,35 +46,6 @@ GadgetClass *GadgetClass::Extract_At(int x, int y)
 #include "shared/text_print.hpp"
 #include "shared/surface.hpp"
 
-// 0x00431460 BitFontClass::Set_Clip_Box (the row's seed): copies the box, or
-// clears it without one.
-void BitFontClass::Set_Clip_Box(tagRECT const *box)
-{
-    if (box != 0) {
-        ClipBox = *box;
-        return;
-    }
-    ClipBox.bottom = 0;
-    ClipBox.right = 0;
-    ClipBox.top = 0;
-    ClipBox.left = 0;
-}
-
-// 0x004318D0 BitFontClass::Set_unknown_20 (the row's leaf: stores the value at +0x20).
-void BitFontClass::Set_unknown_20(int value)
-{
-    unknown_20 = value;
-}
-
-// 0x00432150 BitFontClass::Release_Surface (the row's leaf: the surface's
-// Unlock, slot 24, then Buffer and Pitch cleared).
-void BitFontClass::Release_Surface(Surface *surface)
-{
-    surface->Unlock();
-    Buffer = 0;
-    Pitch = 0;
-}
-
 // --- CD file search, sound availability, strings, theme, sidebar ------------
 
 #include "shared/cd_file_class.hpp"
@@ -126,22 +54,6 @@ void BitFontClass::Release_Surface(Surface *surface)
 #include "shared/theme.hpp"
 #include "shared/map_view.hpp"
 #include "shared/voc_class.hpp"
-
-// 0x00470470 CDFileClass::Find_Close (the row's seed): closes the search
-// handle Find_File opened and marks it idle (INVALID_HANDLE_VALUE).
-void CDFileClass::Find_Close()
-{
-    if (FindHandle != (void *)-1) {
-        FindClose((HANDLE)FindHandle);
-        FindHandle = (void *)-1;
-    }
-}
-
-// 0x00406F30 (sound_available.hpp; the row's seed): whether the audio device exists.
-int unknown_check_406f30()
-{
-    return Audio_Main_Device != 0;
-}
 
 // 0x006FA0C0 (the row's seed): widens a narrow string into buffer, at most
 // length characters (-1: no limit), always terminated.
@@ -159,15 +71,6 @@ void __fastcall Unknown_006FA0C0(wchar_t *buffer, char const *text, int length)
     *buffer = 0;
 }
 
-// 0x006E8590 ThemeClass::Set_Volume (theme.hpp; the row's leaf): at most 255.
-void ThemeClass::Set_Volume(int volume)
-{
-    if (volume >= 255) {
-        volume = 255;
-    }
-    Volume = volume;
-}
-
 // 0x0067B880 SidebarClass::Unknown_0067B880 (map_view.hpp; the row is a bare return).
 void SidebarClass::Unknown_0067B880(bool cameo_text)
 {
@@ -175,49 +78,6 @@ void SidebarClass::Unknown_0067B880(bool cameo_text)
 
 // --- Audio event types (voc_class.hpp setters; each row's leaf stores its
 // argument at the field named in the header) ---------------------------------
-
-void __fastcall Audio_Event_Type_Set_Intro(AudioEventType *type, int count) { type->Intro = count; }        // 0x00406530
-void __fastcall Audio_Event_Type_Set_Outro(AudioEventType *type, int count) { type->Outro = count; }        // 0x00406540
-void __fastcall Audio_Event_Type_Set_Priority(AudioEventType *type, int priority) { type->unknown_40 = priority; }   // 0x00406550
-void __fastcall Audio_Event_Type_Set_Type(AudioEventType *type, unsigned int flags) { type->unknown_14 = flags; }   // 0x004065D0
-void __fastcall Audio_Event_Type_Set_Limit(AudioEventType *type, int limit) { type->unknown_48 = limit; }   // 0x004065E0
-void __fastcall Audio_Event_Type_Set_Range(AudioEventType *type, int range) { type->unknown_50 = range; }   // 0x004065F0
-void __fastcall Audio_Event_Type_Set_Min_Volume(AudioEventType *type, float volume) { type->unknown_54 = volume; }  // 0x00406600
-void __fastcall Audio_Event_Type_Set_Delay(AudioEventType *type, int low, int high)                         // 0x00406610
-{
-    type->unknown_58 = low;
-    type->unknown_5c = high;
-}
-void __fastcall Audio_Event_Type_Set_FShift(AudioEventType *type, int low, int high)                        // 0x00406620
-{
-    type->unknown_60 = low;
-    type->unknown_64 = high;
-}
-void __fastcall Audio_Event_Type_Set_Loop(AudioEventType *type, int count) { type->LoopCount = count; }     // 0x00406650
-
-// 0x004067E0 Audio_Priority_From_Name (the row's seed): looks the name up
-// (case-insensitive) in the {name, priority} table at 0x007CCAE8, ended by a
-// null name; stores the priority (the terminator's when not found) and returns
-// whether it was found. NATIVE: the table's names and values are unsourced
-// data, so here no name is found and the priority is set to 0.
-bool __fastcall Audio_Priority_From_Name(char const *name, int *priority)
-{
-    if (priority != 0) {
-        *priority = 0;
-    }
-    return false;
-}
-
-// 0x00406830 Audio_Control_Apply_Keyword (the row's seed): looks the keyword up
-// (case-insensitive) in the {name, flag} table at 0x007CCB90, ended by a null
-// name; ORs its flag (the terminator's when not found) into *flags and returns
-// whether it was found. NATIVE: the table is unsourced data, so here no
-// keyword is found and *flags is unchanged (the terminator's flag word is
-// taken as 0).
-bool __fastcall Audio_Control_Apply_Keyword(unsigned int *flags, char const *name)
-{
-    return false;
-}
 
 // --- DisplayClass (Scout1072) --------------------------------------------------
 
@@ -237,34 +97,6 @@ void DisplayClass::unknown_slot34()
 }
 
 // --- Init_Bulk_Data's One_Time calls (Scout1072) ------------------------------
-
-// 0x00458370 Unknown_00458370 (Init_Bulk_Data 0x00516900 calls it after
-// ObjectTypeClass::One_Time; the decompile is an empty body, `return;`; the
-// row's leaf view is Leaf_458370::get). NOT EXACT: the same empty behaviour.
-void Unknown_00458370()
-{
-}
-
-// 0x0063CFB0 RGBClass::Difference (rgb_class.hpp; the accepted body is the seed
-// src/recovered/0063cfb0.cpp, an owner view the member name never binds to):
-// the weighted distance 2|dRed| + 4|dGreen| + 3|dBlue| over the three bytes in
-// member order. NOT EXACT: the seed's arithmetic on the class's members.
-int RGBClass::Difference(RGBClass const &other) const
-{
-    int red = (int)Red - (int)other.Red;
-    int green = (int)Green - (int)other.Green;
-    int blue = (int)Blue - (int)other.Blue;
-    if (red < 0) red = -red;
-    if (green < 0) green = -green;
-    if (blue < 0) blue = -blue;
-    return blue * 3 + (red + green * 2) * 2;
-}
-
-// 0x004E2E30 Unknown_004E2E30 (Init_Bulk_Data's One_Time sequence; TibSun's
-// HouseClass::One_Time position): the decompile is an empty body. NOT EXACT.
-void Unknown_004E2E30()
-{
-}
 
 // --- CPU identification (Get_CPU_Info 0x004D2A20; the probes are handwritten
 // assembly in the library: 0x0077F14D and 0x0077F20F, read from their listing) ---
@@ -350,46 +182,6 @@ void __cdecl FUN_00797440(PaletteClass const *palette, unsigned short *table, in
     }
 }
 
-// 0x004070A0 AudioLevel::Set_Target (audio.hpp; the row's seed): clear the
-// pending flag; when the level is at rest (target == current) restart its
-// clock (Audio_Now); the new target is value << 16. NOT EXACT.
-__int64 Audio_Now();
-void __fastcall AudioLevel::Set_Target(int value)
-{
-    Flags &= ~1u;
-    if (Target == Current) {
-        LastTime = Audio_Now();
-    }
-    Target = (unsigned int)value << 16;
-}
-
-// 0x0051FC50 Unknown_0051FC50 (the seed returns the byte at 0x00A51934,
-// StormActive). NOT EXACT.
-extern bool StormActive;
-bool Unknown_0051FC50()
-{
-    return StormActive;
-}
-
-// 0x0051FBB0 Unknown_0051FBB0 (Clear_Scenario, a trigger action and a team
-// mission call it; the row's code: while a storm is active, set the byte at
-// 0x00A51944, StormTimeToEnd). Scout1076. NOT EXACT.
-extern bool StormTimeToEnd;
-void Unknown_0051FBB0()
-{
-    if (StormActive) {
-        StormTimeToEnd = true;
-    }
-}
-
-// 0x005D7C20 ObjectTypeClass::Generic_Naming_Convention (object_type.hpp;
-// the decompile stores 'G' at buffer[1]; TibSun objtype.cpp: the theater
-// letter of a file name becomes the generic one). NOT EXACT.
-void __fastcall ObjectTypeClass::Generic_Naming_Convention(char *buffer)
-{
-    buffer[1] = 'G';
-}
-
 // 0x00674AA0 VectorClass<DiskID>::VectorClass(unsigned, DiskID const *) and
 // 0x00674AF0 VectorClass<Wstring>::VectorClass (multi_mission.hpp declares them
 // as specialisations defined in their own rows; the 0x00674AA0 decompile is the
@@ -443,23 +235,6 @@ HRESULT __stdcall Tactical::GetClassID(GUID *clsid)
     return 0;
 }
 
-// 0x006A2710: clears the view pointer 0x0083996C (then ~AbstractClass).
-Tactical::~Tactical()
-{
-    unknown_tactical_83996c = 0;
-}
-
-// 0x006AC7E0 / 0x006AC7F0: the kind (0x38) and the original object size (0xE18).
-int Tactical::Kind_Of() const
-{
-    return 0x38;
-}
-
-int Tactical::Size_Of() const
-{
-    return 0xE18;
-}
-
 // 0x00529710 Unknown_00529710 (the row's code is `xor al, al; ret`: false, nothing freed;
 // LightSourceClass 0x00537830 and MapClass slot 23 call it). Scout1076. NOT EXACT.
 bool __fastcall Unknown_00529710(int time, bool flag)
@@ -503,44 +278,6 @@ void __fastcall Unknown_006F8A20(BuildingClass *building)
     if (building == ra2_pending_placement_ac1338) {
         ra2_pending_placement_ac1338 = 0;
     }
-}
-
-// --- INI type names (CCINIClass::Get_*Type defaults; Scout1081) ---------------
-// The three seeds (src/recovered/00482f00.cpp, 00482f60.cpp, 00482fc0.cpp) index
-// a name table (LandNames 12, SpeedNames 8, LayerNames 5; read from game.exe at
-// run time, data/original_data.cpp) and return "<none>" (0x007CDECC) past it.
-// The declarations in ccini_extra.hpp use enums the units define; plain ints
-// carry them here (VC6 passes an enum as a 32-bit slot). NOT EXACT.
-enum LandType : int;
-enum SpeedType : int;
-enum LayerType : int;
-extern char const *LandNames[12];
-extern char const *SpeedNames[8];
-extern char const *LayerNames[5];
-extern "C" char s__none__007cdecc[];
-
-char const *__fastcall Name_From_Land(LandType land)
-{
-    if ((unsigned)land < 12) {
-        return LandNames[land];
-    }
-    return s__none__007cdecc;
-}
-
-char const *__fastcall Name_From_Speed(SpeedType speed)
-{
-    if ((unsigned)speed < 8) {
-        return SpeedNames[speed];
-    }
-    return s__none__007cdecc;
-}
-
-char const *__fastcall Name_From_Layer(LayerType layer)
-{
-    if ((unsigned)layer < 5) {
-        return LayerNames[layer];
-    }
-    return s__none__007cdecc;
 }
 
 // 0x007168C0 Unknown_007168C0 (the row's leaf src/recovered/007168c0.cpp stores
@@ -779,24 +516,6 @@ UnknownHouseBase::~UnknownHouseBase() {}
 UnknownHouseTracker::UnknownHouseTracker() { new (unknown_000) UnitTrackerClass; }
 UnknownHouseTracker::~UnknownHouseTracker() { ((UnitTrackerClass *)unknown_000)->~UnitTrackerClass(); }
 
-// 0x006751A0 ShapeButtonClass::Free_Shape (the row's seed): frees an owned
-// shape and zeroes the button's size.
-void ShapeButtonClass::Free_Shape()
-{
-    if (IsShapeAllocated && Shape != 0) {
-        operator delete((void *)Shape);
-        Shape = 0;
-        IsShapeAllocated = false;
-        Width = 0;
-        Height = 0;
-    }
-}
-// 0x006751D0 ShapeButtonClass::Set_Allocated (the row's seed).
-void ShapeButtonClass::Set_Allocated(bool allocated)
-{
-    IsShapeAllocated = allocated;
-}
-
 // --- Scenario load (Scout1083) ---------------------------------------------------
 
 // 0x00428AC0 (the row's seed src/recovered/00428ac0.cpp): the cell count the
@@ -812,7 +531,4 @@ int __fastcall unknown_cells_428ac0()
 // 0x0068B410 SpecialClass::Unknown_0068B410 (the row's seed
 // src/recovered/0068b410.cpp has an empty body: the original returns at once).
 #include "shared/special.hpp"
-void SpecialClass::Unknown_0068B410()
-{
-}
 
