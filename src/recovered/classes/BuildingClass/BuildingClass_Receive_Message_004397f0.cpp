@@ -7,10 +7,9 @@
 #include "shared/building_map.hpp"
 #include "shared/fast_math.hpp"
 #include "shared/rules.hpp"
-extern CoordStruct const Building_Radio_No_Coord_0084ed30;
-// @ref ?Building_Radio_No_Coord_0084ed30@@=0084ed30
 
 #include "shared/coord_distance.hpp"
+// @ref _unknown_geometry_l=0084ed30
 
 // Hypothesis: the reference three-axis object-distance inline operation.
 // This is distinct from the accepted planar ObjectClass::Distance_To.
@@ -100,7 +99,7 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,long &param)
                     param=(long)&Map[unknown_slot104()+Cell(3,1)];
                     if (unknown_slot151(18,reinterpret_cast<int *>(&param),sender)==20) {
                         unknown_slot150(24,sender);
-                        if (unknown_slot150(22,sender)!=1) radio->unknown_slot87(Building_Radio_No_Coord_0084ed30,true,true);
+                        if (unknown_slot150(22,sender)!=1) radio->unknown_slot87(unknown_geometry_l,true,true);
                     }
                 } else if (Type->Helipad) {
                     param=(long)this;

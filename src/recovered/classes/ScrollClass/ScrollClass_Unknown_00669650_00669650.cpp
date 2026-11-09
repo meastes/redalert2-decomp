@@ -10,21 +10,19 @@
 #include "shared/id_source.hpp"
 #include "shared/special.hpp"
 #include "shared/tactical.hpp"
-extern Cell unknown_cell_ab7068;
-extern CoordStruct unknown_coord_ab7088;
-// @ref ?unknown_cell_ab7068@@3VCell@@A=00ab7068
-// @ref ?unknown_coord_ab7088@@3UCoordStruct@@A=00ab7088
 // @ref ?Get_Selectable_Object_006aa990@Tactical@@QAEPAVObjectClass@@ABUPoint2D@@@Z=006aa990
+// @ref _unknown_geometry_k=00ab7068
+// @ref _unknown_geometry_l=00ab7088
 bool ScrollClass::Unknown_00669650(Point2D const &xy,Cell &cell,CoordStruct &coord,ObjectClass *&object,bool &fog,bool &shadow)
 {
     object=0;
-    cell=unknown_cell_ab7068;
-    coord=unknown_coord_ab7088;
+    cell=unknown_geometry_k;
+    coord=unknown_geometry_l;
     fog=false;
     shadow=false;
     if (xy.X<0 || xy.Y<0) return false;
-    cell = unknown_tactical_83996c ? unknown_tactical_83996c->Unknown_006A6BD0(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_cell_ab7068;
-    coord = unknown_tactical_83996c ? unknown_tactical_83996c->Unknown_006A2B10(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_coord_ab7088;
+    cell = unknown_tactical_83996c ? unknown_tactical_83996c->Unknown_006A6BD0(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_k;
+    coord = unknown_tactical_83996c ? unknown_tactical_83996c->Unknown_006A2B10(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_l;
     if (unknown_tactical_83996c && Map.Unknown_0054AB00(coord)) {
         UnknownCoord434820 adjusted = UnknownCoord434820(cell,Map.Unknown_0055A280(UnknownCoord434820(cell)));
         shadow=Map.Unknown_00568140(adjusted) && unknown_b263d8!=0;

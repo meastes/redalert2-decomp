@@ -19,7 +19,6 @@
 #include "shared/abstract.hpp"
 extern "C" int __cdecl stricmp(char const *, char const *);
 extern "C" char *__cdecl strncpy(char *, char const *, unsigned);
-extern CoordStruct const Destruction_No_Coord_0084ed30;
 extern bool unknown_flag_8339e8;
 void __fastcall Building_Refresh_Fence_Cell_0044e440(Cell const &origin);
 void __fastcall Building_Refresh_House_Buildings_0044fa40(HouseClass *house);
@@ -29,12 +28,12 @@ public:
     ObjectClass *Cell_Object(Cell const &cell, Point2D const &offset);
 };
 // @ref ?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z=0049a5b0
-// @ref ?Destruction_No_Coord_0084ed30@@=0084ed30
 // @ref ?unknown_flag_8339e8@@3_NA=008339e8
 // @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
 // @ref _stricmp=00781f20
 // @ref _strncpy=007823d0
 // @ref ?unknown_4444b0@BuildingClass@@QAE_N_N@Z=004444b0
+// @ref _unknown_geometry_l=0084ed30
 bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
 {
     bool ok = unknown_slot101(&Map[*coord], -1, -1, 0, true) == 0;
@@ -246,7 +245,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
 
         if (Type->NaturalParticleSystem != 0 && unknown_25c[2] == 0) {
             CoordStruct sysloc = Type->NaturalParticleLocation;
-            unknown_25c[2] = new ParticleSystemClass(Type->NaturalParticleSystem, sysloc + Position_Coord_004f3f40(), &Map[Position_Coord_004f3f40()], 0, Destruction_No_Coord_0084ed30);
+            unknown_25c[2] = new ParticleSystemClass(Type->NaturalParticleSystem, sysloc + Position_Coord_004f3f40(), &Map[Position_Coord_004f3f40()], 0, unknown_geometry_l);
         }
 
         if (Type == Rules->unknown_78c) {

@@ -19,6 +19,7 @@
 #include "shared/cell.hpp"
 #include "shared/particle_system.hpp"
 #include "shared/surface.hpp"
+// @ref _unknown_geometry_l=0084ed30
 void BuildingClass::Cloaking_AI(int fast)
 {
     if (!Type) return;
@@ -40,10 +41,10 @@ void BuildingClass::Cloaking_AI(int fast)
             unknown_44d2d0(unknown_5bd);
             if (unknown_5bd==0) {
                 unknown_1b8=0;
-                if (!unknown_25c[2] && (Type->NaturalParticleLocation!=Destruction_No_Coord_0084ed30)) {
+                if (!unknown_25c[2] && (Type->NaturalParticleLocation!=unknown_geometry_l)) {
                     CoordStruct offset=Type->NaturalParticleLocation;
                     unknown_25c[2]=new ParticleSystemClass(Type->NaturalParticleSystem,
-                        Position_Coord_00450950(*this)+offset,&Map[Position_Coord_00450950(*this)],0,Destruction_No_Coord_0084ed30);
+                        Position_Coord_00450950(*this)+offset,&Map[Position_Coord_00450950(*this)],0,unknown_geometry_l);
                 }
             }
         }

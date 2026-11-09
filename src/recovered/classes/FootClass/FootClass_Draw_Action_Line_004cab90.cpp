@@ -6,13 +6,12 @@
 #include "shared/surface.hpp"
 #include "shared/hicolor.hpp"
 extern Rect unknown_rect_839630;
-extern int unknown_approach_bridge_height_865f60;
 extern bool const unknown_action_line_pattern_7d81dc[];
 extern "C" __declspec(dllimport) unsigned long __stdcall timeGetTime();
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?unknown_approach_bridge_height_865f60@@3HA=00865f60
 // @ref ?unknown_action_line_pattern_7d81dc@@3QB_NB=007d81dc
 // @ref ??0Rect@@QAE@ABURectPoint2D@@HH@Z=00453e40
+// @ref _unknown_geometry_j=00865f60
 
 // DSurface's RGB overload (TibSun dsurface.h), expressed beside the existing
 // free three-channel overload. It performs the real channel conversion.
@@ -49,7 +48,7 @@ void FootClass::unknown_4cab90()
             end_coord = unknown_478[unknown_478.Count() - 1]->Center_Coord();
         }
         if (Map.Unknown_0054AAB0(Coord_Cell(end_coord)) && (Map[end_coord].unknown_140 & 0x100)) {
-            end_coord.Z = Map.Unknown_0055A280(end_coord) + unknown_approach_bridge_height_865f60;
+            end_coord.Z = Map.Unknown_0055A280(end_coord) + unknown_geometry_j;
         }
     }
     Point2D start;

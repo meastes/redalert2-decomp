@@ -28,7 +28,6 @@ extern bool unknown_ports_read_ab9178;
 extern FirewallSettings unknown_firewall_a71b18;
 extern int unknown_port_pool_a71b28;
 // The "no cell" value the SyncBug cell is compared with (0x00AB71D8).
-extern Cell unknown_cell_none_ab71d8;
 
 // Red Alert's SessionClass::Read_MultiPlayer_Settings: reads the player and serial settings,
 // the init strings, the phone book and the SyncBug settings from RA2.INI.
@@ -269,7 +268,7 @@ void UnknownSessionState::Read_MultiPlayer_Settings()
         unknown_ini_839740.Get_String("SyncBug", "Cell", "0,0", buf, 0x50);
         sscanf(buf, "%d,%d", &x, &y);
         Cell cell(x, y);
-        if (cell != unknown_cell_none_ab71d8) {
+        if (cell != unknown_geometry_k) {
             TrapCell = &Map[cell];
         }
 
@@ -299,7 +298,6 @@ void UnknownSessionState::Read_MultiPlayer_Settings()
 // @ref ?unknown_ports_read_ab9178@@3_NA=00ab9178
 // @ref ?unknown_firewall_a71b18@@3VFirewallSettings@@A=00a71b18
 // @ref ?unknown_port_pool_a71b28@@3HA=00a71b28
-// @ref ?unknown_cell_none_ab71d8@@3VCell@@A=00ab71d8
 // @ref ?unknown_dial_methods_7f320c@@3PAPBDA=007f320c
 // @ref ??_C@_07IBND@RA2?4INI?$AA@=007db8b8
 // @ref ??_C@_08DDKG@PortBase?$AA@=007dbcf0
@@ -344,3 +342,4 @@ void UnknownSessionState::Read_MultiPlayer_Settings()
 // @ref ??_C@_08POMI@?$CFd?0?$CFd?0?$CFd?$AA@=007cf360
 // @ref ??_C@_06JGPH@Target?$AA@=007f34f4
 // @ref ??_C@_05BBIB@?$CFd?0?$CFd?$AA@=007d1f10
+// @ref _unknown_geometry_k=00ab71d8

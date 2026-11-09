@@ -21,12 +21,10 @@ extern "C" char *__cdecl strncpy(char *,char const *,unsigned);
 class Leaf_482e00 { public: void get(); }; // Existing accepted empty original member; receiver unused.
 extern int const Destruction_Facings_007cf660[4];
 extern char const Destruction_Fire_Name_007cf7b8[];
-extern CoordStruct const Destruction_No_Coord_0084ed30;
 // @ref ?Destruction_Adjacent_Coord_00491880@@=00491880
 // @ref ?get@Leaf_482e00@@QAEXXZ=00482e00
 // @ref ?Destruction_Facings_007cf660@@=007cf660
 // @ref ?Destruction_Fire_Name_007cf7b8@@=007cf7b8
-// @ref ?Destruction_No_Coord_0084ed30@@=0084ed30
 // @ref ??_7?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@6B@=0079d0cc
 // @ref ??_7?$VectorClass@PBVParticleSystemTypeClass@@@@6B@=0079d0ac
 // Private source hypothesis: a world-coordinate constructor over the shared three-int layout.
@@ -140,7 +138,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
     if (!unknown_25c[7] && systems.Count()>0 && unknown_slot108()>-10) {
         TechnoTypeClass *type=unknown_slot32();
         UnknownCoord434820 smoke_offset(type->DestroySmokeOffset);
-        unknown_25c[7]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(systems[Random_Pick(0,systems.Count()-1)]),Position_Coord_00450950(*this)+smoke_offset,0,this,Destruction_No_Coord_0084ed30);
+        unknown_25c[7]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(systems[Random_Pick(0,systems.Count()-1)]),Position_Coord_00450950(*this)+smoke_offset,0,this,unknown_geometry_l);
     }
     Strength=0;
     if (forced) unknown_5b0=true;
@@ -155,3 +153,4 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
 // @ref ?ID@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEHABQBVParticleSystemTypeClass@@@Z=00454100
 // @ref ?ID@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEHPBQBVParticleSystemTypeClass@@@Z=00453cf0
 // @ref ?Fetch@?$VectorClass@PBVParticleSystemTypeClass@@@@UBEPBVParticleSystemTypeClass@@H@Z=00453d10
+// @ref _unknown_geometry_l=0084ed30

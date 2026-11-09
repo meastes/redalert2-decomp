@@ -4,8 +4,8 @@
     "id": "population-4341",
     "inventory_sha256": "a1b03d8d4359f17cd961dfd86c92f0787e6cdaace52ee238303b1e88b9effeb7",
     "gaps_sha256": "8ba322497a7c0747637109524718b9f5de4b94b6e276af787b9c9075604d1eca",
-    "historical_population_sha256": "640c68cf18dde3c6c7d652bddf1a1c037467bc346b75cbef0f887f504f5e3c0a",
-    "historical_acceptance_sha256": "bfeabd42b5c2e05fe47cc2a0813bec2bbe5cbe3f6c9b43abda44b28e23790b6b"
+    "historical_population_sha256": "19065a86a89d662c5d87b575abf88d4fc58dc3543f64c6e0ec88ccb2051fe582",
+    "historical_acceptance_sha256": "cdb69585ae9fcabc53d234ea88c7e8f0faa24c411ccf972af3d2e45cb28d6fb3"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10054,7 +10054,8 @@
     "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
     "?unknown_slot67@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
     "__real@8@3fe3c8000000c8000000": 8019992,
-    "?Update_All@RadBeam@@SIXXZ": 6509792
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696
   },
   "regions": [
     {
@@ -13599,7 +13600,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?unknown_cell_ac01e8@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11272680,
           "addend": 0,
           "resolved": 11272680
@@ -13607,7 +13608,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_cell_ac01e8@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11272680,
           "addend": 2,
           "resolved": 11272682
@@ -13661,7 +13662,7 @@
           "resolved": 4292453774
         }
       ],
-      "source_sha256": "581936dd49521ab3910d0f7f80e961405557be5ce042f69fc1c59ff2188a4849",
+      "source_sha256": "8e48ecce4db6e0bf84a5cd52809fe46f1bb025cc598b26e1e46425cf77e4089b",
       "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_unknown_slot42_006de0e0.cpp",
       "population": "population-4341",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

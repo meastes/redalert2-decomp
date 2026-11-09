@@ -51,9 +51,8 @@
 // @ref ?Remove_Crate@MapClass@@QAE_NABVCell@@@Z=0054e6e0
 // @ref ?unknown_7133d0@UnknownTechnoPair@@QBE_NXZ=007133d0
 // @ref ?unknown_713510@UnknownTechnoPair@@QAEX_N@Z=00713510
-// @ref ?unknown_cell_850bd8@@3VCell@@A=00850bd8
+// @ref _unknown_geometry_k=00850bd8
 
-extern Cell unknown_cell_850bd8;
 
 inline int Length3_YZX(CoordStruct const &c)
 {
@@ -89,7 +88,7 @@ bool CellClass::unknown_476cc0(ObjectClass *crate_object)
         if (OverlayTypes[OverlayIndex]->CrateTrigger) {
             if (object->unknown_34 != 0) {
                 Debug_Printf("Springing trigger on crate at %d,%d\n", MapCoords.X, MapCoords.Y);
-                object->unknown_34->Spring(0x31, object, unknown_cell_850bd8, false, 0);
+                object->unknown_34->Spring(0x31, object, unknown_geometry_k, false, 0);
                 if (!object->unknown_7d) {
                     return false;
                 }
@@ -296,7 +295,7 @@ crate_money:
                             return false;
                         }
                         Cell cell = Map.Unknown_005502E0(Fetch_CellID(), goodie_unit->Type->SpeedType, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
-                        if (cell != unknown_cell_850bd8 && goodie_unit->unknown_slot53(&UnknownCellCoord(cell), 0)) {
+                        if (cell != unknown_geometry_k && goodie_unit->unknown_slot53(&UnknownCellCoord(cell), 0)) {
                             if (object->House->Unknown_004F52B0()) {
                                 Voc_Play_At(Rules->CrateUnitSound, Ground_Coord(), 0);
                             }

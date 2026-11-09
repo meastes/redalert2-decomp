@@ -4,8 +4,8 @@
     "id": "population-4197",
     "inventory_sha256": "1ba67ca1cdfd0b5016b9be69ed4fb449707de57643c9207053eb3fe16caf70c0",
     "gaps_sha256": "dc9576559ebc3eee15dcb288d4807e89abbffe9ce2bbb029ce10afefde9f65b4",
-    "historical_population_sha256": "b876cbdbcbdb6dda1620e6d997c10b1885581db54d99d1c4b162dfc9e641c6c5",
-    "historical_acceptance_sha256": "89a09d4a94417f66801b5dd694da603213689ebea0a43b65fd1ef6c6f962de61"
+    "historical_population_sha256": "2a2a5bcc1e734f59a85de3733cf7c1d99c7eda63f112a6fe6bbb3bef1f32f60c",
+    "historical_acceptance_sha256": "5d4f71cd882f0aba9d3de3bceafeaf07cbad6626f3576e79301bbeaeea4c6a65"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -11460,7 +11460,41 @@
     "?unknown_tileset_a6cf50@@3HA": 10932048,
     "?unknown_tileset_a52f04@@3HA": 10825476,
     "?unknown_tileset_a6cb78@@3HA": 10931064,
-    "?Land_Type@IsometricTileTypeClass@@QAEHH@Z": 5411584
+    "?Land_Type@IsometricTileTypeClass@@QAEHH@Z": 5411584,
+    "?unknown_slot47@ObjectClass@@UAE_NXZ": 4341136,
+    "??0HashString@@QAE@XZ": 5116208,
+    "?Kind_Of@Tactical@@UBEHXZ": 6997984,
+    "?Size_Of@Tactical@@UBEHXZ": 6998000,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "?Unknown_004798F0@CellClass@@QAEXXZ": 4692208,
+    "?unknown_rgb_ab6841@@3VRGBClass@@A": 11233345,
+    "??0HashString@@QAE@ABV0@@Z": 5116288,
+    "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
+    "?unknown_47a270@CellClass@@QAE_NXZ": 4694640,
+    "?unknown_47c900@CellClass@@QAEXXZ": 4704512,
+    "?Unknown_004712c0@CellClass@@QAEXPAVRGBClass@@0@Z": 4657856,
+    "?unknown_473000@CellClass@@QAEXXZ": 4665344,
+    "??0HashString@@QAE@PBD@Z": 5116224,
+    "??8HashString@@QBE_NABV0@@Z": 5116400,
+    "??9HashString@@QBE_NABV0@@Z": 5116480,
+    "??0SchemeNode@@QAE@PBDPAV?$DynamicVectorClass@PAVColorScheme@@@@@Z": 6304256,
+    "??1SchemeNode@@QAE@XZ": 6304320,
+    "?Unknown_0047CC10@CellClass@@QAEXXZ": 4705296,
+    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "?OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z": 7739536,
+    "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z": 7361520,
+    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "?unknown_slot67@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
+    "?Update_All@RadBeam@@SIXXZ": 6509792
   },
   "regions": [
     {
@@ -15724,7 +15758,7 @@
         {
           "offset": 665,
           "kind": 6,
-          "symbol": "?unknown_cell_ac0050@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11272272,
           "addend": 0,
           "resolved": 11272272
@@ -15732,7 +15766,7 @@
         {
           "offset": 678,
           "kind": 6,
-          "symbol": "?unknown_cell_ac0050@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11272272,
           "addend": 2,
           "resolved": 11272274
@@ -15794,7 +15828,7 @@
           "resolved": 4294643673
         }
       ],
-      "source_sha256": "a8a8053c3555d15730b3ea45ee4f0787281833393408cd9440877a64745ac528",
+      "source_sha256": "1907b2836076142bf0ad875baa6ff86aab547ebb8a6599f62806ad87629e0960",
       "source": "src/recovered/classes/TeamClass/TeamClass_constructor_006b7430.cpp",
       "population": "population-4197",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -16218,7 +16252,7 @@
         {
           "offset": 205,
           "kind": 6,
-          "symbol": "?unknown_cell_ac0050@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11272272,
           "addend": 0,
           "resolved": 11272272
@@ -16248,7 +16282,7 @@
           "resolved": 8806768
         }
       ],
-      "source_sha256": "6102457c5ef3a2c9eb83390ae63fc2a5b13bcd13de1af7f69b5428b376302666",
+      "source_sha256": "e9b5b1fce5b8443e5cf6f3feb95cf5bff982f13b442b8014bffd99d2d8f614f3",
       "source": "src/recovered/classes/TeamClass/TeamClass_unknown_func_6b8bb0_006b8bb0.cpp",
       "population": "population-4197",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

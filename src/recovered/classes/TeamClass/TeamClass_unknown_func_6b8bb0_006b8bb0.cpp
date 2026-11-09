@@ -11,10 +11,9 @@
 // @ref ?Total_Amount@TaskForceClass@@QBEHXZ=006b6b30
 // @ref ?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z=006b3df0
 // @ref ?unknown_tags_866160@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00866160
-// @ref ?unknown_cell_ac0050@@3VCell@@A=00ac0050
+// @ref _unknown_geometry_k=00ac0050
 
 extern DynamicVectorClass<TagClass *> unknown_tags_866160;      // 0x00866160
-extern Cell unknown_cell_ac0050;
 
 bool TeamClass::unknown_func_6b8bb0()
 {
@@ -52,7 +51,7 @@ bool TeamClass::unknown_func_6b8bb0()
             if (TargetNotAssigned) {
                 for (int index = unknown_tags_866160.Count() - 1; index >= 0; index--) {
                     TagClass *tag = unknown_tags_866160[index];
-                    if (tag->Spring(0x17, 0, unknown_cell_ac0050, 0, 0) && unknown_tags_866160.Count() == 0) {
+                    if (tag->Spring(0x17, 0, unknown_geometry_k, 0, 0) && unknown_tags_866160.Count() == 0) {
                         break;
                     }
                 }

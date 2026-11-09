@@ -14,15 +14,14 @@
 #include "shared/crt_memory.hpp"
 // @ref ?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A=00866178
 // @ref ?Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ=006bfa90
-// @ref ?unknown_cell_ac0050@@3VCell@@A=00ac0050
 // @ref ??0AbstractClass@@QAE@XZ=0040ff10
 // @ref ??0TagClass@@QAE@PAVTagTypeClass@@@Z=006b3870
 // @ref ??0ScriptClass@@QAE@PAVScriptTypeClass@@@Z=00668730
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_objects_ac0d30@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A=00ac0d30
+// @ref _unknown_geometry_k=00ac0050
 
-extern Cell unknown_cell_ac0050;
 extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0cb0;
 extern DynamicVectorClass<AbstractClass *> unknown_objects_ac0d30;
 
@@ -70,7 +69,7 @@ TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
         if (Owner != 0 && Class->IsBaseDefense) {
             Owner->unknown_555c++;
         }
-        if (Class->Waypoint_Location() != unknown_cell_ac0050) {
+        if (Class->Waypoint_Location() != unknown_geometry_k) {
             unknown_34 = (AbstractClass *)&Map[Class->Waypoint_Location()];
         }
         Class->unknown_d4++;

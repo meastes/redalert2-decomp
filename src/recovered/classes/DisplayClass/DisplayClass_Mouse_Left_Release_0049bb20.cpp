@@ -7,7 +7,6 @@
 // @ref ?Unknown_006F7020@@YIXPBD@Z=006f7020
 // @ref ?Unknown_Click_End_006F6770@@YAXXZ=006f6770
 // @ref ?Unknown_Planning_00615DE0@@YI_NXZ=00615de0
-// @ref ?unknown_height_step_852948@@3HA=00852948
 // @ref ??_R0?AVObjectTypeClass@@@8=007ce9c8
 #include "shared/display.hpp"
 #include "shared/map_view.hpp"
@@ -28,7 +27,6 @@ bool __fastcall Planning_Can_Add();
 void __cdecl Clear_Selected_Objects_00482bc0();
 void __fastcall Unknown_0049C3F0(ObjectClass *object);
 extern bool unknown_flag_a40d45;
-extern int unknown_height_step_852948;
 
 void DisplayClass::unknown_slot48(CoordStruct const &coord, Cell const &cell, ObjectClass *object, int action, bool small_mouse)
 {
@@ -109,7 +107,7 @@ void DisplayClass::unknown_slot48(CoordStruct const &coord, Cell const &cell, Ob
                 }
             }
             if (action == 0x3d) {
-                CoordStruct point = cell.As_Coord(Map[cell].unknown_11b * unknown_height_step_852948);
+                CoordStruct point = cell.As_Coord(Map[cell].unknown_11b * unknown_geometry_g);
                 unknown_object_84e8d0.Unknown_0042E740(point);
             } else if (action != 0 && action != 7) {
                 bool allowed = true;
@@ -131,7 +129,7 @@ void DisplayClass::unknown_slot48(CoordStruct const &coord, Cell const &cell, Ob
                         }
                     } else if (action == 0x3c) {
                         if (unknown_int_a3d548 == 0) {
-                            CoordStruct point = cell.As_Coord(Map[cell].unknown_11b * unknown_height_step_852948);
+                            CoordStruct point = cell.As_Coord(Map[cell].unknown_11b * unknown_geometry_g);
                             unknown_object_84e8d0.Unknown_0042E370(unknown_player_a35db4->ArrayIndex, point, -1);
                         }
                         Map.Unknown_0049CAC0(0);
@@ -159,3 +157,4 @@ void DisplayClass::unknown_slot48(CoordStruct const &coord, Cell const &cell, Ob
 // @ref ??_C@_0BF@JPJL@EVA_CannotDeployHere?$AA@=007d5ddc
 // @ref ??_R0?AVTechnoTypeClass@@@8=007ce9e8
 // @ref ??_7type_info@@6B@=007b15e4
+// @ref _unknown_geometry_g=00852948

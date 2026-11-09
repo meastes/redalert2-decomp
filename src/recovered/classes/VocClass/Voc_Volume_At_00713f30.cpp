@@ -10,8 +10,6 @@
 #include "shared/tool_tip.hpp"
 #include "shared/crt_memory.hpp"
 // The cell 0x00713F30 never plays a 0x800-flagged sound in (0x00AD07C0; hypothesis).
-extern Cell unknown_voc_cell_ad07c0;
-// @ref ?unknown_voc_cell_ad07c0@@3VCell@@A=00ad07c0
 // @ref ?Audio_Event_Type_Range@@YIHPAUAudioEventType@@@Z=00405110
 // @ref ?Audio_Event_Type_Min_Volume@@YIMPAUAudioEventType@@@Z=00405120
 // @ref ?Audio_Event_Type_Flags@@YIIPAUAudioEventType@@@Z=00405140
@@ -19,6 +17,7 @@ extern Cell unknown_voc_cell_ad07c0;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref __real@8@3ffaccccccccccccd000=007a10f8
 // @ref __real@4@400c8000000000000000=007ae9c8
+// @ref _unknown_geometry_k=00ad07c0
 
 float __fastcall Voc_Volume_At(CoordStruct const &coord, int *pan, AudioEventType *type)
 {
@@ -31,7 +30,7 @@ float __fastcall Voc_Volume_At(CoordStruct const &coord, int *pan, AudioEventTyp
     unsigned int flags = Audio_Event_Type_Flags(type);
     if (flags & 0x800) {
         Cell cell = Cell(coord.X / 256, coord.Y / 256);
-        if (cell == unknown_voc_cell_ad07c0) {
+        if (cell == unknown_geometry_k) {
             return 0;
         }
         if ((Map[cell].unknown_12c & 0x18) == 0) {

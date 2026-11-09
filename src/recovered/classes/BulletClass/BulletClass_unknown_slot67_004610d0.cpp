@@ -9,14 +9,13 @@
 #include "shared/color_scheme.hpp"
 extern ConvertClass *bullet_normal_drawer;
 extern ConvertClass *bullet_anim_drawer;
-extern int bullet_bridge_height;
 Matrix3D __fastcall Bullet_Isometric_View();
 int __fastcall Bullet_Height_Pixel(int height);
 // @ref ?bullet_normal_drawer@@3PAVConvertClass@@A=008323c4
 // @ref ?bullet_anim_drawer@@3PAVConvertClass@@A=008323c0
-// @ref ?bullet_bridge_height@@3HA=00850338
 // @ref ?Bullet_Isometric_View@@YI?AVMatrix3D@@XZ=00717f90
 // @ref ?Bullet_Height_Pixel@@YIHH@Z=006a2970
+// @ref _unknown_geometry_j=00850338
 void BulletClass::unknown_slot67(Point2D const &point, Rect const &clip)
 {
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Unknown_005683C0(CoordStruct(Coord))) return;
@@ -34,9 +33,9 @@ void BulletClass::unknown_slot67(Point2D const &point, Rect const &clip)
     int shape = unknown_slot116();
     int height_agl = unknown_slot108();
     int ground_height = Map.Unknown_0055A280(CoordStruct(Coord));
-    if (!unknown_79 && (Map[CoordStruct(Coord)].unknown_140 & 0x100) && height_agl >= bullet_bridge_height) {
-        height_agl -= bullet_bridge_height;
-        ground_height += bullet_bridge_height;
+    if (!unknown_79 && (Map[CoordStruct(Coord)].unknown_140 & 0x100) && height_agl >= unknown_geometry_j) {
+        height_agl -= unknown_geometry_j;
+        ground_height += unknown_geometry_j;
     }
     if (height_agl > 0 && Type->Shadow) {
         Point2D shadow = point + Point2D(0, Bullet_Height_Pixel(height_agl));

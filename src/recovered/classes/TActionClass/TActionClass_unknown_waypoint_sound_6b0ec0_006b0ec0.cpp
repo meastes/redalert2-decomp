@@ -10,7 +10,7 @@
 // @ref ?Waypoint_Coord@UnknownIDSource@@QBE?AUCoordStruct@@H@Z=006631c0
 // @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?Cell_Terrain@CellClass@@QBEPAVObjectClass@@_N@Z=004717e0
-// @ref ?unknown_cell_abfdb0@@3VCell@@A=00abfdb0
+// @ref _unknown_geometry_k=00abfdb0
 
 bool TActionClass::unknown_waypoint_sound_6b0ec0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {

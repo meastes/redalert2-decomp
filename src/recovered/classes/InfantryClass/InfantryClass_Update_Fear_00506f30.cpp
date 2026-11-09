@@ -2,8 +2,7 @@
 #include "shared/infantry.hpp"
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
-// @ref ?unknown_coord_a410f8@@3UCoordStruct@@A=00a410f8
-extern CoordStruct unknown_coord_a410f8;
+// @ref _unknown_geometry_l=00a410f8
 inline void Infantry_Decay_Fear(int &fear)
 {
     --fear;
@@ -30,7 +29,7 @@ void InfantryClass::unknown_506f30()
     }
     if (Type->Fraidycat && unknown_5bc > 50 && !unknown_5090d0() && !unknown_7a) {
         if (!Locomotor.Checked()->Is_Moving() && unknown_494 == 0) {
-            unknown_slot87(unknown_coord_a410f8, true, false);
+            unknown_slot87(unknown_geometry_l, true, false);
         }
     }
 }

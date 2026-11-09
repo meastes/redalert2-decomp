@@ -10,8 +10,7 @@
 // @ref ?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
 // @ref ?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z=006b3dd0
 // @ref ?Unknown_00569090@MapClass@@QAE_NPAVCell@@@Z=00569090
-// @ref ?unknown_cell_abfdb0@@3VCell@@A=00abfdb0
-extern Cell unknown_cell_abfdb0;   // 0x00ABFDB0
+// @ref _unknown_geometry_k=00abfdb0
 
 bool TActionClass::unknown_func_6b14d0(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
@@ -31,7 +30,7 @@ bool TActionClass::unknown_func_6b14d0(HouseClass *house, ObjectClass *object, T
             }
         }
     } while (again);
-    if (cell->X != unknown_cell_abfdb0.X || cell->Y != unknown_cell_abfdb0.Y) {
+    if (cell->X != unknown_geometry_k.X || cell->Y != unknown_geometry_k.Y) {
         bool visible = Map.Unknown_00569090(cell);
         int tries = 3;
         while (!visible && tries-- > 0) {

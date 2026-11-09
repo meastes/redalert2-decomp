@@ -39,7 +39,6 @@
 #include "shared/rules.hpp"
 #include "shared/vox_class.hpp"
 namespace seed_00496ce0 { void __fastcall FUN_00496ce0(int timer); }
-extern CoordStruct unknown_coord_ac0188;
 extern double const unknown_random_scale_79c280;
 // @ref ?Process@FlasherClass@@QAE_NXZ=004bbf00
 // @ref ?FUN_00496ce0@seed_00496ce0@@YIXH@Z=00496ce0
@@ -47,7 +46,7 @@ extern double const unknown_random_scale_79c280;
 // @ref ??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z=0060aa70
 // @ref ??_C@_0BB@KGAO@EVA_UnitPromoted?$AA@=007f7140
 // @ref ?unknown_random_scale_79c280@@3NB=0079c280
-// @ref ?unknown_coord_ac0188@@3UCoordStruct@@A=00ac0188
+// @ref _unknown_geometry_l=00ac0188
 static inline bool Is_Foot(AbstractClass const *object)
 {
     bool foot = false;
@@ -188,7 +187,7 @@ void TechnoClass::AI()
         if (!unknown_25c[1] && sparks.Count()>0) {
             double probability=Health_Ratio()<Rules->unknown_1370 ? Rules->ConditionRedSparkingProbability:Rules->ConditionYellowSparkingProbability;
             if (double(unknown_id_source_a3d290->Random()(0,0x7ffffffe))*unknown_random_scale_79c280<probability) {
-                unknown_25c[1]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(sparks[unknown_id_source_a3d290->Random()(0,sparks.Count()-1)]),unknown_slot32()->Damage_Smoke_Offset()+Center_Coord(),0,this,unknown_coord_ac0188);
+                unknown_25c[1]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(sparks[unknown_id_source_a3d290->Random()(0,sparks.Count()-1)]),unknown_slot32()->Damage_Smoke_Offset()+Center_Coord(),0,this,unknown_geometry_l);
             }
         }
     }

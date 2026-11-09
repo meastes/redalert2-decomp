@@ -4,8 +4,8 @@
     "id": "population-4193",
     "inventory_sha256": "d8d29c41fad96ba60556b6fd7506bc2be8f18395f484789539d5dc0b807da69e",
     "gaps_sha256": "29c4e739db27923f9ef73bf9c739bb806ec0dc53463a1ddba8d63aa9d3b4f638",
-    "historical_population_sha256": "1b366bf11d6193a84cdc41f4108da6fc7f7a6c36a6496cb3ae6ceb932bc4bda3",
-    "historical_acceptance_sha256": "71107143b83f8d673bee12a185d8b46939b8a700fe5cd148afe824308aaa3516"
+    "historical_population_sha256": "1027adc085b66569d34feb731bf30223ef45c38a07aeaac63ac59ff32655d876",
+    "historical_acceptance_sha256": "bfab6e4804c45965f827858113f3a27ea39977210587e2e27d318b30dabab5ec"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -13987,7 +13987,38 @@
     "??_7MechLocomotionClass@@6B@": 8020340,
     "??_EMechLocomotionClass@@UAEPAXI@Z": 5845776,
     "??_ETeleportLocomotionClass@@UAEPAXI@Z": 7216112,
-    "??_EMouseClass@@UAEPAXI@Z": 4247904
+    "??_EMouseClass@@UAEPAXI@Z": 4247904,
+    "?unknown_slot47@ObjectClass@@UAE_NXZ": 4341136,
+    "?Kind_Of@Tactical@@UBEHXZ": 6997984,
+    "?Size_Of@Tactical@@UBEHXZ": 6998000,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "??H?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 6941936,
+    "??K?$TPoint3D@H@@QBE?BV0@H@Z": 7182192,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@IPBQAUButtonFadeEffect@@@Z": 4891152,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@IPBQAUCrossDissolveEffect@@@Z": 4891232,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
+    "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
+    "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 4409584,
+    "?unknown_rgb_ab6841@@3VRGBClass@@A": 11233345,
+    "?Debug_Draw_Occupier_Links@Tactical@@QAEXXZ": 6993936,
+    "?Draw_Objects@Tactical@@QAEX_N@Z": 6984688,
+    "?Draw_Tile_Shadows@Tactical@@QAEXHABVRect@@@Z": 6981792,
+    "?unknown_slot170@BuildingClass@@UAE?AUUnknownFacingDir@@PAVAbstractClass@@@Z": 4437984,
+    "?Debug_Draw_Occupation_Flags@Tactical@@QAEXXZ": 6994976,
+    "?Plan_Naval_Yard_Path_004eecb0@HouseClass@@QAEXH@Z": 5172400,
+    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944,
+    "?Audio_Event_Is_Paused@@YIHPAUAudioEvent@@@Z": 4215968,
+    "_Audio_Event_List": 8588960,
+    "?Audio_Events_Free_Stopped@@YAXXZ": 4214944,
+    "?Audio_Ring_Is_Full@@YIHPAUAudioStream@@@Z": 4230272,
+    "?Audio_DS_Channel_Start@@YIJPAUAudioChannel@@@Z": 4235872,
+    "?Audio_Event_Serial@@3HA": 8178652
   },
   "regions": [
     {
@@ -14048,7 +14079,7 @@
           "resolved": 11271608
         }
       ],
-      "source_sha256": "4d710dcdef3a341071f62f8655153dece9927c0af2351fca1f850e0078a5146d",
+      "source_sha256": "2910f516e0b5ea81c828369a984b53db8d66e0ee13853f3f0db4fffae24233d8",
       "source": "src/recovered/header_statics/006ad100/HeaderStatics_diagonal_init_006ad100.cpp",
       "population": "population-4193",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -16373,7 +16404,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 0,
           "resolved": 11271600
@@ -16395,7 +16426,7 @@
           "resolved": 10750640
         }
       ],
-      "source_sha256": "0d03612c04c2aa2467977cd2741b863f3e22ce6341de3f05af10d6afb8d9c695",
+      "source_sha256": "981c51da0ab1787adc15744d8aca358219cd86547051a9e772872a6cd7772963",
       "source": "src/recovered/classes/TActionClass/TActionClass_unknown_func_6b1ec0_006b1ec0.cpp",
       "population": "population-4193",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -21074,7 +21105,7 @@
         {
           "offset": 160,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 0,
           "resolved": 11271600
@@ -21082,7 +21113,7 @@
         {
           "offset": 173,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 2,
           "resolved": 11271602
@@ -21160,7 +21191,7 @@
           "resolved": 4294908408
         }
       ],
-      "source_sha256": "b8789677fee097ef08547a62c391129d45431fdb2d388dcbcd8cf32367df32ff",
+      "source_sha256": "d04b5283416ab97449acc86b3ddba465c2b23eb69fddabbc37b1bad7bb59df36",
       "source": "src/recovered/classes/TActionClass/TActionClass_unknown_func_6b14d0_006b14d0.cpp",
       "population": "population-4193",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -22776,7 +22807,7 @@
         {
           "offset": 56,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 0,
           "resolved": 11271600
@@ -22784,7 +22815,7 @@
         {
           "offset": 65,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 2,
           "resolved": 11271602
@@ -22822,7 +22853,7 @@
           "resolved": 4292610357
         }
       ],
-      "source_sha256": "bc248839bc4e15b5a87232d7904973b658eec59115745086bb1a0381cf9836bf",
+      "source_sha256": "fe2c9d427e445f9797af9ea33661b6533a7c358d3a181f3cfe0627715d6b7912",
       "source": "src/recovered/classes/TActionClass/TActionClass_Building_Or_Terrain_At_006b0e40.cpp",
       "population": "population-4193",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -22867,7 +22898,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 0,
           "resolved": 11271600
@@ -22875,7 +22906,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 2,
           "resolved": 11271602
@@ -22929,7 +22960,7 @@
           "resolved": 406378
         }
       ],
-      "source_sha256": "adbedc5cfda9bdfdfdef38d78d3a190c851c5e8857f0e0761296fa56320b46d5",
+      "source_sha256": "6a02232a2aaaf9b90b7746b9cd92822d1baf72351a11d52ed9b55607bd48ec0e",
       "source": "src/recovered/classes/TActionClass/TActionClass_unknown_waypoint_sound_6b0f90_006b0f90.cpp",
       "population": "population-4193",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -27684,7 +27715,7 @@
         {
           "offset": 5862,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 0,
           "resolved": 11271600
@@ -29016,7 +29047,7 @@
         {
           "offset": 80,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 0,
           "resolved": 11271600
@@ -29024,7 +29055,7 @@
         {
           "offset": 107,
           "kind": 6,
-          "symbol": "?unknown_cell_abfdb0@@3VCell@@A",
+          "symbol": "_unknown_geometry_k",
           "target": 11271600,
           "addend": 2,
           "resolved": 11271602
@@ -29078,7 +29109,7 @@
           "resolved": 406292
         }
       ],
-      "source_sha256": "e1ddc94218286fc100f6fc55a13821c2aecf7839729d0823fba259be5b95fd43",
+      "source_sha256": "aa76bd6bbeb554e8980fe78f60bcd1811d6f3080930ca5cfc1194a67d40909be",
       "source": "src/recovered/classes/TActionClass/TActionClass_unknown_waypoint_sound_6b0ec0_006b0ec0.cpp",
       "population": "population-4193",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

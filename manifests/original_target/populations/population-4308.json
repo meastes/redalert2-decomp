@@ -4,8 +4,8 @@
     "id": "population-4308",
     "inventory_sha256": "28bab2ff6f938732e26c3c3e106d505fbfd347129ca0798b377d5169cd273454",
     "gaps_sha256": "16df03ceb020759ceabbf73d38fb2b43953036ef48754f843c18c81d084c4e9b",
-    "historical_population_sha256": "5a9c2ce6a43fe00a8fb3c74c730f51adaf405f7f285bc12bf3a3f7e7015b2969",
-    "historical_acceptance_sha256": "77d908b80a80e4c69f7e06d8cb45e4253aa6219478f43054f296583d9af1c66f"
+    "historical_population_sha256": "53e2d8767990c3feacad9d7cced2b97c26eeaadd43cbb7cdf20c74e37087b895",
+    "historical_acceptance_sha256": "e9eed1fdad7bc14293fe480c2a80c5471444107334807f33efaa7077a1b16e7f"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -10714,7 +10714,10 @@
     "?unknown_slot67@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
     "__real@8@3fe3c8000000c8000000": 8019992,
     "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
-    "?Update_All@RadBeam@@SIXXZ": 6509792
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "?Kind_Of@Tactical@@UBEHXZ": 6997984,
+    "?Size_Of@Tactical@@UBEHXZ": 6998000,
+    "??1Tactical@@UAE@XZ": 6956816
   },
   "regions": [
     {
@@ -15351,7 +15354,7 @@
         {
           "offset": 602,
           "kind": 6,
-          "symbol": "?bullet_bridge_height@@3HA",
+          "symbol": "_unknown_geometry_j",
           "target": 8717112,
           "addend": 0,
           "resolved": 8717112
@@ -15461,7 +15464,7 @@
           "resolved": 252483
         }
       ],
-      "source_sha256": "8c78dde6a0145b6225744b6f4e841cc457c33a75fe3ee806888b7099db563d59",
+      "source_sha256": "cf334d940012561ceaa0a7686617a3ed15f36aad3ec4481f6cdcfb3dc1839e4b",
       "source": "src/recovered/classes/BulletClass/BulletClass_unknown_slot67_004610d0.cpp",
       "population": "population-4308",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

@@ -7,12 +7,11 @@
 #include "shared/object.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_cell_ac01e8@@3VCell@@A=00ac01e8
 // @ref ?Unknown_004718B0@UnknownPlacementCellView@@QAE_NHPBVTechnoTypeClass@@PAVHouseClass@@@Z=004718b0
 // @ref ?Unknown_00478760@UnknownPlacementCellView@@QAE_NH_N0HHH0@Z=00478760
+// @ref _unknown_geometry_k=00ac01e8
 
 // The cell value meaning "no cell" (0x00AC01E8).
-extern Cell unknown_cell_ac01e8;
 
 // Member-wise sum of two cells: shared/coord.hpp.
 
@@ -24,7 +23,7 @@ struct UnknownBuildingTypeBF0View {
 
 bool TechnoTypeClass::unknown_slot42(Cell const &cell, HouseClass *house) const
 {
-    if (cell == unknown_cell_ac01e8) {
+    if (cell == unknown_geometry_k) {
         return false;
     }
     Cell const *offset = unknown_slot36(1);

@@ -15,18 +15,16 @@
 #include "shared/fast_math.hpp"
 extern "C" GUID const CLSID_JumpjetLocomotionClass;
 extern int const unknown_approach_angles_7d8178[25];
-extern int unknown_approach_bridge_height_865f60;
-extern Cell const unknown_approach_none_865f00;
 // @ref ?Unknown_00568ED0@MapClass@@QAE?AVCell@@ABV2@0@Z=00568ed0
 // @ref __real@8@40078cccccccccccd000=007a17c8
 // @ref __real@8@4006b333333333333000=007a17c0
 // @ref __real@8@4006ccccccccccccd000=007a17b8
 // @ref _CLSID_JumpjetLocomotionClass=007a2000
 // @ref ?unknown_approach_angles_7d8178@@3QBHB=007d8178
-// @ref ?unknown_approach_bridge_height_865f60@@3HA=00865f60
-// @ref ?unknown_approach_none_865f00@@3VCell@@B=00865f00
 // @ref ?Release_Held@?$UnknownComPtr@UIPersist@@$1?unknown_uuid_IPersist_7cf208@@3UGUID@@B@@QAEXXZ=004a4d00
 // @ref ?Query@?$UnknownComPtr@UIPersist@@$1?unknown_uuid_IPersist_7cf208@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z=00454bf0
+// @ref _unknown_geometry_j=00865f60
+// @ref _unknown_geometry_k=00865f00
 
 template<class Interface, GUID const *iid>
 HRESULT UnknownComPtr<Interface,iid>::Query(UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> const &other)
@@ -168,7 +166,7 @@ void FootClass::unknown_slot304()
             trial_position=CoordStruct(Approach_Move_Coord_004c4c30(target_position,angle.Snap_To_256(),floating_radius).As_Cell(),0);
             if (require_deploy_cell && !Map[trial_position].unknown_47cdd0()) continue;
             trial_position.Z=Map.Unknown_0055A280(trial_position);
-            if (Map[trial_position].unknown_140&0x100) trial_position.Z+=unknown_approach_bridge_height_865f60;
+            if (Map[trial_position].unknown_140&0x100) trial_position.Z+=unknown_geometry_j;
             if (!unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)) continue;
             trial_cell=trial_position.As_Cell();
             if (!Map.Unknown_0055A660(trial_cell,true)) continue;
@@ -222,7 +220,7 @@ void FootClass::unknown_slot304()
             Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,unknown_slot46(0)),movement_zone,
             (Map[trial_cell].unknown_140&0x100)!=0,Point2D(1,1),false,true,false,false,Cell(0,0),0);
         unknown_slot220(0);
-        if (trial_cell!=unknown_approach_none_865f00) Assign_Destination(&Map[trial_cell],true);
+        if (trial_cell!=unknown_geometry_k) Assign_Destination(&Map[trial_cell],true);
         else Assign_Destination(0,true);
     }
     }

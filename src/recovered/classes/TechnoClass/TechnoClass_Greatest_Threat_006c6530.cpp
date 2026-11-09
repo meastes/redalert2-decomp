@@ -25,11 +25,10 @@
 #define VECTOR_IMPLEMENT_DYNAMIC_ADD
 #include "shared/vector_class.hpp"
 extern int unknown_target_scan_a40be4;
-extern CoordStruct unknown_coord_ac0188;
 // @ref ?unknown_target_scan_a40be4@@3HA=00a40be4
-// @ref ?unknown_coord_ac0188@@3UCoordStruct@@A=00ac0188
 // @ref ?Unknown_004128A0@UnknownTracker839EA0@@QAEXPAVCellClass@@H@Z=004128a0
 // @ref ?Fetch_Next_004134e0@UnknownTracker839EA0@@QAEPAVTechnoClass@@XZ=004134e0
+// @ref _unknown_geometry_l=00ac0188
 AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord, bool only_enemy)
 {
     ObjectClass *best_object=0;
@@ -79,7 +78,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
             TechnoClass *object=unknown_tracker_839ea0.Fetch_Next_004134e0();
             while (object) {
                 int value=0;
-                if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->unknown_74 && object->unknown_slot29()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && unknown_6c5570(method,air_mask,range,object,&value,-1,&unknown_coord_ac0188)) {
+                if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->unknown_74 && object->unknown_slot29()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && unknown_6c5570(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
                     if (unknown_slot32()->DistributedFire) {
                         unknown_3a8.Add(object);
                         unknown_390.Add(value);
@@ -157,7 +156,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
             for (index=0;index<Aircraft.Count();++index) {
                 TechnoClass *object=Aircraft[index];
                 int value=0;
-                if (!House->Is_Ally(object) && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(object->House)) && unknown_6c5570(method,mask,-1,object,&value,-1,&unknown_coord_ac0188) && value>best_value) { best_object=object;best_value=value; }
+                if (!House->Is_Ally(object) && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(object->House)) && unknown_6c5570(method,mask,-1,object,&value,-1,&unknown_geometry_l) && value>best_value) { best_object=object;best_value=value; }
             }
         }
         if (method&0x10) mask|=4;

@@ -3,12 +3,11 @@
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 #include "shared/crt_memory.hpp"
-extern int unknown_path_level_scale_84e800;
-// @ref ?unknown_path_level_scale_84e800@@=0084e800
+// @ref _unknown_geometry_g=0084e800
 ObjectClass *UnknownPathEstimator::Unknown_00428950(Cell const &cell,int level)
 {
     CoordStruct destination=Cell_Coord(cell);
-    destination.Z=level*unknown_path_level_scale_84e800;
+    destination.Z=level*unknown_geometry_g;
     for(int y=-2;y<3;++y) {
         for(int x=-2;x<3;++x) {
             CellClass &neighbor=Map[Cell(x,y)+cell];

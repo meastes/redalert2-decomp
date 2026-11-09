@@ -6,16 +6,15 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ??0InfantryClass@@QAE@PAVInfantryTypeClass@@PAVHouseClass@@@Z=004ff640
 // @ref ?Closest_Free_Spot@UnknownPlacementCellView@@QBE?AUCoordStruct@@ABU2@_N1@Z=004764b0
-// @ref ?unknown_invalid_coord_a41170@@3UCoordStruct@@B=00a41170
+// @ref _unknown_geometry_l=00a41170
 
 // The "no coordinate" value (0x00A41170; hypothesis).
-extern CoordStruct const unknown_invalid_coord_a41170;
 
 // Whether a coordinate is not the "no coordinate" value.
 static inline bool Is_Valid(CoordStruct const &coord)
 {
-    return coord.X != unknown_invalid_coord_a41170.X || coord.Y != unknown_invalid_coord_a41170.Y
-        || coord.Z != unknown_invalid_coord_a41170.Z;
+    return coord.X != unknown_geometry_l.X || coord.Y != unknown_geometry_l.Y
+        || coord.Z != unknown_geometry_l.Z;
 }
 
 bool InfantryTypeClass::unknown_slot32(Cell const &cell, HouseClass *house) const
