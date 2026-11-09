@@ -24,28 +24,12 @@ void RadSiteCell::Unknown_0047CEA0(double level)
     reinterpret_cast<CellClass *>(this)->unknown_f0 += level;
 }
 
-// 0x00422690 AnimClass (anim.hpp): stores +0x160 (the PSI warning's house; natively
-// a house token, below). Reached by the nuke's launch (0x00438B80).
+// 0x00422690 AnimClass (anim.hpp): stores +0x160 (the PSI warning's house).
+// Reached by the nuke's launch (0x00438B80).
 #include "shared/anim.hpp"
-void AnimClass::unknown_func_422690(int value)
+void AnimClass::unknown_func_422690(HouseClass *house)
 {
-    unknown_160 = value;
-}
-
-// Native helpers (not original code; port/fixups.json): a 32-bit field that VC6
-// fills with a house address holds the house's Houses index + 1 instead (0 for
-// none, or a house not in the list), so the reader gets the same house back.
-#include "shared/house.hpp"
-int Native_House_Token(HouseClass const *house)
-{
-    for (int index = 0; house && index < Houses.Count(); index++) {
-        if (Houses[index] == house) return index + 1;
-    }
-    return 0;
-}
-HouseClass *Native_House_From_Token(int token)
-{
-    return token > 0 && token <= Houses.Count() ? Houses[token - 1] : 0;
+    unknown_160 = house;
 }
 
 // 0x0051FC70 (pass-6a decompile): true while the dominator lighting state

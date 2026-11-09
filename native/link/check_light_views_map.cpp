@@ -37,7 +37,7 @@ static_assert(offsetof(OverlayTypeClass, unknown_264) == 0x3B8, "map_techno.hpp 
 static_assert(offsetof(BuildingClass, Type) == 0x518, "map_techno.hpp BuildingClass::Type");
 static_assert(offsetof(HouseTypeClass, House) == 0xC8, "map_techno.hpp HouseTypeClass::House");
 static_assert(offsetof(HouseTypeClass, WallOwner) == 0x1DF, "map_techno.hpp HouseTypeClass::WallOwner");
-static_assert(offsetof(AnimClass, unknown_177) == 0x1D7, "map_techno.hpp AnimClass::unknown_177 (anim.hpp: 0x1D7; Scout1111 view_layouts.json)");
-static_assert(sizeof(AnimClass) == 0x230, "map_techno.hpp sizeof(AnimClass) (anim.hpp: 0x230)");
+static_assert(offsetof(AnimClass, unknown_177) == 0x1DF, "map_techno.hpp AnimClass::unknown_177 (anim.hpp: 0x1DF; Scout1111 view_layouts.json, Scout1186 +0x160 HouseClass *)");
+static_assert(sizeof(AnimClass) == 0x238, "map_techno.hpp sizeof(AnimClass) (anim.hpp: 0x238)");
 static_assert(offsetof(OverlayClass, Class) == 0xE0, "map_overlay.hpp OverlayClass::Class");
 static_assert(sizeof(ObjectClass) == 0xE0, "map_techno.hpp sizeof(ObjectClass) (object.hpp: 0xE0; AnimClass's StageClass base)");

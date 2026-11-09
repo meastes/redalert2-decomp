@@ -91,15 +91,6 @@ RULES = [
     # Fancy_Text_Printf, MonoClass::Printf, JShell_Fatal, Add_Chat_Line, ...).
     (re.compile(r'\b(v\w*printf)\(([^;{}]*?),\s*\(\s*char\s*\*\s*\)\s*\(\s*&(\w+)\s*\+\s*1\s*\)\s*\);'),
      r'{ __builtin_va_list ra2_ap; __builtin_va_start(ra2_ap, \3); \1(\2, ra2_ap); __builtin_va_end(ra2_ap); }   /* NATIVE: was (char *)(&\3 + 1) */'),
-    # An audio event's waiting source (AudioEvent::unknown_148, pointer-sized
-    # natively: port/fixups.json audio.hpp) is stored with `(int)` casts and
-    # read back into `int source` (Audio_Event_Begin 0x004054B0).
-    (re.compile(r'(->unknown_148\s*=\s*)\(int\)'), r'\1(intptr_t)'),
-    (re.compile(r'\bint(\s+source\s*=\s*event->unknown_148\s*;)'), r'intptr_t\1'),
-    # Audio sample data addresses kept in ints (AudioSourceInfo/AudioSource/
-    # AudioChannel members, pointer-sized natively: port/fixups.json audio.hpp):
-    # the stores `= (int)data`, `= (int)operator new(size)`, `= (int)stream->Drain->Pointer`.
-    (re.compile(r'(\b(?:unknown_0c|unknown_00|unknown_170)\s*=\s*)\(int\)(\s*(?:data\b|operator\s+new\s*\(|stream->Drain->Pointer\b))'), r'\1(intptr_t)\2'),
     # The dialog's DWL_USER slot (index 8) carries a pointer (`(LONG)&result`,
     # `(LONG)this`; read back as `(int *)GetWindowLongA(window, 8)`). A 32-bit
     # LONG truncates it on LP64: the native view stores and reads the pointer
