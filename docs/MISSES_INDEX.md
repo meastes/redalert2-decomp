@@ -15,7 +15,6 @@
 | 0x5F11CA | 764 | - | 1 | Scout1012 |  | bound |  |  | 764 |
 | 0x7743C0 | 748 | - | 4 | Scout922 |  | asm inline frame | tibsun twin |  | 748 |
 | 0x5025C0 | 1,876 | 61.13 | 5 | Scout1048 |  | ruling frame inline | tibsun twin | Scout1048/keep/c0m.cpp | 729.0 |
-| 0x444660 | 3,359 | 78.35 | 9 | Scout881 |  | ruling register | tibsun twin | Scout878/w/cu2.cpp | 727.0 |
 | 0x6FAA30 | 1,730 | 58.99 | 6 | Scout1067 |  | frame inline layout | tibsun twin | Scout824/keep/tunnel_tu5_5039.cpp | 709.0 |
 | 0x474260 | 675 | - | 3 | Scout999 |  | register inline asm |  |  | 675 |
 | 0x5919A0 | 5,575 | 88.22 | 11 | Scout1151 |  | frame inline order | tibsun twin | Scout783/keep/d1_8822.cpp | 656.0 |

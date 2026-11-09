@@ -20,8 +20,8 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,252,866 of 3,515,812 (92.52%) |
-| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,871 of 17,987 (99.36%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 107 of 116 scored) | 98.96% by bytes, 99.82% per function |
+| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,872 of 17,987 (99.36%) |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 106 of 115 scored) | 98.98% by bytes, 99.82% per function |
 | Original .text scaffold bytes | 266,183 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 698 |
@@ -2223,6 +2223,7 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `1feea9ba1` | 2026-11-09 08:26 -0600 | 17,885 | 3,242,689 | +0 | 0 |
 | `e90e481e4` | 2026-11-09 08:29 -0600 | 17,885 | 3,242,689 | +0 | 0 |
 | `b4d97fc52` | 2026-11-09 08:37 -0600 | 17,887 | 3,249,617 | +6,928 | 53,406 |
+| `09e27b3a0` | 2026-11-09 09:17 -0600 | 17,888 | 3,252,976 | +3,359 | 5,047 |
 
 <!-- /generated:status -->
 
