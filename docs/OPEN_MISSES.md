@@ -3274,3 +3274,6 @@ New rulings are recorded at their rows as before.
 
 ## Scout1151 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1151/)
 - Mech 0x5919A0 stays 88.22 but the draft is now clean (keep/mech_s2_8822_clean.cpp: rebased to HEAD names, static inline Step_Along instead of a bare scope; better native text). YR twin 0x5B01C0 is identical in mnemonics, offsets and registers, so it adds nothing. Left: frame packing (target keeps temp group C at 0x44 separate from the angle slot D; candidate: escaped `visual_cell` conflicting with D, untested) and one scratch-cursor step at 0x1539 and the 57a tail.
+
+## Scout1152 (2026-11-09, 0 B; NOTES, keep/, sc.sh in build/class-work/Scout1152/)
+- Draw_Tile 0x52C230 49.64 -> 51.29 (keep/draw_tile_w4_5129.cpp; better native text): TibSun IsoBlitState with HalfbrightMask as an unsigned short member at +0x68 (struct no longer pack(1)), walk loop `for (; cell_variation != 0; --cell_variation)`. YR twin 0x547CF0 identical but for four field offsets. Main residue is one allocation choice (`image` vs ZBufferPtr for ebp); diag dropping `&& record->IsHasZData` gives 54.20. Landing needs a rename for caller CellClass 0x4754B0 and a guarded shared IsoTile header.
