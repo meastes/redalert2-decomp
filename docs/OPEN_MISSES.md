@@ -3379,3 +3379,6 @@ Awaiting user ruling on keeping these two flagged or reverting.
 
 ## Scout1199 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1199/)
 - Draw_In_Area 41.92, Draw_All 53.45, Extract_Compressed_Events 57.62 (target exits via `if (leftover) ... else break;`, keep/extract_e1_4343_exitbreak.cpp), Draw_Laser 61.17, Draw_Tile 51.29: all region-level register-ownership ties. Second zero hand-back on these rows: stop rule applies.
+
+## Scout1200 (2026-11-09, 0 B; NOTES, keep/, overlays in build/class-work/Scout1200/)
+- 80-95 pool rescored on HEAD: no row exact. OnChannelJoin 0x75F530 regressed 94.21 -> 78.05 on HEAD (its three DynamicVectorClass<NodeNameType*>::Add sites now out of line; not the signed index). Zone_Reset 0x54EBD0 85.14 under int (needs pop-4418 off the unsigned holdout). Slot 186 0x6CD340 81.96, Draw_Pixel_Effects 0x6A7E80 86.26, Allocate_Ports 0x673090 94.42, Preview_Tile 0x52E390 81.25 unchanged; none are declaration windows.

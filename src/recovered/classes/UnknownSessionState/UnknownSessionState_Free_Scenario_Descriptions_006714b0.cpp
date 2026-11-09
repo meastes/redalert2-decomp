@@ -17,7 +17,7 @@ void UnknownSessionState::Free_Scenario_Descriptions()
     Scenarios.Clear();
 
     for (i = 0; i < InitStrings.Count(); i++) {
-        delete InitStrings[i];
+        delete [] InitStrings[i];
     }
     InitStrings.Clear();
 

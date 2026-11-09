@@ -12,7 +12,7 @@ extern "C" void __cdecl free(void *block);
 UnknownSessionState::~UnknownSessionState()
 {
     while (InitStrings.Count()) {
-        delete InitStrings[0];
+        delete [] InitStrings[0];
         InitStrings.Delete(0);
     }
     while (CallWaitStrings.Count()) {
