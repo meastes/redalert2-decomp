@@ -4,8 +4,8 @@
     "id": "population-4366",
     "inventory_sha256": "676cc04e0ae019e450d974461335bce9212e8ab790f02c8ebdf7448b7188547b",
     "gaps_sha256": "0d249c79256217a1e04feaa6a13a3b6b36cf015c2729cbc197e98a60c32451a0",
-    "historical_population_sha256": "82d68a641f7485894d22cc964f92080a28bf1dc95424e9e00b5959124e96cce0",
-    "historical_acceptance_sha256": "6084dde870727b15e746e31f9401f56e63a00faf639ed7963d986d29ae23c0b7"
+    "historical_population_sha256": "a1b31896949c1b2a53aa181d372a7b2be15d8faeb35e0852411d9d89cdd939b6",
+    "historical_acceptance_sha256": "362db214f40f40b16ff7692af90103283adc0ce0ed17d079e46e309a98dd545e"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -11440,7 +11440,15 @@
     "?Audio_Event_Type_Set_Delay@@YIXPAUAudioEventType@@HH@Z": 4220432,
     "?Audio_Event_Type_Set_FShift@@YIXPAUAudioEventType@@HH@Z": 4220448,
     "?Audio_Control_Apply_Keyword@@YI_NPAIPBD@Z": 4220976,
-    "?Audio_Priority_From_Name@@YI_NPBDPAH@Z": 4220896
+    "?Audio_Priority_From_Name@@YI_NPBDPAH@Z": 4220896,
+    "?Detach@TeamClass@@UAEXPAVAbstractClass@@_N@Z": 7050640,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688,
+    "_WinMain@16": 6873728,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672
   },
   "regions": [
     {
@@ -12757,7 +12765,7 @@
           "resolved": 4294954068
         }
       ],
-      "source_sha256": "9ea8e3006f78279f959a246c23c6fd7745f1f5efa26846c707b9d216eaa09b90",
+      "source_sha256": "090cfaac17ffe181e90d89c7b208ff36505c21d2db3591481c4d91b353d8730b",
       "source": "src/recovered/unowned/Audio_Event_Channel_Next_00405ad0.cpp",
       "population": "population-4366",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -13427,7 +13435,7 @@
           "resolved": 4294955305
         }
       ],
-      "source_sha256": "fddac5fb9b6b38e6d399a414acfeb3e2aa9852794b947ad6437cb579f412d7bd",
+      "source_sha256": "f79a688b68846516b6eceaf6ca73a1db6a93bff8563873c6a6749a697baa3021",
       "source": "src/recovered/unowned/Audio_Event_Begin_004054b0.cpp",
       "population": "population-4366",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -14601,7 +14609,7 @@
           "resolved": 4217220
         }
       ],
-      "source_sha256": "15de2c99134b20b80e64f2c72bb1b7016cf8b804297b5beb45f6fb64c2a8d5a7",
+      "source_sha256": "fc5656a3988915d50b481763be4e1892ef84ce57bf7f14f28841edda3fc0b9cc",
       "switch_data_bytes": 20,
       "source": "src/recovered/unowned/Audio_Event_Update_004055d0.cpp",
       "population": "population-4366",
@@ -15889,7 +15897,7 @@
           "resolved": 8589260
         }
       ],
-      "source_sha256": "dec2bb60af927aa1393aa8bc9a16afecfe9f61307c5be8b9d4c6557f5756baab",
+      "source_sha256": "4af84700ccf3e87ea749b6e91f35722c592dab86ad11c0f225f1abfcef9d129f",
       "source": "src/recovered/unowned/Audio_Events_Update_004041b0.cpp",
       "population": "population-4366",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

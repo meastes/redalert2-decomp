@@ -5,7 +5,7 @@
 void __fastcall AudioSourceInfo::Init(void *data, int size)
 {
     unknown_10 = size;
-    unknown_0c = (int)data;
+    unknown_0c = data;
     Audio_List_Init_Node(this);
     Source = 0;
 }

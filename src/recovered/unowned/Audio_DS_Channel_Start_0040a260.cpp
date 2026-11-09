@@ -104,8 +104,8 @@ static void __fastcall Audio_DS_Init_Buffer(AudioChannelBuffer *record)
 static void __fastcall Audio_DS_Set_Buffer_Source(AudioChannelBuffer *record)
 {
     record->unknown_cc = 0;
-    record->unknown_28 = record->Channel->unknown_170;
-    record->unknown_20 = record->Channel->unknown_170;
+    record->unknown_28 = (unsigned char *)record->Channel->unknown_170;
+    record->unknown_20 = (unsigned char *)record->Channel->unknown_170;
     record->unknown_2c = record->unknown_24 = record->Channel->unknown_174;
 }
 

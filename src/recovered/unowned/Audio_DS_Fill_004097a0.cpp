@@ -92,8 +92,8 @@ int __fastcall Audio_DS_Fill(AudioChannelBuffer *record, int bytes)
                     }
                     if (record->Channel->unknown_174 != 0) {
                         record->unknown_cc = 0;
-                        record->unknown_28 = record->Channel->unknown_170;
-                        record->unknown_20 = record->Channel->unknown_170;
+                        record->unknown_28 = (unsigned char *)record->Channel->unknown_170;
+                        record->unknown_20 = (unsigned char *)record->Channel->unknown_170;
                         record->unknown_2c = record->unknown_24 = record->Channel->unknown_174;
                     }
                     if (record->unknown_2c == 0) {
@@ -116,7 +116,7 @@ int __fastcall Audio_DS_Fill(AudioChannelBuffer *record, int bytes)
                         consumed = 0;
                         record->unknown_2c = 0;
                     } else {
-                        if (!record->Decode(record, destination, &chunk, (void const *)record->unknown_28, &consumed)) {
+                        if (!record->Decode(record, destination, &chunk, record->unknown_28, &consumed)) {
                             goto unlock;
                         }
                     }

@@ -16,6 +16,6 @@ int __fastcall Audio_Stream_Next_Block(AudioChannel *channel)
         stream->unknown_90 = stream->unknown_a0;
     }
     channel->unknown_178 = channel->unknown_174 = stream->unknown_90;
-    channel->unknown_170 = (int)stream->Drain->Pointer;
+    channel->unknown_170 = stream->Drain->Pointer;
     return 0;
 }

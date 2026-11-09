@@ -91,7 +91,7 @@ again:
                 Audio_Channel_Stop(event->Channel);
                 if ((event->Type->Flags & AUDIO_EVENT_TYPE_SUSTAIN) && !(event->Flags & 0x10)) {
                     event->State = 1;
-                    event->unknown_148 = (int)Audio_Event_Next_Sample(event);
+                    event->unknown_148 = Audio_Event_Next_Sample(event);
                     if (event->PauseCount == 0 && Audio_Event_Begin(event) == 0) {
                         Audio_Event_Stop(event);
                     }

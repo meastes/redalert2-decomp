@@ -95,7 +95,7 @@ int __fastcall Audio_Stream_Open(AudioStreamPlayer *stream, char const *name, in
                         LeaveCriticalSection(&Audio_Stream_Lock);
                         if (raw != 0) {
                             Audio_Queue_Ready(stream->Drain);
-                            stream->Source.unknown_00 = (int)stream->Drain->Pointer;
+                            stream->Source.unknown_00 = stream->Drain->Pointer;
                             stream->Source.unknown_04 = stream->Format.Bytes_For_Time(stream->Channel->unknown_1a8);
                             if (stream->Source.unknown_04 > stream->Drain->Available) {
                                 stream->Source.unknown_04 = stream->Drain->Available;

@@ -4,8 +4,8 @@
     "id": "population-4274",
     "inventory_sha256": "7109e31efdf9b9845f56a6d7173ad1a207d3aefd424af3a1f3b1c18124a8f943",
     "gaps_sha256": "c2ed23246d4f80245e76945b36004de38c6c61af8e7ade9f909447e0a4ec49c7",
-    "historical_population_sha256": "a4ce76186695715d328b79b67f09afd58d42f41415a840e221ec23caf68b78d6",
-    "historical_acceptance_sha256": "7fd5e37f4cbfb55f168debce1d7827d8f313b9e4e30c21106303c6f05cc76d59"
+    "historical_population_sha256": "c09bac2ccb8d20021cba46916e4cc280b683d13273e1b86001bd324c88b8039c",
+    "historical_acceptance_sha256": "ccd241b785502fb5ae05aa661c3abd5150542a5a7bb5f8b84b96a46ba7d929df"
   },
   "references": {
     "?Audio_Adpcm_Index@@3QBHB": 8179680,
@@ -1897,7 +1897,21 @@
     "_qsort": 7871814,
     "_sprintf": 7872756,
     "_strncmp": 7878672,
-    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
+    "?Detach@TeamClass@@UAEXPAVAbstractClass@@_N@Z": 7050640,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "?Audio_Event_Serial@@3HA": 8178652,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "_WinMain@16": 6873728,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672
   },
   "regions": [
     {
@@ -4000,7 +4014,7 @@
           "resolved": 4294951904
         }
       ],
-      "source_sha256": "8849375a69ded1c4c9002116ef6abd6179a816f19b43fa6caf310baf5f1dc3bf",
+      "source_sha256": "318eae453cee4d593561fb77c10c0c0a4ac113e03b2de3f9c31529f41fc6cd88",
       "source": "src/recovered/unowned/Audio_DS_Channel_Start_0040a260.cpp",
       "population": "population-4274",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

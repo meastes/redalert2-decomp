@@ -11,9 +11,9 @@ int __fastcall Audio_Event_Begin(AudioEvent *event)
         return 0;
     }
     Audio_Channel_Lock(event->Channel);
-    int source = event->unknown_148;
+    AudioSource *source = event->unknown_148;
     event->Flags |= 8;
-    Audio_Channel_Set_Source(event->Channel, (AudioSource *)source);
+    Audio_Channel_Set_Source(event->Channel, source);
     event->Channel->Levels.Frequency.Set(event->unknown_14c);
     int volume = 0x4000;
     if (event->unknown_150 > 0) {

@@ -17,7 +17,7 @@ AudioSource *__fastcall Audio_Source_Create(int size)
     source->unknown_18 = 0;
     Audio_List_Init(&source->Pieces);
     source->unknown_04 = size;
-    source->unknown_00 = (int)operator new(size);
+    source->unknown_00 = (char *)operator new(size);
     if (source->unknown_00 == 0) {
         if (source != 0) {
             operator delete(source);

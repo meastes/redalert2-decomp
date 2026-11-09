@@ -24,7 +24,7 @@ int __fastcall Audio_Event_Channel_Next(AudioChannel *channel)
             return 0;
         }
         event->unknown_13c = delay;
-        event->unknown_148 = (int)source;
+        event->unknown_148 = source;
     }
     return 0;
 }

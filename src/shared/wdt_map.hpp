@@ -93,12 +93,7 @@ public:
     ConvertClass *unknown_14;                                       // +0x14
     MSAnim *unknown_18;                                             // +0x18
     MSAnim *unknown_1c;                                             // +0x1C
-#ifdef RA2_WDT_MAP_LOAD_LAYOUT
-    MSAnim *unknown_20;
-#else
-    int unknown_20;
-#endif
-    //                                                 // +0x20
+    MSAnim *unknown_20;                                             // +0x20 (the help bar: Load makes it)
     Surface *unknown_24;                                            // +0x24 (each pixel a territory index: Territory_At)
     Wstring unknown_28;                                             // +0x28
     DynamicVectorClass<rc_ptr<Territory> > Territories;             // +0x2C
@@ -116,11 +111,7 @@ public:
 #endif
     struct Unknown64 {
         Unknown64() : unknown_0(0), unknown_4(0) {}
-#ifdef RA2_WDT_MAP_LOAD_LAYOUT
         MSOverlayAnim *unknown_0;
-#else
-        int unknown_0;
-#endif
         char unknown_4;
     } unknown_64;                                                   // +0x64
     struct Unknown6C {

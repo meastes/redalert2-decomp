@@ -203,7 +203,7 @@ void Audio_Events_Update()
         next = (AudioEvent *)event->Next;
         if (event->State == 1 && !Audio_Event_Is_Paused(event)) {
             Audio_Event_Load_Samples(event);
-            while (!(event->unknown_148 = (int)Audio_Event_Start_Pass(event))) {
+            while (!(event->unknown_148 = Audio_Event_Start_Pass(event))) {
                 if (Audio_Event_Type_Sacrifice(event)) {
                     next = (AudioEvent *)event->Next;
                     Audio_Event_Load_Samples(event);
@@ -211,7 +211,7 @@ void Audio_Events_Update()
                     break;
                 }
             }
-            if (!(event->unknown_148 = (int)Audio_Event_Start_Pass(event)) || !Audio_Event_Begin(event)) {
+            if (!(event->unknown_148 = Audio_Event_Start_Pass(event)) || !Audio_Event_Begin(event)) {
                 Audio_Event_Stop(event);
                 Audio_Event_Free(event);
             }

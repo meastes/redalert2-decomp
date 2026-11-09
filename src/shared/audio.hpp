@@ -212,7 +212,7 @@ struct AudioSourceInfo : AudioListNode {
     void __fastcall Init(void *data, int size);     // 0x00408500
     void Detach();                                  // 0x00408520
 
-    int unknown_0c;                 // +0x0C the piece's data
+    void *unknown_0c;               // +0x0C the piece's data (ra2-decomp AudioFrame: void * Data)
     int unknown_10;                 // +0x10 its size in bytes
     AudioSource *Source;            // +0x14 the source it belongs to
 };
@@ -221,7 +221,7 @@ struct AudioSource {
     void Finish();                  // 0x00408450 (does nothing)
     AudioSourceInfo *Info();        // 0x00408440 the first piece
 
-    int unknown_00;                 // +0x00 data (the owned buffer, or the play position)
+    char *unknown_00;               // +0x00 data (the owned buffer, or the play position; ra2-decomp AudioSample: char * Data)
     int unknown_04;                 // +0x04 total size
     AudioListNode Pieces;           // +0x08 AudioSourceInfo entries
     AudioFormat *Format;            // +0x14 (null: the device default)
@@ -455,9 +455,9 @@ struct AudioChannelBuffer {
     int volatile unknown_0c;        // +0x0C play position in frames
     __int64 volatile unknown_10;             // +0x10 last update time (ms)
     __int64 unknown_18;             // +0x18 time between the last two updates
-    int unknown_20;                 // +0x20
+    unsigned char *unknown_20;      // +0x20 the source data start (ra2-decomp src_start)
     int unknown_24;                 // +0x24
-    int unknown_28;                 // +0x28
+    unsigned char *unknown_28;      // +0x28 the source read position (ra2-decomp src_pos)
     int volatile unknown_2c;        // +0x2C
     DWORD volatile PlayCursor;      // +0x30
     DWORD WriteCursor;              // +0x34
@@ -535,7 +535,7 @@ struct AudioChannel : AudioListNode {
     int (__fastcall *unknown_stop_callback_164)(AudioChannel *channel);    // +0x164 0x004023F0
     AudioSource *Source;                            // +0x168
     AudioSourceInfo *SourceInfo;                    // +0x16C
-    int unknown_170;                                // +0x170
+    void *unknown_170;                              // +0x170 the piece's data (ra2-decomp frameData)
     int unknown_174;                                // +0x174
     int unknown_178;                                // +0x178
     AudioFormat Format;                             // +0x17C
@@ -873,7 +873,7 @@ struct AudioEvent : AudioListNode {
     int unknown_13c;
 #endif
     __int64 volatile unknown_140;   // +0x140 time the event was started or last resumed
-    int volatile unknown_148;                // the source waiting for the delay to pass
+    AudioSource *volatile unknown_148;       // the source waiting for the delay to pass (ra2-decomp startSample)
     int unknown_14c;                // frequency the event's channel starts at
     int unknown_150;                // percent the volume starts below full
     int unknown_154;

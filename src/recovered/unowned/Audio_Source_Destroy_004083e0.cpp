@@ -7,7 +7,7 @@ void __cdecl operator delete(void *block);
 void __fastcall Audio_Source_Destroy(AudioSource *source)
 {
     if (source->unknown_00 != 0) {
-        operator delete((void *)source->unknown_00);
+        operator delete(source->unknown_00);
     }
     operator delete(source);
 }
