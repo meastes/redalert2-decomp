@@ -3294,3 +3294,23 @@ New rulings are recorded at their rows as before.
 - Tactical::Render 0x6A45A0 stays 64.69: same 57 calls as the original; whole-function allocation (original re-indexes Supers[i]/Houses[i], never caches Frame, keeps fullredraw on the stack).
 - Draw_Voxel 0x6FF690 86.76 -> 99.44 (keep/dv_b1_9926.cpp): YR twin text (ra2-decomp Unit_Draw_Voxel), Westwood IndexClass Set_Archive/Invalidate_Archive spellings, RA2_LOCOMOTION_COM_VALUE_TYPES population-wide, twin Adjacent_Cell(FACING_N/W) and statement shapes put it inside a ~90-unit /Ob2 window. Left: 8 insns of FP scheduling at barrel.Translate(-translation). Delivery needs locomotion.hpp and cell_class.hpp header changes plus fragile probe.
 - Exit_Object 0x440520 92.27: untried idea, a charged spend between 0xB62 and 0x111B to test whether the ties are budget-coupled.
+
+## Scout1164 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1164/) - Exit_Object and Render parked
+- Exit_Object 0x440520 92.27: /Ob2 budget ruled out (spends to 2000 units change no inline decision); at least three coupled count-like ties (B62, refinery, factory arm 0xD2E-0xD54), statements count as well as symbols.
+- Tactical::Render 0x6A45A0 64.69: address-taking forms inert; original keeps Items ebx, i edi, line in memory in the timer loops (ours line ebx, Frame edi); re-indexing Houses[i] gives the exact loop body but worse allocation. Lead: a YR-shaped SuperClass GetRechargeTime member.
+
+## Scout1163 (2026-11-09, 0 B; NOTES, keep/, d/r1 header round in build/class-work/Scout1163/)
+- Draw_Voxel 0x6FF690 stays 99.44: one FP scheduling difference (negY fstp/fld issued after the barrel copy setup in the original, right after fchs in ours); forms that fix it break slot311 0x7005B0. Byte-neutral header round d/r1 (locomotion.hpp COM value-type overrides, cell_class.hpp Adjacent_Cell under RA2_CELL_ADJACENT_FACING) verified (fragile ok, 108/108, whole_file_exact) but held as a prerequisite for the body round.
+
+## Scout1165 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1165/)
+- Is_At 0x611310: no natural exact form; Execute 0x614BA0 needs Is_At expanded at 0x2A and called at 0x2C, which only the four-alias chain gives (natural `here = Coord(); return here == coord;` keeps Is_At exact but Execute 89.13). No twin.
+- Slot 34 0x6819A0: no single-name spelling is exact with Sidebar AI in the unit; the mixed int/rect names make the two sums distinct expressions (not a count window). unknown_int_839634/839638 are further second names of unknown_rect_839630 in unknown_globals.hpp (397 includers).
+Awaiting user ruling on keeping these two flagged or reverting.
+
+## Scout1166 (2026-11-09, 0 B; NOTES, keep/, yr/ in build/class-work/Scout1166/)
+- Place_Veins 0x47AD00 stays 78.39 (shape 98.66, frame identical): whole-function ebx/ebp swap (`this` ebp, `dir` ebx in the original); YR twin 0x485AF0 identical; Is_Solid_Vein charge keeps the ramp-branch Rect/Union out of line.
+- Subzone_Span 0x564290 42.47 -> 43.70 (keep/subzone_span_4370.cpp + h/shared/map.hpp; needs the declaration under a unit guard): YR twin 0x5824A0 identical; begin/end subzone share one slot, original never stores the packed key into entry.Value.
+
+## Scout1167 (2026-11-09, 0 B; NOTES, keep/, probe.py in build/class-work/Scout1167/)
+- Shrapnel 0x462C50 76.03 -> 98.46 (keep/sh_v1b_9846.cpp + keep/ovG4/shared/bullet.hpp). The 88.69/76.03 gap: the population's first row now defines RA2_BULLET_VELOCITY_DIRS, so Get_Pitch bound Horizontal_Speed 0x41B830 instead of the kept copy 0x41B750; overlay calls BulletVelocityXY::Speed() (as missile header and Get_Pitch 0x41B6E0). Frame fixed from ra2-decomp's YR 0x46A310 note (`CellClass *cellptr = &Map[...]`). Left: one scheduling tie at 0x2DC, a hoisted vtable load, three x87 operand orders in loop 2.
+- Evaluate_Object 0x6C5570 stays 91.81 (keep/eo1_head_9181.cpp + keep/ovE); YR twin 0x6F7CA0 same shape; ra2-decomp stalled at 91.0 too.
