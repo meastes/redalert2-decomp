@@ -31,13 +31,13 @@ struct __declspec(novtable) ILocomotion : public IUnknown {
     virtual bool __stdcall Is_To_Have_Shadow() = 0;                              // 8
     
 #ifdef RA2_LOCOMOTION_COM_VALUE_TYPES
-    virtual COMMatrix3DStruct __stdcall Draw_Matrix(int *key) = 0;
+    virtual COMMatrix3DStruct * __stdcall Draw_Matrix(COMMatrix3DStruct *matrix, int *key) = 0;
 #else
     virtual Matrix3D * __stdcall Draw_Matrix(Matrix3D *matrix, int *key) = 0;
 #endif                        // 9
     
 #ifdef RA2_LOCOMOTION_COM_VALUE_TYPES
-    virtual COMMatrix3DStruct __stdcall Shadow_Matrix(int *key) = 0;
+    virtual COMMatrix3DStruct * __stdcall Shadow_Matrix(COMMatrix3DStruct *matrix, int *key) = 0;
 #else
     virtual Matrix3D * __stdcall Shadow_Matrix(Matrix3D *matrix, int *key) = 0;
 #endif                      // 10

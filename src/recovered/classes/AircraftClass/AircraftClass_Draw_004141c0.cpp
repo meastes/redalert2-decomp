@@ -58,7 +58,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
         if (draw_on_ground) unknown_slot109(0);
 
         Matrix3D matrix;
-        matrix = Locomotor.Checked()->Shadow_Matrix(&key);
+        matrix = *Locomotor.Checked()->Shadow_Matrix(&COMMatrix3DStruct(), &key);
         if (!unknown_325) {
             unknown_4c9a40(Type->unknown_b0, 0,
                 key, &Type->unknown_23c,
@@ -78,7 +78,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
         int shadow_height = ground_cell->unknown_10a + Rules->ExtraAircraftLight;
         shadow_height += altitude_term;
         key = 0;
-        matrix = Locomotor.Checked()->Draw_Matrix(&key);
+        matrix = *Locomotor.Checked()->Draw_Matrix(&COMMatrix3DStruct(), &key);
         unknown_slot246(Type->unknown_b0, 0,
             key, &Type->unknown_214,
             window, draw_point,
