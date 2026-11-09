@@ -92,7 +92,7 @@ BOOL __fastcall unknown_peek_message_522ed0(MSG *message, HWND window, UINT firs
                 int index = (int)message->hwnd;
                 HWND hwnd;
                 if (DAT_00a522b0 != 0 && index >= 0 && index < DAT_00a521dc) {
-                    hwnd = (HWND)((int *)DAT_00a522b4)[index];
+                    hwnd = DAT_00a522b4[index];
                 } else {
                     hwnd = 0;
                 }

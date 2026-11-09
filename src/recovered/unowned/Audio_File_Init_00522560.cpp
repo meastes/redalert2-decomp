@@ -1,8 +1,8 @@
 // int __fastcall Audio_File_Init(int count, int size) -- 0x00522560
-// Sets the stream file layer up: both locks, a zeroed block of count ids, the file thread's state (period 100,
+// Sets the stream file layer up: both locks, a zeroed block of count window slots, the file thread's state (period 100,
 // its timing statistics), the file thread at priority 2 ("Unable to change the priority of the Streamer
 // Thread" otherwise), the ring with one node of at least 0x2800 bytes and its two queues; clears the recorded
-// key states and enters the main window into the id block. Any failure shuts the layer down and returns 0.
+// key states and enters the main window into the window slots (as Add_Modeless_Dialog 0x00522B20 does). Any failure shuts the layer down and returns 0.
 // Placeholders: the globals are named by address until the layer is recovered.
 #include "shared/audio_file.hpp"
 #include "shared/crt_memory.hpp"
@@ -28,12 +28,12 @@ int __fastcall Audio_File_Init(int count, int size)
     if (size < 0x2800) {
         size = 0x2800;
     }
-    DAT_00a522b4 = operator new(count * 4);
+    DAT_00a522b4 = (HWND__ **)operator new(count * sizeof(HWND__ *));
     if (DAT_00a522b4 == 0) {
         Audio_File_Shutdown();
         return 0;
     }
-    memset(DAT_00a522b4, 0, count * 4);
+    memset(DAT_00a522b4, 0, count * sizeof(HWND__ *));
     DAT_00a522b8 = 0;
     DAT_00a521dc = count;
     DAT_00a521e0 = 0;
@@ -77,19 +77,19 @@ int __fastcall Audio_File_Init(int count, int size)
     DAT_00a522b0 = 1;
     memset(DAT_00a51fd0, 0, sizeof(DAT_00a51fd0));
     if (MainWindow != 0) {
-        int *ids = (int *)DAT_00a522b4;
-        int *free_slot = 0;
-        for (int i = 1; i < DAT_00a521dc; i++, ids++) {
-            if (*ids == 0) {
+        HWND__ **slot = DAT_00a522b4;
+        HWND__ **free_slot = 0;
+        for (int i = 1; i < DAT_00a521dc; i++, slot++) {
+            if (*slot == 0) {
                 if (free_slot == 0) {
-                    free_slot = ids;
+                    free_slot = slot;
                 }
-            } else if (*ids == (int)MainWindow) {
+            } else if (*slot == MainWindow) {
                 return 1;
             }
         }
         if (free_slot != 0) {
-            *free_slot = (int)MainWindow;
+            *free_slot = MainWindow;
             DAT_00a522b8++;
         }
     }

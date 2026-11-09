@@ -6,12 +6,12 @@
 int __fastcall Audio_File_Find(int id)
 {
     if (DAT_00a522b0 != 0) {
-        int *ids = (int *)DAT_00a522b4;
+        HWND__ **slots = DAT_00a522b4;
         if (id == DAT_00a522d8) {
             return DAT_00a522dc;
         }
         for (int i = 0; i < DAT_00a521dc; i++) {
-            if (ids[i] == id) {
+            if ((int)slots[i] == id) {
                 DAT_00a522d8 = id;
                 DAT_00a522dc = i;
                 return i;

@@ -15,8 +15,8 @@ extern "C" AudioQueue *DAT_00a522cc;            // 0x00A522CC the queue the open
 extern "C" void *DAT_00a522d0;                  // 0x00A522D0 the open stdio file
 extern "C" int DAT_00a522d4;                    // 0x00A522D4 set when the first fill failed
 extern CRITICAL_SECTION unknown_audio_file_lock_a52268;     // 0x00A52268 (deleted with 0x00A52280)
-extern "C" void *DAT_00a522b4;                  // 0x00A522B4 a block freed at shutdown
-extern "C" int DAT_00a522b8;                    // 0x00A522B8
+extern "C" HWND__ **DAT_00a522b4;               // 0x00A522B4 the window slots (0x00A521DC of them), freed at shutdown
+extern "C" int DAT_00a522b8;                    // 0x00A522B8 windows in the slots
 extern "C" int DAT_00a522bc;                    // 0x00A522BC the two critical sections exist
 extern "C" int DAT_00a522c0;                    // 0x00A522C0 the file thread runs
 extern "C" int volatile DAT_00a521e0;           // 0x00A521E0 set to ask the file thread to stop
