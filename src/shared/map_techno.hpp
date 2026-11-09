@@ -11,6 +11,7 @@
 #define VECTOR_IMPLEMENT_ALL
 #endif
 #include "shared/vector_class.hpp"
+#include "shared/stage.hpp"
 
 class HouseClass;
 class CellClass;
@@ -60,8 +61,11 @@ public:
     bool unknown_76;                        // +0x76 (as shared/object.hpp)
     char unknown_77[0x79 - 0x77];
     bool unknown_79;                        // +0x79 (as shared/object.hpp; TibSun IsOnBridge)
+    char unknown_7a[0x98 - 0x7A];
+#else
+    char unknown_24[0x98 - 0x24];
 #endif
-};
+};                                          // sizeof(ObjectClass) 0x98 (as shared/object.hpp)
 
 class TechnoClass : public AbstractClass {
 public:
@@ -195,7 +199,7 @@ void __fastcall Unknown_006D7C80(CellClass *target);
 #else
 class AnimTypeClass;
 #endif
-class AnimClass : public ObjectClass {
+class AnimClass : public ObjectClass, public StageClass {   // StageClass at +0x98 (as shared/anim.hpp)
 public:
     AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int loop_delay, int loops, int flags, int zadjust);   // 0x00420110 (as shared/anim.hpp)
     virtual HRESULT __stdcall GetClassID(GUID *classid);
@@ -203,11 +207,7 @@ public:
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);
     virtual int Kind_Of() const;
     virtual int Size_Of() const;
-#ifdef RA2_MAP_COLLAPSE_CLIFF
-    char unknown_78[0x177 - sizeof(ObjectClass)];
-#else
-    char unknown_24[0x177 - sizeof(AbstractClass)];
-#endif
+    char unknown_b0[0x177 - 0xB0];
     bool unknown_177;                       // +0x177 deleted by the map's Overpass (0x0054B2E0)
     char unknown_178[0x1A8 - 0x178];        // sizeof(AnimClass) 0x1A8 (as shared/anim.hpp)
 };

@@ -13,8 +13,7 @@ public:
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);
     virtual int Kind_Of() const;
     virtual int Size_Of() const;
-    char unknown_24[0x98 - sizeof(ObjectClass)];
-    OverlayTypeClass *Class;
+    OverlayTypeClass *Class;                // +0x98 (ObjectClass is 0x98, shared/map_techno.hpp)
 };
 typedef char OverlayClass_map_size[(sizeof(OverlayClass) == 0x9c) ? 1 : -1];
 extern DynamicVectorClass<OverlayTypeClass *> OverlayTypes;
