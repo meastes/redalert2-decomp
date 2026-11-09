@@ -3330,3 +3330,7 @@ Awaiting user ruling on keeping these two flagged or reverting.
 
 ## Scout1176 (2026-11-09, 0 B; NOTES, v/, sc.py in build/class-work/Scout1176/) - calibrated-row audit
 - Caller-tuning rows: Select_Tab 0x67D990 (natural form fails Add/CA50/AI and, through the count, Action 0x6809F0: -6,070 B) and Unknown_006820F0 (natural `return Unknown_006820A0() * 2;` fails CA50 and Sidebar AI: -2,199 B). Own-code rows: Sidebar AI (87.19 without `strip`), slot 34, Get_Z_Adjust (98.78 without otype), Fire_At, AnimClass::AI. Sent to the review session for a second opinion (owner recommendation: natural F0 with CA50/AI reverted; keep Select_Tab flagged as a test-(b) exception pending evidence).
+
+## Scout1172 (2026-11-09, 0 B; NOTES, x/, tw/, dd/, ddmin.py in build/class-work/Scout1172/)
+- Get_Obstacle 0x4BBAF0 stays 97.00: the second cliff-test call order follows the number of function declarations before CellClass's definition (twin: delete any one prototype -> wrong; ours: 13,500-15,500 extra prototypes -> exact). Looks like the original unit saw <windows.h>-sized headers; our acceptance allows only tracked src/shared includes. Sent to the review session (lab proposal: units with the pinned VC98 <windows.h>).
+- Place_Tiberium 0x47C3A0 stays 98.91: twin reduced to dd/p4min.cpp (2,244 lines, still right); not a declaration-count effect; next: swap TRect<int>/TPoint2D<int> templates and enum fields into the reduced twin one at a time.
