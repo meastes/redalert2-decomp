@@ -4,7 +4,7 @@
 #include "shared/foot.hpp"
 #include "shared/team.hpp"
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref _unknown_geometry_k=00ac0050
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 

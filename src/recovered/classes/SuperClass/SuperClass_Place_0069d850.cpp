@@ -181,7 +181,7 @@ void SuperClass::Place(Cell const &cell, bool player)
 
     case 2:
         if (unknown_0x57) {
-            Unknown_0051F930(Rules->LightningStormDuration, Rules->unknown_13e8, cell, (int)House);
+            Unknown_0051F930(Rules->LightningStormDuration, Rules->unknown_13e8, cell, House);
             if (!unknown_int_a3d548) {
                 Speech_Play_Name("EVA_LightningStormCreated", -1, -1);
             }

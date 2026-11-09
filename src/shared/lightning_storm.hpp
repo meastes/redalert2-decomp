@@ -50,7 +50,7 @@ long __fastcall Load_Storm_0051F5E0(IStream *stream);
 void __fastcall Set_Storm_Active_0051F920(bool active);
 // Starts the storm at cell for owner (a random cell the map accepts when cell
 // is unknown_geometry_k); a nonzero deferment only arms it (0x0051F930).
-void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, int owner);
+void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, HouseClass *owner);
 void Unknown_0051FBB0();                    // 0x0051FBB0 (sets StormTimeToEnd while active)
 // Ends an active storm (0x0051FBD0).
 void __fastcall Stop_Storm_0051FBD0();

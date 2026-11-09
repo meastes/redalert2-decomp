@@ -4,8 +4,8 @@
     "id": "population-4417",
     "inventory_sha256": "adcc046aabb2a1e955e9e54751fdaa99ba3007c115757c838813bf0317feb91d",
     "gaps_sha256": "44cb728f46c22ba4c70a960a24cab09755916233cc710934d56b9c6f244aadcc",
-    "historical_population_sha256": "60e2719b8a455e4ebf4888e0bd86e5e25a4fc91a30a796bdd0eb4d76f10ef0a8",
-    "historical_acceptance_sha256": "5e293569e907836d68ca9316fb97d1f81f837929085d385078fecd39f7219cf0"
+    "historical_population_sha256": "c0069db415b1c0750a6839134df482b0455c66b87e3a19dfb02c1bee2fe3d9d6",
+    "historical_acceptance_sha256": "bad4cb955b446486255c032cb4dfd2fda56e476dd3a840135cdd1fe562e362e1"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -6984,7 +6984,7 @@
     "?Unknown_0042E700@Unknown84E8D0@@QAE_NH@Z": 4384512,
     "?unknown_session_a3d298@@3UUnknownSessionState@@A": 10736280,
     "?Unknown_005A07F0@@YIXHHHHH@Z": 5900272,
-    "?Unknown_0051F930@@YIXHHVCell@@H@Z": 5372208,
+    "?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z": 5372208,
     "?unknown_ini_8396d0@@3PAVCCINIClass@@A": 8623824,
     "?unknown_session_a3d29c@@3PAVUnknownSessionA3D29C@@A": 10736284,
     "?unknown_ini_format_a40d24@@3HA": 10751268,
@@ -7001,7 +7001,7 @@
     "??0LineTrail@@QAE@XZ": 5477344,
     "?Set_Decrement@LineTrail@@QAEXH@Z": 5477648,
     "?Unknown_0047E1C0@@YIHHPAVWarheadTypeClass@@HH@Z": 4710848,
-    "?unknown_func_422690@AnimClass@@QAEXH@Z": 4335248,
+    "?unknown_func_422690@AnimClass@@QAEXPAVHouseClass@@@Z": 4335248,
     "?unknown_slot43@BuildingClass@@UAE?AUCoordStruct@@H@Z": 4516400,
     "?unknown_slot43@TechnoClass@@UAE?AUCoordStruct@@H@Z": 7084080,
     "?unknown_slot42@BuildingClass@@UBE?AUCoordStruct@@XZ": 4537456,
@@ -10113,7 +10113,10 @@
     "?Draw_Offset@OverlayClass@@SI?AUPoint2D@@H@Z": 6144080,
     "?unknown_func_5dc180@OverlayClass@@SAXXZ": 6144384,
     "?Building_Player_Detector_Covers_Cell_00438a60@@YI_NPBVHouseClass@@PBVCellClass@@@Z": 4426336,
-    "?unknown_overlay_section_7a77c0@@3PBDB": 8026048
+    "?unknown_overlay_section_7a77c0@@3PBDB": 8026048,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "?Speed@BulletVelocityXY@@QBENXZ": 4306768,
+    "?Speed@BulletVelocity@@QBENXZ": 4306880
   },
   "regions": [
     {
@@ -16055,7 +16058,7 @@
           "resolved": 440
         }
       ],
-      "source_sha256": "fceed2827b2506385a7d024bd7f9251da04e96764a4819b1e5b9bc21401148d0",
+      "source_sha256": "61e64b94883e4a856f4703f902ababce4c147b0e415ef1f3be33f32a3eb321ef",
       "source": "src/recovered/classes/AnimClass/AnimClass_AI_00421710.cpp",
       "population": "population-4417",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

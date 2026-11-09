@@ -260,7 +260,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ??0VoxelAnimClass@@QAE@PAVVoxelAnimTypeClass@@ABUCoordStruct@@PAVHouseClass@@@Z=0070c800
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_006A66B0@Tactical@@QAEXABUCoordStruct@@@Z=006a66b0
 // @ref _unknown_geometry_j=00abfdf8
@@ -294,7 +294,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref __real@8@c005c800000000000000=007a5fc8
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Unknown_0063A880@@YI_NPAVTeamTypeClass@@H@Z=0063a880
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0054E580@MapClass@@QAE_NVCell@@H@Z=0054e580
@@ -493,7 +493,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ??0VoxelAnimClass@@QAE@PAVVoxelAnimTypeClass@@ABUCoordStruct@@PAVHouseClass@@@Z=0070c800
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_006A66B0@Tactical@@QAEXABUCoordStruct@@@Z=006a66b0
 // @ref _unknown_geometry_j=00abfdf8
@@ -527,7 +527,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref __real@8@c005c800000000000000=007a5fc8
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Unknown_0063A880@@YI_NPAVTeamTypeClass@@H@Z=0063a880
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0054E580@MapClass@@QAE_NVCell@@H@Z=0054e580
@@ -726,7 +726,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ??0VoxelAnimClass@@QAE@PAVVoxelAnimTypeClass@@ABUCoordStruct@@PAVHouseClass@@@Z=0070c800
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_006A66B0@Tactical@@QAEXABUCoordStruct@@@Z=006a66b0
 // @ref _unknown_geometry_j=00abfdf8
@@ -760,7 +760,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref __real@8@c005c800000000000000=007a5fc8
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Unknown_0063A880@@YI_NPAVTeamTypeClass@@H@Z=0063a880
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0054E580@MapClass@@QAE_NVCell@@H@Z=0054e580
@@ -959,7 +959,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ??0VoxelAnimClass@@QAE@PAVVoxelAnimTypeClass@@ABUCoordStruct@@PAVHouseClass@@@Z=0070c800
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_006A66B0@Tactical@@QAEXABUCoordStruct@@@Z=006a66b0
 // @ref _unknown_geometry_j=00abfdf8
@@ -993,7 +993,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref __real@8@c005c800000000000000=007a5fc8
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Unknown_0063A880@@YI_NPAVTeamTypeClass@@H@Z=0063a880
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0054E580@MapClass@@QAE_NVCell@@H@Z=0054e580
@@ -1191,7 +1191,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ??0VoxelAnimClass@@QAE@PAVVoxelAnimTypeClass@@ABUCoordStruct@@PAVHouseClass@@@Z=0070c800
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_006A66B0@Tactical@@QAEXABUCoordStruct@@@Z=006a66b0
 // @ref _unknown_geometry_j=00abfdf8
@@ -1225,7 +1225,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref __real@8@c005c800000000000000=007a5fc8
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref ?Unknown_0063A880@@YI_NPAVTeamTypeClass@@H@Z=0063a880
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
 // @ref ?Unknown_0054E580@MapClass@@QAE_NVCell@@H@Z=0054e580

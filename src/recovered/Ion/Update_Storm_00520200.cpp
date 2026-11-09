@@ -39,7 +39,7 @@
 // @ref ?Set_Lighting_00520B00@@YIXHHH_N@Z=00520b00
 // @ref ?Storm_Strike_0051FE50@@YIXUCoordStruct@@@Z=0051fe50
 // @ref ?Unknown_0051FC90@@YGXVCell@@@Z=0051fc90
-// @ref ?Unknown_0051F930@@YIXHHVCell@@H@Z=0051f930
+// @ref ?Unknown_0051F930@@YIXHHVCell@@PAVHouseClass@@@Z=0051f930
 // @ref _unknown_geometry_k=00a518a8
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
@@ -139,7 +139,7 @@ void __fastcall Update_Storm_00520200()
     } else if (StormDeferment > 0) {
         StormDeferment--;
         if (StormDeferment == 0) {
-            Unknown_0051F930(StormDuration, 0, StormCoords, (int)StormOwner);
+            Unknown_0051F930(StormDuration, 0, StormCoords, StormOwner);
         } else if (StormDeferment % 225 == 0 && Rules->LightningPrintText) {
             int color = 3;
             if (unknown_player_a35db4 != 0) {

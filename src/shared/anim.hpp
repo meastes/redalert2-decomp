@@ -112,7 +112,7 @@ public:
     void unknown_func_4228f0();                                         // 0x004228F0 (scorch / crater)
     void unknown_func_422f50();                                         // 0x00422F50 (vein damage)
     void unknown_func_422680(AbstractClass *value);                     // 0x00422680 (sets unknown_15c)
-    void unknown_func_422690(int value); // original DWORD store to existing +0x160, RET4
+    void unknown_func_422690(HouseClass *house);                       // 0x00422690 (sets unknown_160)
     void unknown_func_422c10();                                         // 0x00422C10 (unknown_17e = true)
     void unknown_func_422c20();                                         // 0x00422C20 (unknown_17e = false)
 
@@ -138,7 +138,7 @@ public:
     signed char unknown_158;                // +0x158 (TibSun TranslucencyLevel: signed compares in Draw_It 0x00420E50)
     bool unknown_159;                       // +0x159
     AbstractClass *unknown_15c;             // +0x15C
-    int unknown_160;                        // +0x160
+    HouseClass *unknown_160;                // +0x160 the house a PSI warning is for (0x00438B80 sets it)
     int LoopDelay;                          // +0x164
     double unknown_168;                     // +0x168
     int unknown_170;                        // +0x170

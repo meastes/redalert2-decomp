@@ -26,7 +26,7 @@ void AnimClass::AI()
     }
     if (Class->PsiWarning) {
         CellClass *cell=&Map[Center_Coord()];
-        HouseClass *house=(HouseClass *)unknown_160;
+        HouseClass *house=unknown_160;
         bool covered=Building_Player_Detector_Covers_Cell_00438a60(house,cell);
         unknown_17d=!covered;
     }
