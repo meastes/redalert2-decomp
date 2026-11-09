@@ -26,7 +26,7 @@ struct UnknownPathHierNode {
 struct UnknownPathEstimatorBlock {
     int unknown_00;                         // +0x00 (highest entry in use; Clear zeroes up to it)
     int unknown_04;                         // +0x04 (last index)
-    char *unknown_08;                       // +0x08 (the array)
+    char *unknown_08;                       // +0x08 (the heap of node pointers, from slot 1)
     int unknown_0c;                         // +0x0C
     int unknown_10;                         // +0x10 (-1)
 
@@ -36,15 +36,15 @@ struct UnknownPathEstimatorBlock {
         unknown_10 = -1;
         unknown_00 = 0;
         unknown_04 = max;
-        unknown_08 = (char *)new int[max + 1];
+        unknown_08 = (char *)new void *[max + 1];
         for (int index = 0; index <= unknown_04; index++) {
-            ((int *)unknown_08)[index] = 0;
+            ((void **)unknown_08)[index] = 0;
         }
     }
     void Clear()
     {
         for (int index = 0; index <= unknown_00; index++) {
-            ((int *)unknown_08)[index] = 0;
+            ((void **)unknown_08)[index] = 0;
         }
         unknown_00 = 0;
     }
