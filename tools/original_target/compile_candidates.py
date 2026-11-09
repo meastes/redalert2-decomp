@@ -12,7 +12,7 @@ import struct
 import time
 
 from build import check_toolchain, compile_units, write_json
-from verify_manifest import local_label_target, prefix_bound_values, switch_data_start
+from verify_manifest import bound_values, local_label_target, switch_data_start
 from canonical import (RECORDED_OPTIONS, TIBSUN_ARCHIVE, compiler_arguments, sha, validate_headers,
                        validate_includes, validate_inline_asm)
 from coff import Coff
@@ -142,7 +142,7 @@ def compare_candidate(audit, coff, candidate, obj, options, variant):
             offset -= start; target_symbol = coff.symbols[symbol_index]
             local = local_label_target(coff, target_symbol, symbol['section'], start, end, candidate['entry'])
             matches = [local] if local is not None else sorted(
-                prefix_bound_values(candidate.get('references', {}), target_symbol['name']))
+                bound_values(candidate.get('references', {}), target_symbol['name']))
             require(len(matches) == 1 and kind in (6, 20) and offset + 4 <= len(actual),
                     'Unsupported/unbound/cross-extent relocation')
             target = matches[0]; addend = struct.unpack_from('<I', actual, offset)[0]

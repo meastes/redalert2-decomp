@@ -124,7 +124,7 @@ a plan names: codex2's d/ is about 30 GB). Bounds rounds (r18, r26, r28, r31, r3
 Seed125 (zero bytes; Tactical family parked; 0x6AAFD0 is a register-tie near miss for Windows). Their misses
 are in OPEN_MISSES.md.
 Next-lane candidates (2026-10-30; fresh map build/class-work/Survey251/UNITS.md: unclassified tail 0x775B60-0x781FF0 (triage first), VQAClass 0x717CE0, 0x426E70-0x42BCF0, Ini.CPP, Beacon span, VeinholeMonster, Score.CPP, UndoInfo, Unit.CPP; unit table build/class-work/Survey170/UNITS.md): WorldDom.cpp rest (OPEN_MISSES), LdPrgMgr 0x535BF0 (4 KB), MainLoop 0x540C20 (3.5 KB).
-Parked (OPEN_MISSES has resume points): com_ptr comip model (ComPtr297/299, two zero-byte lanes), netshare.cpp (Netshare247),  Startup.CPP WinMain (Startup232; needs SEH acceptance support: __except_handler3 0x7852D4, fs:[0] __except_list, per-compile $T scope table at 0x7AB990 - the only game-code SEH user), UICmnds.cpp, WDTSel.cpp, PlanMgr.cpp, TAction.CPP, Session.CPP,
+Parked (OPEN_MISSES has resume points): com_ptr comip model (ComPtr297/299, two zero-byte lanes), netshare.cpp (Netshare247),  Startup.CPP WinMain (Startup232, Scout1130 49.19; SEH acceptance support landed 2026-11-09: __except_handler3 0x7852D4, fs:[0] __except_list, per-compile $T scope table at 0x7AB990 - the only game-code SEH user), UICmnds.cpp, WDTSel.cpp, PlanMgr.cpp, TAction.CPP, Session.CPP,
 Skirmish.cpp, NullDlg Select_Serial_Dialog. Pending landings: none (Mac lanes deliver on hand-back; Windows last r65).
 
 Windows (user decision 2026-10-30, relayed by the review session): no lead layer. LEAD.md and LEAD2.md are withdrawn;

@@ -3214,3 +3214,20 @@ New rulings are recorded at their rows as before.
 
 ## Scout1124 (2026-11-09, 0 B; NOTES, keep/, ca.sh/ad.sh in build/class-work/Scout1124/)
 - Sidebar Select_Tab system (population-4392): Add 0x67C530 72.12 -> 75.53 and CA50 0x67CA50 59.51 -> 66.67 natural-only; both reach 100.00 with two /Ob2 size pads (not deliverable). Natural pieces: Select_Tab 0x67D990 writes out Activate_Tab's body (YR SetTab 0x6A7590 shape, byte-exact standalone), C850 compares against Unknown_006820F0(), CA50 does its own strip-search loop. Open: Select_Tab needs ~149-166 /Ob2 units (written-out form is 130); F0 0x6820F0 needs > 40 units while keeping `this->A0()` (`Map.` form is 42 but loads `mov ecx, Map`).
+
+## Scout1127 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1127/)
+- Smoke AI 0x60BB70 49.78 -> 54.23 (keep/smoke_5423_m6.cpp, no Spread helper): TibSun third block with a held `Random2Class &random` reference, loop spreads written out (`Random()()` and `Random() % 6` mix), `CoordStruct const &coord` reads. Left: register priority (original reads x/y/z via `lea edx,[esi+0x88]`, x edi, y ebp, Z stored into a 12-byte temp sharing Center_Coord's slot, `this` spilled to [esp+0x14]). Native draft should take this text.
+- Draw_In_Area 0x41F1C0 41.92: extra 8 B is one dead 8-byte object (dx slot at 0x90); r1.Y kept as a scalar at 0x54; TibSun `r1 += Top_Left()` identical. Next: an inline taking a Point2D temporary as `this`.
+
+## Scout1129 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1129/)
+- Only 17 rows untouched since before 11-07; all blocked (WinMain 0x68E280 needs SEH acceptance support; XSurface/DSurface parked; CRT; codex1 range; 0x4BBAF0 10 tries) or tiny.
+- Compute_Zone_Connections 0x54FDA0 60.63 -> 62.12 (keep/czc_r1_6212.cpp): shared `index != -1 && _bridge_subtiles2[index] == SubTile` test reproduces the cross-jumped arm. Left: cptr must win ebp (one extra cptr use in the walk gives 83.37 in lab); lead: TibSun's `const` In_Radar (header change, Map-wide rescore).
+- Projectile_Motion 0x593870 tie 1 is emission order: a named `float sq` in TVelocity3D::Speed moves `sub esp,8` but the FP pops follow (98.91).
+
+## Scout1128 (2026-11-09, 0 B; NOTES, keep/, tools in build/class-work/Scout1128/; Sidebar unit now population-4410)
+- Sidebar AI 0x67DC90 62.90 -> 91.11 (keep/ai_9111.cpp, calls 22/22): direct Voc_Play, strip Page(false/true) for the scroll buttons, TibSun `xy - Point2D(...)`. Left: visible-rows value term-first in the original (18/26 subtracted before abcd64; two unmerged copies).
+- StripClass::Recalc 0x6802D0 30.30 -> 37.12 (keep/rc1.cpp; needs TibSun BuildType ctor/operators in sidebar.hpp, unprobed). Blocker: original inlines CA50 0x67CA50, ours measures 193-196 IL above the ~175 auto-inline cap; with CA50 inline (diag) 59.13 and calls 26/26.
+- VC6 lab: a non-inline function is never auto-inlined above ~174-180 IL units (27 global stores inline, 28 do not).
+
+## Scout1130 (2026-11-09; SEH acceptance support landed; NOTES, w/wm2.cpp, dc.sh/join.sh in build/class-work/Scout1130/)
+- WinMain 0x68E280 (10,080 B) 25.98 -> 49.19 (w/wm2.cpp; 3976 vs 2887 insns). RegisterClasses written in place (VC6 will not expand a separate one), 74 REGISTER_CLASS lines in w/regs.inc. Left: about a third undrafted (video-mode loop, surfaces/buffers/mouse/CD/options, shutdown, `__except` body, the a4168c branch); original calls DynamicVectorClass<unsigned long>::Add 0x698620 and INIClass() 0x51AD50 out of line (likely the /Ob2 caller budget; SEH is not the cause). Plan needs body_bytes 10080 plus bound_evidence, retiring split rows 0x68FEE0/0x690891/0x69089E, `@ref $T=007ab990` and `@ref __except_handler3=007852d4`; RA2_IUNKNOWN_PTR_LIFETIME at line 1 of the joined unit.

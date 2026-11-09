@@ -68,6 +68,46 @@ def prefix_bound_values(references, name):
     return values
 
 
+# Structured exception handling (__try/__except under _except_handler3).
+# `__except_list` is the C runtime's absolute symbol 0 (exsup.asm), the head
+# of the thread's exception registration list; the compiler only ever reads
+# and writes it as fs:[__except_list] in the frame prologue and epilogue.
+EXCEPT_LIST = '__except_list'
+# A __try scope table is a static `$T<n>` in an associative read-only COMDAT.
+# VC6 numbers it per translation unit (like `_$E<n>`), so the spelling is
+# never an identity: a population binds its one scope table with the stated
+# reference `$T` (`// @ref $T=ADDRESS`), and the audit then verifies the
+# table's bytes, with its filter and handler labels resolved inside the
+# function that owns them, against the original data at that address.
+SCOPE_TABLE_NAME = re.compile(r'\$T\d+')
+SCOPE_TABLE_REFERENCE = '$T'
+# SEH helpers the compiler calls without the source naming them; a binding
+# must lie inside the linked library member that defines the symbol
+# (manifests/original_target/library.json).
+SEH_LIBRARY_SYMBOLS = ('__except_handler3',)
+LIBRARY_MANIFEST = 'manifests/original_target/library.json'
+
+
+def bound_values(references, name):
+    """Addresses a relocation to symbol `name` may bind to: prefix_bound_values,
+    plus the SEH rules above (`__except_list` is always 0, a `$T<n>` scope
+    table binds only through the stated `$T` reference)."""
+    if SCOPE_TABLE_NAME.fullmatch(name):
+        return {references[SCOPE_TABLE_REFERENCE]} if SCOPE_TABLE_REFERENCE in references else set()
+    values = prefix_bound_values(references, name)
+    if name == EXCEPT_LIST:
+        values = values | {0}
+    return values
+
+
+def except_list_site(instruction):
+    """True for an instruction addressing fs:[0] (the only use VC6 makes of
+    `__except_list`): an fs-segment memory operand with displacement 0 and no
+    base or index register."""
+    return any(o.type == capstone.x86_const.X86_OP_MEM and o.mem.segment == capstone.x86_const.X86_REG_FS and
+               not o.mem.base and not o.mem.index and o.mem.disp == 0 for o in instruction.operands)
+
+
 def switch_data_start(decoder, body, va):
     """Offset where trailing switch data begins in an original body, or None.
 
@@ -444,6 +484,8 @@ class Audit:
         there. Anything else still refuses.
         """
         flags = section['flags']
+        if any(s['section'] == index and SCOPE_TABLE_NAME.fullmatch(s['name']) for s in coff.symbols.values()):
+            return self.scope_table_duplicate(coff, index, section, candidates)
         if flags & 0x80 and not flags & 0x60:
             return self.zero_fill_duplicate(coff, index, section, candidates)
         if section['name'].startswith('.CRT$XC'):
@@ -643,6 +685,70 @@ class Audit:
             copies[name] = address
         self.__dict__.setdefault('data_original_copies', {}).update(copies)
         return True
+
+    def scope_table_duplicate(self, coff, index, section, candidates):
+        """A __try scope table (`$T<n>`, see SCOPE_TABLE_NAME).
+
+        Accepted, never transferred and never credited, only when the
+        section is read-only initialized data defining exactly one symbol, a
+        `$T<n>` at offset 0, and it is the object's only scope table; the
+        population states its original address as the `$T` reference, in a
+        non-executable initialized original section; the table is whole
+        12-byte records {enclosing level, filter, handler}; every relocation
+        is a 32-bit absolute pointer in a filter or handler field to a label
+        inside a function this population compiles (bound to the same offset
+        in that function's original body); and the relocated bytes equal the
+        original bytes at the stated address. Recorded in the audit result
+        under data_original_copies (as `$T`).
+        """
+        flags = section['flags']
+        if flags & 0xa0000020 or not flags & 0x40:
+            return False
+        defined = [s for s in coff.symbols.values() if s['section'] == index and not s['name'].startswith('.')]
+        tables = [s for s in coff.symbols.values() if s['section'] > 0 and SCOPE_TABLE_NAME.fullmatch(s['name'])]
+        if len(defined) != 1 or len(tables) != 1 or defined[0] is not tables[0] or defined[0]['value'] != 0:
+            return False
+        address = self.merged_references(candidates).get(SCOPE_TABLE_REFERENCE)
+        data = bytearray(section['data'])
+        if address is None or not data or len(data) % 12:
+            return False
+        original_section = self.pe.get_section_by_rva((address - self.base) & 0xffffffff)
+        if original_section is None or original_section.Characteristics & 0x20000020 or \
+                not original_section.Characteristics & 0x40:
+            return False
+        functions = {}
+        for candidate in candidates.values():
+            try:
+                symbol, _, first, last = coff.function(candidate['symbol_prefix'])
+            except ValueError:
+                continue    # compiled in another unit of this population
+            functions.setdefault(symbol['section'], []).append((first, last, candidate['entry']))
+        for offset, symbol_index, kind in section['relocs']:
+            target = coff.symbols[symbol_index]
+            if kind != 6 or offset % 12 not in (4, 8) or target['storage'] not in (3, 6) or \
+                    target['section'] <= 0:
+                return False
+            owners = [entry + target['value'] - first for first, last, entry in functions.get(target['section'], [])
+                      if first <= target['value'] < last]
+            if len(owners) != 1:
+                return False
+            addend = struct.unpack_from('<I', data, offset)[0]
+            struct.pack_into('<I', data, offset, (owners[0] + addend) & 0xffffffff)
+        try:
+            if bytes(data) != self.original(address, len(data)):
+                return False
+        except ValueError:
+            return False
+        self.__dict__.setdefault('data_original_copies', {})[SCOPE_TABLE_REFERENCE] = address
+        return True
+
+    def library_member_defines(self, name, address):
+        """True when the library ledger links a member that defines `name`
+        and whose placed extent contains `address`."""
+        library = self.document(LIBRARY_MANIFEST)
+        return any(name in row.get('symbols', ()) and
+                   int(row['entry'], 16) <= address < int(row['entry'], 16) + row['bytes']
+                   for row in library.get('regions', ()))
 
     def zero_fill_duplicate(self, coff, index, section, candidates):
         """Uninitialized data: the empty literal "" (a .bss COMDAT) or globals.
@@ -891,9 +997,12 @@ class Audit:
             # static) is allowed only when it is bound to an original address.
             require(target_symbol['section'] != 0 or target_symbol['value'] == 0 or
                     target_symbol['name'] in row.get('references', {}), 'Unsupported common symbol')
-            matches = [local] if local is not None else sorted(prefix_bound_values(row.get('references', {}), target_symbol['name']))
+            matches = [local] if local is not None else sorted(bound_values(row.get('references', {}), target_symbol['name']))
             require(len(matches) == 1, 'Unbound/ambiguous original reference')
             target = matches[0]
+            if target_symbol['name'] in SEH_LIBRARY_SYMBOLS:
+                require(self.library_member_defines(target_symbol['name'], target),
+                        'SEH helper %s not bound inside its linked library member' % target_symbol['name'])
             if local is not None:
                 pass
             elif target_symbol['section'] == -1:
@@ -921,6 +1030,12 @@ class Audit:
             else:
                 sites = [i for i in instructions if (i.address + i.imm_offset == va + offset and i.imm_size == 4) or (i.address + i.disp_offset == va + offset and i.disp_size == 4)]
                 require(len(sites) == 1, 'DIR32 not at original operand boundary at %08x+%x (%s)' % (va, offset, target_symbol['name']))
+                if target_symbol['name'] == EXCEPT_LIST:
+                    require(target_symbol['section'] == 0 and value == 0 and except_list_site(sites[0]),
+                            'Original fs:[__except_list] operand differs at %08x+%x' % (va, offset))
+                    struct.pack_into('<I', actual, offset, value)
+                    bindings.append(dict(offset=offset, kind=kind, symbol=target_symbol['name'], target=target, addend=addend, resolved=value))
+                    continue
                 operand_values = [o.imm & 0xffffffff for o in sites[0].operands if o.type == capstone.x86_const.X86_OP_IMM]
                 operand_values += [o.mem.disp & 0xffffffff for o in sites[0].operands if o.type == capstone.x86_const.X86_OP_MEM]
                 require(value in operand_values and self.pe.get_section_by_rva(target - self.base) is not None, 'Original DIR32 operand/section binding differs')

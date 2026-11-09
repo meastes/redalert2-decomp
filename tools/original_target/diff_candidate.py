@@ -40,9 +40,10 @@ SOURCE_REF = re.compile(r'@ref\s+([^\s=]+)=(?:0x)?([0-9a-fA-F]+)')
 GHIDRA_NAME = re.compile(r'(?:FUN|DAT|PTR|SUB|LAB|thunk_FUN|switchD)_([0-9a-fA-F]{8})')
 POINTER_NAME = re.compile(r'(?:^|[^A-Za-z0-9])_?PTR_(?:[A-Za-z0-9_]+_)?([0-9a-fA-F]{8})(?=$|@)')
 STRING_NAME = re.compile(r'(?:^|_)[su]_\w*_([0-9a-f]{8})$')
-# VC6 numbers these initializer/exit functions within each translation unit.
-# Their spelling is not a global identity, even when only one copy is accepted.
-COMPILER_LOCAL_NAME = re.compile(r'_\$E\d+')
+# VC6 numbers these initializer/exit functions (and __try scope tables, `$T<n>`)
+# within each translation unit. Their spelling is not a global identity, even
+# when only one copy is accepted.
+COMPILER_LOCAL_NAME = re.compile(r'_\$E\d+|\$T\d+')
 OWNED_NAME = re.compile(r'_(?:data|global|import|vtable|string)_[0-9a-f]+_([0-9a-f]{6,8})')
 
 
@@ -109,6 +110,12 @@ def known_references(catalog):
 
 
 def lookup(name, references):
+    from verify_manifest import EXCEPT_LIST, SCOPE_TABLE_NAME, SCOPE_TABLE_REFERENCE
+    if SCOPE_TABLE_NAME.fullmatch(name):
+        # A __try scope table binds only through the stated `$T` reference.
+        return references.get(SCOPE_TABLE_REFERENCE)
+    if name == EXCEPT_LIST:
+        return 0        # fs:[__except_list], the C runtime's absolute 0
     if name in references:
         return references[name]
     for key, value in references.items():
