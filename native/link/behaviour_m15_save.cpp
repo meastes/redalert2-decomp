@@ -17,7 +17,6 @@ void Copy_Guid(GUID *to, Guid16 const &from)
 }
 extern "C" Guid16 const ra2_m15_clsid_cell __asm__("_Startup_CLSID_CellClass");               // 0x007A1E70
 extern "C" Guid16 const ra2_m15_clsid_tiberium __asm__("_Startup_CLSID_TiberiumClass");       // 0x007A1E60
-extern "C" Guid16 const ra2_m15_clsid_light __asm__("_Startup_CLSID_LightSourceClass");       // 0x007A1E30
 
 // 0x0047A410 (pass-6a decompile 0047a410).
 HRESULT __stdcall CellClass::GetClassID(GUID *clsid)
@@ -32,14 +31,6 @@ HRESULT __stdcall TiberiumClass::GetClassID(GUID *clsid)
 {
     if (clsid == 0) return E_POINTER;
     Copy_Guid(clsid, ra2_m15_clsid_tiberium);
-    return S_OK;
-}
-
-// 0x00537B60 (pass-6a decompile 00537b60).
-HRESULT __stdcall LightSourceClass::GetClassID(GUID *clsid)
-{
-    if (clsid == 0) return E_POINTER;
-    Copy_Guid(clsid, ra2_m15_clsid_light);
     return S_OK;
 }
 

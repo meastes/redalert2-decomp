@@ -9,19 +9,11 @@
 #include "shared/multiplayer_game_mode.hpp"
 #include "shared/unknown_globals.hpp"
 
-// 0x00436100 / 0x00004B5340: the class ids (E_POINTER for a null out pointer).
+// 0x00436100: the class id (E_POINTER for a null out pointer).
 HRESULT __stdcall BombClass::GetClassID(GUID *clsid)
 {
     if (clsid == 0) return (HRESULT)0x80004003;
     *clsid = CLSID_BombClass;
-    return 0;
-}
-
-extern "C" GUID const CLSID_EMPulseClass;
-HRESULT __stdcall EMPulseClass::GetClassID(GUID *clsid)
-{
-    if (clsid == 0) return (HRESULT)0x80004003;
-    *clsid = CLSID_EMPulseClass;
     return 0;
 }
 

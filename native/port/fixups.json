@@ -1133,13 +1133,6 @@
    "why": "Scout1158's bridge twins (population-4348) use zone_cell += Cell(..) before the unit's explicit specialization of TPoint2D<short>::operator+= 0x0056AA20; VC6 accepts that order, clang refuses 'explicit specialization after instantiation'. Declaring the specialization after the class template natively keeps one out-of-line body."
   },
   {
-   "source": "src/recovered/unowned/Audio_Ring_Node_Create_00408ca0.cpp",
-   "old": "    node->Base = (char *)(((1 << shift) + (int)node->Data - 1) & (-1 << shift));",
-   "new": "    node->Base = (char *)(((1 << shift) + (intptr_t)node->Data - 1) & ((intptr_t)-1 << shift));   // NATIVE: pointer width",
-   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
-   "verified": true
-  },
-  {
    "source": "src/shared/techno.hpp",
    "old": "    int unknown_24;\n    int unknown_28;                     // +0x28 (slot 113 tests it)\n",
    "new": "    intptr_t unknown_24;   // NATIVE: pointer-sized (TemporalClass::Owner)\n    intptr_t unknown_28;   // NATIVE: pointer-sized (TemporalClass::Target; slot 113 tests it)\n",

@@ -1539,7 +1539,7 @@
   },
   {
    "entry": "0x0047A410",
-   "name": "CellClass/TiberiumClass/LightSourceClass::GetClassID (0x0047A410, 0x006E9120, 0x00537B60)",
+   "name": "CellClass/TiberiumClass::GetClassID (0x0047A410, 0x006E9120)",
    "origin_class": "unmatched (leaf)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2620,16 +2620,6 @@
   {
    "entry": "0x004361D0",
    "name": "BombClass::Save",
-   "origin_class": "unmatched",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m22_modes.cpp",
-   "source": "pass-6a decompile",
-   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
-  },
-  {
-   "entry": "0x004B5340",
-   "name": "EMPulseClass::GetClassID",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,

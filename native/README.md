@@ -392,9 +392,9 @@ a script and fixed natively (NOT EXACT where it is code):
 - **Placement by mouse.** DisplayClass's tactical gadget (TacButton 0x00852910)
   had no size: its Rect (`unknown_rect_85291c`, the gadget's X..Height at +0x0C)
   was separate BSS natively, so TacticalClass::Action 0x0049AE70 never ran and the
-  placement cursor (Set_Cursor_Pos 0x004994D0) never followed the mouse. A
-  `data/member_aliases.tsv` row binds the Rect to TacButton's X (native +0x18)
-  (member_aliases.py skips nested-class owners; hand row, kept by its reruns).
+  placement cursor (Set_Cursor_Pos 0x004994D0) never followed the mouse. Slot 42
+  0x00498C80 now writes `TacButton.X..Height` in src (Scout1188), so the former
+  `data/member_aliases.tsv` hand row for the Rect is gone.
 - **Sidebar flicker.** Every DirectDraw primary update was presented, so the
   states between the game's hide-mouse/draw/show-mouse steps stayed on screen
   (with the mouse over the sidebar while a cameo's clock ran, the cursor-erased

@@ -487,14 +487,6 @@ alignas(16) unsigned char ra2_orig_0145[16] __asm__("_source_436100_3");
 alignas(16) unsigned char ra2_orig_0146[16] __asm__("_CLSID_RadSiteClass");
 // row	_CLSID_TemporalClass	0x007A1E20	16	bytes	CLSID_TemporalClass	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0147[16] __asm__("_CLSID_TemporalClass");
-// row	_source_537b60_0	0x007A1E30	4	bytes	source_537b60_0	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0148[16] __asm__("_source_537b60_0");
-// row	_source_537b60_1	0x007A1E34	4	bytes	source_537b60_1	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0149[16] __asm__("_source_537b60_1");
-// row	_source_537b60_2	0x007A1E38	4	bytes	source_537b60_2	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0150[16] __asm__("_source_537b60_2");
-// row	_source_537b60_3	0x007A1E3C	4	bytes	source_537b60_3	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0151[16] __asm__("_source_537b60_3");
 // row	_CLSID_TiberiumClass	0x007A1E60	16	bytes	CLSID_TiberiumClass	src/recovered/header_statics/0068d950/HeaderStatics_empty_rect_init_0068d950.cpp
 // row	_source_6e9120_0	0x007A1E60	4	bytes	source_6e9120_0	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
 alignas(16) unsigned char ra2_orig_0152[16] __asm__("_CLSID_TiberiumClass");
@@ -515,14 +507,6 @@ alignas(16) unsigned char ra2_orig_0157[16] __asm__("_source_47a410_1");
 alignas(16) unsigned char ra2_orig_0158[16] __asm__("_source_47a410_2");
 // row	_source_47a410_3	0x007A1E7C	4	bytes	source_47a410_3	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
 alignas(16) unsigned char ra2_orig_0159[16] __asm__("_source_47a410_3");
-// row	_source_4b5340_0	0x007A1E80	4	bytes	source_4b5340_0	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0160[16] __asm__("_source_4b5340_0");
-// row	_source_4b5340_1	0x007A1E84	4	bytes	source_4b5340_1	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0161[16] __asm__("_source_4b5340_1");
-// row	_source_4b5340_2	0x007A1E88	4	bytes	source_4b5340_2	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0162[16] __asm__("_source_4b5340_2");
-// row	_source_4b5340_3	0x007A1E8C	4	bytes	source_4b5340_3	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0163[16] __asm__("_source_4b5340_3");
 // row	_CLSID_Tactical	0x007A1E90	16	bytes	CLSID_Tactical	src/recovered/classes/Tactical/Tactical_GetClassID_006ac2e0.cpp
 alignas(16) unsigned char ra2_orig_0164[16] __asm__("_CLSID_Tactical");
 // row	_CLSID_ShipLocomotionClass	0x007A1FF0	16	bytes	CLSID_ShipLocomotionClass	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
@@ -4788,7 +4772,6 @@ extern "C" unsigned char ra2_place_1875[] __asm__("_unknown_dial_drag_00852478")
 extern "C" unsigned char ra2_place_1876[] __asm__("_unknown_buffer_852480");
 extern "C" unsigned char ra2_place_1877[] __asm__("__ZN12DisplayClass12TransIconsetE");
 extern "C" unsigned char ra2_place_1878[] __asm__("__ZN12DisplayClass14unknown_852630E");
-extern "C" unsigned char ra2_place_m22r[] __asm__("_unknown_rect_85291c");
 extern "C" unsigned char ra2_place_1879[] __asm__("__ZN12DisplayClass12ShadowShapesE");
 extern "C" unsigned char ra2_place_1880[] __asm__("_unknown_height_step_852948");
 extern "C" unsigned char ra2_place_1881[] __asm__("_counter_current_text_00852a68");
@@ -5979,10 +5962,6 @@ extern "C" const ra2_original_global ra2_original_globals[] = {
     {ra2_orig_0145, 0x007A1E0Cu, 4u, 0},
     {ra2_orig_0146, 0x007A1E10u, 16u, 0},
     {ra2_orig_0147, 0x007A1E20u, 16u, 0},
-    {ra2_orig_0148, 0x007A1E30u, 4u, 0},
-    {ra2_orig_0149, 0x007A1E34u, 4u, 0},
-    {ra2_orig_0150, 0x007A1E38u, 4u, 0},
-    {ra2_orig_0151, 0x007A1E3Cu, 4u, 0},
     {ra2_orig_0152, 0x007A1E60u, 16u, 0},
     {ra2_orig_0153, 0x007A1E64u, 4u, 0},
     {ra2_orig_0154, 0x007A1E68u, 4u, 0},
@@ -5991,10 +5970,6 @@ extern "C" const ra2_original_global ra2_original_globals[] = {
     {ra2_orig_0157, 0x007A1E74u, 4u, 0},
     {ra2_orig_0158, 0x007A1E78u, 4u, 0},
     {ra2_orig_0159, 0x007A1E7Cu, 4u, 0},
-    {ra2_orig_0160, 0x007A1E80u, 4u, 0},
-    {ra2_orig_0161, 0x007A1E84u, 4u, 0},
-    {ra2_orig_0162, 0x007A1E88u, 4u, 0},
-    {ra2_orig_0163, 0x007A1E8Cu, 4u, 0},
     {ra2_orig_0164, 0x007A1E90u, 16u, 0},
     {ra2_orig_0165, 0x007A1FF0u, 16u, 0},
     {ra2_orig_0166, 0x007A2010u, 16u, 0},
@@ -7688,10 +7663,6 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x007A1E0Cu, 4u, ra2_orig_0145, 0},
     {0x007A1E10u, 16u, ra2_orig_0146, 0},
     {0x007A1E20u, 16u, ra2_orig_0147, 0},
-    {0x007A1E30u, 4u, ra2_orig_0148, 0},
-    {0x007A1E34u, 4u, ra2_orig_0149, 0},
-    {0x007A1E38u, 4u, ra2_orig_0150, 0},
-    {0x007A1E3Cu, 4u, ra2_orig_0151, 0},
     {0x007A1E60u, 16u, ra2_orig_0152, 0},
     {0x007A1E64u, 4u, ra2_orig_0153, 0},
     {0x007A1E68u, 4u, ra2_orig_0154, 0},
@@ -7700,10 +7671,6 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x007A1E74u, 4u, ra2_orig_0157, 0},
     {0x007A1E78u, 4u, ra2_orig_0158, 0},
     {0x007A1E7Cu, 4u, ra2_orig_0159, 0},
-    {0x007A1E80u, 4u, ra2_orig_0160, 0},
-    {0x007A1E84u, 4u, ra2_orig_0161, 0},
-    {0x007A1E88u, 4u, ra2_orig_0162, 0},
-    {0x007A1E8Cu, 4u, ra2_orig_0163, 0},
     {0x007A1E90u, 16u, ra2_orig_0164, 0},
     {0x007A1FF0u, 16u, ra2_orig_0165, 0},
     {0x007A2010u, 16u, ra2_orig_0166, 0},
@@ -9424,7 +9391,6 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x00852480u, 48u, ra2_place_1876, 0},
     {0x00852614u, 28u, ra2_place_1877, 0},
     {0x00852630u, 8u, ra2_place_1878, 0},
-    {0x0085291Cu, 24u, ra2_place_m22r, 0},
     {0x00852934u, 20u, ra2_place_1879, 0},
     {0x00852948u, 8u, ra2_place_1880, 0},
     {0x00852A68u, 80u, ra2_place_1881, 0},
