@@ -36,7 +36,7 @@ void Native_Building_Infiltrate_00452390(BuildingClass *building, HouseClass *ho
 
 inline CoordStruct Adjacent_Cell(CoordStruct coord, int facing)
 {
-    UnknownFacingOffset const &offset=unknown_facing_offsets_851ac0[facing & 7];
+    TPoint2D<int> const &offset=unknown_facing_offsets_851ac0[facing & 7];
     return CoordStruct(coord.X+offset.X,coord.Y+offset.Y,coord.Z);
 }
 

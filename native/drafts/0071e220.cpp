@@ -41,7 +41,7 @@ static inline int Distance3(CoordStruct const &a, CoordStruct const &b)
 
 static inline CoordStruct Adjacent_Coord(CoordStruct const &coord, int dir)
 {
-    UnknownFacingOffset const &offset = unknown_facing_offsets_851ac0[dir & 7];
+    TPoint2D<int> const &offset = unknown_facing_offsets_851ac0[dir & 7];
     return CoordStruct::BASECLASS(coord.X + offset.X, coord.Y + offset.Y, coord.Z);
 }
 
