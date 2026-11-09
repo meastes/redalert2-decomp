@@ -90,7 +90,7 @@
 | 0x54EBD0 | 737 | 84.41 | 3 | Scout991 |  | frame layout register |  | Scout641/w/keep/zone_reset_8441.cpp | 114.0 |
 | 0x73A680 | 106 | - | 1 | Scout1003 |  |  |  |  | 106 |
 | 0x673090 | 1,845 | 94.42 | 5 | Scout1025 |  | inline register frame | tibsun twin | Scout773/keep/ap_r1.cpp | 102.0 |
-| 0x47E2C0 | 4,611 | 97.92 | 18 | Scout1043 |  | frame register layout | tibsun twin | Scout765/w/keep/ed6_9792.cpp | 95.0 |
+| 0x47E2C0 | 4,611 | 97.92 | 19 | Scout1112 |  | frame register layout | tibsun twin | Scout765/w/keep/ed6_9792.cpp | 95.0 |
 | 0x487080 | 90 | - | 3 | Scout1030 |  | ruling asm layout | tibsun twin |  | 90 |
 | 0x473F20 | 832 | 89.63 | 9 | Scout1071 |  | inline frame register | tibsun twin | Scout814/w/cu1.cpp | 86.0 |
 | 0x63A880 | 1,567 | 94.67 | 5 | Scout1096 |  | register layout | twin | Scout929/w/ch2.cpp | 83.0 |
