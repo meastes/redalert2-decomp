@@ -1,5 +1,5 @@
 // Skirmish test harness: a build order (README "Skirmish harness";
-// --skirmish-order=build or all). Test scaffolding, never game behaviour: the
+// --skirmish-order=build, all or win). Test scaffolding, never game behaviour: the
 // harness queues the events the sidebar and the map queue for a player's
 // clicks, for the human player (Scout1111, native M12):
 //   * a cameo click: PRODUCE (event 0x0E, kind 7 = BuildingTypeClass, the
@@ -66,9 +66,14 @@ bool Same_Name(char const *a, char const *b)
     return *a == *b;
 }
 
-// The build list: each step is any of its names the player can build.
-char const *const steps[][2] = {{"GAPOWR", "NAPOWR"}, {"GAREFN", "NAREFN"}};
-int const step_count = sizeof(steps) / sizeof(steps[0]);
+// The build list: each step is any of its names the player can build. The
+// order kind win (Scout1125, M15) goes on to a barracks, a war factory, a
+// second refinery (its harvester) and a second power plant (harness_army.cpp
+// builds tanks once the war factory stands).
+char const *const steps[][2] = {{"GAPOWR", "NAPOWR"}, {"GAREFN", "NAREFN"}, {"GAPILE", "NAHAND"}, {"GAWEAP", "NAWEAP"},
+    {"GAREFN", "NAREFN"}, {"GAPOWR", "NAPOWR"}};
+int const short_step_count = 2;
+int step_count = short_step_count;
 Cell yard;              // the construction yard's centre cell
 
 // Cells already tried for the current step (a PLACE that did not take).
@@ -176,6 +181,10 @@ void Houses_Summary(char const *milestone)
         Append_Int(detail, house->Buildings.Count());
         Append(detail, ", units ");
         Append_Int(detail, technos);
+        if (house == unknown_player_a35db4) {
+            Append(detail, ", money ");
+            Append_Int(detail, (int)house->Available_Money());
+        }
         Append(detail, "; ");
         if (detail[340]) break;
     }
@@ -183,11 +192,18 @@ void Houses_Summary(char const *milestone)
 }
 }  // namespace
 
+// The house summary for harness_army.cpp's periodic notes.
+void Native_Harness_Houses(char const *milestone)
+{
+    Houses_Summary(milestone);
+}
+
 // Called by the order seam (harness_orders.cpp) after each Main_Loop frame when
-// the order kind is build or all.
-void Native_Harness_Build(int frame)
+// the order kind is build, all or win (army: the long build list).
+void Native_Harness_Build(int frame, bool army)
 {
     HouseClass *player = unknown_player_a35db4;
+    if (army && frame == 1) step_count = sizeof(steps) / sizeof(steps[0]);
     if (frame == 100) Houses_Summary("harness-houses-100");
     if (frame == ra2port_skirmish_frames()) Houses_Summary("harness-houses");
     if (player == 0 || step >= step_count || frame < wait_until) return;

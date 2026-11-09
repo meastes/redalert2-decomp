@@ -3,6 +3,7 @@
 // follows the Win32 contract the game relies on; anything else is a logged
 // failure (ra2port::unimplemented) with the documented Win32 failure value.
 #include "ra2port/win32_port.hpp"
+#include <ctype.h>
 
 #include <condition_variable>
 #include <dirent.h>
@@ -16,6 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <set>
 #include <string>
 #include <strings.h>
 #include <sys/mount.h>
@@ -68,9 +70,17 @@ struct WIN32_FIND_DATAA {
     char cAlternateFileName[14];
 };
 
+}  // namespace
+namespace ra2port { std::string overlay_path(const std::string &host); }
+namespace {
 struct Find : HandleObject {
     std::string dir, pattern, dir_game;
     DIR *d = nullptr;
+    // The write directory's twin of dir is listed first (files the game
+    // wrote there, e.g. its saved games; Scout1125), then dir; a name
+    // listed once is not listed again.
+    std::string next_dir;
+    std::set<std::string> seen;
     ~Find() { if (d) closedir(d); }
 };
 
@@ -83,11 +93,24 @@ DWORD attributes(const struct stat &st)
 
 bool find_next(Find *f, WIN32_FIND_DATAA *data)
 {
-    while (struct dirent *e = readdir(f->d)) {
+    for (;;) {
+    struct dirent *e = f->d ? readdir(f->d) : nullptr;
+    if (!e) {
+        if (f->next_dir.empty()) return false;
+        if (f->d) closedir(f->d);
+        f->dir = f->next_dir;
+        f->next_dir.clear();
+        f->d = opendir(f->dir.c_str());
+        continue;
+    }
+    {
         if (fnmatch(f->pattern.c_str(), e->d_name, FNM_CASEFOLD) != 0) {
             // "*.*" also matches names without a dot, as on DOS.
             if (!(f->pattern == "*.*")) continue;
         }
+        std::string lower = e->d_name;
+        for (auto &c : lower) c = (char)tolower((unsigned char)c);
+        if (!f->seen.insert(lower).second) continue;
         std::string full = f->dir + "/" + e->d_name;
         struct stat st;
         if (stat(full.c_str(), &st) != 0) continue;
@@ -101,7 +124,7 @@ bool find_next(Find *f, WIN32_FIND_DATAA *data)
         snprintf(data->cFileName, sizeof data->cFileName, "%s", e->d_name);
         return true;
     }
-    return false;
+    }
 }
 
 struct Event : HandleObject {
@@ -375,7 +398,18 @@ HANDLE FindFirstFileA(const char *spec, WIN32_FIND_DATAA *data)
     std::string g = spec ? spec : "";
     size_t gs = g.find_last_of("\\/:");
     f->pattern = gs == std::string::npos ? g : g.substr(gs + 1);
+    std::string twin = overlay_path(f->dir);
+    struct stat twin_st;
+    if (!twin.empty() && twin != f->dir && stat(twin.c_str(), &twin_st) == 0 && S_ISDIR(twin_st.st_mode)) {
+        f->next_dir = f->dir;
+        f->dir = twin;
+    }
     f->d = opendir(f->dir.c_str());
+    if (!f->d && !f->next_dir.empty()) {
+        f->dir = f->next_dir;
+        f->next_dir.clear();
+        f->d = opendir(f->dir.c_str());
+    }
     if (!f->d || !find_next(f, data)) {
         delete f;
         set_last_error(ERROR_FILE_NOT_FOUND);

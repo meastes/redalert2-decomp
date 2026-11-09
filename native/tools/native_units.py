@@ -115,6 +115,14 @@ RULES = [
     (re.compile(r'\bSetWindowLongA\(\s*([^,()]+?)\s*,\s*(-4|-21|GWL_WNDPROC|GWL_USERDATA)\s*,\s*\(\s*(?:LONG|long|int)\s*\)\s*'),
      r'ra2port_set_window_ptr(\1, \2, (intptr_t)'),
     (re.compile(r'\bGetWindowLongA\(\s*([^,()]+?)\s*,\s*(-4|-21|GWL_WNDPROC|GWL_USERDATA)\s*\)'), r'ra2port_get_window_ptr(\1, \2)'),
+    # A window message's lparam cast `(long)` (VC6: 32 bits, a pointer's width)
+    # carries pointers (SendMessageA(item, 0x4B2, 0, (long)text), the score
+    # dialogs' number text 0x005AAB80/0x00467240/0x00465CC0, combo item records
+    # 0x005B75D0): LPARAM keeps the pointer whole natively (Win64's LPARAM is
+    # pointer-sized; --win64-params). An integral argument keeps its value.
+    # Scout1125 (M15): the skirmish score dialog faulted on a truncated stack
+    # pointer.
+    (re.compile(r'\b(SendMessageA|PostMessageA|SendDlgItemMessageA)\(([^;]*?),\s*\(\s*long\s*\)'), r'\1(\2, (LPARAM)'),
     (re.compile(r'\bunsigned\s+long(\s+int)?\b'), 'RA2_ULONG'),
     (re.compile(r'\bsigned\s+long(\s+int)?\b'), 'RA2_LONG'),
     (re.compile(r'\blong\s+int\b'), 'RA2_LONG'),

@@ -8,6 +8,7 @@
 #include <string.h>
 #include <string>
 #include <vector>
+#include <atomic>
 
 #include "ra2port/win32_port.hpp"
 
@@ -46,11 +47,17 @@ int virtual_key(SDL_Keycode k)
 
 LPARAM mouse_lparam(float x, float y) { return (LPARAM)(((int)y & 0xFFFF) << 16 | ((int)x & 0xFFFF)); }
 
+struct Deferred { const void *pixels; int width, height, pitch; };
+std::atomic<bool> deferred_pending{false};
+Deferred deferred;
+SDL_Mutex *deferred_lock = nullptr;
+
 void *create_window(const char *title, int width, int height)
 {
     if (!window) {
         window = SDL_CreateWindow(title, width, height, SDL_WINDOW_HIGH_PIXEL_DENSITY);
         renderer = window ? SDL_CreateRenderer(window, nullptr) : nullptr;
+        if (!deferred_lock) deferred_lock = SDL_CreateMutex();
         // The logical size follows the presented surface (present below), so
         // mouse positions convert to the game's pixels.
         if (renderer) SDL_SetRenderLogicalPresentation(renderer, width, height, SDL_LOGICAL_PRESENTATION_LETTERBOX);
@@ -60,9 +67,26 @@ void *create_window(const char *title, int width, int height)
 }
 
 void play_timed();
+void present_now(const void *pixels, int width, int height, int pitch);
+// A present asked for off the main thread (the game's mouse timer thread:
+// WWMouseClass::Low_Hide_Mouse unlocks the primary surface) is deferred to the
+// main thread: SDL's renderer (Metal) is not thread-safe, and two threads
+// encoding at once aborted with "commit command buffer with uncommitted
+// encoder" (Scout1125, M15). The surface's pixels stay put, so the main thread
+// presents them as they are then, at its next present or event pump.
+void present_deferred()
+{
+    if (!deferred_pending.exchange(false)) return;
+    Deferred d;
+    SDL_LockMutex(deferred_lock);
+    d = deferred;
+    SDL_UnlockMutex(deferred_lock);
+    present_now(d.pixels, d.width, d.height, d.pitch);
+}
 void pump_events()
 {
     play_timed();
+    if (SDL_IsMainThread()) present_deferred();
     HWND w = ra2port::main_window();
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
@@ -116,6 +140,20 @@ void pump_events()
 void present(const void *pixels, int width, int height, int pitch, int bits)
 {
     if (!renderer || bits != 16) return;
+    if (!SDL_IsMainThread()) {
+        if (!deferred_lock) return;
+        SDL_LockMutex(deferred_lock);
+        deferred = Deferred{pixels, width, height, pitch};
+        SDL_UnlockMutex(deferred_lock);
+        deferred_pending = true;
+        return;
+    }
+    deferred_pending = false;
+    present_now(pixels, width, height, pitch);
+}
+
+void present_now(const void *pixels, int width, int height, int pitch)
+{
     if (!texture || tex_w != width || tex_h != height) {
         if (texture) SDL_DestroyTexture(texture);
         // The game's resolution (its DirectDraw display mode): the window

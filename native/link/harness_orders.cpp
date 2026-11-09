@@ -10,7 +10,9 @@
 // "hunt" (the MCV deploys, every other unit gets the hunt mission 15, as the
 // AI's attack teams do: scripted aggression for the menu-to-score loop,
 // Scout1121), "rush" (every unit hunts, the MCV too: no base, so the game ends
-// either way and shows the score screen).
+// either way and shows the score screen), "win" (Scout1125, M15: the MCV
+// deploys, the long build order of harness_build.cpp, then harness_army.cpp's
+// tanks hunt the enemy; the start units wait and join the attack).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
 #include "shared/techno.hpp"
 #include "shared/techno_type.hpp"
@@ -52,7 +54,8 @@ void Append(char *to, char const *text)
 }
 }
 
-void Native_Harness_Build(int frame);   // harness_build.cpp
+void Native_Harness_Build(int frame, bool army);   // harness_build.cpp
+void Native_Harness_Army(int frame);               // harness_army.cpp
 
 // Called by the frame seam (harness_skirmish.cpp) after each Main_Loop frame.
 void Native_Harness_Orders(int frame)
@@ -87,8 +90,10 @@ void Native_Harness_Orders(int frame)
     }
     int len = (int)(sep - order);
     bool all = len == 3 && Same(order, "all", 3);
-    bool build = all || (len == 5 && Same(order, "build", 5));
-    if (build) Native_Harness_Build(frame);
+    bool win = len == 3 && Same(order, "win", 3);
+    bool build = all || win || (len == 5 && Same(order, "build", 5));
+    if (build) Native_Harness_Build(frame, win);
+    if (win) Native_Harness_Army(frame);
     if (frame != at) return;
     bool move = (len == 4 && Same(order, "move", 4)) || (len == 4 && Same(order, "both", 4)) || all;
     bool rush = len == 4 && Same(order, "rush", 4);

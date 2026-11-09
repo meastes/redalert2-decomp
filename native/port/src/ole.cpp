@@ -1,8 +1,7 @@
 // OLE32/OLEAUT32: the in-process COM the game uses. Its locomotors and other
 // COM classes are created with CoCreateInstance through class factories it
 // registers itself (CoRegisterClassObject), so those two form a real CLSID
-// table here. Structured storage (save games) is the next step: logged
-// E_NOTIMPL until then.
+// table here. Structured storage (save games): port/src/storage.cpp.
 #include "ra2port/win32_port.hpp"
 
 #include <map>
@@ -145,13 +144,7 @@ HRESULT CLSIDFromString(const WCHAR *text, GUID *clsid)
     return S_OK;
 }
 
-// Structured storage and persistence (save games): not yet ported.
-HRESULT StgCreateDocfile(const WCHAR *name, DWORD mode, DWORD reserved, void **out)
-{ (void)name; (void)mode; (void)reserved; if (out) *out = nullptr; unimplemented("StgCreateDocfile"); return E_NOTIMPL; }
-HRESULT StgOpenStorage(const WCHAR *name, void *priority, DWORD mode, void *exclude, DWORD reserved, void **out)
-{ (void)name; (void)priority; (void)mode; (void)exclude; (void)reserved; if (out) *out = nullptr; unimplemented("StgOpenStorage"); return E_NOTIMPL; }
-HRESULT OleSaveToStream(void *persist, void *stream) { (void)persist; (void)stream; unimplemented("OleSaveToStream"); return E_NOTIMPL; }
-HRESULT OleLoadFromStream(void *stream, const GUID *iid, void **out) { (void)stream; (void)iid; if (out) *out = nullptr; unimplemented("OleLoadFromStream"); return E_NOTIMPL; }
+// Structured storage and persistence (save games): port/src/storage.cpp (Scout1125, M15).
 
 // BSTR: a 32-bit byte length before the UTF-16 text, NUL-terminated.
 WCHAR *SysAllocString(const WCHAR *text)

@@ -19,6 +19,7 @@
 #include "shared/unknown_player_entry.hpp"
 #include "shared/unknown_globals.hpp"
 #include "shared/debug_printf.hpp"
+#include "shared/main_loop.hpp"
 
 class TechnoClass;
 extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.hpp)
@@ -226,6 +227,7 @@ bool Native_Skirmish_Menu_Bypass()
 
 void Native_Harness_Orders(int frame);   // harness_orders.cpp
 void Native_Harness_Input(int frame);    // harness_input.cpp
+void Native_Harness_Save(int frame);     // harness_save.cpp
 
 bool Native_Main_Loop_Seam()
 {
@@ -238,9 +240,39 @@ bool Native_Main_Loop_Seam()
         ra2port_progress("frame", detail);
         Native_Harness_Orders(frames_done);
         Native_Harness_Input(frames_done);
+        Native_Harness_Save(frames_done);
         ra2port_frame(frames_done);     // scripted input due at the next frame (--input-script)
         if (frames_done >= ra2port_skirmish_frames()) {
             ra2port_progress("frames", detail);
+        }
+        // Every 1,000 frames a milestone with its time (frame rate), and the
+        // end of the game as Main_Loop saw it (Scout1125, M15): the player won,
+        // lost, restarted or aborted (Main_Loop_End 0x0053F840 then runs
+        // Do_Win/Do_Lose: the score screen) or the game is no longer active.
+        if (frames_done % 1000 == 0 && frames_done <= 60000) {
+            static char names[60][16];
+            char *name = names[frames_done / 1000 - 1];
+            name[0] = 0;
+            Append(name, "frames-", sizeof names[0]);
+            Append_Int(name, frames_done / 1000, sizeof names[0]);
+            Append(name, "k", sizeof names[0]);
+            char at[32] = "game frame ";
+            Append_Int(at, Frame, sizeof at);
+            ra2port_progress(name, at);
+        }
+        static bool ended = false;
+        static int games_ended = 0;
+        bool ending = player_wins_a35db1 || player_loses_a40c78 || player_restarts_866250 || player_aborts_a35db0 || !unknown_flag_a40958;
+        if (ended && !ending) ended = false;     // a later game (a loaded one) runs
+        if (!ended && ending) {
+            ended = true;
+            ++games_ended;
+            char why[96] = "";
+            Append(why, player_wins_a35db1 ? "player wins" : player_loses_a40c78 ? "player loses" : player_restarts_866250 ? "restart"
+                : player_aborts_a35db0 ? "abort" : "game no longer active", sizeof why);
+            Append(why, " at frame ", sizeof why);
+            Append_Int(why, frames_done, sizeof why);
+            ra2port_progress(games_ended == 1 ? "game-over" : "game-over-2", why);
         }
     }
     return over;

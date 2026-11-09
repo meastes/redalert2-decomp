@@ -173,6 +173,26 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
 LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     UnknownControlRecord *record = Get_Record(window);
+    if (record && (message == 0x4C8 || message == 0x4CD || message == 0x4C9 || message == 0x4CE)) {
+        // Wide text rows (pass-6a decompile 005f6690 case 0x4CD: LB_ADDSTRING 0x180, or
+        // LB_INSERTSTRING 0x181 at wparam, with lparam's text; LoadOptionsClass::Fill_List
+        // 0x0053C040 passes a FileEntryClass, whose Description is its first member). The
+        // port list box keeps narrow text: the row's text is narrowed (Scout1125, M15).
+        char narrow[256];
+        int n = 0;
+        unsigned short const *wide = (unsigned short const *)lparam;
+        for (; wide && wide[n] && n < 255; ++n) narrow[n] = wide[n] < 0x100 ? (char)wide[n] : '?';
+        narrow[n] = 0;
+        bool append = message == 0x4C8 || message == 0x4CD;
+        LRESULT row = Original(window, append ? 0x180 : 0x181, append ? 0 : wparam, (LPARAM)narrow);
+        InvalidateRect(window, 0, TRUE);
+        return row;
+    }
+    if (record && message == 0x4A8) {
+        // A row's extra column cell (0x005F6690 case 0x4A8: the date and time of a saved
+        // game): not kept by the simplified list (NOT EXACT: only the first column shows).
+        return 0;
+    }
     if (!record || message != 0xF) {
         if (message == 0x14) return 1;
         LRESULT result = Original(window, message, wparam, lparam);
@@ -353,6 +373,21 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
             ShowWindow(drop, 1);
             InvalidateRect(drop, 0, FALSE);
             return 1;
+        }
+        case 0x497:                                 // OD_SUBCLASSED: no item has a colour of its own
+        case 0x498: {                               // OD_SETCOLOR: item wparam's text colour
+            // +0x110, 50 COLORREFs, -1 for the default (the drop list 0x005EAD20 reads them;
+            // RA2_COMBO_DROP_UNIT's item_colors_110). TibSun ownrdraw.cpp's OD_SUBCLASSED memsets
+            // them to 0xFF; pass-6a decompile 005f4ba0 case 0x498 stores lparam below index 0x33
+            // (natively below 50: the array's own extent). Scout1125 (M15): the drop list's rows
+            // drew in colour 0 (black) before.
+            int *colors = (int *)(record->unknown_fc + (0x110 - 0xFC));
+            if (message == 0x497) {
+                memset(colors, 0xFF, 50 * sizeof(int));
+            } else if (wparam < 50) {
+                colors[wparam] = (int)lparam;
+            }
+            break;
         }
         case 0x2:                                   // WM_DESTROY
             SendMessageA(window, 0x14F, 0, 0);

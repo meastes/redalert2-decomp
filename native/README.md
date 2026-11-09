@@ -210,6 +210,46 @@ in a game started from the menus; `hunt` (the MCV deploys, every other unit
 hunts) and `rush` (the MCV drives to the enemy, the others hunt) are scripted
 aggression for the menu-to-score loop.
 
+### Win, score screen, save game (Scout1125, M15)
+
+`--skirmish-order=win` (`link/harness_army.cpp`, test scaffolding): the MCV
+deploys, harness_build.cpp's long build order (power plant, refinery, barracks,
+war factory, second refinery, second power plant), then one tank (Grizzly or
+Rhino) at a time from the war factory (PRODUCE kind 0x28) and, once twelve
+stand (or at `RA2_NATIVE_ARMY_ATTACK`, default frame 9,000), every combat unit
+hunts; later tanks join. Notes `harness-army-<n>` and `harness-houses-<k>k`
+(buildings, units, the player's money every 2,000 frames). Every game logs
+`frames-<k>k` (game frame per 1,000 loop frames) and `game-over` (win, lose,
+restart, abort) as Main_Loop saw it: Main_Loop returns at once while a
+player_wins/loses flag is set (no Frame++, no Sync_Delay), which is the "frames
+run 50x faster" Scout1121 saw; Main_Loop_End then runs Do_Win/Do_Lose and the
+score dialog (MP_Score_Dialog_Proc 0x005AAE40, modal). The default skirmish map,
+Isle of War, has no land route between the bases (Regular findpath failure);
+a menu run picks El Dorado by a `[Skirmish] ScenIndex=5` section in the
+write directory's RA2.INI (the game's own saved skirmish settings). The real
+loop (menus, Medium Enemy, win at frame ~25,000, the score screen, Continue,
+Back, Back, `menu-return`) takes about 8 minutes.
+`RA2_NATIVE_FORCE_END=<frame>[,lose]` sets the win (or loss) flag at that frame
+(test scaffolding for the score screens). Native causes fixed on the way: the
+lparam `(long)` casts of window messages truncated pointers (native_units.py
+rule: `(LPARAM)`), the combo box never cleared its item colours (OD_SUBCLASSED,
+so the drop list drew its rows in black), the depth read/write darken and
+translucent blitters and a few leaves were unrecovered.
+
+Save game: `RA2_NATIVE_SAVE_AT=<frame>[,<file>]` (`link/harness_save.cpp`) calls
+Save_Game 0x006554A0 as the options menu's Save ends in; with
+`RA2_NATIVE_SAVE_LEAVE=1` the game is then left as the menu's Abort does. Ole32
+structured storage is ported (`port/src/storage.cpp`: IStorage, IStream,
+IPropertySetStorage, OleSaveToStream/OleLoadFromStream; one host file per
+storage in the port's own container format, `RA2NSTG1`; `RA2_NATIVE_STG_LOG=1`
+logs it). LZO1X's dictionary keeps 32-bit offsets natively (its 64 KB work
+memory held 16,384 VC6 pointers), swizzle IDs are pointer-wide (the saved
+object address is 8 bytes natively), FindFirstFileA also lists the write
+directory (saved games), and the load dialog's list shows the saves' descriptions.
+Load from the menu (Single Player, Load Saved Game, the save, Load) reads the
+whole game back and stops in SwizzleManagerClass::Process_Tables: a loaded
+pointer whose object never registered (open).
+
 ### Data the original stores (game.exe at run time)
 
 User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and

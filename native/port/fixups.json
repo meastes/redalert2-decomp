@@ -1074,6 +1074,97 @@
    "old": "struct UnknownTextRequest {\n    int unknown_00;",
    "new": "struct UnknownTextRequest {\n    intptr_t unknown_00;   // native: the control (HWND), pointer-sized as skirmish.hpp's ToolTipTextRequest::Window",
    "why": "UnknownTextRequest (0x005E2100) is the request the dialogs answer as skirmish.hpp's ToolTipTextRequest {HWND Window; int Item; WideString Text} (message 0x4E9, Skirmish_Dialog_Proc 0x00683D10). On VC6 both put Item at +4 and Text at +8; natively the HWND is 8 bytes, so the dialog read Item and wrote Text 8 bytes past this view (an abort in WideString::operator= on the first mouse move over the skirmish dialog). Same meaning: the first member holds the control handle (Scout1119, M14)."
+  },
+  {
+   "source": "src/recovered/library/LZO/do_compress_0053e490.cpp",
+   "old": "    unsigned char const ** const dict = (unsigned char const **)wrkmem;\n",
+   "new": "    // native: the dictionary keeps 32-bit offsets from in (Scout1125, M15).\n    struct Native_Dict_Ref {\n        unsigned int *slot;\n        unsigned char const *base;\n        operator unsigned char const *() const { return base + (int)*slot; }\n        Native_Dict_Ref &operator=(unsigned char const *p) { *slot = (unsigned int)(p - base); return *this; }\n    };\n    struct Native_Dict {\n        unsigned int *slots;\n        unsigned char const *base;\n        Native_Dict_Ref operator[](unsigned int i) const { Native_Dict_Ref r = {slots + i, base}; return r; }\n    };\n    Native_Dict const dict = {(unsigned int *)wrkmem, in};\n",
+   "why": "LZO1X-1's dictionary is 16,384 byte pointers in the caller's 64 KB wrkmem (CStreamClass 0x00495000, LZOPipe/LZOStraw; 4-byte pointers on VC6): native 8-byte pointers ran past the buffer and the save game's CONTENTS stream faulted in do_compress (Scout1125). Natively each slot holds the 32-bit offset of its byte from in; a stale or uninitialised slot still decodes to some pointer, which the original's own m_pos < in / offset range tests reject before any read, as they reject stale pointers on VC6.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/vector_elements.hpp",
+   "old": "    SwizzlePointerClass(long id, void *pointer) : ID(id), Pointer(pointer) {}\n    long ID;",
+   "new": "    SwizzlePointerClass(intptr_t id, void *pointer) : ID(id), Pointer(pointer) {}\n    intptr_t ID;",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/swizzle.hpp",
+   "old": "Fetch_Swizzle_ID(void *pointer, long *id)",
+   "new": "Fetch_Swizzle_ID(void *pointer, intptr_t *id)",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/swizzle.hpp",
+   "old": "Here_I_Am(long id, void *pointer)",
+   "new": "Here_I_Am(intptr_t id, void *pointer)",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_ptr_compare_func_0069fc00.cpp",
+   "old": "    long id1 = ((SwizzlePointerClass const *)ptr1)->ID;\n    long id2 = ((SwizzlePointerClass const *)ptr2)->ID;",
+   "new": "    intptr_t id1 = ((SwizzlePointerClass const *)ptr1)->ID;\n    intptr_t id2 = ((SwizzlePointerClass const *)ptr2)->ID;",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/AbstractClass/AbstractClass_Load_00410120.cpp",
+   "old": "    long id;\n",
+   "new": "    intptr_t id;\n",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/LocomotionClass/LocomotionClass_Load_0053d3c0.cpp",
+   "old": "    long id;\n",
+   "new": "    intptr_t id;\n",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Swizzle_0069fb20.cpp",
+   "old": "SwizzlePointerClass((long)*pointer, pointer)",
+   "new": "SwizzlePointerClass((intptr_t)*pointer, pointer)",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Fetch_Swizzle_ID_0069fd70.cpp",
+   "old": "Fetch_Swizzle_ID(void *pointer, long *id)",
+   "new": "Fetch_Swizzle_ID(void *pointer, intptr_t *id)",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Fetch_Swizzle_ID_0069fd70.cpp",
+   "old": "*id = (long)pointer;",
+   "new": "*id = (intptr_t)pointer;",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Save_All_00712150.cpp",
+   "old": "        LONG id = (LONG)Array[i];",
+   "new": "        intptr_t id = (intptr_t)Array[i];",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Load_All_00711e60.cpp",
+   "old": "        LONG id;\n",
+   "new": "        intptr_t id;\n",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Here_I_Am_0069fba0.cpp",
+   "old": "SwizzleManagerClass::Here_I_Am(long id, void *pointer)",
+   "new": "SwizzleManagerClass::Here_I_Am(intptr_t id, void *pointer)",
+   "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
+   "verified": true
   }
  ]
 }

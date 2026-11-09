@@ -1476,6 +1476,156 @@
    "file": "native/link/behaviour_m14b_bullet.cpp",
    "source": "native/drafts/004bbaf0.cpp",
    "notes": "shared/bullet.hpp's int-returning name forwards to the tracked draft Get_Obstacle_004bbaf0 (same address), as a bool; Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x00601710",
+   "name": "OwnerDraw::UnknownControlIndex::Get (the control registry's out-of-line lookup)",
+   "origin_class": "second declaration",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15.cpp",
+   "source": "pass-6a decompile 00601710; shared/wol_dictionary.hpp Get_Pointer",
+   "notes": "the UnknownControlIndex name of the registry 0x00A73640 forwards to its WolDictionary getPointer (one storage); Default_Dialog_Proc 0x005FFB00's WM_PAINT reaches it; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x00482E00",
+   "name": "Unit_Unknown_Shake_00482e00",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15.cpp",
+   "source": "pass-6a decompile 00482e00",
+   "notes": "shared empty leaf (Leaf_482e00::get); UnitClass::Explode calls it; Scout1125 (M15)"
+  },
+  {
+   "entry": null,
+   "name": "BlitTransDarkenZReadWrite<unsigned short>::BlitForward/BlitBackward",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_blit.cpp",
+   "source": "recovered siblings 0x00487C50 (Lucent50ZReadWrite), 0x00487390 (DarkenZRead); TibSun blitblit.h backward-as-forward",
+   "notes": "depth test, darken pixel, depth write, ABuffer wrap; Scout1125 (M15): reached when the harness builds a barracks"
+  },
+  {
+   "entry": null,
+   "name": "BlitTransLucent25ZReadWrite/BlitTransLucent75ZReadWrite<unsigned short>::BlitForward/BlitBackward, BlitTransLucent50ZReadWrite<unsigned short>::BlitBackward",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_blit.cpp",
+   "source": "recovered siblings BlitTransLucent25ZRead/75ZRead, 0x00487C50",
+   "notes": "same family as the darken row; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x0053B190",
+   "name": "LoadOptionsClass::Load_Dialog_0053b190 / Save_Dialog_0053b1b0 (0x0053B1B0) / Delete_Dialog_0053b1e0 (0x0053B1E0)",
+   "origin_class": "second declaration",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15.cpp",
+   "source": "pass-6a decompiles 0053b190/0053b1b0/0053b1e0",
+   "notes": "the accepted seeds carry these under seed names: style +0x04, description +0x0C, then Dialog 0x0053B770; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x0053C970",
+   "name": "LoadOptionsClass::Load_Menu_Name/Save_Menu_Name/Delete_Menu_Name/Saved_Message (0x0053C970-0x0053C9D0)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15.cpp",
+   "source": "pass-6a decompiles 0053c970..0053c9d0",
+   "notes": "string table labels GUI:LoadMissionMenu, GUI:SaveMissionMenu, GUI:DeleteMissionMenu, TXT_GAME_WAS_SAVED; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x0047A410",
+   "name": "CellClass/TiberiumClass/LightSourceClass::GetClassID (0x0047A410, 0x006E9120, 0x00537B60)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_save.cpp",
+   "source": "pass-6a decompiles",
+   "notes": "the class CLSID from data/com_guids.cpp; save game; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x00537BF0",
+   "name": "LightSourceClass::Save",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_save.cpp",
+   "source": "pass-6a decompile 00537bf0",
+   "notes": "AbstractClass::Save, success as S_OK; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x006AC400",
+   "name": "Tactical::Save",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_save2.cpp",
+   "source": "pass-6a decompile 006ac400",
+   "notes": "AbstractClass::Save, success as S_OK; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x006822A0",
+   "name": "SidebarClass::unknown_slot31/unknown_slot30 (0x006822A0, 0x00682290)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_save3.cpp",
+   "source": "pass-6a decompiles 006822a0/00682290",
+   "notes": "forward to RadarClass's save/load slots; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x0059EBA0",
+   "name": "UnknownPairSecond::~UnknownPairSecond",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_load.cpp",
+   "source": "pass-6a decompile 0059eba0",
+   "notes": "frees the matrix array; load game deletes the types; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x006EA9D0",
+   "name": "TiberiumClass::Kind_Of",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_load.cpp",
+   "source": "pass-6a decompile 006ea9d0",
+   "notes": "returns 0x2E; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x00423F60",
+   "name": "StageTimerClass/UnknownTimer423F60 NoInit constructors",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_noinit.cpp",
+   "source": "pass-6a decompile 00423f60 (return this)",
+   "notes": "plain functions under the constructor symbols (no member default construction); Scout1125 (M15)"
+  },
+  {
+   "entry": null,
+   "name": "UnknownIDSource::UnknownIDSource(NoInitClass const &)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_noinit.cpp",
+   "source": "TibSun scenario.cpp ScenarioClass(NoInitClass) (shape only)",
+   "notes": "SIMPLIFIED: keeps the loaded bytes; members' vtables not re-set (valid only for a load by the saving process); Scout1125 (M15)"
+  },
+  {
+   "entry": "0x00492E20",
+   "name": "UnknownEnumConnectionPoints::UnknownEnumConnectionPoints (the house's connection point enumerator)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m15_cp.cpp",
+   "source": "recovered twin EnumConnectionsClass 0x004924B0/0x00492210/Next",
+   "notes": "a native IEnumConnectionPoints built in the house's allocation; Next fails when exhausted (ends Adjust_Drain's loop); Clone not implemented; Scout1125 (M15)"
   }
  ]
 }

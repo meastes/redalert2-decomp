@@ -40,6 +40,7 @@ extern "C" void ra2port_set_skirmish(const char *map, int frames);
 extern "C" void ra2port_set_skirmish_order(const char *order);
 extern "C" void ra2port_set_frames(int frames);
 #include <stdlib.h>
+#include <sys/stat.h>
 #include <string.h>
 #include <unistd.h>
 
@@ -97,6 +98,7 @@ int main(int argc, char **argv)
         write_dir = mkdtemp(write_template);
     }
     if (write_dir) {
+        mkdir(write_dir, 0755);     // a named --write-dir may not exist yet (writes below it create their parents)
         ra2port::set_write_dir(write_dir);
         fprintf(stderr, "run-to: writes go to %s\n", write_dir);
     }

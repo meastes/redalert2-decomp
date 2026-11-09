@@ -1,7 +1,7 @@
 // Skirmish harness: scripted input support (README "Playing"; --input-script).
 // Test scaffolding, never game behaviour (Scout1115, native M13). The host
 // pushes scripted mouse and key events through its SDL event path; a point
-// "@ID[:n][+dx,dy]" names the human player's n-th object of type ID (0 the
+// "@ID[:n][+dx,dy]" (or "-dx,dy") names the human player's n-th object of type ID (0 the
 // first), moved by dx, dy cells, and this file answers its screen pixel
 // (Tactical::Coord_To_Pixel 0x006A29D0 of its centre). At the run's last frame
 // it logs harness-input: the selected objects and each of the player's
@@ -79,11 +79,12 @@ int Resolve(char const *spec, int *x, int *y)
     HouseClass *player = unknown_player_a35db4;
     if (player == 0 || unknown_tactical_83996c == 0) return 0;
     int length = 0;
-    while (spec[length] && spec[length] != ':' && spec[length] != '+') ++length;
+    while (spec[length] && spec[length] != ':' && spec[length] != '+' && spec[length] != '-') ++length;
     char const *p = spec + length;
     int index = 0, dx = 0, dy = 0;
     if (*p == ':') { ++p; index = Read_Int(p); }
-    if (*p == '+') { ++p; dx = Read_Int(p); if (*p == ',') { ++p; dy = Read_Int(p); } }
+    // "+dx,dy" or "-dx,dy" (the sign is dx's own; Scout1125: "@GACNST-4,0" did not parse).
+    if (*p == '+' || *p == '-') { dx = Read_Int(p); if (*p == ',') { ++p; dy = Read_Int(p); } }
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
         if (techno == 0 || techno->House != player || !Same_Name(Type_ID(techno), spec, length)) continue;
