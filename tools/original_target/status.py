@@ -34,6 +34,17 @@ def count_calibrated(region):
     return region.get('count_calibrated') is True and not evidenced_inline_asm(region)
 
 
+# Manifest flags that mark an accepted row resting on a judgment call (decision policy, user 2026-11-09):
+# plausible but unprovable source forms. Twin-evidenced categories (evidenced inline asm) are not here.
+JUDGMENT_FLAGS = ('count_calibrated',)
+
+
+def judgment_coverage(catalog):
+    """(regions, body bytes) of accepted rows carrying any JUDGMENT_FLAGS flag."""
+    rows = [r for r in catalog['regions'] if any(r.get(flag) is True for flag in JUDGMENT_FLAGS)]
+    return len(rows), sum(r['body_bytes'] for r in rows)
+
+
 def calibrated_coverage(catalog):
     """(regions, body bytes) of count-calibrated rows; a subset of the matched C/C++ body bytes."""
     rows = [r for r in catalog['regions'] if count_calibrated(r)]
@@ -248,6 +259,7 @@ def text_bytes(executable):
 def render(catalog, text, rows, funcs=None, lib=None, asm=None):
     now = coverage(catalog)
     calibrated = calibrated_coverage(catalog)
+    judgment = judgment_coverage(catalog)
     scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm'] - (lib['bytes'] if lib else 0) - (asm['bytes'] if asm else 0)
     populations = Counter(r['population'] for r in catalog['regions'])
     split = ledger(catalog, text)
@@ -259,6 +271,9 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None):
              '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
              'evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) '
              '| **{:,} of {:,} ({:.2f}%)** |'.format(reproduced, text, 100.0 * reproduced / text),
+             '| Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: {}; read from the manifest) '
+             '| {:,} in {:,} regions ({:.2f}% of .text) |'.format(', '.join(JUDGMENT_FLAGS), judgment[1], judgment[0],
+                                                                 100.0 * judgment[1] / text),
              '| Accepted regions | {:,} |'.format(now['regions']),
              '| Matched C/C++ body bytes | {:,} ({:.2f}% of .text) |'.format(now['body'], 100.0 * now['body'] / text),
              '| Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user\'s '

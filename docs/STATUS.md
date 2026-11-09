@@ -11,6 +11,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Measure | Value |
 | --- | ---: |
 | **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,506,182 of 3,769,805 (93.01%)** |
+| Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated; read from the manifest) | 14,606 in 7 regions (0.39% of .text) |
 | Accepted regions | 17,890 |
 | Matched C/C++ body bytes | 3,255,512 (86.36% of .text) |
 | Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user's three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) | 14,606 in 7 regions (0.39% of .text) |
@@ -22,7 +23,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,255,402 of 3,515,788 (92.59%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,874 of 17,987 (99.37%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 102 of 113 scored) | 98.99% by bytes, 99.82% per function |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 103 of 113 scored) | 99.01% by bytes, 99.82% per function |
 | Original .text scaffold bytes | 263,623 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 698 |
