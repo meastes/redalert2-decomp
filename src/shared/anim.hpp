@@ -172,7 +172,7 @@ struct UnknownAnimCell {
     short unknown_10a;                      // +0x10A (a tiberium anim takes it as unknown_e4)
     char unknown_10c[0x11B - 0x10C];
     signed char unknown_11b;                // +0x11B height level
-    bool unknown_11c;                       // +0x11C
+    unsigned char unknown_11c;              // +0x11C (the ramp type)
     char unknown_11d;
     unsigned char unknown_11e;              // +0x11E (overlay data: vein / tiberium amount?)
     char unknown_11f[0x124 - 0x11F];

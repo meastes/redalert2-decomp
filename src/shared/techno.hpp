@@ -288,7 +288,7 @@ public:
     short unknown_10a;                  // +0x10A (ObjectClass slot 56 copies it into the placed animation's +0xE4)
     char unknown_10c[0x11B - 0x10C];
     char unknown_11b;                   // +0x11B (the height level)
-    bool unknown_11c;                   // +0x11C (a ramp; FootClass slot 102)
+    unsigned char unknown_11c;          // +0x11C (the ramp type; FootClass slot 102)
     char unknown_11d;
     unsigned char unknown_11e;          // +0x11E
     char unknown_11f[0x122 - 0x11F];

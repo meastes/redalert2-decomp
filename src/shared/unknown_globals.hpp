@@ -445,6 +445,10 @@ class Rect;
 #ifdef RA2_LOAD_PROGRESS_RECTS
 #include "shared/rect.hpp"
 #endif
+#ifndef _WCHAR_T_DEFINED
+typedef unsigned short wchar_t;
+#define _WCHAR_T_DEFINED
+#endif
 struct Unknown535910 {
     Unknown535910();                        // 0x005359A0
     virtual bool Message_00536ea0(int message, void *data);      // slot 0
@@ -468,8 +472,8 @@ struct Unknown535910 {
     int unknown_18[4];                      // +0x18 (x, y, width, height; 0x005359E0)
     int unknown_28[4];                      // +0x28 (x, y, width, height; 0x005359E0)
 #endif
-    int unknown_38;                         // +0x38
-    int unknown_3c;                         // +0x3C
+    wchar_t const *unknown_38;              // +0x38 the loading message text (StringTable::Load_String)
+    wchar_t const *unknown_3c;              // +0x3C the loading briefing text
     void *unknown_40;                       // +0x40 buffer, owned when unknown_4c
     void *unknown_44;                       // +0x44 buffer, owned when unknown_4d
     void *unknown_48;                       // +0x48 buffer, owned when unknown_4e
@@ -490,10 +494,6 @@ extern int unknown_screen_widths_7add68[3];
 extern int unknown_screen_heights_7add74[3];
 void __fastcall Unknown_006f24a0(int flag);     // 0x006F24A0 (loads the campaign loading art)
 void __fastcall Unknown_006f25c0();             // 0x006F25C0 (loads the multiplayer loading art)
-#ifndef _WCHAR_T_DEFINED
-typedef unsigned short wchar_t;
-#define _WCHAR_T_DEFINED
-#endif
 // The loading screen's two text areas, centred on screens past 800x600
 // (0x00536B80, 0x00536C00).
 Rect __fastcall Unknown_00536b80();

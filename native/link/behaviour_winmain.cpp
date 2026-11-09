@@ -93,3 +93,16 @@ void __cdecl Unknown_00496460(char const *format, ...) {}
 // 0x005EAC10: an empty function in this build (the row's leaf is a bare
 // return, src/recovered/005eac10.cpp); Init_Game calls it.
 void Unknown_005EAC10() {}
+
+// The accepted WinMain 0x0068E280 (b10418049) names two of the calls above by
+// other declarations: 0x00785049 is the CRT's _controlfp (library code; its
+// result is unused there) and 0x0077F0F4 is set_control_word. Natively the
+// names are different symbols, so each forwards to the one body (Scout1153, M19).
+void Set_FPU_Control(unsigned value, unsigned mask)
+{
+    _controlfp(value, mask);
+}
+void Unknown_0077F0F4()
+{
+    set_control_word();
+}

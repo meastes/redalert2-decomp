@@ -283,7 +283,6 @@ __ZN10RadarClass16Unknown_00630840ERK4Rect	__ZN10RadarClass14unknown_slot29ERK4R
 __ZN10RadarClass16Unknown_00631BA0ERK11CoordStructb	__ZN10RadarClass16Unknown_00631BA0ERK7Point2Db	0x00631BA0	function	same address, IR signature i64 (ptr, ptr, i1 zeroext)
 __Z16Unknown_006354E0v	__ZN7RadBeam10Update_AllEv	0x006354E0	function	same address, IR signature void ()
 __ZNK10RadioClass17Contact_With_WhomEi	__ZNK10RadioClass8Contact2Ei	0x00636E20	function	same address, IR signature ptr (ptr, i32)
-__ZNK10RadioClass16Unknown_00636EA0Ev	__ZNK18UnknownList_636ea013Has_Free_SlotEv	0x00636EA0	function	same address, IR signature zeroext i1 (ptr)
 __Z16Unknown_0063A690P10HouseClassiiiP9CellClassP13AbstractClassii	__Z24Create_Air_ReinforcementP10HouseClassiiiP13AbstractClassS2_ii	0x0063A690	function	same address, IR signature i32 (ptr, i32, i32, i32, ptr, ptr, i32, i32)
 __Z16Unknown_0063B5B0i4Cell	__Z18Submit_Radar_Event14RadarEventType4Cell	0x0063B5B0	function	same address, IR signature zeroext i1 (i32, i64)
 __Z16Unknown_0063C6C0RK4Cell	__Z37RadarEventClass_unknown_remember_cellRK4Cell	0x0063C6C0	function	same address, IR signature void (ptr)
@@ -516,3 +515,18 @@ _test_frame_rate_debug_007ff314	_start_text_007ff314	0x007FF314	data	same addres
 _test_precalc_debug_007ff334	_start_text_007ff334	0x007FF334	data	same address
 _wol_match_fail_7ffd8c	_match_exit_label_007ffd8c	0x007FFD8C	data	same address
 _wol_user_count_debug_007ffea0	_request_match_user_count_007ffea0	0x007FFEA0	data	same address
+__Z16Unknown_00495590b	__Z32Init_Language_Resources_00495590b	0x00495590	function	same address, IR signature zeroext i1 (i1 zeroext)
+__Z17Query_DLL_VersionPKc	__Z26Query_DLL_Version_0049ee00PKc	0x0049EE00	function	same address, IR signature i32 (ptr)
+__Z17Audio_File_RecordPKc	__Z27Unknown_Audio_File_00522c50PKc	0x00522C50	function	same address, IR signature void (ptr)
+__Z16Load_String_FilePKc	__Z26String_Table_Init_006f8e30PKc	0x006F8E30	function	same address, IR signature i32 (ptr)
+__Z16Wide_Message_BoxP6HWND__PKtS2_j	__Z16Unknown_006FA040P6HWND__PKtS2_j	0x006FA040	function	same address, IR signature i32 (ptr, ptr, ptr, i32)
+_CLSID_CompressStream	_CLSID_CStreamClass	0x007A1AB0	data	same address
+_CLSID_UnitTypeClass	_unknown_clsid_unit_type_7a1b00	0x007A1B00	data	same address
+_CLSID_InfantryTypeClass	_unknown_clsid_infantry_type_7a1b10	0x007A1B10	data	same address
+_CLSID_AircraftTypeClass	_unknown_clsid_aircraft_type_7a1b20	0x007A1B20	data	same address
+_CLSID_BuildingTypeClass	_unknown_clsid_building_type_7a1b30	0x007A1B30	data	same address
+_CLSID_WaypointPath	_CLSID_WaypointPathClass	0x007A1DC0	data	same address
+_CLSID_LightSource	_source_537b60_0	0x007A1E30	data	same address
+_CLSID_EMPulseClass	_source_4b5340_0	0x007A1E80	data	same address
+_CLSID_TacticalMapClass	_CLSID_Tactical	0x007A1E90	data	same address
+_CLSID_TeleportLocomotion	_CLSID_TeleportLocomotionClass	0x007A1FD0	data	same address

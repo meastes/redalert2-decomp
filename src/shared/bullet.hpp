@@ -201,8 +201,8 @@ struct UnknownBulletTypeView {
     char unknown_2b8[0x2BC - 0x2B8];
     bool unknown_2bc;                       // +0x2BC bullets of this type are kept in BulletClass::Array
     char unknown_2bd[0x2C4 - 0x2BD];
-    bool unknown_2c4;                       // +0x2C4
-    bool unknown_2c5;                       // +0x2C5
+    unsigned char unknown_2c4;              // +0x2C4 (BulletTypeClass AnimLow)
+    unsigned char unknown_2c5;              // +0x2C5 (BulletTypeClass AnimHigh)
     unsigned char unknown_2c6;              // +0x2C6 initial animation rate
     bool unknown_2c7;                       // +0x2C7
 

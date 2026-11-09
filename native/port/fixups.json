@@ -1269,6 +1269,20 @@
    "new": "    UnknownImage_0052dfa0 *image = (UnknownImage_0052dfa0 *)Native_Object_Type_Image(this);   // NATIVE: the real ObjectTypeClass slot 39 (link/behaviour_m18.cpp)\n",
    "why": "Scout1142: this view of ObjectTypeClass (IsometricTileTypeClass) lists the VC6 vtable as 40 plain virtual slots to call slot 39 (ObjectTypeClass::unknown_slot39, the image). The native vtable of the real class has another order and size (Itanium: two destructor entries, the COM interface layout), so natively slot 39 is entry 45 and the view called another function: the image was null and Land_Type 0x00529300 answered 0 (clear) for every tile, water included (Allied 1: no ship or amphibious path entered water). The call goes to the real virtual through Native_Object_Type_Image (link/behaviour_m18.cpp).",
    "verified": true
+  },
+  {
+   "source": "src/recovered/startup/WinMain_0068e280.cpp",
+   "old": "            __try {\n                Debug_Printf(\"Main_Game\\n\");\n                Main_Game(argc, argv);\n            } __except (Handle_Exception_004b87f0(_exception_code(), (_EXCEPTION_POINTERS *)_exception_info())) {\n            }\n",
+   "new": "            // NATIVE: no SEH on arm64: the __try/__except around Main_Game (handler\n            // Handle_Exception_004b87f0) is dropped, as the M10 draft did; the host's crash trace reports faults.\n            Debug_Printf(\"Main_Game\\n\");\n            Main_Game(argc, argv);\n",
+   "why": "WinMain 0x0068E280 is accepted exact (b10418049) and supersedes the native draft, which had dropped the SEH block; clang has no __try/__except on arm64 macOS.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/startup/WinMain_0068e280.cpp",
+   "old": "\nint __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int command_show)\n{",
+   "new": "\nextern \"C\" int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int command_show)\n{",
+   "why": "The host's main calls WinMain with C linkage (as the Win32 CRT's entry does, by the undecorated name); the accepted source declares it C++, so natively it is given C linkage.",
+   "verified": true
   }
  ]
 }
