@@ -110,6 +110,28 @@ only the compiler/linker bottle (`shared/compiler.lock`, handled by the tools);
 analysis and seeding run concurrently. Before shared writes check HEAD/status
 and preserve unexpected changes rather than overwriting them.
 
+## Decision policy (user, 2026-11-09)
+
+- Technical rulings belong to the owner: whether a source form is acceptable, which landing option
+  to take, whether to revert a row. Decide, record, report; never ask the user these.
+- The test, in order: (a) could one real codebase contain this? (b) does every line do real work? No
+  dummy variables, dead code or pass-through aliases, including ones in an inline callee that only
+  tune a caller; (c) evidence first: TibSun, YR, ra2-decomp twins and real inline helpers before any
+  calibration; (d) mark what cannot be proven with a manifest flag the strict audit and STATUS count;
+  (e) when a ruling costs bytes, take the option that removes the objection and keeps everything still
+  legitimate. In doubt between flagging and parking with no second opinion at hand: park.
+- Second opinion: when the test does not settle a case, the cost exceeds about 2 KB of accepted bytes,
+  or a new flag category is proposed, send the case with evidence paths and a recommendation to the
+  Recovery process review session; keep lanes working meanwhile; with no answer within one landing
+  cycle, take the reversible recommendation and record it as unreviewed.
+- Only these go to the user, in plain words with what each answer costs, never blocking work:
+  downloads, licences, reading or adopting third-party files; publishing or messaging anyone; usage
+  beyond the pacing plan, worker counts or Windows worker spend; changes to the goal, the fixed
+  constraints or this policy; anything irreversible.
+- Every status carries a plain decision log (one line per ruling since the last status: what, cost or
+  gain, reviewed or not) and the judgment-call bytes from STATUS beside Reproduced .text. Every ruling
+  stays reversible (drafts kept, flags set). Every lane hand-back states "Calibration used: yes/no".
+
 ## Controls
 
 The prepared goal text lives in `docs/ORIGINAL_TARGET_GOAL.md`; do not create,
