@@ -55,46 +55,8 @@ GadgetClass *GadgetClass::Extract_At(int x, int y)
 #include "shared/map_view.hpp"
 #include "shared/voc_class.hpp"
 
-// 0x006FA0C0 (the row's seed): widens a narrow string into buffer, at most
-// length characters (-1: no limit), always terminated.
-void __fastcall Unknown_006FA0C0(wchar_t *buffer, char const *text, int length)
-{
-    unsigned char c = (unsigned char)*text;
-    while (c != 0 && length != 0) {
-        *buffer++ = c;
-        ++text;
-        if (length != -1) {
-            --length;
-        }
-        c = (unsigned char)*text;
-    }
-    *buffer = 0;
-}
-
-// 0x0067B880 SidebarClass::Unknown_0067B880 (map_view.hpp; the row is a bare return).
-void SidebarClass::Unknown_0067B880(bool cameo_text)
-{
-}
-
 // --- Audio event types (voc_class.hpp setters; each row's leaf stores its
 // argument at the field named in the header) ---------------------------------
-
-// --- DisplayClass (Scout1072) --------------------------------------------------
-
-// 0x0049E7D0 DisplayClass::unknown_slot34 (display.hpp slot 34; the accepted
-// body is the seed src/recovered/classes/DisplayClass/0049e7d0.cpp, a free
-// function the vtable name never binds to): if the window handle kept at
-// 0x00B263DC is set, CloseWindow it and clear it. NOT EXACT (a native body of
-// the same behaviour; port handles are small tokens, so the 32-bit slot keeps them).
-extern "C" unsigned int DAT_00b263dc;
-extern "C" int ra2_CloseWindow_49e7d0(void *window) __asm__("_CloseWindow");
-void DisplayClass::unknown_slot34()
-{
-    if (DAT_00b263dc != 0) {
-        ra2_CloseWindow_49e7d0((void *)(unsigned long)DAT_00b263dc);
-        DAT_00b263dc = 0;
-    }
-}
 
 // --- Init_Bulk_Data's One_Time calls (Scout1072) ------------------------------
 
@@ -215,79 +177,7 @@ VectorClass<Wstring>::VectorClass(unsigned size, Wstring const *array)
     }
 }
 
-// --- Tactical (vtable 0x007AC570): the slots that make the native vtable ------
-// Tactical's key function (GetClassID) had no definition, so natively the class
-// had no vtable and `delete` of the view (Delete_All_Objects, Clear_Scenario)
-// called a zero slot. Written from each row's code (Scout1076). NOT EXACT.
-// Save 0x006AC400 and Detach 0x006AAB60 stay unrecovered (link-closure traps).
 #include "shared/tactical.hpp"
-
-struct ra2_guid_bytes { unsigned int a; unsigned short b, c; unsigned char d[8]; };
-extern "C" const ra2_guid_bytes Startup_CLSID_Tactical;   // 0x007A1E90 (data/com_guids.cpp)
-
-// 0x006AC2E0: E_POINTER for null, else the class id at 0x007A1E90; S_OK.
-HRESULT __stdcall Tactical::GetClassID(GUID *clsid)
-{
-    if (clsid == 0) {
-        return (HRESULT)0x80004003;
-    }
-    *clsid = *(GUID const *)&Startup_CLSID_Tactical;
-    return 0;
-}
-
-// 0x00529710 Unknown_00529710 (the row's code is `xor al, al; ret`: false, nothing freed;
-// LightSourceClass 0x00537830 and MapClass slot 23 call it). Scout1076. NOT EXACT.
-bool __fastcall Unknown_00529710(int time, bool flag)
-{
-    return false;
-}
-
-// --- Scenario post-load / building placement (Clear_Scenario path; Scout1081) --
-
-class BuildingClass;
-extern int unknown_group_frame_7f8bcc;     // 0x007F8BCC (data/original_data.cpp)
-
-// 0x006F89E0 Unknown_006F89E0 (the row's leaf src/recovered/006f89e0.cpp: 0x007F8BCC
-// and 0x007F8BD4 = -100, 0x007F8BD0 = -1). Only 0x007F8BCC has a reader in the
-// recovered tree (Unknown_Group_Press 0x006F5F00); the other two words have no
-// name natively. NOT EXACT.
-void Unknown_006F89E0()
-{
-    unknown_group_frame_7f8bcc = -100;
-}
-
-// The two pending placements 0x00AC1334 / 0x00AC1338 (the seeds 006f8a00.cpp and
-// 006f8a20.cpp: a building whose owner's +0xBA0 is 5 goes in the second slot).
-// Pointer-sized here: the BSS storage of both names is 16 bytes (data/bss_globals.cpp).
-extern "C" BuildingClass *ra2_pending_placement_ac1334 __asm__("_DAT_00ac1334");
-extern "C" BuildingClass *ra2_pending_placement_ac1338 __asm__("_DAT_00ac1338");
-
-// 0x006F8A20 Unknown_006F8A20 (seed 006f8a20.cpp): null forgets both, else the
-// slot that holds the building. NOT EXACT.
-void __fastcall Unknown_006F8A20(BuildingClass *building)
-{
-    if (building == 0) {
-        ra2_pending_placement_ac1334 = 0;
-        ra2_pending_placement_ac1338 = 0;
-        return;
-    }
-    if (building == ra2_pending_placement_ac1334) {
-        ra2_pending_placement_ac1334 = 0;
-        return;
-    }
-    if (building == ra2_pending_placement_ac1338) {
-        ra2_pending_placement_ac1338 = 0;
-    }
-}
-
-// 0x007168C0 Unknown_007168C0 (the row's leaf src/recovered/007168c0.cpp stores
-// its ECX argument at 0x00AD0958, unknown_flag_ad0958 in vox_speech.hpp: the
-// side whose speech files EVA plays). Scout1081. NOT EXACT.
-extern int unknown_flag_ad0958;
-void __fastcall Unknown_007168C0(int side)
-{
-    unknown_flag_ad0958 = side;
-}
 
 // --- Owner-draw dialogs (main menu path; Scout1081) ---------------------------
 
@@ -336,10 +226,6 @@ void __fastcall Unknown_Add_Modeless_Dialog_00522b20(HWND__ *dialog)
 // leaf src/recovered/0068ca20.cpp forwards (name, 1, 1) to 0x0068C600).
 #define PCX_CACHE_DECLARE_LOADS 1
 #include "shared/pcx_cache.hpp"
-void UnknownBitmapWriter::Load_Image_0068ca20(char const *name)
-{
-    Load_Image_0068c600(name, 1, 1);
-}
 
 // 0x005DE970 under its window-keyed name (the window table 0x00A73400 and the
 // window procedure table 0x00A73688 declare it over HWND keys; same seed
@@ -357,14 +243,6 @@ unsigned int __fastcall unknown_hash_window_5de970(HWND const &key)
 #include "shared/session_state.hpp"
 
 BOOL __stdcall unknown_prepare_control_735bc0(HWND window, LPARAM lparam);
-
-// 0x00735BA0 (the row's seed src/recovered/00735ba0.cpp): prepares every child
-// of the window, then the window itself, with 0x00735BC0.
-void __fastcall unknown_735ba0(HWND window)
-{
-    EnumChildWindows(window, unknown_prepare_control_735bc0, 1);
-    unknown_prepare_control_735bc0(window, 0);
-}
 
 bool __fastcall OwnerDraw_Control_Test_005e0760(unsigned int key, HWND window);
 int __fastcall OwnerDraw_Control_Height_005defb0(unsigned int key, HWND window);
@@ -493,10 +371,6 @@ done:
 // 0x00735B40 (the row's seed src/recovered/00735b40.cpp: eax = 0): the dialog
 // procedure 0x00735BC0 hands Dialog_Template_Size handles no message.
 #include "shared/win_util.hpp"
-BOOL __stdcall unknown_null_dialog_proc_735b40(HWND, UINT, WPARAM, LPARAM)
-{
-    return FALSE;
-}
 
 // --- HouseClass subobjects (Scout1083) ------------------------------------------
 // The constructors/destructors of house.hpp's subobject views. Natively each
@@ -517,16 +391,6 @@ UnknownHouseTracker::UnknownHouseTracker() { new (unknown_000) UnitTrackerClass;
 UnknownHouseTracker::~UnknownHouseTracker() { ((UnitTrackerClass *)unknown_000)->~UnitTrackerClass(); }
 
 // --- Scenario load (Scout1083) ---------------------------------------------------
-
-// 0x00428AC0 (the row's seed src/recovered/00428ac0.cpp): the cell count the
-// Tiberium growth tables are sized by, (MapSize.Height + 4) * MapSize.Width * 2
-// (DAT_008325d0/d4 are Map's MapSize members, data/member_aliases.tsv).
-extern int DAT_008325d0;
-extern int DAT_008325d4;
-int __fastcall unknown_cells_428ac0()
-{
-    return (DAT_008325d4 + 4) * DAT_008325d0 * 2;
-}
 
 // 0x0068B410 SpecialClass::Unknown_0068B410 (the row's seed
 // src/recovered/0068b410.cpp has an empty body: the original returns at once).

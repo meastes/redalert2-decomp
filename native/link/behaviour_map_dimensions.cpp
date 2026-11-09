@@ -30,15 +30,6 @@ static_assert(offsetof(SidebarClass, Column) == 0x16E8, "full SidebarClass::Colu
 static_assert(sizeof(SidebarClass::StripClass) == 0x10C0, "full StripClass");
 static_assert(offsetof(CellClass, MapCoords) == 0x32, "Building/Terrain slot 101 cell views (port/fixups.json)");
 
-// 0x00630300 RadarClass::unknown_slot28 (the accepted leaf src/recovered/classes/
-// RadarClass/00630300.cpp passes its four arguments on to the target unchanged;
-// radar.hpp: "thunk passing the four arguments on to MapClass's"): MapClass's
-// slot 28, Set_Map_Dimensions 0x005484E0, called non-virtually.
-void RadarClass::unknown_slot28(Rect const *rect, bool arg2, int arg3, bool arg4)
-{
-    MapClass::unknown_slot28(rect, arg2, arg3, arg4);
-}
-
 // The draft's stand-in reads, on the real classes (TibSun map.cpp Set_Map_Dimensions:
 // Get_Coord, PositionCell, anim->xObject, ParticleSystemClass Class->Behaves_Like()).
 
@@ -64,13 +55,6 @@ bool ra2native_anim_attached_5484e0(ObjectClass const *anim)
 bool ra2native_is_gas_system_5484e0(ObjectClass const *object)
 {
     return static_cast<ParticleSystemClass const *>(object)->Class->BehavesLike == 1;
-}
-
-// 0x0047A450 CellClass::Set_CellID (TibSun cell.h Set_CellID; the row's leaf
-// src/recovered/0047a450.cpp copies the 4-byte cell into +0x24): MapCoords = cell.
-void CellClass::Set_CellID(Cell const &cell)
-{
-    MapCoords = cell;
 }
 
 // 0x0047C2E0 CellClass::unknown_47c2e0 (seed src/recovered/0047c2e0.cpp; TibSun

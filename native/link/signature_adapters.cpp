@@ -282,10 +282,6 @@ extern "C" void ra2_adapter_0067(void * a0, void * a1, void * a2, bool a3) { ra2
 extern "C" int ra2_adapter_target_0068(void *, void *, int, bool, bool) __asm__("__Z20Dialog_Loop_007359e0P6HWND__PFbvEibb");
 extern "C" int ra2_adapter_0068(void * a0, void * a1, int a2, int a3, int a4) __asm__("__Z16Unknown_007359e0P6HWND__PFbvEiii");
 extern "C" int ra2_adapter_0068(void * a0, void * a1, int a2, int a3, int a4) { return ra2_adapter_target_0068(a0, a1, a2, (((unsigned int)(int)a3 & 0xFFu) != 0), (((unsigned int)(int)a4 & 0xFFu) != 0)); }
-// 0x00735BC0 seed_00735ba0::FUN_00735bc0(void*, int) -> unknown_prepare_control_735bc0(HWND__*, long) [widen]
-extern "C" int ra2_adapter_target_0069(void *, long long) __asm__("__Z30unknown_prepare_control_735bc0P6HWND__l");
-extern "C" int ra2_adapter_0069(void * a0, int a1) __asm__("__ZN13seed_00735ba012FUN_00735bc0EPvi");
-extern "C" int ra2_adapter_0069(void * a0, int a1) { return ra2_adapter_target_0069(a0, (long long)(int)a1); }
 // 0x007368A0 unknown_dialog_context_menu_7368a0(unsigned long) -> unknown_context_help_7368a0(HWND__*) [pointer-sized]
 extern "C" void ra2_adapter_target_0070(void *) __asm__("__Z27unknown_context_help_7368a0P6HWND__");
 extern "C" void ra2_adapter_0070(long long a0) __asm__("__Z34unknown_dialog_context_menu_7368a0m");

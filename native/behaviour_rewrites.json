@@ -298,26 +298,6 @@
    "notes": "NATIVE: starting width/height pair (0x007ADD70/0x007ADD7C) unsourced: the first containing gadget always qualifies"
   },
   {
-   "entry": "0x006FA0C0",
-   "name": "Unknown_006FA0C0",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row seed",
-   "reached": "harness trap (narrow to wide copy)"
-  },
-  {
-   "entry": "0x0067B880",
-   "name": "SidebarClass::Unknown_0067B880",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row leaf (bare return)",
-   "reached": "harness trap (Options)"
-  },
-  {
    "entry": "0x00577010",
    "name": "UnknownMapGenerator::UnknownMapGenerator",
    "origin_class": "unmatched (launch path)",
@@ -326,17 +306,6 @@
    "file": "native/link/behaviour_mapgen.cpp",
    "source": "the row decompile (Scout530 sweep seed)",
    "reached": "launch path 0x577010 (startup, Scout1050); written before Scout1069, listed here"
-  },
-  {
-   "entry": "0x0049E7D0",
-   "name": "DisplayClass::unknown_slot34",
-   "symbol": "__ZN12DisplayClass14unknown_slot34Ev",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "accepted seed src/recovered/classes/DisplayClass/0049e7d0.cpp (free function; the vtable name never binds to it)",
-   "notes": "closes and clears the window handle at 0x00B263DC"
   },
   {
    "entry": "0x0077F14D",
@@ -403,46 +372,6 @@
    "source": "vector_class.hpp template body (multi_mission.hpp declares the specialisation)"
   },
   {
-   "entry": "0x006AC2E0",
-   "name": "Tactical::GetClassID",
-   "symbol": "__ZN8Tactical10GetClassIDEP5_GUID",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "row code (E_POINTER, CLSID 0x007A1E90)"
-  },
-  {
-   "entry": "0x00529710",
-   "name": "Unknown_00529710(int, bool)",
-   "symbol": "__Z16Unknown_00529710ib",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "row code (xor al, al; ret)"
-  },
-  {
-   "entry": "0x006F89E0",
-   "name": "Unknown_006F89E0()",
-   "symbol": "__Z16Unknown_006F89E0v",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "row leaf src/recovered/006f89e0.cpp"
-  },
-  {
-   "entry": "0x006F8A20",
-   "name": "Unknown_006F8A20(BuildingClass*)",
-   "symbol": "__Z16Unknown_006F8A20P13BuildingClass",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/006f8a20.cpp"
-  },
-  {
    "entry": "0x00603D50",
    "name": "Unknown_00603D50()",
    "symbol": "__Z16Unknown_00603D50v",
@@ -451,16 +380,6 @@
    "exact": false,
    "file": "native/link/behaviour_scheme.cpp",
    "source": "seed (scheme table walk) + UnknownSchemeListIterator::Next 0x00603640"
-  },
-  {
-   "entry": "0x007168C0",
-   "name": "Unknown_007168C0(int)",
-   "symbol": "__Z16Unknown_007168C0i",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "row leaf src/recovered/007168c0.cpp"
   },
   {
    "entry": "0x005DE970",
@@ -483,16 +402,6 @@
    "source": "seed src/recovered/00522b20.cpp"
   },
   {
-   "entry": "0x0068CA20",
-   "name": "UnknownBitmapWriter::Load_Image_0068ca20(char const*)",
-   "symbol": "__ZN19UnknownBitmapWriter19Load_Image_0068ca20EPKc",
-   "origin_class": "unmatched (menu path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/0068ca20.cpp"
-  },
-  {
    "entry": "0x005DE970",
    "name": "unknown_hash_window_5de970(HWND__* const&)",
    "symbol": "__Z26unknown_hash_window_5de970RKP6HWND__",
@@ -501,16 +410,6 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "seed src/recovered/005de970.cpp (second declared name of the row)"
-  },
-  {
-   "entry": "0x00735BA0",
-   "name": "unknown_735ba0(HWND__*)",
-   "symbol": "__Z14unknown_735ba0P6HWND__",
-   "origin_class": "unmatched (menu path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/00735ba0.cpp"
   },
   {
    "entry": "0x005E8720",
@@ -541,16 +440,6 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "draft Scout1004 keep/e8130_ke.cpp (49.20)"
-  },
-  {
-   "entry": "0x00735B40",
-   "name": "unknown_null_dialog_proc_735b40(HWND__*, unsigned int, unsigned long, long)",
-   "symbol": "__Z31unknown_null_dialog_proc_735b40P6HWND__jml",
-   "origin_class": "unmatched (menu path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/00735b40.cpp"
   },
   {
    "entry": "0x00491C00",
@@ -613,36 +502,6 @@
    "source": "UnitTrackerClass destructor"
   },
   {
-   "entry": "0x00428AC0",
-   "name": "unknown_cells_428ac0()",
-   "symbol": "__Z20unknown_cells_428ac0v",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/00428ac0.cpp"
-  },
-  {
-   "entry": "0x00630300",
-   "name": "RadarClass::unknown_slot28(Rect const *, bool, int, bool)",
-   "symbol": "__ZN10RadarClass14unknown_slot28EPK4Rectbib",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "accepted leaf src/recovered/classes/RadarClass/00630300.cpp (forwards its four arguments; radar.hpp names the MapClass slot 28 target); the leaf passes the pointer as a 32-bit int, so natively the typed thunk stands in"
-  },
-  {
-   "entry": "0x0047A450",
-   "name": "CellClass::Set_CellID(Cell const &)",
-   "symbol": "__ZN9CellClass10Set_CellIDERK4Cell",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "leaf src/recovered/0047a450.cpp (copies the cell to +0x24 MapCoords); TibSun cell.h Set_CellID"
-  },
-  {
    "entry": "0x0052B6F0",
    "name": "IsometricTileTypeClass::unknown_func_52b6f0(int)",
    "symbol": "__ZN22IsometricTileTypeClass19unknown_func_52b6f0Ei",
@@ -661,16 +520,6 @@
    "exact": false,
    "file": "native/link/behaviour_scenario.cpp",
    "source": "seed src/recovered/00428a90.cpp"
-  },
-  {
-   "entry": "0x006AAB60",
-   "name": "Tactical::Detach(AbstractClass *, bool)",
-   "symbol": "__ZN8Tactical6DetachEP13AbstractClassb",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_tactical.cpp",
-   "source": "seed src/recovered/classes/Tactical/006aab60.cpp; TibSun tactical.cpp Tactical::Detach"
   },
   {
    "entry": "MSVCRT",

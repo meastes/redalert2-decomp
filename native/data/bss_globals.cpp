@@ -1207,7 +1207,9 @@ alignas(16) unsigned char ra2_bss_0914[456] __asm__("_unknown_state_ac1248");  /
 alignas(16) unsigned char ra2_bss_0915[16] __asm__("_unknown_state_ac132c");  // 0x00AC132C unknown_state_ac132c (?unknown_state_ac132c@@3HA)
 alignas(16) unsigned char ra2_bss_0916[16] __asm__("_unknown_flag_ac1330");  // 0x00AC1330 unknown_flag_ac1330 (?unknown_flag_ac1330@@3_NA)
 alignas(16) unsigned char ra2_bss_0917[16] __asm__("_DAT_00ac1334");  // 0x00AC1334 DAT_00ac1334
+__asm__(".globl _unknown_pending_building_ac1334\n.set _unknown_pending_building_ac1334, _DAT_00ac1334\n");  // same address: unknown_pending_building_ac1334
 alignas(16) unsigned char ra2_bss_0918[16] __asm__("_DAT_00ac1338");  // 0x00AC1338 DAT_00ac1338
+__asm__(".globl _unknown_pending_building_ac1338\n.set _unknown_pending_building_ac1338, _DAT_00ac1338\n");  // same address: unknown_pending_building_ac1338
 alignas(16) unsigned char ra2_bss_0919[16] __asm__("_unknown_flag_ac133c");  // 0x00AC133C unknown_flag_ac133c (?unknown_flag_ac133c@@3_NA)
 alignas(16) unsigned char ra2_bss_0920[16] __asm__("_DAT_00ac133d");  // 0x00AC133D DAT_00ac133d
 __asm__(".globl _unknown_flag_ac133d\n.set _unknown_flag_ac133d, _DAT_00ac133d\n");  // same address: unknown_flag_ac133d
@@ -1349,7 +1351,7 @@ __asm__(".globl _DAT_00b263d8\n.set _DAT_00b263d8, _MainWindow\n");  // same add
 __asm__(".globl _unknown_b263d8\n.set _unknown_b263d8, _MainWindow\n");  // same address: unknown_b263d8
 __asm__(".globl _unknown_parent_b263d8\n.set _unknown_parent_b263d8, _MainWindow\n");  // same address: unknown_parent_b263d8
 __asm__(".globl _unknown_window_b263d8\n.set _unknown_window_b263d8, _MainWindow\n");  // same address: unknown_window_b263d8
-alignas(16) unsigned char ra2_bss_1030[16] __asm__("_DAT_00b263dc");  // 0x00B263DC DAT_00b263dc
+alignas(16) unsigned char ra2_bss_1030[16] __asm__("_UnusedWindow");  // 0x00B263DC UnusedWindow (?UnusedWindow@@3PAUHWND__@@A)
 alignas(16) unsigned char ra2_bss_1031[16] __asm__("_IMEContext");  // 0x00B263E4 IMEContext (?IMEContext@@3PAUHIMC__@@A)
 alignas(16) unsigned char ra2_bss_1032[16] __asm__("_unknown_mouse_captured_b263e8");  // 0x00B263E8 unknown_mouse_captured_b263e8 (?unknown_mouse_captured_b263e8@@3_NA)
 alignas(16) unsigned char ra2_bss_1033[16] __asm__("_window_mouse_wheel_b263e9");  // 0x00B263E9 window_mouse_wheel_b263e9 (?window_mouse_wheel_b263e9@@3_NA)

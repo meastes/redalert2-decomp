@@ -503,14 +503,9 @@ alignas(16) unsigned char ra2_orig_0156[16] __asm__("_source_4b5340_1");
 alignas(16) unsigned char ra2_orig_0157[16] __asm__("_source_4b5340_2");
 // row	_source_4b5340_3	0x007A1E8C	4	bytes	source_4b5340_3	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
 alignas(16) unsigned char ra2_orig_0158[16] __asm__("_source_4b5340_3");
-// row	_source_6ac2e0_0	0x007A1E90	4	bytes	source_6ac2e0_0	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0159[16] __asm__("_source_6ac2e0_0");
-// row	_source_6ac2e0_1	0x007A1E94	4	bytes	source_6ac2e0_1	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0160[16] __asm__("_source_6ac2e0_1");
-// row	_source_6ac2e0_2	0x007A1E98	4	bytes	source_6ac2e0_2	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0161[16] __asm__("_source_6ac2e0_2");
-// row	_source_6ac2e0_3	0x007A1E9C	4	bytes	source_6ac2e0_3	src/recovered/header_statics/00687bb0/HeaderStatics_empty_rect_init_00687bb0.cpp
-alignas(16) unsigned char ra2_orig_0162[16] __asm__("_source_6ac2e0_3");
+// row	_CLSID_Tactical	0x007A1E90	16	bytes	CLSID_Tactical	src/recovered/classes/Tactical/Tactical_GetClassID_006ac2e0.cpp
+alignas(16) unsigned char ra2_orig_0159[16] __asm__("_CLSID_Tactical");
+__asm__(".globl _source_6ac2e0_0\n.set _source_6ac2e0_0, _CLSID_Tactical\n");
 // row	_CLSID_ShipLocomotionClass	0x007A1FF0	16	bytes	CLSID_ShipLocomotionClass	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0163[16] __asm__("_CLSID_ShipLocomotionClass");
 // row	_CLSID_RocketLocomotionClass	0x007A2010	16	bytes	CLSID_RocketLocomotionClass	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
@@ -5533,10 +5528,7 @@ extern "C" const ra2_original_global ra2_original_globals[] = {
     {ra2_orig_0156, 0x007A1E84u, 4u, 0},
     {ra2_orig_0157, 0x007A1E88u, 4u, 0},
     {ra2_orig_0158, 0x007A1E8Cu, 4u, 0},
-    {ra2_orig_0159, 0x007A1E90u, 4u, 0},
-    {ra2_orig_0160, 0x007A1E94u, 4u, 0},
-    {ra2_orig_0161, 0x007A1E98u, 4u, 0},
-    {ra2_orig_0162, 0x007A1E9Cu, 4u, 0},
+    {ra2_orig_0159, 0x007A1E90u, 16u, 0},
     {ra2_orig_0163, 0x007A1FF0u, 16u, 0},
     {ra2_orig_0164, 0x007A2010u, 16u, 0},
     {ra2_orig_0165, 0x007A2030u, 16u, 0},
@@ -7043,10 +7035,7 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x007A1E84u, 4u, ra2_orig_0156, 0},
     {0x007A1E88u, 4u, ra2_orig_0157, 0},
     {0x007A1E8Cu, 4u, ra2_orig_0158, 0},
-    {0x007A1E90u, 4u, ra2_orig_0159, 0},
-    {0x007A1E94u, 4u, ra2_orig_0160, 0},
-    {0x007A1E98u, 4u, ra2_orig_0161, 0},
-    {0x007A1E9Cu, 4u, ra2_orig_0162, 0},
+    {0x007A1E90u, 16u, ra2_orig_0159, 0},
     {0x007A1FF0u, 16u, ra2_orig_0163, 0},
     {0x007A2010u, 16u, ra2_orig_0164, 0},
     {0x007A2030u, 16u, ra2_orig_0165, 0},
