@@ -3263,3 +3263,14 @@ New rulings are recorded at their rows as before.
 
 ## Scout1144 (2026-11-09, HELD round d/r1 in build/class-work/Scout1144/)
 - WinMain 0x68E280 exact in population-3021 (23/23, body_bytes 10076 + frozen pad). Surface block's three named ints (sidebar_width, screen_height, width) close the frame (YR gamemd 0x6BB9A0 has the same extra 0xc); catalog names on local declarations fixed the edi reload. Held: the unevidenced inline `~WolRegistryOptions() {}` (the site that keeps INIClass() out of line) moves fragile Print_CRCs 0x62A360 (99.97 at +0x9A8). OWNER DECISION: no unit-guarded steering; next lane finds an evidenced site in Startup.CPP or a natural Print_CRCs re-roll that holds with the dtor. Split rows 0x68FEE0/0x690891/0x69089E are false_rows entries to drop at landing.
+
+## Scout1145 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1145/)
+- Get_Z_Adjust 0x6CFEA0 91.41 -> 99.59 (keep/zA_r1c_9959.cpp): ramp2 return behind a flag (`bool ramp`), iso-none arm `iptr = ...; subtile = 0;`, overshadow test as an early return. Left: 2 instructions, X operand order of the cell sums at the ahead/behind sites (local-symbol numbering tie; header counts and period-8 local probes never hit). Native draft can take this text.
+- Smoke AI 0x60BB70 stays 54.23: target spills `this` and the loop index only in the NextParticle region; 36-way coord form grid flat.
+
+## Scout1148 (2026-11-09, 0 B; NOTES, w/, h3/, lab/ in build/class-work/Scout1148/)
+- BulletClass::AI 0x45F710 stays 87.78 (Scout950 z2 rebased; h0d is the better native text). YR twin gamemd 0x4666E0 matches apart from the ROT branch. Budget measured: the ballistic block needs a remaining /Ob2 budget of ~44-88 (ours ~6,650 at AI level), so the original has one more nesting level above it; no natural source found. No depth limit on auto-inlining (lab: depth 3 expands). Rebased h3/shared/bullet.hpp overlay.
+- Mech 0x5919A0: YR twin gamemd 0x5B01C0 is instruction-identical after masking constants; not iterated (resume Scout970 keep/mech_r1_8822_natural.cpp).
+
+## Scout1151 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1151/)
+- Mech 0x5919A0 stays 88.22 but the draft is now clean (keep/mech_s2_8822_clean.cpp: rebased to HEAD names, static inline Step_Along instead of a bare scope; better native text). YR twin 0x5B01C0 is identical in mnemonics, offsets and registers, so it adds nothing. Left: frame packing (target keeps temp group C at 0x44 separate from the angle slot D; candidate: escaped `visual_cell` conflicting with D, untested) and one scratch-cursor step at 0x1539 and the 57a tail.
