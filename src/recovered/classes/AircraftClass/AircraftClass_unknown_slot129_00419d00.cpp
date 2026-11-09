@@ -30,12 +30,6 @@
 extern bool unknown_flag_83c4d4;
 extern bool unknown_flag_83c4d5;
 
-// A reload building (a view of BuildingClass).
-struct UnknownAircraftDock {
-    char unknown_000[0x418];
-    BuildingTypeClass *Type;                    // +0x418
-};
-
 int AircraftClass::unknown_slot129()
 {
     int level = Type->Flight_Level();
@@ -74,7 +68,7 @@ int AircraftClass::unknown_slot129()
     }
 reloading:
     if (unknown_254 != -1 && unknown_254 < Type->Ammo / 2 && In_Radio_Contact()
-        && Contact(0)->Kind_Of() == 6 && ((UnknownAircraftDock *)Contact(0))->Type->unknown_134a) {
+        && Contact(0)->Kind_Of() == 6 && ((BuildingClass *)Contact(0))->Type->unknown_134a) {
         return 1;
     }
     if (unknown_228 != 0) {
