@@ -123,10 +123,14 @@ and preserve unexpected changes rather than overwriting them.
   calibration; (d) mark what cannot be proven with a manifest flag the strict audit and STATUS count;
   (e) when a ruling costs bytes, take the option that removes the objection and keeps everything still
   legitimate. In doubt between flagging and parking with no second opinion at hand: park.
-- Second opinion: when the test does not settle a case, the cost exceeds about 2 KB of accepted bytes,
-  or a new flag category is proposed, send the case with evidence paths and a recommendation to the
-  Recovery process review session; keep lanes working meanwhile; with no answer within one landing
-  cycle, take the reversible recommendation and record it as unreviewed.
+- Precedents first: match each case to `docs/DECISIONS.md` (pattern, ruling, reason, example row) and
+  decide; a large cost under a fitting precedent is still the owner's call.
+- Second opinion (user, 2026-11-09): only when no precedent fits or the case changes the build or
+  acceptance model. Queue such cases and send them to the Recovery process review session once a day
+  in one message, each with evidence paths and a recommendation; hold the status quo for a queued row
+  (no landing, no revert) while lanes work other rows; add each answer to `docs/DECISIONS.md`. Show
+  the "Weekly · Fable" usage in each status; above about 15% in a week, tell the user and send only
+  build-model cases until the reset.
 - Only these go to the user, in plain words with what each answer costs, never blocking work:
   downloads, licences, reading or adopting third-party files; publishing or messaging anyone; usage
   beyond the pacing plan, worker counts or Windows worker spend; changes to the goal, the fixed
