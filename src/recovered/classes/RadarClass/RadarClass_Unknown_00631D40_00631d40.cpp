@@ -4,13 +4,14 @@
 // object in the list at 0x00A40C20 cleared.
 #include "shared/radar.hpp"
 #include "shared/map_view.hpp"
+#include "shared/techno.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_00631C60@@YIHABURadarTrackingStruct@@@Z=00631c60
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?Unknown_00630A00@RadarClass@@QAEXXZ=00630a00
 // @ref ?unknown_slot29@RadarClass@@UAEXABVRect@@@Z=00630840
-// @ref ?unknown_vector_a40c20@@3V?$DynamicVectorClass@PAUUnknownRadarObject37B@@@@A=00a40c20
+// @ref ?unknown_list_a40c20@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
 
 
 void RadarClass::Unknown_00631D40()
@@ -20,7 +21,7 @@ void RadarClass::Unknown_00631D40()
     RadarClass *map = &Map;
     map->RadarClass::unknown_slot29(map->MapLocalSize);
     Unknown_00630A00();
-    for (int index = 0; index < unknown_vector_a40c20.Count(); index++) {
-        unknown_vector_a40c20[index]->unknown_37b = false;
+    for (int index = 0; index < unknown_list_a40c20.Count(); index++) {
+        unknown_list_a40c20[index]->unknown_37b = false;
     }
 }

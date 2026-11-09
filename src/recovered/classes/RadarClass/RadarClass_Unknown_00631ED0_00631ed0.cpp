@@ -7,11 +7,12 @@
 #include "shared/radar.hpp"
 #include "shared/object.hpp"
 #include "shared/map_view.hpp"
+#include "shared/techno.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_slot29@RadarClass@@UAEXABVRect@@@Z=00630840
 // @ref ?Unknown_00630A00@RadarClass@@QAEXXZ=00630a00
-// @ref ?unknown_vector_a40c20@@3V?$DynamicVectorClass@PAUUnknownRadarObject37B@@@@A=00a40c20
+// @ref ?unknown_list_a40c20@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
 // @ref ?Unknown_00633000@RadarClass@@QAEXH_N@Z=00633000
 // @ref ?unknown_set_frame_rate_0053d820@@YIXH@Z=0053d820
 
@@ -26,8 +27,8 @@ void RadarClass::Unknown_00631ED0()
     RadarClass *map = &Map;
     map->RadarClass::unknown_slot29(map->MapLocalSize);
     Unknown_00630A00();
-    for (int index = 0; index < unknown_vector_a40c20.Count(); index++) {
-        unknown_vector_a40c20[index]->unknown_37b = false;
+    for (int index = 0; index < unknown_list_a40c20.Count(); index++) {
+        unknown_list_a40c20[index]->unknown_37b = false;
     }
     if (unknown_14ac == 3) {
         unknown_14a8 = 5;

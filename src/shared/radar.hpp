@@ -142,13 +142,9 @@ struct UnknownRadar1238 {
 
 // unknown_int_a3d548 (0x00A3D548): shared/unknown_globals.hpp.
 
-// The objects of the list at 0x00A40C20 whose +0x37B flag the radar clears
-// when it is rebuilt (view; type not identified).
-struct UnknownRadarObject37B {
-    char unknown_00[0x37B];
-    bool unknown_37b;                                   // +0x37B
-};
-extern DynamicVectorClass<UnknownRadarObject37B *> unknown_vector_a40c20;    // 0x00A40C20
+// The technos of the list at 0x00A40C20 (as shared/map_techno.hpp): the radar
+// clears their TechnoClass +0x37B flag when it is rebuilt.
+extern DynamicVectorClass<TechnoClass *> unknown_list_a40c20;    // 0x00A40C20
 
 // A new tracking table (inline; Radar.cpp writes the creation as this
 // helper, which keeps the bucket vector constructor 0x00635110 out of line).
