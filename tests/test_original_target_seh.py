@@ -14,7 +14,7 @@ from coff import Coff  # noqa: E402
 from compile_candidates import compare_candidate, OPTIONS  # noqa: E402
 import diff_candidate as diff  # noqa: E402
 from verify_manifest import (Audit, LIBRARY_MANIFEST, bound_values, except_list_site,  # noqa: E402
-                             TARGET_SHA256, TARGET_BYTES)
+                             receipt_key, TARGET_SHA256, TARGET_BYTES)
 
 BASE = 0x400000
 ENTRY = 0x401000
@@ -108,11 +108,14 @@ def references(**extra):
     return dict({'$T': TABLE, '__except_handler3': HANDLER}, **extra)
 
 
-def bindings():
+def bindings(table_name='$T7', table=TABLE):
+    """The receipt; `table_name` is the scope table's spelling as recorded at
+    acceptance (another compile of the unit numbers it differently)."""
     out = []
     for offset, name in CODE_RELOCS:
-        target = {'$T7': TABLE, '__except_handler3': HANDLER}.get(name, 0)
-        out.append(dict(offset=offset, kind=6, symbol=name, target=target, addend=0, resolved=target))
+        target = {'$T7': table, '__except_handler3': HANDLER}.get(name, 0)
+        out.append(dict(offset=offset, kind=6, symbol=table_name if name == '$T7' else name, target=target,
+                        addend=0, resolved=target))
     return out
 
 
@@ -122,6 +125,14 @@ class BindingRuleTests(unittest.TestCase):
         self.assertEqual(bound_values({'$T271': TABLE}, '$T271'), set())
         self.assertEqual(bound_values({}, '$T5'), set())
         self.assertEqual(bound_values({'$T': TABLE, '_x': 1}, '_x'), {1})
+
+    def test_receipt_key_folds_only_scope_table_spellings(self):
+        receipt = [dict(symbol='$T40372', target=TABLE), dict(symbol='$TPoint', target=1),
+                   dict(symbol='_x$T5', target=2), dict(symbol='__except_handler3', target=HANDLER)]
+        self.assertEqual([b['symbol'] for b in receipt_key(receipt)], ['$T', '$TPoint', '_x$T5', '__except_handler3'])
+        self.assertEqual(receipt_key(bindings('$T98228')), receipt_key(bindings('$T40372')))
+        self.assertNotEqual(receipt_key(bindings('$T98228', TABLE + 12)), receipt_key(bindings('$T40372')))
+        self.assertEqual(receipt[0]['symbol'], '$T40372')     # the recorded receipt itself is not rewritten
 
     def test_except_list_is_absolute_zero_and_a_rebinding_is_ambiguous(self):
         self.assertEqual(bound_values({}, '__except_list'), {0})
@@ -245,6 +256,39 @@ class StrictAuditTests(unittest.TestCase):
         audit, manifest = self.verify(self.row(), coff_object())
         self.assertEqual(manifest['matched_source_regions'], 1)
         self.assertEqual(manifest['accepted'][0]['relocations'], bindings())
+
+    def test_renumbered_scope_table_passes(self):
+        # Accepted when the unit numbered its table $T40372; a header change
+        # elsewhere in the unit now makes the fresh compile emit $T7.
+        audit, manifest = self.verify(self.row(relocations=bindings('$T40372')), coff_object())
+        self.assertEqual(manifest['matched_source_regions'], 1)
+        self.assertEqual(audit.data_original_copies, {'$T': TABLE})
+
+    def test_renumbered_scope_table_bound_elsewhere_refuses(self):
+        # The receipt records a different target: still refused.
+        with self.assertRaisesRegex(ValueError, 'Relocation receipt differs'):
+            self.verify(self.row(relocations=bindings('$T40372', TABLE + 12)), coff_object())
+        # The stated reference moves with it: the table no longer equals the
+        # original bytes there.
+        image = Image(); image.put(TABLE + 12, original_table(filter_va=ENTRY + 1))
+        with self.assertRaisesRegex(ValueError, 'Unsupported allocatable data section'):
+            self.verify(self.row(refs=references(**{'$T': TABLE + 12}), relocations=bindings('$T40372', TABLE + 12)),
+                        coff_object(), image=image)
+
+    def test_renumbered_scope_table_with_different_bytes_refuses(self):
+        with self.assertRaisesRegex(ValueError, 'Unsupported allocatable data section'):
+            self.verify(self.row(relocations=bindings('$T40372')), coff_object(),
+                        image=Image(original_table(handler_va=ENTRY + FILTER)))
+
+    def test_renumbered_receipt_keeps_one_scope_table_per_object(self):
+        with self.assertRaisesRegex(ValueError, 'Unsupported allocatable data section'):
+            self.verify(self.row(relocations=bindings('$T40372')), coff_object(extra_table=True))
+
+    def test_other_receipt_names_are_still_compared(self):
+        receipt = bindings()
+        receipt[1] = dict(receipt[1], symbol='__except_handler2')
+        with self.assertRaisesRegex(ValueError, 'Relocation receipt differs'):
+            self.verify(self.row(relocations=receipt), coff_object())
 
     def test_handler_outside_its_library_member_refuses(self):
         other = dict(MEMBER, symbols=['__except_handler2'])

@@ -100,6 +100,17 @@ def bound_values(references, name):
     return values
 
 
+def receipt_key(bindings):
+    """A relocation receipt with every `$T<n>` scope-table spelling folded to
+    `$T`. The counter n is the unit's declaration count (it moves whenever an
+    honest header change reaches the unit), so it is never an identity; the
+    table is identified by its bound target (the stated `$T` reference, which
+    every binding still records and compares) and by scope_table_duplicate,
+    which proves the object's one table byte-equal to the original there."""
+    return [dict(b, symbol=SCOPE_TABLE_REFERENCE) if SCOPE_TABLE_NAME.fullmatch(b.get('symbol', '')) else b
+            for b in bindings]
+
+
 def except_list_site(instruction):
     """True for an instruction addressing fs:[0] (the only use VC6 makes of
     `__except_list`): an fs-segment memory operand with displacement 0 and no
@@ -1048,7 +1059,9 @@ class Audit:
                 require(value in operand_values and self.pe.get_section_by_rva(target - self.base) is not None, 'Original DIR32 operand/section binding differs')
             struct.pack_into('<I', actual, offset, value)
             bindings.append(dict(offset=offset, kind=kind, symbol='$local' if local is not None else target_symbol['name'], target=target, addend=addend, resolved=value))
-        require(bindings == row.get('relocations', []), 'Relocation receipt differs at %08x: %s' % (va, [(a, b) for a, b in zip(bindings, row.get('relocations', [])) if a != b][:2] or (len(bindings), len(row.get('relocations', [])))))
+        recorded = receipt_key(row.get('relocations', []))
+        fresh = receipt_key(bindings)
+        require(fresh == recorded, 'Relocation receipt differs at %08x: %s' % (va, [(a, b) for a, b in zip(fresh, recorded) if a != b][:2] or (len(fresh), len(recorded))))
         require(bytes(actual) == expected and self.sha(actual) == row['full_extent_sha256'],
                 'Complete compiler extent differs' + extent_difference(actual, expected, va))
         return dict(entry=va, body_bytes=body_size, padding_bytes=len(padding), full_extent_bytes=len(actual), boundary_confidence='Frozen independent analysis hypothesis; byte equality verified')

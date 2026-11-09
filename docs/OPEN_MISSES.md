@@ -3340,3 +3340,11 @@ Awaiting user ruling on keeping these two flagged or reverting.
 
 ## Scout1180 (2026-11-09; d/r1 HELD in build/class-work/Scout1180/)
 - Place_Tiberium 0x47C3A0 exact (100) when its unit defines RA2_VECTOR_SIGNED_INDEX (VectorClass::operator[](int), as TibSun and ra2-decomp vector.h). Held: a per-unit switch means units see different VectorClass declarations (DECISIONS: header choices identical for every unit). Scout1183 measuring the global int signature; queued for the review session.
+
+## Scout1182 (2026-11-09, lab only; NOTES, filler.py, lab_build.py in build/class-work/Scout1182/)
+- Declaration-load sizing: with 14,464 / 14,496 filler prototypes at every unit's top, only Get_Obstacle 0x4BBAF0 (788 B) goes exact among parked 95+ rows; no row flips between K and K+32. Topic closed under the fixed rule (< 5 rows / 5 KB).
+- Side finding: under any unit declaration change, WinMain 0x68E280's `$T` scope-table symbol renumbers and the strict audit refuses it (name-only, same target). Tool fix needed so header changes that reach Startup.CPP do not refuse WinMain.
+
+## Scout1181 (2026-11-09, 0 B; NOTES, keep/, ov566/ in build/class-work/Scout1181/)
+- Draw_Sync_Bars 0x626CB0 56.63 -> 75.78 (keep/dsb_r2_7578.cpp): TibSun MAX order, progress before color, real `outline_color`. Left: the green shift [0x852fcc] cached in ebx across blocks pushes Width to the stack.
+- Update_Cell_Subzones 0x566340 64.37, Tunnel_AI 0x5025C0 61.13 / 0x6FAA30 58.99 unchanged (YR twins identical; inline budget). 0x566340's draft carries invented helpers that must go before landing.
