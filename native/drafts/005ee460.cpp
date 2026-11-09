@@ -524,12 +524,12 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 			}
 
 			if (owner == window) {
-				if ((*(int *)((char *)ownerdata + 0x1FC)) < 1) {
+				if (RA2_REC_TAIL(int, ownerdata, 0x1FC) < 1) {
 					state = 1;
 					anim_state = 1;
 					goto call_proc_paint;
 				}
-				state = (*(int *)((char *)ownerdata + 0x1FC));
+				state = RA2_REC_TAIL(int, ownerdata, 0x1FC);
 			} else {
 				if (ownerdata == 0) {
 					state = anim_state;
@@ -537,7 +537,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 					result = 1;
 					goto finalize_paint;
 				}
-				state = (*(int *)((char *)ownerdata + 0x1FC));
+				state = RA2_REC_TAIL(int, ownerdata, 0x1FC);
 			}
 
 			anim_state = state;
@@ -549,7 +549,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 			call_proc_paint:
 				result = CallWindowProcA(specific_proc, window, message, wparam, lparam);
 				if (ownerdata != 0) {
-					(*(int *)((char *)ownerdata + 0x1FC)) = state;
+					RA2_REC_TAIL(int, ownerdata, 0x1FC) = state;
 				}
 
 				{

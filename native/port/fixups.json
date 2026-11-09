@@ -485,6 +485,69 @@
    "verified": true
   },
   {
+   "source": "src/shared/owner_draw_dialog_control.hpp",
+   "old": "    char unknown_04[0x10 - 0x04];\n#endif\n#else\n    char unknown_00[0x10];\n#endif\n    Surface *surface_10;",
+   "new": "    char unknown_04[RA2_NATIVE_PAD(0x18 - 0x04, 0x10 - 0x04)];   // NATIVE: as the drop-list unit's int + two HWNDs\n#endif\n#else\n    char unknown_00[RA2_NATIVE_PAD(0x18, 0x10)];   // NATIVE: as the drop-list unit's int + two HWNDs\n#endif\n    Surface *surface_10;",
+   "why": "UnknownControlRecord's first 0x10 bytes are an int and two HWNDs in the combo drop-list unit (RA2_COMBO_DROP_UNIT, 0x005EAD20) and a char run elsewhere: 24 bytes against 16 on arm64, so every later member sat 8 bytes further in that population's units (unknown_6c at native +148 there, +140 in 0x005E6860's): the dialog kind 0xE2 that 0x005EAAA0 stored was read back as 9, and the main menu buttons missed their sidebar placement (0x005E8C50, x 667 instead of 756). The char runs take the drop-list unit's arm64 size; VC6 layout unchanged (Scout1121, M14b).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/ownrdraw/OwnerDraw_unknown_5e9f40_005e9f40.cpp",
+   "old": "int __fastcall unknown_5e9f40(HWND control)",
+   "new": "intptr_t __fastcall unknown_5e9f40(HWND control)",
+   "why": "UnknownControlRecord +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/ownrdraw/OwnerDraw_unknown_5ea900_005ea900.cpp",
+   "old": "int __fastcall unknown_5ea900(HWND control)",
+   "new": "intptr_t __fastcall unknown_5ea900(HWND control)",
+   "why": "UnknownControlRecord +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/ownrdraw/OwnerDraw_unknown_5ea8a0_005ea8a0.cpp",
+   "old": "int __fastcall unknown_5ea8a0(HWND control)",
+   "new": "intptr_t __fastcall unknown_5ea8a0(HWND control)",
+   "why": "UnknownControlRecord +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/ownrdraw/OwnerDraw_unknown_set_control_art_5ea960_005ea960.cpp",
+   "old": " = (int)",
+   "new": " = (intptr_t)",
+   "why": "UnknownControlRecord +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/owner_draw_dialog_control.hpp",
+   "old": "    int unknown_e0;\n    int unknown_e4;\n",
+   "new": "    intptr_t unknown_e0;   // NATIVE: pointer-sized (the 640 background shape, 0x005EA960)\n    intptr_t unknown_e4;   // NATIVE: pointer-sized (the background shape, 0x005EA960)\n",
+   "why": "UnknownControlRecord +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/owner_draw_dialog_control.hpp",
+   "old": "    int unknown_70;     // +0x70 0x005E1F30 sets 2 with an image\n    int unknown_74;\n",
+   "new": "    int unknown_70;     // +0x70 0x005E1F30 sets 2 with an image\n    intptr_t unknown_74;   // NATIVE: pointer-sized (the background drawer, 0x005EA960)\n",
+   "why": "UnknownControlRecord +0x74 (the dialog background's drawer), +0xE0 and +0xE4 (its 640 and full-size shapes) hold pointers that 0x005EA960 stores with (int) casts and 0x005E9F40/0x005EA8A0/0x005EA900 return as int; natively they were cut to 32 bits and the main menu's background draw 0x005FEE70 faulted in CC_Draw_Shape once the dialogs got their WM_PAINT (Scout1121, M14b). Pointer-sized natively; VC6 unchanged.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/cell_class.hpp",
+   "old": "    Cell const &Fetch_CellID() const { return MapCoords; }",
+   "new": "    Cell Fetch_CellID() const { return MapCoords; }   // NATIVE: by value, as the other variant (one symbol for both)",
+   "why": "cell_class.hpp's two inline Fetch_CellID variants (Cell const & under RA2_SHIP_CELL_ACCESSORS, Cell otherwise) share the symbol __ZNK9CellClass12Fetch_CellIDEv; the unoptimised native build calls the one kept copy, so the reference variant's callers took the returned Cell value as an address: DriveLocomotionClass::Process 0x004A05F0 faulted in Cell::operator== on 0x004C0089 (the cell 137,76) at frame 1 of a menu-started skirmish (Scout1121, M14b). Same value either way; the VC6 shape keeps its reference.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/ownrdraw/OwnerDraw_combo_drop_proc_5ead20_005ead20.cpp",
+   "old": "    int item = CallWindowProcA(proc, owner, 0x199, index, 0);",
+   "new": "    LRESULT item = CallWindowProcA(proc, owner, 0x199, index, 0);   // NATIVE: the item record is a pointer",
+   "why": "Get_Item_Text (inline in the combo drop list 0x005EAD20) keeps the combo item's data, a pointer to its item record {int, int, wchar_t *text}, in an int: natively the pointer is cut to 32 bits and the drop list's paint faulted on the first item (Scout1121, M14b). Same value on VC6.",
+   "verified": true
+  },
+  {
    "source": "src/shared/house.hpp",
    "old": "#include \"shared/region.hpp\"",
    "new": "#include \"shared/region.hpp\"\n#include \"shared/counter_class.hpp\"   // NATIVE: the subobjects' real classes (see below)\n#include \"shared/unknown_loadout.hpp\"",
@@ -1001,18 +1064,6 @@
    "new": "    void *unknown_64;   // NATIVE: win_modem.hpp's EchoFunction (a function pointer)\n    void *unknown_68;   // NATIVE: AbortFunction\n",
    "why": "win_modem.hpp's +0x64/+0x68 are function pointers (EchoFunction, AbortFunction): pointer width natively so the constructor clears the real members. Same VC6 layout and stores.",
    "verified": true
-  },
-  {
-   "source": "src/shared/owner_draw_dialog_control.hpp",
-   "old": "extern int unknown_7add6c;",
-   "new": "} extern int unknown_screen_widths_7add68[3]; namespace OwnerDraw {\n// native: 0x007ADD6C is unknown_screen_widths_7add68[1] (the second of the {640, 800, 1024} widths).\nstatic int &unknown_7add6c = ::unknown_screen_widths_7add68[1];",
-   "why": "One storage per original address: OwnerDraw::unknown_7add6c (0x007ADD6C) lies inside unknown_screen_widths_7add68 (0x007ADD68, int[3], loaded from game.exe); natively the namespaced name was a zero placeholder (original_data.py finds no declaration for a qualified name), so the menus' sidebar placement 0x005E8C50 centred on width 0 (buttons off their slots). Same meaning: the element at that address (Scout1119, M14)."
-  },
-  {
-   "source": "src/shared/owner_draw_dialog_control.hpp",
-   "old": "extern int unknown_7add78;",
-   "new": "} extern int unknown_screen_heights_7add74[3]; namespace OwnerDraw {\n// native: 0x007ADD78 is unknown_screen_heights_7add74[1].\nstatic int &unknown_7add78 = ::unknown_screen_heights_7add74[1];",
-   "why": "As unknown_7add6c: 0x007ADD78 is the second element of unknown_screen_heights_7add74 (0x007ADD74, int[3]); zero natively before (Scout1119, M14)."
   },
   {
    "source": "src/recovered/ownrdraw/OwnerDraw_unknown_replace_edit_5ecb00_005ecb00.cpp",

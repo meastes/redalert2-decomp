@@ -212,20 +212,48 @@ def main():
     index = {}
     word = re.compile(r'[A-Za-z_]\w*')
     # src/ and the tracked native drafts (a draft declares the globals it adds).
+    # Qualified names (OwnerDraw::unknown_7add6c, CD::RequiredCD): the TSV names
+    # the global with its scope, a source declares it by its bare name inside
+    # `namespace X {` (extern) or `class X {` (a static member). Their lines are
+    # indexed by bare word with the scopes their file opens (Scout1121: every
+    # namespaced and class-static .data/.rdata global was "no declaration found"
+    # and kept a zero placeholder, e.g. the menus' dialog back art name).
+    scoped = {}
+    scope_rx = re.compile(r'\b(?:namespace|class|struct)\s+([A-Za-z_]\w*)\s*(?::[^;{]*)?\{')
     for f in sorted((ROOT / 'src').rglob('*')) + sorted((ROOT / 'native/drafts').glob('*.cpp')):
         if f.suffix not in ('.cpp', '.hpp', '.h', '.c'):
             continue
-        for line in f.read_text(errors='replace').splitlines():
+        text = f.read_text(errors='replace')
+        scopes = None
+        for line in text.splitlines():
             if 'extern' in line and ';' in line:
                 for w in set(word.findall(line)):
                     index.setdefault(w, []).append(line)
+            if ('extern' in line or 'static' in line) and ';' in line and '(' not in line.split(';')[0].split('//')[0].replace('__declspec(', ''):
+                if scopes is None:
+                    scopes = set(scope_rx.findall(text))
+                if scopes:
+                    for w in set(word.findall(line.split('//')[0])):
+                        scoped.setdefault(w, []).append((scopes, line))
+
+    def lines_of(name):
+        """Declaration lines of `name`; a qualified name's come from files that
+        open its innermost scope."""
+        if '::' not in name:
+            return index.get(name, [])
+        scope, bare = name.rsplit('::', 1)
+        scope = scope.rsplit('::', 1)[-1]
+        return [line for scopes, line in scoped.get(bare, []) if scope in scopes]
+
+    def bare(name):
+        return name.rsplit('::', 1)[-1]
     # Kept scalar-array rows: extent over the declared elements (see below).
     for sym, r in rows.items():
         if r['shape'] != 'bytes':
             continue
-        decl = declaration(r['name'], index.get(r['name'], []))
+        decl = declaration(bare(r['name']), lines_of(r['name']))
         if decl and decl[1] == 0 and decl[2] and decl[0] in SCALARS:
-            count = declared_count(r['name'], index.get(r['name'], []))
+            count = declared_count(bare(r['name']), lines_of(r['name']))
             width = SCALAR_WIDTH.get(decl[0])
             if count and width:
                 r['extent'] = max(r['extent'], width * count)
@@ -250,7 +278,7 @@ def main():
         if sym in aliased:
             skipped.append(dict(symbol=sym, address=addr, reason='address alias'))
             continue
-        decl = declaration(name, index.get(name, []))
+        decl = declaration(bare(name), lines_of(name))
         if decl is None:
             skipped.append(dict(symbol=sym, address=addr, reason='no declaration found'))
             continue
@@ -258,11 +286,15 @@ def main():
         extent = int(extent)
         if stars == 0 and base in SCALARS:
             shape = 'bytes'
+            if not array and base in SCALAR_WIDTH:
+                # One scalar: its own width (the TSV extent runs to the next known
+                # symbol: SocketReceiveBuffer's 168 bytes would cover others' places).
+                extent = SCALAR_WIDTH[base]
             if array:
                 # A scalar array runs over its declared elements even where an
                 # interior name starts (unknown_screen_widths_7add68[3]: the TSV
                 # extent stops at OwnerDraw::unknown_7add6c, element 1).
-                count = declared_count(name, index.get(name, []))
+                count = declared_count(bare(name), lines_of(name))
                 width = SCALAR_WIDTH.get(base)
                 if count and width:
                     extent = max(extent, width * count)
@@ -276,7 +308,7 @@ def main():
             # loader converts each pointer field into an 8-byte native slot
             # (shape 3: field count and pointer mask in the high bits).
             fields = record_fields(base)
-            count = declared_count(name, index.get(name, [])) if array else 1
+            count = declared_count(bare(name), lines_of(name)) if array else 1
             if count is None and ('p' not in fields or extent % (4 * len(fields)) == 0):
                 # An unsized array of records: the TSV extent (to the next known
                 # symbol) in whole records (Scout1103: DriveRawTracks/ShipRawTracks,
@@ -295,7 +327,7 @@ def main():
             # An array of structs whose members are all data pointers (name
             # tables such as CategoryNames): an array of pointers, extent from
             # the declared count (the TSV extent stops at the next interior name).
-            count = declared_count(name, index.get(name, []))
+            count = declared_count(bare(name), lines_of(name))
             if count is None:
                 skipped.append(dict(symbol=sym, address=addr, reason='pointer struct array without a count'))
                 continue
@@ -306,7 +338,7 @@ def main():
             # extent is the declared elements, else the TSV extent (an unsized
             # array runs to the next known symbol).
             size = scalar_record_size(base)
-            count = declared_count(name, index.get(name, [])) if array else 1
+            count = declared_count(bare(name), lines_of(name)) if array else 1
             if count:
                 extent = size * count
             shape = 'bytes'
@@ -332,8 +364,8 @@ def main():
     declared = {}
     for sym, r in rows.items():
         if r['shape'] == 'ptrs':
-            for line in index.get(r['name'], []):
-                m = re.search(r'\b%s\s*((?:\[\s*\d+\s*\]\s*)+)' % re.escape(r['name']), line)
+            for line in lines_of(r['name']):
+                m = re.search(r'\b%s\s*((?:\[\s*\d+\s*\]\s*)+)' % re.escape(bare(r['name'])), line)
                 if m:
                     elements = 1
                     for dim in re.findall(r'\d+', m.group(1)):

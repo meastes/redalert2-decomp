@@ -1531,6 +1531,40 @@
    "author": "Scout620/Scout1075",
    "draft": "native/drafts/004994d0.cpp",
    "adapted": "RadarClass slot 51 through a link adapter (Native_Radar_Cell_At), unknown_a40d13 spelled Debug_Map; joined to Passes_Shroud_Check 0x00499390's unit"
+  },
+  {
+   "entry": "0x45F710",
+   "name": "BulletClass::AI (slot 23)",
+   "plan": "draft, verify",
+   "tier": "combat (menu-to-score loop)",
+   "bytes": 6438,
+   "score": 87.78,
+   "last_lane_score": 87.78,
+   "draft_found_by": "index",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout949/w/y1.cpp",
+   "author": "Scout949/Scout1004",
+   "draft": "native/drafts/0045f710.cpp",
+   "adapted": "lane overlay guards and declarations inlined (NATIVE block): unknown_coord_none_850310 = unknown_geometry_l, Slope_Matrix via Unknown_00718D60, Projectile_Motion through the 0x593870 draft's C adapter"
+  },
+  {
+   "entry": "0x593870",
+   "name": "Projectile_Motion",
+   "plan": "draft, verify",
+   "tier": "combat (menu-to-score loop)",
+   "bytes": 2101,
+   "score": 99.22,
+   "last_lane_score": 99.22,
+   "draft_found_by": "index",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout914/w/pmD1.cpp",
+   "author": "Scout914/Scout918",
+   "draft": "native/drafts/00593870.cpp",
+   "adapted": "C adapter ra2_native_projectile_motion_593870 for BulletClass::AI's draft (layout-identical TibSun-shaped types)"
   }
  ]
 }

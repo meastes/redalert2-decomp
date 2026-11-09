@@ -44,6 +44,10 @@ struct Window : HandleObject {
     // DWL_USER slot (index 8; pointer-sized natively), the modal result.
     std::vector<HWND> children;
     bool is_dialog = false, ended = false, checked = false;
+    // A drop-down combo box (Scout1121): the window is its selection field
+    // (sel_height + 6 high, as Windows sizes it); the size the template or a
+    // move gives is the dropped size (CB_GETDROPPEDCONTROLRECT).
+    int sel_height = 16, drop_height = 0;
     intptr_t dialog_user = 0, result = 0;
     unsigned template_id = 0;
 };
@@ -94,6 +98,18 @@ void invalidate(HWND h)
     if (!w) return;
     if (w->is_dialog || w->parent) w->dirty = true;
     for (HWND c : w->children) invalidate(c);
+}
+
+// A CBS_DROPDOWN or CBS_DROPDOWNLIST combo box: its height is the selection field's.
+bool closed_combo(const Window *w)
+{
+    return w && (w->style & 3) != 1 && !strcasecmp(w->cls.c_str(), "ComboBox");
+}
+int combo_height(Window *w, int h)
+{
+    if (!closed_combo(w)) return h;
+    w->drop_height = h;
+    return w->sel_height + 6;
 }
 
 DWORD now_ms()
@@ -163,7 +179,6 @@ WORD RegisterClassA(const WNDCLASSA_PORT *wc)
 HWND CreateWindowExA(DWORD exstyle, const char *cls, const char *title, DWORD style, int x, int y, int w, int h,
                      HWND parent, void *menu, HINSTANCE instance, void *param)
 {
-    (void)menu; (void)instance; (void)param;
     Window *wnd = new Window;
     wnd->kind = H_WINDOW;
     wnd->cls = cls ? cls : "";
@@ -178,7 +193,7 @@ HWND CreateWindowExA(DWORD exstyle, const char *cls, const char *title, DWORD st
     if (h <= 0 || h > 4096) h = 600;
     wnd->rect = {x < 0 || x > 4096 ? 0 : x, y < 0 || y > 4096 ? 0 : y, 0, 0};
     wnd->rect.right = wnd->rect.left + w;
-    wnd->rect.bottom = wnd->rect.top + h;
+    wnd->rect.bottom = wnd->rect.top + combo_height(wnd, h);
     HWND hwnd = handle_new(wnd);
     if (parent && win(parent)) win(parent)->children.back() = hwnd;
     wnd->visible = (style & 0x10000000u) != 0;
@@ -195,7 +210,13 @@ HWND CreateWindowExA(DWORD exstyle, const char *cls, const char *title, DWORD st
         if (host() && host()->create_window) wnd->host_window = host()->create_window(wnd->title.c_str(), w, h);
     }
     if (wnd->proc) {
-        wnd->proc(hwnd, 0x0001, 0, 0);   // WM_CREATE (CREATESTRUCT not provided)
+        // WM_CREATE with the CREATESTRUCTA (pointer-sized fields natively):
+        // lpCreateParams first, as the combo drop list 0x005EAD20 reads its
+        // owner combo box from it (Scout1121).
+        struct { void *params; HINSTANCE instance; void *menu; HWND parent; int cy, cx, y, x; LONG style;
+                 const char *name; const char *cls; DWORD exstyle; } cs =
+            {param, instance, menu, parent, h, w, wnd->rect.top, wnd->rect.left, (LONG)style, title, cls, exstyle};
+        wnd->proc(hwnd, 0x0001, 0, (LPARAM)&cs);   // WM_CREATE
     }
     return hwnd;
 }
@@ -302,7 +323,7 @@ BOOL MoveWindow(HWND hwnd, int x, int y, int w, int h, BOOL repaint)
     (void)repaint;
     Window *wnd = win(hwnd);
     if (!wnd) return 0;
-    wnd->rect = {x, y, x + w, y + h};
+    wnd->rect = {x, y, x + w, y + combo_height(wnd, h)};
     return 1;
 }
 BOOL SetWindowPos(HWND hwnd, HWND after, int x, int y, int w, int h, UINT flags)
@@ -311,7 +332,7 @@ BOOL SetWindowPos(HWND hwnd, HWND after, int x, int y, int w, int h, UINT flags)
     Window *wnd = win(hwnd);
     if (!wnd) return 0;
     if (!(flags & 0x0002)) { int cw = wnd->rect.right - wnd->rect.left, ch = wnd->rect.bottom - wnd->rect.top; wnd->rect = {x, y, x + cw, y + ch}; }
-    if (!(flags & 0x0001)) { wnd->rect.right = wnd->rect.left + w; wnd->rect.bottom = wnd->rect.top + h; }
+    if (!(flags & 0x0001)) { wnd->rect.right = wnd->rect.left + w; wnd->rect.bottom = wnd->rect.top + combo_height(wnd, h); }
     if (flags & 0x0040) wnd->visible = true;
     if (flags & 0x0080) wnd->visible = false;
     return 1;
@@ -415,6 +436,10 @@ LONG GetWindowLongA(HWND hwnd, int index)
     if (!w) return 0;
     switch (index) {
     case -12: return w->id;
+    // GWL_HWNDPARENT: the parent (owner) window; port handles fit a LONG. The
+    // layout pass 0x00735BC0 subtracts its rectangle (was 0: GetWindowRect(0)
+    // left the stack RECT unset and the menu buttons at random x, Scout1121).
+    case -8: return (LONG)(intptr_t)w->parent;
     case -16: return w->style;
     case -20: return w->exstyle;
     case -21: return (LONG)w->userdata;
@@ -494,7 +519,7 @@ BOOL PostMessageA(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 
 void PostQuitMessage(int code) { post_message(nullptr, 0x0012, (WPARAM)code, 0); }   // WM_QUIT
 
-static bool paint_message(MSG *msg, UINT first, UINT last);
+static bool paint_message(MSG *msg, UINT first, UINT last, bool remove);
 BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
 {
     (void)hwnd;
@@ -504,7 +529,7 @@ BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
     // Posted input and messages first; then WM_PAINT; WM_TIMER last (Windows'
     // order: paint and timer messages are generated when nothing else waits).
     for (int pass = 0; pass < 2; ++pass) {
-        if (pass == 1 && paint_message(msg, first, last)) return 1;
+        if (pass == 1 && paint_message(msg, first, last, remove & 1)) return 1;
         for (auto it = queue.begin(); it != queue.end(); ++it) {
             if (first || last) {
                 if (it->message < first || it->message > last) continue;
@@ -517,7 +542,7 @@ BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
     }
     return 0;
 }
-static bool paint_message(MSG *msg, UINT first, UINT last)
+static bool paint_message(MSG *msg, UINT first, UINT last, bool remove)
 {
     // No queued message: a dialog or control that needs painting gets WM_PAINT
     // (Windows generates it the same way, after the queue).
@@ -530,7 +555,11 @@ static bool paint_message(MSG *msg, UINT first, UINT last)
             for (HWND h : all) {
                 Window *c = win(h);
                 if (c && c->dirty && c->visible) {
-                    c->dirty = false;
+                    // A peek without PM_REMOVE leaves it pending (Windows keeps
+                    // WM_PAINT until the window validates): the menus' message
+                    // loop peeks first, which lost the dialogs' own WM_PAINT and
+                    // with it the owner-draw paint and slide-in (Scout1121).
+                    if (remove) c->dirty = false;
                     *msg = {h, 0x000F, 0, 0, now_ms(), cursor};
                     return true;
                 }
@@ -579,6 +608,17 @@ LRESULT DispatchMessageA(const MSG *msg)
             LPARAM lp = (LPARAM)((((int)p.y - (int)o.y) & 0xFFFF) << 16 | (((int)p.x - (int)o.x) & 0xFFFF));
             return SendMessageA(at, msg->message, msg->wParam, lp);
         }
+    }
+    // Keys go to the focus window, as on Windows: the host posts them to the
+    // main window; while a shown dialog or one of its controls has the focus
+    // (SetFocus: a combo box's drop, the dialog itself on WM_INITDIALOG) it
+    // gets them instead (Scout1121, M14b: keyboard selection in the menus).
+    if (target == main_hwnd && msg->message >= 0x0100 && msg->message <= 0x0109 && focus_hwnd && focus_hwnd != main_hwnd) {
+        HWND top = focus_hwnd;
+        bool shown = true;
+        while (top && win(top) && win(top)->parent) { shown = shown && win(top)->visible; top = win(top)->parent; }
+        Window *tw = win(top);
+        if (tw && tw->is_dialog && tw->visible && shown) return SendMessageA(focus_hwnd, msg->message, msg->wParam, msg->lParam);
     }
     return SendMessageA(target, msg->message, msg->wParam, msg->lParam);
 }
@@ -1025,12 +1065,41 @@ LRESULT combobox_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
     case 0x014F: w->dropped = wparam != 0; invalidate(hwnd); return 1;         // CB_SHOWDROPDOWN
     case 0x0150: return ((int)wparam >= 0 && (int)wparam < count) ? (LRESULT)w->items[wparam].data : -1;   // CB_GETITEMDATA
     case 0x0151: if ((int)wparam < 0 || (int)wparam >= count) return -1; w->items[wparam].data = (intptr_t)lparam; return 0;   // CB_SETITEMDATA
-    case 0x0152: if (lparam) GetWindowRect(hwnd, (RECT *)lparam); return 1;  // CB_GETDROPPEDCONTROLRECT
-    case 0x0153: if ((int)lparam > 0) w->item_height = (int)lparam; return 0; // CB_SETITEMHEIGHT
-    case 0x0154: return w->item_height;                                        // CB_GETITEMHEIGHT
+    case 0x0152:                                                               // CB_GETDROPPEDCONTROLRECT
+        if (lparam) {
+            GetWindowRect(hwnd, (RECT *)lparam);
+            if (closed_combo(w) && w->drop_height > 0) ((RECT *)lparam)->bottom = ((RECT *)lparam)->top + w->drop_height;
+        }
+        return 1;
+    case 0x0153:                                                               // CB_SETITEMHEIGHT (-1: the selection field)
+        if ((int)lparam <= 0) return 0;
+        if ((int)wparam == -1) {
+            w->sel_height = (int)lparam;
+            if (closed_combo(w)) w->rect.bottom = w->rect.top + w->sel_height + 6;
+        } else {
+            w->item_height = (int)lparam;
+        }
+        return 0;
+    case 0x0154: return (int)wparam == -1 ? w->sel_height : w->item_height;   // CB_GETITEMHEIGHT
     case 0x0157: return w->dropped ? 1 : 0;                                    // CB_GETDROPPEDSTATE
     case 0x0158: return list_find(w, (int)wparam, lparam, true);               // CB_FINDSTRINGEXACT
     case 0x015B: return 1;                                                     // CB_LIMITTEXT
+    case 0x0100: {                                                             // WM_KEYDOWN: arrows, Home/End move the selection
+        int at = w->cursel;
+        if (wparam == 0x28 || wparam == 0x27) at = at < 0 ? 0 : at + 1;        // VK_DOWN, VK_RIGHT
+        else if (wparam == 0x26 || wparam == 0x25) at = at < 0 ? 0 : at - 1;   // VK_UP, VK_LEFT
+        else if (wparam == 0x24) at = 0;                                       // VK_HOME
+        else if (wparam == 0x23) at = count - 1;                               // VK_END
+        else return 0;
+        if (at < 0) at = 0;
+        if (at >= count) at = count - 1;
+        if (at < 0 || at == w->cursel) return 0;
+        w->cursel = at;
+        if (list_has_strings(w, true)) w->title = w->items[at].text;
+        invalidate(hwnd);
+        notify_parent(hwnd, 1);                                                // CBN_SELCHANGE
+        return 0;
+    }
     }
     return 0;
 }
@@ -1204,6 +1273,7 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
         auto it = classes.find(ccls);
         c->proc = it != classes.end() ? it->second : predefined_proc(ccls);
         c->rect = {dialog_units_x(ix), dialog_units_y(iy), dialog_units_x(ix + icx), dialog_units_y(iy + icy)};
+        c->rect.bottom = c->rect.top + combo_height(c, c->rect.bottom - c->rect.top);
         HWND hc = handle_new(c);
         dlg->children.push_back(hc);
         if (c->proc) c->proc(hc, 0x0001, 0, 0);     // WM_CREATE

@@ -292,9 +292,8 @@ BOOL __stdcall unknown_5e8130(HWND window, LPARAM)
                 bool allocated = false;
                 void *art = unknown_5e1820(parent, window);
                 record->unknown_78 = unknown_5e1a80(parent, window, allocated);
-                // NATIVE: +0x74 is an int in src/shared (int/pointer list): the
-                // art pointer is truncated as in 0x005EA960.
-                record->unknown_74 = (int)(intptr_t)art;
+                // NATIVE: +0x74 is pointer-sized natively (port/fixups.json).
+                record->unknown_74 = (intptr_t)art;
                 record->unknown_7c = allocated;
             }
         } else {

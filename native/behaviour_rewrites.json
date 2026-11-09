@@ -1386,6 +1386,96 @@
    "file": "native/link/behaviour_m14_session.cpp",
    "source": "pass-6a decompile 00672810",
    "notes": "session AICount = 0, AICountry/AIColor = -1 (the decompile's offsets on 0x00A3D2B0 = session + 0x18, by member); Scout1119 (M14)"
+  },
+  {
+   "entry": "0x00423D30",
+   "name": "ObjectClass::unknown_slot31",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b.cpp",
+   "source": "pass-6a decompile 00423d30",
+   "notes": "shared leaf returning false (ObjectClass slot 31); reached by hunting units in a menu-started skirmish; Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x00453B50",
+   "name": "TechnoClass::unknown_slot156",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b_techno.cpp",
+   "source": "pass-6a decompile 00453b50",
+   "notes": "shared leaf returning false (TechnoClass slot 156); hunting units; Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x0041B3F0",
+   "name": "TechnoClass::unknown_slot232",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b_techno.cpp",
+   "source": "pass-6a decompile 0041b3f0",
+   "notes": "the type's Turret (slot 32's TechnoTypeClass +0xAAB); Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x004CEDF0",
+   "name": "UnknownBulletData::UnknownBulletData",
+   "origin_class": "unmatched (constructor)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b_bullet.cpp",
+   "source": "pass-6a decompile 004cedf0",
+   "notes": "two frame timers started with no delay, coordinate and +0x24 zero; Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x00446920",
+   "name": "BuildingClass::unknown_slot126 (Mission_Attack)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b_building.cpp",
+   "source": "pass-6a decompile 00446920",
+   "notes": "simplified: no target -> guard; Can_Fire OK fires, FACING turns, ILLEGAL/CANT/RANGE drop the target; jump table, powered weapons and +0xA8 charge states not carried; Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x0041B300",
+   "name": "ObjectClass::unknown_slot83",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b.cpp",
+   "source": "pass-6a decompile 0041b300",
+   "notes": "shared leaf returning false; Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x00453B60",
+   "name": "TechnoClass::unknown_slot169",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b_techno.cpp",
+   "source": "pass-6a decompile 00453b60",
+   "notes": "shared leaf returning true (one argument); Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x0060AA70",
+   "name": "ParticleSystemClass::ParticleSystemClass (TPoint3D spelling)",
+   "origin_class": "second declaration",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b.cpp",
+   "source": "shared/particle_system.hpp",
+   "notes": "the RA2_PARTICLE_SYSTEM_POINT3D constructor name bound to the CoordStruct one (same address, layout-identical parameter); Scout1121 (M14b)"
+  },
+  {
+   "entry": "0x004BBAF0",
+   "name": "Unknown_004BBAF0 (bullet.hpp name of the Get_Obstacle draft)",
+   "origin_class": "second declaration",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14b_bullet.cpp",
+   "source": "native/drafts/004bbaf0.cpp",
+   "notes": "shared/bullet.hpp's int-returning name forwards to the tracked draft Get_Obstacle_004bbaf0 (same address), as a bool; Scout1121 (M14b)"
   }
  ]
 }

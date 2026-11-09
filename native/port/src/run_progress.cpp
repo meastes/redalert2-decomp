@@ -253,7 +253,9 @@ const char *ra2port_skirmish_map(void) { return skirmish_map; }
 // --skirmish-order=<kind>[@<frame>] (link/harness_orders.cpp).
 namespace { const char *skirmish_order = nullptr; }
 void ra2port_set_skirmish_order(const char *order) { skirmish_order = order; }
-const char *ra2port_skirmish_order(void) { return skirmish_map ? skirmish_order : nullptr; }
+// Also for a game started from the menus (Scout1121: the hunt order of the
+// menu-to-score loop).
+const char *ra2port_skirmish_order(void) { return skirmish_order; }
 int ra2port_skirmish_frames(void) { return skirmish_frames; }
 // Scripted input points (platform/sdl/host.cpp): the skirmish harness
 // registers the resolver of "@ID[:n][+dx,dy]" (link/harness_input.cpp).

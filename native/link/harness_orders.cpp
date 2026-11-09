@@ -6,7 +6,11 @@
 // start units. Kinds: "move" (every infantry and vehicle moves 6 cells east),
 // "deploy" (vehicles whose type deploys into a building, the MCV, unload:
 // mission 16), "both" (the MCV deploys, the others move), "build" (the MCV
-// deploys, then the build order of harness_build.cpp), "all" (both and build).
+// deploys, then the build order of harness_build.cpp), "all" (both and build),
+// "hunt" (the MCV deploys, every other unit gets the hunt mission 15, as the
+// AI's attack teams do: scripted aggression for the menu-to-score loop,
+// Scout1121), "rush" (every unit hunts, the MCV too: no base, so the game ends
+// either way and shows the score screen).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
 #include "shared/techno.hpp"
 #include "shared/techno_type.hpp"
@@ -87,7 +91,9 @@ void Native_Harness_Orders(int frame)
     if (build) Native_Harness_Build(frame);
     if (frame != at) return;
     bool move = (len == 4 && Same(order, "move", 4)) || (len == 4 && Same(order, "both", 4)) || all;
-    bool deploy = (len == 6 && Same(order, "deploy", 6)) || (len == 4 && Same(order, "both", 4)) || build;
+    bool rush = len == 4 && Same(order, "rush", 4);
+    bool hunt = (len == 4 && Same(order, "hunt", 4)) || rush;
+    bool deploy = (len == 6 && Same(order, "deploy", 6)) || (len == 4 && Same(order, "both", 4)) || build || (hunt && !rush);
     int moved = 0, deployed = 0;
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
@@ -98,6 +104,22 @@ void Native_Harness_Orders(int frame)
         if (deploy && kind == 1 && type != 0 && type->DeploysInto != 0) {
             Queue_Mission(TargetClass(techno), 16, TargetClass(), TargetClass());
             ++deployed;
+            continue;
+        }
+        if (rush && kind == 1 && type != 0 && type->DeploysInto != 0) {
+            // The MCV cannot hunt: it drives to the first enemy techno's cell.
+            for (int k = 0; k < Technos.Count(); ++k) {
+                TechnoClass *enemy = Technos[k];
+                if (enemy == 0 || enemy->House == unknown_player_a35db4 || enemy->House == 0 || enemy->House->Is_Player_Control()) continue;
+                Queue_Mission(TargetClass(techno), 2, TargetClass(), TargetClass(enemy->Center_Coord().As_Cell()));
+                break;
+            }
+            ++moved;
+            continue;
+        }
+        if (hunt) {
+            Queue_Mission(TargetClass(techno), 15, TargetClass(), TargetClass());
+            ++moved;
             continue;
         }
         if (move) {

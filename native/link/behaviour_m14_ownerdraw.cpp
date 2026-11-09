@@ -25,7 +25,12 @@
 
 extern WolDictionary<HWND, WNDPROC> unknown_window_proc_table_a73688;   // 0x00A73688 (its initializer 0x005DE9C0)
 
+void __fastcall Unknown_006FA0F0(char *out, unsigned short const *text, int size);   // 0x006FA0F0 (wide to narrow)
+
 namespace OwnerDraw {
+
+BOOL __stdcall unknown_5ed180(HWND window, LPARAM lparam);                 // 0x005ED180 (subclass a control)
+BOOL __stdcall unknown_restore_child_5edd30(HWND window, LPARAM lparam);   // 0x005EDD30
 
 namespace {
 
@@ -195,10 +200,165 @@ LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wpa
     return 0;
 }
 
-// 0x005F4BA0: the combo box procedure (the selected item; the drop list is the owner-draw one).
+// 0x005F4BA0: the combo box procedure (Scout1119; drop list Scout1121, M14b).
+// Items: the wide and narrow adds (0x4BB/0x4BC narrow, 0x4C1/0x4C2 wide;
+// insert/add) put the narrow text in the original list and keep the item
+// record the drop list 0x005EAD20 reads ({0, data, text}, its UnknownListItem)
+// as the item data; CB_GET/SETITEMDATA reach the record's data, as the
+// original's cases 0x150/0x151 do. A click on the arrow (the rightmost 20
+// pixels) plays GUIComboOpenSound and toggles the drop (CB_SHOWDROPDOWN), which
+// creates the owner-draw "ComboDropWin" window (0x005EAD20) under the box,
+// subclassed by 0x005ED180 and holding the capture until a click closes it
+// (TibSun ComboBoxCtrlProc's shape; the original keeps the drop window in the
+// record at +0xF4, natively a side table).
+namespace {
+struct ComboItem { int unknown_00; int data; wchar_t *text; ComboItem *next; };   // 0x005EAD20's UnknownListItem, then a native list link
+ComboItem *combo_items = 0;
+struct { HWND combo; HWND drop; } combo_drops[16];
+ComboItem *Combo_Item(HWND window, int index)
+{
+    ComboItem *item = (ComboItem *)Original(window, 0x150, index, 0);
+    for (ComboItem *known = combo_items; known; known = known->next)
+        if (known == item) return item;
+    return 0;
+}
+void Combo_Free(HWND window, int index)
+{
+    ComboItem *item = Combo_Item(window, index);
+    if (!item) return;
+    for (ComboItem **link = &combo_items; *link; link = &(*link)->next)
+        if (*link == item) { *link = item->next; break; }
+    delete [] item->text;
+    delete item;
+}
+HWND &Combo_Drop(HWND combo, bool make)
+{
+    static HWND none;
+    for (int i = 0; i < 16; ++i)
+        if (combo_drops[i].combo == combo && combo_drops[i].drop) return combo_drops[i].drop;
+    if (make)
+        for (int i = 0; i < 16; ++i)
+            if (!combo_drops[i].drop) { combo_drops[i].combo = combo; return combo_drops[i].drop; }
+    none = 0;
+    return none;
+}
+}
+
 LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     UnknownControlRecord *record = Get_Record(window);
+    if (record) {
+        switch (message) {
+        case 0x4BB: case 0x4BC: case 0x4C1: case 0x4C2: {
+            bool wide = message >= 0x4C1;
+            bool add = message == 0x4BC || message == 0x4C2;
+            int length = 0;
+            char narrow[512];
+            if (lparam) {
+                if (wide) while (((unsigned short const *)lparam)[length]) ++length;
+                else while (((char const *)lparam)[length]) ++length;
+            }
+            if (wide) {
+                Unknown_006FA0F0(narrow, (unsigned short const *)lparam, sizeof narrow);
+            } else {
+                int n = length < (int)sizeof narrow - 1 ? length : (int)sizeof narrow - 1;
+                for (int i = 0; i < n; ++i) narrow[i] = ((char const *)lparam)[i];
+                narrow[n] = 0;
+            }
+            LRESULT index = Original(window, add ? 0x143 : 0x14A, add ? 0 : wparam, (LPARAM)narrow);
+            if (index < 0) return index;
+            ComboItem *item = new ComboItem;
+            item->unknown_00 = 0;
+            item->data = 0;
+            item->text = new wchar_t[length + 1];
+            for (int i = 0; i < length; ++i)
+                item->text[i] = wide ? ((wchar_t const *)lparam)[i] : (wchar_t)(unsigned char)((char const *)lparam)[i];
+            item->text[length] = 0;
+            item->next = combo_items;
+            combo_items = item;
+            Original(window, 0x151, index, (LPARAM)item);
+            return index;
+        }
+        case 0x150: case 0x199: {                   // CB_GETITEMDATA (LB_GETITEMDATA as the original answers it)
+            ComboItem *item = Combo_Item(window, (int)wparam);
+            if (item) return item->data;
+            return Original(window, 0x150, wparam, lparam);
+        }
+        case 0x151: case 0x19A: {                   // CB_SETITEMDATA
+            ComboItem *item = Combo_Item(window, (int)wparam);
+            if (item) { item->data = (int)lparam; return 0; }
+            return Original(window, 0x151, wparam, lparam);
+        }
+        case 0x144:                                 // CB_DELETESTRING
+            Combo_Free(window, (int)wparam);
+            break;
+        case 0x14B: {                               // CB_RESETCONTENT
+            int count = (int)Original(window, 0x146, 0, 0);
+            for (int i = 0; i < count; ++i) Combo_Free(window, i);
+            break;
+        }
+        case 0x201: case 0x203: {                   // WM_LBUTTONDOWN / DBLCLK: the arrow drops the list
+            Voc_Play(Rules->GUIComboOpenSound, 1.0f, 0x2000, 0);
+            RECT client;
+            GetClientRect(window, &client);
+            if ((int)(lparam & 0xFFFF) > client.right - 20) {
+                LRESULT dropped = SendMessageA(window, 0x157, 0, 0);
+                PostMessageA(window, 0x14F, dropped != 1, 0);
+            }
+            return 0;
+        }
+        case 0x157:                                 // CB_GETDROPPEDSTATE
+            return Combo_Drop(window, false) ? 1 : 0;
+        case 0x14F: {                               // CB_SHOWDROPDOWN
+            HWND parent = GetParent(window);
+            HWND &slot = Combo_Drop(window, false);
+            if (!wparam) {
+                if (!slot) return 1;
+                HWND drop = slot;
+                slot = 0;
+                ReleaseCapture();
+                SendMessageA(parent, 0x4A9, (WPARAM)drop, 0);
+                DestroyWindow(drop);
+                unknown_restore_child_5edd30(drop, 0);
+                Original(window, 0x14F, 0, 0);
+                InvalidateRect(parent, 0, FALSE);
+                return 1;
+            }
+            if (slot) return 1;
+            SetFocus(window);
+            RECT client, display, parent_display;
+            GetClientRect(window, &client);
+            Window_Rect_In_Main_Client(window, &display);
+            Window_Rect_In_Main_Client(parent, &parent_display);
+            int count = (int)Original(window, 0x146, 0, 0);
+            int item_height = (int)Original(window, 0x154, 0, 0);
+            if (item_height < 1) item_height = 1;
+            int height = count * item_height + 4;
+            if (display.bottom + height > parent_display.bottom - 2 * item_height) {
+                height = parent_display.bottom - (2 * item_height + 4) - display.bottom;
+                if (height < item_height) {
+                    height = parent_display.bottom - display.bottom;
+                    height -= height % item_height;
+                }
+            }
+            HWND drop = CreateWindowExA(0, "ComboDropWin", 0, 0x40000000, display.left - parent_display.left,
+                client.bottom + display.top - parent_display.top + 2, client.right, height, parent, 0, ProgramInstance, window);
+            if (!drop) return 0;
+            unknown_5ed180(drop, 0);
+            Combo_Drop(window, true) = drop;
+            Original(window, 0x14F, 1, 0);
+            SendMessageA(drop, 0x7E8, 0, 0);       // the highlight starts on the selection
+            SendMessageA(parent, 0x4A9, (WPARAM)drop, 1);
+            SetCapture(drop);
+            ShowWindow(drop, 1);
+            InvalidateRect(drop, 0, FALSE);
+            return 1;
+        }
+        case 0x2:                                   // WM_DESTROY
+            SendMessageA(window, 0x14F, 0, 0);
+            break;
+        }
+    }
     if (!record || message != 0xF) {
         if (message == 0x14) return 1;
         LRESULT result = Original(window, message, wparam, lparam);
@@ -236,7 +396,6 @@ LRESULT __stdcall unknown_tab_proc_5f0f40(HWND window, UINT message, WPARAM wpar
 // 0x005ECB00): the text is the record's WideString (+0x3C), its limit +0x48.
 // Keys: Return and Tab notify the dialog (0x4DA, 0x4DB), characters edit the
 // text; 0x4B3/0x4B5 read it wide/narrow, 0x4B2/0x4B4 reset it from +0x28.
-void __fastcall Unknown_006FA0F0(char *out, unsigned short const *text, int size);   // 0x006FA0F0 (wide to narrow)
 LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     UnknownControlRecord *record = Get_Record(window);

@@ -3207,3 +3207,7 @@ New rulings are recorded at their rows as before.
 
 ## Scout1118 (2026-11-09, 0 B; calibration tables in build/class-work/Scout1118/)
 - Declaration-count hypothesis tested and false for 0x5E9410, Bounce AI 0x4370E0, Damage_Low_Bridge 0x55DEF0 (and twins), Area_Modify 0x6C5270, Explosion_Damage 0x47E2C0, Net2SetHouseAndColor 0x5BCCF0, Get_Z_Adjust 0x6CFEA0: flat across 64 before-function and 21 line-1 probe counts (Print_CRCs control flips). Their residues are body-level weight/cursor ties.
+
+## Scout1123 (2026-11-09, 0 B; NOTES, keep/, probe.py/burn.py in build/class-work/Scout1123/)
+- Smoke AI 0x60BB70 37.95 -> 49.78 (keep/smoke_4978_v15.cpp, shape 93.49): Is_Foot-style flag helper (`unsigned char flag = p->AbstractFlags.IsObject; return flag != 0;`) reproduces the stored-then-dead [esp+0x13] byte (Cell351 candidate). Add 0x60D050 placement is an /Ob2 budget effect (root 1960, 1792 before the first spawn; probe.py/burn.py measure it). Left: `this` spilled to [esp+0x14] at entry in the original. Native draft 0x60BB70 should take this text.
+- AlphaShapeClass::Draw_In_Area 0x41F1C0 41.92 unchanged: original frame 8 B larger (two 8-byte frame objects), FrameCount cached, Height stored on both paths; lead `r1 += TacticalRect.Top_Left()`.

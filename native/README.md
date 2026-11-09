@@ -161,7 +161,7 @@ drives there), `key S`, double-click `@AMCV` (it deploys), click the power plant
 cameo (908, 252), click it again at frame 720 and click `@GACNST+4,0`: the
 power plant stands at the clicked cell.
 
-### Menus (Scout1119, M14; in progress)
+### Menus (Scout1119/Scout1121, M14)
 
 Without `--skirmish`/`--play` the game runs its own menus. The port's USER32
 (`port/src/user32.cpp`) now gives the owner-draw dialog layer what it needs:
@@ -183,10 +183,32 @@ lines play in the order written. `RA2_NATIVE_MSG_LOG=1` logs messages to dialogs
 and controls, each shown dialog's controls (id, class, screen rectangle, text)
 and every routed click (`=2` adds paint, timer and motion). `--frames=N` reports
 `frames` after N Main_Loop frames of a game started from the menus; the
-milestone `menu-return` is the main menu shown again after a game. State: the
-main menu, the single-player menu and the skirmish dialog open by scripted
-clicks and Start Game reaches Skirmish_Command; the dialogs' art and the
-skirmish dialog's control layout are not drawn/placed yet (see the lane notes).
+milestone `menu-return` is the main menu shown again after a game. Scout1121 (M14b): the
+dialogs draw (their background art, the sidebar buttons with their labels, the
+skirmish dialog's controls) and their controls sit where the original's
+placement puts them (main menu buttons on the sidebar slots at x 756). Four
+native causes: GetWindowLongA(GWL_HWNDPARENT) answered 0 (the layout pass
+0x00735BC0 then used an unset RECT); UnknownControlRecord's first 16 bytes are
+an int and two HWNDs in the combo drop-list unit only (24 bytes on arm64), so
+the dialog kind 0x005EAAA0 stored read back wrong elsewhere (fixup pads the
+other variants); a PeekMessage without PM_REMOVE cleared a dialog's pending
+WM_PAINT, so the owner-draw paint (0x005EE460 draft; its slide-in state read at
+the VC6 record offset +0x1FC, now RA2_REC_TAIL) never started; the background
+art pointers (+0x74, +0xE0, +0xE4) were kept in ints. A drop-down combo box is
+its selection field (the template height is the dropped height,
+CB_GETDROPPEDCONTROLRECT; CB_SETITEMHEIGHT(-1) sizes it); the owner-draw combo
+procedure (behaviour row 0x005F4BA0) keeps the original's item records and
+opens the recovered drop list 0x005EAD20 ("ComboDropWin") on a click on its
+arrow; the drop list holds the capture and a click picks the item
+(CBN_SELCHANGE). Keys go to the focus window when it belongs to a shown dialog
+(arrow keys move a combo's selection). WM_CREATE carries a CREATESTRUCT.
+Example (`'#0'`'s map is the skirmish default, Isle of War): main menu Single
+Player `d1+1500 click 834 304`, Skirmish `d2+1500 click 834 388`, the first AI
+slot's arrow `d3+2500 click 385 197`, Medium Enemy `d3+3500 click 300 251`, Start
+Game `d3+4500 click 834 346`, then `--frames=N`. `--skirmish-order` also works
+in a game started from the menus; `hunt` (the MCV deploys, every other unit
+hunts) and `rush` (the MCV drives to the enemy, the others hunt) are scripted
+aggression for the menu-to-score loop.
 
 ### Data the original stores (game.exe at run time)
 
