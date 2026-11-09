@@ -100,6 +100,15 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   mapped to ours); an adopted file keeps their SPDX and copyright lines and the commit subject says
   "from ra2-decomp <YR address>". Acceptance is unchanged: strict audit and exact whole-file build.
 
+- **mischa85/RedAlert2** (`github.com/mischa85/RedAlert2` commit `5a79accc`, 2026-11-09): a matching decompilation
+  of the same RA2 1.006 game.exe (config/ra2-1.006/game.sha256 equals our target), VC6, built on the TibSun archive
+  and ra2-decomp. Source GPL-3.0-or-later with Electronic Arts' section 7 terms on files carrying an EA copyright line
+  (LICENSE.md); its files carry ra2-decomp and OpenTS copyright lines. Cloned read-only under the ignored
+  `private/reference/mischa85-RedAlert2`. Since 2026-11-09 (user decision) its text may be adopted into `src/` with
+  attribution: an adopted file keeps its SPDX and copyright lines plus a provenance line naming the commit, and the
+  commit subject says "from mischa85 <address>". Acceptance is unchanged: strict audit and exact whole-file build; an
+  `__asm` block still needs the TibSun archive citation under the evidenced-inline-asm rule.
+
 ## Native linked libraries (tested development versions)
 
 | Library | Version | License | Use |
