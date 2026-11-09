@@ -6,7 +6,7 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| [unowned](../src/recovered/unowned/) | 1432 | 434,590 | 1432 | 0x00401000–0x0077A940 |
+| [unowned](../src/recovered/unowned/) | 1433 | 434,637 | 1433 | 0x00401000–0x0077A940 |
 | [classes/MapClass](../src/recovered/classes/MapClass/) | 214 | 127,804 | 214 | 0x0049ED10–0x0056A9D0 |
 | [classes/BuildingClass](../src/recovered/classes/BuildingClass/) | 200 | 91,643 | 200 | 0x00438A60–0x004D3450 |
 | [classes/HouseClass](../src/recovered/classes/HouseClass/) | 214 | 84,401 | 214 | 0x004D3590–0x004F8EF0 |
@@ -25,7 +25,7 @@
 | [VQA32](../src/recovered/VQA32/) | 81 | 29,339 | 81 | 0x00776380–0x0077E9E0 |
 | [classes/UnknownIDSource](../src/recovered/classes/UnknownIDSource/) | 51 | 29,041 | 51 | 0x0065B4F0–0x00663440 |
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 94 | 0x004D3690–0x006BE740 |
-| (discovery: address-named) | 847 | 25,499 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 846 | 25,452 | 17 | 0x004010A0–0x00793976 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
