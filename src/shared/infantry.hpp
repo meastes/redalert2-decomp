@@ -304,7 +304,6 @@ struct DoStruct {
 extern DoStruct unknown_do_controls_7a3474[];
 
 // The coordinate returned when no spot is free (0x00A410F8).
-extern CoordStruct unknown_invalid_coord_a410f8;
 
 // Sequences that block firing (an inline helper: InfantryClass slot 218 returns 6 for them; hypothesis).
 inline bool Is_Busy_Sequence(int sequence)
@@ -332,7 +331,6 @@ inline UnknownFacingDir Direction_Of(CoordStruct from, CoordStruct to)
         - 1.5707963267948966) * -10430.060040584269));
 }
 // The cell returned when none is found (0x00A410D8).
-extern Cell unknown_invalid_cell_a410d8;
 // The height of one level (0x00A41130).
 extern int unknown_level_height_a41130;
 

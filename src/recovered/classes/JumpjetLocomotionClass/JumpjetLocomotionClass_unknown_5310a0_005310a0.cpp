@@ -5,13 +5,13 @@
 #include "shared/jumpjet_locomotion.hpp"
 #include "shared/unknown_geometry.hpp"
 #include "shared/cell.hpp"
-// @ref ?unknown_coord_a6e3e0@@3UCoordStruct@@A=00a6e3e0
+// @ref _unknown_geometry_l=00a6e3e0
 
 CoordStruct JumpjetLocomotionClass::unknown_5310a0(CoordStruct const &coord)
 {
     CoordStruct result;
     result = Map.Unknown_0049CB70(coord, false);
-    if (result != unknown_coord_a6e3e0) {
+    if (result != unknown_geometry_l) {
         result.Z = Map.Unknown_0055A280(result);
         if (Map[result].unknown_140 & 0x100) {
             result.Z += unknown_geometry_j;

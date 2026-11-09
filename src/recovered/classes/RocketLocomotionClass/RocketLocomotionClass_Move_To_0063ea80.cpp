@@ -13,7 +13,7 @@
 #include "shared/rocket_locomotion.hpp"
 #include "shared/aircraft.hpp"
 #include "shared/rules.hpp"
-// @ref ?unknown_coord_ab6888@@3UCoordStruct@@A=00ab6888
+// @ref _unknown_geometry_l=00ab6888
 
 void __stdcall RocketLocomotionClass::Move_To(COMCoordStruct to)
 {
@@ -24,7 +24,7 @@ void __stdcall RocketLocomotionClass::Move_To(COMCoordStruct to)
     } else {
         rocket = &Rules->DMisl;
     }
-    if (unknown_18 == unknown_coord_ab6888) {
+    if (unknown_18 == unknown_geometry_l) {
         if (rocket->PauseFrames != 0) {
             unknown_40 = 1;
             unknown_24 = rocket->PauseFrames;

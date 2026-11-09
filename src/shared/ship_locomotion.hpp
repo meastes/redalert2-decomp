@@ -15,7 +15,6 @@
 
 #include "shared/locomotion.hpp"
 
-extern CoordStruct unknown_coord_ab91c8;            // 0x00ab91c8
 extern "C" GUID const CLSID_ShipLocomotionClass;   // 0x007A1FF0
 
 extern TrackControlStruct const ShipTrackControl[];    // 0x007AADF0 (Ship.cpp's table)

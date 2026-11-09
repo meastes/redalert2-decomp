@@ -16,17 +16,17 @@
 // @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref _unknown_geometry_g=00ac02b8
 // @ref _unknown_geometry_k=00ac0260
-// @ref ?unknown_coord_ac0280@@3UCoordStruct@@A=00ac0280
+// @ref _unknown_geometry_l=00ac0280
 
 bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
 {
-    if (unknown_28 != unknown_coord_ac0280) {
+    if (unknown_28 != unknown_geometry_l) {
         LinkedTo->unknown_slot59(unknown_28);
     } else {
         LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
     }
     CoordStruct coord = to;
-    if (to != unknown_coord_ac0280) {
+    if (to != unknown_geometry_l) {
         bool bridge = (Map[coord].unknown_140 & 0x100) && Object_Coord(LinkedTo).Z > Map.Unknown_0055A280(coord) + unknown_geometry_g * 3;
         if (LinkedTo->Kind_Of() == 15) {
             bool target_here = false;
@@ -53,10 +53,10 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
             CoordStruct old = unknown_28;
             unknown_28 = Map[coord].Closest_Free_Spot(coord, target_here, bridge);
             if (LinkedTo->unknown_slot101(&Map[Coord_Cell(unknown_28)], -1, -1, 0, true) != 0) {
-                unknown_28 = unknown_coord_ac0280;
+                unknown_28 = unknown_geometry_l;
             }
             Map[old].Center_Coord();    // (the result is unused)
-            if (unknown_28 == unknown_coord_ac0280) {
+            if (unknown_28 == unknown_geometry_l) {
                 AbstractClass *target = LinkedTo->unknown_494;
                 if (target != 0 && target->AbstractFlags.IsObject) {
                     int zone = LinkedTo->unknown_slot32()->MovementZone;
@@ -92,7 +92,7 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
     } else {
         unknown_28 = to;
     }
-    if (unknown_28 != unknown_coord_ac0280) {
+    if (unknown_28 != unknown_geometry_l) {
         LinkedTo->unknown_slot58(unknown_28);
         return true;
     }

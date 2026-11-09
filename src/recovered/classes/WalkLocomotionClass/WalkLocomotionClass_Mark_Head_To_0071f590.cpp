@@ -6,11 +6,11 @@
 #include "shared/walk_locomotion.hpp"
 #include "shared/unknown_geometry.hpp"
 #include "shared/cell.hpp"
-// @ref ?unknown_coord_af9060@@3UCoordStruct@@A=00af9060
+// @ref _unknown_geometry_l=00af9060
 
 bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
 {
-    if (unknown_28 != unknown_coord_af9060) {
+    if (unknown_28 != unknown_geometry_l) {
         LinkedTo->unknown_slot59(unknown_28);
     } else {
         LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
@@ -19,7 +19,7 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
     CoordStruct crd = coord;
     bool any_spot = false;
 
-    if (coord != unknown_coord_af9060) {
+    if (coord != unknown_geometry_l) {
         if (LinkedTo->unknown_slot91() == 8 || LinkedTo->unknown_slot91() == 9 || LinkedTo->unknown_slot91() == 7
             || LinkedTo->unknown_slot91() == 11 || LinkedTo->unknown_slot91() == 25) {
             ObjectClass *unit = (ObjectClass *)LinkedTo->unknown_494;
@@ -40,7 +40,7 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
         unknown_28 = Map[crd].Closest_Free_Spot(crd, any_spot, isbridge);
 
         if (!Map[unknown_28].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {
-            unknown_28 = unknown_coord_af9060;
+            unknown_28 = unknown_geometry_l;
             if (!LinkedTo->unknown_7d) {
                 return false;
             }
@@ -49,7 +49,7 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
         unknown_28 = coord;
     }
 
-    if (unknown_28 != unknown_coord_af9060) {
+    if (unknown_28 != unknown_geometry_l) {
         LinkedTo->unknown_slot58(unknown_28);
         return true;
     }

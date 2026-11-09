@@ -7,13 +7,13 @@
 #include "shared/mech_locomotion.hpp"
 #include "shared/unknown_geometry.hpp"
 #include "shared/cell.hpp"
-// @ref ?unknown_coord_a70b18@@3UCoordStruct@@A=00a70b18
 // @ref ?unknown_476cc0@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
+// @ref _unknown_geometry_l=00a70b18
 
 bool MechLocomotionClass::unknown_592f70(CoordStruct const &coord)
 {
     CoordStruct to = coord;
-    if (to != unknown_coord_a70b18) {
+    if (to != unknown_geometry_l) {
         to.Z = Map.Unknown_0055A280(to);
         if (Loco_Cell(coord)->Flags & 0x100) {
             if (Object_Coord(LinkedTo).Z > to.Z + unknown_geometry_g * 2 + unknown_geometry_g) {
@@ -21,18 +21,18 @@ bool MechLocomotionClass::unknown_592f70(CoordStruct const &coord)
             }
         }
     }
-    if (unknown_24 != unknown_coord_a70b18) {
+    if (unknown_24 != unknown_geometry_l) {
         LinkedTo->unknown_slot59(unknown_24);
     }
     if (Map[to].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {
         unknown_24 = to;
     } else {
-        unknown_24 = unknown_coord_a70b18;
+        unknown_24 = unknown_geometry_l;
         if (!LinkedTo->unknown_7d) {
             return false;
         }
     }
-    if (unknown_24 != unknown_coord_a70b18) {
+    if (unknown_24 != unknown_geometry_l) {
         LinkedTo->unknown_slot58(unknown_24);
         return true;
     }

@@ -5,13 +5,13 @@
 // copy is never called.
 #include "shared/drive_locomotion.hpp"
 #include "shared/cell.hpp"
-// @ref ?unknown_coord_852998@@3UCoordStruct@@A=00852998
 // @ref ?unknown_476cc0@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
+// @ref _unknown_geometry_l=00852998
 
 bool DriveLocomotionClass::Start_Driver(CoordStruct const &headto)
 {
     Stop_Driver();
-    if (headto != unknown_coord_852998) {
+    if (headto != unknown_geometry_l) {
         unknown_40 = headto;
         unknown_63 = true;
         if (Map[headto].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {
@@ -19,7 +19,7 @@ bool DriveLocomotionClass::Start_Driver(CoordStruct const &headto)
             return true;
         }
         if (LinkedTo->unknown_7d) {
-            unknown_40 = unknown_coord_852998;
+            unknown_40 = unknown_geometry_l;
             unknown_63 = false;
         }
     }

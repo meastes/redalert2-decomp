@@ -4,8 +4,8 @@
     "id": "population-4381",
     "inventory_sha256": "8c0546d37d9cb4ef72695c68451d741e04efa53cf396071c24030258aa74574c",
     "gaps_sha256": "58667a1d65a6054e28efea4cf9a8d99045b5b76cd6cb4f6bc45988085117bf7f",
-    "historical_population_sha256": "77636927420a189ac839e67fdf10ba2d2e0da575cf5f0f549593a286623f1bd0",
-    "historical_acceptance_sha256": "9bd951b2dc6551d8ca3cc886698e5370910299eeff3b19ab23e9b4b36bd56dcf"
+    "historical_population_sha256": "5d96d6e5e4c8fec1030d8c9a8d842c52cdb85d704087bc56302cee5564a6cd2a",
+    "historical_acceptance_sha256": "ee3b0409d508ac712225966d6287aa9790b106369e497d6b9321488b1044f5b4"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -12641,7 +12641,11 @@
     "?Move_To@FlyLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 4965344,
     "?Move_To@RocketLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 6548096,
     "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984,
-    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944
+    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944,
+    "?FUN_006f8a20@": 7309856,
+    "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
+    "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688
   },
   "regions": [
     {
@@ -14907,7 +14911,7 @@
         {
           "offset": 15,
           "kind": 6,
-          "symbol": "?unknown_850298@@3HA",
+          "symbol": "_unknown_geometry_g",
           "target": 8716952,
           "addend": 0,
           "resolved": 8716952
@@ -14929,7 +14933,7 @@
           "resolved": 8191176
         }
       ],
-      "source_sha256": "69bb76c12416665fc3c326f19fa3a736258e5d88515f155529d3b50ce02105e0",
+      "source_sha256": "797b3b8007032287f4cdd0fb4338762874bd04b54ce1b2ea36d40fff2d714ab5",
       "source": "src/recovered/classes/BuildingTypeClass/BuildingTypeClass_unknown_slot31_0045d8b0.cpp",
       "population": "population-4381",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

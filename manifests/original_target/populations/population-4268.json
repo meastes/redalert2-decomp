@@ -4,8 +4,8 @@
     "id": "population-4268",
     "inventory_sha256": "485b092d5b87135b0babcf0dadccf6bdb77f25d1165a844f13d4dac7d7fd896b",
     "gaps_sha256": "8b1bf65ff6c857e10b73481db364645274d1756d77a33acf54a1d3dc27a45cf0",
-    "historical_population_sha256": "fdfb27496455a3cfdcf7bdb1fee64f3ce944fd403d20a2697ea3b19bb17b2ed5",
-    "historical_acceptance_sha256": "711c57d293a75696fc818a7f1c280eccdc781a8bc7afe899e98cb2d90f4cd8fd"
+    "historical_population_sha256": "a2ca44800bf6f1ba337b2e45583129032c2764490f940df7ee0b6391957f0e81",
+    "historical_acceptance_sha256": "caf0429b8633bbabb232af2d840437972a580e2f7faf0ed97221a659e970de38"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10569,7 +10569,15 @@
     "?Update_All@RadBeam@@SIXXZ": 6509792,
     "??_EWDTState@@": 7522816,
     "??_GWDTState@@": 7522816,
-    "??_EMouseClass@@UAEPAXI@Z": 4247904
+    "??_EMouseClass@@UAEPAXI@Z": 4247904,
+    "?FUN_006f8a20@": 7309856,
+    "?unknown_slot47@ObjectClass@@UAE_NXZ": 4341136,
+    "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
+    "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
+    "?Kind_Of@Tactical@@UBEHXZ": 6997984,
+    "?Size_Of@Tactical@@UBEHXZ": 6998000,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688
   },
   "regions": [
     {
@@ -11540,7 +11548,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 0,
           "resolved": 11276080
@@ -11548,7 +11556,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 4,
           "resolved": 11276084
@@ -11556,7 +11564,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 8,
           "resolved": 11276088
@@ -11586,7 +11594,7 @@
           "resolved": 8051628
         }
       ],
-      "source_sha256": "aeae7f55a60049b92ba1ae1ba9930d06f6f7f20cb18958965b4ae9e528ce5b68",
+      "source_sha256": "efe962b8316fca7ab5ffd270b7a60e2562740b0a6450001f32e6ca2709661eb5",
       "source": "src/recovered/classes/TunnelLocomotionClass/TunnelLocomotionClass_constructor_006efbe0.cpp",
       "population": "population-4268",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -11930,7 +11938,7 @@
         {
           "offset": 160,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 0,
           "resolved": 11276080
@@ -11938,7 +11946,7 @@
         {
           "offset": 170,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 4,
           "resolved": 11276084
@@ -11946,13 +11954,13 @@
         {
           "offset": 178,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 8,
           "resolved": 11276088
         }
       ],
-      "source_sha256": "479f3ded12820530e5247c4fc3ced131ee71c5917b5b6460c6ad1c5151d5f1a5",
+      "source_sha256": "002162b211f97594218a9a14f739d2afb74899e382783a00bc891b913665738f",
       "source": "src/recovered/classes/TunnelLocomotionClass/TunnelLocomotionClass_Move_To_006efcd0.cpp",
       "population": "population-4268",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -13654,7 +13662,7 @@
         {
           "offset": 384,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 0,
           "resolved": 11276080
@@ -13662,7 +13670,7 @@
         {
           "offset": 393,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 4,
           "resolved": 11276084
@@ -13670,7 +13678,7 @@
         {
           "offset": 402,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 8,
           "resolved": 11276088
@@ -13678,7 +13686,7 @@
         {
           "offset": 478,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 0,
           "resolved": 11276080
@@ -13686,7 +13694,7 @@
         {
           "offset": 489,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 4,
           "resolved": 11276084
@@ -13694,7 +13702,7 @@
         {
           "offset": 498,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0f30@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11276080,
           "addend": 8,
           "resolved": 11276088
@@ -13756,7 +13764,7 @@
           "resolved": 7274429
         }
       ],
-      "source_sha256": "fad21417bc99c244ec5d3e5954436ee65a52425cc748bb966ca729a5d746ce49",
+      "source_sha256": "28be2384d3be452435e9186d988d09efd1a9e3c977db4d70b0cd99164dd403ee",
       "switch_data_bytes": 28,
       "source": "src/recovered/classes/TunnelLocomotionClass/TunnelLocomotionClass_Stop_Moving_006efde0.cpp",
       "population": "population-4268",

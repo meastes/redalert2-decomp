@@ -9,7 +9,6 @@
 
 #include "shared/locomotion.hpp"
 
-extern CoordStruct unknown_coord_a70b18;            // 0x00A70B18
 extern "C" GUID const CLSID_MechLocomotionClass;    // 0x007A1FE0
 
 class MechLocomotionClass : public LocomotionClass {

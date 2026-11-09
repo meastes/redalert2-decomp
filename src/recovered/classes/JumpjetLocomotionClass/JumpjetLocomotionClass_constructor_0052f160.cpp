@@ -6,12 +6,12 @@
 // @ref ??0FacingClass@@QAE@H@Z=004b89f0
 // @ref ?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8a30
 // @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
-// @ref ?unknown_coord_a6e3e0@@3UCoordStruct@@A=00a6e3e0
 // @ref ??_7JumpjetLocomotionClass@@6BIPersistStream@@@=007a536c
 // @ref ??_7JumpjetLocomotionClass@@6BILocomotion@@@=007a52a4
+// @ref _unknown_geometry_l=00a6e3e0
 
 JumpjetLocomotionClass::JumpjetLocomotionClass() :
-    unknown_3c(unknown_coord_a6e3e0),
+    unknown_3c(unknown_geometry_l),
     unknown_48(false),
     unknown_4c(0),
     unknown_50(Rules->unknown_368),

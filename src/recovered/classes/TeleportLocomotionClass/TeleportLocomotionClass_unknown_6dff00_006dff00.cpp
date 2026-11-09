@@ -20,7 +20,7 @@
 // @ref ?unknown_overlay_types_a35de8@@3V?$DynamicVectorClass@PAVUnknownOverlayType@@@@A=00a35de8
 // @ref _unknown_geometry_j=00ac02a8
 // @ref ?unknown_4788d0@CellClass@@QBEIXZ=004788d0
-// @ref ?unknown_coord_ac0280@@3UCoordStruct@@A=00ac0280
+// @ref _unknown_geometry_l=00ac0280
 
 // The object as a FootClass, or null (the cast idiom of BuildingTypeClass 0x00458B10).
 inline FootClass *Foot_Of_6dff00(ObjectClass *object)
@@ -80,7 +80,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
             return false;
         }
     } else {
-        if (unknown_28 != unknown_coord_ac0280) {
+        if (unknown_28 != unknown_geometry_l) {
             LinkedTo->unknown_slot59(unknown_28);
         } else {
             LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
@@ -95,7 +95,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
         }
         LinkedTo->unknown_slot58(unknown_28);
     }
-    if (unknown_28 != unknown_coord_ac0280) {
+    if (unknown_28 != unknown_geometry_l) {
         LinkedTo->unknown_slot58(unknown_28);
     } else {
         LinkedTo->unknown_slot58(Object_Coord(LinkedTo));

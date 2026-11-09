@@ -3,16 +3,16 @@
 // tolerance): the marked point ahead on its track, else the head-to coordinate.
 #include "shared/ship_locomotion.hpp"
 #include "shared/unknown_geometry.hpp"
-// @ref ?unknown_coord_ab91c8@@3UCoordStruct@@A=00ab91c8
 // @ref ?ShipRawTracks@@3QBURawTrackStruct@@B=007aad20
 // @ref ?ShipTrackControl@@3QBUTrackControlStruct@@B=007aadf0
 // @ref ?Smooth_Turn@ShipLocomotionClass@@QAE?AUPoint2D@@ABU2@AAH@Z=0067a690
 // @ref _unknown_geometry_g=00ab9200
+// @ref _unknown_geometry_l=00ab91c8
 
 bool __stdcall ShipLocomotionClass::Is_Moving_Here(CoordStruct to)
 {
     UnknownCoord434820 head = Head_To_Coord();
-    if (head == unknown_coord_ab91c8) {
+    if (head == unknown_geometry_l) {
         return false;
     }
     if (!unknown_60 && unknown_58 != -1) {

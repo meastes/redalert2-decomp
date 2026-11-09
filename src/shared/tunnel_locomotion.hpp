@@ -12,7 +12,6 @@
 #include "shared/locomotion.hpp"
 #include "shared/matrix3d.hpp"
 
-extern CoordStruct unknown_coord_ac0f30;            // 0x00AC0F30
 
 // A frame timer with the duration it was set to (16 bytes; the states assign a
 // fresh one whole, so the padding word is copied too).

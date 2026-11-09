@@ -10,6 +10,7 @@
 #include "shared/infantry.hpp"
 #include "shared/overlay_type.hpp"
 #include "shared/tube.hpp"
+// @ref _unknown_geometry_l=00a41080
 
 inline CoordStruct Coord_Offset(CoordStruct const &coord, TPoint2D<int> const &offset)
 {
@@ -36,16 +37,16 @@ inline int Tube_Height_Step(CoordStruct const &exit, TubeClass const *tube, int 
 
 int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 {
-    if (unknown_24 != unknown_coord_a41080) {
+    if (unknown_24 != unknown_geometry_l) {
         LinkedTo->unknown_slot59(unknown_24);
-        unknown_24 = unknown_coord_a41080;
+        unknown_24 = unknown_geometry_l;
     }
 
     if (LinkedTo->unknown_slot202()) {
         return 7;
     }
 
-    if (!Is_Moving() || unknown_18 == unknown_coord_a41080) {
+    if (!Is_Moving() || unknown_18 == unknown_geometry_l) {
         return 0;
     }
 
@@ -74,7 +75,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             LinkedTo->unknown_45c.Z = z;
         } else {
             LinkedTo->Path[0] = -1;
-            unknown_24 = unknown_coord_a41080;
+            unknown_24 = unknown_geometry_l;
             Stop();
             LinkedTo->Assign_Destination(0, true);
         }
@@ -91,7 +92,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
         if (!Map[unknown_24].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {
             if (LinkedTo->unknown_7d && !LinkedTo->unknown_7a) {
                 LinkedTo->Path[0] = -1;
-                unknown_24 = unknown_coord_a41080;
+                unknown_24 = unknown_geometry_l;
                 Stop();
                 return 7;
             }
@@ -122,20 +123,20 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
                 ok = While_Moving_004fcbc0(false);
             }
             if (ok != 0) {
-                unknown_24 = unknown_coord_a41080;
+                unknown_24 = unknown_geometry_l;
                 unknown_4fda80();
             }
             return ok;
 
         case 3:
-            unknown_24 = unknown_coord_a41080;
+            unknown_24 = unknown_geometry_l;
             Map.Unknown_0055ACD0(LinkedTo, c);
             unknown_4fda80();
             break;
 
         case 6:
             if (first_pass) {
-                unknown_24 = unknown_coord_a41080;
+                unknown_24 = unknown_geometry_l;
                 unknown_4fda80();
                 LinkedTo->unknown_530 = 0;
                 LinkedTo->Path[0] = -1;
@@ -156,8 +157,8 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
                 } else {
                     bridge = true;
                 }
-                Map[unknown_24].unknown_476920(&unknown_coord_a41080, true, true, bridge);
-                unknown_24 = unknown_coord_a41080;
+                Map[unknown_24].unknown_476920(&unknown_geometry_l, true, true, bridge);
+                unknown_24 = unknown_geometry_l;
                 unknown_4fda80();
                 break;
             }
@@ -177,7 +178,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 
         case 4:
         case 5:
-            unknown_24 = unknown_coord_a41080;
+            unknown_24 = unknown_geometry_l;
             if (first_pass) {
                 unknown_4fda80();
                 LinkedTo->unknown_530 = 0;
@@ -198,7 +199,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             break;
 
         case 2:
-            unknown_24 = unknown_coord_a41080;
+            unknown_24 = unknown_geometry_l;
             unknown_4fda80();
             if (!LinkedTo->unknown_5a1) {
                 LinkedTo->unknown_5a1 = true;

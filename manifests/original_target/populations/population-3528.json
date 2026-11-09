@@ -4,8 +4,8 @@
     "id": "population-3528",
     "inventory_sha256": "b7af94f6537ec610a75ecf9c3267be31ec20a9418c7f5e7c77557db0df4540f6",
     "gaps_sha256": "95a23856959aae32954a28c625316245a5dfb6498f4da1f656b5bb8d2d584f2a",
-    "historical_population_sha256": "274d9cc6c3c5b0c698b963d845822df705c14bd9c6799d5f51f9391869b4554b",
-    "historical_acceptance_sha256": "2291b34e8af39e9b105a36797523ee51ff268bcd6e870b0ebfda3a07ca9760fa"
+    "historical_population_sha256": "cfd1f71fc3decc53ec4b0ff978352df6f29b0a68c2d011d5c8552a5755bbe309",
+    "historical_acceptance_sha256": "2047cecd1aa55eea058cf772cfedc1baa2ec4a049ddd7d834e1d5b155e68fffa"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10298,7 +10298,59 @@
     "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984,
     "??_EWDTState@@": 7522816,
     "??_GWDTState@@": 7522816,
-    "??_EMouseClass@@UAEPAXI@Z": 4247904
+    "??_EMouseClass@@UAEPAXI@Z": 4247904,
+    "?FUN_006f8a20@": 7309856,
+    "?unknown_slot47@ObjectClass@@UAE_NXZ": 4341136,
+    "??0HashString@@QAE@XZ": 5116208,
+    "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
+    "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
+    "?Kind_Of@Tactical@@UBEHXZ": 6997984,
+    "?Size_Of@Tactical@@UBEHXZ": 6998000,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688,
+    "?unknown_rgb_ab6841@@3VRGBClass@@A": 11233345,
+    "??0HashString@@QAE@ABV0@@Z": 5116288,
+    "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
+    "??0HashString@@QAE@PBD@Z": 5116224,
+    "??8HashString@@QBE_NABV0@@Z": 5116400,
+    "??9HashString@@QBE_NABV0@@Z": 5116480,
+    "??0SchemeNode@@QAE@PBDPAV?$DynamicVectorClass@PAVColorScheme@@@@@Z": 6304256,
+    "??1SchemeNode@@QAE@XZ": 6304320,
+    "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
+    "?OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z": 7739536,
+    "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z": 7361520,
+    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "?unknown_slot67@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120,
+    "?Unknown_004798F0@CellClass@@QAEXXZ": 4692208,
+    "?unknown_47a270@CellClass@@QAE_NXZ": 4694640,
+    "?unknown_47c900@CellClass@@QAEXXZ": 4704512,
+    "?Unknown_004712c0@CellClass@@QAEXPAVRGBClass@@0@Z": 4657856,
+    "?unknown_473000@CellClass@@QAEXXZ": 4665344,
+    "?Unknown_0047CC10@CellClass@@QAEXXZ": 4705296,
+    "??_7?$DynamicVectorClass@PAVtConnInfoStruct@@@@6B@": 8059268,
+    "??_7?$DynamicVectorClass@N@@6B@": 8019884,
+    "??0?$DynamicVectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z": 7489232,
+    "??_7?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@6B@": 8007628,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@6B@": 8056836,
+    "??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z": 6312432,
+    "??0?$DynamicVectorClass@PAVPlanningMemberClass@@@@QAE@IPBQAVPlanningMemberClass@@@Z": 6401152,
+    "??0?$DynamicVectorClass@PAVPlanningBranchClass@@@@QAE@IPBQAVPlanningBranchClass@@@Z": 6401936,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "??0ColorScheme@@QAE@PBDABVHSVClass@@PAXPAVPaletteClass@@H_N@Z": 6699504,
+    "??1ColorScheme@@QAE@XZ": 6699952,
+    "??0ColorScheme@@QAE@XZ": 6699312
   },
   "regions": [
     {
@@ -11277,7 +11329,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -11285,7 +11337,7 @@
         {
           "offset": 22,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -11293,7 +11345,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
@@ -11301,7 +11353,7 @@
         {
           "offset": 42,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -11309,7 +11361,7 @@
         {
           "offset": 50,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -11317,7 +11369,7 @@
         {
           "offset": 58,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
@@ -11355,7 +11407,7 @@
           "resolved": 8049028
         }
       ],
-      "source_sha256": "14b088d09d685880829b39b316d784f4f765e80b4877cf26f181a1338c52e9d7",
+      "source_sha256": "556c8694b2586522378fde5a1ab586ae0f5522fe92718c2258629c2ea15f4c60",
       "source": "src/recovered/classes/TeleportLocomotionClass/TeleportLocomotionClass_constructor_006dfca0.cpp",
       "population": "population-3528",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11433,7 +11485,7 @@
         {
           "offset": 6,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -11441,7 +11493,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -11449,13 +11501,13 @@
         {
           "offset": 27,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
         }
       ],
-      "source_sha256": "be74cb78db99ffdbfd8d97d71d8fcec256d20b0960445a7f2f6a7b00df4044aa",
+      "source_sha256": "a247938147e9979d854b7b1dc12eef6be55c75cffbc96617ef77fd0576442576",
       "source": "src/recovered/classes/TeleportLocomotionClass/TeleportLocomotionClass_Stop_Moving_006dfed0.cpp",
       "population": "population-3528",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -12061,7 +12113,7 @@
         {
           "offset": 153,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -12085,7 +12137,7 @@
         {
           "offset": 182,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -12093,7 +12145,7 @@
         {
           "offset": 198,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -12101,13 +12153,13 @@
         {
           "offset": 211,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
         }
       ],
-      "source_sha256": "23b6db0d8b3018d182657a7641c459cecd673e9230bb85e8cd6cf89311344cdb",
+      "source_sha256": "3aa7e5b55e61fae5a7ba6041e647e7e925fb0c0bcefc9543df8613ef4500cc27",
       "source": "src/recovered/classes/TeleportLocomotionClass/TeleportLocomotionClass_Move_To_006dfda0.cpp",
       "population": "population-3528",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12504,7 +12556,7 @@
         {
           "offset": 1019,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -12512,7 +12564,7 @@
         {
           "offset": 1034,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -12520,7 +12572,7 @@
         {
           "offset": 1046,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
@@ -12568,7 +12620,7 @@
         {
           "offset": 1219,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -12576,7 +12628,7 @@
         {
           "offset": 1235,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -12584,13 +12636,13 @@
         {
           "offset": 1248,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
         }
       ],
-      "source_sha256": "a69bea4b0f83735e8f1045d015a01cdff9add5797864e1d31bfbc1ca25c7ffe7",
+      "source_sha256": "ce83dae45d47b09b6376b5131c93578a25873a43dd8f320c541e13e82d5e111e",
       "source": "src/recovered/classes/TeleportLocomotionClass/TeleportLocomotionClass_unknown_6dff00_006dff00.cpp",
       "population": "population-3528",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -12798,7 +12850,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -12806,7 +12858,7 @@
         {
           "offset": 27,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -12814,7 +12866,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
@@ -12822,7 +12874,7 @@
         {
           "offset": 132,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -12830,7 +12882,7 @@
         {
           "offset": 144,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -12838,7 +12890,7 @@
         {
           "offset": 157,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
@@ -12950,7 +13002,7 @@
         {
           "offset": 779,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -12958,7 +13010,7 @@
         {
           "offset": 788,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -12966,7 +13018,7 @@
         {
           "offset": 797,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
@@ -12990,7 +13042,7 @@
         {
           "offset": 834,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -12998,7 +13050,7 @@
         {
           "offset": 851,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -13006,7 +13058,7 @@
         {
           "offset": 867,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
@@ -13246,7 +13298,7 @@
         {
           "offset": 1722,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -13254,7 +13306,7 @@
         {
           "offset": 1735,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -13262,13 +13314,13 @@
         {
           "offset": 1748,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
         }
       ],
-      "source_sha256": "8717c42659c70e3dc37296ab9efa07f059838b418ba76aa8bdf223a04156818c",
+      "source_sha256": "e1503f680258b53bc6d5602b0d2142924754d97e60c68e5b1c20d8d96dfe88e2",
       "source": "src/recovered/classes/TeleportLocomotionClass/TeleportLocomotionClass_unknown_6e06b0_006e06b0.cpp",
       "population": "population-3528",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -13297,7 +13349,7 @@
         {
           "offset": 178,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 0,
           "resolved": 11272832
@@ -13305,7 +13357,7 @@
         {
           "offset": 191,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 4,
           "resolved": 11272836
@@ -13313,7 +13365,7 @@
         {
           "offset": 203,
           "kind": 6,
-          "symbol": "?unknown_coord_ac0280@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11272832,
           "addend": 8,
           "resolved": 11272840
@@ -13719,7 +13771,7 @@
           "resolved": 4294924175
         }
       ],
-      "source_sha256": "18200cfea3e4af1069ddef59f4cb4d5ed6f3ed02cc78c6afd74f85b4ca08d2b3",
+      "source_sha256": "8c3f2d7e728303cabfd9ad26e277818c3833b062a9de31fbe90023b4c22e22fd",
       "source": "src/recovered/classes/TeleportLocomotionClass/TeleportLocomotionClass_Process_006e0e10.cpp",
       "population": "population-3528",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

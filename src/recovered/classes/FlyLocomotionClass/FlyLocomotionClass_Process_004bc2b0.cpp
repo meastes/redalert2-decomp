@@ -8,6 +8,7 @@
 // @ref ?unknown_4bcd50@FlyLocomotionClass@@QAEXXZ=004bcd50
 // @ref ?unknown_4bdd10@FlyLocomotionClass@@QAEXXZ=004bdd10
 // @ref ?unknown_4be720@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z=004be720
+// @ref _unknown_geometry_l=00865df8
 
 bool __stdcall FlyLocomotionClass::Process()
 {
@@ -25,7 +26,7 @@ bool __stdcall FlyLocomotionClass::Process()
     if (!LinkedTo->unknown_7d) {
         return false;
     }
-    if (LinkedTo->Strength > 0 && unknown_1c != unknown_coord_865df8 && !unknown_51 && !unknown_50 && LinkedTo->unknown_slot108() > 0) {
+    if (LinkedTo->Strength > 0 && unknown_1c != unknown_geometry_l && !unknown_51 && !unknown_50 && LinkedTo->unknown_slot108() > 0) {
         unknown_4be720(true, CoordStruct(unknown_1c.X, unknown_1c.Y, unknown_1c.Z));
     }
     if (LinkedTo->Strength > 0) {

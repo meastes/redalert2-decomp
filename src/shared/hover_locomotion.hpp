@@ -13,7 +13,6 @@
 
 #include "shared/locomotion.hpp"
 
-extern CoordStruct unknown_coord_a41080;            // 0x00A41080
 extern "C" GUID const CLSID_HoverLocomotionClass;   // 0x007A1F80
 
 class HoverLocomotionClass : public LocomotionClass {

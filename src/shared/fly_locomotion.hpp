@@ -13,7 +13,6 @@
 #include "shared/locomotion.hpp"
 #include "shared/com_ptr.hpp"
 
-extern CoordStruct unknown_coord_865df8;            // 0x00865DF8
 extern "C" GUID const CLSID_FlyLocomotionClass;     // 0x007A1FC0
 
 // The aircraft members Fly.cpp reads (views until AircraftClass and

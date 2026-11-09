@@ -11,7 +11,6 @@
 #include "shared/locomotion.hpp"
 
 struct RocketStruct;
-extern CoordStruct unknown_coord_ab6888;            // 0x00AB6888
 extern "C" GUID const CLSID_RocketLocomotionClass;  // 0x007A2010
 
 class RocketLocomotionClass : public LocomotionClass {

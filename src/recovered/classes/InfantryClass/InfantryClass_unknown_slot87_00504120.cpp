@@ -7,7 +7,6 @@
 // Head from ra2-decomp (YR 0x0051D0D0): the threat test through operator!=, the direction through the file-local
 // Coord_Direction on a copy of Coord, and the cell fraction through Cell_Fraction. Direct position.X/.Y reads there
 // let VC6 fold the height product into its operand register (imul edi,[g]) and flip the Adjacent_Cell sum.
-// @ref ?unknown_invalid_cell_a410d8@@3VCell@@A=00a410d8
 // @ref ?unknown_level_height_a41130@@3HA=00a41130
 #include "shared/infantry.hpp"
 #include "shared/map_view.hpp"
@@ -17,6 +16,7 @@
 #include "shared/rules.hpp"
 #include "shared/random2.hpp"
 #include "shared/unknown_geometry.hpp"
+// @ref _unknown_geometry_k=00a410d8
 
 // The direction from one point to another (Westwood's Direction(Point2D, Point2D), by value).
 inline UnknownFacingDir Direction_00504120(Point2D const &from, Point2D const &to)
@@ -60,7 +60,7 @@ void InfantryClass::unknown_slot87(CoordStruct const &threat, bool forced, bool 
             else facing=Dir_To_8(unknown_2e0.Current());
             facing=facing+unknown_id_source_a3d290->Random()(0,4)-2;
             Cell nearby=Map.Unknown_005502E0(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,unknown_79,Point2D(1,1),0,1,0,1,Cell(0,0),0);
-            if (nearby!=unknown_invalid_cell_a410d8) {
+            if (nearby!=unknown_geometry_k) {
                 Assign_Destination(&Map[nearby],true);
                 Locomotor.Checked()->Process();
                 return;
@@ -78,8 +78,8 @@ void InfantryClass::unknown_slot87(CoordStruct const &threat, bool forced, bool 
             Cell check=Adjacent_Cell(origin,direction);
             CellClass *candidate=&Map[check];
             if (Map.Unknown_0055A660(check,true) && unknown_slot101(candidate,direction,Unknown_005D47D0(),0,1)==0) {
-                if (alternate==unknown_invalid_cell_a410d8) alternate=check;
-                if (unknown_invalid_cell_a410d8==Cell(0,0)) {
+                if (alternate==unknown_geometry_k) alternate=check;
+                if (unknown_geometry_k==Cell(0,0)) {
                     CoordStruct projected=Cell_Coord(check);
                     projected.Z=destination.Z;
                     if (check==unknown_tactical_83996c->Coord_To_Cell(projected) && !Map[check].IsUnderBridge) {
@@ -90,8 +90,8 @@ void InfantryClass::unknown_slot87(CoordStruct const &threat, bool forced, bool 
             }
         }
         Cell chosen=best;
-        if (chosen==unknown_invalid_cell_a410d8) chosen=alternate;
-        if (chosen!=unknown_invalid_cell_a410d8) {
+        if (chosen==unknown_geometry_k) chosen=alternate;
+        if (chosen!=unknown_geometry_k) {
             unknown_slot116(2,false);
             Assign_Destination(&Map[chosen],true);
         }

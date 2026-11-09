@@ -11,9 +11,9 @@
 // @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Unknown_004764B0@UnknownCellClass@@QAE?AUCoordStruct@@ABU2@H_N@Z=004764b0
 // @ref ?unknown_a40774@@3HA=00a40774
-// @ref ?unknown_invalid_coord_a410f8@@3UCoordStruct@@A=00a410f8
 // @ref ?unknown_bridge_height_a41120@@3HA=00a41120
 // @ref ?unknown_slot53@FootClass@@UAE_NPBUCoordStruct@@H@Z=004c5e40
+// @ref _unknown_geometry_l=00a410f8
 
 bool InfantryClass::unknown_slot53(CoordStruct const *coord, int dir)
 {
@@ -22,8 +22,8 @@ bool InfantryClass::unknown_slot53(CoordStruct const *coord, int dir)
     if (where.Z == ground) {
         int alternate = unknown_a40774 != 0 || !Map.Unknown_0055A660(Coord_Cell(*coord), true);
         where = Map_Cell(*coord)->Unknown_004764B0(*coord, alternate, false);
-        if (where.X == unknown_invalid_coord_a410f8.X && where.Y == unknown_invalid_coord_a410f8.Y
-            && where.Z == unknown_invalid_coord_a410f8.Z) {
+        if (where.X == unknown_geometry_l.X && where.Y == unknown_geometry_l.Y
+            && where.Z == unknown_geometry_l.Z) {
             return false;
         }
         where.Z = ground;

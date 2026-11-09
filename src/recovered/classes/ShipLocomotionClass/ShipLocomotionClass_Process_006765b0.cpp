@@ -3,11 +3,11 @@
 #include "shared/cell.hpp"
 #include "shared/anim.hpp"
 #include "shared/rules.hpp"
-// @ref ?unknown_coord_ab91c8@@3UCoordStruct@@A=00ab91c8
 // @ref ?While_Moving@ShipLocomotionClass@@QAE_N_N@Z=00676f60
 // @ref ?Start_Of_Move@ShipLocomotionClass@@QAE_NAA_N_N1@Z=006785c0
 // @ref ??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z=00463f80
 // @ref __real@8@00000000000000000000=0079b610
+// @ref _unknown_geometry_l=00ab91c8
 
 bool __stdcall ShipLocomotionClass::Process()
 {
@@ -36,7 +36,7 @@ bool __stdcall ShipLocomotionClass::Process()
                 return false;
             }
         }
-        if (LinkedTo->Mission == 5 && !unknown_63 && unknown_34 != unknown_coord_ab91c8 && Object_Coord(LinkedTo) == unknown_34) {
+        if (LinkedTo->Mission == 5 && !unknown_63 && unknown_34 != unknown_geometry_l && Object_Coord(LinkedTo) == unknown_34) {
             unknown_67a7a0();
             return false;
         }
@@ -84,7 +84,7 @@ bool __stdcall ShipLocomotionClass::Process()
         && static_cast<CellClass *>(LinkedTo->unknown_slot105())->Land_Type() == 2 && Rules->unknown_09c != 0) {
         new AnimClass(Rules->unknown_09c, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
     }
-    if (unknown_34 == unknown_coord_ab91c8 && unknown_40 == unknown_coord_ab91c8 && LinkedTo->unknown_4d0 == -1 && LinkedTo->unknown_468 > 0.0) {
+    if (unknown_34 == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->unknown_468 > 0.0) {
         LinkedTo->unknown_slot306(0.0);
     }
     return Is_Moving();

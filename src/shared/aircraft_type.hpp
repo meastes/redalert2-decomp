@@ -98,7 +98,6 @@ typedef char AircraftTypeClass_size_check[(sizeof(AircraftTypeClass) == 0xBA8) ?
 extern DynamicVectorClass<AircraftTypeClass *> AircraftTypes;   // 0x00A3D278
 
 // The height factor slot 31 doubles (0x0083C550).
-extern int unknown_83c550;
 
 // The rotor shapes Init loads (0x0083C554, 0x0083C558).
 extern void const *unknown_left_rotor_83c554;

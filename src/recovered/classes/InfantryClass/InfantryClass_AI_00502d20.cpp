@@ -14,8 +14,8 @@
 // @ref ?Advance_Animation_005078b0@InfantryClass@@QAEXXZ=005078b0
 // @ref ?Update_Movement_00507b90@InfantryClass@@QAEXXZ=00507b90
 // @ref ?unknown_506f30@InfantryClass@@QAEXXZ=00506f30
-// @ref ?unknown_invalid_coord_a410f8@@3UCoordStruct@@A=00a410f8
 // @ref ?unknown_44d880@BuildingClass@@QAE_NXZ=0044d880
+// @ref _unknown_geometry_l=00a410f8
 inline CoordStruct Infantry_Damage_Animation_Coord(CoordStruct const &coord)
 {
     CoordStruct where = coord;
@@ -76,7 +76,7 @@ void InfantryClass::AI()
                 goto scatter;
             } else if (!building->Type->Gate || !building->unknown_44d880()) {
             scatter:
-                unknown_slot87(unknown_invalid_coord_a410f8, true, true);
+                unknown_slot87(unknown_geometry_l, true, true);
             }
         }
     }

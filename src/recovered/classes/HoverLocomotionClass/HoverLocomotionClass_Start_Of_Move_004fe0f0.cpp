@@ -17,7 +17,6 @@
 // @ref ?unknown_4c3000@FootClass@@QAE_NVCell@@HH@Z=004c3000
 // @ref ?unknown_4c8d60@FootClass@@QAE_NXZ=004c8d60
 // @ref ?unknown_5d47d0@ObjectClass@@QAEHXZ=005d47d0
-// @ref ?unknown_coord_a41080@@3UCoordStruct@@A=00a41080
 // @ref ?unknown_func_6baa30@TeamClass@@QAEXXZ=006baa30
 // @ref __ftol=0077f110
 // @ref __real@8@4008e100000000000000=0079b608
@@ -31,6 +30,7 @@
 #include "shared/crt_memory.hpp"
 #include "shared/sound_play.hpp"
 #include "shared/unknown_vector3.hpp"
+// @ref _unknown_geometry_l=00a41080
 inline int Hover_Close_Distance_004fe0f0(CoordStruct const &from,CoordStruct const &to)
 {
     CoordStruct difference=from-to;
@@ -45,7 +45,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
 {
     Reduce_Path_Length_004fdfd0();
     int facing=LinkedTo->Path[0];
-    if (unknown_18!=unknown_coord_a41080) {
+    if (unknown_18!=unknown_geometry_l) {
         if (LinkedTo->unknown_slot104()==Coord_Cell(unknown_18) && abs(LinkedTo->unknown_slot19(0).Z-unknown_18.Z)<2*unknown_geometry_g) {
             Stop_Moving();
             LinkedTo->Assign_Destination(0,true);
@@ -53,7 +53,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
         }
     }
     if (facing!=-1) return;
-    if (unknown_18==unknown_coord_a41080) return;
+    if (unknown_18==unknown_geometry_l) return;
     if (LinkedTo->unknown_slot104()==Coord_Cell(unknown_18) && abs(LinkedTo->unknown_slot19(0).Z-unknown_18.Z)<=2*unknown_geometry_g) return;
     if (LinkedTo->unknown_530!=0) return;
     if (!LinkedTo->unknown_4c3000(Coord_Cell(unknown_18),0,num)) {
@@ -79,9 +79,9 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             if (LinkedTo->Team) LinkedTo->Team->unknown_func_6baa30();
             LinkedTo->unknown_slot220(0);
         }
-        if (unknown_24!=unknown_coord_a41080) {
+        if (unknown_24!=unknown_geometry_l) {
             LinkedTo->unknown_slot59(unknown_24);
-            unknown_24=unknown_coord_a41080;
+            unknown_24=unknown_geometry_l;
         }
         Stop_Moving();
         return;
@@ -100,7 +100,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
                     return;
                 } else {
                     bool bridge=(cellptr->unknown_140&0x100) && abs(Object_Coord(LinkedTo).Z/unknown_geometry_g-cellptr->unknown_11b)>2;
-                    cellptr->unknown_476920(&unknown_coord_a41080,true,true,bridge);
+                    cellptr->unknown_476920(&unknown_geometry_l,true,true,bridge);
                 }
             }
         }

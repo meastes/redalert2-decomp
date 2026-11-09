@@ -9,7 +9,7 @@
 #include "shared/infantry.hpp"
 // @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Unknown_004CD9B0@FootClass@@QAEXXZ=004cd9b0
-// @ref ?unknown_invalid_coord_a410f8@@3UCoordStruct@@A=00a410f8
+// @ref _unknown_geometry_l=00a410f8
 
 bool InfantryClass::INoticeSink_Unknown(int code, int arg)
 {
@@ -20,7 +20,7 @@ bool InfantryClass::INoticeSink_Unknown(int code, int arg)
             return true;
         }
         Unknown_004CD9B0();
-        unknown_slot87(unknown_invalid_coord_a410f8, true, false);
+        unknown_slot87(unknown_geometry_l, true, false);
         return true;
     }
     if (Type->Crashable && code == 0x117C) {

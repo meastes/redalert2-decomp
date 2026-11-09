@@ -3,16 +3,16 @@
 // the unit's zero, no track (-1), unlocked (+0x65), no piggybacker.
 #include "shared/drive_locomotion.hpp"
 // @ref ??0LocomotionClass@@QAE@XZ=0053cfc0
-// @ref ?unknown_coord_852998@@3UCoordStruct@@A=00852998
 // @ref ??_7DriveLocomotionClass@@6BIPersistStream@@@=007a0594
 // @ref ??_7DriveLocomotionClass@@6BILocomotion@@@=007a04cc
 // @ref ??_7DriveLocomotionClass@@6B@=007a04a8
+// @ref _unknown_geometry_l=00852998
 
 DriveLocomotionClass::DriveLocomotionClass() :
     unknown_1c(0),
     unknown_20(0),
-    unknown_34(unknown_coord_852998),
-    unknown_40(unknown_coord_852998),
+    unknown_34(unknown_geometry_l),
+    unknown_40(unknown_geometry_l),
     unknown_4c(0),
     unknown_50(0),
     unknown_58(-1),

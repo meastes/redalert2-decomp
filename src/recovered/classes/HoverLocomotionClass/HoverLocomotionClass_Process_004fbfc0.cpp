@@ -14,7 +14,6 @@
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
 // @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Fast_Cos@@YANN@Z=004ba4d0
-// @ref ?unknown_coord_a41080@@3UCoordStruct@@A=00a41080
 // @ref ?unknown_facing_origin_79b630@@3NB=0079b630
 // @ref ?unknown_facing_scale_79b628@@3NB=0079b628
 // @ref ?unknown_move_angle_scale_79b620@@3NB=0079b620
@@ -37,6 +36,7 @@
 // @ref _unknown_geometry_j=00a410a8
 // @ref _unknown_geometry_k=00a41060
 // @ref __ftol=0077f110
+// @ref _unknown_geometry_l=00a41080
 extern double const unknown_facing_origin_79b630;
 extern double const unknown_facing_scale_79b628;
 extern double const unknown_move_angle_scale_79b620;
@@ -113,8 +113,8 @@ unsigned char __stdcall HoverLocomotionClass::Process()
 
             Start_Of_Move_004fe0f0(0);
 
-            if (LinkedTo->unknown_4d0 == -1 && unknown_18 == unknown_coord_a41080) {
-                unknown_24 = unknown_coord_a41080;
+            if (LinkedTo->unknown_4d0 == -1 && unknown_18 == unknown_geometry_l) {
+                unknown_24 = unknown_geometry_l;
             }
 
             TechnoClass *contact = LinkedTo->Contact(0);
@@ -122,11 +122,11 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             if (contact) cell = Coord_Cell(contact->unknown_slot19(LinkedTo));
             bool arrived = LinkedTo->unknown_slot104() == cell;
 
-            if (unknown_18 != unknown_coord_a41080 || arrived) {
+            if (unknown_18 != unknown_geometry_l || arrived) {
                 int ok = While_Moving_004fcbc0(true);
                 int const &result = ok;
                 if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return 7;
-                if (result == 0 && unknown_24 == unknown_coord_a41080) {
+                if (result == 0 && unknown_24 == unknown_geometry_l) {
                     LinkedTo->unknown_slot93(2);
                     if (!LinkedTo->unknown_7d || LinkedTo->unknown_76 || LinkedTo->unknown_7a) return false;
                 }
@@ -143,7 +143,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
         if (speed > 0) {
             CoordStruct coord = Object_Coord(LinkedTo);
 
-            if (LinkedTo->unknown_slot47() && unknown_24 != unknown_coord_a41080) {
+            if (LinkedTo->unknown_slot47() && unknown_24 != unknown_geometry_l) {
                 LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
                 LinkedTo->unknown_5a0 = false;
                 LinkedTo->unknown_5a1 = false;

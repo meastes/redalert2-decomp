@@ -20,7 +20,6 @@
 #include "shared/techno_type.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_coord_865df8@@3UCoordStruct@@A=00865df8
 
 void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
 {
@@ -28,7 +27,7 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
 
         if (!LinkedTo->unknown_slot201() && !LinkedTo->unknown_slot202() && !LinkedTo->unknown_slot111() && !LinkedTo->unknown_slot112() && Is_Powered()) {
 
-            if (CoordStruct(to) == unknown_coord_865df8) {
+            if (CoordStruct(to) == unknown_geometry_l) {
                 int landing_altitude = 0;
                 UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
                 if (flyctrl != 0) {
@@ -39,7 +38,7 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
                     unknown_1c = LinkedTo->Position_Coord_004f3f40();
                     unknown_4bf1f0();
                 } else {
-                    unknown_1c = unknown_coord_865df8;
+                    unknown_1c = unknown_geometry_l;
                 }
                 unknown_5c = false;
             } else {
@@ -73,3 +72,4 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
 // @ref ?Query_From@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEJABQAVFootClass@@@Z=004bfc20
 // @ref ?Release_Held@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEXXZ=004bfbc0
 // @ref ??8?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QBE_NH@Z=004bfb90
+// @ref _unknown_geometry_l=00865df8

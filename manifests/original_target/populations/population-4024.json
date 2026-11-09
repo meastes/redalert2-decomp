@@ -4,8 +4,8 @@
     "id": "population-4024",
     "inventory_sha256": "c734339134e35827fbabdbeba35d05353e0bf3279b8f6187d7f2bd2dd6378f27",
     "gaps_sha256": "623c5c15bcda158362dbaded8cf3118973a0b5b6c6b583129443d8dab6a42099",
-    "historical_population_sha256": "6acabebfe1ecc51eac04849314b4e49237ee6c6372ed4007f7b14a084c33dfe1",
-    "historical_acceptance_sha256": "a97ae266022c7159532a5d5243bb05365485bb289fd8893d16388db3f9533958"
+    "historical_population_sha256": "fba23eceda33ab0b7e0780cd13bf93675fefa1a722a81f4a358199d13608d428",
+    "historical_acceptance_sha256": "1381c071ea8de4415463a59b98a488acda21c6602413a22d0af1b2cb3f52cf83"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10344,7 +10344,20 @@
     "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 4409584,
     "__real@8@3fe3c8000000c8000000": 8019992,
     "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
-    "?Update_All@RadBeam@@SIXXZ": 6509792
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "?FUN_006f8a20@": 7309856,
+    "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
+    "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688,
+    "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120,
+    "??0ColorScheme@@QAE@PBDABVHSVClass@@PAXPAVPaletteClass@@H_N@Z": 6699504,
+    "??1ColorScheme@@QAE@XZ": 6699952,
+    "??R?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ": 4869408,
+    "??0ColorScheme@@QAE@XZ": 6699312,
+    "??B?$CDTimerClass@VSystemTimerClass@@@@QBEJXZ": 5104128,
+    "?Pre_Rotate_Y@Matrix3D@@QAEXM@Z": 5834064,
+    "??B?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ": 4538032,
+    "??1?$CDTimerClass@VFrameTimerClass@@@@QAE@XZ": 4248016
   },
   "regions": [
     {
@@ -11882,7 +11895,7 @@
         {
           "offset": 7,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -11890,7 +11903,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -11898,7 +11911,7 @@
         {
           "offset": 39,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -11912,7 +11925,7 @@
           "resolved": 4294951683
         }
       ],
-      "source_sha256": "3514bbef1654417efa86e08d7a91ff4df463dcab348388dad66e0f43790b485e",
+      "source_sha256": "9f91d4bd631bd973bb507eb4e4256046a58d4efe73c187df3e795d6f52849381",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Mark_All_Occupation_Bits_0067a7e0.cpp",
       "population": "population-4024",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12210,7 +12223,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12218,7 +12231,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12226,13 +12239,13 @@
         {
           "offset": 37,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
         }
       ],
-      "source_sha256": "c8beb70d66bf1d3475ebbf05fa912ee461178fcc26d0d1331a71fc3c1278e18f",
+      "source_sha256": "b0c5a6da3a92fe53bff09e8560833eb4a51992e88f5a23531a227037b1de0744",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Is_Moving_00675c30.cpp",
       "population": "population-4024",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -12268,7 +12281,7 @@
         {
           "offset": 43,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12276,7 +12289,7 @@
         {
           "offset": 55,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12284,13 +12297,13 @@
         {
           "offset": 68,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
         }
       ],
-      "source_sha256": "1154ccbf9f31d44dc699d59af8e3fc9e1b2e5e1d2f4b788640546032c4f353c6",
+      "source_sha256": "07614ea0574606805308d8f3b2c278b45892fa0c2f5cfeaa09bcae9c4e3b9d60",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Is_Moving_Now_00675cd0.cpp",
       "population": "population-4024",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12318,7 +12331,7 @@
         {
           "offset": 6,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12326,7 +12339,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12334,13 +12347,13 @@
         {
           "offset": 37,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
         }
       ],
-      "source_sha256": "1535ae4f7a88ab2903fadf35952270da5f33ac80acb9f94467ab8f6c9b77730f",
+      "source_sha256": "5a4076f81f8bca8f69a84b4e9d59bcfacec2e390fa8a0e145a2b3f16ccd498d2",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Head_To_Coord_00675d70.cpp",
       "population": "population-4024",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -12368,7 +12381,7 @@
         {
           "offset": 100,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12376,7 +12389,7 @@
         {
           "offset": 110,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12384,7 +12397,7 @@
         {
           "offset": 118,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -12414,7 +12427,7 @@
           "resolved": 11244016
         }
       ],
-      "source_sha256": "f1f99c9597d7bc46c7ac51a86b4f318e44d193d6c75cd4ca12f1880daaa8aaac",
+      "source_sha256": "25017a6d634756c64a75d22cc82055e33c29701828c0b12181bb0803ba4b5af0",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Move_To_00675df0.cpp",
       "population": "population-4024",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12442,7 +12455,7 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12450,7 +12463,7 @@
         {
           "offset": 27,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12458,7 +12471,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -12496,7 +12509,7 @@
           "resolved": 15035
         }
       ],
-      "source_sha256": "3f87d90bbade9fb0ce6c80f80d2fba4bbb921719cb6c4779f2c7e5c18af3c6d0",
+      "source_sha256": "c01138bb9234bc70f80339627769d699c6499297bf45d0b195173bdf136d7ad0",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_unknown_676b20_00676b20.cpp",
       "population": "population-4024",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -12659,7 +12672,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12667,7 +12680,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12675,7 +12688,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -12683,7 +12696,7 @@
         {
           "offset": 43,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12691,13 +12704,13 @@
         {
           "offset": 52,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
         }
       ],
-      "source_sha256": "ca3f6086938bd2ebc27798a9cb71d1ee726076169fff0c64b34bcdc6d12dcc04",
+      "source_sha256": "af2609df0625eb56ea631c8dca57fcd843aa6b727488242058e84d37440b2753",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Stop_Driver_00676df0.cpp",
       "population": "population-4024",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12725,7 +12738,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12733,7 +12746,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12741,7 +12754,7 @@
         {
           "offset": 38,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -12749,7 +12762,7 @@
         {
           "offset": 52,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12757,7 +12770,7 @@
         {
           "offset": 60,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -12765,7 +12778,7 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12773,7 +12786,7 @@
         {
           "offset": 87,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12781,7 +12794,7 @@
         {
           "offset": 100,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -12821,7 +12834,7 @@
         {
           "offset": 201,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12829,7 +12842,7 @@
         {
           "offset": 209,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12837,13 +12850,13 @@
         {
           "offset": 217,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
         }
       ],
-      "source_sha256": "9464cd7f837250d334d959ca7afe193c49a0f4197a914e0bd5d71a2058824502",
+      "source_sha256": "91042403bc03291eef787e19a8d2afac703c5672b73eb8d32caa8f0728e0a224",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Start_Driver_00676e40.cpp",
       "population": "population-4024",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -12871,7 +12884,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12879,7 +12892,7 @@
         {
           "offset": 23,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12887,7 +12900,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -12919,7 +12932,7 @@
         {
           "offset": 169,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -12927,7 +12940,7 @@
         {
           "offset": 179,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -12935,13 +12948,13 @@
         {
           "offset": 188,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
         }
       ],
-      "source_sha256": "33c6a7ff5cf203ba0c91376f30d3c8611a2733d35815e9c6e7674abeb9bb0cc2",
+      "source_sha256": "b9549b7709dd7bff3bf4975609162dca7122a0e648bbc751827edd3b1961e61d",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Stop_Moving_00675eb0.cpp",
       "population": "population-4024",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -13125,7 +13138,7 @@
         {
           "offset": 36,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13133,7 +13146,7 @@
         {
           "offset": 44,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13141,7 +13154,7 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13149,7 +13162,7 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13157,7 +13170,7 @@
         {
           "offset": 74,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13165,7 +13178,7 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13195,7 +13208,7 @@
           "resolved": 8040728
         }
       ],
-      "source_sha256": "904220158c33976d0da6fe30fc7819885bf81e4b1616f03ce3c1cbbc69bf1e0f",
+      "source_sha256": "8a439105a298b9a5fdfae67628310a0ce6dd24398e9c3f33885aefb1cdf6d8fa",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_constructor_00675600.cpp",
       "population": "population-4024",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -13224,7 +13237,7 @@
         {
           "offset": 30,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13232,7 +13245,7 @@
         {
           "offset": 36,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13240,7 +13253,7 @@
         {
           "offset": 56,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13248,7 +13261,7 @@
         {
           "offset": 105,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13256,7 +13269,7 @@
         {
           "offset": 121,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13264,7 +13277,7 @@
         {
           "offset": 130,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13272,7 +13285,7 @@
         {
           "offset": 142,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13280,7 +13293,7 @@
         {
           "offset": 155,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13288,7 +13301,7 @@
         {
           "offset": 164,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13328,7 +13341,7 @@
         {
           "offset": 306,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13336,7 +13349,7 @@
         {
           "offset": 314,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13344,13 +13357,13 @@
         {
           "offset": 323,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
         }
       ],
-      "source_sha256": "77c88c2abceda039260b0badc738a790a94be80593dc8580ebbc24583bb56460",
+      "source_sha256": "6191584a007f81a15572d9a31b0ad004a7f0833b5534c8b1b0af40d9b4b69adc",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Force_Track_00676c90.cpp",
       "population": "population-4024",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -13457,7 +13470,7 @@
         {
           "offset": 28,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13465,7 +13478,7 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13473,7 +13486,7 @@
         {
           "offset": 61,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13527,7 +13540,7 @@
           "resolved": 11244032
         }
       ],
-      "source_sha256": "b08609f83d5e73f89a93820c94a419e9c19538c674493918b85e19e0e3a3db67",
+      "source_sha256": "ee978e50c9d0cac2bae2fb5283234af24843e1beb28e240a411de9be14683c85",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Is_Moving_Here_0067a830.cpp",
       "population": "population-4024",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -13796,7 +13809,7 @@
         {
           "offset": 391,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13804,7 +13817,7 @@
         {
           "offset": 403,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13812,7 +13825,7 @@
         {
           "offset": 416,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13876,7 +13889,7 @@
         {
           "offset": 728,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13884,7 +13897,7 @@
         {
           "offset": 741,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13892,7 +13905,7 @@
         {
           "offset": 753,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13908,7 +13921,7 @@
         {
           "offset": 973,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13916,7 +13929,7 @@
         {
           "offset": 989,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13924,7 +13937,7 @@
         {
           "offset": 1002,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13932,7 +13945,7 @@
         {
           "offset": 1014,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13940,7 +13953,7 @@
         {
           "offset": 1023,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13948,7 +13961,7 @@
         {
           "offset": 1171,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -13956,7 +13969,7 @@
         {
           "offset": 1187,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13964,7 +13977,7 @@
         {
           "offset": 1200,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -13972,7 +13985,7 @@
         {
           "offset": 1212,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -13980,7 +13993,7 @@
         {
           "offset": 1221,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14010,7 +14023,7 @@
           "resolved": 1118
         }
       ],
-      "source_sha256": "244c4cda6576ea6c036ea009883757a6ee7014dadcb2085e276086ac753f55e9",
+      "source_sha256": "eb3b55bec6280ade6842ff66e7a02730422e9bd18e6be5cd88c899987caa8940",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Process_006765b0.cpp",
       "population": "population-4024",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -14167,7 +14180,7 @@
         {
           "offset": 921,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14175,7 +14188,7 @@
         {
           "offset": 940,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14183,7 +14196,7 @@
         {
           "offset": 953,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14191,7 +14204,7 @@
         {
           "offset": 967,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14199,7 +14212,7 @@
         {
           "offset": 975,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14295,7 +14308,7 @@
         {
           "offset": 1408,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14303,7 +14316,7 @@
         {
           "offset": 1416,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14311,7 +14324,7 @@
         {
           "offset": 1425,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14319,7 +14332,7 @@
         {
           "offset": 1433,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14327,7 +14340,7 @@
         {
           "offset": 1446,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14335,7 +14348,7 @@
         {
           "offset": 1459,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14343,7 +14356,7 @@
         {
           "offset": 1475,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14351,7 +14364,7 @@
         {
           "offset": 1483,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14623,7 +14636,7 @@
         {
           "offset": 3319,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14631,7 +14644,7 @@
         {
           "offset": 3338,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14639,7 +14652,7 @@
         {
           "offset": 3351,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14647,7 +14660,7 @@
         {
           "offset": 3365,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14655,7 +14668,7 @@
         {
           "offset": 3373,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14663,7 +14676,7 @@
         {
           "offset": 3443,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14671,7 +14684,7 @@
         {
           "offset": 3458,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14679,7 +14692,7 @@
         {
           "offset": 3471,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14687,7 +14700,7 @@
         {
           "offset": 3485,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14695,7 +14708,7 @@
         {
           "offset": 3494,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14703,7 +14716,7 @@
         {
           "offset": 3507,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14711,7 +14724,7 @@
         {
           "offset": 3529,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14719,7 +14732,7 @@
         {
           "offset": 3537,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14759,7 +14772,7 @@
         {
           "offset": 3689,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14767,7 +14780,7 @@
         {
           "offset": 3697,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14775,7 +14788,7 @@
         {
           "offset": 3705,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14871,7 +14884,7 @@
         {
           "offset": 3950,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14935,7 +14948,7 @@
         {
           "offset": 4357,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14943,7 +14956,7 @@
         {
           "offset": 4372,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14951,7 +14964,7 @@
         {
           "offset": 4385,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14959,7 +14972,7 @@
         {
           "offset": 4399,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14967,7 +14980,7 @@
         {
           "offset": 4407,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -14983,7 +14996,7 @@
         {
           "offset": 4577,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -14991,7 +15004,7 @@
         {
           "offset": 4593,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -14999,7 +15012,7 @@
         {
           "offset": 4602,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15007,7 +15020,7 @@
         {
           "offset": 4610,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15015,7 +15028,7 @@
         {
           "offset": 4623,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15023,7 +15036,7 @@
         {
           "offset": 4636,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15031,7 +15044,7 @@
         {
           "offset": 4648,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15039,7 +15052,7 @@
         {
           "offset": 4656,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15205,7 +15218,7 @@
           "resolved": 6782551
         }
       ],
-      "source_sha256": "5104b27eba47c8fa3f1f457c30a4136df89e9f26e86ca0eff1c1ab04ed9dd29c",
+      "source_sha256": "7c65388a4276180161f0403c27d5f64cc58e05dacdf578a4b786a0efa067ce69",
       "switch_data_bytes": 28,
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_While_Moving_00676f60.cpp",
       "population": "population-4024",
@@ -15235,7 +15248,7 @@
         {
           "offset": 45,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15243,7 +15256,7 @@
         {
           "offset": 59,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15251,7 +15264,7 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15259,7 +15272,7 @@
         {
           "offset": 85,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15267,7 +15280,7 @@
         {
           "offset": 93,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15275,7 +15288,7 @@
         {
           "offset": 164,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15283,7 +15296,7 @@
         {
           "offset": 180,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15291,7 +15304,7 @@
         {
           "offset": 192,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15363,7 +15376,7 @@
         {
           "offset": 711,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15371,7 +15384,7 @@
         {
           "offset": 723,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15379,7 +15392,7 @@
         {
           "offset": 736,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15419,7 +15432,7 @@
         {
           "offset": 895,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15427,7 +15440,7 @@
         {
           "offset": 911,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15435,7 +15448,7 @@
         {
           "offset": 924,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15443,7 +15456,7 @@
         {
           "offset": 936,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15451,7 +15464,7 @@
         {
           "offset": 945,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15667,7 +15680,7 @@
         {
           "offset": 1706,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15675,7 +15688,7 @@
         {
           "offset": 1722,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15683,7 +15696,7 @@
         {
           "offset": 1735,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15691,7 +15704,7 @@
         {
           "offset": 1748,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15699,7 +15712,7 @@
         {
           "offset": 1756,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15723,7 +15736,7 @@
         {
           "offset": 1924,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15739,7 +15752,7 @@
         {
           "offset": 1959,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15747,7 +15760,7 @@
         {
           "offset": 1975,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15755,7 +15768,7 @@
         {
           "offset": 1988,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15763,7 +15776,7 @@
         {
           "offset": 2000,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15771,7 +15784,7 @@
         {
           "offset": 2009,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15803,7 +15816,7 @@
         {
           "offset": 2190,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -15811,7 +15824,7 @@
         {
           "offset": 2206,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15819,7 +15832,7 @@
         {
           "offset": 2219,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -15827,7 +15840,7 @@
         {
           "offset": 2231,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -15835,7 +15848,7 @@
         {
           "offset": 2240,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16035,7 +16048,7 @@
         {
           "offset": 2945,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -16043,7 +16056,7 @@
         {
           "offset": 2961,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16051,7 +16064,7 @@
         {
           "offset": 2974,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16059,7 +16072,7 @@
         {
           "offset": 2987,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16067,7 +16080,7 @@
         {
           "offset": 2995,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16083,7 +16096,7 @@
         {
           "offset": 3131,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -16267,7 +16280,7 @@
         {
           "offset": 3985,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -16275,7 +16288,7 @@
         {
           "offset": 4004,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16283,7 +16296,7 @@
         {
           "offset": 4017,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16291,7 +16304,7 @@
         {
           "offset": 4031,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16299,7 +16312,7 @@
         {
           "offset": 4039,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16395,7 +16408,7 @@
         {
           "offset": 4537,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -16403,7 +16416,7 @@
         {
           "offset": 4553,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16411,7 +16424,7 @@
         {
           "offset": 4566,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16419,7 +16432,7 @@
         {
           "offset": 4579,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16427,7 +16440,7 @@
         {
           "offset": 4587,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16483,7 +16496,7 @@
         {
           "offset": 4784,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -16547,7 +16560,7 @@
         {
           "offset": 4886,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -16555,7 +16568,7 @@
         {
           "offset": 4902,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16563,7 +16576,7 @@
         {
           "offset": 4915,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16571,7 +16584,7 @@
         {
           "offset": 4931,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16579,7 +16592,7 @@
         {
           "offset": 4940,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16803,7 +16816,7 @@
         {
           "offset": 5573,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -16811,7 +16824,7 @@
         {
           "offset": 5585,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16819,7 +16832,7 @@
         {
           "offset": 5598,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -16827,7 +16840,7 @@
         {
           "offset": 5617,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -16835,7 +16848,7 @@
         {
           "offset": 5625,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17123,7 +17136,7 @@
         {
           "offset": 6936,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -17131,7 +17144,7 @@
         {
           "offset": 6942,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17139,7 +17152,7 @@
         {
           "offset": 6947,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17219,7 +17232,7 @@
         {
           "offset": 7326,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -17227,7 +17240,7 @@
         {
           "offset": 7342,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17235,7 +17248,7 @@
         {
           "offset": 7355,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17243,7 +17256,7 @@
         {
           "offset": 7368,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17251,7 +17264,7 @@
         {
           "offset": 7376,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17291,7 +17304,7 @@
         {
           "offset": 7556,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -17339,7 +17352,7 @@
         {
           "offset": 7649,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -17347,7 +17360,7 @@
         {
           "offset": 7665,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17355,7 +17368,7 @@
         {
           "offset": 7678,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17363,7 +17376,7 @@
         {
           "offset": 7690,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17371,7 +17384,7 @@
         {
           "offset": 7699,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17403,7 +17416,7 @@
         {
           "offset": 7859,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -17411,7 +17424,7 @@
         {
           "offset": 7875,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17419,7 +17432,7 @@
         {
           "offset": 7888,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17427,7 +17440,7 @@
         {
           "offset": 7900,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17435,7 +17448,7 @@
         {
           "offset": 7909,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17451,7 +17464,7 @@
         {
           "offset": 8117,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -17459,7 +17472,7 @@
         {
           "offset": 8132,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17467,7 +17480,7 @@
         {
           "offset": 8145,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17475,7 +17488,7 @@
         {
           "offset": 8158,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17483,7 +17496,7 @@
         {
           "offset": 8167,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17491,7 +17504,7 @@
         {
           "offset": 8179,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -17499,7 +17512,7 @@
         {
           "offset": 8201,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17507,7 +17520,7 @@
         {
           "offset": 8209,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
@@ -17547,7 +17560,7 @@
         {
           "offset": 8307,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 0,
           "resolved": 11243976
@@ -17555,7 +17568,7 @@
         {
           "offset": 8315,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 4,
           "resolved": 11243980
@@ -17563,13 +17576,13 @@
         {
           "offset": 8323,
           "kind": 6,
-          "symbol": "?unknown_coord_ab91c8@@3UCoordStruct@@A",
+          "symbol": "_unknown_geometry_l",
           "target": 11243976,
           "addend": 8,
           "resolved": 11243984
         }
       ],
-      "source_sha256": "d5535a66e725d81b7dc32276e29c599cbe249b118c5258e1a18e2e78e79113c6",
+      "source_sha256": "c902921a0940cf2eed24cef86d834b233bb558f15333573a19ff3d9d72fc41b1",
       "source": "src/recovered/classes/ShipLocomotionClass/ShipLocomotionClass_Start_Of_Move_006785c0.cpp",
       "population": "population-4024",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

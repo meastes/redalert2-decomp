@@ -12,11 +12,11 @@
 // @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
 // @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
-// @ref ?unknown_invalid_coord_a410f8@@3UCoordStruct@@A=00a410f8
 // @ref __real@8@3fe08000000200000000=0079c280
 // @ref __real@8@4007e100000000000000=0079e6d0
 // @ref __real@8@4009e100000000000000=0079d140
 // @ref ??_C@_03FEGA@COW?$AA@=007daf04
+// @ref _unknown_geometry_l=00a410f8
 inline double Infantry_Idle_Interval(double low, double high)
 {
     int draw = unknown_id_source_a3d290->Random()(0, 0x7ffffffe);
@@ -51,7 +51,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
         infantry->unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         if (is_cow || (!infantry->House->Unknown_004F52F0() && infantry->Type->Fraidycat)) {
-            infantry->unknown_slot87(unknown_invalid_coord_a410f8, true, false);
+            infantry->unknown_slot87(unknown_geometry_l, true, false);
             return true;
         }
         break;
@@ -72,7 +72,7 @@ bool InfantryClass::unknown_slot258()
             Rules->IdleActionFrequency * 450.0,
             Rules->IdleActionFrequency * 1800.0));
         if (Type->Fraidycat && !House->Unknown_004F52F0() && unknown_5bc > 50) {
-            unknown_slot87(unknown_invalid_coord_a410f8, true, false);
+            unknown_slot87(unknown_geometry_l, true, false);
             return true;
         }
         return Infantry_Play_Idle_Action(this);

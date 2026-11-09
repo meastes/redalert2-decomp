@@ -2,14 +2,14 @@
 // A destination is set, or a head-to coordinate other than where the
 // object stands (X and Y).
 #include "shared/drive_locomotion.hpp"
-// @ref ?unknown_coord_852998@@3UCoordStruct@@A=00852998
+// @ref _unknown_geometry_l=00852998
 
 bool __stdcall DriveLocomotionClass::Is_Moving()
 {
-    if (unknown_34 != unknown_coord_852998) {
+    if (unknown_34 != unknown_geometry_l) {
         return true;
     }
-    if (unknown_40 != unknown_coord_852998) {
+    if (unknown_40 != unknown_geometry_l) {
         if (unknown_40.X != Object_Coord(LinkedTo).X || unknown_40.Y != Object_Coord(LinkedTo).Y) {
             return true;
         }

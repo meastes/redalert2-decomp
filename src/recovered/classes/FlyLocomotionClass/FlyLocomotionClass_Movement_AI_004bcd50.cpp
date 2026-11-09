@@ -15,6 +15,7 @@
 #include "shared/rules.hpp"
 #include "shared/sound_play.hpp"
 #include "shared/bullet.hpp"
+// @ref _unknown_geometry_l=00865df8
 extern double const unknown_facing_scale_79b628;
 extern double const unknown_facing_origin_79b630;
 extern double const unknown_move_angle_scale_79b620;
@@ -215,7 +216,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             bridge_height=0;
         }
         LinkedTo->unknown_slot109(bridge_height+current_height);
-        if (LinkedTo->Strength>0 && unknown_1c!=unknown_coord_865df8) {
+        if (LinkedTo->Strength>0 && unknown_1c!=unknown_geometry_l) {
             if (LinkedTo->unknown_slot91()!=7 || LinkedTo->unknown_494==0
                 || LinkedTo->unknown_494->Kind_Of()!=6
                 || !((UnknownFlyBuilding *)LinkedTo->unknown_494)->Type->Helipad) {
@@ -226,7 +227,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             }
         }
     }
-    if (LinkedTo->Strength>0 && unknown_4bf3c0() && unknown_1c!=unknown_coord_865df8) {
+    if (LinkedTo->Strength>0 && unknown_4bf3c0() && unknown_1c!=unknown_geometry_l) {
         UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
         if (!unknown_4bf8f0()) {
             unknown_40=1.0;

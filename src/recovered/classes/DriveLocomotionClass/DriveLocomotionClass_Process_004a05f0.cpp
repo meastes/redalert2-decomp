@@ -10,6 +10,7 @@
 // @ref ?Start_Of_Move@DriveLocomotionClass@@QAE_NAA_N_N1@Z=004a2670
 // @ref ??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z=00463f80
 // @ref __real@8@00000000000000000000=0079b610
+// @ref _unknown_geometry_l=00852998
 
 bool __stdcall DriveLocomotionClass::Process()
 {
@@ -50,7 +51,7 @@ bool __stdcall DriveLocomotionClass::Process()
                 return false;
             }
         }
-        if (LinkedTo->Mission == 5 && !unknown_63 && unknown_34 != unknown_coord_852998 && Object_Coord(LinkedTo) == unknown_34) {
+        if (LinkedTo->Mission == 5 && !unknown_63 && unknown_34 != unknown_geometry_l && Object_Coord(LinkedTo) == unknown_34) {
             unknown_4a4850();
             return false;
         }
@@ -98,7 +99,7 @@ bool __stdcall DriveLocomotionClass::Process()
         && static_cast<CellClass *>(LinkedTo->unknown_slot105())->Land_Type() == 2 && Rules->unknown_09c != 0) {
         new AnimClass(Rules->unknown_09c, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
     }
-    if (unknown_34 == unknown_coord_852998 && unknown_40 == unknown_coord_852998 && LinkedTo->unknown_4d0 == -1 && LinkedTo->unknown_468 > 0.0) {
+    if (unknown_34 == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->unknown_468 > 0.0) {
         LinkedTo->unknown_slot306(0.0);
     }
     return Is_Moving();

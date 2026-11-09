@@ -11,6 +11,7 @@
 #include "shared/map_view.hpp"
 #include "shared/rules.hpp"
 #include "shared/unknown_geometry.hpp"
+// @ref _unknown_geometry_l=00ac0f30
 
 // The twin's Point2D::Length(): the double square root of the summed squares.
 static inline int Point_Length(Point2D const &point)
@@ -24,16 +25,16 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
 {
     switch (unknown_18) {
     case 1:
-        unknown_1c = unknown_coord_ac0f30;
+        unknown_1c = unknown_geometry_l;
         break;
     case 5:
-        unknown_1c = unknown_coord_ac0f30;
+        unknown_1c = unknown_geometry_l;
         break;
     case 6:
-        unknown_1c = unknown_coord_ac0f30;
+        unknown_1c = unknown_geometry_l;
         break;
     case 7:
-        unknown_1c = unknown_coord_ac0f30;
+        unknown_1c = unknown_geometry_l;
         break;
     case 4: {
         CoordStruct pos = LinkedTo->Coord;
@@ -45,7 +46,7 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
             }
             if (nearby == unknown_geometry_k) {
                 LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, true);
-                unknown_1c = unknown_coord_ac0f30;
+                unknown_1c = unknown_geometry_l;
             } else {
                 unknown_1c = Cell_Coord(nearby);
             }
@@ -54,11 +55,11 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
     }
     case 3:
         unknown_18 = 5;
-        unknown_1c = unknown_coord_ac0f30;
+        unknown_1c = unknown_geometry_l;
         break;
     case 2:
         unknown_18 = 7;
-        unknown_1c = unknown_coord_ac0f30;
+        unknown_1c = unknown_geometry_l;
         break;
     }
 }

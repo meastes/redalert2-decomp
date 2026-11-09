@@ -2,13 +2,13 @@
 // Marks (slot 58) or clears (slot 59, mark 0) the cell ahead on the current
 // track and the head-to coordinate (Westwood's DriveClass::Mark_Track).
 #include "shared/ship_locomotion.hpp"
-// @ref ?unknown_coord_ab91c8@@3UCoordStruct@@A=00ab91c8
 // @ref ?ShipRawTracks@@3QBURawTrackStruct@@B=007aad20
 // @ref ?ShipTrackControl@@3QBUTrackControlStruct@@B=007aadf0
+// @ref _unknown_geometry_l=00ab91c8
 
 void ShipLocomotionClass::unknown_676b20(CoordStruct const &headto, int mark)
 {
-    if (headto == unknown_coord_ab91c8) {
+    if (headto == unknown_geometry_l) {
         return;
     }
     if (!unknown_60 && unknown_58 != -1) {

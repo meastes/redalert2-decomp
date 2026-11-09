@@ -13,12 +13,12 @@
 #include "shared/id_source.hpp"
 #include "shared/techno_type.hpp"
 #include "shared/infantry.hpp"
-// @ref ?unknown_coord_a6e3e0@@3UCoordStruct@@A=00a6e3e0
 // @ref ?Unknown_004132E0@UnknownTracker839EA0@@QAE_NPAVFootClass@@@Z=004132e0
 // @ref ?Unknown_00413310@UnknownTracker839EA0@@QAEXPAVTechnoClass@@@Z=00413310
 // @ref ?unknown_tracker_839ea0@@3UUnknownTracker839EA0@@A=00839ea0
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?Unknown_004763D0@@YIHABUCoordStruct@@@Z=004763d0
+// @ref _unknown_geometry_l=00a6e3e0
 
 void JumpjetLocomotionClass::unknown_530550()
 {
@@ -70,7 +70,7 @@ void JumpjetLocomotionClass::unknown_530550()
             LinkedTo->unknown_79 = true;
         }
         LinkedTo->Mark(1);
-        unknown_3c = unknown_coord_a6e3e0;
+        unknown_3c = unknown_geometry_l;
         unknown_48 = false;
         LinkedTo->unknown_slot93(2);
         LinkedTo->Assign_Destination(0, true);

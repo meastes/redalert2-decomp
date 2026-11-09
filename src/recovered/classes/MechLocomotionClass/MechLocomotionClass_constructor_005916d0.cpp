@@ -2,13 +2,13 @@
 // No destination or head-to coordinate, not moving.
 #include "shared/mech_locomotion.hpp"
 // @ref ??0LocomotionClass@@QAE@XZ=0053cfc0
-// @ref ?unknown_coord_a70b18@@3UCoordStruct@@A=00a70b18
 // @ref ??_7MechLocomotionClass@@6BIPersistStream@@@=007a6174
 // @ref ??_7MechLocomotionClass@@6BILocomotion@@@=007a60ac
+// @ref _unknown_geometry_l=00a70b18
 
 MechLocomotionClass::MechLocomotionClass() :
-    unknown_18(unknown_coord_a70b18),
-    unknown_24(unknown_coord_a70b18),
+    unknown_18(unknown_geometry_l),
+    unknown_24(unknown_geometry_l),
     unknown_30(false)
 {
 }

@@ -11,7 +11,6 @@
 
 #include "shared/locomotion.hpp"
 
-extern CoordStruct unknown_coord_af9060;            // 0x00AF9060
 extern "C" GUID const CLSID_WalkLocomotionClass;    // 0x007A1FA0
 
 class WalkLocomotionClass : public LocomotionClass, public IPiggyback {

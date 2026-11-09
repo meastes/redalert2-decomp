@@ -17,6 +17,7 @@
 #include "shared/weapon_type.hpp"
 #include "shared/sound_play.hpp"
 // @ref ??_C@_06NHJA@SMOKEY?$AA@=007d5fe8
+// @ref _unknown_geometry_l=00852a20
 
 bool __stdcall DropPodLocomotionClass::Process()
 {
@@ -56,7 +57,7 @@ bool __stdcall DropPodLocomotionClass::Process()
             linked->unknown_slot109(0);
             linked->unknown_slot261(false, true);
             linked->unknown_slot117();
-            linked->unknown_slot87(unknown_coord_852a20, false, false);
+            linked->unknown_slot87(unknown_geometry_l, false, false);
         }
         Release();
     } else {

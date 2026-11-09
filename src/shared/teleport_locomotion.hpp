@@ -13,7 +13,6 @@
 
 #include "shared/locomotion.hpp"
 
-extern CoordStruct unknown_coord_ac0280;                // 0x00AC0280
 extern "C" GUID const CLSID_TeleportLocomotionClass;    // 0x007A1FD0
 
 class TeleportLocomotionClass : public LocomotionClass, public IPiggyback {

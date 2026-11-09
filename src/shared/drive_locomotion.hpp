@@ -15,7 +15,6 @@
 
 #include "shared/locomotion.hpp"
 
-extern CoordStruct unknown_coord_852998;            // 0x00852998
 extern "C" GUID const CLSID_DriveLocomotionClass;   // 0x007A1F70
 
 extern TrackControlStruct const DriveTrackControl[];   // 0x007A0180 (Drive.cpp's table)

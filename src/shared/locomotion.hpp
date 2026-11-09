@@ -27,7 +27,6 @@ class Matrix3D;
 
 // The live COM object count (0x00A6EB14).
 // A zero coordinate (0x00A6EA60; Destination's default).
-extern CoordStruct unknown_coord_a6ea60;
 
 
 // CoordStruct ==/!=: shared/coord.hpp.

@@ -2,12 +2,12 @@
 // Clears the head-to coordinate (Westwood's DriveClass::Stop_Driver).
 // Expanded where it is used; this out-of-line copy is never called.
 #include "shared/drive_locomotion.hpp"
-// @ref ?unknown_coord_852998@@3UCoordStruct@@A=00852998
+// @ref _unknown_geometry_l=00852998
 
 bool DriveLocomotionClass::Stop_Driver()
 {
-    if (unknown_40 != unknown_coord_852998) {
-        unknown_40 = unknown_coord_852998;
+    if (unknown_40 != unknown_geometry_l) {
+        unknown_40 = unknown_geometry_l;
         unknown_63 = false;
         return true;
     }

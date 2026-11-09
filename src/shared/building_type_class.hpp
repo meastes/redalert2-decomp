@@ -113,7 +113,6 @@ extern int const unknown_foundation_height_7cfcc8[];
 extern Cell const unknown_foundation_cells_84ede8[][30];
 extern Cell const unknown_foundation_outside_84f848[][30];
 // The cell height unit slot 31 scales Height by (0x00850298).
-extern int unknown_850298;
 // The cloak circle surface (0x008502A0; sized by the largest CloakRadiusInCells).
 class BSurface;
 extern BSurface *unknown_cloak_surface_8502a0;

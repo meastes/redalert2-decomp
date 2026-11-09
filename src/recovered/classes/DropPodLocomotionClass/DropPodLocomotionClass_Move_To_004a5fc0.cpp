@@ -7,12 +7,12 @@
 #include "shared/unknown_geometry.hpp"
 #include "shared/rules.hpp"
 #include "shared/anim.hpp"
-// @ref ?unknown_coord_852a20@@3UCoordStruct@@A=00852a20
 // @ref ?Map@@3VMouseClass@@A=008324e0
+// @ref _unknown_geometry_l=00852a20
 
 void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to)
 {
-    if (unknown_20 == unknown_coord_852a20) {
+    if (unknown_20 == unknown_geometry_l) {
         unknown_20 = CoordStruct(to.X, to.Y, to.Z);
         unknown_20.Z = Map.Unknown_0055A280(unknown_20);
         CoordStruct start = unknown_20;

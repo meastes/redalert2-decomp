@@ -3204,3 +3204,6 @@ New rulings are recorded at their rows as before.
 ## Scout1112 (2026-11-09, 0 B; NOTES and d/r1 in build/class-work/Scout1112/)
 - Explosion_Damage 0x47E2C0 stays 97.92: frame slots 0x20/0x24 tie exactly ({m, j} vs {rings, &damage, Fetch_CellID temps, fild spill}); ~10 local-type/scope variants flat or worse.
 - Single declaration spec (d/r1, TechnoClass * source, bool last arg) held: the anim.hpp redeclaration drops Print_CRCs' declaration counter by 2 (+0x638 latch reload swap). OWNER DECISION: not landed; exact means exact. Print_CRCs/0x4F1190 counter sensitivity now blocks Scout1100/1106/1109/1110/1112 header items.
+
+## Scout1118 (2026-11-09, 0 B; calibration tables in build/class-work/Scout1118/)
+- Declaration-count hypothesis tested and false for 0x5E9410, Bounce AI 0x4370E0, Damage_Low_Bridge 0x55DEF0 (and twins), Area_Modify 0x6C5270, Explosion_Damage 0x47E2C0, Net2SetHouseAndColor 0x5BCCF0, Get_Z_Adjust 0x6CFEA0: flat across 64 before-function and 21 line-1 probe counts (Print_CRCs control flips). Their residues are body-level weight/cursor ties.

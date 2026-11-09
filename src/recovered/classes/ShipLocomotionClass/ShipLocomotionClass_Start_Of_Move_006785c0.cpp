@@ -16,7 +16,6 @@
 #include "shared/techno_type.hpp"
 #include "shared/facing.hpp"
 #include "shared/crt_memory.hpp"
-// @ref ?unknown_coord_ab91c8@@3UCoordStruct@@A=00ab91c8
 // @ref ?ShipTrackControl@@3QBUTrackControlStruct@@B=007aadf0
 // @ref _unknown_geometry_g=00ab9200
 // @ref ?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A=00a35de8
@@ -28,6 +27,7 @@
 // @ref ?Ground@@3PAUGroundType@@A=00850ea0
 // @ref ?Frame@@3HA=00a40d2c
 // @ref __real@8@4008e100000000000000=0079b608
+// @ref _unknown_geometry_l=00ab91c8
 
 extern Point2D const unknown_adjacent_offsets_00851ac0[8];
 
@@ -63,7 +63,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         return false;
     }
 
-    if (!(unknown_34 != unknown_coord_ab91c8)) return false;
+    if (!(unknown_34 != unknown_geometry_l)) return false;
 
     if (LinkedTo->SpawnManager != 0 && LinkedTo->SpawnManager->Launching_Count() != 0) return true;
     if (LinkedTo->unknown_slot111() || LinkedTo->unknown_slot112()) return false;
@@ -95,7 +95,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 return false;
             }
 
-                if (unknown_34 == unknown_coord_ab91c8) return false;
+                if (unknown_34 == unknown_geometry_l) return false;
 
                 if (!LinkedTo->unknown_4c8d60() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->unknown_slot91() == 2 || LinkedTo->unknown_slot91() == 11)) {
                     Stop_Driver();
@@ -125,7 +125,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                                 } else {
                                     is_bridge = true;
                                 }
-                                cellptr->unknown_476920(&unknown_coord_ab91c8, true, true, is_bridge);
+                                cellptr->unknown_476920(&unknown_geometry_l, true, true, is_bridge);
                             }
                         }
                     }
@@ -185,7 +185,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     } else {
                         is_bridge = true;
                     }
-                    cellptr->unknown_476920(&unknown_coord_ab91c8, true, true, is_bridge);
+                    cellptr->unknown_476920(&unknown_geometry_l, true, true, is_bridge);
                 }
             }
         }
@@ -257,7 +257,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         } else {
                             is_bridge = true;
                         }
-                        Map[destcell].unknown_476920(&unknown_coord_ab91c8, true, true, is_bridge);
+                        Map[destcell].unknown_476920(&unknown_geometry_l, true, true, is_bridge);
                     } else {
                         Stop_Driver();
                         if (unknown_67a7a0()) {
@@ -452,7 +452,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                             } else {
                                 is_bridge = true;
                             }
-                            cellptr->unknown_476920(&unknown_coord_ab91c8, true, true, is_bridge);
+                            cellptr->unknown_476920(&unknown_geometry_l, true, true, is_bridge);
                         } else {
                             Stop_Driver();
                             if (unknown_67a7a0()) {
@@ -480,7 +480,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
                 LinkedTo->Path[0] = -1;
                 unknown_58 = -1;
-                dest = unknown_coord_ab91c8;
+                dest = unknown_geometry_l;
                 if (nextcando == 5 || nextcando == 4) {
                     return Start_Of_Move(stop_processing, retry, true);
                 }

@@ -19,8 +19,8 @@
 #include "shared/sound_play.hpp"
 #include "shared/coord_distance.hpp"
 #include "shared/parasite.hpp"
-// @ref ?unknown_coord_ac0280@@3UCoordStruct@@A=00ac0280
 // @ref ?Unknown_00607440@ParasiteClass@@QAEXXZ=00607440
+// @ref _unknown_geometry_l=00ac0280
 
 bool __stdcall TeleportLocomotionClass::Process()
 {
@@ -36,7 +36,7 @@ bool __stdcall TeleportLocomotionClass::Process()
     if (!LinkedTo->unknown_210) {
         if (unknown_38 <= 0) {
             if (Is_Moving()) {
-                if (Object_Coord(LinkedTo) != unknown_28 && unknown_28 != unknown_coord_ac0280) {
+                if (Object_Coord(LinkedTo) != unknown_28 && unknown_28 != unknown_geometry_l) {
                     Unknown_006D7C80(LinkedTo);
                     for (int index = unknown_BulletClass_list_00a40ce8.Count() - 1; index >= 0; index--) {
                         BulletClass *bullet = unknown_BulletClass_list_00a40ce8[index];

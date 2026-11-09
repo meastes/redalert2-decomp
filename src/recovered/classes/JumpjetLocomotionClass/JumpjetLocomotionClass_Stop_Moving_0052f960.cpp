@@ -9,14 +9,14 @@
 #include "shared/cell.hpp"
 #include "shared/techno_type.hpp"
 #include "shared/rules.hpp"
-// @ref ?unknown_coord_a6e3e0@@3UCoordStruct@@A=00a6e3e0
 // @ref ?unknown_a40774@@3HA=00a40774
 // @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref _unknown_geometry_l=00a6e3e0
 
 void __stdcall JumpjetLocomotionClass::Stop_Moving()
 {
     if (unknown_a40774 == 0 && unknown_48) {
-        if (unknown_3c != unknown_coord_a6e3e0 && unknown_4c != 0 && unknown_88) {
+        if (unknown_3c != unknown_geometry_l && unknown_4c != 0 && unknown_88) {
             LinkedTo->unknown_slot59(unknown_3c);
             unknown_88 = false;
         }
@@ -33,7 +33,7 @@ void __stdcall JumpjetLocomotionClass::Stop_Moving()
         }
         if (LinkedTo->Strength > 0) {
             LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, 1, 1);
-            unknown_3c = unknown_coord_a6e3e0;
+            unknown_3c = unknown_geometry_l;
         }
     }
 }

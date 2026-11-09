@@ -10,6 +10,7 @@
 #include "shared/house.hpp"
 extern double const unknown_fly_land_speed_7a10f8;
 // @ref ?unknown_fly_land_speed_7a10f8@@3NB=007a10f8
+// @ref _unknown_geometry_l=00865df8
 inline UnknownFacingDir Fly_Direction_XY_004be720(CoordStruct const &from,CoordStruct const &to)
 {
     UnknownFacingDir dir;
@@ -49,7 +50,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
             if (self!=0 && self->Kind_Of()==2) {
                 AbstractClass *dock=((AircraftClass *)self)->Select_Landing_Destination_004185b0(building);
                 if (dock==0) {
-                    aim=unknown_coord_865df8;
+                    aim=unknown_geometry_l;
                 } else {
                     aim=dock->Center_Coord();
                 }

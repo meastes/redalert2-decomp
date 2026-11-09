@@ -9,7 +9,6 @@
 #include "shared/unknown_geometry.hpp"
 #include "shared/tube.hpp"
 #include "shared/adjacent_cell.hpp"
-// @ref ?unknown_coord_ab91c8@@3UCoordStruct@@A=00ab91c8
 // @ref ?ShipRawTracks@@3QBURawTrackStruct@@B=007aad20
 // @ref ?ShipTrackControl@@3QBUTrackControlStruct@@B=007aadf0
 // @ref ?Smooth_Turn@ShipLocomotionClass@@QAE?AUPoint2D@@ABU2@AAH@Z=0067a690
@@ -27,6 +26,7 @@
 // @ref __real@8@3ffbba2e8ba2e8ba3000=007a05d0
 // @ref __real@8@3ffc9249249249249000=007a05c0
 // @ref __real@8@4001e000000000000000=007a05c8
+// @ref _unknown_geometry_l=00ab91c8
 
 extern Point2D const unknown_adjacent_offsets_00851ac0[8];
 CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, float t);
@@ -154,7 +154,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
         } else {
             LinkedTo->Path[0] = -1;
             unknown_58 = -1;
-            unknown_40 = unknown_coord_ab91c8;
+            unknown_40 = unknown_geometry_l;
             Stop_Driver();
         }
         return false;
@@ -330,7 +330,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                                     } else {
                                         bridge = true;
                                     }
-                                    Map[unknown_40].unknown_476920(&unknown_coord_ab91c8, true, true, bridge);
+                                    Map[unknown_40].unknown_476920(&unknown_geometry_l, true, true, bridge);
                                 }
                                 break;
                         }
@@ -368,7 +368,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 if (target != 0 && LinkedTo->unknown_slot104() == target->unknown_slot19(LinkedTo).As_Cell()) {
                     if (abs(LinkedTo->unknown_slot19(LinkedTo).Z - unknown_34.Z) < 2 * unknown_geometry_g) {
                         arrived = true;
-                        unknown_34 = unknown_coord_ab91c8;
+                        unknown_34 = unknown_geometry_l;
                         Stop_Driver();
                         unknown_63 = false;
                     }

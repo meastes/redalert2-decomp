@@ -8,7 +8,6 @@
 // @ref ?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8a30
 // @ref ?While_Moving_004fcbc0@HoverLocomotionClass@@QAEH_N@Z=004fcbc0
 // @ref ?Start_Of_Move_004fe0f0@HoverLocomotionClass@@QAEXH@Z=004fe0f0
-// @ref ?unknown_coord_a41080@@3UCoordStruct@@A=00a41080
 // @ref ?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B=00851ac0
 // @ref ?unknown_facing_origin_79b630@@3NB=0079b630
 // @ref ?unknown_facing_scale_79b628@@3NB=0079b628
@@ -20,6 +19,7 @@
 #include "shared/rules.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/unknown_vector3.hpp"
+// @ref _unknown_geometry_l=00a41080
 extern double const unknown_facing_origin_79b630;
 extern double const unknown_facing_scale_79b628;
 inline int Hover_Destination_Distance_004fdaf0(CoordStruct const &from,CoordStruct const &to)
@@ -53,13 +53,13 @@ inline UnknownVector3 Hover_Vector_Difference_004fdaf0(CoordStruct const &from,C
 #define Hover_Max_004fdaf0(a,b) ((a)>(b)?(a):(b))
 void HoverLocomotionClass::Motion_AI_004fdaf0()
 {
-    if (Is_Moving() && unknown_24!=unknown_coord_a41080) {
+    if (Is_Moving() && unknown_24!=unknown_geometry_l) {
         UnknownFacingDir direction=Hover_Assign_Direction_004fdaf0(LinkedTo->Center_Coord(),unknown_24);
         if (!unknown_70) unknown_30.Set_Desired(direction);
         else unknown_30.Set_Current(direction);
         if ((Is_Powered() && abs(0x2000)>=abs((short)(unknown_30.Current().Raw-direction.Raw))) || unknown_70) {
-            if ((unknown_18==unknown_coord_a41080 && Hover_Vector_Difference_004fdaf0(LinkedTo->Center_Coord(),unknown_24).Length()<256) ||
-                (unknown_18!=unknown_coord_a41080 && Hover_Destination_Distance_004fdaf0(LinkedTo->Center_Coord(),unknown_18)<256)) {
+            if ((unknown_18==unknown_geometry_l && Hover_Vector_Difference_004fdaf0(LinkedTo->Center_Coord(),unknown_24).Length()<256) ||
+                (unknown_18!=unknown_geometry_l && Hover_Destination_Distance_004fdaf0(LinkedTo->Center_Coord(),unknown_18)<256)) {
                 unknown_48=0.5;
             } else {
                 unknown_48=1.0;
@@ -88,7 +88,7 @@ void HoverLocomotionClass::Motion_AI_004fdaf0()
         }
         return;
     }
-    if (Is_Moving() && unknown_24==unknown_coord_a41080) {
+    if (Is_Moving() && unknown_24==unknown_geometry_l) {
         LinkedTo->unknown_slot306(1.0);
         Start_Of_Move_004fe0f0(0);
         While_Moving_004fcbc0(true);

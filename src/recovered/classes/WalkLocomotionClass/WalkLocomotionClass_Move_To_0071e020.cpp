@@ -4,20 +4,20 @@
 // head-to coordinate ends the walk (slot 308).
 #include "shared/walk_locomotion.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_coord_af9060@@3UCoordStruct@@A=00af9060
 // @ref ?Unknown_006A29B0@@YIHH@Z=006a29b0
+// @ref _unknown_geometry_l=00af9060
 
 void __stdcall WalkLocomotionClass::Move_To(CoordStruct to)
 {
     if (!LinkedTo->unknown_slot201() && !LinkedTo->unknown_slot111() && !LinkedTo->unknown_slot112()) {
         unknown_1c = CoordStruct(to.X, to.Y, to.Z);
-        if (to != unknown_coord_af9060) {
+        if (to != unknown_geometry_l) {
             to = CoordStruct(to.X, to.Y, to.Z);
             if (Loco_Cell(to)->Flags & 0x100) {
                 unknown_1c.Z += Unknown_006A29B0(60);
             }
             unknown_34 = true;
-        } else if (unknown_28 == unknown_coord_af9060) {
+        } else if (unknown_28 == unknown_geometry_l) {
             bool moving = unknown_34;
             unknown_34 = false;
             if (moving) {

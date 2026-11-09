@@ -4,12 +4,13 @@
 // The head-to copy is an UnknownCoord434820 (its forwarding constructor makes
 // VC6 copy all three words before the comparison, as the original does).
 #include "shared/jumpjet_locomotion.hpp"
+// @ref _unknown_geometry_l=00a6e3e0
 
 void __stdcall JumpjetLocomotionClass::Mark_All_Occupation_Bits(int mark)
 {
     if (mark == 0) {
         UnknownCoord434820 head = Head_To_Coord();
-        if (head != unknown_coord_a6e3e0 && (unknown_4c == 0 || unknown_88)) {
+        if (head != unknown_geometry_l && (unknown_4c == 0 || unknown_88)) {
             LinkedTo->unknown_slot59(head);
             unknown_88 = false;
         }

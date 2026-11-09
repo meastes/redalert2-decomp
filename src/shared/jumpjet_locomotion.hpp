@@ -10,7 +10,6 @@
 
 #include "shared/locomotion.hpp"
 
-extern CoordStruct unknown_coord_a6e3e0;            // 0x00A6E3E0
 extern "C" GUID const CLSID_JumpjetLocomotionClass; // 0x007A2000
 
 class JumpjetLocomotionClass : public LocomotionClass {

@@ -5,9 +5,9 @@
 // object is told to stop (slot 260).
 #include "shared/teleport_locomotion.hpp"
 #include "shared/cell.hpp"
-// @ref ?unknown_coord_ac0280@@3UCoordStruct@@A=00ac0280
 // @ref ?unknown_6e06b0@TeleportLocomotionClass@@QAE_NABUCoordStruct@@@Z=006e06b0
 // @ref ?unknown_476920@CellClass@@QAEXPBX_N11@Z=00476920
+// @ref _unknown_geometry_l=00ac0280
 
 void __stdcall TeleportLocomotionClass::Move_To(CoordStruct to)
 {
@@ -18,10 +18,10 @@ void __stdcall TeleportLocomotionClass::Move_To(CoordStruct to)
     CoordStruct coord = CoordStruct(to.X, to.Y, to.Z);
     if (LinkedTo->unknown_190 && LinkedTo->Kind_Of() == 15) {
         CellClass &cell = Map[coord];
-        cell.unknown_476920(&unknown_coord_ac0280, true, true, false);
+        cell.unknown_476920(&unknown_geometry_l, true, true, false);
     }
     unknown_6e06b0(coord);
-    if (unknown_28 != unknown_coord_ac0280) {
+    if (unknown_28 != unknown_geometry_l) {
         unknown_34 = true;
         unknown_1c = unknown_28;
     } else {

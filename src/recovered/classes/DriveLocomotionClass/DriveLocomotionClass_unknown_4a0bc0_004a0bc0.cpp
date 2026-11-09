@@ -2,13 +2,13 @@
 // Marks (slot 58) or clears (slot 59, mark 0) the cell ahead on the current
 // track and the head-to coordinate (Westwood's DriveClass::Mark_Track).
 #include "shared/drive_locomotion.hpp"
-// @ref ?unknown_coord_852998@@3UCoordStruct@@A=00852998
 // @ref ?DriveRawTracks@@3QBURawTrackStruct@@B=007a00b0
 // @ref ?DriveTrackControl@@3QBUTrackControlStruct@@B=007a0180
+// @ref _unknown_geometry_l=00852998
 
 void DriveLocomotionClass::unknown_4a0bc0(CoordStruct const &headto, int mark)
 {
-    if (headto == unknown_coord_852998) {
+    if (headto == unknown_geometry_l) {
         return;
     }
     if (!unknown_60 && unknown_58 != -1) {

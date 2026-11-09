@@ -10,7 +10,6 @@
 
 #include "shared/locomotion.hpp"
 
-extern CoordStruct unknown_coord_852a20;            // 0x00852A20
 extern "C" GUID const CLSID_DropPodLocomotionClass; // 0x007A1FB0
 
 class DropPodLocomotionClass : public LocomotionClass, public IPiggyback {
