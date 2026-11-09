@@ -13,7 +13,6 @@
 #include "shared/always.hpp"
 #include "shared/fast_math.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_cell_852610@@3VCell@@A=00852610
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ??R?$Random2Class@@QAEHHH@Z=006388a0
 // @ref ?Zone@MapClass@@QAEHABVCell@@H_N@Z=0054f8f0
@@ -39,6 +38,7 @@
 // @ref ?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z=0042d120
 // @ref ?ID@?$DynamicVectorClass@VCell@@@@UAEHPBVCell@@@Z=0042cc40
 // @ref ?Fetch@?$VectorClass@VCell@@@@UBE?AVCell@@H@Z=0042cc60
+// @ref _unknown_geometry_k=00852610
 
 
 Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &cell, int loco, bool zonecheck, int mzone)
@@ -52,20 +52,20 @@ Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &ce
     int zone = -1;
 
     Cell trycell(0, 0);
-    if (waypoint != unknown_cell_852610) {
+    if (waypoint != unknown_geometry_k) {
         trycell = waypoint;
     }
-    if (trycell == unknown_cell_852610) {
+    if (trycell == unknown_geometry_k) {
         trycell = cell;
     }
 
-    if (zonecheck && trycell != unknown_cell_852610) {
+    if (zonecheck && trycell != unknown_geometry_k) {
         zone = Map.Zone(trycell, mzone, true);
     }
 
     Point2D trypoint = Unknown_00547DF0(Point2D(trycell.X, trycell.Y));
 
-    if (trycell != unknown_cell_852610) {
+    if (trycell != unknown_geometry_k) {
         int left = trypoint.X - MapLocalSize.X;
         x = (left < MapLocalSize.X + (MapLocalSize.Width - trypoint.X)
             ? left : MapLocalSize.X + (MapLocalSize.Width - trypoint.X)) * 2;
@@ -160,15 +160,15 @@ Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &ce
             }
             int count = cells.Count();
 
-            if (trycell == unknown_cell_852610) {
+            if (trycell == unknown_geometry_k) {
                 if (count > 0) {
                     fallback = cells[Random_Pick(0, count - 1)];
                 } else {
-                    fallback = unknown_cell_852610;
+                    fallback = unknown_geometry_k;
                 }
             } else {
                 int dist = -1;
-                Cell best = unknown_cell_852610;
+                Cell best = unknown_geometry_k;
                 for (int i = 0; i < count; i++) {
                     int d = trycell.Distance_To(cells[i]);
                     if (dist == -1 || d < dist) {

@@ -10,7 +10,6 @@
 // @ref ?unknown_ini_format_a40d24@@3HA=00a40d24
 // @ref ?unknown_infantry_spots_850e50@@3QBUCoordStruct@@B=00850e50
 // @ref ?unknown_dummy_cell_a6f9f8@@3VCellClass@@A=00a6f9f8
-// @ref ?unknown_bridge_height_a41120@@3HA=00a41120
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
 // @ref ??_C@_01KMAE@?0?$AA@=007ce9c0
 // @ref _strtok=00782ec2
@@ -22,6 +21,7 @@
 // @ref ?From_Name@TagTypeClass@@SIPAV1@PBD@Z=006b4880
 // @ref ?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z=006b3d30
 // @ref ?Unknown_00713590@UnknownTechnoPair@@QAEXH@Z=00713590
+// @ref _unknown_geometry_j=00a41120
 extern char const *unknown_infantry_section_7a33f0;
 extern int unknown_ini_format_a40d24;
 extern CoordStruct const unknown_infantry_spots_850e50[];
@@ -82,7 +82,7 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                     if (token != 0) {
                         infantry->unknown_79 = atoi(token) != 0;
                         if (infantry->unknown_79) {
-                            coord.Z = Map.Unknown_0055A280(coord) + unknown_bridge_height_a41120;
+                            coord.Z = Map.Unknown_0055A280(coord) + unknown_geometry_j;
                         } else {
                             coord.Z = Map.Unknown_0055A280(coord);
                         }

@@ -29,7 +29,8 @@ bool Unknown_0051FC60();
 // @ref ?unknown_slot67@FootClass@@=004c9bc0
 // @ref ??_C@_07PGBP@POD?4SHP?$AA@=007daee8
 // @ref ??_C@_0M@GHLL@INFSHDW?4SHP?$AA@=007daedc
-// @ref ?unknown_level_height_a41130@@3HA=00a41130
+// @ref _unknown_geometry_j=00a41120
+// @ref _unknown_geometry_g=00a41130
 // Existing int formals carry Point2D and Rect pointers; their ABI stays unchanged.
 void InfantryClass::unknown_slot67(Point2D const &input, Rect const &window)
 {
@@ -61,8 +62,8 @@ void InfantryClass::unknown_slot67(Point2D const &input, Rect const &window)
             else level_light=unknown_id_source_a3d290->AmbientLevel;
             int brightness;
             if (unknown_79 || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
-                Position_Coord_004f3f40().Z>Map.Unknown_0055A280(Position_Coord_004f3f40())+unknown_bridge_height_a41120/2)) {
-                int light=level_light*(unknown_slot108()/(unknown_level_height_a41130*2));
+                Position_Coord_004f3f40().Z>Map.Unknown_0055A280(Position_Coord_004f3f40())+unknown_geometry_j/2)) {
+                int light=level_light*(unknown_slot108()/(unknown_geometry_g*2));
                 brightness=Map[target_cell].unknown_10a+light;
             } else {
                 brightness=Map[target_cell].unknown_10a+((Map[Position_Coord_004f3f40()].unknown_140&0x10000)?-500:0);
@@ -70,9 +71,9 @@ void InfantryClass::unknown_slot67(Point2D const &input, Rect const &window)
             brightness+=Rules->ExtraInfantryLight;
             int height=unknown_slot108();
             CellClass *current_cell=&Map[Position_Coord_004f3f40()];
-            if ((current_cell->unknown_140&0x100) && height>=unknown_bridge_height_a41120) {
+            if ((current_cell->unknown_140&0x100) && height>=unknown_geometry_j) {
                 if (((current_cell->unknown_140&0x800) && (current_cell->Adjacent_Cell(0).unknown_140&0x100)) ||
-                    (!(current_cell->unknown_140&0x800) && (current_cell->Adjacent_Cell(6).unknown_140&0x100))) height-=unknown_bridge_height_a41120;
+                    (!(current_cell->unknown_140&0x800) && (current_cell->Adjacent_Cell(6).unknown_140&0x100))) height-=unknown_geometry_j;
             }
             if (height>0 && (unknown_infantry_shadow_00a41134 ||
                 (unknown_infantry_shadow_00a41134=static_cast<ShapeFileStruct const *>(MixFileClass::Retrieve("INFSHDW.SHP"))))) {

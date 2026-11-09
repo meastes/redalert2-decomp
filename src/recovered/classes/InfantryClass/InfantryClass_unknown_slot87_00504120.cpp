@@ -7,7 +7,6 @@
 // Head from ra2-decomp (YR 0x0051D0D0): the threat test through operator!=, the direction through the file-local
 // Coord_Direction on a copy of Coord, and the cell fraction through Cell_Fraction. Direct position.X/.Y reads there
 // let VC6 fold the height product into its operand register (imul edi,[g]) and flip the Adjacent_Cell sum.
-// @ref ?unknown_level_height_a41130@@3HA=00a41130
 #include "shared/infantry.hpp"
 #include "shared/map_view.hpp"
 #include "shared/cell.hpp"
@@ -17,6 +16,7 @@
 #include "shared/random2.hpp"
 #include "shared/unknown_geometry.hpp"
 // @ref _unknown_geometry_k=00a410d8
+// @ref _unknown_geometry_g=00a41130
 
 // The direction from one point to another (Westwood's Direction(Point2D, Point2D), by value).
 inline UnknownFacingDir Direction_00504120(Point2D const &from, Point2D const &to)
@@ -72,7 +72,7 @@ void InfantryClass::unknown_slot87(CoordStruct const &threat, bool forced, bool 
         CellClass *origin_cell=&Map[origin];
         int height=origin_cell->unknown_11b+unknown_slot46(0) ? 4 : 0;
         CoordStruct destination=unknown_slot19(0);
-        destination.Z=height*unknown_level_height_a41130;
+        destination.Z=height*unknown_geometry_g;
         for (int index=0;index<8;++index) {
             int direction=(facing+index)&7;
             Cell check=Adjacent_Cell(origin,direction);

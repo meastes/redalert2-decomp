@@ -4,8 +4,8 @@
     "id": "population-4301",
     "inventory_sha256": "e3904bfa22cf989d2d26a0e016aa2ca52c5e3d67a4090506b1b079d75be5f0b8",
     "gaps_sha256": "4f9095dc7124eab2120fdf153a9045bf73f463ee8ba9a29887bab38154c7913f",
-    "historical_population_sha256": "4448cc366be0ee44cf9c80cfd0a4e0aa3eb1993334842e8059817f8cbe4dcf3b",
-    "historical_acceptance_sha256": "5d44b6722f239f1f2f8c7ae371b5a6811a7e6cb732f6254ad745538281a5cd90"
+    "historical_population_sha256": "9d4ac876331dfc27906654c74c5c28a41bf40be90be75f821cbefd2a3d0b1a7a",
+    "historical_acceptance_sha256": "63461852b932a5e80001b264dda9fda9cdfc4159211011d7708419f2eb5bae31"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -11835,7 +11835,57 @@
     "??0ColorScheme@@QAE@PBDABVHSVClass@@PAXPAVPaletteClass@@H_N@Z": 6699504,
     "??1ColorScheme@@QAE@XZ": 6699952,
     "??0ColorScheme@@QAE@XZ": 6699312,
-    "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120
+    "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120,
+    "?Kind_Of@FactoryClass@@UBEHXZ": 4955936,
+    "?Size_Of@FactoryClass@@UBEHXZ": 4955952,
+    "?unknown_slot6@CommandClass@@UBE_NH@Z": 5353088,
+    "?Execute@CreateTeamCommandClass@@UBEXH@Z": 5353312,
+    "?Execute@SelectTeamCommandClass@@UBEXH@Z": 5354272,
+    "?Execute@AddTeamCommandClass@@UBEXH@Z": 5354512,
+    "?Execute@CenterTeamCommandClass@@UBEXH@Z": 5354752,
+    "?unknown_slot7@PlanningModeCommandClass@@UBE_NH@Z": 5356000,
+    "?unknown_slot5@CombatantSelectCommandClass@@UBE_NH@Z": 5356160,
+    "?unknown_slot5@TypeSelectCommandClass@@UBE_NH@Z": 5356320,
+    "?unknown_slot7@TypeSelectCommandClass@@UBE_NH@Z": 5356352,
+    "?unknown_slot5@HealthNavCommandClass@@UBE_NH@Z": 5356512,
+    "?unknown_slot5@VeterancyNavCommandClass@@UBE_NH@Z": 5356672,
+    "?Execute@StopCommandClass@@UBEXH@Z": 5357088,
+    "?Execute@AllToCheerCommandClass@@UBEXH@Z": 5357216,
+    "?Execute@DeployCommandClass@@UBEXH@Z": 5357344,
+    "?Execute@GuardCommandClass@@UBEXH@Z": 5357472,
+    "?Execute@ScatterCommandClass@@UBEXH@Z": 5357600,
+    "?Execute@AllianceCommandClass@@UBEXH@Z": 5358640,
+    "?Execute@ToggleRepairCommandClass@@UBEXH@Z": 5358768,
+    "?Execute@ToggleSellCommandClass@@UBEXH@Z": 5358896,
+    "?Execute@CenterREventCommandClass@@UBEXH@Z": 5359168,
+    "?Execute@SidebarUpCommandClass@@UBEXH@Z": 5359296,
+    "?Execute@LSidebarUpCommandClass@@UBEXH@Z": 5359440,
+    "?Execute@RSidebarUpCommandClass@@UBEXH@Z": 5359584,
+    "?Execute@SidebarPageUpCommandClass@@UBEXH@Z": 5359728,
+    "?Execute@LSidebarPageUpCommandClass@@UBEXH@Z": 5359872,
+    "?Execute@RSidebarPageUpCommandClass@@UBEXH@Z": 5360016,
+    "?Execute@SidebarDownCommandClass@@UBEXH@Z": 5360160,
+    "?Execute@LSidebarDownCommandClass@@UBEXH@Z": 5360304,
+    "?Execute@RSidebarDownCommandClass@@UBEXH@Z": 5360448,
+    "?Execute@SidebarPageDownCommandClass@@UBEXH@Z": 5360592,
+    "?Execute@LSidebarPageDownCommandClass@@UBEXH@Z": 5360736,
+    "?Execute@RSidebarPageDownCommandClass@@UBEXH@Z": 5360880,
+    "?Execute@OptionsCommandClass@@UBEXH@Z": 5361024,
+    "?Execute@DeleteCommandClass@@UBEXH@Z": 5364272,
+    "?Detach@TeamClass@@UAEXPAVAbstractClass@@_N@Z": 7050640,
+    "?Execute@BeaconPlacementCommandClass@@UBEXH@Z": 5359024,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "?unknown_slot5@CommandClass@@UBE_NH@Z": 5353072,
+    "?unknown_slot7@CommandClass@@UBE_NH@Z": 5353104,
+    "?unknown_slot6@PlanningModeCommandClass@@UBE_NH@Z": 5355984,
+    "?unknown_slot6@TypeSelectCommandClass@@UBE_NH@Z": 5356336,
+    "?Execute@TypeSelectCommandClass@@UBEXH@Z": 5356368,
+    "?Execute@PageUserCommandClass@@UBEXH@Z": 5363952,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "?Execute@CenterViewCommandClass@@UBEXH@Z": 5357728,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300
   },
   "regions": [
     {
@@ -14259,13 +14309,13 @@
         {
           "offset": 261,
           "kind": 6,
-          "symbol": "?unknown_bridge_height_a41120@@3HA",
+          "symbol": "_unknown_geometry_j",
           "target": 10752288,
           "addend": 0,
           "resolved": 10752288
         }
       ],
-      "source_sha256": "07b91aeb6b942d60b223565376434e3d5fc84bf3f755ba86e5489b514988b335",
+      "source_sha256": "74f4dfff562441780e6e74ede74f26048f4a03467fd6e1186737138edb5fb024",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot53_00504fd0.cpp",
       "population": "population-4301",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -15018,13 +15068,13 @@
         {
           "offset": 45,
           "kind": 6,
-          "symbol": "?unknown_bridge_height_a41120@@3HA",
+          "symbol": "_unknown_geometry_j",
           "target": 10752288,
           "addend": 0,
           "resolved": 10752288
         }
       ],
-      "source_sha256": "864430a43b49c7fcfca8824804ba04dd09b0fc1d4d47a846ab24621c5231a470",
+      "source_sha256": "c23151d753456e65431d88a3130a748cf4c60c77bb472076125a96dc3e20b9e2",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot58_00508410.cpp",
       "population": "population-4301",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -16655,13 +16705,13 @@
         {
           "offset": 42,
           "kind": 6,
-          "symbol": "?unknown_bridge_height_a41120@@3HA",
+          "symbol": "_unknown_geometry_j",
           "target": 10752288,
           "addend": 0,
           "resolved": 10752288
         }
       ],
-      "source_sha256": "15249f93a8482b7a9e7217720a308b212ff6dacd533685c433aa103a9b6e899c",
+      "source_sha256": "ce50fc1a0c759bb78779c7408c1d8f97a2ae4c650d325c7ae668cdbec2b39f5a",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot59_005084a0.cpp",
       "population": "population-4301",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -19188,7 +19238,7 @@
         {
           "offset": 705,
           "kind": 6,
-          "symbol": "?unknown_bridge_height_a41120@@3HA",
+          "symbol": "_unknown_geometry_j",
           "target": 10752288,
           "addend": 0,
           "resolved": 10752288
@@ -19314,7 +19364,7 @@
           "resolved": 4294895071
         }
       ],
-      "source_sha256": "1e031672a6e6d0c394ade4671fb71e4f12ddcae6bd8b009d20011a3a880a60e5",
+      "source_sha256": "86fa9fa71bf31f110ca5fa5b7102792754748ed1b7f7833e71274ff29d1aa49b",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Read_INI_00506960.cpp",
       "population": "population-4301",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -21478,7 +21528,7 @@
         {
           "offset": 744,
           "kind": 6,
-          "symbol": "?unknown_bridge_height_a41120@@3HA",
+          "symbol": "_unknown_geometry_j",
           "target": 10752288,
           "addend": 0,
           "resolved": 10752288
@@ -21518,7 +21568,7 @@
         {
           "offset": 854,
           "kind": 6,
-          "symbol": "?unknown_level_height_a41130@@3HA",
+          "symbol": "_unknown_geometry_g",
           "target": 10752304,
           "addend": 0,
           "resolved": 10752304
@@ -21566,7 +21616,7 @@
         {
           "offset": 977,
           "kind": 6,
-          "symbol": "?unknown_bridge_height_a41120@@3HA",
+          "symbol": "_unknown_geometry_j",
           "target": 10752288,
           "addend": 0,
           "resolved": 10752288
@@ -21590,7 +21640,7 @@
         {
           "offset": 1041,
           "kind": 6,
-          "symbol": "?unknown_bridge_height_a41120@@3HA",
+          "symbol": "_unknown_geometry_j",
           "target": 10752288,
           "addend": 0,
           "resolved": 10752288
@@ -21716,7 +21766,7 @@
           "resolved": 4294742318
         }
       ],
-      "source_sha256": "889aef176204f59f3f483f6c955e0851bd518858e7fffbb24c21963bf6dab9b3",
+      "source_sha256": "c3579d270a205430bc5f5cc5799fdc2444f6d38972806effcfe2b1162cd9d6b0",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Draw_It_00500550.cpp",
       "population": "population-4301",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -22696,7 +22746,7 @@
         {
           "offset": 1093,
           "kind": 6,
-          "symbol": "?unknown_level_height_a41130@@3HA",
+          "symbol": "_unknown_geometry_g",
           "target": 10752304,
           "addend": 0,
           "resolved": 10752304
@@ -22862,7 +22912,7 @@
           "resolved": 276808
         }
       ],
-      "source_sha256": "9ec8fb5077d92381cbff3727a072f83a0c36265cc46cf4c6496979fca658e743",
+      "source_sha256": "e89b4af78ce2d5bac81c355be0cc9eaad10dfcd07f76bf669ba6fe5a202f79f1",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot87_00504120.cpp",
       "population": "population-4301",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

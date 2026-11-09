@@ -11,12 +11,12 @@
 #include "shared/map_view.hpp"
 #include "shared/session_state.hpp"
 #include "shared/rect.hpp"
-// @ref ?unknown_cell_852610@@3VCell@@A=00852610
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 // @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?Width@BuildingTypeClass@@QBEHXZ=00458930
 // @ref ?Foundation_Height@BuildingTypeClass@@QBEH_N@Z=00458940
+// @ref _unknown_geometry_k=00852610
 
 bool DisplayClass::Passes_Proximity_Check_004991D0(ObjectTypeClass const *object, int house, Cell const *list, Cell const &trycell) const
 {
@@ -28,7 +28,7 @@ bool DisplayClass::Passes_Proximity_Check_004991D0(ObjectTypeClass const *object
         return true;
     }
 
-    if (list == 0 || trycell == unknown_cell_852610) {
+    if (list == 0 || trycell == unknown_geometry_k) {
         return true;
     }
 

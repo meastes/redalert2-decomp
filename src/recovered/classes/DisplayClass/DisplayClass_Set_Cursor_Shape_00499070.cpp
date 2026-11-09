@@ -7,16 +7,16 @@
 // The size less (1, 1) is negated and halved with TPoint2D<short>'s operators.
 #include "shared/display.hpp"
 #include "shared/crt_memory.hpp"
-// @ref ?unknown_cell_852610@@3VCell@@A=00852610
 // @ref _?_list@?7??Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z@4PAV3@A=008524b0
 // @ref _?$S71@?7??Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z@4EA=008525f0
+// @ref _unknown_geometry_k=00852610
 
 void DisplayClass::Set_Cursor_Shape(Cell const *list)
 {
     if (unknown_1188) {
         Unknown_00499970(unknown_117e + unknown_1182, false);
     }
-    unknown_1182 = unknown_cell_852610;
+    unknown_1182 = unknown_geometry_k;
 
     if (list) {
         static Cell _list[50];

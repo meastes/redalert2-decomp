@@ -66,7 +66,6 @@ public:
 // The class ID GetClassID reports (0x007A1B10).
 extern "C" GUID const unknown_clsid_infantry_type_7a1b10;
 // The height factor slot 31 doubles (0x00A411B0).
-extern int unknown_a411b0;
 
 class InfantryTypeClass : public TechnoTypeClass {
 public:

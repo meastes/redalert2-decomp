@@ -67,7 +67,6 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 // also use it): whether a house may enter the mode +0x11B0 (0x0042E700).
 
 // The cell value DisplayClass starts its cursor cells with (0x00852610).
-extern Cell unknown_cell_852610;
 
 class DisplayClass : public MapClass {
 public:

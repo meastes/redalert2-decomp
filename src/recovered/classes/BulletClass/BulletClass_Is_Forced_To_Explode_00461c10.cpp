@@ -7,8 +7,8 @@
 #define SHAPE_FILE_EMPTY_RECT unknown_static_rect
 #include "shared/techno.hpp"
 // @ref ?Unknown_004BBAF0@@=004bbaf0
-// @ref ?unknown_level_height_850348@@=00850348
 // @ref ?unknown_5d4c00@ObjectClass@@QAEHPAVAbstractClass@@@Z=005d4c00
+// @ref _unknown_geometry_g=00850348
 bool BulletClass::Is_Forced_To_Explode_00461c10(CoordStruct &coord)
 {
     coord = Coord;
@@ -19,7 +19,7 @@ bool BulletClass::Is_Forced_To_Explode_00461c10(CoordStruct &coord)
         CellClass *previous = &Map[LastMapCoords];
         if (Unknown_004BBAF0(source, destination, previous, coord, Type, Owner == 0 ? 0 : Owner->House)) return true;
     }
-    if (unknown_slot108() <= -unknown_level_height_850348 * 4) return true;
+    if (unknown_slot108() <= -unknown_geometry_g * 4) return true;
     if (Target != 0 && Type->FlakScatter) {
         CoordStruct current = Coord;
         if (current.Z < Target->unknown_slot22().Z && unknown_slot108() < 0) return true;

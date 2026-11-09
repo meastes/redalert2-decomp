@@ -11,9 +11,9 @@
 // @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Unknown_004764B0@UnknownCellClass@@QAE?AUCoordStruct@@ABU2@H_N@Z=004764b0
 // @ref ?unknown_a40774@@3HA=00a40774
-// @ref ?unknown_bridge_height_a41120@@3HA=00a41120
 // @ref ?unknown_slot53@FootClass@@UAE_NPBUCoordStruct@@H@Z=004c5e40
 // @ref _unknown_geometry_l=00a410f8
+// @ref _unknown_geometry_j=00a41120
 
 bool InfantryClass::unknown_slot53(CoordStruct const *coord, int dir)
 {
@@ -32,7 +32,7 @@ bool InfantryClass::unknown_slot53(CoordStruct const *coord, int dir)
         if (Type->Sight == 0) {
             unknown_373 = false;
         }
-        if (where.Z <= unknown_bridge_height_a41120 + ground) {
+        if (where.Z <= unknown_geometry_j + ground) {
             unknown_slot58(where);
         }
         unknown_5d0 = 2;

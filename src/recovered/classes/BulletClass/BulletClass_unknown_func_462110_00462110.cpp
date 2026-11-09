@@ -44,6 +44,7 @@
 // @ref ?Unknown_006E27B0@UnknownTechno208@@QAEXPAVTechnoClass@@@Z=006e27b0
 // @ref ?unknown_func_462c50@BulletClass@@QAEXXZ=00462c50
 // @ref ?unknown_func_463c50@BulletClass@@QAEXXZ=00463c50
+// @ref _unknown_geometry_g=00850348
 
 // The impact animation of a warhead hitting a land type (-1 above the
 // ground) at a coordinate (0x0047F4D0, __fastcall; hypothesis).
@@ -133,7 +134,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
     CoordStruct impact = position;
     if (Type->Inviso) impact = Coord_Scatter(impact, 32, false);
     int land = -1;
-    if (unknown_slot108() < unknown_level_height_850348 * 2) {
+    if (unknown_slot108() < unknown_geometry_g * 2) {
         land = Map[CoordStruct(Coord)].unknown_ec;
         if (land == 2 && damage_result == 0) {
             ObjectClass *occupier = Map[CoordStruct(Coord)].OccupierPtr;

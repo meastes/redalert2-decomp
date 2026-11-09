@@ -44,7 +44,6 @@ class HouseClass;
 // __fastcall: the source and target cells in ECX/EDX; hypothesis).
 int __fastcall Unknown_004BBAF0(CellClass *source, CellClass *target, CellClass *last, CoordStruct coord, BulletTypeClass *type, HouseClass *house);
 // The height of one cell level in leptons (0x00850348; hypothesis).
-extern int unknown_level_height_850348;
 // A coordinate moved a random distance away (0x00491750, __fastcall; the
 // result through ECX; hypothesis: Westwood's Coord_Scatter).
 CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, bool lock);

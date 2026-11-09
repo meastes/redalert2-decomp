@@ -291,7 +291,6 @@ public:
 // declared fastcall; owner hypothesis CellClass static).
 int __fastcall Unknown_004763D0(CoordStruct const &coord);
 // The height above ground at which an object is on a bridge (0x00A41120).
-extern int unknown_bridge_height_a41120;
 
 // Per-sequence controls (0x007A3474, 38 entries indexed by Sequence; RA's
 // MasterDoControls: interruptible, mobile, random start, frame rate).
@@ -332,7 +331,6 @@ inline UnknownFacingDir Direction_Of(CoordStruct from, CoordStruct to)
 }
 // The cell returned when none is found (0x00A410D8).
 // The height of one level (0x00A41130).
-extern int unknown_level_height_a41130;
 
 
 // The unit as an infantry unit (kind 15), or null.
