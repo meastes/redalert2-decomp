@@ -2247,6 +2247,30 @@ def ecx_owners(row):
     return owners
 
 
+def validate_recursive_calls(body, name, conv, params):
+    """A recursive call must fit the signature this seed actually defines.
+
+    Other callees can carry explicit unresolved overload hypotheses; a seed
+    defines only one self signature. Missing register operands cannot be
+    reconstructed from the number of supplied stack arguments.
+    """
+    view = code_view(body)
+    if name in variable_types(body, params):
+        return
+    member = conv == '__thiscall'
+    variadic = '...' in params
+    count = len(params) - int(variadic)
+    for start, end, args, _ in call_sites(body, name):
+        if not view.startswith(name, start) or view[:start].rstrip().endswith(('.', '->', '::')):
+            continue
+        expected = {count, count - 1} if member and count else {count}
+        valid = len(args) >= min(expected) if variadic else len(args) in expected
+        if not valid:
+            raise ValueError('Recursive Ghidra call %s supplies %d arguments; seed signature requires %s (%s). '
+                             'Register operands/prototype remain unverified' %
+                             (name, len(args), '/'.join(str(n) for n in sorted(expected)), conv or '__cdecl'))
+
+
 def declare_callee(body, name, prototype, owner_hint=None):
     """Return (body, declarations) shaped by Ghidra's call sites.
 
@@ -3000,6 +3024,7 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
         body, lines = declare_callee(body, callee, (c_ret, c_conv, c_params), hint)
         declarations.extend(lines)
     if list(call_sites(body, name)):
+        validate_recursive_calls(body, name, conv, params)
         body, _ = declare_callee(body, name, (ret, conv, params), this_name)
         body = body.replace('Callee_%08x' % entry, 'Owner_%08x' % entry)
     imports = imported_calls(body)
