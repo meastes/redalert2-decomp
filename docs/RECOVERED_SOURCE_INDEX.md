@@ -110,7 +110,7 @@
 | [classes/WorldDominationTour__Voices](../src/recovered/classes/WorldDominationTour__Voices/) | 20 | 4,997 | 20 | 0x007314C0–0x00732A50 |
 | [Movie](../src/recovered/Movie/) | 24 | 4,948 | 24 | 0x005A0250–0x005A1EF0 |
 | [classes/MSChoice](../src/recovered/classes/MSChoice/) | 72 | 4,912 | 72 | 0x005B16E0–0x005B2B70 |
-| [classes/WinModemClass](../src/recovered/classes/WinModemClass/) | 20 | 4,873 | 14 | 0x00734120–0x00735610 |
+| [classes/WinModemClass](../src/recovered/classes/WinModemClass/) | 20 | 4,873 | 16 | 0x00734120–0x00735610 |
 | [classes/SpawnManagerClass](../src/recovered/classes/SpawnManagerClass/) | 22 | 4,831 | 22 | 0x00689690–0x0068AA00 |
 | [classes/LaserDrawClass](../src/recovered/classes/LaserDrawClass/) | 11 | 4,740 | 11 | 0x00533070–0x00533C80 |
 | [classes/VoxelAnimClass](../src/recovered/classes/VoxelAnimClass/) | 18 | 4,714 | 18 | 0x0040EC40–0x0070DF90 |

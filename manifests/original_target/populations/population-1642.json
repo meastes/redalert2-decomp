@@ -5104,49 +5104,6 @@
       "source_order": 55638
     },
     {
-      "entry": 7553312,
-      "method": "00734120",
-      "symbol": "??0WinModemClass@@QAE@XZ",
-      "symbol_prefix": "??0WinModemClass@@QAE@XZ",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 74,
-      "body_sha256": "5cc915118e859eefeff999cfe0542ba8d014cfb12701fc68b8fd824aa0bd233e",
-      "padding_bytes": 6,
-      "full_extent_bytes": 80,
-      "full_extent_sha256": "22ee886ed6b229f4663151c160e058ae079b6120d084743b5539a49b5bc22bf1",
-      "relocations": [
-        {
-          "offset": 10,
-          "kind": 6,
-          "symbol": "??_7WinModemClass@@6B@",
-          "target": 8058080,
-          "addend": 0,
-          "resolved": 8058080
-        },
-        {
-          "offset": 15,
-          "kind": 20,
-          "symbol": "??2@YAPAXI@Z",
-          "target": 7872535,
-          "addend": 0,
-          "resolved": 319204
-        }
-      ],
-      "source_sha256": "b4d8ebdb699ee2bdd1c199e0a1023dcc5eb748b6fc955e2c2f400ce890f5851f",
-      "source": "src/recovered/classes/WinModemClass/WinModemClass_constructor_00734120.cpp",
-      "population": "population-1642",
-      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "semantic_name": "WinModemClass_constructor_00734120",
-      "source_order": 55639
-    },
-    {
       "entry": 7585968,
       "method": "0073c0b0",
       "symbol": "?unknown_can_send_chat@@YI_NPBUUnknownFlags_0073c0b0@@ABVWideString@@@Z",
