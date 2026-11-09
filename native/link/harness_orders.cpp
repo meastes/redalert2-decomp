@@ -15,7 +15,7 @@
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
 // <frame> hunt; <frame> capture <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
-// <frame> grant <index>" (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
+// <frame> grant <index>; <frame> super <index> enemy" (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
 // attack/capture: the building in cell x,y, mission 1 / 8; train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
 // M19; any game, the campaign too): at that frame the player's technos of type
@@ -108,6 +108,32 @@ int Scripted_Order(char const *command)
             if (Same_Type(InfantryTypes[i]->ID.Buffer, word[2])) {
                 OutList.Add(EventClass(player->ArrayIndex, 0x0E, 0x10, i, 0));
                 return 1;
+            }
+        }
+        return -1;
+    }
+    if (Same(word[1], "super", 6) && words == 4 && Same(word[3], "enemy", 6)) {
+        // `super <index> enemy` (Scout1187, M23): the cell of an enemy building,
+        // the next one at each such order (the skirmish AIs' bases in turn).
+        static int next_target = 0;
+        int buildings = 0;
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno && techno->House != unknown_player_a35db4 && techno->Kind_Of() == 6) ++buildings;
+        }
+        if (buildings == 0) return -1;
+        int pick = (next_target++ * 7) % buildings;
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno && techno->House != unknown_player_a35db4 && techno->Kind_Of() == 6 && pick-- == 0) {
+                Cell cell = techno->Center_Coord().As_Cell();
+                char text[64] = "0 super ";
+                Append(text, word[2]);
+                Append(text, " ");
+                Append_Int(text, cell.X);
+                Append(text, " ");
+                Append_Int(text, cell.Y);
+                return Scripted_Order(text);
             }
         }
         return -1;

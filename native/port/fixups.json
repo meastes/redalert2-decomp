@@ -1294,6 +1294,90 @@
    "old": "techno->unknown_slot259((int)TargetAt(0x18).As_Abstract());",
    "new": "techno->unknown_slot259((intptr_t)TargetAt(0x18).As_Abstract());",
    "why": "Pointer width (Scout1177, M22, found by scanning for int parameters cast to object pointers after the slot 25/280 faults): TechnoClass slot 259 (0x006D48D0/FootClass 0x004C8020) takes an AbstractClass * as a DWORD (EventClass::Execute 0x004B65C0 passes (int)TargetAt(...).As_Abstract(); FootClass stores it at +0x490). Natively the parameter is pointer-sized intptr_t, so the address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/shared/campaign_score.hpp",
+   "old": "int __fastcall unknown_dialog_box_5eab60(int resource,",
+   "new": "intptr_t __fastcall unknown_dialog_box_5eab60(int resource,",
+   "why": "Pointer width (Scout1187, M23): the movie list proc 0x005134C0 stores LB_GETITEMDATA (the MovieEntryStruct * Fill_Movie_List 0x005DA470 set) through the dialog's DWL_USER result pointer, and Select_Game 0x005135F0 casts unknown_dialog_box_5eab60's int result back to the entry (UnknownMovieEntry *). On VC6 int and pointer are both 32 bits; natively the result slot, the proc's store and the box's return are intptr_t, so the entry pointer survives and Play Movie works. Other procs store ints into the low half of the zeroed slot and read back unchanged (their callers keep int). Same meaning."
+  },
+  {
+   "source": "src/recovered/ownrdraw/unknown_dialog_box_5eab60_005eab60.cpp",
+   "old": "int __fastcall unknown_dialog_box_5eab60(int resource,",
+   "new": "intptr_t __fastcall unknown_dialog_box_5eab60(int resource,",
+   "why": "Pointer width (Scout1187, M23): the movie list proc 0x005134C0 stores LB_GETITEMDATA (the MovieEntryStruct * Fill_Movie_List 0x005DA470 set) through the dialog's DWL_USER result pointer, and Select_Game 0x005135F0 casts unknown_dialog_box_5eab60's int result back to the entry (UnknownMovieEntry *). On VC6 int and pointer are both 32 bits; natively the result slot, the proc's store and the box's return are intptr_t, so the entry pointer survives and Play Movie works. Other procs store ints into the low half of the zeroed slot and read back unchanged (their callers keep int). Same meaning."
+  },
+  {
+   "source": "src/recovered/ownrdraw/unknown_dialog_box_5eab60_005eab60.cpp",
+   "old": "    int result = 0;",
+   "new": "    intptr_t result = 0;",
+   "why": "Pointer width (Scout1187, M23): the movie list proc 0x005134C0 stores LB_GETITEMDATA (the MovieEntryStruct * Fill_Movie_List 0x005DA470 set) through the dialog's DWL_USER result pointer, and Select_Game 0x005135F0 casts unknown_dialog_box_5eab60's int result back to the entry (UnknownMovieEntry *). On VC6 int and pointer are both 32 bits; natively the result slot, the proc's store and the box's return are intptr_t, so the entry pointer survives and Play Movie works. Other procs store ints into the low half of the zeroed slot and read back unchanged (their callers keep int). Same meaning."
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_005134C0_005134c0.cpp",
+   "old": "    int *choice = (int *)GetWindowLongA(window, 8);",
+   "new": "    intptr_t *choice = (intptr_t *)GetWindowLongA(window, 8);",
+   "why": "Pointer width (Scout1187, M23): the movie list proc 0x005134C0 stores LB_GETITEMDATA (the MovieEntryStruct * Fill_Movie_List 0x005DA470 set) through the dialog's DWL_USER result pointer, and Select_Game 0x005135F0 casts unknown_dialog_box_5eab60's int result back to the entry (UnknownMovieEntry *). On VC6 int and pointer are both 32 bits; natively the result slot, the proc's store and the box's return are intptr_t, so the entry pointer survives and Play Movie works. Other procs store ints into the low half of the zeroed slot and read back unchanged (their callers keep int). Same meaning."
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_005134C0_005134c0.cpp",
+   "old": "            int movie = SendMessageA(list, 0x199, index, 0);",
+   "new": "            intptr_t movie = SendMessageA(list, 0x199, index, 0);",
+   "why": "Pointer width (Scout1187, M23): the movie list proc 0x005134C0 stores LB_GETITEMDATA (the MovieEntryStruct * Fill_Movie_List 0x005DA470 set) through the dialog's DWL_USER result pointer, and Select_Game 0x005135F0 casts unknown_dialog_box_5eab60's int result back to the entry (UnknownMovieEntry *). On VC6 int and pointer are both 32 bits; natively the result slot, the proc's store and the box's return are intptr_t, so the entry pointer survives and Play Movie works. Other procs store ints into the low half of the zeroed slot and read back unchanged (their callers keep int). Same meaning."
+  },
+  {
+   "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
+   "old": "    int unknown_4;          // +0x04",
+   "new": "    char const *unknown_4;  // +0x04 (NATIVE: MovieEntryStruct::Label, pointer-sized)",
+   "why": "Pointer width (Scout1187, M23): UnknownMovieEntry is the MovieEntryStruct (options.hpp: Name, Label, Side) that the movie list proc 0x005134C0 returns; Select_Game 0x005135F0 reads Name (+0x00) and the CD at +0x08 (MovieEntryStruct::Side). +0x04 is the Label string pointer, unused here; natively it is pointer-sized so CD lands on Side as in the VC6 layout. Same meaning."
+  },
+  {
+   "source": "src/shared/lobby.hpp",
+   "old": "int __fastcall unknown_previous_key(int key);",
+   "new": "intptr_t __fastcall unknown_previous_key(intptr_t key);",
+   "why": "Pointer width (Scout1187, M23): the dialog stack walk 0x007359B0 / 0x00735970 (win32_window.hpp DialogStack at 0x00B25BB8) takes and returns a dialog's HWND as an int; every caller writes `(HWND)unknown_previous_key((int)dialog)` (native_units.py widens those casts). On VC6 both are 32 bits. Natively the key and the result are intptr_t, so the walk finds the dialog again: Set_Display_Mode 0x005434E0's relayout loop over the open dialogs (Unknown_005FF380 + Unknown_005E9F00) stopped at the first truncated HWND, which left the Options page unpainted after a resolution change. Same meaning."
+  },
+  {
+   "source": "src/recovered/unowned/unknown_previous_key_007359b0.cpp",
+   "old": "int __fastcall unknown_previous_key(int key)",
+   "new": "intptr_t __fastcall unknown_previous_key(intptr_t key)",
+   "why": "Pointer width (Scout1187, M23): the dialog stack walk 0x007359B0 / 0x00735970 (win32_window.hpp DialogStack at 0x00B25BB8) takes and returns a dialog's HWND as an int; every caller writes `(HWND)unknown_previous_key((int)dialog)` (native_units.py widens those casts). On VC6 both are 32 bits. Natively the key and the result are intptr_t, so the walk finds the dialog again: Set_Display_Mode 0x005434E0's relayout loop over the open dialogs (Unknown_005FF380 + Unknown_005E9F00) stopped at the first truncated HWND, which left the Options page unpainted after a resolution change. Same meaning."
+  },
+  {
+   "source": "src/recovered/unowned/unknown_previous_key_007359b0.cpp",
+   "old": "(int)DialogStack[",
+   "new": "(intptr_t)DialogStack[",
+   "why": "Pointer width (Scout1187, M23): the dialog stack walk 0x007359B0 / 0x00735970 (win32_window.hpp DialogStack at 0x00B25BB8) takes and returns a dialog's HWND as an int; every caller writes `(HWND)unknown_previous_key((int)dialog)` (native_units.py widens those casts). On VC6 both are 32 bits. Natively the key and the result are intptr_t, so the walk finds the dialog again: Set_Display_Mode 0x005434E0's relayout loop over the open dialogs (Unknown_005FF380 + Unknown_005E9F00) stopped at the first truncated HWND, which left the Options page unpainted after a resolution change. Same meaning."
+  },
+  {
+   "source": "src/recovered/unowned/unknown_next_key_00735970.cpp",
+   "old": "int __fastcall unknown_next_key(int key)",
+   "new": "intptr_t __fastcall unknown_next_key(intptr_t key)",
+   "why": "Pointer width (Scout1187, M23): the dialog stack walk 0x007359B0 / 0x00735970 (win32_window.hpp DialogStack at 0x00B25BB8) takes and returns a dialog's HWND as an int; every caller writes `(HWND)unknown_previous_key((int)dialog)` (native_units.py widens those casts). On VC6 both are 32 bits. Natively the key and the result are intptr_t, so the walk finds the dialog again: Set_Display_Mode 0x005434E0's relayout loop over the open dialogs (Unknown_005FF380 + Unknown_005E9F00) stopped at the first truncated HWND, which left the Options page unpainted after a resolution change. Same meaning."
+  },
+  {
+   "source": "src/recovered/unowned/unknown_next_key_00735970.cpp",
+   "old": "(int)DialogStack[",
+   "new": "(intptr_t)DialogStack[",
+   "why": "Pointer width (Scout1187, M23): the dialog stack walk 0x007359B0 / 0x00735970 (win32_window.hpp DialogStack at 0x00B25BB8) takes and returns a dialog's HWND as an int; every caller writes `(HWND)unknown_previous_key((int)dialog)` (native_units.py widens those casts). On VC6 both are 32 bits. Natively the key and the result are intptr_t, so the walk finds the dialog again: Set_Display_Mode 0x005434E0's relayout loop over the open dialogs (Unknown_005FF380 + Unknown_005E9F00) stopped at the first truncated HWND, which left the Options page unpainted after a resolution change. Same meaning."
+  },
+  {
+   "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
+   "old": "                case 2:\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 4;\n                    IPXAddressClass::Set_Protocol(2);\n",
+   "new": "                case 2:\n                    if (Native_Multiplayer_Unavailable()) {   /* NATIVE: multiplayer out of scope */\n                        selection = 0x12;\n                        break;\n                    }\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 4;\n                    IPXAddressClass::Set_Protocol(2);\n",
+   "why": "Native single player scope (Scout1187, M23; user decision: multiplayer is out of scope, its WOL/IPX/modem code stays link-closure traps): the main menu's Internet (2) and Network (3) selections of Select_Game 0x005135F0 start WOL (session type 4) and the LAN game (type 3), which reach IPXManagerClass::Service and fault natively. Natively they first ask Native_Multiplayer_Unavailable (link/behaviour_m23.cpp), which says so in a message box and returns true; Select_Game then shows the main menu again (selection 0x12, as its own failure paths do). The original statements follow unchanged for a build that has the network."
+  },
+  {
+   "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
+   "old": "                case 3:\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 3;\n                    IPXAddressClass::Set_Protocol(1);\n",
+   "new": "                case 3:\n                    if (Native_Multiplayer_Unavailable()) {   /* NATIVE: multiplayer out of scope */\n                        selection = 0x12;\n                        break;\n                    }\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 3;\n                    IPXAddressClass::Set_Protocol(1);\n",
+   "why": "Native single player scope (Scout1187, M23; user decision: multiplayer is out of scope, its WOL/IPX/modem code stays link-closure traps): the main menu's Internet (2) and Network (3) selections of Select_Game 0x005135F0 start WOL (session type 4) and the LAN game (type 3), which reach IPXManagerClass::Service and fault natively. Natively they first ask Native_Multiplayer_Unavailable (link/behaviour_m23.cpp), which says so in a message box and returns true; Select_Game then shows the main menu again (selection 0x12, as its own failure paths do). The original statements follow unchanged for a build that has the network."
+  },
+  {
+   "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
+   "old": "struct UnknownMovieEntry {",
+   "new": "bool Native_Multiplayer_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nstruct UnknownMovieEntry {",
+   "why": "Native single player scope (Scout1187, M23; user decision: multiplayer is out of scope, its WOL/IPX/modem code stays link-closure traps): the main menu's Internet (2) and Network (3) selections of Select_Game 0x005135F0 start WOL (session type 4) and the LAN game (type 3), which reach IPXManagerClass::Service and fault natively. Natively they first ask Native_Multiplayer_Unavailable (link/behaviour_m23.cpp), which says so in a message box and returns true; Select_Game then shows the main menu again (selection 0x12, as its own failure paths do). The original statements follow unchanged for a build that has the network."
   }
  ]
 }

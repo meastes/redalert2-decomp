@@ -497,6 +497,41 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   holds the finished building, not only when the player's building count rose
   (campaign buildings may die meanwhile).
 
+### Options repaint, Play Movie, seed frees, menus without multiplayer (Scout1187, M23)
+
+- **Options page after a resolution change.** Set_Display_Mode 0x005434E0 walks
+  the open dialogs with `(HWND)unknown_previous_key((int)dialog)` (0x007359B0,
+  the dialog stack): the cut HWND ended the walk, so the Options page was not
+  moved and resized. The walk and its counterpart 0x00735970 are pointer-sized
+  (fixups; native_units.py widens the callers' casts). The port's USER32 now also
+  repaints as Windows does: every dialog after a display mode change, and the
+  dialogs a closed dialog uncovers (the mode confirmation over the Options page,
+  whose screen Main_Options_Proc refills after the change).
+- **Play Movie from the movie list.** The list proc 0x005134C0 stores the
+  entry's MovieEntryStruct * through the dialog's result slot and Select_Game
+  casts unknown_dialog_box_5eab60's int result back: the result slot, the store
+  and the box's return are intptr_t natively, and Select_Game's entry view has
+  the Label pointer at +0x04 (fixups). The chosen movie plays.
+- **Seed frees.** The 109 seed-generated `FUN_00781d3b((undefined4)(x))` calls
+  pass a pointer-sized value to `ra2port_seed_free` (native_units.py rule;
+  `link/behaviour_m23.cpp`): a full pointer (`this` in the 74 scalar deleting
+  destructors) is freed; a value already read through a 32-bit field (no heap
+  block lives below 4 GiB) is reported as a trap instead.
+- **Main menu keys.** The cheat records 0x007DB500 and the build time 0x007D8940
+  (layouts original_data.py leaves out) are filled from game.exe after the
+  original data (`ra2_native_original_records`): with the zero placeholder the
+  first letter typed in the main menu faulted in strstr.
+- **Multiplayer out of scope.** The main menu's Internet and Network buttons show
+  "Multiplayer is not available in this build." and return to the main menu
+  (`Native_Multiplayer_Unavailable`, a Select_Game fixup) instead of faulting in
+  IPXManagerClass; the WOL/IPX/modem code stays link-closure traps.
+- **Harness.** `RA2_NATIVE_SKIRMISH_AI=<1-7>` (and `RA2_NATIVE_SKIRMISH_AI_LEVEL`
+  0-2) gives the skirmish harness that many computer players;
+  `RA2_NATIVE_LIST_MAPS=1` prints the scenario list with player ranges (`'#10'`
+  is MP01T4, four players); `RA2_NATIVE_ORDERS="<frame> super <index> enemy"`
+  fires a super weapon at an enemy building (the next one each time);
+  `RA2_NATIVE_FORCE_END` entries fire at the first frame at or past them.
+
 ### Data the original stores (game.exe at run time)
 
 User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and

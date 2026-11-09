@@ -148,6 +148,10 @@ void display_mode_changed(int width, int height)
     w->rect = {0, 0, width, height};
     post_message(main_hwnd, 0x0003, 0, 0);                                                  // WM_MOVE (0, 0)
     post_message(main_hwnd, 0x0005, 0, (LPARAM)((height & 0xFFFF) << 16 | (width & 0xFFFF)));   // WM_SIZE
+    // Windows repaints every window after a display change: the open dialogs
+    // (the Options page under the mode confirmation, moved by Set_Display_Mode
+    // 0x005434E0's relayout loop) get WM_PAINT again (Scout1187, M23).
+    for (HWND d : dialog_windows) invalidate(d);
 }
 BOOL post_message(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
@@ -239,8 +243,20 @@ BOOL DestroyWindow(HWND hwnd)
         for (size_t i = 0; i < parent->children.size(); ++i)
             if (parent->children[i] == hwnd) { parent->children.erase(parent->children.begin() + (long)i); break; }
     }
+    bool uncovers = false;
     for (size_t i = 0; i < dialog_windows.size(); ++i)
-        if (dialog_windows[i] == hwnd) { dialog_windows.erase(dialog_windows.begin() + (long)i); break; }
+        if (dialog_windows[i] == hwnd) { uncovers = w->visible; dialog_windows.erase(dialog_windows.begin() + (long)i); break; }
+    // Windows invalidates what a closed window uncovers: the dialogs below a
+    // closed visible dialog that it overlapped get WM_PAINT (the Options page
+    // under the mode confirmation, whose screen Main_Options_Proc 0x00542590
+    // refills after a resolution change; Scout1187, M23).
+    if (uncovers) {
+        for (HWND d : dialog_windows) {
+            Window *o = win(d);
+            if (o && o->visible && o->rect.left < w->rect.right && w->rect.left < o->rect.right
+                && o->rect.top < w->rect.bottom && w->rect.top < o->rect.bottom) invalidate(d);
+        }
+    }
     if (capture_hwnd == hwnd) capture_hwnd = nullptr;
     if (focus_hwnd == hwnd) focus_hwnd = main_hwnd;
     if (hwnd == main_hwnd) main_hwnd = nullptr;

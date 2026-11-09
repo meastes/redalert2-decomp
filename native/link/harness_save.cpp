@@ -62,10 +62,12 @@ void Native_Harness_Save(int frame)
             if (*p == ',') ++p;
         }
     }
-    for (int i = 0; i < end_count; ++i) {
-        if (frame == end_at[i]) {
-            if (end_lose) player_loses_a40c78 = true; else player_wins_a35db1 = true;
-        }
+    // Each entry fires once, at the first frame at or past it: a list's next
+    // mission may start a few loop frames after its entry (Scout1187, M23).
+    static int end_done = 0;
+    if (end_done < end_count && frame >= end_at[end_done]) {
+        ++end_done;
+        if (end_lose) player_loses_a40c78 = true; else player_wins_a35db1 = true;
     }
     if (at < 0 || frame != at) return;
     bool saved = Unknown_006554A0(file, L"Native M15 harness save", 0);

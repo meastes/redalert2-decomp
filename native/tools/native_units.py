@@ -91,6 +91,21 @@ RULES = [
     # Fancy_Text_Printf, MonoClass::Printf, JShell_Fatal, Add_Chat_Line, ...).
     (re.compile(r'\b(v\w*printf)\(([^;{}]*?),\s*\(\s*char\s*\*\s*\)\s*\(\s*&(\w+)\s*\+\s*1\s*\)\s*\);'),
      r'{ __builtin_va_list ra2_ap; __builtin_va_start(ra2_ap, \3); \1(\2, ra2_ap); __builtin_va_end(ra2_ap); }   /* NATIVE: was (char *)(&\3 + 1) */'),
+    # The seeds' CRT free (0x00781D3B): every seed-generated source declares it
+    # `extern void FUN_00781d3b(undefined4 param_1);` and calls it with
+    # `(undefined4)(x)`, which cuts a 64-bit pointer (74 of the 109 are scalar
+    # deleting destructors freeing `this`). Natively the argument is
+    # pointer-sized and goes to the port's seed free (link/behaviour_m23.cpp),
+    # which frees a real heap block and reports a value that was already read
+    # through a 32-bit field as a trap instead of freeing a cut address
+    # (Scout1187, M23). Same meaning: free(x).
+    (re.compile(r'\bextern\s+void\s+FUN_00781d3b\s*\(\s*undefined4\s+param_1\s*\)\s*;'),
+     r'static inline void FUN_00781d3b(intptr_t block) { ra2port_seed_free(block); }   /* NATIVE: pointer-sized free 0x00781D3B */'),
+    (re.compile(r'\bFUN_00781d3b\(\s*\(\s*undefined4\s*\)'), r'FUN_00781d3b((intptr_t)'),
+    # The dialog stack walk 0x007359B0/0x00735970 (pointer-sized natively:
+    # port/fixups.json) is called as `(HWND)unknown_previous_key((int)dialog)`;
+    # the HWND goes in at full width (Scout1187, M23).
+    (re.compile(r'(\(HWND\)\s*unknown_(?:previous|next)_key\(\s*)\(int\)'), r'\1(intptr_t)'),
     # The dialog's DWL_USER slot (index 8) carries a pointer (`(LONG)&result`,
     # `(LONG)this`; read back as `(int *)GetWindowLongA(window, 8)`). A 32-bit
     # LONG truncates it on LP64: the native view stores and reads the pointer

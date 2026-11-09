@@ -49,6 +49,9 @@ static_assert(sizeof(wchar_t) == 2, "build with -fshort-wchar: RA2 strings are U
 // rewrites SetWindowLongA(w, 8, (LONG)p) / GetWindowLongA(w, 8) to these.
 extern "C" intptr_t ra2port_set_dialog_user(const volatile void *window, const volatile void *value);
 extern "C" intptr_t ra2port_get_dialog_user(const volatile void *window);
+// The seeds' CRT free 0x00781D3B with a pointer-sized argument (native_units.py
+// rewrites the seed-generated `FUN_00781d3b((undefined4)(x))` calls to it; Scout1187, M23).
+extern "C" void ra2port_seed_free(intptr_t block);
 // GWL_WNDPROC (-4) and GWL_USERDATA (-21), pointer-sized (Win64's
 // Set/GetWindowLongPtr shape): native_units.py rewrites SetWindowLongA(w, -4|-21,
 // (LONG)p) / GetWindowLongA(w, -4|-21) to these (Scout1119, M14: the owner-draw

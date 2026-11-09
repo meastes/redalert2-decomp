@@ -21,6 +21,7 @@
 #include "shared/debug_printf.hpp"
 #include "shared/main_loop.hpp"
 #include <stdlib.h>
+#include <stdio.h>
 
 class TechnoClass;
 extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.hpp)
@@ -132,7 +133,34 @@ void Set_Up_Skirmish(char const *map)
         session.Mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
     }
     Choose_Map(map);
-    session.AICount = 1;
+    // RA2_NATIVE_SKIRMISH_AI=<n> (1-7, default 1): n computer players in slots
+    // 1..n, as the dialog's player combos store them; RA2_NATIVE_SKIRMISH_AI_LEVEL
+    // (0 easy, 1 medium, 2 brutal) their difficulty (Scout1187, M23).
+    int ai_count = 1;
+    if (char const *env = getenv("RA2_NATIVE_SKIRMISH_AI")) {
+        ai_count = To_Int(env);
+        if (ai_count < 1) ai_count = 1;
+        if (ai_count > 7) ai_count = 7;
+    }
+    int ai_level = 0;
+    if (char const *env = getenv("RA2_NATIVE_SKIRMISH_AI_LEVEL")) {
+        ai_level = To_Int(env);
+        if (ai_level > 2) ai_level = 2;
+    }
+    if (getenv("RA2_NATIVE_LIST_MAPS")) {
+        for (int i = 0; i < session.Scenarios.Count(); ++i) {
+            char line[200] = "#";
+            Append_Int(line, i, sizeof line);
+            Append(line, " ", sizeof line);
+            Append(line, session.Scenarios[i]->Get_Filename(), sizeof line);
+            Append(line, " players ", sizeof line);
+            Append_Int(line, session.Scenarios[i]->unknown_180, sizeof line);
+            Append(line, "-", sizeof line);
+            Append_Int(line, session.Scenarios[i]->unknown_184, sizeof line);
+            fprintf(stderr, "harness-maplist %s\n", line);
+        }
+    }
+    session.AICount = ai_count;
     for (int player = 0; player < 8; player++) {
         session.AIDifficulty[player] = 0;
         session.AICountry[player] = -1;
@@ -141,16 +169,20 @@ void Set_Up_Skirmish(char const *map)
     // The opponent's country. The dialog resolves "random" (-3) before the game
     // starts: Assign_Houses 0x0065FBB0 makes no house for -1 or -3, so with -3 the
     // game had no computer player (Scout1111). The harness names one: Russians.
-    int country = HouseTypeClass::Find_Index("Russians");
-    session.AIDifficulty[1] = 0;
-    session.AICountry[1] = country >= 0 ? country : 1;
-    session.AIColor[1] = 1;
+    static char const *const ai_countries[7] = {"Russians", "Arabs", "Germans", "Confederation", "British", "French", "Africans"};
+    for (int player = 1; player <= ai_count; player++) {
+        int country = HouseTypeClass::Find_Index(ai_countries[player - 1]);
+        session.AIDifficulty[player] = ai_level;
+        session.AICountry[player] = country >= 0 ? country : 1;
+        session.AIColor[player] = player;
+    }
     session.SkirmishOptions.GameMode = session.GameModeIndex;
     session.SkirmishOptions.ScenIndex = session.ScenarioIndex < 0 ? 0 : session.ScenarioIndex;
     for (int player = 1; player < 8; player++) {
-        session.SkirmishOptions.Slots[player][0] = player == 1 ? 4 : 1;   // computer / none (Skirmish_Command's values)
-        session.SkirmishOptions.Slots[player][1] = player == 1 ? session.AICountry[1] : -1;
-        session.SkirmishOptions.Slots[player][2] = player == 1 ? 1 : -1;
+        bool computer = player <= ai_count;
+        session.SkirmishOptions.Slots[player][0] = computer ? 4 + ai_level : 1;   // computer (4 easy .. 6 brutal) / none (Skirmish_Command's values)
+        session.SkirmishOptions.Slots[player][1] = computer ? session.AICountry[player] : -1;
+        session.SkirmishOptions.Slots[player][2] = computer ? player : -1;
     }
     session.Set_Value_00672a30(0, true);           // the local side (first country)
     session.Set_Value_00672ae0(0, true);           // the local colour

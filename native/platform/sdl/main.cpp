@@ -31,6 +31,8 @@ struct ra2_original_place;
 extern "C" const ra2_original_global ra2_original_globals[];
 extern "C" const ra2_original_place ra2_original_storage[];
 namespace ra2port { int load_original_data(const ra2_original_global *table, const ra2_original_place *places); }
+// Records with layouts original_data.py leaves out, filled after it (link/behaviour_m23.cpp).
+void ra2_native_original_records();
 #endif
 void ra2_install_sdl_host();
 extern "C" int ra2port_initterm_last(int *units);
@@ -129,6 +131,7 @@ int main(int argc, char **argv)
         // names, tables, constants). The static initialisers ran before main
         // and saw them zero.
         ra2port::load_original_data(ra2_original_globals, ra2_original_storage);
+        ra2_native_original_records();
     }
     if (!smoke) {
         // Hand over to the game: it creates its window through CreateWindowExA
