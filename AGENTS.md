@@ -115,8 +115,11 @@ and preserve unexpected changes rather than overwriting them.
 - Technical rulings belong to the owner: whether a source form is acceptable, which landing option
   to take, whether to revert a row. Decide, record, report; never ask the user these.
 - The test, in order: (a) could one real codebase contain this? (b) does every line do real work? No
-  dummy variables, dead code or pass-through aliases, including ones in an inline callee that only
-  tune a caller; (c) evidence first: TibSun, YR, ra2-decomp twins and real inline helpers before any
+  dummy variables, dead code or pass-through aliases (renames of existing names). A row whose named
+  values fail this is reverted to its clean form and only the dependents that then fail are reverted
+  (Is_At); real computed or looked-up values are kept and flagged, with the dependents that fail under
+  the natural form recorded in the flag note, whoever the values help ("caller-tuning" alone decides
+  nothing); (c) evidence first: TibSun, YR, ra2-decomp twins and real inline helpers before any
   calibration; (d) mark what cannot be proven with a manifest flag the strict audit and STATUS count;
   (e) when a ruling costs bytes, take the option that removes the objection and keeps everything still
   legitimate. In doubt between flagging and parking with no second opinion at hand: park.
