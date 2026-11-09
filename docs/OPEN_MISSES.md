@@ -3317,3 +3317,8 @@ Awaiting user ruling on keeping these two flagged or reverting.
 
 ## Scout1173 (2026-11-09, 0 B; NOTES in build/class-work/Scout1173/)
 - The shared-object x87 idea (Scout1169) did not move Draw_Voxel 0x6FF690 (99.44), Projectile_Motion 0x593870 (99.22) or Smoke AI 0x60BB70 (54.23); every shared-object form changes the frame. No other open FP-order rows outside Bounce 0x4370E0 (covered by Scout897).
+
+## Scout1174 (2026-11-09, 0 B; NOTES, keep/, h2/ ova/ ove/ overlays in build/class-work/Scout1174/)
+- AlphaShape Draw_All 0x41F5E0 34.72 -> 53.45 (keep/draw_all_da3_5345.cpp): Westwood always.h max/min templates give the original's 0x74 frame; Point2D difference for Get_Buffer_Ptr. Draw_In_Area 0x41F1C0 unchanged (templates worse there). Both carry one dead 8-byte frame object in the original.
+- Extract_Compressed_Events 0x6282D0 56.53 -> 57.62 (ra2-decomp do/while shape). Find_Path_Regular 0x427370 overlay rebuilt for HEAD (h2/), 78.55. Draw_Laser 0x722CB0 scores on HEAD's real signature, 59.41.
+- 0x73A680 is the ??_E of an unnamed BSTR class with no callers (needs a ruling).
