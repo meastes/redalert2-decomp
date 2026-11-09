@@ -197,6 +197,9 @@ void Set_Up_Skirmish(char const *map)
     }
     session.Unknown_00672BB0();
     session.SkirmishOptions.GameSpeed = session.GameSpeed_30;
+    // RA2_NATIVE_SKIRMISH_SPEED=<0-6> (Scout1191, M24; test scaffolding): the speed slider's value
+    // (0 fastest: the port's 60 frames per second floor) for frame-time runs.
+    if (char const *speed = getenv("RA2_NATIVE_SKIRMISH_SPEED")) unknown_a40b18 = session.GameSpeed_30 = session.SkirmishOptions.GameSpeed = atoi(speed);   // as Skirmish_Command 0x006829F0 stores it
     session.SkirmishOptions.Credits = session.unknown_24;
     session.SkirmishOptions.UnitCount = session.UnitCount;
     session.unknown_fog_a7 = false;
@@ -274,23 +277,48 @@ void Native_Harness_Save(int frame);     // harness_save.cpp
 // second) as the floor for a frame whose timer was 0, in single player and
 // skirmish only (network games pace themselves). Not original code.
 // RA2_NATIVE_UNCAPPED=1 restores the uncapped loop (test runs).
+extern "C" uint64_t ra2port_monotonic_ns(void);
+extern "C" void ra2port_sleep_until_ns(uint64_t deadline);
+// Scout1191 (M24): the floor keeps a deadline 16 ms after the previous one (at the
+// clock's nanosecond resolution) instead of sleeping whole milliseconds from the
+// frame's end: the old floor overshot by about 1.5 ms a frame (57 frames per
+// second measured with 3 AIs, not the intended 62). A frame that ran late starts
+// a new deadline from now (no catch-up burst).
 static void Native_Frame_Floor()
 {
     static int uncapped = -1;
     if (uncapped < 0) uncapped = getenv("RA2_NATIVE_UNCAPPED") ? 1 : 0;
-    static DWORD last = 0;
-    DWORD now = timeGetTime();
+    static uint64_t deadline = 0;
+    uint64_t const period = 16000000u;
     int type = unknown_session_a3d298.Type;
-    if (!uncapped && unknown_a40b18 <= 0 && (type == 0 || type == 5) && last && now - last < 16) {
-        Sleep(16 - (now - last));
-        now = timeGetTime();
+    if (uncapped || unknown_a40b18 > 0 || (type != 0 && type != 5)) {
+        deadline = 0;
+        return;
     }
-    last = now;
+    uint64_t now = ra2port_monotonic_ns();
+    if (deadline && now < deadline) {
+        ra2port_sleep_until_ns(deadline);
+        deadline += period;
+    } else {
+        deadline = now + period;
+    }
 }
+
+// Frame work times (Scout1191, M24; test diagnostics): the wall time of one
+// Main_Loop pass less the time its thread slept (Sync_Delay's pacing), summed per
+// 1,000 frames into the frames-<n>k note: mean, 95th percentile and worst.
+extern "C" thread_local uint64_t ra2port_slept_ns;
+static unsigned frame_work_us[1000];
+static int frame_work_count = 0;
 
 bool Native_Main_Loop_Seam()
 {
+    uint64_t work_start = ra2port_monotonic_ns(), slept_start = ra2port_slept_ns;
     bool over = unknown_53fbd0();
+    {
+        uint64_t spent = ra2port_monotonic_ns() - work_start - (ra2port_slept_ns - slept_start);
+        if (frame_work_count < 1000) frame_work_us[frame_work_count++] = (unsigned)(spent / 1000u);
+    }
     Native_Frame_Floor();
     // Every game counts its frames (a game started from the menus too:
     // --frames=N, scripted input by frame; Scout1119, M14).
@@ -316,8 +344,30 @@ bool Native_Main_Loop_Seam()
             Append(name, "frames-", sizeof names[0]);
             Append_Int(name, frames_done / 1000, sizeof names[0]);
             Append(name, "k", sizeof names[0]);
-            char at[32] = "game frame ";
-            Append_Int(at, Frame, sizeof at);
+            static char at_buffer[128];
+            char *at = at_buffer;
+            at[0] = 0;
+            Append(at, "game frame ", 128);
+            Append_Int(at, Frame, 128);
+            {
+                // mean / p95 / max work per frame over the last 1,000 frames, in tenths of a millisecond
+                unsigned sorted[1000];
+                int n = frame_work_count;
+                unsigned long long sum = 0;
+                for (int i = 0; i < n; ++i) { sorted[i] = frame_work_us[i]; sum += sorted[i]; }
+                for (int i = 1; i < n; ++i) { unsigned v = sorted[i]; int j = i - 1; while (j >= 0 && sorted[j] > v) { sorted[j + 1] = sorted[j]; --j; } sorted[j + 1] = v; }
+                static char work[3][16];
+                unsigned values[3] = {n ? (unsigned)(sum / n) : 0u, n ? sorted[n * 95 / 100] : 0u, n ? sorted[n - 1] : 0u};
+                static char const *labels[3] = {" work ms mean ", " p95 ", " max "};
+                for (int k = 0; k < 3; ++k) {
+                    Append(at, labels[k], 128);
+                    Append_Int(at, (int)(values[k] / 1000u), 128);
+                    Append(at, ".", 128);
+                    Append_Int(at, (int)(values[k] / 100u % 10u), 128);
+                }
+                (void)work;
+                frame_work_count = 0;
+            }
             ra2port_progress(name, at);
         }
         static bool ended = false;

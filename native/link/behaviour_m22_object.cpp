@@ -41,7 +41,7 @@ void TechnoClass::unknown_slot194() { }                                    // 0x
 bool TechnoClass::unknown_slot195() { return false; }                      // 0x006CD6E0
 bool TechnoClass::unknown_slot202() { return false; }                      // 0x00453BC0
 bool TechnoClass::unknown_slot204() { return false; }                      // 0x0041B3D0
-bool TechnoClass::unknown_slot224(int arg1) { (void)arg1; return false; }  // 0x00453BD0
+bool TechnoClass::unknown_slot224(intptr_t arg1) { (void)arg1; return false; }  // 0x00453BD0 (intptr_t natively: fixups, Scout1191 M24)
 void TechnoClass::unknown_slot240() { }                                    // 0x0041B400
 void TechnoClass::unknown_slot256() { unknown_170 = false; }               // 0x0041B430 (clears +0x170)
 ObjectTypeClass *ObjectClass::Class_Of() const { return 0; }               // 0x004CDDD0

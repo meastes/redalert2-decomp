@@ -1305,7 +1305,7 @@
    "exact": false,
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f2b50",
-   "notes": "static procedure: image or aligned text in the record's font; the original's special cases not drawn; Scout1119 (M14)"
+   "notes": "static procedure following the pass-6a decompile and the original's code (Scout1191, M24): kinds 0 text / 1 typed text / 2 picture / 3 shape / 4 animated shape, saved background BSurface +0x10, fill colour 0x4B1, text colour 0x498, movies 0x4DF/0x4E0-0x4E4/0x4F0 with timer 0x65 (the main menu's Ra2ts_l loop), animation control 0x4D3-0x4D7; the movie handle and notify window kept in a native side table (pointer-sized); Scout1119 (M14) simplified version replaced"
   },
   {
    "entry": "0x005F6690",
@@ -1435,7 +1435,7 @@
    "exact": false,
    "file": "native/link/behaviour_m14b_building.cpp",
    "source": "pass-6a decompile 00446920",
-   "notes": "simplified: no target -> guard; Can_Fire OK fires, FACING turns, ILLEGAL/CANT/RANGE drop the target; jump table, powered weapons and +0xA8 charge states not carried; Scout1121 (M14b)"
+   "notes": "follows the pass-6a decompile and the original's jump table 0x00447214 case by case (SAM two-state launcher, voxel-turret facing snap within ROT, fire results 0-10: two-shooter upgrades, prism tower support gathering up to Rules->PrismSupportMax and the delayed shot 0x0044B870, IsAnimDelayedFire, FACING/REARM return 2, CLOAKED uncloaks, AMMO/ILLEGAL/CANT/RANGE drop the target); Scout1121 (M14b), full body Scout1191 (M24)"
   },
   {
    "entry": "0x0041B300",
@@ -2776,6 +2776,83 @@
    "file": "native/link/behaviour_m22_release.cpp",
    "source": "pass-6a decompiles: each calls free 0x00781D3B or operator new",
    "notes": "Scout1177 M22 seed vector destructors' CRT callees (generated list)"
+  },
+  {
+   "entry": "0x00493DF0",
+   "name": "WWCRCEngine::operator()(char)",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m24.cpp",
+   "source": "pass-6a decompile 00493df0",
+   "notes": "forwards to the recovered CRCEngine body at the same address (one class, two names); Scout1191 (M24)"
+  },
+  {
+   "entry": "0x00493E80",
+   "name": "WWCRCEngine::operator()(bool)",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m24.cpp",
+   "source": "pass-6a decompile 00493e80",
+   "notes": "forwards to CRCEngine (same address); Scout1191 (M24)"
+  },
+  {
+   "entry": "0x00493FC0",
+   "name": "WWCRCEngine::operator()(void const *, int)",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m24.cpp",
+   "source": "pass-6a decompile 00493fc0",
+   "notes": "forwards to CRCEngine (same address); Scout1191 (M24)"
+  },
+  {
+   "entry": "0x006E9380",
+   "name": "TiberiumClass::GetSizeMax",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m24.cpp",
+   "source": "pass-6a decompile 006e9380",
+   "notes": "pass-6a decompile: AbstractClass size + Debris count*4 + 4; Scout1191 (M24)"
+  },
+  {
+   "entry": "0x006E90A0",
+   "name": "TiberiumClass::Compute_CRC",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m24.cpp",
+   "source": "pass-6a decompile 006e90a0",
+   "notes": "pass-6a decompile; Scout1191 (M24)"
+  },
+  {
+   "entry": "0x006EA9E0",
+   "name": "TiberiumClass::unknown_slot16",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m24.cpp",
+   "source": "pass-6a decompile 006ea9e0",
+   "notes": "returns ArrayIndex (+0x98); Scout1191 (M24)"
+  },
+  {
+   "entry": "0x004C1F80",
+   "name": "FoggedObjectClass::Compute_CRC",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m24.cpp",
+   "source": "pass-6a decompile 004c1f80",
+   "notes": "pass-6a decompile; Scout1191 (M24)"
   }
  ]
 }

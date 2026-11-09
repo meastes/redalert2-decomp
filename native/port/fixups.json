@@ -1371,6 +1371,83 @@
    "old": "struct UnknownMovieEntry {",
    "new": "bool Native_Multiplayer_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nstruct UnknownMovieEntry {",
    "why": "Native single player scope (Scout1187, M23; user decision: multiplayer is out of scope, its WOL/IPX/modem code stays link-closure traps): the main menu's Internet (2) and Network (3) selections of Select_Game 0x005135F0 start WOL (session type 4) and the LAN game (type 3), which reach IPXManagerClass::Service and fault natively. Natively they first ask Native_Multiplayer_Unavailable (link/behaviour_m23.cpp), which says so in a message box and returns true; Select_Game then shows the main menu again (selection 0x12, as its own failure paths do). The original statements follow unchanged for a build that has the network."
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "virtual bool unknown_slot224(int arg1);",
+   "new": "virtual bool unknown_slot224(intptr_t arg1);   // NATIVE: pointer-sized (the killer)",
+   "why": "Pointer width (Scout1191, M24): slot 224 (the unit is destroyed, FootClass 0x004CD4B0) takes the killer as an int and passes it on as `(TechnoClass *)source` to slot 55 (TechnoClass 0x006CED90: experience, the killer's house) and 0x006D3040; AircraftClass 0x00415E70 and EMPulseClass::Apply 0x004B4E30 call it with `(int)source`. On VC6 both are 32 bits; natively the cut pointer faulted in slot 55 (killer->House) when an aircraft died to a techno's shot (3-AI soak, frame ~24,000 on MP01T4). The parameter and those two casts are intptr_t natively. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/shared/foot.hpp",
+   "old": "virtual bool unknown_slot224(int arg1);",
+   "new": "virtual bool unknown_slot224(intptr_t arg1);   // NATIVE: pointer-sized (the killer)",
+   "why": "Pointer width (Scout1191, M24): slot 224 (the unit is destroyed, FootClass 0x004CD4B0) takes the killer as an int and passes it on as `(TechnoClass *)source` to slot 55 (TechnoClass 0x006CED90: experience, the killer's house) and 0x006D3040; AircraftClass 0x00415E70 and EMPulseClass::Apply 0x004B4E30 call it with `(int)source`. On VC6 both are 32 bits; natively the cut pointer faulted in slot 55 (killer->House) when an aircraft died to a techno's shot (3-AI soak, frame ~24,000 on MP01T4). The parameter and those two casts are intptr_t natively. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/FootClass/FootClass_unknown_slot224_004cd4b0.cpp",
+   "old": "bool FootClass::unknown_slot224(int source)\n",
+   "new": "bool FootClass::unknown_slot224(intptr_t source)\n",
+   "why": "Pointer width (Scout1191, M24): slot 224 (the unit is destroyed, FootClass 0x004CD4B0) takes the killer as an int and passes it on as `(TechnoClass *)source` to slot 55 (TechnoClass 0x006CED90: experience, the killer's house) and 0x006D3040; AircraftClass 0x00415E70 and EMPulseClass::Apply 0x004B4E30 call it with `(int)source`. On VC6 both are 32 bits; natively the cut pointer faulted in slot 55 (killer->House) when an aircraft died to a techno's shot (3-AI soak, frame ~24,000 on MP01T4). The parameter and those two casts are intptr_t natively. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/AircraftClass/AircraftClass_Damage_Response_00415e70.cpp",
+   "old": "unknown_slot224((int)source)",
+   "new": "unknown_slot224((intptr_t)source)",
+   "why": "Pointer width (Scout1191, M24): slot 224 (the unit is destroyed, FootClass 0x004CD4B0) takes the killer as an int and passes it on as `(TechnoClass *)source` to slot 55 (TechnoClass 0x006CED90: experience, the killer's house) and 0x006D3040; AircraftClass 0x00415E70 and EMPulseClass::Apply 0x004B4E30 call it with `(int)source`. On VC6 both are 32 bits; natively the cut pointer faulted in slot 55 (killer->House) when an aircraft died to a techno's shot (3-AI soak, frame ~24,000 on MP01T4). The parameter and those two casts are intptr_t natively. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/EMPulseClass/EMPulseClass_Apply_004b4e30.cpp",
+   "old": "aircraft->unknown_slot224((int)source)",
+   "new": "aircraft->unknown_slot224((intptr_t)source)",
+   "why": "Pointer width (Scout1191, M24): slot 224 (the unit is destroyed, FootClass 0x004CD4B0) takes the killer as an int and passes it on as `(TechnoClass *)source` to slot 55 (TechnoClass 0x006CED90: experience, the killer's house) and 0x006D3040; AircraftClass 0x00415E70 and EMPulseClass::Apply 0x004B4E30 call it with `(int)source`. On VC6 both are 32 bits; natively the cut pointer faulted in slot 55 (killer->House) when an aircraft died to a techno's shot (3-AI soak, frame ~24,000 on MP01T4). The parameter and those two casts are intptr_t natively. Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_free_art_006f2390.cpp",
+   "old": "delete [] unknown_art_ac1134;",
+   "new": "delete unknown_art_ac1134;   // NATIVE: scalar delete through the virtual destructor (see fixups.json)",
+   "why": "Delete form (Scout1191, M24; user report: Exit Game -> OK aborted in Unknown_Free_All_Art_006F1D20 with 'pointer being freed was not allocated'): 0x00AC1134/0x00AC113C hold the ConvertClass drawers that Unknown_Load_Palette_006F1FA0 makes with a scalar `new ConvertClass` (unknown_load_art_6f1fa0 is the same address). The sources write `delete []` (VC6 compiles it to the object's vtable slot 0, ConvertClass's scalar deleting destructor, with flag 3: the class has no vector deleting destructor, so it is a scalar delete). clang's array delete reads a count cookie before the object and frees ptr-16. Natively the delete is scalar through the same virtual destructor (the object's own). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_free_art_006f2390.cpp",
+   "old": "delete [] unknown_art_ac113c;",
+   "new": "delete unknown_art_ac113c;   // NATIVE: scalar delete through the virtual destructor (see fixups.json)",
+   "why": "Delete form (Scout1191, M24; user report: Exit Game -> OK aborted in Unknown_Free_All_Art_006F1D20 with 'pointer being freed was not allocated'): 0x00AC1134/0x00AC113C hold the ConvertClass drawers that Unknown_Load_Palette_006F1FA0 makes with a scalar `new ConvertClass` (unknown_load_art_6f1fa0 is the same address). The sources write `delete []` (VC6 compiles it to the object's vtable slot 0, ConvertClass's scalar deleting destructor, with flag 3: the class has no vector deleting destructor, so it is a scalar delete). clang's array delete reads a count cookie before the object and frees ptr-16. Natively the delete is scalar through the same virtual destructor (the object's own). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Free_All_Art_006f1d20.cpp",
+   "old": "delete [] unknown_art_ac1134;",
+   "new": "delete unknown_art_ac1134;   // NATIVE: scalar delete through the virtual destructor (see fixups.json)",
+   "why": "Delete form (Scout1191, M24; user report: Exit Game -> OK aborted in Unknown_Free_All_Art_006F1D20 with 'pointer being freed was not allocated'): 0x00AC1134/0x00AC113C hold the ConvertClass drawers that Unknown_Load_Palette_006F1FA0 makes with a scalar `new ConvertClass` (unknown_load_art_6f1fa0 is the same address). The sources write `delete []` (VC6 compiles it to the object's vtable slot 0, ConvertClass's scalar deleting destructor, with flag 3: the class has no vector deleting destructor, so it is a scalar delete). clang's array delete reads a count cookie before the object and frees ptr-16. Natively the delete is scalar through the same virtual destructor (the object's own). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Free_All_Art_006f1d20.cpp",
+   "old": "delete [] unknown_art_ac113c;",
+   "new": "delete unknown_art_ac113c;   // NATIVE: scalar delete through the virtual destructor (see fixups.json)",
+   "why": "Delete form (Scout1191, M24; user report: Exit Game -> OK aborted in Unknown_Free_All_Art_006F1D20 with 'pointer being freed was not allocated'): 0x00AC1134/0x00AC113C hold the ConvertClass drawers that Unknown_Load_Palette_006F1FA0 makes with a scalar `new ConvertClass` (unknown_load_art_6f1fa0 is the same address). The sources write `delete []` (VC6 compiles it to the object's vtable slot 0, ConvertClass's scalar deleting destructor, with flag 3: the class has no vector deleting destructor, so it is a scalar delete). clang's array delete reads a count cookie before the object and frees ptr-16. Natively the delete is scalar through the same virtual destructor (the object's own). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Free_Art_Sets_006f2130.cpp",
+   "old": "delete [] unknown_art_ac1134;",
+   "new": "delete unknown_art_ac1134;   // NATIVE: scalar delete through the virtual destructor (see fixups.json)",
+   "why": "Delete form (Scout1191, M24; user report: Exit Game -> OK aborted in Unknown_Free_All_Art_006F1D20 with 'pointer being freed was not allocated'): 0x00AC1134/0x00AC113C hold the ConvertClass drawers that Unknown_Load_Palette_006F1FA0 makes with a scalar `new ConvertClass` (unknown_load_art_6f1fa0 is the same address). The sources write `delete []` (VC6 compiles it to the object's vtable slot 0, ConvertClass's scalar deleting destructor, with flag 3: the class has no vector deleting destructor, so it is a scalar delete). clang's array delete reads a count cookie before the object and frees ptr-16. Natively the delete is scalar through the same virtual destructor (the object's own). Same meaning.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Free_Art_Sets_006f2130.cpp",
+   "old": "delete [] unknown_art_ac113c;",
+   "new": "delete unknown_art_ac113c;   // NATIVE: scalar delete through the virtual destructor (see fixups.json)",
+   "why": "Delete form (Scout1191, M24; user report: Exit Game -> OK aborted in Unknown_Free_All_Art_006F1D20 with 'pointer being freed was not allocated'): 0x00AC1134/0x00AC113C hold the ConvertClass drawers that Unknown_Load_Palette_006F1FA0 makes with a scalar `new ConvertClass` (unknown_load_art_6f1fa0 is the same address). The sources write `delete []` (VC6 compiles it to the object's vtable slot 0, ConvertClass's scalar deleting destructor, with flag 3: the class has no vector deleting destructor, so it is a scalar delete). clang's array delete reads a count cookie before the object and frees ptr-16. Natively the delete is scalar through the same virtual destructor (the object's own). Same meaning.",
+   "verified": true
   }
  ]
 }

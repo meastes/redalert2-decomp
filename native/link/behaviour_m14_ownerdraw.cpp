@@ -8,6 +8,8 @@
 // in its font (+0x64) through the recovered text drawer 0x005FE1B0, a frame for
 // framed buttons, list and combo items as text. The originals also draw the
 // three-piece PCX button art (b_c_c_li/mi/ri) and the tab/list/combo art.
+// Since M20 the push button and since M24 the static procedure (Scout1191) follow
+// their decompiles; the list, combo, tab and NewEdit painting stay simplified.
 #define RA2_OWNERDRAW_CONTROL_DICTIONARY
 #define RA2_OWNERDRAW_WNDPROC_DICTIONARY
 #define RA2_OWNERDRAW_CHECK_FIELDS
@@ -26,6 +28,9 @@
 #include "shared/palette.hpp"
 #include "shared/pcx_cache.hpp"
 #include <stdio.h>
+#include "shared/movie.hpp"
+#include "shared/movie_list.hpp"
+#include "shared/shape_file.hpp"
 
 extern WolDictionary<HWND, WNDPROC> unknown_window_proc_table_a73688;   // 0x00A73688 (its initializer 0x005DE9C0)
 extern void *unknown_art_ac10c0;                                        // 0x00AC10C0 (kind-3 button shape; 0x006F1B60 loads it)
@@ -211,31 +216,338 @@ LRESULT __stdcall unknown_button_proc_5f0320(HWND window, UINT message, WPARAM w
     return Original(window, message, wparam, lparam);
 }
 
-// 0x005F2B50: the static (label/picture) procedure.
+// 0x005F2B50: the static (label/picture) procedure (Scout1191, M24: follows the
+// pass-6a decompile and the original's code case by case, replacing Scout1119's
+// simplified image-or-text paint). The record's kind (+0x70): 0 text, 1 typed
+// text (characters shown +0x80, step +0x88, typing sound +0x90), 2 a picture
+// (+0x14, centred, magenta transparent), 3 a shape frame, 4 an animated shape
+// (+0x78 through drawer +0x74, frame +0x98 of +0x94; 0x4D3 starts, 0x4D4 stops,
+// 0x4D5/0x4D6 set/get the frame, 0x4D7 the window told of each frame by 0x4D8).
+// Kinds 2-4 wait +0xA0 ms from +0x9C. The first paint saves the background under
+// the control in a BSurface (+0x10), which kinds 2-4 and 0x4B2/0x4B4 restore;
+// 0x4B1 sets a fill colour (+0xB4/+0xB8) painted first; 0x498 the text colour
+// (+0xEC; the disabled colour for a disabled control). Movies (0x4E4 by name,
+// 0x4DF by movie list index; 0x4E3 loops, 0x4E0/0x4E1 pause/resume, 0x4E2 stops,
+// 0x4F0 blits): a MovieHandle on the background surface at the control's corner,
+// the control sized to it, advanced by timer 0x65 every 34 ms (the main menu's
+// Ra2ts_l loop, 0x005115F0). NATIVE: the movie handle (+0x58) and the notify
+// window (+0xA4) are pointer-sized, kept in a side table by window; +0xAC, +0xB4
+// and +0xB8 are read from their VC6 offsets inside the record's char runs.
+namespace {
+struct StaticExtra {
+    MovieHandle *movie;     // +0x58
+    HWND notify;            // +0xA4
+};
+// A small table by window (the dialogs hold a few dozen statics at most).
+struct StaticExtraSlot {
+    HWND window;
+    StaticExtra extra;
+};
+StaticExtraSlot static_extras[256];
+StaticExtra &Static_Extra(HWND window)
+{
+    StaticExtraSlot *free_slot = 0;
+    for (StaticExtraSlot &slot : static_extras) {
+        if (slot.window == window) return slot.extra;
+        if (!slot.window && !free_slot) free_slot = &slot;
+    }
+    if (!free_slot) free_slot = &static_extras[0];      // full: reuse the first slot
+    free_slot->window = window;
+    free_slot->extra.movie = 0;
+    free_slot->extra.notify = 0;
+    return free_slot->extra;
+}
+void Static_Extra_Release(HWND window)
+{
+    for (StaticExtraSlot &slot : static_extras) {
+        if (slot.window == window) slot.window = 0;
+    }
+}
+int &Static_Text_Arg(UnknownControlRecord *record)          // +0xAC
+{
+    return *(int *)((char *)record->unknown_a9 + (0xAC - 0xA9));
+}
+bool &Static_Fill(UnknownControlRecord *record)             // +0xB4
+{
+    return *(bool *)((char *)record->unknown_b4 + 0);
+}
+unsigned long &Static_Fill_Color(UnknownControlRecord *record)   // +0xB8
+{
+    return *(unsigned long *)((char *)record->unknown_b4 + 4);
+}
+void Static_Stop_Movie(HWND window, StaticExtra &extra)
+{
+    if (extra.movie) {
+        delete extra.movie;
+        extra.movie = 0;
+    }
+    KillTimer(window, 0x65);
+}
+void Static_Start_Movie(HWND window, StaticExtra &extra, char const *name)
+{
+    Static_Stop_Movie(window, extra);
+    RECT area = {0, 0, 0, 0};
+    Window_Rect_In_Main_Client(window, &area);
+    extra.movie = Create_Movie_Handle(name, unknown_surface_839958, 0);
+    if (extra.movie) {
+        extra.movie->Set_Position(area.left, area.top);
+        MoveWindow(window, area.left, area.top, extra.movie->Width, extra.movie->Height, FALSE);
+        SetTimer(window, 0x65, 0x22, 0);
+        return;
+    }
+    KillTimer(window, 0x65);
+}
+}
+
 LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     UnknownControlRecord *record = Get_Record(window);
     if (!record) {
-        return Original(window, message, wparam, lparam);
+        return 0;
     }
+    StaticExtra &extra = Static_Extra(window);
     switch (message) {
-    case 0x14: return 1;                            // WM_ERASEBKGND
-    case 0xF: {
-        if (!record->unknown_bc) {
-            Rect area = Area(window);
-            LONG style = GetWindowLongA(window, GWL_STYLE);
-            if (record->image_14) {
-                Image(record->image_14, area);
-            } else {
-                int x_alignment = (style & 3) == 1 ? 1 : (style & 3) == 2 ? 4 : 0;   // SS_CENTER / SS_RIGHT
-                Text(record, area, record->text_28, x_alignment, (style & 0x200) ? 1 : 0);   // SS_CENTERIMAGE
+    case 0x2:                                       // WM_DESTROY
+        if (record->surface_10) {
+            delete record->surface_10;
+            record->surface_10 = 0;
+        }
+        if (record->unknown_7c) {
+            free((void *)record->unknown_78);
+            record->unknown_78 = 0;
+        }
+        if ((record->unknown_70 == 1 && record->unknown_a8) || record->unknown_70 == 4) {
+            KillTimer(window, 0);
+        }
+        Static_Stop_Movie(window, extra);
+        {
+            LRESULT result = Original(window, message, wparam, lparam);
+            Static_Extra_Release(window);
+            return result;
+        }
+    case 0x3: case 0x5: case 0x47:                  // WM_MOVE, WM_SIZE, WM_WINDOWPOSCHANGED: save the background again
+        if (record->surface_10) {
+            delete record->surface_10;
+        }
+        record->surface_10 = 0;
+        InvalidateRect(window, 0, FALSE);
+        return 0;
+    case 0xF: {                                     // WM_PAINT
+        if (record->unknown_bc || extra.movie) {
+            ValidateRect(window, 0);
+            return 0;
+        }
+        RECT client = {0, 0, 0, 0};
+        if (!record->surface_10) {
+            RECT where = {0, 0, 0, 0};
+            Window_Rect_In_Main_Client(window, &where);
+            GetClientRect(window, &client);
+            int width = client.right + 1, height = client.bottom + 1;
+            record->surface_10 = new BSurface(width, height, 2);
+            ++unknown_surface_count_a763d8;
+            record->surface_10->Copy_From(Rect(0, 0, width, height), *unknown_surface_839958,
+                                          Rect(where.left, where.top, width, height), false, true);
+        }
+        RECT area = {0, 0, 0, 0};
+        Window_Rect_In_Main_Client(window, &area);
+        if (Static_Fill(record)) {
+            unsigned long color = Static_Fill_Color(record);
+            unknown_surface_839958->Fill_Rect(Rect(area.left, area.top, area.right - area.left, area.bottom - area.top),
+                                              unknown_5fda40(color & 0xFFFFFF));
+        }
+        int kind = record->unknown_70;
+        if (kind == 0 || kind == 1) {
+            if (record->text_28 && (kind == 0 || record->unknown_a8)) {
+                LONG style = GetWindowLongA(window, GWL_STYLE);
+                int flags = (style & 1) ? 0x11 : (style & 2) ? 0x12 : 0x10;     // SS_CENTER / SS_RIGHT
+                unsigned long color = (style & 0x8000000) ? (unsigned long)unknown_color_a737ec : (unsigned long)record->unknown_ec;
+                unknown_draw_text_5fe020(unknown_surface_839958, record->text_28, &area, record->font_64, color, flags,
+                                         Static_Text_Arg(record), 0, record->unknown_80, record->unknown_8c);
+                if (record->unknown_90 != -1) {
+                    Voc_Play(record->unknown_90, 1.0f, 0x2000, 0);
+                }
+                if (kind == 1) {
+                    int length = 0;
+                    while (record->text_28[length]) ++length;
+                    length += 1 + record->unknown_8c;
+                    if (record->unknown_80 < length) {
+                        record->unknown_80 += record->unknown_88;
+                        if (record->unknown_80 >= length) {
+                            KillTimer(window, 0);
+                        }
+                    }
+                }
+            }
+        } else if ((kind == 2 || kind == 3 || kind == 4) && (int)(GetTickCount() - record->unknown_9c) > record->unknown_a0) {
+            Rect to(area.left, area.top, area.right - area.left, area.bottom - area.top);
+            GetClientRect(window, &client);
+            Rect from(client.left, client.top, client.right - client.left, client.bottom - client.top);
+            if (record->surface_10) {
+                unknown_surface_839958->Copy_From(to, *record->surface_10, from, false, true);
+            }
+            if (kind == 2) {
+                Surface *image = record->image_14;
+                if (image) {
+                    int width = image->Get_Width(), height = image->Get_Height();
+                    Rect at = to;
+                    if (width < to.Width) { at.X = to.X + (to.Width - width) / 2; at.Width = width; }
+                    if (height < to.Height) { at.Y = to.Y + (to.Height - height) / 2; at.Height = height; }
+                    unknown_bitmap_writer_a76378.Draw_0068ce80(at, unknown_surface_839958, image, unknown_5fda40(0xFF00FF));
+                }
+            } else if (record->unknown_78) {
+                ShapeFileStruct const *shape = (ShapeFileStruct const *)record->unknown_78;
+                int frame = record->unknown_98;
+                Point2D at(to.X, to.Y);
+                if (shape->Height < to.Height) at.Y = to.Y + (to.Height - shape->Height) / 2;
+                if (shape->Width < to.Width) at.X = to.X + (to.Width - shape->Width) / 2;
+                Rect window_rect = unknown_surface_839958->Get_Rect();
+                CC_Draw_Shape(unknown_surface_839958, (ConvertClass *)record->unknown_74, shape, frame, at, window_rect, 0x400, 0, 0, 0,
+                              1000, 0, 0, Point2D(0, 0));
+                if (kind == 4 && record->unknown_a8) {
+                    int next = frame + 1;
+                    if (next >= record->unknown_94) next = 0;
+                    record->unknown_98 = next;
+                    if (extra.notify) {
+                        SendMessageA(extra.notify, 0x4D8, next, (LPARAM)window);
+                    }
+                }
             }
         }
         ValidateRect(window, 0);
         return 0;
     }
+    case 0x113:                                     // WM_TIMER
+        if (wparam == 0x65) {
+            if (!extra.movie) return 0;
+            if (extra.movie->Unknown_Slot1()) {
+                InvalidateRect(window, 0, FALSE);
+            }
+            if (!extra.movie->Is_Finished()) return 0;
+            if (record->unknown_5c) {
+                extra.movie->Unknown_Slot7(1);      // loop: back to the first frame
+                return 0;
+            }
+            Static_Stop_Movie(window, extra);
+            return 0;
+        } else {
+            int kind = record->unknown_70;
+            if (kind == 1) {
+                InvalidateRect(window, 0, TRUE);
+                return 0;
+            }
+            bool reveal = kind == 2 || kind == 3;
+            if (!reveal && kind != 4) return 0;
+            if ((int)(GetTickCount() - record->unknown_9c) <= record->unknown_a0) return 0;
+            if (reveal || record->unknown_a8) {
+                InvalidateRect(window, 0, TRUE);
+                if (reveal) {
+                    KillTimer(window, 0);
+                    return 0;
+                }
+            }
+            if (record->unknown_94 != 0) return 0;
+            KillTimer(window, 0);
+            if (!record->unknown_78) return 0;
+            int frames = ((ShapeFileStruct const *)record->unknown_78)->FrameCount;
+            record->unknown_94 = frames;
+            SetTimer(window, 0, frames, 0);
+            return 0;
+        }
+    case 0x497: {                                   // owner-draw set-up
+        record->unknown_70 = 0;
+        Static_Text_Arg(record) = 0xC;
+        record->unknown_ec = unknown_color_a733e4;
+        return 0;
     }
-    return Original(window, message, wparam, lparam);
+    case 0x498:                                     // the text colour (-1: the dialog text colour)
+        if ((int)lparam != record->unknown_ec) InvalidateRect(window, 0, FALSE);
+        record->unknown_ec = (int)lparam == -1 ? unknown_color_a733e4 : (int)lparam;
+        return 0;
+    case 0x4B1:                                     // a fill colour
+        Static_Fill(record) = true;
+        Static_Fill_Color(record) = (unsigned long)lparam;
+        return 0;
+    case 0x4B2: case 0x4B4:                         // put the saved background back
+        if (record->surface_10) {
+            RECT where = {0, 0, 0, 0}, client = {0, 0, 0, 0};
+            Window_Rect_In_Main_Client(window, &where);
+            GetClientRect(window, &client);
+            int width = client.right + 1, height = client.bottom + 1;
+            unknown_surface_839958->Copy_From(Rect(where.left, where.top, width, height), *record->surface_10,
+                                              Rect(0, 0, width, height), false, true);
+            InvalidateRect(window, 0, FALSE);
+        }
+        return 1;
+    case 0x4D3: {                                   // start the animation
+        if (!record->unknown_78 || record->unknown_70 != 4 || record->unknown_a8) return 0;
+        record->unknown_a8 = true;
+        HWND parent = GetParent(window);
+        UnknownControlRecord *dialog = parent ? Get_Record(parent) : 0;
+        int dialog_kind = dialog ? dialog->unknown_6c : 0;
+        int id = GetDlgCtrlID(window);
+        static int const listed[] = {0x94, 0xD8, 0xF5, 0xE2, 0xD5, 0x101, 0x129, 0xD7, 0xBB, 0x100, 0xD6, 0x125, 0x122, 0x112, 0xE7, 0x116,
+                                     0x11D, 0x11C, 0xFE, 0x10F, 0x117, 0x114, 0xE6, 0xF3, 0xF4, 700, 0x10E, 0xBC6, 0xBC7};
+        bool in_list = false;
+        for (int k : listed) if (k == dialog_kind) in_list = true;
+        bool slow = in_list && id == 0x71C;
+        if (!slow) {
+            if (dialog_kind == 0x94) slow = id == 0x6EA || id == 0x6EC || id == 0x6EB;
+            else if (dialog_kind == 0x103 || dialog_kind == 0xBC7) slow = id == 0x72B;
+        }
+        SetTimer(window, 0, slow ? 100 : 0, 0);
+        return 0;
+    }
+    case 0x4D4:                                     // stop it
+        if (record->unknown_70 == 4 && record->unknown_a8) {
+            KillTimer(window, 0);
+            record->unknown_a8 = false;
+        }
+        return 0;
+    case 0x4D5:
+        if (record->unknown_70 == 4) {
+            record->unknown_98 = (int)lparam;
+            InvalidateRect(window, 0, TRUE);
+            return 0;
+        }
+        return 0;
+    case 0x4D6:
+        return record->unknown_70 == 4 ? record->unknown_98 : -1;
+    case 0x4D7:
+        if (record->unknown_70 == 4) extra.notify = (HWND)lparam;
+        return 0;
+    case 0x4DF:                                     // a movie from the movie list
+        if ((int)wparam >= 0 && (int)wparam < unknown_names_a71050.Count()) {
+            Static_Start_Movie(window, extra, unknown_names_a71050[(int)wparam]);
+        }
+        return 0;
+    case 0x4E0:
+        if (extra.movie) extra.movie->Pause(true);
+        return 0;
+    case 0x4E1:
+        if (extra.movie) extra.movie->Pause(false);
+        return 0;
+    case 0x4E2:
+        Static_Stop_Movie(window, extra);
+        return 0;
+    case 0x4E3:
+        record->unknown_5c = (int)wparam;
+        return 0;
+    case 0x4E4:                                     // a movie by name
+        Static_Start_Movie(window, extra, (char const *)lparam);
+        return 0;
+    case 0x4EE:                                     // start typing
+        if (record->unknown_70 == 1 && !record->unknown_a8) {
+            record->unknown_a8 = true;
+            record->unknown_80 = 1;
+            SetTimer(window, 0, record->unknown_84, 0);
+            InvalidateRect(window, 0, FALSE);
+        }
+        return 0;
+    case 0x4F0:
+        if (extra.movie) extra.movie->Blit();
+        return 0;
+    }
+    return Original(window, message, wparam, lparam);   // everything else (WM_ERASEBKGND too) to the Win32 procedure
 }
 
 // 0x005F6690: the list box procedure.

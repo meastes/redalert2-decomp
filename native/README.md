@@ -532,6 +532,38 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   fires a super weapon at an enemy building (the next one each time);
   `RA2_NATIVE_FORCE_END` entries fire at the first frame at or past them.
 
+### Fidelity rows, main menu movie, frame pacing (Scout1191, M24)
+
+- **BuildingClass Mission_Attack (slot 126, 0x00446920).** The simplified row is
+  replaced by a body that follows the decompile and the original's jump table
+  (0x00447214) case by case: SAM launchers track and fire (two states), voxel
+  turrets snap within the type's ROT, two-shooter upgrades fire both weapons,
+  prism towers gather the nearest ready prism tower in range as support (up to
+  Rules->PrismSupportMax) or charge their own delayed shot (0x0044B870), and
+  IsAnimDelayedFire types charge theirs.
+- **Owner-draw static procedure (0x005F2B50).** Follows the decompile: the saved
+  background, fill and text colours (0x4B1, 0x498: the score screens' coloured
+  labels), typed text, pictures, shape animations, and movies in a static
+  (0x4E4/0x4DF, looped by 0x4E3): the main menu's Ra2ts_l background movie plays.
+- **Link closure.** WWCRCEngine's char/bool/buffer appends forward to the
+  recovered CRCEngine bodies at the same addresses; TiberiumClass GetSizeMax,
+  Compute_CRC and slot 16, FoggedObjectClass Compute_CRC (`link/behaviour_m24.cpp`).
+- **Aircraft killed by a techno.** FootClass slot 224 (0x004CD4B0, the unit is
+  destroyed) took the killer as an int and handed `(TechnoClass *)source` to slot
+  55: natively the cut pointer faulted (3-AI soak, frame ~24,000). The parameter
+  and its callers' casts are intptr_t (fixups).
+- **Exit Game.** Unknown_Free_All_Art_006F1D20 (and 0x006F2130, 0x006F2390)
+  `delete []` the ConvertClass drawers at 0x00AC1134/0x00AC113C that 0x006F1FA0
+  makes with a scalar new (VC6 sends that to the class's scalar deleting
+  destructor); clang's array delete freed the wrong address ("pointer being freed
+  was not allocated" on Exit Game -> OK). Natively scalar delete (fixups).
+- **Frame pacing.** The native frame floor keeps a 16 ms deadline at nanosecond
+  resolution (`ra2port_sleep_until_ns`): 62.5 frames per second instead of 57.
+  Frame work with 3 AIs is about 1 ms (mean), 1.5 ms (95th percentile).
+- **Harness.** `RA2_NATIVE_SKIRMISH_SPEED=<0-6>` sets the game speed (as the
+  skirmish slider stores it); the frames-<n>k notes carry the frame work time
+  (wall time less the main thread's sleeps): mean, 95th percentile, worst.
+
 ### Data the original stores (game.exe at run time)
 
 User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and

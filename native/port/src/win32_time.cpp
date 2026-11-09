@@ -26,10 +26,29 @@ extern "C" {
 uint32_t timeGetTime(void) { return (uint32_t)(monotonic_ns() / 1000000u); }
 uint32_t GetTickCount(void) { return (uint32_t)(monotonic_ns() / 1000000u); }
 
+// Native diagnostics (Scout1191, M24): the time spent in Sleep, so a test run
+// can tell a frame's work from the game's own pacing (harness frame times).
+thread_local uint64_t ra2port_slept_ns = 0;   // per thread: the main thread's own sleeps
+uint64_t ra2port_monotonic_ns(void) { return monotonic_ns(); }
+
+// Sleeps until a monotonic deadline at nanosecond resolution (the native frame
+// floor's pacing; Sleep's whole milliseconds overshot it by about 1.5 ms a frame).
+void ra2port_sleep_until_ns(uint64_t deadline)
+{
+    uint64_t start = monotonic_ns();
+    if (deadline <= start) return;
+    uint64_t wait = deadline - start;
+    struct timespec t = {(time_t)(wait / 1000000000u), (long)(wait % 1000000000u)};
+    nanosleep(&t, nullptr);
+    ra2port_slept_ns += monotonic_ns() - start;
+}
+
 void Sleep(uint32_t milliseconds)
 {
+    uint64_t start = monotonic_ns();
     struct timespec t = {(time_t)(milliseconds / 1000u), (long)(milliseconds % 1000u) * 1000000L};
     nanosleep(&t, nullptr);
+    ra2port_slept_ns += monotonic_ns() - start;
 }
 
 // LARGE_INTEGER is passed as a pointer to a 64-bit little-endian value.

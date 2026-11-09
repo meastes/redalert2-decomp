@@ -3372,3 +3372,10 @@ Awaiting user ruling on keeping these two flagged or reverting.
 
 ## Scout1198 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1198/)
 - Draw_Laser 0x722CB0 59.41 -> 61.17 (keep/laser_l2_6117.cpp, frame matches; registers left), Draw_Sonic 0x7225B0 39.15 -> 42.65 (keep/sonic_e2_4265.cpp, frame matches). New VC6 note: Point2D cursor. AlphaShape rows unchanged (lead: `Rect r3(point, 60, 30)` with the Rect(Point2D const &, int, int) macro on, for Draw_In_Area's dead 8-byte slot). Extract_Compressed_Events 0x6282D0 57.62 (Pointer/Whom dword should own ebp). Draw_Tile not attempted.
+
+## Scout1197 (2026-11-09; landed Fill_Rect 0x7743C0, BlitForward<uchar> 0x775980, 0x659400 = 804 B; NOTES in build/class-work/Scout1197/)
+- Get_Obstacle 0x4BBAF0 exact in a lab with mischa85's header order: system prelude (comdef.h first, full windows.h) plus the full GScreen..Mouse chain before CellClass (pc/v1q.cpp, 100 with no filler). Delivering needs a build-model change (VC98 INCLUDE path, ~90 stand-ins guarded); proposal: migration switch RA2_SDK_HEADERS starting with the traj unit. Sent to the review session.
+- 0x73A680 (106 B): ??_E of a 12-byte class whose dtor SysFreeStrings its first field; no references in the image; parked (no evidence).
+
+## Scout1199 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1199/)
+- Draw_In_Area 41.92, Draw_All 53.45, Extract_Compressed_Events 57.62 (target exits via `if (leftover) ... else break;`, keep/extract_e1_4343_exitbreak.cpp), Draw_Laser 61.17, Draw_Tile 51.29: all region-level register-ownership ties. Second zero hand-back on these rows: stop rule applies.
