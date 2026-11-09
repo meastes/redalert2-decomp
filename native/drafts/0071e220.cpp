@@ -24,9 +24,9 @@
 #include "shared/radio.hpp"
 #include "shared/sound_play.hpp"
 #include "shared/building_light.hpp"
-// @ref ?unknown_coord_af9060@@3UCoordStruct@@A=00af9060
 // @ref ?Mark_Head_To@WalkLocomotionClass@@QAE_NABUCoordStruct@@@Z=0071f590
 // @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
+// @ref _unknown_geometry_l=00af9060
 
 static inline int Coord_Length(CoordStruct const &a, CoordStruct const &b)
 {
@@ -82,8 +82,8 @@ static inline Cell Adjacent_Tube(Cell const &cell, int facing)
 
 void WalkLocomotionClass::unknown_71e220(bool first_pass)
 {
-    if (unknown_28 == unknown_coord_af9060) {
-        if (unknown_1c != unknown_coord_af9060) {
+    if (unknown_28 == unknown_geometry_l) {
+        if (unknown_1c != unknown_geometry_l) {
             if (LinkedTo->Path[0] == -1) {
                 if (LinkedTo->unknown_530 != 0) {
                     LinkedTo->unknown_slot307();
@@ -156,7 +156,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     return;
                 }
                 LinkedTo->Path[0] = -1;
-                unknown_28 = unknown_coord_af9060;
+                unknown_28 = unknown_geometry_l;
                 Stop_Moving();
                 LinkedTo->Assign_Destination(0, true);
                 return;
@@ -174,7 +174,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         CellClass &cellptr = Map[cell];
                         if (first_pass) {
                             LinkedTo->Path[0] = -1;
-                            unknown_28 = unknown_coord_af9060;
+                            unknown_28 = unknown_geometry_l;
                             LinkedTo->unknown_530 = 0;
                             unknown_71e220(false);
                         } else {
@@ -182,14 +182,14 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             if (dist < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()
                                 && abs(unknown_1c.Z - Object_Coord(LinkedTo).Z) < unknown_geometry_g * 2
                                 && Map[Object_Coord(LinkedTo)].unknown_ec != 10) {
-                                unknown_28 = unknown_coord_af9060;
+                                unknown_28 = unknown_geometry_l;
                                 Stop_Moving();
                                 LinkedTo->unknown_slot306(0.0);
                                 LinkedTo->Assign_Destination(0, true);
                                 LinkedTo->Path[0] = -1;
                             } else {
                                 bool isbridge = cellptr.IsUnderBridge && abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr.unknown_11b) > 2;
-                                cellptr.unknown_476920(&unknown_coord_af9060, true, true, isbridge);
+                                cellptr.unknown_476920(&unknown_geometry_l, true, true, isbridge);
                             }
                         }
                         return;
@@ -225,7 +225,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         ObjectClass *object = Map[cell].unknown_471830(Point2D(0, 0), false);
                         if (first_pass) {
                             LinkedTo->Path[0] = -1;
-                            unknown_28 = unknown_coord_af9060;
+                            unknown_28 = unknown_geometry_l;
                             LinkedTo->unknown_530 = 0;
                             unknown_71e220(false);
                             return;
@@ -252,7 +252,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     }
                     if (first_pass) {
                         LinkedTo->Path[0] = -1;
-                        unknown_28 = unknown_coord_af9060;
+                        unknown_28 = unknown_geometry_l;
                         LinkedTo->unknown_530 = 0;
                         unknown_71e220(false);
                     }
@@ -290,18 +290,18 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         LinkedTo->unknown_450 = unknown_28.As_Cell();
         LinkedTo->unknown_slot109(0);
         LinkedTo->unknown_5a1 = false;
-        Mark_Head_To(unknown_coord_af9060);
+        Mark_Head_To(unknown_geometry_l);
         if (LinkedTo->Path[0] == -1) {
             LinkedTo->unknown_slot306(0.0);
         }
         LinkedTo->unknown_slot93(2);
         if (LinkedTo->unknown_7d && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
-            if (unknown_1c == unknown_coord_af9060
+            if (unknown_1c == unknown_geometry_l
                 || (LinkedTo->unknown_slot19(0).As_Cell() == unknown_1c.As_Cell()
                     && abs(LinkedTo->unknown_slot19(0).Z - unknown_1c.Z) < unknown_geometry_g * 2)) {
                 LinkedTo->Assign_Destination(0, true);
                 LinkedTo->unknown_slot306(0.0);
-                unknown_28 = unknown_coord_af9060;
+                unknown_28 = unknown_geometry_l;
                 Stop_Moving();
                 unknown_36 = false;
             }
