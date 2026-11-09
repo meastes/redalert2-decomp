@@ -173,15 +173,13 @@ struct UnknownControlRecord {
 #ifdef RA2_OWNERDRAW_EDIT_FIELDS
     int unknown_f4; // edit focus enabled (0x005F1900)
     int unknown_f8; // edit previously had WS_TABSTOP (0x005F1900)
-#ifdef RA2_COMBO_DROP_UNIT
     char unknown_fc[0x110 - 0xfc];
     int item_colors_110[50]; // +0x110 a combo box's item colours, negative for none (0x005EAD20)
     char unknown_1d8[0x200 - 0x1d8];
 #else
-    char unknown_fc[0x200 - 0xfc];
-#endif
-#else
-    char unknown_f4[0x200 - 0xf4];
+    char unknown_f4[0x110 - 0xf4];
+    int item_colors_110[50]; // +0x110 a combo box's item colours, negative for none (0x005EAD20)
+    char unknown_1d8[0x200 - 0x1d8];
 #endif
 };
 #ifdef RA2_OWNERDRAW_CONTROL_DICTIONARY
