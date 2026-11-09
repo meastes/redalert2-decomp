@@ -3314,3 +3314,6 @@ Awaiting user ruling on keeping these two flagged or reverting.
 ## Scout1167 (2026-11-09, 0 B; NOTES, keep/, probe.py in build/class-work/Scout1167/)
 - Shrapnel 0x462C50 76.03 -> 98.46 (keep/sh_v1b_9846.cpp + keep/ovG4/shared/bullet.hpp). The 88.69/76.03 gap: the population's first row now defines RA2_BULLET_VELOCITY_DIRS, so Get_Pitch bound Horizontal_Speed 0x41B830 instead of the kept copy 0x41B750; overlay calls BulletVelocityXY::Speed() (as missile header and Get_Pitch 0x41B6E0). Frame fixed from ra2-decomp's YR 0x46A310 note (`CellClass *cellptr = &Map[...]`). Left: one scheduling tie at 0x2DC, a hoisted vtable load, three x87 operand orders in loop 2.
 - Evaluate_Object 0x6C5570 stays 91.81 (keep/eo1_head_9181.cpp + keep/ovE); YR twin 0x6F7CA0 same shape; ra2-decomp stalled at 91.0 too.
+
+## Scout1173 (2026-11-09, 0 B; NOTES in build/class-work/Scout1173/)
+- The shared-object x87 idea (Scout1169) did not move Draw_Voxel 0x6FF690 (99.44), Projectile_Motion 0x593870 (99.22) or Smoke AI 0x60BB70 (54.23); every shared-object form changes the frame. No other open FP-order rows outside Bounce 0x4370E0 (covered by Scout897).

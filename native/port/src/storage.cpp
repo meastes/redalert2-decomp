@@ -490,6 +490,8 @@ HRESULT OleSaveToStream(void *persist, void *stream)
     if (r < 0) return r;
     r = ((Stream *)stream)->Write(&clsid, sizeof clsid, nullptr);
     if (r < 0) return r;
+    static unsigned saved = 0;
+    stg_log("save object %u class %08x", saved++, clsid.d1);
     return p->Save(stream, 1);
 }
 
@@ -501,9 +503,12 @@ HRESULT OleLoadFromStream(void *stream, const GUID *iid, void **out)
     GUID clsid;
     ULONG got = 0;
     HRESULT r = ((Stream *)stream)->Read(&clsid, sizeof clsid, &got);
+    static unsigned loaded = 0;
+    stg_log("load object %u class %08x%s", loaded++, clsid.d1, r < 0 || got != sizeof clsid ? " (read fault)" : "");
     if (r < 0 || got != sizeof clsid) return STG_E_READFAULT;
     void *object = nullptr;
     r = CoCreateInstance(&clsid, nullptr, 1, iid, &object);
+    if (r < 0 || !object) stg_log("load object %u not created: %08x", loaded - 1, (unsigned)r);
     if (r < 0 || !object) return r < 0 ? r : E_FAIL;
     void *persist = nullptr;
     r = ((IUnknownPort *)object)->QueryInterface(&IID_IPersistStream, &persist);
@@ -513,6 +518,7 @@ HRESULT OleLoadFromStream(void *stream, const GUID *iid, void **out)
     }
     r = ((PersistStreamPort *)persist)->Load(stream);
     ((IUnknownPort *)persist)->Release();
+    if (r < 0) stg_log("load object %u failed: %08x", loaded - 1, (unsigned)r);
     if (r < 0) {
         ((IUnknownPort *)object)->Release();
         return r;

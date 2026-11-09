@@ -1798,6 +1798,126 @@
    "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members"
   },
   {
+   "entry": "0x0047CE40",
+   "name": "RadSiteCell::Unknown_0047CE40 (CellClass +0xF8 radiation site)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 0047ce40",
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x0047CE30",
+   "name": "RadSiteCell::Unknown_0047CE30 (sets CellClass +0xF8)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 0047ce30",
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x0047CEA0",
+   "name": "RadSiteCell::Unknown_0047CEA0 (adds to CellClass +0xF0)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 0047cea0",
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x00422690",
+   "name": "AnimClass::unknown_func_422690 (stores +0x160)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 00422690",
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x0051FC70",
+   "name": "Unknown_0051FC70 (dominator lighting state 2)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 0051fc70",
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x0069CFB0",
+   "name": "UnknownSuperView::unknown_func_69cfb0 (SuperClass +0x57)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 0069cfb0",
+   "notes": "Scout1170 M21: reached by the super weapons (scripted play, TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x00408450",
+   "name": "AudioSource::Finish (empty)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 00408450",
+   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x0041B3E0",
+   "name": "TechnoClass::unknown_slot205 (empty)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 0041b3e0",
+   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x0069A640",
+   "name": "UnknownScore_0069A640::UnknownScore_0069A640 (empty)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "pass-6a decompile 0069a640",
+   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)"
+  },
+  {
+   "entry": "inline",
+   "name": "Rect::Rect(RectPoint2D const &, int, int)",
+   "origin_class": "unmatched (leaf)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21.cpp",
+   "source": "rect.hpp's inline body (RA2_RECT_POINT_INLINE)",
+   "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)"
+  },
+  {
+   "entry": "0x0072A6D0",
+   "name": "WorldDominationTour::Map::Set_Unknown_74",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21_wdt.cpp",
+   "source": "pass-6a decompile 0072a6d0 against wdt_map.hpp (RA2_WDT_MAP_LOAD_LAYOUT)",
+   "notes": "Scout1170 M21: the unowned UnknownToggle_72a6d0 view is refused by the padded-view alias rule"
+  },
+  {
+   "entry": "0x0072A720",
+   "name": "WorldDominationTour::Map::Set_Unknown_68",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m21_wdt.cpp",
+   "source": "pass-6a decompile 0072a720 against wdt_map.hpp (RA2_WDT_MAP_LOAD_LAYOUT)",
+   "notes": "Scout1170 M21: the unowned UnknownToggle_72a6d0 view is refused by the padded-view alias rule"
+  },
+  {
    "entry": "0x0072C390",
    "name": "WDTState::Is_Valid",
    "origin_class": "unmatched",

@@ -14,7 +14,8 @@
 // deploys, the long build order of harness_build.cpp, then harness_army.cpp's
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
-// <frame> hunt; <frame> capture <ID> <x> <y>; <frame> train <ID>" (Scout1153, M19;
+// <frame> hunt; <frame> capture <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
+// <frame> grant <index>" (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
 // attack/capture: the building in cell x,y, mission 1 / 8; train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
 // M19; any game, the campaign too): at that frame the player's technos of type
@@ -33,6 +34,8 @@
 #include "shared/queue.hpp"
 #include "shared/event.hpp"
 #include "shared/infantry_type.hpp"
+#include "shared/super.hpp"
+#include "shared/super_weapon_type.hpp"
 
 #include <stdlib.h>
 
@@ -108,6 +111,42 @@ int Scripted_Order(char const *command)
             }
         }
         return -1;
+    }
+    if (Same(word[1], "super", 6) && words >= 5) {
+        // A super weapon (Scout1170, M21): the human house's Supers[index] is
+        // granted once and charged as a campaign trigger's one-time grant does (Grant
+        // 0x0069CCF0, Forced_Charge 0x0069D690), then fired at cell x,y with the
+        // event the map click queues once the cameo is armed (SPECIAL_PLACE 0x12,
+        // executed as HouseClass 0x004E68D0). An index past the list: -1.
+        HouseClass *player = unknown_player_a35db4;
+        int index = atoi(word[2]);
+        if (player == 0 || index < 0 || index >= player->Supers.Count()) return -1;
+        SuperClass *super = player->Supers[index];
+        super->Grant(true, false, false);   // one time (a nuke then needs no silo), charged
+        super->Forced_Charge(true);
+        Cell at;
+        at.X = (short)atoi(word[3]);
+        at.Y = (short)atoi(word[4]);
+        OutList.Add(EventClass(player->ArrayIndex, (unsigned char)0x12, index, at));
+        static char names[8][20];
+        static int named = 0;
+        if (named < 8) {
+            char *name = names[named++];
+            name[0] = 0;
+            Append(name, "harness-super-");
+            Append_Int(name, index);
+            ra2port_progress(name, super->Type ? super->Type->ID.Buffer : "?");
+        }
+        return 1;
+    }
+    if (Same(word[1], "grant", 6) && words >= 3) {
+        // Grant and charge only (the cameo is then armed from the sidebar by a click).
+        HouseClass *player = unknown_player_a35db4;
+        int index = atoi(word[2]);
+        if (player == 0 || index < 0 || index >= player->Supers.Count()) return -1;
+        player->Supers[index]->Grant(false, false, false);
+        player->Supers[index]->Forced_Charge(true);
+        return 1;
     }
     ObjectClass *target = 0;
     if (attack) {

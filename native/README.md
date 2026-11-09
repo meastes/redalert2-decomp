@@ -418,6 +418,37 @@ fade), DisplayClass::Unknown_0049EC60 (repair/sell modes), and the three members
 address_aliases.py no longer binds to padded views (HouseClass 0x004F3120,
 BombClass 0x00435FB0, WDTState::Is_Valid).
 
+### Saves from skirmish games, super weapons, Soviet side, Allied 1 won (Scout1170, M21)
+
+- **Saves from `--skirmish`/`--play`.** A save holding a light source (El Dorado
+  has them; the menus' default map has none) stopped loading at Get_All's
+  LightSources: `CLSID_LightSource` and `CLSID_EMPulseClass` were bound by
+  address to 4-byte catalog slots (only Data1 copied from game.exe), so their
+  class factories were registered under a wrong GUID (CoCreateInstance:
+  class not registered) and every pointer after the cut stayed unmatched.
+  `tools/address_aliases.py` now binds a data symbol to the `data/com_guids.cpp`
+  definition at its address. `RA2_NATIVE_STG_LOG=1` also logs each object saved
+  and loaded (sequence number, CLSID, why a load failed). Saves made by
+  `RA2_NATIVE_SAVE_AT`, the in-game menu (`--skirmish`) and a menu-started game
+  all load and play on.
+- **Message boxes.** Button kind 3 (the OK of "Mission Saved" and other message
+  boxes) draws shape `unknown_art_ac10c0` (0x00AC10C0) through 0x006F2250.
+- **Super weapons.** `RA2_NATIVE_ORDERS="<frame> super <index> <x> <y>"` grants
+  the human house's Supers[index] once (no silo needed), charges it and queues
+  the SPECIAL_PLACE event (0x12) a map click queues (`grant <index>` only arms
+  it). Indices follow rules.ini: 0 nuke (MultiSpecial), 1 iron curtain,
+  2 lightning storm, 3 chronosphere, 4 chrono warp, 5 and 6 paradrops. All
+  seven fire on '#5' and in a Soviet game. Fixed on the way: the storm's owner
+  house passed as an int (0x0051F930, fixups), the PSI warning's house in
+  AnimClass +0x160 (a 32-bit field: natively a Houses index token), radiation
+  cell accessors, the dominator state test and SuperClass +0x57 (behaviour rows).
+- **Soviet side.** The country combo drops its list only on a click in its
+  rightmost 20 pixels (0x005F4BA0, as the original); `scripts/soviet.txt`
+  in the lane folder picks Russia that way.
+- **Allied 1** is won by nukes on the Soviet base (`super 0` at its cells); the
+  score screen follows and Allied 2 starts. The empty leaves reached there are
+  behaviour rows.
+
 ### Data the original stores (game.exe at run time)
 
 User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and

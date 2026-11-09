@@ -1222,6 +1222,69 @@
    "new": "            if (!(event->unknown_148 = (intptr_t)Audio_Event_Start_Pass(event)) || !Audio_Event_Begin(event)) {   // NATIVE: pointer width",
    "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
    "verified": true
+  },
+  {
+   "source": "src/shared/lightning_storm.hpp",
+   "old": "void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, int owner);",
+   "new": "void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, intptr_t owner);   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1170, M21: the lightning storm faulted in HouseClass::Is_Ally): Ion.cpp passes the storm's owner house as an int (0x0051F930's fourth argument, StormOwner = (HouseClass *)owner); the cast truncated the 64-bit house address. intptr_t keeps VC6's 32-bit value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/Ion/Unknown_0051f930.cpp",
+   "old": "void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, int owner)",
+   "new": "void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, intptr_t owner)   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1170, M21: the lightning storm faulted in HouseClass::Is_Ally): Ion.cpp passes the storm's owner house as an int (0x0051F930's fourth argument, StormOwner = (HouseClass *)owner); the cast truncated the 64-bit house address. intptr_t keeps VC6's 32-bit value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SuperClass/SuperClass_Place_0069d850.cpp",
+   "old": "Unknown_0051F930(Rules->LightningStormDuration, Rules->unknown_13e8, cell, (int)House);",
+   "new": "Unknown_0051F930(Rules->LightningStormDuration, Rules->unknown_13e8, cell, (intptr_t)House);   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1170, M21: the lightning storm faulted in HouseClass::Is_Ally): Ion.cpp passes the storm's owner house as an int (0x0051F930's fourth argument, StormOwner = (HouseClass *)owner); the cast truncated the 64-bit house address. intptr_t keeps VC6's 32-bit value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/TActionClass/TActionClass_unknown_func_6b25e0_006b25e0.cpp",
+   "old": "Unknown_0051F930(Rules->LightningStormDuration, Rules->unknown_13e8, target, (int)house);",
+   "new": "Unknown_0051F930(Rules->LightningStormDuration, Rules->unknown_13e8, target, (intptr_t)house);   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1170, M21: the lightning storm faulted in HouseClass::Is_Ally): Ion.cpp passes the storm's owner house as an int (0x0051F930's fourth argument, StormOwner = (HouseClass *)owner); the cast truncated the 64-bit house address. intptr_t keeps VC6's 32-bit value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/Ion/Update_Storm_00520200.cpp",
+   "old": "Unknown_0051F930(StormDuration, 0, StormCoords, (int)StormOwner);",
+   "new": "Unknown_0051F930(StormDuration, 0, StormCoords, (intptr_t)StormOwner);   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1170, M21: the lightning storm faulted in HouseClass::Is_Ally): Ion.cpp passes the storm's owner house as an int (0x0051F930's fourth argument, StormOwner = (HouseClass *)owner); the cast truncated the 64-bit house address. intptr_t keeps VC6's 32-bit value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Create_Animation_At_Object_00438b80.cpp",
+   "old": "    animation->unknown_func_422690((int)house);",
+   "new": "    animation->unknown_func_422690(Native_House_Token(house));   // NATIVE: a 32-bit house token",
+   "why": "Pointer width (Scout1170, M21: the nuke's PSI warning animation faulted in HouseClass::Is_Ally): AnimClass +0x160 is a 32-bit field holding the warned house (0x00438B80 stores it through 0x00422690's DWORD argument; AnimClass::AI 0x00421710 reads it back as a HouseClass *). Widening the field would move every later AnimClass member (the Map unit's light views assert the arm64 layout), so natively the field holds the house's Houses index + 1 (0 for none) through Native_House_Token / Native_House_From_Token (link/behaviour_m21.cpp); the same house reaches the reader, and the value survives a save.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Create_Animation_At_Object_00438b80.cpp",
+   "old": "AnimClass *__fastcall Create_Animation_At_Object_00438b80(HouseClass *house,AbstractClass *object,",
+   "new": "int Native_House_Token(HouseClass const *house);   // NATIVE: link/behaviour_m21.cpp\nAnimClass *__fastcall Create_Animation_At_Object_00438b80(HouseClass *house,AbstractClass *object,",
+   "why": "Pointer width (Scout1170, M21: the nuke's PSI warning animation faulted in HouseClass::Is_Ally): AnimClass +0x160 is a 32-bit field holding the warned house (0x00438B80 stores it through 0x00422690's DWORD argument; AnimClass::AI 0x00421710 reads it back as a HouseClass *). Widening the field would move every later AnimClass member (the Map unit's light views assert the arm64 layout), so natively the field holds the house's Houses index + 1 (0 for none) through Native_House_Token / Native_House_From_Token (link/behaviour_m21.cpp); the same house reaches the reader, and the value survives a save.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/AnimClass/AnimClass_AI_00421710.cpp",
+   "old": "        HouseClass *house=(HouseClass *)unknown_160;",
+   "new": "        HouseClass *house=Native_House_From_Token(unknown_160);   // NATIVE: a 32-bit house token",
+   "why": "Pointer width (Scout1170, M21: the nuke's PSI warning animation faulted in HouseClass::Is_Ally): AnimClass +0x160 is a 32-bit field holding the warned house (0x00438B80 stores it through 0x00422690's DWORD argument; AnimClass::AI 0x00421710 reads it back as a HouseClass *). Widening the field would move every later AnimClass member (the Map unit's light views assert the arm64 layout), so natively the field holds the house's Houses index + 1 (0 for none) through Native_House_Token / Native_House_From_Token (link/behaviour_m21.cpp); the same house reaches the reader, and the value survives a save.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/AnimClass/AnimClass_AI_00421710.cpp",
+   "old": "void AnimClass::AI()\n",
+   "new": "HouseClass *Native_House_From_Token(int token);   // NATIVE: link/behaviour_m21.cpp\nvoid AnimClass::AI()\n",
+   "why": "Pointer width (Scout1170, M21: the nuke's PSI warning animation faulted in HouseClass::Is_Ally): AnimClass +0x160 is a 32-bit field holding the warned house (0x00438B80 stores it through 0x00422690's DWORD argument; AnimClass::AI 0x00421710 reads it back as a HouseClass *). Widening the field would move every later AnimClass member (the Map unit's light views assert the arm64 layout), so natively the field holds the house's Houses index + 1 (0 for none) through Native_House_Token / Native_House_From_Token (link/behaviour_m21.cpp); the same house reaches the reader, and the value survives a save.",
+   "verified": true
   }
  ]
 }

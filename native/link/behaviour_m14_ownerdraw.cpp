@@ -28,6 +28,7 @@
 #include <stdio.h>
 
 extern WolDictionary<HWND, WNDPROC> unknown_window_proc_table_a73688;   // 0x00A73688 (its initializer 0x005DE9C0)
+extern void *unknown_art_ac10c0;                                        // 0x00AC10C0 (kind-3 button shape; 0x006F1B60 loads it)
 
 void __fastcall Unknown_006FA0F0(char *out, unsigned short const *text, int size);   // 0x006FA0F0 (wide to narrow)
 
@@ -101,7 +102,7 @@ bool Item_Text(HWND window, bool combo, int index, wchar_t *out, int size)
 // art: kinds 1-3 draw a frame of an interface shape through its drawer (kind 1:
 // 0x00AC10B8 through 0x006F34C0, frames 2 / 3 lit / 4 pressed; kind 2: 0x00AC0FF8
 // through 0x006F45F0, frames 0 / 2 lit / 1 pressed; kind 3: 0x00AC10C0 through
-// 0x006F2250, as kind 2) at the control's corner, clipped to the background
+// 0x006F2250, frames as kind 2) at the control's corner, clipped to the background
 // surface; kind 0 draws its image (+0x14, pressed +0x18) or the three-piece PCX
 // button "b<u|d>e_li<h>.pcx", "_mi" tiled, "_ri" (h 24 or 30, the largest not
 // taller than the control; 7-pixel ends; 2 pixels lower while pressed). The text
@@ -125,7 +126,7 @@ void Paint_Button(HWND window, UnknownControlRecord *record, bool lit)
         frame = pressed ? 4 : lit ? 3 : 2;
     } else if (kind == 2 || kind == 3) {
         drawer = (ConvertClass *)(kind == 2 ? Unknown_Get_Art_006f45f0() : Unknown_Get_Art_6f2250());
-        shape = kind == 2 ? unknown_shape_ac0ff8 : 0;   // 0x00AC10C0 has no native name yet
+        shape = kind == 2 ? unknown_shape_ac0ff8 : (ShapeFileStruct const *)unknown_art_ac10c0;   // 0x00AC10C0 (0x006F1B60 loads it)
         frame = pressed ? 1 : lit ? 2 : 0;
     }
     if (drawer && shape) {

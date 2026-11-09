@@ -259,7 +259,6 @@ __Z16Unknown_005e8fa0P6HWND__	__ZN9OwnerDraw14unknown_5e8fa0EP6HWND__	0x005E8FA0
 __Z14unknown_5eac30v	__ZN9OwnerDraw14unknown_5eac30Ev	0x005EAC30	function	same address, IR signature void ()
 __ZN9OwnerDraw26unknown_scroll_proc_5f9fb0EP6HWND__jml	__ZN9OwnerDraw30unknown_scroll_bar_proc_5f9fb0EP6HWND__jml	0x005F9FB0	function	same address, IR signature i64 (ptr, i32, i64, i64)
 __ZN9OwnerDraw25unknown_track_proc_5fb270EP6HWND__jml	__ZN9OwnerDraw28unknown_trackbar_proc_5fb270EP6HWND__jml	0x005FB270	function	same address, IR signature i64 (ptr, i32, i64, i64)
-__ZN9OwnerDraw14unknown_5fe9b0ERK4RectR7Surfaceii	__ZN9OwnerDraw27unknown_darken_bevel_5fe9b0ERK4RectP7Surfaceii	0x005FE9B0	function	same address, IR signature void (ptr, ptr, i32, i32)
 __Z16Unknown_005FEE70P6HWND__	__ZN9OwnerDraw31unknown_draw_dialog_back_5fee70EP6HWND__	0x005FEE70	function	same address, IR signature void (ptr)
 __Z14unknown_5ff5d0v	__ZN9OwnerDraw14unknown_5ff5d0Ev	0x005FF5D0	function	same address, IR signature i32 ()
 __Z33Destroy_Exception_Window_005ff6e0P6HWND__	__Z21unknown_dialog_5ff6e0P6HWND__	0x005FF6E0	function	same address, IR signature void (ptr)
@@ -296,6 +295,7 @@ __Z16Unknown_0065C310v	__Z22Release_Pause_0065c310v	0x0065C310	function	same add
 __ZN12NodeNameType18Get_Color_0066e2a0Ev	__ZN12NodeNameType14unknown_66e2a0Ev	0x0066E2A0	function	same address, IR signature i32 (ptr)
 __Z16Unknown_0066F3A0P19UnknownSessionState	__ZN19UnknownSessionState25Read_MultiPlayer_SettingsEv	0x0066F3A0	function	same address, IR signature void (ptr)
 __Z28Write_Chat_Settings_00670730P19UnknownSessionState	__ZN23UnknownOptions_0067073025unknown_save_chat_optionsEv	0x00670730	function	same address, IR signature void (ptr)
+__ZN12MultiMission24Set_Description_00671FA0EPKt	__ZN25UnknownDescribed_00671fa023unknown_set_descriptionEPKt	0x00671FA0	function	same address, IR signature void (ptr, ptr)
 __ZN17UnknownLobbyState4SaveEP7IStream	__ZN19UnknownBlock_a3d2b04SaveEP7IStream	0x00672830	function	same address, IR signature zeroext i1 (ptr, ptr)
 __ZN17UnknownLobbyState4LoadEP7IStream	__ZN19UnknownBlock_a3d2b04LoadEP7IStream	0x00672880	function	same address, IR signature zeroext i1 (ptr, ptr)
 __Z16Unknown_00672DE0P19UnknownSessionState	__ZN19UnknownSessionState16Unknown_00672DE0Ev	0x00672DE0	function	same address, IR signature void (ptr)
@@ -463,14 +463,14 @@ __ZN13seed_006720c012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x0078
 __ZN13seed_0067214012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
 __ZN13seed_006f9f8012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
 _CLSID_CompressStream	_CLSID_CStreamClass	0x007A1AB0	data	same address
-_CLSID_UnitTypeClass	_unknown_clsid_unit_type_7a1b00	0x007A1B00	data	same address
-_CLSID_InfantryTypeClass	_unknown_clsid_infantry_type_7a1b10	0x007A1B10	data	same address
-_CLSID_AircraftTypeClass	_unknown_clsid_aircraft_type_7a1b20	0x007A1B20	data	same address
-_CLSID_BuildingTypeClass	_unknown_clsid_building_type_7a1b30	0x007A1B30	data	same address
+_CLSID_UnitTypeClass	_Startup_CLSID_UnitTypeClass	0x007A1B00	data	same address, COM GUID definition
+_CLSID_InfantryTypeClass	_Startup_CLSID_InfantryTypeClass	0x007A1B10	data	same address, COM GUID definition
+_CLSID_AircraftTypeClass	_Startup_CLSID_AircraftTypeClass	0x007A1B20	data	same address, COM GUID definition
+_CLSID_BuildingTypeClass	_Startup_CLSID_BuildingTypeClass	0x007A1B30	data	same address, COM GUID definition
 _CLSID_WaypointPath	_CLSID_WaypointPathClass	0x007A1DC0	data	same address
-_CLSID_LightSource	_source_537b60_0	0x007A1E30	data	same address
-_CLSID_EMPulseClass	_source_4b5340_0	0x007A1E80	data	same address
-_CLSID_TacticalMapClass	_CLSID_Tactical	0x007A1E90	data	same address
+_CLSID_LightSource	_Startup_CLSID_LightSourceClass	0x007A1E30	data	same address, COM GUID definition
+_CLSID_EMPulseClass	_Startup_CLSID_EMPulseClass	0x007A1E80	data	same address, COM GUID definition
+_CLSID_TacticalMapClass	_Startup_CLSID_Tactical	0x007A1E90	data	same address, COM GUID definition
 _unknown_Walk_clsid_007a1fa0	_CLSID_WalkLocomotionClass	0x007A1FA0	data	same address
 _CLSID_TeleportLocomotion	_CLSID_TeleportLocomotionClass	0x007A1FD0	data	same address
 _unknown_clsid_7a1fd0	_CLSID_TeleportLocomotionClass	0x007A1FD0	data	same address

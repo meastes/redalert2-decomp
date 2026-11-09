@@ -550,10 +550,24 @@ def main():
             if l and not l.startswith(('#', 'alias\t')):
                 f = l.split('\t')
                 previous_target[f[0]] = f[1]
+    # COM GUIDs (data/com_guids.cpp) are whole 16-byte definitions; a catalog
+    # data row at the same address may be a 4-byte slot (only Data1 copied from
+    # game.exe), which made CLSID_LightSource/CLSID_EMPulseClass register their
+    # factories under a wrong GUID (a save with a light source did not load).
+    guid_at = {}
+    for l in (ROOT / 'native/data/com_guids.cpp').read_text().split('\n'):
+        m = re.search(r'__asm__\("(_[^"]+)"\).*?// (0x[0-9A-Fa-f]{8})', l)
+        if m:
+            guid_at.setdefault(int(m.group(2), 16), m.group(1))
+    defined_set = set(defined)
     for row, cands in wanted:
         sym = row['symbol']
         if row['kind'] == 'data':
             uniq = sorted({(a, t[0]) for a, t in cands})
+            guid = {guid_at[a] for a, _ in uniq if a in guid_at and guid_at[a] in defined_set}
+            if len(guid) == 1 and len({a for a, _ in uniq}) == 1 and not guid & ({t for _, t in uniq} | {sym}):
+                aliases.append((sym, guid.pop(), uniq[0][0], 'data', 'same address, COM GUID definition'))
+                continue
             if len({t for _, t in uniq}) == 1:
                 a, target = uniq[0]
                 aliases.append((sym, target, a, 'data', 'same address'))
