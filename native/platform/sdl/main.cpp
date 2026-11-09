@@ -19,6 +19,7 @@
 struct HINSTANCE__;
 extern "C" char const launch_mutex_name_007d515c[];
 extern char const launcher_event_007d51f0[];
+extern char const launcher_expected_message_007d52b8[];   // 0x007D52B8 (game.exe data, loaded at run time)
 extern "C" void *CreateMutexA(void *security, int owned, const char *name);
 extern "C" void *CreateEventA(void *security, int manual, int initial, const char *name);
 // C linkage, as the original's entry and the draft declare it.
@@ -132,6 +133,9 @@ int main(int argc, char **argv)
         // and signals the second (0x00491930). Same names (data/startup_winmain.cpp).
         CreateMutexA(nullptr, 0, launch_mutex_name_007d515c);
         CreateEventA(nullptr, 0, 0, launcher_event_007d51f0);
+        // ...and answered the event with its message (0xBEEF), the text
+        // Validate_Launcher 0x00491A10 expects (ra2port::set_launcher).
+        ra2port::set_launcher(launcher_event_007d51f0, launcher_expected_message_007d52b8);
         ra2port::progress("main");
         ra2port::progress("winmain");
         int code = WinMain((HINSTANCE__ *)(uintptr_t)0x400000, nullptr, command_line, 1);

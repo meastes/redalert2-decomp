@@ -29,7 +29,7 @@ bool TechnoClass::unknown_6c6130(int method,int mask,Cell const *cell,int range,
                        || (Kind_Of()==15 && (static_cast<InfantryClass *>(this)->unknown_5c0
                        || (static_cast<InfantryClass *>(this)->Type->Engineer && Mission==11
                            && tech->Health_Ratio()<=Rules->unknown_1370 && tech->Kind_Of()==6
-                           && reinterpret_cast<TechnoTypeClass *>(static_cast<BuildingClass *>(tech)->Type)->unknown_slot33(reinterpret_cast<int>(tech->House))>0)))) break;
+                           && reinterpret_cast<TechnoTypeClass *>(static_cast<BuildingClass *>(tech)->Type)->unknown_slot33(tech->House)>0)))) break;
                 }
             }
         }

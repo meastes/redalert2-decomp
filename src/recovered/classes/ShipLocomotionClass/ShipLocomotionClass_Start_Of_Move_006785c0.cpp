@@ -305,11 +305,11 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 }
                 if (Map[destcell].unknown_471830(Point2D(0, 0), 0)) {
                     if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[destcell].unknown_471830(Point2D(0, 0), 0))) {
-                        LinkedTo->unknown_slot119(1, (int)Map[destcell].unknown_471830(Point2D(0, 0), 0), 0);
+                        LinkedTo->unknown_slot119(1, Map[destcell].unknown_471830(Point2D(0, 0), 0), 0);
                     }
                 } else {
                     if (Map[destcell].OverlayIndex != -1 && OverlayTypes[Map[destcell].OverlayIndex]->Wall) {
-                        LinkedTo->unknown_slot119(1, (int)&Map[destcell], 0);
+                        LinkedTo->unknown_slot119(1, &Map[destcell], 0);
                     }
                 }
             } else {

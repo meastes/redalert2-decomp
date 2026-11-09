@@ -72,7 +72,7 @@ int HouseClass::AI_Infantry()
     for (int itype = 0; itype < InfantryTypes.Count(); itype++) {
         int count = counter[itype];
         if (count > 0 && Can_Build(InfantryTypes[itype], 0, 0)
-                && InfantryTypes[itype]->unknown_slot33((int)this) <= Available_Money()) {
+                && InfantryTypes[itype]->unknown_slot33(this) <= Available_Money()) {
             if (bestval == -1 || bestval < count) {
                 bestval = count;
                 bestcount = 0;

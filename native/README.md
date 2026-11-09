@@ -11,7 +11,7 @@ build) and never changes `src/`, the catalog or `tools/original_target`.
 cmake -S native -B build/native -G Ninja && cmake --build build/native
 cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all   # whole tree (3,279 groups) + drafts + ra2-native game link
 cmake -S native -B build/native -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON   # link with traps; gen/link_closure.json
-ctest --test-dir build/native            # native-core-check, native-asm-check
+ctest --test-dir build/native            # native-core-check, native-asm-check, native-view-audit
 build/native/ra2-native --smoke-test     # SDL3 host window
 build/native/ra2-native --data-dir <installation> --run-to=menu   # start-up test run (below)
 ```
@@ -95,8 +95,13 @@ unloads), `both`; the last frame logs `harness-units` (kind:mission@cell of the
 player's technos). With `both`, `'#0'` and `'#5'` run 600 frames without traps:
 infantry walk (Walk 0x0071E220 draft), tanks drive (path search 0x00427370
 draft), the MCV deploys into a construction yard (Scout1103). Longer runs need
-`--run-seconds=300` or more; around frame 650 on `'#5'` HouseClass::AI destroys a
-house's units and a later Evaluate_Cell scan faults on a stale occupier (open).
+`--run-seconds=300` or more (about 55 s per 1,000 frames). Scout1108 (M11): the
+human house was blown up at frame 1,024 by the launcher check (Main_Loop_End
+0x0053F840 queues a DESTRUCT event every 1,024 frames unless Validate_Launcher
+0x00491A10 saw the launcher's message; the host now plays that handshake), and
+BuildingClass slot 52's in-file cell view wrote CellClass +0x122 at its VC6
+offset, inside the arm64 AltOccupierPtr (Evaluate_Cell 0x006C6130 then faulted
+on 0x0000000000FF0000); `'#0'` and `'#5'` run 3,000 frames with `both`.
 `RA2_NATIVE_DEBUG_LOG=1`
 prints the game's Debug_Printf lines (the original's body is empty). The menu run
 (`--run-to=menu`) and the skirmish runs also work without `-noaudio` (60 frames
@@ -254,7 +259,13 @@ repeat the last three until `bss_globals.cpp` no longer changes.
    `techno.hpp`'s UnknownCellClass, Scout1098): their VC6 padding is respelled by
    `port/fixups.json` to the full classes' arm64 offsets under `#if defined(__LP64__)` (the
    i686 branch keeps the VC6 text for `member_aliases.py`); `link/check_light_views*.cpp`
-   and the behaviour files static_assert both sides. Members of a light view start in
+   and the behaviour files static_assert both sides. `tools/view_audit.py` (the
+   `native-view-audit` test, Scout1108) checks every cell view (the cast targets of
+   `Map[...]`/`Cell_At(...)`, other definitions of `CellClass`, classes whose comment
+   calls them a view of the cell; in-file ones included) member by member: the clang
+   record layouts for i686-pc-windows-msvc and arm64 of each unit that defines or uses
+   one, the real class's member at the view member's VC6 offset, and its arm64 offset.
+   Members of a light view start in
    the base's tail padding natively (AbstractClass's data size 0x31), so the padding
    arrays are measured from there. Many other stand-ins in `src/shared` still carry
    VC6 padding (a mismatch reads the wrong bytes silently). **COM class factories** (`TClassFactory<X>::CreateInstance`,
@@ -320,7 +331,10 @@ repeat the last three until `bss_globals.cpp` no longer changes.
    Blowfish.dll's COM server (IBlockCipher, MIX header decryption) is native
    (`port/src/blowfish.cpp`, TibSun blowfish.cpp); comctl32's DllGetVersion
    reports 5.81; FindWindowA, OpenMutexA, RegisterActiveObject,
-   MessageBoxIndirectA and `_controlfp` are ported; showing the first top-level
+   MessageBoxIndirectA and `_controlfp` are ported; the host plays RA2.EXE's
+   launcher handshake (`ra2port::set_launcher`: when the game signals the launcher
+   event, message 0xBEEF hands it a mapping whose view holds the text
+   Validate_Launcher 0x00491A10 expects, read from game.exe); showing the first top-level
    window activates it (WM_ACTIVATEAPP, WM_ACTIVATE) as Windows does.
    Unported imports are logged no-ops returning their Win32 failure value
    (`port/src/win32_unimplemented.cpp` and the `ra2port::unimplemented` calls).

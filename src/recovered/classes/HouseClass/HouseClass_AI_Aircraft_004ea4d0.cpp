@@ -72,7 +72,7 @@ int HouseClass::AI_Aircraft()
     for (int atype = 0; atype < AircraftTypes.Count(); atype++) {
         int count = counter[atype];
         if (count > 0 && Can_Build(AircraftTypes[atype], 0, 0)
-                && AircraftTypes[atype]->unknown_slot33((int)this) <= Available_Money()) {
+                && AircraftTypes[atype]->unknown_slot33(this) <= Available_Money()) {
             if (bestval == -1 || bestval < count) {
                 bestval = count;
                 bestcount = 0;

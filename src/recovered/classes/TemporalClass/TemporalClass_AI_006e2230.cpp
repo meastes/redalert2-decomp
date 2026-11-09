@@ -21,7 +21,7 @@ void TemporalClass::AI()
         if(Owner->unknown_slot32()->Trainable) {
             TechnoTypeClass *target_type=Target->unknown_slot32();
             TechnoTypeClass *owner_type=Owner->unknown_slot32();
-            Owner->unknown_118.Unknown_00713360(owner_type->unknown_slot33((int)Owner->House),target_type->unknown_slot33((int)Target->House));
+            Owner->unknown_118.Unknown_00713360(owner_type->unknown_slot33(Owner->House),target_type->unknown_slot33(Target->House));
         }
         if(Target!=0) {
             if(Target->Kind_Of()==6) {

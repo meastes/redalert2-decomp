@@ -15,8 +15,7 @@ TubeClass *__fastcall Cell_Tube_0047a130(CellClass const *cell);
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // Four-byte occupancy storage; only the evidenced vehicle bit is interpreted.
 struct CellOccupancyFlags_00503190 { unsigned int unknown_0:5; unsigned int vehicle:1; unsigned int unknown_6:26; };
-// The existing fourth integer parameter carries adjacent-cell pointer bits.
-int InfantryClass::unknown_slot101(CellClass *cell,int direction,int height,int adjacent,bool unused)
+int InfantryClass::unknown_slot101(CellClass *cell,int direction,int height,CellClass *adjacent,bool unused)
 {
     bool bridge=(cell->unknown_140&0x100) && (height==-1 || abs(height-cell->unknown_11b)>1);
     unsigned char flags=cell->unknown_124;

@@ -204,7 +204,7 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
             DiscreteDistributionClass<BuildingTypeClass> distribution;
             for (i = 0; i < defenses->Count(); i++) {
                 BuildingTypeClass *type = (*defenses)[i];
-                int weight = 10000 / type->unknown_slot33((int)this);
+                int weight = 10000 / type->unknown_slot33(this);
                 if (category == 2) {
                     weight += type->unknown_11e0;
                 } else if (category == 1) {

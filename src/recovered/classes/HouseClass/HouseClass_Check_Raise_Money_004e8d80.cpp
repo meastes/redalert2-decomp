@@ -22,8 +22,8 @@ int HouseClass::Check_Raise_Money_004e8d80()
             }
             if (unknown_5540!=Rules->unknown_9ec[0]->ArrayIndex &&
                 unknown_5540!=Rules->unknown_9ec[1]->ArrayIndex) {
-                if (Available_Money()<Rules->unknown_9ec[0]->unknown_slot33((int)this) &&
-                    Available_Money()<Rules->unknown_9ec[1]->unknown_slot33((int)this)) urgency=1;
+                if (Available_Money()<Rules->unknown_9ec[0]->unknown_slot33(this) &&
+                    Available_Money()<Rules->unknown_9ec[1]->unknown_slot33(this)) urgency=1;
             } else {
             FactoryClass *pending=0;
             for (int factory_index=0;factory_index<Factories.Count();++factory_index) {
@@ -44,8 +44,8 @@ int HouseClass::Check_Raise_Money_004e8d80()
         } else {
             if (unknown_553c!=Rules->BuildRefinery[0]->ArrayIndex &&
                 unknown_553c!=Rules->BuildRefinery[1]->ArrayIndex) {
-                if (Available_Money()<Rules->BuildRefinery[0]->unknown_slot33((int)this) &&
-                    Available_Money()<Rules->BuildRefinery[1]->unknown_slot33((int)this)) urgency=1;
+                if (Available_Money()<Rules->BuildRefinery[0]->unknown_slot33(this) &&
+                    Available_Money()<Rules->BuildRefinery[1]->unknown_slot33(this)) urgency=1;
             } else {
             FactoryClass *pending=0;
             for (int factory_index=0;factory_index<Factories.Count();++factory_index) {

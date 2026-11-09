@@ -30,11 +30,11 @@ wchar_t const *SidebarClass::StripClass::Help_Text(int gadget_index)
     if (unknown_flag_8373c0) {
         swprintf(unknown_text_ab9484,
             StringTable::Load_String("TXT_MONEY_FORMAT_1", 0, "D:\\Ra2\\Sidebar.CPP", 2627),
-            type->unknown_slot33((int)unknown_player_a35db4));
+            type->unknown_slot33(unknown_player_a35db4));
     } else {
         swprintf(unknown_text_ab9484,
             StringTable::Load_String("TXT_MONEY_FORMAT_2", 0, "D:\\Ra2\\Sidebar.CPP", 2629),
-            type->UIName, type->unknown_slot33((int)unknown_player_a35db4));
+            type->UIName, type->unknown_slot33(unknown_player_a35db4));
     }
     int length = wcslen(unknown_text_ab9484);
     for (int i = 0; i < length; i++) {

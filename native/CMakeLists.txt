@@ -136,6 +136,12 @@ target_link_libraries(native-asm-check PRIVATE ra2_dialect)
 target_compile_definitions(native-asm-check PRIVATE RA2_ASM_DIR="${RA2_ROOT}/src/recovered/asm")
 add_test(NAME native-asm-check COMMAND native-asm-check)
 
+# 7. Light views of real classes (cell views first) against the real classes'
+#    arm64 layout: i686-msvc and arm64 record layouts of every unit that defines
+#    or uses one (tools/view_audit.py, Scout1108). Needs the generated units.
+add_test(NAME native-view-audit COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/view_audit.py"
+         --build "${CMAKE_CURRENT_BINARY_DIR}")
+
 option(RA2_NATIVE_LINK_CLOSURE "Close the ra2-native link with generated trap stubs for still-unrecovered code and placeholders for unsourced data (never shipped; lists them in gen/link_closure.json)" OFF)
 
 if(RA2_NATIVE_SDL)

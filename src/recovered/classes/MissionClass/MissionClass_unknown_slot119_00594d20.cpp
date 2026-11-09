@@ -1,8 +1,8 @@
-// void MissionClass::unknown_slot119(int mission, int unknown2, int unknown3) (0x00594D20, slot 119)
+// void MissionClass::unknown_slot119(int mission, AbstractClass *target, AbstractClass *destination) (0x00594D20, slot 119)
 // Overrides the mission, suspending the current (or queued) one.
 #include "shared/mission.hpp"
 
-void MissionClass::unknown_slot119(int mission, int unknown2, int unknown3)
+void MissionClass::unknown_slot119(int mission, AbstractClass *target, AbstractClass *destination)
 {
     if (Mission == 28 && mission == 5) {
         return;

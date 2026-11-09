@@ -41,7 +41,7 @@
 // @ref ?unknown_slot29@ObjectTypeClass@@UBEHXZ=005d5d00
 // @ref ?unknown_slot30@ObjectTypeClass@@UBE?AUCoordStruct@@XZ=005d5d10
 // @ref ?unknown_slot31@ObjectTypeClass@@UBE?AUCoordStruct@@XZ=005d5d30
-// @ref ?unknown_slot33@ObjectTypeClass@@UBEHH@Z=005d5d60
+// @ref ?unknown_slot33@ObjectTypeClass@@UBEHPAVHouseClass@@@Z=005d5d60
 // @ref ?unknown_slot34@ObjectTypeClass@@UBEHXZ=005d5d70
 // @ref ?unknown_slot38@ObjectTypeClass@@UBEHXZ=005d5d80
 // @ref ?GetSizeMax@ObjectTypeClass@@UAGJPATULARGE_INTEGER@@@Z=005d7e80

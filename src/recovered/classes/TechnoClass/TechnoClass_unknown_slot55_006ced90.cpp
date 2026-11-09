@@ -29,7 +29,7 @@
 void TechnoClass::unknown_slot55(TechnoClass *killer)
 {
     int found = 0;
-    int points = unknown_slot32()->unknown_slot33((int)House);
+    int points = unknown_slot32()->unknown_slot33(House);
     if (unknown_7d && unknown_34 != 0 && killer != 0) {
         unknown_34->Spring(6, this, unknown_cell_ac0148, 0, 0);
     }
@@ -58,12 +58,12 @@ void TechnoClass::unknown_slot55(TechnoClass *killer)
             points *= 3;
         }
         if (killer->unknown_slot32()->Trainable) {
-            killer->unknown_118.Unknown_00713360(killer->unknown_slot32()->unknown_slot33((int)House), points);
+            killer->unknown_118.Unknown_00713360(killer->unknown_slot32()->unknown_slot33(House), points);
         }
         if (killer->unknown_slot32()->MissileSpawn && killer->unknown_23c != 0
             && ((TechnoClass *)killer->unknown_23c)->unknown_slot32()->Trainable) {
             ((TechnoClass *)killer->unknown_23c)->unknown_118.Unknown_00713360(
-                ((TechnoClass *)killer->unknown_23c)->unknown_slot32()->unknown_slot33((int)House), points);
+                ((TechnoClass *)killer->unknown_23c)->unknown_slot32()->unknown_slot33(House), points);
         }
         House->unknown_53b8 = killer->Owner();
         killer->House->unknown_5418 += points;

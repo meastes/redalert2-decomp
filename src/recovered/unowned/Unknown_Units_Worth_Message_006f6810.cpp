@@ -44,7 +44,7 @@ void __fastcall Unknown_006F6810(wchar_t *buffer, wchar_t const *name)
         if (object != 0 && flag) {
             TechnoClass *techno = (TechnoClass *)object;
             HouseClass *owner = techno->House;
-            total += techno->Class_Of()->unknown_slot33((int)owner);
+            total += techno->Class_Of()->unknown_slot33(owner);
         }
     }
     swprintf(buffer, StringTable::Load_String("MSG:UnitsWorth", 0, "D:\\Ra2\\UICmnds.cpp", 0x3AD), count, upper, total);

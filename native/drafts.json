@@ -262,19 +262,20 @@
   },
   {
    "entry": "0x47E2C0",
-   "name": "FUN_0047e2c0",
-   "plan": "draft as-is",
+   "name": "Explosion_Damage (Unknown_0047E2C0; TibSun combat.cpp)",
+   "plan": "draft, verify",
    "tier": "skirmish frame",
    "bytes": 4611,
    "score": 97.92,
    "last_lane_score": 97.92,
    "draft_found_by": "index",
-   "host_source": "src/recovered/unowned/Select_Damage_Anim_0047f4d0.cpp",
+   "host_source": null,
    "raw_seed": false,
-   "native": "blocked: no member named 'Is_Techno' in 'ObjectClass'",
-   "origin": "build/class-work/Scout969/w/b0.cpp",
-   "author": "Scout969",
-   "draft": null
+   "native": "compiles",
+   "origin": "build/class-work/Scout765/w/keep/ed6_9792.cpp",
+   "author": "Scout765 (keep/ed6_9792.cpp 97.92; Scout767 w/ed7.cpp; native adaptation Scout1108)",
+   "draft": "native/drafts/0047e2c0.cpp",
+   "adapted": "its own unit: the lane's private overlay (vector Reset, Vector3::Normalize, MapClass 0x0055DCA0/0x0055EDB0 on map_view.hpp's Map) spelled as file-local functions; Unknown_00472540 is Recalc_Attributes"
   },
   {
    "entry": "0x4AE9C0",

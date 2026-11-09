@@ -46,7 +46,7 @@ int AircraftClass::unknown_slot145()
         if (unknown_254 == 0) {
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
             if (dock) {
-                unknown_slot119(7, 0, (int)dock);
+                unknown_slot119(7, 0, dock);
                 unknown_a8 = 0;
                 return 1;
             }
@@ -55,7 +55,7 @@ int AircraftClass::unknown_slot145()
             position = Coord;
             AbstractClass *threat = unknown_slot219(2, &position, false);
             if (threat && threat->AbstractFlags.IsObject) {
-                unknown_slot119(1, (int)threat, 0);
+                unknown_slot119(1, threat, 0);
                 unknown_a8 = 0;
                 return 1;
             }

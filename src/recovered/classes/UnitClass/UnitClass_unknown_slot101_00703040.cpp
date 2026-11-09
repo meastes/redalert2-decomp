@@ -1,4 +1,4 @@
-// int UnitClass::unknown_slot101(CellClass *cell, int direction, int height, int adjacent, bool unused) (0x00703040)
+// int UnitClass::unknown_slot101(CellClass *cell, int direction, int height, CellClass *adjacent, bool unused) (0x00703040)
 // TibSun UnitClass::Can_Enter_Cell.
 #include "shared/unit.hpp"
 #include "shared/cell.hpp"
@@ -47,7 +47,7 @@ inline int Distance_00703040(CoordStruct const &coord1,CoordStruct const &coord2
 }
 struct CellOccupancyFlags_00703040 { unsigned int unknown_0:5; unsigned int vehicle:1; unsigned int unknown_6:26; };
 
-int UnitClass::unknown_slot101(CellClass *cell,int direction,int height,int adjacent,bool unused)
+int UnitClass::unknown_slot101(CellClass *cell,int direction,int height,CellClass *adjacent,bool unused)
 {
     bool bridge=(cell->unknown_140&0x100) && (height==-1 || abs(height-cell->unknown_11b)>1);
     unsigned char flags=cell->unknown_124;

@@ -204,7 +204,7 @@ int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
                 }
             }
             if (retaliate) {
-                unknown_slot119(1,(int)target,0);
+                unknown_slot119(1,target,0);
             }
         }
         FootClass *foot=As_Foot_L(this);

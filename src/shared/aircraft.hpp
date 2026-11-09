@@ -135,11 +135,11 @@ public:
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x00415E70
     virtual void unknown_slot87(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x00419CD0
     virtual int unknown_slot95(RadioClass *radio, int message, long &param);         // slot 95 0x00418840
-    virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, int arg4, bool arg5);   // slot 101 0x00418E00
+    virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00418E00
     virtual void unknown_slot116(int mission, bool commence);         // slot 116 0x0041B160
     virtual bool unknown_slot117();                                   // slot 117 0x0041AFC0
     virtual void unknown_slot118(int mission);                        // slot 118 0x0041B120
-    virtual void unknown_slot119(int mission, int unknown2, int unknown3);   // slot 119 0x0041B1A0
+    virtual void unknown_slot119(int mission, AbstractClass *target, AbstractClass *destination);   // slot 119 0x0041B1A0
     virtual bool unknown_slot122();                                   // slot 122 0x0041AD30
     virtual int unknown_slot126();                                    // slot 126 0x004178A0
     virtual int unknown_slot129();                                    // slot 129 0x00419D00

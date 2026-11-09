@@ -87,8 +87,8 @@ void ParasiteClass::Unknown_00606780()
                 if (Owner->unknown_slot32()->Trainable) {
                     TechnoTypeClass *victim_type = unknown_28->unknown_slot32();
                     TechnoTypeClass *owner_type = Owner->unknown_slot32();
-                    Owner->unknown_118.Unknown_00713360(owner_type->unknown_slot33((int)Owner->House),
-                        victim_type->unknown_slot33((int)unknown_28->House));
+                    Owner->unknown_118.Unknown_00713360(owner_type->unknown_slot33(Owner->House),
+                        victim_type->unknown_slot33(unknown_28->House));
                 }
                 FootClass *victim = unknown_28;
                 Unknown_00607440();

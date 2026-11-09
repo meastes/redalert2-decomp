@@ -4,8 +4,8 @@
     "id": "population-4325",
     "inventory_sha256": "f7ddb0b6b92bf7dd251e04394e53c5f3a442a680a103437bef94a8752db862b8",
     "gaps_sha256": "b1744b441d9fceece2cf859d039bac44c5a258fd3868c2929580b1a2c3f9cf04",
-    "historical_population_sha256": "ca4a92c011caea1440087bea4aea696e76280c456e698a997cdd8a3bd7ca64d0",
-    "historical_acceptance_sha256": "1883bd0eb78bdca99856321450c38da7b028f3b6c03957d915b0a331b0bb27a2"
+    "historical_population_sha256": "d6efcae42a668894b2cacee573cedc558e675f028dd38c87ccfab8f1f57f580a",
+    "historical_acceptance_sha256": "14f0c145047eb4a3d786eadd1652ec1e0f4edaf69541fb10e2fdc897d8dbb7bd"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -587,7 +587,7 @@
     "?unknown_slot137@UnitClass": 7345536,
     "?unknown_slot131@UnitClass@@UAEHXZ": 7349664,
     "?unknown_slot132@UnitClass@@UAEHXZ": 7352160,
-    "?unknown_slot101@UnitClass@@UAEHPAVCellClass@@HHH_N@Z": 7352384,
+    "?unknown_slot101@UnitClass@@UAEHPAVCellClass@@HH0_N@Z": 7352384,
     "?unknown_slot28@UnitClass@@UAEHPAVObjectClass@@_N@Z": 7355344,
     "?unknown_slot27@UnitClass@@UAEHPBVCell@@_N1@Z": 7356912,
     "?unknown_slot129@UnitClass@@UAEHXZ": 7357504,
@@ -4972,7 +4972,7 @@
     "_g4_5d5750_a72fa0": 10956704,
     "_call_5d5750_0": 7874954,
     "?unknown_slot29@ObjectTypeClass@@UBEHXZ": 6118656,
-    "?unknown_slot33@ObjectTypeClass@@UBEHH@Z": 6118752,
+    "?unknown_slot33@ObjectTypeClass@@UBEHPAVHouseClass@@@Z": 6118752,
     "?unknown_slot34@ObjectTypeClass@@UBEHXZ": 6118768,
     "?unknown_slot38@ObjectTypeClass@@UBEHXZ": 6118784,
     "?get@Leaf_5d7c20@@QAEXXZ": 6126624,
@@ -6229,8 +6229,8 @@
     "?Owning_House@TechnoClass@@UBEPAVHouseClass@@XZ": 7107632,
     "?unknown_slot217@TechnoClass@@UAEHPAVAbstractClass@@H@Z": 7115328,
     "?get@Leaf_6cd6e0@@QAE_NXZ": 7132896,
-    "?unknown_slot119@TechnoClass@@UAEXHHH@Z": 5012160,
-    "?unknown_slot119@MissionClass@@UAEXHHH@Z": 5852448,
+    "?unknown_slot119@TechnoClass@@UAEXHPAVAbstractClass@@0@Z": 5012160,
+    "?unknown_slot119@MissionClass@@UAEXHPAVAbstractClass@@0@Z": 5852448,
     "?unknown_slot61@TechnoClass@@UAEXXZ": 7140272,
     "?unknown_6d1420@TechnoClass@@QAEXPAVUnknownTechno408@@@Z": 7148576,
     "?unknown_6d1430@TechnoClass@@QBEPAVUnknownTechno408@@XZ": 7148592,
@@ -11904,7 +11904,7 @@
     "?unknown_slot41@TechnoTypeClass@@UBE_NXZ": 7187648,
     "?unknown_slot28@TechnoTypeClass@@UBEHXZ": 7187696,
     "?unknown_slot34@TechnoTypeClass@@UBEHXZ": 7187728,
-    "?unknown_slot33@TechnoTypeClass@@UBEHH@Z": 7187760,
+    "?unknown_slot33@TechnoTypeClass@@UBEHPAVHouseClass@@@Z": 7187760,
     "?Cost_Multiplier@HouseClass@@QAEMPBVTechnoTypeClass@@@Z": 5200224,
     "?unknown_slot46@TechnoTypeClass@@UBEHPAVHouseClass@@_N@Z": 7187840,
     "?unknown_slot38@TechnoTypeClass@@UBEHXZ": 7188032,
@@ -13305,7 +13305,7 @@
     "?unknown_facings_7ce4c8@@3QBHB": 8185032,
     "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_00478760@CellClass@@QAE_NHHHHHHH@Z": 4687712,
-    "?unknown_slot101@AircraftClass@@UAEHPAVCellClass@@HHH_N@Z": 4296192,
+    "?unknown_slot101@AircraftClass@@UAEHPAVCellClass@@HH0_N@Z": 4296192,
     "?Unknown_006BA990@TeamClass@@QAE_NXZ": 7055760,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
     "?unknown_slot183@AircraftClass@@UAE?AUUnknownFacingDir@@XZ": 4299952,
@@ -13330,8 +13330,8 @@
     "?unknown_slot20@AircraftClass@@UBE_NXZ": 4305072,
     "?unknown_slot118@AircraftClass@@UAEXH@Z": 4305184,
     "?unknown_slot116@AircraftClass@@UAEXH_N@Z": 4305248,
-    "?unknown_slot119@AircraftClass@@UAEXHHH@Z": 4305312,
-    "?unknown_slot119@FootClass@@UAEXHHH@Z": 5012160,
+    "?unknown_slot119@AircraftClass@@UAEXHPAVAbstractClass@@0@Z": 4305312,
+    "?unknown_slot119@FootClass@@UAEXHPAVAbstractClass@@0@Z": 5012160,
     "?unknown_slot299@AircraftClass@@UAEPAVTechnoClass@@PBV?$DynamicVectorClass@PAVTechnoTypeClass@@@@HH@Z": 4305376,
     "?unknown_slot299@FootClass@@UAEPAVTechnoClass@@PBV?$DynamicVectorClass@PAVTechnoTypeClass@@@@HH@Z": 5036320,
     "?unknown_slot162@AircraftClass@@UAE?AUUnknownFacingDir@@XZ": 4306400,
@@ -15107,7 +15107,7 @@
     "?unknown_4c45b0@FootClass@@QAEPAVBuildingClass@@XZ": 4998576,
     "?unknown_slot138@FootClass@@UAEHXZ": 5013008,
     "?Unknown_0040DC20@@YIPAVTechnoClass@@PAVAbstractClass@@@Z": 4250656,
-    "?unknown_slot101@FootClass@@UAEHPAVCellClass@@HHH_N@Z": 5015264,
+    "?unknown_slot101@FootClass@@UAEHPAVCellClass@@HH0_N@Z": 5015264,
     "?unknown_4c8d00@FootClass@@QAE_NPAVHouseClass@@@Z": 5016832,
     "?AI@TechnoClass@@UAEXXZ": 7107776,
     "?Unknown_0047CE70@UnknownCellClass@@QAEHXZ": 4705904,
@@ -15152,7 +15152,7 @@
     "?unknown_slot97@BuildingClass@@UAEXH@Z": 4470400,
     "??_C@_0O@MHGH@EVA_Repairing?$AA@": 8190100,
     "?unknown_slot98@BuildingClass@@UAEXH@Z": 4470688,
-    "?unknown_slot101@BuildingClass@@UAEHPAVCellClass@@HHH_N@Z": 4477872,
+    "?unknown_slot101@BuildingClass@@UAEHPAVCellClass@@HH0_N@Z": 4477872,
     "?unknown_slot129@BuildingClass@@UAEHXZ": 4478496,
     "??0UnknownVector3@@QAE@HHH@Z": 4306480,
     "?Length@UnknownVector3@@QBEHXZ": 4306816,
@@ -16220,7 +16220,7 @@
     "?unknown_terrain_section_7ad390@@3PBDB": 8049552,
     "?Compute_CRC@TerrainClass@@UBEXAAVWWCRCEngine@@@Z": 7227168,
     "?Detach@TerrainClass@@UAEXPAVAbstractClass@@_N@Z": 7227296,
-    "?unknown_slot101@TerrainClass@@UAEHPAVCellClass@@HHH_N@Z": 7224496,
+    "?unknown_slot101@TerrainClass@@UAEHPAVCellClass@@HH0_N@Z": 7224496,
     "??0AnimFile@@QAE@XZ": 4341648,
     "??_7AnimFile@@6B@": 7979668,
     "??1AnimFile@@UAE@XZ": 4341744,
@@ -17454,7 +17454,7 @@
     "?Start_Next_Queued_004B9D70@FactoryClass@@QAEXXZ": 4955504,
     "?Begin_Production@HouseClass@@QAEHHH_N0@Z": 5135920,
     "?Raw_Cost@BuildingTypeClass@@UBEHXZ": 4557296,
-    "?unknown_slot33@BuildingTypeClass@@UBEHH@Z": 4557424,
+    "?unknown_slot33@BuildingTypeClass@@UBEHPAVHouseClass@@@Z": 4557424,
     "?unknown_6fbab0@UnitClass@@QAE_NXZ": 7322288,
     "?Clear_Unknown5B4_007049F0@UnitClass@@QAE_NXZ": 7358960,
     "??0Unknown4A6AE0Owner@@QAE@XZ": 4876560,
@@ -22104,7 +22104,7 @@
     "?unknown_slot95@AircraftClass@@UAEHPAVRadioClass@@HAAJ@Z": 4294720,
     "?unknown_slot86@InfantryClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 5241712,
     "?unknown_slot67@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
-    "?unknown_slot101@InfantryClass@@UAEHPAVCellClass@@HHH_N@Z": 5255568,
+    "?unknown_slot101@InfantryClass@@UAEHPAVCellClass@@HH0_N@Z": 5255568,
     "?AI@TeamClass@@UAEXXZ": 7043792,
     "?TMission_unknown_6bb5f0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7058928,
     "?TMission_unknown_6bcbb0@TeamClass@@QAEXABVScriptMissionClass@@_N@Z": 7064496,
@@ -22912,7 +22912,10 @@
     "?Unknown_004712c0@CellClass@@QAEXPAVRGBClass@@0@Z": 4657856,
     "?unknown_473000@CellClass@@QAEXXZ": 4665344,
     "?Unknown_0047CC10@CellClass@@QAEXXZ": 4705296,
-    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696
+    "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
+    "?Kind_Of@Tactical@@UBEHXZ": 6997984,
+    "?Size_Of@Tactical@@UBEHXZ": 6998000,
+    "??1Tactical@@UAE@XZ": 6956816
   },
   "regions": [
     {
@@ -32342,7 +32345,7 @@
           "resolved": 4293756433
         }
       ],
-      "source_sha256": "f262fafa396db6c60988dba4ecf906b9a100e4c9a5aa77d16092cbeae8675fe3",
+      "source_sha256": "9984b92825f9fc0df80f6640482f32d75e7aaccdec22ba52cfa70eef804ae07c",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_6fbf40_006fbf40.cpp",
       "population": "population-4325",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -34452,8 +34455,8 @@
     {
       "entry": 7352384,
       "method": "00703040",
-      "symbol": "?unknown_slot101@UnitClass@@UAEHPAVCellClass@@HHH_N@Z",
-      "symbol_prefix": "?unknown_slot101@UnitClass@@UAEHPAVCellClass@@HHH_N@Z",
+      "symbol": "?unknown_slot101@UnitClass@@UAEHPAVCellClass@@HH0_N@Z",
+      "symbol_prefix": "?unknown_slot101@UnitClass@@UAEHPAVCellClass@@HH0_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -34525,7 +34528,7 @@
         {
           "offset": 725,
           "kind": 20,
-          "symbol": "?unknown_slot101@FootClass@@UAEHPAVCellClass@@HHH_N@Z",
+          "symbol": "?unknown_slot101@FootClass@@UAEHPAVCellClass@@HH0_N@Z",
           "target": 5015264,
           "addend": 0,
           "resolved": 4292629447
@@ -34835,7 +34838,7 @@
           "resolved": 4292280984
         }
       ],
-      "source_sha256": "a7432dda7cbe0ec06225cbacfdf76b7943cfae9341465c016b664cc2b81288d0",
+      "source_sha256": "30e61f218a8fb2e5eace94f9d323e6f0fcd1223a9677fc6ae8187783a81b1324",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot101_00703040.cpp",
       "population": "population-4325",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

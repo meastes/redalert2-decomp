@@ -638,13 +638,20 @@ BOOL FlushInstructionCache(HANDLE process, const void *address, uintptr_t size)
     (void)process; (void)address; (void)size;
     return 1;
 }
+// File mappings: only the launcher's message (set_launcher below) exists natively.
+struct Mapping : HandleObject {
+    std::string text;
+};
 void *MapViewOfFileEx(HANDLE mapping, DWORD access, DWORD high, DWORD low, uintptr_t size, void *base)
 {
-    (void)mapping; (void)access; (void)high; (void)low; (void)size; (void)base;
+    (void)access; (void)high; (void)size; (void)base;
+    if (Mapping *m = (Mapping *)handle_get(mapping, H_MAPPING)) {
+        return low < m->text.size() + 1 ? (void *)(m->text.c_str() + low) : nullptr;
+    }
     unimplemented("MapViewOfFileEx");
     return nullptr;
 }
-BOOL UnmapViewOfFile(const void *base) { (void)base; return 0; }
+BOOL UnmapViewOfFile(const void *base) { return base != nullptr; }
 
 // ---- threads and processes -------------------------------------------------
 
@@ -766,13 +773,38 @@ HANDLE OpenEventA(DWORD access, BOOL inherit, const char *name)
     return h;
 }
 
+namespace {
+std::string launcher_event_name, launcher_text;
+bool launcher_answered = false;
+}
+
+extern "C++" {   // this part of the file is extern "C"; the port's own API is C++
+namespace ra2port {
+void set_launcher(const char *event_name, const char *message)
+{
+    launcher_event_name = event_name ? event_name : "";
+    launcher_text = message ? message : "";
+}
+}  // namespace ra2port
+}
+
 BOOL SetEvent(HANDLE handle)
 {
     Event *e = (Event *)handle_get(handle, H_EVENT);
     if (!e) return 0;
-    std::lock_guard<std::mutex> g(e->m);
-    e->signaled = true;
-    if (e->manual) e->cv.notify_all(); else e->cv.notify_one();
+    {
+        std::lock_guard<std::mutex> g(e->m);
+        e->signaled = true;
+        if (e->manual) e->cv.notify_all(); else e->cv.notify_one();
+    }
+    // The launcher answers the game's signal once (see set_launcher).
+    if (!launcher_answered && !launcher_event_name.empty() && handle == find_named(launcher_event_name.c_str())) {
+        launcher_answered = true;
+        Mapping *m = new Mapping;
+        m->kind = H_MAPPING;
+        m->text = launcher_text;
+        post_message(nullptr, 0xBEEF, 0, (LPARAM)handle_new(m));
+    }
     return 1;
 }
 

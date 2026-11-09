@@ -36,7 +36,7 @@ void HouseClass::Sell_Wall(Cell const &cell, bool quiet)
                         if (unknown_player_a35db4 == this && !quiet) {
                             Voc_Play(Rules->unknown_5c4, 1.0f, 0x2000, 0);
                         }
-                        btype->unknown_slot33((int)this);
+                        btype->unknown_slot33(this);
                         Map[cell].OverlayIndex = -1;
                         Map[cell].OverlayData = 0;
                         Map[cell].unknown_50 = -1;

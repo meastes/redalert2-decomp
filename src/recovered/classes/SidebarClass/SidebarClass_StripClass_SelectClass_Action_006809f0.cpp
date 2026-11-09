@@ -217,7 +217,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                             TechnoTypeClass *tech = (TechnoTypeClass *)Unknown_00482C00(kind, Strip->Buildables[index].unknown_00);
                             if (tech) {
                                 int ahead = unknown_max_ahead_a3d560;
-                                if (((UnknownSidebarIHouse *)((char *)unknown_player_a35db4 + 0x24))->Available_Money() >= tech->unknown_slot33((int)unknown_player_a35db4) * ahead / 54
+                                if (((UnknownSidebarIHouse *)((char *)unknown_player_a35db4 + 0x24))->Available_Money() >= tech->unknown_slot33(unknown_player_a35db4) * ahead / 54
                                     && tech->Who_Can_Build_Me(true, false, false, (HouseClass *)unknown_player_a35db4)) {
                                     int time = tech->unknown_slot34();
                                     if (tech->Kind_Of() == 7 && ((BuildingTypeClass *)tech)->Wall) {

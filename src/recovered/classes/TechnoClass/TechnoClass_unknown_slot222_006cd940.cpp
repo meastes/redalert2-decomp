@@ -28,7 +28,7 @@ bool TechnoClass::unknown_slot222(HouseClass *house, int arg2)
         unknown_6155e0();
         House->Unknown_004ED440(this, false);
         unknown_slot55(0);
-        house->unknown_5418 += unknown_slot32()->unknown_slot33((int)House);
+        house->unknown_5418 += unknown_slot32()->unknown_slot33(House);
         House->unknown_4ea800(this);
         house->unknown_4ea970(this);
         switch (Kind_Of()) {

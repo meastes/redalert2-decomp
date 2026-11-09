@@ -52,7 +52,7 @@ void trace(const char *fmt, ...);
 void set_last_error(DWORD code);
 
 // Handle table. Each kind owns its payload; close() deletes it.
-enum HandleKind { H_FILE = 1, H_FIND, H_EVENT, H_MUTEX, H_THREAD, H_WINDOW, H_DC, H_GDI, H_MODULE, H_PROCESS, H_REGKEY };
+enum HandleKind { H_FILE = 1, H_FIND, H_EVENT, H_MUTEX, H_THREAD, H_WINDOW, H_DC, H_GDI, H_MODULE, H_PROCESS, H_REGKEY, H_MAPPING };
 struct HandleObject { virtual ~HandleObject() {} int kind = 0; };
 HANDLE handle_new(HandleObject *object);
 HandleObject *handle_get(HANDLE handle, int kind = 0);
@@ -98,6 +98,17 @@ const Host *host();
 // The window that receives host input (the first top-level window created).
 HWND main_window();
 BOOL post_message(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+
+// The launcher's handshake (platform/sdl/main.cpp plays RA2.EXE's part). The
+// game signals the named launcher event (Notify_Launcher 0x00491930); the
+// launcher then posts message 0xBEEF to the game thread with a file mapping
+// whose view holds its message, which Receive_Launcher_Message 0x004919B0 maps
+// (MapViewOfFileEx) and Validate_Launcher 0x00491A10 compares with the text
+// the game expects. Without it the game queues a DESTRUCT event for the player
+// every 1,024 frames (Main_Loop_End 0x0053F840) and checks it before the score
+// screen (Do_Win 0x0065D7F0). `message` is the text the launcher sends (the
+// expected text, read from game.exe at run time).
+void set_launcher(const char *event_name, const char *message);
 
 }  // namespace ra2port
 

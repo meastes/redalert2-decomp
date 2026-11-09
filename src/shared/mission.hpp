@@ -50,7 +50,7 @@ public:
     virtual void unknown_slot116(int mission, bool commence);   // slot 116 0x00594CB0 queue
     virtual bool unknown_slot117();                             // slot 117 0x00594C50 commence the queued mission
     virtual void unknown_slot118(int mission);                  // slot 118 0x00594710 set
-    virtual void unknown_slot119(int mission, int unknown2, int unknown3);  // slot 119 0x00594D20 override
+    virtual void unknown_slot119(int mission, AbstractClass *target, AbstractClass *destination);  // slot 119 0x00594D20 override
     virtual bool unknown_slot120();                             // slot 120 0x00594D80 restore the suspended mission
     virtual bool unknown_slot121() const;                       // slot 121 0x005950E0 has a suspended mission
     virtual bool unknown_slot122() { return true; }             // slot 122 kept copy 0x004CDDE0

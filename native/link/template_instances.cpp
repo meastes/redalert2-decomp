@@ -271,3 +271,7 @@ template class VectorClass<unsigned int>;  // instance: VectorClass<unsigned int
 template class VectorClass<unsigned short>;  // instance: VectorClass<unsigned short>::
 template class VectorClass<unsigned short const*>;  // instance: VectorClass<unsigned short const*>::
 template class VectorClass<unsigned short*>;  // instance: VectorClass<unsigned short*>::
+// not instantiated: DynamicVectorClass<HashObject<HashString, SchemeNode*>>: element type needs its definition
+// not instantiated: VectorClass<HashObject<HashString, SchemeNode*>>: element type needs its definition
+// not instantiated: VectorClass<PassabilityType>: element type needs its definition
+// not instantiated: VectorClass<WorldDominationTour::Map::AnimationPalette*>: does not compile alone
