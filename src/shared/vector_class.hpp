@@ -682,4 +682,18 @@ bool DynamicVectorClass<T>::Delete(int index)
 
 // TypeList<T>: shared/type_list.hpp.
 
+// Capacity-preserving clear from TibSun code/vector.h889 (OpenTS).
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2025 Electronic Arts Inc.; Copyright 2026 OpenTS contributors.
+// EA GPL Section 7 terms apply; see THIRD_PARTY.md.
+#ifdef VECTOR_IMPLEMENT_DYNAMIC_DELETE_ALL
+template<class T>
+void DynamicVectorClass<T>::Delete_All(void)
+{
+    int len = VectorMax;
+    Clear();
+    Resize(len);
+}
+#endif
+
 #endif

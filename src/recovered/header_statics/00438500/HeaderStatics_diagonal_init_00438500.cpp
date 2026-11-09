@@ -1,3 +1,4 @@
+#define VECTOR_IMPLEMENT_DYNAMIC_DELETE_ALL
 #define RA2_COORD_AS_CELL      // TibSun Coord::As_Cell and the member Cell comparisons for Unlimbo 0x0043D3A0
 #define RA2_POINT3D_TIBSUN     // TibSun TPoint3D operator-/Length/Distance_To and ObjectClass::Distance/Distance_To
 #define RA2_FACING_LEFT90

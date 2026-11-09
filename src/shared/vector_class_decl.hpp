@@ -61,6 +61,9 @@ public:
     DynamicVectorClass(unsigned size = 0, T const *array = 0);
 
     int Count() const;
+#ifdef VECTOR_IMPLEMENT_DYNAMIC_DELETE_ALL
+    void Delete_All(); // actual TibSun vector.h889 capacity-preserving clear
+#endif
     DynamicVectorClass<T> &operator=(DynamicVectorClass<T> const &rvalue);
     // Capacity increment for later growth (inlined into the map's hash-table
     // construction, MapClass::One_Time 0x005480D0).
