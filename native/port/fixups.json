@@ -1285,6 +1285,162 @@
    "new": "HouseClass *Native_House_From_Token(int token);   // NATIVE: link/behaviour_m21.cpp\nvoid AnimClass::AI()\n",
    "why": "Pointer width (Scout1170, M21: the nuke's PSI warning animation faulted in HouseClass::Is_Ally): AnimClass +0x160 is a 32-bit field holding the warned house (0x00438B80 stores it through 0x00422690's DWORD argument; AnimClass::AI 0x00421710 reads it back as a HouseClass *). Widening the field would move every later AnimClass member (the Map unit's light views assert the arm64 layout), so natively the field holds the house's Houses index + 1 (0 for none) through Native_House_Token / Native_House_From_Token (link/behaviour_m21.cpp); the same house reaches the reader, and the value survives a save.",
    "verified": true
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "    int unknown_24;\n    int unknown_28;                     // +0x28 (slot 113 tests it)\n",
+   "new": "    intptr_t unknown_24;   // NATIVE: pointer-sized (TemporalClass::Owner)\n    intptr_t unknown_28;   // NATIVE: pointer-sized (TemporalClass::Target; slot 113 tests it)\n",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/shared/unit.hpp",
+   "old": "virtual void unknown_slot280(int arg1);",
+   "new": "virtual void unknown_slot280(intptr_t arg1);   // NATIVE: a techno address",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/shared/unit.hpp",
+   "old": "virtual void unknown_slot281(int arg1);",
+   "new": "virtual void unknown_slot281(intptr_t arg1);   // NATIVE: a techno address",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/shared/foot.hpp",
+   "old": "virtual void unknown_slot280(int arg1);",
+   "new": "virtual void unknown_slot280(intptr_t arg1);   // NATIVE: a techno address",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/shared/foot.hpp",
+   "old": "virtual void unknown_slot281(int arg1);",
+   "new": "virtual void unknown_slot281(intptr_t arg1);   // NATIVE: a techno address",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/recovered/classes/FootClass/FootClass_unknown_4ccfc0_004ccfc0.cpp",
+   "old": "unknown_slot281((int)passenger)",
+   "new": "unknown_slot281((intptr_t)passenger)",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/recovered/classes/FootClass/FootClass_unknown_4ccf20_004ccf20.cpp",
+   "old": "unknown_slot281((int)passenger)",
+   "new": "unknown_slot281((intptr_t)passenger)",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/recovered/classes/FootClass/FootClass_Unknown_004CCE80_004cce80.cpp",
+   "old": "unknown_slot280((int)passenger)",
+   "new": "unknown_slot280((intptr_t)passenger)",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot280_00709a20.cpp",
+   "old": "void UnitClass::unknown_slot280(int arg1)\n{",
+   "new": "void UnitClass::unknown_slot280(intptr_t arg1)\n{",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot280_00709a20.cpp",
+   "old": "object->unknown_24 = (int)this;",
+   "new": "object->unknown_24 = (intptr_t)this;",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot281_00709ae0.cpp",
+   "old": "void UnitClass::unknown_slot281(int arg1)\n{",
+   "new": "void UnitClass::unknown_slot281(intptr_t arg1)\n{",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot281_00709ae0.cpp",
+   "old": "unknown_208->unknown_24 = (int)to;",
+   "new": "unknown_208->unknown_24 = (intptr_t)to;",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/recovered/classes/TechnoClass/TechnoClass_Can_Fire_006c9260.cpp",
+   "old": "(int)target==unknown_208->unknown_28",
+   "new": "(intptr_t)target==unknown_208->unknown_28",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 2 faulted in UnitClass slot 280, reading through a sign-extended 32-bit techno address): FootClass/UnitClass slots 280/281 (0x00709A20/0x00709AE0, IFV gunner hand-over) take the passenger techno as a DWORD argument, and UnknownTechno208 (the TemporalClass at TechnoClass +0x208; temporal.hpp: +0x24 Owner, +0x28 Target) keeps both as 32-bit ints. Natively the argument and the two fields are pointer-sized intptr_t, so the view's fields lie on TemporalClass's Owner/Target and the address survives; the VC6 meaning (the same techno address) is kept."
+  },
+  {
+   "source": "src/shared/object.hpp",
+   "old": "virtual int unknown_slot25(bool arg1, int arg2);",
+   "new": "virtual int unknown_slot25(bool arg1, intptr_t arg2);   // NATIVE: a house address",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 4 faulted in TechnoClass slot 25 0x006CF3C0 reading a sign-extended 32-bit house address): ObjectClass slot 25 (Visual_Character, hypothesis) takes the viewing house as a DWORD (arg2; Can_Fire 0x006C9260 passes (int)House, every other caller 0). Natively the parameter is pointer-sized intptr_t in every declaration and override, so the house address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/shared/foot.hpp",
+   "old": "virtual int unknown_slot25(bool arg1, int arg2);",
+   "new": "virtual int unknown_slot25(bool arg1, intptr_t arg2);   // NATIVE: a house address",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 4 faulted in TechnoClass slot 25 0x006CF3C0 reading a sign-extended 32-bit house address): ObjectClass slot 25 (Visual_Character, hypothesis) takes the viewing house as a DWORD (arg2; Can_Fire 0x006C9260 passes (int)House, every other caller 0). Natively the parameter is pointer-sized intptr_t in every declaration and override, so the house address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/shared/building_class.hpp",
+   "old": "virtual int unknown_slot25(bool arg1, int arg2);",
+   "new": "virtual int unknown_slot25(bool arg1, intptr_t arg2);   // NATIVE: a house address",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 4 faulted in TechnoClass slot 25 0x006CF3C0 reading a sign-extended 32-bit house address): ObjectClass slot 25 (Visual_Character, hypothesis) takes the viewing house as a DWORD (arg2; Can_Fire 0x006C9260 passes (int)House, every other caller 0). Natively the parameter is pointer-sized intptr_t in every declaration and override, so the house address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "virtual int unknown_slot25(bool arg1, int arg2);",
+   "new": "virtual int unknown_slot25(bool arg1, intptr_t arg2);   // NATIVE: a house address",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 4 faulted in TechnoClass slot 25 0x006CF3C0 reading a sign-extended 32-bit house address): ObjectClass slot 25 (Visual_Character, hypothesis) takes the viewing house as a DWORD (arg2; Can_Fire 0x006C9260 passes (int)House, every other caller 0). Natively the parameter is pointer-sized intptr_t in every declaration and override, so the house address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot25_006cf3c0.cpp",
+   "old": "int TechnoClass::unknown_slot25(bool arg1, int arg2)\n{",
+   "new": "int TechnoClass::unknown_slot25(bool arg1, intptr_t arg2)\n{",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 4 faulted in TechnoClass slot 25 0x006CF3C0 reading a sign-extended 32-bit house address): ObjectClass slot 25 (Visual_Character, hypothesis) takes the viewing house as a DWORD (arg2; Can_Fire 0x006C9260 passes (int)House, every other caller 0). Natively the parameter is pointer-sized intptr_t in every declaration and override, so the house address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/recovered/classes/FootClass/FootClass_unknown_slot25_004c8fa0.cpp",
+   "old": "int FootClass::unknown_slot25(bool arg1, int arg2)\n{",
+   "new": "int FootClass::unknown_slot25(bool arg1, intptr_t arg2)\n{",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 4 faulted in TechnoClass slot 25 0x006CF3C0 reading a sign-extended 32-bit house address): ObjectClass slot 25 (Visual_Character, hypothesis) takes the viewing house as a DWORD (arg2; Can_Fire 0x006C9260 passes (int)House, every other caller 0). Natively the parameter is pointer-sized intptr_t in every declaration and override, so the house address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_unknown_slot25_0044f600.cpp",
+   "old": "int BuildingClass::unknown_slot25(bool arg1, int arg2)\n{",
+   "new": "int BuildingClass::unknown_slot25(bool arg1, intptr_t arg2)\n{",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 4 faulted in TechnoClass slot 25 0x006CF3C0 reading a sign-extended 32-bit house address): ObjectClass slot 25 (Visual_Character, hypothesis) takes the viewing house as a DWORD (arg2; Can_Fire 0x006C9260 passes (int)House, every other caller 0). Natively the parameter is pointer-sized intptr_t in every declaration and override, so the house address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/recovered/classes/TechnoClass/TechnoClass_Can_Fire_006c9260.cpp",
+   "old": "techno->unknown_slot25(true,(int)House)",
+   "new": "techno->unknown_slot25(true,(intptr_t)House)",
+   "why": "Pointer width (Scout1177, M22: Allied campaign 4 faulted in TechnoClass slot 25 0x006CF3C0 reading a sign-extended 32-bit house address): ObjectClass slot 25 (Visual_Character, hypothesis) takes the viewing house as a DWORD (arg2; Can_Fire 0x006C9260 passes (int)House, every other caller 0). Natively the parameter is pointer-sized intptr_t in every declaration and override, so the house address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "virtual void unknown_slot259(int arg1);",
+   "new": "virtual void unknown_slot259(intptr_t arg1);   // NATIVE: an AbstractClass address",
+   "why": "Pointer width (Scout1177, M22, found by scanning for int parameters cast to object pointers after the slot 25/280 faults): TechnoClass slot 259 (0x006D48D0/FootClass 0x004C8020) takes an AbstractClass * as a DWORD (EventClass::Execute 0x004B65C0 passes (int)TargetAt(...).As_Abstract(); FootClass stores it at +0x490). Natively the parameter is pointer-sized intptr_t, so the address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/shared/foot.hpp",
+   "old": "virtual void unknown_slot259(int arg1);",
+   "new": "virtual void unknown_slot259(intptr_t arg1);   // NATIVE: an AbstractClass address",
+   "why": "Pointer width (Scout1177, M22, found by scanning for int parameters cast to object pointers after the slot 25/280 faults): TechnoClass slot 259 (0x006D48D0/FootClass 0x004C8020) takes an AbstractClass * as a DWORD (EventClass::Execute 0x004B65C0 passes (int)TargetAt(...).As_Abstract(); FootClass stores it at +0x490). Natively the parameter is pointer-sized intptr_t, so the address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot259_006d48d0.cpp",
+   "old": "void TechnoClass::unknown_slot259(int arg1)\n{",
+   "new": "void TechnoClass::unknown_slot259(intptr_t arg1)\n{",
+   "why": "Pointer width (Scout1177, M22, found by scanning for int parameters cast to object pointers after the slot 25/280 faults): TechnoClass slot 259 (0x006D48D0/FootClass 0x004C8020) takes an AbstractClass * as a DWORD (EventClass::Execute 0x004B65C0 passes (int)TargetAt(...).As_Abstract(); FootClass stores it at +0x490). Natively the parameter is pointer-sized intptr_t, so the address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/recovered/classes/FootClass/FootClass_unknown_slot259_004c8020.cpp",
+   "old": "void FootClass::unknown_slot259(int arg1)\n{",
+   "new": "void FootClass::unknown_slot259(intptr_t arg1)\n{",
+   "why": "Pointer width (Scout1177, M22, found by scanning for int parameters cast to object pointers after the slot 25/280 faults): TechnoClass slot 259 (0x006D48D0/FootClass 0x004C8020) takes an AbstractClass * as a DWORD (EventClass::Execute 0x004B65C0 passes (int)TargetAt(...).As_Abstract(); FootClass stores it at +0x490). Natively the parameter is pointer-sized intptr_t, so the address survives; the VC6 meaning is kept."
+  },
+  {
+   "source": "src/recovered/classes/EventClass/EventClass_Execute_004b65c0.cpp",
+   "old": "techno->unknown_slot259((int)TargetAt(0x18).As_Abstract());",
+   "new": "techno->unknown_slot259((intptr_t)TargetAt(0x18).As_Abstract());",
+   "why": "Pointer width (Scout1177, M22, found by scanning for int parameters cast to object pointers after the slot 25/280 faults): TechnoClass slot 259 (0x006D48D0/FootClass 0x004C8020) takes an AbstractClass * as a DWORD (EventClass::Execute 0x004B65C0 passes (int)TargetAt(...).As_Abstract(); FootClass stores it at +0x490). Natively the parameter is pointer-sized intptr_t, so the address survives; the VC6 meaning is kept."
   }
  ]
 }

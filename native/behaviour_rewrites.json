@@ -1976,6 +1976,816 @@
    "file": "native/link/behaviour_m20_wdt.cpp",
    "source": "pass-6a decompile 0049ec60",
    "notes": "Scout1161 M20 play-stability sweep trap"
+  },
+  {
+   "entry": "0x00542590",
+   "name": "Main_Options_Proc",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_options.cpp",
+   "source": "disassembly 0x00542590-0x00542D5C",
+   "notes": "Scout1177 M22 options menu (main menu Options button trapped)"
+  },
+  {
+   "entry": "0x00781D3B",
+   "name": "Free_Memory_00781d3b",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_options.cpp",
+   "source": "CRT free",
+   "notes": "Scout1177 M22 Options dialog close"
+  },
+  {
+   "entry": "0x0047C360",
+   "name": "UnknownCellClass::Unknown_0047C360",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_cell.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 trap census: Soviet campaign 1 (49,794 hits)"
+  },
+  {
+   "entry": "0x0047C370",
+   "name": "UnknownCellClass::Unknown_0047C370",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_cell.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0047C380",
+   "name": "UnknownCellClass::Unknown_0047C380",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_cell.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0047C390",
+   "name": "UnknownCellClass::Unknown_0047C390",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_cell.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0047C300",
+   "name": "UnknownCellClass::unknown_47c300 / CellClass::unknown_47c300",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_cell.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0047C900",
+   "name": "CellClass::unknown_47c900",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_cell.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0047A120",
+   "name": "CellClass::unknown_47a120",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_cell.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0041B310",
+   "name": "ObjectClass::unknown_slot92",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x0041B2F0",
+   "name": "ObjectClass::unknown_slot74",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x0041B2D0",
+   "name": "ObjectClass::unknown_slot50",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423D40",
+   "name": "ObjectClass::unknown_slot35",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423E10",
+   "name": "ObjectClass::unknown_slot102",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423D10",
+   "name": "ObjectClass::unknown_slot24",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423D20",
+   "name": "ObjectClass::unknown_slot25",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423DD0",
+   "name": "ObjectClass::unknown_slot66",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423DE0",
+   "name": "ObjectClass::unknown_slot82",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423DF0",
+   "name": "ObjectClass::unknown_slot93",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423E20",
+   "name": "ObjectClass::unknown_slot111",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423E30",
+   "name": "ObjectClass::unknown_slot112",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423E40",
+   "name": "ObjectClass::unknown_slot113",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00423E50",
+   "name": "ObjectClass::unknown_slot114",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x004CDDD0",
+   "name": "ObjectClass::Class_Of",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00426760",
+   "name": "ObjectTypeClass::unknown_slot28",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x006D4880",
+   "name": "TechnoClass::unknown_slot62",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00453BA0",
+   "name": "TechnoClass::unknown_slot189",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00453BB0",
+   "name": "TechnoClass::unknown_slot194",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x006CD6E0",
+   "name": "TechnoClass::unknown_slot195",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00453BC0",
+   "name": "TechnoClass::unknown_slot202",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x0041B3D0",
+   "name": "TechnoClass::unknown_slot204",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x00453BD0",
+   "name": "TechnoClass::unknown_slot224",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x0041B400",
+   "name": "TechnoClass::unknown_slot240",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x0041B430",
+   "name": "TechnoClass::unknown_slot256",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x004CD060",
+   "name": "FootClass::unknown_slot280",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x004CD070",
+   "name": "FootClass::unknown_slot281",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x004F3160",
+   "name": "HouseClass::unknown_func_4f3160",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_object.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)"
+  },
+  {
+   "entry": "0x006A17B0",
+   "name": "TabClass::Unknown_006A17B0",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_ui.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x006F64B0",
+   "name": "Unknown_006F64B0",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_ui.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x006818B0",
+   "name": "Sidebar_Tab_Key_006818b0",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_ui.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0040D120",
+   "name": "DisplayClass::unknown_slot43",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_ui.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x00681940",
+   "name": "SidebarClass::Which_Column",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_ui.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x005E0DA0",
+   "name": "OwnerDraw::Is_Listed_Kind_5e0da0",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x007837D3",
+   "name": "Compare_Wide_007837d3 (wcscmp)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x00784AA8",
+   "name": "Unknown_isspace_00784aa8",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x00672140",
+   "name": "UnknownSessionState::Unknown_00672140",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x006715C0",
+   "name": "UnknownSessionState::Trap_Object_006715c0",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x005D5F40",
+   "name": "Unknown_005D5F40",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x005EAC20",
+   "name": "Unknown_005EAC20",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x006F6730",
+   "name": "Unknown_006F6730",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x006F6740",
+   "name": "Unknown_006F6740 / Unknown_006F6740b",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x00495770",
+   "name": "unknown_00495770",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0047E2B0",
+   "name": "Cell::unknown_47e2b0",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x006A67B0",
+   "name": "Tactical::Unknown_006A67B0",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0054F240",
+   "name": "Unknown_Hash_0054F240",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0040CAF0",
+   "name": "LayerClass::unknown_slot8",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0040CB00",
+   "name": "LayerClass::unknown_slot9",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x00663400",
+   "name": "UnknownIDSource::Set_Waypoint_Location",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x004C2040",
+   "name": "FoggedObjectClass::unknown_slot24",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_misc.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x004052F0",
+   "name": "Audio_Event_Set_Flag_8",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_audio.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x005B55E0",
+   "name": "MessageListClass::Get_Edit_Buf",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_audio.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x005B69E0",
+   "name": "MSSfx::~MSSfx",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_audio.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x0069B0F0",
+   "name": "SubTitle::~SubTitle",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_audio.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 coverage ranking"
+  },
+  {
+   "entry": "0x00436100",
+   "name": "BombClass::GetClassID",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x004361D0",
+   "name": "BombClass::Save",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x004B5340",
+   "name": "EMPulseClass::GetClassID",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x004B53D0",
+   "name": "EMPulseClass::Save",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x004B5400",
+   "name": "EMPulseClass::Kind_Of",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x004B53F0",
+   "name": "EMPulseClass::Size_Of",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x005DBCE0",
+   "name": "OverlayClass::Save",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x00537B50",
+   "name": "LightSourceClass::Compute_CRC",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x005A6280",
+   "name": "MPCooperative::unknown_slot1",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x005A31F0",
+   "name": "MPCooperative::unknown_slot9",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x005A46B0",
+   "name": "MPCooperative::unknown_slot11",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x005A3F70",
+   "name": "MPCooperative::unknown_slot16",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x005A5340",
+   "name": "MPCooperative::unknown_slot32",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x005A62A0",
+   "name": "MPCooperative::unknown_slot40",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x005AC390",
+   "name": "UnholyAlliance::unknown_slot5",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_modes.cpp",
+   "source": "pass-6a decompile",
+   "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)"
+  },
+  {
+   "entry": "0x00775980",
+   "name": "BlitTrans<unsigned char>::BlitForward",
+   "origin_class": "handwritten assembly",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_blit.cpp",
+   "source": "blitter.hpp template semantics (handwritten assembly in the original)",
+   "notes": "Scout1177 M22 8-bit transparent copy"
+  },
+  {
+   "entry": "(25 entries)",
+   "name": "Blit*<T>::BlitBackward (the link closure's 25)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_blit.cpp",
+   "source": "0x00486210/0x00487570 pattern: forward slot with 0",
+   "notes": "Scout1177 M22 live blitter vtables"
+  },
+  {
+   "entry": "(741 entries)",
+   "name": "release_buffer_/release_object_/release_/storage_/allocate_storage_/allocate_words_<addr>",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m22_release.cpp",
+   "source": "pass-6a decompiles: each calls free 0x00781D3B or operator new",
+   "notes": "Scout1177 M22 seed vector destructors' CRT callees (generated list)"
   }
  ]
 }

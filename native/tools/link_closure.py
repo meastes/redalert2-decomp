@@ -122,8 +122,10 @@ def missing_symbols(paths, aliases=()):
     """Undefined symbols of a link over paths (after the system libraries), less
     those an alias TSV binds to a defined name; (missing, alias pairs)."""
     defined, undefined = nm_symbols(paths)
-    # ___dso_handle and the Mach-O header are synthesized by the linker.
-    missing = sorted(undefined - defined - system_exports() - {'___dso_handle', '__mh_execute_header'})
+    # ___dso_handle, the Mach-O header and section boundary symbols
+    # (section$start$SEG$SECT, e.g. a coverage build's guards) are synthesized by the linker.
+    missing = sorted(s for s in undefined - defined - system_exports() - {'___dso_handle', '__mh_execute_header'}
+                     if not s.startswith(('section$', 'segment$')))
     alias_list = []
     for tsv in aliases:
         if not tsv.exists():

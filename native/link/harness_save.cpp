@@ -47,15 +47,25 @@ void Native_Harness_Save(int frame)
     // RA2_NATIVE_FORCE_END=<frame>[,lose]: the end-of-game screens without
     // playing the game out (test scaffolding for the score dialog: sets the
     // flag Main_Loop_End reads, as the house AI does on a win or a defeat).
-    static int end_at = -2;
+    // A list (`<f1>,<f2>,...[,lose]`, loop frames) ends one game at each: a
+    // campaign then goes on mission by mission (Scout1177, M22).
+    static int end_at[16];
+    static int end_count = -1;
     static bool end_lose = false;
-    if (end_at == -2) {
+    if (end_count < 0) {
+        end_count = 0;
         char const *env = getenv("RA2_NATIVE_FORCE_END");
-        end_at = env ? atoi(env) : -1;
-        if (env) for (char const *p = env; *p; ++p) if (*p == ',') end_lose = p[1] == 'l';
+        for (char const *p = env; p && *p; ) {
+            if (*p == 'l') end_lose = true;
+            else if (*p >= '0' && *p <= '9' && end_count < 16) end_at[end_count++] = atoi(p);
+            while (*p && *p != ',') ++p;
+            if (*p == ',') ++p;
+        }
     }
-    if (frame == end_at) {
-        if (end_lose) player_loses_a40c78 = true; else player_wins_a35db1 = true;
+    for (int i = 0; i < end_count; ++i) {
+        if (frame == end_at[i]) {
+            if (end_lose) player_loses_a40c78 = true; else player_wins_a35db1 = true;
+        }
     }
     if (at < 0 || frame != at) return;
     bool saved = Unknown_006554A0(file, L"Native M15 harness save", 0);

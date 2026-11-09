@@ -43,6 +43,7 @@ class GraphicMenuItem;
 class HWND__;
 class HouseClass;
 class HouseTypeClass;
+class IConnectionPoint;
 class InfantryClass;
 class InfantryTypeClass;
 class IonBlastClass;
@@ -129,11 +130,13 @@ template class DynamicVectorClass<DDSURFACEDESC*>;  // instance: DynamicVectorCl
 template class DynamicVectorClass<DamageGroup*>;  // instance: DynamicVectorClass<DamageGroup*>::
 template class DynamicVectorClass<GlobalPacketType*>;  // instance: DynamicVectorClass<GlobalPacketType*>::
 template class DynamicVectorClass<HouseTypeClass*>;  // instance: DynamicVectorClass<HouseTypeClass*>::
+template class DynamicVectorClass<IConnectionPoint*>;  // instance: DynamicVectorClass<IConnectionPoint*>::
 template class DynamicVectorClass<MultiMission*>;  // instance: DynamicVectorClass<MultiMission*>::
 template class DynamicVectorClass<PhoneEntryClass*>;  // instance: DynamicVectorClass<PhoneEntryClass*>::
 template class DynamicVectorClass<Reestablish*>;  // instance: DynamicVectorClass<Reestablish*>::
 template class DynamicVectorClass<ScoreAnimClass*>;  // instance: DynamicVectorClass<ScoreAnimClass*>::
 template class DynamicVectorClass<ScoreSoundClass*>;  // instance: DynamicVectorClass<ScoreSoundClass*>::
+template class DynamicVectorClass<TechnoClass*>;  // instance: DynamicVectorClass<TechnoClass*>::
 template class DynamicVectorClass<TechnoTypeClass const*>;  // instance: DynamicVectorClass<TechnoTypeClass const*>::
 template class DynamicVectorClass<UnknownGlobalPacket*>;  // instance: DynamicVectorClass<UnknownGlobalPacket*>::
 template class DynamicVectorClass<WIN32_FIND_DATA*>;  // instance: DynamicVectorClass<WIN32_FIND_DATA*>::
@@ -180,6 +183,7 @@ template class VectorClass<GraphicMenuItem*>;  // instance: VectorClass<GraphicM
 template class VectorClass<HWND__*>;  // instance: VectorClass<HWND__*>::
 template class VectorClass<HouseClass*>;  // instance: VectorClass<HouseClass*>::
 template class VectorClass<HouseTypeClass*>;  // instance: VectorClass<HouseTypeClass*>::
+template class VectorClass<IConnectionPoint*>;  // instance: VectorClass<IConnectionPoint*>::
 template class VectorClass<InfantryClass*>;  // instance: VectorClass<InfantryClass*>::
 template class VectorClass<InfantryTypeClass*>;  // instance: VectorClass<InfantryTypeClass*>::
 template class VectorClass<IonBlastClass*>;  // instance: VectorClass<IonBlastClass*>::

@@ -449,6 +449,54 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   score screen follows and Allied 2 starts. The empty leaves reached there are
   behaviour rows.
 
+### Link closure, options menu, campaign chains, menu timers (Scout1177, M22)
+
+- **Ranking the traps.** A coverage build (`-fsanitize-coverage=func,trace-pc-guard`
+  in `CMAKE_C_FLAGS`/`CMAKE_CXX_FLAGS`, `-fsanitize=undefined` in
+  `CMAKE_EXE_LINKER_FLAGS`; run with `UBSAN_OPTIONS=coverage=1:coverage_dir=<dir>`)
+  writes the functions a run executed; the run summary dumps it
+  (`__sanitizer_cov_dump`, looked up at run time). `link_closure.py` leaves the
+  linker's section boundary symbols (`section$start$...`) alone, so that build
+  links. The lane's `rank.py` (build/class-work/Scout1177/tools) ranks every trap
+  by the census (`RA2_NATIVE_TRAP_CONTINUE=1` runs), its callers that ran, the
+  reached functions that take its address and the live vtables that hold it.
+- **Undefined symbols 1,572 to 518.** `tools/original_data.py` reads
+  declarations naming several objects (`extern char const a[], b[];`,
+  `extern double const x, y;`) and struct members declared together
+  (`int X, Y;`), and lays out nested scalar records (PixelFXColor): about 190
+  more initialised globals come from game.exe (1,521 to 1,711 filled at start-up: the random map generator's
+  constants, Clear_Icon_Adjacent, the queue timeouts, PixelFXTypes, the
+  "SidebarUp"/"SidebarDown" wheel commands, the intro and Allied movie tables,
+  the language table, the Options slider labels). Leaves and default virtual
+  slots that ran or sit in live vtables are behaviour rows
+  (`link/behaviour_m22_*.cpp`); the seed vector destructors' CRT callees
+  (`release_buffer_<addr>` and its kin: free 0x00781D3B or operator new in every
+  one) and the live blitters' backward entries (their forward slot, as the kept
+  ones do) are generated rows (`behaviour_m22_release.cpp`, `behaviour_m22_blit.cpp`).
+  `template_instances.py` rerun adds the IConnectionPoint vectors (Allied 1
+  faulted in UnknownEnumConnectionPoints at frame ~6,000).
+- **Options menu.** Main_Options_Proc 0x00542590 is a behaviour row written from
+  the disassembly (sliders, check boxes, the resolution combo with the
+  try-mode and confirm dialogs, volume feedback). Resolution, volumes, detail,
+  difficulty, scroll rate and the check boxes are written to RA2.INI when the
+  dialog closes; game speed (in-game Game Controls) too. After a resolution
+  change the Options page itself is not redrawn until it is left (open).
+- **Campaign chains.** `RA2_NATIVE_FORCE_END` takes a list of loop frames
+  (`2000,4000,6000`): each ends the game then running with a win, so a
+  scripted campaign goes on mission by mission through the score screens.
+  Allied 1-4 and Soviet 1-4 start and play. Fixed on the way: the sensor cell
+  counters (0x0047C360..90, Soviet 1), and three virtual slots that took an
+  object as a DWORD (FootClass/UnitClass 280/281 and the TemporalClass view's
+  Owner/Target, ObjectClass slot 25's house, TechnoClass slot 259): pointer
+  sized natively (fixups).
+- **Menu timers.** SetTimer raises a period below 10 ms to 10 ms, as Windows
+  does (USER_TIMER_MINIMUM): the owner-draw animations ask for 1 ms, and the
+  dispatch loop 0x005B5EE0 never emptied the queue in the movie list (Back did
+  nothing). The Movies & Credits list shows the intro and the unlocked movies.
+- **harness_build.** A placement counts as done when the factory no longer
+  holds the finished building, not only when the player's building count rose
+  (campaign buildings may die meanwhile).
+
 ### Data the original stores (game.exe at run time)
 
 User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and

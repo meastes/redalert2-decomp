@@ -65,6 +65,21 @@ def declaration(name, lines):
                 continue
             stars = (m.group(2) or '').count('*')
             return base, stars, m.group(3) is not None
+    # One declaration naming several objects (`extern char const a[], b[];`,
+    # `extern double const x, y;`; Scout1177, M22): the declarator naming `name`.
+    multi = re.compile(r'^\s*(?:extern\s+"C"\s+)?(?:extern\s+)?([A-Za-z_][\w\s]*?)\s+([^;(){}=]*,[^;(){}=]*);')
+    for line in lines:
+        if name not in line:
+            continue
+        m = multi.match(line)
+        if not m:
+            continue
+        for part in m.group(2).split(','):
+            d = re.match(r'^\s*(?:const\s+)?(\*+\s*(?:const\s*)?)?(\w+)\s*((?:\[[^\]]*\]\s*)+)?$', part)
+            if d and d.group(2) == name:
+                base = ' '.join(STRIP.sub(' ', m.group(1)).split())
+                if base:
+                    return base, (d.group(1) or '').count('*'), d.group(3) is not None
     return None
 
 
@@ -102,12 +117,26 @@ def struct_source(base):
     return ''
 
 
+def struct_members(body):
+    """The member lines of a struct body, one member per line (`int X, Y;` is
+    `int X;` and `int Y;`)."""
+    out = []
+    for line in body.split('\n'):
+        line = line.split('//')[0].strip()
+        m = re.match(r'^([A-Za-z_][\w\s]*?)\s+(\w+\s*(?:,\s*\w+\s*)+);$', line)
+        if m:
+            out.extend('%s %s;' % (m.group(1), n.strip()) for n in m.group(2).split(','))
+        else:
+            out.append(line)
+    return out
+
+
 def pointer_struct(base):
     """Number of members of struct `base` when every member is a data pointer, else 0."""
     m = re.search(r'\b(?:struct|class)\s+%s\s*\{([^{}]*)\};' % re.escape(base), struct_source(base))
     if not m:
         return 0
-    members = [l.split('//')[0].strip() for l in m.group(1).split('\n')]
+    members = struct_members(m.group(1))
     members = [l for l in members if l and l not in ('public:', 'private:', 'protected:')]
     if not members or not all(re.match(r'^[\w\s]+\*\s*(?:const\s+)?\w+;$', l) for l in members):
         return 0
@@ -134,8 +163,7 @@ def record_fields(base):
     if not m:
         return ''
     out = ''
-    for line in m.group(1).split('\n'):
-        line = line.split('//')[0].strip()
+    for line in struct_members(m.group(1)):
         if not line or line in ('public:', 'private:', 'protected:'):
             continue
         f = re.match(r'^((?:const\s+)?[A-Za-z_][\w\s]*?)\s*(\*+)?\s*(?:const\s+)?(\w+)\s*;$', line)
@@ -163,26 +191,30 @@ def scalar_record_size(base):
         return 0
     off = 0
     align = 1
-    for line in m.group(1).split('\n'):
-        line = line.split('//')[0].strip()
+    for line in struct_members(m.group(1)):
         if not line or line in ('public:', 'private:', 'protected:'):
             continue
         f = re.match(r'^([A-Za-z_][\w\s]*?)\s+(\w+)\s*((?:\[\s*(?:0x[0-9A-Fa-f]+|\d+)\s*\])*)\s*;$', line)
         if not f:
             return 0
         t = ' '.join(f.group(1).split())
+        nested = False
         if t in SCALAR_WIDTH and t not in ('long', 'unsigned long', 'LONG'):
             width = SCALAR_WIDTH[t]
         elif t in ('long', 'unsigned long', 'LONG') or re.search(r'\benum\s+%s\b' % re.escape(t), shared_text()):
             width = 4
+        elif t != base and scalar_record_size(t) % 4 == 0 and scalar_record_size(t):
+            width = scalar_record_size(t)    # a nested scalar record (PixelFXColor), 4-aligned
+            nested = True
         else:
             return 0
         count = 1
         for dim in re.findall(r'\[\s*(0x[0-9A-Fa-f]+|\d+)\s*\]', f.group(3)):
             count *= int(dim, 0)
-        off = (off + width - 1) & ~(width - 1)
+        step = 4 if nested else width
+        off = (off + step - 1) & ~(step - 1)
         off += width * count
-        align = max(align, width)
+        align = max(align, step)
     return (off + align - 1) & ~(align - 1) if off else 0
 
 

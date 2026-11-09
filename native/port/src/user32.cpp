@@ -627,6 +627,11 @@ BOOL IsDialogMessageA(HWND dialog, MSG *msg) { (void)dialog; (void)msg; return 0
 
 uintptr_t SetTimer(HWND hwnd, uintptr_t id, UINT period, void *proc)
 {
+    // Windows raises a period below USER_TIMER_MINIMUM (10 ms) to it. The owner-draw
+    // animations ask for 1 ms (0x005E1490's frame delay); unclamped, a timer was due
+    // at every PeekMessage and the dispatch loop 0x005B5EE0 (which runs until the
+    // queue is empty) never returned from the movie list dialog (Scout1177, M22).
+    if (period < 10) period = 10;
     for (auto &t : timers) {
         if (t.window == hwnd && t.id == id) { t.period = period; t.proc = proc; return id; }
     }

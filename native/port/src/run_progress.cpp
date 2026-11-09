@@ -79,6 +79,11 @@ void summary_locked(const char *stop)
     State &s = state();
     if (s.done) return;
     s.done = true;
+    // A coverage build (-fsanitize-coverage=func,trace-pc-guard, linked with
+    // -fsanitize=undefined; UBSAN_OPTIONS=coverage=1) writes its .sancov file at
+    // exit, which the runs' _exit skips: dump it here (diagnostics only; looked
+    // up at run time so ordinary builds reference no sanitizer symbol).
+    if (void (*dump)(void) = (void (*)(void))dlsym(RTLD_DEFAULT, "__sanitizer_cov_dump")) dump();
     int furthest = -1;
     std::string last;
     for (auto &r : s.reached) {
