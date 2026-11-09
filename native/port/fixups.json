@@ -766,16 +766,16 @@
   },
   {
    "source": "src/shared/map_techno.hpp",
-   "old": "#ifdef RA2_MAP_COLLAPSE_CLIFF\n    char unknown_78[0x177 - sizeof(ObjectClass)];\n#else\n    char unknown_24[0x177 - sizeof(AbstractClass)];\n#endif\n    bool unknown_177;                       // +0x177 deleted by the map's Overpass (0x0054B2E0)\n    char unknown_178[0x1A8 - 0x178];        // sizeof(AnimClass) 0x1A8 (as shared/anim.hpp)\n",
-   "new": "#if defined(__LP64__)\n#ifdef RA2_MAP_COLLAPSE_CLIFF\n    char unknown_78[0x1CF - 0xBE];   // NATIVE: arm64 offsets of shared/anim.hpp (members start in the base tail padding)\n#else\n    char unknown_24[0x1CF - 0x31];\n#endif\n    bool unknown_177;                       // +0x1CF\n    char unknown_178[0x228 - 0x1D0];        // sizeof(AnimClass) 0x228 natively\n#else\n#ifdef RA2_MAP_COLLAPSE_CLIFF\n    char unknown_78[0x177 - sizeof(ObjectClass)];\n#else\n    char unknown_24[0x177 - sizeof(AbstractClass)];\n#endif\n    bool unknown_177;                       // +0x177 deleted by the map's Overpass (0x0054B2E0)\n    char unknown_178[0x1A8 - 0x178];        // sizeof(AnimClass) 0x1A8 (as shared/anim.hpp)\n#endif\n",
-   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "old": "    char unknown_7a[0x98 - 0x7A];\n#else\n    char unknown_24[0x98 - 0x24];\n#endif\n",
+   "new": "#if defined(__LP64__)   // NATIVE (Scout1116): ObjectClass's arm64 size 0xE0 (AnimClass's StageClass base at +0xE0, shared/anim.hpp)\n    char unknown_7a[0xE0 - 0xBE];\n#else\n    char unknown_7a[0x98 - 0x7A];\n#endif\n#else\n#if defined(__LP64__)\n    char unknown_24[0xE0 - 0x31];\n#else\n    char unknown_24[0x98 - 0x24];\n#endif\n#endif\n",
+   "why": "Light view (Scout1116 r2): the Map unit's ObjectClass stand-in is padded to the real class's size so AnimClass can derive StageClass at its real offset; natively the tail pad runs from the respelled members (or the AbstractClass end, +0x31) to the arm64 ObjectClass size 0xE0 (anim.hpp StageClass at +0xE0; check_light_views_map.cpp asserts unknown_177 and sizeof(AnimClass)).",
    "verified": true
   },
   {
-   "source": "src/shared/map_overlay.hpp",
-   "old": "    char unknown_24[0x98 - sizeof(ObjectClass)];\n",
-   "new": "#if defined(__LP64__)\n    char unknown_24[0xE0 - sizeof(ObjectClass)];   // NATIVE: Class at arm64 +0xE0 (shared/overlay.hpp)\n#else\n    char unknown_24[0x98 - sizeof(ObjectClass)];\n#endif\n",
-   "why": "Light view (Scout1098): as the first map_techno.hpp fixup (VC6 padding respelled to the full classes' arm64 offsets under __LP64__; native/link/check_light_views_map.cpp).",
+   "source": "src/shared/map_techno.hpp",
+   "old": "    char unknown_178[0x1A8 - 0x178];        // sizeof(AnimClass) 0x1A8 (as shared/anim.hpp)\n",
+   "new": "#if defined(__LP64__)\n    char unknown_178[0x230 - 0x1D8];        // NATIVE: sizeof(AnimClass) 0x230 natively (shared/anim.hpp)\n#else\n    char unknown_178[0x1A8 - 0x178];        // sizeof(AnimClass) 0x1A8 (as shared/anim.hpp)\n#endif\n",
+   "why": "Light view (Scout1116 r2): the AnimClass stand-in's tail runs to the real class's arm64 size (operator new allocates sizeof(AnimClass) before the real constructor 0x00420110 fills it); view_audit.py respells the padding before unknown_177 but not a trailing pad.",
    "verified": true
   },
   {
@@ -972,90 +972,6 @@
    "old": "    char unknown_098[0x418 - 0x98];\n    BuildingTypeClass *Type; // existing full-class member +418\n    char unknown_41c[0x5E0 - 0x41C];         // TechnoClass and BuildingClass members\n};\n",
    "new": "#if defined(__LP64__)   // NATIVE (Scout1111): BuildingClass's arm64 offsets (shared/building_class.hpp: Type +0x518, sizeof 0x7B8)\n    char unknown_098[0x518 - sizeof(ObjectClass)];\n    BuildingTypeClass *Type; // existing full-class member +418\n    char unknown_41c[0x7B8 - 0x520];         // TechnoClass and BuildingClass members\n};\nstatic_assert(__builtin_offsetof(BuildingClass, Type) == 0x518, \"BuildingClass::Type (arm64)\");\n#else\n    char unknown_098[0x418 - 0x98];\n    BuildingTypeClass *Type; // existing full-class member +418\n    char unknown_41c[0x5E0 - 0x41C];         // TechnoClass and BuildingClass members\n};\n#endif\n",
    "why": "The view's padding is VC6's (Type at +0x418); its ObjectClass base differs between the units that include it (BuildingType.cpp and others), so view_audit.py cannot respell it with one size (port/view_layouts.json lists it as 'layout differs'). Natively the padding runs from the base's end to the real class's Type (+0x518 on arm64, shared/building_class.hpp; view_audit.py measures it) and on to its size.",
-   "verified": true
-  },
-  {
-   "source": "src/shared/object_type.hpp",
-   "old": "    virtual int unknown_slot38() const;                                  // 0x005D5D80 (0)\n",
-   "new": "    virtual intptr_t unknown_slot38() const;                             // 0x005D5D80 (0) (NATIVE: pointer width)\n",
-   "why": "Get_Cameo_Data (TechnoTypeClass slot 38 0x006DAE40, ObjectTypeClass's 0x005D5D80) returns the cameo shape pointer (CameoData/AltCameoData) as an int; the sidebar strip (0x0067F800), Draw_Selection_Overlay 0x0043B660 and the dropship screen 0x004A6B90 cast it back to a shape. On arm64 the int dropped the pointer's upper half (sidebar cameo fault at 0xF, Scout1111). Natively the slot returns intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/shared/techno_type.hpp",
-   "old": "    virtual int unknown_slot38() const;         // 0x006DAE40 Get_Cameo_Data\n",
-   "new": "    virtual intptr_t unknown_slot38() const;    // 0x006DAE40 Get_Cameo_Data (NATIVE: pointer width)\n",
-   "why": "Get_Cameo_Data (TechnoTypeClass slot 38 0x006DAE40, ObjectTypeClass's 0x005D5D80) returns the cameo shape pointer (CameoData/AltCameoData) as an int; the sidebar strip (0x0067F800), Draw_Selection_Overlay 0x0043B660 and the dropship screen 0x004A6B90 cast it back to a shape. On arm64 the int dropped the pointer's upper half (sidebar cameo fault at 0xF, Scout1111). Natively the slot returns intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_unknown_slot38_005d5d80.cpp",
-   "old": "int ObjectTypeClass::unknown_slot38() const\n",
-   "new": "intptr_t ObjectTypeClass::unknown_slot38() const   // NATIVE: pointer width (Get_Cameo_Data)\n",
-   "why": "Get_Cameo_Data (TechnoTypeClass slot 38 0x006DAE40, ObjectTypeClass's 0x005D5D80) returns the cameo shape pointer (CameoData/AltCameoData) as an int; the sidebar strip (0x0067F800), Draw_Selection_Overlay 0x0043B660 and the dropship screen 0x004A6B90 cast it back to a shape. On arm64 the int dropped the pointer's upper half (sidebar cameo fault at 0xF, Scout1111). Natively the slot returns intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_unknown_slot38_006dae40.cpp",
-   "old": "int TechnoTypeClass::unknown_slot38() const\n{\n",
-   "new": "intptr_t TechnoTypeClass::unknown_slot38() const   // NATIVE: pointer width (the cameo shape)\n{\n",
-   "why": "Get_Cameo_Data (TechnoTypeClass slot 38 0x006DAE40, ObjectTypeClass's 0x005D5D80) returns the cameo shape pointer (CameoData/AltCameoData) as an int; the sidebar strip (0x0067F800), Draw_Selection_Overlay 0x0043B660 and the dropship screen 0x004A6B90 cast it back to a shape. On arm64 the int dropped the pointer's upper half (sidebar cameo fault at 0xF, Scout1111). Natively the slot returns intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_unknown_slot38_006dae40.cpp",
-   "old": "        return (int)AltCameoData;\n",
-   "new": "        return (intptr_t)AltCameoData;\n",
-   "why": "Get_Cameo_Data (TechnoTypeClass slot 38 0x006DAE40, ObjectTypeClass's 0x005D5D80) returns the cameo shape pointer (CameoData/AltCameoData) as an int; the sidebar strip (0x0067F800), Draw_Selection_Overlay 0x0043B660 and the dropship screen 0x004A6B90 cast it back to a shape. On arm64 the int dropped the pointer's upper half (sidebar cameo fault at 0xF, Scout1111). Natively the slot returns intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_unknown_slot38_006dae40.cpp",
-   "old": "    return (int)CameoData;\n",
-   "new": "    return (intptr_t)CameoData;\n",
-   "why": "Get_Cameo_Data (TechnoTypeClass slot 38 0x006DAE40, ObjectTypeClass's 0x005D5D80) returns the cameo shape pointer (CameoData/AltCameoData) as an int; the sidebar strip (0x0067F800), Draw_Selection_Overlay 0x0043B660 and the dropship screen 0x004A6B90 cast it back to a shape. On arm64 the int dropped the pointer's upper half (sidebar cameo fault at 0xF, Scout1111). Natively the slot returns intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/shared/map_view.hpp",
-   "old": "    bool Unknown_0067C370(int value,int type,int id);",
-   "new": "    bool Unknown_0067C370(intptr_t value,int type,int id);   // NATIVE: a FactoryClass * at pointer width\n   ",
-   "why": "The sidebar's production link (HouseClass::Begin_Production 0x004E5E30 -> SidebarClass 0x0067C370 -> StripClass 0x006816D0) passes the FactoryClass pointer as an int and stores it back into the buildable's Factory (+0x0C). On arm64 the int dropped the pointer's upper half: StripClass::AI 0x0067F050 faulted calling Unknown_004B9900 on 0xffffffffb4d9d790 once the harness built a power plant (Scout1111). Natively the value is intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/shared/sidebar.hpp",
-   "old": "        bool Unknown_006816D0(int value, int type, int id);",
-   "new": "        bool Unknown_006816D0(intptr_t value, int type, int id);   // NATIVE: a FactoryClass * at pointer width\n       ",
-   "why": "The sidebar's production link (HouseClass::Begin_Production 0x004E5E30 -> SidebarClass 0x0067C370 -> StripClass 0x006816D0) passes the FactoryClass pointer as an int and stores it back into the buildable's Factory (+0x0C). On arm64 the int dropped the pointer's upper half: StripClass::AI 0x0067F050 faulted calling Unknown_004B9900 on 0xffffffffb4d9d790 once the harness built a power plant (Scout1111). Natively the value is intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/shared/sidebar.hpp",
-   "old": "    bool Unknown_0067C370(int value, int type, int id);",
-   "new": "    bool Unknown_0067C370(intptr_t value, int type, int id);   // NATIVE: a FactoryClass * at pointer width\n   ",
-   "why": "The sidebar's production link (HouseClass::Begin_Production 0x004E5E30 -> SidebarClass 0x0067C370 -> StripClass 0x006816D0) passes the FactoryClass pointer as an int and stores it back into the buildable's Factory (+0x0C). On arm64 the int dropped the pointer's upper half: StripClass::AI 0x0067F050 faulted calling Unknown_004B9900 on 0xffffffffb4d9d790 once the harness built a power plant (Scout1111). Natively the value is intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/SidebarClass/SidebarClass_Unknown_0067C370_0067c370.cpp",
-   "old": "bool SidebarClass::Unknown_0067C370(int value, int type, int id)\n",
-   "new": "bool SidebarClass::Unknown_0067C370(intptr_t value, int type, int id)   // NATIVE: pointer width\n",
-   "why": "The sidebar's production link (HouseClass::Begin_Production 0x004E5E30 -> SidebarClass 0x0067C370 -> StripClass 0x006816D0) passes the FactoryClass pointer as an int and stores it back into the buildable's Factory (+0x0C). On arm64 the int dropped the pointer's upper half: StripClass::AI 0x0067F050 faulted calling Unknown_004B9900 on 0xffffffffb4d9d790 once the harness built a power plant (Scout1111). Natively the value is intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/SidebarClass/SidebarClass_StripClass_Unknown_006816D0_006816d0.cpp",
-   "old": "bool SidebarClass::StripClass::Unknown_006816D0(int value, int type, int id)\n",
-   "new": "bool SidebarClass::StripClass::Unknown_006816D0(intptr_t value, int type, int id)   // NATIVE: pointer width\n",
-   "why": "The sidebar's production link (HouseClass::Begin_Production 0x004E5E30 -> SidebarClass 0x0067C370 -> StripClass 0x006816D0) passes the FactoryClass pointer as an int and stores it back into the buildable's Factory (+0x0C). On arm64 the int dropped the pointer's upper half: StripClass::AI 0x0067F050 faulted calling Unknown_004B9900 on 0xffffffffb4d9d790 once the harness built a power plant (Scout1111). Natively the value is intptr_t: same value on VC6, the exact build is untouched.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/HouseClass/HouseClass_Begin_Production_004e5e30.cpp",
-   "old": "Map.Unknown_0067C370((int)factory,kind,index);",
-   "new": "Map.Unknown_0067C370((intptr_t)factory,kind,index);",
-   "why": "The sidebar's production link (HouseClass::Begin_Production 0x004E5E30 -> SidebarClass 0x0067C370 -> StripClass 0x006816D0) passes the FactoryClass pointer as an int and stores it back into the buildable's Factory (+0x0C). On arm64 the int dropped the pointer's upper half: StripClass::AI 0x0067F050 faulted calling Unknown_004B9900 on 0xffffffffb4d9d790 once the harness built a power plant (Scout1111). Natively the value is intptr_t: same value on VC6, the exact build is untouched.",
    "verified": true
   }
  ]

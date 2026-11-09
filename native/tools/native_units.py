@@ -48,22 +48,6 @@ SUBSYSTEMS = {
 LONG_PROTECT = [(re.compile(r'\blong(\s+)long\b'), 'RA2_LL_PLACEHOLDER'),
                 (re.compile(r'\blong(\s+)double\b'), 'RA2_LD_PLACEHOLDER')]
 RULES = [
-    # The radio message's long argument (RadioClass::Receive_Message, slot 95,
-    # and Transmit_Message, slot 151 0x00636A50; TibSun's `long & param`)
-    # carries object pointers (messages 18/19: the destination; BuildingClass
-    # 0x004397F0 and UnitClass 0x006FC1F0 store `(long)this`). On arm64 the
-    # 32-bit long dropped the pointer's upper half: FootClass slot 95 0x004C7B30
-    # faulted on 0xffffffffde7216c0 when the harness's refinery called its
-    # harvester (Scout1111). Natively the argument is intptr_t at every slot 95
-    # and 151 declaration, the stores into it and the transmit's shared word
-    # (0x00A40BE0, 16 bytes of BSS). Same values on VC6.
-    (re.compile(r'(\bunknown_slot95\s*\(\s*RadioClass\s*\*\s*\w*\s*,\s*int\s+\w+\s*,\s*)long\s*&'), r'\1intptr_t &'),
-    (re.compile(r'(\bunknown_slot151\s*\(\s*int\s+message\s*,\s*)int\s*\*'), r'\1intptr_t *'),
-    (re.compile(r'\(long\s*&\)\s*\*param\b'), r'*param'),
-    (re.compile(r'\bunknown_slot151\((\w+),\s*(?:reinterpret_cast<int \*>\(&param\)|\(int \*\)&param)'),
-     r'unknown_slot151(\1, &param'),
-    (re.compile(r'\b(param\s*=\s*)\(long\)'), r'\1(intptr_t)'),
-    (re.compile(r'\bextern int unknown_radio_param_a40be0;'), r'extern intptr_t unknown_radio_param_a40be0;'),
     # COM class factories (TClassFactory<X>::CreateInstance, 74 accepted rows)
     # allocate X through a light in-file view padded to the VC6 size; the real
     # constructor then fills the arm64 layout, which is larger (pointers and
