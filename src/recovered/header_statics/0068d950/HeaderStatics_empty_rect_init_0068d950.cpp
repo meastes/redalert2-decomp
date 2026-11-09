@@ -1,3 +1,4 @@
+#define RA2_IUNKNOWN_PTR_LIFETIME  // startup unit (WinMain 0x68E280) uses IUnknownPtr locals; see shared/iunknown_ptr.hpp
 // Header-static dynamic initializers of the unit at 0x0068D950 and its
 // list globals (unsigned_long); the other drafts of this plan are emitted by this file.
 #include "shared/shape_file.hpp"

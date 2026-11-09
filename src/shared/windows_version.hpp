@@ -19,6 +19,8 @@ public:
     // text, in a static buffer (0x00B25DF0); the NT 4 test does not check the version, so NT 5
     // reads as NT 4 too (0x00736F40).
     char *Version_Name();
+    // TibSun winfix.h: NT before version 5.
+    bool Is_WinNTx() const { return IsWinNT && MajorVersion < 5; }
 
     int MajorVersion;                       // +0x00
     int MinorVersion;                       // +0x04

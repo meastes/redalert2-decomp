@@ -49,6 +49,7 @@ public:
         if (position < (unsigned int)BufferHead) position += BufferSize;
         return position;
     }
+    void Set_Scroll(int position) { MaxValue = position; }
     int Get_Scroll_Delta(int position) const { return MaxValue - position; }
     unsigned short Get_Scroll() const { return (unsigned short)MaxValue; }
     // Advance a scanline pointer by count values and keep it inside the ring,
@@ -103,6 +104,7 @@ public:
         if (position < (unsigned int)BufferHead) position += BufferSize;
         return position;
     }
+    void Set_Scroll(int position) { MaxValue = position; }
     int Get_Scroll_Delta(int position) const { return MaxValue - position; }
     unsigned short Get_Scroll() const { return (unsigned short)MaxValue; }
     unsigned short *Get_Buffer_Ptr(Point2D point);       // 0x00776340, by-value point hypothesis

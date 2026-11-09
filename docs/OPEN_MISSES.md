@@ -3260,3 +3260,6 @@ New rulings are recorded at their rows as before.
 
 ## Scout1143 (2026-11-09, 0 B; NOTES, keep/, kp.py/kp2.py in build/class-work/Scout1143/) - Sidebar Recalc parked
 - Recalc 0x6802D0 best 62.52 natural (63.03 with lab sites): `int last = BuildableCount - 1;` reset block byte-exact; refusing UnknownStage() 0x682520 at the vector new needs 3 more inline sites under the TibSun/YR `Timer(0)` stage ctor overlay (ovB) or ~40 IL less; none natural found. Even then Action 0x6809F0's window moves (+24 declarations). Parked after 1128/1131/1136/1140/1143.
+
+## Scout1144 (2026-11-09, HELD round d/r1 in build/class-work/Scout1144/)
+- WinMain 0x68E280 exact in population-3021 (23/23, body_bytes 10076 + frozen pad). Surface block's three named ints (sidebar_width, screen_height, width) close the frame (YR gamemd 0x6BB9A0 has the same extra 0xc); catalog names on local declarations fixed the edi reload. Held: the unevidenced inline `~WolRegistryOptions() {}` (the site that keeps INIClass() out of line) moves fragile Print_CRCs 0x62A360 (99.97 at +0x9A8). OWNER DECISION: no unit-guarded steering; next lane finds an evidenced site in Startup.CPP or a natural Print_CRCs re-roll that holds with the dtor. Split rows 0x68FEE0/0x690891/0x69089E are false_rows entries to drop at landing.

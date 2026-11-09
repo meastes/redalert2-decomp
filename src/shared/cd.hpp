@@ -36,6 +36,8 @@ public:
 
     // Records the disk the next file needs (-2 when IsLocal).
     static void __fastcall Set_Required_CD(int cd);   // 0x0046E4D0
+    // TibSun cd.h Get_Required_Disk (inline accessor).
+    static int Get_Required_CD() { return RequiredCD; }
 
     static int RequiredCD;  // 0x007D20E0 disk the current file needs (initially -1; -2: any)
     static bool IsLocal;    // 0x00850828 (hypothesis: all files are on the hard disk)

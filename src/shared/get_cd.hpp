@@ -9,6 +9,21 @@ public:
     GetCDClass();                   // 0x004D2940
     ~GetCDClass();                  // 0x004D2A10 (empty)
 
+    // TibSun playcd.h: the first drive restarts the scan.
+    int Get_First_CD_Drive()
+    {
+        Cursor = 0;
+        return Get_Next_CD_Drive();
+    }
+    int Get_Next_CD_Drive()
+    {
+        if (Count) {
+            if (Cursor == Count) Cursor = 0;
+            return Drives[Cursor++];
+        }
+        return -1;
+    }
+
     int Drives[26];                 // +0x00 (only the first 26 bytes are set to -1)
     int Count;                      // +0x68
     int Cursor;                     // +0x6C
