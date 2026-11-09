@@ -35,7 +35,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     if (object != 0) {
         target = object;
     } else {
-        if (cell != unknown_cell_852610) {
+        if (cell != unknown_geometry_k) {
             target = (AbstractClass *)&Map[cell];
         }
     }

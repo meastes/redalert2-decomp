@@ -349,7 +349,7 @@ bounced:
         }
         Cell here = Coord_Cell_Of(coord);
         Cell there = Coord_Cell_Of(TargetCoords);
-        if (here.X == there.X && here.Y == there.Y && !Type->Vertical && unknown_slot108() < unknown_level_height_850348 * 2) {
+        if (here.X == there.X && here.Y == there.Y && !Type->Vertical && unknown_slot108() < unknown_geometry_g * 2) {
             impact = 1;
             forced = true;
             collided = true;
@@ -359,7 +359,7 @@ bounced:
             ObjectClass *building = cell.unknown_4717b0();
             ObjectClass *target_building = target_cell.unknown_4717b0();
             if (building != 0 && !Type->Vertical && building == target_building
-                && unknown_slot108() < unknown_level_height_850348 * 2) {
+                && unknown_slot108() < unknown_geometry_g * 2) {
                 impact = 1;
                 forced = true;
                 collided = true;

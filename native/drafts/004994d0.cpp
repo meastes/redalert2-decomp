@@ -12,6 +12,7 @@
 // cell under the mouse for the null cell, re-marks the cursor list (+0x1178) and recomputes the proximity
 // (+0x117C) and shroud (+0x117D) checks for the pending object (+0x11A4) and house (+0x11A8). Returns the old
 // zone cell (the new one when it did not move).
+#include "shared/unknown_geometry.hpp"
 #include "shared/display.hpp"
 #include "shared/map_view.hpp"
 #include "shared/tactical.hpp"
@@ -19,7 +20,6 @@
 #include "shared/rect.hpp"
 #include "shared/unknown_globals.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_cell_852610@@3VCell@@A=00852610
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
@@ -37,13 +37,13 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
     Cell prevpos;
     Cell pos = xpos;
 
-    if (pos == unknown_cell_852610) {
+    if (pos == unknown_geometry_k) {
         Point2D xy = WWMouse->Get_Mouse_XY();
         Point2D tl = Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
         if (xy.X >= tl.X && xy.X < tl.X + unknown_rect_839630.Width && xy.Y >= tl.Y && xy.Y < tl.Y + unknown_rect_839630.Height) {
             Point2D mouse = WWMouse->Get_Mouse_XY();
             Cell click = Native_Radar_Cell_At(mouse);   // NATIVE: Map.unknown_slot51(mouse)
-            if (click != unknown_cell_852610) {
+            if (click != unknown_geometry_k) {
                 pos = click;
             }
         } else {
@@ -67,10 +67,10 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
     prevpos = unknown_1170;
 
     if (unknown_1178 != 0) {
-        if (pos != unknown_1170 && unknown_1170 != unknown_cell_852610) {
+        if (pos != unknown_1170 && unknown_1170 != unknown_geometry_k) {
             Unknown_004998C0(unknown_1170 + unknown_1174, false);
         }
-        if (pos != unknown_cell_852610) {
+        if (pos != unknown_geometry_k) {
             Unknown_004998C0(pos + unknown_1174, true);
         }
     }

@@ -1052,20 +1052,6 @@
    "verified": true
   },
   {
-   "source": "src/recovered/classes/WinModemClass/WinModemClass_constructor_00734120.cpp",
-   "old": "    int unknown_28[10];\n",
-   "new": "    char unknown_28[RA2_NATIVE_PAD(48, 40)];   // NATIVE: win_modem.hpp's ReadOverlap/WriteOverlap (two OVERLAPPED)\n",
-   "why": "The constructor's light WinModemClass covers win_modem.hpp's two OVERLAPPED records (+0x28) with int[10]; on arm64 they hold pointers (48 bytes), so every later store of the constructor missed the real member (view_audit.py, Scout1115: the class joined the checked set). Same VC6 layout.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/WinModemClass/WinModemClass_constructor_00734120.cpp",
-   "old": "    int unknown_64;\n    int unknown_68;\n",
-   "new": "    void *unknown_64;   // NATIVE: win_modem.hpp's EchoFunction (a function pointer)\n    void *unknown_68;   // NATIVE: AbortFunction\n",
-   "why": "win_modem.hpp's +0x64/+0x68 are function pointers (EchoFunction, AbortFunction): pointer width natively so the constructor clears the real members. Same VC6 layout and stores.",
-   "verified": true
-  },
-  {
    "source": "src/recovered/ownrdraw/OwnerDraw_unknown_replace_edit_5ecb00_005ecb00.cpp",
    "old": "            LONG *data = (LONG *)operator new(8);\n            data[0] = (LONG)\"NewEdit\";",
    "new": "            intptr_t *data = (intptr_t *)operator new(2 * sizeof(intptr_t));   // native: pointer-sized words\n            data[0] = (intptr_t)\"NewEdit\";",

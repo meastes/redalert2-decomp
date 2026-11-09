@@ -4278,7 +4278,6 @@ extern "C" unsigned char ra2_place_1630[] __asm__("_unknown_cloak_surface_8502a0
 extern "C" unsigned char ra2_place_1631[] __asm__("_unknown_poweroff_shape_8502a4");
 extern "C" unsigned char ra2_place_1632[] __asm__("_unknown_wrench_shape_8502a8");
 extern "C" unsigned char ra2_place_1633[] __asm__("_bullet_bridge_height");
-extern "C" unsigned char ra2_place_1634[] __asm__("_unknown_level_height_850348");
 extern "C" unsigned char ra2_place_1635[] __asm__("_unknown_score_list_850448");
 extern "C" unsigned char ra2_place_1636[] __asm__("_unknown_end_score_campaign_850488");
 extern "C" unsigned char ra2_place_1637[] __asm__("_unknown_end_score_time_85049c");
@@ -4327,7 +4326,6 @@ extern "C" unsigned char ra2_place_1679[] __asm__("_direct_draw_depth_008523e8")
 extern "C" unsigned char ra2_place_1680[] __asm__("_direct_draw_error_handler_008523ec");
 extern "C" unsigned char ra2_place_1681[] __asm__("_unknown_dial_drag_00852478");
 extern "C" unsigned char ra2_place_1682[] __asm__("_unknown_buffer_852480");
-extern "C" unsigned char ra2_place_1683[] __asm__("_unknown_cell_852610");
 extern "C" unsigned char ra2_place_1684[] __asm__("__ZN12DisplayClass12TransIconsetE");
 extern "C" unsigned char ra2_place_1685[] __asm__("__ZN12DisplayClass14unknown_852630E");
 extern "C" unsigned char ra2_place_1686[] __asm__("_unknown_rect_85291c");
@@ -4438,11 +4436,8 @@ extern "C" unsigned char ra2_place_1790[] __asm__("_unknown_cell_a40f10");
 extern "C" unsigned char ra2_place_1791[] __asm__("_unknown_coord_a40f48");
 extern "C" unsigned char ra2_place_1792[] __asm__("_low_power_notice_a40fc8");
 extern "C" unsigned char ra2_place_1793[] __asm__("_unknown_coord_a410f8");
-extern "C" unsigned char ra2_place_1794[] __asm__("_unknown_bridge_height_a41120");
-extern "C" unsigned char ra2_place_1795[] __asm__("_unknown_level_height_a41130");
 extern "C" unsigned char ra2_place_1796[] __asm__("_unknown_infantry_shadow_00a41134");
 extern "C" unsigned char ra2_place_1797[] __asm__("_unknown_invalid_coord_a41170");
-extern "C" unsigned char ra2_place_1798[] __asm__("_unknown_a411b0");
 extern "C" unsigned char ra2_place_1799[] __asm__("_unknown_side_sound_a411e8");
 extern "C" unsigned char ra2_place_1800[] __asm__("_unknown_profile_cpu_text_a411fc");
 extern "C" unsigned char ra2_place_1801[] __asm__("_unknown_profile_text_a4127c");
@@ -8514,7 +8509,6 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x008502A4u, 8u, ra2_place_1631, 0},
     {0x008502A8u, 24u, ra2_place_1632, 0},
     {0x00850338u, 16u, ra2_place_1633, 0},
-    {0x00850348u, 256u, ra2_place_1634, 0},
     {0x00850448u, 64u, ra2_place_1635, 0},
     {0x00850488u, 20u, ra2_place_1636, 0},
     {0x0085049Cu, 12u, ra2_place_1637, 0},
@@ -8563,7 +8557,6 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x008523ECu, 140u, ra2_place_1680, 0},
     {0x00852478u, 8u, ra2_place_1681, 0},
     {0x00852480u, 48u, ra2_place_1682, 0},
-    {0x00852610u, 8u, ra2_place_1683, 0},
     {0x00852614u, 28u, ra2_place_1684, 0},
     {0x00852630u, 8u, ra2_place_1685, 0},
     {0x0085291Cu, 24u, ra2_place_1686, 0},
@@ -8674,11 +8667,8 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x00A40F48u, 24u, ra2_place_1791, 0},
     {0x00A40FC8u, 184u, ra2_place_1792, 0},
     {0x00A410F8u, 40u, ra2_place_1793, 0},
-    {0x00A41120u, 16u, ra2_place_1794, 0},
-    {0x00A41130u, 8u, ra2_place_1795, 0},
     {0x00A41134u, 60u, ra2_place_1796, 0},
     {0x00A41170u, 12u, ra2_place_1797, 0},
-    {0x00A411B0u, 56u, ra2_place_1798, 0},
     {0x00A411E8u, 20u, ra2_place_1799, 0},
     {0x00A411FCu, 128u, ra2_place_1800, 0},
     {0x00A4127Cu, 140u, ra2_place_1801, 0},

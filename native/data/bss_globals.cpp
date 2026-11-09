@@ -167,7 +167,6 @@ alignas(16) unsigned char ra2_bss_0121[16] __asm__("_unknown_cloak_surface_8502a
 alignas(16) unsigned char ra2_bss_0122[16] __asm__("_unknown_poweroff_shape_8502a4");  // 0x008502A4 unknown_poweroff_shape_8502a4 (?unknown_poweroff_shape_8502a4@@3PBXB)
 alignas(16) unsigned char ra2_bss_0123[48] __asm__("_unknown_wrench_shape_8502a8");  // 0x008502A8 unknown_wrench_shape_8502a8 (?unknown_wrench_shape_8502a8@@3PBXB)
 alignas(16) unsigned char ra2_bss_0124[32] __asm__("_bullet_bridge_height");  // 0x00850338 bullet_bridge_height (?bullet_bridge_height@@3HA)
-alignas(16) unsigned char ra2_bss_0125[512] __asm__("_unknown_level_height_850348");  // 0x00850348 unknown_level_height_850348 (?unknown_level_height_850348@@3HA)
 alignas(16) unsigned char ra2_bss_0126[128] __asm__("_unknown_score_list_850448");  // 0x00850448 unknown_score_list_850448 (?unknown_score_list_850448@@3PAPAVMPlayerScoreType@@A)
 alignas(16) unsigned char ra2_bss_0127[40] __asm__("_unknown_end_score_campaign_850488");  // 0x00850488 unknown_end_score_campaign_850488 (?unknown_end_score_campaign_850488@@3HA)
 alignas(16) unsigned char ra2_bss_0128[24] __asm__("_unknown_end_score_time_85049c");  // 0x0085049C unknown_end_score_time_85049c (?unknown_end_score_time_85049c@@3HA)
@@ -225,7 +224,6 @@ alignas(16) unsigned char ra2_bss_0171[280] __asm__("_direct_draw_error_handler_
 __asm__(".globl _DAT_008523ec\n.set _DAT_008523ec, _direct_draw_error_handler_008523ec\n");  // same address: DAT_008523ec
 alignas(16) unsigned char ra2_bss_0172[16] __asm__("_unknown_dial_drag_00852478");  // 0x00852478 unknown_dial_drag_00852478 (?unknown_dial_drag_00852478@@3HA)
 alignas(16) unsigned char ra2_bss_0173[96] __asm__("_unknown_buffer_852480");  // 0x00852480 unknown_buffer_852480 (?unknown_buffer_852480@@3PAEA)
-alignas(16) unsigned char ra2_bss_0174[16] __asm__("_unknown_cell_852610");  // 0x00852610 unknown_cell_852610 (?unknown_cell_852610@@3VCell@@A)
 alignas(16) unsigned char ra2_bss_0175[56] __asm__("__ZN12DisplayClass12TransIconsetE");  // 0x00852614 DisplayClass::TransIconset (?TransIconset@DisplayClass@@2PBXB)
 alignas(16) unsigned char ra2_bss_0176[16] __asm__("__ZN12DisplayClass14unknown_852630E");  // 0x00852630 DisplayClass::unknown_852630 (?unknown_852630@DisplayClass@@2HA)
 alignas(16) unsigned char ra2_bss_0177[48] __asm__("_unknown_rect_85291c");  // 0x0085291C unknown_rect_85291c (?unknown_rect_85291c@@3VRect@@A)
@@ -360,11 +358,8 @@ alignas(16) unsigned char ra2_bss_0284[32] __asm__("_unknown_cell_a40f10");  // 
 alignas(16) unsigned char ra2_bss_0285[48] __asm__("_unknown_coord_a40f48");  // 0x00A40F48 unknown_coord_a40f48 (?unknown_coord_a40f48@@3UCoordStruct@@B)
 alignas(16) unsigned char ra2_bss_0286[368] __asm__("_low_power_notice_a40fc8");  // 0x00A40FC8 low_power_notice_a40fc8 (?low_power_notice_a40fc8@@3HA)
 alignas(16) unsigned char ra2_bss_0289[80] __asm__("_unknown_coord_a410f8");  // 0x00A410F8 unknown_coord_a410f8 (?unknown_coord_a410f8@@3UCoordStruct@@A)
-alignas(16) unsigned char ra2_bss_0290[32] __asm__("_unknown_bridge_height_a41120");  // 0x00A41120 unknown_bridge_height_a41120 (?unknown_bridge_height_a41120@@3HA)
-alignas(16) unsigned char ra2_bss_0291[16] __asm__("_unknown_level_height_a41130");  // 0x00A41130 unknown_level_height_a41130 (?unknown_level_height_a41130@@3HA)
 alignas(16) unsigned char ra2_bss_0292[120] __asm__("_unknown_infantry_shadow_00a41134");  // 0x00A41134 unknown_infantry_shadow_00a41134
 alignas(16) unsigned char ra2_bss_0293[24] __asm__("_unknown_invalid_coord_a41170");  // 0x00A41170 unknown_invalid_coord_a41170 (?unknown_invalid_coord_a41170@@3UCoordStruct@@B)
-alignas(16) unsigned char ra2_bss_0294[112] __asm__("_unknown_a411b0");  // 0x00A411B0 unknown_a411b0 (?unknown_a411b0@@3HA)
 alignas(16) unsigned char ra2_bss_0295[40] __asm__("_unknown_side_sound_a411e8");  // 0x00A411E8 unknown_side_sound_a411e8 (?unknown_side_sound_a411e8@@3UAudioEventHandle@@A)
 alignas(16) unsigned char ra2_bss_0296[256] __asm__("_unknown_profile_cpu_text_a411fc");  // 0x00A411FC unknown_profile_cpu_text_a411fc (?unknown_profile_cpu_text_a411fc@@3PADA)
 alignas(16) unsigned char ra2_bss_0297[280] __asm__("_unknown_profile_text_a4127c");  // 0x00A4127C unknown_profile_text_a4127c (?unknown_profile_text_a4127c@@3PADA)
