@@ -46,6 +46,16 @@ def accepted_regions():
     return catalog['regions']
 
 
+def assembly_regions(repository=REPOSITORY):
+    """Handwritten assembly procedures the build reproduces from source (manifests/original_target/assembly.json,
+    assembly_link.py --write), as catalog-shaped rows: they are booked exact like accepted regions, not left open."""
+    path = Path(repository) / 'manifests/original_target/assembly.json'
+    if not path.exists():
+        return []
+    return [dict(entry=int(r['entry'], 16), body_bytes=r['bytes'], symbol=r.get('symbol', ''), source=r.get('source', ''))
+            for r in json.loads(path.read_text())['regions'] if r.get('section', '.text') == '.text']
+
+
 def mangled_class(symbol):
     """Outermost scope of a VC6 decorated name, or None for templates/free functions."""
     if not symbol or not symbol.startswith('?'):
@@ -120,6 +130,8 @@ def open_misses():
 
 def collect():
     regions = accepted_regions()
+    catalogued = {r['entry'] for r in regions}
+    regions = regions + [r for r in assembly_regions() if r['entry'] not in catalogued]
     inv = Inventory()
     bases, slot_owner = rtti_tables()
     spans = original_source_spans()

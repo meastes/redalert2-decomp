@@ -33,8 +33,6 @@
 | 0x617340 | 818 | 38.31 | 7 | Scout923 |  | register layout frame | twin | Scout779/keep/ld1_3831.cpp | 504.0 |
 | 0x440520 | 6,505 | 92.27 | 12 | Scout1164 |  | frame register inline | tibsun twin | Scout761/keep/eo_F_9193.cpp | 502.0 |
 | 0x47AD00 | 2,191 | 78.39 | 5 | Scout1166 |  | register frame bound | tibsun twin |  | 473.0 |
-| 0x77EDD0 | 466 | - | 3 | Scout848 |  | asm bound register | tibsun twin |  | 466 |
-| 0x781130 | 466 | - | 1 | Scout808 |  | bound |  |  | 466 |
 | 0x70BD92 | 456 | - | 2 | Scout1030 |  | frame register ruling | tibsun |  | 456 |
 | 0x5EE460 | 1,003 | 55.31 | 10 | Scout1045 |  | frame register inline | twin | Scout1042/w/best42.cpp | 448.0 |
 | 0x577010 | 404 | - | 1 | Scout922 |  | inline asm | twin |  | 404 |
@@ -43,7 +41,6 @@
 | 0x609540 | 1,069 | 66.45 | 6 | Scout1067 |  | inline ruling frame | tibsun |  | 358.0 |
 | 0x5E8A35 | 347 | - | 2 | Scout1030 |  | frame register ruling | tibsun |  | 347 |
 | 0x576420 | 925 | 64.79 | 5 | Scout1036 |  | frame register inline | tibsun twin |  | 325.0 |
-| 0x5FE9B0 | 420 | 22.54 | 4 | Scout1075 |  | register inline bound | twin |  | 325.0 |
 | 0x626CB0 | 741 | 56.63 | 3 | Scout909 |  | register inline |  | Scout909/keep/g2a1.cpp | 321.0 |
 | 0x79294E | 320 | - | 1 | Scout1028 |  | layout |  |  | 320 |
 | 0x4718B0 | 1,116 | 71.99 | 6 | Scout998 |  | register inline frame | twin |  | 312.0 |
@@ -63,7 +60,6 @@
 | 0x6C5570 | 2,998 | 91.81 | 10 | Scout1167 |  | order register frame | twin | Scout1167/keep/eo1_head_9181.cpp | 245.0 |
 | 0x6F9790 | 1,317 | 82.59 | 4 | Scout1075 |  | register inline layout | twin | Scout909/keep/rte2.cpp | 229.0 |
 | 0x70C0A0 | 923 | 75.95 | 5 | Scout1077 |  | frame layout register | tibsun twin | Scout845/w/u21.cpp | 221.0 |
-| 0x77EFC0 | 206 | - | 1 | Scout922 |  | inline asm | twin |  | 206 |
 | 0x75F9C1 | 196 | - | 3 | Scout1016 |  | bound |  |  | 196 |
 | 0x6AC420 | 893 | 78.52 | 7 | Scout961 |  | layout register ruling | tibsun twin | Scout961/w/keep/render_c1_6469.cpp | 191.0 |
 | 0x4994D0 | 832 | 78.48 | 5 | Scout1075 |  | register frame layout | tibsun twin |  | 179.0 |
