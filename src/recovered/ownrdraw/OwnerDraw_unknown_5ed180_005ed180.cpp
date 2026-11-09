@@ -14,7 +14,6 @@
 // @ref ?Get_Blue_Left@@YAHXZ=004abb70
 // @ref ?Load_Dialog_Images_5fc8a0@@YIXXZ=005fc8a0
 // @ref ?unknown_masks_ready_a763f8@OwnerDraw@@3HA=00a763f8
-// @ref ?unknown_green_mask_a763de@OwnerDraw@@3GA=00a763de
 // @ref ?Load_String@StringTable@@SIPB_WPBDPAD1H@Z=006f9ec0
 // @ref ??_C@_09PCGO@ScrollBar?$AA@=007eadb4
 // @ref ??_C@_07NOMM@ListBox?$AA@=007e8de0

@@ -418,9 +418,10 @@ extern int unknown_surface_count_a763d8;
 extern int unknown_classes_registered_a763f0;
 // Nesting count of 0x005FF5A0 (mouse released) over 0x005FF5D0 (recaptured when it returns to zero).
 extern int unknown_mouse_release_depth_a76410;
-// The screen pixel format's 8-bit channel masks, set by 0x005FC820 (defined there).
-extern unsigned short unknown_red_mask_a763dc;
-extern unsigned short unknown_green_mask_a763de;
+// The screen pixel format's 8-bit channel masks, set by 0x005FC820 (defined there). Red [0] and green [1] are one
+// aggregate: 0x005FE9B0 reads the red mask as a dword (ra2-decomp ownrdraw.h groups them as ODComponentMasks
+// {R, G}, blue apart; see THIRD_PARTY.md).
+extern unsigned short unknown_red_green_masks_a763dc[2];
 extern unsigned short unknown_blue_mask_a763e0;
 // Blends color into pixel by alpha (0-255) per channel through the masks (inline; its alpha statics are
 // 0x00B2B634 and 0x00B2B638).
@@ -430,8 +431,8 @@ inline unsigned short Blend_Color(unsigned short pixel, unsigned short color, un
     static unsigned int pixel_alpha;
     color_alpha = alpha;
     pixel_alpha = 255 - alpha;
-    unsigned short red = (((pixel & unknown_red_mask_a763dc) * pixel_alpha) + ((color & unknown_red_mask_a763dc) * color_alpha)) >> 8 & unknown_red_mask_a763dc;
-    unsigned short green = (((pixel & unknown_green_mask_a763de) * pixel_alpha) + ((color & unknown_green_mask_a763de) * color_alpha)) >> 8 & unknown_green_mask_a763de;
+    unsigned short red = (((pixel & unknown_red_green_masks_a763dc[0]) * pixel_alpha) + ((color & unknown_red_green_masks_a763dc[0]) * color_alpha)) >> 8 & unknown_red_green_masks_a763dc[0];
+    unsigned short green = (((pixel & unknown_red_green_masks_a763dc[1]) * pixel_alpha) + ((color & unknown_red_green_masks_a763dc[1]) * color_alpha)) >> 8 & unknown_red_green_masks_a763dc[1];
     unsigned short blue = (((pixel & unknown_blue_mask_a763e0) * pixel_alpha) + ((color & unknown_blue_mask_a763e0) * color_alpha)) >> 8;
     return (unsigned short)(red | green | blue);
 }

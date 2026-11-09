@@ -19,8 +19,7 @@
 // @ref ?unknown_color_a76158@OwnerDraw@@3HA=00a76158
 // @ref ?unknown_color_a73910@OwnerDraw@@3HA=00a73910
 // @ref ?unknown_color_a733d0@OwnerDraw@@3HA=00a733d0
-// @ref ?unknown_red_mask_a763dc@OwnerDraw@@3GA=00a763dc
-// @ref ?unknown_green_mask_a763de@OwnerDraw@@3GA=00a763de
+// @ref ?unknown_red_green_masks_a763dc@OwnerDraw@@3PAGA=00a763dc
 // @ref ?unknown_blue_mask_a763e0@OwnerDraw@@3GA=00a763e0
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc
