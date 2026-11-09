@@ -17,6 +17,7 @@
 // @ref ??_C@_0O@IOEL@TXT_SELL_MODE?$AA@=007dcf10
 // @ref ?unknown_slot34@PowerClass@@UAEXXZ=0061d130
 // @ref ?unknown_flag_a40b30@@3_NA=00a40b30
+// @ref ?unknown_int_839630@@3HA=00839630
 // @ref ?unknown_int_839638@@3HA=00839638
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_rect_839620@@3VRect@@A=00839620
@@ -54,7 +55,7 @@ void SidebarClass::unknown_slot34()
     PowerClass::unknown_slot34();
 
     if (unknown_flag_a40b30) {
-        unknown_rect_839620.X = unknown_int_839638 + unknown_rect_839630.X;
+        unknown_rect_839620.X = unknown_int_839630 + unknown_int_839638;
     } else {
         unknown_rect_839620.X = 0;
     }
