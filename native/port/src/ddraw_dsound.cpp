@@ -298,6 +298,7 @@ struct DirectDraw {
         display_width = (int)w;
         display_height = (int)h;
         display_bits = bits == 16 ? 16 : 16;   // the game draws in 16 bpp
+        display_mode_changed(display_width, display_height);
         return DD_OK;
     }
     virtual HRESULT WaitForVerticalBlank(DWORD, void *) { return DD_OK; }

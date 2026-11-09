@@ -91,6 +91,9 @@ struct Host {
     void (*present)(const void *pixels, int width, int height, int pitch, int bits);
     void (*set_relative_cursor)(bool show);
     bool (*open_audio)(int rate, void (*mix)(short *out, int frames));
+    // A game frame (Main_Loop iteration) began: the host plays scripted input
+    // due at that frame (--input-script, test runs). May be null.
+    void (*frame)(int frame);
 };
 void set_host(const Host *host);
 const Host *host();
@@ -98,6 +101,8 @@ const Host *host();
 // The window that receives host input (the first top-level window created).
 HWND main_window();
 BOOL post_message(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+// DirectDraw set a display mode: the screen and the main window take its size.
+void display_mode_changed(int width, int height);
 
 // The launcher's handshake (platform/sdl/main.cpp plays RA2.EXE's part). The
 // game signals the named launcher event (Notify_Launcher 0x00491930); the

@@ -9,10 +9,18 @@
 //     building: PLACE (event 0x0B with the cell) as the placement path does,
 //     executed by HouseClass 0x004E6950 (Unlimbo at the cell).
 // The order: a power plant (GAPOWR/NAPOWR), then a refinery (GAREFN/NAREFN),
-// which brings its free harvester. Cells are tried around the construction
-// yard until the building stands. Each step logs harness-build; the last
+// which brings its free harvester. The placement cell is the nearest one to
+// the construction yard that the original's own placement tests accept:
+// DisplayClass::Passes_Proximity_Check 0x004991D0 (the foundation touches one
+// of the house's base buildings) and CellClass::Is_Clear_To_Build 0x004718B0
+// (draft) for every cell of the type's occupy list (ObjectTypeClass slot 36),
+// as the placement cursor checks them (Scout1115, M13); a cell whose PLACE
+// event did not take is skipped next time. Each step logs harness-build; the last
 // frame logs harness-houses (buildings and technos per house).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
+#include "shared/display.hpp"     // before map_view.hpp (full DisplayClass)
+#include "shared/map_view.hpp"
+#include "shared/map_cell.hpp"
 #include "shared/building_class.hpp"
 #include "shared/house.hpp"
 #include "shared/factory_class_decl.hpp"
@@ -61,18 +69,61 @@ bool Same_Name(char const *a, char const *b)
 // The build list: each step is any of its names the player can build.
 char const *const steps[][2] = {{"GAPOWR", "NAPOWR"}, {"GAREFN", "NAREFN"}};
 int const step_count = sizeof(steps) / sizeof(steps[0]);
-// Placement cells (top-left) around the construction yard's centre cell.
-signed char const offsets[][2] = {{3, -2}, {3, 1}, {-4, -2}, {-4, 1}, {-1, 3}, {-1, -5}, {5, -2}, {5, 2},
-                                  {-6, -2}, {2, 4}, {-3, 4}, {2, -6}};
-int const offset_count = sizeof(offsets) / sizeof(offsets[0]);
+Cell yard;              // the construction yard's centre cell
+
+// Cells already tried for the current step (a PLACE that did not take).
+Cell tried[64];
+int tried_count = 0;
+int const search_radius = 12;
+
+bool Was_Tried(Cell const &cell)
+{
+    for (int i = 0; i < tried_count; ++i) {
+        if (tried[i].X == cell.X && tried[i].Y == cell.Y) return true;
+    }
+    return false;
+}
+
+// Whether the original's placement tests accept the type's top-left cell.
+bool Legal_Cell(BuildingTypeClass *type, HouseClass *house, Cell const &cell)
+{
+    Cell const *list = type->unknown_slot36(true);
+    if (!Map.Passes_Proximity_Check_004991D0(type, house->ArrayIndex, list, cell)) return false;
+    if (list == 0) return false;
+    for (; list->X != 0x7FFF || list->Y != 0x7FFF; ++list) {
+        Cell at = cell;
+        at.X += list->X;
+        at.Y += list->Y;
+        if (at.X < 1 || at.Y < 1 || at.X > 510 || at.Y > 510) return false;
+        if (!Map[at].unknown_4718b0(type->SpeedType, type, house)) return false;
+    }
+    return true;
+}
+
+// The legal cell nearest the construction yard (rings of growing radius).
+bool Find_Cell(BuildingTypeClass *type, HouseClass *house, Cell &found)
+{
+    for (int r = 1; r <= search_radius; ++r) {
+        for (int dy = -r; dy <= r; ++dy) {
+            for (int dx = -r; dx <= r; ++dx) {
+                if (dx != -r && dx != r && dy != -r && dy != r) continue;
+                Cell cell = yard;
+                cell.X += dx;
+                cell.Y += dy;
+                if (Was_Tried(cell) || !Legal_Cell(type, house, cell)) continue;
+                found = cell;
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 int state = 0;          // 0 find the yard, 1 produce, 2 wait for the factory, 3 wait for the building
 int step = 0;
 int type_index = -1;
-int try_offset = 0;
 int wait_until = 0;
 int buildings_before = 0;
-Cell yard;
 
 int Player_Buildings()
 {
@@ -170,20 +221,18 @@ void Native_Harness_Build(int frame)
         OutList.Add(EventClass(player->ArrayIndex, 0x0E, 7, type_index, 0));
         Note("produce", frame, BuildingTypes[type_index]->ID.Buffer, 0);
         state = 2;
-        try_offset = 0;
+        tried_count = 0;
         return;
     case 2: {
         FactoryClass *factory = player->unknown_func_4eb580(7, false, HouseClass::unknown_func_4eb550(7, type_index));
         if (factory == 0 || !factory->Is_Complete_004B9900()) return;
-        if (try_offset >= offset_count) {
+        Cell cell;
+        if (tried_count >= 64 || !Find_Cell(BuildingTypes[type_index], player, cell)) {
             Note("no cell found for", frame, BuildingTypes[type_index]->ID.Buffer, 0);
             step = step_count;
             return;
         }
-        Cell cell = yard;
-        cell.X += offsets[try_offset][0];
-        cell.Y += offsets[try_offset][1];
-        ++try_offset;
+        tried[tried_count++] = cell;
         buildings_before = Player_Buildings();
         OutList.Add(EventClass(player->ArrayIndex, 0x0B, 7, type_index, 0, cell));
         Note("place", frame, BuildingTypes[type_index]->ID.Buffer, &cell);

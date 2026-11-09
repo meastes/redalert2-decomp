@@ -1275,6 +1275,558 @@
    "file": "native/link/behaviour_m12_team.cpp",
    "source": "seed src/recovered/classes/TeamClass/006b9590.cpp",
    "notes": "the computer player's teams ('#5', frame ~2,000) reach it; Scout1111"
+  },
+  {
+   "entry": "0x006AC7B0",
+   "name": "UnknownSelection::Count()",
+   "symbol": "__ZN16UnknownSelection5CountEv",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed src/recovered/006ac7b0.cpp (Tactical +0xDB0)",
+   "notes": "the selection band and Clear_Selected_Objects (first map click); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x006AC7C0",
+   "name": "UnknownSelection::Get(int)",
+   "symbol": "__ZN16UnknownSelection3GetEi",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed src/recovered/006ac7c0.cpp (the 0x00ABE5F8 table)",
+   "notes": "the selection band; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x006F6780",
+   "name": "Unknown_006f6780(unsigned int)",
+   "symbol": "__Z16Unknown_006f6780j",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed src/recovered/006f6780.cpp",
+   "notes": "Clear_Selected_Objects 0x00482BC0; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x006F6770",
+   "name": "Unknown_Click_End_006F6770()",
+   "symbol": "__Z26Unknown_Click_End_006F6770v",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed (pass-6a decompile 006f6770)",
+   "notes": "Mouse_Left_Release 0x0049BB20; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x006F76B0",
+   "name": "Unknown_006F76B0()",
+   "symbol": "__Z16Unknown_006F76B0v",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed src/recovered/006f76b0.cpp",
+   "notes": "Mouse_Left_Release 0x0049BB20; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0042E830",
+   "name": "Unknown_0042e830(Unknown84E8D0*)",
+   "symbol": "__Z16Unknown_0042e830P13Unknown84E8D0",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed src/recovered/0042e830.cpp",
+   "notes": "Clear_Selected_Objects 0x00482BC0; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0049C490",
+   "name": "DisplayClass::unknown_slot45(Point2D const&)",
+   "symbol": "__ZN12DisplayClass14unknown_slot45ERK7Point2D",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed src/recovered/0049c490.cpp",
+   "notes": "the left button down on the map; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x00614B50",
+   "name": "Infantry_Action_Allowed_00614b50(int)",
+   "symbol": "__Z32Infantry_Action_Allowed_00614b50i",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed src/recovered/00614b50.cpp",
+   "notes": "an infantry's action under the mouse; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0041B360",
+   "name": "TechnoClass::unknown_slot153()",
+   "symbol": "__ZN11TechnoClass15unknown_slot153Ev",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed (returns 0)",
+   "notes": "clicking a unit; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x00453BE0",
+   "name": "TechnoClass::unknown_slot243(bool, int)",
+   "symbol": "__ZN11TechnoClass15unknown_slot243Ebi",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed (an empty body, ret 8)",
+   "notes": "drawing a selected unit; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x006F58E0",
+   "name": "Unknown_006F58E0(unsigned short const*, int)",
+   "symbol": "__Z16Unknown_006F58E0PKti",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_input.cpp",
+   "source": "seed src/recovered/006f58e0.cpp",
+   "notes": "the on-screen messages (type select, refusals); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x006A20B0",
+   "name": "TabClass::unknown_slot33(int)",
+   "symbol": "__ZN8TabClass14unknown_slot33Ei",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed (calls SidebarClass 0x00681ED0)",
+   "notes": "the sidebar tooltips; Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051AE70",
+   "name": "CommandClass::unknown_slot5(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051ae70",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051AE80",
+   "name": "CommandClass::unknown_slot6(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051ae80",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051AE90",
+   "name": "CommandClass::unknown_slot7(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051ae90",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BA80",
+   "name": "CombatantSelectCommandClass::unknown_slot5(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051ba80",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BBE0",
+   "name": "HealthNavCommandClass::unknown_slot5(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bbe0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BC80",
+   "name": "VeterancyNavCommandClass::unknown_slot5(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bc80",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BB20",
+   "name": "TypeSelectCommandClass::unknown_slot5(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bb20",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BB30",
+   "name": "TypeSelectCommandClass::unknown_slot6(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bb30",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BB40",
+   "name": "TypeSelectCommandClass::unknown_slot7(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bb40",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BB50",
+   "name": "TypeSelectCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bb50",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051B9D0",
+   "name": "PlanningModeCommandClass::unknown_slot6(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051b9d0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051B9E0",
+   "name": "PlanningModeCommandClass::unknown_slot7(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051b9e0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051AF60",
+   "name": "CreateTeamCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051af60",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051B320",
+   "name": "SelectTeamCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051b320",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051B410",
+   "name": "AddTeamCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051b410",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051B500",
+   "name": "CenterTeamCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051b500",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BEA0",
+   "name": "AllToCheerCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bea0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C430",
+   "name": "AllianceCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c430",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C640",
+   "name": "CenterREventCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c640",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BF20",
+   "name": "DeployCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bf20",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BFA0",
+   "name": "GuardCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051bfa0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C020",
+   "name": "ScatterCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c020",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051BE20",
+   "name": "StopCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051be20",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051DA30",
+   "name": "DeleteCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051da30",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051CD80",
+   "name": "OptionsCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051cd80",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C5B0",
+   "name": "BeaconPlacementCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c5b0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051D8F0",
+   "name": "PageUserCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051d8f0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C0A0",
+   "name": "CenterViewCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c0a0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C4B0",
+   "name": "ToggleRepairCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c4b0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C530",
+   "name": "ToggleSellCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c530",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C6C0",
+   "name": "SidebarUpCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c6c0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051CA20",
+   "name": "SidebarDownCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051ca20",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C870",
+   "name": "SidebarPageUpCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c870",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051CBD0",
+   "name": "SidebarPageDownCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051cbd0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C750",
+   "name": "LSidebarUpCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c750",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051CAB0",
+   "name": "LSidebarDownCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051cab0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C900",
+   "name": "LSidebarPageUpCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c900",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051CC60",
+   "name": "LSidebarPageDownCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051cc60",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C7E0",
+   "name": "RSidebarUpCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c7e0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051CB40",
+   "name": "RSidebarDownCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051cb40",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051C990",
+   "name": "RSidebarPageUpCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051c990",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x0051CCF0",
+   "name": "RSidebarPageDownCommandClass::Execute(int) const",
+   "origin_class": "unmatched (interactive input)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m13_commands.cpp",
+   "source": "seed and pass-6a decompile 0051ccf0",
+   "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
   }
  ]
 }

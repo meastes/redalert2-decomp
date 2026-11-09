@@ -245,7 +245,8 @@ namespace { const char *skirmish_map = nullptr; int skirmish_frames = 1; }
 void ra2port_set_skirmish(const char *map, int frames)
 {
     skirmish_map = map;
-    skirmish_frames = frames > 0 ? frames : 1;
+    // 0: interactive play (--play): no frame limit.
+    skirmish_frames = frames > 0 ? frames : frames == 0 ? 0x7FFFFFFF : 1;
 }
 const char *ra2port_skirmish_map(void) { return skirmish_map; }
 // --skirmish-order=<kind>[@<frame>] (link/harness_orders.cpp).
@@ -253,6 +254,18 @@ namespace { const char *skirmish_order = nullptr; }
 void ra2port_set_skirmish_order(const char *order) { skirmish_order = order; }
 const char *ra2port_skirmish_order(void) { return skirmish_map ? skirmish_order : nullptr; }
 int ra2port_skirmish_frames(void) { return skirmish_frames; }
+// Scripted input points (platform/sdl/host.cpp): the skirmish harness
+// registers the resolver of "@ID[:n][+dx,dy]" (link/harness_input.cpp).
+namespace { int (*point_resolver)(const char *, int *, int *) = nullptr; }
+void ra2port_set_point_resolver(int (*resolver)(const char *spec, int *x, int *y)) { point_resolver = resolver; }
+int ra2port_resolve_point(const char *spec, int *x, int *y) { return point_resolver ? point_resolver(spec, x, y) : 0; }
+// A Main_Loop frame began (link/harness_skirmish.cpp): the host plays the
+// scripted input due at it (--input-script).
+void ra2port_frame(int frame)
+{
+    const ra2port::Host *h = ra2port::host();
+    if (h && h->frame) h->frame(frame);
+}
 
 // The run ended another way (WinMain returned): print the summary.
 void ra2port_run_end(const char *why)

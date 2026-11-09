@@ -1497,6 +1497,40 @@
    "author": "Scout705 rz3 (Scout1046 rescore; House204 before)",
    "draft": "native/drafts/004eca50.cpp",
    "adapted": "its own unit; text unchanged"
+  },
+  {
+   "entry": "0x617340",
+   "name": "Planning_Left_Down_00617340",
+   "plan": "draft, verify",
+   "tier": "interactive input",
+   "bytes": 818,
+   "score": 38.31,
+   "last_lane_score": 38.31,
+   "draft_found_by": "index",
+   "host_source": "src/recovered/unowned/Planning_Left_Up_00617680.cpp",
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout779/keep/ld1_3831.cpp",
+   "author": "Scout779 (Scout923 misses_index row)",
+   "draft": "native/drafts/00617340.cpp",
+   "adapted": "HEAD signature (int x, int y); the draft's light MouseClass/Map copies dropped (the host unit declares them)"
+  },
+  {
+   "entry": "0x4994D0",
+   "name": "DisplayClass::Unknown_004994D0 (Set_Cursor_Pos)",
+   "plan": "draft, verify",
+   "tier": "interactive input",
+   "bytes": 832,
+   "score": 78.48,
+   "last_lane_score": 78.48,
+   "draft_found_by": "index",
+   "host_source": "src/recovered/classes/DisplayClass/DisplayClass_Passes_Shroud_Check_00499390.cpp",
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout1075/keep/scp_k6_natural_7848.cpp",
+   "author": "Scout620/Scout1075",
+   "draft": "native/drafts/004994d0.cpp",
+   "adapted": "RadarClass slot 51 through a link adapter (Native_Radar_Cell_At), unknown_a40d13 spelled Debug_Map; joined to Passes_Shroud_Check 0x00499390's unit"
   }
  ]
 }

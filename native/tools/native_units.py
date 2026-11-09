@@ -48,6 +48,22 @@ SUBSYSTEMS = {
 LONG_PROTECT = [(re.compile(r'\blong(\s+)long\b'), 'RA2_LL_PLACEHOLDER'),
                 (re.compile(r'\blong(\s+)double\b'), 'RA2_LD_PLACEHOLDER')]
 RULES = [
+    # The click orders' pointer arguments (Scout1115, M13 interactive input):
+    # ObjectClass slot 77 (Active_Click_With a cell: arg2/arg3 point at Cells),
+    # slot 78 (with an object: arg2 is the ObjectClass *) and TechnoClass slot
+    # 200 0x006CC2A0 (the ordered mission: destination and follow are
+    # AbstractClass *, Queue_Mission's targets) take them as VC6 ints;
+    # DisplayClass::Active_Click 0x0049E870 passes `(int)&cell`, and the first
+    # map click faulted in UnitClass slot 27 on the truncated Cell pointer.
+    # Natively those parameters are intptr_t at every declaration and the
+    # call sites' (int) casts (intptr_t); same values on VC6.
+    (re.compile(r'(\bunknown_slot77\s*\(\s*int\s+\w+\s*,\s*)int(\s+\w+\s*,\s*)int(\s+\w+\s*,\s*bool\b)'),
+     r'\1intptr_t\2intptr_t\3'),
+    (re.compile(r'(\bunknown_slot78\s*\(\s*int\s+\w+\s*,\s*)int(\s+\w+\s*,\s*bool\b)'), r'\1intptr_t\2'),
+    (re.compile(r'(\bunknown_slot200\s*\(\s*int\s+\w+\s*,\s*AbstractClass\s*\*\s*\w+\s*,\s*)int(\s+\w+\s*,\s*)int(\s+\w+\s*\))'),
+     r'\1intptr_t\2intptr_t\3'),
+    (re.compile(r'\bunknown_slot(?:77|78|200)\((?=[^;{]*\(int\))[^;{]*;'),
+     lambda m: m.group(0).replace('(int)', '(intptr_t)')),
     # COM class factories (TClassFactory<X>::CreateInstance, 74 accepted rows)
     # allocate X through a light in-file view padded to the VC6 size; the real
     # constructor then fills the arm64 layout, which is larger (pointers and
@@ -653,7 +669,7 @@ HEADER_STATIC_COPIES = [0]
 
 
 def header_static_copies(text, bss_by_address):
-    """Header statics (the per-unit copies of a shared header's file statics, e.g.
+    """Header and file statics (the per-unit copies of a shared header's file statics, e.g.
     unknown_geometry.hpp's unknown_geometry_j) live at one original address that
     other units also read through an extern name (unknown_bridge_height_ad057c,
     0x00AD057C). Natively the extern name is its own zeroed storage
@@ -728,8 +744,11 @@ def main():
                 report['skipped'].append(dict(source=r['source'], reason='inline assembly: native implementation needed'))
                 continue
             parts.append('#line 1 "%s"\n%s\n' % ((ROOT / r['source']).as_posix(), port(text)))
-            if '/header_statics/' in r['source']:
-                parts.append(header_static_copies(text, bss_by_address))
+            # File statics too (Scout1115): Tactical.CPP's unknown_scale_abe490
+            # (0x00ABE490, pixels per lepton of height) is read elsewhere through
+            # the extern unknown_abe490; zero there, every object's Z adjust lost
+            # its height and the depth test hid units and infantry.
+            parts.append(header_static_copies(text, bss_by_address))
         if not parts:
             continue
         name = 'g%04d_%s.cpp' % (index, key[0].replace('population-', 'p'))

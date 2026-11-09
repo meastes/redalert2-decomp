@@ -973,6 +973,34 @@
    "new": "#if defined(__LP64__)   // NATIVE (Scout1111): BuildingClass's arm64 offsets (shared/building_class.hpp: Type +0x518, sizeof 0x7B8)\n    char unknown_098[0x518 - sizeof(ObjectClass)];\n    BuildingTypeClass *Type; // existing full-class member +418\n    char unknown_41c[0x7B8 - 0x520];         // TechnoClass and BuildingClass members\n};\nstatic_assert(__builtin_offsetof(BuildingClass, Type) == 0x518, \"BuildingClass::Type (arm64)\");\n#else\n    char unknown_098[0x418 - 0x98];\n    BuildingTypeClass *Type; // existing full-class member +418\n    char unknown_41c[0x5E0 - 0x41C];         // TechnoClass and BuildingClass members\n};\n#endif\n",
    "why": "The view's padding is VC6's (Type at +0x418); its ObjectClass base differs between the units that include it (BuildingType.cpp and others), so view_audit.py cannot respell it with one size (port/view_layouts.json lists it as 'layout differs'). Natively the padding runs from the base's end to the real class's Type (+0x518 on arm64, shared/building_class.hpp; view_audit.py measures it) and on to its size.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SidebarClass/SidebarClass_StripClass_SelectClass_Action_006809f0.cpp",
+   "old": "if (((UnknownSidebarIHouse *)((char *)unknown_player_a35db4 + 0x24))->Available_Money() >= ",
+   "new": "if (Native_House_Available_Money(unknown_player_a35db4) >= ",
+   "why": "The sidebar's start-production click reaches the player's IHouse interface at the VC6 offset HouseClass +0x24 (slot 6 Available_Money 0x004E2B30). On arm64 the interface's vtable pointer is elsewhere: the first cameo click of the M13 input script faulted at 0x30 (slot 6 of a null vtable; Scout1115). Natively the call goes through native/link/native_house_iface.cpp, which calls HouseClass::Available_Money on the real class. Same value; the exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SidebarClass/SidebarClass_StripClass_SelectClass_Action_006809f0.cpp",
+   "old": "int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)\n{\n",
+   "new": "long Native_House_Available_Money(HouseClass *house);   // NATIVE: native/link/native_house_iface.cpp\nint SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)\n{\n",
+   "why": "Declares the adapter the IHouse call above uses (native only).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/WinModemClass/WinModemClass_constructor_00734120.cpp",
+   "old": "    int unknown_28[10];\n",
+   "new": "    char unknown_28[RA2_NATIVE_PAD(48, 40)];   // NATIVE: win_modem.hpp's ReadOverlap/WriteOverlap (two OVERLAPPED)\n",
+   "why": "The constructor's light WinModemClass covers win_modem.hpp's two OVERLAPPED records (+0x28) with int[10]; on arm64 they hold pointers (48 bytes), so every later store of the constructor missed the real member (view_audit.py, Scout1115: the class joined the checked set). Same VC6 layout.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/WinModemClass/WinModemClass_constructor_00734120.cpp",
+   "old": "    int unknown_64;\n    int unknown_68;\n",
+   "new": "    void *unknown_64;   // NATIVE: win_modem.hpp's EchoFunction (a function pointer)\n    void *unknown_68;   // NATIVE: AbortFunction\n",
+   "why": "win_modem.hpp's +0x64/+0x68 are function pointers (EchoFunction, AbortFunction): pointer width natively so the constructor clears the real members. Same VC6 layout and stores.",
+   "verified": true
   }
  ]
 }

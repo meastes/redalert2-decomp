@@ -26,6 +26,7 @@ extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.
 extern "C" {
 const char *ra2port_skirmish_map(void);
 int ra2port_skirmish_frames(void);
+void ra2port_frame(int frame);
 void ra2port_progress(const char *milestone, const char *detail);
 }
 bool __fastcall Select_Game(bool fade);                 // 0x005135F0
@@ -224,6 +225,7 @@ bool Native_Skirmish_Menu_Bypass()
 }
 
 void Native_Harness_Orders(int frame);   // harness_orders.cpp
+void Native_Harness_Input(int frame);    // harness_input.cpp
 
 bool Native_Main_Loop_Seam()
 {
@@ -233,6 +235,8 @@ bool Native_Main_Loop_Seam()
         Append_Int(detail, ++frames_done, sizeof detail);
         ra2port_progress("frame", detail);
         Native_Harness_Orders(frames_done);
+        Native_Harness_Input(frames_done);
+        ra2port_frame(frames_done);     // scripted input due at the next frame (--input-script)
         if (frames_done >= ra2port_skirmish_frames()) {
             ra2port_progress("frames", detail);
         }

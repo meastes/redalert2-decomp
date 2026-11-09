@@ -38,7 +38,15 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 from member_aliases import ARM64, FLAGS, PRELUDE, parse_layouts  # noqa: E402
 
-REAL = {'CellClass': 'cell_class.hpp'}
+REAL = {'CellClass': 'cell_class.hpp',
+        # Real classes without RTTI that padded views read (Scout1115): the
+        # on-screen message list (0x00A3DC70, message_list.hpp).
+        'MessageListClass': 'message_list.hpp'}
+# Real classes outside the AbstractClass tree whose views are checked and
+# respelled as well (Scout1115): self-contained classes with one real header.
+# The MapClass screen layers (map_view.hpp) stay suspect: their light views
+# change base between units (display.hpp's DisplayClass or map_view.hpp's).
+CHECKED = {'WinModemClass', 'MessageListClass'}
 EXTRA = ['-Wno-error=address-of-temporary', '-Wno-error']
 TRIPLES = {'i686': ['-target', 'i686-pc-windows-msvc', '-DRA2PORT_ALLOW_HOST'],
            'arm64': ARM64}
@@ -181,10 +189,22 @@ NOT_VIEWS = {
     'UnknownCellEntryType': 'the type of such an entry (techno.hpp)',
     'UnknownTechno230View': 'the object a techno keeps at +0x230 (0x004E7DF0)',
     'UnknownHouseScenarioView': 'the scenario (RandomNumber at +0x218) as house_views.hpp reads it',
+    # Scout1115: named "List"/"Edit" only; their comments name no ListClass/EditClass.
+    'UnknownNodeList_006003d0': 'a list of text nodes at +0x34 (0x006003D0; owner not identified)',
+    'UnknownListOwner_00600350': 'an owner of a block, a node list and a string (0x00600350; not identified)',
+    'UnknownListOwner_00602510': 'the same with another layout (0x00602510; not identified)',
+    'UnknownList_636ea0': 'a pointer array at +0xCC (0x00636EA0; owner not identified)',
+    'PhoneEdit': 'the phone book dialog (phone_edit.hpp), not an EditClass gadget',
 }
 # Views whose name or comment does not name their real class.
 VIEW_OF = {
     'UnknownBuildingSlot105': 'CellClass',     # "The cell slot 105 returns (+0x10A)" (building_class.hpp)
+    # radar.hpp: "the objects of the list at 0x00A40C20" (Technos) whose +0x37B flag Radar
+    # 0x00631D40/0x00631ED0 clears; the name's "Radar" picked RadarClass (Scout1115).
+    'UnknownRadarObject37B': 'TechnoClass',
+    # 0x005B5D80 lays out the message list's labels from +0x08 (Y) in steps of +0x14
+    # (Height): MessageListClass's members (Scout1115).
+    'UnknownLayoutList_005b5d80': 'MessageListClass',
 }
 SAYS_VIEW = re.compile(r'\b(?:views? of|stand-ins? (?:of|for)|view until|as far as)\s+(?:the\s+)?(\w+Class|Tactical)\b|'
                        r'\b(\w+Class) as (?:\w+ )*(?:reads?|sees?|uses?) it')
@@ -292,7 +312,7 @@ def in_tree(real, rtti):
     screen layers of map_view.hpp, network and GUI classes) are listed as
     suspect: their hand respellings (port/fixups.json, link/check_light_views*.cpp)
     stand."""
-    return real == 'AbstractClass' or 'AbstractClass' in rtti.get(real, ())
+    return real == 'AbstractClass' or 'AbstractClass' in rtti.get(real, ()) or real in CHECKED
 
 
 def write_layouts(rows, layout_of, real, texts, defs, headers, fresh=False):
@@ -522,7 +542,7 @@ def main():
     unfit = sorted({k[0] for k, v in seen.items() if v['real'] is None})
     if unfit:
         print('view_audit: no real class fits %d padded views: %s' % (len(unfit), ', '.join(unfit)), file=sys.stderr)
-    print('view_audit: %d views, %d with mismatches (%d suspect: outside the AbstractClass tree, '
+    print('view_audit: %d views, %d with mismatches (%d suspect: outside the AbstractClass tree and CHECKED, '
           'not checked)' % (len(rows), nbad, sum(1 for r in rows if r['mismatches'] and not r['checked'])))
     if a.report:
         a.report.write_text(json.dumps(rows, indent=1) + '\n')

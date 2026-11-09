@@ -53,6 +53,8 @@ HWND main_hwnd = nullptr, focus_hwnd = nullptr, capture_hwnd = nullptr;
 int cursor_count = 0;
 int dialogs_shown = 0;   // dialogs from templates shown so far (--run-to `menu`)
 POINT cursor = {0, 0};
+// The screen size: the desktop until the game sets a DirectDraw display mode.
+int screen_width = 800, screen_height = 600;
 
 struct Timer { HWND window; uintptr_t id; UINT period; std::chrono::steady_clock::time_point next; void *proc; };
 std::vector<Timer> timers;
@@ -80,6 +82,22 @@ void fire_timers()
 
 namespace ra2port {
 HWND main_window() { return main_hwnd; }
+// DirectDraw changed the display mode (exclusive full screen): as on Windows,
+// the screen takes that size and the game's top-level window (a full-screen
+// popup) covers it; the window gets WM_MOVE and WM_SIZE, whose handler
+// recomputes the mouse's confining rectangle (Windows_Procedure 0x007375A0,
+// WWMouseClass::Calc_Confining_Rect 0x00771C50). Without it the mouse stayed
+// clamped to the 800x600 window the game created (Scout1115, M13).
+void display_mode_changed(int width, int height)
+{
+    screen_width = width;
+    screen_height = height;
+    Window *w = win(main_hwnd);
+    if (!w) return;
+    w->rect = {0, 0, width, height};
+    post_message(main_hwnd, 0x0003, 0, 0);                                                  // WM_MOVE (0, 0)
+    post_message(main_hwnd, 0x0005, 0, (LPARAM)((height & 0xFFFF) << 16 | (width & 0xFFFF)));   // WM_SIZE
+}
 BOOL post_message(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     std::lock_guard<std::mutex> g(queue_lock);
@@ -417,8 +435,8 @@ DWORD GetSysColor(int index) { (void)index; return 0; }
 int GetSystemMetrics(int index)
 {
     switch (index) {
-    case 0: return 800;    // SM_CXSCREEN
-    case 1: return 600;    // SM_CYSCREEN
+    case 0: return screen_width;    // SM_CXSCREEN
+    case 1: return screen_height;   // SM_CYSCREEN
     case 19: return 1;     // SM_MOUSEPRESENT
     case 43: return 3;     // SM_CMOUSEBUTTONS
     }

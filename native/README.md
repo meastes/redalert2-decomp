@@ -111,6 +111,10 @@ Notes `harness-build-<n>` per step and `harness-houses` (buildings and units per
 house) at the last frame. The sidebar shows the cameos (the build options were
 dropped by Who_Can_Build_Me's padded views and the cameo pointer by Get_Cameo_Data's
 int return).
+Scout1115 (M13): the placement cell is the nearest one to the yard that the
+original's own tests accept (DisplayClass::Passes_Proximity_Check 0x004991D0 and
+CellClass::Is_Clear_To_Build 0x004718B0 for each cell of the type's occupy list);
+the power plant and the refinery stand at the first try.
 `RA2_NATIVE_DEBUG_LOG=1`
 prints the game's Debug_Printf lines (the original's body is empty). The menu run
 (`--run-to=menu`) and the skirmish runs also work without `-noaudio` (60 frames
@@ -120,6 +124,42 @@ check; Parse_Command_Line's `-CD<path>`). The native game skips the CD check
 (user decision 2026-11-08): the host adds `-CD.` unless the command line names
 `-CD<path>` itself or `--cd-check` asks for the original check. Test runs play audio into SDL's dummy
 device (silent, consumed in real time) unless `SDL_AUDIO_DRIVER` names one.
+
+### Playing (interactive skirmish) and scripted input
+
+`ra2-native --play=<map> --data-dir <installation>` starts a skirmish on `<map>`
+(as `--skirmish` names it: the harness's start without the menu dialogs, Russians
+as the computer player) with no frame limit and no scripted orders: the player's
+mouse and keyboard drive the game until the window is closed (Scout1115, M13).
+The SDL host turns input into the Win32 messages the game's window procedure
+reads (Windows_Procedure 0x007375A0: ScrollClass 0x0066A400 for the map,
+WWKeyboardClass::Message_Handler 0x00532A60 for the gadgets and hotkeys): left
+and right buttons, motion, the wheel (WM_MOUSEWHEEL scrolls the sidebar) and
+keys, with mouse positions converted from the window to the game's pixels (the
+presented surface letterboxed into the window, which takes the game's
+resolution). DirectDraw's SetDisplayMode makes the screen that size and the
+main window cover it (WM_MOVE/WM_SIZE), as on Windows: the mouse's confining
+rectangle (WWMouseClass::Calc_Confining_Rect 0x00771C50) was the 800x600 window
+before, which clamped every gadget click (the sidebar) to x < 800.
+Select (click, drag a band), move/attack (click a target), deploy (click a
+selected MCV), build (click a sidebar cameo; click it again when ready, then a
+map cell) and the hotkeys (S stop, G guard, X scatter, D deploy, T type select,
+team keys, the sidebar scroll commands) work.
+
+`--input-script=<file>` (or `RA2_NATIVE_INPUT_SCRIPT`; any skirmish run) plays
+scripted input through the same SDL event path, one event per line
+`<frame> <action> <args>` at the start of that Main_Loop frame: `move P`,
+`ldown P`, `lup P`, `rdown P`, `rup P`, `click P` (move, then down and up on the
+next two frames), `rclick P`, `drag P0 P1`, `key NAME` / `keydown NAME` /
+`keyup NAME` (SDL key names). A point P is `X Y` in game pixels or
+`@ID[:n][+dx,dy]`: the human player's n-th object of type ID, moved by dx, dy
+cells (`link/harness_input.cpp` answers its screen pixel). The last frame logs
+`harness-input` (the selection count and each of the player's objects as
+ID[*selected]:mission@cell); `RA2_NATIVE_INPUT_LOG=<n>` also every n frames.
+Example (`'#5'`, 900 frames, no order): click `@MTNK`, click `@MTNK+5,0` (it
+drives there), `key S`, double-click `@AMCV` (it deploys), click the power plant
+cameo (908, 252), click it again at frame 720 and click `@GACNST+4,0`: the
+power plant stands at the clicked cell.
 
 ### Data the original stores (game.exe at run time)
 
@@ -145,6 +185,12 @@ count every dimension (Scout1098: the voxel view table, the infantry spot
 sequences, the path and quadrant tables). Unsized arrays of records of data
 pointers and 32-bit scalars take their count from the TSV extent when it is whole
 records (Scout1103: DriveRawTracks/ShipRawTracks, the track point pointers).
+File statics are copied the same way (Scout1115): Tactical.CPP's
+`unknown_scale_abe490` (0x00ABE490, pixels per lepton of height, a dynamic
+initialiser) is read elsewhere as the extern `unknown_abe490`; zero there, every
+object's Z adjust (Unknown_006A2970) lost its height, the depth test hid units
+and infantry on raised ground and drew vehicles as two strips (the "doubled
+Grizzly").
 Header statics (a shared header's file statics, one copy per original unit at
 its own address, e.g. unknown_geometry.hpp's `unknown_geometry_j` at 0x00AD057C)
 are copied into the zeroed storage of the extern names other units read at the
@@ -170,7 +216,8 @@ Other class-typed globals and pointers to pointers are not loaded (`--report`).
    sees, Bit_Blit/RLE_Blit's ring locals, the ZBuffer/ABuffer Wrap_ helpers, the
    RadiusCount table; Scout1091; the drawer value slot 115
    hands to building and overlay animations, the audio event's waiting source and
-   sample data addresses; Scout1098). VC6 variadic forwarding
+   sample data addresses; Scout1098; the click orders' pointer arguments of
+   ObjectClass slots 77/78 and TechnoClass slot 200, Scout1115). VC6 variadic forwarding
    (`vswprintf(buf, fmt, (char *)(&last + 1))`) becomes a real va_list from the
    same parameter (Plain_Text_Print, Fancy_Text_Printf, MonoClass::Printf,
    JShell_Fatal, the chat lines).
@@ -291,8 +338,12 @@ repeat the last three until `bss_globals.cpp` no longer changes.
    It respelled 49 views (65 padding members): e.g. Who_Can_Build_Me 0x005D5FC0's
    BuildingTypeClass `Factory` and BuildingClass +0x530 views, which kept the sidebar
    empty. Members padding cannot move are listed as `stuck` (fix them in
-   `port/fixups.json`); padded stand-ins outside that tree (the MapClass screen layers,
-   network and GUI classes) are listed as suspect, not checked. After changing views:
+   `port/fixups.json`); padded stand-ins outside that tree (the MapClass screen layers) are
+   listed as suspect, not checked; since Scout1115 `CHECKED` adds WinModemClass and
+   MessageListClass (a non-RTTI real class, `REAL`), `VIEW_OF` names
+   UnknownRadarObject37B a TechnoClass view (Technos' +0x37B flag, which the radar
+   rebuild cleared at a wrong native offset) and `NOT_VIEWS` lists five records
+   named after ListClass/EditClass that are not views of them. After changing views:
    reconfigure, `view_audit.py --build <b> --write`, reconfigure again; a stale row stops
    the configure (`--fresh` from an empty file rebuilds the list). **COM class factories** (`TClassFactory<X>::CreateInstance`,
    74 rows) allocate their light in-file view through `ra2port::factory_alloc` (twice the

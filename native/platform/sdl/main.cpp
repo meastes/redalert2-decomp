@@ -65,6 +65,8 @@ int main(int argc, char **argv)
     // for the original check, it gets Parse_Command_Line's -CD. (every file is
     // read from the installation; CD::Force_Available and Get_CD_Index pass).
     bool cd_check = false;
+    // --play=<map>: an interactive skirmish on <map> (as --skirmish names it).
+    const char *play = nullptr;
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--data-dir") && i + 1 < argc) data = argv[++i];
         else if (!strcmp(argv[i], "--smoke-test")) smoke = true;
@@ -76,9 +78,16 @@ int main(int argc, char **argv)
         else if (!strncmp(argv[i], "--skirmish-frames=", 18)) skirmish_frames = atoi(argv[i] + 18);
         else if (!strncmp(argv[i], "--skirmish-order=", 17)) ra2port_set_skirmish_order(argv[i] + 17);
         else if (!strcmp(argv[i], "--cd-check")) cd_check = true;
+        else if (!strncmp(argv[i], "--play=", 7)) play = argv[i] + 7;
+        else if (!strncmp(argv[i], "--input-script=", 15)) setenv("RA2_NATIVE_INPUT_SCRIPT", argv[i] + 15, 1);
     }
     if (skirmish && !run_to) { fprintf(stderr, "--skirmish is a test harness: use it with --run-to=<milestone> (e.g. frame)\n"); return 64; }
+    if (play && (skirmish || run_to)) { fprintf(stderr, "--play is interactive: not with --skirmish or --run-to\n"); return 64; }
     if (skirmish) ra2port_set_skirmish(skirmish, skirmish_frames);
+    // Interactive skirmish (README "Playing"): the harness's start (no menu
+    // dialogs yet), no frame limit, no scripted orders; the player's mouse
+    // and keyboard drive the game until it is closed.
+    if (play) ra2port_set_skirmish(play, 0);
     static char write_template[1024];
     if (run_to && !write_dir) {
         const char *tmp = getenv("TMPDIR");

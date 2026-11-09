@@ -3,16 +3,28 @@
 // event pump that turns SDL input into the Win32 messages the recovered window
 // procedure expects, and presentation of the DirectDraw primary surface.
 #include <SDL3/SDL.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <string>
+#include <vector>
 
 #include "ra2port/win32_port.hpp"
 
 namespace ra2port { void set_key_state(int vk, bool down); }
+// A scripted point "@ID..." as game pixels (port/src/run_progress.cpp asks the
+// skirmish harness); 0 when it has no answer.
+extern "C" int ra2port_resolve_point(const char *spec, int *x, int *y);
 
 namespace {
 SDL_Window *window = nullptr;
 SDL_Renderer *renderer = nullptr;
 SDL_Texture *texture = nullptr;
 int tex_w = 0, tex_h = 0;
+
+// Mouse events the input script pushes carry this mouse id: their coordinates
+// are already the game's (the presented surface's pixels).
+SDL_MouseID const script_mouse = 0x5C5C;
 
 // SDL keycodes to Win32 virtual keys (the subset the game binds).
 int virtual_key(SDL_Keycode k)
@@ -39,6 +51,8 @@ void *create_window(const char *title, int width, int height)
     if (!window) {
         window = SDL_CreateWindow(title, width, height, SDL_WINDOW_HIGH_PIXEL_DENSITY);
         renderer = window ? SDL_CreateRenderer(window, nullptr) : nullptr;
+        // The logical size follows the presented surface (present below), so
+        // mouse positions convert to the game's pixels.
         if (renderer) SDL_SetRenderLogicalPresentation(renderer, width, height, SDL_LOGICAL_PRESENTATION_LETTERBOX);
         SDL_StartTextInput(window);
     }
@@ -50,6 +64,12 @@ void pump_events()
     HWND w = ra2port::main_window();
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
+        // Window coordinates to the game's: the presented surface letterboxed
+        // into the window (scripted events are in game pixels already).
+        bool scripted = (e.type == SDL_EVENT_MOUSE_MOTION && e.motion.which == script_mouse) ||
+                        ((e.type == SDL_EVENT_MOUSE_BUTTON_DOWN || e.type == SDL_EVENT_MOUSE_BUTTON_UP) &&
+                         e.button.which == script_mouse);
+        if (renderer && !scripted) SDL_ConvertEventToRenderCoordinates(renderer, &e);
         switch (e.type) {
         case SDL_EVENT_QUIT: ra2port::post_message(w, 0x0010, 0, 0); break;   // WM_CLOSE
         case SDL_EVENT_KEY_DOWN: case SDL_EVENT_KEY_UP: {
@@ -70,9 +90,19 @@ void pump_events()
             break;
         case SDL_EVENT_MOUSE_BUTTON_DOWN: case SDL_EVENT_MOUSE_BUTTON_UP: {
             bool down = e.type == SDL_EVENT_MOUSE_BUTTON_DOWN;
+            if (e.button.button != SDL_BUTTON_LEFT && e.button.button != SDL_BUTTON_RIGHT) break;
             UINT msg = e.button.button == SDL_BUTTON_RIGHT ? (down ? 0x0204 : 0x0205) : (down ? 0x0201 : 0x0202);
             ra2port::set_key_state(e.button.button == SDL_BUTTON_RIGHT ? 0x02 : 0x01, down);
             ra2port::post_message(w, msg, 0, mouse_lparam(e.button.x, e.button.y));
+            break;
+        }
+        case SDL_EVENT_MOUSE_WHEEL: {
+            // WM_MOUSEWHEEL: Windows_Procedure 0x007375A0 scrolls the sidebar
+            // (wheel delta in the high word, 120 per notch; the cursor's screen point).
+            int delta = (int)(e.wheel.y * 120.0f);
+            if (e.wheel.direction == SDL_MOUSEWHEEL_FLIPPED) delta = -delta;
+            if (delta == 0) break;
+            ra2port::post_message(w, 0x020A, (WPARAM)((delta & 0xFFFF) << 16), mouse_lparam(e.wheel.mouse_x, e.wheel.mouse_y));
             break;
         }
         case SDL_EVENT_WINDOW_FOCUS_GAINED: ra2port::post_message(w, 0x001C, 1, 0); break;   // WM_ACTIVATEAPP
@@ -86,6 +116,10 @@ void present(const void *pixels, int width, int height, int pitch, int bits)
     if (!renderer || bits != 16) return;
     if (!texture || tex_w != width || tex_h != height) {
         if (texture) SDL_DestroyTexture(texture);
+        // The game's resolution (its DirectDraw display mode): the window
+        // takes that size and the mouse maps onto those pixels.
+        SDL_SetRenderLogicalPresentation(renderer, width, height, SDL_LOGICAL_PRESENTATION_LETTERBOX);
+        SDL_SetWindowSize(window, width, height);
         texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_STREAMING, width, height);
         tex_w = width;
         tex_h = height;
@@ -127,7 +161,171 @@ bool open_audio(int rate, void (*mix)(short *out, int frames))
     return true;
 }
 
-const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio};
+// Scripted input (--input-script=<file>, RA2_NATIVE_INPUT_SCRIPT; test runs):
+// one event per line, "<frame> <action> <args>", run when that Main_Loop
+// frame begins, through the same SDL event path as a player's input. A point
+// P is "X Y" in game pixels or "@ID[:n][+dx,dy]": the screen pixel of the
+// human player's n-th object of type ID (default the first), moved by dx, dy
+// cells (the skirmish harness answers, link/harness_input.cpp).
+//   move P | ldown P | lup P | rdown P | rup P
+//   click P        move, then left down and up on the next two frames
+//   rclick P       the same with the right button
+//   drag P0 P1     move, left down, move, left up on four frames
+//   key NAME       key down and up (SDL key names: A, Return, Escape, F1...)
+//   keydown NAME | keyup NAME
+// '#' starts a comment.
+struct Scripted { int frame; SDL_Event event; std::string spec; };
+std::vector<Scripted> script;
+size_t script_next = 0;
+
+void script_mouse_event(int frame, Uint32 type, float x, float y, std::string const &spec, Uint8 button)
+{
+    Scripted s = {frame, {}, spec};
+    s.event.type = type;
+    if (type == SDL_EVENT_MOUSE_MOTION) {
+        s.event.motion.which = script_mouse;
+        s.event.motion.x = x;
+        s.event.motion.y = y;
+    } else {
+        s.event.button.which = script_mouse;
+        s.event.button.button = button;
+        s.event.button.down = type == SDL_EVENT_MOUSE_BUTTON_DOWN;
+        s.event.button.clicks = 1;
+        s.event.button.x = x;
+        s.event.button.y = y;
+    }
+    script.push_back(s);
+}
+
+void script_key_event(int frame, bool down, const char *name)
+{
+    SDL_Keycode key = SDL_GetKeyFromName(name);
+    if (key == SDLK_UNKNOWN) {
+        fprintf(stderr, "input-script: unknown key %s\n", name);
+        return;
+    }
+    Scripted s = {frame, {}, std::string()};
+    s.event.type = down ? SDL_EVENT_KEY_DOWN : SDL_EVENT_KEY_UP;
+    s.event.key.key = key;
+    s.event.key.scancode = SDL_GetScancodeFromKey(key, nullptr);
+    s.event.key.down = down;
+    script.push_back(s);
+}
+
+// A point at tokens[i]: "@spec" (one token) or "X Y" (two).
+struct Point { float x = 0, y = 0; std::string spec; bool ok = false; };
+Point script_point(std::vector<std::string> const &tokens, size_t &i)
+{
+    Point p;
+    if (i < tokens.size() && tokens[i][0] == '@') {
+        p.spec = tokens[i++].substr(1);
+        p.ok = true;
+    } else if (i + 1 < tokens.size()) {
+        char *end1 = nullptr, *end2 = nullptr;
+        p.x = strtof(tokens[i].c_str(), &end1);
+        p.y = strtof(tokens[i + 1].c_str(), &end2);
+        p.ok = *end1 == 0 && *end2 == 0;
+        i += 2;
+    }
+    return p;
+}
+
+void load_script()
+{
+    static bool loaded = false;
+    if (loaded) return;
+    loaded = true;
+    const char *path = getenv("RA2_NATIVE_INPUT_SCRIPT");
+    if (!path || !*path) return;
+    FILE *f = fopen(path, "r");
+    if (!f) {
+        fprintf(stderr, "input-script: cannot open %s\n", path);
+        return;
+    }
+    char line[256];
+    while (fgets(line, sizeof line, f)) {
+        if (char *hash = strchr(line, '#')) *hash = 0;
+        std::vector<std::string> tokens;
+        for (char *t = strtok(line, " \t\r\n"); t; t = strtok(nullptr, " \t\r\n")) tokens.push_back(t);
+        if (tokens.size() < 2) continue;
+        int frame = atoi(tokens[0].c_str());
+        std::string const action = tokens[1];
+        size_t i = 2;
+        bool ok = true;
+        if (action == "key" || action == "keydown" || action == "keyup") {
+            if (tokens.size() < 3) ok = false;
+            else {
+                if (action != "keyup") script_key_event(frame, true, tokens[2].c_str());
+                if (action != "keydown") script_key_event(action == "key" ? frame + 1 : frame, false, tokens[2].c_str());
+            }
+        } else if (action == "drag") {
+            Point a = script_point(tokens, i), b = script_point(tokens, i);
+            ok = a.ok && b.ok;
+            if (ok) {
+                script_mouse_event(frame, SDL_EVENT_MOUSE_MOTION, a.x, a.y, a.spec, 0);
+                script_mouse_event(frame + 1, SDL_EVENT_MOUSE_BUTTON_DOWN, a.x, a.y, a.spec, SDL_BUTTON_LEFT);
+                script_mouse_event(frame + 2, SDL_EVENT_MOUSE_MOTION, b.x, b.y, b.spec, 0);
+                script_mouse_event(frame + 3, SDL_EVENT_MOUSE_BUTTON_UP, b.x, b.y, b.spec, SDL_BUTTON_LEFT);
+            }
+        } else {
+            Point a = script_point(tokens, i);
+            ok = a.ok;
+            if (!ok) {
+            } else if (action == "move") script_mouse_event(frame, SDL_EVENT_MOUSE_MOTION, a.x, a.y, a.spec, 0);
+            else if (action == "ldown") script_mouse_event(frame, SDL_EVENT_MOUSE_BUTTON_DOWN, a.x, a.y, a.spec, SDL_BUTTON_LEFT);
+            else if (action == "lup") script_mouse_event(frame, SDL_EVENT_MOUSE_BUTTON_UP, a.x, a.y, a.spec, SDL_BUTTON_LEFT);
+            else if (action == "rdown") script_mouse_event(frame, SDL_EVENT_MOUSE_BUTTON_DOWN, a.x, a.y, a.spec, SDL_BUTTON_RIGHT);
+            else if (action == "rup") script_mouse_event(frame, SDL_EVENT_MOUSE_BUTTON_UP, a.x, a.y, a.spec, SDL_BUTTON_RIGHT);
+            else if (action == "click" || action == "rclick") {
+                Uint8 button = action == "rclick" ? SDL_BUTTON_RIGHT : SDL_BUTTON_LEFT;
+                script_mouse_event(frame, SDL_EVENT_MOUSE_MOTION, a.x, a.y, a.spec, 0);
+                script_mouse_event(frame + 1, SDL_EVENT_MOUSE_BUTTON_DOWN, a.x, a.y, a.spec, button);
+                script_mouse_event(frame + 2, SDL_EVENT_MOUSE_BUTTON_UP, a.x, a.y, a.spec, button);
+            } else ok = false;
+        }
+        if (!ok) fprintf(stderr, "input-script: cannot read line %d %s\n", frame, action.c_str());
+    }
+    fclose(f);
+    // Stable by frame: the order within a frame is the script's.
+    for (size_t i = 1; i < script.size(); ++i) {
+        for (size_t k = i; k > 0 && script[k - 1].frame > script[k].frame; --k) {
+            Scripted t = script[k - 1];
+            script[k - 1] = script[k];
+            script[k] = t;
+        }
+    }
+    fprintf(stderr, "input-script: %zu events from %s\n", script.size(), path);
+}
+
+void frame(int number)
+{
+    load_script();
+    Uint32 id = window ? SDL_GetWindowID(window) : 0;
+    while (script_next < script.size() && script[script_next].frame <= number) {
+        Scripted &s = script[script_next++];
+        SDL_Event e = s.event;
+        if (e.type == SDL_EVENT_KEY_DOWN || e.type == SDL_EVENT_KEY_UP) {
+            e.key.windowID = id;
+        } else {
+            float x = e.type == SDL_EVENT_MOUSE_MOTION ? e.motion.x : e.button.x;
+            float y = e.type == SDL_EVENT_MOUSE_MOTION ? e.motion.y : e.button.y;
+            if (!s.spec.empty()) {
+                int px = 0, py = 0;
+                if (!ra2port_resolve_point(s.spec.c_str(), &px, &py)) {
+                    fprintf(stderr, "input-script: frame %d: no point for @%s\n", number, s.spec.c_str());
+                    continue;
+                }
+                x = (float)px;
+                y = (float)py;
+            }
+            if (e.type == SDL_EVENT_MOUSE_MOTION) { e.motion.windowID = id; e.motion.x = x; e.motion.y = y; }
+            else { e.button.windowID = id; e.button.x = x; e.button.y = y; }
+        }
+        SDL_PushEvent(&e);
+    }
+}
+
+const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame};
 }  // namespace
 
 void ra2_install_sdl_host() { ra2port::set_host(&sdl_host); }
