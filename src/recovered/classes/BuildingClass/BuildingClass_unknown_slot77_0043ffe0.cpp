@@ -1,4 +1,4 @@
-// bool BuildingClass::unknown_slot77(int action, int arg2, int arg3, bool arg4) (0x0043FFE0)
+// bool BuildingClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, bool arg4) (0x0043FFE0)
 // Action 5 hands the cell (arg2: a Cell pointer) to slot 200 as
 // action 1. Action 1: a construction yard of a house failing 0x004F52F0,
 // or outside game mode/flag 0x00A3D340, is held back; otherwise a building
@@ -21,10 +21,10 @@
 // @ref __imp__timeGetTime@0=0079a524
 
 
-bool BuildingClass::unknown_slot77(int action, int arg2, int arg3, bool arg4)
+bool BuildingClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, bool arg4)
 {
     if (action == 5) {
-        unknown_slot200(1, &Map[*(Cell const *)arg2], 0, 0);
+        unknown_slot200(1, &Map[*arg2], 0, 0);
         return true;
     }
     if (action == 1) {
@@ -32,7 +32,7 @@ bool BuildingClass::unknown_slot77(int action, int arg2, int arg3, bool arg4)
         if (Type->ConstructionYard && (!House->Unknown_004F52F0() || unknown_game_mode_a3d298 == 0 || !unknown_flag_a3d340)) {
             held = true;
         } else if (Type->UndeploysInto != 0 || unknown_slot153()) {
-            unknown_440140((Cell const *)arg2, true);
+            unknown_440140(arg2, true);
         }
         if (Type->UndeploysInto != 0 && !held) {
             OutList.Add(EventClass(Owner(), 0x16, TargetClass(this)));

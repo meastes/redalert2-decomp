@@ -3,8 +3,9 @@
 // 0x006A27A0 expands it inline.
 #include "shared/tactical.hpp"
 // @ref __real@8@3ffe8000000000000000=0079a728
-// @ref ?unknown_abe490@@3NA=00abe490
-extern double unknown_abe490;   // pixels per lepton of height
+// @ref _unknown_scale_abe490=00abe490
+// unknown_scale_abe490: Tactical.CPP's file static (pixels per lepton of height),
+// defined with its initialiser 0x006A22D0 earlier in this unit.
 
 int __fastcall Unknown_006A2970(int z)
 {
@@ -12,5 +13,5 @@ int __fastcall Unknown_006A2970(int z)
     if (z >= 728) {
         bias = 1;
     }
-    return (int)(z * unknown_abe490 + bias + 0.5);
+    return (int)(z * unknown_scale_abe490 + bias + 0.5);
 }

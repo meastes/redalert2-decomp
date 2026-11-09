@@ -75,7 +75,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
 
         if (click) {
             action = unknown_slot28(occupier, true);
-            succeeded = unknown_slot78(action, (int)occupier, true);
+            succeeded = unknown_slot78(action, occupier, true);
             unknown_41c = Cell(0, 0);
         } else {
             action = unknown_slot27(&cell, false, true);
@@ -95,11 +95,11 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             if ((action == adjusted_action || !direct) && entry == 0 && zone == adjusted_zone && dest_zone == zone
                 && (!direct || unknown_path_estimator_8315c8.Unknown_0042AA30(adjusted, cell, this, adjusted_cell->Flags >> 8 & 1, cell_ptr->Flags >> 8 & 1, -1) <= limit)) {
                 Cell none(-1, -1);
-                succeeded = unknown_slot77(action, (int)&adjusted, (int)&none, true);
+                succeeded = unknown_slot77(action, &adjusted, &none, true);
                 unknown_420 = adjusted;
             } else {
                 Cell none(-1, -1);
-                succeeded = unknown_slot77(action, (int)&cell, (int)&none, true);
+                succeeded = unknown_slot77(action, &cell, &none, true);
                 unknown_41c = Cell(0, 0);
             }
         }

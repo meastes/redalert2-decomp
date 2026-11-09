@@ -1,11 +1,11 @@
-// bool AircraftClass::unknown_slot78(int arg1, int arg2, bool arg3) (0x004174B0, slot 78)
+// bool AircraftClass::unknown_slot78(int arg1, ObjectClass *arg2, bool arg3) (0x004174B0, slot 78)
 // Acts on slot 28's answer for (arg2, arg3): 2 does nothing, 3, 4 and 17
 // go to slot 200 (7, 16 and 2), anything else to FootClass's slot 78 with
 // the answer in place of arg1.
 #include "shared/aircraft.hpp"
-// @ref ?unknown_slot78@FootClass@@UAE_NHH_N@Z=004c61a0
+// @ref ?unknown_slot78@FootClass@@UAE_NHPAVObjectClass@@_N@Z=004c61a0
 
-bool AircraftClass::unknown_slot78(int arg1, int arg2, bool arg3)
+bool AircraftClass::unknown_slot78(int arg1, ObjectClass *arg2, bool arg3)
 {
     int action = unknown_slot28((ObjectClass *)arg2, arg3);
     switch (action) {

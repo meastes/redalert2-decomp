@@ -191,8 +191,8 @@ public:
     virtual void unknown_slot58(CoordStruct const &coord);   // slot 58 0x00508410 ret 4
     virtual void unknown_slot59(CoordStruct const &coord);   // slot 59 0x005084A0 ret 4
     virtual void unknown_slot67(Point2D const &point, Rect const &window);   // slot 67 0x00500550 ret 8
-    virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);   // slot 77 0x00506100 ret 0x10
-    virtual bool unknown_slot78(int arg1, int arg2, bool arg3);   // slot 78 0x00506050 ret 0xc
+    virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);   // slot 77 0x00506100 ret 0x10
+    virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);   // slot 78 0x00506050 ret 0xc
     virtual void unknown_slot82(int arg1);   // slot 82 0x005091C0 ret 4
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);   // slot 86 0x004FFB70 ret 0x18
     virtual void unknown_slot87(CoordStruct const &source, bool forced, bool nokidding);   // slot 87 0x00504120 ret 

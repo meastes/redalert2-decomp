@@ -1,4 +1,4 @@
-// bool FootClass::unknown_slot78(int action, int arg2, bool arg3) (0x004C61A0, slot 78)
+// bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3) (0x004C61A0, slot 78)
 // Carries out a click on an object (arg2 is the ObjectClass pointer; arg3
 // set for waypoint orders, which ignore the 0x00A40BA4/0x00A40BA8 keys):
 // queues the order through slot 200 by action. Guard area (26) sabotages an
@@ -30,16 +30,15 @@
 // A key binding is down (the bindings are ints; WWKeyboardClass takes 16-bit keys).
 inline bool Foot_Key_Down(int key) { return WWKeyboard->Down(key); }
 
-bool FootClass::unknown_slot78(int action, int arg2, bool arg3)
+bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
 {
-    ObjectClass *object = (ObjectClass *)arg2;
 
     switch (action) {
     case 26:
         if (unknown_slot38() && unknown_slot39()) {
             if (((Kind_Of() == 15 && ((InfantryClass *)this)->Type->C4) || unknown_6d7910(14))
                 && object->Kind_Of() == 6 && !House->Is_Ally((TechnoClass const *)object)) {
-                unknown_slot200(0x11, 0, (int)object, 0);
+                unknown_slot200(0x11, 0, object, 0);
             } else {
                 unknown_slot200(0xB, object, 0, 0);
             }
@@ -69,28 +68,28 @@ bool FootClass::unknown_slot78(int action, int arg2, bool arg3)
 
     case 3:
         if (unknown_slot39() && object && object->As_Techno()) {
-            unknown_slot200(7, 0, (int)object, 0);
+            unknown_slot200(7, 0, object, 0);
             return true;
         }
         break;
 
     case 9:
         if (unknown_slot39()) {
-            unknown_slot200(8, 0, (int)object, 0);
+            unknown_slot200(8, 0, object, 0);
             return true;
         }
         break;
 
     case 11:
         if (unknown_slot39()) {
-            unknown_slot200(9, 0, (int)object, 0);
+            unknown_slot200(9, 0, object, 0);
             return true;
         }
         break;
 
     case 16:
         if (unknown_slot39()) {
-            unknown_slot200(0x11, 0, (int)object, 0);
+            unknown_slot200(0x11, 0, object, 0);
             return true;
         }
         break;
@@ -148,7 +147,7 @@ bool FootClass::unknown_slot78(int action, int arg2, bool arg3)
                 if (targ != object && object != 0) {
                     from = &Map[Coord_Cell(object->Center_Coord())];
                 }
-                unknown_slot200(2, 0, (int)targ, (int)from);
+                unknown_slot200(2, 0, targ, from);
             }
             return true;
         }

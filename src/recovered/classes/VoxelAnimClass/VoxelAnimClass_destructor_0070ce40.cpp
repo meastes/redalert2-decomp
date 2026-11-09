@@ -113,8 +113,8 @@
 // @ref ?unknown_slot74@ObjectClass@@UAEXH@Z=0041b2f0
 // @ref ?unknown_slot75@ObjectClass@@UAEXXZ=005d36e0
 // @ref ?unknown_slot76@ObjectClass@@UAE_NXZ=005d54b0
-// @ref ?unknown_slot77@ObjectClass@@UAE_NHHH_N@Z=005d2cb0
-// @ref ?unknown_slot78@ObjectClass@@UAE_NHH_N@Z=005d2ca0
+// @ref ?unknown_slot77@ObjectClass@@UAE_NHPBVCell@@0_N@Z=005d2cb0
+// @ref ?unknown_slot78@ObjectClass@@UAE_NHPAV1@_N@Z=005d2ca0
 // @ref ?unknown_slot79@ObjectClass@@UAEXH@Z=005d2cc0
 // @ref ?unknown_slot80@ObjectClass@@UAE_NXZ=005d2e70
 // @ref ?unknown_slot81@ObjectClass@@UAEXXZ=005d2df0

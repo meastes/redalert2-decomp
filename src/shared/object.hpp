@@ -290,8 +290,8 @@ public:
     virtual void unknown_slot74(int arg1);                                 // slot 74 (+0x128) 0x41b2f0
     virtual void unknown_slot75();                                         // slot 75 (+0x12C) 0x5d36e0
     virtual bool unknown_slot76();                                         // slot 76 (+0x130) 0x5d54b0
-    virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);   // slot 77 (+0x134) 0x5d2cb0
-    virtual bool unknown_slot78(int arg1, int arg2, bool arg3);             // slot 78 (+0x138) 0x5d2ca0
+    virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);   // slot 77 (+0x134) 0x5d2cb0
+    virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);             // slot 78 (+0x138) 0x5d2ca0
     virtual void unknown_slot79(int arg1);                                 // slot 79 (+0x13C) 0x5d2cc0
     virtual bool unknown_slot80();                                         // slot 80 (+0x140) 0x5d2e70
     virtual void unknown_slot81();                                         // slot 81 (+0x144) 0x5d2df0

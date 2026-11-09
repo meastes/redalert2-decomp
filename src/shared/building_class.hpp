@@ -189,8 +189,8 @@ public:
     virtual bool Mark(int arg1);                            // slot 71 0x0043BFC0
     virtual Rect unknown_slot73();                                    // slot 73 0x00450DD0
     virtual void unknown_slot74(int arg1);                            // slot 74 0x004519D0
-    virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);  // slot 77 0x0043FFE0
-    virtual bool unknown_slot78(int arg1, int arg2, bool arg3);        // slot 78 0x0043FD30
+    virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);  // slot 77 0x0043FFE0
+    virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);        // slot 78 0x0043FD30
     virtual void unknown_slot79(int arg1);                            // slot 79 0x00452060
     virtual void unknown_slot82(int arg1);                            // slot 82 0x00452E60
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x0043EE70

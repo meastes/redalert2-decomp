@@ -4,8 +4,8 @@
     "id": "population-4383",
     "inventory_sha256": "66c0f183965995a65b47b97c59055e6eca957e1cff781a5498b4362a8551cd58",
     "gaps_sha256": "b8cf9bc8d07633025048201f3b2f4d7a7e45a6ff8d1f46e6e1064514fab06f38",
-    "historical_population_sha256": "70a7c53b4de4c64333c28067c9c2f05e016637da4262d9f95e872a122195acb6",
-    "historical_acceptance_sha256": "feb06f19b31aa203dbe84a62380d81a48c74b7a2c56973cdf28475fb966cd8aa"
+    "historical_population_sha256": "b17014ff6943c5926a54ae3d71646b86aa9e9f7993e573f7ee24b29538069335",
+    "historical_acceptance_sha256": "8250b5f5a24587f05bb3f5987f944a86bf1de145b9a72bc12fdc7099991ddc12"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1724,8 +1724,6 @@
     "?unknown_tactical_83996c@@3PAVTactical@@A": 8624492,
     "??0Vector3@@QAE@MMM@Z": 4421264,
     "??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z": 5837696,
-    "?unknown_abe490@@3NA": 11265168,
-    "?unknown_abe520@@3NA": 11265312,
     "?unknown_scroll_speeds_7f6914@@3PAMA": 8349972,
     "??$Union@VRect@@@@YI?BVRect@@ABV0@0@Z": 4583392,
     "?unknown_rect_839630@@3VRect@@A": 8623664,
@@ -5632,8 +5630,8 @@
     "?Is_Direct_Draw@XSurface@@UAE_NXZ": 4264720,
     "?Is_Direct_Draw@Surface@@UAE_NXZ": 4264768,
     "?Bytes_Per_Pixel@BSurface@@UAEHXZ": 4264880,
-    "?unknown_slot77@AircraftClass@@UAE_NHHH_N@Z": 4289888,
-    "?unknown_slot77@FootClass@@UAE_NHHH_N@Z": 5007856,
+    "?unknown_slot77@AircraftClass@@UAE_NHPBVCell@@0_N@Z": 4289888,
+    "?unknown_slot77@FootClass@@UAE_NHPBVCell@@0_N@Z": 5007856,
     "??_GAircraftClass@@UAEPAXI@Z": 4306448,
     "??1AircraftClass@@UAE@XZ": 4275616,
     "?unknown_slot40@AircraftTypeClass@@UBE_NXZ": 4308736,
@@ -6072,7 +6070,7 @@
     "_CLSID_TriggerTypeClass": 8002912,
     "??_GTriggerTypeClass@@UAEPAXI@Z": 7270128,
     "??1TriggerTypeClass@@UAE@XZ": 7266352,
-    "?unknown_slot77@UnitClass@@UAE_NHHH_N@Z": 7329296,
+    "?unknown_slot77@UnitClass@@UAE_NHPBVCell@@0_N@Z": 7329296,
     "?Class_Of@UnitClass@@UBEPAVObjectTypeClass@@XZ": 7360544,
     "?Find_Or_Make@UnitTypeClass@@SIPAV1@PBD@Z": 7386432,
     "?Class_Of@VoxelAnimClass@@UBEPAVObjectTypeClass@@XZ": 7397232,
@@ -6215,8 +6213,8 @@
     "?Set_Yellow_Limit@TriColorGaugeClass@@UAEHH@Z": 5048064,
     "?Layer@HoverLocomotionClass@@UAGHXZ": 5238032,
     "?Process@LocomotionClass@@UAG_NXZ": 5494112,
-    "?unknown_slot78@ObjectClass@@UAE_NHH_N@Z": 6106272,
-    "?unknown_slot77@ObjectClass@@UAE_NHHH_N@Z": 6106288,
+    "?unknown_slot78@ObjectClass@@UAE_NHPAV1@_N@Z": 6106272,
+    "?unknown_slot77@ObjectClass@@UAE_NHPBVCell@@0_N@Z": 6106288,
     "?unknown_slot84@ObjectClass@@UAE_NABUCoordStruct@@H@Z": 6106320,
     "??_7Straw@@6B@": 7989752,
     "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
@@ -7139,8 +7137,8 @@
     "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z": 4826880,
     "?unknown_slot62@AircraftClass@@UAEHPAVTechnoClass@@@Z": 4281280,
     "?AdjacentCell@@3QBVCell@@B": 8723056,
-    "?unknown_slot78@AircraftClass@@UAE_NHH_N@Z": 4289712,
-    "?unknown_slot78@FootClass@@UAE_NHH_N@Z": 5005728,
+    "?unknown_slot78@AircraftClass@@UAE_NHPAVObjectClass@@_N@Z": 4289712,
+    "?unknown_slot78@FootClass@@UAE_NHPAVObjectClass@@_N@Z": 5005728,
     "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_00478760@CellClass@@QAE_NHHHHHHH@Z": 4687712,
     "?unknown_slot101@AircraftClass@@UAEHPAVCellClass@@HH0_N@Z": 4296192,
@@ -7231,7 +7229,7 @@
     "?unknown_47cdd0@CellClass@@QBE_NXZ": 4705744,
     "?unknown_slot53@UnitClass@@UAE_NPBUCoordStruct@@H@Z": 7326016,
     "?unknown_slot53@FootClass@@UAE_NPBUCoordStruct@@H@Z": 5004864,
-    "?unknown_slot78@UnitClass@@UAE_NHH_N@Z": 7329184,
+    "?unknown_slot78@UnitClass@@UAE_NHPAVObjectClass@@_N@Z": 7329184,
     "?unknown_slot63@UnitClass@@UAE_NPAVRect@@_N1@Z": 7336784,
     "?unknown_slot63@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
     "?unknown_479cc0@CellClass@@QBE_NXZ": 4693184,
@@ -7391,7 +7389,7 @@
     "?unknown_slot101@FootClass@@UAEHPAVCellClass@@HH0_N@Z": 5015264,
     "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z": 5547344,
     "?unknown_slot60@FootClass@@UAEXXZ": 5033536,
-    "?unknown_slot77@BuildingClass@@UAE_NHHH_N@Z": 4456416,
+    "?unknown_slot77@BuildingClass@@UAE_NHPBVCell@@0_N@Z": 4456416,
     "?unknown_slot97@BuildingClass@@UAEXH@Z": 4470400,
     "?unknown_slot98@BuildingClass@@UAEXH@Z": 4470688,
     "?unknown_slot101@BuildingClass@@UAEHPAVCellClass@@HH0_N@Z": 4477872,
@@ -7402,7 +7400,7 @@
     "?Unknown_005D47D0@ObjectClass@@QBEHXZ": 6113232,
     "?unknown_slot52@InfantryClass@@UAE_NXZ": 5263104,
     "?unknown_slot53@InfantryClass@@UAE_NPBUCoordStruct@@H@Z": 5263312,
-    "?unknown_slot78@InfantryClass@@UAE_NHH_N@Z": 5267536,
+    "?unknown_slot78@InfantryClass@@UAE_NHPAVObjectClass@@_N@Z": 5267536,
     "?unknown_slot56@InfantryClass@@UAE_NABUCoordStruct@@@Z": 5276592,
     "?unknown_slot56@ObjectClass@@UAE_NABUCoordStruct@@@Z": 6111808,
     "?unknown_slot58@InfantryClass@@UAEXABUCoordStruct@@@Z": 5276688,
@@ -7634,7 +7632,7 @@
     "?unknown_47c040@CellClass@@QAEHXZ": 4702272,
     "?Get_Tiberium_Type@CellClass@@QBEHXZ": 4694560,
     "?unknown_475db0@CellClass@@QAEHH@Z": 4677040,
-    "?unknown_slot78@BuildingClass@@UAE_NHH_N@Z": 4455728,
+    "?unknown_slot78@BuildingClass@@UAE_NHPAVObjectClass@@_N@Z": 4455728,
     "??0DropListClass@@QAE@ABV0@@Z": 4871056,
     "?Cell_Infantry@CellClass@@QBEPAVObjectClass@@_N@Z": 4669136,
     "?unknown_47b960@CellClass@@QBE_NXZ": 4700512,
@@ -7850,7 +7848,7 @@
     "?Unknown_005B5C60@UnknownObjectA3DC70@@QAEXH@Z": 5987424,
     "?Draw_Me@ShapeButtonClass@@UAEHH@Z": 6771168,
     "?unknown_tileset_a6e018@@3HA": 10936344,
-    "?unknown_slot77@InfantryClass@@UAE_NHHH_N@Z": 5267712,
+    "?unknown_slot77@InfantryClass@@UAE_NHPBVCell@@0_N@Z": 5267712,
     "?unknown_slot43@ObjectClass@@UAE?AUCoordStruct@@H@Z": 4341072,
     "?unknown_slot100@ObjectClass@@UAEXH@Z": 6106464,
     "??0AlphaShapeClass@@QAE@PAVObjectClass@@HH@Z": 4320224,
@@ -8371,8 +8369,8 @@
     "??_E?$VectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5685840,
     "?unknown_WarheadTypeClass_list_00839b00@@3V?$DynamicVectorClass@PAVWarheadTypeClass@@@@A": 8624896,
     "?unknown_WeaponTypeClass_list_00839b90@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A": 8625040,
-    "?unknown_slot200@AircraftClass@@UAE_NHPAVAbstractClass@@HH@Z": 4289920,
-    "?unknown_slot200@TechnoClass@@UAE_NHPAVAbstractClass@@HH@Z": 7127712,
+    "?unknown_slot200@AircraftClass@@UAE_NHPAVAbstractClass@@00@Z": 4289920,
+    "?unknown_slot200@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z": 7127712,
     "?unknown_slot207@AircraftClass@@UAEXXZ": 4304944,
     "?unknown_slot242@AircraftClass@@UAE_NXZ": 4305168,
     "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
@@ -16327,7 +16325,7 @@
         {
           "offset": 37,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -16349,7 +16347,7 @@
           "resolved": 903016
         }
       ],
-      "source_sha256": "41cbdc4c5b3d70d701bf0a7f6811bbf5d075c27439c133fca43c834182a4338d",
+      "source_sha256": "10ff16a18c9d4a4b0ad17200dbce5c60046a2a797ee94cd25add9b25535e777f",
       "source": "src/recovered/classes/Tactical/unknown_height_to_pixel_006a2970.cpp",
       "population": "population-4383",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -16386,7 +16384,7 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?unknown_abe520@@3NA",
+          "symbol": "_unknown_scale_abe520",
           "target": 11265312,
           "addend": 0,
           "resolved": 11265312
@@ -16400,7 +16398,7 @@
           "resolved": 902982
         }
       ],
-      "source_sha256": "b4aca8ca38aaabad4597fa18d636facbdb14493460e18c2bda02fc806cc85107",
+      "source_sha256": "7eb5aef73e8f8935bf36c8579bf1fda3074effcf4753779c340d912797527f66",
       "source": "src/recovered/classes/Tactical/unknown_pixel_to_height_006a29b0.cpp",
       "population": "population-4383",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -20277,7 +20275,7 @@
         {
           "offset": 161,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -20352,7 +20350,7 @@
         {
           "offset": 164,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -20427,7 +20425,7 @@
         {
           "offset": 192,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -21771,7 +21769,7 @@
         {
           "offset": 820,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -22927,7 +22925,7 @@
         {
           "offset": 291,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -23002,7 +23000,7 @@
         {
           "offset": 292,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -23101,7 +23099,7 @@
         {
           "offset": 179,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -23662,7 +23660,7 @@
         {
           "offset": 275,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -23686,7 +23684,7 @@
         {
           "offset": 309,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168
@@ -24962,7 +24960,7 @@
         {
           "offset": 2403,
           "kind": 6,
-          "symbol": "?unknown_abe490@@3NA",
+          "symbol": "_unknown_scale_abe490",
           "target": 11265168,
           "addend": 0,
           "resolved": 11265168

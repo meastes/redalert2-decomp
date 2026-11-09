@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "e5e04a29d87e5c45a36fab9e53eb0fe3195176d87469465d4f55dba5a6054972",
-    "historical_acceptance_sha256": "2eca24cb0b035ac55217a46a7116620910e5e159cda8d4a46d9c8f6c82168696"
+    "historical_population_sha256": "a67e828bf2384626ff3e8acff8b7a60d51d2c516e9f73d4916ea8c662ccbf46c",
+    "historical_acceptance_sha256": "bc94bfa33c1b45cc5c99745e3021f5646c58f2e2af58d7a700e5850d22b69f9c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1678,9 +1678,9 @@
     "?unknown_func_4f52f0@HouseClass@@QAE_NXZ": 5198576,
     "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
     "?unknown_func_6baa00@TeamClass@@QAE_NXZ": 7055872,
-    "?unknown_slot78@FootClass@@UAE_NHH_N@Z": 5005728,
-    "?unknown_slot77@FootClass@@UAE_NHHH_N@Z": 5007856,
-    "?unknown_slot200@TechnoClass@@UAE_NHPAVAbstractClass@@HH@Z": 7127712,
+    "?unknown_slot78@FootClass@@UAE_NHPAVObjectClass@@_N@Z": 5005728,
+    "?unknown_slot77@FootClass@@UAE_NHPBVCell@@0_N@Z": 5007856,
+    "?unknown_slot200@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z": 7127712,
     "?unknown_slot28@FootClass@@UAEHPAVObjectClass@@_N@Z": 5031744,
     "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516432,
     "?Unknown_004717B0@UnknownAircraftCell@@QAEPAUUnknownAircraftBuilding@@XZ": 4659120,
@@ -5273,7 +5273,7 @@
     "?unknown_slot19@MultiplayerGameMode@@UAE_NHHPAVMPlayerScoreType@@@Z": 5907472,
     "?unknown_slot19@UDPInterfaceClass@@UAEHH@Z": 7787584,
     "?unknown_slot19@WinsockInterfaceClass@@UAEHH@Z": 7776816,
-    "?unknown_slot200@AircraftClass@@UAE_NHPAVAbstractClass@@HH@Z": 4289920,
+    "?unknown_slot200@AircraftClass@@UAE_NHPAVAbstractClass@@00@Z": 4289920,
     "?unknown_slot201@TechnoClass@@UAE_NXZ": 7179904,
     "?unknown_slot202@FootClass@@UAE_NXZ": 5034112,
     "?unknown_slot203@TechnoClass@@UAE_NXZ": 4305808,
@@ -5738,14 +5738,14 @@
     "?unknown_slot74@ObjectClass@@UAEXH@Z": 4305648,
     "?unknown_slot75@ObjectClass@@UAEXXZ": 6108896,
     "?unknown_slot76@ObjectClass@@UAE_NXZ": 6116528,
-    "?unknown_slot77@AircraftClass@@UAE_NHHH_N@Z": 4289888,
-    "?unknown_slot77@BuildingClass@@UAE_NHHH_N@Z": 4456416,
-    "?unknown_slot77@ObjectClass@@UAE_NHHH_N@Z": 6106288,
-    "?unknown_slot77@UnitClass@@UAE_NHHH_N@Z": 7329296,
-    "?unknown_slot78@AircraftClass@@UAE_NHH_N@Z": 4289712,
-    "?unknown_slot78@InfantryClass@@UAE_NHH_N@Z": 5267536,
-    "?unknown_slot78@ObjectClass@@UAE_NHH_N@Z": 6106272,
-    "?unknown_slot78@UnitClass@@UAE_NHH_N@Z": 7329184,
+    "?unknown_slot77@AircraftClass@@UAE_NHPBVCell@@0_N@Z": 4289888,
+    "?unknown_slot77@BuildingClass@@UAE_NHPBVCell@@0_N@Z": 4456416,
+    "?unknown_slot77@ObjectClass@@UAE_NHPBVCell@@0_N@Z": 6106288,
+    "?unknown_slot77@UnitClass@@UAE_NHPBVCell@@0_N@Z": 7329296,
+    "?unknown_slot78@AircraftClass@@UAE_NHPAVObjectClass@@_N@Z": 4289712,
+    "?unknown_slot78@InfantryClass@@UAE_NHPAVObjectClass@@_N@Z": 5267536,
+    "?unknown_slot78@ObjectClass@@UAE_NHPAV1@_N@Z": 6106272,
+    "?unknown_slot78@UnitClass@@UAE_NHPAVObjectClass@@_N@Z": 7329184,
     "?unknown_slot79@BuildingClass@@UAEXH@Z": 4530272,
     "?unknown_slot79@ObjectClass@@UAEXH@Z": 6106304,
     "?unknown_slot79@TechnoClass@@UAEXH@Z": 7107648,
@@ -7522,7 +7522,7 @@
     "??0Group@Voices@WorldDominationTour@@QAE@XZ": 7544928,
     "??_7TaskForceClass@@6B@": 8046752,
     "??_ETaskForceClass@@UAEPAXI@Z": 7041456,
-    "?unknown_slot78@BuildingClass@@UAE_NHH_N@Z": 4455728,
+    "?unknown_slot78@BuildingClass@@UAE_NHPAVObjectClass@@_N@Z": 4455728,
     "?unknown_slot287@BuildingClass@@UAE_NXZ": 4474240,
     "?unknown_slot160@BuildingClass@@UAE_NXZ": 4532544,
     "?unknown_slot160@TechnoClass@@UAE_NXZ": 7114784,
@@ -8079,7 +8079,7 @@
     "?Unknown_004C2030@@YIPAUUnknownCellEntryType@@PAUUnknownCellEntry28@@@Z": 4988976,
     "?Unknown_0047BB10@UnknownCellClass@@QAE_NXZ": 4700944,
     "?Unknown_00710160@@YIPAUUnknownCellObject710160@@ABVCell@@@Z": 7405920,
-    "?unknown_slot77@InfantryClass@@UAE_NHHH_N@Z": 5267712,
+    "?unknown_slot77@InfantryClass@@UAE_NHPBVCell@@0_N@Z": 5267712,
     "?unknown_slot43@ObjectClass@@UAE?AUCoordStruct@@H@Z": 4341072,
     "??0LineTrail@@QAE@XZ": 5477344,
     "?Set_Decrement@LineTrail@@QAEXH@Z": 5477648,
@@ -11761,7 +11761,7 @@
     {
       "entry": 4289888,
       "method": "00417560",
-      "symbol": "?unknown_slot77@AircraftClass@@UAE_NHHH_N@Z",
+      "symbol": "?unknown_slot77@AircraftClass@@UAE_NHPBVCell@@0_N@Z",
       "symbol_prefix": "?unknown_slot77@AircraftClass@@",
       "options": [
         "/O2",
@@ -11778,13 +11778,13 @@
         {
           "offset": 21,
           "kind": 20,
-          "symbol": "?unknown_slot77@FootClass@@UAE_NHHH_N@Z",
+          "symbol": "?unknown_slot77@FootClass@@UAE_NHPBVCell@@0_N@Z",
           "target": 5007856,
           "addend": 0,
           "resolved": 717943
         }
       ],
-      "source_sha256": "7a786add4a568659e381948a22cdfe376f5a24372a978e3e29695fb5d17194f4",
+      "source_sha256": "ac654f6d3e58c38a926ef81992cee6207a9455b0437e2624930cf5161fcbb620",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot77_00417560.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -11796,7 +11796,7 @@
     {
       "entry": 4289920,
       "method": "00417580",
-      "symbol": "?unknown_slot200@AircraftClass@@UAE_NHPAVAbstractClass@@HH@Z",
+      "symbol": "?unknown_slot200@AircraftClass@@UAE_NHPAVAbstractClass@@00@Z",
       "symbol_prefix": "?unknown_slot200@AircraftClass@@",
       "options": [
         "/O2",
@@ -11813,13 +11813,13 @@
         {
           "offset": 21,
           "kind": 20,
-          "symbol": "?unknown_slot200@TechnoClass@@UAE_NHPAVAbstractClass@@HH@Z",
+          "symbol": "?unknown_slot200@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z",
           "target": 7127712,
           "addend": 0,
           "resolved": 2837767
         }
       ],
-      "source_sha256": "152a483aece6f5bcae1905ef6b16122e7b79e9be984ae1df73f28184dfd46b46",
+      "source_sha256": "6dbc97b4e7dd36c99266150d400573eddfde282fe141f697681e0e355337e30f",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot200_00417580.cpp",
       "population": "population-3943",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -13408,7 +13408,7 @@
     {
       "entry": 4289712,
       "method": "004174b0",
-      "symbol": "?unknown_slot78@AircraftClass@@UAE_NHH_N@Z",
+      "symbol": "?unknown_slot78@AircraftClass@@UAE_NHPAVObjectClass@@_N@Z",
       "symbol_prefix": "?unknown_slot78@AircraftClass@@",
       "options": [
         "/O2",
@@ -13441,7 +13441,7 @@
         {
           "offset": 127,
           "kind": 20,
-          "symbol": "?unknown_slot78@FootClass@@UAE_NHH_N@Z",
+          "symbol": "?unknown_slot78@FootClass@@UAE_NHPAVObjectClass@@_N@Z",
           "target": 5005728,
           "addend": 0,
           "resolved": 715885
@@ -13487,7 +13487,7 @@
           "resolved": 4289833
         }
       ],
-      "source_sha256": "5e3f613c996ba52f949bc480d5198ff9364934384a743d1a06655c20b9672230",
+      "source_sha256": "08ebd4634658268808e9cc0d6bf388ab7a9fe04fecfa53edb937f605424b98f3",
       "switch_data_bytes": 36,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot78_004174b0.cpp",
       "population": "population-3943",

@@ -135,7 +135,7 @@ public:
     virtual void unknown_slot103(CoordStruct const &coord);     // slot 103 0x004CA160
     virtual bool unknown_slot154();                             // slot 154 0x004CA6A0
     virtual int unknown_slot177();                              // slot 177 0x004C9A10 (ILocomotion::Z_Gradient)
-    virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);    // slot 77 0x004C69F0
+    virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);    // slot 77 0x004C69F0
     virtual int unknown_slot126();                              // slot 126 0x004C44C0
     virtual int unknown_slot130();                              // slot 130 0x004C5900
     virtual int unknown_slot137();                              // slot 137 0x004C8D70 (MissionClass's)
@@ -165,7 +165,7 @@ public:
     virtual void unknown_slot60();  // slot 60 0x004CCE40
     virtual void unknown_slot67(Point2D const &point, Rect const &window);  // slot 67 0x004C9BC0
     virtual bool Mark(int arg1);  // slot 71 0x004C2E60
-    virtual bool unknown_slot78(int arg1, int arg2, bool arg3);  // slot 78 0x004C61A0
+    virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);  // slot 78 0x004C61A0
     virtual void unknown_slot82(int arg1);  // slot 82 0x004CD3F0
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x004C6000
     virtual void unknown_slot93(int arg1);  // slot 93 0x004C7220

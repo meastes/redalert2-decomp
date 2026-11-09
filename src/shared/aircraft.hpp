@@ -130,8 +130,8 @@ public:
     virtual int unknown_slot62(TechnoClass *techno);                           // slot 62 0x004153C0
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x004141C0
     virtual void unknown_slot70(bool arg1, bool arg2);                  // slot 70 0x0041A530
-    virtual bool unknown_slot77(int arg1, int arg2, int arg3, bool arg4);  // slot 77 0x00417560
-    virtual bool unknown_slot78(int arg1, int arg2, bool arg3);        // slot 78 0x004174B0
+    virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);  // slot 77 0x00417560
+    virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);        // slot 78 0x004174B0
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x00415E70
     virtual void unknown_slot87(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x00419CD0
     virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x00418840
@@ -155,7 +155,7 @@ public:
     virtual UnknownFacingDir unknown_slot162();                               // slot 162 0x0041B5E0
     virtual int unknown_slot182(AbstractClass *object, Cell *cell);          // slot 182 0x00418CF0
     virtual UnknownFacingDir unknown_slot183();                               // slot 183 0x00419CB0
-    virtual bool unknown_slot200(int arg1, AbstractClass *arg2, int arg3, int arg4);  // slot 200 0x00417580
+    virtual bool unknown_slot200(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4);  // slot 200 0x00417580
     virtual void unknown_slot207();                                   // slot 207 0x0041B030 (nothing)
     virtual int unknown_slot218(AbstractClass *target, int weapon, bool check_range);        // slot 218 0x0041A120
     virtual BulletClass *unknown_slot221(AbstractClass *target, int arg2);                  // slot 221 0x00415790

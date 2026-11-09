@@ -1,4 +1,4 @@
-// bool TechnoClass::unknown_slot200(int mission, AbstractClass *target, int destination, int follow) (0x006CC2A0, slot 200)
+// bool TechnoClass::unknown_slot200(int mission, AbstractClass *target, AbstractClass *destination, AbstractClass *follow) (0x006CC2A0, slot 200)
 // The player orders a mission: a move or attack (1, 2) becomes 0x1D while
 // 0x006F6670 and slot 275 hold; planning mode records a MEGAMISSION event
 // instead; otherwise the mission's voice plays and the MEGAMISSION is queued.
@@ -21,14 +21,14 @@
 bool Planning_Active();
 bool Unknown_006F6670();
 
-bool TechnoClass::unknown_slot200(int mission, AbstractClass *target, int destination, int follow)
+bool TechnoClass::unknown_slot200(int mission, AbstractClass *target, AbstractClass *destination, AbstractClass *follow)
 {
     bool special = Unknown_006F6670() && unknown_slot275();
     if ((mission == 2 || mission == 1) && special) {
         mission = 0x1D;
     }
     if (Planning_Active()) {
-        EventClass event(unknown_player_a35db4->ArrayIndex, TargetClass(this), (unsigned char)mission, target, (AbstractClass *)destination, (AbstractClass *)follow);
+        EventClass event(unknown_player_a35db4->ArrayIndex, TargetClass(this), (unsigned char)mission, target, destination, follow);
         Planning_Send_Event(event);
         return false;
     }
@@ -58,7 +58,7 @@ bool TechnoClass::unknown_slot200(int mission, AbstractClass *target, int destin
         }
     }
     {
-        TargetClass destination_target((AbstractClass *)destination);
+        TargetClass destination_target(destination);
         TargetClass target_target(target);
         Queue_Mission(TargetClass(this), mission, target_target, destination_target);
     }

@@ -9,9 +9,8 @@
 // @ref ?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A=00a32338
 // @ref __imp__timeGetTime@0=0079a524
 // @ref ?unknown_440140@BuildingClass@@QAEXPBVCell@@_N@Z=00440140
-bool BuildingClass::unknown_slot78(int action,int target_address,bool arg3)
+bool BuildingClass::unknown_slot78(int action,ObjectClass *target,bool arg3)
 {
-    ObjectClass *target=(ObjectClass *)target_address;
     if(action==5) {
         if(target) unknown_slot200(1,target,0,0);
     } else if(action==4) {

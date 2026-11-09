@@ -50,24 +50,24 @@ void DisplayClass::Active_Click_0049E870(ObjectClass *object, Cell cell, int act
 
     if (object != 0) {
         for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
-            unknown_objects_a40c60[index]->unknown_slot78(unknown_objects_a40c60[index]->unknown_slot28(object, false), (int)object, false);
+            unknown_objects_a40c60[index]->unknown_slot78(unknown_objects_a40c60[index]->unknown_slot28(object, false), object, false);
             unknown_sound_enabled_7d88d6 = false;
         }
     } else if (action == 1 || action == 0x33) {
         for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
-            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->unknown_slot27(&cell, false, false), (int)&cell, (int)&cell, false);
+            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->unknown_slot27(&cell, false, false), &cell, &cell, false);
             unknown_sound_enabled_7d88d6 = false;
         }
     } else if (action == 2) {
         int count = unknown_objects_a40c60.Count();
         for (index = 0; index < count; index++) {
-            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->unknown_slot27(&cell, false, false), (int)&cell, (int)&cell, false);
+            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->unknown_slot27(&cell, false, false), &cell, &cell, false);
             unknown_sound_enabled_7d88d6 = false;
         }
     } else {
         for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
             Cell none(-1, -1);
-            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->unknown_slot27(&cell, false, false), (int)&cell, (int)&none, false);
+            unknown_objects_a40c60[index]->unknown_slot77(unknown_objects_a40c60[index]->unknown_slot27(&cell, false, false), &cell, &none, false);
             unknown_sound_enabled_7d88d6 = false;
         }
     }
