@@ -3337,3 +3337,6 @@ Awaiting user ruling on keeping these two flagged or reverting.
 
 ## Scout1179 (2026-11-09, lab only; NOTES, tools/ in build/class-work/Scout1179/; headers private/vc98-include-20261109)
 - SDK-header lab: positive control failed. With the evidenced prelude (TibSun win.h/always.h order, WIN32_LEAN_AND_MEAN or not) Get_Obstacle 0x4BBAF0 stays 97.00; the prelude shifts its window by ~11-12K prototype units (exact at +2,500-4,500 with P1) but does not reach it. Remaining gap ~ the twin's ~1,450 extra real game function declarations (complete class declarations in ra2-decomp vs our used-members-only headers). Whole-tree A/B not run. Missing from the VC98 media: Bink and WOL headers (nothing fetched).
+
+## Scout1180 (2026-11-09; d/r1 HELD in build/class-work/Scout1180/)
+- Place_Tiberium 0x47C3A0 exact (100) when its unit defines RA2_VECTOR_SIGNED_INDEX (VectorClass::operator[](int), as TibSun and ra2-decomp vector.h). Held: a per-unit switch means units see different VectorClass declarations (DECISIONS: header choices identical for every unit). Scout1183 measuring the global int signature; queued for the review session.

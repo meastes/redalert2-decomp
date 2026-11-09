@@ -9,6 +9,9 @@
 // The Cell.cpp unit expands Rect::operator- 0x0047D000 in TibSun form (Rect(Top_Left() - point, ...)) with
 // Top_Left and the corner constructor inline (rect.hpp RA2_RECT_CORNER_INLINE); 0x0047D040 stays out of line.
 #define RA2_RECT_CORNER_INLINE
+// The unit's list globals take signed indexes (TibSun vector.h: VectorClass::operator[](int); Place_Tiberium
+// 0x0047C3A0 allocates the Union registers of its grow branch only with the int form).
+#define RA2_VECTOR_SIGNED_INDEX
 // CellClass::Preview_Cell_Color 0x004710D0 and the tile variation helper Clear_Icon 0x004767A0 it calls,
 // with the RGBClass channel accessors.
 #define CELL_DECLARE_PREVIEW_CELL_COLOR
