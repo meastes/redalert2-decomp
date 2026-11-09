@@ -3369,3 +3369,6 @@ Awaiting user ruling on keeping these two flagged or reverting.
 
 ## Scout1194 (2026-11-09, 0 B; NOTES, keep/, ovl/, ed2/ in build/class-work/Scout1194/) - do not resume without a new mechanism
 - Mech 0x5919A0 88.22 (visual_cell + flat dispatch 83.71; slot-packing order, not lifetime). Walk 0x71E220 89.83 (site-2 copy is a symptom of the long &unknown_1c web; mischa85's Movement_AI is unmatched). Tactical::Render 0x6A45A0 64.69 (YR GetRechargeTime reads a YR-only field). Explosion_Damage 0x47E2C0 97.92 (HEAD TibSun Delete_All suffices; slot tie needs a layout-time reference). Set_Map_Dimensions 0x5484E0 94.60 (early cellcount store swaps edi/ebp, 85.30).
+
+## Scout1198 (2026-11-09, 0 B; NOTES, keep/ in build/class-work/Scout1198/)
+- Draw_Laser 0x722CB0 59.41 -> 61.17 (keep/laser_l2_6117.cpp, frame matches; registers left), Draw_Sonic 0x7225B0 39.15 -> 42.65 (keep/sonic_e2_4265.cpp, frame matches). New VC6 note: Point2D cursor. AlphaShape rows unchanged (lead: `Rect r3(point, 60, 30)` with the Rect(Point2D const &, int, int) macro on, for Draw_In_Area's dead 8-byte slot). Extract_Compressed_Events 0x6282D0 57.62 (Pointer/Whom dword should own ebp). Draw_Tile not attempted.

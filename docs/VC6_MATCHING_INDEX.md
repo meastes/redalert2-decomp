@@ -247,4 +247,5 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2193-2195 A named double local forces `and esp,-8`; a float local does not (Scout1099) (0): 
 - L2196-2198 Declaration-count ties are windows mod 64, not shifts (Scout1114) (0): 
 - L2199-2201 SEH (`__try`) functions lay out their frame by variable name (Scout1135) (0): 
-- L2202-2203 x87 term order follows whole-function variable weight; flat + chains are re-ordered (Scout1169) (0): 
+- L2202-2204 x87 term order follows whole-function variable weight; flat + chains are re-ordered (Scout1169) (0): 
+- L2205-2206 A by-value Point2D cursor keeps two frame slots and an in-memory increment (Scout1198) (0): 
