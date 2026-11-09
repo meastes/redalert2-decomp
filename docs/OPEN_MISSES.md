@@ -3277,3 +3277,14 @@ New rulings are recorded at their rows as before.
 
 ## Scout1152 (2026-11-09, 0 B; NOTES, keep/, sc.sh in build/class-work/Scout1152/)
 - Draw_Tile 0x52C230 49.64 -> 51.29 (keep/draw_tile_w4_5129.cpp; better native text): TibSun IsoBlitState with HalfbrightMask as an unsigned short member at +0x68 (struct no longer pack(1)), walk loop `for (; cell_variation != 0; --cell_variation)`. YR twin 0x547CF0 identical but for four field offsets. Main residue is one allocation choice (`image` vs ZBufferPtr for ebp); diag dropping `&& record->IsHasZData` gives 54.20. Landing needs a rename for caller CellClass 0x4754B0 and a guarded shared IsoTile header.
+
+## Scout1154/1155 (2026-11-09; NOTES and keep/ in build/class-work/Scout1154/ and Scout1155/)
+- Exit_Object 0x440520 stays 92.27: refinery (k16/24) and B62 (k48/56) windows never meet, also with an early inline helper; needs a different mechanism.
+- Egos 0x4B37C0 99.54 and MapClass 0x569320 99.49 are not count windows.
+- Damage_Low_Bridge family 98.73 and Place_Tiberium 0x47C3A0 98.91: Union tie is not a count tie (inline budget has no slack: dead locals inside helpers change code). Parked.
+- Sidebar slot 54 0x67E210 99.04: exact at +9..13 local symbols before the tie; Action 0x6809F0 tolerates only 0-4 (or 28-68) unit-counter shift. Calls to existing helpers (`Activate_Tab(unknown_4ed8);`, code-identical) count for slot 54 only; four more such forms needed.
+- Per_Cell_Process 0x500AA0 86.18 natural refreshed for HEAD (keep/pc4.cpp); reference-weight margin, not a count tie.
+
+## Scout1157 (2026-11-09, 0 B; NOTES, keep/, yr/ in build/class-work/Scout1157/)
+- Damage_High_Bridge 0x559000 56.15 -> 91.17 (keep/high_rt_pa_9117.cpp): earlier drafts had a semantic bug, the original returns TRUE after a middle span collapses (TibSun too; Train 0x5539B0 falls through). Scout953's per-case full-tail switch form plus `return(true)` reproduces registers, frame and tails. Left: the m2 block's DynamicVectorClass dtor inlines Clear 0x42CFB0 (original calls it); needs 3-6 natural inline sites after it or ~170 IL less budget (lab with empty sites: 100.00).
+- Damage_Train_Bridge 0x5539B0 stays 76.60 (Scout957 h4v); lab residue is frame slots (ittype vs the dead `cell` arg slot). YR twins 0x576BA0/0x571490 identical.

@@ -17,11 +17,11 @@ HRESULT __stdcall FactoryClass::Load(IStream *stream)
     if (SUCCEEDED(result)) {
         new (this) FactoryClass(NoInitClass());
         int count = 0;
-        result = stream->Read(&count, 4, 0);
+        result = stream->Read(&count, sizeof(count), 0);
         if (SUCCEEDED(result)) {
             for (int i = 0; i < count; ++i) {
                 TechnoTypeClass *type = 0;
-                result = stream->Read(&type, 4, 0);
+                result = stream->Read(&type, sizeof(type), 0);
                 if (FAILED(result)) return result;
                 Queue.Add(type);
             }

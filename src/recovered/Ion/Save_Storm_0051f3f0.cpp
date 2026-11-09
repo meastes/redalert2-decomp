@@ -21,43 +21,43 @@
 
 HRESULT __fastcall Save_Storm_0051F3F0(IStream *stream)
 {
-    HRESULT result = stream->Write(&StormActive, 1, 0);
+    HRESULT result = stream->Write(&StormActive, sizeof(StormActive), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&StormStartTime, 4, 0);
+    result = stream->Write(&StormStartTime, sizeof(StormStartTime), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&StormDuration, 4, 0);
+    result = stream->Write(&StormDuration, sizeof(StormDuration), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&StormDeferment, 4, 0);
+    result = stream->Write(&StormDeferment, sizeof(StormDeferment), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&StormTimeToEnd, 1, 0);
+    result = stream->Write(&StormTimeToEnd, sizeof(StormTimeToEnd), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&unknown_dominator_start_7ddb18, 4, 0);
+    result = stream->Write(&unknown_dominator_start_7ddb18, sizeof(unknown_dominator_start_7ddb18), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&unknown_dominator_delay_7ddb1c, 4, 0);
+    result = stream->Write(&unknown_dominator_delay_7ddb1c, sizeof(unknown_dominator_delay_7ddb1c), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&unknown_dominator_state_a5193c, 4, 0);
+    result = stream->Write(&unknown_dominator_state_a5193c, sizeof(unknown_dominator_state_a5193c), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&StormCoords, 4, 0);
+    result = stream->Write(&StormCoords, sizeof(StormCoords), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Write(&StormOwner, 4, 0);
+    result = stream->Write(&StormOwner, sizeof(StormOwner), 0);
     if (FAILED(result)) {
         return result;
     }

@@ -14,5 +14,5 @@ extern char unknown_text_a3d342[];
 void __fastcall unknown_set_dialog_item_text_005c34b0(HWND dialog)
 {
     HWND item = GetDlgItem(dialog, 0x5a8);
-    SendMessageA(item, 0x4b2, 0, (long)unknown_text_a3d342);
+    SendMessageA(item, 0x4b2, 0, (LPARAM)unknown_text_a3d342);
 }

@@ -15,14 +15,14 @@ HRESULT __stdcall RadioClass::Load(IStream *stream)
     }
     new (&RadioLinks) VectorClass<TechnoClass *>;
     int count;
-    result = stream->Read(&count, 4, 0);
+    result = stream->Read(&count, sizeof(count), 0);
     if (FAILED(result)) {
         return result;
     }
     RadioLinks.Resize(count);
     TechnoClass *link;
     for (int index = 0; index < count; index++) {
-        result = stream->Read(&link, 4, 0);
+        result = stream->Read(&link, sizeof(link), 0);
         if (FAILED(result)) {
             return result;
         }

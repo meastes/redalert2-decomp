@@ -7,10 +7,10 @@ long UnknownTracker839EA0::Save_00413590(IStream *stream)
 {
     for (int i=0;i<400;++i) {
         int count=Bins[i].Count();
-        long result=stream->Write(&count,4,0);
+        long result=stream->Write(&count,sizeof(count),0);
         if (result<0) return result;
         for (int j=0;j<count;++j) {
-            result=stream->Write(&Bins[i][j],4,0);
+            result=stream->Write(&Bins[i][j],sizeof(Bins[i][j]),0);
             if (result<0) return result;
         }
     }

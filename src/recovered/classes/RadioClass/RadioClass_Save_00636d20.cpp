@@ -11,12 +11,12 @@ HRESULT __stdcall RadioClass::Save(IStream *stream, BOOL clear_dirty)
         return result;
     }
     int count = RadioLinks.Length();
-    result = stream->Write(&count, 4, 0);
+    result = stream->Write(&count, sizeof(count), 0);
     if (FAILED(result)) {
         return result;
     }
     for (int index = 0; index < count; index++) {
-        result = stream->Write(&RadioLinks[index], 4, 0);
+        result = stream->Write(&RadioLinks[index], sizeof(RadioLinks[index]), 0);
         if (FAILED(result)) {
             return result;
         }

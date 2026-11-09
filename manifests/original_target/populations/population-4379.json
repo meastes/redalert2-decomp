@@ -4,8 +4,8 @@
     "id": "population-4379",
     "inventory_sha256": "a96a1a866de921d3d225ec2caae21d92b7b94ffaed11313dd61df4d2071f89d4",
     "gaps_sha256": "c956b364fc0b3ce7579b249e1c59c5bcdf351b9ac016b0592f489df5f3dcc7e5",
-    "historical_population_sha256": "f7e29ff56993edd967d6dd5ed62492eb98f2a08c33a0f2dd0852a9cf82a0c0e6",
-    "historical_acceptance_sha256": "6eb34f2b3e675771f2c6d3256bf93ebbf49b5c57d1c4721ccb87036a73697302"
+    "historical_population_sha256": "75e5109a09a8750aa1699b4a8bffa2b6819063f1afe59513ae44dd3015d66e13",
+    "historical_acceptance_sha256": "45f3795a634a3825da7c68db66c0cdc78c9ae19d65a0eb97a802928960d155f6"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -12235,7 +12235,13 @@
     "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120,
     "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
     "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
-    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "_WinMain@16": 6873728,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672
   },
   "regions": [
     {
@@ -13852,7 +13858,7 @@
           "resolved": 10819788
         }
       ],
-      "source_sha256": "bfd661d14f249930cc6f944de52e01a10d899be943756e87a3e32d7d161596fc",
+      "source_sha256": "9cfa9753a92f41984bdfbe08492c25eebd24f4c72c62650f4dbe7687498b2045",
       "source": "src/recovered/Ion/Save_Storm_0051f3f0.cpp",
       "population": "population-4379",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -14271,7 +14277,7 @@
           "resolved": 1573399
         }
       ],
-      "source_sha256": "8c9e2fdcd1b413a36502d0ff1ec8fa11bb1a11c875b7867139932e5b7e1f3842",
+      "source_sha256": "72ffb7e2e4de00cf51efe1d731f29cb64601c579ac7eedba7c0d6fdc0f0420e4",
       "source": "src/recovered/Ion/Load_Storm_0051f5e0.cpp",
       "population": "population-4379",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

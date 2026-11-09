@@ -4,8 +4,8 @@
     "id": "population-4416",
     "inventory_sha256": "1461c40a943e15221152725a194f5cb6d5e9a5a36166c0375a19125884147141",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "db1ac46ebcbd631620c0b40aff4cb26d7eee8ed235b3685336cd2082f1fbec4a",
-    "historical_acceptance_sha256": "d19ad5222d0f8e0dfbd1aa50962f353d80dcbd505d2da4978b5b4ba7d14eed00"
+    "historical_population_sha256": "40e9c251a82bc2e324a236a2c1a0486223517b7763bd582dec08f0c6f00a8933",
+    "historical_acceptance_sha256": "ab816bbf9e8ab7f422729ea8a278fe04f49e548282635acf55615b584a851c89"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -13695,7 +13695,9 @@
     "?Unknown_0053D890@UnknownList832470@@QAEXXZ": 5494928,
     "?Draw_House_Color@LaserDrawClass@@QAEXXZ": 5454976,
     "?Set_Laser_Pixel_00721b00@WaveClass@@QBEXPAGH@Z": 7478016,
-    "??_ELayerClass@@UAEPAXI@Z": 4844672
+    "??_ELayerClass@@UAEPAXI@Z": 4844672,
+    "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z": 7118320,
+    "?AI@AnimClass@@UAEXXZ": 4331280
   },
   "regions": [
     {
@@ -23005,7 +23007,7 @@
           "resolved": 4293373469
         }
       ],
-      "source_sha256": "1277a5f111bcf9f371992aa515791b1b625b222920e34128673b656cef697877",
+      "source_sha256": "92b6d9d2aa9f13963fd44f0a7da94f99adfa139038b1b515c962cbb63c548317",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot27_006ccce0.cpp",
       "population": "population-4416",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

@@ -4,8 +4,8 @@
     "id": "population-4359",
     "inventory_sha256": "4356c23576f5e4315f7fb3ff7b4c46822e08be8511ca5b1eea5fd37063919827",
     "gaps_sha256": "3f5cac400ea4b813dd16b2bafefb3066a51586ff705934a2b33625bb8d597c70",
-    "historical_population_sha256": "fa6e246b6a75b82603182ebafef887098b5b6449f359067cf57fcb8ba261cea6",
-    "historical_acceptance_sha256": "2d125eabb666a78c93d771229b95bbaac78df775c79b3ee5154cb38e85178376"
+    "historical_population_sha256": "2f03631dc123ea96dcac75dd0ff4426fb9caf7fde48fda8881b9b9c09049054f",
+    "historical_acceptance_sha256": "da06f500625c554f820af902240fe5e143f1f0f2b2c8c3c5d2f62259001778bd"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -12850,7 +12850,9 @@
     "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
     "?Unknown_0054F250@MapClass@@QAEHPAUUnknownMapElem4@@HAAH@Z": 5567056,
     "?Update_All@RadBeam@@SIXXZ": 6509792,
-    "?OnPrivateGameOptions@CChatEventSink@@UAGJJPAUUser@WOL@@PBD@Z": 7740496
+    "?OnPrivateGameOptions@CChatEventSink@@UAGJJPAUUser@WOL@@PBD@Z": 7740496,
+    "__except_handler3": 7885524,
+    "__except_list": 0
   },
   "regions": [
     {
@@ -14465,7 +14467,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "b20597575cb8fa5f179ecfda72d56e91baea42ae35422e0d9ea4455a1a54330c",
+      "source_sha256": "5b0ed2e989be808b81940b5f0679d7e9bea5b59cb0a7c5af7b853d3bb73be2ed",
       "source": "src/recovered/classes/MultiplayerGameMode/MultiplayerGameMode_unknown_slot16_005b75d0.cpp",
       "population": "population-4359",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

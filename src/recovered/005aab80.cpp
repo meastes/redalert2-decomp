@@ -5,5 +5,5 @@ void __fastcall MP_Set_Dialog_Item_Number_005AAB80(HWND dialog, int id, int valu
     wchar_t text[32];
     swprintf(text, L"%d", value);
     HWND item = GetDlgItem(dialog, id);
-    SendMessageA(item, 0x4b2, 0, (long)text);
+    SendMessageA(item, 0x4b2, 0, (LPARAM)text);
 }

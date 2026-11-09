@@ -4,8 +4,8 @@
     "id": "population-4403",
     "inventory_sha256": "be23e6451ba71a868ee2ba96e38a819518b91ce05d034750a4c864e14ce91cb9",
     "gaps_sha256": "49643750ac0185b9f316fde3bf75fa3f7057180c42cef19f37179805d7159b78",
-    "historical_population_sha256": "07a5e33cd54c1b2529b89133d54b257d37b0de4e84de064acf6f9e4e08e5d536",
-    "historical_acceptance_sha256": "2bf69cd2f4cdca88088fb08447f6a7a6f34c3cc966b35098e956d602497350de"
+    "historical_population_sha256": "c8ce990db42428a97c66c38a4374a3e87059d6a50a7987f172527c16d38f207a",
+    "historical_acceptance_sha256": "580e9c4f456d12d8d57cae318c36b5d4d77963794599cfa991acfa17e3a7f9b3"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10556,7 +10556,17 @@
     "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
     "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
     "??_E?$VectorClass@VHSVClass@@@@UAEPAXI@Z": 6313744,
-    "??_E?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6315568
+    "??_E?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6315568,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "?unknown_slot86@BuildingClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 4451952,
+    "_WinMain@16": 6873728,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "_CLSID_BombClass": 8003072,
+    "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z": 7118320,
+    "?AI@AnimClass@@UAEXXZ": 4331280,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672
   },
   "regions": [
     {
@@ -12783,7 +12793,7 @@
           "resolved": 1990562
         }
       ],
-      "source_sha256": "49414120d66aa9c1d2b7644fe6a59d931f8fcfc9627e794c7fb7daf812203b8b",
+      "source_sha256": "ecfe25767e87525fe01e81ed7dc91d42f52bf20901e74895423934b21b5aaefc",
       "source": "src/recovered/classes/FactoryClass/FactoryClass_Load_004b9a40.cpp",
       "population": "population-4403",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -13064,7 +13074,7 @@
           "resolved": 4294272281
         }
       ],
-      "source_sha256": "bc531c2a9ac58e9fcc7ea2927b7ff86df1f56e4044286523ed31e9f1e3235171",
+      "source_sha256": "e91fa8711eda8d77dfed23d8af173c24f3fa22ad614b16a8dda8ebd9e7461fdb",
       "source": "src/recovered/classes/FactoryClass/FactoryClass_Save_004b9b90.cpp",
       "population": "population-4403",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

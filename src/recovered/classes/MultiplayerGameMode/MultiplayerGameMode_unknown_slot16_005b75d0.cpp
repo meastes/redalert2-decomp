@@ -17,11 +17,11 @@ void MultiplayerGameMode::unknown_slot16(HWND combo, int player)
         player = unknown_players_a3fa7c[player]->Team;
         for (int team_index = 0; team_index < Teams.Count(); team_index++) {
             MultiplayerTeam *team = Teams[team_index];
-            int item = SendMessageA(combo, 0x143, 0, (long)team->Name.unknown_text_770430());   // CB_ADDSTRING
+            int item = SendMessageA(combo, 0x143, 0, (LPARAM)team->Name.unknown_text_770430());   // CB_ADDSTRING
             if (team->Number == player) {
                 SendMessageA(combo, 0x14e, item, 0);                                       // CB_SETCURSEL
             }
-            SendMessageA(combo, 0x151, item, (long)team);                                  // CB_SETITEMDATA
+            SendMessageA(combo, 0x151, item, (LPARAM)team);                                  // CB_SETITEMDATA
         }
     }
 }

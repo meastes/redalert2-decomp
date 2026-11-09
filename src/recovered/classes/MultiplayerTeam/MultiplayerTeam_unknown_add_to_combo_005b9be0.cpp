@@ -4,7 +4,7 @@
 
 int MultiplayerTeam::unknown_add_to_combo_5b9be0(HWND combo)
 {
-    int item = SendMessageA(combo, 0x143, 0, (long)Name.unknown_text_770430());   // CB_ADDSTRING
+    int item = SendMessageA(combo, 0x143, 0, (LPARAM)Name.unknown_text_770430());   // CB_ADDSTRING
     SendMessageA(combo, 0x151, item, Number);                                     // CB_SETITEMDATA
     return item;
 }

@@ -23,43 +23,43 @@
 
 HRESULT __fastcall Load_Storm_0051F5E0(IStream *stream)
 {
-    HRESULT result = stream->Read(&StormActive, 1, 0);
+    HRESULT result = stream->Read(&StormActive, sizeof(StormActive), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&StormStartTime, 4, 0);
+    result = stream->Read(&StormStartTime, sizeof(StormStartTime), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&StormDuration, 4, 0);
+    result = stream->Read(&StormDuration, sizeof(StormDuration), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&StormDeferment, 4, 0);
+    result = stream->Read(&StormDeferment, sizeof(StormDeferment), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&StormTimeToEnd, 1, 0);
+    result = stream->Read(&StormTimeToEnd, sizeof(StormTimeToEnd), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&unknown_dominator_start_7ddb18, 4, 0);
+    result = stream->Read(&unknown_dominator_start_7ddb18, sizeof(unknown_dominator_start_7ddb18), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&unknown_dominator_delay_7ddb1c, 4, 0);
+    result = stream->Read(&unknown_dominator_delay_7ddb1c, sizeof(unknown_dominator_delay_7ddb1c), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&unknown_dominator_state_a5193c, 4, 0);
+    result = stream->Read(&unknown_dominator_state_a5193c, sizeof(unknown_dominator_state_a5193c), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&StormCoords, 4, 0);
+    result = stream->Read(&StormCoords, sizeof(StormCoords), 0);
     if (FAILED(result)) {
         return result;
     }
-    result = stream->Read(&StormOwner, 4, 0);
+    result = stream->Read(&StormOwner, sizeof(StormOwner), 0);
     if (FAILED(result)) {
         return result;
     }

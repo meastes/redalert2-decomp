@@ -27,5 +27,5 @@ struct UnknownTextOwner_005c3450 {
 void __fastcall unknown_set_dialog_wide_text_005c3450(HWND dialog, UnknownTextOwner_005c3450 *owner)
 {
     HWND item = GetDlgItem(dialog, 0x6ec);
-    SendMessageA(item, 0x4b2, 0, (long)owner->unknown_text_20.unknown_text_770430());
+    SendMessageA(item, 0x4b2, 0, (LPARAM)owner->unknown_text_20.unknown_text_770430());
 }

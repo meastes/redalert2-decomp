@@ -8,5 +8,5 @@ WIN32_IMPORT long __stdcall SendMessageA(HWND window, unsigned int message, unsi
 
 void __fastcall unknown_send_word_pair_message_005e2010(HWND window, int low, int high)
 {
-    SendMessageA(window, 0x4e8, 0, (long)((unsigned short)low | ((unsigned long)(unsigned short)high << 16)));
+    SendMessageA(window, 0x4e8, 0, (LPARAM)((unsigned short)low | ((unsigned long)(unsigned short)high << 16)));
 }

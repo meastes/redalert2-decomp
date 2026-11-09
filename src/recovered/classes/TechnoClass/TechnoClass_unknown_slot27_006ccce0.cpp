@@ -84,7 +84,7 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
     }
     WeaponStruct *primary;
     if (House->Unknown_004F52B0() && (primary = unknown_slot230()) != 0 && primary->WeaponType != 0) {
-        int weapon = unknown_slot174((AbstractClass *)(int)Map_Cell_At(*cell));
+        int weapon = unknown_slot174((AbstractClass *)Map_Cell_At(*cell));
         bool burning = (Map_Cell_At(*cell))->Unknown_0047BB10();
         if (burning) {
             WeaponTypeClass *weapon_type = unknown_slot230()->WeaponType;

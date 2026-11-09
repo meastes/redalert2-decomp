@@ -14,5 +14,5 @@ void __fastcall unknown_set_dialog_item_number_467240(HWND dialog, int id, int v
     wchar_t text[32];
     swprintf(text, L"%d", value);
     HWND item = GetDlgItem(dialog, id);
-    SendMessageA(item, 0x4b2, 0, (long)text);
+    SendMessageA(item, 0x4b2, 0, (LPARAM)text);
 }
