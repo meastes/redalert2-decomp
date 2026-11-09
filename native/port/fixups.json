@@ -1160,6 +1160,12 @@
    "new": "\nextern \"C\" int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int command_show)\n{",
    "why": "The host's main calls WinMain with C linkage (as the Win32 CRT's entry does, by the undecorated name); the accepted source declares it C++, so natively it is given C linkage.",
    "verified": true
+  },
+  {
+   "source": "src/shared/point.hpp",
+   "old": "    T X;\n    T Y;\n};\n\n#ifdef RA2_WAVE_FLOAT_POINT3D",
+   "new": "    T X;\n    T Y;\n};\n\n#if defined(__LP64__) && defined(RA2_POINT_ADD_IN_PLACE_SOURCE)   // NATIVE: clang requires the explicit specialization (TPoint2D_short_operator_add_assign_0056aa20.cpp) declared before its first use\ntemplate <> TPoint2D<short> const &TPoint2D<short>::operator+=(TPoint2D<short> const &rvalue);\n#endif\n\n#ifdef RA2_WAVE_FLOAT_POINT3D",
+   "why": "Scout1158's bridge twins (population-4348) use zone_cell += Cell(..) before the unit's explicit specialization of TPoint2D<short>::operator+= 0x0056AA20; VC6 accepts that order, clang refuses 'explicit specialization after instantiation'. Declaring the specialization after the class template natively keeps one out-of-line body."
   }
  ]
 }

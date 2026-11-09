@@ -12,9 +12,15 @@
 //     gets the hunt mission 15 (Queue_Mission 0x006233A0, as harness_orders'
 //     hunt), and every later tank joins as it leaves the factory.
 // Notes harness-army-<n> per event.
+// RA2_NATIVE_ARMY_INFANTRY=<frame> (Scout1153, M19; a campaign whose tech level
+// has no war factory, Allied 1): from that frame, while no tank is buildable,
+// the barracks trains one rifleman (GI or Conscript: PRODUCE kind 0x10 =
+// InfantryTypeClass) at a time instead, and they attack when RA2_NATIVE_ARMY_SIZE
+// (default 12) stand or at RA2_NATIVE_ARMY_ATTACK.
 #include "shared/techno.hpp"
 #include "shared/techno_type.hpp"
 #include "shared/unit_type.hpp"
+#include "shared/infantry_type.hpp"
 #include "shared/house.hpp"
 #include "shared/target.hpp"
 #include "shared/event.hpp"
@@ -62,6 +68,8 @@ char const *const harvester_names[] = {"CMIN", "HARV"};
 int const attack_size = 12;
 
 int tank_index = -1;
+int infantry_index = -1;
+char const *const infantry_names[] = {"E1", "E2"};   // GI (Allies), Conscript (Soviets)
 bool attacking = false;
 int next_check = 0;
 int produced = 0;
@@ -93,6 +101,10 @@ bool Is_Combat(TechnoClass *techno)
     for (int i = 0; i < 2; ++i) {
         if (Same_Name(type->ID.Buffer, harvester_names[i])) return false;
     }
+    // Tanya stays back: a campaign loses when she dies (Allied 1's Enable Failure;
+    // Scout1153, M19, the win order in a campaign).
+    if (Same_Name(type->ID.Buffer, "TANY")) return false;
+    if (Same_Name(type->ID.Buffer, "ENGINEER") || Same_Name(type->ID.Buffer, "SENGINEER")) return false;   // engineers repair/capture by script
     return true;
 }
 
@@ -109,6 +121,17 @@ int Hunt_All()
     return sent;
 }
 
+int Riflemen()
+{
+    int count = 0;
+    for (int i = 0; i < Technos.Count(); ++i) {
+        TechnoClass *techno = Technos[i];
+        if (techno == 0 || techno->House != unknown_player_a35db4 || techno->Kind_Of() != 0x0F) continue;
+        TechnoTypeClass *type = techno->unknown_slot32();
+        if (type != 0 && infantry_index >= 0 && type == InfantryTypes[infantry_index]) ++count;
+    }
+    return count;
+}
 int Tanks()
 {
     int count = 0;
@@ -141,6 +164,50 @@ void Native_Harness_Army(int frame)
     }
     if (player == 0 || frame < next_check) return;
     next_check = frame + 30;
+    static int infantry_frame = -2;
+    if (infantry_frame == -2) {
+        char const *env = getenv("RA2_NATIVE_ARMY_INFANTRY");
+        infantry_frame = env ? atoi(env) : -1;
+    }
+    if (tank_index < 0 && infantry_frame >= 0 && frame >= infantry_frame) {
+        if (infantry_index < 0) {
+            for (int i = 0; i < InfantryTypes.Count() && infantry_index < 0; ++i) {
+                for (int k = 0; k < 2; ++k) {
+                    if (Same_Name(InfantryTypes[i]->ID.Buffer, infantry_names[k]) && player->Can_Build(InfantryTypes[i], false, true) > 0) {
+                        infantry_index = i;
+                        Note("rifleman type buildable, index", frame, i);
+                        break;
+                    }
+                }
+            }
+        }
+        if (infantry_index >= 0 && player->unknown_func_4eb580(0x10, false, 0) == 0
+            && player->Can_Build(InfantryTypes[infantry_index], false, true) > 0) {
+            OutList.Add(EventClass(player->ArrayIndex, 0x0E, 0x10, infantry_index, 0));
+            ++produced;
+            if (produced <= 3 || produced % 5 == 0) Note("train rifleman", frame, produced);
+        }
+        int riflemen = Riflemen();
+        static int attack_frame_i = -1;
+        if (attack_frame_i < 0) {
+            char const *env = getenv("RA2_NATIVE_ARMY_ATTACK");
+            attack_frame_i = env ? atoi(env) : 9000;
+        }
+        static int rifle_size = -1;     // RA2_NATIVE_ARMY_SIZE (default the tanks' 12)
+        if (rifle_size < 0) {
+            char const *env = getenv("RA2_NATIVE_ARMY_SIZE");
+            rifle_size = env ? atoi(env) : attack_size;
+        }
+        if (!attacking && (riflemen >= rifle_size || frame >= attack_frame_i)) {
+            attacking = true;
+            Note("attack: hunt, units", frame, Hunt_All());
+            return;
+        }
+        if (attacking && frame % 150 < 30) {
+            int sent = Hunt_All();
+            if (sent) Note("reinforce: hunt, units", frame, sent);
+        }
+    }
     if (tank_index < 0) {
         for (int i = 0; i < UnitTypes.Count() && tank_index < 0; ++i) {
             UnitTypeClass *type = UnitTypes[i];

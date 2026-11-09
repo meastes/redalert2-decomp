@@ -1,8 +1,9 @@
 // NON-EXACT DRAFT 0x559000 MapClass::Unknown_00559000 (TibSun Damage_High_Bridge)
-// entry 0x559000; exact-match score 56.15 (misses_index best)
-// origin lane: Scout953 (build/class-work/Scout953/w/H_pt1_n5.cpp; codex4's Train form ported back to High)
+// entry 0x559000; exact-match score 91.17 (Scout1157 keep/high_rt_pa_9117.cpp)
+// origin lane: Scout1157 (Scout953 pa form ported to High, with TibSun High's return(true) after each
+// middle-span collapse: the original returns 1 there, 0x5595AE and 0x559ABE; the 56.15 draft fell through).
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
-// Scout1133 (native/drafts.json, M16). Not original bytes.
+// Scout1133 (native/drafts.json, M16); replaced by Scout1153 (M19, owner note). Not original bytes.
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright 2025 Electronic Arts Inc.
 // Copyright 2026 OpenTS contributors
@@ -10,12 +11,15 @@
 // Modified by OpenTS contributors, 2026.
 // EA's GPLv3 Section 7 additional terms and supplemental warranty disclaimers apply; see LICENSE.md.
 // Adapted from TibSun code/map.cpp, MapClass::Damage_High_Bridge, base RA2 00559000.
+// Scout1157: Scout953 pa form (per-case full switch tails) ported to High plus TibSun High's return(true) after
+// each middle-span collapse (the original returns 1 there: 0x5595AE, 0x559ABE). 91.17; only the m2 block's
+// DynamicVectorClass dtor Clear 0x42CFB0 still inlines (needs 3..6 more free root sites after it, or ~150-190 IL less R).
 // @ref ??0?$VectorClass@VCell@@@@QAE@IPBVCell@@@Z=0042d4a0
 // @ref ?Clear@?$VectorClass@VCell@@@@UAEXXZ=0042cfb0
 // @ref ??H?$TPoint2D@F@@QBE?BV0@ABV0@@Z=0042add0
 // @ref ??_7?$DynamicVectorClass@VCell@@@@6B@=0079c5a0
 // @ref ??_7?$VectorClass@VCell@@@@6B@=0079c5e0
-#define RA2_MAP_BRIDGE_PIECES   // NATIVE: the declarations its Scout953 plan context had (map.hpp)
+#define RA2_MAP_BRIDGE_PIECES   // NATIVE: the declarations its plan context had (map.hpp)
 #include "shared/dir_type.hpp"
 #include "shared/map.hpp"
 #include "shared/map_view.hpp"
@@ -65,21 +69,21 @@ if (!valid_span) {
 
 			if ((middle_cellptr->unknown_11a & 1) != 0) {
 				zone_cell.X--;
-				Map[Cell(middle_cell.X - 1, middle_cell.Y - 1)].unknown_473000();
-				Map[Cell(middle_cell.X - 1, middle_cell.Y)].unknown_473000();
-				Map[Cell(middle_cell.X - 1, middle_cell.Y + 1)].unknown_473000();
+				Map[middle_cell + Cell(-1, -1)].unknown_473000();
+				Map[middle_cell + Cell(-1, 0)].unknown_473000();
+				Map[middle_cell + Cell(-1, 1)].unknown_473000();
 				Cell cellid = middle_cellptr->Fetch_CellID();
 				Set_Bridge_Middle_State(
 					middle_cellptr->Fetch_CellID(),
 					int(unknown_tileset_a52c74 + unknown_tileset_a6cb7c + 3),
 					-1,
-					Map[Cell(cellid.X - 1, cellid.Y)].unknown_11b - 4,
+					Map[cellid + Cell(-1, 0)].unknown_11b - 4,
 					false
 				);
 			} else {
-				Map[Cell(middle_cell.X, middle_cell.Y - 1)].unknown_473000();
+				Map[middle_cell + Cell(0, -1)].unknown_473000();
 				Map[Cell(middle_cell.X, middle_cell.Y)].unknown_473000();
-				Map[Cell(middle_cell.X, middle_cell.Y + 1)].unknown_473000();
+				Map[middle_cell + Cell(0, 1)].unknown_473000();
 				Set_Bridge_Middle_State(
 					middle_cellptr->Fetch_CellID(),
 					int(unknown_tileset_a52c74 + unknown_tileset_a6cb7c + 3),
@@ -106,6 +110,7 @@ if (!valid_span) {
 				}
 			}
 			Map.Unknown_005688A0(cells);
+			return(true);
 		}
 
 		if (ittype == unknown_tileset_a6cb7c ||
@@ -148,9 +153,9 @@ if (!valid_span) {
 
 				if ((unsigned char)middle_cellptr->unknown_11a > 4) {
 					zone_cell.Y--;
-					Map[Cell(middle_cell.X - 1, middle_cell.Y - 1)].unknown_473000();
-					Map[Cell(middle_cell.X, middle_cell.Y - 1)].unknown_473000();
-					Map[Cell(middle_cell.X + 1, middle_cell.Y - 1)].unknown_473000();
+					Map[middle_cell + Cell(-1, -1)].unknown_473000();
+					Map[middle_cell + Cell(0, -1)].unknown_473000();
+					Map[middle_cell + Cell(1, -1)].unknown_473000();
 					Cell cellid = middle_cellptr->Fetch_CellID();
 					Set_Bridge_Middle_State(
 						middle_cellptr->Fetch_CellID(),
@@ -162,7 +167,7 @@ if (!valid_span) {
 				} else {
 					Map[middle_cell + Cell(-1, 0)].unknown_473000();
 					Map[Cell(middle_cell.X, middle_cell.Y)].unknown_473000();
-					Map[Cell(middle_cell.X + 1, middle_cell.Y)].unknown_473000();
+					Map[middle_cell + Cell(1, 0)].unknown_473000();
 					Set_Bridge_Middle_State(
 						middle_cellptr->Fetch_CellID(),
 						int(unknown_tileset_a52c74 + unknown_tileset_a52e70 + 3),
@@ -189,6 +194,7 @@ if (!valid_span) {
 					}
 				}
 				Map.Unknown_005688A0(cells);
+			return(true);
 			}
 
 			if (ittype == unknown_tileset_a52e70 ||
@@ -236,7 +242,10 @@ if (!valid_span) {
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				break;
+				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+					Unknown_0054EBD0();
+				}
+				return(true);
 
 			case 7:
 				Internal_Destroy_High_Bridge_EW_BottomRight(bridge_deck_cell->Fetch_CellID(), dir);
@@ -244,7 +253,10 @@ if (!valid_span) {
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				break;
+				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+					Unknown_0054EBD0();
+				}
+				return(true);
 
 			case 8:
 				Internal_Destroy_High_Bridge_EW_TopLeft(bridge_deck_cell->Fetch_CellID(), Facing_Sub(dir, FACING_S));
@@ -252,7 +264,10 @@ if (!valid_span) {
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				break;
+				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+					Unknown_0054EBD0();
+				}
+				return(true);
 
 			case 9:
 			case 10:
@@ -272,7 +287,10 @@ if (!valid_span) {
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				break;
+				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+					Unknown_0054EBD0();
+				}
+				return(true);
 
 			case 16:
 				Internal_Destroy_High_Bridge_NS_TopRight(bridge_deck_cell->Fetch_CellID(), Facing_Sub(dir, FACING_S));
@@ -280,7 +298,10 @@ if (!valid_span) {
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				break;
+				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+					Unknown_0054EBD0();
+				}
+				return(true);
 
 			case 17:
 				Internal_Destroy_High_Bridge_NS_BottomLeft(bridge_deck_cell->Fetch_CellID(), dir);
@@ -288,16 +309,15 @@ if (!valid_span) {
 				bridge_deck_cell->OverlayData = 0;
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
-				break;
+				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
+					Unknown_0054EBD0();
+				}
+				return(true);
 
 			default:
 				return(false);
 		}
 
-		if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
-			Unknown_0054EBD0();
-		}
-		return(true);
 	}
 	return(false);
 }

@@ -31,11 +31,15 @@
 // with the previous block's tail over a sixteenth of the block. The RDFT
 // variant decodes stereo as one interleaved channel at twice the rate.
 //
-// Video is NOT decoded (not written: the Bink 1 block coder needs fixed
-// Huffman trees, quantizer, pattern and scan tables that could not be verified
-// in this lane; NOTES of Scout1138/Scout1142 hold the plan): BinkCopyToBuffer
-// writes a black frame. RA2_NATIVE_MOVIE_SKIP=1 (test runs) keeps M16's pace,
+// Video (Scout1153, M19; port/src/bink_video.cpp): BinkDoFrame decodes the
+// current frame's video (from the last key frame after a jump) and
+// BinkCopyToBuffer converts it to the destination's 5:6:5 pixels. The decoder
+// needs fixed tables the format description does not give (RA2_NATIVE_BINK_TABLES,
+// bink_video.cpp); without them BinkCopyToBuffer writes a black frame, as before.
+// RA2_NATIVE_MOVIE_SKIP=1 (test runs) keeps M16's pace,
 // one frame per decode pass, and plays no movie sound.
+// RA2_NATIVE_BINK_DUMP=<prefix> (diagnostics) writes every 30th decoded frame
+// (and the first) as <prefix>-<movie>-<frame>.bmp.
 // RA2_NATIVE_BINK_WAV=<file> (diagnostics) also writes each movie's decoded
 // sound to <file> as a WAV (the last movie's).
 #include "ra2port/win32_port.hpp"
@@ -48,6 +52,14 @@
 #include <vector>
 
 using namespace ra2port;
+
+namespace ra2port {
+struct BinkVideo;
+BinkVideo *bink_video_open(int width, int height);
+void bink_video_close(BinkVideo *v);
+bool bink_video_decode(BinkVideo *v, unsigned char const *data, size_t size);
+void bink_video_copy_565(BinkVideo *v, void *dest, int pitch, unsigned height, unsigned x, unsigned y);
+}
 
 extern "C" {
 // port/src/kernel32.cpp
@@ -301,6 +313,10 @@ struct NativeBink {
     void *stream;                    // its port voice, or null
     unsigned decoded;                // the last frame whose sound was decoded (0 none)
     std::vector<short> *wav;         // RA2_NATIVE_BINK_WAV
+    std::vector<unsigned char> *keys;  // per frame: 1 for a key frame
+    BinkVideo *video;                // the video decoder, or null (no tables)
+    unsigned video_decoded;          // the last frame whose video was decoded (0 none)
+    int movie_number;                // RA2_NATIVE_BINK_DUMP file names
 };
 const char *last_error = "";
 bool sound_system = false;           // BinkSetSoundSystem was given a DirectSound
@@ -365,6 +381,72 @@ void write_wav(const char *path, std::vector<short> const &pcm, int rate, int ch
     fwrite(h, 1, 44, f);
     fwrite(pcm.data(), 2, pcm.size(), f);
     fclose(f);
+}
+
+void write_bmp565(const char *path, NativeBink *bink)
+{
+    int w = bink->Width, h = bink->Height;
+    std::vector<unsigned short> pixels((size_t)w * h);
+    bink_video_copy_565(bink->video, pixels.data(), w * 2, (unsigned)h, 0, 0);
+    FILE *f = fopen(path, "wb");
+    if (!f) return;
+    int row = (w * 3 + 3) & ~3;
+    unsigned size = 54 + (unsigned)row * h;
+    unsigned char head[54] = {'B', 'M'};
+    auto put32 = [&](int at, unsigned v) { for (int i = 0; i < 4; ++i) head[at + i] = (unsigned char)(v >> (8 * i)); };
+    put32(2, size); put32(10, 54); put32(14, 40); put32(18, (unsigned)w); put32(22, (unsigned)h);
+    head[26] = 1; head[28] = 24;
+    fwrite(head, 1, 54, f);
+    std::vector<unsigned char> line((size_t)row);
+    for (int y = h - 1; y >= 0; --y) {
+        for (int x = 0; x < w; ++x) {
+            unsigned p = pixels[(size_t)y * w + x];
+            line[x * 3 + 0] = (unsigned char)((p & 0x1F) << 3);
+            line[x * 3 + 1] = (unsigned char)(((p >> 5) & 0x3F) << 2);
+            line[x * 3 + 2] = (unsigned char)((p >> 11) << 3);
+        }
+        fwrite(line.data(), 1, line.size(), f);
+    }
+    fclose(f);
+}
+
+// The video data of frame n (1-based): after the audio tracks' packets.
+bool video_data(NativeBink *bink, unsigned n, unsigned char const **data, size_t *size)
+{
+    std::vector<unsigned char> &file = *bink->file;
+    size_t at = (*bink->offsets)[n - 1], end = (*bink->offsets)[n];
+    if (end > file.size() || at > end) return false;
+    for (unsigned t = 0; t < bink->tracks; ++t) {
+        if (at + 4 > end) return false;
+        at += 4 + (size_t)le32(&file[at]);
+    }
+    if (at > end) return false;
+    *data = &file[at];
+    *size = end - at;
+    return true;
+}
+
+// Decodes the video of frame n once; after a jump from the last key frame up to n.
+void decode_video(NativeBink *bink, unsigned n)
+{
+    if (!bink->video || n == 0 || n > bink->Frames || n == bink->video_decoded) return;
+    unsigned from = n;
+    if (n != bink->video_decoded + 1) {
+        while (from > 1 && !(*bink->keys)[from - 1]) --from;
+    }
+    static const char *dump = getenv("RA2_NATIVE_BINK_DUMP");
+    for (unsigned k = from; k <= n; ++k) {
+        unsigned char const *data;
+        size_t size;
+        if (!video_data(bink, k, &data, &size)) break;
+        bink_video_decode(bink->video, data, size);
+        if (dump && (k == 1 || k % 30 == 0)) {
+            char path[512];
+            snprintf(path, sizeof path, "%s-%02d-%04u.bmp", dump, bink->movie_number, k);
+            write_bmp565(path, bink);
+        }
+    }
+    bink->video_decoded = n;
 }
 
 // Decodes the sound of frame n (1-based) once, in order; a jump restarts the overlap.
@@ -441,8 +523,12 @@ void *BinkOpen(const char *name, DWORD flags)
     }
     at += (size_t)bink->tracks * 8;
     bink->offsets = new std::vector<unsigned>;
+    bink->keys = new std::vector<unsigned char>;
     if (at + ((size_t)bink->Frames + 1) * 4 <= f.size()) {
-        for (unsigned i = 0; i <= bink->Frames; ++i) bink->offsets->push_back(le32(&f[at + i * 4]) & ~1u);
+        for (unsigned i = 0; i <= bink->Frames; ++i) {
+            bink->offsets->push_back(le32(&f[at + i * 4]) & ~1u);
+            bink->keys->push_back(le32(&f[at + i * 4]) & 1u);
+        }
     } else {
         bink->Frames = 0;
     }
@@ -455,6 +541,9 @@ void *BinkOpen(const char *name, DWORD flags)
         }
         if (getenv("RA2_NATIVE_BINK_WAV")) bink->wav = new std::vector<short>;
     }
+    static int movies = 0;
+    bink->movie_number = ++movies;
+    if (bink->Frames && (!skip_movies() || getenv("RA2_NATIVE_BINK_DUMP"))) bink->video = bink_video_open(bink->Width, bink->Height);
     trace("BinkOpen: '%c' %dx%d, %u frames at %u/%u fps, %u audio tracks (%u Hz, flags 0x%X)%s", header[3],
           bink->Width, bink->Height, bink->Frames, bink->FrameRate, bink->FrameRateDiv, bink->tracks, rate, aflags,
           bink->stream ? ", sound" : "");
@@ -470,16 +559,23 @@ void BinkClose(void *handle)
         delete bink->wav;
     }
     delete bink->audio;
+    bink_video_close(bink->video);
+    delete bink->keys;
     delete bink->offsets;
     delete bink->file;
     free(bink);
 }
-// A black frame at x, y of the destination (no video decoder yet), clipped to its height.
+// The decoded frame at x, y of the destination (5:6:5), clipped to its height;
+// black without a decoder (no tables) or for other surface types.
 int BinkCopyToBuffer(void *handle, void *dest, int pitch, unsigned height, unsigned x, unsigned y, unsigned flags)
 {
     NativeBink *bink = (NativeBink *)handle;
     int bytes = surface_bytes(flags);
     if (!bink || !dest || pitch <= 0 || bytes == 0) return 0;
+    if (bink->video && bink->video_decoded && (flags & 0xF) == 10) {
+        bink_video_copy_565(bink->video, dest, pitch, height, x, y);
+        return 0;
+    }
     for (unsigned row = 0; row < (unsigned)bink->Height && y + row < height; ++row) {
         memset((unsigned char *)dest + (size_t)(y + row) * (unsigned)pitch + (size_t)x * bytes, 0,
                (size_t)bink->Width * bytes);
@@ -487,11 +583,12 @@ int BinkCopyToBuffer(void *handle, void *dest, int pitch, unsigned height, unsig
     return 0;
 }
 int BinkDDSurfaceType(void *) { return 10; }   // BINKSURFACE565: the port's DirectDraw surfaces
-// Decodes the current frame: its sound (the video stays black).
+// Decodes the current frame: its sound and its video.
 int BinkDoFrame(void *handle)
 {
     NativeBink *bink = (NativeBink *)handle;
     if (bink && (bink->stream || bink->wav)) decode_sound(bink, bink->FrameNum);
+    if (bink && bink->video) decode_video(bink, bink->FrameNum);
     return 0;
 }
 const char *BinkGetError(void) { return last_error; }

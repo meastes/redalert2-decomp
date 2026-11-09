@@ -1766,6 +1766,16 @@
    "file": "native/link/behaviour_m17.cpp",
    "source": "pass-6a decompile 00728ab0",
    "notes": "Scout1138 (M17)"
+  },
+  {
+   "entry": "0x0049AF80",
+   "name": "DisplayClass::unknown_slot44",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_owner.cpp",
+   "source": "pass-6a decompile 0049af80 (empty)",
+   "notes": "owner 2026-11-09, user crash report"
   }
  ]
 }

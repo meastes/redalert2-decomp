@@ -13,12 +13,28 @@
 // either way and shows the score screen), "win" (Scout1125, M15: the MCV
 // deploys, the long build order of harness_build.cpp, then harness_army.cpp's
 // tanks hunt the enemy; the start units wait and join the attack).
+// RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
+// <frame> hunt; <frame> capture <ID> <x> <y>; <frame> train <ID>" (Scout1153, M19;
+// attack/capture: the building in cell x,y, mission 1 / 8; train: the barracks' cameo click;
+// units -1 when the cell holds none) (Scout1153,
+// M19; any game, the campaign too): at that frame the player's technos of type
+// ID ('*': every infantry and vehicle) get a move order to cell x,y, or every
+// combat unit but Tanya hunts, as a player's move click / the AI's attack teams
+// queue them (Queue_Mission, mission 2 / 15). Test scaffolding: the scripted
+// campaign run walks Tanya to Allied 1's fort.
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
+#include "shared/display.hpp"     // before map_view.hpp (full DisplayClass)
+#include "shared/map_view.hpp"
+#include "shared/map_cell.hpp"
 #include "shared/techno.hpp"
 #include "shared/techno_type.hpp"
 #include "shared/house.hpp"
 #include "shared/target.hpp"
 #include "shared/queue.hpp"
+#include "shared/event.hpp"
+#include "shared/infantry_type.hpp"
+
+#include <stdlib.h>
 
 class TechnoClass;
 extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.hpp)
@@ -54,12 +70,117 @@ void Append(char *to, char const *text)
 }
 }
 
+namespace {
+bool Same_Type(char const *id, char const *want)
+{
+    if (want[0] == '*' && want[1] == 0) return true;
+    for (; *id && *want; ++id, ++want) {
+        char x = *id >= 'a' && *id <= 'z' ? *id - 32 : *id;
+        char y = *want >= 'a' && *want <= 'z' ? *want - 32 : *want;
+        if (x != y) return false;
+    }
+    return *id == 0 && *want == 0;
+}
+// One RA2_NATIVE_ORDERS command (see the file comment); returns the units ordered.
+int Scripted_Order(char const *command)
+{
+    char word[8][24];
+    int words = 0;
+    for (char const *p = command; *p && words < 8;) {
+        while (*p == ' ') ++p;
+        if (!*p) break;
+        int n = 0;
+        while (*p && *p != ' ') { if (n < 23) word[words][n++] = *p; ++p; }
+        word[words++][n] = 0;
+    }
+    if (words < 2) return 0;
+    bool go = Same(word[1], "goto", 5) && words >= 5;
+    bool hunt = Same(word[1], "hunt", 5);
+    bool attack = (Same(word[1], "attack", 7) || Same(word[1], "capture", 8)) && words >= 5;
+    int attack_mission = Same(word[1], "capture", 8) ? 8 : 1;   // Capture (an engineer into a building) or Attack
+    if (Same(word[1], "train", 6) && words >= 3) {
+        // The barracks' cameo click: PRODUCE (0x0E) of InfantryTypeClass (kind 0x10) by its ID.
+        HouseClass *player = unknown_player_a35db4;
+        for (int i = 0; player && i < InfantryTypes.Count(); ++i) {
+            if (Same_Type(InfantryTypes[i]->ID.Buffer, word[2])) {
+                OutList.Add(EventClass(player->ArrayIndex, 0x0E, 0x10, i, 0));
+                return 1;
+            }
+        }
+        return -1;
+    }
+    ObjectClass *target = 0;
+    if (attack) {
+        Cell at;
+        at.X = (short)atoi(word[3]);
+        at.Y = (short)atoi(word[4]);
+        target = Map[at].unknown_4717b0();      // the building in the cell
+        if (target == 0) return -1;
+    }
+    int count = 0;
+    for (int i = 0; i < Technos.Count(); ++i) {
+        TechnoClass *techno = Technos[i];
+        if (techno == 0 || techno->House != unknown_player_a35db4) continue;
+        int kind = techno->Kind_Of();
+        if (kind != 1 && kind != 0x0F) continue;     // UnitClass, InfantryClass
+        TechnoTypeClass *type = techno->unknown_slot32();
+        char const *id = type ? type->ID.Buffer : "";
+        if (attack && Same_Type(id, word[2]) && !Same_Type(id, "TANY")) {
+            Queue_Mission(TargetClass(techno), attack_mission, TargetClass(target), TargetClass());
+            ++count;
+        } else if (go && Same_Type(id, word[2])) {
+            Cell cell;
+            cell.X = (short)atoi(word[3]);
+            cell.Y = (short)atoi(word[4]);
+            Queue_Mission(TargetClass(techno), 2, TargetClass(), TargetClass(cell));
+            ++count;
+        } else if (hunt && !Same_Type(id, "TANY") && !Same_Type(id, "ENGINEER") && (type == 0 || type->DeploysInto == 0)) {
+            Queue_Mission(TargetClass(techno), 15, TargetClass(), TargetClass());
+            ++count;
+        }
+    }
+    return count;
+}
+void Scripted_Orders(int frame)
+{
+    static char const *text = 0;
+    static bool read = false;
+    if (!read) { read = true; text = getenv("RA2_NATIVE_ORDERS"); }
+    if (!text) return;
+    for (char const *p = text; *p;) {
+        char command[96];
+        int n = 0;
+        while (*p && *p != ';') { if (n < 95) command[n++] = *p; ++p; }
+        command[n] = 0;
+        if (*p == ';') ++p;
+        char const *q = command;
+        while (*q == ' ') ++q;
+        if (atoi(q) != frame) continue;
+        int count = Scripted_Order(q);
+        char detail[160] = "";
+        Append(detail, q);
+        Append(detail, ": units ");
+        Append_Int(detail, count);
+        static char names[16][24];
+        static int named = 0;
+        if (named < 16) {
+            char *name = names[named++];
+            name[0] = 0;
+            Append(name, "harness-orders-");
+            Append_Int(name, named);
+            ra2port_progress(name, detail);
+        }
+    }
+}
+}  // namespace
+
 void Native_Harness_Build(int frame, bool army);   // harness_build.cpp
 void Native_Harness_Army(int frame);               // harness_army.cpp
 
 // Called by the frame seam (harness_skirmish.cpp) after each Main_Loop frame.
 void Native_Harness_Orders(int frame)
 {
+    Scripted_Orders(frame);
     char const *order = ra2port_skirmish_order();
     if (order == 0) return;
     int at = 10;

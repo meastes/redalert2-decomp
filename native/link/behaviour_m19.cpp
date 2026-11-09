@@ -30,3 +30,14 @@ bool CellClass::Is_Tile_Water() const
 {
     return unknown_tileset_a52580 <= IsoTileIndex && IsoTileIndex < unknown_tileset_a52580 + 14;
 }
+
+// 0x00423EF0 under its second declared name (shared/facing.hpp: TibSun DirType::Direction,
+// "the same code as the constructor above"): the direction from one coordinate to another,
+// stored in this direction, which is returned. Reached by AnimClass::Flaming_Guy_AI
+// (Allied 1, a burning infantryman).
+#include "shared/facing.hpp"
+UnknownFacingDir &UnknownFacingDir::Direction(CoordStruct const &from, CoordStruct const &to)
+{
+    *this = UnknownFacingDir(from, to);
+    return *this;
+}

@@ -372,6 +372,13 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
             SetCapture(drop);
             ShowWindow(drop, 1);
             InvalidateRect(drop, 0, FALSE);
+            // The drop list's frame (0x005EAD20 draws it one pixel outside its
+            // own rectangle into 0x839958 and copies only the rectangle) reaches
+            // the screen through the dialog's repaint: 0x005EE460 paints a
+            // dialog, then its ComboDropWin children last, and copies the union.
+            // The dialog is repainted as the closing path below does (Scout1153, M19;
+            // behaviour, not the original's trigger, which is not identified).
+            InvalidateRect(parent, 0, FALSE);
             return 1;
         }
         case 0x497:                                 // OD_SUBCLASSED: no item has a colour of its own

@@ -4,9 +4,13 @@
 // "@ID[:n][+dx,dy]" (or "-dx,dy") names the human player's n-th object of type ID (0 the
 // first), moved by dx, dy cells, and this file answers its screen pixel
 // (Tactical::Coord_To_Pixel 0x006A29D0 of its centre). At the run's last frame
+// "@=X,Y" names the centre of cell X,Y (any object there). At the run's last frame
 // it logs harness-input: the selected objects and each of the player's
 // objects (type ID, mission, cell; '*' when selected).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
+#include "shared/display.hpp"     // before map_view.hpp (full DisplayClass)
+#include "shared/map_view.hpp"
+#include "shared/map_cell.hpp"
 #include "shared/building_class.hpp"
 #include "shared/techno.hpp"
 #include "shared/techno_type.hpp"
@@ -78,6 +82,20 @@ int Resolve(char const *spec, int *x, int *y)
 {
     HouseClass *player = unknown_player_a35db4;
     if (player == 0 || unknown_tactical_83996c == 0) return 0;
+    if (spec[0] == '=') {
+        // "@=X,Y": the centre of cell X,Y (Scout1153, M19: a building of another house, a bridge hut).
+        char const *p = spec + 1;
+        Cell cell;
+        cell.X = (short)Read_Int(p);
+        if (*p == ',') ++p;
+        cell.Y = (short)Read_Int(p);
+        CoordStruct coord = Map[cell].Center_Coord();
+        Point2D pixel;
+        if (!unknown_tactical_83996c->Coord_To_Pixel(coord, pixel)) return 0;
+        *x = pixel.X;
+        *y = pixel.Y;
+        return 1;
+    }
     int length = 0;
     while (spec[length] && spec[length] != ':' && spec[length] != '+' && spec[length] != '-') ++length;
     char const *p = spec + length;

@@ -226,7 +226,7 @@ run 50x faster" Scout1121 saw; Main_Loop_End then runs Do_Win/Do_Lose and the
 score dialog (MP_Score_Dialog_Proc 0x005AAE40, modal). The default skirmish map,
 Isle of War, has no land route between the bases (Regular findpath failure);
 a menu run picks El Dorado in Customize Battle (Choose Map, M16). The real
-loop (menus, Medium Enemy, win at frame ~25,000, the score screen, Continue,
+loop (menus, Medium Enemy at M15-M17, Easy Enemy since M19, win at frame ~25,000, the score screen, Continue,
 Back, Back, `menu-return`) takes about 8 minutes.
 `RA2_NATIVE_FORCE_END=<frame>[,lose]` sets the win (or loss) flag at that frame
 (test scaffolding for the score screens). Native causes fixed on the way: the
@@ -325,6 +325,55 @@ real DFT or DCT-III, 1/16 overlap) into a port mixer voice
 (`ra2port::audio_stream_*`, `ddraw_dsound.cpp`) when the game set a sound system;
 video is still black (no decoder). `RA2_NATIVE_BINK_WAV=<file>` writes the last
 movie's decoded sound as a WAV.
+
+### Win loop, Allied 1 fort and base, Bink video, drop-list frame (Scout1153, M19)
+
+Win loop: since M18's working paths and land types the Medium computer on El
+Dorado outgrows the harness army (not won in 1,000 s); the loop's check now picks
+Easy Enemy in the first AI slot (`d5+3500 click 300 235`): the loop (score screen,
+Continue, Back, Back, `menu-return`) completes; one run won at frame 23,404
+(7.5 minutes), another lost at frame 56,064 after the player's money ran out (the
+outcome is not deterministic). `--skirmish-order=win` leaves Tanya out of the
+army's hunt (a campaign is lost when she dies). `RA2_NATIVE_ORDERS="<frame> goto
+<ID|*> <x> <y>; <frame> attack|capture <ID|*> <x> <y>; <frame> train <ID>; <frame> hunt"`
+(`link/harness_orders.cpp`, test scaffolding, any game) queues, at that frame, a
+move to a cell, an attack on (or an engineer's capture of) the building in a cell,
+a barracks cameo click, or the hunt, for the player's units, as a click would. An
+input-script point `@=X,Y` is the screen pixel of cell X,Y. CellClass::Is_Tile_Water
+0x0047A270 is a behaviour row (the computer's superweapon placement reached it). Allied 1 after the Dreadnoughts: Tanya walks into the fort
+(the map's "Change House 2a" cell tag at about 64..77, 28..48), the fort's
+buildings change to the player (construction yard, pillboxes, dogs) and objective
+3 (destroy the Soviet base, house BadGuy1's buildings) starts; with
+`--skirmish-order=win` the harness builds the base and the army from the captured
+yard. Barracks never released infantry ("Failed to exit object from factory"):
+RadioClass 0x00636EA0 (a free radio link) was linked by address to an unowned view
+with a 0xCC-byte pad (`unknown_has_null_00636ea0.cpp`), which reads the VC6 offset;
+it is a behaviour row now (`link/behaviour_m19.cpp`, RadioLinks) and the alias row is
+gone. `RA2_NATIVE_ARMY_INFANTRY=<frame>` lets the army train GIs/Conscripts when no
+tank is buildable (Allied 1 has no war factory), `RA2_NATIVE_ARMY_SIZE` sets the
+attack size.
+The accepted WinMain 0x0068E280 (b10418049) supersedes its native draft:
+fixups drop its `__try/__except` (no SEH natively) and give it C linkage, the two
+calls it names differently forward to the existing bodies
+(`link/behaviour_winmain.cpp`), and the data it reads (Keys, the CLSIDs,
+register_dlls, the video flag, a message text) come from game.exe at run time or
+alias existing definitions (`data_globals.py`, `original_data.py` and new
+`address_aliases.tsv` rows rerun).
+Bink video (`port/src/bink_video.cpp`, clean-room, NOT EXACT): BinkDoFrame decodes
+the frame's video (planes Y, V, U in 8x8 blocks: skip, scaled, motion, run,
+residue, intra and inter DCT, fill, pattern, raw; nine value bundles with Huffman
+trees chosen per plane), BinkCopyToBuffer converts to 5:6:5. The scan order, the
+block-type run lengths and the codes of Huffman trees 0..9 are written from the
+format description (each compared privately with the installed BINKW32.DLL: equal);
+code lengths follow from the codes. Trees 10..15, the 16 run patterns and the two
+quantizer matrices are read at run time from the installed BINKW32.DLL, located
+by those verified tables, only with `RA2_NATIVE_BINK_TABLES=1` (a user ruling is
+pending: the native-phase decision names game.exe and Ra2.tlb); without it the
+video stays black. `RA2_NATIVE_BINK_DUMP=<prefix>` writes decoded frames as BMPs.
+The drop list's frame (0x005EAD20 draws it one pixel outside its rectangle into
+the back surface) now reaches the screen: the combo box behaviour row repaints
+the dialog after showing the list, and 0x005EE460 paints the dialog, then its
+ComboDropWin children, and copies the union.
 
 ### Data the original stores (game.exe at run time)
 
