@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
+#include <unistd.h>
 #include <string>
 #include <vector>
 #include <atomic>
@@ -17,11 +19,38 @@ namespace ra2port { void set_key_state(int vk, bool down); }
 // skirmish harness); 0 when it has no answer.
 extern "C" int ra2port_resolve_point(const char *spec, int *x, int *y);
 
+// Trackpad scrolling over the tactical view pans the map (README "Mac app"):
+// the game side answers through this hook, called at the start of a Main_Loop
+// frame with the pixels the fingers moved since the last frame (dx right,
+// dy down: the view moves that way) and the cursor's game pixel. The weak
+// default answers 0 (not handled): the host then posts the vertical part as
+// WM_MOUSEWHEEL (the sidebar scroll), as a mouse wheel does. A strong
+// definition in the game tree (native/link) replaces it.
+extern "C" __attribute__((weak)) int ra2_native_scroll_map(int, int, int, int) { return 0; }
+// Quitting (Cmd+Q, the app menu's Quit, the window's close button) saves the
+// game's settings (RA2.INI) as the main menu's Exit Game does, through this
+// hook (weak default: nothing to save; native/link may define it).
+extern "C" __attribute__((weak)) void ra2_native_save_settings(void) {}
+extern "C" int ra2port_last_frame(void);
+
 namespace {
 SDL_Window *window = nullptr;
 SDL_Renderer *renderer = nullptr;
 SDL_Texture *texture = nullptr;
 int tex_w = 0, tex_h = 0;
+
+// Mac app options (main.cpp, ra2_sdl_host_options): start in fullscreen; ask
+// before quitting a game; what to save before a quit ends the process.
+bool want_fullscreen = false;
+bool app_mode = false;
+void (*before_exit)() = nullptr;     // the app's settings (main.cpp)
+// The last pointer position in game pixels (the trackpad hook's cursor).
+float pointer_x = 0, pointer_y = 0;
+// Trackpad motion not yet handed to the game (pixels), applied at the next frame.
+float pan_dx = 0, pan_dy = 0;
+Uint64 pan_last_ms = 0;
+// The vertical pan the game did not take (no hook), as wheel notches.
+float pan_wheel = 0;
 
 // Mouse events the input script pushes carry this mouse id: their coordinates
 // are already the game's (the presented surface's pixels).
@@ -47,6 +76,60 @@ int virtual_key(SDL_Keycode k)
 
 LPARAM mouse_lparam(float x, float y) { return (LPARAM)(((int)y & 0xFFFF) << 16 | ((int)x & 0xFFFF)); }
 
+// A window point converted to the game's pixels lies outside the picture when
+// it is over a letterbox bar (fullscreen on a display of another aspect). The
+// game reads the cursor as the screen's, so it is held on the picture's edge:
+// at the display's edge the game sees its own screen edge and edge-scrolls.
+void clamp_to_picture(float &x, float &y)
+{
+    if (tex_w <= 0 || tex_h <= 0) return;
+    if (x < 0) x = 0;
+    if (y < 0) y = 0;
+    if (x > tex_w - 1) x = (float)(tex_w - 1);
+    if (y > tex_h - 1) y = (float)(tex_h - 1);
+}
+
+// Fullscreen (Cmd+Return, Cmd+F, Alt+Return; README "Mac app"): a borderless
+// window over the whole display (no Spaces animation, the menu bar and Dock
+// hidden, so the top edge scrolls the map), the picture scaled to fit with
+// its aspect kept. The mouse is confined to the window in fullscreen so the
+// display's edges reach the game's edge scroll.
+void apply_mouse_grab()
+{
+    if (!window) return;
+    bool fullscreen = (SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN) != 0;
+    SDL_SetWindowMouseGrab(window, fullscreen);
+}
+void set_fullscreen(bool on)
+{
+    if (!window) return;
+    SDL_SetWindowFullscreen(window, on);
+    SDL_SyncWindow(window);
+    apply_mouse_grab();
+    fprintf(stderr, "host: %s\n", on ? "fullscreen" : "windowed");
+}
+bool is_fullscreen() { return window && (SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN) != 0; }
+
+// The window in points for a game resolution: the game's pixels at one
+// point each (two device pixels on a Retina display), smaller only when that
+// does not fit the display's usable area.
+void fit_window(int width, int height)
+{
+    if (!window || is_fullscreen()) return;
+    int w = width, h = height;
+    SDL_Rect usable;
+    SDL_DisplayID display = SDL_GetDisplayForWindow(window);
+    if (display && SDL_GetDisplayUsableBounds(display, &usable) && usable.w > 0 && usable.h > 0) {
+        int max_w = usable.w, max_h = usable.h - 28;     // the title bar
+        if (w > max_w || h > max_h) {
+            double scale = SDL_min((double)max_w / w, (double)max_h / h);
+            w = (int)(w * scale);
+            h = (int)(h * scale);
+        }
+    }
+    SDL_SetWindowSize(window, w, h);
+}
+
 struct Deferred { const void *pixels; int width, height, pitch; };
 std::atomic<bool> deferred_pending{false};
 Deferred deferred;
@@ -56,8 +139,16 @@ SDL_Mutex *deferred_lock = nullptr;
 void *create_window(const char *title, int width, int height)
 {
     if (!window) {
-        window = SDL_CreateWindow(title, width, height, SDL_WINDOW_HIGH_PIXEL_DENSITY);
+        // Resizable, HiDPI (the renderer draws in device pixels; the picture
+        // keeps its aspect, letterboxed).
+        SDL_SetHint(SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES, "0");
+        window = SDL_CreateWindow(title, width, height, SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
         renderer = window ? SDL_CreateRenderer(window, nullptr) : nullptr;
+        if (window) {
+            SDL_SetWindowMinimumSize(window, 320, 240);
+            fit_window(width, height);
+            if (want_fullscreen) set_fullscreen(true);
+        }
         if (!deferred_lock) deferred_lock = SDL_CreateMutex();
         // The logical size follows the presented surface (present below), so
         // mouse positions convert to the game's pixels.
@@ -65,6 +156,43 @@ void *create_window(const char *title, int width, int height)
         SDL_StartTextInput(window);
     }
     return window;
+}
+
+// Cmd+Q, the app menu's Quit, the window's close button (README "Mac app").
+// Not WM_CLOSE: the original ignores the close command (Windows_Procedure
+// 0x007375A0 answers WM_SYSCOMMAND SC_CLOSE with 0) and a WM_CLOSE reaching
+// DefWindowProc destroys the main window under the running game, which then
+// waits for ever. The host ends the game itself: after a game has run, the app
+// asks first; the settings are saved (ra2_native_save_settings, RA2.INI) and
+// the process ends. Without the exit-time destructors: the game's threads (the
+// mouse timer, audio) still run and used a destroyed mutex under exit(0)
+// ("mutex lock failed", an abort); Windows' ExitProcess stops them first.
+void quit()
+{
+    fprintf(stderr, "host: quit requested\n");
+    // Scripted runs (--input-script) quit without asking.
+    const char *scripted = getenv("RA2_NATIVE_INPUT_SCRIPT");
+    if (app_mode && ra2port_last_frame() > 0 && !(scripted && *scripted)) {
+        bool was_fullscreen = is_fullscreen();
+        if (was_fullscreen) set_fullscreen(false);
+        const SDL_MessageBoxButtonData buttons[] = {
+            {SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 0, "Quit"},
+            {SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 1, "Cancel"},
+        };
+        const SDL_MessageBoxData box = {SDL_MESSAGEBOX_WARNING, window, "Red Alert 2",
+                                        "Quit Red Alert 2?\n\nA game in progress is not saved.", 2, buttons, nullptr};
+        int pressed = 0;
+        if (SDL_ShowMessageBox(&box, &pressed) && pressed != 0) {
+            fprintf(stderr, "host: quit cancelled\n");
+            if (was_fullscreen) set_fullscreen(true);
+            return;
+        }
+    }
+    ra2_native_save_settings();
+    if (before_exit) before_exit();
+    fprintf(stderr, "host: quitting\n");
+    fflush(nullptr);
+    _exit(0);
 }
 
 void play_timed();
@@ -94,12 +222,32 @@ void pump_events()
         // Window coordinates to the game's: the presented surface letterboxed
         // into the window (scripted events are in game pixels already).
         bool scripted = (e.type == SDL_EVENT_MOUSE_MOTION && e.motion.which == script_mouse) ||
+                        (e.type == SDL_EVENT_MOUSE_WHEEL && e.wheel.which == script_mouse) ||
                         ((e.type == SDL_EVENT_MOUSE_BUTTON_DOWN || e.type == SDL_EVENT_MOUSE_BUTTON_UP) &&
                          e.button.which == script_mouse);
         if (renderer && !scripted) SDL_ConvertEventToRenderCoordinates(renderer, &e);
         switch (e.type) {
-        case SDL_EVENT_QUIT: ra2port::post_message(w, 0x0010, 0, 0); break;   // WM_CLOSE
+        case SDL_EVENT_QUIT:
+            quit();
+            break;
+        case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED: case SDL_EVENT_WINDOW_ENTER_FULLSCREEN:
+        case SDL_EVENT_WINDOW_LEAVE_FULLSCREEN:
+            apply_mouse_grab();
+            break;
         case SDL_EVENT_KEY_DOWN: case SDL_EVENT_KEY_UP: {
+            // Command-key shortcuts are the Mac's, never the game's: Cmd+Return
+            // and Cmd+F toggle fullscreen (Alt+Return too, as Windows ports do);
+            // Cmd+Q reaches SDL_EVENT_QUIT through the app menu.
+            bool down_key = e.type == SDL_EVENT_KEY_DOWN;
+            if (e.key.mod & SDL_KMOD_GUI) {
+                if (down_key && !e.key.repeat && (e.key.key == SDLK_RETURN || e.key.key == SDLK_KP_ENTER || e.key.key == SDLK_F))
+                    set_fullscreen(!is_fullscreen());
+                break;
+            }
+            if (down_key && !e.key.repeat && (e.key.mod & SDL_KMOD_ALT) && e.key.key == SDLK_RETURN) {
+                set_fullscreen(!is_fullscreen());
+                break;
+            }
             int vk = virtual_key(e.key.key);
             if (!vk) break;
             bool down = e.type == SDL_EVENT_KEY_DOWN;
@@ -113,10 +261,14 @@ void pump_events()
                 if (*c < 0x80) ra2port::post_message(w, 0x0102, *c, 1);   // WM_CHAR (ASCII)
             break;
         case SDL_EVENT_MOUSE_MOTION:
+            clamp_to_picture(e.motion.x, e.motion.y);
+            pointer_x = e.motion.x;
+            pointer_y = e.motion.y;
             ra2port::post_message(w, 0x0200, 0, mouse_lparam(e.motion.x, e.motion.y));
             break;
         case SDL_EVENT_MOUSE_BUTTON_DOWN: case SDL_EVENT_MOUSE_BUTTON_UP: {
             bool down = e.type == SDL_EVENT_MOUSE_BUTTON_DOWN;
+            clamp_to_picture(e.button.x, e.button.y);
             if (e.button.button != SDL_BUTTON_LEFT && e.button.button != SDL_BUTTON_RIGHT) break;
             UINT msg = e.button.button == SDL_BUTTON_RIGHT ? (down ? 0x0204 : 0x0205) : (down ? 0x0201 : 0x0202);
             ra2port::set_key_state(e.button.button == SDL_BUTTON_RIGHT ? 0x02 : 0x01, down);
@@ -124,12 +276,33 @@ void pump_events()
             break;
         }
         case SDL_EVENT_MOUSE_WHEEL: {
+            // A trackpad (fractional, two-axis deltas) over the tactical view
+            // pans the map: collected here, handed to the game at the next frame
+            // (frame below). SDL's precise deltas are a tenth of the pixels the
+            // fingers moved; natural scrolling is already in their sign.
+            float wx = e.wheel.mouse_x, wy = e.wheel.mouse_y;
+            clamp_to_picture(wx, wy);
+            bool precise = e.wheel.x != (float)(int)e.wheel.x || e.wheel.y != (float)(int)e.wheel.y ||
+                           (e.wheel.x != 0 && e.wheel.y != 0);
+            bool over_sidebar = tex_w > 0 && wx >= tex_w - 168;
+            if (precise && !over_sidebar) {
+                // A new gesture (or one that ended in the menus, where no frame
+                // runs) starts from nothing.
+                if (pan_last_ms && SDL_GetTicks() - pan_last_ms > 250) pan_dx = pan_dy = pan_wheel = 0;
+                pointer_x = wx;
+                pointer_y = wy;
+                pan_dx += e.wheel.x * 10.0f;
+                pan_dy -= e.wheel.y * 10.0f;
+                pan_last_ms = SDL_GetTicks();
+                break;
+            }
             // WM_MOUSEWHEEL: Windows_Procedure 0x007375A0 scrolls the sidebar
             // (wheel delta in the high word, 120 per notch; the cursor's screen point).
-            int delta = (int)(e.wheel.y * 120.0f);
+            if (precise && e.wheel.integer_y == 0) break;     // a trackpad over the sidebar: whole notches only
+            int delta = (int)((precise ? (float)e.wheel.integer_y : e.wheel.y) * 120.0f);
             if (e.wheel.direction == SDL_MOUSEWHEEL_FLIPPED) delta = -delta;
             if (delta == 0) break;
-            ra2port::post_message(w, 0x020A, (WPARAM)((delta & 0xFFFF) << 16), mouse_lparam(e.wheel.mouse_x, e.wheel.mouse_y));
+            ra2port::post_message(w, 0x020A, (WPARAM)((delta & 0xFFFF) << 16), mouse_lparam(wx, wy));
             break;
         }
         case SDL_EVENT_WINDOW_FOCUS_GAINED: ra2port::post_message(w, 0x001C, 1, 0); break;   // WM_ACTIVATEAPP
@@ -166,16 +339,35 @@ void present_now(const void *pixels, int width, int height, int pitch)
     if (!texture || tex_w != width || tex_h != height) {
         if (texture) SDL_DestroyTexture(texture);
         // The game's resolution (its DirectDraw display mode): the window
-        // takes that size and the mouse maps onto those pixels.
+        // takes that size (in points; fullscreen keeps the display) and the
+        // mouse maps onto those pixels.
         SDL_SetRenderLogicalPresentation(renderer, width, height, SDL_LOGICAL_PRESENTATION_LETTERBOX);
-        SDL_SetWindowSize(window, width, height);
+        fit_window(width, height);
         texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_STREAMING, width, height);
+        // Sharp pixels at any scale (Retina 2x, fullscreen's fractional fit).
+        if (texture) SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_PIXELART);
         tex_w = width;
         tex_h = height;
     }
     SDL_UpdateTexture(texture, nullptr, pixels, pitch);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     SDL_RenderTexture(renderer, texture, nullptr, nullptr);
+    // RA2_NATIVE_WINDOW_DUMP=<file> (test runs): every 2 s, the whole window
+    // as drawn (device pixels: the scaling, letterbox and fullscreen) to
+    // <file>.<n>.bmp.
+    static const char *window_dump = getenv("RA2_NATIVE_WINDOW_DUMP");
+    static Uint64 window_dump_ms = 0;
+    static int window_dump_count = 0;
+    if (window_dump && *window_dump && SDL_GetTicks() - window_dump_ms >= 2000) {
+        window_dump_ms = SDL_GetTicks();
+        if (SDL_Surface *shot = SDL_RenderReadPixels(renderer, nullptr)) {
+            char name[1024];
+            snprintf(name, sizeof name, "%s.%d.bmp", window_dump, window_dump_count++);
+            SDL_SaveBMP(shot, name);
+            SDL_DestroySurface(shot);
+        }
+    }
     SDL_RenderPresent(renderer);
 }
 
@@ -269,6 +461,14 @@ void script_mouse_event(int frame, Uint32 type, float x, float y, std::string co
 
 void script_key_event(int frame, bool down, const char *name)
 {
+    // "cmd+NAME", "alt+NAME": the key with that modifier (fullscreen and quit
+    // shortcuts in test runs).
+    SDL_Keymod mod = SDL_KMOD_NONE;
+    for (;;) {
+        if (!strncasecmp(name, "cmd+", 4)) { mod |= SDL_KMOD_LGUI; name += 4; }
+        else if (!strncasecmp(name, "alt+", 4)) { mod |= SDL_KMOD_LALT; name += 4; }
+        else break;
+    }
     SDL_Keycode key = SDL_GetKeyFromName(name);
     if (key == SDLK_UNKNOWN) {
         fprintf(stderr, "input-script: unknown key %s\n", name);
@@ -280,6 +480,7 @@ void script_key_event(int frame, bool down, const char *name)
     s.event.key.key = key;
     s.event.key.scancode = SDL_GetScancodeFromKey(key, nullptr);
     s.event.key.down = down;
+    s.event.key.mod = mod;
     script.push_back(s);
 }
 
@@ -331,7 +532,22 @@ void load_script()
         std::string const action = tokens[1];
         size_t i = 2;
         bool ok = true;
-        if (action == "key" || action == "keydown" || action == "keyup") {
+        if (action == "quit" || action == "wheel") {
+            // quit: what Cmd+Q sends (SDL_EVENT_QUIT). wheel DX DY [X Y]: a
+            // trackpad scroll of that many SDL units at the game pixel X, Y.
+            Scripted s = {frame, {}, std::string()};
+            if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
+            if (action == "quit") s.event.type = SDL_EVENT_QUIT;
+            else if (tokens.size() >= 4) {
+                s.event.type = SDL_EVENT_MOUSE_WHEEL;
+                s.event.wheel.which = script_mouse;
+                s.event.wheel.x = strtof(tokens[2].c_str(), nullptr);
+                s.event.wheel.y = strtof(tokens[3].c_str(), nullptr);
+                s.event.wheel.mouse_x = tokens.size() >= 6 ? strtof(tokens[4].c_str(), nullptr) : 300.0f;
+                s.event.wheel.mouse_y = tokens.size() >= 6 ? strtof(tokens[5].c_str(), nullptr) : 300.0f;
+            } else ok = false;
+            if (ok) script.push_back(s);
+        } else if (action == "key" || action == "keydown" || action == "keyup") {
             if (tokens.size() < 3) ok = false;
             else {
                 if (action != "keyup") script_key_event(frame, true, tokens[2].c_str());
@@ -382,6 +598,25 @@ std::vector<size_t> timed;      // indices of timed events, in order
 size_t timed_next = 0;
 void frame(int number)
 {
+    // Trackpad panning collected since the last frame (pump_events).
+    int dx = (int)pan_dx, dy = (int)pan_dy;
+    if (pan_last_ms && SDL_GetTicks() - pan_last_ms > 250) {
+        pan_dx = pan_dy = pan_wheel = 0;    // the remainder of a finished gesture
+        pan_last_ms = 0;
+    } else if (dx || dy) {
+        pan_dx -= dx;
+        pan_dy -= dy;
+        if (!ra2_native_scroll_map((int)pointer_x, (int)pointer_y, dx, dy)) {
+            // No map pan in this build: 40 pixels of vertical motion make one
+            // wheel notch (the sidebar scroll), fingers up scrolling it up.
+            pan_wheel -= dy;
+            HWND w = ra2port::main_window();
+            for (; pan_wheel >= 40 || pan_wheel <= -40; pan_wheel += pan_wheel > 0 ? -40 : 40) {
+                int delta = pan_wheel > 0 ? 120 : -120;
+                ra2port::post_message(w, 0x020A, (WPARAM)((delta & 0xFFFF) << 16), mouse_lparam(pointer_x, pointer_y));
+            }
+        }
+    }
     load_script();
     while (script_next < script.size() && script[script_next].frame <= number) {
         play(script[script_next++], number);
@@ -416,6 +651,9 @@ void play(Scripted &s, int number)
         SDL_Event e = s.event;
         if (e.type == SDL_EVENT_KEY_DOWN || e.type == SDL_EVENT_KEY_UP) {
             e.key.windowID = id;
+        } else if (e.type == SDL_EVENT_QUIT) {
+        } else if (e.type == SDL_EVENT_MOUSE_WHEEL) {
+            e.wheel.windowID = id;
         } else {
             float x = e.type == SDL_EVENT_MOUSE_MOTION ? e.motion.x : e.button.x;
             float y = e.type == SDL_EVENT_MOUSE_MOTION ? e.motion.y : e.button.y;
@@ -439,3 +677,13 @@ const ra2port::Host sdl_host = {create_window, pump_events, present, set_relativ
 }  // namespace
 
 void ra2_install_sdl_host() { ra2port::set_host(&sdl_host); }
+// Mac app (main.cpp): start in fullscreen; what to save before a quit ends the
+// process.
+void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)())
+{
+    app_mode = app;
+    want_fullscreen = fullscreen;
+    before_exit = on_quit;
+}
+// The window's fullscreen state at exit (remembered in the settings).
+bool ra2_sdl_host_fullscreen() { return is_fullscreen(); }

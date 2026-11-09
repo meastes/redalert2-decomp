@@ -35,6 +35,10 @@ namespace ra2port { int load_original_data(const ra2_original_global *table, con
 void ra2_native_original_records();
 #endif
 void ra2_install_sdl_host();
+#ifdef RA2_NATIVE_GAME
+void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)());
+bool ra2_sdl_host_fullscreen();
+#endif
 extern "C" int ra2port_initterm_last(int *units);
 extern "C" void ra2port_run_to(const char *target, int seconds);
 extern "C" void ra2port_run_end(const char *why);
@@ -45,9 +49,31 @@ extern "C" void ra2port_set_frames(int frames);
 #include <sys/stat.h>
 #include <string.h>
 #include <unistd.h>
+// The Mac app mode needs the game (host.cpp is linked with it only).
+#if defined(__APPLE__) && defined(RA2_NATIVE_GAME)
+#define RA2_APP_MODE 1
+#include "app_mode.hpp"
+#endif
+
+#ifdef RA2_APP_MODE
+namespace {
+app::Settings app_settings;
+// The fullscreen state is remembered for the next start, however the game ends
+// (WinMain returning, the game's own exit, the host's quit fallback).
+void save_app_settings()
+{
+    app_settings.values["fullscreen"] = ra2_sdl_host_fullscreen() ? "1" : "0";
+    app_settings.save();
+}
+}
+#endif
 
 int main(int argc, char **argv)
 {
+#ifdef RA2_APP_MODE
+    // The crash dialog of RA2.app (app_mode.hpp): a fresh process.
+    if (argc == 3 && !strcmp(argv[1], "--crash-report")) return app::crash_report(argv[2]);
+#endif
     const char *data = getenv("RA2_DATA_DIR");
     bool smoke = false;
     // Test runs (README "Start-up test runs"): --run-to=<milestone> starts the
@@ -71,6 +97,9 @@ int main(int argc, char **argv)
     bool cd_check = false;
     // --play=<map>: an interactive skirmish on <map> (as --skirmish names it).
     const char *play = nullptr;
+    // Mac app mode (README "Mac app"): RA2.app launched from Finder, or --app.
+    // First-run setup, the settings, the log file and the crash dialog.
+    bool app_flag = false, setup_flag = false;
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--data-dir") && i + 1 < argc) data = argv[++i];
         else if (!strcmp(argv[i], "--smoke-test")) smoke = true;
@@ -85,7 +114,27 @@ int main(int argc, char **argv)
         else if (!strncmp(argv[i], "--play=", 7)) play = argv[i] + 7;
         else if (!strncmp(argv[i], "--frames=", 9)) ra2port_set_frames(atoi(argv[i] + 9));
         else if (!strncmp(argv[i], "--input-script=", 15)) setenv("RA2_NATIVE_INPUT_SCRIPT", argv[i] + 15, 1);
+        else if (!strcmp(argv[i], "--app")) app_flag = true;
+        else if (!strcmp(argv[i], "--setup")) setup_flag = true;
     }
+#ifdef RA2_APP_MODE
+    bool app_mode = app_flag || (app::in_bundle() && !run_to && !skirmish && !smoke);
+    if (app_mode && (run_to || skirmish || smoke)) { fprintf(stderr, "--app is the interactive game: not with --run-to, --skirmish or --smoke-test\n"); return 64; }
+    if (app_mode) {
+        app::install_crash_handler();
+        if (!getenv("RA2_NATIVE_LOG_STDERR")) {
+            fprintf(stderr, "app: logging to %s/ra2-native.log\n", app::log_dir().c_str());
+            app::open_log();
+        }
+        SDL_SetAppMetadata("Red Alert 2", nullptr, "io.github.ra2native.RA2");
+        // A trackpad's Control-click is a right click (selection is left, orders right).
+        SDL_SetHint(SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK, "1");
+    }
+#else
+    bool app_mode = false;
+    (void)app_flag;
+    (void)setup_flag;
+#endif
     if (skirmish && !run_to) { fprintf(stderr, "--skirmish is a test harness: use it with --run-to=<milestone> (e.g. frame)\n"); return 64; }
     if (play && (skirmish || run_to)) { fprintf(stderr, "--play is interactive: not with --skirmish or --run-to\n"); return 64; }
     if (skirmish) ra2port_set_skirmish(skirmish, skirmish_frames);
@@ -117,6 +166,35 @@ int main(int argc, char **argv)
         fprintf(stderr, "SDL_Init: %s\n", SDL_GetError());
         return 1;
     }
+#ifdef RA2_APP_MODE
+    if (app_mode) {
+        // The installation and the supported game.exe: saved, or asked for.
+        app_settings.load();
+        std::string folder, exe;
+        bool force = setup_flag || (getenv("RA2_NATIVE_SETUP") && *getenv("RA2_NATIVE_SETUP") == '1');
+        if (data && !force) app_settings.values["data_dir"] = data;    // --data-dir / RA2_DATA_DIR win
+        if (!app::setup(app_settings, force, folder, exe)) {
+            fprintf(stderr, "app: setup cancelled\n");
+            SDL_Quit();
+            return 0;
+        }
+        static std::string data_dir_kept;
+        data_dir_kept = folder;
+        data = data_dir_kept.c_str();
+        setenv("RA2_GAME_EXE", exe.c_str(), 1);
+        fprintf(stderr, "app: game folder %s, game.exe %s\n", folder.c_str(), exe.c_str());
+        // Writes (RA2.INI, saved games) beside the settings, never into the installation.
+        if (!write_dir) {
+            static std::string game_writes;
+            game_writes = app::support_dir() + "/Game";
+            app::make_dirs(game_writes);
+            ra2port::set_write_dir(game_writes.c_str());
+            fprintf(stderr, "app: writes go to %s\n", game_writes.c_str());
+        }
+        ra2_sdl_host_options(true, app_settings.get("fullscreen") == "1", save_app_settings);
+        atexit(save_app_settings);
+    }
+#endif
     if (data) ra2port::set_data_dir(data);
 #ifdef RA2_NATIVE_GAME
     {

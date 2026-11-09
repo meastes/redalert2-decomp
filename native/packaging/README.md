@@ -1,0 +1,72 @@
+# RA2.app (Mac app bundle)
+
+`make_app.sh` turns the native game build into `RA2.app`, a normal Mac app you
+start from Finder. The bundle holds only the game program, the SDL3 library it
+uses (with its zlib licence), a placeholder icon drawn by `make_icon.py` and
+`Info.plist`. It never contains game data or a game.exe. It is signed ad hoc for
+use on this Mac only: it is not notarised and must not be published.
+
+```
+cmake -S native -B build/native -G Ninja -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON
+cmake --build build/native
+native/packaging/make_app.sh build/native/ra2-native build/native   # writes build/native/RA2.app
+```
+
+## How to launch
+
+1. Double-click **RA2.app** (or drag it to Applications first). Because it is
+   signed for this Mac only, the first launch of a copy from somewhere else may
+   need right-click, **Open**.
+2. The first time, the app asks for your Red Alert 2 folder: click
+   **Choose Folder…** and pick the folder where the game is installed (the one
+   with `ra2.mix` and `game.exe`). The app reads the game's files from there
+   and never changes them.
+3. The app needs the base Red Alert 2 `game.exe` of 4,485,392 bytes. If the
+   folder has another build, it says so and lets you pick the right `game.exe`
+   from somewhere else (for example a backup). Other builds are not supported
+   yet.
+4. The game starts at its main menu. Your choice is remembered; to choose
+   again, delete `~/Library/Application Support/RA2Native/settings`.
+
+While playing:
+
+| Keys | |
+| --- | --- |
+| Cmd+Return or Cmd+F (also Alt+Return) | fullscreen on and off (remembered) |
+| Cmd+Q | quit (asks first once a game has started) |
+| Two-finger trackpad swipe over the map | scroll the map |
+| Mouse wheel, or two-finger swipe over the sidebar | scroll the sidebar |
+| Control-click | right click |
+
+Map scrolling by trackpad and saving RA2.INI on Cmd+Q use two small hooks on
+the game side (`ra2_native_scroll_map`, `ra2_native_save_settings`, declared
+weak in `platform/sdl/host.cpp`); in a build without them the swipe scrolls
+the sidebar and Cmd+Q quits without writing RA2.INI.
+
+In fullscreen the picture keeps its shape (black bars at the sides on a wide
+display) and the mouse stays inside the game, so pushing it against any screen
+edge scrolls the map.
+
+Where things are kept:
+
+- settings: `~/Library/Application Support/RA2Native/settings`
+- the game's own files it writes (RA2.INI, saved games):
+  `~/Library/Application Support/RA2Native/Game`
+- the log: `~/Library/Logs/RA2Native/ra2-native.log` (the session before it:
+  `ra2-native.previous.log`)
+
+If the game stops with an error, a window names the part of the game that
+failed and points at the log. Parts of the game that are not rebuilt yet stop
+it this way.
+
+## For testing
+
+`ra2-native --app` runs the same app mode from a terminal. Environment:
+`RA2_NATIVE_SETTINGS=<file>` (another settings file), `RA2_NATIVE_SETUP=1` or
+`--setup` (ask for the folder again), `RA2_NATIVE_SETUP_ANSWERS="0|<folder>|0|<game.exe>"`
+(answers for the setup dialogs, in order: a button number per message, a path
+per file dialog), `RA2_NATIVE_LOG_STDERR=1` (keep the terminal instead of the
+log file), `RA2_NATIVE_WINDOW_DUMP=<file>` (every 2 s the rendered window as
+`<file>.<n>.bmp`). Input scripts (`--input-script`) also take `quit`,
+`key cmd+F` / `key alt+Return`, and `wheel DX DY [X Y]` (a trackpad swipe).
+`open -n RA2.app --env NAME=value` passes them to the bundle.
