@@ -53,6 +53,8 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   the repo or shipped. The port reads either the rebuilt target game.exe or the
   user's installed game.exe (a different build: locate data per build, e.g. by
   signature or a per-build address map), and skips the CD check (user, 2026-11-08).
+  User decision (2026-11-09): the port may also read the Bink tables from the user's
+  installed `BINKW32.DLL` at run time on the same terms (never copied or shipped).
 
 ## How to work
 
