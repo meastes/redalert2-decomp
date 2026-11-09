@@ -338,7 +338,7 @@ enum {
 
 struct AudioStreamPlayer : AudioListNode {
     unsigned int Flags;                             // +0x0C AUDIO_STREAM_*
-    int unknown_10;                                 // +0x10 (the creator's first argument)
+    AudioDevice *Device;                            // +0x10 the device it plays on (ra2-decomp AudioStreamer::device)
     AudioChannel *Channel;                          // +0x14
     __int64 BufferTime;                             // +0x18 milliseconds buffered (at least 7000)
     __int64 unknown_20;                             // +0x20 (Audio_Now when it stopped or started)

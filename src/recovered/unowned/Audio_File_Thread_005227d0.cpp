@@ -15,7 +15,7 @@ DWORD WINAPI Audio_File_Thread(void *data)
     thread->Stopped = 0;
     while (!thread->Stop) {
         thread->Timing.Tick(Audio_Now());
-        AudioStream *ring = (AudioStream *)DAT_00a522c4;
+        AudioStream *ring = DAT_00a522c4;
         if (DAT_00a522c4 != 0 && DAT_00a522ac != 0 && DAT_00a522d0 != 0) {
             EnterCriticalSection(&unknown_audio_file_lock_a52280);
             if (DAT_00a522ac == 2 && (unsigned)Audio_Ring_Drain_Available(ring) < (unsigned)Audio_Ring_Size(ring) >> 1) {

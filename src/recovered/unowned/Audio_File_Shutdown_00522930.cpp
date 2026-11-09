@@ -70,7 +70,7 @@ void __fastcall Audio_File_Shutdown()
         DAT_00a522cc = 0;
     }
     if (DAT_00a522c4 != 0) {
-        Audio_Ring_Destroy((AudioStream *)DAT_00a522c4);
+        Audio_Ring_Destroy(DAT_00a522c4);
         DAT_00a522c4 = 0;
     }
     if (DAT_00a522bc != 0) {

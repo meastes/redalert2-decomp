@@ -4,8 +4,8 @@
     "id": "population-3431",
     "inventory_sha256": "7d02d0b527e6c0e97444df8c8d92e399737bfb12f871c53a03717dbe2fc08d25",
     "gaps_sha256": "d0e5cbd9ade4007230d3f9c696ed0982cb12bfdc498a7d83e5e6635c7b0acf66",
-    "historical_population_sha256": "a2525c3cbb82c4cf785efc626f976d00b553997c46c1a0de7bf0cc5d10f16007",
-    "historical_acceptance_sha256": "ec7ac7e2b54060a36bdabc1b24eb82ea600a6197a7aca5668b148ceca7109f6c"
+    "historical_population_sha256": "bcbd4f1166899ffaacb893ae19fa7fc5ff57ac9d22fee5af5d8b0d31e44e2c92",
+    "historical_acceptance_sha256": "95f8abcc4285b2a0cf53289278b2d84166294dfa50bf7d90b4641ef7a935e7f9"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -2019,7 +2019,8 @@
     "?Create@WDTTerritory@@SI?AV?$rc_ptr@VWDTTerritory@@@@XZ": 7519680,
     "?Print_CRCs@@YIXPAVEventClass@@@Z": 6464352,
     "?Delete@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@QAE_NH@Z": 6482432,
-    "??_EMixFileClass@@UAEPAXI@Z": 5856352
+    "??_EMixFileClass@@UAEPAXI@Z": 5856352,
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488
   },
   "regions": [
     {
@@ -2854,7 +2855,7 @@
           "resolved": 7971296
         }
       ],
-      "source_sha256": "2121f3c75abe9fd8f8b39f97f7016fecaca6552388d54cdbde8a65fd56240e5d",
+      "source_sha256": "249f0748c691504fba59dce8cf3388c38c4789214c157e3e31d0103854fd3b21",
       "source": "src/recovered/unowned/Audio_Stream_Create_00407790.cpp",
       "population": "population-3431",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

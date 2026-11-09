@@ -4,8 +4,8 @@
     "id": "population-4397",
     "inventory_sha256": "7c04c27330bd1019d23a14109eba9c07ef36207c1975eab0ab710881987d066d",
     "gaps_sha256": "dc33680887897a9bdd793b6e2306894356787791eac454410a698a823137b7ea",
-    "historical_population_sha256": "cf839b80cabe003dddbf11c2f8aaaadd13c2c1c7d6b4a148fa07ed5ba402dab9",
-    "historical_acceptance_sha256": "7156170d38885ec8332e4e1fb54a55e1b77c987738bf7868bbd5bff9bf5a7fd7"
+    "historical_population_sha256": "9b06f28162a6edda9e2e1737ead4c53f394899dacaba7b799a49b2936df91de3",
+    "historical_acceptance_sha256": "09560056112bfc6c2ff410716816494b481dc5e371146c4f91913a01938b541b"
   },
   "references": {
     "_DAT_00a521d0": 10822096,
@@ -5489,7 +5489,14 @@
     "??_EMixFileClass@@UAEPAXI@Z": 5856352,
     "??_7WaveClass@@6B@": 8056016,
     "??_EWaveClass@@UAEPAXI@Z": 7489024,
-    "?OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z": 7739536
+    "?OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z": 7739536,
+    "?Detach@TeamClass@@UAEXPAVAbstractClass@@_N@Z": 7050640,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "_WinMain@16": 6873728,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672
   },
   "regions": [
     {
@@ -6463,7 +6470,7 @@
           "resolved": 10822320
         }
       ],
-      "source_sha256": "956e2dd29e94eebf25d004ea88ac4abfe1aee6de6c6e91929c2d4441ca12cebd",
+      "source_sha256": "ce7ff9f10d014dbaacaf5b40de234d5a6af093ccf43a3303bac6d07591536fb6",
       "source": "src/recovered/unowned/Audio_File_Shutdown_00522930.cpp",
       "population": "population-4397",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -7192,7 +7199,7 @@
           "resolved": 10822328
         }
       ],
-      "source_sha256": "dfc5e1b50fd338f98d4fb11fa7e8b1a2ee1b6b714fc123d31d5b5a29eb903314",
+      "source_sha256": "ea6e128a9c57950b210b3c1a65b6bcf4ee8f8c2e0eabc3fc6c83b560836413e3",
       "source": "src/recovered/unowned/Audio_File_Init_00522560.cpp",
       "population": "population-4397",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -7451,7 +7458,7 @@
           "resolved": 7971300
         }
       ],
-      "source_sha256": "ddab0e3259e0dc91579d5605ccaf5ec3ed8a2dac16d2fa60bcb8b920891b22ea",
+      "source_sha256": "33eb62ae71fd5d7e7b7f276185d929314fb100c6ecdba3f85f11f8ce522aa348",
       "source": "src/recovered/unowned/Audio_File_Thread_005227d0.cpp",
       "population": "population-4397",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

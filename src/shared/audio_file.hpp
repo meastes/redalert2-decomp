@@ -9,7 +9,7 @@
 extern CRITICAL_SECTION unknown_audio_file_lock_a52280;     // 0x00A52280
 extern "C" int DAT_00a522ac;                    // 0x00A522AC the file's mode (1: read at close, 2: opened to read)
 extern "C" int DAT_00a522b0;                    // 0x00A522B0 the layer is set up
-extern "C" int DAT_00a522c4;                    // 0x00A522C4
+extern "C" AudioStream *DAT_00a522c4;           // 0x00A522C4 the ring the file feeds (Audio_Ring_Create)
 extern "C" AudioQueue *DAT_00a522c8;            // 0x00A522C8 the queue the opened file feeds
 extern "C" AudioQueue *DAT_00a522cc;            // 0x00A522CC the queue the open file is flushed into
 extern "C" void *DAT_00a522d0;                  // 0x00A522D0 the open stdio file

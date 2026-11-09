@@ -21,7 +21,7 @@ AudioStreamPlayer *__fastcall Audio_Stream_Create(AudioDevice *device, __int64 b
     AudioStreamPlayer *stream = (AudioStreamPlayer *)operator new(sizeof(AudioStreamPlayer));
     memset(stream, 0, sizeof(AudioStreamPlayer));
     Audio_List_Init_Node(stream);
-    stream->unknown_10 = (int)device;
+    stream->Device = device;
     stream->Channel = Audio_Device_Create_Channel(device, 0x1000);
     stream->Channel->unknown_levels_94 = 0;
     stream->Channel->unknown_levels_90 = 0;

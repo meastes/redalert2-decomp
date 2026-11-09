@@ -20,7 +20,7 @@ AudioStreamNode *__fastcall Audio_Ring_Node_Create(int size, int shift)
         return 0;
     }
     node->Shift = shift;
-    node->Base = (char *)(((1 << shift) + (int)node->Data - 1) & (-1 << shift));
+    node->Base = (char *)(((1 << shift) + (unsigned long)node->Data - 1) & (-1 << shift));
     node->Size = size;
     return node;
 }

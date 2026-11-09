@@ -58,18 +58,18 @@ int __fastcall Audio_File_Init(int count, int size)
         Audio_File_Shutdown();
         return 0;
     }
-    DAT_00a522c4 = (int)Audio_Ring_Create();
+    DAT_00a522c4 = Audio_Ring_Create();
     if (DAT_00a522c4 == 0) {
         Audio_File_Shutdown();
         return 0;
     }
-    if (!Audio_Ring_Add_Nodes((AudioStream *)DAT_00a522c4, 1, size, 0)) {
+    if (!Audio_Ring_Add_Nodes(DAT_00a522c4, 1, size, 0)) {
         Audio_File_Shutdown();
         return 0;
     }
-    Audio_Ring_Reset((AudioStream *)DAT_00a522c4);
-    DAT_00a522c8 = Audio_Ring_Acquire((AudioStream *)DAT_00a522c4, 0);
-    DAT_00a522cc = Audio_Ring_Acquire((AudioStream *)DAT_00a522c4, 1);
+    Audio_Ring_Reset(DAT_00a522c4);
+    DAT_00a522c8 = Audio_Ring_Acquire(DAT_00a522c4, 0);
+    DAT_00a522cc = Audio_Ring_Acquire(DAT_00a522c4, 1);
     if (DAT_00a522c8 == 0 || DAT_00a522cc == 0) {
         Audio_File_Shutdown();
         return 0;
