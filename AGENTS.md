@@ -43,7 +43,9 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   Preserve `historical/native-reconstruction/`. The shipped game will be
   native arm64 with no Wine/CrossOver, Rosetta, VM, emulation or original code.
   User decision (2026-11-08): one dedicated native lane runs alongside the exact
-  lanes (lane count and usage rule unchanged). It builds the native tree from
+  lanes; at five or six lanes, two native lanes, provided they work on separate parts of
+  `native/` (each brief names its area, one lands at a time, neither edits `src/`); otherwise
+  the extra lane is an exact lane (user, 2026-11-09). It builds the native tree from
   `src/recovered` and `src/shared`; unmatched functions are carried as their best
   parked draft (flagged non-exact with its score) or a behaviour-written
   implementation, never empty stubs. Native work earns no exact-match credit.
