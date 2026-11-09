@@ -968,20 +968,6 @@
    "verified": true
   },
   {
-   "source": "src/shared/anim.hpp",
-   "old": "void __fastcall Unknown_0047E2C0(CoordStruct const &coord, int damage, int arg3, WarheadTypeClass *warhead, int arg5);\n",
-   "new": "#if defined(__LP64__)   // NATIVE (Scout1108): the source techno is a pointer and the result an int (as shared/infantry.hpp; Explosion_Damage draft 0x0047E2C0)\nclass TechnoClass;\nint __fastcall Unknown_0047E2C0(CoordStruct const &coord, int damage, TechnoClass *arg3, WarheadTypeClass *warhead, bool arg5);\n#else\nvoid __fastcall Unknown_0047E2C0(CoordStruct const &coord, int damage, int arg3, WarheadTypeClass *warhead, int arg5);\n#endif\n",
-   "why": "Explosion_Damage 0x0047E2C0 takes the source techno (TechnoClass *, TibSun combat.cpp Explosion_Damage's `source`) and a bool; anim.hpp declares them int/int, shared/infantry.hpp TechnoClass */bool. Natively the int spelling truncates BombClass 0x00435D30's `(int)Owner` and is a second symbol the draft does not define (link-closure trap from AnimClass::AI at frame ~1000 on '#5'). One declaration natively; callers pass 0/1 or the owner. src/shared item: one declaration, TechnoClass */bool.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/BombClass/BombClass_Unknown_00435D30_00435d30.cpp",
-   "old": "Unknown_0047E2C0(coord, Rules->IvanDamage, (int)Owner, Rules->IvanWarhead, 1);",
-   "new": "Unknown_0047E2C0(coord, Rules->IvanDamage, (TechnoClass *)Owner, Rules->IvanWarhead, 1);   // NATIVE: (int)Owner (see the anim.hpp fixup)",
-   "why": "The bomb owner as Explosion_Damage's source pointer, not an int (see the anim.hpp Unknown_0047E2C0 fixup).",
-   "verified": true
-  },
-  {
    "source": "src/shared/building_view.hpp",
    "old": "    char unknown_098[0x418 - 0x98];\n    BuildingTypeClass *Type; // existing full-class member +418\n    char unknown_41c[0x5E0 - 0x41C];         // TechnoClass and BuildingClass members\n};\n",
    "new": "#if defined(__LP64__)   // NATIVE (Scout1111): BuildingClass's arm64 offsets (shared/building_class.hpp: Type +0x518, sizeof 0x7B8)\n    char unknown_098[0x518 - sizeof(ObjectClass)];\n    BuildingTypeClass *Type; // existing full-class member +418\n    char unknown_41c[0x7B8 - 0x520];         // TechnoClass and BuildingClass members\n};\nstatic_assert(__builtin_offsetof(BuildingClass, Type) == 0x518, \"BuildingClass::Type (arm64)\");\n#else\n    char unknown_098[0x418 - 0x98];\n    BuildingTypeClass *Type; // existing full-class member +418\n    char unknown_41c[0x5E0 - 0x41C];         // TechnoClass and BuildingClass members\n};\n#endif\n",

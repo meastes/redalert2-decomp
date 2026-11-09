@@ -102,7 +102,7 @@ public:
     virtual int unknown_slot29() const;         // 0x006DE220 Max_Pips
     virtual int unknown_slot33(HouseClass *house) const; // 0x006DAD30 Cost_Of(HouseClass *)
     virtual int unknown_slot34() const;         // 0x006DAD10
-    virtual int unknown_slot38() const;         // 0x006DAE40 Get_Cameo_Data
+    virtual void const *unknown_slot38() const; // 0x006DAE40 Get_Cameo_Data (TibSun returns void const *)
 
     virtual bool unknown_slot40() const;                                // 0x006DACB0 (true)
     virtual bool unknown_slot41() const;                                // 0x006DACC0

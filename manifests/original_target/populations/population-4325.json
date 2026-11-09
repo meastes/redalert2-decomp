@@ -4,8 +4,8 @@
     "id": "population-4325",
     "inventory_sha256": "f7ddb0b6b92bf7dd251e04394e53c5f3a442a680a103437bef94a8752db862b8",
     "gaps_sha256": "b1744b441d9fceece2cf859d039bac44c5a258fd3868c2929580b1a2c3f9cf04",
-    "historical_population_sha256": "e46fcb637debe1bdd04fd7101f2b92a24f3330435822728b47b1b61c4762f7e8",
-    "historical_acceptance_sha256": "8f891fd26f62e3acfe5714d3c986354f90997392bc35f750e1a1d53b418737f2"
+    "historical_population_sha256": "14407a54f211a6f2a97b66db6991002fd2ec2ff87f306cc1e18d81af6ddfd976",
+    "historical_acceptance_sha256": "2a8f0e247c44bca5dc085b843a7472ee76c32bdd58e622f32dea6d4d4a5d4385"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -4974,7 +4974,7 @@
     "?unknown_slot29@ObjectTypeClass@@UBEHXZ": 6118656,
     "?unknown_slot33@ObjectTypeClass@@UBEHPAVHouseClass@@@Z": 6118752,
     "?unknown_slot34@ObjectTypeClass@@UBEHXZ": 6118768,
-    "?unknown_slot38@ObjectTypeClass@@UBEHXZ": 6118784,
+    "?unknown_slot38@ObjectTypeClass@@UBEPBXXZ": 6118784,
     "?get@Leaf_5d7c20@@QAEXXZ": 6126624,
     "??_GObjectTypeClass@@UAEPAXI@Z": 6127600,
     "??1ObjectTypeClass@@UAE@XZ": 6118240,
@@ -5319,7 +5319,7 @@
     "??_7RadioClass@@6BINoticeSink@@@": 8030404,
     "??_7RadioClass@@6BINoticeSource@@@": 8030396,
     "?unknown_slot150@RadioClass@@UAEHHPAVTechnoClass@@@Z": 6515584,
-    "?unknown_radio_param_a40be0@@3HA": 10750944,
+    "?unknown_radio_param_a40be0@@3PAVAbstractClass@@A": 10750944,
     "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
     "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?unknown_RadSiteClass_list_00ab6620@@3V?$DynamicVectorClass@PAVRadSiteClass@@@@A": 11232800,
@@ -11628,7 +11628,7 @@
     "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": 10751072,
     "?Unknown_0049EC40@DisplayClass@@QAEPAVObjectClass@@XZ": 4844608,
     "?Unknown_0049EC60@DisplayClass@@QAEXPAVObjectClass@@@Z": 4844640,
-    "?unknown_slot95@ObjectClass@@UAEHPAVRadioClass@@HAAJ@Z": 6110384,
+    "?unknown_slot95@ObjectClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 6110384,
     "?unknown_slot64@ObjectClass@@UAEPBVCell@@H@Z": 6112368,
     "_?$S40@?1??unknown_slot64@ObjectClass@@UAEPBVCell@@H@Z@4EA": 10956556,
     "_?unknown_none@?1??unknown_slot64@ObjectClass@@UAEPBVCell@@H@Z@4UUnknownStaticCell@@B": 10956568,
@@ -11907,7 +11907,7 @@
     "?unknown_slot33@TechnoTypeClass@@UBEHPAVHouseClass@@@Z": 7187760,
     "?Cost_Multiplier@HouseClass@@QAEMPBVTechnoTypeClass@@@Z": 5200224,
     "?unknown_slot46@TechnoTypeClass@@UBEHPAVHouseClass@@_N@Z": 7187840,
-    "?unknown_slot38@TechnoTypeClass@@UBEHXZ": 7188032,
+    "?unknown_slot38@TechnoTypeClass@@UBEPBXXZ": 7188032,
     "?Repair_Cost@TechnoTypeClass@@UBEHXZ": 7188160,
     "?Is_Two_Shooter@TechnoTypeClass@@QBE_NXZ": 7188256,
     "?unknown_slot29@TechnoTypeClass@@UBEHXZ": 7201312,
@@ -13163,7 +13163,7 @@
     "?Unknown_0067C150@SidebarClass@@QAEXPAVObjectClass@@@Z": 6799696,
     "?Unknown_004EB550@@YIHHH@Z": 5158224,
     "?Unknown_004F4F30@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z": 5197616,
-    "?Unknown_0067C370@SidebarClass@@QAE_NHHH@Z": 6800240,
+    "?Unknown_0067C370@SidebarClass@@QAE_NPAVFactoryClass@@HH@Z": 6800240,
     "?Unknown_0067C450@SidebarClass@@QAE_NH@Z": 6800464,
     "?Unknown_0067C4C0@SidebarClass@@QAE_NH@Z": 6800576,
     "?Unknown_0067C850@SidebarClass@@QAEXXZ": 6801488,
@@ -13208,7 +13208,7 @@
     "?Mouse_Enter@SelectClass@StripClass@SidebarClass@@UAEXXZ": 6821376,
     "?unknown_flag_abcd84@@3_NA": 11259268,
     "?Mouse_Leave@SelectClass@StripClass@SidebarClass@@UAEXXZ": 6821456,
-    "?Unknown_006816D0@StripClass@SidebarClass@@QAE_NHHH@Z": 6821584,
+    "?Unknown_006816D0@StripClass@SidebarClass@@QAE_NPAVFactoryClass@@HH@Z": 6821584,
     "?Unknown_00681740@SidebarClass@@QAE_NHHPAVUnknownFactory@@@Z": 6821696,
     "?Unknown_006817D0@StripClass@SidebarClass@@QAE_NPAVUnknownFactory@@@Z": 6821840,
     "?Get_Object@UnknownFactory@@QAEPAVObjectClass@@XZ": 4954416,
@@ -14695,8 +14695,8 @@
     "?unknown_slot86@TechnoClass@@UAEHPAHHPAVWarheadTypeClass@@PAV1@_NH@Z": 7134272,
     "?Unknown_006B9AA0@TeamClass@@QAEXPAVFootClass@@HPAVTechnoClass@@@Z": 7051936,
     "?unknown_6d3400@TechnoClass@@QAEXPAV1@@Z": 7156736,
-    "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAJ@Z": 5012272,
-    "?unknown_slot95@TechnoClass@@UAEHPAVRadioClass@@HAAJ@Z": 7087504,
+    "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 5012272,
+    "?unknown_slot95@TechnoClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 7087504,
     "?unknown_4c82a0@FootClass@@QAEHPAVAbstractClass@@@Z": 5014176,
     "?unknown_slot37@FootClass@@UAE_NXZ": 5015872,
     "?unknown_slot98@FootClass@@UAEXH@Z": 5016128,
@@ -15799,7 +15799,7 @@
     "?unknown_6130b0@UnknownTechno408@@QAEXXZ": 6369456,
     "??1UnknownTechnoPair@@QAE@XZ": 7418704,
     "?unknown_cell_ac0148@@3VCell@@A": 11272520,
-    "?unknown_slot95@RadioClass@@UAEHPAV1@HAAJ@Z": 6514944,
+    "?unknown_slot95@RadioClass@@UAEHPAV1@HAAPAVAbstractClass@@@Z": 6514944,
     "?Unknown_004E5280@HouseClass@@QAEXH@Z": 5132928,
     "?unknown_list_8322e0@@3VUnknownList8322E0@@A": 8594144,
     "?Unknown_004366D0@UnknownList8322E0@@QAEXPAVTechnoClass@@@Z": 4417232,
@@ -17603,7 +17603,7 @@
     "?Transport_Waypoint_Location@TeamTypeClass@@QBE?AVCell@@XZ": 7076560,
     "?unknown_6cf820@TechnoClass@@QAE_NXZ": 7141408,
     "?unknown_tileset_a52c74@@3HA": 10824820,
-    "?unknown_slot151@RadioClass@@UAEHHPAHPAVTechnoClass@@@Z": 6515280,
+    "?unknown_slot151@RadioClass@@UAEHHPAPAVAbstractClass@@PAVTechnoClass@@@Z": 6515280,
     "?AI@MissionClass@@UAEXXZ": 5851024,
     "?unknown_slot199@TechnoClass@@UAE_NH@Z": 7128336,
     "?Planning_Active@@YA_NXZ": 6375488,
@@ -19592,7 +19592,7 @@
     "?unknown_slot93@UnitClass@@UAEXH@Z": 7333392,
     "?unknown_slot95@FootClass@@UAEHHHH@Z": 5012272,
     "?unknown_slot95@TechnoClass@@UAEHHHH@Z": 7087504,
-    "?unknown_slot95@UnitClass@@UAEHPAVRadioClass@@HAAJ@Z": 7324144,
+    "?unknown_slot95@UnitClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 7324144,
     "??_EFactoryClass@@UAEPAXI@Z": 4955968,
     "??_EParticleSystemTypeClass@@UAEPAXI@Z": 6426304,
     "?get@Leaf_47fcc0@@QAEIIII@Z": 4717760,
@@ -22100,7 +22100,7 @@
     "?Unknown_004BB3F0@FootClass@@QAE?AVCell@@ABV2@0HH@Z": 4961264,
     "?unknown_slot290@InfantryClass@@UAE_NAAUCoordStruct@@@Z": 5262272,
     "?unknown_slot145@AircraftClass@@UAEHXZ": 4287520,
-    "?unknown_slot95@AircraftClass@@UAEHPAVRadioClass@@HAAJ@Z": 4294720,
+    "?unknown_slot95@AircraftClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 4294720,
     "?unknown_slot86@InfantryClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 5241712,
     "?unknown_slot67@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
     "?unknown_slot101@InfantryClass@@UAEHPAVCellClass@@HH0_N@Z": 5255568,
@@ -22153,7 +22153,7 @@
     "?Reset@BooleanVectorClass@@QAEXXZ": 7402240,
     "?Set@BooleanVectorClass@@QAEXXZ": 7402288,
     "??_EWstring@@QAEPAXI@Z": 4239168,
-    "?unknown_slot95@BuildingClass@@UAEHPAVRadioClass@@HAAJ@Z": 4429808,
+    "?unknown_slot95@BuildingClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 4429808,
     "?unknown_4cbb40@FootClass@@QAE?AVCell@@H@Z": 5028672,
     "?Add@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NABQAVAbstractClass@@@Z": 5038608,
     "?Get@UnknownWindowProcIndex@OwnerDraw@@QBE_NABQAUHWND__@@AAPAP6GJPAU3@IIJ@Z@Z": 6297824,
@@ -22914,7 +22914,12 @@
     "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
     "?Kind_Of@Tactical@@UBEHXZ": 6997984,
     "?Size_Of@Tactical@@UBEHXZ": 6998000,
-    "??1Tactical@@UAE@XZ": 6956816
+    "??1Tactical@@UAE@XZ": 6956816,
+    "?FUN_006f8a20@": 7309856,
+    "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120,
+    "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
+    "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688
   },
   "regions": [
     {
@@ -29489,7 +29494,7 @@
     {
       "entry": 7324144,
       "method": "006fc1f0",
-      "symbol": "?unknown_slot95@UnitClass@@UAEHPAVRadioClass@@HAAJ@Z",
+      "symbol": "?unknown_slot95@UnitClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
       "symbol_prefix": "?unknown_slot95@UnitClass@@",
       "options": [
         "/O2",
@@ -29538,7 +29543,7 @@
         {
           "offset": 232,
           "kind": 20,
-          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAJ@Z",
+          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
           "target": 5012272,
           "addend": 0,
           "resolved": 4292655188
@@ -29578,7 +29583,7 @@
         {
           "offset": 611,
           "kind": 20,
-          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAJ@Z",
+          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
           "target": 5012272,
           "addend": 0,
           "resolved": 4292654809
@@ -29722,7 +29727,7 @@
         {
           "offset": 1473,
           "kind": 20,
-          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAJ@Z",
+          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
           "target": 5012272,
           "addend": 0,
           "resolved": 4292653947
@@ -29746,7 +29751,7 @@
         {
           "offset": 1710,
           "kind": 20,
-          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAJ@Z",
+          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
           "target": 5012272,
           "addend": 0,
           "resolved": 4292653710
@@ -29754,7 +29759,7 @@
         {
           "offset": 1767,
           "kind": 20,
-          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAJ@Z",
+          "symbol": "?unknown_slot95@FootClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
           "target": 5012272,
           "addend": 0,
           "resolved": 4292653653
@@ -29832,7 +29837,7 @@
           "resolved": 7325844
         }
       ],
-      "source_sha256": "87a9aa71e7b319c56aef35d59372234ef812cf9a22285cbd9fa97a9cba56f05f",
+      "source_sha256": "8845facdae54f5a8705e80c1b184d19afb86760a94f4727c5d9b9ef04d2dd6d1",
       "switch_data_bytes": 70,
       "source": "src/recovered/classes/UnitClass/UnitClass_Radio_006fc1f0.cpp",
       "population": "population-4325",

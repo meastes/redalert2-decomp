@@ -1,4 +1,4 @@
-// int TechnoClass::unknown_slot95(RadioClass *from, int message, long &param) (0x006C2590, slot 95)
+// int TechnoClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&param) (0x006C2590, slot 95)
 // The radio message handler (Westwood's Receive_Message; param is the
 // message's long argument):
 //   3: answers 0x19 to a sender with +0x370 when this has +0x370 too, then RadioClass's;
@@ -19,12 +19,12 @@
 #include "shared/aircraft.hpp"
 #include "shared/aircraft_type.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?unknown_slot95@RadioClass@@UAEHPAV1@HAAJ@Z=00636900
+// @ref ?unknown_slot95@RadioClass@@UAEHPAV1@HAAPAVAbstractClass@@@Z=00636900
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
 // @ref ?Unknown_004E5280@HouseClass@@QAEXH@Z=004e5280
 // @ref ?Unknown_00607440@ParasiteClass@@QAEXXZ=00607440
 
-int TechnoClass::unknown_slot95(RadioClass *from, int message, long &param)
+int TechnoClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&param)
 {
     TechnoClass *sender = (TechnoClass *)from;
     switch (message) {
@@ -33,7 +33,7 @@ int TechnoClass::unknown_slot95(RadioClass *from, int message, long &param)
         if (weapon == 0 || weapon->WeaponType == 0) {
             break;
         }
-        unknown_slot220((AbstractClass *)param);
+        unknown_slot220(param);
         unknown_slot116(1, false);
         return 1;
     }

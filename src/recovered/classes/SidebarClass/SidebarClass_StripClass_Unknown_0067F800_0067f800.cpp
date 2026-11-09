@@ -90,7 +90,7 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                                     isbusy = true;
                                 }
                             }
-                            shape = (void const *)obj->unknown_slot38();
+                            shape = obj->unknown_slot38();
                             factory = Buildables[index].Factory;
                             if (factory) {
                                 production = true;

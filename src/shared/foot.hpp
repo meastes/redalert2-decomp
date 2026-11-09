@@ -169,7 +169,7 @@ public:
     virtual void unknown_slot82(int arg1);  // slot 82 0x004CD3F0
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x004C6000
     virtual void unknown_slot93(int arg1);  // slot 93 0x004C7220
-    virtual int unknown_slot95(RadioClass *radio, int message, long &param);  // slot 95 0x004C7B30
+    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);  // slot 95 0x004C7B30
     virtual void unknown_slot98(int arg1);  // slot 98 0x004C8A40
     virtual void unknown_slot99(int path, char waypoint);  // slot 99 0x004CB060
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);  // slot 101 0x004C86E0

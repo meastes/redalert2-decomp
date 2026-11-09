@@ -43,7 +43,7 @@
 // @ref ?unknown_slot31@ObjectTypeClass@@UBE?AUCoordStruct@@XZ=005d5d30
 // @ref ?unknown_slot33@ObjectTypeClass@@UBEHPAVHouseClass@@@Z=005d5d60
 // @ref ?unknown_slot34@ObjectTypeClass@@UBEHXZ=005d5d70
-// @ref ?unknown_slot38@ObjectTypeClass@@UBEHXZ=005d5d80
+// @ref ?unknown_slot38@ObjectTypeClass@@UBEPBXXZ=005d5d80
 // @ref ?GetSizeMax@ObjectTypeClass@@UAGJPATULARGE_INTEGER@@@Z=005d7e80
 // @ref ?Load@ObjectTypeClass@@UAGJPAUIStream@@@Z=005d7c30
 // @ref ??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z=005d5a80

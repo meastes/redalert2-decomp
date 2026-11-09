@@ -131,7 +131,7 @@
 // @ref ?unknown_slot92@ObjectClass@@UAEXH@Z=0041b310
 // @ref ?unknown_slot93@ObjectClass@@UAEXH@Z=00423df0
 // @ref ?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z=005d4500
-// @ref ?unknown_slot95@ObjectClass@@UAEHPAVRadioClass@@HAAJ@Z=005d3cb0
+// @ref ?unknown_slot95@ObjectClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z=005d3cb0
 // @ref ?unknown_slot96@ObjectClass@@UAE_NPAVHouseClass@@@Z=005d4230
 // @ref ?unknown_slot97@ObjectClass@@UAEXH@Z=005d2d40
 // @ref ?unknown_slot98@ObjectClass@@UAEXH@Z=005d2d50

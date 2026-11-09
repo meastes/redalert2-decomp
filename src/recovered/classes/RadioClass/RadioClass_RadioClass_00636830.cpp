@@ -16,7 +16,7 @@
 // @ref ?ID@?$VectorClass@PAVTechnoClass@@@@UAEHPBQAVTechnoClass@@@Z=0040b9d0
 // @ref ?ID@?$VectorClass@PAVTechnoClass@@@@UAEHABQAVTechnoClass@@@Z=0040b990
 // @ref ?Fetch@?$VectorClass@PAVTechnoClass@@@@UBEPAVTechnoClass@@H@Z=0040b600
-// @ref ?unknown_radio_param_a40be0@@3HA=00a40be0
+// @ref ?unknown_radio_param_a40be0@@3PAVAbstractClass@@A=00a40be0
 
 RadioClass::RadioClass() :
     RadioLinks(1)
@@ -29,4 +29,4 @@ RadioClass::RadioClass() :
 // @ref ??_GMissionClass@@UAEPAXI@Z=00595130
 // @ref ?unknown_slot122@MissionClass@@UAE_NXZ=004cdde0
 // @ref ?unknown_slot67@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z=00595120
-// @ref ?unknown_slot151@RadioClass@@UAEHHPAHPAVTechnoClass@@@Z=00636a50
+// @ref ?unknown_slot151@RadioClass@@UAEHHPAPAVAbstractClass@@PAVTechnoClass@@@Z=00636a50

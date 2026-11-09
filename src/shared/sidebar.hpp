@@ -252,7 +252,7 @@ public:
             return (unknown_int_839624 + unknown_int_83962c - unknown_abcd64
                 - (unknown_id_source_a3d290->unknown_2239 ? 26 : 18) - 7) / 50;
         }
-        bool Unknown_006816D0(int value, int type, int id);  // 0x006816D0 sets a buildable's +0x0C by type and id
+        bool Unknown_006816D0(FactoryClass *factory, int type, int id);  // 0x006816D0 sets a buildable's +0x0C by type and id
 
 #ifdef RA2_MAP_GLOBAL
         // TibSun's StripClass is a StageClass, whose countdown is a StageTimerClass: the one
@@ -304,7 +304,7 @@ public:
     void Unknown_0067E1C0();                            // 0x0067E1C0 strip AI
     static void Unknown_0067BA60();                     // 0x0067BA60 places the sidebar and its controls
     void Unknown_0067B910();                            // 0x0067B910
-    bool Unknown_0067C370(int value, int type, int id); // 0x0067C370 updates a buildable in its strip
+    bool Unknown_0067C370(FactoryClass *factory, int type, int id); // 0x0067C370 updates a buildable in its strip
     bool Unknown_00681740(int type, int id, UnknownFactory *factory);   // 0x00681740
     int Unknown_006820A0();                             // 0x006820A0 rows of icons that fit
     int Unknown_006820F0();                             // 0x006820F0 icons that fit, two per row

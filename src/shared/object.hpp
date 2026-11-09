@@ -308,7 +308,7 @@ public:
     virtual void unknown_slot92(int arg1);                                 // slot 92 (+0x170) 0x41b310
     virtual void unknown_slot93(int arg1);                                 // slot 93 (+0x174) 0x423df0
     virtual BuildingClass *Who_Can_Build_Me(bool in_theory, bool legal);   // slot 94 (+0x178) 0x5d4500 (RA1 name)
-    virtual int unknown_slot95(RadioClass *radio, int message, long &param);              // slot 95 (+0x17C) 0x5d3cb0
+    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);              // slot 95 (+0x17C) 0x5d3cb0
     virtual bool unknown_slot96(HouseClass *house);                       // slot 96 (+0x180) 0x5d4230
     virtual void unknown_slot97(int arg1);                                 // slot 97 (+0x184) 0x5d2d40
     virtual void unknown_slot98(int arg1);                                 // slot 98 (+0x188) 0x5d2d50

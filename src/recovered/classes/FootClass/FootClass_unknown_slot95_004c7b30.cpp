@@ -1,4 +1,4 @@
-// int FootClass::unknown_slot95(RadioClass *from, int message, long &param) (0x004C7B30)
+// int FootClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&param) (0x004C7B30)
 // The radio message handler (Westwood's Receive_Message; param is the
 // message's long argument):
 //   17: in mission 7 (now or queued) the techno reply, answered 1;
@@ -19,9 +19,9 @@
 // @ref ?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ=004717b0
 // @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
-// @ref ?unknown_slot95@TechnoClass@@UAEHPAVRadioClass@@HAAJ@Z=006c2590
+// @ref ?unknown_slot95@TechnoClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z=006c2590
 
-int FootClass::unknown_slot95(RadioClass *from, int message, long &param)
+int FootClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&param)
 {
     switch (message) {
     case 35:
@@ -49,14 +49,14 @@ int FootClass::unknown_slot95(RadioClass *from, int message, long &param)
         }
         break;
     case 19:
-        param = (long)unknown_494;
+        param = unknown_494;
         if (unknown_494 != 0 && Locomotor.Checked()->Is_Moving()) {
             return 10;
         }
         return 1;
     case 18:
         if (param != 0) {
-            Cell cell = Coord_Cell(((AbstractClass *)param)->Center_Coord());
+            Cell cell = Coord_Cell(param->Center_Coord());
             if (unknown_slot104() == cell) {
                 return 20;
             }
@@ -67,7 +67,7 @@ int FootClass::unknown_slot95(RadioClass *from, int message, long &param)
         if (MissionQueue == 7 && unknown_slot122()) {
             unknown_slot117();
         }
-        Assign_Destination((AbstractClass *)param, true);
+        Assign_Destination(param, true);
         Timer = 0;
         return 1;
     case 17:

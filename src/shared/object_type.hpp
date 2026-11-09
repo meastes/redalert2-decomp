@@ -138,7 +138,7 @@ public:
     // The house's building that can produce this type (RA1:
     // Who_Can_Build_Me): primary factories first, else the last match.
     virtual BuildingClass *Who_Can_Build_Me(bool in_theory, bool legal, bool check_limit, HouseClass *house) const; // 0x005D5FC0 slot 37
-    virtual int unknown_slot38() const;                                  // 0x005D5D80 (0)
+    virtual void const *unknown_slot38() const;                          // 0x005D5D80 (0) Get_Cameo_Data
     virtual void *unknown_slot39() const { return unknown_a4; }          // slot 39
 
     // Loads the shared pip and talk-bubble shapes once (PIPBRD.SHP,

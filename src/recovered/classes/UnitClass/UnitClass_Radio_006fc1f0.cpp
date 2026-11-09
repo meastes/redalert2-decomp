@@ -11,7 +11,7 @@
 // @ref _unknown_geometry_l=00ad04c0
 
 static inline double Unit_Radio_Used_Size(UnknownCargo const &cargo) { return (double)cargo.Unknown_00468A20(); }
-int UnitClass::unknown_slot95(RadioClass *radio, int message, long &param)
+int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&param)
 {
     TechnoClass *sender = (TechnoClass *)radio;
     switch (message) {
@@ -107,9 +107,9 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, long &param)
                     FootClass::unknown_slot95(radio, message, param);
                     if (!Locomotor.Checked()->Is_Moving() && !unknown_599 && !unknown_370 &&
                         unknown_slot150(0x13, sender) == 1) {
-                        param = (long)this;
+                        param = this;
                         // Existing long&/int* ABI spellings both occupy one Win32 DWORD.
-                        if (unknown_slot151(0x12, (int *)&param, sender) != 1)
+                        if (unknown_slot151(0x12, &param, sender) != 1)
                             unknown_slot150(3, sender);
                     }
                     return 1;

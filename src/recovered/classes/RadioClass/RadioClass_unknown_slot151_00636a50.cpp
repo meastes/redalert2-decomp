@@ -1,4 +1,4 @@
-// int RadioClass::unknown_slot151(int message, int *param, TechnoClass *to) (0x00636A50, slot 151)
+// int RadioClass::unknown_slot151(int message, AbstractClass **param, TechnoClass *to) (0x00636A50, slot 151)
 // Sends a radio message (3 hangs up, 2 makes contact) to a recipient
 // (the first contact when none is given) through the recipient's slot 95.
 // Contact needs a free link: when all are taken the first is hung up.
@@ -6,7 +6,7 @@
 #include "shared/radio.hpp"
 #include "shared/techno.hpp"
 
-int RadioClass::unknown_slot151(int message, int *param, TechnoClass *to)
+int RadioClass::unknown_slot151(int message, AbstractClass **param, TechnoClass *to)
 {
     if (to == 0) {
         to = RadioLinks[0];
@@ -34,11 +34,11 @@ int RadioClass::unknown_slot151(int message, int *param, TechnoClass *to)
             unknown_slot150(3, RadioLinks[0]);
             free_link = 0;
         }
-        if (to->unknown_slot95(As_Techno(), 2, (long &)*param) == 1) {
+        if (to->unknown_slot95(As_Techno(), 2, *param) == 1) {
             RadioLinks[free_link] = to;
             return 1;
         }
         return 0xA;
     }
-    return to->unknown_slot95(As_Techno(), message, (long &)*param);
+    return to->unknown_slot95(As_Techno(), message, *param);
 }

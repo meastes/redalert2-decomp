@@ -31,7 +31,7 @@ inline TechnoClass *Building_Radio_Infantry_004397f0(RadioClass *sender)
 
 inline CoordStruct Position_Coord_00450950(ObjectClass const &object);
 
-int BuildingClass::unknown_slot95(RadioClass *radio,int message,long &param)
+int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&param)
 {
     TechnoClass *sender=static_cast<TechnoClass *>(radio);
     switch (message) {
@@ -94,16 +94,16 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,long &param)
             if (Contact(0) && Type->UnitRepair &&
                 Building_Radio_Object_Distance_004397f0(*this,*Contact(0))>128) needs_to_move=true;
             if (unknown_slot150(19,sender)==1 || needs_to_move) {
-                param=(long)this;
+                param=this;
                 if (Type->DockUnload || Type->Weeder) {
-                    param=(long)&Map[unknown_slot104()+Cell(3,1)];
-                    if (unknown_slot151(18,reinterpret_cast<int *>(&param),sender)==20) {
+                    param=&Map[unknown_slot104()+Cell(3,1)];
+                    if (unknown_slot151(18,&param,sender)==20) {
                         unknown_slot150(24,sender);
                         if (unknown_slot150(22,sender)!=1) radio->unknown_slot87(unknown_geometry_l,true,true);
                     }
                 } else if (Type->Helipad) {
-                    param=(long)this;
-                    if (unknown_slot151(18,reinterpret_cast<int *>(&param),sender)==20) unknown_slot149(24);
+                    param=this;
+                    if (unknown_slot151(18,&param,sender)==20) unknown_slot149(24);
                 }
             }
             return 1;
@@ -115,8 +115,8 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,long &param)
             }
             if (!Unknown_00636ED0(sender)) return 10;
         } else {
-            param=(long)&Map[Position_Coord_00450950(*this)];
-            unknown_slot151(18,reinterpret_cast<int *>(&param),sender);
+            param=&Map[Position_Coord_00450950(*this)];
+            unknown_slot151(18,&param,sender);
         }
         return 1;
     }

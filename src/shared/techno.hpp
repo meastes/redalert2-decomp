@@ -398,7 +398,7 @@ public:
     virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6); // slot 86 0x006CDC40
     virtual int unknown_slot90();                               // slot 90 0x006D3150
     virtual void unknown_slot93(int arg1);                      // slot 93 0x006C2B40
-    virtual int unknown_slot95(RadioClass *radio, int message, long &param);   // slot 95 0x006C2590
+    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x006C2590
     virtual bool unknown_slot96(HouseClass *house);             // slot 96 0x006C2440
     virtual bool unknown_slot111();                             // slot 111 0x006D6DF0
     virtual bool unknown_slot112();                             // slot 112 0x006D6E00

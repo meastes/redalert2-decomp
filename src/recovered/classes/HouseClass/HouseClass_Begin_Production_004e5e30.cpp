@@ -67,7 +67,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
                 if (stage>=53) stage=53;
                 if (was_suspended) factory->Stage=stage;
             }
-            if (unknown_player_a35db4==this) Map.Unknown_0067C370((int)factory,kind,index);
+            if (unknown_player_a35db4==this) Map.Unknown_0067C370(factory,kind,index);
         }
         return 0;
     }

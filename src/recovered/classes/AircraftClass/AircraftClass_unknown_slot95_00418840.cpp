@@ -19,7 +19,7 @@ static inline bool Aircraft_Radio_Target_Is_Current_Cell_00418840(AircraftClass 
     AbstractClass *target = aircraft->unknown_494;
     return target == cell;
 }
-int AircraftClass::unknown_slot95(RadioClass *radio, int message, long &param)
+int AircraftClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&param)
 {
     if (!Aircraft_Accepts_Radio_00418840(Mission)) return 0;
     switch (message) {
@@ -50,7 +50,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, long &param)
         break;
     case 18: {
         FootClass::unknown_slot95(radio, message, param);
-        AbstractClass *destination = (AbstractClass *)param;
+        AbstractClass *destination = param;
         if (destination && destination->Kind_Of() == 6) {
             if (unknown_slot150(15, destination->As_Techno()) != 1) return 10;
             unknown_slot116(7, false);
@@ -87,8 +87,8 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, long &param)
             if (!Locomotor.Checked()->Is_Moving()) {
                 unknown_2a8.unknown_496b70(Type->DeployTime);
                 if (unknown_slot150(19, (TechnoClass *)radio) == 1) {
-                    param = (long)this;
-                    if (unknown_slot151(18, (int *)&param, (TechnoClass *)radio) != 1) {
+                    param = this;
+                    if (unknown_slot151(18, &param, (TechnoClass *)radio) != 1) {
                         unknown_slot150(3, (TechnoClass *)radio);
                         return 1;
                     }

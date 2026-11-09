@@ -1,14 +1,14 @@
-// int RadioClass::unknown_slot95(RadioClass *radio, int message, long &param) (0x00636900, slot 95)
+// int RadioClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&param) (0x00636900, slot 95)
 // Receives a radio message: remembers the last three message kinds in
 // Old; message 3 hangs up a contact and message 2 accepts one (0xA
 // when the other house is no ally or no link is free); anything else is
 // ObjectClass's.
 #include "shared/radio.hpp"
 #include "shared/techno.hpp"
-// @ref ?unknown_slot95@ObjectClass@@UAEHPAVRadioClass@@HAAJ@Z=005d3cb0
+// @ref ?unknown_slot95@ObjectClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z=005d3cb0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 
-int RadioClass::unknown_slot95(RadioClass *radio, int message, long &param)
+int RadioClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&param)
 {
     if (message != Old[0]) {
         Old[2] = Old[1];
