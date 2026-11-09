@@ -352,16 +352,6 @@
    "notes": "5:6:5 light table; the plain path"
   },
   {
-   "entry": "0x00674AA0",
-   "name": "VectorClass<DiskID>::VectorClass(unsigned, DiskID const *)",
-   "symbol": "__ZN11VectorClassI6DiskIDEC2EjPKS0_",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "decompile; vector_class.hpp template body (multi_mission.hpp declares the specialisation)"
-  },
-  {
    "entry": "0x00674AF0",
    "name": "VectorClass<Wstring>::VectorClass(unsigned, Wstring const *)",
    "symbol": "__ZN11VectorClassI7WstringEC2EjPKS0_",
@@ -390,16 +380,6 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "seed src/recovered/005de970.cpp"
-  },
-  {
-   "entry": "0x00522B20",
-   "name": "Unknown_Add_Modeless_Dialog_00522b20(HWND__*)",
-   "symbol": "__Z36Unknown_Add_Modeless_Dialog_00522b20P6HWND__",
-   "origin_class": "unmatched (menu path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "seed src/recovered/00522b20.cpp"
   },
   {
    "entry": "0x005DE970",
@@ -500,26 +480,6 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "UnitTrackerClass destructor"
-  },
-  {
-   "entry": "0x0052B6F0",
-   "name": "IsometricTileTypeClass::unknown_func_52b6f0(int)",
-   "symbol": "__ZN22IsometricTileTypeClass19unknown_func_52b6f0Ei",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_scenario.cpp",
-   "source": "seed src/recovered/0052b6f0.cpp; isometric_tile_type.hpp IsoTileCellStruct +0x2A"
-  },
-  {
-   "entry": "0x00428A90",
-   "name": "unknown_cell_index_428a90(Cell const &)",
-   "symbol": "__Z25unknown_cell_index_428a90RK4Cell",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_scenario.cpp",
-   "source": "seed src/recovered/00428a90.cpp"
   },
   {
    "entry": "MSVCRT",

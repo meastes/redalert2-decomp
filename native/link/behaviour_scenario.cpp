@@ -24,32 +24,6 @@ static_assert(offsetof(HouseClass, unknown_56d0) == 0x58A0 && offsetof(HouseClas
 static_assert(offsetof(HouseClass, UIName) == 0x160E6 && offsetof(HouseClass, ColorSchemeIndex) == 0x16110, "house_screen.hpp view");
 static_assert(sizeof(AbstractClass) == 0x38, "house_screen.hpp As_IHouse: IHouse, the second base, follows the 0x38-byte AbstractClass");
 
-// 0x0052B6F0 (the row's seed src/recovered/0052b6f0.cpp): the image (slot 39,
-// +0x9C) cell record's +0x2A byte for a cell index (taken modulo the image's
-// cell count), or 0 without an image or a record at that cell.
-char IsometricTileTypeClass::unknown_func_52b6f0(int index)
-{
-    IsoTileImageStruct const *image = (IsoTileImageStruct const *)unknown_slot39();
-    if (image != 0) {
-        IsoTileCellStruct const *record = (IsoTileCellStruct const *)image->Tiles[index % (image->unknown_00[1] * image->unknown_00[0])];
-        if (record != 0) {
-            return record->unknown_2a;
-        }
-    }
-    return 0;
-}
-
-extern int unknown_int_8325d0;   // 0x008325D0 MapSize.Width (member alias of Map)
-
-// 0x00428A90 (the row's seed src/recovered/00428a90.cpp, __fastcall): the
-// linear index of a cell in the map rectangle's packed rows:
-// (X - W - 1 + Y) * W + ((X - Y - 1 + W) >> 1), W = the map width.
-int __fastcall unknown_cell_index_428a90(Cell const &cell)
-{
-    int width = unknown_int_8325d0;
-    return (cell.X - width - 1 + cell.Y) * width + ((cell.X - cell.Y - 1 + width) >> 1);
-}
-
 // MSVC's RTTI comparison, as Process_Deferred_Deletion 0x006ECF10 declares the
 // class (the VC6 CRT's type_info::operator==, MSVCRT import in the original):
 // natively typeid yields the Itanium type_info objects, so the comparison is

@@ -144,25 +144,9 @@ void __cdecl FUN_00797440(PaletteClass const *palette, unsigned short *table, in
     }
 }
 
-// 0x00674AA0 VectorClass<DiskID>::VectorClass(unsigned, DiskID const *) and
-// 0x00674AF0 VectorClass<Wstring>::VectorClass (multi_mission.hpp declares them
-// as specialisations defined in their own rows; the 0x00674AA0 decompile is the
-// shared template body of vector_class.hpp): empty storage of size elements,
-// the caller's array in place (not owned) or a new owned block. NOT EXACT.
-template <>
-VectorClass<DiskID>::VectorClass(unsigned size, DiskID const *array)
-    : Vector(0), VectorMax(size), IsValid(true), IsAllocated(false)
-{
-    if (size) {
-        if (array) {
-            Vector = (DiskID *)array;
-        } else {
-            Vector = new DiskID[size];
-            IsAllocated = true;
-        }
-    }
-}
-
+// 0x00674AF0 VectorClass<Wstring>::VectorClass (multi_mission.hpp declares it as a
+// specialisation defined in its own row): empty storage of size elements, the
+// caller's array in place (not owned) or a new owned block. NOT EXACT.
 template <>
 VectorClass<Wstring>::VectorClass(unsigned size, Wstring const *array)
     : Vector(0), VectorMax(size), IsValid(true), IsAllocated(false)
@@ -186,38 +170,6 @@ VectorClass<Wstring>::VectorClass(unsigned size, Wstring const *array)
 unsigned int __fastcall unknown_hash_key_5de970(unsigned int const &key)
 {
     return key;
-}
-
-// 0x00522B20 Unknown_Add_Modeless_Dialog_00522b20 (the row's seed): while the
-// registry is active (0x00A522B0), files the dialog in the first free slot of
-// the block 0x00A522B4 (0x00A521DC slots, slot 0 unused) unless it is there,
-// counting it in 0x00A522B8. Slots hold 32-bit handles as in VC6 (port window
-// handles are small tokens). NOT EXACT.
-extern "C" int DAT_00a521dc;
-extern "C" int DAT_00a522b0;
-extern "C" void *DAT_00a522b4;
-extern "C" int DAT_00a522b8;
-void __fastcall Unknown_Add_Modeless_Dialog_00522b20(HWND__ *dialog)
-{
-    unsigned int handle = (unsigned int)(uintptr_t)dialog;
-    if (DAT_00a522b0 == 0 || handle == 0) {
-        return;
-    }
-    unsigned int *slot = (unsigned int *)DAT_00a522b4;
-    unsigned int *free_slot = 0;
-    for (int index = 1; index < DAT_00a521dc; index++, slot++) {
-        if (*slot == 0) {
-            if (free_slot == 0) {
-                free_slot = slot;
-            }
-        } else if (*slot == handle) {
-            return;
-        }
-    }
-    if (free_slot != 0) {
-        *free_slot = handle;
-        DAT_00a522b8++;
-    }
 }
 
 // --- Menu path (Scout1083) ----------------------------------------------------
