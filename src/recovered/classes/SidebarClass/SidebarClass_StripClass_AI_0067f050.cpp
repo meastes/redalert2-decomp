@@ -15,8 +15,8 @@
 // @ref ?Unknown_004B9900@UnknownFactory@@QAE_NXZ=004b9900
 // @ref ?Unknown_0069D820@SuperClass@@QAE_NXZ=0069d820
 // @ref ?Unknown_006F8A00@@YIXPAVBuildingClass@@@Z=006f8a00
-// @ref ?unknown_cell_ab9698@@3VCell@@A=00ab9698
 // @ref ??_C@_0BJ@IPHE@EVA_ConstructionComplete?$AA@=007f3e5c
+// @ref _unknown_geometry_k=00ab9698
 
 bool SidebarClass::StripClass::AI(int &input, Point2D const &xy)
 {
@@ -126,7 +126,7 @@ building:
                         case 2:
                         case 15:
                             OutList.Add(EventClass(pending->Owner(), 11, pending->Kind_Of(), -1,
-                                pending->unknown_slot32()->Naval, unknown_cell_ab9698));
+                                pending->unknown_slot32()->Naval, unknown_geometry_k));
                             Buildables[index].unknown_10 = 0;
                             break;
                         }

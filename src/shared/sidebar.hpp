@@ -168,8 +168,8 @@ public:
 #endif
 };
 // Unknown_006F8A20/Unknown_006F8A00 (building placement): shared/unknown_globals.hpp.
-// The placement cell the sidebar passes with a place event (0x00AB9698).
-extern Cell unknown_cell_ab9698;
+// The placement cell the sidebar passes with a place event is this unit's
+// unknown_geometry_k (shared/unknown_geometry.hpp, 0x00AB9698).
 
 // ControlClass, ShapeButtonClass: shared/gadget.hpp.
 

@@ -21,7 +21,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,217,356 of 3,515,886 (91.51%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,860 of 17,987 (99.29%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 116 of 127 scored) | 98.78% by bytes, 99.80% per function |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 116 of 127 scored) | 98.79% by bytes, 99.80% per function |
 | Original .text scaffold bytes | 301,767 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 698 |

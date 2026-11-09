@@ -30,6 +30,7 @@
 // @ref ?Unknown_004EB770@UnknownSidebarHouse@@QAE_NH_NH@Z=004eb770
 // @ref ?Unknown_0069D680@SuperClass@@QAEXXZ=0069d680
 // @ref ?Unselect_All@@YAXXZ=00482bc0
+// @ref _unknown_geometry_k=00ab9698
 
 int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
 {
@@ -149,7 +150,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                         } else if (pending->Kind_Of() == 6) {
                             ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004E7070((TechnoClass *)builder, (BuildingClass *)pending);
                         } else {
-                            OutList.Add(EventClass(pending->Owner(), 0xB, kind, -1, choice->Naval, unknown_cell_ab9698));
+                            OutList.Add(EventClass(pending->Owner(), 0xB, kind, -1, choice->Naval, unknown_geometry_k));
                         }
                     }
                 } else {
