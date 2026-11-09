@@ -17,8 +17,8 @@ extern "C" GUID const IID_ISwizzle;    // 0x007A2060
 struct __declspec(novtable) ISwizzle : public IUnknown {
     virtual HRESULT __stdcall Reset() = 0;
     virtual HRESULT __stdcall Swizzle(void **pointer) = 0;
-    virtual HRESULT __stdcall Fetch_Swizzle_ID(void *pointer, long *id) = 0;
-    virtual HRESULT __stdcall Here_I_Am(long id, void *pointer) = 0;
+    virtual HRESULT __stdcall Fetch_Swizzle_ID(void *pointer, LONG_PTR *id) = 0;
+    virtual HRESULT __stdcall Here_I_Am(LONG_PTR id, void *pointer) = 0;
     virtual HRESULT __stdcall Save_Interface(IStream *stream, IUnknown *object) = 0;
     virtual HRESULT __stdcall Load_Interface(IStream *stream, GUID *riid, void **object) = 0;
     virtual HRESULT __stdcall Get_Save_Size(int *size) = 0;
@@ -34,8 +34,8 @@ public:
     virtual unsigned long __stdcall Release();                                     // 0x0069FDA0
     virtual HRESULT __stdcall Reset();                                              // 0x0069FB10
     virtual HRESULT __stdcall Swizzle(void **pointer);                              // 0x0069FB20
-    virtual HRESULT __stdcall Fetch_Swizzle_ID(void *pointer, long *id);            // 0x0069FD70
-    virtual HRESULT __stdcall Here_I_Am(long id, void *pointer);                    // 0x0069FBA0
+    virtual HRESULT __stdcall Fetch_Swizzle_ID(void *pointer, LONG_PTR *id);            // 0x0069FD70
+    virtual HRESULT __stdcall Here_I_Am(LONG_PTR id, void *pointer);                    // 0x0069FBA0
     virtual HRESULT __stdcall Save_Interface(IStream *stream, IUnknown *object);    // 0x0069FDB0
     virtual HRESULT __stdcall Load_Interface(IStream *stream, GUID *riid, void **object);  // 0x0069FDC0
     virtual HRESULT __stdcall Get_Save_Size(int *size);                             // 0x0069FCF0

@@ -4,8 +4,8 @@
     "id": "population-4411",
     "inventory_sha256": "32af718352b1ed5e7067666a5cb96241f7a4d86194606d14ebbce9db19c2edc4",
     "gaps_sha256": "1d42029e9f0a89b7a77e39f6852fc31359b34dc3ecb45a504041d603f278c2a5",
-    "historical_population_sha256": "88ad434a93c30294aa2fa980768b35cbe07c107b63c70116d9baccdfc4483b69",
-    "historical_acceptance_sha256": "fec5d0b73a0df22ea4c707df9ccd9e827b8b3d2d12628b65cb82998d8cf638e8"
+    "historical_population_sha256": "6ec5833b61d944b68e26d5b777dea2e9769bccc48ce17882208b2cab65619a58",
+    "historical_acceptance_sha256": "9039c1a46a3bcb18ba382dcd9b4d8dbb747572ff60ecedd2a8ef3390f5ebb2e4"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -13512,7 +13512,11 @@
     "?Execute@BeaconPlacementCommandClass@@UBEXH@Z": 5359024,
     "?Execute@TypeSelectCommandClass@@UBEXH@Z": 5356368,
     "?Execute@PageUserCommandClass@@UBEXH@Z": 5363952,
-    "?Execute@CenterViewCommandClass@@UBEXH@Z": 5357728
+    "?Execute@CenterViewCommandClass@@UBEXH@Z": 5357728,
+    "_WinMain@16": 6873728,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "?AI@AnimClass@@UAEXXZ": 4331280
   },
   "regions": [
     {
@@ -27067,7 +27071,7 @@
           "resolved": 432550
         }
       ],
-      "source_sha256": "ae9069c7dc1243f8bd184e4dde12e39efaae974455aa756ee49cac5fc484e791",
+      "source_sha256": "ddf1083b1d90edae9ef49febb843e3f12093a8564f21e95d9e6cb48d4ee8d30a",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_unknown_slot34_006819a0.cpp",
       "population": "population-4411",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

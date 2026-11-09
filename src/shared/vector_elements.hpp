@@ -25,10 +25,12 @@ inline bool operator!=(AcceleratorTracker const &a, AcceleratorTracker const &b)
 // 8 bytes: an entry of the swizzle manager's tables (shared/swizzle.hpp): an object's
 // address when it was saved and the field to fix or the object's new address. The lookups
 // compare the first word only (VectorClass<SwizzlePointerClass>::operator== 0x0069FE40).
+// The ID is the saved address (basetsd.h LONG_PTR: an integer as wide as a pointer).
+typedef long LONG_PTR;
 struct SwizzlePointerClass {
     SwizzlePointerClass() : ID(0), Pointer(0) {}
-    SwizzlePointerClass(long id, void *pointer) : ID(id), Pointer(pointer) {}
-    long ID;
+    SwizzlePointerClass(LONG_PTR id, void *pointer) : ID(id), Pointer(pointer) {}
+    LONG_PTR ID;
     void *Pointer;
 };
 inline bool operator==(SwizzlePointerClass const &a, SwizzlePointerClass const &b) { return a.ID == b.ID; }

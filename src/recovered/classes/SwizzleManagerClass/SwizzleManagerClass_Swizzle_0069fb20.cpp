@@ -10,7 +10,7 @@ HRESULT __stdcall SwizzleManagerClass::Swizzle(void **pointer)
     if (*pointer == 0) {
         return S_OK;
     }
-    UnswizzledPointers.Add(SwizzlePointerClass((long)*pointer, pointer));
+    UnswizzledPointers.Add(SwizzlePointerClass((LONG_PTR)*pointer, pointer));
     *pointer = 0;
     return S_OK;
 }

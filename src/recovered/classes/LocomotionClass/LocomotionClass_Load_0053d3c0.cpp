@@ -12,7 +12,7 @@ HRESULT __stdcall LocomotionClass::Load(IStream *stream)
     if (stream == 0) {
         return E_POINTER;
     }
-    long id;
+    LONG_PTR id;
     HRESULT result = stream->Read(&id, sizeof(id), 0);
     if (FAILED(result)) {
         return result;

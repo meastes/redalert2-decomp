@@ -9,7 +9,7 @@ HRESULT __stdcall AbstractClass::Load(IStream *stream)
     if (stream == 0) {
         return E_POINTER;
     }
-    long id;
+    LONG_PTR id;
     HRESULT result = stream->Read(&id, sizeof(id), 0);
     if (SUCCEEDED(result)) {
         SwizzleManager.Here_I_Am(id, this);

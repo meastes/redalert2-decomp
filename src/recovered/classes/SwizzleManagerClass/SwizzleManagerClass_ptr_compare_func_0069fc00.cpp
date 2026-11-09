@@ -4,8 +4,8 @@
 
 static int __cdecl ptr_compare_func(void const *ptr1, void const *ptr2)
 {
-    long id1 = ((SwizzlePointerClass const *)ptr1)->ID;
-    long id2 = ((SwizzlePointerClass const *)ptr2)->ID;
+    LONG_PTR id1 = ((SwizzlePointerClass const *)ptr1)->ID;
+    LONG_PTR id2 = ((SwizzlePointerClass const *)ptr2)->ID;
     if (id1 == id2) {
         return 0;
     }

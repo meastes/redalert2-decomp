@@ -25,7 +25,7 @@ bool __fastcall VeinholeMonsterClass::Load_All(IStream *stream)
     for (int i = 0; i < monster_count; i++) {
         VeinholeMonsterClass *monster = (VeinholeMonsterClass *)new char[sizeof(VeinholeMonsterClass)];
 
-        LONG id;
+        LONG_PTR id;
         if (FAILED(stream->Read(&id, sizeof(id), 0))) {
             return false;
         }
