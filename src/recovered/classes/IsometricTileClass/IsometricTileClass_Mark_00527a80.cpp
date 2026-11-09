@@ -10,7 +10,7 @@
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 #include "shared/anim.hpp"
-// @ref ?unknown_func_52b6f0@IsometricTileTypeClass@@QAEDH@Z=0052b6f0
+// @ref ?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z=0052b6f0
 // @ref ?unknown_471d10@CellClass@@QAEXXZ=00471d10
 // @ref ?unknown_tileset_a52ee8@@3HA=00a52ee8
 // @ref ?unknown_tileset_a52eec@@3HA=00a52eec
