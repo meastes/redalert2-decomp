@@ -91,12 +91,16 @@ struct BulletVelocityXY {
     BulletVelocityXY() {}
     BulletVelocityXY(double x, double y) : X(x), Y(y) {}
     // The speed (kept copy 0x0041B750).
+#ifdef RA2_BULLET_VELOCITY_DIRS
+    double Speed() const { return(unknown_sqrt_4ba410(X * X + Y * Y)); }
+#else
     double Speed() const
     {
         double y = Y;
         double x = X;
         return unknown_sqrt_4ba410(x * x + y * y);
     }
+#endif
     // A zero vector becomes 100 along X, so it has a direction (kept copy 0x0041B860).
     void Nonzero_Check() { if (X == unknown_double_79b610 && Y == unknown_double_79b610) X = 100.0; }
 #ifdef RA2_BULLET_VELOCITY_DIRS
@@ -112,6 +116,16 @@ struct BulletVelocity : public BulletVelocityXY {
     BulletVelocity() {}
     BulletVelocity(BulletVelocity const &velocity) : BulletVelocityXY(velocity), Z(velocity.Z) {}
     BulletVelocity(double x, double y, double z) : BulletVelocityXY(x, y), Z(z) {}
+#ifdef RA2_BULLET_VELOCITY_DIRS
+    // TibSun velocity.h TVelocity3D::Set (BulletClass Shrapnel 0x00462C50 zeroes one
+    // function-scope velocity with it in both loops, as TibSun building.cpp does).
+    void Set(double x, double y, double z)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+    }
+#endif
     BulletVelocity &operator+=(BulletVelocity const &other); // 0x004642A0
     // The X and Y members as one horizontal vector.
     BulletVelocityXY &XY() { return *this; }
@@ -138,7 +152,7 @@ struct BulletVelocity : public BulletVelocityXY {
     // The pitch: the angle above the horizontal plane (kept copy 0x0041B6E0).
 #if defined(RA2_BULLET_VELOCITY_DIRS)
     // TibSun velocity.h Get_Pitch as DirType (BulletClass Draw_It 0x004610D0).
-    DirType Get_Pitch() const { return(unknown_math_4ba600(Z, Horizontal_Speed())); }
+    DirType Get_Pitch() const { return(unknown_math_4ba600(Z, BulletVelocityXY::Speed())); }
 #elif defined(RA2_AIRCRAFT_OWNER_FIRE)
     UnknownFacingDir Get_Pitch() const; // independently defined at0041B6E0, called at both native sites
 #else
@@ -147,6 +161,28 @@ struct BulletVelocity : public BulletVelocityXY {
         return UnknownFacingDir((unsigned short)((unknown_math_4ba600(Z, XY().Speed()) - 1.5707963267948966) * -10430.060040584269));
     }
 #endif
+#ifdef RA2_BULLET_VELOCITY_DIRS
+    // TibSun velocity.h Set_Yaw and Set_Pitch, DirType forms (BulletClass Shrapnel 0x00462C50).
+    void Set_Yaw(DirType const &yaw)
+    {
+        BulletVelocityXY::Nonzero_Check();
+        double horizontal_speed = Horizontal_Speed();
+        X = horizontal_speed * unknown_cos_4ba4d0(yaw.As_Radian());
+        Y = -horizontal_speed * unknown_sin_4ba480(yaw.As_Radian());
+    }
+    void Set_Pitch(DirType const &pitch)
+    {
+        double current_pitch = Get_Pitch().As_Radian();
+        double speed = Speed();
+        if (current_pitch != 0) {
+            X /= unknown_cos_4ba4d0(current_pitch);
+            Y /= unknown_cos_4ba4d0(current_pitch);
+        }
+        X *= unknown_cos_4ba4d0(pitch.As_Radian());
+        Y *= unknown_cos_4ba4d0(pitch.As_Radian());
+        Z = speed * unknown_sin_4ba480(pitch.As_Radian());
+    }
+#else
     // Turns the horizontal part to a heading, keeping its speed.
     void Set_Yaw(UnknownFacingDir yaw)
     {
@@ -170,6 +206,7 @@ struct BulletVelocity : public BulletVelocityXY {
         Y = unknown_cos_4ba4d0(angle) * Y;
         Z = unknown_sin_4ba480(angle) * speed;
     }
+#endif
     // Scales the vector to a speed, keeping its direction.
     void Set_Speed(double speed)
     {
