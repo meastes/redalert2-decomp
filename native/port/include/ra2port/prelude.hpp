@@ -104,6 +104,15 @@ static_assert(sizeof(IsoTileRef) == 4, "IsoTileRef keeps the file's 4-byte slot"
 // twice the VC6-sized view, room for the real class's arm64 layout.
 struct factory_tag {};
 constexpr factory_tag factory_alloc = {};
+
+// Save/load streams: `stream->Write(&x, 4, 0)` / `Read(&x, 4, 0)` with a 4 the
+// size of a VC6 pointer when x is one (RadioClass::Save/Load's contacts,
+// FactoryClass's queue, the storm owner; native_units.py RULES): natively a
+// pointer is written and read whole (8 bytes), so the swizzle IDs match the
+// addresses AbstractClass::Save wrote (Scout1133, M16). Other types keep 4.
+template <class T> struct stream_width_of { static constexpr unsigned value = 4; };
+template <class T> struct stream_width_of<T *> { static constexpr unsigned value = sizeof(T *); };
+template <class T> constexpr unsigned stream_width(T const &) { return stream_width_of<T>::value; }
 }  // namespace ra2port
 
 inline void *operator new(size_t size, ra2port::factory_tag) { return ::operator new(2 * size); }

@@ -123,6 +123,15 @@ RULES = [
     # Scout1125 (M15): the skirmish score dialog faulted on a truncated stack
     # pointer.
     (re.compile(r'\b(SendMessageA|PostMessageA|SendDlgItemMessageA)\(([^;]*?),\s*\(\s*long\s*\)'), r'\1(\2, (LPARAM)'),
+    # Save/load streams write and read pointers with a literal 4 (VC6: a
+    # pointer's width): RadioClass::Save/Load 0x00636D20/0x00636C60 (contacts),
+    # FactoryClass::Save/Load 0x004B9B90/0x004B9A40 (queue), Save/Load_Storm
+    # (StormOwner). Natively 4 of the 8 bytes went out and the load read them
+    # into an uninitialised pointer, so the swizzle IDs never matched the
+    # objects' 8-byte saved addresses (Scout1133, M16: the load hang in
+    # Process_Tables). ra2port::stream_width(x) (prelude) is sizeof(x) for a
+    # pointer, else 4: same meaning.
+    (re.compile(r'\b(Read|Write)\(\s*&\s*([\w.\[\]>-]+?)\s*,\s*4\s*,'), r'\1(&\2, ra2port::stream_width(\2),'),
     (re.compile(r'\bunsigned\s+long(\s+int)?\b'), 'RA2_ULONG'),
     (re.compile(r'\bsigned\s+long(\s+int)?\b'), 'RA2_LONG'),
     (re.compile(r'\blong\s+int\b'), 'RA2_LONG'),

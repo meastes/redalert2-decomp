@@ -307,3 +307,63 @@ void ra2port_trap_reached(const char *name)
 }
 
 }  // extern "C"
+
+// SwizzleManagerClass::Process_Tables 0x0069FC30 (port/fixups.json, Scout1133):
+// a loaded pointer whose object never called Here_I_Am. The original faults
+// there (1 / 0; arm64 integer division does not trap, so the native loop spun).
+// Prints the unmatched ID (the saving process's address), the field, and the
+// nearest registered objects (old ID below the unmatched one, new object below
+// the field) with their vtable symbols, so the owning class can be named.
+namespace {
+struct SwizzleRow { intptr_t id; void *pointer; };
+const char *vtable_name(const void *object)
+{
+    if (!object) return "-";
+    Dl_info info = {};
+    void *vptr = *(void * const *)object;
+    if (dladdr(vptr, &info) && info.dli_sname) return info.dli_sname;
+    return "?";
+}
+int swizzle_unmatched_count = 0;
+std::map<void *, void *> &swizzle_callers() { static std::map<void *, void *> m; return m; }
+int swizzle_trace = -1;
+}
+extern "C" void ra2port_swizzle_note(void *field, void *caller)
+{
+    if (swizzle_trace < 0) swizzle_trace = getenv("RA2_NATIVE_SWIZZLE_TRACE") ? 1 : 0;
+    if (swizzle_trace) swizzle_callers()[field] = caller;
+}
+extern "C" void ra2port_swizzle_unmatched(intptr_t id, void *field, const void *swizzled, int count)
+{
+    const SwizzleRow *rows = (const SwizzleRow *)swizzled;
+    const SwizzleRow *below_id = nullptr, *owner = nullptr;
+    for (int i = 0; i < count; ++i) {
+        if (rows[i].id <= id && (!below_id || rows[i].id > below_id->id)) below_id = &rows[i];
+        if ((char *)rows[i].pointer <= (char *)field && (!owner || (char *)rows[i].pointer > (char *)owner->pointer)) owner = &rows[i];
+    }
+    ++swizzle_unmatched_count;
+    if (swizzle_unmatched_count > 200) return;
+    fprintf(stderr, "swizzle: unmatched id %#lx field %p", (long)id, field);
+    if (below_id) fprintf(stderr, " | id-1 %#lx (+%#lx) %s", (long)below_id->id, (long)(id - below_id->id), vtable_name(below_id->pointer));
+    if (owner) fprintf(stderr, " | field in %p (+%#lx) %s", owner->pointer, (long)((char *)field - (char *)owner->pointer), vtable_name(owner->pointer));
+    auto c = swizzle_callers().find(field);
+    if (c != swizzle_callers().end()) {
+        Dl_info info = {};
+        dladdr(c->second, &info);
+        fprintf(stderr, " | caller %s+%#lx (image +%#lx)", info.dli_sname ? info.dli_sname : "?",
+                info.dli_saddr ? (long)((char *)c->second - (char *)info.dli_saddr) : 0L,
+                (long)((char *)c->second - (char *)info.dli_fbase));
+    }
+    fprintf(stderr, "\n");
+}
+// After the table: the original faulted at the first unmatched field.
+// RA2_NATIVE_SWIZZLE_CONTINUE=1 nulls them and goes on (diagnostics only).
+extern "C" void ra2port_swizzle_done(void)
+{
+    if (!swizzle_unmatched_count) return;
+    fprintf(stderr, "swizzle: %d unmatched fields\n", swizzle_unmatched_count);
+    int n = swizzle_unmatched_count;
+    swizzle_unmatched_count = 0;
+    if (!getenv("RA2_NATIVE_SWIZZLE_CONTINUE")) { (void)n; raise(SIGFPE); }
+}
+

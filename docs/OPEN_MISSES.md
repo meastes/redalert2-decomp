@@ -3237,3 +3237,6 @@ New rulings are recorded at their rows as before.
 
 ## Scout1132 (2026-11-09, 0 B; NOTES, w/wm8.cpp, tools in build/class-work/Scout1132/)
 - WinMain 0x68E280 49.19 -> 89.78 (w/wm8.cpp, shape 99.84, 2887/2887 insns). Fully drafted. Key: TibSun RegisterClasses() is a separate inline function above WinMain (`if (RegisterClasses()) exit(1);`); its divided /Ob2 budget refuses the 75 Add calls (57.5 -> 81.9). Init_Keys() also a separate inline. Left: INIClass() 0x51AD50 still expands inside Init_Keys (needs ~1000-1600 IL more charged before it; forced out gives 91.9 diag), frame 0xdf4 vs 0xe0c (block/slot sharing; original slot list in NOTES). Landing needs KeyboardClass in keyboard.hpp, Is_WinNT4 in windows_version.hpp, externs for 0x7CE008/0x8523E8/0xA41664/0xA4168C.
+
+## Scout1135 (2026-11-09, 0 B; NOTES, w/wm9.cpp, lab/bk.sh in build/class-work/Scout1135/)
+- WinMain 0x68E280 89.78 -> 90.41 (w/wm9.cpp, standalone): TibSun names in RegisterClasses, `retval`; top-level and RegisterClasses slots now at the original's offsets (new VC6 note: SEH frames sort by name hash). Left: if-block slots (original has hidden bucket-0 locals after `options` and differently named or scoped rects; 0x70/0x3c gaps are named locals, not temporaries) and INIClass() 0x51AD50 inline in Init_Keys (needs ~1000-1600 IL natural charge before it or ~14 pending sites after).

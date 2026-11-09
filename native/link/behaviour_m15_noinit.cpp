@@ -16,13 +16,33 @@ void *ra2_m15_noinit_timer2(void *self, void const *) { return self; }
 void *ra2_m15_noinit_timer3(void *self, void const *) { return self; }
 void *ra2_m15_noinit_timer4(void *self, void const *) { return self; }
 
-// UnknownIDSource (the scenario, Westwood's ScenarioClass) NoInit constructor:
-// unrecovered. Simplified: the loaded bytes are kept as read (the NoInit meaning
-// for its scalar members); its members' NoInit constructors (timer and vector
-// vtables) are not re-run, so this holds only for a game loaded by the process
-// that saved it (the loaded vtable pointers are that process's). TibSun
-// scenario.cpp ScenarioClass(NoInitClass) is the shape reference for a full row.
-extern "C" void *ra2_m15_noinit_scenario(void *self, void const *) __asm__("__ZN15UnknownIDSourceC1ERK11NoInitClass");
-extern "C" void *ra2_m15_noinit_scenario2(void *self, void const *) __asm__("__ZN15UnknownIDSourceC2ERK11NoInitClass");
-void *ra2_m15_noinit_scenario(void *self, void const *) { return self; }
-void *ra2_m15_noinit_scenario2(void *self, void const *) { return self; }
+// UnknownIDSource::UnknownIDSource(NoInitClass const &) 0x0065B780 (the scenario,
+// Westwood's ScenarioClass; pass-6a decompile 0065b780; Scout1133, M16): run
+// after UnknownIDSource::Load 0x006610C0 read the object's bytes. As the
+// original: the generator is rebuilt (Random2Class(0)), the +0x620 countdown
+// restarts (Started = now, DelayTime 0), the three allowable-unit TypeLists are
+// rebuilt empty (their vtables are this process's; Load then refills them) and
+// the mission timer text is fetched again from its label. Everything else
+// keeps the loaded bytes, so a save loads in a fresh process.
+#define TYPELIST_IMPLEMENT_DEFAULT_CONSTRUCTOR
+#include "shared/id_source.hpp"
+#include "shared/type_list.hpp"
+#include "shared/abstract_type.hpp"
+#include "shared/string_table.hpp"
+extern "C" void *ra2_m16_noinit_scenario(UnknownIDSource *self, void const *) __asm__("__ZN15UnknownIDSourceC1ERK11NoInitClass");
+extern "C" void *ra2_m16_noinit_scenario2(UnknownIDSource *self, void const *) __asm__("__ZN15UnknownIDSourceC2ERK11NoInitClass");
+void *ra2_m16_noinit_scenario(UnknownIDSource *self, void const *)
+{
+    new (&self->RandomNumber) Random2Class(0);
+    new (&self->unknown_620) CDTimerClass<SystemTimerClass>();
+    new (&self->AllowableUnits) TypeList<TechnoTypeClass *>;
+    new (&self->AllowableUnitMaximums) TypeList<int>;
+    new (&self->AllowableUnitCounts) TypeList<int>;
+    if (self->MissionTimerLabel[0] != 0) {
+        self->MissionTimerText = (unsigned short const *)StringTable::Load_String(self->MissionTimerLabel, 0, "D:\\Ra2\\Scenario.CPP", 0x154);
+    } else {
+        self->MissionTimerText = (unsigned short const *)unknown_empty_wide_839d4c;
+    }
+    return self;
+}
+void *ra2_m16_noinit_scenario2(UnknownIDSource *self, void const *x) { return ra2_m16_noinit_scenario(self, x); }

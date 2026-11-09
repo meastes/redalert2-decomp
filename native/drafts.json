@@ -1582,6 +1582,56 @@
    "author": "Scout914/Scout918",
    "draft": "native/drafts/00593870.cpp",
    "adapted": "C adapter ra2_native_projectile_motion_593870 for BulletClass::AI's draft (layout-identical TibSun-shaped types)"
+  },
+  {
+   "entry": "0x5C69E0",
+   "name": "Lobby_Dialog_Proc (Choose Map dialog)",
+   "plan": "draft, verify",
+   "tier": "menus (Choose Map)",
+   "bytes": 1920,
+   "score": 93.62,
+   "last_lane_score": 93.62,
+   "draft_found_by": "lane notes",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout1005/keep/h5c69e0/best-9362-head.cpp",
+   "author": "codex3/Scout1005",
+   "draft": "native/drafts/005c69e0.cpp",
+   "adapted": "as parked (TibSun netshare.cpp Scenario_DlgProc shape, attribution kept)"
+  },
+  {
+   "entry": "0x676010",
+   "name": "ShipLocomotionClass::Draw_Matrix",
+   "plan": "draft, verify",
+   "tier": "campaign (Allied 1: ships)",
+   "bytes": 1189,
+   "score": 97.08,
+   "last_lane_score": 97.08,
+   "draft_found_by": "index",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout592/w/dm_best_97.08.cpp",
+   "author": "Scout592/Scout1028",
+   "draft": "native/drafts/00676010.cpp"
+  },
+  {
+   "entry": "0x559000",
+   "name": "MapClass::Unknown_00559000 (Damage_High_Bridge)",
+   "plan": "draft, verify",
+   "tier": "campaign (Allied 1: the bridge trigger)",
+   "bytes": 3402,
+   "score": 56.15,
+   "last_lane_score": 56.15,
+   "draft_found_by": "lane notes",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout953/w/H_pt1_n5.cpp",
+   "author": "codex4/Scout953",
+   "draft": "native/drafts/00559000.cpp",
+   "adapted": "as parked (TibSun map.cpp Damage_High_Bridge shape, attribution kept)"
   }
  ]
 }

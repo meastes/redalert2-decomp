@@ -1165,6 +1165,54 @@
    "new": "SwizzleManagerClass::Here_I_Am(intptr_t id, void *pointer)",
    "why": "Swizzle IDs are the objects' saved addresses: AbstractClass::Save 0x004100C0 and LocomotionClass::Save 0x0053D360 write `this` (sizeof(self): 8 bytes natively), the loads read a `long` (VC6 32 bits, a pointer's width) and the swizzle tables key on it. Natively a 32-bit long read 4 of the 8 saved bytes (every loaded object then sat 4 bytes off) and truncated the keys; the native view keeps the IDs pointer-wide (intptr_t), the VC6 meaning (an ID is a whole address). Scout1125 (M15): load game.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Process_Tables_0069fc30.cpp",
+   "old": "                if (uptr->ID > sptr->ID) {\n                    do {\n                        sptr++;\n                        scount--;\n                    } while (uptr->ID > sptr->ID);\n                }\n                if (uptr->ID != sptr->ID) {\n                    volatile int zero = 0;\n                    zero = 1 / zero;\n                }",
+   "new": "                // native: bounded walk; an unmatched field is reported (the original faults on 1 / 0 here,\n                // which arm64 integer division does not: the loop spun).\n                while (scount > 1 && uptr->ID > sptr->ID) {\n                    sptr++;\n                    scount--;\n                }\n                if (uptr->ID != sptr->ID) {\n                    ra2port_swizzle_unmatched(uptr->ID, uptr->Pointer, &SwizzledPointers[0], SwizzledPointers.Count());\n                    *(void **)uptr->Pointer = 0;\n                    uptr++;\n                    ucount--;\n                }",
+   "why": "Diagnostic and bound (Scout1133, M16): the original faults on its deliberate 1 / 0 when a loaded pointer's object never called Here_I_Am; arm64 integer division returns 0 without a trap, so the native loop spun for ever (M15's load hang), and the do/while walk had no end check. Natively the walk stops at the last object, each unmatched field is printed (ID, field, nearest registered objects and their vtables) and, after the table, the run faults as the original (RA2_NATIVE_SWIZZLE_CONTINUE=1 nulls them and goes on, diagnostics only)."
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Process_Tables_0069fc30.cpp",
+   "old": "        UnswizzledPointers.Clear();\n        SwizzledPointers.Clear();\n    }",
+   "new": "        UnswizzledPointers.Clear();\n        SwizzledPointers.Clear();\n        ra2port_swizzle_done();\n    }",
+   "why": "Diagnostic and bound (Scout1133, M16): the original faults on its deliberate 1 / 0 when a loaded pointer's object never called Here_I_Am; arm64 integer division returns 0 without a trap, so the native loop spun for ever (M15's load hang), and the do/while walk had no end check. Natively the walk stops at the last object, each unmatched field is printed (ID, field, nearest registered objects and their vtables) and, after the table, the run faults as the original (RA2_NATIVE_SWIZZLE_CONTINUE=1 nulls them and goes on, diagnostics only)."
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Process_Tables_0069fc30.cpp",
+   "old": "#include \"shared/swizzle.hpp\"\n",
+   "new": "#include \"shared/swizzle.hpp\"\n\nextern \"C\" void ra2port_swizzle_unmatched(intptr_t id, void *field, void const *swizzled, int count);   // native diagnostics\nextern \"C\" void ra2port_swizzle_done(void);\n",
+   "why": "Diagnostic and bound (Scout1133, M16): the original faults on its deliberate 1 / 0 when a loaded pointer's object never called Here_I_Am; arm64 integer division returns 0 without a trap, so the native loop spun for ever (M15's load hang), and the do/while walk had no end check. Natively the walk stops at the last object, each unmatched field is printed (ID, field, nearest registered objects and their vtables) and, after the table, the run faults as the original (RA2_NATIVE_SWIZZLE_CONTINUE=1 nulls them and goes on, diagnostics only)."
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Swizzle_0069fb20.cpp",
+   "old": "    *pointer = 0;\n    return S_OK;",
+   "new": "    ra2port_swizzle_note(pointer, __builtin_return_address(0));   // native diagnostics\n    *pointer = 0;\n    return S_OK;",
+   "why": "Diagnostic (Scout1133, M16): with RA2_NATIVE_SWIZZLE_TRACE=1 each recorded field remembers its caller (the Load that asked), which Process_Tables' unmatched report prints. No behaviour change."
+  },
+  {
+   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Swizzle_0069fb20.cpp",
+   "old": "#include \"shared/swizzle.hpp\"\n",
+   "new": "#include \"shared/swizzle.hpp\"\n\nextern \"C\" void ra2port_swizzle_note(void *field, void *caller);   // native diagnostics\n",
+   "why": "Diagnostic (Scout1133, M16): with RA2_NATIVE_SWIZZLE_TRACE=1 each recorded field remembers its caller (the Load that asked), which Process_Tables' unmatched report prints. No behaviour change."
+  },
+  {
+   "source": "src/shared/unknown_globals.hpp",
+   "old": "    int unknown_38;                         // +0x38\n    int unknown_3c;                         // +0x3C\n    void *unknown_40;",
+   "new": "    intptr_t unknown_38;                    // +0x38 native: the loading message text (a pointer; VC6 int)\n    intptr_t unknown_3c;                    // +0x3C native: the loading briefing text (a pointer)\n    void *unknown_40;",
+   "why": "Unknown535910 (the loading screen) keeps the LSLoadMessage/LSLoadBriefing texts StringTable::Load_String returns in two ints (0x00535BF0: `unknown_38 = (int)Load_String(...)`, then `(wchar_t const *)unknown_38` for Fancy_Text_Printf and wcscpy); a 32-bit int truncated the pointers and a campaign's loading screen faulted in vswprintf (Scout1133, M16). Pointer-sized natively; same meaning (VC6 int is a pointer's width). The 0x00535BF0 draft stores them through (intptr_t)."
+  },
+  {
+   "source": "src/shared/ilocomotion.hpp",
+   "old": "    virtual COMMatrix3DStruct __stdcall Draw_Matrix(int *key) = 0;",
+   "new": "    virtual COMMatrix3DStruct * __stdcall Draw_Matrix(COMMatrix3DStruct *result, int *key) = 0;   // native: VC6's hidden return pointer, explicit\n    template <class Result = COMMatrix3DStruct> Result Draw_Matrix(int *key) { Result result; Draw_Matrix(&result, key); return result; }",
+   "why": "ILocomotion slots 9/10 under RA2_LOCOMOTION_COM_VALUE_TYPES (AircraftClass::Draw 0x004141C0) return the 48-byte matrix by value: VC6 passes that hidden return pointer as the first stack argument, so the locomotors implement `Matrix3D *(Matrix3D *, int *)` and both views share a slot. On arm64 a by-value return of a large struct goes in x8, not as the first argument: the implementation read the key as its matrix and faulted (Allied 1, an aircraft's shadow; Scout1133, M16). Natively the slot takes the return pointer explicitly and a non-virtual inline gives the by-value form the caller spells; same meaning, same slot order."
+  },
+  {
+   "source": "src/shared/ilocomotion.hpp",
+   "old": "    virtual COMMatrix3DStruct __stdcall Shadow_Matrix(int *key) = 0;",
+   "new": "    virtual COMMatrix3DStruct * __stdcall Shadow_Matrix(COMMatrix3DStruct *result, int *key) = 0;   // native: VC6's hidden return pointer, explicit\n    template <class Result = COMMatrix3DStruct> Result Shadow_Matrix(int *key) { Result result; Shadow_Matrix(&result, key); return result; }",
+   "why": "ILocomotion slots 9/10 under RA2_LOCOMOTION_COM_VALUE_TYPES (AircraftClass::Draw 0x004141C0) return the 48-byte matrix by value: VC6 passes that hidden return pointer as the first stack argument, so the locomotors implement `Matrix3D *(Matrix3D *, int *)` and both views share a slot. On arm64 a by-value return of a large struct goes in x8, not as the first argument: the implementation read the key as its matrix and faulted (Allied 1, an aircraft's shadow; Scout1133, M16). Natively the slot takes the return pointer explicitly and a non-virtual inline gives the by-value form the caller spells; same meaning, same slot order."
   }
  ]
 }

@@ -225,8 +225,7 @@ player_wins/loses flag is set (no Frame++, no Sync_Delay), which is the "frames
 run 50x faster" Scout1121 saw; Main_Loop_End then runs Do_Win/Do_Lose and the
 score dialog (MP_Score_Dialog_Proc 0x005AAE40, modal). The default skirmish map,
 Isle of War, has no land route between the bases (Regular findpath failure);
-a menu run picks El Dorado by a `[Skirmish] ScenIndex=5` section in the
-write directory's RA2.INI (the game's own saved skirmish settings). The real
+a menu run picks El Dorado in Customize Battle (Choose Map, M16). The real
 loop (menus, Medium Enemy, win at frame ~25,000, the score screen, Continue,
 Back, Back, `menu-return`) takes about 8 minutes.
 `RA2_NATIVE_FORCE_END=<frame>[,lose]` sets the win (or loss) flag at that frame
@@ -247,8 +246,35 @@ memory held 16,384 VC6 pointers), swizzle IDs are pointer-wide (the saved
 object address is 8 bytes natively), FindFirstFileA also lists the write
 directory (saved games), and the load dialog's list shows the saves' descriptions.
 Load from the menu (Single Player, Load Saved Game, the save, Load) reads the
-whole game back and stops in SwizzleManagerClass::Process_Tables: a loaded
-pointer whose object never registered (open).
+whole game back and plays on (M16, below).
+
+### Load, Choose Map, campaign start (Scout1133, M16)
+
+Load: SwizzleManagerClass::Process_Tables 0x0069FC30 spun for ever because its
+deliberate 1 / 0 for an unmatched pointer does not trap on arm64. A fixup bounds
+the walk and reports each unmatched field (`swizzle: unmatched id ... field ...`
+with the nearest registered objects' vtables; `RA2_NATIVE_SWIZZLE_TRACE=1` adds
+the Load that asked) and then faults as the original
+(`RA2_NATIVE_SWIZZLE_CONTINUE=1` nulls them instead). The cause: save/load
+streams wrote and read pointers with a literal 4 (RadioClass contacts,
+FactoryClass queue, StormOwner); native_units.py rewrites `Read/Write(&x, 4, ...)`
+to `ra2port::stream_width(x)` (8 for a pointer, else 4). The scenario's NoInit
+constructor 0x0065B780 is a full behaviour row (generator, countdown, the three
+TypeLists, the mission timer text), so a save loads in a fresh process: save at
+frame 1,500 in one run, load from the menu in another, 1,000 more frames.
+Choose Map: Lobby_Dialog_Proc 0x005C69E0 is a draft (93.62); the mode list
+called through two placeholder vtables (MultiplayerManBattle,
+MultiplayerObserverTeam: their key functions are behaviour rows). Campaign: Single
+Player, New Campaign, the Allied emblem starts Allied 1 (New York). Movies run
+through a native binkw32 without a decoder (`port/src/bink.cpp`: BinkOpen reads
+the header from a file or the mix file handle, frames advance one per decode
+pass, nothing is drawn), so every movie plays out at once with no picture. Native
+causes on the way: the loading screen kept its message texts in ints
+(Unknown535910 +0x38/+0x3C), ILocomotion's by-value matrix slots
+(RA2_LOCOMOTION_COM_VALUE_TYPES, AircraftClass::Draw) pass the hidden return
+pointer explicitly natively (arm64 returns large structs through x8), and the
+bridge trigger's Damage_High_Bridge 0x559000 and ShipLocomotionClass::Draw_Matrix
+0x676010 are drafts.
 
 ### Data the original stores (game.exe at run time)
 

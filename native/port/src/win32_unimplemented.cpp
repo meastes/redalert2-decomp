@@ -31,20 +31,6 @@ DWORD ImmGetCandidateListA(void *, DWORD, void *, DWORD) { return 0; }
 BOOL ImmNotifyIME(void *, DWORD, DWORD, DWORD) { return 0; }
 BOOL ImmSetOpenStatus(void *, BOOL) { return 0; }
 
-// binkw32: Bink movies (the intro/briefing videos) need a decoder decision;
-// BinkOpen fails, so the game skips each movie.
-void *BinkOpen(const char *name, DWORD) { trace("BinkOpen %s", name ? name : ""); unimplemented("BinkOpen (Bink movies)"); return nullptr; }
-void BinkClose(void *) {}
-int BinkCopyToBuffer(void *, void *, int, unsigned, unsigned, unsigned, unsigned) { return 0; }
-int BinkDDSurfaceType(void *) { return 0; }
-int BinkDoFrame(void *) { return 0; }
-const char *BinkGetError(void) { return "Bink is not available in the native build"; }
-int BinkGoto(void *, unsigned, int) { return 0; }
-void BinkNextFrame(void *) {}
-int BinkOpenDirectSound(uintptr_t) { return 0; }
-int BinkSetSoundSystem(void *, uintptr_t) { return 0; }
-void BinkPause(void *, int) {}
-void BinkSetVolume(void *, int) {}
-int BinkWait(void *) { return 0; }
+// binkw32: port/src/bink.cpp (headers only, no video; Scout1133).
 
 }  // extern "C"

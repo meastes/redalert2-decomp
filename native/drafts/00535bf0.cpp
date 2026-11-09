@@ -288,11 +288,11 @@ void Unknown535910::Unknown_00535BF0()
         }
         unknown_38 = 0;
         if (unknown_id_source_a3d290->LSLoadMessage[0] != 0) {
-            unknown_38 = (int)StringTable::Load_String(unknown_id_source_a3d290->LSLoadMessage, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x24F);
+            unknown_38 = (intptr_t)StringTable::Load_String(unknown_id_source_a3d290->LSLoadMessage, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x24F);
         }
         unknown_3c = 0;
         if (unknown_id_source_a3d290->LSLoadBriefing[0] != 0) {
-            unknown_3c = (int)StringTable::Load_String(unknown_id_source_a3d290->LSLoadBriefing, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x253);
+            unknown_3c = (intptr_t)StringTable::Load_String(unknown_id_source_a3d290->LSLoadBriefing, 0, "D:\\Ra2\\LdPrgMgr.cpp", 0x253);
         }
         int side = ProgressScreen.Get_Side();
         char const *top_name = (char const *)Unknown_Select_Art_6f2400(unknown_8523e0, unknown_8523e4, side);

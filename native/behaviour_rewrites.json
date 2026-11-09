@@ -1608,14 +1608,14 @@
    "notes": "plain functions under the constructor symbols (no member default construction); Scout1125 (M15)"
   },
   {
-   "entry": null,
+   "entry": "0x0065B780",
    "name": "UnknownIDSource::UnknownIDSource(NoInitClass const &)",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_m15_noinit.cpp",
-   "source": "TibSun scenario.cpp ScenarioClass(NoInitClass) (shape only)",
-   "notes": "SIMPLIFIED: keeps the loaded bytes; members' vtables not re-set (valid only for a load by the saving process); Scout1125 (M15)"
+   "source": "pass-6a decompile 0065b780 (TibSun scenario.cpp ScenarioClass(NoInitClass) for shape)",
+   "notes": "the original's steps (Random2Class(0), the +0x620 countdown restarted, the three TypeLists rebuilt, the mission timer text fetched); loads in a fresh process; Scout1125 (M15), completed by Scout1133 (M16)"
   },
   {
    "entry": "0x00492E20",
@@ -1626,6 +1626,106 @@
    "file": "native/link/behaviour_m15_cp.cpp",
    "source": "recovered twin EnumConnectionsClass 0x004924B0/0x00492210/Next",
    "notes": "a native IEnumConnectionPoints built in the house's allocation; Next fails when exhausted (ends Adjust_Drain's loop); Clone not implemented; Scout1125 (M15)"
+  },
+  {
+   "entry": "0x006EA9B0",
+   "name": "Unknown_006EA9B0 (Post_Load_Game's first call)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16.cpp",
+   "source": "original bytes (a lone ret)",
+   "notes": "empty, as the original; Scout1133 (M16)"
+  },
+  {
+   "entry": "0x005A7500",
+   "name": "MultiplayerManBattle::~MultiplayerManBattle (scalar deleting destructor's body)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16.cpp",
+   "source": "pass-6a decompile 005a7500",
+   "notes": "the vtable's key function (the vtable was a placeholder); Scout1133 (M16)"
+  },
+  {
+   "entry": "0x005AA800",
+   "name": "MultiplayerObserverTeam::unknown_slot1",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16.cpp",
+   "source": "pass-6a decompile 005aa800",
+   "notes": "forwards to MultiplayerTeam slot 1; the vtable's key function; Scout1133 (M16)"
+  },
+  {
+   "entry": "0x005E8710",
+   "name": "Unknown_005e8710 (message 0x4EC: EnumChildWindows with OwnerDraw 0x005E86D0)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16.cpp",
+   "source": "pass-6a decompile 005e8710",
+   "notes": "Scout1133 (M16)"
+  },
+  {
+   "entry": "0x00453B70",
+   "name": "TechnoClass::unknown_slot177",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16.cpp",
+   "source": "original bytes (mov eax, 2; ret)",
+   "notes": "Scout1133 (M16)"
+  },
+  {
+   "entry": null,
+   "name": "UnknownComPtr<UnknownFlyInterface>::Release_Held",
+   "origin_class": "unmatched (template instance; out-of-line copy not located)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16_fly.cpp",
+   "source": "the recovered Release_Held copies (0x00509860, 0x004A4D10)",
+   "notes": "reached by an aircraft taking off (the win loop, frame ~19k); Scout1133 (M16)"
+  },
+  {
+   "entry": "0x006631A0",
+   "name": "UnknownIDSource::unknown_6631a0 (the cell of a waypoint)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16.cpp",
+   "source": "pass-6a decompile 006631a0",
+   "notes": "Scout1133 (M16)"
+  },
+  {
+   "entry": "0x0058FE10",
+   "name": "Matrix3D::Matrix3D(COMMatrix3DStruct const &) (the copy constructor's COM view)",
+   "origin_class": "unmatched (second declaration of an accepted body)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16_matrix.cpp",
+   "source": "Matrix3D copy constructor 0x0058FE10",
+   "notes": "twelve floats copied; Scout1133 (M16)"
+  },
+  {
+   "entry": "0x00716940",
+   "name": "Unknown_00716940 (speech queue block count +1)",
+   "origin_class": "unmatched (transliterated Leaf row only)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16_radar.cpp",
+   "source": "pass-6a decompile 00716940",
+   "notes": "Scout1133 (M16)"
+  },
+  {
+   "entry": "0x00716690",
+   "name": "Unknown_00716690 (VoxClass at an index idle)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m16_radar.cpp",
+   "source": "pass-6a decompile 00716690",
+   "notes": "Scout1133 (M16)"
   }
  ]
 }
