@@ -3200,3 +3200,7 @@ New rulings are recorded at their rows as before.
 
 ## Scout1106 (2026-11-09, 0 B; NOTES and keep/ in build/class-work/Scout1106/)
 - Walk 0x71E220 stays 89.83 (parked; 9 lanes). Point2D table prerequisite not byte-neutral: retyping 0x851AC0 as TPoint2D<int> moves Print_CRCs (restored only by +2/+3 declarations, none natural); deriving UnknownFacingOffset from TPoint2D<int> moves 0x4F1190. The long `&unknown_1c` web appears exactly when site 1 is out of line; the target has both, so the site-2 copy (X/Y/Z into ecx/edx/edi before the table add) is the open mechanism.
+
+## Scout1112 (2026-11-09, 0 B; NOTES and d/r1 in build/class-work/Scout1112/)
+- Explosion_Damage 0x47E2C0 stays 97.92: frame slots 0x20/0x24 tie exactly ({m, j} vs {rings, &damage, Fetch_CellID temps, fild spill}); ~10 local-type/scope variants flat or worse.
+- Single declaration spec (d/r1, TechnoClass * source, bool last arg) held: the anim.hpp redeclaration drops Print_CRCs' declaration counter by 2 (+0x638 latch reload swap). OWNER DECISION: not landed; exact means exact. Print_CRCs/0x4F1190 counter sensitivity now blocks Scout1100/1106/1109/1110/1112 header items.

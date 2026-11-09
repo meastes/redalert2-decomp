@@ -2465,39 +2465,6 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
     },
     {
-      "entry": 6488832,
-      "method": "630300",
-      "symbol": "?get@Leaf_630300@@QAEIIIII@Z",
-      "symbol_prefix": "?get@Leaf_630300@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 28,
-      "body_sha256": "0e75756bdad3456829c009577cf2c53e484192d1bcd452bb134f93fdb2aa9634",
-      "padding_bytes": 4,
-      "full_extent_bytes": 32,
-      "full_extent_sha256": "3350e14b26773d682e03caafcd955c3352d305c154258b07348f7a32ee08e73a",
-      "relocations": [
-        {
-          "offset": 21,
-          "kind": 20,
-          "symbol": "?target@Target_630300@@QAEIIIII@Z",
-          "target": 5539040,
-          "addend": 0,
-          "resolved": 4294017479
-        }
-      ],
-      "source": "src/recovered/classes/RadarClass/00630300.cpp",
-      "source_sha256": "b9d9e0b575028e06c4db2858a9725e51adbd010d4417adc2baab84222e595fe2",
-      "source_order": 4497,
-      "population": "population-18",
-      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
-    },
-    {
       "entry": 6697376,
       "method": "6631a0",
       "symbol": "?get@Leaf_6631a0@@QAEII@Z",
@@ -2594,39 +2561,6 @@
       "source_order": 5005,
       "population": "population-18",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
-    },
-    {
-      "entry": 6867488,
-      "method": "68ca20",
-      "symbol": "?get@Leaf_68ca20@@QAEII@Z",
-      "symbol_prefix": "?get@Leaf_68ca20@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 17,
-      "body_sha256": "08e3d44586987c5716350f20d9691f14333d660e9d07b7ff987da55b7b7b1ab9",
-      "padding_bytes": 15,
-      "full_extent_bytes": 32,
-      "full_extent_sha256": "e596b8a3427ca1e460da9d8722dc78ecdb80fe561522eadb5f2c99852a47a9bb",
-      "relocations": [
-        {
-          "offset": 10,
-          "kind": 20,
-          "symbol": "?target@Target_68ca20@@QAEIIII@Z",
-          "target": 6866432,
-          "addend": 0,
-          "resolved": 4294966226
-        }
-      ],
-      "source": "src/recovered/0068ca20.cpp",
-      "source_sha256": "b08acffd443ffd1d3766e6d3f13835516586f408532d458bf8fa45c73a29a9ca",
-      "source_order": 5134,
-      "population": "population-18",
-      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
     },
     {

@@ -9,14 +9,15 @@
 #include "shared/isometric_tile.hpp"
 // @ref ??0IsometricTileClass@@QAE@HABVCell@@@Z=00527ed0
 // @ref ?unknown_func_52b560@IsometricTileTypeClass@@QAEXXZ=0052b560
-// @ref _unknown_geometry_k=00a52eac
+// @ref ?unknown_cell_a52eac@@3VCell@@B=00a52eac
 
 // The "no cell" position (0x00A52EAC; hypothesis).
+extern Cell const unknown_cell_a52eac;
 
 ObjectClass *IsometricTileTypeClass::unknown_slot35(HouseClass *house) const
 {
     if (unknown_a4 == 0 && unknown_2c4) {
         const_cast<IsometricTileTypeClass *>(this)->unknown_func_52b560();
     }
-    return new IsometricTileClass(ArrayIndex, unknown_geometry_k);
+    return new IsometricTileClass(ArrayIndex, unknown_cell_a52eac);
 }

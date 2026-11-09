@@ -10370,64 +10370,6 @@
       "source_order": 157800
     },
     {
-      "entry": 6996704,
-      "method": "006ac2e0",
-      "symbol": "_recover_6ac2e0@8",
-      "symbol_prefix": "_recover_6ac2e0",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 56,
-      "body_sha256": "59d5b9dafe992146bb83019c4c742eda719a2f44650e330658c5ffdf04098cc0",
-      "padding_bytes": 8,
-      "full_extent_bytes": 64,
-      "full_extent_sha256": "3486d10854802a0612cfd2aaa6bd0e503cc9b7097b5ade27aae5a2c0a643e126",
-      "relocations": [
-        {
-          "offset": 18,
-          "kind": 6,
-          "symbol": "_source_6ac2e0_0",
-          "target": 8003216,
-          "addend": 0,
-          "resolved": 8003216
-        },
-        {
-          "offset": 26,
-          "kind": 6,
-          "symbol": "_source_6ac2e0_1",
-          "target": 8003220,
-          "addend": 0,
-          "resolved": 8003220
-        },
-        {
-          "offset": 35,
-          "kind": 6,
-          "symbol": "_source_6ac2e0_2",
-          "target": 8003224,
-          "addend": 0,
-          "resolved": 8003224
-        },
-        {
-          "offset": 44,
-          "kind": 6,
-          "symbol": "_source_6ac2e0_3",
-          "target": 8003228,
-          "addend": 0,
-          "resolved": 8003228
-        }
-      ],
-      "source_sha256": "9da8ad9e5c3acbcb7545fd474759884f1c7a593b6292228895508b5128ebf55a",
-      "source": "src/recovered/classes/Tactical/006ac2e0.cpp",
-      "population": "population-3578",
-      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "source_order": 157801
-    },
-    {
       "entry": 7246112,
       "method": "006e9120",
       "symbol": "_recover_6e9120@8",

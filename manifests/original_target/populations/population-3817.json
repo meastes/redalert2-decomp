@@ -8344,56 +8344,6 @@
       "source_order": 170171
     },
     {
-      "entry": 7560096,
-      "method": "00735ba0",
-      "symbol": "?FUN_00735ba0@seed_00735ba0@@YIXPAX@Z",
-      "symbol_prefix": "?FUN_00735ba0@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 27,
-      "body_sha256": "630973146bb448d9b5eab8a39a14a38d049e8744a3bbddb0eb8173de928d63fd",
-      "padding_bytes": 5,
-      "full_extent_bytes": 32,
-      "full_extent_sha256": "4b8ffc8d29089926f13c24d2196d90fb578cf0032e7ad51aa225bd1e7fd2ac9c",
-      "relocations": [
-        {
-          "offset": 6,
-          "kind": 6,
-          "symbol": "?FUN_00735bc0@seed_00735ba0@@YGIPAXH@Z",
-          "target": 7560128,
-          "addend": 0,
-          "resolved": 7560128
-        },
-        {
-          "offset": 13,
-          "kind": 6,
-          "symbol": "__imp__EnumChildWindows@12",
-          "target": 7972060,
-          "addend": 0,
-          "resolved": 7972060
-        },
-        {
-          "offset": 21,
-          "kind": 20,
-          "symbol": "?FUN_00735bc0@seed_00735ba0@@YGIPAXH@Z",
-          "target": 7560128,
-          "addend": 0,
-          "resolved": 7
-        }
-      ],
-      "source_sha256": "ed4d3b39c79b36bb790b3d8adea1dc488362640c790b0d7173207b91b0c74b21",
-      "source": "src/recovered/00735ba0.cpp",
-      "population": "population-3817",
-      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "source_order": 170172
-    },
-    {
       "entry": 7563392,
       "method": "00736880",
       "symbol": "?FUN_00736880@seed_00736880@@YIXH@Z",
