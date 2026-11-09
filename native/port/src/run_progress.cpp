@@ -272,6 +272,20 @@ void ra2port_set_frames(int frames) { if (!skirmish_map) skirmish_frames = frame
 void ra2port_frame(int frame)
 {
     last_frame = frame;
+    // RA2_NATIVE_FPS_LOG=1: Main_Loop frames per wall-clock second on stderr
+    // (any run, --play too): the frame limiter's check (Sync_Delay 0x00540960).
+    static int fps_log = -1;
+    if (fps_log < 0) fps_log = getenv("RA2_NATIVE_FPS_LOG") ? 1 : 0;
+    if (fps_log) {
+        static auto start = std::chrono::steady_clock::now();
+        static int start_frame = frame;
+        double s = std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count();
+        if (s >= 5.0) {
+            fprintf(stderr, "fps: %.1f (frames %d..%d in %.2f s)\n", (frame - start_frame) / s, start_frame, frame, s);
+            start = std::chrono::steady_clock::now();
+            start_frame = frame;
+        }
+    }
     const ra2port::Host *h = ra2port::host();
     if (h && h->frame) h->frame(frame);
 }

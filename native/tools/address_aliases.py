@@ -81,14 +81,53 @@ def ir_signatures(entry):
         out.append(a)
     out += ['-O0', '-S', '-emit-llvm', '-o', '-']
     proc = subprocess.run(out, cwd=entry['directory'], capture_output=True, text=True)
-    sigs = {}
+    sigs, types = {}, {}
     for line in proc.stdout.splitlines():
+        t = IR_TYPE.match(line)
+        if t:
+            types[t.group(2)] = t.group(3)
+            continue
         if not (line.startswith('declare') or line.startswith('define')):
             continue
         m = IR_LINE.match(line)
         if m:
             sigs[m.group(4)] = (m.group(1), normalise(m.group(2), m.group(5)))
-    return sigs
+    return sigs, types
+
+
+# Record types of a unit's IR: %struct.Name / %class.Name / %"struct.A::B" = type { ... }.
+IR_TYPE = re.compile(r'^%("?)(?:struct|class|union)\.(.+?)\1 = type (?:<)?\{(.*)\}')
+PAD = re.compile(r'\[\d+ x i8\]')
+
+
+def this_view(dem):
+    """The class a function works on: a member's class, or a free function's
+    first parameter's pointee (`Owner const*`, `Owner&`); None otherwise."""
+    q = qualified(dem or '')
+    if '::' in q:
+        return q.rsplit('::', 1)[0]
+    params = demangled_params(dem or '') or []
+    if params and (params[0].endswith('*') or params[0].endswith('&')):
+        t = re.sub(r'\b(const|volatile|struct|class)\b', '', params[0].rstrip('*&')).strip()
+        return t or None
+    return None
+
+
+def padded_view(view, types):
+    """A per-file view class that reaches its fields through char pads (the VC6
+    offsets): `struct Owner { char unknown_000[0x154]; int current; ... }`. Its
+    offsets are not the real class's natively (vtable pointers, pointer-sized
+    members), so a real class's member must not be bound to a body written
+    against it (Scout1153: RadioClass's free-link test read +0xCC of the view,
+    not RadioLinks; Scout1161, M20). RTTI classes are real layouts. The caller
+    refuses the binding when the wanted name is a member of an RTTI class (a
+    vtable pointer moves every native offset) and the definition's view differs
+    from that class and is padded; other views of one object (a void* seed
+    view, a recovered struct with unknown runs) keep their bindings."""
+    if not view or view in rtti_bases():
+        return False
+    body = types.get(view)
+    return body is not None and PAD.search(body) is not None
 
 
 ATTR_DROP = re.compile(r'\b(noundef|nonnull|noalias|nocapture|readonly|writeonly|returned|dso_local|'
@@ -489,17 +528,28 @@ def main():
         if cands:
             wanted.append((row, cands))
     # IR signatures of the units (functions only).
-    sigs = {}
+    sigs, types = {}, {}
     if any(r['kind'] == 'function' for r, _ in wanted):
         cc = json.loads((build / 'compile_commands.json').read_text())
-        units = [e for e in cc if '/gen/units/' in e['file'] or '/native/data/' in e['file']
-                 or '/native/link/' in e['file']]
+        # Not this tool's own outputs: an adapter defines the caller's name with
+        # its C spelling of the caller's signature, which must not stand in for
+        # the caller's declaration on a re-run.
+        units = [e for e in cc if ('/gen/units/' in e['file'] or '/native/data/' in e['file']
+                                   or '/native/link/' in e['file'])
+                 and not e['file'].endswith((args.wrappers.name, args.adapters.name))]
         with concurrent.futures.ThreadPoolExecutor(args.j) as pool:
-            for result in pool.map(ir_signatures, units):
+            for result, unit_types in pool.map(ir_signatures, units):
                 for sym, (kind, sig) in result.items():
                     if kind == 'define' or sym not in sigs:
                         sigs[sym] = sig
+                types.update(unit_types)
     aliases, mismatched, ambiguous, wrappers, adapters = [], [], [], [], []
+    previous_target = {}
+    if args.out.exists():
+        for l in args.out.read_text().split('\n'):
+            if l and not l.startswith(('#', 'alias\t')):
+                f = l.split('\t')
+                previous_target[f[0]] = f[1]
     for row, cands in wanted:
         sym = row['symbol']
         if row['kind'] == 'data':
@@ -512,7 +562,15 @@ def main():
             continue
         mine = sigs.get(sym[1:]) or sigs.get(sym)
         good, wrap, adapt, misses = [], [], [], []
+        wanted_view = this_view(row['name'])
         for a, (target, dem) in cands:
+            target_view = this_view(dem)
+            if (wanted_view in rtti_bases() and target_view != wanted_view
+                    and padded_view(target_view, types)):
+                misses.append(dict(symbol=row['name'], target=dem, address='0x%08X' % a, wanted=None, defined=None,
+                                   reason='padded this view: %s reaches its fields through char pads (VC6 offsets)'
+                                   % target_view))
+                continue
             theirs = sigs.get(target[1:]) or sigs.get(target)
             how = compatible(mine, theirs)
             if how == 'alias':
@@ -525,6 +583,13 @@ def main():
                     adapt.append((a, target, dem, theirs, plan))
                 misses.append(dict(symbol=row['name'], target=dem, address='0x%08X' % a,
                                    wanted=mine, defined=theirs, reason=reason or 'adaptable'))
+        if len({g[1] for g in good}) > 1 and len({g[0] for g in good}) == 1:
+            # Several definitions at one original address with this signature
+            # (overloads of one body: CellClass::Adjacent_Cell(FacingType) and
+            # (unsigned int) at 0x00476AC0): the binding the previous output
+            # chose, else the first by symbol; either is the same original code.
+            pick = [g for g in good if previous_target.get(sym) == g[1]] or sorted(good, key=lambda g: g[1])
+            good = pick[:1]
         if len({g[1] for g in good}) == 1:
             a, target, dem = good[0]
             aliases.append((sym, target, a, 'function', 'same address, IR signature %s' % mine))
@@ -542,6 +607,27 @@ def main():
             ambiguous.append(dict(symbol=row['name'], candidates=[w[2] for w in adapt]))
         else:
             mismatched += misses
+    # A full regeneration is the normal run (each output recomputed from the link
+    # inputs without this tool's outputs). What the previous outputs bound and
+    # this run does not is listed with the reason, so a re-run on a built tree
+    # is reviewable: no input references the name any more, an input now
+    # defines it (a draft, a behaviour row, an inline body), or the binding is
+    # refused or mismatched now (gen/address_aliases.json "mismatched").
+    previous = set()
+    if args.out.exists():
+        previous |= {l.split('\t')[0] for l in args.out.read_text().split('\n')
+                     if l and not l.startswith(('#', 'alias\t'))}
+    for path in (args.wrappers, args.adapters):
+        if path.exists():
+            previous |= set(re.findall(r'ra2_(?:alias|adapter)_\d{4}\([^)]*\) __asm__\("([^"]+)"\);', path.read_text()))
+    now = {x[0] for x in aliases} | {x[0] for x in wrappers} | {x[0] for x in adapters}
+    referenced = {r['symbol'] for r in closure}
+    defined_set = set(defined)
+    dropped = []
+    for sym in sorted(previous - now):
+        why = ('defined by an input now' if sym in defined_set else
+               'no input references it' if sym not in referenced else 'refused or mismatched now (see mismatched)')
+        dropped.append(dict(symbol=sym, reason=why))
     lines = ['# generated by native/tools/address_aliases.py: names the native inputs reference that '
              'another name defines at the same original address (catalog references / region entries). '
              'Applied with ld64 -alias_list (link_closure.py filters it to the current link).',
@@ -554,11 +640,17 @@ def main():
     report = args.report or build / 'gen/address_aliases.json'
     report.write_text(json.dumps(dict(aliases=len(aliases), adapters=[dict(symbol=x[1], target=x[3], address='0x%08X' % x[4],
                                       kinds=sorted(set(x[7][2]) - {'same'})) for x in adapters],
-                                      mismatched=mismatched, ambiguous=ambiguous), indent=1))
+                                      mismatched=mismatched, ambiguous=ambiguous, dropped=dropped), indent=1))
     print('address aliases: %d (%d data, %d functions), %d return-conversion wrappers, %d signature adapters; '
           '%d signature mismatches (%d names), %d ambiguous (%s)' % (
               len(aliases), sum(1 for x in aliases if x[3] == 'data'), sum(1 for x in aliases if x[3] == 'function'),
               len(wrappers), len(adapters), len(mismatched), len({m['symbol'] for m in mismatched}), len(ambiguous), report))
+    if dropped:
+        kinds = {}
+        for d in dropped:
+            kinds[d['reason']] = kinds.get(d['reason'], 0) + 1
+        print('previous bindings not regenerated: %d (%s; listed under "dropped")'
+              % (len(dropped), ', '.join('%d %s' % (n, k) for k, n in sorted(kinds.items()))))
 
 
 if __name__ == '__main__':

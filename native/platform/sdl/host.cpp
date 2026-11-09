@@ -50,6 +50,7 @@ LPARAM mouse_lparam(float x, float y) { return (LPARAM)(((int)y & 0xFFFF) << 16 
 struct Deferred { const void *pixels; int width, height, pitch; };
 std::atomic<bool> deferred_pending{false};
 Deferred deferred;
+Uint64 last_present_ms = 0;
 SDL_Mutex *deferred_lock = nullptr;
 
 void *create_window(const char *title, int width, int height)
@@ -137,23 +138,31 @@ void pump_events()
     }
 }
 
+// Presents are coalesced to the message pump (user report 2026-11-09, M20:
+// the sidebar flickered while a building was produced). The game draws on the
+// DirectDraw primary in steps: it hides the mouse (the mouse thread erases the
+// cursor and unlocks the primary), redraws the sidebar or the tactical view,
+// then shows the mouse again. On Windows the primary is the screen and those
+// steps last microseconds; presenting each one held an intermediate state
+// (the cursor erased, a cameo half drawn) on screen until the next present,
+// every frame. Each primary update now records the frame; the main thread
+// presents it at its next event pump (once per Main_Loop frame, as the game
+// reads input) or at once when nothing was presented for 100 ms (loading
+// screens and other loops that draw without pumping).
 void present(const void *pixels, int width, int height, int pitch, int bits)
 {
     if (!renderer || bits != 16) return;
-    if (!SDL_IsMainThread()) {
-        if (!deferred_lock) return;
-        SDL_LockMutex(deferred_lock);
-        deferred = Deferred{pixels, width, height, pitch};
-        SDL_UnlockMutex(deferred_lock);
-        deferred_pending = true;
-        return;
-    }
-    deferred_pending = false;
-    present_now(pixels, width, height, pitch);
+    if (!deferred_lock) return;
+    SDL_LockMutex(deferred_lock);
+    deferred = Deferred{pixels, width, height, pitch};
+    SDL_UnlockMutex(deferred_lock);
+    deferred_pending = true;
+    if (SDL_IsMainThread() && SDL_GetTicks() - last_present_ms >= 100) present_deferred();
 }
 
 void present_now(const void *pixels, int width, int height, int pitch)
 {
+    last_present_ms = SDL_GetTicks();
     if (!texture || tex_w != width || tex_h != height) {
         if (texture) SDL_DestroyTexture(texture);
         // The game's resolution (its DirectDraw display mode): the window
@@ -192,12 +201,22 @@ void SDLCALL audio_callback(void *, SDL_AudioStream *stream, int additional, int
 }
 bool open_audio(int rate, void (*mix)(short *out, int frames))
 {
-    if (!SDL_WasInit(SDL_INIT_AUDIO) && !SDL_InitSubSystem(SDL_INIT_AUDIO)) return false;
+    // One line on stderr either way (user report 2026-11-09, M20: no sound in
+    // play): the SDL driver and device, or why none opened.
+    if (!SDL_WasInit(SDL_INIT_AUDIO) && !SDL_InitSubSystem(SDL_INIT_AUDIO)) {
+        fprintf(stderr, "audio: SDL audio init failed: %s\n", SDL_GetError());
+        return false;
+    }
     audio_mix = mix;
     SDL_AudioSpec spec = {SDL_AUDIO_S16, 2, rate};
     SDL_AudioStream *stream = SDL_OpenAudioDeviceStream(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, &spec, audio_callback, nullptr);
-    if (!stream) return false;
+    if (!stream) {
+        fprintf(stderr, "audio: no playback device (driver %s): %s\n", SDL_GetCurrentAudioDriver() ? SDL_GetCurrentAudioDriver() : "none", SDL_GetError());
+        return false;
+    }
     SDL_ResumeAudioStreamDevice(stream);
+    const char *device = SDL_GetAudioDeviceName(SDL_GetAudioStreamDevice(stream));
+    fprintf(stderr, "audio: playing on \"%s\" (driver %s, %d Hz stereo)\n", device ? device : "default", SDL_GetCurrentAudioDriver(), rate);
     return true;
 }
 

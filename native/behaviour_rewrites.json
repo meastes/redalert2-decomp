@@ -1295,7 +1295,7 @@
    "exact": false,
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f0320",
-   "notes": "push button procedure: input/state as the decompile (click sound, flash timer 0x4DC, disabled flag), painting simplified (image or frame + text; the PCX button art not drawn); Scout1119 (M14)"
+   "notes": "push button procedure: input/state as the decompile (click sound, flash timer 0x4DC, disabled flag), painting simplified (image or frame + text; the PCX button art not drawn); Scout1119 (M14); Scout1161 M20: paint follows the decompile (kind +0xB0: interface shape frames for 1-3, three-piece b?e_li/mi/ri PCX for 0), user report: main menu buttons were text only"
   },
   {
    "entry": "0x005F2B50",
@@ -1776,6 +1776,86 @@
    "file": "native/link/behaviour_owner.cpp",
    "source": "pass-6a decompile 0049af80 (empty)",
    "notes": "owner 2026-11-09, user crash report"
+  },
+  {
+   "entry": "0x004F3120",
+   "name": "HouseClass::Unknown_004F3120",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m20.cpp",
+   "source": "unowned view unknown_slot_ready_004f3120.cpp (0x154-byte pad) against house_screen.hpp/waypoint_path.hpp",
+   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members"
+  },
+  {
+   "entry": "0x00435FB0",
+   "name": "BombClass::Unknown_00435FB0",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m20_bomb.cpp",
+   "source": "unowned view Unknown435FB0Owner_unknown_435fb0_00435fb0.cpp (char pads) against object.hpp",
+   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members"
+  },
+  {
+   "entry": "0x0072C390",
+   "name": "WDTState::Is_Valid",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m20_wdt.cpp",
+   "source": "unowned view unknown_has_44_0072c390.cpp (0x44-byte pad) against wdt_state.hpp",
+   "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members"
+  },
+  {
+   "entry": "0x00423DA0",
+   "name": "ObjectClass::unknown_slot48",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m20_bomb.cpp",
+   "source": "pass-6a decompile 00423da0 (return false)",
+   "notes": "Scout1161 M20 play-stability sweep trap"
+  },
+  {
+   "entry": "0x00423DB0",
+   "name": "ObjectClass::unknown_slot49",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m20_bomb.cpp",
+   "source": "pass-6a decompile 00423db0 (return false)",
+   "notes": "Scout1161 M20 play-stability sweep trap"
+  },
+  {
+   "entry": "0x0041B2E0",
+   "name": "ObjectClass::unknown_slot51",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m20_bomb.cpp",
+   "source": "pass-6a decompile 0041b2e0 (return 0)",
+   "notes": "Scout1161 M20 play-stability sweep trap"
+  },
+  {
+   "entry": "0x004071E0",
+   "name": "AudioLevel::Get_Target",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m20_wdt.cpp",
+   "source": "pass-6a decompile 004071e0 (+0x08 >> 16)",
+   "notes": "Scout1161 M20 play-stability sweep trap"
+  },
+  {
+   "entry": "0x0049EC60",
+   "name": "DisplayClass::Unknown_0049EC60",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m20_wdt.cpp",
+   "source": "pass-6a decompile 0049ec60",
+   "notes": "Scout1161 M20 play-stability sweep trap"
   }
  ]
 }

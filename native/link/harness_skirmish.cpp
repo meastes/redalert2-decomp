@@ -20,6 +20,7 @@
 #include "shared/unknown_globals.hpp"
 #include "shared/debug_printf.hpp"
 #include "shared/main_loop.hpp"
+#include <stdlib.h>
 
 class TechnoClass;
 extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.hpp)
@@ -229,9 +230,36 @@ void Native_Harness_Orders(int frame);   // harness_orders.cpp
 void Native_Harness_Input(int frame);    // harness_input.cpp
 void Native_Harness_Save(int frame);     // harness_save.cpp
 
+// Native frame pacing (user report 2026-11-09, M20: real play "far too fast").
+// The skirmish dialog's speed slider stores 6 - position in Options.GameSpeed
+// (Skirmish_Command 0x006829F0); rules.ini [MultiplayerDialogSettings]
+// GameSpeed=0 ("fastest") is the slider's default. Main_Loop then sets the
+// frame timer 0x00839990 to 0 and Sync_Delay 0x00540960 does not wait: the
+// original ran as fast as the machine drew (DirectDraw blits of its day; the
+// CnCNet patches cap the same speed at 60 frames per second). Natively a frame
+// takes about 10 ms, so speed 0 ran near 100 frames per second. The port keeps
+// one SystemTimerClass tick (16 ms, timeGetTime() >> 4: about 62 frames per
+// second) as the floor for a frame whose timer was 0, in single player and
+// skirmish only (network games pace themselves). Not original code.
+// RA2_NATIVE_UNCAPPED=1 restores the uncapped loop (test runs).
+static void Native_Frame_Floor()
+{
+    static int uncapped = -1;
+    if (uncapped < 0) uncapped = getenv("RA2_NATIVE_UNCAPPED") ? 1 : 0;
+    static DWORD last = 0;
+    DWORD now = timeGetTime();
+    int type = unknown_session_a3d298.Type;
+    if (!uncapped && unknown_a40b18 <= 0 && (type == 0 || type == 5) && last && now - last < 16) {
+        Sleep(16 - (now - last));
+        now = timeGetTime();
+    }
+    last = now;
+}
+
 bool Native_Main_Loop_Seam()
 {
     bool over = unknown_53fbd0();
+    Native_Frame_Floor();
     // Every game counts its frames (a game started from the menus too:
     // --frames=N, scripted input by frame; Scout1119, M14).
     {

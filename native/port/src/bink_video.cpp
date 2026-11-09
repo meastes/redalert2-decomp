@@ -27,9 +27,10 @@
 // the intra/inter quantizer matrices could not be written from the
 // description: they are read at run time from the user's installed BINKW32.DLL
 // (located by the verified tables next to them), like the game data the port
-// reads from game.exe, ONLY when RA2_NATIVE_BINK_TABLES=1 (pending a user
-// ruling: AGENTS.md "Native phase" names game.exe and Ra2.tlb). Without them
-// the video stays black, as before.
+// reads from game.exe (user ruling 2026-11-09, AGENTS.md "Native phase": the
+// port may read them from the installed BINKW32.DLL; Scout1161, M20 made it
+// the default). Without the DLL, or when its tables are not found, one line on
+// stderr says so and movies play their sound over a black picture.
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -121,7 +122,7 @@ long find(std::vector<unsigned char> const &data, void const *what, size_t size)
 }
 
 // Reads the tables the description does not give from the installed
-// BINKW32.DLL (RA2_NATIVE_BINK_TABLES=1). Every read is checked: the codes of
+// BINKW32.DLL in the data directory. Every read is checked: the codes of
 // trees 10..15 must form complete prefix codes, every pattern must be a
 // permutation of 0..63, the quantizers must start at 1.0 (0x10000 >> 5... the
 // DC step) as trees 0..9 and the scan order next to them do.
@@ -130,15 +131,18 @@ bool load_tables()
     static int state = 0;   // 0 not tried, 1 ready, 2 unavailable
     if (state) return state == 1;
     state = 2;
-    const char *allow = getenv("RA2_NATIVE_BINK_TABLES");
-    if (!allow || *allow != '1') return false;
-    std::string path = std::string(ra2port::data_dir()) + "/BINKW32.DLL";
+    const char *dir = ra2port::data_dir();
+    if (!dir || !*dir) { fprintf(stderr, "ra2_port: Bink video: no data directory: movies play without video\n"); return false; }
+    std::string path = std::string(dir) + "/BINKW32.DLL";
     FILE *f = fopen(path.c_str(), "rb");
     if (!f) {
-        path = std::string(ra2port::data_dir()) + "/binkw32.dll";
+        path = std::string(dir) + "/binkw32.dll";
         f = fopen(path.c_str(), "rb");
     }
-    if (!f) { ra2port::trace("Bink video: no BINKW32.DLL in the installation"); return false; }
+    if (!f) {
+        fprintf(stderr, "ra2_port: Bink video: no BINKW32.DLL in %s: movies play without video\n", dir);
+        return false;
+    }
     std::vector<unsigned char> dll;
     unsigned char buffer[65536];
     size_t n;
@@ -154,7 +158,7 @@ bool load_tables()
     if (codes_at < 0 || scan_at < 0 || patterns_at < 0 || intra_at < 0
         || (size_t)codes_at + 256 > dll.size() || (size_t)patterns_at + 1024 > dll.size()
         || (size_t)intra_at + 3 * 4096 > dll.size()) {
-        ra2port::trace("Bink video: tables not found in %s", path.c_str());
+        fprintf(stderr, "ra2_port: Bink video: tables not found in %s: movies play without video\n", path.c_str());
         return false;
     }
     memcpy(tables.codes, &dll[codes_at], 256);
@@ -163,16 +167,16 @@ bool load_tables()
     memcpy(tables.inter, &dll[intra_at + 2 * 4096], 4096);   // a 16x64 table of another kind lies between
     for (int t = 0; t < 16; ++t) {
         if (!derive_lengths(tables.codes[t], tables.lengths[t])) {
-            ra2port::trace("Bink video: tree %d is not a complete prefix code", t);
+            fprintf(stderr, "ra2_port: Bink video: tree %d of %s is not a complete prefix code: movies play without video\n", t, path.c_str());
             return false;
         }
         if (!is_permutation64(tables.patterns[t])) {
-            ra2port::trace("Bink video: pattern %d is not a permutation", t);
+            fprintf(stderr, "ra2_port: Bink video: pattern %d of %s is not a permutation: movies play without video\n", t, path.c_str());
             return false;
         }
     }
     if (tables.inter[0][0] != 0x10000) {
-        ra2port::trace("Bink video: inter quantizer not where expected");
+        fprintf(stderr, "ra2_port: Bink video: inter quantizer of %s not where expected: movies play without video\n", path.c_str());
         return false;
     }
     tables.ready = true;

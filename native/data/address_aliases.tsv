@@ -16,6 +16,7 @@ __ZN15UnknownList14BC16Unknown_00406070Ev	__Z30Audio_Event_Handle_Finish_LoopP16
 __ZN22UnknownAudioController16Unknown_00406070Ev	__Z30Audio_Event_Handle_Finish_LoopP16AudioEventHandle	0x00406070	function	same address, IR signature void (ptr)
 __ZN15UnknownList14BC16Unknown_00406100EP10AudioEventP14AudioEventType	__Z22Audio_Event_Handle_SetP16AudioEventHandleP10AudioEventP14AudioEventType	0x00406100	function	same address, IR signature void (ptr, ptr, ptr)
 __ZN22UnknownAudioController16Unknown_00406100EP10AudioEventP14AudioEventType	__Z22Audio_Event_Handle_SetP16AudioEventHandleP10AudioEventP14AudioEventType	0x00406100	function	same address, IR signature void (ptr, ptr, ptr)
+__Z9Debug_LogPKcz	__Z12Debug_PrintfPKcz	0x004068F0	function	same address, IR signature void (ptr, ...)
 __ZN13seed_005b69b012FUN_00406f30Ev	__Z20unknown_check_406f30v	0x00406F30	function	same address, IR signature i32 ()
 __ZN10AudioLevel4InitEi	__Z22unknown_start_00407030P26UnknownFixedTimer_00407030i	0x00407030	function	same address, IR signature void (ptr, i32)
 __Z21unknown_update_4070f0P26UnknownFixedTimer_00407030	__ZN10AudioLevel6UpdateEv	0x004070F0	function	same address, IR signature void (ptr)
@@ -45,7 +46,6 @@ __ZN13seed_0042ebe015Callee_0042e99012FUN_0042e990Eii	__ZN13Unknown84E8D016Unkno
 __ZN24UnknownFallback_006f649019unknown_call_42e990Eii	__ZN13Unknown84E8D016Unknown_0042E990Eii	0x0042E990	function	same address, IR signature void (ptr, i32, i32)
 __ZN23unknown_bit_font_84e9e815Set_Clip_431460EPK4RECT	__ZN12BitFontClass12Set_Clip_BoxEPK7tagRECT	0x00431460	function	same address, IR signature void (ptr, ptr)
 __ZN26unknown_bit_printer_84e9d012Print_432490EP23unknown_bit_font_84e9e8P7SurfacePKtiiiiiii	__ZN12BitTextClass9Print_BoxEP12BitFontClassP7SurfacePKtiiiiiii	0x00432490	function	same address, IR signature void (ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32)
-__ZN9BombClass16Unknown_00435FB0Ev	__ZN18Unknown435FB0Owner14unknown_435fb0Ev	0x00435FB0	function	same address, IR signature void (ptr)
 __ZN17UnknownList8322E08Add_BombEP11TechnoClassP11ObjectClass	__ZN13BombListClass8Add_BombEP11TechnoClassP11ObjectClass	0x00436470	function	same address, IR signature void (ptr, ptr, ptr)
 __ZN17UnknownList8322E016Unknown_00436680EP11TechnoClass	__ZN13BombListClass16Unknown_00436680EP11TechnoClass	0x00436680	function	same address, IR signature void (ptr, ptr)
 __ZN17UnknownList8322E016Unknown_004366D0EP11TechnoClass	__ZN13BombListClass16Unknown_004366D0EP11TechnoClass	0x004366D0	function	same address, IR signature void (ptr, ptr)
@@ -85,6 +85,7 @@ __ZN16UnknownCellClass16Unknown_0047A130Ev	__Z18Cell_Tube_0047a130PK9CellClass	0
 __ZN9CellClass16Unknown_0047A130Ev	__Z18Cell_Tube_0047a130PK9CellClass	0x0047A130	function	same address, IR signature ptr (ptr)
 __ZN15UnknownAnimCell16Unknown_0047A220Ev	__ZNK9CellClass17Get_Tiberium_TypeEv	0x0047A220	function	same address, IR signature i32 (ptr)
 __ZN16UnknownCellClass16Unknown_0047A230Ev	__ZNK9CellClass18Get_Tiberium_ValueEv	0x0047A230	function	same address, IR signature i32 (ptr)
+__ZN9CellClass14unknown_47a270Ev	__ZNK9CellClass13Is_Tile_WaterEv	0x0047A270	function	same address, IR signature zeroext i1 (ptr)
 __Z31Unknown_Cell_Predicate_0047b5e0P9CellClass	__ZNK9CellClass14unknown_47b5e0Ev	0x0047B5E0	function	same address, IR signature zeroext i1 (ptr)
 __ZN16UnknownCellClass16Unknown_0047BB10Ev	__ZNK9CellClass14unknown_47bb10Ev	0x0047BB10	function	same address, IR signature zeroext i1 (ptr)
 __ZN16UnknownCellClass14unknown_47bb30Ev	__ZN9CellClass14unknown_47bb30Ev	0x0047BB30	function	same address, IR signature void (ptr)
@@ -115,13 +116,14 @@ __ZN18UnknownMapEntry15416Unknown_00493930Ev	__ZN10CrateClass9Remove_ItEv	0x0049
 __ZN18UnknownMapEntry15416Unknown_004939A0ER4Cell	__ZN10CrateClass12Create_CrateERK4Cell	0x004939A0	function	same address, IR signature zeroext i1 (ptr, ptr)
 __Z16Unknown_00495270PKcPb	__Z27Unknown_Load_Shape_00495270PKcRb	0x00495270	function	same address, IR signature ptr (ptr, ptr)
 __Z25unknown_load_shape_495310RK7WstringPb	__Z27Unknown_Load_Shape_00495310RK7WstringRb	0x00495310	function	same address, IR signature ptr (ptr, ptr)
+__Z16Unknown_00495590b	__Z32Init_Language_Resources_00495590b	0x00495590	function	same address, IR signature zeroext i1 (i1 zeroext)
 __Z16Unknown_004955D0PviPFvvE	__Z15Fade_Palette_ToRK12PaletteClassiPFvvE	0x004955D0	function	same address, IR signature void (ptr, i32, ptr)
 __Z24Get_Device_Caps_00495fc0v	__Z36Get_DirectDraw_Capabilities_00495fc0v	0x00495FC0	function	same address, IR signature i32 ()
 __Z14unknown_4961d0v	__Z30Wait_For_Surface_Blit_004961d0v	0x004961D0	function	same address, IR signature void ()
 __ZN10MouseClass14unknown_slot42ERK4Rect	__ZN12DisplayClass14unknown_slot42ERK4Rect	0x00498C80	function	same address, IR signature void (ptr, ptr)
 __ZN12DisplayClass2AIERiRK7Point2D	__ZN12GScreenClass2AIERiRK7Point2D	0x00499A20	function	same address, IR signature void (ptr, ptr, ptr)
 __ZN13seed_006f64b015Callee_0049cac012FUN_0049cac0Ei	__ZN12DisplayClass16Unknown_0049CAC0Ei	0x0049CAC0	function	same address, IR signature void (ptr, i32)
-__ZN13seed_0051c0a015Callee_0049e3b012FUN_0049e3b0Ev	__ZN12DisplayClass16Unknown_0049E3B0Ev	0x0049E3B0	function	same address, IR signature void (ptr)
+__Z17Query_DLL_VersionPKc	__Z26Query_DLL_Version_0049ee00PKc	0x0049EE00	function	same address, IR signature i32 (ptr)
 __ZN16UnknownHouseBase19unknown_func_4a6b10Ev	__ZN18Unknown4A6AE0Owner22Swizzle_Types_004A6B10Ev	0x004A6B10	function	same address, IR signature void (ptr)
 __Z16Unknown_004A6B90v	__Z24Dropship_Screen_004A6B90v	0x004A6B90	function	same address, IR signature void ()
 __Z16Unknown_004B1470v	__Z16Release_Direct3Dv	0x004B1470	function	same address, IR signature void ()
@@ -146,7 +148,6 @@ __ZN9FootClass15unknown_slot272Ev	__ZN11TechnoClass15unknown_slot272Ev	0x004CDAC
 __ZN9FootClass15unknown_slot276Ev	__ZN11TechnoClass15unknown_slot276Ev	0x004CDBD0	function	same address, IR signature zeroext i1 (ptr)
 __Z27unknown_scheme_index_4cefc0v	__Z19Gadget_Color_Schemev	0x004CEFC0	function	same address, IR signature i32 ()
 __Z16Unknown_004d1060P6HWND__ii	__Z22Set_Player_Ping_4d1060P6HWND__ii	0x004D1060	function	same address, IR signature void (ptr, i32, i32)
-__ZN13seed_0051c0a015Callee_004e09a012FUN_004e09a0Ei	__ZN12GScreenClass14Flag_To_RedrawEi	0x004E09A0	function	same address, IR signature void (ptr, i32)
 __Z16Unknown_004E0C90bP7SurfacePK4Rect	__ZN12GScreenClass4BlitEbP7SurfacePK4Rect	0x004E0C90	function	same address, IR signature void (i1 zeroext, ptr, ptr)
 __ZN10HouseClass16Unknown_004E5280Ei	__ZN10HouseClass20Spend_Money_004e5280Ei	0x004E5280	function	same address, IR signature void (ptr, i32)
 __ZN19UnknownSidebarHouse16Unknown_004E7070EP11TechnoClassP13BuildingClass	__ZN10HouseClass19unknown_func_4e7070EP11TechnoClassP13BuildingClass	0x004E7070	function	same address, IR signature zeroext i1 (ptr, ptr, ptr)
@@ -157,7 +158,6 @@ __ZN19UnknownSidebarHouse16Unknown_004EB620Eibi	__ZN10HouseClass19unknown_func_4
 __ZN19UnknownSidebarHouse16Unknown_004EB770Eibi	__ZN10HouseClass19unknown_func_4eb770Eibi	0x004EB770	function	same address, IR signature zeroext i1 (ptr, i32, i1 zeroext, i32)
 __Z37Base_Cell_Weight_By_Distance_004f0290P10HouseClassRK4Cellii	__Z25House_Base_Distance_ScoreP10HouseClassRK4Cellii	0x004F0290	function	same address, IR signature i32 (ptr, ptr, i32, i32)
 __ZN10HouseClass16Unknown_004F30D0Ev	__ZN10HouseClass19unknown_func_4f30d0Ev	0x004F30D0	function	same address, IR signature i32 (ptr)
-__ZNK10HouseClass16Unknown_004F3120Ev	__Z27unknown_slot_ready_004f3120PK25UnknownSlotOwner_004f3120	0x004F3120	function	same address, IR signature zeroext i1 (ptr)
 __ZN19UnknownSidebarHouse16Unknown_004F4F30EP15TechnoTypeClass	__ZN10HouseClass25Is_Build_Limited_004F4F30EP15TechnoTypeClass	0x004F4F30	function	same address, IR signature zeroext i1 (ptr, ptr)
 __ZN10HouseClass16Unknown_004F52F0Ev	__ZN10HouseClass19unknown_func_4f52f0Ev	0x004F52F0	function	same address, IR signature zeroext i1 (ptr)
 __ZNK11CampaignINI15Get_Wide_StringEPKcS1_Pti	__ZNK8INIClass15Get_Wide_StringEPKcS1_Pti	0x0050F010	function	same address, IR signature i32 (ptr, ptr, ptr, ptr, i32)
@@ -172,6 +172,7 @@ __Z16Unknown_00521FB0v	__ZN13IonBlastClass8Draw_AllEv	0x00521FB0	function	same a
 __Z16Unknown_00522930v	__Z19Audio_File_Shutdownv	0x00522930	function	same address, IR signature void ()
 __Z29Unknown_Dialog_Added_00522b20P6HWND__	__Z36Unknown_Add_Modeless_Dialog_00522b20P6HWND__	0x00522B20	function	same address, IR signature void (ptr)
 __Z31Unknown_Dialog_Removed_00522b80P6HWND__	__Z39Unknown_Remove_Modeless_Dialog_00522b80P6HWND__	0x00522B80	function	same address, IR signature void (ptr)
+__Z17Audio_File_RecordPKc	__Z27Unknown_Audio_File_00522c50PKc	0x00522C50	function	same address, IR signature void (ptr)
 __Z16Unknown_00522e10v	__Z16Audio_File_Flushv	0x00522E10	function	same address, IR signature void ()
 __ZN22IsometricTileTypeClass9Land_TypeEi	__ZN26UnknownImageOwner_0052930034unknown_frame_table_value_00529300Ei	0x00529300	function	same address, IR signature i32 (ptr, i32)
 __Z16Unknown_00529400PKc	__ZN22IsometricTileTypeClass9From_NameEPKc	0x00529400	function	same address, IR signature i32 (ptr)
@@ -230,6 +231,7 @@ __ZN20UnknownSessionA3D29C20unknown_ini_005b7840Ev	__ZN19MultiplayerGameMode18un
 __ZN20UnknownSessionA3D29C16Unknown_005B7CE0Ev	__ZN19MultiplayerGameMode32Create_Starting_Objects_005b7ce0Ev	0x005B7CE0	function	same address, IR signature void (ptr)
 __Z16Unknown_005BB540v	__Z21Init_Network_005bb540v	0x005BB540	function	same address, IR signature zeroext i1 ()
 __Z16Unknown_005BB5A0v	__Z25Shutdown_Network_005bb5a0v	0x005BB5A0	function	same address, IR signature void ()
+__Z16Unknown_005bba50Pt	__Z16Compute_Name_CRCPKc	0x005BBA50	function	same address, IR signature i32 (ptr)
 __Z16Unknown_005BC460v	__Z21Init_Network_005bc460v	0x005BC460	function	same address, IR signature zeroext i1 ()
 __Z16Unknown_005BD070v	__Z24Net_Join_Dialog_005bd070v	0x005BD070	function	same address, IR signature zeroext i1 ()
 __Z14unknown_5c05f0P18UnknownScorePacketP15IPXAddressClass	__Z21Answer_Query_005c05f0P19UnknownGlobalPacketP15IPXAddressClass	0x005C05F0	function	same address, IR signature zeroext i1 (ptr, ptr)
@@ -245,6 +247,7 @@ __Z16Unknown_005cb560P6HWND__	__Z29Clear_Observer_Slots_005cb560P6HWND__	0x005CB
 __Z16Unknown_005cca30P6HWND__P18UnknownGameOptions	__Z27Load_Lobby_Options_005cca30P6HWND__P18UnknownGameOptions	0x005CCA30	function	same address, IR signature void (ptr, ptr)
 __ZNK22UnknownObject_006f761019unknown_func_5d27d0EPKc	__ZNK11ObjectClass19unknown_func_5d27d0EPKc	0x005D27D0	function	same address, IR signature zeroext i1 (ptr, ptr)
 __ZN11ObjectClass14unknown_5d47d0Ev	__ZNK11ObjectClass16Unknown_005D47D0Ev	0x005D47D0	function	same address, IR signature i32 (ptr)
+__ZN11TechnoClass14unknown_5d4c00EP9CellClass	__ZN11ObjectClass14unknown_5d4c00EP13AbstractClass	0x005D4C00	function	same address, IR signature i32 (ptr, ptr)
 __Z16Unknown_005D5010RK18DynamicVectorClassIP11ObjectClassE	__Z22Vector_Center_005d5010RK18DynamicVectorClassIP11ObjectClassE	0x005D5010	function	same address, IR signature [2 x i64] (ptr)
 __Z14unknown_5e2040P6HWND__i	__ZN9OwnerDraw14unknown_5e2040EP6HWND__i	0x005E2040	function	same address, IR signature void (ptr, i32)
 __Z16Unknown_005e5150P6HWND__b	__ZN9OwnerDraw14unknown_5e5150EP6HWND__b	0x005E5150	function	same address, IR signature void (ptr, i1 zeroext)
@@ -293,7 +296,6 @@ __Z16Unknown_0065C310v	__Z22Release_Pause_0065c310v	0x0065C310	function	same add
 __ZN12NodeNameType18Get_Color_0066e2a0Ev	__ZN12NodeNameType14unknown_66e2a0Ev	0x0066E2A0	function	same address, IR signature i32 (ptr)
 __Z16Unknown_0066F3A0P19UnknownSessionState	__ZN19UnknownSessionState25Read_MultiPlayer_SettingsEv	0x0066F3A0	function	same address, IR signature void (ptr)
 __Z28Write_Chat_Settings_00670730P19UnknownSessionState	__ZN23UnknownOptions_0067073025unknown_save_chat_optionsEv	0x00670730	function	same address, IR signature void (ptr)
-__ZN12MultiMission24Set_Description_00671FA0EPKt	__ZN25UnknownDescribed_00671fa023unknown_set_descriptionEPKt	0x00671FA0	function	same address, IR signature void (ptr, ptr)
 __ZN17UnknownLobbyState4SaveEP7IStream	__ZN19UnknownBlock_a3d2b04SaveEP7IStream	0x00672830	function	same address, IR signature zeroext i1 (ptr, ptr)
 __ZN17UnknownLobbyState4LoadEP7IStream	__ZN19UnknownBlock_a3d2b04LoadEP7IStream	0x00672880	function	same address, IR signature zeroext i1 (ptr, ptr)
 __Z16Unknown_00672DE0P19UnknownSessionState	__ZN19UnknownSessionState16Unknown_00672DE0Ev	0x00672DE0	function	same address, IR signature void (ptr)
@@ -347,10 +349,10 @@ __Z16Unknown_006F4C90ii	__Z31Unknown_Layout_Sidebar_006F4C90ii	0x006F4C90	functi
 __Z16Unknown_006F5400v	__Z14Unknown_6F5400v	0x006F5400	function	same address, IR signature void ()
 __Z16Unknown_006F6670v	__Z32Unknown_Can_Force_Order_006F6670v	0x006F6670	function	same address, IR signature zeroext i1 ()
 __Z24unknown_matches_any_nameP11TechnoClassRK18DynamicVectorClassIPKcE	__Z24unknown_matches_any_nameP22UnknownObject_006f7610RK24UnknownNameList_006f7610	0x006F7610	function	same address, IR signature zeroext i1 (ptr, ptr)
-__ZN13seed_0051bb5012FUN_006f7650Ev	__Z16Unknown_006F7650v	0x006F7650	function	same address, IR signature void ()
-__ZN13seed_0051bb5012FUN_006f7670Ev	__Z16Unknown_006F7670v	0x006F7670	function	same address, IR signature void ()
+__Z16Load_String_FilePKc	__Z26String_Table_Init_006f8e30PKc	0x006F8E30	function	same address, IR signature i32 (ptr)
 __ZN24UnknownObserver_006f9fb014unknown_6f8e30Ev	__Z26String_Table_Init_006f8e30PKc	0x006F8E30	function	same address, IR signature void (ptr)
 __ZN24UnknownObserver_006f9fe014unknown_6f8e30Ev	__Z26String_Table_Init_006f8e30PKc	0x006F8E30	function	same address, IR signature void (ptr)
+__Z16Wide_Message_BoxP6HWND__PKtS2_j	__Z16Unknown_006FA040P6HWND__PKtS2_j	0x006FA040	function	same address, IR signature i32 (ptr, ptr, ptr, i32)
 __Z19Widen_Text_006fa0c0PtPKci	__Z16Unknown_006FA0C0PtPKci	0x006FA0C0	function	same address, IR signature void (ptr, ptr, i32)
 __Z16Unknown_006fa0f0PcPKti	__Z16Unknown_006FA0F0PcPKti	0x006FA0F0	function	same address, IR signature void (ptr, ptr, i32)
 __Z16Unknown_006FA180PKc	__Z16Unknown_006FA180PKh	0x006FA180	function	same address, IR signature ptr (ptr)
@@ -401,9 +403,6 @@ __Z28unknown_normal_lookup_71baa0RK7Vector3S1_fi	__Z14unknown_71baa0PK7Vector3S1
 __Z16Unknown_00721DB0RK7Point2DS1_	__Z23Wave_Direction_00721db0RK7Point2DS1_	0x00721DB0	function	same address, IR signature i32 (ptr, ptr)
 __Z20Waypoint_Name_7249f0i	__Z18Waypoint_As_Stringi	0x007249F0	function	same address, IR signature ptr (i32)
 __Z25Waypoint_From_Name_724a70Pc	__Z20Waypoint_From_StringPKc	0x00724A70	function	same address, IR signature i32 (ptr)
-__ZN19WorldDominationTour3Map14Set_Unknown_74EP8MSEngineb	__ZN20UnknownToggle_72a6d014Set_Unknown_74EP8MSEngineb	0x0072A6D0	function	same address, IR signature void (ptr, ptr, i1 zeroext)
-__ZN19WorldDominationTour3Map14Set_Unknown_68EP8MSEngineb	__ZN20UnknownToggle_72a6d014Set_Unknown_68EP8MSEngineb	0x0072A720	function	same address, IR signature void (ptr, ptr, i1 zeroext)
-__ZNK8WDTState8Is_ValidEv	__ZNK21UnknownOwner_0072c39014unknown_has_44Ev	0x0072C390	function	same address, IR signature zeroext i1 (ptr)
 __Z16Unknown_007357E0Pvi	__Z19End_Dialog_007357e0P6HWND__i	0x007357E0	function	same address, IR signature void (ptr, i32)
 __Z28Close_Online_Dialog_007357e0P6HWND__i	__Z19End_Dialog_007357e0P6HWND__i	0x007357E0	function	same address, IR signature void (ptr, i32)
 __Z20Find_Dialog_00735940i	__Z16Unknown_00735940i	0x00735940	function	same address, IR signature ptr (i32)
@@ -463,7 +462,17 @@ __ZN13seed_00663c7012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x0078
 __ZN13seed_006720c012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
 __ZN13seed_0067214012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
 __ZN13seed_006f9f8012FUN_00781f20EPhS0_	__Z22unknown_compare_781f20PKvS0_	0x00781F20	function	same address, IR signature i32 (ptr, ptr)
+_CLSID_CompressStream	_CLSID_CStreamClass	0x007A1AB0	data	same address
+_CLSID_UnitTypeClass	_unknown_clsid_unit_type_7a1b00	0x007A1B00	data	same address
+_CLSID_InfantryTypeClass	_unknown_clsid_infantry_type_7a1b10	0x007A1B10	data	same address
+_CLSID_AircraftTypeClass	_unknown_clsid_aircraft_type_7a1b20	0x007A1B20	data	same address
+_CLSID_BuildingTypeClass	_unknown_clsid_building_type_7a1b30	0x007A1B30	data	same address
+_CLSID_WaypointPath	_CLSID_WaypointPathClass	0x007A1DC0	data	same address
+_CLSID_LightSource	_source_537b60_0	0x007A1E30	data	same address
+_CLSID_EMPulseClass	_source_4b5340_0	0x007A1E80	data	same address
+_CLSID_TacticalMapClass	_CLSID_Tactical	0x007A1E90	data	same address
 _unknown_Walk_clsid_007a1fa0	_CLSID_WalkLocomotionClass	0x007A1FA0	data	same address
+_CLSID_TeleportLocomotion	_CLSID_TeleportLocomotionClass	0x007A1FD0	data	same address
 _unknown_clsid_7a1fd0	_CLSID_TeleportLocomotionClass	0x007A1FD0	data	same address
 _unknown_iid_7a2c28	_IID_IGameMap	0x007A2C28	data	same address
 _guest_private_color_7a7368	_unknown_color_7a7368	0x007A7368	data	same address
@@ -515,18 +524,4 @@ _test_frame_rate_debug_007ff314	_start_text_007ff314	0x007FF314	data	same addres
 _test_precalc_debug_007ff334	_start_text_007ff334	0x007FF334	data	same address
 _wol_match_fail_7ffd8c	_match_exit_label_007ffd8c	0x007FFD8C	data	same address
 _wol_user_count_debug_007ffea0	_request_match_user_count_007ffea0	0x007FFEA0	data	same address
-__Z16Unknown_00495590b	__Z32Init_Language_Resources_00495590b	0x00495590	function	same address, IR signature zeroext i1 (i1 zeroext)
-__Z17Query_DLL_VersionPKc	__Z26Query_DLL_Version_0049ee00PKc	0x0049EE00	function	same address, IR signature i32 (ptr)
-__Z17Audio_File_RecordPKc	__Z27Unknown_Audio_File_00522c50PKc	0x00522C50	function	same address, IR signature void (ptr)
-__Z16Load_String_FilePKc	__Z26String_Table_Init_006f8e30PKc	0x006F8E30	function	same address, IR signature i32 (ptr)
-__Z16Wide_Message_BoxP6HWND__PKtS2_j	__Z16Unknown_006FA040P6HWND__PKtS2_j	0x006FA040	function	same address, IR signature i32 (ptr, ptr, ptr, i32)
-_CLSID_CompressStream	_CLSID_CStreamClass	0x007A1AB0	data	same address
-_CLSID_UnitTypeClass	_unknown_clsid_unit_type_7a1b00	0x007A1B00	data	same address
-_CLSID_InfantryTypeClass	_unknown_clsid_infantry_type_7a1b10	0x007A1B10	data	same address
-_CLSID_AircraftTypeClass	_unknown_clsid_aircraft_type_7a1b20	0x007A1B20	data	same address
-_CLSID_BuildingTypeClass	_unknown_clsid_building_type_7a1b30	0x007A1B30	data	same address
-_CLSID_WaypointPath	_CLSID_WaypointPathClass	0x007A1DC0	data	same address
-_CLSID_LightSource	_source_537b60_0	0x007A1E30	data	same address
-_CLSID_EMPulseClass	_source_4b5340_0	0x007A1E80	data	same address
-_CLSID_TacticalMapClass	_CLSID_Tactical	0x007A1E90	data	same address
-_CLSID_TeleportLocomotion	_CLSID_TeleportLocomotionClass	0x007A1FD0	data	same address
+_unknown_flag_a40d13	_Debug_Map	0x00A40D13	data	same address

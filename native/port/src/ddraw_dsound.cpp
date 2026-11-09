@@ -542,9 +542,31 @@ void mix(short *out, int frames)
             b->frac = frac;
         }
     }
+    int peak = 0;
     for (int i = 0; i < frames * 2; ++i) {
         int v = acc[i];
         out[i] = (short)(v > 32767 ? 32767 : v < -32768 ? -32768 : v);
+        if (out[i] > peak) peak = out[i];
+        if (-out[i] > peak) peak = -out[i];
+    }
+    // RA2_NATIVE_AUDIO_LOG=1: every two seconds of mixed output, the playing
+    // buffers and the output's peak (is the mixer producing sound?).
+    static int log_audio = getenv("RA2_NATIVE_AUDIO_LOG") ? 1 : 0;
+    if (log_audio) {
+        static long mixed = 0;
+        static int window_peak = 0;
+        if (peak > window_peak) window_peak = peak;
+        mixed += frames;
+        if (mixed >= 2 * kMixRate) {
+            int playing = 0, buffers = 0;
+            {
+                std::lock_guard<std::mutex> lock(mixer_mutex());
+                for (SoundBuffer *b : mixer_buffers()) { ++buffers; if (b->playing) ++playing; }
+            }
+            fprintf(stderr, "audio: mixed %ld frames, %d of %d buffers playing, peak %d\n", mixed, playing, buffers, window_peak);
+            mixed = 0;
+            window_peak = 0;
+        }
     }
 }
 
@@ -557,6 +579,8 @@ void open_mixer()
     if (h && h->open_audio && h->open_audio(kMixRate, mix)) {
         std::lock_guard<std::mutex> lock(mixer_mutex());
         g_mixer_active = true;
+    } else {
+        fprintf(stderr, "ra2_port: no audio device opened: DirectSound buffers play silently\n");
     }
 }
 

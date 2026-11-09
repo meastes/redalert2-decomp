@@ -227,7 +227,6 @@ alignas(16) unsigned char ra2_bss_0169[16] __asm__("_unknown_dial_drag_00852478"
 alignas(16) unsigned char ra2_bss_0170[96] __asm__("_unknown_buffer_852480");  // 0x00852480 unknown_buffer_852480 (?unknown_buffer_852480@@3PAEA)
 alignas(16) unsigned char ra2_bss_0171[56] __asm__("__ZN12DisplayClass12TransIconsetE");  // 0x00852614 DisplayClass::TransIconset (?TransIconset@DisplayClass@@2PBXB)
 alignas(16) unsigned char ra2_bss_0172[16] __asm__("__ZN12DisplayClass14unknown_852630E");  // 0x00852630 DisplayClass::unknown_852630 (?unknown_852630@DisplayClass@@2HA)
-alignas(16) unsigned char ra2_bss_0173[48] __asm__("_unknown_rect_85291c");  // 0x0085291C unknown_rect_85291c (?unknown_rect_85291c@@3VRect@@A)
 alignas(16) unsigned char ra2_bss_0174[40] __asm__("__ZN12DisplayClass12ShadowShapesE");  // 0x00852934 DisplayClass::ShadowShapes (?ShadowShapes@DisplayClass@@2PBXB)
 alignas(16) unsigned char ra2_bss_0175[16] __asm__("_unknown_height_step_852948");  // 0x00852948 unknown_height_step_852948 (?unknown_height_step_852948@@3HA)
 alignas(16) unsigned char ra2_bss_0176[160] __asm__("_counter_current_text_00852a68");  // 0x00852A68 counter_current_text_00852a68 (?counter_current_text_00852a68@@3PAGA)

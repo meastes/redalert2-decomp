@@ -1166,6 +1166,62 @@
    "old": "    T X;\n    T Y;\n};\n\n#ifdef RA2_WAVE_FLOAT_POINT3D",
    "new": "    T X;\n    T Y;\n};\n\n#if defined(__LP64__) && defined(RA2_POINT_ADD_IN_PLACE_SOURCE)   // NATIVE: clang requires the explicit specialization (TPoint2D_short_operator_add_assign_0056aa20.cpp) declared before its first use\ntemplate <> TPoint2D<short> const &TPoint2D<short>::operator+=(TPoint2D<short> const &rvalue);\n#endif\n\n#ifdef RA2_WAVE_FLOAT_POINT3D",
    "why": "Scout1158's bridge twins (population-4348) use zone_cell += Cell(..) before the unit's explicit specialization of TPoint2D<short>::operator+= 0x0056AA20; VC6 accepts that order, clang refuses 'explicit specialization after instantiation'. Declaring the specialization after the class template natively keeps one out-of-line body."
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Ring_Node_Create_00408ca0.cpp",
+   "old": "    node->Base = (char *)(((1 << shift) + (int)node->Data - 1) & (-1 << shift));",
+   "new": "    node->Base = (char *)(((1 << shift) + (intptr_t)node->Data - 1) & ((intptr_t)-1 << shift));   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Stream_Open_00407a90.cpp",
+   "old": "                            stream->Source.unknown_00 = (int)stream->Drain->Pointer;",
+   "new": "                            stream->Source.unknown_00 = (intptr_t)stream->Drain->Pointer;   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Stream_Next_Block_004078f0.cpp",
+   "old": "    channel->unknown_170 = (int)stream->Drain->Pointer;",
+   "new": "    channel->unknown_170 = (intptr_t)stream->Drain->Pointer;   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Source_Create_00408380.cpp",
+   "old": "    source->unknown_00 = (int)operator new(size);",
+   "new": "    source->unknown_00 = (intptr_t)operator new(size);   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Event_Channel_Next_00405ad0.cpp",
+   "old": "        event->unknown_148 = (int)source;",
+   "new": "        event->unknown_148 = (intptr_t)source;   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Event_Update_004055d0.cpp",
+   "old": "                    event->unknown_148 = (int)Audio_Event_Next_Sample(event);",
+   "new": "                    event->unknown_148 = (intptr_t)Audio_Event_Next_Sample(event);   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Events_Update_004041b0.cpp",
+   "old": "            while (!(event->unknown_148 = (int)Audio_Event_Start_Pass(event))) {",
+   "new": "            while (!(event->unknown_148 = (intptr_t)Audio_Event_Start_Pass(event))) {   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Events_Update_004041b0.cpp",
+   "old": "            if (!(event->unknown_148 = (int)Audio_Event_Start_Pass(event)) || !Audio_Event_Begin(event)) {",
+   "new": "            if (!(event->unknown_148 = (intptr_t)Audio_Event_Start_Pass(event)) || !Audio_Event_Begin(event)) {   // NATIVE: pointer width",
+   "why": "Pointer width (Scout1161, M20: no music): the audio library stores a data address through an (int) cast into a field the port made pointer-sized (intptr_t, audio.hpp fixups); the cast truncated the 64-bit heap address, so the theme stream read its file into 0xffffffffc7330000 (ReadFile failed, Theme::AI restarted the song every frame) and the channel played from a cut address. (intptr_t) keeps VC6's value on x86 and the whole pointer natively.",
+   "verified": true
   }
  ]
 }

@@ -22,10 +22,18 @@
 #include "shared/sound_play.hpp"
 #include "shared/wide_string.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
+#include "shared/owner_draw_sidebar.hpp"
+#include "shared/palette.hpp"
+#include "shared/pcx_cache.hpp"
+#include <stdio.h>
 
 extern WolDictionary<HWND, WNDPROC> unknown_window_proc_table_a73688;   // 0x00A73688 (its initializer 0x005DE9C0)
 
 void __fastcall Unknown_006FA0F0(char *out, unsigned short const *text, int size);   // 0x006FA0F0 (wide to narrow)
+
+void *Unknown_Get_Art_006f34c0();
+void *Unknown_Get_Art_006f45f0();
+void *Unknown_Get_Art_6f2250();
 
 namespace OwnerDraw {
 
@@ -87,6 +95,77 @@ bool Item_Text(HWND window, bool combo, int index, wchar_t *out, int size)
     return true;
 }
 
+// The push button's paint (0x005F0320 WM_PAINT, pass-6a decompile; Scout1161, M20:
+// the user saw the main menu's buttons as text on the empty slots). The button's
+// kind (+0xB0; 0x005EA230 sets 2 for the menu dialogs' sidebar buttons) picks its
+// art: kinds 1-3 draw a frame of an interface shape through its drawer (kind 1:
+// 0x00AC10B8 through 0x006F34C0, frames 2 / 3 lit / 4 pressed; kind 2: 0x00AC0FF8
+// through 0x006F45F0, frames 0 / 2 lit / 1 pressed; kind 3: 0x00AC10C0 through
+// 0x006F2250, as kind 2) at the control's corner, clipped to the background
+// surface; kind 0 draws its image (+0x14, pressed +0x18) or the three-piece PCX
+// button "b<u|d>e_li<h>.pcx", "_mi" tiled, "_ri" (h 24 or 30, the largest not
+// taller than the control; 7-pixel ends; 2 pixels lower while pressed). The text
+// (+0x28) follows unless an image stands in for it: font +0x64, centred (5, 0xC),
+// in the dialog text colour, the disabled colour for a disabled button, moved 4
+// right and 2 down while pressed. NOT EXACT: the original's pressed/up click
+// sound memory (0x007E8D4C), its saved background (+0x10) for kind 0, the
+// side-coloured disabled text and the disabled darkening are left out.
+void Paint_Button(HWND window, UnknownControlRecord *record, bool lit)
+{
+    Rect area = Area(window);
+    bool pressed = (record->unknown_e8 & 1) != 0 || (Original(window, 0xF2, 0, 0) & 4) != 0;   // ODS_SELECTED / BST_PUSHED
+    bool disabled = (GetWindowLongA(window, GWL_STYLE) & 0x8000000) != 0;
+    int kind = record->unknown_b0;
+    ConvertClass *drawer = 0;
+    ShapeFileStruct const *shape = 0;
+    int frame = 0;
+    if (kind == 1) {
+        drawer = (ConvertClass *)Unknown_Get_Art_006f34c0();
+        shape = unknown_shape_ac10b8;
+        frame = pressed ? 4 : lit ? 3 : 2;
+    } else if (kind == 2 || kind == 3) {
+        drawer = (ConvertClass *)(kind == 2 ? Unknown_Get_Art_006f45f0() : Unknown_Get_Art_6f2250());
+        shape = kind == 2 ? unknown_shape_ac0ff8 : 0;   // 0x00AC10C0 has no native name yet
+        frame = pressed ? 1 : lit ? 2 : 0;
+    }
+    if (drawer && shape) {
+        Rect window_rect = unknown_surface_839958->Get_Rect();
+        CC_Draw_Shape(unknown_surface_839958, drawer, shape, frame, Point2D(area.X, area.Y), window_rect, 0x400, 0, 0, 0, 1000, 0, 0,
+                      Point2D(0, 0));
+    } else if (kind == 0 && record->image_14) {
+        Image(pressed && record->alternate_image_18 ? record->alternate_image_18 : record->image_14, area);
+    } else if (kind == 0) {
+        int height = area.Height >= 30 ? 30 : 24;
+        int y = area.Y + (area.Height - height) / 2 + (pressed ? 2 : 0);
+        char state = pressed && !disabled ? 'd' : 'u';
+        char name[32];
+        Surface *left = 0, *middle = 0, *right = 0;
+        sprintf(name, "b%c%c_li%d.pcx", state, 'e', height);
+        left = unknown_bitmap_writer_a76378.Get_Image_0068ca40(name, 0);
+        sprintf(name, "b%c%c_mi%d.pcx", state, 'e', height);
+        middle = unknown_bitmap_writer_a76378.Get_Image_0068ca40(name, 0);
+        sprintf(name, "b%c%c_ri%d.pcx", state, 'e', height);
+        right = unknown_bitmap_writer_a76378.Get_Image_0068ca40(name, 0);
+        if (left && middle && right) {
+            int end = 7;
+            Rect from(0, 0, end, height);
+            unknown_surface_839958->Copy_From(Rect(area.X, y, end, height), *left, from, false, true);
+            unknown_bitmap_writer_a76378.Draw_0068cce0(Rect(area.X + end, y, area.Width - 2 * end, height), unknown_surface_839958, middle, 0, 0);
+            unknown_surface_839958->Copy_From(Rect(area.X + area.Width - end, y, end, height), *right, from, false, true);
+        } else {
+            int color = unknown_5fda40(lit ? unknown_color_a733e4 : unknown_color_a76158);
+            Frame(area, color);
+            if (pressed) Frame(Rect(area.X + 1, area.Y + 1, area.Width - 2, area.Height - 2), color);
+        }
+    }
+    if (!record->image_14 && record->text_28) {
+        RECT text = {area.X + 1, area.Y, area.X + area.Width, area.Y + area.Height};
+        if (pressed) { text.left += 4; text.top += 2; text.bottom += 2; }
+        unknown_draw_text_5fe020(unknown_surface_839958, record->text_28, &text, record->font_64,
+                                 disabled ? unknown_color_a737ec : unknown_color_a733e4, 5, 0xC, 0, 0, 0);
+    }
+}
+
 } // namespace
 
 // 0x005F0320: the push button procedure.
@@ -123,18 +202,7 @@ LRESULT __stdcall unknown_button_proc_5f0320(HWND window, UINT message, WPARAM w
             ValidateRect(window, 0);
             return 0;
         }
-        Rect area = Area(window);
-        bool pressed = (Original(window, 0xF2, 0, 0) & 4) != 0;   // BM_GETSTATE: pushed
-        if (record->image_14) {
-            Image(pressed && record->alternate_image_18 ? record->alternate_image_18 : record->image_14, area);
-        } else {
-            int color = unknown_5fda40(flash[1] ? unknown_color_a733e4 : unknown_color_a76158);
-            Frame(area, color);
-            if (pressed) Frame(Rect(area.X + 1, area.Y + 1, area.Width - 2, area.Height - 2), color);
-            Rect text = area;
-            if (pressed) { text.X += 2; text.Y += 2; }
-            Text(record, text, record->text_28, 1, 1);
-        }
+        Paint_Button(window, record, flash[1] != 0);
         ValidateRect(window, 0);
         return 0;
     }

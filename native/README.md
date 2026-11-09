@@ -367,13 +367,56 @@ block-type run lengths and the codes of Huffman trees 0..9 are written from the
 format description (each compared privately with the installed BINKW32.DLL: equal);
 code lengths follow from the codes. Trees 10..15, the 16 run patterns and the two
 quantizer matrices are read at run time from the installed BINKW32.DLL, located
-by those verified tables, only with `RA2_NATIVE_BINK_TABLES=1` (a user ruling is
-pending: the native-phase decision names game.exe and Ra2.tlb); without it the
-video stays black. `RA2_NATIVE_BINK_DUMP=<prefix>` writes decoded frames as BMPs.
+by those verified tables (user ruling 2026-11-09: allowed like game.exe's data;
+the default since Scout1161, M20). Without the DLL in the data directory, or when
+its tables do not check, one stderr line says so and the video stays black. `RA2_NATIVE_BINK_DUMP=<prefix>` writes decoded frames as BMPs.
 The drop list's frame (0x005EAD20 draws it one pixel outside its rectangle into
 the back surface) now reaches the screen: the combo box behaviour row repaints
 the dialog after showing the list, and 0x005EE460 paints the dialog, then its
 ComboDropWin children, and copies the union.
+
+### Play fixes from the user's first sessions (Scout1161, M20)
+
+The user played `--play='#5'` and the real menus. Each report was reproduced by
+a script and fixed natively (NOT EXACT where it is code):
+- **Speed.** The skirmish dialog's speed slider defaults to rules.ini's
+  `[MultiplayerDialogSettings] GameSpeed=0` ("fastest"); Main_Loop then sets the
+  frame timer to 0 and Sync_Delay 0x00540960 does not wait, so a game started from
+  the menus ran near 95 frames per second (`--play` takes RA2.INI's GameSpeed=3,
+  20.8). The Main_Loop seam (`link/harness_skirmish.cpp`) keeps one
+  SystemTimerClass tick (16 ms, about 60 frames per second, as the CnCNet patches
+  cap the same speed) for a single-player or skirmish frame whose timer was 0;
+  `RA2_NATIVE_UNCAPPED=1` turns that off. The slider itself works (position 3 runs
+  at 20.8). `RA2_NATIVE_FPS_LOG=1` prints Main_Loop frames per wall-clock second
+  every 5 s (any run, `--play` too).
+- **Placement by mouse.** DisplayClass's tactical gadget (TacButton 0x00852910)
+  had no size: its Rect (`unknown_rect_85291c`, the gadget's X..Height at +0x0C)
+  was separate BSS natively, so TacticalClass::Action 0x0049AE70 never ran and the
+  placement cursor (Set_Cursor_Pos 0x004994D0) never followed the mouse. A
+  `data/member_aliases.tsv` row binds the Rect to TacButton's X (native +0x18)
+  (member_aliases.py skips nested-class owners; hand row, kept by its reruns).
+- **Sidebar flicker.** Every DirectDraw primary update was presented, so the
+  states between the game's hide-mouse/draw/show-mouse steps stayed on screen
+  (with the mouse over the sidebar while a cameo's clock ran, the cursor-erased
+  sidebar every frame). The SDL host now presents at the main thread's event pump
+  (once per Main_Loop frame), or at once after 100 ms without a present (loading
+  screens).
+- **Menu buttons.** The push button procedure's paint (behaviour row 0x005F0320)
+  follows the decompile: the button kind (+0xB0) picks interface shape frames
+  (main menu and in-game menus: red/blue sidebar buttons) or the three-piece PCX.
+- **Sound.** The audio device opened (one stderr line names it now, or why it did
+  not), but the theme never played: the audio library stored data addresses
+  through `(int)` casts into pointer-sized fields, so the stream read its file
+  into a cut address and Theme::AI restarted the song every frame (fixups). Music
+  plays in the menus and in game. `RA2_NATIVE_AUDIO_LOG=1` prints the playing
+  buffers and the output peak every two seconds.
+- **Movies.** The Bink tables are read from the installed BINKW32.DLL by default
+  (user ruling 2026-11-09); a missing DLL is one stderr line.
+Play-stability sweep traps fixed as behaviour rows (`link/behaviour_m20*.cpp`):
+ObjectClass slots 48, 49, 51 (band selection), AudioLevel::Get_Target (theme
+fade), DisplayClass::Unknown_0049EC60 (repair/sell modes), and the three members
+address_aliases.py no longer binds to padded views (HouseClass 0x004F3120,
+BombClass 0x00435FB0, WDTState::Is_Valid).
 
 ### Data the original stores (game.exe at run time)
 
@@ -510,6 +553,16 @@ Other class-typed globals and pointers to pointers are not loaded (`--report`).
    never reads, or a result the caller ignores; the remaining mismatches (int for
    pointer, parameter count, struct by value) are listed with a reason in
    `gen/address_aliases.json`: one side's declaration is wrong and src/ settles it.
+   A member of an RTTI class is never bound to a body written against a different,
+   char-padded view of the object (`struct Owner { char unknown_000[0x154]; int
+   current; }`: VC6 offsets, which the vtable pointer and pointer-sized members move
+   natively); those names are listed as "padded this view" mismatches and get
+   behaviour rows (`link/behaviour_m20*.cpp`; Scout1161, M20, after Scout1153's
+   RadioClass finding). A full regeneration on a built tree is the normal run: the
+   IR signatures exclude the tool's own wrappers and adapters, same-address overloads
+   keep the previous binding, and the report lists every earlier binding it did not
+   regenerate under `dropped` with its reason (no input references the name, an input
+   now defines it, or refused/mismatched); a second run changes nothing.
    The generators are idempotent (each recomputes its queue from the build's link
    inputs without its own outputs, or keeps what it wrote before); after a landing
    re-run `data_globals.py --build <dir>`, rebuild, `address_aliases.py --build <dir>`,

@@ -34,8 +34,9 @@
 // Video (Scout1153, M19; port/src/bink_video.cpp): BinkDoFrame decodes the
 // current frame's video (from the last key frame after a jump) and
 // BinkCopyToBuffer converts it to the destination's 5:6:5 pixels. The decoder
-// needs fixed tables the format description does not give (RA2_NATIVE_BINK_TABLES,
-// bink_video.cpp); without them BinkCopyToBuffer writes a black frame, as before.
+// needs fixed tables the format description does not give: read from the
+// installed BINKW32.DLL (bink_video.cpp; the default since Scout1161, M20, by the
+// user's ruling); without them BinkCopyToBuffer writes a black frame.
 // RA2_NATIVE_MOVIE_SKIP=1 (test runs) keeps M16's pace,
 // one frame per decode pass, and plays no movie sound.
 // RA2_NATIVE_BINK_DUMP=<prefix> (diagnostics) writes every 30th decoded frame
