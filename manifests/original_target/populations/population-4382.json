@@ -4,8 +4,8 @@
     "id": "population-4382",
     "inventory_sha256": "5e09bf3a0f33d259dcdf962fd73840b52de18279c15e186a4b9580bbc8ce1733",
     "gaps_sha256": "23de4e14877f0fa0c7e5836453b7e1167c4a630816489878e5a15c634eaf158d",
-    "historical_population_sha256": "bb9522cb1a74d83523184fcb4c34c0d8eee355c2ff02258bdd9d9567f8f3cd0f",
-    "historical_acceptance_sha256": "c8360b157cbcaa0a5562c7f590f044056945072d811e758a5f1fe05eb35e2809"
+    "historical_population_sha256": "a70c0b805fdc849d1e9a3f47600eaeced0704e2d9e08f2826c48d394b1828d59",
+    "historical_acceptance_sha256": "afad75f4673e187f366ef48a151d733694121b0d2e504694e6021b96831810b6"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -14835,7 +14835,9 @@
     "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112,
     "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
     "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
-    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688,
+    "__except_handler3": 7885524,
+    "__except_list": 0
   },
   "regions": [
     {
@@ -25306,7 +25308,7 @@
           "resolved": 3564628
         }
       ],
-      "source_sha256": "de0d75319f4f023ee69a61cd531d26521d1b76e9d228586439a05ba2d4e2a30a",
+      "source_sha256": "aeef571e50b41935fc3c79f0836af417172685e4981b8f82e854537465be9efd",
       "source": "src/recovered/classes/WaypointClass/WaypointClass_vector_deleting_destructor_0041b890.cpp",
       "population": "population-4382",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

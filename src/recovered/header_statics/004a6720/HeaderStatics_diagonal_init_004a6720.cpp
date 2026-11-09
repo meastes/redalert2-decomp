@@ -1,3 +1,4 @@
+#define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
 #define RA2_WDT_MAP_LOAD_LAYOUT
 #define RA2_VECTOR_DELETE_THIS_INDEX
 #define RA2_SHAPE_BUTTON_SHAPE_DATA

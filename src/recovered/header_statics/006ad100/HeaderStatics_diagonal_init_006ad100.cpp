@@ -1,3 +1,4 @@
+#define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
 #define RA2_TACTION_DECLARE_DAMAGE
 #define RA2_TACTION_EXECUTE_CONTEXT
 #define RA2_COORD_CELL_BASE_INIT

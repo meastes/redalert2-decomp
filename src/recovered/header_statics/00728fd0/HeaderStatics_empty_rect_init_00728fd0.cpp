@@ -1,3 +1,4 @@
+#define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
 // The WDTMap.ini builder 0x0072A880 expands VectorClass<TRect<int>>/<Centroid>::Resize inline, walks
 // TibSun's VectorCursor (virtual operator bool and ++, out-of-class constructors) and uses TRect's
 // Set and point members, GenericList's constructor 0x00490E80 and CDFileClass(Wstring const &).

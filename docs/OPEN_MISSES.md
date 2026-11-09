@@ -3348,3 +3348,8 @@ Awaiting user ruling on keeping these two flagged or reverting.
 ## Scout1181 (2026-11-09, 0 B; NOTES, keep/, ov566/ in build/class-work/Scout1181/)
 - Draw_Sync_Bars 0x626CB0 56.63 -> 75.78 (keep/dsb_r2_7578.cpp): TibSun MAX order, progress before color, real `outline_color`. Left: the green shift [0x852fcc] cached in ebx across blocks pushes Width to the stack.
 - Update_Cell_Subzones 0x566340 64.37, Tunnel_AI 0x5025C0 61.13 / 0x6FAA30 58.99 unchanged (YR twins identical; inline budget). 0x566340's draft carries invented helpers that must go before landing.
+
+## Scout1185 (2026-11-09, 0 B; drafts refreshed on HEAD in build/class-work/Scout1185/keep/, contexts in its NOTES.md)
+- All 13 stale-draft rows rebased; each scores its recorded best on HEAD, none exact. Most "compile failures" were missing scoring context (anchor, symbol, prelude, overlay), not header drift.
+- Index corrections: 0x6C9DF0 is 560 B (bound ret 10h at 0x6CA01D), draft Scout956; 0x4A0050 draft Scout1185/keep/4a0050_9591.cpp (+ov/4a0050); 0x635C30 Scout993/w/c0.cpp, 0x636130 Scout993/w/a3.cpp (anchor 635e00, PRE RA2_COORD_TIMES); 0x68CCE0 Scout946/w/bw0.cpp (anchor 68cb20); 0x773F00 Scout848/w/pl0.cpp (anchor 773950); 0x70C800 Scout1005/keep/h70c800/best-9919-with-threaded-add.cpp; 0x6FF690 Scout1160/keep/dv_b1_9926.cpp; 0x525F60 Scout793/w/l1.cpp + Scout1185/ov/525f60.
+- 0x4A0050/0x676010 97.08 rely on Scout592's unevidenced Slope_Ratio bloat form (refused); natural 95.91.

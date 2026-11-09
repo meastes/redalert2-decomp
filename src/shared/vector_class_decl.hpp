@@ -27,11 +27,14 @@ public:
     VectorClass(VectorClass<T> const &vector);
     virtual ~VectorClass();
 
-#ifdef RA2_VECTOR_SIGNED_INDEX
-    // Signed indexing profile: Westwood vector.h; full House004EF890 byte proof.
+#ifndef RA2_VECTOR_UNSIGNED_INDEX
+    // Signed index as in Westwood's vector.h (TibSun vector.h, ra2-decomp vector.h); House004EF890 and
+    // Place_Tiberium 0x47C3A0 byte proofs.
     T &operator[](int index);
     T const &operator[](int index) const;
 #else
+    // Migration holdout (docs/DECISIONS.md "Migration switch"): units not yet re-rolled to the signed
+    // index define RA2_VECTOR_UNSIGNED_INDEX on their first row; listed in docs/HANDOFF.md.
     T &operator[](unsigned index);
     T const &operator[](unsigned index) const;
 #endif

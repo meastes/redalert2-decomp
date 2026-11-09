@@ -3,8 +3,8 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // bool CellClass::unknown_47c3a0(int tiberium, int data) (0x0047C3A0): Place_Tiberium. Adapted from ra2-decomp src/cell.cpp
-// CellClass::Place_Tiberium (gamemd 0x00487190, MATCHED there; TibSun shape). The unit macro RA2_VECTOR_SIGNED_INDEX
-// (first row of the population) gives the twin's VectorClass::operator[](int); with unsigned the grow branch's second
+// CellClass::Place_Tiberium (gamemd 0x00487190, MATCHED there; TibSun shape). VectorClass::operator[](int) (the
+// twin's and TibSun's signature, now the shared default) is required; with unsigned the grow branch's second
 // Union swaps eax/ebx.
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"

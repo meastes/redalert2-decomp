@@ -9,13 +9,13 @@
 | 0x7746C0 | 1,478 | 22.71 | 2 | Scout848 |  | frame | tibsun | Scout848/w/et2.cpp | 1,142.0 |
 | 0x7225B0 | 1,777 | 40.47 | 4 | Scout1070 |  | frame register inline | twin | Scout1004/keep/sonic_t4.cpp | 1,057.0 |
 | 0x579D30 | 921 | - | 1 | Scout672 |  |  |  |  | 921 |
-| 0x566340 | 2,281 | 64.37 | 7 | Scout983 |  | register order frame | tibsun |  | 812.0 |
+| 0x566340 | 2,281 | 64.37 | 8 | Scout1181 |  | register order frame | tibsun |  | 812.0 |
 | 0x49B0F0 | 2,145 | 62.84 | 7 | Scout1074 |  | register switch layout | tibsun twin |  | 797.0 |
 | 0x45F710 | 6,438 | 87.78 | 7 | Scout1148 |  | frame order inline | tibsun twin | Scout949/w/y1.cpp | 786.0 |
 | 0x5F11CA | 764 | - | 1 | Scout1012 |  | bound |  |  | 764 |
 | 0x7743C0 | 748 | - | 4 | Scout922 |  | asm inline frame | tibsun twin |  | 748 |
-| 0x5025C0 | 1,876 | 61.13 | 5 | Scout1048 |  | ruling frame inline | tibsun twin | Scout1048/keep/c0m.cpp | 729.0 |
-| 0x6FAA30 | 1,730 | 58.99 | 6 | Scout1067 |  | frame inline layout | tibsun twin | Scout824/keep/tunnel_tu5_5039.cpp | 709.0 |
+| 0x5025C0 | 1,876 | 61.13 | 6 | Scout1181 |  | ruling frame inline | tibsun twin | Scout1048/keep/c0m.cpp | 729.0 |
+| 0x6FAA30 | 1,730 | 58.99 | 7 | Scout1181 |  | frame inline layout | tibsun twin | Scout824/keep/tunnel_tu5_5039.cpp | 709.0 |
 | 0x474260 | 675 | - | 3 | Scout999 |  | register inline asm |  |  | 675 |
 | 0x5919A0 | 5,575 | 88.22 | 11 | Scout1151 |  | frame inline order | tibsun twin | Scout783/keep/d1_8822.cpp | 656.0 |
 | 0x6802D0 | 1,732 | 62.52 | 7 | Scout1143 |  | inline order layout | tibsun | Scout1140/keep/rc_r1.cpp | 649.0 |
@@ -41,7 +41,6 @@
 | 0x609540 | 1,069 | 66.45 | 6 | Scout1067 |  | inline ruling frame | tibsun |  | 358.0 |
 | 0x5E8A35 | 347 | - | 2 | Scout1030 |  | frame register ruling | tibsun |  | 347 |
 | 0x576420 | 925 | 64.79 | 5 | Scout1036 |  | frame register inline | tibsun twin |  | 325.0 |
-| 0x626CB0 | 741 | 56.63 | 3 | Scout909 |  | register inline |  | Scout909/keep/g2a1.cpp | 321.0 |
 | 0x79294E | 320 | - | 1 | Scout1028 |  | layout |  |  | 320 |
 | 0x4718B0 | 1,116 | 71.99 | 6 | Scout998 |  | register inline frame | twin |  | 312.0 |
 | 0x6D0990 | 1,059 | 70.83 | 6 | Scout1062 |  | frame register inline | tibsun | Scout1009/keep/990_while_6991.cpp | 308.0 |
@@ -63,6 +62,7 @@
 | 0x75F9C1 | 196 | - | 3 | Scout1016 |  | bound |  |  | 196 |
 | 0x6AC420 | 893 | 78.52 | 7 | Scout961 |  | layout register ruling | tibsun twin | Scout961/w/keep/render_c1_6469.cpp | 191.0 |
 | 0x6164E0 | 182 | - | 1 | Scout1175 |  | inline |  |  | 182 |
+| 0x626CB0 | 741 | 75.78 | 4 | Scout1181 |  | register inline order | tibsun | Scout1181/keep/dsb_r2_7578.cpp | 179.0 |
 | 0x4994D0 | 832 | 78.48 | 5 | Scout1075 |  | register frame layout | tibsun twin |  | 179.0 |
 | 0x622290 | 358 | 53.96 | 3 | Scout1001 |  | frame register layout |  |  | 164.0 |
 | 0x4386F0 | 865 | 82.58 | 6 | Scout967 |  | inline register frame | tibsun twin | Scout773/keep/dt_p4_8258.cpp | 150.0 |
@@ -83,10 +83,10 @@
 | 0x63A880 | 1,567 | 94.67 | 5 | Scout1096 |  | register layout | twin | Scout929/w/ch2.cpp | 83.0 |
 | 0x75F530 | 1,165 | 94.21 | 8 | Scout1016 |  | bound register inline | tibsun twin | Scout749/keep/c6_twinshape.cpp | 67.0 |
 | 0x5F990C | 58 | - | 1 | Scout784 |  |  |  |  | 58 |
-| 0x525F60 | 2,691 | 97.99 | 13 | Scout946 |  | register frame order | tibsun twin | Scout793/w/l1.cpp | 54.0 |
+| 0x525F60 | 2,691 | 97.99 | 14 | Scout1185 |  | register frame order | tibsun twin | Scout793/w/l1.cpp | 54.0 |
 | 0x616A50 | 239 | 77.83 | 5 | Scout923 |  | register inline layout | twin | ? | 52.0 |
 | 0x6F71E0 | 196 | 73.33 | 3 | Scout1030 |  | inline layout bound | tibsun twin |  | 52.0 |
-| 0x4A0050 | 1,189 | 95.91 | 8 | Scout1028 |  | inline bound frame | tibsun twin | ? | 48.0 |
+| 0x4A0050 | 1,189 | 95.91 | 9 | Scout1185 |  | inline bound frame | tibsun twin | ? | 48.0 |
 | 0x5F7D90 | 47 | - | 1 | Scout1012 |  | bound |  |  | 47 |
 | 0x5BCCF0 | 403 | 88.44 | 9 | Scout1118 |  | register frame order | tibsun twin | Scout932/keep/n1.cpp | 46.0 |
 | 0x775980 | 45 | - | 2 | Scout922 |  | asm ruling layout | tibsun twin |  | 45 |
@@ -95,18 +95,18 @@
 | 0x6F7020 | 179 | 77.52 | 3 | Scout992 |  | layout inline bound | twin |  | 40.0 |
 | 0x60D110 | 360 | 89.68 | 6 | Scout1016 |  | register bound frame | tibsun |  | 37.0 |
 | 0x760B9F | 37 | - | 3 | Scout1016 |  | bound |  |  | 37 |
-| 0x676010 | 1,189 | 97.08 | 10 | Scout1028 |  | frame bound register | tibsun twin | Scout592/w/dm_best_97.08.cpp | 34.0 |
+| 0x676010 | 1,189 | 97.08 | 11 | Scout1185 |  | frame bound register | tibsun twin | Scout592/w/dm_best_97.08.cpp | 34.0 |
 | 0x579960 | 33 | - | 1 | Scout665 |  |  | tibsun |  | 33 |
 | 0x783B93 | 28 | - | 1 | Scout1028 |  | layout |  |  | 28 |
 | 0x6C5270 | 761 | 96.38 | 11 | Scout1118 |  | order register frame | tibsun twin | Scout898/w/am0.cpp | 27.0 |
 | 0x68D149 | 27 | - | 1 | Scout1012 |  | bound |  |  | 27 |
 | 0x5EF340 | 27 | - | 4 | Scout1036 |  | ruling bound frame | tibsun |  | 27 |
 | 0x783DFB | 24 | - | 1 | Scout1028 |  | layout |  |  | 24 |
-| 0x6FF690 | 3,861 | 99.44 | 12 | Scout1173 |  | frame layout inline | tibsun twin | Scout1159/1160/keep/dv_b1_9926.cpp | 21.0 |
-| 0x4BBAF0 | 788 | 97.38 | 13 | Scout1179 |  | order register layout | tibsun twin | Scout535/w/best_4bbaf0_97.38.cpp | 20.0 |
+| 0x6FF690 | 3,861 | 99.44 | 13 | Scout1185 |  | frame layout inline | tibsun twin | Scout1159/1160/keep/dv_b1_9926.cpp | 21.0 |
+| 0x4BBAF0 | 788 | 97.38 | 14 | Scout1182 |  | order register layout | tibsun twin | Scout535/w/best_4bbaf0_97.38.cpp | 20.0 |
 | 0x65C520 | 676 | 96.97 | 9 | Scout1086 |  | register frame order | tibsun | Scout1049/w/wfp_9697.cpp | 20.0 |
 | 0x57D3A0 | 71 | 74.41 | 3 | Scout1036 |  |  | tibsun |  | 18.0 |
-| 0x636130 | 429 | 95.83 | 2 | Scout993 |  |  |  |  | 17.0 |
+| 0x636130 | 429 | 95.83 | 3 | Scout1185 |  | bound |  |  | 17.0 |
 | 0x56EF20 | 61 | 70.68 | 6 | Scout1017 |  | bound frame order |  | Scout756/keep/split_region_0056ef20_5785.cpp | 17.0 |
 | 0x55F020 | 1,308 | 98.73 | 4 | Scout1095 |  | inline frame | twin |  | 16.0 |
 | 0x55F540 | 1,308 | 98.73 | 4 | Scout1095 |  | inline frame | twin |  | 16.0 |
@@ -114,7 +114,7 @@
 | 0x55E410 | 1,302 | 98.73 | 4 | Scout1095 |  | inline frame | twin |  | 16.0 |
 | 0x593870 | 2,101 | 99.22 | 4 | Scout1173 |  | order float register |  | Scout914/w/pmD1.cpp | 16.0 |
 | 0x68C040 | 97 | 85.14 | 7 | Scout1044 |  | register frame bound | tibsun twin | Scout1020/keep/cb_q4_diag.cpp | 14.0 |
-| 0x635C30 | 456 | 96.92 | 6 | Scout1073 |  | frame register order | tibsun |  | 14.0 |
+| 0x635C30 | 456 | 96.92 | 7 | Scout1185 |  | frame register order | tibsun |  | 14.0 |
 | 0x6A8552 | 14 | - | 2 | Scout1033 |  | bound order | tibsun twin |  | 14 |
 | 0x782017 | 14 | - | 1 | Scout1057 |  | inline |  |  | 14 |
 | 0x4B37C0 | 2,843 | 99.54 | 10 | Scout1154/1155 |  | frame register order | tibsun twin | Scout912/w/eg_f1.cpp | 13.0 |
@@ -123,7 +123,7 @@
 | 0x432E95 | 11 | - | 3 | Scout1030 |  | frame float layout | tibsun twin |  | 11 |
 | 0x54BE75 | 11 | - | 1 | Scout1033 |  | order | tibsun twin |  | 11 |
 | 0x569320 | 2,109 | 99.49 | 12 | Scout1154/1155 |  | register frame order | tibsun | Scout889/w/keep/d_9949_head.cpp | 10.0 |
-| 0x70C800 | 1,308 | 99.19 | 5 | Scout1005 |  | register inline order | tibsun | Scout931/w/t2.cpp | 10.0 |
+| 0x70C800 | 1,308 | 99.19 | 6 | Scout1185 |  | register inline order | tibsun | Scout931/w/t2.cpp | 10.0 |
 | 0x67E210 | 1,067 | 99.04 | 11 | Scout1154/1155 |  | frame register order | tibsun | Scout791/w/sb0.cpp | 10.0 |
 | 0x4488F0 | 10 | - | 1 | Scout1033 |  | order | tibsun twin |  | 10 |
 | 0x52E390 | 52 | 81.25 | 4 | Scout915 |  | register order bound |  | Scout915/pt/w1.cpp | 9.0 |
@@ -140,10 +140,10 @@
 | 0x535BF0 | 41 | 90.55 | 10 | Scout1025 |  | frame inline register | tibsun twin | Scout1024/keep/ld_u3_9055.cpp | 3.0 |
 | 0x4370E0 | 1,448 | 99.77 | 13 | Scout1173 |  | frame register float | tibsun | Scout811/w/ba0.cpp | 3.0 |
 | 0x4B550D | 3 | - | 1 | Scout520 |  | switch |  |  | 3 |
-| 0x773F00 | 511 | 99.44 | 3 | Scout849 |  | frame | tibsun |  | 2.0 |
-| 0x68CCE0 | 408 | 99.37 | 6 | Scout1074 |  | register order frame | tibsun twin |  | 2.0 |
+| 0x773F00 | 511 | 99.44 | 4 | Scout1185 |  | frame bound | tibsun |  | 2.0 |
+| 0x68CCE0 | 408 | 99.37 | 7 | Scout1185 |  | register order frame | tibsun twin |  | 2.0 |
 | 0x451BEE | 2 | - | 1 | Scout1033 |  | order | tibsun twin |  | 2 |
-| 0x6C9DF0 | 368 | 99.46 | 7 | Scout1037 |  | register bound layout |  | Scout1020/keep/lz_c103_9946.cpp | 1.0 |
+| 0x6C9DF0 | 368 | 99.46 | 8 | Scout1185 |  | register bound layout |  | Scout1020/keep/lz_c103_9946.cpp | 1.0 |
 | 0x6FA20F | 1 | - | 2 | Scout1030 |  | frame inline bound | tibsun twin |  | 1 |
 | 0x56CD5F | 1 | - | 1 | Scout1033 |  | order | tibsun twin |  | 1 |
 | 0x682540 | 59 | 99.75 | 3 | Scout1030 |  | inline asm register | tibsun twin |  | 0.0 |

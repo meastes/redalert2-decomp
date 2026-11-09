@@ -4,8 +4,8 @@
     "id": "population-4307",
     "inventory_sha256": "907352a1804d9c8f0cd2bc4e3d5f387a158a3041d8ebd7ae1631df42c764bf49",
     "gaps_sha256": "95ba998a63428c12a8821d5960dec54d41caa78da777bc7e0f16e2856c739749",
-    "historical_population_sha256": "dbc543eab7f5d5c36dceeaa5e2cebab0bc4138e497a04db279dc895f2527daa6",
-    "historical_acceptance_sha256": "77b8ac59f6f0b0b3c08291169a482d25b4e6f6a3702b192d881ff753042efddd"
+    "historical_population_sha256": "6f0d6b7e97ddb543a313ab2a45643a05ed9b9e16818d26cad87cf3d698cfc14f",
+    "historical_acceptance_sha256": "98b1506eba1ae5a7d0055b6d995b8c834de2d8bb677f18873d11d89d9d4fd743"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10912,7 +10912,10 @@
     "?Hicolor_Translate@@YIXPAXH@Z": 7387120,
     "?Dropship_Screen_004A6B90@@YIXXZ": 4877200,
     "_?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA": 8205112,
-    "?BlitForward@?$BlitTransXlat@G@@UBEXPAXPBXHH00HH@Z": 4743616
+    "?BlitForward@?$BlitTransXlat@G@@UBEXPAXPBXHH00HH@Z": 4743616,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "__except_handler3": 7885524,
+    "__except_list": 0
   },
   "regions": [
     {
@@ -10973,7 +10976,7 @@
           "resolved": 8727200
         }
       ],
-      "source_sha256": "b19e1aa65214f84c2ef6b823beb15b66137dcb9f9b6d6349fd5ce8cfeccc2896",
+      "source_sha256": "b4fd34f327aec61c126218ca21a8bd184895b38e170a94f7409dbd2faef80777",
       "source": "src/recovered/header_statics/004a6720/HeaderStatics_diagonal_init_004a6720.cpp",
       "population": "population-4307",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

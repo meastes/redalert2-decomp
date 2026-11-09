@@ -8,7 +8,7 @@
 // overlays (with the cell's overlay swapped in), terrain, buildings with their
 // animations, and smudges.
 // Unit macros (first row of the unit): RA2_RECT_POINT_INLINE, RA2_COORD_TPOINT3D,
-// RA2_COORD_FROM_CELL_INLINE, RA2_TPOINT3D_DIFFERENCE, RA2_VECTOR_SIGNED_INDEX.
+// RA2_COORD_FROM_CELL_INLINE, RA2_TPOINT3D_DIFFERENCE.
 // The animation and smudge cases read the position through a TPoint3D pointer
 // (the twin's Point3D *): the CoordStruct(BASECLASS const &) conversion sets the
 // copy order of their Draw_Shape arguments.

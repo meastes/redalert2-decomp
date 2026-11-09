@@ -1,3 +1,4 @@
+#define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
 // Header-static dynamic initializers of the unit at 0x0042BCF0:  the
 // shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
 // (0x0042BCF0-0x0042BED6); the other

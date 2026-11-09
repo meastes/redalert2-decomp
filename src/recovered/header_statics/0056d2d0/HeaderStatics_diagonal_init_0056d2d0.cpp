@@ -1,3 +1,4 @@
+#define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
 #define RA2_MAPGEN_CELL_DATA_CHAIN
 #define RA2_MAPGEN_CLEAR_SPREADS_MEMBER
 #define RA2_MAPGEN_SHAPE_MEMBER
