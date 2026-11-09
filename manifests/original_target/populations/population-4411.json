@@ -19078,7 +19078,7 @@
       "source_quality_family": "hand-written",
       "source_order": 234919,
       "count_calibrated": true,
-      "count_calibrated_note": "SidebarClass::Select_Tab (Scout1126 r1, owner decision 2026-11-09). Calibrated form: Activate_Tab written out with single-use references ShapeButtonClass &old_button, StripClass &old, ShapeButtonClass &button, StripClass &current; they put the /Ob2 size at 148 inside the unit's window (about 147..166; the plain written-out body is 130). Evidence checked first: YR SetTab 0x6A7590 writes Activate_Tab out, and YR Activate_Tab 0x6A74A0 has StripClass &current (the other three references have no twin text)."
+      "count_calibrated_note": "SidebarClass::Select_Tab (Scout1126 r1, owner decision 2026-11-09). Calibrated form: Activate_Tab written out with single-use references ShapeButtonClass &old_button, StripClass &old, ShapeButtonClass &button, StripClass &current; they put the /Ob2 size at 148 inside the unit's window (about 147..166; the plain written-out body is 130). Evidence checked first: YR SetTab 0x6A7590 writes Activate_Tab out, and YR Activate_Tab 0x6A74A0 has StripClass &current (the other three references have no twin text). Review session 2026-11-09: passes condition 1 (each reference names a looked-up element; YR Activate_Tab 0x6A74A0 writes StripClass &current, the other three extend that idiom), flagged under (d). Natural form fails dependents: plain written-out Select_Tab (130 IL) gives Add 0x67C530 78.60, CA50 0x67CA50 69.43, AI 0x67DC90 61.78, Action 0x6809F0 99.88, slot 34 0x6819A0 99.43; current-only also fails Add/CA50/AI (Scout1176)."
     },
     {
       "entry": 6806528,
@@ -20833,7 +20833,7 @@
       "source_quality_family": "hand-written",
       "source_order": 234961,
       "count_calibrated": true,
-      "count_calibrated_note": "SidebarClass::Unknown_006820F0 (Scout1126 r1, owner decision 2026-11-09). Calibrated form: int const rows = Unknown_006820A0(); int const count = rows + rows; return count; (inline size 42, charged) instead of return Unknown_006820A0() * 2 (28, free), so the inlined Deactivate in 0x67CA50 keeps this row out of line. Evidence checked first: Recalc 0x6807B9's inlined copy and the 0x67C850 > Unknown_006820F0() form (Scout626); no twin text for the body."
+      "count_calibrated_note": "SidebarClass::Unknown_006820F0 (Scout1126 r1, owner decision 2026-11-09). Calibrated form: int const rows = Unknown_006820A0(); int const count = rows + rows; return count; (inline size 42, charged) instead of return Unknown_006820A0() * 2 (28, free), so the inlined Deactivate in 0x67CA50 keeps this row out of line. Evidence checked first: Recalc 0x6807B9's inlined copy and the 0x67C850 > Unknown_006820F0() form (Scout626); no twin text for the body. Review session 2026-11-09: passes condition 1 (two used, computed values). Natural form fails dependents: `return Unknown_006820A0() * 2;` (free, <=40 IL) gives CA50 0x67CA50 64.80 and Sidebar AI 0x67DC90 57.00, so the original was charged (Scout1126 measured two-local forms at 42; Scout1176)."
     },
     {
       "entry": 6824960,
