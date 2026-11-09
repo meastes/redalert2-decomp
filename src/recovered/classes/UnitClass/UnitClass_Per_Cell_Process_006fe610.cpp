@@ -10,8 +10,6 @@
 #include "shared/locomotion.hpp"
 #include "shared/sound_play.hpp"
 extern "C" GUID const CLSID_HoverLocomotionClass;
-extern CoordStruct const unknown_coord_ad04c0;
-extern Cell const unknown_cell_ad0488;
 TechnoClass *__fastcall Unknown_0040DC20(AbstractClass *object);
 ILocomotion *__fastcall Unit_Checked_Locomotor_004cde90(UnknownComPtr<ILocomotion,&unknown_uuid_ILocomotion_7ce600> const &owner);
 // @ref ?Unit_Checked_Locomotor_004cde90@@=004cde90
@@ -19,8 +17,8 @@ ILocomotion *__fastcall Unit_Checked_Locomotor_004cde90(UnknownComPtr<ILocomotio
 // @ref ?Unknown_0040DC20@@=0040dc20
 // @ref ?Unknown_00473E80@UnknownCellClass@@=00473e80
 // @ref _CLSID_HoverLocomotionClass=007a1f80
-// @ref ?unknown_coord_ad04c0@@=00ad04c0
-// @ref ?unknown_cell_ad0488@@=00ad0488
+// @ref _unknown_geometry_k=00ad0488
+// @ref _unknown_geometry_l=00ad04c0
 
 void UnitClass::unknown_slot93(int reason)
 {
@@ -55,7 +53,7 @@ void UnitClass::unknown_slot93(int reason)
             if (contact==Map[cell-Cell(0,1)].unknown_4717b0()) {
                 switch (unknown_slot150(21,contact)) {
                 case 1: case 5: break;
-                default: unknown_slot87(unknown_coord_ad04c0,true,false);break;
+                default: unknown_slot87(unknown_geometry_l,true,false);break;
                 }
             }
         }
@@ -79,7 +77,7 @@ void UnitClass::unknown_slot93(int reason)
                 } else {
                     Assign_Destination(0,true);
                     unknown_slot116(5,false);
-                    unknown_slot87(unknown_coord_ad04c0,true,true);
+                    unknown_slot87(unknown_geometry_l,true,true);
                 }
                 return;
             }
@@ -102,7 +100,7 @@ void UnitClass::unknown_slot93(int reason)
                             if (!Type->Harvester && !Type->Weeder) {
                                 if (!House->Unknown_004F52F0() && building && building->Type->WeaponsFactory) {
                                     Cell where=House->Unknown_004EB270(this);
-                                    if (where!=unknown_cell_ad0488) {
+                                    if (where!=unknown_geometry_k) {
                                         unknown_slot116(2,false);
                                         Assign_Destination(&Map[where],true);
                                         unknown_slot117();
@@ -112,7 +110,7 @@ void UnitClass::unknown_slot93(int reason)
                                 } else {
                                     AbstractClass *destination=unknown_1b0;
                                     if (destination && destination!=unknown_494) Assign_Destination(destination,true);
-                                    else { unknown_4cd9b0();unknown_slot87(unknown_coord_ad04c0,true,false); }
+                                    else { unknown_4cd9b0();unknown_slot87(unknown_geometry_l,true,false); }
                                 }
                             } else unknown_slot116(10,true);
                         }
@@ -121,11 +119,11 @@ void UnitClass::unknown_slot93(int reason)
                             unknown_slot116(10,false);
                             Assign_Destination(unknown_1b0,true);
                             unknown_6d6e50(0);
-                        } else if (!unknown_494) unknown_slot87(unknown_coord_ad04c0,true,false);
+                        } else if (!unknown_494) unknown_slot87(unknown_geometry_l,true,false);
                     }
                 }
             }
-            if (Map[Position_Coord_004f3f40()].unknown_4717b0() && !unknown_494 && unknown_49c.Count()==0 && unknown_478.Count()==0) unknown_slot87(unknown_coord_ad04c0,true,true);
+            if (Map[Position_Coord_004f3f40()].unknown_4717b0() && !unknown_494 && unknown_49c.Count()==0 && unknown_478.Count()==0) unknown_slot87(unknown_geometry_l,true,true);
         }
         if (unknown_slot91()==5 && !Map.Unknown_0054AB00(Position_Coord_004f3f40()) && unknown_32d) {
             if (Team) Team->TargetNotAssigned=true;
@@ -156,7 +154,7 @@ void UnitClass::unknown_slot93(int reason)
                 unknown_slot86(&damage,0,Rules->unknown_c74,0,true,0);
                 return;
             }
-            unknown_slot87(unknown_coord_ad04c0,true,true);
+            unknown_slot87(unknown_geometry_l,true,true);
         }
     }
     CellClass *current_cell=&Map[cell];

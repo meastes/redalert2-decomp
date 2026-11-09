@@ -13,10 +13,8 @@
 #include "shared/fast_math.hpp"
 #include "shared/building_light.hpp"
 #include "shared/unknown_globals.hpp"
-extern int unknown_bridge_height_ad057c;
 bool Unknown_0051FC50();
 bool Unknown_0051FC60();
-// @ref ?unknown_bridge_height_ad057c@@3HA=00ad057c
 // @ref ?unknown_facing_radians_79b620@@3NB=0079b620
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
 // @ref ?Unknown_0051FC60@@YA_NXZ=0051fc60
@@ -27,6 +25,7 @@ bool Unknown_0051FC60();
 // @ref __real@8@4003f000000000000000=007ae2e0
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
 // @ref ?unknown_slot67@FootClass@@=004c9bc0
+// @ref _unknown_geometry_j=00ad057c
 // By value: the Move_Coord result is built after radians dies and shares its slot.
 inline bool Coord_Pixel_00700e70(CoordStruct coord, Point2D &pixel)
 {
@@ -59,7 +58,7 @@ void UnitClass::unknown_slot67(Point2D const &input, Rect const &window)
         int height = unknown_slot108();
         CellClass *cptr = &Map[CoordStruct(Coord)];
         int brightness;
-        if (((!unknown_79 && height >= unknown_bridge_height_ad057c) || (unknown_79 && height >= 0))
+        if (((!unknown_79 && height >= unknown_geometry_j) || (unknown_79 && height >= 0))
             && (cptr->unknown_140 & 0x100)
             && (((cptr->unknown_140 & 0x800) && (cptr->Adjacent_Cell(0).unknown_140 & 0x100))
                 || (!(cptr->unknown_140 & 0x800) && (cptr->Adjacent_Cell(6).unknown_140 & 0x100)))) {

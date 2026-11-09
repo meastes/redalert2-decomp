@@ -12,8 +12,6 @@
 #include "shared/id_source.hpp"
 #include "shared/teleport_locomotion.hpp"
 #include "shared/unknown_globals.hpp"
-extern Cell const unknown_cell_ad0488;
-// @ref ?unknown_cell_ad0488@@3VCell@@B=00ad0488
 // @ref _CLSID_TeleportLocomotionClass=007a1fd0
 // @ref _unknown_uuid_IPersist_7cf208=007cf208
 // @ref ?Release_Held@?$UnknownComPtr@UIPersist@@$1?unknown_uuid_IPersist_7cf208@@3UGUID@@B@@QAEXXZ=004a4d00
@@ -33,6 +31,7 @@ extern Cell const unknown_cell_ad0488;
 
 ILocomotion *__fastcall Unit_Checked_Locomotor_004cde90(UnknownComPtr<ILocomotion,&unknown_uuid_ILocomotion_7ce600> const &owner);
 // @ref ?Unit_Checked_Locomotor_004cde90@@=004cde90
+// @ref _unknown_geometry_k=00ad0488
 
 class UnknownBuildingView_007025a0 : public TechnoClass {
 public:
@@ -159,7 +158,7 @@ int UnitClass::unknown_slot131()
                     } else {
                         cell = unknown_4cc100(Rules->TiberiumNearScan / 256);
                     }
-                    if (cell != unknown_cell_ad0488) {
+                    if (cell != unknown_geometry_k) {
                         unknown_6d6e50(&Map[cell]);
                     } else {
                         unknown_6d6e50(0);
@@ -205,7 +204,7 @@ int UnitClass::unknown_slot131()
                         here.X = dock->QueueingCell.X + cell.X;
                         here.Y += dock->QueueingCell.Y;
                         here = Map.Unknown_005502E0(here, 2, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
-                        if (!(here == unknown_cell_ad0488)) {
+                        if (!(here == unknown_geometry_k)) {
                             Assign_Destination(&Map[here], true);
                         } else {
                             Assign_Destination(0, true);

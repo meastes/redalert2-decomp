@@ -8,8 +8,6 @@
 #include "shared/unknown_geometry.hpp"
 extern char const *unknown_units_section_7addc0;
 extern int unknown_ini_format_a40d24;
-extern int unknown_bridge_height_ad057c;
-// @ref ?unknown_bridge_height_ad057c@@3HA=00ad057c
 // @ref ?unknown_units_section_7addc0@@3PBDB=007addc0
 // @ref ?unknown_ini_format_a40d24@@3HA=00a40d24
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
@@ -27,6 +25,7 @@ extern int unknown_bridge_height_ad057c;
 // @ref ?Unknown_00713590@UnknownTechnoPair@@QAEXH@Z=00713590
 // @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
+// @ref _unknown_geometry_j=00ad057c
 // VC6 health block emits exact original native instructions, without a float32 store. This does not establish a portable source-width contract.
 static inline UnitTypeClass *Unit_Read_Float_Health_00706AE0(UnitClass &unit, float health)
 {
@@ -86,7 +85,7 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                     token = strtok(0, ",");
                     if (token) {
                         unit->unknown_79 = atoi(token) != 0;
-                        if (unit->unknown_79) coord.Z = Map.Unknown_0055A280(coord) + unknown_bridge_height_ad057c;
+                        if (unit->unknown_79) coord.Z = Map.Unknown_0055A280(coord) + unknown_geometry_j;
                     }
                     token = strtok(0, ",");
                     if (token) {

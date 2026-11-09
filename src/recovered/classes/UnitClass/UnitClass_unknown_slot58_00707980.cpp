@@ -4,15 +4,14 @@
 // ground's (+0x124). ObjectClass slot 58 (0x005D4960) does the same with the 0x40 bit.
 #include "shared/unit.hpp"
 #include "shared/techno_map.hpp"
-// @ref ?unknown_bridge_height_ad057c@@3HA=00ad057c
+// @ref _unknown_geometry_j=00ad057c
 
 // The height a bridge adds (0x00AD057C).
-extern int unknown_bridge_height_ad057c;
 
 void UnitClass::unknown_slot58(CoordStruct const &coord)
 {
     UnknownCellClass *cell = Map_Cell(coord);
-    if (Map.Unknown_0055A280(coord) + unknown_bridge_height_ad057c <= coord.Z && (cell->Flags & 0x100)) {
+    if (Map.Unknown_0055A280(coord) + unknown_geometry_j <= coord.Z && (cell->Flags & 0x100)) {
         cell->unknown_128.Occupy.Vehicle = true;
     } else {
         cell->unknown_124.Occupy.Vehicle = true;

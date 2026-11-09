@@ -22,11 +22,7 @@
 #include "shared/radar_event.hpp"
 #include "shared/unknown_globals.hpp"
 extern char const Unit_Ore_Miner_Under_Attack_007F819C[];
-extern CoordStruct const unknown_coord_ad04c0;
-extern Cell const unknown_cell_ad0488;
 // @ref ?Unit_Ore_Miner_Under_Attack_007F819C@@3QBDB=007f819c
-// @ref ?unknown_coord_ad04c0@@3UCoordStruct@@B=00ad04c0
-// @ref ?unknown_cell_ad0488@@3VCell@@B=00ad0488
 // @ref ?unknown_flag_a3d2c1@@3_NA=00a3d2c1
 // @ref ?Unknown_0063B5B0@@YI_NHVCell@@@Z=0063b5b0
 // @ref ?Speech_Play_Name@@YIXPBDHH@Z=00715b40
@@ -42,6 +38,8 @@ extern Cell const unknown_cell_ad0488;
 // @ref ?Is_Ally@HouseClass@@QBE_NPAVTechnoClass@@@Z=004e5580
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
 // @ref ?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z=005d4430
+// @ref _unknown_geometry_k=00ad0488
+// @ref _unknown_geometry_l=00ad04c0
 static inline AnimTypeClass *Unit_Damage_Last_Water_Animation() {
     DynamicVectorClass<AnimTypeClass *> const &animations =
         static_cast<DynamicVectorClass<AnimTypeClass *> const &>(Rules->SplashList);
@@ -82,7 +80,7 @@ int UnitClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *warhe
                 int count = abs(unknown_id_source_a3d290->Random()() % 3) + 7;
                 while (count > 0) {
                     ParticleSystemClass *system = new ParticleSystemClass(Rules->unknown_cf4,
-                        Center_Coord(), 0, this, unknown_coord_ad04c0);
+                        Center_Coord(), 0, this, unknown_geometry_l);
                     system->unknown_e5 = true;
                     --count;
                 }
@@ -115,7 +113,7 @@ remove_passengers:
                 if (!forced && !unknown_7c && can_place) {
                     int facing = Dir_To_256(unknown_2e0.Current());
                     if (passenger->unknown_slot53(&animation_position, facing)) {
-                        passenger->unknown_slot87(unknown_coord_ad04c0, true, false);
+                        passenger->unknown_slot87(unknown_geometry_l, true, false);
                         if (!House->Unknown_004F52F0()) {
                             if (Team) Team->unknown_func_6b8cc0(passenger);
                             else passenger->unknown_slot116(15, false);
@@ -150,7 +148,7 @@ passenger_removed:
                 CoordStruct position = Coord;
                 if (crew->unknown_slot53(&position, 0)) {
                     crew->Strength = unknown_id_source_a3d290->Random()(5, crew->Type->MaxStrength / 2);
-                    crew->unknown_slot87(unknown_coord_ad04c0, true, false);
+                    crew->unknown_slot87(unknown_geometry_l, true, false);
                     if (!House->Unknown_004F52F0()) crew->unknown_slot116(15, false);
                     else crew->unknown_slot116(5, false);
                     if (restore_selection) crew->unknown_slot80();
@@ -167,7 +165,7 @@ drop_crate:
             Cell destination;
             destination = Map.Unknown_005502E0(unknown_slot104(), 1, -1, 0, false,
                 Point2D(1, 1), 1, 0, 0, 1, Cell(0, 0), 0);
-            if (destination != unknown_cell_ad0488 && unknown_flag_a3d2c1)
+            if (destination != unknown_geometry_k && unknown_flag_a3d2c1)
                 Map.Unknown_0054E580(destination, 20);
         }
         if (Type->Crashable) {

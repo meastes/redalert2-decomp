@@ -23,10 +23,8 @@
 #include "shared/particle_system.hpp"
 #include "shared/id_source.hpp"
 #include "shared/house_adjacent.hpp"
-extern Cell const unknown_cell_ad0488;
-extern CoordStruct const unknown_coord_ad04c0;
-// @ref ?unknown_cell_ad0488@@=00ad0488
-// @ref ?unknown_coord_ad04c0@@=00ad04c0
+// @ref _unknown_geometry_k=00ad0488
+// @ref _unknown_geometry_l=00ad04c0
 
 int UnitClass::unknown_slot137()
 {
@@ -44,7 +42,7 @@ int UnitClass::unknown_slot137()
                 }
                 int passengers=Cargo.Count;
                 int facing=unknown_slot182(0,&cell);
-                if (passengers && cell!=unknown_cell_ad0488) {
+                if (passengers && cell!=unknown_geometry_k) {
                     if (unknown_6d83e0()) {
                         if (passengers==1) unknown_5cc=0;
                         else unknown_5cc=1;
@@ -207,12 +205,12 @@ int UnitClass::unknown_slot137()
                         if (!building->unknown_25c[5] && smoke.Count()>0 && unknown_slot108()>-10) {
                             TechnoTypeClass *type=building->unknown_slot32();
                             CoordStruct &o=type->RefnSmokeOffsetOne; CoordStruct offset=o;
-                            building->unknown_25c[5]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_coord_ad04c0);
+                            building->unknown_25c[5]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
                         }
                         if (!building->unknown_25c[6] && smoke.Count()>0 && unknown_slot108()>-10) {
                             TechnoTypeClass *type=building->unknown_slot32();
                             CoordStruct &o=type->RefnSmokeOffsetTwo; CoordStruct offset=o;
-                            building->unknown_25c[6]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_coord_ad04c0);
+                            building->unknown_25c[6]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
                         }
                         if (!building->unknown_454[10]) building->unknown_44c920(10,building->Health_Ratio()<=Rules->unknown_1368,false,0);
                         int slot=unknown_294.First_Used_Slot();

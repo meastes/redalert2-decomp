@@ -23,13 +23,12 @@
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?Ground@@3PAUGroundType@@A=00850ea0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
-// @ref ?unknown_cell_ad0488@@3VCell@@B=00ad0488
 // @ref ?unknown_facings_7f8f4c@@3QBHB=007f8f4c
 // @ref ?unknown_5d47d0@ObjectClass@@QAEHXZ=005d47d0
 // @ref __real@4@00000000000000000000=0079a738
+// @ref _unknown_geometry_k=00ad0488
 
 // CELL_NONE (0x00AD0488; as UnitClass slot 55).
-extern Cell const unknown_cell_ad0488;
 // Harvester_Load_List: the facing answered for each exit (0x007F8F4C).
 extern int const unknown_facings_7f8f4c[8];
 
@@ -85,7 +84,7 @@ int UnitClass::unknown_slot182(AbstractClass *object, Cell *cell)
         }
     }
     int facing = FACING_S;
-    *cell = unknown_cell_ad0488;
+    *cell = unknown_geometry_k;
     if (bestval > 0) {
         *cell = Adjacent_Cell(unknown_slot104(), bestdir);
         facing = unknown_facings_7f8f4c[bestdir];

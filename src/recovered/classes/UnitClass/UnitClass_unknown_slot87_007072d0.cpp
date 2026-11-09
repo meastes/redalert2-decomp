@@ -17,9 +17,6 @@
 #include "shared/tactical.hpp"
 #include "shared/fast_math.hpp"
 #include "shared/teleport_locomotion.hpp"
-// @ref ?unknown_cell_ad0488@@3VCell@@B=00ad0488
-// @ref ?unknown_coord_ad04c0@@3UCoordStruct@@B=00ad04c0
-// @ref ?unknown_level_height_ad0588@@3HA=00ad0588
 // @ref ?unknown_facing_scale_79b628@@3NB=0079b628
 // @ref ?unknown_facing_origin_79b630@@3NB=0079b630
 // @ref ?Fast_Atan2@@YAMNN@Z=004ba600
@@ -32,13 +29,13 @@
 // @ref ?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z=006a6a50
 // @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
+// @ref _unknown_geometry_k=00ad0488
+// @ref _unknown_geometry_l=00ad04c0
+// @ref _unknown_geometry_g=00ad0588
 
 // The null cell and coordinate (0x00AD0488, 0x00AD04C0) and the height of
 // one level (0x00AD0588): the unit's copies of shared/unknown_geometry.hpp's
 // constants, which this file does not include (as UnitClass slot 55).
-extern Cell const unknown_cell_ad0488;
-extern CoordStruct const unknown_coord_ad04c0;
-extern int unknown_level_height_ad0588;
 // The direction scale (as UnknownFacingDir's coordinate constructor 0x00423EF0).
 extern double const unknown_facing_scale_79b628;
 extern double const unknown_facing_origin_79b630;
@@ -66,10 +63,10 @@ void UnitClass::unknown_slot87(CoordStruct const &source, bool forced, bool noki
     if (unknown_5c8) {
         return;
     }
-    if (source == unknown_coord_ad04c0) {
+    if (source == unknown_geometry_l) {
         Cell found = Map.Unknown_005502E0(Coord_Cell(unknown_slot19(0)), Type->SpeedType, -1, 0, unknown_79,
             Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
-        if (found != unknown_cell_ad0488) {
+        if (found != unknown_geometry_k) {
             Assign_Destination(&Map[found], true);
         }
     } else {
@@ -80,7 +77,7 @@ void UnitClass::unknown_slot87(CoordStruct const &source, bool forced, bool noki
             && (unknown_494 == 0 || (nokidding && !unknown_599))
             && (unknown_228 == 0 || forced || Random_Pick(1, 4) == 1)) {
             int facing;
-            if (source != unknown_coord_ad04c0) {
+            if (source != unknown_geometry_l) {
                 CoordStruct here = Coord;
                 UnknownFacingDir dir((unsigned short)((Fast_Atan2((double)source.Y - here.Y, (double)here.X - source.X)
                     - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
@@ -94,18 +91,18 @@ void UnitClass::unknown_slot87(CoordStruct const &source, bool forced, bool noki
             CellClass *cell = &Map[center];
             int level = (unknown_slot46(0) + cell->unknown_11b) ? 4 : 0;
             CoordStruct here = unknown_slot19(0);
-            here.Z = unknown_level_height_ad0588 * level;
+            here.Z = unknown_geometry_g * level;
             for (int index = 0; index < 8; index++) {
                 int dir = (facing + index) & 7;
                 Cell adjacent = center + AdjacentCell[dir & 7];
                 CellClass *next = &Map[adjacent];
                 if (Map.Unknown_0055A660(adjacent, true) && unknown_slot101(next, dir, Unknown_005D47D0(), 0, 1) == 0) {
-                    if (alt.X == unknown_cell_ad0488.X) {
-                        if (alt.Y == unknown_cell_ad0488.Y) {
+                    if (alt.X == unknown_geometry_k.X) {
+                        if (alt.Y == unknown_geometry_k.Y) {
                             alt = adjacent;
                         }
                     }
-                    if (found == unknown_cell_ad0488) {
+                    if (found == unknown_geometry_k) {
                         CoordStruct coord = Cell_Center(adjacent);
                         coord.Z = here.Z;
                         if (adjacent == ((UnknownTacticalView *)unknown_tactical_83996c)->Unknown_006A6A50(coord)
@@ -117,10 +114,10 @@ void UnitClass::unknown_slot87(CoordStruct const &source, bool forced, bool noki
                 }
             }
             Cell dest = found;
-            if (found == unknown_cell_ad0488) {
+            if (found == unknown_geometry_k) {
                 dest = alt;
             }
-            if (dest != unknown_cell_ad0488) {
+            if (dest != unknown_geometry_k) {
                 unknown_slot116(2, false);
                 Assign_Destination(&Map[dest], true);
             }

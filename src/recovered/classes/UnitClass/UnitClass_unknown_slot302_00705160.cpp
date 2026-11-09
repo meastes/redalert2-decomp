@@ -12,13 +12,12 @@
 #include "shared/map_view.hpp"
 // @ref ?unknown_6d7910@TechnoClass@@QAE_NH@Z=006d7910
 // @ref ?unknown_476920@CellClass@@QAEXPBX_N11@Z=00476920
-// @ref ?unknown_ad04c0@@3HA=00ad04c0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Distance_Squared@ObjectClass@@QBEHABUCoordStruct@@@Z=005d4e00
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
+// @ref _unknown_geometry_l=00ad04c0
 
 // A value the scatter takes (0x00AD04C0; meaning unknown).
-extern int unknown_ad04c0;
 // An infantry's type and destination (a view until shared/infantry.hpp is
 // installed).
 struct UnknownUnitInfantryView2 : TechnoClass {
@@ -48,10 +47,10 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
     if (threaten) {
         if (upper) {
             if (cell->unknown_128 & 0x1F) {
-                cell->unknown_476920(&unknown_ad04c0, true, false, true);
+                cell->unknown_476920(&unknown_geometry_l, true, false, true);
             }
         } else if (cell->unknown_124 & 0x1F) {
-            cell->unknown_476920(&unknown_ad04c0, true, false, false);
+            cell->unknown_476920(&unknown_geometry_l, true, false, false);
         }
         return;
     }

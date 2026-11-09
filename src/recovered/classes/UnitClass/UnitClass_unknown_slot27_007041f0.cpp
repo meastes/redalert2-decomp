@@ -18,9 +18,9 @@
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A=00a35de8
-// @ref ?unknown_bridge_height_ad057c@@3HA=00ad057c
 // @ref ?unknown_479cc0@CellClass@@QBE_NXZ=00479cc0
 // @ref ?unknown_47a120@CellClass@@QBE_NPAVTechnoClass@@@Z=0047a120
+// @ref _unknown_geometry_j=00ad057c
 
 class OverlayTypeClass;
 extern DynamicVectorClass<OverlayTypeClass *> OverlayTypes;
@@ -31,7 +31,6 @@ struct UnknownUnitOverlayTypeView {
     bool Tiberium;                          // +0x279
 };
 // The height a bridge adds (0x00AD057C).
-extern int unknown_bridge_height_ad057c;
 
 int UnitClass::unknown_slot27(Cell const *where, bool arg2, bool arg3)
 {
@@ -55,7 +54,7 @@ int UnitClass::unknown_slot27(Cell const *where, bool arg2, bool arg3)
     CoordStruct coord(where->X * 256 + 128, where->Y * 256 + 128, 0);
     coord.Z = Map.Unknown_0055A280(coord);
     if (Map[coord].unknown_140 & 0x100) {
-        coord.Z += unknown_bridge_height_ad057c;
+        coord.Z += unknown_geometry_j;
     }
     if (!Map.Unknown_00568140(coord)) {
         if (action == 1) {

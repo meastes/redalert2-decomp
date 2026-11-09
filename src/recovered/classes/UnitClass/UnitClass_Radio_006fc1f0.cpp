@@ -8,8 +8,7 @@
 #include "shared/house.hpp"
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
-extern CoordStruct Unit_Radio_Zero_Coord_00AD04C0;
-// @ref ?Unit_Radio_Zero_Coord_00AD04C0@@3UCoordStruct@@A=00ad04c0
+// @ref _unknown_geometry_l=00ad04c0
 
 static inline double Unit_Radio_Used_Size(UnknownCargo const &cargo) { return (double)cargo.Unknown_00468A20(); }
 int UnitClass::unknown_slot95(RadioClass *radio, int message, long &param)
@@ -121,7 +120,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, long &param)
     case 23:
         if ((Type->Harvester || Type->Weeder) && unknown_5b9) {
             unknown_5b9 = false;
-            unknown_slot87(Unit_Radio_Zero_Coord_00AD04C0, true, false);
+            unknown_slot87(unknown_geometry_l, true, false);
             unknown_slot116(10, false);
             if (unknown_slot122()) unknown_slot117();
         }
