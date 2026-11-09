@@ -1,3 +1,4 @@
+#define RA2_VECTOR_DELETE_DIRECT  // migration holdout: unit not yet re-rolled to Westwood Delete(int) through operator[] (docs/HANDOFF.md)
 #define RA2_BUILDING_LOCOMOTOR_ADDREF_DECL
 #define RA2_COORD_TPOINT3D
 #define RA2_OBJECT_IS_FOOT

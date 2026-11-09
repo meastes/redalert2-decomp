@@ -663,12 +663,16 @@ template <class T>
 bool DynamicVectorClass<T>::Delete(int index)
 {
     // No lower bound check: the expansions in MSEngine (0x005B2EC0,
-    // 0x005B2FB0) compare only against ActiveCount.
+    // 0x005B2FB0) compare only against ActiveCount. The move goes through
+    // operator[] as in Westwood's vector.h (TibSun Delete(int), ra2-decomp
+    // Delete_Index). The explicit instances (one guard, no accessor copies)
+    // read Vector directly, which compiles the same out of line.
+    // RA2_VECTOR_DELETE_DIRECT is a migration holdout (docs/HANDOFF.md):
+    // units not yet re-rolled to the Westwood form.
     if (index < ActiveCount) {
         ActiveCount--;
         for (int i = index; i < ActiveCount; i++) {
-#ifdef RA2_VECTOR_DELETE_THIS_INDEX
-            // Westwood vector.h: the move goes through operator[] (the Dropship unit).
+#if defined(VECTOR_IMPLEMENT_VECTOR_ACCESSORS) && !defined(RA2_VECTOR_DELETE_DIRECT)
             (*this)[i] = (*this)[i + 1];
 #else
             Vector[i] = Vector[i + 1];

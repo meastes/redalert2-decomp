@@ -1,3 +1,4 @@
+#define RA2_VECTOR_DELETE_DIRECT  // migration holdout: unit not yet re-rolled to Westwood Delete(int) through operator[] (docs/HANDOFF.md)
 #define RA2_SESSION_STATE_DEFINED
 #define RA2_SESSION_CTOR_FIELDS
 // Session unit profile: the constructor 0x0066E380 sees the ctor-only fields; Cell compares as the YR twin's

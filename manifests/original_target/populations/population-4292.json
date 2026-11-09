@@ -4,8 +4,8 @@
     "id": "population-4292",
     "inventory_sha256": "05edde8ec957277cebad9893e037a11cac0a3aefd74d61af4618a64b5ead049c",
     "gaps_sha256": "811af9619f93d9f7e2db2eed0ff8cf8b4b14f027a9818d4ad10716196c37642a",
-    "historical_population_sha256": "3400a885143523f14eba2b13e0b49cd6c7f79915b36d9f5e3d11dbc90fd97acb",
-    "historical_acceptance_sha256": "48be3aa27321afc9ee1b58659dace4a6d45d90365c9ce9f3340e1cc0590dd033"
+    "historical_population_sha256": "717c0b60232cd7bb9027662fc014059b0cdb488711e0b696c0a6c35b3d3039e0",
+    "historical_acceptance_sha256": "e180d676f55a3509667ea94b06c1f074793bcf9ac4860dbb45215af586adb48a"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -11573,7 +11573,9 @@
     "?Update_All@IonBlastClass@@SAXXZ": 5380720,
     "??0InitializerBase@MultiplayerGameMode@@QAE@XZ": 5997696,
     "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
-    "?Update_All@RadBeam@@SIXXZ": 6509792
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "__except_handler3": 7885524,
+    "__except_list": 0
   },
   "regions": [
     {
@@ -11626,7 +11628,7 @@
           "resolved": 11235796
         }
       ],
-      "source_sha256": "43a6df1c4378955d4ee6436b891ba4395291dacebf0bea27a1924e02f12f9517",
+      "source_sha256": "1de1539648b83b34c9ae9a97e11a0ed21898781982370ac91c7bea9349ad3bab",
       "source": "src/recovered/header_statics/0066e0a0/HeaderStatics_empty_rect_init_0066e0a0.cpp",
       "population": "population-4292",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

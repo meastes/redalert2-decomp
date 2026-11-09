@@ -3353,3 +3353,13 @@ Awaiting user ruling on keeping these two flagged or reverting.
 - All 13 stale-draft rows rebased; each scores its recorded best on HEAD, none exact. Most "compile failures" were missing scoring context (anchor, symbol, prelude, overlay), not header drift.
 - Index corrections: 0x6C9DF0 is 560 B (bound ret 10h at 0x6CA01D), draft Scout956; 0x4A0050 draft Scout1185/keep/4a0050_9591.cpp (+ov/4a0050); 0x635C30 Scout993/w/c0.cpp, 0x636130 Scout993/w/a3.cpp (anchor 635e00, PRE RA2_COORD_TIMES); 0x68CCE0 Scout946/w/bw0.cpp (anchor 68cb20); 0x773F00 Scout848/w/pl0.cpp (anchor 773950); 0x70C800 Scout1005/keep/h70c800/best-9919-with-threaded-add.cpp; 0x6FF690 Scout1160/keep/dv_b1_9926.cpp; 0x525F60 Scout793/w/l1.cpp + Scout1185/ov/525f60.
 - 0x4A0050/0x676010 97.08 rely on Scout592's unevidenced Slope_Ratio bloat form (refused); natural 95.91.
+
+## Scout1189 (2026-11-09, 0 B; NOTES, keep/, ovs/, ov566/ in build/class-work/Scout1189/)
+- Compute_Zone_Connections 0x54FDA0 62.12 (TibSun loop shape now; cptr ebx vs ebp). Update_Cell_Subzones 0x566340 cleaned to 64.18 (invented helpers removed; Cell_Passability as a MapClass inline accessor, needs a guard). Set_Map_Dimensions 0x5484E0 94.60 on HEAD (overlays rebased); lead: ra2-decomp reached 99.7 on the YR twin after a header merge; the bit-field copy depends on CellClass's member list before the bit fields; compare their member list with ours. Damage_Low_Bridge 98.73 (operator[] forms flat).
+
+## Scout1190 (2026-11-09, 0 B; NOTES, exp-del/ in build/class-work/Scout1190/)
+- Signed-index holdouts unchanged (12 populations, 16 rows): shared inlines already carry the original operator[]/Add text; residues are inline-limit and operand-order ties the int signature moves (Presentation and Fire_At need opposite Add orders, decided per function).
+- Westwood `Delete(int)` form `(*this)[i] = (*this)[i+1]` makes Remove_Member 0x610E70 exact under int; whole-tree it costs UnknownSessionState dtor 0x66EB20 and SuperClass dtor 0x69C8B0 (net -623 B as a plain flip). Owner: apply the migration-switch precedent instead (Westwood Delete as default, those two populations as holdouts) -> Scout1193.
+
+## Scout1192 (2026-11-09, 0 B; NOTES, mkcomplete.py in build/class-work/Scout1192/)
+- Complete CellClass declaration does not help: Set_Map_Dimensions 0x5484E0 stays 94.60, Get_Obstacle 97.00 (members come after the class symbol); unguarding all members moves Print_CRCs and 0x4F1190. Data members already match ra2-decomp's cell.h one for one. 0x5484E0's residue is body register allocation (cellcount store placement, bit-copy scheduling). Complete CellClass deferred to endgame cleanup. +0x144: likely /Zp8 padding (YR Fetch_Object_Size 0x487E70 would settle).

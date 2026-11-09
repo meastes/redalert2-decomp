@@ -1,4 +1,3 @@
-#define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
 #define RA2_PLANNING_COMMIT_PLANS
 #define RA2_PLANNING_PICK_ROWS
 #define RA2_COORD_EQUAL_MEMBER
