@@ -3322,3 +3322,8 @@ Awaiting user ruling on keeping these two flagged or reverting.
 - AlphaShape Draw_All 0x41F5E0 34.72 -> 53.45 (keep/draw_all_da3_5345.cpp): Westwood always.h max/min templates give the original's 0x74 frame; Point2D difference for Get_Buffer_Ptr. Draw_In_Area 0x41F1C0 unchanged (templates worse there). Both carry one dead 8-byte frame object in the original.
 - Extract_Compressed_Events 0x6282D0 56.53 -> 57.62 (ra2-decomp do/while shape). Find_Path_Regular 0x427370 overlay rebuilt for HEAD (h2/), 78.55. Draw_Laser 0x722CB0 scores on HEAD's real signature, 59.41.
 - 0x73A680 is the ??_E of an unnamed BSTR class with no callers (needs a ruling).
+
+## Scout1175 (2026-11-09, -968 B per USER DECISION via review session; NOTES and keep/ in build/class-work/Scout1175/)
+- Is_At 0x611310 kept in its alias-free natural form (`CoordStruct here; here = Coord(); return here == coord;`), count_calibrated cleared; exact standalone and where expanded in Find_Node/Add_Order.
+- Reverted to scaffolding: Planning_Execute 0x614BA0 (786 B; draft keep/head_Planning_Execute_00614ba0.cpp, 89.13 beside the natural Is_At, Is_At expanded at 0x2C where the original calls it) and Close_Loop 0x6164E0's out-of-line copy (182 B; inline definition moved into Path_Add 0x616350's file).
+- Resume hypothesis: the lever is Execute's own source, not Is_At (natural Is_At is exact in three of four uses; ~40 Is_At forms tried by Scout743/1165). Is_At variants are off limits without a new mechanism. Next: measure Execute's inline budget shortfall with a lab-only probe, then find natural Execute source that supplies it.
