@@ -619,7 +619,7 @@
 | [classes/DynamicVectorClass_RadarEventClass_ptr](../src/recovered/classes/DynamicVectorClass_RadarEventClass_ptr/) | 6 | 405 | 5 | 0x0063C7C0–0x0063CB10 |
 | [classes/DynamicVectorClass_SuperClass_ptr](../src/recovered/classes/DynamicVectorClass_SuperClass_ptr/) | 6 | 405 | 5 | 0x004D4A60–0x0069ED90 |
 | [classes/DynamicVectorClass_VeinholeMonsterClass_ptr](../src/recovered/classes/DynamicVectorClass_VeinholeMonsterClass_ptr/) | 6 | 405 | 5 | 0x00712750–0x00712AE0 |
-| [classes/VectorClass_DiskID](../src/recovered/classes/VectorClass_DiskID/) | 6 | 400 | 3 | 0x00673820–0x00674AA0 |
+| [classes/VectorClass_DiskID](../src/recovered/classes/VectorClass_DiskID/) | 6 | 400 | 4 | 0x00673820–0x00674AA0 |
 | [classes/VectorClass_PassabilityType](../src/recovered/classes/VectorClass_PassabilityType/) | 6 | 399 | 3 | 0x0056AD30–0x0056C8C0 |
 | [classes/VectorClass_SideClass_ptr](../src/recovered/classes/VectorClass_SideClass_ptr/) | 5 | 399 | 4 | 0x004D8C70–0x004DC960 |
 | [classes/DynamicVectorClass_Cell](../src/recovered/classes/DynamicVectorClass_Cell/) | 5 | 398 | 3 | 0x0042CC10–0x0042D3E0 |
