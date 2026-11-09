@@ -25,7 +25,7 @@
 | [VQA32](../src/recovered/VQA32/) | 81 | 29,339 | 81 | 0x00776380–0x0077E9E0 |
 | [classes/UnknownIDSource](../src/recovered/classes/UnknownIDSource/) | 51 | 29,041 | 51 | 0x0065B4F0–0x00663440 |
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 94 | 0x004D3690–0x006BE740 |
-| (discovery: address-named) | 844 | 25,330 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 843 | 25,281 | 17 | 0x004010A0–0x00793976 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
@@ -39,7 +39,7 @@
 | [classes/DriveLocomotionClass](../src/recovered/classes/DriveLocomotionClass/) | 56 | 20,543 | 56 | 0x0049F640–0x004A4D90 |
 | [classes/ShipLocomotionClass](../src/recovered/classes/ShipLocomotionClass/) | 56 | 20,430 | 56 | 0x00675600–0x0067AC30 |
 | [classes/DSurface](../src/recovered/classes/DSurface/) | 41 | 19,535 | 41 | 0x004AA4A0–0x004B14F0 |
-| [classes/IsometricTileTypeClass](../src/recovered/classes/IsometricTileTypeClass/) | 42 | 17,203 | 41 | 0x004D3F90–0x0052E6B0 |
+| [classes/IsometricTileTypeClass](../src/recovered/classes/IsometricTileTypeClass/) | 43 | 17,252 | 42 | 0x004D3F90–0x0052E6B0 |
 | [classes/SaveLoad](../src/recovered/classes/SaveLoad/) | 22 | 15,939 | 22 | 0x00654C40–0x0065B150 |
 | [classes/ModemHost](../src/recovered/classes/ModemHost/) | 36 | 15,482 | 36 | 0x00598E10–0x0059C8B0 |
 | [classes/FlyLocomotionClass](../src/recovered/classes/FlyLocomotionClass/) | 44 | 14,720 | 44 | 0x004BC110–0x004BFCC0 |
