@@ -54,7 +54,7 @@ void SidebarClass::unknown_slot34()
     PowerClass::unknown_slot34();
 
     if (unknown_flag_a40b30) {
-        unknown_rect_839620.X = unknown_int_839638 + unknown_rect_839630.X;
+        unknown_rect_839620.X = unknown_rect_839630.X + unknown_int_839638;
     } else {
         unknown_rect_839620.X = 0;
     }

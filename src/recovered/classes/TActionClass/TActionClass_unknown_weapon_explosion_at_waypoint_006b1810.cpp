@@ -14,7 +14,7 @@
 // @ref ?Select_Damage_Anim@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HPAUCoordStruct@@@Z=0047f4d0
 // @ref ?Unknown_0047FCC0@@YGHUCoordStruct@@@Z=0047fcc0
 // @ref ?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z=0047f600
-// @ref ?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z=0047e2c0
+// @ref ?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z=0047e2c0
 // @ref _unknown_geometry_j=00abfdf8
 
 bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)

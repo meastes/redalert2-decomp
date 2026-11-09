@@ -353,10 +353,7 @@ inline InfantryClass *As_Infantry(FootClass *foot)
 // build/class-work/Effects/shared/anim.hpp).
 int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int damage, TechnoClass *source, WarheadTypeClass *warhead, bool arg5);   // returns 2 when the warhead was nullified (BulletClass 0x00462110), 0 when nothing was hit
 // Coordinate offsets of the eight facings (0x00851AC0; X and Y leptons).
-struct UnknownFacingOffset {
-    int X;
-    int Y;
-};
-extern UnknownFacingOffset const unknown_facing_offsets_851ac0[8];
+// Coordinate offsets of the eight facings (0x00851AC0, X and Y leptons): TibSun's AdjacentPoint, a Point2D table.
+extern TPoint2D<int> const unknown_facing_offsets_851ac0[8];
 
 #endif

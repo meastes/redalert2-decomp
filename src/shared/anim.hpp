@@ -41,13 +41,6 @@
 
 // UnknownQuaternion (four floats, out-of-line constructor 0x00622160): shared/bounce.hpp.
 
-// A light view of the ColorSchemes entries (shared/color_scheme.hpp; +0x30C is Converter),
-// no longer used: kept declared because removing it moves AI_Build_Defense 0x4F1190.
-struct UnknownAB6EF8Entry {
-    char unknown_000[0x30C];
-    int unknown_30c;                        // +0x30C
-};
-extern DynamicVectorClass<UnknownAB6EF8Entry *> unknown_list_ab6ef8;   // 0x00AB6EF8
 // AnimClass saves the index of the ColorSchemes entry whose Converter equals its unknown_bc.
 class ColorScheme;
 
@@ -217,7 +210,7 @@ struct UnknownAnimTiberium {
 extern DynamicVectorClass<UnknownAnimTiberium *> unknown_tiberiums_ac0b30;   // 0x00AC0B30
 
 // Damage around a coordinate (0x0047E2C0, __fastcall; hypothesis).
-void __fastcall Unknown_0047E2C0(CoordStruct const &coord, int damage, int arg3, WarheadTypeClass *warhead, int arg5);
+int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int damage, TechnoClass *source, WarheadTypeClass *warhead, bool arg5);
 // An explosion's effects at a coordinate (0x0047F600, __fastcall: the
 // coordinate by value on the stack, damage in ECX, warhead in EDX;
 // VoxelAnimClass::AI after Unknown_0047E2C0; hypothesis).

@@ -158,11 +158,6 @@ inline HashTableClass<RadarTrackingStruct, TechnoClass *> *New_Tracking_Table(in
     return table;
 }
 
-// The radar dot sizes in cells, width and height per shape (0x007CFC70,
-// 0x007CFCC8; 22 entries).
-extern int unknown_widths_7cfc70[22];
-extern int unknown_heights_7cfcc8[22];
-
 // Index of a voice (EVA) entry by name (0x00716640, __fastcall; One_Time
 // passes "EVA_IncomingTransmission").
 int __fastcall Unknown_00716640(char const *name);

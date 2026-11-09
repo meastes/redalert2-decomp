@@ -4,7 +4,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
-// @ref ?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B=00851ac0
+// @ref ?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B=00851ac0
 // @ref ?unknown_hover_bob_scale_79c9b8@@3NB=0079c9b8
 // @ref __ftol=0077f110
 // @ref __real@8@3fff8000000000000000=0079a708
@@ -18,7 +18,7 @@ extern double const unknown_hover_bob_scale_79c9b8;
 // @ref __real@8@3fff8cccccccccccd000=007a32e0
 inline CoordStruct Hover_Adjacent_Coord_004fb9d0(CoordStruct const &coord,int facing)
 {
-    UnknownFacingOffset const &offset=unknown_facing_offsets_851ac0[facing&7];
+    TPoint2D<int> const &offset=unknown_facing_offsets_851ac0[facing&7];
     return CoordStruct(coord.X+offset.X,coord.Y+offset.Y,coord.Z);
 }
 void HoverLocomotionClass::Gravity_AI_004fb9d0()

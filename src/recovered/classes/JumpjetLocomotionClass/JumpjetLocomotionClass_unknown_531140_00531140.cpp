@@ -8,7 +8,7 @@
 #include "shared/cell.hpp"
 #include "shared/infantry.hpp"
 // @ref ?unknown_47a290@CellClass@@QBEHXZ=0047a290
-// @ref ?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B=00851ac0
+// @ref ?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B=00851ac0
 
 int JumpjetLocomotionClass::unknown_531140()
 {
@@ -18,7 +18,7 @@ int JumpjetLocomotionClass::unknown_531140()
         height += unknown_geometry_j;
     }
     if (unknown_68 > 0.0) {
-        UnknownFacingOffset const &offset = unknown_facing_offsets_851ac0[Dir_To_8(unknown_50.Current())];
+        TPoint2D<int> const &offset = unknown_facing_offsets_851ac0[Dir_To_8(unknown_50.Current())];
         coord = CoordStruct(coord.X + offset.X, coord.Y + offset.Y, coord.Z);
         int ahead = Map[coord].unknown_47a290();
         if (Map[coord].unknown_140 & 0x100) {

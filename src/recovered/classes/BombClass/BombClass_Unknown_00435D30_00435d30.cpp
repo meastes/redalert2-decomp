@@ -17,7 +17,7 @@
 // @ref ??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z=00420110
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref ?Unknown_0047FCC0@@YGHUCoordStruct@@@Z=0047fcc0
-// @ref ?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z=0047e2c0
+// @ref ?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z=0047e2c0
 // @ref ?Unknown_00405FE0@UnknownAudioController@@QAEXXZ=00405fe0
 // @ref ?Unknown_00556520@MapClass@@QAEXABVCell@@@Z=00556520
 // @ref ?Unknown_00557090@MapClass@@QAEXABVCell@@@Z=00557090
@@ -42,7 +42,7 @@ void BombClass::Unknown_00435D30()
         Target->unknown_68 = false;
         unknown_58 = true;
         CoordStruct coord = Target->Coord;
-        Unknown_0047E2C0(coord, Rules->IvanDamage, (int)Owner, Rules->IvanWarhead, 1);
+        Unknown_0047E2C0(coord, Rules->IvanDamage, Owner, Rules->IvanWarhead, true);
         new AnimClass(Select_Damage_Anim(Rules->IvanDamage, Rules->IvanWarhead, Land_At(coord), &coord),
             coord, 0, 1, 0x2600, Unknown_0047FCC0(coord));
         if (Target != 0 && Target->Kind_Of() == 6 && ((BuildingClass *)Target)->Type->BridgeRepairHut) {

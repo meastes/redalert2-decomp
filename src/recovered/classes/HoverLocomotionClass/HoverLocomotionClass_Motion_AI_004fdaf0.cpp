@@ -9,7 +9,7 @@
 // @ref ?While_Moving_004fcbc0@HoverLocomotionClass@@QAEH_N@Z=004fcbc0
 // @ref ?Start_Of_Move_004fe0f0@HoverLocomotionClass@@QAEXH@Z=004fe0f0
 // @ref ?unknown_coord_a41080@@3UCoordStruct@@A=00a41080
-// @ref ?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B=00851ac0
+// @ref ?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B=00851ac0
 // @ref ?unknown_facing_origin_79b630@@3NB=0079b630
 // @ref ?unknown_facing_scale_79b628@@3NB=0079b628
 // @ref __ftol=0077f110

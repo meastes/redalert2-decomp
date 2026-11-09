@@ -4,8 +4,8 @@
     "id": "population-4330",
     "inventory_sha256": "bad0f33838e36bddcee701832520ee66db8125916393bbd0664ee6b5ef0a9302",
     "gaps_sha256": "acb888c7d3364c75dbd2e4e89b8b6e1a33bad2ee39e959f0ff00f98e4b97e999",
-    "historical_population_sha256": "370d0989c561d4a4045efc1f58447a806ec4b5336187b4094ea348ea804075ac",
-    "historical_acceptance_sha256": "2d09868d11510b0ba4af51ecd380851ea3a4a050dc3da1fa2923c1424c5d38d1"
+    "historical_population_sha256": "65ebdac0d021f903e87dd162fa88b7f12fb3890c40ab037a8a2738d76ec05ff6",
+    "historical_acceptance_sha256": "5c7290575e41b1b7ff255b5ba7a16ed1891a2a5df984b5a050ff72c11aac7112"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -9429,7 +9429,7 @@
     "?Unknown_0047A220@UnknownAnimCell@@QAEHXZ": 4694560,
     "?Unknown_0047A230@UnknownCellClass@@QAEHXZ": 4694576,
     "?Unknown_0047CE70@UnknownCellClass@@QAEHXZ": 4705904,
-    "?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z": 4711104,
+    "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "?Unknown_0047FB70@@YIHHN@Z": 4717424,
     "?Unknown_0047FCD0@@YANXZ": 4717776,
     "?Unknown_00499A90@UnknownMap8324E0@@QAEXPAVObjectClass@@@Z": 4823696,
@@ -11606,7 +11606,7 @@
     "?unknown_slot261@AircraftClass@@UAE_N_N0@Z": 4288528,
     "?Magnitude_At_Least_004bfb30@UnknownFacingDir@@QBE_NABU1@@Z": 4979504,
     "?Unknown_00710160@@YIPAUUnknownCellObject710160@@ABVCell@@@Z": 7405920,
-    "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B": 8723136,
+    "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B": 8723136,
     "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z": 4790096,
     "??0SmudgeClass@@QAE@PAVSmudgeTypeClass@@ABUCoordStruct@@H@Z": 6845888,
     "??_7SmudgeClass@@6BIPersistStream@@@": 8041868,
@@ -12194,7 +12194,6 @@
     "?unknown_slot147@AircraftClass@@UAEHXZ": 4280848,
     "?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z": 5571296,
     "?Unknown_006E27B0@UnknownTechno208@@QAEXPAVTechnoClass@@@Z": 7219120,
-    "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "?Unknown_004EF5A0@HouseClass@@QAEXXZ": 5174688,
     "?Unknown_004F6310@HouseClass@@QAEXXZ": 5202704,
     "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@_N@Z": 5961200,
@@ -35545,7 +35544,7 @@
         {
           "offset": 653,
           "kind": 6,
-          "symbol": "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B",
+          "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
           "target": 8723136,
           "addend": 24,
           "resolved": 8723160
@@ -35553,7 +35552,7 @@
         {
           "offset": 664,
           "kind": 6,
-          "symbol": "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B",
+          "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
           "target": 8723136,
           "addend": 28,
           "resolved": 8723164

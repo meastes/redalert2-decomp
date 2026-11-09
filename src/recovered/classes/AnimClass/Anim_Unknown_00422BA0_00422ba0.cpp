@@ -4,7 +4,7 @@
 // Called from BulletClass's AI; arg1 is not read.
 #include "shared/anim.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z=0047e2c0
+// @ref ?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z=0047e2c0
 // @ref ?Unknown_004955D0@@YIXPAXHP6AXXZ@Z=004955d0
 // @ref ?unknown_palette_837e10@@3VPaletteClass@@A=00837e10
 // @ref ?unknown_481fb0@@YAXXZ=00481fb0

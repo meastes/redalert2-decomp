@@ -547,7 +547,6 @@ extern bool unknown_flag_a40b30;  // 0x00A40B30 the sidebar is on the left
 extern float unknown_volume_a40b44;  // 0x00A40B44 sound effect volume scale
 extern bool unknown_flag_a40d04;  // 0x00A40D04 (FootClass::Detach keeps a live parasite while it is set)
 extern bool Debug_Map;  // 0x00A40D13 (TibSun Debug_Map: the scenario editor flag)
-extern bool unknown_flag_a40d13;  // unused: Debug_Map's former second name, still declared (removing it moves Print_CRCs 0x62A360)
 extern int unknown_ini_format_a40d24;
 extern bool unknown_flag_a40d28;  // 0x00A40D28 application active (focus)
 extern bool unknown_flag_a40d44;  // 0x00A40D44

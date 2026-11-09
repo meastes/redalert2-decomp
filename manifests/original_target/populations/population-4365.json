@@ -4,8 +4,8 @@
     "id": "population-4365",
     "inventory_sha256": "8600e6ff431d5c0ca8ddae32ec288ec31b4c5f21ec034e9018f2f0adccbd193d",
     "gaps_sha256": "8d78f3a45367196df6cbf619063ff193a0c887401e70f04d243135ba6306381d",
-    "historical_population_sha256": "adcb8ea2a69bb23ce3fc1822a3e670fc6696be8ee167ac7c55b9da3aabb5ff67",
-    "historical_acceptance_sha256": "f2d2e001a5d4b62b6e5c2977bd8234d49c3b53c80e5c2ceeed727151ce12a353"
+    "historical_population_sha256": "957ebec097c43141782829b26f6b4372da7c7709655cb8f9f5bb41e2ddb8099b",
+    "historical_acceptance_sha256": "9356a6eb07d8f8f018c05d47b716d51e67eca88a299a5cebf4b4948edfaab9d7"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1989,7 +1989,7 @@
     "?Recalc_Attributes@UnknownAnimCell@@QAEXH@Z": 4662592,
     "?Unknown_00475DB0@UnknownAnimCell@@QAEXH@Z": 4677040,
     "?unknown_tiberiums_ac0b30@@3V?$DynamicVectorClass@PAUUnknownAnimTiberium@@@@A": 11275056,
-    "?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z": 4711104,
+    "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "?Unknown_00688460@@YIXABUCoordStruct@@HH_N@Z": 6849632,
     "?Unknown_00688750@@YIXABUCoordStruct@@HH_N@Z": 6850384,
     "?Unknown_004955D0@@YIXPAXHP6AXXZ@Z": 4806096,
@@ -8014,7 +8014,6 @@
     "?unknown_slot87@UnitClass@@UAEXABUCoordStruct@@_N1@Z": 7369424,
     "?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z": 5571296,
     "?Add_Bomb@UnknownList8322E0@@QAEXPAVTechnoClass@@PAVObjectClass@@@Z": 4416624,
-    "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "_?offsets@?BN@??unknown_6fd930@UnitClass@@QAE_NXZ@4PAVCell@@A": 11338984,
     "?unknown_slot86@UnitClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 7326256,
     "?unknown_slot86@TerrainClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 7221616,
@@ -10041,7 +10040,14 @@
     "?Plan_Naval_Yard_Path_004eecb0@HouseClass@@QAEXH@Z": 5172400,
     "?unknown_rgb_ab6841@@3VRGBClass@@A": 11233345,
     "?unknown_slot170@BuildingClass@@UAE?AUUnknownFacingDir@@PAVAbstractClass@@@Z": 4437984,
-    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944
+    "?unknown_6d0dc0@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@_N@Z": 7146944,
+    "?FUN_006f8a20@": 7309856,
+    "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
+    "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
+    "?Kind_Of@Tactical@@UBEHXZ": 6997984,
+    "?Size_Of@Tactical@@UBEHXZ": 6998000,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688
   },
   "regions": [
     {
@@ -12597,7 +12603,7 @@
         {
           "offset": 494,
           "kind": 20,
-          "symbol": "?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z",
+          "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
           "target": 4711104,
           "addend": 0,
           "resolved": 375294
@@ -12643,7 +12649,7 @@
           "resolved": 1325660
         }
       ],
-      "source_sha256": "564f38d12c2bb8441ddff9d34802b69b227b17964867510619236c37f118a944",
+      "source_sha256": "e3ade07dcee1839199d0b33f1be96b62cd2b78471d34f4bc96f07674cc6b26ff",
       "source": "src/recovered/classes/AnimClass/AnimClass_unknown_func_4226d0_004226d0.cpp",
       "population": "population-4365",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -12849,7 +12855,7 @@
         {
           "offset": 70,
           "kind": 20,
-          "symbol": "?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z",
+          "symbol": "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
           "target": 4711104,
           "addend": 0,
           "resolved": 374486
@@ -12887,7 +12893,7 @@
           "resolved": 469449
         }
       ],
-      "source_sha256": "49b215b2edd4890719dacaa7017ea2353ff5800ca3ea40ebd4eb2d036debc26d",
+      "source_sha256": "cf4369311f8e9d20b6eb9798ea46a262f86909e8c85de87673c8b6ebd30c544c",
       "source": "src/recovered/classes/AnimClass/Anim_Unknown_00422BA0_00422ba0.cpp",
       "population": "population-4365",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

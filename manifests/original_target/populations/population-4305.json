@@ -4,8 +4,8 @@
     "id": "population-4305",
     "inventory_sha256": "493a3c6d1be959969cb2614ec24ed1e25e3d11ce516960b45a4601b92183dadb",
     "gaps_sha256": "02d842d9a55c356e73e9850300c171e95e0464bea138645aa1239aab6da17094",
-    "historical_population_sha256": "e904f232efea86e78c6b4df9b642d68b50d4adab973bb1f62f22584933764756",
-    "historical_acceptance_sha256": "ea5d27e4233aef0b03ca882ecd406dc691b42375dd71a3d22c288a276d7bbacf"
+    "historical_population_sha256": "b77619a2204acd35fb629575ec2a7718e515653987e7a6d821b16d29f34e0ab5",
+    "historical_acceptance_sha256": "c59e40c84b792d7c1520c41fc798f72de925c16e134793f15e94487a6403616f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -9642,7 +9642,7 @@
     "?Unknown_0047A220@UnknownAnimCell@@QAEHXZ": 4694560,
     "?unknown_tiberiums_ac0b30@@3V?$DynamicVectorClass@PAUUnknownAnimTiberium@@@@A": 11275056,
     "?Unknown_00475DB0@UnknownAnimCell@@QAEXH@Z": 4677040,
-    "?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z": 4711104,
+    "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "?Unknown_00688460@@YIXABUCoordStruct@@HH_N@Z": 6849632,
     "?Unknown_00688750@@YIXABUCoordStruct@@HH_N@Z": 6850384,
     "?Unknown_00422BA0@@YIXHABVCell@@@Z": 4336544,
@@ -9667,7 +9667,7 @@
     "?unknown_5070e0@InfantryClass@@QAE_NXZ": 5271776,
     "?unknown_sin_4ba480@@YANN@Z": 4957312,
     "?unknown_cos_4ba4d0@@YANN@Z": 4957392,
-    "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B": 8723136,
+    "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B": 8723136,
     "?unknown_func_422690@AnimClass@@QAEXH@Z": 4335248,
     "?Set_Shuffle@OptionsClass@@QAEX_N@Z": 6129952,
     "?Set_Repeat@OptionsClass@@QAEX_N@Z": 6130000,
@@ -9686,7 +9686,6 @@
     "_socket@12": 7871394,
     "?As_Infantry@TargetClass@@QBEPAVInfantryClass@@XZ": 7037648,
     "?Select_Damage_Anim@@YIPAVAnimTypeClass@@HPAVWarheadTypeClass@@HPAUCoordStruct@@@Z": 4715728,
-    "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "?Unknown_005DA360@OptionsClass@@QAE_NXZ": 6136672,
     "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z": 6433472,
     "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z": 6434480,

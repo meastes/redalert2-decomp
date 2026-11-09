@@ -11,7 +11,7 @@
 #include "shared/overlay_type.hpp"
 #include "shared/tube.hpp"
 
-inline CoordStruct Coord_Offset(CoordStruct const &coord, UnknownFacingOffset const &offset)
+inline CoordStruct Coord_Offset(CoordStruct const &coord, TPoint2D<int> const &offset)
 {
     return *(CoordStruct *)&UnknownVector3(coord.X + offset.X, coord.Y + offset.Y, coord.Z);
 }

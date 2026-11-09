@@ -17,7 +17,7 @@
 // @ref ?Recalc_Attributes@UnknownAnimCell@@QAEXH@Z=00472540
 // @ref ?Unknown_00475DB0@UnknownAnimCell@@QAEXH@Z=00475db0
 // @ref ?unknown_tiberiums_ac0b30@@3V?$DynamicVectorClass@PAUUnknownAnimTiberium@@@@A=00ac0b30
-// @ref ?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z=0047e2c0
+// @ref ?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z=0047e2c0
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290

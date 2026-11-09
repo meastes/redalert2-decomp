@@ -4,8 +4,8 @@
     "id": "population-3954",
     "inventory_sha256": "2453ae9d9fc846cb9decec4f09948e35a35128aa5036ab4731d2499b59503014",
     "gaps_sha256": "e3abcf5a8d4815be993570e83c2b3721307b00b8a8f98d2f6d8b258eba01c519",
-    "historical_population_sha256": "22fb07300691df6299ddc2089d429ec0016ff4cce100b976f89b52f934289e32",
-    "historical_acceptance_sha256": "8f57792da3f5169a47ac67c96f630cc96e6bd8f1260e993df02194824319dc91"
+    "historical_population_sha256": "1007a54d583772623ddbcb2e9c75deba4e9e5480ff974a4c57cee83745101eb2",
+    "historical_acceptance_sha256": "0d16afbddb908066a4afc620cb1a5a9f212941db52fe150ea20230dfed958716"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5989,7 +5989,7 @@
     "?Unknown_0047A220@UnknownAnimCell@@QAEHXZ": 4694560,
     "?unknown_tiberiums_ac0b30@@3V?$DynamicVectorClass@PAUUnknownAnimTiberium@@@@A": 11275056,
     "?Unknown_00475DB0@UnknownAnimCell@@QAEXH@Z": 4677040,
-    "?Unknown_0047E2C0@@YIXABUCoordStruct@@HHPAVWarheadTypeClass@@H@Z": 4711104,
+    "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "?Recalc_Attributes@UnknownAnimCell@@QAEXH@Z": 4662592,
     "?Unknown_00688460@@YIXABUCoordStruct@@HH_N@Z": 6849632,
     "?Unknown_00688750@@YIXABUCoordStruct@@HH_N@Z": 6850384,
@@ -7687,7 +7687,6 @@
     "?unknown_slot87@UnitClass@@UAEXABUCoordStruct@@_N1@Z": 7369424,
     "?Add_Bomb@UnknownList8322E0@@QAEXPAVTechnoClass@@PAVObjectClass@@@Z": 4416624,
     "?Unknown_006E27B0@UnknownTechno208@@QAEXPAVTechnoClass@@@Z": 7219120,
-    "?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
     "_?offsets@?BN@??unknown_6fd930@UnitClass@@QAE_NXZ@4PAVCell@@A": 11338984,
     "?unknown_slot86@UnitClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 7326256,
     "?Unknown_004EF5A0@HouseClass@@QAEXXZ": 5174688,
@@ -8765,7 +8764,7 @@
     "?Link_To_Object@LocomotionClass@@UAGJPAX@Z": 5492752,
     "??1LocomotionClass@@UAE@XZ": 5492720,
     "?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
-    "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B": 8723136,
+    "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B": 8723136,
     "?unknown_hover_bob_scale_79c9b8@@3NB": 7981496,
     "??D@YI?AVMatrix3D@@ABV0@0@Z": 5837184,
     "?unknown_hover_facing_step_79d090@@3NB": 7983248,
@@ -10326,7 +10325,15 @@
     "?unknown_slot67@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
     "__real@8@3fe3c8000000c8000000": 8019992,
     "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
-    "?Update_All@RadBeam@@SIXXZ": 6509792
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
+    "?FUN_006f8a20@": 7309856,
+    "?unknown_slot28@MapClass@@UAEXPBVRect@@_NH1@Z": 5539040,
+    "?GetClassID@Tactical@@UAGJPAUGUID@@@Z": 6996704,
+    "?Detach@Tactical@@UAEXPAVAbstractClass@@_N@Z": 6990688,
+    "??H?$TPoint2D@F@@QBE?BV0@ABV0@@Z": 4369872,
+    "??G?$TPoint2D@F@@QBE?BV0@ABV0@@Z": 5679680,
+    "??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z": 5679648,
+    "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120
   },
   "regions": [
     {
@@ -12260,7 +12267,7 @@
         {
           "offset": 123,
           "kind": 6,
-          "symbol": "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B",
+          "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
           "target": 8723136,
           "addend": 0,
           "resolved": 8723136
@@ -12268,7 +12275,7 @@
         {
           "offset": 130,
           "kind": 6,
-          "symbol": "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B",
+          "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
           "target": 8723136,
           "addend": 0,
           "resolved": 8723136
@@ -12426,7 +12433,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "f2593355b7cd32cd051bec41e8de01c0ddd3bd4d68e6cf0808f6aa8bbb328bcd",
+      "source_sha256": "ced39b196ba6582162ce4ce4a6e9b0081c232a16aeb5639c9e941eb26408695b",
       "source": "src/recovered/classes/HoverLocomotionClass/HoverLocomotionClass_Gravity_AI_004fb9d0.cpp",
       "population": "population-3954",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -13409,7 +13416,7 @@
         {
           "offset": 867,
           "kind": 6,
-          "symbol": "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B",
+          "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
           "target": 8723136,
           "addend": 0,
           "resolved": 8723136
@@ -13417,7 +13424,7 @@
         {
           "offset": 874,
           "kind": 6,
-          "symbol": "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B",
+          "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
           "target": 8723136,
           "addend": 0,
           "resolved": 8723136
@@ -13503,7 +13510,7 @@
           "resolved": 4294962322
         }
       ],
-      "source_sha256": "77f34772e5f8756229bd77808fa7f875896051b3756737d96b3f67057be0e6c4",
+      "source_sha256": "a551fa90bda3780e37caf25cc830f85ce7624ddb1ead904e6b8c1552775f3546",
       "source": "src/recovered/classes/HoverLocomotionClass/HoverLocomotionClass_Motion_AI_004fdaf0.cpp",
       "population": "population-3954",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14301,7 +14308,7 @@
         {
           "offset": 1333,
           "kind": 6,
-          "symbol": "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B",
+          "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
           "target": 8723136,
           "addend": 4,
           "resolved": 8723140
@@ -14309,7 +14316,7 @@
         {
           "offset": 1347,
           "kind": 6,
-          "symbol": "?unknown_facing_offsets_851ac0@@3QBUUnknownFacingOffset@@B",
+          "symbol": "?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B",
           "target": 8723136,
           "addend": 0,
           "resolved": 8723136
@@ -15299,7 +15306,7 @@
           "resolved": 5231041
         }
       ],
-      "source_sha256": "d19e2ad8b75f1d26b36c712f08c31a609c269466bd0bcec4b0eaa372bebe8b73",
+      "source_sha256": "865bac492b1918f3b8bddb9ddfae025a6447e838d7c82040ddeb053ed26213c0",
       "switch_data_bytes": 32,
       "source": "src/recovered/classes/HoverLocomotionClass/HoverLocomotionClass_While_Moving_004fcbc0.cpp",
       "population": "population-3954",
