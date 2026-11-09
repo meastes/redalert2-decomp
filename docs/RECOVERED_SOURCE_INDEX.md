@@ -6,7 +6,7 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| [unowned](../src/recovered/unowned/) | 1404 | 434,086 | 1404 | 0x00401000–0x0077A940 |
+| [unowned](../src/recovered/unowned/) | 1419 | 434,384 | 1419 | 0x00401000–0x0077A940 |
 | [classes/MapClass](../src/recovered/classes/MapClass/) | 214 | 127,804 | 214 | 0x0049ED10–0x0056A9D0 |
 | [classes/BuildingClass](../src/recovered/classes/BuildingClass/) | 200 | 91,643 | 200 | 0x00438A60–0x004D3450 |
 | [classes/HouseClass](../src/recovered/classes/HouseClass/) | 214 | 84,401 | 214 | 0x004D3590–0x004F8EF0 |
@@ -22,7 +22,7 @@
 | [classes/InfantryClass](../src/recovered/classes/InfantryClass/) | 92 | 34,203 | 92 | 0x004D3390–0x00509810 |
 | [classes/MapRegionClass](../src/recovered/classes/MapRegionClass/) | 50 | 32,850 | 50 | 0x0056D530–0x0058DA70 |
 | [classes/AircraftClass](../src/recovered/classes/AircraftClass/) | 87 | 30,616 | 87 | 0x004139F0–0x004D34D0 |
-| (discovery: address-named) | 1092 | 30,108 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 1074 | 29,723 | 17 | 0x004010A0–0x00793976 |
 | [VQA32](../src/recovered/VQA32/) | 81 | 29,339 | 81 | 0x00776380–0x0077E9E0 |
 | [classes/UnknownIDSource](../src/recovered/classes/UnknownIDSource/) | 51 | 29,041 | 51 | 0x0065B4F0–0x00663440 |
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 94 | 0x004D3690–0x006BE740 |
@@ -1077,6 +1077,7 @@
 | [classes/TypeList_UnitTypeClass_ptr](../src/recovered/classes/TypeList_UnitTypeClass_ptr/) | 4 | 318 | 4 | 0x004FA710–0x00654690 |
 | [classes/TypeList_VoxelAnimTypeClass_ptr](../src/recovered/classes/TypeList_VoxelAnimTypeClass_ptr/) | 4 | 318 | 4 | 0x00652A70–0x00654570 |
 | [classes/HashString](../src/recovered/classes/HashString/) | 7 | 317 | 7 | 0x004E1130–0x004E1240 |
+| [classes/AudioLevel](../src/recovered/classes/AudioLevel/) | 4 | 316 | 4 | 0x00407080–0x004070F0 |
 | [classes/MillisecondTimerClass](../src/recovered/classes/MillisecondTimerClass/) | 3 | 316 | 3 | 0x00593530–0x005935E0 |
 | [classes/RLEBlitTransLucent25ZReadWrite_unsigned_short](../src/recovered/classes/RLEBlitTransLucent25ZReadWrite_unsigned_short/) | 2 | 310 | 2 | 0x0048A9D0–0x0048D4D0 |
 | [classes/RLEBlitTransLucent75ZReadWrite_unsigned_short](../src/recovered/classes/RLEBlitTransLucent75ZReadWrite_unsigned_short/) | 2 | 310 | 2 | 0x0048A7A0–0x0048D490 |
@@ -1140,7 +1141,6 @@
 | [classes/RLEBlitTransRemapDestZRead_unsigned_char](../src/recovered/classes/RLEBlitTransRemapDestZRead_unsigned_char/) | 2 | 234 | 2 | 0x004868E0–0x0048C950 |
 | [classes/MSAnimEntry](../src/recovered/classes/MSAnimEntry/) | 1 | 232 | 1 | 0x005B14C0–0x005B14C0 |
 | [classes/Planning](../src/recovered/classes/Planning/) | 2 | 231 | 2 | 0x00610980–0x00612570 |
-| [classes/AudioLevel](../src/recovered/classes/AudioLevel/) | 1 | 229 | 1 | 0x004070F0–0x004070F0 |
 | [classes/GetCDClass](../src/recovered/classes/GetCDClass/) | 4 | 227 | 4 | 0x004D2940–0x004D4940 |
 | [classes/DirType](../src/recovered/classes/DirType/) | 5 | 224 | 5 | 0x005940B0–0x00594140 |
 | [classes/TaskForceEntryStruct](../src/recovered/classes/TaskForceEntryStruct/) | 2 | 222 | 2 | 0x004B4860–0x004B4930 |
