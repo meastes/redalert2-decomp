@@ -161,6 +161,33 @@ drives there), `key S`, double-click `@AMCV` (it deploys), click the power plant
 cameo (908, 252), click it again at frame 720 and click `@GACNST+4,0`: the
 power plant stands at the clicked cell.
 
+### Menus (Scout1119, M14; in progress)
+
+Without `--skirmish`/`--play` the game runs its own menus. The port's USER32
+(`port/src/user32.cpp`) now gives the owner-draw dialog layer what it needs:
+GWL_WNDPROC subclassing and GWL_USERDATA pointer-sized
+(`ra2port_set/get_window_ptr`, native_units.py rules), Win32 control procedures
+for the predefined classes (Button click to WM_COMMAND/BN_CLICKED, check state,
+ListBox/ComboBox items and selection, Edit text, trackbar/progress/tab/hotkey
+state, WM_GETTEXT/WM_SETTEXT), the dialog manager procedure under a subclass,
+WM_SHOWWINDOW, WM_PAINT generated for dirty dialogs and controls after posted
+input and before WM_TIMER, screen coordinates for child windows, and mouse input
+routed to the control under the cursor of the topmost shown dialog (template
+order is the Z order; static controls without SS_NOTIFY and group boxes are
+transparent) or to the capture. The owner-draw procedures with no recovered body
+are behaviour rows (`link/behaviour_m14_ownerdraw.cpp`; input exact to the
+decompiles, painting simplified). Scripted input reaches the menus: a script
+line's first field `t<ms>` (milliseconds after the window opened) or
+`d<k>+<ms>` (after the k-th dialog was shown) instead of a frame number; timed
+lines play in the order written. `RA2_NATIVE_MSG_LOG=1` logs messages to dialogs
+and controls, each shown dialog's controls (id, class, screen rectangle, text)
+and every routed click (`=2` adds paint, timer and motion). `--frames=N` reports
+`frames` after N Main_Loop frames of a game started from the menus; the
+milestone `menu-return` is the main menu shown again after a game. State: the
+main menu, the single-player menu and the skirmish dialog open by scripted
+clicks and Start Game reaches Skirmish_Command; the dialogs' art and the
+skirmish dialog's control layout are not drawn/placed yet (see the lane notes).
+
 ### Data the original stores (game.exe at run time)
 
 User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and

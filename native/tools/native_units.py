@@ -124,6 +124,13 @@ RULES = [
     (re.compile(r'\bSetWindowLongA\(\s*([^,()]+?)\s*,\s*(?:8|DWL_USER)\s*,\s*\(\s*(?:LONG|long|int)\s*\)\s*'),
      r'ra2port_set_dialog_user(\1, '),
     (re.compile(r'\bGetWindowLongA\(\s*([^,()]+?)\s*,\s*(?:8|DWL_USER)\s*\)'), r'ra2port_get_dialog_user(\1)'),
+    # GWL_WNDPROC (-4) and GWL_USERDATA (-21) carry pointers too (the owner-draw
+    # subclassing 0x005ED180 stores its control procedure and gets the original
+    # one back; 0x005ECB00/0x005EDD30 keep a record pointer in GWL_USERDATA):
+    # pointer-sized port calls (Win64's Set/GetWindowLongPtr). Scout1119 (M14).
+    (re.compile(r'\bSetWindowLongA\(\s*([^,()]+?)\s*,\s*(-4|-21|GWL_WNDPROC|GWL_USERDATA)\s*,\s*\(\s*(?:LONG|long|int)\s*\)\s*'),
+     r'ra2port_set_window_ptr(\1, \2, (intptr_t)'),
+    (re.compile(r'\bGetWindowLongA\(\s*([^,()]+?)\s*,\s*(-4|-21|GWL_WNDPROC|GWL_USERDATA)\s*\)'), r'ra2port_get_window_ptr(\1, \2)'),
     (re.compile(r'\bunsigned\s+long(\s+int)?\b'), 'RA2_ULONG'),
     (re.compile(r'\bsigned\s+long(\s+int)?\b'), 'RA2_LONG'),
     (re.compile(r'\blong\s+int\b'), 'RA2_LONG'),

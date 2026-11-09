@@ -49,6 +49,12 @@ static_assert(sizeof(wchar_t) == 2, "build with -fshort-wchar: RA2 strings are U
 // rewrites SetWindowLongA(w, 8, (LONG)p) / GetWindowLongA(w, 8) to these.
 extern "C" intptr_t ra2port_set_dialog_user(const volatile void *window, const volatile void *value);
 extern "C" intptr_t ra2port_get_dialog_user(const volatile void *window);
+// GWL_WNDPROC (-4) and GWL_USERDATA (-21), pointer-sized (Win64's
+// Set/GetWindowLongPtr shape): native_units.py rewrites SetWindowLongA(w, -4|-21,
+// (LONG)p) / GetWindowLongA(w, -4|-21) to these (Scout1119, M14: the owner-draw
+// subclassing 0x005ED180 and its control records 0x005ECB00/0x005EDD30).
+extern "C" intptr_t ra2port_set_window_ptr(const volatile void *window, int index, intptr_t value);
+extern "C" intptr_t ra2port_get_window_ptr(const volatile void *window, int index);
 namespace ra2port {
 // VC6 accepts a cast of an rvalue to a reference type and reinterprets a
 // temporary copy. native_units.py wraps such cast operands in as_lvalue: it

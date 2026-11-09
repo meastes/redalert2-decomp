@@ -44,7 +44,8 @@ const char *const ORDER[] = {
     "menu",       // the main menu shown (not detected yet: a dialog, blocked with the templates)
     "scenario",   // --skirmish: Start_Scenario loaded the map (Select_Game returned true)
     "frame",      // --skirmish: the first Main_Loop iteration returned
-    "frames",     // --skirmish: --skirmish-frames=N iterations returned
+    "frames",     // --skirmish: --skirmish-frames=N iterations returned (--frames=N: a game from the menus)
+    "menu-return",// the main menu shown again after a game (Scout1119, M14)
 };
 const int ORDER_COUNT = sizeof(ORDER) / sizeof(ORDER[0]);
 
@@ -261,8 +262,14 @@ void ra2port_set_point_resolver(int (*resolver)(const char *spec, int *x, int *y
 int ra2port_resolve_point(const char *spec, int *x, int *y) { return point_resolver ? point_resolver(spec, x, y) : 0; }
 // A Main_Loop frame began (link/harness_skirmish.cpp): the host plays the
 // scripted input due at it (--input-script).
+namespace { int last_frame = 0; }
+int ra2port_last_frame(void) { return last_frame; }
+// --frames=N without --skirmish (Scout1119, M14): a game started from the
+// menus reports milestone `frames` after N Main_Loop frames.
+void ra2port_set_frames(int frames) { if (!skirmish_map) skirmish_frames = frames > 0 ? frames : 0x7FFFFFFF; }
 void ra2port_frame(int frame)
 {
+    last_frame = frame;
     const ra2port::Host *h = ra2port::host();
     if (h && h->frame) h->frame(frame);
 }

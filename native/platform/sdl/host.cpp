@@ -59,8 +59,10 @@ void *create_window(const char *title, int width, int height)
     return window;
 }
 
+void play_timed();
 void pump_events()
 {
+    play_timed();
     HWND w = ra2port::main_window();
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
@@ -173,14 +175,25 @@ bool open_audio(int rate, void (*mix)(short *out, int frames))
 //   drag P0 P1     move, left down, move, left up on four frames
 //   key NAME       key down and up (SDL key names: A, Return, Escape, F1...)
 //   keydown NAME | keyup NAME
-// '#' starts a comment.
-struct Scripted { int frame; SDL_Event event; std::string spec; };
+// '#' starts a comment. A first field "t<ms>" instead of a frame plays the
+// event that many milliseconds after the window opened (menus and dialogs,
+// where no Main_Loop frame runs; Scout1119, M14); the order of the lines is
+// kept within each kind. "d<k>+<ms>" plays it that many milliseconds after
+// the k-th dialog was shown (counting every dialog the game shows). Timed
+// lines play in the order written.
+struct Scripted { int frame; SDL_Event event; std::string spec; int ms = -1; int dialog = 0; };
+extern "C" long long ra2port_dialog_shown_ms(int k);
+extern "C" long long ra2port_now_ms(void);
 std::vector<Scripted> script;
 size_t script_next = 0;
 
+int script_ms = -1;     // the line being read is timed ("t<ms>"): its events' offset
+int script_dialog = 0;  // ... after the k-th dialog was shown ("d<k>+<ms>")
+Uint64 script_start = 0;
 void script_mouse_event(int frame, Uint32 type, float x, float y, std::string const &spec, Uint8 button)
 {
     Scripted s = {frame, {}, spec};
+    if (script_ms >= 0) { s.ms = script_ms + (frame - 1000000) * 60; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
     s.event.type = type;
     if (type == SDL_EVENT_MOUSE_MOTION) {
         s.event.motion.which = script_mouse;
@@ -205,6 +218,7 @@ void script_key_event(int frame, bool down, const char *name)
         return;
     }
     Scripted s = {frame, {}, std::string()};
+    if (script_ms >= 0) { s.ms = script_ms + (frame - 1000000) * 60; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
     s.event.type = down ? SDL_EVENT_KEY_DOWN : SDL_EVENT_KEY_UP;
     s.event.key.key = key;
     s.event.key.scancode = SDL_GetScancodeFromKey(key, nullptr);
@@ -248,7 +262,15 @@ void load_script()
         std::vector<std::string> tokens;
         for (char *t = strtok(line, " \t\r\n"); t; t = strtok(nullptr, " \t\r\n")) tokens.push_back(t);
         if (tokens.size() < 2) continue;
-        int frame = atoi(tokens[0].c_str());
+        // Timed lines keep the frame arithmetic below (click: +1, +2) as 60 ms steps.
+        script_ms = tokens[0][0] == 't' ? atoi(tokens[0].c_str() + 1) : -1;
+        script_dialog = 0;
+        if (tokens[0][0] == 'd') {      // d<k>+<ms>: ms after the k-th dialog was shown
+            script_dialog = atoi(tokens[0].c_str() + 1);
+            const char *plus = strchr(tokens[0].c_str(), '+');
+            script_ms = plus ? atoi(plus + 1) : 0;
+        }
+        int frame = script_ms >= 0 ? 1000000 : atoi(tokens[0].c_str());
         std::string const action = tokens[1];
         size_t i = 2;
         bool ok = true;
@@ -294,15 +316,46 @@ void load_script()
             script[k] = t;
         }
     }
+    script_ms = -1;
     fprintf(stderr, "input-script: %zu events from %s\n", script.size(), path);
 }
 
+void play(Scripted &s, int number);
+std::vector<size_t> timed;      // indices of timed events, in order
+size_t timed_next = 0;
 void frame(int number)
 {
     load_script();
-    Uint32 id = window ? SDL_GetWindowID(window) : 0;
     while (script_next < script.size() && script[script_next].frame <= number) {
-        Scripted &s = script[script_next++];
+        play(script[script_next++], number);
+    }
+}
+// Timed events (pump_events: menus and dialogs as well as the game).
+void play_timed()
+{
+    load_script();
+    if (!script_start) {
+        script_start = SDL_GetTicks();
+        for (size_t i = 0; i < script.size(); ++i) if (script[i].ms >= 0) timed.push_back(i);
+    }
+    // Timed events play in script order, each when due.
+    Uint64 now = SDL_GetTicks() - script_start;
+    while (timed_next < timed.size()) {
+        Scripted &s = script[timed[timed_next]];
+        if (s.dialog) {
+            long long shown = ra2port_dialog_shown_ms(s.dialog);
+            if (shown < 0 || ra2port_now_ms() - shown < s.ms) break;
+        } else if ((Uint64)s.ms > now) {
+            break;
+        }
+        fprintf(stderr, "input-script: t%llu event %u\n", (unsigned long long)now, s.event.type);
+        play(script[timed[timed_next++]], -1);
+    }
+}
+void play(Scripted &s, int number)
+{
+    Uint32 id = window ? SDL_GetWindowID(window) : 0;
+    {
         SDL_Event e = s.event;
         if (e.type == SDL_EVENT_KEY_DOWN || e.type == SDL_EVENT_KEY_UP) {
             e.key.windowID = id;
@@ -313,7 +366,7 @@ void frame(int number)
                 int px = 0, py = 0;
                 if (!ra2port_resolve_point(s.spec.c_str(), &px, &py)) {
                     fprintf(stderr, "input-script: frame %d: no point for @%s\n", number, s.spec.c_str());
-                    continue;
+                    return;
                 }
                 x = (float)px;
                 y = (float)py;

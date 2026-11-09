@@ -37,6 +37,16 @@
 #include "shared/surface.hpp"
 #include "shared/unknown_globals.hpp"
 #include "shared/crt_string.hpp"
+
+// NATIVE (Scout1119, M14): the draft reaches record fields by their VC6 offsets;
+// natively the record's pointers are 8 bytes, so each offset is taken from the
+// nearest named member before it (fields past +0x64, the last pointer, keep
+// their distance from the record's end). The VC6 offsets are unchanged.
+#define RA2_REC_18(d) (*(Surface **)((char *)&(d)->image_14 + sizeof(Surface *)))
+#define RA2_REC_24(d) (*(int *)((char *)&(d)->text_28 - 4))
+#define RA2_REC_30(d) (*(int *)((char *)&(d)->text_28 + sizeof(wchar_t *) + 4))
+#define RA2_REC_50(d) (*(int *)((char *)&(d)->unknown_40 + 0x10))
+#define RA2_REC_TAIL(type, d, off) (*(type *)((char *)(d) + sizeof(*(d)) - 0x200 + (off)))
 /*******************************************************************************
  *                                O P E N  T S
  *******************************************************************************
@@ -244,21 +254,21 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 	if (message == 0x49f && data) {
 		HDC hdc = (HDC)lparam;
 		HGDIOBJ old = SelectObject(hdc, GetStockObject(0xd));
-		(*(HFONT *)((char *)data + 0x1E8)) = (HFONT)old;
+		RA2_REC_TAIL(int, data, 0x1E8) = (int)(intptr_t)old;   // NATIVE: port handles are small tokens
 		SelectObject(hdc, old);
-		(*(int *)((char *)data + 0x1EC)) = GetBkMode(hdc);
-		(*(COLORREF *)((char *)data + 0x1F0)) = GetBkColor(hdc);
-		(*(COLORREF *)((char *)data + 0x1F4)) = GetTextColor(hdc);
+		RA2_REC_TAIL(int, data, 0x1EC) = GetBkMode(hdc);
+		RA2_REC_TAIL(COLORREF, data, 0x1F0) = GetBkColor(hdc);
+		RA2_REC_TAIL(COLORREF, data, 0x1F4) = GetTextColor(hdc);
 		result = 1;
 		goto cleanup;
 	}
 
 	if (message == 0x49e && data) {
 		HDC hdc = (HDC)lparam;
-		SelectObject(hdc, (*(HFONT *)((char *)data + 0x1E8)));
-		SetBkMode(hdc, (*(int *)((char *)data + 0x1EC)));
-		SetBkColor(hdc, (*(COLORREF *)((char *)data + 0x1F0)));
-		SetTextColor(hdc, (*(COLORREF *)((char *)data + 0x1F4)));
+		SelectObject(hdc, (HFONT)(intptr_t)RA2_REC_TAIL(int, data, 0x1E8));
+		SetBkMode(hdc, RA2_REC_TAIL(int, data, 0x1EC));
+		SetBkColor(hdc, RA2_REC_TAIL(COLORREF, data, 0x1F0));
+		SetTextColor(hdc, RA2_REC_TAIL(COLORREF, data, 0x1F4));
 		result = 1;
 		goto cleanup;
 	}
@@ -366,7 +376,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
         data->unknown_38 = 0;
 	} else if (message == 0x18) {
 		if (wparam == 0 && data) {
-			(*(int *)((char *)data + 0x1FC)) = 0;
+			RA2_REC_TAIL(int, data, 0x1FC) = 0;
 		}
 	}
 	if (data) {
@@ -375,15 +385,15 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
 			data->image_14 = (Surface *)lparam;
 			goto cleanup;
 		} else if (message == 0x4aa) {
-			result = (LRESULT)(*(Surface **)((char *)data + 0x18));
-			(*(Surface **)((char *)data + 0x18)) = (Surface *)lparam;
+			result = (LRESULT)RA2_REC_18(data);
+			RA2_REC_18(data) = (Surface *)lparam;
 			goto cleanup;
 		} else if (message == 0x49a) {
-			result = (*(int *)((char *)data + 0x24));
-			(*(int *)((char *)data + 0x24)) = lparam;
+			result = RA2_REC_24(data);
+			RA2_REC_24(data) = lparam;
 			goto cleanup;
 		}
-		if ((*(int *)((char *)data + 0x24)) && (message == 0x113 || (message >= 0x200 && message <= 0x209))) {
+		if (RA2_REC_24(data) && (message == 0x113 || (message >= 0x200 && message <= 0x209))) {
 			RECT corner;
 			GetWindowRect(window, &corner);
 			WindowFromPoint(*(POINT *)&corner);
@@ -414,13 +424,13 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
                 }
             }
         } else if (message == 0x4EB) {
-            *(int *)((char *)data + 0x50) = lparam;
+            RA2_REC_50(data) = lparam;
         } else if (message == 0x4B4) {
             data->Set_Text_600560((char const *)lparam);
             data->unknown_2c = 1;
         } else if (message == 0x4D1) {
-            result = *(int *)((char *)data + 0x30);
-            *(int *)((char *)data + 0x30) = wparam;
+            result = RA2_REC_30(data);
+            RA2_REC_30(data) = wparam;
             allow_proc = false;
         } else if (message == 0x4B2) {
             wchar_t const *text = data->text_28;
@@ -632,14 +642,14 @@ after_proc:
 cleanup:
     ctrlmessages.Remove(key);
     if (data && is_paint) {
-        if (GetWindowLongA(window, 4) && num_rect_updates > 1) *(int *)((char *)data + 0x1FC) = 2;
+        if (GetWindowLongA(window, 4) && num_rect_updates > 1) RA2_REC_TAIL(int, data, 0x1FC) = 2;
         if (--num_rect_updates == 0) {
             if (!data->unknown_20 && anim_state >= 1) {
                 Rect source(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
                 Rect destination(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
-                if (*(int *)((char *)data + 0x1FC) == 1) {
-                    *(int *)((char *)data + 0x1FC) = 2;
-                    if (GetWindowLongA(window, 4) && unknown_show_dialog_5e61b0(window)) *(int *)((char *)data + 0x1FC) = 3;
+                if (RA2_REC_TAIL(int, data, 0x1FC) == 1) {
+                    RA2_REC_TAIL(int, data, 0x1FC) = 2;
+                    if (GetWindowLongA(window, 4) && unknown_show_dialog_5e61b0(window)) RA2_REC_TAIL(int, data, 0x1FC) = 3;
                     Rect whole(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
                     destination = Offset_Rect(whole, offset_x, offset_y);
                     unknown_surface_839950->Lock();

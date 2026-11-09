@@ -230,7 +230,9 @@ void Native_Harness_Input(int frame);    // harness_input.cpp
 bool Native_Main_Loop_Seam()
 {
     bool over = unknown_53fbd0();
-    if (ra2port_skirmish_map() != 0) {
+    // Every game counts its frames (a game started from the menus too:
+    // --frames=N, scripted input by frame; Scout1119, M14).
+    {
         char detail[16] = "";
         Append_Int(detail, ++frames_done, sizeof detail);
         ra2port_progress("frame", detail);

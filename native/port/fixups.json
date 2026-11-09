@@ -1001,6 +1001,42 @@
    "new": "    void *unknown_64;   // NATIVE: win_modem.hpp's EchoFunction (a function pointer)\n    void *unknown_68;   // NATIVE: AbortFunction\n",
    "why": "win_modem.hpp's +0x64/+0x68 are function pointers (EchoFunction, AbortFunction): pointer width natively so the constructor clears the real members. Same VC6 layout and stores.",
    "verified": true
+  },
+  {
+   "source": "src/shared/owner_draw_dialog_control.hpp",
+   "old": "extern int unknown_7add6c;",
+   "new": "} extern int unknown_screen_widths_7add68[3]; namespace OwnerDraw {\n// native: 0x007ADD6C is unknown_screen_widths_7add68[1] (the second of the {640, 800, 1024} widths).\nstatic int &unknown_7add6c = ::unknown_screen_widths_7add68[1];",
+   "why": "One storage per original address: OwnerDraw::unknown_7add6c (0x007ADD6C) lies inside unknown_screen_widths_7add68 (0x007ADD68, int[3], loaded from game.exe); natively the namespaced name was a zero placeholder (original_data.py finds no declaration for a qualified name), so the menus' sidebar placement 0x005E8C50 centred on width 0 (buttons off their slots). Same meaning: the element at that address (Scout1119, M14)."
+  },
+  {
+   "source": "src/shared/owner_draw_dialog_control.hpp",
+   "old": "extern int unknown_7add78;",
+   "new": "} extern int unknown_screen_heights_7add74[3]; namespace OwnerDraw {\n// native: 0x007ADD78 is unknown_screen_heights_7add74[1].\nstatic int &unknown_7add78 = ::unknown_screen_heights_7add74[1];",
+   "why": "As unknown_7add6c: 0x007ADD78 is the second element of unknown_screen_heights_7add74 (0x007ADD74, int[3]); zero natively before (Scout1119, M14)."
+  },
+  {
+   "source": "src/recovered/ownrdraw/OwnerDraw_unknown_replace_edit_5ecb00_005ecb00.cpp",
+   "old": "            LONG *data = (LONG *)operator new(8);\n            data[0] = (LONG)\"NewEdit\";",
+   "new": "            intptr_t *data = (intptr_t *)operator new(2 * sizeof(intptr_t));   // native: pointer-sized words\n            data[0] = (intptr_t)\"NewEdit\";",
+   "why": "The GWL_USERDATA block of a replacement list box holds the class name pointer and the edit's style as two 32-bit words on VC6 (8 bytes); a LONG truncates the pointer on LP64. Natively two pointer-sized words, read back the same way by 0x005ED180 (its fixup). Same meaning (Scout1119, M14: the skirmish dialog's edit controls faulted in strcpy)."
+  },
+  {
+   "source": "src/recovered/ownrdraw/OwnerDraw_unknown_5ed180_005ed180.cpp",
+   "old": "    LONG *user_data = (LONG *)GetWindowLongA(window, -21);",
+   "new": "    intptr_t *user_data = (intptr_t *)GetWindowLongA(window, -21);   // native: pointer-sized words (0x005ECB00's block)",
+   "why": "Reads the block 0x005ECB00 stores in GWL_USERDATA (class name pointer, style): pointer-sized words natively (see that fixup). Same meaning (Scout1119, M14)."
+  },
+  {
+   "source": "src/recovered/unowned/unknown_set_dialog_wide_text_005c3450.cpp",
+   "old": "    SendMessageA(item, 0x4b2, 0, (LPARAM)owner->unknown_text_20.unknown_text_770430());",
+   "new": "    // native: the owner is a MultiplayerGameMode (lobby.hpp's Unknown_005c3450 0x005C3450, bound to this\n    // definition); its name (+0x20 on VC6) through the real class's member.\n    extern unsigned short const *Native_Game_Mode_Name_005c3450(void const *mode);\n    SendMessageA(item, 0x4b2, 0, (LPARAM)Native_Game_Mode_Name_005c3450(owner));",
+   "why": "The in-file view UnknownTextOwner_005c3450 puts the game mode's name WideString at VC6 +0x20; natively MultiplayerGameMode's unknown_name_20 sits after an 8-byte vptr, so the view read a wrong word (0x100000000) and the skirmish dialog faulted in the owner-draw text compare; the (long) cast also truncated the pointer. Same meaning: the mode's name buffer or the empty string (link/behaviour_m14_session.cpp reads the real member). Scout1119, M14."
+  },
+  {
+   "source": "src/shared/owner_draw_dialog_control.hpp",
+   "old": "struct UnknownTextRequest {\n    int unknown_00;",
+   "new": "struct UnknownTextRequest {\n    intptr_t unknown_00;   // native: the control (HWND), pointer-sized as skirmish.hpp's ToolTipTextRequest::Window",
+   "why": "UnknownTextRequest (0x005E2100) is the request the dialogs answer as skirmish.hpp's ToolTipTextRequest {HWND Window; int Item; WideString Text} (message 0x4E9, Skirmish_Dialog_Proc 0x00683D10). On VC6 both put Item at +4 and Text at +8; natively the HWND is 8 bytes, so the dialog read Item and wrote Text 8 bytes past this view (an abort in WideString::operator= on the first mouse move over the skirmish dialog). Same meaning: the first member holds the control handle (Scout1119, M14)."
   }
  ]
 }

@@ -38,6 +38,7 @@ extern "C" void ra2port_run_to(const char *target, int seconds);
 extern "C" void ra2port_run_end(const char *why);
 extern "C" void ra2port_set_skirmish(const char *map, int frames);
 extern "C" void ra2port_set_skirmish_order(const char *order);
+extern "C" void ra2port_set_frames(int frames);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -79,6 +80,7 @@ int main(int argc, char **argv)
         else if (!strncmp(argv[i], "--skirmish-order=", 17)) ra2port_set_skirmish_order(argv[i] + 17);
         else if (!strcmp(argv[i], "--cd-check")) cd_check = true;
         else if (!strncmp(argv[i], "--play=", 7)) play = argv[i] + 7;
+        else if (!strncmp(argv[i], "--frames=", 9)) ra2port_set_frames(atoi(argv[i] + 9));
         else if (!strncmp(argv[i], "--input-script=", 15)) setenv("RA2_NATIVE_INPUT_SCRIPT", argv[i] + 15, 1);
     }
     if (skirmish && !run_to) { fprintf(stderr, "--skirmish is a test harness: use it with --run-to=<milestone> (e.g. frame)\n"); return 64; }

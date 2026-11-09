@@ -11,7 +11,9 @@
 #include <mutex>
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <string>
 #include <thread>
 #include <vector>
@@ -25,7 +27,16 @@ struct Window : HandleObject {
     DLGPROC dlgproc = nullptr;
     HWND parent = nullptr;
     RECT rect = {0, 0, 0, 0};
-    LONG style = 0, exstyle = 0, userdata = 0, id = 0;
+    LONG style = 0, exstyle = 0, id = 0;
+    intptr_t userdata = 0;            // GWL_USERDATA, pointer-sized (ra2port_set_window_ptr)
+    bool dirty = false;               // needs WM_PAINT (dialogs and controls)
+    // Predefined control state (Scout1119, M14): button check/push, list and
+    // combo items (text and item data), selection, top index, trackbar/progress
+    // position and range, tab items.
+    bool pushed = false, captured_inside = false, dropped = false;
+    struct Item { std::string text; intptr_t data = 0; };
+    std::vector<Item> items;
+    int cursel = -1, top = 0, item_height = 16, pos = 0, range_min = 0, range_max = 100;
     bool visible = false, enabled = true;
     std::string cls, title;
     void *host_window = nullptr;
@@ -50,8 +61,10 @@ std::mutex queue_lock;
 std::deque<MSG> queue;
 std::map<std::string, WNDPROC> classes;
 HWND main_hwnd = nullptr, focus_hwnd = nullptr, capture_hwnd = nullptr;
+std::vector<HWND> dialog_windows;   // dialogs in creation order (mouse routing: the last visible one is on top)
 int cursor_count = 0;
 int dialogs_shown = 0;   // dialogs from templates shown so far (--run-to `menu`)
+std::vector<DWORD> dialog_show_times;   // when each was shown (scripted input "d<k>+<ms>")
 POINT cursor = {0, 0};
 // The screen size: the desktop until the game sets a DirectDraw display mode.
 int screen_width = 800, screen_height = 600;
@@ -60,6 +73,28 @@ struct Timer { HWND window; uintptr_t id; UINT period; std::chrono::steady_clock
 std::vector<Timer> timers;
 
 Window *win(HWND h) { return (Window *)handle_get(h, H_WINDOW); }
+
+// A window's client origin on the screen: child rectangles are relative to
+// their parent's client area (the main window and dialogs are top-level).
+POINT screen_origin(HWND h)
+{
+    POINT p = {0, 0};
+    for (Window *w = win(h); w; w = win(w->parent)) {
+        p.x += w->rect.left;
+        p.y += w->rect.top;
+        if (!w->parent || w->parent == main_hwnd) break;
+    }
+    return p;
+}
+
+// Marks a dialog or control (and its children) for WM_PAINT.
+void invalidate(HWND h)
+{
+    Window *w = win(h);
+    if (!w) return;
+    if (w->is_dialog || w->parent) w->dirty = true;
+    for (HWND c : w->children) invalidate(c);
+}
 
 DWORD now_ms()
 {
@@ -115,6 +150,9 @@ extern "C" {
 
 // ---- classes and windows -------------------------------------------------
 
+}  // extern "C"
+namespace { WNDPROC predefined_proc(const std::string &cls); }
+extern "C" {
 WORD RegisterClassA(const WNDCLASSA_PORT *wc)
 {
     if (!wc || !wc->lpszClassName) return 0;
@@ -134,13 +172,17 @@ HWND CreateWindowExA(DWORD exstyle, const char *cls, const char *title, DWORD st
     wnd->exstyle = (LONG)exstyle;
     wnd->parent = parent;
     auto it = classes.find(wnd->cls);
-    wnd->proc = it != classes.end() ? it->second : nullptr;
+    wnd->proc = it != classes.end() ? it->second : predefined_proc(wnd->cls);
+    if (parent && win(parent)) win(parent)->children.push_back(nullptr);   // placeholder, set below
     if (w <= 0 || w > 4096) w = 800;
     if (h <= 0 || h > 4096) h = 600;
     wnd->rect = {x < 0 || x > 4096 ? 0 : x, y < 0 || y > 4096 ? 0 : y, 0, 0};
     wnd->rect.right = wnd->rect.left + w;
     wnd->rect.bottom = wnd->rect.top + h;
     HWND hwnd = handle_new(wnd);
+    if (parent && win(parent)) win(parent)->children.back() = hwnd;
+    wnd->visible = (style & 0x10000000u) != 0;
+    wnd->id = parent ? (LONG)(intptr_t)menu : 0;
     {
         char detail[256];
         snprintf(detail, sizeof detail, "class \"%s\" title \"%s\" %dx%d", wnd->cls.c_str(), wnd->title.c_str(), w, h);
@@ -163,6 +205,23 @@ BOOL DestroyWindow(HWND hwnd)
     Window *w = win(hwnd);
     if (!w) return 0;
     if (w->proc) w->proc(hwnd, 0x0002, 0, 0);   // WM_DESTROY
+    w = win(hwnd);
+    if (!w) return 1;
+    // Children after their parent's WM_DESTROY, then WM_NCDESTROY (the
+    // owner-draw subclass restores its tables there).
+    std::vector<HWND> children = w->children;
+    for (HWND c : children) DestroyWindow(c);
+    w = win(hwnd);
+    if (!w) return 1;
+    if (w->proc) w->proc(hwnd, 0x0082, 0, 0);   // WM_NCDESTROY
+    if (Window *parent = win(w->parent)) {
+        for (size_t i = 0; i < parent->children.size(); ++i)
+            if (parent->children[i] == hwnd) { parent->children.erase(parent->children.begin() + (long)i); break; }
+    }
+    for (size_t i = 0; i < dialog_windows.size(); ++i)
+        if (dialog_windows[i] == hwnd) { dialog_windows.erase(dialog_windows.begin() + (long)i); break; }
+    if (capture_hwnd == hwnd) capture_hwnd = nullptr;
+    if (focus_hwnd == hwnd) focus_hwnd = main_hwnd;
     if (hwnd == main_hwnd) main_hwnd = nullptr;
     handle_close(hwnd);
     return 1;
@@ -176,6 +235,10 @@ BOOL ShowWindow(HWND hwnd, int cmd)
     if (!w) return 0;
     bool was = w->visible;
     w->visible = cmd != 0;
+    if (w->visible && !was) invalidate(hwnd);
+    // WM_SHOWWINDOW on a change, as Windows sends it (dialogs and controls;
+    // the owner-draw layer resets its slide-in state there).
+    if (w->visible != was && (w->is_dialog || w->parent) && w->proc) w->proc(hwnd, 0x0018, w->visible ? 1 : 0, 0);
     // --run-to `menu`: the first dialog built from a game.exe template that is
     // shown (Select_Game's main menu on the start-up path; the detail names
     // the template so a run log shows which one).
@@ -184,6 +247,25 @@ BOOL ShowWindow(HWND hwnd, int cmd)
         snprintf(detail, sizeof detail, "dialog #%u shown (%zu controls)", w->template_id, w->children.size());
         progress_count("dialogs shown", detail);
         if (dialogs_shown++ == 0) progress("menu", detail);
+        dialog_show_times.push_back(now_ms());
+        if (getenv("RA2_NATIVE_MSG_LOG")) fprintf(stderr, "dialog shown #%d\n", dialogs_shown);
+        // The main menu (its single-player button 0x683) shown again after a
+        // game ran: the menu-to-game-to-menu loop closed (Scout1119, M14).
+        extern int ra2port_last_frame(void);
+        bool main_menu = false;
+        for (HWND c : w->children) if (win(c) && win(c)->id == 0x683) main_menu = true;
+        if (ra2port_last_frame() > 0 && main_menu) progress("menu-return", detail);
+        if (getenv("RA2_NATIVE_MSG_LOG")) {
+            POINT o = screen_origin(hwnd);
+            fprintf(stderr, "dialog %p tmpl %u at %d,%d %dx%d\n", (void *)hwnd, w->template_id, (int)o.x, (int)o.y,
+                    (int)(w->rect.right - w->rect.left), (int)(w->rect.bottom - w->rect.top));
+            for (HWND c : w->children) {
+                Window *cw = win(c);
+                if (cw) fprintf(stderr, "  control %d %s style %x %s at %d,%d %dx%d \"%s\"\n", (int)cw->id, cw->cls.c_str(), (unsigned)cw->style,
+                                cw->visible ? "shown" : "hidden", (int)(o.x + cw->rect.left), (int)(o.y + cw->rect.top),
+                                (int)(cw->rect.right - cw->rect.left), (int)(cw->rect.bottom - cw->rect.top), cw->title.c_str());
+            }
+        }
     }
     // Showing the application's first top-level window makes it the active,
     // foreground window, as Windows does for a newly started program: the
@@ -197,7 +279,14 @@ BOOL ShowWindow(HWND hwnd, int cmd)
     }
     return was;
 }
-BOOL UpdateWindow(HWND hwnd) { return win(hwnd) != nullptr; }
+BOOL UpdateWindow(HWND hwnd)
+{
+    Window *w = win(hwnd);
+    if (!w) return 0;
+    if (w->dirty && w->visible && w->proc) { w->dirty = false; w->proc(hwnd, 0x000F, 0, 0); }   // WM_PAINT
+    for (HWND c : std::vector<HWND>(w->children)) UpdateWindow(c);
+    return 1;
+}
 BOOL IsWindowVisible(HWND hwnd) { Window *w = win(hwnd); return w && w->visible; }
 BOOL IsWindowEnabled(HWND hwnd) { Window *w = win(hwnd); return w && w->enabled; }
 BOOL EnableWindow(HWND hwnd, BOOL enable)
@@ -238,19 +327,30 @@ BOOL GetWindowRect(HWND hwnd, RECT *r)
 {
     Window *w = win(hwnd);
     if (!w || !r) return 0;
-    *r = w->rect;
+    POINT o = screen_origin(hwnd);            // screen coordinates, as on Windows
+    *r = {o.x, o.y, o.x + w->rect.right - w->rect.left, o.y + w->rect.bottom - w->rect.top};
     return 1;
 }
 BOOL AdjustWindowRect(RECT *r, DWORD style, BOOL menu) { (void)r; (void)style; (void)menu; return 1; }
 BOOL AdjustWindowRectEx(RECT *r, DWORD style, BOOL menu, DWORD ex) { (void)r; (void)style; (void)menu; (void)ex; return 1; }
-BOOL ClientToScreen(HWND hwnd, POINT *p) { Window *w = win(hwnd); if (w && p) { p->x += w->rect.left; p->y += w->rect.top; } return 1; }
-BOOL ScreenToClient(HWND hwnd, POINT *p) { Window *w = win(hwnd); if (w && p) { p->x -= w->rect.left; p->y -= w->rect.top; } return 1; }
+BOOL ClientToScreen(HWND hwnd, POINT *p) { if (win(hwnd) && p) { POINT o = screen_origin(hwnd); p->x += o.x; p->y += o.y; } return 1; }
+BOOL ScreenToClient(HWND hwnd, POINT *p) { if (win(hwnd) && p) { POINT o = screen_origin(hwnd); p->x -= o.x; p->y -= o.y; } return 1; }
 HWND GetParent(HWND hwnd) { Window *w = win(hwnd); return w ? w->parent : nullptr; }
 HWND GetWindow(HWND hwnd, UINT cmd) { (void)hwnd; (void)cmd; return nullptr; }
 HWND GetTopWindow(HWND hwnd) { (void)hwnd; return nullptr; }
-HWND WindowFromPoint(POINT p) { (void)p; return main_hwnd; }
-HWND ChildWindowFromPoint(HWND hwnd, POINT p) { (void)p; return hwnd; }
-HWND ChildWindowFromPointEx(HWND hwnd, POINT p, UINT flags) { (void)p; (void)flags; return hwnd; }
+HWND ra2port_window_at(POINT screen, bool enabled_only);
+HWND WindowFromPoint(POINT p) { return ra2port_window_at(p, false); }
+HWND ChildWindowFromPoint(HWND hwnd, POINT p)
+{
+    Window *w = win(hwnd);
+    if (!w) return nullptr;
+    for (auto it = w->children.rbegin(); it != w->children.rend(); ++it) {
+        Window *c = win(*it);
+        if (c && c->visible && p.x >= c->rect.left && p.x < c->rect.right && p.y >= c->rect.top && p.y < c->rect.bottom) return *it;
+    }
+    return hwnd;
+}
+HWND ChildWindowFromPointEx(HWND hwnd, POINT p, UINT flags) { (void)flags; return ChildWindowFromPoint(hwnd, p); }
 HWND GetActiveWindow(void) { return main_hwnd; }
 HWND SetActiveWindow(HWND hwnd) { HWND old = main_hwnd; (void)hwnd; return old; }
 HWND GetForegroundWindow(void) { return main_hwnd; }
@@ -282,6 +382,31 @@ extern "C" intptr_t ra2port_get_dialog_user(const volatile void *window)
     return w ? w->dialog_user : 0;
 }
 
+// GWL_WNDPROC (-4) and GWL_USERDATA (-21), pointer-sized (native_units.py
+// rewrites the recovered Set/GetWindowLongA calls with a pointer to these;
+// Win64's Set/GetWindowLongPtr). Subclassing replaces the window's procedure
+// and returns the previous one (a predefined control's, or the dialog
+// manager's for a dialog), which the subclass calls through CallWindowProcA.
+extern "C" intptr_t ra2port_set_window_ptr(const volatile void *window, int index, intptr_t value)
+{
+    Window *w = win((HWND)window);
+    if (!w) return 0;
+    intptr_t old = 0;
+    if (index == -4) { old = (intptr_t)w->proc; w->proc = (WNDPROC)value; }
+    else if (index == -21) { old = w->userdata; w->userdata = value; }
+    else if (index == 8) { old = w->dialog_user; w->dialog_user = value; }
+    return old;
+}
+extern "C" intptr_t ra2port_get_window_ptr(const volatile void *window, int index)
+{
+    Window *w = win((HWND)window);
+    if (!w) return 0;
+    if (index == -4) return (intptr_t)w->proc;
+    if (index == -21) return w->userdata;
+    if (index == 8) return w->dialog_user;
+    return 0;
+}
+
 // LONG is 32 bits as on Win32: a window procedure stored through here would be
 // truncated, so GWL_WNDPROC is refused and logged.
 LONG GetWindowLongA(HWND hwnd, int index)
@@ -292,8 +417,12 @@ LONG GetWindowLongA(HWND hwnd, int index)
     case -12: return w->id;
     case -16: return w->style;
     case -20: return w->exstyle;
-    case -21: return w->userdata;
+    case -21: return (LONG)w->userdata;
     case 8: return (LONG)w->dialog_user;     // DWL_USER (pointer stores use ra2port_set_dialog_user)
+    // DWL_DLGPROC: the owner-draw control procedure (draft 0x005EE460) tests it
+    // to tell a dialog from a control. Natively the pointer does not fit a LONG:
+    // nonzero for a dialog with a procedure (only ever tested), Scout1119.
+    case 4: return w->is_dialog && w->dlgproc ? (LONG)((intptr_t)w->dlgproc | 1) : 0;
     case -4: unimplemented("GetWindowLongA(GWL_WNDPROC)"); return 0;
     }
     return 0;
@@ -307,7 +436,7 @@ LONG SetWindowLongA(HWND hwnd, int index, LONG value)
     case -12: w->id = value; break;
     case -16: w->style = value; break;
     case -20: w->exstyle = value; break;
-    case -21: w->userdata = value; break;
+    case -21: w->userdata = value; break;   // a pointer store goes through ra2port_set_window_ptr
     case 8: w->dialog_user = value; break;
     case -4: unimplemented("SetWindowLongA(GWL_WNDPROC)"); break;
     }
@@ -348,6 +477,11 @@ LRESULT SendMessageA(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
     Window *w = win(hwnd);
     if (!w) return 0;
+    // RA2_NATIVE_MSG_LOG=1: messages to dialogs and controls (test runs).
+    static int log_messages = getenv("RA2_NATIVE_MSG_LOG") ? atoi(getenv("RA2_NATIVE_MSG_LOG")) : 0;
+    if (log_messages && (w->is_dialog || w->parent) && (log_messages > 1 || (message != 0x0200 && message != 0x0113 && message != 0x000F)))
+        fprintf(stderr, "msg %p %s id %d tmpl %u: 0x%x %lx %lx\n", (void *)hwnd, w->cls.c_str(), (int)w->id, w->template_id,
+                message, (unsigned long)wparam, (unsigned long)lparam);
     if (w->proc) return w->proc(hwnd, message, wparam, lparam);
     if (w->dlgproc) return w->dlgproc(hwnd, message, wparam, lparam);
     return 0;
@@ -360,21 +494,50 @@ BOOL PostMessageA(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 
 void PostQuitMessage(int code) { post_message(nullptr, 0x0012, (WPARAM)code, 0); }   // WM_QUIT
 
+static bool paint_message(MSG *msg, UINT first, UINT last);
 BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
 {
     (void)hwnd;
     if (host() && host()->pump_events) host()->pump_events();
     fire_timers();
     std::lock_guard<std::mutex> g(queue_lock);
-    for (auto it = queue.begin(); it != queue.end(); ++it) {
-        if (first || last) {
-            if (it->message < first || it->message > last) continue;
+    // Posted input and messages first; then WM_PAINT; WM_TIMER last (Windows'
+    // order: paint and timer messages are generated when nothing else waits).
+    for (int pass = 0; pass < 2; ++pass) {
+        if (pass == 1 && paint_message(msg, first, last)) return 1;
+        for (auto it = queue.begin(); it != queue.end(); ++it) {
+            if (first || last) {
+                if (it->message < first || it->message > last) continue;
+            }
+            if ((it->message == 0x0113) != (pass == 1)) continue;
+            *msg = *it;
+            if (remove & 1) queue.erase(it);
+            return 1;
         }
-        *msg = *it;
-        if (remove & 1) queue.erase(it);
-        return 1;
     }
     return 0;
+}
+static bool paint_message(MSG *msg, UINT first, UINT last)
+{
+    // No queued message: a dialog or control that needs painting gets WM_PAINT
+    // (Windows generates it the same way, after the queue).
+    if (!first || (first <= 0x000F && last >= 0x000F)) {
+        for (HWND d : dialog_windows) {
+            Window *w = win(d);
+            if (!w || !w->visible) continue;
+            std::vector<HWND> all = w->children;
+            all.insert(all.begin(), d);
+            for (HWND h : all) {
+                Window *c = win(h);
+                if (c && c->dirty && c->visible) {
+                    c->dirty = false;
+                    *msg = {h, 0x000F, 0, 0, now_ms(), cursor};
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }
 
 BOOL TranslateMessage(const MSG *msg) { (void)msg; return 0; }   // WM_CHAR comes from host text input
@@ -388,6 +551,35 @@ LRESULT DispatchMessageA(const MSG *msg)
         return 0;
     }
     HWND target = msg->hwnd ? msg->hwnd : main_hwnd;
+    // Mouse input goes to the window under the cursor (or the capture), as on
+    // Windows: the host posts it to the main window in screen pixels; over a
+    // shown dialog's control it is that control's, in its client coordinates
+    // (Scout1119, M14: the menus' owner-draw buttons, lists and combos).
+    if (target == main_hwnd && msg->message >= 0x0200 && msg->message <= 0x0209 && !dialog_windows.empty()) {
+        POINT p = {(LONG)(int16_t)(msg->lParam & 0xFFFF), (LONG)(int16_t)((msg->lParam >> 16) & 0xFFFF)};
+        HWND at = capture_hwnd ? capture_hwnd : ra2port_window_at(p, true);
+        if (msg->message == 0x0201 && getenv("RA2_NATIVE_MSG_LOG")) {
+            fprintf(stderr, "click %d,%d -> %p id %d\n", (int)p.x, (int)p.y, (void *)at, win(at) ? (int)win(at)->id : -1);
+            for (HWND d : dialog_windows) {
+                Window *dw = win(d);
+                if (!dw || !dw->visible) continue;
+                POINT o = screen_origin(d);
+                for (HWND c : dw->children) {
+                    Window *cw = win(c);
+                    if (cw && cw->visible) fprintf(stderr, "  %d %s at %d,%d %dx%d %s\n", (int)cw->id, cw->cls.c_str(), (int)(o.x + cw->rect.left),
+                                                   (int)(o.y + cw->rect.top), (int)(cw->rect.right - cw->rect.left), (int)(cw->rect.bottom - cw->rect.top), cw->title.c_str());
+                }
+            }
+        }
+        if (at && at != main_hwnd) {
+            // The main window still sees the motion (the game's mouse); the
+            // control gets it in client coordinates.
+            if (msg->message == 0x0200) SendMessageA(main_hwnd, msg->message, msg->wParam, msg->lParam);
+            POINT o = screen_origin(at);
+            LPARAM lp = (LPARAM)((((int)p.y - (int)o.y) & 0xFFFF) << 16 | (((int)p.x - (int)o.x) & 0xFFFF));
+            return SendMessageA(at, msg->message, msg->wParam, lp);
+        }
+    }
     return SendMessageA(target, msg->message, msg->wParam, msg->lParam);
 }
 
@@ -420,6 +612,7 @@ struct PAINTSTRUCT_PORT { HDC hdc; BOOL fErase; RECT rcPaint; BOOL fRestore, fIn
 HDC BeginPaint(HWND hwnd, PAINTSTRUCT_PORT *ps)
 {
     memset(ps, 0, sizeof *ps);
+    if (Window *w = win(hwnd)) w->dirty = false;
     GetClientRect(hwnd, &ps->rcPaint);
     ps->hdc = (HDC)(uintptr_t)0x7000;
     return ps->hdc;
@@ -427,9 +620,15 @@ HDC BeginPaint(HWND hwnd, PAINTSTRUCT_PORT *ps)
 BOOL EndPaint(HWND hwnd, const PAINTSTRUCT_PORT *ps) { (void)hwnd; (void)ps; return 1; }
 HDC GetDC(HWND hwnd) { (void)hwnd; return (HDC)(uintptr_t)0x7000; }
 int ReleaseDC(HWND hwnd, HDC dc) { (void)hwnd; (void)dc; return 1; }
-BOOL InvalidateRect(HWND hwnd, const RECT *r, BOOL erase) { (void)hwnd; (void)r; (void)erase; return 1; }
-BOOL ValidateRect(HWND hwnd, const RECT *r) { (void)hwnd; (void)r; return 1; }
-BOOL RedrawWindow(HWND hwnd, const RECT *r, void *rgn, UINT flags) { (void)hwnd; (void)r; (void)rgn; (void)flags; return 1; }
+BOOL InvalidateRect(HWND hwnd, const RECT *r, BOOL erase) { (void)r; (void)erase; invalidate(hwnd); return 1; }
+BOOL ValidateRect(HWND hwnd, const RECT *r) { (void)r; Window *w = win(hwnd); if (w) w->dirty = false; return 1; }
+BOOL RedrawWindow(HWND hwnd, const RECT *r, void *rgn, UINT flags)
+{
+    (void)r; (void)rgn;
+    if (flags & 0x0001) invalidate(hwnd);                 // RDW_INVALIDATE
+    if (flags & 0x0100) UpdateWindow(hwnd);               // RDW_UPDATENOW
+    return 1;
+}
 BOOL GetUpdateRect(HWND hwnd, RECT *r, BOOL erase) { (void)hwnd; (void)erase; if (r) *r = {0, 0, 0, 0}; return 0; }
 DWORD GetSysColor(int index) { (void)index; return 0; }
 int GetSystemMetrics(int index)
@@ -552,6 +751,362 @@ BOOL WinHelpA(HWND hwnd, const char *file, UINT cmd, uintptr_t data) { (void)hwn
 namespace ra2port { const void *original_resource(uintptr_t type, uintptr_t name, size_t *size); }
 namespace {
 
+
+// ---- predefined controls (Scout1119, M14) ------------------------------------
+// The window procedures Windows supplies for its control classes, as the
+// game's owner-draw layer (0x005ED180) finds them under its subclass and
+// calls them through CallWindowProcA for every message it does not paint
+// itself: text, check state, items and selection, and the click that becomes
+// WM_COMMAND/BN_CLICKED for the dialog. Behaviour of the Win32 controls only
+// (platform layer); the drawing is the game's own.
+LRESULT notify_parent(HWND hwnd, int code)
+{
+    Window *w = win(hwnd);
+    if (!w || !w->parent) return 0;
+    return SendMessageA(w->parent, 0x0111, (WPARAM)((w->id & 0xFFFF) | (code << 16)), (LPARAM)hwnd);   // WM_COMMAND
+}
+
+LRESULT text_messages(Window *w, UINT message, WPARAM wparam, LPARAM lparam, bool *handled)
+{
+    *handled = true;
+    switch (message) {
+    case 0x000C: w->title = lparam ? (const char *)lparam : ""; return 1;                       // WM_SETTEXT
+    case 0x000D: {                                                                            // WM_GETTEXT
+        if (!wparam || !lparam) return 0;
+        size_t n = w->title.size() < wparam - 1 ? w->title.size() : wparam - 1;
+        memcpy((char *)lparam, w->title.data(), n);
+        ((char *)lparam)[n] = 0;
+        return (LRESULT)n;
+    }
+    case 0x000E: return (LRESULT)w->title.size();                                              // WM_GETTEXTLENGTH
+    case 0x000A: w->enabled = wparam != 0; return 0;                                           // WM_ENABLE
+    case 0x000F: w->dirty = false; return 0;                                                   // WM_PAINT
+    case 0x0014: return 1;                                                                     // WM_ERASEBKGND
+    case 0x0007: case 0x0008: return 0;                                                        // WM_SETFOCUS/KILLFOCUS
+    }
+    *handled = false;
+    return 0;
+}
+
+bool inside(Window *w, LPARAM lparam)
+{
+    int x = (int16_t)(lparam & 0xFFFF), y = (int16_t)((lparam >> 16) & 0xFFFF);
+    return x >= 0 && y >= 0 && x < w->rect.right - w->rect.left && y < w->rect.bottom - w->rect.top;
+}
+
+LRESULT button_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+{
+    Window *w = win(hwnd);
+    if (!w) return 0;
+    bool handled;
+    LRESULT r = text_messages(w, message, wparam, lparam, &handled);
+    if (handled) return r;
+    int type = w->style & 0xF;
+    switch (message) {
+    case 0x0201: case 0x0203:                                  // WM_LBUTTONDOWN / DBLCLK
+        if (!w->enabled) return 0;
+        capture_hwnd = hwnd;
+        focus_hwnd = hwnd;
+        w->pushed = true;
+        invalidate(hwnd);
+        return 0;
+    case 0x0200:                                               // WM_MOUSEMOVE
+        if (capture_hwnd == hwnd) { bool in = inside(w, lparam); if (in != w->pushed) { w->pushed = in; invalidate(hwnd); } }
+        return 0;
+    case 0x0202: {                                             // WM_LBUTTONUP
+        if (capture_hwnd != hwnd) return 0;
+        capture_hwnd = nullptr;
+        bool in = inside(w, lparam);
+        w->pushed = false;
+        invalidate(hwnd);
+        if (in) {
+            if (type == 3 || type == 6) w->checked = !w->checked;      // BS_AUTOCHECKBOX / BS_AUTO3STATE
+            if (type == 9) w->checked = true;                          // BS_AUTORADIOBUTTON
+            notify_parent(hwnd, 0);                                    // BN_CLICKED
+        }
+        return 0;
+    }
+    case 0x00F0: return w->checked ? 1 : 0;                    // BM_GETCHECK
+    case 0x00F1: w->checked = wparam != 0; invalidate(hwnd); return 0;   // BM_SETCHECK
+    case 0x00F2: return (w->checked ? 1 : 0) | (w->pushed ? 4 : 0);      // BM_GETSTATE
+    case 0x00F3: w->pushed = wparam != 0; invalidate(hwnd); return 0;    // BM_SETSTATE
+    case 0x00F4: w->style = (LONG)((w->style & ~0xFFFF) | (wparam & 0xFFFF)); return 0;   // BM_SETSTYLE
+    case 0x00F5:                                               // BM_CLICK
+        if (type == 3 || type == 6) w->checked = !w->checked;
+        if (type == 9) w->checked = true;
+        notify_parent(hwnd, 0);
+        return 0;
+    }
+    return 0;
+}
+
+LRESULT static_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+{
+    Window *w = win(hwnd);
+    if (!w) return 0;
+    bool handled;
+    LRESULT r = text_messages(w, message, wparam, lparam, &handled);
+    if (handled) return r;
+    if (message == 0x0202 && (w->style & 0x100)) notify_parent(hwnd, 0);   // SS_NOTIFY: STN_CLICKED
+    return 0;
+}
+
+LRESULT edit_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+{
+    Window *w = win(hwnd);
+    if (!w) return 0;
+    bool handled;
+    LRESULT r = text_messages(w, message, wparam, lparam, &handled);
+    if (handled) {
+        if (message == 0x000C) notify_parent(hwnd, 0x0300);   // EN_CHANGE
+        return r;
+    }
+    switch (message) {
+    case 0x0201: focus_hwnd = hwnd; return 0;
+    case 0x0102:                                               // WM_CHAR
+        if (wparam == 8) { if (!w->title.empty()) w->title.pop_back(); }
+        else if (wparam >= 0x20 && (w->pos <= 0 || (int)w->title.size() < w->pos)) w->title += (char)wparam;
+        else return 0;
+        invalidate(hwnd);
+        notify_parent(hwnd, 0x0300);
+        return 0;
+    case 0x00C5: w->pos = (int)wparam; return 0;               // EM_LIMITTEXT
+    case 0x00D5: return w->pos ? w->pos : 30000;               // EM_GETLIMITTEXT
+    case 0x00B0: if (wparam) *(DWORD *)wparam = 0; if (lparam) *(DWORD *)lparam = (DWORD)w->title.size(); return 0;   // EM_GETSEL
+    case 0x00BA: return 1;                                     // EM_GETLINECOUNT
+    }
+    return 0;
+}
+
+// List boxes and combo boxes keep items: strings (LBS_HASSTRINGS / CBS_HASSTRINGS
+// or no owner-draw style) or 32-bit-per-item data (owner-draw without strings).
+bool list_has_strings(Window *w, bool combo)
+{
+    if (combo) return (w->style & 0x200) || !(w->style & 0x30);   // CBS_HASSTRINGS, CBS_OWNERDRAW*
+    return (w->style & 0x40) || !(w->style & 0x30);               // LBS_HASSTRINGS, LBS_OWNERDRAW*
+}
+LRESULT list_insert(Window *w, bool combo, int at, LPARAM lparam)
+{
+    Window::Item item;
+    if (list_has_strings(w, combo)) item.text = lparam ? (const char *)lparam : "";
+    else item.data = (intptr_t)lparam;
+    bool sort = combo ? (w->style & 0x100) != 0 : (w->style & 0x2) != 0;   // CBS_SORT / LBS_SORT
+    if (at < 0 || at > (int)w->items.size()) at = (int)w->items.size();
+    if (sort && at == (int)w->items.size() && list_has_strings(w, combo)) {
+        at = 0;
+        while (at < (int)w->items.size() && strcasecmp(w->items[at].text.c_str(), item.text.c_str()) <= 0) ++at;
+    }
+    w->items.insert(w->items.begin() + at, item);
+    if (w->cursel >= at) ++w->cursel;
+    return at;
+}
+LRESULT list_find(Window *w, int start, LPARAM lparam, bool exact)
+{
+    const char *text = (const char *)lparam;
+    int n = (int)w->items.size();
+    for (int k = 1; k <= n; ++k) {
+        int i = (start + k + n) % n;
+        if (start < 0) i = k - 1;
+        if (!text) continue;
+        const std::string &t = w->items[i].text;
+        if (exact ? !strcasecmp(t.c_str(), text) : !strncasecmp(t.c_str(), text, strlen(text))) return i;
+    }
+    return -1;
+}
+LRESULT list_get_text(Window *w, bool combo, int i, LPARAM lparam)
+{
+    if (i < 0 || i >= (int)w->items.size()) return -1;
+    if (list_has_strings(w, combo)) {
+        if (lparam) strcpy((char *)lparam, w->items[i].text.c_str());
+        return (LRESULT)w->items[i].text.size();
+    }
+    if (lparam) memcpy((void *)lparam, &w->items[i].data, sizeof(intptr_t));
+    return sizeof(intptr_t);
+}
+
+LRESULT listbox_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+{
+    Window *w = win(hwnd);
+    if (!w) return 0;
+    bool handled;
+    LRESULT r = text_messages(w, message, wparam, lparam, &handled);
+    if (handled) return r;
+    int count = (int)w->items.size();
+    switch (message) {
+    case 0x0180: return list_insert(w, false, -1, lparam);                     // LB_ADDSTRING
+    case 0x0181: return list_insert(w, false, (int)wparam, lparam);            // LB_INSERTSTRING
+    case 0x0182:                                                               // LB_DELETESTRING
+        if ((int)wparam < 0 || (int)wparam >= count) return -1;
+        w->items.erase(w->items.begin() + (long)wparam);
+        if (w->cursel == (int)wparam) w->cursel = -1; else if (w->cursel > (int)wparam) --w->cursel;
+        return (LRESULT)w->items.size();
+    case 0x0184: w->items.clear(); w->cursel = -1; w->top = 0; invalidate(hwnd); return 0;   // LB_RESETCONTENT
+    case 0x0185: if ((int)lparam >= -1 && (int)lparam < count) w->cursel = wparam ? (int)lparam : -1; return 0;  // LB_SETSEL
+    case 0x0186: w->cursel = ((int)wparam >= 0 && (int)wparam < count) ? (int)wparam : -1; invalidate(hwnd); return w->cursel == (int)wparam ? (LRESULT)wparam : -1;   // LB_SETCURSEL
+    case 0x0187: return (int)wparam == w->cursel && w->cursel >= 0 ? 1 : 0;    // LB_GETSEL
+    case 0x0188: return w->cursel;                                             // LB_GETCURSEL
+    case 0x0189: return list_get_text(w, false, (int)wparam, lparam);          // LB_GETTEXT
+    case 0x018A: return ((int)wparam >= 0 && (int)wparam < count) ? (list_has_strings(w, false) ? (LRESULT)w->items[wparam].text.size() : (LRESULT)sizeof(intptr_t)) : -1;   // LB_GETTEXTLEN
+    case 0x018B: return count;                                                 // LB_GETCOUNT
+    case 0x018C: { LRESULT i = list_find(w, (int)wparam, lparam, false); if (i >= 0) w->cursel = (int)i; return i; }   // LB_SELECTSTRING
+    case 0x018E: return w->top;                                                // LB_GETTOPINDEX
+    case 0x018F: return list_find(w, (int)wparam, lparam, false);              // LB_FINDSTRING
+    case 0x0190: return w->cursel >= 0 ? 1 : 0;                                // LB_GETSELCOUNT
+    case 0x0197: w->top = (int)wparam; invalidate(hwnd); return 0;             // LB_SETTOPINDEX
+    case 0x0198: {                                                             // LB_GETITEMRECT
+        if (!lparam) return -1;
+        RECT *rc = (RECT *)lparam;
+        int y = ((int)wparam - w->top) * w->item_height;
+        *rc = {0, y, w->rect.right - w->rect.left, y + w->item_height};
+        return 0;
+    }
+    case 0x0199: return ((int)wparam >= 0 && (int)wparam < count) ? (LRESULT)w->items[wparam].data : -1;   // LB_GETITEMDATA
+    case 0x019A: if ((int)wparam < 0 || (int)wparam >= count) return -1; w->items[wparam].data = (intptr_t)lparam; return 0;   // LB_SETITEMDATA
+    case 0x01A0: if (lparam > 0) w->item_height = (int)lparam; return 0;      // LB_SETITEMHEIGHT
+    case 0x01A1: return w->item_height;                                        // LB_GETITEMHEIGHT
+    case 0x01A2: return list_find(w, (int)wparam, lparam, true);               // LB_FINDSTRINGEXACT
+    case 0x01A9: {                                                             // LB_ITEMFROMPOINT
+        int i = w->top + (int16_t)((lparam >> 16) & 0xFFFF) / (w->item_height > 0 ? w->item_height : 16);
+        return i >= 0 && i < count ? i : (LRESULT)(count | 0x10000);
+    }
+    case 0x0201: case 0x0203: {                                                // WM_LBUTTONDOWN / DBLCLK
+        focus_hwnd = hwnd;
+        int i = w->top + (int16_t)((lparam >> 16) & 0xFFFF) / (w->item_height > 0 ? w->item_height : 16);
+        if (i < 0 || i >= count) return 0;
+        bool changed = i != w->cursel;
+        w->cursel = i;
+        invalidate(hwnd);
+        if (w->style & 0x1) {                                                  // LBS_NOTIFY
+            if (changed) notify_parent(hwnd, 1);                               // LBN_SELCHANGE
+            if (message == 0x0203) notify_parent(hwnd, 2);                     // LBN_DBLCLK
+        }
+        return 0;
+    }
+    case 0x020A: {                                                             // WM_MOUSEWHEEL
+        int d = (int16_t)((wparam >> 16) & 0xFFFF);
+        w->top += d > 0 ? -1 : 1;
+        if (w->top > count - 1) w->top = count - 1;
+        if (w->top < 0) w->top = 0;
+        invalidate(hwnd);
+        return 0;
+    }
+    }
+    return 0;
+}
+
+LRESULT combobox_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+{
+    Window *w = win(hwnd);
+    if (!w) return 0;
+    bool handled;
+    LRESULT r = text_messages(w, message, wparam, lparam, &handled);
+    if (handled) return r;
+    int count = (int)w->items.size();
+    switch (message) {
+    case 0x0143: return list_insert(w, true, -1, lparam);                      // CB_ADDSTRING
+    case 0x014A: return list_insert(w, true, (int)wparam, lparam);             // CB_INSERTSTRING
+    case 0x0144:                                                               // CB_DELETESTRING
+        if ((int)wparam < 0 || (int)wparam >= count) return -1;
+        w->items.erase(w->items.begin() + (long)wparam);
+        if (w->cursel == (int)wparam) w->cursel = -1; else if (w->cursel > (int)wparam) --w->cursel;
+        return (LRESULT)w->items.size();
+    case 0x0146: return count;                                                 // CB_GETCOUNT
+    case 0x0147: return w->cursel;                                             // CB_GETCURSEL
+    case 0x0148: return list_get_text(w, true, (int)wparam, lparam);           // CB_GETLBTEXT
+    case 0x0149: return ((int)wparam >= 0 && (int)wparam < count) ? (list_has_strings(w, true) ? (LRESULT)w->items[wparam].text.size() : (LRESULT)sizeof(intptr_t)) : -1;   // CB_GETLBTEXTLEN
+    case 0x014B: w->items.clear(); w->cursel = -1; invalidate(hwnd); return 0;   // CB_RESETCONTENT
+    case 0x014C: return list_find(w, (int)wparam, lparam, false);              // CB_FINDSTRING
+    case 0x014D: { LRESULT i = list_find(w, (int)wparam, lparam, false); if (i >= 0) { w->cursel = (int)i; invalidate(hwnd); } return i; }   // CB_SELECTSTRING
+    case 0x014E:                                                               // CB_SETCURSEL
+        w->cursel = ((int)wparam >= 0 && (int)wparam < count) ? (int)wparam : -1;
+        if (w->cursel >= 0 && list_has_strings(w, true)) w->title = w->items[w->cursel].text;
+        invalidate(hwnd);
+        return w->cursel == (int)wparam ? (LRESULT)wparam : -1;
+    case 0x014F: w->dropped = wparam != 0; invalidate(hwnd); return 1;         // CB_SHOWDROPDOWN
+    case 0x0150: return ((int)wparam >= 0 && (int)wparam < count) ? (LRESULT)w->items[wparam].data : -1;   // CB_GETITEMDATA
+    case 0x0151: if ((int)wparam < 0 || (int)wparam >= count) return -1; w->items[wparam].data = (intptr_t)lparam; return 0;   // CB_SETITEMDATA
+    case 0x0152: if (lparam) GetWindowRect(hwnd, (RECT *)lparam); return 1;  // CB_GETDROPPEDCONTROLRECT
+    case 0x0153: if ((int)lparam > 0) w->item_height = (int)lparam; return 0; // CB_SETITEMHEIGHT
+    case 0x0154: return w->item_height;                                        // CB_GETITEMHEIGHT
+    case 0x0157: return w->dropped ? 1 : 0;                                    // CB_GETDROPPEDSTATE
+    case 0x0158: return list_find(w, (int)wparam, lparam, true);               // CB_FINDSTRINGEXACT
+    case 0x015B: return 1;                                                     // CB_LIMITTEXT
+    }
+    return 0;
+}
+
+// Common controls the game's dialogs use (trackbar, progress bar, tab, hotkey).
+LRESULT common_control_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+{
+    Window *w = win(hwnd);
+    if (!w) return 0;
+    bool handled;
+    LRESULT r = text_messages(w, message, wparam, lparam, &handled);
+    if (handled) return r;
+    if (w->cls == "msctls_trackbar32") {
+        switch (message) {
+        case 0x0400: return w->pos;                                            // TBM_GETPOS
+        case 0x0401: return w->range_min;                                      // TBM_GETRANGEMIN
+        case 0x0402: return w->range_max;                                      // TBM_GETRANGEMAX
+        case 0x0405: w->pos = (int)lparam; if (w->pos < w->range_min) w->pos = w->range_min; if (w->pos > w->range_max) w->pos = w->range_max; invalidate(hwnd); return 0;   // TBM_SETPOS
+        case 0x0406: w->range_min = (int16_t)(lparam & 0xFFFF); w->range_max = (int16_t)((lparam >> 16) & 0xFFFF); return 0;   // TBM_SETRANGE
+        case 0x0407: w->range_min = (int)lparam; return 0;                     // TBM_SETRANGEMIN
+        case 0x0408: w->range_max = (int)lparam; return 0;                     // TBM_SETRANGEMAX
+        }
+    } else if (w->cls == "msctls_progress32") {
+        switch (message) {
+        case 0x0401: { LRESULT old = (w->range_max << 16) | (w->range_min & 0xFFFF); w->range_min = (int16_t)(lparam & 0xFFFF); w->range_max = (int16_t)((lparam >> 16) & 0xFFFF); return old; }   // PBM_SETRANGE
+        case 0x0402: { LRESULT old = w->pos; w->pos = (int)wparam; invalidate(hwnd); return old; }   // PBM_SETPOS
+        case 0x0408: return w->pos;                                            // PBM_GETPOS
+        }
+    } else if (w->cls == "SysTabControl32") {
+        switch (message) {
+        case 0x1304: return (LRESULT)w->items.size();                          // TCM_GETITEMCOUNT
+        case 0x1307: {                                                         // TCM_INSERTITEMA
+            Window::Item item;
+            int at = (int)wparam;
+            if (at < 0 || at > (int)w->items.size()) at = (int)w->items.size();
+            w->items.insert(w->items.begin() + at, item);
+            if (w->cursel < 0) w->cursel = 0;
+            return at;
+        }
+        case 0x1308: if ((int)wparam < (int)w->items.size()) w->items.erase(w->items.begin() + (long)wparam); return 1;   // TCM_DELETEITEM
+        case 0x1309: w->items.clear(); w->cursel = -1; return 1;               // TCM_DELETEALLITEMS
+        case 0x130B: return w->cursel;                                         // TCM_GETCURSEL
+        case 0x130C: { LRESULT old = w->cursel; w->cursel = (int)wparam; invalidate(hwnd); return old; }   // TCM_SETCURSEL
+        }
+    } else if (w->cls == "msctls_hotkey32") {
+        if (message == 0x0401) { w->pos = (int)wparam; return 0; }             // HKM_SETHOTKEY
+        if (message == 0x0402) return w->pos;                                  // HKM_GETHOTKEY
+    }
+    return 0;
+}
+
+WNDPROC predefined_proc(const std::string &cls)
+{
+    if (!strcasecmp(cls.c_str(), "Button")) return button_proc;
+    if (!strcasecmp(cls.c_str(), "Static")) return static_proc;
+    if (!strcasecmp(cls.c_str(), "Edit")) return edit_proc;
+    if (!strcasecmp(cls.c_str(), "ListBox")) return listbox_proc;
+    if (!strcasecmp(cls.c_str(), "ComboBox")) return combobox_proc;
+    if (!strcasecmp(cls.c_str(), "msctls_trackbar32") || !strcasecmp(cls.c_str(), "msctls_progress32") ||
+        !strcasecmp(cls.c_str(), "SysTabControl32") || !strcasecmp(cls.c_str(), "msctls_hotkey32")) return common_control_proc;
+    return nullptr;
+}
+
+// The dialog manager's procedure (DefDlgProc): the dialog procedure first,
+// then the default handling of text messages.
+LRESULT dialog_manager_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+{
+    Window *w = win(hwnd);
+    if (!w) return 0;
+    intptr_t r = w->dlgproc ? w->dlgproc(hwnd, message, wparam, lparam) : 0;
+    if (r) return (LRESULT)r;
+    bool handled;
+    LRESULT t = text_messages(w, message, wparam, lparam, &handled);
+    return handled ? t : 0;
+}
+
 struct TemplateReader {
     const unsigned char *p;
     uint16_t word() { uint16_t v = (uint16_t)(p[0] | p[1] << 8); p += 2; return v; }
@@ -601,11 +1156,14 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
     unsigned cls_atom = 0;
     std::string cls = r.sz_or_ord(&cls_atom);        // window class (none: the dialog class)
     std::string title = r.sz_or_ord();
+    int point_size = 0;
+    std::string face;
     if (style & 0x40) {                              // DS_SETFONT (DS_SHELLFONT includes it)
-        r.word();
+        point_size = r.word();
         if (ex) { r.word(); r.p += 2; }
-        r.sz_or_ord();
+        face = r.sz_or_ord();
     }
+    if (getenv("RA2_NATIVE_MSG_LOG")) fprintf(stderr, "template %u: %d,%d %dx%d DLU, font %d \"%s\", style %x\n", id, x, y, cx, cy, point_size, face.c_str(), style);
     Window *dlg = new Window;
     dlg->kind = H_WINDOW;
     dlg->cls = cls.empty() ? "#32770" : cls;
@@ -614,10 +1172,12 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
     dlg->exstyle = (LONG)exstyle;
     dlg->parent = parent;
     dlg->dlgproc = proc;
+    dlg->proc = dialog_manager_proc;
     dlg->is_dialog = true;
     dlg->template_id = id;
     dlg->rect = {dialog_units_x(x), dialog_units_y(y), dialog_units_x(x + cx), dialog_units_y(y + cy)};
     HWND hdlg = handle_new(dlg);
+    dialog_windows.push_back(hdlg);
     for (int i = 0; i < count; ++i) {
         r.align4(base);
         uint32_t cstyle, cex, cid;
@@ -642,7 +1202,7 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
         c->visible = (cstyle & 0x10000000u) != 0;
         c->enabled = (cstyle & 0x08000000u) == 0;
         auto it = classes.find(ccls);
-        c->proc = it != classes.end() ? it->second : nullptr;
+        c->proc = it != classes.end() ? it->second : predefined_proc(ccls);
         c->rect = {dialog_units_x(ix), dialog_units_y(iy), dialog_units_x(ix + icx), dialog_units_y(iy + icy)};
         HWND hc = handle_new(c);
         dlg->children.push_back(hc);
@@ -787,3 +1347,39 @@ BOOL EnumChildWindows(HWND parent, WNDENUMPROC proc, LPARAM lparam)
 }
 
 }  // extern "C"
+
+// The window under a screen point for mouse input: the topmost shown dialog
+// (the last created) containing it, and its enabled, shown control there;
+// otherwise the main window (Scout1119, M14).
+extern "C" HWND ra2port_window_at(POINT p, bool enabled_only)
+{
+    for (auto it = dialog_windows.rbegin(); it != dialog_windows.rend(); ++it) {
+        Window *d = win(*it);
+        if (!d || !d->visible) continue;
+        POINT o = screen_origin(*it);
+        int w = d->rect.right - d->rect.left, h = d->rect.bottom - d->rect.top;
+        if (p.x < o.x || p.y < o.y || p.x >= o.x + w || p.y >= o.y + h) continue;
+        // Template order is the Z order (the first control on top); static
+        // controls without SS_NOTIFY and group boxes answer HTTRANSPARENT, so
+        // the click goes to what lies under them, as on Windows.
+        for (auto c = d->children.begin(); c != d->children.end(); ++c) {
+            Window *cw = win(*c);
+            if (!cw || !cw->visible || (enabled_only && !cw->enabled)) continue;
+            if (!strcasecmp(cw->cls.c_str(), "Static") && !(cw->style & 0x100)) continue;
+            if (!strcasecmp(cw->cls.c_str(), "Button") && (cw->style & 0xF) == 7) continue;
+            int x = p.x - o.x, y = p.y - o.y;
+            if (x >= cw->rect.left && x < cw->rect.right && y >= cw->rect.top && y < cw->rect.bottom) return *c;
+        }
+        return *it;
+    }
+    return main_hwnd;
+}
+
+// Scripted input (platform/sdl/host.cpp): the time the k-th dialog (1-based)
+// was shown, in the port's millisecond clock, and that clock's now; -1 while
+// fewer have been shown (Scout1119, M14).
+extern "C" long long ra2port_dialog_shown_ms(int k)
+{
+    return k >= 1 && k <= (int)dialog_show_times.size() ? (long long)dialog_show_times[k - 1] : -1;
+}
+extern "C" long long ra2port_now_ms(void) { return (long long)now_ms(); }

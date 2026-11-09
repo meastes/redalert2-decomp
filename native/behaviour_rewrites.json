@@ -1827,6 +1827,106 @@
    "file": "native/link/behaviour_m13_commands.cpp",
    "source": "seed and pass-6a decompile 0051ccf0",
    "notes": "a hotkey command (UICmnds.cpp); Scout1115 (M13)"
+  },
+  {
+   "entry": "0x005F0320",
+   "name": "OwnerDraw::unknown_button_proc_5f0320",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_ownerdraw.cpp",
+   "source": "pass-6a decompile 005f0320",
+   "notes": "push button procedure: input/state as the decompile (click sound, flash timer 0x4DC, disabled flag), painting simplified (image or frame + text; the PCX button art not drawn); Scout1119 (M14)"
+  },
+  {
+   "entry": "0x005F2B50",
+   "name": "OwnerDraw::unknown_static_proc_5f2b50",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_ownerdraw.cpp",
+   "source": "pass-6a decompile 005f2b50",
+   "notes": "static procedure: image or aligned text in the record's font; the original's special cases not drawn; Scout1119 (M14)"
+  },
+  {
+   "entry": "0x005F6690",
+   "name": "OwnerDraw::unknown_list_proc_5f6690",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_ownerdraw.cpp",
+   "source": "pass-6a decompile 005f6690",
+   "notes": "list box procedure: delegates to the Win32 list; paints frame, item strings, selection frame; Scout1119 (M14)"
+  },
+  {
+   "entry": "0x005F4BA0",
+   "name": "OwnerDraw::unknown_combo_proc_5f4ba0",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_ownerdraw.cpp",
+   "source": "pass-6a decompile 005f4ba0",
+   "notes": "combo box procedure: delegates; paints frame and the selected item string; Scout1119 (M14)"
+  },
+  {
+   "entry": "0x005F0F40",
+   "name": "OwnerDraw::unknown_tab_proc_5f0f40",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_ownerdraw.cpp",
+   "source": "pass-6a decompile 005f0f40",
+   "notes": "tab procedure: delegates; paints a frame only; Scout1119 (M14)"
+  },
+  {
+   "entry": "0x005F22A0",
+   "name": "OwnerDraw::unknown_new_edit_proc_5f22a0",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_ownerdraw.cpp",
+   "source": "pass-6a decompile 005f22a0",
+   "notes": "NewEdit (list box standing in for an edit): text in the record's WideString +0x3C, limit +0x48, keys/0x4B2-0x4B5 as the decompile; simplified painting; Scout1119 (M14)"
+  },
+  {
+   "entry": "0x005EAD00",
+   "name": "OwnerDraw::unknown_new_edit_proc_5ead00",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_ownerdraw.cpp",
+   "source": "pass-6a decompile 005ead00",
+   "notes": "DefWindowProcA (the whole decompile); Scout1119 (M14)"
+  },
+  {
+   "entry": "0x00770430",
+   "name": "WideString::unknown_text_770430 (and the 0x005C3450 in-file view)",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_menu.cpp",
+   "source": "pass-6a decompile 00770430",
+   "notes": "buffer or the empty wide string 0x00839D4C (the whole decompile); Scout1119 (M14)"
+  },
+  {
+   "entry": "0x006720C0",
+   "name": "MultiMission::Unknown_006720C0",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_session.cpp",
+   "source": "pass-6a decompile 006720c0",
+   "notes": "_stricmp(file name +0x58, \"RandMap.Sed\") == 0 (the whole decompile); Scout1119 (M14)"
+  },
+  {
+   "entry": "0x00672810",
+   "name": "UnknownLobbyState::Unknown_00672810",
+   "origin_class": "unmatched (menus)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m14_session.cpp",
+   "source": "pass-6a decompile 00672810",
+   "notes": "session AICount = 0, AICountry/AIColor = -1 (the decompile's offsets on 0x00A3D2B0 = session + 0x18, by member); Scout1119 (M14)"
   }
  ]
 }
