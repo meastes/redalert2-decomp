@@ -11,7 +11,7 @@
 
 void SidebarClass::Unknown_0067C850()
 {
-    if (Column[unknown_4ed8].BuildableCount > Unknown_006820A0() * 2) {
+    if (Column[unknown_4ed8].BuildableCount > Unknown_006820F0()) {
         if (!unknown_button_abcbe8.Is_Enabled()) {
             unknown_button_abcbe8.Enable();
         }

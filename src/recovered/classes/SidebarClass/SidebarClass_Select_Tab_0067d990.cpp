@@ -1,6 +1,6 @@
 // void SidebarClass::Select_Tab(int index) (0x0067D990)
 // Switches to another tab: releases the old tab button and hides its strip,
-// then makes the new tab current.
+// then presses the new tab button, shows its strip and refreshes the scroll buttons.
 #include "shared/sidebar.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Turn_Off@ToggleClass@@QAEXXZ=006eb170
@@ -15,8 +15,15 @@ void SidebarClass::Select_Tab(int index)
     if (index == unknown_4ed8) {
         return;
     }
-    unknown_buttons_ab9508[unknown_4ed8].Turn_Off();
-    Column[unknown_4ed8].Unknown_0067F730();
-    Activate_Tab(index);
+    ShapeButtonClass &old_button = unknown_buttons_ab9508[unknown_4ed8];
+    old_button.Turn_Off();
+    StripClass &old = Column[unknown_4ed8];
+    old.Unknown_0067F730();
+    unknown_4ed8 = index;
+    ShapeButtonClass &button = unknown_buttons_ab9508[unknown_4ed8];
+    button.Turn_On();
+    StripClass &current = Column[unknown_4ed8];
+    current.Activate();
+    Unknown_0067C850();
     unknown_4ee3 = true;
 }
