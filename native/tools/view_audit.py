@@ -199,9 +199,6 @@ NOT_VIEWS = {
 # Views whose name or comment does not name their real class.
 VIEW_OF = {
     'UnknownBuildingSlot105': 'CellClass',     # "The cell slot 105 returns (+0x10A)" (building_class.hpp)
-    # radar.hpp: "the objects of the list at 0x00A40C20" (Technos) whose +0x37B flag Radar
-    # 0x00631D40/0x00631ED0 clears; the name's "Radar" picked RadarClass (Scout1115).
-    'UnknownRadarObject37B': 'TechnoClass',
     # 0x005B5D80 lays out the message list's labels from +0x08 (Y) in steps of +0x14
     # (Height): MessageListClass's members (Scout1115).
     'UnknownLayoutList_005b5d80': 'MessageListClass',

@@ -43,16 +43,4 @@ int UnknownFactory::Unknown_004B9940()
     return ((FactoryClass *)(void *)this)->unknown_64;
 }
 
-// Slot 11 0x004B9F20 (Leaf_4b9f20): the factory's RTTI kind, 0x0C. The deferred
-// detach of a deleted factory (0x006ECB90, from ~FactoryClass) asks it.
-int FactoryClass::Kind_Of() const
-{
-    return 0x0C;
-}
 
-// Slot 12 0x004B9F30 (Leaf_4b9f30): the object size, 0x70 on VC6; the native
-// object's own size here.
-int FactoryClass::Size_Of() const
-{
-    return sizeof(FactoryClass);
-}
