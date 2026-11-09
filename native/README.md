@@ -276,6 +276,28 @@ pointer explicitly natively (arm64 returns large structs through x8), and the
 bridge trigger's Damage_High_Bridge 0x559000 and ShipLocomotionClass::Draw_Matrix
 0x676010 are drafts.
 
+### Campaign view, map preview, movie timing (Scout1138, M17)
+
+Allied 1's tactical view drew black terrain wherever a reveal queued cells for
+redraw (the upper-right rectangle the view then scrolled around): the cell
+overload `Tactical::Draw_Tiles(Cell, Rect)` 0x006A8560 was linked as an alias
+of the area overload 0x006A7BA0, because `tools/address_aliases.py` bound names
+by qualified name only and the catalog gives `Tactical::Draw_Tiles` both
+addresses. The tool now refuses a same-named defined overload with other
+parameters when the name has several addresses, and 0x006A8560 is a draft
+(Scout876, 63.04). A pointer cast of an int cast, `(T *)(int)x`, keeps the
+pointer whole (native_units.py rule; TechnoClass::unknown_slot27 0x006CCCE0
+faulted when a selected unit's cursor was asked over a cell). The port's
+DirectDraw Blt stretches when the destination and source rectangles differ, so
+the Choose Map / skirmish map preview (MapPreviewClass 0x0061D460) is scaled
+into its frame. MSFrameAnim and WorldDominationTour::MapSizeGameOption have
+their key functions as behaviour rows (`link/behaviour_m17.cpp`), so their
+vtables are real. Movies: BinkWait answers from a clock at the header's frame
+rate (BinkPause stops it) and BinkCopyToBuffer writes black, so each movie
+shows black for its own length (no decoder yet); `RA2_NATIVE_MOVIE_SKIP=1`
+keeps the M16 pace for test runs. `RA2_NATIVE_PRESENT_DUMP_EVERY=<n>` also keeps
+every n-th presented frame as `<file>.<count>.bmp`.
+
 ### Data the original stores (game.exe at run time)
 
 User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and

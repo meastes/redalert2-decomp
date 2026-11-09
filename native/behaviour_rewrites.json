@@ -1726,6 +1726,46 @@
    "file": "native/link/behaviour_m16_radar.cpp",
    "source": "pass-6a decompile 00716690",
    "notes": "Scout1133 (M16)"
+  },
+  {
+   "entry": "0x007291F0",
+   "name": "MSFrameAnim::~MSFrameAnim (vtable key function)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m17.cpp",
+   "source": "pass-6a decompile 007291f0",
+   "notes": "Scout1138 (M17)"
+  },
+  {
+   "entry": "0x00729200",
+   "name": "MSFrameAnim::Unknown_Slot4 (frame redraw while 0x007FBD04)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m17.cpp",
+   "source": "pass-6a decompile 00729200 (accepted as unknown_callback_6f3650)",
+   "notes": "Scout1138 (M17)"
+  },
+  {
+   "entry": "0x00728B70",
+   "name": "WorldDominationTour::MapSizeGameOption::Get_Value (vtable key function)",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m17.cpp",
+   "source": "pass-6a decompile 00728b70",
+   "notes": "Scout1138 (M17)"
+  },
+  {
+   "entry": "0x00728AB0",
+   "name": "WorldDominationTour::MapSizeGameOption::Describe",
+   "origin_class": "unmatched",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m17.cpp",
+   "source": "pass-6a decompile 00728ab0",
+   "notes": "Scout1138 (M17)"
   }
  ]
 }

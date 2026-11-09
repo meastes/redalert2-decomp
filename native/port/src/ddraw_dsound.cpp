@@ -70,7 +70,11 @@ struct Surface {
             fill(d, fx ? fx->dwFillColor : 0);
         } else if (src) {
             RECT s = srcrect ? *srcrect : RECT{0, 0, src->width, src->height};
-            copy(d.left, d.top, src, s, (flags & DDBLT_KEYSRC) != 0);
+            if (d.right - d.left != s.right - s.left || d.bottom - d.top != s.bottom - s.top) {
+                stretch(d, src, s, (flags & DDBLT_KEYSRC) != 0);
+            } else {
+                copy(d.left, d.top, src, s, (flags & DDBLT_KEYSRC) != 0);
+            }
         }
         if (primary) present();
         return DD_OK;
@@ -130,6 +134,20 @@ struct Surface {
     {
         const char *path = getenv("RA2_NATIVE_PRESENT_DUMP");
         if (!path || !*path || bytes != 2 || width <= 0 || height <= 0) return;
+        // RA2_NATIVE_PRESENT_DUMP_EVERY=<n>: also keep every n-th presented frame as
+        // <file>.<count>.bmp (test runs only).
+        static long presents = 0;
+        ++presents;
+        char numbered[1024];
+        const char *every = getenv("RA2_NATIVE_PRESENT_DUMP_EVERY");
+        if (every && atol(every) > 0 && presents % atol(every) == 0) {
+            snprintf(numbered, sizeof numbered, "%s.%06ld.bmp", path, presents);
+            dump_to(numbered);
+        }
+        dump_to(path);
+    }
+    void dump_to(const char *path)
+    {
         FILE *f = fopen(path, "wb");
         if (!f) return;
         uint32_t row = ((uint32_t)width * 3 + 3) & ~3u, size = 54 + row * (uint32_t)height;
@@ -202,6 +220,26 @@ struct Surface {
                 if (tx < 0 || tx >= width || x < 0 || x >= src->width) continue;
                 if (keyed && from[x] == (uint16_t)src->colorkey) continue;
                 to[tx] = from[x];
+            }
+        }
+    }
+    // Blt with destination and source rectangles of different sizes stretches
+    // the source (DirectDraw's Blt; point sampling), clipped to the surface:
+    // the map preview (MapPreviewClass::Draw 0x0061D460) is scaled into its frame.
+    void stretch(RECT d, Surface *src, RECT s, bool keyed)
+    {
+        LONG dw = d.right - d.left, dh = d.bottom - d.top, sw = s.right - s.left, sh = s.bottom - s.top;
+        if (dw <= 0 || dh <= 0 || sw <= 0 || sh <= 0) return;
+        for (LONG y = 0; y < dh; ++y) {
+            LONG ty = d.top + y, sy = s.top + (LONG)((int64_t)y * sh / dh);
+            if (ty < 0 || ty >= height || sy < 0 || sy >= src->height) continue;
+            const uint16_t *from = (const uint16_t *)(src->pixels.data() + (size_t)sy * src->pitch);
+            uint16_t *to = (uint16_t *)(pixels.data() + (size_t)ty * pitch);
+            for (LONG x = 0; x < dw; ++x) {
+                LONG tx = d.left + x, sx = s.left + (LONG)((int64_t)x * sw / dw);
+                if (tx < 0 || tx >= width || sx < 0 || sx >= src->width) continue;
+                if (keyed && from[sx] == (uint16_t)src->colorkey) continue;
+                to[tx] = from[sx];
             }
         }
     }

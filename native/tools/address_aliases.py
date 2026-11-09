@@ -416,6 +416,17 @@ def demangle(symbols):
     return out.split('\n')[:len(symbols)]
 
 
+def other_overload(q, wanted, addrs, target):
+    """An overloaded name (the catalog gives it several addresses) is bound by its
+    qualified name only: a defined overload with other parameters is a different
+    function (Tactical::Draw_Tiles(Rect, Rect) 0x006A7BA0 is not Draw_Tiles(Cell, Rect)
+    0x006A8560; Scout1138, M17)."""
+    sym, dem = target
+    if len(addrs) < 2 or not sym.startswith('__Z'):
+        return False
+    return qualified(dem) == q and dem != wanted
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--build', type=Path, required=True)
@@ -473,7 +484,8 @@ def main():
         if m and not addrs and not structor(q):
             addrs.add(int(m.group(1), 16))
         cands = [(a, t) for a in sorted(addrs) for t in by_addr.get(a, [])
-                 if not derived_override(q, qualified(t[1] if t[0].startswith('__Z') else t[0][1:]))]
+                 if not derived_override(q, qualified(t[1] if t[0].startswith('__Z') else t[0][1:]))
+                 and not other_overload(q, row['name'], addrs, t)]
         if cands:
             wanted.append((row, cands))
     # IR signatures of the units (functions only).

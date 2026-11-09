@@ -132,6 +132,13 @@ RULES = [
     # Process_Tables). ra2port::stream_width(x) (prelude) is sizeof(x) for a
     # pointer, else 4: same meaning.
     (re.compile(r'\b(Read|Write)\(\s*&\s*([\w.\[\]>-]+?)\s*,\s*4\s*,'), r'\1(&\2, ra2port::stream_width(\2),'),
+    # A pointer cast of an int cast, `(T *)(int)x` (VC6: both 32 bits, the int
+    # cast a no-op when x is a pointer): natively the int truncated the pointer
+    # (TechnoClass::unknown_slot27 0x006CCCE0 passes `(AbstractClass *)(int)Map_Cell_At(cell)`
+    # to slot 174, which faulted on 0xFFFFFFFFxxxxxxxx when a selected unit's
+    # move cursor was asked; Scout1138, M17). intptr_t keeps a pointer whole and
+    # an int's value: same meaning.
+    (re.compile(r'(\b[A-Za-z_]\w*\s*\*\s*\))\s*\(\s*int\s*\)'), r'\1(intptr_t)'),
     (re.compile(r'\bunsigned\s+long(\s+int)?\b'), 'RA2_ULONG'),
     (re.compile(r'\bsigned\s+long(\s+int)?\b'), 'RA2_LONG'),
     (re.compile(r'\blong\s+int\b'), 'RA2_LONG'),

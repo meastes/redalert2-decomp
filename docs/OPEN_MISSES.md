@@ -3240,3 +3240,13 @@ New rulings are recorded at their rows as before.
 
 ## Scout1135 (2026-11-09, 0 B; NOTES, w/wm9.cpp, lab/bk.sh in build/class-work/Scout1135/)
 - WinMain 0x68E280 89.78 -> 90.41 (w/wm9.cpp, standalone): TibSun names in RegisterClasses, `retval`; top-level and RegisterClasses slots now at the original's offsets (new VC6 note: SEH frames sort by name hash). Left: if-block slots (original has hidden bucket-0 locals after `options` and differently named or scoped rects; 0x70/0x3c gaps are named locals, not temporaries) and INIClass() 0x51AD50 inline in Init_Keys (needs ~1000-1600 IL natural charge before it or ~14 pending sites after).
+
+## Scout1137 (2026-11-09, 0 B; NOTES, w/wm10.cpp, hash/bh.py in build/class-work/Scout1137/)
+- WinMain 0x68E280 stays 90.41 (w/wm10.cpp; DestNet block at the original's offsets with `netnum`/`netnode`/`i`). SEH name hash solved (VC6 note). If-block: original's block is 0x100 B vs ours 0x50 and its temp group holds only IPX + 4, so ~0xa0 of our temps (window-Rect, ABuffer/ZBuffer, `new` statements) are named if-block storage in the original; identity unknown (TibSun names cannot give the order). INIClass() 0x51AD50 unchanged.
+
+## Scout1136 (2026-11-09, 0 B; NOTES, keep/, sz.sh/spend.py/ws.py/grid.py in build/class-work/Scout1136/; Sidebar unit now population-4411)
+- Recalc 0x6802D0: CA50 under the inline cap is the YR FS-call form (`int first = Unknown_00681980();`, 148-152 IL); with it Recalc has the original's call sequence (59.13 in world W2), but FS's ~70 IL charge breaks CA50/Add/AI. 84-world grid: a consistent world needs a natural C850 of about 142 IL or less (padded diag confirms), or a lower AI budget.
+- Slot 54 0x67E210 stays 99.04: only top-level locals before the tie count toward Action's window (flip at +8).
+
+## Scout1139 (2026-11-09, 0 B; NOTES, w/wm11.cpp, ov/ in build/class-work/Scout1139/)
+- WinMain 0x68E280 90.41 -> 97.75 with two diagnostic pads (not deliverable). Frame solved in structure: DestNet in an inline Read_Destination_Network(), window rects named in their branch blocks, surface rects in their own block, S1 names ordered by bucket, Mix/Mouse `new` in inline Init_Language()/Init_Mouse() (provisional helpers). Left: pad_a (0xc nested bytes before the surface block), pad_b (4 bytes between DestNet `x` and the IPX temp), INIClass() needs ~2 more natural inline sites after Init_Keys (TibSun CDList.Get_First_CD_Drive() is one), then the `mov edi,[config]` reload (TibSun `ABufferPtr->Set_Scroll(0x8000)` fixes it but is fragile).
