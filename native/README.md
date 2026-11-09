@@ -77,8 +77,7 @@ through a seam (`Native_Skirmish_Menu_Bypass`) and starts the scenario. It must
 not set `Debug_Map` (0x00A40D13, Westwood's scenario editor
 flag), under which the multiplayer setup 0x0065E8C0 makes no start units and the
 human house is defeated at once (Scout1091). The cursor is parked in the
-tactical area (the host's (0, 0) edge-scrolls the map every frame). Bootstrap's
-interface-art load is skipped while its 19 file names are unsourced (menu art).
+tactical area (the host's (0, 0) edge-scrolls the map every frame). Bootstrap's interface-art load runs: its 19 file names are read from game.exe (data/original_data.cpp; the seam skips it only while they are null).
 Milestones: `init` (Init_Game succeeded), `scenario` (Start_Scenario loaded the
 map), `frame` (first Main_Loop iteration), `frames` (N of them); notes
 `harness-art`, `harness-map`, `harness-stop`. With `--skirmish='#0'` (MP02T2.MAP) the
@@ -102,6 +101,16 @@ human house was blown up at frame 1,024 by the launcher check (Main_Loop_End
 BuildingClass slot 52's in-file cell view wrote CellClass +0x122 at its VC6
 offset, inside the arm64 AltOccupierPtr (Evaluate_Cell 0x006C6130 then faulted
 on 0x0000000000FF0000); `'#0'` and `'#5'` run 3,000 frames with `both`.
+Scout1111 (M12): `build` (the MCV deploys, then `link/harness_build.cpp`'s build order)
+and `all` (`both` and `build`): at each step the harness queues the events a click
+would, PRODUCE (0x0E, BuildingTypeClass kind 7, the type's index) as the sidebar's
+cameo click does and PLACE (0x0B with a cell) once the factory holds the finished
+building, trying cells around the construction yard; the order is a power plant
+(GAPOWR/NAPOWR) and a refinery (GAREFN/NAREFN), which brings its free harvester.
+Notes `harness-build-<n>` per step and `harness-houses` (buildings and units per
+house) at the last frame. The sidebar shows the cameos (the build options were
+dropped by Who_Can_Build_Me's padded views and the cameo pointer by Get_Cameo_Data's
+int return).
 `RA2_NATIVE_DEBUG_LOG=1`
 prints the game's Debug_Printf lines (the original's body is empty). The menu run
 (`--run-to=menu`) and the skirmish runs also work without `-noaudio` (60 frames
@@ -267,8 +276,25 @@ repeat the last three until `bss_globals.cpp` no longer changes.
    one, the real class's member at the view member's VC6 offset, and its arm64 offset.
    Members of a light view start in
    the base's tail padding natively (AbstractClass's data size 0x31), so the padding
-   arrays are measured from there. Many other stand-ins in `src/shared` still carry
-   VC6 padding (a mismatch reads the wrong bytes silently). **COM class factories** (`TClassFactory<X>::CreateInstance`,
+   arrays are measured from there. Since Scout1111 (M12) the audit covers every padded
+   view of the game object tree (AbstractClass and its RTTI-derived classes): the real
+   class is the longest definition of each polymorphic (RTTI) class among the shared
+   headers, and a view is another definition of that name, or a padded record whose
+   leading comment calls it a view of a real class (`view of X`, `X as ... reads it`),
+   whose name names one (`Unknown<owner><target>View`: the class named last), or which
+   derives from a real base (the derived classes the name names first); the first
+   candidate whose members all sit on real members wins (`NOT_VIEWS`/`VIEW_OF` in the
+   tool hold the exceptions). `view_audit.py --write` records, per view, the arm64 size
+   of each padding member before a mismatching member in `port/view_layouts.json`;
+   `native_units.py` rewrites those arrays to `RA2_NATIVE_PAD(arm64, vc6)` (port prelude:
+   the VC6 size on i686, so the audit and `member_aliases.py` still see VC6's layout).
+   It respelled 49 views (65 padding members): e.g. Who_Can_Build_Me 0x005D5FC0's
+   BuildingTypeClass `Factory` and BuildingClass +0x530 views, which kept the sidebar
+   empty. Members padding cannot move are listed as `stuck` (fix them in
+   `port/fixups.json`); padded stand-ins outside that tree (the MapClass screen layers,
+   network and GUI classes) are listed as suspect, not checked. After changing views:
+   reconfigure, `view_audit.py --build <b> --write`, reconfigure again; a stale row stops
+   the configure (`--fresh` from an empty file rebuilds the list). **COM class factories** (`TClassFactory<X>::CreateInstance`,
    74 rows) allocate their light in-file view through `ra2port::factory_alloc` (twice the
    VC6 size; `native_units.py` RULES). **IsoTileImageStruct::Tiles** is `ra2port::IsoTileRef`
    natively (tagged self-relative record offsets instead of 32-bit pointers).

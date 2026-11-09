@@ -31,6 +31,11 @@
 #define __forceinline inline __attribute__((always_inline))
 #endif
 
+// A light view's padding before a member of a real class (port/view_layouts.json,
+// written by tools/view_audit.py): the arm64 size on the native target, VC6's
+// size where the audit lays the record out for i686-msvc (Scout1111).
+#define RA2_NATIVE_PAD(arm64, vc6) (sizeof(void *) == 8 ? (arm64) : (vc6))
+
 typedef unsigned short wchar_t;
 typedef int32_t RA2_LONG;
 typedef uint32_t RA2_ULONG;

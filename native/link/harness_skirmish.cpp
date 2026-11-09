@@ -111,7 +111,7 @@ void Choose_Map(char const *map)
 }
 
 // What the skirmish dialog's start button stores (Skirmish_Command 0x617):
-// one human player and one computer opponent, the session's saved options.
+// one human player and one computer opponent (Russians), the session's saved options.
 void Set_Up_Skirmish(char const *map)
 {
     UnknownSessionState &session = unknown_session_a3d298;
@@ -135,14 +135,18 @@ void Set_Up_Skirmish(char const *map)
         session.AICountry[player] = -1;
         session.AIColor[player] = -1;
     }
+    // The opponent's country. The dialog resolves "random" (-3) before the game
+    // starts: Assign_Houses 0x0065FBB0 makes no house for -1 or -3, so with -3 the
+    // game had no computer player (Scout1111). The harness names one: Russians.
+    int country = HouseTypeClass::Find_Index("Russians");
     session.AIDifficulty[1] = 0;
-    session.AICountry[1] = -3;                      // random
+    session.AICountry[1] = country >= 0 ? country : 1;
     session.AIColor[1] = 1;
     session.SkirmishOptions.GameMode = session.GameModeIndex;
     session.SkirmishOptions.ScenIndex = session.ScenarioIndex < 0 ? 0 : session.ScenarioIndex;
     for (int player = 1; player < 8; player++) {
         session.SkirmishOptions.Slots[player][0] = player == 1 ? 4 : 1;   // computer / none (Skirmish_Command's values)
-        session.SkirmishOptions.Slots[player][1] = player == 1 ? -3 : -1;
+        session.SkirmishOptions.Slots[player][1] = player == 1 ? session.AICountry[1] : -1;
         session.SkirmishOptions.Slots[player][2] = player == 1 ? 1 : -1;
     }
     session.Set_Value_00672a30(0, true);           // the local side (first country)

@@ -49,6 +49,9 @@ from data_globals import msvc_key, demangle  # noqa: E402
 OUT = ROOT / 'native/data/member_aliases.tsv'
 SIZES_OUT = ROOT / 'native/data/owner_sizes.tsv'
 PRELUDE = ROOT / 'native/port/include/ra2port/prelude.hpp'
+# The native build's arm64 dialect lays bit-fields out as VC6 does (CMakeLists.txt
+# ra2_dialect: -mms-bitfields, Scout1103); the layouts here must be the build's.
+ARM64 = ['-arch', 'arm64', '-mms-bitfields', '-Wno-incompatible-ms-struct']
 FLAGS = ['-std=c++17', '-fms-extensions', '-fms-compatibility', '-fdelayed-template-parsing', '-Xclang', '-fno-wchar',
          '-fshort-wchar', '-w', '-fsyntax-only', '-Xclang', '-fdump-record-layouts-complete']
 
@@ -153,7 +156,7 @@ def clang_layouts(build, header_types, triple):
                        ''.join('class %s;\n' % w for w in sorted(forward(types))) +
                        ''.join('int ra2_layout_%d = sizeof(%s);\n' % (i, t) for i, t in enumerate(types)))
         args = ['clang++'] + (['-target', 'i686-pc-windows-msvc', '-DRA2PORT_ALLOW_HOST'] if triple == 'i686'
-                              else ['-arch', 'arm64'])
+                              else ARM64)
         args += FLAGS + ['-I', str(build / 'gen/overlay'), '-include', str(PRELUDE), str(src)]
         p = subprocess.run(args, capture_output=True, text=True)
         if p.returncode:

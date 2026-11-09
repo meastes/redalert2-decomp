@@ -5,7 +5,8 @@
 // call TechnoClass slot 200 0x006CC2A0 ends in), for the human player's
 // start units. Kinds: "move" (every infantry and vehicle moves 6 cells east),
 // "deploy" (vehicles whose type deploys into a building, the MCV, unload:
-// mission 16), "both" (the MCV deploys, the others move).
+// mission 16), "both" (the MCV deploys, the others move), "build" (the MCV
+// deploys, then the build order of harness_build.cpp), "all" (both and build).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
 #include "shared/techno.hpp"
 #include "shared/techno_type.hpp"
@@ -47,6 +48,8 @@ void Append(char *to, char const *text)
 }
 }
 
+void Native_Harness_Build(int frame);   // harness_build.cpp
+
 // Called by the frame seam (harness_skirmish.cpp) after each Main_Loop frame.
 void Native_Harness_Orders(int frame)
 {
@@ -78,10 +81,13 @@ void Native_Harness_Orders(int frame)
         }
         ra2port_progress("harness-units", detail);
     }
-    if (frame != at) return;
     int len = (int)(sep - order);
-    bool move = (len == 4 && Same(order, "move", 4)) || (len == 4 && Same(order, "both", 4));
-    bool deploy = (len == 6 && Same(order, "deploy", 6)) || (len == 4 && Same(order, "both", 4));
+    bool all = len == 3 && Same(order, "all", 3);
+    bool build = all || (len == 5 && Same(order, "build", 5));
+    if (build) Native_Harness_Build(frame);
+    if (frame != at) return;
+    bool move = (len == 4 && Same(order, "move", 4)) || (len == 4 && Same(order, "both", 4)) || all;
+    bool deploy = (len == 6 && Same(order, "deploy", 6)) || (len == 4 && Same(order, "both", 4)) || build;
     int moved = 0, deployed = 0;
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];

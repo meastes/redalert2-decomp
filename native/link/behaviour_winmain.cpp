@@ -48,6 +48,18 @@ void Unknown_00406F70()
     }
 }
 
+// 0x00406F50, the pair (seed src/recovered/00406f50.cpp): the first holder stops
+// the primary sound buffer (0x0040A860 Audio_DS_Stop_Primary), then counts up.
+// Scout1111: reached at frame ~2,100 of the harness build order (a focus change).
+void Audio_DS_Stop_Primary();
+void Unknown_00406F50()
+{
+    if (DAT_00831440 == 0) {
+        Audio_DS_Stop_Primary();
+    }
+    DAT_00831440 = DAT_00831440 + 1;
+}
+
 // 0x00735B10 (shared/unknown_globals.hpp: the current dialog window): the row's
 // leaf returns the dword at 0x00B25DD4, the tree's CurrentDialog.
 extern HWND CurrentDialog;

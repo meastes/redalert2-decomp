@@ -1446,6 +1446,57 @@
    "author": "Scout1104 (Scout1101 89.52 and Scout1099 74.48 before it)",
    "draft": "native/drafts/0071e220.cpp",
    "adapted": "its own unit: population macros spelled at the top"
+  },
+  {
+   "entry": "0x566340",
+   "name": "MapClass::Unknown_00566340(Cell const &) (subzone graph rebuild around a cell)",
+   "plan": "draft, verify",
+   "tier": "skirmish frame",
+   "bytes": 2281,
+   "score": 64.37,
+   "last_lane_score": 64.37,
+   "draft_found_by": "index",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout664/w/keep/c_6437.cpp",
+   "author": "Scout664 (Scout662 51.41 before it)",
+   "draft": "native/drafts/00566340.cpp",
+   "adapted": "its own unit; RA2_MAP_COLLAPSE_CLIFF spelled at the top"
+  },
+  {
+   "entry": "0x60BB70",
+   "name": "ParticleSystemClass::unknown_func_60bb70() (smoke system AI)",
+   "plan": "draft, verify",
+   "tier": "skirmish frame",
+   "bytes": 1240,
+   "score": 37.95,
+   "last_lane_score": 53.12,
+   "draft_found_by": "index",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout1000/w/s0.cpp",
+   "author": "Scout1000 (Scout588 37.95; Scout1005 53.12 text not kept)",
+   "draft": "native/drafts/0060bb70.cpp",
+   "adapted": "its own unit; text unchanged"
+  },
+  {
+   "entry": "0x4ECA50",
+   "name": "HouseClass::Random_Cell_In_Zone(int)",
+   "plan": "draft, verify",
+   "tier": "skirmish frame",
+   "bytes": 1253,
+   "score": 54.6,
+   "last_lane_score": 54.6,
+   "draft_found_by": "index",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout1046/w/rz0.cpp",
+   "author": "Scout705 rz3 (Scout1046 rescore; House204 before)",
+   "draft": "native/drafts/004eca50.cpp",
+   "adapted": "its own unit; text unchanged"
   }
  ]
 }
