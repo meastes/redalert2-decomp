@@ -246,4 +246,5 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2190-2192 A flag-collapsed return keeps duplicated arms apart (Scout1099) (0): 
 - L2193-2195 A named double local forces `and esp,-8`; a float local does not (Scout1099) (0): 
 - L2196-2198 Declaration-count ties are windows mod 64, not shifts (Scout1114) (0): 
-- L2199-2200 SEH (`__try`) functions lay out their frame by variable name (Scout1135) (0): 
+- L2199-2201 SEH (`__try`) functions lay out their frame by variable name (Scout1135) (0): 
+- L2202-2203 x87 term order follows whole-function variable weight; flat + chains are re-ordered (Scout1169) (0): 

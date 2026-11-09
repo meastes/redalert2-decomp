@@ -89,7 +89,6 @@
 | 0x5F7D90 | 47 | - | 1 | Scout1012 |  | bound |  |  | 47 |
 | 0x5BCCF0 | 403 | 88.44 | 9 | Scout1118 |  | register frame order | tibsun twin | Scout932/keep/n1.cpp | 46.0 |
 | 0x775980 | 45 | - | 2 | Scout922 |  | asm ruling layout | tibsun twin |  | 45 |
-| 0x462C50 | 2,757 | 98.46 | 6 | Scout1167 |  | frame order layout | tibsun twin | Scout1167/keep/sh_v1b_9846.cpp | 42.0 |
 | 0x781C8C | 41 | - | 2 | Scout1025 |  | ruling layout bound | tibsun |  | 41 |
 | 0x77C7D0 | 167 | 75.68 | 3 | Scout1030 |  | register asm inline | tibsun twin |  | 40.0 |
 | 0x6F7020 | 179 | 77.52 | 3 | Scout992 |  | layout inline bound | twin |  | 40.0 |
