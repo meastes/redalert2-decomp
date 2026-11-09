@@ -98,6 +98,15 @@ struct Host {
 void set_host(const Host *host);
 const Host *host();
 
+// A streamed 16-bit PCM voice in the DirectSound mixer (port/src/ddraw_dsound.cpp;
+// the native binkw32's movie sound, Scout1142): written ahead of its play cursor
+// as frames are decoded, played until closed; silent without a host device.
+void *audio_stream_open(int rate, int channels);
+void audio_stream_write(void *stream, short const *samples, int frames);
+void audio_stream_pause(void *stream, bool pause);
+void audio_stream_volume(void *stream, int volume);   // 0 .. 32768 (Bink's scale)
+void audio_stream_close(void *stream);
+
 // The window that receives host input (the first top-level window created).
 HWND main_window();
 BOOL post_message(HWND window, UINT message, WPARAM wparam, LPARAM lparam);

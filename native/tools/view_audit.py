@@ -51,6 +51,8 @@ EXTRA = ['-Wno-error=address-of-temporary', '-Wno-error']
 TRIPLES = {'i686': ['-target', 'i686-pc-windows-msvc', '-DRA2PORT_ALLOW_HOST'],
            'arm64': ARM64}
 PAD = re.compile(r'^(unsigned )?char\[\d+\]$')
+# Real one-byte member types a view's `bool` must not stand for (Scout1142).
+BYTE_TYPES = {'char', 'unsigned char', 'signed char'}
 
 
 def layouts(build, path, triple):
@@ -324,9 +326,11 @@ def write_layouts(rows, layout_of, real, texts, defs, headers, fresh=False):
         if src is None:
             continue
         pads, stuck = respell(l32, l64, leaves(real[r][0][1]), leaves(real[r][1][1]))
-        if pads or stuck:
-            out.append({'source': src, 'view': row['view'], 'real': r, 'pads': dict(sorted(pads.items())),
-                        'stuck': stuck})
+        if pads or stuck or row.get('bools'):
+            e = {'source': src, 'view': row['view'], 'real': r, 'pads': dict(sorted(pads.items())), 'stuck': stuck}
+            if row.get('bools'):
+                e['bytes'] = row['bools']
+            out.append(e)
     # One view text compiled in several units: one respelling when they agree; a
     # view whose layout differs between units (another base definition) is left
     # as it is and listed.
@@ -353,6 +357,8 @@ def write_layouts(rows, layout_of, real, texts, defs, headers, fresh=False):
                 kept[k]['stuck'] = e['stuck']
             elif k in kept:
                 kept[k]['stuck'] = e['stuck']
+            if k in kept and e.get('bytes'):
+                kept[k]['bytes'] = sorted(set(kept[k].get('bytes', [])) | set(e['bytes']))
             else:
                 kept[k] = e
         out = list(kept.values())
@@ -362,7 +368,8 @@ def write_layouts(rows, layout_of, real, texts, defs, headers, fresh=False):
         'classes read their members at VC6 offsets; on arm64 the real class has other offsets. native_units.py '
         'resizes each listed padding member to its arm64 size (RA2_NATIVE_PAD(arm64, vc6), port prelude), which '
         'puts the member after it at the real class\'s arm64 offset; the VC6 layout is unchanged. "stuck" members '
-        'cannot be moved by padding (respell them in port/fixups.json).'),
+        'cannot be moved by padding (respell them in port/fixups.json). "bytes" members are view bools over a '
+        'real one-byte non-bool member: native_units.py declares them unsigned char (VC6 tests the whole byte).'),
         'views': out}, indent=1) + '\n')
     print('view_audit: wrote %s (%d views, %d pads, %d stuck members)' % (
         LAYOUTS.relative_to(ROOT), len(out), sum(len(e['pads']) for e in out), sum(len(e['stuck']) for e in out)),
@@ -519,20 +526,32 @@ def main():
                     if exp != m64[path]:
                         bad.append({'member': shown(path), 'type': typ, 'vc6': '0x%X' % off32, 'native': '0x%X' % m64[path],
                                     'expected': None if exp is None else '0x%X' % exp, 'real': shown(why) if exp is not None else why})
-                row = {'view': n, 'real': r, 'units': [u.name], 'mismatches': bad}
+                # A view bool over a real non-bool byte (Scout1142): VC6 tests the
+                # whole byte, clang assumes 0 or 1 (`!b` is `b ^ 1`), so a ramp
+                # type 2 read as `bool` tested true for "no ramp".
+                bools = sorted({path.split('.')[-1] for path, off32, typ in v32 if typ in ('bool', '_Bool')
+                                for rp, ro, rt in r32 if ro == off32 and rt in BYTE_TYPES})
+                row = {'view': n, 'real': r, 'units': [u.name], 'mismatches': bad, 'bools': bools}
                 seen[key] = row
                 rows.append(row)
-                if bad:
+                if bad or bools:
                     layout_of[id(row)] = (u, l32[n][1], l64[n][1], r)
     if a.write:
         write_layouts(rows, layout_of, real, texts, defs, headers, a.fresh)
     for r in rows:
         r['checked'] = in_tree(r['real'], rtti)
     nbad = sum(1 for r in rows if r['mismatches'] and r['checked'])
+    stale = []
+    if LAYOUTS.exists():
+        listed = {(e['view'], m) for e in json.loads(LAYOUTS.read_text())['views'] for m in e.get('bytes', [])}
+        stale = sorted({(r['view'], b) for r in rows for b in r.get('bools', [])} - listed)
     for r in rows:
         print('%-8s %s (%s view; %s%s)' % (('MISMATCH' if r['checked'] else 'suspect') if r['mismatches'] else 'ok',
                                          r['view'], r['real'], r['units'][0],
                                          ' +%d' % (len(r['units']) - 1) if len(r['units']) > 1 else ''))
+        for b in r.get('bools', []):
+            print('         bool %s over a real byte member%s' % (
+                b, ' (not in view_layouts.json: run --write)' if (r['view'], b) in stale else ''))
         for b in r['mismatches']:
             print('         %s %s: VC6 +%s native +%s, real %s at %s' % (b['type'], b['member'], b['vc6'], b['native'],
                                                                         b['real'], b['expected']))
@@ -543,7 +562,9 @@ def main():
           'not checked)' % (len(rows), nbad, sum(1 for r in rows if r['mismatches'] and not r['checked'])))
     if a.report:
         a.report.write_text(json.dumps(rows, indent=1) + '\n')
-    return 1 if nbad else 0
+    if stale:
+        print('view_audit: %d view bools over real bytes not listed in %s' % (len(stale), LAYOUTS.name))
+    return 1 if nbad or (stale and not a.write) else 0
 
 
 if __name__ == '__main__':

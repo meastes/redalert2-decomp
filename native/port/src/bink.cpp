@@ -1,28 +1,286 @@
-// binkw32 without a video decoder (Scout1133, native M16; timing Scout1138, M17).
+// binkw32 for the native port: the Bink container and its audio (Scout1142,
+// native M18; header and timing Scout1133/Scout1138, M16/M17). Clean-room:
+// written from the format's public description, no third-party code or tables.
+//
 // The game's movie code (BinkClass 0x0042FF30.., BinkMovieHandle 0x005A1A80,
-// MSBinkAnim) runs as in the original: BinkOpen reads the movie's header (by
-// name, or from the mix file handle at its current position under
-// BINKFILEHANDLE 0x00800000) and returns a handle with the SDK's leading fields
+// MSBinkAnim) runs as in the original: BinkOpen reads the movie (by name, or
+// from the mix file handle at its current position under BINKFILEHANDLE
+// 0x00800000) and returns a handle with the SDK's leading fields
 // (shared/movie.hpp BinkHandleSize: Width, Height, Frames, FrameNum,
 // LastFrameNum, FrameRate, FrameRateDiv); frames advance with
-// BinkNextFrame/BinkGoto. M17: BinkWait answers from a clock, so frame n is
-// due (n - 1) * FrameRateDiv / FrameRate seconds after the movie started (the
-// header's rate; BinkPause stops the clock), and BinkCopyToBuffer writes a
-// black frame (the decoder is not written yet: NOTES of Scout1138 hold the
-// plan). Every movie (intro, briefings, radar transmissions) thus shows black
-// for its own length, with no sound. RA2_NATIVE_MOVIE_SKIP=1 (test runs) keeps
-// M16's pace: one frame per decode pass, so movies play out at once.
-// BinkDDSurfaceType reports the port's DirectDraw format, RGB565 (BINKSURFACE565).
-// A file that is not a Bink movie fails as BinkOpen does.
+// BinkNextFrame/BinkGoto, and BinkWait answers from a clock at the header's
+// rate (frame n is due (n - 1) * FrameRateDiv / FrameRate seconds after the
+// start; BinkPause stops it).
+//
+// Container: a 44-byte header ('BIK' + revision, size - 8, frames, largest
+// frame, -, width, height, rate, rate divisor, video flags, audio tracks), per
+// track a u32 (largest decoded packet), then per track u16 sample rate + u16
+// flags (0x4000 16-bit, 0x2000 stereo, 0x1000 DCT transform), then per track
+// a u32 id; then frames + 1 u32 frame offsets (bit 0 marks a key frame). A
+// frame is, per audio track, a u32 packet size and the packet, then the video.
+//
+// Audio: BinkDoFrame decodes the first track's packet of the current frame and
+// streams it through the port mixer (ra2port::audio_stream_*), when the game
+// set a sound system (BinkSetSoundSystem with its DirectSound). A packet is a
+// u32 sample count, then 32-bit aligned blocks read LSB first: per (decoded)
+// channel two coefficients as 29-bit floats (5-bit exponent, 23-bit mantissa,
+// sign), one 8-bit quantizer index per critical band (Zwicker's Bark band
+// edges), then the coefficients from 2 up in runs (a run flag and a 4-bit run
+// length code, else 8; a 4-bit width; per coefficient width bits and a sign),
+// inverse transformed (real inverse DFT; DCT-III for DCT tracks) and overlapped
+// with the previous block's tail over a sixteenth of the block. The RDFT
+// variant decodes stereo as one interleaved channel at twice the rate.
+//
+// Video is NOT decoded (not written: the Bink 1 block coder needs fixed
+// Huffman trees, quantizer, pattern and scan tables that could not be verified
+// in this lane; NOTES of Scout1138/Scout1142 hold the plan): BinkCopyToBuffer
+// writes a black frame. RA2_NATIVE_MOVIE_SKIP=1 (test runs) keeps M16's pace,
+// one frame per decode pass, and plays no movie sound.
+// RA2_NATIVE_BINK_WAV=<file> (diagnostics) also writes each movie's decoded
+// sound to <file> as a WAV (the last movie's).
 #include "ra2port/win32_port.hpp"
 
 #include <chrono>
+#include <math.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <vector>
 
 using namespace ra2port;
 
+extern "C" {
+// port/src/kernel32.cpp
+HANDLE CreateFileA(const char *name, DWORD access, DWORD share, void *security, DWORD disposition, DWORD flags, HANDLE templ);
+BOOL ReadFile(HANDLE handle, void *buffer, DWORD size, DWORD *read_bytes, void *overlapped);
+BOOL CloseHandle(HANDLE handle);
+}
+
 namespace {
+
+unsigned le32(unsigned char const *p) { return p[0] | p[1] << 8 | p[2] << 16 | (unsigned)p[3] << 24; }
+unsigned le16(unsigned char const *p) { return p[0] | p[1] << 8; }
+
+// Bits read least significant first from a byte buffer.
+struct BitReader {
+    unsigned char const *data;
+    size_t bits;     // total
+    size_t pos;      // read so far
+    unsigned get(int n)
+    {
+        unsigned v = 0;
+        for (int i = 0; i < n; ++i, ++pos) {
+            if (pos < bits && (data[pos >> 3] >> (pos & 7) & 1)) v |= 1u << i;
+        }
+        return v;
+    }
+    bool bit() { return get(1) != 0; }
+    size_t left() const { return pos < bits ? bits - pos : 0; }
+    void align32() { pos = (pos + 31) & ~(size_t)31; }
+};
+
+void fft(std::vector<double> &re, std::vector<double> &im, bool inverse)
+{
+    size_t n = re.size();
+    for (size_t i = 1, j = 0; i < n; ++i) {
+        size_t bit = n >> 1;
+        for (; j & bit; bit >>= 1) j ^= bit;
+        j |= bit;
+        if (i < j) { double t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; }
+    }
+    for (size_t len = 2; len <= n; len <<= 1) {
+        double a = (inverse ? 2.0 : -2.0) * M_PI / (double)len;
+        for (size_t i = 0; i < n; i += len) {
+            for (size_t k = 0; k < len / 2; ++k) {
+                double wr = cos(a * (double)k), wi = sin(a * (double)k);
+                double xr = re[i + k + len / 2] * wr - im[i + k + len / 2] * wi;
+                double xi = re[i + k + len / 2] * wi + im[i + k + len / 2] * wr;
+                re[i + k + len / 2] = re[i + k] - xr;
+                im[i + k + len / 2] = im[i + k] - xi;
+                re[i + k] += xr;
+                im[i + k] += xi;
+            }
+        }
+    }
+}
+
+// One Bink audio track's decoder.
+struct BinkAudio {
+    bool dct = false;
+    bool revision_b = false;
+    int channels = 1;          // decoded channels (1 for the interleaved RDFT variant)
+    int out_channels = 1;      // channels of the stream
+    int rate = 22050;          // stream rate
+    int frame_len = 0, overlap = 0, bands = 0;
+    int band_edge[26];
+    float root = 0;
+    float quant_table[96];
+    bool first = true;
+    std::vector<float> coeffs[2], previous[2];
+
+    void init(int sample_rate, unsigned flags, bool rev_b)
+    {
+        static const int bark[25] = {100, 200, 300, 400, 510, 630, 770, 920, 1080, 1270, 1480, 1720, 2000,
+                                     2320, 2700, 3150, 3700, 4400, 5300, 6400, 7700, 9500, 12000, 15500, 24500};
+        dct = (flags & 0x1000) != 0;
+        revision_b = rev_b;
+        out_channels = (flags & 0x2000) ? 2 : 1;
+        rate = sample_rate;
+        int bits = sample_rate < 22050 ? 9 : sample_rate < 44100 ? 10 : 11;
+        int decode_rate = sample_rate;
+        if (dct) {
+            channels = out_channels;
+        } else {
+            channels = 1;                       // stereo arrives interleaved
+            decode_rate *= out_channels;
+            if (!revision_b && out_channels == 2) bits += 1;
+        }
+        frame_len = 1 << bits;
+        overlap = frame_len / 16;
+        int half = (decode_rate + 1) / 2;
+        int i = 1;
+        for (; i < 25; ++i) {
+            if (half <= bark[i - 1]) break;
+        }
+        bands = i;
+        band_edge[0] = 2;
+        for (int b = 1; b < bands; ++b) band_edge[b] = (int)((long long)bark[b - 1] * frame_len / half) & ~1;
+        band_edge[bands] = frame_len;
+        root = dct ? (float)(frame_len / sqrt((double)frame_len)) : (float)(2.0 / sqrt((double)frame_len));
+        for (int q = 0; q < 96; ++q) quant_table[q] = expf((float)q * 0.15289164787221953823f) * root;
+        for (int c = 0; c < 2; ++c) {
+            coeffs[c].assign((size_t)frame_len, 0.0f);
+            previous[c].assign((size_t)overlap, 0.0f);
+        }
+        first = true;
+    }
+
+    static float read_float(BitReader &br)
+    {
+        int power = (int)br.get(5);
+        float f = ldexpf((float)br.get(23), power - 23);
+        return br.bit() ? -f : f;
+    }
+
+    // The inverse transform of coeffs[c] in place (time samples).
+    void inverse(int c)
+    {
+        std::vector<float> &x = coeffs[c];
+        size_t n = (size_t)frame_len;
+        if (dct) {
+            // DCT-III: y[t] = X0 / 2 + sum X_k cos(pi k (2t + 1) / 2N), through a 2N-point DFT.
+            std::vector<double> re(2 * n, 0.0), im(2 * n, 0.0);
+            for (size_t k = 0; k < n; ++k) {
+                double a = M_PI * (double)k / (double)(2 * n);
+                double v = k == 0 ? x[0] * 0.5 : x[k];
+                re[k] = v * cos(a);
+                im[k] = v * sin(a);
+            }
+            fft(re, im, true);
+            for (size_t t = 0; t < n; ++t) x[t] = (float)re[t];
+        } else {
+            // Packed spectrum: [0] DC, [1] Nyquist, then (re, -im) of bins 1 .. N/2 - 1 (the
+            // imaginary sign measured: the overlap of consecutive blocks correlates 0.74 with
+            // it, 0.14 without, in the intro logo movie).
+            std::vector<double> re(n, 0.0), im(n, 0.0);
+            re[0] = x[0];
+            re[n / 2] = x[1];
+            for (size_t k = 1; k < n / 2; ++k) {
+                re[k] = x[2 * k];
+                im[k] = -x[2 * k + 1];
+                re[n - k] = x[2 * k];
+                im[n - k] = x[2 * k + 1];
+            }
+            fft(re, im, true);
+            for (size_t t = 0; t < n; ++t) x[t] = (float)(re[t] * 0.5);
+        }
+    }
+
+    // One block: appends (frame_len - overlap) samples per stream channel to out.
+    bool block(BitReader &br, std::vector<short> &out)
+    {
+        static const int run_length[16] = {2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 32, 64};
+        if (dct) br.get(2);
+        for (int c = 0; c < channels; ++c) {
+            std::vector<float> &x = coeffs[c];
+            if (revision_b) {
+                unsigned a = br.get(32), b = br.get(32);
+                float fa, fb;
+                memcpy(&fa, &a, 4);
+                memcpy(&fb, &b, 4);
+                x[0] = fa * root;
+                x[1] = fb * root;
+            } else {
+                x[0] = read_float(br) * root;
+                x[1] = read_float(br) * root;
+            }
+            float quant[26];
+            for (int b = 0; b < bands; ++b) {
+                unsigned v = br.get(8);
+                quant[b] = quant_table[v < 95 ? v : 95];
+            }
+            int k = 0;
+            float q = quant[0];
+            int i = 2;
+            while (i < frame_len) {
+                int j;
+                if (revision_b) {
+                    j = i + 16;
+                } else if (br.bit()) {
+                    j = i + run_length[br.get(4)] * 8;
+                } else {
+                    j = i + 8;
+                }
+                if (j > frame_len) j = frame_len;
+                int width = (int)br.get(4);
+                if (width == 0) {
+                    for (; i < j; ++i) x[i] = 0.0f;
+                    while (k < bands && band_edge[k] < i) q = quant[k++];
+                } else {
+                    for (; i < j; ++i) {
+                        if (k <= bands && band_edge[k] == i) q = quant[k++];
+                        int v = (int)br.get(width);
+                        x[i] = v ? (br.bit() ? -q * (float)v : q * (float)v) : 0.0f;
+                    }
+                }
+                if (br.left() == 0 && i < frame_len) return false;
+            }
+            if (dct) x[0] /= 0.5f;
+            inverse(c);
+        }
+        int keep = frame_len - overlap;
+        for (int c = 0; c < channels; ++c) {
+            std::vector<float> &x = coeffs[c];
+            if (!first) {
+                int count = overlap * channels;
+                for (int i = 0, j = c; i < overlap; ++i, j += channels) {
+                    x[i] = (previous[c][i] * (float)(count - j) + x[i] * (float)j) / (float)count;
+                }
+            }
+            memcpy(previous[c].data(), &x[keep], (size_t)overlap * sizeof(float));
+        }
+        first = false;
+        for (int i = 0; i < keep; ++i) {
+            for (int c = 0; c < channels; ++c) {
+                float v = coeffs[c][i];
+                out.push_back((short)(v > 32767.0f ? 32767 : v < -32768.0f ? -32768 : lrintf(v)));
+            }
+        }
+        return true;
+    }
+
+    // A packet (after its u32 size): the u32 sample count, then blocks.
+    void packet(unsigned char const *data, size_t size, std::vector<short> &out)
+    {
+        if (size < 4) return;
+        BitReader br = {data, size * 8, 32};
+        while (br.left() > 0) {
+            if (!block(br, out)) break;
+            br.align32();
+        }
+    }
+};
+
 struct NativeBink {
     int Width;
     int Height;
@@ -35,9 +293,19 @@ struct NativeBink {
     bool held;               // native (RA2_NATIVE_MOVIE_SKIP): the next frame is not due until BinkWait was asked once more
     double start;            // native: clock time of frame 1 (seconds)
     double paused_at;        // native: clock time BinkPause stopped it (0 while running)
+    // native: the movie
+    std::vector<unsigned char> *file;
+    std::vector<unsigned> *offsets;  // frames + 1 file offsets (key flag cleared)
+    unsigned tracks;
+    BinkAudio *audio;                // the first track, or null
+    void *stream;                    // its port voice, or null
+    unsigned decoded;                // the last frame whose sound was decoded (0 none)
+    std::vector<short> *wav;         // RA2_NATIVE_BINK_WAV
 };
 const char *last_error = "";
-unsigned le32(unsigned char const *p) { return p[0] | p[1] << 8 | p[2] << 16 | (unsigned)p[3] << 24; }
+bool sound_system = false;           // BinkSetSoundSystem was given a DirectSound
+int volume = 32768;
+
 double now()
 {
     return std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();
@@ -67,29 +335,86 @@ int surface_bytes(unsigned flags)
     if (type <= 14) return 2;
     return 0;
 }
+
+bool read_all(HANDLE file, unsigned char *to, size_t size)
+{
+    while (size) {
+        DWORD got = 0, want = size > 0x40000000 ? 0x40000000 : (DWORD)size;
+        if (!ReadFile(file, to, want, &got, nullptr) || got == 0) return false;
+        to += got;
+        size -= got;
+    }
+    return true;
 }
 
-extern "C" {
+void write_wav(const char *path, std::vector<short> const &pcm, int rate, int channels)
+{
+    FILE *f = fopen(path, "wb");
+    if (!f) return;
+    unsigned data = (unsigned)(pcm.size() * 2);
+    unsigned char h[44] = {'R', 'I', 'F', 'F', 0, 0, 0, 0, 'W', 'A', 'V', 'E', 'f', 'm', 't', ' ', 16, 0, 0, 0, 1, 0};
+    auto put32 = [&](int at, unsigned v) { h[at] = v; h[at + 1] = v >> 8; h[at + 2] = v >> 16; h[at + 3] = v >> 24; };
+    put32(4, 36 + data);
+    h[22] = (unsigned char)channels;
+    put32(24, (unsigned)rate);
+    put32(28, (unsigned)(rate * channels * 2));
+    h[32] = (unsigned char)(channels * 2);
+    h[34] = 16;
+    memcpy(h + 36, "data", 4);
+    put32(40, data);
+    fwrite(h, 1, 44, f);
+    fwrite(pcm.data(), 2, pcm.size(), f);
+    fclose(f);
+}
 
-// port/src/kernel32.cpp
-HANDLE CreateFileA(const char *name, DWORD access, DWORD share, void *security, DWORD disposition, DWORD flags, HANDLE templ);
-BOOL ReadFile(HANDLE handle, void *buffer, DWORD size, DWORD *read_bytes, void *overlapped);
-BOOL CloseHandle(HANDLE handle);
+// Decodes the sound of frame n (1-based) once, in order; a jump restarts the overlap.
+void decode_sound(NativeBink *bink, unsigned n)
+{
+    if (!bink->audio || n == 0 || n > bink->Frames || n == bink->decoded) return;
+    if (n != bink->decoded + 1) bink->audio->first = true;
+    bink->decoded = n;
+    std::vector<unsigned char> &file = *bink->file;
+    size_t at = (*bink->offsets)[n - 1], end = (*bink->offsets)[n];
+    if (end > file.size() || at + 4 > end) return;
+    size_t size = le32(&file[at]);
+    if (at + 4 + size > end) return;
+    std::vector<short> pcm;
+    bink->audio->packet(&file[at + 4], size, pcm);
+    if (pcm.empty()) return;
+    int frames = (int)(pcm.size() / bink->audio->out_channels);
+    if (bink->stream) audio_stream_write(bink->stream, pcm.data(), frames);
+    if (bink->wav) bink->wav->insert(bink->wav->end(), pcm.begin(), pcm.end());
+}
+}  // namespace
+
+extern "C" {
 
 void *BinkOpen(const char *name, DWORD flags)
 {
     unsigned char header[44];
-    DWORD got = 0;
-    if (flags & 0x00800000u) {
-        HANDLE file = (HANDLE)name;
-        if (!ReadFile(file, header, sizeof header, &got, nullptr)) got = 0;
-    } else {
-        HANDLE file = CreateFileA(name, 0x80000000u, 1, nullptr, 3, 0, nullptr);
+    HANDLE file;
+    bool own = !(flags & 0x00800000u);
+    if (own) {
+        file = CreateFileA(name, 0x80000000u, 1, nullptr, 3, 0, nullptr);
         if (file == RA2_INVALID_HANDLE) { last_error = "file not found"; return nullptr; }
-        if (!ReadFile(file, header, sizeof header, &got, nullptr)) got = 0;
-        CloseHandle(file);
+    } else {
+        file = (HANDLE)name;
     }
-    if (got < sizeof header || header[0] != 'B' || header[1] != 'I' || header[2] != 'K') {
+    bool ok = read_all(file, header, sizeof header) && header[0] == 'B' && header[1] == 'I' && header[2] == 'K';
+    std::vector<unsigned char> *data = nullptr;
+    if (ok) {
+        size_t size = (size_t)le32(header + 4) + 8;
+        if (size < sizeof header || size > ((size_t)1 << 31)) {
+            ok = false;
+        } else {
+            data = new std::vector<unsigned char>(size);
+            memcpy(data->data(), header, sizeof header);
+            ok = read_all(file, data->data() + sizeof header, size - sizeof header);
+        }
+    }
+    if (own) CloseHandle(file);
+    if (!ok) {
+        delete data;
         last_error = "not a Bink file";
         trace("BinkOpen: not a Bink file");
         return nullptr;
@@ -104,12 +429,52 @@ void *BinkOpen(const char *name, DWORD flags)
     if (bink->FrameRate < bink->FrameRateDiv) bink->FrameRate = bink->FrameRateDiv;
     bink->FrameNum = 1;
     bink->start = now();
-    trace("BinkOpen: %dx%d, %u frames at %u/%u fps (black frames, no decoder)", bink->Width, bink->Height,
-          bink->Frames, bink->FrameRate, bink->FrameRateDiv);
+    bink->file = data;
+    bink->tracks = le32(header + 40);
+    std::vector<unsigned char> &f = *data;
+    size_t at = 44 + (size_t)bink->tracks * 4;
+    unsigned rate = 0, aflags = 0;
+    if (bink->tracks > 256 || at + bink->tracks * 8 > f.size()) bink->tracks = 0;
+    if (bink->tracks) {
+        rate = le16(&f[at]);
+        aflags = le16(&f[at + 2]);
+    }
+    at += (size_t)bink->tracks * 8;
+    bink->offsets = new std::vector<unsigned>;
+    if (at + ((size_t)bink->Frames + 1) * 4 <= f.size()) {
+        for (unsigned i = 0; i <= bink->Frames; ++i) bink->offsets->push_back(le32(&f[at + i * 4]) & ~1u);
+    } else {
+        bink->Frames = 0;
+    }
+    if (bink->tracks && rate && bink->Frames) {
+        bink->audio = new BinkAudio;
+        bink->audio->init((int)rate, aflags, header[3] == 'b');
+        if (sound_system && !skip_movies()) {
+            bink->stream = audio_stream_open(bink->audio->rate, bink->audio->out_channels);
+            audio_stream_volume(bink->stream, volume);
+        }
+        if (getenv("RA2_NATIVE_BINK_WAV")) bink->wav = new std::vector<short>;
+    }
+    trace("BinkOpen: '%c' %dx%d, %u frames at %u/%u fps, %u audio tracks (%u Hz, flags 0x%X)%s", header[3],
+          bink->Width, bink->Height, bink->Frames, bink->FrameRate, bink->FrameRateDiv, bink->tracks, rate, aflags,
+          bink->stream ? ", sound" : "");
     return bink;
 }
-void BinkClose(void *bink) { free(bink); }
-// A black frame at x, y of the destination (no decoder yet), clipped to its height.
+void BinkClose(void *handle)
+{
+    NativeBink *bink = (NativeBink *)handle;
+    if (!bink) return;
+    if (bink->stream) audio_stream_close(bink->stream);
+    if (bink->wav) {
+        if (!bink->wav->empty()) write_wav(getenv("RA2_NATIVE_BINK_WAV"), *bink->wav, bink->audio->rate, bink->audio->out_channels);
+        delete bink->wav;
+    }
+    delete bink->audio;
+    delete bink->offsets;
+    delete bink->file;
+    free(bink);
+}
+// A black frame at x, y of the destination (no video decoder yet), clipped to its height.
 int BinkCopyToBuffer(void *handle, void *dest, int pitch, unsigned height, unsigned x, unsigned y, unsigned flags)
 {
     NativeBink *bink = (NativeBink *)handle;
@@ -122,7 +487,13 @@ int BinkCopyToBuffer(void *handle, void *dest, int pitch, unsigned height, unsig
     return 0;
 }
 int BinkDDSurfaceType(void *) { return 10; }   // BINKSURFACE565: the port's DirectDraw surfaces
-int BinkDoFrame(void *) { return 0; }
+// Decodes the current frame: its sound (the video stays black).
+int BinkDoFrame(void *handle)
+{
+    NativeBink *bink = (NativeBink *)handle;
+    if (bink && (bink->stream || bink->wav)) decode_sound(bink, bink->FrameNum);
+    return 0;
+}
 const char *BinkGetError(void) { return last_error; }
 int BinkGoto(void *handle, unsigned frame, int)
 {
@@ -140,22 +511,35 @@ void BinkNextFrame(void *handle)
     NativeBink *bink = (NativeBink *)handle;
     if (bink) { bink->LastFrameNum = bink->FrameNum; ++bink->FrameNum; bink->held = true; }
 }
-int BinkOpenDirectSound(uintptr_t) { return 0; }
-int BinkSetSoundSystem(void *, uintptr_t) { return 0; }
-// Stops (nonzero) or restarts the movie's clock; returns the paused state.
+int BinkOpenDirectSound(uintptr_t) { return 1; }
+// The game passes BinkOpenDirectSound and its DirectSound object (BinkClass::Open
+// 0x0042FF30) when sound is on: movies then play their sound through the port mixer.
+int BinkSetSoundSystem(void *, uintptr_t direct_sound)
+{
+    sound_system = direct_sound != 0;
+    return sound_system ? 1 : 0;
+}
+// Stops (nonzero) or restarts the movie's clock and sound; returns the paused state.
 int BinkPause(void *handle, int pause)
 {
     NativeBink *bink = (NativeBink *)handle;
     if (!bink) return 0;
     if (pause && !bink->paused_at) {
         bink->paused_at = now();
+        audio_stream_pause(bink->stream, true);
     } else if (!pause && bink->paused_at) {
         bink->start += now() - bink->paused_at;
         bink->paused_at = 0;
+        audio_stream_pause(bink->stream, false);
     }
     return bink->paused_at != 0;
 }
-void BinkSetVolume(void *, int) {}
+void BinkSetVolume(void *handle, int value)
+{
+    NativeBink *bink = (NativeBink *)handle;
+    volume = value;
+    if (bink && bink->stream) audio_stream_volume(bink->stream, value);
+}
 // Nonzero while the next frame is not due: frame FrameNum is due frame_time
 // after the start (paused movies wait). Under RA2_NATIVE_MOVIE_SKIP each frame
 // is due on the BinkWait after the one that follows BinkNextFrame: the decode

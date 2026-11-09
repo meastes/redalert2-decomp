@@ -1213,6 +1213,62 @@
    "old": "    virtual COMMatrix3DStruct __stdcall Shadow_Matrix(int *key) = 0;",
    "new": "    virtual COMMatrix3DStruct * __stdcall Shadow_Matrix(COMMatrix3DStruct *result, int *key) = 0;   // native: VC6's hidden return pointer, explicit\n    template <class Result = COMMatrix3DStruct> Result Shadow_Matrix(int *key) { Result result; Shadow_Matrix(&result, key); return result; }",
    "why": "ILocomotion slots 9/10 under RA2_LOCOMOTION_COM_VALUE_TYPES (AircraftClass::Draw 0x004141C0) return the 48-byte matrix by value: VC6 passes that hidden return pointer as the first stack argument, so the locomotors implement `Matrix3D *(Matrix3D *, int *)` and both views share a slot. On arm64 a by-value return of a large struct goes in x8, not as the first argument: the implementation read the key as its matrix and faulted (Allied 1, an aircraft's shadow; Scout1133, M16). Natively the slot takes the return pointer explicitly and a non-virtual inline gives the by-value form the caller spells; same meaning, same slot order."
+  },
+  {
+   "source": "src/recovered/unowned/unknown_frame_table_value_00529300.cpp",
+   "old": "    UnknownFrame_00529300 *frames[1];    // +0x10\n",
+   "new": "    ra2port::IsoTileRef frames[1];    // +0x10 (NATIVE: ra2port::IsoTileRef, the image's per-cell record slots)\n",
+   "why": "Scout1142: an unowned view of IsoTileImageStruct (the tile type's image, slot 39) reads the per-cell record slots +0x10 as 32-bit record pointers; natively the slots are ra2port::IsoTileRef (see the isometric_tile_type.hpp fixup), so the 8-byte pointer array read the wrong slots and Land_Type 0x00529300 answered clear (0) for water: ships and amphibious paths had no water cells (Allied 1). The slot type is IsoTileRef and the read casts it to the record.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_frame_table_value_00529300.cpp",
+   "old": "        UnknownFrame_00529300 *record = image->frames[frame % (image->unknown_count_b * image->unknown_count_a)];\n",
+   "new": "        UnknownFrame_00529300 *record = (UnknownFrame_00529300 *)image->frames[frame % (image->unknown_count_b * image->unknown_count_a)];   // NATIVE: ra2port::IsoTileRef\n",
+   "why": "See the frames[] fixup above (Scout1142).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_frame_extent_0052dfa0.cpp",
+   "old": "    UnknownFrame_0052dfa0 *frames[1];    // +0x10\n",
+   "new": "    ra2port::IsoTileRef frames[1];    // +0x10 (NATIVE: ra2port::IsoTileRef, the image's per-cell record slots)\n",
+   "why": "Scout1142: an unowned view of IsoTileImageStruct (the tile type's image, slot 39) reads the per-cell record slots +0x10 as 32-bit record pointers; natively the slots are ra2port::IsoTileRef (see the isometric_tile_type.hpp fixup), so the 8-byte pointer array read the wrong slots and Land_Type 0x00529300 answered clear (0) for water: ships and amphibious paths had no water cells (Allied 1). The slot type is IsoTileRef and the read casts it to the record.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_frame_extent_0052dfa0.cpp",
+   "old": "        UnknownFrame_0052dfa0 *record = image->frames[frame];\n",
+   "new": "        UnknownFrame_0052dfa0 *record = (UnknownFrame_0052dfa0 *)image->frames[frame];   // NATIVE: ra2port::IsoTileRef\n",
+   "why": "See the frames[] fixup above (Scout1142).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_frame_table_value_00529300.cpp",
+   "old": "int UnknownImageOwner_00529300::unknown_frame_table_value_00529300(int frame)\n{",
+   "new": "void *Native_Object_Type_Image(void *object);   // NATIVE (link/behaviour_m18.cpp)\nint UnknownImageOwner_00529300::unknown_frame_table_value_00529300(int frame)\n{",
+   "why": "See the image call fixup below (Scout1142).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_frame_table_value_00529300.cpp",
+   "old": "    UnknownImage_00529300 *image = unknown_image_slot39();\n",
+   "new": "    UnknownImage_00529300 *image = (UnknownImage_00529300 *)Native_Object_Type_Image(this);   // NATIVE: the real ObjectTypeClass slot 39 (link/behaviour_m18.cpp)\n",
+   "why": "Scout1142: this view of ObjectTypeClass (IsometricTileTypeClass) lists the VC6 vtable as 40 plain virtual slots to call slot 39 (ObjectTypeClass::unknown_slot39, the image). The native vtable of the real class has another order and size (Itanium: two destructor entries, the COM interface layout), so natively slot 39 is entry 45 and the view called another function: the image was null and Land_Type 0x00529300 answered 0 (clear) for every tile, water included (Allied 1: no ship or amphibious path entered water). The call goes to the real virtual through Native_Object_Type_Image (link/behaviour_m18.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_frame_extent_0052dfa0.cpp",
+   "old": "int UnknownImageOwner_0052dfa0::unknown_frame_extent_0052dfa0(int frame)\n{",
+   "new": "void *Native_Object_Type_Image(void *object);   // NATIVE (link/behaviour_m18.cpp)\nint UnknownImageOwner_0052dfa0::unknown_frame_extent_0052dfa0(int frame)\n{",
+   "why": "See the image call fixup below (Scout1142).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/unknown_frame_extent_0052dfa0.cpp",
+   "old": "    UnknownImage_0052dfa0 *image = unknown_image_slot39();\n",
+   "new": "    UnknownImage_0052dfa0 *image = (UnknownImage_0052dfa0 *)Native_Object_Type_Image(this);   // NATIVE: the real ObjectTypeClass slot 39 (link/behaviour_m18.cpp)\n",
+   "why": "Scout1142: this view of ObjectTypeClass (IsometricTileTypeClass) lists the VC6 vtable as 40 plain virtual slots to call slot 39 (ObjectTypeClass::unknown_slot39, the image). The native vtable of the real class has another order and size (Itanium: two destructor entries, the COM interface layout), so natively slot 39 is entry 45 and the view called another function: the image was null and Land_Type 0x00529300 answered 0 (clear) for every tile, water included (Allied 1: no ship or amphibious path entered water). The call goes to the real virtual through Native_Object_Type_Image (link/behaviour_m18.cpp).",
+   "verified": true
   }
  ]
 }

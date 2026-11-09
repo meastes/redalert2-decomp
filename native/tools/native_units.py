@@ -434,8 +434,8 @@ def load_view_layouts():
     out = {}
     if path.exists():
         for v in json.loads(path.read_text())['views']:
-            if v['pads']:
-                out.setdefault(v['source'], []).append((v['view'], v['pads']))
+            if v['pads'] or v.get('bytes'):
+                out.setdefault(v['source'], []).append((v['view'], v['pads'], v.get('bytes', [])))
     return out
 
 
@@ -449,7 +449,7 @@ def respell_views(path, text):
     global VIEW_LAYOUTS
     if VIEW_LAYOUTS is None:
         VIEW_LAYOUTS = load_view_layouts()
-    for view, pads in VIEW_LAYOUTS.get(path, []):
+    for view, pads, byte_members in VIEW_LAYOUTS.get(path, []):
         found = False
         for m in list(re.finditer(r'^(?:class|struct)\s+(?:__declspec\(\w+\)\s+)?%s\b[^;{]*\{' % re.escape(view),
                                   text, re.M)):
@@ -460,6 +460,12 @@ def respell_views(path, text):
                                   lambda x: '%s[RA2_NATIVE_PAD(0x%X, %s)];' % (x.group(1), size, x.group(2)), body)
                 if n < 1:   # (a member under #if defined(__LP64__) / #else: both spellings)
                     raise SystemExit('view_layouts.json: %s %s has no padding member %s' % (path, view, pad))
+            # A view bool over a real byte (Scout1142): unsigned char, so a test reads
+            # the whole byte as VC6 does (clang takes a bool's byte as 0 or 1).
+            for member in byte_members:
+                body, n = re.subn(r'\bbool(\s+%s\s*;)' % re.escape(member), r'unsigned char\1', body)
+                if n < 1:
+                    raise SystemExit('view_layouts.json: %s %s has no bool member %s' % (path, view, member))
             text = text[:m.end()] + body + text[end:]
             found = True
         if not found:

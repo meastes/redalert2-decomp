@@ -605,7 +605,89 @@ struct DirectSound {
     ULONG refs = 1;
 };
 
+// A streamed voice (ra2port::audio_stream_*, Scout1142): a looping secondary
+// buffer of kStreamSeconds whose writer keeps a cursor ahead of the mixer's.
+const int kStreamSeconds = 8;
+struct AudioStream {
+    SoundBuffer *buffer;
+    size_t write;          // byte offset of the next sample frame
+    bool started;
+};
+
 }  // namespace
+
+namespace ra2port {
+void *audio_stream_open(int rate, int channels)
+{
+    open_mixer();
+    AudioStream *s = new AudioStream;
+    s->buffer = new SoundBuffer;
+    WAVEFORMATEX f = {1, (WORD)channels, (DWORD)rate, (DWORD)(rate * channels * 2), (WORD)(channels * 2), 16, 0};
+    s->buffer->format = f;
+    s->buffer->frequency = (DWORD)rate;
+    s->buffer->data.assign((size_t)rate * f.nBlockAlign * kStreamSeconds, 0);
+    s->write = 0;
+    s->started = false;
+    return s;
+}
+// Appends frames after the last write; a writer that fell behind the play
+// cursor (an underrun) restarts a twentieth of a second ahead of it. The half
+// second after the new data is cleared, so an underrun plays silence, not old
+// sound.
+void audio_stream_write(void *stream, short const *samples, int frames)
+{
+    AudioStream *s = (AudioStream *)stream;
+    if (!s || frames <= 0) return;
+    SoundBuffer *b = s->buffer;
+    size_t align = b->format.nBlockAlign, size = b->data.size();
+    {
+        std::lock_guard<std::mutex> lock(mixer_mutex());
+        size_t play = b->position() / align * align;
+        size_t ahead = (s->write + size - play) % size;
+        if (s->started && ahead > size / 2) {
+            s->write = (play + (size_t)b->format.nSamplesPerSec / 20 * align) % size;
+        }
+        size_t bytes = (size_t)frames * align;
+        if (bytes > size / 2) bytes = size / 2;
+        for (size_t done = 0; done < bytes;) {
+            size_t n = size - s->write < bytes - done ? size - s->write : bytes - done;
+            memcpy(b->data.data() + s->write, (unsigned char const *)samples + done, n);
+            done += n;
+            s->write = (s->write + n) % size;
+        }
+        size_t quiet = (size_t)b->format.nSamplesPerSec / 2 * align;
+        for (size_t at = s->write, n = 0; n < quiet; n += align, at = (at + align) % size) {
+            memset(b->data.data() + at, 0, align);
+        }
+    }
+    if (!s->started) {
+        s->started = true;
+        b->Play(0, 0, 1);
+    }
+}
+void audio_stream_pause(void *stream, bool pause)
+{
+    AudioStream *s = (AudioStream *)stream;
+    if (!s || !s->started) return;
+    if (pause) s->buffer->Stop(); else s->buffer->Play(0, 0, 1);
+}
+void audio_stream_volume(void *stream, int volume)
+{
+    AudioStream *s = (AudioStream *)stream;
+    if (!s) return;
+    // Linear 0 .. 32768 as DirectSound hundredths of a decibel.
+    double gain = volume <= 0 ? 0.0 : volume >= 32768 ? 1.0 : volume / 32768.0;
+    s->buffer->volume = gain <= 0.0 ? -10000 : (LONG)(2000.0 * log10(gain));
+}
+void audio_stream_close(void *stream)
+{
+    AudioStream *s = (AudioStream *)stream;
+    if (!s) return;
+    s->buffer->Stop();
+    s->buffer->Release();
+    delete s;
+}
+}  // namespace ra2port
 
 extern "C" {
 HRESULT DirectDrawCreate(void *guid, DirectDraw **out, void *outer)

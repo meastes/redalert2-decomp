@@ -298,6 +298,34 @@ shows black for its own length (no decoder yet); `RA2_NATIVE_MOVIE_SKIP=1`
 keeps the M16 pace for test runs. `RA2_NATIVE_PRESENT_DUMP_EVERY=<n>` also keeps
 every n-th presented frame as `<file>.<count>.bmp`.
 
+### Allied 1 objective, water, movie sound (Scout1142, M18)
+
+Allied 1's first objective (destroy the four Dreadnoughts) is reached: Tanya swims
+to the ships and sinks them. Three native causes kept her on land. A cell view's
+`bool` stood over CellClass's ramp byte (+0x11C, techno.hpp's UnknownCellClass):
+VC6 tests the whole byte, clang takes a bool's byte as 0 or 1 (`!b` is `b ^ 1`),
+so FootClass::Can_Reach 0x004C8730 read ramp type 2 as "no ramp" and refused every
+slope (Tanya's island search closed after 159 nodes). `view_audit.py` now lists a
+view `bool` over a real one-byte non-bool member (`bools`; `--write` records them
+as `bytes` in `port/view_layouts.json`, a missing row fails the test) and
+`native_units.py` declares those members `unsigned char` (4 members: the cell's
+ramp in two cell views, BulletTypeClass +0x2C4/+0x2C5). Land_Type 0x00529300 (and
+the extent 0x0052DFA0) read the tile type's image through an unowned view that
+lists the VC6 vtable as 40 plain virtuals; natively ObjectTypeClass slot 39 is
+entry 45, so the view called another function, got no image and answered land
+type 0 (clear) for every tile: no cell was water, ships could not move and
+amphibious paths never entered water. A fixup calls the real virtual
+(`link/behaviour_m18.cpp`) and the views' record slots are `ra2port::IsoTileRef`.
+With water, Tanya's weapon choice against ships (NavalTargeting 4: the
+secondary) works, so the attack cursor and order follow.
+Movies: `port/src/bink.cpp` reads the whole Bink file (container, frame index,
+audio tracks) and decodes the first audio track (clean-room, from the format's
+public description: Bark band quantizers, run-length coefficient widths, inverse
+real DFT or DCT-III, 1/16 overlap) into a port mixer voice
+(`ra2port::audio_stream_*`, `ddraw_dsound.cpp`) when the game set a sound system;
+video is still black (no decoder). `RA2_NATIVE_BINK_WAV=<file>` writes the last
+movie's decoded sound as a WAV.
+
 ### Data the original stores (game.exe at run time)
 
 User decision (2026-11-08, AGENTS.md "Native phase"): file names, tables and
