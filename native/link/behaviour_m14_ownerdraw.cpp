@@ -381,7 +381,7 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
             // them to 0xFF; pass-6a decompile 005f4ba0 case 0x498 stores lparam below index 0x33
             // (natively below 50: the array's own extent). Scout1125 (M15): the drop list's rows
             // drew in colour 0 (black) before.
-            int *colors = (int *)(record->unknown_fc + (0x110 - 0xFC));
+            int *colors = record->item_colors_110;
             if (message == 0x497) {
                 memset(colors, 0xFF, 50 * sizeof(int));
             } else if (wparam < 50) {

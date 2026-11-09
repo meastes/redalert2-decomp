@@ -115,30 +115,6 @@ RULES = [
     (re.compile(r'\bSetWindowLongA\(\s*([^,()]+?)\s*,\s*(-4|-21|GWL_WNDPROC|GWL_USERDATA)\s*,\s*\(\s*(?:LONG|long|int)\s*\)\s*'),
      r'ra2port_set_window_ptr(\1, \2, (intptr_t)'),
     (re.compile(r'\bGetWindowLongA\(\s*([^,()]+?)\s*,\s*(-4|-21|GWL_WNDPROC|GWL_USERDATA)\s*\)'), r'ra2port_get_window_ptr(\1, \2)'),
-    # A window message's lparam cast `(long)` (VC6: 32 bits, a pointer's width)
-    # carries pointers (SendMessageA(item, 0x4B2, 0, (long)text), the score
-    # dialogs' number text 0x005AAB80/0x00467240/0x00465CC0, combo item records
-    # 0x005B75D0): LPARAM keeps the pointer whole natively (Win64's LPARAM is
-    # pointer-sized; --win64-params). An integral argument keeps its value.
-    # Scout1125 (M15): the skirmish score dialog faulted on a truncated stack
-    # pointer.
-    (re.compile(r'\b(SendMessageA|PostMessageA|SendDlgItemMessageA)\(([^;]*?),\s*\(\s*long\s*\)'), r'\1(\2, (LPARAM)'),
-    # Save/load streams write and read pointers with a literal 4 (VC6: a
-    # pointer's width): RadioClass::Save/Load 0x00636D20/0x00636C60 (contacts),
-    # FactoryClass::Save/Load 0x004B9B90/0x004B9A40 (queue), Save/Load_Storm
-    # (StormOwner). Natively 4 of the 8 bytes went out and the load read them
-    # into an uninitialised pointer, so the swizzle IDs never matched the
-    # objects' 8-byte saved addresses (Scout1133, M16: the load hang in
-    # Process_Tables). ra2port::stream_width(x) (prelude) is sizeof(x) for a
-    # pointer, else 4: same meaning.
-    (re.compile(r'\b(Read|Write)\(\s*&\s*([\w.\[\]>-]+?)\s*,\s*4\s*,'), r'\1(&\2, ra2port::stream_width(\2),'),
-    # A pointer cast of an int cast, `(T *)(int)x` (VC6: both 32 bits, the int
-    # cast a no-op when x is a pointer): natively the int truncated the pointer
-    # (TechnoClass::unknown_slot27 0x006CCCE0 passes `(AbstractClass *)(int)Map_Cell_At(cell)`
-    # to slot 174, which faulted on 0xFFFFFFFFxxxxxxxx when a selected unit's
-    # move cursor was asked; Scout1138, M17). intptr_t keeps a pointer whole and
-    # an int's value: same meaning.
-    (re.compile(r'(\b[A-Za-z_]\w*\s*\*\s*\))\s*\(\s*int\s*\)'), r'\1(intptr_t)'),
     (re.compile(r'\bunsigned\s+long(\s+int)?\b'), 'RA2_ULONG'),
     (re.compile(r'\bsigned\s+long(\s+int)?\b'), 'RA2_LONG'),
     (re.compile(r'\blong\s+int\b'), 'RA2_LONG'),
