@@ -4984,48 +4984,6 @@
       "source_order": 111449
     },
     {
-      "entry": 5926352,
-      "method": "005a6dd0",
-      "symbol": "?FUN_005a6dd0@Owner_005a6dd0@seed_005a6dd0@@QAEPAIHH@Z",
-      "symbol_prefix": "?FUN_005a6dd0@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 74,
-      "body_sha256": "2f4abe6f39c596ee5f31bc4055000e17db96bb74d946a0101589ca8c86e3478e",
-      "padding_bytes": 6,
-      "full_extent_bytes": 80,
-      "full_extent_sha256": "e067750434e1f032de3b0adec0f8f4a70a1f35a55617bb38282effc2223a3a78",
-      "relocations": [
-        {
-          "offset": 26,
-          "kind": 6,
-          "symbol": "_PTR_FUN_007a6884",
-          "target": 8022148,
-          "addend": 0,
-          "resolved": 8022148
-        },
-        {
-          "offset": 54,
-          "kind": 20,
-          "symbol": "_operator_new",
-          "target": 7872535,
-          "addend": 0,
-          "resolved": 1946125
-        }
-      ],
-      "source_sha256": "22ee734e96ee5df38d3010f05b2d6f2131ddaf9071fd01939a98dfc5610e012c",
-      "source": "src/recovered/classes/VectorClass_NodeNameType_ptr/005a6dd0.cpp",
-      "population": "population-2913",
-      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "source_order": 111452
-    },
-    {
       "entry": 5928176,
       "method": "005a74f0",
       "symbol": "?FUN_005a74f0@seed_005a74f0@@YIXPAI@Z",

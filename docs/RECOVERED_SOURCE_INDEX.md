@@ -457,7 +457,7 @@
 | [classes/VectorClass_MPlayerScoreType_ptr](../src/recovered/classes/VectorClass_MPlayerScoreType_ptr/) | 8 | 513 | 6 | 0x005A6400–0x005A6D80 |
 | [classes/VectorClass_MapRegionClass_ptr](../src/recovered/classes/VectorClass_MapRegionClass_ptr/) | 8 | 513 | 6 | 0x0058DC60–0x0058EF60 |
 | [classes/VectorClass_MultiplayerGameMode_ptr](../src/recovered/classes/VectorClass_MultiplayerGameMode_ptr/) | 8 | 513 | 6 | 0x005B9050–0x005B98E0 |
-| [classes/VectorClass_NodeNameType_ptr](../src/recovered/classes/VectorClass_NodeNameType_ptr/) | 8 | 513 | 6 | 0x005A6460–0x005A6DD0 |
+| [classes/VectorClass_NodeNameType_ptr](../src/recovered/classes/VectorClass_NodeNameType_ptr/) | 8 | 513 | 7 | 0x005A6460–0x005A6DD0 |
 | [classes/VectorClass_ObjectClass_ptr](../src/recovered/classes/VectorClass_ObjectClass_ptr/) | 8 | 513 | 6 | 0x0040CBB0–0x004BFBD0 |
 | [classes/VectorClass_ParticleClass_ptr](../src/recovered/classes/VectorClass_ParticleClass_ptr/) | 8 | 513 | 6 | 0x004D4BD0–0x0060D0A0 |
 | [classes/VectorClass_PlanningNodeClass_ptr](../src/recovered/classes/VectorClass_PlanningNodeClass_ptr/) | 8 | 513 | 7 | 0x0061AA30–0x0061BD70 |

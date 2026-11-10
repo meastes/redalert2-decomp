@@ -3018,6 +3018,28 @@
    "file": "native/link/behaviour_m27_mapcells.cpp",
    "source": "pass-6a decompile 0052e390; TibSun Preview_Tile",
    "notes": "skirmish Random Map; Scout1208 (M27)"
+  },
+  {
+   "entry": "0x0057D3A0",
+   "name": "MapGeneratorClass::unknown_0057d3a0",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m28_mapgen.cpp",
+   "source": "Ghidra decompile inventory/decompiled/0057d3a0.c; ra2-decomp twin FUN_0059BBC0 (callers only)",
+   "notes": "land patch grower; start cell via Map_Random_Range (other maps per seed than the original); Scout1208 (M28)"
+  },
+  {
+   "entry": "0x00582A50",
+   "name": "Clear_Map_Cell_Traversal_Marks_00582a50",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m28_mapgen.cpp",
+   "source": "asm 0x00582A50",
+   "notes": "Scout1208 (M28)"
   }
  ]
 }

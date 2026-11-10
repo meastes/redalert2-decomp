@@ -1545,6 +1545,90 @@
    "new": "    node->Base = (char *)(((1 << shift) + (uintptr_t)node->Data - 1) & (uintptr_t)(intptr_t)(-1 << shift));   // NATIVE",
    "why": "Audio_Ring_Node_Create (0x00408CA0) aligns the ring buffer through `unsigned long` (b5e7063db, Scout1188 r2). The native dialect keeps Windows' 32-bit long (RA2_LONG), so the cast cut the 64-bit allocation pointer: every audio stream read into a bad address (ReadFile failed or stalled), so Audio_Stream_Open failed: EVA speech never played (Speech_Update: ceva049.WAV opened, no stream) and the theme reopened its song every frame (about 1,000 opens per 1,000 frames; Scout1208 M27, user report: no voices). Pointer-width natively; the same alignment.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Map_Seed_Dialog_Proc_00577bd0.cpp",
+   "old": "#include \"shared/unknown_map_generator.hpp\"\n",
+   "new": "#include \"shared/unknown_map_generator.hpp\"\nclass MapSeedClass; extern MapSeedClass *native_map_seeder_m28;   // NATIVE: MapSeeder's pointer\n",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Map_Seed_Dialog_Proc_00577bd0.cpp",
+   "old": "RandomMapGen.MapSeeder=(int)new MapSeedClass;",
+   "new": "RandomMapGen.MapSeeder=new MapSeedClass;",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Map_Seed_Dialog_Proc_00577bd0.cpp",
+   "old": "RandomMapGen.MapSeeder",
+   "new": "native_map_seeder_m28",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Do_Random_Map_00577880.cpp",
+   "old": "#include \"shared/unknown_map_generator.hpp\"\n",
+   "new": "#include \"shared/unknown_map_generator.hpp\"\nclass MapSeedClass; extern MapSeedClass *native_map_seeder_m28;   // NATIVE: MapSeeder's pointer\n",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Do_Random_Map_00577880.cpp",
+   "old": "RandomMapGen.MapSeeder=(int)new MapSeedClass;",
+   "new": "RandomMapGen.MapSeeder=new MapSeedClass;",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Do_Random_Map_00577880.cpp",
+   "old": "RandomMapGen.MapSeeder",
+   "new": "native_map_seeder_m28",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Do_Random_Map_Dialog_00577490.cpp",
+   "old": "#include \"shared/unknown_map_generator.hpp\"\n",
+   "new": "#include \"shared/unknown_map_generator.hpp\"\nclass MapSeedClass; extern MapSeedClass *native_map_seeder_m28;   // NATIVE: MapSeeder's pointer\n",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Do_Random_Map_Dialog_00577490.cpp",
+   "old": "RandomMapGen.MapSeeder",
+   "new": "native_map_seeder_m28",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Map_0057ae00.cpp",
+   "old": "#include \"shared/unknown_map_generator.hpp\"\n",
+   "new": "#include \"shared/unknown_map_generator.hpp\"\nclass MapSeedClass; extern MapSeedClass *native_map_seeder_m28;   // NATIVE: MapSeeder's pointer\n",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Map_0057ae00.cpp",
+   "old": "MapSeeder",
+   "new": "native_map_seeder_m28",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/MapGeneratorClass_destructor_005771b0.cpp",
+   "old": "#include \"shared/unknown_map_generator.hpp\"\n",
+   "new": "#include \"shared/unknown_map_generator.hpp\"\nclass MapSeedClass; extern MapSeedClass *native_map_seeder_m28;   // NATIVE: MapSeeder's pointer\n",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/MapGeneratorClass_destructor_005771b0.cpp",
+   "old": "MapSeeder",
+   "new": "native_map_seeder_m28",
+   "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
+   "verified": false
   }
  ]
 }
