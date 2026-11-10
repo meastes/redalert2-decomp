@@ -1698,6 +1698,56 @@
    "origin": "build/class-work/Scout824/keep/tunnel_tu5_5039.cpp",
    "author": "Scout824",
    "draft": "native/drafts/006faa30.cpp"
+  },
+  {
+   "entry": "0x5BEFE0",
+   "name": "Host_Dialog_Proc_005befe0",
+   "plan": "draft, verify",
+   "tier": "LAN lobby (host dialog)",
+   "bytes": 2507,
+   "score": 95.68,
+   "last_lane_score": 99.07,
+   "draft_found_by": "OPEN_MISSES (Scout595)",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout595/w/best_5befe0_95.68.cpp",
+   "author": "Scout595",
+   "draft": "native/drafts/005befe0.cpp",
+   "notes": "NATIVE edits: includes shared/session_state.hpp; Unknown_005cb8d0 and Unknown_00737060 renamed to their accepted names (Change_Scenario_Slots_005cb8d0, unknown_center_on_owner_737060). Scout1209 r9"
+  },
+  {
+   "entry": "0x5CBF20",
+   "name": "Unknown_005cbf20",
+   "plan": "draft, verify",
+   "tier": "LAN lobby (slot combos)",
+   "bytes": 2003,
+   "score": 43.42,
+   "last_lane_score": 43.91,
+   "draft_found_by": "OPEN_MISSES (Netshare247)",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Netshare247/c/best_5cbf20.cpp",
+   "author": "Netshare247",
+   "draft": "native/drafts/005cbf20.cpp"
+  },
+  {
+   "entry": "0x5C3FF0",
+   "name": "Decode_Pub_Gameopt_005c3ff0 (Receive_Game_Options)",
+   "plan": "draft, verify",
+   "tier": "LAN lobby (joiner: the host's options)",
+   "bytes": 8191,
+   "score": 64.58,
+   "last_lane_score": 64.58,
+   "draft_found_by": "OPEN_MISSES (Netshare385)",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Netshare385/c/3ff0.cpp",
+   "author": "Netshare385",
+   "draft": "native/drafts/005c3ff0.cpp",
+   "notes": "NATIVE edit: defined under the callers' name Decode_Pub_Gameopt_005c3ff0. Scout1209 r9"
   }
  ]
 }

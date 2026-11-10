@@ -3003,6 +3003,193 @@
    "file": "native/link/behaviour_r8_lan.cpp",
    "source": "TibSun ipxmgr.cpp IPXManagerClass::Service; RA2 differences from inventory/decompiled/00525f60.c",
    "notes": "Scout1209 (r8): LAN only. NOT CARRIED: the router channel (+0x4C, magic 0xCDEF, relay under 0x00A3FBA8), the multicast connection (+0x50) and the type-4 NAT port tracking (Internet games)"
+  },
+  {
+   "entry": "0x006729F0",
+   "name": "UnknownSessionState::Value_0124_006729f0",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "inventory/decompiled/006729f0.c",
+   "notes": "Scout1209 (r9): reached when the LAN host creates a game (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x00672A10",
+   "name": "UnknownSessionState::Value_011c_00672a10",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "inventory/decompiled/00672a10.c",
+   "notes": "Scout1209 (r9): reached when the LAN host creates a game (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x005C8CD0",
+   "name": "Seat_First_Player_005c8cd0",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/005c8cd0.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x005C8CC0",
+   "name": "Set_Player_Slot_005c8cc0",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/005c8cc0.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x005BBD10",
+   "name": "Unknown_005bbd10",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/005bbd10.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x005DEF80",
+   "name": "Unknown_005def80",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/005def80.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x005C9320",
+   "name": "Unknown_005c9320",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/005c9320.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x005C9370",
+   "name": "Unknown_005c9370",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/005c9370.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x005C93A0",
+   "name": "Unknown_005c93a0",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/005c93a0.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x007837D3",
+   "name": "seed_005c8660/seed_005c8680::FUN_007837d3 (wcscmp)",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "inventory/decompiled/007837d3.c",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x00672F20",
+   "name": "UnknownSessionState::Unknown_00672F20",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/00672f20.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x0063FB40",
+   "name": "OwnerTalkClass::Unknown_0063FB40",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/0063fb40.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x00737B00",
+   "name": "Unknown_00737b00 (unknown_build_user_text_737b00)",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/00737b00.cpp (accepted seed); string from game.exe at run time",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x00738100",
+   "name": "Unknown_00738100",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/00738100.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)"
+  },
+  {
+   "entry": "0x005C2940",
+   "name": "Unknown_005c2940",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/005c2940.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target"
+  },
+  {
+   "entry": "0x0075CA00",
+   "name": "Unknown_0075ca00",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/0075ca00.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target"
+  },
+  {
+   "entry": "0x0073BDB0",
+   "name": "Unknown_0073bdb0",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/0073bdb0.cpp (accepted seed)",
+   "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target"
   }
  ]
 }

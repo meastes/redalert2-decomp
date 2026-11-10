@@ -1678,6 +1678,27 @@
    "new": "extern int unknown_probe_delay_7d333c;\nextern bool unknown_session_a3f616;   // NATIVE: Session.NetOpen (0x00A3F616)\n",
    "why": "IPX_Call_Back 0x00482110 reads Session.NetOpen (+0x237E) through its own variant of shared/session_state.hpp (RA2_CONQUER_IPX_CALL_BACK); natively that variant places the member 3 bytes away from the one the other units (and the member alias of unknown_session_a3f616, 0x00A3F616) use, so the LAN lobby's NetOpen = true (Net_Join_Dialog 0x005BD070) was never seen and IPX_Call_Back took every lobby packet off the global queue: two games never saw each other (Scout1209 r8). The reads go through the global name, the same storage the writers use. The exact build is untouched.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/005c8680.cpp",
+   "old": "(ushort *)(*(undefined4 *)(DAT_00a3fa80 + param_1 * 4))",
+   "new": "Native_Session_Player_Name(param_1)",
+   "why": "0x005C8680 (is session player param_1 the host: its name against the host name at 0x00A3F618) reads Session.Players' vector pointer (0x00A3FA80) and its element as 32-bit integers; natively they are 64-bit pointers in unknown_players_a3fa7c, so the read is cut (the LAN lobby's player list, Net2_Display_Users 0x005BBDD0, calls it for every player). The element's name comes from the session list itself (native helper in native/link/behaviour_r9_lan.cpp). Scout1209 r9.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/005c8680.cpp",
+   "old": "namespace seed_005c8680 {\n",
+   "new": "ushort *Native_Session_Player_Name(int index);   // NATIVE: native/link/behaviour_r9_lan.cpp\nnamespace seed_005c8680 {\n",
+   "why": "Declares the helper the row above calls (Scout1209 r9).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/DSurface/DSurface_Lock_004aac80.cpp",
+   "old": "    if (unknown_flag_851cb0 || unknown_flag_a40d28) {\n",
+   "new": "    // native: the port's surfaces are never lost (IsLost is always DD_OK), so a lock is safe whether\n    // or not the application is active; the port also keeps the game running in the background.\n    if (unknown_flag_851cb0 || unknown_flag_a40d28 || true) {\n",
+   "why": "Restore_Check's body (0x004AAF00, expanded in Lock 0x004AAC80) refuses every lock while the application is inactive in full-screen mode (0x00A40D28 clear, 0x00851CB0 clear), because a DirectDraw video surface may be lost then. The original's game loop stops while inactive; the native port keeps it running (a LAN host must keep answering), and with the lock refused the LAN host dialog's map preview (MapPreviewClass::Read_INI 0x0061DED0) decoded its PreviewPack into a null surface pointer and LZO overran memory (crashes on the mouse and audio threads, Scout1209 r9). Port surfaces cannot be lost, so the restoration test always passes, as it does in the original while active.",
+   "verified": true
   }
  ]
 }

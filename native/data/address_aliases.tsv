@@ -231,7 +231,7 @@ __ZN20UnknownSessionA3D29C20unknown_ini_005b7840Ev	__ZN19MultiplayerGameMode18un
 __ZN20UnknownSessionA3D29C16Unknown_005B7CE0Ev	__ZN19MultiplayerGameMode32Create_Starting_Objects_005b7ce0Ev	0x005B7CE0	function	same address, IR signature void (ptr)
 __Z16Unknown_005BB540v	__Z21Init_Network_005bb540v	0x005BB540	function	same address, IR signature zeroext i1 ()
 __Z16Unknown_005BB5A0v	__Z25Shutdown_Network_005bb5a0v	0x005BB5A0	function	same address, IR signature void ()
-__Z16Unknown_005bba50Pt	__Z16Compute_Name_CRCPKc	0x005BBA50	function	same address, IR signature i32 (ptr)
+__Z16Unknown_005bba50Pt	__Z16Compute_Name_CRCPKt	0x005BBA50	function	same address, IR signature i32 (ptr); the wide overload (Scout1209 r9: was bound to the narrow Compute_Name_CRC 0x005BB9D0, so the host sent the CRC of its first character and joiners refused its NET_ANSWER_PLAYER)
 __Z16Unknown_005BC460v	__Z21Init_Network_005bc460v	0x005BC460	function	same address, IR signature zeroext i1 ()
 __Z16Unknown_005BD070v	__Z24Net_Join_Dialog_005bd070v	0x005BD070	function	same address, IR signature zeroext i1 ()
 __Z14unknown_5c05f0P18UnknownScorePacketP15IPXAddressClass	__Z21Answer_Query_005c05f0P19UnknownGlobalPacketP15IPXAddressClass	0x005C05F0	function	same address, IR signature zeroext i1 (ptr, ptr)

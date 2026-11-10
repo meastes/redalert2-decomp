@@ -631,7 +631,10 @@ LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wpa
             else List_Shift_Rows(columns, (int)wparam, -1);
         }
     }
-    if (record && (message == 0x4C8 || message == 0x4CD || message == 0x4C9 || message == 0x4CE)) {
+    if (record && (message == 0x4C8 || message == 0x4CD || message == 0x4C9 || message == 0x4CC || message == 0x4CE)) {
+        // 0x4CC: a wide row inserted at wparam (-1 appends): the pass-6a case 0x4CC shares
+        // 0x4CD's arm and sends LB_INSERTSTRING 0x181 with wparam; the LAN lobby's player list
+        // (Net2_Display_Users 0x005BBDD0) fills its rows this way (Scout1209 r9).
         // Wide text rows (pass-6a decompile 005f6690 case 0x4CD: LB_ADDSTRING 0x180, or
         // LB_INSERTSTRING 0x181 at wparam, with lparam's text; LoadOptionsClass::Fill_List
         // 0x0053C040 passes a FileEntryClass, whose Description is its first member). The
