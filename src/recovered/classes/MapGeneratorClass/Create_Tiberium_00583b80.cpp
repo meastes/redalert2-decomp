@@ -35,7 +35,7 @@ inline bool Rich_Starts(MapSeedClass const &seed)
     return seed.Resources==3 && (seed.MapType==1 || seed.MapType==3 || seed.MapType==4);
 }
 
-void MapGeneratorClass::Create_Resources_00583b80()
+void MapGeneratorClass::Create_Tiberium()
 {
     int waypoint=0;
     bool seek_center;
@@ -100,7 +100,7 @@ void MapGeneratorClass::Create_Resources_00583b80()
         for(int field=0;field<layout->Count();field++) {
             int size=(int)((double)per_cell+Map_Clamped_Gaussian_005798f0(0.0,50.0,-100.0,100.0));
             if(size>=0) {
-                Create_Resource_Patch_005840a0((*layout)[field],size,field+waypoint+1,field==nearest);
+                Create_Tiberium_Patch((*layout)[field],size,field+waypoint+1,field==nearest);
             }
         }
 
@@ -125,7 +125,7 @@ void MapGeneratorClass::Create_Resources_00583b80()
         bool rich=Rich_Starts(SeedData);
         for(int spot=0;spot<Start_Count(region);spot++) {
             int size=(int)((distances[spot]-closest)*15.0);
-            Create_Resource_Patch_005840a0(unknown_id_source_a3d290->Get_Waypoint_Location(spot+waypoint),size+500,spot+waypoint+1,rich);
+            Create_Tiberium_Patch(unknown_id_source_a3d290->Get_Waypoint_Location(spot+waypoint),size+500,spot+waypoint+1,rich);
         }
         waypoint+=Start_Count(region);
     }

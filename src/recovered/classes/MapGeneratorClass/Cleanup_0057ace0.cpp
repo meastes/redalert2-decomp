@@ -45,7 +45,7 @@ extern "C" char unknown_rmg_radar_message[];
 // @ref ?unknown_map_regions_a6fd28@@=00a6fd28
 // @ref _unknown_rmg_radar_message=007e1898
 // @ref ??1MapRegionClass@@QAE@XZ=0056d970
-void MapGeneratorClass::Cleanup_0057ace0()
+void MapGeneratorClass::Cleanup()
 {
     SeededWaterAmount=0;
     WorkingRegionID=0;

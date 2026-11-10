@@ -3,17 +3,17 @@
 #include "shared/map_view.hpp"
 #include "shared/cell.hpp"
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
-// @ref ?Build_Region_Border_Cell_List_00581ee0@MapGeneratorClass@@=00581ee0
+// @ref ?Build_Region_Border_Cell_List@MapGeneratorClass@@=00581ee0
 // @ref ??0?$VectorClass@VCell@@@@=0042d4a0
 // @ref ??_7?$DynamicVectorClass@VCell@@@@6B@=0079c5a0
 Cell __fastcall CellClass::Adjacent_Cell(Cell const &cell,int facing)
 {
     return cell + unknown_adjacent_851a70[facing&7];
 }
-bool MapGeneratorClass::Clear_Region_Border_00581bf0(int region,int rings,int newRegion)
+bool MapGeneratorClass::Clear_Region_Border(int region,int rings,int newRegion)
 {
     int ring,index;
-    DynamicVectorClass<Cell> *border=Build_Region_Border_Cell_List_00581ee0(region);
+    DynamicVectorClass<Cell> *border=Build_Region_Border_Cell_List(region);
     if(rings>1) {
         Map.Unknown_0055A550();
         for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {

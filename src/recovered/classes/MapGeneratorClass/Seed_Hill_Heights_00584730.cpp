@@ -1,7 +1,7 @@
 // @ref __real@8@3ff1d1b71758e2196800=007a5fe8
 // @ref __real@8@3ff6a3d70a3d70a3d800=007a5fe0
 // @ref __real@8@c0008000000000000000=007a5fd8
-// @ref _?scale@?1??Seed_Hill_Heights_00584730@MapGeneratorClass@@QAEXXZ@4NB=007a5d00
+// @ref _?scale@?1??Seed_Hill_Heights@MapGeneratorClass@@QAEXXZ@4NB=007a5d00
 // TibSun Seed_Hill_Heights: a random walk of height and volatility over the cell grid, trending with the upper neighbours.
 #include "shared/unknown_map_generator.hpp"
 #include "shared/map_region.hpp"
@@ -15,7 +15,7 @@ inline bool Hill_In_Radar(Cell const &cell)
     return y+x>unknown_map_min_a70a1c && x-y<unknown_map_min_a70a1c && y-x<unknown_map_min_a70a1c && y+x<=unknown_map_max_a70a20;
 }
 
-void MapGeneratorClass::Seed_Hill_Heights_00584730()
+void MapGeneratorClass::Seed_Hill_Heights()
 {
     static double const scale=0.025;
 

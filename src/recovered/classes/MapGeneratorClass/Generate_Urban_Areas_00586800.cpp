@@ -21,13 +21,13 @@ double __stdcall Map_Clamped_Gaussian_005798f0(double mean,double deviation,doub
 }
 
 // @ref ?Is_Cliff_0047b5e0@CellClass@@=0047b5e0
-// @ref ?Create_Urban_Area_00586b40@MapGeneratorClass@@=00586b40
-// @ref ?Generate_Urban_Roads_00587330@MapGeneratorClass@@=00587330
-// @ref ?Generate_Urban_Buildings_00587cf0@MapGeneratorClass@@=00587cf0
-// @ref ?Generate_Urban_Units_00588100@MapGeneratorClass@@=00588100
+// @ref ?Create_Urban_Area@MapGeneratorClass@@=00586b40
+// @ref ?Generate_Urban_Roads@MapGeneratorClass@@=00587330
+// @ref ?Generate_Urban_Buildings@MapGeneratorClass@@=00587cf0
+// @ref ?Generate_Urban_Units@MapGeneratorClass@@=00588100
 bool __fastcall Neighborhood_Is_Clear_00588380(Cell const &center);
 namespace seed_0056dac0 { bool __fastcall FUN_0056dac0(short *position); }
-void MapGeneratorClass::Generate_Urban_Areas_00586800()
+void MapGeneratorClass::Generate_Urban_Areas()
 {
     int count=(int)((SeedData.UrbanPresence+0.32)*3);
     int tries=0,placed=0;
@@ -43,21 +43,21 @@ void MapGeneratorClass::Generate_Urban_Areas_00586800()
             if(seed_0056dac0::FUN_0056dac0((short *)&position) || Neighborhood_Is_Clear_00588380(position))break;
         }
         if(Map_Random_Fraction_00579770()<1.0-SeedData.UrbanPresence) {
-            if(Generate_Rural_Roads_0058a1b0(position)) {
-                Generate_Rural_Buildings_00589ac0(position);
-                Generate_Rural_Units_00589f00(position);
+            if(Generate_Rural_Roads(position)) {
+                Generate_Rural_Buildings(position);
+                Generate_Rural_Units(position);
                 ++placed;
             }
         } else {
             if(localTries!=20) {
                 int mean=(int)((unsigned)Map.MapSize.Width*(unsigned)Map.MapSize.Height*2u)/30;
                 int size=(int)Map_Clamped_Gaussian_005798f0((double)mean,300.0,100.0,2000.0);
-                DynamicVectorClass<Cell> *cells=Create_Urban_Area_00586b40(position,size);
+                DynamicVectorClass<Cell> *cells=Create_Urban_Area(position,size);
                 if(cells) {
-                    Generate_Urban_Roads_00587330(*cells);
-                    Generate_Urban_Buildings_00587cf0(*cells);
-                    Generate_Urban_Units_00588100(*cells);
-                    Generate_Urban_Pavement_005890b0(*cells);
+                    Generate_Urban_Roads(*cells);
+                    Generate_Urban_Buildings(*cells);
+                    Generate_Urban_Units(*cells);
+                    Generate_Urban_Pavement(*cells);
                     ++placed;
                     delete cells;
                 }

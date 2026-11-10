@@ -23,7 +23,7 @@ extern char const unknown_forest_tree_format_7e1b54[];
 // Random map callback: map the generator's complete unsigned word to [0,1].
 double __cdecl Map_Random_Fraction_00579770();
 
-int MapGeneratorClass::Place_Forest_00585dc0(CellClass *origin,int count,double density)
+int MapGeneratorClass::Place_Forest(CellClass *origin,int count,double density)
 {
     int capacity=(int)((unsigned)count*25u);
     UnknownVeinNode *nodes=new UnknownVeinNode[capacity];

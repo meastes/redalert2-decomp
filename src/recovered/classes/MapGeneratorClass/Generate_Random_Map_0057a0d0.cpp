@@ -33,14 +33,14 @@ void Initialize_Grid_Thresholds_00585240();
 // @ref ?Make_Water_Regions_0056e890@@=0056e890
 // @ref ?Make_Land_Regions_0056e910@@=0056e910
 // @ref ?Initialize_Vegetation_Weights_005850a0@@=005850a0
-// @ref ?Grow_Adjacent_Empty_Tiles_0057cf20@MapGeneratorClass@@=0057cf20
-// @ref ?Randomize_Tile_Group_0057de10@MapGeneratorClass@@=0057de10
-// @ref ?Init_Map_0057ae00@MapGeneratorClass@@=0057ae00
+// @ref ?Scatter_Green_Tiles@MapGeneratorClass@@=0057cf20
+// @ref ?Vary_Water_Tiles@MapGeneratorClass@@=0057de10
+// @ref ?Init_Map@MapGeneratorClass@@=0057ae00
 // @ref ?Generate_Starting_Points_00576420@@=00576420
-// @ref ?Generate_Neutral_Tech_Buildings_0058ad90@MapGeneratorClass@@=0058ad90
-// @ref ?Create_Resources_00583b80@MapGeneratorClass@@=00583b80
-// @ref ?Generate_Hills_00584dd0@MapGeneratorClass@@=00584dd0
-// @ref ?Generate_Vegetation_005852c0@MapGeneratorClass@@=005852c0
+// @ref ?Generate_Neutral_Buildings@MapGeneratorClass@@=0058ad90
+// @ref ?Create_Tiberium@MapGeneratorClass@@=00583b80
+// @ref ?Generate_Hills@MapGeneratorClass@@=00584dd0
+// @ref ?Generate_Vegetation@MapGeneratorClass@@=005852c0
 // @ref ?unknown_005c7ef0@UnknownPreview_0061D430@@=005c7ef0
 extern "C" char unknown_rmg_message_007e19b4[];
 // @ref _unknown_rmg_message_007e19b4=007e19b4
@@ -128,7 +128,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     }
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Debug_Printf(unknown_rmg_message_007e19b4);
-    Init_Map_0057ae00(fullInit);
+    Init_Map(fullInit);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     unknown_a40774=(int)((unsigned)unknown_a40774+1u);
     if((unsigned char)fullInit) {
@@ -140,9 +140,9 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Read_Settings_00579960();
     Debug_Printf(unknown_rmg_message_007e19a0);
     if(SeedData.MapType==3 || SeedData.MapType==4) {
-        if(SeedData.WaterAmount)Run_Region_Attempts_0057dd60();
-    } else Initialize_Region_Map_0057bea0();
-    Randomize_Tile_Group_0057de10();
+        if(SeedData.WaterAmount)Seed_Water();
+    } else Seed_Land();
+    Vary_Water_Tiles();
     Report_Generation_Progress_0057be50(55);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
@@ -167,7 +167,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     if(SeedData.MapType==4 || SeedData.MapType==3) {
         MapRegionClass::Make_Ice_Regions_005704c0();
         MapRegionClass::Make_Regions_00570810();
-        Adjust_Ramp_Junctions_005831c0();
+        Fixup_Cliff_Corners();
         Map.Build_All_Cliffs(0,-1);
         unknown_00582fd0();
     }
@@ -179,7 +179,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
-    Grow_Adjacent_Empty_Tiles_0057cf20();
+    Scatter_Green_Tiles();
     Debug_Printf(unknown_rmg_message_007e1950);
     Map.Unknown_0055A550();
     for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Recalc_Attributes(-1);
@@ -189,13 +189,13 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     bool starts=false;
     while(!starts) {
         starts=Generate_Starting_Points_00576420();
-        if(starts)starts=Init_Start_Points_00583790();
+        if(starts)starts=Init_Start_Points();
     }
     Debug_Printf(unknown_rmg_message_007e1914);
-    if(SeedData.MapType!=0)Generate_Neutral_Tech_Buildings_0058ad90();
+    if(SeedData.MapType!=0)Generate_Neutral_Buildings();
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Debug_Printf(unknown_rmg_message_007e18fc);
-    Create_Resources_00583b80();
+    Create_Tiberium();
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
 
     if(unknown_map_cells_a70a24) {
@@ -234,7 +234,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     for(cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490())cell->Recalc_Attributes(-1);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Debug_Printf(unknown_rmg_message_007e18e4);
-    Generate_Hills_00584dd0();
+    Generate_Hills();
     Report_Generation_Progress_0057be50(90);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
@@ -246,10 +246,10 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Debug_Printf(unknown_rmg_message_007e18c4);
     if(SeedData.Theater==0) {
         Initialize_Vegetation_Weights_005850a0(this);
-        Generate_Vegetation_005852c0();
+        Generate_Vegetation();
     } else {
         Initialize_Grid_Thresholds_00585240();
-        Generate_Vegetation_00585a60();
+        Generate_Arctic_Vegetation();
     }
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     Report_Generation_Progress_0057be50(95);

@@ -7,7 +7,7 @@
 // @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
 // @ref ?unknown_map_cells_a70a24@@=00a70a24
 // @ref ?unknown_map_cell_side_84e804@@=0084e804
-void MapGeneratorClass::Remap_Region_Tiles_0057e060(int source_index,int target_index,int level,int tile)
+void MapGeneratorClass::Clear_Region_Cells(int source_index,int target_index,int level,int tile)
 {
     Map.Unknown_0055A550();
     for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {

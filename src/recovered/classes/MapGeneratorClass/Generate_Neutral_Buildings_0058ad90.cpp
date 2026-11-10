@@ -31,7 +31,7 @@ inline int Cell_Height(Cell const &position)
     return Map[position].unknown_11b;
 }
 
-void MapGeneratorClass::Generate_Neutral_Tech_Buildings_0058ad90()
+void MapGeneratorClass::Generate_Neutral_Buildings()
 {
     if(SeedData.MapType==2) {
         int count=Map_Random_Range_005797a0(0,2);

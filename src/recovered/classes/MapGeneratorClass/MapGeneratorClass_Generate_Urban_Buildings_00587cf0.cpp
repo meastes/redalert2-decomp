@@ -10,7 +10,7 @@ unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 // @ref ?unknown_urban_building_names_7e0be8@@=007e0be8
 // @ref ??_C@_07BKIB@Neutral?$AA@=007e14b8
 // @ref ?Map_Random_Range_005797a0@@=005797a0
-void MapGeneratorClass::Generate_Urban_Buildings_00587cf0(DynamicVectorClass<Cell> &cells)
+void MapGeneratorClass::Generate_Urban_Buildings(DynamicVectorClass<Cell> &cells)
 {
     int count=Map_Random_Range_005797a0(cells.Count()/20,cells.Count()/10)/2;
     int tries=0;

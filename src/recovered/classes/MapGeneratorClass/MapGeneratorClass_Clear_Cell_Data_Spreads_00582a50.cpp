@@ -9,12 +9,12 @@
 #include "shared/unknown_map_generator.hpp"
 // Clears every map cell's spread mark back to zero (TibSun MapGeneratorClass::Clear_Cell_Data_Spreads,
 // a member in RA2's TibSun-ordered run 0x581870-0x582A50; never called, ECX not read).
-void MapGeneratorClass::Clear_Cell_Data_Spreads_00582a50()
+void MapGeneratorClass::Clear_Cell_Data_Spreads()
 {
     Map.Unknown_0055A550();
     CellClass *cell=Map.Unknown_0055A490();
     while(cell) {
-        Set_Cell_Data_Spread_005818e0(cell->Fetch_CellID(),0);
+        Set_Cell_Data_Spread(cell->Fetch_CellID(),0);
         cell=Map.Unknown_0055A490();
     }
 }

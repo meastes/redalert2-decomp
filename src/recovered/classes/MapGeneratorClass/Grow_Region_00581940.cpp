@@ -3,12 +3,12 @@
 #include "shared/map_view.hpp"
 #include "shared/cell.hpp"
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
-// @ref ?Build_Region_Border_Cell_List_00581ee0@MapGeneratorClass@@=00581ee0
+// @ref ?Build_Region_Border_Cell_List@MapGeneratorClass@@=00581ee0
 // @ref ??0?$VectorClass@VCell@@@@=0042d4a0
 // @ref ??_7?$DynamicVectorClass@VCell@@@@6B@=0079c5a0
-bool MapGeneratorClass::Grow_Region_00581940(int region,int rings,Rect area,char setHeight,int height)
+bool MapGeneratorClass::Grow_Region(int region,int rings,Rect area,char setHeight,int height)
 {
-    DynamicVectorClass<Cell> *border=Build_Region_Border_Cell_List_00581ee0(region);
+    DynamicVectorClass<Cell> *border=Build_Region_Border_Cell_List(region);
     DynamicVectorClass<Cell> *next;
     for(int ring=0;ring<rings;++ring) {
         next=new DynamicVectorClass<Cell>;

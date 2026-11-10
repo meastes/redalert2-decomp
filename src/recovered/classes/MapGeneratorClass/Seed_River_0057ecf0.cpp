@@ -16,8 +16,8 @@
 // @ref __real@8@3fe5b6000000b6000000=007a5f58
 // @ref __real@8@4000a78d3631c681f800=007a5f48
 // @ref __real@8@bffda0d97bb4e7870000=007a5f40
-// @ref ?Grow_Water_Region_005820b0@MapGeneratorClass@@=005820b0
-// @ref ?Place_Waterfall_0057ff20@MapGeneratorClass@@=0057ff20
+// @ref ?Grow_Water_Region@MapGeneratorClass@@=005820b0
+// @ref ?Place_Waterfall@MapGeneratorClass@@=0057ff20
 double __stdcall Map_Clamped_Gaussian_005798f0(double,double,double,double);
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
 extern double const unknown_random_scale_7a5dd0;
@@ -45,7 +45,7 @@ static inline void Clear_River_Region(int region,int const &height_source)
         cellptr=Map.Unknown_0055A490();
     }
 }
-bool MapGeneratorClass::unknown_0057ecf0(Cell const &point,double value,bool flag)
+bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
 {
     bool orig_subcall=flag;
     unsigned char success=1;
@@ -167,7 +167,7 @@ bool MapGeneratorClass::unknown_0057ecf0(Cell const &point,double value,bool fla
                     bool placed=false;
                     Cell from((int)(px-step_x),(int)(py-step_y));
                     Cell to((int)(cur_x-offset_x),(int)(cur_y-offset_y));
-                    Place_Waterfall_0057ff20(WorkingRegionID,to,from,type,placed,cur_x,cur_y);
+                    Place_Waterfall(WorkingRegionID,to,from,type,placed,cur_x,cur_y);
 
                     if(placed) {
                         WorkingRegionID++;
@@ -196,7 +196,7 @@ bool MapGeneratorClass::unknown_0057ecf0(Cell const &point,double value,bool fla
                     do {
                         branch_angle=unknown_map_gaussian_a6fd50.Next()*branch_deviation+branch_mean;
                     } while(branch_angle<branch_lo || branch_angle>branch_hi);
-                    success=unknown_0057ecf0(Cell((int)px,(int)py),branch_angle,true);
+                    success=Seed_River(Cell((int)px,(int)py),branch_angle,true);
                 }
             }
         }
@@ -236,7 +236,7 @@ bool MapGeneratorClass::unknown_0057ecf0(Cell const &point,double value,bool fla
 
     if(stop_roll<0.005) {
         if(Generation_Cell_In_Bounds_0058da10(Cell((int)cur_x,(int)cur_y)) && success) {
-            if(!unknown_0057e100(Cell((int)cur_x,(int)cur_y))) {
+            if(!Seed_Lake(Cell((int)cur_x,(int)cur_y))) {
                 success=false;
             }
         }
@@ -246,7 +246,7 @@ bool MapGeneratorClass::unknown_0057ecf0(Cell const &point,double value,bool fla
         success=Map.Unknown_0055C2C0(WorkingRegionID,0);
 
         if(success) {
-            success=Grow_Region_00581940(WorkingRegionID,1,Rect(0,0,0x200,0x200),0,0);
+            success=Grow_Region(WorkingRegionID,1,Rect(0,0,0x200,0x200),0,0);
             int region_id=WorkingRegionID;
             Map.Unknown_0055A550();
             CellClass *cptr=Map.Unknown_0055A490();
@@ -266,8 +266,8 @@ bool MapGeneratorClass::unknown_0057ecf0(Cell const &point,double value,bool fla
         if(Random_Fraction()<unknown_lake_chance_7a5cb0) {
             Rect bounds(0,0,0x200,0x200);
 
-            if(Grow_Water_Region_005820b0(WorkingRegionID,0.01f,bounds,seed_cell,true)) {
-                success=Grow_Region_00581940(WorkingRegionID,6,Rect(0,0,0x200,0x200),0,0);
+            if(Grow_Water_Region(WorkingRegionID,0.01f,bounds,seed_cell,true)) {
+                success=Grow_Region(WorkingRegionID,6,Rect(0,0,0x200,0x200),0,0);
 
                 if(success) {
                     int region_id=WorkingRegionID;
@@ -295,11 +295,11 @@ bool MapGeneratorClass::unknown_0057ecf0(Cell const &point,double value,bool fla
 
     if(!orig_subcall && success && waterfall_count==0) {
         if(!raised) {
-            success=Grow_Region_00581940(WorkingRegionID,2,Rect(0,0,0x200,0x200),0,0);
+            success=Grow_Region(WorkingRegionID,2,Rect(0,0,0x200,0x200),0,0);
         }
     } else if(waterfall_count>0) {
         if(success) {
-            success=Grow_Region_00581940(WorkingRegionID,2,Rect(0,0,0x200,0x200),1,CellHeight);
+            success=Grow_Region(WorkingRegionID,2,Rect(0,0,0x200,0x200),1,CellHeight);
         }
     }
 

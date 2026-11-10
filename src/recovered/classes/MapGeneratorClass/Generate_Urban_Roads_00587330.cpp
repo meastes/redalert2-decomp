@@ -9,7 +9,7 @@
 Rect __fastcall Bounding_Rectangle_00588e20(DynamicVectorClass<Cell> const &cells);
 bool __fastcall Can_Place_Paved_Road_00588a30(Rect const &area,bool overlap,bool end);
 bool __fastcall Can_Place_Paved_Road_Junction_00588ec0(Rect &area);
-void MapGeneratorClass::Generate_Urban_Roads_00587330(DynamicVectorClass<Cell> &cells)
+void MapGeneratorClass::Generate_Urban_Roads(DynamicVectorClass<Cell> &cells)
 {
     Cell start;
     Rect bounds=Bounding_Rectangle_00588e20(cells);
@@ -20,8 +20,8 @@ void MapGeneratorClass::Generate_Urban_Roads_00587330(DynamicVectorClass<Cell> &
         int remaining=bounds.Height-2;
 
         while(remaining>3) {
-            Cell junction=Plan_Paved_Road_Junction_00588560(start,bounds,2);
-            Cell end=Plan_Paved_Road_00588850(junction,bounds,2);
+            Cell junction=Plan_Paved_Road_Junction(start,bounds,2);
+            Cell end=Plan_Paved_Road(junction,bounds,2);
 
             bool valid=false;
             int first;
@@ -63,8 +63,8 @@ void MapGeneratorClass::Generate_Urban_Roads_00587330(DynamicVectorClass<Cell> &
         start.Y=bounds.Y;
 
         while(remaining>3) {
-            Cell cursor=Plan_Paved_Road_Junction_00588560(start,bounds,4);
-            Cell end=Plan_Paved_Road_00588850(cursor,bounds,4);
+            Cell cursor=Plan_Paved_Road_Junction(start,bounds,4);
+            Cell end=Plan_Paved_Road(cursor,bounds,4);
 
             if(end!=Cell(0,0) && start!=Cell(0,0) && end.Y-start.Y>=6) {
                 bool in_segment=false;

@@ -9,7 +9,7 @@ unsigned __fastcall Map_Random_Range_005797a0(unsigned minimum,unsigned maximum)
 bool __fastcall Can_Place_Misc_Pavement_00589320(Rect const &area);
 void __fastcall Place_Tile_Footprint_005883f0(int tile,Cell const &position,int region,int height);
 // @ref ?unknown_tileset_a52ef4@@=00a52ef4
-void MapGeneratorClass::Generate_Urban_Pavement_005890b0(DynamicVectorClass<Cell> &cells)
+void MapGeneratorClass::Generate_Urban_Pavement(DynamicVectorClass<Cell> &cells)
 {
     Rect sizes[5]={Rect(0,0,6,4),Rect(0,0,4,6),Rect(0,0,4,4),Rect(0,0,4,2),Rect(0,0,2,4)};
     int count=cells.Count()/50;

@@ -8,7 +8,7 @@
 #include "shared/vein_heap_core.hpp"
 // @ref ?unknown_tileset_a52580@@=00a52580
 // @ref ?unknown_tileset_a52c60@@=00a52c60
-// @ref ?Grow_Region_00581940@MapGeneratorClass@@=00581940
+// @ref ?Grow_Region@MapGeneratorClass@@=00581940
 // @ref ?Unknown_0055C2C0@MapClass@@=0055c2c0
 double __stdcall Weighted_Cell_Distance_0057ec60(Cell const *,Cell const *,int);
 // @ref ?Weighted_Cell_Distance_0057ec60@@=0057ec60
@@ -20,10 +20,10 @@ bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
 double __stdcall Map_Clamped_Gaussian_005798f0(double,double,double,double);
 
 // @ref ?Map_Clamped_Gaussian_005798f0@@=005798f0
-bool MapGeneratorClass::unknown_0057e100(Cell const &origin)
+bool MapGeneratorClass::Seed_Lake(Cell const &origin)
 {
     unsigned char success=1;
-    int spreadLimit=(int)((unsigned)Compute_Water_Cell_Count_0057ec20()-(unsigned)SeededWaterAmount);
+    int spreadLimit=(int)((unsigned)Get_Target_Water_Amount()-(unsigned)SeededWaterAmount);
     if(spreadLimit<=75)return false;
     int capacity=(int)((unsigned)spreadLimit*2u+2u);
     UnknownVeinNode *nodes=new UnknownVeinNode[capacity>100?capacity:100];
@@ -37,7 +37,7 @@ bool MapGeneratorClass::unknown_0057e100(Cell const &origin)
     int gridSize=(int)((unsigned)unknown_map_cell_side_84e804*(unsigned)unknown_map_cell_side_84e804);
     if(origin==Cell(0,0)) {
         for(int i=0;i<gridSize;++i)MapRegionClass::Get_Cell_Data(i).Marked=0;
-        Clear_Region_Border_00581bf0(0,2,-2);
+        Clear_Region_Border(0,2,-2);
         for(i=0;i<gridSize;++i) {
             int storedRegion=MapRegionClass::Get_Cell_Data(i).RegionIndex;
             if(storedRegion==0 || storedRegion==(int)WorkingRegionID)MapRegionClass::Get_Cell_Data(i).Marked=1;
@@ -124,7 +124,7 @@ bool MapGeneratorClass::unknown_0057e100(Cell const &origin)
         }
     }
     if(success && origin==Cell(0,0)) {
-        success=Grow_Region_00581940((int)WorkingRegionID,1,Rect(0,0,512,512),0,0);
+        success=Grow_Region((int)WorkingRegionID,1,Rect(0,0,512,512),0,0);
         if(success) {
             int region=(int)WorkingRegionID;
             Map.Unknown_0055A550();
@@ -141,7 +141,7 @@ bool MapGeneratorClass::unknown_0057e100(Cell const &origin)
         SeededWaterAmount=(int)((unsigned)SeededWaterAmount+(unsigned)processed);
         return true;
     }
-    Remap_Region_Tiles_0057e060((int)WorkingRegionID,0,-1,0);
+    Clear_Region_Cells((int)WorkingRegionID,0,-1,0);
     return false;
 }
 

@@ -6,10 +6,10 @@ double __cdecl Map_Random_Fraction_00579770();
 double __stdcall Map_Clamped_Gaussian_005798f0(double,double,double,double);
 extern int unknown_tileset_a6e0e8;
 // @ref ?unknown_tileset_a6e0e8@@=00a6e0e8
-// @ref ?Place_Tile_Patch_00586340@MapGeneratorClass@@=00586340
-// @ref ?Place_Forest_00585dc0@MapGeneratorClass@@=00585dc0
+// @ref ?Place_Tile_Patch@MapGeneratorClass@@=00586340
+// @ref ?Place_Forest@MapGeneratorClass@@=00585dc0
 // @ref ?unknown_471d10@CellClass@@=00471d10
-void MapGeneratorClass::Generate_Vegetation_00585a60()
+void MapGeneratorClass::Generate_Arctic_Vegetation()
 {
     Map.Unknown_0055A550();
     CellClass *cell=Map.Unknown_0055A490();
@@ -29,7 +29,7 @@ void MapGeneratorClass::Generate_Vegetation_00585a60()
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_28) {
-                Place_Tile_Patch_00586340(cell,unknown_tileset_a6e0e8,(int)Map_Clamped_Gaussian_005798f0(20.0,15.0,4.0,60.0),originID,false);
+                Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Map_Clamped_Gaussian_005798f0(20.0,15.0,4.0,60.0),originID,false);
             }
         }
         cell=Map.Unknown_0055A490();
@@ -43,7 +43,7 @@ void MapGeneratorClass::Generate_Vegetation_00585a60()
     int remaining=(int)((SeedData.Width*0.1+0.7)*(SeedData.Vegetation*0.01)*MaxTrees);
     for(int attempts=0;remaining>0 && attempts<100;++attempts) {
         Cell position=MapRegionClass::Pick_Random_Clear_Map_Cell_0056d7a0();
-        remaining-=Place_Forest_00585dc0(&Map[position],(int)Map_Clamped_Gaussian_005798f0(25.0,10.0,10.0,35.0),Map_Clamped_Gaussian_005798f0(0.2,0.1,0.05,0.4));
+        remaining-=Place_Forest(&Map[position],(int)Map_Clamped_Gaussian_005798f0(25.0,10.0,10.0,35.0),Map_Clamped_Gaussian_005798f0(0.2,0.1,0.05,0.4));
     }
 }
 // @ref __real@8@3ffcccccccccccccd000=0079c260

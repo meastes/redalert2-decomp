@@ -14,7 +14,7 @@
 // @ref ??_7?$VectorClass@PAVCellClass@@@@6B@=007a59b8
 // @ref __real@8@3fdf8000000080000000=007a5dd0
 // @ref __ftol=0077f110
-void MapGeneratorClass::Grow_Adjacent_Empty_Tiles_0057cf20()
+void MapGeneratorClass::Scatter_Green_Tiles()
 {
     DynamicVectorClass<CellClass *> candidates;
     candidates.Set_Growth_Step(10000);

@@ -6,7 +6,7 @@
 static inline bool In_Zone_Map_Bounds(Cell const &position);
 static inline int Read_Generation_Region(Cell const &position);
 
-DynamicVectorClass<Cell> *MapGeneratorClass::Build_Region_Border_Cell_List_00581ee0(int region)
+DynamicVectorClass<Cell> *MapGeneratorClass::Build_Region_Border_Cell_List(int region)
 {
     DynamicVectorClass<Cell> *border = new DynamicVectorClass<Cell>;
     border->Set_Growth_Step((int)((unsigned)LocalHeight * (unsigned)LocalWidth));

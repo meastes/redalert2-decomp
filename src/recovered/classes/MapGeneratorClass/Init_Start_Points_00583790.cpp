@@ -20,7 +20,7 @@ int __fastcall FUN_0056dba0(short *position)
 }
 }
 // @ref ?FUN_0056dba0@=0056dba0
-bool MapGeneratorClass::Init_Start_Points_00583790()
+bool MapGeneratorClass::Init_Start_Points()
 {
     int player=0;
     if(SeedData.NumPlayers>0) {

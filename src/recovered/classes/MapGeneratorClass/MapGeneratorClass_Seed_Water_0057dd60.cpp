@@ -1,7 +1,7 @@
 #include "shared/unknown_map_generator.hpp"
-// @ref ?unknown_0057ecf0@MapGeneratorClass@@=0057ecf0
-// @ref ?unknown_0057e100@MapGeneratorClass@@=0057e100
-void MapGeneratorClass::Run_Region_Attempts_0057dd60()
+// @ref ?Seed_River@MapGeneratorClass@@=0057ecf0
+// @ref ?Seed_Lake@MapGeneratorClass@@=0057e100
+void MapGeneratorClass::Seed_Water()
 {
     ++WorkingRegionID;
     if((SeedData.MapType==3 || SeedData.MapType==4) && SeedData.WaterAmount>20) {
@@ -9,7 +9,7 @@ void MapGeneratorClass::Run_Region_Attempts_0057dd60()
         bool success=false;
         while(!success) {
             if(attempts>=10)break;
-            success=unknown_0057ecf0(Cell(0,0),0.0,false);
+            success=Seed_River(Cell(0,0),0.0,false);
             ++attempts;
         }
         if(success)++WorkingRegionID;
@@ -18,7 +18,7 @@ void MapGeneratorClass::Run_Region_Attempts_0057dd60()
     bool success=false;
     while(!success) {
             if(attempts>=10)break;
-        success=unknown_0057e100(Cell(0,0));
+        success=Seed_Lake(Cell(0,0));
         ++attempts;
     }
     if(success)++WorkingRegionID;

@@ -57,7 +57,7 @@ inline bool Road_Tile_Set(unsigned int tile)
     return tile!=0xffff;
 }
 
-bool MapGeneratorClass::Generate_Rural_Roads_0058a1b0(Cell const &cell)
+bool MapGeneratorClass::Generate_Rural_Roads(Cell const &cell)
 {
     QueueClass<UnknownMapGenerationLink,1024> queue;
 

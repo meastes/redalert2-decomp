@@ -13,7 +13,7 @@ unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 // @ref ?unknown_rural_building_names_7e0c60@@=007e0c60
 // @ref ??_C@_07BKIB@Neutral?$AA@=007e14b8
 // @ref ?Map_Random_Range_005797a0@@=005797a0
-void MapGeneratorClass::Generate_Rural_Buildings_00589ac0(Cell const &origin)
+void MapGeneratorClass::Generate_Rural_Buildings(Cell const &origin)
 {
     int count=Map_Random_Range_005797a0(8,12);
     int tries=0;

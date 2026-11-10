@@ -21,8 +21,8 @@ extern int unknown_shore_facings_7e03ac[42];
 // @ref ?unknown_shore_facings_7e03ac@@3PAHA=007e03ac
 // @ref ?unknown_47b5e0@CellClass@@QBE_NXZ=0047b5e0
 // @ref ?unknown_47b7c0@CellClass@@QBE_NXZ=0047b7c0
-// @ref ?Get_Cell_Data_Region_005818a0@MapGeneratorClass@@QAEHABVCell@@@Z=005818a0
-// @ref ?Set_Cell_Data_Region_00581870@MapGeneratorClass@@QAEXABVCell@@H@Z=00581870
+// @ref ?Get_Cell_Data_Region@MapGeneratorClass@@QAEHABVCell@@@Z=005818a0
+// @ref ?Set_Cell_Data_Region@MapGeneratorClass@@QAEXABVCell@@H@Z=00581870
 struct IsoTileCellHeight {
     char unknown_00[0x28];
     char Height;
@@ -45,7 +45,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                     int subtile = column + type->unknown_2b4 * row;
                     IsoTileCellHeight const *record = (IsoTileCellHeight const *)image->Tiles[subtile];
                     if (record == 0) continue;
-                    int id = unknown_map_generator_a6fd68.Get_Cell_Data_Region_005818a0(cell);
+                    int id = unknown_map_generator_a6fd68.Get_Cell_Data_Region(cell);
                     if (set_region) id = 0;
                     bool place = true;
                     if (id > 0 && id != region_id && region_id != -1) {
@@ -59,7 +59,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                             }
                             return true;
                         }
-                        unknown_map_generator_a6fd68.Set_Cell_Data_Region_00581870(cell, region_id);
+                        unknown_map_generator_a6fd68.Set_Cell_Data_Region(cell, region_id);
                     } else if (id == region_id) {
                         int existing = cellptr->IsoTileIndex - unknown_tileset_a6cb74;
                         int pending = type->ArrayIndex - unknown_tileset_a6cb74;
@@ -71,7 +71,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                             }
                         }
                     } else if (cellptr->unknown_47b590()) {
-                        unknown_map_generator_a6fd68.Set_Cell_Data_Region_00581870(cell, region_id);
+                        unknown_map_generator_a6fd68.Set_Cell_Data_Region(cell, region_id);
                     } else if (region_id != -1) {
                         result = false;
                         return false;

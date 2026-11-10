@@ -50,7 +50,7 @@ double __cdecl Map_Random_Fraction_00579770()
 {
     return (unsigned)unknown_map_random_a705c0()*(1.0/4294967295.0);
 }
-void MapGeneratorClass::Generate_Lights_0058a9c0()
+void MapGeneratorClass::Generate_Lights()
 {
     int lightType=BuildingTypeClass::From_Name(unknown_light_type_name_7e1b60);
     if(lightType!=-1) {

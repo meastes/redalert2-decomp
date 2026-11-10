@@ -18,7 +18,7 @@ extern double const unknown_land2_minimum_7a5c78,unknown_land2_maximum_7a5c80,un
 // @ref ?unknown_land2_maximum_7a5c80@@=007a5c80
 // @ref ?unknown_land2_chunk_7a5c88@@=007a5c88
 // @ref ?Cell_In_Generation_Shape_0057d290@MapGeneratorClass@@QAE_NABVCell@@ABVRect@@_NNN@Z=0057d290
-void MapGeneratorClass::unknown_0057c9e0()
+void MapGeneratorClass::Seed_Land_Type2()
 {
     WorkingRegionID = 1;
     int total = unknown_cells_428ac0();

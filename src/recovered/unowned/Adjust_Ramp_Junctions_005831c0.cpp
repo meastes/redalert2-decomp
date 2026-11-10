@@ -30,7 +30,7 @@ static inline void Write_Generation_Region(Cell const &position,int region)
         cells[(int)at].RegionIndex=region;
     }
 }
-void Adjust_Ramp_Junctions_005831c0()
+void Fixup_Cliff_Corners()
 {
     Map.Unknown_0055A550();
     CellClass *current=Map.Unknown_0055A490();

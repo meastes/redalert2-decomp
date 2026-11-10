@@ -9,7 +9,7 @@ double __stdcall Randomized_Cell_Distance_00586780(Cell const &a,Cell const &b);
 // Grows a patch of one tile type out from a cell over clear ground (TibSun
 // MapGeneratorClass::Place_Tile_Patch): a priority-queue flood fill scored by
 // Get_Tile_Patch_Score 0x00586780, claiming at most count cells.
-void MapGeneratorClass::Place_Tile_Patch_00586340(CellClass *cell,int tile,int count,int origin,bool flag)
+void MapGeneratorClass::Place_Tile_Patch(CellClass *cell,int tile,int count,int origin,bool flag)
 {
     UnknownVeinNode *nodes=new UnknownVeinNode[10*count];
     UnknownVeinHeap *queue=new UnknownVeinHeap(10*count);

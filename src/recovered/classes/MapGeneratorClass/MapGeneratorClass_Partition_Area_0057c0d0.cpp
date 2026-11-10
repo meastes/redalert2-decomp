@@ -20,7 +20,7 @@ unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum,unsigned 
 // @ref ??0?$VectorClass@H@@=0046d020
 // @ref ??_7?$DynamicVectorClass@H@@6B@=0079da94
 // @ref ?unknown_sqrt_4ba410@@=004ba410
-void MapGeneratorClass::unknown_0057c0d0(DynamicVectorClass<Rect> *regions,int count,Rect const &area)
+void MapGeneratorClass::Partition_Rect(DynamicVectorClass<Rect> *regions,int count,Rect const &area)
 {
     int floor=(int)unknown_sqrt_4ba410((double)count);
     int columns=floor*floor==count?floor:floor+1;

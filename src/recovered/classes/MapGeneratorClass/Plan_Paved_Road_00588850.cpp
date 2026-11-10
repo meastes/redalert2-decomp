@@ -5,7 +5,7 @@
 #include "shared/map_random.hpp"
 bool __fastcall Can_Place_Paved_Road_00588a30(Rect const &area,bool overlap,bool end);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
-Cell MapGeneratorClass::Plan_Paved_Road_00588850(Cell const &cell,Rect const &rect,int dir)
+Cell MapGeneratorClass::Plan_Paved_Road(Cell const &cell,Rect const &rect,int dir)
 {
     bool south=dir==4;
     Cell wcell=cell;

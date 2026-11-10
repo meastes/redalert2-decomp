@@ -14,7 +14,7 @@ inline Cell Adjacent_Road_Cell(Cell const &cell,int facing)
 {
     return cell+AdjacentCell[facing&7];
 }
-Cell MapGeneratorClass::Plan_Paved_Road_Junction_00588560(Cell const &cell,Rect const &rect,int dir)
+Cell MapGeneratorClass::Plan_Paved_Road_Junction(Cell const &cell,Rect const &rect,int dir)
 {
     Cell wcell=cell;
     Rect const &area=rect;

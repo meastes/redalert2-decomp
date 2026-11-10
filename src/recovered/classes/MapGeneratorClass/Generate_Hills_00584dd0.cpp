@@ -11,16 +11,16 @@ int __fastcall Get_Deformed_Cell_Height_00686c90(CellClass *cell);
 int __fastcall Get_Deformable_Cell_Corners_00686dd0(CellClass *cell,int direction);
 bool __fastcall Deform_Cell_RMG_006869f0(Cell position,int direction,bool forced,unsigned corners);
 // @ref ?Mark_Adjacent_Grid_Weights_00584bd0@@=00584bd0
-// @ref ?Seed_Hill_Heights_00584730@MapGeneratorClass@@=00584730
+// @ref ?Seed_Hill_Heights@MapGeneratorClass@@=00584730
 // @ref ?Init_Deform_Grid_RMG_00685600@@=00685600
 // @ref ?Commit_Deform_Grid_RMG_006863e0@@=006863e0
 // @ref ?Get_Deformed_Cell_Height_00686c90@@=00686c90
 // @ref ?Get_Deformable_Cell_Corners_00686dd0@@=00686dd0
 // @ref ?Deform_Cell_RMG_006869f0@@=006869f0
-void MapGeneratorClass::Generate_Hills_00584dd0()
+void MapGeneratorClass::Generate_Hills()
 {
     Mark_Adjacent_Grid_Weights_00584bd0();
-    Seed_Hill_Heights_00584730();
+    Seed_Hill_Heights();
     Init_Deform_Grid_RMG_00685600();
     int size=unknown_map_cell_side_84e804*unknown_map_cell_side_84e804;
     for(int index=0;index<size;++index) {

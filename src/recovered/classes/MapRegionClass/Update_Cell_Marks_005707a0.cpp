@@ -16,7 +16,7 @@ extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
 #include "shared/unknown_map_generator.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Expand_High_Ground@MapClass@@=0055b210
-bool MapGeneratorClass::Expand_All_High_Ground_00583740()
+bool MapGeneratorClass::Expand_All_High_Ground()
 {
     bool success=true;
     Map.Unknown_00498F10(0);

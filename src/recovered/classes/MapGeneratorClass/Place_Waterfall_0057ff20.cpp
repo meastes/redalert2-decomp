@@ -9,11 +9,11 @@
 #include "shared/map_random.hpp"
 #include "shared/random2.hpp"
 #include "shared/crt_memory.hpp"
-// @ref ?Grow_Water_Region_005820b0@MapGeneratorClass@@=005820b0
+// @ref ?Grow_Water_Region@MapGeneratorClass@@=005820b0
 // @ref ?Pick_Random_Tile_Variant@MapClass@@QAE_NHHHHAA_N_N@Z=0055d640
 // @ref ?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z=004994d0
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
-bool MapGeneratorClass::Place_Waterfall_0057ff20(int region_id,Cell const &cell1,Cell const &cell2,int direction,bool &placed,double &head_x,double &head_y)
+bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell const &cell2,int direction,bool &placed,double &head_x,double &head_y)
 {
 	placed = false;
 
@@ -106,11 +106,11 @@ bool MapGeneratorClass::Place_Waterfall_0057ff20(int region_id,Cell const &cell1
 		}
 	}
 
-	bool success = Grow_Water_Region_005820b0(WorkingRegionID, 0.003f, bounds_rect, center, false);
+	bool success = Grow_Water_Region(WorkingRegionID, 0.003f, bounds_rect, center, false);
 	if (success) {
 		success = Map.Unknown_0055C2C0(WorkingRegionID,0);
 		if (success) {
-			success = Grow_Region_00581940(WorkingRegionID, 2, bounds_rect, 0, 0);
+			success = Grow_Region(WorkingRegionID, 2, bounds_rect, 0, 0);
 			if (success) {
 				int region = WorkingRegionID;
 				Map.Unknown_0055A550();

@@ -20,7 +20,7 @@
 extern double const unknown_random_scale_7a5dd0,unknown_chunk_floor_7a5ed0;
 // @ref ?unknown_chunk_scale_7a10f8@@=007a10f8
 // @ref ?unknown_chunk_floor_7a5ed0@@=007a5ed0
-// @ref ?unknown_0057c0d0@MapGeneratorClass@@=0057c0d0
+// @ref ?Partition_Rect@MapGeneratorClass@@=0057c0d0
 // @ref ?unknown_0057d3a0@MapGeneratorClass@@=0057d3a0
 // @ref ??0?$VectorClass@VRect@@@@=0058f260
 // @ref ??_7?$VectorClass@VRect@@@@6B@=007a5eb0
@@ -34,7 +34,7 @@ void MapGeneratorClass::unknown_0057c4f0()
     unsigned int selected;
     do {selected=(unsigned int)((unsigned int)unknown_map_random_a705c0()*(1.0/4294967295.0)*span+1.0);} while(selected>range);
     Rect area=Map.MapLocalSize;
-    unknown_0057c0d0(&regions,SeedData.NumPlayers+selected,area);
+    Partition_Rect(&regions,SeedData.NumPlayers+selected,area);
     Map.Unknown_0055A550();
     for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
         Cell position=cell->MapCoords;

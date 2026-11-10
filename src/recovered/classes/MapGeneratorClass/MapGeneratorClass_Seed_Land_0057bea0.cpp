@@ -13,10 +13,10 @@
 extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
 // @ref ?unknown_map_regions_a6fd28@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A=00a6fd28
 // @ref ??1MapRegionClass@@QAE@XZ=0056d970
-// @ref ?Initialize_Region_Map_0057bea0@MapGeneratorClass@@=0057bea0
+// @ref ?Seed_Land@MapGeneratorClass@@=0057bea0
 // @ref ?unknown_0057c4f0@MapGeneratorClass@@=0057c4f0
-// @ref ?unknown_0057c780@MapGeneratorClass@@=0057c780
-// @ref ?unknown_0057c9e0@MapGeneratorClass@@=0057c9e0
+// @ref ?Seed_Land_Type1@MapGeneratorClass@@=0057c780
+// @ref ?Seed_Land_Type2@MapGeneratorClass@@=0057c9e0
 // @ref ?Unknown_0055C2C0@MapClass@@=0055c2c0
 // R109 proves this adopted-pointer path; global dynamic identity remains qualified.
 MapRegionClass::~MapRegionClass()
@@ -28,7 +28,7 @@ MapRegionClass::~MapRegionClass()
     unknown_map_regions_a6fd28.Delete(this);
     // Cells member destruction is automatic; no outer storage release here.
 }
-void MapGeneratorClass::Initialize_Region_Map_0057bea0()
+void MapGeneratorClass::Seed_Land()
 {
     Map.Unknown_0055A550();
     CellClass *cell=Map.Unknown_0055A490();
@@ -38,8 +38,8 @@ void MapGeneratorClass::Initialize_Region_Map_0057bea0()
     }
     switch(SeedData.MapType) {
     case 0: unknown_0057c4f0();break;
-    case 1: unknown_0057c780();break;
-    case 2: unknown_0057c9e0();break;
+    case 1: Seed_Land_Type1();break;
+    case 2: Seed_Land_Type2();break;
     }
     Map.Unknown_0055A550();
     cell=Map.Unknown_0055A490();

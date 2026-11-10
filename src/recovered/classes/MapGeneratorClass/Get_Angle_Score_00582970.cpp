@@ -21,7 +21,7 @@ extern double const angle_weight_7a5cd0,jitter_weight_7a5cc8;
 // @ref __real@8@4001c90fdaa22168c000=0079c9b8
 // @ref __real@8@3fdf8000000080000000=007a5dd0
 // ECX is unused, RET16/ST0 are physical.
-double MapGeneratorClass::Angle_Score_00582970(Cell const &cell1,Cell const &cell2,double ref_angle)
+double MapGeneratorClass::Get_Angle_Score(Cell const &cell1,Cell const &cell2,double ref_angle)
 {
     int dx=cell2.X-cell1.X;
     int dy=cell2.Y-cell1.Y;

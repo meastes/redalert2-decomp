@@ -32,7 +32,7 @@ unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum,unsigned 
 // @ref ?Stamp_Tile_005883f0@@=005883f0
 // @ref ?Map_Random_Range_005797a0@@=005797a0
 void __fastcall Stamp_Tile_005883f0(int tile,Cell const &position,int region,int height);
-void MapGeneratorClass::Randomize_Tile_Group_0057de10()
+void MapGeneratorClass::Vary_Water_Tiles()
 {
     Map.Unknown_0055A550();
     for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {

@@ -21,9 +21,9 @@ void Set_Generation_Path_Tile_Indices_0058d9d0()
 }
 
 bool __fastcall Can_Place_Paved_Road_00588a30(Rect const &area,bool first,bool second);
-// @ref ?Generate_Rural_Buildings_00589ac0@MapGeneratorClass@@=00589ac0
-// @ref ?Generate_Rural_Units_00589f00@MapGeneratorClass@@=00589f00
-// @ref ?Generate_Rural_Roads_0058a1b0@MapGeneratorClass@@=0058a1b0
+// @ref ?Generate_Rural_Buildings@MapGeneratorClass@@=00589ac0
+// @ref ?Generate_Rural_Units@MapGeneratorClass@@=00589f00
+// @ref ?Generate_Rural_Roads@MapGeneratorClass@@=0058a1b0
 // @ref __real@8@3ffdf5c28f5c28f5c000=007a6050
 // Existing accepted cell-protection predicate, legacy fastcall/short-pointer ABI retained.
 namespace seed_0056dac0 {
@@ -34,7 +34,7 @@ bool __fastcall FUN_0056dac0(short *position)
 }
 }
 // @ref ?FUN_0056dac0@=0056dac0
-void MapGeneratorClass::Generate_Rural_Areas_00589890()
+void MapGeneratorClass::Generate_Rural_Areas()
 {
     Set_Generation_Path_Tile_Indices_0058d9d0();
     int count=(int)((SeedData.UrbanPresence+0.49)*2);
@@ -51,9 +51,9 @@ void MapGeneratorClass::Generate_Rural_Areas_00589890()
             if(localTries>=20)break;
             if(seed_0056dac0::FUN_0056dac0((short *)&position) && Can_Place_Paved_Road_00588a30(Rect(position.X-4,position.Y-4,8,8),false,false) && Map.Unknown_0055A660(position,true))break;
         }
-        if(localTries!=20 && Generate_Rural_Roads_0058a1b0(position)) {
-            Generate_Rural_Buildings_00589ac0(position);
-            Generate_Rural_Units_00589f00(position);
+        if(localTries!=20 && Generate_Rural_Roads(position)) {
+            Generate_Rural_Buildings(position);
+            Generate_Rural_Units(position);
             ++placed;
         }
         ++tries;

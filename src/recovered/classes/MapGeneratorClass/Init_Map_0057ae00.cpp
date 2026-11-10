@@ -84,7 +84,7 @@ void __fastcall Clear_Map_Regions_0056da00()
     }
 }
 
-void MapGeneratorClass::Init_Map_0057ae00(int fullInit)
+void MapGeneratorClass::Init_Map(int fullInit)
 {
     int index;
     int sizeIndex=SeedData.NumPlayers-2;

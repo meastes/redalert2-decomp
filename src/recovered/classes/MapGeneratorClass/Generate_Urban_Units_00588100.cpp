@@ -14,7 +14,7 @@ unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 // @ref ??_C@_07BKIB@Neutral?$AA@=007e14b8
 // @ref ?unknown_urban_unit_names_7e0c30@@=007e0c30
 // @ref ?Map_Random_Range_005797a0@@=005797a0
-void MapGeneratorClass::Generate_Urban_Units_00588100(DynamicVectorClass<Cell> &cells)
+void MapGeneratorClass::Generate_Urban_Units(DynamicVectorClass<Cell> &cells)
 {
     HouseClass *neutral=HouseClass::As_Pointer(HouseTypeClass::Find_Index("Neutral"));
     int count=Map_Random_Range_005797a0(1,5);

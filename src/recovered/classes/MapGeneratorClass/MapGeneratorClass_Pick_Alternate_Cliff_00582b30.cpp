@@ -3,7 +3,7 @@
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int,unsigned int);
 // @ref ?unknown_tileset_a52e68@@=00a52e68
 // @ref ?Map_Random_Range_005797a0@@=005797a0
-int MapGeneratorClass::Randomize_Ramp_Tile_00582b30(int tile)
+int MapGeneratorClass::Pick_Alternate_Cliff(int tile)
 {
     tile-=unknown_tileset_a52e68;
     switch(tile) {

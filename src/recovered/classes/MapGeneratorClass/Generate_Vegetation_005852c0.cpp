@@ -47,7 +47,7 @@ inline Cell Pick_Random_Clear_Map_Cell()
     }
 }
 
-void MapGeneratorClass::Generate_Vegetation_005852c0()
+void MapGeneratorClass::Generate_Vegetation()
 {
     Map.Unknown_0055A550();
     CellClass *cell=Map.Unknown_0055A490();
@@ -69,11 +69,11 @@ void MapGeneratorClass::Generate_Vegetation_005852c0()
             Cell origin=cell->Fetch_CellID();
             int originID=(int)((unsigned)(int)origin.Y*512u+(unsigned)(int)origin.X);
             if(Map_Random_Fraction_00579770()<data.unknown_18) {
-                Place_Tile_Patch_00586340(cell,unknown_tileset_a6e0e8,(int)Map_Clamped_Gaussian_005798f0(green_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Map_Clamped_Gaussian_005798f0(green_mean,20.0,4.0,80.0),originID,false);
             } else if(Map_Random_Fraction_00579770()<data.unknown_28) {
-                Place_Tile_Patch_00586340(cell,unknown_tileset_a6cf4c,(int)Map_Clamped_Gaussian_005798f0(sand_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,unknown_tileset_a6cf4c,(int)Map_Clamped_Gaussian_005798f0(sand_mean,20.0,4.0,80.0),originID,false);
             } else if(Map_Random_Fraction_00579770()<data.unknown_20) {
-                Place_Tile_Patch_00586340(cell,unknown_tileset_a52c60,(int)Map_Clamped_Gaussian_005798f0(rough_mean,20.0,4.0,80.0),originID,false);
+                Place_Tile_Patch(cell,unknown_tileset_a52c60,(int)Map_Clamped_Gaussian_005798f0(rough_mean,20.0,4.0,80.0),originID,false);
             }
         }
         cell=Map.Unknown_0055A490();
@@ -90,7 +90,7 @@ void MapGeneratorClass::Generate_Vegetation_005852c0()
     int tries;
     for(tries=0;remaining>0 && tries<100;++tries) {
         Cell position=Pick_Random_Clear_Map_Cell();
-        remaining-=Place_Forest_00585dc0(&Map[position],(int)Map_Clamped_Gaussian_005798f0(25.0,10.0,10.0,35.0),Map_Clamped_Gaussian_005798f0(0.2,0.1,0.05,0.4));
+        remaining-=Place_Forest(&Map[position],(int)Map_Clamped_Gaussian_005798f0(25.0,10.0,10.0,35.0),Map_Clamped_Gaussian_005798f0(0.2,0.1,0.05,0.4));
     }
 
     int rock_count=Map_Random_Range_005797a0(0,unknown_cells_428ac0()/200);

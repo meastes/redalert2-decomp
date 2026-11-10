@@ -14,7 +14,7 @@ double __stdcall Randomized_Cell_Distance_005846b0(Cell const &,Cell const &);
 // @ref ?Randomized_Cell_Distance_005846b0@@=005846b0
 // Original resets marker to zero while current can still alias nodes[0].
 // Read current->Position anew for every neighbor; do not cache that coordinate.
-void MapGeneratorClass::Create_Resource_Patch_005840a0(Cell const &position,int amount,int patchId,bool special)
+void MapGeneratorClass::Create_Tiberium_Patch(Cell const &position,int amount,int patchId,bool special)
 {
     int marker=0;
     int capacity=(int)((unsigned)amount*10u);

@@ -18,7 +18,7 @@ void MapGeneratorClass::unknown_00582fd0()
             CellClass &east=cellptr->Adjacent_Cell(2);
 
             if(cellptr->IsoTileIndex==south.IsoTileIndex && (unsigned char)cellptr->unknown_11a>(unsigned char)south.unknown_11a) {
-                int tile=Randomize_Ramp_Tile_00582b30(cellptr->IsoTileIndex);
+                int tile=Pick_Alternate_Cliff(cellptr->IsoTileIndex);
 
                 if(tile!=cellptr->IsoTileIndex) {
                     int subtile=(unsigned char)south.unknown_11a;
@@ -29,7 +29,7 @@ void MapGeneratorClass::unknown_00582fd0()
             }
 
             if(cellptr->IsoTileIndex==east.IsoTileIndex && (unsigned char)cellptr->unknown_11a>(unsigned char)east.unknown_11a) {
-                int tile=Randomize_Ramp_Tile_00582b30(cellptr->IsoTileIndex);
+                int tile=Pick_Alternate_Cliff(cellptr->IsoTileIndex);
 
                 if(tile!=cellptr->IsoTileIndex) {
                     IsometricTileTypeClass *type=IsoTileTypes[cellptr->IsoTileIndex];

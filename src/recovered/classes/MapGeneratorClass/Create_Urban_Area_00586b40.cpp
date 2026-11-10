@@ -16,7 +16,7 @@
 Rect __fastcall Bounding_Rectangle_00588e20(DynamicVectorClass<Cell> const &cells);
 double __stdcall Randomized_Chebyshev_Distance_005872c0(Cell const &a,Cell const &b);
 
-DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area_00586b40(Cell const &cell, int size)
+DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area(Cell const &cell, int size)
 {
     DynamicVectorClass<Cell> *cells;
     UnknownVeinNode *nodes = new UnknownVeinNode[10 * size];
@@ -28,14 +28,14 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area_00586b40(Cell con
     CellClass *cptr = Map.Unknown_0055A490();
     while (cptr != 0) {
         Cell c = cptr->MapCoords;
-        Set_Cell_Data_Spread_005818e0(c, 0);
+        Set_Cell_Data_Spread(c, 0);
         cptr = Map.Unknown_0055A490();
     }
 
     int node_count = 0;
     nodes[node_count].Position = cell;
     nodes[node_count].Key = 0;
-    Set_Cell_Data_Spread_005818e0(cell, 1);
+    Set_Cell_Data_Spread(cell, 1);
     node_count++;
     queue->Insert(&nodes[0]);
 
@@ -54,10 +54,10 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area_00586b40(Cell con
             if (Hill_In_Radar(newcell)) {
                 CellClass *newcellptr = &Map[newcell];
                 if (newcellptr->unknown_47b590() && newcellptr->OverlayIndex == -1) {
-                    if (Get_Cell_Data_Spread_00581910(newcell) != 1 && !MapRegionClass::Get_Cell_Data(newcell).unknown_45[0]) {
+                    if (Get_Cell_Data_Spread(newcell) != 1 && !MapRegionClass::Get_Cell_Data(newcell).unknown_45[0]) {
                         newnode->Position = newcell;
                         newnode->Key = Randomized_Chebyshev_Distance_005872c0(cell, newcell);
-                        Set_Cell_Data_Spread_005818e0(newcell, 1);
+                        Set_Cell_Data_Spread(newcell, 1);
                         node_count++;
                         queue->Insert(newnode++);
                     }
