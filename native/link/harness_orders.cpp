@@ -16,7 +16,8 @@
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
 // <frame> hunt; <frame> capture <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
 // <frame> grant <index>; <frame> super <index> enemy" (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
-// attack/capture: the building in cell x,y, mission 1 / 8; train: the barracks' cameo click;
+// attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
+// object of that type; Tanya only when named); train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
 // M19; any game, the campaign too): at that frame the player's technos of type
 // ID ('*': every infantry and vehicle) get a move order to cell x,y, or every
@@ -102,6 +103,10 @@ int Scripted_Order(char const *command)
     bool go = Same(word[1], "goto", 5) && words >= 5;
     bool hunt = Same(word[1], "hunt", 5);
     bool attack = (Same(word[1], "attack", 7) || Same(word[1], "capture", 8)) && words >= 5;
+    // `attack <ID> <TYPE>` (Scout1209 r6): the first enemy object of that type, wherever it is
+    // (Allied 1's Dreadnoughts for Tanya).
+    bool attack_type = Same(word[1], "attack", 7) && words == 4;
+    if (attack_type) attack = true;
     int attack_mission = Same(word[1], "capture", 8) ? 8 : 1;   // Capture (an engineer into a building) or Attack
     if (Same(word[1], "train", 6) && words >= 3) {
         // The barracks' cameo click: PRODUCE (0x0E) of InfantryTypeClass (kind 0x10) by its ID.
@@ -223,7 +228,14 @@ int Scripted_Order(char const *command)
         return 1;
     }
     ObjectClass *target = 0;
-    if (attack) {
+    if (attack_type) {
+        for (int i = 0; i < Technos.Count() && target == 0; ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0 || techno->House == unknown_player_a35db4 || techno->unknown_slot32() == 0) continue;
+            if (Same_Type(techno->unknown_slot32()->ID.Buffer, word[3])) target = techno;
+        }
+        if (target == 0) return -1;
+    } else if (attack) {
         Cell at;
         at.X = (short)atoi(word[3]);
         at.Y = (short)atoi(word[4]);
@@ -238,7 +250,7 @@ int Scripted_Order(char const *command)
         if (kind != 1 && kind != 0x0F) continue;     // UnitClass, InfantryClass
         TechnoTypeClass *type = techno->unknown_slot32();
         char const *id = type ? type->ID.Buffer : "";
-        if (attack && Same_Type(id, word[2]) && !Same_Type(id, "TANY")) {
+        if (attack && Same_Type(id, word[2]) && (!Same_Type(id, "TANY") || Same_Type(word[2], "TANY"))) {
             Queue_Mission(TargetClass(techno), attack_mission, TargetClass(target), TargetClass());
             ++count;
         } else if (go && Same_Type(id, word[2])) {

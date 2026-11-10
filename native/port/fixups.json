@@ -1636,6 +1636,27 @@
    "new": "int __fastcall unknown_select_list_item_by_data_005c7160(HWND dialog, intptr_t data)   // NATIVE: list item data are pointers\n",
    "why": "The map selection dialog (0x005C69E0, Random Map) passes the new MultiMission pointer as the item data to find in list 0x553. VC6's int holds the pointer; on arm64 the int cut it, LB_GETITEMDATA's pointer never matched and item 0 (Isle of War) was selected, so the random map was never the chosen map (Scout1208 M28 open item; Scout1209). Pointer-width natively; the exact build is untouched.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Visit_Type_006f7800.cpp",
+   "old": "    UnknownTest test = (UnknownTest)Unknown_006F7190;\n",
+   "new": "",
+   "why": "0x006F7800 hands the type name to the test 0x006F7190 through UnknownTest, whose argument is an int: VC6's int holds the pointer, arm64's cuts it. Natively the test is called directly with the name pointer and 0x006F69F0's loop (the selection list 0x0083996C, IsTechno) is written out, as the 0x006F7020 behaviour row does (Scout1209 r6). Same meaning; the exact build is untouched. No caller reaches 0x006F7800 today.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Visit_Type_006f7800.cpp",
+   "old": "            if (test(techno, (int)name)) {\n",
+   "new": "            if ((char)Unknown_006F7190(techno, name)) {   // NATIVE: the name pointer itself\n",
+   "why": "0x006F7800 hands the type name to the test 0x006F7190 through UnknownTest, whose argument is an int: VC6's int holds the pointer, arm64's cuts it. Natively the test is called directly with the name pointer and 0x006F69F0's loop (the selection list 0x0083996C, IsTechno) is written out, as the 0x006F7020 behaviour row does (Scout1209 r6). Same meaning; the exact build is untouched. No caller reaches 0x006F7800 today.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Visit_Type_006f7800.cpp",
+   "old": "        list = Unknown_006F69F0(test, (int)name);\n",
+   "new": "        list = new DynamicVectorClass<TechnoClass *>(0, 0);   // NATIVE: 0x006F69F0's loop with the name pointer\n        int count = unknown_selected_83996c->Count();\n        for (int index = 0; index < count; index++) {\n            ObjectClass *object = unknown_selected_83996c->Get(index);\n            if (object != 0 && object->AbstractFlags.IsTechno && (char)Unknown_006F7190((TechnoClass *)object, name)) {\n                list->Add((TechnoClass *)object);\n            }\n        }\n",
+   "why": "0x006F7800 hands the type name to the test 0x006F7190 through UnknownTest, whose argument is an int: VC6's int holds the pointer, arm64's cuts it. Natively the test is called directly with the name pointer and 0x006F69F0's loop (the selection list 0x0083996C, IsTechno) is written out, as the 0x006F7020 behaviour row does (Scout1209 r6). Same meaning; the exact build is untouched. No caller reaches 0x006F7800 today.",
+   "verified": true
   }
  ]
 }
