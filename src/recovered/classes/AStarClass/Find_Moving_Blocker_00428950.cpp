@@ -5,7 +5,7 @@
 #include "shared/crt_memory.hpp"
 extern int unknown_path_level_scale_84e800;
 // @ref ?unknown_path_level_scale_84e800@@=0084e800
-ObjectClass *UnknownPathEstimator::Unknown_00428950(Cell const &cell,int level)
+ObjectClass *AStarClass::Find_Moving_Blocker(Cell const &cell,int level)
 {
     CoordStruct destination=Cell_Coord(cell);
     destination.Z=level*unknown_path_level_scale_84e800;

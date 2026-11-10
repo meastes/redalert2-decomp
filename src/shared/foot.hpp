@@ -258,7 +258,7 @@ public:
     void unknown_4ccf20(FootClass *passenger);                  // 0x004CCF20 (a given passenger leaves; never called)
     void unknown_4c4c30();                                      // 0x004C4C30 (approach the target; hypothesis: Approach_Target)
     bool unknown_4c3000(Cell dest, int arg2, int arg3);   // 0x004C3000 (plans a path to dest; hypothesis: Basic_Path)
-    struct UnknownPathType *Unknown_004BB350(Cell *dest, int *buffer, int length, int arg4, int arg5, int arg6);  // 0x004BB350 (hypothesis: Find_Path)
+    struct PathStruct *Unknown_004BB350(Cell *dest, int *buffer, int length, int arg4, int arg5, int arg6);  // 0x004BB350 (hypothesis: Find_Path)
     Cell Unknown_004BB3F0(Cell const &from, Cell const &to, int arg3, int arg4);   // 0x004BB3F0 (hypothesis: TS Safety_Point; TeamClass 0x006B88B0 Regroup)
     void unknown_4c9a40(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x004C9A40 (the shadow draw; AircraftClass, UnitClass)
     void Unknown_004CCE80(FootClass *passenger);                // 0x004CCE80 (a passenger enters this transport)
@@ -431,7 +431,7 @@ public:
 class UnitClass;
 extern DynamicVectorClass<UnitClass *> Units;
 
-// The path a search returns (UnknownPathType): shared/path_estimator.hpp.
+// The path a search returns (PathStruct): shared/path_estimator.hpp.
 // The path estimator at 0x008315C8: shared/path_estimator.hpp.
 #include "shared/path_estimator.hpp"
 // Movement zones by MovementZone (0x007A1200; hypothesis).

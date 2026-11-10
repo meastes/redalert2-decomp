@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// UnknownPathEstimator::Unknown_004290C0() (0x004290C0): replaces wandering
+// AStarClass::Optimize_Moves() (0x004290C0): replaces wandering
 // runs of a found path by straight lines where foot can walk them, then packs
 // out the emptied moves (Tiberian Sun's Optimize_Moves; hypothesis).
 // From ra2-decomp AStarClass::Optimize_Moves (YR 0x0042B7F0), adapted to our names.
@@ -19,10 +19,10 @@ static inline Cell Adjacent_Cell_By_Value(Cell cell, int facing)
 }
 
 
-// Westwood's max template (defined with the Unknown_0042AA30 row of this unit).
+// Westwood's max template (defined with the Test_Cell_Walk row of this unit).
 template <class T> T max(T a, T b);
 
-void UnknownPathEstimator::Unknown_004290C0(UnknownPathType *path, FootClass *foot)
+void AStarClass::Optimize_Moves(PathStruct *path, FootClass *foot)
 {
     int splice_index;
     Cell splice_cell;
@@ -81,9 +81,9 @@ void UnknownPathEstimator::Unknown_004290C0(UnknownPathType *path, FootClass *fo
                 max_axis_extent = max_axis;
             } else {
                 splice_cell = cursor_cell;
-                Unknown_00429570(moves, scan_index, prev_turn_index, &splice_index, &splice_cell);
+                Splice_Path(moves, scan_index, prev_turn_index, &splice_index, &splice_cell);
 
-                Unknown_004296F0(&moves[splice_index], scan_index - splice_index + 1, splice_cell,
+                Plot_Straight_Line(&moves[splice_index], scan_index - splice_index + 1, splice_cell,
                     Cell(cursor_cell - splice_cell), foot, heights[splice_index], false);
             }
 
@@ -114,9 +114,9 @@ void UnknownPathEstimator::Unknown_004290C0(UnknownPathType *path, FootClass *fo
         if ((scan_index - last_turn_index - 1) > max_axis) {
             scan_index--;
             splice_cell = cursor_cell;
-            Unknown_00429570(moves, scan_index, last_turn_index, &splice_index, &splice_cell);
+            Splice_Path(moves, scan_index, last_turn_index, &splice_index, &splice_cell);
 
-            Unknown_004296F0(&moves[splice_index], scan_index - splice_index + 1, splice_cell,
+            Plot_Straight_Line(&moves[splice_index], scan_index - splice_index + 1, splice_cell,
                 Cell(cursor_cell - splice_cell), foot, heights[splice_index], true);
         }
     }

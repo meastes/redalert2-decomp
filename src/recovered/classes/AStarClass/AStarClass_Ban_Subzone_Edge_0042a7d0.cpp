@@ -1,8 +1,8 @@
-// UnknownPathEstimator::Unknown_0042A7D0() (0x0042A7D0): records a subzone
+// AStarClass::Ban_Subzone_Edge() (0x0042A7D0): records a subzone
 // pair in a layer's list.
 #include "shared/path_estimator.hpp"
 
-void UnknownPathEstimator::Unknown_0042A7D0(unsigned first, unsigned second, int layer)
+void AStarClass::Ban_Subzone_Edge(unsigned first, unsigned second, int layer)
 {
     if (first == second) {
         return;
@@ -12,5 +12,5 @@ void UnknownPathEstimator::Unknown_0042A7D0(unsigned first, unsigned second, int
         second = first;
         first = swap;
     }
-    unknown_74[layer].Add((first << 16) | second);
+    HierBannedEdges[layer].Add((first << 16) | second);
 }

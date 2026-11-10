@@ -1,13 +1,13 @@
-// UnknownPathEstimator::Unknown_00427D40() (0x00427D40): takes the next search node for a cell.
+// AStarClass::Create_Node() (0x00427D40): takes the next search node for a cell.
 #include "shared/path_estimator.hpp"
 #include "shared/cell.hpp"
 #include "shared/fast_math.hpp"
 #include "shared/crt_memory.hpp"
 
-UnknownPathNode *UnknownPathEstimator::Unknown_00427D40(UnknownPathNode *parent, CellClass **cell, Cell const &target, float cost)
+RegularOpenNode *AStarClass::Create_Node(RegularOpenNode *parent, CellClass **cell, Cell const &target, float cost)
 {
-    UnknownPathNode *node = &unknown_10->nodes[unknown_10->count++];
-    UnknownPathEntry *entry = &unknown_0c->entries[unknown_0c->count++];
+    RegularOpenNode *node = &RegularOpenNodes->nodes[RegularOpenNodes->count++];
+    RegularNode *entry = &RegularNodes->entries[RegularNodes->count++];
     entry->unknown_00 = cell;
     if (parent) {
         entry->unknown_08 = parent->unknown_00;

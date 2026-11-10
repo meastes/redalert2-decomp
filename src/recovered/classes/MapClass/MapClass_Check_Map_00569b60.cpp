@@ -20,7 +20,7 @@
 // @ref _fclose=0078395b
 // @ref ?MovementZoneNames@@3PAPBDA=007d1a68
 // @ref ?unknown_table_7e00c4@@3PAY07HA=007e00c4
-// @ref ?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A=008315c8
+// @ref ?Search@@3UUnknownPathEstimator@@A=008315c8
 
 // The movement zone names (0x007D1A68; as shared/ccini_extra.hpp, which the Map unit
 // does not include).
@@ -69,7 +69,7 @@ bool MapClass::Check_Map()
                                 if (to_ground
                                     && from_ground
                                     && Unknown_0054F7C0(from->MapCoords, to->MapCoords, mzone, false, false, false)
-                                    && unknown_path_estimator_8315c8.Unknown_0042AA30(from->MapCoords, to->MapCoords, 0, false, false, mzone) == 0x7FFFFFFF) {
+                                    && Search.Test_Cell_Walk(from->MapCoords, to->MapCoords, 0, false, false, mzone) == 0x7FFFFFFF) {
                                     passed = false;
                                     fprintf(file, "Failure: (%d,%d)->(%d,%d) ; (ground->ground) ; MZONE %s\n", from->MapCoords.X, from->MapCoords.Y, to->MapCoords.X, to->MapCoords.Y, MovementZoneNames[mzone]);
                                 }
@@ -77,14 +77,14 @@ bool MapClass::Check_Map()
                                 if (to_bridge) {
                                     if (from_bridge
                                         && Unknown_0054F7C0(from->MapCoords, to->MapCoords, mzone, true, true, false)
-                                        && unknown_path_estimator_8315c8.Unknown_0042AA30(from->MapCoords, to->MapCoords, 0, true, true, mzone) == 0x7FFFFFFF) {
+                                        && Search.Test_Cell_Walk(from->MapCoords, to->MapCoords, 0, true, true, mzone) == 0x7FFFFFFF) {
                                         passed = false;
                                         fprintf(file, "Failure: (%d,%d)->(%d,%d) ; (bridge->bridge) ; MZONE %s\n", from->MapCoords.X, from->MapCoords.Y, to->MapCoords.X, to->MapCoords.Y, MovementZoneNames[mzone]);
                                     }
 
                                     if (from_ground
                                         && Unknown_0054F7C0(from->MapCoords, to->MapCoords, mzone, false, true, false)
-                                        && unknown_path_estimator_8315c8.Unknown_0042AA30(from->MapCoords, to->MapCoords, 0, false, true, mzone) == 0x7FFFFFFF) {
+                                        && Search.Test_Cell_Walk(from->MapCoords, to->MapCoords, 0, false, true, mzone) == 0x7FFFFFFF) {
                                         passed = false;
                                         fprintf(file, "Failure: (%d,%d)->(%d,%d) ; (ground->bridge) ; MZONE %s\n", from->MapCoords.X, from->MapCoords.Y, to->MapCoords.X, to->MapCoords.Y, MovementZoneNames[mzone]);
                                     }
@@ -93,7 +93,7 @@ bool MapClass::Check_Map()
                                 if (to_ground
                                     && from_bridge
                                     && Unknown_0054F7C0(from->MapCoords, to->MapCoords, mzone, true, false, false)
-                                    && unknown_path_estimator_8315c8.Unknown_0042AA30(from->MapCoords, to->MapCoords, 0, true, false, mzone) == 0x7FFFFFFF) {
+                                    && Search.Test_Cell_Walk(from->MapCoords, to->MapCoords, 0, true, false, mzone) == 0x7FFFFFFF) {
                                     passed = false;
                                     fprintf(file, "Failure: (%d,%d)->(%d,%d) ; (bridge->ground) ; MZONE %s\n", from->MapCoords.X, from->MapCoords.Y, to->MapCoords.X, to->MapCoords.Y, MovementZoneNames[mzone]);
                                 }

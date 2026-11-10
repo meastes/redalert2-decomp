@@ -1,11 +1,11 @@
-// UnknownPathEstimator::Unknown_00429570() (0x00429570): walks a facing list
+// AStarClass::Splice_Path() (0x00429570): walks a facing list
 // backwards from index to stop until the walk turns back toward its start.
 #include "shared/path_estimator.hpp"
 #include "shared/crt_memory.hpp"
 
 #include "shared/adjacent_cell.hpp"
 
-void UnknownPathEstimator::Unknown_00429570(int const *facings, int index, int stop, int *out_index, Cell *cell)
+void AStarClass::Splice_Path(int const *facings, int index, int stop, int *out_index, Cell *cell)
 {
     Cell offset(0, 0);
     int farthest = 0;

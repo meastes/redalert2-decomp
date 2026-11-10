@@ -9,8 +9,8 @@
 #include "shared/path_estimator.hpp"
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A=008315c8
-// @ref ?Unknown_004284E0@UnknownPathEstimator@@QAEXABVRect@@@Z=004284e0
+// @ref ?Search@@3UUnknownPathEstimator@@A=008315c8
+// @ref ?Update_Map_Dimensions@AStarClass@@QAEXABVRect@@@Z=004284e0
 // @ref ?Overpass@MapClass@@QAEHXZ=0054b2e0
 // @ref ?Compute_Zone_Connections@MapClass@@QAEXXZ=0054fda0
 // @ref ?Zone_Reset@MapClass@@QAEHXZ=0054ebd0
@@ -29,7 +29,7 @@ void MapClass::Fresh_Map()
     CellZoneCount = size * size;
     CellZones = new UnknownMapElem4[CellZoneCount];
     CellSubzones = new char[CellZoneCount * 10];
-    unknown_path_estimator_8315c8.Unknown_004284E0(MapSize);
+    Search.Update_Map_Dimensions(MapSize);
     for (int index = 0; index < 3; index++) {
         int scale = 1 << (index + 1);
         SubzoneTracking[index].Set_Growth_Step(MapSize.Width * MapSize.Height * 4 / (scale * scale));

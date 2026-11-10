@@ -51,7 +51,7 @@
 | [startup](../src/recovered/startup/) | 6 | 13,964 | 6 | 0x0068DC70–0x00691320 |
 | [classes/HoverLocomotionClass](../src/recovered/classes/HoverLocomotionClass/) | 35 | 13,615 | 35 | 0x004FB8D0–0x004FEED0 |
 | [classes/BulletClass](../src/recovered/classes/BulletClass/) | 40 | 12,897 | 40 | 0x0045F310–0x004D3150 |
-| [classes/UnknownPathEstimator](../src/recovered/classes/UnknownPathEstimator/) | 27 | 12,892 | 27 | 0x00427060–0x0042AD50 |
+| [classes/AStarClass](../src/recovered/classes/AStarClass/) | 27 | 12,892 | 27 | 0x00427060–0x0042AD50 |
 | [classes/ObjectClass](../src/recovered/classes/ObjectClass/) | 129 | 12,425 | 106 | 0x0041B240–0x005D5540 |
 | [classes/VeinholeMonsterClass](../src/recovered/classes/VeinholeMonsterClass/) | 35 | 11,973 | 35 | 0x0070F780–0x00712730 |
 | [classes/WorldDominationTour__Selection](../src/recovered/classes/WorldDominationTour__Selection/) | 32 | 11,346 | 31 | 0x0072D560–0x00730290 |

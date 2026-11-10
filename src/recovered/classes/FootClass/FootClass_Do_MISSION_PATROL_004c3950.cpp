@@ -52,7 +52,7 @@ int FootClass::Do_MISSION_PATROL()
         ObjectClass *optr = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
         int primary = unknown_slot174(optr);
 
-        if (optr != 0 && (unknown_slot212(optr, primary) || unknown_path_estimator_8315c8.Unknown_0042AA30(Coord_Cell(unknown_slot19(0)), Coord_Cell(optr->unknown_slot19(0)), this, unknown_slot46(0), optr->unknown_slot46(0), -1) < dist)) {
+        if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(Coord_Cell(unknown_slot19(0)), Coord_Cell(optr->unknown_slot19(0)), this, unknown_slot46(0), optr->unknown_slot46(0), -1) < dist)) {
             unknown_4cc = (AbstractClass *)unknown_slot107();
             if ((((UnknownCellClass *)unknown_4cc)->Flags & 0x100) && !unknown_slot46(0)) {
                 Cell cell = Map.Nearby_Location(((UnknownCellClass *)unknown_4cc)->unknown_24, unknown_slot32()->SpeedType, Map.Zone(((UnknownCellClass *)unknown_4cc)->unknown_24, unknown_slot32()->MovementZone, false), unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 0, Cell(0, 0), 0);
@@ -92,7 +92,7 @@ int FootClass::Do_MISSION_PATROL()
 
         if (unknown_slot193() && optr != 0 && optr->Kind_Of() == 6 && House->Is_Ally(((TechnoClass *)optr)->House) && optr->Health_Ratio() > Rules->unknown_1370) {
             unknown_slot220(0);
-        } else if (optr != 0 && (unknown_slot212(optr, primary) || unknown_path_estimator_8315c8.Unknown_0042AA30(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->unknown_slot46(0), -1) < dist)) {
+        } else if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->unknown_slot46(0), -1) < dist)) {
             unknown_slot304();
             if (unknown_228 != 0) {
                 break;
@@ -108,7 +108,7 @@ int FootClass::Do_MISSION_PATROL()
             AbstractClass *target = unknown_slot219(2, &unknown_4cc->Center_Coord(), false);
             ObjectClass *scan = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
             int weapon = unknown_slot174(scan);
-            if (scan != 0 && (unknown_slot212(scan, weapon) || unknown_path_estimator_8315c8.Unknown_0042AA30(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(scan->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, scan->unknown_slot46(0), -1) < dist)) {
+            if (scan != 0 && (unknown_slot212(scan, weapon) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(scan->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, scan->unknown_slot46(0), -1) < dist)) {
                 unknown_slot220(target);
                 Assign_Destination(0, true);
                 return 1;
@@ -121,8 +121,8 @@ int FootClass::Do_MISSION_PATROL()
             UnknownCellClass *tcell = (UnknownCellClass *)unknown_slot107();
             bool onbridge = unknown_slot46(0);
             UnknownCellClass *acell = (UnknownCellClass *)&Map[unknown_1b0->Center_Coord()];
-            int patrolwalk = unknown_path_estimator_8315c8.Unknown_0042AA30(tcell->unknown_24, ((UnknownCellClass *)unknown_4cc)->unknown_24, this, onbridge, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, -1);
-            if (patrolwalk < unknown_path_estimator_8315c8.Unknown_0042AA30(tcell->unknown_24, acell->unknown_24, this, onbridge, acell->Flags >> 8 & 1, -1)) {
+            int patrolwalk = Search.Test_Cell_Walk(tcell->unknown_24, ((UnknownCellClass *)unknown_4cc)->unknown_24, this, onbridge, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, -1);
+            if (patrolwalk < Search.Test_Cell_Walk(tcell->unknown_24, acell->unknown_24, this, onbridge, acell->Flags >> 8 & 1, -1)) {
                 Assign_Destination(unknown_4cc, true);
             } else {
                 Assign_Destination(unknown_1b0, true);
@@ -140,7 +140,7 @@ int FootClass::Do_MISSION_PATROL()
         ObjectClass *optr = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
         int primary = unknown_slot174(optr);
 
-        if (optr != 0 && (unknown_slot212(optr, primary) || unknown_path_estimator_8315c8.Unknown_0042AA30(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->unknown_slot46(0), -1) < dist)) {
+        if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)unknown_4cc)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)unknown_4cc)->Flags >> 8 & 1, optr->unknown_slot46(0), -1) < dist)) {
             unknown_slot220(target);
             Assign_Destination(0, true);
             unknown_a8 = 1;

@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// double UnknownPathEstimator::Unknown_00427110(CellClass **from, CellClass **to, bool bridge, int move, FootClass *foot) (0x00427110)
+// double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool bridge, int move, FootClass *foot) (0x00427110)
 // The cost of a step between two map cell slots for a move result (Tiberian
 // Sun's AStarClass::Get_Movement_Cost): a moving blocker is followed along its
 // path up to ten cells; predicted-path cells cost four times as much, and
@@ -37,7 +37,7 @@ static inline Cell Path_Adjacent_Cell(Cell const &cell, int facing)
     return Cell(cell.X + offset.X, cell.Y + offset.Y);
 }
 
-double UnknownPathEstimator::Unknown_00427110(CellClass **from, CellClass **to, bool bridge, int move, FootClass *foot)
+double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool bridge, int move, FootClass *foot)
 {
     CellClass *from_cell = from[0];
     CellClass *to_cell = to[0];
@@ -51,7 +51,7 @@ double UnknownPathEstimator::Unknown_00427110(CellClass **from, CellClass **to, 
         occupier = object;
         int depth = 0;
         bool clear = false;
-        if (unknown_3c == 0) {
+        if (Avoidance == 0) {
             for (; depth < 10; depth++) {
                 if (occupier == 0) {
                     clear = true;
@@ -78,17 +78,17 @@ double UnknownPathEstimator::Unknown_00427110(CellClass **from, CellClass **to, 
                 occupier = next_occupier;
             }
         }
-        if (!clear || unknown_3c != 0) {
+        if (!clear || Avoidance != 0) {
             cost = 4.0f;
         }
-        if (unknown_3c == 2) {
+        if (Avoidance == 2) {
             cost = 1000.0f;
         }
     }
     if (to_cell->unknown_140 & 0x40000) {
         cost = cost * 4.0f;
     }
-    if (bridge && unknown_01) {
+    if (bridge && IsAvoidBridges) {
         float multiplier = 1.0f;
         Cell step = to_cell->MapCoords - from_cell->MapCoords;
         int dir = unknown_bridge_facings_79c460[step.Y + 1][step.X + 1];

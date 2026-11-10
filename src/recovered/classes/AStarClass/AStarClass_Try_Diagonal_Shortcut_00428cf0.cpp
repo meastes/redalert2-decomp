@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// UnknownPathEstimator::Unknown_00428CF0() (0x00428CF0): replaces a corner
+// AStarClass::Try_Diagonal_Shortcut() (0x00428CF0): replaces a corner
 // of two legs of a path by a diagonal where foot can walk it (Tiberian
 // Sun's Try_Diagonal_Shortcut; hypothesis). From ra2-decomp AStarClass::Try_Diagonal_Shortcut
 // (YR 0x0042B420), adapted to our names (Scout803 td0, Scout849 td_d FacingType locals; Scout857 r1).
@@ -20,10 +20,10 @@
 // The cell reached from cell along count facings (Westwood's Follow_Path2, the file-local wrapper).
 static Cell Follow_Path2(Cell const &cell, int count, int const *path)
 {
-    return UnknownPathEstimator::Unknown_00427060(cell, count, path);
+    return AStarClass::Follow_Path(cell, count, path);
 }
 
-int UnknownPathEstimator::Unknown_00428CF0(FootClass *foot, int *facings, int *heights, int first_length, int second_length, Cell &corner)
+int AStarClass::Try_Diagonal_Shortcut(FootClass *foot, int *facings, int *heights, int first_length, int second_length, Cell &corner)
 {
     int first_leg_length = first_length;
     int second_leg_length = second_length;
@@ -48,7 +48,7 @@ int UnknownPathEstimator::Unknown_00428CF0(FootClass *foot, int *facings, int *h
     int max_diagonal_length = second_leg_length;
     second_leg_length = first_leg_length < max_diagonal_length ? first_leg_length : max_diagonal_length;
     if (second_leg_length < first_leg_length) {
-        diagonal_start_cell = Unknown_00427060(diagonal_start_cell, first_leg_length - second_leg_length, facings);
+        diagonal_start_cell = Follow_Path(diagonal_start_cell, first_leg_length - second_leg_length, facings);
     }
 
     double threat_avoidance = foot->unknown_4cafb0();
@@ -84,7 +84,7 @@ int UnknownPathEstimator::Unknown_00428CF0(FootClass *foot, int *facings, int *h
                 diagonal_moves[move_index] = diagonal_direction;
             }
 
-            corner = Unknown_00427060(corner, first_leg_length - second_leg_length, facings);
+            corner = Follow_Path(corner, first_leg_length - second_leg_length, facings);
             return first_leg_length - second_leg_length;
         }
 

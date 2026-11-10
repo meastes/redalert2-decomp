@@ -221,7 +221,7 @@ void __fastcall Unknown_00629290(int start, int count)
                                     int range = (dx > dy ? dx : dy) + 3;
                                     // The original stores range, then keeps the fallback either way: VC6 only
                                     // removes this test after the store has survived dead-store removal.
-                                    if (unknown_path_estimator_8315c8.Unknown_0042AA30(spot, dest, (FootClass *)object,
+                                    if (Search.Test_Cell_Walk(spot, dest, (FootClass *)object,
                                             Map[spot].IsUnderBridge, Map[dest].IsUnderBridge, -1) > range && range > 0) {
                                         found = false;
                                     }

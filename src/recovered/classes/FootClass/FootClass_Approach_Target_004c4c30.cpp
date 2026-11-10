@@ -196,13 +196,13 @@ void FootClass::unknown_slot304()
             int dx=abs((int)trial_cell.X-target_cell.X);
             int maximum_distance=dx>dy?dx:dy;
             CellClass *cell=&Map[trial_cell];
-            if (!flyer && unknown_path_estimator_8315c8.Unknown_0042AA30(trial_cell,target_cell,this,
+            if (!flyer && Search.Test_Cell_Walk(trial_cell,target_cell,this,
                     (cell->unknown_140&0x100)!=0,target_bridge,-1)>maximum_distance+8) {
                 Cell destination=unknown_slot19(0).As_Cell();
                 int dest_dy=abs((int)destination.Y-trial_cell.Y);
                 int dest_dx=abs((int)destination.X-trial_cell.X);
                 int dest_distance=dest_dx>dest_dy?dest_dx:dest_dy;
-                if (unknown_path_estimator_8315c8.Unknown_0042AA30(destination,trial_cell,this,
+                if (Search.Test_Cell_Walk(destination,trial_cell,this,
                         unknown_slot46(0),(cell->unknown_140&0x100)!=0,-1)>dest_distance+8) continue;
             }
             found=true;

@@ -1,4 +1,4 @@
-// UnknownPathEstimator::Unknown_004296F0() (0x004296F0): tries the two-leg
+// AStarClass::Plot_Straight_Line() (0x004296F0): tries the two-leg
 // straight path (a diagonal then a straight run, or the reverse) to a cell
 // offset and writes its facings (Tiberian Sun's Plot_Straight_Line;
 // hypothesis).
@@ -32,7 +32,7 @@ template <class T> void swap(T &left, T &right)
     right = temp;
 }
 
-bool UnknownPathEstimator::Unknown_004296F0(int *moves, int move_count, Cell const &from, Cell const &to, FootClass *foot, int level, bool fearless)
+bool AStarClass::Plot_Straight_Line(int *moves, int move_count, Cell const &from, Cell const &to, FootClass *foot, int level, bool fearless)
 {
     int tries = 0;
     int x = to.X;

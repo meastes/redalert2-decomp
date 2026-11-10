@@ -50,7 +50,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         int dest_x=cell.X;
         max_distance=Path_Max(abs(nearby.X-dest_x),abs(nearby_y-dest_y));
         if(nearby!=unknown_geometry_k && Path_Length2(CoordStruct(dest_x*256+128,dest_y*256+128,0)-CoordStruct(nearby.X*256+128,nearby_y*256+128,0))<distance) {
-            int walk=unknown_path_estimator_8315c8.Unknown_0042AA30(nearby,cell,this,
+            int walk=Search.Test_Cell_Walk(nearby,cell,this,
                 (Map[nearby].unknown_140&0x100)!=0,(Map[cell].unknown_140&0x100)!=0,check?0:-1);
             if(walk<=max_distance+6) {
                 Assign_Destination(&Map[nearby],true);
@@ -71,9 +71,9 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
     Mark(0);
     if(path_offset==0) Path[0]=-1;
     bool found=false;
-    UnknownPathType saved_path;
+    PathStruct saved_path;
     int work_path[2000];
-    UnknownPathType *path=Unknown_004BB350(&cell,work_path,2000,0,path_offset,avoidance);
+    PathStruct *path=Unknown_004BB350(&cell,work_path,2000,0,path_offset,avoidance);
     if(path && path->Cost) {
         memcpy(&saved_path,path,sizeof(saved_path));
         found=true;

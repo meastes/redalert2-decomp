@@ -1,4 +1,4 @@
-// NON-EXACT DRAFT 0x427370 UnknownPathEstimator::Find_Path_Regular_00427370 (cell search) (2506 B)
+// NON-EXACT DRAFT 0x427370 AStarClass::Find_Path_Regular (cell search) (2506 B)
 // entry 0x427370; exact-match score 78.55 (lane best), this text 78.55; plan "draft, verify"
 // origin lane: Scout965 (build/class-work/Scout965/keep/a0.cpp, 78.55); native adaptation Scout1103
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -6,13 +6,13 @@
 // Its own unit: the population macros the lane scored it under come first.
 #define RA2_PATH_MOVEMENT_COST
 #define RA2_PATH_OPTIMIZE_MOVES
-// UnknownPathEstimator::Find_Path_Regular_00427370() (0x00427370): the cell search (Tiberian Sun's
+// AStarClass::Find_Path_Regular() (0x00427370): the cell search (Tiberian Sun's
 // Find_Path_Regular): expands the open nodes cell by cell, eight neighbours and the tube exit, kept
 // inside the subzone corridor the hierarchical search marked in +0x40 when with_hs, and builds,
 // straightens and optimizes the path to the destination.
-// @ref _?NoneCell@?DI@??Find_Path_Regular_00427370@UnknownPathEstimator@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4PAVCellClass@@A=0084e808
-// @ref _?_facing_costs@?1??Find_Path_Regular_00427370@UnknownPathEstimator@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4PAMA=007cf0dc
-// @ref _?_offsets@?BJ@??Find_Path_Regular_00427370@UnknownPathEstimator@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4QBHB=0079c484
+// @ref _?NoneCell@?DI@??Find_Path_Regular@AStarClass@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4PAVCellClass@@A=0084e808
+// @ref _?_facing_costs@?1??Find_Path_Regular@AStarClass@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4PAMA=007cf0dc
+// @ref _?_offsets@?BJ@??Find_Path_Regular@AStarClass@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z@4QBHB=0079c484
 // @ref __real@8@3fff8126e978d4fdf000=0079c4d0
 #include "shared/path_estimator.hpp"
 #include "shared/foot.hpp"
@@ -24,22 +24,22 @@
 
 // NATIVE adaptation (Scout1103): the lane scored this draft with private
 // path_estimator.hpp additions (the +0x14 queue's Insert, Regular_Extract_Min,
-// Replace_Root, Regular_Heapify over UnknownPathNode; Scout965 h1/shared) and
+// Replace_Root, Regular_Heapify over RegularOpenNode; Scout965 h1/shared) and
 // map_view.hpp's guarded Cells member. They are spelled here as file-local
 // functions with the lane's statements; the cell slots come from the full
 // MapClass (link/behaviour_m10_map.cpp).
 CellClass **Native_Map_Cell_Slot(int index);   // the address of Map.Cells[index]
-static inline UnknownPathNode **Native_Regular_Heap(UnknownPathEstimatorBlock *block) { return (UnknownPathNode **)block->unknown_08; }
-static inline bool Native_Node_Less(UnknownPathNode const &a, UnknownPathNode const &b) { return (double)a.unknown_08 < (double)b.unknown_08; }
+static inline RegularOpenNode **Native_Regular_Heap(UnknownPathEstimatorBlock *block) { return (RegularOpenNode **)block->unknown_08; }
+static inline bool Native_Node_Less(RegularOpenNode const &a, RegularOpenNode const &b) { return (double)a.unknown_08 < (double)b.unknown_08; }
 static inline void Native_Regular_Heapify(UnknownPathEstimatorBlock *block, int index)
 {
-    UnknownPathNode **heap = Native_Regular_Heap(block);
+    RegularOpenNode **heap = Native_Regular_Heap(block);
     int left = index << 1;
     int right = (index << 1) + 1;
     int smallest = left <= block->unknown_00 && Native_Node_Less(*heap[left], *heap[index]) ? left : index;
     smallest = right <= block->unknown_00 && Native_Node_Less(*heap[right], *heap[smallest]) ? right : smallest;
     while (smallest != index) {
-        UnknownPathNode *temp = heap[index];
+        RegularOpenNode *temp = heap[index];
         heap[index] = heap[smallest];
         heap[smallest] = temp;
         index = smallest;
@@ -49,9 +49,9 @@ static inline void Native_Regular_Heapify(UnknownPathEstimatorBlock *block, int 
         smallest = right <= block->unknown_00 && Native_Node_Less(*heap[right], *heap[smallest]) ? right : smallest;
     }
 }
-static inline bool Native_Regular_Insert(UnknownPathEstimatorBlock *block, UnknownPathNode &node)
+static inline bool Native_Regular_Insert(UnknownPathEstimatorBlock *block, RegularOpenNode &node)
 {
-    UnknownPathNode **heap = Native_Regular_Heap(block);
+    RegularOpenNode **heap = Native_Regular_Heap(block);
     unsigned index = block->unknown_00 + 1;
     unsigned parent = index >> 1;
     float score = node.unknown_08;
@@ -76,26 +76,26 @@ static inline bool Native_Regular_Insert(UnknownPathEstimatorBlock *block, Unkno
     }
     return true;
 }
-static inline UnknownPathNode *Native_Regular_Extract_Min(UnknownPathEstimatorBlock *block)
+static inline RegularOpenNode *Native_Regular_Extract_Min(UnknownPathEstimatorBlock *block)
 {
     if (block->unknown_00 == 0) {
         return 0;
     }
-    UnknownPathNode **heap = Native_Regular_Heap(block);
-    UnknownPathNode *min = heap[1];
+    RegularOpenNode **heap = Native_Regular_Heap(block);
+    RegularOpenNode *min = heap[1];
     heap[1] = heap[block->unknown_00];
     heap[block->unknown_00] = 0;
     block->unknown_00--;
     Native_Regular_Heapify(block, 1);
     return min;
 }
-static inline UnknownPathNode *Native_Replace_Root(UnknownPathEstimatorBlock *block, UnknownPathNode &node)
+static inline RegularOpenNode *Native_Replace_Root(UnknownPathEstimatorBlock *block, RegularOpenNode &node)
 {
     if (block->unknown_00 == 0) {
         return &node;
     }
-    UnknownPathNode **heap = Native_Regular_Heap(block);
-    UnknownPathNode *old_root = heap[1];
+    RegularOpenNode **heap = Native_Regular_Heap(block);
+    RegularOpenNode *old_root = heap[1];
     if (Native_Node_Less(node, *old_root)) {
         return &node;
     }
@@ -110,7 +110,7 @@ static inline UnknownPathNode *Native_Replace_Root(UnknownPathEstimatorBlock *bl
 
 extern int unknown_map_cell_side_84e804;
 
-UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &from, Cell const &to, FootClass *foot, int *moves, int max_loops, bool with_hs)
+PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, FootClass *foot, int *moves, int max_loops, bool with_hs)
 {
     int face;
 
@@ -150,26 +150,26 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
         }
     }
 
-    unknown_2c = foot->unknown_slot32()->SpeedType;
-    unknown_6c = 0;
-    unknown_70 = from;
-    int *fine_final_ids = unknown_40[0];
-    UnknownPathNode *working_node = Unknown_00427D40(0, from_pptr, to, 0.0);
+    ObjectSpeed = foot->unknown_slot32()->SpeedType;
+    HierNodeIndex = 0;
+    HierLastNodeCell = from;
+    int *fine_final_ids = HierOnPath[0];
+    RegularOpenNode *working_node = Create_Node(0, from_pptr, to, 0.0);
 
     if (from == to && CurrentCellHeight == DestCellHeight) {
         return 0;
     }
 
-    if (unknown_3c != 0) {
-        Apply_Path_Collision_Avoidance_004285d0(foot);
+    if (Avoidance != 0) {
+        Apply_Path_Collision_Avoidance(foot);
     }
     int start_index = from_ptr->MapCoords.X + unknown_map_cell_side_84e804 * from_ptr->MapCoords.Y;
     if (CurrentCellHeight > from_ptr->unknown_11b) {
-        unknown_1c[start_index] = unknown_28;
-        unknown_20[start_index] = 0;
+        RegularBridgeVisited[start_index] = UniqueID;
+        RegularBridgeMovementCosts[start_index] = 0;
     } else {
-        unknown_18[start_index] = unknown_28;
-        unknown_24[start_index] = 0;
+        RegularVisited[start_index] = UniqueID;
+        RegularMovementCosts[start_index] = 0;
     }
 
     // The map cell offsets of the eight facings (0x0079C484).
@@ -194,11 +194,11 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
                 CellClass *&neighbor = from_pptr[_offsets[face]];
                 int neighbor_index = neighbor->MapCoords.X + unknown_map_cell_side_84e804 * neighbor->MapCoords.Y;
                 if (CurrentCellHeight > neighbor->unknown_11b + 1) {
-                    unknown_1c[neighbor_index] = unknown_28;
-                    unknown_20[neighbor_index] = 0;
+                    RegularBridgeVisited[neighbor_index] = UniqueID;
+                    RegularBridgeMovementCosts[neighbor_index] = 0;
                 } else {
-                    unknown_18[neighbor_index] = unknown_28;
-                    unknown_24[neighbor_index] = 0;
+                    RegularVisited[neighbor_index] = UniqueID;
+                    RegularMovementCosts[neighbor_index] = 0;
                 }
             }
         }
@@ -216,7 +216,7 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
             break;
         }
         Cell &from_id = working_from[0]->MapCoords;
-        UnknownPathNode *temp_node = 0;
+        RegularOpenNode *temp_node = 0;
         int from_index = from_id.X + unknown_map_cell_side_84e804 * from_id.Y;
 
         for (face = 0; face <= 8; face++) {
@@ -256,25 +256,25 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
             char *subzones = Map.CellSubzones;
 
             short subzone_id = *(short *)(subzones + zone_index * 10);
-            if (fine_final_ids[subzone_id] != unknown_28 && base_level && !neighbor_cell->unknown_122 && with_hs) {
+            if (fine_final_ids[subzone_id] != UniqueID && base_level && !neighbor_cell->unknown_122 && with_hs) {
                 continue;
             }
 
-            if (base_level && Unknown_00427F70(0, true, node_index) && (working_node->unknown_04 + 1.009) > unknown_24[node_index]) {
+            if (base_level && Is_Visited(0, true, node_index) && (working_node->unknown_04 + 1.009) > RegularMovementCosts[node_index]) {
                 continue;
             }
 
-            if (!base_level && Unknown_00427F70(0, false, node_index) && (working_node->unknown_04 + 1.009) > unknown_20[node_index]) {
+            if (!base_level && Is_Visited(0, false, node_index) && (working_node->unknown_04 + 1.009) > RegularBridgeMovementCosts[node_index]) {
                 continue;
             }
-            int move = foot->unknown_slot101(neighbor_cell, face, CurrentCellHeight, *working_from, unknown_08);
+            int move = foot->unknown_slot101(neighbor_cell, face, CurrentCellHeight, *working_from, UseLocomotorEnterCheck);
             if (is_train && move < 7) {
                 move = 0;
             }
 
             float movement_cost;
             if (face != 8) {
-                movement_cost = Unknown_00427110(working_from, working_to, base_level == 0, move, foot) * unknown_04 + _facing_costs[face];
+                movement_cost = Get_Movement_Cost(working_from, working_to, base_level == 0, move, foot) * MovementCostMultiplier + _facing_costs[face];
             } else {
                 CellClass &from_cell = *working_from[0];
                 CellClass &to_cell = *neighbor_cell;
@@ -284,32 +284,32 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
             }
 
             if (move < 7) {
-                if (Unknown_00427F70(0, base_level, node_index)) {
+                if (Is_Visited(0, base_level, node_index)) {
                     continue;
                 }
 
-                UnknownPathNode *new_node = Unknown_00427D40(working_node, working_to, to, movement_cost);
+                RegularOpenNode *new_node = Create_Node(working_node, working_to, to, movement_cost);
                 if (temp_node == 0) {
                     temp_node = new_node;
                 } else {
                     if (new_node->unknown_08 < temp_node->unknown_08) {
-                        Native_Regular_Insert(unknown_14, *temp_node);
+                        Native_Regular_Insert(RegularQueue, *temp_node);
                         temp_node = new_node;
                     } else {
-                        Native_Regular_Insert(unknown_14, *new_node);
+                        Native_Regular_Insert(RegularQueue, *new_node);
                     }
                 }
 
                 if (base_level) {
-                    unknown_18[node_index] = unknown_28;
-                    unknown_24[node_index] = new_node->unknown_04;
+                    RegularVisited[node_index] = UniqueID;
+                    RegularMovementCosts[node_index] = new_node->unknown_04;
                 } else {
-                    unknown_1c[node_index] = unknown_28;
-                    unknown_20[node_index] = new_node->unknown_04;
+                    RegularBridgeVisited[node_index] = UniqueID;
+                    RegularBridgeMovementCosts[node_index] = new_node->unknown_04;
                 }
-                if (subzone_id == unknown_bc[0][unknown_6c + 1]) {
-                    unknown_6c++;
-                    unknown_70 = neighbor_cell->MapCoords;
+                if (subzone_id == HierSubzonePath[0][HierNodeIndex + 1]) {
+                    HierNodeIndex++;
+                    HierLastNodeCell = neighbor_cell->MapCoords;
                 }
             } else if (working_to == to_pptr && !is_passive) {
                 if (abs(CurrentCellHeight - DestCellHeight) <= 1) {
@@ -319,9 +319,9 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
         }
 
         if (temp_node) {
-            working_node = Native_Replace_Root(unknown_14, *temp_node);
+            working_node = Native_Replace_Root(RegularQueue, *temp_node);
         } else {
-            working_node = Native_Regular_Extract_Min(unknown_14);
+            working_node = Native_Regular_Extract_Min(RegularQueue);
         }
 
         if (working_node) {
@@ -333,19 +333,19 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
 breakout:
 
     if (tries == 10000 || working_node == 0 || tries == max_loops || working_node->unknown_0c < 2) {
-        if (unknown_3c != 0) {
-            Apply_Path_Collision_Avoidance_004285d0(foot);
+        if (Avoidance != 0) {
+            Apply_Path_Collision_Avoidance(foot);
         }
         return 0;
     }
 
-    UnknownPathType *final_path = Unknown_00428370(working_node, moves);
-    Unknown_00428AE0(final_path, foot);
+    PathStruct *final_path = Build_Final_Path(working_node, moves);
+    Cut_Corners(final_path, foot);
 
-    Unknown_004290C0(final_path, foot);
+    Optimize_Moves(final_path, foot);
 
-    if (unknown_3c != 0) {
-        Apply_Path_Collision_Avoidance_004285d0(foot);
+    if (Avoidance != 0) {
+        Apply_Path_Collision_Avoidance(foot);
     }
     return final_path;
 }

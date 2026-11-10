@@ -50,7 +50,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
     IndexClass<int, Cell> sorted;
     for (int c = 0; c < cells.Count(); c++) {
         Cell spot = Map.Nearby_Location(cells[c], 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
-        int distance = unknown_path_estimator_8315c8.Unknown_0042AA30(center, spot, 0, false, false, 0);
+        int distance = Search.Test_Cell_Walk(center, spot, 0, false, false, 0);
         sorted.Add_Index(cells.Count() * distance + c, cells[c]);
     }
     cells.Clear();
@@ -59,7 +59,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
     }
 
     bool found = false;
-    UnknownPathType *path = 0;
+    PathStruct *path = 0;
     Cell target = unknown_cell_a40f10;
     Cell spot = unknown_cell_a40f10;
     int moves[2048];
@@ -69,7 +69,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
         target = cells[0];
         spot = Map.Nearby_Location(cells[0], 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
         if (spot != unknown_cell_a40f10) {
-            path = unknown_path_estimator_8315c8.Find_Path_0042a1d0(start, spot, unit, moves, -1, 0, 0);
+            path = Search.Find_Path(start, spot, unit, moves, -1, 0, 0);
         } else {
             path = 0;
         }

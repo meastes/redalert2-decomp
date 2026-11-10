@@ -4,8 +4,8 @@
 #include "shared/map.hpp"
 #include "shared/path_estimator.hpp"
 // @ref ?Reset_Subzone@MapClass@@QAEXH@Z=00563d80
-// @ref ?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A=008315c8
-// @ref ?Unknown_00429A90@UnknownPathEstimator@@QAEXXZ=00429a90
+// @ref ?Search@@3UUnknownPathEstimator@@A=008315c8
+// @ref ?Reset@AStarClass@@QAEXXZ=00429a90
 
 void MapClass::Reset_All_Subzones()
 {
@@ -13,5 +13,5 @@ void MapClass::Reset_All_Subzones()
         SubzoneTracking[index].Clear();
         Reset_Subzone(index);
     }
-    unknown_path_estimator_8315c8.Unknown_00429A90();
+    Search.Reset();
 }

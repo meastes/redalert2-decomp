@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// UnknownPathEstimator::Unknown_00427060() (0x00427060): the cell at the end
+// AStarClass::Follow_Path() (0x00427060): the cell at the end
 // of count steps along a list of facings.
 #ifndef VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR
 #define VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR
@@ -39,7 +39,7 @@ inline DynamicVectorClass<unsigned short>::DynamicVectorClass(unsigned size, uns
 // The unit's out-of-line copy is the COMDAT 0x0042AD50 (0x00428CF0 calls it).
 
 
-Cell __fastcall UnknownPathEstimator::Unknown_00427060(Cell const &start, int count, int const *facings)
+Cell __fastcall AStarClass::Follow_Path(Cell const &start, int count, int const *facings)
 {
     // ra2-decomp Follow_Path (YR 0x00429780) form: the exit test inside the loop.
     Cell cell = start;
@@ -47,6 +47,6 @@ Cell __fastcall UnknownPathEstimator::Unknown_00427060(Cell const &start, int co
         if (index >= count) {
             return cell;
         }
-        cell = Unknown_0042AD50(cell, facings[index]);
+        cell = Next_Cell(cell, facings[index]);
     }
 }

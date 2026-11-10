@@ -3,7 +3,7 @@
 // Get_Movement_Cost 0x00427110 is declared for this unit.
 #define RA2_PATH_MOVEMENT_COST
 #define COM_PTR_IMPLEMENT_RELEASE
-// Unknown_00429B60 calls MapClass::Unknown_00567D20 (shared/map_view.hpp).
+// Find_Path_Hierarchical calls MapClass::Unknown_00567D20 (shared/map_view.hpp).
 #define MAP_VIEW_DECLARE_REGION_THREAT
 // Header-static dynamic initializers of the unit at 0x00426E70: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x00426E70-0x00427051); the other

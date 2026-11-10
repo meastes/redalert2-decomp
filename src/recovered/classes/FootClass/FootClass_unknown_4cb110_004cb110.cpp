@@ -93,7 +93,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             limit = limit + 3 > 5 ? 5 : limit + 3;
 
             if ((action == adjusted_action || !direct) && entry == 0 && zone == adjusted_zone && dest_zone == zone
-                && (!direct || unknown_path_estimator_8315c8.Unknown_0042AA30(adjusted, cell, this, adjusted_cell->Flags >> 8 & 1, cell_ptr->Flags >> 8 & 1, -1) <= limit)) {
+                && (!direct || Search.Test_Cell_Walk(adjusted, cell, this, adjusted_cell->Flags >> 8 & 1, cell_ptr->Flags >> 8 & 1, -1) <= limit)) {
                 Cell none(-1, -1);
                 succeeded = unknown_slot77(action, &adjusted, &none, true);
                 unknown_420 = adjusted;

@@ -3,7 +3,7 @@
 #include "shared/map_view.hpp"
 #include "shared/tube.hpp"
 #include "shared/adjacent_cell.hpp"
-Cell __fastcall UnknownPathEstimator::Unknown_0042AD50(Cell const &cell, int facing)
+Cell __fastcall AStarClass::Next_Cell(Cell const &cell, int facing)
 {
     if (facing == 8) {
         int tube = Map[cell].unknown_116;

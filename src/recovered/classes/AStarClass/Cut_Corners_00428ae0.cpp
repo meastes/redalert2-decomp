@@ -1,7 +1,7 @@
 #include "shared/path_estimator.hpp"
-// @ref ?Unknown_00428CF0@UnknownPathEstimator@@=00428cf0
+// @ref ?Try_Diagonal_Shortcut@AStarClass@@=00428cf0
 #include "shared/adjacent_cell.hpp"
-void UnknownPathEstimator::Unknown_00428AE0(UnknownPathType *path,FootClass *foot)
+void AStarClass::Cut_Corners(PathStruct *path,FootClass *foot)
 {
     int maximum=path->Length;
     --maximum;
@@ -29,16 +29,16 @@ void UnknownPathEstimator::Unknown_00428AE0(UnknownPathType *path,FootClass *foo
                 firstDirection=(direction&1)?direction:-1;
                 start=cursor;
             }
-            cursor=Unknown_0042AD50(cursor,direction);
+            cursor=Next_Cell(cursor,direction);
         } else {
             if(moves[secondStart+secondLength]==secondDirection)++secondLength;
             else {
-                firstStart+=Unknown_00428CF0(foot,moves+firstStart,heights+firstStart,firstLength,secondLength,start);
+                firstStart+=Try_Diagonal_Shortcut(foot,moves+firstStart,heights+firstStart,firstLength,secondLength,start);
                 firstLength=1;corner=false;
                 cursor=start+AdjacentCell[moves[firstStart]&7];
                 firstDirection=moves[firstStart];
             }
         }
     }
-    if(corner)Unknown_00428CF0(foot,moves+firstStart,heights+firstStart,firstLength,secondLength,start);
+    if(corner)Try_Diagonal_Shortcut(foot,moves+firstStart,heights+firstStart,firstLength,secondLength,start);
 }

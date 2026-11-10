@@ -10,7 +10,7 @@
 extern int unknown_bridge_side_facings_7e0454[];
 // @ref ?unknown_bridge_side_facings_7e0454@@3PAHA=007e0454
 // @ref ?Get_Tunnel@CellClass@@QAEPAVTubeClass@@XZ=0047a130
-// @ref ?Unknown_00427060@UnknownPathEstimator@@SI?AVCell@@ABV2@HPBH@Z=00427060
+// @ref ?Follow_Path@AStarClass@@SI?AVCell@@ABV2@HPBH@Z=00427060
 
 inline int Zone_Pack32(int from, int to)
 {
@@ -51,9 +51,9 @@ void MapClass::Unknown_00564B60(ZoneConnectionClass *connection, int layer)
         TubeClass *tube2 = enterptr2->Get_Tunnel();
         if (!tube1 || !tube2) return;
         int count1 = tube1->unknown_1c0;
-        exit1 = UnknownPathEstimator::Unknown_00427060(enter1, count1, tube1->Directions);
+        exit1 = AStarClass::Follow_Path(enter1, count1, tube1->Directions);
         int count2 = tube2->unknown_1c0;
-        exit2 = UnknownPathEstimator::Unknown_00427060(enter2, count2, tube2->Directions);
+        exit2 = AStarClass::Follow_Path(enter2, count2, tube2->Directions);
     } else {
         bool is_bridge = from_cell->unknown_47b960();
         int tile_set = unknown_tileset_a52c74;

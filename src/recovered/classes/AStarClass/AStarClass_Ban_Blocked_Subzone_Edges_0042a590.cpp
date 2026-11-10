@@ -1,4 +1,4 @@
-// UnknownPathEstimator::Unknown_0042A590() (0x0042A590): records, for each
+// AStarClass::Ban_Blocked_Subzone_Edges() (0x0042A590): records, for each
 // layer, the subzone pairs around the start cell.
 #include "shared/path_estimator.hpp"
 #include "shared/map_view.hpp"
@@ -28,19 +28,19 @@ inline unsigned short *Cell_Subzones(Cell const &cell)
     return (unsigned short *)(Map.CellSubzones + Map.Get_Cell_Zone_Index(cell) * 10);
 }
 
-void UnknownPathEstimator::Unknown_0042A590(FootClass *foot)
+void AStarClass::Ban_Blocked_Subzone_Edges(FootClass *foot)
 {
-    unsigned short *subzones = Cell_Subzones(unknown_70);
+    unsigned short *subzones = Cell_Subzones(HierLastNodeCell);
     for (int layer = 0; layer < 3; layer++) {
         unsigned short subzone = subzones[layer];
         DynamicVectorClass<unsigned short> list;
         list.Clear();
-        if (Map.Build_Reachable_Subzones(&Map[unknown_70], layer, list, (ObjectClass const *)foot)) {
-            Unknown_0042A840(Cell_Subzones(unknown_70)[layer], layer);
+        if (Map.Build_Reachable_Subzones(&Map[HierLastNodeCell], layer, list, (ObjectClass const *)foot)) {
+            Ban_Neighborhood_Subzone_Edges(Cell_Subzones(HierLastNodeCell)[layer], layer);
             continue;
         }
         for (int index = list.Count() - 1; index >= 0; index--) {
-            Unknown_0042A7D0(subzone, list[index], layer);
+            Ban_Subzone_Edge(subzone, list[index], layer);
         }
     }
 }

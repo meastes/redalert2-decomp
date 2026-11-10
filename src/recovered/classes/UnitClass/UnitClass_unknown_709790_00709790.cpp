@@ -6,8 +6,8 @@
 // longer than 15.
 #include "shared/unit.hpp"
 #include "shared/techno_map.hpp"
-// @ref ?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A=008315c8
-// @ref ?Unknown_0042AA30@UnknownPathEstimator@@QAEHABVCell@@0PAVFootClass@@_N2H@Z=0042aa30
+// @ref ?Search@@3UUnknownPathEstimator@@A=008315c8
+// @ref ?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PAVFootClass@@_N2H@Z=0042aa30
 
 extern "C" int __cdecl abs(int value);
 #pragma intrinsic(abs)
@@ -25,7 +25,7 @@ bool UnitClass::unknown_709790(Cell const *from, Cell const *to)
             return false;
         }
         if (distance < 12 && Map.Unknown_0055A660(*from, true) && Map.Unknown_0055A660(*to, true)) {
-            return unknown_path_estimator_8315c8.Unknown_0042AA30(*from, *to, this, false, (Map_Cell_At(*to)->Flags >> 8) & 1, 0) > 15;
+            return Search.Test_Cell_Walk(*from, *to, this, false, (Map_Cell_At(*to)->Flags >> 8) & 1, 0) > 15;
         }
     }
     return true;

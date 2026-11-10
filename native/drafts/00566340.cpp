@@ -13,8 +13,8 @@
 #include "shared/cell_subzone.hpp"
 #include "shared/path_estimator.hpp"
 // @ref ?Unknown_00564290@MapClass@@QAEHPAUCellSubzoneStruct@@HIABVRect@@ABVCell@@@Z=00564290
-// @ref ?Unknown_00429A90@UnknownPathEstimator@@QAEXXZ=00429a90
-// @ref ?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A=008315c8
+// @ref ?Reset@AStarClass@@QAEXXZ=00429a90
+// @ref ?Search@@3UUnknownPathEstimator@@A=008315c8
 // @ref ??_7?$VectorClass@G@@6B@=0079c534
 // @ref ??_7?$DynamicVectorClass@G@@6B@=0079c554
 
@@ -163,6 +163,6 @@ void MapClass::Unknown_00566340(Cell const &cell)
                 }
             }
         }
-        unknown_path_estimator_8315c8.Unknown_00429A90();
+        Search.Reset();
     }
 }

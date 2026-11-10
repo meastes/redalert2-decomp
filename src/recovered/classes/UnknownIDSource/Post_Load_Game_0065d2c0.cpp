@@ -30,7 +30,7 @@ void __fastcall Post_Load_Game_0065d2c0()
     CDTimerClass<FrameTimerClass> &timer = unknown_timer_ac0178;
     timer.Stop();
     timer.Started = timer.Timer;
-    unknown_path_estimator_8315c8.Unknown_004284E0(Map.MapSize);
+    Search.Update_Map_Dimensions(Map.MapSize);
     Unknown_00520770();
     Unknown_00423C70();
     Map.Flag_To_Redraw(2);

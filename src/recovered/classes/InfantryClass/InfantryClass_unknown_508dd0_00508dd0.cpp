@@ -13,8 +13,8 @@
 // @ref ?Unknown_0051FC80@HouseClass@@QAE_NXZ=0051fc80
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?Unknown_00479CF0@UnknownCellClass@@QAE_NXZ=00479cf0
-// @ref ?Unknown_0042AA30@UnknownPathEstimator@@QAEHABVCell@@0PAVFootClass@@_N2H@Z=0042aa30
-// @ref ?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A=008315c8
+// @ref ?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PAVFootClass@@_N2H@Z=0042aa30
+// @ref ?Search@@3UUnknownPathEstimator@@A=008315c8
 
 bool InfantryClass::unknown_508dd0(Cell const *from, Cell const *to)
 {
@@ -49,5 +49,5 @@ bool InfantryClass::unknown_508dd0(Cell const *from, Cell const *to)
     if (!Map.Unknown_0055A660(*from, true) || !Map.Unknown_0055A660(*to, true)) {
         return true;
     }
-    return unknown_path_estimator_8315c8.Unknown_0042AA30(*from, *to, this, unknown_79, (Map_Cell_At(*to)->Flags >> 8) & 1, 7) > 7;
+    return Search.Test_Cell_Walk(*from, *to, this, unknown_79, (Map_Cell_At(*to)->Flags >> 8) & 1, 7) > 7;
 }

@@ -4,8 +4,8 @@
     "id": "population-4418",
     "inventory_sha256": "a03052fc790966c1d618ec4bcb4e056a8de953e628f903008437cc6eb0dd46a3",
     "gaps_sha256": "08e88490cf94f19ffab21b058b78a99b27facc0a0edb95695b0560f4d05ac3ae",
-    "historical_population_sha256": "58d90b2b517ef15385f1e8e76c766c2ec967774d3c457107c14e64d8ffa7ad7a",
-    "historical_acceptance_sha256": "f83ca1c61e4e04bac0eef00deb2d4439f8fdb33f17af490fb2a203195b1c5760"
+    "historical_population_sha256": "44d8f3b29d0972d4be714b4d92d25d68f5dd0c0bab2567e9983fe0e2d1d2794a",
+    "historical_acceptance_sha256": "8561d2ebc162108be68cc1cdcb7fac820fcffefac74116eca4961bf2195bbfcc"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1704,7 +1704,7 @@
     "__real@4@40078000000000000000": 7975084,
     "__real@4@40038000000000000000": 8055360,
     "__real@4@3ffccccccd0000000000": 8055364,
-    "_?path@?1??Unknown_00428370@UnknownPathEstimator@@QAEPAUUnknownPathType@@PAUUnknownPathNode@@PAH@Z@4U3@A": 8701968,
+    "_?path@?1??Build_Final_Path@AStarClass@@QAEPAUPathStruct@@PAURegularOpenNode@@PAH@Z@4U3@A": 8701968,
     "__real@8@3fe1c0000000c0000000": 8019840,
     "__open": 7919681,
     "__read": 7899759,
@@ -1957,8 +1957,8 @@
     "??_C@_0BM@GHCI@MapClass?3?3Init_Clear?5entry?6?$AA@": 8259540,
     "??_C@_0BL@IEID@MapClass?3?3Init_Clear?5done?6?$AA@": 8259512,
     "?Unknown_00529710@@YI_NH_N@Z": 5412624,
-    "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A": 8590792,
-    "?Unknown_004284E0@UnknownPathEstimator@@QAEXABVRect@@@Z": 4359392,
+    "?Search@@3UAStarClass@@A": 8590792,
+    "?Update_Map_Dimensions@AStarClass@@QAEXABVRect@@@Z": 4359392,
     "?Overpass@MapClass@@QAEHXZ": 5550816,
     "?Compute_Zone_Connections@MapClass@@QAEXXZ": 5569952,
     "?Zone_Reset@MapClass@@QAEHXZ": 5565392,
@@ -2112,11 +2112,11 @@
     "??_C@_08BIKF@XGRYMED2?$AA@": 8259684,
     "??_C@_08GCKA@XGRYSML1?$AA@": 8259672,
     "?Reset_Subzone@MapClass@@QAEXH@Z": 5651840,
-    "?Unknown_00429A90@UnknownPathEstimator@@QAEXXZ": 4364944,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
     "?Unknown_00564B60@MapClass@@QAEXPAUZoneConnectionClass@@H@Z": 5655392,
     "?unknown_bridge_side_facings_7e0454@@3PAHA": 8258644,
     "?Get_Tunnel@CellClass@@QAEPAVTubeClass@@XZ": 4694320,
-    "?Unknown_00427060@UnknownPathEstimator@@SI?AVCell@@ABV2@HPBH@Z": 4354144,
+    "?Follow_Path@AStarClass@@SI?AVCell@@ABV2@HPBH@Z": 4354144,
     "?Unknown_005653C0@MapClass@@QAE?AVCell@@ABV2@0@Z": 5657536,
     "?Add@?$DynamicVectorClass@VCell@@@@QAE_NABVCell@@@Z": 5683760,
     "?_subzone_flood_stack@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAPAV3@A": 10942496,
@@ -5619,7 +5619,7 @@
     "??_ESuperClass@@UAEPAXI@Z": 6941904,
     "??_ETechnoTypeClass@@UAEPAXI@Z": 7206816,
     "??_EHouseTypeClass@@UAEPAXI@Z": 5219376,
-    "?Unknown_0042AA30@UnknownPathEstimator@@QAEHABVCell@@0PAVFootClass@@_N2H@Z": 4368944,
+    "?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PAVFootClass@@_N2H@Z": 4368944,
     "?unknown_slot34@MultiplayerGameMode@@UAEX_N@Z": 5907584,
     "?unknown_slot34@ObjectClass@@UAEHXZ": 6106112,
     "?unknown_slot34@ObjectTypeClass@@UBEHXZ": 6118768,
@@ -7894,8 +7894,8 @@
     "?Unknown_00633130@RadarClass@@QAE_NXZ": 6500656,
     "?Unknown_00633140@RadarClass@@QAEX_N@Z": 6500672,
     "?Which_Column@SidebarClass@@SIHHH_N@Z": 6822208,
-    "??0UnknownPathEstimator@@QAE@XZ": 4358064,
-    "??1UnknownPathEstimator@@QAE@XZ": 4358624,
+    "??0AStarClass@@QAE@XZ": 4358064,
+    "??1AStarClass@@QAE@XZ": 4358624,
     "?unknown_slot77@AircraftClass@@UAE_NHPBVCell@@0_N@Z": 4289888,
     "?unknown_slot77@FootClass@@UAE_NHPBVCell@@0_N@Z": 5007856,
     "?unknown_slot41@AircraftTypeClass@@UBE_NXZ": 4308752,
@@ -8479,21 +8479,21 @@
     "??4?$VectorClass@VCell@@@@QAEAAV0@ABV0@@Z": 6698384,
     "?Unknown_0049CB70@DisplayClass@@QAE?AUCoordStruct@@ABU2@_N@Z": 4836208,
     "?Find_Bridge_End_Cell_For_Subzone@MapClass@@QAE?AVCell@@ABV2@HI@Z": 5658128,
-    "?Unknown_00427E90@UnknownPathEstimator@@QAEXXZ": 4357776,
-    "?Unknown_00427F70@UnknownPathEstimator@@QAE_NH_NH@Z": 4358000,
-    "?Unknown_00428320@UnknownPathEstimator@@SIHABVCell@@0@Z": 4358944,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Is_Visited@AStarClass@@QAE_NH_NH@Z": 4358000,
+    "?Facing_Between@AStarClass@@SIHABVCell@@0@Z": 4358944,
     "?unknown_path_facing_table_7cf100@@3PAY02HA": 8188160,
     "?unknown_path_facing_offsets_84c838@@3PAHA": 8702008,
-    "?Unknown_0042A770@UnknownPathEstimator@@QAE_NGGH@Z": 4368240,
-    "?Unknown_0042A7D0@UnknownPathEstimator@@QAEXIIH@Z": 4368336,
-    "?Unknown_00427D40@UnknownPathEstimator@@QAEPAUUnknownPathNode@@PAU2@PAPAVCellClass@@ABVCell@@M@Z": 4357440,
-    "?Unknown_00428370@UnknownPathEstimator@@QAEPAUUnknownPathType@@PAUUnknownPathNode@@PAH@Z": 4359024,
+    "?Subzone_Edge_Banned@AStarClass@@QAE_NGGH@Z": 4368240,
+    "?Ban_Subzone_Edge@AStarClass@@QAEXIIH@Z": 4368336,
+    "?Create_Node@AStarClass@@QAEPAURegularOpenNode@@PAU2@PAPAVCellClass@@ABVCell@@M@Z": 4357440,
+    "?Build_Final_Path@AStarClass@@QAEPAUPathStruct@@PAURegularOpenNode@@PAH@Z": 4359024,
     "?unknown_path_levels_84c858@@3PAHA": 8702040,
-    "?Unknown_00429570@UnknownPathEstimator@@QAEXPBHHHPAHPAVCell@@@Z": 4363632,
-    "?Unknown_004296F0@UnknownPathEstimator@@QAE_NPAHHABVCell@@1PAVFootClass@@H_N@Z": 4364016,
-    "?Unknown_0042A590@UnknownPathEstimator@@QAEXPAVFootClass@@@Z": 4367760,
-    "?Unknown_0042A840@UnknownPathEstimator@@QAEXIH@Z": 4368448,
-    "?Unknown_00429B60@UnknownPathEstimator@@QAE_NABVCell@@0HPAVFootClass@@@Z": 4365152,
+    "?Splice_Path@AStarClass@@QAEXPBHHHPAHPAVCell@@@Z": 4363632,
+    "?Plot_Straight_Line@AStarClass@@QAE_NPAHHABVCell@@1PAVFootClass@@H_N@Z": 4364016,
+    "?Ban_Blocked_Subzone_Edges@AStarClass@@QAEXPAVFootClass@@@Z": 4367760,
+    "?Ban_Neighborhood_Subzone_Edges@AStarClass@@QAEXIH@Z": 4368448,
+    "?Find_Path_Hierarchical@AStarClass@@QAE_NABVCell@@0HPAVFootClass@@@Z": 4365152,
     "?unknown_5d4c00@ObjectClass@@QAEHPAVAbstractClass@@@Z": 6114304,
     "?unknown_slot46@DisplayClass@@UAEXABVCell@@_NPAVObjectClass@@H1@Z": 4829424,
     "?Mouse_Left_Press@DisplayClass@@UAEXABUPoint2D@@@Z": 4834448,
@@ -8651,8 +8651,8 @@
     "??_ERadSiteClass@@UAEPAXI@Z": 6520720,
     "??0?$VectorClass@PAUIConnectionPoint@@@@QAE@IPBQAUIConnectionPoint@@@Z": 5212656,
     "?unknown_slot54@BuildingClass@@UAEX_N@Z": 4497536,
-    "?Find_Path_0042a1d0@UnknownPathEstimator@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHHHH@Z": 4366800,
-    "?Find_Path_Regular_00427370@UnknownPathEstimator@@QAEPAUUnknownPathType@@ABVCell@@0PAVFootClass@@PAHH_N@Z": 4354928,
+    "?Find_Path@AStarClass@@QAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAHHHH@Z": 4366800,
+    "?Find_Path_Regular@AStarClass@@QAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAHH_N@Z": 4354928,
     "?unknown_slot93@FootClass@@UAEXH@Z": 5009952,
     "?unknown_005753f0@MapRegionClass@@QAE_NABVCell@@0H@Z": 5723120,
     "?unknown_00574e50@MapRegionClass@@QAE_NABVCell@@0H@Z": 5721680,
@@ -8956,7 +8956,7 @@
     "?Unknown_004F3120@HouseClass@@QBE_NXZ": 5189920,
     "??_7WaypointPathClass@@6B@": 8056616,
     "??_EWaypointPathClass@@UAEPAXI@Z": 7492096,
-    "?Unknown_00428950@UnknownPathEstimator@@QAEPAVObjectClass@@ABVCell@@H@Z": 4360528,
+    "?Find_Moving_Blocker@AStarClass@@QAEPAVObjectClass@@ABVCell@@H@Z": 4360528,
     "?unknown_slot93@UnitClass@@UAEXH@Z": 7333392,
     "?unknown_slot95@AircraftClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 4294720,
     "?unknown_slot86@InfantryClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 5241712,
@@ -9158,7 +9158,7 @@
     "??_7?$VectorClass@PBVParticleSystemTypeClass@@@@6B@": 7983276,
     "?Unknown_006A67B0@Tactical@@QAE?AUPoint2D@@XZ": 6973360,
     "?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z": 4823904,
-    "?Unknown_0042AD50@UnknownPathEstimator@@SI?AVCell@@ABV2@H@Z": 4369744,
+    "?Next_Cell@AStarClass@@SI?AVCell@@ABV2@H@Z": 4369744,
     "?Drawers@ConvertClass@@2V?$DynamicVectorClass@PAVConvertClass@@@@A": 8720720,
     "?Add@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NABQAVSuperClass@@@Z": 6652016,
     "??0Unknown84E8D0@@QAE@XZ": 4382944,
@@ -9279,9 +9279,9 @@
     "?Insert@WideString@@QAE_NGI@Z": 7800288,
     "?Insert@?$WolArrayList@VWstring@@@@QAE_NABVWstring@@H@Z": 7764416,
     "?Insert@WideString@@QAE_NPBGI@Z": 7800000,
-    "?Unknown_00428AE0@UnknownPathEstimator@@QAEXPAUUnknownPathType@@PAVFootClass@@@Z": 4360928,
-    "?Unknown_00428CF0@UnknownPathEstimator@@QAEHPAVFootClass@@PAH1HHAAVCell@@@Z": 4361456,
-    "?Apply_Path_Collision_Avoidance_004285d0@UnknownPathEstimator@@QAEXPAVFootClass@@@Z": 4359632,
+    "?Cut_Corners@AStarClass@@QAEXPAUPathStruct@@PAVFootClass@@@Z": 4360928,
+    "?Try_Diagonal_Shortcut@AStarClass@@QAEHPAVFootClass@@PAH1HHAAVCell@@@Z": 4361456,
+    "?Apply_Path_Collision_Avoidance@AStarClass@@QAEXPAVFootClass@@@Z": 4359632,
     "?Heapify@UnknownPathEstimatorBlock@@QAEXH@Z": 4371808,
     "?unknown_slot72@ObjectClass@@UAE?AVRect@@XZ": 6107232,
     "?Is_Bridge_Allowed_00571bc0@MapRegionClass@@QBE_NABVRect@@@Z": 5708736,
@@ -9633,7 +9633,7 @@
     "??0?$DynamicVectorClass@PAVPlanningBranchClass@@@@QAE@IPBQAVPlanningBranchClass@@@Z": 6401936,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
     "??0?$HashObject@VHashString@@PAVSchemeNode@@@@QAE@ABVHashString@@ABQAVSchemeNode@@@Z": 6315392,
-    "?Unknown_004290C0@UnknownPathEstimator@@QAEXPAUUnknownPathType@@PAVFootClass@@@Z": 4362432,
+    "?Optimize_Moves@AStarClass@@QAEXPAUPathStruct@@PAVFootClass@@@Z": 4362432,
     "?unknown_slot66@TechnoClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7089216,
     "?unknown_slot65@TechnoClass@@UAEXHH@Z": 7093040,
     "?unknown_slot67@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
@@ -9807,7 +9807,7 @@
     "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
     "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
     "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
-    "?Unknown_00427110@UnknownPathEstimator@@QAENPAPAVCellClass@@0_NHPAVFootClass@@@Z": 4354320,
+    "?Get_Movement_Cost@AStarClass@@QAENPAPAVCellClass@@0_NHPAVFootClass@@@Z": 4354320,
     "?unknown_slot53@BuildingClass@@UAE_NPBUCoordStruct@@H@Z": 4445088,
     "?unknown_slot87@InfantryClass@@UAEXABUCoordStruct@@_N1@Z": 5259552,
     "?unknown_slot67@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
@@ -10456,7 +10456,8 @@
     "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
     "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ": 6629440,
     "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ": 6629488,
-    "??1?$VectorClass@I@@UAE@XZ": 7547984
+    "??1?$VectorClass@I@@UAE@XZ": 7547984,
+    "?Search@@3UUnknownPathEstimator@@A": 8590792
   },
   "regions": [
     {
@@ -13219,7 +13220,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A",
+          "symbol": "?Search@@3UAStarClass@@A",
           "target": 8590792,
           "addend": 0,
           "resolved": 8590792
@@ -13227,13 +13228,13 @@
         {
           "offset": 45,
           "kind": 20,
-          "symbol": "?Unknown_00429A90@UnknownPathEstimator@@QAEXXZ",
+          "symbol": "?Reset@AStarClass@@QAEXXZ",
           "target": 4364944,
           "addend": 0,
           "resolved": 4293680415
         }
       ],
-      "source_sha256": "d70317c86cd57a236c69bc3614ea2d9ea025447ea6d3ae706a0127891a58b942",
+      "source_sha256": "41465476fa98623c70d79e4c574db13f95534be66952e69b3f7f1b4c05127ee6",
       "source": "src/recovered/classes/MapClass/MapClass_Reset_All_Subzones_00563d40.cpp",
       "population": "population-4418",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -14786,7 +14787,7 @@
         {
           "offset": 145,
           "kind": 6,
-          "symbol": "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A",
+          "symbol": "?Search@@3UAStarClass@@A",
           "target": 8590792,
           "addend": 0,
           "resolved": 8590792
@@ -14794,7 +14795,7 @@
         {
           "offset": 150,
           "kind": 20,
-          "symbol": "?Unknown_004284E0@UnknownPathEstimator@@QAEXABVRect@@@Z",
+          "symbol": "?Update_Map_Dimensions@AStarClass@@QAEXABVRect@@@Z",
           "target": 4359392,
           "addend": 0,
           "resolved": 4293782150
@@ -14834,7 +14835,7 @@
         {
           "offset": 266,
           "kind": 6,
-          "symbol": "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A",
+          "symbol": "?Search@@3UAStarClass@@A",
           "target": 8590792,
           "addend": 0,
           "resolved": 8590792
@@ -14842,13 +14843,13 @@
         {
           "offset": 271,
           "kind": 20,
-          "symbol": "?Unknown_00429A90@UnknownPathEstimator@@QAEXXZ",
+          "symbol": "?Reset@AStarClass@@QAEXXZ",
           "target": 4364944,
           "addend": 0,
           "resolved": 4293787581
         }
       ],
-      "source_sha256": "9905e3bcaef97d58747ba0625e51f90dbdd790b33829ace3d99e46feec5240d9",
+      "source_sha256": "bfcc9d48520b59c390496e5b6c7966237fa9260ceb2cebc5b93e174103776233",
       "source": "src/recovered/classes/MapClass/MapClass_Fresh_Map_005499c0.cpp",
       "population": "population-4418",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -33458,7 +33459,7 @@
         {
           "offset": 551,
           "kind": 6,
-          "symbol": "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A",
+          "symbol": "?Search@@3UAStarClass@@A",
           "target": 8590792,
           "addend": 0,
           "resolved": 8590792
@@ -33466,7 +33467,7 @@
         {
           "offset": 565,
           "kind": 20,
-          "symbol": "?Unknown_0042AA30@UnknownPathEstimator@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
+          "symbol": "?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
           "target": 4368944,
           "addend": 0,
           "resolved": 4293659799
@@ -33498,7 +33499,7 @@
         {
           "offset": 685,
           "kind": 6,
-          "symbol": "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A",
+          "symbol": "?Search@@3UAStarClass@@A",
           "target": 8590792,
           "addend": 0,
           "resolved": 8590792
@@ -33506,7 +33507,7 @@
         {
           "offset": 699,
           "kind": 20,
-          "symbol": "?Unknown_0042AA30@UnknownPathEstimator@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
+          "symbol": "?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
           "target": 4368944,
           "addend": 0,
           "resolved": 4293659665
@@ -33538,7 +33539,7 @@
         {
           "offset": 797,
           "kind": 6,
-          "symbol": "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A",
+          "symbol": "?Search@@3UAStarClass@@A",
           "target": 8590792,
           "addend": 0,
           "resolved": 8590792
@@ -33546,7 +33547,7 @@
         {
           "offset": 811,
           "kind": 20,
-          "symbol": "?Unknown_0042AA30@UnknownPathEstimator@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
+          "symbol": "?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
           "target": 4368944,
           "addend": 0,
           "resolved": 4293659553
@@ -33578,7 +33579,7 @@
         {
           "offset": 917,
           "kind": 6,
-          "symbol": "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A",
+          "symbol": "?Search@@3UAStarClass@@A",
           "target": 8590792,
           "addend": 0,
           "resolved": 8590792
@@ -33586,7 +33587,7 @@
         {
           "offset": 931,
           "kind": 20,
-          "symbol": "?Unknown_0042AA30@UnknownPathEstimator@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
+          "symbol": "?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PAVFootClass@@_N2H@Z",
           "target": 4368944,
           "addend": 0,
           "resolved": 4293659433
@@ -33640,7 +33641,7 @@
           "resolved": 2202047
         }
       ],
-      "source_sha256": "78eb8b0a09a2eaa0a4ce00371c78283373881f7c54a127bff97311e5b2eab89d",
+      "source_sha256": "acb10e903c881153746d39a4c50c0e66f29d5adad07736f67ade5660957889a5",
       "source": "src/recovered/classes/MapClass/MapClass_Check_Map_00569b60.cpp",
       "population": "population-4418",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -53020,7 +53021,7 @@
         {
           "offset": 386,
           "kind": 20,
-          "symbol": "?Unknown_00427060@UnknownPathEstimator@@SI?AVCell@@ABV2@HPBH@Z",
+          "symbol": "?Follow_Path@AStarClass@@SI?AVCell@@ABV2@HPBH@Z",
           "target": 4354144,
           "addend": 0,
           "resolved": 4293665658
@@ -53028,7 +53029,7 @@
         {
           "offset": 416,
           "kind": 20,
-          "symbol": "?Unknown_00427060@UnknownPathEstimator@@SI?AVCell@@ABV2@HPBH@Z",
+          "symbol": "?Follow_Path@AStarClass@@SI?AVCell@@ABV2@HPBH@Z",
           "target": 4354144,
           "addend": 0,
           "resolved": 4293665628
@@ -53186,7 +53187,7 @@
           "resolved": 27817
         }
       ],
-      "source_sha256": "c5cfa6ccecafc456147bd31809f8454e43c31adb9098fb9c4e3f96245ef64a87",
+      "source_sha256": "63fbd2f4b98071a4734e3f22751935cffdff2e76a695c0b03e6e5e5445f776d4",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_00564B60_00564b60.cpp",
       "population": "population-4418",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

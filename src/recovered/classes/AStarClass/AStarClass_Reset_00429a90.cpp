@@ -1,32 +1,32 @@
-// UnknownPathEstimator::Unknown_00429A90() (0x00429A90): reallocates and
+// AStarClass::Reset() (0x00429A90): reallocates and
 // clears the three layers' arrays.
 #include "shared/path_estimator.hpp"
 #include "shared/map_view.hpp"
 
-void UnknownPathEstimator::Unknown_00429A90()
+void AStarClass::Reset()
 {
     for (int layer = 0; layer < 3; layer++) {
-        if (unknown_40[layer]) {
-            delete unknown_40[layer];
+        if (HierOnPath[layer]) {
+            delete HierOnPath[layer];
         }
         int *array = new int[Map.unknown_70[layer]];
-        unknown_40[layer] = array;
+        HierOnPath[layer] = array;
         for (int entry = Map.unknown_70[layer] - 1; entry >= 0; entry--) {
             array[entry] = 0;
         }
-        if (unknown_4c[layer]) {
-            delete unknown_4c[layer];
+        if (HierOpened[layer]) {
+            delete HierOpened[layer];
         }
         array = new int[Map.unknown_70[layer]];
-        unknown_4c[layer] = array;
+        HierOpened[layer] = array;
         for (entry = Map.unknown_70[layer] - 1; entry >= 0; entry--) {
             array[entry] = 0;
         }
-        if (unknown_58[layer]) {
-            delete unknown_58[layer];
+        if (HierCosts[layer]) {
+            delete HierCosts[layer];
         }
         array = new int[Map.unknown_70[layer]];
-        unknown_58[layer] = array;
+        HierCosts[layer] = array;
         for (entry = Map.unknown_70[layer] - 1; entry >= 0; entry--) {
             array[entry] = 0;
         }
