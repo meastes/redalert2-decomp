@@ -1629,6 +1629,13 @@
    "new": "native_map_seeder_m28",
    "why": "MapGeneratorClass::MapSeeder (+0x178 of RandomMapGen 0x00A6FD68; the header types it int) holds the copy of the seed the last map was made from: `RandomMapGen.MapSeeder=(int)new MapSeedClass; memcpy((void*)MapSeeder, ...)`. Natively the int cuts the 64-bit pointer (the skirmish Random Map's Generate Map faulted in Map_Seed_Dialog_Proc +1752; Scout1208 M27/M28). Natively every use reads and writes a pointer-sized native global, native_map_seeder_m28 (native/link/behaviour_m28_mapgen.cpp), with no layout change. Same meaning; the exact build is unchanged.",
    "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/unknown_select_list_item_by_data_005c7160.cpp",
+   "old": "int __fastcall unknown_select_list_item_by_data_005c7160(HWND dialog, int data)\n",
+   "new": "int __fastcall unknown_select_list_item_by_data_005c7160(HWND dialog, intptr_t data)   // NATIVE: list item data are pointers\n",
+   "why": "The map selection dialog (0x005C69E0, Random Map) passes the new MultiMission pointer as the item data to find in list 0x553. VC6's int holds the pointer; on arm64 the int cut it, LB_GETITEMDATA's pointer never matched and item 0 (Isle of War) was selected, so the random map was never the chosen map (Scout1208 M28 open item; Scout1209). Pointer-width natively; the exact build is untouched.",
+   "verified": true
   }
  ]
 }

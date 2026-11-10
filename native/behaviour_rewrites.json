@@ -2959,6 +2959,17 @@
    "file": "native/link/behaviour_m28_mapgen.cpp",
    "source": "asm 0x00582A50",
    "notes": "Scout1208 (M28)"
+  },
+  {
+   "entry": "0x0056EF20",
+   "name": "MapRegionClass::Split_Region_0056ef20",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r3_mapgen.cpp",
+   "source": "TibSun mapgen.cpp MapRegionClass::Split_Region; RA2 differences from inventory/decompiled/0056ef20.c",
+   "notes": "Scout1209 (r3): heap tie order; an empty height list keeps the height (the original indexes past it)"
   }
  ]
 }

@@ -27,7 +27,7 @@ extern bool unknown_map_mode_warning_a72d59;
 bool __fastcall End_Dialog_007357e0(HWND dialog, int result);
 int __fastcall Make_Random_Map_005c84e0();
 bool __fastcall Accept_Map_Selection_005c71f0(HWND dialog);
-int __fastcall unknown_select_list_item_by_data_005c7160(HWND dialog, int data);
+int __fastcall unknown_select_list_item_by_data_005c7160(HWND dialog, intptr_t data);   // NATIVE: pointer item data (port/fixups.json)
 void __fastcall unknown_dialog_5e5f20(HWND dialog);
 namespace OwnerDraw {
 void __fastcall unknown_draw_dialog_back_5fee70(HWND window);
@@ -144,7 +144,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
                             Populate_Compatible_Map_List(window, mode);
                         }
                     }
-                    if (index < unknown_multi_missions_a3d8d8.Count()) unknown_select_list_item_by_data_005c7160(window, (int)unknown_multi_missions_a3d8d8[index]);
+                    if (index < unknown_multi_missions_a3d8d8.Count()) unknown_select_list_item_by_data_005c7160(window, (intptr_t)unknown_multi_missions_a3d8d8[index]);
                     Select_Scenario_005c7c30(index);
                     if (!unknown_dialog_preview_a72ce8->unknown_00) Unknown_005c7570(window);
                     unknown_session_a3d2b4 = unknown_lobby_map_a72c80;

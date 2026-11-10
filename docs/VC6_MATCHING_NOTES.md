@@ -2210,3 +2210,17 @@ A coordinate-to-cell conversion through our `Cell(CoordStruct)` constructor and 
 different code in a joined unit: Get_Obstacle 0x4BBAF0 sat at 97.80 for that one expression and went exact with two of its
 three uses written as `As_Cell()` (TibSun point.h TPoint3D text under RA2_POINT3D_TIBSUN). In any near miss with a
 coordinate-to-cell site, try `As_Cell()` first.
+
+## An inlined accessor on a by-value temporary stops CSE of unrelated global loads (Scout1210)
+Reading a returned-by-value RGBClass through its inline accessors (`line.Get_Red()`, RGB_DECLARE_ACCESSORS) makes the
+temporary address-exposed, and VC6 then re-reads unrelated globals (the hicolor shift words at 0x852FB8...) after each
+construction; direct field reads let it CSE them. Draw_Depth_Antialiased_Line 0x4AC650 re-reads `mov cx,[0x852fb8]` in all
+four loops only with the accessor form.
+
+## /Ob2 inline budget, measured costs (Scout1211)
+Root budget 1000 IL units per caller; a site inlines while its cost fits the remaining budget divided among the inline sites from
+it to the end of the body (N). Measured: DynamicVectorClass ctor 134; an empty `TypeList() {}` is itself charged (52-60);
+CDTimer/TTimer(NoInit) ctor 52; a class-typed array (any length) 50; PauseTimer default ctor 56 (60 with TibSun's
+`CDTimerClass(int set=0)`); `FixedString(NoInit) {}` 0. An address-only inline accessor in the body counts as a site (raises
+N). The caller's own body size does not change the root budget. Lab tools: build/class-work/Scout1211/ (pat.py reads per-site
+inline/refuse patterns; one score can hide different patterns).
