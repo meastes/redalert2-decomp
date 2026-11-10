@@ -4,11 +4,11 @@
     "id": "population-1444",
     "inventory_sha256": "a553516a1415b31e1f21a60d70e3fbae6d9471b7ae418e9980865907fbff36d4",
     "gaps_sha256": "e674f0524de3ca7dc88c16a95c74ecfb8af3d506e7dd04325c630f188fbfcf55",
-    "historical_population_sha256": "c02daf86ecdf5d81caabc3165bdb5fbb1f59a01af412631b671c7fb7282132f1",
-    "historical_acceptance_sha256": "3a702949981bd4f358453bd49c83b90e709b42b61d0dafa224cdc877abdd961b"
+    "historical_population_sha256": "56d7e5728fb7bd11ce828054d3bbefad105191d14d6e2a27a66903068cd04b6e",
+    "historical_acceptance_sha256": "76924d5fd6dc18754e0132c95190aab076adf6db6c063ed35c22bf1784f3863d"
   },
   "references": {
-    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
+    "?AlphaBuffer@@3PAVABuffer@@A": 8590772,
     "?target@Call_402190_0@@QAEIXZ": 4198400,
     "?target@Call_402940_0@@QAEIXZ": 4223472,
     "?target@Call_402940_1@@QAEIXZ": 4223472,
@@ -1079,19 +1079,19 @@
     "__real@8@3ff98efa351294e9c800": 8048992,
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
+    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 4264496,
     "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
     "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
-    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
-    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
-    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
-    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
-    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
+    "??0ABuffer@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABuffer@@QAE@XZ": 4262864,
+    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z": 4264112,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "__real@4@3ff98888890000000000": 8032628,
@@ -1422,7 +1422,7 @@
         {
           "offset": 79,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1430,7 +1430,7 @@
         {
           "offset": 271,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1465,7 +1465,7 @@
         {
           "offset": 67,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1473,7 +1473,7 @@
         {
           "offset": 269,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772

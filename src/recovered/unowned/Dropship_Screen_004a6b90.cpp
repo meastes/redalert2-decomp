@@ -426,7 +426,7 @@ void __fastcall Dropship_Screen_004A6B90()
     Hide_Mouse();
     delete AlphaBuffer;
     AlphaBuffer = 0;
-    AlphaBuffer = new ABufferSwapTmp(Rect(0, 0, unknown_surface_839954->Get_Width(), unknown_surface_839954->Get_Height()));
+    AlphaBuffer = new ABuffer(Rect(0, 0, unknown_surface_839954->Get_Width(), unknown_surface_839954->Get_Height()));
     Show_Mouse();
 
     unknown_surface_83995c = unknown_surface_839954;
@@ -892,7 +892,7 @@ void __fastcall Dropship_Screen_004A6B90()
 
     delete AlphaBuffer;
     AlphaBuffer = 0;
-    AlphaBuffer = new ABufferSwapTmp(alpha_area);
+    AlphaBuffer = new ABuffer(alpha_area);
 
     if (DepthBuffer) {
         delete DepthBuffer;

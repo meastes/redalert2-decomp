@@ -26,8 +26,8 @@
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ??0ZBuffer@@QAE@VRect@@@Z=00775b80
 // @ref ??1ZBuffer@@QAE@XZ=00775cf0
-// @ref ??0ABufferSwapTmp@@QAE@VRect@@@Z=00410a60
-// @ref ??1ABufferSwapTmp@@QAE@XZ=00410bd0
+// @ref ??0ABuffer@@QAE@VRect@@@Z=00410a60
+// @ref ??1ABuffer@@QAE@XZ=00410bd0
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?Map@@3VMouseClass@@A=008324e0
@@ -59,7 +59,7 @@ void DisplayClass::unknown_slot42(Rect const &rect)
             delete AlphaBuffer;
             AlphaBuffer = 0;
         }
-        AlphaBuffer = new ABufferSwapTmp(unknown_rect_839630);
+        AlphaBuffer = new ABuffer(unknown_rect_839630);
         Debug_Printf("Allocating ABuffer (%dx%d)\n", unknown_rect_839630.Width, unknown_rect_839630.Height);
         WWMouse->Show_Mouse();
     }

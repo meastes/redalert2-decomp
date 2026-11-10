@@ -5,7 +5,7 @@
 #include "shared/blit.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/dsurface.hpp"
-// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D const &endpoint, int color,
                                             bool const *pattern, int offset, bool empty_only)

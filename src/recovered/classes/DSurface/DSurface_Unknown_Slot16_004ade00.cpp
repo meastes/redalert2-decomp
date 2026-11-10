@@ -14,7 +14,7 @@
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00776340
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c

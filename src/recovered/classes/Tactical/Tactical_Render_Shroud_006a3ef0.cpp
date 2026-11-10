@@ -16,7 +16,7 @@
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Draw_Shroud_And_Fog@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z=00475520
 // @ref ?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ=00475d60
-// @ref ?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z=004110b0
+// @ref ?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z=004110b0
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 

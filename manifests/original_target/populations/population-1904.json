@@ -4,8 +4,8 @@
     "id": "population-1904",
     "inventory_sha256": "a94579f380e86bd909b1dc30730ec3ddc8c111aa3d55a2da00b9445550ab684a",
     "gaps_sha256": "9bf2cf2e7e4b44f46337b568deee365172565bb7e11d3097f1731c501723470d",
-    "historical_population_sha256": "ab0b5d828b2ebc5a7aa62d51f68aa1be2ccf49d17c440ccf9d4b4ee06020a46a",
-    "historical_acceptance_sha256": "b5f602c9753f515317d4d2a6b2f678c67b65f1e43feb150b27b8e4d994e98868"
+    "historical_population_sha256": "bc9a40eb543e477bdfda43da75ebae46ffdfdf9ea5e6e9c54bc6c264339f652d",
+    "historical_acceptance_sha256": "77cf2f0d56934070b5c405a285d543f4a05af4e63682a235f961aeea14c2d510"
   },
   "references": {
     "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
@@ -745,7 +745,7 @@
     "__real@4@c00a8000000000000000": 7999368,
     "?Blit@?$RLEBlitTransXlat@G@@UBEXPAXPBXHHH00HH0@Z": 4757520,
     "?BlitForward@?$BlitPlainXlatAlpha@G@@UBEXPAXPBXHH00HH@Z": 4750832,
-    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
+    "?AlphaBuffer@@3PAVABuffer@@A": 8590772,
     "?Blit@?$RLEBlitTransXlatAlpha@G@@UBEXPAXPBXHHH00HH0@Z": 4762352,
     "?Blit@?$RLEBlitTransLucent75Alpha@G@@UBEXPAXPBXHHH00HH0@Z": 4762928,
     "?Blit@?$RLEBlitTransLucent50Alpha@G@@UBEXPAXPBXHHH00HH0@Z": 4763232,
@@ -1119,19 +1119,19 @@
     "__real@8@3ff98efa351294e9c800": 8048992,
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
+    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 4264496,
     "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
     "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
-    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
-    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
-    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
-    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
-    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
+    "??0ABuffer@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABuffer@@QAE@XZ": 4262864,
+    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z": 4264112,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "__real@4@3ff98888890000000000": 8032628,
@@ -2485,7 +2485,7 @@
         {
           "offset": 162,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2501,7 +2501,7 @@
         {
           "offset": 353,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2544,7 +2544,7 @@
         {
           "offset": 175,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2560,7 +2560,7 @@
         {
           "offset": 392,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2603,7 +2603,7 @@
         {
           "offset": 88,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2619,7 +2619,7 @@
         {
           "offset": 411,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2662,7 +2662,7 @@
         {
           "offset": 162,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2678,7 +2678,7 @@
         {
           "offset": 396,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2721,7 +2721,7 @@
         {
           "offset": 88,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2737,7 +2737,7 @@
         {
           "offset": 411,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2780,7 +2780,7 @@
         {
           "offset": 88,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2788,7 +2788,7 @@
         {
           "offset": 381,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2796,7 +2796,7 @@
         {
           "offset": 398,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2847,7 +2847,7 @@
         {
           "offset": 162,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2863,7 +2863,7 @@
         {
           "offset": 401,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2906,7 +2906,7 @@
         {
           "offset": 88,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2914,7 +2914,7 @@
         {
           "offset": 381,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2922,7 +2922,7 @@
         {
           "offset": 398,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2973,7 +2973,7 @@
         {
           "offset": 163,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -2989,7 +2989,7 @@
         {
           "offset": 383,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -3032,7 +3032,7 @@
         {
           "offset": 186,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -3048,7 +3048,7 @@
         {
           "offset": 434,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -3091,7 +3091,7 @@
         {
           "offset": 166,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -3107,7 +3107,7 @@
         {
           "offset": 425,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -3150,7 +3150,7 @@
         {
           "offset": 181,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -3166,7 +3166,7 @@
         {
           "offset": 453,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -3209,7 +3209,7 @@
         {
           "offset": 166,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -3225,7 +3225,7 @@
         {
           "offset": 425,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772

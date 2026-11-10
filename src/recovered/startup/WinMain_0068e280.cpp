@@ -769,7 +769,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
 
         DepthBuffer = new ZBuffer(Rect(unknown_int_839630, unknown_int_839634, 480, 480 - unknown_int_839634));
         DepthBuffer->Set_Scroll(0x8000);
-        AlphaBuffer = new ABufferSwapTmp(Rect(unknown_int_839630, unknown_int_839634, 480, 480 - unknown_int_839634));
+        AlphaBuffer = new ABuffer(Rect(unknown_int_839630, unknown_int_839634, 480, 480 - unknown_int_839634));
 
         Init_Mouse();
         WWMouse->Hide_Mouse();

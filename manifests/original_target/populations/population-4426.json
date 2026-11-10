@@ -4,8 +4,8 @@
     "id": "population-4426",
     "inventory_sha256": "e81491d419dbf9396c0d6f0804d63c44238f711000e42f3f422b26c47fd391ef",
     "gaps_sha256": "ba4ebc621bce9d7f6bad0a6c50aeaf111d58d38e882fb0ff34bb477da0979385",
-    "historical_population_sha256": "bcdac8bd8f9074cfa31c24d7fb263a6ad42d1a581ada8933f32d04180978da0e",
-    "historical_acceptance_sha256": "b3bde70d2ee91e77ce284d7568e5c92c2475080fb7c302087ba2a0c1cf213713"
+    "historical_population_sha256": "22ad72f28bf55286bcbda01ab449148ed0fc2da759cd29f7e110635632f24e68",
+    "historical_acceptance_sha256": "dd8b1ad919ea1db8010fed04cab5c20f4d24f7c4036dbcaa6ec7a812eb0490ec"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1724,8 +1724,8 @@
     "?unknown_tileset_a6cf50@@3HA": 10932048,
     "?unknown_tube_facings_7d2b08@@3PAHA": 8203016,
     "?Destroy_Bridge@CellClass@@QAEXXZ": 4665344,
-    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
-    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
+    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 4264496,
+    "?AlphaBuffer@@3PAVABuffer@@A": 8590772,
     "?unknown_rect_839630@@3VRect@@A": 8623664,
     "??_C@_07BIFH@FOG?4SHP?$AA@": 8203376,
     "_?shapes@?1??Draw_Fog_Shape@CellClass@@QAEXABUPoint2D@@ABVRect@@H@Z@4PBUShapeFileStruct@@B": 8719344,
@@ -4347,8 +4347,8 @@
     "?Find_Or_Make@SmudgeTypeClass@@SIPAV1@PBD@Z": 6849488,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
-    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
+    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Clear@ABuffer@@QAEXG@Z": 4264016,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "?AI@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6603440,
     "?Load@RulesClass@@QAEXPAUIStream@@@Z": 6612656,
@@ -11150,12 +11150,12 @@
     "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
     "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
-    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
-    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
-    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
+    "??0ABuffer@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABuffer@@QAE@XZ": 4262864,
+    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z": 4264112,
     "?unknown_cell_a6f238@@3VCell@@A": 10940984,
     "?Unknown_00493930@UnknownMapEntry154@@QAE_NXZ": 4798768,
     "?Unknown_0054FA60@MapClass@@QAEHABVCell@@@Z": 5569120,
@@ -20503,7 +20503,7 @@
         {
           "offset": 341,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -20527,7 +20527,7 @@
         {
           "offset": 421,
           "kind": 20,
-          "symbol": "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z",
+          "symbol": "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z",
           "target": 4264496,
           "addend": 0,
           "resolved": 4294560631
@@ -20535,7 +20535,7 @@
         {
           "offset": 436,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -20543,13 +20543,13 @@
         {
           "offset": 591,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
         }
       ],
-      "source_sha256": "3321d3479411bd4f1163556e7d44c41df50242dbb8175411ff1206e34ebf177e",
+      "source_sha256": "17d17c3e9b73158ce1f4c65f301cced059ea8349d5e8fec1c8b247c8bb81bfbf",
       "source": "src/recovered/classes/CellClass/CellClass_Draw_Fog_Shape_00474510.cpp",
       "population": "population-4426",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

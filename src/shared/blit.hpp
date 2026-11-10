@@ -13,13 +13,14 @@
 
 class RLEBlitter;
 
-// Depth (ABufferSwapTmp, 0x008315B4) and alpha (ZBuffer, 0x00839C6C) buffers:
+// Alpha (ABuffer, AlphaBuffer 0x008315B4) and depth (ZBuffer, DepthBuffer 0x00839C6C) buffers
+// (TibSun abuffer.h/zbuffer.h, mischa85 names.csv; DisplayClass slot 42 prints "Allocating ZBuffer" for 0x00775B80):
 // screen-sized rings of 16-bit values over a BSurface. Layout from the
 // blitters (fields +0x00..+0x28; the names follow the use).
-class ABufferSwapTmp {
+class ABuffer {
 public:
-    ABufferSwapTmp(Rect area); // original00410A60; by-value spelling hypothesis
-    ~ABufferSwapTmp(); // original00410BD0
+    ABuffer(Rect area); // original00410A60; by-value spelling hypothesis
+    ~ABuffer(); // original00410BD0
     void Clear_Region_00411090(unsigned short color, Rect area); // original00411090
     // Copies an area-sized block of values, starting at the ring origin,
     // into surface at the area's position (0x00410B40).
@@ -76,7 +77,7 @@ public:
 
 class ZBuffer {
 public:
-    // Existing name retained as a hypothesis; this constructor binds instance 00839C6C.
+    // TibSun zbuffer.h ZBuffer: this constructor builds DepthBuffer 0x00839C6C.
     ZBuffer(Rect area); // original 00775B80, by-value screen rectangle
     ~ZBuffer(); // original 00775CF0
     void Clear(unsigned short color); // original 00776160
@@ -119,8 +120,8 @@ public:
     int Height;                 // +0x2C; original allocation is 0x30 bytes
 };
 
-extern ABufferSwapTmp *AlphaBuffer;     // 0x008315B4 (null when no depth buffering)
-extern ZBuffer *DepthBuffer;     // 0x00839C6C (null when no alpha buffering)
+extern ABuffer *AlphaBuffer;     // 0x008315B4 (null when no alpha buffering)
+extern ZBuffer *DepthBuffer;     // 0x00839C6C (null when no depth buffering)
 
 // Rows of the alpha ramp a blit walks (24-byte entries at 0x007CE168,
 // indexed by Bit_Blit's second trailing argument). Field meanings unresolved.

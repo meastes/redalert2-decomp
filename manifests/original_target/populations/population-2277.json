@@ -4,8 +4,8 @@
     "id": "population-2277",
     "inventory_sha256": "7a0bb07111fb43cc91e06469f02065f905c5dd780311790609e0614085826d55",
     "gaps_sha256": "e048d701ba6300042d96d8fb76d20d4bde91ace3d2d7870cb5035221fc77fef2",
-    "historical_population_sha256": "9c15653b858f013f9c8fdbe1da8d8ab712afaf35ec305365f2484f9bead035ef",
-    "historical_acceptance_sha256": "fc422926563940c506183e53e487e061ec237e559ddc927b7ab35d2ca303373d"
+    "historical_population_sha256": "98055e38808e7257830918814d504ebd7466aabbcae7554e101512d848d78584",
+    "historical_acceptance_sha256": "273748c2a63867d8bc1700ef8e94b4b3cfdf3f93ad53236b9cf57fbcf381e199"
   },
   "references": {
     "_unknown_static_rect": 8625488,
@@ -188,15 +188,15 @@
     "__purecall": 4950368,
     "??_EMSShapeAnim@@UAEPAXI@Z": 5962944,
     "_$E2": 4262464,
-    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
-    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
-    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
-    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
-    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
-    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
+    "??0ABuffer@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABuffer@@QAE@XZ": 4262864,
+    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z": 4264112,
+    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 4264496,
     "?target@Call_402190_0@@QAEIXZ": 4198400,
     "?target@Call_402940_0@@QAEIXZ": 4223472,
     "?target@Call_402940_1@@QAEIXZ": 4223472,
@@ -786,7 +786,7 @@
     "?Clear@CounterClass@@UAEXXZ": 4791664,
     "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "?BlitForward@?$BlitPlainXlatAlpha@G@@UBEXPAXPBXHH00HH@Z": 4750832,
-    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
+    "?AlphaBuffer@@3PAVABuffer@@A": 8590772,
     "?BlitForward@?$BlitTransLucent75Alpha@G@@UBEXPAXPBXHH00HH@Z": 4751504,
     "?BlitForward@?$BlitTransLucent50Alpha@G@@UBEXPAXPBXHH00HH@Z": 4751760,
     "?BlitForward@?$BlitTransLucent25Alpha@G@@UBEXPAXPBXHH00HH@Z": 4752000,
@@ -1307,7 +1307,7 @@
           "resolved": 8625500
         }
       ],
-      "source_sha256": "b0bff8936c65fba44e222ad14af6962279a14aac2f5152e939ce8a1957628801",
+      "source_sha256": "8268a2c7f7feefb13d583cdefcf997f2fac2d656101a844654587ae274f28396",
       "source": "src/recovered/classes/ZBuffer/HeaderStatics_static_rect_init_00410a40.cpp",
       "population": "population-2277",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -1319,8 +1319,8 @@
     {
       "entry": 4262496,
       "method": "00410a60",
-      "symbol": "??0ABufferSwapTmp@@QAE@VRect@@@Z",
-      "symbol_prefix": "??0ABufferSwapTmp@@QAE@VRect@@@Z",
+      "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+      "symbol_prefix": "??0ABuffer@@QAE@VRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1366,7 +1366,7 @@
           "resolved": 7974648
         }
       ],
-      "source_sha256": "e1be6fa2df270a3ddd84e106b9ea6d7b3cf8a8aefbe57a19840929afb3d90eea",
+      "source_sha256": "19e7fbd8707f3970aa470447906f44f91ce7971bf61caefb285b9d6aff0e5df3",
       "source": "src/recovered/classes/ABuffer/ABuffer_constructor_00410a60.cpp",
       "population": "population-2277",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -1378,8 +1378,8 @@
     {
       "entry": 4262720,
       "method": "00410b40",
-      "symbol": "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z",
-      "symbol_prefix": "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z",
+      "symbol": "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z",
+      "symbol_prefix": "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1392,7 +1392,7 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "16528d33b9e71957ecc449b919c032cdc924c2ddab4f00640670474f8444db71",
       "relocations": [],
-      "source_sha256": "48615614637703b82efbba747c6ca0f8feda5263855be57d0abbea8ffe8a41a1",
+      "source_sha256": "ce1ab8f6ab9dbb4cdab19c9bdacfb174ddc7eeb745f9c5880e6f75c26341ef51",
       "source": "src/recovered/classes/ABuffer/ABuffer_Copy_To_00410b40.cpp",
       "population": "population-2277",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -1404,8 +1404,8 @@
     {
       "entry": 4262864,
       "method": "00410bd0",
-      "symbol": "??1ABufferSwapTmp@@QAE@XZ",
-      "symbol_prefix": "??1ABufferSwapTmp@@QAE@XZ",
+      "symbol": "??1ABuffer@@QAE@XZ",
+      "symbol_prefix": "??1ABuffer@@QAE@XZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -1418,7 +1418,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "2516e6406594f635dfc45b9c8f565ed02a80258cda4cd734a4d8c0059d26f671",
       "relocations": [],
-      "source_sha256": "cf3984be99b3e3779fbf9fee2846a622955ae4ba71b301048468e0111cb92437",
+      "source_sha256": "c63c7b3185dc0670e8ad886ef54f9ff594d4eec4621d08c9eb9ec906cd6e3230",
       "source": "src/recovered/classes/ABuffer/ABuffer_destructor_00410bd0.cpp",
       "population": "population-2277",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -1430,8 +1430,8 @@
     {
       "entry": 4262896,
       "method": "00410bf0",
-      "symbol": "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z",
-      "symbol_prefix": "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z",
+      "symbol": "?Fill_Words@ABuffer@@QAEXPAGHG@Z",
+      "symbol_prefix": "?Fill_Words@ABuffer@@QAEXPAGHG@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1444,7 +1444,7 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "be2ea72b85f987b744d4486857b19b194dc1a06933c19ffef0b256cf4034ea00",
       "relocations": [],
-      "source_sha256": "f0e4d580567b711f379a10f45b9a43f8fcee2aa03b6869548d293ce7f4f20ad9",
+      "source_sha256": "88a4ec093e12342e65984067d8a0ade66a69c817a08b6462ef1643916e375a05",
       "source": "src/recovered/classes/ABuffer/ABuffer_Fill_Words_00410bf0.cpp",
       "population": "population-2277",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -1456,8 +1456,8 @@
     {
       "entry": 4262992,
       "method": "00410c50",
-      "symbol": "?Adjust@ABufferSwapTmp@@QAEXHHG@Z",
-      "symbol_prefix": "?Adjust@ABufferSwapTmp@@QAEXHHG@Z",
+      "symbol": "?Adjust@ABuffer@@QAEXHHG@Z",
+      "symbol_prefix": "?Adjust@ABuffer@@QAEXHHG@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1470,7 +1470,7 @@
       "full_extent_bytes": 1024,
       "full_extent_sha256": "133348b9e0a7faff21a4ec2c713610f40cfd994ce80a8a524b4c4f9f2ad8c673",
       "relocations": [],
-      "source_sha256": "c4dfb2abdc5193b4b7b30053bd20dbb91d0c09f06d373fe5fe1ec34457e8107d",
+      "source_sha256": "e34ac6b5de4b39bca2a0eb550b70e7ed6671d6bc6b56e620d1ba6bc022a916ba",
       "source": "src/recovered/classes/ABuffer/ABuffer_Adjust_00410c50.cpp",
       "population": "population-2277",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -1482,8 +1482,8 @@
     {
       "entry": 4264016,
       "method": "00411050",
-      "symbol": "?Clear@ABufferSwapTmp@@QAEXG@Z",
-      "symbol_prefix": "?Clear@ABufferSwapTmp@@QAEXG@Z",
+      "symbol": "?Clear@ABuffer@@QAEXG@Z",
+      "symbol_prefix": "?Clear@ABuffer@@QAEXG@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1496,7 +1496,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "157f9d645510b207a34ffec0c6932dc953c75650319ac41518138aa403c7e0b6",
       "relocations": [],
-      "source_sha256": "96cd289822d9fb9498ccaf51abb4205208f05c50ea9580b9a33bb0e27b886acf",
+      "source_sha256": "c24b16ea746ce4744f824c2f3eac0d4465edfca04cd05f130231a0919c949a7c",
       "source": "src/recovered/classes/ABuffer/ABuffer_Clear_00411050.cpp",
       "population": "population-2277",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -1508,8 +1508,8 @@
     {
       "entry": 4264080,
       "method": "00411090",
-      "symbol": "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z",
-      "symbol_prefix": "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z",
+      "symbol": "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z",
+      "symbol_prefix": "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1522,7 +1522,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "1a8bb7855257b1c09dcf8328ae61100a21422d66664eab639cceb4708bd14d67",
       "relocations": [],
-      "source_sha256": "69500d9bca68c51ebfdcef01510e11e74c2fb87a85ec226657040c1a271b729c",
+      "source_sha256": "a9654f88451774256becb1fb41c5737f42f326fe23bf39bd3a48ec19d983a6cf",
       "source": "src/recovered/classes/ABuffer/ABuffer_Clear_Region_00411090.cpp",
       "population": "population-2277",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -1534,8 +1534,8 @@
     {
       "entry": 4264112,
       "method": "004110b0",
-      "symbol": "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z",
-      "symbol_prefix": "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z",
+      "symbol": "?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z",
+      "symbol_prefix": "?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1548,7 +1548,7 @@
       "full_extent_bytes": 384,
       "full_extent_sha256": "c1e7a87fce3f91efddade467c3bc1885e695f61bae5a43804d07348badb88c90",
       "relocations": [],
-      "source_sha256": "2f57bec5ccaa13da7ccfe1c85453c557b1c6cf735db86f16b89dcfa3ccd9de50",
+      "source_sha256": "cb294e2bd770ba2f71ba463254c34b88ef59e9d4a035bd37c07ef48e938b11c8",
       "source": "src/recovered/classes/ABuffer/ABuffer_Clear_Region_004110b0.cpp",
       "population": "population-2277",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -1560,8 +1560,8 @@
     {
       "entry": 4264496,
       "method": "00411230",
-      "symbol": "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z",
-      "symbol_prefix": "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z",
+      "symbol": "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z",
+      "symbol_prefix": "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1574,7 +1574,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "8b8b45e448b91892d3efb579c4c6e4b075e79632693657369b99b9323ef3544d",
       "relocations": [],
-      "source_sha256": "04ae3a6ef56e97722dc2b6ee3f9fb7bed7f4a4b3bc142878a0557153b23df7d0",
+      "source_sha256": "82782db4349c2bb4f9e7bd418301bd5a3d43e23b872d1915193767c79b1587a1",
       "source": "src/recovered/classes/ABuffer/ABuffer_Get_Buffer_Ptr_00411230.cpp",
       "population": "population-2277",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

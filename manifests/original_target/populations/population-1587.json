@@ -4,8 +4,8 @@
     "id": "population-1587",
     "inventory_sha256": "df572e3046c75bf3426ac2d262bc5913482c9e0959fc03eb5936d515c8f17d54",
     "gaps_sha256": "219398f967174fd749d4475f0538960cd48c38909c738a3618422a7185fe6e17",
-    "historical_population_sha256": "950f0686fcfa81db06009a2c7cf122fe20f7512c33cbee50b753b3d7e1a0c2cb",
-    "historical_acceptance_sha256": "c138a76c52994dc287d7c10049c7ce21a02deed9dc5ac83c9c1be3200f35e493"
+    "historical_population_sha256": "a1335301ae55c05b1031e0c299bca739e60b1a67e4f934fc87c4b19c3d184608",
+    "historical_acceptance_sha256": "2350c436e304e96900c824739fd0343b7fbad557a70714ff303275504f12add9"
   },
   "references": {
     "?target@Call_402190_0@@QAEIXZ": 4198400,
@@ -294,7 +294,7 @@
     "??_ESurface@@UAEPAXI@Z": 4264784,
     "?BlitForward@?$BlitTrans@E@@UBEXPAXPBXHH00HH@Z": 7821696,
     "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
-    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
+    "?AlphaBuffer@@3PAVABuffer@@A": 8590772,
     "?BlitForward@?$BlitTransRemapDest@E@@": 4744192,
     "?Blit@?$RLEBlitTransXlat@E@@": 4744432,
     "?Blit@?$RLEBlitTransZRemapXlat@E@@": 4744560,
@@ -1280,19 +1280,19 @@
     "?Clear@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEXXZ": 7523568,
     "?Clear@?$VectorClass@UWaypointClass@@@@UAEXXZ": 7493120,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
+    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 4264496,
     "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
     "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
-    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
-    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
-    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
-    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
-    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
+    "??0ABuffer@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABuffer@@QAE@XZ": 4262864,
+    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z": 4264112,
     "?Get_Rect@INIClass@@QBE?AUINIRect@@ABVWstring@@0ABU2@@Z": 5300080,
     "?Draw_It@TabClass@@UAEX_N@Z": 6951632,
     "?Draw_It@SidebarClass@@UAEX_N@Z": 6803328,
@@ -1660,7 +1660,7 @@
         {
           "offset": 14,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1668,7 +1668,7 @@
         {
           "offset": 80,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1703,7 +1703,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1711,7 +1711,7 @@
         {
           "offset": 93,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1746,7 +1746,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1754,7 +1754,7 @@
         {
           "offset": 93,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772

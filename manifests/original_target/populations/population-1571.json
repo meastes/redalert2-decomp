@@ -4,11 +4,11 @@
     "id": "population-1571",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "e718117eeec25e532bff49242e69b6d2275e6f9adff940e0fd06ed48f61e51a4",
-    "historical_acceptance_sha256": "083f0911d12fd4ea688c9f91254e7dbe9958105f1eb53cd7311dbbffeb65744e"
+    "historical_population_sha256": "355bcfce11b7c470fb74aeec22cb78b497aa1c2b87d920d9d92bc51a7fbb0565",
+    "historical_acceptance_sha256": "135e0e94e068236802691103982ff64adef4455d192699af28a6008e36a25b4e"
   },
   "references": {
-    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
+    "?AlphaBuffer@@3PAVABuffer@@A": 8590772,
     "?target@Call_402190_0@@QAEIXZ": 4198400,
     "?target@Call_402940_0@@QAEIXZ": 4223472,
     "?target@Call_402940_1@@QAEIXZ": 4223472,
@@ -1082,19 +1082,19 @@
     "__real@8@3ff98efa351294e9c800": 8048992,
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
+    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 4264496,
     "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
     "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
-    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
-    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
-    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
-    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
-    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
+    "??0ABuffer@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABuffer@@QAE@XZ": 4262864,
+    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Clear_Region_00411090@ABuffer@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABuffer@@QAEXVRect@@@Z": 4264112,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "__real@4@3ff98888890000000000": 8032628,
@@ -1425,7 +1425,7 @@
         {
           "offset": 70,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1433,7 +1433,7 @@
         {
           "offset": 157,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1468,7 +1468,7 @@
         {
           "offset": 63,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1476,7 +1476,7 @@
         {
           "offset": 151,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1511,7 +1511,7 @@
         {
           "offset": 70,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1519,7 +1519,7 @@
         {
           "offset": 157,
           "kind": 6,
-          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
+          "symbol": "?AlphaBuffer@@3PAVABuffer@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772

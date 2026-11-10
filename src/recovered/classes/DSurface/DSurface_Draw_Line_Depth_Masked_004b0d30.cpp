@@ -1,11 +1,11 @@
 // Draw a clipped 16-bit line, plotting only where the depth buffer value is
 // zero (empty_only) or only where it is not; the depth pointer walks the
-// ABufferSwapTmp ring alongside the pixel pointer.
+// ABuffer ring alongside the pixel pointer.
 #include "shared/blit.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/dsurface.hpp"
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
-// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 
 bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &endpoint, int color, bool empty_only)

@@ -1,7 +1,7 @@
 // Copy an area-sized block of depth values, starting at the ring's current
 // origin, into surface at the area's position (a view of the buffer).
 #include "shared/blit.hpp"
-void ABufferSwapTmp::Copy_To(::Surface &surface, Rect area)
+void ABuffer::Copy_To(::Surface &surface, Rect area)
 {
     unsigned short *pixels = (unsigned short *)surface.Lock(Point2D(area.X, area.Y));
     unsigned short *depth = (unsigned short *)(BufferHead + BufferOffset);

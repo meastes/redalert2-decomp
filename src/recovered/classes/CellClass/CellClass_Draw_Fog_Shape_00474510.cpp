@@ -10,7 +10,7 @@
 #include "shared/mix_file_class.hpp"
 #include "shared/blit.hpp"
 #include "shared/display.hpp"
-// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ??_C@_07BIFH@FOG?4SHP?$AA@=007d2c70
