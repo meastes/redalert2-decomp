@@ -409,7 +409,14 @@ void set_focus(HWND hwnd)
     } else if (w && w->parent) {
         if (Window *d = win(w->parent)) if (d->is_dialog) d->focus_child = hwnd;
     }
+    // WM_KILLFOCUS to the window losing it and WM_SETFOCUS to the one gaining it, as Windows
+    // sends them: the NewEdit control starts its caret blink on WM_SETFOCUS (0x005F22A0), and the
+    // lobby's name field showed no caret (user report, Scout1223).
+    HWND old = focus_hwnd;
     focus_hwnd = hwnd;
+    if (old == hwnd) return;
+    if (old && win(old)) SendMessageA(old, 0x0008, (WPARAM)hwnd, 0);         // WM_KILLFOCUS
+    if (hwnd && win(hwnd) && focus_hwnd == hwnd) SendMessageA(hwnd, 0x0007, (WPARAM)old, 0);   // WM_SETFOCUS
 }
 HWND SetFocus(HWND hwnd) { HWND old = focus_hwnd; set_focus(hwnd); return old; }
 HWND GetCapture(void) { return capture_hwnd; }
@@ -643,8 +650,9 @@ static bool peek_queue(MSG *msg, UINT first, UINT last, UINT remove)
 // the window was in the background (user report, Scout1223).
 // From the activation until that repaint the host holds its presents (the window keeps the
 // last picture): the game's redraw first clears the screen, and the menu flashed black, then
-// without its buttons, at every focus change (user report, Scout1223). At most one second.
+// without its buttons, at every focus change (user report, Scout1223). See ra2port_presents_held for how long.
 static bool exposure_pending = false;
+static bool exposure_restart = false;
 static bool app_active = true;
 static std::chrono::steady_clock::time_point hold_since;
 static bool hold_presents = false;
@@ -658,10 +666,30 @@ static bool dialogs_dirty()
     }
     return false;
 }
+// While the game is in the background with a menu shown, the window keeps the last picture it
+// showed in front, as an inactive Windows game keeps its last frame: the paused menu redraws
+// its background without the buttons and the video (they are paused animations), and that was
+// what the window showed whenever another app was in front (user report, Scout1223). In a game
+// (no dialog shown) presents go on.
+static bool menu_seen_active = false;
+static bool dialog_shown()
+{
+    for (HWND d : dialog_windows) if (Window *w = win(d)) if (w->visible) return true;
+    return false;
+}
 extern "C" bool ra2port_presents_held(void)
 {
-    if (!hold_presents) return false;
-    if (std::chrono::steady_clock::now() - hold_since > std::chrono::seconds(1) || (!exposure_pending && !dialogs_dirty()))
+    bool menu = dialog_shown();
+    if (!app_active && menu && menu_seen_active) return true;
+    if (!hold_presents) {
+        if (app_active && menu) menu_seen_active = true;
+        return false;
+    }
+    // With a menu shown the hold lasts at least 800 ms: after a reactivation the menu also
+    // redraws its buttons in again over several frames, after the dialogs' repaint.
+    auto held = std::chrono::steady_clock::now() - hold_since;
+    if (held > std::chrono::milliseconds(1500)
+        || (!exposure_pending && !dialogs_dirty() && (!menu || held > std::chrono::milliseconds(800))))
         hold_presents = false;
     return hold_presents;
 }
@@ -674,6 +702,9 @@ static void exposure_check(const MSG *found, std::chrono::steady_clock::time_poi
     // the generated WM_PAINT and WM_TIMER of the menus' animations and their
     // short handling do not (a menu slide, which a WM_PAINT can start, does).
     bool activity = found && found->message != 0x000F && found->message != 0x0113;
+    // A focus change starts the wait afresh: the idle time counted while inactive let the
+    // repaint run before the game's redraw after reactivation, which then stayed on screen.
+    if (exposure_restart) { exposure_restart = false; activity = true; }
     if (activity || (app_active && now - last_peek > milliseconds(animating ? 50 : 3))) idle_since = now;
     animating = found && !activity;
     last_peek = steady_clock::now();
@@ -741,6 +772,7 @@ LRESULT DispatchMessageA(const MSG *msg)
     HWND target = msg->hwnd ? msg->hwnd : main_hwnd;
     if (msg->message == 0x001C && target == main_hwnd) {
         exposure_pending = true;
+        exposure_restart = true;
         app_active = msg->wParam != 0;
         hold_presents = true;
         hold_since = std::chrono::steady_clock::now();

@@ -74,3 +74,28 @@ void *Native_Entry_From_Handle(int handle)
     int i = handle - kEntryBase;
     return i >= 0 && i < g_entry_count ? g_entries[i] : 0;
 }
+
+// Extract_Compressed_Events (draft 0x006282D0) stops at a malformed record and reports the packet
+// here (Scout1223: a stack overrun there ended a two-Mac LAN game). The first eight are logged.
+#include <stdio.h>
+void Native_Malformed(void const *buf, int bufsize, int pos, int type, char const *why)
+{
+    static int reported = 0;
+    if (reported++ >= 8) return;
+    fprintf(stderr, "Extract_Compressed_Events: malformed packet (%s) at %d of %d, type 0x%02X:", why, pos, bufsize, type);
+    for (int i = 0; i < bufsize && i < 96; ++i) fprintf(stderr, " %02X", ((unsigned char const *)buf)[i]);
+    fprintf(stderr, "\n");
+}
+
+// Sync_Delay's in-wait pass in network games (input, tactical AI, render; fixup): at most one per
+// 33 ms, the time a render took on the original's machines (Scout1223: edge scrolling ran many
+// times a frame natively).
+extern "C" __int64 ra2port_now_ms(void);   // port/src/user32.cpp (steady clock)
+bool Native_Wait_Pass_Due()
+{
+    static __int64 last = 0;
+    __int64 now = ra2port_now_ms();
+    if (now - last < 33) return false;
+    last = now;
+    return true;
+}

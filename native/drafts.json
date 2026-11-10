@@ -1765,7 +1765,7 @@
    "origin": "build/class-work/Scout1174/keep/extract_ex2_5762.cpp",
    "author": "Scout1174",
    "draft": "native/drafts/006282d0.cpp",
-   "notes": "NATIVE edit (Scout1209 r10): the type 0x1F data address is a 32-bit handle in the field at +0x07 (native/link/native_event_data.cpp) instead of the overlay's Data.Variable.Pointer, so EventClass keeps the original 0x6F-byte layout and wire format. A Fable lane works the exact match; src/ untouched."
+   "notes": "NATIVE edit (Scout1223 r19): records whose type, length, 0x1F data size or megamission slot/unit count run past the packet or the event stop the decode and are logged with the packet bytes (a stack overrun here aborted a two-Mac LAN game). NATIVE edit (Scout1209 r10): the type 0x1F data address is a 32-bit handle in the field at +0x07 (native/link/native_event_data.cpp) instead of the overlay's Data.Variable.Pointer, so EventClass keeps the original 0x6F-byte layout and wire format. A Fable lane works the exact match; src/ untouched."
   },
   {
    "entry": "0x626CB0",

@@ -16,7 +16,7 @@
 | [classes/UnitClass](../src/recovered/classes/UnitClass/) | 92 | 59,119 | 92 | 0x004D3510–0x0070A330 |
 | [classes/MapGeneratorClass](../src/recovered/classes/MapGeneratorClass/) | 56 | 56,683 | 56 | 0x0056D4C0–0x0058AD90 |
 | [classes/FootClass](../src/recovered/classes/FootClass/) | 125 | 46,400 | 121 | 0x0041B470–0x004CDE10 |
-| [classes/CellClass](../src/recovered/classes/CellClass/) | 132 | 45,698 | 128 | 0x00470680–0x0047CFC0 |
+| [classes/CellClass](../src/recovered/classes/CellClass/) | 133 | 45,727 | 129 | 0x00470680–0x0047CFC0 |
 | [classes/BuildingTypeClass](../src/recovered/classes/BuildingTypeClass/) | 62 | 40,277 | 62 | 0x00454EE0–0x004D3C50 |
 | [classes/Tactical](../src/recovered/classes/Tactical/) | 94 | 34,434 | 92 | 0x006A22D0–0x006AC800 |
 | [classes/InfantryClass](../src/recovered/classes/InfantryClass/) | 92 | 34,203 | 92 | 0x004D3390–0x00509810 |
@@ -27,7 +27,7 @@
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 95 | 0x004D3690–0x006BE740 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
 | [classes/SidebarClass](../src/recovered/classes/SidebarClass/) | 91 | 25,083 | 89 | 0x0067B4B0–0x006824A0 |
-| (discovery: address-named) | 783 | 23,812 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 782 | 23,783 | 17 | 0x004010A0–0x00793976 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
 | [classes/TActionClass](../src/recovered/classes/TActionClass/) | 138 | 23,230 | 138 | 0x006AD2F0–0x006B30D0 |

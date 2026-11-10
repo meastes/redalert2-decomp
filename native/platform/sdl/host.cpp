@@ -525,11 +525,13 @@ void present_now(const void *pixels, int width, int height, int pitch)
     SDL_RenderTexture(renderer, texture, nullptr, nullptr);
     // RA2_NATIVE_WINDOW_DUMP=<file> (test runs): every 2 s, the whole window
     // as drawn (device pixels: the scaling, letterbox and fullscreen) to
-    // <file>.<n>.bmp.
+    // <file>.<n>.bmp; RA2_NATIVE_WINDOW_DUMP_MS=<ms> sets another period (0: every present).
     static const char *window_dump = getenv("RA2_NATIVE_WINDOW_DUMP");
+    static const char *window_dump_period = getenv("RA2_NATIVE_WINDOW_DUMP_MS");
     static Uint64 window_dump_ms = 0;
     static int window_dump_count = 0;
-    if (window_dump && *window_dump && SDL_GetTicks() - window_dump_ms >= 2000) {
+    if (window_dump && *window_dump && (window_dump_count == 0 ||
+            SDL_GetTicks() - window_dump_ms >= (Uint64)(window_dump_period ? atoi(window_dump_period) : 2000))) {
         window_dump_ms = SDL_GetTicks();
         if (SDL_Surface *shot = SDL_RenderReadPixels(renderer, nullptr)) {
             char name[1024];

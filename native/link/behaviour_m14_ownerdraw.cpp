@@ -691,6 +691,10 @@ LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wpa
     }
     if (!record->unknown_bc) {
         Rect area = Area(window);
+        // The saved background under the box first, as the other controls paint (0x005FE490
+        // with +0xC8): without it every repaint drew the rows over the old ones, and the LAN
+        // lobby's player and game lists became an overprinted smear (user report, Scout1223).
+        unknown_draw_dimmed_back_5fe490(Rect(area.X, area.Y, area.Width + 1, area.Height + 1), window, record->unknown_c8);
         Frame(area, unknown_5fda40(unknown_color_a76158));
         int count = (int)Original(window, 0x18B, 0, 0);
         int top = (int)Original(window, 0x18E, 0, 0);

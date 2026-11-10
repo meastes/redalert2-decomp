@@ -119,8 +119,11 @@ the keyboard's own path (SDL key and text input) without the Accessibility
 permission that system-wide keystrokes need. Example: the lobby's name field,
 `RA2_NATIVE_NSEVENT_KEYS="26000:@400,170;36000:<<zq"` after Network.
 
-Focus changes reach the game (WM_ACTIVATEAPP) once they have held for 150 ms,
-and the window keeps its last picture while the game redraws its menu after one
-until the dialogs have repainted (at most 1 s): each change made the menu flash
-black and then show its rails without buttons, which stayed so while the window
-was in the background (Scout1223).
+Focus changes reach the game (WM_ACTIVATEAPP) once they have held for 150 ms.
+While the game is in the background with a menu shown, the window keeps the last
+picture it showed in front (an inactive Windows game keeps its last frame); after
+it comes back the window keeps that picture until the menu has redrawn its
+buttons (at least 800 ms, at most 1.5 s). Before, the paused menu showed its
+background and empty rails, without buttons or video, whenever another app was
+in front (Scout1223). In a game (no menu) the picture goes on.
+`RA2_NATIVE_WINDOW_DUMP_MS=<ms>` sets the window dump's period.

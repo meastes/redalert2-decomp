@@ -21,6 +21,14 @@ extern int unknown_unit_counts_a76b74[64];
 // @ref ??_C@_0DK@MOHO@Got?5new?5unit?5list?5for?5player?5?$CFd?5@=007ece60
 // @ref ??_C@_0DM@COCM@Frame?5?$CFd?3Empty?5megamission?5decod@=007ece24
 
+// NATIVE (Scout1223): a stack-protector abort here ended a two-Mac LAN game (user crash report
+// 2026-11-10): a record whose type or length runs past the packet or the event (a type past the
+// 48-entry length table, a megamission slot or unit count past the lists) overran `eventdata`.
+// Such a packet is logged with its bytes and decoding stops at that record; the parse is
+// otherwise unchanged.
+void Native_Malformed(void const *buf, int bufsize, int pos, int type, char const *why);   // native/link/native_event_data.cpp
+#define NATIVE_CHECK(cond, why) do { if (!(cond)) { Native_Malformed(buf, bufsize, pos, eventdata.Type, why); return count; } } while (0)
+
 int __fastcall Extract_Compressed_Events(void *buf, int bufsize)
 {
     int pos = 0;
@@ -55,7 +63,9 @@ int __fastcall Extract_Compressed_Events(void *buf, int bufsize)
             }
             memset(&eventdata.Data, 0, sizeof(eventdata.Data));
             eventdata.Type = event->Type;
+            NATIVE_CHECK(eventdata.Type < 48, "type");
             datasize = unknown_event_lengths_7d659c[eventdata.Type];
+            NATIVE_CHECK(pos + 1 + datasize <= bufsize, "length");
 
             switch (eventdata.Type) {
             case 0x1B:
@@ -63,7 +73,9 @@ int __fastcall Extract_Compressed_Events(void *buf, int bufsize)
                 break;
 
             case 0x1F:
+                NATIVE_CHECK(datasize <= 4, "0x1F size field");
                 memcpy(&eventdata.LongAt(0x0B), ((char *)buf) + pos + sizeof(eventdata.Type), datasize);
+                NATIVE_CHECK(eventdata.LongAt(0x0B) >= 0 && pos + 1 + datasize + eventdata.LongAt(0x0B) <= bufsize, "0x1F data");
                 {
                     char *variable = new char[eventdata.LongAt(0x0B)];
                     eventdata.LongAt(0x07) = Native_Event_Data_Handle(variable);
@@ -81,6 +93,7 @@ int __fastcall Extract_Compressed_Events(void *buf, int bufsize)
                     datasize = sizeof(eventdata.Data.MegaMissionF.Whom);
                     Debug_Printf("Decoding new MEGAMISSION\n");
                     slot = (char)eventdata.Data.Bytes[6] + house * 8;
+                    NATIVE_CHECK(slot >= 0 && slot < 64 && numunits <= 128 && pos + (numunits - 1) * 5 <= bufsize, "unit list");
                     unknown_unit_lists_aabed0[slot][0] = eventdata.Data.MegaMissionF.Whom;
                     units = 1;
                     unknown_unit_counts_a76b74[slot] = units;
@@ -116,6 +129,7 @@ int __fastcall Extract_Compressed_Events(void *buf, int bufsize)
                     datasize = sizeof(eventdata.Data.MegaMissionF.Whom);
                     units = 1;
                     slot = (char)eventdata.Data.Bytes[6] + house * 8;
+                    NATIVE_CHECK(slot >= 0 && slot < 64 && unknown_unit_counts_a76b74[slot] <= 128, "saved unit list");
                     numunits = unknown_unit_counts_a76b74[slot];
                     eventdata.Data.MegaMissionF.Whom = unknown_unit_lists_aabed0[slot][0];
                     if (eventdata.Frame == 0 || eventdata.Type == 0) {

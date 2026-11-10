@@ -1818,6 +1818,20 @@
    "new": "#include \"shared/string_table.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
    "why": "Declares the handle functions the row above uses (Scout1209 r14).",
    "verified": true
+  },
+  {
+   "source": "src/recovered/MainLoop/Sync_Delay_00540960.cpp",
+   "old": "                if (unknown_net_frame_timer_839970.Value() > 10) {",
+   "new": "                if (unknown_net_frame_timer_839970.Value() > 10 && Native_Wait_Pass_Due()) {   /* NATIVE: at most one pass per 33 ms */",
+   "why": "Native only: in a network game Sync_Delay runs input, the tactical AI (edge scrolling) and a render in a loop while more than 10 ms of the frame remain. On Windows a render took most of that time; natively it takes a fraction of a millisecond, so the pass ran many times a frame and edge scrolling was far too fast in LAN games (user report, Scout1223). One pass per 33 ms (native/link/native_event_data.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/MainLoop/Sync_Delay_00540960.cpp",
+   "old": "#include \"shared/win32_api.hpp\"\n",
+   "new": "#include \"shared/win32_api.hpp\"\nbool Native_Wait_Pass_Due();   // NATIVE: native/link/native_event_data.cpp\n",
+   "why": "Declares the row above's helper (Scout1223).",
+   "verified": true
   }
  ]
 }
