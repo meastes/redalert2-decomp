@@ -284,6 +284,10 @@ def main():
         treemap = d if isinstance(d, list) else d.get('functions', d)
     else:
         print('no treemap table at %s: bytes and status unknown, accepted rows not filtered' % args.treemap, file=sys.stderr)
+    false_path = REPOSITORY / 'manifests/original_target/false_rows.json'
+    if treemap and false_path.exists():
+        false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']}
+        treemap = [r for r in treemap if r['entry'] not in false_rows]
     out = build(text, treemap, lane_resolver(args.lanes_root))
     if args.entry:
         e = int(args.entry, 16)

@@ -280,8 +280,9 @@ Derived from controlled experiments with the real compiler (Regalloc27,
   disjoint values gives separate webs; a dead store is dropped.
 - Priority is the reference count: a def or use is 1, `x += y` / `++x` is 1 in
   total, a use inside an if is about 0.5 (nested ifs do not compound), a use
-  inside a loop about 1.4 (depth 1), 2.5 (depth 2), 5 (depth 3). The
-  instruction length of the range does not count.
+  inside a loop about 1.4 (depth 1), 2.5 (depth 2), 5 (depth 3), minus a
+  live-through penalty (see "Register priority is references minus live-through
+  pressure" below, Scout1212). The instruction length of the range does not count.
 - Ties go to the web spanning fewer basic blocks, then to the one *assigned*
   first. Declaration order and scope nesting alone change nothing; reordering
   independent initialisations does.
@@ -2224,3 +2225,28 @@ CDTimer/TTimer(NoInit) ctor 52; a class-typed array (any length) 50; PauseTimer 
 `CDTimerClass(int set=0)`); `FixedString(NoInit) {}` 0. An address-only inline accessor in the body counts as a site (raises
 N). The caller's own body size does not change the root budget. Lab tools: build/class-work/Scout1211/ (pat.py reads per-site
 inline/refuse patterns; one score can hide different patterns).
+Root budget is size-bound: B = max(1000, 2S), S the caller's own IL. Adding non-site IL (stores) to Draw_Placement_Cursor 0x473F20
+makes Find_Object inline once S rises ~48 units, position-independent. Code-neutral evidenced spellings can supply IL: ra2-decomp's
+`CoordStruct coord = CoordStruct(MapCoords, 0);` is byte-identical and adds 18-30 units (Scout1211).
+
+## Register priority is references minus live-through pressure; a losing long web is split and its register lent (Scout1212 lab)
+A web's colouring priority is its weighted reference count minus a penalty for the register candidates it is live
+through: about 0.25 per other candidate referenced in a conditional block of its range, about 1.3 per candidate in a
+depth-1 loop block (lab grids: B needs nA + K/2 uses to beat A past K `if (G) H = 1;` blocks, nA + 2.75K past K
+`for` loops; straight-line calls or stores anywhere, 1 to 2,400 of them, never change it). The penalty is subtracted,
+not divided (thr = nA + K/2 for nA = 2..8), so Chow-style size normalisation is the wrong model. Candidates that
+count: named locals and inlined helpers' locals live in the region, loop counters, a repeated constant (`push 1` or
+`H = 1` in several arms is one web spanning them), a tested value kept live into its arm; not one-reference
+constants or plain global loads (lab L: `int t = Hk; h(t); h(t);` in eight arms costs 2 uses, `h(Hk); h(Hk);` costs 0, two locals cost 4). Colouring is greedy in that order; a web that finds no free register over its
+whole range is split: pieces where a register is free take one (its frame home is written at the split), the rest
+lives in memory with scratch reloads, and the freed register serves shorter webs and reloads in the busy region.
+Minimal reproduction lab/K/k_2_00.cpp: `int endy = g(count)` as an outer loop bound with two uses after the loops
+gets esi in prologue and epilogue only, esi is lent to a `yoff` reload and the inner counter inside the loop, the
+tail compares `[endy]` from memory and `mov esi, ecx` restores it after the loop; the short in-loop `ypos` that
+finds every register taken in its one region is spilled whole. This is the Draw_Sonic 0x7225B0 original (ebp lent
+to xoff/yoff/ypos, endy restored from [esp+0x20]) and the AA line's `this` (esi for Lock/fail-Unlock, ecx for
+Stride). When our draft keeps the long web in a register unsplit, its own form is not the lever (every long-web form
+is inert): look for the candidates the original had live along that range (a local or helper temporary live across
+the loop, a repeated constant, a value carried from a test into an arm) and for weaker in-loop webs in ours. A real
+local live across a loop costs every web live through it about 1.3 per loop block, which is why one named local can
+reorder long webs (the count-calibrated-locals effect).
