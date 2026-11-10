@@ -27,7 +27,7 @@
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 95 | 0x004D3690–0x006BE740 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
 | [classes/SidebarClass](../src/recovered/classes/SidebarClass/) | 91 | 25,083 | 89 | 0x0067B4B0–0x006824A0 |
-| (discovery: address-named) | 791 | 24,022 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 790 | 24,018 | 17 | 0x004010A0–0x00793976 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
 | [classes/TActionClass](../src/recovered/classes/TActionClass/) | 138 | 23,230 | 138 | 0x006AD2F0–0x006B30D0 |
@@ -140,7 +140,7 @@
 | [classes/Unknown84E8D0](../src/recovered/classes/Unknown84E8D0/) | 16 | 3,902 | 16 | 0x0042D960–0x0042EFD0 |
 | [vqa](../src/recovered/vqa/) | 15 | 3,857 | 15 | 0x00411420–0x00412380 |
 | [classes/CNetUtilEventSink](../src/recovered/classes/CNetUtilEventSink/) | 9 | 3,840 | 8 | 0x0075D1F0–0x00765D00 |
-| [classes/FactoryClass](../src/recovered/classes/FactoryClass/) | 26 | 3,832 | 24 | 0x004B90A0–0x004D3750 |
+| [classes/FactoryClass](../src/recovered/classes/FactoryClass/) | 27 | 3,836 | 25 | 0x004B90A0–0x004D3750 |
 | [win_stub](../src/recovered/win_stub/) | 16 | 3,823 | 16 | 0x007373A0–0x00738190 |
 | [Reinf](../src/recovered/Reinf/) | 4 | 3,803 | 4 | 0x00639970–0x0063A690 |
 | [classes/SmudgeTypeClass](../src/recovered/classes/SmudgeTypeClass/) | 24 | 3,798 | 24 | 0x004D3B10–0x00688C20 |
