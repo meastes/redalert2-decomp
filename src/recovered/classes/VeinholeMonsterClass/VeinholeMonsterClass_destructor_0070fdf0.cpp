@@ -16,41 +16,6 @@ extern Rect unknown_rect_839630;
 inline RectPoint2D Rect::Top_Left() const { return RectPoint2D(X, Y); }
 inline Rect Rect::operator-(RectPoint2D const &point) const { return Rect(Top_Left() - point, Width, Height); }
 
-// Existing Clear_Growth member; the original expands this body in the dtor.
-inline void VeinholeMonsterClass::unknown_func_711c90()
-{
-    if (unknown_9c != 0) {
-        unknown_9c->Clear();
-        delete unknown_9c;
-        unknown_9c = 0;
-    }
-    if (unknown_a0 != 0) {
-        delete[] unknown_a0;
-        unknown_a0 = 0;
-    }
-    if (unknown_b0 != 0) {
-        delete[] unknown_b0;
-        unknown_b0 = 0;
-    }
-    unknown_98 = 0;
-}
-
-// Existing independently emitted lifecycle rows 00711C70 and 007114F0.
-inline void __cdecl VeinholeMonsterClass::Clear_Global_Data()
-{
-    if (unknown_veinhole_buffer_ad07a0 != 0) {
-        delete[] unknown_veinhole_buffer_ad07a0;
-        unknown_veinhole_buffer_ad07a0 = 0;
-    }
-}
-inline void __cdecl VeinholeMonsterClass::Deinit_Vein_Growth_System()
-{
-    for (int index = Array.Count() - 1; index >= 0; index--) {
-        Array[index]->unknown_func_711c90();
-    }
-    Clear_Global_Data();
-}
-
 VeinholeMonsterClass::~VeinholeMonsterClass()
 {
     for (int x = -2; x <= 2; x++) {

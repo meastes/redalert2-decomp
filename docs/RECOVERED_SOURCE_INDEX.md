@@ -27,7 +27,7 @@
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 95 | 0x004D3690–0x006BE740 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
 | [classes/SidebarClass](../src/recovered/classes/SidebarClass/) | 91 | 25,083 | 89 | 0x0067B4B0–0x006824A0 |
-| (discovery: address-named) | 799 | 24,573 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 796 | 24,218 | 17 | 0x004010A0–0x00793976 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
 | [classes/TActionClass](../src/recovered/classes/TActionClass/) | 138 | 23,230 | 138 | 0x006AD2F0–0x006B30D0 |
@@ -53,7 +53,7 @@
 | [classes/BulletClass](../src/recovered/classes/BulletClass/) | 40 | 12,897 | 40 | 0x0045F310–0x004D3150 |
 | [classes/UnknownPathEstimator](../src/recovered/classes/UnknownPathEstimator/) | 27 | 12,892 | 27 | 0x00427060–0x0042AD50 |
 | [classes/ObjectClass](../src/recovered/classes/ObjectClass/) | 129 | 12,425 | 106 | 0x0041B240–0x005D5540 |
-| [classes/VeinholeMonsterClass](../src/recovered/classes/VeinholeMonsterClass/) | 32 | 11,618 | 32 | 0x0070F780–0x00712730 |
+| [classes/VeinholeMonsterClass](../src/recovered/classes/VeinholeMonsterClass/) | 35 | 11,973 | 35 | 0x0070F780–0x00712730 |
 | [classes/WorldDominationTour__Selection](../src/recovered/classes/WorldDominationTour__Selection/) | 32 | 11,346 | 31 | 0x0072D560–0x00730290 |
 | [classes/ConvertClass](../src/recovered/classes/ConvertClass/) | 9 | 11,138 | 9 | 0x004835F0–0x00486120 |
 | [classes/ModemGuest](../src/recovered/classes/ModemGuest/) | 20 | 11,111 | 20 | 0x00596010–0x005989B0 |
