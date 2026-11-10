@@ -41,7 +41,7 @@ public:
     virtual void Clear_Broadcast_Addresses();                                      // slot 12 0x0076C230 (clears the broadcast addresses)
     virtual int Get_Protocol() { return 2; }                          // slot 13 0x0076D3E0 (inline)
     virtual unsigned int Protocol_Event_Message(int socket);                    // slot 14 0x0076D3F0 (the notification message)
-    virtual bool unknown_slot15(int socket);                            // slot 15 0x0076C6F0 (local addresses, then the alternate socket)
+    virtual bool Open_Socket(int socket);                            // slot 15 0x0076C6F0 (local addresses, then the alternate socket)
     virtual int Message_Handler(int arg1, int arg2, int arg3, int arg4); // slot 16 0x0076CD40
     virtual int Get_Num_Local_Addresses() { return LocalAddresses.Count(); }     // slot 18 0x0076D430 (inline)
     virtual int Get_Local_Address(int index) { return (int)LocalAddresses[index]; }   // slot 19 0x0076D440 (inline)

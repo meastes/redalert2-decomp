@@ -4,8 +4,8 @@
     "id": "population-4343",
     "inventory_sha256": "b4cb8deda2da311ef237336bf9bff06f922b5635475e43294bce3439cf82ab17",
     "gaps_sha256": "a1fe9a04dea9f8e68a0a88226c5b0115710ae09e9a9ac275c73c8b3916f54198",
-    "historical_population_sha256": "43847647c911100763f42bf68e94517c2f27cd543d725a4d1cd423021e454ded",
-    "historical_acceptance_sha256": "085c18202059c2fc5b68e75aee49404e58308344edb9e119927119d49ed36f60"
+    "historical_population_sha256": "a60313a05c1cce2d94aac118343a75333e263cc97572e69ee297fd102ce2f9a6",
+    "historical_acceptance_sha256": "a5d0dce116add8a9c3413d8c4faa5c5b509be3b79e164670c56cc80c337ceb9f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3984,7 +3984,7 @@
     "?unknown_slot32@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7401008,
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "?Get_Bool@INIClass@@QBE_NPBD0_N@Z": 5305360,
@@ -6052,7 +6052,7 @@
     "?OpenSocket@UDPInterfaceClass@@UAE_NG@Z": 7783248,
     "_socket@12": 7871394,
     "_bind@12": 7871388,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "_gethostbyname@4": 7871364,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0WaypointPathClass@@QAE@ABVNoInitClass@@@Z": 7490480,
@@ -6061,7 +6061,7 @@
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
     "?unknown_839bc0@@3HA": 8625088,
     "?unknown_839bc4@@3HA": 8625092,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "_sendto@24": 7871412,
     "_recvfrom@24": 7871406,

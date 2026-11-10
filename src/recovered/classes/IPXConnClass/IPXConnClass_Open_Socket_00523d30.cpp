@@ -7,5 +7,5 @@
 void __fastcall IPXConnClass::Open_Socket(unsigned short socket)
 {
     PacketTransport->Set_NetCard(unknown_a40b60);
-    SocketOpen = PacketTransport->unknown_slot15(socket);
+    SocketOpen = PacketTransport->Open_Socket(socket);
 }

@@ -4,8 +4,8 @@
     "id": "population-4150",
     "inventory_sha256": "300d1fbf1f29c37f7d1b785c3ccd00962344de43c4b988ecd7ec49964134f948",
     "gaps_sha256": "f4c956fd097d075481850c9596b7b8409ba6be2bc92b9fcfd14cf25207c1c228",
-    "historical_population_sha256": "3ed981a93b0faeb3eb0dac862403d084532b47cc74c63b55f3ddb0701b7850b7",
-    "historical_acceptance_sha256": "3c2704f656db812f5dca630da73e97a1667e71ea7a77527c657b588b07dfb57f"
+    "historical_population_sha256": "4b215a958e72b0ebe11bf0fea67089ed932c52d7f781a25d41ee70e7202d423a",
+    "historical_acceptance_sha256": "ce76f2b2ee64755376c2f6f31ef06e9232749697205efdb2b750796843eee8a4"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2605,7 +2605,7 @@
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__EnumChildWindows@12": 7972060,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "??1MSShapeAnim@@UAE@XZ": 5949216,
@@ -4343,7 +4343,7 @@
     "??0?$DynamicVectorClass@PBD@@QAE@IPBQBD@Z": 7310048,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
     "_bind@12": 7871388,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??_7?$DynamicVectorClass@UWaypointClass@@@@6B@": 8056716,
     "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z": 7491664,
@@ -4354,7 +4354,7 @@
     "??0UnknownCoord434820@@QAE@HHH@Z": 4409376,
     "??0CoordStruct@@QAE@HHH@Z": 4306480,
     "??_EWaypointClass@@QAEPAXI@Z": 4307088,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?Fetch@?$VectorClass@PAVTerrainClass@@@@UBEPAVTerrainClass@@H@Z": 5066560,
     "?ID@?$DynamicVectorClass@PAVSideClass@@@@UAEHPBQAVSideClass@@@Z": 5067200,

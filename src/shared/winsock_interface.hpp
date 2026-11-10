@@ -139,7 +139,7 @@ public:
     virtual void Clear_Broadcast_Addresses() {}                                    // slot 12 0x0076AA10 (inline)
     virtual int Get_Protocol() { return 0; }                          // slot 13 0x0076BA00 (inline)
     virtual unsigned int Protocol_Event_Message(int socket) { return 0; }       // slot 14 0x0076BA10 (inline; the notification message)
-    virtual bool unknown_slot15(int socket) { return false; }           // slot 15 0x0076BA20 (inline; opens a socket)
+    virtual bool Open_Socket(int socket) { return false; }           // slot 15 0x0076BA20 (inline; opens a socket)
     virtual int Message_Handler(int arg1, int arg2, int arg3, int arg4) { return 1; }   // slot 16 0x0076BA30 (inline)
     virtual bool Get_Host_Name(char *name, int length);                 // slot 17 0x0076B990
     virtual int Get_Num_Local_Addresses() { return 0; }                          // slot 18 0x0076AA20 (inline)

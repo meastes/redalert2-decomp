@@ -50,7 +50,7 @@ public:
     IPXInterfaceClass();                                                // 0x0076A070
     virtual int Get_Protocol() { return 1; }                          // slot 13 0x0076AA50 (inline)
     virtual unsigned int Protocol_Event_Message(int socket) { return 0x473; }   // slot 14 0x0076AA60 (inline; the notification message)
-    virtual bool unknown_slot15(int socket_number);                     // slot 15 0x0076A3A0 (opens the socket)
+    virtual bool Open_Socket(int socket_number);                     // slot 15 0x0076A3A0 (opens the socket)
     virtual int Message_Handler(int window, int message, int wparam, int lparam);   // slot 16 0x0076A6B0 (the notification handler)
 
     int Get_Network_Card_Address(int card_number, UnknownIPXSocketAddress *address);   // 0x0076A0B0

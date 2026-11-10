@@ -4,8 +4,8 @@
     "id": "population-4344",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "bf69f0b0345f5184afd9745b3e1668459e397f9a369f49fc786ef03cdd6ac9d5",
-    "historical_acceptance_sha256": "c90253548b96a4fb392abc1ed1580432f5189ba7a4915dbc3af9a112a82f20e7"
+    "historical_population_sha256": "7982e73071918cfbcf8e911bb06f505ce02ce94b41435b3831c5370f18b64591",
+    "historical_acceptance_sha256": "a43277dc4ac71428fbe33b3ef7ae5b98f68c9649dbda73f49829a7fc4b5f515e"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -1746,7 +1746,7 @@
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__EnumChildWindows@12": 7972060,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "??1BitFontClass@@UAE@XZ": 4395264,
@@ -2814,7 +2814,7 @@
     "__real@8@400fc350000000000000": 8048696,
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0BitFontClass@@QAE@PBD@Z": 4395072,
     "??0BitTextClass@@QAE@XZ": 4399760,
@@ -2826,7 +2826,7 @@
     "??0UnknownCoord434820@@QAE@HHH@Z": 4409376,
     "??0CoordStruct@@QAE@HHH@Z": 4306480,
     "??_EWaypointClass@@QAEPAXI@Z": 4307088,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,
     "?Fetch@?$VectorClass@PAVTerrainClass@@@@UBEPAVTerrainClass@@H@Z": 5066560,

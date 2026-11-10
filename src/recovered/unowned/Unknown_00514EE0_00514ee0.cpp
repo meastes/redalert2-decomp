@@ -40,7 +40,7 @@ bool __fastcall Unknown_00514EE0()
         PacketTransport = new UDPInterfaceClass;
     }
     unknown_session_a3d2ac = 2;
-    PacketTransport->unknown_slot15(0);
+    PacketTransport->Open_Socket(0);
     unknown_ipx_manager_a40978.Set_Timing(30, -1, 600, true);
     Debug_Printf("About to initialise the network code\n");
     bool result = Unknown_005BB540();

@@ -1,4 +1,4 @@
-// bool UDPInterfaceClass::unknown_slot15(int socket) (0x0076C6F0, slot 15)
+// bool UDPInterfaceClass::Open_Socket(int socket) (0x0076C6F0, slot 15)
 // Starts Winsock if needed, opens the primary socket on the default port,
 // records this host's addresses as the local addresses and opens the
 // alternate socket on the alternate port.
@@ -27,7 +27,7 @@
 // @ref ??_C@_0BN@JDKF@About?5to?5call?5gethostbyname?6?$AA@=007ff740
 // @ref ??_C@_0CF@NPCK@gethostbyname?5failed?$CB?5Error?5code@=007e6554
 
-bool UDPInterfaceClass::unknown_slot15(int)
+bool UDPInterfaceClass::Open_Socket(int)
 {
     if (!WinsockInitialised && !Init_Ports()) {
         return false;

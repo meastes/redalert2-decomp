@@ -4,8 +4,8 @@
     "id": "population-2399",
     "inventory_sha256": "d875040c54e284097fe975bbb31633b2928c4a6cf2fd46670801ac0ea7cc6cf4",
     "gaps_sha256": "cb291927af64fb1bc58861d53c62c9786babc19a5f5cee06a224cd4ccc736fc0",
-    "historical_population_sha256": "41aadba457bd086609c1fb44a86655679097ad2e9a316a47fecdb67276549c17",
-    "historical_acceptance_sha256": "ecc3cf8b4f103874dad79aba7910424dc249dc7ea61c6eaf85d3c85574cd91ae"
+    "historical_population_sha256": "a56db608d54e583b38a76dcb7eca573c95f055dc178b32a6cc1a22c2d0f31c60",
+    "historical_acceptance_sha256": "f459b12f08ff9cb5d3f457ca28752823609b087870fcdab8f8842bd6abefe391"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -1870,7 +1870,7 @@
     "?Save@VoxelAnimTypeClass@@UAGJPAUIStream@@H@Z": 7400688,
     "?unknown_slot32@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7401008,
     "?Is_Valid@History@WorldDominationTour@@QBEHI@Z": 7507744,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "?Get@LCWStraw@@UAEHPAXH@Z": 5460864,
@@ -4088,7 +4088,7 @@
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
     "_socket@12": 7871394,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z": 7491664,
     "??0?$VectorClass@UWaypointClass@@@@QAE@IPBUWaypointClass@@@Z": 7494464,
@@ -4097,7 +4097,7 @@
     "??0UnknownCoord434820@@QAE@HHH@Z": 4409376,
     "??0CoordStruct@@QAE@HHH@Z": 4306480,
     "??_EWaypointClass@@QAEPAXI@Z": 4307088,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z": 5387392,
     "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,

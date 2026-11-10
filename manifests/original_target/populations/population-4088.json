@@ -4,8 +4,8 @@
     "id": "population-4088",
     "inventory_sha256": "c201c910554a2715481b6abcc3b41a256ec9b5b80af063dfc7fed2d6326f5230",
     "gaps_sha256": "5432d32b85583ea571ef067b1ef2d1dfe0af9c08bcdc02aed1ef2b3c4b25f51f",
-    "historical_population_sha256": "7b06d0f4843c9f4a63eb9e13fd2cf95689468c4ffde0865e20bebb01fb7adeae",
-    "historical_acceptance_sha256": "18579295809ed2e20ddda3149f95c36fb22434200c7f32ca40c04c00228cbb17"
+    "historical_population_sha256": "a6df53cb97736c36c031335a22e8008df0eb84c0ea55c8a9e15562b83c9530ed",
+    "historical_acceptance_sha256": "57354b71787a7620a5a1fb46acbb99f722b0da40b64c8f748c311d4bec72964c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3857,7 +3857,7 @@
     "?unknown_slot32@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7401008,
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__InvalidateRect@12": 7971988,
     "?unknown_flag_852fd7@@3_NA": 8728535,
     "??0MultiplayerGameMode@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z": 5991632,
@@ -4416,11 +4416,11 @@
     "?Fill_Rect_Trans@DSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z": 4896560,
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "?Copy_From@DSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z": 4894672,
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?Fetch@?$VectorClass@PAVTerrainClass@@@@UBEPAVTerrainClass@@H@Z": 5066560,
     "__imp__EscapeCommFunction": 7971076,

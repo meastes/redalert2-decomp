@@ -4,8 +4,8 @@
     "id": "population-3791",
     "inventory_sha256": "5ad7d358c38729b1f9e9a9bf83c8120504d47ead7dde1ea7122f660a9a13c91f",
     "gaps_sha256": "3001a7b5c18ccacdde65f131681663bb3fe09361299accb1a7605ea8124e0124",
-    "historical_population_sha256": "a7cf0ae268a9a64f7bb29c4b8f3ff401b0afbce770d3fd676024febc67f472cd",
-    "historical_acceptance_sha256": "823a626a6ae8ab3d51ded0d2c063267defd800869ccac1e7941d0ad40d24b185"
+    "historical_population_sha256": "04152c2b8e67044a736d6d3ab3a4e1025f2023247ccd46f12e1cb45216df1b82",
+    "historical_acceptance_sha256": "d09b9e34295c9f2cf7cf32ac175f148cd6c556f6def724bdc90b8031c759e233"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -3019,7 +3019,7 @@
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__EnumChildWindows@12": 7972060,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "??1BitFontClass@@UAE@XZ": 4395264,
@@ -5713,7 +5713,7 @@
     "??0?$DynamicVectorClass@PBD@@QAE@IPBQBD@Z": 7310048,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
     "_bind@12": 7871388,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0BitFontClass@@QAE@PBD@Z": 4395072,
     "??0BitTextClass@@QAE@XZ": 4399760,
@@ -5729,7 +5729,7 @@
     "??0UnknownCoord434820@@QAE@HHH@Z": 4409376,
     "??0CoordStruct@@QAE@HHH@Z": 4306480,
     "??_EWaypointClass@@QAEPAXI@Z": 4307088,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,
     "?Fetch@?$VectorClass@PAVTerrainClass@@@@UBEPAVTerrainClass@@H@Z": 5066560,

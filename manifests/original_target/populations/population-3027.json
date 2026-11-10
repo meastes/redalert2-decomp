@@ -4,8 +4,8 @@
     "id": "population-3027",
     "inventory_sha256": "18294f9042ab437ec8f8ecf7326ae14ae728590584517da3920a467993dd6a01",
     "gaps_sha256": "1fed1a328232975333d708b4ba81bf5acfa68efbf78259f437838d8f7da2d588",
-    "historical_population_sha256": "c7fa713b1cc6fe120245d2cf11619b9b28cb59a6d88f9b7bf5d12e29158ef030",
-    "historical_acceptance_sha256": "a2ebe85d3dae57c58a32a1c877b4f4319f9f61b402efd5deb94012a983e3e626"
+    "historical_population_sha256": "f1c985992ed34c1ee9abb1d1f177c234eeb4c3d2257817af30e975750d07b2b4",
+    "historical_acceptance_sha256": "77ba1cf25f8477726bffe4b9fed7d39b8b00b84127ab759729374e3d972b5d9f"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2275,7 +2275,7 @@
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__EnumChildWindows@12": 7972060,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "??1MSShapeAnim@@UAE@XZ": 5949216,
@@ -4063,7 +4063,7 @@
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
     "_socket@12": 7871394,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z": 7491664,
     "??0?$VectorClass@UWaypointClass@@@@QAE@IPBUWaypointClass@@@Z": 7494464,
@@ -4072,7 +4072,7 @@
     "??0UnknownCoord434820@@QAE@HHH@Z": 4409376,
     "??0CoordStruct@@QAE@HHH@Z": 4306480,
     "??_EWaypointClass@@QAEPAXI@Z": 4307088,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z": 5387392,
     "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,

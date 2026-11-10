@@ -4,8 +4,8 @@
     "id": "population-4061",
     "inventory_sha256": "03e8712dd56ef3bc1fe654592c1abe599757feab3f83bfa1a0f6b4d5553cf2ce",
     "gaps_sha256": "31dc7c93ad04d187334af22c672c5d936651aad6a6ed6d61d2829eae24028642",
-    "historical_population_sha256": "01a2b2b69b231efb44738788b3c4679aca36f7a0e2de5f9b688ecd4873e819e3",
-    "historical_acceptance_sha256": "6dfb30b58a43dc788d6fabd3f884202f3433106d3cd07dfa2220c6dee21d1a1d"
+    "historical_population_sha256": "85b0cedb98227e262650c13ca2f8fa124459333928be8e01f28e5f5d80c03549",
+    "historical_acceptance_sha256": "03cb63c9ce487a8cf9dec8fa2d37693c0f49fb5d5ad8a37098af45bd17e545b1"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2675,7 +2675,7 @@
     "?Free@MixFileClass@@QAEXXZ": 5855856,
     "_wcscpy": 7878281,
     "?Is_Char_Key@WWKeyboardClass@@CIHG@Z": 5448384,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "?Put@LCWPipe@@UAEHPBXH@Z": 5459856,
@@ -3601,11 +3601,11 @@
     "?OpenSocket@UDPInterfaceClass@@UAE_NG@Z": 7783248,
     "_socket@12": 7871394,
     "_bind@12": 7871388,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "_gethostbyname@4": 7871364,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "_sendto@24": 7871412,
     "_recvfrom@24": 7871406,

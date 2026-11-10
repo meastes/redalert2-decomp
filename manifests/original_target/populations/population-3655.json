@@ -4,8 +4,8 @@
     "id": "population-3655",
     "inventory_sha256": "8123e43e975adfdec36fcb2f277ae221d3b2dd8ea22dcc7da0a71d661dfe4696",
     "gaps_sha256": "9772e28b0629154cf368f017f6b3eec17bdff5a99c1871e5fe89bb358c7e751a",
-    "historical_population_sha256": "4b69d6999e181e7fa77d15b29b671e8c5c9547dcfe23bb4aaa501556b386d05b",
-    "historical_acceptance_sha256": "b5817c1ff9d7b5f14349dca139f90509f23bb5eb122349ba96f10ffe1c7076ab"
+    "historical_population_sha256": "d84abe8e39790746e04824863c2ba732388f7f75d74677f9c96cbb8b5a1ff2d5",
+    "historical_acceptance_sha256": "2117da65ad2108a1b6c0477b631a46f13871c629a7570b2d7eb7da5112f7993a"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1676,7 +1676,7 @@
     "?unknown_76b9f0@WinsockInterfaceClass@@SAHXZ": 7780848,
     "?Get_Protocol@WinsockInterfaceClass@@UAEHXZ": 7780864,
     "?Protocol_Event_Message@WinsockInterfaceClass@@UAEIH@Z": 7780880,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "?Message_Handler@WinsockInterfaceClass@@UAEHHHHH@Z": 7780912,
     "??_GWinsockInterfaceClass@@UAEPAXI@Z": 7780928,
     "??0FootClass@@QAE@ABVNoInitClass@@@Z": 4992096,
@@ -4842,11 +4842,11 @@
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
     "_socket@12": 7871394,
     "_bind@12": 7871388,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "_gethostbyname@4": 7871364,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "_sendto@24": 7871412,
     "_recvfrom@24": 7871406,
@@ -6128,7 +6128,8 @@
     "??_EWDTState@@": 7522816,
     "??_GWDTState@@": 7522816,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
-    "??_EWaveClass@@UAEPAXI@Z": 7489024
+    "??_EWaveClass@@UAEPAXI@Z": 7489024,
+    "?Open_Socket@IPXConnClass@@SIXG@Z": 5389616
   },
   "regions": [
     {
@@ -6999,8 +7000,8 @@
     {
       "entry": 7780896,
       "method": "0076ba20",
-      "symbol": "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z",
-      "symbol_prefix": "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z",
+      "symbol": "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z",
+      "symbol_prefix": "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7013,8 +7014,8 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "9fa697955e6e50ca514c5e17cfc025b33f6dcb749299caabf3bb95c6a10fda65",
       "relocations": [],
-      "source_sha256": "d5a49996901a8fdaac69adfae0e4c0a4533bfa3998694f7abd5fccbfda71b413",
-      "source": "src/recovered/classes/WinsockInterfaceClass/WinsockInterfaceClass_unknown_slot15_0076ba20.cpp",
+      "source_sha256": "8e1a2c21a9b217554c4c8ea5c643b03c42967ca31d5bfea6efca2b3db6dc3035",
+      "source": "src/recovered/classes/WinsockInterfaceClass/WinsockInterfaceClass_Open_Socket_0076ba20.cpp",
       "population": "population-3655",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

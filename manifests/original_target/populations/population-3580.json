@@ -4,8 +4,8 @@
     "id": "population-3580",
     "inventory_sha256": "5b10a04d599659b80e017162522f9f3045733086d3e5c3f692c66ec7372b2861",
     "gaps_sha256": "135372da54bd6629b46c8184a5e25bb2bb73b72ca863e62d2747f73bf731093f",
-    "historical_population_sha256": "2184f8889058cc665758398c875b1faf9c02e341f3432b2a99880b65cc6d9d7c",
-    "historical_acceptance_sha256": "ac7a9f509ad67c72834e9a770bb8149c61930268d35e9e185a4e665832a83d1f"
+    "historical_population_sha256": "fea183df8c82802b0c28caf5f3d8bbf1e1cadf846b8017eacdd7e99ad63a6990",
+    "historical_acceptance_sha256": "4cd99f39f4a08ff63267faf206141cc80d8467022c08a65f7b444652e131b9db"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2484,7 +2484,7 @@
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__EnumChildWindows@12": 7972060,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z": 7814832,
@@ -3500,7 +3500,7 @@
     "?Fill_Rect_Trans@DSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z": 4896560,
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0BitFontClass@@QAE@PBD@Z": 4395072,
     "??0BitTextClass@@QAE@XZ": 4399760,
@@ -3510,7 +3510,7 @@
     "?Copy_From@DSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z": 4894672,
     "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z": 7491664,
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,
     "?Fetch@?$VectorClass@PAVTerrainClass@@@@UBEPAVTerrainClass@@H@Z": 5066560,

@@ -4,8 +4,8 @@
     "id": "population-4241",
     "inventory_sha256": "47e1aad637a5e1458d671aadefa774e61cfe205e3989731206bf6d272cc33538",
     "gaps_sha256": "6ceed163f7b0c07861d2ce36db3610dd0fed8a08dfb2d2665e32ac61addc4012",
-    "historical_population_sha256": "31da942c17a05da30422c392add1b408d33a42387626547789a34330c05a5ea9",
-    "historical_acceptance_sha256": "4b0c7478020198bb1f03968eaefd6c37bcf58bc8679d6cb5bab7c9cbb9ac093d"
+    "historical_population_sha256": "9ad83d3da2cb37c6fdd9475a9ece0152a3950f4c361654548b073e11180617c3",
+    "historical_acceptance_sha256": "ea1220c2f429515a990dd9c215a21fb872ca1b610a55825c717ac1941dacc574"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2671,7 +2671,7 @@
     "?Free@MixFileClass@@SI_NPBD@Z": 5854560,
     "?Free@MixFileClass@@QAEXXZ": 5855856,
     "?Is_Char_Key@WWKeyboardClass@@CIHG@Z": 5448384,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "?Put@LCWPipe@@UAEHPBXH@Z": 5459856,
@@ -3689,7 +3689,7 @@
     "?OpenSocket@UDPInterfaceClass@@UAE_NG@Z": 7783248,
     "_socket@12": 7871394,
     "_bind@12": 7871388,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "_gethostbyname@4": 7871364,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0BitFontClass@@QAE@PBD@Z": 4395072,
@@ -3698,7 +3698,7 @@
     "??1BitTextClass@@UAE@XZ": 4399824,
     "??_GBitTextClass@@UAEPAXI@Z": 4402464,
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "_sendto@24": 7871412,
     "_recvfrom@24": 7871406,
@@ -7924,7 +7924,7 @@
           "resolved": 10822664
         }
       ],
-      "source_sha256": "723336ec0745d1bd6f4308554f5393573e713cb29f9c1e4ed10a6c2aea6532ec",
+      "source_sha256": "0c428b397a6b882dcb15ee14214d157a43989a968b3ad994c01e663b7570309e",
       "source": "src/recovered/classes/IPXConnClass/IPXConnClass_Open_Socket_00523d30.cpp",
       "population": "population-4241",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

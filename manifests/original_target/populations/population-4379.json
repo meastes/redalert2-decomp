@@ -4,8 +4,8 @@
     "id": "population-4379",
     "inventory_sha256": "a96a1a866de921d3d225ec2caae21d92b7b94ffaed11313dd61df4d2071f89d4",
     "gaps_sha256": "c956b364fc0b3ce7579b249e1c59c5bcdf351b9ac016b0592f489df5f3dcc7e5",
-    "historical_population_sha256": "07fc2d0e16d453120cca49eb3444a806bf1eb1cdac94a7d6ed1b8c7a5c30b83e",
-    "historical_acceptance_sha256": "dc017795d6815db38659fe02c767699105911afea1f355a92a516fc710e45a48"
+    "historical_population_sha256": "73cecb96ce5524850bbbf9f16ad60c5fe3b28200123c339325737e4efc456d73",
+    "historical_acceptance_sha256": "933de2bfd3de47c52ad051e18b9595d22d5d8622fab0eb3f532639dae0eae9b6"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -6361,7 +6361,7 @@
     "?Is_Available@RAMFileClass@@UAE_NH@Z": 6521824,
     "?Set_Date_Time@RAMFileClass@@UAE_NK@Z": 6522432,
     "?unknown_slot32@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7401008,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "?Get_Bool@INIClass@@QBE_NPBD0_N@Z": 5305360,
     "?Put@LCWPipe@@UAEHPBXH@Z": 5459856,
     "?Flush@LCWPipe@@UAEHXZ": 5460416,
@@ -7587,10 +7587,10 @@
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "_socket@12": 7871394,
     "_bind@12": 7871388,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0WaypointPathClass@@QAE@ABVNoInitClass@@@Z": 7490480,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z": 5387392,
     "?Unknown_0055A1F0@MapClass@@QAEXXZ": 5612016,

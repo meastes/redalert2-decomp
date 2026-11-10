@@ -4,8 +4,8 @@
     "id": "population-3496",
     "inventory_sha256": "9b8eb02ecb80b6423ced77282142d072c50191403a46461a36c785c05d162440",
     "gaps_sha256": "c3018d206b8641e5fc154e9d77bd1e09f064ed44933cc1360dbb679091634db5",
-    "historical_population_sha256": "bb3e50fab2a9ed243357d55d4e88413d0b92c5be1a6e642e88f1b9e7b10ac80b",
-    "historical_acceptance_sha256": "5179c06b944ed01b62f0f2c3e7251c4b0de658293bf2301276cfcc2f738f7314"
+    "historical_population_sha256": "e5a4fe82c341c7d274b703c6b37eb8000cb0d7469346a21512edef26ac02d05e",
+    "historical_acceptance_sha256": "936515b324e688dc5df09df35a0c97d13d0f47629211bcf57c437e2b7a43cbf6"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -3454,7 +3454,7 @@
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__EnumChildWindows@12": 7972060,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z": 7814832,
@@ -4128,7 +4128,7 @@
     "?AI@TerrainClass@@UAEXXZ": 7225104,
     "?Fill_Rect_Trans@DSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z": 4896560,
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0BitFontClass@@QAE@PBD@Z": 4395072,
     "??0BitTextClass@@QAE@XZ": 4399760,
@@ -4136,7 +4136,7 @@
     "??1BitTextClass@@UAE@XZ": 4399824,
     "??_GBitTextClass@@UAEPAXI@Z": 4402464,
     "?Copy_From@DSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z": 4894672,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,
     "?Shutdown@NullModemClass@@QAEXXZ": 6096240,

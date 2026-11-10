@@ -4,8 +4,8 @@
     "id": "population-4428",
     "inventory_sha256": "71d13e2a075dd225ad11262153dab008260799596e7a9bd5f220ffece13a5ed6",
     "gaps_sha256": "4fb94dca7d9b1ad1308b3804779160d585de0847c7b06f58458c143797360083",
-    "historical_population_sha256": "394339ec2008bb6d247da3a163f8df8b4d961e1443e8643e405d86bcb61146e2",
-    "historical_acceptance_sha256": "f69fc2c85b8af58376de391a940d34b454eda6004e8573b327364361951e3a41"
+    "historical_population_sha256": "87c0a29a66e0f6737cf2fb81103a83cd4dcd6df5652feb43256ec850fc821bb2",
+    "historical_acceptance_sha256": "817c380ae927a0e20ccb3725c3aee777dc04680dde7d4fc921df323da7fc0437"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -2758,7 +2758,7 @@
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__EnumChildWindows@12": 7972060,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "??1BitFontClass@@UAE@XZ": 4395264,
@@ -4577,7 +4577,7 @@
     "??0?$DynamicVectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z": 7309952,
     "??0?$DynamicVectorClass@PBD@@QAE@IPBQBD@Z": 7310048,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0BitFontClass@@QAE@PBD@Z": 4395072,
     "??0BitTextClass@@QAE@XZ": 4399760,
@@ -4593,7 +4593,7 @@
     "??0UnknownCoord434820@@QAE@HHH@Z": 4409376,
     "??0CoordStruct@@QAE@HHH@Z": 4306480,
     "??_EWaypointClass@@QAEPAXI@Z": 4307088,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,
     "?Fetch@?$VectorClass@PAVTerrainClass@@@@UBEPAVTerrainClass@@H@Z": 5066560,

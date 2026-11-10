@@ -4,8 +4,8 @@
     "id": "population-3531",
     "inventory_sha256": "23c55e027ed87fc2fc5d448706008171e1d6f4e2d9d0bfa73f6554c8bda6967a",
     "gaps_sha256": "76ec07f490532bcaf285d503abc3c3dabd0560424f3f39e148a6edbe5fb5b131",
-    "historical_population_sha256": "3db178fdc5f28f454c2a9800d678cee3b949a18b35a9fd9a39889714f4521dfd",
-    "historical_acceptance_sha256": "f872457ba80afa4a9cb05ad4722c09160981d1c3f451e34b6210fd96fb586669"
+    "historical_population_sha256": "f6c8bfd7c97220d08a1fe66fc4fb9ea1afe5fd603ad963574be65cb91ffa35b3",
+    "historical_acceptance_sha256": "900000061b74ff7a4b0a58382462b539523a4014ebb7855590cebcafa2b8dde2"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -4256,7 +4256,7 @@
     "?unknown_slot32@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7401008,
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "?Get_Bool@INIClass@@QBE_NPBD0_N@Z": 5305360,
@@ -6545,11 +6545,11 @@
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
     "_bind@12": 7871388,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z": 7491664,
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?Unknown_0055A1F0@MapClass@@QAEXXZ": 5612016,
     "?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,

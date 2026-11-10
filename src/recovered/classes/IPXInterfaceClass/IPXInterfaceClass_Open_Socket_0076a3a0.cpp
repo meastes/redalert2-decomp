@@ -1,4 +1,4 @@
-// bool IPXInterfaceClass::unknown_slot15(int socket_number) (0x0076A3A0, slot 15)
+// bool IPXInterfaceClass::Open_Socket(int socket_number) (0x0076A3A0, slot 15)
 // Opens the IPX datagram socket on the socket number at the address of net
 // card unknown_3f2f8 and sets its broadcast, packet type and filter options.
 #include "shared/ipx_interface.hpp"
@@ -32,7 +32,7 @@
 // @ref ??_C@_0CJ@BNMM@IPX?5socket?5option?5IPX_FILTERTYPE@=00800764
 // @ref ??_C@_0BK@NJKP@IPX?5Socket?5init?5complete?6?$AA@=00800748
 
-bool IPXInterfaceClass::unknown_slot15(int socket_number)
+bool IPXInterfaceClass::Open_Socket(int socket_number)
 {
     if (!WinsockInitialised) {
         if (!Init()) {

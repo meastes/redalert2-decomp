@@ -4,8 +4,8 @@
     "id": "population-3128",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "887f104cde3b89d178bd255a8d385cb4471768bab3d0da56bdc3436bcaf7415f",
-    "historical_acceptance_sha256": "af0dc73d7544310fa1b5079726102805e97418904284d2678106ccfc672672bf"
+    "historical_population_sha256": "764f1e253935ec7b7168ab26d6eeeb6d9a4880020f363987529a59c5fe1fc047",
+    "historical_acceptance_sha256": "b7cb94060e3ef9d86f6f302c364711eddde61a7a09941a2aa3d5448814d2c6bd"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -4398,7 +4398,7 @@
     "?unknown_slot32@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7401008,
     "__imp__GetCommModemStatus@8": 7971188,
     "__imp__ResetEvent@4": 7971184,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "?Reset@RandomStraw@@QAEXXZ": 6542160,
     "?Get_Rect@Surface@@UAE?AVRect@@XZ": 4264592,
     "??0DSurface@@QAE@PAUIDirectDrawSurface@@@Z": 4893536,
@@ -5330,7 +5330,7 @@
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
     "_socket@12": 7871394,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "??0?$VectorClass@UWaypointClass@@@@QAE@IPBUWaypointClass@@@Z": 7494464,
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
@@ -5338,7 +5338,7 @@
     "??0UnknownCoord434820@@QAE@HHH@Z": 4409376,
     "??0CoordStruct@@QAE@HHH@Z": 4306480,
     "??_EWaypointClass@@QAEPAXI@Z": 4307088,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z": 5387392,
     "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z": 5387456,

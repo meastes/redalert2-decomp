@@ -4,8 +4,8 @@
     "id": "population-2651",
     "inventory_sha256": "15613b4cefd3aafed53b02b1ccab81ea520f402e648410ff49f31522d62a33c8",
     "gaps_sha256": "c9768c17275e90ac5d8788ae2f12b4f488a78793bfc9becad3524384f1dc525a",
-    "historical_population_sha256": "16b63a7b45e99c87a1170f7a0e2b893d4af8d0c2e7c555f3d4b3cfc8273f2cee",
-    "historical_acceptance_sha256": "f7d1f82dc55ad2e94de3659f7ff5ca648a3bc7d967ede455a65b6b37549257aa"
+    "historical_population_sha256": "9562f1dcab62c4bcdd16c15bbeacf8ad575610cca1165ad136fee3b422245e3a",
+    "historical_acceptance_sha256": "f63cc72db322df6de07c78657c6e149c54451eccaa95a3e35c3d1e4bd4e49283"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1264,7 +1264,7 @@
     "_$E35": 7774288,
     "??0IPXInterfaceClass@@QAE@XZ": 7774320,
     "?unknown_76a230@IPXInterfaceClass@@QAEHHPADH@Z": 7774768,
-    "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z": 7775136,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z": 7775136,
     "?Message_Handler@IPXInterfaceClass@@UAEHHHHH@Z": 7775920,
     "?Set_Broadcast_Address@WinsockInterfaceClass@@UAEXPADG@Z": 7776768,
     "?Clear_Broadcast_Addresses@WinsockInterfaceClass@@UAEXXZ": 7776784,
@@ -1875,7 +1875,7 @@
     "?Length@Wstring@@QBEIXZ": 7792544,
     "?Is_Char_Key@WWKeyboardClass@@CIHG@Z": 5448384,
     "?Is_Valid@History@WorldDominationTour@@QBEHI@Z": 7507744,
-    "?unknown_slot15@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z": 7780896,
     "__imp__WaitForSingleObject@8": 7971280,
     "__imp__ReleaseMutex@4": 7971216,
     "??1MSShapeAnim@@UAE@XZ": 5949216,
@@ -2837,7 +2837,7 @@
     "?AI@TerrainClass@@UAEXXZ": 7225104,
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
-    "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NH@Z": 7784176,
     "_gethostbyname@4": 7871364,
     "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
     "?Clear@?$DynamicVectorClass@UWaypointClass@@@@UAEXXZ": 7492304,
@@ -5133,7 +5133,8 @@
     "??_EBitTextClass@@UAEPAXI@Z": 4402464,
     "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
     "??_ENode@?$WolDictionary@VWstring@@H@@QAEPAXI@Z": 7759776,
-    "??_EConvertClass@@UAEPAXI@Z": 4743456
+    "??_EConvertClass@@UAEPAXI@Z": 4743456,
+    "?Open_Socket@IPXConnClass@@SIXG@Z": 5389616
   },
   "regions": [
     {
@@ -6299,8 +6300,8 @@
     {
       "entry": 7775136,
       "method": "0076a3a0",
-      "symbol": "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z",
-      "symbol_prefix": "?unknown_slot15@IPXInterfaceClass@@UAE_NH@Z",
+      "symbol": "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z",
+      "symbol_prefix": "?Open_Socket@IPXInterfaceClass@@UAE_NH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6754,13 +6755,13 @@
           "resolved": 4291412566
         }
       ],
-      "source_sha256": "6e54b875b1f24688c28c83c96267c2e43fcd5dda32b3188f596abf887c895a5d",
-      "source": "src/recovered/classes/IPXInterfaceClass/IPXInterfaceClass_unknown_slot15_0076a3a0.cpp",
+      "source_sha256": "63e4168cf6cd06dc26ff918c39ff604dc64a923248ab651c4fcec2da65f4c72a",
+      "source": "src/recovered/classes/IPXInterfaceClass/IPXInterfaceClass_Open_Socket_0076a3a0.cpp",
       "population": "population-2651",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "IPXInterfaceClass_unknown_slot15_0076a3a0",
+      "semantic_name": "IPXInterfaceClass_Open_Socket_0076a3a0",
       "source_order": 102657
     },
     {
