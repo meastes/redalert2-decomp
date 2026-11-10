@@ -2,9 +2,11 @@
 // the host hooks shared by the Win32 seam files.
 #include "ra2port/win32_port.hpp"
 
+#include <ctype.h>
 #include <dirent.h>
 #include <execinfo.h>
 #include <signal.h>
+#include <map>
 #include <mutex>
 #include <set>
 #include <stdarg.h>
@@ -103,19 +105,49 @@ const char *data_dir() { return data_root().empty() ? "." : data_root().c_str();
 
 // Resolve one path component case-insensitively inside dir; returns the real
 // name or the component unchanged when nothing matches (a file to create).
+// A name that is not there as spelled used to read the whole directory each
+// time; the game probes many loose files that do not exist (each lookup tries
+// the folder before the MIX files), so the data folder (some 350 entries) was
+// read once per probe while loading (Scout1209). The listings are kept by
+// directory, folded to lower case, and read again when the directory's
+// modification time changes or after the port resolved a path to write
+// (host_path_write: a file it creates or renames).
+namespace {
+struct DirListing {
+    time_t mtime = 0;
+    unsigned generation = 0;
+    std::map<std::string, std::string> by_folded;   // lower-case name -> real name
+};
+std::mutex dir_cache_lock;
+std::map<std::string, DirListing> dir_cache;
+unsigned dir_generation = 1;
+std::string folded(const std::string &name)
+{
+    std::string f = name;
+    for (auto &c : f) c = (char)tolower((unsigned char)c);
+    return f;
+}
+}  // namespace
+
 static std::string match_component(const std::string &dir, const std::string &name)
 {
     struct stat st;
     std::string direct = dir + "/" + name;
     if (stat(direct.c_str(), &st) == 0) return name;
-    DIR *d = opendir(dir.empty() ? "/" : dir.c_str());
-    if (!d) return name;
-    std::string found = name;
-    while (struct dirent *e = readdir(d)) {
-        if (strcasecmp(e->d_name, name.c_str()) == 0) { found = e->d_name; break; }
+    const std::string where = dir.empty() ? "/" : dir;
+    std::lock_guard<std::mutex> g(dir_cache_lock);
+    DirListing &l = dir_cache[where];
+    if (l.generation != dir_generation || l.mtime != st.st_mtime) {
+        l.by_folded.clear();
+        l.mtime = st.st_mtime;
+        l.generation = dir_generation;
+        if (DIR *d = opendir(where.c_str())) {
+            while (struct dirent *e = readdir(d)) l.by_folded.emplace(folded(e->d_name), e->d_name);   // first spelling wins, as readdir's order did
+            closedir(d);
+        }
     }
-    closedir(d);
-    return found;
+    auto it = l.by_folded.find(folded(name));
+    return it == l.by_folded.end() ? name : it->second;
 }
 
 char *host_path(const char *game_path, char *out, size_t n)
@@ -173,6 +205,12 @@ std::string overlay_path(const std::string &host)
 char *host_path_write(const char *game_path, char *out, size_t n)
 {
     host_path(game_path, out, n);
+    {
+        // The caller is about to create or change a file: listings read from here
+        // on are read again (match_component).
+        std::lock_guard<std::mutex> g(dir_cache_lock);
+        ++dir_generation;
+    }
     if (write_root().empty()) return out;
     std::string w = overlay_path(out);
     // Create the overlay's parent directories.

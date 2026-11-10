@@ -643,7 +643,7 @@ void play_timed()
         } else if ((Uint64)s.ms > now) {
             break;
         }
-        fprintf(stderr, "input-script: t%llu event %u\n", (unsigned long long)now, s.event.type);
+        fprintf(stderr, "input-script: t%llu event %u (steady %lld ms)\n", (unsigned long long)now, s.event.type, ra2port_now_ms());
         play(script[timed[timed_next++]], -1);
     }
 }
@@ -698,7 +698,14 @@ void play(Scripted &s, int number)
     }
 }
 
-const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame};
+// Host::wait: the main thread is about to sleep; show the frame it left in the
+// primary (presents from other threads stay deferred to the main thread).
+void wait_begins()
+{
+    if (SDL_IsMainThread()) present_deferred();
+}
+
+const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame, wait_begins};
 }  // namespace
 
 void ra2_install_sdl_host() { ra2port::set_host(&sdl_host); }

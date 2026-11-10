@@ -23,6 +23,10 @@
 #include <unistd.h>
 #include <vector>
 
+extern "C" long long ra2port_now_ms(void);           // user32.cpp
+extern "C" thread_local uint64_t ra2port_slept_ns;   // win32_time.cpp: this thread's Sleep time
+static const auto process_start = std::chrono::steady_clock::now();
+
 namespace ra2port {
 
 namespace {
@@ -277,6 +281,19 @@ void ra2port_set_frames(int frames) { if (!skirmish_map) skirmish_frames = frame
 void ra2port_frame(int frame)
 {
     last_frame = frame;
+    // RA2_NATIVE_PERF_LOG=1 (diagnostics, Scout1209): when a game's first Main_Loop
+    // frame runs (steady ms, the input script's clock; ms since the process
+    // started) and the main thread's sleeps so far.
+    static int perf_log = -1;
+    if (perf_log < 0) perf_log = getenv("RA2_NATIVE_PERF_LOG") ? 1 : 0;
+    if (perf_log) {
+        static int perf_last = -1;
+        if (perf_last < 0 || frame < perf_last)
+            fprintf(stderr, "perf: Main_Loop frame %d at steady %lld ms (%.0f ms after start), main thread slept %.0f ms\n", frame,
+                    ra2port_now_ms(), std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - process_start).count(),
+                    ra2port_slept_ns / 1e6);
+        perf_last = frame;
+    }
     // RA2_NATIVE_FPS_LOG=1: Main_Loop frames per wall-clock second on stderr
     // (any run, --play too): the frame limiter's check (Sync_Delay 0x00540960).
     static int fps_log = -1;

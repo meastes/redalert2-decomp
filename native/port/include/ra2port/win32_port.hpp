@@ -94,6 +94,11 @@ struct Host {
     // A game frame (Main_Loop iteration) began: the host plays scripted input
     // due at that frame (--input-script, test runs). May be null.
     void (*frame)(int frame);
+    // The game's main thread is about to wait (Sleep, the frame floor): the host
+    // shows the primary surface as the game left it (Scout1209). On Windows the
+    // primary is the screen, so what was drawn before a Sleep is visible during
+    // it; the host otherwise presents at its next event pump. May be null.
+    void (*wait)();
 };
 void set_host(const Host *host);
 const Host *host();

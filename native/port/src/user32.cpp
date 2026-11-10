@@ -539,6 +539,17 @@ static bool paint_message(MSG *msg, UINT first, UINT last, bool remove);
 BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
 {
     (void)hwnd;
+    // RA2_NATIVE_PERF_LOG=1 (diagnostics, Scout1209): a main-thread stretch without
+    // PeekMessage of 100 ms or more (the menus' slide loops, loading) on stderr.
+    static int perf_log = -1;
+    if (perf_log < 0) perf_log = getenv("RA2_NATIVE_PERF_LOG") ? 1 : 0;
+    if (perf_log) {
+        static auto last_peek = std::chrono::steady_clock::now();
+        auto now = std::chrono::steady_clock::now();
+        double gap = std::chrono::duration<double, std::milli>(now - last_peek).count();
+        if (gap >= 100) fprintf(stderr, "perf: t%u no PeekMessage for %.0f ms\n", (unsigned)now_ms(), gap);
+        last_peek = now;
+    }
     if (host() && host()->pump_events) host()->pump_events();
     fire_timers();
     std::lock_guard<std::mutex> g(queue_lock);

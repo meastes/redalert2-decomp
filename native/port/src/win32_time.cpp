@@ -4,7 +4,9 @@
 // friends; the native link resolves those names here. This file deliberately
 // does not include the recovered headers: it is the platform side of the seam.
 // Widths follow Win32: DWORD and the counters' halves are 32 bits.
+#include "ra2port/win32_port.hpp"
 #include <mach/mach_time.h>
+#include <sched.h>
 #include <stdint.h>
 #include <time.h>
 #include <unistd.h>
@@ -33,22 +35,40 @@ uint64_t ra2port_monotonic_ns(void) { return monotonic_ns(); }
 
 // Sleeps until a monotonic deadline at nanosecond resolution (the native frame
 // floor's pacing; Sleep's whole milliseconds overshot it by about 1.5 ms a frame).
+// The host first shows what the main thread drew (Host::wait); the deadline
+// keeps the wait's length whatever the present cost.
+static void wait_until(uint64_t start, uint64_t deadline)
+{
+    const ra2port::Host *h = ra2port::host();
+    if (h && h->wait) h->wait();
+    uint64_t now = monotonic_ns();
+    if (deadline <= start) {
+        sched_yield();   // Sleep(0): give up the rest of the time slice
+    } else if (deadline > now) {
+        uint64_t wait = deadline - now;
+        struct timespec t = {(time_t)(wait / 1000000000u), (long)(wait % 1000000000u)};
+        nanosleep(&t, nullptr);
+    }
+    ra2port_slept_ns += monotonic_ns() - start;
+}
+
 void ra2port_sleep_until_ns(uint64_t deadline)
 {
     uint64_t start = monotonic_ns();
     if (deadline <= start) return;
-    uint64_t wait = deadline - start;
-    struct timespec t = {(time_t)(wait / 1000000000u), (long)(wait % 1000000000u)};
-    nanosleep(&t, nullptr);
-    ra2port_slept_ns += monotonic_ns() - start;
+    wait_until(start, deadline);
 }
 
+// Sleep(n) waits n ms from the call (Windows: at least n ms). The main thread's
+// sleeps are where the original's drawing became visible: the menus' slide
+// (0x005E5150: draw a step, copy it to the primary, Sleep(30)) and the loading
+// screen (GScreenClass::Blit 0x004E0C90: the cursor drawn for Sleep(50)).
+// Natively the primary reached the window only at the next event pump or after
+// 100 ms, so the 18-step slide showed about 5 of its steps (Scout1209).
 void Sleep(uint32_t milliseconds)
 {
     uint64_t start = monotonic_ns();
-    struct timespec t = {(time_t)(milliseconds / 1000u), (long)(milliseconds % 1000u) * 1000000L};
-    nanosleep(&t, nullptr);
-    ra2port_slept_ns += monotonic_ns() - start;
+    wait_until(start, start + (uint64_t)milliseconds * 1000000u);
 }
 
 // LARGE_INTEGER is passed as a pointer to a 64-bit little-endian value.
