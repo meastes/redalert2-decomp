@@ -2307,3 +2307,9 @@ Draw_Sonic's third slot.
 Addendum (Scout1215 lab W3): when two equal-reference webs are reloaded together after a loop, the one whose first use inside the
 loop comes earlier takes the lower slot; definition order and post-loop use order never change it; webs only carried through the
 loop are reloaded in reverse definition order; webs unused in the loop are reloaded at their uses in use order.
+
+## x87 store scheduling against integer stores cycles with the preceding symbol count (Scout1216)
+Whether VC6 /G5 lets an x87 `fchs/fstp` chain slide past independent integer stores (e.g. a struct `rep movsd`) depends on code
+before the block, periodically: each extra local defined before the block and consumed by a call (or a distinct global store) steps
+the schedule through a cycle of three states; plain calls, loops, function size and code after the block are inert. Treat it like a
+declaration-count window: find the original's state with evidenced forms, never with filler (Draw_Voxel 0x6FF690 / slot 311 0x7005B0).

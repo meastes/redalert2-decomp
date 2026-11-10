@@ -25,6 +25,8 @@
 #include <netdb.h>
 #include <netinet/in.h>
 #include <poll.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <thread>
@@ -85,6 +87,22 @@ std::mutex ipx_lock;
 std::map<SOCKET, IpxSocket> ipx_sockets;
 uint16_t ipx_port = 0;          // this game's UDP port (0: not claimed yet)
 int ipx_reserve = -1;           // holds the claimed port until the game binds its socket
+
+// RA2_NATIVE_NET_LOG=1 (diagnostics): every IPX datagram sent and received on stderr.
+bool net_log()
+{
+    static int on = -1;
+    if (on < 0) on = getenv("RA2_NATIVE_NET_LOG") ? 1 : 0;
+    return on != 0;
+}
+void net_trace(char const *what, uint32_t address, uint16_t port, int length, const char *data)
+{
+    if (!net_log()) return;
+    struct in_addr a;
+    a.s_addr = address;
+    unsigned magic = length >= 6 ? (unsigned)(uint8_t)data[4] | (unsigned)(uint8_t)data[5] << 8 : 0;
+    fprintf(stderr, "net: %s %s:%u %d bytes magic %04x\n", what, inet_ntoa(a), (unsigned)port, length, magic);
+}
 
 bool is_ipx(SOCKET s)
 {
@@ -287,6 +305,7 @@ int ra2_sendto(SOCKET s, const char *buffer, int length, int flags, const void *
                 struct sockaddr_in a = udp_address(htonl(INADDR_BROADCAST), (uint16_t)(ipx_base_port + i));
                 if (sendto((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, sizeof a) >= 0) sent = true;
             }
+            net_trace(sent ? "broadcast" : "broadcast FAILED", htonl(INADDR_BROADCAST), ipx_base_port, length, buffer);
             return sent ? length : set_error();
         }
         uint32_t address;
@@ -295,6 +314,7 @@ int ra2_sendto(SOCKET s, const char *buffer, int length, int flags, const void *
         memcpy(&port, w->nodenum + 4, 2);
         struct sockaddr_in a = udp_address(address, ntohs(port));
         ssize_t n = sendto((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, sizeof a);
+        net_trace(n < 0 ? "send FAILED" : "send", address, ntohs(port), length, buffer);
         return n < 0 ? set_error() : (int)n;
     }
     (void)tolength;
@@ -310,6 +330,7 @@ int ra2_recvfrom(SOCKET s, char *buffer, int length, int flags, void *from, int 
     ssize_t n = recvfrom((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, &al);
     if (n < 0) return set_error();
     if (is_ipx(s)) {
+        net_trace("recv", a.sin_addr.s_addr, ntohs(a.sin_port), (int)n, buffer);
         // The sender's node is its IPv4 address and UDP port (see the file comment).
         if (from) {
             WinSockAddrIpx w;

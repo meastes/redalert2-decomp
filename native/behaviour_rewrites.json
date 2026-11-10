@@ -2992,6 +2992,17 @@
    "file": "native/link/behaviour_r5_uicmnds.cpp",
    "source": "shared/system_timer.hpp 0x0069A430 (SystemTimerClass::operator())",
    "notes": "Scout1209 (r5): unknown_restart_timer 0x0069A160's name for the system clock"
+  },
+  {
+   "entry": "0x00525F60",
+   "name": "IPXManagerClass::Service",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r8_lan.cpp",
+   "source": "TibSun ipxmgr.cpp IPXManagerClass::Service; RA2 differences from inventory/decompiled/00525f60.c",
+   "notes": "Scout1209 (r8): LAN only. NOT CARRIED: the router channel (+0x4C, magic 0xCDEF, relay under 0x00A3FBA8), the multicast connection (+0x50) and the type-4 NAT port tracking (Internet games)"
   }
  ]
 }

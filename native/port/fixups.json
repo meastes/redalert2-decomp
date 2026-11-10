@@ -1657,6 +1657,27 @@
    "new": "        list = new DynamicVectorClass<TechnoClass *>(0, 0);   // NATIVE: 0x006F69F0's loop with the name pointer\n        int count = unknown_selected_83996c->Count();\n        for (int index = 0; index < count; index++) {\n            ObjectClass *object = unknown_selected_83996c->Get(index);\n            if (object != 0 && object->AbstractFlags.IsTechno && (char)Unknown_006F7190((TechnoClass *)object, name)) {\n                list->Add((TechnoClass *)object);\n            }\n        }\n",
    "why": "0x006F7800 hands the type name to the test 0x006F7190 through UnknownTest, whose argument is an int: VC6's int holds the pointer, arm64's cuts it. Natively the test is called directly with the name pointer and 0x006F69F0's loop (the selection list 0x0083996C, IsTechno) is written out, as the 0x006F7020 behaviour row does (Scout1209 r6). Same meaning; the exact build is untouched. No caller reaches 0x006F7800 today.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/IPX_Call_Back_00482110.cpp",
+   "old": "    if (unknown_session_a3d298.Type == 4 && !unknown_session_a3d298.NetOpen) {\n",
+   "new": "    if (unknown_session_a3d298.Type == 4 && !unknown_session_a3f616) {   // NATIVE: NetOpen through 0x00A3F616's name\n",
+   "why": "IPX_Call_Back 0x00482110 reads Session.NetOpen (+0x237E) through its own variant of shared/session_state.hpp (RA2_CONQUER_IPX_CALL_BACK); natively that variant places the member 3 bytes away from the one the other units (and the member alias of unknown_session_a3f616, 0x00A3F616) use, so the LAN lobby's NetOpen = true (Net_Join_Dialog 0x005BD070) was never seen and IPX_Call_Back took every lobby packet off the global queue: two games never saw each other (Scout1209 r8). The reads go through the global name, the same storage the writers use. The exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/IPX_Call_Back_00482110.cpp",
+   "old": "    if (!unknown_session_a3d298.NetOpen) {\n",
+   "new": "    if (!unknown_session_a3f616) {   // NATIVE: NetOpen through 0x00A3F616's name\n",
+   "why": "IPX_Call_Back 0x00482110 reads Session.NetOpen (+0x237E) through its own variant of shared/session_state.hpp (RA2_CONQUER_IPX_CALL_BACK); natively that variant places the member 3 bytes away from the one the other units (and the member alias of unknown_session_a3f616, 0x00A3F616) use, so the LAN lobby's NetOpen = true (Net_Join_Dialog 0x005BD070) was never seen and IPX_Call_Back took every lobby packet off the global queue: two games never saw each other (Scout1209 r8). The reads go through the global name, the same storage the writers use. The exact build is untouched.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/IPX_Call_Back_00482110.cpp",
+   "old": "extern int unknown_probe_delay_7d333c;\n",
+   "new": "extern int unknown_probe_delay_7d333c;\nextern bool unknown_session_a3f616;   // NATIVE: Session.NetOpen (0x00A3F616)\n",
+   "why": "IPX_Call_Back 0x00482110 reads Session.NetOpen (+0x237E) through its own variant of shared/session_state.hpp (RA2_CONQUER_IPX_CALL_BACK); natively that variant places the member 3 bytes away from the one the other units (and the member alias of unknown_session_a3f616, 0x00A3F616) use, so the LAN lobby's NetOpen = true (Net_Join_Dialog 0x005BD070) was never seen and IPX_Call_Back took every lobby packet off the global queue: two games never saw each other (Scout1209 r8). The reads go through the global name, the same storage the writers use. The exact build is untouched.",
+   "verified": true
   }
  ]
 }
