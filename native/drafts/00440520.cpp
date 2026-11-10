@@ -128,11 +128,11 @@ exitcell.X += random; exitcell.Y += random;
                         Cell target = Center_Cell(unknown_1b0);
                         UnknownFacingDir dir = Direction_Between(unknown_slot104(), target);
                         int facing = Dir_To_8(dir);
-                        while (Map[navalcell].unknown_4717b0() == this) {
+                        while (Map[navalcell].Cell_Building() == this) {
                             navalcell = Adjacent_Cell(navalcell, facing);
                         }
                     }
-                    if (unknown_1b0 && Map[navalcell].unknown_ec == 2 && !Map[navalcell].unknown_471660(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
+                    if (unknown_1b0 && Map[navalcell].unknown_ec == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
  } else {
                         navalcell = Map.Nearby_Location(Center_Cell(this), base->unknown_slot32()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
  }

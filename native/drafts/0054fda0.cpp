@@ -46,9 +46,9 @@ void MapClass::Unknown_0054FDA0()
 
         if (!cptr->unknown_47b960() && !cptr->unknown_47b980()) {
 
-            if (cptr->unknown_479cc0()) {
-                if ((cptr->Adjacent_Cell(2).unknown_479cc0() && cptr->Adjacent_Cell(6).unknown_479cc0()) ||
-                    (cptr->Adjacent_Cell(4).unknown_479cc0() && cptr->Adjacent_Cell(0).unknown_479cc0())) {
+            if (cptr->Has_Tunnel()) {
+                if ((cptr->Adjacent_Cell(2).Has_Tunnel() && cptr->Adjacent_Cell(6).Has_Tunnel()) ||
+                    (cptr->Adjacent_Cell(4).Has_Tunnel() && cptr->Adjacent_Cell(0).Has_Tunnel())) {
 
                     Cell cell = cptr->Unknown_0047A130()->ExitCell;
                     if (unknown_cell_index_428a90(cptr->MapCoords) < unknown_cell_index_428a90(cell)) {

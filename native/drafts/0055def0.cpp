@@ -16,8 +16,8 @@
 extern Rect unknown_rect_839630;
 // @ref ?Damage_Low_Bridge_Piece_EW_0055FCC0@MapClass@@QAEXABVCell@@@Z=0055fcc0
 // @ref ?Spring_Low_Bridge_Destroyed_EW@MapClass@@QAEXVCell@@@Z=0055ea50
-// @ref ?unknown_474eb0@CellClass@@QBE?AVRect@@XZ=00474eb0
-// @ref ?unknown_475100@CellClass@@QBE?AVRect@@XZ=00475100
+// @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
+// @ref ?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ=00475100
 // @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 // @ref ?Unknown_0047CC10@CellClass@@QAEXXZ=0047cc10
 // @ref ??$Union@VRect@@@@YI?BVRect@@ABV0@0@Z=0045efe0
@@ -39,7 +39,7 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
     int otype = cellptr1->OverlayIndex;
     bool didwork = false;
 
-    Rect draw_rect = Union(cellptr1->unknown_474eb0(), cellptr1->unknown_475100());
+    Rect draw_rect = Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect());
     Rect recalc_rect(0, 0, 0, 0);
 
     do {
@@ -75,7 +75,7 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
             break;
         }
 
-        draw_rect = Union(draw_rect, Union(cellptr1->unknown_474eb0(), cellptr1->unknown_475100())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
         unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);

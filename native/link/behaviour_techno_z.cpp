@@ -61,7 +61,7 @@ int TechnoClass::unknown_slot176()
         }
         if (unit->Type->Harvester) {
             CellClass *cell_ptr = (CellClass *)unknown_slot105();
-            BuildingClass *building = cell_ptr != 0 ? (BuildingClass *)cell_ptr->unknown_4717b0() : 0;
+            BuildingClass *building = cell_ptr != 0 ? (BuildingClass *)cell_ptr->Cell_Building() : 0;
             if (building != 0 && building->Type->Refinery) {
                 return zadjust - 14;
             }

@@ -24,15 +24,15 @@ bool CellClass::unknown_47c3a0(int tib, int data)
             }
             tiberium->Add_Growth_Cell(MapCoords);
             OverlayData = data;
-            unknown_47c080();
+            Register_For_Redraw();
             return true;
         }
 
-        if (unknown_4788e0()) {
+        if (Can_Tiberium_Grow()) {
             if (OverlayClass::To_Tiberium(OverlayIndex) == tib) {
                 OverlayData += data;
                 OverlayData = OverlayData < tiberium->unknown_e4 - 1 ? OverlayData : tiberium->unknown_e4 - 1;
-                Rect rect = Union(Union(unknown_4752b0(), unknown_474eb0()), unknown_475100());
+                Rect rect = Union(Union(Cell_Render_Rect(), Overlay_Render_Rect()), Overlay_Shadow_Render_Rect());
                 unknown_tactical_83996c->Register_Dirty_Area(rect - unknown_rect_839630.Top_Left(), 0);
                 tiberium->Add_Spread_Cell(MapCoords);
                 return true;

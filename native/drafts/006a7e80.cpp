@@ -69,7 +69,7 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
                         effect->Init(type);
                     }
                     if (effect != 0 && effect->Reduce_Life(frames)) {
-                        Rect rect = cell.unknown_4752b0();
+                        Rect rect = cell.Cell_Render_Rect();
                         Point2D point(rect.Width / 2, rect.Height / 2);
                         point.X += rect.X;
                         point.Y += rect.Y;

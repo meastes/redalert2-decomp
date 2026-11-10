@@ -66,7 +66,7 @@ bool TechnoClass::unknown_slot186()
                 if (House->unknown_134 && here->unknown_ec == 2) {
                     break;
                 }
-                if (((CellClass *)unknown_slot105())->unknown_4717b0()) {
+                if (((CellClass *)unknown_slot105())->Cell_Building()) {
                     break;
                 }
                 return true;

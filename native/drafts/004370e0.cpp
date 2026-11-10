@@ -84,8 +84,8 @@ BounceResultType BounceClass::AI()
     bool hit_obstacle = false;
     if (!hit_bridge_top && !hit_bridge_bottom) {
         if (ground_height <= position.Z && position.Z - 150.0f < ground_height) {
-            BuildingClass *building = (BuildingClass *)cellptr->unknown_4717b0();
-            if (building == 0 && !cellptr->unknown_475840(-1, -1)) {
+            BuildingClass *building = (BuildingClass *)cellptr->Cell_Building();
+            if (building == 0 && !cellptr->Has_Wall_Or_Gate(-1, -1)) {
                 hit_obstacle = false;
             } else {
                 hit_obstacle = true;

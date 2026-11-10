@@ -35,7 +35,7 @@ bool MapClass::Unknown_0055F020(Cell const &cell)
     int otype = cellptr1->OverlayIndex;
     bool didwork = false;
 
-    Rect draw_rect = Union(cellptr1->unknown_474eb0(), cellptr1->unknown_475100());
+    Rect draw_rect = Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect());
     Rect recalc_rect(0, 0, 0, 0);
 
     do {
@@ -71,7 +71,7 @@ bool MapClass::Unknown_0055F020(Cell const &cell)
             break;
         }
 
-        draw_rect = Union(draw_rect, Union(cellptr1->unknown_474eb0(), cellptr1->unknown_475100())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
         unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
 
         cellptr1->Recalc_Attributes(-1);

@@ -38,8 +38,8 @@ extern "C" int ra2_adapter_0005(void * a0, void * a1, void * a2, void * a3, int 
 extern "C" bool ra2_adapter_target_0006(void *, void *, void *, void *, int) __asm__("__ZN12BitFontClass13Get_Text_AreaEPKtPiS2_i");
 extern "C" int ra2_adapter_0006(void * a0, void * a1, void * a2, void * a3, int a4) __asm__("__ZN13seed_0043186015Callee_004314b012FUN_004314b0EPtPiS2_i");
 extern "C" int ra2_adapter_0006(void * a0, void * a1, void * a2, void * a3, int a4) { return (int)(unsigned int)(int)ra2_adapter_target_0006(a0, a1, a2, a3, a4); }
-// 0x00475960 UnknownBuildingCell52::Unknown_00475960(int) -> CellClass::unknown_475960(bool) [width]
-extern "C" void ra2_adapter_target_0007(void *, bool) __asm__("__ZN9CellClass14unknown_475960Eb");
+// 0x00475960 UnknownBuildingCell52::Unknown_00475960(int) -> CellClass::Wall_Update(bool) [width]
+extern "C" void ra2_adapter_target_0007(void *, bool) __asm__("__ZN9CellClass11Wall_UpdateEb");
 extern "C" void ra2_adapter_0007(void * a0, int a1) __asm__("__ZN21UnknownBuildingCell5216Unknown_00475960Ei");
 extern "C" void ra2_adapter_0007(void * a0, int a1) { ra2_adapter_target_0007(a0, (((unsigned int)(int)a1 & 0xFFu) != 0)); }
 // 0x004764B0 UnknownCellClass::Unknown_004764B0(CoordStruct const&, int, bool) -> CellClass::Closest_Free_Spot(CoordStruct const&, bool, bool) const [width]
@@ -50,12 +50,12 @@ extern "C" ra2_pair ra2_adapter_0008(void * a0, void * a1, int a2, bool a3) { re
 extern "C" ra2_pair ra2_adapter_target_0009(void *, void *, bool, bool) __asm__("__ZNK9CellClass17Closest_Free_SpotERK11CoordStructbb");
 extern "C" ra2_pair ra2_adapter_0009(void * a0, void * a1, bool a2, int a3) __asm__("__ZNK9CellClass17Closest_Free_SpotERK11CoordStructbi");
 extern "C" ra2_pair ra2_adapter_0009(void * a0, void * a1, bool a2, int a3) { return ra2_adapter_target_0009(a0, a1, a2, (((unsigned int)(int)a3 & 0xFFu) != 0)); }
-// 0x00478760 UnknownCellClass::Unknown_00478760(int, int, int, int, int, int, int) -> CellClass::unknown_478760(int, bool, bool, int, int, int, bool) [width]
-extern "C" bool ra2_adapter_target_0010(void *, int, bool, bool, int, int, int, bool) __asm__("__ZN9CellClass14unknown_478760Eibbiiib");
+// 0x00478760 UnknownCellClass::Unknown_00478760(int, int, int, int, int, int, int) -> CellClass::Is_Clear_To_Move(int, bool, bool, int, int, int, bool) [width]
+extern "C" bool ra2_adapter_target_0010(void *, int, bool, bool, int, int, int, bool) __asm__("__ZN9CellClass16Is_Clear_To_MoveEibbiiib");
 extern "C" bool ra2_adapter_0010(void * a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7) __asm__("__ZN16UnknownCellClass16Unknown_00478760Eiiiiiii");
 extern "C" bool ra2_adapter_0010(void * a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7) { return ra2_adapter_target_0010(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0), (((unsigned int)(int)a3 & 0xFFu) != 0), a4, a5, a6, (((unsigned int)(int)a7 & 0xFFu) != 0)); }
-// 0x00478760 CellClass::Unknown_00478760(int, int, int, int, int, int, int) -> CellClass::unknown_478760(int, bool, bool, int, int, int, bool) [width]
-extern "C" bool ra2_adapter_target_0011(void *, int, bool, bool, int, int, int, bool) __asm__("__ZN9CellClass14unknown_478760Eibbiiib");
+// 0x00478760 CellClass::Unknown_00478760(int, int, int, int, int, int, int) -> CellClass::Is_Clear_To_Move(int, bool, bool, int, int, int, bool) [width]
+extern "C" bool ra2_adapter_target_0011(void *, int, bool, bool, int, int, int, bool) __asm__("__ZN9CellClass16Is_Clear_To_MoveEibbiiib");
 extern "C" bool ra2_adapter_0011(void * a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7) __asm__("__ZN9CellClass16Unknown_00478760Eiiiiiii");
 extern "C" bool ra2_adapter_0011(void * a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7) { return ra2_adapter_target_0011(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0), (((unsigned int)(int)a3 & 0xFFu) != 0), a4, a5, a6, (((unsigned int)(int)a7 & 0xFFu) != 0)); }
 // 0x004E64F0 HouseClass::unknown_func_4e64f0(int, int, int) -> HouseClass::Abandon_Production(int, int, bool) [result ignored, width]

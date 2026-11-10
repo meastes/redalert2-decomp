@@ -18,7 +18,7 @@
 
 int CellClass::unknown_475db0(int levels)
 {
-    Rect dirty = Union(unknown_474eb0(), unknown_475100());
+    Rect dirty = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
     dirty.Y -= unknown_rect_839630.Y;
 
     int tibtype = OverlayClass::To_Tiberium(OverlayIndex);

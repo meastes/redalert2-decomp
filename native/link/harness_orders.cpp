@@ -227,7 +227,7 @@ int Scripted_Order(char const *command)
         Cell at;
         at.X = (short)atoi(word[3]);
         at.Y = (short)atoi(word[4]);
-        target = Map[at].unknown_4717b0();      // the building in the cell
+        target = Map[at].Cell_Building();      // the building in the cell
         if (target == 0) return -1;
     }
     int count = 0;

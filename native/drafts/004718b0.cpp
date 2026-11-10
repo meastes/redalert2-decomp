@@ -31,7 +31,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
 
     if (what != 0) {
         if (what->LaserFence) {
-            if (unknown_4717b0() != 0) {
+            if (Cell_Building() != 0) {
                 return false;
             }
             if (Cell_Terrain() != 0) {
@@ -49,7 +49,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
                 if (IsoTileIndex >= 0 && IsoTileIndex < IsoTileTypes.Count() && !IsoTileTypes[IsoTileIndex]->unknown_2b0) {
                     return false;
                 }
-                if (unknown_4717b0() != 0) {
+                if (Cell_Building() != 0) {
                     return false;
                 }
             }

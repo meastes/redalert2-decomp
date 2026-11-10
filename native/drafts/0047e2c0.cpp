@@ -340,7 +340,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
     }
 
     if (cptr->OverlayIndex != -1 && OverlayTypes[cptr->OverlayIndex]->Explodes) {
-        cptr->unknown_47c080();
+        cptr->Register_For_Redraw();
         cptr->OverlayIndex = -1;
         cptr->Recalc_Attributes(-1);   // NATIVE: Unknown_00472540
         Map.Update_Cell_Zone(cptr->MapCoords);

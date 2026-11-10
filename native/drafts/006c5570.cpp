@@ -45,7 +45,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         if(object->Health_Ratio()==Rules->unknown_1360) return false;
         if(object->Kind_Of()==2 && Kind_Of()==1) {
             if(object->unknown_slot108()>0) return false;
-            if(Map[object->Center_Coord()].unknown_4717b0()) return false;
+            if(Map[object->Center_Coord()].Cell_Building()) return false;
         } else if(Kind_Of()==1 && !object->unknown_slot31()) return false;
     }
     if(unknown_id_source_a3d290->unknown_000&0x800) {

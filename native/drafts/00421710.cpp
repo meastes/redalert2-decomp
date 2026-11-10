@@ -121,7 +121,7 @@ void AnimClass::AI()
                                 if (cellptr->Can_Tiberium_Germinate(0) && Class->TiberiumSpawnType != 0) {
                                     new OverlayClass(OverlayTypes[Class->TiberiumSpawnType->ArrayIndex + Random_Pick(0, 3)], cellptr->Fetch_CellID());
                                     cellptr->OverlayData = Random_Pick(0, 2);
-                                    Rect overlayrect = cellptr->unknown_474eb0();
+                                    Rect overlayrect = cellptr->Overlay_Render_Rect();
                                     overlayrect.Y -= unknown_rect_839630.Y;
                                     updaterect = Union(updaterect, overlayrect);
                                 }
@@ -143,7 +143,7 @@ void AnimClass::AI()
         }
     }
 
-    if (Rules->DropZoneAnim == Class && Map[Center_Coord()].unknown_4717b0()) {
+    if (Rules->DropZoneAnim == Class && Map[Center_Coord()].Cell_Building()) {
         unknown_17b = true;
     }
 

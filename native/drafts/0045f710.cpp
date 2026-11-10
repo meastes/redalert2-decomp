@@ -288,8 +288,8 @@ void BulletClass::AI()
             }
             bool hit = false;
             if (!fell && !rose && position.Z >= height && position.Z - 150.0 < height) {
-                BuildingClass *building = (BuildingClass *)cell->unknown_4717b0();
-                if (building != 0 || cell->unknown_475840(-1, -1)) {
+                BuildingClass *building = (BuildingClass *)cell->Cell_Building();
+                if (building != 0 || cell->Has_Wall_Or_Gate(-1, -1)) {
                     hit = true;
                     if (building != 0) {
                         if (building == (BuildingClass *)payback || building->Type->LaserFence && building->unknown_4ec >= 8) {
@@ -356,15 +356,15 @@ bounced:
         } else {
             CellClass &cell = Map[here];
             CellClass &target_cell = Map[there];
-            ObjectClass *building = cell.unknown_4717b0();
-            ObjectClass *target_building = target_cell.unknown_4717b0();
+            ObjectClass *building = cell.Cell_Building();
+            ObjectClass *target_building = target_cell.Cell_Building();
             if (building != 0 && !Type->Vertical && building == target_building
                 && unknown_slot108() < unknown_geometry_g * 2) {
                 impact = 1;
                 forced = true;
                 collided = true;
             } else {
-                TechnoClass *techno = (TechnoClass *)Map[coord].unknown_471660(Point2D(0, 0), false, 0);
+                TechnoClass *techno = (TechnoClass *)Map[coord].Cell_Techno(Point2D(0, 0), false, 0);
                 bool techno_valid = techno != 0;
                 bool payback_valid = Owner != 0;
                 bool is_owner = payback_valid && techno == Owner;
@@ -410,7 +410,7 @@ flown:
     case 1:
         Mark(2);
         unknown_slot103(coord);
-        BuildingClass *building = (BuildingClass *)Map[coord].unknown_4717b0();
+        BuildingClass *building = (BuildingClass *)Map[coord].Cell_Building();
         if (building != 0 && building->Type->FirestormWall && building->House->unknown_142
             && (Owner == 0 || building->House != Owner->House)
             && Class_Of() != 0 && !Class_Of()->unknown_209) {
