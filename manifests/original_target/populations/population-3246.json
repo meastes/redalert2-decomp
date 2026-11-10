@@ -4,8 +4,8 @@
     "id": "population-3246",
     "inventory_sha256": "e40c783bc09f6d5eba5f36cb6cd5a013c6a087c8b5eaad809918255a60a7b022",
     "gaps_sha256": "5fa89f0401f7477fa5984aaefcd14a1315e6a9c0ecade75d95bf4beadba3404d",
-    "historical_population_sha256": "3a815dd703edda0ddf4e44883b244f0e367118dd47fc22396f0532f214a2c4cc",
-    "historical_acceptance_sha256": "47c4612b41f2afa8a502ca682d0fddff4dd2f966ea7c3de6a18725d2da3495a1"
+    "historical_population_sha256": "66e6c15e764f00af96ee6b5e26ba86601b7e9f34ae2932a18ca8c122c8d94bc8",
+    "historical_acceptance_sha256": "d5eeb23210ec9a14c863d3186017ad8643c41ba411262ed4c38edfaaad904c7a"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -18033,7 +18033,7 @@
     "?unknown_clear_listbox@@YIHPAUHWND__@@@Z": 6294960,
     "?unknown_clear_local_variable@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7013968,
     "?unknown_clear_low_color_bits_004e12b0@@YIXPAEI@Z": 5116592,
-    "?unknown_clear_low_color_bits_rgb_004e12d0@@YIXPAEH@Z": 5116624,
+    "?rgb32_to_rgb24_clamped_004e12d0@@YIXPAEH@Z": 5116624,
     "?unknown_clear_rect@@YIXABURectangleStruct@@@Z": 7437440,
     "?unknown_clear_teams_5b77e0@MultiplayerGameMode@@QAEXXZ": 5994464,
     "?unknown_clear_text_4955a0@@YIXPAD@Z": 4806048,
@@ -19123,8 +19123,8 @@
     "?unknown_owned_ac1244@@3_NA": 11276868,
     "?unknown_owned_ac1245@@3_NA": 11276869,
     "?unknown_owner_color@@YIHPAUUnknownTechno_00610770@@@Z": 6358896,
-    "?unknown_pack_rgb24_004e13c0@@YIXPAEIII@Z": 5116864,
-    "?unknown_pack_rgb555_004e1300@@YIXPAEIII@Z": 5116672,
+    "?rgb32_to_rgb24_004e13c0@@YIXPAEIII@Z": 5116864,
+    "?rgb24_to_rgb555_004e1300@@YIXPAEIII@Z": 5116672,
     "?unknown_pairs_7f1c10@@3PAUUnknownPair_0065b250@@A": 8330256,
     "?unknown_palette_00851cc8@@3VPaletteClass@@A": 8723656,
     "?unknown_palette_00851fc8@@3PAUIDirectDrawPalette@@A": 8724424,
