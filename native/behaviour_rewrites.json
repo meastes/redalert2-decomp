@@ -1003,8 +1003,8 @@
   },
   {
    "entry": "0x004C7AC0",
-   "name": "FootClass::unknown_slot119(int, AbstractClass *, AbstractClass *)",
-   "symbol": "__ZN9FootClass15unknown_slot119EiP13AbstractClassS1_",
+   "name": "FootClass::Override_Mission(int, AbstractClass *, AbstractClass *)",
+   "symbol": "__ZN9FootClass16Override_MissionEiP13AbstractClassS1_",
    "origin_class": "accepted as a seed leaf only (no callable body)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1429,7 +1429,7 @@
   },
   {
    "entry": "0x00446920",
-   "name": "BuildingClass::unknown_slot126 (Mission_Attack)",
+   "name": "BuildingClass::Do_MISSION_ATTACK (Mission_Attack)",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,

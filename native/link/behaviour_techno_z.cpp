@@ -55,7 +55,7 @@ int TechnoClass::unknown_slot176()
         UnitClass *unit = (UnitClass *)this;
         if (unknown_370) {
             TechnoClass *contact = Contact_With_Whom(0);
-            if (contact != 0 && contact->Kind_Of() == 6 && contact->unknown_slot91() == 0x10) {
+            if (contact != 0 && contact->Kind_Of() == 6 && contact->Get_Mission() == 0x10) {
                 return zadjust - 3;
             }
         }

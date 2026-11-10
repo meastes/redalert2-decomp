@@ -232,10 +232,10 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         }
                         if (object != 0) {
                             if (!LinkedTo->House->Is_Ally((TechnoClass *)object)) {
-                                LinkedTo->unknown_slot119(1, object, 0);
+                                LinkedTo->Override_Mission(1, object, 0);
                             }
                         } else if (Map[cell].OverlayIndex != -1 && OverlayTypes[Map[cell].OverlayIndex]->Wall) {
-                            LinkedTo->unknown_slot119(1, &Map[cell], 0);
+                            LinkedTo->Override_Mission(1, &Map[cell], 0);
                         }
                     }
                     if (move != 1) {

@@ -13,7 +13,7 @@
 // in weapon range as support up to Rules->PrismSupportMax, else charges its own
 // delayed shot; IsAnimDelayedFire types charge the delayed shot), FACING/REARM
 // turn and return 2, CLOAKED uncloaks, ILLEGAL/CANT/RANGE/AMMO drop the target.
-int BuildingClass::unknown_slot126()
+int BuildingClass::Do_MISSION_ATTACK()
 {
     if (!Type->SAM) {
         if (unknown_228 == 0) {
@@ -22,9 +22,9 @@ int BuildingClass::unknown_slot126()
             if (unknown_slot242()) {
                 unknown_6d1470();
             }
-            if (unknown_slot91() != 0x1C) {
+            if (Get_Mission() != 0x1C) {
                 unknown_slot116(5, false);
-                unknown_slot117();
+                Commence();
             }
             return 1;
         }
@@ -55,11 +55,11 @@ int BuildingClass::unknown_slot126()
             if (unknown_slot242()) {
                 unknown_6d1470();
             }
-            if (unknown_slot91() == 0x1C) {
+            if (Get_Mission() == 0x1C) {
                 return 1;
             }
             unknown_slot116(5, false);
-            unknown_slot117();
+            Commence();
             break;
         case 2: case 3:                         // FIRE_FACING, FIRE_REARM
             if (unknown_228 != 0) {
@@ -94,7 +94,7 @@ int BuildingClass::unknown_slot126()
                         if ((long)other->unknown_244 != 0 || other->unknown_5d8 != 0) {
                             continue;
                         }
-                        if (other->unknown_slot91() == 1 || other == this) {
+                        if (other->Get_Mission() == 1 || other == this) {
                             continue;
                         }
                         CoordStruct where = other->unknown_slot42();
@@ -149,7 +149,7 @@ int BuildingClass::unknown_slot126()
             unknown_slot220(0);
             unknown_a8 = 0;
             unknown_slot116(5, false);
-            unknown_slot117();
+            Commence();
             return 1;
         }
         if (!unknown_2e0.Is_Rotating()) {

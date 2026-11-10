@@ -44,7 +44,7 @@ void InfantryClass::unknown_slot93(int why)
 {
     UnknownCellClass *cell=Map_Cell(CoordStruct(Coord));
     if (why==2) {
-        if (unknown_slot91()==8 && (Type->Assaulter || Type->Occupier) && unknown_494 && unknown_494->Kind_Of()==6) {
+        if (Get_Mission()==8 && (Type->Assaulter || Type->Occupier) && unknown_494 && unknown_494->Kind_Of()==6) {
             BuildingClass *building=static_cast<BuildingClass *>(unknown_494);
             if (building==cell->Unknown_004717B0()) {
                 if (!building->Unknown_00452EB0(this)) {
@@ -67,7 +67,7 @@ void InfantryClass::unknown_slot93(int why)
                 return;
             }
         }
-        if (unknown_slot91()==9) {
+        if (Get_Mission()==9) {
             BuildingClass *building=cell->Unknown_004717B0();
             if (building && (building==unknown_494 || building==unknown_228)) {
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
@@ -85,7 +85,7 @@ void InfantryClass::unknown_slot93(int why)
                 return;
             }
         }
-        if (unknown_slot91()==8 || unknown_slot91()==11 || unknown_slot91()==25) {
+        if (Get_Mission()==8 || Get_Mission()==11 || Get_Mission()==25) {
             AbstractClass *navigation=unknown_494;
             bool is_techno;
             if (navigation) is_techno=navigation->AbstractFlags.IsTechno;
@@ -192,7 +192,7 @@ void InfantryClass::unknown_slot93(int why)
                 if (!at_destination) at_destination=destination_cell->Unknown_00473E30(true);
             }
         }
-        if (unknown_slot91()==7 && transport && (unknown_494==transport || unknown_228==transport || (at_destination && transport==at_destination))) {
+        if (Get_Mission()==7 && transport && (unknown_494==transport || unknown_228==transport || (at_destination && transport==at_destination))) {
             if (transport->unknown_34) transport->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
             if (transport->Kind_Of()==6) {
                 if (transport==static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_004717B0() && unknown_slot149(21)==1) {
@@ -217,12 +217,12 @@ void InfantryClass::unknown_slot93(int why)
                 return;
             }
         }
-        if (unknown_slot91()==17 && Type->C4) {
+        if (Get_Mission()==17 && Type->C4) {
             BuildingClass *building=cell->Unknown_004717B0();
             if (building && building==unknown_494) {
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                 bool &going_to_blow=*reinterpret_cast<bool *>(reinterpret_cast<char *>(building)+0x5af);
-                if (building->unknown_slot91()!=19 && !building->unknown_slot203()) {
+                if (building->Get_Mission()!=19 && !building->unknown_slot203()) {
                     if (going_to_blow) {
                         Assign_Destination(0,1);
                         unknown_244=unknown_slot187(1);
@@ -262,7 +262,7 @@ void InfantryClass::unknown_slot93(int why)
             } else if ((cell->unknown_124.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,false);
         }
         if (MissionQueue==-1 && !unknown_494 && !unknown_228 && !In_Radio_Contact()) unknown_slot261(false,true);
-        unknown_slot117();
+        Commence();
         unknown_slot263(false,false,false,0);
         unknown_slot262(false,false,false,0);
         Map.Unknown_0054A550(CoordStruct(Coord),0,unknown_1f4+3,0);

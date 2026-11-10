@@ -77,7 +77,7 @@ exitcell.X += random; exitcell.Y += random;
                             aircraft->Assign_Destination(0, 1);
                         }
                     }
-                    aircraft->unknown_slot118(2);
+                    aircraft->Set_Mission(2);
                     --unknown_a40774;
                     return 2;
                 }
@@ -147,11 +147,11 @@ exitcell.X += random; exitcell.Y += random;
                     return 2;
                 } else {
                     base->unknown_6d6e50(unknown_1b0);
-                    if (unknown_slot91() == 0x10) {
+                    if (Get_Mission() == 0x10) {
                         int count = House->Buildings.Count();
                         for (int index = 0; index < count; index++) {
                             BuildingClass *bldg = House->Buildings[index];
-                            if (bldg->Type == Type && bldg != this && bldg->unknown_slot91() == 5 && !bldg->unknown_41c) {
+                            if (bldg->Type == Type && bldg != this && bldg->Get_Mission() == 5 && !bldg->unknown_41c) {
                                 AbstractClass *temp = unknown_41c;
                                 bldg->unknown_41c = temp;
                                 unknown_41c = 0;
@@ -344,7 +344,7 @@ exitcell.X += random; exitcell.Y += random;
                             House->unknown_553c = -1;
                         }
                         if (base->Mission == -1 && base->MissionQueue == 0x12) {
-                            base->unknown_slot117();
+                            base->Commence();
                         }
                         if (base->Kind_Of() == 6) {
                             if (building->Type->FirestormWall) {

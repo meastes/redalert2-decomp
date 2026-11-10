@@ -158,7 +158,7 @@ bool __fastcall Unknown_0063A880(TeamTypeClass *teamtype, int wp)
     while (object != 0) {
         object->Mark(0);
         object->unknown_214 = 3;
-        object->unknown_slot117();
+        object->Commence();
 
         object = list;
         if (object != 0) {
