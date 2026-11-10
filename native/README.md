@@ -540,6 +540,8 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   game CRC as `crc <frame> <value>` for comparing two games' logs. A type 0x1F
   event's variable data is a 32-bit handle in the event (`link/native_event_data.cpp`),
   so events keep the original 0x6F-byte wire layout.
+  Debug_Printf formats through the port's VC6 printf (port/src/crt.cpp), so `%ls`
+  prints the game's 16-bit wide strings.
 - **Harness.** `RA2_NATIVE_SKIRMISH_AI=<1-7>` (and `RA2_NATIVE_SKIRMISH_AI_LEVEL`
   0-2) gives the skirmish harness that many computer players;
   `RA2_NATIVE_LIST_MAPS=1` prints the scenario list with player ranges (`'#10'`

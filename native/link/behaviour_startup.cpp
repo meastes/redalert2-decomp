@@ -12,7 +12,10 @@
 // Native diagnostic (test runs only): RA2_NATIVE_DEBUG_LOG=1 prints the
 // game's debug lines to stderr; the original's body is empty.
 extern "C" char *getenv(char const *);
-extern "C" int vdprintf(int, char const *, __builtin_va_list);
+extern "C" int dprintf(int, char const *, ...);
+// The port's VC6-semantics formatter (port/src/crt.cpp): %ls/%S take the game's 16-bit wide strings
+// (the host vsnprintf reads 32-bit wchar_t and dropped every line that printed a wide name).
+extern "C" int ra2__vsnprintf(char *dst, unsigned long cap, char const *fmt, __builtin_va_list ap);
 void __cdecl Debug_Printf(char const *format, ...)
 {
     static int enabled = -1;
@@ -21,10 +24,13 @@ void __cdecl Debug_Printf(char const *format, ...)
         enabled = value != 0 && value[0] == '1';
     }
     if (enabled && format != 0) {
+        char line[2048];
         __builtin_va_list args;
         __builtin_va_start(args, format);
-        vdprintf(2, format, args);
+        int n = ra2__vsnprintf(line, sizeof(line) - 1, format, args);
         __builtin_va_end(args);
+        line[n < 0 ? sizeof(line) - 1 : n] = 0;   // VC6: -1 and no terminator when cut
+        dprintf(2, "%s", line);
     }
 }
 

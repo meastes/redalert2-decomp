@@ -2352,3 +2352,12 @@ identical code (one `base_z` site vs two), i.e. a tie over the function's tempor
 0x7225B0: TibSun's `int zy = y - TacticalRect.Y;` in both slow loops (feeding the `Point2D zpos` cursor) sets all
 three chains to the original's order, 71.04 -> 79.12 (build/class-work/Scout1218/keep/sonic_H2_7912.cpp); TibSun's
 full `int xpos; int zy;` cursor gives the chains but loses the slow loops' memory layout (58.03).
+
+## A depth test written twice keeps the base in a register and dissolves a constant web (Scout1218 round 3, Draw_Tile 0x52C230)
+In IsometricTileTypeClass::Draw_Tile's inner loops the original computes `BaseDepth + *SrcDepth` twice (TibSun
+isotype.cpp 2386-2388: once in the `if (*DepthPtr >= (unsigned short)(...))` test, once in the store), not through a
+`pixeldepth` local (2086 form): with the twice-written form VC6 loads BaseDepth into ebp per iteration and uses
+immediates for the three `+= 2` pointer increments; with the local it folds BaseDepth as a memory operand and
+materialises the constant 2 in ebp (`mov ebp, 2`). Loop 0x1094: bucket 0x1000 62/119 -> 99/119, draft 51.29 -> 53.49
+(build/class-work/Scout1218/keep/draw_tile_U1_5349.cpp). When a loop shows a constant held in a callee-saved register
+where the original uses immediates, look for a repeated sub-expression the original spells twice.
