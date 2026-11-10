@@ -161,7 +161,9 @@ function's name rather than its address where it has one:
 4. Lanes running, one line each; Windows deliveries pending.
 5. Anything that needs the user, last and numbered.
 
-Working notes between statuses stay to one line. When the conversation is summarized, copy
+Between statuses, write to the conversation only when something significant happens: a failure
+that changes the plan, a ruling, or something that needs the user. No running commentary on
+commands or tool steps. When the conversation is summarized, copy
 the latest full status into the summary word for word.
 
 ## Controls
