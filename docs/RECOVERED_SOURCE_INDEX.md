@@ -27,7 +27,7 @@
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 95 | 0x004D3690–0x006BE740 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
 | [classes/SidebarClass](../src/recovered/classes/SidebarClass/) | 91 | 25,083 | 89 | 0x0067B4B0–0x006824A0 |
-| (discovery: address-named) | 788 | 23,960 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 785 | 23,836 | 17 | 0x004010A0–0x00793976 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
 | [classes/TActionClass](../src/recovered/classes/TActionClass/) | 138 | 23,230 | 138 | 0x006AD2F0–0x006B30D0 |
@@ -35,7 +35,7 @@
 | [classes/DSurface](../src/recovered/classes/DSurface/) | 42 | 22,486 | 42 | 0x004AA4A0–0x004B14F0 |
 | [netdlg2](../src/recovered/netdlg2/) | 22 | 22,184 | 22 | 0x005BBD20–0x005C28E0 |
 | [wonline](../src/recovered/wonline/) | 76 | 21,787 | 76 | 0x0073A8E0–0x00765990 |
-| [classes/RadarClass](../src/recovered/classes/RadarClass/) | 65 | 21,475 | 65 | 0x0062ECF0–0x00634AD0 |
+| [classes/RadarClass](../src/recovered/classes/RadarClass/) | 68 | 21,599 | 68 | 0x0062ECF0–0x00634AD0 |
 | [classes/DisplayClass](../src/recovered/classes/DisplayClass/) | 70 | 21,018 | 66 | 0x0040D120–0x006824F0 |
 | [classes/DriveLocomotionClass](../src/recovered/classes/DriveLocomotionClass/) | 56 | 20,543 | 56 | 0x0049F640–0x004A4D90 |
 | [classes/ShipLocomotionClass](../src/recovered/classes/ShipLocomotionClass/) | 56 | 20,430 | 56 | 0x00675600–0x0067AC30 |
