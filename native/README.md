@@ -532,6 +532,14 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   "Multiplayer is not available in this build." and return to the main menu
   (`Native_Multiplayer_Unavailable`, a Select_Game fixup) instead of faulting in
   IPXManagerClass; the WOL/IPX/modem code stays link-closure traps.
+  With `RA2_NATIVE_LAN=1` the Network button opens the LAN lobby instead: IPX
+  runs over UDP (`port/src/wsock32.cpp`, ports 26300-26307, broadcast;
+  `RA2_NATIVE_NET_LOG=1` traces datagrams), and two games on one Mac (separate
+  HOMEs) host, join, start and stay in sync (Scout1209 r7-r10: 6,400 frames with
+  equal per-frame CRCs). `RA2_NATIVE_CRC_LOG=1` logs each multiplayer frame's
+  game CRC as `crc <frame> <value>` for comparing two games' logs. A type 0x1F
+  event's variable data is a 32-bit handle in the event (`link/native_event_data.cpp`),
+  so events keep the original 0x6F-byte wire layout.
 - **Harness.** `RA2_NATIVE_SKIRMISH_AI=<1-7>` (and `RA2_NATIVE_SKIRMISH_AI_LEVEL`
   0-2) gives the skirmish harness that many computer players;
   `RA2_NATIVE_LIST_MAPS=1` prints the scenario list with player ranges (`'#10'`

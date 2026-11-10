@@ -1748,6 +1748,39 @@
    "author": "Netshare385",
    "draft": "native/drafts/005c3ff0.cpp",
    "notes": "NATIVE edit: defined under the callers' name Decode_Pub_Gameopt_005c3ff0. Scout1209 r9"
+  },
+  {
+   "entry": "0x6282D0",
+   "name": "Extract_Compressed_Events",
+   "plan": "draft, verify",
+   "tier": "LAN game (receive)",
+   "bytes": 1455,
+   "score": 57.62,
+   "last_lane_score": 57.62,
+   "draft_found_by": "OPEN_MISSES (Scout1174)",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout1174/keep/extract_ex2_5762.cpp",
+   "author": "Scout1174",
+   "draft": "native/drafts/006282d0.cpp",
+   "notes": "NATIVE edit (Scout1209 r10): the type 0x1F data address is a 32-bit handle in the field at +0x07 (native/link/native_event_data.cpp) instead of the overlay's Data.Variable.Pointer, so EventClass keeps the original 0x6F-byte layout and wire format. A Fable lane works the exact match; src/ untouched."
+  },
+  {
+   "entry": "0x626CB0",
+   "name": "Unknown_00626CB0 (Draw_Sync_Bars)",
+   "plan": "draft, verify",
+   "tier": "LAN game (reconnect dialog)",
+   "bytes": 0,
+   "score": 75.78,
+   "last_lane_score": 75.78,
+   "draft_found_by": "OPEN_MISSES (Scout1181)",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout1181/keep/dsb_r2_7578.cpp",
+   "author": "Scout1181",
+   "draft": "native/drafts/00626cb0.cpp"
   }
  ]
 }

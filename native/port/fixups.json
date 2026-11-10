@@ -1699,6 +1699,83 @@
    "new": "    // native: the port's surfaces are never lost (IsLost is always DD_OK), so a lock is safe whether\n    // or not the application is active; the port also keeps the game running in the background.\n    if (unknown_flag_851cb0 || unknown_flag_a40d28 || true) {\n",
    "why": "Restore_Check's body (0x004AAF00, expanded in Lock 0x004AAC80) refuses every lock while the application is inactive in full-screen mode (0x00A40D28 clear, 0x00851CB0 clear), because a DirectDraw video surface may be lost then. The original's game loop stops while inactive; the native port keeps it running (a LAN host must keep answering), and with the lock refused the LAN host dialog's map preview (MapPreviewClass::Read_INI 0x0061DED0) decoded its PreviewPack into a null surface pointer and LZO overran memory (crashes on the mouse and audio threads, Scout1209 r9). Port surfaces cannot be lost, so the restoration test always passes, as it does in the original while active.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Add_Compressed_Events_00627b60.cpp",
+   "old": "            memcpy((char *)buf + size, (void *)OutList.First().LongAt(0x07), OutList.First().LongAt(0x0B));\n",
+   "new": "            memcpy((char *)buf + size, Native_Event_Data(OutList.First().LongAt(0x07)), OutList.First().LongAt(0x0B));\n",
+   "why": "Type 0x1F events carry variable data whose address the original keeps in the event's 32-bit field at +0x07 (Data.LongsCell.Long1). The event stays the original 0x6F bytes and is copied byte for byte into packets, so natively the field holds a 32-bit handle and native/link/native_event_data.cpp maps it to the data; the data itself still follows the event on the wire, unchanged (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Send_Packets_006261a0.cpp",
+   "old": "            memcpy((char *)buf + size, (void *)OutList.First().LongAt(0x07), OutList.First().LongAt(0x0B));\n",
+   "new": "            memcpy((char *)buf + size, Native_Event_Data(OutList.First().LongAt(0x07)), OutList.First().LongAt(0x0B));\n",
+   "why": "Type 0x1F events carry variable data whose address the original keeps in the event's 32-bit field at +0x07 (Data.LongsCell.Long1). The event stays the original 0x6F bytes and is copied byte for byte into packets, so natively the field holds a 32-bit handle and native/link/native_event_data.cpp maps it to the data; the data itself still follows the event on the wire, unchanged (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Process_Receive_Packet_006265c0.cpp",
+   "old": "                event->Data.LongsCell.Long1 = (long)new char[event->Data.LongsCell.Long2];\n                memcpy((void *)event->Data.LongsCell.Long1, ",
+   "new": "                event->Data.LongsCell.Long1 = Native_Event_Data_Handle(new char[event->Data.LongsCell.Long2]);\n                memcpy(Native_Event_Data(event->Data.LongsCell.Long1), ",
+   "why": "Type 0x1F events carry variable data whose address the original keeps in the event's 32-bit field at +0x07 (Data.LongsCell.Long1). The event stays the original 0x6F bytes and is copied byte for byte into packets, so natively the field holds a 32-bit handle and native/link/native_event_data.cpp maps it to the data; the data itself still follows the event on the wire, unchanged (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Process_Receive_Packet_006265c0.cpp",
+   "old": "                    delete [] (char *)event->Data.LongsCell.Long1;\n",
+   "new": "                    delete [] (char *)Native_Event_Data_Release(event->Data.LongsCell.Long1);\n",
+   "why": "Type 0x1F events carry variable data whose address the original keeps in the event's 32-bit field at +0x07 (Data.LongsCell.Long1). The event stays the original 0x6F bytes and is copied byte for byte into packets, so natively the field holds a 32-bit handle and native/link/native_event_data.cpp maps it to the data; the data itself still follows the event on the wire, unchanged (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/EventClass/EventClass_Execute_004b65c0.cpp",
+   "old": "            delete [] (char *)Data.LongsCell.Long1;\n",
+   "new": "            delete [] (char *)Native_Event_Data_Release(Data.LongsCell.Long1);\n",
+   "why": "Type 0x1F events carry variable data whose address the original keeps in the event's 32-bit field at +0x07 (Data.LongsCell.Long1). The event stays the original 0x6F bytes and is copied byte for byte into packets, so natively the field holds a 32-bit handle and native/link/native_event_data.cpp maps it to the data; the data itself still follows the event on the wire, unchanged (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Add_Compressed_Events_00627b60.cpp",
+   "old": "#include \"shared/mission.hpp\"\n",
+   "new": "#include \"shared/mission.hpp\"\nint Native_Event_Data_Handle(void *data);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Event_Data(int handle);\nvoid *Native_Event_Data_Release(int handle);\n",
+   "why": "Declares the native event-data handle functions the rows above use (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Send_Packets_006261a0.cpp",
+   "old": "#include \"shared/crt_memory.hpp\"\n",
+   "new": "#include \"shared/crt_memory.hpp\"\nint Native_Event_Data_Handle(void *data);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Event_Data(int handle);\nvoid *Native_Event_Data_Release(int handle);\n",
+   "why": "Declares the native event-data handle functions the rows above use (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Process_Receive_Packet_006265c0.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\nint Native_Event_Data_Handle(void *data);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Event_Data(int handle);\nvoid *Native_Event_Data_Release(int handle);\n",
+   "why": "Declares the native event-data handle functions the rows above use (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/classes/EventClass/EventClass_Execute_004b65c0.cpp",
+   "old": "#include \"shared/unknown_geometry.hpp\"\n",
+   "new": "#include \"shared/unknown_geometry.hpp\"\nint Native_Event_Data_Handle(void *data);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Event_Data(int handle);\nvoid *Native_Event_Data_Release(int handle);\n",
+   "why": "Declares the native event-data handle functions the rows above use (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Queue_AI_Multiplayer_00623b00.cpp",
+   "old": "    CRC[Frame & 255] = GameCRC;\n",
+   "new": "    CRC[Frame & 255] = GameCRC;\n    Native_Log_Frame_CRC(Frame, GameCRC);   // NATIVE: RA2_NATIVE_CRC_LOG (native/link/native_event_data.cpp)\n",
+   "why": "Native diagnostic only: with RA2_NATIVE_CRC_LOG=1 each frame's game CRC goes to the log so two LAN games can be compared frame by frame; otherwise it does nothing and the game state is untouched (Scout1209 r10).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Queue_AI_Multiplayer_00623b00.cpp",
+   "old": "#include \"shared/ww_message_box.hpp\"\n",
+   "new": "#include \"shared/ww_message_box.hpp\"\nvoid Native_Log_Frame_CRC(int frame, unsigned int crc);   // NATIVE: native/link/native_event_data.cpp\n",
+   "why": "Declares the row above's diagnostic (Scout1209 r10).",
+   "verified": true
   }
  ]
 }
