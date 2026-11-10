@@ -649,7 +649,14 @@ cleanup:
                 Rect destination(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
                 if (RA2_REC_TAIL(int, data, 0x1FC) == 1) {
                     RA2_REC_TAIL(int, data, 0x1FC) = 2;
-                    if (GetWindowLongA(window, 4) && unknown_show_dialog_5e61b0(window)) RA2_REC_TAIL(int, data, 0x1FC) = 3;
+                    if (GetWindowLongA(window, 4) && unknown_show_dialog_5e61b0(window)) {
+                        RA2_REC_TAIL(int, data, 0x1FC) = 3;
+                        // NATIVE (Scout1209 r15): the slide-in ends with InvalidateRect(dialog); paint that
+                        // update now, children included, so the copy below shows the strip with its buttons.
+                        // Waiting for the queued WM_PAINT presented the strip without them for as long as the
+                        // main menu took to start its TV movie (the user's "labels vanish" capture).
+                        UpdateWindow(window);
+                    }
                     Rect whole(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
                     destination = Offset_Rect(whole, offset_x, offset_y);
                     unknown_surface_839950->Lock();
