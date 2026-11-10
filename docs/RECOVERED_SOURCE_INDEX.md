@@ -27,7 +27,7 @@
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 95 | 0x004D3690–0x006BE740 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
 | [classes/SidebarClass](../src/recovered/classes/SidebarClass/) | 91 | 25,083 | 89 | 0x0067B4B0–0x006824A0 |
-| (discovery: address-named) | 796 | 24,218 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 795 | 24,101 | 17 | 0x004010A0–0x00793976 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
 | [classes/TActionClass](../src/recovered/classes/TActionClass/) | 138 | 23,230 | 138 | 0x006AD2F0–0x006B30D0 |
@@ -75,8 +75,8 @@
 | [classes/TeleportLocomotionClass](../src/recovered/classes/TeleportLocomotionClass/) | 33 | 7,921 | 33 | 0x006DFCA0–0x006E1C70 |
 | [classes/WWMouseClass](../src/recovered/classes/WWMouseClass/) | 39 | 7,692 | 39 | 0x007717A0–0x00773710 |
 | [NullDlg](../src/recovered/NullDlg/) | 10 | 7,677 | 10 | 0x005CDF00–0x005CF780 |
+| [classes/TiberiumClass](../src/recovered/classes/TiberiumClass/) | 28 | 7,529 | 24 | 0x006E8920–0x006EA9F0 |
 | [classes/ParasiteClass](../src/recovered/classes/ParasiteClass/) | 25 | 7,425 | 25 | 0x00606120–0x00607DF0 |
-| [classes/TiberiumClass](../src/recovered/classes/TiberiumClass/) | 27 | 7,412 | 23 | 0x006E8920–0x006EA9F0 |
 | [classes/AITriggerTypeClass](../src/recovered/classes/AITriggerTypeClass/) | 31 | 7,391 | 31 | 0x0041C5C0–0x004D2DD0 |
 | [classes/IPXManagerClass](../src/recovered/classes/IPXManagerClass/) | 59 | 7,228 | 59 | 0x004D48D0–0x00527850 |
 | [classes/EventClass](../src/recovered/classes/EventClass/) | 20 | 7,093 | 20 | 0x004B5E80–0x006103E0 |
