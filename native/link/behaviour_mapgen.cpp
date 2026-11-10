@@ -10,17 +10,17 @@
 // 0x00577010: parked unmatched (no compiling draft). From the row's decompile
 // (Scout530 sweep seed): the seed options and the type lists are constructed
 // by their own constructors, then the settings below are stored.
-UnknownMapGenerator::UnknownMapGenerator()
+MapGeneratorClass::MapGeneratorClass()
 {
-    unknown_178 = 0;
-    unknown_17c = 0;
-    unknown_180 = 0;
-    unknown_184 = 0;
-    unknown_2bc = 2500;
-    unknown_2c0 = 5500;
-    unknown_2fc = 500;
-    unknown_300 = true;
-    unknown_304 = 0;
-    unknown_30c = 4;
-    unknown_310 = false;
+    MapSeeder = 0;
+    MapPreview = 0;
+    LocalWidth = 0;
+    LocalHeight = 0;
+    RMGMinimumTiberium = 2500;
+    RMGMaximumTiberium = 5500;
+    MaxTrees = 500;
+    PreviewStale = true;
+    SeededWaterAmount = 0;
+    CellHeight = 4;
+    PlaceWaterfall = false;
 }

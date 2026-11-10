@@ -32,11 +32,11 @@ bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &);
 double __stdcall unknown_gaussian_value_005798d0(double mean,double deviation);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 
-bool UnknownMapGenerator::Grow_Water_Region_005820b0(int region,float scale,Rect const &bounds,Cell const &origin,bool frontier)
+bool MapGeneratorClass::Grow_Water_Region_005820b0(int region,float scale,Rect const &bounds,Cell const &origin,bool frontier)
 {
-    int capacity=(int)((unsigned)unknown_180*(unsigned)unknown_184*2u);
+    int capacity=(int)((unsigned)LocalWidth*(unsigned)LocalHeight*2u);
     UnknownVeinNode *nodes=new UnknownVeinNode[capacity>100?capacity:100];
-    UnknownVeinHeap *queue=new UnknownVeinHeap((int)((unsigned)unknown_180*(unsigned)unknown_184*2u)>100?(int)((unsigned)unknown_180*(unsigned)unknown_184*2u):100);
+    UnknownVeinHeap *queue=new UnknownVeinHeap((int)((unsigned)LocalWidth*(unsigned)LocalHeight*2u)>100?(int)((unsigned)LocalWidth*(unsigned)LocalHeight*2u):100);
     int used=0;
     bool success=true;
     double angle=0.0;

@@ -19,7 +19,7 @@
    "source": "src/shared/vector_class_decl.hpp",
    "old": "    bool Delete(T const &object);\n",
    "new": "    bool Delete(typename ra2port::delete_object_arg<T>::type object);\n",
-   "why": "DynamicVectorClass<int>: ISO C++ finds Delete(int) / Delete(int const &) ambiguous for an int argument. VC6 takes Delete(int index) at every such call (verified inline: 0x0047D910, 0x0047D970, 0x004F9D84 HouseTypeClass::Read_INI, 0x0057C30A UnknownMapGenerator::Partition_Area all shift the vector at the argument as index, no ID call). ra2port::delete_object_arg (prelude) is T const & for every T except int, where only a user conversion reaches it, so overload resolution matches VC6.",
+   "why": "DynamicVectorClass<int>: ISO C++ finds Delete(int) / Delete(int const &) ambiguous for an int argument. VC6 takes Delete(int index) at every such call (verified inline: 0x0047D910, 0x0047D970, 0x004F9D84 HouseTypeClass::Read_INI, 0x0057C30A MapGeneratorClass::Partition_Area all shift the vector at the argument as index, no ID call). ra2port::delete_object_arg (prelude) is T const & for every T except int, where only a user conversion reaches it, so overload resolution matches VC6.",
    "verified": true
   },
   {

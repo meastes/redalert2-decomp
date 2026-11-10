@@ -24,13 +24,13 @@ void __fastcall Grow_Zone_Region_00575d20(CellClass *cell,int zone_type,int zone
 bool __cdecl Generate_Starting_Points_00576420()
 {
     int zone_types[5]={5,5,5,0,0};
-    double size=(double)unknown_map_generator_a6fd68.unknown_184*unknown_map_generator_a6fd68.unknown_180*unknown_region_scale_7a5e10;
+    double size=(double)unknown_map_generator_a6fd68.LocalHeight*unknown_map_generator_a6fd68.LocalWidth*unknown_region_scale_7a5e10;
     if(unknown_region_minimum_7a5e08>size) {
         size=unknown_region_minimum_7a5e08;
     }
     int minimum=size;
     int largest=Map.Unknown_0054EBD0();
-    int zone_type=zone_types[unknown_map_generator_a6fd68.SeedOptions.MapType];
+    int zone_type=zone_types[unknown_map_generator_a6fd68.SeedData.MapType];
     int main_zone=((unsigned short *)Map.unknown_18[zone_type])[largest];
     MapRegionClass::Destroy_Cell_Regions();
     Map.Unknown_0055A550();
@@ -64,7 +64,7 @@ bool __cdecl Generate_Starting_Points_00576420()
     for(i=0;i<sorted.Count();i++) {
         total+=sorted[i]->CellCount;
     }
-    int starts=unknown_map_generator_a6fd68.SeedOptions.NumPlayers;
+    int starts=unknown_map_generator_a6fd68.SeedData.NumPlayers;
     int running=0;
     int assigned=0;
     for(i=0;i<sorted.Count();i++) {
@@ -84,7 +84,7 @@ bool __cdecl Generate_Starting_Points_00576420()
         sorted[i]->Generate_Starting_Points_00576170(first);
         first+=sorted[i]->unknown_20;
     }
-    if(unknown_map_generator_a6fd68.SeedOptions.MapType==0) {
+    if(unknown_map_generator_a6fd68.SeedData.MapType==0) {
         for(i=0;i<sorted.Count();i++) {
             if(sorted[i]->unknown_20==0 && unknown_map_random_a705c0()*unknown_random_scale_7a5dd0<0.5) {
                 sorted[i]->Place_Neutral_Tech_Building_00576cd0();
