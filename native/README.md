@@ -540,6 +540,11 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   game CRC as `crc <frame> <value>` for comparing two games' logs. A type 0x1F
   event's variable data is a 32-bit handle in the event (`link/native_event_data.cpp`),
   so events keep the original 0x6F-byte wire layout.
+  The IPX layer delivers each datagram once: on a Mac with Ethernet and Wi-Fi on
+  one subnet every broadcast arrived twice, the Wi-Fi copy late, and a stale
+  progress report made the joiner drop the host at load (2 starts in 10); a
+  datagram identical to one from the same sender within a second is dropped
+  (Scout1209 r12).
   Debug_Printf formats through the port's VC6 printf (port/src/crt.cpp), so `%ls`
   prints the game's 16-bit wide strings.
 - **Harness.** `RA2_NATIVE_SKIRMISH_AI=<1-7>` (and `RA2_NATIVE_SKIRMISH_AI_LEVEL`

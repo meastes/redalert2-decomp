@@ -1,5 +1,5 @@
 // NON-EXACT DRAFT 0x65C520 FUN_0065c520
-// entry 0x65C520; exact-match score 90.4 (misses_index best); plan "draft, verify"
+// entry 0x65C520; exact-match score 96.97 (Scout1049 wfp_9697, rebased by Scout1218); plan "draft, verify"
 // origin lane: Scout1049 (build/class-work/Scout1049/w/wfp_9697.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1061 (native/drafts.json). Not original bytes.

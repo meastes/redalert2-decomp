@@ -38,7 +38,8 @@ While playing:
 | Cmd+Q | quit (asks first once a game has started) |
 | Two-finger trackpad swipe over the map | scroll the map |
 | Mouse wheel, or two-finger swipe over the sidebar | scroll the sidebar |
-| Control-click | right click |
+| Two-finger click (trackpad) | right click |
+| Ctrl, Alt (Option) or Shift held with a click | the game's own modifier orders (Ctrl force fire, Alt force move, Shift add to selection) |
 
 Map scrolling by trackpad and saving RA2.INI on Cmd+Q use two small hooks on
 the game side (`ra2_native_scroll_map`, `ra2_native_save_settings`, declared

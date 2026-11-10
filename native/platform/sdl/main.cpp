@@ -127,8 +127,10 @@ int main(int argc, char **argv)
             app::open_log();
         }
         SDL_SetAppMetadata("Red Alert 2", nullptr, "io.github.ra2native.RA2");
-        // A trackpad's Control-click is a right click (selection is left, orders right).
-        SDL_SetHint(SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK, "1");
+        // Control-click stays a left click with Control held: RA2's force fire is Ctrl+click
+        // (Alt+click force move, Shift+click add to selection).
+        // The macOS Control-click-is-right-click emulation turned force fire into a right click,
+        // which deselects (Scout1209 r13); a trackpad's right click is the two-finger click.
     }
 #else
     bool app_mode = false;

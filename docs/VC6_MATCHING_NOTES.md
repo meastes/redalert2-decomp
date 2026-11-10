@@ -2436,3 +2436,8 @@ slots move). The two remaining violations (starty before the equal-count forward
 before right) are count-level in the original, not tie-level: both resolve at once if folded compare operands
 (`cmp edx,[xstop]`, `cmp eax,[right]`) are not counted (xstop_f 6 < starty 7; right 4 < zptr 5), which is the lab
 left to build with a spilled compared web.
+
+## ebx is withheld from dword webs when byte webs need it across a call (Scout1217 labs F9/F10)
+A dword web live across byte-typed temporaries that must survive a call (`unsigned char lo, hi` used across a call) is coloured into
+ebp, not ebx; with int-typed temporaries stored as bytes the usual esi, edi, ebx, ebp order holds. ebx, the only callee-saved register
+with byte halves, is reserved for the byte webs; byte temporaries outside the dword web's range do not matter.

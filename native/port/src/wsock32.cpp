@@ -101,7 +101,11 @@ void net_trace(char const *what, uint32_t address, uint16_t port, int length, co
     struct in_addr a;
     a.s_addr = address;
     unsigned magic = length >= 6 ? (unsigned)(uint8_t)data[4] | (unsigned)(uint8_t)data[5] << 8 : 0;
-    fprintf(stderr, "net: %s %s:%u %d bytes magic %04x\n", what, inet_ntoa(a), (unsigned)port, length, magic);
+    // After the 4-byte CRC: the CommHeader's magic, code (0 ack, 1 no ack, 2 ack reply) and packet id.
+    int code = length >= 7 ? (uint8_t)data[6] : -1;
+    unsigned id = 0;
+    if (length >= 12) memcpy(&id, data + 8, 4);
+    fprintf(stderr, "net: %s %s:%u %d bytes magic %04x code %d id %u\n", what, inet_ntoa(a), (unsigned)port, length, magic, code, id);
 }
 
 bool is_ipx(SOCKET s)
@@ -323,6 +327,35 @@ int ra2_sendto(SOCKET s, const char *buffer, int length, int flags, const void *
     ssize_t n = sendto((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, sizeof a);
     return n < 0 ? set_error() : (int)n;
 }
+// One delivery per datagram, as IPX gives: a Mac with two interfaces on one subnet (Ethernet and
+// Wi-Fi) receives every broadcast twice, the second copy late; a late copy of an unacknowledged
+// packet (a NET_PROGRESS_REPORT) then undid the newer state behind it and the joiner's load wait
+// dropped the host (Scout1209 r12). A datagram identical to one from the same sender in the last
+// second is dropped; a game resend of an acknowledged packet comes after the retry delay and an
+// identical copy inside the second is one the receiver already has.
+namespace {
+struct RecentDatagram { uint32_t address; uint16_t port; int length; uint64_t hash; std::chrono::steady_clock::time_point when; };
+RecentDatagram recent_datagrams[64];
+int recent_next = 0;
+uint64_t datagram_hash(const char *data, ssize_t n)
+{
+    uint64_t h = 1469598103934665603ull;                       // FNV-1a
+    for (ssize_t i = 0; i < n; ++i) { h ^= (uint8_t)data[i]; h *= 1099511628211ull; }
+    return h;
+}
+bool duplicate_datagram(const struct sockaddr_in &a, const char *data, ssize_t n)
+{
+    auto now = std::chrono::steady_clock::now();
+    uint64_t h = datagram_hash(data, n);
+    for (const RecentDatagram &r : recent_datagrams)
+        if (r.length == (int)n && r.hash == h && r.address == a.sin_addr.s_addr && r.port == a.sin_port
+            && now - r.when < std::chrono::seconds(1))
+            return true;
+    recent_datagrams[recent_next] = {a.sin_addr.s_addr, a.sin_port, (int)n, h, now};
+    recent_next = (recent_next + 1) % 64;
+    return false;
+}
+}
 int ra2_recvfrom(SOCKET s, char *buffer, int length, int flags, void *from, int *fromlength)
 {
     struct sockaddr_in a;
@@ -330,6 +363,12 @@ int ra2_recvfrom(SOCKET s, char *buffer, int length, int flags, void *from, int 
     ssize_t n = recvfrom((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, &al);
     if (n < 0) return set_error();
     if (is_ipx(s)) {
+        while (duplicate_datagram(a, buffer, n)) {
+            net_trace("recv duplicate dropped", a.sin_addr.s_addr, ntohs(a.sin_port), (int)n, buffer);
+            al = sizeof a;
+            n = recvfrom((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, &al);
+            if (n < 0) return set_error();
+        }
         net_trace("recv", a.sin_addr.s_addr, ntohs(a.sin_port), (int)n, buffer);
         // The sender's node is its IPv4 address and UDP port (see the file comment).
         if (from) {

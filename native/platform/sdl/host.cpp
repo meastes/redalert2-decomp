@@ -35,6 +35,8 @@ extern "C" int ra2port_last_frame(void);
 
 namespace {
 SDL_Window *window = nullptr;
+// The activation state the game was last told (USER32 activates it when its first window shows).
+bool game_active = true;
 SDL_Renderer *renderer = nullptr;
 SDL_Texture *texture = nullptr;
 int tex_w = 0, tex_h = 0;
@@ -357,8 +359,16 @@ void pump_events()
             ra2port::post_message(w, 0x020A, (WPARAM)((delta & 0xFFFF) << 16), mouse_lparam(wx, wy));
             break;
         }
-        case SDL_EVENT_WINDOW_FOCUS_GAINED: ra2port::post_message(w, 0x001C, 1, 0); break;   // WM_ACTIVATEAPP
-        case SDL_EVENT_WINDOW_FOCUS_LOST: ra2port::post_message(w, 0x001C, 0, 0); break;
+        // WM_ACTIVATEAPP on changes only. USER32 activates the game when its first window
+        // is shown, as Windows does; macOS then reports the focus once more when the app
+        // becomes active, and that second activation made the game redraw the main menu,
+        // whose buttons vanished and slid in again (user report, Scout1209 r13).
+        case SDL_EVENT_WINDOW_FOCUS_GAINED:
+            if (!game_active) { game_active = true; ra2port::post_message(w, 0x001C, 1, 0); }
+            break;
+        case SDL_EVENT_WINDOW_FOCUS_LOST:
+            if (game_active) { game_active = false; ra2port::post_message(w, 0x001C, 0, 0); }
+            break;
         }
     }
 }
