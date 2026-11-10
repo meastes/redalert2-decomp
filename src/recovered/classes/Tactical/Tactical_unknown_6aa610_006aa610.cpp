@@ -5,11 +5,11 @@
 
 void Tactical::Unknown_006AA610(void (__fastcall *callback)(ObjectClass *object))
 {
-    if (unknown_d90 != Point2D(0, 0)) {
-        int left = unknown_d90.X;
-        int right = unknown_d98.X;
-        int bottom = unknown_d98.Y;
-        int top = unknown_d90.Y;
+    if (RubberBandStart != Point2D(0, 0)) {
+        int left = RubberBandStart.X;
+        int right = RubberBandEnd.X;
+        int bottom = RubberBandEnd.Y;
+        int top = RubberBandStart.Y;
         if (left > right) {
             int swap = left;
             left = right;
@@ -22,6 +22,6 @@ void Tactical::Unknown_006AA610(void (__fastcall *callback)(ObjectClass *object)
         }
         Rect rect(left, top, right - left + 1, bottom - top + 1);
         Unknown_006AABC0(&rect, callback);
-        unknown_d90 = Point2D(0, 0);
+        RubberBandStart = Point2D(0, 0);
     }
 }

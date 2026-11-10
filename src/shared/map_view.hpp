@@ -184,7 +184,12 @@ public:
 #endif
     Rect MapSize;                               // +0xE8 (shared/map.hpp)
     Rect MapLocalSize;                          // +0xF8 (shared/map.hpp)
-    char unknown_108[0x120 - 0x108];
+    int unknown_108;                // +0x108 (as shared/map.hpp)
+    int unknown_10c;                // +0x10C
+    int unknown_110;                // +0x110
+    CellClass **unknown_114;        // +0x114
+    int unknown_118;                // +0x118 X of the second cell walk (0x0055A910)
+    int unknown_11c;                // +0x11C Y
     int unknown_120;                            // +0x120 the map's first cell X (hypothesis: MapCellX)
     int unknown_124;                            // +0x124 the first cell Y
     int unknown_128;                            // +0x128 the width in cells

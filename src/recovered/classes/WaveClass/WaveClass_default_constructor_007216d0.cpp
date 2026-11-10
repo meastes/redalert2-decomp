@@ -1,6 +1,6 @@
 #include "shared/fast_math.hpp"
 #include "shared/wave.hpp"
-WaveClass::WaveClass() : Target(0), unknown_118(true), unknown_119(false), unknown_11c(100), unknown_120(0), unknown_128(0), Polygon_130(), Scanlines_168(), unknown_198(0), Owner(0), Cells(5)
+WaveClass::WaveClass() : Target(0), IsWaveActive(true), unknown_119(false), WaveEC(100), WaveProgress(0), FadeProgress(0), Polygon_130(), Scanlines_168(), LaserEC(0), Owner(0), Cells(5)
 {
     Waves.Add(this);
     if (!Wave_Tables_Initialized_00b25554) {

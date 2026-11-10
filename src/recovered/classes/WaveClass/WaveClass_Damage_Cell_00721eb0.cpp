@@ -18,7 +18,7 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
         WarheadTypeClass *warhead = weapon->Warhead;
         int damage = weapon->unknown_98;
         ObjectClass *object;
-        if (!(cell.unknown_140 & 0x100) || unknown_a0.Z < (cell.unknown_11b + 4) * unknown_geometry_g)
+        if (!(cell.unknown_140 & 0x100) || StartCoord.Z < (cell.unknown_11b + 4) * unknown_geometry_g)
             object = cell.OccupierPtr;
         else object = cell.AltOccupierPtr;
         for (; object; object = object->unknown_30) {

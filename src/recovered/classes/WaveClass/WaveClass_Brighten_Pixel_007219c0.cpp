@@ -16,8 +16,8 @@
 
 void WaveClass::Brighten_Pixel_007219c0(int x, int offset, int row, unsigned short *pixel)
 {
-    int radius = Wave_Distance_Table_00af9620[row][abs(x - unknown_b8.X - offset)];
-    int amplitude = abs(Wave_Sine_Table_00af91e4[unknown_11c + radius]);
+    int radius = Wave_Distance_Table_00af9620[row][abs(x - WaveStartMiddle.X - offset)];
+    int amplitude = abs(Wave_Sine_Table_00af91e4[WaveEC + radius]);
     unsigned short color = pixel[PixelOffsets_1d0[amplitude]];
     int mult = Wave_Intensity_Table_00af95d8[amplitude];
 

@@ -13,36 +13,36 @@ inline Point2D Interpolate_Wave_Pixel(Point2D const &a, Point2D const &b, float 
 }
 void WaveClass::Update_Wave_00724200()
 {
-    if (unknown_120 - unknown_128 > 0.1 && Type == 0) unknown_119 = true;
-    if (Target && Owner && unknown_11c != (int)(1.0 / Wave_Advance_Step_007aec88) && Owner->unknown_228 == Target) {
+    if (WaveProgress - FadeProgress > 0.1 && Type == 0) unknown_119 = true;
+    if (Target && Owner && WaveEC != (int)(1.0 / Wave_Advance_Step_007aec88) && Owner->unknown_228 == Target) {
         CoordStruct source = Owner->Coord;
         CoordStruct delta = source - Target->unknown_slot22();
         int distance = (int)Fast_Sqrt((double)delta.X * delta.X + (double)delta.Z * delta.Z + (double)delta.Y * delta.Y);
         if (distance <= unknown_geometry_diagonal * 6.0) goto update_geometry;
     }
-    unknown_118 = false;
+    IsWaveActive = false;
     unknown_119 = true;
 update_geometry:
-    if (unknown_118) {
+    if (IsWaveActive) {
         TechnoClass *owner = Owner;
         Draw_NonMagnetic_007238b0(owner->unknown_slot43(0), Target->unknown_slot22());
     }
-    if (unknown_120 < 1.0 && unknown_118) {
-        unknown_120 += Wave_Advance_Step_007aec88;
-        if (unknown_120 > 0.98) unknown_120 = 1.0;
-        Polygon_130.Points[0] = Interpolate_Wave_Pixel(unknown_c8, unknown_d8, unknown_120);
-        Polygon_130.Points[1] = Interpolate_Wave_Pixel(unknown_c0, unknown_b8, unknown_120);
-        Polygon_130.Points[2] = Interpolate_Wave_Pixel(unknown_d0, unknown_e0, unknown_120);
+    if (WaveProgress < 1.0 && IsWaveActive) {
+        WaveProgress += Wave_Advance_Step_007aec88;
+        if (WaveProgress > 0.98) WaveProgress = 1.0;
+        Polygon_130.Points[0] = Interpolate_Wave_Pixel(WaveEndLeft, WaveStartLeft, WaveProgress);
+        Polygon_130.Points[1] = Interpolate_Wave_Pixel(WaveEndMiddle, WaveStartMiddle, WaveProgress);
+        Polygon_130.Points[2] = Interpolate_Wave_Pixel(WaveEndRight, WaveStartRight, WaveProgress);
     }
-    if (unknown_119 && unknown_128 <= Wave_Advance_Step_007aec88 * 0.5 + unknown_120) {
-        unknown_128 += Wave_Advance_Step_007aec88;
-        if (unknown_128 >= unknown_120) {
+    if (unknown_119 && FadeProgress <= Wave_Advance_Step_007aec88 * 0.5 + WaveProgress) {
+        FadeProgress += Wave_Advance_Step_007aec88;
+        if (FadeProgress >= WaveProgress) {
             unknown_slot60();
             return;
         }
-        Polygon_130.Points[3] = Interpolate_Wave_Pixel(unknown_d0, unknown_e0, unknown_128);
-        Polygon_130.Points[4] = Interpolate_Wave_Pixel(unknown_c0, unknown_b8, unknown_128);
-        Polygon_130.Points[5] = Interpolate_Wave_Pixel(unknown_c8, unknown_d8, unknown_128);
+        Polygon_130.Points[3] = Interpolate_Wave_Pixel(WaveEndRight, WaveStartRight, FadeProgress);
+        Polygon_130.Points[4] = Interpolate_Wave_Pixel(WaveEndMiddle, WaveStartMiddle, FadeProgress);
+        Polygon_130.Points[5] = Interpolate_Wave_Pixel(WaveEndLeft, WaveStartLeft, FadeProgress);
     }
     Wave_Recalc_Affected_Cells();
 }

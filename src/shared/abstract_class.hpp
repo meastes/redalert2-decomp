@@ -95,7 +95,7 @@ public:
     unsigned char IsObject : 1;
     unsigned char IsFoot : 1;
 #endif
-    int unknown_18;                 // +0x18
+    void *unknown_18;               // +0x18 a pointer: ObjectClass::Load 0x005D4760 swizzles it (pointee unknown)
     long RefCount;                  // +0x1C
     bool Dirty;                     // +0x20
 };

@@ -13,7 +13,7 @@ void WaveClass::unknown_func_7232d0()
     for (int index = 0; index < Cells.Count(); index++) {
         Damage_Cell_00721eb0(Cells[index]->unknown_475d60());
     }
-    if (--unknown_11c < 0) {
+    if (--WaveEC < 0) {
         unknown_slot60();
     } else {
         ObjectClass::AI();

@@ -9,17 +9,17 @@
 void WaveClass::unknown_func_721cc0()
 {
     int row = unknown_surface_83995c->Stride() >> 1;
-    unknown_174[0] = -row;
-    unknown_174[1] = 1 - row;
-    unknown_174[2] = 1;
-    unknown_174[3] = row + 1;
-    unknown_174[4] = row;
-    unknown_174[5] = row - 1;
-    unknown_174[6] = -1;
-    unknown_174[7] = -1 - row;
+    DirectionStrides[0] = -row;
+    DirectionStrides[1] = 1 - row;
+    DirectionStrides[2] = 1;
+    DirectionStrides[3] = row + 1;
+    DirectionStrides[4] = row;
+    DirectionStrides[5] = row - 1;
+    DirectionStrides[6] = -1;
+    DirectionStrides[7] = -1 - row;
     PixelOffsets_1d0[0] = 0;
     PixelOffsets_1d0[1] = 0;
-    int *step = &unknown_174[unknown_194];
+    int *step = &DirectionStrides[Direction];
     PixelOffsets_1d0[2] = *step;
     PixelOffsets_1d0[3] = *step;
     PixelOffsets_1d0[4] = *step;

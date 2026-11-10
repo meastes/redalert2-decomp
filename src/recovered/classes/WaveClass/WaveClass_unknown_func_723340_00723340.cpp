@@ -4,8 +4,8 @@
 
 void WaveClass::unknown_func_723340()
 {
-    unknown_198 -= 6;
-    if (unknown_198 < 0x20) {
+    LaserEC -= 6;
+    if (LaserEC < 0x20) {
         unknown_slot60();
     }
 }

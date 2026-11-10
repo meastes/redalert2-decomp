@@ -143,13 +143,10 @@ struct UnknownControlRecord {
     int unknown_c0;
     int unknown_c4;
     int unknown_c8;     // +0xC8 0xC0 for edit, list and combo controls of the listed dialog kinds (0x005E1CA0, 0x005E8720)
-#ifdef RA2_COMBO_DROP_UNIT
-    bool item_fills_cc; // +0xCC a drop list fills its coloured rows (0x005EAD20)
-    bool alternate_cd;  // +0xCD a drop list uses the alternate colours (0x005EAD20)
-    char unknown_ce[0xd4 - 0xce];
-#else
-    char unknown_cc[0xd4 - 0xcc];
-#endif
+    bool item_fills_cc; // +0xCC a drop list fills its coloured rows (0x005EAD20); combo message 0x4DD sets it (lparam == 1, 0x005F4BA0)
+    bool alternate_cd;  // +0xCD a drop list uses the alternate colours (0x005EAD20); combo message 0x4F1 sets it (lparam == 1)
+    char unknown_ce[0xd0 - 0xce];
+    int unknown_d0;     // +0xD0 combo message 0x4DE stores lparam (7 side/observer combos, 9 colour combo; 0x005F4BA0); no reader found
     bool unknown_d4;
     bool unknown_d5;
     bool unknown_d6;

@@ -8,7 +8,7 @@ int __fastcall Wave_Direction_00721db0(Point2D const &start, Point2D const &end)
 // @ref ?Wave_Direction_00721db0@@YIHABUPoint2D@@0@Z=00721db0
 // @ref ?Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z=007238b0
 // @ref ?Update_Wave_00724200@WaveClass@@QAEXXZ=00724200
-WaveClass::WaveClass(CoordStruct const &start, CoordStruct const &end, TechnoClass *owner, int type, ObjectClass *target) : Target(target), Type(type), unknown_118(true), unknown_119(false), unknown_11c(100), unknown_120(0), unknown_128(0), Polygon_130(), Scanlines_168(), unknown_198(0), Owner(owner), Cells(5)
+WaveClass::WaveClass(CoordStruct const &start, CoordStruct const &end, TechnoClass *owner, int type, ObjectClass *target) : Target(target), Type(type), IsWaveActive(true), unknown_119(false), WaveEC(100), WaveProgress(0), FadeProgress(0), Polygon_130(), Scanlines_168(), LaserEC(0), Owner(owner), Cells(5)
 {
     if (start == end) { ObjectClass::unknown_slot60(); return; }
     AbstractClass::Create_ID();
@@ -35,14 +35,14 @@ WaveClass::WaveClass(CoordStruct const &start, CoordStruct const &end, TechnoCla
     }
     Draw_NonMagnetic_007238b0(start, end);
     Scanlines_168.Spans = 0;
-    unknown_194 = Wave_Direction_00721db0(unknown_b8, unknown_d0);
-    WaveClass::unknown_slot53(&unknown_a0, 0);
+    Direction = Wave_Direction_00721db0(WaveStartMiddle, WaveEndRight);
+    WaveClass::unknown_slot53(&StartCoord, 0);
     if (Type > 0 && Type <= 2) {
-        unknown_120 = 1.0;
-        unknown_198 = 160;
-        Polygon_130.Points[0] = unknown_c8;
-        Polygon_130.Points[1] = unknown_c0;
-        Polygon_130.Points[2] = unknown_d0;
+        WaveProgress = 1.0;
+        LaserEC = 160;
+        Polygon_130.Points[0] = WaveEndLeft;
+        Polygon_130.Points[1] = WaveEndMiddle;
+        Polygon_130.Points[2] = WaveEndRight;
     }
     Update_Wave_00724200();
 }

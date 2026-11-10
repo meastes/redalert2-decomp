@@ -12,7 +12,7 @@
 //   +0x00..+0x0C  four vtable pointers
 //   +0x10  long UniqueID      -1 when constructed; Fetch_ID/Create_ID
 //   +0x14  three flag bits    cleared when constructed (meaning unknown)
-//   +0x18  int unknown_18     0 when constructed
+//   +0x18  void *unknown_18   0 when constructed; swizzled by ObjectClass::Load (a pointer)
 //   +0x1C  long RefCount      0 when constructed; kept across Load
 //   +0x20  bool Dirty         IsDirty; cleared by Save(stream, TRUE)
 //   size 0x24 (AbstractTypeClass members start at +0x24)

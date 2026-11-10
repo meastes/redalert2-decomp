@@ -46,8 +46,8 @@ Tactical::Tactical()
       unknown_d7d(false),
       unknown_d7e(false),
       unknown_d80(unknown_static_rect),
-      unknown_d90(0, 0),
-      unknown_d98(0, 0),
+      RubberBandStart(0, 0),
+      RubberBandEnd(0, 0),
       unknown_da0(0),
       unknown_da4(),
       unknown_db0(0)

@@ -4,6 +4,6 @@
 
 void Tactical::Unknown_006AA770()
 {
-    unknown_d90 = Point2D(0, 0);
-    unknown_d98 = Point2D(0, 0);
+    RubberBandStart = Point2D(0, 0);
+    RubberBandEnd = Point2D(0, 0);
 }

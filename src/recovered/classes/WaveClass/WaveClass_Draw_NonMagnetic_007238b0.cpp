@@ -26,15 +26,15 @@ void WaveClass::Draw_NonMagnetic_007238b0(CoordStruct const &source, CoordStruct
     start=Lerp(target,start,Wave_Length_Factors_007aec8c[Type]);
     TPoint3D<float> planar_delta(start.X-end.X,start.Y-end.Y,0);
     int distance=Fast_Sqrt((double)planar_delta.Y*planar_delta.Y+(double)planar_delta.X*planar_delta.X);
-    unknown_a0=start;
-    unknown_slot103(unknown_a0);
-    unknown_ac=end;
+    StartCoord=start;
+    unknown_slot103(StartCoord);
+    EndCoord=end;
     Polygon_130.Count=6;
     Polygon_130.Points=&Polygon_130.InlinePoint0;
-    unknown_tactical_83996c->Coord_To_Pixel(start,unknown_b8);
-    unknown_tactical_83996c->Coord_To_Pixel(end,unknown_c0);
-    Polygon_130.Points[1]=unknown_c0;
-    Polygon_130.Points[4]=unknown_b8;
+    unknown_tactical_83996c->Coord_To_Pixel(start,WaveStartMiddle);
+    unknown_tactical_83996c->Coord_To_Pixel(end,WaveEndMiddle);
+    Polygon_130.Points[1]=WaveEndMiddle;
+    Polygon_130.Points[4]=WaveStartMiddle;
     double distance_f=distance;
     Vector3 end_left=sizes[Type][0]+Vector3(distance_f,0,0);
     Vector3 end_right=sizes[Type][1]+Vector3(distance_f,0,0);
@@ -63,14 +63,14 @@ void WaveClass::Draw_NonMagnetic_007238b0(CoordStruct const &source, CoordStruct
     WaveEndRightCoord=CoordStruct(start.X+end_right.X,start.Y+end_right.Y,end_right.Z);
     WaveStartLeftCoord=CoordStruct(start.X+start_left.X,start.Y+start_left.Y,start_left.Z);
     WaveStartRightCoord=CoordStruct(start.X+start_right.X,start.Y+start_right.Y,start_right.Z);
-    unknown_tactical_83996c->Coord_To_Pixel(WaveEndLeftCoord,unknown_c8);
-    unknown_tactical_83996c->Coord_To_Pixel(WaveEndRightCoord,unknown_d0);
-    unknown_tactical_83996c->Coord_To_Pixel(WaveStartLeftCoord,unknown_d8);
-    unknown_tactical_83996c->Coord_To_Pixel(WaveStartRightCoord,unknown_e0);
-    Polygon_130.Points[0]=unknown_c8;
-    Polygon_130.Points[2]=unknown_d0;
-    Polygon_130.Points[3]=unknown_e0;
-    Polygon_130.Points[5]=unknown_d8;
+    unknown_tactical_83996c->Coord_To_Pixel(WaveEndLeftCoord,WaveEndLeft);
+    unknown_tactical_83996c->Coord_To_Pixel(WaveEndRightCoord,WaveEndRight);
+    unknown_tactical_83996c->Coord_To_Pixel(WaveStartLeftCoord,WaveStartLeft);
+    unknown_tactical_83996c->Coord_To_Pixel(WaveStartRightCoord,WaveStartRight);
+    Polygon_130.Points[0]=WaveEndLeft;
+    Polygon_130.Points[2]=WaveEndRight;
+    Polygon_130.Points[3]=WaveStartRight;
+    Polygon_130.Points[5]=WaveStartLeft;
     Facing=Owner->unknown_2f8;
 }
 

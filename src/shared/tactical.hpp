@@ -243,8 +243,8 @@ public:
     bool unknown_d7d;               // +0xD7D set by Flag_To_Redraw
     bool unknown_d7e;               // +0xD7E
     Rect unknown_d80;               // +0xD80 copied from the global rectangle at 0x00ABE4A8
-    Point2D unknown_d90;            // +0xD90 the selection band corner (DisplayClass slot 47 starts it)
-    Point2D unknown_d98;            // +0xD98 the other corner
+    Point2D RubberBandStart;            // +0xD90 the selection band corner (DisplayClass slot 47 starts it)
+    Point2D RubberBandEnd;            // +0xD98 the other corner
     int unknown_da0;                // +0xDA0 counts the timer expiries
     CDTimerClass<SystemTimerClass> unknown_da4;     // +0xDA4 restarted at Rules->WaypointAnimationSpeed
     int unknown_db0;                // +0xDB0 the number of entries of the table at 0x00ABE5F8

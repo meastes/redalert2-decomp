@@ -1,7 +1,7 @@
 // void WaveClass::Wave_Recalc_Affected_Cells() (0x00723360)
-// Rebuilds the list of cells the wave covers (TibSun Wave_Recalc_Affected_Cells): unknown_a0/unknown_ac are
-// TibSun's StartCoord/EndCoord, unknown_118 IsWaveActive, unknown_120/unknown_128 WaveProgress/FadeProgress,
-// unknown_194 the direction. The unit sees CoordStruct::As_Cell and the Cell comparisons (RA2_COORD_AS_CELL,
+// Rebuilds the list of cells the wave covers (TibSun Wave_Recalc_Affected_Cells): StartCoord/EndCoord are
+// TibSun's StartCoord/EndCoord, IsWaveActive IsWaveActive, WaveProgress/FadeProgress WaveProgress/FadeProgress,
+// Direction the direction. The unit sees CoordStruct::As_Cell and the Cell comparisons (RA2_COORD_AS_CELL,
 // defined by the unit's first draft); their out-of-line copies are 0x00413770 and 0x0058DB50, and the budget
 // runs out exactly where the original's does (the middle cell test calls them; the right edge also calls Lerp).
 #include "shared/wave.hpp"
@@ -20,11 +20,11 @@ void WaveClass::Wave_Recalc_Affected_Cells()
 {
     Cells.Clear();
 
-    if (unknown_118) {
-        Cell start = unknown_a0.As_Cell();
+    if (IsWaveActive) {
+        Cell start = StartCoord.As_Cell();
 
-        for (double t = Wave_Advance_Step_007aec88; t <= ((Wave_Advance_Step_007aec88 / 2.0) + unknown_120); t += Wave_Advance_Step_007aec88) {
-            CoordStruct coord = Lerp(unknown_a0, unknown_ac, t);
+        for (double t = Wave_Advance_Step_007aec88; t <= ((Wave_Advance_Step_007aec88 / 2.0) + WaveProgress); t += Wave_Advance_Step_007aec88) {
+            CoordStruct coord = Lerp(StartCoord, EndCoord, t);
             if (start != coord.As_Cell()) {
                 start = coord.As_Cell();
                 unknown_func_722040(start);
@@ -33,12 +33,12 @@ void WaveClass::Wave_Recalc_Affected_Cells()
     } else {
         Cell left = WaveEndLeftCoord.As_Cell();
         Cell right = WaveEndRightCoord.As_Cell();
-        Cell middle = unknown_ac.As_Cell();
+        Cell middle = EndCoord.As_Cell();
 
-        for (double t = unknown_128; t <= ((Wave_Advance_Step_007aec88 / 2.0) + unknown_120); t += Wave_Advance_Step_007aec88) {
+        for (double t = FadeProgress; t <= ((Wave_Advance_Step_007aec88 / 2.0) + WaveProgress); t += Wave_Advance_Step_007aec88) {
             CoordStruct coord = unknown_geometry_l;
 
-            if (unknown_194 < 4) {
+            if (Direction < 4) {
                 coord = Lerp(WaveStartLeftCoord, WaveEndLeftCoord, t);
                 if (left != coord.As_Cell()) {
                     left = coord.As_Cell();
@@ -46,13 +46,13 @@ void WaveClass::Wave_Recalc_Affected_Cells()
                 }
             }
 
-            coord = Lerp(unknown_a0, unknown_ac, t);
+            coord = Lerp(StartCoord, EndCoord, t);
             if (middle != coord.As_Cell()) {
                 middle = coord.As_Cell();
                 unknown_func_722040(middle);
             }
 
-            if (unknown_194 >= 4) {
+            if (Direction >= 4) {
                 coord = Lerp(WaveStartRightCoord, WaveEndRightCoord, t);
                 if (right != coord.As_Cell()) {
                     right = coord.As_Cell();

@@ -5,6 +5,7 @@
 // Layout (destructor 0x00721900, Detach 0x00722190, Load 0x007221D0; only
 // the members these use; the rest stays unrecovered):
 //   +0x98   ObjectClass *Target            (detached)
+//   member names +0xA0..+0x198 from TibSun wave.h (same order and offsets)
 //   +0x19C  TechnoClass *Owner             (detached)
 //   +0x1B8  DynamicVectorClass<CellClass *> Cells   (saved by Save 0x00722330)
 //   size 0x208 (Size_Of)
@@ -65,29 +66,29 @@ public:
 
     ObjectClass *Target;                        // +0x98 (constructorlastarg: firingtarget)
     int Type;                                   // +0x9C (0 sonic wave; 1 and 2 magnetron/beam waves; hypothesis)
-    CoordStruct unknown_a0;                     // +0x0A0 start
-    CoordStruct unknown_ac;                     // +0x0AC end
-    Point2D unknown_b8; // +0x0B8 projectedpoint
-    Point2D unknown_c0; // +0x0C0 projectedpoint
-    Point2D unknown_c8; // +0x0C8 projectedpoint
-    Point2D unknown_d0; // +0x0D0 projectedpoint
-    Point2D unknown_d8; // +0xD8 projected outline corner
-    Point2D unknown_e0; // +0xE0 projected outline corner
+    CoordStruct StartCoord;                     // +0x0A0 start
+    CoordStruct EndCoord;                     // +0x0AC end
+    Point2D WaveStartMiddle; // +0x0B8 projectedpoint
+    Point2D WaveEndMiddle; // +0x0C0 projectedpoint
+    Point2D WaveEndLeft; // +0x0C8 projectedpoint
+    Point2D WaveEndRight; // +0x0D0 projectedpoint
+    Point2D WaveStartLeft; // +0xD8 projected outline corner
+    Point2D WaveStartRight; // +0xE0 projected outline corner
     CoordStruct WaveEndLeftCoord;               // +0x0E8 (TibSun names)
     CoordStruct WaveEndRightCoord;              // +0x0F4
     CoordStruct WaveStartLeftCoord;             // +0x100
     CoordStruct WaveStartRightCoord;            // +0x10C
-    bool unknown_118; // +0x118 constructortrue
+    bool IsWaveActive; // +0x118 constructortrue
     bool unknown_119; // +0x119 constructorfalse
     char unknown_11a[2];
-    int unknown_11c;                            // +0x11C frames left (100)
-    double unknown_120; // +0x120 originalQWORD FPloads/stores
-    double unknown_128; // +0x128 originalQWORD FPloads/stores
+    int WaveEC;                            // +0x11C frames left (100)
+    double WaveProgress; // +0x120 originalQWORD FPloads/stores
+    double FadeProgress; // +0x128 originalQWORD FPloads/stores
     WavePolygonInput Polygon_130; // +0x130 input points/buffer
     WaveScanlineBuffer Scanlines_168; // +0x168 rasterized spans
-    int unknown_174[8];                         // +0x174 screen offsets of the 8 neighbours (Unknown_00721CC0)
-    int unknown_194;                            // +0x194 direction (0..7)
-    int unknown_198;                            // +0x198 fade (160, counts down by 6)
+    int DirectionStrides[8];                         // +0x174 screen offsets of the 8 neighbours (Unknown_00721CC0)
+    int Direction;                            // +0x194 direction (0..7)
+    int LaserEC;                            // +0x198 fade (160, counts down by 6)
     TechnoClass *Owner;                         // +0x19C (constructorarg3: firingTechno)
     FacingClass Facing;                         // +0x1A0
     DynamicVectorClass<CellClass *> Cells;      // +0x1B8

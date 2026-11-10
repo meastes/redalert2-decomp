@@ -8,7 +8,7 @@
 
 void WaveClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Unknown_005683C0(unknown_a0) && Map.Unknown_005683C0(unknown_ac)) {
+    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Unknown_005683C0(StartCoord) && Map.Unknown_005683C0(EndCoord)) {
         return;
     }
     switch (Type) {
