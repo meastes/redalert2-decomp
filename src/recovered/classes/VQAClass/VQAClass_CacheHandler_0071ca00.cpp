@@ -3,7 +3,7 @@
 // The read clips at FileSize; seek origin 0 = set, 1 = current, 2 = end.
 #include "shared/crt_memory.hpp"
 
-int VQAClass::Unknown_0071CA00(int request, int unknown2, int unknown3)
+int VQAClass::CacheHandler(int request, int unknown2, int unknown3)
 {
     int rc = 1;
     switch (request) {

@@ -76,16 +76,16 @@ VQAMovie *__fastcall VQA_Unknown_005A1010(char const *name, Surface *surface, Re
             return 0;
         }
 
-        movie->Player->Unknown_0071CBC0(volume);
+        movie->Player->Set_VQA_Volume(volume);
 
-        if (!movie->Player->Unknown_0071CB30()) {
+        if (!movie->Player->Open_And_Load_Buffers()) {
             delete movie;
             return 0;
         }
 
-        int width = movie->Player->Unknown_0071D300();
-        int height = movie->Player->Unknown_0071D310();
-        int cmode = movie->Player->Unknown_0071D230();
+        int width = movie->Player->Get_VQA_Width();
+        int height = movie->Player->Get_VQA_Height();
+        int cmode = movie->Player->Get_Desired_Color_Mode();
 
         if (cmode == 4) {
             cmode = 1;
@@ -106,11 +106,11 @@ VQAMovie *__fastcall VQA_Unknown_005A1010(char const *name, Surface *surface, Re
         movie->Dest = Intersect_Rects(dest, irect2);
 
         if (cmode == 1 || cmode == 4) {
-            movie->Player->Unknown_0071D2B0(Get_Unknown_7d6290());
+            movie->Player->Set_Primary_Color_Mode(Get_Unknown_7d6290());
         }
 
         movie->FrameSurface = surface;
-        movie->Player->Unknown_0071D240(0, surface->Stride() / surface->Bytes_Per_Pixel(), surface->Get_Height(),
+        movie->Player->Set_Draw_Buffer(0, surface->Stride() / surface->Bytes_Per_Pixel(), surface->Get_Height(),
                                         0, 0);
         movie->Companion = unknown_create_companion_69b190(name);
         if (movie->Companion != 0) {

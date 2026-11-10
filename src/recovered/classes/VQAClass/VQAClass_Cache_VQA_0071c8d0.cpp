@@ -1,4 +1,4 @@
-// int VQAClass::Unknown_0071C8D0(unsigned size) (0x0071C8D0)
+// int VQAClass::Cache_VQA(unsigned size) (0x0071C8D0)
 // Loads the movie file into Buffer in pieces of `size` bytes (0: the rest);
 // returns -1 while more remains, -2 when complete, -3/-4/-5 on errors.
 #include "shared/movie.hpp"
@@ -6,7 +6,7 @@
 
 extern "C" void *__cdecl malloc(unsigned size);
 
-int VQAClass::Unknown_0071C8D0(unsigned size)
+int VQAClass::Cache_VQA(unsigned size)
 {
     if (!FileOpen) {
         FileOpen = File.Open(Filename, 1) != 0;

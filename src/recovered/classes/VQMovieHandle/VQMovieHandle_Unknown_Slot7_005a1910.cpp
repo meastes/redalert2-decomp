@@ -4,6 +4,6 @@
 
 void VQMovieHandle::Unknown_Slot7(int frame)
 {
-    Movie->Player->Unknown_0071D210();
-    Movie->Player->Unknown_0071CC60(frame);
+    Movie->Player->Reset_VQA();
+    Movie->Player->Seek_To_Frame(frame);
 }

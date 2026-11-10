@@ -4,5 +4,5 @@
 
 int __fastcall VQA_Unknown_0071D660(VQAHandle *handle, int unknown2, int unknown3, int unknown4)
 {
-    return handle->Player->Unknown_0071CA00(unknown2, unknown3, unknown4);
+    return handle->Player->CacheHandler(unknown2, unknown3, unknown4);
 }

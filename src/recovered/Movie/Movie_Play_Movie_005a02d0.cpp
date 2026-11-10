@@ -50,8 +50,8 @@
 // @ref __ftol=0077f110
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 // @ref ?VQA_Unknown_005A1010@@YIPAVVQAMovie@@PBDPAVSurface@@VRect@@2H_N@Z=005a1010
-// @ref ?Unknown_0071D300@VQAClass@@QAEHXZ=0071d300
-// @ref ?Unknown_0071D310@VQAClass@@QAEHXZ=0071d310
+// @ref ?Get_VQA_Width@VQAClass@@QAEHXZ=0071d300
+// @ref ?Get_VQA_Height@VQAClass@@QAEHXZ=0071d310
 // @ref ?VQA_Movie_Close@@YIXPAVVQAMovie@@@Z=005a1470
 // @ref ??1VQAMovie@@QAE@XZ=005a1760
 // @ref ??3@YAXPAX@Z=00781d3b
@@ -111,7 +111,7 @@ void __fastcall Play_Movie(char const *name, int theme, bool clrscrn_after, bool
     VQAMovie *vqa = VQA_Unknown_005A1010(filename, unknown_surface_839958, Rect(0, 0, 0, 0), Rect(0, 0, 0, 0),
                                          int(Options.VoiceVolume * 255.0), 1);
     if (vqa != 0) {
-        if (vqa->Player->Unknown_0071D300() < 320 && vqa->Player->Unknown_0071D310() < 200) {
+        if (vqa->Player->Get_VQA_Width() < 320 && vqa->Player->Get_VQA_Height() < 200) {
             VQA_Movie_Close(vqa);
             delete vqa;
             return;

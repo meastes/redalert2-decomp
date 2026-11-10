@@ -76,7 +76,7 @@ struct VQAConfig {
     int AudioBufSize;               // +0x58
     int HMIBufSize;                 // +0x5C (0x2000)
     int AudioRate;                  // +0x60
-    int Volume;                     // +0x64 (VQAClass::Unknown_0071CBC0)
+    int Volume;                     // +0x64 (VQAClass::Set_VQA_Volume)
     int unknown_68;
     VQAClass *Owner;                // +0x6C
     int InitialLoopID;              // +0x70

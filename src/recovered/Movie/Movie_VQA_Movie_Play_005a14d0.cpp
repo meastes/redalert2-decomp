@@ -4,11 +4,11 @@
 // starts theme first.
 // @ref ?CurrentVQAMovie@@3PAVVQAMovie@@A=00a710ac
 // @ref ?VQA_Unknown_0071DBA0@@YI_NH@Z=0071dba0
-// @ref ?Unknown_0071CBE0@VQAClass@@QAE_NHH@Z=0071cbe0
-// @ref ?Unknown_0071CC10@VQAClass@@QAE_NHHH@Z=0071cc10
-// @ref ?Unknown_0071CC60@VQAClass@@QAEXH@Z=0071cc60
-// @ref ?Unknown_0071CCD0@VQAClass@@QAEHH_N@Z=0071ccd0
-// @ref ?Unknown_0071D210@VQAClass@@QAEXXZ=0071d210
+// @ref ?Set_Loop@VQAClass@@QAE_NHH@Z=0071cbe0
+// @ref ?Set_Loop@VQAClass@@QAE_NHHH@Z=0071cc10
+// @ref ?Seek_To_Frame@VQAClass@@QAEXH@Z=0071cc60
+// @ref ?Play_VQA@VQAClass@@QAEHH_N@Z=0071ccd0
+// @ref ?Reset_VQA@VQAClass@@QAEXXZ=0071d210
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
 // @ref ?Theme@@3VThemeClass@@A=00a35d78
 // @ref ?Queue_Song@ThemeClass@@QAEXH@Z=006e7e20
@@ -36,9 +36,9 @@ void __fastcall VQA_Movie_Play(VQAMovie *movie, bool hide, int theme, bool unkno
         repeats = movie->Repeats;
         if (movie->Mode == 1) {
             if (movie->unknown_18 == 0) {
-                movie->Player->Unknown_0071CBE0(movie->unknown_20, repeats);
+                movie->Player->Set_Loop(movie->unknown_20, repeats);
             } else {
-                movie->Player->Unknown_0071CC10(start, unknown2, repeats);
+                movie->Player->Set_Loop(start, unknown2, repeats);
             }
         }
     }
@@ -52,13 +52,13 @@ void __fastcall VQA_Movie_Play(VQAMovie *movie, bool hide, int theme, bool unkno
 
     do {
         if (movie->Mode == 2 || start) {
-            movie->Player->Unknown_0071CC60(start);
+            movie->Player->Seek_To_Frame(start);
         }
-        int result = movie->Player->Unknown_0071CCD0(unknown2, unknown);
+        int result = movie->Player->Play_VQA(unknown2, unknown);
         if (movie->Mode == 1) {
             repeats = 0;
         }
-        movie->Player->Unknown_0071D210();
+        movie->Player->Reset_VQA();
         if (result == 1) {
             break;
         }

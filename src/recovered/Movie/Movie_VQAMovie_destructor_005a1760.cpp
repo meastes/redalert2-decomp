@@ -5,7 +5,7 @@
 VQAMovie::~VQAMovie()
 {
     if (Player) {
-        Player->Unknown_0071D1F0();
+        Player->Close_And_Free_VQA();
         delete Player;
     }
     if (Companion) {

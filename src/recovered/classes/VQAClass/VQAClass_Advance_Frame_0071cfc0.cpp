@@ -1,4 +1,4 @@
-// bool VQAClass::Unknown_0071CFC0(bool *unknown) (0x0071CFC0): VQAClass::Advance_Frame (debug strings);
+// bool VQAClass::Advance_Frame(bool *unknown) (0x0071CFC0): VQAClass::Advance_Frame (debug strings);
 // true when a frame was drawn; otherwise *unknown is set when the movie ended with an error.
 #include "shared/movie.hpp"
 #include "shared/palette.hpp"
@@ -19,7 +19,7 @@
 // @ref ?VQA_Unknown_0077FD80@@YAXPAE00KKK@Z=0077fd80
 // @ref ?unknown_vqa_paused_af901c@@3_NA=00af901c
 
-bool VQAClass::Unknown_0071CFC0(bool *unknown)
+bool VQAClass::Advance_Frame(bool *unknown)
 {
     *unknown = false;
     if (!unknown_549) {
@@ -50,7 +50,7 @@ bool VQAClass::Unknown_0071CFC0(bool *unknown)
         int result = VQA_Unknown_0077BF10(Handle, 1, 0);
         if (result >= 0) {
             if (PaletteChanged) {
-                Unknown_0071CB20();
+                Set_DirectDraw_Palette();
                 PaletteChanged = false;
             }
             if (Companion) {

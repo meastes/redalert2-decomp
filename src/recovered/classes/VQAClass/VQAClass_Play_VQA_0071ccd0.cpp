@@ -1,4 +1,4 @@
-// int VQAClass::Unknown_0071CCD0(int frame, bool unknown) (0x0071CCD0): plays the movie until it ends (to
+// int VQAClass::Play_VQA(int frame, bool unknown) (0x0071CCD0): plays the movie until it ends (to
 // frame; out of range: the last), pumping window messages and sleeping while the application is inactive;
 // returns 1 when stopped by Escape (keys are not read when unknown is set).
 #include "shared/movie.hpp"
@@ -24,7 +24,7 @@
 // @ref ?VQA_Unknown_0070C0A0@@YAXPAE00KKK@Z=0070c0a0
 // @ref ?VQA_Unknown_0071DBA0@@YI_NH@Z=0071dba0
 
-int VQAClass::Unknown_0071CCD0(int frame, bool unknown)
+int VQAClass::Play_VQA(int frame, bool unknown)
 {
     bool done = false;
     bool sleeping = false;
@@ -67,7 +67,7 @@ int VQAClass::Unknown_0071CCD0(int frame, bool unknown)
             result = VQA_Unknown_0077BF10(Handle, 1, 0);
             if (result >= 0) {
                 if (PaletteChanged) {
-                    Unknown_0071CB20();
+                    Set_DirectDraw_Palette();
                     PaletteChanged = false;
                 }
                 if (Companion) {

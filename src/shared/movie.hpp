@@ -93,38 +93,38 @@ public:
              int unknown6, int unknown7);                  // 0x0071C5F0
     ~VQAClass();                                           // 0x0071C8A0
     void Unknown_0070B7D0();                               // 0x0070B7D0 (releases the player)
-    bool Unknown_0071CB30();                               // 0x0071CB30 opens the movie
-    int Unknown_0071CBA0();                                // 0x0071CBA0
-    int Unknown_0071CBC0(int value);                       // 0x0071CBC0 old value; -1 keeps it
-    bool Unknown_0071CBE0(int unknown1, int unknown2);     // 0x0071CBE0
-    bool Unknown_0071CC10(int unknown1, int unknown2, int unknown3);  // 0x0071CC10
-    void Unknown_0071CC60(int frame);                      // 0x0071CC60 seek to a frame (no value: the same-frame path leaves EAX unset)
-    bool Unknown_0071CC90();                               // 0x0071CC90
-    int Unknown_0071CCD0(int frame, bool unknown);         // 0x0071CCD0 play loop (1: stopped by Escape)
-    void Unknown_0071CF50(int frame);                      // 0x0071CF50 shows a frame (-1: the last)
-    bool Unknown_0071CFC0(bool *unknown);                  // 0x0071CFC0
-    void Unknown_0071D1A0();                               // 0x0071D1A0 (pause)
-    void Unknown_0071D1E0();                               // 0x0071D1E0 (resume)
-    void Unknown_0071D1F0();                               // 0x0071D1F0 (stop)
-    void Unknown_0071D210();                               // 0x0071D210
-    int Unknown_0071D230();                                // 0x0071D230
-    bool Unknown_0071D240(int unknown1, int x, int y, int width, int height);   // 0x0071D240
-    void Unknown_0071D2B0(int value);                      // 0x0071D2B0
-    void Unknown_0071D2C0(void *buffer, unsigned length);   // 0x0071D2C0
-    int Unknown_0071D300();                                // 0x0071D300 (width)
-    int Unknown_0071D310();                                // 0x0071D310 (height)
-    int Unknown_0071D320();                                // 0x0071D320 callback +0x538
-    void Unknown_0071D330();                               // 0x0071D330 callback +0x53C
+    bool Open_And_Load_Buffers();                               // 0x0071CB30 opens the movie
+    int Get_VQA_Version();                                // 0x0071CBA0
+    int Set_VQA_Volume(int value);                       // 0x0071CBC0 old value; -1 keeps it
+    bool Set_Loop(int unknown1, int unknown2);     // 0x0071CBE0
+    bool Set_Loop(int unknown1, int unknown2, int unknown3);  // 0x0071CC10
+    void Seek_To_Frame(int frame);                      // 0x0071CC60 seek to a frame (no value: the same-frame path leaves EAX unset)
+    bool Seek_To_Stored_Frame();                               // 0x0071CC90
+    int Play_VQA(int frame, bool unknown);         // 0x0071CCD0 play loop (1: stopped by Escape)
+    void Play_VQA_Frame(int frame);                      // 0x0071CF50 shows a frame (-1: the last)
+    bool Advance_Frame(bool *unknown);                  // 0x0071CFC0
+    void Pause_VQA();                               // 0x0071D1A0 (pause)
+    void Resume_VQA();                               // 0x0071D1E0 (resume)
+    void Close_And_Free_VQA();                               // 0x0071D1F0 (stop)
+    void Reset_VQA();                               // 0x0071D210
+    int Get_Desired_Color_Mode();                                // 0x0071D230
+    bool Set_Draw_Buffer(int unknown1, int x, int y, int width, int height);   // 0x0071D240
+    void Set_Primary_Color_Mode(int value);                      // 0x0071D2B0
+    void Handle_Codebook_Event(void *buffer, unsigned length);   // 0x0071D2C0
+    int Get_VQA_Width();                                // 0x0071D300 (width)
+    int Get_VQA_Height();                                // 0x0071D310 (height)
+    int Handle_Lock_Event();                                // 0x0071D320 callback +0x538
+    void Handle_Unlock_Event();                               // 0x0071D330 callback +0x53C
     // Stream callbacks for the VQA library: request 3 open, 4 close,
     // 5 read, 6 (unsupported), 7 seek, 8 checked skip, 9 size; nonzero
     // results are errors. 0x0071CA00 reads the movie from Buffer,
     // 0x0071D340 from the file, 0x0071D4B0 from inside a mixfile.
-    int Unknown_0071C8D0(unsigned size);                   // 0x0071C8D0 reads the file into Buffer (VQA error codes)
-    int Unknown_0071CA00(int request, int unknown2, int unknown3);   // 0x0071CA00
-    int Unknown_0071D340(int request, int unknown2, int unknown3);   // 0x0071D340
-    int Unknown_0071D4B0(int request, int unknown2, int unknown3);   // 0x0071D4B0
-    void Unknown_0071CAF0(unsigned char const *palette);  // 0x0071CAF0 copies the 768-byte palette
-    void Unknown_0071CB20();                               // 0x0071CB20 applies the palette
+    int Cache_VQA(unsigned size);                   // 0x0071C8D0 reads the file into Buffer (VQA error codes)
+    int CacheHandler(int request, int unknown2, int unknown3);   // 0x0071CA00
+    int CCFileHandler(int request, int unknown2, int unknown3);   // 0x0071D340
+    int MixFileHandler(int request, int unknown2, int unknown3);   // 0x0071D4B0
+    void Handle_Palette_Event(unsigned char const *palette);  // 0x0071CAF0 copies the 768-byte palette
+    void Set_DirectDraw_Palette();                               // 0x0071CB20 applies the palette
     int Unknown_0071D790();                                // 0x0071D790 (returns 0)
     void Unknown_0071D7A0();                               // 0x0071D7A0 (empty)
     void Unknown_0071D7B0();                               // 0x0071D7B0 (empty)

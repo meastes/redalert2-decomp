@@ -1,9 +1,9 @@
-// bool VQAClass::Unknown_0071D240(int unknown1, int x, int y, int width, int height) (0x0071D240)
+// bool VQAClass::Set_Draw_Buffer(int unknown1, int x, int y, int width, int height) (0x0071D240)
 // -1 keeps the saved position and gives a zero size.
 #include "shared/movie.hpp"
 // @ref ?VQA_Unknown_0077C480@@YIHPAUVQAHandle@@HHHHH@Z=0077c480
 
-bool VQAClass::Unknown_0071D240(int unknown1, int x, int y, int width, int height)
+bool VQAClass::Set_Draw_Buffer(int unknown1, int x, int y, int width, int height)
 {
     if (x == -1) {
         x = unknown_518;

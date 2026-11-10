@@ -1,9 +1,9 @@
-// bool VQAClass::Unknown_0071CC10(int unknown1, int unknown2, int unknown3) (0x0071CC10)
+// bool VQAClass::Set_Loop(int unknown1, int unknown2, int unknown3) (0x0071CC10)
 // Frame range (clamped to the movie) and count.
 #include "shared/movie.hpp"
 // @ref ?VQA_Unknown_0077C6C0@@YIHPAUVQAHandle@@HHHH@Z=0077c6c0
 
-bool VQAClass::Unknown_0071CC10(int unknown1, int unknown2, int unknown3)
+bool VQAClass::Set_Loop(int unknown1, int unknown2, int unknown3)
 {
     if (unknown1 < 0 || unknown1 >= FrameCount) {
         unknown1 = 0;
