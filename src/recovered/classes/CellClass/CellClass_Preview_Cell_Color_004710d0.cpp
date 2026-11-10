@@ -3,7 +3,7 @@
 // building (unless flag) gives its house colour scheme's colour; under a bridge, the radar colour of
 // overlay type 24 (TibSun OVERLAY_BRIDGE1) as a surface pixel; otherwise the preview pixels of the
 // cell's tile variation (TibSun Clear_Icon picks it). Cell_Building is unknown_4717b0 and IsUnderBridge
-// the accessor unknown_4788d0, both inline in this unit (the original calls Find_Object out of line
+// the accessor Is_Bridge_Here, both inline in this unit (the original calls Find_Object out of line
 // here because of them). The unit's header statics 0x00470490 define CELL_DECLARE_PREVIEW_CELL_COLOR,
 // CELL_DECLARE_CLEAR_ICON and RGB_DECLARE_ACCESSORS.
 #include "shared/cell.hpp"

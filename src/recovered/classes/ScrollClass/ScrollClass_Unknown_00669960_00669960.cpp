@@ -25,7 +25,7 @@ inline bool Scroll_Key_Down(int key)
 // @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 // @ref ?Unknown_0051A690@@YIPAVObjectClass@@PBVCell@@PAV1@@Z=0051a690
 // @ref ?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z=0040dbd0
-// @ref ?unknown_47c2e0@CellClass@@QBE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@CellClass@@QBE_NH@Z=0047c2e0
 // @ref ?Unknown_0042E860@Unknown84E8D0@@QAEPAVUnknownBeacon@@UCoordStruct@@@Z=0042e860
 // @ref ?unknown_object_84e8d0@@3VUnknown84E8D0@@A=0084e8d0
 // @ref ?Unknown_004F3120@HouseClass@@QBE_NXZ=004f3120
@@ -52,7 +52,7 @@ int ScrollClass::Unknown_00669960(Cell const &cell, ObjectClass *object, bool ar
         bool visible = true;
         TechnoClass *techno = As_Techno_0040dbd0(object);
         if (techno != 0 && !techno->unknown_372) {
-            if ((techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].unknown_47c2e0(unknown_player_a35db4->ArrayIndex))
+            if ((techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex))
                     || techno->unknown_slot32()->Invisible) {
                 visible = false;
             }
@@ -60,7 +60,7 @@ int ScrollClass::Unknown_00669960(Cell const &cell, ObjectClass *object, bool ar
 
         if (object != 0 && object->Kind_Of() == 6 && !((BuildingClass *)object)->unknown_372
                 && ((BuildingClass *)object)->unknown_5bd == 15
-                && !Map[techno->Center_Coord()].unknown_47c2e0(unknown_player_a35db4->ArrayIndex)) {
+                && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
             visible = false;
         }
         if (visible) {

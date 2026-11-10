@@ -9,7 +9,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z=00591380
-// @ref ?unknown_4749c0@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z=004749c0
+// @ref ?Draw_Overlay@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z=004749c0
 
 void Tactical::Draw_Overlays(Rect const &area)
 {
@@ -42,7 +42,7 @@ void Tactical::Draw_Overlays(Rect const &area)
                         Point2D pixel;
                         Coord_To_Pixel(Coord_Snap(Cell_Center(cell)), pixel);
                         pixel.X += -30;
-                        cellptr->unknown_4749c0(pixel, cliprect);
+                        cellptr->Draw_Overlay(pixel, cliprect);
                     }
                 }
             }
@@ -64,7 +64,7 @@ void Tactical::Draw_Overlays(Rect const &area)
                         Point2D pixel;
                         Coord_To_Pixel(Coord_Snap(Cell_Center(cell)), pixel);
                         pixel.X += -30;
-                        cellptr->unknown_474830(pixel, cliprect);
+                        cellptr->Draw_Overlay_Shadow(pixel, cliprect);
                     }
                 }
             }

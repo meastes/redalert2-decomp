@@ -13,7 +13,7 @@
 // @ref ?unknown_a40774@@3HA=00a40774
 // @ref ?Get_Current_Mission@ScriptClass@@QBE?AVScriptMissionClass@@XZ=00668870
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?unknown_471830@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z=00471830
+// @ref ?Cell_Object@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z=00471830
 
 void TeamClass::unknown_func_6b9bb0()
 {
@@ -22,8 +22,8 @@ void TeamClass::unknown_func_6b9bb0()
     }
     if (unknown_40 != 0 && unknown_40->Kind_Of() == 0xB && Member != 0 && unknown_func_6baa60()->Kind_Of() != 2) {
         CellClass *cell = As_Cell(unknown_40);
-        if (cell->unknown_471830(Point2D(0, 0), false) != 0) {
-            unknown_40 = cell->unknown_471830(Point2D(0, 0), false);
+        if (cell->Cell_Object(Point2D(0, 0), false) != 0) {
+            unknown_40 = cell->Cell_Object(Point2D(0, 0), false);
         }
     }
     if (unknown_40 == 0) {

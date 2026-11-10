@@ -18,7 +18,7 @@
 // The isometric cell number of a cell (0x00428A90; declared as in shared/veinhole.hpp).
 int __fastcall unknown_cell_index_428a90(Cell const &cell);
 // @ref ?unknown_cell_index_428a90@@YIHABVCell@@@Z=00428a90
-// @ref ?Unknown_0047A130@CellClass@@QAEPAVTubeClass@@XZ=0047a130
+// @ref ?Get_Tunnel@CellClass@@QAEPAVTubeClass@@XZ=0047a130
 // @ref _?_bridge_subtiles1@?1??Unknown_0054FDA0@MapClass@@QAEXXZ@4PAHA=007e0244
 // @ref _?_facings@?1??Unknown_0054FDA0@MapClass@@QAEXXZ@4PAHA=007e0284
 // @ref _?_bridge_subtiles2@?1??Unknown_0054FDA0@MapClass@@QAEXXZ@4PAHA=007e02c4
@@ -50,9 +50,9 @@ void MapClass::Unknown_0054FDA0()
                 if ((cptr->Adjacent_Cell(2).Has_Tunnel() && cptr->Adjacent_Cell(6).Has_Tunnel()) ||
                     (cptr->Adjacent_Cell(4).Has_Tunnel() && cptr->Adjacent_Cell(0).Has_Tunnel())) {
 
-                    Cell cell = cptr->Unknown_0047A130()->ExitCell;
+                    Cell cell = cptr->Get_Tunnel()->ExitCell;
                     if (unknown_cell_index_428a90(cptr->MapCoords) < unknown_cell_index_428a90(cell)) {
-                        Cell exit = cptr->Unknown_0047A130()->ExitCell;
+                        Cell exit = cptr->Get_Tunnel()->ExitCell;
                         ZoneConnectionClass con;
                         con.From = cptr->MapCoords;
                         con.To = exit;

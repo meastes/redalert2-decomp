@@ -21,7 +21,7 @@
 // @ref ?unknown_list_8322e0@@3VUnknownList8322E0@@A=008322e0
 // @ref ?Unknown_00436680@UnknownList8322E0@@QAEXPAVTechnoClass@@@Z=00436680
 // @ref ?Unknown_004ED610@HouseClass@@QAEXPAVTechnoClass@@_N@Z=004ed610
-// @ref ?unknown_476b20@UnknownCellClass@@QAEXHH@Z=00476b20
+// @ref ?Adjust_Threat@UnknownCellClass@@QAEXHH@Z=00476b20
 
 bool TechnoClass::unknown_slot53(CoordStruct const *coord, int dir)
 {
@@ -59,7 +59,7 @@ bool TechnoClass::unknown_slot53(CoordStruct const *coord, int dir)
         UnknownCellClass *here = (UnknownCellClass *)unknown_slot105();
         if (here != 0) {
             unknown_400 = unknown_slot168();
-            here->unknown_476b20(Owner(), unknown_400);
+            here->Adjust_Threat(Owner(), unknown_400);
         }
         unknown_1a0 = Map.Coord_To_Radar_Pixel(CoordStruct(Coord), true);
         if (unknown_114 == -1) {

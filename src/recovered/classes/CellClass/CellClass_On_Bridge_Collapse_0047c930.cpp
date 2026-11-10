@@ -1,4 +1,4 @@
-// void CellClass::unknown_47c930() (0x0047C930): TibSun's On_Bridge_Collapse:
+// void CellClass::On_Bridge_Collapse() (0x0047C930): TibSun's On_Bridge_Collapse:
 // when the cell carries bridge occupants, every moving foot object in the
 // surrounding 5x5 cells whose locomotor is heading for the bridge deck
 // (Is_Moving_Here) is destroyed with the C4 warhead. Height from Map, plus the bridge deck height.
@@ -10,7 +10,7 @@
 #include "shared/unknown_geometry.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 
-void CellClass::unknown_47c930()
+void CellClass::On_Bridge_Collapse()
 {
     if (unknown_128) {
         CoordStruct coord = MapCoords.As_Coord();

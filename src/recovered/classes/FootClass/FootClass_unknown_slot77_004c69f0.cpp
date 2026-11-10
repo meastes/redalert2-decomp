@@ -17,7 +17,7 @@
 // @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_4cca40@FootClass@@QAE?AVCell@@ABV2@_N@Z=004cca40
 // @ref ?Unknown_00710160@@YIPAUUnknownCellObject710160@@ABVCell@@@Z=00710160
-// @ref ?Unknown_0047A130@UnknownCellClass@@QAEPAUUnknownTube47A130@@XZ=0047a130
+// @ref ?Get_Tunnel@UnknownCellClass@@QAEPAUUnknownTube47A130@@XZ=0047a130
 // @ref ??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z=00420110
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
@@ -116,8 +116,8 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
         break;
 
     case 35: {
-        UnknownTube47A130 *tunnel = ((UnknownCellClass *)&Map[cell])->Unknown_0047A130();
-        UnknownTube47A130 *exittunnel = ((UnknownCellClass *)&Map[Cell(tunnel->unknown_28)])->Unknown_0047A130();
+        UnknownTube47A130 *tunnel = ((UnknownCellClass *)&Map[cell])->Get_Tunnel();
+        UnknownTube47A130 *exittunnel = ((UnknownCellClass *)&Map[Cell(tunnel->unknown_28)])->Get_Tunnel();
         Cell exit = Adjacent_Cell(Cell(tunnel->unknown_28), (exittunnel->unknown_2c - 4) & 7);
         unknown_slot200(2, 0, &Map[exit], 0);
         break;

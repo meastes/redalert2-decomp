@@ -4,8 +4,8 @@
     "id": "population-123",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "b5f996c9d620fa51948667c789b07384731d0e69f222d9bf979affc6aa151076",
-    "historical_acceptance_sha256": "7018fe61c3ba2f200bf95dc198398c9ea62ac0abbeca6d5af751819da0c93af3"
+    "historical_population_sha256": "be3659115e4569f65672c52bc6776c31791218791333041383d3cc5186e7f199",
+    "historical_acceptance_sha256": "de71fbf8e5f31860cbd35a0a704b361b2d3de45d078418d2ecc960f9afacde64"
   },
   "references": {
     "_DAT_008325d0": 8594896,
@@ -1843,7 +1843,7 @@
     "?Unknown_00478760@CellClass@@QAE_NH_N0HHH0@Z": 4687712,
     "?Unknown_00471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z": 4690160,
-    "?Unknown_004798F0@CellClass@@QAEXXZ": 4692208,
+    "?Recalc_Light@CellClass@@QAEXXZ": 4692208,
     "??_7UnitClass@@6BIPersistStream@@@": 8052216,
     "??_7UnitClass@@6BIRTTITypeInfo@@@": 8052188,
     "??_7UnitClass@@6BINoticeSink@@@": 8052180,
@@ -1938,7 +1938,7 @@
     "?unknown_47c8a0@CellClass@@QAEXXZ": 4704416,
     "?unknown_47c840@CellClass@@QAEXXZ": 4704320,
     "?unknown_47be00@CellClass@@QAEXXZ": 4701696,
-    "?unknown_47bc80@CellClass@@QAEXXZ": 4701312,
+    "?Fog_Cell@CellClass@@QAEXXZ": 4701312,
     "?Clear@CounterClass@@UAEXXZ": 4791664,
     "?Recalc_Attributes@CellClass@@QAEXH@Z": 4662592,
     "?ID@?$VectorClass@PAVFootClass@@@@UAEHABQAVFootClass@@@Z": 5039024,
@@ -2058,7 +2058,7 @@
     "__real@8@4007c800000000000000": 8019464,
     "?Resize@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAE_NHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039440,
     "?Closest_Free_Spot@CellClass@@QBE?AUCoordStruct@@ABU2@_NH@Z": 4678832,
-    "?unknown_476460@CellClass@@QBE_NH_N@Z": 4678752,
+    "?Is_Spot_Free@CellClass@@QBE_NH_N@Z": 4678752,
     "__real@8@4001c90fdaa22168c000": 7981496,
     "__real@8@bff1c9116cc4faf2b800": 7976480,
     "?ID@?$DynamicVectorClass@PAVCoopCampaignClass@@@@UAEHABQAVCoopCampaignClass@@@Z": 5925824,

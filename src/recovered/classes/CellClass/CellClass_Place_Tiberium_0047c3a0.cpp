@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// bool CellClass::unknown_47c3a0(int tiberium, int data) (0x0047C3A0): Place_Tiberium. Adapted from ra2-decomp src/cell.cpp
+// bool CellClass::Place_Tiberium(int tiberium, int data) (0x0047C3A0): Place_Tiberium. Adapted from ra2-decomp src/cell.cpp
 // CellClass::Place_Tiberium (gamemd 0x00487190, MATCHED there; TibSun shape). VectorClass::operator[](int) (the
 // twin's and TibSun's signature, now the shared default) is required; with unsigned the grow branch's second
 // Union swaps eax/ebx.
@@ -14,7 +14,7 @@
 #include "shared/tiberium.hpp"
 #include "shared/id_source.hpp"
 
-bool CellClass::unknown_47c3a0(int tib, int data)
+bool CellClass::Place_Tiberium(int tib, int data)
 {
     TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tib];
     if (data < tiberium->unknown_e4) {
@@ -31,7 +31,7 @@ bool CellClass::unknown_47c3a0(int tib, int data)
         }
 
         if (Can_Tiberium_Grow()) {
-            if (Get_Tiberium_Type() == tib) {
+            if (Tiberium_Type_Here() == tib) {
                 OverlayData += data;
                 OverlayData = OverlayData < tiberium->unknown_e4 - 1 ? OverlayData : tiberium->unknown_e4 - 1;
                 Rect rect = Union(Union(Cell_Render_Rect(), Overlay_Render_Rect()), Overlay_Shadow_Render_Rect());

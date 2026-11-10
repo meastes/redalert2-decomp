@@ -1,4 +1,4 @@
-// void CellClass::unknown_47a4e0() (0x0047A4E0): redraws the cell's screen
+// void CellClass::Register_As_Dirty() (0x0047A4E0): redraws the cell's screen
 // area: the pixel of the cell's corner coordinate, moved left by 30 and down
 // by the screen offset at 0x00839634 less the cell level (+0x11B, 15 pixels
 // each) and 15, as a 60x30 rectangle (Tactical::Register_Dirty_Area).
@@ -6,7 +6,7 @@
 #include "shared/tactical.hpp"
 // @ref ?unknown_int_839634@@3HA=00839634
 
-void CellClass::unknown_47a4e0()
+void CellClass::Register_As_Dirty()
 {
     CoordStruct corner = Coord_Snap(CoordStruct(MapCoords.X * 256 + 128, MapCoords.Y * 256 + 128, 0));
     Point2D pixel;

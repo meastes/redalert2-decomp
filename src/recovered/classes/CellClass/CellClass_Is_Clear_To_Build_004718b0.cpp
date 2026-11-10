@@ -1,4 +1,4 @@
-// bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseClass *who) (0x004718B0):
+// bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, HouseClass *who) (0x004718B0):
 // TibSun cell.cpp Is_Clear_To_Build with RA2's naval tile check (Is_Tile_Water) and float movement costs. The
 // gate/post arm is written before the foundation arm, the laser-fence arm as one condition, and the function ends in
 // the if/else: VC6 shares one return-false epilogue from these forms (Scout1228 NOTES, return-false layout).
@@ -15,7 +15,7 @@
 #include "shared/tileset_index.hpp"
 #include "shared/house.hpp"
 
-bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseClass *who)
+bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, HouseClass *who)
 {
     if (unknown_a40774) {
         return true;
@@ -27,7 +27,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
                 return false;
             }
         } else if (what->LaserFencePost || what->Gate) {
-            ObjectClass *obj = unknown_471830(Point2D(0, 0), false);
+            ObjectClass *obj = Cell_Object(Point2D(0, 0), false);
             if (obj != 0) {
                 if (obj->Kind_Of() != 6) {
                     return false;
@@ -41,7 +41,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
             }
         } else {
             if (what->unknown_bf0 == 0) {
-                if (unknown_471830(Point2D(0, 0), false) != 0) {
+                if (Cell_Object(Point2D(0, 0), false) != 0) {
                     return false;
                 }
                 if ((unknown_124 & 0x3F) != 0) {
@@ -95,7 +95,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
         }
 
         if (what != 0 && what->LaserFence && (OverlayIndex == 0x7E || OverlayClass::To_Tiberium(OverlayIndex) != -1)) {
-            if (unknown_4788d0() || WasUnderBridge || unknown_11c != 0) {
+            if (Is_Bridge_Here() || WasUnderBridge || unknown_11c != 0) {
                 return false;
             }
             return true;
@@ -107,7 +107,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
     }
 
     if (speed == -1) {
-        if (unknown_4788d0() || WasUnderBridge || unknown_11c != 0) {
+        if (Is_Bridge_Here() || WasUnderBridge || unknown_11c != 0) {
             return false;
         }
         if (what->Naval) {

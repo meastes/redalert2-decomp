@@ -69,7 +69,7 @@ void CellClass::Recalc_Attributes(int cell_height)
                 }
             }
             Fixup_LAT();
-            unknown_478f40();
+            Recalc_Passability();
             zone->unknown_01 = unknown_11b;
             subzone[8] = unknown_11b;
             zone->unknown_00 = unknown_4c;
@@ -106,7 +106,7 @@ void CellClass::Recalc_Attributes(int cell_height)
                     }
                 }
             }
-            unknown_478f40();
+            Recalc_Passability();
             zone->unknown_01 = unknown_11b;
             subzone[8] = unknown_11b;
             zone->unknown_00 = unknown_4c;
@@ -203,7 +203,7 @@ void CellClass::Recalc_Attributes(int cell_height)
         }
     }
 
-    unknown_478f40();
+    Recalc_Passability();
     zone->unknown_01 = unknown_11b;
     zone->unknown_00 = unknown_4c;
     subzone[8] = unknown_11b;

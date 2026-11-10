@@ -15,7 +15,7 @@ static CoordStruct Cell_Ground_Center_0047cc10(CellClass const &cell)
 }
 
 // Remove occupants that cannot remain here, including approaching foot objects.
-void CellClass::unknown_47cc10()
+void CellClass::Kill_Illegal_Occupiers()
 {
     ObjectClass *object=OccupierPtr;
     ObjectClass *next=0;

@@ -1,4 +1,4 @@
-// void CellClass::unknown_478f40() (0x00478F40): Westwood's Recalc_Passability. Sets unknown_4c
+// void CellClass::Recalc_Passability() (0x00478F40): Westwood's Recalc_Passability. Sets unknown_4c
 // (Passability: 0 land, 1 crush, 2 blocked, 3 beach, 4 water, 5 partially blocked, 6 impassable,
 // 7 outside the local radar) from the overlay, the land and the occupiers.
 #include "shared/cell.hpp"
@@ -10,7 +10,7 @@
 #include "shared/terrain.hpp"
 #include "shared/terrain_type.hpp"
 
-void CellClass::unknown_478f40()
+void CellClass::Recalc_Passability()
 {
     if (!Map.Unknown_0055A660(MapCoords, true)) {
         unknown_4c = 7;

@@ -63,7 +63,7 @@ void BuildingClass::unknown_44dfc0(int dir)
                 working_cell = Cell(Center_Coord());
                     do {
                         CellClass *cptr = &Map[working_cell];
-                        if (cptr->Get_Tiberium_Type() != -1) {
+                        if (cptr->Tiberium_Type_Here() != -1) {
                             cptr->unknown_475db0(12);
                         }
                         if (cptr->OverlayIndex == 0x7E) {
@@ -81,7 +81,7 @@ void BuildingClass::unknown_44dfc0(int dir)
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?BuildingTypes@@3V?$DynamicVectorClass@PAVBuildingTypeClass@@@@A=00a35cd8
-// @ref ?Get_Tiberium_Type@CellClass@@QBEHXZ=0047a220
+// @ref ?Tiberium_Type_Here@CellClass@@QBEHXZ=0047a220
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_44ddb0@BuildingClass@@QAEPAV1@H_NH@Z=0044ddb0
 // @ref ?unknown_44e260@BuildingClass@@QAEXH_N@Z=0044e260

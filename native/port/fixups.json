@@ -108,9 +108,9 @@
   },
   {
    "source": "src/recovered/classes/TeleportLocomotionClass/TeleportLocomotionClass_unknown_6dff00_006dff00.cpp",
-   "old": "bool alt = cell->unknown_4788d0;",
-   "new": "bool alt = &CellClass::unknown_4788d0 != 0;",
-   "why": "The original reads the address of CellClass::unknown_4788d0, not its value (shared/cell_class.hpp note: VC6 converts the non-null member pointer, so alt is always true). ISO C++ requires the explicit &Class::member form; the value is the same (true).",
+   "old": "bool alt = cell->Is_Bridge_Here;",
+   "new": "bool alt = &CellClass::Is_Bridge_Here != 0;",
+   "why": "The original reads the address of CellClass::Is_Bridge_Here, not its value (shared/cell_class.hpp note: VC6 converts the non-null member pointer, so alt is always true). ISO C++ requires the explicit &Class::member form; the value is the same (true).",
    "verified": true
   },
   {

@@ -38,7 +38,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
     bool sensed_underground = false;
     if (!unknown_325) {
         CellClass *cell = static_cast<CellClass *>(unknown_slot105());
-        if (!unknown_77 && unknown_slot108() < -20 && cell && cell->unknown_47c2e0(unknown_player_a35db4->ArrayIndex)) {
+        if (!unknown_77 && unknown_slot108() < -20 && cell && cell->Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
             sensed_underground = true;
         }
         if (unknown_68 && unknown_38 && !Map[unknown_slot104()].unknown_47cb50()) {

@@ -14,5 +14,5 @@ public:
 // Unlimbo when an upgrade (PowersUpBuilding) is placed on its building.
 ObjectClass *UnknownCellObjectMap::Cell_Object(Cell const &cell, Point2D const &offset)
 {
-    return Map[cell].unknown_471830(offset, false);
+    return Map[cell].Cell_Object(offset, false);
 }

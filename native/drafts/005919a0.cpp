@@ -197,7 +197,7 @@ void MechLocomotionClass::unknown_5919a0(bool continue_moving)
                         } else {
                             bridge = false;
                         }
-                        cellptr->unknown_476920(&unknown_geometry_l, true, true, bridge);
+                        cellptr->Incoming(&unknown_geometry_l, true, true, bridge);
                     }
                     return;
                 }
@@ -236,7 +236,7 @@ void MechLocomotionClass::unknown_5919a0(bool continue_moving)
                 if (can_enter != 1) {
                     if (can_enter != 7) {
                         if (can_enter == 5 || can_enter == 4) {
-                            ObjectClass *object = Map[what].unknown_471830(Point2D(0, 0), false);
+                            ObjectClass *object = Map[what].Cell_Object(Point2D(0, 0), false);
                             if (continue_moving) {
                                 LinkedTo->Path[0] = -1;
                                 unknown_24 = unknown_geometry_l;

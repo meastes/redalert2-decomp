@@ -7,7 +7,7 @@
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
-// @ref ?unknown_47cdd0@CellClass@@QBE_NXZ=0047cdd0
+// @ref ?Can_Build_Here@CellClass@@QBE_NXZ=0047cdd0
 
 bool UnitClass::unknown_slot284()
 {
@@ -19,7 +19,7 @@ bool UnitClass::unknown_slot284()
         case 1:
         {
             CoordStruct coord = Coord;
-            return Map[coord].unknown_47cdd0() ? true : false;
+            return Map[coord].Can_Build_Here() ? true : false;
         }
         case 6:
         case 15:

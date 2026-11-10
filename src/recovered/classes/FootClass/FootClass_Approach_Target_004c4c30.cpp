@@ -99,7 +99,7 @@ void FootClass::unknown_slot304()
     bool require_deploy_cell=false;
     if (Kind_Of()==1 && ((UnitClass *)this)->Type->DeployToFire) {
         CoordStruct position=Coord;
-        if (!Map[position].unknown_47cdd0()) {
+        if (!Map[position].Can_Build_Here()) {
             require_deploy_cell=true;
             int near_range=unknown_5d4c00(unknown_228)+512;
             if (maximum_range>=near_range) maximum_range=near_range;
@@ -164,7 +164,7 @@ void FootClass::unknown_slot304()
         for (int index=0;index<25;++index) {
             DirType angle((Dir256)(direction+unknown_approach_angles_7d8178[index]));
             trial_position=CoordStruct(Approach_Move_Coord_004c4c30(target_position,angle.Snap_To_256(),floating_radius).As_Cell(),0);
-            if (require_deploy_cell && !Map[trial_position].unknown_47cdd0()) continue;
+            if (require_deploy_cell && !Map[trial_position].Can_Build_Here()) continue;
             trial_position.Z=Map.Get_Height_GL(trial_position);
             if (Map[trial_position].unknown_140&0x100) trial_position.Z+=unknown_geometry_j;
             if (!unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)) continue;

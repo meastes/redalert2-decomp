@@ -30,7 +30,7 @@
 // @ref ??B?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ=00453eb0
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
-// @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 // @ref __real@8@4008e100000000000000=0079b608
 // @ref _unknown_geometry_l=00ac0188
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
@@ -108,7 +108,7 @@ void TechnoClass::Cloaking_AI(int arg1)
                     for (int index = Technos.Count() - 1; index >= 0; index--) {
                         TechnoClass *techno = Technos[index];
                         if (techno->unknown_228 == this) {
-                            if (((UnknownCellClass *)&Map[Center_Coord()])->unknown_47c2e0(techno->House->ArrayIndex)
+                            if (((UnknownCellClass *)&Map[Center_Coord()])->Is_Sensed(techno->House->ArrayIndex)
                                 || techno->House == House) {
                                 attackers.Add(techno);
                             }

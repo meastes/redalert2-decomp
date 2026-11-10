@@ -1,10 +1,10 @@
-// void CellClass::unknown_47a160() (0x0047A160): takes up to ten occupants,
+// void CellClass::Force_New_Slope_For_Occupiers() (0x0047A160): takes up to ten occupants,
 // calls their slot 109 with 0 and passes +0x11C to the locomotor of each unit
 // or aircraft (ILocomotion::Force_New_Slope). No direct callers.
 #include "shared/cell.hpp"
 #include "shared/foot.hpp"
 
-void CellClass::unknown_47a160()
+void CellClass::Force_New_Slope_For_Occupiers()
 {
     ObjectClass *objects[10];
     int count = 0;

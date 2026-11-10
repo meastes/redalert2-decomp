@@ -10,7 +10,7 @@
 // from its old place (slot 59), moves the arrival point to +0x21C on the
 // ground or bridge, and places it there (slot 58). Otherwise the object
 // is placed at the arrival point (or where it stands) and true returned.
-// The overlap test passes CellClass::unknown_4788d0 without calling it:
+// The overlap test passes CellClass::Is_Bridge_Here without calling it:
 // the original reads the function's address as the bool (always true).
 #include "shared/teleport_locomotion.hpp"
 #include "shared/cell.hpp"
@@ -19,7 +19,7 @@
 #include "shared/overlay_view.hpp"
 // @ref ?unknown_overlay_types_a35de8@@3V?$DynamicVectorClass@PAVUnknownOverlayType@@@@A=00a35de8
 // @ref _unknown_geometry_j=00ac02a8
-// @ref ?unknown_4788d0@CellClass@@QBE_NXZ=004788d0
+// @ref ?Is_Bridge_Here@CellClass@@QBE_NXZ=004788d0
 // @ref _unknown_geometry_l=00ac0280
 
 // The object as a FootClass, or null (the cast idiom of BuildingTypeClass 0x00458B10).
@@ -62,7 +62,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
             blocked = true;
         }
         CellClass *cell = &Map[Coord_Cell(LinkedTo->Center_Coord())];
-        bool alt = cell->unknown_4788d0;
+        bool alt = cell->Is_Bridge_Here;
         if ((overlay != -1 && !unknown_overlay_types_a35de8[overlay]->unknown_279 && !alt) || blocked) {
             int zone = LinkedTo->unknown_slot32()->MovementZone;
             if (zone == 9) {

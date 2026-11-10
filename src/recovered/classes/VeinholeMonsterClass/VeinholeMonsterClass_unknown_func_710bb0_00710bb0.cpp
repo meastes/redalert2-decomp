@@ -36,7 +36,7 @@ void VeinholeMonsterClass::unknown_func_710bb0()
     while (count < steps && node != 0) {
         CellClass *cell = &Map[node->Position];
         if (cell->OverlayData < 0x30) {
-            cell->unknown_47ad00();
+            cell->Place_Veins();
             unknown_ec++;
         }
         if (cell->OverlayIndex == 0x7e) {

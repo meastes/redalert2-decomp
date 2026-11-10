@@ -1,11 +1,11 @@
-// void CellClass::unknown_473d20(ObjectClass *object, bool alt) (0x00473D20):
+// void CellClass::Occupy_Up(ObjectClass *object, bool alt) (0x00473D20):
 // unlinks object from the occupier list (alt: the alternate list) and then,
 // unless it is infantry (kind 0x0F), calls its slot 59 with the cell's centre
 // (buildings) or its own coordinate when its slot 47 agrees.
 #include "shared/cell.hpp"
 #include "shared/object.hpp"
 
-void CellClass::unknown_473d20(ObjectClass *object, bool alt)
+void CellClass::Occupy_Up(ObjectClass *object, bool alt)
 {
     if (object != 0) {
         ObjectClass *occupier = alt ? AltOccupierPtr : OccupierPtr;

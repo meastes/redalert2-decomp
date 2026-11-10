@@ -22,7 +22,7 @@ void VeinholeMonsterClass::unknown_func_711d20()
     for (int y = -2; y <= 2; y++) {
         for (int x = -2; x <= 2; x++) {
             CellClass &cptr2 = Map[::Cell(x, y) + Cell];
-            cptr2.unknown_47ad00();
+            cptr2.Place_Veins();
             cptr2.Recalc_Attributes(-1);
         }
     }

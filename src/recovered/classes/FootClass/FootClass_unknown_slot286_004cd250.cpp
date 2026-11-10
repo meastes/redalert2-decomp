@@ -8,7 +8,7 @@
 #include "shared/techno_type.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 // @ref ?Unknown_0047C370@UnknownCellClass@@QAEXH@Z=0047c370
 // @ref ?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ=004717b0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
@@ -26,7 +26,7 @@ void FootClass::unknown_slot286(Cell cell)
             Cell spot = Cell(cell.X + x, cell.Y + y);
             if (x * x + y * y < range_squared) {
                 UnknownCellClass *object = (UnknownCellClass *)&Map[spot];
-                if (object->unknown_47c2e0(house)) {
+                if (object->Is_Sensed(house)) {
                     object->Unknown_0047C370(house);
                     for (ObjectClass *occupier = object->unknown_e4; occupier != 0; occupier = occupier->unknown_30) {
                         int kind = occupier->Kind_Of();

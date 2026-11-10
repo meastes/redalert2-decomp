@@ -1,11 +1,11 @@
-// bool CellClass::unknown_47cdd0() const (0x0047CDD0): false when +0x11C is
+// bool CellClass::Can_Build_Here() const (0x0047CDD0): false when +0x11C is
 // set or a building occupies the cell, else the first flag of the cell's
 // land type's Build flag (Ground).
 #include "shared/cell.hpp"
 // @ref ?unknown_flag_a40958@@3_NA=00a40958
 // @ref ?Ground@@3PAUGroundType@@A=00850ea0
 
-bool CellClass::unknown_47cdd0() const
+bool CellClass::Can_Build_Here() const
 {
     if (unknown_11c) {
         return false;

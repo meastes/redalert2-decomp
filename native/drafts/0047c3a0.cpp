@@ -3,7 +3,7 @@
 // origin lane: Scout674 (build/class-work/Scout674/w/keep/place_tiberium_9891.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1061 (native/drafts.json). Not original bytes.
-// bool CellClass::unknown_47c3a0(int tiberium, int data) (0x0047C3A0): TibSun Place_Tiberium.
+// bool CellClass::Place_Tiberium(int tiberium, int data) (0x0047C3A0): TibSun Place_Tiberium.
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 #include "shared/tactical.hpp"
@@ -12,7 +12,7 @@
 #include "shared/tiberium.hpp"
 #include "shared/id_source.hpp"
 
-bool CellClass::unknown_47c3a0(int tib, int data)
+bool CellClass::Place_Tiberium(int tib, int data)
 {
     TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tib];
     if (data < tiberium->unknown_e4) {

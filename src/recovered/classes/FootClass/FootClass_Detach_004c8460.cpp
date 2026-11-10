@@ -11,7 +11,7 @@
 // @ref ?Detach@TechnoClass@@UAEXPAVAbstractClass@@_N@Z=006d2d10
 // @ref ?unknown_flag_a40d04@@3_NA=00a40d04
 // @ref ?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z=006d6e50
-// @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 
 void FootClass::Detach(AbstractClass *target, bool all)
 {
@@ -45,7 +45,7 @@ void FootClass::Detach(AbstractClass *target, bool all)
         }
         if (!all && target != 0 && object) {
             UnknownCellClass *cell = (UnknownCellClass *)&Map[target->Center_Coord()];
-            if (cell->unknown_47c2e0(House->ArrayIndex)) {
+            if (cell->Is_Sensed(House->ArrayIndex)) {
                 forget = false;
             }
         }

@@ -7,7 +7,7 @@
 #include "shared/overlay.hpp"
 #include "shared/tiberium.hpp"
 #include "shared/id_source.hpp"
-// @ref ?unknown_47c3a0@CellClass@@QAE_NHH@Z=0047c3a0
+// @ref ?Place_Tiberium@CellClass@@QAE_NHH@Z=0047c3a0
 
 bool CellClass::Spread_Tiberium(bool forced)
 {
@@ -32,7 +32,7 @@ bool CellClass::Spread_Tiberium(bool forced)
         CellClass *cell = &Adjacent_Cell(facing);
         if (cell != 0 && cell->Can_Tiberium_Germinate(type)) {
             int amount = 3;
-            return cell->unknown_47c3a0(tiberium, amount);
+            return cell->Place_Tiberium(tiberium, amount);
         }
     }
     return false;

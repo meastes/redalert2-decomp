@@ -7,7 +7,7 @@
 #include "shared/mech_locomotion.hpp"
 #include "shared/unknown_geometry.hpp"
 #include "shared/cell.hpp"
-// @ref ?unknown_476cc0@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
+// @ref ?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
 // @ref _unknown_geometry_l=00a70b18
 
 bool MechLocomotionClass::unknown_592f70(CoordStruct const &coord)
@@ -24,7 +24,7 @@ bool MechLocomotionClass::unknown_592f70(CoordStruct const &coord)
     if (unknown_24 != unknown_geometry_l) {
         LinkedTo->unknown_slot59(unknown_24);
     }
-    if (Map[to].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {
+    if (Map[to].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
         unknown_24 = to;
     } else {
         unknown_24 = unknown_geometry_l;

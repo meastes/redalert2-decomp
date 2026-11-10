@@ -1,4 +1,4 @@
-// bool CellClass::unknown_476cc0(ObjectClass *object) (0x00476CC0): Westwood's Goodie_Check. Picks up
+// bool CellClass::Goodie_Check(ObjectClass *object) (0x00476CC0): Westwood's Goodie_Check. Picks up
 // the crate overlay in this cell for the foot object entering it: the powerup comes from the overlay
 // data or the crate shares, is replaced by money when it would have no effect, and then takes effect.
 #include "shared/cell.hpp"
@@ -72,7 +72,7 @@ inline int Length3(CoordStruct const &c)
 }
 
 
-bool CellClass::unknown_476cc0(ObjectClass *crate_object)
+bool CellClass::Goodie_Check(ObjectClass *crate_object)
 {
     FootClass *object = (FootClass *)crate_object;
     if (object != 0 && OverlayIndex != -1 && OverlayTypes[OverlayIndex]->Crate) {
@@ -232,11 +232,11 @@ crate_money:
                 if (tibtype == 1) {
                     tibtype = 0;
                 }
-                unknown_47c3a0(tibtype, true);
+                Place_Tiberium(tibtype, true);
                 int count = Random_Pick(10, 20);
                 while (count--) {
                     CoordStruct scatter = Coord_Scatter(Center_Coord(), Random_Pick(0, 3 * 256), true);
-                    Map[scatter].unknown_47c3a0(tibtype, true);
+                    Map[scatter].Place_Tiberium(tibtype, true);
                 }
                 break;
             }

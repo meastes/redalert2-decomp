@@ -10,7 +10,7 @@
 #include "shared/rules.hpp"
 #include "shared/gscreen.hpp"
 #include "shared/techno_map.hpp"
-// @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?unknown_b263d8@@3HA=00b263d8
@@ -35,7 +35,7 @@ int TechnoClass::unknown_slot25(bool arg1, int arg2)
             HouseClass *house = (HouseClass *)arg2;
             if (house != 0) {
                 Cell cell = Coord_Cell(CoordStruct(Coord));
-                if (((UnknownCellClass *)&Map[cell])->unknown_47c2e0(house->ArrayIndex)) {
+                if (((UnknownCellClass *)&Map[cell])->Is_Sensed(house->ArrayIndex)) {
                     return 3;
                 }
             }
@@ -47,7 +47,7 @@ int TechnoClass::unknown_slot25(bool arg1, int arg2)
                 return 3;
             }
             Cell cell = Coord_Cell(CoordStruct(Coord));
-            if (((UnknownCellClass *)&Map[cell])->unknown_47c2e0(unknown_player_a35db4->ArrayIndex)) {
+            if (((UnknownCellClass *)&Map[cell])->Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
                 return 3;
             }
             if (unknown_game_mode_a3d298 != 0 && House != 0 && unknown_player_a35db4 != 0

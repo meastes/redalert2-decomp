@@ -1,10 +1,10 @@
-// NON-EXACT DRAFT 0x4718B0 CellClass::unknown_4718b0 (Is_Clear_To_Build)
+// NON-EXACT DRAFT 0x4718B0 CellClass::Is_Clear_To_Build (Is_Clear_To_Build)
 // entry 0x4718B0; exact-match score 71.99 (misses_index best); plan "draft, verify"
 // origin lane: Scout998 (build/class-work/Scout998/w/ctb0.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1089 (native/drafts.json). Not original bytes.
 // Native adaptation (Scout1089): HEAD's signature (non-const, BuildingTypeClass const *), the overlay h2 inline Tiberium_Type_Here as a file-static helper; marked NATIVE.
-// bool CellClass::unknown_4718b0(int speed, BuildingTypeClass *what, HouseClass *who) const (0x004718B0): TibSun Is_Clear_To_Build.
+// bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass *what, HouseClass *who) const (0x004718B0): TibSun Is_Clear_To_Build.
 #include "shared/cell.hpp"
 #include "shared/building_type_class.hpp"
 #include "shared/display.hpp"
@@ -23,7 +23,7 @@ static inline int Tiberium_Type_Here_4718b0(CellClass const *cell)   // NATIVE: 
     return OverlayClass::To_Tiberium(cell->OverlayIndex);
 }
 
-bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseClass *who)   // NATIVE: HEAD's cell_class.hpp signature
+bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, HouseClass *who)   // NATIVE: HEAD's cell_class.hpp signature
 {
     if (unknown_a40774) {
         return true;
@@ -39,7 +39,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
             }
         } else if (!what->LaserFencePost && !what->Gate) {
             if (what->unknown_bf0 == 0) {
-                if (((CellClass *)this)->unknown_471830(Point2D(0, 0), false) != 0) {
+                if (((CellClass *)this)->Cell_Object(Point2D(0, 0), false) != 0) {
                     return false;
                 }
                 if ((unknown_124 & 0x3F) != 0) {
@@ -54,7 +54,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
                 }
             }
         } else {
-            ObjectClass *obj = ((CellClass *)this)->unknown_471830(Point2D(0, 0), false);
+            ObjectClass *obj = ((CellClass *)this)->Cell_Object(Point2D(0, 0), false);
             if (obj != 0) {
                 if (obj->Kind_Of() != 6) {
                     return false;
@@ -107,7 +107,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
 
         if (what != 0 && what->LaserFence) {
             if (OverlayIndex == 0x7E || Tiberium_Type_Here_4718b0(this) != -1) {
-                if (unknown_4788d0() || WasUnderBridge || unknown_11c != 0) {
+                if (Is_Bridge_Here() || WasUnderBridge || unknown_11c != 0) {
                     return false;
                 }
                 return true;
@@ -120,7 +120,7 @@ bool CellClass::unknown_4718b0(int speed, BuildingTypeClass const *what, HouseCl
     }
 
     if (speed == -1) {
-        if (unknown_4788d0() || WasUnderBridge || unknown_11c != 0) {
+        if (Is_Bridge_Here() || WasUnderBridge || unknown_11c != 0) {
             return false;
         }
         if (what->Naval) {

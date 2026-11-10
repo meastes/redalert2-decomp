@@ -3,7 +3,7 @@
 // (Start_Driver) and, when that succeeds, it is the destination at full speed.
 #include "shared/drive_locomotion.hpp"
 #include "shared/cell.hpp"
-// @ref ?unknown_476cc0@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
+// @ref ?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
 // @ref __real@8@3fff8000000000000000=0079a708
 // @ref _unknown_geometry_l=00852998
 

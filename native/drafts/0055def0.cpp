@@ -19,7 +19,7 @@ extern Rect unknown_rect_839630;
 // @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
 // @ref ?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ=00475100
 // @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
-// @ref ?Unknown_0047CC10@CellClass@@QAEXXZ=0047cc10
+// @ref ?Kill_Illegal_Occupiers@CellClass@@QAEXXZ=0047cc10
 // @ref ??$Union@VRect@@@@YI?BVRect@@ABV0@0@Z=0045efe0
 // @ref ??GRectPoint2D@@QBE?AU0@ABU0@@Z=0047d040
 // @ref ??0Rect@@QAE@ABURectPoint2D@@HH@Z=00453e40
@@ -81,9 +81,9 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
         cellptr1->Recalc_Attributes(-1);
         cellptr2->Recalc_Attributes(-1);
         cellptr3->Recalc_Attributes(-1);
-        cellptr1->Unknown_0047CC10();
-        cellptr2->Unknown_0047CC10();
-        cellptr3->Unknown_0047CC10();
+        cellptr1->Kill_Illegal_Occupiers();
+        cellptr2->Kill_Illegal_Occupiers();
+        cellptr3->Kill_Illegal_Occupiers();
 
         if (didwork) {
             Unknown_0054EBD0();

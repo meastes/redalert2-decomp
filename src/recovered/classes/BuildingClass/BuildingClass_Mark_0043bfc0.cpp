@@ -41,7 +41,7 @@ bool BuildingClass::Mark(int mark)
                         for (y = 0; y < h; y++) {
                             for (x = 0; x < w; x++) {
                                 Cell newcell = cell + Cell(x, y);
-                                if (Map[newcell].unknown_4718b0(Type->SpeedType, Type, House)) {
+                                if (Map[newcell].Is_Clear_To_Build(Type->SpeedType, Type, House)) {
                                     if (Map[newcell].IsoTileIndex != Type->unknown_bf0->ArrayIndex && Map[newcell].unknown_ec != 1) {
                                         CellClass *cptr = &Map[newcell];
                                         if (cptr->SmudgeIndex != -1) {
@@ -54,7 +54,7 @@ bool BuildingClass::Mark(int mark)
                                             for (int smy = 0; smy < sptr->Height; smy++) {
                                                 for (int smx = 0; smx < sptr->Width; smx++) {
                                                     Map[position + Cell(smx, smy)].SmudgeIndex = -1;
-                                                    Map[position + Cell(smx, smy)].unknown_47a4e0();
+                                                    Map[position + Cell(smx, smy)].Register_As_Dirty();
                                                 }
                                             }
                                         }
@@ -122,7 +122,7 @@ bool BuildingClass::Mark(int mark)
                                 for (int smy = 0; smy < sptr->Height; smy++) {
                                     for (int smx = 0; smx < sptr->Width; smx++) {
                                         Map[position + Cell(smx, smy)].SmudgeIndex = -1;
-                                        Map[position + Cell(smx, smy)].unknown_47a4e0();
+                                        Map[position + Cell(smx, smy)].Register_As_Dirty();
                                     }
                                 }
                             }

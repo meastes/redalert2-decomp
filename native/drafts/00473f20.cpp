@@ -47,7 +47,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
                     ok = false;
                 }
             } else if (((BuildingTypeClass *)Map.unknown_11a4)->PowersUpBuilding[0] != '\0') {
-                BuildingClass *building = (BuildingClass *)unknown_471830(Point2D(0, 0), false);
+                BuildingClass *building = (BuildingClass *)Cell_Object(Point2D(0, 0), false);
                 if (building != 0 && building->Kind_Of() == 6) {
                     BuildingTypeClass *ptype = (BuildingTypeClass *)Map.unknown_11a4;
                     if (building->unknown_44d900(ptype, unknown_player_a35db4)) {
@@ -56,7 +56,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
                 }
             } else {
                 if (Map.unknown_117c && Map.unknown_11a4 != 0 && ((ObjectTypeClass const *)Map.unknown_11a4)->Kind_Of() == 7
-                        && unknown_4718b0(loco, (BuildingTypeClass const *)Map.unknown_11a4, unknown_player_a35db4)
+                        && Is_Clear_To_Build(loco, (BuildingTypeClass const *)Map.unknown_11a4, unknown_player_a35db4)
                         && !(((BuildingTypeClass *)Map.unknown_11a4)->unknown_bf0 != 0 && unknown_ec == 1)) {
                     ok = true;
                 }

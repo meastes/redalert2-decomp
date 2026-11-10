@@ -10,7 +10,7 @@
 #include "shared/id_source.hpp"
 #include "shared/crt_memory.hpp"
 
-// @ref ?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z=004718b0
+// @ref ?Is_Clear_To_Build@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z=004718b0
 // @ref ?Set_Under_Bridge@CellClass@@QAEXI_N@Z=004732d0
 // @ref ?Set_Under_Rail_Bridge@CellClass@@QAEXI_N@Z=00473700
 
@@ -84,12 +84,12 @@ bool OverlayClass::Mark(int mark)
                     new VeinholeMonsterClass(&cellptr->MapCoords);
                 }
             } else if (type == 0x7E && !unknown_a40774) {
-                cellptr->unknown_47ad00();
+                cellptr->Place_Veins();
             } else if (Class->Land == 9) {
                 cellptr->OverlayIndex = Class->ArrayIndex;
                 cellptr->OverlayData = 0;
             } else if (Class->Wall) {
-                if (cellptr->unknown_4718b0(1, 0, 0)) {
+                if (cellptr->Is_Clear_To_Build(1, 0, 0)) {
                     cellptr->OverlayIndex = Class->ArrayIndex;
                     cellptr->OverlayData = 0;
                     cellptr->Wall_Update(true);
@@ -284,7 +284,7 @@ bool OverlayClass::Mark(int mark)
                     coord.Z = Map.Get_Height_GL(CoordStruct(Coord));
                     AnimClass *aptr = new AnimClass(Class->CellAnim, coord + CoordStruct(0x180, 0x180, 0), 0, 1, 0x600, 0);
 
-                    int tibtype = cellptr->Get_Tiberium_Type();
+                    int tibtype = cellptr->Tiberium_Type_Here();
                     if (tibtype != -1) {
                         TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tibtype];
                         if (tiberium != 0) {

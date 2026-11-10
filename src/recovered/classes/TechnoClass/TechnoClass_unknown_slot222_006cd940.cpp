@@ -17,7 +17,7 @@
 #include "shared/techno_map.hpp"
 // @ref ?Map@@3VMapClass@@A=008324e0
 // @ref ?unknown_6155e0@TechnoClass@@QAEXXZ=006155e0
-// @ref ?unknown_476b20@UnknownCellClass@@QAEXHH@Z=00476b20
+// @ref ?Adjust_Threat@UnknownCellClass@@QAEXHH@Z=00476b20
 // @ref ?Unknown_004ED610@HouseClass@@QAEXPAVTechnoClass@@_N@Z=004ed610
 
 bool TechnoClass::unknown_slot222(HouseClass *house, int arg2)

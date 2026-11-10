@@ -60,7 +60,7 @@ int MapClass::Unknown_0054B2E0()
         iter->Recalc_Attributes(-1);
         if (iter->OverlayIndex != -1) {
             if (unknown_overlay_types_a35de8[iter->OverlayIndex]->unknown_278) {
-                iter->unknown_4724a0();
+                iter->Set_Wall_Owner();
             }
         }
 

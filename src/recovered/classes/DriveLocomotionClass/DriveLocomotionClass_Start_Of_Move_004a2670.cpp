@@ -125,7 +125,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                                 } else {
                                     is_bridge = true;
                                 }
-                                cellptr->unknown_476920(&unknown_geometry_l, true, true, is_bridge);
+                                cellptr->Incoming(&unknown_geometry_l, true, true, is_bridge);
                             }
                         }
                     }
@@ -185,7 +185,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     } else {
                         is_bridge = true;
                     }
-                    cellptr->unknown_476920(&unknown_geometry_l, true, true, is_bridge);
+                    cellptr->Incoming(&unknown_geometry_l, true, true, is_bridge);
                 }
             }
         }
@@ -257,7 +257,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         } else {
                             is_bridge = true;
                         }
-                        Map[destcell].unknown_476920(&unknown_geometry_l, true, true, is_bridge);
+                        Map[destcell].Incoming(&unknown_geometry_l, true, true, is_bridge);
                     } else {
                         Stop_Driver();
                         if (unknown_4a4850()) {
@@ -303,9 +303,9 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);
                     return Start_Of_Move(stop_processing, false, false);
                 }
-                if (Map[destcell].unknown_471830(Point2D(0, 0), 0)) {
-                    if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[destcell].unknown_471830(Point2D(0, 0), 0))) {
-                        LinkedTo->Override_Mission(1, Map[destcell].unknown_471830(Point2D(0, 0), 0), 0);
+                if (Map[destcell].Cell_Object(Point2D(0, 0), 0)) {
+                    if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[destcell].Cell_Object(Point2D(0, 0), 0))) {
+                        LinkedTo->Override_Mission(1, Map[destcell].Cell_Object(Point2D(0, 0), 0), 0);
                     }
                 } else {
                     if (Map[destcell].OverlayIndex != -1 && OverlayTypes[Map[destcell].OverlayIndex]->Wall) {
@@ -414,7 +414,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
 
         if (DriveTrackControl[unknown_58].Flag & 8) {
             int nextcando;
-            if (!Map[destcell].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {
+            if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
                 nextcando = 7;
                 if (!LinkedTo->unknown_7d) return false;
             } else {
@@ -452,7 +452,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                             } else {
                                 is_bridge = true;
                             }
-                            cellptr->unknown_476920(&unknown_geometry_l, true, true, is_bridge);
+                            cellptr->Incoming(&unknown_geometry_l, true, true, is_bridge);
                         } else {
                             Stop_Driver();
                             if (unknown_4a4850()) {

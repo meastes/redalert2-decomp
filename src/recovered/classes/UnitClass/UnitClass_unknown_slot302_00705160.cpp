@@ -11,7 +11,7 @@
 #include "shared/infantry_type.hpp"
 #include "shared/map_view.hpp"
 // @ref ?unknown_6d7910@TechnoClass@@QAE_NH@Z=006d7910
-// @ref ?unknown_476920@CellClass@@QAEXPBX_N11@Z=00476920
+// @ref ?Incoming@CellClass@@QAEXPBX_N11@Z=00476920
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Distance_Squared@ObjectClass@@QBEHABUCoordStruct@@@Z=005d4e00
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
@@ -47,10 +47,10 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
     if (threaten) {
         if (upper) {
             if (cell->unknown_128 & 0x1F) {
-                cell->unknown_476920(&unknown_geometry_l, true, false, true);
+                cell->Incoming(&unknown_geometry_l, true, false, true);
             }
         } else if (cell->unknown_124 & 0x1F) {
-            cell->unknown_476920(&unknown_geometry_l, true, false, false);
+            cell->Incoming(&unknown_geometry_l, true, false, false);
         }
         return;
     }

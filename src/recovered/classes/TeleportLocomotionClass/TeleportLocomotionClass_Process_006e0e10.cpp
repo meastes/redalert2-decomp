@@ -90,7 +90,7 @@ bool __stdcall TeleportLocomotionClass::Process()
                     }
                     LinkedTo->unknown_slot93(2);
                     Stop_Moving();
-                    cell->unknown_476cc0(LinkedTo);
+                    cell->Goodie_Check(LinkedTo);
                     LinkedTo->Assign_Destination(0, true);
                     new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
                     LinkedTo->unknown_214 = 0;

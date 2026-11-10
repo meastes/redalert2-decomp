@@ -3,12 +3,12 @@
 #include "shared/techno.hpp"
 #include "shared/gscreen.hpp"
 #include "shared/techno_map.hpp"
-// @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 
 bool TechnoClass::unknown_slot192(HouseClass *house)
 {
     if (house) {
-        return Map_Cell(Center_Coord())->unknown_47c2e0(house->ArrayIndex);
+        return Map_Cell(Center_Coord())->Is_Sensed(house->ArrayIndex);
     }
     return false;
 }

@@ -5,7 +5,7 @@
 // copy is never called.
 #include "shared/ship_locomotion.hpp"
 #include "shared/cell.hpp"
-// @ref ?unknown_476cc0@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
+// @ref ?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
 // @ref _unknown_geometry_l=00ab91c8
 
 bool ShipLocomotionClass::Start_Driver(CoordStruct const &headto)
@@ -14,7 +14,7 @@ bool ShipLocomotionClass::Start_Driver(CoordStruct const &headto)
     if (headto != unknown_geometry_l) {
         unknown_40 = headto;
         unknown_63 = true;
-        if (Map[headto].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {
+        if (Map[headto].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
             unknown_676b20(headto, 1);
             return true;
         }

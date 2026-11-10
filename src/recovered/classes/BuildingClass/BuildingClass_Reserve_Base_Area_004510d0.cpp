@@ -6,7 +6,7 @@
 #include "shared/house.hpp"
 #include "shared/base.hpp"
 #include "shared/rules.hpp"
-// @ref ?unknown_47bfa0@CellClass@@=0047bfa0
+// @ref ?Occupation_Mask@CellClass@@=0047bfa0
 void BuildingClass::Reserve_Base_Area_004510d0(bool skip_inner_cells)
 {
     int spacing = Rules->AIBaseSpacing;
@@ -39,7 +39,7 @@ void BuildingClass::Reserve_Base_Area_004510d0(bool skip_inner_cells)
         for (int cell_x = top_left.X - 1; cell_x < top_left.X + width + 2; ++cell_x) {
             for (int cell_y = top_left.Y - 1; cell_y < top_left.Y + height + 2; ++cell_y) {
                 Cell cell = Cell(cell_x, cell_y);
-                int mask = Map[cell].unknown_47bfa0(House->ArrayIndex);
+                int mask = Map[cell].Occupation_Mask(House->ArrayIndex);
                 if (mask == 255) House->unknown_55f0.unknown_20.Delete(cell);
                 else if (mask > 0) {
                     if (House->unknown_55f0.unknown_20.ID(cell) == -1) House->unknown_55f0.unknown_20.Add(cell);

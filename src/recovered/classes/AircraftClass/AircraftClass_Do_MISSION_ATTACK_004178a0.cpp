@@ -125,7 +125,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         case 0: {
             unknown_5b0 = true;
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
-            Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
+            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             if (Is_Strafe()) {
                 unknown_a8 = 6;
                 unknown_5ba = true;
@@ -177,7 +177,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             break;
         case 0: {
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
-            Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
+            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             if (unknown_254 != 0) {
                 unknown_a8 = Rules->CurleyShuffle ? 1 : 4;
             } else {
@@ -208,7 +208,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         case 2:
         case 9: {
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
-            Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
+            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
             unknown_a8 = 7;
             return unknown_slot231(0)->WeaponType->unknown_b0;
@@ -232,7 +232,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         case 2:
         case 9: {
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
-            Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
+            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
             unknown_a8 = 8;
             return unknown_slot231(0)->WeaponType->unknown_b0;
@@ -256,7 +256,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         case 2:
         case 9: {
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
-            Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
+            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(unknown_228, true);
             unknown_a8 = 9;
             return unknown_slot231(0)->WeaponType->unknown_b0;
@@ -279,7 +279,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         case 8:
         case 9: {
             unknown_slot221(unknown_228, unknown_slot174(unknown_228));
-            Map[unknown_228->Center_Coord()].unknown_476920(&Position_Coord_004f3f40(), true, false, false);
+            Map[unknown_228->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             unknown_a8 = 3;
             return (unknown_slot231(0)->WeaponType->unknown_b4 + 0x400) / Type->Speed;
         }

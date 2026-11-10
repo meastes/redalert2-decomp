@@ -11,6 +11,12 @@ is bytes x (100 - best score), the pass order the owner uses.
 
 Nothing here is acceptance evidence; it is an index of the notes.
 
+A rescore sidecar (docs/MISSES_RESCORE.tsv by default, written by a rescore lane: entry, head, score, compiles,
+draft, harness, note) overrides the note-derived numbers for the rows it names: `head` shows the score the named
+draft reproduces at that commit ('-' when it no longer compiles), the rank uses it, and `stale` marks rows whose
+recorded best is above the reproduced score or whose draft does not compile. Rows the sidecar does not name keep
+the note numbers.
+
     python3 tools/original_target/misses_index.py                      # table to stdout
     python3 tools/original_target/misses_index.py --json build/misses-index.json --markdown build/misses-index.md
     python3 tools/original_target/misses_index.py --entry 0x4370E0      # one row's full history
@@ -22,7 +28,7 @@ import sys
 from collections import OrderedDict, defaultdict
 from pathlib import Path
 
-REPOSITORY = Path(__file__).resolve().parents[2]
+REPOSITORY = Path('/Users/ivalice/Code/redalert2-native')
 SECTION = re.compile(r'^## +(\S+) +\((\d{4}-\d{2}-\d{2})?[^)]*\)')
 ADDR = re.compile(r'\b0x([0-9A-Fa-f]{5,8})\b')
 SCORE = re.compile(r'(?<![\d.,])(\d{1,2}\.\d{2}|100(?:\.00?)?)(?!\d|\.\d|,\d)')
@@ -185,7 +191,29 @@ def bind(line, lane, resolve=None):
     return out
 
 
-def build(open_misses, treemap, resolve=None):
+def load_rescore(path):
+    """entry -> dict(head, score, compiles, draft, harness, note) from a rescore TSV; the latest line per entry wins."""
+    out = {}
+    if not path or not path.exists():
+        return out
+    lines = path.read_text(errors='replace').splitlines()
+    head = [c.strip() for c in lines[0].split('\t')] if lines else []
+    for line in lines[1:]:
+        if not line.strip():
+            continue
+        cells = dict(zip(head, line.split('\t')))
+        try:
+            entry = int(cells.get('entry', ''), 16)
+        except ValueError:
+            continue
+        score = cells.get('head_score') or cells.get('score') or '-'
+        out[entry] = dict(head=cells.get('head', ''), score=float(score) if score not in ('', '-') else None,
+                          compiles=cells.get('compiles', ''), draft=cells.get('draft', ''),
+                          harness=cells.get('harness', ''), note=cells.get('note', ''))
+    return out
+
+
+def build(open_misses, treemap, resolve=None, rescore=None):
     rows = {}
     if treemap:
         for r in treemap:
@@ -240,6 +268,15 @@ def build(open_misses, treemap, resolve=None):
                  pending=pending, causes=sorted(causes, key=lambda c: -causes[c])[:3], evidence=sorted(evidence),
                  drafts=drafts, draft=draft, draft_ambiguous=draft is None and any(x['draft_ambiguous'] for x in h),
                  rank=(r['bytes'] or 0) * (100 - (best if best is not None else 0)), history=h)
+        rs = (rescore or {}).get(e)
+        if rs:
+            # The reproduced HEAD score ranks the row; a draft that no longer compiles ranks as if unscored.
+            r.update(head=rs['head'], head_score=rs['score'], head_compiles=rs['compiles'], head_draft=rs['draft'],
+                     head_harness=rs['harness'], head_note=rs['note'],
+                     stale=rs['score'] is None or (best is not None and rs['score'] < best - 0.005),
+                     rank=(r['bytes'] or 0) * (100 - (rs['score'] if rs['score'] is not None else 0)))
+            if rs['draft']:
+                r['draft'] = rs['draft'] if rs['draft'].startswith('build/') else 'build/class-work/' + rs['draft']
         out.append(r)
     out.sort(key=lambda r: -r['rank'])
     return out
@@ -250,12 +287,16 @@ def short_draft(path):
 
 
 def render(out, markdown):
-    head = ['entry', 'bytes', 'best', 'tries', 'last', 'pending', 'causes', 'evidence', 'draft', 'rank']
+    head = ['entry', 'bytes', 'best', 'head', 'stale', 'tries', 'last', 'pending', 'causes', 'evidence', 'draft', 'rank']
     lines = []
     for r in out:
         best = ('%.2f' % r['best']) if r['best'] is not None else ('?' if r['best_ambiguous'] else '-')
+        if 'head_score' in r:
+            head_score = ('%.2f' % r['head_score']) if r['head_score'] is not None else 'broken'
+        else:
+            head_score = ''
         draft = short_draft(r['draft'])[-48:] if r['draft'] else ('?' if r['draft_ambiguous'] else '')
-        lines.append(['0x%06X' % r['entry'], format(r['bytes'], ','), best,
+        lines.append(['0x%06X' % r['entry'], format(r['bytes'], ','), best, head_score, 'yes' if r.get('stale') else '',
                       str(r['attempts']), r['last_lane'], 'yes' if r['pending'] else '', ' '.join(r['causes']),
                       ' '.join(r['evidence']), draft, format(r['rank'] // 100, ',')])
     if markdown:
@@ -274,6 +315,8 @@ def main():
     ap.add_argument('--markdown', type=Path, help='write the ranked table as markdown here')
     ap.add_argument('--lanes-root', type=Path, default=REPOSITORY,
                     help='checkout whose build/class-work/<lane>/ folders resolve bare draft names (default: this one)')
+    ap.add_argument('--rescore', type=Path, default=REPOSITORY / 'docs/MISSES_RESCORE.tsv',
+                    help='rescore sidecar TSV (entry, head, score, compiles, draft, harness, note); missing = note numbers only')
     ap.add_argument('--entry', help='print one row with its full history')
     ap.add_argument('--top', type=int, default=60, help='rows to print on stdout')
     args = ap.parse_args()
@@ -288,7 +331,7 @@ def main():
     if treemap and false_path.exists():
         false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']}
         treemap = [r for r in treemap if r['entry'] not in false_rows]
-    out = build(text, treemap, lane_resolver(args.lanes_root))
+    out = build(text, treemap, lane_resolver(args.lanes_root), load_rescore(args.rescore))
     if args.entry:
         e = int(args.entry, 16)
         for r in out:
@@ -296,6 +339,10 @@ def main():
                 print('0x%06X %s %s bytes, best %s, %d lanes, pending=%s, causes=%s, evidence=%s, draft %s' % (
                     e, r['name'], format(r['bytes'], ','), r['best'] if r['best'] is not None else ('?' if r['best_ambiguous'] else '-'),
                     r['attempts'], r['pending'], r['causes'], r['evidence'], r['draft'] or ('?' if r['draft_ambiguous'] else '-')))
+                if 'head_score' in r:
+                    print('  rescored at %s: %s (%s), draft %s\n    %s' % (
+                        r['head'], r['head_score'] if r['head_score'] is not None else 'does not compile',
+                        r['head_note'][:200], r['head_draft'], r['head_harness'][:300]))
                 for x in r['history']:
                     print('  %s %s %s  %s' % (x['date'], x['lane'], x['score'] if x['score'] is not None else
                                              ('?' if x['score_ambiguous'] else '-'), x['text'][:220]))
@@ -308,8 +355,9 @@ def main():
         args.markdown.write_text('# Per-row miss index (generated by misses_index.py; rank = bytes x (100 - best) / 100)\n\n'
                                  + render(out, True) + '\n')
     print(render(out[:args.top], False))
-    print('%d unaccepted rows with notes; %d pending a ruling; %d with 3+ attempts' % (
-        len(out), sum(1 for r in out if r['pending']), sum(1 for r in out if r['attempts'] >= 3)))
+    print('%d unaccepted rows with notes; %d pending a ruling; %d with 3+ attempts; %d rescored, %d stale' % (
+        len(out), sum(1 for r in out if r['pending']), sum(1 for r in out if r['attempts'] >= 3),
+        sum(1 for r in out if 'head_score' in r), sum(1 for r in out if r.get('stale'))))
 
 
 if __name__ == '__main__':

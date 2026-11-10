@@ -1,11 +1,11 @@
-// void CellClass::unknown_473b30(ObjectClass *object, bool alt) (0x00473B30): TibSun's Occupy_Down: links
+// void CellClass::Occupy_Down(ObjectClass *object, bool alt) (0x00473B30): TibSun's Occupy_Down: links
 // object into the occupier list (alt: the alternate list), a building at the end of the chain, reveals it
 // and marks the cell's occupy bit.
 #include "shared/cell.hpp"
 #include "shared/object.hpp"
 #include "shared/map_view.hpp"
 
-void CellClass::unknown_473b30(ObjectClass *object, bool alt)
+void CellClass::Occupy_Down(ObjectClass *object, bool alt)
 {
     ObjectClass *optr = alt ? AltOccupierPtr : OccupierPtr;
 

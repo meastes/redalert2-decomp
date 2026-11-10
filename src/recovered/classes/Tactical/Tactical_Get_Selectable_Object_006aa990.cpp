@@ -14,7 +14,7 @@
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_tactical_pixels_abe5f8@@3PAUTacticalObjectPixel@@A=00abe5f8
 // @ref ?Infantry_As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVObjectClass@@@Z=0040dbd0
-// @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 // @ref ??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z=00548000
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref ?Map@@3VMapClass@@A=008324e0
@@ -43,7 +43,7 @@ ObjectClass *Tactical::Get_Selectable_Object_006aa990(Point2D const &point)
 
             if (tech != 0) {
                 if (obj->unknown_7d && !tech->unknown_76) {
-                    if (tech->unknown_372 || tech->unknown_1b8 != 2 || ((UnknownCellClass *)&Map[tech->Center_Coord()])->unknown_47c2e0(unknown_player_a35db4->ArrayIndex)) {
+                    if (tech->unknown_372 || tech->unknown_1b8 != 2 || ((UnknownCellClass *)&Map[tech->Center_Coord()])->Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
                         pass = true;
                     }
                 }

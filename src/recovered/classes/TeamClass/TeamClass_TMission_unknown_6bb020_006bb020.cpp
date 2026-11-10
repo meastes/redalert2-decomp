@@ -8,14 +8,14 @@
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?unknown_6631a0@UnknownIDSource@@QAEPAVCellClass@@H@Z=006631a0
 // @ref ?unknown_func_6b9bb0@TeamClass@@QAEXXZ=006b9bb0
-// @ref ?unknown_471830@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z=00471830
+// @ref ?Cell_Object@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z=00471830
 
 void TeamClass::TMission_unknown_6bb020(ScriptMissionClass const &mission, bool unknown)
 {
     if (unknown) {
         CellClass *cell = unknown_id_source_a3d290->unknown_6631a0(mission.Data);
         if (cell != 0 && cell->Kind_Of() == 0xB) {
-            ObjectClass *occupant = cell->unknown_471830(Point2D(0, 0), cell->unknown_140 >> 8 & 1);
+            ObjectClass *occupant = cell->Cell_Object(Point2D(0, 0), cell->unknown_140 >> 8 & 1);
             if (occupant != 0) {
                 cell = (CellClass *)occupant;
             }

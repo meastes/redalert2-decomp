@@ -32,7 +32,7 @@ void TiberiumClass::Process_Growth()
         UnknownVeinNode *node = GrowthQueue->Remove_Min();
         while (index < count && node != 0) {
             CellClass *cellptr = &Map[node->Position];
-            if (cellptr->Get_Tiberium_Type() == ArrayIndex) {
+            if (cellptr->Tiberium_Type_Here() == ArrayIndex) {
                 cellptr->Grow_Tiberium();
                 if (cellptr->OverlayData < 11) {
                     GrowthData[GrowthCount].Position = node->Position;

@@ -4,8 +4,8 @@
     "id": "population-4453",
     "inventory_sha256": "ea5762d5548bceca3d8134307b4c56eff483fecfd4ed8adbf17baedbe77ad8d0",
     "gaps_sha256": "ba4ebc621bce9d7f6bad0a6c50aeaf111d58d38e882fb0ff34bb477da0979385",
-    "historical_population_sha256": "b2367353e8cb0ffc0d33f2a6f863f939c07d24d0a5df73668a3a0e7dc4cf9284",
-    "historical_acceptance_sha256": "38d2f0a41232437fe5b240d2ba04a641b22d5b47c1d20a32e5f4df3776243631"
+    "historical_population_sha256": "8c5d3ac082134d3799fbf7bee16edd1e2c76401bb959f05fa1b594b189c2fb68",
+    "historical_acceptance_sha256": "19f61f480f8082835558df5e14ce5a0c988415626f1bd419d9de6d189aaa2350"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1828,7 +1828,7 @@
     "?unknown_cell_850bd8@@3VCell@@A": 8719320,
     "?Ground@@3PAUGroundType@@A": 8720032,
     "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": 10736272,
-    "?unknown_47c3a0@CellClass@@QAE_NHH@Z": 4703136,
+    "?Place_Tiberium@CellClass@@QAE_NHH@Z": 4703136,
     "?unknown_map_cells_832614@@3V?$VectorClass@PAVCellClass@@@@A": 8594964,
     "??0?$VectorClass@PAVFoggedObjectClass@@@@QAE@IPBQAVFoggedObjectClass@@@Z": 4706528,
     "?unknown_map_cells_832618@@3PAPAVCellClass@@A": 8594968,
@@ -1893,21 +1893,21 @@
     "?Find_Object@CellClass@@": 4659040,
     "?Cell_Building@CellClass@@": 4659120,
     "?Cell_Terrain@CellClass@@": 4659168,
-    "?unknown_471830@CellClass@@": 4659248,
-    "?unknown_4718b0@CellClass@@": 4659376,
-    "?unknown_4724a0@CellClass@@": 4662432,
+    "?Cell_Object@CellClass@@": 4659248,
+    "?Is_Clear_To_Build@CellClass@@": 4659376,
+    "?Set_Wall_Owner@CellClass@@": 4662432,
     "?Recalc_Attributes@CellClass@@QAEXH@Z": 4662592,
     "?Set_Under_Bridge@CellClass@@QAEXI_N@Z": 4666064,
     "?Set_Under_Rail_Bridge@CellClass@@QAEXI_N@Z": 4667136,
-    "?unknown_473b30@CellClass@": 4668208,
-    "?unknown_473d20@CellClass@@": 4668704,
+    "?Occupy_Down@CellClass@": 4668208,
+    "?Occupy_Up@CellClass@@": 4668704,
     "?Cell_Unit@CellClass@@": 4668976,
     "?Cell_Aircraft@CellClass@@": 4669056,
     "?Cell_Infantry@CellClass@@": 4669136,
     "?Draw_Placement_Cursor@CellClass@@": 4669216,
     "?Draw_Fog_Shape@CellClass@@": 4670736,
-    "?unknown_474830@CellClass@@": 4671536,
-    "?unknown_4749c0@CellClass@@": 4671936,
+    "?Draw_Overlay_Shadow@CellClass@@": 4671536,
+    "?Draw_Overlay@CellClass@@": 4671936,
     "?Overlay_Render_Rect@CellClass@@": 4673200,
     "?Overlay_Shadow_Render_Rect@CellClass@@": 4673792,
     "?Cell_Render_Rect@CellClass@": 4674224,
@@ -1921,20 +1921,20 @@
     "?unknown_475d60@CellClass@@": 4676960,
     "?unknown_475fe0@CellClass@@QAEHH@Z": 4677600,
     "?Unknown_004763D0@@": 4678608,
-    "?unknown_476460@CellClass@@": 4678752,
+    "?Is_Spot_Free@CellClass@@": 4678752,
     "?Closest_Free_Spot@CellClass@@": 4678832,
     "?unknown_476750@CellClass@@": 4679504,
     "?Clear_Icon@CellClass@@": 4679584,
-    "?unknown_476920@CellClass@@": 4679968,
+    "?Incoming@CellClass@@": 4679968,
     "?Adjacent_Cell@CellClass@@QAEAAV1@I@Z": 4680384,
-    "?unknown_476b20@CellClass@@": 4680480,
+    "?Adjust_Threat@CellClass@@": 4680480,
     "?Tiberium_Adjust@CellClass@@": 4680608,
-    "?unknown_476cc0@CellClass@@": 4680896,
+    "?Goodie_Check@CellClass@@": 4680896,
     "?unknown_4786d0@CellClass@@": 4687568,
     "?unknown_478720@CellClass@@": 4687648,
     "?unknown_478740@CellClass@@": 4687680,
     "?Is_Clear_To_Move@CellClass@@": 4687712,
-    "?unknown_4788d0@CellClass@@QBE_NXZ": 4688080,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
     "?Can_Tiberium_Grow@CellClass@@": 4688096,
     "?Can_Tiberium_Spread@CellClass@@": 4688208,
     "?Grow_Tiberium@CellClass@@": 4688336,
@@ -1942,26 +1942,26 @@
     "?Can_Tiberium_Germinate@CellClass@@": 4688800,
     "?Load@CellClass@@": 4689072,
     "?Save@CellClass@@": 4689616,
-    "?unknown_478f40@CellClass@@": 4689728,
+    "?Recalc_Passability@CellClass@@": 4689728,
     "?Init_Drawer@CellClass@@": 4690160,
     "?Pick_Drawer@CellClass@@": 4690704,
     "?Init_Light@CellClass@@": 4691008,
-    "?unknown_4798f0@CellClass@@": 4692208,
-    "?unknown_479ac0@CellClass@@": 4692672,
+    "?Recalc_Light@CellClass@@": 4692208,
+    "?Bounce_Direction@CellClass@@": 4692672,
     "?Has_Tunnel@CellClass@@": 4693184,
     "?Is_Near_Tunnel_NW@CellClass@@": 4693232,
     "?Is_Near_Tunnel_ES@CellClass@@": 4693872,
-    "?unknown_47a160@CellClass@@": 4694368,
+    "?Force_New_Slope_For_Occupiers@CellClass@@": 4694368,
     "?unknown_47a200@CellClass@@": 4694528,
-    "?Get_Tiberium_Type@CellClass@@": 4694560,
+    "?Tiberium_Type_Here@CellClass@@": 4694560,
     "?Get_Tiberium_Value@CellClass@@": 4694576,
     "?Is_Tile_Water@CellClass@@": 4694640,
-    "?unknown_47a290@CellClass@@": 4694672,
+    "?Occupier_Height@CellClass@@": 4694672,
     "?unknown_47a340@CellClass@@": 4694848,
     "?Set_CellID@CellClass@@": 4695120,
     "?Attach_Tag@CellClass@@": 4695136,
-    "?unknown_47a4e0@CellClass@@": 4695264,
-    "?unknown_47a5a0@CellClass@@": 4695456,
+    "?Register_As_Dirty@CellClass@@": 4695264,
+    "?Get_Vein_Frame@CellClass@@": 4695456,
     "?Can_Place_Veins@CellClass@@": 4695664,
     "?Redraw_Veins@CellClass@@": 4695968,
     "?unknown_47b590@CellClass@@": 4699536,
@@ -1986,31 +1986,31 @@
     "?unknown_slot22@CellClass@@": 4700832,
     "?unknown_47bb10@CellClass@@": 4700944,
     "?unknown_47bb30@CellClass@@": 4700976,
-    "?unknown_47bc80@CellClass@@": 4701312,
+    "?Fog_Cell@CellClass@@": 4701312,
     "?unknown_47be00@CellClass@@": 4701696,
     "?Remove_Fogged_Objects@CellClass@@": 4701792,
-    "?unknown_47bfa0@CellClass@@": 4702112,
+    "?Occupation_Mask@CellClass@@": 4702112,
     "?unknown_47c040@CellClass@@": 4702272,
     "?Register_For_Redraw@CellClass@@": 4702336,
     "?Can_Burrow_Here@CellClass@@": 4702720,
     "?Is_House_Bit@CellClass@@": 4702912,
     "?Set_House_Bit@CellClass@@": 4703008,
     "?Clear_House_Bit@CellClass@@": 4703040,
-    "?unknown_47c3a0@CellClass@@": 4703136,
+    "?Place_Tiberium@CellClass@@": 4703136,
     "?unknown_47c840@CellClass@@": 4704320,
     "?unknown_47c8a0@CellClass@@": 4704416,
-    "?unknown_47c930@CellClass@@": 4704560,
+    "?On_Bridge_Collapse@CellClass@@": 4704560,
     "?unknown_47cb50@CellClass@@": 4705104,
     "?unknown_47cbb0@CellClass@@": 4705200,
-    "?unknown_47cc10@CellClass@@": 4705296,
-    "?unknown_47cdd0@CellClass@@": 4705744,
+    "?Kill_Illegal_Occupiers@CellClass@@": 4705296,
+    "?Can_Build_Here@CellClass@@": 4705744,
     "?unknown_47ce50@CellClass@@": 4705872,
     "?unknown_47ce70@CellClass@@": 4705904,
     "?Reduce_f0@CellClass@@": 4705984,
     "?Set_unknown_e0@CellClass@@": 4706096,
     "?Adjacent_Cell@CellClass@@SI?AVCell@@ABV2@H@Z": 4706240,
     "?Length@Point2D@@": 4706400,
-    "?unknown_4788d0@CellClass@@QBEIXZ": 4688080,
+    "?Is_Bridge_Here@CellClass@@QBEIXZ": 4688080,
     "?Place_Tiberium@HouseClass@@QAEXHH@Z": 5132784,
     "_?list@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "?AlphaBuffer@@3PAVABuffer@@A": 8590772,
@@ -3969,7 +3969,7 @@
     "?Save@BuildingTypeClass@@UAGJPAUIStream@@H@Z": 4579360,
     "?Load@LayerClass@@QAEJPAUIStream@@@Z": 5458560,
     "?Save@LayerClass@@QAEJPAUIStream@@@Z": 5458448,
-    "?unknown_47cdd0@CellClass@@QBE_NXZ": 4705744,
+    "?Can_Build_Here@CellClass@@QBE_NXZ": 4705744,
     "?Has_Tunnel@CellClass@@QBE_NXZ": 4693184,
     "?unknown_47a120@CellClass@@QBE_NPAVTechnoClass@@@Z": 4694304,
     "?Load@UnitClass@@UAGJPAUIStream@@@Z": 7371808,
@@ -4116,7 +4116,7 @@
     "??_7TechnoClass@@6BINoticeSource@@@": 8047444,
     "?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z": 6515616,
     "?Compute_CRC@RadioClass@@UBEXAAVWWCRCEngine@@@Z": 6515696,
-    "?unknown_476920@CellClass@@QAEXPBX_N11@Z": 4679968,
+    "?Incoming@CellClass@@QAEXPBX_N11@Z": 4679968,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NH@Z": 6402896,
     "?Recalc_Attributes@UnknownAnimCell@@QAEXH@Z": 4662592,
     "?Load@AnimClass@@UAGJPAUIStream@@@Z": 4336688,
@@ -4199,12 +4199,12 @@
     "??1OverlayClass@@UAE@XZ": 6138064,
     "?To_Tiberium@OverlayClass@@SIHH@Z": 6144176,
     "?Can_Place_Veins@CellClass@@QBE_NXZ": 4695664,
-    "?unknown_47ad00@CellClass@@QAEXXZ": 4697344,
+    "?Place_Veins@CellClass@@QAEXXZ": 4697344,
     "??_GOverlayClass@@UAEPAXI@Z": 6144768,
     "?unknown_6612c0@UnknownIDSource@@QAE_NI_N@Z": 6689472,
     "?unknown_661560@UnknownIDSource@@QAE_NI_N@Z": 6690144,
     "?unknown_6631a0@UnknownIDSource@@QAEPAVCellClass@@H@Z": 6697376,
-    "?unknown_471830@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z": 4659248,
+    "?Cell_Object@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z": 4659248,
     "?Compute_CRC@HouseClass@@UBEXAAVWWCRCEngine@@@Z": 5166992,
     "?AI@RadarClass@@UAEXAAHABUPoint2D@@@Z": 6487232,
     "?AI@DisplayClass@@UAEXAAHABUPoint2D@@@Z": 4823584,
@@ -4244,7 +4244,7 @@
     "?AI@UnitClass@@UAEXXZ": 7319808,
     "?AI@AircraftClass@@UAEXXZ": 4278256,
     "?unknown_47c040@CellClass@@QAEHXZ": 4702272,
-    "?Get_Tiberium_Type@CellClass@@QBEHXZ": 4694560,
+    "?Tiberium_Type_Here@CellClass@@QBEHXZ": 4694560,
     "?unknown_475db0@CellClass@@QAEHH@Z": 4677040,
     "?Cell_Infantry@CellClass@@QBEPAVObjectClass@@_N@Z": 4669136,
     "?unknown_47b960@CellClass@@QBE_NXZ": 4700512,
@@ -4262,7 +4262,7 @@
     "?Fetch@?$VectorClass@UScoutStruct@@@@UBE?AUScoutStruct@@H@Z": 5205280,
     "??_7TabClass@@6BINoticeSink@@@": 8021212,
     "??_7TabClass@@6BSidebarClass@@@": 8021220,
-    "?unknown_476460@CellClass@@QBE_NH_N@Z": 4678752,
+    "?Is_Spot_Free@CellClass@@QBE_NH_N@Z": 4678752,
     "?INoticeSink_Unknown@TabClass@@UAE_NHH@Z": 6955040,
     "??0TabClass@@QAE@ABVNoInitClass@@@Z": 5898080,
     "?Init@TerrainTypeClass@@SIXH@Z": 7230560,
@@ -6897,7 +6897,7 @@
     "?unknown_47c200@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Force_New_Slope@DriveLocomotionClass@@UAGXH@Z": 4848688,
     "?Force_New_Slope@ShipLocomotionClass@@UAGXH@Z": 6773744,
-    "?unknown_476b20@UnknownCellClass@@QAEXHH@Z": 4680480,
+    "?Adjust_Threat@UnknownCellClass@@QAEXHH@Z": 4680480,
     "?Find_Object@CellClass@@QBEPAVObjectClass@@H_N@Z": 4659040,
     "?Cell_Unit@CellClass@@QBEPAVObjectClass@@_N@Z": 4668976,
     "?Cell_Aircraft@CellClass@@QBEPAVObjectClass@@_N@Z": 4669056,
@@ -7362,7 +7362,7 @@
     "?unknown_bool_7f7110@@3_NA": 8352016,
     "?unknown_slot254@TechnoClass@@UAEHH@Z": 7174608,
     "?unknown_slot191@TechnoClass@@UAE_NXZ": 7175168,
-    "?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z": 4702944,
+    "?Is_Sensed@UnknownCellClass@@QAE_NH@Z": 4702944,
     "?unknown_slot192@TechnoClass@@UAE_NPAVHouseClass@@@Z": 7175232,
     "?unknown_6d83e0@TechnoClass@@QAE_NXZ": 7177184,
     "?unknown_6d84a0@TechnoClass@@QAEHXZ": 7177376,
@@ -8342,15 +8342,15 @@
     "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z": 6956960,
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegCloseKey@4": 7970820,
-    "?unknown_4724a0@CellClass@@QAEXXZ": 4662432,
+    "?Set_Wall_Owner@CellClass@@QAEXXZ": 4662432,
     "?Has_Wall_Or_Gate@CellClass@@QBE_NHH@Z": 4675648,
     "?unknown_476750@CellClass@@QBEPAVObjectClass@@XZ": 4679504,
-    "?unknown_476b20@CellClass@@QAEXHH@Z": 4680480,
+    "?Adjust_Threat@CellClass@@QAEXHH@Z": 4680480,
     "?Save@CellClass@@UAGJPAUIStream@@H@Z": 4689616,
-    "?unknown_47a160@CellClass@@QAEXXZ": 4694368,
+    "?Force_New_Slope_For_Occupiers@CellClass@@QAEXXZ": 4694368,
     "?unknown_47a340@CellClass@@QAEXPAVAbstractClass@@@Z": 4694848,
     "?Attach_Tag@CellClass@@QAEXPAVTagClass@@@Z": 4695136,
-    "?unknown_47a4e0@CellClass@@QAEXXZ": 4695264,
+    "?Register_As_Dirty@CellClass@@QAEXXZ": 4695264,
     "?unknown_slot22@CellClass@@UBE?AUCoordStruct@@XZ": 4700832,
     "?Can_Burrow_Here@CellClass@@QAE_NXZ": 4702720,
     "__imp__lstrcatA@8": 7971120,
@@ -8364,7 +8364,7 @@
     "__imp__RegCreateKeyExA@36": 7970840,
     "__imp__RegCreateKeyExA": 7970840,
     "_CLSID_FoggedObjectClass": 8003280,
-    "?unknown_473d20@CellClass@@QAEXPAVObjectClass@@_N@Z": 4668704,
+    "?Occupy_Up@CellClass@@QAEXPAVObjectClass@@_N@Z": 4668704,
     "?unknown_BombClass_list_0084eb78@@3V?$DynamicVectorClass@PAVBombClass@@@@A": 8711032,
     "??0Unknown4A6AE0Owner@@QAE@XZ": 4876560,
     "?Compute_CRC@BombClass@@UBEXAAVWWCRCEngine@@@Z": 4415632,
@@ -8532,7 +8532,7 @@
     "?Set_Defaults@UnknownIDSource@@QAEXXZ": 6666288,
     "?Init@SpecialClass@@QAEXXZ": 6861600,
     "?Toggle_Display_Mode_0065c480@@YIX_N@Z": 6669440,
-    "?unknown_476cc0@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
+    "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
     "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
     "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
     "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
@@ -9272,7 +9272,7 @@
     "__imp__HeapDestroy@4": 7971208,
     "?Detach@BulletClass@@UAEXPAVAbstractClass@@_N@Z": 4592928,
     "__imp__SetCursorPos@8": 7971908,
-    "?unknown_47a290@CellClass@@QBEHXZ": 4694672,
+    "?Occupier_Height@CellClass@@QBEHXZ": 4694672,
     "__imp__GetTickCount": 7971020,
     "__imp__GetSystemTime": 7971024,
     "__imp__GlobalMemoryStatus": 7971028,
@@ -9852,11 +9852,11 @@
     "??9WideString@@QBE_NPBG@Z": 7797488,
     "??9WideString@@QBE_NABV0@@Z": 7797552,
     "??HWideString@@QAE?AV0@ABV0@@Z": 7798688,
-    "?unknown_47bc80@CellClass@@QAEXXZ": 4701312,
+    "?Fog_Cell@CellClass@@QAEXXZ": 4701312,
     "?Get_Wide_String@CampaignINI@@QBEHPBD0PAGH@Z": 5304336,
     "?unknown_4754b0@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4674736,
     "?Tiberium_Adjust@CellClass@@QAEH_N@Z": 4680608,
-    "?unknown_47a5a0@CellClass@@QAEHXZ": 4695456,
+    "?Get_Vein_Frame@CellClass@@QAEHXZ": 4695456,
     "?Get@Base64Straw@@UAEHPAXH@Z": 4372560,
     "?Find_Entry@INISection@INIClass@@QBEPAUINIEntry@2@PBD@Z": 5308880,
     "?Put@Base64Pipe@@UAEHPBXH@Z": 4372080,
@@ -10460,7 +10460,7 @@
     "??_E?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518448,
     "??_E?$VectorClass@VWstring@@@@UAEPAXI@Z": 6768608,
     "?Pick_Drawer@CellClass@@QBEXAAPAVLightConvertClass@@AAH1111@Z": 4690704,
-    "?unknown_4798f0@CellClass@@QAEXXZ": 4692208,
+    "?Recalc_Light@CellClass@@QAEXXZ": 4692208,
     "?Render_Tiles@Tactical@@QAEXABVRect@@0_N@Z": 6960752,
     "?Draw_Tiles@Tactical@@QAEXABVRect@@0@Z": 6978464,
     "?Draw_Tiles@Tactical@@QAEXABVCell@@ABVRect@@@Z": 6980960,
@@ -10487,7 +10487,7 @@
     "?Get_Frame@AnimFile@@UAEPAXH@Z": 4342704,
     "??_EWWMouseClass@@UAEPAXI@Z": 7812880,
     "??_EMSFont@@UAEPAXI@Z": 5981808,
-    "?unknown_474830@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
     "?Set_Scenario_Name_0065e730@UnknownIDSource@@QAEXPBD@Z": 6678320,
     "__imp__DialogBoxParamA@20": 7971780,
     "?Unknown_006AAD70@UnknownSelection@@QAEXXZ": 6991216,
@@ -10522,7 +10522,7 @@
     "??_EPlayerProfile@@UAEPAXI@Z": 7577744,
     "?Draw_Screen_Text@Tactical@@QAEXPBG@Z": 6968416,
     "?Binary_Search@@YIPAUNodeElement@UnknownBuffer@@PAU12@HABU12@@Z": 7182592,
-    "?unknown_47c2e0@CellClass@@QBE_NH@Z": 4702944,
+    "?Is_Sensed@CellClass@@QBE_NH@Z": 4702944,
     "?Fetch@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UBE?AU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@H@Z": 6507536,
     "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z": 6957168,
     "?Unknown_0067C370@SidebarClass@@QAE_NPAVFactoryClass@@HH@Z": 6800240,
@@ -10598,7 +10598,6 @@
     "?FUN_0077c8a0@": 7850144,
     "?unknown_TubeClass_list_008661c8@@": 8806856,
     "?Cell_Tube_0047a130@@YIPAVTubeClass@@PBVCellClass@@@Z": 4694320,
-    "?Unknown_004798F0@CellClass@@QAEXXZ": 4692208,
     "?unknown_47a270@CellClass@@QAE_NXZ": 4694640,
     "?unknown_47c900@CellClass@@QAEXXZ": 4704512,
     "?Unknown_004712c0@CellClass@@QAEXPAVRGBClass@@0@Z": 4657856,
@@ -10634,7 +10633,7 @@
     "??_EConflict@WorldDominationTour@@UAEPAXI@Z": 7502640,
     "?unknown_func_4ed2b0@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
     "?Update_Firestorm_Wall_00450950@BuildingClass@@QAEXXZ": 4524368,
-    "?Unknown_0047A130@UnknownCellClass@@QAEPAUUnknownTube47A130@@XZ": 4694320,
+    "?Get_Tunnel@UnknownCellClass@@QAEPAUUnknownTube47A130@@XZ": 4694320,
     "?Create_Damage_Fires_004395f0@BuildingClass@@QAEXXZ": 4429296,
     "?Flush_For_Placement_0044a3d0@BuildingClass@@QAEHPBVTechnoClass@@ABVCell@@@Z": 4498384,
     "?Factory_AI_0044b480@BuildingClass@@QAEXXZ": 4502656,
@@ -10747,11 +10746,11 @@
     "??_7LightSourceClass@@6B@": 8017248,
     "??_ELightSourceClass@@UAEPAXI@Z": 5471280,
     "?Closest_Free_Spot@CellClass@@QBE?AUCoordStruct@@ABU2@_N1@Z": 4678832,
-    "?unknown_478f40@CellClass@@QAEXXZ": 4689728,
-    "?unknown_479ac0@CellClass@@QBEHABUCoordStruct@@@Z": 4692672,
+    "?Recalc_Passability@CellClass@@QAEXXZ": 4689728,
+    "?Bounce_Direction@CellClass@@QBEHABUCoordStruct@@@Z": 4692672,
     "?unknown_47b5e0@CellClass@@QBE_NXZ": 4699616,
     "?unknown_47bb30@CellClass@@QAEXXZ": 4700976,
-    "?unknown_47bfa0@CellClass@@QAEHH@Z": 4702112,
+    "?Occupation_Mask@CellClass@@QAEHH@Z": 4702112,
     "?Is_Direct_Draw@XSurface@@UAE_NXZ": 4264720,
     "?Is_Direct_Draw@Surface@@UAE_NXZ": 4264768,
     "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ": 4708080,
@@ -11634,7 +11633,7 @@
     "?Clear@UnknownVeinHeap@@QAEXXZ": 7416336,
     "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z": 7508704,
     "?Create@WDTTerritory@@SI?AV?$rc_ptr@VWDTTerritory@@@@XZ": 7519680,
-    "?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z": 4659376,
+    "?Is_Clear_To_Build@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z": 4659376,
     "?AI@ParasiteClass@@UAEXXZ": 6319952,
     "??YCentroid@WorldDominationTour@@QAEAAU01@ABUPoint2D@@@Z": 7514048,
     "?Average@Centroid@WorldDominationTour@@QBE?AUPoint2D@@XZ": 7514096,
@@ -11990,7 +11989,7 @@
     "?unknown_func_4f5d30@HouseClass@@QAE_NH@Z": 5201200,
     "?unknown_slot221@AircraftClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z": 4282256,
     "?Do_MISSION_DECONSTRUCTION@BuildingClass@@UAEHXZ": 4479792,
-    "?Unknown_0047A130@CellClass@@QAEPAVTubeClass@@XZ": 4694320,
+    "?Get_Tunnel@CellClass@@QAEPAVTubeClass@@XZ": 4694320,
     "?Do_MISSION_UNLOAD@BuildingClass@@UAEHXZ": 4493968,
     "??_7?$DynamicVectorClass@PAVtConnInfoStruct@@@@6B@": 8059268,
     "??_7?$DynamicVectorClass@N@@6B@": 8019884,
@@ -12058,10 +12057,10 @@
     "?Can_Place@SmudgeTypeClass@@QBE_NABVCell@@_N@Z": 6851136,
     "??_7SmudgeClass@@6B@": 8041868,
     "??_ESmudgeClass@@UAEPAXI@Z": 6847232,
-    "?unknown_473b30@CellClass@@QAEXPAVObjectClass@@_N@Z": 4668208,
+    "?Occupy_Down@CellClass@@QAEXPAVObjectClass@@_N@Z": 4668208,
     "?Draw_Shadow_Cast@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4675024,
-    "?unknown_47c930@CellClass@@QAEXXZ": 4704560,
-    "?unknown_4749c0@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671936,
+    "?On_Bridge_Collapse@CellClass@@QAEXXZ": 4704560,
+    "?Draw_Overlay@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671936,
     "?Clear@?$WolArrayList@VWstring@@@@QAEXXZ": 7758272,
     "?Get@?$WolArrayList@VWstring@@@@QAE_NAAVWstring@@H@Z": 7758528,
     "?Remove@?$WolArrayList@VWstring@@@@QAE_NH@Z": 7758320,
@@ -12100,7 +12099,7 @@
     "??_GNode@?$WolDictionary@VWstring@@UChannel@WOL@@@@QAEPAXI@Z": 7759840,
     "??_ENode@?$WolDictionary@VWstring@@ULadder@WOL@@@@QAEPAXI@Z": 7759744,
     "??_ENode@?$WolDictionary@VWstring@@UChannel@WOL@@@@QAEPAXI@Z": 7759840,
-    "?unknown_47cc10@CellClass@@QAEXXZ": 4705296,
+    "?Kill_Illegal_Occupiers@CellClass@@QAEXXZ": 4705296,
     "?Unknown_0069D680@SuperClass@@QAEXXZ": 6936192,
     "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z": 7310144,
     "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z": 6312432,
@@ -12228,7 +12227,6 @@
     "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
     "?unknown_473000@CellClass@@QAEXXZ": 4665344,
     "??0WDTState@@QAE@PAE@Z": 7520160,
-    "?Unknown_0047CC10@CellClass@@QAEXXZ": 4705296,
     "??0ParticleSystemClass@@QAE@PAVParticleSystemTypeClass@@ABV?$TPoint3D@H@@PAVAbstractClass@@PAVObjectClass@@ABUCoordStruct@@@Z": 6335088,
     "??_GMouseClass@@UAEPAXI@Z": 4247904,
     "??0WDTState@@QAE@XZ": 7519984,
@@ -14761,8 +14759,8 @@
     {
       "entry": 4688080,
       "method": "004788d0",
-      "symbol": "?unknown_4788d0@CellClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_4788d0@CellClass@@QBE_NXZ",
+      "symbol": "?Is_Bridge_Here@CellClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Bridge_Here@CellClass@@QBE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14775,13 +14773,13 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "7900ceca28bc26ac3381d9713a7a3f5c4eba743941295c953f1f3897b944ffbd",
       "relocations": [],
-      "source_sha256": "5f375af2a9d568a43c40bc5d4bff025fe1ea9982162e08ff9f36f2ab019be032",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_4788d0_004788d0.cpp",
+      "source_sha256": "39494e0ef3d15c48a75b5fee3cac433bb21c500a9bf69ae1f8065810868ece96",
+      "source": "src/recovered/classes/CellClass/CellClass_Is_Bridge_Here_004788d0.cpp",
       "population": "population-4453",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_4788d0_004788d0",
+      "semantic_name": "CellClass_Is_Bridge_Here_004788d0",
       "source_order": 240275
     },
     {
@@ -15401,8 +15399,8 @@
     {
       "entry": 4694560,
       "method": "0047a220",
-      "symbol": "?Get_Tiberium_Type@CellClass@@QBEHXZ",
-      "symbol_prefix": "?Get_Tiberium_Type@CellClass@@",
+      "symbol": "?Tiberium_Type_Here@CellClass@@QBEHXZ",
+      "symbol_prefix": "?Tiberium_Type_Here@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -15424,13 +15422,13 @@
           "resolved": 1449608
         }
       ],
-      "source_sha256": "0607bb52f2d29fd562f92bae5cf9ebcb0892a718a900885853732e45131ab8e6",
-      "source": "src/recovered/classes/CellClass/CellClass_Get_Tiberium_Type_0047a220.cpp",
+      "source_sha256": "f8c1a3434770b008563c6856597647bb94de19bfce54b2de621ba3608cb0e164",
+      "source": "src/recovered/classes/CellClass/CellClass_Tiberium_Type_Here_0047a220.cpp",
       "population": "population-4453",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_Get_Tiberium_Type_0047a220",
+      "semantic_name": "CellClass_Tiberium_Type_Here_0047a220",
       "source_order": 240294
     },
     {
@@ -16439,8 +16437,8 @@
     {
       "entry": 4705744,
       "method": "0047cdd0",
-      "symbol": "?unknown_47cdd0@CellClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_47cdd0@CellClass@@",
+      "symbol": "?Can_Build_Here@CellClass@@QBE_NXZ",
+      "symbol_prefix": "?Can_Build_Here@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -16470,13 +16468,13 @@
           "resolved": 8720064
         }
       ],
-      "source_sha256": "864215002995c6be1b3e260134d45a172701372c7566d2c5d6519fb110b09aa0",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47cdd0_0047cdd0.cpp",
+      "source_sha256": "12ea05a94a40f711b91405436750779dfc9ce38b9a8e3d71079d78b8db56e50d",
+      "source": "src/recovered/classes/CellClass/CellClass_Can_Build_Here_0047cdd0.cpp",
       "population": "population-4453",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47cdd0_0047cdd0",
+      "semantic_name": "CellClass_Can_Build_Here_0047cdd0",
       "source_order": 240344
     },
     {
@@ -16712,8 +16710,8 @@
     {
       "entry": 4662432,
       "method": "004724a0",
-      "symbol": "?unknown_4724a0@CellClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_4724a0@CellClass@@",
+      "symbol": "?Set_Wall_Owner@CellClass@@QAEXXZ",
+      "symbol_prefix": "?Set_Wall_Owner@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -16767,13 +16765,13 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "9d6fa8d435185a92da83470f32ea7bdd5f70f55f07175a80c662a18255e06484",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_4724a0_004724a0.cpp",
+      "source_sha256": "525b81a87beca79d477b79d7c59ec65b3f12349b058ee9ba380fb61a847b5437",
+      "source": "src/recovered/classes/CellClass/CellClass_Set_Wall_Owner_004724a0.cpp",
       "population": "population-4453",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_4724a0_004724a0",
+      "semantic_name": "CellClass_Set_Wall_Owner_004724a0",
       "source_order": 240235
     },
     {
@@ -16857,8 +16855,8 @@
     {
       "entry": 4680480,
       "method": "00476b20",
-      "symbol": "?unknown_476b20@CellClass@@QAEXHH@Z",
-      "symbol_prefix": "?unknown_476b20@CellClass@@",
+      "symbol": "?Adjust_Threat@CellClass@@QAEXHH@Z",
+      "symbol_prefix": "?Adjust_Threat@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -16936,13 +16934,13 @@
           "resolved": 10691240
         }
       ],
-      "source_sha256": "f6f27d843c8238d59d1116999f68a0f2e1eb18d53560604265919143cd4a0aad",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_476b20_00476b20.cpp",
+      "source_sha256": "d9b9d7c0f97863ca87abcfa85de21338b3ad838d218f69041a6d203d1199f6c6",
+      "source": "src/recovered/classes/CellClass/CellClass_Adjust_Threat_00476b20.cpp",
       "population": "population-4453",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_476b20_00476b20",
+      "semantic_name": "CellClass_Adjust_Threat_00476b20",
       "source_order": 240268
     },
     {
@@ -16983,8 +16981,8 @@
     {
       "entry": 4694368,
       "method": "0047a160",
-      "symbol": "?unknown_47a160@CellClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_47a160@CellClass@@",
+      "symbol": "?Force_New_Slope_For_Occupiers@CellClass@@QAEXXZ",
+      "symbol_prefix": "?Force_New_Slope_For_Occupiers@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -17006,13 +17004,13 @@
           "resolved": 3258225
         }
       ],
-      "source_sha256": "64bd41b942b757d2d891fca5dcdb69de8ea44a737ef38215eb19bdcf1938dd85",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47a160_0047a160.cpp",
+      "source_sha256": "e1dd89572d0c56a55d7805e341be9d1e646390c8ec70604404a76a13367f8117",
+      "source": "src/recovered/classes/CellClass/CellClass_Force_New_Slope_For_Occupiers_0047a160.cpp",
       "population": "population-4453",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47a160_0047a160",
+      "semantic_name": "CellClass_Force_New_Slope_For_Occupiers_0047a160",
       "source_order": 240292
     },
     {
@@ -17192,8 +17190,8 @@
     {
       "entry": 4695264,
       "method": "0047a4e0",
-      "symbol": "?unknown_47a4e0@CellClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_47a4e0@CellClass@@",
+      "symbol": "?Register_As_Dirty@CellClass@@QAEXXZ",
+      "symbol_prefix": "?Register_As_Dirty@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -17247,13 +17245,13 @@
           "resolved": 2263687
         }
       ],
-      "source_sha256": "fcfca2afb0044cee7d984c7a86229f1176acb89d318d393b92b08961d2f8126e",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47a4e0_0047a4e0.cpp",
+      "source_sha256": "50bba36162f547e21dba35f113af005478c1dbc70754157a2f6a4977ca8874d9",
+      "source": "src/recovered/classes/CellClass/CellClass_Register_As_Dirty_0047a4e0.cpp",
       "population": "population-4453",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47a4e0_0047a4e0",
+      "semantic_name": "CellClass_Register_As_Dirty_0047a4e0",
       "source_order": 240301
     },
     {
@@ -17539,8 +17537,8 @@
     {
       "entry": 4668704,
       "method": "00473d20",
-      "symbol": "?unknown_473d20@CellClass@@QAEXPAVObjectClass@@_N@Z",
-      "symbol_prefix": "?unknown_473d20@CellClass@@",
+      "symbol": "?Occupy_Up@CellClass@@QAEXPAVObjectClass@@_N@Z",
+      "symbol_prefix": "?Occupy_Up@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -17553,13 +17551,13 @@
       "full_extent_bytes": 272,
       "full_extent_sha256": "974efbdc052917ac9469218aab4eb1d4de1543adcaa0a239f3fe2cc8edece591",
       "relocations": [],
-      "source_sha256": "e6413b85016dbdcdff5640c0090f0cd464e163ff0cc69050f755be5ff8ccceaf",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_473d20_00473d20.cpp",
+      "source_sha256": "57b46e4bd9304e7fd75102067b7e1439e4343b0b6403ad1669882df33ef28605",
+      "source": "src/recovered/classes/CellClass/CellClass_Occupy_Up_00473d20.cpp",
       "population": "population-4453",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_473d20_00473d20",
+      "semantic_name": "CellClass_Occupy_Up_00473d20",
       "source_order": 240241
     },
     {
@@ -17766,8 +17764,8 @@
     {
       "entry": 4659248,
       "method": "00471830",
-      "symbol": "?unknown_471830@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z",
-      "symbol_prefix": "?unknown_471830@CellClass@@",
+      "symbol": "?Cell_Object@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z",
+      "symbol_prefix": "?Cell_Object@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -17805,13 +17803,13 @@
           "resolved": 10750296
         }
       ],
-      "source_sha256": "6a202e8135a14b84821d934384025a05d04f51bea7613179625cbf9b49d57a37",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_471830_00471830.cpp",
+      "source_sha256": "8fa09a4f92e373915b99fba1dfdef0f3c3dfb2a9cf0410ec5060569001a14088",
+      "source": "src/recovered/classes/CellClass/CellClass_Cell_Object_00471830.cpp",
       "population": "population-4453",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_471830_00471830",
+      "semantic_name": "CellClass_Cell_Object_00471830",
       "source_order": 240232
     },
     {
@@ -17992,13 +17990,13 @@
         {
           "offset": 102,
           "kind": 20,
-          "symbol": "?unknown_47c3a0@CellClass@@QAE_NHH@Z",
+          "symbol": "?Place_Tiberium@CellClass@@QAE_NHH@Z",
           "target": 4703136,
           "addend": 0,
           "resolved": 14694
         }
       ],
-      "source_sha256": "e0ced913966b7402cb165008ec2c2f06fc40af4e161000f65692216da02195bb",
+      "source_sha256": "681aecd013001e618609725dfb25576083e4e0da96d906ecb7f2f55111ab5a2d",
       "source": "src/recovered/classes/CellClass/CellClass_Grow_Tiberium_004789d0.cpp",
       "population": "population-4453",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -18297,8 +18295,8 @@
     {
       "entry": 4678752,
       "method": "00476460",
-      "symbol": "?unknown_476460@CellClass@@QBE_NH_N@Z",
-      "symbol_prefix": "?unknown_476460@CellClass@@",
+      "symbol": "?Is_Spot_Free@CellClass@@QBE_NH_N@Z",
+      "symbol_prefix": "?Is_Spot_Free@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -18311,13 +18309,13 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "40cad694b9f418a9701a36837403c49adcd1d12f6b0abbb10688b98b42e1d6f1",
       "relocations": [],
-      "source_sha256": "d09f6af89ec376335c497f81d6237ac9067a55f286194cd2f1b2b6a8a959bc0f",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_476460_00476460.cpp",
+      "source_sha256": "4f51d879a445fd4fcec5e36685efc9d00a4ae33ab7931329e46005c17448c38d",
+      "source": "src/recovered/classes/CellClass/CellClass_Is_Spot_Free_00476460.cpp",
       "population": "population-4453",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_476460_00476460",
+      "semantic_name": "CellClass_Is_Spot_Free_00476460",
       "source_order": 240262
     },
     {
@@ -18521,8 +18519,8 @@
     {
       "entry": 4694672,
       "method": "0047a290",
-      "symbol": "?unknown_47a290@CellClass@@QBEHXZ",
-      "symbol_prefix": "?unknown_47a290@CellClass@@",
+      "symbol": "?Occupier_Height@CellClass@@QBEHXZ",
+      "symbol_prefix": "?Occupier_Height@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -18560,20 +18558,20 @@
           "resolved": 4294931301
         }
       ],
-      "source_sha256": "a869612152a24f9067380279ad6f980e70a5b48d3161d9715d9f882d8222fdc5",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47a290_0047a290.cpp",
+      "source_sha256": "3076d56e4e6db6825d589219ba26940396cacc24b093abb7072cae8b0e2aa06a",
+      "source": "src/recovered/classes/CellClass/CellClass_Occupier_Height_0047a290.cpp",
       "population": "population-4453",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47a290_0047a290",
+      "semantic_name": "CellClass_Occupier_Height_0047a290",
       "source_order": 240297
     },
     {
       "entry": 4695456,
       "method": "0047a5a0",
-      "symbol": "?unknown_47a5a0@CellClass@@QAEHXZ",
-      "symbol_prefix": "?unknown_47a5a0@CellClass@@",
+      "symbol": "?Get_Vein_Frame@CellClass@@QAEHXZ",
+      "symbol_prefix": "?Get_Vein_Frame@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -18635,13 +18633,13 @@
           "resolved": 10706412
         }
       ],
-      "source_sha256": "1c57deb80c1430150a0a6f7a2c4a37c2ce0d2827adfeae28d8ee51e9f4fe6d8a",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47a5a0_0047a5a0.cpp",
+      "source_sha256": "e83aa22047886067e2bf0aced77c69c4b16ce61ca33176f255a87a778fd2214c",
+      "source": "src/recovered/classes/CellClass/CellClass_Get_Vein_Frame_0047a5a0.cpp",
       "population": "population-4453",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47a5a0_0047a5a0",
+      "semantic_name": "CellClass_Get_Vein_Frame_0047a5a0",
       "source_order": 240302
     },
     {
@@ -18781,8 +18779,8 @@
     {
       "entry": 4692208,
       "method": "004798f0",
-      "symbol": "?unknown_4798f0@CellClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_4798f0@CellClass@@",
+      "symbol": "?Recalc_Light@CellClass@@QAEXXZ",
+      "symbol_prefix": "?Recalc_Light@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -18860,7 +18858,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "f3db69e4f1c9398f320ff7e63fe2d75bfe29cbebc4fcbc0ca4a83da8f460bf0a",
+      "source_sha256": "9c1589c07dcbc00d4c2ead404c8073978b71ff6b3e1b7f0e029aaacb38b3ec77",
       "source": "src/recovered/classes/CellClass/CellClass_Recalc_Light_004798f0.cpp",
       "population": "population-4453",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -18872,8 +18870,8 @@
     {
       "entry": 4701312,
       "method": "0047bc80",
-      "symbol": "?unknown_47bc80@CellClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_47bc80@CellClass@@",
+      "symbol": "?Fog_Cell@CellClass@@QAEXXZ",
+      "symbol_prefix": "?Fog_Cell@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -18943,7 +18941,7 @@
           "resolved": 4294799066
         }
       ],
-      "source_sha256": "90b1bd992c2a012b7411db0b1ca7f16390a00a3e2640369ff11b9da7b8c64fa7",
+      "source_sha256": "d176848cf6206232c6273231fe1e8cf99125c784cb9c28179489fa8248bbf925",
       "source": "src/recovered/classes/CellClass/CellClass_Fog_Cell_0047bc80.cpp",
       "population": "population-4453",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -18955,8 +18953,8 @@
     {
       "entry": 4671536,
       "method": "00474830",
-      "symbol": "?unknown_474830@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
-      "symbol_prefix": "?unknown_474830@CellClass@@",
+      "symbol": "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+      "symbol_prefix": "?Draw_Overlay_Shadow@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -19018,7 +19016,7 @@
           "resolved": 4294853840
         }
       ],
-      "source_sha256": "4659b2239053bfb3c35c716edda820fbd81cfcc9e8e9577574170783801cc7e6",
+      "source_sha256": "fa0dc50223877e6a3149621a40a2f616496d1e4b4eaf3c303d43340898db281d",
       "source": "src/recovered/classes/CellClass/CellClass_Draw_Overlay_Shadow_00474830.cpp",
       "population": "population-4453",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -19141,7 +19139,7 @@
           "resolved": 8719308
         }
       ],
-      "source_sha256": "64d899bcc9701248d721ed95b8da83bb518b9f1a10e751add7232b2c0156e564",
+      "source_sha256": "4b50d68edfdc3c2a39cdfa4aff67901dddcee7c78d39f5f39893d4aaf5743ae3",
       "source": "src/recovered/classes/CellClass/CellClass_Overlay_Render_Rect_00474eb0.cpp",
       "population": "population-4453",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -19569,7 +19567,7 @@
           "resolved": 8719408
         }
       ],
-      "source_sha256": "917a4e0487cb764d73938072f92dd0d9fafc6cc66dd3eae5e550ad51112e1d40",
+      "source_sha256": "2c4f4bf579f100814c41459fbaef7452af5c472c43380554d659f2a83ea76cbc",
       "source": "src/recovered/classes/CellClass/CellClass_Closest_Free_Spot_004764b0.cpp",
       "population": "population-4453",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -19581,8 +19579,8 @@
     {
       "entry": 4679968,
       "method": "00476920",
-      "symbol": "?unknown_476920@CellClass@@QAEXPBX_N11@Z",
-      "symbol_prefix": "?unknown_476920@CellClass@@",
+      "symbol": "?Incoming@CellClass@@QAEXPBX_N11@Z",
+      "symbol_prefix": "?Incoming@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -19668,7 +19666,7 @@
           "resolved": 3191431
         }
       ],
-      "source_sha256": "a90cdc2bf5243e8fd328ca555f2ebf9990309120cbbb3798f60b1c45da82b386",
+      "source_sha256": "f9b1291ffb6629df82aa3ff5b4f67c0cfd5a2434858d0b2cc3bdaf870dd53cf4",
       "source": "src/recovered/classes/CellClass/CellClass_Incoming_00476920.cpp",
       "population": "population-4453",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -19680,8 +19678,8 @@
     {
       "entry": 4689728,
       "method": "00478f40",
-      "symbol": "?unknown_478f40@CellClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_478f40@CellClass@@",
+      "symbol": "?Recalc_Passability@CellClass@@QAEXXZ",
+      "symbol_prefix": "?Recalc_Passability@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -19759,7 +19757,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "8542b15c528922159fb18b6ae74527b3e2b82294660aa1d28e197d47d5afee3c",
+      "source_sha256": "61d7921bb0dad43c67dc54bf84de989c1689a90b04c797afa0f7cb47b3b6383a",
       "source": "src/recovered/classes/CellClass/CellClass_Recalc_Passability_00478f40.cpp",
       "population": "population-4453",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -19958,8 +19956,8 @@
     {
       "entry": 4692672,
       "method": "00479ac0",
-      "symbol": "?unknown_479ac0@CellClass@@QBEHABUCoordStruct@@@Z",
-      "symbol_prefix": "?unknown_479ac0@CellClass@@",
+      "symbol": "?Bounce_Direction@CellClass@@QBEHABUCoordStruct@@@Z",
+      "symbol_prefix": "?Bounce_Direction@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -20125,13 +20123,13 @@
           "resolved": 844853
         }
       ],
-      "source_sha256": "45b8f3b7790c960e2cc5b93349e53280157abfb82e1fdeece5077bf1756aa65b",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_479ac0_00479ac0.cpp",
+      "source_sha256": "eeceec40de4ace88297ccae5524c95c745546f64dc96af1fa1e4d62f5b940f9d",
+      "source": "src/recovered/classes/CellClass/CellClass_Bounce_Direction_00479ac0.cpp",
       "population": "population-4453",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_479ac0_00479ac0",
+      "semantic_name": "CellClass_Bounce_Direction_00479ac0",
       "source_order": 240288
     },
     {
@@ -20319,8 +20317,8 @@
     {
       "entry": 4702112,
       "method": "0047bfa0",
-      "symbol": "?unknown_47bfa0@CellClass@@QAEHH@Z",
-      "symbol_prefix": "?unknown_47bfa0@CellClass@@",
+      "symbol": "?Occupation_Mask@CellClass@@QAEHH@Z",
+      "symbol_prefix": "?Occupation_Mask@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -20374,13 +20372,13 @@
           "resolved": 835669
         }
       ],
-      "source_sha256": "530dcc94586403429673bf3789979732ae1dc50190c8872fa9e39be3d03c74b5",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47bfa0_0047bfa0.cpp",
+      "source_sha256": "f71859a15504125605b8bc30626aa1aadc4a69b6f3d1f5d4c570a43b4cf72c7a",
+      "source": "src/recovered/classes/CellClass/CellClass_Occupation_Mask_0047bfa0.cpp",
       "population": "population-4453",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47bfa0_0047bfa0",
+      "semantic_name": "CellClass_Occupation_Mask_0047bfa0",
       "source_order": 240330
     },
     {
@@ -23231,7 +23229,7 @@
           "resolved": 774385
         }
       ],
-      "source_sha256": "573ff5727dcabcd41bb889b57020c84391a6359f4f4cb36f2ec2a483c8f65f86",
+      "source_sha256": "5a7dea2a1c3f65f46aef97324488e20771a8c211fe15c59babb928bb4feb81c0",
       "source": "src/recovered/classes/CellClass/CellClass_Preview_Cell_Color_004710d0.cpp",
       "population": "population-4453",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -25426,8 +25424,8 @@
     {
       "entry": 4668208,
       "method": "00473b30",
-      "symbol": "?unknown_473b30@CellClass@@QAEXPAVObjectClass@@_N@Z",
-      "symbol_prefix": "?unknown_473b30@CellClass@",
+      "symbol": "?Occupy_Down@CellClass@@QAEXPAVObjectClass@@_N@Z",
+      "symbol_prefix": "?Occupy_Down@CellClass@",
       "options": [
         "/O2",
         "/Ob2",
@@ -25505,20 +25503,20 @@
           "resolved": 10706356
         }
       ],
-      "source_sha256": "c1a5409e1db78efa53436439a00f905cf19b70c3a9a81fa2d9588ac0343c4234",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_473b30_00473b30.cpp",
+      "source_sha256": "7aa69d466c396136982e4b4a96aa22a38e1c3e9c24e08c2c690c06e74b0aa451",
+      "source": "src/recovered/classes/CellClass/CellClass_Occupy_Down_00473b30.cpp",
       "population": "population-4453",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_473b30_00473b30",
+      "semantic_name": "CellClass_Occupy_Down_00473b30",
       "source_order": 240240
     },
     {
       "entry": 4671936,
       "method": "004749c0",
-      "symbol": "?unknown_4749c0@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
-      "symbol_prefix": "?unknown_4749c0@CellClass@@",
+      "symbol": "?Draw_Overlay@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z",
+      "symbol_prefix": "?Draw_Overlay@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -25756,20 +25754,20 @@
           "resolved": 172036
         }
       ],
-      "source_sha256": "31faa0c0bda772a3e9769f3922bf824cb07bfefda318c4f1f445870bf4d15981",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_4749c0_004749c0.cpp",
+      "source_sha256": "d0bdd1de486901b428e61778d19fe370e332813e7129cc628d2e66d5a4362189",
+      "source": "src/recovered/classes/CellClass/CellClass_Draw_Overlay_004749c0.cpp",
       "population": "population-4453",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_4749c0_004749c0",
+      "semantic_name": "CellClass_Draw_Overlay_004749c0",
       "source_order": 240248
     },
     {
       "entry": 4704560,
       "method": "0047c930",
-      "symbol": "?unknown_47c930@CellClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_47c930@CellClass@@",
+      "symbol": "?On_Bridge_Collapse@CellClass@@QAEXXZ",
+      "symbol_prefix": "?On_Bridge_Collapse@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -25855,13 +25853,13 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "ff6ed25b500e02bde98639b8fe676eb95131f81118fd9a1a04ad7696ee1f70da",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47c930_0047c930.cpp",
+      "source_sha256": "617caed675e3b93562247528314c7a3bdc0306d4966340cb2e72790c030727d1",
+      "source": "src/recovered/classes/CellClass/CellClass_On_Bridge_Collapse_0047c930.cpp",
       "population": "population-4453",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47c930_0047c930",
+      "semantic_name": "CellClass_On_Bridge_Collapse_0047c930",
       "source_order": 240340
     },
     {
@@ -25988,13 +25986,13 @@
         {
           "offset": 326,
           "kind": 20,
-          "symbol": "?unknown_47c3a0@CellClass@@QAE_NHH@Z",
+          "symbol": "?Place_Tiberium@CellClass@@QAE_NHH@Z",
           "target": 4703136,
           "addend": 0,
           "resolved": 14358
         }
       ],
-      "source_sha256": "8acf29f0f36a3c76a55e1e63b3195213bb2359a9e9d6ccfdf8f7e0ddd061b13e",
+      "source_sha256": "5bec118af74a509993a2fdf93b3b77a0cf49c3561d39c948c3350d17b7226506",
       "source": "src/recovered/classes/CellClass/CellClass_Spread_Tiberium_00478a40.cpp",
       "population": "population-4453",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -26137,8 +26135,8 @@
     {
       "entry": 4705296,
       "method": "0047cc10",
-      "symbol": "?unknown_47cc10@CellClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_47cc10@CellClass@@",
+      "symbol": "?Kill_Illegal_Occupiers@CellClass@@QAEXXZ",
+      "symbol_prefix": "?Kill_Illegal_Occupiers@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -26208,13 +26206,13 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "8a1df970348bbe6f1b84d3cfb1af17407da93f70f92838fce4cd302d1f54878b",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47cc10_0047cc10.cpp",
+      "source_sha256": "275a05b2bd13b2e680bfd1dcfb4bf52b287a74455ae233c4731b2d07691dce72",
+      "source": "src/recovered/classes/CellClass/CellClass_Kill_Illegal_Occupiers_0047cc10.cpp",
       "population": "population-4453",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47cc10_0047cc10",
+      "semantic_name": "CellClass_Kill_Illegal_Occupiers_0047cc10",
       "source_order": 240343
     },
     {
@@ -26253,7 +26251,7 @@
         {
           "offset": 402,
           "kind": 20,
-          "symbol": "?unknown_47a5a0@CellClass@@QAEHXZ",
+          "symbol": "?Get_Vein_Frame@CellClass@@QAEHXZ",
           "target": 4695456,
           "addend": 0,
           "resolved": 4294966378
@@ -26301,7 +26299,7 @@
         {
           "offset": 549,
           "kind": 20,
-          "symbol": "?unknown_47a5a0@CellClass@@QAEHXZ",
+          "symbol": "?Get_Vein_Frame@CellClass@@QAEHXZ",
           "target": 4695456,
           "addend": 0,
           "resolved": 4294966231
@@ -26539,7 +26537,7 @@
           "resolved": 4294932559
         }
       ],
-      "source_sha256": "57d2a95a3f68c0e36b7f8653a3951b4a03d7e83e65894e9a41cc8dbb2039b59e",
+      "source_sha256": "ffc1447677beb4ae7391faf8ff118b3ea5d637f24f12e95badb69f2585bbd9ec",
       "source": "src/recovered/classes/CellClass/CellClass_Redraw_Veins_0047a7a0.cpp",
       "population": "population-4453",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -26551,8 +26549,8 @@
     {
       "entry": 4680896,
       "method": "00476cc0",
-      "symbol": "?unknown_476cc0@CellClass@@QAE_NPAVObjectClass@@@Z",
-      "symbol_prefix": "?unknown_476cc0@CellClass@@",
+      "symbol": "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z",
+      "symbol_prefix": "?Goodie_Check@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -26960,7 +26958,7 @@
         {
           "offset": 1234,
           "kind": 20,
-          "symbol": "?unknown_47c3a0@CellClass@@QAE_NHH@Z",
+          "symbol": "?Place_Tiberium@CellClass@@QAE_NHH@Z",
           "target": 4703136,
           "addend": 0,
           "resolved": 21002
@@ -27024,7 +27022,7 @@
         {
           "offset": 1370,
           "kind": 20,
-          "symbol": "?unknown_47c3a0@CellClass@@QAE_NHH@Z",
+          "symbol": "?Place_Tiberium@CellClass@@QAE_NHH@Z",
           "target": 4703136,
           "addend": 0,
           "resolved": 20866
@@ -28702,14 +28700,14 @@
           "resolved": 4682066
         }
       ],
-      "source_sha256": "448f837bda48316f3d68e1d4b6ca0bc4601abd8b6eed39cf6ae466a2f4aedb0a",
+      "source_sha256": "7a98c431f0c5e22d75d589990d1553fbfd457de1b89583c167af65fffd0aee20",
       "switch_data_bytes": 124,
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_476cc0_00476cc0.cpp",
+      "source": "src/recovered/classes/CellClass/CellClass_Goodie_Check_00476cc0.cpp",
       "population": "population-4453",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_476cc0_00476cc0",
+      "semantic_name": "CellClass_Goodie_Check_00476cc0",
       "source_order": 240270
     },
     {
@@ -29519,7 +29517,7 @@
         {
           "offset": 674,
           "kind": 20,
-          "symbol": "?unknown_478f40@CellClass@@QAEXXZ",
+          "symbol": "?Recalc_Passability@CellClass@@QAEXXZ",
           "target": 4689728,
           "addend": 0,
           "resolved": 26458
@@ -29671,7 +29669,7 @@
         {
           "offset": 1310,
           "kind": 20,
-          "symbol": "?unknown_478f40@CellClass@@QAEXXZ",
+          "symbol": "?Recalc_Passability@CellClass@@QAEXXZ",
           "target": 4689728,
           "addend": 0,
           "resolved": 25822
@@ -30015,13 +30013,13 @@
         {
           "offset": 2693,
           "kind": 20,
-          "symbol": "?unknown_478f40@CellClass@@QAEXXZ",
+          "symbol": "?Recalc_Passability@CellClass@@QAEXXZ",
           "target": 4689728,
           "addend": 0,
           "resolved": 24439
         }
       ],
-      "source_sha256": "95921aa8c25032328b3e0142a01865eea810ca423de971165ce16a0191630a87",
+      "source_sha256": "9d8a02083257fea22b23d959be7fa90410b6499f5e2365d53b2001d82bfee2be",
       "source": "src/recovered/classes/CellClass/CellClass_Recalc_Attributes_00472540.cpp",
       "population": "population-4453",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -30033,8 +30031,8 @@
     {
       "entry": 4703136,
       "method": "0047c3a0",
-      "symbol": "?unknown_47c3a0@CellClass@@QAE_NHH@Z",
-      "symbol_prefix": "?unknown_47c3a0@CellClass@@",
+      "symbol": "?Place_Tiberium@CellClass@@QAE_NHH@Z",
+      "symbol_prefix": "?Place_Tiberium@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -30368,13 +30366,13 @@
           "resolved": 2545073
         }
       ],
-      "source_sha256": "c5140e9129e82243326922a9b012be5f02fa65ed20b08a3824d6646bb2b97b06",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_47c3a0_0047c3a0.cpp",
+      "source_sha256": "b02bb7514fd98e7911e52d778c81070f8cbcdae66afae96d1f7f5fb487f8a013",
+      "source": "src/recovered/classes/CellClass/CellClass_Place_Tiberium_0047c3a0.cpp",
       "population": "population-4453",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_47c3a0_0047c3a0",
+      "semantic_name": "CellClass_Place_Tiberium_0047c3a0",
       "source_order": 240337
     },
     {
@@ -30557,7 +30555,7 @@
         {
           "offset": 516,
           "kind": 20,
-          "symbol": "?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z",
+          "symbol": "?Is_Clear_To_Build@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z",
           "target": 4659376,
           "addend": 0,
           "resolved": 4294956936
@@ -30619,7 +30617,7 @@
           "resolved": 175194
         }
       ],
-      "source_sha256": "a1a90c38e4b85d9b412ef0577920a6fc1b00b0904679aa14da9c50f4547e91ed",
+      "source_sha256": "c3ef6325e30d559dc0325476d173fb84aad44211d7009f9c221d4b8a0f4ee986",
       "source": "src/recovered/classes/CellClass/CellClass_Draw_Placement_Cursor_00473f20.cpp",
       "population": "population-4453",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -30631,8 +30629,8 @@
     {
       "entry": 4659376,
       "method": "004718b0",
-      "symbol": "?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z",
-      "symbol_prefix": "?unknown_4718b0@CellClass@@",
+      "symbol": "?Is_Clear_To_Build@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z",
+      "symbol_prefix": "?Is_Clear_To_Build@CellClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -30854,13 +30852,13 @@
           "resolved": 7972664
         }
       ],
-      "source_sha256": "63c177fa62ae3a613aa2860b76e2804d4a10f90e733e6cbacf9ce65ee827cfe2",
-      "source": "src/recovered/classes/CellClass/CellClass_unknown_4718b0_004718b0.cpp",
+      "source_sha256": "916c62e5763d6179f6bb1ddd56b3801234b496f7280a9ab0249d83eb4d11836f",
+      "source": "src/recovered/classes/CellClass/CellClass_Is_Clear_To_Build_004718b0.cpp",
       "population": "population-4453",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CellClass_unknown_4718b0_004718b0",
+      "semantic_name": "CellClass_Is_Clear_To_Build_004718b0",
       "source_order": 240233
     }
   ]

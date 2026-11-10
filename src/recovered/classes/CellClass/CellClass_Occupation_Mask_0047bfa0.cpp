@@ -1,9 +1,9 @@
-// int CellClass::unknown_47bfa0(int house) (0x0047BFA0): -1 unless the cell's unknown_dc mask has the
+// int CellClass::Occupation_Mask(int house) (0x0047BFA0): -1 unless the cell's unknown_dc mask has the
 // house's bit, else a mask of the facings whose adjacent cell has it.
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 
-int CellClass::unknown_47bfa0(int house)
+int CellClass::Occupation_Mask(int house)
 {
     int bit = 1 << house;
     if (!(unknown_dc & bit)) {

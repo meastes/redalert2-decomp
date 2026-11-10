@@ -189,7 +189,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                                 LinkedTo->Path[0] = -1;
                             } else {
                                 bool isbridge = cellptr.IsUnderBridge && abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr.unknown_11b) > 2;
-                                cellptr.unknown_476920(&unknown_geometry_l, true, true, isbridge);
+                                cellptr.Incoming(&unknown_geometry_l, true, true, isbridge);
                             }
                         }
                         return;
@@ -222,7 +222,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                         return;
                     }
                     if (move == 5 || move == 4) {
-                        ObjectClass *object = Map[cell].unknown_471830(Point2D(0, 0), false);
+                        ObjectClass *object = Map[cell].Cell_Object(Point2D(0, 0), false);
                         if (first_pass) {
                             LinkedTo->Path[0] = -1;
                             unknown_28 = unknown_geometry_l;

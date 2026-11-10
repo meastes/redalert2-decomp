@@ -6,7 +6,7 @@
 #include "shared/house.hpp"
 #include "shared/base.hpp"
 #include "shared/rules.hpp"
-// @ref ?unknown_47bfa0@CellClass@@=0047bfa0
+// @ref ?Occupation_Mask@CellClass@@=0047bfa0
 // @ref ?Reserve_Base_Area_004510d0@BuildingClass@@=004510d0
 void BuildingClass::unknown_4513b0()
 {
@@ -29,7 +29,7 @@ void BuildingClass::unknown_4513b0()
     for (x = top_left.X - 1; x < top_left.X + width + 2; ++x) {
         for (y = top_left.Y - 1; y < top_left.Y + height + 2; ++y) {
             Cell cell = Cell(x, y);
-            int mask = Map[cell].unknown_47bfa0(House->ArrayIndex);
+            int mask = Map[cell].Occupation_Mask(House->ArrayIndex);
             if (mask == 255) House->unknown_55f0.unknown_20.Delete(cell);
             else if (mask > 0) {
                 if (House->unknown_55f0.unknown_20.ID(cell) == -1) House->unknown_55f0.unknown_20.Add(cell);

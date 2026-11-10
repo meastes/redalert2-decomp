@@ -1,4 +1,4 @@
-// void CellClass::unknown_47bc80() (0x0047BC80): Westwood's Fog_Cell. With
+// void CellClass::Fog_Cell() (0x0047BC80): Westwood's Fog_Cell. With
 // fog of war on, walks the seven cells down the diagonal from this one; each
 // whose level (+0x11B) is within two below 1, 3, .., 15 in turn and is not yet
 // fogged (+0x140 flag 0x400000) is fogged: its buildings leave fogged copies in
@@ -22,7 +22,7 @@
 // @ref ?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHABQAVFoggedObjectClass@@@Z=00454980
 // @ref ?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHPBQAVFoggedObjectClass@@@Z=004549c0
 // @ref ?Fetch@?$VectorClass@PAVFoggedObjectClass@@@@UBEPAVFoggedObjectClass@@H@Z=00453dd0
-void CellClass::unknown_47bc80()
+void CellClass::Fog_Cell()
 {
     if (unknown_id_source_a3d290->unknown_000 & 0x1000) {
         Cell cell = MapCoords;

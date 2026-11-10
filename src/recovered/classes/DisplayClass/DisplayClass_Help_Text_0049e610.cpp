@@ -22,7 +22,7 @@
 // @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
 // @ref _swprintf=00783764
 // @ref ?unknown_47a200@CellClass@@QBEPBGXZ=0047a200
-// @ref ?unknown_47c2e0@CellClass@@QBE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@CellClass@@QBE_NH@Z=0047c2e0
 // @ref ??_C@_0BD@GHCE@D?3?2Ra2?2Display?4CPP?$AA@=007d5e58
 // @ref ??_C@_0L@NALF@TXT_SHADOW?$AA@=007d5e4c
 // @ref ??_C@_1BA@DJFG@?$AA?$CI?$AA?$CF?$AAd?$AA?0?$AA?$CF?$AAd?$AA?$CJ?$AA?$AA@=007d5e6c
@@ -62,7 +62,7 @@ wchar_t const *DisplayClass::Help_Text(int id)
     TechnoClass *techno = object != 0 && object->AbstractFlags.IsTechno ? (TechnoClass *)object : 0;
     if (techno != 0) {
         if (!techno->unknown_372) {
-            if (techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].unknown_47c2e0(unknown_player_a35db4->ArrayIndex)) {
+            if (techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
                 return 0;
             }
             if (techno->unknown_slot32()->Invisible) {

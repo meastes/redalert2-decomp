@@ -1,4 +1,4 @@
-// void CellClass::unknown_4798f0() (0x004798F0): Westwood's Recalc_Light. The cell's brightness
+// void CellClass::Recalc_Light() (0x004798F0): Westwood's Recalc_Light. The cell's brightness
 // (+0x10A), tile brightness (+0x10C) and bridge brightness (+0x10E) from its ambient (+0x108), the
 // scenario light (ion storm, dominator or normal ground/level values) and its intensity (+0x104),
 // limited to 0..2000.
@@ -8,7 +8,7 @@
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?Unknown_0051FC50@@YA_NXZ=0051fc50
 // @ref ?Unknown_0051FC60@@YA_NXZ=0051fc60
-void CellClass::unknown_4798f0()
+void CellClass::Recalc_Light()
 {
     unknown_10a = unknown_108 + 1000 * unknown_id_source_a3d290->unknown_22ac / 100;
     unknown_10e = unknown_10a;

@@ -10,7 +10,7 @@
 // @ref ?Unknown_0054AAB0@MapClass@@=0054aab0
 // @ref ?unknown_44d900@BuildingClass@@=0044d900
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVHouseClass@@@Z=004e5540
-// @ref ?unknown_476920@CellClass@@=00476920
+// @ref ?Incoming@CellClass@@=00476920
 inline FootClass *Mobile_Occupant_00458B10(TechnoClass *techno)
 {
  bool mobile;
@@ -27,7 +27,7 @@ inline bool Scatter_Allied_Occupant_00458B10(TechnoClass *techno,Cell const &cel
   CoordStruct position=foot->Coord;
   if(&Map[position]!=foot->unknown_494)return true;
  }
- Map[cell].unknown_476920(&unknown_geometry_l,true,true,false);
+ Map[cell].Incoming(&unknown_geometry_l,true,true,false);
  return true;
 }
 int BuildingTypeClass::unknown_458b10(Cell const &origin,HouseClass *house) const

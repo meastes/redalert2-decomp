@@ -8,7 +8,7 @@
 // @ref ?Factory_Bib_Message@@=007cf970
 // @ref ?Debug_Printf@@=004068f0
 // @ref ?Cell_Techno@CellClass@@=00471660
-// @ref ?unknown_476920@CellClass@@=00476920
+// @ref ?Incoming@CellClass@@=00476920
 // @ref ?Adjacent_Cell@CellClass@@QAEAAV1@I@Z=00476ac0
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 extern char const Factory_Exit_Message[];
@@ -26,13 +26,13 @@ bool BuildingClass::unknown_4454b0()
         ObjectClass *occupant=exit.Cell_Techno(Point2D(0,0),false,this);
         if(occupant) {
             Debug_Printf(Factory_Exit_Message,(char const *)occupant->unknown_slot32()->ID);
-            exit.unknown_476920(&unknown_geometry_l,true,true,false);
+            exit.Incoming(&unknown_geometry_l,true,true,false);
             for(int facing=0;facing<8;++facing) {
                 CellClass &neighbor=exit.Adjacent_Cell(facing);
                 occupant=neighbor.Cell_Techno(Point2D(0,0),false,this);
                 if(occupant) {
                     Debug_Printf(Factory_Bib_Message,(char const *)occupant->unknown_slot32()->ID);
-                    neighbor.unknown_476920(&coordinate,true,true,false);
+                    neighbor.Incoming(&coordinate,true,true,false);
                 }
             }
             return true;

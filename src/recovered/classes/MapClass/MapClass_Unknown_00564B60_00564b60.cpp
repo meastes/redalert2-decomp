@@ -9,7 +9,7 @@
 #include "shared/path_estimator.hpp"
 extern int unknown_bridge_side_facings_7e0454[];
 // @ref ?unknown_bridge_side_facings_7e0454@@3PAHA=007e0454
-// @ref ?Unknown_0047A130@CellClass@@QAEPAVTubeClass@@XZ=0047a130
+// @ref ?Get_Tunnel@CellClass@@QAEPAVTubeClass@@XZ=0047a130
 // @ref ?Unknown_00427060@UnknownPathEstimator@@SI?AVCell@@ABV2@HPBH@Z=00427060
 
 inline int Zone_Pack32(int from, int to)
@@ -41,14 +41,14 @@ void MapClass::Unknown_00564B60(ZoneConnectionClass *connection, int layer)
     Cell exit2;
     CellClass *from_cell = &Map[from];
     if (!from_cell->unknown_47b960() && !from_cell->unknown_47b980()) {
-        TubeClass *tube = from_cell->Unknown_0047A130();
+        TubeClass *tube = from_cell->Get_Tunnel();
         int facing = tube->Facing;
         enter1 = Adjacent_Cell(from, facing + 2);
         enter2 = from + AdjacentCell[(facing - 2) & 7];
         CellClass *enterptr1 = &Map[enter1];
-        TubeClass *tube1 = enterptr1->Unknown_0047A130();
+        TubeClass *tube1 = enterptr1->Get_Tunnel();
         CellClass *enterptr2 = &Map[enter2];
-        TubeClass *tube2 = enterptr2->Unknown_0047A130();
+        TubeClass *tube2 = enterptr2->Get_Tunnel();
         if (!tube1 || !tube2) return;
         int count1 = tube1->unknown_1c0;
         exit1 = UnknownPathEstimator::Unknown_00427060(enter1, count1, tube1->Directions);

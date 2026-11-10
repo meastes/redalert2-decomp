@@ -14,7 +14,7 @@ TechnoClass *__fastcall As_Techno_0040dbd0(AbstractClass *target);
 // @ref ?unknown_slot218@TechnoClass@@UAEHPAVAbstractClass@@H_N@Z=006c9260
 // @ref ?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e20
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
-// @ref ?unknown_47cdd0@CellClass@@QBE_NXZ=0047cdd0
+// @ref ?Can_Build_Here@CellClass@@QBE_NXZ=0047cdd0
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
 // TibSun's DirType comparison: the larger angular distance either way
 // (both sides by value).
@@ -29,7 +29,7 @@ int UnitClass::unknown_slot218(AbstractClass *target, int weapon, bool check_ran
     int action = TechnoClass::unknown_slot218(target, weapon, check_range);
     if (action == 0 || action == 2) {
         CoordStruct position = Coord;
-        bool usable_land = Map[position].unknown_47cdd0();
+        bool usable_land = Map[position].Can_Build_Here();
         if (Type->DeployToFire && unknown_slot284() && !usable_land) return 11;
     }
     if (action == 0) {

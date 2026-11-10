@@ -76,8 +76,8 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                 unknown_tactical_83996c->Coord_To_Pixel(Coord_Whole(cellptr->MapCoords), point);
                 point.X += 60 / -2;
 
-                cellptr->unknown_4749c0(point, rect);
-                cellptr->unknown_474830(point, rect);
+                cellptr->Draw_Overlay(point, rect);
+                cellptr->Draw_Overlay_Shadow(point, rect);
 
                 cellptr->OverlayIndex = saveoverlay;
                 cellptr->OverlayData = saveoverlaydata;

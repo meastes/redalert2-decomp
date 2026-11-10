@@ -76,7 +76,7 @@ void MapGeneratorClass::Create_Tiberium_Patch(Cell const &position,int amount,in
                 CellClass &neighbor=Map[adjacent];
                 if(neighbor.unknown_47b590() &&
                    ((neighbor.OverlayIndex==-1 && unknown_map_cells_a70a24[adjacent.Y*unknown_map_cell_side_84e804+adjacent.X].unknown_3c!=patchId) ||
-                    (neighbor.OverlayData<11 && neighbor.Get_Tiberium_Type()!=-1))) {
+                    (neighbor.OverlayData<11 && neighbor.Tiberium_Type_Here()!=-1))) {
                     next->Position=adjacent;
                     next->Key=(float)Randomized_Cell_Distance_005846b0(spreadOrigin,adjacent);
                     unknown_map_cells_a70a24[adjacent.Y*unknown_map_cell_side_84e804+adjacent.X].unknown_3c=patchId;

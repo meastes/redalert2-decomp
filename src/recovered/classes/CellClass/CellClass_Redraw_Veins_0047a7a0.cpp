@@ -12,14 +12,14 @@ void CellClass::Redraw_Veins()
     Rect dirty(0,0,0,0);
     dirty=Union(dirty,Union(Overlay_Render_Rect(),Overlay_Shadow_Render_Rect()));
     OverlayData=0;
-    int frame=unknown_47a5a0();
+    int frame=Get_Vein_Frame();
     if(frame==0 || unknown_11c) OverlayIndex=-1;
     else OverlayData=3*frame+abs(unknown_id_source_a3d290->Random()()%3);
     Map.Radar_Background(MapCoords);
     for(int direction=0;direction<8;direction+=2) {
         CellClass &adjacent=(CellClass&)((CellClass const*)this)->Adjacent_Cell(direction);
         if(adjacent.unknown_11c==0 && adjacent.OverlayIndex==126 && adjacent.OverlayData<48) {
-            int neighbor_frame=adjacent.unknown_47a5a0();
+            int neighbor_frame=adjacent.Get_Vein_Frame();
             Rect area(0,0,0,0);
             area=Union(area,Union(adjacent.Overlay_Render_Rect(),adjacent.Overlay_Shadow_Render_Rect()));
             if(neighbor_frame==0) adjacent.OverlayIndex=-1;

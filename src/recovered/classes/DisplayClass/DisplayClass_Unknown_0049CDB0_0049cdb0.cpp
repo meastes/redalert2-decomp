@@ -14,7 +14,7 @@
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
 // @ref ?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z=006a8d40
-// @ref ?unknown_47bc80@CellClass@@QAEXXZ=0047bc80
+// @ref ?Fog_Cell@CellClass@@QAEXXZ=0047bc80
 // @ref ?Unknown_0049CDB0@DisplayClass@@QAEXABVCell@@@Z=0049cdb0
 
 void DisplayClass::Unknown_0049CDB0(Cell const &cell)
@@ -48,6 +48,6 @@ void DisplayClass::Unknown_0049CDB0(Cell const &cell)
         }
     }
     if (mapped) {
-        target.unknown_47bc80();
+        target.Fog_Cell();
     }
 }

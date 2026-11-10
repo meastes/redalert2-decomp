@@ -11,7 +11,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
-// @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 // @ref ?unknown_slot25@TechnoClass@@UAEH_NH@Z=006cf3c0
 
 extern HWND MainWindow;                 // 0x00B263D8
@@ -24,7 +24,7 @@ int BuildingClass::unknown_slot25(bool arg1, int arg2)
                 HouseClass *house = (HouseClass *)arg2;
                 if (house) {
                     CoordStruct coord = Coord;
-                    if (((UnknownCellClass *)&Map[Coord_Cell(coord)])->unknown_47c2e0(house->ArrayIndex)) {
+                    if (((UnknownCellClass *)&Map[Coord_Cell(coord)])->Is_Sensed(house->ArrayIndex)) {
                         return 3;
                     }
                 }

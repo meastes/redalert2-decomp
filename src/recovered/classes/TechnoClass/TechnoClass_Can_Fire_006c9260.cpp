@@ -36,7 +36,7 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
     if(techno) {
         if(techno->unknown_76) goto ILLEGAL;
         if(techno->unknown_210) goto ILLEGAL;
-        if(techno->unknown_slot25(true,(int)House)==5 && !cellptr->unknown_47c2e0(House->ArrayIndex)) {
+        if(techno->unknown_slot25(true,(int)House)==5 && !cellptr->Is_Sensed(House->ArrayIndex)) {
             if(unknown_6c16f0(-1)>0) goto CANT;
             if(!techno->House->Is_Ally(House)) goto CANT;
         }

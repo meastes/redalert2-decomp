@@ -138,7 +138,7 @@ BounceResultType BounceClass::AI()
                     position = old_position;
                     velocity = old_velocity;
 
-                    int bounce_facing = Map[(CoordStruct const &)impact_coord].unknown_479ac0((CoordStruct const &)previous_impact_coord);
+                    int bounce_facing = Map[(CoordStruct const &)impact_coord].Bounce_Direction((CoordStruct const &)previous_impact_coord);
                     if (bounce_facing != -1) {
                         Matrix3D temp;
                         Matrix3D bounce_matrix;

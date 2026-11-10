@@ -5,7 +5,7 @@
 #include "shared/rules.hpp"
 // @ref __ftol=0077f110
 // @ref __real@4@3fff8000000000000000=0079b7f8
-// @ref ?Get_Tiberium_Type@CellClass@@QBEHXZ=0047a220
+// @ref ?Tiberium_Type_Here@CellClass@@QBEHXZ=0047a220
 // @ref ?unknown_475db0@CellClass@@QAEHH@Z=00475db0
 // @ref ?unknown_47c040@CellClass@@QAEHXZ=0047c040
 // @ref ?Add_Amount@StorageClass@@QAEMMH@Z=0069ae50
@@ -24,7 +24,7 @@ bool UnitClass::unknown_7013a0()
             StageClass::Set_Rate(Rules->unknown_1180 * 3);
             goto harvested;
         }
-        int resource = cell->Get_Tiberium_Type();
+        int resource = cell->Tiberium_Type_Here();
         float capacity = (float)Type->Storage;
         int available = (int)(capacity - unknown_294.Get_Total_Amount() > 1.0f
             ? 1.0f : (float)Type->Storage - unknown_294.Get_Total_Amount());

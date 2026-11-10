@@ -330,7 +330,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                                     } else {
                                         bridge = true;
                                     }
-                                    Map[unknown_40].unknown_476920(&unknown_geometry_l, true, true, bridge);
+                                    Map[unknown_40].Incoming(&unknown_geometry_l, true, true, bridge);
                                 }
                                 break;
                         }

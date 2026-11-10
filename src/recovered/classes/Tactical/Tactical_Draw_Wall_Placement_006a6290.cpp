@@ -15,7 +15,7 @@
 #include "shared/overlay_type.hpp"
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?TransIconset@DisplayClass@@2PBXB=00852614
-// @ref ?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z=004718b0
+// @ref ?Is_Clear_To_Build@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z=004718b0
 
 void Tactical::Draw_Wall_Placement(bool drawtrans, Cell cell)
 {
@@ -40,7 +40,7 @@ void Tactical::Draw_Wall_Placement(bool drawtrans, Cell cell)
                 found = true;
                 break;
             }
-            if (!Map[scan].unknown_4718b0(type->SpeedType, type, unknown_player_a35db4)) {
+            if (!Map[scan].Is_Clear_To_Build(type->SpeedType, type, unknown_player_a35db4)) {
                 break;
             }
         }

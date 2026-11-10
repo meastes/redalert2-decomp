@@ -1,4 +1,4 @@
-// int CellClass::unknown_479ac0(CoordStruct const &origin) const (0x00479AC0): Westwood's
+// int CellClass::Bounce_Direction(CoordStruct const &origin) const (0x00479AC0): Westwood's
 // Bounce_Direction. The facing from origin's cell to this one (a table by the offset), turned one
 // step toward the side whose neighbour stands two levels above origin's cell when only one does.
 #include "shared/cell.hpp"
@@ -6,7 +6,7 @@
 // @ref ?unknown_facing_lookup_7d2c44@@3PAHA=007d2c44
 // The facing by dx + 3 * dy (0x007D2C44, a function-local static of the original; not range checked).
 extern int unknown_facing_lookup_7d2c44[];
-int CellClass::unknown_479ac0(CoordStruct const &xorigin) const
+int CellClass::Bounce_Direction(CoordStruct const &xorigin) const
 {
     Cell origin = Map[xorigin].MapCoords;
 

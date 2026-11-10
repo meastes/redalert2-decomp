@@ -1,4 +1,4 @@
-// void CellClass::unknown_47ad00() (0x0047AD00): TibSun Place_Veins.
+// void CellClass::Place_Veins() (0x0047AD00): TibSun Place_Veins.
 // NATIVE (Scout1209 r16): Scout1166 header-overlay names mapped to the current src/shared names
 // (unknown_47a670 Can_Place_Veins, unknown_474eb0 Overlay_Render_Rect, unknown_475100
 // Overlay_Shadow_Render_Rect, MapClass::Unknown_00631570 Radar_Background).
@@ -16,7 +16,7 @@ inline bool Is_Solid_Vein(CellClass const &cell)
     return cell.OverlayIndex == 0x7E && cell.OverlayData >= 0x30;
 }
 
-void CellClass::unknown_47ad00()
+void CellClass::Place_Veins()
 {
     Rect rect(0, 0, 0, 0);
 
@@ -41,7 +41,7 @@ void CellClass::unknown_47ad00()
                 }
 
                 if (adjacent.unknown_11c == 0) {
-                    int frame = adjacent.unknown_47a5a0();
+                    int frame = adjacent.Get_Vein_Frame();
                     if (adjacent.OverlayIndex == -1 || (frame <= 15 && adjacent.OverlayData / 3 != frame)) {
                         Rect adjrect(0, 0, 0, 0);
                         adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect()));

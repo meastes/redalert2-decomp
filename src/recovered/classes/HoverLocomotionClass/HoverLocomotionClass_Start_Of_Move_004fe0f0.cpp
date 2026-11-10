@@ -13,7 +13,7 @@
 // @ref ?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z=0055a660
 // @ref ?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z=00713db0
 // @ref ?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
-// @ref ?unknown_476920@CellClass@@QAEXPBX_N11@Z=00476920
+// @ref ?Incoming@CellClass@@QAEXPBX_N11@Z=00476920
 // @ref ?unknown_4c3000@FootClass@@QAE_NVCell@@HH@Z=004c3000
 // @ref ?unknown_4c8d60@FootClass@@QAE_NXZ=004c8d60
 // @ref ?unknown_5d47d0@ObjectClass@@QAEHXZ=005d47d0
@@ -100,7 +100,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
                     return;
                 } else {
                     bool bridge=(cellptr->unknown_140&0x100) && abs(Object_Coord(LinkedTo).Z/unknown_geometry_g-cellptr->unknown_11b)>2;
-                    cellptr->unknown_476920(&unknown_geometry_l,true,true,bridge);
+                    cellptr->Incoming(&unknown_geometry_l,true,true,bridge);
                 }
             }
         }

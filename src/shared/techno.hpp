@@ -244,10 +244,10 @@ public:
     int Unknown_0047CE70();             // 0x0047CE70 (the tiberium damage of the cell; FootClass::AI)
     bool unknown_47c2c0(int house) const;   // 0x0047C2C0 (CellClass::Is_House_Bit; TechnoClass slot 161)
     CoordStruct unknown_475d60() const;     // 0x00475D60 (CellClass: the centre at the middle's height; TechnoClass 0x006CA340)
-    bool unknown_47c2e0(int house);     // 0x0047C2E0
+    bool Is_Sensed(int house);     // 0x0047C2E0
     bool unknown_47c300(int house);     // 0x0047C300 (FootClass slot 26: the house's index)
     void unknown_47bb30();              // 0x0047BB30 (TechnoClass slot 93)
-    void unknown_476b20(int house, int value);  // 0x00476B20 (TechnoClass 0x006D95A0/0x006D95D0)
+    void Adjust_Threat(int house, int value);  // 0x00476B20 (TechnoClass 0x006D95A0/0x006D95D0)
     bool Unknown_0047C200();            // 0x0047C200 (FootClass 0x004C3000)
     bool Unknown_0047CDD0();            // 0x0047CDD0 (the land allows standing here; FootClass 0x004C4C30)
     bool Unknown_0047BB10();            // 0x0047BB10 (FootClass 0x004C4C30)
@@ -260,7 +260,7 @@ public:
     void Unknown_0047C370(int house);   // 0x0047C370 (FootClass slot 286)
     void Unknown_0047C380(int house);   // 0x0047C380 (BuildingClass slot 290)
     void Unknown_0047C390(int house);   // 0x0047C390 (BuildingClass slot 291)
-    UnknownTube47A130 *Unknown_0047A130();  // 0x0047A130 (the cell's tube: index +0x116 into 0x008661CC)
+    UnknownTube47A130 *Get_Tunnel();  // 0x0047A130 (the cell's tube: index +0x116 into 0x008661CC)
     BuildingClass *Unknown_004717B0();  // 0x004717B0 (the building in the cell)
     CoordStruct Unknown_004764B0(CoordStruct const &coord, int alternate, bool arg3);  // 0x004764B0 (a free spot near coord; InfantryClass slot 53)
 

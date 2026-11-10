@@ -100,7 +100,7 @@ bool Legal_Cell(BuildingTypeClass *type, HouseClass *house, Cell const &cell)
         at.X += list->X;
         at.Y += list->Y;
         if (at.X < 1 || at.Y < 1 || at.X > 510 || at.Y > 510) return false;
-        if (!Map[at].unknown_4718b0(type->SpeedType, type, house)) return false;
+        if (!Map[at].Is_Clear_To_Build(type->SpeedType, type, house)) return false;
     }
     return true;
 }

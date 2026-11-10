@@ -1,4 +1,4 @@
-// void CellClass::unknown_476920(void const *threat, bool forced, bool nokidding, bool alt)
+// void CellClass::Incoming(void const *threat, bool forced, bool nokidding, bool alt)
 // (0x00476920): Westwood's Incoming. Every occupier (alt: the bridge ones) scatters from the threat
 // when one of them is elite, when the call insists, when the rules let everything scatter
 // (PlayerScatter) or when it is a techno that may scatter (ability 3) or whose house is smart enough
@@ -8,7 +8,7 @@
 #include "shared/house.hpp"
 #include "shared/rules.hpp"
 
-void CellClass::unknown_476920(void const *threat, bool forced, bool nokidding, bool alt)
+void CellClass::Incoming(void const *threat, bool forced, bool nokidding, bool alt)
 {
     ObjectClass *object = alt ? AltOccupierPtr : OccupierPtr;
     bool elite = false;

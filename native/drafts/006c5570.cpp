@@ -33,7 +33,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     }
     if(object==0 || object->unknown_76 || object->Strength==0) return false;
     if(tech->unknown_1b8==2) {
-        if(!Map[object->Center_Coord()].unknown_47c2e0(House->ArrayIndex) && House!=tech->House) return false;
+        if(!Map[object->Center_Coord()].Is_Sensed(House->ArrayIndex) && House!=tech->House) return false;
     }
     if(!tech->unknown_32d) return false;
     if(tech->Control()->unknown_04) return false;

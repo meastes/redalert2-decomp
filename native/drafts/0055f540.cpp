@@ -77,9 +77,9 @@ bool MapClass::Unknown_0055F540(Cell const &cell)
         cellptr1->Recalc_Attributes(-1);
         cellptr2->Recalc_Attributes(-1);
         cellptr3->Recalc_Attributes(-1);
-        cellptr1->Unknown_0047CC10();
-        cellptr2->Unknown_0047CC10();
-        cellptr3->Unknown_0047CC10();
+        cellptr1->Kill_Illegal_Occupiers();
+        cellptr2->Kill_Illegal_Occupiers();
+        cellptr3->Kill_Illegal_Occupiers();
 
         if (didwork) {
             Unknown_0054EBD0();

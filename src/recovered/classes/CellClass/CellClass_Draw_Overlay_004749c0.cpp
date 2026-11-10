@@ -1,4 +1,4 @@
-// void CellClass::unknown_4749c0(Point2D const &xpoint, Rect const &clip) (0x004749C0):
+// void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip) (0x004749C0):
 // Westwood's Draw_Overlay: draws the cell's overlay (bridge decks once per
 // frame and view, tiberium through its growth image, walls in the player's
 // colours, veins, rubble buildings and ordinary clutter).
@@ -32,7 +32,7 @@ extern int unknown_bridge_variation_7d2b18[16];
 extern void *unknown_slope_shapes_a52eb0[];
 extern Rect unknown_rect_839630;
 
-void CellClass::unknown_4749c0(Point2D const &xpoint, Rect const &clip)
+void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
 {
     if (OverlayIndex == 0xA7 || OverlayIndex == 0xB2) {
         return;
@@ -60,7 +60,7 @@ void CellClass::unknown_4749c0(Point2D const &xpoint, Rect const &clip)
         return;
     }
     if (otype->Tiberium) {
-        int tib = Get_Tiberium_Type();
+        int tib = Tiberium_Type_Here();
         if (tib == -1) {
             return;
         }

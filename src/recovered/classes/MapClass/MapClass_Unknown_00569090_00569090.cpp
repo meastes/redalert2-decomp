@@ -11,7 +11,7 @@
 // @ref ?Unknown_0055EDB0@MapClass@@QAE_NABVCell@@@Z=0055edb0
 // @ref ?Unknown_00559000@MapClass@@QAE_NABVCell@@@Z=00559000
 // @ref ?Unknown_005539B0@MapClass@@QAE_NABVCell@@@Z=005539b0
-// @ref ?unknown_47c930@CellClass@@QAEXXZ=0047c930
+// @ref ?On_Bridge_Collapse@CellClass@@QAEXXZ=0047c930
 
 bool MapClass::Unknown_00569090(Cell *cell)
 {
@@ -61,7 +61,7 @@ bool MapClass::Unknown_00569090(Cell *cell)
     }
 
     for (int i = 0; i < unknown_d0.Count(); i++) {
-        Map[unknown_d0[i]].unknown_47c930();
+        Map[unknown_d0[i]].On_Bridge_Collapse();
     }
 
     unknown_d0.Clear();

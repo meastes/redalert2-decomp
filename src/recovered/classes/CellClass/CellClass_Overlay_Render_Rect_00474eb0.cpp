@@ -20,7 +20,7 @@ Rect CellClass::Overlay_Render_Rect() const
     OverlayTypeClass *overlay = OverlayTypes[OverlayIndex];
     ShapeFileStruct *image = 0;
     if (overlay->Tiberium) {
-        int tib = Get_Tiberium_Type();
+        int tib = Tiberium_Type_Here();
         if (tib != -1) {
             TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tib];
             if (unknown_11c != 0) {

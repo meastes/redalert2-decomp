@@ -98,11 +98,11 @@ public:
             return unknown_2c->Fetch_CellID();
         }
     }
-    void unknown_474830(Point2D const &point, Rect const &clip);   // 0x00474830 (as shared/cell_class.hpp)
-    void unknown_4749c0(Point2D const &point, Rect const &clip);   // 0x004749C0 (as shared/cell_class.hpp)
+    void Draw_Overlay_Shadow(Point2D const &point, Rect const &clip);   // 0x00474830 (as shared/cell_class.hpp)
+    void Draw_Overlay(Point2D const &point, Rect const &clip);   // 0x004749C0 (as shared/cell_class.hpp)
     void unknown_47a340(class AbstractClass *target);  // 0x0047A340 forgets a target (as shared/cell.hpp)
     unsigned short const *unknown_47a200() const;   // 0x0047A200 the tiberium's UI name (as shared/cell.hpp; wchar_t is not declared here)
-    bool unknown_47c2e0(int house) const;       // 0x0047C2E0 (unknown_7c[house] > 0; TibSun Is_Sensed; DisplayClass slot 33)
+    bool Is_Sensed(int house) const;       // 0x0047C2E0 (unknown_7c[house] > 0; TibSun Is_Sensed; DisplayClass slot 33)
     int unknown_4706c0(Point2D const &point) const;       // 0x004706C0 (height at a lepton position in the cell; as shared/cell.hpp)
     CellClass &Adjacent_Cell(unsigned facing);  // 0x00476AC0 (as shared/cell.hpp)
     void Attach_Tag(class TagClass *tag);         // 0x0047A460 (as shared/cell.hpp)
@@ -115,32 +115,32 @@ public:
     bool unknown_47b7e0() const;     // 0x0047B7E0 (TibSun Is_Tile_With_Water)
     bool unknown_47b7c0() const;     // 0x0047B7C0 (TibSun Is_Tile_Shore; as shared/cell_class.hpp)
 #endif
-    void unknown_4724a0();          // 0x004724A0 (a wall overlay: its owner; TibSun Set_Wall_Owner; as shared/cell.hpp)
+    void Set_Wall_Owner();          // 0x004724A0 (a wall overlay: its owner; TibSun Set_Wall_Owner; as shared/cell.hpp)
     int Tiberium_Adjust(bool pregame);   // 0x00476BA0 (TibSun Tiberium_Adjust; as shared/cell.hpp)
     void unknown_473000();          // 0x00473000 (drops the cell's bridge; TibSun Destroy_Bridge)
     // Whether a building of the type may be placed in the cell for the house (0x004718B0;
     // TibSun Is_Clear_To_Build; elsewhere declared with a TechnoTypeClass const *).
-    bool unknown_4718b0(int speed, class BuildingTypeClass const *type, class HouseClass *house);
+    bool Is_Clear_To_Build(int speed, class BuildingTypeClass const *type, class HouseClass *house);
     void Set_Under_Bridge(unsigned facing, bool state);   // 0x004732D0 (a high bridge piece; as shared/cell.hpp)
     void Set_Under_Rail_Bridge(unsigned facing, bool state);   // 0x00473700 (the other bridge piece; as shared/cell.hpp)
     bool unknown_47b960() const;    // 0x0047B960 (a bridge tile; as shared/cell.hpp)
-    void unknown_47c930();          // 0x0047C930 (a cell of a collapsed bridge; TibSun On_Bridge_Collapse)
+    void On_Bridge_Collapse();          // 0x0047C930 (a cell of a collapsed bridge; TibSun On_Bridge_Collapse)
     void unknown_47c900();          // 0x0047C900 (maps the cell for the player; MapClass 0x00549C50)
     bool unknown_47b980() const;    // 0x0047B980 (a train bridge tile; as shared/cell.hpp)
 #ifdef RA2_MAP_BRIDGE_PIECES
-    void Unknown_0047CC10();
-    class TubeClass *Unknown_0047A130();   // 0x0047A130 (the cell's tube; TibSun Get_Tunnel)
+    void Kill_Illegal_Occupiers();
+    class TubeClass *Get_Tunnel();   // 0x0047A130 (the cell's tube; TibSun Get_Tunnel)
     bool unknown_47b5e0() const;    // 0x0047B5E0 (as shared/cell_class.hpp; Westwood's Is_Tile_Cliff)
 #endif
     void Recalc_Attributes(int value);   // 0x00472540 (as shared/cell.hpp)
-    void unknown_473b30(class ObjectClass *object, bool alt);   // 0x00473B30 (links object into the occupier list; TibSun Occupy_Down)
-    void unknown_473d20(class ObjectClass *object, bool alt);   // 0x00473D20 (as shared/cell_class.hpp; TibSun Occupy_Up)
+    void Occupy_Down(class ObjectClass *object, bool alt);   // 0x00473B30 (links object into the occupier list; TibSun Occupy_Down)
+    void Occupy_Up(class ObjectClass *object, bool alt);   // 0x00473D20 (as shared/cell_class.hpp; TibSun Occupy_Up)
     int unknown_475db0(int amount);     // 0x00475DB0 (takes up to amount of tiberium; as shared/cell.hpp)
-    void unknown_47bc80();          // 0x0047BC80 (DisplayClass 0x0049CDB0, for a cell that was mapped)
+    void Fog_Cell();          // 0x0047BC80 (DisplayClass 0x0049CDB0, for a cell that was mapped)
     void unknown_47be00();          // 0x0047BE00 (as shared/cell.hpp)
     void unknown_47c840();          // 0x0047C840 (as shared/cell.hpp)
     void unknown_47c8a0();          // 0x0047C8A0 (as shared/cell.hpp)
-    void Unknown_004798F0();        // 0x004798F0 (run over every cell by DisplayClass 0x0049E5E0)
+    void Recalc_Light();        // 0x004798F0 (run over every cell by DisplayClass 0x0049E5E0)
     class ObjectClass *Cell_Building() const;  // 0x004717B0 the building in the cell (as shared/cell.hpp)
     class ObjectClass *Cell_Terrain(bool alt = false) const;   // 0x004717E0 (as shared/cell.hpp)
     // Whether the cell can be entered (0x00478760; hypothesis: Is_Clear_To_Move).
@@ -148,7 +148,7 @@ public:
     // An object in the cell near a point, or 0 (0x00471660; hypothesis).
     class ObjectClass *Unknown_00471660(Point2D const &point, bool alt, class ObjectClass *except) const;
     CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any = false, int alt = 0) const;   // 0x004764B0
-    bool unknown_476460(int facing, bool alt) const;   // 0x00476460
+    bool Is_Spot_Free(int facing, bool alt) const;   // 0x00476460
     void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 the two radar colours of the cell
     void Init_Drawer(class LightConvertClass *drawer, int intensity, int ambient, int brightness, int tile_brightness, int alt_brightness);   // 0x004790F0 (DisplayClass 0x0049E570)
 };

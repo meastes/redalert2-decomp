@@ -15,7 +15,7 @@
 // @ref ?unknown_list_8322e0@@3VUnknownList8322E0@@A=008322e0
 // @ref ?Unknown_004366D0@UnknownList8322E0@@QAEXPAVTechnoClass@@@Z=004366d0
 // @ref ?Unknown_004ED440@HouseClass@@QAEXPAVTechnoClass@@_N@Z=004ed440
-// @ref ?unknown_476b20@UnknownCellClass@@QAEXHH@Z=00476b20
+// @ref ?Adjust_Threat@UnknownCellClass@@QAEXHH@Z=00476b20
 // @ref ?Unknown_00406070@UnknownAudioController@@QAEXXZ=00406070
 // @ref ?unknown_slot52@RadioClass@@UAE_NXZ=00636b60
 
@@ -40,13 +40,13 @@ bool TechnoClass::unknown_slot52()
             if (this != 0 && AbstractFlags.IsFoot) {
                 cell = (UnknownCellClass *)&Map[((FootClass *)this)->unknown_454];
                 if (cell != 0) {
-                    cell->unknown_476b20(Owner(), -unknown_400);
+                    cell->Adjust_Threat(Owner(), -unknown_400);
                     unknown_400 = 0;
                 }
             } else {
                 cell = (UnknownCellClass *)unknown_slot105();
                 if (cell != 0) {
-                    cell->unknown_476b20(Owner(), -unknown_400);
+                    cell->Adjust_Threat(Owner(), -unknown_400);
                     unknown_400 = 0;
                 }
             }

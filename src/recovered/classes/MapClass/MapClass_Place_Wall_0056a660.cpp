@@ -11,7 +11,7 @@
 #include "shared/map_techno.hpp"
 #include "shared/map_adjacent.hpp"
 #include "shared/house_screen.hpp"
-// @ref ?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z=004718b0
+// @ref ?Is_Clear_To_Build@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z=004718b0
 
 void MapClass::Unknown_0056A660(Cell const &cell, HouseClass *house, BuildingTypeClass *type)
 {
@@ -41,7 +41,7 @@ void MapClass::Unknown_0056A660(Cell const &cell, HouseClass *house, BuildingTyp
                 break;
             }
 
-            if (!Map[current_cell].unknown_4718b0(type->Speed, type, house)) {
+            if (!Map[current_cell].Is_Clear_To_Build(type->Speed, type, house)) {
                 break;
             }
         }

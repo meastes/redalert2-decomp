@@ -18,7 +18,7 @@
 #include "shared/techno_map.hpp"
 // @ref ?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z=00636ba0
 // @ref ?Unknown_00468A70@UnknownCargo@@QAEXPAVFootClass@@@Z=00468a70
-// @ref ?unknown_47c2e0@UnknownCellClass@@QAE_NH@Z=0047c2e0
+// @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 // @ref ?unknown_a40774@@3HA=00a40774
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
@@ -44,7 +44,7 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
         object = target->AbstractFlags.IsTechno;
     }
     if (!all && target != 0 && object) {
-        if (Map_Cell(target->Center_Coord())->unknown_47c2e0(House->ArrayIndex)) {
+        if (Map_Cell(target->Center_Coord())->Is_Sensed(House->ArrayIndex)) {
             forget = false;
         }
     }

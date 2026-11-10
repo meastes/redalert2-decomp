@@ -1,4 +1,4 @@
-// void CellClass::unknown_474830(Point2D const &point, Rect const &clip) (0x00474830):
+// void CellClass::Draw_Overlay_Shadow(Point2D const &point, Rect const &clip) (0x00474830):
 // Westwood's Draw_Overlay_Shadow: the overlay's shadow frame (the second half of
 // its frames; frame 0 for a crate), or a rubble building's shadow, through the
 // cell's drawer.
@@ -14,7 +14,7 @@
 // @ref ?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z=004790f0
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
-void CellClass::unknown_474830(Point2D const &xpoint, Rect const &clip)
+void CellClass::Draw_Overlay_Shadow(Point2D const &xpoint, Rect const &clip)
 {
     int yoffset = unknown_11b * 15;
     OverlayTypeClass *overlay = OverlayTypes[OverlayIndex];

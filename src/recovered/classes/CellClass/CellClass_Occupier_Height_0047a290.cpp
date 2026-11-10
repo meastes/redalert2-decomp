@@ -1,4 +1,4 @@
-// int CellClass::unknown_47a290() const (0x0047A290): the height of the top
+// int CellClass::Occupier_Height() const (0x0047A290): the height of the top
 // of the cell: the ground height at its middle plus, with a building, the
 // height (Z) of its type's slot 31 dimensions, or else 0x55 when an occupant
 // stands at the spot (0, 0) (name hypothesis).
@@ -9,7 +9,7 @@
 #include "shared/building_class.hpp"
 #include "shared/building_type_class.hpp"
 
-int CellClass::unknown_47a290() const
+int CellClass::Occupier_Height() const
 {
     int height;
     {

@@ -22,7 +22,7 @@ void TechnoClass::unknown_slot238()
         for (int index = Technos.Count() - 1; index >= 0; index--) {
             TechnoClass *techno = Technos[index];
             if (techno->unknown_228 == this) {
-                if (((UnknownCellClass *)&Map[Center_Coord()])->unknown_47c2e0(techno->House->ArrayIndex)
+                if (((UnknownCellClass *)&Map[Center_Coord()])->Is_Sensed(techno->House->ArrayIndex)
                     || techno->House == House) {
                     attackers.Add(techno);
                 }

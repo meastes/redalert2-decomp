@@ -6,7 +6,7 @@
 // @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
 // @ref ?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ=00475100
 // @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
-// @ref ?Unknown_0047CC10@CellClass@@QAEXXZ=0047cc10
+// @ref ?Kill_Illegal_Occupiers@CellClass@@QAEXXZ=0047cc10
 // @ref ??$Union@VRect@@@@YI?BVRect@@ABV0@0@Z=0045efe0
 // @ref ??GRectPoint2D@@QBE?AU0@ABU0@@Z=0047d040
 // @ref ??0Rect@@QAE@ABURectPoint2D@@HH@Z=00453e40
@@ -50,8 +50,8 @@ void MapClass::Damage_Low_Bridge_Piece_NS_005601F0(Cell const &cell)
         center->Recalc_Attributes(-1);
         side1->Recalc_Attributes(-1);
         side2->Recalc_Attributes(-1);
-        center->Unknown_0047CC10();
-        side1->Unknown_0047CC10();
-        side2->Unknown_0047CC10();
+        center->Kill_Illegal_Occupiers();
+        side1->Kill_Illegal_Occupiers();
+        side2->Kill_Illegal_Occupiers();
     }
 }

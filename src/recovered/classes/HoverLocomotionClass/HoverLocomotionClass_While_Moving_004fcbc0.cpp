@@ -89,7 +89,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             unknown_24.Z += unknown_geometry_j;
         }
 
-        if (!Map[unknown_24].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {
+        if (!Map[unknown_24].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
             if (LinkedTo->unknown_7d && !LinkedTo->unknown_7a) {
                 LinkedTo->Path[0] = -1;
                 unknown_24 = unknown_geometry_l;
@@ -157,7 +157,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
                 } else {
                     bridge = true;
                 }
-                Map[unknown_24].unknown_476920(&unknown_geometry_l, true, true, bridge);
+                Map[unknown_24].Incoming(&unknown_geometry_l, true, true, bridge);
                 unknown_24 = unknown_geometry_l;
                 unknown_4fda80();
                 break;
@@ -187,9 +187,9 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
                 ok = While_Moving_004fcbc0(false);
                 break;
             }
-            if (Map[c].unknown_471830(Point2D(0, 0), false) != 0) {
-                if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[c].unknown_471830(Point2D(0, 0), false))) {
-                    LinkedTo->Override_Mission(1, Map[c].unknown_471830(Point2D(0, 0), false), 0);
+            if (Map[c].Cell_Object(Point2D(0, 0), false) != 0) {
+                if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[c].Cell_Object(Point2D(0, 0), false))) {
+                    LinkedTo->Override_Mission(1, Map[c].Cell_Object(Point2D(0, 0), false), 0);
                 }
             } else {
                 if (Map[c].OverlayIndex != -1 && OverlayTypes[Map[c].OverlayIndex]->Wall) {

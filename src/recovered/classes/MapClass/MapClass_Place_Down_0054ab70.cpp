@@ -8,7 +8,7 @@
 #include "shared/map_cell.hpp"
 #include "shared/map_techno.hpp"
 // @ref ?unknown_dummy_cell_a6f9f8@@3VCellClass@@A=00a6f9f8
-// @ref ?unknown_473b30@CellClass@@QAEXPAVObjectClass@@_N@Z=00473b30
+// @ref ?Occupy_Down@CellClass@@QAEXPAVObjectClass@@_N@Z=00473b30
 // @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 // @ref ?Copy_Cell_List_00482e10@@YIXPBVCell@@HPAV1@@Z=00482e10
 
@@ -25,7 +25,7 @@ void MapClass::Unknown_0054AB70(Cell const &cell, ObjectClass *object)
         while (list->X != 0x7FFF || list->Y != 0x7FFF) {
             Cell newcell = cell + *list;
             if (Has_Cell(newcell)) {
-                (*this)[newcell].unknown_473b30(object, object->unknown_79);
+                (*this)[newcell].Occupy_Down(object, object->unknown_79);
                 (*this)[newcell].Recalc_Attributes(-1);
             }
             list++;
