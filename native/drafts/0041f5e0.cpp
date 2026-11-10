@@ -17,8 +17,8 @@
 // @ref ?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A=0083c648
 // @ref ?unknown_alpha_table_83c670@@3PAEA=0083c670
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00411230
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?AlphaBuffer@@3PAVABuffer@@A=008315b4
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref _unknown_empty_rect=0083c600
@@ -56,21 +56,21 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                 int src_x = left - shape_rect.X - x1;
                 int right = MIN(clip.X + clip.Width, shape_rect.X + shape_rect.Width + x1);
                 int shape_skip = shape_rect.Width - right + shape_rect.X + x1 + src_x;
-                int alpha_skip = ZBufferPtr->Width - right + left;
+                int alpha_skip = AlphaBuffer->Width - right + left;
                 unsigned char *shapedata = (unsigned char *)shape->Get_Frame_Data(0);
-                unsigned short *alphaptr = ZBufferPtr->Get_Buffer_Ptr(Point2D(left - unknown_rect_839630.X, top - unknown_rect_839630.Y));
+                unsigned short *alphaptr = AlphaBuffer->Get_Buffer_Ptr(Point2D(left - unknown_rect_839630.X, top - unknown_rect_839630.Y));
                 unsigned char *shapeptr = &shapedata[src_x + src_y * shape_rect.Width];
-                if (&alphaptr[right - left + (bottom - top) * ZBufferPtr->Width + 2] >= (unsigned short *)ZBufferPtr->BufferTail) {
+                if (&alphaptr[right - left + (bottom - top) * AlphaBuffer->Width + 2] >= (unsigned short *)AlphaBuffer->BufferTail) {
                     for (int y = top; y < bottom; y++) {
                         for (int x = left; x < right; x++) {
                             unsigned char pixel = *shapeptr++;
                             *alphaptr = unknown_alpha_table_83c670[pixel * 256 + *alphaptr];
                             alphaptr++;
-                            alphaptr = ZBufferPtr->Wrap_Pointer(alphaptr);
+                            alphaptr = AlphaBuffer->Wrap_Pointer(alphaptr);
                         }
                         shapeptr += shape_skip;
                         alphaptr += alpha_skip;
-                        alphaptr = ZBufferPtr->Wrap_Pointer(alphaptr);
+                        alphaptr = AlphaBuffer->Wrap_Pointer(alphaptr);
                     }
                 } else {
                     for (int y = top; y < bottom; y++) {

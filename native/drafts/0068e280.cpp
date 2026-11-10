@@ -731,9 +731,9 @@ Allocate_Surfaces(&unknown_window_839640, &composite, &tile, &sidebar, false);
 if (unknown_flag_852fd7) Init_Direct3D();
 unknown_surface_83995c = unknown_surface_839954;
 GScreenClass::Blit(true, unknown_surface_839954, 0);
-ABufferPtr = new ABuffer(Rect(unknown_rect_839630.X, unknown_rect_839630.Y, 480, 480 - unknown_rect_839630.Y));
-ABufferPtr->MaxValue = 0x8000;   // RA2_STARTUP_ABUFFER_SCROLL: TibSun abuffer.h Set_Scroll stores +0x24
-ZBufferPtr = new ZBuffer(Rect(unknown_rect_839630.X, unknown_rect_839630.Y, 480, 480 - unknown_rect_839630.Y));
+DepthBuffer = new ZBuffer(Rect(unknown_rect_839630.X, unknown_rect_839630.Y, 480, 480 - unknown_rect_839630.Y));
+DepthBuffer->MaxValue = 0x8000;   // RA2_STARTUP_ABUFFER_SCROLL: TibSun abuffer.h Set_Scroll stores +0x24
+AlphaBuffer = new ABuffer(Rect(unknown_rect_839630.X, unknown_rect_839630.Y, 480, 480 - unknown_rect_839630.Y));
 WWMouse = new WWMouseClass(unknown_surface_839950, MainWindow);
 WWMouse->Hide_Mouse();
 {

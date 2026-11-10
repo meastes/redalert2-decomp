@@ -225,7 +225,7 @@ int __fastcall Projectile_Motion(Coord &coord, TVelocity3D<double> &velocity, Co
             TVelocity3D<double> lookahead_velocity(velocity);
             Coord lookahead_coord = coord + Point3D(lookahead_velocity.X, lookahead_velocity.Y, lookahead_velocity.Z) * 6;
 
-            int terrain_height = Map.Unknown_0055A280((CoordStruct const &)lookahead_coord);
+            int terrain_height = Map.Get_Height_GL((CoordStruct const &)lookahead_coord);
             if (Map[(CoordStruct const &)lookahead_coord].IsUnderBridge) {
                 terrain_height += unknown_geometry_j;
             }

@@ -38,9 +38,9 @@ bool CellClass::Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bo
 
         if ((unknown_12c & 2) != 0 && ((ObjectTypeClass const *)Map.unknown_11a4)->Kind_Of() == 7) {
             CoordStruct coord = Cell_Coord(MapCoords);
-            coord.Z = Map.Unknown_0055A280(coord);
+            coord.Z = Map.Get_Height_GL(coord);
 
-            if (Map.Unknown_00568140(coord)) {
+            if (Map.Is_Shrouded(coord)) {
                 if (Map.unknown_117c && Map.unknown_11a4 != 0 && ((ObjectTypeClass const *)Map.unknown_11a4)->Kind_Of() == 7 && ((BuildingTypeClass *)Map.unknown_11a4)->unknown_bf0 != 0) {
                     ok = true;
                 } else {

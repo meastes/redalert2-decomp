@@ -41,8 +41,8 @@ alignas(16) unsigned char ra2_bss_0029[16] __asm__("_Audio_Thread_Running");  //
 alignas(16) unsigned char ra2_bss_0030[16] __asm__("_Audio_DirectSound");  // 0x008315AC Audio_DirectSound (?Audio_DirectSound@@3PAUIDirectSound@@A)
 alignas(16) unsigned char ra2_bss_0031[16] __asm__("_Audio_Primary_Buffer");  // 0x008315B0 Audio_Primary_Buffer (?Audio_Primary_Buffer@@3PAUIDirectSoundBuffer@@A)
 __asm__(".globl _DAT_008315b0\n.set _DAT_008315b0, _Audio_Primary_Buffer\n");  // same address: DAT_008315b0
-alignas(16) unsigned char ra2_bss_0032[16] __asm__("_ZBufferPtr");  // 0x008315B4 ZBufferPtr (?ZBufferPtr@@3PAVZBuffer@@A)
-__asm__(".globl _unknown_8315b4\n.set _unknown_8315b4, _ZBufferPtr\n");  // same address: unknown_8315b4
+alignas(16) unsigned char ra2_bss_0032[16] __asm__("_AlphaBuffer");  // 0x008315B4 AlphaBuffer (?AlphaBuffer@@3PAVABuffer@@A)
+__asm__(".globl _unknown_8315b4\n.set _unknown_8315b4, _AlphaBuffer\n");  // same address: unknown_8315b4
 alignas(16) unsigned char ra2_bss_0033[16] __asm__("_unknown_drawer_8323b0");  // 0x008323B0 unknown_drawer_8323b0 (?unknown_drawer_8323b0@@3PAVConvertClass@@A)
 alignas(16) unsigned char ra2_bss_0034[16] __asm__("_unknown_drawer_8323b4");  // 0x008323B4 unknown_drawer_8323b4 (?unknown_drawer_8323b4@@3PAVConvertClass@@A)
 alignas(16) unsigned char ra2_bss_0035[16] __asm__("_unknown_drawer_8323b8");  // 0x008323B8 unknown_drawer_8323b8 (?unknown_drawer_8323b8@@3PAVConvertClass@@A)
@@ -116,9 +116,9 @@ alignas(16) unsigned char ra2_bss_0088[160] __asm__("_unknown_839ab0");  // 0x00
 __asm__(".globl _unknown_voxel_light_839ab0\n.set _unknown_voxel_light_839ab0, _unknown_839ab0\n");  // same address: unknown_voxel_light_839ab0
 alignas(16) unsigned char ra2_bss_0089[48] __asm__("_PacketTransport");  // 0x00839C50 PacketTransport (?PacketTransport@@3PAVWinsockInterfaceClass@@A)
 alignas(16) unsigned char ra2_bss_0090[16] __asm__("_WWMouse");  // 0x00839C68 WWMouse (?WWMouse@@3PAVMouse@@A)
-alignas(16) unsigned char ra2_bss_0091[448] __asm__("_ABufferPtr");  // 0x00839C6C ABufferPtr (?ABufferPtr@@3PAVABuffer@@A)
-__asm__(".globl _DAT_00839c6c\n.set _DAT_00839c6c, _ABufferPtr\n");  // same address: DAT_00839c6c
-__asm__(".globl _unknown_839c6c\n.set _unknown_839c6c, _ABufferPtr\n");  // same address: unknown_839c6c
+alignas(16) unsigned char ra2_bss_0091[448] __asm__("_DepthBuffer");  // 0x00839C6C DepthBuffer (?DepthBuffer@@3PAVZBuffer@@A)
+__asm__(".globl _DAT_00839c6c\n.set _DAT_00839c6c, _DepthBuffer\n");  // same address: DAT_00839c6c
+__asm__(".globl _unknown_839c6c\n.set _unknown_839c6c, _DepthBuffer\n");  // same address: unknown_839c6c
 alignas(16) unsigned char ra2_bss_0092[112] __asm__("_buddy_00839d4c");  // 0x00839D4C buddy_00839d4c (?buddy_00839d4c@@3PAGA)
 __asm__(".globl _guest_empty_wide_839d4c\n.set _guest_empty_wide_839d4c, _buddy_00839d4c\n");  // same address: guest_empty_wide_839d4c
 __asm__(".globl _player_list_w_00839d4c\n.set _player_list_w_00839d4c, _buddy_00839d4c\n");  // same address: player_list_w_00839d4c

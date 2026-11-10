@@ -134,7 +134,7 @@ exitcell.X += random; exitcell.Y += random;
                     }
                     if (unknown_1b0 && Map[navalcell].unknown_ec == 2 && !Map[navalcell].unknown_471660(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
  } else {
-                        navalcell = Map.Unknown_005502E0(Center_Cell(this), base->unknown_slot32()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+                        navalcell = Map.Nearby_Location(Center_Cell(this), base->unknown_slot32()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
  }
                     if (!base->unknown_slot53(&Map[navalcell].Center_Coord(), 0x40)) return 0;
                     if (unknown_1b0) {

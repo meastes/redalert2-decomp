@@ -1505,7 +1505,7 @@
    "exact": false,
    "file": "native/link/behaviour_m15_blit.cpp",
    "source": "recovered siblings 0x00487C50 (Lucent50ZReadWrite), 0x00487390 (DarkenZRead); TibSun blitblit.h backward-as-forward",
-   "notes": "depth test, darken pixel, depth write, ABuffer wrap; Scout1125 (M15): reached when the harness builds a barracks"
+   "notes": "depth test, darken pixel, depth write, ZBuffer wrap; Scout1125 (M15): reached when the harness builds a barracks"
   },
   {
    "entry": null,

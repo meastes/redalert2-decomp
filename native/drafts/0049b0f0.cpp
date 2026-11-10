@@ -49,7 +49,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     if (unknown_11af && unknown_11b8 != 0) {
         if (unknown_player_a35db4->unknown_func_4ed200(cell) == 0 && Map.Unknown_0055A660(cell, true)) {
             *unknown_11b8 = Cell_Coord(cell);
-            unknown_11b8->Z = Map.Unknown_0055A280(*unknown_11b8) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
+            unknown_11b8->Z = Map.Get_Height_GL(*unknown_11b8) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
         }
     }
 

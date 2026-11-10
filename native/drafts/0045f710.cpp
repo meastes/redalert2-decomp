@@ -210,7 +210,7 @@ void BulletClass::AI()
             }
         }
         if (impact == 0 && ((cell->unknown_140 & 0x100) || (Map[old_coord].unknown_140 & 0x100))) {
-            int bridge_height = Map.Unknown_0055A280(coord) + unknown_geometry_j;
+            int bridge_height = Map.Get_Height_GL(coord) + unknown_geometry_j;
             if (coord.Z > bridge_height && old_coord.Z < bridge_height) {
                 impact = 1;
                 coord.Z = bridge_height;
@@ -251,7 +251,7 @@ void BulletClass::AI()
                 impact = 1;
                 forced = true;
             } else {
-                int bridge_height = Map.Unknown_0055A280(coord) + unknown_geometry_j;
+                int bridge_height = Map.Get_Height_GL(coord) + unknown_geometry_j;
                 if ((Map[coord].unknown_140 & 0x100) || (Map[old_coord].unknown_140 & 0x100)) {
                     if (coord.Z >= bridge_height) {
                         if (old_coord.Z < bridge_height) {
@@ -272,7 +272,7 @@ void BulletClass::AI()
             position += velocity;
             CoordStruct new_coord;
             new_coord.Set_00434820((int)position.X, (int)position.Y, (int)position.Z);
-            int height = Map.Unknown_0055A280(new_coord);
+            int height = Map.Get_Height_GL(new_coord);
             int bridge_height = height + unknown_geometry_j;
             CellClass *cell = &Map[new_coord];
             bool fell = false;

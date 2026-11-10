@@ -127,7 +127,7 @@ bool MapClass::Unknown_00569320(Cell const &cell)
         if (dir != -1) {
             Cell entry = search;
             while (true) {
-                int index = Unknown_005500D0(search, 3, 0);
+                int index = Zone_Connection_Index(search, 3, 0);
                 if (index < 0) break;
                 if (!ZoneConnections[index].unknown_08) return true;
                 ZoneConnectionClass *con = &ZoneConnections[index];

@@ -3,7 +3,7 @@
 // shape (Scout1103, native M10). NOT EXACT; never original code or bytes.
 // For each live alpha shape whose screen rectangle meets cliprect and the
 // 60x30 cell at pixel, its frame 0 pixels scale the depth buffer values
-// (ZBufferPtr 0x008315B4, as the decompile reads it) through the brightness
+// (AlphaBuffer 0x008315B4, as the decompile reads it) through the brightness
 // table 0x0083C670 under the iso-cell mask (0x0079B850, 60 x 30 bytes, ' '
 // outside the diamond; read from game.exe at run time like other tables).
 #include "shared/alpha_shape.hpp"
@@ -23,7 +23,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &pixel, Rect const &
         tilemask = (unsigned char const *)ra2port::original_data_pointer(0x0079B850);
         if (tilemask == 0) return;
     }
-    ZBuffer *buffer = ZBufferPtr;
+    ABuffer *buffer = AlphaBuffer;
     if (buffer == 0) return;
     for (int index = 0; index < unknown_AlphaShapeClass_list_0083c648.Count(); index++) {
         AlphaShapeClass *alpha = unknown_AlphaShapeClass_list_0083c648[index];

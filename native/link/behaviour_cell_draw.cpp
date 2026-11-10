@@ -55,7 +55,7 @@ void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const &point, Rect const &clip,
         fog_shape = (unsigned char const *)MixFileClass::Retrieve(Stored_Name(0x007D2C70));
     }
     unsigned char const *shape = (unknown_id_source_a3d290->unknown_000 & 0x1000) ? fog_shape : shroud_shape;
-    ZBuffer *buffer = ZBufferPtr;
+    ABuffer *buffer = AlphaBuffer;
     if (shape == 0 || buffer == 0) {
         return;                                         // NATIVE: the original reads through both unconditionally
     }

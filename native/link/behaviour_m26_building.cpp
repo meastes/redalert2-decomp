@@ -184,7 +184,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             CoordStruct fire = unknown_slot43(0);
             Cell const &destination = House->EMPDest;
             CoordStruct position(destination.X * 256 + 128, destination.Y * 256 + 128, 0);
-            Map.Unknown_0055A280(position);
+            Map.Get_Height_GL(position);
             CoordStruct to(House->EMPDest.X * 256 + 128, House->EMPDest.Y * 256 + 128, 0);
             UnknownFacingDir yaw = Radian_Dir_m26(unknown_math_4ba600(double(fire.Y) - to.Y, double(to.X) - fire.X));
             int speed = Unknown_0047FB70(unknown_5d4c00(target), Rules->unknown_1320);

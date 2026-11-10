@@ -141,7 +141,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         close = false;
     }
 
-    int cell_height = Map.Unknown_0055A280(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
+    int cell_height = Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
     if (cell_height < coord.Z) {
         unknown_tracker_839ea0.Unknown_004128A0(cptr, (int)warhead->CellSpread);
         TechnoClass *techno;
@@ -161,7 +161,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         }
     }
 
-    if ((cptr->unknown_140 & 0x100) && coord.Z > Map.Unknown_0055A280(coord) + unknown_geometry_j / 2) {
+    if ((cptr->unknown_140 & 0x100) && coord.Z > Map.Get_Height_GL(coord) + unknown_geometry_j / 2) {
         isbridge = true;
     }
 
@@ -343,7 +343,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         cptr->unknown_47c080();
         cptr->OverlayIndex = -1;
         cptr->Recalc_Attributes(-1);   // NATIVE: Unknown_00472540
-        Map.Unknown_0054FB20(cptr->MapCoords);
+        Map.Update_Cell_Zone(cptr->MapCoords);
         Map.Unknown_00566340(cptr->MapCoords);
         Unknown_006D7C80((AbstractClass *)cptr);
 

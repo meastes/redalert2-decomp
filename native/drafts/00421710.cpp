@@ -84,7 +84,7 @@ void AnimClass::AI()
         int bounce_result = unknown_slot116();
         if (bounce_result == 2 || bounce_result == 1) {
             bool water = Map[Position_Coord_004f3f40()].unknown_ec == 2;
-            bool bridge = Position_Coord_004f3f40().Z >= Map.Unknown_0055A280(Position_Coord_004f3f40()) + unknown_geometry_j;
+            bool bridge = Position_Coord_004f3f40().Z >= Map.Get_Height_GL(Position_Coord_004f3f40()) + unknown_geometry_j;
 
             if (water && !bridge) {
                 if (Class->IsMeteor) {

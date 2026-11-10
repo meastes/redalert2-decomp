@@ -41,7 +41,7 @@ inline void Set_Connection(SubzoneConnectionStruct &connection, int id, bool cos
 
 inline int Cell_Passability(MapClass *map, Cell const &cell)
 {
-    return map->unknown_64[map->Unknown_0054FAB0(cell)].unknown_00;
+    return map->unknown_64[map->Get_Cell_Zone_Index(cell)].unknown_00;
 }
 
 void MapClass::Unknown_00566340(Cell const &cell)

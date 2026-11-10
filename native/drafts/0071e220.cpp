@@ -72,7 +72,7 @@ static inline int Distance2(Point2D const &a, Point2D const &b)
 static inline int Tube_Height_Step(CoordStruct const &exit, TubeClass const *tube, int current_height)
 {
     int count = tube->unknown_1c0;
-    return (Map.Unknown_0055A280(exit) - current_height) / count;
+    return (Map.Get_Height_GL(exit) - current_height) / count;
 }
 
 static inline Cell Adjacent_Tube(Cell const &cell, int facing)
@@ -150,7 +150,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     CoordStruct enter_coord = Cell_Coord(Cell(enter));
                     Cell visual_cell = Adjacent_Tube(Cell(enter), tube_ptr->Directions[0]);
                     LinkedTo->unknown_45c = Object_Coord(LinkedTo) + (Map[visual_cell].unknown_475d60() - enter_coord);
-                    int start_h = Map.Unknown_0055A280(Object_Coord(LinkedTo));
+                    int start_h = Map.Get_Height_GL(Object_Coord(LinkedTo));
                     Cell exit_cell = tube_ptr->ExitCell;
                     LinkedTo->unknown_45c.Z = start_h + Tube_Height_Step(CoordStruct(exit_cell, 0), tube_ptr, start_h);
                     return;

@@ -39,8 +39,8 @@ void MapClass::Unknown_0054FDA0()
     };
 
     ZoneConnections.Clear();
-    Unknown_0055A550();
-    CellClass *cptr = Unknown_0055A490();
+    Reset_Iterator();
+    CellClass *cptr = Iterate();
 
     while (cptr != 0) {
 
@@ -107,6 +107,6 @@ void MapClass::Unknown_0054FDA0()
             }
         }
 
-        cptr = Unknown_0055A490();
+        cptr = Iterate();
     }
 }

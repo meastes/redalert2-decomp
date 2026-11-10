@@ -182,7 +182,7 @@ plain:
         }
         if (type->HunterSeeker) {
             CoordStruct coord=Position_Coord_004f3f40();
-            coord.Z=Map.Unknown_0055A280(coord);
+            coord.Z=Map.Get_Height_GL(coord);
             unknown_tactical_83996c->Coord_To_Pixel(coord,shadow_drawpoint);
             shadow_drawpoint+=Locomotor.Checked()->Shadow_Point();
         }

@@ -33,8 +33,8 @@ bool __cdecl Generate_Starting_Points_00576420()
     int zone_type=zone_types[RandomMapGen.SeedData.MapType];
     int main_zone=((unsigned short *)Map.unknown_18[zone_type])[largest];
     MapRegionClass::Destroy_Cell_Regions();
-    Map.Unknown_0055A550();
-    for(CellClass *cell=Map.Unknown_0055A490();cell!=0;cell=Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for(CellClass *cell=Map.Iterate();cell!=0;cell=Map.Iterate()) {
         if(Generation_Cell_In_Bounds_0058da10(cell->MapCoords)) {
             if(MapRegionClass::Get_Cell_Data(cell->MapCoords).RegionIndex==-1 && cell->unknown_4c==0) {
                 if(Map.Zone(cell->MapCoords,zone_type,false)==main_zone) {

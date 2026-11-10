@@ -14,10 +14,10 @@
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00411230
-// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00776340
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00776340
+// @ref ?AlphaBuffer@@3PAVABuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?Brighten_Hicolor_Pixel@@YIHABVRGBClass@@HHH@Z=004ae8d0
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc
@@ -85,18 +85,18 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
     }
     Bytes_Per_Pixel();
     void * buffer = Lock(start);
-    if (ABufferPtr != 0) {
+    if (DepthBuffer != 0) {
     Point2D point = start;
-    point.Y -= ABufferPtr->Area.Y;
-    unsigned short * zbuffer = ABufferPtr->Get_Buffer_Ptr(point);
+    point.Y -= DepthBuffer->Area.Y;
+    unsigned short * zbuffer = DepthBuffer->Get_Buffer_Ptr(point);
     point = start;
-    point.Y -= ZBufferPtr->Area.Y;
-    unsigned short * level = ZBufferPtr->Get_Buffer_Ptr(point);
+    point.Y -= AlphaBuffer->Area.Y;
+    unsigned short * level = AlphaBuffer->Get_Buffer_Ptr(point);
     int start_y = start.Y;
     int zwrap = -1;
-    ABuffer *depth_buffer = ABufferPtr;
+    ZBuffer *depth_buffer = DepthBuffer;
     unsigned short z = (unsigned short)(zstart + (short)(depth_buffer->Area.Y + depth_buffer->Get_Scroll()) - start_y - rect.Y);
-    int zwidth = ABufferPtr->Width;
+    int zwidth = DepthBuffer->Width;
     if (buffer != 0) {
     int red = (color.Red * intensity) >> 8;
     int green = (color.Green * intensity) >> 8;
@@ -135,15 +135,15 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                     xdelta -= dz2;
                     zbuffer += zwidth;
                     if (zwidth > 0) {
-                        zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                     } else {
-                        zbuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
                     }
                     level += zwidth;
                     if (zwidth > 0) {
-                        level = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)level);
+                        level = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)level);
                     } else {
-                        level = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)level);
+                        level = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)level);
                     }
                     z += zwrap;
                 }
@@ -151,9 +151,9 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                 if (ydelta > 0) {
                     zbuffer++;
                     offset += 2;
-                    zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                     level++;
-                    level = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)level);
+                    level = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)level);
                     ydelta -= dz2;
                 }
                 ydelta += dx2;
@@ -175,16 +175,16 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                     ydelta -= 2 * dx;
                     zbuffer += zwidth;
                     if (zwidth > 0) {
-                        zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                     } else {
-                        zbuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
                     }
                     z += zwrap;
                     level += zwidth;
                     if (zwidth > 0) {
-                        level = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)level);
+                        level = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)level);
                     } else {
-                        level = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)level);
+                        level = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)level);
                     }
                 }
                 if (zdelta > 0) {
@@ -194,9 +194,9 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                 zbuffer++;
                 ydelta += dy2;
                 zdelta += dz2;
-                zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                 level++;
-                level = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)level);
+                level = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)level);
             }
         }
     } else {
@@ -212,9 +212,9 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                 if (xdelta > 0) {
                     zbuffer++;
                     offset += 2;
-                    zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                     level++;
-                    level = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)level);
+                    level = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)level);
                     xdelta -= dy2;
                 }
                 if (zdelta > 0) {
@@ -226,16 +226,16 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                 buffer = (unsigned char *)buffer + pitch;
                 zbuffer += zwidth;
                 if (zwidth > 0) {
-                    zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                 } else {
-                    zbuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
                 }
                 z += zwrap;
                 level += zwidth;
                 if (zwidth > 0) {
-                    level = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)level);
+                    level = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)level);
                 } else {
-                    level = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)level);
+                    level = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)level);
                 }
             }
         }

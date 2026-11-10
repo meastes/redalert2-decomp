@@ -131,7 +131,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
     if (weapon->unknown_10d) {
         SpawnManager->Set_Target(target);
         if (unknown_372 || unknown_373) {
-            if (!Map.Unknown_00568140(Center_Coord()) && !Map.Unknown_005683C0(Center_Coord())) {
+            if (!Map.Is_Shrouded(Center_Coord()) && !Map.Is_Fogged(Center_Coord())) {
                 return 0;
             }
             if (Kind_Of() == 2 && unknown_372) {
@@ -384,7 +384,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
             unknown_slot207();
             Mark(2);
             if (!(unknown_372 || unknown_373)
-                || ((Map.Unknown_00568140(Center_Coord()) || Map.Unknown_005683C0(Center_Coord())) && !(Kind_Of() == 2 && unknown_372))) {
+                || ((Map.Is_Shrouded(Center_Coord()) || Map.Is_Fogged(Center_Coord())) && !(Kind_Of() == 2 && unknown_372))) {
                 if (target->AbstractFlags.IsObject) {
                     HouseClass *owner = static_cast<ObjectClass *>(target)->Owning_House();
                     if (owner != 0 && owner->Unknown_004F52B0() && weapon->unknown_113) {

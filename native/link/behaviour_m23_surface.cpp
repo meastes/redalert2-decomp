@@ -76,12 +76,12 @@ bool XSurface::Draw_Ellipse(Point2D center, int rx, int ry, Rect cliprect, int c
 //   depth-major bodies, where depth moves one unit per step (the x one also steps
 //   two pixels at a time while the buffers move one: as in the original);
 // - per pixel, only where the line's depth (16-bit, unsigned) is below the
-//   ABuffer value (0x00839C6C) and the ZBuffer value (0x008315B4) is not zero:
+//   ZBuffer value (0x00839C6C) and the ABuffer value (0x008315B4) is not zero:
 //   each enabled channel becomes ((T[256-w] * back + T[w] * colour) * zvalue) >> 15
-//   with w = ftol(weight * intensity), clamped to 255 (the ZBuffer value is 0x7F in
+//   with w = ftol(weight * intensity), clamped to 255 (the ABuffer value is 0x7F in
 //   the open and falls towards 0 under the shroud's edge, where the beam fades:
 //   checked with the harness order `laser`, d/laser.png); write_depth stores the
-//   line's depth into the ABuffer. The x-major bodies blend each pixel from the
+//   line's depth into the ZBuffer. The x-major bodies blend each pixel from the
 //   other one of its pair (the original reads the next row's pixel for the
 //   line's pixel and the line's pixel for the next row's: kept).
 // Differences: w is clamped to 0..256 (the original indexes past the table for an
@@ -191,8 +191,8 @@ bool DSurface::Draw_Depth_Antialiased_Line(Rect const &cliprect, Point2D const &
         zs = z1 > z0 ? z1 - d : z1 + d;
     }
     unsigned short *row = (unsigned short *)Lock(Point2D(p0.X, p0.Y));
-    ABuffer *abuf = ABufferPtr;
-    ZBuffer *zbuf = ZBufferPtr;
+    ZBuffer *abuf = DepthBuffer;
+    ABuffer *zbuf = AlphaBuffer;
     if (abuf == 0 || zbuf == 0) {
         Unlock();
         return false;

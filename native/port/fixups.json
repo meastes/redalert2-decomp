@@ -705,7 +705,7 @@
    "source": "src/shared/blit.hpp",
    "old": "    unsigned int Wrap_Overflow(unsigned int position) const {\n        if (position >= (unsigned int)BufferTail) position -= BufferSize;\n",
    "new": "    uintptr_t Wrap_Overflow(uintptr_t position) const {   // NATIVE: pointer-width ring positions\n        if (position >= (uintptr_t)BufferTail) position -= BufferSize;\n",
-   "why": "ZBuffer/ABuffer ring folds on raw addresses (TibSun zbuffer.h/abuffer.h): pointer-width positions natively; callers' (unsigned int) casts are widened by native_units.py's Wrap_ rule. Ring-buffer pointers through 32-bit casts: VC6 folds the ring position on raw x86 addresses ((unsigned int)pointer); on arm64 the cast drops the heap pointer's upper half (skirmish fault drawing the shroud into the 0x008315B4 ring, Scout1091). The native view does the same arithmetic in uintptr_t; same meaning, the exact build is untouched.",
+   "why": "ABuffer/ZBuffer ring folds on raw addresses (TibSun zbuffer.h/abuffer.h): pointer-width positions natively; callers' (unsigned int) casts are widened by native_units.py's Wrap_ rule. Ring-buffer pointers through 32-bit casts: VC6 folds the ring position on raw x86 addresses ((unsigned int)pointer); on arm64 the cast drops the heap pointer's upper half (skirmish fault drawing the shroud into the 0x008315B4 ring, Scout1091). The native view does the same arithmetic in uintptr_t; same meaning, the exact build is untouched.",
    "verified": true
   },
   {

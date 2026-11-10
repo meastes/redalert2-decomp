@@ -81,14 +81,14 @@ void MapClass::unknown_slot28(Rect const *rect, bool reset_cells, int cell_heigh
         cellcount = 0;
         cells_base = (CellClass *) new char[h * w * sizeof(CellClass)];
         cells = cells_base;
-        Unknown_0055A550();
-        cptr = Unknown_0055A490();
+        Reset_Iterator();
+        cptr = Iterate();
         cell = cptr->Fetch_CellID();
         while (cptr != 0) {
             cells_base[cellcount] = *cptr;
             cells_base[cellcount].unknown_2c = 0;
             cells_base[cellcount].unknown_30 = 0;
-            cptr = Unknown_0055A490();
+            cptr = Iterate();
             cellcount++;
         }
     }
@@ -133,8 +133,8 @@ void MapClass::unknown_slot28(Rect const *rect, bool reset_cells, int cell_heigh
     bool freshcalled = false;
 
     if (!reset_cells) {
-        Unknown_0055A550();
-        Cell icell = Unknown_0055A490()->Fetch_CellID();
+        Reset_Iterator();
+        Cell icell = Iterate()->Fetch_CellID();
         Cell cellpos = Cell(rect->Y + rect->X, rect->Y - rect->X);
         Cell offset = (icell - cell) - cellpos;
 
@@ -152,8 +152,8 @@ void MapClass::unknown_slot28(Rect const *rect, bool reset_cells, int cell_heigh
             }
         }
 
-        Unknown_0055A550();
-        cptr = Unknown_0055A490();
+        Reset_Iterator();
+        cptr = Iterate();
         while (cptr != 0) {
 
             Cell c = cptr->Fetch_CellID();
@@ -174,7 +174,7 @@ void MapClass::unknown_slot28(Rect const *rect, bool reset_cells, int cell_heigh
                 Cells[cellindex]->OverlayIndex = -1;
                 Cells[cellindex]->unknown_11b = cell_height;
             }
-            cptr = Unknown_0055A490();
+            cptr = Iterate();
         }
 
         for (i = 0; i < 101; i++) {
@@ -237,8 +237,8 @@ void MapClass::unknown_slot28(Rect const *rect, bool reset_cells, int cell_heigh
             }
         }
 
-        Unknown_0055A550();
-        cptr = Unknown_0055A490();
+        Reset_Iterator();
+        cptr = Iterate();
         while (cptr != 0) {
             if (cptr->IsBridgeDeck && cptr->unknown_2c == 0) {
                 unsigned facing = !cptr->IsBridgeEastWest * 2;
@@ -248,7 +248,7 @@ void MapClass::unknown_slot28(Rect const *rect, bool reset_cells, int cell_heigh
                     cptr->Set_Under_Rail_Bridge(facing, true);
                 }
             }
-            cptr = Unknown_0055A490();
+            cptr = Iterate();
         }
 
         if (refresh_map) {

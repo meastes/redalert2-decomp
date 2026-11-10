@@ -27,7 +27,7 @@ void Depth_Write_Blit(void *target, void const *source, int length, int depth, v
         ++depth_ptr;
         source = (unsigned char const *)source + 1;
         target = (unsigned short *)target + 1;
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
 }
 }  // namespace

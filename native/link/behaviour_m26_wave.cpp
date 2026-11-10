@@ -5,7 +5,7 @@
 // shape reference, see THIRD_PARTY.md). RA2 member map: WaveStartMiddle = WaveStartMiddle,
 // StartCoord.Z = StartCoord.Z, WaveShape/DrawData = Polygon_130/Scanlines_168 (rasterized
 // by 0x0061BE40), Direction = Direction, LaserEC = LaserEC, the depth test reads the
-// ABuffer ring (0x00839C6C; MaxValue +0x24 is the scroll bias), LogicalSurface is the
+// ZBuffer ring (0x00839C6C; MaxValue +0x24 is the scroll bias), LogicalSurface is the
 // current drawing surface 0x0083995C, TacticalRect.Y is 0x00839634.
 // Native differences (flagged): every depth value is fetched through Get_Buffer_Ptr (the
 // original's slow, wrapping path; its fast path walks a running pointer when the wave fits
@@ -32,7 +32,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
     Surface *surface = unknown_surface_83995c;
     unsigned short *surfptr = (unsigned short *)surface->Lock(Point2D(0, 0));
     if (surfptr == 0) return;
-    ABuffer *depth = ABufferPtr;
+    ZBuffer *depth = DepthBuffer;
 
     int top = cliprect.Y + 3;
     int bottom = cliprect.Y + cliprect.Height - 3;
@@ -87,7 +87,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
     Surface *surface = unknown_surface_83995c;
     unsigned short *buffer = (unsigned short *)surface->Lock(Point2D(0, 0));
     if (buffer == 0) return;
-    ABuffer *depth = ABufferPtr;
+    ZBuffer *depth = DepthBuffer;
 
     int top = cliprect.Y;
     int bottom = cliprect.Y + cliprect.Height - 1;

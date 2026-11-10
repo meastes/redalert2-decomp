@@ -51,7 +51,7 @@ static inline Vector3 Slope_Vector(Vector3 &vector, CoordStruct const &coord, fl
 // The height of a bridge deck over coord; ground receives the ground height.
 static inline int Bridge_Height(CoordStruct const &coord, int &ground)
 {
-    int height = Map.Unknown_0055A280(coord);
+    int height = Map.Get_Height_GL(coord);
     ground = height;
     return height + unknown_geometry_j;
 }

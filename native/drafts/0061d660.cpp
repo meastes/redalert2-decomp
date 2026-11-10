@@ -7,7 +7,7 @@ void UnknownPreview_0061D430::Unknown_0061D660()
 {
     CellClass *cptr;
 
-    Map.Unknown_0055A550();
+    Map.Reset_Iterator();
 
     int minx = 10000;
     int maxx = 0;
@@ -15,7 +15,7 @@ void UnknownPreview_0061D430::Unknown_0061D660()
     int originx = 10000;
     int maxy = 0;
 
-    cptr = Map.Unknown_0055A490();
+    cptr = Map.Iterate();
     while (cptr != 0) {
         if (Map.Unknown_0054AAB0(cptr->MapCoords)) {
             Point2D pixel = Cell_To_Preview_Pixel(cptr->MapCoords);
@@ -33,7 +33,7 @@ void UnknownPreview_0061D430::Unknown_0061D660()
                 maxy = pixel.Y;
             }
         }
-        cptr = Map.Unknown_0055A490();
+        cptr = Map.Iterate();
     }
 
     int width = 2 * (maxx - minx);
@@ -46,9 +46,9 @@ void UnknownPreview_0061D430::Unknown_0061D660()
     unknown_00 = new DSurface(width, height, true);
     unknown_00->Fill(0);
 
-    Map.Unknown_0055A550();
+    Map.Reset_Iterator();
 
-    cptr = Map.Unknown_0055A490();
+    cptr = Map.Iterate();
 
     unknown_00->Lock();
     while (cptr != 0) {
@@ -108,7 +108,7 @@ void UnknownPreview_0061D430::Unknown_0061D660()
 
             minx = originx;
         }
-        cptr = Map.Unknown_0055A490();
+        cptr = Map.Iterate();
     }
 
     for (int i = 0; i < 8; i++) {
