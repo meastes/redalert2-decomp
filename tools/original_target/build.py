@@ -177,15 +177,40 @@ def wine_parallel(config, directory, units, name, timeout=3600, hang_seconds=600
     return receipt
 
 
-def unit_lines(unit, path, include, compiler):
+def defines_sdk_switch(data):
+    """Whether a unit text defines the RA2_SDK_HEADERS migration switch (a
+    converted unit: its compile also searches the pinned SDK header tree)."""
+    import re
+    return re.search(rb'^[ \t]*#[ \t]*define[ \t]+RA2_SDK_HEADERS\b', data, flags=re.M) is not None
+
+
+_SDK_VERIFIED = {}
+
+
+def sdk_directory(config):
+    """Local pinned SDK header tree (config sdk_include_directory, else the
+    manifest's default_directory under the repository), verified against
+    manifests/toolchain.json once per process."""
+    from canonical import sdk_pin, sdk_pin_record, verify_sdk_tree
+    files = sdk_pin()
+    directory = Path(config.get('sdk_include_directory') or REPOSITORY/sdk_pin_record()['default_directory'])
+    if str(directory) not in _SDK_VERIFIED:
+        _SDK_VERIFIED[str(directory)] = verify_sdk_tree(directory, files)
+    return directory
+
+
+def unit_lines(unit, path, include, compiler, sdk=None):
     """Cmd lines for one compile unit (dict: cwd, source, obj, log, returncode,
-    args). The compiler runs from the unit's directory with a relative source
+    args, optional sdk). The compiler runs from the unit's directory with a relative source
     name: VC6 records the source name as given in the object's .file symbol,
     so objects then do not depend on where the tree lives (Wine Z:\\ or a
-    remote host). `path` spells a local path for the executing host."""
+    remote host). `path` spells a local path for the executing host; `sdk`
+    the pinned SDK header tree there, searched after src/ by a converted unit."""
     source = os.path.relpath(os.path.abspath(unit['source']), os.path.abspath(unit['cwd'])).replace('/', '\\')
     require(not any(c in source for c in '\r\n"%!'), 'Unsupported source path')
-    args = [*unit['args'], '/I'+include, '/Fo'+path(unit['obj']), source]
+    require(not unit.get('sdk') or sdk, 'Converted unit without an SDK header directory')
+    extra = ['/I'+sdk] if unit.get('sdk') else []
+    args = [*unit['args'], '/I'+include, *extra, '/Fo'+path(unit['obj']), source]
     return ['cd /d "%s"' % path(unit['cwd']),
             '"'+compiler+'" '+' '.join('"'+a+'"' for a in args)+' >"'+path(unit['log'])+'" 2>&1',
             '>"'+path(unit['returncode'])+'" echo %errorlevel%']
@@ -196,17 +221,22 @@ def compile_units(config, directory, units, name, parallel=True, timeout=3600, h
     locally: `parallel_sessions` Wine sessions, or one session if not
     `parallel`. An unreachable or failing remote host falls back to local."""
     import remote_compile
+    for unit in units:
+        unit['sdk'] = defines_sdk_switch(Path(unit['source']).read_bytes())
+    sdk = sdk_directory(config) if any(u['sdk'] for u in units) else None
     spec, fallback = remote_compile.settings(config), None
     if spec and units:
         try:
             pinned = json.loads((REPOSITORY/'manifests/toolchain.json').read_text())['compiler']
-            receipt = remote_compile.run(spec, REPOSITORY, directory, units, name, pinned, unit_lines, timeout)
+            receipt = remote_compile.run(spec, REPOSITORY, directory, units, name, pinned, unit_lines, timeout,
+                                         sdk_directory=sdk)
             write_json(directory/(name+'-command.json'), receipt)
             return receipt
         except remote_compile.Unavailable as error:
             fallback = str(error)
             print('remote compile unavailable (%s); compiling locally' % fallback, file=sys.stderr, flush=True)
-    rendered = [unit_lines(u, win, win(REPOSITORY/'src'), win(Path(config['compiler_directory'])/'CL.EXE'))
+    rendered = [unit_lines(u, win, win(REPOSITORY/'src'), win(Path(config['compiler_directory'])/'CL.EXE'),
+                           win(sdk) if sdk else None)
                 for u in units]
     if parallel:
         receipt = wine_parallel(config, directory, rendered, name, timeout, hang_seconds)
@@ -257,17 +287,21 @@ def include_closure(data, headers, memo):
             continue
         seen.add(name)
         if name not in memo:
-            memo[name] = validate_includes(headers[name], headers)
+            memo[name] = validate_includes(headers[name], headers, name)
         pending.update(memo[name] - seen)
     return sorted(seen)
 
 
 def group_cache_key(source, args, closure, headers, pinned):
     """Identity of one group's compile: the pinned compiler files, the
-    argument list, the unit text and every header in its include closure."""
-    return sha(json.dumps(dict(compiler=pinned, arguments=list(args), source=sha(source),
-                               headers=[(name, sha(headers[name])) for name in closure]),
-                          sort_keys=True).encode())
+    argument list, the unit text and every header in its include closure
+    (plus the pinned SDK tree digest for a converted unit)."""
+    key = dict(compiler=pinned, arguments=list(args), source=sha(source),
+               headers=[(name, sha(headers[name])) for name in closure])
+    if defines_sdk_switch(source):
+        from canonical import sdk_pin, sdk_tree_digest
+        key['sdk_headers'] = sdk_tree_digest(sdk_pin())
+    return sha(json.dumps(key, sort_keys=True).encode())
 
 
 def compile_sources(config, catalog, destination):

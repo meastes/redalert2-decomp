@@ -66,10 +66,12 @@
 #include "shared/crt_string.hpp"
 
 // Placement form used for caller-supplied storage (no allocation).
+#ifndef RA2_SDK_HEADERS    // a converted unit: new.h placement new (pinned SDK set)
 inline void *operator new(unsigned int, void *pointer)
 {
     return pointer;
 }
+#endif
 
 // Tag selecting the constructors that only install the vtable.
 class NoInitClass {

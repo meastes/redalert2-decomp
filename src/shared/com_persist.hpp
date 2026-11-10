@@ -11,6 +11,9 @@
 #include "shared/crt_memory.hpp"
 #include "shared/win32_api.hpp"
 
+// RA2_SDK_HEADERS: stand-ins for the system headers; a converted unit takes these from the pinned SDK set
+// (shared/sdk_prelude.hpp, docs/DECISIONS.md "SDK headers for a unit").
+#ifndef RA2_SDK_HEADERS
 typedef int BOOL;
 #define S_OK ((HRESULT)0L)
 #define S_FALSE ((HRESULT)1L)
@@ -65,12 +68,15 @@ struct __declspec(novtable) IPersistStream : public IPersist {
 // (0x007AFCE0, 0x007AFCD0, 0x007AFCC0: a second IID_IUnknown copy next to
 // the UUID.LIB IPersist/IPersistStream IDs; _IID_IUnknown proper is
 // 0x007CE610).
+#endif
 extern "C" GUID const IID_IUnknown_7afce0;     // 0x007AFCE0 {00000000-0000-0000-C000-000000000046}
+#ifndef RA2_SDK_HEADERS
 extern "C" GUID const IID_IPersistStream;      // 0x007AFCD0 {00000109-0000-0000-C000-000000000046}
 extern "C" GUID const IID_IPersist;            // 0x007AFCC0 {0000010C-0000-0000-C000-000000000046}
 
 // ole32.dll stream persistence of a COM object (IAT 0x0079A5EC; the save
 // counterpart OleSaveToStream is 0x0079A5E8).
 WIN32_IMPORT HRESULT __stdcall OleLoadFromStream(IStream *stream, GUID const &iid, void **object);
+#endif
 
 #endif

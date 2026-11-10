@@ -4,6 +4,7 @@
 // so no call is emitted for them; the declarations only have to exist.
 #ifndef RA2_SHARED_CRT_STRING_HPP
 #define RA2_SHARED_CRT_STRING_HPP
+#ifndef RA2_SDK_HEADERS    // stand-ins for the CRT headers; a converted unit takes the pinned SDK set
 
 extern "C" int __cdecl strcmp(char const *left, char const *right);
 extern "C" unsigned int __cdecl strlen(char const *string);
@@ -20,4 +21,5 @@ extern "C" void __cdecl qsort(void *base, unsigned int count, unsigned int width
                               int(__cdecl *compare)(void const *, void const *));   // 0x00781D46
 #pragma intrinsic(strcmp, strlen, strcpy, strcat, memset)
 
+#endif
 #endif

@@ -1,13 +1,12 @@
 #include "shared/cell.hpp"
-// No-argument thiscall and one-pointer fastcall have the same observed ABI.
-// The original helper at 0047CF10 returns CellClass+0x11B plus four
-// when CellClass+0x140 bit 7 is set; its original member name is unknown.
-// @ref ?Cell_Effective_Height_0047cf10@@=0047cf10
-extern int __fastcall Cell_Effective_Height_0047cf10(CellClass const *cell);
+// The cliff test of the projectile path (inlined into Get_Obstacle_004bbaf0, as the gamemd twin
+// TrajectoryHelper::IsCliffHit in ra2-decomp src/findpath2.cpp; see THIRD_PARTY.md): the cell rises four or more
+// levels over the previous cell and above the origin. CellClass 0x0047CF10 returns +0x11B plus four for flag 0x80.
+// @ref ?Bridge_Adjusted_Height_0047CF10@CellClass@@QBEHXZ=0047cf10
 int __fastcall Cell_Height_Transition_004bbe10(CellClass const *origin,
                                              CellClass const *nearby,
                                              CellClass const *destination)
 {
-    return Cell_Effective_Height_0047cf10(destination) - Cell_Effective_Height_0047cf10(nearby) >= 4
-        && Cell_Effective_Height_0047cf10(destination) - Cell_Effective_Height_0047cf10(origin) > 0;
+    return destination->Bridge_Adjusted_Height_0047CF10() - nearby->Bridge_Adjusted_Height_0047CF10() >= 4
+        && destination->Bridge_Adjusted_Height_0047CF10() - origin->Bridge_Adjusted_Height_0047CF10() > 0;
 }

@@ -181,8 +181,23 @@ the move and were not tested during this migration.
 The canonical catalog may declare `headers: [{"path": "src/shared/name.hpp",
 "sha256": "..."}]`. Header hashes and completeness are checked with source
 hashes, and quoted includes must resolve to declared tracked headers beneath
-`src/`. The compiler includes root `src/`; implicit private/SDK headers and computed
-includes are not part of this workflow. Shared declaration changes receive normal
+`src/`. The compiler includes root `src/`; computed includes are refused.
+
+System headers come only through the `RA2_SDK_HEADERS` migration switch
+(docs/DECISIONS.md "SDK headers for a unit"). One header set is pinned by hash in
+`manifests/toolchain.json` `sdk_headers` (the VC98 CD1 INCLUDE tree, a hypothesis;
+later Platform SDK, DirectX, Bink and WOL headers unverified; changing the set is a
+whole-tree change). The files stay private: config `sdk_include_directory`, else the
+pin's `default_directory`; the build verifies the tree against the pin. A unit
+converts by defining `RA2_SDK_HEADERS` at line 1 of its first row; only such a unit's
+compile also searches the pinned tree (after `src/`; the remote backend stages it),
+and its object-cache key carries the tree digest. Angle includes are allowed only in
+the wrapper headers `canonical.SDK_WRAPPERS` (src/shared counterparts of the
+original's irtti.h, win.h and, for now, the flat `sdk_prelude.hpp`), only inside an
+`#ifdef RA2_SDK_HEADERS` block, and only naming pinned files; no shared header may
+define the switch. Stand-in declarations in src/shared that the SDK provides are
+guarded `#ifndef RA2_SDK_HEADERS`. Converted units are tracked in HANDOFF.md.
+Shared declaration changes receive normal
 strict compiler/reference/full-extent checks. Do not move functions across accepted
 compiler populations/settings merely to share files.
 

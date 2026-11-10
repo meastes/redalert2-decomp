@@ -7,10 +7,12 @@
 #ifndef RA2_SHARED_DIRECTDRAW_HPP
 #define RA2_SHARED_DIRECTDRAW_HPP
 
+#ifndef RA2_SDK_HEADERS    // a converted unit: windows.h types (pinned SDK set)
 typedef long HRESULT;
 typedef unsigned long DWORD;
 typedef struct HDC__ *HDC;
 struct RECT;
+#endif
 
 #define DD_OK 0
 #define DDERR_SURFACELOST ((HRESULT)0x887601C2)

@@ -505,7 +505,9 @@ void __fastcall Unknown_00536c70(wchar_t const *text, Surface *surface, int x, i
 // OwnerDraw::unknown_draw_text_5fe020 (0x00536D30).
 void __fastcall Unknown_00536d30(wchar_t const *text, Surface *surface, Rect const &area, unsigned short color, int flags);
 // Owner-draw helpers (ownrdraw.cpp; types are hypotheses).
+#ifndef RA2_SDK_HEADERS    // a converted unit: windef.h RECT (pinned SDK set)
 struct RECT;
+#endif
 void __fastcall Unknown_005feb60(Rect *area, Surface *surface, int unknown_0, int unknown_9f);    // 0x005FEB60
 class BitFontClass;
 namespace OwnerDraw {

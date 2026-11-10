@@ -89,7 +89,9 @@ void Unknown_0052B650();
 void __fastcall Unknown_0052B2E0(bool arg1, bool arg2);
 
 // ole32 stream persistence (as shared/locomotion.hpp declares them).
+#ifndef RA2_SDK_HEADERS    // a converted unit: ole2.h (pinned SDK set)
 WIN32_IMPORT HRESULT __stdcall OleLoadFromStream(IStream *stream, GUID const &iid, void **object);
 WIN32_IMPORT HRESULT __stdcall OleSaveToStream(IPersistStream *object, IStream *stream);
+#endif
 
 #endif

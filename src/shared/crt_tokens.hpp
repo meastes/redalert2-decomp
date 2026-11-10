@@ -5,6 +5,7 @@
 // _strtok 0x00782EC2, __strnicmp 0x00783810).
 #ifndef RA2_SHARED_CRT_TOKENS_HPP
 #define RA2_SHARED_CRT_TOKENS_HPP
+#ifndef RA2_SDK_HEADERS    // stand-ins for the CRT headers; a converted unit takes the pinned SDK set
 
 #ifndef _MAX_PATH
 #define _MAX_PATH 260
@@ -19,4 +20,5 @@ extern "C" long __cdecl wcstol(unsigned short const *string, unsigned short **en
 extern "C" unsigned int __cdecl _mbsnbcnt(unsigned char const *string, unsigned int count);   // 0x00784D8D
 #pragma intrinsic(strlen)
 
+#endif
 #endif

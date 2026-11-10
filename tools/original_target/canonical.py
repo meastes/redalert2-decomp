@@ -193,7 +193,84 @@ def validate_count_calibrated(row):
     return True
 
 
-def validate_includes(data, headers):
+# RA2_SDK_HEADERS migration switch (docs/DECISIONS.md "SDK headers for a unit"):
+# the one pinned system header set (manifests/toolchain.json "sdk_headers") and
+# the only tracked headers that may name it with angle includes, each inside an
+# `#ifdef RA2_SDK_HEADERS` (or `#if defined(RA2_SDK_HEADERS)`) block. A unit
+# converts by defining RA2_SDK_HEADERS at line 1; every other source sees none
+# of these includes. Each wrapper is the src/shared counterpart of an original
+# header carrying system includes (TibSun archive / mischa85 chain):
+SDK_SWITCH = 'RA2_SDK_HEADERS'
+SDK_WRAPPERS = {
+    'shared/irtti.hpp': 'irtti.h:12 <comdef.h> (TibSun code/irtti.h, mischa85 include/irtti.h)',
+    'shared/win.hpp': 'win.h:35-43 WIN32_LEAN_AND_MEAN + windows/mmsystem/windowsx/winnt/winuser (TibSun code/win.h)',
+    'shared/sdk_prelude.hpp': 'flat prelude for the first landing: rect.h:40, fastmath.h:16, sun.h:19, irtti.h, win.h, vector.h:55-57',
+}
+TOOLCHAIN_MANIFEST = Path(__file__).resolve().parents[2] / 'manifests/toolchain.json'
+
+
+def sdk_tree_digest(files):
+    """Digest of a header tree: sha256 of `shasum -a 256` lines sorted by path."""
+    return sha(''.join('%s  ./%s\n' % (files[name], name) for name in sorted(files)).encode())
+
+
+def sdk_pin(manifest=None):
+    """The pinned SDK header set {path: sha256} (paths relative to the tree root,
+    as extracted); validates its recorded tree digest."""
+    path = Path(manifest or TOOLCHAIN_MANIFEST)
+    key = (str(path), path.stat().st_mtime_ns)
+    if key not in _SDK_PIN_CACHE:
+        _SDK_PIN_CACHE[key] = _load_sdk_pin(path)
+    return _SDK_PIN_CACHE[key]
+
+
+_SDK_PIN_CACHE = {}
+
+
+def sdk_pin_record(manifest=None):
+    """The whole sdk_headers record of the toolchain manifest."""
+    return json.loads(Path(manifest or TOOLCHAIN_MANIFEST).read_text())['sdk_headers']
+
+
+def _load_sdk_pin(path):
+    document = json.loads(path.read_text())
+    pin = document.get('sdk_headers')
+    require(isinstance(pin, dict) and isinstance(pin.get('files'), dict) and pin['files'],
+            'No pinned SDK header set (manifests/toolchain.json sdk_headers)')
+    require(sdk_tree_digest(pin['files']) == pin.get('tree_sha256'), 'SDK pin tree digest differs from its files')
+    return pin['files']
+
+
+def sdk_resolve(name, files):
+    """Pinned path an angle include names (case-insensitive, as on the Windows
+    compiler host), or None."""
+    wanted = name.replace('\\', '/').lower()
+    for path in files:
+        if path.lower() == wanted:
+            return path
+    return None
+
+
+def verify_sdk_tree(directory, files):
+    """Refuse a local SDK tree whose files differ from the pin (missing, changed
+    or extra); return its tree digest."""
+    directory = Path(directory)
+    require(directory.is_dir(), 'SDK header directory missing: %s' % directory)
+    actual = {p.relative_to(directory).as_posix(): sha(p.read_bytes())
+              for p in sorted(directory.rglob('*')) if p.is_file()}
+    require(actual == files, 'SDK header tree differs from manifests/toolchain.json sdk_headers')
+    return sdk_tree_digest(actual)
+
+
+def angle_includes(data):
+    """Angle-include names in a (directive-normalized) text; for build tools."""
+    return set(re.findall(r'^\s*#\s*include\s*<([^>\n]+)>', data.decode(errors='replace'), flags=re.M))
+
+
+def validate_includes(data, headers, name=None, sdk=None):
+    """Quoted includes a tracked text has (all must be catalogued shared headers).
+    Angle includes are refused except in an SDK_WRAPPERS header (`name`), inside
+    an RA2_SDK_HEADERS block, naming a pinned SDK file (`sdk`, default the pin)."""
     # Apply preprocessing character/line/comment phases before recognizing
     # directives, so comments or continuations cannot hide a dependency.
     text = data.decode()
@@ -206,16 +283,34 @@ def validate_includes(data, headers):
                   if m[0].startswith(('/*', '//')) else m[0], text, flags=re.S)
     text = re.sub(r'^(\s*)%:', r'\1#', text, flags=re.M)
     includes = set()
+    switch = []    # one entry per open conditional: inside an RA2_SDK_HEADERS-true branch
     for line in text.splitlines():
         directive = re.match(r'^\s*#\s*(\w+)', line)
         if not directive: continue
-        name = directive[1]
-        require(name not in ('import', 'using') and
-                not (name == 'pragma' and 'include_alias' in line), 'Untracked compiler dependency directive')
-        if name.startswith('include'):
+        kind = directive[1]
+        require(kind not in ('import', 'using') and
+                not (kind == 'pragma' and 'include_alias' in line), 'Untracked compiler dependency directive')
+        if kind in ('if', 'ifdef', 'ifndef'):
+            switch.append(re.fullmatch(r'\s*#\s*(?:ifdef\s+%s|if\s+defined\s*\(?\s*%s\s*\)?)\s*'
+                                       % (SDK_SWITCH, SDK_SWITCH), line) is not None)
+        elif kind in ('else', 'elif'):
+            require(bool(switch), 'Unbalanced conditional directive')
+            switch[-1] = False
+        elif kind == 'endif':
+            require(bool(switch), 'Unbalanced conditional directive')
+            switch.pop()
+        elif kind.startswith('include'):
+            angle = re.fullmatch(r'\s*#\s*include\s*<([^<>"\n]+)>\s*', line)
+            if angle is not None:
+                require(name in SDK_WRAPPERS, 'Angle include outside an SDK wrapper header (canonical.SDK_WRAPPERS)')
+                require(any(switch), 'SDK include outside an #ifdef %s block' % SDK_SWITCH)
+                require(sdk_resolve(angle[1], sdk_pin() if sdk is None else sdk) is not None,
+                        'SDK include does not resolve to a pinned header: <%s>' % angle[1])
+                continue
             match = re.fullmatch(r'\s*#\s*include\s+"([^"\n]+)"\s*', line)
             require(match is not None and match[1] in headers, 'Untracked/noncanonical include dependency')
             includes.add(match[1])
+    require(not switch, 'Unbalanced conditional directive')
     return includes
 
 
@@ -231,7 +326,7 @@ def dependency_headers(audit, sources):
         name = pending.pop()
         if name in seen: continue
         seen.add(name)
-        pending.update(validate_includes(headers[name], headers) - seen)
+        pending.update(validate_includes(headers[name], headers, name) - seen)
     return [dict(path='src/' + name, sha256=sha(headers[name])) for name in sorted(seen)]
 
 
@@ -258,8 +353,11 @@ def validate_catalog(repository, catalog):
     require(catalog['target'] == dict(size=TARGET_BYTES, sha256=TARGET_SHA256), 'Wrong catalog target')
     read = {}
     headers = validate_headers(repository, catalog, read)
-    for data in headers.values():
-        validate_includes(data, headers)
+    for name, data in headers.items():
+        validate_includes(data, headers, name)
+        # The switch is per unit (line 1 of a converted unit), never set by a shared header.
+        require(re.search(r'^\s*#\s*define\s+%s\b' % SDK_SWITCH, data.decode(errors='replace'), flags=re.M) is None,
+                '%s defined in a shared header' % SDK_SWITCH)
         require(not inline_asm_blocks(data.decode(errors='replace')), 'Inline assembly (__asm) in a shared header')
     ids = [p['id'] for p in catalog['populations']]
     require(len(ids) == len(set(ids)), 'Duplicate populations')

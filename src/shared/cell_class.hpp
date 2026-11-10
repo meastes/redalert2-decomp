@@ -71,6 +71,12 @@
 #ifndef RA2_SHARED_CELL_CLASS_HPP
 #define RA2_SHARED_CELL_CLASS_HPP
 
+#ifdef RA2_SDK_HEADERS
+// The original's cell.h:36 includes _map.h, which includes mouse.h (_map.h:22): the whole screen chain is
+// declared before CellClass. RA2_SDK_HEADERS units only (docs/DECISIONS.md), the same for every converted unit.
+#include "shared/mouse_class.hpp"
+#endif
+
 #ifndef RA2_SHARED_CELL_HPP
 #define RA2_SHARED_CELL_HPP
 #endif

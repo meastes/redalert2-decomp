@@ -5,6 +5,13 @@
 #ifndef RA2_SHARED_ALWAYS_HPP
 #define RA2_SHARED_ALWAYS_HPP
 
+#ifdef RA2_SDK_HEADERS
+// RA2_SDK_HEADERS migration switch (docs/DECISIONS.md): always.h:91 switches off the windows.h min/max macros
+// before any system header; then the shared flat prelude of system headers (shared/sdk_prelude.hpp).
+#define NOMINMAX
+#include "shared/sdk_prelude.hpp"
+#endif
+
 template <class T> T min(T a, T b)
 {
     if (a < b) {

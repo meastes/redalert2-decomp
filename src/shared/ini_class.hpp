@@ -59,7 +59,9 @@ extern "C" void *__cdecl memset(void *destination, int value, unsigned int count
 
 #include "shared/wstring.hpp"
 
+#ifndef RA2_SDK_HEADERS    // a converted unit: the SDK GUID (pinned SDK set)
 struct GUID;
+#endif
 class WideString;
 class PKey;
 

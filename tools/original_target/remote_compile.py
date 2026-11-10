@@ -98,12 +98,14 @@ def shard_script(lines, temporary):
                         ['exit /b 0']) + '\r\n').encode()
 
 
-def run(spec, repository, directory, units, name, expected_compiler, render, timeout=3600):
+def run(spec, repository, directory, units, name, expected_compiler, render, timeout=3600, sdk_directory=None):
     """Compile `units` remotely; write their outputs locally or raise Unavailable.
 
-    `render(unit, path, include, compiler)` returns the unit's cmd lines, with
-    `path` spelling a local path on the remote host, `include` the remote src/
-    and `compiler` the remote CL.EXE. Units are dealt round-robin to shards.
+    `render(unit, path, include, compiler, sdk)` returns the unit's cmd lines, with
+    `path` spelling a local path on the remote host, `include` the remote src/,
+    `compiler` the remote CL.EXE and `sdk` the remote copy of the pinned SDK
+    header tree (staged from the verified local `sdk_directory` only when a
+    unit is converted, unit['sdk']). Units are dealt round-robin to shards.
     """
     import fcntl
     repository = Path(repository).resolve()
@@ -131,7 +133,8 @@ def run(spec, repository, directory, units, name, expected_compiler, render, tim
     shards = [[] for _ in range(count)]
     members = {}
     for index, unit in enumerate(units):
-        shards[index % count] += render(unit, remote, windows(root, 'src'), str(PureWindowsPath(compiler, 'CL.EXE')))
+        shards[index % count] += render(unit, remote, windows(root, 'src'), str(PureWindowsPath(compiler, 'CL.EXE')),
+                                        windows(root, 'sdk') if unit.get('sdk') else None)
         members[absolute(unit['source'])] = None
         for key in ('cwd', 'obj', 'log', 'returncode'):
             members.setdefault((absolute(unit[key]) if key == 'cwd' else absolute(unit[key]).parent), 'dir')
@@ -148,6 +151,12 @@ def run(spec, repository, directory, units, name, expected_compiler, render, tim
         for path in sorted((repository/'src').rglob('*')):
             if path.is_file() and path.suffix.lower() != '.cpp':
                 add_bytes(path.relative_to(repository).as_posix(), path.read_bytes())
+        if any(unit.get('sdk') for unit in units):
+            if sdk_directory is None:
+                raise Unavailable('converted unit without a local SDK header tree')
+            for path in sorted(Path(sdk_directory).rglob('*')):
+                if path.is_file():
+                    add_bytes('sdk/' + path.relative_to(sdk_directory).as_posix(), path.read_bytes())
         for path, kind in members.items():
             try:
                 arcname = path.relative_to(repository).as_posix()

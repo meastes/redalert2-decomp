@@ -10,6 +10,9 @@
 #define WINAPI __stdcall
 #define WIN32_IMPORT extern "C" __declspec(dllimport)
 
+// RA2_SDK_HEADERS: stand-ins for the system headers; a converted unit takes these from the pinned SDK set
+// (shared/sdk_prelude.hpp, docs/DECISIONS.md "SDK headers for a unit").
+#ifndef RA2_SDK_HEADERS
 typedef void *HANDLE;
 typedef int BOOL;
 typedef unsigned long DWORD;
@@ -406,5 +409,6 @@ struct OSVERSIONINFOA {
 #define VER_PLATFORM_WIN32_WINDOWS 1
 #define VER_PLATFORM_WIN32_NT 2
 WIN32_IMPORT BOOL WINAPI GetVersionExA(OSVERSIONINFOA *info);
+#endif
 
 #endif

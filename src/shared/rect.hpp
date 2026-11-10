@@ -257,4 +257,15 @@ int __fastcall Clip_Line_Outcode(Rect const &rect, double x, double y);
 // (0x006F1B00).
 void __fastcall Unknown_Rect_Shrink_006F1B00(Rect *rect, int amount);
 
+#ifdef RA2_SDK_HEADERS
+// The original's rect.h holds the file-static zero rectangle (ra2-decomp include/rect.h:144 RECT_NONE, the YR
+// twin): a converted unit that includes rect.h first (findpath2.cpp:7) initializes it before the geometry
+// constants its later headers bring. shared/shape_file.hpp then uses this one (SHAPE_FILE_EMPTY_RECT).
+// RA2_SDK_HEADERS units only (docs/DECISIONS.md), the same for every converted unit.
+#ifndef SHAPE_FILE_EMPTY_RECT
+static Rect const unknown_empty_rect(0, 0, 0, 0);
+#define SHAPE_FILE_EMPTY_RECT unknown_empty_rect
+#endif
+#endif
+
 #endif

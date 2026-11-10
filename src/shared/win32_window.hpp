@@ -30,9 +30,11 @@ extern HWND CurrentDialog;               // 0x00B25DD4 the top of the stack (0 w
 extern int CurrentDialogResource;        // 0x00B25DD8 its resource id
 extern int DialogStackCount;             // 0x00B25DE0
 
+#ifndef RA2_SDK_HEADERS    // a converted unit: winuser.h (pinned SDK set)
 struct DLGTEMPLATE;
 WIN32_IMPORT HWND WINAPI CreateDialogIndirectParamA(HINSTANCE instance, DLGTEMPLATE const *dialog, HWND parent,
                                                     DLGPROC procedure, LPARAM parameter);
+#endif
 
 // The locked data of resource id of the given type in the module at 0x00851CA8 (0x004954E0).
 void *__fastcall Load_Resource_004954e0(unsigned int id, char const *type);

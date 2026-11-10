@@ -6,6 +6,9 @@
 #ifndef RA2_SHARED_COM_API_HPP
 #define RA2_SHARED_COM_API_HPP
 
+// RA2_SDK_HEADERS: stand-ins for the system headers; a converted unit takes these from the pinned SDK set
+// (shared/sdk_prelude.hpp, docs/DECISIONS.md "SDK headers for a unit").
+#ifndef RA2_SDK_HEADERS
 typedef long HRESULT;
 
 struct GUID {
@@ -32,6 +35,7 @@ struct __declspec(novtable) IUnknown {
 };
 
 extern "C" GUID const IID_IUnknown;    // 0x007CE610
+#endif
 
 // ATL's CComPtr (atlbase.h): releases the interface it holds.
 template <class T>
@@ -44,13 +48,16 @@ public:
     T *p;
 };
 
+#ifndef RA2_SDK_HEADERS
 extern "C" __declspec(dllimport) HRESULT __stdcall CoCreateInstance(GUID const &clsid, IUnknown *outer,
                                                                     unsigned long context, GUID const &iid, void **object);
 extern "C" __declspec(dllimport) HRESULT __stdcall OleRun(IUnknown *unknown);
+#endif
 // The application object the scripting interfaces return (0x0084C7DC; its address is the object:
 // the exit path disconnects it; moved from shared/house.hpp).
 extern IUnknown *unknown_application_84c7dc;
 // The registrations Prog_End and the exit path revoke (ole32 and OLEAUT32 imports).
+#ifndef RA2_SDK_HEADERS
 extern "C" __declspec(dllimport) HRESULT __stdcall CoRevokeClassObject(unsigned long registration);
 extern "C" __declspec(dllimport) HRESULT __stdcall CoDisconnectObject(IUnknown *object, unsigned long reserved);
 extern "C" __declspec(dllimport) void __stdcall OleUninitialize();
@@ -66,7 +73,9 @@ typedef unsigned short wchar_t;
 // type library is only loaded and released, so it is held as its IUnknown.
 extern "C" __declspec(dllimport) int __stdcall StringFromGUID2(GUID const &guid, wchar_t *string, int length);
 extern "C" __declspec(dllimport) HRESULT __stdcall LoadTypeLib(wchar_t const *file, IUnknown **library);
+#endif
 
+#ifndef RA2_SDK_HEADERS
 // The VC6 COM support smart pointer of IUnknown (comip.h's _com_ptr_t, IUnknownPtr):
 // WinMain creates the game's own server object through it.
 struct IUnknownPtr {
@@ -90,5 +99,6 @@ inline void IUnknownPtr::_Release()
         Interface->Release();
     }
 }
+#endif
 
 #endif

@@ -231,14 +231,16 @@ def pick_symbol(coff, prefix, entry):
 
 
 def compile_variants(config, source, output, variants, includes=()):
-    from build import wine_command, win
+    from build import defines_sdk_switch, sdk_directory, wine_command, win
+    # A converted unit (RA2_SDK_HEADERS) also searches the pinned SDK tree, after src/.
+    sdk = ['/I' + win(sdk_directory(config))] if defines_sdk_switch(Path(source).read_bytes()) else []
     commands = []
     for index, options in enumerate(variants):
         directory = output / str(index); directory.mkdir(parents=True, exist_ok=True)
         obj = directory / 'candidate.obj'
         if obj.exists(): obj.unlink()
         args = (compiler_args(options) + ['/I' + win(path) for path in includes] +
-                ['/I' + win(REPOSITORY / 'src'), '/Fo' + win(obj), win(source)])
+                ['/I' + win(REPOSITORY / 'src')] + sdk + ['/Fo' + win(obj), win(source)])
         commands.append('"' + win(Path(config['compiler_directory']) / 'CL.EXE') + '" ' +
                         ' '.join('"' + a + '"' for a in args) + ' >"' + win(directory / 'compiler.log') + '" 2>&1')
     wine_command(config, output, commands + ['exit /b 0'], 'diff-compile')

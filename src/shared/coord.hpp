@@ -33,6 +33,46 @@ struct RawCoordStruct { int X, Y, Z; };
 #include "shared/fast_math.hpp"
 #endif
 #ifdef RA2_COORD_TPOINT3D
+#ifdef RA2_POINT3D_TIBSUN
+// TibSun point.h TPoint3D (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; Copyright 2025 Electronic Arts Inc.;
+// Copyright 2026 OpenTS contributors; derived from EA source, EA's GPLv3 Section 7 terms apply; text as in
+// mischa85/RedAlert2 include/point.h, which matches Find_First_Obstacle 0x004BB890 with it): the constructors, the
+// member-wise sum, difference, scalar product and quotient, the length through the fast square root (Fast_Sqrt for
+// fastmath::sqrt) and the distance built on them. Only the members the recovered code uses are declared.
+// Guarded: the Building unit (first row 0x00438500) and the traj unit (first row 0x004BB6A0) define RA2_POINT3D_TIBSUN.
+template<class T>
+class TPoint3D : public TPoint2D<T> {
+		typedef TPoint2D<T> BASECLASS;
+
+	public:
+		using BASECLASS::X;
+		using BASECLASS::Y;
+
+		TPoint3D(void) {}		// Default constructor does nothing by design.
+		TPoint3D(T x, T y, T z) : BASECLASS(x, y), Z(z) {}
+		TPoint3D(BASECLASS const & rvalue, T z /*= 0*/) : BASECLASS(rvalue), Z(z) {}
+
+		// Addition and subtraction operators.
+		TPoint3D<T> const operator - (TPoint3D<T> const & rvalue) const {return(TPoint3D<T>(X - rvalue.X, Y - rvalue.Y, Z - rvalue.Z));}
+		TPoint3D<T> const operator + (TPoint3D<T> const & rvalue) const {return(TPoint3D<T>(X + rvalue.X, Y + rvalue.Y, Z + rvalue.Z));}
+
+		// Scalar multiplication and division.
+		TPoint3D<T> const operator * (T rvalue) const {return(TPoint3D<T>(X * rvalue, Y * rvalue, Z * rvalue));}
+		TPoint3D<T> const operator / (T rvalue) const {if (rvalue == T(0)) return(TPoint3D<T>(0,0,0));return(TPoint3D<T>(X / rvalue, Y / rvalue, Z / rvalue));}
+
+		// Vector support functions.
+		T Length(void) const {return(T(Fast_Sqrt((double)X*(double)X + (double)Y*(double)Y + (double)Z*(double)Z)));}
+
+		T Distance_To(TPoint3D<T> const & point) const {return((*this - point).Length());}
+
+	public:
+
+		/*
+		**	The Z component of this point.
+		*/
+		T Z;
+};
+#else
 // Coord's point base (layout and sum hypothesis evidenced by AnimClass 00420110).
 template<class T> class TPoint3D : public TPoint2D<T> {
 public:
@@ -63,21 +103,12 @@ public:
     T Distance_YZX(TPoint3D<T> const &point) const { return (*this - point).Length_YZX(); }
 #endif
 #endif
-#ifdef RA2_POINT3D_TIBSUN
-    // TibSun point.h (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; Copyright 2025 Electronic Arts Inc.;
-    // Copyright 2026 OpenTS contributors; derived from EA source, EA's GPLv3 Section 7 terms apply):
-    // the member-wise difference, the length through the fast square root and the distance built on them.
-    // Building.cpp's ObjectClass::Distance chain (shared/object.hpp); not expanded, Length is the 0x0041B780 copy.
-    // Guarded: the Building unit defines RA2_POINT3D_TIBSUN in its first row (0x00438500).
-    TPoint3D<T> const operator - (TPoint3D<T> const & rvalue) const {return(TPoint3D<T>(this->X - rvalue.X, this->Y - rvalue.Y, Z - rvalue.Z));}
-    T Length(void) const {return(T(Fast_Sqrt((double)this->X*(double)this->X + (double)this->Y*(double)this->Y + (double)Z*(double)Z)));}
-    T Distance_To(TPoint3D<T> const & point) const {return((*this - point).Length());}
-#endif
 #ifdef RA2_TPOINT3D_DIVIDE
     TPoint3D<T> const operator/(T rvalue) const { if (rvalue == T(0)) return TPoint3D<T>(0, 0, 0); return TPoint3D<T>(this->X / rvalue, this->Y / rvalue, Z / rvalue); }
 #endif
     T Z;
 };
+#endif
 struct CoordStruct : public TPoint3D<int> {
     typedef TPoint3D<int> BASECLASS;
     CoordStruct(BASECLASS const &point) : BASECLASS(point) {}
@@ -178,6 +209,8 @@ struct CoordStruct {
 #endif
 #ifdef RA2_COORD_DIVIDE_SOURCE
     CoordStruct operator/(int divisor) const;
+#elif defined(RA2_POINT3D_TIBSUN)
+    using BASECLASS::operator/;
 #else
     CoordStruct operator/(int divisor) const
     {

@@ -12,7 +12,9 @@
 
 typedef float D3DVALUE;
 
+#ifndef RA2_SDK_HEADERS    // a converted unit: the SDK GUID (pinned SDK set)
 struct GUID;
+#endif
 
 // D3DVIEWPORT2 (0x2C bytes).
 struct D3DVIEWPORT2 {

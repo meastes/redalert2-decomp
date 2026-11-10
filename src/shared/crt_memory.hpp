@@ -3,6 +3,7 @@
 // intrinsics; memmove stays a call (bound through manifests/symbols.json).
 #ifndef RA2_SHARED_CRT_MEMORY_HPP
 #define RA2_SHARED_CRT_MEMORY_HPP
+#ifndef RA2_SDK_HEADERS    // stand-ins for the CRT headers; a converted unit takes the pinned SDK set
 
 extern "C" void *__cdecl memset(void *destination, int value, unsigned int count);
 extern "C" void *__cdecl memcpy(void *destination, void const *source, unsigned int count);
@@ -14,4 +15,5 @@ extern "C" void __cdecl free(void *block);                                      
 extern "C" int __cdecl rand();                                                      // 0x007846AA
 #pragma intrinsic(memset, memcpy, memcmp, abs)
 
+#endif
 #endif
