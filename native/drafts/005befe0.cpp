@@ -1,6 +1,7 @@
 // long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned wparam, long lparam) (0x005BEFE0)
 // The LAN host dialog's procedure (from Red Alert's Net_New_Dialog).
 #include "shared/session_state.hpp"
+void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_event_data.cpp
 #include "shared/lobby.hpp"
 #include "shared/gdlg_supp.hpp"
 #include "shared/modem_host.hpp"
@@ -116,7 +117,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         case 0x418:             // the player type combo boxes
             if ((unsigned short)(wparam >> 16) == 1 && !unknown_lock_a71e98 && Is_Host_005c86a0()) {
                 int data = unknown_combo_selected_data_005c99d0(window, id, -1);
-                Unknown_005cbf20(window, id, (NodeNameType *)data, 2);
+                Unknown_005cbf20(window, id, (NodeNameType *)Native_Entry_From_Handle(data), 2);   // NATIVE: handle (native/link/native_event_data.cpp)
                 return 0;
             }
             break;

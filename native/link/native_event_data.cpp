@@ -48,3 +48,29 @@ void Native_Log_Frame_CRC(int frame, unsigned int crc)
     if (enabled < 0) enabled = getenv("RA2_NATIVE_CRC_LOG") != 0;
     if (enabled) Debug_Printf("crc %d %08x\n", frame, crc);
 }
+
+// Combo item data that holds a lobby slot entry (NodeNameType *): the lobby stores the entry's
+// address as the 32-bit item data (CB_SETITEMDATA, Refill_Slot_Combos 0x005CA6C0) and casts the
+// data back (Host_Dialog_Proc 0x005BEFE0, Join_Lobby_Dialog_Proc 0x005C2330) or compares it with
+// an entry's address (unknown_combo_select_by_data 0x005C9950). A 64-bit address does not fit, so
+// these sites carry a 32-bit handle instead (port/fixups.json, the drafts); the other combos keep
+// their small integers (countries, colours, -2, -3), below the handles' range.
+namespace {
+const int kEntryBase = 0x40000000;
+void *g_entries[1024];
+int g_entry_count = 0;
+}
+int Native_Entry_Handle(void const *entry)
+{
+    if (!entry) return 0;
+    for (int i = 0; i < g_entry_count; ++i)
+        if (g_entries[i] == entry) return kEntryBase + i;
+    if (g_entry_count == 1024) return 0;
+    g_entries[g_entry_count] = (void *)entry;
+    return kEntryBase + g_entry_count++;
+}
+void *Native_Entry_From_Handle(int handle)
+{
+    int i = handle - kEntryBase;
+    return i >= 0 && i < g_entry_count ? g_entries[i] : 0;
+}

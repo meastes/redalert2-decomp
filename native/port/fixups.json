@@ -1776,6 +1776,48 @@
    "new": "#include \"shared/ww_message_box.hpp\"\nvoid Native_Log_Frame_CRC(int frame, unsigned int crc);   // NATIVE: native/link/native_event_data.cpp\n",
    "why": "Declares the row above's diagnostic (Scout1209 r10).",
    "verified": true
+  },
+  {
+   "source": "src/recovered/netshare/Refill_Slot_Combos_005ca6c0.cpp",
+   "old": "    SendMessageA(combo, CB_SETITEMDATA, index, (LPARAM)entry);\n",
+   "new": "    SendMessageA(combo, CB_SETITEMDATA, index, (LPARAM)Native_Entry_Handle(entry));\n",
+   "why": "Lobby slot combos keep a slot entry (NodeNameType *) as their 32-bit item data; natively the address is 64 bits and was cut (the joiner's slot tool tip and the host's slot type change read it back as a pointer). The data is a 32-bit handle natively (native/link/native_event_data.cpp, Native_Entry_Handle / Native_Entry_From_Handle); the other combos' small integers are below the handle range. Scout1209 r14.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/netshare/Refill_Slot_Combos_005ca6c0.cpp",
+   "old": "#include \"shared/string_table.hpp\"\n",
+   "new": "#include \"shared/string_table.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declares the handle functions the row above uses (Scout1209 r14).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/netshare/Select_Entry_Kind_005cc700.cpp",
+   "old": "    unknown_combo_select_by_data_005c9950(dialog, id, (int)entry);\n",
+   "new": "    unknown_combo_select_by_data_005c9950(dialog, id, Native_Entry_Handle(entry));\n",
+   "why": "Lobby slot combos keep a slot entry (NodeNameType *) as their 32-bit item data; natively the address is 64 bits and was cut (the joiner's slot tool tip and the host's slot type change read it back as a pointer). The data is a 32-bit handle natively (native/link/native_event_data.cpp, Native_Entry_Handle / Native_Entry_From_Handle); the other combos' small integers are below the handle range. Scout1209 r14.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/netshare/Select_Entry_Kind_005cc700.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declares the handle functions the row above uses (Scout1209 r14).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/netdlg2/Join_Lobby_Dialog_Proc_005c2330.cpp",
+   "old": "Entry_Type_Name_005c9870((NodeNameType *)unknown_combo_selected_data_005c99d0(window, id, request->Item))",
+   "new": "Entry_Type_Name_005c9870((NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window, id, request->Item)))",
+   "why": "Lobby slot combos keep a slot entry (NodeNameType *) as their 32-bit item data; natively the address is 64 bits and was cut (the joiner's slot tool tip and the host's slot type change read it back as a pointer). The data is a 32-bit handle natively (native/link/native_event_data.cpp, Native_Entry_Handle / Native_Entry_From_Handle); the other combos' small integers are below the handle range. Scout1209 r14.",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/netdlg2/Join_Lobby_Dialog_Proc_005c2330.cpp",
+   "old": "#include \"shared/string_table.hpp\"\n",
+   "new": "#include \"shared/string_table.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declares the handle functions the row above uses (Scout1209 r14).",
+   "verified": true
   }
  ]
 }

@@ -3190,6 +3190,17 @@
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/0073bdb0.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target"
+  },
+  {
+   "entry": "0x00668EA0",
+   "name": "Unknown_00668EA0",
+   "symbol": "",
+   "origin_class": "accepted seed under a scaffold name",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r9_lan.cpp",
+   "source": "src/recovered/00668ea0.cpp (accepted seed, empty)",
+   "notes": "Scout1209 (r14): reachable from the random map dialog (Write_Scenario_INI 0x0065F980)"
   }
  ]
 }

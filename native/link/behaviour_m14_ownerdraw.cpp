@@ -24,6 +24,8 @@
 #include "shared/rules.hpp"
 #include "shared/sound_play.hpp"
 #include "shared/wide_string.hpp"
+extern "C" char *getenv(char const *name);   // RA2_NATIVE_PERF_LOG traces
+extern "C" int dprintf(int fd, char const *format, ...);
 #include "shared/owner_draw_dialog_control.hpp"
 #include "shared/owner_draw_sidebar.hpp"
 #include "shared/palette.hpp"
@@ -299,6 +301,7 @@ void Static_Start_Movie(HWND window, StaticExtra &extra, char const *name)
     RECT area = {0, 0, 0, 0};
     Window_Rect_In_Main_Client(window, &area);
     extra.movie = Create_Movie_Handle(name, unknown_surface_839958, 0);
+    if (getenv("RA2_NATIVE_PERF_LOG")) dprintf(2, "perf: t%u static movie %s started (%s)\n", (unsigned)GetTickCount(), name ? name : "", extra.movie ? "open" : "failed");
     if (extra.movie) {
         extra.movie->Set_Position(area.left, area.top);
         MoveWindow(window, area.left, area.top, extra.movie->Width, extra.movie->Height, FALSE);
@@ -430,6 +433,8 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
         if (wparam == 0x65) {
             if (!extra.movie) return 0;
             if (extra.movie->Unknown_Slot1()) {
+                static int traced = 0;
+                if (traced++ < 3 && getenv("RA2_NATIVE_PERF_LOG")) dprintf(2, "perf: t%u static movie frame\n", (unsigned)GetTickCount());
                 InvalidateRect(window, 0, FALSE);
             }
             if (!extra.movie->Is_Finished()) return 0;

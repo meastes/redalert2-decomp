@@ -157,3 +157,12 @@ bool Unknown_0073bdb0()
 {
     return unknown_a3d2a4 == 2 || unknown_a3d2a4 == 1;
 }
+
+// 0x00668EA0 (accepted seed Leaf_668ea0::get): does nothing (Write_Scenario_INI 0x0065F980 calls
+// it for the random map generator's scenario; Scout1209 r14).
+class CCINIClass;
+void __fastcall Unknown_00668EA0(CCINIClass &ini, int is_global)
+{
+    (void)ini;
+    (void)is_global;
+}

@@ -9,6 +9,7 @@
 #include "shared/string_table.hpp"
 // NATIVE (Scout1209 r9): the callees under their accepted names and declarations.
 void __fastcall unknown_combo_select_by_data_005c9950(HWND dialog, int id, int data);
+int Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp (32-bit combo data)
 void __fastcall Kick_Channel_User_Wide_0075cae0(wchar_t const *name);
 void __fastcall Unknown_0073c480();
 void __fastcall Update_Channel_Player_Limit_00749f20();
@@ -29,7 +30,7 @@ void __fastcall Unknown_005cbf20(HWND dialog, int id, NodeNameType *entry, int u
                 kept = unknown_closed_entry_a72d30;
             }
             previous = entry;
-            unknown_combo_select_by_data_005c9950(dialog, id, (int)kept);
+            unknown_combo_select_by_data_005c9950(dialog, id, Native_Entry_Handle(kept));   // NATIVE: handle
         }
     } else if (entry == unknown_player_a72d44) {
         bool booted = false;
@@ -38,7 +39,7 @@ void __fastcall Unknown_005cbf20(HWND dialog, int id, NodeNameType *entry, int u
             if (i != slot && other != 0 && (other == unknown_easy_ai_entry_a72d34 || other == unknown_medium_ai_entry_a72d38
                     || other == unknown_hard_ai_entry_a72d3c)) {
                 int other_id = Slot_Control_Id_005c97a0(i);
-                unknown_combo_select_by_data_005c9950(dialog, other_id, (int)unknown_closed_entry_a72d30);
+                unknown_combo_select_by_data_005c9950(dialog, other_id, Native_Entry_Handle(unknown_closed_entry_a72d30));   // NATIVE: handle
                 Unknown_005cbf20(dialog, other_id, unknown_closed_entry_a72d30, 0);
                 booted = true;
             }
