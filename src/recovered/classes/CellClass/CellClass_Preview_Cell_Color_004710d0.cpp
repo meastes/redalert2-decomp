@@ -2,7 +2,7 @@
 // TibSun Preview_Cell_Color: the cell's two preview pixels, packed first << 16 | second. A visible
 // building (unless flag) gives its house colour scheme's colour; under a bridge, the radar colour of
 // overlay type 24 (TibSun OVERLAY_BRIDGE1) as a surface pixel; otherwise the preview pixels of the
-// cell's tile variation (TibSun Clear_Icon picks it). Cell_Building is Cell_Building and IsUnderBridge
+// cell's tile variation (TibSun Clear_Icon picks it). Cell_Building is unknown_4717b0 and IsUnderBridge
 // the accessor unknown_4788d0, both inline in this unit (the original calls Find_Object out of line
 // here because of them). The unit's header statics 0x00470490 define CELL_DECLARE_PREVIEW_CELL_COLOR,
 // CELL_DECLARE_CLEAR_ICON and RGB_DECLARE_ACCESSORS.
@@ -20,18 +20,24 @@
 // @ref ?Clear_Icon@CellClass@@QBEHHH@Z=004767a0
 // @ref ?Preview_Tile@IsometricTileTypeClass@@QAEPAGHH@Z=0052e390
 
+// The building's visual state (ra2-decomp cell.cpp Building_Visual, file-local inline).
+inline int Building_Visual(BuildingClass *building)
+{
+    return building->unknown_slot25(0, 0);
+}
+
 unsigned int CellClass::Preview_Cell_Color(unsigned char &unknown, bool flag)
 {
     unknown = 0;
     BuildingClass *obj = (BuildingClass *)Cell_Building();
 
-    if (!flag && obj != 0 && !obj->Type->Invisible && !obj->Type->InvisibleInGame && obj->unknown_slot25(0, 0) != 5) {
+    if (!flag && obj != 0 && !obj->Type->Invisible && !obj->Type->InvisibleInGame && Building_Visual(obj) != 5) {
         ColorScheme *scheme = ColorSchemes[obj->House->ColorSchemeIndex];
         unsigned int color = scheme->Converter->Convert(scheme->unknown_0x314);
         return (color << 16) | color;
     }
 
-    if (unknown_4788d0()) {
+    if (IsUnderBridge) {
         RGBClass bridge_color = OverlayTypes[24]->unknown_func_5dd000(0);
         unsigned int color = RGB_To_Pixel(bridge_color.Get_Red(), bridge_color.Get_Green(), bridge_color.Get_Blue());
         return (color << 16) | color;

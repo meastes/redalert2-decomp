@@ -22,7 +22,7 @@ void CellClass::Cell_Color(RGBClass &lowcolor, RGBClass &highcolor) const
         return;
     }
 
-    if (unknown_4788d0()) {
+    if (IsUnderBridge) {
         highcolor = lowcolor = OverlayTypes[24]->unknown_func_5dd000(0);
         return;
     }

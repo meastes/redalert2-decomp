@@ -1,3 +1,4 @@
+#define RA2_CELL_CLEAR_TO_BUILD   // declares CellClass::Land_Type for Is_Clear_To_Build 0x004718B0 (shared/cell_class.hpp)
 #define RA2_TACTICAL_PLACEMENT   // declares CellClass::Draw_Placement_Cursor 0x00473F20 (shared/cell_class.hpp)
 #define RA2_CELL_SET_CELLID     // declares CellClass::Set_CellID 0x0047A450 (shared/cell_class.hpp)
 #define RA2_CELL_RECALC_ATTRIBUTES

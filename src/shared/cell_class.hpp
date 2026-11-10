@@ -203,6 +203,9 @@ public:
     // Occupants.
     ObjectClass *Cell_Techno(Point2D const &spot, bool alt, ObjectClass *except) const;   // 0x00471660 (nearest flagged occupant to a sub-cell spot)
     ObjectClass *Find_Object(int kind, bool alt = false) const;         // 0x00471760
+#if defined(RA2_CELL_CLEAR_TO_BUILD) && !defined(RA2_SHIP_CELL_ACCESSORS)
+    int Land_Type() const { return unknown_ec; }   // TibSun cell.h; Is_Clear_To_Build 0x004718B0 reads Ground[Land_Type()]
+#endif
     ObjectClass *unknown_471830(Point2D const &spot, bool alt);         // 0x00471830 (an aircraft over the cell when the flag at 0x00A40958 is set, else the occupant nearest the spot; TeamClass 0x006BB260)
     ObjectClass *Cell_Building() const;                                // 0x004717B0 (the building; kind 6)
     ObjectClass *Cell_Terrain(bool alt = false) const;                  // 0x004717E0 (kind 0x24)
@@ -271,7 +274,7 @@ public:
     Rect Cell_Render_Rect() const;                // 0x004752B0 (a screen rectangle of the cell's contents; hypothesis)
     Rect Overlay_Render_Rect() const;                // 0x00474EB0 (another; hypothesis)
     Rect Overlay_Shadow_Render_Rect() const;                // 0x00475100 (another; hypothesis)
-    unsigned int unknown_4788d0() const;        // 0x004788D0 (the under-bridge flag, bit 8 of +0x140; TeleportLocomotionClass 0x006DFF00 reads its address, not its value)
+    bool unknown_4788d0() const;                // 0x004788D0 (TibSun/YR Is_Bridge_Here: the under-bridge flag, bit 8 of +0x140; TeleportLocomotionClass 0x006DFF00 reads its address, not its value)
     bool Can_Tiberium_Grow() const;                // 0x004788E0 (the ore may grow here: scenario +0x222A, ore below its last stage; hypothesis)
     bool Can_Tiberium_Spread() const;                // 0x00478950 (the ore may spread from here; hypothesis)
     bool Grow_Tiberium();                      // 0x004789D0 (grows the ore through unknown_47c3a0; hypothesis)

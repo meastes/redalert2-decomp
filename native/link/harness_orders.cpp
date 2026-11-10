@@ -14,7 +14,7 @@
 // deploys, the long build order of harness_build.cpp, then harness_army.cpp's
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
-// <frame> hunt; <frame> capture <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
+// <frame> hunt; <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
 // <frame> grant <index>; <frame> super <index> enemy" (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
 // object of that type; Tanya only when named); train: the barracks' cameo click;
@@ -118,12 +118,14 @@ int Scripted_Order(char const *command)
     }
     bool go =Same(word[1], "goto", 5) && words >= 5;
     bool hunt = Same(word[1], "hunt", 5);
-    bool attack = (Same(word[1], "attack", 7) || Same(word[1], "capture", 8)) && words >= 5;
+    bool attack = (Same(word[1], "attack", 7) || Same(word[1], "capture", 8) || Same(word[1], "sabotage", 9)) && words >= 5;
     // `attack <ID> <TYPE>` (Scout1209 r6): the first enemy object of that type, wherever it is
     // (Allied 1's Dreadnoughts for Tanya).
-    bool attack_type = Same(word[1], "attack", 7) && words == 4;
+    bool attack_type = (Same(word[1], "attack", 7) || Same(word[1], "sabotage", 9)) && words == 4;
     if (attack_type) attack = true;
-    int attack_mission = Same(word[1], "capture", 8) ? 8 : 1;   // Capture (an engineer into a building) or Attack
+    // Capture (an engineer into a building), Sabotage (Tanya's C4: the building is the destination,
+    // as a player's click gives it; Scout1231) or Attack.
+    int attack_mission = Same(word[1], "capture", 8) ? 8 : Same(word[1], "sabotage", 9) ? 17 : 1;
     if (Same(word[1], "train", 6) && words >= 3) {
         // The barracks' cameo click: PRODUCE (0x0E) of InfantryTypeClass (kind 0x10) by its ID.
         HouseClass *player = unknown_player_a35db4;
@@ -272,7 +274,8 @@ int Scripted_Order(char const *command)
         TechnoTypeClass *type = techno->unknown_slot32();
         char const *id = type ? type->ID.Buffer : "";
         if (attack && Same_Type(id, word[2]) && (!Same_Type(id, "TANY") || Same_Type(word[2], "TANY"))) {
-            Queue_Mission(TargetClass(techno), attack_mission, TargetClass(target), TargetClass());
+            if (attack_mission == 17) Queue_Mission(TargetClass(techno), attack_mission, TargetClass(), TargetClass(target));
+            else Queue_Mission(TargetClass(techno), attack_mission, TargetClass(target), TargetClass());
             ++count;
         } else if (go && Same_Type(id, word[2])) {
             Cell cell;

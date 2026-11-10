@@ -21,6 +21,9 @@
 #include "shared/tileset_index.hpp"
 #include "shared/unknown_geometry.hpp"
 void Native_Building_Infiltrate_00452390(BuildingClass *building, HouseClass *house);   // NATIVE: link/behaviour_m10.cpp
+bool Native_Building_Is_Going_To_Blow_00500AA0(BuildingClass *building);               // NATIVE: link/behaviour_m10_building.cpp
+void Native_Building_Set_Going_To_Blow_00500AA0(BuildingClass *building);
+void Native_Building_Arm_C4_00500AA0(BuildingClass *building, int countdown, AbstractClass *who);
 // @ref ?Unknown_00452390@BuildingClass@@=00452390
 // @ref ?Unknown_00452EB0@BuildingClass@@=00452eb0
 // @ref ?Unknown_004536D0@BuildingClass@@=004536d0
@@ -221,20 +224,22 @@ void InfantryClass::unknown_slot93(int why)
             BuildingClass *building=cell->Unknown_004717B0();
             if (building && building==unknown_494) {
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
-                bool &going_to_blow=*reinterpret_cast<bool *>(reinterpret_cast<char *>(building)+0x5af);
+                // NATIVE (Scout1231): the building's C4 members (+0x5AF going to blow, +0x420 countdown,
+                // +0x438 who planted it) through link/behaviour_m10_building.cpp: this unit's BuildingClass
+                // view has no names for them, and the VC6 offsets land elsewhere in the arm64 layout
+                // (+0x5AF is the top byte of the animation pointer unknown_454[7]: user crash 2026-11-10).
                 if (building->Get_Mission()!=19 && !building->unknown_slot203()) {
-                    if (going_to_blow) {
+                    if (Native_Building_Is_Going_To_Blow_00500AA0(building)) {
                         Assign_Destination(0,1);
                         unknown_244=unknown_slot187(1);
                         unknown_slot87(building->Center_Coord(),true,true);
                         return;
                     }
-                    going_to_blow=true;
+                    Native_Building_Set_Going_To_Blow_00500AA0(building);
                     double warning_delay=Rules->unknown_13b8*900.0;
                     warning_delay*=0.5;
                     building->unknown_slot79(int(warning_delay));
-                    *reinterpret_cast<CDTimerClass<FrameTimerClass> *>(reinterpret_cast<char *>(building)+0x420)=int(Rules->unknown_13b8*900.0);
-                    *reinterpret_cast<AbstractClass **>(reinterpret_cast<char *>(building)+0x438)=this;
+                    Native_Building_Arm_C4_00500AA0(building,int(Rules->unknown_13b8*900.0),this);
                 }
                 unknown_4cd9b0();
                 unknown_slot252(false);
