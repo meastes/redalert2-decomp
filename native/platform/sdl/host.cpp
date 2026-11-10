@@ -148,6 +148,10 @@ void *create_window(const char *title, int width, int height)
             SDL_SetWindowMinimumSize(window, 320, 240);
             fit_window(width, height);
             if (want_fullscreen) set_fullscreen(true);
+            // Ask for the focus at once: a Windows program's first window is
+            // active (user32 sends the game WM_ACTIVATEAPP when it is shown),
+            // and the game's start-up waits while it is not (Scout1209).
+            SDL_RaiseWindow(window);
         }
         if (!deferred_lock) deferred_lock = SDL_CreateMutex();
         // The logical size follows the presented surface (present below), so
@@ -212,8 +216,43 @@ void present_deferred()
     SDL_UnlockMutex(deferred_lock);
     present_now(d.pixels, d.width, d.height, d.pitch);
 }
+// A trackpad's tap (tap to click) sends the button down and up together, in
+// one event pump: the game then read the press from its queue while
+// WWKeyboardClass::Down (0x00532890, GetAsyncKeyState) already reported the
+// button up, and the click was lost: no unit could be selected, moved or
+// deployed with taps (user report 2026-11-09, trackpad). A mouse's click, or a
+// trackpad's physical one, holds the button for several frames. A release that
+// comes before the game has run two frames with the button down (or within
+// 50 ms where no frames run, the menus) is held back until then (Scout1209).
+struct HeldButton { int down_frame = 0; Uint64 down_ms = 0; bool release_pending = false; float x = 0, y = 0; };
+HeldButton held[2];   // left, right
+void press_button(int b, float x, float y)
+{
+    ra2port::set_key_state(b ? 0x02 : 0x01, true);
+    ra2port::post_message(ra2port::main_window(), b ? 0x0204 : 0x0201, 0, mouse_lparam(x, y));   // WM_RBUTTONDOWN / WM_LBUTTONDOWN
+}
+void release_button(int b)
+{
+    held[b].release_pending = false;
+    ra2port::set_key_state(b ? 0x02 : 0x01, false);
+    ra2port::post_message(ra2port::main_window(), b ? 0x0205 : 0x0202, 0, mouse_lparam(held[b].x, held[b].y));   // WM_RBUTTONUP / WM_LBUTTONUP
+}
+// The game has seen the button held: two game frames ran since the press, or
+// none ran for 50 ms (the menus read the queue only).
+bool seen_held(int b)
+{
+    int frames = ra2port_last_frame() - held[b].down_frame;
+    return frames >= 2 || (frames == 0 && SDL_GetTicks() - held[b].down_ms >= 50);
+}
+void release_held_buttons()
+{
+    for (int b = 0; b < 2; ++b)
+        if (held[b].release_pending && seen_held(b)) release_button(b);
+}
+
 void pump_events()
 {
+    release_held_buttons();
     play_timed();
     if (SDL_IsMainThread()) present_deferred();
     HWND w = ra2port::main_window();
@@ -270,9 +309,22 @@ void pump_events()
             bool down = e.type == SDL_EVENT_MOUSE_BUTTON_DOWN;
             clamp_to_picture(e.button.x, e.button.y);
             if (e.button.button != SDL_BUTTON_LEFT && e.button.button != SDL_BUTTON_RIGHT) break;
-            UINT msg = e.button.button == SDL_BUTTON_RIGHT ? (down ? 0x0204 : 0x0205) : (down ? 0x0201 : 0x0202);
-            ra2port::set_key_state(e.button.button == SDL_BUTTON_RIGHT ? 0x02 : 0x01, down);
-            ra2port::post_message(w, msg, 0, mouse_lparam(e.button.x, e.button.y));
+            int b = e.button.button == SDL_BUTTON_RIGHT ? 1 : 0;
+            if (down) {
+                if (held[b].release_pending) release_button(b);   // a second tap before the first was seen
+                held[b].down_frame = ra2port_last_frame();
+                held[b].down_ms = SDL_GetTicks();
+                press_button(b, e.button.x, e.button.y);
+            } else if (!seen_held(b)) {
+                // Released before the game saw the button held: kept down until it has.
+                held[b].release_pending = true;
+                held[b].x = e.button.x;
+                held[b].y = e.button.y;
+            } else {
+                held[b].x = e.button.x;
+                held[b].y = e.button.y;
+                release_button(b);
+            }
             break;
         }
         case SDL_EVENT_MOUSE_WHEEL: {
@@ -535,6 +587,15 @@ void load_script()
         std::string const action = tokens[1];
         size_t i = 2;
         bool ok = true;
+        if (action == "blur" || action == "focus") {
+            // blur / focus: the window loses or regains the focus (another app
+            // in front; test scaffolding, Scout1209).
+            Scripted s = {frame, {}, std::string()};
+            if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
+            s.event.type = action == "blur" ? SDL_EVENT_WINDOW_FOCUS_LOST : SDL_EVENT_WINDOW_FOCUS_GAINED;
+            script.push_back(s);
+            continue;
+        }
         if (action == "quit" || action == "wheel") {
             // quit: what Cmd+Q sends (SDL_EVENT_QUIT). wheel DX DY [X Y]: a
             // trackpad scroll of that many SDL units at the game pixel X, Y.
@@ -601,6 +662,7 @@ std::vector<size_t> timed;      // indices of timed events, in order
 size_t timed_next = 0;
 void frame(int number)
 {
+    release_held_buttons();
     // Trackpad panning collected since the last frame (pump_events).
     int dx = (int)pan_dx, dy = (int)pan_dy;
     if (pan_last_ms && SDL_GetTicks() - pan_last_ms > 250) {
@@ -654,6 +716,8 @@ void play(Scripted &s, int number)
         SDL_Event e = s.event;
         if (e.type == SDL_EVENT_KEY_DOWN || e.type == SDL_EVENT_KEY_UP) {
             e.key.windowID = id;
+        } else if (e.type == SDL_EVENT_WINDOW_FOCUS_LOST || e.type == SDL_EVENT_WINDOW_FOCUS_GAINED) {
+            e.window.windowID = id;
         } else if (e.type == SDL_EVENT_QUIT) {
         } else if (e.type == SDL_EVENT_MOUSE_WHEEL) {
             e.wheel.windowID = id;
@@ -661,13 +725,22 @@ void play(Scripted &s, int number)
             float x = e.type == SDL_EVENT_MOUSE_MOTION ? e.motion.x : e.button.x;
             float y = e.type == SDL_EVENT_MOUSE_MOTION ? e.motion.y : e.button.y;
             if (!s.spec.empty()) {
+                // @SPEC/dx,dy: dx, dy game pixels from the point (test scaffolding:
+                // a click that moves a little, as a trackpad's does; Scout1209).
+                std::string spec = s.spec;
+                int ox = 0, oy = 0;
+                size_t slash = spec.find('/');
+                if (slash != std::string::npos) {
+                    sscanf(spec.c_str() + slash + 1, "%d,%d", &ox, &oy);
+                    spec.resize(slash);
+                }
                 int px = 0, py = 0;
-                if (!ra2port_resolve_point(s.spec.c_str(), &px, &py)) {
+                if (!ra2port_resolve_point(spec.c_str(), &px, &py)) {
                     fprintf(stderr, "input-script: frame %d: no point for @%s\n", number, s.spec.c_str());
                     return;
                 }
-                x = (float)px;
-                y = (float)py;
+                x = (float)(px + ox);
+                y = (float)(py + oy);
             }
             // RA2_NATIVE_SCRIPT_AS_USER=1 (test scaffolding, M27): the event as a player's mouse
             // makes it, in window coordinates (converted back by the pump like a real event).
@@ -705,7 +778,16 @@ void wait_begins()
     if (SDL_IsMainThread()) present_deferred();
 }
 
-const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame, wait_begins};
+// Host::keep_alive: SDL_PumpEvents moves the system's events into SDL's queue
+// (the window answers, no spinning cursor) without translating them: the game
+// reads them at its next PeekMessage, in order, as Windows queued input while
+// the original was busy.
+void keep_alive()
+{
+    if (SDL_IsMainThread()) SDL_PumpEvents();
+}
+
+const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame, wait_begins, keep_alive};
 }  // namespace
 
 void ra2_install_sdl_host() { ra2port::set_host(&sdl_host); }

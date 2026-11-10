@@ -536,6 +536,10 @@ BOOL PostMessageA(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 void PostQuitMessage(int code) { post_message(nullptr, 0x0012, (WPARAM)code, 0); }   // WM_QUIT
 
 static bool paint_message(MSG *msg, UINT first, UINT last, bool remove);
+static bool peek_queue(MSG *msg, UINT first, UINT last, UINT remove);
+static void exposure_check(const MSG *found, std::chrono::steady_clock::time_point now);
+static void idle_spin_reset();
+static void idle_backoff(std::chrono::steady_clock::time_point now, std::chrono::steady_clock::time_point next_pump);
 BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
 {
     (void)hwnd;
@@ -550,13 +554,36 @@ BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
         if (gap >= 100) fprintf(stderr, "perf: t%u no PeekMessage for %.0f ms\n", (unsigned)now_ms(), gap);
         last_peek = now;
     }
-    if (host() && host()->pump_events) host()->pump_events();
+    // The host's event pump runs at most once a millisecond (Scout1209). The menus'
+    // dialog loop (0x005B5EE0 through 0x00522ED0) peeks back to back, about 470,000
+    // times a second, and each Cocoa pump cost about 2 us: most of the main
+    // thread's time went to pumping an empty event queue. Messages already posted
+    // are still returned at once; new host input waits at most 1 ms.
+    using clock = std::chrono::steady_clock;
+    static clock::time_point next_pump;
+    clock::time_point now = clock::now();
+    if (now >= next_pump) {
+        if (host() && host()->pump_events) host()->pump_events();
+        next_pump = now + std::chrono::milliseconds(1);
+    }
     fire_timers();
+    bool found = peek_queue(msg, first, last, remove);
+    exposure_check(found ? msg : nullptr, now);
+    if (found) {
+        idle_spin_reset();
+        return 1;
+    }
+    idle_backoff(now, next_pump);
+    return 0;
+}
+
+static bool peek_queue(MSG *msg, UINT first, UINT last, UINT remove)
+{
     std::lock_guard<std::mutex> g(queue_lock);
     // Posted input and messages first; then WM_PAINT; WM_TIMER last (Windows'
     // order: paint and timer messages are generated when nothing else waits).
     for (int pass = 0; pass < 2; ++pass) {
-        if (pass == 1 && paint_message(msg, first, last, remove & 1)) return 1;
+        if (pass == 1 && paint_message(msg, first, last, remove & 1)) return true;
         for (auto it = queue.begin(); it != queue.end(); ++it) {
             if (first || last) {
                 if (it->message < first || it->message > last) continue;
@@ -564,10 +591,66 @@ BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
             if ((it->message == 0x0113) != (pass == 1)) continue;
             *msg = *it;
             if (remove & 1) queue.erase(it);
-            return 1;
+            return true;
         }
     }
-    return 0;
+    return false;
+}
+
+// A loop that only peeks an empty queue (the menus' dialog loop between events)
+// kept a core busy. After 64 empty peeks in a row, each within 200 us of the
+// last, an empty peek waits until the next pump or the next due timer (at most
+// 1 ms) before it returns. Messages, their order and the timers' periods are
+// unchanged; a game frame's few peeks are never in such a run (Scout1209).
+// The game window became active again (WM_ACTIVATEAPP 1). On Windows the
+// system then repaints what the other application covered: the dialogs and
+// their controls get WM_PAINT once the switch has finished, after the game has
+// reacted to the activation. The game redraws its menu background over the
+// whole screen when it regains the focus (0x00517370 and Select_Game's loop,
+// flag 0x008523DC) and leaves the controls to that repaint. Natively nothing
+// repainted them: the main menu's buttons, title and version stayed missing
+// after the window lost and regained the focus, also during start-up when the
+// menu was not shown yet (user capture 2026-11-09; on the Mac the window often
+// loses the focus while the game starts). The port repaints the shown dialogs
+// once the main thread has been reading its queue for 250 ms with no work in
+// between (the game's redraw and any menu slide are done), as the system's
+// repaint arrives after the game's own (Scout1209).
+static bool exposure_pending = false;
+static void exposure_check(const MSG *found, std::chrono::steady_clock::time_point now)
+{
+    using namespace std::chrono;
+    static steady_clock::time_point idle_since, last_peek;
+    static bool animating = false;   // the previous peek returned a WM_PAINT or WM_TIMER
+    // Input or a posted message, or work between two peeks, restarts the wait;
+    // the generated WM_PAINT and WM_TIMER of the menus' animations and their
+    // short handling do not (a menu slide, which a WM_PAINT can start, does).
+    bool activity = found && found->message != 0x000F && found->message != 0x0113;
+    if (activity || now - last_peek > milliseconds(animating ? 50 : 3)) idle_since = now;
+    animating = found && !activity;
+    last_peek = steady_clock::now();
+    if (!exposure_pending) return;
+    bool shown = false;
+    for (HWND d : dialog_windows) if (Window *w = win(d)) shown = shown || w->visible;
+    if (!shown) { idle_since = now; return; }   // nothing to repaint yet: wait for the next dialog
+    if (now - idle_since < milliseconds(250)) return;
+    exposure_pending = false;
+    for (HWND d : dialog_windows) invalidate(d);
+}
+
+static int idle_spins = 0;
+static std::chrono::steady_clock::time_point idle_last_empty;
+static void idle_spin_reset() { idle_spins = 0; }
+static void idle_backoff(std::chrono::steady_clock::time_point now, std::chrono::steady_clock::time_point next_pump)
+{
+    using namespace std::chrono;
+    idle_spins = now - idle_last_empty < microseconds(200) ? idle_spins + 1 : 0;
+    idle_last_empty = now;
+    if (idle_spins < 64) return;
+    steady_clock::time_point until = next_pump;
+    for (auto &t : timers) if (t.next < until) until = t.next;
+    if (until > now + milliseconds(1)) until = now + milliseconds(1);
+    if (until > now) std::this_thread::sleep_until(until);
+    idle_last_empty = steady_clock::now();
 }
 static bool paint_message(MSG *msg, UINT first, UINT last, bool remove)
 {
@@ -607,6 +690,7 @@ LRESULT DispatchMessageA(const MSG *msg)
         return 0;
     }
     HWND target = msg->hwnd ? msg->hwnd : main_hwnd;
+    if (msg->message == 0x001C && msg->wParam && target == main_hwnd) exposure_pending = true;
     // Mouse input goes to the window under the cursor (or the capture), as on
     // Windows: the host posts it to the main window in screen pixels; over a
     // shown dialog's control it is that control's, in its client coordinates

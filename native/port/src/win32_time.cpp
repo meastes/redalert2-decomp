@@ -5,28 +5,24 @@
 // does not include the recovered headers: it is the platform side of the seam.
 // Widths follow Win32: DWORD and the counters' halves are 32 bits.
 #include "ra2port/win32_port.hpp"
-#include <mach/mach_time.h>
+#include "os.hpp"
 #include <sched.h>
 #include <stdint.h>
 #include <time.h>
 #include <unistd.h>
 
 namespace {
-uint64_t monotonic_ns()
-{
-    static mach_timebase_info_data_t base;
-    if (base.denom == 0) {
-        mach_timebase_info(&base);
-    }
-    return mach_absolute_time() * base.numer / base.denom;
-}
+uint64_t monotonic_ns() { return ra2port::os::monotonic_ns(); }
 }
 
 extern "C" {
 
 // Milliseconds since an arbitrary start, wrapping at 2^32 like the originals.
-uint32_t timeGetTime(void) { return (uint32_t)(monotonic_ns() / 1000000u); }
-uint32_t GetTickCount(void) { return (uint32_t)(monotonic_ns() / 1000000u); }
+// The clocks are what the game's busy waits poll (Init_Game 0x005116A0 spins on
+// Audio_Now until its minimum loading time): each read lets the host keep the
+// window responsive (ra2port::keep_alive, rate-limited).
+uint32_t timeGetTime(void) { ra2port::keep_alive(); return (uint32_t)(monotonic_ns() / 1000000u); }
+uint32_t GetTickCount(void) { ra2port::keep_alive(); return (uint32_t)(monotonic_ns() / 1000000u); }
 
 // Native diagnostics (Scout1191, M24): the time spent in Sleep, so a test run
 // can tell a frame's work from the game's own pacing (harness frame times).
@@ -41,6 +37,7 @@ static void wait_until(uint64_t start, uint64_t deadline)
 {
     const ra2port::Host *h = ra2port::host();
     if (h && h->wait) h->wait();
+    ra2port::keep_alive();
     uint64_t now = monotonic_ns();
     if (deadline <= start) {
         sched_yield();   // Sleep(0): give up the rest of the time slice
@@ -80,6 +77,7 @@ int QueryPerformanceFrequency(int64_t *frequency)
 
 int QueryPerformanceCounter(int64_t *counter)
 {
+    ra2port::keep_alive();
     *counter = (int64_t)monotonic_ns();
     return 1;
 }

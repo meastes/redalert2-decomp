@@ -3,6 +3,7 @@
 // follows the Win32 contract the game relies on; anything else is a logged
 // failure (ra2port::unimplemented) with the documented Win32 failure value.
 #include "ra2port/win32_port.hpp"
+#include "os.hpp"
 #include <ctype.h>
 
 #include <condition_variable>
@@ -10,7 +11,6 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <fnmatch.h>
-#include <mach-o/dyld.h>
 #include <mutex>
 #include <pthread.h>
 #include <stdarg.h>
@@ -20,9 +20,7 @@
 #include <set>
 #include <string>
 #include <strings.h>
-#include <sys/mount.h>
 #include <sys/stat.h>
-#include <sys/sysctl.h>
 #include <sys/time.h>
 #include <thread>
 #include <time.h>
@@ -116,9 +114,10 @@ bool find_next(Find *f, WIN32_FIND_DATAA *data)
         if (stat(full.c_str(), &st) != 0) continue;
         memset(data, 0, sizeof *data);
         data->dwFileAttributes = attributes(st);
-        to_filetime(st.st_mtimespec, &data->ftLastWriteTime);
-        to_filetime(st.st_birthtimespec, &data->ftCreationTime);
-        to_filetime(st.st_atimespec, &data->ftLastAccessTime);
+        ra2port::os::FileTimes times = ra2port::os::file_times(st);
+        to_filetime(times.modified, &data->ftLastWriteTime);
+        to_filetime(times.created, &data->ftCreationTime);
+        to_filetime(times.accessed, &data->ftLastAccessTime);
         data->nFileSizeLow = (DWORD)st.st_size;
         data->nFileSizeHigh = (DWORD)((uint64_t)st.st_size >> 32);
         snprintf(data->cFileName, sizeof data->cFileName, "%s", e->d_name);
@@ -160,7 +159,7 @@ HANDLE find_named(const char *name)
 DWORD thread_id()
 {
     uint64_t id = 0;
-    pthread_threadid_np(nullptr, &id);
+    id = ra2port::os::thread_id();
     return (DWORD)id;
 }
 
@@ -216,6 +215,15 @@ HANDLE CreateFileA(const char *name, DWORD access, DWORD share, void *security, 
     bool writes = wr || disposition == 1 || disposition == 2 || disposition == 4 || disposition == 5;
     if (writes) host_path_write(name, path, sizeof path);
     else host_path(name, path, sizeof path);
+    // A file to read that the listings know is missing fails as open() would,
+    // without the open (one file-system round trip per probe; Scout1209).
+    if (!writes) {
+        if (host_path_missing()) {
+            set_last_error(ERROR_FILE_NOT_FOUND);   // what the failed open() reported (ENOENT)
+            trace("CreateFileA %s -> %s missing", name, path);
+            return RA2_INVALID_HANDLE;
+        }
+    }
     int mode = 0;
     mode = (rd && wr) ? O_RDWR : wr ? O_WRONLY : O_RDONLY;
     switch (disposition) {
@@ -225,6 +233,7 @@ HANDLE CreateFileA(const char *name, DWORD access, DWORD share, void *security, 
     case 4: mode |= O_CREAT; break;            // OPEN_ALWAYS
     case 5: mode |= O_TRUNC; break;            // TRUNCATE_EXISTING
     }
+    fs_op(FS_OPEN);
     int fd = open(path, mode, 0644);
     if (fd < 0) {
         set_last_error(errno_to_win32(errno));
@@ -251,6 +260,7 @@ BOOL ReadFile(HANDLE handle, void *buffer, DWORD size, DWORD *read_bytes, void *
     (void)overlapped;
     File *f = (File *)handle_get(handle, H_FILE);
     if (!f) { set_last_error(ERROR_INVALID_HANDLE); return 0; }
+    fs_op(FS_READ);
     ssize_t n = read(f->fd, buffer, size);
     if (n < 0) { set_last_error(errno_to_win32(errno)); if (read_bytes) *read_bytes = 0; return 0; }
     if (read_bytes) *read_bytes = (DWORD)n;
@@ -273,6 +283,7 @@ DWORD SetFilePointer(HANDLE handle, LONG distance, LONG *high, DWORD method)
     File *f = (File *)handle_get(handle, H_FILE);
     if (!f) { set_last_error(ERROR_INVALID_HANDLE); return 0xFFFFFFFFu; }
     int64_t offset = high ? (((int64_t)*high << 32) | (uint32_t)distance) : (int64_t)distance;
+    fs_op(FS_SEEK);
     off_t r = lseek(f->fd, offset, method == 0 ? SEEK_SET : method == 1 ? SEEK_CUR : SEEK_END);
     if (r < 0) { set_last_error(131); return 0xFFFFFFFFu; }   // ERROR_NEGATIVE_SEEK
     if (high) *high = (LONG)((uint64_t)r >> 32);
@@ -293,9 +304,10 @@ BOOL GetFileTime(HANDLE handle, FILETIME *created, FILETIME *accessed, FILETIME 
     File *f = (File *)handle_get(handle, H_FILE);
     struct stat st;
     if (!f || fstat(f->fd, &st) != 0) { set_last_error(ERROR_INVALID_HANDLE); return 0; }
-    if (created) to_filetime(st.st_birthtimespec, created);
-    if (accessed) to_filetime(st.st_atimespec, accessed);
-    if (written) to_filetime(st.st_mtimespec, written);
+    ra2port::os::FileTimes times = ra2port::os::file_times(st);
+    if (created) to_filetime(times.created, created);
+    if (accessed) to_filetime(times.accessed, accessed);
+    if (written) to_filetime(times.modified, written);
     return 1;
 }
 
@@ -312,8 +324,9 @@ BOOL SetFileTime(HANDLE handle, const FILETIME *created, const FILETIME *accesse
         out.tv_sec = (time_t)(v / 10000000ull);
         out.tv_usec = (suseconds_t)((v % 10000000ull) / 10);
     };
-    tv[0].tv_sec = st.st_atimespec.tv_sec; tv[0].tv_usec = 0;
-    tv[1].tv_sec = st.st_mtimespec.tv_sec; tv[1].tv_usec = 0;
+    ra2port::os::FileTimes times = ra2port::os::file_times(st);
+    tv[0].tv_sec = times.accessed.tv_sec; tv[0].tv_usec = 0;
+    tv[1].tv_sec = times.modified.tv_sec; tv[1].tv_usec = 0;
     if (accessed) conv(accessed, tv[0]);
     if (written) conv(written, tv[1]);
     return futimes(f->fd, tv) == 0;
@@ -332,9 +345,10 @@ BOOL GetFileInformationByHandle(HANDLE handle, BY_HANDLE_FILE_INFORMATION *info)
     if (!f || fstat(f->fd, &st) != 0) { set_last_error(ERROR_INVALID_HANDLE); return 0; }
     memset(info, 0, sizeof *info);
     info->dwFileAttributes = attributes(st);
-    to_filetime(st.st_birthtimespec, &info->ftCreationTime);
-    to_filetime(st.st_atimespec, &info->ftLastAccessTime);
-    to_filetime(st.st_mtimespec, &info->ftLastWriteTime);
+    ra2port::os::FileTimes times = ra2port::os::file_times(st);
+    to_filetime(times.created, &info->ftCreationTime);
+    to_filetime(times.accessed, &info->ftLastAccessTime);
+    to_filetime(times.modified, &info->ftLastWriteTime);
     info->dwVolumeSerialNumber = (DWORD)st.st_dev;
     info->nFileSizeHigh = (DWORD)((uint64_t)st.st_size >> 32);
     info->nFileSizeLow = (DWORD)st.st_size;
@@ -452,10 +466,10 @@ BOOL GetDiskFreeSpaceA(const char *root, DWORD *sectors_per_cluster, DWORD *byte
                        DWORD *free_clusters, DWORD *total_clusters)
 {
     (void)root;
-    struct statfs s;
-    if (statfs(data_dir(), &s) != 0) return 0;
+    ra2port::os::Volume v;
+    if (!ra2port::os::volume(data_dir(), &v)) return 0;
     // Win9x-era callers multiply these in 32 bits: clamp to 2 GB like Win98 did.
-    uint64_t free_bytes = (uint64_t)s.f_bavail * s.f_bsize, total = (uint64_t)s.f_blocks * s.f_bsize;
+    uint64_t free_bytes = v.free_bytes, total = v.total_bytes;
     const uint64_t cap = 0x7FFF8000ull;
     if (free_bytes > cap) free_bytes = cap;
     if (total > cap) total = cap;
@@ -484,15 +498,15 @@ BOOL GetVolumeInformationA(const char *root, char *name, DWORD name_size, DWORD 
     // reports its own label (RA1/RA2 for the game discs).
     char path[1024];
     host_path(root && *root ? root : "C:\\", path, sizeof path);
-    struct statfs st;
-    if (statfs(path, &st) != 0 && statfs(data_dir(), &st) != 0) { set_last_error(21); return 0; }  // ERROR_NOT_READY
-    const char *label = strrchr(st.f_mntonname, '/');
+    ra2port::os::Volume st;
+    if (!ra2port::os::volume(path, &st) && !ra2port::os::volume(data_dir(), &st)) { set_last_error(21); return 0; }  // ERROR_NOT_READY
+    const char *label = strrchr(st.mount_point.c_str(), '/');
     label = label && label[1] ? label + 1 : "";
     if (name && name_size) { strncpy(name, label, name_size - 1); name[name_size - 1] = 0; }
-    if (serial) *serial = (DWORD)st.f_fsid.val[0] ^ (DWORD)st.f_fsid.val[1];
+    if (serial) *serial = st.serial;
     if (max_component) *max_component = 255;
     if (flags) *flags = 0x3;   // FS_CASE_SENSITIVE | FS_CASE_IS_PRESERVED
-    if (fs_name && fs_size) { strncpy(fs_name, st.f_fstypename, fs_size - 1); fs_name[fs_size - 1] = 0; }
+    if (fs_name && fs_size) { strncpy(fs_name, st.type.c_str(), fs_size - 1); fs_name[fs_size - 1] = 0; }
     set_last_error(0);
     return 1;
 }
@@ -639,9 +653,7 @@ void GlobalMemoryStatus(MEMORYSTATUS *status)
 {
     // The game sizes caches from these (32-bit fields): report what a
     // well-equipped Win98 machine reported, capped at 2 GB.
-    uint64_t phys = 0;
-    size_t len = sizeof phys;
-    sysctlbyname("hw.memsize", &phys, &len, nullptr, 0);
+    uint64_t phys = ra2port::os::physical_memory();
     const DWORD cap = 0x7FFFFFFFu;
     DWORD p = phys > cap ? cap : (DWORD)phys;
     status->dwLength = sizeof *status;
@@ -726,9 +738,7 @@ HANDLE CreateThread(void *security, uintptr_t stack, THREAD_PROC proc, void *par
     pthread_attr_destroy(&attr);
     pthread_detach(t->t);
     if (id) {
-        uint64_t tid = 0;
-        pthread_threadid_np(t->t, &tid);
-        *id = (DWORD)tid;
+        *id = (DWORD)ra2port::os::thread_id(t->t);
     }
     return h;
 }

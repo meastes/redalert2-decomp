@@ -65,6 +65,10 @@ void set_data_dir(const char *dir);
 const char *data_dir();
 // Writes the host path for a game path into out (size n); returns out.
 char *host_path(const char *game_path, char *out, size_t n);
+// After this thread's last host_path: 0 the file is there (or was not looked
+// up), 2 its last component is missing, 3 a folder on its way is missing (the
+// cached listings already know; no open is needed to find out).
+int host_path_missing();
 // Writes (create, write access, delete, rename) go through host_path_write:
 // with a write directory set (--write-dir, always under --run-to) they land in
 // that overlay and the installation is never modified.
@@ -99,8 +103,24 @@ struct Host {
     // primary is the screen, so what was drawn before a Sleep is visible during
     // it; the host otherwise presents at its next event pump. May be null.
     void (*wait)();
+    // The game's main thread is busy without reading messages (file reads, a
+    // busy wait, a Sleep): the host lets the system see the window respond
+    // (macOS shows the spinning cursor after a few seconds otherwise) and keeps
+    // any input queued for the game's next PeekMessage. The port calls it at
+    // most every 50 ms (keep_alive below); off the main thread the host does
+    // nothing. May be null (Scout1209).
+    void (*keep_alive)();
 };
 void set_host(const Host *host);
+
+// File-system operations on the game's behalf (Scout1209 diagnostics): counted
+// per kind for RA2_NATIVE_PERF_LOG, and slowed by RA2_NATIVE_FS_LATENCY_US
+// microseconds each (test runs: a network volume's round trip).
+enum FsOp { FS_STAT, FS_LIST, FS_OPEN, FS_READ, FS_SEEK, FS_OP_KINDS };
+void fs_op(FsOp kind);
+unsigned long fs_op_count(FsOp kind);
+// Calls Host::keep_alive at most every 50 ms (from any thread; cheap otherwise).
+void keep_alive();
 const Host *host();
 
 // A streamed 16-bit PCM voice in the DirectSound mixer (port/src/ddraw_dsound.cpp;

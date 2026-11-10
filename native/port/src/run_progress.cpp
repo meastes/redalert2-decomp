@@ -5,6 +5,7 @@
 // fault, or at the time limit (--run-seconds, default 5), always printing the
 // summary to stderr. Diagnostics only; the game never depends on it.
 #include "ra2port/win32_port.hpp"
+#include "os.hpp"
 
 #include <chrono>
 #include <execinfo.h>
@@ -13,7 +14,6 @@
 #include <mutex>
 #include <signal.h>
 #include <dlfcn.h>
-#include <sys/ucontext.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -126,10 +126,8 @@ void on_signal(int sig, siginfo_t *info, void *context)
     // Best effort from a signal handler: the run is ending anyway. The faulting
     // pc and address (a frameless leaf does not appear in the backtrace).
     char what[128];
-    uintptr_t pc = 0;
-#if defined(__APPLE__) && defined(__arm64__)
-    if (context) pc = (uintptr_t)((ucontext_t *)context)->uc_mcontext->__ss.__pc;
-#endif
+    uintptr_t pc = 0, lr = 0, frame = 0;
+    bool registers = os::fault_registers(context, &pc, &lr, &frame);
     Dl_info where = {};
     if (pc) dladdr((void *)pc, &where);
     snprintf(what, sizeof what, "signal %d at %s+%ld (fault address %p)", sig,
@@ -139,12 +137,10 @@ void on_signal(int sig, siginfo_t *info, void *context)
     void *frames[48];
     int n = backtrace(frames, 48);
     backtrace_symbols_fd(frames, n, 2);
-#if defined(__APPLE__) && defined(__arm64__)
     // A call through a bad pointer leaves pc outside any image, and backtrace()
     // stops there: walk the faulting thread's frame chain from the context.
-    if (context && !where.dli_sname) {
-        uintptr_t lr = (uintptr_t)((ucontext_t *)context)->uc_mcontext->__ss.__lr;
-        uintptr_t *fp = (uintptr_t *)((ucontext_t *)context)->uc_mcontext->__ss.__fp;
+    if (registers && !where.dli_sname) {
+        uintptr_t *fp = (uintptr_t *)frame;
         char line[256];
         for (int i = 0; i < 24; ++i) {
             Dl_info at = {};
@@ -157,7 +153,6 @@ void on_signal(int sig, siginfo_t *info, void *context)
             fp = (uintptr_t *)fp[0];
         }
     }
-#endif
     _exit(4);
 }
 
@@ -292,6 +287,9 @@ void ra2port_frame(int frame)
             fprintf(stderr, "perf: Main_Loop frame %d at steady %lld ms (%.0f ms after start), main thread slept %.0f ms\n", frame,
                     ra2port_now_ms(), std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - process_start).count(),
                     ra2port_slept_ns / 1e6);
+        if (perf_last < 0 || frame < perf_last)
+            fprintf(stderr, "perf: file system so far: %lu stat, %lu directory reads, %lu opens, %lu reads, %lu seeks\n",
+                    ra2port::fs_op_count(ra2port::FS_STAT), ra2port::fs_op_count(ra2port::FS_LIST), ra2port::fs_op_count(ra2port::FS_OPEN), ra2port::fs_op_count(ra2port::FS_READ), ra2port::fs_op_count(ra2port::FS_SEEK));
         perf_last = frame;
     }
     // RA2_NATIVE_FPS_LOG=1: Main_Loop frames per wall-clock second on stderr

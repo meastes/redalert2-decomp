@@ -189,6 +189,18 @@ if(RA2_NATIVE_SDL)
         COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/weaken_duplicates.py"
                 --inputs "${RA2_NATIVE_GEN}/link_inputs.txt" --report "${RA2_NATIVE_GEN}/duplicates.json"
         VERBATIM)
+      # 8. Native census (Scout1209): the game to 600 skirmish frames with all
+      #    harness orders; any trap, fault or unrecovered call fails it (the
+      #    smoke test only opens the window). Needs the installed game: set the
+      #    two cache variables (or the environment variables of the same names),
+      #    otherwise ctest reports it skipped.
+      set(RA2_NATIVE_CENSUS_DATA_DIR "$ENV{RA2_NATIVE_CENSUS_DATA_DIR}" CACHE PATH "Installed Red Alert 2 folder for the native-census test (read only)")
+      set(RA2_NATIVE_CENSUS_GAME_EXE "$ENV{RA2_NATIVE_CENSUS_GAME_EXE}" CACHE FILEPATH "game.exe for the native-census test")
+      add_test(NAME native-census COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/census.py"
+               --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+               --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --map "#5" --frames 600 --seconds 900
+               --log "${CMAKE_CURRENT_BINARY_DIR}/native-census.log")
+      set_tests_properties(native-census PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1000)
     else()
       add_executable(ra2-native platform/sdl/main.cpp)
       target_link_libraries(ra2-native PRIVATE SDL3::SDL3 ra2_port)
