@@ -3,7 +3,7 @@
 // redraws every other animation of the list inside it. True once the movie
 // finished unless unknown_38.
 #include "shared/ms_anim.hpp"
-// @ref ?Unknown_00430800@BinkClass@@QAE_NXZ=00430800
+// @ref ?Render_Frame@BinkClass@@QAE_NXZ=00430800
 
 bool MSBinkAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
 {
@@ -13,7 +13,7 @@ bool MSBinkAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
     if (Movie == 0) {
         return true;
     }
-    if (!Movie->Unknown_00430420() && Movie->Unknown_00430800()) {
+    if (!Movie->Is_Finished() && Movie->Render_Frame()) {
         Draw(surface, 0);
         *dirty = MovieRect;
         int index = Anims->ID(this);
@@ -23,5 +23,5 @@ bool MSBinkAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
             }
         }
     }
-    return Movie->Unknown_00430420() && !unknown_38;
+    return Movie->Is_Finished() && !unknown_38;
 }

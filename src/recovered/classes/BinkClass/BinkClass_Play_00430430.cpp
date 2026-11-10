@@ -1,4 +1,4 @@
-// void BinkClass::Unknown_00430430() (0x00430430)
+// void BinkClass::Play() (0x00430430)
 // Plays the movie to its last frame: window messages are dispatched first,
 // otherwise the due frames are drawn (at the movie area of the target; a
 // movie drawn elsewhere is then copied to the screen surface at the window
@@ -8,7 +8,7 @@
 #include "shared/win32_api.hpp"
 // @ref ??_C@_0BA@BOHO@Bink?5Error?3?5?$CFs?6?$AA@=007cf4d8
 
-void BinkClass::Unknown_00430430()
+void BinkClass::Play()
 {
     if (Handle == 0) {
         Debug_Printf("Bink Error: %s\n", BinkGetError());
@@ -34,8 +34,8 @@ void BinkClass::Unknown_00430430()
                 RECT client;
                 GetClientRect(MainWindow, &client);
                 ClientToScreen(MainWindow, (POINT *)&client);
-                Unknown_00430600(Target, Area.X + client.left, Area.Y + client.top);
-            } else if (Unknown_00430600(Target, Area.X, Area.Y)) {
+                Draw_Frame(Target, Area.X + client.left, Area.Y + client.top);
+            } else if (Draw_Frame(Target, Area.X, Area.Y)) {
                 RECT client;
                 GetClientRect(MainWindow, &client);
                 ClientToScreen(MainWindow, (POINT *)&client);

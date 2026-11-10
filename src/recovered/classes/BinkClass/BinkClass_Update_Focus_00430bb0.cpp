@@ -1,4 +1,4 @@
-// void BinkClass::Unknown_00430BB0() (0x00430BB0)
+// void BinkClass::Update_Focus() (0x00430BB0)
 // Pauses the movie when the application loses the focus and resumes it (and
 // redraws the current frame) when it gets it back. No callers.
 #include "shared/movie.hpp"
@@ -8,7 +8,7 @@
 
 extern bool unknown_flag_a40d28;                // 0x00A40D28 application active (focus)
 
-void BinkClass::Unknown_00430BB0()
+void BinkClass::Update_Focus()
 {
     if (!unknown_flag_a40d28) {
         if (unknown_2c == true) {
@@ -20,6 +20,6 @@ void BinkClass::Unknown_00430BB0()
         Debug_Printf("Resume bink movie\n");
         unknown_2c = true;
         BinkPause(Handle, 0);
-        Unknown_00430820();
+        Redraw();
     }
 }

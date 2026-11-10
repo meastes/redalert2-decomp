@@ -1,9 +1,9 @@
-// void BinkClass::Unknown_00430A30(Surface *surface) (0x00430A30)
+// void BinkClass::Draw_Subtitle(Surface *surface) (0x00430A30)
 // Draws the companion's picture over the movie area of `surface`.
 #include "shared/movie.hpp"
 
 #pragma auto_inline(off)
-void BinkClass::Unknown_00430A30(Surface *surface)
+void BinkClass::Draw_Subtitle(Surface *surface)
 {
     if (Companion != 0 && Companion->unknown_00 != 0) {
         Rect &area = Companion->unknown_14;

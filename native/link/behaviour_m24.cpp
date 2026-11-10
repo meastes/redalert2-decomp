@@ -35,20 +35,6 @@ HRESULT __stdcall TiberiumClass::GetSizeMax(ULARGE_INTEGER *size)
     return result;
 }
 
-// 0x006E90A0 TiberiumClass::Compute_CRC (decompile 006e90a0): the type's CRC, then
-// Spread, Growth, Value, Power, the colour, +0xE4 and NumFrames.
-void TiberiumClass::Compute_CRC(WWCRCEngine &crc) const
-{
-    AbstractTypeClass::Compute_CRC(crc);
-    crc((RA2_LONG)Spread);
-    crc((RA2_LONG)Growth);
-    crc((RA2_LONG)Value);
-    crc((RA2_LONG)Power);
-    crc((RA2_LONG)unknown_c0);
-    crc((RA2_LONG)unknown_e4);
-    crc((RA2_LONG)NumFrames);
-}
-
 // 0x006EA9E0 TiberiumClass slot 16 (decompile 006ea9e0): the array index.
 int TiberiumClass::unknown_slot16() const
 {

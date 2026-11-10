@@ -28,7 +28,7 @@
 // @ref ?Blit@GScreenClass@@SIX_NPAVSurface@@PBVRect@@@Z=004e0c90
 // @ref ??0BinkClass@@QAE@PBD@Z=0042fe70
 // @ref ??1BinkClass@@QAE@XZ=0042fee0
-// @ref ?Unknown_00430430@BinkClass@@QAEXXZ=00430430
+// @ref ?Play@BinkClass@@QAEXXZ=00430430
 // @ref ?unknown_audio_paused_a7101c@@3_NA=00a7101c
 // @ref ?Speech_Hold@@YAXXZ=00716980
 // @ref ?Audio_Streams_Hold@@YAXXZ=00408120
@@ -92,7 +92,7 @@ void __fastcall Play_Movie(char const *name, int theme, bool clrscrn_after, bool
         Unknown_Audio_Pause_005a0b10();
         Audio_Pause();
         Audio_DS_Set_Primary_Format(44100, 16, 2);
-        bink.Unknown_00430430();
+        bink.Play();
         Audio_DS_Apply_Primary_Format();
         Audio_Resume();
         Unknown_Audio_Resume_005a0ac0();

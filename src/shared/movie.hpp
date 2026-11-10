@@ -212,22 +212,22 @@ public:
     bool Open(char const *filename);                       // 0x0042FF30
     // Frees the companion, closes the movie and the file handle.
     void Close();                                          // 0x00430230
-    void Unknown_00430280(int x, int y);                   // 0x00430280
-    void Unknown_004303A0(int frame);                      // 0x004303A0 BinkGoto
-    int Unknown_004303C0();                                // 0x004303C0 milliseconds per frame
-    void Unknown_004303E0(int unknown);                    // 0x004303E0
-    void Unknown_00430400(bool pause);                     // 0x00430400 BinkPause
-    bool Unknown_00430420();                               // 0x00430420 past the last frame
-    void Unknown_00430430();                               // 0x00430430
-    bool Unknown_00430600(Surface *surface, int x, int y); // 0x00430600
-    void Unknown_004307E0();                               // 0x004307E0 BinkWait
-    void Unknown_00430940(Surface *surface, int x, int y);  // 0x00430940
-    void Unknown_004309B0(Surface *surface, int x, int y, bool unknown4);   // 0x004309B0
-    void Unknown_00430A30(Surface *surface);               // 0x00430A30
-    void Unknown_00430AF0(Surface *surface);               // 0x00430AF0
-    bool Unknown_00430800();                               // 0x00430800
-    void Unknown_00430820();                               // 0x00430820
-    void Unknown_00430BB0();                               // 0x00430BB0 pauses or resumes with the application focus
+    void Set_Position(int x, int y);                   // 0x00430280
+    void Goto_Frame(int frame);                      // 0x004303A0 BinkGoto
+    int Frame_Time();                                // 0x004303C0 milliseconds per frame
+    void Set_Subtitle_Callback(int unknown);                    // 0x004303E0
+    void Pause(bool pause);                     // 0x00430400 BinkPause
+    bool Is_Finished();                               // 0x00430420 past the last frame
+    void Play();                               // 0x00430430
+    bool Draw_Frame(Surface *surface, int x, int y); // 0x00430600
+    void Check_Frame_Ready();                               // 0x004307E0 BinkWait
+    void Redraw_Frame(Surface *surface, int x, int y);  // 0x00430940
+    void Copy_Frame(Surface *surface, int x, int y, bool unknown4);   // 0x004309B0
+    void Draw_Subtitle(Surface *surface);               // 0x00430A30
+    void Erase_Subtitle(Surface *surface);               // 0x00430AF0
+    bool Render_Frame();                               // 0x00430800
+    void Redraw();                               // 0x00430820
+    void Update_Focus();                               // 0x00430BB0 pauses or resumes with the application focus
 
     bool unknown_00;                // +0x00
     BinkHandleSize *Handle;         // +0x04

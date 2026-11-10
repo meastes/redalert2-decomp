@@ -4,8 +4,8 @@
     "id": "population-3496",
     "inventory_sha256": "9b8eb02ecb80b6423ced77282142d072c50191403a46461a36c785c05d162440",
     "gaps_sha256": "c3018d206b8641e5fc154e9d77bd1e09f064ed44933cc1360dbb679091634db5",
-    "historical_population_sha256": "93a39e8f8687d4335dc9b1914936a231b0d2a380e10cbb110a6f9b5f2ace7923",
-    "historical_acceptance_sha256": "831ca9cc3ad95af15896dde807e2bdefe2d8713021b04f09b8a7184b4c800c42"
+    "historical_population_sha256": "c51ef05ba5d9779355c6c257bd76154b9821b6da98cc06841689f15b8c051f0c",
+    "historical_acceptance_sha256": "3972ef97365d5c067d827d740eb91a0ac17fe93092bfe06df172992f7286b163"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2980,16 +2980,16 @@
     "?VQA_Movie_Play@@YIXPAVVQAMovie@@_NH1@Z": 5903568,
     "?Unknown_0069B4F0@VQAMovieCompanion@@QAEXH@Z": 6927600,
     "??_7BinkMovieHandle@@6B@": 8021636,
-    "?Unknown_00430400@BinkClass@@QAEX_N@Z": 4391936,
-    "?Unknown_00430430@BinkClass@@QAEXXZ": 4391984,
-    "?Unknown_00430420@BinkClass@@QAE_NXZ": 4391968,
-    "?Unknown_00430800@BinkClass@@QAE_NXZ": 4392960,
-    "?Unknown_004307E0@BinkClass@@QAEXXZ": 4392928,
-    "?Unknown_00430280@BinkClass@@QAEXHH@Z": 4391552,
-    "?Unknown_004303E0@BinkClass@@QAEXH@Z": 4391904,
-    "?Unknown_004303A0@BinkClass@@QAEXH@Z": 4391840,
-    "?Unknown_004303C0@BinkClass@@QAEHXZ": 4391872,
-    "?Unknown_00430820@BinkClass@@QAEXXZ": 4392992,
+    "?Pause@BinkClass@@QAEX_N@Z": 4391936,
+    "?Play@BinkClass@@QAEXXZ": 4391984,
+    "?Is_Finished@BinkClass@@QAE_NXZ": 4391968,
+    "?Render_Frame@BinkClass@@QAE_NXZ": 4392960,
+    "?Check_Frame_Ready@BinkClass@@QAEXXZ": 4392928,
+    "?Set_Position@BinkClass@@QAEXHH@Z": 4391552,
+    "?Set_Subtitle_Callback@BinkClass@@QAEXH@Z": 4391904,
+    "?Goto_Frame@BinkClass@@QAEXH@Z": 4391840,
+    "?Frame_Time@BinkClass@@QAEHXZ": 4391872,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
     "??1BinkClass@@QAE@XZ": 4390624,
     "??_7MovieHandle@@6B@": 8021588,
     "?Options@@3VOptionsClass@@A": 10750744,
@@ -3107,7 +3107,7 @@
     "?unknown_slot5@ApplicationClass@@UAGJXZ": 4353440,
     "?Open@BufferIOFileClass@@UAEHPBDH@Z": 4388640,
     "?Open@BufferIOFileClass@@UAEHH@Z": 4388672,
-    "?Unknown_00430600@BinkClass@@QAE_NPAVSurface@@HH@Z": 4392448,
+    "?Draw_Frame@BinkClass@@QAE_NPAVSurface@@HH@Z": 4392448,
     "?unknown_slot29@BuildingLightClass@@UBEHXZ": 4407680,
     "?unknown_slot35@BuildingClass@@UAEPBGXZ": 4537424,
     "??_GBuildingClass@@UAEPAXI@Z": 4537504,
@@ -3572,11 +3572,11 @@
     "__imp__BinkGoto@12": 7972256,
     "__imp__BinkPause@8": 7972260,
     "__imp__BinkWait@4": 7972276,
-    "?Unknown_00430940@BinkClass@@QAEXPAVSurface@@HH@Z": 4393280,
-    "?Unknown_00430AF0@BinkClass@@QAEXPAVSurface@@@Z": 4393712,
+    "?Redraw_Frame@BinkClass@@QAEXPAVSurface@@HH@Z": 4393280,
+    "?Erase_Subtitle@BinkClass@@QAEXPAVSurface@@@Z": 4393712,
     "__imp__BinkCopyToBuffer@28": 7972268,
-    "?Unknown_00430A30@BinkClass@@QAEXPAVSurface@@@Z": 4393520,
-    "?Unknown_004309B0@BinkClass@@QAEXPAVSurface@@HH_N@Z": 4393392,
+    "?Draw_Subtitle@BinkClass@@QAEXPAVSurface@@@Z": 4393520,
+    "?Copy_Frame@BinkClass@@QAEXPAVSurface@@HH_N@Z": 4393392,
     "?VQA_Unknown_0071C590@@YA_NXZ": 7456144,
     "?unknown_message_count_a52298@@3HA": 10822296,
     "?unknown_peek_message_522ed0@@YIHPAUtagMSG@@PAUHWND__@@III@Z": 5385936,
@@ -4498,7 +4498,7 @@
     "__imp__BinkSetVolume@8": 7972244,
     "__imp__BinkDoFrame@4": 7972272,
     "__imp__BinkNextFrame@4": 7972264,
-    "?Unknown_00430BB0@BinkClass@@QAEXXZ": 4393904,
+    "?Update_Focus@BinkClass@@QAEXXZ": 4393904,
     "?unknown_directsound_40a6c0@@YAPAXXZ": 4236992,
     "__imp__BinkOpenDirectSound@4": 7972232,
     "__imp__BinkSetSoundSystem@8": 7972228,
@@ -6322,7 +6322,40 @@
     "?Read_INI@WarheadTypeClass@@UAE_NAAVCCINIClass@@@Z": 7472352,
     "?Adjust@PaletteClass@@QAEXH@Z": 6303904,
     "?Adjust@PaletteClass@@QAEXHABV1@@Z": 6303952,
-    "?Read_INI@UnitTypeClass@@UAE_NAAVCCINIClass@@@Z": 7383872
+    "?Read_INI@UnitTypeClass@@UAE_NAAVCCINIClass@@@Z": 7383872,
+    "?ID@?$DynamicVectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4378064,
+    "?ID@?$VectorClass@VCell@@@@UAEHABVCell@@@Z": 4378592,
+    "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
+    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4379344,
+    "?ID@?$VectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4642992,
+    "?ID@?$DynamicVectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4643376,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4989632,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4990016,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039776,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5040560,
+    "?ID@?$VectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207200,
+    "?ID@?$DynamicVectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207568,
+    "?ID@?$VectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208016,
+    "?ID@?$DynamicVectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208384,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210704,
+    "?ID@?$VectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5681840,
+    "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5682304,
+    "?ID@?$VectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683136,
+    "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683696,
+    "?ID@?$VectorClass@U?$TRect@H@@@@UAEHABU?$TRect@H@@@Z": 5826240,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990080,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990448,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
+    "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6998848,
+    "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6999296,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
+    "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z": 7518288,
+    "?Redraw@MSEngine@@QAEXXZ": 5975952,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
+    "?Redraw@ProgressBarClass@@QBEXXZ": 4373120
   },
   "regions": [
     {
@@ -7241,13 +7274,13 @@
         {
           "offset": 9,
           "kind": 20,
-          "symbol": "?Unknown_00430400@BinkClass@@QAEX_N@Z",
+          "symbol": "?Pause@BinkClass@@QAEX_N@Z",
           "target": 4391936,
           "addend": 0,
           "resolved": 4293454147
         }
       ],
-      "source_sha256": "bcd1e1c5454bd12685813391c6384dad664db412e42cc133ed26b45efa4f650c",
+      "source_sha256": "716119008f7626960355a195dcd01313a77cf4caf599b8e23fa440eb0fd4571f",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Pause_005a1ab0.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -7284,7 +7317,7 @@
         {
           "offset": 10,
           "kind": 20,
-          "symbol": "?Unknown_00430430@BinkClass@@QAEXXZ",
+          "symbol": "?Play@BinkClass@@QAEXXZ",
           "target": 4391984,
           "addend": 0,
           "resolved": 4293454178
@@ -7298,7 +7331,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "874498986ad1ac9de6fbac58fbf6778e32838fdd80a15931baf74d67c67e7dfd",
+      "source_sha256": "5846a9b5efa3e812f6f2783fd54b6880cf44699f1925b2069f31ecc0307b5e00",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Play_005a1ac0.cpp",
       "population": "population-3496",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -7327,13 +7360,13 @@
         {
           "offset": 14,
           "kind": 20,
-          "symbol": "?Unknown_00430280@BinkClass@@QAEXHH@Z",
+          "symbol": "?Set_Position@BinkClass@@QAEXHH@Z",
           "target": 4391552,
           "addend": 0,
           "resolved": 4293453662
         }
       ],
-      "source_sha256": "ecfc911fd469ef7c15007f3d2ef703fe79a0f740659b442767a87257bcf4ceca",
+      "source_sha256": "cb21d920e82de2e18568f9a276ffff8cf0343ab692fa51bc2db6bc4767cf3980",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Set_Position_005a1b10.cpp",
       "population": "population-3496",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -7362,13 +7395,13 @@
         {
           "offset": 9,
           "kind": 20,
-          "symbol": "?Unknown_004303E0@BinkClass@@QAEXH@Z",
+          "symbol": "?Set_Subtitle_Callback@BinkClass@@QAEXH@Z",
           "target": 4391904,
           "addend": 0,
           "resolved": 4293453987
         }
       ],
-      "source_sha256": "f70f868e54c632729b771417fdc0fb9ef1b6fa4c03dd439c606e5a52c4c9de10",
+      "source_sha256": "8e8990db1418900b0b302ed45379c06f8bf6a47e7572ff1a2290318476b2c9e5",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Unknown_Slot8_005a1b30.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -7397,13 +7430,13 @@
         {
           "offset": 9,
           "kind": 20,
-          "symbol": "?Unknown_004303A0@BinkClass@@QAEXH@Z",
+          "symbol": "?Goto_Frame@BinkClass@@QAEXH@Z",
           "target": 4391840,
           "addend": 0,
           "resolved": 4293453907
         }
       ],
-      "source_sha256": "d8c27fbf09b1fc7a000f7ae9a96fd06fb0e33f5b274d0593da40ee0ede6c35c5",
+      "source_sha256": "f9584571223f30037ca39f6e2cf7bf52e5f656e9c14f633a824ecb1618269706",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Unknown_Slot7_005a1b40.cpp",
       "population": "population-3496",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -8585,13 +8618,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?Unknown_00430420@BinkClass@@QAE_NXZ",
+          "symbol": "?Is_Finished@BinkClass@@QAE_NXZ",
           "target": 4391968,
           "addend": 0,
           "resolved": 4293454136
         }
       ],
-      "source_sha256": "2cb4e3dcd0720eeef445e3ed6c607006f3cfcb9b6e19e1b3dc306722c44e04d8",
+      "source_sha256": "ba1828dfddbdf9bf262b9b53e350a31a40034e2875283a4d04d640c78c598732",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Is_Finished_005a1ae0.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -8620,13 +8653,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?Unknown_00430800@BinkClass@@QAE_NXZ",
+          "symbol": "?Render_Frame@BinkClass@@QAE_NXZ",
           "target": 4392960,
           "addend": 0,
           "resolved": 4293455112
         }
       ],
-      "source_sha256": "2ba90194d2ced65d63b21f68eb5933f2c4c5976cdea2adf96ee788091c3b39f3",
+      "source_sha256": "97f421da82770224c65668b4c1a2b30299dc1e65761ad0dc451ea1b2e3014436",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Unknown_Slot1_005a1af0.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -8655,13 +8688,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?Unknown_004307E0@BinkClass@@QAEXXZ",
+          "symbol": "?Check_Frame_Ready@BinkClass@@QAEXXZ",
           "target": 4392928,
           "addend": 0,
           "resolved": 4293455064
         }
       ],
-      "source_sha256": "7019daf1247c096ef8d6b34d6314a8821a817e8090196846bc6be4adb281ca71",
+      "source_sha256": "82663faa7c2ff7956cf014fdc26db66cad372c1b3e3f6c85a662758893f84818",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Unknown_Slot2_005a1b00.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -8690,13 +8723,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?Unknown_004303C0@BinkClass@@QAEHXZ",
+          "symbol": "?Frame_Time@BinkClass@@QAEHXZ",
           "target": 4391872,
           "addend": 0,
           "resolved": 4293453928
         }
       ],
-      "source_sha256": "02cc041a17900059e458f4328a5589e0d0ec999ccdbcdbd72e5b49d33620ce66",
+      "source_sha256": "a00a031649035f63ea9c539a78eb55db3bcb0ad2afd361288b36fbf37d663c22",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Unknown_Slot9_005a1b50.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -8725,13 +8758,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?Unknown_00430820@BinkClass@@QAEXXZ",
+          "symbol": "?Redraw@BinkClass@@QAEXXZ",
           "target": 4392992,
           "addend": 0,
           "resolved": 4293455032
         }
       ],
-      "source_sha256": "213c7eeed2630aa27e0fedd108b0cfb064910d3f308a1069f4dc35e4313c5f2a",
+      "source_sha256": "f232bfaaea919e26f208543c0ceb950744944459e3d09c545e05ca696859eaef",
       "source": "src/recovered/classes/BinkMovieHandle/BinkMovieHandle_Blit_005a1b60.cpp",
       "population": "population-3496",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

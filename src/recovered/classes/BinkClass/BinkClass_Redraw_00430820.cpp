@@ -1,9 +1,9 @@
-// void BinkClass::Unknown_00430820() (0x00430820)
+// void BinkClass::Redraw() (0x00430820)
 // Copies the current frame into the target surface again at the movie area
 // (offset by the window client area on the screen surface).
 #include "shared/movie.hpp"
 
-void BinkClass::Unknown_00430820()
+void BinkClass::Redraw()
 {
     if (Target == unknown_surface_839950) {
         RECT client;
@@ -11,8 +11,8 @@ void BinkClass::Unknown_00430820()
         ClientToScreen(MainWindow, (POINT *)&client);
         int x = Area.X + client.left;
         int y = Area.Y + client.top;
-        Unknown_00430940(Target, x, y);
+        Redraw_Frame(Target, x, y);
     } else {
-        Unknown_00430940(Target, Area.X, Area.Y);
+        Redraw_Frame(Target, Area.X, Area.Y);
     }
 }

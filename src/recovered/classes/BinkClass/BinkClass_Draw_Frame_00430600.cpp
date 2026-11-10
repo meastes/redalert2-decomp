@@ -1,4 +1,4 @@
-// bool BinkClass::Unknown_00430600(Surface *surface, int x, int y) (0x00430600)
+// bool BinkClass::Draw_Frame(Surface *surface, int x, int y) (0x00430600)
 // Follows the volume setting, pauses or resumes the movie with the
 // application focus, then decodes and copies every due frame into `surface`
 // at x, y; false when no frame was due.
@@ -7,13 +7,13 @@
 // @ref ??_C@_0BD@CJNA@Resume?5bink?5movie?6?$AA@=007cf4e8
 // @ref ?unknown_flag_a40d28@@3_NA=00a40d28
 // @ref ?Unknown_0069B420@VQAMovieCompanion@@QAE_NH@Z=0069b420
-// @ref ?Unknown_004309B0@BinkClass@@QAEXPAVSurface@@HH_N@Z=004309b0
-// @ref ?Unknown_00430A30@BinkClass@@QAEXPAVSurface@@@Z=00430a30
-// @ref ?Unknown_00430AF0@BinkClass@@QAEXPAVSurface@@@Z=00430af0
+// @ref ?Copy_Frame@BinkClass@@QAEXPAVSurface@@HH_N@Z=004309b0
+// @ref ?Draw_Subtitle@BinkClass@@QAEXPAVSurface@@@Z=00430a30
+// @ref ?Erase_Subtitle@BinkClass@@QAEXPAVSurface@@@Z=00430af0
 
 extern bool unknown_flag_a40d28;                // 0x00A40D28 application active (focus)
 
-bool BinkClass::Unknown_00430600(Surface *surface, int x, int y)
+bool BinkClass::Draw_Frame(Surface *surface, int x, int y)
 {
     if (unknown_volume_84e9a8 != unknown_volume_a40b48) {
         // Copied as a bit pattern: the original moves it through eax and reads the copy back.
@@ -34,9 +34,9 @@ bool BinkClass::Unknown_00430600(Surface *surface, int x, int y)
             RECT client;
             GetClientRect(MainWindow, &client);
             ClientToScreen(MainWindow, (POINT *)&client);
-            Unknown_004309B0(Target, Area.X + client.left, Area.Y + client.top, true);
+            Copy_Frame(Target, Area.X + client.left, Area.Y + client.top, true);
         } else {
-            Unknown_004309B0(Target, Area.X, Area.Y, true);
+            Copy_Frame(Target, Area.X, Area.Y, true);
         }
     }
     if (!unknown_2d) {
@@ -52,7 +52,7 @@ bool BinkClass::Unknown_00430600(Surface *surface, int x, int y)
         if (Companion != 0) {
             special = Companion->Unknown_0069B420(Handle->FrameNum * unknown_24);
             if (special) {
-                Unknown_00430AF0(surface);
+                Erase_Subtitle(surface);
             }
         }
         void *buffer = surface->Lock();
@@ -66,7 +66,7 @@ bool BinkClass::Unknown_00430600(Surface *surface, int x, int y)
             BinkCopyToBuffer(Handle, buffer, pitch, height, x, y, flags);
             surface->Unlock();
         }
-        Unknown_00430A30(surface);
+        Draw_Subtitle(surface);
         BinkNextFrame(Handle);
     } while (BinkWait(Handle) == 0);
     return true;
