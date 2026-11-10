@@ -58,7 +58,7 @@ inline double Radian_006ca890(UnknownFacingDir const &dir)
 {
     return ((short)dir.Raw - 0x3FFF) * unknown_facing_radians_79b620;
 }
-inline void Set_Yaw_006ca890(BulletVelocity &velocity, UnknownFacingDir const &yaw)
+inline void Set_Yaw_006ca890(TVelocity3D<double> &velocity, UnknownFacingDir const &yaw)
 {
     if (velocity.X == 0.0 && velocity.Y == 0.0) {
         velocity.X = 100.0;
@@ -68,7 +68,7 @@ inline void Set_Yaw_006ca890(BulletVelocity &velocity, UnknownFacingDir const &y
     velocity.X = unknown_cos_4ba4d0(angle) * horizontal;
     velocity.Y = -(unknown_sin_4ba480(angle) * horizontal);
 }
-inline void Set_Pitch_006ca890(BulletVelocity &velocity, UnknownFacingDir const &pitch)
+inline void Set_Pitch_006ca890(TVelocity3D<double> &velocity, UnknownFacingDir const &pitch)
 {
     double current = Radian_006ca890(UnknownFacingDir((unsigned short)((unknown_math_4ba600(velocity.Z, Aircraft_XY_Length_0041B750((AircraftVectorXY const *)&velocity)) - 1.5707963267948966) * -10430.060040584269)));
     double speed = velocity.Speed();
@@ -147,7 +147,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
         }
         return 0;
     }
-    BulletVelocity velocity;
+    TVelocity3D<double> velocity;
     CoordStruct target_coord = object != 0 ? object->unknown_slot40() : target->unknown_slot22();
     CoordStruct fire_coord = unknown_slot43(which);
     UnknownFacingDir dir;

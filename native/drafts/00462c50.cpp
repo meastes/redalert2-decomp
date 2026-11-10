@@ -66,7 +66,7 @@ void BulletClass::unknown_func_462c50()
             if (target != 0 && target != Owner && Owner != 0 && !Owner->House->Is_Ally((TechnoClass *)target)) {
                 BulletClass *fragment = Create_Bullet(projectile, target, Owner, weapon->unknown_a4, weapon->Warhead, weapon->unknown_a8, weapon->unknown_10b);
                 if (fragment != 0) {
-                    BulletVelocity velocity(0.0, 0.0, 0.0);
+                    TVelocity3D<double> velocity(0.0, 0.0, 0.0);
                     velocity.Set_Yaw(Coord_Direction_462c50(Coord_Of_462c50(this), target->Center_Coord()));
                     velocity.Set_Pitch(UnknownFacingDir(0x2000));
                     velocity.Set_Speed(weapon->unknown_a8);
@@ -87,7 +87,7 @@ void BulletClass::unknown_func_462c50()
             cell.Y += Random_Pick(-2, 2);
             BulletClass *fragment = Create_Bullet(projectile, &Map[cell], Owner, weapon->unknown_a4, weapon->Warhead, weapon->unknown_a8, weapon->unknown_10b);
             if (fragment != 0) {
-                BulletVelocity velocity(0.0, 0.0, 0.0);
+                TVelocity3D<double> velocity(0.0, 0.0, 0.0);
                 velocity.Set_Yaw(Coord_Direction_462c50(Coord_Of_462c50(this), Map_Cell(cell).Center_Coord()));
                 velocity.Set_Speed(weapon->unknown_a8);
                 velocity.Set_Pitch(UnknownFacingDir(0x2000));
@@ -99,12 +99,12 @@ void BulletClass::unknown_func_462c50()
         } while (--remaining != 0);
     }
 }
-// @ref ?Speed@BulletVelocityXY@@QBENXZ=0041b750
-// @ref ?Speed@BulletVelocity@@QBENXZ=0041b7c0
-// @ref ?Horizontal_Speed@BulletVelocity@@QBENXZ=0041b830
-// @ref ?Nonzero_Check@BulletVelocity@@QAEXXZ=0041b7f0
-// @ref ?Nonzero_Check@BulletVelocityXY@@QAEXXZ=0041b860
-// @ref ?Get_Pitch@BulletVelocity@@QBE?AUUnknownFacingDir@@XZ=0041b6e0
+// @ref ?Speed@?$TVelocity2D@N@@QBENXZ=0041b750
+// @ref ?Speed@?$TVelocity3D@N@@QBENXZ=0041b7c0
+// @ref ?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ=0041b830
+// @ref ?Nonzero_Check@?$TVelocity3D@N@@QAEXXZ=0041b7f0
+// @ref ?Nonzero_Check@?$TVelocity2D@N@@QAEXXZ=0041b860
+// @ref ?Get_Pitch@?$TVelocity3D@N@@QBE?AUUnknownFacingDir@@XZ=0041b6e0
 // @ref ?unknown_double_79b610@@3NB=0079b610
 // @ref ?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z=006c9df0
 // @ref ?unknown_radius_starts_7a5908@@3QBHB=007a5908

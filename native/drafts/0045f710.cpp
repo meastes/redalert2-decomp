@@ -39,7 +39,7 @@
 // its own TibSun-shaped types, layout-identical): reached through a C adapter.
 extern "C" int ra2_native_projectile_motion_593870(void *coord, void *velocity, void const *target, void const *rot,
                                                    bool aircraft, bool airburst, bool very_high, bool level);
-inline int Projectile_Motion_00593870(CoordStruct &coord, BulletVelocity &velocity, CoordStruct const &target,
+inline int Projectile_Motion_00593870(CoordStruct &coord, TVelocity3D<double> &velocity, CoordStruct const &target,
                                       UnknownDirStruct const &rot, bool aircraft, bool airburst, bool very_high, bool level)
 {
     return ra2_native_projectile_motion_593870(&coord, &velocity, &target, &rot, aircraft, airburst, very_high, level);
@@ -54,7 +54,7 @@ inline Matrix3D Slope_Matrix_00718d60(int ramp)
 }
 
 // @ref ?unknown_coord_none_850310@@3UCoordStruct@@A=00850310
-// @ref ?Projectile_Motion_00593870@@YIHAAUCoordStruct@@AAUBulletVelocity@@ABU1@ABUUnknownDirStruct@@_N444@Z=00593870
+// @ref ?Projectile_Motion_00593870@@YIHAAUCoordStruct@@AAU?$TVelocity3D@N@@ABU1@ABUUnknownDirStruct@@_N444@Z=00593870
 // @ref ?Slope_Matrix_00718d60@@YI?AVMatrix3D@@H@Z=00718d60
 // @ref ?Get_Cell_Ramp_006a7110@Tactical@@QAEHABUCoordStruct@@@Z=006a7110
 // @ref ?Proximity_004ceee0@UnknownBulletData@@QAEHABUCoordStruct@@@Z=004ceee0
@@ -128,7 +128,7 @@ void BulletClass::AI()
     }
 
     int impact = 0;
-    BulletVelocity velocity;
+    TVelocity3D<double> velocity;
     if (Type->ROT > 0) {
         int max_speed = Speed;
         double speed = Velocity.Speed();
@@ -159,7 +159,7 @@ void BulletClass::AI()
             Velocity.Set_Speed(speed);
         }
         
-        BulletVelocity velocity = Velocity;
+        TVelocity3D<double> velocity = Velocity;
         CoordStruct target_coord = Target != 0 ? Target->unknown_slot22() : unknown_coord_none_850310;
         if (Target != 0 && Target->AbstractFlags.IsObject) {
             target_coord = ((ObjectClass *)Target)->unknown_slot40();
@@ -178,7 +178,7 @@ void BulletClass::AI()
         UnknownDirStruct dir((unsigned short)((unknown_ed ? 0 : rot) << 8));
         int distance = Projectile_Motion_00593870(coord, velocity, target_coord, dir, (bool &)aircraft, Type->Airburst, Type->VeryHigh, Type->Level);
         CellClass *cell = &Map[coord];
-        BulletVelocity new_velocity = velocity;
+        TVelocity3D<double> new_velocity = velocity;
         Velocity = new_velocity;
         if (distance <= Velocity.Speed() * 0.5 || unknown_slot108() <= 0) {
             forced = true;
@@ -222,9 +222,9 @@ void BulletClass::AI()
             }
         }
     } else {
-        BulletVelocity position = Velocity;
-        BulletVelocity new_velocity = position;
-        velocity = BulletVelocity(position.X, position.Y, position.Z);
+        TVelocity3D<double> position = Velocity;
+        TVelocity3D<double> new_velocity = position;
+        velocity = TVelocity3D<double>(position.X, position.Y, position.Z);
         if (position.Speed() < 8.0) {
             impact = 1;
         }
@@ -240,7 +240,7 @@ void BulletClass::AI()
             if (current < Speed) {
                 Velocity.Set_Speed(Type->Acceleration + current);
             }
-            BulletVelocity step = Velocity;
+            TVelocity3D<double> step = Velocity;
             CoordStruct delta((int)step.X, (int)step.Y, (int)step.Z);
             CoordStruct old_coord = coord;
             coord = CoordStruct(coord.X + delta.X, coord.Y + delta.Y, coord.Z + delta.Z);
@@ -389,7 +389,7 @@ bounced:
                     new_velocity.X = velocity.X;
                     new_velocity.Y = velocity.Y;
                     if (!Type->Vertical) {
-                        Velocity = BulletVelocity(new_velocity.X, new_velocity.Y, velocity.Z);
+                        Velocity = TVelocity3D<double>(new_velocity.X, new_velocity.Y, velocity.Z);
                     }
                     if (Velocity.Speed() < 10.0 && unknown_slot108() < 10) {
                         impact = 1;

@@ -272,7 +272,7 @@ int __fastcall Projectile_Motion(Coord &coord, TVelocity3D<double> &velocity, Co
 }
 
 // NATIVE (Scout1121): the C adapter BulletClass::AI's draft (native/drafts/0045f710.cpp) calls;
-// CoordStruct/BulletVelocity/UnknownDirStruct there are layout-identical to Coord/TVelocity3D/DirType here.
+// CoordStruct/TVelocity3D<double>/UnknownDirStruct there are layout-identical to Coord/TVelocity3D/DirType here.
 extern "C" int ra2_native_projectile_motion_593870(void *coord, void *velocity, void const *target, void const *rot,
                                                    bool aircraft, bool airburst, bool very_high, bool level)
 {
