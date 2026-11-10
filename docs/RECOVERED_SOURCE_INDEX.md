@@ -27,7 +27,7 @@
 | [classes/TeamClass](../src/recovered/classes/TeamClass/) | 95 | 28,636 | 95 | 0x004D3690–0x006BE740 |
 | [classes/CChatEventSink](../src/recovered/classes/CChatEventSink/) | 43 | 25,258 | 42 | 0x0075DFE0–0x00765B90 |
 | [classes/SidebarClass](../src/recovered/classes/SidebarClass/) | 91 | 25,083 | 89 | 0x0067B4B0–0x006824A0 |
-| (discovery: address-named) | 790 | 24,018 | 17 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 788 | 23,960 | 17 | 0x004010A0–0x00793976 |
 | [netshare](../src/recovered/netshare/) | 82 | 23,656 | 82 | 0x005C2BA0–0x005CD540 |
 | [classes/TechnoTypeClass](../src/recovered/classes/TechnoTypeClass/) | 33 | 23,561 | 33 | 0x004D4310–0x006DF7A0 |
 | [classes/TActionClass](../src/recovered/classes/TActionClass/) | 138 | 23,230 | 138 | 0x006AD2F0–0x006B30D0 |
@@ -157,8 +157,8 @@
 | [classes/BulletTypeClass](../src/recovered/classes/BulletTypeClass/) | 21 | 3,455 | 21 | 0x004644E0–0x004D3ED0 |
 | [classes/PowerClass](../src/recovered/classes/PowerClass/) | 17 | 3,452 | 17 | 0x0061C450–0x0061D220 |
 | [classes/OverlayTypeClass](../src/recovered/classes/OverlayTypeClass/) | 25 | 3,392 | 25 | 0x004D3A90–0x005DD290 |
+| [classes/ThemeClass](../src/recovered/classes/ThemeClass/) | 24 | 3,351 | 24 | 0x004D4660–0x006E8590 |
 | [classes/RadSiteClass](../src/recovered/classes/RadSiteClass/) | 25 | 3,301 | 25 | 0x00637220–0x00637F90 |
-| [classes/ThemeClass](../src/recovered/classes/ThemeClass/) | 22 | 3,293 | 22 | 0x004D4660–0x006E8590 |
 | [classes/PKey](../src/recovered/classes/PKey/) | 18 | 3,281 | 18 | 0x0060ED40–0x0060FA20 |
 | [classes/WWKeyboardClass](../src/recovered/classes/WWKeyboardClass/) | 22 | 3,230 | 22 | 0x00532130–0x00532E60 |
 | [classes/ToolTipManager](../src/recovered/classes/ToolTipManager/) | 29 | 3,206 | 29 | 0x006EB2E0–0x006EC350 |
