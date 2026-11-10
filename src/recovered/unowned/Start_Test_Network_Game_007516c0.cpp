@@ -53,14 +53,14 @@ void __fastcall Start_Test_Network_Game_007516c0()
         }
         Unknown_007515b0();
     }
-    PacketTransport->unknown_slot12();
+    PacketTransport->Clear_Broadcast_Addresses();
     char address[32]="xxx.xxx.xxx.xxx";
     NetNumType network;
     NetNodeType node;
     int i;
     for(i=1;i<unknown_players_a3fa7c.Count();++i) {
         unknown_players_a3fa7c[i]->Address.Get_Address(network,node);
-        PacketTransport->unknown_slot11(address,0);
+        PacketTransport->Set_Broadcast_Address(address,0);
     }
     unknown_b2ac40=2;
     Debug_Printf(test_start_debug_007fded4,unknown_session_a3d298.NumPlayers);

@@ -29,10 +29,10 @@
 
 bool UDPInterfaceClass::unknown_slot15(int)
 {
-    if (!WinsockInitialised && !unknown_slot25()) {
+    if (!WinsockInitialised && !Init_Ports()) {
         return false;
     }
-    Open_Socket(unknown_default_port_7f60d0);
+    OpenSocket(unknown_default_port_7f60d0);
 
     char name[128];
     Debug_Printf("About to query the host name\n");

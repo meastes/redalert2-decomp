@@ -193,7 +193,7 @@ void __fastcall IPX_Call_Back()
                             unsigned short port;
                             IPXAddressClass *address = unknown_OwnerTalkClass_00ab6d18.Unknown_0063FA00(unknown_session_a3d298.GPacket.Name);
                             address->Get_Address(net, node, &port);
-                            ((UDPInterfaceClass *)PacketTransport)->unknown_slot30((unsigned long *)node, port);
+                            ((UDPInterfaceClass *)PacketTransport)->Add_Peer((unsigned long *)node, port);
                         }
                         break;
                     }

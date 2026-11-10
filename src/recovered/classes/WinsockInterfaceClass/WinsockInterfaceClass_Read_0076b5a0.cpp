@@ -1,4 +1,4 @@
-// int WinsockInterfaceClass::unknown_slot2(void *buf, int *buflen, void *address, int *addresslen, unsigned short *port) (0x0076B5A0, slot 2)
+// int WinsockInterfaceClass::Read(void *buf, int *buflen, void *address, int *addresslen, unsigned short *port) (0x0076B5A0, slot 2)
 // Takes the oldest incoming packet: its data, sender address and port;
 // returns its length (0 when none).
 #include "shared/winsock_interface.hpp"
@@ -6,7 +6,7 @@
 // @ref ?Check@WWKeyboardClass@@QAE?AW4KeyNumType@@XZ=005322d0
 // @ref ??3@YAXPAX@Z=00781d3b
 
-int WinsockInterfaceClass::unknown_slot2(void *buf, int *buflen, void *address, int *addresslen, unsigned short *port)
+int WinsockInterfaceClass::Read(void *buf, int *buflen, void *address, int *addresslen, unsigned short *port)
 {
     WWKeyboard->Check();
     if (InBuffers.Count() == 0) {

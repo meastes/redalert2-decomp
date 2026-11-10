@@ -87,7 +87,7 @@ int IPXConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsig
     }
 
     if (PacketTransport) {
-        PacketTransport->unknown_slot3(buf, buflen, &dest, sizeof(dest), flagged, 0, port);
+        PacketTransport->WriteTo(buf, buflen, &dest, sizeof(dest), flagged, 0, port);
     }
     return 1;
 }

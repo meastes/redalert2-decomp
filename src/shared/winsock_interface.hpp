@@ -126,25 +126,25 @@ public:
     WinsockInterfaceClass();                                            // 0x0076AC80
     virtual ~WinsockInterfaceClass();                                   // 0x0076AD70
     virtual void Close_Socket();                                        // slot 1 0x0076AE40
-    virtual int unknown_slot2(void *buf, int *buflen, void *address, int *addresslen, unsigned short *port);   // slot 2 0x0076B5A0 (takes the oldest incoming packet)
-    virtual void unknown_slot3(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7);   // slot 3 0x0076B670 (queues a write to an address, posts FD_WRITE)
-    virtual void unknown_slot4(void *buf, int buflen, bool alternate);  // slot 4 0x0076B7A0 (queues a broadcast, posts FD_WRITE)
+    virtual int Read(void *buf, int *buflen, void *address, int *addresslen, unsigned short *port);   // slot 2 0x0076B5A0 (takes the oldest incoming packet)
+    virtual void WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7);   // slot 3 0x0076B670 (queues a write to an address, posts FD_WRITE)
+    virtual void Broadcast(void *buf, int buflen, bool alternate);  // slot 4 0x0076B7A0 (queues a broadcast, posts FD_WRITE)
     virtual void Discard_In_Buffers();                                  // slot 5 0x0076AF60
     virtual void Discard_Out_Buffers();                                 // slot 6 0x0076AFD0
     virtual bool Start_Listening();                                     // slot 7 0x0076AE80
     virtual void Stop_Listening();                                      // slot 8 0x0076AF10
     virtual void Clear_Socket_Error(SOCKET socket);                     // slot 9 0x0076B8A0
     virtual bool Set_Socket_Options(SOCKET socket);                     // slot 10 0x0076B8F0
-    virtual void unknown_slot11(char *address, unsigned short port) {}  // slot 11 0x0076AA00 (inline; UDP: adds a broadcast address)
-    virtual void unknown_slot12() {}                                    // slot 12 0x0076AA10 (inline)
-    virtual int unknown_slot13() { return 0; }                          // slot 13 0x0076BA00 (inline)
-    virtual unsigned int unknown_slot14(int socket) { return 0; }       // slot 14 0x0076BA10 (inline; the notification message)
+    virtual void Set_Broadcast_Address(char *address, unsigned short port) {}  // slot 11 0x0076AA00 (inline; UDP: adds a broadcast address)
+    virtual void Clear_Broadcast_Addresses() {}                                    // slot 12 0x0076AA10 (inline)
+    virtual int Get_Protocol() { return 0; }                          // slot 13 0x0076BA00 (inline)
+    virtual unsigned int Protocol_Event_Message(int socket) { return 0; }       // slot 14 0x0076BA10 (inline; the notification message)
     virtual bool unknown_slot15(int socket) { return false; }           // slot 15 0x0076BA20 (inline; opens a socket)
-    virtual int unknown_slot16(int arg1, int arg2, int arg3, int arg4) { return 1; }   // slot 16 0x0076BA30 (inline)
+    virtual int Message_Handler(int arg1, int arg2, int arg3, int arg4) { return 1; }   // slot 16 0x0076BA30 (inline)
     virtual bool Get_Host_Name(char *name, int length);                 // slot 17 0x0076B990
-    virtual int unknown_slot18() { return 0; }                          // slot 18 0x0076AA20 (inline)
-    virtual int unknown_slot19(int arg1) { return 0; }                  // slot 19 0x0076AA30 (inline)
-    virtual void unknown_slot20(int arg1) { unknown_3f2f8 = arg1; }     // slot 20 0x0076AA40 (inline)
+    virtual int Get_Num_Local_Addresses() { return 0; }                          // slot 18 0x0076AA20 (inline)
+    virtual int Get_Local_Address(int arg1) { return 0; }                  // slot 19 0x0076AA30 (inline)
+    virtual void Set_NetCard(int arg1) { unknown_3f2f8 = arg1; }     // slot 20 0x0076AA40 (inline)
     virtual void Build_Packet_CRC(WinsockBufferType *packet);           // slot 21 0x0076B290
     virtual bool Passes_CRC_Check(WinsockBufferType *packet);           // slot 22 0x0076B310
 

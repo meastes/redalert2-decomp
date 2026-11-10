@@ -136,11 +136,11 @@ void MPCooperative::unknown_slot37()
     wcscpy(unknown_session_a3d298.MasterPlayerName, unknown_players_a3fa7c[unknown_58]->Name);
     unknown_session_a3d298.MasterPlayerID = -1;
     unknown_session_a3d298.unknown_124 = unknown_74;
-    PacketTransport->unknown_slot12();
+    PacketTransport->Clear_Broadcast_Addresses();
     char address[32] = "xxx.xxx.xxx.xxx";
     for (int n = 1; n < unknown_players_a3fa7c.Count(); n++) {
         unknown_players_a3fa7c[n]->Address.Get_Address(net, node, &port);
-        PacketTransport->unknown_slot11(address, port);
+        PacketTransport->Set_Broadcast_Address(address, port);
     }
     unknown_session_a3d298.unknown_293c = unknown_c8;
     unknown_session_a3d298.unknown_299c = unknown_128;

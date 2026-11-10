@@ -216,8 +216,8 @@ void __fastcall Print_CRCs(EventClass *event)
     fprintf(file, "FrameSendRate: %d\n", unknown_frame_send_rate_a3d564);
 
     if (PacketTransport) {
-        for (i = 0; i < PacketTransport->unknown_slot18(); i++) {
-            unsigned int *address = (unsigned int *)PacketTransport->unknown_slot19(i);
+        for (i = 0; i < PacketTransport->Get_Num_Local_Addresses(); i++) {
+            unsigned int *address = (unsigned int *)PacketTransport->Get_Local_Address(i);
             if (address) {
                 unsigned int ip = *address;
                 fprintf(file, "Local address: %d.%d.%d.%d\n", ip & 255, (ip >> 8) & 255, (ip >> 16) & 255, ip >> 24);

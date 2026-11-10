@@ -22,8 +22,8 @@ extern "C" unsigned int __cdecl wcslen(wchar_t const *text);
 unsigned short __fastcall Char_To_Wide_00738130(unsigned int character, long key_data);
 LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-    if (PacketTransport && (message == PacketTransport->unknown_slot14(-1) || message == 0x475)) {
-        if (PacketTransport->unknown_slot16((int)window, message, wparam, lparam))
+    if (PacketTransport && (message == PacketTransport->Protocol_Event_Message(-1) || message == 0x475)) {
+        if (PacketTransport->Message_Handler((int)window, message, wparam, lparam))
             return DefWindowProcA(window, message, wparam, lparam);
         return 0;
     }

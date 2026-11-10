@@ -33,28 +33,28 @@ class UDPInterfaceClass : public WinsockInterfaceClass {
 public:
     UDPInterfaceClass();                                                // 0x0076C050
     virtual ~UDPInterfaceClass();                                       // 0x0076C0F0
-    virtual void unknown_slot3(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7);   // slot 3 0x0076C960
-    virtual void unknown_slot4(void *buf, int buflen, bool alternate);  // slot 4 0x0076C9C0
+    virtual void WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7);   // slot 3 0x0076C960
+    virtual void Broadcast(void *buf, int buflen, bool alternate);  // slot 4 0x0076C9C0
     virtual bool Start_Listening();                                     // slot 7 0x0076CB30
     virtual void Stop_Listening();                                      // slot 8 0x0076CBA0
-    virtual void unknown_slot11(char *address, unsigned short port);    // slot 11 0x0076C290 (adds a broadcast address "a.b.c.d")
-    virtual void unknown_slot12();                                      // slot 12 0x0076C230 (clears the broadcast addresses)
-    virtual int unknown_slot13() { return 2; }                          // slot 13 0x0076D3E0 (inline)
-    virtual unsigned int unknown_slot14(int socket);                    // slot 14 0x0076D3F0 (the notification message)
+    virtual void Set_Broadcast_Address(char *address, unsigned short port);    // slot 11 0x0076C290 (adds a broadcast address "a.b.c.d")
+    virtual void Clear_Broadcast_Addresses();                                      // slot 12 0x0076C230 (clears the broadcast addresses)
+    virtual int Get_Protocol() { return 2; }                          // slot 13 0x0076D3E0 (inline)
+    virtual unsigned int Protocol_Event_Message(int socket);                    // slot 14 0x0076D3F0 (the notification message)
     virtual bool unknown_slot15(int socket);                            // slot 15 0x0076C6F0 (local addresses, then the alternate socket)
-    virtual int unknown_slot16(int arg1, int arg2, int arg3, int arg4); // slot 16 0x0076CD40
-    virtual int unknown_slot18() { return LocalAddresses.Count(); }     // slot 18 0x0076D430 (inline)
-    virtual int unknown_slot19(int index) { return (int)LocalAddresses[index]; }   // slot 19 0x0076D440 (inline)
-    virtual bool Open_Socket(unsigned short port);                      // slot 23 0x0076C350 (opens and binds the primary socket)
-    virtual unsigned short unknown_slot24() { return unknown_3f2fc; }   // slot 24 0x0076D450 (inline)
-    virtual bool unknown_slot25();                                      // slot 25 0x0076C6D0 (Init, then no sockets)
+    virtual int Message_Handler(int arg1, int arg2, int arg3, int arg4); // slot 16 0x0076CD40
+    virtual int Get_Num_Local_Addresses() { return LocalAddresses.Count(); }     // slot 18 0x0076D430 (inline)
+    virtual int Get_Local_Address(int index) { return (int)LocalAddresses[index]; }   // slot 19 0x0076D440 (inline)
+    virtual bool OpenSocket(unsigned short port);                      // slot 23 0x0076C350 (opens and binds the primary socket)
+    virtual unsigned short Get_Port() { return unknown_3f2fc; }   // slot 24 0x0076D450 (inline)
+    virtual bool Init_Ports();                                      // slot 25 0x0076C6D0 (Init, then no sockets)
     virtual bool Open_Spare_Socket(unsigned short port);                // slot 26 0x0076C480
     virtual void Close_Spare_Socket(unsigned short port);               // slot 27 0x0076C5B0
-    virtual void unknown_slot28();                                      // slot 28 0x0076CCC0
-    virtual void unknown_slot29(unsigned short port);                   // slot 29 0x0076C670 (selects the socket for a port)
-    virtual void unknown_slot30(unsigned long *address, unsigned short port);   // slot 30 0x0076CBC0 (marks an address unreachable)
+    virtual void Close_All_Port_Sockets();                                      // slot 28 0x0076CCC0
+    virtual void Select_Port_Socket(unsigned short port);                   // slot 29 0x0076C670 (selects the socket for a port)
+    virtual void Add_Peer(unsigned long *address, unsigned short port);   // slot 30 0x0076CBC0 (marks an address unreachable)
 
-    bool unknown_76cc70(unsigned long *address, unsigned short port);   // 0x0076CC70 (not marked unreachable)
+    bool Is_Reachable(unsigned long *address, unsigned short port);   // 0x0076CC70 (not marked unreachable)
 
     unsigned short unknown_3f2fc;                       // +0x3F2FC
     SOCKET Sockets[8];                                  // +0x3F300

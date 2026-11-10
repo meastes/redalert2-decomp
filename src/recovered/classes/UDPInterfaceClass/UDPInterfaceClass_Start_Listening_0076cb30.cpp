@@ -12,7 +12,7 @@ bool UDPInterfaceClass::Start_Listening()
 {
     if (WinsockInterfaceClass::Start_Listening()) {
         for (int i = 0; i < NumSockets; i++) {
-            if (WSAAsyncSelect(Sockets[i], unknown_window_b263d8, unknown_slot14(-1), 3) == SOCKET_ERROR) {
+            if (WSAAsyncSelect(Sockets[i], unknown_window_b263d8, Protocol_Event_Message(-1), 3) == SOCKET_ERROR) {
                 Debug_Printf("Async select failed on spare socket.\n");
                 return false;
             }

@@ -1,4 +1,4 @@
-// void UDPInterfaceClass::unknown_slot4(void *buf, int buflen, bool alternate) (0x0076C9C0, slot 4)
+// void UDPInterfaceClass::Broadcast(void *buf, int buflen, bool alternate) (0x0076C9C0, slot 4)
 // A broadcast goes to every broadcast address as its own checksummed
 // packet, each followed by a write notification.
 #include "shared/udp_interface.hpp"
@@ -8,7 +8,7 @@
 // @ref ?Unknown_005B5EE0@@YAXXZ=005b5ee0
 // @ref ?Get_New_Out_Buffer@WinsockInterfaceClass@@QAEPAVWinsockBufferType@1@_N@Z=0076b3a0
 
-void UDPInterfaceClass::unknown_slot4(void *buf, int buflen, bool alternate)
+void UDPInterfaceClass::Broadcast(void *buf, int buflen, bool alternate)
 {
     for (int i = 0; i < BroadcastAddresses.Count(); i++) {
         WinsockBufferType *packet = Get_New_Out_Buffer(alternate);
@@ -27,7 +27,7 @@ void UDPInterfaceClass::unknown_slot4(void *buf, int buflen, bool alternate)
             OutBuffers.Add(packet);
             socket = Socket;
         }
-        SendMessageA((HWND)unknown_window_b263d8, unknown_slot14(socket), 0, 2);
+        SendMessageA((HWND)unknown_window_b263d8, Protocol_Event_Message(socket), 0, 2);
         Unknown_005B5EE0();
     }
 }

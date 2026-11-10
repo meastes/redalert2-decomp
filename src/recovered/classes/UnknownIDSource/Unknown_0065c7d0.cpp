@@ -119,7 +119,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
 
         if (PacketTransport != 0 && unknown_game_mode_a3d298 == 4 && unknown_players_a3fa7c.Count() > 1) {
             Debug_Printf("Setting addresses for UDP broadcast\n");
-            PacketTransport->unknown_slot12();
+            PacketTransport->Clear_Broadcast_Addresses();
             char address[32] = "xxx.xxx.xxx.xxx";
             for (int index = 1; index < unknown_players_a3fa7c.Count(); index++) {
                 NetNumType net;
@@ -127,7 +127,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
                 unknown_players_a3fa7c[index]->Address.Get_Address(net, node);
                 sprintf(address, "%d.%d.%d.%d", node[0], node[1], node[2], node[3]);
                 Debug_Printf("Adding broadcast address %s\n", address);
-                PacketTransport->unknown_slot11(address, unknown_node_ids_a402ba[index]);
+                PacketTransport->Set_Broadcast_Address(address, unknown_node_ids_a402ba[index]);
             }
         }
     }

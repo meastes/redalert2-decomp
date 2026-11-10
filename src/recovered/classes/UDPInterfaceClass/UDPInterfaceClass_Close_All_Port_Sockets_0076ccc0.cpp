@@ -1,4 +1,4 @@
-// void UDPInterfaceClass::unknown_slot28() (0x0076CCC0, slot 28)
+// void UDPInterfaceClass::Close_All_Port_Sockets() (0x0076CCC0, slot 28)
 // Closes the spare sockets and forgets them.
 #include "shared/udp_interface.hpp"
 // @ref ??_7?$DynamicVectorClass@PAE@@6B@=007afbac
@@ -23,7 +23,7 @@
 
 extern HWND MainWindow;                     // 0x00B263D8
 
-void UDPInterfaceClass::unknown_slot28()
+void UDPInterfaceClass::Close_All_Port_Sockets()
 {
     for (int index = 0; index < NumSockets; index++) {
         Debug_Printf("Closing spare socket %d\n", Sockets[index]);

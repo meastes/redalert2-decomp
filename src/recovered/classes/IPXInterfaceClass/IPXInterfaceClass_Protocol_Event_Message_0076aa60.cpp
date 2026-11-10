@@ -1,2 +1,2 @@
-// WinsockInterfaceClass::unknown_slot19 (0x0076AA30)
+// IPXInterfaceClass::Protocol_Event_Message (0x0076AA60)
 // Inline in the class header; emitted with IPXInterfaceClass's vtable. No source of its own.

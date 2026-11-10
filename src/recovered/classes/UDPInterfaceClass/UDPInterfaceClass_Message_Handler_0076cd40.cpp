@@ -1,4 +1,4 @@
-// int UDPInterfaceClass::unknown_slot16(int window, int message, int wparam, int lparam) (0x0076CD40, slot 16)
+// int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int lparam) (0x0076CD40, slot 16)
 // The Winsock message handler (TibSun wspudp.cpp Message_Handler with RA2's spare sockets,
 // alternate socket, unreachable list and packet-router address translation).
 #include "shared/udp_interface.hpp"
@@ -22,7 +22,7 @@
 
 // @ref ?unknown_b2af1c@@3_NA=00b2af1c
 
-int UDPInterfaceClass::unknown_slot16(int window, int message, int wparam, int lparam)
+int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int lparam)
 {
     sockaddr_in addr;
     int addr_len;

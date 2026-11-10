@@ -4,6 +4,6 @@
 
 int __fastcall IPXConnClass::Broadcast(char *buf, int buflen)
 {
-    PacketTransport->unknown_slot4(buf, buflen, 0);
+    PacketTransport->Broadcast(buf, buflen, 0);
     return 1;
 }

@@ -1,4 +1,4 @@
-// void WinsockInterfaceClass::unknown_slot3(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7) (0x0076B670, slot 3)
+// void WinsockInterfaceClass::WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7) (0x0076B670, slot 3)
 // Queues a packet for one address (checksummed) and posts a write
 // notification for its socket.
 #include "shared/winsock_interface.hpp"
@@ -8,7 +8,7 @@
 // @ref ?Check@WWKeyboardClass@@QAE?AW4KeyNumType@@XZ=005322d0
 // @ref ?Get_New_Out_Buffer@WinsockInterfaceClass@@QAEPAVWinsockBufferType@1@_N@Z=0076b3a0
 
-void WinsockInterfaceClass::unknown_slot3(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7)
+void WinsockInterfaceClass::WriteTo(void *buf, int buflen, void *address, int addresslen, bool alternate, unsigned char arg6, unsigned short arg7)
 {
     WinsockBufferType *packet = Get_New_Out_Buffer(alternate);
     memcpy(packet->Buffer, buf, buflen);
@@ -26,6 +26,6 @@ void WinsockInterfaceClass::unknown_slot3(void *buf, int buflen, void *address, 
         OutBuffers.Add(packet);
         socket = Socket;
     }
-    SendMessageA((HWND)unknown_window_b263d8, unknown_slot14(socket), 0, 2);
+    SendMessageA((HWND)unknown_window_b263d8, Protocol_Event_Message(socket), 0, 2);
     WWKeyboard->Check();
 }

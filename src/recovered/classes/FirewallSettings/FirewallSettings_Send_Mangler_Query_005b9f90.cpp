@@ -23,7 +23,7 @@ bool FirewallSettings::Send_Mangler_Query(IPXAddressClass *address, unsigned sho
     ManglerPacket &packet = *(ManglerPacket *)buffer;
     packet.Type = 0x2B;
     strcpy(packet.Name, "WW");
-    ((UDPInterfaceClass *)PacketTransport)->unknown_slot29(port);
+    ((UDPInterfaceClass *)PacketTransport)->Select_Port_Socket(port);
     packet.Port = port;
     packet.unknown_37 = (flag == true);
     int count = unknown_ipx_manager_a40978.Global_Num_Send();
@@ -37,6 +37,6 @@ bool FirewallSettings::Send_Mangler_Query(IPXAddressClass *address, unsigned sho
         unknown_ipx_manager_a40978.Service();
         unknown_481fb0();
     }
-    ((UDPInterfaceClass *)PacketTransport)->unknown_slot29(0);
+    ((UDPInterfaceClass *)PacketTransport)->Select_Port_Socket(0);
     return true;
 }

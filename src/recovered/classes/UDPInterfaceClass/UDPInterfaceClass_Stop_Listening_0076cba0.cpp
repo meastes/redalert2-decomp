@@ -5,5 +5,5 @@
 void UDPInterfaceClass::Stop_Listening()
 {
     WinsockInterfaceClass::Stop_Listening();
-    unknown_slot28();
+    Close_All_Port_Sockets();
 }

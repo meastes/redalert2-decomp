@@ -72,8 +72,8 @@ void __cdecl Write_Multiplayer_Statistics_00482fe0()
             fprintf(file, stats_latency, latency_setting_00a3fba4);
             fprintf(file, stats_speed, Options.GameSpeed);
             if (PacketTransport) {
-                for (int index=0; index<PacketTransport->unknown_slot18(); ++index) {
-                    unsigned int *address=(unsigned int *)PacketTransport->unknown_slot19(index);
+                for (int index=0; index<PacketTransport->Get_Num_Local_Addresses(); ++index) {
+                    unsigned int *address=(unsigned int *)PacketTransport->Get_Local_Address(index);
                     if (address) {
                         unsigned int ip=*address;
                         fprintf(file,stats_local_address,ip&255,(ip>>8)&255,(ip>>16)&255,ip>>24);

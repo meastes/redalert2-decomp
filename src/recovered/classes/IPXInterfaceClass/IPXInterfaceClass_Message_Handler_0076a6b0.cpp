@@ -1,4 +1,4 @@
-// int IPXInterfaceClass::unknown_slot16(int window, int message, int wparam, int lparam) (0x0076A6B0, slot 16)
+// int IPXInterfaceClass::Message_Handler(int window, int message, int wparam, int lparam) (0x0076A6B0, slot 16)
 // The socket notification handler (message 0x473): FD_READ queues an
 // incoming packet that is not our own and passes its CRC check; FD_WRITE
 // sends every queued outgoing packet.
@@ -20,7 +20,7 @@
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ??_C@_0CA@CMFA@Throwing?5away?5malformed?5packet?6?$AA@=00800a90
 
-int IPXInterfaceClass::unknown_slot16(int window, int message, int wparam, int lparam)
+int IPXInterfaceClass::Message_Handler(int window, int message, int wparam, int lparam)
 {
     UnknownIPXSocketAddress address;
     NetNumType network;

@@ -73,7 +73,7 @@ int IPXGlobalConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address,
     }
 
     if (PacketTransport) {
-        PacketTransport->unknown_slot3(buf, buflen, &dest, sizeof(dest), flagged, !unknown_c8, port);
+        PacketTransport->WriteTo(buf, buflen, &dest, sizeof(dest), flagged, !unknown_c8, port);
     }
     return 1;
 }

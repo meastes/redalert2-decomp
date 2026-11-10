@@ -28,10 +28,10 @@ void __fastcall Users_To_Session_Players_0074d7d0(WOL::User *users)
             unknown_pings_b2a734[unknown_session_a3d55c++]=ping;
         }
     }
-    PacketTransport->unknown_slot12();
+    PacketTransport->Clear_Broadcast_Addresses();
     for(i=1;i<unknown_players_a3fa7c.Count();++i) {
         Debug_Printf(wol_broadcast_address_debug_7f1f94,unknown_players_a3fa7c[i]->Address.As_String_00523840());
-        PacketTransport->unknown_slot11((char *)&unknown_players_a3fa7c[i]->Address,0);
+        PacketTransport->Set_Broadcast_Address((char *)&unknown_players_a3fa7c[i]->Address,0);
     }
     Debug_Printf(wol_session_address_debug_7fecd8,unknown_address_a3db2c.As_String_00523840());
 }

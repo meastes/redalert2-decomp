@@ -1,4 +1,4 @@
-// bool UDPInterfaceClass::Open_Socket(unsigned short port) (0x0076C350, slot 23)
+// bool UDPInterfaceClass::OpenSocket(unsigned short port) (0x0076C350, slot 23)
 // (Re)opens the primary datagram socket and binds it to the port (the
 // default game port when 0), with lingering off.
 #include "shared/udp_interface.hpp"
@@ -17,7 +17,7 @@
 // @ref ??_C@_0CA@IAOD@Bind?5failed?5with?5error?5code?5?$CFd?6?$AA@=00800f24
 // @ref ??_C@_0CC@PEFM@Primary?5UDP?5Socket?5init?5complete@=00800f00
 
-bool UDPInterfaceClass::Open_Socket(unsigned short port)
+bool UDPInterfaceClass::OpenSocket(unsigned short port)
 {
     if (Socket != INVALID_SOCKET) {
         closesocket(Socket);

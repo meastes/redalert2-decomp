@@ -10,12 +10,12 @@
 
 bool WinsockInterfaceClass::Start_Listening()
 {
-    if (WSAAsyncSelect(Socket, unknown_window_b263d8, unknown_slot14(-1), 3) == SOCKET_ERROR) {
+    if (WSAAsyncSelect(Socket, unknown_window_b263d8, Protocol_Event_Message(-1), 3) == SOCKET_ERROR) {
         Debug_Printf("Async select failed on primary socket - error code %d.\n", WSAGetLastError());
         return false;
     }
     if (Socket2 != INVALID_SOCKET) {
-        if (WSAAsyncSelect(Socket2, unknown_window_b263d8, unknown_slot14(Socket2), 3) == SOCKET_ERROR) {
+        if (WSAAsyncSelect(Socket2, unknown_window_b263d8, Protocol_Event_Message(Socket2), 3) == SOCKET_ERROR) {
             Debug_Printf("Async select failed on alternate socket - error code %d.\n", WSAGetLastError());
             return false;
         }

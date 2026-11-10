@@ -31,12 +31,12 @@ bool OwnerTalkClass::Unknown_0063F510(unsigned char *address)
 
     Debug_Printf("Starting packet router process\n");
     GetStartupInfoA(&startup);
-    if (!PacketTransport->unknown_slot18()) {
+    if (!PacketTransport->Get_Num_Local_Addresses()) {
         return false;
     }
     if (address == 0) {
         if (unknown_session_a3d298.Players.Count() == 0) {
-            unsigned char *ip = (unsigned char *)PacketTransport->unknown_slot19(0);
+            unsigned char *ip = (unsigned char *)PacketTransport->Get_Local_Address(0);
             sprintf(command, "mph.exe %d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
             goto create;
         }
