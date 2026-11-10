@@ -2361,3 +2361,12 @@ immediates for the three `+= 2` pointer increments; with the local it folds Base
 materialises the constant 2 in ebp (`mov ebp, 2`). Loop 0x1094: bucket 0x1000 62/119 -> 99/119, draft 51.29 -> 53.49
 (build/class-work/Scout1218/keep/draw_tile_U1_5349.cpp). When a loop shows a constant held in a callee-saved register
 where the original uses immediates, look for a repeated sub-expression the original spells twice.
+
+## Free-register choice order (Scout1217 labs, ~90 functions)
+Webs needing a callee-saved register are coloured in priority order (weighted refs desc, definition order on exact ties); each takes
+the first register free over its own range in the fixed order esi, edi, ebx, ebp. A freed register is reused in the same fixed
+order (no LIFO/LRU free list, no preference for the previous occupant). A copy `B = A` does not coalesce by itself; a counter `i = 0`
+after a constant-zero web shares the zero's register (and drops the xor) only when that register is the first free one over the loop.
+A constant-zero web runs to its last use: a final `if (result)` on a spilled result compiles as `cmp eax, zeroreg` when the zero can
+reach it. Reading rows: a register difference between builds is always an IL web-range or priority-order difference, never the
+register name; list which earlier-coloured web holds each register over the mismatched web's range.
