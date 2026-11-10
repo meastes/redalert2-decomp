@@ -41,20 +41,8 @@ void SpecialClass::Unknown_0068B420()
 {
 }
 
-// 0x006E8570 / 0x006E7C40 / 0x006E7CB0: a theme's INI name ("none" out of range), its
-// record's name for the file ("No theme" out of range; unsigned test) and its wide
-// display name (+0x200; 0 out of range). The sound controls' track list reads them.
-char const *ThemeClass::Name(int theme) const
-{
-    if (theme > -1 && theme < Themes.Count()) return Themes[theme]->Name;
-    return "none";
-}
-
-char const *ThemeClass::Base_Name(int theme) const
-{
-    if ((unsigned)theme < (unsigned)Themes.Count()) return Themes[theme]->Name;
-    return "No theme";
-}
+// 0x006E7CB0: a theme's wide display name (+0x200; 0 out of range); the sound controls'
+// track list reads it. (Name 0x006E8570 and Base_Name 0x006E7C40 are accepted rows.)
 
 unsigned short const *ThemeClass::Full_Name(unsigned theme) const
 {

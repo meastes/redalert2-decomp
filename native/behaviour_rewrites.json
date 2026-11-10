@@ -492,16 +492,6 @@
    "source": "the VC6 CRT type_info comparison (an MSVCRT import in the original); the class as src/recovered/unowned/Process_Deferred_Deletion_006ecf10.cpp declares it, compared with libc++ std::type_info equality"
   },
   {
-   "entry": "0x00496B50",
-   "name": "UnknownTimed::unknown_496b50() const",
-   "symbol": "__ZNK12UnknownTimed14unknown_496b50Ev",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_scenario.cpp",
-   "source": "seed src/recovered/00496b50.cpp"
-  },
-  {
    "entry": "0x0051FC80",
    "name": "HouseClass::Unknown_0051FC80()",
    "symbol": "__ZN10HouseClass16Unknown_0051FC80Ev",
@@ -670,26 +660,6 @@
    "exact": false,
    "file": "native/link/behaviour_frame.cpp",
    "source": "seed src/recovered/00406180.cpp"
-  },
-  {
-   "entry": "0x00633130",
-   "name": "RadarClass::Unknown_00633130()",
-   "symbol": "__ZN10RadarClass16Unknown_00633130Ev",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "leaf src/recovered/00633130.cpp"
-  },
-  {
-   "entry": "0x00633140",
-   "name": "RadarClass::Unknown_00633140(bool)",
-   "symbol": "__ZN10RadarClass16Unknown_00633140Eb",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_map_dimensions.cpp",
-   "source": "seed src/recovered/00633140.cpp (its Debug_Printf call is empty in the original)"
   },
   {
    "entry": "0x0042EBE0",
@@ -1012,36 +982,6 @@
    "source": "seed leaf 0x004C7AC0 (Leaf_4c7ac0::get); TibSun FootClass::Override_Mission"
   },
   {
-   "entry": "0x00496A90",
-   "name": "UnknownTimed::unknown_496a90() const",
-   "symbol": "__ZNK12UnknownTimed14unknown_496a90Ev",
-   "origin_class": "unmatched leaf",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m10_unit.cpp",
-   "source": "seed decompile 0x00496A90"
-  },
-  {
-   "entry": "0x00496AB0",
-   "name": "UnknownTimed::unknown_496ab0() const",
-   "symbol": "__ZNK12UnknownTimed14unknown_496ab0Ev",
-   "origin_class": "unmatched leaf",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m10_unit.cpp",
-   "source": "seed decompile 0x00496AB0"
-  },
-  {
-   "entry": "0x00496B30",
-   "name": "UnknownTimed::unknown_496b30() const",
-   "symbol": "__ZNK12UnknownTimed14unknown_496b30Ev",
-   "origin_class": "unmatched leaf",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m10_unit.cpp",
-   "source": "seed decompile 0x00496B30"
-  },
-  {
    "entry": "0x0041F1C0",
    "name": "AlphaShapeClass::Draw_In_Area(Point2D const &, Rect const &)",
    "symbol": "__ZN15AlphaShapeClass12Draw_In_AreaERK7Point2DRK4Rect",
@@ -1070,16 +1010,6 @@
    "exact": false,
    "file": "native/link/behaviour_m10.cpp",
    "source": "seed leaf 0x004131D0 (ret 4: an empty body)"
-  },
-  {
-   "entry": "0x006331A0",
-   "name": "RadarClass::Unknown_006331A0()",
-   "symbol": "__ZN10RadarClass16Unknown_006331A0Ev",
-   "origin_class": "unmatched leaf",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_m10_radar.cpp",
-   "source": "seed decompile 0x006331A0"
   },
   {
    "entry": "0x004370E0",

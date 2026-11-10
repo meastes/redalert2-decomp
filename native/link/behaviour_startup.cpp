@@ -51,18 +51,6 @@ unsigned int __fastcall Performance_Frequency_005abf20(unsigned int *high)
     return 0;
 }
 
-// 0x005B6A00 / 0x005B6A10 (shared/main_loop.hpp): the millisecond time source
-// raises the multimedia timer resolution for its lifetime.
-WIN32_IMPORT unsigned int WINAPI timeBeginPeriod(unsigned int period);
-WIN32_IMPORT unsigned int WINAPI timeEndPeriod(unsigned int period);
-class MSTimerClass {
-public:
-    MSTimerClass();
-    ~MSTimerClass();
-};
-MSTimerClass::MSTimerClass() { timeBeginPeriod(1); }
-MSTimerClass::~MSTimerClass() { timeEndPeriod(1); }
-
 // 0x00711C70 (exit): frees the veinhole buffer (operator delete 0x00781D3B) and
 // clears the pointer (the row's seed, src/recovered/00711c70.cpp).
 extern unsigned char *unknown_veinhole_buffer_ad07a0;

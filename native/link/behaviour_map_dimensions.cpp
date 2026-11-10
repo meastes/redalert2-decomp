@@ -75,28 +75,6 @@ bool UnknownCellClass::unknown_47c2e0(int house)
     return ((CellClass const *)this)->unknown_47c2e0(house);
 }
 
-// 0x00633130 (leaf src/recovered/00633130.cpp): whether the radar is on (+0x14D4).
-bool RadarClass::Unknown_00633130()
-{
-    return unknown_14d4;
-}
-
-// 0x00633140 (seed src/recovered/00633140.cpp): turns the radar on or off. On a
-// change it stores the state, reports it (Debug_Printf 0x004068F0, empty in the
-// original), and activates or deactivates it with sound (0x00632F30) in mode 1,
-// else switches to mode 1 with sound (0x00633000).
-void RadarClass::Unknown_00633140(bool on)
-{
-    if (unknown_14d4 != on) {
-        unknown_14d4 = on;
-        if (unknown_14ac == 1) {
-            Set_Radar_State(on, true);
-            return;
-        }
-        Radar_Activate(1, true);
-    }
-}
-
 // 0x004718B0 under object.hpp's placement view (TechnoTypeClass slot 42 and
 // BuildingClass/TerrainClass slot 101 call it on Map[cell]): the cell's
 // Is_Clear_To_Build, carried as the adapted draft native/drafts/004718b0.cpp

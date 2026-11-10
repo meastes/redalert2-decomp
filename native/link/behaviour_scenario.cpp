@@ -55,13 +55,6 @@ int type_info::operator!=(type_info const &rhs) const
 #include "shared/object.hpp"
 #include "shared/rules.hpp"
 
-// 0x00496B50 (seed src/recovered/00496b50.cpp): neither +0x18 (IsActive) nor
-// +0x19 (IsReverse) set.
-bool UnknownTimed::unknown_496b50() const
-{
-    return !IsActive && !IsReverse;
-}
-
 // 0x0051FC80 (leaf src/recovered/0051fc80.cpp): returns false.
 bool HouseClass::Unknown_0051FC80()
 {
