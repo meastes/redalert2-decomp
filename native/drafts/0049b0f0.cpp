@@ -53,7 +53,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
         }
     }
 
-    int waypoint_action = Unknown_0049EAD0(action, cell);
+    int waypoint_action = Action_To_Waypoint_Action(action, cell);
 
     if (WaypointColor == RGBClass(0, 0, 0)) {
         unsigned short color = ((unsigned short *)unknown_drawer_8323c8->Table)[1];
@@ -64,7 +64,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     case 0x2A:
     case 0x2B:
     case 0x2F:
-        Unknown_0049EB40(unknown_player_a35db4->unknown_154);
+        Update_Waypoint_Color(unknown_player_a35db4->unknown_154);
         break;
 
     case 0x2C:
@@ -80,14 +80,14 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
         if (!unknown_11af) {
             unknown_player_a35db4->unknown_154 = path;
         }
-        Unknown_0049EB40(path);
+        Update_Waypoint_Color(path);
         break;
     }
 
     default: {
         unsigned short *table = (unsigned short *)unknown_drawer_8323c8->Table;
         table[1] = Build_Hicolor_Pixel(WaypointColor.Red, WaypointColor.Green, WaypointColor.Blue);
-        Unknown_0049EB40(-1);
+        Update_Waypoint_Color(-1);
         if (!unknown_11af) {
             unknown_player_a35db4->unknown_154 = -1;
         }

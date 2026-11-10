@@ -1,4 +1,4 @@
-// void DisplayClass::Unknown_0049EB40(int color) (0x0049EB40)
+// void DisplayClass::Update_Waypoint_Color(int color) (0x0049EB40)
 // Loads eight colours of the palette at 0x00837810 (block color % 12, or
 // the first block for -1) into entries 1-8 of the drawer 0x008323C8's
 // surface value table, as screen pixels.
@@ -17,7 +17,7 @@
 extern ConvertClass *unknown_drawer_8323c8;     // 0x008323C8
 extern PaletteClass unknown_palette_837810;     // 0x00837810
 
-void DisplayClass::Unknown_0049EB40(int color)
+void DisplayClass::Update_Waypoint_Color(int color)
 {
     int base = color == -1 ? 0 : color % 12 * 8;
     unsigned short *table = (unsigned short *)unknown_drawer_8323c8->Table;

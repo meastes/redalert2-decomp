@@ -56,7 +56,7 @@ void Tactical::Draw_Waypoints(bool inshroud)
         unknown_player_a35db4->Make_Waypoint_Path(path);
         int count = unknown_player_a35db4->WaypointPaths[path]->Waypoints.Count();
         if (count != 0) {
-            Map.Unknown_0049EB40(path);
+            Map.Update_Waypoint_Color(path);
         }
         for (int index = 0; index < count; index++) {
             WaypointClass *waypoint = unknown_player_a35db4->WaypointPaths[path]->Get_Waypoint(index);

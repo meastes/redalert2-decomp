@@ -132,7 +132,7 @@ public:
     void Unknown_0049E5E0();
     // Loads eight house colours (color % 12, or the first eight for -1) into
     // entries 1-8 of the drawer 0x008323C8's surface value table (0x0049EB40).
-    void Unknown_0049EB40(int color);
+    void Update_Waypoint_Color(int color);
     // Whether a move between two cells is open: always for speed 4, else both
     // cells enterable and empty (0x0049AD90).
     bool Unknown_0049AD90(Cell const &from, Cell const &to, int speed, int arg4, int arg5);
@@ -154,7 +154,7 @@ public:
     void Unknown_00498F10(Cell const *list);            // 0x00498F10 (the placement cursor's cell list; 0 clears it)
     void Unknown_0049C860(int control, bool keep);     // 0x0049C860 the same for +0x11AF (the player's waypoint mode)                 // 0x0049C980 the same for the mode at +0x11AE
     // The mouse shape over a cell with one of the player's waypoints (0x0049EAD0).
-    int Unknown_0049EAD0(int mouse, Cell const &cell);
+    int Action_To_Waypoint_Action(int mouse, Cell const &cell);
     // The screen's load and save (0x0049E810, 0x0049E840).
     virtual HRESULT Load(IStream *stream);                  // slot 30
     virtual HRESULT Save(IStream *stream);                  // slot 31

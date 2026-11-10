@@ -4,8 +4,8 @@
     "id": "population-4405",
     "inventory_sha256": "c6b081ea298ce6ce40f3449457e2092b420dd98904de884728f60b0d33e2c164",
     "gaps_sha256": "390084c009b787bbd1e4c6e2bb4bb695461ba9c523b54b50393f91740d7d4717",
-    "historical_population_sha256": "0e6f92108c090ffa6cf11ce795686fb81713dd9be338c9ed48821ec039fc5e6e",
-    "historical_acceptance_sha256": "abb81bbb9639ea98360b06fb2cb20cfa5757f85c74cbf6e00307e2e0b8b08c55"
+    "historical_population_sha256": "8311c9a39f039a8ed1f1bb5ebeb9ec9038f85d996e798e3cc34ede0ef88e113e",
+    "historical_acceptance_sha256": "c91cfaa5216b47a3b1d10521e9083306d39267273696d5af33aa74f50468099b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2191,8 +2191,8 @@
     "?Load@DisplayClass@@UAEJPAUIStream@@@Z": 4843536,
     "?Save@DisplayClass@@UAEJPAUIStream@@@Z": 4843584,
     "?Active_Click_0049E870@DisplayClass@@": 4843632,
-    "?Unknown_0049EAD0@DisplayClass@@QAEHHABVCell@@@Z": 4844240,
-    "?Unknown_0049EB40@DisplayClass@@QAEXH@Z": 4844352,
+    "?Action_To_Waypoint_Action@DisplayClass@@QAEHHABVCell@@@Z": 4844240,
+    "?Update_Waypoint_Color@DisplayClass@@QAEXH@Z": 4844352,
     "?Abort_Drag_Select@DisplayClass@@UAEXXZ": 4844528,
     "??_GLayerClass@@UAEPAXI@Z": 4844672,
     "?Get_ID@GadgetClass@@UBEIXZ": 4844752,
@@ -17850,8 +17850,8 @@
     {
       "entry": 4844240,
       "method": "0049ead0",
-      "symbol": "?Unknown_0049EAD0@DisplayClass@@QAEHHABVCell@@@Z",
-      "symbol_prefix": "?Unknown_0049EAD0@DisplayClass@@QAEHHABVCell@@@Z",
+      "symbol": "?Action_To_Waypoint_Action@DisplayClass@@QAEHHABVCell@@@Z",
+      "symbol_prefix": "?Action_To_Waypoint_Action@DisplayClass@@QAEHHABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -17929,9 +17929,9 @@
           "resolved": 4844308
         }
       ],
-      "source_sha256": "2989e09eff8c6bb1e735aebb9fcd1357bbf251c0f084d4e270befb90dcc364fa",
+      "source_sha256": "841b822210b680bf036434984566a7ac94ff0b7f76758a919a26c48cf2db4edd",
       "switch_data_bytes": 27,
-      "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_0049EAD0_0049ead0.cpp",
+      "source": "src/recovered/classes/DisplayClass/DisplayClass_Action_To_Waypoint_Action_0049ead0.cpp",
       "population": "population-4405",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -17941,8 +17941,8 @@
     {
       "entry": 4844352,
       "method": "0049eb40",
-      "symbol": "?Unknown_0049EB40@DisplayClass@@QAEXH@Z",
-      "symbol_prefix": "?Unknown_0049EB40@DisplayClass@@QAEXH@Z",
+      "symbol": "?Update_Waypoint_Color@DisplayClass@@QAEXH@Z",
+      "symbol_prefix": "?Update_Waypoint_Color@DisplayClass@@QAEXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -18020,8 +18020,8 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "1eb6c69bbdb2036aeabccb3474dbf290055354cb974bbba5da174c4e912835c5",
-      "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_0049EB40_0049eb40.cpp",
+      "source_sha256": "ee26657be41d6b4bdf702af08e50314ebcf4df2fe12dc7172aa7fcd2ff558c04",
+      "source": "src/recovered/classes/DisplayClass/DisplayClass_Update_Waypoint_Color_0049eb40.cpp",
       "population": "population-4405",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

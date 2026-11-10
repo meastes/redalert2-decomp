@@ -4,8 +4,8 @@
     "id": "population-4383",
     "inventory_sha256": "66c0f183965995a65b47b97c59055e6eca957e1cff781a5498b4362a8551cd58",
     "gaps_sha256": "b8cf9bc8d07633025048201f3b2f4d7a7e45a6ff8d1f46e6e1064514fab06f38",
-    "historical_population_sha256": "49278ae70ce129df1d25a3731a35b4ef6f9b84bbdc568f0ce52058dd8b1f2882",
-    "historical_acceptance_sha256": "2d4bdf920b47f14f68fa3249cf1b43c31b81c7dae166f01427131201183fb7ac"
+    "historical_population_sha256": "32f99fc58492c6f1213e698182226ccd8d22336b617cf254a95b5612c94448a9",
+    "historical_acceptance_sha256": "8f12946af7c84b8b47183c116def77e4eae94fa0f04f6d8220b56ec6ec2bcf58"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -7219,8 +7219,8 @@
     "?Iterate@MapClass@@QAEPAVCellClass@@XZ": 5612688,
     "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z": 4690160,
     "?Unknown_0049E5E0@DisplayClass@@QAEXXZ": 4842976,
-    "?Unknown_0049EAD0@DisplayClass@@QAEHHABVCell@@@Z": 4844240,
-    "?Unknown_0049EB40@DisplayClass@@QAEXH@Z": 4844352,
+    "?Action_To_Waypoint_Action@DisplayClass@@QAEHHABVCell@@@Z": 4844240,
+    "?Update_Waypoint_Color@DisplayClass@@QAEXH@Z": 4844352,
     "?Compute_Radar_Image@RadarClass@@QAEXXZ": 6490624,
     "?Reset_Radar@RadarClass@@QAEXXZ": 6495552,
     "?Post_Load_Radar_Fixup@RadarClass@@QAEXXZ": 6495952,
@@ -15280,7 +15280,9 @@
     "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
     "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
     "?Redraw@BinkClass@@QAEXXZ": 4392992,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Clear@AStarClass@@QAEXXZ": 4357776
   },
   "regions": [
     {
@@ -21954,7 +21956,7 @@
         {
           "offset": 267,
           "kind": 20,
-          "symbol": "?Unknown_0049EB40@DisplayClass@@QAEXH@Z",
+          "symbol": "?Update_Waypoint_Color@DisplayClass@@QAEXH@Z",
           "target": 4844352,
           "addend": 0,
           "resolved": 4292818641
@@ -22264,7 +22266,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "344031fb231ac61c8d3ec5e63f854d7f6595692ff2544aa26dc16cb71eb07690",
+      "source_sha256": "24293487875dea0f9e83868bc8c9251b41710deea9f48dd0c5b61a9fa2a78ebe",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Waypoints_006ab360.cpp",
       "population": "population-4383",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
