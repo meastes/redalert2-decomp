@@ -2370,3 +2370,69 @@ after a constant-zero web shares the zero's register (and drops the xor) only wh
 A constant-zero web runs to its last use: a final `if (result)` on a spilled result compiles as `cmp eax, zeroreg` when the zero can
 reach it. Reading rows: a register difference between builds is always an IL web-range or priority-order difference, never the
 register name; list which earlier-coloured web holds each register over the mismatched web's range.
+
+## Large-frame slot order: density, lea counts, IL last reference (Scout1214 labs)
+In frames over 128 B the density key is total member references / slot size (lea address references count exactly like loads and
+stores; accesses through a copied pointer register do not). Equal-size, equal-reference temporaries keep pass-1 creation order
+(earlier IL last reference first; right-to-left argument evaluation, so `two(&A,&B)` and `two(&B,&A)` swap two 48-byte slots with
+identical code) and are then scrambled by the K&R qsort (three slots A,B,C -> B,C,A). To fix a tie, reorder the operands or
+statements carrying the tied temporaries' last references; never add references.
+
+## Scratch-cursor refinements (Scout1218 round 10 lab; build/class-work/Scout1218/sc, lab_A/B/C, rd.py)
+Extends Scout1086's rule (cursor temps advance eax -> ecx -> edx; shared or branch-tested values take first-free and do
+not advance). Measured on the `h(GA); <construct>; h(GB);` shape, GB's register as readout (baseline ecx):
+- No resets. The cursor runs on through a label with a backward goto, a for/do-while loop body, a switch (every case's
+  temporaries count), an if/else (both arms count, in turn), a forward goto over a statement (the skipped statement's
+  temporaries still count), a nested if and an early return (lab_A: 18 shapes, all exactly the summed count mod 3).
+- Rotation, not last-freed: three single-use loads return the cursor to its start (rr3), a value held across other
+  temporaries keeps its register while the cursor skips it (live2/3/4: `t = X` ... later uses) and the next free is
+  taken in rotation order after the busy one.
+- Allocation order is the IL order after optimisation, not the listing order: a copy `int t = X;` propagated to its
+  use is allocated at the use (live3: X's load, first in source, is emitted last and takes the register after Y and Z);
+  a value with two IL uses takes first-free even when one use is folded in place (live1/live4: `G = Y; ... Y + 1`
+  puts Y in eax and does not advance).
+- Steps per construct (lab_C, mod 3): ternary `X ? Y : Z` 2 (test first-free, two loads); `(short)/(char)` load 1;
+  `X / Y` 0 (eax/edx precoloured), `X % 3` 1; `X * Y`, `-X`, `~X`, `X & 7`, `X >> 2`, `UX * 3` 1 each; `(X + Y) * Z` 2;
+  `PA[X]` 0 (= 3), `*PA` and `PA[2]` 2, `PA + X` 0 (= 3), `&PA[X]` 0 (= 3), `PA[X] + PB[Y]` 0 (= 6); `&G` as an
+  argument 0; `(double)X` 0, `(int)GD` 0 (ftol result), `hd(GD)` 2 (the two dword halves), `hd((double)X)` 0;
+  `X > Y` 2, `X == 0` 1, `X && Y` 0, `(X > 3) ? 1 : 0` 1; `f(X)` and `h(X)` 1 (the argument load), `GV->vf()` 2
+  (object and vtable loads), `GV->vg(X)` 0 (= 3); `GSTR = "lit"` 0; `GS = GS2` (8 bytes) 2; `GS.a = X` 1; `PA++` 0
+  (memory RMW); `UX >>= 2` on a global 0 (memory RMW).
+- Reading a one-step residue: the two compiles' prefixes are identical code, so the extra or missing step is a
+  classification difference (a value single-use in one IL and shared in the other) or an IL-order difference (a
+  propagated copy allocated at its use), never a reset. Draw_In_Area 0x41F1C0: the cursor simulated over the prefix
+  lands on eax after `point.X`, which gives the original's ecx for r3.Y; ours has one more temporary in the r3 window;
+  `Rect r3(point, 60, 30)` (TibSun TRect(TPoint2D const &, T, T); needs RA2_WDT_MAP_LOAD_LAYOUT) is byte-identical,
+  named Point2D operands identical, r3 as an unnamed Intersect argument 32.43, r3 built before r1 35.84.
+
+## Switch table kind follows the number of case groups (Scout1217)
+VC6 picks a byte-indexed jump table or a direct table from the number of distinct case bodies (groups) in the source: in
+DisplayClass Mouse_Left_Up 0x49B0F0, 34 bodies give a byte-indexed table and 40 or more a direct one; ungrouped bodies that are
+identical cross-jump back into one block, so instruction counts stay equal. Note: diff_candidate decodes our jump tables as
+instructions, so scores on switch-heavy rows are only roughly comparable (count with fa.py, which skips DD/DB).
+
+## By-value struct temporaries in frame layout (Scout1214 labs)
+`T __fastcall operator*(T const&, T const&)` returning a non-POD 48-byte T: ecx = hidden return, edx = first operand, a chain's
+second operands pre-pushed right-to-left before the first call, the next product takes the result via `mov edx, eax` (a POD T pushes
+the hidden pointer and copies every chained result into a second temporary, so POD labs are not faithful to Matrix3D). Layout-time
+references are exactly the listing's esp-relative ones (one per lea or direct access; consuming a returned pointer adds nothing;
+merged tails still count). Pass-1 order among equal temporaries follows the IL pre-push order: outermost second operand first, the
+innermost last, then the hidden-return temporaries in call order.
+
+## Spill-home creation order follows reload position, not colouring priority (Scout1218 round 14 lab; build/class-work/Scout1218/ft, gen2-gen7.py, fsim actual layouts)
+Under heavy call-crossing pressure (six to eight long-lived locals), two whole-spilled webs with equal reference
+counts take their slots in the order of their reloads in the code: swapping the use order swaps the slots
+(dAB_uABBA vs dAB_uBAAB, three webs likewise), while swapping the definition order (the def stores) does not
+(ctl_AB = ctl_BA), nor does a rename (A -> Z), nor doubled uses served by one reload (`h2(B, B)` twice), nor
+candidates in a loop that only one web is live through (preA/preB c0-c3: both webs keep their order, only the
+joinable loop temporaries change). So the frame pass does not see the allocator's priority: it orders by (size
+class, references, reload position), consistent with Scout1215's "earlier last reference" (in these labs each web has
+one reload, so first and last coincide). A load folded into a compare could not be forced under this pressure (the
+compared web keeps a callee-saved register), so whether a folded operand counts as a reference stays untested.
+Draw_Sonic 0x7225B0 consequence: the original's 5-reference group right (0x14), zwidth (0x18), surfptr (0x1c),
+yoff (0x20) is exactly the last-reference order (0x4b4, 0x537, 0x60f, 0x620) once `zwidth` is one 5-reference symbol,
+i.e. `int zwidth;` declared once at the branch scope like y/zval/points (u1zo, score-neutral until the other two
+slots move). The two remaining violations (starty before the equal-count forward xstop; the dest/zptr/endy group
+before right) are count-level in the original, not tie-level: both resolve at once if folded compare operands
+(`cmp edx,[xstop]`, `cmp eax,[right]`) are not counted (xstop_f 6 < starty 7; right 4 < zptr 5), which is the lab
+left to build with a spilled compared web.
