@@ -1,3 +1,4 @@
+#define RA2_DSURFACE_DRAW_TRAIL_LINE  // DSurface::Draw_Trail_Line_4AE9C0 0x004AE9C0 is defined in this unit
 // Header-static dynamic initializers of the unit at 0x004AA2B0: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x004AA2B0-0x004AA491); the other
 // drafts of this plan are emitted by these includes.
