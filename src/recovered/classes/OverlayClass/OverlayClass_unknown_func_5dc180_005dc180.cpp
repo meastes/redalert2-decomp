@@ -24,7 +24,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?unknown_47a670@CellClass@@QBE_NXZ=0047a670
+// @ref ?Can_Place_Veins@CellClass@@QBE_NXZ=0047a670
 // @ref ?unknown_47ad00@CellClass@@QAEXXZ=0047ad00
 // @ref ??3@YAXPAX@Z=00781d3b
 
@@ -46,7 +46,7 @@ void OverlayClass::unknown_func_5dc180()
     }
     for (int index = cells.Count() - 1; index >= 0; index--) {
         CellClass *dense = cells[index];
-        if (dense->unknown_47a670()) {
+        if (dense->Can_Place_Veins()) {
             dense->unknown_47ad00();
         }
     }

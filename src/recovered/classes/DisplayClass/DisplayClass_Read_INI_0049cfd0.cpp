@@ -127,7 +127,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
             TagClass *tt = TagClass::Find_Or_Make(tp);
             if (tt) {
                 tt->Set_Cell(cell);
-                (*this)[cell].Set_unknown_3c(tt);
+                (*this)[cell].Attach_Tag(tt);
                 unknown_1158.Add(cell);
             }
         }

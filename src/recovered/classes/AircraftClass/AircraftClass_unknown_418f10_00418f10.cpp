@@ -104,4 +104,4 @@ AbstractClass *AircraftClass::unknown_418f10(AbstractClass *desired)
 #include "shared/aircraft.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z=0055a660
-// @ref ?unknown_471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
+// @ref ?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660

@@ -1,6 +1,6 @@
 // bool CellClass::Spread_Tiberium(bool forced) (0x00478A40)
 // Westwood's CellClass::Spread_Tiberium: unless forced, only when the ore may
-// spread from here (unknown_478950); the cell's tiberium (the first one when
+// spread from here (Can_Tiberium_Spread); the cell's tiberium (the first one when
 // forced on a cell without) is planted in the first neighbour, from a random
 // facing on, where it may germinate (TerrainClass 0x006E40B6, 0x006E984F).
 #include "shared/cell.hpp"
@@ -12,7 +12,7 @@
 bool CellClass::Spread_Tiberium(bool forced)
 {
     if (!forced) {
-        if (!unknown_478950()) {
+        if (!Can_Tiberium_Spread()) {
             return false;
         }
     }

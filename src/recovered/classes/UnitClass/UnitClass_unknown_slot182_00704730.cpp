@@ -64,8 +64,8 @@ int UnitClass::unknown_slot182(AbstractClass *object, Cell *cell)
                 || (land->unknown_124 & 0x1F) == 0x1F) {
                 value = -128;
             } else {
-                if (land->unknown_471660(Point2D(0, 0), false, 0)
-                    && !House->Is_Ally((TechnoClass *)land->unknown_471660(Point2D(0, 0), false, 0))) {
+                if (land->Cell_Techno(Point2D(0, 0), false, 0)
+                    && !House->Is_Ally((TechnoClass *)land->Cell_Techno(Point2D(0, 0), false, 0))) {
                     value = -128;
                 } else {
                     value = 128;

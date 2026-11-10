@@ -22,7 +22,7 @@ void BuildingClass::unknown_4513b0()
     }
     for (x = top_left.X - spacing; x < top_left.X + width + spacing * 2; ++x) {
         for (y = top_left.Y - spacing; y < top_left.Y + height + spacing * 2; ++y) {
-            BuildingClass *building = (BuildingClass *)Map[Cell(x, y)].unknown_4717b0();
+            BuildingClass *building = (BuildingClass *)Map[Cell(x, y)].Cell_Building();
             if (building && building != this) building->Reserve_Base_Area_004510d0(true);
         }
     }

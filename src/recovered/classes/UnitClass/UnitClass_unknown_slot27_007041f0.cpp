@@ -18,7 +18,7 @@
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A=00a35de8
-// @ref ?unknown_479cc0@CellClass@@QBE_NXZ=00479cc0
+// @ref ?Has_Tunnel@CellClass@@QBE_NXZ=00479cc0
 // @ref ?unknown_47a120@CellClass@@QBE_NPAVTechnoClass@@@Z=0047a120
 // @ref _unknown_geometry_j=00ad057c
 
@@ -77,7 +77,7 @@ int UnitClass::unknown_slot27(Cell const *where, bool arg2, bool arg3)
     }
     return action;
 move:
-    if (Map[*where].unknown_479cc0()) {
+    if (Map[*where].Has_Tunnel()) {
         return Map[*where].unknown_47a120(this) ? 0x23 : 0x24;
     }
     if (unknown_5c8) {

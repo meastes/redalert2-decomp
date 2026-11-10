@@ -6,7 +6,7 @@
 // @ref ?unknown_cells_428ac0@@YIHXZ=00428ac0
 // @ref ?unknown_veinhole_buffer_ad07a0@@3PAEA=00ad07a0
 // @ref ?unknown_cell_index_428a90@@YIHABVCell@@@Z=00428a90
-// @ref ?unknown_47a7a0@CellClass@@QAEXXZ=0047a7a0
+// @ref ?Redraw_Veins@CellClass@@QAEXXZ=0047a7a0
 // @ref ?Sift_Down@UnknownVeinHeap@@QAEXH@Z=0058f090
 // @ref ??_C@_0BJ@EOJK@Exiting?5Remove_Matching?6?$AA@=007f96e4
 
@@ -21,7 +21,7 @@ void VeinholeMonsterClass::unknown_func_712300(CellClass *cellptr)
             facingbools[facing / 2] = (adjacent->OverlayIndex == 0x7e && (adjacent->OverlayData < 0x30 || adjacent->OverlayData > 0x30 + 3));
         }
 
-        cellptr->unknown_47a7a0();
+        cellptr->Redraw_Veins();
         unknown_ec--;
 
         for (facing = 0; facing < 8; facing += 2) {

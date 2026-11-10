@@ -6,7 +6,7 @@
 // @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_450cb0@BuildingClass@@QAE_NPAVObjectClass@@_N@Z=00450cb0
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?unknown_531140@JumpjetLocomotionClass@@QAEHXZ=00531140
 // @ref ?unknown_func_5d4920@ObjectClass@@QAEXH@Z=005d4920
 // @ref ?unknown_jumpjet_cycle_7a5398@@3NB=007a5398
@@ -94,7 +94,7 @@ void JumpjetLocomotionClass::unknown_530b00()
     int distance=(int)unknown_68;
     CoordStruct next=Jumpjet_Move_Coord_00530b00(start,unknown_50.Current(),distance);
     LinkedTo->unknown_slot103(next);
-    BuildingClass *building=static_cast<BuildingClass *>(Map[next].unknown_4717b0());
+    BuildingClass *building=static_cast<BuildingClass *>(Map[next].Cell_Building());
     if (building && building->Type->FirestormWall && building->House->unknown_142)
         building->unknown_450cb0(LinkedTo,true);
     LinkedTo->unknown_2e0.Set_Current(unknown_50.Current());

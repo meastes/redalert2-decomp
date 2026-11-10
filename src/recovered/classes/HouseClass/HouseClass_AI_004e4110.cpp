@@ -117,7 +117,7 @@ void HouseClass::AI()
     Drain=Drain>0 ? Drain : 0;
     if (unknown_530c!=unknown_cell_a40f10 && Frame%15==0) {
         FootClass *foot=0;
-        ObjectClass *occupant=Map[unknown_530c].unknown_471660(Point2D(0,0),false,0);
+        ObjectClass *occupant=Map[unknown_530c].Cell_Techno(Point2D(0,0),false,0);
         if (occupant) {
             bool moving=false;
             foot=House_Foot_View(occupant);

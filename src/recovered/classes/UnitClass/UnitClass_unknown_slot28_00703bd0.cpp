@@ -34,7 +34,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
     if (unknown_6c16f0(-1) < 0 && House->Unknown_004F52B0() && action != 4) {
         if (House->Is_Ally((TechnoClass *)object)) {
             if (object->unknown_slot31() && object != this && object->unknown_slot30()) {
-                if (object->Kind_Of() != 2 || Map[object->Center_Coord()].unknown_4717b0() == 0) {
+                if (object->Kind_Of() != 2 || Map[object->Center_Coord()].Cell_Building() == 0) {
                     if (object->Health_Ratio() < Rules->unknown_1360) {
                         action = 0x1d;
                     }

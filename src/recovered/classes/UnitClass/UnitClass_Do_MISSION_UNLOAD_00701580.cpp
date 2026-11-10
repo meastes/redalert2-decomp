@@ -157,7 +157,7 @@ int UnitClass::Do_MISSION_UNLOAD()
         StageClass::Stage=0;
         StageClass::Set_Rate(1);
         if (Type->Harvester) {
-            BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].unknown_4717b0();
+            BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
             if (building) building->unknown_44c920(7,building->Health_Ratio()<=Rules->unknown_1368,false,0);
         }
         unknown_a8=3;
@@ -174,7 +174,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         if (unknown_slot122()) { if (In_Radio_Contact()) unknown_slot149(3);Commence(); }
                     }
                 } else {
-                    BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].unknown_4717b0();
+                    BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
                     bool active=false;
                     if (building && building->Type->Refinery) active=building->unknown_454[8]!=0;
                     if (active) return 1;
@@ -190,7 +190,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 break;
             }
             case 3: {
-                BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].unknown_4717b0();
+                BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
                 if (!building) {
                     if (In_Radio_Contact()) unknown_slot149(3);
                     unknown_slot116(10,true);

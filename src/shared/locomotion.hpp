@@ -42,7 +42,7 @@ inline UnknownLocoCell *Loco_Cell(CoordStruct const &coord)
 }
 // The cell object at a cell (only the member the locomotors call).
 struct UnknownLocoCellObject {
-    bool unknown_47c200();              // 0x0047C200
+    bool Can_Burrow_Here();              // 0x0047C200
 };
 inline UnknownLocoCellObject *Loco_Cell_At(Cell const &cell)
 {

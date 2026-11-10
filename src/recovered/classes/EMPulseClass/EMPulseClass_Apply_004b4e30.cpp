@@ -19,7 +19,7 @@
 // Existing full map and shared object interfaces; no reserved headers edited.
 // The source pointer is forwarded to Foot slot224 and then the existing
 // TechnoClass::unknown_6d3040(TechnoClass *) (004CD4B0 evidence).
-// @ref ?unknown_471660@CellClass@@=00471660
+// @ref ?Cell_Techno@CellClass@@=00471660
 // @ref ?Map@@=008324e0
 // @ref ?Has_Cell@MapClass@@=005480b0
 // @ref ?unknown_44d6c0@BuildingClass@@=0044d6c0
@@ -58,7 +58,7 @@ void EMPulseClass::Apply_004B4E30(TechnoClass *source)
                     int dy=cell.Y-Position.Y;
                     if (dy*dy+dx*dx <= radiusSquared) {
                         CellClass *mapCell=&Map[cell];
-                        BuildingClass *building=(BuildingClass *)mapCell->unknown_4717b0();
+                        BuildingClass *building=(BuildingClass *)mapCell->Cell_Building();
                         if (building) {
                             Cell building_cell=Coord_Cell(building->Center_Coord());
                             if (building_cell==cell && !building->Type->InvisibleInGame) {
@@ -68,7 +68,7 @@ void EMPulseClass::Apply_004B4E30(TechnoClass *source)
                             }
                         } else {
                             bool active=false;
-                            ObjectClass *object=mapCell->unknown_471660(Point2D(0,0),false,0);
+                            ObjectClass *object=mapCell->Cell_Techno(Point2D(0,0),false,0);
                             if (object && (object->Kind_Of()==1 || object->Kind_Of()==2)) active=object->AbstractFlags.IsFoot;
                             if (active) {
                                 FootClass *foot=(FootClass *)object;

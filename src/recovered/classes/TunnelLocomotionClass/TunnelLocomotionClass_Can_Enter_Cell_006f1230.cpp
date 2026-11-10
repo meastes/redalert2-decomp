@@ -4,13 +4,13 @@
 #include "shared/tunnel_locomotion.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Debug_Map@@3_NA=00a40d13
-// @ref ?unknown_47c200@UnknownLocoCellObject@@QAE_NXZ=0047c200
+// @ref ?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ=0047c200
 
 int __stdcall TunnelLocomotionClass::Can_Enter_Cell(Cell cell)
 {
     if (!Debug_Map) {
         Cell copy(cell.X, cell.Y);
-        if (!Loco_Cell_At(copy)->unknown_47c200()) {
+        if (!Loco_Cell_At(copy)->Can_Burrow_Here()) {
             return 7;
         }
     }

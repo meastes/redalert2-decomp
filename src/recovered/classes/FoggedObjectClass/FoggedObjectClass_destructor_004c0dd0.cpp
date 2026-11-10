@@ -23,7 +23,7 @@ FoggedObjectClass::~FoggedObjectClass()
     int key = unknown_index_key(cell, unknown_30);
     Index.Remove_Index(key);
     if (unknown_30 == 6) {
-        BuildingClass *building = (BuildingClass *)Map[cell].unknown_4717b0();
+        BuildingClass *building = (BuildingClass *)Map[cell].Cell_Building();
         if (building != 0) {
             building->unknown_5b7 = false;
             for (int index = 0; index < 18; index++) {

@@ -33,11 +33,11 @@ int TechnoClass::unknown_6cfb60()
         Cell tuncell = unknown_cell_ac0148;
         CellClass *own = &Map[cell];
         if (north != 0 && west != 0) {
-            if (own->unknown_479cc0()) {
+            if (own->Has_Tunnel()) {
                 tuncell = own->Fetch_CellID();
-            } else if (north->unknown_479cc0()) {
+            } else if (north->Has_Tunnel()) {
                 tuncell = north->Fetch_CellID();
-            } else if (west->unknown_479cc0()) {
+            } else if (west->Has_Tunnel()) {
                 tuncell = west->Fetch_CellID();
             }
             if (tuncell != unknown_cell_ac0148) {
@@ -47,7 +47,7 @@ int TechnoClass::unknown_6cfb60()
                     north = &Map[Adjacent_Cell(north->Fetch_CellID(), DIR_N)];
                     west = &Map[Adjacent_Cell(west->Fetch_CellID(), DIR_W)];
                     if (north != 0 && west != 0) {
-                        if (west->unknown_479cc0() || north->unknown_479cc0()) {
+                        if (west->Has_Tunnel() || north->Has_Tunnel()) {
                             fudge = 1;
                         }
                     }

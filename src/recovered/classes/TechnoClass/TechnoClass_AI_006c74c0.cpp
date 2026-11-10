@@ -155,7 +155,7 @@ void TechnoClass::AI()
     if (unknown_228 && unknown_game_mode_a3d298!=0 && House->unknown_134 && unknown_6c16f0(-1)<0 && !House->Is_Ally(static_cast<ObjectClass *>(unknown_228))) unknown_slot220(0);
     if (unknown_228 && unknown_228->Kind_Of()==2) {
         ObjectClass *aircraft=static_cast<ObjectClass *>(unknown_228);
-        if (Kind_Of()==1 && unknown_6c16f0(-1)<0 && (aircraft->unknown_slot108()>0 || Map[aircraft->Position_Coord_004f3f40()].unknown_4717b0())) unknown_slot220(0);
+        if (Kind_Of()==1 && unknown_6c16f0(-1)<0 && (aircraft->unknown_slot108()>0 || Map[aircraft->Position_Coord_004f3f40()].Cell_Building())) unknown_slot220(0);
     }
     if (Kind_Of()!=2 && unknown_228 && !unknown_slot156()) {
         FootClass *foot=0;

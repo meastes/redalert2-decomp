@@ -4,7 +4,7 @@
 #include "shared/map_view.hpp"
 #include "shared/isometric_tile_type.hpp"
 #include "shared/tileset_index.hpp"
-// @ref ?unknown_471d10@CellClass@@QAE_NXZ=00471d10
+// @ref ?Fixup_LAT@CellClass@@QAE_NXZ=00471d10
 extern int unknown_tileset_a52f84;
 // @ref ?unknown_tileset_a52f84@@3HA=00a52f84
 extern int unknown_tileset_a52c70;
@@ -49,7 +49,7 @@ static bool Is_LAT_Family_Tile_00471d10(int tile, int ground, int first, int las
     return tile == ground || (tile >= first && tile <= last);
 }
 
-bool CellClass::unknown_471d10()
+bool CellClass::Fixup_LAT()
 {
     int road_first = unknown_tileset_a52ee0;
     int road_last = road_first + 1;

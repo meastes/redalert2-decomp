@@ -15,7 +15,7 @@ BuildingClass *BaseClass::Get_Building(int index) const
     Cell cell = Nodes[index].Cell;
     if ((cell.X != 0 || cell.Y != 0) && Nodes[index].Type >= 0) {
         BuildingTypeClass *type = BuildingTypes[Nodes[index].Type];
-        BuildingClass *building = (BuildingClass *)Map[cell].unknown_4717b0();
+        BuildingClass *building = (BuildingClass *)Map[cell].Cell_Building();
         if (building != 0 && building->unknown_slot104() == Nodes[index].Cell && building->House == House) {
             if (building->Type == type) {
                 return building;

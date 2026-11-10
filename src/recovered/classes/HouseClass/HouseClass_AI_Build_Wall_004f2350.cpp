@@ -68,7 +68,7 @@ void HouseClass::AI_Build_Wall()
             bool level=abs(current->unknown_11b-elevation)<=2;
             bool ground=land!=3 && land!=2 && land!=8 && adjacent_land!=3 && adjacent_land!=2 && adjacent_land!=8;
             bool overlay=current->OverlayIndex==-1;
-            bool buildings=!current->unknown_4717b0() && !neighbor->unknown_4717b0();
+            bool buildings=!current->Cell_Building() && !neighbor->Cell_Building();
             bool terrain=!current->Cell_Terrain() && !neighbor->Cell_Terrain();
             bool flat=current->unknown_11c==0;
             bool visible=Map.Unknown_0055A660(cell,true);

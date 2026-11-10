@@ -21,7 +21,7 @@ void Tactical::Debug_Draw_Occupation_Flags()
     CellClass *cell = Map.Iterate();
     int color = Build_Hicolor_Pixel(255, 255, 0);
     while (cell) {
-        Rect render = cell->unknown_4752b0();
+        Rect render = cell->Cell_Render_Rect();
         Rect inter = Intersect(render, unknown_rect_839630);
         if (inter.Is_Valid()) {
             CoordStruct coord = cell->unknown_475d60();

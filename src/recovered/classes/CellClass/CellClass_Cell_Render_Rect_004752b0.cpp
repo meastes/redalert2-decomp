@@ -1,4 +1,4 @@
-// Rect CellClass::unknown_4752b0() const (0x004752B0): Westwood's Cell_Render_Rect: the
+// Rect CellClass::Cell_Render_Rect() const (0x004752B0): Westwood's Cell_Render_Rect: the
 // screen rectangle of the cell's tile, taller by its extra image.
 #include "shared/cell.hpp"
 #include "shared/isometric_tile_type.hpp"
@@ -8,7 +8,7 @@
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ??_C@_0BK@LJGH@Invalid?5tile?5at?5?$CI?$CFd?0?5?$CFd?$CJ?6?$AA@=007d2c84
 
-Rect CellClass::unknown_4752b0() const
+Rect CellClass::Cell_Render_Rect() const
 {
     Point2D point;
     unknown_tactical_83996c->Coord_To_Pixel(Coord_Snap(Cell_Coord(MapCoords)), point);

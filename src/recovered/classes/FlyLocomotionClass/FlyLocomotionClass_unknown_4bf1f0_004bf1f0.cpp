@@ -7,7 +7,7 @@
 #include "shared/cell.hpp"
 #include "shared/aircraft.hpp"
 // @ref ?unknown_6d1470@TechnoClass@@QAE_NXZ=006d1470
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
 
 void FlyLocomotionClass::unknown_4bf1f0()
@@ -17,7 +17,7 @@ void FlyLocomotionClass::unknown_4bf1f0()
             AircraftClass *aircraft = (AircraftClass *)LinkedTo;
             if (aircraft->Type->AirportBound) {
                 CellClass *cell = (CellClass *)aircraft->unknown_slot105();
-                if (!LinkedTo->Is_Radio_Contact((TechnoClass *)cell->unknown_4717b0())) {
+                if (!LinkedTo->Is_Radio_Contact((TechnoClass *)cell->Cell_Building())) {
                     aircraft->unknown_slot261(false, true);
                     return;
                 }

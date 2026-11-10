@@ -6,7 +6,7 @@
 
 bool CellClass::Is_Near_Tunnel_ES()
 {
-    if (unknown_479cc0()) {
+    if (Has_Tunnel()) {
         return true;
     }
 
@@ -14,14 +14,14 @@ bool CellClass::Is_Near_Tunnel_ES()
     if (south_east != 0) {
         CellClass *south_east2 = &south_east->Adjacent_Cell(3);
         if (south_east2 != 0) {
-            if (south_east->unknown_479cc0() || south_east2->unknown_479cc0()) {
+            if (south_east->Has_Tunnel() || south_east2->Has_Tunnel()) {
                 return true;
             }
 
             CellClass *south = &south_east->Adjacent_Cell(4);
             CellClass *east = &south_east->Adjacent_Cell(2);
             if (south != 0 && east != 0) {
-                if (south->unknown_479cc0() || east->unknown_479cc0()) {
+                if (south->Has_Tunnel() || east->Has_Tunnel()) {
                     return true;
                 }
             }

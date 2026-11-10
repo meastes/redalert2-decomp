@@ -59,7 +59,7 @@ void VeinholeMonsterClass::unknown_func_7115b0()
             CellClass *adjacent=&cell->Adjacent_Cell(row_or_facing);
             int index=unknown_cell_index_428a90(adjacent->MapCoords);
             if (adjacent->OverlayIndex==0x7e && !(adjacent->unknown_140&0x8000)) {
-                if ((adjacent->OverlayData>=0x30 && adjacent->OverlayData<0x35) || !adjacent->unknown_47a670()) {
+                if ((adjacent->OverlayData>=0x30 && adjacent->OverlayData<0x35) || !adjacent->Can_Place_Veins()) {
                     pending.Add(adjacent->MapCoords);
                     ++unknown_ec;
                 } else if (unknown_98<Rules_Vein_Node_Count()) {

@@ -30,7 +30,7 @@ void MapClass::Repair_Low_Bridge_EW(Cell const &cell)
         CellClass *center = &Map[cursor];
         CellClass *side1 = &Map[cursor - Cell(0, 1)];
         CellClass *side2 = &Map[cursor + Cell(0, 1)];
-        Rect draw_rect = Union(center->unknown_474eb0(), center->unknown_475100());
+        Rect draw_rect = Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect());
         int old_overlay = center->OverlayIndex;
         int new_overlay = old_overlay;
         switch (old_overlay) {
@@ -57,7 +57,7 @@ void MapClass::Repair_Low_Bridge_EW(Cell const &cell)
             center->OverlayIndex = new_overlay;
             side1->OverlayIndex = new_overlay;
             side2->OverlayIndex = new_overlay;
-            draw_rect = Union(draw_rect, Union(center->unknown_474eb0(), center->unknown_475100())) - unknown_rect_839630.Top_Left();
+            draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
             unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0x64) {
                 Map.Radar_Background(cursor);

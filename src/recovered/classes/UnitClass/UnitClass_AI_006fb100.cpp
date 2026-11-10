@@ -14,7 +14,7 @@ BuildingClass *__fastcall Unknown_00450F90(HouseClass *house, UnitClass *unit);
 // @ref ?AI@FootClass@@UAEXXZ=004c8ff0
 // @ref ?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z=006d6e50
 // @ref ?unknown_6cf130@TechnoClass@@QAE?AUCell@@PAVAbstractClass@@@Z=006cf130
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?unknown_func_4f52f0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?unknown_496b50@UnknownTimed@@QBE_NXZ=00496b50
 // @ref ?unknown_496bc0@UnknownTimed@@QAEXN@Z=00496bc0
@@ -137,10 +137,10 @@ void UnitClass::AI()
             }
         }
         if (Type->Harvester && !House->unknown_func_4f52f0() && Frame - unknown_ac > 300 && !Locomotor.Checked()->Is_Moving()) {
-            BuildingClass *refinery = (BuildingClass *)Map[CoordStruct(Coord)].unknown_4717b0();
+            BuildingClass *refinery = (BuildingClass *)Map[CoordStruct(Coord)].Cell_Building();
             if (refinery && refinery->Type->Refinery) {
                 if (unknown_slot104() == Unit_AI_Refinery_Exit_Cell(refinery->unknown_slot104())) {
-                    ObjectClass *contact = Map[CoordStruct(Coord)].unknown_4717b0();
+                    ObjectClass *contact = Map[CoordStruct(Coord)].Cell_Building();
                     if (In_Radio_Contact()) unknown_slot149(3);
                     Assign_Destination(&Map[unknown_6cf130(contact)], true);
                     unknown_slot116(2, true);

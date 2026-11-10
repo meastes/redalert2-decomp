@@ -33,7 +33,7 @@ void TiberiumClass::Process_Growth()
         while (index < count && node != 0) {
             CellClass *cellptr = &Map[node->Position];
             if (cellptr->Get_Tiberium_Type() == ArrayIndex) {
-                cellptr->unknown_4789d0();
+                cellptr->Grow_Tiberium();
                 if (cellptr->OverlayData < 11) {
                     GrowthData[GrowthCount].Position = node->Position;
                     GrowthData[GrowthCount].Key = float(Frame + abs(unknown_id_source_a3d290->Random()() % 50));

@@ -2,14 +2,14 @@
 #include "shared/aircraft.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z=0055a660
-// @ref ?unknown_471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
+// @ref ?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
 // @ref ?unknown_FootClass_list_00865f38@@3V?$DynamicVectorClass@PAVFootClass@@@@A=00865f38
 bool AircraftClass::Is_Landing_Cell_Available_00419250(Cell const &cell, bool allow_self)
 {
     if (!Map.Unknown_0055A660(cell, true)) return true;
     if (Type->Spawned) {
         Point2D offset(0, 0);
-        TechnoClass *occupant = (TechnoClass *)Map[cell].unknown_471660(offset, false, 0);
+        TechnoClass *occupant = (TechnoClass *)Map[cell].Cell_Techno(offset, false, 0);
         if (occupant) {
             if (occupant->SpawnManager) return true;
             if (occupant->unknown_slot32()->Spawned) return true;

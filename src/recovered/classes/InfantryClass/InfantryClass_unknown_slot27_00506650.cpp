@@ -9,7 +9,7 @@
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
 // @ref ?Is_Near_Tunnel_NW@CellClass@@QAE_NXZ=00479cf0
 // @ref ?Is_Near_Tunnel_ES@CellClass@@QAE_NXZ=00479f70
-// @ref ?unknown_479cc0@CellClass@@QBE_NXZ=00479cc0
+// @ref ?Has_Tunnel@CellClass@@QBE_NXZ=00479cc0
 // @ref ?unknown_47a120@CellClass@@QBE_NPAVTechnoClass@@@Z=0047a120
 // @ref ?Unknown_00569320@MapClass@@QAE_NABVCell@@@Z=00569320
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
@@ -45,7 +45,7 @@ int InfantryClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
         }
     } else {
     ordinary_cell:
-        if (result == 1 && Map[*cell].unknown_479cc0()) {
+        if (result == 1 && Map[*cell].Has_Tunnel()) {
             return Map[*cell].unknown_47a120(this) ? 35 : 36;
         }
     }

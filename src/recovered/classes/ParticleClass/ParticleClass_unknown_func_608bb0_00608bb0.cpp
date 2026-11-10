@@ -12,7 +12,7 @@
 #include "shared/anim.hpp"
 #include "shared/building_type.hpp"
 #include "shared/crt_memory.hpp"
-// @ref ?unknown_475840@CellClass@@QBE_NHH@Z=00475840
+// @ref ?Has_Wall_Or_Gate@CellClass@@QBE_NHH@Z=00475840
 // @ref _unknown_geometry_j=00a76510
 // @ref __real@4@40069600000000000000=0079caa8
 // @ref ??RRandom2Class@@QAEHXZ=00638840
@@ -107,8 +107,8 @@ void ParticleClass::unknown_func_608bb0()
         bool blocked = false;
         if (!start_under_bridge && !end_under_bridge) {
             if (position.Z >= (double)height_gl && position.Z - 150.0f < (double)height_gl) {
-                BuildingClass *building = static_cast<BuildingClass *>(cellptr->unknown_4717b0());
-                if (building || cellptr->unknown_475840(-1, -1)) {
+                BuildingClass *building = static_cast<BuildingClass *>(cellptr->Cell_Building());
+                if (building || cellptr->Has_Wall_Or_Gate(-1, -1)) {
                     blocked = true;
                     if (building) {
                         if (building->Type->LaserFence && building->unknown_4ec >= 8) {

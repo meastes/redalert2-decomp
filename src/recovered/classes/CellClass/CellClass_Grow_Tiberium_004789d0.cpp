@@ -1,5 +1,5 @@
-// bool CellClass::unknown_4789d0() (0x004789D0): grows the cell's ore one
-// stage through unknown_47c3a0 when unknown_4788e0's conditions hold (they
+// bool CellClass::Grow_Tiberium() (0x004789D0): grows the cell's ore one
+// stage through unknown_47c3a0 when Can_Tiberium_Grow's conditions hold (they
 // are tested inline again); false otherwise.
 #include "shared/cell.hpp"
 #include "shared/overlay.hpp"
@@ -9,7 +9,7 @@
 // @ref __real@8@3feea7c5ac471b478800=0079c520
 // @ref ?unknown_47c3a0@CellClass@@QAE_NHH@Z=0047c3a0
 
-bool CellClass::unknown_4789d0()
+bool CellClass::Grow_Tiberium()
 {
     if (unknown_id_source_a3d290->unknown_222a) {
         int tiberium = OverlayClass::To_Tiberium(OverlayIndex);

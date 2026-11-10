@@ -43,7 +43,7 @@ void BuildingClass::unknown_44dfc0(int dir)
                 Cell working_cell = Cell(Center_Coord());
                 while (range > 0) {
                     working_cell = Adjacent_Cell(Cell(working_cell.X, working_cell.Y), dir);
-                    building = (BuildingClass *)Map[working_cell].unknown_4717b0();
+                    building = (BuildingClass *)Map[working_cell].Cell_Building();
                     if (building == post) {
                         connected = true;
                         break;
@@ -70,7 +70,7 @@ void BuildingClass::unknown_44dfc0(int dir)
                             cptr->unknown_47c040();
                         }
                         working_cell = Cell(static_cast<TPoint2D<short> const &>(AdjacentCell[dir & 7]).operator+(working_cell));
-                        building = (BuildingClass *)Map[working_cell].unknown_4717b0();
+                        building = (BuildingClass *)Map[working_cell].Cell_Building();
                     } while (building != post);
             }
         }
@@ -85,7 +85,7 @@ void BuildingClass::unknown_44dfc0(int dir)
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_44ddb0@BuildingClass@@QAEPAV1@H_NH@Z=0044ddb0
 // @ref ?unknown_44e260@BuildingClass@@QAEXH_N@Z=0044e260
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?unknown_475db0@CellClass@@QAEHH@Z=00475db0
 // @ref ?unknown_47c040@CellClass@@QAEHXZ=0047c040
 // @ref ?unknown_a40774@@3HA=00a40774

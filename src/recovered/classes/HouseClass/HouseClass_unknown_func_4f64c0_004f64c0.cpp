@@ -17,7 +17,7 @@ bool HouseClass::unknown_func_4f64c0(BaseNodeClass const &node)
     if (type->Wall) {
         for (int facing=0;facing<8;++facing) {
             CellClass &cell=Map[node.Cell];
-            TechnoClass *building=(TechnoClass *)cell.Adjacent_Cell(facing).unknown_4717b0();
+            TechnoClass *building=(TechnoClass *)cell.Adjacent_Cell(facing).Cell_Building();
             if (building && building->House==this) return true;
         }
         return false;

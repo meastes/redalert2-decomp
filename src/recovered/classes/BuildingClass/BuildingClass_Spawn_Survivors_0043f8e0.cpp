@@ -27,7 +27,7 @@ CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, boo
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z=004e55e0
 // @ref ?unknown_func_4f52f0@HouseClass@@=004f52f0
-// @ref ?unknown_478760@CellClass@@=00478760
+// @ref ?Is_Clear_To_Move@CellClass@@=00478760
 // @ref ?Coord_Scatter@@=00491750
 // @ref ?Create_Scorch@SmudgeTypeClass@@=00688460
 // @ref ?Create_Crater@SmudgeTypeClass@@=00688750
@@ -77,7 +77,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
                 --unknown_a40774;
             }
         }
-        if(cell->unknown_478760(1,1,1,-1,0,-1,1)) {
+        if(cell->Is_Clear_To_Move(1,1,1,-1,0,-1,1)) {
             if(unknown_id_source_a3d290->Random()(0,99)<50) {
                 Cell hit=Coord_Cell(Coord_Scatter(CoordStruct(location.X*256+128,location.Y*256+128,0),128,false));
                 CoordStruct center(hit.X*256+128,hit.Y*256+128,0);

@@ -18,7 +18,7 @@ void BuildingClass::Leave_Rubble_0043eba0()
         while (!Is_List_End(offset)) {
             Cell position = *offset++ + origin;
             CellClass &cell = Map[position];
-            cell.unknown_47c080();
+            cell.Register_For_Redraw();
             cell.OverlayIndex = 0xef;
             cell.unknown_40 = 0;
             cell.Recalc_Attributes(-1);
@@ -28,7 +28,7 @@ void BuildingClass::Leave_Rubble_0043eba0()
         }
         CellClass &base = Map[origin];
         base.unknown_40 = Type;
-        Rect area = Union(base.unknown_474eb0(), base.unknown_475100());
+        Rect area = Union(base.Overlay_Render_Rect(), base.Overlay_Shadow_Render_Rect());
         Point2D view_origin(unknown_rect_839630.X, unknown_rect_839630.Y);
         Point2D translated(area.X - view_origin.X, area.Y - view_origin.Y);
         unknown_tactical_83996c->Register_Dirty_Area(Rect(RectPoint2D(translated.X, translated.Y), area.Width, area.Height), 0);

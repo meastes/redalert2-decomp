@@ -7,7 +7,7 @@
 
 ObjectClass *CellClass::unknown_476750() const
 {
-    BuildingClass *building = (BuildingClass *)unknown_4717b0();
+    BuildingClass *building = (BuildingClass *)Cell_Building();
     if (building != 0 && !building->Type->Gate) {
         building = 0;
     }

@@ -18,7 +18,7 @@
 // @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?unknown_fly_pitch_floor_79b610@@3NB=0079b610
 // @ref ?unknown_fly_pitch_rate_7a0ff8@@3NB=007a0ff8
 // @ref ?unknown_fly_pitch_zero_79a738@@3MB=0079a738
@@ -69,7 +69,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
     UnknownFlyPtr flyctrl(LinkedTo);
     if (flyctrl) landing_altitude=flyctrl->unknown_slot3();
     CellClass *destination=&Map[unknown_1c];
-    if ((unknown_18 && !LinkedTo->Is_Radio_Contact((TechnoClass *)destination->unknown_4717b0())) ||
+    if ((unknown_18 && !LinkedTo->Is_Radio_Contact((TechnoClass *)destination->Cell_Building())) ||
         (!unknown_18 && LinkedTo->unknown_slot101(destination,-1,-1,0,true)!=0)) {
         Take_Off_004bf0d0();
         Cell const &pos=Cell(Object_Coord(LinkedTo));
@@ -128,7 +128,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
                 cell->unknown_122++;
             }
         }
-        if (Cell(LinkedTo->Center_Coord())==Cell(unknown_1c) || Map[Cell(unknown_1c)].unknown_4717b0()==LinkedTo->Contact(0)) {
+        if (Cell(LinkedTo->Center_Coord())==Cell(unknown_1c) || Map[Cell(unknown_1c)].Cell_Building()==LinkedTo->Contact(0)) {
             unknown_34=false;
             Move_To(CoordStruct(unknown_geometry_l.X,unknown_geometry_l.Y,unknown_geometry_l.Z));
             LinkedTo->Assign_Destination(0,true);

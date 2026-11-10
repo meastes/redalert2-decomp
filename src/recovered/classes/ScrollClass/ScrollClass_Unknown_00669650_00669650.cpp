@@ -28,7 +28,7 @@ bool ScrollClass::Unknown_00669650(Point2D const &xy,Cell &cell,CoordStruct &coo
         shadow=Map.Is_Shrouded(adjusted) && unknown_b263d8!=0;
         fog=false;
         if (unknown_id_source_a3d290->Special().FogOfWar) {
-            BuildingClass *building=static_cast<BuildingClass *>(Map[adjusted].unknown_4717b0());
+            BuildingClass *building=static_cast<BuildingClass *>(Map[adjusted].Cell_Building());
             if (building) fog=building->unknown_5b7;
             else fog=Map.Is_Fogged(adjusted) && unknown_b263d8!=0;
         }

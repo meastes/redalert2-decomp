@@ -64,7 +64,7 @@ public:
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);
     virtual int Kind_Of() const;
     virtual int Size_Of() const;
-    ObjectClass *unknown_471660(Point2D const &spot, bool alt, ObjectClass *except) const;
+    ObjectClass *Cell_Techno(Point2D const &spot, bool alt, ObjectClass *except) const;
     bool Unknown_00478760(int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);   // 0x00478760
     BuildingClass *Unknown_004717B0();  // 0x004717B0 (the building in the cell; hypothesis)
     CellClass &Adjacent_Cell(unsigned facing);  // 0x00476AC0 (as shared/cell.hpp; SpawnManagerClass::AI)

@@ -29,7 +29,7 @@ void BuildingClass::unknown_44dc40(int explode)
 
         for (int i = 0; i < 4; i++) {
             Cell adjacent = Adjacent_Cell(origin, dir);
-            BuildingClass *building = (BuildingClass *)Map[adjacent].unknown_4717b0();
+            BuildingClass *building = (BuildingClass *)Map[adjacent].Cell_Building();
             if (building != 0 && building->Type->LaserFence) {
                 if (Owner() == building->Owner()) {
                     if (((((*(unsigned const *)&building->unknown_2e0.Current()) >> 12) + 1) >> 1 & 3) == (dir & 3)) {

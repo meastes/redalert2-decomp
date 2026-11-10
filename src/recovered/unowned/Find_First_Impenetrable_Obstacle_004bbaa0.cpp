@@ -14,7 +14,7 @@ CellClass *__fastcall Find_First_Impenetrable_Obstacle_004bbaa0(CoordStruct cons
 {
     BulletTypeClass const *type = weapon->Projectile;
     CellClass *cell = Find_First_Obstacle_004bb890(from, to, type, house);
-    if (cell != 0 && cell->unknown_475840(-1, -1) && weapon->Warhead->Wall) {
+    if (cell != 0 && cell->Has_Wall_Or_Gate(-1, -1) && weapon->Warhead->Wall) {
         return 0;
     }
     return cell;

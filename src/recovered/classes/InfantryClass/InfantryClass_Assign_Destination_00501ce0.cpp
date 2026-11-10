@@ -31,7 +31,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
         if (Cell(target->Center_Coord())==Cell(Center_Coord())) return;
     }
     if (Locomotor.Checked()->Is_Moving() && target &&
-        Map[Center_Coord()].unknown_478760(Type->SpeedType,true,false,-1,0,-1,true)) {
+        Map[Center_Coord()].Is_Clear_To_Move(Type->SpeedType,true,false,-1,0,-1,true)) {
         if (Type->JumpJet || Mission!=1 || unknown_494!=target) unknown_slot291();
     }
     if (House->unknown_func_4f52f0() && target && unknown_494==target &&

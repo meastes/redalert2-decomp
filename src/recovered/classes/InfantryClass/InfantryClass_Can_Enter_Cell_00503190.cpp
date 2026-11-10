@@ -72,7 +72,7 @@ int InfantryClass::unknown_slot101(CellClass *cell,int direction,int height,Cell
                     }
                     return 7;
                 }
-                ObjectClass *building=cell->unknown_4717b0();
+                ObjectClass *building=cell->Cell_Building();
                 if (building && occupant!=building) {
                     if (building==unknown_494 || reinterpret_cast<AbstractClass*>(&Map[building->Center_Coord()])==unknown_494 || building==unknown_228) {
                         occupant=occupant->unknown_30;

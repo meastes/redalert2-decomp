@@ -14,10 +14,10 @@
 // @ref ?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A=00a40bc8
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
-// @ref ?unknown_4752b0@CellClass@@QBE?AVRect@@XZ=004752b0
+// @ref ?Cell_Render_Rect@CellClass@@QBE?AVRect@@XZ=004752b0
 // @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
-// @ref ?unknown_47be60@CellClass@@QAEXXZ=0047be60
-// @ref ?unknown_471d10@CellClass@@QAE_NXZ=00471d10
+// @ref ?Remove_Fogged_Objects@CellClass@@QAEXXZ=0047be60
+// @ref ?Fixup_LAT@CellClass@@QAE_NXZ=00471d10
 // @ref ?Lower_Max_Level@MapClass@@QAEXH@Z=0056a870
 // @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
@@ -72,12 +72,12 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                     objects[index]->Mark(0);
                 }
                 Rect cell_bound(0, 0, 0, 0);
-                cell_bound = cell->unknown_4752b0();
+                cell_bound = cell->Cell_Render_Rect();
                 int old_height = cell->unknown_11b;
                 cell->unknown_11b = (char)(lowest / 15);
                 Map.Lower_Max_Level(cell->unknown_11b);
                 if (old_height != cell->unknown_11b) {
-                    cell->unknown_47be60();
+                    cell->Remove_Fogged_Objects();
                 }
                 cell->Recalc_Attributes(-1);
                 if (cell->SmudgeIndex != -1) {
@@ -112,7 +112,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                         cell->Recalc_Attributes(-1);
                         Cell id(cell->Fetch_CellID());
                         Map.Radar_Background(id);
-                        cell_bound = Union(cell_bound, cell->unknown_4752b0());
+                        cell_bound = Union(cell_bound, cell->Cell_Render_Rect());
                         if (id.X < least.X) least.X = id.X;
                         if (id.X > most.X) most.X = id.X;
                         if (id.Y < least.Y) least.Y = id.Y;
@@ -136,9 +136,9 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
         for (int j = least.X - 1; j <= most.X + 1; j++) {
             Cell id(j, i);
             CellClass *target = &Map[id];
-            Rect lat_rect = target->unknown_4752b0();
-            if (target->unknown_471d10()) {
-                lat_rect = Union(lat_rect, target->unknown_4752b0());
+            Rect lat_rect = target->Cell_Render_Rect();
+            if (target->Fixup_LAT()) {
+                lat_rect = Union(lat_rect, target->Cell_Render_Rect());
                 lat_rect = lat_rect - unknown_rect_839630.Top_Left();
                 if (lat_rect.Is_Valid()) {
                     unknown_tactical_83996c->Register_Dirty_Area(lat_rect, false);

@@ -59,7 +59,7 @@ void VeinholeMonsterClass::unknown_func_710bb0()
                 if (index < 0 || index >= unknown_cells_428ac0()) {
                     continue;
                 }
-                if (adjacent->unknown_47a670() && unknown_veinhole_buffer_ad07a0[index] == 0 && unknown_98 < Rules_Vein_Node_Count()) {
+                if (adjacent->Can_Place_Veins() && unknown_veinhole_buffer_ad07a0[index] == 0 && unknown_98 < Rules_Vein_Node_Count()) {
                     unknown_a0[unknown_98].Position = spot;
                     unknown_a0[unknown_98].Key = Frame / 50 + abs(unknown_id_source_a3d290->Random()() % 50) + 1;
                     unknown_veinhole_buffer_ad07a0[index] = 1;

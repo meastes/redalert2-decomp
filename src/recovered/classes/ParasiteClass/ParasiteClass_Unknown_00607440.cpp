@@ -36,7 +36,7 @@ void ParasiteClass::Unknown_00607440()
         return;
     }
     CellClass &target_cell = Map[cell];
-    if (!target_cell.unknown_478760(Owner->unknown_slot32()->SpeedType, false, false,
+    if (!target_cell.Is_Clear_To_Move(Owner->unknown_slot32()->SpeedType, false, false,
         Map.Zone(cell, Owner->unknown_slot32()->MovementZone, false),
         Owner->unknown_slot32()->MovementZone, -1, true)) {
         cell = unknown_28->unknown_6cf130(0);

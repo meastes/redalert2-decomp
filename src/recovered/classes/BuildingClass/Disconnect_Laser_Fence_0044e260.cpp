@@ -5,7 +5,7 @@
 #include "shared/anim.hpp"
 inline Cell Adjacent_Cell(Cell const &cell, int facing);
 // @ref ?Current@FacingClass@@=004b8be0
-// @ref ?unknown_4717b0@CellClass@@=004717b0
+// @ref ?Cell_Building@CellClass@@=004717b0
 // @ref ?Unknown_0047F600@@=0047f600
 void BuildingClass::unknown_44e260(int facing, bool explode)
 {
@@ -16,7 +16,7 @@ void BuildingClass::unknown_44e260(int facing, bool explode)
         Cell cell = Coord_Cell(Center_Coord());
         for (int index = 0; index < range; ++index) {
             cell = Adjacent_Cell(cell, facing);
-            BuildingClass *segment = static_cast<BuildingClass *>(Map[cell].unknown_4717b0());
+            BuildingClass *segment = static_cast<BuildingClass *>(Map[cell].Cell_Building());
             if (segment) {
                 if (!segment->Type->LaserFence) return;
                 if (Owner() != segment->Owner()) return;

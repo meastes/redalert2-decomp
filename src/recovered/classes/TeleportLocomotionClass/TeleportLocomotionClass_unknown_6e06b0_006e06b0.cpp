@@ -13,7 +13,7 @@
 #include "shared/teleport_locomotion.hpp"
 #include "shared/cell.hpp"
 #include "shared/techno_type.hpp"
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref _unknown_geometry_g=00ac02b8
 // @ref _unknown_geometry_k=00ac0260
 // @ref _unknown_geometry_l=00ac0280
@@ -45,7 +45,7 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
                 }
                 {
                     ObjectClass *target = (ObjectClass *)LinkedTo->unknown_494;
-                    if (target != 0 && target->Kind_Of() == 6 && Map[to].unknown_4717b0() == target) {
+                    if (target != 0 && target->Kind_Of() == 6 && Map[to].Cell_Building() == target) {
                         target_here = true;
                     }
                 }

@@ -50,7 +50,7 @@ void UnitClass::unknown_slot93(int reason)
             }
         }
         if (unknown_370 && contact && contact->Kind_Of()==6 && Get_Mission()==7) {
-            if (contact==Map[cell-Cell(0,1)].unknown_4717b0()) {
+            if (contact==Map[cell-Cell(0,1)].Cell_Building()) {
                 switch (unknown_slot150(21,contact)) {
                 case 1: case 5: break;
                 default: unknown_slot87(unknown_geometry_l,true,false);break;
@@ -85,9 +85,9 @@ void UnitClass::unknown_slot93(int reason)
         if (unknown_370 && (Get_Mission()!=7 || (Unknown_0040DC20(unknown_494) && Contact(0)!=unknown_494)) && Get_Mission()!=16) {
             bool arrived=unknown_494==0;
             if (unknown_494 && unknown_494->Kind_Of()==11 && ((CellClass *)unknown_494)->MapCoords==Coord_Cell(Position_Coord_004f3f40())) arrived=true;
-            if (!Map[Position_Coord_004f3f40()].unknown_4717b0() || arrived) {
+            if (!Map[Position_Coord_004f3f40()].Cell_Building() || arrived) {
                 contact=Contact(0);
-                if (arrived || !contact || contact->Kind_Of()!=6 || !((BuildingClass *)contact)->Type->WeaponsFactory || Map[Position_Coord_004f3f40()].unknown_4717b0()!=contact) {
+                if (arrived || !contact || contact->Kind_Of()!=6 || !((BuildingClass *)contact)->Type->WeaponsFactory || Map[Position_Coord_004f3f40()].Cell_Building()!=contact) {
                     int response=unknown_slot149(8);
                     if (response==23) {
                         if (unknown_494 && unknown_494!=unknown_slot105()) {
@@ -123,7 +123,7 @@ void UnitClass::unknown_slot93(int reason)
                     }
                 }
             }
-            if (Map[Position_Coord_004f3f40()].unknown_4717b0() && !unknown_494 && unknown_49c.Count()==0 && unknown_478.Count()==0) unknown_slot87(unknown_geometry_l,true,true);
+            if (Map[Position_Coord_004f3f40()].Cell_Building() && !unknown_494 && unknown_49c.Count()==0 && unknown_478.Count()==0) unknown_slot87(unknown_geometry_l,true,true);
         }
         if (Get_Mission()==5 && !Map.Unknown_0054AB00(Position_Coord_004f3f40()) && unknown_32d) {
             if (Team) Team->TargetNotAssigned=true;

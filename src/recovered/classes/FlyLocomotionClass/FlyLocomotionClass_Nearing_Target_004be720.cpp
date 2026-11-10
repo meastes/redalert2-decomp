@@ -43,7 +43,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
         stage=false;
     }
     CoordStruct aim=coord;
-    ObjectClass *building=Map[Cell(coord)].unknown_4717b0();
+    ObjectClass *building=Map[Cell(coord)].Cell_Building();
     if (building!=0 && !LinkedTo->unknown_slot32()->HunterSeeker) {
         if (!LinkedTo->Is_Radio_Contact((TechnoClass *)building)) {
             FootClass *self=LinkedTo;

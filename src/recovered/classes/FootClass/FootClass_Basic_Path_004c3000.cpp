@@ -42,7 +42,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
     int move=unknown_slot101(&Map[cell],-1,-1,0,true);
     if(move==6 && distance>close_enough && !train) {
         int zone=unknown_zone_table_7a1200[unknown_slot32()->MovementZone];
-        bool check=unknown_slot32()->unknown_af5 && Map[cell].unknown_47c200();
+        bool check=unknown_slot32()->unknown_af5 && Map[cell].Can_Burrow_Here();
         Cell nearby=Map.Nearby_Location(cell,unknown_slot32()->SpeedType,
             Map.Zone(unknown_slot104(),zone,unknown_79),zone,unknown_79,Point2D(1,1),false,true,check,true,unknown_slot104(),0);
         int dest_y=cell.Y;
@@ -59,9 +59,9 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         }
     }
     if(move==7 && !train) {
-        if(Map[cell].unknown_4717b0()!=0) {
+        if(Map[cell].Cell_Building()!=0) {
             int zone=unknown_zone_table_7a1200[unknown_slot32()->MovementZone];
-            bool check=unknown_slot32()->unknown_af5 && Map[cell].unknown_47c200();
+            bool check=unknown_slot32()->unknown_af5 && Map[cell].Can_Burrow_Here();
             Cell nearby=Map.Nearby_Location(cell,unknown_slot32()->SpeedType,
                 Map.Zone(unknown_slot104(),zone,unknown_79),zone,unknown_79,Point2D(1,1),false,true,check,true,unknown_slot104(),0);
             Assign_Destination(&Map[nearby],true);

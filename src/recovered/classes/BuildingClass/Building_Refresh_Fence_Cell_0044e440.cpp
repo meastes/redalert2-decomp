@@ -19,7 +19,7 @@ void __fastcall Building_Refresh_Fence_Cell_0044e440(Cell const &origin)
 {
     CellClass *cell=&Map[origin];
     if(!cell)return;
-    BuildingClass *fence=static_cast<BuildingClass *>(cell->unknown_4717b0());
+    BuildingClass *fence=static_cast<BuildingClass *>(cell->Cell_Building());
     if(!fence || !fence->Type->LaserFence)return;
     int facing=Building_Direction_To_4_0044e440(fence->unknown_2e0.Current());
     BuildingClass *found=0;
@@ -27,7 +27,7 @@ void __fastcall Building_Refresh_Fence_Cell_0044e440(Cell const &origin)
     Cell next=Building_Adjacent_Fence_Cell_0044e440(previous,facing);
     Cell const &probe=next;
     while(probe!=previous) {
-        found=static_cast<BuildingClass *>(Map[probe].unknown_4717b0());
+        found=static_cast<BuildingClass *>(Map[probe].Cell_Building());
         if(!found)goto destroy;
         if(found->Type->LaserFencePost) {
             found->unknown_44e260(facing|4,false);

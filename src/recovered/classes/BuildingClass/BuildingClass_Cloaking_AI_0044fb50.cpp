@@ -9,7 +9,7 @@
 // Name map: Cloak = unknown_1b8, TranslucencyLevel = unknown_5bd, IsToDisplay = unknown_75,
 // Set_Anim_Translucency = unknown_44d2d0, ParticleSystems = unknown_25c, CloakGeneratorState = unknown_5bb,
 // CurrentCloakRadius = unknown_5bc, CloakingSurface = unknown_cloak_surface_8502a0,
-// Is_Cloaked/Cloaked_By/Uncloaked_By = Is/Set/Clear_House_Bit, Cell_Building = unknown_4717b0,
+// Is_Cloaked/Cloaked_By/Uncloaked_By = Is/Set/Clear_House_Bit, Cell_Building = Cell_Building,
 // IsPowerOnline = unknown_slot195, Should_Uncloak/Is_Ready_To_Cloak = unknown_slot161/160,
 // Do_Uncloak/Do_Cloak = unknown_slot252/253, Enable_Cloak_Generator written out inline.
 #include "shared/building.hpp"
@@ -72,7 +72,7 @@ void BuildingClass::Cloaking_AI(int fast)
                             if (!cell->Is_House_Bit(house)) {
                                 cell->Set_House_Bit(house);
                                 Cell_Occupants_Unknown_Slot238_0044fb10(cell);
-                                BuildingClass *building=static_cast<BuildingClass *>(cell->unknown_4717b0());
+                                BuildingClass *building=static_cast<BuildingClass *>(cell->Cell_Building());
                                 if (building && building->House->ArrayIndex==house && Cell(building->Center_Coord())==current) {
                                     --unknown_5bc;
                                     return;
@@ -98,7 +98,7 @@ void BuildingClass::Cloaking_AI(int fast)
                         if (cell->Is_House_Bit(house)) {
                             cell->Clear_House_Bit(house);
                             Cell_Occupants_Unknown_Slot238_0044fb10(cell);
-                            BuildingClass *building=static_cast<BuildingClass *>(cell->unknown_4717b0());
+                            BuildingClass *building=static_cast<BuildingClass *>(cell->Cell_Building());
                             if (building && building->House->ArrayIndex==house && Cell(building->Center_Coord())==current && (char)fast==0) {
                                 ++unknown_5bc;
                                 return;

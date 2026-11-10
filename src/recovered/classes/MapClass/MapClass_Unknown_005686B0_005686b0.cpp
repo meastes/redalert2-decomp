@@ -8,7 +8,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_dummy_cell_a6f9f8@@3VCellClass@@A=00a6f9f8
 // @ref ?Cell_Terrain@CellClass@@QBEPAVObjectClass@@_N@Z=004717e0
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?Unknown_0055A590@MapClass@@QAE_NABVRect@@_N@Z=0055a590
 
 bool MapClass::Unknown_005686B0(Rect const &rect, int house)
@@ -32,7 +32,7 @@ bool MapClass::Unknown_005686B0(Rect const &rect, int house)
             if (cell.unknown_11c) {
                 return false;
             }
-            if (cell.unknown_4717b0() != 0) {
+            if (cell.Cell_Building() != 0) {
                 return false;
             }
         }

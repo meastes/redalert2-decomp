@@ -24,9 +24,9 @@
 // @ref ??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z=00548000
 // @ref ??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z=00420110
 // @ref ??2@YAPAXI@Z=00782017
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ=00475d60
-// @ref ?unknown_471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
+// @ref ?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
 // @ref ?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z=0047f600
 // @ref ?Unknown_0047FCC0@@YGHUCoordStruct@@@Z=0047fcc0
 // @ref ?Unknown_0047E2C0@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z=0047e2c0
@@ -58,8 +58,8 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
     new AnimClass(anim, where, 0, 1, 0x2600, Unknown_0047FCC0(where));
 
     bool changed = false;
-    ObjectClass *building = cellptr.unknown_4717b0();
-    ObjectClass *object = cellptr.unknown_471660(Point2D(0, 0), false, 0);
+    ObjectClass *building = cellptr.Cell_Building();
+    ObjectClass *object = cellptr.Cell_Techno(Point2D(0, 0), false, 0);
     bool sheltered = object != 0 && object->Kind_Of() == 15;
     if (building == 0 && object == 0) {
         switch (cellptr.unknown_ec) {
@@ -73,7 +73,7 @@ void __fastcall Storm_Strike_0051FE50(CoordStruct coord)
     }
     Unknown_0047F600(where, damage, Rules->LightningWarhead, 0, 0);
     Unknown_0047E2C0(where, damage, 0, Rules->LightningWarhead, 1);
-    if (building != cellptr.unknown_4717b0() || object != cellptr.unknown_471660(Point2D(0, 0), false, 0)
+    if (building != cellptr.Cell_Building() || object != cellptr.Cell_Techno(Point2D(0, 0), false, 0)
         || cellptr.unknown_11b != level) {
         changed = true;
     }

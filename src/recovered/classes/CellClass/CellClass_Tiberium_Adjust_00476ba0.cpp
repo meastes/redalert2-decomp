@@ -1,4 +1,4 @@
-// int CellClass::unknown_476ba0(bool pregame) (0x00476BA0)
+// int CellClass::Tiberium_Adjust(bool pregame) (0x00476BA0)
 // Westwood's CellClass::Tiberium_Adjust: an ore overlay takes the stage its
 // neighbours of the same tiberium give it (from the table at 0x007D2C10; with
 // pregame, a random image of the tiberium first); answers the cell's value.
@@ -8,7 +8,7 @@
 #include "shared/id_source.hpp"
 // @ref ?unknown_tiberium_stage_7d2c10@@3PAHA=007d2c10
 
-int CellClass::unknown_476ba0(bool pregame)
+int CellClass::Tiberium_Adjust(bool pregame)
 {
     if (OverlayIndex != -1) {
         int tiberium = OverlayClass::To_Tiberium(OverlayIndex);

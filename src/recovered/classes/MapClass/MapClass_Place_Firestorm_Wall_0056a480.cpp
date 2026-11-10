@@ -11,7 +11,7 @@
 #include "shared/map_adjacent.hpp"
 #include "shared/house_screen.hpp"
 // @ref ?unknown_4718b0@CellClass@@QAE_NHPBVBuildingTypeClass@@PAVHouseClass@@@Z=004718b0
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 
 void MapClass::Unknown_0056A480(Cell const &cell, HouseClass *house, BuildingTypeClass *type)
 {
@@ -22,7 +22,7 @@ void MapClass::Unknown_0056A480(Cell const &cell, HouseClass *house, BuildingTyp
         for (int distance = 0; distance < radius; distance++) {
             current_cell = (Cell)Adjacent_Cell(current_cell, dir);
 
-            BuildingClass *building = (BuildingClass *)Map[current_cell].unknown_4717b0();
+            BuildingClass *building = (BuildingClass *)Map[current_cell].Cell_Building();
             if (building != 0 && building->Type->FirestormWall && building->House == house) {
                 if (distance > 0) {
                     Cell place_cell = (Cell)Adjacent_Cell(cell, dir);

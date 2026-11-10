@@ -11,7 +11,7 @@
 #include "shared/map_view.hpp"
 #include "shared/anim.hpp"
 // @ref ?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z=0052b6f0
-// @ref ?unknown_471d10@CellClass@@QAEXXZ=00471d10
+// @ref ?Fixup_LAT@CellClass@@QAEXXZ=00471d10
 // @ref ?unknown_tileset_a52ee8@@3HA=00a52ee8
 // @ref ?unknown_tileset_a52eec@@3HA=00a52eec
 // @ref ?unknown_tileset_a52f00@@3HA=00a52f00
@@ -96,11 +96,11 @@ bool IsometricTileClass::Mark(int mark)
                 here.OverlayIndex = -1;
                 here.OverlayData = 0;
                 here.unknown_11b += ((IsoTileCellStruct *)image->Tiles[index])->unknown_28;
-                here.unknown_471d10();
-                here.Adjacent_Cell(0).unknown_471d10();
-                here.Adjacent_Cell(2).unknown_471d10();
-                here.Adjacent_Cell(4).unknown_471d10();
-                here.Adjacent_Cell(6).unknown_471d10();
+                here.Fixup_LAT();
+                here.Adjacent_Cell(0).Fixup_LAT();
+                here.Adjacent_Cell(2).Fixup_LAT();
+                here.Adjacent_Cell(4).Fixup_LAT();
+                here.Adjacent_Cell(6).Fixup_LAT();
             }
             here.Recalc_Attributes(-1);
         }

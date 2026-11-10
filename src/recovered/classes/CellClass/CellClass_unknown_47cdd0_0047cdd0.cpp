@@ -10,7 +10,7 @@ bool CellClass::unknown_47cdd0() const
     if (unknown_11c) {
         return false;
     }
-    if (unknown_4717b0() != 0) {
+    if (Cell_Building() != 0) {
         return false;
     }
     return Ground[unknown_ec].Build;

@@ -147,7 +147,7 @@ int UnitClass::unknown_slot101(CellClass *cell,int direction,int height,CellClas
                     occupant=occupant->unknown_30;
                     continue;
                 }
-                if (direction!=-1 && building->Type->UnitRepair && cell->unknown_4717b0()==building && !building->Cell_Is_Impassable_Row_00453af0(cell)) {
+                if (direction!=-1 && building->Type->UnitRepair && cell->Cell_Building()==building && !building->Cell_Is_Impassable_Row_00453af0(cell)) {
                     occupant=occupant->unknown_30;
                     continue;
                 }
@@ -165,7 +165,7 @@ int UnitClass::unknown_slot101(CellClass *cell,int direction,int height,CellClas
                     continue;
                 }
                 if (building->Type->Bib) {
-                    if (Map[Adjacent_Cell(cell->MapCoords,2)].unknown_4717b0()!=building) {
+                    if (Map[Adjacent_Cell(cell->MapCoords,2)].Cell_Building()!=building) {
                         occupant=occupant->unknown_30;
                         continue;
                     }

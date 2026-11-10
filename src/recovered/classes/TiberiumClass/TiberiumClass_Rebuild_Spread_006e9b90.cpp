@@ -16,7 +16,7 @@ void TiberiumClass::Rebuild_Spread()
     }
     Map.Reset_Iterator();
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
-        if (cell->Get_Tiberium_Type() == ArrayIndex && cell->unknown_478950()) {
+        if (cell->Get_Tiberium_Type() == ArrayIndex && cell->Can_Tiberium_Spread()) {
             SpreadData[SpreadCount].Position = cell->MapCoords;
             SpreadData[SpreadCount].Key = 0.0f;
             SpreadQueue->Insert(&SpreadData[SpreadCount++]);

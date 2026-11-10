@@ -92,7 +92,7 @@ bool OverlayClass::Mark(int mark)
                 if (cellptr->unknown_4718b0(1, 0, 0)) {
                     cellptr->OverlayIndex = Class->ArrayIndex;
                     cellptr->OverlayData = 0;
-                    cellptr->unknown_475960(true);
+                    cellptr->Wall_Update(true);
                     if (!unknown_a40774) {
                         Map.Update_Cell_Zone_Constructively(cellptr->MapCoords);
                         Map.Unknown_00566340(cellptr->MapCoords);
@@ -242,19 +242,19 @@ bool OverlayClass::Mark(int mark)
                 bool clear;
                 if (!unknown_a40774) {
                     if (Class == Rules->unknown_f8) {
-                        clear = cellptr->unknown_478760(5, false, false, -1, 0, -1, true);
+                        clear = cellptr->Is_Clear_To_Move(5, false, false, -1, 0, -1, true);
                     } else if (Class == Rules->unknown_f4 || Class == Rules->unknown_f0) {
-                        clear = cellptr->unknown_478760(1, false, false, -1, 0, -1, true);
+                        clear = cellptr->Is_Clear_To_Move(1, false, false, -1, 0, -1, true);
                     } else {
                         if (Class->ArrayIndex == 0x18 || Class->ArrayIndex == 0x19 ||
                                 Class->ArrayIndex == 0xED || Class->ArrayIndex == 0xEE) {
                             clear = true;
                         } else {
                             if (Class->ArrayIndex == 0x66) {
-                                clear = cellptr->unknown_478760(1, true, true, -1, 0, -1, true);
+                                clear = cellptr->Is_Clear_To_Move(1, true, true, -1, 0, -1, true);
                                 if (cellptr->unknown_11c > 4) clear = false;
                             } else {
-                                clear = cellptr->unknown_478760(1, true, true, -1, 0, -1, true);
+                                clear = cellptr->Is_Clear_To_Move(1, true, true, -1, 0, -1, true);
                             }
                         }
                     }
@@ -271,7 +271,7 @@ bool OverlayClass::Mark(int mark)
 
                     if (Class->Land == 5) {
                         cellptr->OverlayData = 1;
-                        cellptr->unknown_476ba0(false);
+                        cellptr->Tiberium_Adjust(false);
                     }
 
                     if (Class->Crate) {

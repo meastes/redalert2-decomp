@@ -50,7 +50,7 @@ void Tactical::Draw_Tiles(Rect const &area, Rect const &cliprect)
         for (ix = xcount; ix > 0; ix--) {
             if (Map.Unknown_0054AAB0(cell)) {
                 CellClass *cellptr = &Map[cell];
-                Rect render = cellptr->unknown_4752b0();
+                Rect render = cellptr->Cell_Render_Rect();
                 Rect inter = Intersect(area, render);
                 Point2D pixel;
                 Project_Tile_Left(*this, Coord_Snap(Cell_Center(cell)), pixel);

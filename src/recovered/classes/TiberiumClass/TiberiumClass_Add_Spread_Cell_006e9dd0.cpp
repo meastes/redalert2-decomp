@@ -12,7 +12,7 @@
 void TiberiumClass::Add_Spread_Cell(Cell const &cell)
 {
     int index = unknown_cell_index_428a90(cell);
-    if (Map[cell].unknown_478950() && !SpreadMap[index]) {
+    if (Map[cell].Can_Tiberium_Spread() && !SpreadMap[index]) {
         if (SpreadCount >= unknown_cells_428ac0() - 20) {
             Rebuild_Spread();
         }

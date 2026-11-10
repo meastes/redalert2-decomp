@@ -1,4 +1,4 @@
-// Rect CellClass::unknown_475100() const (0x00475100): Westwood's
+// Rect CellClass::Overlay_Shadow_Render_Rect() const (0x00475100): Westwood's
 // Overlay_Shadow_Render_Rect: the screen rectangle of the overlay's shadow frame.
 #include "shared/cell.hpp"
 #include "shared/overlay_type.hpp"
@@ -7,7 +7,7 @@
 #define SHAPE_FILE_EMPTY_RECT unknown_static_rect
 #include "shared/shape_file.hpp"
 
-Rect CellClass::unknown_475100() const
+Rect CellClass::Overlay_Shadow_Render_Rect() const
 {
     if (OverlayIndex == -1) {
         return Rect(0, 0, 0, 0);

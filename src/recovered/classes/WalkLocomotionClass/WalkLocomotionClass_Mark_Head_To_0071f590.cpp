@@ -31,7 +31,7 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
                 any_spot = true;
             }
             ObjectClass *building = (ObjectClass *)LinkedTo->unknown_494;
-            if (building != 0 && building->Kind_Of() == 6 && Map[coord].unknown_4717b0() == building) {
+            if (building != 0 && building->Kind_Of() == 6 && Map[coord].Cell_Building() == building) {
                 any_spot = true;
             }
         }

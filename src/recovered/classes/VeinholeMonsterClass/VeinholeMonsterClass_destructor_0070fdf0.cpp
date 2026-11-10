@@ -65,7 +65,7 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
             if (map_cell->OverlayIndex == 0x7e || (map_cell->OverlayIndex != -1 && OverlayTypes[map_cell->OverlayIndex]->IsVeins)) {
                 Map.Radar_Background(map_cell->MapCoords);
                 RectPoint2D origin(unknown_rect_839630.Top_Left());
-                unknown_tactical_83996c->Register_Dirty_Area(Union(map_cell->unknown_474eb0(), map_cell->unknown_475100()) - origin, false);
+                unknown_tactical_83996c->Register_Dirty_Area(Union(map_cell->Overlay_Render_Rect(), map_cell->Overlay_Shadow_Render_Rect()) - origin, false);
                 map_cell->OverlayIndex = -1;
                 map_cell->OverlayData = 0;
             }

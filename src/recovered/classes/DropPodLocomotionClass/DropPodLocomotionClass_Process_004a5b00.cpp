@@ -68,7 +68,7 @@ bool __stdcall DropPodLocomotionClass::Process()
                 new AnimClass(AnimTypes[AnimTypeClass::From_Name("SMOKEY")], smoke, 0, 1, 0x600, 0);
             }
             if (Frame % 3 == 0) {
-                if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[unknown_20].unknown_471660(Point2D(0, 0), false, 0))) {
+                if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[unknown_20].Cell_Techno(Point2D(0, 0), false, 0))) {
                     CoordStruct scattered = Coord_Scatter(unknown_20, 0x55, false);
                     Voc_Play_At(weapon->unknown_bc.Pick(unknown_random_839218()), coord, 0);
                     Unknown_0047E2C0(scattered, weapon->unknown_a4 * 2, LinkedTo, weapon->Warhead, true);

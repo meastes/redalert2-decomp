@@ -76,7 +76,7 @@ int HouseClass::AI_Building()
         }
 
         if (type->PowersUpToLevel <= 0 && type->PowersUpToLevel == -1 && node->Cell != unknown_cell_a40f10 && type->PowersUpBuilding[0] != 0) {
-            BuildingClass *building = (BuildingClass *)Map[node->Cell].unknown_4717b0();
+            BuildingClass *building = (BuildingClass *)Map[node->Cell].Cell_Building();
             BuildingTypeClass *upgrade = BuildingTypes[BuildingTypeClass::From_Name(type->PowersUpBuilding)];
             if (building == 0) {
                 node->Cell = Cell(0, 0);

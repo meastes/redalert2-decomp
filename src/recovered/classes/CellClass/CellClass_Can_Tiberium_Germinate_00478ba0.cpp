@@ -16,7 +16,7 @@
 bool CellClass::Can_Tiberium_Germinate(TiberiumClass *tiberium)
 {
     if (Map.Unknown_0055A660(MapCoords, true) && (unknown_140 & 0x500) == 0) {
-        BuildingClass *building = (BuildingClass *)unknown_4717b0();
+        BuildingClass *building = (BuildingClass *)Cell_Building();
         if (building != 0 && building->Strength > 0 && !building->Type->Invisible && !building->Type->InvisibleInGame) {
             return false;
         }

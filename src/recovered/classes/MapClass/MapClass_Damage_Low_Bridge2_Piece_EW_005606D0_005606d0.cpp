@@ -3,8 +3,8 @@
 #include "shared/map_cell.hpp"
 #include "shared/tactical.hpp"
 // @ref ?Spring_Low_Bridge_Destroyed_NS@MapClass@@QAEXVCell@@@Z=0055e930
-// @ref ?unknown_474eb0@CellClass@@QBE?AVRect@@XZ=00474eb0
-// @ref ?unknown_475100@CellClass@@QBE?AVRect@@XZ=00475100
+// @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
+// @ref ?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ=00475100
 // @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 // @ref ?Unknown_0047CC10@CellClass@@QAEXXZ=0047cc10
 // @ref ??$Union@VRect@@@@YI?BVRect@@ABV0@0@Z=0045efe0
@@ -25,7 +25,7 @@ void MapClass::Damage_Low_Bridge2_Piece_EW_005606D0(Cell const &cell)
     CellClass *center = &Map[cell];
     CellClass *side1 = &Map[cell - Cell(0, 1)];
     CellClass *side2 = &Map[cell + Cell(0, 1)];
-    Rect draw_rect = Union(center->unknown_474eb0(), center->unknown_475100());
+    Rect draw_rect = Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect());
     int lookup[16] = { -1, 0xd2, 0xd5, -1, 0xd1, 0xd3, 0xd5, -1, 0xd4, 0xd4, 0xe7, -1, -1, -1, -1, -1 };
     int mask = Unknown_0055EB70(cell);
     int current = Map[cell].OverlayIndex;
@@ -40,7 +40,7 @@ void MapClass::Damage_Low_Bridge2_Piece_EW_005606D0(Cell const &cell)
             if (current == next) return;
         }
         side2->OverlayIndex = side1->OverlayIndex = center->OverlayIndex = next;
-        draw_rect = Union(draw_rect, Union(center->unknown_474eb0(), center->unknown_475100())) - unknown_rect_839630.Top_Left();
+        draw_rect = Union(draw_rect, Union(center->Overlay_Render_Rect(), center->Overlay_Shadow_Render_Rect())) - unknown_rect_839630.Top_Left();
         unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
         if (next == 0xe7) {
             Map.Radar_Background(cell);

@@ -26,7 +26,7 @@ int CellClass::unknown_475fe0(int damage)
             }
 
             if (destroyed) {
-                Rect rect = Union(unknown_474eb0(), unknown_475100());
+                Rect rect = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
                 rect.Y -= unknown_rect_839630.Y;
                 unknown_tactical_83996c->Register_Dirty_Area(rect, false);
                 OverlayData += 0x10;
@@ -48,10 +48,10 @@ int CellClass::unknown_475fe0(int damage)
                     Map.Update_Cell_Zone(MapCoords);
                     Map.Unknown_00566340(MapCoords);
                     Map.Radar_Background(MapCoords);
-                    ((CellClass &)((CellClass const *)this)->Adjacent_Cell(0)).unknown_475960(false);
-                    ((CellClass &)((CellClass const *)this)->Adjacent_Cell(6)).unknown_475960(false);
-                    ((CellClass &)((CellClass const *)this)->Adjacent_Cell(4)).unknown_475960(false);
-                    Adjacent_Cell(2).unknown_475960(false);
+                    ((CellClass &)((CellClass const *)this)->Adjacent_Cell(0)).Wall_Update(false);
+                    ((CellClass &)((CellClass const *)this)->Adjacent_Cell(6)).Wall_Update(false);
+                    ((CellClass &)((CellClass const *)this)->Adjacent_Cell(4)).Wall_Update(false);
+                    Adjacent_Cell(2).Wall_Update(false);
                     Unknown_006ECB90(this, true);
                     for (int facing = 0; facing < 8; facing++) {
                         Adjacent_Cell(facing).unknown_122--;

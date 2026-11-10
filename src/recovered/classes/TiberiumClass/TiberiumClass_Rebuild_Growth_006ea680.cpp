@@ -16,7 +16,7 @@ void TiberiumClass::Rebuild_Growth()
     }
     Map.Reset_Iterator();
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
-        if (cell->Get_Tiberium_Type() == ArrayIndex && cell->unknown_4788e0()) {
+        if (cell->Get_Tiberium_Type() == ArrayIndex && cell->Can_Tiberium_Grow()) {
             GrowthData[GrowthCount].Position = cell->MapCoords;
             GrowthData[GrowthCount].Key = 0.0f;
             GrowthQueue->Insert(&GrowthData[GrowthCount++]);

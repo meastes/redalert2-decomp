@@ -4,8 +4,8 @@
     "id": "population-4383",
     "inventory_sha256": "66c0f183965995a65b47b97c59055e6eca957e1cff781a5498b4362a8551cd58",
     "gaps_sha256": "b8cf9bc8d07633025048201f3b2f4d7a7e45a6ff8d1f46e6e1064514fab06f38",
-    "historical_population_sha256": "ee7e946b5a86a2c082f0269dbc2f3bf629f61985822b4bc885f0bb7459e07fc2",
-    "historical_acceptance_sha256": "5e27cc3d0740b161a46450fac1ec884c116d93d289b5da06b8b6a1acf90f6483"
+    "historical_population_sha256": "d65c9f336267d0d536d18450dc0f25eb28a1ffb55ac08b38f4623c8363051420",
+    "historical_acceptance_sha256": "8ce2a68749d13527ec8724b5f8074b5615f09979a58aa5288f2f63cdb455cd13"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -7189,7 +7189,7 @@
     "?unknown_slot40@BuildingClass@@UAE?AUCoordStruct@@XZ": 4502576,
     "?Increase_Table_Size@?$IndexClass@JPAVAbstractClass@@@@QAE_NH@Z": 4307200,
     "?Unknown_006328D0@RadarClass@@QAEPAV?$DynamicVectorClass@UPoint2D@@@@PAVBuildingTypeClass@@@Z": 6498512,
-    "?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ": 4659120,
+    "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ": 4659120,
     "?unknown_slot82@BuildingClass@@UAEXH@Z": 4533856,
     "??0BuildingTypeClass@@QAE@ABVNoInitClass@@@Z": 4555104,
     "??_7BuildingTypeClass@@6BIPersistStream@@@": 7983608,
@@ -7232,7 +7232,7 @@
     "?unknown_slot78@UnitClass@@UAE_NHPAVObjectClass@@_N@Z": 7329184,
     "?unknown_slot63@UnitClass@@UAE_NPAVRect@@_N1@Z": 7336784,
     "?unknown_slot63@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
-    "?unknown_479cc0@CellClass@@QBE_NXZ": 4693184,
+    "?Has_Tunnel@CellClass@@QBE_NXZ": 4693184,
     "?unknown_47a120@CellClass@@QBE_NPAVTechnoClass@@@Z": 4694304,
     "?Adjacent_Cell@CellClass@@QAEAAV1@I@Z": 4680384,
     "?unknown_5d4c00@ObjectClass@@QAEHPAVAbstractClass@@@Z": 6114304,
@@ -7554,7 +7554,7 @@
     "??_7OverlayClass@@6BINoticeSource@@@": 8026056,
     "??1OverlayClass@@UAE@XZ": 6138064,
     "?To_Tiberium@OverlayClass@@SIHH@Z": 6144176,
-    "?unknown_47a670@CellClass@@QBE_NXZ": 4695664,
+    "?Can_Place_Veins@CellClass@@QBE_NXZ": 4695664,
     "?unknown_47ad00@CellClass@@QAEXXZ": 4697344,
     "??_GOverlayClass@@UAEPAXI@Z": 6144768,
     "?unknown_slot58@BuildingClass@@UAEXABUCoordStruct@@@Z": 4517584,
@@ -7612,7 +7612,7 @@
     "?Closest_Color@PaletteClass@@QBEHABVRGBClass@@@Z": 6304176,
     "??0?$VectorClass@PAUDDSURFACEDESC@@@@QAE@IPBQAUDDSURFACEDESC@@@Z": 4810704,
     "??_7?$VectorClass@PAUDDSURFACEDESC@@@@6B@": 7989060,
-    "?unknown_471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
+    "?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "_strstr": 7878320,
     "?unknown_slot48@BuildingTypeClass@@UAEPAXXZ": 4581264,
     "?Is_Near_Tunnel_NW@CellClass@@QAE_NXZ": 4693232,
@@ -7852,7 +7852,7 @@
     "?unknown_slot43@ObjectClass@@UAE?AUCoordStruct@@H@Z": 4341072,
     "?unknown_slot100@ObjectClass@@UAEXH@Z": 6106464,
     "??0AlphaShapeClass@@QAE@PAVObjectClass@@HH@Z": 4320224,
-    "?unknown_478760@CellClass@@QAE_NH_N0HHH0@Z": 4687712,
+    "?Is_Clear_To_Move@CellClass@@QAE_NH_N0HHH0@Z": 4687712,
     "?unknown_slot43@BuildingClass@@UAE?AUCoordStruct@@H@Z": 4516400,
     "?unknown_slot43@TechnoClass@@UAE?AUCoordStruct@@H@Z": 7084080,
     "?unknown_452f50@BuildingClass@@QAEXH@Z": 4534096,
@@ -7943,19 +7943,19 @@
     "?Adjacent_Cell@CellClass@@SI?AVCell@@ABV2@H@Z": 4706240,
     "?Get_Char@WideString@@QBEGI@Z": 7799920,
     "?unknown_4724a0@CellClass@@QAEXXZ": 4662432,
-    "?unknown_475840@CellClass@@QBE_NHH@Z": 4675648,
+    "?Has_Wall_Or_Gate@CellClass@@QBE_NHH@Z": 4675648,
     "?unknown_476750@CellClass@@QBEPAVObjectClass@@XZ": 4679504,
     "?unknown_476b20@CellClass@@QAEXHH@Z": 4680480,
     "?unknown_47a160@CellClass@@QAEXXZ": 4694368,
     "?unknown_47a340@CellClass@@QAEXPAVAbstractClass@@@Z": 4694848,
     "?unknown_map_tagged_cells_833638@@3V?$DynamicVectorClass@VCell@@@@A": 8599096,
-    "?Set_unknown_3c@CellClass@@QAEXPAVTagClass@@@Z": 4695136,
+    "?Attach_Tag@CellClass@@QAEXPAVTagClass@@@Z": 4695136,
     "?unknown_47a4e0@CellClass@@QAEXXZ": 4695264,
-    "?unknown_47be60@CellClass@@QAEXXZ": 4701792,
+    "?Remove_Fogged_Objects@CellClass@@QAEXXZ": 4701792,
     "?Unknown_007101B0@@YIPAVUnknownCellLookup@@ABVCell@@@Z": 7406000,
     "?Unknown_00712300@UnknownCellLookup@@QAEXPAVCellClass@@@Z": 7414528,
-    "?unknown_47a7a0@CellClass@@QAEXXZ": 4695968,
-    "?unknown_47c200@CellClass@@QAE_NXZ": 4702720,
+    "?Redraw_Veins@CellClass@@QAEXXZ": 4695968,
+    "?Can_Burrow_Here@CellClass@@QAE_NXZ": 4702720,
     "?unknown_473d20@CellClass@@QAEXPAVObjectClass@@_N@Z": 4668704,
     "??_7BombClass@@6BIPersistStream@@@": 7981576,
     "??_7BombClass@@6BIRTTITypeInfo@@@": 7981548,
@@ -7975,9 +7975,9 @@
     "?Get_Time@INIClass@@QBEHPBD0H@Z": 5309536,
     "?Assign_Houses_0065fbb0@@YIXXZ": 6683568,
     "?Clear_All@LightSourceClass@@SAXXZ": 5469312,
-    "?unknown_4788e0@CellClass@@QBE_NXZ": 4688096,
-    "?unknown_478950@CellClass@@QBE_NXZ": 4688208,
-    "?unknown_4789d0@CellClass@@QAE_NXZ": 4688336,
+    "?Can_Tiberium_Grow@CellClass@@QBE_NXZ": 4688096,
+    "?Can_Tiberium_Spread@CellClass@@QBE_NXZ": 4688208,
+    "?Grow_Tiberium@CellClass@@QAE_NXZ": 4688336,
     "?unknown_47c3a0@CellClass@@QAE_NHH@Z": 4703136,
     "?unknown_47ce70@CellClass@@QBEHXZ": 4705904,
     "?Clear_Scenario_0065d370@@YAXXZ": 6673264,
@@ -8003,7 +8003,7 @@
     "?unknown_slot40@SmudgeTypeClass@@UAEXPBUPoint2D@@PBVRect@@HHPBVCell@@@Z": 6848720,
     "?Read_INI@SmudgeTypeClass@@UAE_NAAVCCINIClass@@@Z": 6848944,
     "?Place@SmudgeTypeClass@@QBEXABVCell@@@Z": 6851392,
-    "?unknown_47c080@CellClass@@QAEXXZ": 4702336,
+    "?Register_For_Redraw@CellClass@@QAEXXZ": 4702336,
     "??_GSmudgeTypeClass@@UAEPAXI@Z": 6851616,
     "??_7TerrainTypeClass@@6BIPersistStream@@@": 8050144,
     "??_7TerrainTypeClass@@6BIRTTITypeInfo@@@": 8050116,
@@ -8190,8 +8190,8 @@
     "?Unknown_00569090@MapClass@@QAE_NPAVCell@@@Z": 5673104,
     "?unknown_func_6b1650@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7018064,
     "?unknown_func_6b1c80@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7019648,
-    "?unknown_475100@CellClass@@QBE?AVRect@@XZ": 4673792,
-    "?unknown_474eb0@CellClass@@QBE?AVRect@@XZ": 4673200,
+    "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
+    "?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673200,
     "??0?$VectorClass@I@@QAE@IPBI@Z": 4371728,
     "?Execute@TauntCommandClass@@UBEXH@Z": 5354992,
     "??_7?$VectorClass@PAVAlphaLightingRemapClass@@@@6B@": 7976992,
@@ -10550,7 +10550,7 @@
     "?unknown_tileset_a6e038@@3HA": 10936376,
     "?unknown_tileset_a52ee8@@3HA": 10825448,
     "?unknown_tileset_a52eec@@3HA": 10825452,
-    "?unknown_471d10@CellClass@@QAEXXZ": 4660496,
+    "?Fixup_LAT@CellClass@@QAEXXZ": 4660496,
     "?Increase_Table_Size@?$IndexClass@HPAVMapRegionClass@@@@QAE_NH@Z": 5828944,
     "?Unknown_0047F600@@YIXUCoordStruct@@HPAVWarheadTypeClass@@HH@Z": 4716032,
     "?Can_Tiberium_Germinate@CellClass@@QAE_NPAVTiberiumClass@@@Z": 4688800,
@@ -10600,7 +10600,7 @@
     "?Execute@SetView4CommandClass@@UBEXH@Z": 5362688,
     "?Execute@FollowCommandClass@@UBEXH@Z": 5362880,
     "?Execute@ScreenCaptureCommandClass@@UBEXH@Z": 5363056,
-    "?unknown_475960@CellClass@@QAEX_N@Z": 4675936,
+    "?Wall_Update@CellClass@@QAEX_N@Z": 4675936,
     "?Init_Bootstrap_Mixfiles@@YI_NXZ": 5332112,
     "?Increase_Table_Size@?$IndexClass@HPAVCommandClass@@@@QAE_NH@Z": 5367648,
     "?Trim_Trailing@WideString@@QAEXABV1@@Z": 7799344,
@@ -10659,7 +10659,7 @@
     "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z": 4821104,
     "?Unknown_0055C2C0@MapClass@@QAE_NHH@Z": 5620416,
     "?unknown_func_52c230@IsometricTileTypeClass@@QAEXPAVLightConvertClass@@HPAVSurface@@HHVRect@@HHHHHHHH@Z": 5423664,
-    "?unknown_476ba0@CellClass@@QAEH_N@Z": 4680608,
+    "?Tiberium_Adjust@CellClass@@QAEH_N@Z": 4680608,
     "?unknown_tiberium_stage_7d2c10@@3PAHA": 8203280,
     "?unknown_47a5a0@CellClass@@QAEHXZ": 4695456,
     "?Get@Base64Straw@@UAEHPAXH@Z": 4372560,
@@ -11977,7 +11977,7 @@
     "?unknown_tileset_a52e64@@3HA": 10825316,
     "?unknown_47bb30@CellClass@@QAEXXZ": 4700976,
     "?unknown_47bfa0@CellClass@@QAEHH@Z": 4702112,
-    "?unknown_4752b0@CellClass@@QBE?AVRect@@XZ": 4674224,
+    "?Cell_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4674224,
     "?Clear@?$VectorClass@PBVBuildingTypeClass@@@@UAEXXZ": 5206272,
     "?AI@StripClass@SidebarClass@@QAE_NAAHABUPoint2D@@@Z": 6811728,
     "?Unknown_006F8A00@@YIXPAVBuildingClass@@@Z": 7309824,
@@ -12875,7 +12875,7 @@
     "?Remove@?$WolArrayList@VWstring@@@@QAE_NH@Z": 7758320,
     "?search_compfunc@?$IndexClass@HPAVObjectClass@@@@CAHPBX0@Z": 6482640,
     "?Read_INI@UnitTypeClass@@UAE_NAAVCCINIClass@@@Z": 7383872,
-    "?unknown_471d10@CellClass@@QAE_NXZ": 4660496,
+    "?Fixup_LAT@CellClass@@QAE_NXZ": 4660496,
     "?Planning_House@@YIHPAVTechnoClass@@@Z": 6358896,
     "?Unknown_00615B60@PlanningNodeClass@@QAEXXZ": 6380384,
     "?Is_At@PlanningNodeClass@@QBE_NUCoordStruct@@@Z": 6361872,
@@ -15250,7 +15250,18 @@
     "??_ESelectClass@StripClass@SidebarClass@@UAEPAXI@Z": 6825024,
     "??_ESBGadgetClass@SidebarClass@@UAEPAXI@Z": 6825056,
     "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
-    "?AlphaBuffer@@3PAVZBuffer@@A": 8590772
+    "?AlphaBuffer@@3PAVZBuffer@@A": 8590772,
+    "?ID@?$DynamicVectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4378064,
+    "?ID@?$VectorClass@VCell@@@@UAEHABVCell@@@Z": 4378592,
+    "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
+    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4379344,
+    "?ID@?$VectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4642992,
+    "?ID@?$DynamicVectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4643376,
+    "?ID@?$VectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207200,
+    "?ID@?$DynamicVectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207568,
+    "?ID@?$VectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208016,
+    "?ID@?$DynamicVectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208384,
+    "?ID@?$VectorClass@U?$TRect@H@@@@UAEHABU?$TRect@H@@@Z": 5826240
   },
   "regions": [
     {
@@ -23125,7 +23136,7 @@
         {
           "offset": 126,
           "kind": 20,
-          "symbol": "?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ",
+          "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
           "target": 4659120,
           "addend": 0,
           "resolved": 4292654878
@@ -23251,7 +23262,7 @@
           "resolved": 4292840552
         }
       ],
-      "source_sha256": "9db18e907c694a629bbf4a8491594667cf489d4aad7b74dd7422f5096a3e3789",
+      "source_sha256": "e277de880c11b46532549a994e5bea637f1b607a44f04b4de5c5d2a464dcbd65",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Firestorm_Wall_Placement_006a6010.cpp",
       "population": "population-4383",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -24218,7 +24229,7 @@
         {
           "offset": 479,
           "kind": 20,
-          "symbol": "?unknown_474eb0@CellClass@@QBE?AVRect@@XZ",
+          "symbol": "?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ",
           "target": 4673200,
           "addend": 0,
           "resolved": 4292663677
@@ -24290,7 +24301,7 @@
         {
           "offset": 961,
           "kind": 20,
-          "symbol": "?unknown_475100@CellClass@@QBE?AVRect@@XZ",
+          "symbol": "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ",
           "target": 4673792,
           "addend": 0,
           "resolved": 4292663787
@@ -24320,7 +24331,7 @@
           "resolved": 4292661324
         }
       ],
-      "source_sha256": "ce2ecd3a4351293b0515d5a988b04e107951e59f424d36fb1aa36923e8e66681",
+      "source_sha256": "c6a6318cb0902d3f06a7feb8034f4c20af3cce72ef55282d9615f3b7edb95771",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Overlays_006a7350.cpp",
       "population": "population-4383",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -24381,7 +24392,7 @@
         {
           "offset": 120,
           "kind": 20,
-          "symbol": "?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ",
+          "symbol": "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ",
           "target": 4659120,
           "addend": 0,
           "resolved": 4292655556
@@ -24499,7 +24510,7 @@
           "resolved": 4292841201
         }
       ],
-      "source_sha256": "efaa1df66c43a405233c07d06b2eaebfc29b3b998280240a55d788053d55d548",
+      "source_sha256": "1ffd36b5846bfccc5cff8d3368bdada4b156de4d2398749bd166e93bc0bf5bad",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Fence_Placement_006a5d70.cpp",
       "population": "population-4383",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -25502,7 +25513,7 @@
         {
           "offset": 425,
           "kind": 20,
-          "symbol": "?unknown_4752b0@CellClass@@QBE?AVRect@@XZ",
+          "symbol": "?Cell_Render_Rect@CellClass@@QBE?AVRect@@XZ",
           "target": 4674224,
           "addend": 0,
           "resolved": 4292662627
@@ -25540,7 +25551,7 @@
           "resolved": 4292663356
         }
       ],
-      "source_sha256": "f8c0a23b6aca0caecb7fbba288979775a95b58c834409512df4f39f46e2ab8cb",
+      "source_sha256": "d7435bd87ea3b00303a56fa4b44559325ca10d4e34b003b722c8d98ae757c173",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Tiles_006a7ba0.cpp",
       "population": "population-4383",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -25879,7 +25890,7 @@
         {
           "offset": 123,
           "kind": 20,
-          "symbol": "?unknown_4752b0@CellClass@@QBE?AVRect@@XZ",
+          "symbol": "?Cell_Render_Rect@CellClass@@QBE?AVRect@@XZ",
           "target": 4674224,
           "addend": 0,
           "resolved": 4292646417
@@ -26093,7 +26104,7 @@
           "resolved": 4293583697
         }
       ],
-      "source_sha256": "abb92c1d04db3d126abdd8c1805111bf00628f91cf8475a9e950bc3a92f6d73b",
+      "source_sha256": "f963610bcae1d10bdf902107baaf917c8faf59f75b4e54ccdd755a8dee1011ef",
       "source": "src/recovered/classes/Tactical/Tactical_Debug_Draw_Occupation_Flags_006abc20.cpp",
       "population": "population-4383",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

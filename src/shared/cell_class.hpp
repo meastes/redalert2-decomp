@@ -201,10 +201,10 @@ public:
     virtual CoordStruct unknown_slot22() const;                         // 0x0047BAA0
 
     // Occupants.
-    ObjectClass *unknown_471660(Point2D const &spot, bool alt, ObjectClass *except) const;   // 0x00471660 (nearest flagged occupant to a sub-cell spot)
+    ObjectClass *Cell_Techno(Point2D const &spot, bool alt, ObjectClass *except) const;   // 0x00471660 (nearest flagged occupant to a sub-cell spot)
     ObjectClass *Find_Object(int kind, bool alt = false) const;         // 0x00471760
     ObjectClass *unknown_471830(Point2D const &spot, bool alt);         // 0x00471830 (an aircraft over the cell when the flag at 0x00A40958 is set, else the occupant nearest the spot; TeamClass 0x006BB260)
-    ObjectClass *unknown_4717b0() const;                                // 0x004717B0 (the building; kind 6)
+    ObjectClass *Cell_Building() const;                                // 0x004717B0 (the building; kind 6)
     ObjectClass *Cell_Terrain(bool alt = false) const;                  // 0x004717E0 (kind 0x24)
     ObjectClass *Cell_Unit(bool alt = false) const;                     // 0x00473E30 (kind 1)
     ObjectClass *Cell_Aircraft(bool alt = false) const;                 // 0x00473E80 (kind 2)
@@ -240,7 +240,7 @@ public:
     bool unknown_47c300(int house) const;       // 0x0047C300 (a second per-house bit test; UnitClass slot 49)
     bool unknown_47c2e0(int house) const;       // 0x0047C2E0 (overlay)
     void unknown_476920(void const *arg1, bool arg2, bool arg3, bool alt);  // 0x00476920 (scatters the occupants; alt picks AltOccupierPtr; UnitClass slot 302)
-    bool unknown_479cc0() const;                // 0x00479CC0 (Westwood's Has_Tunnel: a valid tube index and LAND_TUNNEL; UnitClass slot 27)
+    bool Has_Tunnel() const;                // 0x00479CC0 (Westwood's Has_Tunnel: a valid tube index and LAND_TUNNEL; UnitClass slot 27)
     // TibSun names. Not const in RA2: they reach Adjacent_Cell 0x00476AC0 directly, not
     // through the const wrapper (Is_Near_Tunnel_ES's inline expansions show the depth).
     bool Is_Near_Tunnel_NW();                   // 0x00479CF0
@@ -265,25 +265,25 @@ public:
     void unknown_476b20(int house, int value);  // 0x00476B20 (every other house that is not an ally (or fails 0x004F52F0) gets unknown_func_4e5dc0(the cell's map block, value); TechnoClass 0x006D95A0/0x006D95D0)
     void unknown_47a4e0();                      // 0x0047A4E0 (redraws the cell's 60x30 screen area; BuildingClass 0x0043C1F0)
     int unknown_47a5a0();                       // 0x0047A5A0 (bit per cardinal neighbour holding veins: an IsVeins overlay, or overlay 0x7E with data from 48)
-    bool unknown_475840(int overlay, int facing) const;   // 0x00475840 (whether a wall of overlay type joins this cell toward facing: the same wall, or a gate or wall tower; hypothesis)
+    bool Has_Wall_Or_Gate(int overlay, int facing) const;   // 0x00475840 (whether a wall of overlay type joins this cell toward facing: the same wall, or a gate or wall tower; hypothesis)
     bool Can_Tiberium_Germinate(TiberiumClass *tiberium);   // 0x00478BA0 (TibSun name; tiberium unused: Spread_Tiberium 0x00478A40 passes its type, other callers 0; constness unknown)
     void unknown_473d20(ObjectClass *object, bool alt);   // 0x00473D20 (unlinks object from the occupier list; MapClass 0x0054B04D)
-    Rect unknown_4752b0() const;                // 0x004752B0 (a screen rectangle of the cell's contents; hypothesis)
-    Rect unknown_474eb0() const;                // 0x00474EB0 (another; hypothesis)
-    Rect unknown_475100() const;                // 0x00475100 (another; hypothesis)
+    Rect Cell_Render_Rect() const;                // 0x004752B0 (a screen rectangle of the cell's contents; hypothesis)
+    Rect Overlay_Render_Rect() const;                // 0x00474EB0 (another; hypothesis)
+    Rect Overlay_Shadow_Render_Rect() const;                // 0x00475100 (another; hypothesis)
     unsigned int unknown_4788d0() const;        // 0x004788D0 (the under-bridge flag, bit 8 of +0x140; TeleportLocomotionClass 0x006DFF00 reads its address, not its value)
-    bool unknown_4788e0() const;                // 0x004788E0 (the ore may grow here: scenario +0x222A, ore below its last stage; hypothesis)
-    bool unknown_478950() const;                // 0x00478950 (the ore may spread from here; hypothesis)
-    bool unknown_4789d0();                      // 0x004789D0 (grows the ore through unknown_47c3a0; hypothesis)
+    bool Can_Tiberium_Grow() const;                // 0x004788E0 (the ore may grow here: scenario +0x222A, ore below its last stage; hypothesis)
+    bool Can_Tiberium_Spread() const;                // 0x00478950 (the ore may spread from here; hypothesis)
+    bool Grow_Tiberium();                      // 0x004789D0 (grows the ore through unknown_47c3a0; hypothesis)
     bool unknown_47c3a0(int tiberium, int data);    // 0x0047C3A0 (not recovered; TibSun Place_Tiberium(tib, data): Spread_Tiberium 0x00478A40 passes 3)
     int unknown_47ce70() const;                 // 0x0047CE70 (+0xF0 limited to Rules RadLevelMax, as an int)
-    bool unknown_47c200();                      // 0x0047C200 (the map allows the cell, its tile type does not refuse it, it is not blocked and holds no building or terrain object)
+    bool Can_Burrow_Here();                      // 0x0047C200 (the map allows the cell, its tile type does not refuse it, it is not blocked and holds no building or terrain object)
     void unknown_47bc80();                      // 0x0047BC80 (Westwood's Fog_Cell: fogs the diagonal cells, keeping fogged copies of their buildings)
     void unknown_47be00();                      // 0x0047BE00 (diagonal pass over the cells ahead)
-    void unknown_47be60();                      // 0x0047BE60
+    void Remove_Fogged_Objects();                      // 0x0047BE60
 
     void unknown_47a340(AbstractClass *target);   // 0x0047A340 (forgets a target)
-    void Set_unknown_3c(TagClass *tag);         // 0x0047A460
+    void Attach_Tag(TagClass *tag);         // 0x0047A460
 
     // Tiberium (OverlayClass::To_Tiberium of the overlay).
     wchar_t const *unknown_47a200() const;      // 0x0047A200 (the tiberium's UI name)
@@ -294,7 +294,7 @@ public:
     void unknown_47cbb0();                      // 0x0047CBB0
     int unknown_475db0(int amount);             // 0x00475DB0 (takes up to amount of tiberium; answers what it took; hypothesis)
     int unknown_47c040();                       // 0x0047C040
-    void unknown_47a7a0();                      // 0x0047A7A0
+    void Redraw_Veins();                      // 0x0047A7A0
 
     // Counters and scalars.
     void unknown_47c840();                      // 0x0047C840 (decrements +0x130)
@@ -360,11 +360,11 @@ public:
     void unknown_478740();                      // 0x00478740 (occupants' ObjectClass slot 61)
     // Whether an object of speed type speed may enter (zone and level -1: any;
     // arg2/arg3 ignore some blocked directions; hypothesis).
-    bool unknown_478760(int speed, bool arg2, bool arg3, int zone, int zone_type, int level, bool alt);   // 0x00478760
+    bool Is_Clear_To_Move(int speed, bool arg2, bool arg3, int zone, int zone_type, int level, bool alt);   // 0x00478760
 
     // Members other units call (not recovered yet).
-    void unknown_47c080();                      // 0x0047C080 (after the smudge changes; redraw hypothesis)
-    bool unknown_47a670() const;                // 0x0047A670 (Overlay.cpp wall pass; hypothesis)
+    void Register_For_Redraw();                      // 0x0047C080 (after the smudge changes; redraw hypothesis)
+    bool Can_Place_Veins() const;                // 0x0047A670 (Overlay.cpp wall pass; hypothesis)
     void unknown_47ad00();                      // 0x0047AD00
     bool Spread_Tiberium(bool forced);          // 0x00478A40 (TibSun name; TerrainClass::AI forces it, TiberiumClass::Process_Spread does not)
     void Set_Under_Bridge(unsigned facing, bool state);                  // 0x004732D0 (TibSun name: marks the cells one high-bridge deck piece covers; OverlayClass slot 71)
@@ -376,13 +376,13 @@ public:
 #ifdef RA2_TACTICAL_PLACEMENT
     bool Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bool drawtrans);   // 0x00473F20 (TibSun name)
 #endif
-    void unknown_475960(bool arg1);                                      // 0x00475960
-    int unknown_476ba0(bool pregame);                                    // 0x00476BA0 (Westwood's Tiberium_Adjust: the ore stage from its neighbours; answers the value)
+    void Wall_Update(bool arg1);                                      // 0x00475960
+    int Tiberium_Adjust(bool pregame);                                    // 0x00476BA0 (Westwood's Tiberium_Adjust: the ore stage from its neighbours; answers the value)
 #ifdef RA2_CELL_LAT_BOOL
     // TibSun Fixup_LAT: the original returns whether the tile changed (Commit_Deform_Grid tests it).
-    bool unknown_471d10();                      // 0x00471D10
+    bool Fixup_LAT();                      // 0x00471D10
 #else
-    void unknown_471d10();                      // 0x00471D10 (IsometricTileClass slot 71: after the tile changes; hypothesis)
+    void Fixup_LAT();                      // 0x00471D10 (IsometricTileClass slot 71: after the tile changes; hypothesis)
 #endif
     void Recalc_Attributes(int value);           // 0x00472540 (clears an overlay with -1: AnimClass 0x004226D0, TerrainClass slot 52)
     int unknown_4706c0(Point2D const &point) const;       // 0x004706C0 (height at a lepton position in the cell; hypothesis)
@@ -404,8 +404,8 @@ public:
     void Unknown_0047CC10();        // 0x0047CC10 (TibSun Kill_Illegal_Occupiers)
     class TubeClass *Unknown_0047A130();   // 0x0047A130 (the cell's tube; TibSun Get_Tunnel)
 #endif
-    bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);   // 0x00478760 (unknown_478760 above)
-    ObjectClass *Unknown_00471660(Point2D const &point, bool alt, ObjectClass *except) const;   // 0x00471660 (unknown_471660 above)
+    bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);   // 0x00478760 (Is_Clear_To_Move above)
+    ObjectClass *Unknown_00471660(Point2D const &point, bool alt, ObjectClass *except) const;   // 0x00471660 (Cell_Techno above)
     CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any, int alt) const;   // 0x004764B0 (int alt)
     void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 (Cell_Color)
     void Unknown_004798F0();        // 0x004798F0 (unknown_4798f0 above)

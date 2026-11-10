@@ -11,7 +11,7 @@ void Tactical::Draw_Fence_Placement(bool drawtrans, Cell cell)
         bool found = false;
         while (true) {
             scan = Adjacent_Cell(scan, facing);
-            building = (BuildingClass *)Map[scan].unknown_4717b0();
+            building = (BuildingClass *)Map[scan].Cell_Building();
             if (building) {
                 found = true;
                 break;

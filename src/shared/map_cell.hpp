@@ -17,7 +17,7 @@
 // map code touches, with placeholder slots; the layout is shared/cell_class.hpp's.
 class CellClass {
 public:
-    void unknown_471d10(); //actual declaration from shared/cell.hpp, original RET0
+    void Fixup_LAT(); //actual declaration from shared/cell.hpp, original RET0
     CellClass();                    // 0x00470F10
     virtual void unknown_slot0();
     virtual void unknown_slot1();
@@ -105,10 +105,10 @@ public:
     bool unknown_47c2e0(int house) const;       // 0x0047C2E0 (unknown_7c[house] > 0; TibSun Is_Sensed; DisplayClass slot 33)
     int unknown_4706c0(Point2D const &point) const;       // 0x004706C0 (height at a lepton position in the cell; as shared/cell.hpp)
     CellClass &Adjacent_Cell(unsigned facing);  // 0x00476AC0 (as shared/cell.hpp)
-    void Set_unknown_3c(class TagClass *tag);         // 0x0047A460 (as shared/cell.hpp)
-    Rect unknown_474eb0() const;    // 0x00474EB0 (as shared/cell.hpp)
-    Rect unknown_475100() const;    // 0x00475100 (as shared/cell.hpp)
-    bool unknown_479cc0() const;    // 0x00479CC0 (as shared/cell.hpp)
+    void Attach_Tag(class TagClass *tag);         // 0x0047A460 (as shared/cell.hpp)
+    Rect Overlay_Render_Rect() const;    // 0x00474EB0 (as shared/cell.hpp)
+    Rect Overlay_Shadow_Render_Rect() const;    // 0x00475100 (as shared/cell.hpp)
+    bool Has_Tunnel() const;    // 0x00479CC0 (as shared/cell.hpp)
     bool unknown_47a270();          // 0x0047A270 (a water tile; hypothesis: TibSun Is_Tile_Water)
     bool unknown_47b590() const;    // 0x0047B590 (no tile: 0 or 0xFFFF; as shared/cell.hpp)
 #ifdef RA2_MAP_BRIDGE_PIECES
@@ -116,7 +116,7 @@ public:
     bool unknown_47b7c0() const;     // 0x0047B7C0 (TibSun Is_Tile_Shore; as shared/cell_class.hpp)
 #endif
     void unknown_4724a0();          // 0x004724A0 (a wall overlay: its owner; TibSun Set_Wall_Owner; as shared/cell.hpp)
-    int unknown_476ba0(bool pregame);   // 0x00476BA0 (TibSun Tiberium_Adjust; as shared/cell.hpp)
+    int Tiberium_Adjust(bool pregame);   // 0x00476BA0 (TibSun Tiberium_Adjust; as shared/cell.hpp)
     void unknown_473000();          // 0x00473000 (drops the cell's bridge; TibSun Destroy_Bridge)
     // Whether a building of the type may be placed in the cell for the house (0x004718B0;
     // TibSun Is_Clear_To_Build; elsewhere declared with a TechnoTypeClass const *).
@@ -141,7 +141,7 @@ public:
     void unknown_47c840();          // 0x0047C840 (as shared/cell.hpp)
     void unknown_47c8a0();          // 0x0047C8A0 (as shared/cell.hpp)
     void Unknown_004798F0();        // 0x004798F0 (run over every cell by DisplayClass 0x0049E5E0)
-    class ObjectClass *unknown_4717b0() const;  // 0x004717B0 the building in the cell (as shared/cell.hpp)
+    class ObjectClass *Cell_Building() const;  // 0x004717B0 the building in the cell (as shared/cell.hpp)
     class ObjectClass *Cell_Terrain(bool alt = false) const;   // 0x004717E0 (as shared/cell.hpp)
     // Whether the cell can be entered (0x00478760; hypothesis: Is_Clear_To_Move).
     bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);

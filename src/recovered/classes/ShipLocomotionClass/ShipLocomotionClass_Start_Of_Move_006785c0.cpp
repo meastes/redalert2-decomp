@@ -109,7 +109,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                             unknown_67a710(cell);
                         } else if (ok == 6) {
                             CellClass *cellptr = &Map[cell];
-                            TechnoClass *blockage = (TechnoClass *)cellptr->unknown_471660(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
+                            TechnoClass *blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
                             if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->unknown_slot32()->IsTrain) {
                                 if (LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()) {
                                     if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
@@ -168,7 +168,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 TechnoClass *blockage;
                 {
                     CoordStruct center(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-                    blockage = (TechnoClass *)cellptr->unknown_471660(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(center) + 2 * unknown_geometry_g, 0);
+                    blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(center) + 2 * unknown_geometry_g, 0);
                 }
                 if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->unknown_slot32()->IsTrain) {
                     if (LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()) {

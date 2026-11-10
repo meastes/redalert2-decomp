@@ -57,7 +57,7 @@ bool DisplayClass::Passes_Proximity_Check_004991D0(ObjectTypeClass const *object
             if (!rect.Is_Point_Within(Point2D(newcell.X, newcell.Y))) {
                 CellClass *cellptr = &Map[newcell];
 
-                BuildingClass *newbase = (BuildingClass *)cellptr->unknown_4717b0();
+                BuildingClass *newbase = (BuildingClass *)cellptr->Cell_Building();
 
                 if (newbase != 0) {
                     if (newbase->House->ArrayIndex == house && newbase->Type->BaseNormal) {

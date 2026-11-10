@@ -49,7 +49,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
             object->Attach_Tag(0);
         }
         if (cell != unknown_geometry_k) {
-            Map[cell].Set_unknown_3c(0);
+            Map[cell].Attach_Tag(0);
         }
     }
     if (remove) {

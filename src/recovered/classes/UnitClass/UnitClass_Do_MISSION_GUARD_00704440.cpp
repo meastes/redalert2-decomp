@@ -13,7 +13,7 @@
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z=00491d10
 // @ref ?Adjacent_Cell@CellClass@@QAEAAV1@I@Z=00476ac0
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref __com_issue_error@4=00795940
 // @ref ?Control@MissionClass@@QBEPAVMissionControlClass@@XZ=005950d0
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
@@ -45,7 +45,7 @@ int UnitClass::Do_MISSION_GUARD()
         } else if (Type->Teleporter) {
             CellClass *cell = (CellClass *)unknown_slot105();
             for (int facing = 0; facing < 8; facing++) {
-                UnknownUnitBuildingView2 *building = (UnknownUnitBuildingView2 *)cell->Adjacent_Cell(facing).unknown_4717b0();
+                UnknownUnitBuildingView2 *building = (UnknownUnitBuildingView2 *)cell->Adjacent_Cell(facing).Cell_Building();
                 if (building && building->Type->Refinery && building->House == House) {
                     unknown_slot116(10, false);
                     return 1;

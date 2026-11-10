@@ -120,7 +120,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	BuildingClass * b=Unit_Dynamic_Cast<BuildingClass,6>(target);
     if(Get_Mission()==16 || MissionQueue==16) {
         Cell unload_cell=unknown_slot104()+unknown_unload_offset_851a88;
-        BuildingClass *refinery=(BuildingClass *)Map[unload_cell].unknown_4717b0();
+        BuildingClass *refinery=(BuildingClass *)Map[unload_cell].Cell_Building();
         if(refinery && Type->Harvester) {
             if(refinery->unknown_25c[5]) refinery->unknown_25c[5]->unknown_slot60();
             if(refinery->unknown_25c[6]) refinery->unknown_25c[6]->unknown_slot60();
@@ -238,12 +238,12 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			bool isbridge = unknown_slot46(0);
 
 			Cell from = Cell(unknown_slot19(0));
-			bool canburrowfrom = Map[from].unknown_47c200();
+			bool canburrowfrom = Map[from].Can_Burrow_Here();
 
 			Cell to = Cell(target->Center_Coord());
 			CellClass * tocell = &Map[to];
 			bool isunderbridgeto = ((tocell->unknown_140&0x100)!=0);
-			bool canburrowto = tocell->unknown_47c200();
+			bool canburrowto = tocell->Can_Burrow_Here();
 			int height = unknown_slot108();
 
 			if (isbridge && isunderbridgeto) {
@@ -347,8 +347,8 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			if (!doswap) {
 				bool canburrow = !unknown_slot46(0)
 					&& !(Map[target->Center_Coord()].unknown_140&0x100)
-					&& Map[unknown_slot19(0)].unknown_47c200()
-					&& Map[target->Center_Coord()].unknown_47c200();
+					&& Map[unknown_slot19(0)].Can_Burrow_Here()
+					&& Map[target->Center_Coord()].Can_Burrow_Here();
 				if (canburrow) {
 					Cell to = Cell(target->Center_Coord());
 					if (!unknown_709790(&unknown_slot106(), &to)) {

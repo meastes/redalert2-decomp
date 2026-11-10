@@ -1,4 +1,4 @@
-// void CellClass::unknown_475960(bool flag) (0x00475960): TibSun Wall_Update. For each of the four
+// void CellClass::Wall_Update(bool flag) (0x00475960): TibSun Wall_Update. For each of the four
 // neighbours and the cell itself (0x007D2B58 offsets, -1 last), computes the overlay redraw area
 // (Union of 0x00474EB0 and 0x00475100 moved by the tactical origin; the result is unused; skipped for
 // the cell itself when flag is set), redraws the cell (0x0047C080) and, for a wall overlay, rebuilds its
@@ -19,20 +19,20 @@ extern int unknown_wall_offsets_7d2b58[5];
 // helper gives the original's call order (0x00474EB0 before 0x00475100) at the dead redraw-area site.
 inline Rect const &Wall_Rect(Rect const &rect) { return rect; }
 
-void CellClass::unknown_475960(bool flag)
+void CellClass::Wall_Update(bool flag)
 {
     for (int *offset = unknown_wall_offsets_7d2b58; offset < &unknown_wall_offsets_7d2b58[5]; offset++) {
         CellClass &newcell = (CellClass &)((CellClass const *)this)->Adjacent_Cell(*offset);
         if (!flag || *offset != -1) {
-            Union(Wall_Rect(newcell.unknown_474eb0()), newcell.unknown_475100()) - unknown_rect_839630.Top_Left();
+            Union(Wall_Rect(newcell.Overlay_Render_Rect()), newcell.Overlay_Shadow_Render_Rect()) - unknown_rect_839630.Top_Left();
         }
-        newcell.unknown_47c080();
+        newcell.Register_For_Redraw();
 
         if (newcell.OverlayIndex != -1 && OverlayTypes[newcell.OverlayIndex]->Wall) {
             int icon = 0;
             unsigned i = 0;
             for (int *dir = unknown_wall_offsets_7d2b58; dir < &unknown_wall_offsets_7d2b58[4]; dir++) {
-                if (newcell.Adjacent_Cell(*dir).unknown_475840(newcell.OverlayIndex, *dir)) {
+                if (newcell.Adjacent_Cell(*dir).Has_Wall_Or_Gate(newcell.OverlayIndex, *dir)) {
                     icon |= 1 << i;
                 }
                 i++;

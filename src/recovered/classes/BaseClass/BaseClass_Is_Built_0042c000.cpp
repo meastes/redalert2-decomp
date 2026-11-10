@@ -24,7 +24,7 @@ bool BaseClass::Is_Built(int index) const
             if (cell.OverlayIndex == type->ToOverlay->ArrayIndex) {
                 return true;
             }
-            if (cell.unknown_4717b0() != 0) {
+            if (cell.Cell_Building() != 0) {
                 return true;
             }
         }

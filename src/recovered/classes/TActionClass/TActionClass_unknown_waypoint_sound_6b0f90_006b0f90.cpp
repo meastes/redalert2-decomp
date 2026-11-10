@@ -8,7 +8,7 @@
 #include "shared/map_cell.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Waypoint_Coord@UnknownIDSource@@QBE?AUCoordStruct@@H@Z=006631c0
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?Cell_Terrain@CellClass@@QBEPAVObjectClass@@_N@Z=004717e0
 // @ref _unknown_geometry_k=00abfdb0
 

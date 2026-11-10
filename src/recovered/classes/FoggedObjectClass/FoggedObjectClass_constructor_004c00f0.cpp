@@ -14,15 +14,15 @@
 // @ref ??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@=007a11b0
 // @ref ?Array@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A=00865e90
 // @ref ?Index@FoggedObjectClass@@=00865e40
-// @ref ?unknown_474eb0@CellClass@@QBE?AVRect@@XZ=00474eb0
-// @ref ?unknown_475100@CellClass@@QBE?AVRect@@XZ=00475100
+// @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
+// @ref ?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ=00475100
 // @ref ??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@IPBUDrawRecord@FoggedObjectClass@@@Z=004c2520
 FoggedObjectClass::FoggedObjectClass(CoordStruct const &coord, int arg24, int arg2c)
     : unknown_24(arg24), unknown_28(0), unknown_2c(arg2c), unknown_30(0x14), Coord(coord),
       unknown_50(Map[coord].unknown_11b), unknown_54(-1), unknown_58(0), unknown_74(true)
 {
     CellClass &cell = Map[coord];
-    unknown_40 = Union(cell.unknown_474eb0(), cell.unknown_475100());
+    unknown_40 = Union(cell.Overlay_Render_Rect(), cell.Overlay_Shadow_Render_Rect());
     unknown_40.X += unknown_tactical_83996c->TacPixelX;
     unknown_40.Y += unknown_tactical_83996c->TacPixelY;
     unknown_40 -= Point2D(unknown_int_839630, unknown_int_839634);

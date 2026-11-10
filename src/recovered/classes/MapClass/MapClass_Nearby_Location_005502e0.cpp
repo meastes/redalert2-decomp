@@ -41,7 +41,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                 cellptr = &Map[newcell];
                 if (Unknown_0055A740(cellptr, true) && Unknown_00550CF0(newcell, dimensions.X, dimensions.Y, speed, zone, check, -1, checkbridge, checkoverlay)) {
                     if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
-                        if ((!checkburrow || cellptr->unknown_47c200()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
+                        if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
                             if (checkbridge || newcell == unknown_tactical_83996c->Coord_To_Cell(CoordStruct(newcell, 0))) {
                                 found = true;
@@ -57,7 +57,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                 cellptr = &Map[newcell];
                 if (Unknown_0055A740(cellptr, true) && Unknown_00550CF0(newcell, dimensions.X, dimensions.Y, speed, zone, check, -1, checkbridge, checkoverlay)) {
                     if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
-                        if ((!checkburrow || cellptr->unknown_47c200()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
+                        if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
                             if (checkbridge || newcell == unknown_tactical_83996c->Coord_To_Cell(CoordStruct(newcell, 0))) {
                                 found = true;
@@ -77,7 +77,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
                 cellptr = &Map[newcell];
                 if (Unknown_0055A740(cellptr, true) && Unknown_00550CF0(newcell, dimensions.X, dimensions.Y, speed, zone, check, -1, checkbridge, checkoverlay)) {
                     if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
-                        if ((!checkburrow || cellptr->unknown_47c200()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
+                        if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                             candidates[count++] = newcell;
                             if (checkbridge || newcell == unknown_tactical_83996c->Coord_To_Cell(CoordStruct(newcell, 0))) {
                                 found = true;
@@ -91,7 +91,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
             cellptr = &Map[newcell];
             if (Unknown_0055A740(cellptr, true) && Unknown_00550CF0(newcell, dimensions.X, dimensions.Y, speed, zone, check, -1, checkbridge, checkoverlay)) {
                 if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->unknown_11b) < 2) {
-                    if ((!checkburrow || cellptr->unknown_47c200()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
+                    if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
                         candidates[count++] = newcell;
                         if (checkbridge || newcell == unknown_tactical_83996c->Coord_To_Cell(CoordStruct(newcell, 0))) {
                             found = true;

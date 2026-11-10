@@ -13,7 +13,7 @@
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_475960@CellClass@@QAEX_N@Z=00475960
+// @ref ?Wall_Update@CellClass@@QAEX_N@Z=00475960
 
 void HouseClass::Sell_Wall(Cell const &cell, bool quiet)
 {
@@ -41,7 +41,7 @@ void HouseClass::Sell_Wall(Cell const &cell, bool quiet)
                         Map[cell].OverlayData = 0;
                         Map[cell].unknown_50 = -1;
                         Map[cell].Recalc_Attributes(-1);
-                        Map[cell].unknown_475960(false);
+                        Map[cell].Wall_Update(false);
                         Map.Radar_Background(cell);
                         Unknown_006D7C80(&Map[cell]);
                         Map.Update_Cell_Zone(cell);

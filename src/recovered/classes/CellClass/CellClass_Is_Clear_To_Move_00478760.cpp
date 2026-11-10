@@ -1,4 +1,4 @@
-// bool CellClass::unknown_478760(int speed, bool arg2, bool arg3, int zone,
+// bool CellClass::Is_Clear_To_Move(int speed, bool arg2, bool arg3, int zone,
 // int zone_type, int level, bool alt) (0x00478760): whether an object of the
 // speed type may enter the cell (hypothesis): the map zone and the level (the
 // cell's own, or four above on a bridge) must match when given; the blocked
@@ -12,7 +12,7 @@
 // @ref ?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A=00a35de8
 // @ref ?Ground@@3PAUGroundType@@A=00850ea0
 
-bool CellClass::unknown_478760(int speed, bool arg2, bool arg3, int zone, int zone_type, int level, bool alt)
+bool CellClass::Is_Clear_To_Move(int speed, bool arg2, bool arg3, int zone, int zone_type, int level, bool alt)
 {
     if (speed == 4) {
         return true;

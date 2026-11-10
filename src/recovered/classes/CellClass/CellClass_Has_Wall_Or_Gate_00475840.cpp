@@ -1,4 +1,4 @@
-// bool CellClass::unknown_475840(int overlay, int facing) const (0x00475840):
+// bool CellClass::Has_Wall_Or_Gate(int overlay, int facing) const (0x00475840):
 // whether a wall of the overlay type joins this cell toward facing: the cell
 // holds the same overlay; for no overlay (-1), it holds overlay 2 or 0x1A; for
 // overlays 2 and 0 a living GDI gate across facing (GDIGateOne for facings 2
@@ -9,7 +9,7 @@
 #include "shared/rules.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 
-bool CellClass::unknown_475840(int overlay, int facing) const
+bool CellClass::Has_Wall_Or_Gate(int overlay, int facing) const
 {
     if (OverlayIndex == overlay && OverlayIndex != -1) {
         return true;

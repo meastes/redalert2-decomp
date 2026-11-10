@@ -1,10 +1,10 @@
-// ObjectClass *CellClass::unknown_471660(Point2D const &spot, bool alt, ObjectClass *except) const
+// ObjectClass *CellClass::Cell_Techno(Point2D const &spot, bool alt, ObjectClass *except) const
 // (0x00471660): Westwood's Cell_Techno. The techno occupier (alt: on the bridge) other than except
 // closest to the pixel spot inside the cell.
 #include "shared/cell.hpp"
 #include "shared/object.hpp"
 
-ObjectClass *CellClass::unknown_471660(Point2D const &spot, bool alt, ObjectClass *except) const
+ObjectClass *CellClass::Cell_Techno(Point2D const &spot, bool alt, ObjectClass *except) const
 {
     ObjectClass *object;
     CoordStruct click;

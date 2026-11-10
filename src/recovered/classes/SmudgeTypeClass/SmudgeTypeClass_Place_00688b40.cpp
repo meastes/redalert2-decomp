@@ -3,7 +3,7 @@
 // cell's piece number (row * Width + column).
 #include "shared/smudge_type.hpp"
 #include "shared/map_view.hpp"
-// @ref ?unknown_47c080@CellClass@@QAEXXZ=0047c080
+// @ref ?Register_For_Redraw@CellClass@@QAEXXZ=0047c080
 
 void SmudgeTypeClass::Place(Cell const &cell) const
 {
@@ -13,7 +13,7 @@ void SmudgeTypeClass::Place(Cell const &cell) const
             CellClass &here = Map[pos];
             here.SmudgeIndex = ArrayIndex;
             here.SmudgeData = y * Width + x;
-            here.unknown_47c080();
+            here.Register_For_Redraw();
         }
     }
 }

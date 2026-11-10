@@ -78,7 +78,7 @@ static TechnoClass *_Who_Can_Pop_Out_Of(Cell origin)
             ptr = &ptr->Adjacent_Cell(f);
         }
 
-        TechnoClass *building = (TechnoClass *)ptr->unknown_4717b0();
+        TechnoClass *building = (TechnoClass *)ptr->Cell_Building();
         if (building && building->Strength > 0) {
             candidate = building;
         }

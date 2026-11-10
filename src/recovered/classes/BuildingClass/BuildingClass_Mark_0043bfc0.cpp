@@ -73,7 +73,7 @@ bool BuildingClass::Mark(int mark)
                         for (y = 0; y < h + 2; y++) {
                             for (x = 0; x < w + 2; x++) {
                                 Cell snewcell = cell + Cell(x - 1, y - 1);
-                                Map[snewcell].unknown_47c080();
+                                Map[snewcell].Register_For_Redraw();
                             }
                         }
 
@@ -132,7 +132,7 @@ bool BuildingClass::Mark(int mark)
                     for (y = 0; y < h + 2; y++) {
                         for (x = 0; x < w + 2; x++) {
                             Cell snewcell = cell + Cell(x - 1, y - 1);
-                            Map[snewcell].unknown_47c080();
+                            Map[snewcell].Register_For_Redraw();
                         }
                     }
                 }

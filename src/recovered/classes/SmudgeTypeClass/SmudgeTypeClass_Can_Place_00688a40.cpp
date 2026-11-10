@@ -6,7 +6,7 @@
 #include "shared/map_view.hpp"
 #include "shared/isometric_tile.hpp"
 // @ref ?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z=0054aab0
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?IsoTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A=00a40cd0
 
 bool SmudgeTypeClass::Can_Place(Cell const &cell, bool arg2) const
@@ -18,7 +18,7 @@ bool SmudgeTypeClass::Can_Place(Cell const &cell, bool arg2) const
             if (!Map.Unknown_0054AAB0(cell) || here.unknown_11c || here.SmudgeIndex != -1 || here.OverlayIndex != -1) {
                 return false;
             }
-            if (!arg2 && here.unknown_4717b0() != 0) {
+            if (!arg2 && here.Cell_Building() != 0) {
                 return false;
             }
             int tile = here.IsoTileIndex;

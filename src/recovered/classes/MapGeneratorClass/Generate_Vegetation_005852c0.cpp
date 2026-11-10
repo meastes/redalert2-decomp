@@ -82,7 +82,7 @@ void MapGeneratorClass::Generate_Vegetation()
     Map.Reset_Iterator();
     cell=Map.Iterate();
     while(cell) {
-        cell->unknown_471d10();
+        cell->Fixup_LAT();
         cell=Map.Iterate();
     }
 

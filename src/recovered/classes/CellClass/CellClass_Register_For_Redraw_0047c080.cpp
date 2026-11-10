@@ -6,13 +6,13 @@
 #include "shared/tactical.hpp"
 #include "shared/terrain.hpp"
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?unknown_4752b0@CellClass@@QBE?AVRect@@XZ=004752b0
-// @ref ?unknown_474eb0@CellClass@@QBE?AVRect@@XZ=00474eb0
-// @ref ?unknown_475100@CellClass@@QBE?AVRect@@XZ=00475100
+// @ref ?Cell_Render_Rect@CellClass@@QBE?AVRect@@XZ=004752b0
+// @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
+// @ref ?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ=00475100
 
-void CellClass::unknown_47c080()
+void CellClass::Register_For_Redraw()
 {
-    Rect rect = Union(Union(unknown_4752b0(), unknown_474eb0()), unknown_475100());
+    Rect rect = Union(Union(Cell_Render_Rect(), Overlay_Render_Rect()), Overlay_Shadow_Render_Rect());
     unknown_tactical_83996c->Register_Dirty_Area(rect - unknown_rect_839630.Top_Left(), 0);
     Map.Radar_Background(MapCoords);
 }

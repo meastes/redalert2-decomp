@@ -8,7 +8,7 @@ extern int unknown_tileset_a6e0e8;
 // @ref ?unknown_tileset_a6e0e8@@=00a6e0e8
 // @ref ?Place_Tile_Patch@MapGeneratorClass@@=00586340
 // @ref ?Place_Forest@MapGeneratorClass@@=00585dc0
-// @ref ?unknown_471d10@CellClass@@=00471d10
+// @ref ?Fixup_LAT@CellClass@@=00471d10
 void MapGeneratorClass::Generate_Arctic_Vegetation()
 {
     Map.Reset_Iterator();
@@ -37,7 +37,7 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
     Map.Reset_Iterator();
     cell=Map.Iterate();
     while(cell) {
-        cell->unknown_471d10();
+        cell->Fixup_LAT();
         cell=Map.Iterate();
     }
     int remaining=(int)((SeedData.Width*0.1+0.7)*(SeedData.Vegetation*0.01)*MaxTrees);

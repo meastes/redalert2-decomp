@@ -9,7 +9,7 @@
 #include "shared/map_techno.hpp"
 #include "shared/house_screen.hpp"
 #include "shared/unknown_geometry.hpp"
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 
 CoordStruct MapClass::Unknown_00569FB0(CoordStruct const &from, CoordStruct const &to, HouseClass *house)
 {
@@ -21,7 +21,7 @@ CoordStruct MapClass::Unknown_00569FB0(CoordStruct const &from, CoordStruct cons
             int step = current_cell.Y < target_cell.Y ? 1 : -1;
 
             while (current_cell != target_cell) {
-                BuildingClass *building = (BuildingClass *)Map[current_cell].unknown_4717b0();
+                BuildingClass *building = (BuildingClass *)Map[current_cell].Cell_Building();
                 if (building != 0 && building->Type->FirestormWall) {
                     HouseClass *owner = building->House;
                     if (owner->FirestormActive && owner != house) {
@@ -38,7 +38,7 @@ CoordStruct MapClass::Unknown_00569FB0(CoordStruct const &from, CoordStruct cons
             int step = current_cell.X < target_cell.X ? 1 : -1;
 
             while (current_cell != target_cell) {
-                BuildingClass *building = (BuildingClass *)Map[current_cell].unknown_4717b0();
+                BuildingClass *building = (BuildingClass *)Map[current_cell].Cell_Building();
                 if (building != 0 && building->Type->FirestormWall) {
                     HouseClass *owner = building->House;
                     if (owner->FirestormActive && owner != house) {
@@ -62,7 +62,7 @@ CoordStruct MapClass::Unknown_00569FB0(CoordStruct const &from, CoordStruct cons
             double inv_delta_y = 1.0 / (double)delta_y;
 
             while ((x_progress <= 1.0 || y_progress <= 1.0) && x_progress >= 0.0 && y_progress >= 0.0) {
-                BuildingClass *building = (BuildingClass *)Map[CoordStruct(current_x, current_y, 0)].unknown_4717b0();
+                BuildingClass *building = (BuildingClass *)Map[CoordStruct(current_x, current_y, 0)].Cell_Building();
                 if (building != 0 && building->Type->FirestormWall) {
                     HouseClass *owner = building->House;
                     if (owner->FirestormActive && owner != house) {

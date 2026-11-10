@@ -7,8 +7,8 @@
 #include "shared/rules.hpp"
 #include "shared/tactical.hpp"
 #include "shared/unknown_globals.hpp"
-// @ref ?unknown_474eb0@CellClass@@QBE?AVRect@@XZ=00474eb0
-// @ref ?unknown_475100@CellClass@@QBE?AVRect@@XZ=00475100
+// @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
+// @ref ?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ=00475100
 
 bool Cell::Unknown_00493C80()
 {
@@ -17,7 +17,7 @@ bool Cell::Unknown_00493C80()
         if (cell.OverlayIndex != -1) {
             OverlayTypeClass *type = OverlayTypes[cell.OverlayIndex];
             if (type == Rules->unknown_f0 || type == Rules->unknown_f4 || type == Rules->unknown_f8) {
-                Rect rect = Union(cell.unknown_474eb0(), cell.unknown_475100());
+                Rect rect = Union(cell.Overlay_Render_Rect(), cell.Overlay_Shadow_Render_Rect());
                 rect.Y -= unknown_int_839634;
                 unknown_tactical_83996c->Register_Dirty_Area(rect, 0);
                 cell.OverlayIndex = -1;

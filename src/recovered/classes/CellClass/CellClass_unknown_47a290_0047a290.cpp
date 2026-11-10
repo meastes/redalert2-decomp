@@ -5,7 +5,7 @@
 #include "shared/cell.hpp"
 // @ref ?unknown_flag_a40958@@3_NA=00a40958
 // @ref ?unknown_4706c0@CellClass@@QBEHABUPoint2D@@@Z=004706c0
-// @ref ?unknown_471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
+// @ref ?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
 #include "shared/building_class.hpp"
 #include "shared/building_type_class.hpp"
 
@@ -16,11 +16,11 @@ int CellClass::unknown_47a290() const
         Point2D center = Point2D(128, 128);
         height = unknown_4706c0(center);
     }
-    BuildingClass *building = (BuildingClass *)unknown_4717b0();
+    BuildingClass *building = (BuildingClass *)Cell_Building();
     if (building != 0) {
         CoordStruct dimensions = building->Type->unknown_slot31();
         height += dimensions.Z;
-    } else if (unknown_471660(Point2D(0, 0), false, 0) != 0) {
+    } else if (Cell_Techno(Point2D(0, 0), false, 0) != 0) {
         height += 0x55;
     }
     return height;

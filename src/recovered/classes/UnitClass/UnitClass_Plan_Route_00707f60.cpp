@@ -13,7 +13,7 @@
 // @ref ?Nearby_Location@MapClass@@=005502e0
 // @ref ?Zone@MapClass@@=0054f8f0
 // @ref ?Unknown_0054F7C0@MapClass@@=0054f7c0
-// @ref ?unknown_47c200@CellClass@@=0047c200
+// @ref ?Can_Burrow_Here@CellClass@@=0047c200
 // @ref ?unknown_709790@UnitClass@@=00709790
 
 AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
@@ -22,11 +22,11 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
     unknown_478.Clear();
     bool leaving_bridge=unknown_slot46(0);
     Cell origin=Cell(unknown_slot19(0));
-    bool origin_burrow=Map[origin].unknown_47c200() || unknown_slot108()<0;
+    bool origin_burrow=Map[origin].Can_Burrow_Here() || unknown_slot108()<0;
     Cell goal=Cell(target->Center_Coord());
     CellClass *goal_cell=&Map[goal];
     bool goal_bridge=(goal_cell->unknown_140&0x100)!=0;
-    bool goal_burrow=goal_cell->unknown_47c200();
+    bool goal_burrow=goal_cell->Can_Burrow_Here();
     if (leaving_bridge) {
         if (goal_bridge) {
             Cell departure=Map.Unknown_005651E0(origin,goal);

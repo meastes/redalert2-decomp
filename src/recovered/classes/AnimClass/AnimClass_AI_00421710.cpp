@@ -87,7 +87,7 @@ void AnimClass::AI()
                                     new OverlayClass(OverlayTypes[Class->TiberiumSpawnType->ArrayIndex+Random_Pick(0,3)],cell->Fetch_CellID(),-1);
                                     unsigned char data=(unsigned char)Random_Pick(0,2);
                                     cell->OverlayData=data;
-                                    Rect overlay=cell->unknown_474eb0();
+                                    Rect overlay=cell->Overlay_Render_Rect();
                                     overlay.Y-=unknown_rect_839630.Y;
                                     update=Union(update,overlay);
                                 }
@@ -105,7 +105,7 @@ void AnimClass::AI()
         if (Class->TrailerAnim && (Class->TrailerSeperation==1 || Frame%Class->TrailerSeperation==0))
             new AnimClass(Class->TrailerAnim,Center_Coord(),1,1,0x600,0);
     }
-    if (Class==Rules->DropZoneAnim && Map[Center_Coord()].unknown_4717b0()) unknown_17b=true;
+    if (Class==Rules->DropZoneAnim && Map[Center_Coord()].Cell_Building()) unknown_17b=true;
     if (unknown_17b) { unknown_slot60(); return; }
     if (unknown_17c) { unknown_17c=false; return; }
     if (LoopDelay) {

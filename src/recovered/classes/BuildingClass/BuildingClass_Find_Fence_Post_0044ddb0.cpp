@@ -3,7 +3,7 @@
 #include "shared/cell.hpp"
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?Current@FacingClass@@=004b8be0
-// @ref ?unknown_4717b0@CellClass@@=004717b0
+// @ref ?Cell_Building@CellClass@@=004717b0
 // Find a same-owner fence post along the requested cell direction.
 BuildingClass *BuildingClass::unknown_44ddb0(int facing, bool through_fences, int max_range)
 {
@@ -21,7 +21,7 @@ BuildingClass *BuildingClass::unknown_44ddb0(int facing, bool through_fences, in
         Cell const &offset=AdjacentCell[facing&7];
         Cell next=Cell((short)(offset.X+cell.X),(short)(offset.Y+cell.Y));
         cell=next;
-        BuildingClass *building=static_cast<BuildingClass *>(Map[cell].unknown_4717b0());
+        BuildingClass *building=static_cast<BuildingClass *>(Map[cell].Cell_Building());
         if(building) {
             if(building->Type->LaserFencePost && Owner()==building->Owner()) result=building;
             if(!through_fences || !building->Type->LaserFence || Owner()!=building->Owner()

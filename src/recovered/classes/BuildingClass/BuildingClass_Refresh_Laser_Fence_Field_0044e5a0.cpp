@@ -5,7 +5,7 @@
 #include "shared/rules.hpp"
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?Current@FacingClass@@=004b8be0
-// @ref ?unknown_4717b0@CellClass@@=004717b0
+// @ref ?Cell_Building@CellClass@@=004717b0
 // @ref ?unknown_44ddb0@BuildingClass@@=0044ddb0
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 void BuildingClass::unknown_44e5a0(int force)
@@ -22,7 +22,7 @@ void BuildingClass::unknown_44e5a0(int force)
             Cell position=AdjacentCell[facing&7]+Coord_Cell(Center_Coord());
             Cell const &offset=AdjacentCell[facing&7];
             Cell current=position;
-            BuildingClass *segment=static_cast<BuildingClass *>(Map[current].unknown_4717b0());
+            BuildingClass *segment=static_cast<BuildingClass *>(Map[current].Cell_Building());
             unsigned axis=facing&3;
             if(segment && segment->Type->LaserFence && Owner()==segment->Owner()
                && (Dir_To_8(segment->unknown_2e0.Current())&3)==axis) {
@@ -75,7 +75,7 @@ void BuildingClass::unknown_44e5a0(int force)
                         ++distance;
                         Cell next=current+offset;
                         current=next;
-                        segment=static_cast<BuildingClass *>(Map[current].unknown_4717b0());
+                        segment=static_cast<BuildingClass *>(Map[current].Cell_Building());
                     }
                     if(connected && last) {
                         if(first==last) {

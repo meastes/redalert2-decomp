@@ -1,4 +1,4 @@
-// bool CellClass::unknown_47a670() const (0x0047A670): whether veins may
+// bool CellClass::Can_Place_Veins() const (0x0047A670): whether veins may
 // spread into the cell (hypothesis; OverlayClass 0x005DC180 and
 // VeinholeMonsterClass 0x00710BB0 ask it): the cell's +0x11C is below 5, its
 // land type is not 2, 3, 8 or 6, it has no overlay or a vein overlay, and
@@ -8,7 +8,7 @@
 #include "shared/overlay_type.hpp"
 // @ref ?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A=00a35de8
 
-bool CellClass::unknown_47a670() const
+bool CellClass::Can_Place_Veins() const
 {
     if (unknown_11c <= 4 && unknown_ec != 2 && unknown_ec != 3 && unknown_ec != 8 && unknown_ec != 6
         && (OverlayIndex == -1 || OverlayTypes[OverlayIndex]->IsVeins)) {

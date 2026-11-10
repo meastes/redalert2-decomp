@@ -9,8 +9,8 @@
 #include "shared/overlay_view.hpp"
 #include "shared/tactical.hpp"
 #include "shared/unknown_globals.hpp"
-// @ref ?unknown_474eb0@CellClass@@QBE?AVRect@@XZ=00474eb0
-// @ref ?unknown_475100@CellClass@@QBE?AVRect@@XZ=00475100
+// @ref ?Overlay_Render_Rect@CellClass@@QBE?AVRect@@XZ=00474eb0
+// @ref ?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ=00475100
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
 // @ref ?Unknown_00493930@UnknownMapEntry154@@QAE_NXZ=00493930
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
@@ -28,7 +28,7 @@ bool MapClass::Remove_Crate(Cell const &cell)
     } else {
         CellClass *cellptr = &(*this)[cell];
         if (cellptr->OverlayIndex != -1 && unknown_overlay_types_a35de8[cellptr->OverlayIndex]->unknown_27a) {
-            Rect dirty = Union(cellptr->unknown_474eb0(), cellptr->unknown_475100());
+            Rect dirty = Union(cellptr->Overlay_Render_Rect(), cellptr->Overlay_Shadow_Render_Rect());
             dirty.Y -= unknown_int_839634;
             unknown_tactical_83996c->Register_Dirty_Area(dirty, 0);
             cellptr->OverlayIndex = -1;

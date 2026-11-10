@@ -18,7 +18,7 @@
 // @ref ?Query@?$UnknownComPtr@UIPersist@@$1?unknown_uuid_IPersist_7cf208@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z=00454bf0
 // @ref ?unknown_func_491d10@UnknownHouseCounter@@QAEHH@Z=00491d10
 // @ref ?Adjacent_Cell@CellClass@@QAEAAV1@I@Z=00476ac0
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref __com_issue_error@4=00795940
 // @ref ?Control@MissionClass@@QBEPAVMissionControlClass@@XZ=005950d0
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
@@ -225,7 +225,7 @@ int UnitClass::Do_MISSION_HARVEST()
                 }
             }
             {
-                ObjectClass *object = Map[CoordStruct(Coord)].unknown_4717b0();
+                ObjectClass *object = Map[CoordStruct(Coord)].Cell_Building();
                 if (object != 0) {
                     BuildingTypeClass *type = ((UnknownBuildingView_007025a0 *)object)->Type;
                     if (type->Refinery || type->Weeder) {

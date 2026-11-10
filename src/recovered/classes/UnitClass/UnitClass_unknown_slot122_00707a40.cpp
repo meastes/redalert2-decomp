@@ -12,7 +12,7 @@
 // @ref __com_issue_error@4=00795940
 // @ref ?unknown_496b50@UnknownTimed@@QBE_NXZ=00496b50
 // @ref ?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e20
-// @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
+// @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 
 // A building's type (a view until shared/building.hpp is installed: the
 // type pointer follows TechnoClass at +0x418).
@@ -40,7 +40,7 @@ bool UnitClass::unknown_slot122()
         }
     } else {
         CoordStruct coord = Coord;
-        ObjectClass *building = ((CellClass *)&Map[coord])->unknown_4717b0();
+        ObjectClass *building = ((CellClass *)&Map[coord])->Cell_Building();
         if (building && ((UnknownUnitBuildingView *)building)->Type->WeaponsFactory) {
             CoordStruct where = building->Coord;
             Cell factory = Coord_Cell(where);

@@ -1,4 +1,4 @@
-// Rect CellClass::unknown_474eb0() const (0x00474EB0): Westwood's
+// Rect CellClass::Overlay_Render_Rect() const (0x00474EB0): Westwood's
 // Overlay_Render_Rect: the screen rectangle of the overlay image (the ore
 // image of the cell's tiberium and ramp, or a rubble building's).
 #include "shared/cell.hpp"
@@ -11,7 +11,7 @@
 #define SHAPE_FILE_EMPTY_RECT unknown_static_rect
 #include "shared/shape_file.hpp"
 
-Rect CellClass::unknown_474eb0() const
+Rect CellClass::Overlay_Render_Rect() const
 {
     if (OverlayIndex == -1) {
         return Rect(0, 0, 0, 0);

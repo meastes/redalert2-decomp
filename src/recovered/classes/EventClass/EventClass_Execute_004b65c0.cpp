@@ -151,7 +151,7 @@ void EventClass::Execute()
         Planning_Techno_00615480(techno, 0);
         if (techno && techno->unknown_7d && techno->House->ArrayIndex == House) {
             if (techno->Kind_Of() == 6
-                || ((techno->Kind_Of() == 1 || techno->Kind_Of() == 2) && Map[techno->Center_Coord()].unknown_4717b0())) {
+                || ((techno->Kind_Of() == 1 || techno->Kind_Of() == 2) && Map[techno->Center_Coord()].Cell_Building())) {
                 techno->unknown_slot98(-1);
             }
         }
@@ -342,7 +342,7 @@ void EventClass::Execute()
             if (techno->Mission != 0x12 && techno->Mission != 0x13 && techno->Kind_Of() != 2) {
                 Cell cell = techno->unknown_slot104();
                 if (cell != unknown_geometry_k) {
-                    ObjectClass *object = Map[cell].unknown_4717b0();
+                    ObjectClass *object = Map[cell].Cell_Building();
                     if (object && ((BuildingClass *)object)->Type->WeaponsFactory) {
                         break;
                     }

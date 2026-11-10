@@ -68,7 +68,7 @@ void CellClass::Recalc_Attributes(int cell_height)
                     }
                 }
             }
-            unknown_471d10();
+            Fixup_LAT();
             unknown_478f40();
             zone->unknown_01 = unknown_11b;
             subzone[8] = unknown_11b;
@@ -114,7 +114,7 @@ void CellClass::Recalc_Attributes(int cell_height)
         }
 
         unknown_11c = itype->unknown_func_52b6f0((unsigned char)unknown_11a);
-        unknown_471d10();
+        Fixup_LAT();
         if (OverlayIndex != -1) {
             if (OverlayClass::To_Tiberium(OverlayIndex) != -1) {
                 if (unknown_11c > 4) {

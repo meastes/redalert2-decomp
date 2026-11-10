@@ -75,7 +75,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
                         House->Sell_Wall(cellptr->MapCoords, true);
                     }
                 }
-                BuildingClass *building = static_cast<BuildingClass *>(cellptr->unknown_4717b0());
+                BuildingClass *building = static_cast<BuildingClass *>(cellptr->Cell_Building());
                 if (building != 0 && building->Type->LaserFence && building->Owner() == Owner()) {
                     Building_Refresh_Fence_Cell_0044e440(cellptr->Fetch_CellID());
                 }
@@ -158,7 +158,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
 
     if (ok && Type->LaserFencePost) {
         unknown_4ec = 0;
-        BuildingClass *building = static_cast<BuildingClass *>(Map[coord->As_Cell()].unknown_4717b0());
+        BuildingClass *building = static_cast<BuildingClass *>(Map[coord->As_Cell()].Cell_Building());
         if (building != 0 && building->Type->LaserFence && Owner() == building->Owner()) {
             building->unknown_slot60();
         }
@@ -203,7 +203,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
             Update_Firestorm_Wall_00450950();
             CellClass *cellptr = &Map[*coord];
             for (int facing = 0; facing < 8; facing += 2) {
-                BuildingClass *building = static_cast<BuildingClass *>(cellptr->Adjacent_Cell(facing).unknown_4717b0());
+                BuildingClass *building = static_cast<BuildingClass *>(cellptr->Adjacent_Cell(facing).Cell_Building());
                 if (building != 0 && building->Type->FirestormWall) {
                     building->Update_Firestorm_Wall_00450950();
                 }
@@ -250,22 +250,22 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
 
         if (Type == Rules->unknown_78c) {
             Cell cell = Map[*coord].Fetch_CellID();
-            Map[cell + Cell(1, 0)].unknown_475960(false);
-            Map[cell + Cell(-1, 0)].unknown_475960(false);
-            Map[cell + Cell(0, 1)].unknown_475960(false);
-            Map[cell + Cell(0, -1)].unknown_475960(false);
+            Map[cell + Cell(1, 0)].Wall_Update(false);
+            Map[cell + Cell(-1, 0)].Wall_Update(false);
+            Map[cell + Cell(0, 1)].Wall_Update(false);
+            Map[cell + Cell(0, -1)].Wall_Update(false);
         }
 
         if (Type == Rules->unknown_77c || Type == Rules->unknown_784) {
             Cell cell = Map[*coord].Fetch_CellID();
-            Map[cell + Cell(-1, 0)].unknown_475960(false);
-            Map[cell + Cell(3, 0)].unknown_475960(false);
+            Map[cell + Cell(-1, 0)].Wall_Update(false);
+            Map[cell + Cell(3, 0)].Wall_Update(false);
         }
 
         if (Type == Rules->unknown_780 || Type == Rules->unknown_788) {
             Cell cell = Map[*coord].Fetch_CellID();
-            Map[cell + Cell(0, -1)].unknown_475960(false);
-            Map[cell + Cell(0, 3)].unknown_475960(false);
+            Map[cell + Cell(0, -1)].Wall_Update(false);
+            Map[cell + Cell(0, 3)].Wall_Update(false);
         }
 
         if (Type->HasSpotlight) {

@@ -36,7 +36,7 @@ void Tactical::Draw_Overlays(Rect const &area)
             if (Map.Unknown_0054AAB0(cell)) {
                 CellClass *cellptr = &Map[cell];
                 if (cellptr->OverlayIndex != -1) {
-                    Rect render = cellptr->unknown_474eb0();
+                    Rect render = cellptr->Overlay_Render_Rect();
                     Rect visible = cliprect.Intersect(render);
                     if (visible.Is_Valid()) {
                         Point2D pixel;
@@ -58,7 +58,7 @@ void Tactical::Draw_Overlays(Rect const &area)
             if (Map.Unknown_0054AAB0(cell)) {
                 CellClass *cellptr = &Map[cell];
                 if (cellptr->OverlayIndex != -1) {
-                    Rect shadow = cellptr->unknown_475100();
+                    Rect shadow = cellptr->Overlay_Shadow_Render_Rect();
                     Rect visible = cliprect.Intersect(shadow);
                     if (visible.Is_Valid()) {
                         Point2D pixel;

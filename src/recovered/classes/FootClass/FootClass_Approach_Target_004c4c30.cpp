@@ -170,7 +170,7 @@ void FootClass::unknown_slot304()
             if (!unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)) continue;
             trial_cell=trial_position.As_Cell();
             if (!Map.Unknown_0055A660(trial_cell,true)) continue;
-            bool clear=Map[trial_cell].unknown_478760(unknown_slot32()->SpeedType,false,false,
+            bool clear=Map[trial_cell].Is_Clear_To_Move(unknown_slot32()->SpeedType,false,false,
                 Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,unknown_79),movement_zone,-1,true);
             if (!clear) {
                 if (Kind_Of()==15) continue;
@@ -180,7 +180,7 @@ void FootClass::unknown_slot304()
                     trial_cell=AdjacentCell[adjacent&7].TPoint2D<short>::operator+(trial_cell);
                     trial_position=CoordStruct(trial_cell);
                     if (unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)
-                        && Map[trial_cell].unknown_478760(unknown_slot32()->SpeedType,false,false,
+                        && Map[trial_cell].Is_Clear_To_Move(unknown_slot32()->SpeedType,false,false,
                             Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,unknown_79),movement_zone,-1,true)) {
                         clear=true;
                         break;
