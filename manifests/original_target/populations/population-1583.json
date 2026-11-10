@@ -4,11 +4,11 @@
     "id": "population-1583",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "7ae6f1860af9ce482e20aeebc40e4198468ce6f7665e9bc31dedf87a7acbad1a",
-    "historical_acceptance_sha256": "b4f5bec15824908f8345990c4f48818d04560a77b81860558f15ada133560691"
+    "historical_population_sha256": "16364b2fad4ebd8121f55fea557b81736bf080fb8af053bcfadb6cfa069e4c5e",
+    "historical_acceptance_sha256": "d7c935dc982ad672064c58ef9ae20a99fac394cc2d6dd3b28f280be7c263407f"
   },
   "references": {
-    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
+    "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "?target@Call_402190_0@@QAEIXZ": 4198400,
     "?target@Call_402940_0@@QAEIXZ": 4223472,
     "?target@Call_402940_1@@QAEIXZ": 4223472,
@@ -1038,11 +1038,11 @@
     "__real@8@4007e100000000000000": 7988944,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "??0ABuffer@@QAE@VRect@@@Z": 7822208,
-    "??1ABuffer@@QAE@XZ": 7822576,
-    "?Clear@ABuffer@@QAEXG@Z": 7823712,
-    "?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z": 7823808,
-    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 7824192,
+    "??0ZBuffer@@QAE@VRect@@@Z": 7822208,
+    "??1ZBuffer@@QAE@XZ": 7822576,
+    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Clear_Region_007761C0@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 7824192,
     "?Advance@EgoClass@@QAE_NH@Z": 4929136,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "__real@8@3ffc8000000000000000": 8055960,
@@ -1084,10 +1084,10 @@
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
     "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
-    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
-    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
-    "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
+    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
+    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
     "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
     "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
     "??1ABufferSwapTmp@@QAE@XZ": 4262864,
@@ -1425,7 +1425,7 @@
         {
           "offset": 28,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1433,13 +1433,13 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "b677dc4fd2c64558d7aecbd7853f3f4f9064ff02c38b2bb72fb606944f97a68e",
+      "source_sha256": "b64a19317b48874acbdf4f656e34524ca3dc15f557fc36514d7833d2e3f08e30",
       "source": "src/recovered/classes/BlitPlainXlatZRead_unsigned_short/BlitPlainXlatZRead_ushort_BlitForward_004871a0.cpp",
       "population": "population-1583",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -1468,7 +1468,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1476,13 +1476,13 @@
         {
           "offset": 78,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "39419245c0b986f158fa7540cbf8159c8323ae94d1246750c61b917ac9493e11",
+      "source_sha256": "bf3e511e5a6e40965ee2ca11ec147ad6086ee5e6d9bca433441dd166033fa507",
       "source": "src/recovered/classes/BlitTransXlatZRead_unsigned_short/BlitTransXlatZRead_ushort_BlitForward_00487230.cpp",
       "population": "population-1583",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -1511,7 +1511,7 @@
         {
           "offset": 38,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1519,13 +1519,13 @@
         {
           "offset": 103,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "57a97732acb52a0e2715be92f9796c9aac17fffc92380316006bafd3ac96ff36",
+      "source_sha256": "1b180754dcc45d916bb50b91e4e8eaea3c295450bdba18d833dbb5ef296a9243",
       "source": "src/recovered/classes/BlitTransZRemapXlatZRead_unsigned_short/BlitTransZRemapXlatZRead_ushort_BlitForward_004872d0.cpp",
       "population": "population-1583",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -1554,7 +1554,7 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1562,13 +1562,13 @@
         {
           "offset": 66,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "32f2715f8ad1ffb9d691981b02a548aecf878b7ecb06f089a5e108ab1dbf52cb",
+      "source_sha256": "7eaa46ef4248d639e18cadc596a9ec662aa740cad697c7786d59203c37d19ff3",
       "source": "src/recovered/classes/BlitTransDarkenZRead_unsigned_short/BlitTransDarkenZRead_ushort_BlitForward_00487390.cpp",
       "population": "population-1583",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -1597,7 +1597,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1605,13 +1605,13 @@
         {
           "offset": 106,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "2cdbc9b92cc860f7a0c702247687400cd8f2514848ff56390d847fc04fa89891",
+      "source_sha256": "80852db68de6a9f58cdd65b8a759d247df510bbb6e78415c786ffe91fc9fa02e",
       "source": "src/recovered/classes/BlitTransLucent75ZRead_unsigned_short/BlitTransLucent75ZRead_ushort_BlitForward_00487420.cpp",
       "population": "population-1583",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -1640,7 +1640,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1648,13 +1648,13 @@
         {
           "offset": 102,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "959d5b7b979e03900c9ef593ee0ba6f0f12e18e6ee9f2ddd5763406cbd7cf553",
+      "source_sha256": "2aa849b422b9c972382f95e0da232e205a181ba1912a701b3be5c48371b2d868",
       "source": "src/recovered/classes/BlitTransLucent50ZRead_unsigned_short/BlitTransLucent50ZRead_ushort_BlitForward_004874e0.cpp",
       "population": "population-1583",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

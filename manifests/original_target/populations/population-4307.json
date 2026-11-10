@@ -4,8 +4,8 @@
     "id": "population-4307",
     "inventory_sha256": "907352a1804d9c8f0cd2bc4e3d5f387a158a3041d8ebd7ae1631df42c764bf49",
     "gaps_sha256": "95ba998a63428c12a8821d5960dec54d41caa78da777bc7e0f16e2856c739749",
-    "historical_population_sha256": "60b0ec1ae1bf1469447d5d05bed5afff42f70ba1452fcf9c8912e6e2392df6c9",
-    "historical_acceptance_sha256": "6b42081ebe721fa6c85031c7f22e1bf2fa7e2dd43d77ec9aec5ffe32a0e4a21d"
+    "historical_population_sha256": "01923237b130c7b1501095232ced6e930dfd19a0c6cad3c16fe8319766a800f2",
+    "historical_acceptance_sha256": "6a541e9352ead5e66e790d86d4d33dcbdf10ccb2568716982180013b68073db3"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5109,7 +5109,7 @@
     "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5269856,
     "?search_compfunc@?$IndexClass@HPAVCommandClass@@@@CAHPBX0@Z": 4721664,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "?Clear@ABuffer@@QAEXG@Z": 7823712,
+    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "_strstr": 7878320,
     "?unknown_slot48@BuildingTypeClass@@UAEPAXXZ": 4581264,
@@ -5843,7 +5843,7 @@
     "?Jumpjet_Controls@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609376,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Movies@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6610064,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
+    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
     "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
@@ -10072,7 +10072,7 @@
     "??_GScrollClass@@UAEPAXI@Z": 6728800,
     "?Hide@CCToolTip@@UAEXPAUToolTipRecord@@@Z": 4645328,
     "?Increment@CounterClass@@QAEHH@Z": 4791376,
-    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
+    "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "_IID_IEnumConnections": 8060160,
     "??_7EnumConnectionsClass@@6B@": 7988732,
     "??_7?$DynamicVectorClass@UtagCONNECTDATA@@@@6B@": 7988764,
@@ -10160,10 +10160,10 @@
     "?KeyForceFire1@@3HA": 10750892,
     "?KeyForceFire2@@3HA": 10750896,
     "??8?$VectorClass@PAVEMPulseClass@@@@UBE_NABV0@@Z": 4936976,
-    "??0ABuffer@@QAE@VRect@@@Z": 7822208,
-    "??1ABuffer@@QAE@XZ": 7822576,
-    "?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z": 7823808,
-    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 7824192,
+    "??0ZBuffer@@QAE@VRect@@@Z": 7822208,
+    "??1ZBuffer@@QAE@XZ": 7822576,
+    "?Clear_Region_007761C0@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 7824192,
     "??_7?$VectorClass@PAVEgoClass@@@@6B@": 7998732,
     "?Advance@EgoClass@@QAE_NH@Z": 4929136,
     "??0?$VectorClass@PAUDDSURFACEDESC@@@@QAE@IPBQAUDDSURFACEDESC@@@Z": 4810704,
@@ -10227,9 +10227,9 @@
     "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@IPBQAVUnitTypeClass@@@Z": 5223952,
     "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z": 5224032,
     "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
-    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
-    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
-    "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
+    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
+    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
     "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
     "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
     "??1ABufferSwapTmp@@QAE@XZ": 4262864,
@@ -14407,7 +14407,7 @@
         {
           "offset": 10376,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -14415,7 +14415,7 @@
         {
           "offset": 10387,
           "kind": 20,
-          "symbol": "??1ABuffer@@QAE@XZ",
+          "symbol": "??1ZBuffer@@QAE@XZ",
           "target": 7822576,
           "addend": 0,
           "resolved": 2934985
@@ -14431,7 +14431,7 @@
         {
           "offset": 10402,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -14447,7 +14447,7 @@
         {
           "offset": 10467,
           "kind": 20,
-          "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+          "symbol": "??0ZBuffer@@QAE@VRect@@@Z",
           "target": 7822208,
           "addend": 0,
           "resolved": 2934537
@@ -14455,7 +14455,7 @@
         {
           "offset": 10472,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -14463,7 +14463,7 @@
         {
           "offset": 10480,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -14565,7 +14565,7 @@
           "resolved": 4294466971
         }
       ],
-      "source_sha256": "fe851c2917013bdb554cf93eefac5d98523f207efa4d4d883792c1a72bc1747b",
+      "source_sha256": "20b19cf20f17f3f3836a8e88a68b46e852a07207e41898421f96e44a566c1bb7",
       "source": "src/recovered/unowned/Dropship_Screen_004a6b90.cpp",
       "population": "population-4307",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

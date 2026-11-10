@@ -2,7 +2,7 @@ void UnknownRemapAlphaBlitter::Blend_Source_75(unsigned short *dest,unsigned cha
  unsigned short *cursor=alpha;
  if(count>0) {
   int remaining=count;
-  ABuffer *buffer=DepthBuffer;
+  ZBuffer *buffer=DepthBuffer;
   do {
    unsigned char index;
    if(level<*cursor && (index=*source)!=0) {

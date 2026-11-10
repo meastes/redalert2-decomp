@@ -1,7 +1,7 @@
 // Construct the 16-bit ring stored at original global 00839C6C.
-// ABuffer is the existing project name hypothesis, not an asserted RTTI identity.
+// ZBuffer is the existing project name hypothesis, not an asserted RTTI identity.
 #include "shared/blit.hpp"
-ABuffer::ABuffer(Rect area)
+ZBuffer::ZBuffer(Rect area)
 {
     Width=area.Width;
     Height=area.Height;

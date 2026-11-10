@@ -1,7 +1,7 @@
 // Depth test before accessing the source byte; wrap the supplied depth scanline.
 #include "shared/basic_depth_write_blitters.hpp"
 #include "shared/blit.hpp"
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 template <>
 void BlitPlainXlatZReadWrite<unsigned short>::BlitForward(void *target, void const *source, int length,
                                       int depth, void *depth_buffer, void *, int, int) const

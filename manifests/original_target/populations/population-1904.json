@@ -4,11 +4,11 @@
     "id": "population-1904",
     "inventory_sha256": "a94579f380e86bd909b1dc30730ec3ddc8c111aa3d55a2da00b9445550ab684a",
     "gaps_sha256": "9bf2cf2e7e4b44f46337b568deee365172565bb7e11d3097f1731c501723470d",
-    "historical_population_sha256": "0f921aee7ecb43c40a67be39ae68afc9d68aefc6b0dbacd87ec64e3b3204c4d0",
-    "historical_acceptance_sha256": "cd44d9323b6fb00dce0c79b3e3b0cb4f7c44c62c7505b69d66b1676ba90ebe66"
+    "historical_population_sha256": "ab0b5d828b2ebc5a7aa62d51f68aa1be2ccf49d17c440ccf9d4b4ee06020a46a",
+    "historical_acceptance_sha256": "b5f602c9753f515317d4d2a6b2f678c67b65f1e43feb150b27b8e4d994e98868"
   },
   "references": {
-    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
+    "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "?target@Call_402190_0@@QAEIXZ": 4198400,
     "?target@Call_402940_0@@QAEIXZ": 4223472,
     "?target@Call_402940_1@@QAEIXZ": 4223472,
@@ -1074,11 +1074,11 @@
     "__real@8@4007e100000000000000": 7988944,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "??0ABuffer@@QAE@VRect@@@Z": 7822208,
-    "??1ABuffer@@QAE@XZ": 7822576,
-    "?Clear@ABuffer@@QAEXG@Z": 7823712,
-    "?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z": 7823808,
-    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 7824192,
+    "??0ZBuffer@@QAE@VRect@@@Z": 7822208,
+    "??1ZBuffer@@QAE@XZ": 7822576,
+    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Clear_Region_007761C0@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 7824192,
     "?Advance@EgoClass@@QAE_NH@Z": 4929136,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "__real@8@3ffc8000000000000000": 8055960,
@@ -1120,10 +1120,10 @@
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
     "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
-    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
-    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
-    "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
+    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
+    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
     "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
     "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
     "??1ABufferSwapTmp@@QAE@XZ": 4262864,
@@ -1464,7 +1464,7 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1472,13 +1472,13 @@
         {
           "offset": 183,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "8be926b8d6f0a8e3fcfa382bcc536497a54b0c4a3eab7fd29eb7b70f1c58efe8",
+      "source_sha256": "a66e28cd3f88d834a08c9f69923c3e2fdbcaf2001160e88048ff4f920a8cd005",
       "source": "src/recovered/classes/RLEBlitTransXlatZRead_unsigned_char/RLEBlitTransXlatZRead_uchar_Blit_00486710.cpp",
       "population": "population-1904",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -1507,7 +1507,7 @@
         {
           "offset": 29,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1515,13 +1515,13 @@
         {
           "offset": 220,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "5677e3a733cbdaf7b167b7d7dda2524ea26cc857e7ab5b99b6606363bef41fb6",
+      "source_sha256": "ea544b5b289df025ee5729957348d2b994185fa4c1aad6825b16e8e85788225a",
       "source": "src/recovered/classes/RLEBlitTransZRemapXlatZRead_unsigned_char/RLEBlitTransZRemapXlatZRead_uchar_Blit_004867e0.cpp",
       "population": "population-1904",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -1550,7 +1550,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1558,13 +1558,13 @@
         {
           "offset": 178,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "b653dc3b43ea89c5385225194522219fbeeb21758e4f2274f2d81e3a5be53ab8",
+      "source_sha256": "050033eaaeeac1e48a0ed7aefcedd2e0971d3f451f9ba629ddb758449f7266b9",
       "source": "src/recovered/classes/RLEBlitTransRemapDestZRead_unsigned_char/RLEBlitTransRemapDestZRead_uchar_Blit_004868e0.cpp",
       "population": "population-1904",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -1593,7 +1593,7 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1601,13 +1601,13 @@
         {
           "offset": 209,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "9653c269873af3f13046c456ef174d2bdf056045bdad20bc82197747a1938b2d",
+      "source_sha256": "42087553f9d86f0922f021dfa7f8890fa790497cc4d14f5c30057776763f7260",
       "source": "src/recovered/classes/RLEBlitTransRemapXlatZRead_unsigned_char/RLEBlitTransRemapXlatZRead_uchar_Blit_004869b0.cpp",
       "population": "population-1904",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -1636,7 +1636,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1644,13 +1644,13 @@
         {
           "offset": 196,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "0e37e1902e1f47351c2dd60de90ccb0c7696b2ec0e65dafb9711489c2622fdfe",
+      "source_sha256": "975896e2a71029e56bbd2a9a07bd3dc00573f9324fc902b26b1d9ee80d9fb406",
       "source": "src/recovered/classes/RLEBlitTransXlatZReadWrite_unsigned_char/RLEBlitTransXlatZReadWrite_uchar_Blit_00486aa0.cpp",
       "population": "population-1904",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -1679,7 +1679,7 @@
         {
           "offset": 80,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1687,13 +1687,13 @@
         {
           "offset": 236,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "852c0f1c08661cf3d3f72e5f1f4931cd904205b0600126c03973e0b5c93ba8e1",
+      "source_sha256": "08f945c67208bfcdc27ea4d08e6bb6e0d55e380fefc3a541790377f778476085",
       "source": "src/recovered/classes/RLEBlitTransZRemapXlatZReadWrite_unsigned_char/RLEBlitTransZRemapXlatZReadWrite_uchar_Blit_00486b90.cpp",
       "population": "population-1904",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -1722,7 +1722,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1730,13 +1730,13 @@
         {
           "offset": 197,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "5a2e895aa6fe3725669254726bb4049b02e6bd9b9396c7fe5e4aafa46f4b9f62",
+      "source_sha256": "b0e135a37064a3f550dc63a96d20b54c8d46e16e7010131b476413c804cb1fda",
       "source": "src/recovered/classes/RLEBlitTransRemapDestZReadWrite_unsigned_char/RLEBlitTransRemapDestZReadWrite_uchar_Blit_00486ca0.cpp",
       "population": "population-1904",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -1765,7 +1765,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1773,7 +1773,7 @@
         {
           "offset": 222,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1781,13 +1781,13 @@
         {
           "offset": 231,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "aa9539525200851ff22e32c9cc4da904a83041dcc59c6c09e94a6396f544cf27",
+      "source_sha256": "54100dbea38ee24dbd303c9e3a25c04305cdb110339c97be736f54c00c8ab649",
       "source": "src/recovered/classes/RLEBlitTransRemapXlatZReadWrite_unsigned_char/RLEBlitTransRemapXlatZReadWrite_uchar_Blit_00486d80.cpp",
       "population": "population-1904",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -1816,7 +1816,7 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1824,13 +1824,13 @@
         {
           "offset": 189,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "cb2c6c845b3828cb2cd588a69a178a250c11e363f391571b6c0592d99b25c045",
+      "source_sha256": "b915b859f32b3eba5504e557217c494a98d935debc7c5b9edb70bbbced12196e",
       "source": "src/recovered/classes/RLEBlitTransXlatZRead_unsigned_short/RLEBlitTransXlatZRead_ushort_Blit_00489ba0.cpp",
       "population": "population-1904",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -1859,7 +1859,7 @@
         {
           "offset": 29,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1867,13 +1867,13 @@
         {
           "offset": 229,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "555e803c28b393d85bc229ca4542f70a80b45e77395d30a21340bef0fa0fb806",
+      "source_sha256": "37877fac86c6cc670205d862d9128b02ae5b8156077ab8e4decec5164708bb1f",
       "source": "src/recovered/classes/RLEBlitTransZRemapXlatZRead_unsigned_short/RLEBlitTransZRemapXlatZRead_ushort_Blit_00489c80.cpp",
       "population": "population-1904",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -1902,7 +1902,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1910,13 +1910,13 @@
         {
           "offset": 179,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "cd891d29a5e2a63303f6edf866b5df77b1c8b95272bb5f0c9ef0518d061dfe95",
+      "source_sha256": "f9fdd1726172bab2e0e6c2994ac6c96273fdcb1beb912f3b94bc4ef712cc0569",
       "source": "src/recovered/classes/RLEBlitTransDarkenZRead_unsigned_short/RLEBlitTransDarkenZRead_ushort_Blit_00489d90.cpp",
       "population": "population-1904",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -1945,7 +1945,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1953,13 +1953,13 @@
         {
           "offset": 234,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "01a8cb955deec0b69ef9722468dcd076f4e40f0e52d12dde3a62e1506e8eabd5",
+      "source_sha256": "7f359cfb3a3c510c0ebc5fe03b3901378f722da7cdf16c762bebf3b88e77584e",
       "source": "src/recovered/classes/RLEBlitTransLucent75ZRead_unsigned_short/RLEBlitTransLucent75ZRead_ushort_Blit_00489e60.cpp",
       "population": "population-1904",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -1988,7 +1988,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1996,13 +1996,13 @@
         {
           "offset": 227,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "9ba3b0c2f971762d3731ae0a05bfd2da5996f7ec397443d3024916ee2460a361",
+      "source_sha256": "e2cd761937ede0e6995a24c0c1e3be5e03267fc103d8d5d3047bf58a778844e8",
       "source": "src/recovered/classes/RLEBlitTransLucent50ZRead_unsigned_short/RLEBlitTransLucent50ZRead_ushort_Blit_00489f70.cpp",
       "population": "population-1904",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -2031,7 +2031,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2039,13 +2039,13 @@
         {
           "offset": 234,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "3926dc31e7d8d810123fb5749f5198667149d3d8595f74e44a61868f89c7fce8",
+      "source_sha256": "e50c48e43c0ba4afdebbf22d522fd21b07984c823b5502ed0c4d22415222c546",
       "source": "src/recovered/classes/RLEBlitTransLucent25ZRead_unsigned_short/RLEBlitTransLucent25ZRead_ushort_Blit_0048a070.cpp",
       "population": "population-1904",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2074,7 +2074,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2082,13 +2082,13 @@
         {
           "offset": 239,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "9905e08e20230a82c2e807a75386675e701cfdef202c92c91c99cfd0164021f5",
+      "source_sha256": "7d4222476cd2cba2f75488833f3bb1cfe8354f319ba4d7a1f2791c819e4617be",
       "source": "src/recovered/classes/RLEBlitTransLucent75ZReadWarp_unsigned_short/RLEBlitTransLucent75ZReadWarp_ushort_Blit_0048a180.cpp",
       "population": "population-1904",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -2117,7 +2117,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2125,13 +2125,13 @@
         {
           "offset": 232,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "7c8ad964e6733ecb96be6edf0a0ed1b7ce03aaff0616d793701b913d61c1bc8d",
+      "source_sha256": "41bfd7d2346d6a464193d40aeb9159fe7a0dfaf256c464244c2b1658610962b3",
       "source": "src/recovered/classes/RLEBlitTransLucent50ZReadWarp_unsigned_short/RLEBlitTransLucent50ZReadWarp_ushort_Blit_0048a290.cpp",
       "population": "population-1904",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -2160,7 +2160,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2168,13 +2168,13 @@
         {
           "offset": 239,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "7621f1518661ca50957ebe4bb12f65278260630234754cb3e0b37253b62db61d",
+      "source_sha256": "fbb8f1686dff0fdc12cdc7e1b3fe8856bbb920dcf70b38bc91d57517e4c6d1ef",
       "source": "src/recovered/classes/RLEBlitTransLucent25ZReadWarp_unsigned_short/RLEBlitTransLucent25ZReadWarp_ushort_Blit_0048a3a0.cpp",
       "population": "population-1904",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -2203,7 +2203,7 @@
         {
           "offset": 70,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2211,13 +2211,13 @@
         {
           "offset": 208,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "2a17d7c78627981cb3572e396cac18f9124cb0952de92ea1117e06befb0e8ed7",
+      "source_sha256": "c5a59100036330f48b9a0365803aaa5304469551ecad1652e998bb0c4bee6083",
       "source": "src/recovered/classes/RLEBlitTransXlatZReadWrite_unsigned_short/RLEBlitTransXlatZReadWrite_ushort_Blit_0048a4b0.cpp",
       "population": "population-1904",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -2246,7 +2246,7 @@
         {
           "offset": 81,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2254,13 +2254,13 @@
         {
           "offset": 245,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "d269d1b729a8b2d687c22c9cd93795960c12b9796bf497637e3a5763311969d6",
+      "source_sha256": "a5cbd64d652eae8787d5db78e618e5e8cc678283c47aaa9216a250db797f6da3",
       "source": "src/recovered/classes/RLEBlitTransZRemapXlatZReadWrite_unsigned_short/RLEBlitTransZRemapXlatZReadWrite_ushort_Blit_0048a5a0.cpp",
       "population": "population-1904",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -2289,7 +2289,7 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2297,13 +2297,13 @@
         {
           "offset": 197,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "834dffa539a21b6729b12ebc9857c4a2e5731e916c24c69cd9aa687ce97cab0b",
+      "source_sha256": "43390c5a678d93aefc2330a1598258fd55027e55ec204a04c69decf873e287eb",
       "source": "src/recovered/classes/RLEBlitTransDarkenZReadWrite_unsigned_short/RLEBlitTransDarkenZReadWrite_ushort_Blit_0048a6c0.cpp",
       "population": "population-1904",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -2332,7 +2332,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2340,7 +2340,7 @@
         {
           "offset": 233,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2348,13 +2348,13 @@
         {
           "offset": 242,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "19074fb08428d5725ca5b97027ebad206a020fe497401ffbfc8e69f7d54a2780",
+      "source_sha256": "52ec107644db992104d61591d44dc8a21e5b5a74b976dd5bfa58cee7781cb12b",
       "source": "src/recovered/classes/RLEBlitTransLucent75ZReadWrite_unsigned_short/RLEBlitTransLucent75ZReadWrite_ushort_Blit_0048a7a0.cpp",
       "population": "population-1904",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2383,7 +2383,7 @@
         {
           "offset": 73,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2391,13 +2391,13 @@
         {
           "offset": 243,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "d5cfb9986b0a9c054668ab93c3eb7730114aef9d495e8d9ad4eae1bc45c6c310",
+      "source_sha256": "7243f34ed54e66afd3a0285147d9a69962ec19a479b84037fcd2ba0cfaab17ea",
       "source": "src/recovered/classes/RLEBlitTransLucent50ZReadWrite_unsigned_short/RLEBlitTransLucent50ZReadWrite_ushort_Blit_0048a8c0.cpp",
       "population": "population-1904",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -2426,7 +2426,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2434,7 +2434,7 @@
         {
           "offset": 233,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2442,13 +2442,13 @@
         {
           "offset": 242,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "1b41000202f14baae10e80e305ec021775690109c70252f054694d7e65fa344a",
+      "source_sha256": "42d36f77fc76e8c3350eac752f7e60125a408b7f8ac88378584b726ae2003166",
       "source": "src/recovered/classes/RLEBlitTransLucent25ZReadWrite_unsigned_short/RLEBlitTransLucent25ZReadWrite_ushort_Blit_0048a9d0.cpp",
       "population": "population-1904",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2477,7 +2477,7 @@
         {
           "offset": 88,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2493,7 +2493,7 @@
         {
           "offset": 339,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2507,7 +2507,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "51c2a8d5640b992ee51b048f752f6ae43850e1050f89772504f2cbc532c1097e",
+      "source_sha256": "3320e7a6272553394abb188859f56b3aa09440a97c473fa24618316f907a9ee1",
       "source": "src/recovered/classes/RLEBlitTransXlatAlphaZRead_unsigned_short/RLEBlitTransXlatAlphaZRead_ushort_Blit_0048b0c0.cpp",
       "population": "population-1904",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -2536,7 +2536,7 @@
         {
           "offset": 154,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2552,7 +2552,7 @@
         {
           "offset": 379,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2566,7 +2566,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "be1a328a58b4eb355ece80d6468d9f7391f420360cdda66dd5c8cf6e39558709",
+      "source_sha256": "ff724659710e9171e56cf6ef14401262bf8ac07b81ae6707e5f4db5dcd7db45a",
       "source": "src/recovered/classes/RLEBlitTransZRemapXlatAlphaZRead_unsigned_short/RLEBlitTransZRemapXlatAlphaZRead_ushort_Blit_0048b240.cpp",
       "population": "population-1904",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -2595,7 +2595,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2611,7 +2611,7 @@
         {
           "offset": 398,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2625,7 +2625,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "27a446a4923ce2e42c00d0d5b08196189a4071692ea6e97a98ae552ec7170f09",
+      "source_sha256": "857314767ec4905202dc5a4afc331cd2bd9a0adc031c38c65d329ce3ab60d4b1",
       "source": "src/recovered/classes/RLEBlitTransLucent75AlphaZRead_unsigned_short/RLEBlitTransLucent75AlphaZRead_ushort_Blit_0048b3f0.cpp",
       "population": "population-1904",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -2654,7 +2654,7 @@
         {
           "offset": 95,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2670,7 +2670,7 @@
         {
           "offset": 383,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2684,7 +2684,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "95893cf5c7218d5395a541fb1d0f2362a4ce86ebb840521be3b8e7150e9f0949",
+      "source_sha256": "b641194032ff59c9f3173a912428925e8c2861ed93bb81d0d626d2f1b88ccd35",
       "source": "src/recovered/classes/RLEBlitTransLucent50AlphaZRead_unsigned_short/RLEBlitTransLucent50AlphaZRead_ushort_Blit_0048b5b0.cpp",
       "population": "population-1904",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -2713,7 +2713,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2729,7 +2729,7 @@
         {
           "offset": 398,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2743,7 +2743,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "71a499be143f9fae3232bd47431e1ad55056f7f61a20a436757723bb2ed8b71e",
+      "source_sha256": "d416435ac673d814679ce2a93b10d165bdb1ccf33c40e8f4ea1c63a0ffa06cb6",
       "source": "src/recovered/classes/RLEBlitTransLucent25AlphaZRead_unsigned_short/RLEBlitTransLucent25AlphaZRead_ushort_Blit_0048b760.cpp",
       "population": "population-1904",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -2772,7 +2772,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2804,13 +2804,13 @@
         {
           "offset": 414,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "ab1832f45fefb7f57719a8d3a863b1d66f4c17cec19129688bae9ad6bec681dc",
+      "source_sha256": "393bf5eef767fd39da454318c4c4719933a59f3a465c3b649685efa1fe4c1647",
       "source": "src/recovered/classes/RLEBlitTransLucent75AlphaZReadWarp_unsigned_short/RLEBlitTransLucent75AlphaZReadWarp_ushort_Blit_0048b920.cpp",
       "population": "population-1904",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2839,7 +2839,7 @@
         {
           "offset": 95,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2855,7 +2855,7 @@
         {
           "offset": 388,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2869,7 +2869,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "ab322901826c8a92dafe830a794dd101645ddf0ea65a901f6e51696e6473b694",
+      "source_sha256": "468343563ac941bbf3d74c27392d64750c08ce2561f128f25d02c330d5682927",
       "source": "src/recovered/classes/RLEBlitTransLucent50AlphaZReadWarp_unsigned_short/RLEBlitTransLucent50AlphaZReadWarp_ushort_Blit_0048baf0.cpp",
       "population": "population-1904",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -2898,7 +2898,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2930,13 +2930,13 @@
         {
           "offset": 414,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "1263a7223931c77d6ce485ad55305478a58c4601765f416583e15eb8ae4d59b4",
+      "source_sha256": "dd33dd7542b1a4af0fe8a6cb5bf7a08ef0452de0f7f3912ad824215a9f6a6ec1",
       "source": "src/recovered/classes/RLEBlitTransLucent25AlphaZReadWarp_unsigned_short/RLEBlitTransLucent25AlphaZReadWarp_ushort_Blit_0048bcb0.cpp",
       "population": "population-1904",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -2965,7 +2965,7 @@
         {
           "offset": 91,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2981,7 +2981,7 @@
         {
           "offset": 369,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -2995,7 +2995,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "bc3d77a7e9d90a5520530d0eabb158d70728fd2f3443dfb0837694d1bf9fcc15",
+      "source_sha256": "2999d7fc3a8040bab2cb413b04e793c5f6a4eedfde8f816d559a80071b62adb0",
       "source": "src/recovered/classes/RLEBlitTransXlatAlphaZReadWrite_unsigned_short/RLEBlitTransXlatAlphaZReadWrite_ushort_Blit_0048be80.cpp",
       "population": "population-1904",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -3024,7 +3024,7 @@
         {
           "offset": 112,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -3040,7 +3040,7 @@
         {
           "offset": 420,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -3054,7 +3054,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "c357b743737f211a044c38eadfb9b922c71097e6325583fba6b00bb492b5d8e0",
+      "source_sha256": "b16d31e16fa89d57714aea0b9f8d62e0aa06f6a7493bed2bd8bf0262bd680cfc",
       "source": "src/recovered/classes/RLEBlitTransZRemapXlatAlphaZReadWrite_unsigned_short/RLEBlitTransZRemapXlatAlphaZReadWrite_ushort_Blit_0048c020.cpp",
       "population": "population-1904",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -3083,7 +3083,7 @@
         {
           "offset": 121,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -3099,7 +3099,7 @@
         {
           "offset": 412,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -3113,7 +3113,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "7b18135325c109d094f401bfcfb3543154597df50c187120d357ddf6ab20b4d2",
+      "source_sha256": "2a05bcb0a88d82797bcfc8348369192598df9046c1f3e9c0438d6ad00ab4c5ed",
       "source": "src/recovered/classes/RLEBlitTransLucent75AlphaZReadWrite_unsigned_short/RLEBlitTransLucent75AlphaZReadWrite_ushort_Blit_0048c200.cpp",
       "population": "population-1904",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -3142,7 +3142,7 @@
         {
           "offset": 91,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -3158,7 +3158,7 @@
         {
           "offset": 439,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -3172,7 +3172,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "9b8391b8f6535424c88366d3a2e22c5469306199695fe557c71f595a069f9794",
+      "source_sha256": "07b44fbe01637cdca14c02446195c2875cfb18bec07111fd83cf59d3494cb34c",
       "source": "src/recovered/classes/RLEBlitTransLucent50AlphaZReadWrite_unsigned_short/RLEBlitTransLucent50AlphaZReadWrite_ushort_Blit_0048c3d0.cpp",
       "population": "population-1904",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -3201,7 +3201,7 @@
         {
           "offset": 121,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -3217,7 +3217,7 @@
         {
           "offset": 412,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -3231,7 +3231,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "38a2c37f369f881028b9a2b172f7c25d7c40a871461e8acc37a638b94876b690",
+      "source_sha256": "36324afde674a22b5699a43b67ed8b2aa6fa8592da8955ceb37636bb5327ccbb",
       "source": "src/recovered/classes/RLEBlitTransLucent25AlphaZReadWrite_unsigned_short/RLEBlitTransLucent25AlphaZReadWrite_ushort_Blit_0048c5c0.cpp",
       "population": "population-1904",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

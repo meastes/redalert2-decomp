@@ -19,9 +19,9 @@
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
 // @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
-// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00776340
+// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00776340
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?Brighten_Hicolor_Pixel@@YIHABVRGBClass@@HHH@Z=004ae8d0
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc
@@ -108,7 +108,7 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
     unsigned short * zbuffer = AlphaBuffer->Get_Buffer_Ptr(point);
     int start_y = start.Y;
     int zwrap = -1;
-    ABuffer *depth_buffer = DepthBuffer;
+    ZBuffer *depth_buffer = DepthBuffer;
     unsigned short z = (unsigned short)(zstart + (short)(depth_buffer->Area.Y + depth_buffer->Get_Scroll()) - start_y - rect.Y);
     int zwidth = DepthBuffer->Width;
     if (buffer != 0) {

@@ -3,7 +3,7 @@
 // single entry. As in the original, the final entry is written only when at
 // least one pair was (the tail address stays null otherwise).
 #include "shared/blit.hpp"
-void ABuffer::Fill_Words(unsigned short *pointer, int count, unsigned short value)
+void ZBuffer::Fill_Words(unsigned short *pointer, int count, unsigned short value)
 {
     if (((unsigned int)pointer & 2u) && count) {
         *pointer++=value;

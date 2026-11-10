@@ -1,7 +1,7 @@
 // Windowed pixel-run blit, full original00434B40..00435057.
 #include "shared/blit.hpp"
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?BlitRamps@@3PAUBlitRamp@@A=007ce168
 // Native839C6C carries the interpolated depth values; names of buffer classes remain hypotheses.
 bool __fastcall Bit_Blit(Surface &dest, Rect const &destwindow, Rect const &destarea,

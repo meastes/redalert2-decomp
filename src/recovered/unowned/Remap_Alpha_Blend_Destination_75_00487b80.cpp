@@ -1,6 +1,6 @@
 #include "shared/remap_alpha_blitter.hpp"
 // @ref ?DepthBuffer@@=00839c6c
-inline unsigned short *Wrap_Alpha(ABuffer *buffer,unsigned short *next) {
+inline unsigned short *Wrap_Alpha(ZBuffer *buffer,unsigned short *next) {
  if((char *)next>=buffer->BufferTail) next=(unsigned short *)((char *)next-buffer->BufferSize);
  return next;
 }
@@ -8,7 +8,7 @@ void UnknownRemapAlphaBlitter::Blend_Destination_75(unsigned short *dest,unsigne
  unsigned short *cursor=alpha;
  if(count>0) {
   int remaining=count;
-  ABuffer *buffer=DepthBuffer;
+  ZBuffer *buffer=DepthBuffer;
   do {
    unsigned char index;
    if(level<*cursor && (index=*source)!=0) {

@@ -135,7 +135,6 @@
 | [classes/UnitTypeClass](../src/recovered/classes/UnitTypeClass/) | 26 | 4,176 | 26 | 0x004D3D10–0x0070B600 |
 | [classes/PlanningTokenClass](../src/recovered/classes/PlanningTokenClass/) | 22 | 4,088 | 22 | 0x006106C0–0x00613DE0 |
 | [classes/MapPreviewClass](../src/recovered/classes/MapPreviewClass/) | 9 | 4,081 | 9 | 0x0061D440–0x0061E930 |
-| [classes/ABuffer](../src/recovered/classes/ABuffer/) | 18 | 3,958 | 18 | 0x00410A60–0x00776340 |
 | [classes/MouseClass](../src/recovered/classes/MouseClass/) | 20 | 3,933 | 19 | 0x0040D150–0x0059FF40 |
 | [classes/VQAClass](../src/recovered/classes/VQAClass/) | 33 | 3,918 | 33 | 0x0071C5F0–0x0071D7B0 |
 | [classes/Unknown84E8D0](../src/recovered/classes/Unknown84E8D0/) | 16 | 3,902 | 16 | 0x0042D960–0x0042EFD0 |
@@ -219,6 +218,8 @@
 | [classes/TubeClass](../src/recovered/classes/TubeClass/) | 16 | 2,085 | 16 | 0x004D3010–0x006EF910 |
 | [classes/GScreenClass](../src/recovered/classes/GScreenClass/) | 19 | 2,050 | 16 | 0x0040D100–0x004E1110 |
 | [classes/VersionClass](../src/recovered/classes/VersionClass/) | 15 | 2,005 | 15 | 0x004D45F0–0x007131D0 |
+| [classes/ZBuffer](../src/recovered/classes/ZBuffer/) | 10 | 1,995 | 10 | 0x00410A40–0x00776340 |
+| [classes/ABuffer](../src/recovered/classes/ABuffer/) | 9 | 1,986 | 9 | 0x00410A60–0x00411230 |
 | [classes/SoundControlsDialog](../src/recovered/classes/SoundControlsDialog/) | 2 | 1,984 | 2 | 0x00688CD0–0x00688DA0 |
 | [classes/ColorListClass](../src/recovered/classes/ColorListClass/) | 9 | 1,972 | 9 | 0x0047D7C0–0x0047DF60 |
 | [classes/ConnectionClass](../src/recovered/classes/ConnectionClass/) | 13 | 1,964 | 13 | 0x00480E20–0x00481610 |
@@ -1398,7 +1399,6 @@
 | [classes/HeaderStatics](../src/recovered/classes/HeaderStatics/) | 1 | 23 | 1 | 0x004800A0–0x004800A0 |
 | [classes/Mission](../src/recovered/classes/Mission/) | 1 | 23 | 1 | 0x005944E0–0x005944E0 |
 | [classes/Radio](../src/recovered/classes/Radio/) | 1 | 23 | 1 | 0x00636810–0x00636810 |
-| [classes/ZBuffer](../src/recovered/classes/ZBuffer/) | 1 | 23 | 1 | 0x00410A40–0x00410A40 |
 | [header_statics/0042f0a0](../src/recovered/header_statics/0042f0a0/) | 1 | 23 | 1 | 0x0042F0A0–0x0042F0A0 |
 | [header_statics/0047d2c0](../src/recovered/header_statics/0047d2c0/) | 1 | 23 | 1 | 0x0047D2C0–0x0047D2C0 |
 | [header_statics/0047d7a0](../src/recovered/header_statics/0047d7a0/) | 1 | 23 | 1 | 0x0047D7A0–0x0047D7A0 |

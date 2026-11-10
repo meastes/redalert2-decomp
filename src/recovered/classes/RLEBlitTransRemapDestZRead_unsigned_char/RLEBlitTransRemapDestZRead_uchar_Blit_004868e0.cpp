@@ -1,7 +1,7 @@
 // Decode visible RLE pixels after a signed adjustment/depth test; no depth write.
 #include "shared/rle_byte_remaining.hpp"
 #include "shared/blit.hpp"
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 template <>
 void RLEBlitTransRemapDestZRead<unsigned char>::Blit(void *target, void const *source, int length, int skip,
                       int depth, void *depth_buffer, void *, int, int, void *adjustment) const

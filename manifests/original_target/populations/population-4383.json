@@ -4,8 +4,8 @@
     "id": "population-4383",
     "inventory_sha256": "66c0f183965995a65b47b97c59055e6eca957e1cff781a5498b4362a8551cd58",
     "gaps_sha256": "b8cf9bc8d07633025048201f3b2f4d7a7e45a6ff8d1f46e6e1064514fab06f38",
-    "historical_population_sha256": "a4d51779eb1f8c0df101190ce2403f45f03fb312b8b24b2dccf2b3856f685296",
-    "historical_acceptance_sha256": "84e2da06d2e40f8d39970d079d457da35f824badd531b7b11990617c86dee443"
+    "historical_population_sha256": "1cdea6b3e99c31c03afceefa331c1ba6266cfb8a0f50e73d04591de6049e7b0c",
+    "historical_acceptance_sha256": "897ff095023c2aa230239db929d48e3455654fbe9a4864ffeef2d5f7cb9dfb31"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1730,8 +1730,8 @@
     "?unknown_4754b0@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4674736,
     "?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ": 4676960,
     "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z": 6956960,
-    "?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z": 7823808,
-    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
+    "?Clear_Region_007761C0@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "?MainWindow@@3PAUHWND__@@A": 11690968,
     "?Draw_Tiles@Tactical@@QAEXABVRect@@0@Z": 6978464,
     "?Draw_Tiles@Tactical@@QAEXABVCell@@ABVRect@@@Z": 6980960,
@@ -5001,7 +5001,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ABuffer@@QAEXG@Z": 7823712,
+    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
     "?Set_00437690@Vector3@@QAEAAU1@MMM@Z": 4421264,
     "?Scale_004376b0@Vector3@@QAEAAU1@M@Z": 4421296,
     "?Add_004376e0@Vector3@@QAEAAU1@ABU1@@Z": 4421344,
@@ -7769,7 +7769,7 @@
     "?Jumpjet_Controls@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609376,
     "?Movies@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6610064,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
+    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "??1RulesClass@@QAE@XZ": 6564320,
@@ -11050,14 +11050,14 @@
     "?BlitForward@?$BlitTranslucent50NonzeroAlpha@G@@UBEXPAXPBXHH00HH@Z": 4753136,
     "?BlitForward@?$BlitTranslucent50ZeroAlpha@G@@UBEXPAXPBXHH00HH@Z": 4753328,
     "?BlitForward@?$BlitTranslucentWriteAlpha@G@@UBEXPAXPBXHH00HH@Z": 4752576,
-    "??0ABuffer@@QAE@VRect@@@Z": 7822208,
-    "??1ABuffer@@QAE@XZ": 7822576,
-    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 7824192,
+    "??0ZBuffer@@QAE@VRect@@@Z": 7822208,
+    "??1ZBuffer@@QAE@XZ": 7822576,
+    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 7824192,
     "?Advance@EgoClass@@QAE_NH@Z": 4929136,
     "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
-    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
-    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
-    "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
+    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
+    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
     "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
     "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
     "??1ABufferSwapTmp@@QAE@XZ": 4262864,
@@ -19596,7 +19596,7 @@
         {
           "offset": 394,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -19604,7 +19604,7 @@
         {
           "offset": 399,
           "kind": 20,
-          "symbol": "?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z",
+          "symbol": "?Clear_Region_007761C0@ZBuffer@@QAEXVRect@@@Z",
           "target": 7823808,
           "addend": 0,
           "resolved": 863293
@@ -19658,7 +19658,7 @@
           "resolved": 4292681322
         }
       ],
-      "source_sha256": "89fc9e3e846109fc5e0f87c8e5892cd4d5f6ff1efceeaebacf2e3b55db24a8a5",
+      "source_sha256": "8e08e5c245ab8d2792ff202a23e1b78904858f6223c1ab8c91c8214944030e89",
       "source": "src/recovered/classes/Tactical/Tactical_Wipe_Depth_006a33f0.cpp",
       "population": "population-4383",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

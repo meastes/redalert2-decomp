@@ -2,7 +2,7 @@
 #include "shared/trans_lucent_alpha_depth_blitter.hpp"
 #include "shared/blit.hpp"
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 template <>
 void BlitTransLucent75AlphaZReadWrite<unsigned short>::BlitForward(void *target, void const *source, int length,
                                                         int depth, void *depth_buffer, void *buffer, int level, int) const

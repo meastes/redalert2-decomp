@@ -767,7 +767,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
         unknown_surface_83995c = unknown_surface_839954;
         GScreenClass::Blit(true, unknown_surface_839954);
 
-        DepthBuffer = new ABuffer(Rect(unknown_int_839630, unknown_int_839634, 480, 480 - unknown_int_839634));
+        DepthBuffer = new ZBuffer(Rect(unknown_int_839630, unknown_int_839634, 480, 480 - unknown_int_839634));
         DepthBuffer->Set_Scroll(0x8000);
         AlphaBuffer = new ABufferSwapTmp(Rect(unknown_int_839630, unknown_int_839634, 480, 480 - unknown_int_839634));
 

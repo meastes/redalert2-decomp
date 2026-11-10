@@ -4,8 +4,8 @@
     "id": "population-4405",
     "inventory_sha256": "c6b081ea298ce6ce40f3449457e2092b420dd98904de884728f60b0d33e2c164",
     "gaps_sha256": "390084c009b787bbd1e4c6e2bb4bb695461ba9c523b54b50393f91740d7d4717",
-    "historical_population_sha256": "795a7ef03beb4add170ee9d62277da1ce400d7feed3afbaa7803c31b5dbce913",
-    "historical_acceptance_sha256": "fa72a8eec1398b2ed29e342c4c2ba5785610df2a0e0f31a5e998807a770e0ea5"
+    "historical_population_sha256": "3cb2a74827f0323621aa2dadd3bcaa8db6f54b7994078928affa170c0d3d2c9c",
+    "historical_acceptance_sha256": "ebb12fedfe0a95ef7b1f818024bf31e77e6b57b9cdc367acb50998b80ed8f0a7"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1537,7 +1537,7 @@
     "?Resize@?$VectorClass@UWaypointClass@@@@UAE_NHPBUWaypointClass@@@Z": 7492848,
     "__real@8@3ff98efa351294e9c800": 8048992,
     "?Infantry@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6601296,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
+    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
@@ -1953,10 +1953,10 @@
     "?unknown_tactical_83996c@@3PAVTactical@@A": 8624492,
     "?Unknown_006A65A0@Tactical@@QAEXABVRect@@@Z": 6972832,
     "?WWMouse@@3PAVMouse@@A": 8625256,
-    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
+    "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
-    "??0ABuffer@@QAE@VRect@@@Z": 7822208,
-    "??1ABuffer@@QAE@XZ": 7822576,
+    "??0ZBuffer@@QAE@VRect@@@Z": 7822208,
+    "??1ZBuffer@@QAE@XZ": 7822576,
     "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
     "??1ABufferSwapTmp@@QAE@XZ": 4262864,
     "?unknown_slot34@SidebarClass@@UAEXXZ": 6822304,
@@ -7759,7 +7759,7 @@
     "?unknown_slot28@InfantryClass@@UAEHPAVObjectClass@@_N@Z": 5264272,
     "?Unknown_00569320@MapClass@@QAE_NABVCell@@@Z": 5673760,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "?Clear@ABuffer@@QAEXG@Z": 7823712,
+    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
     "?Closest_Color@PaletteClass@@QBEHABVRGBClass@@@Z": 6304176,
     "?unknown_slot48@BuildingTypeClass@@UAEPAXXZ": 4581264,
     "?unknown_slot27@InfantryClass@@UAEHPBVCell@@_N1@Z": 5269072,
@@ -8542,14 +8542,14 @@
     "?BlitForward@?$BlitTranslucent50NonzeroAlpha@G@@UBEXPAXPBXHH00HH@Z": 4753136,
     "?BlitForward@?$BlitTranslucent50ZeroAlpha@G@@UBEXPAXPBXHH00HH@Z": 4753328,
     "?BlitForward@?$BlitTranslucentWriteAlpha@G@@UBEXPAXPBXHH00HH@Z": 4752576,
-    "?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z": 7823808,
-    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 7824192,
+    "?Clear_Region_007761C0@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 7824192,
     "?Advance@EgoClass@@QAE_NH@Z": 4929136,
     "?Refresh@MonoClass@@QAEXHHHH@Z": 5892752,
     "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
-    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
-    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
-    "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
+    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
+    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
     "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
     "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
     "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
@@ -19743,7 +19743,7 @@
         {
           "offset": 111,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -19767,7 +19767,7 @@
         {
           "offset": 129,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -19775,7 +19775,7 @@
         {
           "offset": 143,
           "kind": 20,
-          "symbol": "??1ABuffer@@QAE@XZ",
+          "symbol": "??1ZBuffer@@QAE@XZ",
           "target": 7822576,
           "addend": 0,
           "resolved": 3002333
@@ -19791,7 +19791,7 @@
         {
           "offset": 158,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -19839,7 +19839,7 @@
         {
           "offset": 219,
           "kind": 20,
-          "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+          "symbol": "??0ZBuffer@@QAE@VRect@@@Z",
           "target": 7822208,
           "addend": 0,
           "resolved": 3001889
@@ -19847,7 +19847,7 @@
         {
           "offset": 228,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -20237,7 +20237,7 @@
           "resolved": 4294367736
         }
       ],
-      "source_sha256": "6837d99a8750849772680380985ddf6b350e8377089de2922f2284f1f048d7f1",
+      "source_sha256": "54ee8357c8936b2583b8c0262e13b631bfb7424b8802e9031498ccb6a730b901",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_unknown_slot42_00498c80.cpp",
       "population": "population-4405",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

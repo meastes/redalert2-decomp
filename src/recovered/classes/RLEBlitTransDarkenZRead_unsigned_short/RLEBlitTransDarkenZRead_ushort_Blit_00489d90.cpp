@@ -1,7 +1,7 @@
 // Darken packed channels of visible RLE pixels after a signed adjustment/depth test.
 #include "shared/rle_darken_depth.hpp"
 #include "shared/blit.hpp"
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 template <>
 void RLEBlitTransDarkenZRead<unsigned short>::Blit(void *target, void const *source, int length, int skip,
                       int depth, void *depth_buffer, void *, int, int, void *adjustment) const

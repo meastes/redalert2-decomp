@@ -4,8 +4,8 @@
     "id": "population-3492",
     "inventory_sha256": "75f37c09c5152853b983bfb4d0a960bda6a301955cb0ebe3bdeea029d0276df3",
     "gaps_sha256": "1ff519f1940af0793a8ed0a79d2e86d8f566c60ebb5b5695839e62bbc5df53f5",
-    "historical_population_sha256": "afd60ac48dc5b8ef5227d724a84ce0f49ed4fd172d4bcd91f295f3abdab5c9e8",
-    "historical_acceptance_sha256": "81f774e408e538a401f33adb416257b6f79e5eb1b4c33f8af4b1a205b573b677"
+    "historical_population_sha256": "05b1fa131c12c89739cd4b1e177c1b7cab616805b0af6b548685486948a43ba2",
+    "historical_acceptance_sha256": "ce14a44e71ad85c82940b428c6b4a197c45fdc1b1b8d9dda15812797f4703b87"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2911,7 +2911,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ABuffer@@QAEXG@Z": 7823712,
+    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
     "?Set_00434820@CoordStruct@@QAEAAU1@HHH@Z": 4409376,
     "_strstr": 7878320,
     "?unknown_slot27@InfantryClass@@UAEHPBVCell@@_N1@Z": 5269072,
@@ -4986,7 +4986,7 @@
     "??9HSVClass@@QBE_NABV0@@Z": 5239200,
     "?Read_INI@WeaponTypeClass@@UAE_NAAVCCINIClass@@@Z": 7549472,
     "?Load@WeaponTypeClass@@UAGJPAUIStream@@@Z": 7552144,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
+    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
     "?Load@RulesClass@@QAEXPAUIStream@@@Z": 6612656,
     "?Read_INI@MissionControlClass@@QAE_NAAVCCINIClass@@@Z": 5852720,

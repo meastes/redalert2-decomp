@@ -22,10 +22,10 @@
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Unknown_006A65A0@Tactical@@QAEXABVRect@@@Z=006a65a0
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
-// @ref ??0ABuffer@@QAE@VRect@@@Z=00775b80
-// @ref ??1ABuffer@@QAE@XZ=00775cf0
+// @ref ??0ZBuffer@@QAE@VRect@@@Z=00775b80
+// @ref ??1ZBuffer@@QAE@XZ=00775cf0
 // @ref ??0ABufferSwapTmp@@QAE@VRect@@@Z=00410a60
 // @ref ??1ABufferSwapTmp@@QAE@XZ=00410bd0
 // @ref ??2@YAPAXI@Z=00782017
@@ -51,7 +51,7 @@ void DisplayClass::unknown_slot42(Rect const &rect)
             delete DepthBuffer;
             DepthBuffer = 0;
         }
-        DepthBuffer = new ABuffer(unknown_rect_839630);
+        DepthBuffer = new ZBuffer(unknown_rect_839630);
         DepthBuffer->MaxValue = 0x8000;
         Debug_Printf("Allocating ZBuffer (%dx%d)\n", unknown_rect_839630.Width, unknown_rect_839630.Height);
         if (AlphaBuffer != 0) {

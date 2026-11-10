@@ -898,7 +898,7 @@ void __fastcall Dropship_Screen_004A6B90()
         delete DepthBuffer;
         DepthBuffer = 0;
     }
-    DepthBuffer = new ABuffer(alpha_area);
+    DepthBuffer = new ZBuffer(alpha_area);
 
     Show_Mouse();
 }

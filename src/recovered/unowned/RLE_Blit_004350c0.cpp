@@ -4,7 +4,7 @@
 extern unsigned char Blit_RLE_Default_Depth[];
 // @ref ?Blit_RLE_Default_Depth@@3PAEA=0084ea78
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?BlitRamps@@3PAUBlitRamp@@A=007ce168
 bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &destarea,
     Surface &source, Rect const &sourcewindow, Rect const &sourcearea,

@@ -1,7 +1,7 @@
 // Depth-test each source pixel before reading its index and translating through the alpha row.
 #include "shared/trans_remap_xlat_alpha_depth_blitter.hpp"
 #include "shared/blit.hpp"
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 template <>
 void BlitTransZRemapXlatAlphaZReadWrite<unsigned short>::BlitForward(void *target, void const *source, int length,
                                                         int depth, void *depth_buffer, void *buffer, int level, int) const

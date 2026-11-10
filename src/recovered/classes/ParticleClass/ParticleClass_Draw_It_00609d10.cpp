@@ -24,7 +24,7 @@
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 
 void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)

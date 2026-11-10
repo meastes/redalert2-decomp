@@ -2,7 +2,7 @@
 // Opaque reads consume one signed adjustment byte; zero runs advance all three cursors.
 #include "shared/rle_remap_depth.hpp"
 #include "shared/blit.hpp"
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 template <>
 void RLEBlitTransZRemapXlatZRead<unsigned char>::Blit(void *target, void const *source, int length, int skip,
                       int depth, void *depth_buffer, void *, int, int, void *adjustment) const

@@ -3,7 +3,7 @@
 #include "shared/rle_active_alpha_depth.hpp"
 #include "shared/blit.hpp"
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 template <>
 void RLEBlitTransZRemapXlatAlphaZRead<unsigned short>::Blit(void *target, void const *source, int length, int skip,
                                                     int depth, void *depth_buffer, void *buffer, int level, int, void *adjustments) const

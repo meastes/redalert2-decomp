@@ -1,7 +1,7 @@
 // Copy an area-sized block of alpha values, starting at the ring's current
 // origin, into surface at the area's position (a view of the buffer).
 #include "shared/blit.hpp"
-void ABuffer::Copy_To(::Surface &surface, Rect area)
+void ZBuffer::Copy_To(::Surface &surface, Rect area)
 {
     unsigned short *pixels = (unsigned short *)surface.Lock(Point2D(area.X, area.Y));
     unsigned short *alpha = (unsigned short *)(BufferHead + BufferOffset);

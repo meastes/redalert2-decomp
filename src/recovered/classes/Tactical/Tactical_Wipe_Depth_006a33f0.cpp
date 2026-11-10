@@ -16,8 +16,8 @@
 // @ref ?unknown_4754b0@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z=004754b0
 // @ref ?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ=00475d60
 // @ref ?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z=006a27a0
-// @ref ?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z=007761c0
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?Clear_Region_007761C0@ZBuffer@@QAEXVRect@@@Z=007761c0
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 
 // Point quotient by a scalar, zero giving the origin (TibSun RectPoint2D::operator/; file-local: as a Point2D

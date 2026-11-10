@@ -1,6 +1,6 @@
 // Clear a by-value rectangle to FFFF in the ring at original global00839C6C.
 #include "shared/blit.hpp"
-void ABuffer::Clear_Region_007761C0(Rect area)
+void ZBuffer::Clear_Region_007761C0(Rect area)
 {
     char *locked=(char *)Surface->Lock(Point2D(area.X,area.Y));
     Surface->Unlock();

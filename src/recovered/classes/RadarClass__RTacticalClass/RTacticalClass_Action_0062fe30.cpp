@@ -28,7 +28,7 @@ extern int unknown_int_8325d4;
 // @ref ?unknown_flag_a40d45@@3_NA=00a40d45
 // @ref ?unknown_int_8325d0@@3HA=008325d0
 // @ref ?unknown_int_8325d4@@3HA=008325d4
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?unknown_475d60@UnknownCellClass@@QBE?AUCoordStruct@@XZ=00475d60
 // @ref ?Unknown_0051A690@@YIPAVObjectClass@@PBVCell@@PAV1@@Z=0051a690
 

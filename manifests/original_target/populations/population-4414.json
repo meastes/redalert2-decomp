@@ -4,8 +4,8 @@
     "id": "population-4414",
     "inventory_sha256": "85447646f57a298137828c1d68c9974a5382b19b354a03e854273947f262caf1",
     "gaps_sha256": "25149f11ea60fd451156aecdeaa58236fd884bb7481f458011be849aea822183",
-    "historical_population_sha256": "d1239a882a80af90fea56c1749972efebae8259cc131f31cac0f99c440259462",
-    "historical_acceptance_sha256": "76390f8ab2d63127e34417d7e83fdfcb782b88c71931e28b545146970181985b"
+    "historical_population_sha256": "581ccd478409afbdc3b3420d1c386f8f37bab22b43e4ce813e284cf98a60b608",
+    "historical_acceptance_sha256": "d328552a33b5b4f9fa80cf5bf7a7dbe6a01b379ab09a4307a522a591b581b895"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2842,7 +2842,7 @@
     "?ID@?$DynamicVectorClass@PBVTechnoTypeClass@@@@UAEHPBQBVTechnoTypeClass@@@Z": 4956304,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "?Clear@ABuffer@@QAEXG@Z": 7823712,
+    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
     "??_7?$VectorClass@PAVEgoClass@@@@6B@": 7998732,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "??0?$VectorClass@PAUDDSURFACEDESC@@@@QAE@IPBQAUDDSURFACEDESC@@@Z": 4810704,
@@ -3099,7 +3099,7 @@
     "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@IPBQAVUnitTypeClass@@@Z": 5223952,
     "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z": 5224032,
     "?Infantry@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6601296,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
+    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
     "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
     "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
@@ -8597,7 +8597,7 @@
     "?Decrement@CounterClass@@QAEHH@Z": 4791472,
     "?Get@CounterClass@@QAEHH@Z": 4791568,
     "?Save@CounterClass@@QAEJPAUIStream@@@Z": 4791728,
-    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
+    "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "?Next@EnumConnectionsClass@@UAGJKPAUtagCONNECTDATA@@PAK@Z": 4793008,
     "?Clone@EnumConnectionsClass@@UAGJPAPAUIEnumConnections@@@Z": 4793232,
     "?Next@EnumConnectionPointsClass@@UAGJKPAPAUIConnectionPoint@@PAK@Z": 4795472,
@@ -8801,10 +8801,10 @@
     "?unknown_surface_839944@@3PAVSurface@@A": 8624452,
     "?CopyProtection_Shutdown_00491b00@@YAXXZ": 4791040,
     "__imp__FreeLibrary@4": 7971348,
-    "??0ABuffer@@QAE@VRect@@@Z": 7822208,
-    "??1ABuffer@@QAE@XZ": 7822576,
-    "?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z": 7823808,
-    "?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z": 7824192,
+    "??0ZBuffer@@QAE@VRect@@@Z": 7822208,
+    "??1ZBuffer@@QAE@XZ": 7822576,
+    "?Clear_Region_007761C0@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 7824192,
     "?Advance@EgoClass@@QAE_NH@Z": 4929136,
     "?Closest_Color@PaletteClass@@QBEHABVRGBClass@@@Z": 6304176,
     "?Set_00437690@Vector3@@QAEAAU1@MMM@Z": 4421264,
@@ -8989,9 +8989,9 @@
     "?Movies@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6610064,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
     "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
-    "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
-    "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
-    "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
+    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
+    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Clear_Region_007761A0@ZBuffer@@QAEXGVRect@@@Z": 7823776,
     "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
     "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
     "??1ABufferSwapTmp@@QAE@XZ": 4262864,
@@ -14333,7 +14333,7 @@
         {
           "offset": 557,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -14341,7 +14341,7 @@
         {
           "offset": 568,
           "kind": 20,
-          "symbol": "??1ABuffer@@QAE@XZ",
+          "symbol": "??1ZBuffer@@QAE@XZ",
           "target": 7822576,
           "addend": 0,
           "resolved": 938196
@@ -14357,7 +14357,7 @@
         {
           "offset": 583,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -23495,7 +23495,7 @@
         {
           "offset": 9201,
           "kind": 20,
-          "symbol": "??0ABuffer@@QAE@VRect@@@Z",
+          "symbol": "??0ZBuffer@@QAE@VRect@@@Z",
           "target": 7822208,
           "addend": 0,
           "resolved": 939275
@@ -23503,7 +23503,7 @@
         {
           "offset": 9206,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -23511,7 +23511,7 @@
         {
           "offset": 9223,
           "kind": 6,
-          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVZBuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -24229,7 +24229,7 @@
           "resolved": 1000704
         }
       ],
-      "source_sha256": "cdbe01fe2d5014e1f999bb7c8a1d9fe3cb0fa5861fdb4ba7784093454b7d248d",
+      "source_sha256": "45c4416efb3d3361454d07c91099d880b33175db636879f051872b5dd032fda6",
       "source": "src/recovered/startup/WinMain_0068e280.cpp",
       "population": "population-4414",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

@@ -2,7 +2,7 @@
 // Zero runs advance output, adjustments, depth and alpha; left clipping leaves adjustments unchanged.
 #include "shared/rle_alpha_blend_depth.hpp"
 #include "shared/blit.hpp"
-// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 template <>
 void RLEBlitTransLucent50AlphaZRead<unsigned short>::Blit(void *target, void const *source, int length, int skip,
