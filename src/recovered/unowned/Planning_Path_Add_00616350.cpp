@@ -2,18 +2,17 @@
 // void __fastcall Planning_Path_Add(TechnoClass *techno, PlanningNodeClass *node) (0x00616350)
 // Gives the techno a planning token if it has none, then closes its path
 // into a loop at the node when the path holds it already, else appends it.
-// Planning_Close_Loop (0x006164E0) is defined here, `inline`: this function
-// expands it; the original's out-of-line copy at 0x006164E0 is used only by
-// Planning_Execute 0x00614BA0 and stays scaffolding while Execute is unrecovered
-// (Scout1175; the definition was its own row before PlanningNodeClass::Is_At
-// 0x00611310 was reverted).
+// Planning_Close_Loop is defined here, `inline`: this function expands it, and so
+// does Planning_Close_Loop_006164e0 (0x006164E0, ra2-decomp's FUN_00639740 form),
+// the function Planning_Execute 0x00614BA0 calls.
 #include "shared/planning.hpp"
 // @ref ??0?$VectorClass@PAVPlanningNodeClass@@@@QAE@IPBQAVPlanningNodeClass@@@Z=0061bd70
 // @ref ?Planning_Path_Append@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z=006165a0
 // @ref ?unknown_flag_a76788@@3_NA=00a76788
 // @ref ?Planning_Unknown_616a50@@YIXPAVTechnoClass@@@Z=00616a50
 
-// void __fastcall Planning_Close_Loop(TechnoClass *techno, PlanningNodeClass *node) (0x006164E0)
+// void __fastcall Planning_Close_Loop(TechnoClass *techno, PlanningNodeClass *node) (inline; expanded at
+// 0x00616350 and 0x006164E0)
 // Makes the techno's path loop back to a node: the loop runs from the node's
 // index to the path's end. The first time, the members of the path's last
 // node owned by a human house get slot 81; then 0x00616A50 runs.

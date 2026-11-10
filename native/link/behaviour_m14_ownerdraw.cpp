@@ -899,6 +899,21 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
         case 0x2:                                   // WM_DESTROY
             SendMessageA(window, 0x14F, 0, 0);
             break;
+        // M26 (Scout1208): the record's flag messages (pass-6a decompile 005f4ba0 cases
+        // 0x4DD, 0x4DE, 0x4F1; 0x4DA/0x4DB go to the parent). 0x4DD with 1 makes the box a
+        // colour box (+0xCC): the skirmish/LAN colour choice sends it, and the paint below
+        // and the drop list fill the rows with their colours (+0x110) instead of text.
+        case 0x4DD:
+            record->item_fills_cc = lparam == 1;
+            break;
+        case 0x4DE:                                 // +0xD0 (int; meaning unknown)
+            memcpy(record->unknown_ce + (0xD0 - 0xCE), &lparam, sizeof(int));
+            break;
+        case 0x4F1:
+            record->alternate_cd = lparam == 1;
+            break;
+        case 0x4DA: case 0x4DB:
+            return SendMessageA(GetParent(window), message, wparam, lparam);
         }
     }
     if (!record || message != 0xF) {

@@ -37,6 +37,7 @@
 #include "shared/super.hpp"
 #include "shared/super_weapon_type.hpp"
 #include "shared/laser_draw.hpp"
+#include "shared/wave.hpp"
 
 #include <stdlib.h>
 
@@ -188,6 +189,28 @@ int Scripted_Order(char const *command)
             new LaserDrawClass(start, end, 0, false, RGBClass(255, 64, 64), blinks ? RGBClass(80, 80, 255) : RGBClass(0, 0, 0),
                                RGBClass(40, 40, 120), 90, blinks, true, 1.0f, 0.2f);
         }
+        return 1;
+    }
+    if (Same(word[1], "wave", 5)) {
+        // `wave` (Scout1208, M26; test scaffolding): a sonic wave (type 0, the dolphin's)
+        // from the player's first unit at its first building, the unit's target set to the
+        // building as a firing unit's would be (the wave follows while the target holds),
+        // and a laser wave (type 1, same owner) from the building 10 cells east: covers
+        // WaveClass::Draw_Sonic 0x007225B0 and Draw_Laser 0x00722CB0.
+        HouseClass *player = unknown_player_a35db4;
+        if (player == 0 || player->Buildings.Count() == 0) return -1;
+        ObjectClass *building = player->Buildings[0];
+        TechnoClass *unit = 0;
+        for (int i = 0; i < Technos.Count() && unit == 0; ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno && techno->House == player && techno->Kind_Of() == 1) unit = techno;
+        }
+        if (unit == 0) return -1;
+        unit->unknown_228 = building;
+        new WaveClass(unit->Coord, building->Coord, unit, 0, building);
+        CoordStruct end = building->Coord;
+        end.X += 2560;
+        new WaveClass(building->Coord, end, unit, 1, 0);     // a wave's owner is never null (Draw_NonMagnetic reads its facing)
         return 1;
     }
     if (Same(word[1], "grant", 6) && words >= 3) {

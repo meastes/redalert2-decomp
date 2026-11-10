@@ -102,9 +102,9 @@ extern "C" bool ra2_adapter_0021(void * a0, int a1, int a2) { return ra2_adapter
 extern "C" int ra2_adapter_target_0022(void *, void *, bool) __asm__("__ZN8MapClass16Unknown_005689D0ERK4Cellb");
 extern "C" int ra2_adapter_0022(void * a0, void * a1, int a2) __asm__("__ZN8MapClass16Unknown_005689D0ERK4Celli");
 extern "C" int ra2_adapter_0022(void * a0, void * a1, int a2) { return ra2_adapter_target_0022(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0)); }
-// 0x005831C0 MapGeneratorClass::Adjust_Ramp_Junctions_005831c0() -> Adjust_Ramp_Junctions_005831c0() [this dropped]
-extern "C" void ra2_adapter_target_0023(void) __asm__("__Z30Adjust_Ramp_Junctions_005831c0v");
-extern "C" void ra2_adapter_0023(void * a0) __asm__("__ZN17MapGeneratorClass30Adjust_Ramp_Junctions_005831c0Ev");
+// 0x005831C0 MapGeneratorClass::Fixup_Cliff_Corners() -> Fixup_Cliff_Corners() [this dropped]
+extern "C" void ra2_adapter_target_0023(void) __asm__("__Z19Fixup_Cliff_Cornersv");
+extern "C" void ra2_adapter_0023(void * a0) __asm__("__ZN17MapGeneratorClass19Fixup_Cliff_CornersEv");
 extern "C" void ra2_adapter_0023(void * a0) { ra2_adapter_target_0023(); }
 // 0x0059F170 Target_6f6750::target(unsigned int, unsigned int) -> MouseClass::Get_Mouse_Start_Frame(int, bool) const [width]
 extern "C" int ra2_adapter_target_0024(void *, int, bool) __asm__("__ZNK10MouseClass21Get_Mouse_Start_FrameEib");

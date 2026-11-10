@@ -2853,6 +2853,116 @@
    "file": "native/link/behaviour_m24.cpp",
    "source": "pass-6a decompile 004c1f80",
    "notes": "pass-6a decompile; Scout1191 (M24)"
+  },
+  {
+   "entry": "0x00448400",
+   "name": "BuildingClass::Do_MISSION_MISSILE",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_building.cpp",
+   "source": "parked draft build/class-work/Scout697/w/keep/mm.cpp (99.77, codex2/Scout697); TibSun building.cpp Do_MISSION_MISSILE",
+   "notes": "rewritten over current headers (local velocity, EMP bullet null guard); Scout1208 (M26)"
+  },
+  {
+   "entry": "0x007225B0",
+   "name": "WaveClass::Draw_Sonic_007225b0",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_wave.cpp",
+   "source": "pass-6a decompile 007225b0; TibSun wave.cpp Draw_Sonic (shape reference)",
+   "notes": "depth via Get_Buffer_Ptr (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)"
+  },
+  {
+   "entry": "0x00722CB0",
+   "name": "WaveClass::Draw_Laser_00722cb0",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_wave.cpp",
+   "source": "pass-6a decompile 00722cb0; TibSun wave.cpp Draw_Laser (shape reference)",
+   "notes": "depth via Get_Buffer_Ptr (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)"
+  },
+  {
+   "entry": "0x0055AA50",
+   "name": "MapClass::Unknown_0055AA50",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_map.cpp",
+   "source": "pass-6a decompile 0055aa50",
+   "notes": "stores through a map.hpp helper (behaviour_m26_map_walk.cpp); Scout1208 (M26)"
+  },
+  {
+   "entry": "0x004E1290",
+   "name": "operator==(HashString const&, HashString const&)",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_rows.cpp",
+   "source": "pass-6a decompile 004e1290",
+   "notes": "forwards to the member 0x004E11F0; Scout1208 (M26)"
+  },
+  {
+   "entry": "0x004E12A0",
+   "name": "operator!=(HashString const&, HashString const&)",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_rows.cpp",
+   "source": "pass-6a decompile 004e12a0",
+   "notes": "forwards to the member 0x004E1240; Scout1208 (M26)"
+  },
+  {
+   "entry": "0x004FF1E0",
+   "name": "operator==(HSVClass const&, HSVClass const&)",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_rows.cpp",
+   "source": "pass-6a decompile 004ff1e0",
+   "notes": "forwards to the member 0x004FF170; Scout1208 (M26)"
+  },
+  {
+   "entry": "0x0069A430",
+   "name": "SystemTimerClass::operator()() const",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_rows.cpp",
+   "source": "pass-6a decompile 0069a430",
+   "notes": "same body as operator long; Scout1208 (M26)"
+  },
+  {
+   "entry": "0x00770400",
+   "name": "WideString::unknown_char_770400",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_rows.cpp",
+   "source": "pass-6a decompile 00770400",
+   "notes": "second copy of Get_Char 0x00770470; Scout1208 (M26)"
+  },
+  {
+   "entry": "0x00435FF0",
+   "name": "BombClass::Unknown_00435FF0",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m26_rows.cpp",
+   "source": "pass-6a decompile 00435ff0",
+   "notes": "returns Type (+0x30); Scout1208 (M26)"
   }
  ]
 }

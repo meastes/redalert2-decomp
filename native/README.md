@@ -433,6 +433,13 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   all load and play on.
 - **Message boxes.** Button kind 3 (the OK of "Mission Saved" and other message
   boxes) draws shape `unknown_art_ac10c0` (0x00AC10C0) through 0x006F2250.
+- **Waves (M26).** `RA2_NATIVE_ORDERS="<frame> wave"` starts a sonic wave (the
+  dolphin's, WaveClass type 0) from the player's first unit at its first building
+  and a laser wave (type 1) from the building ten cells east; both draw through
+  the behaviour rows of WaveClass Draw_Sonic 0x007225B0 / Draw_Laser 0x00722CB0
+  (`link/behaviour_m26_wave.cpp`, NOT EXACT). The nuke silo and EM pulse cannon
+  mission (BuildingClass Do_MISSION_MISSILE 0x00448400) is a behaviour row from
+  the 99.77 parked draft (`link/behaviour_m26_building.cpp`).
 - **Super weapons.** `RA2_NATIVE_ORDERS="<frame> super <index> <x> <y>"` grants
   the human house's Supers[index] once (no silo needed), charges it and queues
   the SPECIAL_PLACE event (0x12) a map click queues (`grant <index>` only arms

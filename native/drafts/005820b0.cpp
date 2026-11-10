@@ -32,7 +32,7 @@ bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &);
 double __stdcall unknown_gaussian_value_005798d0(double mean,double deviation);
 unsigned __fastcall Map_Random_Range_005797a0(unsigned,unsigned);
 
-bool MapGeneratorClass::Grow_Water_Region_005820b0(int region,float scale,Rect const &bounds,Cell const &origin,bool frontier)
+bool MapGeneratorClass::Grow_Water_Region(int region,float scale,Rect const &bounds,Cell const &origin,bool frontier)
 {
     int capacity=(int)((unsigned)LocalWidth*(unsigned)LocalHeight*2u);
     UnknownVeinNode *nodes=new UnknownVeinNode[capacity>100?capacity:100];
@@ -45,7 +45,7 @@ bool MapGeneratorClass::Grow_Water_Region_005820b0(int region,float scale,Rect c
     if(bounds.Y!=0)angle=4.71238898038469;
     else if(bounds.Height!=512)angle=1.5707963267948966;
     Clear_Map_Cell_Traversal_Marks_00582a50();
-    DynamicVectorClass<Cell> *seeds=Build_Region_Border_Cell_List_00581ee0(region);
+    DynamicVectorClass<Cell> *seeds=Build_Region_Border_Cell_List(region);
     int seed_count=seeds->Count();
     int index=0;
     if(seed_count>0) {
@@ -55,7 +55,7 @@ bool MapGeneratorClass::Grow_Water_Region_005820b0(int region,float scale,Rect c
         if(bounds.Is_Point_Within(Point2D(position.X,position.Y))) {
             float &seedScore=seedNode->Key;
             seedNode->Position=position;
-            seedScore=Angle_Score_00582970(origin,position,angle);
+            seedScore=Get_Angle_Score(origin,position,angle);
             ++used;
             queue->Insert(seedNode++);
         }
@@ -82,10 +82,10 @@ bool MapGeneratorClass::Grow_Water_Region_005820b0(int region,float scale,Rect c
         for(int direction=0;direction<8;direction+=2) {
             Cell adjacent=CellClass::Adjacent_Cell(position,direction);
             if(Generation_Cell_In_Bounds_0058da10(adjacent)) {
-                if(Get_Cell_Data_Region_005818a0(adjacent)==0 && Get_Cell_Data_Spread_00581910(adjacent)!=region && bounds.Is_Point_Within(Point2D(adjacent.X,adjacent.Y)) && Map[adjacent].unknown_47b590()) {
+                if(Get_Cell_Data_Region(adjacent)==0 && Get_Cell_Data_Spread(adjacent)!=region && bounds.Is_Point_Within(Point2D(adjacent.X,adjacent.Y)) && Map[adjacent].unknown_47b590()) {
                     next->Position=adjacent;
-                    next->Key=Angle_Score_00582970(origin,adjacent,angle);
-                    Set_Cell_Data_Spread_005818e0(adjacent,region);
+                    next->Key=Get_Angle_Score(origin,adjacent,angle);
+                    Set_Cell_Data_Spread(adjacent,region);
                     ++used;
                     queue->Insert(next++);
                 } else {
@@ -105,7 +105,7 @@ bool MapGeneratorClass::Grow_Water_Region_005820b0(int region,float scale,Rect c
         while(remaining) {
             if(!success)break;
             int other=UnknownMapGenerationCell::Get_Region(remaining->Position);
-            if(other==0)Set_Cell_Data_Region_00581870(remaining->Position,region);
+            if(other==0)Set_Cell_Data_Region(remaining->Position,region);
             else if(other!=region)success=false;
             remaining=queue->Remove_Min();
         }

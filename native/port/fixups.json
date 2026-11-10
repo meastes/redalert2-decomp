@@ -1448,6 +1448,13 @@
    "new": "delete unknown_art_ac113c;   // NATIVE: scalar delete through the virtual destructor (see fixups.json)",
    "why": "Delete form (Scout1191, M24; user report: Exit Game -> OK aborted in Unknown_Free_All_Art_006F1D20 with 'pointer being freed was not allocated'): 0x00AC1134/0x00AC113C hold the ConvertClass drawers that Unknown_Load_Palette_006F1FA0 makes with a scalar `new ConvertClass` (unknown_load_art_6f1fa0 is the same address). The sources write `delete []` (VC6 compiles it to the object's vtable slot 0, ConvertClass's scalar deleting destructor, with flag 3: the class has no vector deleting destructor, so it is a scalar delete). clang's array delete reads a count cookie before the object and frees ptr-16. Natively the delete is scalar through the same virtual destructor (the object's own). Same meaning.",
    "verified": true
+  },
+  {
+   "source": "src/recovered/classes/ObjectClass/ObjectClass_Load_005d4760.cpp",
+   "old": "    SwizzleManager.Swizzle((void **)&unknown_18);\n",
+   "new": "#if defined(__LP64__)\n    // NATIVE: unknown_18 is a 4-byte int here (a 4-byte pointer field in the original, which\n    // swizzles it); Swizzle reads and patches 8 bytes, unknown_18 and RefCount. A null field\n    // needs no remap (the swizzle manager ignores null ids), so it is skipped.\n    if (unknown_18 != 0) SwizzleManager.Swizzle((void **)&unknown_18);\n#else\n    SwizzleManager.Swizzle((void **)&unknown_18);\n#endif\n",
+   "why": "ObjectClass::Load (0x005D4760) swizzles AbstractClass +0x18 as a pointer. Natively the field is a 4-byte int followed by RefCount, so Swizzle read the pair as one 8-byte id: a save holding a bullet with outstanding COM references (unknown_18 0, RefCount 2) failed to load ('swizzle: unmatched id 0x200000000 ... BulletClass +0x28', then abort; Scout1208 soak f26 saved at frame 15000). The original's Swizzle of a null pointer does nothing, so skipping the call for 0 keeps its behaviour; no recovered code stores a non-zero value there (constructor 0x0040FF10 and operator= 0x0056A9F0 only). Making the field pointer-sized was not taken: clang reuses AbstractClass's tail padding, so it would shift every derived class's arm64 layout.",
+   "verified": true
   }
  ]
 }
