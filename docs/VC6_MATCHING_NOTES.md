@@ -2260,3 +2260,47 @@ A `MIN(a,b)`/`MAX(a,b)` macro clamp keeps both operands as temporaries across th
 `if (x >= b) x = b;` spills x at both definitions. The macro operands are callee-saved candidates that can push a loop bound below
 the in-loop webs (Draw_Sonic 0x7225B0: four macro clamps make the original lend ebp to ypos and the xoff/yoff reloads; 42.65 -> 61.38).
 When a target computes the clamp bound first and stores once, write the macro.
+
+## One declaration, several exclusive loops: one frame symbol with summed references (Scout1212)
+A variable declared once at an outer scope and assigned in several exclusive loops is one frame symbol whose reference count is the
+sum over its webs; it is processed earlier and takes the first dead argument slot or an earlier local slot, and its later webs join
+it. Per-loop declarations give separate low-count symbols that scatter. When the target's dead argument slot holds the same loop
+variable from several branches, the source declared it once (Draw_Sonic 0x7225B0: y, zval, points declared at branch scope,
+61.38 -> 68.12). A dead argument slot goes to the spilled web with the most memory references among compatible ones.
+
+## Frame-slot sharing is path-based memory liveness; order is size class, refs, last reference, with an allocator residue (Scout1215 lab, 2026-11-10)
+Measured on 440 accepted exact functions (small non-aligned frames; build/class-work/Scout1215 corpus.py/stats.py,
+simulator fsim.py over the /FAs listing's CFG). Two symbols may share a slot when their memory live ranges (store
+defines, load uses, byte-granular, computed over the control-flow graph) never overlap: webs used only in exclusive
+branches share even when their instruction index ranges overlap (Draw_Sonic 0x7225B0: `right` with `dest`), so
+linear first..last intervals and listing "last line" proxies are wrong models; use a liveness pass. Processing order
+holds as Scout972 R1 states: size class ascending (95% of cross-class slot pairs), references descending within a
+class (86%; 89% among register-web homes), earlier last reference on ties (80%; 75% among webs). Loop-weighted
+counts are worse on every subset, and declaration order is not the key (39-43% on ties). The 11-14% residue is the
+homes of split register webs (stored at the def, reloaded at loop exits), whose order the allocator sets
+(Scout1039): Check_Map 0x569B60 orders mzone(12), from(5), this(7), file(6), which no final-count key gives. A
+joiner takes the newest compatible slot (84% of web joiners; the rest are upstream order errors, not a different
+choice). A by-value 8-byte struct passed to a by-value callee is scalar-replaced into two independent 4-byte webs
+(the named symbol keeps one member, a `$T` the other, not adjacent; lab s8.cpp); a `double` stays one 8-byte symbol
+and is processed after the whole 4-byte class; a cursor whose member is incremented in memory (`zpos.X++`) stays one
+8-byte symbol. Dead argument slots have no proven rule yet (77 takers: newest-dead 18, lowest-address 16, both 16,
+neither 27 under memory liveness of the parameter); the two hand-checked rows (Draw_Dashed_Line 0x773C30, Draw_Sonic)
+fit "newest-dead compatible slot, parameter live while its value sits in a register". Use the simulator to read a
+target's frame (which symbols the original grouped, which slot a web joined), not to predict one: on Draw_Sonic the
+best key reproduces our own layout at 503/528 same-slot pairs and the original's at 482/528.
+
+## Reloads merged from several edges count once per edge in the frame order (Scout1215 lab, 2026-11-10)
+Refines Scout1041 and explains part of the "allocator residue" in frame-slot order. When a register web with a frame
+home must be reloaded on several incoming edges of a join (the failed arms of an `&&` chain, skipped if-arms), VC6
+inserts one reload per edge at layout time and merges them afterwards into one block that contains nothing but the
+reload (`$L9490: mov ebx,[from]` falling into the join). The frame order uses the pre-merge count: such a reload counts
+once per predecessor edge; a reload at the head of a block that carries a statement (a call, the loop increment, a
+loop header) counts once. Check_Map 0x569B60: `from` has 5 listing references but 2 + 1 + 4 + 2 = 9 at layout, above
+`this` (7) and `file` (6), giving the original order mzone, from, this, file; removing the fprintf arms one by one
+(build/class-work/Scout1215/lab/CM) moves every variant exactly as the rule predicts. Isolated split webs otherwise
+follow size class, refs desc, earlier last reference (204/204 lab functions); the loop-exit reload group is emitted in
+reverse definition order with the last-defined web reloaded at its own later use, and webs without a pre-loop use are
+reloaded at use in use order. On 440 accepted functions the per-edge count raises web order agreement from 74.0% to
+75.1% (exact layouts 56 to 60 of 127); implemented as key `r1b` in build/class-work/Scout1215/fsim.py. Still open:
+ties whose last reference is a loop-exit reload (Load_MFCI 0x77A4C0 orders by the last reference inside the loop) and
+Draw_Sonic's third slot.
