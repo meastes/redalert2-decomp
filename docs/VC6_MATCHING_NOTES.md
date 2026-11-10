@@ -2441,3 +2441,56 @@ left to build with a spilled compared web.
 A dword web live across byte-typed temporaries that must survive a call (`unsigned char lo, hi` used across a call) is coloured into
 ebp, not ebx; with int-typed temporaries stored as bytes the usual esi, edi, ebx, ebp order holds. ebx, the only callee-saved register
 with byte halves, is reserved for the byte webs; byte temporaries outside the dword web's range do not matter.
+
+## Which invariant global stays hoisted across a loop with calls (Scout1214 lab al1/al2)
+With two loop-invariant global pointers and calls (__ftol) in the body, VC6 keeps exactly one hoisted and re-reads the other at each
+use: the one whose wrap/step statement comes last in the loop body is kept. Stores of any width, pointers derived from either global
+and member stores do not change the choice (not aliasing). Both stay hoisted only when one's pre-loop web reaches the loop without a
+call in between.
+
+## Invariant global loads across sibling loops are one function-wide web each (Scout1214 labs al6/al7)
+Which loop-invariant global loads stay in registers per loop is decided by register-allocation priority on one function-wide web per
+global, not by a hoisting budget; a global that loses is rematerialised from its address at each use (never a stack home). A priority
+change anywhere (an extra reference in one loop) re-orders the competition in every loop. A per-use reload pattern in the original
+means a competing web or a missing reference somewhere in the function, not in that loop's text.
+
+## Candidate (round 17): store position across a branch is source order; `for` counters are two webs
+- A global store that sits in the basic block after a wrap's `jb` (Draw_Tile 0a78 RowAlpha) cannot have been
+  scheduled there: VC6 does not sink stores across branches, so the statement follows the wrap in source.
+- `for (int n = *p; n > 0; --n)` compiles to an init temp (tested, in eax) plus a copy into the counter's home
+  (`mov reg/mem, eax` right after the `jle`); `int n = *p; if (n > 0) do {...; --n;} while (n != 0);` is one web
+  with no copy. Use the `for` form when the original shows the copy.
+- Dead parameter slots are spill homes (Draw_Tile: image/run/row in cell_variation's 0x60, row in brightness's
+  0x58). A reconstruction that names the parameter instead (TibSun isotype.cpp `- (unsigned char *)drawer`) is
+  a calibration, not evidence of the source.
+
+## Address webs: scratch if coloured before block temporaries, callee-saved if after (Scout1217 labs G/H)
+A multi-block address web with no call in its range (lea of a member, byte reads, a store) gets the first free scratch register when
+VC6 colours it before the block's temporaries, and a callee-saved register when it is coloured after them. With bl unavailable,
+byte pieces move to other registers via `xor r16,r16; mov r8,r8` zero-extension.
+
+## Candidate (round 17f): dead parameter slots as spill homes
+VC6 (/O2 /G5, esp frames) reuses the stack slots of parameters that are already dead as homes for spilled
+webs. The slots form a pool ordered by the parameter's death point (its last read in machine order; for
+call arguments that is the push order, so the LAST argument of `h6(p0,...,p5)` dies first). Spilled webs,
+ordered by earlier last reference (the same key the frame model uses), take the pool in that order, one dword
+slot each whatever their size (a char spill occupies a whole parameter slot as BYTE PTR). A slot whose
+parameter is still live when the web is created is skipped, and once the pool is exhausted fresh local slots
+are allocated. Declaration order, name order and parameter position do not decide. Evidence:
+build/class-work/Scout1218/ft/lab/d1.cpp, d2.cpp and their /FAs listings (out/d1.asm, out/d2.asm); Draw_Tile
+0x52C230 shows the mechanism (image/run/row in cell_variation's 0x60, row in brightness's 0x58, col in fog's
+0x6c, clip_right in height's 0x54, clip_bottom in subtile's 0x34, a product temp in fog's 0x6c) but its first
+reuse (0x58 before 0x60) is not yet explained by the pure-spill rule.
+Refinement (Scout1218 round 17g): a parameter's slot enters the dead-slot pool at its last slot read, or at the variable's death when
+the parameter is assigned anywhere; a parameter rematerialised into a later expression never frees its slot.
+
+## A pointer parameter is promoted whole or re-read per use; split webs come from eviction (Scout1217 lab P)
+A pointer parameter used two or more times across calls takes a callee-saved register (one slot load, no home store) when one is free
+over its whole range, at any distance. When all four are claimed over its range, even by short loop counters, it is re-read from its
+slot into a scratch at every use; VC6 never fits a web into holes between shorter claimants. An original showing a parameter in ebx
+with slot reloads at segment starts and holes where temporaries use ebx (Render 0x6A45A0 surface, Mouse_Left_Up 0x49B0F0 cell)
+coloured the parameter before those temporaries and was evicted locally; ours colours the temporaries first. The lever is the
+parameter's priority against the short claimants, not the spelling of its uses.
+Refinement (Scout1217 labs P5/P6): VC6 does not promote a parameter web across a stretch between two consecutive references that
+contains two or more loops whose counters live across calls; one such loop, a nested pair, call-free loops or loops outside the web's
+range do not count, and any reference inside the stretch resets the count. The web is then re-read per use everywhere.
