@@ -7,7 +7,7 @@
 #include "shared/map_gaussian.hpp"
 #include "shared/map_random.hpp"
 #include "shared/map_region.hpp"
-// @ref ?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A=00a6fd68
+// @ref ?RandomMapGen@@3VMapGeneratorClass@@A=00a6fd68
 // @ref ?unknown_map_random_a705c0@@3VRandom2Class@@A=00a705c0
 // @ref ??0Random2Class@@QAE@I@Z=00638790
 // @ref ?unknown_map_gaussian_a6fd50@@3VMapGaussianClass@@A=00a6fd50
@@ -16,7 +16,7 @@
 // @ref ?Map_Random_Fraction_00579770@@YANXZ=00579770
 double __cdecl Map_Random_Fraction_00579770();
 
-MapGeneratorClass unknown_map_generator_a6fd68;
+MapGeneratorClass RandomMapGen;
 Random2Class unknown_map_random_a705c0;
 MapGaussianClass unknown_map_gaussian_a6fd50(Map_Random_Fraction_00579770);
 // @ref ?Regions@MapRegionClass@@2V?$DynamicVectorClass@PAVMapRegionClass@@@@A=00a6fd28

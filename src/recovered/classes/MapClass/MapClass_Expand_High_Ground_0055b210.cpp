@@ -70,12 +70,12 @@ bool MapClass::Expand_High_Ground(CellClass *cellptr, int region_id)
     }
 
     if ((mask & 0x88) == 0x88 || (mask & 0x22) == 0x22 || expand) {
-        int cell_region_id = unknown_map_generator_a6fd68.Get_Cell_Data_Region(cellptr->Fetch_CellID());
+        int cell_region_id = RandomMapGen.Get_Cell_Data_Region(cellptr->Fetch_CellID());
         if (cell_region_id > 0 && cell_region_id != region_id && region_id != -1) {
             return false;
         }
         cellptr->unknown_11b += 4;
-        unknown_map_generator_a6fd68.Set_Cell_Data_Region(cellptr->Fetch_CellID(), region_id);
+        RandomMapGen.Set_Cell_Data_Region(cellptr->Fetch_CellID(), region_id);
         for (int dir = 0; dir < 8; dir++) {
             Expand_High_Ground(&cellptr->Adjacent_Cell(dir), region_id);
         }

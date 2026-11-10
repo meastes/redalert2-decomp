@@ -4,8 +4,8 @@
     "id": "population-4248",
     "inventory_sha256": "756ed369d2d6372466a6e95d150f1c4dbabe49f7d504b7801b76e4360a95fb52",
     "gaps_sha256": "7141d33b1d4a10fec7c68601749a101c0e291bf8c5f048c84a3f9f0d37258256",
-    "historical_population_sha256": "8ead109ddb23c413be3bf3a3b63e0147ebc427b0823a3803ce2ddf50505e95af",
-    "historical_acceptance_sha256": "ce597232bf663493582f44f6a804b0215c0136a75cec4f8588f8d533071a9144"
+    "historical_population_sha256": "88778761d8dfd94aa6e64c51d41f0d278d4a3109bfa8e6c89ea126e72de64978",
+    "historical_acceptance_sha256": "29e6286006d41abb0f350ee1c54e4dbb4afc5ec1269de23cba72c076a7e7cfd7"
   },
   "references": {
     "?OnServerTime@CChatEventSink@@UAGJJJ@Z": 7756112,
@@ -7018,7 +7018,7 @@
     "??0MultiMission@@QAE@PBDPBG0_N0HH@Z": 6757456,
     "?Set_Digest@MultiMission@@QAEXPBD@Z": 6758480,
     "?Unknown_0073c120@@YA_NXZ": 7586080,
-    "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A": 10943848,
+    "?RandomMapGen@@3VMapGeneratorClass@@A": 10943848,
     "_strtok": 7876290,
     "??1UnknownPreview_0061D430@@QAE@XZ": 6411328,
     "?Draw_0061D460@UnknownPreview_0061D430@@QAEXPAUHWND__@@@Z": 6411360,
@@ -75180,7 +75180,7 @@
         {
           "offset": 350,
           "kind": 6,
-          "symbol": "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A",
+          "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
           "target": 10943848,
           "addend": 80,
           "resolved": 10943928
@@ -75228,7 +75228,7 @@
         {
           "offset": 418,
           "kind": 6,
-          "symbol": "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A",
+          "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
           "target": 10943848,
           "addend": 0,
           "resolved": 10943848
@@ -75300,7 +75300,7 @@
         {
           "offset": 518,
           "kind": 6,
-          "symbol": "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A",
+          "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
           "target": 10943848,
           "addend": 120,
           "resolved": 10943968
@@ -75420,7 +75420,7 @@
         {
           "offset": 649,
           "kind": 6,
-          "symbol": "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A",
+          "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
           "target": 10943848,
           "addend": 120,
           "resolved": 10943968
@@ -75458,7 +75458,7 @@
           "resolved": 10736308
         }
       ],
-      "source_sha256": "cfcc010e2ade1eaf4cc8a7ae497e6b6af54b5b226c6a6aaf69f86813752021e3",
+      "source_sha256": "1d8704a85349dc4ea332d1000b6487716e4d1a397a06063e8ad882544dfd106f",
       "source": "src/recovered/unowned/Apply_Endpoint_Map_0075c570.cpp",
       "population": "population-4248",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

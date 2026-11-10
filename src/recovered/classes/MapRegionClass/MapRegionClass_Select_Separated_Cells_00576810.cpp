@@ -2,7 +2,7 @@
 #include "shared/map_region.hpp"
 #include "shared/unknown_map_generator.hpp"
 #include "shared/fast_math.hpp"
-// @ref ?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A=00a6fd68
+// @ref ?RandomMapGen@@3VMapGeneratorClass@@A=00a6fd68
 // @ref ?unknown_map_cells_a70a24@@3PAUUnknownMapGenerationCell@@A=00a70a24
 // @ref ?unknown_map_cell_side_84e804@@3HA=0084e804
 extern double const unknown_separation_scale_7a5e18;
@@ -27,13 +27,13 @@ extern double const unknown_separation_scale_7a5e18;
 // @ref ?Fetch@?$VectorClass@VCell@@@@UBE?AVCell@@H@Z=0042cc60
 DynamicVectorClass<Cell> *MapRegionClass::Select_Separated_Cells_00576810(DynamicVectorClass<Cell> const &candidates)
 {
-    double scaling=(double)unknown_map_generator_a6fd68.SeedData.TiberiumLayout;
+    double scaling=(double)RandomMapGen.SeedData.TiberiumLayout;
     int assigned=unknown_20;
     scaling*=0.01;
     double best=-1.0;
     int first=-1;
     scaling*=unknown_separation_scale_7a5e18;
-    int wanted=(int)((scaling/(double)unknown_map_generator_a6fd68.SeedData.NumPlayers+2.0)*assigned);
+    int wanted=(int)((scaling/(double)RandomMapGen.SeedData.NumPlayers+2.0)*assigned);
     if(assigned==0 && candidates.Count()>0)wanted=candidates.Count();
     if(wanted>candidates.Count() || wanted==0) {
         if(assigned==0)return 0;

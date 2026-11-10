@@ -14,7 +14,7 @@
 // @ref ??_C@_0N@LJCA@PROGBARM?4SHP?$AA@=007f1fe8
 // @ref ??_C@_13ECNF@?$AA?5?$AA?$AA@=007d64f4
 // @ref ?Fill_In_Data_0065cdd0@@YIXXZ=0065cdd0
-// @ref ?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A=00a6fd68
+// @ref ?RandomMapGen@@3VMapGeneratorClass@@A=00a6fd68
 // @ref ?Read_Scenario_0065e760@@YI_NPBD_N@Z=0065e760
 // @ref ?Unknown_005359E0@Unknown535910@@QAEXXZ=005359e0
 // @ref ?Unknown_00535AB0@Unknown535910@@QAE?AUPoint2D@@XZ=00535ab0
@@ -134,9 +134,9 @@ bool __fastcall Unknown_0065c7d0(char const *name)
 
     bool ok;
     if (unknown_id_source_a3d290->unknown_223b) {
-        ok = unknown_map_generator_a6fd68.SeedData.Load_Or_Prompt_005791a0(filename);
+        ok = RandomMapGen.SeedData.Load_Or_Prompt_005791a0(filename);
         if (ok) {
-            unknown_map_generator_a6fd68.Unknown_0057A0D0(0, 0);
+            RandomMapGen.Unknown_0057A0D0(0, 0);
             Unknown_0065e8c0(true);
         }
         strcpy(unknown_id_source_a3d290->FileName, filename);

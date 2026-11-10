@@ -1,7 +1,7 @@
 #include "shared/map_region.hpp"
 bool MapRegionClass::Make_Regions_00570810()
 {
-    bool success=unknown_map_generator_a6fd68.Expand_All_High_Ground();
+    bool success=RandomMapGen.Expand_All_High_Ground();
     if(unknown_map_cells_a70a24) {
         int remaining=(int)((unsigned)unknown_map_cell_side_84e804*(unsigned)unknown_map_cell_side_84e804);
         for(int index=0;remaining>0;--remaining,++index) {

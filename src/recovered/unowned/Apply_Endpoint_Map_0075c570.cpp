@@ -48,12 +48,12 @@ void __fastcall Apply_Endpoint_Map_0075c570(char const *text)
     other = strtok(0, field_delimiter_007ce9c0);
     Set_Player_Endpoint_0075c470(name, address, value, other);
     Set_Channel_Player_Options_0073d550(name, country, color);
-    unknown_map_generator_a6fd68.SeedData.NumPlayers = 4;
+    RandomMapGen.SeedData.NumPlayers = 4;
     strcpy(unknown_session_a3d298.ScenarioFileName_658, random_map_file_007e16e8);
     unknown_session_a3d298.ScenarioIndex = -1;
     HWND dialog = (HWND)Unknown_00735940(0x11f);
     Do_Random_Map_00577880(dialog, Unknown_0073c120);
-    unknown_map_generator_a6fd68.SeedData.Save_Or_Prompt_00578ed0(random_map_file_007e16e8);
+    RandomMapGen.SeedData.Save_Or_Prompt_00578ed0(random_map_file_007e16e8);
     bool found = false;
     int index = 0;
     for (; index < unknown_session_a3d298.Scenarios.Count(); index++) {
@@ -65,10 +65,10 @@ void __fastcall Apply_Endpoint_Map_0075c570(char const *text)
     char *digest = Random_Map_CRC_005c8420();
     if (!found) {
         unknown_session_a3d298.Scenarios.Add(new MultiMission(random_map_file_007e16e8,
-            unknown_map_generator_a6fd68.SeedData.DescriptionBuffer, digest, true, 0, 2, 4));
+            RandomMapGen.SeedData.DescriptionBuffer, digest, true, 0, 2, 4));
     } else {
         unknown_session_a3d298.Scenarios[index]->Set_Digest(digest);
-        unknown_session_a3d298.Scenarios[index]->Set_Description_00671FA0(unknown_map_generator_a6fd68.SeedData.DescriptionBuffer);
+        unknown_session_a3d298.Scenarios[index]->Set_Description_00671FA0(RandomMapGen.SeedData.DescriptionBuffer);
     }
     delete digest;
     if (Select_Scenario_005c7c30(index) == true) unknown_session_a3d298.ScenarioIndex = index;
@@ -92,7 +92,7 @@ void __fastcall Apply_Endpoint_Map_0075c570(char const *text)
 // @ref ?Set_Digest@MultiMission@@QAEXPBD@Z=00672050
 // @ref ?Unknown_00735940@@YIPAXH@Z=00735940
 // @ref ?Unknown_0073c120@@YA_NXZ=0073c120
-// @ref ?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A=00a6fd68
+// @ref ?RandomMapGen@@3VMapGeneratorClass@@A=00a6fd68
 // @ref ?unknown_session_a3d298@@3UUnknownSessionState@@A=00a3d298
 // @ref _atol=00782d72
 // @ref _strtok=00782ec2

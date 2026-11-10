@@ -4,8 +4,8 @@
     "id": "population-3677",
     "inventory_sha256": "8535431e2c9b37c4adf37b4dcfcb1eb5d0f5a0ebfdc71311641cf304291e7e94",
     "gaps_sha256": "b0a1e5f40995e97d2243b8d9440b83858472ecc0c30f595ece2cb1dd37590608",
-    "historical_population_sha256": "b9540e406c7d33c0f6b0453d1c6be53da42cc145ed066f52ff999934b38d79be",
-    "historical_acceptance_sha256": "9b814cc26201f02b66cde552979a2a5e542a6e523632029bad0d53f09e9dcfa8"
+    "historical_population_sha256": "daf1db38ab34365adb1c46c7399ca3b694d23b562899c199403823155408bb7e",
+    "historical_acceptance_sha256": "54bccb0ee54449e88dc4a12f681647ee0fccf7bd14c8879a6912910a83f93a13"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1732,7 +1732,7 @@
     "??_C@_0CA@DBEI@ModemHost?4SelectMultiMap?$CIexit?$CJ?6?$AA@": 8267012,
     "??_C@_0CB@MJDK@ModemHost?4SelectMultiMap?$CIenter?$CJ?6@": 8267044,
     "??_C@_0M@EOLM@RandMap?4img?$AA@": 8262976,
-    "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A": 10943848,
+    "?RandomMapGen@@3VMapGeneratorClass@@A": 10943848,
     "?Do_Random_Map_Dialog_00577490@@YIHP6A_NXZ@Z": 5731472,
     "?Unknown_0059c880@@YA_NXZ": 5884032,
     "?unknown_host_shown_7e6dc0@@3_NA": 8285632,
@@ -20071,7 +20071,7 @@
         {
           "offset": 57,
           "kind": 6,
-          "symbol": "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A",
+          "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
           "target": 10943848,
           "addend": 0,
           "resolved": 10943848
@@ -20135,7 +20135,7 @@
         {
           "offset": 122,
           "kind": 6,
-          "symbol": "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A",
+          "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
           "target": 10943848,
           "addend": 120,
           "resolved": 10943968
@@ -20207,7 +20207,7 @@
         {
           "offset": 238,
           "kind": 6,
-          "symbol": "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A",
+          "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
           "target": 10943848,
           "addend": 120,
           "resolved": 10943968
@@ -20327,7 +20327,7 @@
         {
           "offset": 369,
           "kind": 6,
-          "symbol": "?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A",
+          "symbol": "?RandomMapGen@@3VMapGeneratorClass@@A",
           "target": 10943848,
           "addend": 120,
           "resolved": 10943968
@@ -20517,7 +20517,7 @@
           "resolved": 4293309348
         }
       ],
-      "source_sha256": "d938728549173d10b5ee3d0f7276fe0f939e50422a78b8c4c496f53ffe4f6678",
+      "source_sha256": "16f9e73bdc090dd78eb9cbafba78418b28ecc98af6dffc026561b38b29cd0eb1",
       "source": "src/recovered/classes/ModemHost/ModemHost_Select_Random_Map_0059b2c0.cpp",
       "population": "population-3677",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

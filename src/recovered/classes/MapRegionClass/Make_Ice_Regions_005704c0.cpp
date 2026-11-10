@@ -58,7 +58,7 @@ void MapRegionClass::Make_Ice_Regions_005704c0()
             }
         }
     }
-    double sizeLimit=(unknown_map_generator_a6fd68.SeedData.RegionSize*0.005+0.05)*unknown_map_generator_a6fd68.LocalWidth*unknown_map_generator_a6fd68.LocalHeight;
+    double sizeLimit=(RandomMapGen.SeedData.RegionSize*0.005+0.05)*RandomMapGen.LocalWidth*RandomMapGen.LocalHeight;
     int limit=(int)(sizeLimit+sizeLimit);
     while(true) {
         bool restart=false;

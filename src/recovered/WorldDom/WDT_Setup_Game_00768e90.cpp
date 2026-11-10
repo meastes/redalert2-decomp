@@ -116,7 +116,7 @@ int __fastcall WDT_Setup_Game_00768e90(bool first_time)
                     unknown_a3d3bc = WDT_Chosen_Side_b2ada4 == 3;
                     if (Selection::Choose_Conflict(campaign, WDT_Chosen_Theater_b2ada8)) {
                         wol_max_players_b2abdc = 0;
-                        unknown_map_generator_a6fd68.SeedData.Apply_WDT_Territory_00578bc0();
+                        RandomMapGen.SeedData.Apply_WDT_Territory_00578bc0();
                         state = 5;
                     } else {
                         state = 1;

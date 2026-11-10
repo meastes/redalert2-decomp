@@ -13,7 +13,7 @@
 // @ref ?unknown_map_max_a70a20@@3HA=00a70a20
 // @ref ?unknown_adjacent_851a70@@3QBVCell@@B=00851a70
 // @ref ?unknown_map_region_next_index_a70a28@@3HA=00a70a28
-// @ref ?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A=00a6fd68
+// @ref ?RandomMapGen@@3VMapGeneratorClass@@A=00a6fd68
 // @ref ?unknown_map_random_a705c0@@3VRandom2Class@@A=00a705c0
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref __ftol=0077f110
@@ -121,7 +121,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell_0056e100(Cell
         bool reset_done = false;
 
         if (region_id == 0) {
-            DynamicVectorClass<Cell> *region_cells = unknown_map_generator_a6fd68.Build_Region_Border_Cell_List(0);
+            DynamicVectorClass<Cell> *region_cells = RandomMapGen.Build_Region_Border_Cell_List(0);
             Cell region_cell = (*region_cells)[Pick_Random_UInt(0, region_cells->Count() - 1)];
 
             Cell ncell;
@@ -131,7 +131,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell_0056e100(Cell
                     if (Map[ncell].unknown_11b != Map[region_cell].unknown_11b && !Map[ncell].unknown_47b7e0()) {
                         int height = Map[ncell].unknown_11b;
 
-                        unknown_map_generator_a6fd68.Clear_Region_Cells(0, -1, height, 0);
+                        RandomMapGen.Clear_Region_Cells(0, -1, height, 0);
 
                         reset_done = true;
                         break;
@@ -151,7 +151,7 @@ MapRegionClass *__fastcall MapRegionClass::Create_Region_From_Cell_0056e100(Cell
                 int id = Region_Of(side_cell);
                 int height = Map[side_cell].unknown_11b;
 
-                unknown_map_generator_a6fd68.Clear_Region_Cells(region_id, id, height, 0);
+                RandomMapGen.Clear_Region_Cells(region_id, id, height, 0);
 
                 reset_done = true;
             }

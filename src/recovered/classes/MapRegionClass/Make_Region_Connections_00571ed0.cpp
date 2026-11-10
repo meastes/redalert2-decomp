@@ -33,7 +33,7 @@ void MapRegionClass::Make_Region_Connections_00571ed0()
             MapRegionClass *region=Find_Map_Region_By_Index_00575ce0((*NeighborRegionIndices)[neighbor]);
             if(region->Index>Index && region->unknown_10!=unknown_10) {
                 int connected=0;
-                int target=((int)Map_Random_Range_005797a0(0,100)<unknown_map_generator_a6fd68.SeedData.Accessibility?(int)Map_Random_Range_005797a0(1,2):0)+1;
+                int target=((int)Map_Random_Range_005797a0(0,100)<RandomMapGen.SeedData.Accessibility?(int)Map_Random_Range_005797a0(1,2):0)+1;
                 int tries=0;
                 int higher=region->unknown_10>unknown_10?region->Index:Index;
                 int lower=region->unknown_10>unknown_10?Index:region->Index;

@@ -45,7 +45,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                     int subtile = column + type->unknown_2b4 * row;
                     IsoTileCellHeight const *record = (IsoTileCellHeight const *)image->Tiles[subtile];
                     if (record == 0) continue;
-                    int id = unknown_map_generator_a6fd68.Get_Cell_Data_Region(cell);
+                    int id = RandomMapGen.Get_Cell_Data_Region(cell);
                     if (set_region) id = 0;
                     bool place = true;
                     if (id > 0 && id != region_id && region_id != -1) {
@@ -59,7 +59,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                             }
                             return true;
                         }
-                        unknown_map_generator_a6fd68.Set_Cell_Data_Region(cell, region_id);
+                        RandomMapGen.Set_Cell_Data_Region(cell, region_id);
                     } else if (id == region_id) {
                         int existing = cellptr->IsoTileIndex - unknown_tileset_a6cb74;
                         int pending = type->ArrayIndex - unknown_tileset_a6cb74;
@@ -71,7 +71,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
                             }
                         }
                     } else if (cellptr->unknown_47b590()) {
-                        unknown_map_generator_a6fd68.Set_Cell_Data_Region(cell, region_id);
+                        RandomMapGen.Set_Cell_Data_Region(cell, region_id);
                     } else if (region_id != -1) {
                         result = false;
                         return false;

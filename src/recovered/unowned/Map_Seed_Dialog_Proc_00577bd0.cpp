@@ -57,7 +57,7 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             if(handle)EnableWindow(handle,0);
             handle=GetDlgItem(window,0x6c3);
             if(handle)EnableWindow(handle,0);
-            unknown_map_generator_a6fd68.SeedData.Read_Dialog_Parameters_00578420(window);
+            RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
             InvalidateRect(window,0,0);
             return 0;
         }
@@ -73,7 +73,7 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
                 if(handle)EnableWindow(handle,0);
                 handle=GetDlgItem(window,0x6c3);
                 if(handle)EnableWindow(handle,0);
-                unknown_map_generator_a6fd68.SeedData.Read_Dialog_Parameters_00578420(window);
+                RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
                 InvalidateRect(window,0,0);
                 return 0;
             }
@@ -85,7 +85,7 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
                 unknown_generate_flag_a70068=false;
                 unknown_preview_flag_7e0ae0=true;
             }
-            unknown_map_generator_a6fd68.SeedData.Read_Dialog_Parameters_00578420(window);
+            RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
             EnableWindow(GetDlgItem(window,0x405),0);
             EnableWindow(GetDlgItem(window,0x3ea),0);
             EnableWindow(GetDlgItem(window,0x407),0);
@@ -99,9 +99,9 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             EnableWindow(GetDlgItem(window,0x6c4),0);
             EnableWindow(GetDlgItem(window,0x6c5),0);
             EnableWindow(GetDlgItem(window,0x5c0),0);
-            wcscpy(unknown_map_generator_a6fd68.SeedData.DescriptionBuffer,
+            wcscpy(RandomMapGen.SeedData.DescriptionBuffer,
                 StringTable::Load_String(unknown_description_label_7e14dc,0,unknown_mapgen_file_7e14f8,0xed1));
-            unknown_map_generator_a6fd68.Unknown_0057A0D0(1,(int)window);
+            RandomMapGen.Unknown_0057A0D0(1,(int)window);
             unknown_preview_a6fee4->Unknown_0061D660();
             EnableWindow(GetDlgItem(window,0x405),1);
             EnableWindow(GetDlgItem(window,0x3ea),1);
@@ -116,28 +116,28 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             EnableWindow(GetDlgItem(window,0x6c4),1);
             EnableWindow(GetDlgItem(window,0x6c5),1);
             EnableWindow(GetDlgItem(window,0x5c0),1);
-            if(unknown_map_generator_a6fd68.MapSeeder)delete (MapSeedClass *)unknown_map_generator_a6fd68.MapSeeder;
-            unknown_map_generator_a6fd68.MapSeeder=(int)new MapSeedClass;
-            memcpy((void *)unknown_map_generator_a6fd68.MapSeeder,&unknown_map_generator_a6fd68.SeedData,sizeof(MapSeedClass));
+            if(RandomMapGen.MapSeeder)delete (MapSeedClass *)RandomMapGen.MapSeeder;
+            RandomMapGen.MapSeeder=(int)new MapSeedClass;
+            memcpy((void *)RandomMapGen.MapSeeder,&RandomMapGen.SeedData,sizeof(MapSeedClass));
             WWMouse->Show_Mouse();
             WWKeyboard->Clear();
             PostMessageA(window,0xf,0,0);
             return 0;
         case 0x621: {
-            unknown_map_generator_a6fd68.SeedData.Read_Dialog_Parameters_00578420(window);
-            unknown_map_generator_a6fd68.SeedData.Populate_Dialog_Parameters_00578600(window);
-            unknown_map_generator_a6fd68.SeedData.Theater=((unsigned int)unknown_random_839218(0,100)>=50);
-            unknown_map_generator_a6fd68.SeedData.MapType=unknown_random_839218(1,4);
-            unknown_map_generator_a6fd68.SeedData.Time=unknown_random_839218(0,3);
-            unknown_map_generator_a6fd68.SeedData.Resources=unknown_random_839218(0,3);
-            unknown_map_generator_a6fd68.SeedData.Width=unknown_random_839218(0,3);
-            unknown_map_generator_a6fd68.SeedData.Height=unknown_map_generator_a6fd68.SeedData.Width;
-            unknown_map_generator_a6fd68.SeedData.Randomize_Parameters_005789f0(unknown_map_generator_a6fd68.SeedData.MapType);
-            wcscpy(unknown_map_generator_a6fd68.SeedData.DescriptionBuffer,
+            RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
+            RandomMapGen.SeedData.Populate_Dialog_Parameters_00578600(window);
+            RandomMapGen.SeedData.Theater=((unsigned int)unknown_random_839218(0,100)>=50);
+            RandomMapGen.SeedData.MapType=unknown_random_839218(1,4);
+            RandomMapGen.SeedData.Time=unknown_random_839218(0,3);
+            RandomMapGen.SeedData.Resources=unknown_random_839218(0,3);
+            RandomMapGen.SeedData.Width=unknown_random_839218(0,3);
+            RandomMapGen.SeedData.Height=RandomMapGen.SeedData.Width;
+            RandomMapGen.SeedData.Randomize_Parameters_005789f0(RandomMapGen.SeedData.MapType);
+            wcscpy(RandomMapGen.SeedData.DescriptionBuffer,
                 StringTable::Load_String(unknown_description_label_7e14dc,0,unknown_mapgen_file_7e14f8,0xed1));
-            unknown_map_generator_a6fd68.SeedData.Seed=unknown_random_839218(0,65535);
-            unknown_map_generator_a6fd68.SeedData.Clamp_Parameters_00578d80();
-            unknown_map_generator_a6fd68.SeedData.Populate_Dialog_Parameters_00578600(window);
+            RandomMapGen.SeedData.Seed=unknown_random_839218(0,65535);
+            RandomMapGen.SeedData.Clamp_Parameters_00578d80();
+            RandomMapGen.SeedData.Populate_Dialog_Parameters_00578600(window);
             delete unknown_preview_a6fee4;
             unknown_preview_a6fee4=0;
             HWND handle=GetDlgItem(window,0x6c5);
@@ -148,9 +148,9 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             return 0;
         }
         case 0x6c3: {
-            unknown_map_generator_a6fd68.SeedData.Read_Dialog_Parameters_00578420(window);
-            unknown_map_generator_a6fd68.SeedData.Save_Dialog_0053b1b0(unknown_map_generator_a6fd68.SeedData.DescriptionBuffer);
-            bool enable=unknown_map_generator_a6fd68.SeedData.Has_Saved_Games_0053c5c0();
+            RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
+            RandomMapGen.SeedData.Save_Dialog_0053b1b0(RandomMapGen.SeedData.DescriptionBuffer);
+            bool enable=RandomMapGen.SeedData.Has_Saved_Games_0053c5c0();
             HWND handle=GetDlgItem(window,0x6c2);
             if(handle)EnableWindow(handle,enable);
             handle=GetDlgItem(window,0x6c4);
@@ -159,20 +159,20 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             return 0;
         }
         case 0x6c2: {
-            unknown_map_generator_a6fd68.SeedData.Read_Dialog_Parameters_00578420(window);
-            bool loaded=unknown_map_generator_a6fd68.SeedData.Load_Or_Prompt_005791a0(0);
+            RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
+            bool loaded=RandomMapGen.SeedData.Load_Or_Prompt_005791a0(0);
             if(loaded) {
                 unknown_preview_flag_7e0ae0=false;
                 PostMessageA(window,0x111,0x620,(LPARAM)GetDlgItem(window,0x620));
             }
             while(WWMouse->Get_Mouse_State()!=0)WWMouse->Show_Mouse();
-            unknown_map_generator_a6fd68.SeedData.Populate_Dialog_Parameters_00578600(window);
+            RandomMapGen.SeedData.Populate_Dialog_Parameters_00578600(window);
             return 0;
         }
         case 0x6c4: {
-            unknown_map_generator_a6fd68.SeedData.Read_Dialog_Parameters_00578420(window);
-            unknown_map_generator_a6fd68.SeedData.Delete_Dialog_0053b1e0();
-            bool enable=unknown_map_generator_a6fd68.SeedData.Has_Saved_Games_0053c5c0();
+            RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
+            RandomMapGen.SeedData.Delete_Dialog_0053b1e0();
+            bool enable=RandomMapGen.SeedData.Has_Saved_Games_0053c5c0();
             HWND handle=GetDlgItem(window,0x6c2);
             if(handle)EnableWindow(handle,enable);
             handle=GetDlgItem(window,0x6c4);
@@ -181,13 +181,13 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             return 0;
         }
         case 0x6c5:
-            unknown_map_generator_a6fd68.SeedData.Read_Dialog_Parameters_00578420(window);
+            RandomMapGen.SeedData.Read_Dialog_Parameters_00578420(window);
             if(Debug_Map) {
-                unknown_map_generator_a6fd68.Unknown_0057A0D0(0,(int)window);
+                RandomMapGen.Unknown_0057A0D0(0,(int)window);
                 unknown_id_source_a3d290->Set_Scenario_Name_0065e730(unknown_random_map_name_7e1608);
                 Write_Scenario_INI_0065f980(unknown_random_map_file_7e15fc,true);
             } else if(!unknown_preview_a6fee4 || !unknown_preview_a6fee4->Is_Present()) {
-                unknown_map_generator_a6fd68.Unknown_0057A0D0(1,(int)window);
+                RandomMapGen.Unknown_0057A0D0(1,(int)window);
                 if(Debug_Map) {
                     unknown_id_source_a3d290->Set_Scenario_Name_0065e730(unknown_random_map_name_7e1608);
                     Write_Scenario_INI_0065f980(unknown_random_map_file_7e15fc,true);
@@ -202,13 +202,13 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
         HWND preview_handle=GetDlgItem(window,0x620);
         if(Debug_Map)EnableWindow(preview_handle,0);
         else EnableWindow(preview_handle,1);
-        if(unknown_map_generator_a6fd68.SeedData.Seed==-1) {
-            unknown_map_generator_a6fd68.SeedData.Seed=unknown_id_source_a3d290->Random()(0,65535);
+        if(RandomMapGen.SeedData.Seed==-1) {
+            RandomMapGen.SeedData.Seed=unknown_id_source_a3d290->Random()(0,65535);
             unknown_generate_flag_a70068=true;
         }
         unknown_preview_flag_7e0ae0=true;
-        unknown_map_generator_a6fd68.SeedData.Populate_Dialog_Parameters_00578600(window);
-        bool enable=unknown_map_generator_a6fd68.SeedData.Has_Saved_Games_0053c5c0();
+        RandomMapGen.SeedData.Populate_Dialog_Parameters_00578600(window);
+        bool enable=RandomMapGen.SeedData.Has_Saved_Games_0053c5c0();
         HWND handle=GetDlgItem(window,0x6c2);
         if(handle)EnableWindow(handle,enable);
         handle=GetDlgItem(window,0x6c4);

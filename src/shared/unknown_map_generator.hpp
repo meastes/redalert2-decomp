@@ -105,5 +105,5 @@ typedef char MapGeneratorClass_size[(sizeof(MapGeneratorClass)==0x314)?1:-1];
 typedef char MapGeneratorClass_seed_prefix[(((unsigned int)&(((MapGeneratorClass*)0)->SeedData))==0)?1:-1];
 // Proposed complete global view; original constructor/lifetime scaffolding stays in place.
 // Declares storage elsewhere; no global definition or new initializer is introduced.
-extern MapGeneratorClass unknown_map_generator_a6fd68; //00A6FD68 (TibSun RandomMapGen; name kept for now)
+extern MapGeneratorClass RandomMapGen; //00A6FD68 (TibSun mapgen.h RandomMapGen)
 #endif
