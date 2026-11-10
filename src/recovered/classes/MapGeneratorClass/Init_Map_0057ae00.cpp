@@ -57,7 +57,7 @@ extern "C" wchar_t *__cdecl wcscpy(wchar_t *target,wchar_t const *text);
 // @ref ?Read_Tile_Control_00529870@@=00529870
 // @ref ?Clear_Tile_Use_Counts_0052b650@@=0052b650
 // @ref ?Load_Isometric_Tiles_0052b2e0@@=0052b2e0
-// @ref ?unknown_slot28@RadarClass@@=00630300
+// @ref ?Set_Map_Dimensions@RadarClass@@=00630300
 // @ref ??0UnknownPreview_0061D430@@=0061d430
 // @ref ??0Tactical@@=006a24b0
 // @ref _wcslen=00783605
@@ -136,7 +136,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
         unknown_id_source_a3d290->Set_Waypoint_Location(99,center);
         unknown_id_source_a3d290->Set_Waypoint_Location(unknown_id_source_a3d290->HomeCell,unknown_id_source_a3d290->Get_Waypoint_Location(99));
         Map[unknown_id_source_a3d290->Get_Waypoint_Location(unknown_id_source_a3d290->HomeCell)].unknown_140|=4;
-        Map.RadarClass::unknown_slot52(unknown_id_source_a3d290->Waypoint_Coord(unknown_id_source_a3d290->HomeCell));
+        Map.RadarClass::Set_Tactical_Position(unknown_id_source_a3d290->Waypoint_Coord(unknown_id_source_a3d290->HomeCell));
         unknown_a40774--;
     } else {
         unknown_id_source_a3d290->Set_Defaults();
@@ -162,8 +162,8 @@ void MapGeneratorClass::Init_Map(int fullInit)
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
         if(changed) {
             Map.MouseClass::Init_Clear();
-            Map.RadarClass::unknown_slot28(&size,true,false,true);
-            Map.RadarClass::unknown_slot29(localSize);
+            Map.RadarClass::Set_Map_Dimensions(&size,true,false,true);
+            Map.RadarClass::Set_Local_Dimensions(localSize);
             if(unknown_tactical_83996c)delete unknown_tactical_83996c;
             unknown_tactical_83996c=new Tactical;
             unknown_tactical_83996c->Reset_Dirty_Rectangles();
@@ -192,7 +192,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
         unknown_id_source_a3d290->Set_Waypoint_Location(99,center);
         unknown_id_source_a3d290->Set_Waypoint_Location(98,unknown_id_source_a3d290->Get_Waypoint_Location(99));
         Map[unknown_id_source_a3d290->Get_Waypoint_Location(98)].unknown_140|=4;
-        Map.RadarClass::unknown_slot52(unknown_id_source_a3d290->Waypoint_Coord(98));
+        Map.RadarClass::Set_Tactical_Position(unknown_id_source_a3d290->Waypoint_Coord(98));
         Report_Generation_Progress_0057be50(25);
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
         unknown_a40774=(int)((unsigned)unknown_a40774+1u);
@@ -238,7 +238,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
     Clear_Map_Regions_0056da00();
     SeededWaterAmount=0;WorkingRegionID=0;
     PlaceWaterfall=Map_Random_Fraction_00579770()<unknown_waterfall_probability_7a5b68;
-    Map.Clear_Radar();Map.RadarClass::unknown_slot29(localSize);Map.Init_Radar();Map.Compute_Radar_Image();
+    Map.Clear_Radar();Map.RadarClass::Set_Local_Dimensions(localSize);Map.Init_Radar();Map.Compute_Radar_Image();
     unknown_id_source_a3d290->unknown_22a8=SeedData.Theater==0 ? TemperateAmbientLight[SeedData.Time] : SnowAmbientLight[SeedData.Time];
     unknown_id_source_a3d290->AmbientLevel=RMGLevelLightSettings[SeedData.Time];
     unknown_id_source_a3d290->AmbientRed=SeedData.Theater==0 ? TemperateAmbientRed[SeedData.Time] : SnowAmbientRed[SeedData.Time];

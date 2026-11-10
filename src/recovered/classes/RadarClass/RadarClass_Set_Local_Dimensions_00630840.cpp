@@ -1,9 +1,9 @@
 #include "shared/radar.hpp"
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
-void RadarClass::unknown_slot29(Rect const &size)
+void RadarClass::Set_Local_Dimensions(Rect const &size)
 {
-    MapClass::unknown_slot29(size);
+    MapClass::Set_Local_Dimensions(size);
     unknown_1498.Y = 10000;
     unknown_1498.X = 10000;
     unknown_1498.Height = 0;

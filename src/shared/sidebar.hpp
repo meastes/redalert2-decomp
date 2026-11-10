@@ -336,12 +336,12 @@ public:
     static int __fastcall Unknown_0067E640(int value);  // 0x0067E640
     static int __fastcall Unknown_0067E650(int value);  // 0x0067E650
     bool Unknown_0067DC70(int index);                   // 0x0067DC70 stops it
-    virtual HRESULT unknown_slot30(IStream *stream);                      // slot 30 0x00682290 load
-    virtual HRESULT unknown_slot31(IStream *stream);                      // slot 31 0x006822A0 save
-    virtual wchar_t const *unknown_slot33(int id);      // slot 33 0x00681ED0
-    virtual void unknown_slot34();                      // slot 34 0x006819A0
-    virtual void unknown_slot50();                      // slot 50 0x0067BFC0
-    virtual void unknown_slot53();                      // slot 53 0x0067BD90
+    virtual HRESULT Load(IStream *stream);                      // slot 30 0x00682290 load
+    virtual HRESULT Save(IStream *stream);                      // slot 31 0x006822A0 save
+    virtual wchar_t const *Help_Text(int id);      // slot 33 0x00681ED0
+    virtual void Reposition_Sidebar();                      // slot 34 0x006819A0
+    virtual void DisposeOfArt();                      // slot 50 0x0067BFC0
+    virtual void Init_For_House();                      // slot 53 0x0067BD90
     virtual bool unknown_slot54(int control);           // slot 54 0x0067E210 (new; shows (1), hides (0) or toggles (-1) the sidebar; true when it changed)
 
     static SBGadgetClass Background;                    // 0x00AB9718

@@ -6,7 +6,7 @@
 // @ref ?Load@UnknownLobbyState@@QAE_NPAUIStream@@@Z=00672880
 // @ref ?Load@ThemeClass@@QAEJPAUIStream@@@Z=006e8340
 // @ref ?Load@BombListClass@@QAEJPAUIStream@@@Z=00436860
-// @ref ?unknown_slot30@MouseClass@@QAEJPAUIStream@@@Z=0059f530
+// @ref ?Load@MouseClass@@QAEJPAUIStream@@@Z=0059f530
 // @ref ?unknown_slot42@MouseClass@@QAEXABVRect@@@Z=00498c80
 // @ref ?Clear@BombListClass@@QAEXXZ=00436710
 // @ref ??_C@_0CC@EKPA@Reading?5Skirmish?5Session?4Options@=007f1bec
@@ -115,7 +115,7 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    Map.unknown_slot30(stream);
+    Map.Load(stream);
     if (FAILED(Skip_Objects(stream))) {    // Tubes
         DebugString("\t***** FAILED!\n");
         return false;

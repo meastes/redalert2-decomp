@@ -30,7 +30,7 @@ void __fastcall Unknown_0049C3F0(ObjectClass *object);
 extern bool unknown_flag_a40d45;
 extern int unknown_height_step_852948;
 
-void DisplayClass::unknown_slot48(CoordStruct const &coord, Cell const &cell, ObjectClass *object, int action, bool small_mouse)
+void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell, ObjectClass *object, int action, bool small_mouse)
 {
     if (object && unknown_flag_a40d04 && unknown_flag_a40958 && !Debug_Map &&
         object->unknown_slot25(false, 0) == 5) object = 0;

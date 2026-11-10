@@ -13,7 +13,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Planning_Mouse_Move_00617900@@YG_NHH@Z=00617900
 // @ref ?Down@WWKeyboardClass@@QAE_NH@Z=00532890
-// @ref ?unknown_slot47@DisplayClass@@UAEXABUPoint2D@@@Z=0049c500
+// @ref ?Mouse_Left_Held@DisplayClass@@UAEXABUPoint2D@@@Z=0049c500
 // @ref ?Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z=0066a7a0
 // @ref ?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z=00669650
 // @ref ?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z=00669960
@@ -34,7 +34,7 @@ void ScrollClass::Unknown_0066A290()
     }
     if (unknown_4f2a == true) {
         if (WWKeyboard->Down(1)) {
-            Map.unknown_slot47(xy);
+            Map.Mouse_Left_Held(xy);
         } else if (WWKeyboard->Down(2)) {
             Map.Unknown_0066A7A0(xy);
         }

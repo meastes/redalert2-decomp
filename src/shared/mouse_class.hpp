@@ -38,7 +38,7 @@ struct MouseStruct {
 class MouseClass : public ScrollClass {
 public:
     MouseClass();                                               // 0x0059F020
-    // Restore-in-place form, inline in MouseClass::unknown_slot30.
+    // Restore-in-place form, inline in MouseClass::Load.
     MouseClass(NoInitClass const &noinit) : ScrollClass(noinit) {}
 #ifdef RA2_MAP_GLOBAL
     // User-declared and empty: the Map global's atexit destructor (0x0040D080) and the
@@ -54,8 +54,8 @@ public:
     virtual bool Override_Mouse_Shape(int mouse, bool wsmall = false);   // slot 19 0x0059F250
     virtual void Revert_Mouse_Shape();                          // slot 20 0x0059F080
     virtual void Mouse_Small(bool wsmall);                      // slot 21 0x0059F090
-    virtual HRESULT unknown_slot30(IStream *stream);                              // slot 30 0x0059F530 load
-    virtual HRESULT unknown_slot31(IStream *stream);                              // slot 31 0x0059FC80 save
+    virtual HRESULT Load(IStream *stream);                              // slot 30 0x0059F530 load
+    virtual HRESULT Save(IStream *stream);                              // slot 31 0x0059FC80 save
     virtual int unknown_slot40() { return NormalMouseShape; }   // slot 40 0x0040D150
 
     // First frame of mouse (its small form when asked and present; 0x0059F170).

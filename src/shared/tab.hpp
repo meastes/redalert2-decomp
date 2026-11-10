@@ -55,9 +55,9 @@ public:
     virtual void Init_IO();                                     // slot 8  0x006A0C50
     virtual void AI(int &input, Point2D const &xy);             // slot 10 0x006A0F30
     virtual void Draw_It(bool complete = false);                // slot 16 0x006A12D0
-    virtual wchar_t const *unknown_slot33(int id);              // slot 33 0x006A20B0
-    virtual void unknown_slot50();                              // slot 50 0x006A0B30 (frees shapes)
-    virtual void unknown_slot53();                              // slot 53 0x006A0B70 (loads shapes)
+    virtual wchar_t const *Help_Text(int id);              // slot 33 0x006A20B0
+    virtual void DisposeOfArt();                              // slot 50 0x006A0B30 (frees shapes)
+    virtual void Init_For_House();                              // slot 53 0x006A0B70 (loads shapes)
     virtual bool unknown_slot54(int control);                   // slot 54 0x006A0DA0 (the sidebar shown or hidden: updates the side buttons and help regions)
 
     // Frees button shape index when it was loaded (0x006A0540, __fastcall).

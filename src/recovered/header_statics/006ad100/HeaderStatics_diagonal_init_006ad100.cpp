@@ -206,7 +206,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
+// @ref ?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_006A17B0@TabClass@@QAEXXZ=006a17b0
@@ -439,7 +439,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
+// @ref ?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_006A17B0@TabClass@@QAEXXZ=006a17b0
@@ -672,7 +672,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
+// @ref ?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_006A17B0@TabClass@@QAEXXZ=006a17b0
@@ -905,7 +905,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
+// @ref ?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_006A17B0@TabClass@@QAEXXZ=006a17b0
@@ -1137,7 +1137,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
+// @ref ?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_006A17B0@TabClass@@QAEXXZ=006a17b0

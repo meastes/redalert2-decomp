@@ -16,7 +16,7 @@ bool TActionClass::unknown_func_6b1c80(HouseClass *house, ObjectClass *object, T
     unknown_flag_a40d44 = true;
     WWKeyboard->Clear();
     WWMouse->Hide_Mouse();
-    Map.unknown_slot35();
+    Map.Abort_Drag_Select();
     Map.Flag_To_Redraw(0);
     Map.Render();
     Sleep(1000);

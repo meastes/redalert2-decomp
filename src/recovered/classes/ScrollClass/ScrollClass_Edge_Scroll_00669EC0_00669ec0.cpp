@@ -111,13 +111,13 @@ void ScrollClass::Edge_Scroll_00669EC0(Point2D const &xy)
 
             int distance = 1;
 
-            if (!unknown_slot41(facing, &distance, false)) {
+            if (!Scroll_Map(facing, &distance, false)) {
                 Override_Mouse_Shape(control + 9, false);
             } else {
                 Override_Mouse_Shape(control + 1, false);
 
                 distance = (int)(_rate[rate] * Rules->ScrollMultiplier);
-                unknown_slot41(facing, &distance, true);
+                Scroll_Map(facing, &distance, true);
 
                 if (Counter == 0 && player_scrolled) {
                     Counter = 1;

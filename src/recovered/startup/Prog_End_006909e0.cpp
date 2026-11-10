@@ -370,7 +370,7 @@ void __cdecl Prog_End()
         unknown_tactical_83996c = 0;
     }
     RadarEventClass_unknown_delete_all_63b890();
-    Map.unknown_slot50();
+    Map.DisposeOfArt();
     Unknown_00603FA0();
     Unknown_0059D900();
     Unknown_005D5F40();

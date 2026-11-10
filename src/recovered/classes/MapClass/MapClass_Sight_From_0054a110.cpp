@@ -18,7 +18,7 @@
 // @ref ?unknown_radius_offset_a6f248@@3QBVCell@@B=00a6f248
 // @ref ?unknown_occlusion_offset_a6ed18@@3QBVCell@@B=00a6ed18
 // @ref ?unknown_slot38@DisplayClass@@QAE_NABVCell@@PAVHouseClass@@@Z=0049a0f0
-// @ref ?unknown_slot37@RadarClass@@QAE_NABVCell@@PAVHouseClass@@_N@Z=0062fca0
+// @ref ?RevealFogShroud@RadarClass@@QAE_NABVCell@@PAVHouseClass@@_N@Z=0062fca0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
@@ -111,7 +111,7 @@ void MapClass::Sight_From(CoordStruct const &xcoord, int sightrange, HouseClass 
                     Map.unknown_slot38(newcell, house);
                 }
             } else {
-                Map.unknown_slot37(newcell, house, arg8);
+                Map.RevealFogShroud(newcell, house, arg8);
             }
         }
     }

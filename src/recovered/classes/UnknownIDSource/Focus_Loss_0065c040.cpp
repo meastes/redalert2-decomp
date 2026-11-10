@@ -31,7 +31,7 @@ void __fastcall Focus_Loss_0065c040()
     if (ToolTips) {
         ToolTips->Enable(false);
     }
-    Map.unknown_slot35();
+    Map.Abort_Drag_Select();
     Map.Override_Mouse_Shape(0, false);
     WWMouse->Hide_Mouse();
     Map.Flag_To_Redraw(2);

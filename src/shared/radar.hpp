@@ -186,19 +186,19 @@ public:
     virtual void AI(int &input, Point2D const &xy);     // slot 10 0x0062FCC0
     virtual void Draw_It(bool complete = false);        // slot 16 0x0062F580
     // Slot 33 returns the help text of a button id (PowerClass answers 999).
-    virtual wchar_t const *unknown_slot33(int id);      // slot 33 0x00634AA0
-    virtual void unknown_slot34();                      // slot 34 0x006306D0
-    virtual void unknown_slot28(Rect const *rect, bool arg2, int arg3, bool arg4);   // slot 28 0x00630300 (thunk passing the four arguments on to MapClass's)
-    virtual void unknown_slot29(Rect const &rect);              // slot 29 0x00630840 (MapClass's slot) fits the radar to the map
-    virtual HRESULT unknown_slot30(IStream *stream);    // slot 30 0x00632BF0 load
-    virtual HRESULT unknown_slot31(IStream *stream);    // slot 31 0x00632E10 save
-    virtual bool unknown_slot36(Cell const &cell, HouseClass *house);              // slot 36 0x0062FC80
-    virtual bool unknown_slot37(Cell const &cell, HouseClass *house, bool arg3);   // slot 37 0x0062FCA0
+    virtual wchar_t const *Help_Text(int id);      // slot 33 0x00634AA0
+    virtual void Reposition_Sidebar();                      // slot 34 0x006306D0
+    virtual void Set_Map_Dimensions(Rect const *rect, bool arg2, int arg3, bool arg4);   // slot 28 0x00630300 (thunk passing the four arguments on to MapClass's)
+    virtual void Set_Local_Dimensions(Rect const &rect);              // slot 29 0x00630840 (MapClass's slot) fits the radar to the map
+    virtual HRESULT Load(IStream *stream);    // slot 30 0x00632BF0 load
+    virtual HRESULT Save(IStream *stream);    // slot 31 0x00632E10 save
+    virtual bool Map_Cell(Cell const &cell, HouseClass *house);              // slot 36 0x0062FC80
+    virtual bool RevealFogShroud(Cell const &cell, HouseClass *house, bool arg3);   // slot 37 0x0062FCA0
 
-    virtual void unknown_slot50();                      // slot 50 0x0062F210 (frees shapes)
-    virtual Cell unknown_slot51(Point2D const &xy);   // slot 51 0x0062FBD0 the cell under a screen point
-    virtual void unknown_slot52(CoordStruct const &coord);  // slot 52 0x00630320 centres the tactical view on a coordinate
-    virtual void unknown_slot53();                      // slot 53 0x0062F310 Init_For_House (loads shapes)
+    virtual void DisposeOfArt();                      // slot 50 0x0062F210 (frees shapes)
+    virtual Cell Click_Cell_Calc(Point2D const &xy);   // slot 51 0x0062FBD0 the cell under a screen point
+    virtual void Set_Tactical_Position(CoordStruct const &coord);  // slot 52 0x00630320 centres the tactical view on a coordinate
+    virtual void Init_For_House();                      // slot 53 0x0062F310 Init_For_House (loads shapes)
 
     // Adds (true) or removes the two radar shape buttons (0x0062F2D0).
     void Set_Buttons(bool add);

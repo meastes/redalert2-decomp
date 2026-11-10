@@ -51,10 +51,10 @@ public:
     virtual void Init_Clear();                          // slot 7  0x0061C4D0
     virtual void AI(int &input, Point2D const &xy);     // slot 10 0x0061CC30
     virtual void Draw_It(bool complete = false);        // slot 16 0x0061C8C0
-    virtual wchar_t const *unknown_slot33(int id);      // slot 33 0x0061D1C0
-    virtual void unknown_slot34();                      // slot 34 0x0061D130
-    virtual void unknown_slot50();                      // slot 50 0x0061C580
-    virtual void unknown_slot53();                      // slot 53 0x0061C560
+    virtual wchar_t const *Help_Text(int id);      // slot 33 0x0061D1C0
+    virtual void Reposition_Sidebar();                      // slot 34 0x0061D130
+    virtual void DisposeOfArt();                      // slot 50 0x0061C580
+    virtual void Init_For_House();                      // slot 53 0x0061C560
 
     // Number of power bar segments for the bar height (0x0061C6E0; no direct
     // callers, inlined elsewhere).

@@ -440,7 +440,7 @@ public:
     // the cells of +0x1158 carrying it lose it and leave the list, the dummy
     // cell forgets it (0x0047A340) and it leaves the tag list 0x00866238.
     virtual void Detach(AbstractClass *target, bool all);
-    virtual bool unknown_slot26() { return false; }                             // slot 26 0x0049ED10 (kept in Display.CPP)
+    virtual bool Is_Scrolling() { return false; }                             // slot 26 0x0049ED10 (kept in Display.CPP)
     // Every frame: each +0x154 entry with a cell whose countdown ran out is
     // removed and a new one placed (0x0054E410), outside the campaign when
     // the 0x00A3D2C1 option is on (0x0054E300; hypothesis: Logic for crates).
@@ -455,8 +455,8 @@ public:
     // (0x0054E8D0; TibSun Close_Object).
     ObjectClass *Close_Object(CoordStruct const &coord);
 #endif
-    virtual void unknown_slot28(Rect const *rect, bool arg2, int arg3, bool arg4);   // slot 28 0x005484E0 (callee pops 4 arguments, ret 0x10)
-    virtual void unknown_slot29(Rect const &rect);                                      // slot 29 0x00549AE0 (sets the map size; hypothesis)
+    virtual void Set_Map_Dimensions(Rect const *rect, bool arg2, int arg3, bool arg4);   // slot 28 0x005484E0 (callee pops 4 arguments, ret 0x10)
+    virtual void Set_Local_Dimensions(Rect const &rect);                                      // slot 29 0x00549AE0 (sets the map size; hypothesis)
 
     // Cell at coord (leptons, 256 per cell), or the dummy cell when off map.
     CoordStruct Unknown_00569FB0(CoordStruct const &from, CoordStruct const &to, HouseClass *house); // owner0200Z, observed hidden-result thiscall

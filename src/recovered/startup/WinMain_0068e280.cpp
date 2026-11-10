@@ -827,7 +827,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int com
 
     MultiplayerGameMode::unknown_delete_modes_5b8d40();
     RadarEventClass_unknown_delete_all_63b890();
-    Map.unknown_slot50();
+    Map.DisposeOfArt();
     Unknown_00603FA0();
     Mono_Window_Shutdown();
     Unknown_005D5F40();

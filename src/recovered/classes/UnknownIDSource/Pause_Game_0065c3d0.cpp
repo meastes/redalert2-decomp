@@ -10,7 +10,7 @@
 
 void Pause_Game_0065c3d0()
 {
-    Map.unknown_slot35();
+    Map.Abort_Drag_Select();
     if (WWMouse->Get_Mouse_State() == 0) {
         WWMouse->Hide_Mouse();
     }

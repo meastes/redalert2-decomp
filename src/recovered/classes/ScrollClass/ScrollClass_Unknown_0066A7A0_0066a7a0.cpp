@@ -19,7 +19,7 @@
 // @ref __imp__SetCursorPos@8=0079a444
 // @ref ?Get_Scroll_Method@OptionsClass@@QBEHXZ=005da3e0
 // @ref ?Unknown_00721DB0@@YIHABUPoint2D@@0@Z=00721db0
-// @ref ?unknown_slot41@DisplayClass@@UAE_NHPAH_N@Z=00499b60
+// @ref ?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z=00499b60
 // @ref __ftol=0077f110
 // @ref __real@8@4002c000000000000000=007a5e18
 // @ref __real@8@3fff8000000000000000=0079a708
@@ -53,7 +53,7 @@ void ScrollClass::Unknown_0066A7A0(Point2D const &xy)
     }
     if (!unknown_4f1c) {
         if (unknown_11cb) {
-            unknown_slot49(Point2D(-1, -1));
+            Mouse_Right_Release(Point2D(-1, -1));
         } else {
             unknown_4f1c = true;
         }
@@ -140,19 +140,19 @@ void ScrollClass::Unknown_0066A7A0(Point2D const &xy)
         int blocked = 0;
         for (int facing = 0; facing < 8; facing += 2) {
             int one = 1;
-            if (!Map.unknown_slot41(facing, &one, false)) {
+            if (!Map.Scroll_Map(facing, &one, false)) {
                 blocked |= 1 << (facing / 2);
             }
         }
         if (dx > 0) {
-            Map.unknown_slot41(2, &distance_x, true);
+            Map.Scroll_Map(2, &distance_x, true);
         } else if (dx < 0) {
-            Map.unknown_slot41(6, &distance_x, true);
+            Map.Scroll_Map(6, &distance_x, true);
         }
         if (dy > 0) {
-            Map.unknown_slot41(4, &distance_y, true);
+            Map.Scroll_Map(4, &distance_y, true);
         } else if (dy < 0) {
-            Map.unknown_slot41(0, &distance_y, true);
+            Map.Scroll_Map(0, &distance_y, true);
         }
         Set_Default_Mouse(_mouse[blocked], true);
     }

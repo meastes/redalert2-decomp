@@ -23,10 +23,10 @@ public:
     // Inline; the copy the linker kept is 0x0040D140.
     virtual void Init_IO() { TabClass::Init_IO(); }             // slot 8
     virtual void AI(int &input, Point2D const &xy);             // slot 10 0x00669630
-    virtual bool unknown_slot26();                              // slot 26 0x0066A3C0
-    virtual void unknown_slot35();                              // slot 35 0x0066AC20 (aborts a drag select)
-    virtual void unknown_slot44(Point2D const &point);          // slot 44 0x0066ABE0
-    virtual void unknown_slot49(Point2D const &xy);             // slot 49 0x0066ABA0
+    virtual bool Is_Scrolling();                              // slot 26 0x0066A3C0
+    virtual void Abort_Drag_Select();                              // slot 35 0x0066AC20 (aborts a drag select)
+    virtual void Mouse_Right_Press(Point2D const &point);          // slot 44 0x0066ABE0
+    virtual void Mouse_Right_Release(Point2D const &xy);             // slot 49 0x0066ABA0
 
     // Scrolls by the mouse and keyboard (0x0066A290, called first by AI).
     void Unknown_0066A290();

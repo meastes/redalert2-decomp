@@ -150,7 +150,7 @@ bool __fastcall Set_Display_Mode(int width, int height)
     Unknown_Reset_Art_006F33B0(unknown_8523e0, unknown_8523e4);
     Map.Init_IO();
     Map.unknown_slot54(1);
-    Map.unknown_slot34();
+    Map.Reposition_Sidebar();
     Map.Flag_To_Redraw(2);
     for (HWND dialog = Unknown_00735B10(); dialog != 0; dialog = (HWND)unknown_previous_key((int)dialog)) {
         Unknown_005FF380(dialog);

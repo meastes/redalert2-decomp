@@ -96,7 +96,7 @@ void SidebarClass::Init_IO()
         Column[column].unknown_24 = Rect(0, 0, 60, unknown_int_abcd70);
         Column[column].Unknown_0067E7E0(column);
     }
-    unknown_slot34();
+    Reposition_Sidebar();
     if (unknown_4ee1) {
         unknown_slot54(0);
         unknown_slot54(1);

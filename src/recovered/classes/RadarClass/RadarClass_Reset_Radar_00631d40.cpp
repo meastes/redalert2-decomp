@@ -10,7 +10,7 @@
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?Compute_Radar_Image@RadarClass@@QAEXXZ=00630a00
-// @ref ?unknown_slot29@RadarClass@@UAEXABVRect@@@Z=00630840
+// @ref ?Set_Local_Dimensions@RadarClass@@UAEXABVRect@@@Z=00630840
 // @ref ?unknown_list_a40c20@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
 
 
@@ -19,7 +19,7 @@ void RadarClass::Reset_Radar()
     delete unknown_1254;
     unknown_1254 = New_Tracking_Table(256, 10);
     RadarClass *map = &Map;
-    map->RadarClass::unknown_slot29(map->MapLocalSize);
+    map->RadarClass::Set_Local_Dimensions(map->MapLocalSize);
     Compute_Radar_Image();
     for (int index = 0; index < unknown_list_a40c20.Count(); index++) {
         unknown_list_a40c20[index]->unknown_37b = false;

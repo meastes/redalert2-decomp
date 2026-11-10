@@ -230,7 +230,7 @@ public:
     // Slot 41 (0x00499B60, virtual in shared/display.hpp): scrolls the view; Main_Loop calls it directly.
     // Behind a guard (shared/main_loop.hpp defines it): a new declaration here renumbers
     // Refresh_Wonline_Players 0x0073FEE0's $L labels.
-    bool unknown_slot41(int arg1, int *arg2, bool arg3);
+    bool Scroll_Map(int arg1, int *arg2, bool arg3);
 #endif
     // Slot 38 (0x0049A0F0, virtual in shared/display.hpp), declared non-virtual so the light vtable keeps its layout;
     // Map calls it directly (MapClass 0x00549C50).
@@ -270,15 +270,15 @@ public:
 #ifndef RA2_SHARED_RADAR_HPP
 class RadarClass : public DisplayClass {
 public:
-    virtual bool unknown_slot36(Cell const &cell, HouseClass *house);              // slot 36 0x0062FC80
-    virtual void unknown_slot52(CoordStruct const &coord);                       // slot 52 0x00630320 (centres the tactical view on a coordinate)
+    virtual bool Map_Cell(Cell const &cell, HouseClass *house);              // slot 36 0x0062FC80
+    virtual void Set_Tactical_Position(CoordStruct const &coord);                       // slot 52 0x00630320 (centres the tactical view on a coordinate)
 #ifdef RA2_DISPLAY_READ_INI
     // Slot 29 (0x00630840, virtual in shared/radar.hpp) as the direct call on Map in DisplayClass's
     // Read_INI; guarded like display.hpp's alias (Print_CRCs 0x0062A360).
     void Unknown_00630840(Rect const &rect);                                    // 0x00630840
 #endif
     // Slot 37 (0x0062FCA0, virtual in shared/radar.hpp), declared non-virtual as slot 38 above.
-    bool unknown_slot37(Cell const &cell, HouseClass *house, bool arg3);
+    bool RevealFogShroud(Cell const &cell, HouseClass *house, bool arg3);
     void Radar_Background(Cell const &cell);                              // 0x00631570
     void Radar_Track(TechnoClass *techno, Point2D point);                  // 0x00631910
     void Radar_Untrack(TechnoClass *techno, Point2D point);                  // 0x00631AF0
@@ -328,7 +328,7 @@ public:
     void Unknown_0067D420(bool sidebar);
 #endif
     void Unknown_0067C150(ObjectClass *object);                                 // 0x0067C150 (as shared/sidebar.hpp)
-    virtual void unknown_slot34();                                              // slot 34 0x006819A0
+    virtual void Reposition_Sidebar();                                              // slot 34 0x006819A0
 #ifdef RA2_HOUSE_SCREEN_AI
     void Unknown_0067E1C0(); // as shared/sidebar.hpp
 #endif
@@ -362,7 +362,7 @@ typedef unsigned short wchar_t;
 class TabClass : public SidebarClass {
 public:
     virtual void Init_IO();                                     // slot 8  0x006A0C50
-    virtual wchar_t const *unknown_slot33(int id);              // slot 33 0x006A20B0 (the tooltip text; called directly)
+    virtual wchar_t const *Help_Text(int id);              // slot 33 0x006A20B0 (the tooltip text; called directly)
     virtual bool unknown_slot54(int control);                   // slot 54 0x006A0DA0 (the sidebar shown or hidden)
 #ifdef RA2_HOUSE_SCREEN_AI
     void Unknown_006A1770(); // as shared/tab.hpp
@@ -379,7 +379,7 @@ public:
 #ifdef MAP_VIEW_DECLARE_WINDOW_PROC
     void Unknown_0066A400(struct HWND__ *window, unsigned int &message, unsigned int &wparam, long &lparam);
 #endif
-    virtual void unknown_slot35();                              // slot 35 0x0066AC20 (aborts a drag select)
+    virtual void Abort_Drag_Select();                              // slot 35 0x0066AC20 (aborts a drag select)
     bool Unknown_00669650(Point2D const &xy, Cell &cell, CoordStruct &coord, ObjectClass *&object, bool &arg5, bool &arg6);   // 0x00669650
 };
 #endif
@@ -406,9 +406,9 @@ public:
     // hides DisplayClass::unknown_slot42 elsewhere and shifts type-count victims (0x00428370).
     // Slot 31 (0x0059FC80, virtual in shared/mouse_class.hpp): the map's save, which
     // Put_All 0x006558B0 calls directly on Map.
-    long unknown_slot31(struct IStream *stream);
+    long Save(struct IStream *stream);
     // Slot 30 (0x0059F530): the map's load (Get_All 0x00656B80).
-    long unknown_slot30(struct IStream *stream);
+    long Load(struct IStream *stream);
     // DisplayClass slot 42 (0x00498C80): sets the tactical view rectangle (TS Set_View_Dimensions).
     void unknown_slot42(Rect const &rect);
 #endif

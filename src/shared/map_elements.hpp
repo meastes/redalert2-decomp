@@ -13,7 +13,7 @@
 // inlined into VectorClass<ZoneConnectionClass>::VectorClass 0x0056CB90).
 struct ZoneConnectionClass {
     ZoneConnectionClass() : From(0, 0), To(0, 0), unknown_08(false), unknown_0c(-1) {}
-    // Member-wise (MouseClass::unknown_slot31 copies the bool as one byte).
+    // Member-wise (MouseClass::Save copies the bool as one byte).
     ZoneConnectionClass(ZoneConnectionClass const &other)
         : From(other.From), To(other.To), unknown_08(other.unknown_08), unknown_0c(other.unknown_0c)
     {

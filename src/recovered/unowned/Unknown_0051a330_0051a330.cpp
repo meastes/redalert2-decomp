@@ -82,7 +82,7 @@ bool __fastcall Unknown_0051a330(int side)
     CCFileClass file("UI.INI");
     if (unknown_ini_839860.Load(file, false, false)) {
         Rules->Advanced_Command_Bar(unknown_ini_839860, unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5);
-        Map.unknown_slot53();
+        Map.Init_For_House();
         return true;
     }
     Debug_Printf("Failed to load UI.INI!\n");

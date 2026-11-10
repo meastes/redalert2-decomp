@@ -48,7 +48,7 @@
 // @ref ?unknown_scroll_factor_7dfb74@@3MA=007dfb74
 // @ref ?unknown_scroll_keys_a6ebdc@@3HA=00a6ebdc
 // @ref ?unknown_scroll_rate_7dfb70@@3HA=007dfb70
-// @ref ?unknown_slot41@DisplayClass@@QAE_NHPAH_N@Z=00499b60
+// @ref ?Scroll_Map@DisplayClass@@QAE_NHPAH_N@Z=00499b60
 // @ref ?unknown_team_event_a6ebc4@@3HA=00a6ebc4
 // @ref ?unknown_team_number_a6ebc8@@3HA=00a6ebc8
 // @ref ?unknown_trap_check_heap_a40d1a@@3_NA=00a40d1a
@@ -289,16 +289,16 @@ bool __fastcall unknown_53fbd0()
         scroll <<= 8;
     }
     if (unknown_scroll_keys_a6ebdc & 0x100) {
-        Map.unknown_slot41(6, &scroll, true);
+        Map.Scroll_Map(6, &scroll, true);
     }
     if (unknown_scroll_keys_a6ebdc & 0x1000) {
-        Map.unknown_slot41(2, &scroll, true);
+        Map.Scroll_Map(2, &scroll, true);
     }
     if (unknown_scroll_keys_a6ebdc & 0x01) {
-        Map.unknown_slot41(0, &scroll, true);
+        Map.Scroll_Map(0, &scroll, true);
     }
     if (unknown_scroll_keys_a6ebdc & 0x10) {
-        Map.unknown_slot41(4, &scroll, true);
+        Map.Scroll_Map(4, &scroll, true);
     }
 
     unknown_delete_all_a76648();

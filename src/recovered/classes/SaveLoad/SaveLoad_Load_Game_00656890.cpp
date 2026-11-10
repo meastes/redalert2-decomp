@@ -61,7 +61,7 @@ bool __fastcall Unknown_00656890(char const *filename)
     Post_Load_Game_0065d2c0();
     Map.Init_IO();
     Map.unknown_slot54(1);
-    Map.unknown_slot34();
+    Map.Reposition_Sidebar();
     TiberiumClass::Init_Growth();
     TiberiumClass::Init_Spread();
     Map.Complete_Radar_Refresh();

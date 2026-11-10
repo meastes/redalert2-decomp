@@ -13,10 +13,10 @@
 #include "shared/id_source.hpp"
 #include "shared/debug_printf.hpp"
 // @ref ?RadarButton@RadarClass@@2VRTacticalClass@@A=00ab6478
-void RadarClass::unknown_slot53()
+void RadarClass::Init_For_House()
 {
     Debug_Printf("RadarClass::Init_For_House()\n");
-    unknown_slot50();
+    DisposeOfArt();
     if(unknown_id_source_a3d290->unknown_2239) {
         unknown_11ec=(unknown_int_7add80-144)/2+4;
         unknown_int_ab6468=unknown_11e0+11;

@@ -156,8 +156,8 @@ public:
     // The mouse shape over a cell with one of the player's waypoints (0x0049EAD0).
     int Unknown_0049EAD0(int mouse, Cell const &cell);
     // The screen's load and save (0x0049E810, 0x0049E840).
-    virtual HRESULT unknown_slot30(IStream *stream);                  // slot 30
-    virtual HRESULT unknown_slot31(IStream *stream);                  // slot 31
+    virtual HRESULT Load(IStream *stream);                  // slot 30
+    virtual HRESULT Save(IStream *stream);                  // slot 31
     // The map's sections of a scenario INI (0x0049D910; TibSun Write_INI).
     void Write_INI_0049D910(CCINIClass &ini);
 #ifdef RA2_DISPLAY_READ_INI
@@ -167,30 +167,30 @@ public:
 #endif
     virtual void unknown_slot32();                                    // slot 32
     // Help text of a button id (RadarClass 0x00634AA0, PowerClass 0x0061D1C0 for id 999).
-    virtual wchar_t const *unknown_slot33(int id);                   // slot 33
-    virtual void unknown_slot34();                                    // slot 34 0x0049E7D0 places the controls
-    virtual void unknown_slot35();                                    // slot 35
+    virtual wchar_t const *Help_Text(int id);                   // slot 33
+    virtual void Reposition_Sidebar();                                    // slot 34 0x0049E7D0 places the controls
+    virtual void Abort_Drag_Select();                                    // slot 35
     // Cell tests (0x00499BB0, 0x00499FC0; meaning not recovered).
-    virtual bool unknown_slot36(Cell const &cell, HouseClass *house);    // slot 36
-    virtual bool unknown_slot37(Cell const &cell, HouseClass *house, bool arg3);  // slot 37 0x00499FC0 (maps a cell; arg3 counts a viewer in or out)
+    virtual bool Map_Cell(Cell const &cell, HouseClass *house);    // slot 36
+    virtual bool RevealFogShroud(Cell const &cell, HouseClass *house, bool arg3);  // slot 37 0x00499FC0 (maps a cell; arg3 counts a viewer in or out)
     virtual bool unknown_slot38(Cell const &cell, HouseClass *house);    // slot 38 0x0049A0F0 (maps a cell for layer 1 and spreads to the neighbours)
     virtual bool unknown_slot39(Cell const &cell, HouseClass *house);    // slot 39 0x0049A370 (the layer-0 form of slot 38)
     virtual int unknown_slot40() = 0;                                 // slot 40 (pure; MouseClass 0x0040D150 returns its shape)
-    virtual bool unknown_slot41(int arg1, int *arg2, bool arg3);       // slot 41 0x00499B60
+    virtual bool Scroll_Map(int arg1, int *arg2, bool arg3);       // slot 41 0x00499B60
     // Slot 42 (0x00498C80): One_Time passes it the tactical view rectangle.
     virtual void unknown_slot42(Rect const &rect);
     virtual void unknown_slot43();                                    // slot 43 0x0040D120
     void Active_Click_0049E870(ObjectClass *, Cell, int);
-    virtual void unknown_slot44(Point2D const &point);               // slot 44 0x0049AF80
-    virtual void unknown_slot45(Point2D const &xy);                   // slot 45 0x0049C490 (the left button went down at xy: anchors a selection band)
+    virtual void Mouse_Right_Press(Point2D const &point);               // slot 44 0x0049AF80
+    virtual void Mouse_Left_Press(Point2D const &xy);                   // slot 45 0x0049C490 (the left button went down at xy: anchors a selection band)
     // Slot 46 (0x0049B0F0): the left button released over a cell (Westwood's
     // Mouse_Left_Up: cell, shadowed, object, action, small mouse; hypothesis).
     virtual void unknown_slot46(Cell const &cell, bool shadow, ObjectClass *object, int action, bool small_mouse);
-    virtual void unknown_slot47(Point2D const &xy);                   // slot 47 0x0049C500 (the mouse held at xy: drags a selection band)
+    virtual void Mouse_Left_Held(Point2D const &xy);                   // slot 47 0x0049C500 (the mouse held at xy: drags a selection band)
     // Slot 48 (0x0049BB20): the left button released after a drag (Westwood's
     // Mouse_Left_Release: coordinate, cell, object, action, small mouse; hypothesis).
-    virtual void unknown_slot48(CoordStruct const &coord, Cell const &cell, ObjectClass *object, int action, bool small_mouse);
-    virtual void unknown_slot49(Point2D const &xy);                    // slot 49 0x0049AF90 (ScrollClass 0x0066A7A0 passes Point2D(-1, -1))
+    virtual void Mouse_Left_Release(CoordStruct const &coord, Cell const &cell, ObjectClass *object, int action, bool small_mouse);
+    virtual void Mouse_Right_Release(Point2D const &xy);                    // slot 49 0x0049AF90 (ScrollClass 0x0066A7A0 passes Point2D(-1, -1))
 
     // The tactical area's gadget (0x00852910; RTTI DisplayClass::TacticalClass).
     // Constructor: GadgetClass(0, 0, 0, 0, 0x7F, true) inlined (0x00498A00).

@@ -12,7 +12,7 @@
 // copies). The skirmish lines call Debug_Printf 0x004068F0.
 // @ref ?Logic@@3VLogicClass@@A=00832470
 // @ref ?BombList@@3VBombListClass@@A=008322e0
-// @ref ?unknown_slot31@MouseClass@@QAEJPAUIStream@@@Z=0059fc80
+// @ref ?Save@MouseClass@@QAEJPAUIStream@@@Z=0059fc80
 // @ref ?Save@UnknownLobbyState@@QAE_NPAUIStream@@@Z=00672830
 // @ref ?Save@ThemeClass@@QAEJPAUIStream@@@Z=006e8310
 // @ref ?Voc_Static_Save@@YIJPAUIStream@@@Z=00714a90
@@ -107,7 +107,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         return false;
     }
     DebugString("Saving Map\n");
-    Map.unknown_slot31(stream);
+    Map.Save(stream);
     if (FAILED(Save_Vector(stream, unknown_TubeClass_list_008661c8))) {
         DebugString("\t***** FAILED!\n");
         return false;

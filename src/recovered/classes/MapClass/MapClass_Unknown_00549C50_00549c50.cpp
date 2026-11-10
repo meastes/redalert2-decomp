@@ -25,7 +25,7 @@
 // @ref ?unknown_occlusion_offset_a6ed18@@3QBVCell@@B=00a6ed18
 // @ref ?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z=0054a550
 // @ref ?unknown_slot38@DisplayClass@@QAE_NABVCell@@PAVHouseClass@@@Z=0049a0f0
-// @ref ?unknown_slot37@RadarClass@@QAE_NABVCell@@PAVHouseClass@@_N@Z=0062fca0
+// @ref ?RevealFogShroud@RadarClass@@QAE_NABVCell@@PAVHouseClass@@_N@Z=0062fca0
 // @ref ?unknown_47c900@CellClass@@QAEXXZ=0047c900
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
@@ -121,7 +121,7 @@ void MapClass::Unknown_00549C50(CoordStruct const &xcoord, int sightrange, House
             } else {
                 if ((!cellptr->IsMapped || !cellptr->IsVisible || !cellptr->IsFogVisible || !cellptr->IsFogMapped) && !dont_map) {
                     if (arg8) {
-                        Map.unknown_slot37(newcell, house, false);
+                        Map.RevealFogShroud(newcell, house, false);
                     } else {
                         cellptr->unknown_47c900();
                     }

@@ -5,7 +5,7 @@
 // @ref ?Set_WasUnderBridge_Flags@MapClass@@QAEXXZ=00568b00
 // @ref ?unknown_gas_cloud_system_a40d20@@3PAVParticleSystemClass@@A=00a40d20
 // @ref ?unknown_set_buffer_zone_0053d830@@YIXH@Z=0053d830
-// @ref ?unknown_slot52@RadarClass@@UAEXABUCoordStruct@@@Z=00630320
+// @ref ?Set_Tactical_Position@RadarClass@@UAEXABUCoordStruct@@@Z=00630320
 // @ref ?unknown_tags_866160@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00866160
 // @ref ?unknown_tags_866238@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00866238
 // Completes a freshly read scenario: refreshes every building, centres the
@@ -49,7 +49,7 @@ void __fastcall Fill_In_Data_0065cdd0()
                 unknown_id_source_a3d290->Views[2] = unknown_id_source_a3d290->Views[3] = cell;
             CoordStruct coord = Cell_Center(cell);
             coord.Z = Map.Get_Height_GL(coord);
-            Map.unknown_slot52(coord);
+            Map.Set_Tactical_Position(coord);
         }
     }
 

@@ -7,7 +7,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
+// @ref ?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 
 
@@ -18,7 +18,7 @@ bool TActionClass::unknown_reveal_whole_map(HouseClass *house, ObjectClass *obje
         Map.Reset_Iterator();
         CellClass *cell;
         while ((cell = Map.Iterate()) != 0) {
-            Map.unknown_slot36(cell->MapCoords, unknown_player_a35db4);
+            Map.Map_Cell(cell->MapCoords, unknown_player_a35db4);
         }
         Map.Flag_To_Redraw(1);
     }

@@ -42,7 +42,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
 
     unknown_slot24();
 
-    unknown_slot28((Rect const *)&rect, true, false, true);
+    Set_Map_Dimensions((Rect const *)&rect, true, false, true);
 
     int cell_height = ini.Get_Int(name, "Level", 0);
 

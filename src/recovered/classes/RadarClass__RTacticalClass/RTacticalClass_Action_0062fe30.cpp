@@ -107,7 +107,7 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
                 Map.unknown_slot46(cell, shadow, object, action, true);
             }
             if ((flags & 4) && !unknown_flag_a40d45) {
-                Map.unknown_slot48(CoordStruct(cell), cell, object, action, true);
+                Map.Mouse_Left_Release(CoordStruct(cell), cell, object, action, true);
             }
         } else {
             if (!pressed) {

@@ -31,7 +31,7 @@
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?unknown_slot34@SidebarClass@@UAEXXZ=006819a0
+// @ref ?Reposition_Sidebar@SidebarClass@@UAEXXZ=006819a0
 // @ref ?ToolTips@@3PAVCCToolTip@@A=008399b0
 // @ref ?Remove@ToolTipManager@@QAEXI@Z=006eba10
 // @ref ?Add@ToolTipManager@@QAE_NABVToolTip@@@Z=006eb860
@@ -63,7 +63,7 @@ void DisplayClass::unknown_slot42(Rect const &rect)
         Debug_Printf("Allocating ABuffer (%dx%d)\n", unknown_rect_839630.Width, unknown_rect_839630.Height);
         WWMouse->Show_Mouse();
     }
-    Map.unknown_slot34();
+    Map.Reposition_Sidebar();
     TacButton.X = unknown_rect_839630.X;
     TacButton.Y = unknown_rect_839630.Y;
     TacButton.Width = unknown_rect_839630.Width;
