@@ -2254,3 +2254,9 @@ Refinement (Scout1212 lab M): the penalty counts callee-saved candidates (values
 block of the web's range, weighted by block frequency: about 1.3 per candidate in an unconditional block, 0.25 in a conditional
 arm, more in loops. A local used once (scratch) or loads without a local cost 0; "straight-line code never counts" means plain
 code, not candidates in straight-line blocks.
+
+## MIN/MAX macro clamps versus if-clamps (Scout1212)
+A `MIN(a,b)`/`MAX(a,b)` macro clamp keeps both operands as temporaries across the compare and stores the result once at the join;
+`if (x >= b) x = b;` spills x at both definitions. The macro operands are callee-saved candidates that can push a loop bound below
+the in-loop webs (Draw_Sonic 0x7225B0: four macro clamps make the original lend ebp to ypos and the xoff/yoff reloads; 42.65 -> 61.38).
+When a target computes the clamp bound first and stores once, write the macro.
