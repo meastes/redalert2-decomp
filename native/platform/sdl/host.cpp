@@ -11,6 +11,9 @@
 #include <string>
 #include <vector>
 #include <atomic>
+#if defined(__APPLE__)
+#include <dlfcn.h>   // the Objective-C runtime, looked up at run time (its headers define BOOL, as the Win32 port does)
+#endif
 
 #include "ra2port/win32_port.hpp"
 
@@ -32,11 +35,17 @@ extern "C" __attribute__((weak)) int ra2_native_scroll_map(int, int, int, int) {
 // hook (weak default: nothing to save; native/link may define it).
 extern "C" __attribute__((weak)) void ra2_native_save_settings(void) {}
 extern "C" int ra2port_last_frame(void);
+extern "C" __attribute__((weak)) bool ra2port_presents_held(void);   // port/src/user32.cpp
 
 namespace {
 SDL_Window *window = nullptr;
 // The activation state the game was last told (USER32 activates it when its first window shows).
 bool game_active = true;
+// The window's focus as SDL last reported it, and when (the game hears of a change once it has
+// held for kFocusSettleMs; see pump_events).
+bool window_focused = true;
+Uint64 window_focus_ms = 0;
+constexpr Uint64 kFocusSettleMs = 150;
 SDL_Renderer *renderer = nullptr;
 SDL_Texture *texture = nullptr;
 int tex_w = 0, tex_h = 0;
@@ -144,6 +153,10 @@ void *create_window(const char *title, int width, int height)
         // Resizable, HiDPI (the renderer draws in device pixels; the picture
         // keeps its aspect, letterboxed).
         SDL_SetHint(SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES, "0");
+        // The click that brings the window to the front also reaches the game, as on Windows
+        // (WM_MOUSEACTIVATE answered MA_ACTIVATE): a click on the lobby's name field with
+        // another app in front was lost (Scout1223).
+        SDL_SetHint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
         window = SDL_CreateWindow(title, width, height, SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
         renderer = window ? SDL_CreateRenderer(window, nullptr) : nullptr;
         if (window) {
@@ -211,6 +224,9 @@ void present_now(const void *pixels, int width, int height, int pitch);
 // presents them as they are then, at its next present or event pump.
 void present_deferred()
 {
+    // USER32 holds presents while the game redraws its menu after a focus change (until
+    // the dialogs have repainted).
+    if (ra2port_presents_held && ra2port_presents_held()) return;
     if (!deferred_pending.exchange(false)) return;
     Deferred d;
     SDL_LockMutex(deferred_lock);
@@ -252,8 +268,85 @@ void release_held_buttons()
         if (held[b].release_pending && seen_held(b)) release_button(b);
 }
 
+#if defined(__APPLE__)
+// RA2_NATIVE_NSEVENT_KEYS="<ms>:<text>[;<ms>:<text>...]" (test scaffolding, Scout1223): at that
+// many milliseconds after start the host posts key-down and key-up NSEvents for each character
+// ('<' is Backspace; a text "@X,Y" is a left click at game pixel X, Y) into the application's own event queue, so they take the real keyboard's
+// path (NSApplication sendEvent, SDL's key handling and text input) without the Accessibility
+// permission that posting system keyboard events needs.
+void post_nsevent_keys()
+{
+    struct Group { Uint64 ms; std::string text; };
+    static std::vector<Group> groups;
+    static bool parsed = false;
+    if (!parsed) {
+        parsed = true;
+        const char *env = getenv("RA2_NATIVE_NSEVENT_KEYS");
+        for (const char *p = env; p && *p;) {
+            char *end = nullptr;
+            Uint64 ms = strtoull(p, &end, 10);
+            if (!end || *end != ':') break;
+            const char *t = end + 1, *stop = strchr(t, ';');
+            groups.push_back({ms, std::string(t, stop ? (size_t)(stop - t) : strlen(t))});
+            p = stop ? stop + 1 : nullptr;
+        }
+    }
+    if (groups.empty() || !window || SDL_GetTicks() < groups.front().ms) return;
+    typedef void *(*Lookup)(const char *);
+    static Lookup objc_getClass = (Lookup)dlsym(RTLD_DEFAULT, "objc_getClass");
+    static Lookup sel_registerName = (Lookup)dlsym(RTLD_DEFAULT, "sel_registerName");
+    static void *objc_msgSend = dlsym(RTLD_DEFAULT, "objc_msgSend");
+    if (!objc_getClass || !sel_registerName || !objc_msgSend) return;
+    std::string text = groups.front().text;
+    groups.erase(groups.begin());
+    void *nswindow = SDL_GetPointerProperty(SDL_GetWindowProperties(window), SDL_PROP_WINDOW_COCOA_WINDOW_POINTER, nullptr);
+    void *app = ((void *(*)(void *, void *))objc_msgSend)(objc_getClass("NSApplication"), sel_registerName("sharedApplication"));
+    if (!nswindow || !app) return;
+    long number = ((long (*)(void *, void *))objc_msgSend)(nswindow, sel_registerName("windowNumber"));
+    if (text[0] == '@') {
+        // "@X,Y": a left click at game pixel X, Y (mouse-down and mouse-up NSEvents).
+        float gx = 0, gy = 0, wx = 0, wy = 0;
+        int ww = 0, wh = 0;
+        if (sscanf(text.c_str() + 1, "%f,%f", &gx, &gy) != 2 || !renderer) return;
+        SDL_RenderCoordinatesToWindow(renderer, gx, gy, &wx, &wy);
+        SDL_GetWindowSize(window, &ww, &wh);
+        struct Point { double x, y; } at = {wx, (double)wh - wy};   // window coordinates: origin at the bottom left
+        SDL_WarpMouseInWindow(window, wx, wy);   // AppKit reads the pointer's own position for the click
+        for (int step = 0; step < 3; ++step) {
+            static unsigned long const types[3] = {5, 1, 2};   // NSEventTypeMouseMoved, LeftMouseDown, LeftMouseUp
+            void *ev = ((void *(*)(void *, void *, unsigned long, Point, unsigned long, double, long, void *, long, long, float))objc_msgSend)(
+                objc_getClass("NSEvent"), sel_registerName("mouseEventWithType:location:modifierFlags:timestamp:windowNumber:context:eventNumber:clickCount:pressure:"),
+                types[step], at, 0ul, 0.0, number, nullptr, 0l, step ? 1l : 0l, step == 1 ? 1.0f : 0.0f);
+            if (ev) ((void (*)(void *, void *, void *, signed char))objc_msgSend)(app, sel_registerName("postEvent:atStart:"), ev, (signed char)0);
+        }
+        fprintf(stderr, "nsevent-keys: clicked %g,%g (window %g,%g)\n", gx, gy, wx, wy);
+        return;
+    }
+    static const char letters[] = "asdfhgzxcv?bqweryt";   // macOS virtual key codes 0-17
+    for (char c : text) {
+        unsigned short code = 0;
+        char chars[2] = {c, 0};
+        if (c == '<') { code = 51; chars[0] = 0x7F; }
+        else if (const char *at = strchr(letters, c)) code = (unsigned short)(at - letters);
+        else continue;
+        void *str = ((void *(*)(void *, void *, const char *))objc_msgSend)(objc_getClass("NSString"), sel_registerName("stringWithUTF8String:"), chars);
+        for (int up = 0; up < 2; ++up) {
+            struct Point { double x, y; } at = {10, 10};
+            void *ev = ((void *(*)(void *, void *, unsigned long, Point, unsigned long, double, long, void *, void *, void *, signed char, unsigned short))objc_msgSend)(
+                objc_getClass("NSEvent"), sel_registerName("keyEventWithType:location:modifierFlags:timestamp:windowNumber:context:characters:charactersIgnoringModifiers:isARepeat:keyCode:"),
+                up ? 11ul : 10ul, at, 0ul, 0.0, number, nullptr, str, str, (signed char)0, code);   // NSEventTypeKeyDown / KeyUp
+            if (ev) ((void (*)(void *, void *, void *, signed char))objc_msgSend)(app, sel_registerName("postEvent:atStart:"), ev, (signed char)0);
+        }
+    }
+    fprintf(stderr, "nsevent-keys: posted \"%s\"\n", text.c_str());
+}
+#else
+void post_nsevent_keys() {}
+#endif
+
 void pump_events()
 {
+    post_nsevent_keys();
     release_held_buttons();
     play_timed();
     if (SDL_IsMainThread()) present_deferred();
@@ -368,13 +461,23 @@ void pump_events()
         // is shown, as Windows does; macOS then reports the focus once more when the app
         // becomes active, and that second activation made the game redraw the main menu,
         // whose buttons vanished and slid in again (user report, Scout1209 r13).
+        // Each WM_ACTIVATEAPP makes the game redraw its menu background over the dialogs
+        // (Windows_Procedure 0x007375A0 sets 0x008523DC), which USER32 repaints afterwards.
+        // macOS reports short focus bounces (a click on another app's window that returns,
+        // Cmd+Tab passing over the game, a focus report while the app activates): told of
+        // each one the game redrew the menu without its buttons, and a loss right after a
+        // gain left them missing while the window was in the background (user report,
+        // Scout1223). The game hears of a focus change once it has held for 150 ms.
         case SDL_EVENT_WINDOW_FOCUS_GAINED:
-            if (!game_active) { game_active = true; ra2port::post_message(w, 0x001C, 1, 0); }
-            break;
         case SDL_EVENT_WINDOW_FOCUS_LOST:
-            if (game_active) { game_active = false; ra2port::post_message(w, 0x001C, 0, 0); }
+            window_focused = e.type == SDL_EVENT_WINDOW_FOCUS_GAINED;
+            window_focus_ms = SDL_GetTicks();
             break;
         }
+    }
+    if (window_focused != game_active && SDL_GetTicks() - window_focus_ms >= kFocusSettleMs) {
+        game_active = window_focused;
+        ra2port::post_message(w, 0x001C, game_active ? 1 : 0, 0);   // WM_ACTIVATEAPP
     }
 }
 

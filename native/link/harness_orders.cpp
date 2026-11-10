@@ -40,6 +40,7 @@
 #include "shared/laser_draw.hpp"
 #include "shared/wave.hpp"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 class TechnoClass;
@@ -100,7 +101,22 @@ int Scripted_Order(char const *command)
         word[words++][n] = 0;
     }
     if (words < 2) return 0;
-    bool go = Same(word[1], "goto", 5) && words >= 5;
+    if (Same(word[1], "list", 5)) {
+        // `list` (Scout1223, test scaffolding): logs every techno not the player's as
+        // `harness-list h<house> <ID> k<kind> @x,y` to stderr (a campaign map's targets).
+        int listed = 0;
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0 || techno->House == unknown_player_a35db4) continue;
+            TechnoTypeClass *type = techno->unknown_slot32();
+            Cell cell = techno->Center_Coord().As_Cell();
+            fprintf(stderr, "harness-list h%d %s k%d @%d,%d\n", techno->House ? techno->House->ArrayIndex : -1,
+                    type ? type->ID.Buffer : "?", techno->Kind_Of(), cell.X, cell.Y);
+            ++listed;
+        }
+        return listed;
+    }
+    bool go =Same(word[1], "goto", 5) && words >= 5;
     bool hunt = Same(word[1], "hunt", 5);
     bool attack = (Same(word[1], "attack", 7) || Same(word[1], "capture", 8)) && words >= 5;
     // `attack <ID> <TYPE>` (Scout1209 r6): the first enemy object of that type, wherever it is

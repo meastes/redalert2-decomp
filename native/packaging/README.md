@@ -94,7 +94,9 @@ first LAN game asks "Do you want the application Red Alert 2 to accept
 incoming network connections?". Choose Allow; with Deny the other Mac's packets
 are blocked and the lobby stays empty. Because this build is signed for local
 use only, macOS may ask again after each new build of the app. With the
-firewall off there is no question.
+firewall off there is no question. (That question takes the focus from the
+game; the name field keeps it when the game comes back, as on Windows. Before
+Scout1223 the field took no more keys after any trip to the background.)
 
 Not supported: Internet (Westwood Online) games, games with Windows PCs (not
 tested), the packet router and NAT.
@@ -110,3 +112,15 @@ log file), `RA2_NATIVE_WINDOW_DUMP=<file>` (every 2 s the rendered window as
 `<file>.<n>.bmp`). Input scripts (`--input-script`) also take `quit`,
 `key cmd+F` / `key alt+Return`, and `wheel DX DY [X Y]` (a trackpad swipe).
 `open -n RA2.app --env NAME=value` passes them to the bundle.
+`RA2_NATIVE_NSEVENT_KEYS="<ms>:<text>[;<ms>:<text>]"` posts real AppKit key
+events (`<` is Backspace; `@X,Y` a left click at game pixel X, Y, moving the
+pointer there) into the app's own queue at that many milliseconds after start:
+the keyboard's own path (SDL key and text input) without the Accessibility
+permission that system-wide keystrokes need. Example: the lobby's name field,
+`RA2_NATIVE_NSEVENT_KEYS="26000:@400,170;36000:<<zq"` after Network.
+
+Focus changes reach the game (WM_ACTIVATEAPP) once they have held for 150 ms,
+and the window keeps its last picture while the game redraws its menu after one
+until the dialogs have repainted (at most 1 s): each change made the menu flash
+black and then show its rails without buttons, which stayed so while the window
+was in the background (Scout1223).

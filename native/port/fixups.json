@@ -1818,20 +1818,6 @@
    "new": "#include \"shared/string_table.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
    "why": "Declares the handle functions the row above uses (Scout1209 r14).",
    "verified": true
-  },
-  {
-   "source": "src/recovered/classes/UnknownSessionState/UnknownSessionState_Read_MultiPlayer_Settings_0066f3a0.cpp",
-   "old": "StringTable::Load_String(\"TXT_NONAME\", 0, \"D:\\\\Ra2\\\\Session.CPP\", 0x4b2), handle, 20);",
-   "new": "Native_Default_Handle(StringTable::Load_String(\"TXT_NONAME\", 0, \"D:\\\\Ra2\\\\Session.CPP\", 0x4b2)), handle, 20);   /* NATIVE: the Mac's host name as the default */",
-   "why": "Native only: with no [MultiPlayer] Handle in RA2.INI every Mac used the same default name (TXT_NONAME, \"[New Player]\"), and a second Mac in the LAN lobby got \"Request denied\" / \"Your name must be unique\" (user report, Scout1209 r17). The default becomes the Mac's short host name (native/link/native_event_data.cpp); a Handle in RA2.INI still wins.",
-   "verified": true
-  },
-  {
-   "source": "src/recovered/classes/UnknownSessionState/UnknownSessionState_Read_MultiPlayer_Settings_0066f3a0.cpp",
-   "old": "#include \"shared/coord.hpp\"\n",
-   "new": "#include \"shared/coord.hpp\"\nunsigned short const *Native_Default_Handle(unsigned short const *fallback);   // NATIVE: native/link/native_event_data.cpp\n",
-   "why": "Declares the row above's helper (Scout1209 r17).",
-   "verified": true
   }
  ]
 }

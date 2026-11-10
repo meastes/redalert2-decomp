@@ -214,19 +214,8 @@ void *__fastcall unknown_5e1820(unsigned int key, HWND window);
 int __fastcall unknown_5e06c0(unsigned int key, HWND window);
 void const *__fastcall unknown_5e1a80(unsigned int key, HWND window, bool &allocated);
 
-// 0x005E8720 EnumChildWindows callback (OwnrDraw233 draft c/5e8720e3.cpp, 51.12;
-// Scout720 keep/e8720_n1.cpp 53.29): a registered control's +0xDC and +0xC8 from
-// its dialog.
-BOOL __stdcall unknown_5e8720(HWND window, LPARAM)
-{
-    HWND parent = GetParent(window);
-    UnknownControlRecord *record = unknown_registry_a73640.Find((unsigned int)(uintptr_t)window);
-    if (record) {
-        record->unknown_dc = unknown_5e12a0((unsigned int)(uintptr_t)parent, window);
-        record->unknown_c8 = unknown_5e1ca0(parent, window);
-    }
-    return TRUE;
-}
+// 0x005E8720 EnumChildWindows callback: exact in src/recovered since 49d189887
+// (OwnerDraw_unknown_5e8720_005e8720.cpp); the native build uses that source.
 
 // 0x005E7EB0 EnumChildWindows callback (Scout720 draft keep/e7eb0_8955.cpp,
 // 89.55): the record's image state (+0xB0) from the control's tests.

@@ -44,6 +44,7 @@ struct Window : HandleObject {
     // DWL_USER slot (index 8; pointer-sized natively), the modal result.
     std::vector<HWND> children;
     bool is_dialog = false, ended = false, checked = false;
+    HWND focus_child = nullptr;   // a dialog: the control that last had the focus (SetFocus)
     // A drop-down combo box (Scout1121): the window is its selection field
     // (sel_height + 6 high, as Windows sizes it); the size the template or a
     // move gives is the dropped size (CB_GETDROPPEDCONTROLRECT).
@@ -394,7 +395,23 @@ HWND GetForegroundWindow(void) { return main_hwnd; }
 BOOL SetForegroundWindow(HWND hwnd) { return win(hwnd) != nullptr; }
 BOOL BringWindowToTop(HWND hwnd) { return win(hwnd) != nullptr; }
 HWND GetFocus(void) { return focus_hwnd; }
-HWND SetFocus(HWND hwnd) { HWND old = focus_hwnd; focus_hwnd = hwnd; return old; }
+// The focus moves to a window, as on Windows: a control's dialog remembers it, and a dialog
+// given the focus passes it on to the control that had it last (DefDlgProc's WM_SETFOCUS).
+// Focus_Restore 0x00737400 calls SetFocus(dialog) at every activation: the lobby's name field
+// lost the focus to its dialog and took no more keys after the window had been in the
+// background (a macOS prompt or another app in front; user report, Scout1223).
+void set_focus(HWND hwnd)
+{
+    Window *w = win(hwnd);
+    if (w && w->is_dialog) {
+        Window *c = win(w->focus_child);
+        if (c && c->parent == hwnd && c->visible && c->enabled) hwnd = w->focus_child;
+    } else if (w && w->parent) {
+        if (Window *d = win(w->parent)) if (d->is_dialog) d->focus_child = hwnd;
+    }
+    focus_hwnd = hwnd;
+}
+HWND SetFocus(HWND hwnd) { HWND old = focus_hwnd; set_focus(hwnd); return old; }
 HWND GetCapture(void) { return capture_hwnd; }
 HWND SetCapture(HWND hwnd) { HWND old = capture_hwnd; capture_hwnd = hwnd; return old; }
 BOOL ReleaseCapture(void) { capture_hwnd = nullptr; return 1; }
@@ -620,7 +637,34 @@ static bool peek_queue(MSG *msg, UINT first, UINT last, UINT remove)
 // once the main thread has been reading its queue for 250 ms with no work in
 // between (the game's redraw and any menu slide are done), as the system's
 // repaint arrives after the game's own (Scout1209).
+// The game also redraws when it loses the focus, and while inactive the menus sleep 500 ms
+// between their message loops (MSEngine::Check_Focus 0x005B3670): the dialogs are then
+// repainted too, and those gaps do not count as work, or the controls stayed missing while
+// the window was in the background (user report, Scout1223).
+// From the activation until that repaint the host holds its presents (the window keeps the
+// last picture): the game's redraw first clears the screen, and the menu flashed black, then
+// without its buttons, at every focus change (user report, Scout1223). At most one second.
 static bool exposure_pending = false;
+static bool app_active = true;
+static std::chrono::steady_clock::time_point hold_since;
+static bool hold_presents = false;
+static bool dialogs_dirty()
+{
+    for (HWND d : dialog_windows) {
+        Window *w = win(d);
+        if (!w || !w->visible) continue;
+        if (w->dirty) return true;
+        for (HWND h : w->children) if (Window *c = win(h)) if (c->dirty && c->visible) return true;
+    }
+    return false;
+}
+extern "C" bool ra2port_presents_held(void)
+{
+    if (!hold_presents) return false;
+    if (std::chrono::steady_clock::now() - hold_since > std::chrono::seconds(1) || (!exposure_pending && !dialogs_dirty()))
+        hold_presents = false;
+    return hold_presents;
+}
 static void exposure_check(const MSG *found, std::chrono::steady_clock::time_point now)
 {
     using namespace std::chrono;
@@ -630,7 +674,7 @@ static void exposure_check(const MSG *found, std::chrono::steady_clock::time_poi
     // the generated WM_PAINT and WM_TIMER of the menus' animations and their
     // short handling do not (a menu slide, which a WM_PAINT can start, does).
     bool activity = found && found->message != 0x000F && found->message != 0x0113;
-    if (activity || now - last_peek > milliseconds(animating ? 50 : 3)) idle_since = now;
+    if (activity || (app_active && now - last_peek > milliseconds(animating ? 50 : 3))) idle_since = now;
     animating = found && !activity;
     last_peek = steady_clock::now();
     if (!exposure_pending) return;
@@ -695,7 +739,12 @@ LRESULT DispatchMessageA(const MSG *msg)
         return 0;
     }
     HWND target = msg->hwnd ? msg->hwnd : main_hwnd;
-    if (msg->message == 0x001C && msg->wParam && target == main_hwnd) exposure_pending = true;
+    if (msg->message == 0x001C && target == main_hwnd) {
+        exposure_pending = true;
+        app_active = msg->wParam != 0;
+        hold_presents = true;
+        hold_since = std::chrono::steady_clock::now();
+    }
     // Mouse input goes to the window under the cursor (or the capture), as on
     // Windows: the host posts it to the main window in screen pixels; over a
     // shown dialog's control it is that control's, in its client coordinates
@@ -970,7 +1019,7 @@ LRESULT button_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
     case 0x0201: case 0x0203:                                  // WM_LBUTTONDOWN / DBLCLK
         if (!w->enabled) return 0;
         capture_hwnd = hwnd;
-        focus_hwnd = hwnd;
+        set_focus(hwnd);
         w->pushed = true;
         invalidate(hwnd);
         return 0;
@@ -1026,7 +1075,7 @@ LRESULT edit_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
         return r;
     }
     switch (message) {
-    case 0x0201: focus_hwnd = hwnd; return 0;
+    case 0x0201: set_focus(hwnd); return 0;
     case 0x0102:                                               // WM_CHAR
         if (wparam == 8) { if (!w->title.empty()) w->title.pop_back(); }
         else if (wparam >= 0x20 && (w->pos <= 0 || (int)w->title.size() < w->pos)) w->title += (char)wparam;
@@ -1134,7 +1183,7 @@ LRESULT listbox_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
         return i >= 0 && i < count ? i : (LRESULT)(count | 0x10000);
     }
     case 0x0201: case 0x0203: {                                                // WM_LBUTTONDOWN / DBLCLK
-        focus_hwnd = hwnd;
+        set_focus(hwnd);
         int i = w->top + (int16_t)((lparam >> 16) & 0xFFFF) / (w->item_height > 0 ? w->item_height : 16);
         if (i < 0 || i >= count) return 0;
         bool changed = i != w->cursel;
