@@ -1,5 +1,6 @@
 #define RA2_VECTOR_UNSIGNED_INDEX  // migration holdout: unit not yet re-rolled to VectorClass::operator[](int) (docs/HANDOFF.md)
 #define RA2_COORD_TPOINT3D  // TibSun Coord profile for the Techno unit (shared/coord.hpp, shared/selection_coord.hpp; 0x006C2C40, 0x006C3950)
+#define RA2_POINT3D_TIBSUN  // TibSun point.h TPoint3D text (shared/coord.hpp): migration toward the evidenced TPoint3D; every accepted row byte-identical
 #define RA2_COORD_CELL_BASE_INIT
 #define RA2_TPOINT3D_DIVIDE  // TibSun TPoint3D::operator/ (0x006D9770 is its out-of-line copy here)
 #define RA2_TPOINT3D_DIFFERENCE  // TibSun TPoint3D::operator- (In_Range 0x006C4BB0)
