@@ -282,7 +282,7 @@ __Z16Unknown_006220E0i	__Z27unknown_threat_flags_6220e0i	0x006220E0	function	sam
 __Z16Unknown_00624850v	__Z17Wait_For_End_Gamev	0x00624850	function	same address, IR signature void ()
 __ZN20UnknownItem_006142f022unknown_cleanup_62e6e0Ev	__Z16Unknown_0062E6E0P10EventClass	0x0062E6E0	function	same address, IR signature void (ptr)
 __ZN10RadarClass16Unknown_00630840ERK4Rect	__ZN10RadarClass14unknown_slot29ERK4Rect	0x00630840	function	same address, IR signature void (ptr, ptr)
-__ZN10RadarClass16Unknown_00631BA0ERK11CoordStructb	__ZN10RadarClass16Unknown_00631BA0ERK7Point2Db	0x00631BA0	function	same address, IR signature i64 (ptr, ptr, i1 zeroext)
+__ZN10RadarClass20Coord_To_Radar_PixelERK11CoordStructb	__ZN10RadarClass20Coord_To_Radar_PixelERK7Point2Db	0x00631BA0	function	same address, IR signature i64 (ptr, ptr, i1 zeroext)
 __Z16Unknown_006354E0v	__ZN7RadBeam10Update_AllEv	0x006354E0	function	same address, IR signature void ()
 __ZNK10RadioClass17Contact_With_WhomEi	__ZNK10RadioClass8Contact2Ei	0x00636E20	function	same address, IR signature ptr (ptr, i32)
 __Z16Unknown_0063A690P10HouseClassiiiP9CellClassP13AbstractClassii	__Z24Create_Air_ReinforcementP10HouseClassiiiP13AbstractClassS2_ii	0x0063A690	function	same address, IR signature i32 (ptr, i32, i32, i32, ptr, ptr, i32, i32)

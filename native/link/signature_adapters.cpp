@@ -158,12 +158,12 @@ extern "C" void ra2_adapter_0035(void * a0, int a1) { ra2_adapter_target_0035(a0
 extern "C" void ra2_adapter_target_0036(int) __asm__("__ZN9OwnerDraw14unknown_5ff380Ej");
 extern "C" void ra2_adapter_0036(void * a0) __asm__("__Z16Unknown_005FF380P6HWND__");
 extern "C" void ra2_adapter_0036(void * a0) { ra2_adapter_target_0036((int)(uintptr_t)a0); }
-// 0x00632F30 seed_00633140::Callee_00632f30::FUN_00632f30(char, char) -> RadarClass::Unknown_00632F30(bool, bool) [width]
-extern "C" void ra2_adapter_target_0037(void *, bool, bool) __asm__("__ZN10RadarClass16Unknown_00632F30Ebb");
+// 0x00632F30 seed_00633140::Callee_00632f30::FUN_00632f30(char, char) -> RadarClass::Set_Radar_State(bool, bool) [width]
+extern "C" void ra2_adapter_target_0037(void *, bool, bool) __asm__("__ZN10RadarClass15Set_Radar_StateEbb");
 extern "C" void ra2_adapter_0037(void * a0, signed char a1, signed char a2) __asm__("__ZN13seed_0063314015Callee_00632f3012FUN_00632f30Ecc");
 extern "C" void ra2_adapter_0037(void * a0, signed char a1, signed char a2) { ra2_adapter_target_0037(a0, (((unsigned int)(int)a1 & 0xFFu) != 0), (((unsigned int)(int)a2 & 0xFFu) != 0)); }
-// 0x00633000 seed_00633140::Callee_00633000::FUN_00633000(int, unsigned int) -> RadarClass::Unknown_00633000(int, bool) [width]
-extern "C" void ra2_adapter_target_0038(void *, int, bool) __asm__("__ZN10RadarClass16Unknown_00633000Eib");
+// 0x00633000 seed_00633140::Callee_00633000::FUN_00633000(int, unsigned int) -> RadarClass::Radar_Activate(int, bool) [width]
+extern "C" void ra2_adapter_target_0038(void *, int, bool) __asm__("__ZN10RadarClass14Radar_ActivateEib");
 extern "C" void ra2_adapter_0038(void * a0, int a1, int a2) __asm__("__ZN13seed_0063314015Callee_0063300012FUN_00633000Eij");
 extern "C" void ra2_adapter_0038(void * a0, int a1, int a2) { ra2_adapter_target_0038(a0, a1, (((unsigned int)(int)a2 & 0xFFu) != 0)); }
 // 0x006B8FB0 UnknownTeamView::unknown_func_6b8fb0(TechnoClass*, int, int) -> TeamClass::Unknown_006B8FB0(FootClass*, int, bool) [result ignored, width]

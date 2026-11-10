@@ -59,9 +59,9 @@ bool MapClass::Unknown_0055E410(Cell const &cell)
             cellptr2->OverlayIndex = 0x65;
             cellptr3->OverlayIndex = 0x65;
             cellptr1->OverlayIndex = 0x65;
-            Map.Unknown_00631570(cellptr2->MapCoords);
-            Map.Unknown_00631570(cellptr3->MapCoords);
-            Map.Unknown_00631570(cellptr1->MapCoords);
+            Map.Radar_Background(cellptr2->MapCoords);
+            Map.Radar_Background(cellptr3->MapCoords);
+            Map.Radar_Background(cellptr1->MapCoords);
             Damage_Low_Bridge_Piece_NS_005601F0(cell - Cell(0, 1));
             Damage_Low_Bridge_Piece_NS_005601F0(cell + Cell(0, 1));
             Spring_Low_Bridge_Destroyed_NS(cell);

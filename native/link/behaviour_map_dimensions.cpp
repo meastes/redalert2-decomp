@@ -90,10 +90,10 @@ void RadarClass::Unknown_00633140(bool on)
     if (unknown_14d4 != on) {
         unknown_14d4 = on;
         if (unknown_14ac == 1) {
-            Unknown_00632F30(on, true);
+            Set_Radar_State(on, true);
             return;
         }
-        Unknown_00633000(1, true);
+        Radar_Activate(1, true);
     }
 }
 

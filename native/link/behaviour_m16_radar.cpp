@@ -1,5 +1,5 @@
 // Behaviour rows (Scout1133, native M16; NOT EXACT, native/behaviour_rewrites.json).
-// The radar's transmission (mode 4) helpers RadarClass::Unknown_00633C40 calls
+// The radar's transmission (mode 4) helpers RadarClass::Update_Transmission calls
 // (pass-6a decompiles; Allied 1's opening transmission).
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
 #include "shared/vector_class.hpp"

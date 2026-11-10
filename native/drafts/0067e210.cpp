@@ -13,7 +13,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_flags_a3f600@@3EA=00a3f600
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?Unknown_0062F2D0@RadarClass@@QAEX_N@Z=0062f2d0
+// @ref ?Set_Buttons@RadarClass@@QAEX_N@Z=0062f2d0
 // @ref ?Zap@LinkClass@@UAEXXZ=00538ff0
 // @ref ?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z=004e0ac0
 // @ref ?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z=004e0b00
@@ -56,7 +56,7 @@ bool SidebarClass::unknown_slot54(int control)
     }
     bool changed = (unknown_4ee1 != old);
     if (changed) {
-        Unknown_0062F2D0(unknown_4ee1);
+        Set_Buttons(unknown_4ee1);
         if (unknown_4ee1) {
             unknown_slot34();
             unknown_4ee2 = true;

@@ -26,7 +26,7 @@ extern Rect unknown_rect_839630;
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?Unknown_00631570@RadarClass@@QAEXABVCell@@@Z=00631570
+// @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
 // @ref ?Unknown_0054EBD0@MapClass@@QAEHXZ=0054ebd0
 // @ref ?Unknown_005687B0@MapClass@@QAEXABVRect@@@Z=005687b0
 
@@ -63,9 +63,9 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
             cellptr2->OverlayIndex = 0x64;
             cellptr3->OverlayIndex = 0x64;
             cellptr1->OverlayIndex = 0x64;
-            Map.Unknown_00631570(cellptr2->MapCoords);
-            Map.Unknown_00631570(cellptr3->MapCoords);
-            Map.Unknown_00631570(cellptr1->MapCoords);
+            Map.Radar_Background(cellptr2->MapCoords);
+            Map.Radar_Background(cellptr3->MapCoords);
+            Map.Radar_Background(cellptr1->MapCoords);
             Damage_Low_Bridge_Piece_EW_0055FCC0(cell - Cell(1, 0));
             Damage_Low_Bridge_Piece_EW_0055FCC0(cell + Cell(1, 0));
             Spring_Low_Bridge_Destroyed_EW(cell);

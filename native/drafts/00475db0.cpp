@@ -37,7 +37,7 @@ int CellClass::unknown_475db0(int levels)
             OverlayIndex = -1;
             OverlayData = 0;
             Recalc_Attributes(-1);
-            Map.Unknown_00631570(MapCoords);
+            Map.Radar_Background(MapCoords);
             TiberiumClass::Clear_Spread_Cell(MapCoords);
             for (int facing = 0; facing < 8; facing++) {
                 Cell adjacent = Adjacent_Cell(MapCoords, facing);
