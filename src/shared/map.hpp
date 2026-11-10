@@ -96,7 +96,7 @@ extern Unknown8315B4 *unknown_8315b4;                   // 0x008315B4
 extern Cell unknown_cell_a6f238;                  // 0x00A6F238 copied into every +0x154 entry
 // The crates option byte (unknown_flag_a3d2c1, 0x00A3D2C1) is in shared/unknown_globals.hpp.
 
-// A 4-byte element of the array at MapClass +0x64 (unknown_68 elements;
+// A 4-byte element of the array at MapClass +0x64 (CellZoneCount elements;
 // the load fills it with the constructor's values before reading).
 struct UnknownMapElem4 {
     UnknownMapElem4() : unknown_00(7), unknown_01(0) {}
@@ -166,7 +166,7 @@ public:
     int Get_Cell_Zone_Index(Cell const &cell);
     int Unknown_0054FAF0(Cell const &cell);
 #ifdef RA2_MAP_COLLAPSE_CLIFF
-    short &Fine_Subzone(Cell const &cell) { return *(short *)(unknown_6c + Get_Cell_Zone_Index(cell) * 10); }
+    short &Fine_Subzone(Cell const &cell) { return *(short *)(CellSubzones + Get_Cell_Zone_Index(cell) * 10); }
 #endif
     // The house's +0x56D0 value for the 4 x 4 block of a cell (0x0054E3A0;
     // the block index is 0x0054E370's).
@@ -368,9 +368,9 @@ public:
     // Rebuilds the three subzone tracking vectors (each cleared, then
     // 0x00563D80 with its index, from 2 down) and resets the path estimator
     // (0x00563D40).
-    void Unknown_00563D40();
+    void Reset_All_Subzones();
     void Unknown_00567380();                            // 0x00567380 (TibSun Initialize_Wall_Ownership)
-    void Unknown_00563D80(int index);                   // 0x00563D80
+    void Reset_Subzone(int index);                   // 0x00563D80
     // Runs 0x00564B60 with arg on every zone connection whose +0x08 is set
     // (0x00564B20).
     void Unknown_00564B20(int arg);
@@ -399,7 +399,7 @@ public:
     // The first zone connection from start on whose unset (+0x0C 0)
     // straight segment passes within distance of a cell, or -1 (0x005500D0).
     int Zone_Connection_Index(Cell const &cell, int distance, int start);
-    void Unknown_0054FDA0();                                    // 0x0054FDA0
+    void Compute_Zone_Connections();                                    // 0x0054FDA0
     void Unknown_00566C30(ZoneConnectionClass *connection);     // 0x00566C30
     // Runs 0x00566C30 on (and clears +0x08 of) every flagged connection
     // within 3 of a cell, rebuilding (0x0054FDA0) once when none is found;
@@ -419,12 +419,12 @@ public:
     // ((width + height + 1) squared elements), the path estimator's size,
     // the subzone vectors' growth steps, 0x0054B2E0, 0x0054FDA0, 0x0054EBD0
     // and the subzone tracking (0x00563D40, expanded inline) (0x005499C0).
-    void Unknown_005499C0();
+    void Fresh_Map();
     // The next cell of the walk over the local map rectangle kept in
     // +0x118/+0x11C that passes 0x0055A660, or null at its end (0x0055A910).
     CellClass *Unknown_0055A910();
-    int Unknown_0054B2E0();                                     // 0x0054B2E0 (TibSun Overpass: answers the summed tiberium adjustment)
-    int Unknown_0054EBD0();                                     // 0x0054EBD0
+    int Overpass();                                     // 0x0054B2E0 (TibSun Overpass: answers the summed tiberium adjustment)
+    int Zone_Reset();                                     // 0x0054EBD0
 #ifdef RA2_MAP_ZONE_SPAN
     int Unknown_0054F250(UnknownMapElem4 *data, int zone, int &skip); // native thiscall RET12
 #endif
@@ -485,9 +485,9 @@ public:
     void *unknown_18[12];                                       // +0x18 cleared by One_Time; freed and refilled by the load
     int unknown_48;                                             // +0x48
     DynamicVectorClass<ZoneConnectionClass> ZoneConnections;    // +0x4C
-    UnknownMapElem4 *unknown_64;                                // +0x64 freed by the destructor
-    int unknown_68;                                             // +0x68
-    char *unknown_6c;                                           // +0x6C freed by the destructor
+    UnknownMapElem4 *CellZones;                                // +0x64 freed by the destructor
+    int CellZoneCount;                                             // +0x68
+    char *CellSubzones;                                           // +0x6C freed by the destructor
     int unknown_70[3];                                          // +0x70 entry counts of the path estimator's three layer arrays (0x00427E90, 0x00429A90)
     HashTableClass<unsigned int, SubzoneConnectionStruct> *unknown_7c[3];      // +0x7C (One_Time)
     DynamicVectorClass<SubzoneTrackingStruct> SubzoneTracking[3];              // +0x88

@@ -124,7 +124,7 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    Map.Unknown_00563D40();
+    Map.Reset_All_Subzones();
     Logic.Load(stream);
     if (unknown_tactical_83996c != 0) {
         delete unknown_tactical_83996c;

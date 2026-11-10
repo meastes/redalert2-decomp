@@ -1,10 +1,10 @@
-// NON-EXACT DRAFT 0x54EBD0 MapClass::Unknown_0054EBD0 (Zone_Reset)
+// NON-EXACT DRAFT 0x54EBD0 MapClass::Zone_Reset (Zone_Reset)
 // entry 0x54EBD0; exact-match score 84.41 (misses_index best); plan "draft, verify"
 // origin lane: Scout641 (build/class-work/Scout641/w/keep/zone_reset_8441.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1089 (native/drafts.json). Not original bytes.
 // Native adaptation (Scout1089): overlay names replaced by HEAD's; each changed line is marked NATIVE.
-// int MapClass::Unknown_0054EBD0() (0x0054EBD0; TibSun MapClass::Zone_Reset)
+// int MapClass::Zone_Reset() (0x0054EBD0; TibSun MapClass::Zone_Reset)
 // Rebuilds the zones: clears the zone adjacency table and the twelve movement zone
 // tables, numbers every contiguous span of +0x64 elements (Zone_Span 0x0054F250, the
 // passability of each new zone collected in a local list), files the zone pairs of the
@@ -24,7 +24,7 @@ extern int unknown_zone_a6fc34;                  // NATIVE: hZR LastAdjacentZone
 // @ref ??_7?$DynamicVectorClass@W4PassabilityType@@@@6B@=007a5ab8
 // @ref ??_7?$VectorClass@W4PassabilityType@@@@6B@=007a5a98
 
-int MapClass::Unknown_0054EBD0()
+int MapClass::Zone_Reset()
 {
     int i;
     int j;
@@ -32,7 +32,7 @@ int MapClass::Unknown_0054EBD0()
     int bestzone = -1;
     int bestspan = -1;
 
-    UnknownMapElem4 *end = &unknown_64[unknown_68];
+    UnknownMapElem4 *end = &CellZones[CellZoneCount];
 
     DynamicVectorClass<PassabilityType> vec;
     vec.Set_Growth_Step(300);
@@ -46,7 +46,7 @@ int MapClass::Unknown_0054EBD0()
         }
     }
 
-    UnknownMapElem4 *czone = unknown_64;
+    UnknownMapElem4 *czone = CellZones;
     for (; czone < end; czone++) {
         czone->unknown_02 = 0;
     }
@@ -56,7 +56,7 @@ int MapClass::Unknown_0054EBD0()
     vec.Add(PASSABLE_OUTSIDE);
 
     int skip = 0;
-    czone = unknown_64;
+    czone = CellZones;
     while (czone < end) {
         PassabilityType pass = (PassabilityType)czone->unknown_00;
         if (pass != PASSABLE_OUTSIDE && czone->unknown_02 == 0) {

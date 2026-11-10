@@ -98,7 +98,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 			Destroy_High_Bridge_Connections_00558BD0(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_E));
 
 			if (Unknown_005501A0(zone_cell)) {
-				Unknown_0054EBD0();
+				Zone_Reset();
 			}
 
 			DynamicVectorClass<Cell> cells;
@@ -182,7 +182,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				Destroy_High_Bridge_Connections_00558BD0(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_S));
 
 				if (Unknown_005501A0(zone_cell)) {
-					Unknown_0054EBD0();
+					Zone_Reset();
 				}
 
 				DynamicVectorClass<Cell> cells;
@@ -241,7 +241,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
 				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
-					Unknown_0054EBD0();
+					Zone_Reset();
 				}
 				return(true);
 
@@ -252,7 +252,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
 				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
-					Unknown_0054EBD0();
+					Zone_Reset();
 				}
 				return(true);
 
@@ -263,7 +263,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
 				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
-					Unknown_0054EBD0();
+					Zone_Reset();
 				}
 				return(true);
 
@@ -286,7 +286,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
 				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
-					Unknown_0054EBD0();
+					Zone_Reset();
 				}
 				return(true);
 
@@ -297,7 +297,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
 				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
-					Unknown_0054EBD0();
+					Zone_Reset();
 				}
 				return(true);
 
@@ -308,7 +308,7 @@ bool MapClass::Unknown_00559000(Cell const & cell)
 				bridge_deck_cell->OverlayIndex = -1;
 				Destroy_High_Bridge_Connections_00558BD0(cell);
 				if (Unknown_005501A0(bridge_deck_cell->MapCoords)) {
-					Unknown_0054EBD0();
+					Zone_Reset();
 				}
 				return(true);
 

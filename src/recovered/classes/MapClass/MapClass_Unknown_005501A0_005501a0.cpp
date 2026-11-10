@@ -4,14 +4,14 @@
 // rebuilt (0x0054FDA0) and searched once more. Whether any was flagged.
 #include "shared/map.hpp"
 // @ref ?Zone_Connection_Index@MapClass@@QAEHABVCell@@HH@Z=005500d0
-// @ref ?Unknown_0054FDA0@MapClass@@QAEXXZ=0054fda0
+// @ref ?Compute_Zone_Connections@MapClass@@QAEXXZ=0054fda0
 // @ref ?Unknown_00566C30@MapClass@@QAEXPAUZoneConnectionClass@@@Z=00566c30
 
 bool MapClass::Unknown_005501A0(Cell const &cell)
 {
     int index = Zone_Connection_Index(cell, 3, 0);
     if (index == -1) {
-        Unknown_0054FDA0();
+        Compute_Zone_Connections();
         index = Zone_Connection_Index(cell, 3, 0);
         if (index == -1) {
             return false;

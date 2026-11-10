@@ -352,7 +352,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     }
     unknown_session_a3d298.Loading_Progress_00672160(82);
     Service_Game_IO_00481fb0();
-    Map.Unknown_0054B2E0();
+    Map.Overpass();
     unknown_session_a3d298.Loading_Progress_00672160(86);
     Service_Game_IO_00481fb0();
     unknown_object_84e8d0.Unknown_0042E1A0();

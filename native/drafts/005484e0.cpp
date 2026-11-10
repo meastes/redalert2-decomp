@@ -252,7 +252,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         }
 
         if (refresh_map) {
-            Unknown_005499C0();
+            Fresh_Map();
             freshcalled = true;
         }
 
@@ -264,7 +264,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
     }
 
     if (!freshcalled && refresh_map) {
-        Unknown_005499C0();
+        Fresh_Map();
     }
 
     new(&unknown_dummy_cell_a6f9f8) CellClass;

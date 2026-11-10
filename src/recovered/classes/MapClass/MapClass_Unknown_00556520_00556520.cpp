@@ -113,5 +113,5 @@ destroy_connections:
     }
 
 finished:
-    Unknown_0054EBD0();
+    Zone_Reset();
 }

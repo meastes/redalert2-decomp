@@ -253,7 +253,7 @@ UnknownPathType *UnknownPathEstimator::Find_Path_Regular_00427370(Cell const &fr
             bool base_level = !(neighbor_cell->unknown_140 & 0x100) || abs(CurrentCellHeight - neighbor_cell->unknown_11b) <= 1;
 
             int zone_index = Map.Get_Cell_Zone_Index(neighbor_id);
-            char *subzones = Map.unknown_6c;
+            char *subzones = Map.CellSubzones;
 
             short subzone_id = *(short *)(subzones + zone_index * 10);
             if (fine_final_ids[subzone_id] != unknown_28 && base_level && !neighbor_cell->unknown_122 && with_hs) {

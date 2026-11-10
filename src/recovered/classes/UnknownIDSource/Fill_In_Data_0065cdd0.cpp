@@ -1,7 +1,7 @@
 // void __fastcall Fill_In_Data_0065cdd0() (0x0065CDD0)
 // @ref ??_C@_0M@PKKJ@GasCloudSys?$AA@=007f2048
 // @ref ?Initialize_Wave_Tables_00721bf0@@YIXXZ=00721bf0
-// @ref ?Unknown_0054FDA0@MapClass@@QAEXXZ=0054fda0
+// @ref ?Compute_Zone_Connections@MapClass@@QAEXXZ=0054fda0
 // @ref ?Set_WasUnderBridge_Flags@MapClass@@QAEXXZ=00568b00
 // @ref ?unknown_gas_cloud_system_a40d20@@3PAVParticleSystemClass@@A=00a40d20
 // @ref ?unknown_set_buffer_zone_0053d830@@YIXH@Z=0053d830
@@ -99,9 +99,9 @@ void __fastcall Fill_In_Data_0065cdd0()
     for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         cell->Recalc_Attributes(-1);
     }
-    Map.Unknown_0054FDA0();
-    Map.Unknown_0054EBD0();
-    Map.Unknown_00563D40();
+    Map.Compute_Zone_Connections();
+    Map.Zone_Reset();
+    Map.Reset_All_Subzones();
     Map.Set_WasUnderBridge_Flags();
 
     if (unknown_gas_cloud_system_a40d20 == 0) {

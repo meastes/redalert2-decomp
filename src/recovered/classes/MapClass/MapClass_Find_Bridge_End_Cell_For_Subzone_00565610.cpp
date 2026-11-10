@@ -42,7 +42,7 @@ Cell MapClass::Find_Bridge_End_Cell_For_Subzone(Cell const &cell, int layer, uns
         Cell candidate = candidates[index];
         if (Map.Unknown_0055A660(candidate, true)) {
             int fine_index = Get_Cell_Zone_Index(candidate);
-            CellSubzoneStruct *record = (CellSubzoneStruct *)unknown_6c + fine_index;
+            CellSubzoneStruct *record = (CellSubzoneStruct *)CellSubzones + fine_index;
             if (record->SubzoneID[layer] == subzone)
                 return candidate;
         }

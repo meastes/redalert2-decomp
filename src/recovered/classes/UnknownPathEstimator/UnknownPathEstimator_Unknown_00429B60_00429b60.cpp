@@ -23,9 +23,9 @@ bool UnknownPathEstimator::Unknown_00429B60(Cell const &from, Cell const &to, in
     for (int layer = 2; layer >= 0; layer--) {
         unknown_68->Clear();
 
-        short *start_subzones = (short *)(Map.unknown_6c + Map.Get_Cell_Zone_Index(from) * 10);
+        short *start_subzones = (short *)(Map.CellSubzones + Map.Get_Cell_Zone_Index(from) * 10);
         int start_subzone = start_subzones[layer];
-        short *end_subzones = (short *)(Map.unknown_6c + Map.Get_Cell_Zone_Index(to) * 10);
+        short *end_subzones = (short *)(Map.CellSubzones + Map.Get_Cell_Zone_Index(to) * 10);
         int end_subzone = end_subzones[layer];
 
         bool is_coarse = layer == 2;

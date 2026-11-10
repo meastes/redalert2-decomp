@@ -15,7 +15,7 @@
 
 // The arm64 offsets the light views of shared/map_view.hpp are respelled to
 // (port/fixups.json; check_map_view_layout.cpp asserts the light side).
-static_assert(offsetof(MapClass, unknown_6c) == 0xB8, "full MapClass::unknown_6c");
+static_assert(offsetof(MapClass, CellSubzones) == 0xB8, "full MapClass::CellSubzones");
 static_assert(offsetof(MapClass, unknown_70) == 0xC0, "full MapClass::unknown_70");
 static_assert(offsetof(MapClass, SubzoneTracking) == 0xE8, "full MapClass::SubzoneTracking");
 static_assert(offsetof(MapClass, MapSize) == 0x168, "full MapClass::MapSize");

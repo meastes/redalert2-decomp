@@ -25,7 +25,7 @@
 static inline void Zone_Update(MapClass * map, Cell const & cell)
 {
 	if (map->Unknown_005501A0(cell)) {
-		map->Unknown_0054EBD0();
+		map->Zone_Reset();
 	}
 }
 
@@ -102,7 +102,7 @@ if (!valid_span) {
 			Destroy_Train_Bridge_Connections_00553570(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_E));
 
 			if (Unknown_005501A0(zone_cell)) {
-				Unknown_0054EBD0();
+				Zone_Reset();
 			}
 
 			DynamicVectorClass<Cell> cells;
@@ -185,7 +185,7 @@ if (!valid_span) {
 				Destroy_Train_Bridge_Connections_00553570(Adjacent_Cell(middle_cellptr->Fetch_CellID(), FACING_S));
 
 				if (Unknown_005501A0(zone_cell)) {
-					Unknown_0054EBD0();
+					Zone_Reset();
 				}
 
 				DynamicVectorClass<Cell> cells;

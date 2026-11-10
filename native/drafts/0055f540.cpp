@@ -82,7 +82,7 @@ bool MapClass::Unknown_0055F540(Cell const &cell)
         cellptr3->Kill_Illegal_Occupiers();
 
         if (didwork) {
-            Unknown_0054EBD0();
+            Zone_Reset();
         }
 
         if (recalc_rect.Is_Valid()) {

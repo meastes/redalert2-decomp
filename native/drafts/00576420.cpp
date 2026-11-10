@@ -29,7 +29,7 @@ bool __cdecl Generate_Starting_Points_00576420()
         size=unknown_region_minimum_7a5e08;
     }
     int minimum=size;
-    int largest=Map.Unknown_0054EBD0();
+    int largest=Map.Zone_Reset();
     int zone_type=zone_types[RandomMapGen.SeedData.MapType];
     int main_zone=((unsigned short *)Map.unknown_18[zone_type])[largest];
     MapRegionClass::Destroy_Cell_Regions();

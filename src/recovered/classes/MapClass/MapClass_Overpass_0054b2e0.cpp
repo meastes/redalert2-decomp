@@ -1,4 +1,4 @@
-// int MapClass::Unknown_0054B2E0() (0x0054B2E0)
+// int MapClass::Overpass() (0x0054B2E0)
 // TibSun Overpass: the final pass over a freshly loaded map. Deletes the animations
 // marked for it (+0x177), clears every cell's cross-line flags (+0x140 bits 20-21),
 // then per cell clears +0x30, rebuilds its drawer, clears the anim-attached bit (17),
@@ -13,7 +13,7 @@
 // @ref ?Anims@@3V?$DynamicVectorClass@PAVAnimClass@@@@A=00a40960
 // @ref ?unknown_overlay_types_a35de8@@3V?$DynamicVectorClass@PAVUnknownOverlayType@@@@A=00a35de8
 
-int MapClass::Unknown_0054B2E0()
+int MapClass::Overpass()
 {
     int i;
     int value = 0;

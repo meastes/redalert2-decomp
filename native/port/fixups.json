@@ -549,8 +549,8 @@
   },
   {
    "source": "src/shared/map.hpp",
-   "old": "    void Unknown_00563D80(int index);                   // 0x00563D80\n",
-   "new": "    void Unknown_00563D80(int index);                   // 0x00563D80\n    int Unknown_00564290(struct CellSubzoneStruct *seed, int level, unsigned int id, Rect const &bounds, Cell const &cell);   // 0x00564290 (NATIVE: TibSun Subzone_Span; for the drafts 0x563D80/0x564290)\n",
+   "old": "    void Reset_Subzone(int index);                   // 0x00563D80\n",
+   "new": "    void Reset_Subzone(int index);                   // 0x00563D80\n    int Unknown_00564290(struct CellSubzoneStruct *seed, int level, unsigned int id, Rect const &bounds, Cell const &cell);   // 0x00564290 (NATIVE: TibSun Subzone_Span; for the drafts 0x563D80/0x564290)\n",
    "why": "Declares the unrecovered 0x00564290 (TibSun map.h Subzone_Span, as Scout660's overlay w/h2 map.hpp declares it) so the native drafts of 0x00563D80 (its caller) and 0x00564290 compile. A non-virtual member declaration: no layout or slot change. Move into src/shared with the row.",
    "verified": false
   },

@@ -3,7 +3,7 @@
 // origin lane: Scout1027 (build/class-work/Scout1027/keep/map_zone_connections_54fda0_6063.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1069 (native/drafts.json). Not original bytes.
-// void MapClass::Unknown_0054FDA0() (0x0054FDA0)
+// void MapClass::Compute_Zone_Connections() (0x0054FDA0)
 // TibSun Compute_Zone_Connections: rebuilds ZoneConnections (+0x4C) from a walk over every
 // cell. A tunnel cell with tunnel cells on both sides (east and west, or south and north)
 // records one connection to its tube's exit, from the lower numbered cell of the pair
@@ -19,11 +19,11 @@
 int __fastcall unknown_cell_index_428a90(Cell const &cell);
 // @ref ?unknown_cell_index_428a90@@YIHABVCell@@@Z=00428a90
 // @ref ?Get_Tunnel@CellClass@@QAEPAVTubeClass@@XZ=0047a130
-// @ref _?_bridge_subtiles1@?1??Unknown_0054FDA0@MapClass@@QAEXXZ@4PAHA=007e0244
-// @ref _?_facings@?1??Unknown_0054FDA0@MapClass@@QAEXXZ@4PAHA=007e0284
-// @ref _?_bridge_subtiles2@?1??Unknown_0054FDA0@MapClass@@QAEXXZ@4PAHA=007e02c4
+// @ref _?_bridge_subtiles1@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA=007e0244
+// @ref _?_facings@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA=007e0284
+// @ref _?_bridge_subtiles2@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA=007e02c4
 
-void MapClass::Unknown_0054FDA0()
+void MapClass::Compute_Zone_Connections()
 {
     static int _bridge_subtiles1[] = {
         7, 7, -1, 7, 7, -1, 4, 4,

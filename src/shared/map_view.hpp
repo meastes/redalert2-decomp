@@ -122,17 +122,17 @@ public:
     CellClass *Iterate();
     bool Unknown_0054E580(Cell cell, int arg2);                             // 0x0054E580
     void Unknown_00559FD0();                                              // 0x00559FD0                                              // 0x0055A490
-    int Unknown_0054B2E0();                                                     // 0x0054B2E0 (TibSun Overpass)
+    int Overpass();                                                     // 0x0054B2E0 (TibSun Overpass)
     void Unknown_005685F0();                                                    // 0x005685F0
     bool Unknown_00569090(Cell *cell);                                          // 0x00569090
-    void Unknown_00563D40();                                                    // 0x00563D40
-    int Unknown_0054EBD0();                                                     // 0x0054EBD0
+    void Reset_All_Subzones();                                                    // 0x00563D40
+    int Zone_Reset();                                                     // 0x0054EBD0
     void Unknown_005688A0(DynamicVectorClass<Cell> &cells);                    // 0x005688A0 (as shared/map.hpp)
     void Reset_Iterator();                                                    // 0x0055A550
 #ifdef RA2_MAP_VIEW_56A870
     void Lower_Max_Level(int value);                                           // 0x0056A870
 #endif
-    void Unknown_0054FDA0();                                                    // 0x0054FDA0 (shared/map.hpp)
+    void Compute_Zone_Connections();                                                    // 0x0054FDA0 (shared/map.hpp)
     void Set_WasUnderBridge_Flags();                                                    // 0x00568B00
     bool Unknown_0054E410();                                                    // 0x0054E410 (places a crate on a random cell)
     void Unknown_0055D990(Cell const &cell);                              // 0x0055D990
@@ -171,7 +171,7 @@ public:
     // The map's data the other units read, at its shared/map.hpp offsets
     // (the light class has no other members, so the gap is padding).
     char unknown_010[0x6C - 0x10];
-    char *unknown_6c;                           // +0x6C (shared/map.hpp; 10 bytes per cell: the subzone of each path estimator layer, a short each)
+    char *CellSubzones;                           // +0x6C (shared/map.hpp; 10 bytes per cell: the subzone of each path estimator layer, a short each)
     int unknown_70[3];                          // +0x70 (shared/map.hpp)
 #ifdef RA2_SHARED_SUBZONE_TRACKING_HPP
     // Only units that include shared/subzone_tracking.hpp first see the vectors (the element's list

@@ -6,8 +6,8 @@ int MapClass::Get_Cell_Zone_Index(Cell const &cell)
     int result;
     if (index < 0) {
         result = 0;
-    } else if (index >= unknown_68) {
-        result = unknown_68 - 1;
+    } else if (index >= CellZoneCount) {
+        result = CellZoneCount - 1;
     } else {
         result = index;
     }

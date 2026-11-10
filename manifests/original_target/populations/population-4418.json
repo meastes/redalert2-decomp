@@ -4,8 +4,8 @@
     "id": "population-4418",
     "inventory_sha256": "a03052fc790966c1d618ec4bcb4e056a8de953e628f903008437cc6eb0dd46a3",
     "gaps_sha256": "08e88490cf94f19ffab21b058b78a99b27facc0a0edb95695b0560f4d05ac3ae",
-    "historical_population_sha256": "e7592dc555561f760e29a42e83fba84083b438ba58d7c3c32a490655205e40cf",
-    "historical_acceptance_sha256": "459097de380779dd431716a2c227f576e7a25fafd2922203164d23bf362320b2"
+    "historical_population_sha256": "58d90b2b517ef15385f1e8e76c766c2ec967774d3c457107c14e64d8ffa7ad7a",
+    "historical_acceptance_sha256": "f83ca1c61e4e04bac0eef00deb2d4439f8fdb33f17af490fb2a203195b1c5760"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1959,9 +1959,9 @@
     "?Unknown_00529710@@YI_NH_N@Z": 5412624,
     "?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A": 8590792,
     "?Unknown_004284E0@UnknownPathEstimator@@QAEXABVRect@@@Z": 4359392,
-    "?Unknown_0054B2E0@MapClass@@QAEHXZ": 5550816,
-    "?Unknown_0054FDA0@MapClass@@QAEXXZ": 5569952,
-    "?Unknown_0054EBD0@MapClass@@QAEHXZ": 5565392,
+    "?Overpass@MapClass@@QAEHXZ": 5550816,
+    "?Compute_Zone_Connections@MapClass@@QAEXXZ": 5569952,
+    "?Zone_Reset@MapClass@@QAEHXZ": 5565392,
     "?unknown_list_a40c20@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
     "?unknown_radius_count_7a5908@@3QBHB": 8018184,
     "?unknown_radius_offset_a6f248@@3QBVCell@@B": 10941000,
@@ -2111,7 +2111,7 @@
     "??_C@_08OHBM@XGRYMED1?$AA@": 8259696,
     "??_C@_08BIKF@XGRYMED2?$AA@": 8259684,
     "??_C@_08GCKA@XGRYSML1?$AA@": 8259672,
-    "?Unknown_00563D80@MapClass@@QAEXH@Z": 5651840,
+    "?Reset_Subzone@MapClass@@QAEXH@Z": 5651840,
     "?Unknown_00429A90@UnknownPathEstimator@@QAEXXZ": 4364944,
     "?Unknown_00564B60@MapClass@@QAEXPAUZoneConnectionClass@@H@Z": 5655392,
     "?unknown_bridge_side_facings_7e0454@@3PAHA": 8258644,
@@ -2201,7 +2201,7 @@
     "?unknown_slot22@MapClass@@UAEXXZ": 5538672,
     "?unknown_slot23@MapClass@@UAEXXZ": 5538768,
     "?unknown_slot24@MapClass@@UAEXXZ": 5538960,
-    "?Unknown_005499C0@MapClass@@QAEXXZ": 5544384,
+    "?Fresh_Map@MapClass@@QAEXXZ": 5544384,
     "?Set_Local_Dimensions@MapClass@@UAEXABVRect@@@Z": 5544672,
     "?Unknown_00549C20@MapClass@@QAEXHHABUCoordStruct@@HPAVHouseClass@@_N222@Z": 5544992,
     "?Unknown_00549C50@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z": 5545040,
@@ -2317,7 +2317,7 @@
     "?Unknown_005629D0@MapClass@@QAEPAVCellClass@@PAVAbstractClass@@@Z": 5646800,
     "?Unknown_00562EA0@MapClass@@QAEXXZ": 5648032,
     "?Unknown_00562F50@MapClass@@": 5648208,
-    "?Unknown_00563D40@MapClass@@QAEXXZ": 5651776,
+    "?Reset_All_Subzones@MapClass@@QAEXXZ": 5651776,
     "?Unknown_00564B20@MapClass@@QAEXH@Z": 5655328,
     "?Get_Bridge_Zone_Connection_Cell@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z": 5656432,
     "?Unknown_005651E0@MapClass@@QAE?AVCell@@ABV2@0@Z": 5657056,
@@ -10453,7 +10453,10 @@
     "?Redraw@BinkClass@@QAEXXZ": 4392992,
     "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ": 6629440,
+    "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ": 6629488,
+    "??1?$VectorClass@I@@UAE@XZ": 7547984
   },
   "regions": [
     {
@@ -11326,7 +11329,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "62dfcb703f63a6dd0159bbda3a3116008fe05fea201385b79ba06b5f84c95311",
       "relocations": [],
-      "source_sha256": "05bed32c34ba410f0341a58a8ae93870c9db882f9d1c5b3893459c471674353d",
+      "source_sha256": "f384f447339bd02d16822c566a16951de5dc53b1de39262a0e3503d7bd1a5540",
       "source": "src/recovered/classes/MapClass/MapClass_Get_Cell_Zone_Index_0054fab0.cpp",
       "population": "population-4418",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -12167,7 +12170,7 @@
           "resolved": 8006716
         }
       ],
-      "source_sha256": "fa03477e237fb3cbdedfe4347502dbf5a8f9cd48cd7bf891a328e084c8cfd333",
+      "source_sha256": "8ac48f2df906f15dc9ecdc991de3063a35587f74ed20d51c4f6a3e02765c289f",
       "source": "src/recovered/classes/MapClass/MapClass_destructor_00547b90.cpp",
       "population": "population-4418",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -12615,7 +12618,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "75665333fbe66f7f7392fe2cb047a819c7afa92e4b9da128b64712082c9bb3f1",
       "relocations": [],
-      "source_sha256": "41da5ffd4cf35d1769f141610d436ae865b29b5ccb33a8bf45b5cd3fd7554341",
+      "source_sha256": "a2a29b68044466313363eba1e7f36fb70c5aaafe230510f1f4da687d36dea6e1",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_0054FA60_0054fa60.cpp",
       "population": "population-4418",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -13191,8 +13194,8 @@
     {
       "entry": 5651776,
       "method": "00563d40",
-      "symbol": "?Unknown_00563D40@MapClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00563D40@MapClass@@QAEXXZ",
+      "symbol": "?Reset_All_Subzones@MapClass@@QAEXXZ",
+      "symbol_prefix": "?Reset_All_Subzones@MapClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13208,7 +13211,7 @@
         {
           "offset": 27,
           "kind": 20,
-          "symbol": "?Unknown_00563D80@MapClass@@QAEXH@Z",
+          "symbol": "?Reset_Subzone@MapClass@@QAEXH@Z",
           "target": 5651840,
           "addend": 0,
           "resolved": 33
@@ -13230,8 +13233,8 @@
           "resolved": 4293680415
         }
       ],
-      "source_sha256": "a7065b7a230ce3229a11407af6360ebfdc4a9150297fd6120db3763ad80aff33",
-      "source": "src/recovered/classes/MapClass/MapClass_Unknown_00563D40_00563d40.cpp",
+      "source_sha256": "d70317c86cd57a236c69bc3614ea2d9ea025447ea6d3ae706a0127891a58b942",
+      "source": "src/recovered/classes/MapClass/MapClass_Reset_All_Subzones_00563d40.cpp",
       "population": "population-4418",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13633,7 +13636,7 @@
         {
           "offset": 29,
           "kind": 20,
-          "symbol": "?Unknown_0054FDA0@MapClass@@QAEXXZ",
+          "symbol": "?Compute_Zone_Connections@MapClass@@QAEXXZ",
           "target": 5569952,
           "addend": 0,
           "resolved": 4294966239
@@ -13663,7 +13666,7 @@
           "resolved": 4294966967
         }
       ],
-      "source_sha256": "f82ef411559caf7f1ff4a99b733606a4a77173e7ec3954f27e16570bf705eafb",
+      "source_sha256": "bf9d03d7b0bd93fccca1db357a6cb1e4e4356264fa983ba630692a8870e18318",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_005501A0_005501a0.cpp",
       "population": "population-4418",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -13699,7 +13702,7 @@
         {
           "offset": 29,
           "kind": 20,
-          "symbol": "?Unknown_0054FDA0@MapClass@@QAEXXZ",
+          "symbol": "?Compute_Zone_Connections@MapClass@@QAEXXZ",
           "target": 5569952,
           "addend": 0,
           "resolved": 4294966095
@@ -13737,7 +13740,7 @@
           "resolved": 4294966790
         }
       ],
-      "source_sha256": "e32a75269b53a2650d640e87612485e0020c99d051adc73d83285142961eac92",
+      "source_sha256": "76d426df3f33c340aef8a36e1a1958cdae21779ea00f2b8bda213cc204b89110",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_00550230_00550230.cpp",
       "population": "population-4418",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -14734,8 +14737,8 @@
     {
       "entry": 5544384,
       "method": "005499c0",
-      "symbol": "?Unknown_005499C0@MapClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_005499C0@MapClass@@QAEXXZ",
+      "symbol": "?Fresh_Map@MapClass@@QAEXXZ",
+      "symbol_prefix": "?Fresh_Map@MapClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14799,7 +14802,7 @@
         {
           "offset": 212,
           "kind": 20,
-          "symbol": "?Unknown_0054B2E0@MapClass@@QAEHXZ",
+          "symbol": "?Overpass@MapClass@@QAEHXZ",
           "target": 5550816,
           "addend": 0,
           "resolved": 6216
@@ -14807,7 +14810,7 @@
         {
           "offset": 219,
           "kind": 20,
-          "symbol": "?Unknown_0054FDA0@MapClass@@QAEXXZ",
+          "symbol": "?Compute_Zone_Connections@MapClass@@QAEXXZ",
           "target": 5569952,
           "addend": 0,
           "resolved": 25345
@@ -14815,7 +14818,7 @@
         {
           "offset": 226,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 20778
@@ -14823,7 +14826,7 @@
         {
           "offset": 253,
           "kind": 20,
-          "symbol": "?Unknown_00563D80@MapClass@@QAEXH@Z",
+          "symbol": "?Reset_Subzone@MapClass@@QAEXH@Z",
           "target": 5651840,
           "addend": 0,
           "resolved": 107199
@@ -14845,13 +14848,13 @@
           "resolved": 4293787581
         }
       ],
-      "source_sha256": "324c462529fdff9f9d50db7f368a4e810380430d2e5a0eb0d14e008395d27aae",
-      "source": "src/recovered/classes/MapClass/MapClass_Unknown_005499C0_005499c0.cpp",
+      "source_sha256": "9905e3bcaef97d58747ba0625e51f90dbdd790b33829ace3d99e46feec5240d9",
+      "source": "src/recovered/classes/MapClass/MapClass_Fresh_Map_005499c0.cpp",
       "population": "population-4418",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MapClass_Unknown_005499C0_005499c0",
+      "semantic_name": "MapClass_Fresh_Map_005499c0",
       "source_order": 235842
     },
     {
@@ -25124,7 +25127,7 @@
           "resolved": 4294957449
         }
       ],
-      "source_sha256": "b98a83b73845d6ce12935efb79465ec7e97a1f36aa0ca045b182d7ecd12e9d69",
+      "source_sha256": "0c04f1147de82881194d9bf2d508bdeb429484b2fe90bcd477fb1921663e94d3",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_005688A0_005688a0.cpp",
       "population": "population-4418",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -26875,13 +26878,13 @@
         {
           "offset": 183,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294963189
         }
       ],
-      "source_sha256": "60987807c261726b1951de5edd829a792a87d5b94756ae973af0bbb9ea3e43fb",
+      "source_sha256": "cb0e72c9d69e8577b8bb81b796504165a27f68c1bf391797bf3ebcf6951b4e1a",
       "source": "src/recovered/classes/MapClass/MapClass_Update_Cell_Zone_0054fb20.cpp",
       "population": "population-4418",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -26934,13 +26937,13 @@
         {
           "offset": 186,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294962866
         }
       ],
-      "source_sha256": "a772ee45c4c028f544f2cfa9f541cd9ac26b6c8c6260fa0112a41b1b93144651",
+      "source_sha256": "46bb4562c7104fa09531819f6d80525bdc7fa36958ea103fa102f4161df014fc",
       "source": "src/recovered/classes/MapClass/MapClass_Update_Cell_Zone_Constructively_0054fc60.cpp",
       "population": "population-4418",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -33946,7 +33949,7 @@
         {
           "offset": 771,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294930985
@@ -33960,7 +33963,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "b3c5e1a7f5cedf82dcf4791dde002ba6431e7f6aaed6aeb190f8549b4ecebb59",
+      "source_sha256": "f7c863ff1541152e719211e8352f80130eaa524caefa8ad83546924c4c997e27",
       "source": "src/recovered/classes/MapClass/MapClass_Destroy_Low_Bridge_EW_005576a0.cpp",
       "population": "population-4418",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -34269,7 +34272,7 @@
         {
           "offset": 773,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294930183
@@ -34283,7 +34286,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "90065b58fe2f4c48bbb7bc4bd0e4e0a0dde8836f13c9a761ab139371f32fbc66",
+      "source_sha256": "cabc979bf5662071ff3b4a382cfa3fd82634be3e1e443362103274f2e90fae69",
       "source": "src/recovered/classes/MapClass/MapClass_Destroy_Low_Bridge_NS_005579c0.cpp",
       "population": "population-4418",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -34592,7 +34595,7 @@
         {
           "offset": 786,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294929370
@@ -34606,7 +34609,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "1e2caf54c2335fac875de88fb23c0af574a12b7d4c1532fa3176e39fa17c66f9",
+      "source_sha256": "26d2cd4de3258728cf16284c161cbb8390ad48684e47b59a3a39ededb578ffcf",
       "source": "src/recovered/classes/MapClass/MapClass_Destroy_Low_Bridge2_EW_00557ce0.cpp",
       "population": "population-4418",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -34915,7 +34918,7 @@
         {
           "offset": 788,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294928552
@@ -34929,7 +34932,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "ca62a0de6187efa2bd88e7cee913a7034ba5964c803dcb6b25bc6219171d7080",
+      "source_sha256": "fa5cd0b341dea5840bada3779d42e86f7cacddcba312d6129b2ee6c5f57d25fa",
       "source": "src/recovered/classes/MapClass/MapClass_Destroy_Low_Bridge2_NS_00558010.cpp",
       "population": "population-4418",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -35032,8 +35035,8 @@
     {
       "entry": 5550816,
       "method": "0054b2e0",
-      "symbol": "?Unknown_0054B2E0@MapClass@@QAEHXZ",
-      "symbol_prefix": "?Unknown_0054B2E0@MapClass@@QAEHXZ",
+      "symbol": "?Overpass@MapClass@@QAEHXZ",
+      "symbol_prefix": "?Overpass@MapClass@@QAEHXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -35247,13 +35250,13 @@
           "resolved": 61263
         }
       ],
-      "source_sha256": "ec6e0221fedaf70d0f1d6ddbd6c2749afd8535f0b5cf688f969c430b783b2556",
-      "source": "src/recovered/classes/MapClass/MapClass_Unknown_0054B2E0_0054b2e0.cpp",
+      "source_sha256": "ab4e1fe52be136d2c9fdd6a3b35874f89385fb84acbdbfadb0812db39d974f63",
+      "source": "src/recovered/classes/MapClass/MapClass_Overpass_0054b2e0.cpp",
       "population": "population-4418",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MapClass_Unknown_0054B2E0_0054b2e0",
+      "semantic_name": "MapClass_Overpass_0054b2e0",
       "source_order": 235854
     },
     {
@@ -42658,7 +42661,7 @@
           "resolved": 4294036016
         }
       ],
-      "source_sha256": "7eab9d64a953a28ba8d7da0202ad72a2133fa987c162075de0bf2853a4415abd",
+      "source_sha256": "33dc59a5358f555fcf65bfbff488d5dcb424094567f5829754d45792bd68ee53",
       "source": "src/recovered/classes/MapClass/MapClass_Damage_Low_Bridge_Piece_EW_0055FCC0_0055fcc0.cpp",
       "population": "population-4418",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -43013,7 +43016,7 @@
           "resolved": 4294033427
         }
       ],
-      "source_sha256": "499b425cb735efc19565a2a3826650252c8d8e4f28033093742c4ea0e1f849c2",
+      "source_sha256": "0af02b9a1496b99cde02dcc44643f7172fbca22d42fdecb4daa7dee55705b6b8",
       "source": "src/recovered/classes/MapClass/MapClass_Damage_Low_Bridge2_Piece_EW_005606D0_005606d0.cpp",
       "population": "population-4418",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -43312,7 +43315,7 @@
           "resolved": 4294034774
         }
       ],
-      "source_sha256": "59f49df4ab74becf6ae97722980daeb762c18f5def8d33beeec6c870fae92173",
+      "source_sha256": "d61e82a1e0b225654a55582eb794c4e97b73c5d47e9e95d40c395da12da76332",
       "source": "src/recovered/classes/MapClass/MapClass_Damage_Low_Bridge_Piece_NS_005601F0_005601f0.cpp",
       "population": "population-4418",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -43611,7 +43614,7 @@
           "resolved": 4294032169
         }
       ],
-      "source_sha256": "06c411c76d1825a59915ac9f2bd777d681229aa1cd0301f13362928c06873f88",
+      "source_sha256": "4275760ab672c7c8e8aaefd88cc8c4ec4f3ab0c1d402164d3f20530c4f5a3974",
       "source": "src/recovered/classes/MapClass/MapClass_Damage_Low_Bridge2_Piece_NS_00560C10_00560c10.cpp",
       "population": "population-4418",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -43688,7 +43691,7 @@
         {
           "offset": 362,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294884114
@@ -44176,7 +44179,7 @@
         {
           "offset": 2132,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294882344
@@ -44622,7 +44625,7 @@
           "resolved": 4293641240
         }
       ],
-      "source_sha256": "0dee04853d87244c3acf255a5ab562ea28112b1ea13193cea1bd6848864fd7b5",
+      "source_sha256": "246318759911bc4a56f09f7cf70ee78379e9397f5116f3781c046c3ca0f37044",
       "source": "src/recovered/classes/MapClass/MapClass_Collapse_Cliff_00562f50.cpp",
       "population": "population-4418",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -45156,7 +45159,7 @@
           "resolved": 10940984
         }
       ],
-      "source_sha256": "3fac6941351214036c356918c233b59e2d6fa7f484332af53cf91762ef8445f0",
+      "source_sha256": "d33cf0bac1e95644a5b54e8a863915327902ef3263c0a1df0cf3151ccbfd3f4f",
       "source": "src/recovered/classes/MapClass/MapClass_Find_Bridge_End_Cell_For_Subzone_00565610.cpp",
       "population": "population-4418",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -45700,7 +45703,7 @@
         {
           "offset": 1157,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294889895
@@ -45746,7 +45749,7 @@
           "resolved": 5642754
         }
       ],
-      "source_sha256": "cb37974c3fc94ecbcfaf178909c931f28096ab1528c7f866c8f1310f79456981",
+      "source_sha256": "66190609015d10ad00b75395c75386512e167ca45a324832281901d17939447d",
       "switch_data_bytes": 39,
       "source": "src/recovered/classes/MapClass/MapClass_Repair_Low_Bridge_EW_005615a0.cpp",
       "population": "population-4418",
@@ -46088,7 +46091,7 @@
         {
           "offset": 1156,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294888648
@@ -46134,7 +46137,7 @@
           "resolved": 5644001
         }
       ],
-      "source_sha256": "c5bc289c9c3762748ac4e800cc0c2b9d25b69b56576f5f860dc408450afca804",
+      "source_sha256": "20d3baf45dec07f9732c58807b0096606037bae4f0e025e2fdb44dff77158762",
       "switch_data_bytes": 31,
       "source": "src/recovered/classes/MapClass/MapClass_Repair_Low_Bridge_NS_00561a80.cpp",
       "population": "population-4418",
@@ -46476,7 +46479,7 @@
         {
           "offset": 1169,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294887387
@@ -46522,7 +46525,7 @@
           "resolved": 5645262
         }
       ],
-      "source_sha256": "a97c1553ffdecf26064927e00bd06c6632605273e1a25ae6a0023e00204c9963",
+      "source_sha256": "5201a115bd5b65aeea08f4ca66ad1e1dd73b306803ccef62ff1e89e46bbdacf0",
       "switch_data_bytes": 39,
       "source": "src/recovered/classes/MapClass/MapClass_Repair_Low_Bridge2_EW_00561f60.cpp",
       "population": "population-4418",
@@ -46864,7 +46867,7 @@
         {
           "offset": 1168,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294886124
@@ -46910,7 +46913,7 @@
           "resolved": 5646525
         }
       ],
-      "source_sha256": "ef1e28b0a845d1c3dc7e5e23e237e41a0baa7072243994b44687c8c20de817bf",
+      "source_sha256": "43ef0acc5ad22ba814aaabaf3e474242876e6749624cdf49d46e38cd7cfe45dc",
       "switch_data_bytes": 31,
       "source": "src/recovered/classes/MapClass/MapClass_Repair_Low_Bridge2_NS_00562450.cpp",
       "population": "population-4418",
@@ -47938,7 +47941,7 @@
         {
           "offset": 2253,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 11679
@@ -47968,7 +47971,7 @@
           "resolved": 2318038
         }
       ],
-      "source_sha256": "5f085a99ba20f632f2972021bb624399d56b796199c8a9a9e70ddbef5eadbe6b",
+      "source_sha256": "2624f2c3ea1182073ac9389cd1bdfdefd12b4b6482a03f28a378dfdec1961720",
       "source": "src/recovered/classes/MapClass/MapClass_Repair_High_Bridge_Span_0054b560.cpp",
       "population": "population-4418",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -48813,7 +48816,7 @@
         {
           "offset": 2623,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294949917
@@ -48843,7 +48846,7 @@
           "resolved": 2288980
         }
       ],
-      "source_sha256": "866cfb241eaeb6a093a23298be58c98786d617a1d8042761e41afe178162c30a",
+      "source_sha256": "f87eb3d292234e6cc9dde6f76636a511e2b0ffdad0662939c3cf40dba5065ab1",
       "source": "src/recovered/classes/MapClass/MapClass_Repair_Train_Bridge_00552570.cpp",
       "population": "population-4418",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -49608,7 +49611,7 @@
         {
           "offset": 2259,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 9337
@@ -49638,7 +49641,7 @@
           "resolved": 2315696
         }
       ],
-      "source_sha256": "6f3bd413bcb38b79eebdb80fc26198264c969e665d8e7bc4971142d23e66e063",
+      "source_sha256": "e8183c63887a40ad070d607d27b91da90bbb0c9498581b6d656f6caedef4fb13",
       "source": "src/recovered/classes/MapClass/MapClass_Repair_Train_Bridge_Span_0054be80.cpp",
       "population": "population-4418",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -50777,7 +50780,7 @@
         {
           "offset": 1499,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294934737
@@ -50799,7 +50802,7 @@
           "resolved": 2273822
         }
       ],
-      "source_sha256": "3b48deacea1af0c5901dd6a0102930686ff2b6d39db83f5726dd6a597e01d181",
+      "source_sha256": "d3146e8f7cee637374cd965ec34a932386c820a8159ad4a78ff2509696c4ee92",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_00556520_00556520.cpp",
       "population": "population-4418",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -51212,7 +51215,7 @@
         {
           "offset": 1495,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294931813
@@ -51234,7 +51237,7 @@
           "resolved": 2270898
         }
       ],
-      "source_sha256": "34d0a4b506cf091d287c0232e72bb7f6b5485e8f912efa6b3e3699f71767a8ac",
+      "source_sha256": "7b9f9cf5b101c752ef89f833bc25c971debbd78bf9e57bfd9d8aa7893ffecebb",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_00557090_00557090.cpp",
       "population": "population-4418",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -53183,7 +53186,7 @@
           "resolved": 27817
         }
       ],
-      "source_sha256": "f8e36493fb80b22d16d436030c222a2a067d5980bde449b314bc51129009b9fb",
+      "source_sha256": "c5cfa6ccecafc456147bd31809f8454e43c31adb9098fb9c4e3f96245ef64a87",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_00564B60_00564b60.cpp",
       "population": "population-4418",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -53533,7 +53536,7 @@
           "resolved": 2210316
         }
       ],
-      "source_sha256": "315a47f87d59f072ec19fe484ed308b6d40989373dc1f325593727e15902910f",
+      "source_sha256": "cdd130425ccb3682905ece275e4aaccdd4435fb68afdfabcb608a4bc57ad38fb",
       "source": "src/recovered/classes/MapClass/MapClass_Build_Reachable_Subzones_00565eb0.cpp",
       "population": "population-4418",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -56474,7 +56477,7 @@
         {
           "offset": 2674,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294936314
@@ -56504,7 +56507,7 @@
           "resolved": 2275377
         }
       ],
-      "source_sha256": "044539bd5fcfaabda16fbb697f9d24d07624f5b07baab6944088b0cc8d36d2cc",
+      "source_sha256": "f899aeed8d6d9aefb35928e72e2ac2642d2c3abea04f0da2f9296a055408443d",
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_00555A60_00555a60.cpp",
       "population": "population-4418",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -57120,7 +57123,7 @@
         {
           "offset": 1278,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294946078
@@ -57600,7 +57603,7 @@
         {
           "offset": 2583,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294944773
@@ -57832,7 +57835,7 @@
         {
           "offset": 3405,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294943951
@@ -57902,7 +57905,7 @@
           "resolved": 5588658
         }
       ],
-      "source_sha256": "8830db630a529da92e2acd5138b2fb9f71f7c1950d8cedb33ab5243adc19e5b3",
+      "source_sha256": "44aa13f704a11de56b64cff51c1e40a9902f70a82db8642712ce08402ea303be",
       "switch_data_bytes": 50,
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_005539B0_005539b0.cpp",
       "population": "population-4418",
@@ -58420,7 +58423,7 @@
         {
           "offset": 1245,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294924015
@@ -58916,7 +58919,7 @@
         {
           "offset": 2547,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294922713
@@ -59148,7 +59151,7 @@
         {
           "offset": 3386,
           "kind": 20,
-          "symbol": "?Unknown_0054EBD0@MapClass@@QAEHXZ",
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
           "target": 5565392,
           "addend": 0,
           "resolved": 4294921874
@@ -59218,7 +59221,7 @@
           "resolved": 5610731
         }
       ],
-      "source_sha256": "4216ad5bf3848000cad7a8789fa7ed4a84b85240649bfe912e8e268a3dc887a5",
+      "source_sha256": "11834b8a28cbe1ff57a31698892265391093f248cc7ed723b1c6a3bcdbb7c888",
       "switch_data_bytes": 50,
       "source": "src/recovered/classes/MapClass/MapClass_Unknown_00559000_00559000.cpp",
       "population": "population-4418",

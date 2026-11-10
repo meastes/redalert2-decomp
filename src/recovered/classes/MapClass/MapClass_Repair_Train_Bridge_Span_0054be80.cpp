@@ -12,7 +12,7 @@
 // @ref ?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A=00a35de8
 // @ref ?Set_Bridge_End_State@MapClass@@QAEXABVCell@@_N1@Z=00550eb0
 // @ref ?Set_Bridge_Middle_State@MapClass@@QAEXABVCell@@HHH_N@Z=005510a0
-// @ref ?Unknown_0054EBD0@MapClass@@QAEHXZ=0054ebd0
+// @ref ?Zone_Reset@MapClass@@QAEHXZ=0054ebd0
 // @ref ?Unknown_00550230@MapClass@@QAE_NABVCell@@@Z=00550230
 // @ref ?Unknown_005688A0@MapClass@@QAEXAAV?$DynamicVectorClass@VCell@@@@@Z=005688a0
 // @ref ?unknown_cell_a6f238@@3VCell@@A=00a6f238
@@ -153,6 +153,6 @@ void MapClass::Repair_Train_Bridge_Span_0054be80(CellClass *start, FacingType di
         dirty->Width = abs(original_x - pixel.X) + 128;
         dirty->Height = abs(original_y - pixel.Y) + 128;
     }
-    if (zones_changed) Unknown_0054EBD0();
+    if (zones_changed) Zone_Reset();
     if (changed.Count() != 0) Unknown_005688A0(changed);
 }

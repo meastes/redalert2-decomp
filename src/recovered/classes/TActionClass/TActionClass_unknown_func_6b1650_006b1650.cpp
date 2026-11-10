@@ -18,8 +18,8 @@ bool TActionClass::unknown_func_6b1650(HouseClass *house, ObjectClass *object, T
         walk->Recalc_Attributes(-1);
         walk = Map.Iterate();
     }
-    Map.Unknown_0054EBD0();
-    Map.Unknown_00563D40();
+    Map.Zone_Reset();
+    Map.Reset_All_Subzones();
     Map.Complete_Radar_Refresh();
     for (int index = unknown_BuildingClass_list_00a40af8.Count() - 1; index >= 0; index--) {
         unknown_BuildingClass_list_00a40af8[index]->unknown_slot267(true);

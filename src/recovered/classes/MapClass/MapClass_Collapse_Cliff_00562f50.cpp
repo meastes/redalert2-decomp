@@ -43,7 +43,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         ObjectClass *slope2 = IsoTileTypes[unknown_tileset_a6e038 + 1]->unknown_slot35(0);
         slope2->unknown_slot53((Cell)(origin + Cell(3, 0)), 0);
 
-        Unknown_0054EBD0();
+        Zone_Reset();
 
         IsometricTileTypeClass *isotype = IsoTileTypes[unknown_tileset_a6e0f8];
         IsoTileImageStruct *image = (IsoTileImageStruct *)isotype->unknown_slot39();
@@ -123,7 +123,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         ObjectClass *slope2 = IsoTileTypes[unknown_tileset_a6e038 + 2]->unknown_slot35(0);
         slope2->unknown_slot53((Cell)(origin + Cell(0, 3)), 0);
 
-        Unknown_0054EBD0();
+        Zone_Reset();
 
         IsometricTileTypeClass *isotype = IsoTileTypes[unknown_tileset_a6e0f8 + 1];
         IsoTileImageStruct *image = (IsoTileImageStruct *)isotype->unknown_slot39();

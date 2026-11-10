@@ -27,7 +27,7 @@ extern Rect unknown_rect_839630;
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
-// @ref ?Unknown_0054EBD0@MapClass@@QAEHXZ=0054ebd0
+// @ref ?Zone_Reset@MapClass@@QAEHXZ=0054ebd0
 // @ref ?Unknown_005687B0@MapClass@@QAEXABVRect@@@Z=005687b0
 
 bool MapClass::Unknown_0055DEF0(Cell const &cell)
@@ -86,7 +86,7 @@ bool MapClass::Unknown_0055DEF0(Cell const &cell)
         cellptr3->Kill_Illegal_Occupiers();
 
         if (didwork) {
-            Unknown_0054EBD0();
+            Zone_Reset();
         }
 
         if (recalc_rect.Is_Valid()) {

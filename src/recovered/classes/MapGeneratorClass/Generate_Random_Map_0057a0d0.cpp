@@ -279,7 +279,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
         if(region!=0)delete region;
     }
     unknown_map_region_next_index_a70a28=0;
-    Map.Unknown_0054B2E0();
+    Map.Overpass();
     Debug_Printf(unknown_rmg_radar_message);
     Map.RadarClass::Set_Local_Dimensions(Map.MapLocalSize);
     Map.Compute_Radar_Image();

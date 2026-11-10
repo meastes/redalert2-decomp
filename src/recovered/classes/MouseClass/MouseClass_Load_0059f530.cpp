@@ -86,10 +86,10 @@ HRESULT MouseClass::Load(IStream *stream)
     }
     unknown_loaded_theater_7d88dc = -1;
     unknown_slot23();
-    delete unknown_6c;
-    unknown_6c = 0;
-    delete unknown_64;
-    unknown_64 = 0;
+    delete CellSubzones;
+    CellSubzones = 0;
+    delete CellZones;
+    CellZones = 0;
     delete unknown_14;
     unknown_14 = 0;
     for (int clear = 0; clear < 3; clear++) {
@@ -122,19 +122,19 @@ HRESULT MouseClass::Load(IStream *stream)
     Swizzle_Pointer(unknown_119c);
     unknown_slot22();
     unknown_slot24();
-    unknown_6c = 0;
-    unknown_64 = 0;
+    CellSubzones = 0;
+    CellZones = 0;
     Set_Map_Dimensions(&MapSize, true, false, false);
-    if (unknown_6c != 0) {
-        delete unknown_6c;
-        unknown_6c = 0;
+    if (CellSubzones != 0) {
+        delete CellSubzones;
+        CellSubzones = 0;
     }
-    if (unknown_64 != 0) {
-        delete unknown_64;
-        unknown_64 = 0;
+    if (CellZones != 0) {
+        delete CellZones;
+        CellZones = 0;
     }
-    unknown_6c = new char[unknown_68 * 10];
-    unknown_64 = new UnknownMapElem4[unknown_68];
+    CellSubzones = new char[CellZoneCount * 10];
+    CellZones = new UnknownMapElem4[CellZoneCount];
     unknown_14 = New_Cell_Table();
     for (int tier = 0; tier < 3; tier++) {
         int factor = 1 << (tier + 1);
@@ -143,7 +143,7 @@ HRESULT MouseClass::Load(IStream *stream)
         SubzoneTracking[tier].Set_Growth_Step(cells / (factor * factor));
         unknown_7c[tier] = new HashTableClass<unsigned int, SubzoneConnectionStruct>(20, 256, Unknown_Hash_0054F240);
     }
-    result = stream->Read(unknown_64, unknown_68 * 4, 0);
+    result = stream->Read(CellZones, CellZoneCount * 4, 0);
     if (result < 0) {
         return result;
     }

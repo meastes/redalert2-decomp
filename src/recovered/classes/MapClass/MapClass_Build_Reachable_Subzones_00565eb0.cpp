@@ -36,7 +36,7 @@
 
 inline unsigned short Cell_Subzone(MapClass *map, Cell const &cell, int layer)
 {
-    return ((short *)(map->unknown_6c + map->Get_Cell_Zone_Index(cell) * 10))[layer];
+    return ((short *)(map->CellSubzones + map->Get_Cell_Zone_Index(cell) * 10))[layer];
 }
 
 bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVectorClass<unsigned short> const &connections, ObjectClass const *foot)
@@ -128,7 +128,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVecto
             Cell c = cptr->MapCoords + Cell(bx, by);
 
             if (Unknown_0055A660(c, true)) {
-                if (start_subzone == ((unsigned short *)(unknown_6c + Get_Cell_Zone_Index(c) * 10))[layer] && !_subzone_flood_visited[facing][col]) {
+                if (start_subzone == ((unsigned short *)(CellSubzones + Get_Cell_Zone_Index(c) * 10))[layer] && !_subzone_flood_visited[facing][col]) {
                     return true;
                 }
             }

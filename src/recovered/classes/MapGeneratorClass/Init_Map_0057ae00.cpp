@@ -183,7 +183,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
         }
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
         Report_Generation_Progress_0057be50(15);
-        Map.Unknown_0054FDA0();Map.Unknown_0054EBD0();Map.Unknown_00563D40();
+        Map.Compute_Zone_Connections();Map.Zone_Reset();Map.Reset_All_Subzones();
         Report_Generation_Progress_0057be50(20);
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
         // The canonical legacy provider takes the scenario address as a 32-bit ECX argument.

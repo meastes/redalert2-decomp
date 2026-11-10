@@ -25,7 +25,7 @@
 // member inline here changes the scheduling of units that only see shared/map_view.hpp).
 inline unsigned short *Cell_Subzones(Cell const &cell)
 {
-    return (unsigned short *)(Map.unknown_6c + Map.Get_Cell_Zone_Index(cell) * 10);
+    return (unsigned short *)(Map.CellSubzones + Map.Get_Cell_Zone_Index(cell) * 10);
 }
 
 void UnknownPathEstimator::Unknown_0042A590(FootClass *foot)

@@ -15,7 +15,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Set_Bridge_End_State@MapClass@@QAEXABVCell@@_N1@Z=00550eb0
 // @ref ?Set_Bridge_Middle_State@MapClass@@QAEXABVCell@@HHH_N@Z=005510a0
-// @ref ?Unknown_0054EBD0@MapClass@@QAEHXZ=0054ebd0
+// @ref ?Zone_Reset@MapClass@@QAEHXZ=0054ebd0
 // @ref ?Unknown_00550230@MapClass@@QAE_NABVCell@@@Z=00550230
 // @ref ?Unknown_005688A0@MapClass@@QAEXAAV?$DynamicVectorClass@VCell@@@@@Z=005688a0
 // @ref ?unknown_dummy_cell_a6f9f8@@3VCellClass@@A=00a6f9f8
@@ -189,7 +189,7 @@ void MapClass::Unknown_00555A60(Cell const &cell)
     }
 
     if (zonechanged) {
-        Unknown_0054EBD0();
+        Zone_Reset();
     }
     if (cells.Count() > 0) {
         Unknown_005688A0(cells);

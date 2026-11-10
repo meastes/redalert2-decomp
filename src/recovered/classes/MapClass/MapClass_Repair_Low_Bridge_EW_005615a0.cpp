@@ -71,6 +71,6 @@ void MapClass::Repair_Low_Bridge_EW(Cell const &cell)
         ++cursor.X;
         low_bridge = (unsigned char)Unknown_00562930(cursor);
     } while (low_bridge);
-    if (changed) Unknown_0054EBD0();
+    if (changed) Zone_Reset();
     if (recalc_rect.Is_Valid()) Unknown_005687B0(recalc_rect);
 }

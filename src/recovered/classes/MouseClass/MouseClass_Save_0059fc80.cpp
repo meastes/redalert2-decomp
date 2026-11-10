@@ -27,7 +27,7 @@ HRESULT MouseClass::Save(IStream *stream)
     if (result < 0) {
         return result;
     }
-    result = stream->Write(unknown_64, unknown_68 * 4, 0);
+    result = stream->Write(CellZones, CellZoneCount * 4, 0);
     if (result < 0) {
         return result;
     }

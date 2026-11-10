@@ -1,4 +1,4 @@
-// void MapClass::Unknown_005499C0() (0x005499C0)
+// void MapClass::Fresh_Map() (0x005499C0)
 // Rebuilds the zone data for the map size: frees and reallocates the +0x64
 // elements ((width + height + 1) squared, +0x68) and the +0x6C buffer (ten
 // bytes per element), sizes the path estimator for the map rectangle, sets
@@ -11,31 +11,31 @@
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?unknown_path_estimator_8315c8@@3UUnknownPathEstimator@@A=008315c8
 // @ref ?Unknown_004284E0@UnknownPathEstimator@@QAEXABVRect@@@Z=004284e0
-// @ref ?Unknown_0054B2E0@MapClass@@QAEHXZ=0054b2e0
-// @ref ?Unknown_0054FDA0@MapClass@@QAEXXZ=0054fda0
-// @ref ?Unknown_0054EBD0@MapClass@@QAEHXZ=0054ebd0
+// @ref ?Overpass@MapClass@@QAEHXZ=0054b2e0
+// @ref ?Compute_Zone_Connections@MapClass@@QAEXXZ=0054fda0
+// @ref ?Zone_Reset@MapClass@@QAEHXZ=0054ebd0
 
-void MapClass::Unknown_005499C0()
+void MapClass::Fresh_Map()
 {
-    if (unknown_64 != 0) {
-        delete unknown_64;
-        unknown_64 = 0;
+    if (CellZones != 0) {
+        delete CellZones;
+        CellZones = 0;
     }
-    if (unknown_6c != 0) {
-        delete unknown_6c;
-        unknown_6c = 0;
+    if (CellSubzones != 0) {
+        delete CellSubzones;
+        CellSubzones = 0;
     }
     int size = MapSize.Width + MapSize.Height + 1;
-    unknown_68 = size * size;
-    unknown_64 = new UnknownMapElem4[unknown_68];
-    unknown_6c = new char[unknown_68 * 10];
+    CellZoneCount = size * size;
+    CellZones = new UnknownMapElem4[CellZoneCount];
+    CellSubzones = new char[CellZoneCount * 10];
     unknown_path_estimator_8315c8.Unknown_004284E0(MapSize);
     for (int index = 0; index < 3; index++) {
         int scale = 1 << (index + 1);
         SubzoneTracking[index].Set_Growth_Step(MapSize.Width * MapSize.Height * 4 / (scale * scale));
     }
-    Unknown_0054B2E0();
-    Unknown_0054FDA0();
-    Unknown_0054EBD0();
-    Unknown_00563D40();
+    Overpass();
+    Compute_Zone_Connections();
+    Zone_Reset();
+    Reset_All_Subzones();
 }

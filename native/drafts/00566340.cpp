@@ -41,7 +41,7 @@ inline void Set_Connection(SubzoneConnectionStruct &connection, int id, bool cos
 
 inline int Cell_Passability(MapClass *map, Cell const &cell)
 {
-    return map->unknown_64[map->Get_Cell_Zone_Index(cell)].unknown_00;
+    return map->CellZones[map->Get_Cell_Zone_Index(cell)].unknown_00;
 }
 
 void MapClass::Unknown_00566340(Cell const &cell)
@@ -111,7 +111,7 @@ void MapClass::Unknown_00566340(Cell const &cell)
                             added->unknown_20 = Threat_Region(x, y);
                             ++entry_count;
                             if (entry_count == 0) {
-                                Unknown_00563D40();
+                                Reset_All_Subzones();
                                 return;
                             }
                         }

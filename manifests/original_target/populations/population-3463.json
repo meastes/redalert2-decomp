@@ -4,8 +4,8 @@
     "id": "population-3463",
     "inventory_sha256": "a3c60baecfad77f348b0e3e170d72a077b03542638f4cc6fccf85d32a5965eaf",
     "gaps_sha256": "056a1f15da5301a374d420e771bd033f508a67a332a8a278e663431d39c55408",
-    "historical_population_sha256": "7c8b13c56c790d18f1f3f3ad5f51fa0ab3027f004de9227dd48de770200bc341",
-    "historical_acceptance_sha256": "b10008af10f40af36c075b11f3eb17b6b53198bba9621f9c621fc1ba516d4020"
+    "historical_population_sha256": "6cab097502b4bfc3a2a703d5fbe8676005849fc018ef8753158397d18a5ac175",
+    "historical_acceptance_sha256": "49f163b991bc0e6c261882d5ac8a7fbc16db8193f0b8cfc2ba3692123719d37e"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8863,7 +8863,7 @@
     "?Read_INI@BuildingTypeClass@@UAE_NAAVCCINIClass@@@Z": 4561408,
     "?Get_Point@INIClass@@QBE?AUINIPoint2D@@PBD0ABUPoint2D@@@Z": 5305968,
     "?Unknown_004284E0@UnknownPathEstimator@@QAEXABVRect@@@Z": 4359392,
-    "?Unknown_0054B2E0@MapClass@@QAEHXZ": 5550816,
+    "?Overpass@MapClass@@QAEHXZ": 5550816,
     "?unknown_slot70@TechnoClass@@UAEX_N0@Z": 7166624,
     "?Unknown_00549C50@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z": 5545040,
     "?Create_Anim_Item@@YIPAVGraphicMenuItem@@ABVWstring@@AAVINIClass@@PAXPBUPoint2D@@@Z": 5108560,
@@ -9683,11 +9683,11 @@
     "?Unknown_0054E410@MapClass@@QAE_NXZ": 5563408,
     "?Cell_Threat@MapClass@@QAEHABVCell@@PAVHouseClass@@@Z": 5563296,
     "?Unknown_0055A120@MapClass@@QAEXXZ": 5611808,
-    "?Unknown_00563D40@MapClass@@QAEXXZ": 5651776,
+    "?Reset_All_Subzones@MapClass@@QAEXXZ": 5651776,
     "?Zone_Connection_Index@MapClass@@QAEHABVCell@@HH@Z": 5570768,
-    "?Unknown_0054FDA0@MapClass@@QAEXXZ": 5569952,
+    "?Compute_Zone_Connections@MapClass@@QAEXXZ": 5569952,
     "?Unknown_005688A0@MapClass@@QAEXAAV?$DynamicVectorClass@VCell@@@@@Z": 5671072,
-    "?Unknown_0054EBD0@MapClass@@QAEHXZ": 5565392,
+    "?Zone_Reset@MapClass@@QAEHXZ": 5565392,
     "?Unknown_0055A910@MapClass@@QAEPAVCellClass@@XZ": 5613840,
     "?Draw_Matrix@TunnelLocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": 7277792,
     "?Unknown_0049C670@DisplayClass@@QAEXXZ": 4834928,
@@ -14275,7 +14275,7 @@
     "?Unknown_0061CBC0@PowerClass@@QAEXXZ": 6409152,
     "?Unknown_0055A070@MapClass@@QAEXXZ": 5611632,
     "?Unknown_0055A840@MapClass@@QAE_NABVRect@@ABVCell@@_N@Z": 5613632,
-    "?Unknown_00563D80@MapClass@@QAEXH@Z": 5651840,
+    "?Reset_Subzone@MapClass@@QAEXH@Z": 5651840,
     "?Unknown_00564B20@MapClass@@QAEXH@Z": 5655328,
     "?Unknown_00564B60@MapClass@@QAEXPAUZoneConnectionClass@@H@Z": 5655392,
     "?Unknown_00565E20@MapClass@@QAE_NABVRect@@@Z": 5660192,
@@ -14298,7 +14298,7 @@
     "?Unknown_0055DB90@@YIHABVCell@@@Z": 5626768,
     "?Unknown_0055EB70@@YIHABVCell@@@Z": 5630832,
     "?Unknown_0055ECA0@@YIHABVCell@@@Z": 5631136,
-    "?Unknown_005499C0@MapClass@@QAEXXZ": 5544384,
+    "?Fresh_Map@MapClass@@QAEXXZ": 5544384,
     "?Unknown_005B4C60@UnknownObjectA3DC70@@QAEXHHHHHHHHHHH@Z": 5983328,
     "?Unknown_005B5C60@UnknownObjectA3DC70@@QAEXH@Z": 5987424,
     "?Unknown_006F7360@@YAXXZ": 7304032,
@@ -14596,7 +14596,16 @@
     "??_ECursorPositionCommandClass@@UAEPAXI@Z": 5365856,
     "?Unknown_00737080@@YIXPAUHWND__@@0@Z": 7565440,
     "?Unknown_0066F3A0@@YIXPAUUnknownSessionState@@@Z": 6747040,
-    "??RMSTimerClass@@QBEJXZ": 5990960
+    "??RMSTimerClass@@QBEJXZ": 5990960,
+    "?Set_Position@BinkClass@@QAEXHH@Z": 4391552,
+    "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
+    "?Clear_Global_Data@VeinholeMonsterClass@@SAXXZ": 7412848,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?Deinit_Vein_Growth_System@VeinholeMonsterClass@@SAXXZ": 7410928,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
   },
   "regions": [
     {
@@ -20486,7 +20495,7 @@
         {
           "offset": 406,
           "kind": 20,
-          "symbol": "?Unknown_00563D40@MapClass@@QAEXXZ",
+          "symbol": "?Reset_All_Subzones@MapClass@@QAEXXZ",
           "target": 5651776,
           "addend": 0,
           "resolved": 4293972006
@@ -21268,7 +21277,7 @@
           "resolved": 10939344
         }
       ],
-      "source_sha256": "fa6a5b5d75a66f7e3ab40038e10cafa0cdc2fd3180bf199d88b081dd42261950",
+      "source_sha256": "88fb629eab9b5880aacf3e26e8d65ce51267c076e0a888026ac7959efbc734d6",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Get_All_00656b80.cpp",
       "population": "population-3463",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

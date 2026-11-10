@@ -8,7 +8,7 @@
 
 void MapClass::Update_Cell_Zone_Constructively(Cell const &cell)
 {
-    UnknownMapElem4 *cell_data = &unknown_64[Get_Cell_Zone_Index(cell)];
+    UnknownMapElem4 *cell_data = &CellZones[Get_Cell_Zone_Index(cell)];
     int passability = cell_data->unknown_00;
 
     int stride = Map.MapSize.Width + Map.MapSize.Height + 1;
@@ -51,6 +51,6 @@ void MapClass::Update_Cell_Zone_Constructively(Cell const &cell)
             }
         }
 
-        Map.Unknown_0054EBD0();
+        Map.Zone_Reset();
     }
 }

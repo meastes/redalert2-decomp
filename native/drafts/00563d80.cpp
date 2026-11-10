@@ -1,10 +1,10 @@
-// NON-EXACT DRAFT 0x563D80 MapClass::Unknown_00563D80 (Reset_Subzone)
+// NON-EXACT DRAFT 0x563D80 MapClass::Reset_Subzone (Reset_Subzone)
 // entry 0x563D80; exact-match score 76.89 (misses_index best); plan "draft, verify"
 // origin lane: Scout660 (build/class-work/Scout664/w/keep/a6_7689.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1089 (native/drafts.json). Not original bytes.
 // Native adaptation (Scout1089): 0x00A6FC34 under its HEAD name; 0x00564290 declared by a native map.hpp fixup. Changed lines marked NATIVE.
-// MapClass::Unknown_00563D80: TibSun Reset_Subzone; rebuilds one level of the subzone graph.
+// MapClass::Reset_Subzone: TibSun Reset_Subzone; rebuilds one level of the subzone graph.
 #include "shared/map.hpp"
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
@@ -35,14 +35,14 @@ inline void Set_Connection(SubzoneConnectionStruct &connection, int id, bool cos
     connection.unknown_04 = costly;
 }
 
-void MapClass::Unknown_00563D80(int level)
+void MapClass::Reset_Subzone(int level)
 {
-    CellSubzoneStruct *subend = (CellSubzoneStruct *)unknown_6c + unknown_68;
+    CellSubzoneStruct *subend = (CellSubzoneStruct *)CellSubzones + CellZoneCount;
     HashTableClass<unsigned int, SubzoneConnectionStruct> *set = unknown_7c[level];
     DynamicVectorClass<SubzoneTrackingStruct> *track = &SubzoneTracking[level];
     for (int bucket = 0; bucket < set->BucketCount; ++bucket) set->Buckets[bucket].Clear();
-    CellSubzoneStruct *subptr = (CellSubzoneStruct *)unknown_6c;
-    UnknownMapElem4 *zoneptr = unknown_64;
+    CellSubzoneStruct *subptr = (CellSubzoneStruct *)CellSubzones;
+    UnknownMapElem4 *zoneptr = CellZones;
     if (subptr < subend) {
         do {
             subptr->SubzoneID[level] = 0;
@@ -56,8 +56,8 @@ void MapClass::Unknown_00563D80(int level)
     track->Add(SubzoneTrackingStruct());
     (*track)[0].unknown_18 = 0;
     (*track)[0].unknown_1c = 7;
-    subptr = (CellSubzoneStruct *)unknown_6c;
-    zoneptr = unknown_64;
+    subptr = (CellSubzoneStruct *)CellSubzones;
+    zoneptr = CellZones;
     UnknownMapElem4 *zonerow = zoneptr;
     int width = 1 << (level + 1);
     int regionmask = width - 1;

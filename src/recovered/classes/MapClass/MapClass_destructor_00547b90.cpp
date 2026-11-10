@@ -15,17 +15,17 @@ MapClass::~MapClass()
     Unknown_00711C70();
     Unknown_006E9670();
     Unknown_006EA130();
-    if (unknown_64 != 0) {
-        delete unknown_64;
-        unknown_64 = 0;
+    if (CellZones != 0) {
+        delete CellZones;
+        CellZones = 0;
     }
     if (unknown_14 != 0) {
         delete unknown_14;
         unknown_14 = 0;
     }
-    if (unknown_6c != 0) {
-        delete unknown_6c;
-        unknown_6c = 0;
+    if (CellSubzones != 0) {
+        delete CellSubzones;
+        CellSubzones = 0;
     }
     for (int index = 0; index < 3; index++) {
         if (unknown_7c[index] != 0) {

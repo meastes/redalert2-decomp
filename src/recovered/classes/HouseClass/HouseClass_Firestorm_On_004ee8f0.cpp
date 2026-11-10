@@ -34,7 +34,7 @@ void HouseClass::unknown_func_4ee8f0()
                 cells.Add(Coord_Cell(building->Center_Coord()));
             }
         }
-        Map.Unknown_0054EBD0();
+        Map.Zone_Reset();
         Map.Unknown_005688A0(cells);
     }
 }

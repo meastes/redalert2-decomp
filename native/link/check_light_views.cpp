@@ -8,7 +8,7 @@
 #include "shared/map_view.hpp"
 #include <cstddef>
 
-static_assert(offsetof(MapClass, unknown_6c) == 0xB8, "map_view.hpp MapClass::unknown_6c");
+static_assert(offsetof(MapClass, CellSubzones) == 0xB8, "map_view.hpp MapClass::CellSubzones");
 static_assert(offsetof(MapClass, unknown_70) == 0xC0, "map_view.hpp MapClass::unknown_70");
 static_assert(offsetof(MapClass, SubzoneTracking) == 0xE8, "map_view.hpp MapClass::SubzoneTracking");
 static_assert(offsetof(MapClass, MapSize) == 0x168, "map_view.hpp MapClass::MapSize");

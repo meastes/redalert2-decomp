@@ -5,5 +5,5 @@
 
 int MapClass::Unknown_0054FA60(Cell const &cell)
 {
-    return unknown_64[Get_Cell_Zone_Index(cell)].unknown_02;
+    return CellZones[Get_Cell_Zone_Index(cell)].unknown_02;
 }

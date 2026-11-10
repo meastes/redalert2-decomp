@@ -74,6 +74,6 @@ void MapClass::Destroy_Low_Bridge2_NS(Cell const &cell)
         }
     }
 
-    Unknown_0054EBD0();
+    Zone_Reset();
     unknown_tactical_83996c->unknown_d7c = true;
 }
