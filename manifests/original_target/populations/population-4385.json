@@ -4,8 +4,8 @@
     "id": "population-4385",
     "inventory_sha256": "3601814dba8c545a13e2cea16ce2dc920b065e413605213eb67dc330419ba483",
     "gaps_sha256": "9e8f93269dd9ef4dca81936587631688832af038e02e1cbeb553c723da314b6f",
-    "historical_population_sha256": "6da8ea0169725795a7ae0c6ed830987b9cf38974345d0845ac3cb745ab18eab4",
-    "historical_acceptance_sha256": "8ebc95a1162adf964a2c249a57915e40f65439667ab4605da487cef42042886c"
+    "historical_population_sha256": "af3441b430bed293ccd74f545b88d202003d6d77b306e4f9b387b5cd26e3f3fb",
+    "historical_acceptance_sha256": "17b1cd8d5f93922805c350e9029aaad1ebdcc7d65fb68d9d445b8fecddc6dbe9"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -7176,7 +7176,7 @@
     "?Add_Waypoint@HouseClass@@QAEXABUCoordStruct@@@Z": 5165280,
     "?unknown_slot274@InfantryClass@@UAE_NXZ": 5280848,
     "?unknown_slot275@InfantryClass@@UAE_NXZ": 5280864,
-    "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABUBulletVelocity@@@Z": 4593328,
+    "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABU?$TVelocity3D@N@@@Z": 4593328,
     "?unknown_59ebc0@UnknownPairSecond@@QAEHPAVFileClass@@@Z": 5893056,
     "??1WaypointPathClass@@UAE@XZ": 7490720,
     "??_7WaypointPathClass@@6BIPersistStream@@@": 8056616,
@@ -12349,8 +12349,8 @@
     "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z": 7118320,
     "?unknown_slot222@BuildingClass@@UAE_NPAVHouseClass@@H@Z": 4474464,
     "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
-    "?Speed@BulletVelocityXY@@QBENXZ": 4306768,
-    "?Speed@BulletVelocity@@QBENXZ": 4306880,
+    "?Speed@?$TVelocity2D@N@@QBENXZ": 4306768,
+    "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
     "?Unknown_0067CA50@SidebarClass@@QAEXH@Z": 6802000,
     "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120,
     "?Unknown_006F5D90@@YIXH@Z": 7298448,

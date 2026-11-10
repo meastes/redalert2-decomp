@@ -376,7 +376,7 @@
 | [classes/VectorClass_SwizzlePointerClass](../src/recovered/classes/VectorClass_SwizzlePointerClass/) | 8 | 667 | 8 | 0x0069FE20–0x006A01D0 |
 | [classes/VectorClass_DiscreteDistributionClass_AITriggerTypeClass___DistributionObject_AITriggerTypeClass_ptr](../src/recovered/classes/VectorClass_DiscreteDistributionClass_AITriggerTypeClass___DistributionObject_AITriggerTypeClass_ptr/) | 6 | 663 | 6 | 0x006C03C0–0x006C09A0 |
 | [classes/DynamicVectorClass_TechnoTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_TechnoTypeClass_ptr/) | 9 | 661 | 7 | 0x0046CCE0–0x006DFA70 |
-| [classes/BulletVelocity](../src/recovered/classes/BulletVelocity/) | 7 | 659 | 7 | 0x0041B6E0–0x005941B0 |
+| [classes/TVelocity3D](../src/recovered/classes/TVelocity3D/) | 7 | 659 | 7 | 0x0041B6E0–0x005941B0 |
 | [classes/DynamicVectorClass_VoxelAnimTypeClass_ptr](../src/recovered/classes/DynamicVectorClass_VoxelAnimTypeClass_ptr/) | 10 | 650 | 9 | 0x004D56D0–0x006DF890 |
 | [classes/PaletteName](../src/recovered/classes/PaletteName/) | 1 | 650 | 1 | 0x00603380–0x00603380 |
 | [classes/PaletteClass](../src/recovered/classes/PaletteClass/) | 10 | 648 | 10 | 0x00496120–0x006031B0 |

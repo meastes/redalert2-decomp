@@ -15,7 +15,7 @@
 CellClass *__fastcall Trace_Projectile_Line_004bb890(CoordStruct const &origin,
     CoordStruct const &destination, BulletTypeClass const *projectile, HouseClass const *house);
 // @ref ?Trace_Projectile_Line_004bb890@@=004bb890
-inline void Set_Projectile_Speed(BulletVelocity &velocity,double speed)
+inline void Set_Projectile_Speed(TVelocity3D<double> &velocity,double speed)
 {
     if (velocity.X == 0.0 && velocity.Y == 0.0 && velocity.Z == 0.0) velocity.X = 100.0;
     double factor=speed/Fast_Sqrt(velocity.X*velocity.X+velocity.Y*velocity.Y+velocity.Z*velocity.Z);
@@ -27,7 +27,7 @@ inline float Projectile_Launch_Distance(CoordStruct const &source,CoordStruct co
     float distance=Fast_Sqrt((double)v.X*v.X+(double)v.Y*v.Y+(double)v.Z*v.Z);
     return distance;
 }
-bool BulletClass::unknown_slot118(CoordStruct const &source, BulletVelocity const &velocity)
+bool BulletClass::unknown_slot118(CoordStruct const &source, TVelocity3D<double> const &velocity)
 {
     if (ObjectClass::unknown_slot53(&source, 0)) {
         Velocity = velocity;

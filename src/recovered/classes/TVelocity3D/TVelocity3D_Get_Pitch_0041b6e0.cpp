@@ -4,10 +4,10 @@
 #define RA2_BULLET_MISSILE_VELOCITY
 #define RA2_BULLET_MISSILE_GET_PITCH_SOURCE
 #include "shared/bullet_velocity.hpp"
-// @ref ?Speed@BulletVelocityXY@@QBENXZ=0041b750
+// @ref ?Speed@?$TVelocity2D@N@@QBENXZ=0041b750
 
-DirType BulletVelocity::Get_Pitch() const
+DirType TVelocity3D<double>::Get_Pitch() const
 {
-    double const &horizontal = BulletVelocityXY::Speed();
+    double const &horizontal = TVelocity2D<double>::Speed();
     return Fast_Atan2(Z, horizontal);
 }

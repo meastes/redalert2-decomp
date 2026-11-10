@@ -33,8 +33,8 @@ bool TActionClass::unknown_chem_missile_at_waypoint(HouseClass *house, ObjectCla
         double y = unknown_cos_4ba4d0(-9.587672516830327e-05);
         y *= unknown_sin_4ba480(1.5707483884323126);
         y *= 100.0;
-        BulletVelocityXY planar(unknown_cos_4ba4d0(-9.587672516830327e-05) * unknown_cos_4ba4d0(1.5707483884323126) * 100.0, y);
-        BulletVelocity velocity;
+        TVelocity2D<double> planar(unknown_cos_4ba4d0(-9.587672516830327e-05) * unknown_cos_4ba4d0(1.5707483884323126) * 100.0, y);
+        TVelocity3D<double> velocity;
         velocity.XY() = planar;
         velocity.Z = unknown_sin_4ba480(-9.587672516830327e-05) * 100.0;
         bullet->unknown_slot118(CoordStruct(from.X * 256 + 128, from.Y * 256 + 128, 0), velocity);

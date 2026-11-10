@@ -12,7 +12,7 @@
 //   +0x0A4  UnknownBulletData Data (0x28: two frame timers, four ints;
 //           default constructor out of line 0x004CEDF0)
 //   +0x0CC  bool Bright
-//   +0x0D0  BulletVelocity Velocity (three doubles; operator+= 0x004642A0)
+//   +0x0D0  TVelocity3D<double> Velocity (three doubles; operator+= 0x004642A0)
 //   +0x0E8  int unknown_e8, +0x0EC bool unknown_ec (true), +0x0ED bool (true)
 //   +0x0F0  int unknown_f0
 //   +0x0F4  AbstractClass *Target          (swizzled; slot 117 sets it)
@@ -83,13 +83,17 @@ double __cdecl unknown_cos_4ba4d0(double angle);    // 0x004BA4D0 (two names wit
 double __cdecl unknown_sqrt_4ba410(double value);   // 0x004BA410 (as shared/unknown_geometry.hpp)
 extern double const unknown_double_79b610;          // 0x0079B610 (0.0; as shared/techno.hpp)
 
-// The horizontal part of a velocity: built first (Y evaluated before X) and
-// copied whole into a BulletVelocity's X and Y (BulletClass 0x00462110 and
-// 0x00463C50; hypothesis: a two-dimensional vector type).
-// Westwood's TVelocity2D<double> (TibSun velocity.h): names and members follow it.
-struct BulletVelocityXY {
-    BulletVelocityXY() {}
-    BulletVelocityXY(double x, double y) : X(x), Y(y) {}
+// Westwood's TVelocity2D<T> and TVelocity3D<T> (TibSun velocity.h). RA2 uses the double
+// instances only; they are written as explicit specializations carrying the recovered
+// members (a real template is a separate round).
+template <class T> struct TVelocity2D;
+template <class T> struct TVelocity3D;
+// TVelocity2D<double>: the horizontal part of a velocity, built first (Y evaluated
+// before X) and copied whole into a TVelocity3D<double>'s X and Y (BulletClass
+// 0x00462110 and 0x00463C50); names and members follow TibSun velocity.h.
+template <> struct TVelocity2D<double> {
+    TVelocity2D() {}
+    TVelocity2D(double x, double y) : X(x), Y(y) {}
     // The speed (kept copy 0x0041B750).
 #ifdef RA2_BULLET_VELOCITY_DIRS
     double Speed() const { return(unknown_sqrt_4ba410(X * X + Y * Y)); }
@@ -112,10 +116,10 @@ struct BulletVelocityXY {
 };
 
 // A velocity vector of three doubles (Westwood's TVelocity3D<double>).
-struct BulletVelocity : public BulletVelocityXY {
-    BulletVelocity() {}
-    BulletVelocity(BulletVelocity const &velocity) : BulletVelocityXY(velocity), Z(velocity.Z) {}
-    BulletVelocity(double x, double y, double z) : BulletVelocityXY(x, y), Z(z) {}
+template <> struct TVelocity3D<double> : public TVelocity2D<double> {
+    TVelocity3D() {}
+    TVelocity3D(TVelocity3D const &velocity) : TVelocity2D<double>(velocity), Z(velocity.Z) {}
+    TVelocity3D(double x, double y, double z) : TVelocity2D<double>(x, y), Z(z) {}
 #ifdef RA2_BULLET_VELOCITY_DIRS
     // TibSun velocity.h TVelocity3D::Set (BulletClass Shrapnel 0x00462C50 zeroes one
     // function-scope velocity with it in both loops, as TibSun building.cpp does).
@@ -126,10 +130,10 @@ struct BulletVelocity : public BulletVelocityXY {
         Z = z;
     }
 #endif
-    BulletVelocity &operator+=(BulletVelocity const &other); // 0x004642A0
+    TVelocity3D<double> &operator+=(TVelocity3D<double> const &other); // 0x004642A0
     // The X and Y members as one horizontal vector.
-    BulletVelocityXY &XY() { return *this; }
-    BulletVelocityXY const &XY() const { return *this; }
+    TVelocity2D<double> &XY() { return *this; }
+    TVelocity2D<double> const &XY() const { return *this; }
 
     // The horizontal speed (kept copy 0x0041B830) and the speed (kept copy 0x0041B7C0).
 #ifdef RA2_BULLET_VELOCITY_DIRS
@@ -152,7 +156,7 @@ struct BulletVelocity : public BulletVelocityXY {
     // The pitch: the angle above the horizontal plane (kept copy 0x0041B6E0).
 #if defined(RA2_BULLET_VELOCITY_DIRS)
     // TibSun velocity.h Get_Pitch as DirType (BulletClass Draw_It 0x004610D0).
-    DirType Get_Pitch() const { return(unknown_math_4ba600(Z, BulletVelocityXY::Speed())); }
+    DirType Get_Pitch() const { return(unknown_math_4ba600(Z, TVelocity2D<double>::Speed())); }
 #elif defined(RA2_AIRCRAFT_OWNER_FIRE)
     UnknownFacingDir Get_Pitch() const; // independently defined at0041B6E0, called at both native sites
 #else
@@ -165,7 +169,7 @@ struct BulletVelocity : public BulletVelocityXY {
     // TibSun velocity.h Set_Yaw and Set_Pitch, DirType forms (BulletClass Shrapnel 0x00462C50).
     void Set_Yaw(DirType const &yaw)
     {
-        BulletVelocityXY::Nonzero_Check();
+        TVelocity2D<double>::Nonzero_Check();
         double horizontal_speed = Horizontal_Speed();
         X = horizontal_speed * unknown_cos_4ba4d0(yaw.As_Radian());
         Y = -horizontal_speed * unknown_sin_4ba480(yaw.As_Radian());
@@ -186,7 +190,7 @@ struct BulletVelocity : public BulletVelocityXY {
     // Turns the horizontal part to a heading, keeping its speed.
     void Set_Yaw(UnknownFacingDir yaw)
     {
-        BulletVelocityXY::Nonzero_Check();
+        TVelocity2D<double>::Nonzero_Check();
         double speed = Horizontal_Speed();
         double angle = ((short)yaw.Raw - 0x3FFF) * -9.587672516830327e-05;
         X = unknown_cos_4ba4d0(angle) * speed;
@@ -311,7 +315,7 @@ public:
     virtual bool Mark(int arg1);                              // 0x0045F6F0
     virtual int unknown_slot116();                                      // 0x00461040 (new: shape frame)
     virtual void Set_Target(AbstractClass *target) { Target = target; } // 0x00463EE0 slot 117 (inline, new)
-    virtual bool unknown_slot118(CoordStruct const &coord, BulletVelocity const &velocity);   // 0x004616B0 (new: place and launch; false if it cannot be placed)
+    virtual bool unknown_slot118(CoordStruct const &coord, TVelocity3D<double> const &velocity);   // 0x004616B0 (new: place and launch; false if it cannot be placed)
 
     void Construct(BulletTypeClass *type, AbstractClass *target, TechnoClass *owner,
                    int damage, WarheadTypeClass *warhead, int speed, bool bright);   // 0x0045F4F0
@@ -347,7 +351,7 @@ public:
     bool unknown_a0;                        // +0x0A0
     UnknownBulletData Data;                 // +0x0A4
     bool Bright;                            // +0x0CC
-    BulletVelocity Velocity;                // +0x0D0
+    TVelocity3D<double> Velocity;                // +0x0D0
     int unknown_e8;                         // +0x0E8
     bool unknown_ec;                        // +0x0EC
     bool unknown_ed;                        // +0x0ED

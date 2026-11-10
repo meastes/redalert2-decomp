@@ -14,11 +14,11 @@
 #define RA2_BULLET_MISSILE_VELOCITY
 #define RA2_BULLET_MISSILE_SET_PITCH_SOURCE
 #include "shared/bullet_velocity.hpp"
-// @ref ?Speed@BulletVelocityXY@@QBENXZ=0041b750
-// @ref ?Speed@BulletVelocity@@QBENXZ=0041b7c0
-// @ref ?Get_Pitch@BulletVelocity@@QBE?AVDirType@@XZ=0041b6e0
+// @ref ?Speed@?$TVelocity2D@N@@QBENXZ=0041b750
+// @ref ?Speed@?$TVelocity3D@N@@QBENXZ=0041b7c0
+// @ref ?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ=0041b6e0
 
-void BulletVelocity::Set_Pitch(DirType const &pitch)
+void TVelocity3D<double>::Set_Pitch(DirType const &pitch)
 {
     double current_pitch = Get_Pitch().As_Radian();
     double speed = Speed();

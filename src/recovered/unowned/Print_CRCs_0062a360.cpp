@@ -271,7 +271,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 navcom_name = Sync_Target_Name(infp->unknown_494, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d) Speed:%d NavCom:%s(%d)\n",
                     Coord_CRC(infp->Coord), Dir_To_256(infp->unknown_2e0.Current()), infp->Get_Mission(),
-                    infp->Type->ArrayIndex, (char const *)infp->Type->ID, target_name, target_id, (int)(infp->unknown_468 * 256.0),
+                    infp->Type->ArrayIndex, (char const *)infp->Type->ID, target_name, target_id, int(infp->unknown_468 * 256.0),
                     navcom_name, navcom_id);
             }
         }

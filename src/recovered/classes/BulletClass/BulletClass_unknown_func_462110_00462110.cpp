@@ -180,8 +180,8 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
                     short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
                     double speed = (double)(weapon->unknown_a8 / 10);
                     double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
-                    BulletVelocityXY planar(unknown_cos_4ba4d0(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed, unknown_sin_4ba480(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed);
-                    BulletVelocity velocity;
+                    TVelocity2D<double> planar(unknown_cos_4ba4d0(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed, unknown_sin_4ba480(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed);
+                    TVelocity3D<double> velocity;
                     velocity.XY() = planar;
                     velocity.Z = unknown_sin_4ba480(4.712436918747274) * speed;
                     fragment->unknown_slot118(CoordStruct(Coord), velocity);
@@ -193,8 +193,8 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
                 short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
                 double speed = (double)(weapon->unknown_a8 / 10);
                 double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
-                BulletVelocityXY planar(unknown_cos_4ba4d0(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed, unknown_sin_4ba480(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed);
-                BulletVelocity velocity;
+                TVelocity2D<double> planar(unknown_cos_4ba4d0(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed, unknown_sin_4ba480(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed);
+                TVelocity3D<double> velocity;
                 velocity.XY() = planar;
                 velocity.Z = unknown_sin_4ba480(4.712436918747274) * speed;
                 fragment->unknown_slot118(CoordStruct(Coord), velocity);

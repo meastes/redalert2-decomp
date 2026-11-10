@@ -4,8 +4,8 @@
     "id": "population-2519",
     "inventory_sha256": "c5af56432329dde200240815ab625dc0ef715b547405c649d7ed2628915a0f94",
     "gaps_sha256": "105b20b6b85bd7a60ca2f756cbf9021ef1bcfdb2c94392b7382ac67f1c13ccd4",
-    "historical_population_sha256": "df1f036caf34f28ebdf46f92cef01781cc81171bc05cbaca13a54b0f30713f93",
-    "historical_acceptance_sha256": "b122c1ea646df6cff4f96c506c952e96be0af15ccbc8d17832cf441030768eb1"
+    "historical_population_sha256": "4de4b5b2051a3abcc00891e2ec006d8102e0a77b815fceb7c24253a45c3461f6",
+    "historical_acceptance_sha256": "e775d070515da292e2482cb15bb62b4b50d7326471dddfcc9e7a547f4dabf68c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4477,7 +4477,7 @@
     "?Scroll@MonoClass@@QAEXH@Z": 5891088,
     "?Value@?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ": 4538032,
     "??0UnknownFacingDir@@QAE@ABUCoordStruct@@0@Z": 4341488,
-    "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABUBulletVelocity@@@Z": 4593328,
+    "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABU?$TVelocity3D@N@@@Z": 4593328,
     "?unknown_set_session_flag_222b@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7011136,
     "?unknown_set_session_flag_222a@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7011168,
     "?unknown_set_session_flag_222c@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7011200,
@@ -6950,8 +6950,8 @@
     "__except_list": 0,
     "_CLSID_BombClass": 8003072,
     "?AI@AnimClass@@UAEXXZ": 4331280,
-    "?Speed@BulletVelocityXY@@QBENXZ": 4306768,
-    "?Speed@BulletVelocity@@QBENXZ": 4306880,
+    "?Speed@?$TVelocity2D@N@@QBENXZ": 4306768,
+    "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
     "??_EXSurface@@UAEPAXI@Z": 4264736,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672
   },

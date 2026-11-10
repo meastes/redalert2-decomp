@@ -31,8 +31,8 @@ void BulletClass::unknown_func_463c50()
         double y = unknown_sin_4ba480(1.5707483884323126);
         y *= unknown_cos_4ba4d0(1.5707483884323126);
         y *= -1.0;
-        BulletVelocityXY planar(unknown_cos_4ba4d0(1.5707483884323126) * unknown_cos_4ba4d0(1.5707483884323126) * -1.0, y);
-        BulletVelocity velocity;
+        TVelocity2D<double> planar(unknown_cos_4ba4d0(1.5707483884323126) * unknown_cos_4ba4d0(1.5707483884323126) * -1.0, y);
+        TVelocity3D<double> velocity;
         velocity.XY() = planar;
         velocity.Z = unknown_sin_4ba480(1.5707483884323126) * -1.0;
         bullet->unknown_slot118(launch, velocity);

@@ -13,11 +13,11 @@
 #include "shared/fast_math.hpp"
 #include "shared/facing.hpp"
 
-// @ref ?Get_Pitch@BulletVelocity@@QBE?AUUnknownFacingDir@@XZ=0041b6e0
-double __fastcall Velocity_Length3_0041B7C0(BulletVelocity const *velocity);
-void __fastcall Ensure_Velocity3_0041B7F0(BulletVelocity *velocity);
-double __fastcall Velocity_LengthXY_0041B830(BulletVelocity const *velocity);
-void __fastcall Ensure_VelocityXY_0041B860(BulletVelocity *velocity);
+// @ref ?Get_Pitch@?$TVelocity3D@N@@QBE?AUUnknownFacingDir@@XZ=0041b6e0
+double __fastcall Velocity_Length3_0041B7C0(TVelocity3D<double> const *velocity);
+void __fastcall Ensure_Velocity3_0041B7F0(TVelocity3D<double> *velocity);
+double __fastcall Velocity_LengthXY_0041B830(TVelocity3D<double> const *velocity);
+void __fastcall Ensure_VelocityXY_0041B860(TVelocity3D<double> *velocity);
 double __fastcall Aircraft_XY_Length_0041B750(AircraftVectorXY const *vector);
 
 inline void UnknownFacingDir::From_Radian(double angle)
@@ -25,7 +25,7 @@ inline void UnknownFacingDir::From_Radian(double angle)
     Raw = (unsigned short)(short)((angle - 1.5707963267948966) * -10430.060040584269);
 }
 // Westwood's TVelocity3D::Set_Speed.
-static inline void Set_Speed(BulletVelocity &velocity, double speed)
+static inline void Set_Speed(TVelocity3D<double> &velocity, double speed)
 {
     Ensure_Velocity3_0041B7F0(&velocity);
     double ratio = speed / Velocity_Length3_0041B7C0(&velocity);
@@ -35,7 +35,7 @@ static inline void Set_Speed(BulletVelocity &velocity, double speed)
 }
 
 // Westwood's TVelocity3D::Set_Pitch.
-static inline void Set_Pitch(BulletVelocity &velocity, UnknownFacingDir const &pitch)
+static inline void Set_Pitch(TVelocity3D<double> &velocity, UnknownFacingDir const &pitch)
 {
     double current_pitch = velocity.Get_Pitch().As_Radian();
     double speed = Velocity_Length3_0041B7C0(&velocity);
@@ -49,7 +49,7 @@ static inline void Set_Pitch(BulletVelocity &velocity, UnknownFacingDir const &p
 }
 
 // Westwood's TVelocity2D::Set_Yaw.
-static inline void Set_Yaw(BulletVelocity &velocity, UnknownFacingDir const &yaw)
+static inline void Set_Yaw(TVelocity3D<double> &velocity, UnknownFacingDir const &yaw)
 {
     Ensure_VelocityXY_0041B860(&velocity);
     double horizontal_speed = Velocity_LengthXY_0041B830(&velocity);
@@ -59,7 +59,7 @@ static inline void Set_Yaw(BulletVelocity &velocity, UnknownFacingDir const &yaw
 }
 
 // Westwood's TVelocity2D::Get_Yaw.
-static inline UnknownFacingDir Get_Yaw(BulletVelocity const &velocity)
+static inline UnknownFacingDir Get_Yaw(TVelocity3D<double> const &velocity)
 {
     UnknownFacingDir dir;
     dir.From_Radian(Fast_Atan2(-velocity.Y, velocity.X));
@@ -67,7 +67,7 @@ static inline UnknownFacingDir Get_Yaw(BulletVelocity const &velocity)
 }
 
 // Westwood's TVelocity3D::Get_Pitch, expanded here (the horizontal speed stays out of line).
-static inline UnknownFacingDir Get_Pitch(BulletVelocity const &velocity)
+static inline UnknownFacingDir Get_Pitch(TVelocity3D<double> const &velocity)
 {
     UnknownFacingDir dir;
     dir.From_Radian(Fast_Atan2(velocity.Z, Aircraft_XY_Length_0041B750((AircraftVectorXY const *)&velocity)));
@@ -114,7 +114,7 @@ BulletClass *AircraftClass::unknown_slot221(AbstractClass *target, int arg2)
 
         if (bullet->Type->ROT == 1) {
             UnknownVector3 diff = Coord_Difference(target->Center_Coord(), Center_Coord());
-            BulletVelocity dir = BulletVelocity(diff.X, diff.Y, diff.Z);
+            TVelocity3D<double> dir = TVelocity3D<double>(diff.X, diff.Y, diff.Z);
             Set_Yaw(bullet->Velocity, Get_Yaw(dir));
             Set_Pitch(bullet->Velocity, Get_Pitch(dir));
             Set_Speed(bullet->Velocity, unknown_slot231(0)->WeaponType->unknown_a8);
@@ -140,15 +140,15 @@ BulletClass *AircraftClass::unknown_slot221(AbstractClass *target, int arg2)
 // @ref ?unknown_415510@AircraftClass@@QAEHXZ=00415510
 // @ref ?unknown_slot221@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z=006ca890
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
-// @ref ?Ensure_Velocity3_0041B7F0@@YIXPAUBulletVelocity@@@Z=0041b7f0
-// @ref ?Velocity_Length3_0041B7C0@@YINPBUBulletVelocity@@@Z=0041b7c0
+// @ref ?Ensure_Velocity3_0041B7F0@@YIXPAU?$TVelocity3D@N@@@Z=0041b7f0
+// @ref ?Velocity_Length3_0041B7C0@@YINPBU?$TVelocity3D@N@@@Z=0041b7c0
 // @ref __real@8@bff1c9116cc4faf2b800=0079b620
 // @ref __real@8@00000000000000000000=0079b610
 // @ref ?Fast_Cos@@YANN@Z=004ba4d0
 // @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
-// @ref ?Ensure_VelocityXY_0041B860@@YIXPAUBulletVelocity@@@Z=0041b860
-// @ref ?Velocity_LengthXY_0041B830@@YINPBUBulletVelocity@@@Z=0041b830
+// @ref ?Ensure_VelocityXY_0041B860@@YIXPAU?$TVelocity3D@N@@@Z=0041b860
+// @ref ?Velocity_LengthXY_0041B830@@YINPBU?$TVelocity3D@N@@@Z=0041b830
 // @ref ??0UnknownVector3@@QAE@HHH@Z=0041b630
 // @ref ?Fast_Atan2@@YAMNN@Z=004ba600
 // @ref __real@8@3fffc90fdaa22168c000=0079b630

@@ -3,7 +3,7 @@
 
 // The existing shared vector operation, with an ordinary out-of-class definition.
 // No alias, inlining pragma, auxiliary operation, or forced call is introduced.
-BulletVelocity &BulletVelocity::operator+=(BulletVelocity const &other)
+TVelocity3D<double> &TVelocity3D<double>::operator+=(TVelocity3D<double> const &other)
 {
     X+=other.X;
     Y+=other.Y;

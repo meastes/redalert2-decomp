@@ -4,8 +4,8 @@
     "id": "population-4428",
     "inventory_sha256": "71d13e2a075dd225ad11262153dab008260799596e7a9bd5f220ffece13a5ed6",
     "gaps_sha256": "4fb94dca7d9b1ad1308b3804779160d585de0847c7b06f58458c143797360083",
-    "historical_population_sha256": "918736d0fcf3d4a11c94db2bb4b790b71fda4a2bf5ea1198c63d9098f8731291",
-    "historical_acceptance_sha256": "98a59d42421e5bcaf3836be8c22ade82dd51dc1bec9d99932fa36fbe92b9df63"
+    "historical_population_sha256": "547ce724bbdc8f5254521cbcc14f5f818c7bb977cdfa75e8819ac0fadd23fa38",
+    "historical_acceptance_sha256": "babbde2a900f384e573ac99adc4c50b96884025f4d48e77c685e75fbf8389a98"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -9932,7 +9932,7 @@
     "?unknown_slot274@InfantryClass@@UAE_NXZ": 5280848,
     "?unknown_slot275@InfantryClass@@UAE_NXZ": 5280864,
     "??0UnknownFacingDir@@QAE@ABUCoordStruct@@0@Z": 4341488,
-    "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABUBulletVelocity@@@Z": 4593328,
+    "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABU?$TVelocity3D@N@@@Z": 4593328,
     "?Unknown_00450CB0@BuildingClass@@QAEXPAVBulletClass@@_N@Z": 4525232,
     "?unknown_59ebc0@UnknownPairSecond@@QAEHPAVFileClass@@@Z": 5893056,
     "?unknown_set_session_flag_222b@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7011136,
@@ -13013,8 +13013,8 @@
     "_CLSID_BombClass": 8003072,
     "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z": 7118320,
     "?unknown_slot222@BuildingClass@@UAE_NPAVHouseClass@@H@Z": 4474464,
-    "?Speed@BulletVelocityXY@@QBENXZ": 4306768,
-    "?Speed@BulletVelocity@@QBENXZ": 4306880
+    "?Speed@?$TVelocity2D@N@@QBENXZ": 4306768,
+    "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880
   },
   "regions": [
     {

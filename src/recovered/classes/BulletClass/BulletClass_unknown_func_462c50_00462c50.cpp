@@ -54,7 +54,7 @@ void BulletClass::unknown_func_462c50()
     int range = weapon->unknown_b4 / 256;
     int fired = 0;
     // One velocity for both loops, zeroed with Set() before each fragment (TibSun building.cpp idiom).
-    BulletVelocity velocity;
+    TVelocity3D<double> velocity;
     for (int radius = 1; radius <= range; radius++) {
         int end = unknown_radius_starts_7a5908[radius];
         for (int index = unknown_radius_starts_7a5908[radius - 1]; index < end; index++) {
@@ -96,12 +96,12 @@ void BulletClass::unknown_func_462c50()
         } while (--remaining != 0);
     }
 }
-// @ref ?Speed@BulletVelocityXY@@QBENXZ=0041b750
-// @ref ?Speed@BulletVelocity@@QBENXZ=0041b7c0
-// @ref ?Horizontal_Speed@BulletVelocity@@QBENXZ=0041b830
-// @ref ?Nonzero_Check@BulletVelocity@@QAEXXZ=0041b7f0
-// @ref ?Nonzero_Check@BulletVelocityXY@@QAEXXZ=0041b860
-// @ref ?Get_Pitch@BulletVelocity@@QBE?AUUnknownFacingDir@@XZ=0041b6e0
+// @ref ?Speed@?$TVelocity2D@N@@QBENXZ=0041b750
+// @ref ?Speed@?$TVelocity3D@N@@QBENXZ=0041b7c0
+// @ref ?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ=0041b830
+// @ref ?Nonzero_Check@?$TVelocity3D@N@@QAEXXZ=0041b7f0
+// @ref ?Nonzero_Check@?$TVelocity2D@N@@QAEXXZ=0041b860
+// @ref ?Get_Pitch@?$TVelocity3D@N@@QBE?AUUnknownFacingDir@@XZ=0041b6e0
 // @ref ?unknown_double_79b610@@3NB=0079b610
 // @ref ?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z=006c9df0
 // @ref ?unknown_radius_starts_7a5908@@3QBHB=007a5908

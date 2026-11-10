@@ -4,8 +4,8 @@
     "id": "population-4193",
     "inventory_sha256": "d8d29c41fad96ba60556b6fd7506bc2be8f18395f484789539d5dc0b807da69e",
     "gaps_sha256": "29c4e739db27923f9ef73bf9c739bb806ec0dc53463a1ddba8d63aa9d3b4f638",
-    "historical_population_sha256": "d8d6f2405defae4b7f3a5a560f87e95547502bf503170d31341434f00b66ec06",
-    "historical_acceptance_sha256": "b8d012bda6a951164c7dab4a6b64261092691d8c5e10fd6a7a51b768a1632e9d"
+    "historical_population_sha256": "7d5a93238a80f926f75d81d3dded83cac60a9fcd322e18d62904fa71addea6bf",
+    "historical_acceptance_sha256": "f50790ca9d27bf637817aef1001f94e87c45f3fa19db82a0191c041513f533ab"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -9903,7 +9903,7 @@
     "?unknown_6d0510@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@HH@Z": 7144720,
     "?unknown_slot274@InfantryClass@@UAE_NXZ": 5280848,
     "?unknown_slot275@InfantryClass@@UAE_NXZ": 5280864,
-    "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABUBulletVelocity@@@Z": 4593328,
+    "?unknown_slot118@BulletClass@@UAE_NABUCoordStruct@@ABU?$TVelocity3D@N@@@Z": 4593328,
     "?Unknown_00450CB0@BuildingClass@@QAEXPAVBulletClass@@_N@Z": 4525232,
     "?unknown_59ebc0@UnknownPairSecond@@QAEHPAVFileClass@@@Z": 5893056,
     "??_EBSurface@@UAEPAXI@Z": 4264912,
@@ -11130,7 +11130,7 @@
     "?Unknown_004BBAF0@@YIHPAVCellClass@@00UCoordStruct@@PAVBulletTypeClass@@PAVHouseClass@@@Z": 4963056,
     "?unknown_level_height_850348@@3HA": 8717128,
     "?Draw_Voxel_00463a00@BulletClass@@QAEXABVUnknownObjectPair@@ABVMatrix3D@@ABURectPoint2D@@ABVRect@@IIH@Z": 4602368,
-    "??YBulletVelocity@@QAEAAU0@ABU0@@Z": 4604576,
+    "??Y?$TVelocity3D@N@@QAEAAU0@ABU0@@Z": 4604576,
     "?Initialize_004cee20@UnknownBulletData@@QAEXABUCoordStruct@@0HH@Z": 5041696,
     "?unknown_func_463c50@BulletClass@@QAEXXZ": 4602960,
     "?unknown_func_462c50@BulletClass@@QAEXXZ": 4598864,
@@ -13721,9 +13721,9 @@
     "?Audio_DS_Channel_Open@@YIHPAUAudioChannel@@@Z": 4235648,
     "?Audio_Event_Load_Samples@@YIXPAUAudioEvent@@@Z": 4212880,
     "?Audio_Event_Next_Piece@@YIHPAUAudioEvent@@@Z": 4213648,
-    "?Get_Pitch@BulletVelocity@@QBE?AVDirType@@XZ": 4306656,
-    "?Set_Pitch@BulletVelocity@@QAEXABVDirType@@@Z": 5849520,
-    "?Get_Pitch@BulletVelocity@@QBE?AUUnknownFacingDir@@XZ": 4306656,
+    "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ": 4306656,
+    "?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z": 5849520,
+    "?Get_Pitch@?$TVelocity3D@N@@QBE?AUUnknownFacingDir@@XZ": 4306656,
     "?Allocate_Ports_00673090@UnknownSessionState@@QAEXXZ": 6762640,
     "?unknown_flag_a3f209@@3_NA": 10744329,
     "?unknown_flag_a3f208@@3_NA": 10744328,
@@ -14078,8 +14078,8 @@
     "??0?$VectorClass@PAVReestablish@@@@QAE@IPBQAVReestablish@@@Z": 4541344,
     "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
     "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344,
-    "?Speed@BulletVelocityXY@@QBENXZ": 4306768,
-    "?Speed@BulletVelocity@@QBENXZ": 4306880,
+    "?Speed@?$TVelocity2D@N@@QBENXZ": 4306768,
+    "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
     "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z": 7118320,
     "?unknown_slot222@BuildingClass@@UAE_NPAVHouseClass@@H@Z": 4474464,
@@ -14901,7 +14901,8 @@
     "?Stop_Moving@TunnelLocomotionClass@@UAGXXZ": 7273952,
     "?Move_To@FlyLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 4965344,
     "?Move_To@RocketLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 6548096,
-    "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984
+    "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984,
+    "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ": 4306992
   },
   "regions": [
     {
@@ -25143,7 +25144,7 @@
           "resolved": 8019912
         }
       ],
-      "source_sha256": "b9bf1211ad35c0d5c810945886d82f2fd20864b86cce7f0444559d431383f456",
+      "source_sha256": "e92ac1e54d379a29545ea0f1fac7ac73261e263a7ed2381afd3cb54b9a49c8bb",
       "source": "src/recovered/classes/TActionClass/TActionClass_unknown_nuke_at_waypoint_006b2400.cpp",
       "population": "population-4193",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -25354,7 +25355,7 @@
           "resolved": 7976944
         }
       ],
-      "source_sha256": "2bd83f54647a45465d970573f6f1400fd7f200556d26cfa0467e39666d85cca3",
+      "source_sha256": "176b9ce1e5123f9f848917a9d930fb0c8641f0a2eb406c0ad969a1dc19d57daf",
       "source": "src/recovered/classes/TActionClass/TActionClass_unknown_chem_missile_at_waypoint_006b2860.cpp",
       "population": "population-4193",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

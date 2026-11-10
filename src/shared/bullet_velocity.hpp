@@ -6,22 +6,27 @@
 #include "shared/dir_type.hpp"
 #include "shared/fast_math.hpp"
 
-// Same existing three-double BulletVelocity representation, using the Missile unit's direction view.
-struct BulletVelocityXY {
-    BulletVelocityXY() {}
-    BulletVelocityXY(double x, double y) : X(x), Y(y) {}
+// Same existing three-double TVelocity3D<double> representation, using the Missile unit's direction view.
+// Westwood's TVelocity2D<T> and TVelocity3D<T> (TibSun velocity.h). RA2 uses the double
+// instances only; they are written as explicit specializations carrying the recovered
+// members (a real template is a separate round).
+template <class T> struct TVelocity2D;
+template <class T> struct TVelocity3D;
+template <> struct TVelocity2D<double> {
+    TVelocity2D() {}
+    TVelocity2D(double x, double y) : X(x), Y(y) {}
     double Speed() const { return Fast_Sqrt(X * X + Y * Y); }
     void Nonzero_Check() { if (X == 0 && Y == 0) X = 100; }
     double X;
     double Y;
 };
-struct BulletVelocity : public BulletVelocityXY {
-    BulletVelocity() {}
-    BulletVelocity(BulletVelocity const &velocity) : BulletVelocityXY(velocity), Z(velocity.Z) {}
-    BulletVelocity(double x, double y, double z) : BulletVelocityXY(BulletVelocityXY(x,y)), Z(z) {}
-    BulletVelocity &operator+=(BulletVelocity const &other);
-    BulletVelocityXY &XY() { return *this; }
-    BulletVelocityXY const &XY() const { return *this; }
+template <> struct TVelocity3D<double> : public TVelocity2D<double> {
+    TVelocity3D() {}
+    TVelocity3D(TVelocity3D const &velocity) : TVelocity2D<double>(velocity), Z(velocity.Z) {}
+    TVelocity3D(double x, double y, double z) : TVelocity2D<double>(TVelocity2D<double>(x,y)), Z(z) {}
+    TVelocity3D<double> &operator+=(TVelocity3D<double> const &other);
+    TVelocity2D<double> &XY() { return *this; }
+    TVelocity2D<double> const &XY() const { return *this; }
     double Horizontal_Speed() const { return Fast_Sqrt(X * X + Y * Y); }
     double Speed() const { return Fast_Sqrt(X * X + Y * Y + Z * Z); }
     void Nonzero_Check() { if (X == 0 && Y == 0 && Z == 0) X = 100; }
@@ -29,11 +34,11 @@ struct BulletVelocity : public BulletVelocityXY {
 #ifdef RA2_BULLET_MISSILE_GET_PITCH_SOURCE
     DirType Get_Pitch() const;
 #else
-    DirType Get_Pitch() const { double const &horizontal = BulletVelocityXY::Speed(); return Fast_Atan2(Z, horizontal); }
+    DirType Get_Pitch() const { double const &horizontal = TVelocity2D<double>::Speed(); return Fast_Atan2(Z, horizontal); }
 #endif
     void Set_Yaw(DirType const &yaw)
     {
-        BulletVelocityXY::Nonzero_Check();
+        TVelocity2D<double>::Nonzero_Check();
         double horizontal_speed = Horizontal_Speed();
         X = horizontal_speed * Fast_Cos(yaw.As_Radian());
         Y = -horizontal_speed * Fast_Sin(yaw.As_Radian());
