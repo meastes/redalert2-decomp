@@ -1,4 +1,4 @@
-// CellClass *MapClass::Unknown_0055A490() (0x0055A490)
+// CellClass *MapClass::Iterate() (0x0055A490)
 // The next cell of the walk 0x0055A550 started: the walk follows diagonal
 // rows (X up, Y down, 511 slots back in Cells per step); at a row's end the
 // current X and Y are swapped and one of them stepped on by the parity of
@@ -6,7 +6,7 @@
 // width. Returns the cell of the slot it was at.
 #include "shared/map.hpp"
 
-CellClass *MapClass::Unknown_0055A490()
+CellClass *MapClass::Iterate()
 {
     CellClass **slot = unknown_114;
     if (unknown_110 != 0) {

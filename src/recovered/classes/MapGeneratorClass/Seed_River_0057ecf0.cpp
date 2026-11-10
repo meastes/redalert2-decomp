@@ -29,8 +29,8 @@ static inline double Random_Fraction()
 }
 static inline void Clear_River_Region(int region,int const &height_source)
 {
-    Map.Unknown_0055A550();
-    CellClass *cellptr=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cellptr=Map.Iterate();
     while(cellptr!=0) {
         Cell position=cellptr->MapCoords;
         UnknownMapGenerationCell &data=MapRegionClass::Get_Cell_Data(position);
@@ -42,7 +42,7 @@ static inline void Clear_River_Region(int region,int const &height_source)
             int height=height_source;
             cellptr->unknown_11b=height;
         }
-        cellptr=Map.Unknown_0055A490();
+        cellptr=Map.Iterate();
     }
 }
 bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
@@ -248,14 +248,14 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
         if(success) {
             success=Grow_Region(WorkingRegionID,1,Rect(0,0,0x200,0x200),0,0);
             int region_id=WorkingRegionID;
-            Map.Unknown_0055A550();
-            CellClass *cptr=Map.Unknown_0055A490();
+            Map.Reset_Iterator();
+            CellClass *cptr=Map.Iterate();
 
             while(cptr!=0) {
                 if(UnknownMapGenerationCell::Get_Region(cptr->MapCoords)==region_id && (cptr->IsoTileIndex==0 || cptr->IsoTileIndex==0xffff)) {
                     cptr->IsoTileIndex=unknown_tileset_a52c60;
                 }
-                cptr=Map.Unknown_0055A490();
+                cptr=Map.Iterate();
             }
         }
     }
@@ -271,8 +271,8 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
 
                 if(success) {
                     int region_id=WorkingRegionID;
-                    Map.Unknown_0055A550();
-                    CellClass *cptr=Map.Unknown_0055A490();
+                    Map.Reset_Iterator();
+                    CellClass *cptr=Map.Iterate();
 
                     while(cptr!=0) {
                         Cell c=cptr->MapCoords;
@@ -282,7 +282,7 @@ bool MapGeneratorClass::Seed_River(Cell const &point,double value,bool flag)
                             cptr->unknown_11b+=4;
                         }
 
-                        cptr=Map.Unknown_0055A490();
+                        cptr=Map.Iterate();
                     }
 
                     raised=true;

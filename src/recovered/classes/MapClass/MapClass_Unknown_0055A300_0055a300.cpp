@@ -11,8 +11,8 @@
 
 void MapClass::Unknown_0055A300()
 {
-    Unknown_0055A550();
-    CellClass *cellptr = Unknown_0055A490();
+    Reset_Iterator();
+    CellClass *cellptr = Iterate();
     while (cellptr != 0) {
         if (cellptr->IsToShroud) {
             cellptr->IsMapped = false; cellptr->IsVisible = false;
@@ -23,11 +23,11 @@ void MapClass::Unknown_0055A300()
                 Map.Unknown_00568520(cellptr, unknown_player_a35db4, true);
             }
         }
-        cellptr = Unknown_0055A490();
+        cellptr = Iterate();
     }
 
-    Unknown_0055A550();
-    cellptr = Unknown_0055A490();
+    Reset_Iterator();
+    cellptr = Iterate();
     while (cellptr != 0) {
         Cell cell = Coord_Cell(cellptr->Center_Coord());
         signed char frame = unknown_tactical_83996c->Cell_Shadow(cell, 0);
@@ -39,6 +39,6 @@ void MapClass::Unknown_0055A300()
                 Map.Unknown_00568520(cellptr, unknown_player_a35db4, true);
             }
         }
-        cellptr = Unknown_0055A490();
+        cellptr = Iterate();
     }
 }

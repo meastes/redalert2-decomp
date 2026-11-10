@@ -13,8 +13,8 @@ extern Rect unknown_rect_839630;
 
 void Tactical::Debug_Draw_Occupier_Links()
 {
-    Map.Unknown_0055A550();
-    CellClass *cell = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell = Map.Iterate();
     int ground_color = Build_Hicolor_Pixel(255,255,0);
     int link_color = Build_Hicolor_Pixel(255,0,255);
     int bridge_color = Build_Hicolor_Pixel(0,255,255);
@@ -44,7 +44,7 @@ void Tactical::Debug_Draw_Occupier_Links()
             unknown_surface_83995c->Fill_Rect(unknown_rect_839630,rect,bridge_color);
             unknown_surface_83995c->Draw_Line(unknown_rect_839630,start,end,bridge_color);
         }
-        cell = Map.Unknown_0055A490();
+        cell = Map.Iterate();
     }
     for (int index=unknown_objects_a40368.Count()-1;index>=0;--index) {
         ObjectClass *object = unknown_objects_a40368[index];

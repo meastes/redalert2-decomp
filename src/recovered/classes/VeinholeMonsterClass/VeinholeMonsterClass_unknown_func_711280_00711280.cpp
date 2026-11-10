@@ -31,8 +31,8 @@ void __fastcall VeinholeMonsterClass::unknown_func_711280(bool rebuild)
     if (unknown_veinhole_buffer_ad07a0 == 0) {
         unknown_veinhole_buffer_ad07a0 = new unsigned char[cells];
     }
-    Map.Unknown_0055A550();
-    for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         cell->unknown_140 &= ~0x8000;
     }
     memset(unknown_veinhole_buffer_ad07a0, 0, cells);
@@ -43,8 +43,8 @@ void __fastcall VeinholeMonsterClass::unknown_func_711280(bool rebuild)
             Array[index]->unknown_func_7115b0();
         }
     }
-    Map.Unknown_0055A550();
-    for (cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for (cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         if (cell->OverlayIndex == 0x7e && unknown_veinhole_buffer_ad07a0[unknown_cell_index_428a90(cell->MapCoords)] == 0) {
             cell->OverlayIndex = -1;
         }

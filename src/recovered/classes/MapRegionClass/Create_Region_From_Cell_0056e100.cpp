@@ -23,8 +23,8 @@
 // @ref ?Clear@?$VectorClass@VCell@@@@UAEXXZ=0042cfb0
 // @ref ??9Cell@@QBE_NABV0@@Z=0058db50
 // @ref ??H?$TPoint2D@F@@QBE?BV0@ABV0@@Z=0042add0
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 
 static inline Cell Region_Adjacent_Cell(Cell const &cell, int facing)
 {

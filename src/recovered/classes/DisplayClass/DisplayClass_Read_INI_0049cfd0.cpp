@@ -53,13 +53,13 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
         ittype = unknown_tileset_a52580;
     }
 
-    Unknown_0055A550();
-    CellClass *cptr = Unknown_0055A490();
+    Reset_Iterator();
+    CellClass *cptr = Iterate();
     while (cptr != 0) {
         cptr->IsoTileIndex = ittype;
         cptr->unknown_11a = 0;
         cptr->unknown_11b += cell_height;
-        cptr = Unknown_0055A490();
+        cptr = Iterate();
     }
 
     unknown_id_source_a3d290->Theater = ini.Get_TheaterType(name, "Theater", (TheaterType)0);

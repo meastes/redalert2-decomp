@@ -17,8 +17,8 @@ static inline UnknownMapGenerationCell &Vegetation_Grid_Record(Cell const &posit
 // ECX owner prefix, plain RET; operation/nominal receiver spelling remain hypotheses.
 void __fastcall Initialize_Vegetation_Weights_005850a0(MapGeneratorClass *generator)
 {
-    Map.Unknown_0055A550();
-    CellClass *current=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *current=Map.Iterate();
     double density=generator->SeedData.Vegetation*0.01;
     while(current) {
         Cell position=current->MapCoords;
@@ -40,6 +40,6 @@ void __fastcall Initialize_Vegetation_Weights_005850a0(MapGeneratorClass *genera
             grid.unknown_18=unknown_grid_scale_7a5d18*density;
             grid.unknown_20=unknown_grid_weight_7a5d20;
         }
-        current=Map.Unknown_0055A490();
+        current=Map.Iterate();
     }
 }

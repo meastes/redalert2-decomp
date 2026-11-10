@@ -70,7 +70,7 @@ class MapClass : public GScreenClass {
 public:
 #ifdef RA2_VEIN_MAP_PREDICATE
     // Mirrors the existing full MapClass declaration; no layout or ABI change.
-    bool Unknown_005680A0(Cell const &cell, int radius);
+    bool Is_Something_Nearby(Cell const &cell, int radius);
 #endif
 #ifdef RA2_SCENARIO_CLEAR_MAP23
     virtual void unknown_slot23(); // Existing shared/map.hpp slot23, 005483D0; qualified direct call.
@@ -116,10 +116,10 @@ public:
 #ifdef RA2_UNIT_PLAN_ROUTE
     Cell Unknown_005651E0(Cell const &cell, Cell const &from);   // 0x005651E0 (as shared/map.hpp)
 #endif
-    void Unknown_0054FB20(Cell const &cell);                              // 0x0054FB20
-    int Unknown_0055A280(CoordStruct const &coord);                             // 0x0055A280
+    void Update_Cell_Zone(Cell const &cell);                              // 0x0054FB20
+    int Get_Height_GL(CoordStruct const &coord);                             // 0x0055A280
     void Collapse_Cliff(CellClass *cell);    // 0x00562F50 (TibSun name)
-    CellClass *Unknown_0055A490();
+    CellClass *Iterate();
     bool Unknown_0054E580(Cell cell, int arg2);                             // 0x0054E580
     void Unknown_00559FD0();                                              // 0x00559FD0                                              // 0x0055A490
     int Unknown_0054B2E0();                                                     // 0x0054B2E0 (TibSun Overpass)
@@ -128,9 +128,9 @@ public:
     void Unknown_00563D40();                                                    // 0x00563D40
     int Unknown_0054EBD0();                                                     // 0x0054EBD0
     void Unknown_005688A0(DynamicVectorClass<Cell> &cells);                    // 0x005688A0 (as shared/map.hpp)
-    void Unknown_0055A550();                                                    // 0x0055A550
+    void Reset_Iterator();                                                    // 0x0055A550
 #ifdef RA2_MAP_VIEW_56A870
-    void Unknown_0056A870(int value);                                           // 0x0056A870
+    void Lower_Max_Level(int value);                                           // 0x0056A870
 #endif
     void Unknown_0054FDA0();                                                    // 0x0054FDA0 (shared/map.hpp)
     void Set_WasUnderBridge_Flags();                                                    // 0x00568B00
@@ -138,29 +138,29 @@ public:
     void Unknown_0055D990(Cell const &cell);                              // 0x0055D990
     void Unknown_00562F50(CellClass *cell); // 00562F50: observed thiscall/RET4; unused return hypothesis
     CellClass *Unknown_005629D0(AbstractClass *object);                         // 0x005629D0 (the cell under an object; hypothesis)
-    int Unknown_0054E3A0(Cell const &cell, HouseClass *house);                 // 0x0054E3A0
+    int Cell_Threat(Cell const &cell, HouseClass *house);                 // 0x0054E3A0
     bool Unknown_0055A660(Cell const &cell, bool flag);                   // 0x0055A660
     bool Unknown_0055A740(CellClass *cell, bool flag);                          // 0x0055A740
     bool Unknown_0055A7F0(CoordStruct const &coord);                            // 0x0055A7F0
     void Unknown_0055ACC0();                                                    // 0x0055ACC0
     bool Unknown_0055ACD0(ObjectClass *object, Cell const &cell);             // 0x0055ACD0 (whether the object may enter the cell: false when another object there blocks it)
-    void Unknown_0054FC60(Cell const &cell);      // 0x0054FC60
+    void Update_Cell_Zone_Constructively(Cell const &cell);      // 0x0054FC60
     void Unknown_00566340(Cell const &cell);                              // 0x00566340
-    bool Unknown_005683C0(CoordStruct const &coord);                            // 0x005683C0 (Tunnel.cpp)
-    bool Unknown_00568140(CoordStruct const &coord);                            // 0x00568140
+    bool Is_Fogged(CoordStruct const &coord);                            // 0x005683C0 (Tunnel.cpp)
+    bool Is_Shrouded(CoordStruct const &coord);                            // 0x00568140
     void Unknown_0054A550(CoordStruct const &coord, int arg2, int arg3, int arg4);   // 0x0054A550
     int Unknown_0054E370(Cell const &cell);                               // 0x0054E370
-    Cell Unknown_005502E0(Cell const &cell, int speed, int zone_index, int zone, bool bridge, Point2D size, bool arg8, bool arg9, bool arg10, bool arg11, Cell const &arg12, int arg13);   // 0x005502E0 (size: width and height, by value)
+    Cell Nearby_Location(Cell const &cell, int speed, int zone_index, int zone, bool bridge, Point2D size, bool arg8, bool arg9, bool arg10, bool arg11, Cell const &arg12, int arg13);   // 0x005502E0 (size: width and height, by value)
     void Unknown_00552570(Cell const &cell);                              // 0x00552570
     void Unknown_00555A60(Cell const &cell);                              // 0x00555A60
     Cell Unknown_00568ED0(Cell const &cell, Cell const &from);   // 0x00568ED0
     bool Unknown_00569320(Cell const &cell);                              // 0x00569320
-    Cell Unknown_00564F70(CellClass *cell, bool bridge);                  // 0x00564F70 (the zone connection cell of a cell, its bridge deck when bridge; TS Get_Bridge_Zone_Connection_Cell)
-    int Unknown_005500D0(Cell const &cell, int distance, int start);      // 0x005500D0 (shared/map.hpp)
-    Cell Unknown_00565610(Cell const &cell, int layer, unsigned int subzone); // 0x00565610 (a bridge end cell in the subzone, or (0,0); TS Find_Bridge_End_Cell_For_Subzone)
-    int Unknown_0054FAB0(Cell const &cell);                               // 0x0054FAB0 (shared/map.hpp)
+    Cell Get_Bridge_Zone_Connection_Cell(CellClass *cell, bool bridge);                  // 0x00564F70 (the zone connection cell of a cell, its bridge deck when bridge; TS Get_Bridge_Zone_Connection_Cell)
+    int Zone_Connection_Index(Cell const &cell, int distance, int start);      // 0x005500D0 (shared/map.hpp)
+    Cell Find_Bridge_End_Cell_For_Subzone(Cell const &cell, int layer, unsigned int subzone); // 0x00565610 (a bridge end cell in the subzone, or (0,0); TS Find_Bridge_End_Cell_For_Subzone)
+    int Get_Cell_Zone_Index(Cell const &cell);                               // 0x0054FAB0 (shared/map.hpp)
     // Lists the layer subzones around the cell's (hypothesis); true sends the caller to 0x0042A840 (0x00565EB0).
-    bool Unknown_00565EB0(CellClass *cptr, int layer, DynamicVectorClass<unsigned short> const &connections, ObjectClass const *foot);
+    bool Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVectorClass<unsigned short> const &connections, ObjectClass const *foot);
 #ifdef MAP_VIEW_DECLARE_REGION_THREAT
     // The threat between two subzones of a layer for a house (0x00567D20; TS Region_Threat). Behind a
     // guard (the path estimator unit 0x00426E70 defines it): a new declaration here renumbers

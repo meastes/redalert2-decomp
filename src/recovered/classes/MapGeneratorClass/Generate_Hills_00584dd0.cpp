@@ -37,8 +37,8 @@ void MapGeneratorClass::Generate_Hills()
         }
     }
     Commit_Deform_Grid_RMG_006863e0();
-    Map.Unknown_0055A550();
-    CellClass *current=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *current=Map.Iterate();
     Cell const offsets[]={Cell(0,0),Cell(1,0),Cell(1,1),Cell(0,1)};
     int ramps[]={11,12,9,10};
     while(current!=0) {
@@ -63,6 +63,6 @@ void MapGeneratorClass::Generate_Hills()
                 cell->unknown_11b+=heightStep;
             }
         }
-        current=Map.Unknown_0055A490();
+        current=Map.Iterate();
     }
 }

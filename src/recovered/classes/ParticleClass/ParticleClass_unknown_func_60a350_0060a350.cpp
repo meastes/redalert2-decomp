@@ -18,8 +18,8 @@ void ParticleClass::unknown_func_60a350()
         next.Z += unknown_f0.Z;
     }
     if (Velocity > 0.0) {
-        int height = Map.Unknown_0055A280(coord);
-        if (Map.Unknown_0055A280(next) > height) {
+        int height = Map.Get_Height_GL(coord);
+        if (Map.Get_Height_GL(next) > height) {
             unknown_11d = 1;
             unknown_121 = true;
         }

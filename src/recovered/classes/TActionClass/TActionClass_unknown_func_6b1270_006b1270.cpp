@@ -13,7 +13,7 @@ bool TActionClass::unknown_func_6b1270(HouseClass *house, ObjectClass *object, T
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct coord = CoordStruct(waypoint);
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     unsigned int bridge_flags = Map[waypoint].unknown_140;
     if ((bridge_flags & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
         int bridge_height = unknown_geometry_j;

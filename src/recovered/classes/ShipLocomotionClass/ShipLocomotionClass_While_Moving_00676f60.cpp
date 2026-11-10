@@ -79,7 +79,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
         bool not_passive = LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->Type->Passive;
         if (unknown_58 < 0x40 && not_passive) {
             CoordStruct dest_coord = unknown_34;
-            dest_coord.Z = Map.Unknown_0055A280(dest_coord) + (Map[dest_coord].IsUnderBridge ? unknown_geometry_j : 0);
+            dest_coord.Z = Map.Get_Height_GL(dest_coord) + (Map[dest_coord].IsUnderBridge ? unknown_geometry_j : 0);
             int distance = (Object_Coord(LinkedTo) - CoordStruct(dest_coord)).Length();
 
             bool forced_speed = false;
@@ -145,10 +145,10 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             TPoint2D<short> const &enter = tube->EnterCell;
             LinkedTo->unknown_575 = 0;
             LinkedTo->unknown_45c = Map[Adjacent_Cell(Cell(enter), tube->Directions[0])].unknown_475d60();
-            int current_height = Map.Unknown_0055A280(Object_Coord(LinkedTo));
+            int current_height = Map.Get_Height_GL(Object_Coord(LinkedTo));
             Cell exit = tube->ExitCell;
             int count = tube->unknown_1c0;
-            LinkedTo->unknown_45c.Z = current_height + (Map.Unknown_0055A280(exit) - current_height) / count;
+            LinkedTo->unknown_45c.Z = current_height + (Map.Get_Height_GL(exit) - current_height) / count;
             unknown_63 = true;
             unknown_58 = -1;
         } else {
@@ -226,7 +226,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                     }
                     if (LinkedTo->unknown_slot32()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
                         FootClass *train = LinkedTo;
-                        bool is_bridge = train->unknown_79 || (Object_Coord(LinkedTo).Z >= (Map.Unknown_0055A280(Object_Coord(LinkedTo)) + unknown_geometry_j));
+                        bool is_bridge = train->unknown_79 || (Object_Coord(LinkedTo).Z >= (Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_j));
                         ObjectClass *object = is_bridge ? Map[newcell].AltOccupierPtr : Map[newcell].OccupierPtr;
                         ObjectClass *&ref = object;
                         ObjectClass *occupier = ref;

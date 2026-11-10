@@ -23,8 +23,8 @@ unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum,unsigned 
 #include "shared/map_region.hpp"
 #include "shared/tileset_index.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?Adjacent_Cell@CellClass@@QAEAAV1@I@Z=00476ac0
 // @ref ?unknown_map_cells_a70a24@@=00a70a24
 // @ref ?unknown_map_cell_side_84e804@@=0084e804
@@ -34,8 +34,8 @@ unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum,unsigned 
 void __fastcall Stamp_Tile_005883f0(int tile,Cell const &position,int region,int height);
 void MapGeneratorClass::Vary_Water_Tiles()
 {
-    Map.Unknown_0055A550();
-    for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
         if(cell->IsoTileIndex==unknown_tileset_a52580 && cell->unknown_11a==0) {
             CellClass &east=cell->Adjacent_Cell(2);
             CellClass &south=cell->Adjacent_Cell(4);

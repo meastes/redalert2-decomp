@@ -48,7 +48,7 @@ void __fastcall Fill_In_Data_0065cdd0()
             unknown_id_source_a3d290->Views[0] = unknown_id_source_a3d290->Views[1] =
                 unknown_id_source_a3d290->Views[2] = unknown_id_source_a3d290->Views[3] = cell;
             CoordStruct coord = Cell_Center(cell);
-            coord.Z = Map.Unknown_0055A280(coord);
+            coord.Z = Map.Get_Height_GL(coord);
             Map.unknown_slot52(coord);
         }
     }
@@ -95,8 +95,8 @@ void __fastcall Fill_In_Data_0065cdd0()
 
     Map.Unknown_0049DE00(true, false);
     Initialize_Wave_Tables_00721bf0();
-    Map.Unknown_0055A550();
-    for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         cell->Recalc_Attributes(-1);
     }
     Map.Unknown_0054FDA0();
@@ -111,8 +111,8 @@ void __fastcall Fill_In_Data_0065cdd0()
     }
 
     if (Rules->OreTwinkle != 0) {
-        Map.Unknown_0055A550();
-        for (CellClass *ore = Map.Unknown_0055A490(); ore != 0; ore = Map.Unknown_0055A490()) {
+        Map.Reset_Iterator();
+        for (CellClass *ore = Map.Iterate(); ore != 0; ore = Map.Iterate()) {
             if (ore->Get_Tiberium_Value() && Random_Pick(0, Rules->OreTwinkleChance - 1) == 0) {
                 new AnimClass(Rules->OreTwinkle, ore->Center_Coord(), 0, 1, 0x600, 0);
             }

@@ -130,8 +130,8 @@ int ScrollClass::Unknown_00669960(Cell const &cell, ObjectClass *object, bool ar
                 }
             } else {
                 CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-                coord.Z = Map.Unknown_0055A280(coord);
-                if (!Map.Unknown_00568140(coord) && !Map.Unknown_005683C0(coord)
+                coord.Z = Map.Get_Height_GL(coord);
+                if (!Map.Is_Shrouded(coord) && !Map.Is_Fogged(coord)
                         && Map[cell].OverlayIndex != -1 && OverlayTypes[Map[cell].OverlayIndex]->Wall
                         && Map[cell].unknown_50 != -1 && Houses[Map[cell].unknown_50]->Unknown_004F52B0()) {
                     action = 12;

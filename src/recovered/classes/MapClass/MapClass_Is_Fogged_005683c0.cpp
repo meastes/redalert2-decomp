@@ -1,4 +1,4 @@
-// bool MapClass::Unknown_005683C0(CoordStruct const &coord) (0x005683C0)
+// bool MapClass::Is_Fogged(CoordStruct const &coord) (0x005683C0)
 // Whether a lepton position is fogged (TibSun Is_Fogged): never for a
 // defeated player watching a multiplayer game (game mode not 0, player
 // +0x13D and 0x00A3D548 set); otherwise the projected cell (and on an odd
@@ -8,7 +8,7 @@
 #include "shared/map_cell.hpp"
 #include "shared/house_screen.hpp"
 
-bool MapClass::Unknown_005683C0(CoordStruct const &coord)
+bool MapClass::Is_Fogged(CoordStruct const &coord)
 {
     CellClass *cellptr;
     if (unknown_game_mode_a3d298 == 0 || !unknown_player_a35db4->unknown_13d || !unknown_int_a3d548) {

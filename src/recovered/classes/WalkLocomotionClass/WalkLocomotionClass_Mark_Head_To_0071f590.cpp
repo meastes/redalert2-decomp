@@ -36,7 +36,7 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
             }
         }
 
-        bool isbridge = Map[crd].IsUnderBridge && Object_Coord(LinkedTo).Z > unknown_geometry_g * 3 + Map.Unknown_0055A280(crd);
+        bool isbridge = Map[crd].IsUnderBridge && Object_Coord(LinkedTo).Z > unknown_geometry_g * 3 + Map.Get_Height_GL(crd);
         unknown_28 = Map[crd].Closest_Free_Spot(crd, any_spot, isbridge);
 
         if (!Map[unknown_28].unknown_476cc0(LinkedTo) && !LinkedTo->unknown_76) {

@@ -3,7 +3,7 @@
 // @ref ?Is_Powered@LocomotionClass@@UAG_NXZ=0053d230
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_facing_offsets_851ac0@@3QBV?$TPoint2D@H@@B=00851ac0
 // @ref ?unknown_hover_bob_scale_79c9b8@@3NB=0079c9b8
 // @ref __ftol=0077f110
@@ -26,8 +26,8 @@ void HoverLocomotionClass::Gravity_AI_004fb9d0()
     int height=LinkedTo->unknown_slot108();
     int clearance=height;
     if (LinkedTo->unknown_4d0!=-1) {
-        int ground=Map.Unknown_0055A280(Object_Coord(LinkedTo));
-        if (Map.Unknown_0055A280(Hover_Adjacent_Coord_004fb9d0(Object_Coord(LinkedTo),LinkedTo->unknown_4d0))>ground) clearance-=Rules->HoverHeight;
+        int ground=Map.Get_Height_GL(Object_Coord(LinkedTo));
+        if (Map.Get_Height_GL(Hover_Adjacent_Coord_004fb9d0(Object_Coord(LinkedTo),LinkedTo->unknown_4d0))>ground) clearance-=Rules->HoverHeight;
     }
     height=(int)(height+unknown_60);
     int id=LinkedTo->Fetch_ID();

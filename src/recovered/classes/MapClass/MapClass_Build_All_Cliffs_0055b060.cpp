@@ -40,20 +40,20 @@ bool MapClass::Build_All_Cliffs(int unused, int region_id)
 
     Map.Unknown_00498F10(0);
 
-    Map.Unknown_0055A550();
-    CellClass *cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         expanded = Expand_High_Ground(cellptr, region_id);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
-    Map.Unknown_0055A550();
-    cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         if (cellptr->unknown_11c == 0 && cellptr->unknown_47b590()) {
             expanded = Place_Cliff(cellptr, region_id);
         }
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
     ObjectClass *obj = Map.unknown_11a0;

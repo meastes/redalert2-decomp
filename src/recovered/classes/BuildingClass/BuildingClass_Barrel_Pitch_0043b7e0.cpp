@@ -83,7 +83,7 @@ UnknownFacingDir BuildingClass::unknown_slot170(AbstractClass *target)
         }
 
     } else if (Type->EMPulseCannon) {
-        CoordStruct tcoord = XY_0043b7e0(target->Center_Coord(), Map.Unknown_0055A280(target->Center_Coord()));
+        CoordStruct tcoord = XY_0043b7e0(target->Center_Coord(), Map.Get_Height_GL(target->Center_Coord()));
         CoordStruct fcoord = unknown_slot43(0);
         Direction_0043b7e0(fcoord, tcoord);
         int max_speed = Unknown_0047FB70(unknown_5d4c00(target), Rules->unknown_1320);

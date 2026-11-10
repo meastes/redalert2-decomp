@@ -22,7 +22,7 @@ void BuildingClass::unknown_440140(Cell const *cell, bool announce)
     if (Type->Naval) { speed = 6; zone_type = 4; }
     CoordStruct location=Coord;
     int zone = Map.Zone(Coord_Cell(location), zone_type, bridge);
-    Cell found = Map.Unknown_005502E0(*cell, speed, zone, zone_type, bridge, Point2D(1,1), 0,0,0,1,Cell(0,0),0);
+    Cell found = Map.Nearby_Location(*cell, speed, zone, zone_type, bridge, Point2D(1,1), 0,0,0,1,Cell(0,0),0);
     if (found != *(Cell const *)&unknown_84ed10) {
         OutList.Add(EventClass(Owner(),0x1e,TargetClass(this),TargetClass((AbstractClass *)&Map[found])));
     } else if (Type->ConstructionYard && House->Unknown_004F52F0() && unknown_game_mode_a3d298 && unknown_flag_a3d340) {

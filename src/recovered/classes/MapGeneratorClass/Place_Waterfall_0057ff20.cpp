@@ -113,15 +113,15 @@ bool MapGeneratorClass::Place_Waterfall(int region_id,Cell const &cell1,Cell con
 			success = Grow_Region(WorkingRegionID, 2, bounds_rect, 0, 0);
 			if (success) {
 				int region = WorkingRegionID;
-				Map.Unknown_0055A550();
-				CellClass * cptr = Map.Unknown_0055A490();
+				Map.Reset_Iterator();
+				CellClass * cptr = Map.Iterate();
 				while (cptr !=0) {
 					Cell c = cptr->MapCoords;
 					int other_region = UnknownMapGenerationCell::Get_Region(c);
 					if (other_region == region) {
 						cptr->unknown_11b += 4;
 					}
-					cptr = Map.Unknown_0055A490();
+					cptr = Map.Iterate();
 				}
 
 				for (yy = patch.Y; yy < patch.Y + patch.Height; yy++) {

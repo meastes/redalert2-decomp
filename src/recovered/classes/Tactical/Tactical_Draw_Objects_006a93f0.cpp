@@ -64,7 +64,7 @@ void Tactical::Draw_Objects(bool forced)
                 position = obj->Position_Coord_004f3f40();
                 if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
                     obj->unknown_slot19(0);
-                    if (unknown_id_source_a3d290->Special().FogOfWar && Map.Unknown_005683C0(position)) {
+                    if (unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(position)) {
                         continue;
                     }
                     Point2D pixel;
@@ -88,7 +88,7 @@ void Tactical::Draw_Objects(bool forced)
                     if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
                         AnimClass *anim = (AnimClass *)obj;
                         obj->unknown_85 = true;
-                        if (!anim->unknown_100 && anim->Class->ShouldFogRemove && Map.Unknown_005683C0(obj->Center_Coord())) {
+                        if (!anim->unknown_100 && anim->Class->ShouldFogRemove && Map.Is_Fogged(obj->Center_Coord())) {
                             continue;
                         }
                         obj->unknown_slot63(&unknown_rect_839630, forced, false);
@@ -97,7 +97,7 @@ void Tactical::Draw_Objects(bool forced)
                     if (Is_Animating((TerrainClass *)obj)) {
                         position = obj->Position_Coord_004f3f40();
                         if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
-                            if (Map.Unknown_005683C0(position)) {
+                            if (Map.Is_Fogged(position)) {
                                 continue;
                             }
                             obj->unknown_85 = true;
@@ -141,7 +141,7 @@ void Tactical::Draw_Objects(bool forced)
             if (obj2->unknown_85 && obj2 != 0 && Is_Techno_Object(obj2)) {
                 if (Is_Foot_Object(obj2)) {
                     obj2->unknown_slot19(0);
-                    if (unknown_b263d8 && !Debug_Map && unknown_id_source_a3d290->Special().FogOfWar && Map.Unknown_005683C0(obj2->Position_Coord_004f3f40())) {
+                    if (unknown_b263d8 && !Debug_Map && unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(obj2->Position_Coord_004f3f40())) {
                         continue;
                     }
                 }

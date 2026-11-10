@@ -62,7 +62,7 @@ void InfantryClass::unknown_slot67(Point2D const &input, Rect const &window)
             else level_light=unknown_id_source_a3d290->AmbientLevel;
             int brightness;
             if (unknown_79 || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
-                Position_Coord_004f3f40().Z>Map.Unknown_0055A280(Position_Coord_004f3f40())+unknown_geometry_j/2)) {
+                Position_Coord_004f3f40().Z>Map.Get_Height_GL(Position_Coord_004f3f40())+unknown_geometry_j/2)) {
                 int light=level_light*(unknown_slot108()/(unknown_geometry_g*2));
                 brightness=Map[target_cell].unknown_10a+light;
             } else {

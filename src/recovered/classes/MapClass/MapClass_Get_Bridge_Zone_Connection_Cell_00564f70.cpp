@@ -1,4 +1,4 @@
-// Cell MapClass::Unknown_00564F70(CellClass *cptr, bool isbridge) (0x00564F70)
+// Cell MapClass::Get_Bridge_Zone_Connection_Cell(CellClass *cptr, bool isbridge) (0x00564F70)
 // The zone connection cell of a cell (TibSun Get_Bridge_Zone_Connection_Cell): a cell
 // under a bridge (+0x140 bit 8) with isbridge maps to the connection at it
 // (0x005500D0, distance 2), or without one to the bridge end of 0x005653C0 when there is
@@ -11,12 +11,12 @@
 #include "shared/coord_distance.hpp"
 // @ref ?Unknown_005653C0@MapClass@@QAE?AVCell@@ABV2@0@Z=005653c0
 
-Cell MapClass::Unknown_00564F70(CellClass *cptr, bool isbridge)
+Cell MapClass::Get_Bridge_Zone_Connection_Cell(CellClass *cptr, bool isbridge)
 {
     Cell ncell;
 
     if (isbridge && cptr->IsUnderBridge) {
-        int cidx = Map.Unknown_005500D0(cptr->MapCoords, 2, 0);
+        int cidx = Map.Zone_Connection_Index(cptr->MapCoords, 2, 0);
         if (cidx == -1) {
             ncell = Unknown_005653C0(cptr->MapCoords, cptr->MapCoords);
             if ((Cell)ncell != unknown_cell_a6f238) {

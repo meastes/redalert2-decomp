@@ -59,7 +59,7 @@ void InfantryClass::unknown_slot87(CoordStruct const &threat, bool forced, bool 
             if (position!=Point2D(128,128)) facing=Dir_To_8(Direction_00504120(Point2D(128,128),position));
             else facing=Dir_To_8(unknown_2e0.Current());
             facing=facing+unknown_id_source_a3d290->Random()(0,4)-2;
-            Cell nearby=Map.Unknown_005502E0(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,unknown_79,Point2D(1,1),0,1,0,1,Cell(0,0),0);
+            Cell nearby=Map.Nearby_Location(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,unknown_79,Point2D(1,1),0,1,0,1,Cell(0,0),0);
             if (nearby!=unknown_geometry_k) {
                 Assign_Destination(&Map[nearby],true);
                 Locomotor.Checked()->Process();

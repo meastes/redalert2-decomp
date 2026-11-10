@@ -31,8 +31,8 @@ CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
             Cell cell = Cell(xx + x, yy - ring);
             if (Unknown_0055A660(cell, true)) {
                 CoordStruct coord = CoordStruct(cell, 0);
-                coord.Z = Unknown_0055A280(coord);
-                if (Unknown_00568140(coord)) {
+                coord.Z = Get_Height_GL(coord);
+                if (Is_Shrouded(coord)) {
                     cells[found++] = cell;
                 }
             }
@@ -43,8 +43,8 @@ CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
             cell = Cell(xx + x, yy + ring);
             if (Unknown_0055A660(cell, true)) {
                 CoordStruct coord = CoordStruct(cell, 0);
-                coord.Z = Unknown_0055A280(coord);
-                if (Unknown_00568140(coord)) {
+                coord.Z = Get_Height_GL(coord);
+                if (Is_Shrouded(coord)) {
                     cells[found++] = cell;
                 }
             }
@@ -61,8 +61,8 @@ CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
             Cell cell = Cell(xx - ring, yy + y);
             if (Unknown_0055A660(cell, true)) {
                 CoordStruct coord = CoordStruct(cell, 0);
-                coord.Z = Unknown_0055A280(coord);
-                if (Unknown_00568140(coord)) {
+                coord.Z = Get_Height_GL(coord);
+                if (Is_Shrouded(coord)) {
                     cells[found++] = cell;
                 }
             }
@@ -73,8 +73,8 @@ CellClass *MapClass::Unknown_005629D0(AbstractClass *object)
             cell = Cell(xx + ring, yy + y);
             if (Unknown_0055A660(cell, true)) {
                 CoordStruct coord = CoordStruct(cell, 0);
-                coord.Z = Unknown_0055A280(coord);
-                if (Unknown_00568140(coord)) {
+                coord.Z = Get_Height_GL(coord);
+                if (Is_Shrouded(coord)) {
                     cells[found++] = cell;
                 }
             }

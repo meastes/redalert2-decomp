@@ -22,16 +22,16 @@
 // @ref ?ID@?$DynamicVectorClass@PAVCellClass@@@@UAEHPBQAVCellClass@@@Z=0058de40
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 // @ref ?unknown_47a670@CellClass@@QBE_NXZ=0047a670
 // @ref ?unknown_47ad00@CellClass@@QAEXXZ=0047ad00
 // @ref ??3@YAXPAX@Z=00781d3b
 
 void OverlayClass::unknown_func_5dc180()
 {
-    Map.Unknown_0055A550();
-    CellClass *cell = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell = Map.Iterate();
     DynamicVectorClass<CellClass *> cells;
     cells.Set_Growth_Step(1000);
     while (cell != 0) {
@@ -42,7 +42,7 @@ void OverlayClass::unknown_func_5dc180()
             cell->OverlayIndex = -1;
             cell->OverlayData = 0;
         }
-        cell = Map.Unknown_0055A490();
+        cell = Map.Iterate();
     }
     for (int index = cells.Count() - 1; index >= 0; index--) {
         CellClass *dense = cells[index];

@@ -31,7 +31,7 @@ void CellClass::unknown_473b30(ObjectClass *object, bool alt)
         }
     }
 
-    if (!Map.Unknown_00568140(unknown_475d60()) && !Map.Unknown_005683C0(unknown_475d60()) || unknown_game_mode_a3d298 != 0) {
+    if (!Map.Is_Shrouded(unknown_475d60()) && !Map.Is_Fogged(unknown_475d60()) || unknown_game_mode_a3d298 != 0) {
         object->unknown_slot96(unknown_player_a35db4);
     }
 

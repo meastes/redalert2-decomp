@@ -24,10 +24,10 @@ extern int *unknown_ramp_corners_7f4174[19];
 
 bool Commit_Deform_Grid_RMG_006863e0()
 {
-    Map.Unknown_0055A550();
+    Map.Reset_Iterator();
     CellClass *cell = 0;
     for (;;) {
-        cell = Map.Unknown_0055A490();
+        cell = Map.Iterate();
         if (!cell) {
             break;
         }

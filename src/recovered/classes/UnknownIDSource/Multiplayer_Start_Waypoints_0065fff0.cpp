@@ -14,7 +14,7 @@
 // @ref ?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z=0042d120
 // @ref ?ID@?$DynamicVectorClass@VCell@@@@UAEHPBVCell@@@Z=0042cc40
 // @ref ??4?$VectorClass@VCell@@@@QAEAAV0@ABV0@@Z=00663590
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 #include "shared/id_source.hpp"
 #include "shared/unknown_globals.hpp"
 #include "shared/unknown_player_entry.hpp"
@@ -57,7 +57,7 @@ DynamicVectorClass<Cell> __fastcall Multiplayer_Start_Waypoints_0065fff0(bool of
         Debug_Printf("Multiplayer start waypoint deficiency - looking for more start positions\n");
         while (waypts.Count() < look_for) {
             Cell trycell = Cell(Map.unknown_120 + Random_Pick(10, Map.unknown_128 - 10), Map.unknown_124 + 10 + Random_Pick(0, Map.unknown_12c - 10));
-            trycell = Map.Unknown_005502E0(trycell, 1, -1, 0, false, Point2D(8, 8), 0, 0, 0, 1, Cell(0, 0), 0);
+            trycell = Map.Nearby_Location(trycell, 1, -1, 0, false, Point2D(8, 8), 0, 0, 0, 1, Cell(0, 0), 0);
             if (trycell != unknown_geometry_k) {
                 waypts.Add(trycell);
                 Debug_Printf("Random multiplayer start waypoint added at cell %d,%d\n", trycell.X, trycell.Y);

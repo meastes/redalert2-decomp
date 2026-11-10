@@ -8,8 +8,8 @@ bool __fastcall Unknown_Cell_Predicate_0047b5e0(CellClass *cell);
 bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
 void Mark_Adjacent_Grid_Weights_00584bd0()
 {
-    Map.Unknown_0055A550();
-    CellClass *current=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *current=Map.Iterate();
     while(current!=0) {
         if(current->unknown_47b7c0()) {
             for(int direction=0;direction<8;++direction) {
@@ -34,6 +34,6 @@ void Mark_Adjacent_Grid_Weights_00584bd0()
                 }
             }
         }
-        current=Map.Unknown_0055A490();
+        current=Map.Iterate();
     }
 }

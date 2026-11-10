@@ -25,7 +25,7 @@ bool TerrainClass::unknown_slot52()
     bool result = ObjectClass::unknown_slot52();
     Map[cell].Recalc_Attributes(-1);
     if (unknown_a40774 == 0) {
-        Map.Unknown_0054FB20(cell);
+        Map.Update_Cell_Zone(cell);
         Map.Unknown_00566340(cell);
         ((RadarClass &)Map).Radar_Background(cell);
     }

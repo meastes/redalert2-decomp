@@ -10,12 +10,12 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z=006a2cb0
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 
 void TeamClass::TMission_unknown_6bc4c0(ScriptMissionClass const &mission, bool unknown)
 {
     CoordStruct coord = unknown_34->Center_Coord();
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     if ((Map[coord].unknown_140 & 0x100) || (Map[coord].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
     }

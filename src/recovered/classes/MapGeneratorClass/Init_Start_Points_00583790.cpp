@@ -28,8 +28,8 @@ bool MapGeneratorClass::Init_Start_Points()
             Cell seed=unknown_id_source_a3d290->Get_Waypoint_Location(player);
             UnknownVeinNode *nodes=new UnknownVeinNode[800];
             UnknownVeinHeap *heap=new UnknownVeinHeap(800);
-            Map.Unknown_0055A550();
-            for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+            Map.Reset_Iterator();
+            for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
                 Cell position=cell->MapCoords;
                 reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::FUN_0056dba0((short *)&position))->unknown_3c=0;
             }

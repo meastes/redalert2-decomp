@@ -26,11 +26,11 @@ void MapGeneratorClass::Seed_Land_Type1()
                    Map.MapSize.Width / 2 + Map.MapSize.Height / 2);
     Point2D seed = origin;
 
-    Map.Unknown_0055A550();
-    CellClass *cptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cptr = Map.Iterate();
     while (cptr != 0) {
         MapRegionClass::Get_Cell_Data(cptr->Fetch_CellID()).unknown_3c = 0;
-        cptr = Map.Unknown_0055A490();
+        cptr = Map.Iterate();
     }
 
     Rect bounds = Map.MapLocalSize;
@@ -46,8 +46,8 @@ void MapGeneratorClass::Seed_Land_Type1()
 
         int nearest = 50000;
         Cell closest(0, 0);
-        Map.Unknown_0055A550();
-        cptr = Map.Unknown_0055A490();
+        Map.Reset_Iterator();
+        cptr = Map.Iterate();
         while (cptr != 0) {
             if (MapRegionClass::Get_Cell_Data(cptr->MapCoords).unknown_3c == 0) {
                 int distance = abs(cptr->MapCoords.X - origin.X) + abs(cptr->MapCoords.Y - origin.Y);
@@ -56,7 +56,7 @@ void MapGeneratorClass::Seed_Land_Type1()
                     closest = cptr->MapCoords;
                 }
             }
-            cptr = Map.Unknown_0055A490();
+            cptr = Map.Iterate();
         }
         seed = Point2D(closest.X, closest.Y);
     }

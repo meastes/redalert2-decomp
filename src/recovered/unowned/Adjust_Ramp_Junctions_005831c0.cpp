@@ -32,8 +32,8 @@ static inline void Write_Generation_Region(Cell const &position,int region)
 }
 void Fixup_Cliff_Corners()
 {
-    Map.Unknown_0055A550();
-    CellClass *current=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *current=Map.Iterate();
     while(current!=0) {
         CellClass &neighbor5=current->Adjacent_Cell(5);
         CellClass &neighbor1=current->Adjacent_Cell(1);
@@ -69,6 +69,6 @@ void Fixup_Cliff_Corners()
                 Write_Generation_Region(current->MapCoords,Read_Generation_Region(neighbor6.MapCoords));
             }
         }
-        current=Map.Unknown_0055A490();
+        current=Map.Iterate();
     }
 }

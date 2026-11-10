@@ -14,7 +14,7 @@ bool TActionClass::unknown_center_on_waypoint(HouseClass *house, ObjectClass *ob
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct coord = CoordStruct(waypoint);
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
     }

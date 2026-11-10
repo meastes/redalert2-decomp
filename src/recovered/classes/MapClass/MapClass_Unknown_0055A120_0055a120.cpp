@@ -19,8 +19,8 @@ void MapClass::Unknown_0055A120()
     if (!unknown_player_a35db4->unknown_188) {
         Map.Unknown_0049E000(false, false);
         unknown_player_a35db4->unknown_188 = true;
-        Map.Unknown_0055A550();
-        for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
+        Map.Reset_Iterator();
+        for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
             cell->IsMapped = true; cell->IsVisible = true;
             cell->unknown_130 = 0;
             cell->unknown_134 = 0;

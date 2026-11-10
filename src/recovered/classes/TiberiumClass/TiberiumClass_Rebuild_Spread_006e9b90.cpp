@@ -14,8 +14,8 @@ void TiberiumClass::Rebuild_Spread()
     for (int index = unknown_cells_428ac0() - 1; index >= 0; index--) {
         SpreadMap[index] = false;
     }
-    Map.Unknown_0055A550();
-    for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         if (cell->Get_Tiberium_Type() == ArrayIndex && cell->unknown_478950()) {
             SpreadData[SpreadCount].Position = cell->MapCoords;
             SpreadData[SpreadCount].Key = 0.0f;

@@ -17,7 +17,7 @@ void JumpjetLocomotionClass::unknown_530940()
         UnknownFacingDir dir = UnknownFacingDir((unsigned short)(unknown_50.Current().Raw + 0x2D00));
         unknown_50.Set_Desired(dir);
     }
-    Map.Unknown_0055A280(coord);
+    Map.Get_Height_GL(coord);
     Map[coord];
     if (Map.Unknown_0054AAB0(Coord_Cell(coord))) {
         Map.Remove(LinkedTo);

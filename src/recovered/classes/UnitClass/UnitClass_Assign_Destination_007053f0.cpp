@@ -217,7 +217,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			target = tcell;
 			immediate = false;
 			if (tcell != 0 && ((tcell->unknown_140&0x100)!=0) && !unknown_slot46(0)) {
-				Cell nearby = Map.Unknown_005502E0(tcell->MapCoords, 1, Map.Zone(tcell->MapCoords, Type->MovementZone, false), Type->MovementZone, false, Point2D(1, 1), false, true, false, false, Cell(0,0), 0);
+				Cell nearby = Map.Nearby_Location(tcell->MapCoords, 1, Map.Zone(tcell->MapCoords, Type->MovementZone, false), Type->MovementZone, false, Point2D(1, 1), false, true, false, false, Cell(0,0), 0);
 				if (nearby != unknown_geometry_k) {
 					target = &Map[nearby];
 				}
@@ -247,8 +247,8 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			int height = unknown_slot108();
 
 			if (isbridge && isunderbridgeto) {
-				int z1 = Map.Unknown_005500D0(from, 3, 0);
-				if (z1 == Map.Unknown_005500D0(to, 3, 0) && z1 != -1) {
+				int z1 = Map.Zone_Connection_Index(from, 3, 0);
+				if (z1 == Map.Zone_Connection_Index(to, 3, 0) && z1 != -1) {
 					if (!unknown_zone_connections_83252c[z1].unknown_08) {
 						Cell d1 = Map.Unknown_005651E0(from, from);
 						Cell d2 = Map.Unknown_005651E0(to, to);
@@ -340,7 +340,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		persist.Checked()->GetClassID(&clsid);
 		if (memcmp(&clsid,&CLSID_TunnelLocomotionClass,sizeof(GUID))==0 && unknown_slot108() == 0) {
             CoordStruct tc = target->Center_Coord();
-			int gl = Map.Unknown_0055A280(tc);
+			int gl = Map.Get_Height_GL(tc);
 			if (tc.Z < gl) tc.Z = gl;
 
 			bool doswap = needsswap;
@@ -448,7 +448,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			target = 0;
 		} else {
 			if (target != 0 && target->Kind_Of() == 6 && Contact(0) != target) {
-				Cell nearby = Map.Unknown_005502E0(Cell(b->Position_Coord_004f3f40()), 2, Map.Zone(Cell(b->Position_Coord_004f3f40()), Type->MovementZone, false), Type->MovementZone, false, Point2D(1, 1), false, true, false, false, Cell(0,0), 0);
+				Cell nearby = Map.Nearby_Location(Cell(b->Position_Coord_004f3f40()), 2, Map.Zone(Cell(b->Position_Coord_004f3f40()), Type->MovementZone, false), Type->MovementZone, false, Point2D(1, 1), false, true, false, false, Cell(0,0), 0);
 				if (nearby != unknown_geometry_k) {
 					target = &Map[nearby];
 				} else {

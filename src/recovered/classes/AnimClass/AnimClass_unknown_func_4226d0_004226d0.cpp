@@ -54,7 +54,7 @@ void AnimClass::unknown_func_4226d0()
                 Unknown_0047E2C0(coord, Rules->unknown_488, 0, Rules->unknown_c74, 0);
             }
             cell->Recalc_Attributes(-1);
-            Map.Unknown_0054FB20(cell->unknown_24);
+            Map.Update_Cell_Zone(cell->unknown_24);
             Map.Unknown_00566340(cell->unknown_24);
         }
     }

@@ -9,7 +9,7 @@ void HouseClass::Unknown_004F6310()
 {
     int count=Technos.Count();
     Cell destination=Coord_Cell(BaseCenter);
-    destination=Map.Unknown_005502E0(destination,0,-1,0,false,Point2D(4,4),
+    destination=Map.Nearby_Location(destination,0,-1,0,false,Point2D(4,4),
                                          0,0,0,1,Cell(0,0),0);
     if (destination!=unknown_cell_a40f10) {
         ++destination.X;

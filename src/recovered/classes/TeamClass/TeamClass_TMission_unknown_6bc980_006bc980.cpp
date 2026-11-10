@@ -29,7 +29,7 @@ void TeamClass::TMission_unknown_6bc980(ScriptMissionClass const &mission, bool 
             int zone_type = first->unknown_slot32()->MovementZone;
             CoordStruct coord = ((ObjectClass *)target)->Coord;
             Cell cell = Coord_Cell(coord);
-            Cell found = Map.Unknown_005502E0(cell, first->unknown_slot32()->SpeedType,
+            Cell found = Map.Nearby_Location(cell, first->unknown_slot32()->SpeedType,
                 Map.Zone(Coord_Cell(first->Center_Coord()), zone_type, first->unknown_79), zone_type, false,
                 Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             if (found != unknown_geometry_k) {

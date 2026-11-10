@@ -55,7 +55,7 @@ int FootClass::Do_MISSION_PATROL()
         if (optr != 0 && (unknown_slot212(optr, primary) || unknown_path_estimator_8315c8.Unknown_0042AA30(Coord_Cell(unknown_slot19(0)), Coord_Cell(optr->unknown_slot19(0)), this, unknown_slot46(0), optr->unknown_slot46(0), -1) < dist)) {
             unknown_4cc = (AbstractClass *)unknown_slot107();
             if ((((UnknownCellClass *)unknown_4cc)->Flags & 0x100) && !unknown_slot46(0)) {
-                Cell cell = Map.Unknown_005502E0(((UnknownCellClass *)unknown_4cc)->unknown_24, unknown_slot32()->SpeedType, Map.Zone(((UnknownCellClass *)unknown_4cc)->unknown_24, unknown_slot32()->MovementZone, false), unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 0, Cell(0, 0), 0);
+                Cell cell = Map.Nearby_Location(((UnknownCellClass *)unknown_4cc)->unknown_24, unknown_slot32()->SpeedType, Map.Zone(((UnknownCellClass *)unknown_4cc)->unknown_24, unknown_slot32()->MovementZone, false), unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 0, Cell(0, 0), 0);
                 if (cell != unknown_geometry_k) {
                     unknown_4cc = (AbstractClass *)&Map[cell];
                 } else {

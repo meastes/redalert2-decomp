@@ -121,12 +121,12 @@ BulletClass *AircraftClass::unknown_slot221(AbstractClass *target, int arg2)
         }
 
         if (House->Unknown_004F52B0()) {
-            if (Map.Unknown_00568140(Position_Coord_004f3f40()) ||
-                Map.Unknown_00568140(As_Coord(Offset(Position_Coord_004f3f40(), OffsetCoord(512, 512)))) ||
-                Map.Unknown_00568140(As_Coord(Offset(Position_Coord_004f3f40(), OffsetCoord(-512, -512)))) ||
-                Map.Unknown_00568140(As_Coord(Offset(Position_Coord_004f3f40(), OffsetCoord(512, -512)))) ||
-                Map.Unknown_00568140(As_Coord(Offset(Position_Coord_004f3f40(), OffsetCoord(512, -512)))) ||
-                Map.Unknown_00568140(target->Center_Coord())) {
+            if (Map.Is_Shrouded(Position_Coord_004f3f40()) ||
+                Map.Is_Shrouded(As_Coord(Offset(Position_Coord_004f3f40(), OffsetCoord(512, 512)))) ||
+                Map.Is_Shrouded(As_Coord(Offset(Position_Coord_004f3f40(), OffsetCoord(-512, -512)))) ||
+                Map.Is_Shrouded(As_Coord(Offset(Position_Coord_004f3f40(), OffsetCoord(512, -512)))) ||
+                Map.Is_Shrouded(As_Coord(Offset(Position_Coord_004f3f40(), OffsetCoord(512, -512)))) ||
+                Map.Is_Shrouded(target->Center_Coord())) {
                 Map.Sight_From(Position_Coord_004f3f40(), Rules->AttackingAircraftSightRange, House, 0, 0, 0, 1, 0);
                 Map.Sight_From(Position_Coord_004f3f40(), Rules->AttackingAircraftSightRange, House, 0, 0, 0, 1, 1);
             }
@@ -157,6 +157,6 @@ BulletClass *AircraftClass::unknown_slot221(AbstractClass *target, int arg2)
 // @ref ?Aircraft_XY_Length_0041B750@@YINPBUAircraftVectorXY@@@Z=0041b750
 // @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
+// @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z=0054a110

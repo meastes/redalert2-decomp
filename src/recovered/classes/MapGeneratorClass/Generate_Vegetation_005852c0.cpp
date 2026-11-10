@@ -49,15 +49,15 @@ inline Cell Pick_Random_Clear_Map_Cell()
 
 void MapGeneratorClass::Generate_Vegetation()
 {
-    Map.Unknown_0055A550();
-    CellClass *cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell=Map.Iterate();
     while(cell) {
         MapRegionClass::Get_Cell_Data(cell->Fetch_CellID()).unknown_3c=0;
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
 
-    Map.Unknown_0055A550();
-    cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cell=Map.Iterate();
 
     int green_mean=Map_Random_Range_005797a0(20,40);
     int sand_mean=Map_Random_Range_005797a0(20,40);
@@ -76,14 +76,14 @@ void MapGeneratorClass::Generate_Vegetation()
                 Place_Tile_Patch(cell,unknown_tileset_a52c60,(int)Map_Clamped_Gaussian_005798f0(rough_mean,20.0,4.0,80.0),originID,false);
             }
         }
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
 
-    Map.Unknown_0055A550();
-    cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cell=Map.Iterate();
     while(cell) {
         cell->unknown_471d10();
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
 
     int remaining=(int)((SeedData.Width*0.1+0.7)*(SeedData.Vegetation*0.01)*MaxTrees);

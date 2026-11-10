@@ -11,8 +11,8 @@
 #include "shared/cell.hpp"
 #include "shared/fogged_object.hpp"
 #include "shared/map_view.hpp"
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
-// @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 // @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_slot27@FootClass@@UAEHPBVCell@@_N1@Z=004cc650
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
@@ -52,11 +52,11 @@ int UnitClass::unknown_slot27(Cell const *where, bool arg2, bool arg3)
         }
     }
     CoordStruct coord(where->X * 256 + 128, where->Y * 256 + 128, 0);
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     if (Map[coord].unknown_140 & 0x100) {
         coord.Z += unknown_geometry_j;
     }
-    if (!Map.Unknown_00568140(coord)) {
+    if (!Map.Is_Shrouded(coord)) {
         if (action == 1) {
             if ((cell->unknown_ec == 5 || overlay != -1
                     && ((UnknownUnitOverlayTypeView *)OverlayTypes[overlay])->Tiberium && arg2)

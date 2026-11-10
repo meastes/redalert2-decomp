@@ -18,7 +18,7 @@ void ParticleClass::unknown_func_60a230()
     next.Y += unknown_b0.Y;
     next.Z += unknown_b0.Z;
     if (Map[coord].unknown_140 & 0x100) {
-        int height = Map.Unknown_0055A280(coord) + unknown_geometry_j;
+        int height = Map.Get_Height_GL(coord) + unknown_geometry_j;
         if (coord.Z < height && next.Z >= (double)height - unknown_geometry_g * 2.5) {
             unknown_121 = true;
             return;

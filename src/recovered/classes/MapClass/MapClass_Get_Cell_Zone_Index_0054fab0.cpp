@@ -1,6 +1,6 @@
 #include "shared/map.hpp"
 
-int MapClass::Unknown_0054FAB0(Cell const &cell)
+int MapClass::Get_Cell_Zone_Index(Cell const &cell)
 {
     int index = Unknown_0054FAF0(cell);
     int result;

@@ -14,8 +14,8 @@
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Take_Off_004bf0d0@FlyLocomotionClass@@QAEXXZ=004bf0d0
 // @ref ?Unknown_00413310@UnknownTracker839EA0@@QAEXPAVTechnoClass@@@Z=00413310
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
 // @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
@@ -73,10 +73,10 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
         (!unknown_18 && LinkedTo->unknown_slot101(destination,-1,-1,0,true)!=0)) {
         Take_Off_004bf0d0();
         Cell const &pos=Cell(Object_Coord(LinkedTo));
-        Cell nearby=Map.Unknown_005502E0(pos,1,-1,9,false,Point2D(1,1),false,false,false,true,Cell(0,0),0);
+        Cell nearby=Map.Nearby_Location(pos,1,-1,9,false,Point2D(1,1),false,false,false,true,Cell(0,0),0);
         if (nearby!=unknown_geometry_k) {
             CoordStruct next=Fly_Cell_Coord_004bdfb0(nearby);
-            next.Z=Map.Unknown_0055A280(next);
+            next.Z=Map.Get_Height_GL(next);
             if ((reinterpret_cast<UnknownLocoCell *>(&Map[nearby])->Flags&0x100)) next.Z+=unknown_geometry_j;
             Move_To(next);
         } else {
@@ -87,7 +87,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
     }
     if (!unknown_52 && height<300) {
         CoordStruct coord=Object_Coord(LinkedTo);
-        coord.Z=Map.Unknown_0055A280(coord);
+        coord.Z=Map.Get_Height_GL(coord);
         unknown_52=true;
         if (LinkedTo->unknown_slot32()->IsDropship) {
             new AnimClass(AnimTypes[AnimTypeClass::From_Name("DROPLAND")],coord,0,1,0x600,0);
@@ -98,7 +98,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
     }
     if (height<=landing_altitude && LinkedTo->unknown_240<=unknown_fly_pitch_zero_79a738) {
         CoordStruct coord=Object_Coord(LinkedTo);
-        if ((Loco_Cell(coord)->Flags&0x100) && coord.Z>=Map.Unknown_0055A280(coord)+unknown_geometry_j)
+        if ((Loco_Cell(coord)->Flags&0x100) && coord.Z>=Map.Get_Height_GL(coord)+unknown_geometry_j)
             LinkedTo->unknown_79=true;
         LinkedTo->unknown_slot109(landing_altitude);
         unknown_51=false;

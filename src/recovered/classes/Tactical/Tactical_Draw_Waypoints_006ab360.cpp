@@ -62,7 +62,7 @@ void Tactical::Draw_Waypoints(bool inshroud)
             WaypointClass *waypoint = unknown_player_a35db4->WaypointPaths[path]->Get_Waypoint(index);
             Point2D pixel;
             bool onscreen;
-            if (Coord_To_Pixel(waypoint->Coord, pixel) && ((inshroud && Map.Unknown_00568140(waypoint->Coord)) || (!inshroud && !Map.Unknown_00568140(waypoint->Coord)))) {
+            if (Coord_To_Pixel(waypoint->Coord, pixel) && ((inshroud && Map.Is_Shrouded(waypoint->Coord)) || (!inshroud && !Map.Is_Shrouded(waypoint->Coord)))) {
                 onscreen = true;
             } else {
                 onscreen = false;

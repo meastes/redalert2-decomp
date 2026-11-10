@@ -26,9 +26,9 @@ bool MapClass::Unknown_0054E410()
         Cell cell = XY_Cell(x, y);
 
         if (Map[cell].unknown_ec == 2) {
-            cell = Map.Unknown_005502E0(cell, 5, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+            cell = Map.Nearby_Location(cell, 5, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
         } else {
-            cell = Map.Unknown_005502E0(cell, 1, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+            cell = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
         }
 
         if (unknown_154[crateindex].Unknown_004939A0(cell)) {

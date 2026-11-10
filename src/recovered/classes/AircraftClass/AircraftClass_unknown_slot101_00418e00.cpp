@@ -8,7 +8,7 @@
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z=0055a740
-// @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
+// @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 // @ref ?Unknown_006BA990@TeamClass@@QAE_NXZ=006ba990
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?unknown_a40774@@3HA=00a40774
@@ -33,7 +33,7 @@ int AircraftClass::unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClas
         return 7;
     }
     if (unknown_game_mode_a3d298 == 0 && unknown_372 && !unknown_32c) {
-        if (Map.Unknown_00568140(cell->Center_Coord())) {
+        if (Map.Is_Shrouded(cell->Center_Coord())) {
             return 7;
         }
     }

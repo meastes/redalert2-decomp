@@ -1,5 +1,5 @@
 // @ref ?Unknown_0054E580@MapClass@@QAE_NVCell@@H@Z=0054e580
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 // @ref ?unknown_47b7e0@CellClass@@QBE_NXZ=0047b7e0
 // int UnitClass::unknown_slot86 (0x006FCA30, slot 86: the damage path; Take_Damage hypothesis).
 // After FootClass's damage, a destroyed unit plays its death frames, sinks (heavy naval
@@ -163,7 +163,7 @@ drop_crate:
             ((unknown_id_source_a3d290->TruckCrate && !Type->IsTrain) ||
              (unknown_id_source_a3d290->unknown_2229 && Type->IsTrain))) {
             Cell destination;
-            destination = Map.Unknown_005502E0(unknown_slot104(), 1, -1, 0, false,
+            destination = Map.Nearby_Location(unknown_slot104(), 1, -1, 0, false,
                 Point2D(1, 1), 1, 0, 0, 1, Cell(0, 0), 0);
             if (destination != unknown_geometry_k && unknown_flag_a3d2c1)
                 Map.Unknown_0054E580(destination, 20);

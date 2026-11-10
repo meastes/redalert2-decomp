@@ -156,7 +156,7 @@ void FootClass::unknown_slot93(int why)
             return;
         }
 
-        if (unknown_77 && !House->Unknown_004F52B0() && Map.Unknown_00568140(CoordStruct(Coord))) {
+        if (unknown_77 && !House->Unknown_004F52B0() && Map.Is_Shrouded(CoordStruct(Coord))) {
             unknown_slot81();
         }
     }

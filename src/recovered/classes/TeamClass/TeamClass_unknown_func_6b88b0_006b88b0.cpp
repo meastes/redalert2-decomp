@@ -33,7 +33,7 @@ void TeamClass::unknown_func_6b88b0()
             BuildingClass *building = Owner->Buildings[index];
             if (building != 0 && !building->unknown_76 && building->unknown_slot231(0)->WeaponType == 0) {
                 Cell cell = Coord_Cell(building->Center_Coord());
-                int value = Coord_Distance(building->Center_Coord(), unknown_34->Center_Coord()) * (Map.Unknown_0054E3A0(cell, Owner) + 1);
+                int value = Coord_Distance(building->Center_Coord(), unknown_34->Center_Coord()) * (Map.Cell_Threat(cell, Owner) + 1);
                 if (building->Type->unknown_1349) {
                     value /= 2;
                 }

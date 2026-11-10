@@ -75,7 +75,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         coord=Object_Coord(LinkedTo);
         CoordStruct oldcoord=coord;
         coord.Z-=unknown_58;
-        Map.Unknown_0055A280(coord);
+        Map.Get_Height_GL(coord);
         Map[coord];
         if (Map.Unknown_0054AAB0(Cell(coord))) {
             Map.Remove(LinkedTo);

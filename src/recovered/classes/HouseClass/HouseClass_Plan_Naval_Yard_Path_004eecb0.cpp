@@ -21,7 +21,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
 {
     Cell center(BaseCenter);
     int zone = Map.Zone(center, 0, false);
-    Cell start = Map.Unknown_005502E0(center, 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+    Cell start = Map.Nearby_Location(center, 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
     int water_zone = -1;
     if (Map.Unknown_005658C0(water_zone) < 3000) {
         unknown_55f0.Nodes.Delete(node);
@@ -49,7 +49,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
 
     IndexClass<int, Cell> sorted;
     for (int c = 0; c < cells.Count(); c++) {
-        Cell spot = Map.Unknown_005502E0(cells[c], 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+        Cell spot = Map.Nearby_Location(cells[c], 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
         int distance = unknown_path_estimator_8315c8.Unknown_0042AA30(center, spot, 0, false, false, 0);
         sorted.Add_Index(cells.Count() * distance + c, cells[c]);
     }
@@ -67,7 +67,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
     unit->unknown_slot53(&UnknownCoord434820(start.X * 256 + 128, start.Y * 256 + 128, 0), 0);
     while (!found && cells.Count() > 0) {
         target = cells[0];
-        spot = Map.Unknown_005502E0(cells[0], 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+        spot = Map.Nearby_Location(cells[0], 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
         if (spot != unknown_cell_a40f10) {
             path = unknown_path_estimator_8315c8.Find_Path_0042a1d0(start, spot, unit, moves, -1, 0, 0);
         } else {

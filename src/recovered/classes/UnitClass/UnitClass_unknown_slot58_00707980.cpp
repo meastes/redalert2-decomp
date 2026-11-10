@@ -11,7 +11,7 @@
 void UnitClass::unknown_slot58(CoordStruct const &coord)
 {
     UnknownCellClass *cell = Map_Cell(coord);
-    if (Map.Unknown_0055A280(coord) + unknown_geometry_j <= coord.Z && (cell->Flags & 0x100)) {
+    if (Map.Get_Height_GL(coord) + unknown_geometry_j <= coord.Z && (cell->Flags & 0x100)) {
         cell->unknown_128.Occupy.Vehicle = true;
     } else {
         cell->unknown_124.Occupy.Vehicle = true;

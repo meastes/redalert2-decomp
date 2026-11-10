@@ -12,11 +12,11 @@ bool TActionClass::unknown_func_6b1650(HouseClass *house, ObjectClass *object, T
 {
     Map.MapLocalSize = *(Rect const *)&unknown_34;
     Map.Reset_Radar();
-    Map.Unknown_0055A550();
-    CellClass *walk = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *walk = Map.Iterate();
     while (walk != 0) {
         walk->Recalc_Attributes(-1);
-        walk = Map.Unknown_0055A490();
+        walk = Map.Iterate();
     }
     Map.Unknown_0054EBD0();
     Map.Unknown_00563D40();

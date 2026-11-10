@@ -10,7 +10,7 @@
 #include "shared/map_view.hpp"
 bool FlyLocomotionClass::Is_Locked_To_Straight_Flight_004bfa10()
 {
-    if (unknown_1c.Z > Map.Unknown_0055A280(unknown_1c) + 120)
+    if (unknown_1c.Z > Map.Get_Height_GL(unknown_1c) + 120)
         return true;
     if (LinkedTo->unknown_228 != 0 && LinkedTo->unknown_254 != 0)
         return true;

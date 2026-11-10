@@ -106,15 +106,15 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
 // map held for a frame aborted the game here.
 void Tactical::Unknown_006AA5A0(Point2D const &point)
 {
-    if (unknown_d90.X == 0 && unknown_d90.Y == 0) {
-        unknown_d90 = point;
-        unknown_d98 = point;
+    if (RubberBandStart.X == 0 && RubberBandStart.Y == 0) {
+        RubberBandStart = point;
+        RubberBandEnd = point;
     }
 }
 
 void Tactical::Unknown_006AA5E0(Point2D const &point)
 {
-    if (unknown_d90.X != 0 || unknown_d90.Y != 0) {
-        unknown_d98 = point;
+    if (RubberBandStart.X != 0 || RubberBandStart.Y != 0) {
+        RubberBandEnd = point;
     }
 }

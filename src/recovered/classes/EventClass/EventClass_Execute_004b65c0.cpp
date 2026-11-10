@@ -166,7 +166,7 @@ void EventClass::Execute()
         coord.X = LongAt(0x0F);
         coord.Y = LongAt(0x13);
         coord.Z = 0;
-        coord.Z = Map.Unknown_0055A280(coord);
+        coord.Z = Map.Get_Height_GL(coord);
         if (Map[coord].unknown_140 & 0x100) {
             coord.Z += unknown_geometry_j;
         }

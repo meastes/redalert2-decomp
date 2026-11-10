@@ -43,7 +43,7 @@ AbstractClass *AircraftClass::unknown_4198b0()
                 }
                 if (best_distance == -1 || distance < best_distance) {
                     Cell cell = building->unknown_slot104();
-                    cell = Map.Unknown_005502E0(cell, 0, Map.Zone(cell, 0, false), 0, false, Point2D(3, 3), 0, 0, 0, 1, Cell(0, 0), 0);
+                    cell = Map.Nearby_Location(cell, 0, Map.Zone(cell, 0, false), 0, false, Point2D(3, 3), 0, 0, 0, 1, Cell(0, 0), 0);
                     if (cell != unknown_geometry_k) {
                         best_distance = distance;
                         best_cell = cell;
@@ -55,7 +55,7 @@ AbstractClass *AircraftClass::unknown_4198b0()
 
     if (best_distance != -1) {
         if (best_distance < 256) {
-            Cell cell = Map.Unknown_005502E0(unknown_slot104(), 0, Map.Zone(unknown_slot104(), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            Cell cell = Map.Nearby_Location(unknown_slot104(), 0, Map.Zone(unknown_slot104(), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             return &Map[cell];
         }
         return &Map[best_cell];
@@ -67,7 +67,7 @@ AbstractClass *AircraftClass::unknown_4198b0()
             int distance = Coord_Distance(Center_Coord(), techno->Center_Coord());
             if (best_distance == -1 || distance < best_distance) {
                 Cell cell = techno->unknown_slot104();
-                cell = Map.Unknown_005502E0(cell, 0, Map.Zone(cell, 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+                cell = Map.Nearby_Location(cell, 0, Map.Zone(cell, 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
                 if (cell != unknown_geometry_k) {
                     best_distance = distance;
                     best_cell = cell;

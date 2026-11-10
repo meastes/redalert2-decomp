@@ -18,7 +18,7 @@ int __fastcall Bullet_Height_Pixel(int height);
 // @ref _unknown_geometry_j=00850338
 void BulletClass::unknown_slot67(Point2D const &point, Rect const &clip)
 {
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Unknown_005683C0(CoordStruct(Coord))) return;
+    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord))) return;
     if (Type->Inviso || SpawnNextAnim) return;
     if (Type->unknown_206) {
         Matrix3D matrix;
@@ -32,7 +32,7 @@ void BulletClass::unknown_slot67(Point2D const &point, Rect const &clip)
     if (!image) return;
     int shape = unknown_slot116();
     int height_agl = unknown_slot108();
-    int ground_height = Map.Unknown_0055A280(CoordStruct(Coord));
+    int ground_height = Map.Get_Height_GL(CoordStruct(Coord));
     if (!unknown_79 && (Map[CoordStruct(Coord)].unknown_140 & 0x100) && height_agl >= unknown_geometry_j) {
         height_agl -= unknown_geometry_j;
         ground_height += unknown_geometry_j;

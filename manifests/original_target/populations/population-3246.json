@@ -4,8 +4,8 @@
     "id": "population-3246",
     "inventory_sha256": "e40c783bc09f6d5eba5f36cb6cd5a013c6a087c8b5eaad809918255a60a7b022",
     "gaps_sha256": "5fa89f0401f7477fa5984aaefcd14a1315e6a9c0ecade75d95bf4beadba3404d",
-    "historical_population_sha256": "c5f0d5e4a92f65b0c264430adf6353d966f04ecdbc41f605c8eaac09183e8e76",
-    "historical_acceptance_sha256": "91ba0074043b525a50327e7f9225c476272dc52529a1ce9076005414045755bc"
+    "historical_population_sha256": "131d3dae37a0b0442cde515c4948b12c4e05a7d73cf29782c396d8ace22156dc",
+    "historical_acceptance_sha256": "ea2014ff53b11096ea93eaf23e23ffd461d9b7db437abf0db3b873e872e535b4"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -14535,29 +14535,29 @@
     "?Unknown_0054AF70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
     "?Unknown_0054B2E0@MapClass@@QAEHXZ": 5550816,
     "?Unknown_0054E370@MapClass@@QAEHABVCell@@@Z": 5563248,
-    "?Unknown_0054E3A0@MapClass@@QAEHABVCell@@PAVHouseClass@@@Z": 5563296,
+    "?Cell_Threat@MapClass@@QAEHABVCell@@PAVHouseClass@@@Z": 5563296,
     "?Unknown_0054E410@MapClass@@QAE_NXZ": 5563408,
     "?Unknown_0054E580@MapClass@@QAE_NVCell@@H@Z": 5563776,
     "?Unknown_0054EBD0@MapClass@@QAEHXZ": 5565392,
     "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z": 5568448,
     "?Unknown_0054FA60@MapClass@@QAEHABVCell@@@Z": 5569120,
-    "?Unknown_0054FAB0@MapClass@@QAEHABVCell@@@Z": 5569200,
+    "?Get_Cell_Zone_Index@MapClass@@QAEHABVCell@@@Z": 5569200,
     "?Unknown_0054FAF0@MapClass@@QAEHABVCell@@@Z": 5569264,
-    "?Unknown_0054FB20@MapClass@@QAEXABVCell@@@Z": 5569312,
+    "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z": 5569312,
     "?Unknown_0054FDA0@MapClass@@QAEXXZ": 5569952,
-    "?Unknown_005500D0@MapClass@@QAEHABVCell@@HH@Z": 5570768,
+    "?Zone_Connection_Index@MapClass@@QAEHABVCell@@HH@Z": 5570768,
     "?Unknown_005501A0@MapClass@@QAE_NABVCell@@@Z": 5570976,
     "?Unknown_00550230@MapClass@@QAE_NABVCell@@@Z": 5571120,
-    "?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z": 5571296,
+    "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z": 5571296,
     "?Unknown_00550CF0@MapClass@@QAE_NABVCell@@HHHHHH_N1@Z": 5573872,
     "?Unknown_00559F10@MapClass@@QAEXXZ": 5611280,
     "?Unknown_00559FD0@MapClass@@QAEXXZ": 5611472,
     "?Unknown_0055A070@MapClass@@QAEXXZ": 5611632,
     "?Unknown_0055A120@MapClass@@QAEXXZ": 5611808,
     "?Unknown_0055A1F0@MapClass@@QAEXXZ": 5612016,
-    "?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
-    "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ": 5612688,
-    "?Unknown_0055A550@MapClass@@QAEXXZ": 5612880,
+    "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
+    "?Iterate@MapClass@@QAEPAVCellClass@@XZ": 5612688,
+    "?Reset_Iterator@MapClass@@QAEXXZ": 5612880,
     "?Unknown_0055A590@MapClass@@QAE_NABVRect@@_N@Z": 5612944,
     "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z": 5613152,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
@@ -14587,9 +14587,9 @@
     "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z": 5661504,
     "?Unknown_00566C30@MapClass@@QAEXPAUZoneConnectionClass@@@Z": 5663792,
     "?Unknown_00566F90@MapClass@@QAEXPAUZoneConnectionClass@@@Z": 5664656,
-    "?Unknown_005680A0@MapClass@@QAE_NABVCell@@H@Z": 5669024,
-    "?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
-    "?Unknown_005683C0@MapClass@@QAE_NABUCoordStruct@@@Z": 5669824,
+    "?Is_Something_Nearby@MapClass@@QAE_NABVCell@@H@Z": 5669024,
+    "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
+    "?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z": 5669824,
     "?Unknown_00568520@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z": 5670176,
     "?Unknown_005685F0@MapClass@@QAEXXZ": 5670384,
     "?Unknown_00568650@MapClass@@QAEXXZ": 5670480,
@@ -14600,7 +14600,7 @@
     "?Unknown_00569090@MapClass@@QAE_NPAVCell@@@Z": 5673104,
     "?Unknown_00569320@MapClass@@QAE_NABVCell@@@Z": 5673760,
     "?Unknown_00569FB0@MapClass@@QAE?AUCoordStruct@@ABU2@0PAVHouseClass@@@Z": 5676976,
-    "?Unknown_0056A870@MapClass@@QAEXH@Z": 5679216,
+    "?Lower_Max_Level@MapClass@@QAEXH@Z": 5679216,
     "?Unknown_0056A8A0@MapClass@@QAEHXZ": 5679264,
     "?Unknown_0056A900@@YIHHH@Z": 5679360,
     "?Unknown_0057A0D0@MapGeneratorClass@@QAEXHH@Z": 5742800,
@@ -24406,10 +24406,10 @@
     "_?timer@?1??Draw_Cursor@ScoreClass@@QAEXHH@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A": 11235152,
     "_?path@?1??Unknown_00428370@UnknownPathEstimator@@QAEPAUUnknownPathType@@PAUUnknownPathNode@@PAH@Z@4U3@A": 8701968,
     "??_7?$DynamicVectorClass@G@@6B@": 7980372,
-    "?Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z": 5660336,
+    "?Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z": 5660336,
     "?Add@?$DynamicVectorClass@I@@QAE_NABI@Z": 4370672,
-    "?Unknown_00564F70@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z": 5656432,
-    "?Unknown_00565610@MapClass@@QAE?AVCell@@ABV2@HI@Z": 5658128,
+    "?Get_Bridge_Zone_Connection_Cell@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z": 5656432,
+    "?Find_Bridge_End_Cell_For_Subzone@MapClass@@QAE?AVCell@@ABV2@HI@Z": 5658128,
     "?Build_Neighbor_Region_Mask_005728d0@MapRegionClass@@QAEIABVCell@@AA_NHM@Z": 5712080,
     "?Unknown_0054A720@MapClass@@QAEXABUCoordStruct@@H@Z": 5547808,
     "?Unknown_0055A300@MapClass@@QAEXXZ": 5612288,
@@ -24593,7 +24593,7 @@
     "?Connect_Regions_With_Bridge_00570bc0@MapRegionClass@@QAE_NPAV1@0@Z": 5704640,
     "?Connect_Regions_With_Ramp_00572270@MapRegionClass@@QAE_NABVCell@@HM@Z": 5710448,
     "?unknown_474830@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
-    "?Unknown_0054FC60@MapClass@@QAEXABVCell@@@Z": 5569632,
+    "?Update_Cell_Zone_Constructively@MapClass@@QAEXABVCell@@@Z": 5569632,
     "?unknown_slot54@FootClass@@UAEX_N@Z": 5014048,
     "?unknown_005753f0@MapRegionClass@@QAE_NABVCell@@0H@Z": 5723120,
     "?unknown_00574e50@MapRegionClass@@QAE_NABVCell@@0H@Z": 5721680,
@@ -24641,7 +24641,7 @@
     "?Unknown_00556B30@@YI_NHHPBVCellClass@@@Z": 5598000,
     "?Cell_To_Local_Sector_Index@MapClass@@QAEHABVCell@@@Z": 5614960,
     "?Unknown_00567380@MapClass@@QAEXXZ": 5665664,
-    "?Unknown_00568280@MapClass@@QAE_NABUCoordStruct@@@Z": 5669504,
+    "?Is_Under_Fog@MapClass@@QAE_NABUCoordStruct@@@Z": 5669504,
     "?Clip_To_Map@MapClass@@QAE?AVCell@@ABV2@@Z": 5672288,
     "?Render_Tiles@Tactical@@QAEXABVRect@@0_N@Z": 6960752,
     "?Draw_Tiles@Tactical@@QAEXABVRect@@0@Z": 6978464,
@@ -26333,7 +26333,7 @@
         {
           "offset": 13,
           "kind": 20,
-          "symbol": "?Unknown_0055A550@MapClass@@QAEXXZ",
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
           "target": 5612880,
           "addend": 0,
           "resolved": 4294829727
@@ -26349,7 +26349,7 @@
         {
           "offset": 23,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4294829525
@@ -26373,7 +26373,7 @@
         {
           "offset": 46,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4294829502
@@ -26413,7 +26413,7 @@
         {
           "offset": 99,
           "kind": 20,
-          "symbol": "?Unknown_0055A550@MapClass@@QAEXXZ",
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
           "target": 5612880,
           "addend": 0,
           "resolved": 4294829641
@@ -26429,7 +26429,7 @@
         {
           "offset": 109,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4294829439
@@ -26469,7 +26469,7 @@
         {
           "offset": 181,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4294829367
@@ -26629,7 +26629,7 @@
         {
           "offset": 453,
           "kind": 20,
-          "symbol": "?Unknown_0055A550@MapClass@@QAEXXZ",
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
           "target": 5612880,
           "addend": 0,
           "resolved": 4294829287
@@ -26645,7 +26645,7 @@
         {
           "offset": 463,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4294829085
@@ -26693,13 +26693,13 @@
         {
           "offset": 529,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4294829019
         }
       ],
-      "source_sha256": "48b2a2d93b5b0bbefa3cbab618c39e83a52729d71b043b9ada4c2642f5616e6a",
+      "source_sha256": "cb35fbdb247107c41a96317b9d153918ae77b2e89a24224554bd2ebcd1a48cea",
       "source": "src/recovered/classes/MapGeneratorClass/MapGeneratorClass_Seed_Land_0057bea0.cpp",
       "population": "population-3246",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

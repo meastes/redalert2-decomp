@@ -25,17 +25,17 @@ int MapClass::Unknown_0054B2E0()
         }
     }
 
-    Unknown_0055A550();
+    Reset_Iterator();
 
-    CellClass *iter = Unknown_0055A490();
+    CellClass *iter = Iterate();
     while (iter) {
         iter->IsHorizontalLine = false; iter->IsVerticalLine = false;
-        iter = Unknown_0055A490();
+        iter = Iterate();
     }
 
-    Unknown_0055A550();
+    Reset_Iterator();
 
-    iter = Unknown_0055A490();
+    iter = Iterate();
     while (iter) {
 
         iter->unknown_30 = 0;
@@ -64,7 +64,7 @@ int MapClass::Unknown_0054B2E0()
             }
         }
 
-        iter = Unknown_0055A490();
+        iter = Iterate();
     }
     return value;
 }

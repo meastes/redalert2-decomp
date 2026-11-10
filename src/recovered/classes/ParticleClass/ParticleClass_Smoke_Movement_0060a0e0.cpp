@@ -16,14 +16,14 @@ void ParticleClass::unknown_func_60a0e0()
     if (frame & 1) {
         next.X = (int)(next.X + GasVelocity.X);
         next.Y = (int)(next.Y + GasVelocity.Y);
-        int height = Map.Unknown_0055A280(next);
+        int height = Map.Get_Height_GL(next);
         if (next.Z > height + 5) {
             next.Z -= MIN(2, next.Z - height - 5);
         }
         next.X += unknown_b0.X;
         next.Y += unknown_b0.Y;
         next.Z += unknown_b0.Z;
-        if (next.Z < Map.Unknown_0055A280(next) + 5) next.Z = Map.Unknown_0055A280(next) + 5;
+        if (next.Z < Map.Get_Height_GL(next) + 5) next.Z = Map.Get_Height_GL(next) + 5;
     }
     unknown_slot103(next);
 }

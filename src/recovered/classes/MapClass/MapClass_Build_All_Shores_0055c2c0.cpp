@@ -33,33 +33,33 @@ bool MapClass::Build_All_Shores(int region_id, bool set_region)
         Get_Cell_Data_0056dbc0(i).unknown_40 = -1;
     }
 
-    Map.Unknown_0055A550();
-    CellClass *cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cellptr = Map.Iterate();
     bool expanded = true;
     while (cellptr != 0 && expanded) {
         expanded = Expand_Water(cellptr, region_id, set_region);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
-    Map.Unknown_0055A550();
-    cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         Unknown_0055C520(cellptr, region_id, set_region);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
-    Map.Unknown_0055A550();
-    cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         expanded = Place_Shore(cellptr, 1, region_id, set_region);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
-    Map.Unknown_0055A550();
-    cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         expanded = Place_Shore(cellptr, 2, region_id, set_region);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
     ObjectClass *obj = Map.unknown_11a0;

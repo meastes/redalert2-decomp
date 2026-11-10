@@ -35,8 +35,8 @@ void MapGeneratorClass::unknown_0057c4f0()
     do {selected=(unsigned int)((unsigned int)unknown_map_random_a705c0()*(1.0/4294967295.0)*span+1.0);} while(selected>range);
     Rect area=Map.MapLocalSize;
     Partition_Rect(&regions,SeedData.NumPlayers+selected,area);
-    Map.Unknown_0055A550();
-    for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
         Cell position=cell->MapCoords;
         unknown_map_cells_a70a24[position.Y*unknown_map_cell_side_84e804+position.X].unknown_3c=0;
     }

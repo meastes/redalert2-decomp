@@ -48,7 +48,7 @@ void AnimClass::AI()
             int land=cell.unknown_ec;
             bool water=land==2;
             int z=Position_Coord_004f3f40().Z;
-            int height=Map.Unknown_0055A280(Position_Coord_004f3f40())+unknown_geometry_j;
+            int height=Map.Get_Height_GL(Position_Coord_004f3f40())+unknown_geometry_j;
             bool bridge=z>=height;
             if (water && !bridge) {
                 if (Class->IsMeteor) {

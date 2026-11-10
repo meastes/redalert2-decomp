@@ -13,9 +13,9 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
     if(!unknown_1218->Get_Rect().Is_Point_Within(point)) return;
     Cell cell=Radar_Pixel_To_Cell(point);
     CoordStruct coord(cell.X*256+128,cell.Y*256+128,0);
-    coord.Z=Map.Unknown_0055A280(coord);
-    bool shadow=unknown_b263d8 && Map.Unknown_00568140(coord);
-    bool dim=unknown_b263d8 && Map.Unknown_00568280(coord);
+    coord.Z=Map.Get_Height_GL(coord);
+    bool shadow=unknown_b263d8 && Map.Is_Shrouded(coord);
+    bool dim=unknown_b263d8 && Map.Is_Under_Fog(coord);
     TechnoClass *tech=0;
     DynamicVectorClass<HashObject<RadarTrackingStruct,TechnoClass *> > &bucket=unknown_1254->Buckets[Unknown_00631C40(point)&255];
     int count=bucket.Count();
@@ -60,9 +60,9 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
-// @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
-// @ref ?Unknown_00568280@MapClass@@QAE_NABUCoordStruct@@@Z=00568280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
+// @ref ?Is_Under_Fog@MapClass@@QAE_NABUCoordStruct@@@Z=00568280
 // @ref ?unknown_b263d8@@3HA=00b263d8
 // @ref ?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z=00663d30
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4

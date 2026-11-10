@@ -9,8 +9,8 @@
 // @ref ?unknown_palette_837e10@@3VPaletteClass@@A=00837e10
 // @ref ?unknown_surface_839950@@3PAVSurface@@A=00839950
 // @ref ?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z=004790f0
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 // @ref ?unknown_dummy_cell_a6f9f8@@3VCellClass@@A=00a6f9f8
 
 void IsometricTileTypeClass::Init_Drawers()
@@ -28,11 +28,11 @@ void IsometricTileTypeClass::Init_Drawers()
     unknown_dummy_cell_a6f9f8.unknown_34 = 0;
     unknown_dummy_cell_a6f9f8.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
 
-    Map.Unknown_0055A550();
-    CellClass *cell = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell = Map.Iterate();
     while (cell != 0) {
         cell->unknown_34 = 0;
-        cell = Map.Unknown_0055A490();
+        cell = Map.Iterate();
     }
 }
 // @ref ??_E?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z=0040b230

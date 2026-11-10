@@ -27,7 +27,7 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
     }
     CoordStruct coord = to;
     if (to != unknown_geometry_l) {
-        bool bridge = (Map[coord].unknown_140 & 0x100) && Object_Coord(LinkedTo).Z > Map.Unknown_0055A280(coord) + unknown_geometry_g * 3;
+        bool bridge = (Map[coord].unknown_140 & 0x100) && Object_Coord(LinkedTo).Z > Map.Get_Height_GL(coord) + unknown_geometry_g * 3;
         if (LinkedTo->Kind_Of() == 15) {
             bool target_here = false;
             if (LinkedTo->Get_Mission() == 8 || LinkedTo->Get_Mission() == 9 || LinkedTo->Get_Mission() == 7 || LinkedTo->Get_Mission() == 25) {
@@ -63,7 +63,7 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
                     Cell target_cell = Coord_Cell(target->unknown_slot19(0));
                     CellClass *cell = &Map[LinkedTo->unknown_slot19(0)];
                     bool alt = LinkedTo->unknown_slot46(0);
-                    Cell found = Map.Unknown_005502E0(target_cell, LinkedTo->unknown_slot32()->SpeedType,
+                    Cell found = Map.Nearby_Location(target_cell, LinkedTo->unknown_slot32()->SpeedType,
                         Map.Zone(cell->MapCoords, zone, alt), zone, Map[target_cell].IsUnderBridge,
                         Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
                     if (found != unknown_geometry_k) {
@@ -78,14 +78,14 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
             Cell cell = Coord_Cell(to);
             if (cell != unknown_geometry_k && LinkedTo->unknown_slot101(&Map[cell], -1, -1, 0, true) != 0) {
                 int index = Map.Zone(cell, zone, bridge);
-                cell = Map.Unknown_005502E0(cell, LinkedTo->unknown_slot32()->SpeedType, index, zone, bridge,
+                cell = Map.Nearby_Location(cell, LinkedTo->unknown_slot32()->SpeedType, index, zone, bridge,
                     Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             }
             if (cell != unknown_geometry_k) {
                 LinkedTo->unknown_slot59(unknown_28);
                 Cell center = Coord_Cell(Map[cell].Center_Coord());
                 unknown_28 = CoordStruct(center.X * 256 + 128, center.Y * 256 + 128, 0);
-                unknown_28.Z = Map.Unknown_0055A280(unknown_28);
+                unknown_28.Z = Map.Get_Height_GL(unknown_28);
                 LinkedTo->unknown_slot58(unknown_28);
             }
         }

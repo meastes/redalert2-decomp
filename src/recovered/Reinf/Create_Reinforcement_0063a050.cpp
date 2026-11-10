@@ -47,7 +47,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
         }
         eface = (FacingType)(source << 1);
     } else {
-        cell = Map.Unknown_005502E0(cell, object->unknown_slot32()->SpeedType, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+        cell = Map.Nearby_Location(cell, object->unknown_slot32()->SpeedType, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
     }
 
     Cell newcell = cell;

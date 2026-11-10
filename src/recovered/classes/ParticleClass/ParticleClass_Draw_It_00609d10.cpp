@@ -33,7 +33,7 @@ void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
         return;
     }
     if (unknown_a40b2c != 0 || Class->BehavesLike != 1 && Class->BehavesLike != 3) {
-        if (!Debug_Map && unknown_b263d8 != 0 && unknown_id_source_a3d290->Special().FogOfWar && Map.Unknown_005683C0(Position_Coord_004f3f40())) {
+        if (!Debug_Map && unknown_b263d8 != 0 && unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(Position_Coord_004f3f40())) {
             return;
         }
 

@@ -11,16 +11,16 @@ extern int unknown_tileset_a6e0e8;
 // @ref ?unknown_471d10@CellClass@@=00471d10
 void MapGeneratorClass::Generate_Arctic_Vegetation()
 {
-    Map.Unknown_0055A550();
-    CellClass *cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell=Map.Iterate();
     while(cell) {
         Cell position=cell->Fetch_CellID();
         unsigned index=(unsigned)(int)position.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)position.X;
         unknown_map_cells_a70a24[index].unknown_3c=0;
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
-    Map.Unknown_0055A550();
-    cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cell=Map.Iterate();
     while(cell) {
         Cell position=cell->Fetch_CellID();
         unsigned index=(unsigned)(int)position.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)position.X;
@@ -32,13 +32,13 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
                 Place_Tile_Patch(cell,unknown_tileset_a6e0e8,(int)Map_Clamped_Gaussian_005798f0(20.0,15.0,4.0,60.0),originID,false);
             }
         }
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
-    Map.Unknown_0055A550();
-    cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cell=Map.Iterate();
     while(cell) {
         cell->unknown_471d10();
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
     int remaining=(int)((SeedData.Width*0.1+0.7)*(SeedData.Vegetation*0.01)*MaxTrees);
     for(int attempts=0;remaining>0 && attempts<100;++attempts) {
@@ -51,5 +51,5 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
 // @ref __real@8@4002f000000000000000=007a5398
 // @ref __real@8@4003c800000000000000=007a5ff8
 // @ref __real@8@40048c00000000000000=007a5f50
-// @ref ?Unknown_0055A550@MapClass@@=0055a550
-// @ref ?Unknown_0055A490@MapClass@@=0055a490
+// @ref ?Reset_Iterator@MapClass@@=0055a550
+// @ref ?Iterate@MapClass@@=0055a490

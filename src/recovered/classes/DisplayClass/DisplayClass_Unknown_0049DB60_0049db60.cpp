@@ -9,8 +9,8 @@
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?Unknown_00663240@UnknownIDSource@@QBE_NH@Z=00663240
 // @ref ?Get_Waypoint_Location@UnknownIDSource@@QBE?AVCell@@H@Z=00663180
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 
 int DisplayClass::Unknown_0049DB60(void *buffer, int arg2)
 {
@@ -38,9 +38,9 @@ int DisplayClass::Unknown_0049DB60(void *buffer, int arg2)
     int *cell_count = (int *)out;
     out += 4;
     int cells = 0;
-    Unknown_0055A550();
+    Reset_Iterator();
     CellClass *cell;
-    while ((cell = Unknown_0055A490()) != 0) {
+    while ((cell = Iterate()) != 0) {
         *(Cell *)out = cell->MapCoords;
         out += 4;
         *(int *)out = cell->IsoTileIndex;

@@ -14,7 +14,7 @@ bool MechLocomotionClass::unknown_592f70(CoordStruct const &coord)
 {
     CoordStruct to = coord;
     if (to != unknown_geometry_l) {
-        to.Z = Map.Unknown_0055A280(to);
+        to.Z = Map.Get_Height_GL(to);
         if (Loco_Cell(coord)->Flags & 0x100) {
             if (Object_Coord(LinkedTo).Z > to.Z + unknown_geometry_g * 2 + unknown_geometry_g) {
                 to.Z += unknown_geometry_j;

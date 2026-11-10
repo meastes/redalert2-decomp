@@ -2,7 +2,7 @@
 #include "shared/aircraft.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Unknown_0055A7F0@MapClass@@QAE_NABUCoordStruct@@@Z=0055a7f0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_slot53@FootClass@@UAE_NPBUCoordStruct@@H@Z=004c5e40
 // @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Frame@@3HA=00a40d2c
@@ -11,10 +11,10 @@ bool AircraftClass::unknown_slot53(CoordStruct const *coord, int dir)
     CoordStruct placed = *coord;
     if (!Type->MissileSpawn) {
         if (!unknown_32c && Map.Unknown_0055A7F0(*coord)) {
-            placed.Z = Map.Unknown_0055A280(*coord);
+            placed.Z = Map.Get_Height_GL(*coord);
         } else {
             AircraftTypeClass *type = Type;
-            placed.Z = Map.Unknown_0055A280(*coord) + type->Flight_Level();
+            placed.Z = Map.Get_Height_GL(*coord) + type->Flight_Level();
         }
     }
     if (FootClass::unknown_slot53(&placed, dir)) {

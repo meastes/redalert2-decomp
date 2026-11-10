@@ -109,7 +109,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                             unknown_4a47c0(cell);
                         } else if (ok == 6) {
                             CellClass *cellptr = &Map[cell];
-                            TechnoClass *blockage = (TechnoClass *)cellptr->unknown_471660(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Unknown_0055A280(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
+                            TechnoClass *blockage = (TechnoClass *)cellptr->unknown_471660(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
                             if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->unknown_slot32()->IsTrain) {
                                 if (LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()) {
                                     if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
@@ -168,7 +168,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 TechnoClass *blockage;
                 {
                     CoordStruct center(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-                    blockage = (TechnoClass *)cellptr->unknown_471660(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Unknown_0055A280(center) + 2 * unknown_geometry_g, 0);
+                    blockage = (TechnoClass *)cellptr->unknown_471660(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(center) + 2 * unknown_geometry_g, 0);
                 }
                 if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->unknown_slot32()->IsTrain) {
                     if (LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()) {
@@ -344,8 +344,8 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         double speed = Ground[ground].Cost[ttype->SpeedType];
         if (speed > 1.0) speed = 1.0;
 
-        int destheight = Map.Unknown_0055A280(Map[destcell].unknown_475d60());
-        int unitheight = Map.Unknown_0055A280(Object_Coord(LinkedTo));
+        int destheight = Map.Get_Height_GL(Map[destcell].unknown_475d60());
+        int unitheight = Map.Get_Height_GL(Object_Coord(LinkedTo));
         if (destheight > unitheight && LinkedTo->Kind_Of() == 1) {
             if (LinkedTo->unknown_slot32()->SpeedType == 1) {
                 speed *= Rules->TrackedUphill;

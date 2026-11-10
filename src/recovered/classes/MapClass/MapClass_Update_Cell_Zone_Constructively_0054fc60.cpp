@@ -1,4 +1,4 @@
-// void MapClass::Unknown_0054FC60(Cell const &cell) (0x0054FC60)
+// void MapClass::Update_Cell_Zone_Constructively(Cell const &cell) (0x0054FC60)
 // Updates one cell's zone after it became passable (TibSun
 // Update_Cell_Zone_Constructively): a cell next to a neighbour of the same
 // passability with at most three zone changes around it joins that
@@ -6,9 +6,9 @@
 #include "shared/map.hpp"
 #include "shared/map_view.hpp"
 
-void MapClass::Unknown_0054FC60(Cell const &cell)
+void MapClass::Update_Cell_Zone_Constructively(Cell const &cell)
 {
-    UnknownMapElem4 *cell_data = &unknown_64[Unknown_0054FAB0(cell)];
+    UnknownMapElem4 *cell_data = &unknown_64[Get_Cell_Zone_Index(cell)];
     int passability = cell_data->unknown_00;
 
     int stride = Map.MapSize.Width + Map.MapSize.Height + 1;

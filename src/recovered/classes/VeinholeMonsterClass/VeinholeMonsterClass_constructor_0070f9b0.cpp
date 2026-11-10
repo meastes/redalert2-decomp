@@ -75,7 +75,7 @@ VeinholeMonsterClass::VeinholeMonsterClass(::Cell const *cell) :
     }
     unknown_b0 = new unsigned char[unknown_cells_428ac0()];
     CoordStruct coord = CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0);
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     ObjectClass::unknown_slot53(&coord, 0);
     Strength = Rules->unknown_cb4->MaxStrength;
     unknown_object_index_abff58.Add_Index(Fetch_ID(), this);

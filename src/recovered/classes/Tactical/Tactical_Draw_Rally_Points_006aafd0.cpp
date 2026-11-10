@@ -32,7 +32,7 @@ void Tactical::Draw_Rally_Points(bool inshroud)
  Coord_To_Pixel(center, start);
  start += Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
                 CoordStruct rally = building->unknown_1b0->Center_Coord();
-                rally.Z = Map.Unknown_0055A280(rally);
+                rally.Z = Map.Get_Height_GL(rally);
                 if (Map[rally].unknown_140 & 0x100) {
                     rally.Z += unknown_geometry_j;
                 }

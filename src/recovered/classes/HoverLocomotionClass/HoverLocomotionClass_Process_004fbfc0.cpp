@@ -26,7 +26,7 @@
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
 // @ref ?unknown_func_5d4920@ObjectClass@@QAEXH@Z=005d4920
 // @ref ??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z=00548000
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_47bb30@CellClass@@QAEXXZ=0047bb30
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
@@ -206,7 +206,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
         if (!unknown_68) {
             Map[Object_Coord(LinkedTo)].unknown_47bb30();
             if (Map[Object_Coord(LinkedTo)].Land_Type() == 2) {
-                if (Object_Coord(LinkedTo).Z < Map.Unknown_0055A280(Object_Coord(LinkedTo)) + unknown_geometry_g) {
+                if (Object_Coord(LinkedTo).Z < Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_g) {
                     LinkedTo->unknown_slot57();
                 }
             }

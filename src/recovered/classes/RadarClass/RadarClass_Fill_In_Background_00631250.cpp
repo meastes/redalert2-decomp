@@ -12,8 +12,8 @@ void RadarClass::Fill_In_Background(Rect const &cell_rect, Rect const &update_re
 {
     RGBClass low(0, 0, 0);
     RGBClass high(0, 0, 0);
-    Unknown_0055A550();
-    CellClass *iter = Map.Unknown_0055A490();
+    Reset_Iterator();
+    CellClass *iter = Map.Iterate();
     int a = 2 * Map.MapLocalSize.X - Map.MapSize.Width + 1;
     while (iter != 0) {
         int x = iter->MapCoords.X;
@@ -36,6 +36,6 @@ void RadarClass::Fill_In_Background(Rect const &cell_rect, Rect const &update_re
                 }
             }
         }
-        iter = Map.Unknown_0055A490();
+        iter = Map.Iterate();
     }
 }

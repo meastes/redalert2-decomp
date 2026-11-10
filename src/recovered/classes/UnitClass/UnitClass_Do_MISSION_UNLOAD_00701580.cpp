@@ -36,7 +36,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 Cell current=unknown_slot104();
                 CellClass &current_cell=Map[current];
                 if (!unknown_494 && current_cell.unknown_ec==2) {
-                    Cell destination=Map.Unknown_005502E0(unknown_slot104(),2,-1,0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
+                    Cell destination=Map.Nearby_Location(unknown_slot104(),2,-1,0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
                     Assign_Destination(&Map[destination],true);
                     return 10;
                 }

@@ -19,13 +19,13 @@
 // @ref ?Clear@?$VectorClass@G@@UAEXXZ=0042b260
 // @ref ?ID@?$VectorClass@G@@UAEHABG@Z=0042b290
 // @ref ?ID@?$VectorClass@G@@UAEHPBG@Z=0042b2d0
-// @ref ?Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z=00565eb0
+// @ref ?Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z=00565eb0
 
 // The cell's element of Map's +0x6C array: its subzone in each path estimator layer (a MapClass
 // member inline here changes the scheduling of units that only see shared/map_view.hpp).
 inline unsigned short *Cell_Subzones(Cell const &cell)
 {
-    return (unsigned short *)(Map.unknown_6c + Map.Unknown_0054FAB0(cell) * 10);
+    return (unsigned short *)(Map.unknown_6c + Map.Get_Cell_Zone_Index(cell) * 10);
 }
 
 void UnknownPathEstimator::Unknown_0042A590(FootClass *foot)
@@ -35,7 +35,7 @@ void UnknownPathEstimator::Unknown_0042A590(FootClass *foot)
         unsigned short subzone = subzones[layer];
         DynamicVectorClass<unsigned short> list;
         list.Clear();
-        if (Map.Unknown_00565EB0(&Map[unknown_70], layer, list, (ObjectClass const *)foot)) {
+        if (Map.Build_Reachable_Subzones(&Map[unknown_70], layer, list, (ObjectClass const *)foot)) {
             Unknown_0042A840(Cell_Subzones(unknown_70)[layer], layer);
             continue;
         }

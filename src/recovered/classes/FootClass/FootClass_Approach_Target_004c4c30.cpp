@@ -165,7 +165,7 @@ void FootClass::unknown_slot304()
             DirType angle((Dir256)(direction+unknown_approach_angles_7d8178[index]));
             trial_position=CoordStruct(Approach_Move_Coord_004c4c30(target_position,angle.Snap_To_256(),floating_radius).As_Cell(),0);
             if (require_deploy_cell && !Map[trial_position].unknown_47cdd0()) continue;
-            trial_position.Z=Map.Unknown_0055A280(trial_position);
+            trial_position.Z=Map.Get_Height_GL(trial_position);
             if (Map[trial_position].unknown_140&0x100) trial_position.Z+=unknown_geometry_j;
             if (!unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)) continue;
             trial_cell=trial_position.As_Cell();
@@ -216,7 +216,7 @@ void FootClass::unknown_slot304()
     } else if (unknown_slot32()->HunterSeeker || (Kind_Of()==15 && ((InfantryClass *)this)->Type->VehicleThief)) {
         Assign_Destination(unknown_228,true);
     } else {
-        trial_cell=Map.Unknown_005502E0(trial_cell,unknown_slot32()->SpeedType,
+        trial_cell=Map.Nearby_Location(trial_cell,unknown_slot32()->SpeedType,
             Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,unknown_slot46(0)),movement_zone,
             (Map[trial_cell].unknown_140&0x100)!=0,Point2D(1,1),false,true,false,false,Cell(0,0),0);
         unknown_slot220(0);

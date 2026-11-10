@@ -72,7 +72,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
             } else if (zone == 3) {
                 zone = 5;
             }
-            Cell found = Map.Unknown_005502E0(Coord_Cell(coord), 1, Map.Zone(cell->MapCoords, zone, alt), zone,
+            Cell found = Map.Nearby_Location(Coord_Cell(coord), 1, Map.Zone(cell->MapCoords, zone, alt), zone,
                 Map[Coord_Cell(coord)].IsUnderBridge, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             CoordStruct offset = coord - Map[coord].Center_Coord();
             CoordStruct target = Map[found].Center_Coord() + offset;
@@ -86,7 +86,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
             LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
         }
         unknown_28 = LinkedTo->unknown_21c;
-        unknown_28.Z = Map.Unknown_0055A280(unknown_28);
+        unknown_28.Z = Map.Get_Height_GL(unknown_28);
         if ((Map[unknown_28].unknown_140 & 0x100) && !LinkedTo->unknown_79) {
             LinkedTo->unknown_79 = true;
             unknown_28.Z += unknown_geometry_j;

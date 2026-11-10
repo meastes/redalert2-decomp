@@ -13,7 +13,7 @@
 #include "shared/house.hpp"
 // @ref ?Unknown_006A2970@@YIHH@Z=006a2970
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_int_839634@@3HA=00839634
 // @ref ?unknown_short_8325d0@@3FA=008325d0
 
@@ -35,7 +35,7 @@ extern short unknown_short_8325d0;                          // 0x008325D0
 void OverlayClass::unknown_slot68(Point2D const &point, Rect const &window)
 {
     void *shape = Class->unknown_slot39();
-    int height = Unknown_006A2970(Map.Unknown_0055A280(CoordStruct(Coord)));
+    int height = Unknown_006A2970(Map.Get_Height_GL(CoordStruct(Coord)));
     int overlay = Overlay_Type_Index(Class);
     Point2D position = Point2D(point.X, point.Y + Draw_Offset(overlay).Y);
     position.Y += unknown_int_839634;

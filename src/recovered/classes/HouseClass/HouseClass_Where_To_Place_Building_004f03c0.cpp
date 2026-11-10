@@ -38,7 +38,7 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass *type, int (__fastcal
         int width = unknown_func_4ef600(Rules->Shipyard)->Width() + 2;
         int height = unknown_func_4ef600(Rules->Shipyard)->Foundation_Height(false) + 2;
         Cell center = Coord_Cell(BaseCenter);
-        Cell spot = Map.Unknown_005502E0(center, 5, -1, 0, false, Point2D(width, height), false, false, false, true, no_cell, 0);
+        Cell spot = Map.Nearby_Location(center, 5, -1, 0, false, Point2D(width, height), false, false, false, true, no_cell, 0);
         if (spot != unknown_cell_a40f10) {
             if (unknown_50[0] != 0) {
                 if (Coord_Span(Map[spot].Center_Coord(), unknown_50[0]->Center_Coord()) > Rules->AINavalYardAdjacency * 256) {

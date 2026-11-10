@@ -4,13 +4,13 @@
 // Original set name is unknown; this clears its42 tile indices and Cell+11A.
 void __fastcall Clear_Tile_Set_0057dd10()
 {
-    Map.Unknown_0055A550();
-    CellClass *cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell=Map.Iterate();
     while(cell) {
         if(cell->IsoTileIndex>=unknown_tileset_a6cb74 && cell->IsoTileIndex<unknown_tileset_a6cb74+42) {
             cell->IsoTileIndex=0;
             cell->unknown_11a=0;
         }
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
 }

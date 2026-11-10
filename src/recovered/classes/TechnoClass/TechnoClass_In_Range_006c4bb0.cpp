@@ -104,7 +104,7 @@ bool TechnoClass::unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target
             }
             if (inrange) {
                 if (Map[*coord].unknown_140 & 0x100) {
-                    int height = Map.Unknown_0055A280(*coord) + unknown_geometry_j;
+                    int height = Map.Get_Height_GL(*coord) + unknown_geometry_j;
                     if (coord->Z < height && tcoord.Z >= height) {
                         return false;
                     }

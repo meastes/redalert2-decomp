@@ -95,7 +95,7 @@ CoordStruct TechnoClass::Railgun_Beam_Damage(CoordStruct const &coord, AbstractC
                 }
                 optr = optr->unknown_30;
             }
-            if (Map.Unknown_0055A280(final_impact) > final_impact.Z) {
+            if (Map.Get_Height_GL(final_impact) > final_impact.Z) {
                 if (Map[final_impact].unknown_47bb10()) {
                     if (Percent_Chance(Rules->unknown_140c)) {
                         Map.Collapse_Cliff(&Map[final_impact]);

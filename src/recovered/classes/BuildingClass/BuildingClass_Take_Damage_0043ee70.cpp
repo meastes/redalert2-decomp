@@ -126,7 +126,7 @@ int BuildingClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *w
                 Cell relative(*offset++);
                 Cell cell=unknown_slot104()+relative;
                 CoordStruct location(cell);
-                location.Z=Map.Unknown_0055A280(location);
+                location.Z=Map.Get_Height_GL(location);
                 if (warhead->Sparky) {
                     AnimClass *fire=0;
                     switch (Random_Pick(0,5+Type->Foundation_Height(false)+Type->Width())) {

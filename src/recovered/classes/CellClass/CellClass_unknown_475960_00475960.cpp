@@ -80,14 +80,14 @@ void CellClass::unknown_475960(bool flag)
 
             if (newcell.unknown_4c != old_passability) {
                 if (recalc_around) {
-                    Map.Unknown_0054FB20(newcell.MapCoords);
+                    Map.Update_Cell_Zone(newcell.MapCoords);
                     Map.Unknown_00566340(newcell.MapCoords);
                     for (unsigned dir = 0; dir < 8; dir++) {
                         CellClass &adjacent = Map[Adjacent_Cell(newcell.MapCoords, dir)];
                         adjacent.unknown_122--;
                     }
                 } else {
-                    Map.Unknown_0054FC60(newcell.MapCoords);
+                    Map.Update_Cell_Zone_Constructively(newcell.MapCoords);
                     Map.Unknown_00566340(newcell.MapCoords);
                 }
             }

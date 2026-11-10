@@ -11,7 +11,7 @@ int MapClass::Unknown_0056A8A0()
         for (int index = 0; index < count; index++) {
             CellClass *cell = Cells[index];
             if (cell != 0) {
-                Unknown_0056A870(cell->unknown_11b);
+                Lower_Max_Level(cell->unknown_11b);
             }
         }
     }

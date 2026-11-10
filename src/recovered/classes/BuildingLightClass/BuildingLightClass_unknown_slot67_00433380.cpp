@@ -26,7 +26,7 @@
 #include "shared/fast_math.hpp"
 #include "shared/always.hpp"
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
-// @ref ?Unknown_005683C0@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
+// @ref ?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
 // @ref ??0SpotLightClass@@QAE@UCoordStruct@@H@Z=005dd590
 // @ref ??1SpotLightClass@@QAE@XZ=005dd610
 // @ref ?unknown_func_5ddb90@SpotLightClass@@QAEXXZ=005ddb90
@@ -45,7 +45,7 @@ void BuildingLightClass::unknown_slot67(Point2D const &point, Rect const &window
     if (building == 0 || !building->unknown_7d || !building->unknown_slot195() || building->unknown_5b7) {
         return;
     }
-    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Unknown_005683C0(Position_Coord_004f3f40())) {
+    if ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(Position_Coord_004f3f40())) {
         return;
     }
 

@@ -56,7 +56,7 @@ void Tactical::Draw_Placement(bool drawtrans)
             if (rtti == 7) {
                 coord = Coord_Snap(coord);
             }
-            coord.Z = Map.Unknown_0055A280(coord);
+            coord.Z = Map.Get_Height_GL(coord);
             Map.unknown_11a0->unknown_slot103(coord);
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);

@@ -11,8 +11,8 @@
 #include "shared/id_source.hpp"
 // @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_6d7910@TechnoClass@@QAE_NH@Z=006d7910
-// @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
-// @ref ?Unknown_005683C0@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
+// @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
+// @ref ?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?unknown_b263d8@@3HA=00b263d8
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
@@ -31,8 +31,8 @@ bool TechnoClass::unknown_slot190(int *out_kind)
     }
     int value = unknown_slot108();
     bool ability = unknown_6d7910(11);
-    bool hidden = Map.Unknown_00568140(CoordStruct(Coord)) && unknown_b263d8 != 0;
-    bool tunnel = (unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Unknown_005683C0(CoordStruct(Coord));
+    bool hidden = Map.Is_Shrouded(CoordStruct(Coord)) && unknown_b263d8 != 0;
+    bool tunnel = (unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord));
     if (!tunnel && unknown_1b8 != 2 && value >= -20 && !ability && !hidden) {
         return true;
     }

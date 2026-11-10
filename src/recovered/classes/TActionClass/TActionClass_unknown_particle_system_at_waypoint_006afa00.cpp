@@ -12,7 +12,7 @@ bool TActionClass::unknown_particle_system_at_waypoint(HouseClass *house, Object
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct coord = CoordStruct(waypoint);
-    coord.Z = Map.Unknown_0055A280(CoordStruct(waypoint));
+    coord.Z = Map.Get_Height_GL(CoordStruct(waypoint));
     new ParticleSystemClass(ParticleSystemTypes[Data.Value], coord, 0, 0, unknown_geometry_l);
     return true;
 }

@@ -11,9 +11,9 @@
 bool MapClass::Unknown_0054E580(Cell cell, int arg2)
 {
     if (Map[cell].unknown_ec == 2) {
-        cell = Map.Unknown_005502E0(cell, 5, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+        cell = Map.Nearby_Location(cell, 5, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
     } else {
-        cell = Map.Unknown_005502E0(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+        cell = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
     }
 
     int index;

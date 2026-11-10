@@ -17,8 +17,8 @@ extern Rect unknown_rect_839630;
 
 void Tactical::Debug_Draw_Occupation_Flags()
 {
-    Map.Unknown_0055A550();
-    CellClass *cell = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell = Map.Iterate();
     int color = Build_Hicolor_Pixel(255, 255, 0);
     while (cell) {
         Rect render = cell->unknown_4752b0();
@@ -53,6 +53,6 @@ void Tactical::Debug_Draw_Occupation_Flags()
                 unknown_surface_83995c->Fill_Rect(rect + Point2D(0, -60), color);
             }
         }
-        cell = Map.Unknown_0055A490();
+        cell = Map.Iterate();
     }
 }

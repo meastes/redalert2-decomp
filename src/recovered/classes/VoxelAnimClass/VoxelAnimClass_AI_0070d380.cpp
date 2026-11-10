@@ -37,7 +37,7 @@ void VoxelAnimClass::AI()
     }
     if (unknown_128 <= 0) {
         bool water = Map[CoordStruct(Coord)].unknown_ec == 2;
-        bool bridge = CoordStruct(Coord).Z >= Map.Unknown_0055A280(CoordStruct(Coord)) + unknown_geometry_j;
+        bool bridge = CoordStruct(Coord).Z >= Map.Get_Height_GL(CoordStruct(Coord)) + unknown_geometry_j;
         if (water && !bridge) {
             if (Class->IsMeteor) {
                 new AnimClass(Rules->SplashList[Rules->SplashList.Count() - 1], Coord + CoordStruct(0, 0, 5), 0, 1, 0x600, 0);

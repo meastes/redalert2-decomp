@@ -45,7 +45,7 @@ int CellClass::unknown_475fe0(int damage)
                     OverlayIndex = -1;
                     OverlayData = 0;
                     Recalc_Attributes(-1);
-                    Map.Unknown_0054FB20(MapCoords);
+                    Map.Update_Cell_Zone(MapCoords);
                     Map.Unknown_00566340(MapCoords);
                     Map.Radar_Background(MapCoords);
                     ((CellClass &)((CellClass const *)this)->Adjacent_Cell(0)).unknown_475960(false);

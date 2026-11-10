@@ -40,8 +40,8 @@ bool MapClass::Check_Map()
 
     _iobuf *file = fopen("MapCheck.txt", "w");
 
-    Unknown_0055A550();
-    from = Unknown_0055A490();
+    Reset_Iterator();
+    from = Iterate();
     while (from != 0) {
         if (Unknown_0055A740(from, true)) {
 
@@ -106,7 +106,7 @@ bool MapClass::Check_Map()
             }
         }
 
-        from = Unknown_0055A490();
+        from = Iterate();
     }
 
     fclose(file);

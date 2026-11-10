@@ -2,7 +2,7 @@
 #include "shared/object_type.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 
 void ObjectClass::unknown_slot109(int height)
 {
@@ -12,10 +12,10 @@ void ObjectClass::unknown_slot109(int height)
     if (unknown_74) {
         Mark(0);
         CoordStruct coord = Coord;
-        Coord.Z = Map.Unknown_0055A280(coord) + height;
+        Coord.Z = Map.Get_Height_GL(coord) + height;
         Mark(1);
     } else {
         CoordStruct coord = Coord;
-        Coord.Z = Map.Unknown_0055A280(coord) + height;
+        Coord.Z = Map.Get_Height_GL(coord) + height;
     }
 }

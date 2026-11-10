@@ -55,7 +55,7 @@ bool __stdcall TunnelLocomotionClass::Process()
         }
         if (LinkedTo->unknown_77) {
             if (!LinkedTo->House->Unknown_004F52B0()) {
-                if (Map.Unknown_00568140(Object_Coord(LinkedTo)) || (unknown_id_source_a3d290->Special().FogOfWar && Map.Unknown_005683C0(Object_Coord(LinkedTo)))) {
+                if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || (unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
                     LinkedTo->unknown_slot81();
                 }
             }

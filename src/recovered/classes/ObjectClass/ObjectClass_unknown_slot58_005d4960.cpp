@@ -9,7 +9,7 @@
 
 void ObjectClass::unknown_slot58(CoordStruct const &coord)
 {
-    if (Map.Unknown_0055A280(coord) + unknown_geometry_j <= coord.Z && (Map_Cell(coord)->Flags & 0x100)) {
+    if (Map.Get_Height_GL(coord) + unknown_geometry_j <= coord.Z && (Map_Cell(coord)->Flags & 0x100)) {
         Map_Cell(coord)->unknown_128.Occupy.Monolith = true;
     } else {
         Map_Cell(coord)->unknown_124.Occupy.Monolith = true;

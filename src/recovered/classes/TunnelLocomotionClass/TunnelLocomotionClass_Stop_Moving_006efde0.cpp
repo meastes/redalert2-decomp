@@ -40,9 +40,9 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
         CoordStruct pos = LinkedTo->Coord;
         if (Point_Length(Point2D(pos.X, pos.Y) - Point2D(unknown_1c.X, unknown_1c.Y)) > unknown_geometry_diagonal) {
             Cell cell = LinkedTo->unknown_slot104();
-            Cell nearby = Map.Unknown_005502E0(cell, 1, Map.Zone(cell, 0, false), 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
+            Cell nearby = Map.Nearby_Location(cell, 1, Map.Zone(cell, 0, false), 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
             if (nearby == unknown_geometry_k) {
-                nearby = Map.Unknown_005502E0(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
+                nearby = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
             }
             if (nearby == unknown_geometry_k) {
                 LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, true);

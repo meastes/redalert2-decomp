@@ -174,12 +174,12 @@ void MapGeneratorClass::Init_Map(int fullInit)
         while(unknown_BuildingClass_list_00a40af8.Count()>0)delete unknown_BuildingClass_list_00a40af8[unknown_BuildingClass_list_00a40af8.Count()-1];
         while(Terrains.Count()>0)delete Terrains[Terrains.Count()-1];
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
-        Map.Unknown_0055A550();
-        CellClass *cell=Map.Unknown_0055A490();
+        Map.Reset_Iterator();
+        CellClass *cell=Map.Iterate();
         while(cell) {
             cell->unknown_11c=0;cell->unknown_11b=4;cell->IsoTileIndex=0;
             cell->unknown_11a=0;cell->OverlayIndex=-1;cell->OverlayData=0;
-            cell=Map.Unknown_0055A490();
+            cell=Map.Iterate();
         }
         if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
         Report_Generation_Progress_0057be50(15);
@@ -226,12 +226,12 @@ void MapGeneratorClass::Init_Map(int fullInit)
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if(unknown_map_cells_a70a24)delete [] unknown_map_cells_a70a24;
     unknown_map_cells_a70a24=new UnknownMapGenerationCell[(unsigned)unknown_map_cell_side_84e804*(unsigned)unknown_map_cell_side_84e804];
-    Map.Unknown_0055A550();
-    CellClass *cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell=Map.Iterate();
     while(cell) {
         Cell position=cell->MapCoords;
         unknown_map_cells_a70a24[position.Y*unknown_map_cell_side_84e804+position.X].Position=position;
-        cell->unknown_11b=(char)CellHeight;cell=Map.Unknown_0055A490();
+        cell->unknown_11b=(char)CellHeight;cell=Map.Iterate();
     }
     Report_Generation_Progress_0057be50(45);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();

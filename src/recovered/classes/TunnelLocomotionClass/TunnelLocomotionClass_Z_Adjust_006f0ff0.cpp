@@ -16,7 +16,7 @@ int __stdcall TunnelLocomotionClass::Z_Adjust()
     CoordStruct coord = LinkedTo->Coord;
     Point2D from;
     unknown_tactical_83996c->Coord_To_Pixel(coord, from);
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     Point2D to;
     unknown_tactical_83996c->Coord_To_Pixel(coord, to);
     int height = from.Y - to.Y;

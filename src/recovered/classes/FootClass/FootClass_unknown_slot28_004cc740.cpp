@@ -13,11 +13,11 @@ int FootClass::unknown_slot28(ObjectClass *object, bool arg2)
 {
     int result = TechnoClass::unknown_slot28(object, arg2);
     CoordStruct coord = object->Center_Coord();
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     if (Loco_Cell(coord)->Flags & 0x100) {
         coord.Z += unknown_geometry_j;
     }
-    if (Map.Unknown_00568140(coord) && result != 0 && unknown_game_mode_a3d298 == 0) {
+    if (Map.Is_Shrouded(coord) && result != 0 && unknown_game_mode_a3d298 == 0) {
         return unknown_slot32()->MoveToShroud ? 1 : 2;
     }
     return result;

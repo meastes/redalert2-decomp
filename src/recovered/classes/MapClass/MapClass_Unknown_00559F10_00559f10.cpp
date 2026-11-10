@@ -16,8 +16,8 @@
 void MapClass::Unknown_00559F10()
 {
     Map.Unknown_0049E000(false, false);
-    Unknown_0055A550();
-    for (CellClass *cell = Unknown_0055A490(); cell != 0; cell = Unknown_0055A490()) {
+    Reset_Iterator();
+    for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
         cell->IsMapped = false; cell->IsVisible = false;
         cell->unknown_130 = 1;
         cell->unknown_134 = 0;

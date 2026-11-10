@@ -9,7 +9,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reduce_Path_Length_004fdfd0@HoverLocomotionClass@@QAE_NXZ=004fdfd0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z=0055a660
 // @ref ?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z=00713db0
 // @ref ?unknown_471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z=00471660
@@ -92,7 +92,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
         int ok=LinkedTo->unknown_slot101(&Map[cell],LinkedTo->Path[0],LinkedTo->unknown_5d47d0(),0,true);
         if (ok==6) {
             CellClass *cellptr=&Map[cell];
-            TechnoClass *blockage=static_cast<TechnoClass *>(cellptr->unknown_471660(Point2D(0,0),Object_Coord(LinkedTo).Z>Map.Unknown_0055A280(CoordStruct(cell.X*256+128,cell.Y*256+128,0))+3*unknown_geometry_g,0));
+            TechnoClass *blockage=static_cast<TechnoClass *>(cellptr->unknown_471660(Point2D(0,0),Object_Coord(LinkedTo).Z>Map.Get_Height_GL(CoordStruct(cell.X*256+128,cell.Y*256+128,0))+3*unknown_geometry_g,0));
             if (blockage && LinkedTo->House->Is_Ally(blockage)) {
                 if (Hover_Close_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && !LinkedTo->In_Radio_Contact() && abs(unknown_18.Z-Object_Coord(LinkedTo).Z)<2*unknown_geometry_g && Map[Object_Coord(LinkedTo)].unknown_ec!=10) {
                     Stop_Moving();

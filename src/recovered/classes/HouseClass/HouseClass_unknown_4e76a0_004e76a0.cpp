@@ -16,7 +16,7 @@ bool HouseClass::unknown_4e76a0(Cell const &cell, bool arg2)
         Cell target = cell;
         bool ok = Map[target].unknown_4786d0(Type->House);
         if (!ok) {
-            target = Map.Unknown_005502E0(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            target = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             if (target != unknown_cell_a40f10) {
                 ok = Map[target].unknown_4786d0(Type->House);
             }

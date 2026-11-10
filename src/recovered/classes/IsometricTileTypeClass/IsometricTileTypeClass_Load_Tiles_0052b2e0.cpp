@@ -13,8 +13,8 @@
 // @ref ?Service_Game_IO_00481fb0@@YIXXZ=00481fb0
 // @ref ?Debug_Printf@@YAXPBDZZ=004068f0
 // @ref ?unknown_tileset_a52f00@@3HA=00a52f00
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
 
 void __fastcall IsometricTileTypeClass::Load_Tiles(bool skip_iteration, bool is_random)
 {
@@ -22,8 +22,8 @@ void __fastcall IsometricTileTypeClass::Load_Tiles(bool skip_iteration, bool is_
     IsometricTileTypeClass *ptr;
 
     if (!skip_iteration) {
-        Map.Unknown_0055A550();
-        CellClass *cptr = Map.Unknown_0055A490();
+        Map.Reset_Iterator();
+        CellClass *cptr = Map.Iterate();
         while (cptr != 0) {
             int type = cptr->IsoTileIndex;
             int index = 0;
@@ -46,7 +46,7 @@ void __fastcall IsometricTileTypeClass::Load_Tiles(bool skip_iteration, bool is_
             }
             ptr = ptr->Next_Tile_From_Set(index);
             ptr->UseCount++;
-            cptr = Map.Unknown_0055A490();
+            cptr = Map.Iterate();
         }
     }
 

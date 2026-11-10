@@ -203,7 +203,7 @@ int UnitClass::Do_MISSION_HARVEST()
                         Cell here = cell;
                         here.X = dock->QueueingCell.X + cell.X;
                         here.Y += dock->QueueingCell.Y;
-                        here = Map.Unknown_005502E0(here, 2, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+                        here = Map.Nearby_Location(here, 2, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
                         if (!(here == unknown_geometry_k)) {
                             Assign_Destination(&Map[here], true);
                         } else {

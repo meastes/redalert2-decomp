@@ -4,8 +4,8 @@
     "id": "population-4311",
     "inventory_sha256": "96389d43bb411461f19523d514e6009e82c4b2b3e5048b2866e917236faa9b4f",
     "gaps_sha256": "bd5b55611ddf146e86b99fda2a37d1b41d90719e81f514c7919a8a17854fcb36",
-    "historical_population_sha256": "e3a3b921f29489dfa87fa5d420db5f10cf4bde5397fbbd3712fbc249aeab5bc9",
-    "historical_acceptance_sha256": "6887204dcaf6be565d0ea84c8d119a65b8854fab5c8362b7d55c9d6cb847912b"
+    "historical_population_sha256": "7e210b40c5f757c8242ea5f475bf167a1d72944405bcee057143be4f3b72a51f",
+    "historical_acceptance_sha256": "51a27481752bbe2d97ca565d740f7c25d22544986f1eb027b11ab88a47480639"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -7602,7 +7602,7 @@
     "?Radar_Pixel@UnknownMap8324E0@@QAEXPAH@Z": 6497824,
     "?Unknown_0049EC40@UnknownMap8324E0@@QAEPAVObjectClass@@XZ": 4844608,
     "?Unknown_0049EC60@UnknownMap8324E0@@QAEXPAVObjectClass@@@Z": 4844640,
-    "?Unknown_0055A280@UnknownMap8324E0@@QAEHABUCoordStruct@@@Z": 5612160,
+    "?Get_Height_GL@UnknownMap8324E0@@QAEHABUCoordStruct@@@Z": 5612160,
     "?Cell_At@UnknownMap8324E0@@QAEAAVUnknownPlacementCellView@@ABUCoordStruct@@@Z": 5537792,
     "?Unknown_00548070@UnknownMap8324E0@@QAEHABVCell@@@Z": 5537904,
     "?Unknown_00499A90@UnknownMap8324E0@@QAEXPAVObjectClass@@@Z": 4823696,
@@ -7613,7 +7613,7 @@
     "?Calculated_Cell@UnknownMap8324E0@@QAE?AVCell@@HABV2@0HHH@Z": 4826880,
     "?Unknown_0054AAB0@UnknownMap8324E0@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0055A740@UnknownMap8324E0@@QAE_NPAVCellClass@@H@Z": 5613376,
-    "?Unknown_00568140@UnknownMap8324E0@@QAE_NABUCoordStruct@@@Z": 5669184,
+    "?Is_Shrouded@UnknownMap8324E0@@QAE_NABUCoordStruct@@@Z": 5669184,
     "?Unknown_0054AB70@UnknownMap8324E0@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
     "?Unknown_0054AF70@UnknownMap8324E0@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
     "?Unknown_0055A7F0@UnknownMap8324E0@@QAE_NABUCoordStruct@@@Z": 5613552,
@@ -7829,9 +7829,9 @@
     "?Unknown_006331A0@RadarClass@@QAE_NXZ": 6500768,
     "?unknown_4cb8f0@FootClass@@QAE?AVCell@@H_N@Z": 5028080,
     "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z": 5568448,
-    "?Unknown_0054FB20@MapClass@@QAEXABVCell@@@Z": 5569312,
+    "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z": 5569312,
     "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z": 5661504,
-    "?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
+    "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
     "?unknown_slot178@TechnoClass@@UAE?AVCell@@XZ": 4537216,
     "?unknown_slot179@TechnoClass@@UAEXVCell@@@Z": 4537232,
     "?unknown_slot178@FootClass@@UAE?AVCell@@XZ": 4306256,
@@ -7863,7 +7863,7 @@
     "?Redraw_Radar@RadarClass@@QAEX_N@Z": 6500832,
     "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z": 4826880,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
-    "?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
+    "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
     "?Unknown_0054AB70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
     "?Unknown_0054AF70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
     "?Unknown_0055A7F0@MapClass@@QAE_NABUCoordStruct@@@Z": 5613552,
@@ -7874,8 +7874,8 @@
     "?Unknown_0049C860@DisplayClass@@QAEXH_N@Z": 4835424,
     "?Unknown_0049C980@DisplayClass@@QAEXH@Z": 4835712,
     "?Unknown_0049CA20@DisplayClass@@QAEXH@Z": 4835872,
-    "?Unknown_0055A550@MapClass@@QAEXXZ": 5612880,
-    "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ": 5612688,
+    "?Reset_Iterator@MapClass@@QAEXXZ": 5612880,
+    "?Iterate@MapClass@@QAEPAVCellClass@@XZ": 5612688,
     "?Zone@MapClass@@QAEHABVCell@@H_N@Z": 5568752,
     "?Unknown_0049CAC0@DisplayClass@@QAEXH@Z": 4836032,
     "?Submit@UnknownList832470@@QAE_NPAVObjectClass@@_N@Z": 5497648,
@@ -7917,7 +7917,7 @@
     "?Mouse_Small@MouseClass@@UAEX_N@Z": 5894288,
     "??_GScrollClass@@UAEPAXI@Z": 6728800,
     "?Recalc_Attributes@CellClass@@QAEXH@Z": 4662592,
-    "?Unknown_005683C0@MapClass@@QAE_NABUCoordStruct@@@Z": 5669824,
+    "?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z": 5669824,
     "?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ": 4676960,
     "?To_Tiberium@OverlayClass@@SIHH@Z": 6144176,
     "?unknown_47a670@CellClass@@QBE_NXZ": 4695664,
@@ -9881,7 +9881,7 @@
     "??1IsometricTileClass@@UAE@XZ": 5406672,
     "??_GIsometricTileClass@@UAEPAXI@Z": 5407328,
     "?Unknown_0049CB70@DisplayClass@@QAE?AUCoordStruct@@ABU2@_N@Z": 4836208,
-    "?Unknown_0054E3A0@MapClass@@QAEHABVCell@@PAVHouseClass@@@Z": 5563296,
+    "?Cell_Threat@MapClass@@QAEHABVCell@@PAVHouseClass@@@Z": 5563296,
     "?Unknown_00563D40@MapClass@@QAEXXZ": 5651776,
     "?Unknown_005688A0@MapClass@@QAEXAAV?$DynamicVectorClass@VCell@@@@@Z": 5671072,
     "?Unknown_0054EBD0@MapClass@@QAEHXZ": 5565392,
@@ -9899,7 +9899,7 @@
     "?unknown_tileset_a52eec@@3HA": 10825452,
     "?unknown_471d10@CellClass@@QAEXXZ": 4660496,
     "?Can_Tiberium_Germinate@CellClass@@QAE_NPAVTiberiumClass@@@Z": 4688800,
-    "?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z": 5571296,
+    "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z": 5571296,
     "?unknown_475960@CellClass@@QAEX_N@Z": 4675936,
     "?Unknown_00681740@SidebarClass@@QAE_NHHPAVFactoryClass@@@Z": 6821696,
     "?Unknown_0055AA50@MapClass@@QAEXXZ": 5614160,
@@ -10071,7 +10071,7 @@
     "??0EventClass@@QAE@HHHHH@Z": 4940416,
     "??0EventClass@@QAE@HEHABVCell@@@Z": 4940912,
     "??0EventClass@@QAE@HEHH@Z": 4941040,
-    "?Unknown_0054FAB0@MapClass@@QAEHABVCell@@@Z": 5569200,
+    "?Get_Cell_Zone_Index@MapClass@@QAEHABVCell@@@Z": 5569200,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "?Unknown_0067C370@SidebarClass@@QAE_NPAVFactoryClass@@HH@Z": 6800240,
     "?Unknown_0067E1C0@SidebarClass@@QAEXXZ": 6808000,
@@ -10080,13 +10080,13 @@
     "?unknown_47bc80@CellClass@@QAEXXZ": 4701312,
     "?Unknown_006A1EC0@TabClass@@QAEXXZ": 6954688,
     "?Unknown_006A1F10@TabClass@@QAEXXZ": 6954768,
-    "?Unknown_005500D0@MapClass@@QAEHABVCell@@HH@Z": 5570768,
+    "?Zone_Connection_Index@MapClass@@QAEHABVCell@@HH@Z": 5570768,
     "?Unknown_0054FDA0@MapClass@@QAEXXZ": 5569952,
     "??0SubzoneTrackingStruct@@QAE@XZ": 5683632,
     "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z": 4821104,
-    "?Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z": 5660336,
-    "?Unknown_00564F70@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z": 5656432,
-    "?Unknown_00565610@MapClass@@QAE?AVCell@@ABV2@HI@Z": 5658128,
+    "?Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z": 5660336,
+    "?Get_Bridge_Zone_Connection_Cell@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z": 5656432,
+    "?Find_Bridge_End_Cell_For_Subzone@MapClass@@QAE?AVCell@@ABV2@HI@Z": 5658128,
     "?Unknown_0054A720@MapClass@@QAEXABUCoordStruct@@H@Z": 5547808,
     "?Unknown_0055A300@MapClass@@QAEXXZ": 5612288,
     "?Query@?$UnknownComPtr@UIPersist@@$1?unknown_uuid_IPersist_7cf208@@3UGUID@@B@@QAEJABUUnknownLocomotionPtr@@@Z": 4541424,
@@ -10109,7 +10109,7 @@
     "?Pick_Drawer@CellClass@@QBEXAAPAVLightConvertClass@@AAH1111@Z": 4690704,
     "?unknown_4798f0@CellClass@@QAEXXZ": 4692208,
     "?unknown_474830@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
-    "?Unknown_0054FC60@MapClass@@QAEXABVCell@@@Z": 5569632,
+    "?Update_Cell_Zone_Constructively@MapClass@@QAEXABVCell@@@Z": 5569632,
     "?Unknown_0047A130@UnknownCellClass@@QAEPAUUnknownTube47A130@@XZ": 4694320,
     "??0StorageClass@@QAE@XZ": 6925728,
     "??0UnknownHouseTracker@@QAE@XZ": 7390272,
@@ -10269,7 +10269,7 @@
     "?Init_Clear@MapClass@@UAEXXZ": 5538496,
     "?Init_Clear@PowerClass@@UAEXXZ": 6407376,
     "?Init_Clear@RadarClass@@UAEXXZ": 6484576,
-    "?Unknown_005680A0@MapClass@@QAE_NABVCell@@H@Z": 5669024,
+    "?Is_Something_Nearby@MapClass@@QAE_NABVCell@@H@Z": 5669024,
     "?Cell_Color@CellClass@@QBEXAAVRGBClass@@0@Z": 4657856,
     "?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z": 5648208,
     "?Draw_Placement_Cursor@CellClass@@QAE_NABUPoint2D@@ABVRect@@_N@Z": 4669216,
@@ -10409,7 +10409,7 @@
     "?unknown_6ca340@TechnoClass@@QAEXH@Z": 7119680,
     "?Pre_Rotate_Y@Matrix3D@@QAEXM@Z": 5834064,
     "?Draw_Render_Hooks@Tactical@@SIXPAVObjectClass@@ABVRect@@@Z": 6984352,
-    "?Unknown_0056A870@MapClass@@QAEXH@Z": 5679216,
+    "?Lower_Max_Level@MapClass@@QAEXH@Z": 5679216,
     "?Unknown_005651E0@MapClass@@QAE?AVCell@@ABV2@0@Z": 5657056,
     "?unknown_tileset_a52ea4@@3HA": 10825380,
     "?unknown_tileset_a6cf50@@3HA": 10932048,
@@ -11320,7 +11320,7 @@
     "?Unknown_00556B30@@YI_NHHPBVCellClass@@@Z": 5598000,
     "?Cell_To_Local_Sector_Index@MapClass@@QAEHABVCell@@@Z": 5614960,
     "?Unknown_00567380@MapClass@@QAEXXZ": 5665664,
-    "?Unknown_00568280@MapClass@@QAE_NABUCoordStruct@@@Z": 5669504,
+    "?Is_Under_Fog@MapClass@@QAE_NABUCoordStruct@@@Z": 5669504,
     "?Clip_To_Map@MapClass@@QAE?AVCell@@ABV2@@Z": 5672288,
     "?Unknown_0054D560@MapClass@@QAEHAAVPipe@@@Z": 5559648,
     "?Unknown_0054D660@MapClass@@QAEHAAVPipe@@@Z": 5559904,
@@ -11510,7 +11510,9 @@
     "??_EStaticButtonClass@@UAEPAXI@Z": 6916768,
     "??_EState@WorldDominationTour@@UAEPAXI@Z": 7539024,
     "??_ECursorPositionCommandClass@@UAEPAXI@Z": 5365856,
-    "??_ELightSourceClass@@UAEPAXI@Z": 5471280
+    "??_ELightSourceClass@@UAEPAXI@Z": 5471280,
+    "?Set_Mission@ScriptClass@@QAE_NH@Z": 6719760,
+    "?unknown_slot222@BuildingClass@@UAE_NPAVHouseClass@@H@Z": 4474464
   },
   "regions": [
     {
@@ -13724,7 +13726,7 @@
         {
           "offset": 798,
           "kind": 20,
-          "symbol": "?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z",
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
           "target": 5612160,
           "addend": 0,
           "resolved": 4293174702
@@ -13906,7 +13908,7 @@
           "resolved": 11272028
         }
       ],
-      "source_sha256": "67c9d7a1c9eb1ca7514ea170c5b78d80020139e5f3de13a6fe0338ddd3c26335",
+      "source_sha256": "3d1d8f28f3e67383197bb108f2c4f05b766cc958b2a1dcfb06fff16c655d469a",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_constructor_0070f9b0.cpp",
       "population": "population-4311",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14269,7 +14271,7 @@
         {
           "offset": 394,
           "kind": 20,
-          "symbol": "?Unknown_0055A550@MapClass@@QAEXXZ",
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
           "target": 5612880,
           "addend": 0,
           "resolved": 4293169474
@@ -14285,7 +14287,7 @@
         {
           "offset": 404,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4293169272
@@ -14301,7 +14303,7 @@
         {
           "offset": 437,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4293169239
@@ -14357,7 +14359,7 @@
         {
           "offset": 521,
           "kind": 20,
-          "symbol": "?Unknown_0055A550@MapClass@@QAEXXZ",
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
           "target": 5612880,
           "addend": 0,
           "resolved": 4293169347
@@ -14373,7 +14375,7 @@
         {
           "offset": 531,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4293169145
@@ -14405,13 +14407,13 @@
         {
           "offset": 598,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4293169078
         }
       ],
-      "source_sha256": "f7b434f926139b99037291b577b62813dd265973cdc2ebd6bb2b175a7f9474cf",
+      "source_sha256": "08a9cca3eb91a384dfe18e341098bb00985a8190ad11c22f549bd991b4406b78",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_711280_00711280.cpp",
       "population": "population-4311",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -14726,7 +14728,7 @@
         {
           "offset": 63,
           "kind": 20,
-          "symbol": "?Unknown_0055A550@MapClass@@QAEXXZ",
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
           "target": 5612880,
           "addend": 0,
           "resolved": 4293167725
@@ -14742,7 +14744,7 @@
         {
           "offset": 73,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4293167523
@@ -14798,13 +14800,13 @@
         {
           "offset": 429,
           "kind": 20,
-          "symbol": "?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ",
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
           "target": 5612688,
           "addend": 0,
           "resolved": 4293167167
         }
       ],
-      "source_sha256": "95497308f9e9f28858f34bed6ea3dcea9c69f42aa5c383fcfebc5855e461076c",
+      "source_sha256": "04a7c791eaa9a4c52221aa12d9a8f1f12aff88b62cc7a59fc15d43d58eb7c719",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_711aa0_00711aa0.cpp",
       "population": "population-4311",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14913,7 +14915,7 @@
         {
           "offset": 214,
           "kind": 20,
-          "symbol": "?Unknown_0054FB20@MapClass@@QAEXABVCell@@@Z",
+          "symbol": "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z",
           "target": 5569312,
           "addend": 0,
           "resolved": 4293123366
@@ -14935,7 +14937,7 @@
           "resolved": 4293215547
         }
       ],
-      "source_sha256": "2f526b59b30d1aec2892b732746be432058cb21aeb71afb7981c58c0d5e07321",
+      "source_sha256": "7dfd09e6a06d636c1e9577bc3ee69bc43987d55b22dbc9d92037da8e532fb8cd",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_711d20_00711d20.cpp",
       "population": "population-4311",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -15776,7 +15778,7 @@
         {
           "offset": 207,
           "kind": 20,
-          "symbol": "?Unknown_005680A0@MapClass@@QAE_NABVCell@@H@Z",
+          "symbol": "?Is_Something_Nearby@MapClass@@QAE_NABVCell@@H@Z",
           "target": 5669024,
           "addend": 0,
           "resolved": 4293229949
@@ -15848,7 +15850,7 @@
         {
           "offset": 454,
           "kind": 20,
-          "symbol": "?Unknown_005680A0@MapClass@@QAE_NABVCell@@H@Z",
+          "symbol": "?Is_Something_Nearby@MapClass@@QAE_NABVCell@@H@Z",
           "target": 5669024,
           "addend": 0,
           "resolved": 4293229702
@@ -15872,7 +15874,7 @@
         {
           "offset": 583,
           "kind": 20,
-          "symbol": "?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z",
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
           "target": 5612160,
           "addend": 0,
           "resolved": 4293172709
@@ -16254,7 +16256,7 @@
           "resolved": 7407150
         }
       ],
-      "source_sha256": "83459ff4bad27bd8b91152dabd1d10aa3d7a856215864437c159df0214ed7258",
+      "source_sha256": "f18d9d23a58f7819d1854079c2d4ad743601fc86c4b418da7552814853d43349",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_AI_00710250.cpp",
       "population": "population-4311",

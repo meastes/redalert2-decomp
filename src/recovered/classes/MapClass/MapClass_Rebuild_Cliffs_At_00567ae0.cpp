@@ -28,22 +28,22 @@ bool MapClass::Rebuild_Cliffs_At(Cell const &cell)
 
     Map.Unknown_00498F10(0);
 
-    Map.Unknown_0055A550();
-    CellClass *cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         expanded = Expand_High_Ground(cellptr, 0);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
     Mark_Fill_Area(cell, false);
 
-    Map.Unknown_0055A550();
-    cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         if (cellptr->unknown_11c == 0 && cellptr->unknown_47b590()) {
             expanded = Place_Cliff(cellptr, 0);
         }
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
     ObjectClass *obj = Map.unknown_11a0;

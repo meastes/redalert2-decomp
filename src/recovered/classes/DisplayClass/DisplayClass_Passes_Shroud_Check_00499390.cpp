@@ -16,8 +16,8 @@
 // @ref ?Debug_Map@@3_NA=00a40d13
 // @ref ?Width@BuildingTypeClass@@QBEHXZ=00458930
 // @ref ?Foundation_Height@BuildingTypeClass@@QBEH_N@Z=00458940
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
-// @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 
 bool DisplayClass::Unknown_00499390(BuildingTypeClass *type, int house, int arg3, Cell const *cell)
 {
@@ -40,8 +40,8 @@ bool DisplayClass::Unknown_00499390(BuildingTypeClass *type, int house, int arg3
     for (int x = rect.X; x < rect.X + rect.Width; x++) {
         for (int y = rect.Y; y < rect.Y + rect.Height; y++) {
             CoordStruct coord = Cell_Coord(XY_Cell(x, y));
-            coord.Z = Map.Unknown_0055A280(coord);
-            if (Map.Unknown_00568140(coord)) {
+            coord.Z = Map.Get_Height_GL(coord);
+            if (Map.Is_Shrouded(coord)) {
                 shrouded = true;
                 break;
             }

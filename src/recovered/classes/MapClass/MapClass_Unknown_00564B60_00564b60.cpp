@@ -67,22 +67,22 @@ void MapClass::Unknown_00564B60(ZoneConnectionClass *connection, int layer)
         exit2 = Adjacent_Cell(to, facing - 4);
     }
     {
-        int from_id = ((CellSubzoneStruct *)unknown_6c)[Unknown_0054FAB0(from)].SubzoneID[layer];
-        int to_id = ((CellSubzoneStruct *)unknown_6c)[Unknown_0054FAB0(to)].SubzoneID[layer];
+        int from_id = ((CellSubzoneStruct *)unknown_6c)[Get_Cell_Zone_Index(from)].SubzoneID[layer];
+        int to_id = ((CellSubzoneStruct *)unknown_6c)[Get_Cell_Zone_Index(to)].SubzoneID[layer];
         int value = Zone_Pack32(from_id, to_id);
         Set_Zone_Record(record, value, SubzoneConnectionStruct(value, false));
         table->Add_Object(Zone_Pack8(from_id, to_id), record);
     }
     {
-        int from_id = ((CellSubzoneStruct *)unknown_6c)[Unknown_0054FAB0(enter1)].SubzoneID[layer];
-        int to_id = ((CellSubzoneStruct *)unknown_6c)[Unknown_0054FAB0(exit1)].SubzoneID[layer];
+        int from_id = ((CellSubzoneStruct *)unknown_6c)[Get_Cell_Zone_Index(enter1)].SubzoneID[layer];
+        int to_id = ((CellSubzoneStruct *)unknown_6c)[Get_Cell_Zone_Index(exit1)].SubzoneID[layer];
         int value = Zone_Pack32(from_id, to_id);
         Set_Zone_Record(record, value, SubzoneConnectionStruct(value, false));
         table->Add_Object(Zone_Pack8(from_id, to_id), record);
     }
     {
-        int from_id = ((CellSubzoneStruct *)unknown_6c)[Unknown_0054FAB0(enter2)].SubzoneID[layer];
-        int to_id = ((CellSubzoneStruct *)unknown_6c)[Unknown_0054FAB0(exit2)].SubzoneID[layer];
+        int from_id = ((CellSubzoneStruct *)unknown_6c)[Get_Cell_Zone_Index(enter2)].SubzoneID[layer];
+        int to_id = ((CellSubzoneStruct *)unknown_6c)[Get_Cell_Zone_Index(exit2)].SubzoneID[layer];
         int value = Zone_Pack32(from_id, to_id);
         Set_Zone_Record(record, value, SubzoneConnectionStruct(value, false));
         table->Add_Object(Zone_Pack8(from_id, to_id), record);

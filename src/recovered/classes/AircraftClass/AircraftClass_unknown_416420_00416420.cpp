@@ -10,7 +10,7 @@ void AircraftClass::unknown_416420()
     Debug_Printf("Do_MISSION_MOVE_Carryall - LAND - Dropping off cargo\n");
     FootClass *passenger = static_cast<FootClass *>(Cargo.unknown_4689f0());
     CoordStruct position = Coord;
-    position.Z = Map.Unknown_0055A280(position);
+    position.Z = Map.Get_Height_GL(position);
     UnknownCellClass *cell = reinterpret_cast<UnknownCellClass *>(&Map[position]);
     if (cell->Flags & 0x100) {
         position.Z += unknown_geometry_j;

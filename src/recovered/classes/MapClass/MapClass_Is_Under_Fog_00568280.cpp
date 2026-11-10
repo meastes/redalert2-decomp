@@ -1,4 +1,4 @@
-// bool MapClass::Unknown_00568280(CoordStruct const &coord) (0x00568140)
+// bool MapClass::Is_Under_Fog(CoordStruct const &coord) (0x00568140)
 // Whether a lepton position is shrouded (TibSun Is_Shrouded): the cell its
 // height level projects onto (half a cell per level up and left) is not
 // mapped (+0x12C bit 3); on an odd level both that cell and its facing-3
@@ -7,7 +7,7 @@
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
 
-bool MapClass::Unknown_00568280(CoordStruct const &coord)
+bool MapClass::Is_Under_Fog(CoordStruct const &coord)
 {
     int level = coord.Z / unknown_geometry_g;
     if ((level & 1) != 0) {

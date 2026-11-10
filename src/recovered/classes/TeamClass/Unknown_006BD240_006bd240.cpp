@@ -23,12 +23,12 @@ AbstractClass *__fastcall Unknown_006BD240(BuildingTypeClass *type, HouseClass *
             switch (mode) {
             case 0: {
                 Cell cell = Coord_Cell(building->Center_Coord());
-                value = 0x7FFFFFFF - Map.Unknown_0054E3A0(cell, member->House);
+                value = 0x7FFFFFFF - Map.Cell_Threat(cell, member->House);
                 break;
             }
             case 1: {
                 Cell cell = Coord_Cell(building->Center_Coord());
-                value = Map.Unknown_0054E3A0(cell, member->House);
+                value = Map.Cell_Threat(cell, member->House);
                 break;
             }
             case 2: {

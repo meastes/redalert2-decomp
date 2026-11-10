@@ -65,7 +65,7 @@ int UnknownPathEstimator::Unknown_00428CF0(FootClass *foot, int *facings, int *h
         while (!is_blocked && moves_remaining > 0) {
             is_blocked = foot->unknown_slot101(scan_cell_ptr, diagonal_direction, scan_height, 0, 1) != 0
             || (scan_cell_ptr->unknown_140 & 0x40000)
-            || Map.Unknown_0054E3A0(diagonal_start_cell, house) * threat_avoidance >= 1.0;
+            || Map.Cell_Threat(diagonal_start_cell, house) * threat_avoidance >= 1.0;
 
             moves_remaining--;
 

@@ -1,4 +1,4 @@
-// bool MapClass::Unknown_00565EB0(CellClass &cell, int layer, DynamicVectorClass<unsigned short> *list, int arg4) (0x00565EB0)
+// bool MapClass::Build_Reachable_Subzones(CellClass &cell, int layer, DynamicVectorClass<unsigned short> *list, int arg4) (0x00565EB0)
 // TibSun Build_Reachable_Subzones: floods the layer's (1 << (layer + 1)) square block of
 // cells from the cell through the cells of the same subzone that the techno (arg4) can enter
 // (slot 101 answers 0, or the cell's land is not impassable for its movement zone),
@@ -11,10 +11,10 @@
 #include "shared/map_techno.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/zone_table.hpp"
-// @ref ?_subzone_flood_stack@?1??Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAPAV3@A=00a6f820
-// @ref ?_subzone_flood_visited@?1??Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAY07DA=00a6fbf0
-// @ref _?_subzone_flood_stack@?1??Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAPAV3@A=00a6f820
-// @ref _?_subzone_flood_visited@?1??Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAY07DA=00a6fbf0
+// @ref ?_subzone_flood_stack@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAPAV3@A=00a6f820
+// @ref ?_subzone_flood_visited@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAY07DA=00a6fbf0
+// @ref _?_subzone_flood_stack@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAPAV3@A=00a6f820
+// @ref _?_subzone_flood_visited@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z@4PAY07DA=00a6fbf0
 // @ref ??_7?$DynamicVectorClass@G@@6B@=0079c554
 // @ref ??_7?$VectorClass@G@@6B@=0079c534
 // @ref ??0?$VectorClass@G@@QAE@IPBG@Z=0042b620
@@ -32,14 +32,14 @@
 // @ref ?Clear@?$VectorClass@G@@UAEXXZ=0042b260
 // @ref ?ID@?$VectorClass@G@@UAEHABG@Z=0042b290
 // @ref ?ID@?$VectorClass@G@@UAEHPBG@Z=0042b2d0
-// @ref ?Unknown_00565EB0@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z=00565eb0
+// @ref ?Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVObjectClass@@@Z=00565eb0
 
 inline unsigned short Cell_Subzone(MapClass *map, Cell const &cell, int layer)
 {
-    return ((short *)(map->unknown_6c + map->Unknown_0054FAB0(cell) * 10))[layer];
+    return ((short *)(map->unknown_6c + map->Get_Cell_Zone_Index(cell) * 10))[layer];
 }
 
-bool MapClass::Unknown_00565EB0(CellClass *cptr, int layer, DynamicVectorClass<unsigned short> const &connections, ObjectClass const *foot)
+bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVectorClass<unsigned short> const &connections, ObjectClass const *foot)
 {
     static CellClass *_subzone_flood_stack[64];
     static char _subzone_flood_visited[8][8];
@@ -128,7 +128,7 @@ bool MapClass::Unknown_00565EB0(CellClass *cptr, int layer, DynamicVectorClass<u
             Cell c = cptr->MapCoords + Cell(bx, by);
 
             if (Unknown_0055A660(c, true)) {
-                if (start_subzone == ((unsigned short *)(unknown_6c + Unknown_0054FAB0(c) * 10))[layer] && !_subzone_flood_visited[facing][col]) {
+                if (start_subzone == ((unsigned short *)(unknown_6c + Get_Cell_Zone_Index(c) * 10))[layer] && !_subzone_flood_visited[facing][col]) {
                     return true;
                 }
             }

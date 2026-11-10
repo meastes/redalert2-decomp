@@ -6,13 +6,13 @@
 
 void MapRegionClass::Increase_Height_0056eea0(char height)
 {
-    Map.Unknown_0055A550();
-    CellClass *cell = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell = Map.Iterate();
     while (cell != 0) {
         int region = UnknownMapGenerationCell::Get_Region(cell->Fetch_CellID());
         if (region == Index) {
             cell->unknown_11b += height;
         }
-        cell = Map.Unknown_0055A490();
+        cell = Map.Iterate();
     }
 }

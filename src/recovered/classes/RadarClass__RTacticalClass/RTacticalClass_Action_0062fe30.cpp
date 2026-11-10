@@ -68,8 +68,8 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
     Map.Resolve_Radar_Point(click, cell, (TechnoClass *&)object);
     if (cell != RadarClass::unknown_cell_ab6330) {
         CoordStruct coord = Cell_Coord(cell);
-        coord.Z = Map.Unknown_0055A280(coord);
-        shadow = Map.Unknown_00568140(coord) && unknown_b263d8;
+        coord.Z = Map.Get_Height_GL(coord);
+        shadow = Map.Is_Shrouded(coord) && unknown_b263d8;
         int action = 0;
         bool nuke = unknown_pending_super_833694 == 0;
         bool first = unknown_pending_super_833694 == 1;

@@ -11,8 +11,8 @@ void VeinholeMonsterClass::unknown_func_711aa0()
     unknown_9c->Clear();
     unknown_ec = 0;
 
-    Map.Unknown_0055A550();
-    CellClass *iter = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *iter = Map.Iterate();
     while (iter != 0) {
         if (iter->OverlayIndex == 0x7e && iter->OverlayData >= 0x30) {
             int index = unknown_cell_index_428a90(iter->MapCoords);
@@ -26,6 +26,6 @@ void VeinholeMonsterClass::unknown_func_711aa0()
                 }
             }
         }
-        iter = Map.Unknown_0055A490();
+        iter = Map.Iterate();
     }
 }

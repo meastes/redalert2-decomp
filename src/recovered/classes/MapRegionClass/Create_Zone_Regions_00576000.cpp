@@ -17,8 +17,8 @@ static inline bool Zone_Cell_In_Bounds(Cell const &cell)
 void __fastcall MapRegionClass::Create_Zone_Regions_00576000(int zone_kind, int zone)
 {
     Destroy_Cell_Regions();
-    Map.Unknown_0055A550();
-    for (CellClass *cell = Map.Unknown_0055A490(); cell; cell = Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for (CellClass *cell = Map.Iterate(); cell; cell = Map.Iterate()) {
         Cell const &position = cell->MapCoords;
         if (Zone_Cell_In_Bounds(cell->MapCoords)) {
             if (Get_Cell_Data(position).RegionIndex == -1 && cell->unknown_4c == 0 &&

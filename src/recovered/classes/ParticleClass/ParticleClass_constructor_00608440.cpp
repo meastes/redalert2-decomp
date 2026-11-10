@@ -75,8 +75,8 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
         Lifetime = (unsigned short)(Class->MaxEC + abs(random % Class->MaxEC));
     }
     CoordStruct place(coord.X, coord.Y, coord.Z);
-    if (place.Z <= Map.Unknown_0055A280(coord)) {
-        place.Z = Map.Unknown_0055A280(coord);
+    if (place.Z <= Map.Get_Height_GL(coord)) {
+        place.Z = Map.Get_Height_GL(coord);
     }
     unknown_slot103(place);
     unknown_fc = Normalized(unknown_fc);

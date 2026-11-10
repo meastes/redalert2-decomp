@@ -5,8 +5,8 @@
 #include "shared/id_source.hpp"
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?Set_Waypoint_Location@UnknownIDSource@@QAEXHVCell@@@Z=00663400
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 
 void DisplayClass::Unknown_0049DCD0(void *buffer)
 {
@@ -30,9 +30,9 @@ void DisplayClass::Unknown_0049DCD0(void *buffer)
         unknown_id_source_a3d290->Set_Waypoint_Location(waypoint, cell);
     }
     in += 4;
-    Unknown_0055A550();
+    Reset_Iterator();
     CellClass *cell;
-    while ((cell = Unknown_0055A490()) != 0) {
+    while ((cell = Iterate()) != 0) {
         in += 4;
         cell->IsoTileIndex = *(int *)in;
         in += 4;

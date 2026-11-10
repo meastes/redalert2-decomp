@@ -204,8 +204,8 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z=0054a110
 // @ref _unknown_geometry_g=00abfe08
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 // @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
@@ -437,8 +437,8 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z=0054a110
 // @ref _unknown_geometry_g=00abfe08
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 // @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
@@ -670,8 +670,8 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z=0054a110
 // @ref _unknown_geometry_g=00abfe08
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 // @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
@@ -903,8 +903,8 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z=0054a110
 // @ref _unknown_geometry_g=00abfe08
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 // @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0
@@ -1135,8 +1135,8 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z=0054a110
 // @ref _unknown_geometry_g=00abfe08
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 // @ref ?unknown_slot36@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z=0062fc80
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
 // @ref ?Map@@3VMouseClass@@A=008324e0

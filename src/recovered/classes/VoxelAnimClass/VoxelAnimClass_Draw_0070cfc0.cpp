@@ -37,8 +37,8 @@ extern ConvertClass *unknown_drawer_8323bc;
 // @ref ?unknown_drawer_8323bc@@=008323bc
 // @ref ?Select_Blitter_00485AA0@ConvertClass@@=00485aa0
 // @ref ?Unknown_006A2970@@YIHH@Z=006a2970
-// @ref ?Unknown_005683C0@MapClass@@=005683c0
-// @ref ?Unknown_0055A280@MapClass@@=0055a280
+// @ref ?Is_Fogged@MapClass@@=005683c0
+// @ref ?Get_Height_GL@MapClass@@=0055a280
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_matrix_436fc0@BounceClass@@QBE?AVMatrix3D@@XZ=00436fc0
@@ -46,13 +46,13 @@ void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
     if ((unknown_id_source_a3d290->unknown_000 & 0x1000) != 0) {
         CoordStruct coord = Coord;
-        if (Map.Unknown_005683C0(coord)) return;
+        if (Map.Is_Fogged(coord)) return;
     }
     Point2D pixel;
     Point2D position = point;
     int level;
     CoordStruct ground = Coord;
-    ground.Z = Map.Unknown_0055A280(ground);
+    ground.Z = Map.Get_Height_GL(ground);
     CellClass &cell = Map[ground];
     {
                 if ((cell.unknown_140 & 0x100) != 0 && (CoordStruct(Coord).Z >= unknown_geometry_j + ground.Z)) {

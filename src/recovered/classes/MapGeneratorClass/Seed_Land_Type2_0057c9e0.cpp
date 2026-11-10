@@ -26,11 +26,11 @@ void MapGeneratorClass::Seed_Land_Type2()
     double target = (1.0 - SeedData.WaterAmount * 0.01) * (unknown_land2_maximum_7a5c80 - unknown_land2_minimum_7a5c78) + unknown_land2_minimum_7a5c78;
     int maximum = (int)((double)total * unknown_land2_chunk_7a5c88 * target);
 
-    Map.Unknown_0055A550();
-    CellClass *cptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cptr = Map.Iterate();
     while (cptr != 0) {
         MapRegionClass::Get_Cell_Data(cptr->Fetch_CellID()).unknown_3c = 0;
-        cptr = Map.Unknown_0055A490();
+        cptr = Map.Iterate();
     }
 
     Rect halves[2];

@@ -122,7 +122,7 @@ void BuildingClass::unknown_slot282(bool captured)
         }
     }
     if (Type->WeaponsFactory && Type->Naval) {
-        Cell result = Map.Unknown_005502E0(unknown_slot104(), 5, -1, 10, false, Point2D(5, 5),
+        Cell result = Map.Nearby_Location(unknown_slot104(), 5, -1, 10, false, Point2D(5, 5),
             false, false, false, true, Cell(0, 0), 0);
         result = Cell(result.X + 2, result.Y + 2);
         if (result != grand_none_0084ed10) unknown_440140(&result, false);
@@ -142,11 +142,11 @@ void BuildingClass::unknown_slot282(bool captured)
         UnitClass *unit = new UnitClass(Type->FreeUnit, House);
         if (unit) {
             if (!unit->unknown_slot53(&CoordStruct(cell), 0xC0)) {
-                Cell nearby_cell = Map.Unknown_005502E0(Cell(Position_Coord_004f3f40()), 2,
+                Cell nearby_cell = Map.Nearby_Location(Cell(Position_Coord_004f3f40()), 2,
                     Map.Zone(Cell(Position_Coord_004f3f40()), unit->Type->MovementZone, false),
                     unit->Type->MovementZone, false, Point2D(1, 1), true, true, false, false, Cell(0, 0), 0);
                 if (nearby_cell == grand_none_0084ed10 || !unit->unknown_slot53(&CoordStruct(nearby_cell), 0xA0)) {
-                    Cell new_cell = Map.Unknown_005502E0(Cell(Position_Coord_004f3f40()), 2,
+                    Cell new_cell = Map.Nearby_Location(Cell(Position_Coord_004f3f40()), 2,
                         Map.Zone(Cell(Position_Coord_004f3f40()), unit->Type->MovementZone, false),
                         unit->Type->MovementZone, false, Point2D(1, 1), false, true, false, false, Cell(0, 0), 0);
                     if (new_cell == grand_none_0084ed10 || !unit->unknown_slot53(&CoordStruct(new_cell), 0xA0)) {

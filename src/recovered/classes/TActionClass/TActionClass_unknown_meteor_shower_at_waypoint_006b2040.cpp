@@ -32,7 +32,7 @@ bool TActionClass::unknown_meteor_shower_at_waypoint(HouseClass *house, ObjectCl
 {
     Cell waypoint = unknown_id_source_a3d290->Get_Waypoint_Location(unknown_44);
     CoordStruct coord = CoordStruct(waypoint);
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     if ((Map[waypoint].unknown_140 & 0x100) || (Map[waypoint].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
     }
@@ -42,7 +42,7 @@ bool TActionClass::unknown_meteor_shower_at_waypoint(HouseClass *house, ObjectCl
     int radius = count * 70;
     for (int index = 0; index < count; index++) {
         CoordStruct spot = coord + Random_Offset(radius);
-        spot.Z = Map.Unknown_0055A280(spot);
+        spot.Z = Map.Get_Height_GL(spot);
         new AnimClass(AnimTypes[(abs(unknown_id_source_a3d290->Random()()) % 2) ? large : small], spot, 0, 1, 0x600, 0);
     }
     return true;

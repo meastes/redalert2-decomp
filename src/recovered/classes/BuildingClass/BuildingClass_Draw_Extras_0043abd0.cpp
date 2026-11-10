@@ -20,7 +20,7 @@ inline double Barrel_Direction_Angle_00453900(UnknownFacingDir const &direction)
 // @ref ?unknown_rect_839630@@=00839630
 // @ref ?Aircraft_Isometric_View_Matrix_00717f90@@YI?AVMatrix3D@@XZ=00717f90
 // @ref ?Coord_To_Pixel@Tactical@@=006a29d0
-// @ref ?Unknown_005683C0@MapClass@@=005683c0
+// @ref ?Is_Fogged@MapClass@@=005683c0
 // @ref ?unknown_453900@BuildingClass@@=00453900
 // @ref ?Translate@Matrix3D@@QAEXABUVector3@@@Z=005900f0
 // @ref ??D@YI?AVMatrix3D@@ABV0@0@Z=00591180
@@ -42,7 +42,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
                 CoordStruct destination=product->unknown_slot19(0);
                 destination.Z=product->Position_Coord_004f3f40().Z;
                 if(!unknown_b263d8 || Debug_Map || !(unknown_id_source_a3d290->unknown_000&0x1000) ||
-                   (!Map.Unknown_005683C0(product->Position_Coord_004f3f40()) && !Map.Unknown_005683C0(destination))) {
+                   (!Map.Is_Fogged(product->Position_Coord_004f3f40()) && !Map.Is_Fogged(destination))) {
                     Point2D point;
                     unknown_tactical_83996c->Coord_To_Pixel(product->unknown_slot42(),point);
                     product->unknown_slot67(point,bounds);

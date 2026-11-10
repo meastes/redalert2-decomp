@@ -18,7 +18,7 @@
 // @ref ?Recalc_Attributes@CellClass@@QAEXH@Z=00472540
 // @ref ?unknown_47be60@CellClass@@QAEXXZ=0047be60
 // @ref ?unknown_471d10@CellClass@@QAE_NXZ=00471d10
-// @ref ?Unknown_0056A870@MapClass@@QAEXH@Z=0056a870
+// @ref ?Lower_Max_Level@MapClass@@QAEXH@Z=0056a870
 // @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
 // @ref ??3@YAXPAX@Z=00781d3b
@@ -75,7 +75,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                 cell_bound = cell->unknown_4752b0();
                 int old_height = cell->unknown_11b;
                 cell->unknown_11b = (char)(lowest / 15);
-                Map.Unknown_0056A870(cell->unknown_11b);
+                Map.Lower_Max_Level(cell->unknown_11b);
                 if (old_height != cell->unknown_11b) {
                     cell->unknown_47be60();
                 }

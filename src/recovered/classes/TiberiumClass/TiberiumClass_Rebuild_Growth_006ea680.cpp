@@ -14,8 +14,8 @@ void TiberiumClass::Rebuild_Growth()
     for (int index = unknown_cells_428ac0() - 1; index >= 0; index--) {
         GrowthMap[index] = false;
     }
-    Map.Unknown_0055A550();
-    for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         if (cell->Get_Tiberium_Type() == ArrayIndex && cell->unknown_4788e0()) {
             GrowthData[GrowthCount].Position = cell->MapCoords;
             GrowthData[GrowthCount].Key = 0.0f;

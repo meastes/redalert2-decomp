@@ -71,7 +71,7 @@ bool UnknownPathEstimator::Unknown_004296F0(int *moves, int move_count, Cell con
             while (count1 > 0 && !blocked) {
                 current = Adjacent_Cell(current, first_dir);
                 CellClass *cellptr = &Map[current];
-                if (avoid_threats && Map.Unknown_0054E3A0(current, house) * avoidance >= 0.01) {
+                if (avoid_threats && Map.Cell_Threat(current, house) * avoidance >= 0.01) {
                     threats++;
                 }
                 blocked = foot->unknown_slot101(cellptr, first_dir, height, 0, 1) != 0 || (cellptr->unknown_140 & 0x40000) || threats > 3 || (!fearless && threats > 0);
@@ -88,7 +88,7 @@ bool UnknownPathEstimator::Unknown_004296F0(int *moves, int move_count, Cell con
             while (count2 > 0 && !blocked) {
                 current = Adjacent_Cell(current, second_dir);
                 CellClass *cellptr = &Map[current];
-                if (avoid_threats && Map.Unknown_0054E3A0(current, house) * avoidance >= 0.01) {
+                if (avoid_threats && Map.Cell_Threat(current, house) * avoidance >= 0.01) {
                     threats++;
                 }
                 blocked = foot->unknown_slot101(cellptr, second_dir, height, 0, 1) != 0 || (cellptr->unknown_140 & 0x40000) || threats > 3 || (!fearless && threats > 0);

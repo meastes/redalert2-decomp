@@ -15,7 +15,7 @@ void HouseClass::unknown_func_4f3e00(SuperClass *super)
         for (int i = unknown_BuildingClass_list_00a40af8.Count() - 1; i >= 0; i--) {
             BuildingClass *building = unknown_BuildingClass_list_00a40af8[i];
             if (building->House == house) {
-                int rating = Map.Unknown_0054E3A0(Coord_Cell(building->Center_Coord()), this);
+                int rating = Map.Cell_Threat(Coord_Cell(building->Center_Coord()), this);
                 if (building->unknown_5bd == 15) {
                     rating = Random_Pick(0, 100);
                 }

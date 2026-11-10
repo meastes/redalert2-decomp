@@ -5,12 +5,12 @@ bool MapGeneratorClass::Expand_All_High_Ground()
 {
     bool success=true;
     Map.Unknown_00498F10(0);
-    Map.Unknown_0055A550();
-    CellClass *cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell=Map.Iterate();
     while (cell!=0) {
         if (!success) break;
         success=Map.Expand_High_Ground(cell,-1);
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
     return success;
 }

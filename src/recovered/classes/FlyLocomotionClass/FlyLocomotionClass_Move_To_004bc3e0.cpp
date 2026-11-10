@@ -45,7 +45,7 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
                 unknown_1c = to;
 
                 if (LinkedTo->unknown_228 && LinkedTo->unknown_254) {
-                    unknown_1c.Z = LinkedTo->unknown_slot32()->Flight_Level() + Map.Unknown_0055A280(to);
+                    unknown_1c.Z = LinkedTo->unknown_slot32()->Flight_Level() + Map.Get_Height_GL(to);
                 }
 
                 UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);

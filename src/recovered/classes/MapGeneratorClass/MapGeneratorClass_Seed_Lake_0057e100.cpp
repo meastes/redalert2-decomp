@@ -28,8 +28,8 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
     int capacity=(int)((unsigned)spreadLimit*2u+2u);
     UnknownVeinNode *nodes=new UnknownVeinNode[capacity>100?capacity:100];
     UnknownVeinHeap *heap=new UnknownVeinHeap(capacity>100?capacity:100);
-    Map.Unknown_0055A550();
-    for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
         Cell position=cell->MapCoords;
         unsigned index=(unsigned)(int)position.Y*(unsigned)unknown_map_cell_side_84e804+(unsigned)(int)position.X;
         unknown_map_cells_a70a24[index].unknown_3c=0;
@@ -127,8 +127,8 @@ bool MapGeneratorClass::Seed_Lake(Cell const &origin)
         success=Grow_Region((int)WorkingRegionID,1,Rect(0,0,512,512),0,0);
         if(success) {
             int region=(int)WorkingRegionID;
-            Map.Unknown_0055A550();
-            for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+            Map.Reset_Iterator();
+            for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
                 int index=UnknownMapGenerationCell::Get_Region(cell->MapCoords);
                 if(index==region && (cell->IsoTileIndex==0 || cell->IsoTileIndex==0xffff))cell->IsoTileIndex=unknown_tileset_a52c60;
             }

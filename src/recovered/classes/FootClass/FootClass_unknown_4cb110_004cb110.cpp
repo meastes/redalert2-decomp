@@ -65,7 +65,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             }
 
             if (!click) {
-                Cell nearby = Map.Unknown_005502E0(cell, unknown_slot32()->SpeedType, Map.Zone(cell, unknown_slot32()->MovementZone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1), unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
+                Cell nearby = Map.Nearby_Location(cell, unknown_slot32()->SpeedType, Map.Zone(cell, unknown_slot32()->MovementZone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1), unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
                 if (nearby != unknown_geometry_k) {
                     unknown_41c = nearby - cell;
                     direct = false;

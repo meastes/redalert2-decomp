@@ -5,7 +5,7 @@
 #include "shared/map_view.hpp"
 #include "shared/techno_map.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Unknown_004763D0@@YIHABUCoordStruct@@@Z=004763d0
 // @ref _unknown_geometry_j=00a41120
 
@@ -13,7 +13,7 @@ void InfantryClass::unknown_slot58(CoordStruct const &coord)
 {
     int spot = Unknown_004763D0(coord);
     UnknownCellClass *cell = Map_Cell(coord);
-    if (Map.Unknown_0055A280(coord) + unknown_geometry_j <= coord.Z && (cell->Flags & 0x100)) {
+    if (Map.Get_Height_GL(coord) + unknown_geometry_j <= coord.Z && (cell->Flags & 0x100)) {
         cell->unknown_128.Composite |= 1 << spot;
         cell->unknown_58 = Owner();
     } else {

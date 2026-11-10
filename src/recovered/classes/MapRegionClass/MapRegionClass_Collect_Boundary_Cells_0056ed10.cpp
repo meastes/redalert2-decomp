@@ -14,8 +14,8 @@
 // @ref ??0?$VectorClass@VCell@@@@QAE@IPBVCell@@@Z=0042d4a0
 // @ref ??_7?$DynamicVectorClass@VCell@@@@6B@=0079c5a0
 // @ref ?Adjacent_Cell@CellClass@@QAEAAV1@I@Z=00476ac0
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 
 // The 8-neighbour bounds test of the generation diamond, written as an inline helper.
 static inline bool In_Generation_Bounds(Cell const &next)
@@ -29,8 +29,8 @@ static inline bool In_Generation_Bounds(Cell const &next)
 DynamicVectorClass<Cell> *MapRegionClass::Collect_Boundary_Cells_0056ed10()
 {
     DynamicVectorClass<Cell> *cells = new DynamicVectorClass<Cell>;
-    Map.Unknown_0055A550();
-    for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
         Cell position = cell->MapCoords;
         if (UnknownMapGenerationCell::Get_Region(position) != Index) {
             continue;

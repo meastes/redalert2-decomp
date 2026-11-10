@@ -163,14 +163,14 @@ public:
     // index in that array, clamped to it (0x0054FAB0), and unclamped
     // (0x0054FAF0): Y * (width + height + 1) + X.
     int Unknown_0054FA60(Cell const &cell);
-    int Unknown_0054FAB0(Cell const &cell);
+    int Get_Cell_Zone_Index(Cell const &cell);
     int Unknown_0054FAF0(Cell const &cell);
 #ifdef RA2_MAP_COLLAPSE_CLIFF
-    short &Fine_Subzone(Cell const &cell) { return *(short *)(unknown_6c + Unknown_0054FAB0(cell) * 10); }
+    short &Fine_Subzone(Cell const &cell) { return *(short *)(unknown_6c + Get_Cell_Zone_Index(cell) * 10); }
 #endif
     // The house's +0x56D0 value for the 4 x 4 block of a cell (0x0054E3A0;
     // the block index is 0x0054E370's).
-    int Unknown_0054E3A0(Cell const &cell, HouseClass *house);
+    int Cell_Threat(Cell const &cell, HouseClass *house);
     // Redraws a cell whose shroud changed (0x00568520; DisplayClass slot 37 passes the
     // cell, its second argument and whether the cell was already mapped; hypothesis).
     void Unknown_00568520(CellClass *cell, HouseClass *house, bool arg3);
@@ -188,8 +188,8 @@ public:
     void Unknown_0054AF70(Cell const &cell, ObjectClass *object);   // 0x0054AF70 (FootClass slot 71, case 0)
     bool Unknown_0054F7C0(Cell const &from, Cell const &to, int zone, bool arg4, bool bridge, bool arg6);  // 0x0054F7C0 (a path test; FootClass slot 171)
     int Zone(Cell const &cell, int zone_type, bool alt); // 0x0054F8F0 (the cell's movement zone; hypothesis)
-    void Unknown_0054FB20(Cell const &cell);      // 0x0054FB20 (after a tiberium cell is cleared; AnimClass)
-    int Unknown_0055A280(CoordStruct const &coord);     // 0x0055A280 (ground height; hypothesis)
+    void Update_Cell_Zone(Cell const &cell);      // 0x0054FB20 (after a tiberium cell is cleared; AnimClass)
+    int Get_Height_GL(CoordStruct const &coord);     // 0x0055A280 (ground height; hypothesis)
     // Reads the cells' tile data, a cell at a time up to the "no cell" value (TibSun
     // Read_Binary_2 to _5): through an LCW straw, uncompressed, through an LZO straw,
     // and through an LZO straw with each cell's +0x119.
@@ -216,11 +216,11 @@ public:
     // (0x0055A7F0; FootClass slot 282 and others).
     bool Unknown_0055A7F0(CoordStruct const &coord);
     void Unknown_0055ACC0();                            // 0x0055ACC0 increments unknown_1154 (GScreenClass::Flag_To_Redraw)
-    void Unknown_0054FC60(Cell const &cell);      // 0x0054FC60
+    void Update_Cell_Zone_Constructively(Cell const &cell);      // 0x0054FC60
     void Unknown_00566340(Cell const &cell);      // 0x00566340
-    bool Unknown_005683C0(CoordStruct const &coord);                            // 0x005683C0 (Tunnel.cpp)
-    bool Unknown_00568140(CoordStruct const &coord);    // 0x00568140 (AircraftClass slot 101)
-    bool Unknown_00568280(CoordStruct const &coord);    // 0x00568280 (as 0x00568140 for the cells' +0x13C; RadarClass)
+    bool Is_Fogged(CoordStruct const &coord);                            // 0x005683C0 (Tunnel.cpp)
+    bool Is_Shrouded(CoordStruct const &coord);    // 0x00568140 (AircraftClass slot 101)
+    bool Is_Under_Fog(CoordStruct const &coord);    // 0x00568280 (as 0x00568140 for the cells' +0x13C; RadarClass)
     void Unknown_0054A550(CoordStruct const &coord, int arg2, int arg3, int arg4);   // 0x0054A550 (InfantryClass slot 93)
     void Unknown_0054A8F0(CoordStruct const &coord, int radius);   // 0x0054A8F0 (clears +0x130/+0x134 and sets +0x12C bits 3-4 in a disc around coord)
     void Unknown_0054A720(CoordStruct const &coord, int radius);   // 0x0054A720 (marks +0x130 and clears +0x12C bits 3-4 of the unmarked cells in a disc around coord; TActionClass 0x006B1050)
@@ -235,7 +235,7 @@ public:
     // hypothesis: Westwood's Nearby_Location; FootClass 0x004CCA40). `size` is
     // a Point2D by value (width, height): callers build it in a register pair,
     // the second a copy of the first (UnitClass slot 87 0x007072D0).
-    Cell Unknown_005502E0(Cell const &cell, int speed, int zone_index, int zone, bool bridge, Point2D size, bool arg8, bool arg9, bool arg10, bool arg11, Cell const &arg12, int arg13);
+    Cell Nearby_Location(Cell const &cell, int speed, int zone_index, int zone, bool bridge, Point2D size, bool arg8, bool arg9, bool arg10, bool arg11, Cell const &arg12, int arg13);
     void Unknown_00552570(Cell const &cell);      // 0x00552570 (repairs the bridge at a cell; InfantryClass slot 93)
     void Unknown_00555A60(Cell const &cell);      // 0x00555A60 (the other bridge kind)
     // A bridge end cell's damaged state, spread over the cells of its tile (TibSun name).
@@ -308,9 +308,9 @@ public:
     // TibSun Destroy_High_Bridge_Span / Destroy_High_Bridge_Connections: the high bridge twins of 0x00553000 / 0x00553570.
     bool Destroy_High_Bridge_Span_00558660(Cell const &cell, FacingType direction, Rect *dirty);
     void Destroy_High_Bridge_Connections_00558BD0(Cell const &cell);
-    Cell Unknown_00564F70(CellClass *cptr, bool isbridge);        // TibSun Get_Bridge_Zone_Connection_Cell
+    Cell Get_Bridge_Zone_Connection_Cell(CellClass *cptr, bool isbridge);        // TibSun Get_Bridge_Zone_Connection_Cell
     Cell Unknown_005689D0(Cell const &cell, bool inset);          // TibSun Closest_Edge_Cell
-    bool Unknown_00565EB0(CellClass *cptr, int layer, DynamicVectorClass<unsigned short> const &connections, ObjectClass const *foot);   // TibSun Build_Reachable_Subzones
+    bool Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVectorClass<unsigned short> const &connections, ObjectClass const *foot);   // TibSun Build_Reachable_Subzones
 #endif
 #if defined(RA2_MAP_BRIDGE_PIECES) || defined(RA2_HOUSE_NAVAL_YARD_PATH)
     void Unknown_00565A50(Cell const &origin, int radius_limit, int count_limit, int zone_type, int zone, DynamicVectorClass<Cell> &cells, int width, int height);   // clear-area ring collector
@@ -336,8 +336,8 @@ public:
     bool Unknown_00569320(Cell const &cell);      // 0x00569320 (a bridge hut's bridge is intact; InfantryClass slot 28; hypothesis)
     // A walk over the map's cells: restart (0x0055A550) and next cell, or
     // null at the end (0x0055A490).
-    void Unknown_0055A550();
-    CellClass *Unknown_0055A490();
+    void Reset_Iterator();
+    CellClass *Iterate();
     bool Unknown_00569090(Cell *cell);              // 0x00569090 (whether a cell can be scrolled to; hypothesis)
     bool Unknown_0055DEF0(Cell const &cell);      // 0x0055DEF0 (TibSun Damage_Low_Bridge_EW)
     bool Unknown_0055E410(Cell const &cell);      // 0x0055E410 (TibSun Damage_Low_Bridge_NS)
@@ -376,7 +376,7 @@ public:
     void Unknown_00564B20(int arg);
     void Unknown_00564B60(ZoneConnectionClass *connection, int arg);   // 0x00564B60
     // Lowers +0x144 to value, not below 0 (0x0056A870).
-    void Unknown_0056A870(int value);
+    void Lower_Max_Level(int value);
     // From +0x144 13 or more: lowers +0x144 (0x0056A870) to every cell's
     // +0x11B; returns +0x144 (0x0056A8A0).
     int Unknown_0056A8A0();
@@ -386,7 +386,7 @@ public:
     void Unknown_00568650();
     // Whether any cell within radius of a cell (a square) has an occupier
     // (0x005680A0).
-    bool Unknown_005680A0(Cell const &cell, int radius);
+    bool Is_Something_Nearby(Cell const &cell, int radius);
     // Whether every cell of a cell rectangle has +0x4C 3 or 4 (0x00565E20).
     bool Unknown_00565E20(Rect const &rect);
     // Collects the cells of a cell rectangle (column by column) and passes
@@ -398,7 +398,7 @@ public:
     bool Unknown_005686B0(Rect const &rect, int house);
     // The first zone connection from start on whose unset (+0x0C 0)
     // straight segment passes within distance of a cell, or -1 (0x005500D0).
-    int Unknown_005500D0(Cell const &cell, int distance, int start);
+    int Zone_Connection_Index(Cell const &cell, int distance, int start);
     void Unknown_0054FDA0();                                    // 0x0054FDA0
     void Unknown_00566C30(ZoneConnectionClass *connection);     // 0x00566C30
     // Runs 0x00566C30 on (and clears +0x08 of) every flagged connection
@@ -477,7 +477,7 @@ public:
     void Unknown_00562EA0();                // 0x00562EA0 (frees the twelve unknown_18 blocks; Prog_End)
     Cell Unknown_00547E90(Cell const &cell);
     Cell Unknown_00547EE0(Cell const &cell);
-    Cell Unknown_00565610(Cell const &cell, int layer, unsigned int subzone); // original00565610; same signature as lightmap view
+    Cell Find_Bridge_End_Cell_For_Subzone(Cell const &cell, int layer, unsigned int subzone); // original00565610; same signature as lightmap view
     Cell Unknown_00547F30(Cell const &cell);
 
     bool unknown_10;                                            // +0x10

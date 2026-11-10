@@ -11,14 +11,14 @@
 #include "shared/unknown_geometry.hpp"
 #include "shared/id_source.hpp"
 #include "shared/tactical.hpp"
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Unknown_006A66B0@Tactical@@QAEXABUCoordStruct@@@Z=006a66b0
 // @ref ?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z=004994d0
 
 void View4CommandClass::Execute(int key) const
 {
     CoordStruct coord(unknown_id_source_a3d290->Views[3].X * 256 + 128, unknown_id_source_a3d290->Views[3].Y * 256 + 128, 0);
-    coord.Z = Map.Unknown_0055A280(coord);
+    coord.Z = Map.Get_Height_GL(coord);
     unknown_tactical_83996c->Unknown_006A66B0(coord);
     if (Map.unknown_11a4 != 0) {
         Map.Unknown_004994D0(unknown_geometry_k);

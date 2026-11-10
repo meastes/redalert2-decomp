@@ -25,8 +25,8 @@ void TunnelLocomotionClass::unknown_6f0730()
   coord.Z=-256;
   if(LinkedTo->unknown_slot101(&Map[CoordStruct(LinkedTo->Coord)],-1,-1,0,true) && Map.Unknown_0055A7F0(CoordStruct(LinkedTo->Coord))) {
    Cell cell=LinkedTo->unknown_slot104();
-   cell=Map.Unknown_005502E0(cell,1,Map.Zone(cell,0,false),0,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
-   if(cell==unknown_geometry_k) cell=Map.Unknown_005502E0(LinkedTo->unknown_slot104(),1,-1,6,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
+   cell=Map.Nearby_Location(cell,1,Map.Zone(cell,0,false),0,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
+   if(cell==unknown_geometry_k) cell=Map.Nearby_Location(LinkedTo->unknown_slot104(),1,-1,6,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
    if(cell==unknown_geometry_k) {
     LinkedTo->unknown_slot86(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,true);
     return;

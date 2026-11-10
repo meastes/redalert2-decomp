@@ -21,7 +21,7 @@
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 // @ref ?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z=006d6e50
 
 inline Cell Coord_Cell_Value(CoordStruct coord)
@@ -44,7 +44,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
         BuildingClass *building = ((UnknownCellClass *)&Map[unknown_1b0->Center_Coord()])->Unknown_004717B0();
         if (building != 0 && House->Is_Ally(building->House) && !House->Unknown_004F52F0()
             && (Kind_Of() != 1 || !((UnitClass *)this)->Type->Harvester)) {
-            Cell nearby = Map.Unknown_005502E0(Coord_Cell(unknown_1b0->Center_Coord()), 1, Map.Zone(Coord_Cell_Value(Coord), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            Cell nearby = Map.Nearby_Location(Coord_Cell(unknown_1b0->Center_Coord()), 1, Map.Zone(Coord_Cell_Value(Coord), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             if (nearby != unknown_geometry_k) {
                 unknown_6d6e50((AbstractClass *)&Map[nearby]);
             }

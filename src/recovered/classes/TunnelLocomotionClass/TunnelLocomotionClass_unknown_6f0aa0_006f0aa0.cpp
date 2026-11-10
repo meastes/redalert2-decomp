@@ -10,7 +10,7 @@
 void TunnelLocomotionClass::unknown_6f0aa0()
 {
     CoordStruct coord = LinkedTo->Coord;
-    int ground = Map.Unknown_0055A280(coord);
+    int ground = Map.Get_Height_GL(coord);
     if (coord.Z < ground) {
         int height = LinkedTo->unknown_slot108();
         int rate = (int)(LinkedTo->unknown_slot303() * Rules->unknown_20);

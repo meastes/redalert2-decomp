@@ -13,7 +13,7 @@
 
 Cell MapClass::Unknown_005651E0(Cell const &cell, Cell const &from)
 {
-    int index = Map.Unknown_005500D0(cell, 1, 0);
+    int index = Map.Zone_Connection_Index(cell, 1, 0);
     if (index != -1) {
         ZoneConnectionClass &connection = Map.ZoneConnections[index];
         if (connection.unknown_08) {

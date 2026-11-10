@@ -5,7 +5,7 @@
 // cell (0x004F6A80). Nothing happens when no cell is found.
 #include "shared/techno.hpp"
 #include "shared/map_view.hpp"
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 
 void HouseClass::unknown_func_4f3c50(SuperClass *super)
 {
@@ -15,7 +15,7 @@ void HouseClass::unknown_func_4f3c50(SuperClass *super)
         cell = unknown_func_4f6a80(unknown_541c);
     } else {
         cell = Coord_Cell(house->BaseCenter);
-        cell = Map.Unknown_005502E0(cell, 0, -1, 0, false, Point2D(5, 5), 0, 0, 0, 1, Cell(0, 0), 0);
+        cell = Map.Nearby_Location(cell, 0, -1, 0, false, Point2D(5, 5), 0, 0, 0, 1, Cell(0, 0), 0);
         cell.X += 2;
         cell.Y += 2;
     }

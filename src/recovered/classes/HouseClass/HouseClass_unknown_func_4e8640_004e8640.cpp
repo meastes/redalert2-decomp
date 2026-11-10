@@ -11,7 +11,7 @@
 #include "shared/coord_distance.hpp"
 #include "shared/unknown_geometry.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 
 // The distance between two coordinates (as shared/coord_distance.hpp's
 // Coord_Distance, with the last two squares summed first).
@@ -50,7 +50,7 @@ void HouseClass::unknown_func_4e8640()
             x /= count;
             y /= count;
             BaseCenter = CoordStruct(x, y, 0);
-            BaseCenter = Cell_Coord(Map.Unknown_005502E0(Coord_Cell(BaseCenter), 0, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0));
+            BaseCenter = Cell_Coord(Map.Nearby_Location(Coord_Cell(BaseCenter), 0, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0));
         }
         if (count > 1) {
             int radius = 0;

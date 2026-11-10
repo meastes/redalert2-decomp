@@ -15,8 +15,8 @@ bool MapGeneratorClass::Clear_Region_Border(int region,int rings,int newRegion)
     int ring,index;
     DynamicVectorClass<Cell> *border=Build_Region_Border_Cell_List(region);
     if(rings>1) {
-        Map.Unknown_0055A550();
-        for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+        Map.Reset_Iterator();
+        for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
             Cell position=cell->MapCoords;
             unknown_map_cells_a70a24[position.Y*unknown_map_cell_side_84e804+position.X].unknown_3c=0;
         }
@@ -52,8 +52,8 @@ bool MapGeneratorClass::Clear_Region_Border(int region,int rings,int newRegion)
     }
     delete border;
     if(rings>1) {
-        Map.Unknown_0055A550();
-        for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+        Map.Reset_Iterator();
+        for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
             Cell position=cell->MapCoords;
             unknown_map_cells_a70a24[position.Y*unknown_map_cell_side_84e804+position.X].unknown_3c=0;
         }

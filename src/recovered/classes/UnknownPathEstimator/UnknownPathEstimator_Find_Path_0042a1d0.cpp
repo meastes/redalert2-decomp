@@ -26,8 +26,8 @@ UnknownPathType *UnknownPathEstimator::Find_Path_0042a1d0(Cell const &from, Cell
     CellClass *to_cell = &Map[to];
     int from_zone = Map.Zone(from, zone != -1 ? zone : foot->unknown_slot32()->MovementZone, foot->unknown_79);
     int to_zone = Map.Zone(to, zone != -1 ? zone : foot->unknown_slot32()->MovementZone, (Map[to].unknown_140 & 0x100) != 0);
-    Cell hs_from = Map.Unknown_00564F70(from_cell, foot->unknown_79);
-    Cell hs_to = Map.Unknown_00564F70(to_cell, (to_cell->unknown_140 & 0x100) != 0);
+    Cell hs_from = Map.Get_Bridge_Zone_Connection_Cell(from_cell, foot->unknown_79);
+    Cell hs_to = Map.Get_Bridge_Zone_Connection_Cell(to_cell, (to_cell->unknown_140 & 0x100) != 0);
     int move_zone = zone != -1 ? zone : foot->unknown_slot32()->MovementZone;
     if (foot->Kind_Of() == 15 && ((InfantryClass *)foot)->Type->JumpJet) {
         move_zone = 7;

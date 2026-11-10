@@ -19,8 +19,8 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
         (unknown_id_source_a3d290->unknown_000 & 0x1000)) {
         CoordStruct destination = (CoordStruct)Locomotor.Checked()->Head_To_Coord();
         destination.Z = Position_Coord_004f3f40().Z;
-        if (Map.Unknown_005683C0(destination) &&
-            Map.Unknown_005683C0(Position_Coord_004f3f40()) && !House->Unknown_004F52B0()) return;
+        if (Map.Is_Fogged(destination) &&
+            Map.Is_Fogged(Position_Coord_004f3f40()) && !House->Unknown_004F52B0()) return;
     }
 
     Point2D draw_point = point;
@@ -31,7 +31,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
     unknown_slot104();
     if (Type->unknown_206 && Type->unknown_b0.unknown_00) {
         CoordStruct ground = Position_Coord_004f3f40();
-        ground.Z = Map.Unknown_0055A280(ground);
+        ground.Z = Map.Get_Height_GL(ground);
         Point2D shadow_point;
         unknown_tactical_83996c->Coord_To_Pixel(ground, shadow_point);
         shadow_point += Locomotor.Checked()->Shadow_Point();

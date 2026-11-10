@@ -39,8 +39,8 @@ void CellClass::Recalc_Attributes(int cell_height)
         return;
     }
 
-    UnknownMapElem4 *zone = &Map.unknown_64[Map.Unknown_0054FAB0(MapCoords)];
-    char *subzone = Map.unknown_6c + Map.Unknown_0054FAB0(MapCoords) * 10;
+    UnknownMapElem4 *zone = &Map.unknown_64[Map.Get_Cell_Zone_Index(MapCoords)];
+    char *subzone = Map.unknown_6c + Map.Get_Cell_Zone_Index(MapCoords) * 10;
 
     int overlay = OverlayIndex;
 

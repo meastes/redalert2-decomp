@@ -18,7 +18,7 @@
 #include "shared/rules.hpp"
 #include "shared/unknown_geometry.hpp"
 // @ref ?unknown_func_4ef600@HouseClass@@QAEPAVBuildingTypeClass@@ABV?$DynamicVectorClass@PAVBuildingTypeClass@@@@@Z=004ef600
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 // @ref _unknown_geometry_k=00ad0488
 // @ref _unknown_geometry_l=00ad04c0
 // @ref _?$S46@?BN@??unknown_6fd930@UnitClass@@QAE_NXZ@4EA=00ad04b8
@@ -53,11 +53,11 @@ bool UnitClass::unknown_6fd930()
                     Cell first;
                     {
                         Cell zero(0, 0);
-                        first = Map.Unknown_005502E0(unknown_slot104(), 5, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->Shipyard)->Width() + 1, House->unknown_func_4ef600(Rules->Shipyard)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
+                        first = Map.Nearby_Location(unknown_slot104(), 5, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->Shipyard)->Width() + 1, House->unknown_func_4ef600(Rules->Shipyard)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
                     }
                     {
                         Cell zero(0, 0);
-                        first = Map.Unknown_005502E0(first, 1, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->unknown_7c8)->Width() + 1, House->unknown_func_4ef600(Rules->unknown_7c8)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
+                        first = Map.Nearby_Location(first, 1, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->unknown_7c8)->Width() + 1, House->unknown_func_4ef600(Rules->unknown_7c8)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
                     }
                     if (first != unknown_geometry_k) Assign_Destination(&Map[first], true);
                     Owning_House()->unknown_139 = false;

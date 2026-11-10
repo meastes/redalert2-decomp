@@ -29,35 +29,35 @@ bool MapClass::Rebuild_Shores_At(Cell const &origin)
         Get_Cell_Data_0056dbc0(i).unknown_40 = -1;
     }
 
-    Map.Unknown_0055A550();
-    CellClass *cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cellptr = Map.Iterate();
     bool expanded = true;
     while (cellptr != 0 && expanded) {
         expanded = Expand_Water(cellptr, 0, 0);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
-    Map.Unknown_0055A550();
-    cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         Unknown_0055C520(cellptr, 0, 0);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
     Mark_Fill_Area(origin, true);
 
-    Map.Unknown_0055A550();
-    cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         expanded = Place_Shore(cellptr, 1, 0, 0);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
-    Map.Unknown_0055A550();
-    cellptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cellptr = Map.Iterate();
     while (cellptr != 0 && expanded) {
         expanded = Place_Shore(cellptr, 2, 0, 0);
-        cellptr = Map.Unknown_0055A490();
+        cellptr = Map.Iterate();
     }
 
     ObjectClass *obj = Map.unknown_11a0;

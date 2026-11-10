@@ -12,7 +12,7 @@ int MapClass::Zone(Cell const &cell, int zone_type, bool alt)
 {
     Cell const *p;
     if (alt && (Map[cell].IsUnderBridge)) {
-        int index = Unknown_005500D0(cell, 1, 0);
+        int index = Zone_Connection_Index(cell, 1, 0);
         if (index != -1) {
             ZoneConnectionClass &connection = ZoneConnections[index];
             if (connection.unknown_08) {

@@ -14,7 +14,7 @@ void CellClass::unknown_47c930()
 {
     if (unknown_128) {
         CoordStruct coord = MapCoords.As_Coord();
-        coord.Z = Map.Unknown_0055A280(coord) + unknown_geometry_j;
+        coord.Z = Map.Get_Height_GL(coord) + unknown_geometry_j;
         for (int x = -2; x < 3; x++) {
             for (int y = -2; y < 3; y++) {
                 Cell cell = MapCoords + Cell(x, y);

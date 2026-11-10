@@ -8,8 +8,8 @@ void MapClass::Unknown_0055A1F0()
 {
     if (!unknown_player_a35db4->unknown_188) {
         unknown_player_a35db4->unknown_188 = true;
-        Map.Unknown_0055A550();
-        for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
+        Map.Reset_Iterator();
+        for (CellClass *cell = Map.Iterate(); cell != 0; cell = Map.Iterate()) {
             Map.unknown_slot39(cell->MapCoords, unknown_player_a35db4);
         }
         Map.Complete_Radar_Refresh();

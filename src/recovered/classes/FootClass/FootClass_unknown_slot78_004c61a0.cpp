@@ -95,7 +95,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
         break;
 
     case 2:
-        if (Map.Unknown_00568140(object->Center_Coord()) && !unknown_slot32()->MoveToShroud) {
+        if (Map.Is_Shrouded(object->Center_Coord()) && !unknown_slot32()->MoveToShroud) {
             return false;
         }
         // Fall into next case.
@@ -106,11 +106,11 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
             AbstractClass *targ = object;
 
             CoordStruct center = object->Center_Coord();
-            if (center.Z <= Map.Unknown_0055A280(center)) {
-                center.Z = Map.Unknown_0055A280(center);
+            if (center.Z <= Map.Get_Height_GL(center)) {
+                center.Z = Map.Get_Height_GL(center);
             }
 
-            if (((unknown_slot32()->unknown_af5 && !Rules->AllowShroudedSubteranneanMoves) || Kind_Of() == 2) && Map.Unknown_00568140(center)) return true;
+            if (((unknown_slot32()->unknown_af5 && !Rules->AllowShroudedSubteranneanMoves) || Kind_Of() == 2) && Map.Is_Shrouded(center)) return true;
 
             int mzone = unknown_slot32()->MovementZone;
             Cell cell = Coord_Cell(object->unknown_slot19(0));
@@ -124,18 +124,18 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
 
             bool ontobridge = unknown_slot46(0);
             CoordStruct coord = Cell_Coord(cell);
-            coord.Z = Map.Unknown_0055A280(coord);
-            bool shrouded = Map.Unknown_00568140(coord);
+            coord.Z = Map.Get_Height_GL(coord);
+            bool shrouded = Map.Is_Shrouded(coord);
             bool forcemove = !arg3 && (Foot_Key_Down(unknown_key_a40ba4) || Foot_Key_Down(unknown_key_a40ba8));
 
             if (moveanywhere && action == 2) {
-                Cell nearby = Map.Unknown_005502E0(cell, unknown_slot32()->SpeedType, -1, mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, unknown_slot32()->unknown_af5 && unknown_slot108() < 0, 1, Cell(0, 0), 0);
+                Cell nearby = Map.Nearby_Location(cell, unknown_slot32()->SpeedType, -1, mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, unknown_slot32()->unknown_af5 && unknown_slot108() < 0, 1, Cell(0, 0), 0);
                 if (nearby != unknown_geometry_k) {
                     targ = &Map[nearby];
                 }
             } else {
                 if (!in_radar || !moveanywhere && (shrouded || action == 2 || forcemove && Kind_Of() == 15 || !Map.Unknown_0054F7C0(cptr->unknown_24, cell, mzone, ontobridge, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, false))) {
-                    Cell nearby = Map.Unknown_005502E0(cell, unknown_slot32()->SpeedType, Map.Zone(cptr->unknown_24, mzone, ontobridge), mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
+                    Cell nearby = Map.Nearby_Location(cell, unknown_slot32()->SpeedType, Map.Zone(cptr->unknown_24, mzone, ontobridge), mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
                     if (nearby != unknown_geometry_k) {
                         targ = &Map[nearby];
                     }

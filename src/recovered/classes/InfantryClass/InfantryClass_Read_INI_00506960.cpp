@@ -82,9 +82,9 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                     if (token != 0) {
                         infantry->unknown_79 = atoi(token) != 0;
                         if (infantry->unknown_79) {
-                            coord.Z = Map.Unknown_0055A280(coord) + unknown_geometry_j;
+                            coord.Z = Map.Get_Height_GL(coord) + unknown_geometry_j;
                         } else {
-                            coord.Z = Map.Unknown_0055A280(coord);
+                            coord.Z = Map.Get_Height_GL(coord);
                         }
                     }
                     token = strtok(0, ",");

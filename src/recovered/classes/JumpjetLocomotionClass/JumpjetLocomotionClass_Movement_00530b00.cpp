@@ -4,7 +4,7 @@
 // @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_450cb0@BuildingClass@@QAE_NPAVObjectClass@@_N@Z=00450cb0
 // @ref ?unknown_4717b0@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?unknown_531140@JumpjetLocomotionClass@@QAEHXZ=00531140
@@ -54,7 +54,7 @@ void JumpjetLocomotionClass::unknown_530b00()
     else unknown_80=0;
     int desired_height=(int)(Fast_Sin(unknown_80)*Deviation+unknown_78);
     int height=LinkedTo->unknown_slot110();
-    int ground=Map.Unknown_0055A280(Object_Coord(LinkedTo));
+    int ground=Map.Get_Height_GL(Object_Coord(LinkedTo));
     if ((Map[Object_Coord(LinkedTo)].unknown_140&0x100) && Object_Coord(LinkedTo).Z>=ground+unknown_geometry_g*4)
         ground+=unknown_geometry_j;
     int difference;
@@ -65,7 +65,7 @@ void JumpjetLocomotionClass::unknown_530b00()
     if (difference<desired_height) {
         int height_agl=LinkedTo->unknown_slot108();
         if ((Map[Object_Coord(LinkedTo)].unknown_140&0x100) && !LinkedTo->unknown_79) {
-            if (Object_Coord(LinkedTo).Z>=Map.Unknown_0055A280(Object_Coord(LinkedTo))+unknown_geometry_j)
+            if (Object_Coord(LinkedTo).Z>=Map.Get_Height_GL(Object_Coord(LinkedTo))+unknown_geometry_j)
                 height_agl-=unknown_geometry_j;
         }
         if (height_agl==0) {

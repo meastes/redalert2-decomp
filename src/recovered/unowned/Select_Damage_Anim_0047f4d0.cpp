@@ -19,7 +19,7 @@ AnimTypeClass *__fastcall Select_Damage_Anim(int damage, WarheadTypeClass *warhe
 {
     if (damage != 0 && warhead != 0) {
         if (land == 2 && warhead->Conventional && !(Map[*coords].unknown_140 & 0x100)
-            && coords->Z < Map.Unknown_0055A280(*coords) + unknown_geometry_g * 2) {
+            && coords->Z < Map.Get_Height_GL(*coords) + unknown_geometry_g * 2) {
             if (Rules->SplashList.Count() == 0) {
                 return 0;
             }

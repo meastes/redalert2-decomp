@@ -44,7 +44,7 @@ void HouseClass::Sell_Wall(Cell const &cell, bool quiet)
                         Map[cell].unknown_475960(false);
                         Map.Radar_Background(cell);
                         Unknown_006D7C80(&Map[cell]);
-                        Map.Unknown_0054FB20(cell);
+                        Map.Update_Cell_Zone(cell);
                         Map.Unknown_00566340(cell);
                     }
                 }

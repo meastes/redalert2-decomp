@@ -27,7 +27,7 @@
 // @ref ?Query@?$UnknownComPtr@UIPersist@@$1?unknown_uuid_IPersist_7cf208@@3UGUID@@B@@QAEJABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z=00454bf0
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z=006a6a50
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref _unknown_geometry_k=00ad0488
 // @ref _unknown_geometry_l=00ad04c0
@@ -64,7 +64,7 @@ void UnitClass::unknown_slot87(CoordStruct const &source, bool forced, bool noki
         return;
     }
     if (source == unknown_geometry_l) {
-        Cell found = Map.Unknown_005502E0(Coord_Cell(unknown_slot19(0)), Type->SpeedType, -1, 0, unknown_79,
+        Cell found = Map.Nearby_Location(Coord_Cell(unknown_slot19(0)), Type->SpeedType, -1, 0, unknown_79,
             Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
         if (found != unknown_geometry_k) {
             Assign_Destination(&Map[found], true);

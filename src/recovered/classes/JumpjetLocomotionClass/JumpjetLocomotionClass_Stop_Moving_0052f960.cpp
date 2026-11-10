@@ -10,7 +10,7 @@
 #include "shared/techno_type.hpp"
 #include "shared/rules.hpp"
 // @ref ?unknown_a40774@@3HA=00a40774
-// @ref ?Unknown_005502E0@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
+// @ref ?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z=005502e0
 // @ref _unknown_geometry_l=00a6e3e0
 
 void __stdcall JumpjetLocomotionClass::Stop_Moving()
@@ -21,10 +21,10 @@ void __stdcall JumpjetLocomotionClass::Stop_Moving()
             unknown_88 = false;
         }
         Cell here = Coord_Cell(Object_Coord(LinkedTo));
-        Cell cell = Map.Unknown_005502E0(here, LinkedTo->unknown_slot32()->SpeedType, -1, LinkedTo->unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+        Cell cell = Map.Nearby_Location(here, LinkedTo->unknown_slot32()->SpeedType, -1, LinkedTo->unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
         if (cell != unknown_geometry_k) {
             CoordStruct coord = Cell_Coord(cell);
-            coord.Z = Map.Unknown_0055A280(coord);
+            coord.Z = Map.Get_Height_GL(coord);
             if (Map[cell].unknown_140 & 0x100) {
                 coord.Z += unknown_geometry_j;
             }

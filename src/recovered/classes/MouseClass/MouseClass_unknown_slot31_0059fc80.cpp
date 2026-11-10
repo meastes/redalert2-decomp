@@ -7,8 +7,8 @@
 #include "shared/map_view.hpp"
 // @ref ?Save@SidebarClass@@UAEJPAUIStream@@@Z=006822a0
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
-// @ref ?Unknown_0055A550@MapClass@@QAEXXZ=0055a550
-// @ref ?Unknown_0055A490@MapClass@@QAEPAVCellClass@@XZ=0055a490
+// @ref ?Reset_Iterator@MapClass@@QAEXXZ=0055a550
+// @ref ?Iterate@MapClass@@QAEPAVCellClass@@XZ=0055a490
 // @ref ?Has_Cell@MapClass@@QAE_NABVCell@@@Z=005480b0
 // @ref __imp__OleSaveToStream@8=0079a5e8
 
@@ -50,8 +50,8 @@ HRESULT MouseClass::unknown_slot31(IStream *stream)
         }
     }
     int count = 0;
-    Unknown_0055A550();
-    for (CellClass *cell = Unknown_0055A490(); cell != 0; cell = Unknown_0055A490()) {
+    Reset_Iterator();
+    for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
         Cell where = cell->MapCoords;
         if (Has_Cell(where)) {
             count++;
@@ -61,8 +61,8 @@ HRESULT MouseClass::unknown_slot31(IStream *stream)
     if (result < 0) {
         return result;
     }
-    Unknown_0055A550();
-    for (CellClass *cell2 = Unknown_0055A490(); cell2 != 0; cell2 = Unknown_0055A490()) {
+    Reset_Iterator();
+    for (CellClass *cell2 = Iterate(); cell2 != 0; cell2 = Iterate()) {
         Cell where2 = cell2->MapCoords;
         if (Has_Cell(where2)) {
             OleSaveToStream((IPersistStream *)cell2, stream);

@@ -25,10 +25,10 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
                 return;
             }
         } else {
-            Cell nearby = Map.Unknown_005502E0(cell, 1, -1, 9, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+            Cell nearby = Map.Nearby_Location(cell, 1, -1, 9, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
             if (nearby != unknown_geometry_k) {
                 CoordStruct destination = Fly_Cell_Coord_004bdfb0(nearby);
-                destination.Z = Map.Unknown_0055A280(destination);
+                destination.Z = Map.Get_Height_GL(destination);
                 if ((reinterpret_cast<UnknownLocoCell *>(&Map[nearby])->Flags & 0x100)) destination.Z += unknown_geometry_j;
                 LinkedTo->Assign_Destination(&Map[destination], true);
                 if (!unknown_51) LinkedTo->Assign_Destination(&Map[destination], true);

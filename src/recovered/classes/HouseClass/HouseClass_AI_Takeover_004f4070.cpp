@@ -78,13 +78,13 @@ void HouseClass::unknown_func_4f4070()
             }
         }
     }
-    Map.Unknown_0055A550();
-    CellClass *cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell=Map.Iterate();
     while (cell) {
         if (cell->unknown_50==ArrayIndex && cell->OverlayIndex!=-1 && OverlayTypes[cell->OverlayIndex]->Wall) {
             Sell_Wall(cell->MapCoords,true);
         }
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
     int building_count=Buildings.Count();
     int defense_node=0;

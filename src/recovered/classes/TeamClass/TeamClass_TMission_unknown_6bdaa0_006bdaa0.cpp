@@ -50,7 +50,7 @@ void TeamClass::TMission_unknown_6bdaa0(ScriptMissionClass const &mission, bool 
         int distance = Rules->AISafeDistance << 8;
         UnknownVector3 point = Enemy_Gather_Point(there, dir, distance);
         Cell cell = XY_Cell(point.X / 256, point.Y / 256);
-        cell = Map.Unknown_005502E0(cell, leader->unknown_slot32()->SpeedType, -1, 0, false,
+        cell = Map.Nearby_Location(cell, leader->unknown_slot32()->SpeedType, -1, 0, false,
             Point2D(3,3), false, false, false, true, Cell(0,0), 0);
         unknown_func_6b79e0(&Map[cell]);
         Debug_Printf("A %s Team has chosen ( %d, %d) for its GatherAtEnemy cell.\n", (char const *)Class->Name, cell.X, cell.Y);

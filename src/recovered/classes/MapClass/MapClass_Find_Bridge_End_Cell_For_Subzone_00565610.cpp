@@ -5,7 +5,7 @@
 #include "shared/map_adjacent.hpp"
 #include "shared/cell_subzone.hpp"
 
-Cell MapClass::Unknown_00565610(Cell const &cell, int layer, unsigned int subzone)
+Cell MapClass::Find_Bridge_End_Cell_For_Subzone(Cell const &cell, int layer, unsigned int subzone)
 {
     CellClass *cellptr = &Map[cell];
     if (!cellptr->IsUnderBridge) return cellptr->MapCoords;
@@ -41,7 +41,7 @@ Cell MapClass::Unknown_00565610(Cell const &cell, int layer, unsigned int subzon
     for (int index = 0; index < 6; ++index) {
         Cell candidate = candidates[index];
         if (Map.Unknown_0055A660(candidate, true)) {
-            int fine_index = Unknown_0054FAB0(candidate);
+            int fine_index = Get_Cell_Zone_Index(candidate);
             CellSubzoneStruct *record = (CellSubzoneStruct *)unknown_6c + fine_index;
             if (record->SubzoneID[layer] == subzone)
                 return candidate;

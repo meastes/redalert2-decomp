@@ -9,8 +9,8 @@
 void __fastcall Place_Tile_Footprint_005883f0(int tile,Cell const &position,int region,int height);
 void MapGeneratorClass::unknown_00582fd0()
 {
-    Map.Unknown_0055A550();
-    CellClass *cellptr=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cellptr=Map.Iterate();
 
     while(cellptr!=0) {
         if(cellptr->IsoTileIndex>=unknown_tileset_a52e68 && cellptr->IsoTileIndex<unknown_tileset_a52e68+40) {
@@ -40,6 +40,6 @@ void MapGeneratorClass::unknown_00582fd0()
             }
         }
 
-        cellptr=Map.Unknown_0055A490();
+        cellptr=Map.Iterate();
     }
 }

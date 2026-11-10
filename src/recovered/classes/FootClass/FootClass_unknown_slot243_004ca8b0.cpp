@@ -14,7 +14,7 @@
 // @ref ?unknown_6d65b0@TechnoClass@@QAE?AUCoordStruct@@XZ=006d65b0
 // @ref ?unknown_6d0510@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@HH@Z=006d0510
 // @ref ?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z=0054aab0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref _unknown_geometry_j=00865f60
 
 void FootClass::unknown_slot243(bool force, int arg2)
@@ -38,7 +38,7 @@ void FootClass::unknown_slot243(bool force, int arg2)
             to = unknown_478[unknown_478.Count() - 1]->Center_Coord();
         }
         if (Map.Unknown_0054AAB0(Coord_Cell(to)) && (((UnknownCellClass *)&Map[to])->Flags & 0x100)) {
-            to.Z = Map.Unknown_0055A280(to) + unknown_geometry_j;
+            to.Z = Map.Get_Height_GL(to) + unknown_geometry_j;
         }
         unknown_6d0510(from, to, Unpack_Hicolor_Pixel(unknown_drawer_8323c4->Convert(3)), arg2, 0);
     }

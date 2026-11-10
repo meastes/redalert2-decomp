@@ -58,7 +58,7 @@ CoordStruct CellClass::Closest_Free_Spot(CoordStruct const &xcoord, bool any, bo
 
     if (any || unknown_476460(spot_index, alt)) {
         coord = coord + unknown_cell_offsets_00850e50[spot_index];
-        coord.Z = Map.Unknown_0055A280(xcoord);
+        coord.Z = Map.Get_Height_GL(xcoord);
         if (alt) {
             coord.Z += unknown_geometry_j;
         }
@@ -76,7 +76,7 @@ CoordStruct CellClass::Closest_Free_Spot(CoordStruct const &xcoord, bool any, bo
 
         if (unknown_476460(pos, alt)) {
             coord = coord + unknown_cell_offsets_00850e50[pos];
-            coord.Z = Map.Unknown_0055A280(xcoord);
+            coord.Z = Map.Get_Height_GL(xcoord);
             if (alt) {
                 coord.Z += unknown_geometry_j;
             }

@@ -8,7 +8,7 @@
 #include "shared/map_view.hpp"
 #include "shared/techno_map.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Unknown_004764B0@UnknownCellClass@@QAE?AUCoordStruct@@ABU2@H_N@Z=004764b0
 // @ref ?unknown_a40774@@3HA=00a40774
 // @ref ?unknown_slot53@FootClass@@UAE_NPBUCoordStruct@@H@Z=004c5e40
@@ -17,7 +17,7 @@
 
 bool InfantryClass::unknown_slot53(CoordStruct const *coord, int dir)
 {
-    int ground = Map.Unknown_0055A280(*coord);
+    int ground = Map.Get_Height_GL(*coord);
     CoordStruct where = *coord;
     if (where.Z == ground) {
         int alternate = unknown_a40774 != 0 || !Map.Unknown_0055A660(Coord_Cell(*coord), true);

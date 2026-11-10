@@ -221,7 +221,7 @@ void SuperClass::Place(Cell const &cell, bool player)
             CellClass *cellptr = &Map[cell];
             if (cellptr != 0 && cellptr != &unknown_dummy_cell_a6f9f8) {
                 if (cellptr->Is_Tile_Water()) {
-                    Cell spot = Map.Unknown_005502E0(cell, 0, -1, 0, 0, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+                    Cell spot = Map.Nearby_Location(cell, 0, -1, 0, 0, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
                     if (spot != unknown_cell_abd768) {
                         CellClass *nearptr = &Map[spot];
                         if (nearptr != 0 && nearptr != &unknown_dummy_cell_a6f9f8 && !nearptr->Is_Tile_Water()) {
@@ -263,7 +263,7 @@ void SuperClass::Place(Cell const &cell, bool player)
             CellClass *cellptr = &Map[cell];
             if (cellptr != 0 && cellptr != &unknown_dummy_cell_a6f9f8) {
                 if (cellptr->Is_Tile_Water()) {
-                    Cell spot = Map.Unknown_005502E0(cell, 0, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+                    Cell spot = Map.Nearby_Location(cell, 0, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
                     if (spot != unknown_cell_abd768) {
                         CellClass *nearptr = &Map[spot];
                         if (nearptr != 0 && nearptr != &unknown_dummy_cell_a6f9f8 && !nearptr->Is_Tile_Water()) {
@@ -293,7 +293,7 @@ void SuperClass::Place(Cell const &cell, bool player)
             if (Is_One_Time()) {
                 Cell spot = cell;
                 CoordStruct coord = Cell_Coord(spot);
-                coord.Z = Map.Unknown_0055A280(coord);
+                coord.Z = Map.Get_Height_GL(coord);
                 if (Map[spot].unknown_140 & 0x100) {
                     coord.Z += unknown_geometry_j;
                 }
@@ -333,7 +333,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                     if (site != 0) {
                         Cell spot = cell;
                         CoordStruct coord = Cell_Coord(spot);
-                        coord.Z = Map.Unknown_0055A280(coord);
+                        coord.Z = Map.Get_Height_GL(coord);
                         CoordStruct sound = coord;
                         site->unknown_slot116(0x16, false);
                         site->Commence();

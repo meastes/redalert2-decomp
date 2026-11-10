@@ -31,8 +31,8 @@ void MapGeneratorClass::Create_Tiberium_Patch(Cell const &position,int amount,in
         if(attempts>=10)break;
         if(current==0) {
             queue->Clear();
-            Map.Unknown_0055A550();
-            for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+            Map.Reset_Iterator();
+            for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
                 Cell cellPosition=cell->MapCoords;
                 unknown_map_cells_a70a24[cellPosition.Y*unknown_map_cell_side_84e804+cellPosition.X].unknown_3c=0;
             }

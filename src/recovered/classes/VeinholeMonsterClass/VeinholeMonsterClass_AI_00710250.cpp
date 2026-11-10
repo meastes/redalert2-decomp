@@ -38,7 +38,7 @@ void VeinholeMonsterClass::AI()
         if(unknown_d4!=0) {
             if(unknown_b8!=3) unknown_b8=2;
         } else if(unknown_b8!=3) {
-            if(Map.Unknown_005680A0(Cell,2)) unknown_b8=1;
+            if(Map.Is_Something_Nearby(Cell,2)) unknown_b8=1;
             else if(((StageClass *)&unknown_bc)->Fetch_Stage()==vein_transition_7f95e4[unknown_b4]) {
                 if((double)(abs(unknown_id_source_a3d290->Random()())%10000)*vein_idle_scale_7a5fe8<vein_idle_chance_7ae718) {
                     ((StageClass *)&unknown_bc)->Set_Stage(vein_loop_7f95f4[unknown_b4]-1);
@@ -52,7 +52,7 @@ void VeinholeMonsterClass::AI()
             if(unknown_b8!=3) unknown_b8=2;
             ((StageClass *)&unknown_bc)->Set_Step(1);
             if(((StageClass *)&unknown_bc)->Fetch_Stage()<0) ((StageClass *)&unknown_bc)->Set_Stage(0);
-        } else if(!Map.Unknown_005680A0(Cell,2) && unknown_b8==1) {
+        } else if(!Map.Is_Something_Nearby(Cell,2) && unknown_b8==1) {
             unknown_b8=0;
             ((StageClass *)&unknown_bc)->Set_Step(1);
             if(((StageClass *)&unknown_bc)->Fetch_Stage()<0) ((StageClass *)&unknown_bc)->Set_Stage(0);
@@ -62,7 +62,7 @@ void VeinholeMonsterClass::AI()
         if(((StageClass *)&unknown_bc)->Fetch_Stage()>=0 && vein_frames_7f9514[2][((StageClass *)&unknown_bc)->Fetch_Stage()]==11) {
             if(!unknown_e9) {
                 CoordStruct base(Cell);
-                CoordStruct position=Cell.As_Coord(Map.Unknown_0055A280(base)+400);
+                CoordStruct position=Cell.As_Coord(Map.Get_Height_GL(base)+400);
                 ParticleClass *particle=unknown_gas_cloud_system_a40d20->Spawn_Held_Particle(ParticleTypes[ParticleTypeClass::Index_Or_Make(vein_gas_7f96cc)],position);
                 particle->unknown_b0.Z=12;
                 double angle=Vein_Random_Double(0.0,1.0)*vein_full_angle_79c9b8;

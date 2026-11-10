@@ -27,7 +27,7 @@ void VeinholeMonsterClass::unknown_func_711d20()
         }
     }
     unknown_func_711aa0();
-    Map.Unknown_0054FB20(Cell);
+    Map.Update_Cell_Zone(Cell);
     Map.Unknown_00566340(Cell);
     unknown_e8 = true;
 }

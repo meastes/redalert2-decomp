@@ -32,7 +32,7 @@ inline int Hover_Distance(CoordStruct const &from, CoordStruct const &to)
 inline int Tube_Height_Step(CoordStruct const &exit, TubeClass const *tube, int current_height)
 {
     int count = tube->unknown_1c0;
-    return (Map.Unknown_0055A280(exit) - current_height) / count;
+    return (Map.Get_Height_GL(exit) - current_height) / count;
 }
 
 int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
@@ -69,7 +69,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             CoordStruct diff = Map[Adjacent_Cell(Cell(enter), tube->Directions[0])].unknown_475d60() - CoordStruct(Cell(enter));
             LinkedTo->unknown_45c = diff + Object_Coord(LinkedTo);
             int height = LinkedTo->unknown_slot110();
-            int current_height = Map.Unknown_0055A280(Object_Coord(LinkedTo));
+            int current_height = Map.Get_Height_GL(Object_Coord(LinkedTo));
             Cell exit2 = tube->ExitCell;
             int z = height + Tube_Height_Step(exit2, tube, current_height);
             LinkedTo->unknown_45c.Z = z;
@@ -84,7 +84,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 
     if (nextface != -1) {
         unknown_24 = Cell(LinkedTo->unknown_slot104() + AdjacentCell[nextface & 7]).As_Coord();
-        unknown_24.Z = Map.Unknown_0055A280(unknown_24);
+        unknown_24.Z = Map.Get_Height_GL(unknown_24);
         if (Object_Coord(LinkedTo).Z >= unknown_24.Z + 2 * unknown_geometry_g + unknown_geometry_g) {
             unknown_24.Z += unknown_geometry_j;
         }

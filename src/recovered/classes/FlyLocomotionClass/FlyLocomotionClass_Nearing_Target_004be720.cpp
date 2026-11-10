@@ -1,5 +1,5 @@
-// @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
-// @ref ?Unknown_005683C0@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
+// @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
+// @ref ?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
 // @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
 #include "shared/fly_locomotion.hpp"
 #include "shared/fast_math.hpp"
@@ -95,7 +95,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
         }
     }
     if (unknown_5c && dist<0x300) {
-        unknown_38=unknown_1c.Z-Map.Unknown_0055A280(unknown_1c);
+        unknown_38=unknown_1c.Z-Map.Get_Height_GL(unknown_1c);
     } else if (LinkedTo->unknown_slot32()->IsDropship) {
         if (dist>=LinkedTo->unknown_slot32()->SlowdownDistance) {
             unknown_38=LinkedTo->unknown_slot32()->Flight_Level();
@@ -123,7 +123,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
         }
     }
     if (LinkedTo->unknown_77 && !LinkedTo->House->Unknown_004F52B0()) {
-        if (Map.Unknown_00568140(Object_Coord(LinkedTo)) || ((*(unsigned int *)unknown_id_source_a3d290&0x1000) && Map.Unknown_005683C0(Object_Coord(LinkedTo)))) {
+        if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || ((*(unsigned int *)unknown_id_source_a3d290&0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
             LinkedTo->unknown_slot81();
         }
     }

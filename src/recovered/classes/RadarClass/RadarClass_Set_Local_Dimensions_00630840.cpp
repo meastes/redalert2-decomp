@@ -17,8 +17,8 @@ void RadarClass::unknown_slot29(Rect const &size)
     unknown_148c = original_corner.Y - corner.X;
     unknown_1490 = opposite.X - opposite.Y;
     unknown_1494 = -1;
-    Map.Unknown_0055A550();
-    CellClass *iter = Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *iter = Iterate();
     while (iter != 0) {
         Cell cell = iter->MapCoords;
         if (Unknown_0055A660(cell, true)) {
@@ -30,6 +30,6 @@ void RadarClass::unknown_slot29(Rect const &size)
             if (area.Y < unknown_1498.Y) unknown_1498.Y = area.Y;
             else if (area.Y + area.Height > unknown_1498.Y + unknown_1498.Height) unknown_1498.Height = area.Y + area.Height - unknown_1498.Y;
         }
-        iter = Unknown_0055A490();
+        iter = Iterate();
     }
 }

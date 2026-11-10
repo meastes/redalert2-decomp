@@ -64,7 +64,7 @@ int __fastcall Unknown_00660b60(ObjectClass *object,Cell &center,int distance)
     if(Map.Unknown_0054AAB0(center)) {
         ObjectClass *occupant=Map[center].unknown_471660(Point2D(0,0),false,0);
         if(!occupant || (occupant->Kind_Of()==15 && object->Kind_Of()==15)) {
-            if(object->unknown_slot53(&UnknownCoord434820(center,Map.Unknown_0055A280(UnknownCoord434820(center))),0)) return 1;
+            if(object->unknown_slot53(&UnknownCoord434820(center,Map.Get_Height_GL(UnknownCoord434820(center))),0)) return 1;
         }
     }
     int pass;
@@ -85,7 +85,7 @@ int __fastcall Unknown_00660b60(ObjectClass *object,Cell &center,int distance)
                 if(!skip) {
                     occupant=Map[target].unknown_471660(Point2D(0,0),false,0);
                     if(!occupant || (occupant->Kind_Of()==15 && object->Kind_Of()==15)) {
-                        if(object->unknown_slot53(&UnknownCoord434820(target,Map.Unknown_0055A280(UnknownCoord434820(target))),0)) return 1;
+                        if(object->unknown_slot53(&UnknownCoord434820(target,Map.Get_Height_GL(UnknownCoord434820(target))),0)) return 1;
                     }
                 }
                 direction=FacingType(direction+1);

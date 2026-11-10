@@ -79,10 +79,10 @@ void AnimClass::Flaming_Guy_AI()
                     unknown_fc++;
                     int z = Position_Coord_004f3f40().Z;
                     CoordStruct oldcoord = unknown_f0;
-                    if (z <= Map.Unknown_0055A280(oldcoord) + 2 * unknown_geometry_g) {
-                        oldcoord.Z = Map.Unknown_0055A280(oldcoord);
+                    if (z <= Map.Get_Height_GL(oldcoord) + 2 * unknown_geometry_g) {
+                        oldcoord.Z = Map.Get_Height_GL(oldcoord);
                     } else {
-                        oldcoord.Z = Map.Unknown_0055A280(oldcoord) + unknown_geometry_j;
+                        oldcoord.Z = Map.Get_Height_GL(oldcoord) + unknown_geometry_j;
                     }
                     unknown_slot103(oldcoord);
                     unknown_f0 = nextcoord;
@@ -98,17 +98,17 @@ void AnimClass::Flaming_Guy_AI()
             int z = Position_Coord_004f3f40().Z;
             UnknownFacingDir direction = UnknownFacingDir().Direction(Center_Coord(), unknown_f0);
             CoordStruct newcoord = Move_Coord(Position_Coord_004f3f40(), direction, 18);
-            if (z <= Map.Unknown_0055A280(newcoord) + 2 * unknown_geometry_g) {
-                newcoord.Z = Map.Unknown_0055A280(newcoord);
+            if (z <= Map.Get_Height_GL(newcoord) + 2 * unknown_geometry_g) {
+                newcoord.Z = Map.Get_Height_GL(newcoord);
             } else {
-                newcoord.Z = Map.Unknown_0055A280(newcoord) + unknown_geometry_j;
+                newcoord.Z = Map.Get_Height_GL(newcoord) + unknown_geometry_j;
             }
             unknown_slot103(newcoord);
         }
 
         if (!unknown_7a) {
             Cell position = Position_Coord_004f3f40();
-            if (Position_Coord_004f3f40().Z >= Map.Unknown_0055A280(Position_Coord_004f3f40()) + unknown_geometry_j) {
+            if (Position_Coord_004f3f40().Z >= Map.Get_Height_GL(Position_Coord_004f3f40()) + unknown_geometry_j) {
                 if (!(Map[Position_Coord_004f3f40()].unknown_140 & 0x100) && !(Map[Flaming_Adjacent_Cell(position, 6)].unknown_140 & 0x100) && !(Map[Flaming_Adjacent_Cell(position, 0)].unknown_140 & 0x100)) {
                     unknown_7a = true;
                 }

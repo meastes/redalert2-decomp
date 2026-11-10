@@ -30,19 +30,19 @@ MapRegionClass::~MapRegionClass()
 }
 void MapGeneratorClass::Seed_Land()
 {
-    Map.Unknown_0055A550();
-    CellClass *cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cell=Map.Iterate();
     while(cell!=0) {
         cell->IsoTileIndex=unknown_tileset_a52580;
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
     switch(SeedData.MapType) {
     case 0: unknown_0057c4f0();break;
     case 1: Seed_Land_Type1();break;
     case 2: Seed_Land_Type2();break;
     }
-    Map.Unknown_0055A550();
-    cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cell=Map.Iterate();
     while(cell!=0) {
         if(cell->IsoTileIndex==unknown_tileset_a52580) {
             bool surrounded=true;
@@ -51,7 +51,7 @@ void MapGeneratorClass::Seed_Land()
             }
             if(surrounded)cell->IsoTileIndex=0;
         }
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
     Map.Unknown_0055C2C0(0,0);
     if(unknown_map_cells_a70a24!=0) {
@@ -65,8 +65,8 @@ void MapGeneratorClass::Seed_Land()
         delete unknown_map_regions_a6fd28[reverse];
     }
     unknown_map_region_next_index_a70a28=0;
-    Map.Unknown_0055A550();
-    cell=Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    cell=Map.Iterate();
     while(cell!=0) {
         if(cell->unknown_47b7c0()) {
             for(int direction=0;direction<8;direction+=2) {
@@ -74,6 +74,6 @@ void MapGeneratorClass::Seed_Land()
                 if(neighbor.unknown_47b590())neighbor.IsoTileIndex=unknown_tileset_a52c60;
             }
         }
-        cell=Map.Unknown_0055A490();
+        cell=Map.Iterate();
     }
 }

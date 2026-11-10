@@ -15,8 +15,8 @@
 
 void MapClass::Unknown_0055A070()
 {
-    Unknown_0055A550();
-    for (CellClass *cell = Unknown_0055A490(); cell != 0; cell = Unknown_0055A490()) {
+    Reset_Iterator();
+    for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
         cell->unknown_47c8a0();
         if (cell->unknown_130 >= 0) {
             cell->IsMapped = false; cell->IsVisible = false;

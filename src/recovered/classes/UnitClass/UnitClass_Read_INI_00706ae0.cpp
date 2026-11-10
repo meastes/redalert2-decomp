@@ -23,7 +23,7 @@ extern int unknown_ini_format_a40d24;
 // @ref ?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z=006b3d30
 // @ref ?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z=005d4430
 // @ref ?Unknown_00713590@UnknownTechnoPair@@QAEXH@Z=00713590
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref _unknown_geometry_j=00ad057c
 // VC6 health block emits exact original native instructions, without a float32 store. This does not establish a portable source-width contract.
@@ -85,7 +85,7 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                     token = strtok(0, ",");
                     if (token) {
                         unit->unknown_79 = atoi(token) != 0;
-                        if (unit->unknown_79) coord.Z = Map.Unknown_0055A280(coord) + unknown_geometry_j;
+                        if (unit->unknown_79) coord.Z = Map.Get_Height_GL(coord) + unknown_geometry_j;
                     }
                     token = strtok(0, ",");
                     if (token) {

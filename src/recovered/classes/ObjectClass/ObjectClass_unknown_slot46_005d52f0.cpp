@@ -14,8 +14,8 @@ bool ObjectClass::unknown_slot46(TechnoClass *techno)
 {
     bool result = unknown_79;
     CoordStruct coord = unknown_slot19(techno);
-    int there = Map.Unknown_0055A280(coord);
-    int ground = Map.Unknown_0055A280(CoordStruct(Coord));
+    int there = Map.Get_Height_GL(coord);
+    int ground = Map.Get_Height_GL(CoordStruct(Coord));
     if (!unknown_79 && ground - there > unknown_geometry_g * 3 && (Map_Cell(coord)->Flags & 0x100)) {
         return true;
     }

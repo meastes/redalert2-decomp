@@ -3,8 +3,8 @@
 // hypothesis).
 // @ref _unknown_geometry_k=0084e7a8
 // @ref ?Unknown_00429B60@UnknownPathEstimator@@QAE_NABVCell@@0HPAVFootClass@@@Z=00429b60
-// @ref ?Unknown_00564F70@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z=00564f70
-// @ref ?Unknown_00565610@MapClass@@QAE?AVCell@@ABV2@HI@Z=00565610
+// @ref ?Get_Bridge_Zone_Connection_Cell@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z=00564f70
+// @ref ?Find_Bridge_End_Cell_For_Subzone@MapClass@@QAE?AVCell@@ABV2@HI@Z=00565610
 #include "shared/path_estimator.hpp"
 #include "shared/foot.hpp"
 #include "shared/techno_type.hpp"
@@ -26,8 +26,8 @@ int UnknownPathEstimator::Unknown_0042AA30(Cell const &from, Cell const &to, Foo
     }
     CellClass *from_ptr = &Map[from];
     CellClass *to_ptr = &Map[to];
-    Cell hs_from = Map.Unknown_00564F70(from_ptr, from_bridge);
-    Cell hs_to = Map.Unknown_00564F70(to_ptr, to_bridge);
+    Cell hs_from = Map.Get_Bridge_Zone_Connection_Cell(from_ptr, from_bridge);
+    Cell hs_to = Map.Get_Bridge_Zone_Connection_Cell(to_ptr, to_bridge);
     if (arg6 == -1) {
         if (foot) {
             arg6 = foot->unknown_slot32()->MovementZone;
@@ -41,8 +41,8 @@ int UnknownPathEstimator::Unknown_0042AA30(Cell const &from, Cell const &to, Foo
         int distance = 2 * node_count - 2;
         bool add_bridge_dist = true;
         if (to_bridge && from_bridge) {
-            int to_conn = Map.Unknown_005500D0(to, 3, 0);
-            int from_conn = Map.Unknown_005500D0(from, 3, 0);
+            int to_conn = Map.Zone_Connection_Index(to, 3, 0);
+            int from_conn = Map.Zone_Connection_Index(from, 3, 0);
             if (to_conn == from_conn && to_conn != -1) {
                 add_bridge_dist = false;
             }
@@ -51,10 +51,10 @@ int UnknownPathEstimator::Unknown_0042AA30(Cell const &from, Cell const &to, Foo
             if (to_bridge) {
                 Cell bridge_end = unknown_geometry_k;
                 if (node_count >= 4) {
-                    bridge_end = Map.Unknown_00565610(to, 0, unknown_bc[0][node_count - 2]);
+                    bridge_end = Map.Find_Bridge_End_Cell_For_Subzone(to, 0, unknown_bc[0][node_count - 2]);
                 }
                 if (node_count < 4 || bridge_end == unknown_geometry_k) {
-                    bridge_end = Map.Unknown_00565610(to, 0, unknown_bc[0][node_count - 1]);
+                    bridge_end = Map.Find_Bridge_End_Cell_For_Subzone(to, 0, unknown_bc[0][node_count - 1]);
                 }
                 if (bridge_end == unknown_geometry_k) {
                     bridge_end = hs_to;
@@ -66,10 +66,10 @@ int UnknownPathEstimator::Unknown_0042AA30(Cell const &from, Cell const &to, Foo
             if (from_bridge) {
                 Cell bridge_end = unknown_geometry_k;
                 if (node_count >= 4) {
-                    bridge_end = Map.Unknown_00565610(from, 0, unknown_bc[0][1]);
+                    bridge_end = Map.Find_Bridge_End_Cell_For_Subzone(from, 0, unknown_bc[0][1]);
                 }
                 if (node_count < 4 || bridge_end == unknown_geometry_k) {
-                    bridge_end = Map.Unknown_00565610(from, 0, unknown_bc[0][0]);
+                    bridge_end = Map.Find_Bridge_End_Cell_For_Subzone(from, 0, unknown_bc[0][0]);
                 }
                 if (bridge_end == unknown_geometry_k) {
                     bridge_end = hs_from;

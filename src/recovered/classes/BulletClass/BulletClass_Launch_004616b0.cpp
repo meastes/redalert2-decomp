@@ -57,7 +57,7 @@ bool BulletClass::unknown_slot118(CoordStruct const &source, TVelocity3D<double>
             HouseClass *house = Owner != 0 ? Owner->House : 0;
             CoordStruct collision = Map.Unknown_00569FB0(source, target, house);
             if (collision != unknown_geometry_l) {
-                collision.Z = Map.Unknown_0055A280(collision);
+                collision.Z = Map.Get_Height_GL(collision);
                 unknown_slot103(collision);
                 BuildingClass *building = static_cast<BuildingClass *>(Map[collision].unknown_4717b0());
                 building->Unknown_00450CB0(this, false);

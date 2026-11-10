@@ -13,8 +13,8 @@
 
 void MapClass::Unknown_00567380()
 {
-    Unknown_0055A550();
-    CellClass *cellptr = Unknown_0055A490();
+    Reset_Iterator();
+    CellClass *cellptr = Iterate();
     while (cellptr != 0) {
         if (cellptr->OverlayIndex != -1) {
             if (unknown_overlay_types_a35de8[cellptr->OverlayIndex]->unknown_278) {
@@ -36,6 +36,6 @@ void MapClass::Unknown_00567380()
                 }
             }
         }
-        cellptr = Unknown_0055A490();
+        cellptr = Iterate();
     }
 }

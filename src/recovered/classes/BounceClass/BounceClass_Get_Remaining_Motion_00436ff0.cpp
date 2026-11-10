@@ -9,7 +9,7 @@ double BounceClass::Get_Remaining_Motion() const
 {
     CoordStruct coord((int)unknown_00.Position.X, (int)unknown_00.Position.Y, (int)unknown_00.Position.Z);
 
-    int height = (int)(unknown_00.Position.Z - Map.Unknown_0055A280(coord));
+    int height = (int)(unknown_00.Position.Z - Map.Get_Height_GL(coord));
     if ((Map[coord].unknown_140 & 0x100) && height >= unknown_geometry_j) {
         height -= unknown_geometry_j;
     }
@@ -19,4 +19,4 @@ double BounceClass::Get_Remaining_Motion() const
 }
 // @ref ??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z=00548000
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280

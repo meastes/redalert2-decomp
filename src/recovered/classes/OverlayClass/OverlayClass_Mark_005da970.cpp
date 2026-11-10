@@ -94,7 +94,7 @@ bool OverlayClass::Mark(int mark)
                     cellptr->OverlayData = 0;
                     cellptr->unknown_475960(true);
                     if (!unknown_a40774) {
-                        Map.Unknown_0054FC60(cellptr->MapCoords);
+                        Map.Update_Cell_Zone_Constructively(cellptr->MapCoords);
                         Map.Unknown_00566340(cellptr->MapCoords);
                     }
 
@@ -281,7 +281,7 @@ bool OverlayClass::Mark(int mark)
 
                 if (Class->CellAnim != 0) {
                     CoordStruct coord = Coord;
-                    coord.Z = Map.Unknown_0055A280(CoordStruct(Coord));
+                    coord.Z = Map.Get_Height_GL(CoordStruct(Coord));
                     AnimClass *aptr = new AnimClass(Class->CellAnim, coord + CoordStruct(0x180, 0x180, 0), 0, 1, 0x600, 0);
 
                     int tibtype = cellptr->Get_Tiberium_Type();

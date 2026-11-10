@@ -66,7 +66,7 @@ void JumpjetLocomotionClass::unknown_530550()
         LinkedTo->unknown_slot306(0);
         LinkedTo->Mark(0);
         LinkedTo->unknown_slot103(unknown_3c);
-        if (Object_Coord(LinkedTo).Z > Map.Unknown_0055A280(Object_Coord(LinkedTo)) && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100)) {
+        if (Object_Coord(LinkedTo).Z > Map.Get_Height_GL(Object_Coord(LinkedTo)) && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100)) {
             LinkedTo->unknown_79 = true;
         }
         LinkedTo->Mark(1);

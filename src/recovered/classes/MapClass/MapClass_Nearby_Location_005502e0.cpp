@@ -1,4 +1,4 @@
-// Cell MapClass::Unknown_005502E0(Cell const &cell, int speed, int zone, int check, bool checkbridge,
+// Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check, bool checkbridge,
 //     Point2D dimensions, bool checkoverlay, bool checkheight, bool checkburrow, bool allowunderbridge,
 //     Cell const &nearto, int unknown_scan) (0x005502E0; TibSun MapClass::Nearby_Location)
 // Gathers up to 24 cells on successive square rings around `cell` that pass the placement test
@@ -15,7 +15,7 @@
 extern int unknown_frame_a40d2c;
 // @ref ?unknown_frame_a40d2c@@3HA=00a40d2c
 
-Cell MapClass::Unknown_005502E0(Cell const &cell, int speed, int zone, int check,
+Cell MapClass::Nearby_Location(Cell const &cell, int speed, int zone, int check,
     bool checkbridge, Point2D dimensions, bool checkoverlay, bool checkheight,
     bool checkburrow, bool allowunderbridge, Cell const &nearto, int unknown_scan)
 {

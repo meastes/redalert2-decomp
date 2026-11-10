@@ -12,7 +12,7 @@ void MapClass::Unknown_005688A0(DynamicVectorClass<Cell> &cells)
     int index;
     for (index = cells.Count() - 1; index >= 0; index--) {
         if (Unknown_0055A660(cells[index], true)) {
-            *(short *)(unknown_6c + Unknown_0054FAB0(cells[index]) * 10) = 0;
+            *(short *)(unknown_6c + Get_Cell_Zone_Index(cells[index]) * 10) = 0;
             CellClass *cellptr = &Map[cells[index]];
             cellptr->Recalc_Attributes(-1);
         }
@@ -20,7 +20,7 @@ void MapClass::Unknown_005688A0(DynamicVectorClass<Cell> &cells)
     for (index = cells.Count() - 1; index >= 0; index--) {
         Cell cell = cells[index];
         if (Unknown_0055A660(cell, true)) {
-            if (*(short *)(unknown_6c + Unknown_0054FAB0(cell) * 10) == 0) {
+            if (*(short *)(unknown_6c + Get_Cell_Zone_Index(cell) * 10) == 0) {
                 Unknown_00566340(cell);
             }
         }

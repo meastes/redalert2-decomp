@@ -14,7 +14,7 @@ void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to)
 {
     if (unknown_20 == unknown_geometry_l) {
         unknown_20 = CoordStruct(to.X, to.Y, to.Z);
-        unknown_20.Z = Map.Unknown_0055A280(unknown_20);
+        unknown_20.Z = Map.Get_Height_GL(unknown_20);
         CoordStruct start = unknown_20;
         start.Z += Rules->DropPodHeight;
         start.X = (int)(start.X + Rules->DropPodHeight / unknown_math_4ba520(Rules->DropPodAngle));

@@ -4,16 +4,16 @@
 // when no connection is near, the connections are rebuilt (0x0054FDA0)
 // and searched once more. Whether any tested path failed.
 #include "shared/map.hpp"
-// @ref ?Unknown_005500D0@MapClass@@QAEHABVCell@@HH@Z=005500d0
+// @ref ?Zone_Connection_Index@MapClass@@QAEHABVCell@@HH@Z=005500d0
 // @ref ?Unknown_0054FDA0@MapClass@@QAEXXZ=0054fda0
 // @ref ?Unknown_00566F90@MapClass@@QAEXPAUZoneConnectionClass@@@Z=00566f90
 
 bool MapClass::Unknown_00550230(Cell const &cell)
 {
-    int index = Unknown_005500D0(cell, 3, 0);
+    int index = Zone_Connection_Index(cell, 3, 0);
     if (index == -1) {
         Unknown_0054FDA0();
-        index = Unknown_005500D0(cell, 3, 0);
+        index = Zone_Connection_Index(cell, 3, 0);
         if (index == -1) {
             return false;
         }
@@ -28,7 +28,7 @@ bool MapClass::Unknown_00550230(Cell const &cell)
             }
         }
         index++;
-        index = Unknown_005500D0(cell, 3, index);
+        index = Zone_Connection_Index(cell, 3, index);
     }
     return failed;
 }

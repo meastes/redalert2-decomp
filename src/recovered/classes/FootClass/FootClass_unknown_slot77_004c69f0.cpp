@@ -14,7 +14,7 @@
 #include "shared/id_source.hpp"
 #include "shared/unknown_geometry.hpp"
 // @ref ?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z=0055a660
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_4cca40@FootClass@@QAE?AVCell@@ABV2@_N@Z=004cca40
 // @ref ?Unknown_00710160@@YIPAUUnknownCellObject710160@@ABVCell@@@Z=00710160
 // @ref ?Unknown_0047A130@UnknownCellClass@@QAEPAUUnknownTube47A130@@XZ=0047a130
@@ -57,7 +57,7 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
     case 62:
         if (unknown_sound_enabled_7d88d6) {
             CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-            coord.Z = Map.Unknown_0055A280(coord);
+            coord.Z = Map.Get_Height_GL(coord);
             if (((UnknownCellClass *)&Map[coord])->Flags & 0x100) {
                 coord.Z += unknown_geometry_j;
             }

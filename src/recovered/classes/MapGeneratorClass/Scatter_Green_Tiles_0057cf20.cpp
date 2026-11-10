@@ -18,8 +18,8 @@ void MapGeneratorClass::Scatter_Green_Tiles()
 {
     DynamicVectorClass<CellClass *> candidates;
     candidates.Set_Growth_Step(10000);
-    Map.Unknown_0055A550();
-    for(CellClass *cell=Map.Unknown_0055A490();cell;cell=Map.Unknown_0055A490()) {
+    Map.Reset_Iterator();
+    for(CellClass *cell=Map.Iterate();cell;cell=Map.Iterate()) {
         if(cell->unknown_47b9c0()) {
             for(int facing=0;facing<8;facing+=2) {
                 CellClass *adjacent=&cell->Adjacent_Cell(facing);

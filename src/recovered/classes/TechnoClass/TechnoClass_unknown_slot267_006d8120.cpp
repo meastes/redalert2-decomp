@@ -11,7 +11,7 @@
 #include "shared/techno_map.hpp"
 #include "shared/rules.hpp"
 #include "shared/surface.hpp"
-// @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
+// @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 // @ref ?Coord_To_Radar_Pixel@RadarClass@@QAE?AUPoint2D@@ABUCoordStruct@@_N@Z=00631ba0
 // @ref ?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z=0055a740
 // @ref ?Unknown_0063B5B0@@YI_NHVCell@@@Z=0063b5b0
@@ -20,7 +20,7 @@
 void TechnoClass::unknown_slot267(bool arg1)
 {
     if (!unknown_373 && unknown_game_mode_a3d298 == 0) {
-        unknown_373 = !Map.Unknown_00568140(Center_Coord());
+        unknown_373 = !Map.Is_Shrouded(Center_Coord());
     }
     Point2D point;
     if (Kind_Of() == 6 && !arg1) {

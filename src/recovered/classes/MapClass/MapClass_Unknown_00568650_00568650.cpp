@@ -6,8 +6,8 @@
 
 void MapClass::Unknown_00568650()
 {
-    Unknown_0055A550();
-    for (CellClass *cell = Unknown_0055A490(); cell != 0; cell = Unknown_0055A490()) {
+    Reset_Iterator();
+    for (CellClass *cell = Iterate(); cell != 0; cell = Iterate()) {
         cell->unknown_47be00();
     }
 }

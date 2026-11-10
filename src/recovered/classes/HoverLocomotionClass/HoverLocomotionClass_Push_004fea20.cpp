@@ -1,7 +1,7 @@
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A280@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
+// @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref _unknown_geometry_g=00a410b8
 // @ref _unknown_geometry_j=00a410a8
 #include "shared/hover_locomotion.hpp"
@@ -23,7 +23,7 @@ bool __stdcall HoverLocomotionClass::Push(UnknownFacingDir dir)
                 LinkedTo->Path[0]=-1;
                 if (unknown_24!=unknown_geometry_l) LinkedTo->unknown_slot59(unknown_24);
                 unknown_24=CoordStruct(cell.X*256+128,cell.Y*256+128,0);
-                unknown_24.Z=Map.Unknown_0055A280(unknown_24);
+                unknown_24.Z=Map.Get_Height_GL(unknown_24);
                 if (Object_Coord(LinkedTo).Z>=unknown_24.Z+unknown_geometry_g*3) unknown_24.Z+=unknown_geometry_j;
                 LinkedTo->unknown_slot58(unknown_24);
             } else {

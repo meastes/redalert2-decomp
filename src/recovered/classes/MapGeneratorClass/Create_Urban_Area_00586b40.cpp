@@ -24,12 +24,12 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Create_Urban_Area(Cell const &cell,
     int processed = 0;
     queue->Clear();
 
-    Map.Unknown_0055A550();
-    CellClass *cptr = Map.Unknown_0055A490();
+    Map.Reset_Iterator();
+    CellClass *cptr = Map.Iterate();
     while (cptr != 0) {
         Cell c = cptr->MapCoords;
         Set_Cell_Data_Spread(c, 0);
-        cptr = Map.Unknown_0055A490();
+        cptr = Map.Iterate();
     }
 
     int node_count = 0;
