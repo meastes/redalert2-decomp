@@ -1,7 +1,7 @@
 // Store clamped source-index-plus-level values for nonzero pixels, wrapping the buffer ring.
 #include "shared/conditional_alpha_blitters.hpp"
 #include "shared/blit.hpp"
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 template <>
 void BlitTransXlatMultWriteAlpha<unsigned short>::BlitForward(void *target, void const *source, int length,
                                                          int level, void *, void *buffer, int scale, int) const
@@ -17,7 +17,7 @@ void BlitTransXlatMultWriteAlpha<unsigned short>::BlitForward(void *target, void
                 *dest = (unsigned short)(color * scale + base >= 255 ? 255 : color * scale + base);
             }
             dest++;
-            dest = ZBufferPtr->Wrap_Pointer(dest);
+            dest = AlphaBuffer->Wrap_Pointer(dest);
         } while (--count);
     }
 }

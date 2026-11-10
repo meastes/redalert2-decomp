@@ -186,13 +186,13 @@ void __cdecl Prog_End()
     Map.unknown_slot23();
     Map.Clear_Radar();
     Unknown_Free_Screen_Surfaces_0068E1C0();
-    if (ABufferPtr) {
-        delete ABufferPtr;
-        ABufferPtr = 0;
+    if (DepthBuffer) {
+        delete DepthBuffer;
+        DepthBuffer = 0;
     }
-    if (ZBufferPtr) {
-        delete ZBufferPtr;
-        ZBufferPtr = 0;
+    if (AlphaBuffer) {
+        delete AlphaBuffer;
+        AlphaBuffer = 0;
     }
     if (BitText) {
         delete BitText;

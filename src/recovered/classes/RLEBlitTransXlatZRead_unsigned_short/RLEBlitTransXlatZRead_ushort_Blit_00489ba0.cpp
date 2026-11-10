@@ -1,7 +1,7 @@
 // Decode visible RLE pixels after a signed adjustment/depth test; no depth write.
 #include "shared/basic_rle_depth_blitters.hpp"
 #include "shared/blit.hpp"
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 template <>
 void RLEBlitTransXlatZRead<unsigned short>::Blit(void *target, void const *source, int length, int skip,
                       int depth, void *depth_buffer, void *, int, int, void *adjustment) const
@@ -16,7 +16,7 @@ void RLEBlitTransXlatZRead<unsigned short>::Blit(void *target, void const *sourc
         output = (unsigned short *)output + skip;
         length -= skip;
         depth_ptr = (unsigned short *)depth_buffer + skip;
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
     while (length > 0) {
         unsigned char color = *input++;
@@ -35,6 +35,6 @@ void RLEBlitTransXlatZRead<unsigned short>::Blit(void *target, void const *sourc
                 ++output; --length;
             }
         }
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
 }

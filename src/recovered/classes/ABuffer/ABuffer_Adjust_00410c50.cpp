@@ -2,7 +2,7 @@
 // origin and clear the newly exposed columns and rows to value. A move
 // larger than the buffer clears all of it and resets MaxValue.
 #include "shared/blit.hpp"
-void ZBuffer::Adjust(int dx, int dy, unsigned short value)
+void ABufferSwapTmp::Adjust(int dx, int dy, unsigned short value)
 {
     int x = (BufferOffset / 2) % Width;
     if (abs(dx) > Width || abs(dy) > Height) {

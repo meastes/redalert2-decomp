@@ -5,8 +5,8 @@
 #include "shared/blit.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/dsurface.hpp"
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00411230
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D const &endpoint, int color,
                                             bool const *pattern, int offset, bool empty_only)
 {
@@ -25,9 +25,9 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
         pattern_step = -1;
     }
     Point2D point = start;
-    point.Y -= ZBufferPtr->Area.Y;
-    unsigned short *depth = ZBufferPtr->Get_Buffer_Ptr(point);
-    int depth_stride = ZBufferPtr->Width;
+    point.Y -= AlphaBuffer->Area.Y;
+    unsigned short *depth = AlphaBuffer->Get_Buffer_Ptr(point);
+    int depth_stride = AlphaBuffer->Width;
     if (start.Y > end.Y) depth_stride = -depth_stride;
     unsigned short *pixels = (unsigned short *)Lock(start);
     if (pixels != 0) {
@@ -39,10 +39,10 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
                     if (pattern[offset] && *depth == 0) pixels[i] = (unsigned short)color;
                     if (depth_stride > 0) {
                         depth++;
-                        depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                        depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                     } else {
                         depth++;
-                        depth = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)depth);
+                        depth = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)depth);
                     }
                 }
             } else if (start.X == end.X) {
@@ -55,10 +55,10 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
                     pixels = (unsigned short *)((unsigned char *)pixels + pitch);
                     if (depth_stride > 0) {
                         depth += depth_stride;
-                        depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                        depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                     } else {
                         depth += depth_stride;
-                        depth = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)depth);
+                        depth = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)depth);
                     }
                 }
             } else {
@@ -78,16 +78,16 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
                         if (delta > 0) {
                             pixels = (unsigned short *)((unsigned char *)pixels + pitch);
                             depth += depth_stride;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                             delta -= dx2;
                         }
                         delta += dy2;
                         if (depth_stride > 0) {
                             depth++;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                         } else {
                             depth++;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)depth);
                         }
                     }
                 } else {
@@ -100,17 +100,17 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
                         if (delta > 0) {
                             k++;
                             depth++;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                             delta -= dy2;
                         }
                         delta += dx2;
                         pixels = (unsigned short *)((unsigned char *)pixels + pitch);
                         if (depth_stride > 0) {
                             depth += depth_stride;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                         } else {
                             depth += depth_stride;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)depth);
                         }
                     }
                 }
@@ -123,10 +123,10 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
                     if (pattern[offset] && *depth != 0) pixels[i] = (unsigned short)color;
                     if (depth_stride > 0) {
                         depth++;
-                        depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                        depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                     } else {
                         depth++;
-                        depth = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)depth);
+                        depth = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)depth);
                     }
                 }
             } else if (start.X == end.X) {
@@ -139,10 +139,10 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
                     pixels = (unsigned short *)((unsigned char *)pixels + pitch);
                     if (depth_stride > 0) {
                         depth += depth_stride;
-                        depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                        depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                     } else {
                         depth += depth_stride;
-                        depth = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)depth);
+                        depth = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)depth);
                     }
                 }
             } else {
@@ -162,16 +162,16 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
                         if (delta > 0) {
                             pixels = (unsigned short *)((unsigned char *)pixels + pitch);
                             depth += depth_stride;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                             delta -= dx2;
                         }
                         delta += dy2;
                         if (depth_stride > 0) {
                             depth++;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                         } else {
                             depth++;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)depth);
                         }
                     }
                 } else {
@@ -184,17 +184,17 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
                         if (delta > 0) {
                             k++;
                             depth++;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                             delta -= dy2;
                         }
                         delta += dx2;
                         pixels = (unsigned short *)((unsigned char *)pixels + pitch);
                         if (depth_stride > 0) {
                             depth += depth_stride;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)depth);
                         } else {
                             depth += depth_stride;
-                            depth = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)depth);
+                            depth = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)depth);
                         }
                     }
                 }

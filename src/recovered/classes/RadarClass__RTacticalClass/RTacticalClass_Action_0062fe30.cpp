@@ -28,7 +28,7 @@ extern int unknown_int_8325d4;
 // @ref ?unknown_flag_a40d45@@3_NA=00a40d45
 // @ref ?unknown_int_8325d0@@3HA=008325d0
 // @ref ?unknown_int_8325d4@@3HA=008325d4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 // @ref ?unknown_475d60@UnknownCellClass@@QBE?AUCoordStruct@@XZ=00475d60
 // @ref ?Unknown_0051A690@@YIPAVObjectClass@@PBVCell@@PAV1@@Z=0051a690
 
@@ -143,8 +143,8 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
                     CoordStruct center = reinterpret_cast<UnknownCellClass &>(Map[cell]).unknown_475d60();
                     unknown_tactical_83996c->Unknown_006A66B0(center);
                     Map.Flag_To_Redraw(1);
-                    if (ABufferPtr != 0) {
-                        ABufferPtr->MaxValue = 0x8000;
+                    if (DepthBuffer != 0) {
+                        DepthBuffer->MaxValue = 0x8000;
                     }
                 }
             }

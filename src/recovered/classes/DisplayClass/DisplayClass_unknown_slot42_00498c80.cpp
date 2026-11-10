@@ -22,12 +22,12 @@
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Unknown_006A65A0@Tactical@@QAEXABVRect@@@Z=006a65a0
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ??0ABuffer@@QAE@VRect@@@Z=00775b80
 // @ref ??1ABuffer@@QAE@XZ=00775cf0
-// @ref ??0ZBuffer@@QAE@VRect@@@Z=00410a60
-// @ref ??1ZBuffer@@QAE@XZ=00410bd0
+// @ref ??0ABufferSwapTmp@@QAE@VRect@@@Z=00410a60
+// @ref ??1ABufferSwapTmp@@QAE@XZ=00410bd0
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?Map@@3VMouseClass@@A=008324e0
@@ -46,20 +46,20 @@ void DisplayClass::unknown_slot42(Rect const &rect)
     if (unknown_tactical_83996c != 0) {
         unknown_tactical_83996c->Unknown_006A65A0(unknown_rect_839630);
         WWMouse->Hide_Mouse();
-        if (ABufferPtr != 0) {
+        if (DepthBuffer != 0) {
             Debug_Printf("Deleting ZBuffer\n");
-            delete ABufferPtr;
-            ABufferPtr = 0;
+            delete DepthBuffer;
+            DepthBuffer = 0;
         }
-        ABufferPtr = new ABuffer(unknown_rect_839630);
-        ABufferPtr->MaxValue = 0x8000;
+        DepthBuffer = new ABuffer(unknown_rect_839630);
+        DepthBuffer->MaxValue = 0x8000;
         Debug_Printf("Allocating ZBuffer (%dx%d)\n", unknown_rect_839630.Width, unknown_rect_839630.Height);
-        if (ZBufferPtr != 0) {
+        if (AlphaBuffer != 0) {
             Debug_Printf("Deleting ABuffer\n");
-            delete ZBufferPtr;
-            ZBufferPtr = 0;
+            delete AlphaBuffer;
+            AlphaBuffer = 0;
         }
-        ZBufferPtr = new ZBuffer(unknown_rect_839630);
+        AlphaBuffer = new ABufferSwapTmp(unknown_rect_839630);
         Debug_Printf("Allocating ABuffer (%dx%d)\n", unknown_rect_839630.Width, unknown_rect_839630.Height);
         WWMouse->Show_Mouse();
     }

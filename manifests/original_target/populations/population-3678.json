@@ -4,8 +4,8 @@
     "id": "population-3678",
     "inventory_sha256": "18ded419f4613126bd119dc40ef1d386785e456dd5836f14c888eceba55e856d",
     "gaps_sha256": "c88ba09ac717ae2ecc9d33909fc5b1999ce2736427e1f89ccd13a04fbfe36255",
-    "historical_population_sha256": "e1bae15e2fb5130fde2941f2ed46bcd73cb51e082e18df98ff28f6f91222e071",
-    "historical_acceptance_sha256": "d9faa59d6c5243ab153293c0a5d5b4fead5255b030f3fdd3f157106865d1f8b6"
+    "historical_population_sha256": "9420a785c48d59740e51967d8bc519129b9e3efef874e9bbb9649a6af399adc3",
+    "historical_acceptance_sha256": "fefbefe338a3278cdeb141d98ab489637b6c16822e6aba0d61e0abc1baa5fe39"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2447,7 +2447,7 @@
     "??0?$VectorClass@PAVSmudgeTypeClass@@@@QAE@IPBQAVSmudgeTypeClass@@@Z": 6638000,
     "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@IPBQAVUnitTypeClass@@@Z": 5223952,
     "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z": 5224032,
-    "?Clear@ZBuffer@@QAEXG@Z": 4264016,
+    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "??0?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE@ABV0@@Z": 6637632,
@@ -5543,7 +5543,7 @@
     "?Ground@@3PAUGroundType@@A": 8720032,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 4262992,
+    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "??1RulesClass@@QAE@XZ": 6564320,
     "?Advanced_Command_Bar@RulesClass@@QAE_NAAVCCINIClass@@_N@Z": 6610320,

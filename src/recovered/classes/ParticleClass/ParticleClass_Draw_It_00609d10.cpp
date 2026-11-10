@@ -23,8 +23,8 @@
 // @ref ?Unknown_006A2970@@YIHH@Z=006a2970
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 
 void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
@@ -59,13 +59,13 @@ void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
             unknown_tactical_83996c->Coord_To_Pixel(Position_Coord_004f3f40(), pixel);
             pixel.Y += unknown_int_839634;
             if (cliprect.Is_Point_Within(pixel)) {
-                Point2D alpha_point = pixel - Point2D(0, ZBufferPtr->Area.Y);
-                unsigned short *alpha_ptr = ZBufferPtr->Get_Buffer_Ptr(alpha_point);
+                Point2D alpha_point = pixel - Point2D(0, AlphaBuffer->Area.Y);
+                unsigned short *alpha_ptr = AlphaBuffer->Get_Buffer_Ptr(alpha_point);
                 int alpha = *alpha_ptr;
                 if (alpha != 0) {
-                    Point2D depth_point = pixel - Point2D(0, ABufferPtr->Area.Y);
-                    int zdepth = (unsigned short)(ABufferPtr->Area.Y + ABufferPtr->MaxValue - pixel.Y) - Unknown_006A2970(Position_Coord_004f3f40().Z) - 50;
-                    int depth = *ABufferPtr->Get_Buffer_Ptr(depth_point);
+                    Point2D depth_point = pixel - Point2D(0, DepthBuffer->Area.Y);
+                    int zdepth = (unsigned short)(DepthBuffer->Area.Y + DepthBuffer->MaxValue - pixel.Y) - Unknown_006A2970(Position_Coord_004f3f40().Z) - 50;
+                    int depth = *DepthBuffer->Get_Buffer_Ptr(depth_point);
                     if (zdepth < depth) {
                         RGBClass color1 = ColorState.ColorIndex == 0 ? Color : Class->ColorList[ColorState.ColorIndex];
                         RGBClass color2 = Class->ColorList[ColorState.ColorIndex + 1];

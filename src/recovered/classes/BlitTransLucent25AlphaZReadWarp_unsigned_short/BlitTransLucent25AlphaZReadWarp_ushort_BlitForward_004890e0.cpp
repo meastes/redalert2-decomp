@@ -1,8 +1,8 @@
 // Depth-test each source pixel before reading its index and translating through the alpha row.
 #include "shared/trans_lucent_alpha_warp_blitter.hpp"
 #include "shared/blit.hpp"
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 template <>
 void BlitTransLucent25AlphaZReadWarp<unsigned short>::BlitForward(void *target, void const *source, int length,
                                                         int depth, void *depth_buffer, void *buffer, int level, int warp_offset) const
@@ -25,9 +25,9 @@ void BlitTransLucent25AlphaZReadWarp<unsigned short>::BlitForward(void *target, 
             }
             source = (unsigned char const *)source + 1;
             target = (unsigned short *)target + 1;
-            depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+            depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
             alpha++;
-            alpha = ZBufferPtr->Wrap_Pointer(alpha);
+            alpha = AlphaBuffer->Wrap_Pointer(alpha);
         } while (--count);
     }
 }

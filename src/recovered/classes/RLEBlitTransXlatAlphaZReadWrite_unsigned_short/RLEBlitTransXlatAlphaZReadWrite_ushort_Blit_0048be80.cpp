@@ -2,8 +2,8 @@
 // and translate it through the alpha row. Both auxiliary pointers wrap in their rings.
 #include "shared/rle_alpha_depth.hpp"
 #include "shared/blit.hpp"
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 template <>
 void RLEBlitTransXlatAlphaZReadWrite<unsigned short>::Blit(void *target, void const *source, int length, int skip,
                                                     int depth, void *depth_buffer, void *buffer, int level, int, void *adjustments) const
@@ -23,9 +23,9 @@ void RLEBlitTransXlatAlphaZReadWrite<unsigned short>::Blit(void *target, void co
         dest += skip;
         depth_ptr = (unsigned short *)depth_buffer + skip;
         length -= skip;
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
         alpha += skip;
-        alpha = ZBufferPtr->Wrap_Pointer(alpha);
+        alpha = AlphaBuffer->Wrap_Pointer(alpha);
     }
     while (length > 0) {
         unsigned char color = *input++;
@@ -47,7 +47,7 @@ void RLEBlitTransXlatAlphaZReadWrite<unsigned short>::Blit(void *target, void co
             }
             ++alpha;
         }
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
-        alpha = ZBufferPtr->Wrap_Pointer(alpha);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
+        alpha = AlphaBuffer->Wrap_Pointer(alpha);
     }
 }

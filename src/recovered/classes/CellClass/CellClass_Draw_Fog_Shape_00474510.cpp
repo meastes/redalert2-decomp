@@ -10,8 +10,8 @@
 #include "shared/mix_file_class.hpp"
 #include "shared/blit.hpp"
 #include "shared/display.hpp"
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00411230
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ??_C@_07BIFH@FOG?4SHP?$AA@=007d2c70
 // @ref _?shapes@?1??Draw_Fog_Shape@CellClass@@QAEXABUPoint2D@@ABVRect@@H@Z@4PBUShapeFileStruct@@B=00850bf0
@@ -42,13 +42,13 @@ void CellClass::Draw_Fog_Shape(Point2D const &point, Rect const &clip, int frame
     int right = clip.X + clip.Width < point.X + shaperect.X + shaperect.Width ? clip.X + clip.Width : point.X + shaperect.X + shaperect.Width;
 
     int shape_skip = point.X - right + shaperect.X + shaperect.Width + src_x;
-    int depth_skip = left - right + ZBufferPtr->Width;
+    int depth_skip = left - right + AlphaBuffer->Width;
 
     unsigned char const *shapeptr = (unsigned char const *)shapes->Get_Frame_Data(frame);
-    unsigned short *depth = ZBufferPtr->Get_Buffer_Ptr(Point2D(left, top - unknown_rect_839630.Y));
+    unsigned short *depth = AlphaBuffer->Get_Buffer_Ptr(Point2D(left, top - unknown_rect_839630.Y));
 
     shapeptr += src_x + src_y * shaperect.Width;
-    if (&depth[right - left + (bottom - top) * ZBufferPtr->Width + 2] >= (unsigned short *)ZBufferPtr->BufferTail) {
+    if (&depth[right - left + (bottom - top) * AlphaBuffer->Width + 2] >= (unsigned short *)AlphaBuffer->BufferTail) {
         for (int i = top; i < bottom; i++) {
             for (int j = left; j < right; j++) {
                 unsigned char pixel = *shapeptr++;
@@ -60,11 +60,11 @@ void CellClass::Draw_Fog_Shape(Point2D const &point, Rect const &clip, int frame
                     }
                 }
                 depth++;
-                depth = ZBufferPtr->Wrap_Pointer(depth);
+                depth = AlphaBuffer->Wrap_Pointer(depth);
             }
             shapeptr += shape_skip;
             depth += depth_skip;
-            depth = ZBufferPtr->Wrap_Pointer(depth);
+            depth = AlphaBuffer->Wrap_Pointer(depth);
         }
     } else {
         for (int i = top; i < bottom; i++) {

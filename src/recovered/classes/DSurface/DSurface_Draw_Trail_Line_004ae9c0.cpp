@@ -1,7 +1,7 @@
 // bool DSurface::Draw_Trail_Line_4AE9C0(...) (0x004AE9C0; LineTrail::Draw 0x005395C0): a line from startpoint to
 // endpoint clipped to cliprect, blended in color at intensity over the pixels whose depth passes, the depth
 // interpolated from start_depth to end_depth (z, x and y major Bresenham walks over the screen, depth and alpha
-// buffers). The depth test reads the buffer behind ABufferPtr and the level the one behind ZBufferPtr; ra2-decomp's
+// buffers). The depth test reads the buffer behind DepthBuffer and the level the one behind AlphaBuffer; ra2-decomp's
 // YR twin calls those DepthBuffer and AlphaBuffer the other way round (name lead, not settled here).
 // From ra2-decomp 0x004BEAC0 (YR identical twin, src/dsurface.cpp DSurface::FUN_004BEAC0), on Scout795's draft
 // (its blend helper kept; ra2-decomp's Alpha_Hicolor_Pixel form scores 80.75):
@@ -18,10 +18,10 @@
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00776340
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 // @ref ?Brighten_Hicolor_Pixel@@YIHABVRGBClass@@HHH@Z=004ae8d0
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc
@@ -33,11 +33,11 @@
 // circular buffer comes back to its start.
 static inline unsigned short *Blit_Wrap_Z_Buffer(unsigned short *buf)
 {
-    return((unsigned short *)ZBufferPtr->Wrap_Overflow((unsigned int)buf));
+    return((unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)buf));
 }
 static inline unsigned short *Blit_Wrap_A_Buffer(unsigned short *buf)
 {
-    return((unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)buf));
+    return((unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)buf));
 }
 // Actual source/background blend, followed by the ring brightness scale.
 static inline unsigned short Trail_Blend_Pixel(unsigned short pixel, int level, int inverse, int red, int green, int blue)
@@ -99,18 +99,18 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
     }
     Bytes_Per_Pixel();
     void * buffer = Lock(start);
-    if (ABufferPtr != 0) {
+    if (DepthBuffer != 0) {
     Point2D point = start;
-    point.Y -= ABufferPtr->Area.Y;
-    unsigned short * abuffer = ABufferPtr->Get_Buffer_Ptr(point);
+    point.Y -= DepthBuffer->Area.Y;
+    unsigned short * abuffer = DepthBuffer->Get_Buffer_Ptr(point);
     point = start;
-    point.Y -= ZBufferPtr->Area.Y;
-    unsigned short * zbuffer = ZBufferPtr->Get_Buffer_Ptr(point);
+    point.Y -= AlphaBuffer->Area.Y;
+    unsigned short * zbuffer = AlphaBuffer->Get_Buffer_Ptr(point);
     int start_y = start.Y;
     int zwrap = -1;
-    ABuffer *depth_buffer = ABufferPtr;
+    ABuffer *depth_buffer = DepthBuffer;
     unsigned short z = (unsigned short)(zstart + (short)(depth_buffer->Area.Y + depth_buffer->Get_Scroll()) - start_y - rect.Y);
-    int zwidth = ABufferPtr->Width;
+    int zwidth = DepthBuffer->Width;
     if (buffer != 0) {
     int red = (color.Red * intensity) >> 8;
     int green = (color.Green * intensity) >> 8;
@@ -151,13 +151,13 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                     if (zwidth > 0) {
                         abuffer = Blit_Wrap_A_Buffer(abuffer);
                     } else {
-                        abuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)abuffer);
+                        abuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)abuffer);
                     }
                     zbuffer += zwidth;
                     if (zwidth > 0) {
                         zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
                     } else {
-                        zbuffer = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)zbuffer);
                     }
                     z += zwrap;
                 }
@@ -191,14 +191,14 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                     if (zwidth > 0) {
                         abuffer = Blit_Wrap_A_Buffer(abuffer);
                     } else {
-                        abuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)abuffer);
+                        abuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)abuffer);
                     }
                     z += zwrap;
                     zbuffer += zwidth;
                     if (zwidth > 0) {
                         zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
                     } else {
-                        zbuffer = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)zbuffer);
                     }
                 }
                 if (zdelta > 0) {
@@ -242,14 +242,14 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
                 if (zwidth > 0) {
                     abuffer = Blit_Wrap_A_Buffer(abuffer);
                 } else {
-                    abuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)abuffer);
+                    abuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)abuffer);
                 }
                 z += zwrap;
                 zbuffer += zwidth;
                 if (zwidth > 0) {
                     zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
                 } else {
-                    zbuffer = (unsigned short *)ZBufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)zbuffer);
                 }
             }
         }

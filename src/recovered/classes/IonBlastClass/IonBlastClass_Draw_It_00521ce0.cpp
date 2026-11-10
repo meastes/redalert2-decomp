@@ -32,17 +32,17 @@ void IonBlastClass::Draw_It()
             sptr = sbuffer;
 
             int depth_z = Unknown_006A2970(Coord.Z);
-            short base_z = (short)ABufferPtr->Get_Scroll() - depth_z;
+            short base_z = (short)DepthBuffer->Get_Scroll() - depth_z;
             unsigned short draw_z = base_z;
             draw_z -= drect.Y;
             draw_z -= 3;
 
-            unsigned short *zbuffer_base = ABufferPtr->Get_Buffer_Ptr(Point2D(0, drect.Y));
+            unsigned short *zbuffer_base = DepthBuffer->Get_Buffer_Ptr(Point2D(0, drect.Y));
             int height = srect.Height + 1;
             int surface_width = unknown_surface_83995c->Get_Width();
-            int buffer_width = ABufferPtr->Width;
+            int buffer_width = DepthBuffer->Width;
 
-            if (zbuffer_base + surface_width + height * buffer_width < (unsigned short *)ABufferPtr->BufferTail) {
+            if (zbuffer_base + surface_width + height * buffer_width < (unsigned short *)DepthBuffer->BufferTail) {
                 unsigned short *zptr = zbuffer_base + drect.X;
                 int x;
                 for (int y = 0; y < srect.Height; ++y) {
@@ -66,7 +66,7 @@ void IonBlastClass::Draw_It()
                 for (int y = 0; y < srect.Height; ++y) {
                     for (int x = 0; x < srect.Width; ++x) {
                         int index = *sptr++;
-                        if (index > 0 && *ABufferPtr->Get_Buffer_Ptr(Point2D(drect.X + x, drect.Y + y)) > draw_z) {
+                        if (index > 0 && *DepthBuffer->Get_Buffer_Ptr(Point2D(drect.X + x, drect.Y + y)) > draw_z) {
                             *pixel = pixel[SpiralIndexToSurfaceLUT[index]];
                         }
                         pixel++;

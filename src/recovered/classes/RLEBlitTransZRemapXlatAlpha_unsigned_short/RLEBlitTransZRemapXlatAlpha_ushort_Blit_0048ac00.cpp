@@ -1,7 +1,7 @@
 // RLE transparent translation with a selected alpha lookup row and a wrapping buffer.
 #include "shared/rle_blitter.hpp"
 #include "shared/blit.hpp"
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 template <>
 void RLEBlitTransZRemapXlatAlpha<unsigned short>::Blit(void *target, void const *source, int length, int skip,
                                                 int, void *, void *buffer, int level, int, void *) const
@@ -20,7 +20,7 @@ void RLEBlitTransZRemapXlatAlpha<unsigned short>::Blit(void *target, void const 
         length -= skip;
         alpha = (unsigned short *)buffer + skip;
         dest += skip;
-        alpha = ZBufferPtr->Wrap_Pointer(alpha);
+        alpha = AlphaBuffer->Wrap_Pointer(alpha);
     }
     while (length > 0) {
         unsigned char color = *input++;
@@ -35,6 +35,6 @@ void RLEBlitTransZRemapXlatAlpha<unsigned short>::Blit(void *target, void const 
             length--;
             alpha++;
         }
-        alpha = ZBufferPtr->Wrap_Pointer(alpha);
+        alpha = AlphaBuffer->Wrap_Pointer(alpha);
     }
 }

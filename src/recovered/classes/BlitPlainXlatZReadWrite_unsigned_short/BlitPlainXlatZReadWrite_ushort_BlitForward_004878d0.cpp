@@ -1,7 +1,7 @@
 // Depth test before accessing the source byte; wrap the supplied depth scanline.
 #include "shared/basic_depth_write_blitters.hpp"
 #include "shared/blit.hpp"
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 template <>
 void BlitPlainXlatZReadWrite<unsigned short>::BlitForward(void *target, void const *source, int length,
                                       int depth, void *depth_buffer, void *, int, int) const
@@ -18,7 +18,7 @@ void BlitPlainXlatZReadWrite<unsigned short>::BlitForward(void *target, void con
             ++depth_ptr;
             source = (unsigned char const *)source + 1;
             target = (unsigned short *)target + 1;
-            depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+            depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
         } while (--count);
     }
 }

@@ -4,8 +4,8 @@
     "id": "population-3745",
     "inventory_sha256": "dc62176afe5c7e1fca8ff2a394bdf0f73d8c3fd19a4465012ed6d6b75b11e3cb",
     "gaps_sha256": "6bbbb1f5ff45e5beb274c1d562b6634b986cc91a326aaccd6995c6a6af088f7f",
-    "historical_population_sha256": "cae2deb06742e2efa840c623b3b73a5b7de8447a415d71d6842f83642ae32e15",
-    "historical_acceptance_sha256": "21b6148ee21771d4f1bc2c6ff304acd1194b575d1e58034f76568526306c5981"
+    "historical_population_sha256": "3e10504fe652ab6249abafacfa38abfb7141cdbe88a1c7d2991e553153c4274c",
+    "historical_acceptance_sha256": "157bd6340ead147e75ed31938414cd45bc8f8593120fdfbf9f5c8c287a60bb85"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2666,7 +2666,7 @@
     "?AI@FactoryClass@@UAEXXZ": 4952832,
     "?Colors@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6585952,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
-    "?Clear@ZBuffer@@QAEXG@Z": 4264016,
+    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
     "?AI@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6603440,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
@@ -5350,7 +5350,7 @@
     "?Find_Or_Make@OverlayTypeClass@@SIPAV1@PBD@Z": 6147952,
     "?Find_Or_Make@SmudgeTypeClass@@SIPAV1@PBD@Z": 6849488,
     "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 4262992,
+    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "?Load@RulesClass@@QAEXPAUIStream@@@Z": 6612656,
     "?Read_INI@MissionControlClass@@QAE_NAAVCCINIClass@@@Z": 5852720,

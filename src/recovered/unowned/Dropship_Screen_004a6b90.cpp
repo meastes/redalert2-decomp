@@ -422,11 +422,11 @@ void __fastcall Dropship_Screen_004A6B90()
 
     DynamicVectorClass<TechnoTypeClass *> selections;
 
-    Rect alpha_area = ZBufferPtr->Area;
+    Rect alpha_area = AlphaBuffer->Area;
     Hide_Mouse();
-    delete ZBufferPtr;
-    ZBufferPtr = 0;
-    ZBufferPtr = new ZBuffer(Rect(0, 0, unknown_surface_839954->Get_Width(), unknown_surface_839954->Get_Height()));
+    delete AlphaBuffer;
+    AlphaBuffer = 0;
+    AlphaBuffer = new ABufferSwapTmp(Rect(0, 0, unknown_surface_839954->Get_Width(), unknown_surface_839954->Get_Height()));
     Show_Mouse();
 
     unknown_surface_83995c = unknown_surface_839954;
@@ -452,9 +452,9 @@ void __fastcall Dropship_Screen_004A6B90()
                 }
 
                 if (i >= 8 || usage_index == -1 || unknown_id_source_a3d290->AllowableUnitCounts[usage_index] < unknown_id_source_a3d290->AllowableUnitMaximums[usage_index]) {
-                    ZBufferPtr->Clear_Region_00411090(127, Rect(screen_origin.X + buttons[i]->X, screen_origin.Y + buttons[i]->Y, 64, 48));
+                    AlphaBuffer->Clear_Region_00411090(127, Rect(screen_origin.X + buttons[i]->X, screen_origin.Y + buttons[i]->Y, 64, 48));
                 } else {
-                    ZBufferPtr->Clear_Region_00411090(63, Rect(screen_origin.X + buttons[i]->X, screen_origin.Y + buttons[i]->Y, 64, 48));
+                    AlphaBuffer->Clear_Region_00411090(63, Rect(screen_origin.X + buttons[i]->X, screen_origin.Y + buttons[i]->Y, 64, 48));
                 }
                 buttons[i]->Draw_Me(0);
             }
@@ -540,9 +540,9 @@ void __fastcall Dropship_Screen_004A6B90()
                         usage_index = Unknown4A6AE0Owner::Find_Type_Index_004A6B50(candidates[candidate_index]);
                     }
                     if (usage_index == -1 || unknown_id_source_a3d290->AllowableUnitCounts[usage_index] < unknown_id_source_a3d290->AllowableUnitMaximums[usage_index]) {
-                        ZBufferPtr->Clear_Region_00411090(127, Rect(buttons[i]->X, buttons[i]->Y, 64, 48));
+                        AlphaBuffer->Clear_Region_00411090(127, Rect(buttons[i]->X, buttons[i]->Y, 64, 48));
                     } else {
-                        ZBufferPtr->Clear_Region_00411090(63, Rect(buttons[i]->X, buttons[i]->Y, 64, 48));
+                        AlphaBuffer->Clear_Region_00411090(63, Rect(buttons[i]->X, buttons[i]->Y, 64, 48));
                     }
                     buttons[i]->Draw_Me(1);
                 }
@@ -686,7 +686,7 @@ void __fastcall Dropship_Screen_004A6B90()
                 effect->Alpha = falpha;
                 if (effect->CandidateIndex >= cameo_top && effect->CandidateIndex <= cameo_top + 8) {
                     int screen_index = effect->CandidateIndex - cameo_top;
-                    ZBufferPtr->Clear_Region_00411090((unsigned short)falpha, Rect(screen_origin.X + 491 + (64 + 4) * (screen_index % 2), screen_origin.Y + 25 + (48 + 2) * (screen_index / 2), 64, 48));
+                    AlphaBuffer->Clear_Region_00411090((unsigned short)falpha, Rect(screen_origin.X + 491 + (64 + 4) * (screen_index % 2), screen_origin.Y + 25 + (48 + 2) * (screen_index / 2), 64, 48));
                     buttons[screen_index]->Draw_Me(1);
                     redraw = true;
                 }
@@ -724,7 +724,7 @@ void __fastcall Dropship_Screen_004A6B90()
                         if (draw_background) {
                             unknown_blit_49f3a0(*unknown_surface_839954, drawer_dropship, *effect->FromSurface, effect->FromRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->FromBlitter, 0, 0, 1000, 0);
                         }
-                        ZBufferPtr->Clear_Region_00411090(effect->Alpha, effect->DestRect);
+                        AlphaBuffer->Clear_Region_00411090(effect->Alpha, effect->DestRect);
                         unknown_blit_49f3a0(*unknown_surface_839954, drawer_cameo, *effect->ToSurface, effect->ToRect, RectPoint2D(0, 0), effect->DestRect, 0, effect->ToBlitter, 0, 0, 1000, 0);
                         effect->WasDrawn = true;
                         redraw = true;
@@ -890,15 +890,15 @@ void __fastcall Dropship_Screen_004A6B90()
 
     Hide_Mouse();
 
-    delete ZBufferPtr;
-    ZBufferPtr = 0;
-    ZBufferPtr = new ZBuffer(alpha_area);
+    delete AlphaBuffer;
+    AlphaBuffer = 0;
+    AlphaBuffer = new ABufferSwapTmp(alpha_area);
 
-    if (ABufferPtr) {
-        delete ABufferPtr;
-        ABufferPtr = 0;
+    if (DepthBuffer) {
+        delete DepthBuffer;
+        DepthBuffer = 0;
     }
-    ABufferPtr = new ABuffer(alpha_area);
+    DepthBuffer = new ABuffer(alpha_area);
 
     Show_Mouse();
 }

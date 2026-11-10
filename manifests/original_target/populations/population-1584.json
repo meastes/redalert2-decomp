@@ -4,11 +4,11 @@
     "id": "population-1584",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "607b402cc22f00d8916b0b2b316328bc44dab25376d540ee4fe0f242e50f8f9d",
-    "historical_acceptance_sha256": "8052dc9681206ef8e6edacb7b9218a5fc18d27b395037c7be89098fe07f7f9e3"
+    "historical_population_sha256": "d42f16d0c263a36de5c97c126b35ebea59cc8366bab83115a8390675958d4166",
+    "historical_acceptance_sha256": "1bebd5a2effac219721370be7b2ed2cbdfff4c3fa6f889d2da7608bb58138965"
   },
   "references": {
-    "?ABufferPtr@@3PAVABuffer@@A": 8625260,
+    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
     "?target@Call_402190_0@@QAEIXZ": 4198400,
     "?target@Call_402940_0@@QAEIXZ": 4223472,
     "?target@Call_402940_1@@QAEIXZ": 4223472,
@@ -378,7 +378,7 @@
     "__real@4@c00a8000000000000000": 7999368,
     "?Blit@?$RLEBlitTransXlat@G@@UBEXPAXPBXHHH00HH0@Z": 4757520,
     "?BlitForward@?$BlitPlainXlatAlpha@G@@UBEXPAXPBXHH00HH@Z": 4750832,
-    "?ZBufferPtr@@3PAVZBuffer@@A": 8590772,
+    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
     "?Blit@?$RLEBlitTransXlatAlpha@G@@UBEXPAXPBXHHH00HH0@Z": 4762352,
     "?Blit@?$RLEBlitTransLucent75Alpha@G@@UBEXPAXPBXHHH00HH0@Z": 4762928,
     "?Blit@?$RLEBlitTransLucent50Alpha@G@@UBEXPAXPBXHHH00HH0@Z": 4763232,
@@ -1081,19 +1081,19 @@
     "__real@8@3ff98efa351294e9c800": 8048992,
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 4264496,
+    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
     "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
     "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
     "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
     "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
-    "??0ZBuffer@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ZBuffer@@QAE@XZ": 4262864,
-    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 4262896,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ZBuffer@@QAEXG@Z": 4264016,
-    "?Clear_Region_00411090@ZBuffer@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ZBuffer@@QAEXVRect@@@Z": 4264112,
+    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
+    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
+    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
+    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
+    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "__real@4@3ff98888890000000000": 8032628,
@@ -1396,7 +1396,11 @@
     "??_EWWMouseClass@@UAEPAXI@Z": 7812880,
     "??_ETacticalClass@DisplayClass@@UAEPAXI@Z": 4844768,
     "??_ERadarClass@@UAEPAXI@Z": 6507216,
-    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392
+    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
+    "_unknown_empty_rect": 8594576,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "__except_handler3": 7885524,
+    "__except_list": 0
   },
   "regions": [
     {
@@ -1419,7 +1423,7 @@
         {
           "offset": 28,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1427,13 +1431,13 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "2f00260c19850776e1824171704bf6559afae3c9ac5dc1bd2dfb18ae173c849d",
+      "source_sha256": "ebd3ef56f44dd0ed2e99956cd20c3b3767782e7e3dae419b299a279e9e024fd5",
       "source": "src/recovered/classes/BlitPlainXlatZReadWrite_unsigned_short/BlitPlainXlatZReadWrite_ushort_BlitForward_004878d0.cpp",
       "population": "population-1584",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -1462,7 +1466,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1470,13 +1474,13 @@
         {
           "offset": 82,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "9a2607d178b9c7a519121b51e45facfab798cceaec5fd96061b395788f094795",
+      "source_sha256": "d1eb8121aafdb9aa1f28041f2bb6eb2c5ec76c668e8411d11ae5a23a67a47eba",
       "source": "src/recovered/classes/BlitTransXlatZReadWrite_unsigned_short/BlitTransXlatZReadWrite_ushort_BlitForward_00487970.cpp",
       "population": "population-1584",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -1505,7 +1509,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1513,13 +1517,13 @@
         {
           "offset": 101,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "8e1abd0b1a32424137f77faaa2d0e00bf5cfb3c1036c34b40cc06f2eae39a232",
+      "source_sha256": "d314805dcb9b4b175bf2f60bc3091b104626679fc00aad359a1a9314755dad63",
       "source": "src/recovered/classes/BlitTransZRemapXlatZReadWrite_unsigned_short/BlitTransZRemapXlatZReadWrite_ushort_BlitForward_00487a20.cpp",
       "population": "population-1584",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -1548,7 +1552,7 @@
         {
           "offset": 34,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -1556,13 +1560,13 @@
         {
           "offset": 110,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
         }
       ],
-      "source_sha256": "727af0e3ca87e6ae5f07891b3a1a37dbe6fec5b6bb840a8fabac2fd89948c4ed",
+      "source_sha256": "0ce0c6db10e4420e4cb1748608cad74f7311476353336f3ad710d94f8a08b073",
       "source": "src/recovered/classes/BlitTransLucent50ZReadWrite_unsigned_short/BlitTransLucent50ZReadWrite_ushort_BlitForward_00487c50.cpp",
       "population": "population-1584",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

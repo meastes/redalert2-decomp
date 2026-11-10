@@ -2,8 +2,8 @@
 // Zero runs advance output, adjustment, depth and alpha; left clipping leaves adjustment unchanged.
 #include "shared/rle_alpha_blend_depth.hpp"
 #include "shared/blit.hpp"
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 template <>
 void RLEBlitTransLucent75AlphaZReadWarp<unsigned short>::Blit(void *target, void const *source, int length, int skip,
                       int depth, void *depth_buffer, void *buffer, int level, int warp_offset, void *adjustment) const
@@ -23,9 +23,9 @@ void RLEBlitTransLucent75AlphaZReadWarp<unsigned short>::Blit(void *target, void
         output = (unsigned short *)output + skip;
         length -= skip;
         depth_ptr = (unsigned short *)depth_buffer + skip;
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
         alpha=(unsigned short *)buffer+skip;
-        alpha=ZBufferPtr->Wrap_Pointer(alpha);
+        alpha=AlphaBuffer->Wrap_Pointer(alpha);
     }
     while (length > 0) {
         unsigned char color = *input++;
@@ -46,7 +46,7 @@ void RLEBlitTransLucent75AlphaZReadWarp<unsigned short>::Blit(void *target, void
             }
             ++alpha;
         }
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
-        alpha=ZBufferPtr->Wrap_Pointer(alpha);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
+        alpha=AlphaBuffer->Wrap_Pointer(alpha);
     }
 }

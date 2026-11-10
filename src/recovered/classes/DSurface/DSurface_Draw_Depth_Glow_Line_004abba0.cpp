@@ -1,6 +1,6 @@
 // Draw a clipped 16-bit line between two screen points with depths (TibSun
 // dsurface.cpp Draw_Depth_Glow_Line): each pixel in front of the depth ring
-// (ABufferPtr 0x00839C6C) has every channel brightened by glow_strength/256,
+// (DepthBuffer 0x00839C6C) has every channel brightened by glow_strength/256,
 // clamped to 255; write_depth stores the line's depth. The depths of clipped
 // endpoints are interpolated by length. The px, origend, py order matches the
 // original's register choice at the steep loop's depth test.
@@ -14,10 +14,10 @@
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00776340
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc
 // @ref ?unknown_shift_852fc0@@3HA=00852fc0
@@ -81,13 +81,13 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
     }
     Bytes_Per_Pixel();
     void * buffer = Lock(start);
-    if (ABufferPtr != 0) {
+    if (DepthBuffer != 0) {
     Point2D point = start;
-    point.Y -= ABufferPtr->Area.Y;
-    unsigned short * zbuffer = ABufferPtr->Get_Buffer_Ptr(point);
+    point.Y -= DepthBuffer->Area.Y;
+    unsigned short * zbuffer = DepthBuffer->Get_Buffer_Ptr(point);
     int start_y = start.Y;
     int zwrap = -1;
-    ABuffer *depth_buffer = ABufferPtr;
+    ABuffer *depth_buffer = DepthBuffer;
     unsigned short z = (unsigned short)(zstart + (short)(depth_buffer->Area.Y + depth_buffer->Get_Scroll()) - start_y - rect.Y);
     int zwidth = depth_buffer->Width;
     if (buffer != 0) {
@@ -134,16 +134,16 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
                     xdelta -= dz2;
                     zbuffer += zwidth;
                     if (zwidth > 0) {
-                        zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                     } else {
-                        zbuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
                     }
                     z += zwrap;
                 }
                 if (ydelta > 0) {
                     zbuffer++;
                     offset += 2;
-                    zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                     ydelta -= dz2;
                 }
                 z += zstep;
@@ -175,9 +175,9 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
                     ydelta -= dx2;
                     zbuffer += zwidth;
                     if (zwidth > 0) {
-                        zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                     } else {
-                        zbuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                        zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
                     }
                     z += zwrap;
                 }
@@ -188,7 +188,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
                 zbuffer++;
                 ydelta += dy2;
                 zdelta += dz2;
-                zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
             } while (++offset < xcount);
         }
     } else {
@@ -213,7 +213,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
                 if (xdelta > 0) {
                     zbuffer++;
                     offset += 2;
-                    zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                     xdelta -= dy2;
                 }
                 if (zdelta > 0) {
@@ -225,9 +225,9 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
                 buffer = (unsigned char *)buffer + pitch;
                 zbuffer += zwidth;
                 if (zwidth > 0) {
-                    zbuffer = (unsigned short *)ABufferPtr->Wrap_Overflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
                 } else {
-                    zbuffer = (unsigned short *)ABufferPtr->Wrap_Underflow((unsigned int)zbuffer);
+                    zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
                 }
                 z += zwrap;
             }

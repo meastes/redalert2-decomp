@@ -2,13 +2,13 @@ void UnknownRemapAlphaBlitter::Blend_Source_75(unsigned short *dest,unsigned cha
  unsigned short *cursor=alpha;
  if(count>0) {
   int remaining=count;
-  ABuffer *buffer=ABufferPtr;
+  ABuffer *buffer=DepthBuffer;
   do {
    unsigned char index;
    if(level<*cursor && (index=*source)!=0) {
     *dest=((Palette[index]>>2)&ChannelMask)*3+((*dest>>2)&ChannelMask);
     *cursor=level;
-    buffer=ABufferPtr;
+    buffer=DepthBuffer;
    }
    ++source;++dest;
    cursor=Wrap_Alpha(buffer,cursor+1);

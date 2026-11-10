@@ -3,7 +3,7 @@
 #include "shared/blit.hpp"
 #include "shared/rgb_class.hpp"
 #include "shared/hicolor.hpp"
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc
 // @ref ?unknown_shift_852fc0@@3HA=00852fc0
@@ -41,7 +41,7 @@ void BlitTranslucentWriteAlpha<unsigned short>::BlitForward(void *target, void c
             }
             target = (unsigned short *)target + 1;
             ++alpha;
-            alpha = ZBufferPtr->Wrap_Pointer(alpha);
+            alpha = AlphaBuffer->Wrap_Pointer(alpha);
         } while (--count);
     }
 }

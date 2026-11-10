@@ -1,5 +1,5 @@
 #include "shared/blit.hpp"
-ZBuffer::~ZBuffer()
+ABufferSwapTmp::~ABufferSwapTmp()
 {
     delete Surface;
     Surface = 0;

@@ -1,7 +1,7 @@
 // Half-blend a nonzero source pixel only when its alpha value satisfies the mask condition.
 #include "shared/conditional_alpha_blitters.hpp"
 #include "shared/blit.hpp"
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 template <>
 void BlitTranslucent50NonzeroAlpha<unsigned short>::BlitForward(void *target, void const *source, int length,
                                        int, void *, void *buffer, int, int) const
@@ -18,7 +18,7 @@ void BlitTranslucent50NonzeroAlpha<unsigned short>::BlitForward(void *target, vo
             }
             ++alpha;
             target = (unsigned short *)target + 1;
-            alpha = ZBufferPtr->Wrap_Pointer(alpha);
+            alpha = AlphaBuffer->Wrap_Pointer(alpha);
         } while (--count);
     }
 }

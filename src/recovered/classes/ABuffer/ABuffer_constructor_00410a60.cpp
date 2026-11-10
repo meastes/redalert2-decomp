@@ -1,7 +1,7 @@
 // Construct the depth buffer over a screen area: a 16-bit BSurface ring
 // cleared to 0x7F, with its lock address as the ring head.
 #include "shared/blit.hpp"
-ZBuffer::ZBuffer(Rect area)
+ABufferSwapTmp::ABufferSwapTmp(Rect area)
 {
     Width=area.Width;
     Height=area.Height;

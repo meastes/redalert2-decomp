@@ -3,8 +3,8 @@
 #include "shared/rle_blitter.hpp"
 extern unsigned char Blit_RLE_Default_Depth[];
 // @ref ?Blit_RLE_Default_Depth@@3PAEA=0084ea78
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 // @ref ?BlitRamps@@3PAUBlitRamp@@A=007ce168
 bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &destarea,
     Surface &source, Rect const &sourcewindow, Rect const &sourcearea,
@@ -31,22 +31,22 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
     int top = src.Y - sourcewindow.Y;
     void *dest_pixels = dest.Lock(destwindow.Top_Left() + dst.Top_Left());
     if (!dest_pixels) return false;
-    if (ABufferPtr) {
+    if (DepthBuffer) {
         Point2D point;
         point = destwindow.Top_Left() + dst.Top_Left();
-        point.Y -= ABufferPtr->Area.Y;
-        depth_pointer = (unsigned int)ABufferPtr->Get_Buffer_Ptr(point);
-        depth_pitch = ABufferPtr->Width;
+        point.Y -= DepthBuffer->Area.Y;
+        depth_pointer = (unsigned int)DepthBuffer->Get_Buffer_Ptr(point);
+        depth_pitch = DepthBuffer->Width;
         fraction = 0;
         increment = ramp->Numerator;
         limit = ramp->Denominator;
         ratio = limit / increment;
         if (ramp->Flag) {
-            depth_level = (unsigned short)ABufferPtr->Get_Scroll_Delta(point.Y);
+            depth_level = (unsigned short)DepthBuffer->Get_Scroll_Delta(point.Y);
             depth_level += depth;
             depth_level = (depth_level / ramp->Divisor) * ramp->Divisor;
         } else {
-            depth_level = (unsigned short)ABufferPtr->Get_Scroll_Delta(destwindow.Y + destarea.Y + destarea.Height - 1 - ABufferPtr->Area.Y);
+            depth_level = (unsigned short)DepthBuffer->Get_Scroll_Delta(destwindow.Y + destarea.Y + destarea.Height - 1 - DepthBuffer->Area.Y);
             depth_level += depth;
             if (!depth_shape) {
                 depth_level = (depth_level / ratio) * ratio;
@@ -65,12 +65,12 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
             shape_pixels = (char *)depth_shape->Lock(Point2D(shape_area.X, shape_area.Y) + Point2D(depth_point.X, depth_point.Y) + Point2D(left, top));
         } else shape_pixels = (char *)Blit_RLE_Default_Depth;
     }
-    if (ZBufferPtr) {
+    if (AlphaBuffer) {
         Point2D point;
         point = destwindow.Top_Left() + dst.Top_Left();
-        point.Y -= ZBufferPtr->Area.Y;
-        alpha_pointer = (unsigned int)ZBufferPtr->Get_Buffer_Ptr(point);
-        alpha_pitch = ZBufferPtr->Width;
+        point.Y -= AlphaBuffer->Area.Y;
+        alpha_pointer = (unsigned int)AlphaBuffer->Get_Buffer_Ptr(point);
+        alpha_pitch = AlphaBuffer->Width;
     }
     void *source_pixels = source.Lock();
     if (!source_pixels) {
@@ -88,9 +88,9 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
             depth_level, (void *)depth_pointer, (void *)alpha_pointer, alpha, 0, shape_pixels);
         source_pixels = (unsigned char *)source_pixels + *(unsigned short *)source_pixels;
         dest_pixels = (char *)dest_pixels + dest_pitch;
-        if (ABufferPtr) {
+        if (DepthBuffer) {
             depth_pointer += 2 * depth_pitch;
-            depth_pointer = ABufferPtr->Wrap_Overflow(depth_pointer);
+            depth_pointer = DepthBuffer->Wrap_Overflow(depth_pointer);
             if (depth_shape) shape_pixels += shape_width;
             else {
                 fraction += increment;
@@ -100,7 +100,7 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
                 }
             }
             alpha_pointer += 2 * alpha_pitch;
-            alpha_pointer = ZBufferPtr->Wrap_Overflow(alpha_pointer);
+            alpha_pointer = AlphaBuffer->Wrap_Overflow(alpha_pointer);
         }
     }
     dest.Unlock();

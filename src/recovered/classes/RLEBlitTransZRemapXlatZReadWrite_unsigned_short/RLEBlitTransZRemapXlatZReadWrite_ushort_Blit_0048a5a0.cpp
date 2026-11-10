@@ -2,7 +2,7 @@
 // Opaque writes consume two signed adjustment bytes; zero runs consume one per skipped pixel.
 #include "shared/rle_remap_depth.hpp"
 #include "shared/blit.hpp"
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 template <>
 void RLEBlitTransZRemapXlatZReadWrite<unsigned short>::Blit(void *target, void const *source, int length, int skip,
                       int depth, void *depth_buffer, void *, int, int, void *adjustment) const
@@ -18,7 +18,7 @@ void RLEBlitTransZRemapXlatZReadWrite<unsigned short>::Blit(void *target, void c
         output = (unsigned short *)output + skip;
         length -= skip;
         depth_ptr = (unsigned short *)depth_buffer + skip;
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
     while (length > 0) {
         unsigned char color = *input++;
@@ -39,6 +39,6 @@ void RLEBlitTransZRemapXlatZReadWrite<unsigned short>::Blit(void *target, void c
                 ++depth_ptr; --length;
             }
         }
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
 }

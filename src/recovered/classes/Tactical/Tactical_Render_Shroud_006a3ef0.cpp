@@ -16,8 +16,8 @@
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Draw_Shroud_And_Fog@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z=00475520
 // @ref ?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ=00475d60
-// @ref ?Clear_Region_004110B0@ZBuffer@@QAEXVRect@@@Z=004110b0
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z=004110b0
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 
 void Tactical::Render_Shroud(Rect const &xpanrect, Rect const &ypanrect, Rect const &cliprect, bool fullredraw)
@@ -52,7 +52,7 @@ void Tactical::Render_Shroud(Rect const &xpanrect, Rect const &ypanrect, Rect co
         Rect inter = Intersect(redraw, cliprect);
 
         if (TacticalLists::DirtyAreas[j].unknown_10) {
-            ZBufferPtr->Clear_Region_004110B0(inter);
+            AlphaBuffer->Clear_Region_004110B0(inter);
             Draw_Shroud(inter);
         }
     }

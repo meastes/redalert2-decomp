@@ -2,7 +2,7 @@
 // Zero runs advance output, adjustment and depth; left clipping leaves adjustment unchanged.
 #include "shared/rle_lucent_depth.hpp"
 #include "shared/blit.hpp"
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 template <>
 void RLEBlitTransLucent50ZRead<unsigned short>::Blit(void *target, void const *source, int length, int skip,
                       int depth, void *depth_buffer, void *, int, int, void *adjustment) const
@@ -17,7 +17,7 @@ void RLEBlitTransLucent50ZRead<unsigned short>::Blit(void *target, void const *s
         output = (unsigned short *)output + skip;
         length -= skip;
         depth_ptr = (unsigned short *)depth_buffer + skip;
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
     while (length > 0) {
         unsigned char color = *input++;
@@ -36,6 +36,6 @@ void RLEBlitTransLucent50ZRead<unsigned short>::Blit(void *target, void const *s
                 --length; ++output;
             }
         }
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
 }

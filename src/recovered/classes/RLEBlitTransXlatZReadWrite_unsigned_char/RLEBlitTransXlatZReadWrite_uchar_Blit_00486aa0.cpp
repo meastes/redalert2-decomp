@@ -2,8 +2,8 @@
 // and write depth after the pixel store. The depth cursor wraps in its ring.
 #include "shared/rle_remaining_writers.hpp"
 #include "shared/blit.hpp"
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 template <>
 void RLEBlitTransXlatZReadWrite<unsigned char>::Blit(void *target, void const *source, int length, int skip,
                                                     int depth, void *depth_buffer, void *buffer, int level, int, void *adjustments) const
@@ -18,7 +18,7 @@ void RLEBlitTransXlatZReadWrite<unsigned char>::Blit(void *target, void const *s
         dest += skip;
         depth_ptr = (unsigned short *)depth_buffer + skip;
         length -= skip;
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
     while (length > 0) {
         unsigned char color = *input++;
@@ -31,6 +31,6 @@ void RLEBlitTransXlatZReadWrite<unsigned char>::Blit(void *target, void const *s
         } else {
             Write_Depth_Checked_Pixel(dest, depth_ptr, delta, depth, color, length);
         }
-        depth_ptr = ABufferPtr->Wrap_Pointer(depth_ptr);
+        depth_ptr = DepthBuffer->Wrap_Pointer(depth_ptr);
     }
 }

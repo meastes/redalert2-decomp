@@ -4,8 +4,8 @@
     "id": "population-4414",
     "inventory_sha256": "85447646f57a298137828c1d68c9974a5382b19b354a03e854273947f262caf1",
     "gaps_sha256": "25149f11ea60fd451156aecdeaa58236fd884bb7481f458011be849aea822183",
-    "historical_population_sha256": "183810a7128a268e7db3a06f7b42394ae36fdaf7d480c009d1551d0522a07393",
-    "historical_acceptance_sha256": "e7e10bd69087a11dcd8abf98b8e14d8320d4b3335e72dec5aec34e84877fbbf8"
+    "historical_population_sha256": "d1239a882a80af90fea56c1749972efebae8259cc131f31cac0f99c440259462",
+    "historical_acceptance_sha256": "76390f8ab2d63127e34417d7e83fdfcb782b88c71931e28b545146970181985b"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -3100,8 +3100,8 @@
     "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z": 5224032,
     "?Infantry@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6601296,
     "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ZBuffer@@QAEXG@Z": 4264016,
+    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
+    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "??0?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE@ABV0@@Z": 6637632,
@@ -8597,7 +8597,7 @@
     "?Decrement@CounterClass@@QAEHH@Z": 4791472,
     "?Get@CounterClass@@QAEHH@Z": 4791568,
     "?Save@CounterClass@@QAEJPAUIStream@@@Z": 4791728,
-    "?ABufferPtr@@3PAVABuffer@@A": 8625260,
+    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
     "?Next@EnumConnectionsClass@@UAGJKPAUtagCONNECTDATA@@PAK@Z": 4793008,
     "?Clone@EnumConnectionsClass@@UAGJPAPAUIEnumConnections@@@Z": 4793232,
     "?Next@EnumConnectionPointsClass@@UAGJKPAPAUIConnectionPoint@@PAK@Z": 4795472,
@@ -8632,7 +8632,7 @@
     "?unknown_slot52@WaveClass@@UAE_NXZ": 7480528,
     "?Find_Country_Index_004904A0@@YIHPBD@Z": 4785312,
     "?BlitForward@?$BlitPlainXlatAlpha@G@@UBEXPAXPBXHH00HH@Z": 4750832,
-    "?ZBufferPtr@@3PAVZBuffer@@A": 8590772,
+    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
     "?Create@WDTState@@SI?AV?$rc_ptr@VWDTState@@@@PAE@Z": 7519920,
     "?unknown_a3d3bc@@3HA": 10736572,
     "?unknown_a3d3b4@@3HA": 10736564,
@@ -8988,16 +8988,16 @@
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Movies@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6610064,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 4264496,
+    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
     "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
     "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
     "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
-    "??0ZBuffer@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ZBuffer@@QAE@XZ": 4262864,
-    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 4262896,
-    "?Clear_Region_00411090@ZBuffer@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ZBuffer@@QAEXVRect@@@Z": 4264112,
+    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
+    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
+    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "??1RulesClass@@QAE@XZ": 6564320,
     "?Addition@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6567920,
@@ -14333,7 +14333,7 @@
         {
           "offset": 557,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -14357,7 +14357,7 @@
         {
           "offset": 583,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -14365,7 +14365,7 @@
         {
           "offset": 589,
           "kind": 6,
-          "symbol": "?ZBufferPtr@@3PAVZBuffer@@A",
+          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -14373,7 +14373,7 @@
         {
           "offset": 600,
           "kind": 20,
-          "symbol": "??1ZBuffer@@QAE@XZ",
+          "symbol": "??1ABufferSwapTmp@@QAE@XZ",
           "target": 4262864,
           "addend": 0,
           "resolved": 4292345748
@@ -14389,7 +14389,7 @@
         {
           "offset": 615,
           "kind": 6,
-          "symbol": "?ZBufferPtr@@3PAVZBuffer@@A",
+          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -15795,7 +15795,7 @@
           "resolved": 919191
         }
       ],
-      "source_sha256": "b69c0e57513d0880b208de0a9702c39900832de17a9903e14ecdb915354fcc2e",
+      "source_sha256": "5316833030803683474bc4b1f7bec641f0b3ac97709228d2f33cff4c4044bfd7",
       "source": "src/recovered/startup/Prog_End_006909e0.cpp",
       "population": "population-4414",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -23503,7 +23503,7 @@
         {
           "offset": 9206,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -23511,7 +23511,7 @@
         {
           "offset": 9223,
           "kind": 6,
-          "symbol": "?ABufferPtr@@3PAVABuffer@@A",
+          "symbol": "?DepthBuffer@@3PAVABuffer@@A",
           "target": 8625260,
           "addend": 0,
           "resolved": 8625260
@@ -23543,7 +23543,7 @@
         {
           "offset": 9297,
           "kind": 20,
-          "symbol": "??0ZBuffer@@QAE@VRect@@@Z",
+          "symbol": "??0ABufferSwapTmp@@QAE@VRect@@@Z",
           "target": 4262496,
           "addend": 0,
           "resolved": 4292346763
@@ -23551,7 +23551,7 @@
         {
           "offset": 9302,
           "kind": 6,
-          "symbol": "?ZBufferPtr@@3PAVZBuffer@@A",
+          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -23559,7 +23559,7 @@
         {
           "offset": 9318,
           "kind": 6,
-          "symbol": "?ZBufferPtr@@3PAVZBuffer@@A",
+          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -24229,7 +24229,7 @@
           "resolved": 1000704
         }
       ],
-      "source_sha256": "e591274daaed727a2a77746222ff07e0f2402f544d35a5f6b45cbf72d4e93ca8",
+      "source_sha256": "cdbe01fe2d5014e1f999bb7c8a1d9fe3cb0fa5861fdb4ba7784093454b7d248d",
       "source": "src/recovered/startup/WinMain_0068e280.cpp",
       "population": "population-4414",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

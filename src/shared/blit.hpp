@@ -13,13 +13,13 @@
 
 class RLEBlitter;
 
-// Depth (ZBuffer, 0x008315B4) and alpha (ABuffer, 0x00839C6C) buffers:
+// Depth (ABufferSwapTmp, 0x008315B4) and alpha (ABuffer, 0x00839C6C) buffers:
 // screen-sized rings of 16-bit values over a BSurface. Layout from the
 // blitters (fields +0x00..+0x28; the names follow the use).
-class ZBuffer {
+class ABufferSwapTmp {
 public:
-    ZBuffer(Rect area); // original00410A60; by-value spelling hypothesis
-    ~ZBuffer(); // original00410BD0
+    ABufferSwapTmp(Rect area); // original00410A60; by-value spelling hypothesis
+    ~ABufferSwapTmp(); // original00410BD0
     void Clear_Region_00411090(unsigned short color, Rect area); // original00411090
     // Copies an area-sized block of values, starting at the ring origin,
     // into surface at the area's position (0x00410B40).
@@ -119,8 +119,8 @@ public:
     int Height;                 // +0x2C; original allocation is 0x30 bytes
 };
 
-extern ZBuffer *ZBufferPtr;     // 0x008315B4 (null when no depth buffering)
-extern ABuffer *ABufferPtr;     // 0x00839C6C (null when no alpha buffering)
+extern ABufferSwapTmp *AlphaBuffer;     // 0x008315B4 (null when no depth buffering)
+extern ABuffer *DepthBuffer;     // 0x00839C6C (null when no alpha buffering)
 
 // Rows of the alpha ramp a blit walks (24-byte entries at 0x007CE168,
 // indexed by Bit_Blit's second trailing argument). Field meanings unresolved.

@@ -1,12 +1,12 @@
 // Draw a clipped 16-bit line, plotting only where the depth buffer value is
 // zero (empty_only) or only where it is not; the depth pointer walks the
-// ZBuffer ring alongside the pixel pointer.
+// ABufferSwapTmp ring alongside the pixel pointer.
 #include "shared/blit.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/dsurface.hpp"
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00411230
-// @ref ?ZBufferPtr@@3PAVZBuffer@@A=008315b4
+// @ref ?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 
 bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &endpoint, int color, bool empty_only)
 {
@@ -21,9 +21,9 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                 end = temp;
             }
             Point2D position = start;
-            position.Y -= ZBufferPtr->Area.Y;
-            unsigned short *depth = ZBufferPtr->Get_Buffer_Ptr(position);
-            int depth_stride = ZBufferPtr->Width;
+            position.Y -= AlphaBuffer->Area.Y;
+            unsigned short *depth = AlphaBuffer->Get_Buffer_Ptr(position);
+            int depth_stride = AlphaBuffer->Width;
             if (start.Y > end.Y) depth_stride = -depth_stride;
             unsigned short *pixels = (unsigned short *)Lock(start);
             if (pixels) {
@@ -31,7 +31,7 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                 if (start.Y == end.Y) {
                     for (int index = 0; index <= end.X - start.X; ++index) {
                         if (*depth == 0) pixels[index] = (unsigned short)color;
-                        ZBufferPtr->Advance_Pointer(depth, 1, depth_stride);
+                        AlphaBuffer->Advance_Pointer(depth, 1, depth_stride);
                     }
                 } else if (start.X == end.X) {
                     int stride;
@@ -40,7 +40,7 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                     int height = abs(end.Y - start.Y);
                     for (int index = 0; index <= height; ++index) {
                         if (*depth == 0) *pixels = (unsigned short)color;
-                        ZBufferPtr->Advance_Pointer(depth, depth_stride, depth_stride);
+                        AlphaBuffer->Advance_Pointer(depth, depth_stride, depth_stride);
                         pixels = (unsigned short *)((char *)pixels + stride);
                     }
                 } else {
@@ -57,10 +57,10 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                             if (*depth == 0) pixels[index] = (unsigned short)color;
                             if (error > 0) {
                                 pixels = (unsigned short *)((char *)pixels + stride);
-                                depth = ZBufferPtr->Wrap_Pointer(depth + depth_stride);
+                                depth = AlphaBuffer->Wrap_Pointer(depth + depth_stride);
                                 error -= dx2;
                             }
-                            ZBufferPtr->Advance_Pointer(depth, 1, depth_stride);
+                            AlphaBuffer->Advance_Pointer(depth, 1, depth_stride);
                             error += dy2;
                         }
                     } else {
@@ -71,11 +71,11 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                             if (error > 0) {
                                 error -= dy2;
                                 ++offset;
-                                depth = ZBufferPtr->Wrap_Pointer(depth + 1);
+                                depth = AlphaBuffer->Wrap_Pointer(depth + 1);
                             }
                             error += dx2;
                             pixels = (unsigned short *)((char *)pixels + stride);
-                            ZBufferPtr->Advance_Pointer(depth, depth_stride, depth_stride);
+                            AlphaBuffer->Advance_Pointer(depth, depth_stride, depth_stride);
                         }
                     }
                 }
@@ -83,7 +83,7 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                 if (start.Y == end.Y) {
                     for (int index = 0; index <= end.X - start.X; ++index) {
                         if (*depth != 0) pixels[index] = (unsigned short)color;
-                        ZBufferPtr->Advance_Pointer(depth, 1, depth_stride);
+                        AlphaBuffer->Advance_Pointer(depth, 1, depth_stride);
                     }
                 } else if (start.X == end.X) {
                     int stride;
@@ -92,7 +92,7 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                     int height = abs(end.Y - start.Y);
                     for (int index = 0; index <= height; ++index) {
                         if (*depth != 0) *pixels = (unsigned short)color;
-                        ZBufferPtr->Advance_Pointer(depth, depth_stride, depth_stride);
+                        AlphaBuffer->Advance_Pointer(depth, depth_stride, depth_stride);
                         pixels = (unsigned short *)((char *)pixels + stride);
                     }
                 } else {
@@ -109,10 +109,10 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                             if (*depth != 0) pixels[index] = (unsigned short)color;
                             if (error > 0) {
                                 pixels = (unsigned short *)((char *)pixels + stride);
-                                depth = ZBufferPtr->Wrap_Pointer(depth + depth_stride);
+                                depth = AlphaBuffer->Wrap_Pointer(depth + depth_stride);
                                 error -= dx2;
                             }
-                            ZBufferPtr->Advance_Pointer(depth, 1, depth_stride);
+                            AlphaBuffer->Advance_Pointer(depth, 1, depth_stride);
                             error += dy2;
                         }
                     } else {
@@ -123,11 +123,11 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
                             if (error > 0) {
                                 error -= dy2;
                                 ++offset;
-                                depth = ZBufferPtr->Wrap_Pointer(depth + 1);
+                                depth = AlphaBuffer->Wrap_Pointer(depth + 1);
                             }
                             error += dx2;
                             pixels = (unsigned short *)((char *)pixels + stride);
-                            ZBufferPtr->Advance_Pointer(depth, depth_stride, depth_stride);
+                            AlphaBuffer->Advance_Pointer(depth, depth_stride, depth_stride);
                         }
                     }
                 }

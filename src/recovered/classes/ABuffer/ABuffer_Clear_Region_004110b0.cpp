@@ -1,7 +1,7 @@
 // Clear a by-value screen rectangle of the ring to 0x7F (empty depth),
 // splitting each row where it wraps past the ring end.
 #include "shared/blit.hpp"
-void ZBuffer::Clear_Region_004110B0(Rect area)
+void ABufferSwapTmp::Clear_Region_004110B0(Rect area)
 {
     char *locked=(char *)Surface->Lock(Point2D(area.X,area.Y));
     Surface->Unlock();

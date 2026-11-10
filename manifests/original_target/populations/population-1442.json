@@ -4,11 +4,11 @@
     "id": "population-1442",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "789a77c0ee020feb632115a79d5f6698140d6a38c9a13f6b45ab4d3cd29762b5",
-    "historical_acceptance_sha256": "b13299bd1aa5b3a9edea78a0bbf0b9a55df2790f88476988582201ce11aff5ab"
+    "historical_population_sha256": "07ab7527a3a4add58221cf32c619adb779d4e4c22bf27ef4c0bd76b0f41d1570",
+    "historical_acceptance_sha256": "d4e7c4636d41518d198e2ee7ea44e6b26221d8ec772db7855fc5dbfe5079915c"
   },
   "references": {
-    "?ZBufferPtr@@3PAVZBuffer@@A": 8590772,
+    "?AlphaBuffer@@3PAVABufferSwapTmp@@A": 8590772,
     "?target@Call_402190_0@@QAEIXZ": 4198400,
     "?target@Call_402940_0@@QAEIXZ": 4223472,
     "?target@Call_402940_1@@QAEIXZ": 4223472,
@@ -375,7 +375,7 @@
     "__real@8@40058000000000000000": 8051872,
     "__real@8@3ffdccccccccccccd000": 7979624,
     "?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z": 7820832,
-    "?ABufferPtr@@3PAVABuffer@@A": 8625260,
+    "?DepthBuffer@@3PAVABuffer@@A": 8625260,
     "__real@4@c00a8000000000000000": 7999368,
     "?Blit@?$RLEBlitTransXlat@G@@UBEXPAXPBXHHH00HH0@Z": 4757520,
     "?BlitForward@?$BlitPlainXlatAlpha@G@@UBEXPAXPBXHH00HH@Z": 4750832,
@@ -1078,19 +1078,19 @@
     "__real@8@3ff98efa351294e9c800": 8048992,
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": 4264496,
+    "?Get_Buffer_Ptr@ABufferSwapTmp@@QAEPAGUPoint2D@@@Z": 4264496,
     "?Copy_To@ABuffer@@QAEXAAVSurface@@VRect@@@Z": 7822432,
     "?Fill_Words@ABuffer@@QAEXPAGHG@Z": 7822592,
     "?Adjust@ABuffer@@QAEXHHG@Z": 7822688,
     "?Clear_Region_007761A0@ABuffer@@QAEXGVRect@@@Z": 7823776,
-    "??0ZBuffer@@QAE@VRect@@@Z": 4262496,
-    "?Copy_To@ZBuffer@@QAEXAAVSurface@@VRect@@@Z": 4262720,
-    "??1ZBuffer@@QAE@XZ": 4262864,
-    "?Fill_Words@ZBuffer@@QAEXPAGHG@Z": 4262896,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ZBuffer@@QAEXG@Z": 4264016,
-    "?Clear_Region_00411090@ZBuffer@@QAEXGVRect@@@Z": 4264080,
-    "?Clear_Region_004110B0@ZBuffer@@QAEXVRect@@@Z": 4264112,
+    "??0ABufferSwapTmp@@QAE@VRect@@@Z": 4262496,
+    "?Copy_To@ABufferSwapTmp@@QAEXAAVSurface@@VRect@@@Z": 4262720,
+    "??1ABufferSwapTmp@@QAE@XZ": 4262864,
+    "?Fill_Words@ABufferSwapTmp@@QAEXPAGHG@Z": 4262896,
+    "?Adjust@ABufferSwapTmp@@QAEXHHG@Z": 4262992,
+    "?Clear@ABufferSwapTmp@@QAEXG@Z": 4264016,
+    "?Clear_Region_00411090@ABufferSwapTmp@@QAEXGVRect@@@Z": 4264080,
+    "?Clear_Region_004110B0@ABufferSwapTmp@@QAEXVRect@@@Z": 4264112,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "__real@4@3ff98888890000000000": 8032628,
@@ -1393,7 +1393,12 @@
     "??_EWWMouseClass@@UAEPAXI@Z": 7812880,
     "??_ETacticalClass@DisplayClass@@UAEPAXI@Z": 4844768,
     "??_ERadarClass@@UAEPAXI@Z": 6507216,
-    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392
+    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
+    "?AlphaBuffer@@3PAVZBuffer@@A": 8590772,
+    "_unknown_empty_rect": 8594576,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "__except_handler3": 7885524,
+    "__except_list": 0
   },
   "regions": [
     {
@@ -1416,7 +1421,7 @@
         {
           "offset": 81,
           "kind": 6,
-          "symbol": "?ZBufferPtr@@3PAVZBuffer@@A",
+          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
@@ -1424,13 +1429,13 @@
         {
           "offset": 241,
           "kind": 6,
-          "symbol": "?ZBufferPtr@@3PAVZBuffer@@A",
+          "symbol": "?AlphaBuffer@@3PAVABufferSwapTmp@@A",
           "target": 8590772,
           "addend": 0,
           "resolved": 8590772
         }
       ],
-      "source_sha256": "d1f7e7e8716134115ad757fcfc045ca2881891a1691ae46b8d694f40bb9cb26f",
+      "source_sha256": "97de815a0456dd88cb7ecc2c0356b6aba28d0891f0847d37df6b0e139054cc5b",
       "source": "src/recovered/classes/RLEBlitTransXlatAlpha_unsigned_short/RLEBlitTransXlatAlpha_ushort_Blit_0048aaf0.cpp",
       "population": "population-1442",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

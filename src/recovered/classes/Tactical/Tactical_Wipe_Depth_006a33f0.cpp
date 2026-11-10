@@ -17,7 +17,7 @@
 // @ref ?unknown_475d60@CellClass@@QBE?AUCoordStruct@@XZ=00475d60
 // @ref ?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABUCoordStruct@@@Z=006a27a0
 // @ref ?Clear_Region_007761C0@ABuffer@@QAEXVRect@@@Z=007761c0
-// @ref ?ABufferPtr@@3PAVABuffer@@A=00839c6c
+// @ref ?DepthBuffer@@3PAVABuffer@@A=00839c6c
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 
 // Point quotient by a scalar, zero giving the origin (TibSun RectPoint2D::operator/; file-local: as a Point2D
@@ -58,7 +58,7 @@ void Tactical::Wipe_Depth(bool fullredraw, int xoff, int yoff, Rect const &clipr
             if (!redraw.Is_Valid()) {
                 TacticalLists::DirtyAreas.Delete(i);
             } else {
-                ABufferPtr->Clear_Region_007761C0(redraw);
+                DepthBuffer->Clear_Region_007761C0(redraw);
             }
         }
     }
