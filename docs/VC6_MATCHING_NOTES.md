@@ -2308,8 +2308,11 @@ Addendum (Scout1215 lab W3): when two equal-reference webs are reloaded together
 loop comes earlier takes the lower slot; definition order and post-loop use order never change it; webs only carried through the
 loop are reloaded in reverse definition order; webs unused in the loop are reloaded at their uses in use order.
 
-## x87 store scheduling against integer stores cycles with the preceding symbol count (Scout1216)
+## x87 store scheduling against integer stores depends on code before the block (Scout1216)
 Whether VC6 /G5 lets an x87 `fchs/fstp` chain slide past independent integer stores (e.g. a struct `rep movsd`) depends on code
 before the block, periodically: each extra local defined before the block and consumed by a call (or a distinct global store) steps
 the schedule through a cycle of three states; plain calls, loops, function size and code after the block are inert. Treat it like a
 declaration-count window: find the original's state with evidenced forms, never with filler (Draw_Voxel 0x6FF690 / slot 311 0x7005B0).
+Correction (Scout1216 unit 3): symbol numbering is not the counter (unused declarations are inert); the lab's period-3 stepping is the
+scratch-register cursor choosing eax/ecx/edx for each copy. Once registers match, the residue is the scheduler sliding fstp/fld past
+independent stores, perturbed hash-like by address-taken temporaries before the block (Draw_Voxel 0x6FF690 stays 99.54).
