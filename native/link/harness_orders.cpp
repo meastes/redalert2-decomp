@@ -119,20 +119,25 @@ int Scripted_Order(char const *command)
         }
         return -1;
     }
-    if (Same(word[1], "super", 6) && words == 4 && Same(word[3], "enemy", 6)) {
-        // `super <index> enemy` (Scout1187, M23): the cell of an enemy building,
-        // the next one at each such order (the skirmish AIs' bases in turn).
+    if (Same(word[1], "super", 6) && (words == 4 || words == 5) && Same(word[3], "enemy", 6)) {
+        // `super <index> enemy [<house>]` (Scout1187, M23): the cell of an enemy building,
+        // the next one at each such order (the skirmish AIs' bases in turn); with a house
+        // index, that house's buildings only (Scout1209 r17: a campaign's civilian city is
+        // not a target, Allied 1 is lost when it falls).
         static int next_target = 0;
+        int only = words == 5 ? atoi(word[4]) : -1;
         int buildings = 0;
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno && techno->House != unknown_player_a35db4 && techno->Kind_Of() == 6) ++buildings;
+            if (techno && techno->House != unknown_player_a35db4 && techno->Kind_Of() == 6
+                && (only < 0 || (techno->House && techno->House->ArrayIndex == only))) ++buildings;
         }
         if (buildings == 0) return -1;
         int pick = (next_target++ * 7) % buildings;
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno && techno->House != unknown_player_a35db4 && techno->Kind_Of() == 6 && pick-- == 0) {
+            if (techno && techno->House != unknown_player_a35db4 && techno->Kind_Of() == 6
+                && (only < 0 || (techno->House && techno->House->ArrayIndex == only)) && pick-- == 0) {
                 Cell cell = techno->Center_Coord().As_Cell();
                 char text[64] = "0 super ";
                 Append(text, word[2]);

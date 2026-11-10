@@ -807,6 +807,42 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
             Original(window, 0x151, index, (LPARAM)item);
             return index;
         }
+        case 0x4B8: case 0x4B9: case 0x4BA: case 0x4BE: case 0x4BF: case 0x4C0: {
+            // Find an item by its text after index wparam (-1: from the start): 0x4B9/0x4BF the
+            // whole text, the others its start, case-insensitive; 0x4BA/0x4C0 also select it
+            // (CB_SETCURSEL). 0x4B8..0x4BA take narrow text, 0x4BE..0x4C0 wide (pass-6a
+            // 0x005F4BA0 cases 0x4BE-0x4C0). The LAN slot combos select their player this way:
+            // every slot showed blank (user report, Scout1209 r17).
+            bool wide = message >= 0x4BE;
+            bool exact = message == 0x4B9 || message == 0x4BF;
+            bool select = message == 0x4BA || message == 0x4C0;
+            unsigned short want[256];
+            int wlen = 0;
+            if (lparam) {
+                if (wide) for (; ((unsigned short const *)lparam)[wlen] && wlen < 255; ++wlen) want[wlen] = ((unsigned short const *)lparam)[wlen];
+                else for (; ((char const *)lparam)[wlen] && wlen < 255; ++wlen) want[wlen] = (unsigned char)((char const *)lparam)[wlen];
+            }
+            want[wlen] = 0;
+            int count = (int)Original(window, 0x146, 0, 0);
+            if (count <= 0) return count < 0 ? 0 : -1;
+            for (int i = (int)wparam + 1 < 0 ? 0 : (int)wparam + 1; i < count; ++i) {
+                ComboItem *item = Combo_Item(window, i);
+                if (!item || !item->text) continue;
+                bool match = true;
+                int k = 0;
+                for (; k < wlen; ++k) {
+                    unsigned a = item->text[k], b = want[k];
+                    if (a >= 'a' && a <= 'z') a -= 32;
+                    if (b >= 'a' && b <= 'z') b -= 32;
+                    if (a != b) { match = false; break; }
+                }
+                if (match && exact && item->text[k] != 0) match = false;
+                if (!match) continue;
+                if (select) { Original(window, 0x14E, i, 0); InvalidateRect(window, 0, TRUE); }
+                return i;
+            }
+            return -1;
+        }
         case 0x150: case 0x199: {                   // CB_GETITEMDATA (LB_GETITEMDATA as the original answers it)
             ComboItem *item = Combo_Item(window, (int)wparam);
             if (item) return item->data;

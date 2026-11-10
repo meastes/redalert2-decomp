@@ -74,3 +74,24 @@ void *Native_Entry_From_Handle(int handle)
     int i = handle - kEntryBase;
     return i >= 0 && i < g_entry_count ? g_entries[i] : 0;
 }
+
+// The LAN name when RA2.INI has no [MultiPlayer] Handle (Read_MultiPlayer_Settings 0x0066F3A0):
+// the Mac's short host name instead of the shared "[New Player]" (TXT_NONAME), so two Macs on
+// one network do not both join as "[New Player]" and get "Your name must be unique" (user report,
+// Scout1209 r17). The lobby limits names to 16 characters; non-ASCII host names keep the default.
+extern "C" int gethostname(char *name, unsigned long length);
+unsigned short const *Native_Default_Handle(unsigned short const *fallback)
+{
+    static unsigned short name[17];
+    char host[256] = "";
+    if (gethostname(host, sizeof host - 1) != 0) return fallback;
+    int n = 0;
+    for (; host[n] && host[n] != '.' && n < 16; ++n) {
+        unsigned char c = (unsigned char)host[n];
+        if (c < 0x20 || c >= 0x7F) return fallback;
+        name[n] = c;
+    }
+    if (n == 0) return fallback;
+    name[n] = 0;
+    return name;
+}

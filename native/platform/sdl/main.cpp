@@ -195,6 +195,9 @@ int main(int argc, char **argv)
         }
         ra2_sdl_host_options(true, app_settings.get("fullscreen") == "1", save_app_settings);
         atexit(save_app_settings);
+        // lan=1 in the settings file turns on the Network (LAN) button, as RA2_NATIVE_LAN=1 does
+        // for a test run: a Finder-launched app has no environment of its own (packaging/README.md).
+        if (app_settings.get("lan") == "1" && !getenv("RA2_NATIVE_LAN")) setenv("RA2_NATIVE_LAN", "1", 1);
     }
 #endif
     if (data) ra2port::set_data_dir(data);

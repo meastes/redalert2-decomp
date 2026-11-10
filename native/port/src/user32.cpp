@@ -456,7 +456,7 @@ LONG GetWindowLongA(HWND hwnd, int index)
     // layout pass 0x00735BC0 subtracts its rectangle (was 0: GetWindowRect(0)
     // left the stack RECT unset and the menu buttons at random x, Scout1121).
     case -8: return (LONG)(intptr_t)w->parent;
-    case -16: return w->style;
+    case -16: return (w->style & ~(LONG)0x18000000) | (w->visible ? 0x10000000 : 0) | (w->enabled ? 0 : 0x08000000);   // GWL_STYLE with the current WS_VISIBLE / WS_DISABLED
     case -20: return w->exstyle;
     case -21: return (LONG)w->userdata;
     case 8: return (LONG)w->dialog_user;     // DWL_USER (pointer stores use ra2port_set_dialog_user)
@@ -475,7 +475,12 @@ LONG SetWindowLongA(HWND hwnd, int index, LONG value)
     LONG old = GetWindowLongA(hwnd, index);
     switch (index) {
     case -12: w->id = value; break;
-    case -16: w->style = value; break;
+    case -16:                       // GWL_STYLE: WS_VISIBLE and WS_DISABLED are the window's state, as on
+        w->style = value;           // Windows (the LAN message boxes show their OK button this way,
+        w->visible = (value & 0x10000000) != 0;          // Message_Box 0x005C3230; user report: no button,
+        w->enabled = (value & 0x08000000) == 0;          // the box could not be closed; Scout1209 r17)
+        invalidate(hwnd);
+        break;
     case -20: w->exstyle = value; break;
     case -21: w->userdata = value; break;   // a pointer store goes through ra2port_set_window_ptr
     case 8: w->dialog_user = value; break;
@@ -727,7 +732,10 @@ LRESULT DispatchMessageA(const MSG *msg)
     if (target == main_hwnd && msg->message >= 0x0100 && msg->message <= 0x0109 && focus_hwnd && focus_hwnd != main_hwnd) {
         HWND top = focus_hwnd;
         bool shown = true;
-        while (top && win(top) && win(top)->parent) { shown = shown && win(top)->visible; top = win(top)->parent; }
+        // Up to the control's dialog: a dialog owned by the game window has the game window
+        // as its parent, and the walk stopped there (no key reached the lobby's name field,
+        // a NewEdit list box; user report, Scout1209 r17).
+        while (top && win(top) && !win(top)->is_dialog && win(top)->parent) { shown = shown && win(top)->visible; top = win(top)->parent; }
         Window *tw = win(top);
         if (tw && tw->is_dialog && tw->visible && shown) return SendMessageA(focus_hwnd, msg->message, msg->wParam, msg->lParam);
     }

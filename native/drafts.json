@@ -1782,6 +1782,23 @@
    "origin": "build/class-work/Scout1181/keep/dsb_r2_7578.cpp",
    "author": "Scout1181",
    "draft": "native/drafts/00626cb0.cpp"
+  },
+  {
+   "entry": "0x47AD00",
+   "name": "CellClass::unknown_47ad00 (Place_Veins)",
+   "plan": "draft, verify",
+   "tier": "scenario load (veins overlay)",
+   "bytes": 2191,
+   "score": 78.39,
+   "last_lane_score": 78.39,
+   "draft_found_by": "MISSES_INDEX (Scout1166)",
+   "host_source": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout1166/keep/place_veins_7839.cpp",
+   "author": "Scout1166",
+   "draft": "native/drafts/0047ad00.cpp",
+   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::unknown_func_5dc180) on maps with veins; the lane's overlay names mapped to current src/shared names."
   }
  ]
 }

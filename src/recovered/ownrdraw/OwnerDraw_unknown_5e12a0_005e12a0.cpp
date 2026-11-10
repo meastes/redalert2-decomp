@@ -1,13 +1,21 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+// int OwnerDraw::unknown_5e12a0(HWND dialog, HWND window) (0x005E12A0): the sound slot of a dialog control
+// (0x25 for the sidebar button 0x71C of the listed dialog kinds, 0xE for controls 0x6EC/0x5A8 of the option
+// dialogs). Shape adapted from ra2-decomp src/ownrdraw.cpp Control_Sound_Slot (gamemd twin 0x00603040,
+// matched there); see THIRD_PARTY.md. Expanded into the 0x005E8720 callback, where the Get_Record form sets
+// its lookup's inline budget.
 // @ref __imp__GetDlgCtrlID@4=0079a3f4
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 
 namespace OwnerDraw {
 
-int __fastcall unknown_5e12a0(unsigned int key, HWND window)
+int __fastcall unknown_5e12a0(HWND dialog, HWND window)
 {
-    UnknownControlRecord *record = 0;
-    unknown_control_table_a73640.Get_Pointer(key, &record);
+    UnknownControlRecord *record = Get_Record(dialog);
     int kind = record != 0 ? record->unknown_6c : 0;
     int id = GetDlgCtrlID(window);
     if (Is_Listed_Kind_5e8590(kind) && id == 0x71c) {

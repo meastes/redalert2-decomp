@@ -295,6 +295,11 @@ void pump_events()
             ra2port::set_key_state(vk, down);
             LPARAM lp = (LPARAM)(1 | ((int)e.key.scancode << 16) | (down ? 0 : (3u << 30)));
             ra2port::post_message(w, down ? 0x0100 : 0x0101, (WPARAM)vk, lp);   // WM_KEYDOWN/UP
+            // TranslateMessage's WM_CHAR for the control keys SDL's text input does not
+            // type: Backspace, Tab, Return and Escape (VK codes equal to their characters);
+            // the lobby's name field never deleted a character (user report, Scout1209 r17).
+            if (down && (vk == 0x08 || vk == 0x09 || vk == 0x0D || vk == 0x1B))
+                ra2port::post_message(w, 0x0102, (WPARAM)vk, lp);                 // WM_CHAR
             break;
         }
         case SDL_EVENT_TEXT_INPUT:

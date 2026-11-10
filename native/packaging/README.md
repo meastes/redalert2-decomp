@@ -66,6 +66,39 @@ If the game stops with an error, a window names the part of the game that
 failed and points at the log. Parts of the game that are not rebuilt yet stop
 it this way.
 
+## LAN games (experimental, off by default)
+
+Network (LAN) play between Macs on the same local network works in tests
+(two and three games, thousands of frames in step) but is off by default.
+To turn it on, quit the game and add this line to
+`~/Library/Application Support/RA2Native/settings`:
+
+    lan=1
+
+(A test run can set `RA2_NATIVE_LAN=1` in the environment instead.) Every Mac
+that plays needs it. The game uses UDP ports 26300-26307 and broadcasts on the
+local network; up to eight games fit on one Mac or network.
+
+What to try, two Macs on the same Wi-Fi or Ethernet network:
+
+1. Both: Network. Each lobby lists both players by their names
+   (RA2.INI [MultiPlayer] Handle, or the name typed in the lobby).
+2. Mac A: New (host). Mac B: select A's game in the Games list, Join, Accept.
+3. Mac A: Start Game. Both load (a progress bar per player) and play.
+4. Play a few minutes with orders on both sides. An "out of sync" message or a
+   player dropped at the start ("failed to make it into the game") is a bug:
+   please send both Macs' logs.
+
+The macOS firewall: when it is on (System Settings, Network, Firewall), the
+first LAN game asks "Do you want the application Red Alert 2 to accept
+incoming network connections?". Choose Allow; with Deny the other Mac's packets
+are blocked and the lobby stays empty. Because this build is signed for local
+use only, macOS may ask again after each new build of the app. With the
+firewall off there is no question.
+
+Not supported: Internet (Westwood Online) games, games with Windows PCs (not
+tested), the packet router and NAT.
+
 ## For testing
 
 `ra2-native --app` runs the same app mode from a terminal. Environment:

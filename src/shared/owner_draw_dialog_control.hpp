@@ -392,7 +392,7 @@ bool __fastcall unknown_5e4720(HWND control);
 // Gives a registered control an image to draw (0x005E1F30; GDlgSupp.cpp ping and flag controls).
 void __fastcall unknown_5e1f30(HWND control, Surface *image);
 // 0x25 or 0xE by the dialog's kind and the control ID (0x005E12A0).
-int __fastcall unknown_5e12a0(unsigned int key, HWND window);
+int __fastcall unknown_5e12a0(HWND dialog, HWND window);
 // 0xC0 for an edit, list or combo control of the listed dialog kinds; sets the dialog's +0xB0 (0x005E1CA0).
 int __fastcall unknown_5e1ca0(HWND dialog, HWND window);
 // EnumChildWindows callback of 0x005E61B0 (0x005E4780, not yet recovered).
