@@ -40,7 +40,7 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
 {
     rc_ptr<WDTTerritory> territory;
     if(unknown_game_mode_a3d298==4 && unknown_a3d2a4==2)territory=Unknown_Territory_00769690(unknown_session_a3d2a0);
-    if(territory.Get()!=0)unknown_map_generator_a6fd68.SeedOptions.NumPlayers=4;
+    if(territory.Get()!=0)unknown_map_generator_a6fd68.SeedData.NumPlayers=4;
     char *digest=Random_Map_CRC_005c8420();
     char name[128];
     memset(name,0,sizeof(name));
@@ -62,15 +62,15 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
         unknown_preview_a6fee4=0;
     }
     rmg_callback_7e09c4=callback;
-    unknown_map_generator_a6fd68.SeedOptions.unknown_14=(int)callback;
-    if(unknown_map_generator_a6fd68.SeedOptions.Seed==-1)
-        unknown_map_generator_a6fd68.SeedOptions.Seed=unknown_random_839218(0,65535);
+    unknown_map_generator_a6fd68.SeedData.unknown_14=(int)callback;
+    if(unknown_map_generator_a6fd68.SeedData.Seed==-1)
+        unknown_map_generator_a6fd68.SeedData.Seed=unknown_random_839218(0,65535);
     unknown_map_generator_a6fd68.Unknown_0057A0D0(1,(int)dialog);
     unknown_preview_a6fee4->Unknown_0061D660();
     if(unknown_game_mode_a3d298==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
-    if(unknown_map_generator_a6fd68.unknown_178!=0)delete reinterpret_cast<MapSeedClass *>(unknown_map_generator_a6fd68.unknown_178);
-    unknown_map_generator_a6fd68.unknown_178=(int)new MapSeedClass;
-    memcpy((void*)unknown_map_generator_a6fd68.unknown_178,&unknown_map_generator_a6fd68.SeedOptions,sizeof(MapSeedClass));
+    if(unknown_map_generator_a6fd68.MapSeeder!=0)delete reinterpret_cast<MapSeedClass *>(unknown_map_generator_a6fd68.MapSeeder);
+    unknown_map_generator_a6fd68.MapSeeder=(int)new MapSeedClass;
+    memcpy((void*)unknown_map_generator_a6fd68.MapSeeder,&unknown_map_generator_a6fd68.SeedData,sizeof(MapSeedClass));
     unknown_id_source_a3d290->Set_Scenario_Name_0065e730(rmg_description_7e15dc);
     unknown_517370(false);
     if(unknown_preview_a6fee4!=0) {
@@ -85,8 +85,8 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
         delete unknown_preview_a6fee4;
         unknown_preview_a6fee4=0;
     }
-    if(unknown_map_generator_a6fd68.unknown_178!=0) {
-        delete reinterpret_cast<MapSeedClass *>(unknown_map_generator_a6fd68.unknown_178);
-        unknown_map_generator_a6fd68.unknown_178=0;
+    if(unknown_map_generator_a6fd68.MapSeeder!=0) {
+        delete reinterpret_cast<MapSeedClass *>(unknown_map_generator_a6fd68.MapSeeder);
+        unknown_map_generator_a6fd68.MapSeeder=0;
     }
 }

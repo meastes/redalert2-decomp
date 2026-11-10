@@ -16,7 +16,7 @@ extern char const rmg_preview_filename_7e1540[];
 // @ref ?rmg_preview_filename_7e1540@@=007e1540
 // @ref ?Map_Seed_Dialog_Proc_00577bd0@@=00577bd0
 // @ref ?Default_Map_Generation_Callback_00482100@@=00482100
-// @ref ?Read_Settings_00579960@UnknownMapGenerator@@=00579960
+// @ref ?Read_Settings_00579960@MapGeneratorClass@@=00579960
 // @ref ?unknown_map_generator_a6fd68@@=00a6fd68
 // @ref ?unknown_preview_a6fee4@@=00a6fee4
 // @ref ?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z=007698c0
@@ -31,7 +31,7 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
     HWND dialog=unknown_create_dialog_5ff610(0x105,Map_Seed_Dialog_Proc_00577bd0,0);
     if(dialog!=0) {
         rmg_callback_7e09c4=callback;
-        unknown_map_generator_a6fd68.SeedOptions.unknown_14=(int)callback;
+        unknown_map_generator_a6fd68.SeedData.unknown_14=(int)callback;
         SetWindowLongA(dialog,8,(LONG)&result);
         SendMessageA(dialog,0x4a9,0,1);
         unknown_dialog_5ff7c0(dialog);
@@ -43,7 +43,7 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
         unknown_dialog_5ff6e0(dialog);
     }
     rmg_callback_7e09c4=Default_Map_Generation_Callback_00482100;
-    unknown_map_generator_a6fd68.SeedOptions.unknown_14=0;
+    unknown_map_generator_a6fd68.SeedData.unknown_14=0;
     if(unknown_preview_a6fee4!=0) {
         if(unknown_preview_a6fee4->unknown_00!=0) {
             RawFileClass file(rmg_preview_filename_7e1540);
@@ -52,9 +52,9 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
         delete unknown_preview_a6fee4;
         unknown_preview_a6fee4=0;
     }
-    if(unknown_map_generator_a6fd68.unknown_178!=0) {
-        delete reinterpret_cast<MapSeedClass *>(unknown_map_generator_a6fd68.unknown_178);
-        unknown_map_generator_a6fd68.unknown_178=0;
+    if(unknown_map_generator_a6fd68.MapSeeder!=0) {
+        delete reinterpret_cast<MapSeedClass *>(unknown_map_generator_a6fd68.MapSeeder);
+        unknown_map_generator_a6fd68.MapSeeder=0;
     }
     return result;
 }

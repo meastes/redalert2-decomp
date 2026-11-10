@@ -89,7 +89,7 @@ public:
     wchar_t DescriptionBuffer[128]; // +78
 };
 // Proposed complete-owner global view at0x00A6FD68 is declared in
-// unknown_map_generator.hpp; MapSeedClass remains its0x178-byte SeedOptions prefix.
+// unknown_map_generator.hpp; MapSeedClass remains its0x178-byte SeedData prefix.
 // Composition/original complete-owner type remain explicit hypotheses.
 typedef char LoadOptionsClass_size[(sizeof(LoadOptionsClass)==0x38)?1:-1];
 typedef char MapSeedClass_size[(sizeof(MapSeedClass)==0x178)?1:-1];

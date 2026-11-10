@@ -10,8 +10,8 @@
 #include "shared/map_region.hpp"
 #include "shared/unknown_map_generator.hpp"
 // @ref ?Unknown_0055BD70@MapClass@@QAEIPAVCellClass@@@Z=0055bd70
-// @ref ?Get_Cell_Data_Region_005818a0@UnknownMapGenerator@@QAEHABVCell@@@Z=005818a0
-// @ref ?Set_Cell_Data_Region_00581870@UnknownMapGenerator@@QAEXABVCell@@H@Z=00581870
+// @ref ?Get_Cell_Data_Region_005818a0@MapGeneratorClass@@QAEHABVCell@@@Z=005818a0
+// @ref ?Set_Cell_Data_Region_00581870@MapGeneratorClass@@QAEXABVCell@@H@Z=00581870
 
 bool MapClass::Expand_High_Ground(CellClass *cellptr, int region_id)
 {

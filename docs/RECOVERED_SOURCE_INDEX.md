@@ -14,7 +14,7 @@
 | [classes/RulesClass](../src/recovered/classes/RulesClass/) | 51 | 74,018 | 51 | 0x00640460–0x00654100 |
 | [ownrdraw](../src/recovered/ownrdraw/) | 141 | 72,245 | 141 | 0x005DE880–0x006025A0 |
 | [classes/UnitClass](../src/recovered/classes/UnitClass/) | 92 | 59,119 | 92 | 0x004D3510–0x0070A330 |
-| [classes/UnknownMapGenerator](../src/recovered/classes/UnknownMapGenerator/) | 56 | 56,683 | 56 | 0x0056D4C0–0x0058AD90 |
+| [classes/MapGeneratorClass](../src/recovered/classes/MapGeneratorClass/) | 56 | 56,683 | 56 | 0x0056D4C0–0x0058AD90 |
 | [classes/FootClass](../src/recovered/classes/FootClass/) | 125 | 46,400 | 121 | 0x0041B470–0x004CDE10 |
 | [classes/CellClass](../src/recovered/classes/CellClass/) | 131 | 44,866 | 127 | 0x00470680–0x0047CFC0 |
 | [classes/BuildingTypeClass](../src/recovered/classes/BuildingTypeClass/) | 62 | 40,277 | 62 | 0x00454EE0–0x004D3C50 |

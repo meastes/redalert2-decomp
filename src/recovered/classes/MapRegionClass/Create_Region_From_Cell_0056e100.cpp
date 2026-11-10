@@ -13,7 +13,7 @@
 // @ref ?unknown_map_max_a70a20@@3HA=00a70a20
 // @ref ?unknown_adjacent_851a70@@3QBVCell@@B=00851a70
 // @ref ?unknown_map_region_next_index_a70a28@@3HA=00a70a28
-// @ref ?unknown_map_generator_a6fd68@@3VUnknownMapGenerator@@A=00a6fd68
+// @ref ?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A=00a6fd68
 // @ref ?unknown_map_random_a705c0@@3VRandom2Class@@A=00a705c0
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref __ftol=0077f110

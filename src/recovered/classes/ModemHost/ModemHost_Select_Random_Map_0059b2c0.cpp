@@ -14,7 +14,7 @@
 #include "shared/cc_file_class.hpp"
 #include "shared/win32_window.hpp"
 #include "shared/crt_string.hpp"
-// @ref ?unknown_map_generator_a6fd68@@3VUnknownMapGenerator@@A=00a6fd68
+// @ref ?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A=00a6fd68
 // @ref ?Do_Random_Map_Dialog_00577490@@YIHP6A_NXZ@Z=00577490
 // @ref ?Unknown_0059c880@@YA_NXZ=0059c880
 // @ref ?unknown_host_shown_7e6dc0@@3_NA=007e6dc0
@@ -33,12 +33,12 @@ void ModemHost::Select_Random_Map_0059b2c0()
     unknown_host_shown_7e6dc0 = false;
     if (Do_Random_Map_Dialog_00577490(Unknown_0059c880) == 1) {
         unknown_host_shown_7e6dc0 = true;
-        unknown_map_generator_a6fd68.SeedOptions.Save_Or_Prompt_00578ed0("RandMap.Sed");
+        unknown_map_generator_a6fd68.SeedData.Save_Or_Prompt_00578ed0("RandMap.Sed");
         if (unknown_dialog_preview_a72ce8 != 0) {
             delete unknown_dialog_preview_a72ce8;
             unknown_dialog_preview_a72ce8 = 0;
         }
-        Send_Dlg_Item_Message(Window, 0x5A8, 0x4B2, 0, (LPARAM)unknown_map_generator_a6fd68.SeedOptions.DescriptionBuffer);
+        Send_Dlg_Item_Message(Window, 0x5A8, 0x4B2, 0, (LPARAM)unknown_map_generator_a6fd68.SeedData.DescriptionBuffer);
         bool found = false;
         int index;
         for (index = 0; index < unknown_session_a3d298.Scenarios.Count(); index++) {
@@ -49,11 +49,11 @@ void ModemHost::Select_Random_Map_0059b2c0()
         }
         char *crc = Random_Map_CRC_005c8420();
         if (!found) {
-            MultiMission *mission = new MultiMission("RandMap.Sed", unknown_map_generator_a6fd68.SeedOptions.DescriptionBuffer, crc, 1, 0, 2, 4);
+            MultiMission *mission = new MultiMission("RandMap.Sed", unknown_map_generator_a6fd68.SeedData.DescriptionBuffer, crc, 1, 0, 2, 4);
             unknown_session_a3d298.Scenarios.Add(mission);
         } else {
             unknown_session_a3d298.Scenarios[index]->Set_Digest(crc);
-            unknown_session_a3d298.Scenarios[index]->Set_Description_00671FA0(unknown_map_generator_a6fd68.SeedOptions.DescriptionBuffer);
+            unknown_session_a3d298.Scenarios[index]->Set_Description_00671FA0(unknown_map_generator_a6fd68.SeedData.DescriptionBuffer);
         }
         delete crc;
         if (Select_Scenario_005c7c30(index) == true) {

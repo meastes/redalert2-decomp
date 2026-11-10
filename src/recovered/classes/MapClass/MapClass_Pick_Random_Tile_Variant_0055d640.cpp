@@ -21,8 +21,8 @@ extern int unknown_shore_facings_7e03ac[42];
 // @ref ?unknown_shore_facings_7e03ac@@3PAHA=007e03ac
 // @ref ?unknown_47b5e0@CellClass@@QBE_NXZ=0047b5e0
 // @ref ?unknown_47b7c0@CellClass@@QBE_NXZ=0047b7c0
-// @ref ?Get_Cell_Data_Region_005818a0@UnknownMapGenerator@@QAEHABVCell@@@Z=005818a0
-// @ref ?Set_Cell_Data_Region_00581870@UnknownMapGenerator@@QAEXABVCell@@H@Z=00581870
+// @ref ?Get_Cell_Data_Region_005818a0@MapGeneratorClass@@QAEHABVCell@@@Z=005818a0
+// @ref ?Set_Cell_Data_Region_00581870@MapGeneratorClass@@QAEXABVCell@@H@Z=00581870
 struct IsoTileCellHeight {
     char unknown_00[0x28];
     char Height;

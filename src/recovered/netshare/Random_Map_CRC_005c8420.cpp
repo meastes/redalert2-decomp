@@ -3,17 +3,17 @@
 // with the description buffer cleared while it runs) as "%08X" in a new 12-character buffer.
 #include "shared/lobby.hpp"
 #include "shared/unknown_map_generator.hpp"
-// @ref ?unknown_map_generator_a6fd68@@3VUnknownMapGenerator@@A=00a6fd68
+// @ref ?unknown_map_generator_a6fd68@@3VMapGeneratorClass@@A=00a6fd68
 // @ref ??_C@_04CLEA@?$CF08X?$AA@=007ce280
 
 char * __fastcall Random_Map_CRC_005c8420()
 {
     unsigned long crc = 0;
-    unsigned long const *data = (unsigned long const *)&unknown_map_generator_a6fd68.SeedOptions.Theater;
+    unsigned long const *data = (unsigned long const *)&unknown_map_generator_a6fd68.SeedData.Theater;
     int length = 0x140;
     wchar_t description[128];
-    memcpy(description, unknown_map_generator_a6fd68.SeedOptions.DescriptionBuffer, sizeof(description));
-    memset(unknown_map_generator_a6fd68.SeedOptions.DescriptionBuffer, 0, sizeof(description));
+    memcpy(description, unknown_map_generator_a6fd68.SeedData.DescriptionBuffer, sizeof(description));
+    memset(unknown_map_generator_a6fd68.SeedData.DescriptionBuffer, 0, sizeof(description));
     do {
         unsigned long hibit = crc >> 31;
         if (length >= 4) {
@@ -31,6 +31,6 @@ char * __fastcall Random_Map_CRC_005c8420()
     } while (length > 0);
     char *text = new char[12];
     sprintf(text, "%08X", crc);
-    memcpy(unknown_map_generator_a6fd68.SeedOptions.DescriptionBuffer, description, sizeof(description));
+    memcpy(unknown_map_generator_a6fd68.SeedData.DescriptionBuffer, description, sizeof(description));
     return text;
 }
