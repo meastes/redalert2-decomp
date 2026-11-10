@@ -13,7 +13,7 @@ HRESULT __stdcall CChatEventSink::OnSquadInfo(HRESULT result, unsigned long id, 
         unknown_squad_query_b2abf8 = 0;
         unknown_squad_id_b2abfc = id;
         if (result != S_OK) return S_OK;
-        strcpy(unknown_squad_name_b2a8b0, squad->name);
+        strcpy(unknown_squad_name_b2a8b0, squad->abbreviation);
     } else if (result != S_OK) {
         return S_OK;
     }
@@ -21,14 +21,14 @@ HRESULT __stdcall CChatEventSink::OnSquadInfo(HRESULT result, unsigned long id, 
         WOL::User *user = 0;
         unknown_users_b2a728.Get(user, index);
         if (user->unknown_14 == id) {
-            strcpy(user->unknown_57, squad->name);
-            strcpy(user->unknown_2e, squad->abbreviation);
+            strcpy(user->unknown_57, squad->abbreviation);
+            strcpy(user->unknown_2e, squad->name);
         }
     }
-    Wstring name(squad->name);
+    Wstring name(squad->abbreviation);
     name.To_Lower();
     if (!unknown_ladder_b296f8.Contains(name)) {
-        unknown_ladder_client_a72d00->Request(unknown_ladder_address_b29018, unknown_ladder_port_b2a8ac, squad->name, 0x802100, -1, 0, 0);
+        unknown_ladder_client_a72d00->Request(unknown_ladder_address_b29018, unknown_ladder_port_b2a8ac, squad->abbreviation, 0x802100, -1, 0, 0);
     }
     if (unknown_query_count_b2abf4 == 0) Unknown_0073FEE0(0, false);
     return S_OK;

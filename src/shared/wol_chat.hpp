@@ -33,8 +33,8 @@ struct Update {
 };
 struct Squad {
     char unknown_00[0x168];
-    char abbreviation[0x191 - 0x168];   // +0x168
-    char name[1];                       // +0x191 (extent unknown)
+    char name[0x191 - 0x168];           // +0x168 (Renegade WOLAPI.h Squad::name; OnSquadInfo copies it to User +0x2E)
+    char abbreviation[41];              // +0x191 (Renegade Squad::abbreviation; copied to User +0x57)
 };
 struct Channel;
 struct User;
