@@ -4,8 +4,8 @@
     "id": "population-3535",
     "inventory_sha256": "33e2e3b474ca35cc95f363b5183df6a309e72125267c8bd3a96dd58ef6446b53",
     "gaps_sha256": "3e39a793287a62b23966c855f51f4c6333608c78a1925dc3afb459f1b9429eb7",
-    "historical_population_sha256": "26a6158f3c58d10251daa3bbe8ff0d35e90e6c771248876d0511930a1d0f5f69",
-    "historical_acceptance_sha256": "9fb65c4c87e8a114f77e0199ccbdd682a32e092b458a8b95efac47df3d6215eb"
+    "historical_population_sha256": "8158b9511924effd607d69bc49e1448bc400da723e9e1ec7fcd8c0a55b2e410e",
+    "historical_acceptance_sha256": "d216124578e70812c91c144a17fcf5ee940a3025e72a7ca8cec56db30577c745"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -2369,7 +2369,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "?Set_00434820@CoordStruct@@QAEAAU1@HHH@Z": 4409376,
     "_strstr": 7878320,
@@ -2492,7 +2492,7 @@
     "?Get_UUID@INIClass@@QBE?AUGUID@@PBD0U2@@Z": 5298688,
     "?Get_Point@INIClass@@QBE?AUINIPoint3D@@PBD0ABU2@@Z": 5306944,
     "?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894080,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,

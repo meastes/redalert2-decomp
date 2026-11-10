@@ -37,7 +37,7 @@ void IonBlastClass::Draw_It()
             draw_z -= drect.Y;
             draw_z -= 3;
 
-            unsigned short *zbuffer_base = DepthBuffer->Get_Buffer_Ptr(Point2D(0, drect.Y));
+            unsigned short *zbuffer_base = DepthBuffer->Get_Buffer_Offset(Point2D(0, drect.Y));
             int height = srect.Height + 1;
             int surface_width = unknown_surface_83995c->Get_Width();
             int buffer_width = DepthBuffer->Width;
@@ -66,7 +66,7 @@ void IonBlastClass::Draw_It()
                 for (int y = 0; y < srect.Height; ++y) {
                     for (int x = 0; x < srect.Width; ++x) {
                         int index = *sptr++;
-                        if (index > 0 && *DepthBuffer->Get_Buffer_Ptr(Point2D(drect.X + x, drect.Y + y)) > draw_z) {
+                        if (index > 0 && *DepthBuffer->Get_Buffer_Offset(Point2D(drect.X + x, drect.Y + y)) > draw_z) {
                             *pixel = pixel[SpiralIndexToSurfaceLUT[index]];
                         }
                         pixel++;

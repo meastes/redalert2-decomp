@@ -4,8 +4,8 @@
     "id": "population-2215",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "be5ebc8a5ab370f77f786269cb1a6646b6561b481ef56ad2e14e8b569feffeb3",
-    "historical_acceptance_sha256": "972e1ad3f5167699db82228ba46d2a35bbb08dee95ae3af7429b05ca1efba1a3",
+    "historical_population_sha256": "11725a2b8899fd0b84ca8b4ae0d14b64844e799363eed32ea9ed4e3ad4ee0c06",
+    "historical_acceptance_sha256": "910325958d089e9cba7e9659684fe90e0278a8090aa35ccfc05b8703a234cff1",
     "separate_units": true
   },
   "references": {
@@ -1837,7 +1837,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Fetch@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE?AUDrawRecord@FoggedObjectClass@@H@Z": 4989168,
     "?Resize@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z": 4989312,
     "?Resize@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z": 4989744,
@@ -1939,7 +1939,7 @@
     "?Clear@?$VectorClass@UWaypointClass@@@@UAEXXZ": 7493120,
     "?Add@?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE_NABQAVVoxelAnimTypeClass@@@Z": 6632528,
     "?Add@?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAE_NABQAVBuildingTypeClass@@@Z": 5828592,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "__real@4@3ff98888890000000000": 8032628,

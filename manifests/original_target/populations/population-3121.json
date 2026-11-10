@@ -4,8 +4,8 @@
     "id": "population-3121",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "f98fde7bf552e735ebbc81e20b3e6863a3eb9debd5f91c791cb9c2a986b8eacb",
-    "historical_acceptance_sha256": "50065ad0336bb3ad14e51eac619137a326a892c647052f5d2d8f08ecaba8e154"
+    "historical_population_sha256": "f234ae9a9eebe11368585185e6523e71a63f48a756b425d2dff4439704957aef",
+    "historical_acceptance_sha256": "61577dc64d1a45dc332c0bf6dd3bc684a652b57deed0ae0fede09673dba9770f"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2218,7 +2218,7 @@
     "?Length@Point2D@@QBEHXZ": 4706400,
     "?unknown_adjacent_851a70@@3QBVCell@@B": 8723056,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Set_00434820@CoordStruct@@QAEAAU1@HHH@Z": 4409376,
     "?unknown_47e2b0@Cell@@QAEXXZ": 4711088,
     "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
@@ -2309,7 +2309,7 @@
     "?Clear@?$VectorClass@UWaypointClass@@@@UAEXXZ": 7493120,
     "?Add@?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE_NABQAVVoxelAnimTypeClass@@@Z": 6632528,
     "?Add@?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAE_NABQAVBuildingTypeClass@@@Z": 5828592,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?Add@?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAE_NABQAVSmudgeTypeClass@@@Z": 6633536,
     "?Add@?$DynamicVectorClass@PAVTerrainTypeClass@@@@QAE_NABQAVTerrainTypeClass@@@Z": 6634320,
     "?Get_Rect@INIClass@@QBE?AUINIRect@@ABVWstring@@0ABU2@@Z": 5300080,

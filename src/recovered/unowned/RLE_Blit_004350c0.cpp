@@ -35,7 +35,7 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
         Point2D point;
         point = destwindow.Top_Left() + dst.Top_Left();
         point.Y -= DepthBuffer->Area.Y;
-        depth_pointer = (unsigned int)DepthBuffer->Get_Buffer_Ptr(point);
+        depth_pointer = (unsigned int)DepthBuffer->Get_Buffer_Offset(point);
         depth_pitch = DepthBuffer->Width;
         fraction = 0;
         increment = ramp->Numerator;
@@ -69,7 +69,7 @@ bool __fastcall RLE_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
         Point2D point;
         point = destwindow.Top_Left() + dst.Top_Left();
         point.Y -= AlphaBuffer->Area.Y;
-        alpha_pointer = (unsigned int)AlphaBuffer->Get_Buffer_Ptr(point);
+        alpha_pointer = (unsigned int)AlphaBuffer->Get_Buffer_Offset(point);
         alpha_pitch = AlphaBuffer->Width;
     }
     void *source_pixels = source.Lock();

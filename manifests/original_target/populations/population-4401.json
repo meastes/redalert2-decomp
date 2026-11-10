@@ -4,8 +4,8 @@
     "id": "population-4401",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "234b43c2be9b5aeb571861db7be26b2125c1781046bf9eb54e9f70b53dc0128c",
-    "historical_acceptance_sha256": "08eea69f200f05e104a788e235528d07ae20a5bf6a514e0f1d0266ace71f6bb5"
+    "historical_population_sha256": "68ff77dca81b096cb3b5ce92b07606e63e38ff9e1788ca77424b9852de84131c",
+    "historical_acceptance_sha256": "461540b7f26b172f30a980f82e8b8b9f1c8babf5e725ff4539efa45d5b971e05"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4072,7 +4072,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "_strstr": 7878320,
     "?Fetch@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE?AUDrawRecord@FoggedObjectClass@@H@Z": 4989168,
@@ -4228,9 +4228,9 @@
     "??0RulesClass@@QAE@XZ": 6556544,
     "?Ground@@3PAUGroundType@@A": 8720032,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "??1RulesClass@@QAE@XZ": 6564320,
     "?AI@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6603440,

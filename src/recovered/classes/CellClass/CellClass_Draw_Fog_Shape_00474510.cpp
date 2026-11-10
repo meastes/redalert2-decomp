@@ -10,7 +10,7 @@
 #include "shared/mix_file_class.hpp"
 #include "shared/blit.hpp"
 #include "shared/display.hpp"
-// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ??_C@_07BIFH@FOG?4SHP?$AA@=007d2c70
@@ -45,7 +45,7 @@ void CellClass::Draw_Fog_Shape(Point2D const &point, Rect const &clip, int frame
     int depth_skip = left - right + AlphaBuffer->Width;
 
     unsigned char const *shapeptr = (unsigned char const *)shapes->Get_Frame_Data(frame);
-    unsigned short *depth = AlphaBuffer->Get_Buffer_Ptr(Point2D(left, top - unknown_rect_839630.Y));
+    unsigned short *depth = AlphaBuffer->Get_Buffer_Offset(Point2D(left, top - unknown_rect_839630.Y));
 
     shapeptr += src_x + src_y * shaperect.Width;
     if (&depth[right - left + (bottom - top) * AlphaBuffer->Width + 2] >= (unsigned short *)AlphaBuffer->BufferTail) {

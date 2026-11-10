@@ -5,7 +5,7 @@
 #include "shared/blit.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/dsurface.hpp"
-// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D const &endpoint, int color,
                                             bool const *pattern, int offset, bool empty_only)
@@ -26,7 +26,7 @@ int DSurface::Draw_Dashed_Line_Depth_Masked(Point2D const &startpoint, Point2D c
     }
     Point2D point = start;
     point.Y -= AlphaBuffer->Area.Y;
-    unsigned short *depth = AlphaBuffer->Get_Buffer_Ptr(point);
+    unsigned short *depth = AlphaBuffer->Get_Buffer_Offset(point);
     int depth_stride = AlphaBuffer->Width;
     if (start.Y > end.Y) depth_stride = -depth_stride;
     unsigned short *pixels = (unsigned short *)Lock(start);

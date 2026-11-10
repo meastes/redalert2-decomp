@@ -5,7 +5,7 @@
 #include "shared/crt_memory.hpp"
 #include "shared/dsurface.hpp"
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
-// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 
 bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &endpoint, int color, bool empty_only)
@@ -22,7 +22,7 @@ bool DSurface::Draw_Line_Depth_Masked(Point2D const &startpoint, Point2D const &
             }
             Point2D position = start;
             position.Y -= AlphaBuffer->Area.Y;
-            unsigned short *depth = AlphaBuffer->Get_Buffer_Ptr(position);
+            unsigned short *depth = AlphaBuffer->Get_Buffer_Offset(position);
             int depth_stride = AlphaBuffer->Width;
             if (start.Y > end.Y) depth_stride = -depth_stride;
             unsigned short *pixels = (unsigned short *)Lock(start);

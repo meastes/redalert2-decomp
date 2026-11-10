@@ -4,8 +4,8 @@
     "id": "population-3752",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "ea0769b79862dc376868a3495ecf896c35e373b4279bf425a82676653b6eb9dc",
-    "historical_acceptance_sha256": "df16f3be5afc11048c9a41b27d77f44ed481b984e1e64920d040398192530f0b"
+    "historical_population_sha256": "71f2ea9ca68c51a8f2f76d47a778c911b5dffa4a2b2bd476a131661c5ee1d3f0",
+    "historical_acceptance_sha256": "932b8d9d873b9174d55e755e36e87d7579098218ab320ca73643b29a6c160998"
   },
   "references": {
     "?BombList@@3VBombListClass@@A": 8594144,
@@ -4955,7 +4955,7 @@
     "?unknown_surface_839944@@3PAVSurface@@A": 8624452,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "??_7?$VectorClass@PAVEgoClass@@@@6B@": 7998732,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
@@ -5334,9 +5334,9 @@
     "?Jumpjet_Controls@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609376,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Movies@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6610064,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "??1RulesClass@@QAE@XZ": 6564320,
     "?Addition@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6567920,

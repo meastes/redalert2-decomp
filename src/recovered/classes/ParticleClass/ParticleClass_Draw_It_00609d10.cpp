@@ -60,12 +60,12 @@ void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
             pixel.Y += unknown_int_839634;
             if (cliprect.Is_Point_Within(pixel)) {
                 Point2D alpha_point = pixel - Point2D(0, AlphaBuffer->Area.Y);
-                unsigned short *alpha_ptr = AlphaBuffer->Get_Buffer_Ptr(alpha_point);
+                unsigned short *alpha_ptr = AlphaBuffer->Get_Buffer_Offset(alpha_point);
                 int alpha = *alpha_ptr;
                 if (alpha != 0) {
                     Point2D depth_point = pixel - Point2D(0, DepthBuffer->Area.Y);
                     int zdepth = (unsigned short)(DepthBuffer->Area.Y + DepthBuffer->MaxValue - pixel.Y) - Unknown_006A2970(Position_Coord_004f3f40().Z) - 50;
-                    int depth = *DepthBuffer->Get_Buffer_Ptr(depth_point);
+                    int depth = *DepthBuffer->Get_Buffer_Offset(depth_point);
                     if (zdepth < depth) {
                         RGBClass color1 = ColorState.ColorIndex == 0 ? Color : Class->ColorList[ColorState.ColorIndex];
                         RGBClass color2 = Class->ColorList[ColorState.ColorIndex + 1];

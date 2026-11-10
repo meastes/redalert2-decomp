@@ -4,8 +4,8 @@
     "id": "population-3727",
     "inventory_sha256": "41b4fcc5acce3ace0cc3c727ce8aa906f632b8848e7d15f76849b46ed791a28e",
     "gaps_sha256": "d1c5ca0a497b70dcb5a33e91ce7845f94aeee2b73d9f92956460813ddc8aadb9",
-    "historical_population_sha256": "9fa7af0a3de7a9fedfd2dce67fb9ff9e614a04f138b23a7ee4c564dc615bad01",
-    "historical_acceptance_sha256": "b3a0e875bb73d5635b926f3518d0308cc46a2f8bc965d0ab99df3603386ba4bb"
+    "historical_population_sha256": "196d56cff40ef2accbf0b2d221388fb337cb8d4c2b12b357ab64d06cbdeb6215",
+    "historical_acceptance_sha256": "6b68d4c8e2ce3e323d1b95aa5a33bcaf306201c1a4df20694bc43e1e03513e69"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4725,7 +4725,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "??_7?$VectorClass@PAVEgoClass@@@@6B@": 7998732,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "??0?$VectorClass@PAUDDSURFACEDESC@@@@QAE@IPBQAUDDSURFACEDESC@@@Z": 4810704,
@@ -4925,9 +4925,9 @@
     "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z": 5224032,
     "?Ground@@3PAUGroundType@@A": 8720032,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "??1RulesClass@@QAE@XZ": 6564320,
     "?Sides@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6601744,

@@ -12,8 +12,8 @@
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00776340
+// @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Offset@ZBuffer@@QAEPAGUPoint2D@@@Z=00776340
 // @ref ?AlphaBuffer@@3PAVZBuffer@@A=008315b4
 // @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
@@ -92,10 +92,10 @@ bool DSurface::Draw_Depth_Shaded_Line(Rect const & cliprect, Point2D const & sta
     }
     Point2D point = start;
     point.Y -= DepthBuffer->Area.Y;
-    unsigned short * zbuffer = DepthBuffer->Get_Buffer_Ptr(point);
+    unsigned short * zbuffer = DepthBuffer->Get_Buffer_Offset(point);
     point = start;
     point.Y -= AlphaBuffer->Area.Y;
-    unsigned short * abuffer = AlphaBuffer->Get_Buffer_Ptr(point);
+    unsigned short * abuffer = AlphaBuffer->Get_Buffer_Offset(point);
     int start_y = start.Y;
     int zwrap = -1;
     unsigned short z = (unsigned short)(zstart + (short)DepthBuffer->Get_Scroll_Delta(start_y + clipped_rect.Y - DepthBuffer->Area.Y));

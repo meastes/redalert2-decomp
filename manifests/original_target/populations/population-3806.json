@@ -4,8 +4,8 @@
     "id": "population-3806",
     "inventory_sha256": "d2a043b267365d8cdade028a4f3a8a1c4388d3521812b702696b327caa594f60",
     "gaps_sha256": "484223bb8d71073075f0d59db97319946bbd591209729e825e264c5cb146060c",
-    "historical_population_sha256": "c2e439bdffe66175358c7a09ec9c266561cc382d59a9fdd74a317bd787568f0f",
-    "historical_acceptance_sha256": "ef8881ac7529ff92f3fc0daf5920a2f3d27a8f3a99778cb9489c9c9c0eeb35ca"
+    "historical_population_sha256": "3acefbbcbf07ed2e58f3702e61568becb56915bcc2fe47bb365638780d8df253",
+    "historical_acceptance_sha256": "c509b392243929a5f610c74960cfa6d6ab96a2c1c8c3f837048f99b8c0086adc"
   },
   "references": {
     "__imp__RegOpenKeyExA@20": 7970828,
@@ -3880,7 +3880,7 @@
     "__imp__DialogBoxParamA@20": 7971780,
     "__imp__lstrlenA@4": 7971228,
     "?unknown_surface_839944@@3PAVSurface@@A": 8624452,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "??_7?$VectorClass@PAVEgoClass@@@@6B@": 7998732,
     "??0EgoClass@@QAE@HHPBGI@Z": 4929056,
     "??1EgoClass@@QAE@XZ": 4929120,
@@ -4164,7 +4164,7 @@
     "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z": 5224032,
     "?Colors@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6585952,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "?AI@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6603440,
     "__real@8@3fff96cbe3f9990e9000": 8032632,

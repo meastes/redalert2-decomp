@@ -4,8 +4,8 @@
     "id": "population-2804",
     "inventory_sha256": "e5282bf2c831073c0c4bd9724068076d0a8c094299ab15c9cac43d8d94dc2c64",
     "gaps_sha256": "1080f45ddeb65f9675feeff2aaced6582ddfcafd39fec1adafcabc34aa7fd204",
-    "historical_population_sha256": "dcc69b88b7aa31a317e95ab245bc27251ad132b3b7ac06403aee89d669726c14",
-    "historical_acceptance_sha256": "b2bdb142f2528e24030c33bde95f7e46680d959f19382c4da25a06e10607f317"
+    "historical_population_sha256": "2c69a8d2b4caafcf2a96e92cf873f283d221f7247d9554654c61becdaa923cec",
+    "historical_acceptance_sha256": "8a049e9c0b7a5306d2b565f235cf862fe2b228d0a70d430948007d3bb7af33cd"
   },
   "references": {
     "?Unknown_006A8C80@Tactical@@QAE_NPAUPoint2D@@@Z": 6982784,
@@ -3348,7 +3348,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "?Set_00434820@CoordStruct@@QAEAAU1@HHH@Z": 4409376,
     "?unknown_slot27@InfantryClass@@UAEHPBVCell@@_N1@Z": 5269072,
@@ -3618,9 +3618,9 @@
     "?Jumpjet_Controls@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609376,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Movies@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6610064,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "??1RulesClass@@QAE@XZ": 6564320,
     "?Addition@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6567920,
     "?Sides@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6601744,

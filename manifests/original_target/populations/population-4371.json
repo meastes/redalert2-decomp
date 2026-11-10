@@ -4,8 +4,8 @@
     "id": "population-4371",
     "inventory_sha256": "91c8e1eb4c6870dd1d5c051261789e6b16786ef7809219c69ac31b5850279c39",
     "gaps_sha256": "99b9d4f57ea25d8cbaa73dc8f4b81cf2171de552512f7bc40ea4ab3193dcb557",
-    "historical_population_sha256": "d566d7c4d37d3ff57be259da64a892a6463063aedb5a0d2eddb7fcef23d698fd",
-    "historical_acceptance_sha256": "e3791f4a27d037dbb8a9249b36cf243efddb42b5646b3601269cca8acf4d9636"
+    "historical_population_sha256": "66017d5741d35312edc1b8cf197d256950c243058496054aff5c89576ce075e8",
+    "historical_acceptance_sha256": "4d3592651a55cef944e8222ea6bf94fcac45a5d4b525f5c0eaadd1e35d449b26"
   },
   "references": {
     "?target@Call_402190_0@@QAEIXZ": 4198400,
@@ -2671,7 +2671,7 @@
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
     "?unknown_surface_839944@@3PAVSurface@@A": 8624452,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "?Closest_Color@PaletteClass@@QBEHABVRGBClass@@@Z": 6304176,
@@ -2836,9 +2836,9 @@
     "?Infantry@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6601296,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "??1RulesClass@@QAE@XZ": 6564320,
     "?AI@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6603440,
     "__real@8@3fff96cbe3f9990e9000": 8032632,

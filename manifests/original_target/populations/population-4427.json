@@ -4,8 +4,8 @@
     "id": "population-4427",
     "inventory_sha256": "b6047876bb36bea5f8541882ea35b4b691929b609c59a7250f926aabe1518a2b",
     "gaps_sha256": "25bc691900fe659f630940bcb5664c802d4e5e9376599fd72065cc1bfc7349db",
-    "historical_population_sha256": "b1b1db179579dfbb53ee82f2c99d2c2e22d48b5b1ebf9028f9c4f8aaa4a3b2a7",
-    "historical_acceptance_sha256": "588e133a8e683a6d9778d5eaa5149c6ffe7bd70997dc5cdfecd05d8866b7f335"
+    "historical_population_sha256": "7b1c8aabe5393394ebbfbe8830068f9af9ed05414f10007db7f0744c9fd7d946",
+    "historical_acceptance_sha256": "53ff1dca9345c93d66e62df7412e102041deb2453015b0deea2cb66427429b12"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -5515,7 +5515,7 @@
     "?unknown_surface_839944@@3PAVSurface@@A": 8624452,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "??_7?$VectorClass@PAVEgoClass@@@@6B@": 7998732,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "?Closest_Color@PaletteClass@@QBEHABVRGBClass@@@Z": 6304176,
@@ -5849,9 +5849,9 @@
     "?Ground@@3PAUGroundType@@A": 8720032,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "??1RulesClass@@QAE@XZ": 6564320,
     "?AI@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6603440,
     "__real@8@3fff96cbe3f9990e9000": 8032632,

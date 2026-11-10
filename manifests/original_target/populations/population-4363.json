@@ -4,8 +4,8 @@
     "id": "population-4363",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "b7cec978ef3deaf58ad3acea068cc0a21e6ebe38943c7e3b80bfaea66e34d0a6",
-    "historical_acceptance_sha256": "a9549920ebeb1e8c7b71ed974e21137f9d291f4ffa12458a9a915fdf3a3ec40e"
+    "historical_population_sha256": "261bb5c67559f9c462f383aca10b937c89aab245a56a6fcf5859796beb724d55",
+    "historical_acceptance_sha256": "7c90f6f8a242786a12c74b1b582cfcaa84adac88abc5bdc16462df334f159572"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -2301,7 +2301,7 @@
     "?Blit@?$RLEBlitTransLucent50AlphaZReadWrite@G@@UBEXPAXPBXHHH00HH0@Z": 4768720,
     "?Blit@?$RLEBlitTransLucent25AlphaZReadWrite@G@@UBEXPAXPBXHHH00HH0@Z": 4769216,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
     "??_7FoggedObjectClass@@6BIPersistStream@@@": 7999816,
     "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@": 7999788,
@@ -2340,7 +2340,7 @@
     "?Clear@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEXXZ": 7522848,
     "?Clear@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEXXZ": 7523568,
     "?Clear@?$VectorClass@UWaypointClass@@@@UAEXXZ": 7493120,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?Get_Rect@INIClass@@QBE?AUINIRect@@ABVWstring@@0ABU2@@Z": 5300080,
     "?Draw_It@TabClass@@UAEX_N@Z": 6951632,
     "?Draw_It@SidebarClass@@UAEX_N@Z": 6803328,

@@ -28,13 +28,13 @@ bool __fastcall Bit_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
         Point2D point;
         point = destwindow.Top_Left() + dst.Top_Left();
         point.Y -= AlphaBuffer->Area.Y;
-        alpha_pointer = (unsigned int)AlphaBuffer->Get_Buffer_Ptr(point);
+        alpha_pointer = (unsigned int)AlphaBuffer->Get_Buffer_Offset(point);
     }
     if (DepthBuffer) {
         Point2D point;
         point = destwindow.Top_Left() + dst.Top_Left();
         point.Y -= DepthBuffer->Area.Y;
-        depth_pointer = (unsigned int)DepthBuffer->Get_Buffer_Ptr(point);
+        depth_pointer = (unsigned int)DepthBuffer->Get_Buffer_Offset(point);
         fraction = 0;
         increment = ramp->Numerator;
         limit = ramp->Denominator;

@@ -4,8 +4,8 @@
     "id": "population-4358",
     "inventory_sha256": "da0fe9af7b46bb30af3b093e23274895e03e631706bc27c32971d695c89779a5",
     "gaps_sha256": "12cc7382cf13557596ba54ad4815fab3bd74b3482283828e2c27691fde7c2dda",
-    "historical_population_sha256": "ab2d1812f3c45274d3794b86e92d71125aaf05f2425e5edbceb0af8da62369ae",
-    "historical_acceptance_sha256": "7eeffa9503b0070b440b5d9cb5de2a8c2afbe7c918e4d30f13b9f2028e2dd7ab"
+    "historical_population_sha256": "c8e0cd693413e7f3f8bddafd8a2fd2ac0076b7a2b783719826ff80addf2e51b5",
+    "historical_acceptance_sha256": "2c74d57c02be5a46b2f421fa3026ee5ca05dab824d72fb31a9e91690c3998300"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2551,7 +2551,7 @@
     "?ID@?$DynamicVectorClass@PBVTechnoTypeClass@@@@UAEHPBQBVTechnoTypeClass@@@Z": 4956304,
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "??_7?$VectorClass@PAVEgoClass@@@@6B@": 7998732,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
@@ -2732,9 +2732,9 @@
     "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@IPBQAVUnitTypeClass@@@Z": 5223952,
     "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z": 5224032,
     "?Infantry@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6601296,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
     "??0?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE@ABV0@@Z": 6637632,

@@ -4,8 +4,8 @@
     "id": "population-4381",
     "inventory_sha256": "8c0546d37d9cb4ef72695c68451d741e04efa53cf396071c24030258aa74574c",
     "gaps_sha256": "58667a1d65a6054e28efea4cf9a8d99045b5b76cd6cb4f6bc45988085117bf7f",
-    "historical_population_sha256": "f825900a1a4f71cf2a5d8477b13e03211b57e88f9bc882d1f138ba6c2243c285",
-    "historical_acceptance_sha256": "baa446c0085835a7a6016e8432afc84ef94db56a60b48d9021b982f30c322de5"
+    "historical_population_sha256": "93ae7454f76450785dc988bfc9374b7c3b7acd78d3109458be70d48f236fc5f8",
+    "historical_acceptance_sha256": "f3f0f0a2266201c0b89d6bf89458a4a8c7afd1b9cb61173659d390659bed85ac"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5697,7 +5697,7 @@
     "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5269856,
     "?search_compfunc@?$IndexClass@HPAVCommandClass@@@@CAHPBX0@Z": 4721664,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "??_EParticleSystemTypeClass@@UAEPAXI@Z": 6426304,
     "??_7?$DynamicVectorClass@PAVEgoClass@@@@6B@": 7998700,
@@ -6241,9 +6241,9 @@
     "??0?$VectorClass@PAVSmudgeTypeClass@@@@QAE@IPBQAVSmudgeTypeClass@@@Z": 6638000,
     "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@IPBQAVUnitTypeClass@@@Z": 5223952,
     "??0?$VectorClass@PAVAircraftTypeClass@@@@QAE@IPBQAVAircraftTypeClass@@@Z": 5224032,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@H@Z": 7506528,
     "?Compare_Blocks@MixFileClass@@SAHPBX0@Z": 5853904,
     "?MixList@MixFileClass@@2V?$List@PAVMixFileClass@@@@A": 10947776,

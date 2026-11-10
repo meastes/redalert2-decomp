@@ -4,8 +4,8 @@
     "id": "population-3558",
     "inventory_sha256": "bcd83cb9d5dafdc822a3242b49b298e078061a3079c1a808ff3fcc7feee9dddf",
     "gaps_sha256": "c25d9d00be2a126b3ade741e658572510bf4dae4273585c8349e69666e9a8523",
-    "historical_population_sha256": "b65405719288031ec5c6933d93453739c73a34602f288fcdad74ed8a869ba6e7",
-    "historical_acceptance_sha256": "b7d7a3f285a96328a2752aae462ef88a21cd8fa31ec50d6bb6ab9555f317efa3"
+    "historical_population_sha256": "fff25e61ebab3dea6eca28ddf41a86e2638d5ac94898b34d2fabe8fac1cbb66c",
+    "historical_acceptance_sha256": "519369d9201059deb18869fe16d95dade44d4e3590c7b9b5a54185b51b5f943c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4236,7 +4236,7 @@
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
     "__imp__RegCloseKey@4": 7970820,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "?Closest_Color@PaletteClass@@QBEHABVRGBClass@@@Z": 6304176,
     "_strstr": 7878320,
@@ -4309,9 +4309,9 @@
     "?Colors@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6585952,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?AI@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6603440,
     "?Load@RulesClass@@QAEXPAUIStream@@@Z": 6612656,
     "?Add@?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAE_NABQAVSmudgeTypeClass@@@Z": 6633536,

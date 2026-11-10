@@ -4,8 +4,8 @@
     "id": "population-3619",
     "inventory_sha256": "444eb6a5142ba29a3192042af048616aa87768604b381268127c2135073262a8",
     "gaps_sha256": "12f2c02ea775eecfe7bf3597ff79796cd5098a4439a2ccae9a392b0a257e175c",
-    "historical_population_sha256": "ad899ce0090a6c2c177b085fd75825a854f4bee59692fc317fdbd37335dec533",
-    "historical_acceptance_sha256": "f36ac9e620d1fdab55894014125a9be0776ab94a64d69ce6ac53f19ba282a6ec"
+    "historical_population_sha256": "d0a3be3097cdd36ce0c61da3e879fbe71519b21276cc23c924e6b57cbb50dc9c",
+    "historical_acceptance_sha256": "9e6bd21b191cb498c79e887aa1b581c743a7e678af196297db46fe68dff897dc"
   },
   "references": {
     "_unknown_empty_rect": 10950728,
@@ -2613,7 +2613,7 @@
     "?x@?1???A?$IndexClass@HPAVCommandClass@@@@QBEABQAVCommandClass@@ABH@Z@4PAV2@A": 11712060,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
     "?unknown_surface_839944@@3PAVSurface@@A": 8624452,
-    "?Clear@ZBuffer@@QAEXG@Z": 7823712,
+    "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "?Draw@EgoClass@@QAEX_N@Z": 4929168,
     "?Difference@RGBClass@@QBEHABV1@@Z": 6541232,
     "?Closest_Color@PaletteClass@@QBEHABVRGBClass@@@Z": 6304176,
@@ -2771,9 +2771,9 @@
     "?Colors@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6585952,
     "?Difficulty@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6609680,
     "?Draw_Line_Depth_Masked@DSurface@@UAE_NABUPoint2D@@0H_N@Z": 4918576,
-    "?Adjust@ZBuffer@@QAEXHHG@Z": 7822688,
-    "?Adjust@ABuffer@@QAEXHHG@Z": 4262992,
-    "?Clear@ABuffer@@QAEXG@Z": 4264016,
+    "?Pan@ZBuffer@@QAEXHHG@Z": 7822688,
+    "?Pan@ABuffer@@QAEXHHG@Z": 4262992,
+    "?Fill@ABuffer@@QAEXG@Z": 4264016,
     "?AI@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6603440,
     "__real@8@3fff96cbe3f9990e9000": 8032632,
     "__real@8@3ffdc90fdaa22168c000": 8019416,
