@@ -15,7 +15,7 @@ void CellClass::unknown_47a7a0()
     int frame=unknown_47a5a0();
     if(frame==0 || unknown_11c) OverlayIndex=-1;
     else OverlayData=3*frame+abs(unknown_id_source_a3d290->Random()()%3);
-    Map.Unknown_00631570(MapCoords);
+    Map.Radar_Background(MapCoords);
     for(int direction=0;direction<8;direction+=2) {
         CellClass &adjacent=(CellClass&)((CellClass const*)this)->Adjacent_Cell(direction);
         if(adjacent.unknown_11c==0 && adjacent.OverlayIndex==126 && adjacent.OverlayData<48) {
@@ -27,7 +27,7 @@ void CellClass::unknown_47a7a0()
             adjacent.Recalc_Attributes(-1);
             area=Union(area,Union(adjacent.unknown_474eb0(),adjacent.unknown_475100()))-unknown_rect_839630.Top_Left();
             unknown_tactical_83996c->Register_Dirty_Area(area,false);
-            Map.Unknown_00631570(adjacent.MapCoords);
+            Map.Radar_Background(adjacent.MapCoords);
         }
     }
     dirty=Union(dirty,Union(unknown_474eb0(),unknown_475100()))-unknown_rect_839630.Top_Left();

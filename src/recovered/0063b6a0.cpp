@@ -5,9 +5,9 @@
 #include "shared/map_view.hpp"
 #include "shared/radar_event_class.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z=00632620
+// @ref ?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z=00632620
 
 void __fastcall Plot_Radar_Event_Point(Point2D const &point)
 {
-    Map.Unknown_00632620(point);
+    Map.Radar_Pixel(point);
 }

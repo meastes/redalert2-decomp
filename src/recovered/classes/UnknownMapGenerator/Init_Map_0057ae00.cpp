@@ -238,7 +238,7 @@ void UnknownMapGenerator::Init_Map_0057ae00(int fullInit)
     Clear_Map_Regions_0056da00();
     unknown_304=0;unknown_308=0;
     unknown_310=Map_Random_Fraction_00579770()<unknown_waterfall_probability_7a5b68;
-    Map.Unknown_00631E40();Map.RadarClass::unknown_slot29(localSize);Map.Unknown_00631C80();Map.Unknown_00630A00();
+    Map.Clear_Radar();Map.RadarClass::unknown_slot29(localSize);Map.Init_Radar();Map.Compute_Radar_Image();
     unknown_id_source_a3d290->unknown_22a8=SeedOptions.Theater==0 ? unknown_1a4[SeedOptions.Time] : unknown_1c0[SeedOptions.Time];
     unknown_id_source_a3d290->AmbientLevel=unknown_188[SeedOptions.Time];
     unknown_id_source_a3d290->AmbientRed=SeedOptions.Theater==0 ? unknown_1dc[SeedOptions.Time] : unknown_230[SeedOptions.Time];

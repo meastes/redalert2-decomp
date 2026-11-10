@@ -184,7 +184,7 @@ void __cdecl Prog_End()
         WWMouse = 0;
     }
     Map.unknown_slot23();
-    Map.Unknown_00631E40();
+    Map.Clear_Radar();
     Unknown_Free_Screen_Surfaces_0068E1C0();
     if (ABufferPtr) {
         delete ABufferPtr;

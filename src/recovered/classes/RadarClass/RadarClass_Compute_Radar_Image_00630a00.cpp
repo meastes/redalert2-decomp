@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_00630A00() (0x00630A00)
+// void RadarClass::Compute_Radar_Image() (0x00630A00)
 // Rebuilds the radar surfaces for a non-empty radar rectangle: drops the old
 // image, buffers and drawing surface, renders the image (0x00630B70),
 // centres the rectangle in the 140 x 108 radar area, and makes a cleared
@@ -7,11 +7,11 @@
 #include "shared/dsurface.hpp"
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??2@YAPAXI@Z=00782017
-// @ref ?Unknown_00630B70@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z=00630b70
+// @ref ?Compute_Background@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z=00630b70
 // @ref ??0DSurface@@QAE@HHE@Z=004aa4a0
-// @ref ?Unknown_00632700@RadarClass@@QAEXXZ=00632700
+// @ref ?Compute_Foundations@RadarClass@@QAEXXZ=00632700
 
-void RadarClass::Unknown_00630A00()
+void RadarClass::Compute_Radar_Image()
 {
     if (unknown_1498.Is_Valid()) {
         unknown_1498.Y = 0;
@@ -28,7 +28,7 @@ void RadarClass::Unknown_00630A00()
             delete[] unknown_1270;
             unknown_1270 = 0;
         }
-        Unknown_00630B70(unknown_1498, unknown_1498, true);
+        Compute_Background(unknown_1498, unknown_1498, true);
         unknown_1498.Width = unknown_121c->Get_Width();
         unknown_1498.Height = unknown_121c->Get_Height();
         unknown_1498.X = unknown_11ec;
@@ -45,6 +45,6 @@ void RadarClass::Unknown_00630A00()
         }
         unknown_1218 = new DSurface(unknown_121c->Get_Width(), unknown_121c->Get_Height(), true);
         unknown_1218->Fill(0);
-        Unknown_00632700();
+        Compute_Foundations();
     }
 }

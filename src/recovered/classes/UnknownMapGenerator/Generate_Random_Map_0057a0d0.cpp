@@ -282,7 +282,7 @@ void UnknownMapGenerator::Unknown_0057A0D0(int fullInit,int dialogValue)
     Map.Unknown_0054B2E0();
     Debug_Printf(unknown_rmg_radar_message);
     Map.RadarClass::unknown_slot29(Map.MapLocalSize);
-    Map.Unknown_00630A00();
+    Map.Compute_Radar_Image();
     Report_Generation_Progress_0057be50(100);
     Debug_Printf(unknown_rmg_message_007e188c);
     if(showProgress) {

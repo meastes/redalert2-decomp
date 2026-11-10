@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_00631250(Rect const &cell_rect, Rect const &update_rect) (0x00631250)
+// void RadarClass::Fill_In_Background(Rect const &cell_rect, Rect const &update_rect) (0x00631250)
 // TibSun's Fill_In_Background: for every map cell inside the update area of
 // the radar cell grid, stores its two radar colours (CellClass 0x004712C0)
 // into the background colour buffer (+0x1238), one at the left/right edges.
@@ -8,7 +8,7 @@
 #include "shared/map_view.hpp"
 // @ref ?Unknown_004712c0@CellClass@@QAEXPAVRGBClass@@0@Z=004712c0
 
-void RadarClass::Unknown_00631250(Rect const &cell_rect, Rect const &update_rect)
+void RadarClass::Fill_In_Background(Rect const &cell_rect, Rect const &update_rect)
 {
     RGBClass low(0, 0, 0);
     RGBClass high(0, 0, 0);

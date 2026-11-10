@@ -7,5 +7,5 @@
 
 void TechnoClass::unknown_slot266()
 {
-    Map.Unknown_00632620(unknown_1a0);
+    Map.Radar_Pixel(unknown_1a0);
 }

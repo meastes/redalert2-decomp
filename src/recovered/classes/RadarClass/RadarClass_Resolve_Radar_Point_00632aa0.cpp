@@ -2,7 +2,7 @@
 #include "shared/radar.hpp"
 #include "shared/techno.hpp"
 
-void RadarClass::Unknown_00632AA0(Point2D const &pixel, Cell &cell, TechnoClass *&found)
+void RadarClass::Resolve_Radar_Point(Point2D const &pixel, Cell &cell, TechnoClass *&found)
 {
     Point2D origin = *reinterpret_cast<Point2D const *>(&unknown_1498);
     Point2D point = pixel - origin;
@@ -19,6 +19,6 @@ void RadarClass::Unknown_00632AA0(Point2D const &pixel, Cell &cell, TechnoClass 
     if (found != 0) {
         cell = Cell(found->unknown_slot19(0));
     } else {
-        cell = Unknown_00631500(point);
+        cell = Radar_Pixel_To_Cell(point);
     }
 }

@@ -9,7 +9,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 // @ref ?Unknown_0049E110@DisplayClass@@QAEX_N0@Z=0049e110
-// @ref ?Unknown_00634030@RadarClass@@QAEXXZ=00634030
+// @ref ?Complete_Radar_Refresh@RadarClass@@QAEXXZ=00634030
 
 void MapClass::Unknown_00559FD0()
 {
@@ -20,6 +20,6 @@ void MapClass::Unknown_00559FD0()
     }
     Map.Unknown_0049E110(false, false);
     unknown_player_a35db4->unknown_188 = false;
-    Map.Unknown_00634030();
+    Map.Complete_Radar_Refresh();
     Flag_To_Redraw(2);
 }

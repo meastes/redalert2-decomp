@@ -27,7 +27,7 @@ void MapClass::Internal_Destroy_High_Bridge_NS_BottomLeft(Cell const &cell, int 
                     adjacentptr->Set_Under_Bridge(6, false);
                     adjacentptr->OverlayData = 0;
                     adjacentptr->OverlayIndex = -1;
-                    Map.Unknown_00631570(adjacentptr->MapCoords);
+                    Map.Radar_Background(adjacentptr->MapCoords);
                 }
             } else {
                 adjacentptr->OverlayData = 17;

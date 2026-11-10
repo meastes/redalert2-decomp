@@ -73,7 +73,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                 Cell here = origin + Cell(x, y);
                 if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && Unknown_0055A660(here, true)) {
                     Unknown_006D7C80(&Map[here]);
-                    Map.Unknown_00631570(here);
+                    Map.Radar_Background(here);
                 }
             }
         }
@@ -158,7 +158,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
                 Cell here = origin + Cell(x, y);
                 if (image->Tiles[y * row_width + x] != 0 && Unknown_0055A660(here, true)) {
                     Unknown_006D7C80(&Map[here]);
-                    Map.Unknown_00631570(here);
+                    Map.Radar_Background(here);
                 }
             }
         }

@@ -7,6 +7,6 @@
 
 void TechnoClass::unknown_slot265()
 {
-    Map.Unknown_00631AF0(this, unknown_1a0);
+    Map.Radar_Untrack(this, unknown_1a0);
     unknown_37b = false;
 }

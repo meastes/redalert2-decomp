@@ -1,14 +1,14 @@
-// void RadarClass::Unknown_006328F0(Cell const &cell) (0x006328F0)
+// void RadarClass::Radar_Cell(Cell const &cell) (0x006328F0)
 // TibSun's Radar_Cell: the cell's diamond rectangle (0x00631400, expanded),
 // clipped to the radar cell size (+0x1238), scaled by the zoom (+0x1484) with
 // a one-pixel margin, every pixel marked through 0x00632620.
 #include "shared/radar.hpp"
 // @ref __ftol=0077f110
 
-void RadarClass::Unknown_006328F0(Cell const &cell)
+void RadarClass::Radar_Cell(Cell const &cell)
 {
     if (unknown_1218 != 0) {
-        Rect r1 = Unknown_00631400(cell);
+        Rect r1 = Cell_Radar_Rect(cell);
         r1 = Intersect(r1, Rect(0, 0, RadarCellWidth, RadarCellHeight));
         int swidth = unknown_1218->Get_Width();
         int sheight = unknown_1218->Get_Height();
@@ -23,7 +23,7 @@ void RadarClass::Unknown_006328F0(Cell const &cell)
             int height = (ey < sheight) ? ey : sheight;
             for (int y = starty; y < height; y++) {
                 for (int x = startx; x < width; x++) {
-                    Unknown_00632620(Point2D(x, y));
+                    Radar_Pixel(Point2D(x, y));
                 }
             }
         }

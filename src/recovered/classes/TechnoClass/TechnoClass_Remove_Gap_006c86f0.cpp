@@ -33,7 +33,7 @@ void TechnoClass::unknown_slot236()
             }
         }
         if (unknown_player_a35db4) unknown_player_a35db4->unknown_188=false;
-        Map.Unknown_00634030();
+        Map.Complete_Radar_Refresh();
         Map.Flag_To_Redraw(2);
     }
 }

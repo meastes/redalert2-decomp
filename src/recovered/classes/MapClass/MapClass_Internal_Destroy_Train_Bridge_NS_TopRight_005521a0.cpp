@@ -27,7 +27,7 @@ void MapClass::Internal_Destroy_Train_Bridge_NS_TopRight(Cell const &cell, int d
                     adjacentptr->Set_Under_Rail_Bridge(6, false);
                     adjacentptr->OverlayData = 0;
                     adjacentptr->OverlayIndex = -1;
-                    Map.Unknown_00631570(adjacentptr->MapCoords);
+                    Map.Radar_Background(adjacentptr->MapCoords);
                 }
             } else {
                 adjacentptr->OverlayData = 16;

@@ -1,6 +1,6 @@
 // void BuildingClass::unknown_slot266() (0x004518C0, slot 266)
 // Passes each foundation cell of the type (offset by unknown_1a0/1a4) to
-// the map's Unknown_00632620.
+// the map's Radar_Pixel.
 #include "shared/building.hpp"
 #include "shared/gscreen.hpp"
 #include "shared/building_map.hpp"
@@ -13,6 +13,6 @@ void BuildingClass::unknown_slot266()
     for (int index = 0; index < offsets->Count(); index++) {
         Point2D cell;
         cell = Point_Sum((*offsets)[index], unknown_cell_1a0());
-        Map.Unknown_00632620(cell);
+        Map.Radar_Pixel(cell);
     }
 }

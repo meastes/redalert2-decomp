@@ -274,22 +274,22 @@ public:
 #endif
     // Slot 37 (0x0062FCA0, virtual in shared/radar.hpp), declared non-virtual as slot 38 above.
     bool unknown_slot37(Cell const &cell, HouseClass *house, bool arg3);
-    void Unknown_00631570(Cell const &cell);                              // 0x00631570
-    void Unknown_00631910(TechnoClass *techno, Point2D point);                  // 0x00631910
-    void Unknown_00631AF0(TechnoClass *techno, Point2D point);                  // 0x00631AF0
-    Point2D Unknown_00631BA0(CoordStruct const &coord, bool clip);              // 0x00631BA0 (the radar point of a coordinate; RadarClass declares it with a Point2D; TechnoClass slot 53)
-    void Unknown_00632620(Point2D const &point);                                // 0x00632620
-    void Unknown_006328F0(Cell const &cell);                                    // 0x006328F0 marks the radar pixels of a cell for redraw (as shared/radar.hpp)
+    void Radar_Background(Cell const &cell);                              // 0x00631570
+    void Radar_Track(TechnoClass *techno, Point2D point);                  // 0x00631910
+    void Radar_Untrack(TechnoClass *techno, Point2D point);                  // 0x00631AF0
+    Point2D Coord_To_Radar_Pixel(CoordStruct const &coord, bool clip);              // 0x00631BA0 (the radar point of a coordinate; RadarClass declares it with a Point2D; TechnoClass slot 53)
+    void Radar_Pixel(Point2D const &point);                                // 0x00632620
+    void Radar_Cell(Cell const &cell);                                    // 0x006328F0 marks the radar pixels of a cell for redraw (as shared/radar.hpp)
     DynamicVectorClass<Point2D> *Unknown_006328D0(BuildingTypeClass *type);     // 0x006328D0
     bool Unknown_006331A0();                                                    // 0x006331A0
     bool Unknown_00633130();                                                    // 0x00633130 (+0x14D4: the radar is on; as shared/radar.hpp)
     void Unknown_00633140(bool on);                                             // 0x00633140 (turns the radar on or off; as shared/radar.hpp)
     void Unknown_00634970(int arg1); // as shared/radar.hpp
-    void Unknown_006331E0(bool flag);                                           // 0x006331E0
-    void Unknown_00631D40();                                                    // 0x00631D40 (as shared/radar.hpp)
-    void Unknown_00634030();                                                    // 0x00634030
-    void Unknown_00630A00();                                                    // 0x00630A00
-    void Unknown_00631ED0();                                                    // 0x00631ED0 builds the radar's table and surfaces (load path)
+    void Redraw_Radar(bool flag);                                           // 0x006331E0
+    void Reset_Radar();                                                    // 0x00631D40 (as shared/radar.hpp)
+    void Complete_Radar_Refresh();                                                    // 0x00634030
+    void Compute_Radar_Image();                                                    // 0x00630A00
+    void Post_Load_Radar_Fixup();                                                    // 0x00631ED0 builds the radar's table and surfaces (load path)
 
     // The radar's data the other units read, at shared/radar.hpp's offset.
 #ifndef RA2_SHARED_DISPLAY_HPP

@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_00632700() (0x00632700)
+// void RadarClass::Compute_Foundations() (0x00632700)
 // Builds the 22 dot shapes at +0x1274: shape i is a diamond of cells a by b
 // in size, each side its scale (0x007CFC70 / 0x007CFCC8) times the zoom
 // +0x1484, rounded, at least 1 for scale 1 and 2 otherwise.
@@ -8,7 +8,7 @@ extern int unknown_dot_height_7cfcc8[22];
 // @ref ?unknown_dot_width_7cfc70@@3PAHA=007cfc70
 // @ref ?unknown_dot_height_7cfcc8@@3PAHA=007cfcc8
 
-void RadarClass::Unknown_00632700()
+void RadarClass::Compute_Foundations()
 {
     for (int index = 0; index < 22; index++) {
         DynamicVectorClass<Point2D> &dots = unknown_1274[index];

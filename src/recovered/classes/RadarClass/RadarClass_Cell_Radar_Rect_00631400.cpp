@@ -1,9 +1,9 @@
-// Rect RadarClass::Unknown_00631400(Cell const &cell) (0x00631400)
+// Rect RadarClass::Cell_Radar_Rect(Cell const &cell) (0x00631400)
 // A cell's place on the radar's diamond map: two pixels wide (one at the
 // left and right edges of the local map), one high.
 #include "shared/radar.hpp"
 
-Rect RadarClass::Unknown_00631400(Cell const &cell)
+Rect RadarClass::Cell_Radar_Rect(Cell const &cell)
 {
     int cx = cell.X;
     int cy = cell.Y;

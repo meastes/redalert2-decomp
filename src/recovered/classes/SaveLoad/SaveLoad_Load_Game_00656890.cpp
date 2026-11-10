@@ -64,7 +64,7 @@ bool __fastcall Unknown_00656890(char const *filename)
     Map.unknown_slot34();
     TiberiumClass::Init_Growth();
     TiberiumClass::Init_Spread();
-    Map.Unknown_00634030();
+    Map.Complete_Radar_Refresh();
     unknown_flag_a40d04 = true;
     unknown_flag_a40380 = true;
     Unknown_Free_Art_Set_006F30F0();

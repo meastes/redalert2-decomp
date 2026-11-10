@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_00630350() (0x00630350)
+// void RadarClass::Draw_Names() (0x00630350)
 // The multiplayer player list in the radar area (Draw_It, mode 2): the frame,
 // the "Name:" and "Kills:" headings in grey, a rule, then one line per
 // multiplayer house with its name (cut to 18 characters) and the sum of its
@@ -24,7 +24,7 @@
 
 ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name, int kind);
 
-void RadarClass::Unknown_00630350()
+void RadarClass::Draw_Names()
 {
     if (unknown_flag_8373c1) {
         CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)unknown_shape_ab64a0, 32,

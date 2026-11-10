@@ -77,7 +77,7 @@ void VoxelAnimClass::AI()
                             Rect rect = cell.unknown_474eb0();
                             rect.Y -= unknown_int_839634;
                             dirty = Union(dirty, rect);
-                            Map.Unknown_00631570(cell.MapCoords);
+                            Map.Radar_Background(cell.MapCoords);
                         }
                     }
                     unknown_tactical_83996c->Register_Dirty_Area(dirty, 0);
@@ -94,7 +94,7 @@ void VoxelAnimClass::AI()
                     tiberium->Add_Growth_Cell(cell.MapCoords);
                     cell.OverlayData = 0;
                     dirty = cell.unknown_474eb0();
-                    Map.Unknown_00631570(cell.MapCoords);
+                    Map.Radar_Background(cell.MapCoords);
                 }
             }
         }

@@ -4,8 +4,8 @@
     "id": "population-4385",
     "inventory_sha256": "3601814dba8c545a13e2cea16ce2dc920b065e413605213eb67dc330419ba483",
     "gaps_sha256": "9e8f93269dd9ef4dca81936587631688832af038e02e1cbeb553c723da314b6f",
-    "historical_population_sha256": "4eafced456986576257d913e5960b14a21aff1dc5a099e7c4c279a38c45230ea",
-    "historical_acceptance_sha256": "445da226e637bb6c0031a33a0a96d32fdca4dd66ef0b1495b84bab2ddd05ec8a"
+    "historical_population_sha256": "982416837dd9a217b070e32fb590c043e577a993421e23430539319ed1c33741",
+    "historical_acceptance_sha256": "4da80f01467ebb8774e61031238370cde2852bee97c653dcd8b12ffb5a554e96"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1968,7 +1968,7 @@
     "?Unknown_00631C60@@YIHABURadarTrackingStruct@@@Z": 6495328,
     "?Unknown_00405BF0@UnknownList14BC@@QAEXXZ": 4217840,
     "?Unknown_00405C10@UnknownList14BC@@QAEXXZ": 4217872,
-    "?Unknown_00631E40@RadarClass@@QAEXXZ": 6495808,
+    "?Clear_Radar@RadarClass@@QAEXXZ": 6495808,
     "?Debug_Printf@@YAXPBDZZ": 4221168,
     "?One_Time@DisplayClass@@UAEXXZ": 4819824,
     "?Unknown_00716640@@YIHPBD@Z": 7431744,
@@ -2001,9 +2001,9 @@
     "?Flag_To_Redraw@GadgetClass@@UAEXXZ": 5043616,
     "?unknown_buffer_ac0ff0@@3PAXA": 11276272,
     "?RadarEventClass_unknown_all_63b910@@YAXXZ": 6535440,
-    "?Unknown_00633210@RadarClass@@QAEXXZ": 6500880,
-    "?Unknown_00630350@RadarClass@@QAEXXZ": 6488912,
-    "?Unknown_00633D30@RadarClass@@QAEXXZ": 6503728,
+    "?Render_Radar@RadarClass@@QAEXXZ": 6500880,
+    "?Draw_Names@RadarClass@@QAEXXZ": 6488912,
+    "?Play_Movie@RadarClass@@QAEXXZ": 6503728,
     "?unknown_tactical_83996c@@3PAVTactical@@A": 8624492,
     "?Unknown_006A2B10@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
     "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
@@ -2011,8 +2011,8 @@
     "?unknown_slot37@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z": 4825024,
     "?AI@DisplayClass@@UAEXAAHABUPoint2D@@@Z": 4823584,
     "?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z": 5894736,
-    "?Unknown_00633000@RadarClass@@QAEXH_N@Z": 6500352,
-    "?Unknown_00633C40@RadarClass@@QAEXXZ": 6503488,
+    "?Radar_Activate@RadarClass@@QAEXH_N@Z": 6500352,
+    "?Update_Transmission@RadarClass@@QAEXXZ": 6503488,
     "?Unknown_00716950@@YAXXZ": 7432528,
     "?unknown_int_a40d48@@3HA": 10751304,
     "?unknown_rect_ab6468@@3VRect@@A": 11232360,
@@ -2047,13 +2047,13 @@
     "??_C@_0BD@JOIH@Tip?3BriefingButton?$AA@": 8315444,
     "??_C@_0BE@NGLC@Tip?3DiplomacyButton?$AA@": 8315424,
     "??_C@_0BC@IPID@Tip?3OptionsButton?$AA@": 8315404,
-    "?Unknown_00630B70@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z": 6490992,
+    "?Compute_Background@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z": 6490992,
     "??0DSurface@@QAE@HHE@Z": 4891808,
-    "?Unknown_00632700@RadarClass@@QAEXXZ": 6498048,
+    "?Compute_Foundations@RadarClass@@QAEXXZ": 6498048,
     "??0Buffer@@QAE@PAXJ@Z": 4424384,
     "??_7XSurface@@6B@": 7974796,
     "??_7BSurface@@6B@": 7974648,
-    "?Unknown_00631250@RadarClass@@QAEXABVRect@@0@Z": 6492752,
+    "?Fill_In_Background@RadarClass@@QAEXABVRect@@0@Z": 6492752,
     "?unknown_shift_852fb8@@3HA": 8728504,
     "?unknown_shift_852fbc@@3HA": 8728508,
     "?unknown_shift_852fc0@@3HA": 8728512,
@@ -2061,9 +2061,9 @@
     "?unknown_shift_852fc8@@3HA": 8728520,
     "?unknown_shift_852fcc@@3HA": 8728524,
     "?Unknown_004712c0@CellClass@@QAEXPAVRGBClass@@0@Z": 4657856,
-    "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z": 6497824,
+    "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z": 6497824,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
-    "?Unknown_00630A00@RadarClass@@QAEXXZ": 6490624,
+    "?Compute_Radar_Image@RadarClass@@QAEXXZ": 6490624,
     "?unknown_slot29@RadarClass@@UAEXABVRect@@@Z": 6490176,
     "?unknown_list_a40c20@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
     "?Rules@@3PAVRulesClass@@A": 8624200,
@@ -2087,7 +2087,7 @@
     "??_C@_0BD@LLJP@Radar?3?5DEACTIVING?6?$AA@": 8315644,
     "?unknown_game_mode_a3d298@@3HA": 10736280,
     "?unknown_int_a3d548@@3HA": 10736968,
-    "?Unknown_00632F30@RadarClass@@QAEX_N0@Z": 6500144,
+    "?Set_Radar_State@RadarClass@@QAEX_N0@Z": 6500144,
     "?RadarEventClass_unknown_none@@YA_NXZ": 6537328,
     "?Draw_Events@RadarEventClass@@SAXXZ": 6536000,
     "?Remove_Finished@RadarEventClass@@SAXXZ": 6536944,
@@ -2106,8 +2106,8 @@
     "?Unknown_0065C1F0@@YIXH@Z": 6668784,
     "?Unknown_0065C310@@YAXXZ": 6669072,
     "?MainWindow@@3PAUHWND__@@A": 11690968,
-    "?Unknown_006324A0@RadarClass@@QAEXXZ": 6497440,
-    "?Unknown_00632000@RadarClass@@QAEXABUPoint2D@@@Z": 6496256,
+    "?Render_Tracked_Objects@RadarClass@@QAEXXZ": 6497440,
+    "?Plot_Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z": 6496256,
     "__imp__GetDlgItem@8": 7971996,
     "__imp__SendMessageA@16": 7972000,
     "__imp__ShowWindow@8": 7971992,
@@ -2165,11 +2165,11 @@
     "_$E75": 6483344,
     "_$E80": 6483360,
     "_$E78": 6483392,
-    "?Unknown_0062F150@RadarClass@@QAEXXZ": 6484304,
+    "?Queue_Next_Movie@RadarClass@@QAEXXZ": 6484304,
     "?One_Time@RadarClass@@UAEXXZ": 6484336,
     "?unknown_slot50@RadarClass@@UAEXXZ": 6484496,
     "?Init_Clear@RadarClass@@UAEXXZ": 6484576,
-    "?Unknown_0062F2D0@RadarClass@@QAEX_N@Z": 6484688,
+    "?Set_Buttons@RadarClass@@QAEX_N@Z": 6484688,
     "?unknown_slot53@RadarClass@@": 6484752,
     "?Init_IO@RadarClass@@UAEXXZ": 6485136,
     "?unknown_slot51@RadarClass@@UAE?AVCell@@ABUPoint2D@@@Z": 6486992,
@@ -2178,31 +2178,31 @@
     "?AI@RadarClass@@UAEXAAHABUPoint2D@@@Z": 6487232,
     "?unknown_slot28@RadarClass@@": 6488832,
     "?unknown_slot52@RadarClass@@UAEXABUCoordStruct@@@Z": 6488864,
-    "?Unknown_00630340@RadarClass@@QAE_NABVCell@@@Z": 6488896,
-    "?Unknown_00630350@RadarClass@@": 6488912,
+    "?Cell_On_Radar@RadarClass@@QAE_NABVCell@@@Z": 6488896,
+    "?Draw_Names@RadarClass@@": 6488912,
     "?unknown_slot34@RadarClass@@UAEXXZ": 6489808,
     "?unknown_slot29@RadarClass@@": 6490176,
-    "?Unknown_00630B70@RadarClass@@": 6490992,
-    "?Unknown_00631400@RadarClass@@QAE?AVRect@@ABVCell@@@Z": 6493184,
-    "?Unknown_00631470@RadarClass@@QAE?AVRect@@ABVCell@@@Z": 6493296,
-    "?Unknown_00631500@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z": 6493440,
-    "?Unknown_00631570@RadarClass@@QAEXABVCell@@@Z": 6493552,
-    "?Unknown_00631600@RadarClass@@QAEXXZ": 6493696,
-    "?Unknown_00631910@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z": 6494480,
-    "?Unknown_00631AF0@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z": 6494960,
-    "?Unknown_00631BA0@RadarClass@@QAE?AUPoint2D@@ABU2@_N@Z": 6495136,
+    "?Compute_Background@RadarClass@@": 6490992,
+    "?Cell_Radar_Rect@RadarClass@@QAE?AVRect@@ABVCell@@@Z": 6493184,
+    "?Cell_To_Radar_Pixel@RadarClass@@QAE?AVRect@@ABVCell@@@Z": 6493296,
+    "?Radar_Pixel_To_Cell@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z": 6493440,
+    "?Radar_Background@RadarClass@@QAEXABVCell@@@Z": 6493552,
+    "?Plot_Radar_Background@RadarClass@@QAEXXZ": 6493696,
+    "?Radar_Track@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z": 6494480,
+    "?Radar_Untrack@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z": 6494960,
+    "?Coord_To_Radar_Pixel@RadarClass@@QAE?AUPoint2D@@ABU2@_N@Z": 6495136,
     "?Unknown_00631C40@@YIIABUPoint2D@@@Z": 6495296,
-    "?Unknown_00631C80@RadarClass@@QAEXXZ": 6495360,
-    "?Unknown_00631D40@RadarClass@@QAEXXZ": 6495552,
-    "?Unknown_00631ED0@RadarClass@@QAEXXZ": 6495952,
-    "?Unknown_00632000@RadarClass@@": 6496256,
-    "?Unknown_006328F0@RadarClass@@QAEXABVCell@@@Z": 6498544,
-    "?Unknown_00632AA0@RadarClass@@": 6498976,
+    "?Init_Radar@RadarClass@@QAEXXZ": 6495360,
+    "?Reset_Radar@RadarClass@@QAEXXZ": 6495552,
+    "?Post_Load_Radar_Fixup@RadarClass@@QAEXXZ": 6495952,
+    "?Plot_Radar_Pixel@RadarClass@@": 6496256,
+    "?Radar_Cell@RadarClass@@QAEXABVCell@@@Z": 6498544,
+    "?Resolve_Radar_Point@RadarClass@@": 6498976,
     "?unknown_slot30@RadarClass@@UAEJPAUIStream@@@Z": 6499312,
     "?unknown_slot31@RadarClass@@UAEJPAUIStream@@@Z": 6499856,
-    "?Unknown_006331E0@RadarClass@@QAEX_N@Z": 6500832,
-    "?Unknown_00633D30@RadarClass@@": 6503728,
-    "?Unknown_00634030@RadarClass@@QAEXXZ": 6504496,
+    "?Redraw_Radar@RadarClass@@QAEX_N@Z": 6500832,
+    "?Play_Movie@RadarClass@@": 6503728,
+    "?Complete_Radar_Refresh@RadarClass@@QAEXXZ": 6504496,
     "?Unknown_006340F0@@": 6504688,
     "?Unknown_00634A00@@YIXPAVMouseClass@@@Z": 6507008,
     "?unknown_slot33@RadarClass@@UAEPBGH@Z": 6507168,
@@ -5302,9 +5302,9 @@
     "?Unknown_00568520@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z": 5670176,
     "?Unknown_005B5B30@UnknownObjectA3DC70@@QAEXXZ": 5987120,
     "?Unknown_005D47D0@ObjectClass@@QBEHXZ": 6113232,
-    "?Unknown_00631910@UnknownMap8324E0@@QAEXPAVObjectClass@@HH@Z": 6494480,
-    "?Unknown_00631AF0@UnknownMap8324E0@@QAEXPAVObjectClass@@HH@Z": 6494960,
-    "?Unknown_00632620@UnknownMap8324E0@@QAEXPAH@Z": 6497824,
+    "?Radar_Track@UnknownMap8324E0@@QAEXPAVObjectClass@@HH@Z": 6494480,
+    "?Radar_Untrack@UnknownMap8324E0@@QAEXPAVObjectClass@@HH@Z": 6494960,
+    "?Radar_Pixel@UnknownMap8324E0@@QAEXPAH@Z": 6497824,
     "?Unknown_006328D0@RadarClass@@QAEPAV?$DynamicVectorClass@UPoint2D@@@@PAVBuildingTypeClass@@@Z": 6498512,
     "?Unknown_006328D0@UnknownMap8324E0@@QAEPAV?$DynamicVectorClass@UPoint2D@@@@PAVBuildingTypeClass@@@Z": 6498512,
     "?Unknown_006331A0@RadarClass@@QAE_NXZ": 6500768,
@@ -8002,7 +8002,7 @@
     "?unknown_flag_7d88d5@@3_NA": 8227029,
     "?AI@TerrainClass@@UAEXXZ": 7225104,
     "?Fill_Rect_Trans@DSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z": 4896560,
-    "?Unknown_00631BA0@RadarClass@@QAE?AUPoint2D@@ABUCoordStruct@@_N@Z": 6495136,
+    "?Coord_To_Radar_Pixel@RadarClass@@QAE?AUPoint2D@@ABUCoordStruct@@_N@Z": 6495136,
     "?unknown_radar_surface_8336f8@@3PAVSurface@@A": 8599288,
     "?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402960,
     "?unknown_slot15@UDPInterfaceClass@@UAE_NH@Z": 7784176,
@@ -11201,7 +11201,7 @@
     "?unknown_draw_edit_text_600830@OwnerDraw@@YIXPAVSurface@@AAVRect@@PBGHPAVBitFontClass@@IPAHHHHH@Z": 6293552,
     "?Axis_To_Quat@@YI?AVQuaternion@@ABUVector3@@M@Z": 6433200,
     "?Dial@PhoneEdit@@QAE_NXZ": 6347904,
-    "?Unknown_00632AA0@RadarClass@@QAEXABUPoint2D@@AAVCell@@AAPAVTechnoClass@@@Z": 6498976,
+    "?Resolve_Radar_Point@RadarClass@@QAEXABUPoint2D@@AAVCell@@AAPAVTechnoClass@@@Z": 6498976,
     "?AI@ParasiteClass@@UAEXXZ": 6319952,
     "?Get_Selectable_Object_006aa990@Tactical@@QAEPAVObjectClass@@ABUPoint2D@@@Z": 6990224,
     "?Print@MSFont@@UAEXPAVSurface@@PBGHHH@Z": 5981424,
@@ -12331,7 +12331,126 @@
     "?unknown_slot6@TypeSelectCommandClass@@UBE_NH@Z": 5356336,
     "?Execute@TypeSelectCommandClass@@UBEXH@Z": 5356368,
     "?Execute@PageUserCommandClass@@UBEXH@Z": 5363952,
-    "?Execute@CenterViewCommandClass@@UBEXH@Z": 5357728
+    "?Execute@CenterViewCommandClass@@UBEXH@Z": 5357728,
+    "?GetClassID@EMPulseClass@@UAGJPAUGUID@@@Z": 4936512,
+    "?GetClassID@LightSourceClass@@UAGJPAUGUID@@@Z": 5471072,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "?Play_Movie@@YIXPBDH_N11@Z": 5898928,
+    "?Play_Movie@@YIXPBDH_N111@Z": 5898960,
+    "?Play_Movie@@YIXHH_N00@Z": 5900272,
+    "_WinMain@16": 6873728,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "?AI@AnimClass@@UAEXXZ": 4331280,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?unknown_slot86@BuildingClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 4451952,
+    "_CLSID_BombClass": 8003072,
+    "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z": 7118320,
+    "?unknown_slot222@BuildingClass@@UAE_NPAVHouseClass@@H@Z": 4474464,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "?Speed@BulletVelocityXY@@QBENXZ": 4306768,
+    "?Speed@BulletVelocity@@QBENXZ": 4306880,
+    "?Unknown_0067CA50@SidebarClass@@QAEXH@Z": 6802000,
+    "?Set_CellID@CellClass@@QAEXABVCell@@@Z": 4695120,
+    "?Unknown_006F5D90@@YIXH@Z": 7298448,
+    "?Unknown_006F5F00@@YIXH@Z": 7298816,
+    "?Unknown_006F60D0@@YIXH@Z": 7299280,
+    "?Unknown_006F5BC0@@YAXXZ": 7297984,
+    "?Unknown_006F5C50@@YAXXZ": 7298128,
+    "?Unknown_006F5940@@YAXXZ": 7297344,
+    "?Unknown_006F5B10@@YIXXZ": 7297808,
+    "?unknown_mouse_control_7e2af8@@3PAUMouseStruct@@A": 8268536,
+    "?Unknown_0066A290@ScrollClass@@QAEXXZ": 6726288,
+    "?Unknown_006A05E0@TabClass@@SIXHH@Z": 6948320,
+    "?SlotButton@TabClass@@2PAHA": 11264712,
+    "?Unknown_Get_Art_006f4590@@YI_NXZ": 7292304,
+    "?Unknown_006F64B0@@YAXXZ": 7300272,
+    "?Unknown_006A05F0@TabClass@@SIHH@Z": 6948336,
+    "?Unknown_006A0600@TabClass@@SIPAVShapeButtonClass@@H@Z": 6948352,
+    "?Unknown_006A06D0@TabClass@@SIHH@Z": 6948560,
+    "?unknown_int_abe370@@3HA": 11264880,
+    "?Counter@ScrollClass@@2V?$CDTimerClass@VSystemTimerClass@@@@A": 11235400,
+    "?Unknown_0059FEF0@MouseClass@@SAXXZ": 5897968,
+    "?MouseShapesAllocated@MouseClass@@2_NA": 10948516,
+    "?MouseShapes@MouseClass@@2PBUMouseShapeHeader@@B": 10948452,
+    "?unknown_button_abe400@TabClass@@2VShapeButtonClass@@A": 11265024,
+    "?unknown_button_abe390@TabClass@@2VShapeButtonClass@@A": 11264912,
+    "?Unknown_006A0540@TabClass@@SIXH@Z": 6948160,
+    "?ButtonShapeAllocated@TabClass@@2PA_NA": 11264812,
+    "?ButtonShapes@TabClass@@2PAPBXA": 11262112,
+    "?Unknown_006A0580@TabClass@@SIHPBD@Z": 6948224,
+    "?unknown_command_names_7f67f8@@3PAPBDA": 8349688,
+    "?unknown_no_command_7f67f4@@3HA": 8349684,
+    "?Unknown_006A0620@TabClass@@SI?AVRect@@H@Z": 6948384,
+    "?unknown_int_abe388@@3HA": 11264904,
+    "?unknown_rect_ac120c@@3PBVRect@@B": 11276812,
+    "?unknown_int_abe374@@3HA": 11264884,
+    "?Unknown_006A06B0@TabClass@@SIHH@Z": 6948528,
+    "?unknown_int_abe468@@3HA": 11265128,
+    "?Unknown_006A0D50@TabClass@@QAEXXZ": 6950224,
+    "?Unknown_006A0D80@TabClass@@QAEXXZ": 6950272,
+    "?Get_Mouse_Start_Frame@MouseClass@@QBEHH_N@Z": 5894512,
+    "?Get_Mouse_Frame@MouseClass@@QBEHH_N@Z": 5894560,
+    "?Get_Mouse_Hotspot@MouseClass@@QBE?AUPoint2D@@H@Z": 5894608,
+    "?unknown_buffer_ac10f8@@3PAXA": 11276536,
+    "?unknown_buffer_ac1048@@3PAXA": 11276360,
+    "?unknown_buffer_ac1098@@3PAXA": 11276440,
+    "?unknown_buffer_ac10a4@@3PAXA": 11276452,
+    "?unknown_buffer_ac10b0@@3PAXA": 11276464,
+    "?Unknown_006F64D0@@YIX_N@Z": 7300304,
+    "?Unknown_006F64F0@@YIX_N@Z": 7300336,
+    "?Unknown_006F5800@@YI_NH@Z": 7297024,
+    "?Unknown_006F5870@@YIHH@Z": 7297136,
+    "?Unknown_006F5E10@@YIXH@Z": 7298576,
+    "?Unknown_006F6570@@YAXXZ": 7300464,
+    "?Unknown_006A0670@TabClass@@SIXH@Z": 6948464,
+    "?unknown_int_abe2ac@@3HA": 11264684,
+    "?unknown_rect_ac1210@@3PBVRect@@B": 11276816,
+    "?unknown_rect_ac1204@@3PBVRect@@B": 11276804,
+    "?unknown_int_abe37c@@3HA": 11264892,
+    "?unknown_int_abe478@@3HA": 11265144,
+    "?unknown_int_abe2a8@@3HA": 11264680,
+    "?unknown_rect_ac11fc@@3PBVRect@@B": 11276796,
+    "?unknown_int_abe460@@3HA": 11265120,
+    "?Unknown_006A1880@TabClass@@QAEXXZ": 6953088,
+    "?unknown_rect_ac1208@@3PBVRect@@B": 11276808,
+    "?Unknown_006A1AB0@TabClass@@QAEXXZ": 6953648,
+    "?Unknown_006A1270@TabClass@@SIXPAVControlClass@@PBD@Z": 6951536,
+    "?Unknown_006A1710@TabClass@@QAEXXZ": 6952720,
+    "?As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVAbstractClass@@@Z": 4250576,
+    "??0UnknownTab4EEC@@QAE@XZ": 4801808,
+    "?unknown_int_abe464@@3HA": 11265124,
+    "?unknown_int_abe294@@3HA": 11264660,
+    "?unknown_int_abd910@@3HA": 11262224,
+    "?unknown_int_abe278@@3HA": 11264632,
+    "?unknown_int_abe2b8@@3HA": 11264696,
+    "?unknown_int_abe36c@@3HA": 11264876,
+    "?unknown_int_abe2bc@@3HA": 11264700,
+    "?unknown_int_abe378@@3HA": 11264888,
+    "?unknown_int_abe290@@3HA": 11264656,
+    "?Unknown_Set_Sink_00613e00@@YIXPAVINoticeSink@@@Z": 6372864,
+    "?Unknown_006A1DA0@TabClass@@QAEXXZ": 6954400,
+    "?Unknown_006A1E20@TabClass@@QAEXXZ": 6954528,
+    "?Unknown_006A1EA0@TabClass@@QAEXXZ": 6954656,
+    "?Unknown_006A19E0@TabClass@@SAXXZ": 6953440,
+    "?Unknown_00529870@@YIXH_N@Z": 5412976,
+    "?Unknown_0052B650@@YAXXZ": 5420624,
+    "?Unknown_0052B2E0@@YIX_N0@Z": 5419744,
+    "?Unknown_006F7360@@YAXXZ": 7304032,
+    "?Unknown_00494650@UnknownTab4EEC@@QAEX_N@Z": 4802128,
+    "?Unknown_00494530@UnknownTab4EEC@@QAEX_N@Z": 4801840,
+    "?unknown_int_ac0ff4@@3HA": 11276276,
+    "?Unknown_006F7360@@YIXXZ": 7304032,
+    "?Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z": 6727584,
+    "?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z": 6723936,
+    "?Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z": 6725312,
+    "?unknown_rect_ac1204@@3PAVRect@@A": 11276804,
+    "?unknown_rect_ac120c@@3PAVRect@@A": 11276812,
+    "?unknown_rect_ac1208@@3PAVRect@@A": 11276808,
+    "?unknown_rect_ac1210@@3PAVRect@@A": 11276816,
+    "?unknown_rect_ac11fc@@3PAVRect@@A": 11276796,
+    "_CLSID_CellClass": 8003184
   },
   "regions": [
     {
@@ -13388,8 +13507,8 @@
     {
       "entry": 6484304,
       "method": "0062f150",
-      "symbol": "?Unknown_0062F150@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_0062F150@RadarClass@@QAEXXZ",
+      "symbol": "?Queue_Next_Movie@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Queue_Next_Movie@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13402,8 +13521,8 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "529c1d7aee993e0962e142e46a942b6221a37b8378c57380d17f23bf8b32838f",
       "relocations": [],
-      "source_sha256": "8e8d16ce916217263ad1f7e618ddcbcf8272c3de65b093725a4e6840d13592d8",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_0062F150_0062f150.cpp",
+      "source_sha256": "c2e01914a42dae00e3b117037ec8afde72f9adf5e4fdac0571e56f29430a300a",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Queue_Next_Movie_0062f150.cpp",
       "population": "population-4385",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -14200,7 +14319,7 @@
         {
           "offset": 26,
           "kind": 20,
-          "symbol": "?Unknown_00631E40@RadarClass@@QAEXXZ",
+          "symbol": "?Clear_Radar@RadarClass@@QAEXXZ",
           "target": 6495808,
           "addend": 0,
           "resolved": 11682
@@ -14262,7 +14381,7 @@
           "resolved": 4294019654
         }
       ],
-      "source_sha256": "4f3d1476d262bbb55155e8d5e39cd33018a5c2ee8123c31eb58d3013771b02f4",
+      "source_sha256": "460614f60cf9dedb59b44f17d053487f199c85be4dcd5c5f2a92682650cb9b8c",
       "source": "src/recovered/classes/RadarClass/RadarClass_destructor_0062f080.cpp",
       "population": "population-4385",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -14437,8 +14556,8 @@
     {
       "entry": 6484688,
       "method": "0062f2d0",
-      "symbol": "?Unknown_0062F2D0@RadarClass@@QAEX_N@Z",
-      "symbol_prefix": "?Unknown_0062F2D0@RadarClass@@QAEX_N@Z",
+      "symbol": "?Set_Buttons@RadarClass@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Buttons@RadarClass@@QAEX_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -14476,8 +14595,8 @@
           "resolved": 11232128
         }
       ],
-      "source_sha256": "bc77c4e5a11c48642e8574378f572158a24e753105aca2313a755fc17a9ef223",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_0062F2D0_0062f2d0.cpp",
+      "source_sha256": "601c05c0a69f0dc9844b083d12ad1b1a92457fdba345cb602140061f577beb18",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Set_Buttons_0062f2d0.cpp",
       "population": "population-4385",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15009,8 +15128,8 @@
     {
       "entry": 6488896,
       "method": "00630340",
-      "symbol": "?Unknown_00630340@RadarClass@@QAE_NABVCell@@@Z",
-      "symbol_prefix": "?Unknown_00630340@RadarClass@@QAE_NABVCell@@@Z",
+      "symbol": "?Cell_On_Radar@RadarClass@@QAE_NABVCell@@@Z",
+      "symbol_prefix": "?Cell_On_Radar@RadarClass@@QAE_NABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15032,8 +15151,8 @@
           "resolved": 4294091540
         }
       ],
-      "source_sha256": "76f548b85ab0a31cdf25da276d8127f6f711a0dc74ae8494e48cbc724126bad7",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00630340_00630340.cpp",
+      "source_sha256": "0c692ab30f384a253fdffb0d52edf80152d7974a9614a9e30da0a3329d969d10",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Cell_On_Radar_00630340.cpp",
       "population": "population-4385",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15043,8 +15162,8 @@
     {
       "entry": 6493184,
       "method": "00631400",
-      "symbol": "?Unknown_00631400@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
-      "symbol_prefix": "?Unknown_00631400@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
+      "symbol": "?Cell_Radar_Rect@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
+      "symbol_prefix": "?Cell_Radar_Rect@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15057,8 +15176,8 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "eb55fb6f9c9f63dc7b8a20bea8af44f5666e963b0d0a4a54e3066886c7a81dae",
       "relocations": [],
-      "source_sha256": "5ef6a0eb70d9ecbfedabe3a887fed70cfcb14aba33181f2a14109395cc1bf82a",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631400_00631400.cpp",
+      "source_sha256": "3a904b1f5c4eea89abc291371e2aab07df7998fc45a7f855fe6178871986bbfc",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Cell_Radar_Rect_00631400.cpp",
       "population": "population-4385",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15068,8 +15187,8 @@
     {
       "entry": 6493296,
       "method": "00631470",
-      "symbol": "?Unknown_00631470@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
-      "symbol_prefix": "?Unknown_00631470@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
+      "symbol": "?Cell_To_Radar_Pixel@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
+      "symbol_prefix": "?Cell_To_Radar_Pixel@RadarClass@@QAE?AVRect@@ABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15099,8 +15218,8 @@
           "resolved": 1367102
         }
       ],
-      "source_sha256": "1f007322b35dc55cae74471b6518974c3cccdc788bf23fae4cde4b12c7ca9c0c",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631470_00631470.cpp",
+      "source_sha256": "8aa8a0d56151813106b8c8b73daf38bc5ab394890765babb3f5c43d0ce9e2c19",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Cell_To_Radar_Pixel_00631470.cpp",
       "population": "population-4385",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15110,8 +15229,8 @@
     {
       "entry": 6493440,
       "method": "00631500",
-      "symbol": "?Unknown_00631500@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z",
-      "symbol_prefix": "?Unknown_00631500@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z",
+      "symbol": "?Radar_Pixel_To_Cell@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z",
+      "symbol_prefix": "?Radar_Pixel_To_Cell@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15173,8 +15292,8 @@
           "resolved": 1366978
         }
       ],
-      "source_sha256": "e426368fd28a87a6cc7538f244a7e67e4e519569e3b0b7fcc9d6de1e5ecce9c7",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631500_00631500.cpp",
+      "source_sha256": "39ea690761dc21d1203628d68aafc0e924bb93cd442b0c6f12d75b3ecdb5f11f",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Radar_Pixel_To_Cell_00631500.cpp",
       "population": "population-4385",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15184,8 +15303,8 @@
     {
       "entry": 6493552,
       "method": "00631570",
-      "symbol": "?Unknown_00631570@RadarClass@@QAEXABVCell@@@Z",
-      "symbol_prefix": "?Unknown_00631570@RadarClass@@QAEXABVCell@@@Z",
+      "symbol": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
+      "symbol_prefix": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15198,8 +15317,8 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "3ef36d27bb1334cc3543a6ad3c8871eadf65eb6626dbe1d70ef7008c2cebd610",
       "relocations": [],
-      "source_sha256": "f85c82e8fad35e8c5b257c183d68f38a635a14fc7845cd832a20056fab4cfbe5",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631570_00631570.cpp",
+      "source_sha256": "facb7c46838d22ccbb906450dfd9e86447a3e34fd99bb84ac7351c7db010b193",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Radar_Background_00631570.cpp",
       "population": "population-4385",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15209,8 +15328,8 @@
     {
       "entry": 6494960,
       "method": "00631af0",
-      "symbol": "?Unknown_00631AF0@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z",
-      "symbol_prefix": "?Unknown_00631AF0@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z",
+      "symbol": "?Radar_Untrack@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z",
+      "symbol_prefix": "?Radar_Untrack@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15226,14 +15345,14 @@
         {
           "offset": 154,
           "kind": 20,
-          "symbol": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6497824,
           "addend": 0,
           "resolved": 2706
         }
       ],
-      "source_sha256": "2d4b1746fd3f46ae626cd6aed15f8dc805cb49929d15b93bbac89c813d0ca1ea",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631AF0_00631af0.cpp",
+      "source_sha256": "30982bbf24f45cab7ae36f8de73746b49f75fd31d91f741cc0ea21d8b61dafe3",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Radar_Untrack_00631af0.cpp",
       "population": "population-4385",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15243,8 +15362,8 @@
     {
       "entry": 6495136,
       "method": "00631ba0",
-      "symbol": "?Unknown_00631BA0@RadarClass@@QAE?AUPoint2D@@ABU2@_N@Z",
-      "symbol_prefix": "?Unknown_00631BA0@RadarClass@@QAE?AUPoint2D@@ABU2@_N@Z",
+      "symbol": "?Coord_To_Radar_Pixel@RadarClass@@QAE?AUPoint2D@@ABU2@_N@Z",
+      "symbol_prefix": "?Coord_To_Radar_Pixel@RadarClass@@QAE?AUPoint2D@@ABU2@_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15290,8 +15409,8 @@
           "resolved": 1365267
         }
       ],
-      "source_sha256": "fca29351be9051d7979e5b6feaa3d7676a2aebbbae6e5175a99cb5bebbd1a9af",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631BA0_00631ba0.cpp",
+      "source_sha256": "32e28d71b0496477eabf69792a45b42fb7e444c61bd9aadac1a38a631810ccdf",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Coord_To_Radar_Pixel_00631ba0.cpp",
       "population": "population-4385",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15301,8 +15420,8 @@
     {
       "entry": 6495360,
       "method": "00631c80",
-      "symbol": "?Unknown_00631C80@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00631C80@RadarClass@@QAEXXZ",
+      "symbol": "?Init_Radar@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Init_Radar@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -15356,8 +15475,8 @@
           "resolved": 8030212
         }
       ],
-      "source_sha256": "62bc08c1a6a8ed325d9916132b7a7d6cccf0b206b6cb9f2710305d512c851995",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631C80_00631c80.cpp",
+      "source_sha256": "e513e7329ef623de64cc8f40330d7fa1c365c4dec8e4705b5232ab463ce5a03d",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Init_Radar_00631c80.cpp",
       "population": "population-4385",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15367,8 +15486,8 @@
     {
       "entry": 6495808,
       "method": "00631e40",
-      "symbol": "?Unknown_00631E40@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00631E40@RadarClass@@QAEXXZ",
+      "symbol": "?Clear_Radar@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Clear_Radar@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -15406,8 +15525,8 @@
           "resolved": 1375865
         }
       ],
-      "source_sha256": "b62e230be8ad0d36999af67215bfa62c46914f7c7916f143cab1fa4178e3be38",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631E40_00631e40.cpp",
+      "source_sha256": "ed30338896b4e404654b6a2d7cbf3ddf31d10101d12056bef50fd3cf5f21339c",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Clear_Radar_00631e40.cpp",
       "population": "population-4385",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15450,7 +15569,7 @@
         {
           "offset": 26,
           "kind": 20,
-          "symbol": "?Unknown_00631E40@RadarClass@@QAEXXZ",
+          "symbol": "?Clear_Radar@RadarClass@@QAEXXZ",
           "target": 6495808,
           "addend": 0,
           "resolved": 4294955858
@@ -16168,8 +16287,8 @@
     {
       "entry": 6500832,
       "method": "006331e0",
-      "symbol": "?Unknown_006331E0@RadarClass@@QAEX_N@Z",
-      "symbol_prefix": "?Unknown_006331E0@RadarClass@@QAEX_N@Z",
+      "symbol": "?Redraw_Radar@RadarClass@@QAEX_N@Z",
+      "symbol_prefix": "?Redraw_Radar@RadarClass@@QAEX_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -16182,8 +16301,8 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "1b0766e89bd0af3a6b471d25b0dfd34660f4d1e2aec37f55426fc625f9a25873",
       "relocations": [],
-      "source_sha256": "5ed1aa1d2b4a750aaadfe70d6079cdf010e511b72875602fba59cea5e827532c",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_006331E0_006331e0.cpp",
+      "source_sha256": "987e3cd7f7f5f27ea210fb1f603fbdf84b8c5c7cb8170ce63655bb6182d5266e",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Redraw_Radar_006331e0.cpp",
       "population": "population-4385",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -16193,8 +16312,8 @@
     {
       "entry": 6504496,
       "method": "00634030",
-      "symbol": "?Unknown_00634030@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00634030@RadarClass@@QAEXXZ",
+      "symbol": "?Complete_Radar_Refresh@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Complete_Radar_Refresh@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -16218,7 +16337,7 @@
         {
           "offset": 81,
           "kind": 20,
-          "symbol": "?Unknown_006324A0@RadarClass@@QAEXXZ",
+          "symbol": "?Render_Tracked_Objects@RadarClass@@QAEXXZ",
           "target": 6497440,
           "addend": 0,
           "resolved": 4294960155
@@ -16226,14 +16345,14 @@
         {
           "offset": 152,
           "kind": 20,
-          "symbol": "?Unknown_00632000@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Plot_Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6496256,
           "addend": 0,
           "resolved": 4294958900
         }
       ],
-      "source_sha256": "a7afc4be424548c8c55d77ddaa1c43eeed14b7d2a72bc579c0659b703903a189",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00634030_00634030.cpp",
+      "source_sha256": "736e7ee6b42511155fbe9ea64bfa83c4b788901682c17a735f513c1f52aff1c6",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Complete_Radar_Refresh_00634030.cpp",
       "population": "population-4385",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -16325,8 +16444,8 @@
     {
       "entry": 6490624,
       "method": "00630a00",
-      "symbol": "?Unknown_00630A00@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00630A00@RadarClass@@QAEXXZ",
+      "symbol": "?Compute_Radar_Image@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Compute_Radar_Image@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -16358,7 +16477,7 @@
         {
           "offset": 132,
           "kind": 20,
-          "symbol": "?Unknown_00630B70@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z",
+          "symbol": "?Compute_Background@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z",
           "target": 6490992,
           "addend": 0,
           "resolved": 232
@@ -16382,14 +16501,14 @@
         {
           "offset": 349,
           "kind": 20,
-          "symbol": "?Unknown_00632700@RadarClass@@QAEXXZ",
+          "symbol": "?Compute_Foundations@RadarClass@@QAEXXZ",
           "target": 6498048,
           "addend": 0,
           "resolved": 7071
         }
       ],
-      "source_sha256": "8aff1a7ab00d1b7242b9ded6f4f116a436125a2e56880eeafc93fa35c2a35428",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00630A00_00630a00.cpp",
+      "source_sha256": "ca041149e0be60b1734acb781db9a661c65a5a38d2555856ce2ccbb5ac8ecbf7",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Compute_Radar_Image_00630a00.cpp",
       "population": "population-4385",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -16399,8 +16518,8 @@
     {
       "entry": 6495552,
       "method": "00631d40",
-      "symbol": "?Unknown_00631D40@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00631D40@RadarClass@@QAEXXZ",
+      "symbol": "?Reset_Radar@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Reset_Radar@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -16480,7 +16599,7 @@
         {
           "offset": 197,
           "kind": 20,
-          "symbol": "?Unknown_00630A00@RadarClass@@QAEXXZ",
+          "symbol": "?Compute_Radar_Image@RadarClass@@QAEXXZ",
           "target": 6490624,
           "addend": 0,
           "resolved": 4294962167
@@ -16510,8 +16629,8 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "baa276ab19f3247dc3713b03b5038aa6dbae912de6adb6f8f21cb9b714ea1172",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631D40_00631d40.cpp",
+      "source_sha256": "1f1ebd9807dafa15c5aa42a8705ed1519950d06f3d5a4316237c2039e0663227",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Reset_Radar_00631d40.cpp",
       "population": "population-4385",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -16521,8 +16640,8 @@
     {
       "entry": 6495952,
       "method": "00631ed0",
-      "symbol": "?Unknown_00631ED0@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00631ED0@RadarClass@@QAEXXZ",
+      "symbol": "?Post_Load_Radar_Fixup@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Post_Load_Radar_Fixup@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -16594,7 +16713,7 @@
         {
           "offset": 197,
           "kind": 20,
-          "symbol": "?Unknown_00630A00@RadarClass@@QAEXXZ",
+          "symbol": "?Compute_Radar_Image@RadarClass@@QAEXXZ",
           "target": 6490624,
           "addend": 0,
           "resolved": 4294961767
@@ -16626,7 +16745,7 @@
         {
           "offset": 271,
           "kind": 20,
-          "symbol": "?Unknown_00633000@RadarClass@@QAEXH_N@Z",
+          "symbol": "?Radar_Activate@RadarClass@@QAEXH_N@Z",
           "target": 6500352,
           "addend": 0,
           "resolved": 4125
@@ -16648,8 +16767,8 @@
           "resolved": 4293965872
         }
       ],
-      "source_sha256": "7e32ecd6b954da420da05f1669df5955a3cc62c97f2a19c27123a1f0c9c8f943",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631ED0_00631ed0.cpp",
+      "source_sha256": "b03c2c4933c74714f9b8f422cdb6685b2f1d41d4bf8c20c24659f8f44f395ab8",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Post_Load_Radar_Fixup_00631ed0.cpp",
       "population": "population-4385",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -16659,8 +16778,8 @@
     {
       "entry": 6500144,
       "method": "00632f30",
-      "symbol": "?Unknown_00632F30@RadarClass@@QAEX_N0@Z",
-      "symbol_prefix": "?Unknown_00632F30@RadarClass@@QAEX_N0@Z",
+      "symbol": "?Set_Radar_State@RadarClass@@QAEX_N0@Z",
+      "symbol_prefix": "?Set_Radar_State@RadarClass@@QAEX_N0@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -16754,8 +16873,8 @@
           "resolved": 4292688148
         }
       ],
-      "source_sha256": "ccb27b7e2bb0ebe871acc1c3fc75d03dcf2006d8396d2e2b9749b5d1c59bd65d",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00632F30_00632f30.cpp",
+      "source_sha256": "e4409ebc2623741900ccb210d1f0f044d4df69f0befb86a686346f6fa03068b3",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Set_Radar_State_00632f30.cpp",
       "population": "population-4385",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -17032,7 +17151,7 @@
         {
           "offset": 313,
           "kind": 20,
-          "symbol": "?Unknown_00633000@RadarClass@@QAEXH_N@Z",
+          "symbol": "?Radar_Activate@RadarClass@@QAEXH_N@Z",
           "target": 6500352,
           "addend": 0,
           "resolved": 12803
@@ -17040,7 +17159,7 @@
         {
           "offset": 339,
           "kind": 20,
-          "symbol": "?Unknown_00633C40@RadarClass@@QAEXXZ",
+          "symbol": "?Update_Transmission@RadarClass@@QAEXXZ",
           "target": 6503488,
           "addend": 0,
           "resolved": 15913
@@ -17054,7 +17173,7 @@
           "resolved": 944941
         }
       ],
-      "source_sha256": "9f3694e42886cac1c97c65972eba0d1841474621452a04f7d29160f02f18a710",
+      "source_sha256": "c702feec74102d0d056001fbaaf74fa69ed0d66ccec7f92ecf4e575d04942057",
       "source": "src/recovered/classes/RadarClass/RadarClass_AI_0062fcc0.cpp",
       "population": "population-4385",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -17065,8 +17184,8 @@
     {
       "entry": 6494480,
       "method": "00631910",
-      "symbol": "?Unknown_00631910@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z",
-      "symbol_prefix": "?Unknown_00631910@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z",
+      "symbol": "?Radar_Track@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z",
+      "symbol_prefix": "?Radar_Track@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -17098,14 +17217,14 @@
         {
           "offset": 454,
           "kind": 20,
-          "symbol": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6497824,
           "addend": 0,
           "resolved": 2886
         }
       ],
-      "source_sha256": "a294eea84c22096e9d9b966a30e9aa26c3a4f8e2a226b908f99a38e6dd802553",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00631910_00631910.cpp",
+      "source_sha256": "2a8611ff499e76048214882d8cdb01fa2e7a78da622ad2079acb5ae50fdef868",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Radar_Track_00631910.cpp",
       "population": "population-4385",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -17115,8 +17234,8 @@
     {
       "entry": 6498048,
       "method": "00632700",
-      "symbol": "?Unknown_00632700@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00632700@RadarClass@@QAEXXZ",
+      "symbol": "?Compute_Foundations@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Compute_Foundations@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -17266,8 +17385,8 @@
           "resolved": 1362193
         }
       ],
-      "source_sha256": "33c60d6ed5d851383c185733c2fe5c6eea244b384a71e1c08a3e76d57bac20fd",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00632700_00632700.cpp",
+      "source_sha256": "76bc37d97426d217d9755dcfcca9f55e4ca1debd14dc5b3d8f63e3059787cbd7",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Compute_Foundations_00632700.cpp",
       "population": "population-4385",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -17277,8 +17396,8 @@
     {
       "entry": 6503488,
       "method": "00633c40",
-      "symbol": "?Unknown_00633C40@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00633C40@RadarClass@@QAEXXZ",
+      "symbol": "?Update_Transmission@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Update_Transmission@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -17334,7 +17453,7 @@
         {
           "offset": 76,
           "kind": 20,
-          "symbol": "?Unknown_00633000@RadarClass@@QAEXH_N@Z",
+          "symbol": "?Radar_Activate@RadarClass@@QAEXH_N@Z",
           "target": 6500352,
           "addend": 0,
           "resolved": 4294964080
@@ -17436,8 +17555,8 @@
           "resolved": 928811
         }
       ],
-      "source_sha256": "d269421e08ffb17ae761a4eee3ef81932c8702018bfe3c64cf5028fb88b5b224",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00633C40_00633c40.cpp",
+      "source_sha256": "42972f79e0195348297c441d5ba1b8abc889b804485902347bfdeec027b5633d",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Update_Transmission_00633c40.cpp",
       "population": "population-4385",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -17640,7 +17759,7 @@
         {
           "offset": 624,
           "kind": 20,
-          "symbol": "?Unknown_00633210@RadarClass@@QAEXXZ",
+          "symbol": "?Render_Radar@RadarClass@@QAEXXZ",
           "target": 6500880,
           "addend": 0,
           "resolved": 14876
@@ -17696,7 +17815,7 @@
         {
           "offset": 782,
           "kind": 20,
-          "symbol": "?Unknown_00630350@RadarClass@@QAEXXZ",
+          "symbol": "?Draw_Names@RadarClass@@QAEXXZ",
           "target": 6488912,
           "addend": 0,
           "resolved": 2750
@@ -17704,7 +17823,7 @@
         {
           "offset": 794,
           "kind": 20,
-          "symbol": "?Unknown_00630350@RadarClass@@QAEXXZ",
+          "symbol": "?Draw_Names@RadarClass@@QAEXXZ",
           "target": 6488912,
           "addend": 0,
           "resolved": 2738
@@ -17712,7 +17831,7 @@
         {
           "offset": 830,
           "kind": 20,
-          "symbol": "?Unknown_00633D30@RadarClass@@QAEXXZ",
+          "symbol": "?Play_Movie@RadarClass@@QAEXXZ",
           "target": 6503728,
           "addend": 0,
           "resolved": 17518
@@ -18070,7 +18189,7 @@
           "resolved": 6486365
         }
       ],
-      "source_sha256": "c8e5d5c53013b31beb8225681782786fb61160e20ff88aaa06ebbb5d5671de7a",
+      "source_sha256": "528f3d171396f3868cdb330d475db6009142391030389fd7e20b5f1611fd9ee9",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/RadarClass/RadarClass_Draw_It_0062f580.cpp",
       "population": "population-4385",
@@ -18083,8 +18202,8 @@
     {
       "entry": 6488912,
       "method": "00630350",
-      "symbol": "?Unknown_00630350@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00630350@RadarClass@@",
+      "symbol": "?Draw_Names@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Draw_Names@RadarClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -18450,20 +18569,20 @@
           "resolved": 10691240
         }
       ],
-      "source_sha256": "ee266c2f254af372697e6f652b51b63252fa7f6579d749efce7e54a59380e6df",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00630350_00630350.cpp",
+      "source_sha256": "997a8b07c493ca78d2c367474267cebe8625e8cc43561158bf94edd07e261ba2",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Draw_Names_00630350.cpp",
       "population": "population-4385",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RadarClass_Unknown_00630350_00630350",
+      "semantic_name": "RadarClass_Draw_Names_00630350",
       "source_order": 233020
     },
     {
       "entry": 6503728,
       "method": "00633d30",
-      "symbol": "?Unknown_00633D30@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00633D30@RadarClass@@",
+      "symbol": "?Play_Movie@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Play_Movie@RadarClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -18703,7 +18822,7 @@
         {
           "offset": 580,
           "kind": 20,
-          "symbol": "?Unknown_00633000@RadarClass@@QAEXH_N@Z",
+          "symbol": "?Radar_Activate@RadarClass@@QAEXH_N@Z",
           "target": 6500352,
           "addend": 0,
           "resolved": 4294963336
@@ -18781,20 +18900,20 @@
           "resolved": 164599
         }
       ],
-      "source_sha256": "f14ee79e05c03629bf5ff93958d92db37af5675bd55cf2643ab008115ca52636",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00633D30_00633d30.cpp",
+      "source_sha256": "2bd33dc2c2c2fa13730a54ee63f531a439e023cb2d98cf4d74ee4dbbed4b3528",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Play_Movie_00633d30.cpp",
       "population": "population-4385",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RadarClass_Unknown_00633D30_00633d30",
+      "semantic_name": "RadarClass_Play_Movie_00633d30",
       "source_order": 233053
     },
     {
       "entry": 6497440,
       "method": "006324a0",
-      "symbol": "?Unknown_006324A0@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_006324A0@RadarClass@@QAEXXZ",
+      "symbol": "?Render_Tracked_Objects@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Render_Tracked_Objects@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -18840,7 +18959,7 @@
           "resolved": 202628
         }
       ],
-      "source_sha256": "bbd24682f5bef0257cc8fc761a1bd4a6525f00e7fcc48de64e42477bb7c6bd3f",
+      "source_sha256": "039d7dbb612872c55191618998cb1740a4c217cfcea1e51c3af4e258b5ba5713",
       "source": "src/recovered/classes/RadarClass/RadarClass_Render_Tracked_Objects_006324a0.cpp",
       "population": "population-4385",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -18852,8 +18971,8 @@
     {
       "entry": 6497824,
       "method": "00632620",
-      "symbol": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
-      "symbol_prefix": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
+      "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
+      "symbol_prefix": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -18866,7 +18985,7 @@
       "full_extent_bytes": 224,
       "full_extent_sha256": "9d58f7976725df468ad1970872e5294f173ef2e7511337ae73df4132bd653ed5",
       "relocations": [],
-      "source_sha256": "1f07b9fc130b36813c101784fc08f850e2092301edab4a56ca81f22c0b62df47",
+      "source_sha256": "01ca39114c31185480e5c852ee11d79d0d0f8c61f4373aaa1edcb5c97018f67a",
       "source": "src/recovered/classes/RadarClass/RadarClass_Radar_Pixel_00632620.cpp",
       "population": "population-4385",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -18878,8 +18997,8 @@
     {
       "entry": 6498544,
       "method": "006328f0",
-      "symbol": "?Unknown_006328F0@RadarClass@@QAEXABVCell@@@Z",
-      "symbol_prefix": "?Unknown_006328F0@RadarClass@@QAEXABVCell@@@Z",
+      "symbol": "?Radar_Cell@RadarClass@@QAEXABVCell@@@Z",
+      "symbol_prefix": "?Radar_Cell@RadarClass@@QAEXABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -18935,13 +19054,13 @@
         {
           "offset": 402,
           "kind": 20,
-          "symbol": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6497824,
           "addend": 0,
           "resolved": 4294966170
         }
       ],
-      "source_sha256": "3b800e9c94c3592570462fab581c87b34b87a142ce69130a7d60b74dd36694a3",
+      "source_sha256": "78e12e7d7ac4d43b2090f84eb7faf738a970cbf5ec58410852755956ada55e63",
       "source": "src/recovered/classes/RadarClass/RadarClass_Radar_Cell_006328f0.cpp",
       "population": "population-4385",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -19100,8 +19219,8 @@
     {
       "entry": 6492752,
       "method": "00631250",
-      "symbol": "?Unknown_00631250@RadarClass@@QAEXABVRect@@0@Z",
-      "symbol_prefix": "?Unknown_00631250@RadarClass@@QAEXABVRect@@0@Z",
+      "symbol": "?Fill_In_Background@RadarClass@@QAEXABVRect@@0@Z",
+      "symbol_prefix": "?Fill_In_Background@RadarClass@@QAEXABVRect@@0@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -19187,7 +19306,7 @@
           "resolved": 4294086832
         }
       ],
-      "source_sha256": "7713e0616fb6f8cf72255d9a2d22d77ca19cc1d468b0c38695ca77780c647f0d",
+      "source_sha256": "d0e22b5097654c390ac246509b7aa90bd7f4bd5cd700f182681747e978da3a50",
       "source": "src/recovered/classes/RadarClass/RadarClass_Fill_In_Background_00631250.cpp",
       "population": "population-4385",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -19199,8 +19318,8 @@
     {
       "entry": 6500352,
       "method": "00633000",
-      "symbol": "?Unknown_00633000@RadarClass@@QAEXH_N@Z",
-      "symbol_prefix": "?Unknown_00633000@RadarClass@@QAEXH_N@Z",
+      "symbol": "?Radar_Activate@RadarClass@@QAEXH_N@Z",
+      "symbol_prefix": "?Radar_Activate@RadarClass@@QAEXH_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -19240,7 +19359,7 @@
         {
           "offset": 145,
           "kind": 20,
-          "symbol": "?Unknown_00632F30@RadarClass@@QAEX_N0@Z",
+          "symbol": "?Set_Radar_State@RadarClass@@QAEX_N0@Z",
           "target": 6500144,
           "addend": 0,
           "resolved": 4294966939
@@ -19248,7 +19367,7 @@
         {
           "offset": 227,
           "kind": 20,
-          "symbol": "?Unknown_00632F30@RadarClass@@QAEX_N0@Z",
+          "symbol": "?Set_Radar_State@RadarClass@@QAEX_N0@Z",
           "target": 6500144,
           "addend": 0,
           "resolved": 4294966857
@@ -19256,13 +19375,13 @@
         {
           "offset": 254,
           "kind": 20,
-          "symbol": "?Unknown_00632F30@RadarClass@@QAEX_N0@Z",
+          "symbol": "?Set_Radar_State@RadarClass@@QAEX_N0@Z",
           "target": 6500144,
           "addend": 0,
           "resolved": 4294966830
         }
       ],
-      "source_sha256": "9ef1e376b2e335998c99106d612ca4b5bdcc03a94bee2a9f15eee2bbdc47a525",
+      "source_sha256": "e7349ec198ca3538f4581236a079cfc0eb31a4d83ba267739a5773e9576df8e4",
       "source": "src/recovered/classes/RadarClass/RadarClass_Radar_Activate_00633000.cpp",
       "population": "population-4385",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -19274,8 +19393,8 @@
     {
       "entry": 6493696,
       "method": "00631600",
-      "symbol": "?Unknown_00631600@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00631600@RadarClass@@QAEXXZ",
+      "symbol": "?Plot_Radar_Background@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Plot_Radar_Background@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -19331,13 +19450,13 @@
         {
           "offset": 518,
           "kind": 20,
-          "symbol": "?Unknown_00630B70@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z",
+          "symbol": "?Compute_Background@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z",
           "target": 6490992,
           "addend": 0,
           "resolved": 4294964070
         }
       ],
-      "source_sha256": "7f367a6e3cc416e14aae89a942207f56f40b977883ba0b4e4063c69a1e6ca7f3",
+      "source_sha256": "f328f510a6e437bbab250cb63c9b5f25bb9ce21be1d1f47e292265f593106437",
       "source": "src/recovered/classes/RadarClass/RadarClass_Plot_Radar_Background_00631600.cpp",
       "population": "population-4385",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -19375,8 +19494,8 @@
     {
       "entry": 6496256,
       "method": "00632000",
-      "symbol": "?Unknown_00632000@RadarClass@@QAEXABUPoint2D@@@Z",
-      "symbol_prefix": "?Unknown_00632000@RadarClass@@",
+      "symbol": "?Plot_Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
+      "symbol_prefix": "?Plot_Radar_Pixel@RadarClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -19702,7 +19821,7 @@
           "resolved": 10706356
         }
       ],
-      "source_sha256": "545dc5d301e35c92f827c1e6b27d987988c9a98a5c97f62ecf73ba25026342c6",
+      "source_sha256": "b915cb1a0338d9f0122d32844f0f000f48261a54a41ae123e8b90b2b596131de",
       "source": "src/recovered/classes/RadarClass/RadarClass_Plot_Radar_Pixel_00632000.cpp",
       "population": "population-4385",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -19714,8 +19833,8 @@
     {
       "entry": 6498976,
       "method": "00632aa0",
-      "symbol": "?Unknown_00632AA0@RadarClass@@QAEXABUPoint2D@@AAVCell@@AAPAVTechnoClass@@@Z",
-      "symbol_prefix": "?Unknown_00632AA0@RadarClass@@",
+      "symbol": "?Resolve_Radar_Point@RadarClass@@QAEXABUPoint2D@@AAVCell@@AAPAVTechnoClass@@@Z",
+      "symbol_prefix": "?Resolve_Radar_Point@RadarClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -19777,7 +19896,7 @@
           "resolved": 1361219
         }
       ],
-      "source_sha256": "eccdde2a2f63c2ca31bc603e65b257c80bf880b91cf77c39cc440837d5c69cbf",
+      "source_sha256": "cb8d82014585d918504159ab95c23d2ee5cd02e8b4c6966cc007a5a36e516332",
       "source": "src/recovered/classes/RadarClass/RadarClass_Resolve_Radar_Point_00632aa0.cpp",
       "population": "population-4385",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -20151,7 +20270,7 @@
           "resolved": 4294089389
         }
       ],
-      "source_sha256": "93c8a5c82cb06fd42b84657a5158a00f493ac0fc2af7bb58cedfa14adbeaf4c7",
+      "source_sha256": "a526bd0876465f875bf9fe9dd78b652b84df9dd93bad4952a120045ba746f664",
       "source": "src/recovered/classes/RadarClass/RadarClass_Set_Local_Dimensions_00630840.cpp",
       "population": "population-4385",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -20163,8 +20282,8 @@
     {
       "entry": 6500880,
       "method": "00633210",
-      "symbol": "?Unknown_00633210@RadarClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_00633210@RadarClass@@QAEXXZ",
+      "symbol": "?Render_Radar@RadarClass@@QAEXXZ",
+      "symbol_prefix": "?Render_Radar@RadarClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -20380,7 +20499,7 @@
         {
           "offset": 795,
           "kind": 20,
-          "symbol": "?Unknown_00631600@RadarClass@@QAEXXZ",
+          "symbol": "?Plot_Radar_Background@RadarClass@@QAEXXZ",
           "target": 6493696,
           "addend": 0,
           "resolved": 4294959313
@@ -20388,7 +20507,7 @@
         {
           "offset": 914,
           "kind": 20,
-          "symbol": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6497824,
           "addend": 0,
           "resolved": 4294963322
@@ -20396,7 +20515,7 @@
         {
           "offset": 970,
           "kind": 20,
-          "symbol": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6497824,
           "addend": 0,
           "resolved": 4294963266
@@ -20404,7 +20523,7 @@
         {
           "offset": 1039,
           "kind": 20,
-          "symbol": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6497824,
           "addend": 0,
           "resolved": 4294963197
@@ -20412,7 +20531,7 @@
         {
           "offset": 1095,
           "kind": 20,
-          "symbol": "?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6497824,
           "addend": 0,
           "resolved": 4294963141
@@ -20420,7 +20539,7 @@
         {
           "offset": 1540,
           "kind": 20,
-          "symbol": "?Unknown_00632000@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Plot_Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6496256,
           "addend": 0,
           "resolved": 4294961128
@@ -20428,7 +20547,7 @@
         {
           "offset": 1633,
           "kind": 20,
-          "symbol": "?Unknown_00632000@RadarClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Plot_Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z",
           "target": 6496256,
           "addend": 0,
           "resolved": 4294961035
@@ -20530,13 +20649,13 @@
           "resolved": 33586
         }
       ],
-      "source_sha256": "41d0d25f93fd89480f59fb7a32b597ebe9ca1d41a93e409e1136c211fe6fae8a",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00633210_00633210.cpp",
+      "source_sha256": "c5a3be3f976f99abf228bc01bf785fe143908f92dcdde9065bcc349ddabc968c",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Render_Radar_00633210.cpp",
       "population": "population-4385",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RadarClass_Unknown_00633210_00633210",
+      "semantic_name": "RadarClass_Render_Radar_00633210",
       "source_order": 233051
     },
     {
@@ -21177,8 +21296,8 @@
     {
       "entry": 6490992,
       "method": "00630b70",
-      "symbol": "?Unknown_00630B70@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z",
-      "symbol_prefix": "?Unknown_00630B70@RadarClass@@",
+      "symbol": "?Compute_Background@RadarClass@@QAE?AVRect@@ABV2@AAV2@_N@Z",
+      "symbol_prefix": "?Compute_Background@RadarClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -21202,7 +21321,7 @@
         {
           "offset": 205,
           "kind": 20,
-          "symbol": "?Unknown_00631250@RadarClass@@QAEXABVRect@@0@Z",
+          "symbol": "?Fill_In_Background@RadarClass@@QAEXABVRect@@0@Z",
           "target": 6492752,
           "addend": 0,
           "resolved": 1551
@@ -21496,13 +21615,13 @@
           "resolved": 1379881
         }
       ],
-      "source_sha256": "1fbd7967d79ca5af010299e1233fda7b98f4f8e8e55715d68f2c6d0056d5c1d0",
-      "source": "src/recovered/classes/RadarClass/RadarClass_Unknown_00630B70_00630b70.cpp",
+      "source_sha256": "3fceb3b9dff0860bc21f6060b709c5102741f1d51dbabcc3eb0691c2cd133aec",
+      "source": "src/recovered/classes/RadarClass/RadarClass_Compute_Background_00630b70.cpp",
       "population": "population-4385",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "RadarClass_Unknown_00630B70_00630b70",
+      "semantic_name": "RadarClass_Compute_Background_00630b70",
       "source_order": 233024
     },
     {
@@ -21621,7 +21740,7 @@
         {
           "offset": 232,
           "kind": 20,
-          "symbol": "?Unknown_00632AA0@RadarClass@@QAEXABUPoint2D@@AAVCell@@AAPAVTechnoClass@@@Z",
+          "symbol": "?Resolve_Radar_Point@RadarClass@@QAEXABUPoint2D@@AAVCell@@AAPAVTechnoClass@@@Z",
           "target": 6498976,
           "addend": 0,
           "resolved": 11140
@@ -21923,7 +22042,7 @@
           "resolved": 6488207
         }
       ],
-      "source_sha256": "2672009742d7bf6d48bbbdce4b6bf5ad54bb52f4df363b7d0ed6f4fd892f8f8d",
+      "source_sha256": "3626f7ff51f8c08c89a76f8f5aaf99fbbc17935838760a8f3a60ddad58311f73",
       "switch_data_bytes": 73,
       "source": "src/recovered/classes/RadarClass__RTacticalClass/RTacticalClass_Action_0062fe30.cpp",
       "population": "population-4385",

@@ -325,7 +325,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     Unknown_006e9fe0();
     Unknown_006e9520();
     unknown_session_a3d298.Loading_Progress_00672160(72);
-    Map.Unknown_00630A00();
+    Map.Compute_Radar_Image();
     UnitClass::Read_INI(ini);
     Service_Game_IO_00481fb0();
     unknown_session_a3d298.Loading_Progress_00672160(74);
@@ -381,6 +381,6 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
         Map.Unknown_005685F0();
     }
     RadarEventClass_unknown_delete_all_63c640();
-    Map.Unknown_00634030();
+    Map.Complete_Radar_Refresh();
     return true;
 }

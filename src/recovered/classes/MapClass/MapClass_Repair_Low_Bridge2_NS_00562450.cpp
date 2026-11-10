@@ -8,7 +8,7 @@
 // @ref ??GRectPoint2D@@QBE?AU0@ABU0@@Z=0047d040
 // @ref ??0Rect@@QAE@ABURectPoint2D@@HH@Z=00453e40
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?Unknown_00631570@RadarClass@@QAEXABVCell@@@Z=00631570
+// @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 unsigned int __fastcall Map_Random_Range_005797a0(unsigned int minimum, unsigned int maximum);
@@ -60,9 +60,9 @@ void MapClass::Repair_Low_Bridge2_NS(Cell const &cell)
             draw_rect = Union(draw_rect, Union(center->unknown_474eb0(), center->unknown_475100())) - unknown_rect_839630.Top_Left();
             unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
             if (old_overlay == 0xe8) {
-                Map.Unknown_00631570(cursor);
-                Map.Unknown_00631570(cursor + Cell(1, 0));
-                Map.Unknown_00631570(cursor - Cell(1, 0));
+                Map.Radar_Background(cursor);
+                Map.Radar_Background(cursor + Cell(1, 0));
+                Map.Radar_Background(cursor - Cell(1, 0));
             }
             center->Recalc_Attributes(-1);
             side1->Recalc_Attributes(-1);

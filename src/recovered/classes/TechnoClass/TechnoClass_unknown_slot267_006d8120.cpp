@@ -12,7 +12,7 @@
 #include "shared/rules.hpp"
 #include "shared/surface.hpp"
 // @ref ?Unknown_00568140@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
-// @ref ?Unknown_00631BA0@RadarClass@@QAE?AUPoint2D@@ABUCoordStruct@@_N@Z=00631ba0
+// @ref ?Coord_To_Radar_Pixel@RadarClass@@QAE?AUPoint2D@@ABUCoordStruct@@_N@Z=00631ba0
 // @ref ?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z=0055a740
 // @ref ?Unknown_0063B5B0@@YI_NHVCell@@@Z=0063b5b0
 // @ref ?unknown_radar_surface_8336f8@@3PAVSurface@@A=008336f8
@@ -26,7 +26,7 @@ void TechnoClass::unknown_slot267(bool arg1)
     if (Kind_Of() == 6 && !arg1) {
         point = unknown_1a0;
     } else {
-        point = Map.Unknown_00631BA0(CoordStruct(Coord), false);
+        point = Map.Coord_To_Radar_Pixel(CoordStruct(Coord), false);
     }
     int kind = 0;
     bool visible = unknown_slot190(&kind);
@@ -43,7 +43,7 @@ void TechnoClass::unknown_slot267(bool arg1)
     if (!rect.Is_Point_Within(point) && visible) {
         visible = Map.Unknown_0055A740(unknown_slot107(), true);
         if (visible) {
-            point = Map.Unknown_00631BA0(CoordStruct(Coord), true);
+            point = Map.Coord_To_Radar_Pixel(CoordStruct(Coord), true);
         }
     }
     if (unknown_37b && (point != unknown_1a0 || !visible)) {

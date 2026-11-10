@@ -34,7 +34,7 @@ void MapClass::Set_Bridge_End_State(Cell const &cell, bool damaged, bool recursi
     if (damaged != (bool)cellptr->IsBridgeDamaged) {
         cellptr->IsBridgeDamaged = damaged;
         int ittype = cellptr->IsoTileIndex;
-        Map.Unknown_00631570(cellptr->MapCoords);
+        Map.Radar_Background(cellptr->MapCoords);
         int facing = 0;
         for (int i = 0; i < 8; i++) {
             Cell adjacent = Adjacent_Cell(cell, facing);

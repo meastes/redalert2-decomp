@@ -16,7 +16,7 @@
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z=0055a660
 // @ref ?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z=0054a550
-// @ref ?Unknown_00631BA0@RadarClass@@QAE?AUPoint2D@@ABUCoordStruct@@_N@Z=00631ba0
+// @ref ?Coord_To_Radar_Pixel@RadarClass@@QAE?AUPoint2D@@ABUCoordStruct@@_N@Z=00631ba0
 // @ref ?unknown_slot53@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
 // @ref ?unknown_list_8322e0@@3VUnknownList8322E0@@A=008322e0
 // @ref ?Unknown_00436680@UnknownList8322E0@@QAEXPAVTechnoClass@@@Z=00436680
@@ -61,7 +61,7 @@ bool TechnoClass::unknown_slot53(CoordStruct const *coord, int dir)
             unknown_400 = unknown_slot168();
             here->unknown_476b20(Owner(), unknown_400);
         }
-        unknown_1a0 = Map.Unknown_00631BA0(CoordStruct(Coord), true);
+        unknown_1a0 = Map.Coord_To_Radar_Pixel(CoordStruct(Coord), true);
         if (unknown_114 == -1) {
             unknown_114 = House->unknown_130;
         }

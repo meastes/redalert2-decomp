@@ -27,7 +27,7 @@ void CellClass::Set_Under_Rail_Bridge(unsigned facing, bool state)
         OverlayData = 0;
         Destroy_Bridge();
     }
-    Map.Unknown_00631570(MapCoords);
+    Map.Radar_Background(MapCoords);
 
     CellClass *across1 = &Adjacent_Cell(facing);
     across1->unknown_2c = state ? this : 0;
@@ -43,7 +43,7 @@ void CellClass::Set_Under_Rail_Bridge(unsigned facing, bool state)
         across1->OverlayData = 0;
         across1->Destroy_Bridge();
     }
-    Map.Unknown_00631570(across1->MapCoords);
+    Map.Radar_Background(across1->MapCoords);
 
     CellClass *across2 = &across1->Adjacent_Cell(facing);
     across2->unknown_2c = state ? this : 0;
@@ -59,7 +59,7 @@ void CellClass::Set_Under_Rail_Bridge(unsigned facing, bool state)
         across2->OverlayData = 0;
         across2->Destroy_Bridge();
     }
-    Map.Unknown_00631570(across2->MapCoords);
+    Map.Radar_Background(across2->MapCoords);
 
     CellClass *across3 = &across2->Adjacent_Cell(facing);
     across3->IsBridgeSurface = state;
@@ -78,7 +78,7 @@ void CellClass::Set_Under_Rail_Bridge(unsigned facing, bool state)
         back->OverlayData = 0;
         back->Destroy_Bridge();
     }
-    Map.Unknown_00631570(back->MapCoords);
+    Map.Radar_Background(back->MapCoords);
 
     if (facing == 6) {
         CellClass *back2 = &back->Adjacent_Cell(2);

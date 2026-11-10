@@ -12,7 +12,7 @@ void MapClass::Unknown_0055A1F0()
         for (CellClass *cell = Map.Unknown_0055A490(); cell != 0; cell = Map.Unknown_0055A490()) {
             Map.unknown_slot39(cell->MapCoords, unknown_player_a35db4);
         }
-        Map.Unknown_00634030();
+        Map.Complete_Radar_Refresh();
         Map.Flag_To_Redraw(1);
     }
 }

@@ -11,7 +11,7 @@
 bool TActionClass::unknown_func_6b1650(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     Map.MapLocalSize = *(Rect const *)&unknown_34;
-    Map.Unknown_00631D40();
+    Map.Reset_Radar();
     Map.Unknown_0055A550();
     CellClass *walk = Map.Unknown_0055A490();
     while (walk != 0) {
@@ -20,7 +20,7 @@ bool TActionClass::unknown_func_6b1650(HouseClass *house, ObjectClass *object, T
     }
     Map.Unknown_0054EBD0();
     Map.Unknown_00563D40();
-    Map.Unknown_00634030();
+    Map.Complete_Radar_Refresh();
     for (int index = unknown_BuildingClass_list_00a40af8.Count() - 1; index >= 0; index--) {
         unknown_BuildingClass_list_00a40af8[index]->unknown_slot267(true);
     }

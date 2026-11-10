@@ -65,7 +65,7 @@ int RTacticalClass::Action(unsigned flags, unsigned &key)
     Cell cell(0, 0);
     bool shadow;
     ObjectClass *object = 0;
-    Map.Unknown_00632AA0(click, cell, (TechnoClass *&)object);
+    Map.Resolve_Radar_Point(click, cell, (TechnoClass *&)object);
     if (cell != RadarClass::unknown_cell_ab6330) {
         CoordStruct coord = Cell_Coord(cell);
         coord.Z = Map.Unknown_0055A280(coord);

@@ -24,7 +24,7 @@ void RadarClass::unknown_slot29(Rect const &size)
         if (Unknown_0055A660(cell, true)) {
             if (unknown_1494 == -1) unknown_1494 = iter->MapCoords.X + iter->MapCoords.Y;
             cell = iter->MapCoords;
-            Rect area = Unknown_00631400(cell);
+            Rect area = Cell_Radar_Rect(cell);
             if (area.X < unknown_1498.X) unknown_1498.X = area.X;
             else if (area.X + area.Width > unknown_1498.X + unknown_1498.Width) unknown_1498.Width = area.X + area.Width - unknown_1498.X;
             if (area.Y < unknown_1498.Y) unknown_1498.Y = area.Y;

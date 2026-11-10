@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_00633D30() (0x00633D30)
+// void RadarClass::Play_Movie() (0x00633D30)
 // The mode-3 (movie) update: redraws the frame when a full radar redraw is
 // due, steps the first queued movie and, when it is finished, deletes it and
 // starts the next one; with none left the radar returns to its previous mode
@@ -17,7 +17,7 @@
 // @ref ?Unknown_0065C310@@YAXXZ=0065c310
 // @ref ?unknown_set_frame_rate_0053d820@@YIXH@Z=0053d820
 
-void RadarClass::Unknown_00633D30()
+void RadarClass::Play_Movie()
 {
     MovieHandle *movie = 0;
     bool flag = false;
@@ -62,7 +62,7 @@ void RadarClass::Unknown_00633D30()
     if (!playing) {
         Debug_Printf("Radar: Movie done.\n");
         unknown_14a8 = 5;
-        Unknown_00633000(unknown_14b0, false);
+        Radar_Activate(unknown_14b0, false);
         Unknown_005A0AC0();
         flag = playing;
         unknown_14bc.Unknown_00406070();

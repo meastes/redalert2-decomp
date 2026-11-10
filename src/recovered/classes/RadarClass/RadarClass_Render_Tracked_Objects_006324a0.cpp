@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_006324A0() (0x006324A0)
+// void RadarClass::Render_Tracked_Objects() (0x006324A0)
 // TibSun's Render_Tracked_Objects: clears the pixel flags, then plots each
 // tracked object once per pixel in its house's bright colour (slot 48 objects
 // in the colour of the slot 51 house, LightGrey without one).
@@ -11,7 +11,7 @@
 #include "shared/crt_string.hpp"
 // @ref ??_C@_09LBMK@LightGrey?$AA@=007ebfc4
 
-void RadarClass::Unknown_006324A0()
+void RadarClass::Render_Tracked_Objects()
 {
     memset(unknown_1270, 0, unknown_1218->Get_Width() * unknown_1218->Get_Height() / 8 + 1);
     for (int b = 0; b < 256; b++) {

@@ -63,7 +63,7 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
             }
             CellClass *map_cell = &Map[cell];
             if (map_cell->OverlayIndex == 0x7e || (map_cell->OverlayIndex != -1 && OverlayTypes[map_cell->OverlayIndex]->IsVeins)) {
-                Map.Unknown_00631570(map_cell->MapCoords);
+                Map.Radar_Background(map_cell->MapCoords);
                 RectPoint2D origin(unknown_rect_839630.Top_Left());
                 unknown_tactical_83996c->Register_Dirty_Area(Union(map_cell->unknown_474eb0(), map_cell->unknown_475100()) - origin, false);
                 map_cell->OverlayIndex = -1;

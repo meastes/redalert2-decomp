@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_00631910(TechnoClass *techno, Point2D point) (0x00631910)
+// void RadarClass::Radar_Track(TechnoClass *techno, Point2D point) (0x00631910)
 // Starts tracking an object at a radar point: a point off the radar surface
 // is clamped into it (and kept as the object's +0x1A0) unless the object is
 // a building (kind 6), which is not tracked there at all. A new key goes to
@@ -6,10 +6,10 @@
 // others; then the point is queued for redraw (0x00632620).
 #include "shared/radar.hpp"
 #include "shared/techno.hpp"
-// @ref ?Unknown_00632620@RadarClass@@QAEXABUPoint2D@@@Z=00632620
+// @ref ?Radar_Pixel@RadarClass@@QAEXABUPoint2D@@@Z=00632620
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 
-void RadarClass::Unknown_00631910(TechnoClass *techno, Point2D point)
+void RadarClass::Radar_Track(TechnoClass *techno, Point2D point)
 {
     Rect area = unknown_1218->Get_Rect();
     if (!area.Is_Point_Within(point)) {
@@ -47,6 +47,6 @@ void RadarClass::Unknown_00631910(TechnoClass *techno, Point2D point)
     } else {
         bucket.Add(object);
     }
-    Unknown_00632620(point);
+    Radar_Pixel(point);
     unknown_14d5 = true;
 }

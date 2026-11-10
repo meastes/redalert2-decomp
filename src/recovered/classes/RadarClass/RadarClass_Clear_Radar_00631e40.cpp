@@ -1,9 +1,9 @@
-// void RadarClass::Unknown_00631E40() (0x00631E40)
+// void RadarClass::Clear_Radar() (0x00631E40)
 // Releases the radar's two surfaces, its buffers and its tracking table.
 #include "shared/radar.hpp"
 // @ref ??3@YAXPAX@Z=00781d3b
 
-void RadarClass::Unknown_00631E40()
+void RadarClass::Clear_Radar()
 {
     if (unknown_1218) {
         delete unknown_1218;

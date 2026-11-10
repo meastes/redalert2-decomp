@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// Rect RadarClass::Unknown_00630B70(Rect const &, Rect &, bool) (0x00630B70)
+// Rect RadarClass::Compute_Background(Rect const &, Rect &, bool) (0x00630B70)
 // TibSun radar.cpp RadarClass::Compute_Background: makes the background colour array (+0x1238)
 // and the radar drawing surface (+0x121C) on first use, fills in the colours of update_rect,
 // then box-filters the cell colours down into the surface pixels over the updated area.
@@ -12,7 +12,7 @@
 // @ref ??0Surface@@QAE@HH@Z=0049ed90
 // @ref ??_7XSurface@@6B@=0079af8c
 // @ref ??_7BSurface@@6B@=0079aef8
-// @ref ?Unknown_00631250@RadarClass@@QAEXABVRect@@0@Z=00631250
+// @ref ?Fill_In_Background@RadarClass@@QAEXABVRect@@0@Z=00631250
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc
 // @ref ?unknown_shift_852fc0@@3HA=00852fc0
@@ -39,7 +39,7 @@ static inline void Radar_Pixel_Bounds(Rect const &rect, float scale, int width, 
     bottom = RB_MIN((int)((rect.Y + rect.Height) * scale) + 1, height);
 }
 
-Rect RadarClass::Unknown_00630B70(Rect const &cell_rect, Rect &update_rect, bool fill_in)
+Rect RadarClass::Compute_Background(Rect const &cell_rect, Rect &update_rect, bool fill_in)
 {
     if (fill_in && !update_rect.Is_Valid()) {
         update_rect = cell_rect;
@@ -53,7 +53,7 @@ Rect RadarClass::Unknown_00630B70(Rect const &cell_rect, Rect &update_rect, bool
     }
 
     if (fill_in) {
-        Unknown_00631250(cell_rect, update_rect);
+        Fill_In_Background(cell_rect, update_rect);
     }
 
     int rect1_width = cell_rect.Width;

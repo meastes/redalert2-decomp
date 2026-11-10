@@ -7,7 +7,7 @@
 #include "shared/map_view.hpp"
 #include "shared/map_cell.hpp"
 #include "shared/map_techno.hpp"
-// @ref ?Unknown_006328F0@RadarClass@@QAEXABVCell@@@Z=006328f0
+// @ref ?Radar_Cell@RadarClass@@QAEXABVCell@@@Z=006328f0
 
 void MapClass::Unknown_00568520(CellClass *cell, HouseClass *house, bool arg3)
 {
@@ -17,7 +17,7 @@ void MapClass::Unknown_00568520(CellClass *cell, HouseClass *house, bool arg3)
         int height = cellptr->unknown_11b;
         if (height >= level - 2 && height <= level) {
             if (arg3) {
-                Map.Unknown_006328F0(cellptr->MapCoords);
+                Map.Radar_Cell(cellptr->MapCoords);
             }
             TechnoClass *techno = (TechnoClass *)cellptr->Unknown_00471660(Point2D(0, 0), 0, 0);
             if (techno != 0) {

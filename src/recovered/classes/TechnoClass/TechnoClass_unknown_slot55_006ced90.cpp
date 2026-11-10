@@ -81,7 +81,7 @@ void TechnoClass::unknown_slot55(TechnoClass *killer)
             killer->House->unknown_5364[Owner()]++;
         }
         if (Map.Unknown_006331A0()) {
-            Map.Unknown_006331E0(false);
+            Map.Redraw_Radar(false);
         }
         break;
     case 2:
@@ -103,7 +103,7 @@ void TechnoClass::unknown_slot55(TechnoClass *killer)
             killer->House->unknown_5310[Owner()]++;
         }
         if (Map.Unknown_006331A0()) {
-            Map.Unknown_006331E0(false);
+            Map.Redraw_Radar(false);
         }
         break;
     }

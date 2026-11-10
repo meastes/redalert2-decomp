@@ -10,8 +10,8 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?AI@DisplayClass@@UAEXAAHABUPoint2D@@@Z=00499a20
 // @ref ?Override_Mouse_Shape@MouseClass@@UAE_NH_N@Z=0059f250
-// @ref ?Unknown_00633000@RadarClass@@QAEXH_N@Z=00633000
-// @ref ?Unknown_00633C40@RadarClass@@QAEXXZ=00633c40
+// @ref ?Radar_Activate@RadarClass@@QAEXH_N@Z=00633000
+// @ref ?Update_Transmission@RadarClass@@QAEXXZ=00633c40
 // @ref ?Unknown_00716950@@YAXXZ=00716950
 // @ref ?unknown_int_a40d48@@3HA=00a40d48
 // @ref ?unknown_rect_ab6468@@3VRect@@A=00ab6468
@@ -46,11 +46,11 @@ void RadarClass::AI(int &input, Point2D const &xy)
     }
     if (unknown_int_af8fe8 > 0 && unknown_14ac != 3 && unknown_14ac != 4) {
         unknown_14b0 = unknown_14ac;
-        Unknown_00633000(4, false);
+        Radar_Activate(4, false);
         unknown_14b4 = 0;
     }
     if (unknown_14ac == 4) {
-        Unknown_00633C40();
+        Update_Transmission();
     } else {
         Unknown_00716950();
     }

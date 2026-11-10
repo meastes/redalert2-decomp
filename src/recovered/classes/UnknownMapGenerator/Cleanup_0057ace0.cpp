@@ -61,5 +61,5 @@ void UnknownMapGenerator::Cleanup_0057ace0()
     Map.Unknown_0054B2E0();
     Debug_Printf(unknown_rmg_radar_message);
     Map.RadarClass::unknown_slot29(Map.MapLocalSize);
-    Map.Unknown_00630A00();
+    Map.Compute_Radar_Image();
 }

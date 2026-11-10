@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_00631600() (0x00631600)
+// void RadarClass::Plot_Radar_Background() (0x00631600)
 // TibSun's Plot_Radar_Background: recolours the background (+0x1238) of every
 // cell waiting at +0x1220 that is inside the local radar, rebuilds the radar
 // image over the area it changed (0x00630B70) and keeps the union of those
@@ -9,13 +9,13 @@
 #include "shared/map_view.hpp"
 // @ref ?Unknown_004712c0@CellClass@@QAEXPAVRGBClass@@0@Z=004712c0
 
-void RadarClass::Unknown_00631600()
+void RadarClass::Plot_Radar_Background()
 {
     Rect r(0, 0, 0, 0);
     for (int i = unknown_1220.Count() - 1; i >= 0; i--) {
         Cell cell = unknown_1220[i];
         if (Unknown_0055A660(cell, true)) {
-            Rect update_rect = Unknown_00631400(cell);
+            Rect update_rect = Cell_Radar_Rect(cell);
             int x = update_rect.X;
             Rect cellgrid(0, 0, RadarCellWidth, RadarCellHeight);
             update_rect = Intersect(update_rect, cellgrid);
@@ -34,7 +34,7 @@ void RadarClass::Unknown_00631600()
                     BackgroundColors[idx + 1] = high;
                 }
                 Rect radarcellrect(0, 0, RadarCellWidth, RadarCellHeight);
-                Rect rr = Unknown_00630B70(radarcellrect, update_rect, false);
+                Rect rr = Compute_Background(radarcellrect, update_rect, false);
                 r = Union(r, rr);
             }
         }

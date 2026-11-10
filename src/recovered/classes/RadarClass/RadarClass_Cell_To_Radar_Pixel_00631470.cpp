@@ -1,11 +1,11 @@
-// Rect RadarClass::Unknown_00631470(Cell const &cell) (0x00631470)
+// Rect RadarClass::Cell_To_Radar_Pixel(Cell const &cell) (0x00631470)
 // A cell's place on the zoomed radar: the diamond position scaled by the
 // zoom at +0x1484 and offset by the radar rectangle's origin (+0x1498); one
 // pixel wider at the right edge.
 #include "shared/radar.hpp"
 // @ref __ftol=0077f110
 
-Rect RadarClass::Unknown_00631470(Cell const &cell)
+Rect RadarClass::Cell_To_Radar_Pixel(Cell const &cell)
 {
     int cx = cell.X;
     int cy = cell.Y;

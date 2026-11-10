@@ -1,4 +1,4 @@
-// void RadarClass::Unknown_00632F30(bool on, bool sound) (0x00632F30)
+// void RadarClass::Set_Radar_State(bool on, bool sound) (0x00632F30)
 // Switches the radar on (state 3, from off or deactivated) or off (state 2),
 // clearing its list at +0x14BC, with the rules' activate/deactivate sound.
 #include "shared/radar.hpp"
@@ -12,7 +12,7 @@
 
 // Not expanded into its callers in the original (kept out of line).
 #pragma auto_inline(off)
-void RadarClass::Unknown_00632F30(bool on, bool sound)
+void RadarClass::Set_Radar_State(bool on, bool sound)
 {
     if (on == true) {
         if (unknown_14a8 == 0 || unknown_14a8 == 2) {

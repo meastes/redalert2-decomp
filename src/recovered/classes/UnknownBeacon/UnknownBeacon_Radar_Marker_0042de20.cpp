@@ -16,7 +16,7 @@ void UnknownBeacon::Unknown_0042DE20(Surface *surface, Rect window, bool forced)
     int frame = Frame % unknown_object_84e8d0.unknown_7c;
     if (frame < unknown_object_84e8d0.unknown_78 + 1 || forced) {
         // The canonical radar interface reads only the X/Y prefix; Z is not read.
-        Point2D pixel = Map.Unknown_00631BA0((Point2D const &)unknown_coord, true);
+        Point2D pixel = Map.Coord_To_Radar_Pixel((Point2D const &)unknown_coord, true);
         if (frame < unknown_object_84e8d0.unknown_78 && !forced) {
             CC_Draw_Shape(surface, ColorSchemes[Houses[unknown_house]->ColorSchemeIndex]->Converter,
                 unknown_radar_beacon_shape_84e990, frame, pixel, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
@@ -29,7 +29,7 @@ void UnknownBeacon::Unknown_0042DE20(Surface *surface, Rect window, bool forced)
         for (int y = marker.Y; y < marker.Y + marker.Height; ++y) {
             for (int x = marker.X; x < marker.X + marker.Width; ++x) {
                 Point2D point(x, y);
-                Map.Unknown_00632620(point);
+                Map.Radar_Pixel(point);
             }
         }
     }

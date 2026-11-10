@@ -13,7 +13,7 @@
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
-// @ref ?Unknown_00631570@RadarClass@@QAEXABVCell@@@Z=00631570
+// @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
 // @ref ?Unknown_0054EBD0@MapClass@@QAEHXZ=0054ebd0
 // @ref ?Unknown_005687B0@MapClass@@QAEXABVRect@@@Z=005687b0
 
@@ -43,9 +43,9 @@ void MapClass::Damage_Low_Bridge2_Piece_NS_00560C10(Cell const &cell)
         draw_rect = Union(draw_rect, Union(center->unknown_474eb0(), center->unknown_475100())) - unknown_rect_839630.Top_Left();
         unknown_tactical_83996c->Register_Dirty_Area(draw_rect, false);
         if (next == 0xe8) {
-            Map.Unknown_00631570(cell);
-            Map.Unknown_00631570(cell + TPoint2D<short>(1, 0));
-            Map.Unknown_00631570(cell - Cell(1, 0));
+            Map.Radar_Background(cell);
+            Map.Radar_Background(cell + TPoint2D<short>(1, 0));
+            Map.Radar_Background(cell - Cell(1, 0));
         }
         center->Recalc_Attributes(-1);
         side1->Recalc_Attributes(-1);

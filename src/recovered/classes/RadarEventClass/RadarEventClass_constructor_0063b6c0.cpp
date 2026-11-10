@@ -13,7 +13,7 @@ RadarEventClass::RadarEventClass(RadarEventType type, Cell cell)
       ColorSpeed(Rules->RadarEventColorSpeed), Location(cell),
       DurationTimer(0), VisibilityTimer(0), IsRotating(true), IsVisible(true)
 {
-    Offset = Map.Unknown_00631470(cell).Top_Left() - Map.unknown_1498.Top_Left();
+    Offset = Map.Cell_To_Radar_Pixel(cell).Top_Left() - Map.unknown_1498.Top_Left();
     Radius = MAX(Offset.X, MAX(Offset.Y, MAX(Map.unknown_1498.Width - Offset.X, Map.unknown_1498.Height - Offset.Y)));
     RadarEventClass_unknown_remember_cell(cell);
     unknown_radar_events_ab67e8.Add(this);

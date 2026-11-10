@@ -4,10 +4,10 @@
 #include "shared/gscreen.hpp"
 #include "shared/techno_map.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_00631910@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z=00631910
+// @ref ?Radar_Track@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z=00631910
 
 void TechnoClass::unknown_slot264()
 {
-    Map.Unknown_00631910(this, unknown_1a0);
+    Map.Radar_Track(this, unknown_1a0);
     unknown_37b = true;
 }

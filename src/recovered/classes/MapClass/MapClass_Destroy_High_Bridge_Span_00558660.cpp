@@ -143,7 +143,7 @@ bool MapClass::Destroy_High_Bridge_Span_00558660(Cell const & cell, FacingType d
                 else behindptr->Set_Under_Bridge(FACING_W, false);
 				behindptr->OverlayData = 0;
 				behindptr->OverlayIndex = -1;
-				Map.Unknown_00631570(behindptr->MapCoords);
+				Map.Radar_Background(behindptr->MapCoords);
 
 				Destroy_High_Bridge_Span_00558660(cell, dir, dirty);
 				return(true);

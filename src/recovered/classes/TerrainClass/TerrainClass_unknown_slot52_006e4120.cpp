@@ -27,7 +27,7 @@ bool TerrainClass::unknown_slot52()
     if (unknown_a40774 == 0) {
         Map.Unknown_0054FB20(cell);
         Map.Unknown_00566340(cell);
-        ((RadarClass &)Map).Unknown_00631570(cell);
+        ((RadarClass &)Map).Radar_Background(cell);
     }
     return result;
 }

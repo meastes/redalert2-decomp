@@ -7,11 +7,11 @@
 extern MouseClass Map;
 ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name,int kind);
 
-void RadarClass::Unknown_00632000(Point2D const &point)
+void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 {
     if(!unknown_player_a35db4) return;
     if(!unknown_1218->Get_Rect().Is_Point_Within(point)) return;
-    Cell cell=Unknown_00631500(point);
+    Cell cell=Radar_Pixel_To_Cell(point);
     CoordStruct coord(cell.X*256+128,cell.Y*256+128,0);
     coord.Z=Map.Unknown_0055A280(coord);
     bool shadow=unknown_b263d8 && Map.Unknown_00568140(coord);

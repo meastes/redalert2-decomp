@@ -33,7 +33,7 @@ void MapClass::Set_Bridge_Middle_State(Cell const &cell, int new_tile, int match
     if (cellptr->IsoTileIndex != new_tile) {
         cellptr->IsoTileIndex = new_tile;
         cellptr->Recalc_Attributes(cell_height);
-        Map.Unknown_00631570(cellptr->MapCoords);
+        Map.Radar_Background(cellptr->MapCoords);
         int facing = 0;
         for (int i = 0; i < 8; i++) {
             Cell adjacent = AdjacentCell[facing & 7] + cell;

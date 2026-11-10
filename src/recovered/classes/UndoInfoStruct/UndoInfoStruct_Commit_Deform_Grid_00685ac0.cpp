@@ -19,7 +19,7 @@
 // @ref ?unknown_47be60@CellClass@@QAEXXZ=0047be60
 // @ref ?unknown_471d10@CellClass@@QAE_NXZ=00471d10
 // @ref ?Unknown_0056A870@MapClass@@QAEXH@Z=0056a870
-// @ref ?Unknown_00631570@RadarClass@@QAEXABVCell@@@Z=00631570
+// @ref ?Radar_Background@RadarClass@@QAEXABVCell@@@Z=00631570
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
 // @ref ??3@YAXPAX@Z=00781d3b
 
@@ -91,7 +91,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                     }
                 }
                 Cell current(cell->Fetch_CellID());
-                Map.Unknown_00631570(current);
+                Map.Radar_Background(current);
                 if (current.X < least.X) least.X = current.X;
                 if (current.X > most.X) most.X = current.X;
                 if (current.Y < least.Y) least.Y = current.Y;
@@ -111,7 +111,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
  }
                         cell->Recalc_Attributes(-1);
                         Cell id(cell->Fetch_CellID());
-                        Map.Unknown_00631570(id);
+                        Map.Radar_Background(id);
                         cell_bound = Union(cell_bound, cell->unknown_4752b0());
                         if (id.X < least.X) least.X = id.X;
                         if (id.X > most.X) most.X = id.X;

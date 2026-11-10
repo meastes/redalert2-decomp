@@ -142,7 +142,7 @@ bool MapClass::Destroy_Train_Bridge_Span_00553000(Cell const & cell, FacingType 
                 else behindptr->Set_Under_Rail_Bridge(FACING_W, false);
 				behindptr->OverlayData = 0;
 				behindptr->OverlayIndex = -1;
-				Map.Unknown_00631570(behindptr->MapCoords);
+				Map.Radar_Background(behindptr->MapCoords);
 
 				Destroy_Train_Bridge_Span_00553000(cell, dir, dirty);
 				return(true);

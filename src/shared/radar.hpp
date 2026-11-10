@@ -201,57 +201,57 @@ public:
     virtual void unknown_slot53();                      // slot 53 0x0062F310 Init_For_House (loads shapes)
 
     // Adds (true) or removes the two radar shape buttons (0x0062F2D0).
-    void Unknown_0062F2D0(bool add);
+    void Set_Buttons(bool add);
     // Sets +0x14A8 to 4 and +0x14F8 to 25 (0x0062F150; no direct callers).
-    void Unknown_0062F150();
+    void Queue_Next_Movie();
     // Empties the radar's tracking table at +0x1254 (0x00631E40).
-    void Unknown_00631E40();
-    bool Unknown_00630340(Cell const &cell);      // 0x00630340
+    void Clear_Radar();
+    bool Cell_On_Radar(Cell const &cell);      // 0x00630340
     // The radar pixels of a cell (0x00631400) and the same scaled by the
     // zoom at +0x1484 (0x00631470).
-    Rect Unknown_00631400(Cell const &cell);
-    Rect Unknown_00631470(Cell const &cell);
-    Cell Unknown_00631500(Point2D const &point);  // 0x00631500 the cell under a radar pixel
-    void Unknown_00631570(Cell const &cell);      // 0x00631570 adds a cell to redraw (+0x1220) once
-    void Unknown_00631910(TechnoClass *techno, Point2D point);   // 0x00631910 starts tracking an object (Techno/Building slot 264)
-    void Unknown_00631AF0(TechnoClass *techno, Point2D point);   // 0x00631AF0 stops tracking an object
+    Rect Cell_Radar_Rect(Cell const &cell);
+    Rect Cell_To_Radar_Pixel(Cell const &cell);
+    Cell Radar_Pixel_To_Cell(Point2D const &point);  // 0x00631500 the cell under a radar pixel
+    void Radar_Background(Cell const &cell);      // 0x00631570 adds a cell to redraw (+0x1220) once
+    void Radar_Track(TechnoClass *techno, Point2D point);   // 0x00631910 starts tracking an object (Techno/Building slot 264)
+    void Radar_Untrack(TechnoClass *techno, Point2D point);   // 0x00631AF0 stops tracking an object
     DynamicVectorClass<Point2D> *Unknown_006328D0(BuildingTypeClass *type);    // 0x006328D0 (the type's foundation offsets; BuildingClass slots 264-266)
-    void Unknown_00632620(Point2D const &point);        // 0x00632620
+    void Radar_Pixel(Point2D const &point);        // 0x00632620
     // The radar pixel of a lepton position (256 per cell), optionally kept
     // inside the radar rectangle (0x00631BA0).
-    Point2D Unknown_00631BA0(Point2D const &position, bool clip);
-    void Unknown_00632000(Point2D const &point);        // 0x00632000 draws one radar point
-    void Unknown_006324A0();                            // 0x006324A0
-    void Unknown_00634030();                            // 0x00634030 redraws the whole radar
-    void Unknown_00631ED0();                            // 0x00631ED0 builds the radar's table and surfaces (load path)
-    void Unknown_00631D40();                            // 0x00631D40 rebuilds the tracking table and refits the radar
-    void Unknown_00630A00();                            // 0x00630A00 rebuilds the radar surfaces
-    Rect Unknown_00630B70(Rect const &area, Rect &clip, bool flag);   // 0x00630B70 builds the radar image (+0x121C)
+    Point2D Coord_To_Radar_Pixel(Point2D const &position, bool clip);
+    void Plot_Radar_Pixel(Point2D const &point);        // 0x00632000 draws one radar point
+    void Render_Tracked_Objects();                            // 0x006324A0
+    void Complete_Radar_Refresh();                            // 0x00634030 redraws the whole radar
+    void Post_Load_Radar_Fixup();                            // 0x00631ED0 builds the radar's table and surfaces (load path)
+    void Reset_Radar();                            // 0x00631D40 rebuilds the tracking table and refits the radar
+    void Compute_Radar_Image();                            // 0x00630A00 rebuilds the radar surfaces
+    Rect Compute_Background(Rect const &area, Rect &clip, bool flag);   // 0x00630B70 builds the radar image (+0x121C)
     // Fills the background colours (+0x1238) of the cells inside an area of the
     // radar's cell grid (0x00631250; TibSun's Fill_In_Background).
-    void Unknown_00631250(Rect const &cell_rect, Rect const &update_rect);
+    void Fill_In_Background(Rect const &cell_rect, Rect const &update_rect);
     // Recolours the background of the cells waiting at +0x1220 and keeps the
     // radar area they changed (+0x1244) (0x00631600; TibSun's Plot_Radar_Background).
-    void Unknown_00631600();
-    void Unknown_006328F0(Cell const &cell);      // 0x006328F0 marks the radar pixels of a cell for redraw
-    void Unknown_00632700();                            // 0x00632700 builds the 22 dot shapes (+0x1274)
+    void Plot_Radar_Background();
+    void Radar_Cell(Cell const &cell);      // 0x006328F0 marks the radar pixels of a cell for redraw
+    void Compute_Foundations();                            // 0x00632700 builds the 22 dot shapes (+0x1274)
     // The object tracked at a radar pixel (0 if none) and the cell under it:
     // the object's cell, or the cell under the pixel (0x00632AA0; TibSun's
     // Resolve_Radar_Point).
-    void Unknown_00632AA0(Point2D const &pixel, Cell &cell, TechnoClass *&found);
-    void Unknown_00631C80();
+    void Resolve_Radar_Point(Point2D const &pixel, Cell &cell, TechnoClass *&found);
+    void Init_Radar();
     bool Unknown_006331A0();                            // 0x006331A0 (TechnoClass slot 55: the radar is up)
     bool Unknown_00633130();                            // 0x00633130 returns +0x14D4 (the radar is on)
     void Unknown_00633140(bool on);                     // 0x00633140 turns the radar on or off (+0x14D4; HouseClass 0x004F2E50)
-    void Unknown_006331E0(bool flag);                   // 0x006331E0 asks for a radar redraw (+0x14D6 complete)
-    void Unknown_00632F30(bool on, bool sound);         // 0x00632F30 activates (3) or deactivates (2) the radar
+    void Redraw_Radar(bool flag);                   // 0x006331E0 asks for a radar redraw (+0x14D6 complete)
+    void Set_Radar_State(bool on, bool sound);         // 0x00632F30 activates (3) or deactivates (2) the radar
     void Unknown_00634670(int arg1, int index, HouseClass *house);  // 0x00634670
     void Unknown_00634970(int arg1);                    // 0x00634970 runs 0x00634670 for each house                            // 0x00631C80 builds a new tracking table
-    void Unknown_00633000(int mode, bool sound);        // 0x00633000 switches the radar mode (+0x14AC)
-    void Unknown_00633C40();                            // 0x00633C40 the mode-4 (transmission) update
-    void Unknown_00633210();                            // 0x00633210 (Draw_It, every frame)
-    void Unknown_00630350();                            // 0x00630350 (Draw_It, mode 2)
-    void Unknown_00633D30();                            // 0x00633D30 (Draw_It, mode 3)
+    void Radar_Activate(int mode, bool sound);        // 0x00633000 switches the radar mode (+0x14AC)
+    void Update_Transmission();                            // 0x00633C40 the mode-4 (transmission) update
+    void Render_Radar();                            // 0x00633210 (Draw_It, every frame)
+    void Draw_Names();                            // 0x00630350 (Draw_It, mode 2)
+    void Play_Movie();                            // 0x00633D30 (Draw_It, mode 3)
 
     // Statics of Radar.CPP (guarded atexit destructors: static members).
     static RTacticalClass RadarButton;                  // 0x00AB6478

@@ -1,5 +1,5 @@
 // void BuildingClass::unknown_slot265() (0x00451860, slot 265)
-// Calls the map's Unknown_00631AF0 for each foundation offset of the type, then sets
+// Calls the map's Radar_Untrack for each foundation offset of the type, then sets
 // unknown_37b to false.
 #include "shared/building.hpp"
 #include "shared/gscreen.hpp"
@@ -11,7 +11,7 @@ void BuildingClass::unknown_slot265()
 {
     DynamicVectorClass<Point2D> *offsets = Map.Unknown_006328D0(Type);
     for (int index = 0; index < offsets->Count(); index++) {
-        Map.Unknown_00631AF0(this, Point_Sum((*offsets)[index], unknown_cell_1a0()));
+        Map.Radar_Untrack(this, Point_Sum((*offsets)[index], unknown_cell_1a0()));
     }
     unknown_37b = false;
 }

@@ -11,9 +11,9 @@
 #include "shared/palette.hpp"
 // @ref ?unknown_buffer_ac0ff0@@3PAXA=00ac0ff0
 // @ref ?RadarEventClass_unknown_all_63b910@@YAXXZ=0063b910
-// @ref ?Unknown_00633210@RadarClass@@QAEXXZ=00633210
-// @ref ?Unknown_00630350@RadarClass@@QAEXXZ=00630350
-// @ref ?Unknown_00633D30@RadarClass@@QAEXXZ=00633d30
+// @ref ?Render_Radar@RadarClass@@QAEXXZ=00633210
+// @ref ?Draw_Names@RadarClass@@QAEXXZ=00630350
+// @ref ?Play_Movie@RadarClass@@QAEXXZ=00633d30
 
 void RadarClass::Draw_It(bool complete)
 {
@@ -61,7 +61,7 @@ void RadarClass::Draw_It(bool complete)
     }
 
     RadarEventClass_unknown_all_63b910();
-    Unknown_00633210();
+    Render_Radar();
     if (unknown_14a8 == 1) {
         switch (unknown_14ac) {
         case 1:
@@ -73,16 +73,16 @@ void RadarClass::Draw_It(bool complete)
                 if (unknown_14d6) {
                     CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)RadarButton.unknown_28, 32,
                                   Point2D(unknown_11e0, unknown_11e8), unknown_surface_839948->Get_Rect(), 0, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
-                    Unknown_00630350();
+                    Draw_Names();
                     unknown_1208 = Rect(unknown_11e0, unknown_11e8, unknown_int_7add80, 110);
                 } else {
-                    Unknown_00630350();
+                    Draw_Names();
                     unknown_1208 = Rect(unknown_11ec, unknown_11f0, unknown_11fc, unknown_1200);
                 }
             }
             break;
         case 3:
-            Unknown_00633D30();
+            Play_Movie();
             break;
         default:
             if (unknown_14d5) {
