@@ -7,7 +7,7 @@ bool FootClass::unknown_slot189()
     if (!unknown_32d) {
         return false;
     }
-    if (unknown_slot32()->IsTrain || unknown_32c || unknown_slot91() == 4 || (Team != 0 && Team->Unknown_006BA990())) {
+    if (unknown_slot32()->IsTrain || unknown_32c || Get_Mission() == 4 || (Team != 0 && Team->Unknown_006BA990())) {
         return true;
     }
     return false;

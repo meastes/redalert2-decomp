@@ -65,9 +65,9 @@ bool __stdcall DriveLocomotionClass::Process()
                     return false;
                 }
             }
-            if ((LinkedTo->unknown_slot91() != 5 || Is_Moving()) && LinkedTo->unknown_slot91() != 16) {
+            if ((LinkedTo->Get_Mission() != 5 || Is_Moving()) && LinkedTo->Get_Mission() != 16) {
                 if (Is_Moving() || LinkedTo->unknown_4d0 != -1) {
-                    if (LinkedTo->unknown_32d && LinkedTo->unknown_slot91() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(unknown_34)) {
+                    if (LinkedTo->unknown_32d && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(unknown_34)) {
                         Stop_Driver();
                         if (unknown_4a4850()) {
                             return false;

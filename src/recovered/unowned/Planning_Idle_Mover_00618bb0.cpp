@@ -6,7 +6,7 @@
 
 bool __fastcall Planning_Idle_Mover(TechnoClass *techno)
 {
-    if (techno->unknown_slot91() == 0x0B) {
+    if (techno->Get_Mission() == 0x0B) {
         bool flagged;
         if (techno) {
             flagged = techno->AbstractFlags.IsFoot;

@@ -11,7 +11,7 @@ BulletClass *InfantryClass::unknown_slot221(AbstractClass *target, int arg2)
     BulletClass *result = TechnoClass::unknown_slot221(target, arg2);
     if (result != 0 && !unknown_76 && Type->Fraidycat && unknown_254 == 0) {
         unknown_5bc = 300;
-        if (unknown_slot91() == 1 || unknown_slot91() == 15) {
+        if (Get_Mission() == 1 || Get_Mission() == 15) {
             unknown_slot116(5, false);
         }
     }

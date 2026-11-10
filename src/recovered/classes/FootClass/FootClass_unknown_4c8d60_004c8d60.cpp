@@ -4,5 +4,5 @@
 
 bool FootClass::unknown_4c8d60()
 {
-    return unknown_slot91() == 7 ? true : false;
+    return Get_Mission() == 7 ? true : false;
 }

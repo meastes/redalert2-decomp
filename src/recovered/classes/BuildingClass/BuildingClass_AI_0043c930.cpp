@@ -30,7 +30,7 @@ inline CoordStruct::CoordStruct(Point2D const &point,int z)
 
 void BuildingClass::AI()
 {
-    bool working = unknown_slot195() && unknown_slot91() != 18 && unknown_slot91() != 19;
+    bool working = unknown_slot195() && Get_Mission() != 18 && Get_Mission() != 19;
     if (working != unknown_598) {
         if (Type->WorkingSound != -1 || Type->NotWorkingSound != -1) {
             unknown_584.Unknown_00405FE0();
@@ -105,7 +105,7 @@ void BuildingClass::AI()
         unknown_slot220(0);
     }
     Update_Animations_0044BD40();
-    if (unknown_slot122() && unknown_42c != 0 && unknown_slot117()) {
+    if (unknown_slot122() && unknown_42c != 0 && Commence()) {
         unknown_5ad = false;
     }
     TechnoClass::AI();
@@ -113,7 +113,7 @@ void BuildingClass::AI()
     if (unknown_254 == 0 && !Type->Hospital && !Type->Armory) {
         unknown_254 = Type->Ammo;
     }
-    if (unknown_slot122() && unknown_slot117()) {
+    if (unknown_slot122() && Commence()) {
         unknown_5ad = false;
     }
     if (unknown_430 != -1) {

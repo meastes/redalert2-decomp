@@ -136,15 +136,15 @@ public:
     virtual bool unknown_slot154();                             // slot 154 0x004CA6A0
     virtual int unknown_slot177();                              // slot 177 0x004C9A10 (ILocomotion::Z_Gradient)
     virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);    // slot 77 0x004C69F0
-    virtual int unknown_slot126();                              // slot 126 0x004C44C0
-    virtual int unknown_slot130();                              // slot 130 0x004C5900
-    virtual int unknown_slot137();                              // slot 137 0x004C8D70 (MissionClass's)
+    virtual int Do_MISSION_ATTACK();                              // slot 126 0x004C44C0
+    virtual int Do_MISSION_GUARD_AREA();                              // slot 130 0x004C5900
+    virtual int Do_MISSION_UNLOAD();                              // slot 137 0x004C8D70 (MissionClass's)
     virtual bool unknown_slot202();                             // slot 202 0x004CD080 (timer +0x58C running)
     virtual void unknown_slot216(int arg1);                              // slot 216 (TechnoClass pure; FootClass defines it)
     virtual AbstractClass *unknown_slot219(int arg1, CoordStruct const *coord, bool arg3);  // slot 219 0x004C8420
     virtual void unknown_slot259(int arg1);                     // slot 259 0x004C8020
-    virtual void unknown_slot119(int mission, AbstractClass *target, AbstractClass *destination);  // slot 119 0x004C7AC0
-    virtual bool unknown_slot120();                             // slot 120 0x004C7B00
+    virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);  // slot 119 0x004C7AC0
+    virtual bool Restore_Mission();                             // slot 120 0x004C7B00
     virtual bool unknown_slot189();                             // slot 189 0x004C8CA0
     virtual void unknown_slot210();                             // slot 210 0x004C4C00
     virtual bool unknown_slot279();                             // slot 279 0x004CDD70
@@ -174,15 +174,15 @@ public:
     virtual void unknown_slot99(int path, char waypoint);  // slot 99 0x004CB060
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);  // slot 101 0x004C86E0
     virtual int unknown_slot102(UnknownCellClass *from, int facing, int *level, bool *ramp, UnknownCellClass *to);  // slot 102 0x004C8730
-    virtual int unknown_slot127();  // slot 127 0x004C41E0
-    virtual int unknown_slot128();  // slot 128 0x004C4370
-    virtual int unknown_slot129();  // slot 129 0x004C4660
-    virtual int unknown_slot132();  // slot 132 0x004C48E0
-    virtual int unknown_slot133();  // slot 133 0x004C38D0
-    virtual int unknown_slot134();  // slot 134 0x004C8D80
-    virtual int unknown_slot138();  // slot 138 0x004C7E10
-    virtual int unknown_slot144();  // slot 144 0x004CC800
-    virtual int unknown_slot145();  // slot 145 0x004C3950
+    virtual int Do_MISSION_CAPTURE();  // slot 127 0x004C41E0
+    virtual int Do_MISSION_EATEN();  // slot 128 0x004C4370
+    virtual int Do_MISSION_GUARD();  // slot 129 0x004C4660
+    virtual int Do_MISSION_HUNT();  // slot 132 0x004C48E0
+    virtual int Do_MISSION_MOVE();  // slot 133 0x004C38D0
+    virtual int Do_MISSION_RETREAT();  // slot 134 0x004C8D80
+    virtual int Do_MISSION_ENTER();  // slot 138 0x004C7E10
+    virtual int Do_MISSION_RESCUE();  // slot 144 0x004CC800
+    virtual int Do_MISSION_PATROL();  // slot 145 0x004C3950
     virtual bool unknown_slot169(AbstractClass *target);  // slot 169 0x004CA350
     virtual bool unknown_slot171(CoordStruct const &coord);  // slot 171 0x004C2EF0
     virtual int unknown_slot176();  // slot 176 0x004C9930

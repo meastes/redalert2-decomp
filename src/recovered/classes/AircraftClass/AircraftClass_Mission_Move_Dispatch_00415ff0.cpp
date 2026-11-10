@@ -2,7 +2,7 @@
 #include "shared/aircraft.hpp"
 // @ref ?unknown_416010@AircraftClass@@QAEHXZ=00416010
 // @ref ?Move_Carryall_00416670@AircraftClass@@QAEHXZ=00416670
-int AircraftClass::unknown_slot133()
+int AircraftClass::Do_MISSION_MOVE()
 {
     if (Type->Carryall) return Move_Carryall_00416670();
     return unknown_416010();

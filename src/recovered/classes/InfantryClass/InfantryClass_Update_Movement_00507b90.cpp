@@ -12,7 +12,7 @@
 extern "C" GUID const CLSID_JumpjetLocomotionClass;
 void InfantryClass::Update_Movement_00507b90()
 {
-    if (unknown_slot91() == 2 && !Locomotor.Checked()->Is_Moving()) {
+    if (Get_Mission() == 2 && !Locomotor.Checked()->Is_Moving()) {
         if (unknown_494 == 0) {
             unknown_slot261(false, true);
         } else {
@@ -29,7 +29,7 @@ void InfantryClass::Update_Movement_00507b90()
             Cell current_cell = Coord_Cell(unknown_slot19(0));
             if (!Map.Unknown_0054F7C0(current_cell, target_cell, Type->MovementZone,
             unknown_slot46(0), (unsigned char)((Map[target_cell].unknown_140 >> 8) & 1), unknown_slot189())
-            && !Type->Infiltrate && unknown_slot91() != 7) {
+            && !Type->Infiltrate && Get_Mission() != 7) {
                 Assign_Destination(0, true);
             }
         }

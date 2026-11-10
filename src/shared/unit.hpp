@@ -108,15 +108,15 @@ public:
     virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x006FC1F0
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00703040
     virtual bool unknown_slot122();                                   // slot 122 0x00707A40
-    virtual int unknown_slot126();                                    // slot 126 0x00707F50
-    virtual int unknown_slot129();                                    // slot 129 0x00704440
-    virtual int unknown_slot130();                                    // slot 130 0x00707940
-    virtual int unknown_slot131();                                    // slot 131 0x007025A0
-    virtual int unknown_slot132();                                    // slot 132 0x00702F60
-    virtual int unknown_slot133();                                    // slot 133 0x00704680
-    virtual int unknown_slot137();                                    // slot 137 0x00701580
-    virtual int unknown_slot141();                                    // slot 141 0x00704B10
-    virtual int unknown_slot145();                                    // slot 145 0x007046E0
+    virtual int Do_MISSION_ATTACK();                                    // slot 126 0x00707F50
+    virtual int Do_MISSION_GUARD();                                    // slot 129 0x00704440
+    virtual int Do_MISSION_GUARD_AREA();                                    // slot 130 0x00707940
+    virtual int Do_MISSION_HARVEST();                                    // slot 131 0x007025A0
+    virtual int Do_MISSION_HUNT();                                    // slot 132 0x00702F60
+    virtual int Do_MISSION_MOVE();                                    // slot 133 0x00704680
+    virtual int Do_MISSION_UNLOAD();                                    // slot 137 0x00701580
+    virtual int Do_MISSION_REPAIR();                                    // slot 141 0x00704B10
+    virtual int Do_MISSION_PATROL();                                    // slot 145 0x007046E0
     virtual bool unknown_slot159();                                   // slot 159 0x00707950
     virtual UnknownFacingDir unknown_slot162()                        // slot 162 0x0070A2E0 (inline: the turret or body facing)
     {

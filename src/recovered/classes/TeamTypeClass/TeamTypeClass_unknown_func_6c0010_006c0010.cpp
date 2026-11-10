@@ -9,14 +9,14 @@
 #include "shared/foot.hpp"
 #include "shared/mission.hpp"
 #include "shared/techno_type.hpp"
-// @ref ?unknown_594db0@MissionClass@@SI_NH@Z=00594db0
+// @ref ?Is_Recruitable_Mission@MissionClass@@SI_NH@Z=00594db0
 
 bool TeamTypeClass::unknown_func_6c0010(FootClass *foot, HouseClass *house)
 {
     if ((foot->Team == 0 || this != foot->Team->Class) && foot->Strength > 0 && foot->unknown_7d && !foot->unknown_76
         && !foot->In_Radio_Contact() && foot->House == house) {
-        if (foot->unknown_slot91() != -1) {
-            if (!MissionClass::unknown_594db0(foot->unknown_slot91())) {
+        if (foot->Get_Mission() != -1) {
+            if (!MissionClass::Is_Recruitable_Mission(foot->Get_Mission())) {
                 return false;
             }
         }

@@ -50,7 +50,7 @@ bool TechnoClass::unknown_slot53(CoordStruct const *coord, int dir)
         unknown_slot261(true, true);
         unknown_190 = false;
         if (unknown_slot122()) {
-            unknown_slot117();
+            Commence();
         }
         unknown_378 = (char)(coord->Z / Rules->unknown_1324) * 10;
         if (!Map.Unknown_0055A660(Coord_Cell(*coord), true)) {

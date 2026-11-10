@@ -29,7 +29,7 @@ void UnitClass::unknown_slot93(int reason)
     }
     if (reason==2) {
         TechnoClass *contact=Contact(0);
-        if ((unknown_slot91()==7 || unknown_slot91()==25) && contact && contact->Kind_Of()==6) {
+        if ((Get_Mission()==7 || Get_Mission()==25) && contact && contact->Kind_Of()==6) {
             CoordStruct center=Cell_Coord(Coord_Cell(Center_Coord()));
             CoordStruct contact_center=Cell_Coord(Coord_Cell(contact->unknown_slot41((int)this)));
             if (Coord_Cell(center)==Coord_Cell(contact_center)) {
@@ -49,7 +49,7 @@ void UnitClass::unknown_slot93(int reason)
                 }
             }
         }
-        if (unknown_370 && contact && contact->Kind_Of()==6 && unknown_slot91()==7) {
+        if (unknown_370 && contact && contact->Kind_Of()==6 && Get_Mission()==7) {
             if (contact==Map[cell-Cell(0,1)].unknown_4717b0()) {
                 switch (unknown_slot150(21,contact)) {
                 case 1: case 5: break;
@@ -66,7 +66,7 @@ void UnitClass::unknown_slot93(int reason)
             }
         }
         if (transport==this) transport=Unknown_0040DC20(transport->unknown_30);
-        if (unknown_slot91()==7 && transport && transport!=this) {
+        if (Get_Mission()==7 && transport && transport!=this) {
             if (unknown_slot104()==transport->unknown_slot104() && Is_Radio_Contact(transport) && transport->unknown_slot32()->Passengers>0) {
                 if (unknown_slot150(15,transport)==1) {
                     unknown_6d6e50(0);
@@ -82,7 +82,7 @@ void UnitClass::unknown_slot93(int reason)
                 return;
             }
         }
-        if (unknown_370 && (unknown_slot91()!=7 || (Unknown_0040DC20(unknown_494) && Contact(0)!=unknown_494)) && unknown_slot91()!=16) {
+        if (unknown_370 && (Get_Mission()!=7 || (Unknown_0040DC20(unknown_494) && Contact(0)!=unknown_494)) && Get_Mission()!=16) {
             bool arrived=unknown_494==0;
             if (unknown_494 && unknown_494->Kind_Of()==11 && ((CellClass *)unknown_494)->MapCoords==Coord_Cell(Position_Coord_004f3f40())) arrived=true;
             if (!Map[Position_Coord_004f3f40()].unknown_4717b0() || arrived) {
@@ -103,7 +103,7 @@ void UnitClass::unknown_slot93(int reason)
                                     if (where!=unknown_geometry_k) {
                                         unknown_slot116(2,false);
                                         Assign_Destination(&Map[where],true);
-                                        unknown_slot117();
+                                        Commence();
                                         unknown_6d6e50(&Map[where]);
                                         unknown_slot116(11,false);
                                     } else unknown_6d6e50(0);
@@ -125,7 +125,7 @@ void UnitClass::unknown_slot93(int reason)
             }
             if (Map[Position_Coord_004f3f40()].unknown_4717b0() && !unknown_494 && unknown_49c.Count()==0 && unknown_478.Count()==0) unknown_slot87(unknown_geometry_l,true,true);
         }
-        if (unknown_slot91()==5 && !Map.Unknown_0054AB00(Position_Coord_004f3f40()) && unknown_32d) {
+        if (Get_Mission()==5 && !Map.Unknown_0054AB00(Position_Coord_004f3f40()) && unknown_32d) {
             if (Team) Team->TargetNotAssigned=true;
             unknown_slot210();
             unknown_slot60();
@@ -134,12 +134,12 @@ void UnitClass::unknown_slot93(int reason)
         unknown_slot263(false,false,false,0);
         unknown_slot262(false,false,false,0);
         Map.Unknown_0054A550(Position_Coord_004f3f40(),0,unknown_1f4+3,0);
-        if (!unknown_5b9 && unknown_slot122()) unknown_slot117();
-        if (Type->Harvester && unknown_slot91()!=16 && Mission!=7 && MissionQueue!=7 && !unknown_5b9) {
+        if (!unknown_5b9 && unknown_slot122()) Commence();
+        if (Type->Harvester && Get_Mission()!=16 && Mission!=7 && MissionQueue!=7 && !unknown_5b9) {
             RadioClass *radio=Contact(0);
             if (radio && radio->What_Am_I()==6 && ((BuildingClass *)radio)->Type->Refinery) unknown_slot149(3);
         }
-        if (Type->Weeder && unknown_slot91()!=16 && Mission!=7 && MissionQueue!=7 && !unknown_5b9) {
+        if (Type->Weeder && Get_Mission()!=16 && Mission!=7 && MissionQueue!=7 && !unknown_5b9) {
             RadioClass *radio=Contact(0);
             if (radio && radio->What_Am_I()==6 && ((BuildingClass *)radio)->Type->Weeder) unknown_slot149(3);
         }

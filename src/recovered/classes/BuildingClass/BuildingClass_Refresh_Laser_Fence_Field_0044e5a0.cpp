@@ -14,7 +14,7 @@ void BuildingClass::unknown_44e5a0(int force)
         int range=Type->GuardRange.Value>>8;
         if(range<=1) range=1;
         bool powered=false;
-        if(unknown_slot195() && unknown_5ba && unknown_slot91()!=19 && unknown_slot91()!=18)
+        if(unknown_slot195() && unknown_5ba && Get_Mission()!=19 && Get_Mission()!=18)
             powered=true;
         unsigned facing=0;
         int remaining=4;
@@ -42,7 +42,7 @@ void BuildingClass::unknown_44e5a0(int force)
                     if(axis==2) { first_frame=8; middle_frame=8; last_frame=8; }
                     bool connected=false;
                     if(powered && post && post->unknown_slot195() && post->unknown_5ba
-                       && post->unknown_slot91()!=19 && post->unknown_slot91()!=18) {
+                       && post->Get_Mission()!=19 && post->Get_Mission()!=18) {
                         connected=true;
                         switch(facing) {
                         case 0: first_frame=5; middle_frame=4; last_frame=6; break;

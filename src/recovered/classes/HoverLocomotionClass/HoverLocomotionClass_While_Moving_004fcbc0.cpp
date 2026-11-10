@@ -189,11 +189,11 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             }
             if (Map[c].unknown_471830(Point2D(0, 0), false) != 0) {
                 if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[c].unknown_471830(Point2D(0, 0), false))) {
-                    LinkedTo->unknown_slot119(1, Map[c].unknown_471830(Point2D(0, 0), false), 0);
+                    LinkedTo->Override_Mission(1, Map[c].unknown_471830(Point2D(0, 0), false), 0);
                 }
             } else {
                 if (Map[c].OverlayIndex != -1 && OverlayTypes[Map[c].OverlayIndex]->Wall) {
-                    LinkedTo->unknown_slot119(1, &Map[c], 0);
+                    LinkedTo->Override_Mission(1, &Map[c], 0);
                 }
             }
             break;

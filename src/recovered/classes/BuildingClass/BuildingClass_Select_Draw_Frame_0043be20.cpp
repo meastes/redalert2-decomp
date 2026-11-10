@@ -12,7 +12,7 @@ int BuildingClass::unknown_43be20()
     if(type->FirestormWall) return unknown_4f0;
     if(unknown_42c==0) {
         if(type->Gate) frame=(unsigned int)type->AnimFrames[0].unknown_04+(unsigned int)type->AnimFrames[0].unknown_00-frame-1;
-        if(unknown_slot91()==19) {
+        if(Get_Mission()==19) {
             frame=(unsigned int)Type->AnimFrames[unknown_42c].unknown_04+(unsigned int)Type->AnimFrames[unknown_42c].unknown_00-frame-1;
         }
     } else {

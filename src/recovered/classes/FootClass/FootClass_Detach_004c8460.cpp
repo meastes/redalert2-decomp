@@ -49,7 +49,7 @@ void FootClass::Detach(AbstractClass *target, bool all)
                 forget = false;
             }
         }
-        if (unknown_slot91() == 8 && Kind_Of() == 15 && ((InfantryClass *)this)->Type->Occupier && unknown_494 != 0
+        if (Get_Mission() == 8 && Kind_Of() == 15 && ((InfantryClass *)this)->Type->Occupier && unknown_494 != 0
             && unknown_494->AbstractFlags.IsObject && ((ObjectClass *)unknown_494)->unknown_7d && ((ObjectClass *)unknown_494)->Strength > 0) {
         } else if (forget) {
             unknown_490 = 0;

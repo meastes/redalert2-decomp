@@ -79,7 +79,7 @@ void UnitClass::AI()
             }
         }
     }
-    if (unknown_slot122()) unknown_slot117();
+    if (unknown_slot122()) Commence();
     FootClass::AI();
     if (Type->CanDisguise && !Type->PermaDisguise) Unknown_00709EC0();
     if (unknown_325) {
@@ -105,10 +105,10 @@ void UnitClass::AI()
         }
     }
     if (unknown_7d) {
-        if (unknown_slot91() != 10) unknown_5ba = false;
+        if (Get_Mission() != 10) unknown_5ba = false;
         unknown_6fbc90();
         unknown_6fb890();
-        if (unknown_slot91() == 5) {
+        if (Get_Mission() == 5) {
             CoordStruct position = Coord;
             if (!Map.Unknown_0054AB00(position) && unknown_32d) {
                 if (Team) Team->TargetNotAssigned = true;
@@ -119,10 +119,10 @@ void UnitClass::AI()
         }
         if (Type->SmallVisceroid || Type->LargeVisceroid) unknown_6fbf40();
         unknown_slot239();
-        if (Type->Passengers > 0 && !unknown_2a8.unknown_496b50() && unknown_slot91() != 16 && unknown_slot149(17) != 1) {
+        if (Type->Passengers > 0 && !unknown_2a8.unknown_496b50() && Get_Mission() != 16 && unknown_slot149(17) != 1) {
             unknown_2a8.unknown_496bc0(Type->DeployTime);
         }
-        if (unknown_slot122()) unknown_slot117();
+        if (unknown_slot122()) Commence();
         if (unknown_1b8 == 2 && unknown_5b4 != -1) unknown_slot61();
         if ((Frame & 15) == 0 && (Mission == 11 || Mission == 5) && !House->unknown_func_4f52f0() && MissionQueue == -1 && Strength < Type->MaxStrength && (!unknown_1b0 || Mission == 11) && !Type->Harvester && !Type->Weeder) {
             BuildingClass *repair_building = Unknown_00450F90(House, this);

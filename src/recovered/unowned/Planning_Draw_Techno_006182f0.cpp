@@ -16,7 +16,7 @@ bool __fastcall Planning_Idle_Mover(TechnoClass *techno);
 
 inline bool Planning_Current_Order(TechnoClass *techno, bool has_nodes)
 {
-    return techno->unknown_slot91() != 5 && !Planning_Idle_Mover(techno) && (has_nodes || techno->unknown_77);
+    return techno->Get_Mission() != 5 && !Planning_Idle_Mover(techno) && (has_nodes || techno->unknown_77);
 }
 
 void __fastcall Planning_Draw_Techno(TechnoClass *techno)
@@ -51,7 +51,7 @@ void __fastcall Planning_Draw_Techno(TechnoClass *techno)
         Planning_Draw_Thick_Line(start, end, 3, color);
         int action = -1;
         if (!alternate || secondary) {
-            if (techno->unknown_slot91() == 11) action = PlanningEventTargets::Unknown_006F6760();
+            if (techno->Get_Mission() == 11) action = PlanningEventTargets::Unknown_006F6760();
         } else if (techno->unknown_slot272() == 29) action = PlanningEventTargets::Unknown_006F6750();
         if (action != -1) Planning_Draw_Midpoint(start, end, color);
         Planning_Draw_Dot(end, color);

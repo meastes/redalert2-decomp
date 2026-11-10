@@ -108,7 +108,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	/*
 	 * If tethered to a carryall while sleeping, untether before moving.
 	 */
-	if (target != 0 && In_Radio_Contact() && unknown_slot91() == 0 && unknown_370 && Contact(0)->Kind_Of() == 2) {
+	if (target != 0 && In_Radio_Contact() && Get_Mission() == 0 && unknown_370 && Contact(0)->Kind_Of() == 2) {
 		AircraftClass * a = (AircraftClass *)Contact(0);
 		if (a->Type->Carryall) {
 			a->Assign_Destination(0, true);
@@ -118,7 +118,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	}
 
 	BuildingClass * b=Unit_Dynamic_Cast<BuildingClass,6>(target);
-    if(unknown_slot91()==16 || MissionQueue==16) {
+    if(Get_Mission()==16 || MissionQueue==16) {
         Cell unload_cell=unknown_slot104()+unknown_unload_offset_851a88;
         BuildingClass *refinery=(BuildingClass *)Map[unload_cell].unknown_4717b0();
         if(refinery && Type->Harvester) {
@@ -131,7 +131,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	/*
 	**	Handle entry logic here.
 	*/
-	if (unknown_slot91() == 7 || MissionQueue == 7) {
+	if (Get_Mission() == 7 || MissionQueue == 7) {
 
 		/*
 		**	If not already in radio contact (presumed with the transport), then
@@ -307,7 +307,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
                             piggy.Checked()->End_Piggyback(&Locomotor);
                         } else {
                             Locomotor.Checked()->Stop_Moving();
-                            unknown_slot118(-1);
+                            Set_Mission(-1);
                             unknown_slot116(7,false);
                             unknown_598=true;
                             unknown_190=true;
@@ -440,10 +440,10 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	 */
 	if (b != 0 && Type->Dock.Count() > 0 && Unit_Is_Dock(Type, b->Type) &&
 		Kind_Of() == 1 && (Type->Harvester || Type->Weeder) &&
-		unknown_slot91() != 16) {
+		Get_Mission() != 16) {
 
 		if (Contact(0) != b && !b->In_Radio_Contact() && unknown_slot150(2, b) == 1 &&
-			unknown_slot91() != 7 && unknown_slot91() != 10) {
+			Get_Mission() != 7 && Get_Mission() != 10) {
 			unknown_slot116(7, false);
 			target = 0;
 		} else {

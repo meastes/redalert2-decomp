@@ -4,7 +4,7 @@
 
 void FootClass::unknown_slot288()
 {
-    if (unknown_slot91() == 15) {
+    if (Get_Mission() == 15) {
         unknown_slot220(0);
         Assign_Destination(0, true);
     }

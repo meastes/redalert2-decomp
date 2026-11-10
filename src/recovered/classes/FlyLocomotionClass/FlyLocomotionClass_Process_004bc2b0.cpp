@@ -16,7 +16,7 @@ bool __stdcall FlyLocomotionClass::Process()
         unknown_38 = LinkedTo->unknown_slot32()->Flight_Level();
     }
     if (LinkedTo->Strength > 0 && !unknown_51 && !unknown_50 && LinkedTo->unknown_slot122()) {
-        LinkedTo->unknown_slot117();
+        LinkedTo->Commence();
     }
     unknown_4bdd10();
     unknown_4bcd50();

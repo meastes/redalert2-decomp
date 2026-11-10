@@ -10,7 +10,7 @@ bool InfantryClass::unknown_5070e0()
     if (Team != 0 && unknown_32d) {
         Team->TargetNotAssigned = true;
     }
-    if (Team == 0 && unknown_slot91() == 5) {
+    if (Team == 0 && Get_Mission() == 5) {
         CoordStruct coord = Coord;
         if (!Map.Unknown_0054AB00(coord)) {
             unknown_slot210();

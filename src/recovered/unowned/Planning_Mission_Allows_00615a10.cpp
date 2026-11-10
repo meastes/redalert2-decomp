@@ -24,7 +24,7 @@ fits:
 bool __fastcall Planning_Mission_Allows(TechnoClass *techno)
 {
     if (techno) {
-        int mission = techno->unknown_slot91();
+        int mission = techno->Get_Mission();
         if (mission == 5) {
             return true;
         }

@@ -6,7 +6,7 @@
 
 CoordStruct FootClass::unknown_slot241()
 {
-    if (unknown_slot91() != 1) {
+    if (Get_Mission() != 1) {
         if (unknown_490 != 0) {
             return unknown_490->unknown_slot22();
         }

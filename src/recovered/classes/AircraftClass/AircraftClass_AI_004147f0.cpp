@@ -79,7 +79,7 @@ void AircraftClass::AI()
         unknown_slot220(0);
         unknown_slot261(false, true);
     }
-    if (unknown_slot122()) unknown_slot117();
+    if (unknown_slot122()) Commence();
     if (unknown_5b0 && Mission != 1) {
         unknown_5b0 = false;
         --unknown_254;

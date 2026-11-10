@@ -215,9 +215,9 @@ void __fastcall Create_Units_00660320(bool official)
                     techno->unknown_118.Unknown_00713550(true);
                 }
                 if (!house->unknown_func_4f52f0()) {
-                    techno->unknown_slot118(11);
+                    techno->Set_Mission(11);
                 } else {
-                    techno->unknown_slot118(5);
+                    techno->Set_Mission(5);
                 }
             }
         }

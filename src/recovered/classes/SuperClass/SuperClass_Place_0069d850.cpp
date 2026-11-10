@@ -336,7 +336,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                         coord.Z = Map.Unknown_0055A280(coord);
                         CoordStruct sound = coord;
                         site->unknown_slot116(0x16, false);
-                        site->unknown_slot117();
+                        site->Commence();
                         House->NukeDest = cell;
                         *(int *)((char *)site + 0x4CC) = Type->Type;   // TODO: BuildingClass +0x4CC (building_class.hpp unknown_4cc; the BuildingClass in scope differs)
                         Voc_Static_Add(Rules->unknown_16c, sound, 0);

@@ -9,7 +9,7 @@
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref _unknown_id_source_a3d290=00a3d290
 // @ref __real@8@4008e100000000000000=0079b608
-int BuildingClass::unknown_slot143()
+int BuildingClass::Do_MISSION_OPEN()
 {
     CoordStruct closing_position;
     if (Type->Gate) {

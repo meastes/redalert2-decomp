@@ -405,8 +405,8 @@ public:
     virtual bool unknown_slot113();                             // slot 113 0x006D6E10
     virtual bool unknown_slot114();                             // slot 114 0x006D6E30
     virtual ConvertClass *unknown_slot115();                              // slot 115 0x006D1480
-    virtual void unknown_slot119(int mission, AbstractClass *target, AbstractClass *destination);  // slot 119 0x006CD840
-    virtual bool unknown_slot120();                             // slot 120 0x006CD880
+    virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);  // slot 119 0x006CD840
+    virtual bool Restore_Mission();                             // slot 120 0x006CD880
 
     // New virtuals (slots 153-279); names, return types and parameters are
     // placeholders from the bodies (ret N) unless refined.

@@ -60,9 +60,9 @@ int InfantryClass::unknown_slot101(CellClass *cell,int direction,int height,Cell
             if (unknown_588 && unknown_588->unknown_28) {
                 if (occupant->unknown_slot104()==unknown_588->unknown_28->unknown_slot104()) return 0;
             }
-            if (unknown_slot91()==7 || unknown_slot91()==8 || unknown_slot91()==9 ||
-                (unknown_slot91()==17 && Type->C4) ||
-                ((unknown_slot91()==11 || unknown_slot91()==25 || unknown_slot91()==5) && Type->Engineer)) {
+            if (Get_Mission()==7 || Get_Mission()==8 || Get_Mission()==9 ||
+                (Get_Mission()==17 && Type->C4) ||
+                ((Get_Mission()==11 || Get_Mission()==25 || Get_Mission()==5) && Type->Engineer)) {
                 if (occupant==unknown_494 || reinterpret_cast<AbstractClass*>(&Map[CoordStruct(occupant->Coord)])==unknown_494 || occupant==unknown_228) {
                     if (!occupant->unknown_slot83()) {
                         float cost=Ground[cell->unknown_ec].Cost[Type->SpeedType];
@@ -80,7 +80,7 @@ int InfantryClass::unknown_slot101(CellClass *cell,int direction,int height,Cell
                     }
                 }
             }
-            if (unknown_slot91()==11 && unknown_1b0==occupant && unknown_1b0->Kind_Of()==1) return 7;
+            if (Get_Mission()==11 && unknown_1b0==occupant && unknown_1b0->Kind_Of()==1) return 7;
             if (Type->VehicleThief && occupant->unknown_slot31() && unknown_494==occupant && !occupant->unknown_slot32()->IsTrain) return 0;
             if (occupant->Kind_Of()==6) {
                 BuildingClass *building=static_cast<BuildingClass*>(occupant);
@@ -105,7 +105,7 @@ int InfantryClass::unknown_slot101(CellClass *cell,int direction,int height,Cell
                     continue;
                 }
             }
-            if (unknown_slot91()==7 && occupant==unknown_494 && unknown_370) return 0;
+            if (Get_Mission()==7 && occupant==unknown_494 && unknown_370) return 0;
             if (House->Is_Ally(static_cast<TechnoClass*>(occupant)) || unknown_a40774) {
                 switch (occupant->Kind_Of()) {
                 case 1: {

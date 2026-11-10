@@ -36,7 +36,7 @@ UnknownComPtr<ILocomotion,&unknown_uuid_ILocomotion_7ce600>::operator=(UnknownCo
     return *this;
 }
 
-int BuildingClass::unknown_slot137()
+int BuildingClass::Do_MISSION_UNLOAD()
 {
     if(unknown_554.Count()>0) unknown_452f50(0);
     if(Type->WeaponsFactory) {
@@ -49,7 +49,7 @@ int BuildingClass::unknown_slot137()
         switch(unknown_a8) {
         case 0: {
             TechnoClass *unit=Contact(0);
-            if(unit) { unit->unknown_slot116(5,false); unit->unknown_slot117(); }
+            if(unit) { unit->unknown_slot116(5,false); unit->Commence(); }
             unknown_2a8.unknown_496b70(Type->DeployTime);
             unknown_a8=Type->Naval ? 4 : 1;
             unknown_75=true;

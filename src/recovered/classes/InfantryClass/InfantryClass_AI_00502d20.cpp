@@ -49,10 +49,10 @@ void InfantryClass::AI()
         return;
     }
     if (unknown_slot122()) {
-        if (unknown_slot91() == -1 && MissionQueue == -1) {
+        if (Get_Mission() == -1 && MissionQueue == -1) {
             unknown_slot261(false, true);
         }
-        unknown_slot117();
+        Commence();
     }
     if (Strength <= 0 && !Is_Busy_Sequence_00509710(Sequence)) {
         Strength = 1;
@@ -61,7 +61,7 @@ void InfantryClass::AI()
     if (!unknown_7d) {
         return;
     }
-    if (unknown_slot91() == 5 || unknown_slot91() == 11) {
+    if (Get_Mission() == 5 || Get_Mission() == 11) {
         CoordStruct coord = Coord;
         BuildingClass *building = Map_Cell(coord)->Unknown_004717B0();
         if (building != 0 && !building->Type->InvisibleInGame) {
@@ -99,10 +99,10 @@ scatter_done:
         return;
     }
     if (unknown_slot122()) {
-        if (unknown_slot91() == -1 && MissionQueue == -1) {
+        if (Get_Mission() == -1 && MissionQueue == -1) {
             unknown_slot261(false, true);
         }
-        unknown_slot117();
+        Commence();
     }
     unknown_506f30();
     if (unknown_494 == 0 && !unknown_5c3 && unknown_5c2 && unknown_5b0.Value() == 0) {

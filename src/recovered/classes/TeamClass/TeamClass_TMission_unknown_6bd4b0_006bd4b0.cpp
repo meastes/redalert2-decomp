@@ -22,7 +22,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
         if (unknown_func_6bdd80(unit) && (unit->unknown_579 || unit->Kind_Of() == 2)) {
             if (unit->Cargo.Object != 0) {
                 finished = false;
-                if (Map[unit->Center_Coord()].unknown_4717b0() == 0 && unit->unknown_slot91() != 0x10) {
+                if (Map[unit->Center_Coord()].unknown_4717b0() == 0 && unit->Get_Mission() != 0x10) {
                     unit->Assign_Destination(0, true);
                     unit->unknown_slot220(0);
                     unit->unknown_slot116(0x10, false);
@@ -53,7 +53,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
                 unit->Assign_Destination(unit->unknown_1b0, true);
                 unit->unknown_slot116(2, false);
                 if (unit->unknown_slot122()) {
-                    unit->unknown_slot117();
+                    unit->Commence();
                 }
                 unit->unknown_6d6e50(0);
             } else if (mode == 3 || mode == 2) {

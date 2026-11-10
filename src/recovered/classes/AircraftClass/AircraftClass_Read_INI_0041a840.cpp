@@ -65,7 +65,7 @@ void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
                         aircraft->unknown_70 = aircraft->Strength;
                         if (unknown_game_mode_a3d298 == 0 || aircraft->House->Unknown_004F52F0()) {
                             aircraft->unknown_slot116(mission, false);
-                            aircraft->unknown_slot117();
+                            aircraft->Commence();
                         } else aircraft->unknown_slot261(false, true);
                     } else {
                         delete aircraft;

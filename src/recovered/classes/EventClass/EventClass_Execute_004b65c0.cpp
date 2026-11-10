@@ -325,7 +325,7 @@ void EventClass::Execute()
             }
             if (techno->Kind_Of() == 1 && ((UnitClass *)techno)->Type->Harvester && (techno->Mission == 10 || techno->Mission == 12)) {
                 techno->unknown_slot116(5, false);
-                techno->unknown_slot117();
+                techno->Commence();
             }
         }
         break;

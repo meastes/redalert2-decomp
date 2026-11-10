@@ -72,7 +72,7 @@ void __fastcall Planning_Draw_Techno_618c00(TechnoClass *techno)
         Planning_Draw_Dashed_Thick_Line(start, end, 3, dim);
         int frame = -1;
         if (!alternate || secondary) {
-            if (techno->unknown_slot91() == 11) frame = PlanningEventTargets::Unknown_006F6760();
+            if (techno->Get_Mission() == 11) frame = PlanningEventTargets::Unknown_006F6760();
         } else if (techno->unknown_slot272() == 29) frame = PlanningEventTargets::Unknown_006F6750();
         if (frame != -1) Planning_Draw_Midpoint_Shape(start, end, dim, color, frame);
         Planning_Fill_Dot(end, dim);

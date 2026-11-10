@@ -4,7 +4,7 @@
 
 bool TechnoClass::unknown_slot155()
 {
-    if (unknown_slot91() && unknown_slot91() != 6 && unknown_slot91() != 16 && !unknown_slot32()->IsTrain) {
+    if (Get_Mission() && Get_Mission() != 6 && Get_Mission() != 16 && !unknown_slot32()->IsTrain) {
         return true;
     }
     return false;

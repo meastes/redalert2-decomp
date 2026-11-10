@@ -113,7 +113,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
     }
     int shakes=Type->unknown_slot33(House)/Rules->unknown_4e8;
     if (shakes>0) ((Leaf_482e00 *)shakes)->get();
-    if (unknown_slot91()==19 || Type->Explodes) {
+    if (Get_Mission()==19 || Type->Explodes) {
         unknown_420=CDTimerClass<FrameTimerClass>(0);
         StageClass::Set_Rate(0);
     } else unknown_420=CDTimerClass<FrameTimerClass>(8);

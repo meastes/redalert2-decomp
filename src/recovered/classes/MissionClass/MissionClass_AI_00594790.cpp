@@ -13,91 +13,91 @@ void MissionClass::AI()
     if (unknown_7d && Timer.Value() == 0 && Strength > 0) {
         switch (Mission) {
         case 0:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot123());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_SLEEP());
             break;
         case 23:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot124());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_HARMLESS());
             break;
         case 7:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot138());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_ENTER());
             break;
         case 18:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot139());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_CONSTRUCTION());
             break;
         case 19:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot140());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_DECONSTRUCTION());
             break;
         case 1:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot126());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_ATTACK());
             break;
         case 4:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot134());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_RETREAT());
             break;
         case 10:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot131());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_HARVEST());
             break;
         case 11:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot130());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_GUARD_AREA());
             break;
         case 12:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot135());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_RETURN());
             break;
         case 13:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot136());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_STOP());
             break;
         case 14:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot125());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_AMBUSH());
             break;
         case 16:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot137());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_UNLOAD());
             break;
         case 20:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot141());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_REPAIR());
             break;
         case 24:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot143());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_OPEN());
             break;
         case 22:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot142());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_MISSILE());
             break;
         case 5:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot129());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_GUARD());
             break;
         case 8:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot127());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_CAPTURE());
             break;
         case 9:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot128());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_EATEN());
             break;
         case 2:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot133());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_MOVE());
             break;
         case 15:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot132());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_HUNT());
             break;
         case 21:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot144());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_RESCUE());
             break;
         case 25:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot145());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_PATROL());
             break;
         case 26:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot146());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_PARADROP_APPROACH());
             break;
         case 27:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot147());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_PARADROP_OVERFLY());
             break;
         case 28:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot148());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_WAIT());
             break;
         case 6:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot129());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_GUARD());
             break;
         case 17:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot127());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_CAPTURE());
             break;
         default:
-            Timer = CDTimerClass<FrameTimerClass>(unknown_slot123());
+            Timer = CDTimerClass<FrameTimerClass>(Do_MISSION_SLEEP());
             break;
         }
     }

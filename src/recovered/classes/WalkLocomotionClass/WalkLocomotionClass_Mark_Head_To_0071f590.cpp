@@ -20,8 +20,8 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
     bool any_spot = false;
 
     if (coord != unknown_geometry_l) {
-        if (LinkedTo->unknown_slot91() == 8 || LinkedTo->unknown_slot91() == 9 || LinkedTo->unknown_slot91() == 7
-            || LinkedTo->unknown_slot91() == 11 || LinkedTo->unknown_slot91() == 25) {
+        if (LinkedTo->Get_Mission() == 8 || LinkedTo->Get_Mission() == 9 || LinkedTo->Get_Mission() == 7
+            || LinkedTo->Get_Mission() == 11 || LinkedTo->Get_Mission() == 25) {
             ObjectClass *unit = (ObjectClass *)LinkedTo->unknown_494;
             if (unit != 0 && unit->Kind_Of() == 1 && unit->unknown_slot104() == coord.As_Cell()) {
                 any_spot = true;

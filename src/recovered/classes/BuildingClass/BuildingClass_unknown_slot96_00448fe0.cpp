@@ -20,9 +20,9 @@ bool BuildingClass::unknown_slot96(HouseClass *house)
             House->unknown_18d = true;
         }
         House->unknown_144 = true;
-        if (!In_Radio_Contact() && House->Unknown_004F52F0() && unknown_slot91() != 0x12 && MissionQueue != 0x12) {
+        if (!In_Radio_Contact() && House->Unknown_004F52F0() && Get_Mission() != 0x12 && MissionQueue != 0x12) {
             unknown_slot282(false);
-        } else if (!In_Radio_Contact() && !House->Unknown_004F52F0() && house == House && unknown_slot91() != 0x12) {
+        } else if (!In_Radio_Contact() && !House->Unknown_004F52F0() && house == House && Get_Mission() != 0x12) {
             unknown_slot282(false);
         }
         return true;

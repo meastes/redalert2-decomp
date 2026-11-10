@@ -62,7 +62,7 @@ void FlyLocomotionClass::unknown_4bcd50()
     if (here!=LinkedTo->unknown_458 && Is_Moving_Now()) {
         unknown_tracker_839ea0.Unknown_00413600(LinkedTo,LinkedTo->unknown_458,here);
     }
-    if (LinkedTo->unknown_slot91()==7 && unknown_5c) {
+    if (LinkedTo->Get_Mission()==7 && unknown_5c) {
         unknown_5c=false;
     }
     CoordStruct coord;
@@ -113,7 +113,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             return;
         }
     } else {
-        if (LinkedTo->Strength>0 && LinkedTo->unknown_494!=0 && LinkedTo->unknown_slot91()==5 && LinkedTo->MissionQueue==-1 && !unknown_18) {
+        if (LinkedTo->Strength>0 && LinkedTo->unknown_494!=0 && LinkedTo->Get_Mission()==5 && LinkedTo->MissionQueue==-1 && !unknown_18) {
             LinkedTo->unknown_slot116(2,false);
         }
     }
@@ -217,7 +217,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         }
         LinkedTo->unknown_slot109(bridge_height+current_height);
         if (LinkedTo->Strength>0 && unknown_1c!=unknown_geometry_l) {
-            if (LinkedTo->unknown_slot91()!=7 || LinkedTo->unknown_494==0
+            if (LinkedTo->Get_Mission()!=7 || LinkedTo->unknown_494==0
                 || LinkedTo->unknown_494->Kind_Of()!=6
                 || !((UnknownFlyBuilding *)LinkedTo->unknown_494)->Type->Helipad) {
                 Cell target=Cell(unknown_1c);

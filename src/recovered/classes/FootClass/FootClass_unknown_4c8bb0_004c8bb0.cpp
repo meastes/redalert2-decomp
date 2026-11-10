@@ -20,7 +20,7 @@ void FootClass::unknown_4c8bb0(AbstractClass *target)
             }
             unknown_49c.Add(target);
         }
-        if (unknown_494 == 0 && unknown_slot91() == 5) {
+        if (unknown_494 == 0 && Get_Mission() == 5) {
             TechnoClass *contact = Contact(0);
             if (contact == 0 || contact->Kind_Of() != 6 || !((BuildingClass *)contact)->Type->WeaponsFactory) {
                 unknown_slot261(0, true);

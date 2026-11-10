@@ -21,10 +21,10 @@ void __stdcall JumpjetLocomotionClass::Move_To(CoordStruct to)
         }
         CoordStruct coord = unknown_5310a0(CoordStruct(cell));
         if (coord != unknown_geometry_l) {
-            if (LinkedTo->Kind_Of() != 1 || (!LinkedTo->unknown_slot32()->BalloonHover && LinkedTo->MissionQueue != 7 && LinkedTo->unknown_slot91() != 7)) {
+            if (LinkedTo->Kind_Of() != 1 || (!LinkedTo->unknown_slot32()->BalloonHover && LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7)) {
                 unknown_3c = coord;
             }
-            if (LinkedTo->MissionQueue != 7 && LinkedTo->unknown_slot91() != 7) {
+            if (LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
                 LinkedTo->unknown_494 = &Map[unknown_3c];
             }
             unknown_48 = true;

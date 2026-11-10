@@ -66,7 +66,7 @@ void BuildingClass::Update_Animations_0044BD40()
     bool advanced=StageClass::Graphic_Logic();
     bool finished=false;
     Refresh_Building_Frame_0044BD40(this);
-    if(Type->UnitRepair && unknown_slot91()!=20 && (unknown_454[8] || unknown_454[11]) && !Type->Naval) {
+    if(Type->UnitRepair && Get_Mission()!=20 && (unknown_454[8] || unknown_454[11]) && !Type->Naval) {
         Start_Condition_Animation_0044BD40(this,12,!(Health_Ratio()>Rules->unknown_1368));
         unknown_44cfd0(8);
         unknown_44cfd0(11);
@@ -96,7 +96,7 @@ void BuildingClass::Update_Animations_0044BD40()
             else if(unknown_5c0>=0)Start_Condition_Animation_0044BD40(this,3,!(Health_Ratio()>Rules->unknown_1368));
         }
     }
-    if(Type->SuperWeapon!=-1 && unknown_slot91()!=18 && unknown_slot91()!=19 && !(Type->ChargedAnimTime>unknown_charge_limit_0079d14c)) {
+    if(Type->SuperWeapon!=-1 && Get_Mission()!=18 && Get_Mission()!=19 && !(Type->ChargedAnimTime>unknown_charge_limit_0079d14c)) {
         for(int index=0;index<House->Supers.Count();++index) {
             SuperClass *super=House->Supers[index];
             int super_type=super->Type->Type;
@@ -113,11 +113,11 @@ void BuildingClass::Update_Animations_0044BD40()
             }
         }
     }
-    if(!unknown_slot232() || unknown_slot91()==18 || unknown_slot91()==19) {
+    if(!unknown_slot232() || Get_Mission()==18 || Get_Mission()==19) {
         if(advanced) {
             BuildingTriple *state=&Type->AnimFrames[unknown_42c];
             if(StageClass::Stage==state->unknown_04-1+state->unknown_00 ||
-               (!unknown_1b0 && Type->UndeploysInto && unknown_slot91()==19 && StageClass::Stage==23))unknown_5ad=true;
+               (!unknown_1b0 && Type->UndeploysInto && Get_Mission()==19 && StageClass::Stage==23))unknown_5ad=true;
             if(StageClass::Stage>=state->unknown_04+state->unknown_00)finished=true;
             unknown_75=true;
         }else if(unknown_42c==-1 || StageClass::Rate==0)unknown_5ad=true;

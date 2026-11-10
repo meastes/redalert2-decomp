@@ -380,7 +380,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 if (arrived) {
                     LinkedTo->unknown_4cd9b0();
                     LinkedTo->Path[0] = -1;
-                    if (LinkedTo->unknown_slot91() == 2 && LinkedTo->unknown_slot261(false, true)) {
+                    if (LinkedTo->Get_Mission() == 2 && LinkedTo->unknown_slot261(false, true)) {
                         return true;
                     }
                 }

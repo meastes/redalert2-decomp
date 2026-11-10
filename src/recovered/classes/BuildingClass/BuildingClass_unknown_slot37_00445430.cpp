@@ -7,7 +7,7 @@
 bool BuildingClass::unknown_slot37()
 {
     if (!Type->Unsellable) {
-        if (unknown_5b9 && unknown_42c && unknown_slot91() != 19 && unknown_slot91() != 18) {
+        if (unknown_5b9 && unknown_42c && Get_Mission() != 19 && Get_Mission() != 18) {
             return true;
         }
         if (Type->FirestormWall && !House->unknown_142) {

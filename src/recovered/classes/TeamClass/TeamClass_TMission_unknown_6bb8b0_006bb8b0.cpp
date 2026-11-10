@@ -22,7 +22,7 @@ void TeamClass::TMission_unknown_6bb8b0(ScriptMissionClass const &mission, bool 
             bool infantry = unit->Kind_Of() == 0xF && ((InfantryClass *)unit)->unknown_5090a0();
             if (mcv) {
                 finished = false;
-                if (unit->unknown_slot91() != 0x10) {
+                if (unit->Get_Mission() != 0x10) {
                     unit->Mark(0);
                     if (!((UnitClass *)unit)->Type->DeploysInto->unknown_slot42(unit->unknown_slot104(), 0)) {
                         ((UnitClass *)unit)->Type->DeploysInto->unknown_458b10(unit->unknown_slot104(), unit->House);
@@ -34,7 +34,7 @@ void TeamClass::TMission_unknown_6bb8b0(ScriptMissionClass const &mission, bool 
                         unit->unknown_slot116(0x10, false);
                     }
                 }
-            } else if ((deployer || infantry) && unit->unknown_slot91() != 0x10) {
+            } else if ((deployer || infantry) && unit->Get_Mission() != 0x10) {
                 unit->unknown_slot116(0x10, false);
             }
         }

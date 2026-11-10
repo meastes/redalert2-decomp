@@ -35,13 +35,13 @@ int FootClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&par
         if (In_Radio_Contact() && unknown_494 == Contact(0)) {
             Assign_Destination(0, true);
         }
-        if (unknown_slot91() == 0) {
+        if (Get_Mission() == 0) {
             unknown_slot116(5, false);
             if (unknown_slot122()) {
-                unknown_slot117();
+                Commence();
             }
         }
-        if (unknown_slot91() == 7) {
+        if (Get_Mission() == 7) {
             unknown_slot116(5, false);
         }
         if (!unknown_599 && unknown_494 == 0) {
@@ -61,17 +61,17 @@ int FootClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&par
                 return 20;
             }
         }
-        if (unknown_slot91() == 5 && MissionQueue == -1) {
+        if (Get_Mission() == 5 && MissionQueue == -1) {
             unknown_slot116(2, false);
         }
         if (MissionQueue == 7 && unknown_slot122()) {
-            unknown_slot117();
+            Commence();
         }
         Assign_Destination(param, true);
         Timer = 0;
         return 1;
     case 17:
-        if (unknown_slot91() == 7 || MissionQueue == 7) {
+        if (Get_Mission() == 7 || MissionQueue == 7) {
             TechnoClass::unknown_slot95(from, message, param);
             return 1;
         }

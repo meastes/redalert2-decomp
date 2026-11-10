@@ -41,7 +41,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
                     (int)(unit->Health_Ratio() * 256.0),
                     unit->unknown_slot104().X, unit->unknown_slot104().Y,
                     direction,
-                    MissionClass::Name_From_Mission(unit->unknown_slot91()), tag,
+                    MissionClass::Name_From_Mission(unit->Get_Mission()), tag,
                     unit->unknown_118.unknown_713580(), unit->unknown_1ac, unit->unknown_79, linked,
                     unit->unknown_379, unit->unknown_37a);
             ini.Put_String(unknown_units_section_7addc0, id, line);

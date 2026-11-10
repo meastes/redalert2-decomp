@@ -29,7 +29,7 @@ int InfantryClass::unknown_slot86(int *damage,int distance,WarheadTypeClass *war
         unknown_slot210();
         unknown_slot116(-1,false);
         unknown_slot116(5,false);
-        unknown_slot117();
+        Commence();
         unknown_6d3040(source);
         bool delete_after_sequence=false;
         if (forced && Type->Cyborg) {
@@ -102,7 +102,7 @@ int InfantryClass::unknown_slot86(int *damage,int distance,WarheadTypeClass *war
     }
     if (result!=4) {
         CoordStruct source_position=source ? CoordStruct(source->Coord) : unknown_geometry_l;
-        if (!House->unknown_func_4f52f0() && Type->Engineer && (unknown_slot91()==5 || unknown_slot91()==11)) unknown_slot116(15,false);
+        if (!House->unknown_func_4f52f0() && Type->Engineer && (Get_Mission()==5 || Get_Mission()==11)) unknown_slot116(15,false);
         if (source) unknown_slot87(source_position,false,false);
         if (source && unknown_5bc<100) {
             if (Type->Fraidycat) unknown_5bc=300;

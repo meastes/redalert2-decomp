@@ -27,10 +27,10 @@ static inline CoordStruct Cell_Center_Of(Cell const &cell)
 bool UnitClass::unknown_slot261(bool arg1, bool arg2)
 {
     bool result = FootClass::unknown_slot261(arg1, arg2);
-    if (unknown_slot270() || unknown_slot91() == 28) {
+    if (unknown_slot270() || Get_Mission() == 28) {
         return result;
     }
-    if (unknown_slot91() == 2 && !unknown_494) {
+    if (Get_Mission() == 2 && !unknown_494) {
         CoordStruct center = Cell_Center_Of(unknown_slot104());
         CoordStruct coord = Coord;
         if (coord.X == center.X && coord.Y == center.Y && coord.Z == center.Z) {
@@ -60,10 +60,10 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
             }
             goto guard;
         }
-        if (unknown_slot91() == 5 || unknown_slot91() == 11) {
+        if (Get_Mission() == 5 || Get_Mission() == 11) {
             return result;
         }
-        if (unknown_slot91() != -1 && (Control()->unknown_07 || Control()->unknown_05)) {
+        if (Get_Mission() != -1 && (Control()->unknown_07 || Control()->unknown_05)) {
             return result;
         }
         if (!(House->unknown_194 >= Rules->unknown_10a8 || unknown_6d7910(16) || Type->DefaultToGuardArea)
@@ -77,7 +77,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
     if (In_Radio_Contact()) {
         return result;
     }
-    if (unknown_slot91() == 10 || MissionQueue == 10) {
+    if (Get_Mission() == 10 || MissionQueue == 10) {
         return result;
     }
     mission = 10;

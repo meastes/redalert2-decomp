@@ -59,7 +59,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, AbstractClass 
             unknown_slot116(2, false);
             Assign_Destination(destination, true);
         }
-        unknown_slot117();
+        Commence();
         return 1;
     }
     case 19:
@@ -107,7 +107,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, AbstractClass 
         return count < capacity ? 1 : 10;
     }
     case 8:
-        if (Type->Carryall && unknown_slot91() == 2 && unknown_370) {
+        if (Type->Carryall && Get_Mission() == 2 && unknown_370) {
             if ((Cargo.Object && Cargo.unknown_468a10() == radio) || unknown_494 == radio) return 10;
         }
         break;

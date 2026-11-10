@@ -26,7 +26,7 @@
 // @ref _unknown_geometry_k=00ad0488
 // @ref _unknown_geometry_l=00ad04c0
 
-int UnitClass::unknown_slot137()
+int UnitClass::Do_MISSION_UNLOAD()
 {
     Cell cell;
     if (Type->Passengers>0) {
@@ -110,7 +110,7 @@ int UnitClass::unknown_slot137()
                 case 2:
                 if (!unknown_57c) {
                     unknown_slot261(false,true);
-                    unknown_slot117();
+                    Commence();
                 } else if (!unknown_6fdfc0() && unknown_494) unknown_57c=false;
                 break;
                 case 0:
@@ -126,16 +126,16 @@ int UnitClass::unknown_slot137()
                         else if (!House->Unknown_004F52F0() && unknown_game_mode_a3d298) unknown_slot116(15,false);
                         else unknown_slot116(5,false);
                     }
-                } else if (MissionQueue!=-1 && MissionQueue!=16) unknown_slot117();
+                } else if (MissionQueue!=-1 && MissionQueue!=16) Commence();
                 break;
                 default: break;
             }
         } else {
             if (Type->IsSimpleDeployer) {
                 unknown_slot116(5,false);
-                unknown_slot117();
+                Commence();
             }
-            return FootClass::unknown_slot137();
+            return FootClass::Do_MISSION_UNLOAD();
         }
         int delay=Control()->Normal_Delay();
         return delay+Random_Pick(0,2);
@@ -144,7 +144,7 @@ int UnitClass::unknown_slot137()
         unknown_slot261(false,true);
         unknown_5b9=false;
         if (Locomotor.Checked()->Is_Moving()) unknown_slot291();
-        if (unknown_slot122()) unknown_slot117();
+        if (unknown_slot122()) Commence();
         return 1;
     }
     int current_dir=Dir_To_256(unknown_2e0.Current());
@@ -168,10 +168,10 @@ int UnitClass::unknown_slot137()
                     unknown_5b9=false;
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
                         if (Locomotor.Checked()->Is_Moving()) unknown_slot291();
-                        if (unknown_slot122()) unknown_slot117();
+                        if (unknown_slot122()) Commence();
                     } else {
                         unknown_slot116(10,false);
-                        if (unknown_slot122()) { if (In_Radio_Contact()) unknown_slot149(3);unknown_slot117(); }
+                        if (unknown_slot122()) { if (In_Radio_Contact()) unknown_slot149(3);Commence(); }
                     }
                 } else {
                     BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].unknown_4717b0();
@@ -181,10 +181,10 @@ int UnitClass::unknown_slot137()
                     unknown_5b9=false;
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
                         if (Locomotor.Checked()->Is_Moving()) unknown_slot291();
-                        if (unknown_slot122()) unknown_slot117();
+                        if (unknown_slot122()) Commence();
                     } else {
                         unknown_slot116(10,false);
-                        if (unknown_slot122()) { if (In_Radio_Contact()) unknown_slot149(3);unknown_slot117(); }
+                        if (unknown_slot122()) { if (In_Radio_Contact()) unknown_slot149(3);Commence(); }
                     }
                 }
                 break;

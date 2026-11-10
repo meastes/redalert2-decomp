@@ -18,15 +18,15 @@ void BuildingClass::unknown_slot98(int mode)
         bool sell = false;
         switch (mode) {
         case -1:
-            sell = unknown_slot91() != 0x13;
+            sell = Get_Mission() != 0x13;
             break;
         case 0:
-            if (unknown_slot91() != 0x13) {
+            if (Get_Mission() != 0x13) {
                 return;
             }
             break;
         case 1:
-            if (unknown_slot91() == 0x13) {
+            if (Get_Mission() == 0x13) {
                 return;
             }
             if (unknown_5af) {
@@ -37,7 +37,7 @@ void BuildingClass::unknown_slot98(int mode)
         }
         if (sell) {
             unknown_slot116(0x13, false);
-            unknown_slot117();
+            Commence();
         }
         if (House->Unknown_004F52B0()) {
             Voc_Play(Rules->unknown_62c, 1.0f, 0x2000, 0);

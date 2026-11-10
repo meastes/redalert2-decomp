@@ -38,8 +38,8 @@ void TeamClass::unknown_func_6b9bb0()
             if (mission.Mission == 0xF && unit->Kind_Of() == 0xF && ((InfantryClass *)unit)->Type->Infiltrate) {
                 unit->unknown_slot116(8, false);
                 unit->unknown_slot220(unknown_40);
-            } else if (unit->unknown_slot91() != 1 && unit->unknown_slot91() != 7 && unit->unknown_slot91() != 8
-                && unit->unknown_slot91() != 0x11 && (unit->unknown_slot91() != 0x10 || !unit->unknown_slot284())) {
+            } else if (unit->Get_Mission() != 1 && unit->Get_Mission() != 7 && unit->Get_Mission() != 8
+                && unit->Get_Mission() != 0x11 && (unit->Get_Mission() != 0x10 || !unit->unknown_slot284())) {
                 unit->unknown_slot149(3);
                 unit->unknown_slot116(1, false);
                 unit->unknown_slot220(0);

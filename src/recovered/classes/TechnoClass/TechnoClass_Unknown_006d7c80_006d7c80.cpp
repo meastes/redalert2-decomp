@@ -12,7 +12,7 @@ void __fastcall Unknown_006D7C80(AbstractClass *target)
     for (int index = Technos.Count() - 1; index >= 0; index--) {
         TechnoClass *techno = Technos[index];
         if (techno->unknown_228 == target) {
-            techno->unknown_slot120();
+            techno->Restore_Mission();
             if (techno->Kind_Of() == 2 && techno->Mission == 0x19) {
                 techno->unknown_a8 = 0;
                 ((AircraftClass *)techno)->unknown_5ba = false;

@@ -59,7 +59,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
                     }
                 }
             }
-            obj->unknown_slot117();
+            obj->Commence();
         } else {
             delete obj;
             sub--;

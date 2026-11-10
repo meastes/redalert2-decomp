@@ -1,13 +1,13 @@
 // Deploy / undeploy action and weapon-target choice (0x00506530).
 #include "shared/infantry.hpp"
 #include "shared/techno_map.hpp"
-// @ref ?unknown_slot137@FootClass@@UAEHXZ=004c8d70
+// @ref ?Do_MISSION_UNLOAD@FootClass@@UAEHXZ=004c8d70
 // @ref ?Unknown_006D8640@TechnoClass@@QAE_NPAUWeaponStruct@@@Z=006d8640
 // @ref ?unknown_func_5d27d0@ObjectClass@@QBE_NPBD@Z=005d27d0
 // @ref ??_C@_04BEF@DESO?$AA@=007daf2c
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
-int InfantryClass::unknown_slot137()
+int InfantryClass::Do_MISSION_UNLOAD()
 {
     if (Type->Deployer) {
         int delay = -1;
@@ -29,12 +29,12 @@ int InfantryClass::unknown_slot137()
                 delay = Type->UndeployDelay;
             }
         }
-        unknown_slot118(5);
+        Set_Mission(5);
         Assign_Destination(0, true);
         if (delay > -1) {
             return delay;
         }
     }
-    return FootClass::unknown_slot137();
+    return FootClass::Do_MISSION_UNLOAD();
 }
 

@@ -17,7 +17,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
             target = 0;
             goto set_destination;
         }
-        if (target->What_Am_I() == 6 && (unknown_slot91() == 7 || MissionQueue == 7)) {
+        if (target->What_Am_I() == 6 && (Get_Mission() == 7 || MissionQueue == 7)) {
             BuildingClass *building = static_cast<BuildingClass *>(target);
             if (!In_Radio_Contact()) {
                 if (!building->Unknown_00636ED0(this)) {
@@ -35,7 +35,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                             target = unknown_4198b0();
                         }
                         unknown_slot116(next_mission, false);
-                        if (unknown_slot122()) unknown_slot117();
+                        if (unknown_slot122()) Commence();
                     }
                     if (building->Type->unknown_1349) {
                         unknown_3f8 = building;

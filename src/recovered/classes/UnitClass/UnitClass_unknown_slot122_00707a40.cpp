@@ -26,7 +26,7 @@ bool UnitClass::unknown_slot122()
         return false;
     }
     if (MissionQueue != 7 && Locomotor.Checked()->Is_Moving_Now() && unknown_slot108() >= 0
-        && unknown_slot91() != 5 && (unknown_slot91() != 1 || unknown_228) && !unknown_a4) {
+        && Get_Mission() != 5 && (Get_Mission() != 1 || unknown_228) && !unknown_a4) {
         return false;
     }
     if (!unknown_2a8.unknown_496b50()) {

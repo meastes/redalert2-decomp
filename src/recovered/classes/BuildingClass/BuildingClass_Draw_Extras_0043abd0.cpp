@@ -35,7 +35,7 @@ inline bool Barrel_Side_0043abd0(FacingClass &facing)
 void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
 {
     Cell cell=unknown_slot104();
-    if(unknown_slot91()==16 && (unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496b30() || unknown_2a8.unknown_496b50() || unknown_2a8.unknown_496ab0()) && unknown_370) {
+    if(Get_Mission()==16 && (unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496b30() || unknown_2a8.unknown_496b50() || unknown_2a8.unknown_496ab0()) && unknown_370) {
         for(int index=0;index<RadioLinks.Length();index++) {
             TechnoClass *product=Contact2(index);
             if(product && !product->unknown_76 && product->Kind_Of()!=6) {
@@ -50,7 +50,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
             }
         }
     }
-    if(unknown_slot91()==16 && Type->DoorAnimData_11c0) {
+    if(Get_Mission()==16 && Type->DoorAnimData_11c0) {
         if(unknown_2a8.unknown_496b50() || unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b30()) {
             int stage=(int)(unknown_2a8.Progress_00496C70()*Type->DoorStages);
             if(unknown_2a8.unknown_496ab0()) stage=Type->DoorStages-stage;

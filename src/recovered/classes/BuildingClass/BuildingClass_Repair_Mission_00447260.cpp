@@ -31,7 +31,7 @@ inline Cell Building_Repair_Archive_Cell_00447260(AbstractClass const &target)
     return Cell(target.Center_Coord());
 }
 
-int BuildingClass::unknown_slot141()
+int BuildingClass::Do_MISSION_REPAIR()
 {
     if (Type->ConstructionYard) {
         switch (unknown_a8) {
@@ -291,15 +291,15 @@ int BuildingClass::unknown_slot141()
             TechnoClass *contact = Contact(index);
             if (contact) {
                 if (unknown_slot150(29, contact) == 1 && contact->Strength == contact->unknown_slot32()->MaxStrength) goto release_contact;
-                if (contact->unknown_slot91() != 7 && unknown_slot150(19, contact) == 1) {
+                if (contact->Get_Mission() != 7 && unknown_slot150(19, contact) == 1) {
                     servicing = true;
-                    if (contact->unknown_slot91() != 0) {
+                    if (contact->Get_Mission() != 0) {
                         contact->unknown_slot116(0, false);
                     } else {
                         if (unknown_slot150(31, contact) != 1 && unknown_slot150(28, contact) != 1) {
                         release_contact:
                             contact->unknown_slot261(false, true);
-                            contact->unknown_slot118(5);
+                            contact->Set_Mission(5);
                             contact->unknown_slot194();
                         }
                     }

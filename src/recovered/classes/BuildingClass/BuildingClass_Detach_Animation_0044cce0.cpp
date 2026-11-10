@@ -15,7 +15,7 @@ void BuildingClass::unknown_44cce0(AbstractClass *object)
         switch(index) {
         case 10:
             if(Type->UnitRepair) {
-                if(In_Radio_Contact() && unknown_slot91()==20) {
+                if(In_Radio_Contact() && Get_Mission()==20) {
                     unknown_44c920(11,Health_Ratio()<=Rules->unknown_1368,false,0);
                     return;
                 }

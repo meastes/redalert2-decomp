@@ -270,7 +270,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 target_name = Sync_Target_Name(infp->unknown_228, target_id);
                 navcom_name = Sync_Target_Name(infp->unknown_494, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d) Speed:%d NavCom:%s(%d)\n",
-                    Coord_CRC(infp->Coord), Dir_To_256(infp->unknown_2e0.Current()), infp->unknown_slot91(),
+                    Coord_CRC(infp->Coord), Dir_To_256(infp->unknown_2e0.Current()), infp->Get_Mission(),
                     infp->Type->ArrayIndex, (char const *)infp->Type->ID, target_name, target_id, (int)(infp->unknown_468 * 256.0),
                     navcom_name, navcom_id);
             }
@@ -295,7 +295,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 navcom_name = Sync_Target_Name(unitp->unknown_494, navcom_id);
                 fprintf(file, "COORD:%x   Facing:%d   Facing2:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d)  NavCom:%s(%d)   TrkNum:%d TrkInd:%d SpdAc:%d\n",
                     Coord_CRC(unitp->Coord), Dir_To_256(unitp->unknown_2e0.Current()), Dir_To_256(unitp->unknown_2f8.Current()),
-                    unitp->unknown_slot91(), unitp->Type->ArrayIndex, (char const *)unitp->Type->ID, target_name, target_id,
+                    unitp->Get_Mission(), unitp->Type->ArrayIndex, (char const *)unitp->Type->ID, target_name, target_id,
                     navcom_name, navcom_id, unitp->Locomotor.Checked()->Get_Track_Number(),
                     unitp->Locomotor.Checked()->Get_Track_Index(), unitp->Locomotor.Checked()->Get_Speed_Accum());
             }
@@ -313,7 +313,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 unsigned long val = Coord_CRC(bldgp->Coord) + Dir_To_256(bldgp->unknown_2e0.Current());
                 Add_CRC(&GameCRC, val);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%x\n",
-                    Coord_CRC(bldgp->Coord), Dir_To_256(bldgp->unknown_2e0.Current()), bldgp->unknown_slot91(),
+                    Coord_CRC(bldgp->Coord), Dir_To_256(bldgp->unknown_2e0.Current()), bldgp->Get_Mission(),
                     bldgp->Type->ArrayIndex, (char const *)bldgp->Type->ID, Sync_Target(TargetClass(bldgp)));
             }
         }
@@ -330,7 +330,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 unsigned long val = Coord_CRC(aircraftp->Coord) + Dir_To_256(aircraftp->unknown_2e0.Current());
                 Add_CRC(&GameCRC, val);
                 fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%x\n",
-                    Coord_CRC(aircraftp->Coord), Dir_To_256(aircraftp->unknown_2e0.Current()), aircraftp->unknown_slot91(),
+                    Coord_CRC(aircraftp->Coord), Dir_To_256(aircraftp->unknown_2e0.Current()), aircraftp->Get_Mission(),
                     aircraftp->Type->ArrayIndex, (char const *)aircraftp->Type->ID, Sync_Target(TargetClass(aircraftp)));
             }
         }

@@ -129,7 +129,7 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
         if (placed) {
             plane->unknown_5b1 = true;
             plane->Cargo.Unknown_00468960(object);
-            plane->unknown_slot117();
+            plane->Commence();
             return true;
         } else {
             delete plane;

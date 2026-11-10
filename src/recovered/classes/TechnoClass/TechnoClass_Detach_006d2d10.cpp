@@ -53,8 +53,8 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
             unknown_148 = unknown_id_source_a3d290->Random()(4, 8);
         }
         unknown_slot220(0);
-        if (unknown_slot121()) {
-            unknown_slot120();
+        if (Has_Suspended_Mission()) {
+            Restore_Mission();
             if (Kind_Of() == 2 && Mission == 0x19) {
                 unknown_a8 = 0;
                 ((AircraftClass *)this)->unknown_5ba = false;

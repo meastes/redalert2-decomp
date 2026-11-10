@@ -18,7 +18,7 @@ void BuildingClass::unknown_slot220(AbstractClass *target)
         if ((Type->TickTank || Type->Artillary)
             && !House->unknown_func_4f52f0() && !unknown_slot201()) {
             unknown_slot116(19, false);
-            unknown_slot117();
+            Commence();
         }
     }
 }

@@ -18,14 +18,14 @@ bool TeamClass::unknown_func_6b9f40()
     while (unit != 0) {
         unknown_func_6ba7d0(unit);
         if (unknown_func_6bdd80(unit) && (unit->unknown_579 || unit->Kind_Of() == 2)) {
-            if (unit->unknown_5d4c00(unknown_34) > Unknown_006BE6A0() && (unit->unknown_slot91() != 0xB || unit->unknown_228 == 0)) {
+            if (unit->unknown_5d4c00(unknown_34) > Unknown_006BE6A0() && (unit->Get_Mission() != 0xB || unit->unknown_228 == 0)) {
                 if (unit->unknown_494 == 0) {
                     retval = false;
                     unit->unknown_slot116(2, false);
                     Cell dest = unit->unknown_4c8af0(Coord_Cell(unknown_34->Center_Coord()));
                     unit->Assign_Destination(&Map[dest], true);
                 }
-            } else if (unit->unknown_slot91() != 0xB) {
+            } else if (unit->Get_Mission() != 0xB) {
                 unit->unknown_slot116(5, false);
                 unit->Assign_Destination(0, true);
             }

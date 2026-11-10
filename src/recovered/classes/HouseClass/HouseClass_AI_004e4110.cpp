@@ -250,7 +250,7 @@ LAB_004e4b72:;
             int building_count=Buildings.Count();
             for (int index=0;index<building_count;++index) {
                 BuildingClass *building=Buildings[index];
-                if (building && building->unknown_7d && building->Strength>0 && building->unknown_slot91()!=0x13 &&
+                if (building && building->unknown_7d && building->Strength>0 && building->Get_Mission()!=0x13 &&
                     building->MissionQueue!=0x13 && unknown_player_a35db4==building->House) {
                     building->unknown_slot283();
                 }

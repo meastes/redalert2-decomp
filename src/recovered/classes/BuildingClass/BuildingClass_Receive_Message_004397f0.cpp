@@ -38,7 +38,7 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&
     case 15:
         TechnoClass::unknown_slot95(radio,message,param);
         if (!House->Is_Ally(sender)) return 0;
-        if (unknown_slot91()==18 || unknown_slot91()==19 || unknown_42c==0 ||
+        if (Get_Mission()==18 || Get_Mission()==19 || unknown_42c==0 ||
             (!unknown_a40774 && !Unknown_00636ED0(sender))) return 10;
         if (sender->unknown_slot32()->MovementZone!=5 &&
             ((unknown_slot32()->Naval && !sender->unknown_slot32()->Naval) ||
@@ -66,7 +66,7 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&
         }
         return 0;
     case 21:
-        if (unknown_slot91()==19) return 10;
+        if (Get_Mission()==19) return 10;
         if (Type->UnitRepair || Type->UnitReload || Type->Hospital || Type->Armory) {
             unknown_5ad=true;
             unknown_slot116(20,false);
@@ -130,7 +130,7 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&
         TechnoClass::unknown_slot95(radio,message,param);
         return 1;
     case 12:
-        if (unknown_slot91()!=19) {
+        if (Get_Mission()!=19) {
             unknown_slot116(5,false);
             if (Type->ConstructionYard) {
                 unknown_44cfd0(7);

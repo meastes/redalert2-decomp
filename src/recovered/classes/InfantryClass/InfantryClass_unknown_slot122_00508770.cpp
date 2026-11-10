@@ -11,8 +11,8 @@ bool InfantryClass::unknown_slot122()
     if (Mission == 6 || Mission == 21 || unknown_57d || unknown_7a) {
         return false;
     }
-    if (!Locomotor.Checked()->Is_Moving_Now() || unknown_slot91() == 5 || unknown_slot91() == 15
-        || (unknown_slot91() == 1 && unknown_228 == 0)) {
+    if (!Locomotor.Checked()->Is_Moving_Now() || Get_Mission() == 5 || Get_Mission() == 15
+        || (Get_Mission() == 1 && unknown_228 == 0)) {
         if (Sequence == -1 || unknown_do_controls_7a3474[Sequence].Interrupt) {
             return true;
         }

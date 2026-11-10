@@ -20,33 +20,33 @@ bool InfantryClass::unknown_slot261(bool arg1, bool arg2)
     if (unknown_slot270()) {
         return result;
     }
-    if (unknown_slot91() == 28) {
+    if (Get_Mission() == 28) {
         return result;
     }
     int mission;
     if (unknown_228 != 0) {
         mission = 1;
-        if (unknown_slot91() == 17) {
+        if (Get_Mission() == 17) {
             mission = 17;
         }
-        if (unknown_slot91() == 8) {
+        if (Get_Mission() == 8) {
             mission = 8;
         }
     } else {
         unknown_4c8b00();
         if (unknown_494 != 0) {
             mission = 2;
-            if (unknown_slot91() == 8) {
+            if (Get_Mission() == 8) {
                 mission = 8;
             }
-            if (unknown_slot91() == 17) {
+            if (Get_Mission() == 17) {
                 mission = 17;
             }
         } else {
-            if (unknown_slot91() == 5 || unknown_slot91() == 11) {
+            if (Get_Mission() == 5 || Get_Mission() == 11) {
                 return false;
             }
-            if (unknown_slot91() != -1 && (Control()->unknown_05 || Control()->unknown_07)) {
+            if (Get_Mission() != -1 && (Control()->unknown_05 || Control()->unknown_07)) {
                 return false;
             }
             if (!House->Unknown_004F52F0() && Team == 0) {

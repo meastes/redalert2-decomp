@@ -111,7 +111,7 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                         infantry->unknown_70 = infantry->Strength;
                         if (unknown_game_mode_a3d298 == 0 || infantry->House->Unknown_004F52F0()) {
                             infantry->unknown_slot116(mission, false);
-                            infantry->unknown_slot117();
+                            infantry->Commence();
                         } else {
                             infantry->unknown_slot261(false, true);
                         }

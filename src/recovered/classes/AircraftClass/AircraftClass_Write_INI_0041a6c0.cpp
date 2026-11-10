@@ -28,7 +28,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
                     (char const *)aircraft->House->IniName, (char const *)aircraft->Type->ID,
                     (int)(aircraft->Health_Ratio() * 256.0),
                     aircraft->unknown_slot104().X, aircraft->unknown_slot104().Y,
-                    direction, MissionClass::Name_From_Mission(aircraft->unknown_slot91()), tag,
+                    direction, MissionClass::Name_From_Mission(aircraft->Get_Mission()), tag,
                     aircraft->unknown_118.unknown_713580(), aircraft->unknown_1ac,
                     aircraft->unknown_379, aircraft->unknown_37a);
             ini.Put_String(unknown_aircraft_section_79b0d0, id, line);

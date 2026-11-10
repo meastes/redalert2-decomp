@@ -10,8 +10,8 @@
 // @ref ?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ=004198b0
 bool AircraftClass::unknown_slot261(bool first, bool second)
 {
-    if (unknown_slot121()) {
-        unknown_slot120();
+    if (Has_Suspended_Mission()) {
+        Restore_Mission();
         if (Mission == 25) {
             unknown_a8 = 0;
             unknown_5ba = false;
@@ -22,7 +22,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
     bool mission_blocks_selection = current_mission == 4 || (current_mission > 25 && current_mission <= 27);
     if (mission_blocks_selection) return false;
     if (MissionQueue == 26) {
-        unknown_slot117();
+        Commence();
         return false;
     }
     bool result = FootClass::unknown_slot261(first, second);
@@ -59,7 +59,7 @@ check_weapon:
             } else if (!Team) mission = 15;
             goto choose_mission;
         }
-        if ((unknown_254 && unknown_228 && unknown_slot91() == 1) || MissionQueue == 1) {
+        if ((unknown_254 && unknown_228 && Get_Mission() == 1) || MissionQueue == 1) {
             mission = 1;
             goto choose_mission;
         }
@@ -119,6 +119,6 @@ choose_mission:
     }
     if (In_Radio_Contact()) mission = 7;
     unknown_slot116(mission, false);
-    if (unknown_slot122()) unknown_slot117();
+    if (unknown_slot122()) Commence();
     return result;
 }

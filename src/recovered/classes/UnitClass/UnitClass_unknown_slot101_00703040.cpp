@@ -171,8 +171,8 @@ int UnitClass::unknown_slot101(CellClass *cell,int direction,int height,CellClas
                     }
                 }
             }
-            if (unknown_slot91()==7 && occupant==unknown_494 && occupant->Kind_Of()==1) return 0;
-            if (unknown_slot91()==11 && unknown_1b0==occupant) return 7;
+            if (Get_Mission()==7 && occupant==unknown_494 && occupant->Kind_Of()==1) return 0;
+            if (Get_Mission()==11 && unknown_1b0==occupant) return 7;
             FootClass *foot;
             if (occupant->AbstractFlags.IsFoot) {
                 foot=static_cast<FootClass*>(occupant);

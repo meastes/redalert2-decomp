@@ -41,7 +41,7 @@ void BuildingClass::Factory_AI_0044b480()
         }
         }
     }
-    if (House->unknown_136 && unknown_slot91() != 18 && unknown_slot91() != 19 && Type->Factory != 0) {
+    if (House->unknown_136 && Get_Mission() != 18 && Get_Mission() != 19 && Type->Factory != 0) {
         if (unknown_41c) {
             if (unknown_448.Value() == 0) {
                 FactoryClass *factory = static_cast<FactoryClass *>(unknown_41c);

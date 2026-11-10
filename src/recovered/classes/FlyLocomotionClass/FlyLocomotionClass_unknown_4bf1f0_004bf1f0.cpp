@@ -12,7 +12,7 @@
 
 void FlyLocomotionClass::unknown_4bf1f0()
 {
-    if (LinkedTo->unknown_slot91() == 7 || !LinkedTo->unknown_6d1470()) {
+    if (LinkedTo->Get_Mission() == 7 || !LinkedTo->unknown_6d1470()) {
         if (LinkedTo->Kind_Of() == 2) {
             AircraftClass *aircraft = (AircraftClass *)LinkedTo;
             if (aircraft->Type->AirportBound) {

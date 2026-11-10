@@ -14,7 +14,7 @@ bool UnitClass::unknown_slot63(Rect *bounds, bool arg2, bool arg3)
 {
     if (unknown_370) {
         TechnoClass *contact = Contact_With_Whom(0);
-        if (contact->Kind_Of() == 6 && (contact->unknown_slot91() == 16 || contact->MissionQueue == 16)) {
+        if (contact->Kind_Of() == 6 && (contact->Get_Mission() == 16 || contact->MissionQueue == 16)) {
             UnknownTimed *state = &contact->unknown_2a8;
             if (state->unknown_496a90() || state->unknown_496ab0() || state->unknown_496b30() || state->unknown_496b50()) {
                 return false;

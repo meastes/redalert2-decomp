@@ -13,10 +13,10 @@ bool BuildingClass::unknown_44d7d0()
     if (!Type->Gate) {
         return true;
     }
-    if (unknown_slot91() != 24 || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b50()) {
-        unknown_slot118(-1);
+    if (Get_Mission() != 24 || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b50()) {
+        Set_Mission(-1);
         unknown_slot116(24, false);
-        unknown_slot117();
+        Commence();
         return false;
     }
     return unknown_44d880();

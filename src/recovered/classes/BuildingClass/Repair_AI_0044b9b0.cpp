@@ -10,7 +10,7 @@
 // @ref ?operator()@Random2Class@@=006388a0
 void BuildingClass::Repair_AI_0044b9b0()
 {
-    if (House->unknown_194 >= Rules->IQRepairSell && unknown_slot91() != 18 && unknown_slot91() != 19 && unknown_slot36()) {
+    if (House->unknown_194 >= Rules->IQRepairSell && Get_Mission() != 18 && Get_Mission() != 19 && unknown_slot36()) {
         if (House->Available_Money() >= Rules->CreditReserve) {
             if (!House->unknown_18c && !unknown_5b8 && (unknown_5b3 || unknown_59b || House->Unknown_004F52F0())) {
                 House->unknown_18c = true;

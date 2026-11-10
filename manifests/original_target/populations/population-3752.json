@@ -4,8 +4,8 @@
     "id": "population-3752",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "7f099b427bd2c0edc1178f595937af5151095e58cf67d0d7e877e944d83f9765",
-    "historical_acceptance_sha256": "95d11a93f3c8865b6c0762c354174c411f5c343c1e42edd95c00de98613bdaed"
+    "historical_population_sha256": "dadccedbb8fc82901396782dcaa64472f599b48c62ac333606715119a2f679c6",
+    "historical_acceptance_sha256": "582e84b188d23e2bf47d96fb47a6cd1ef732f4ff8efe6c040ce19eda4cfc63f6"
   },
   "references": {
     "?BombList@@3VBombListClass@@A": 8594144,
@@ -1234,7 +1234,7 @@
     "?GetClassID@MechLocomotionClass@@UAGJPAUGUID@@@Z": 5845280,
     "?Layer@MechLocomotionClass@@UAGHXZ": 5845392,
     "?Size@MechLocomotionClass@@UAEHXZ": 5845760,
-    "?unknown_slot91@MissionClass@@UAEHXZ": 5850992,
+    "?Get_Mission@MissionClass@@UAEHXZ": 5850992,
     "?unknown_slot67@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
     "?cleanup@Leaf_595c40@@QAEXXZ": 4412912,
     "?cleanup@Leaf_595d40@@QAEXXZ": 6926352,
@@ -2207,7 +2207,7 @@
     "?ID@?$VectorClass@UPoint2D@@@@UAEHABUPoint2D@@@Z": 5970576,
     "?ID@?$DynamicVectorClass@UPoint2D@@@@UAEHABUPoint2D@@@Z": 5970912,
     "?unknown_slot24@MultiplayerGameMode@@UAEHXZ": 5993680,
-    "?unknown_slot91@ObjectClass@@UAEHXZ": 6106416,
+    "?Get_Mission@ObjectClass@@UAEHXZ": 6106416,
     "?Detach@ObjectClass@@UAEXPAVAbstractClass@@_N@Z": 6110160,
     "?unknown_slot30@ObjectClass@@UBE_NXZ": 6116496,
     "?unknown_slot2@SimpleDialogControl@OwnerDraw@@UAE_NXZ": 6295920,

@@ -141,7 +141,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
                     for (int j = Buildings.Count() - 1; j >= 0; j--) {
                         bptr = Buildings[j];
                         if (!bptr->unknown_76 && bptr->unknown_530) {
-                            if (bptr->unknown_slot91() != 0x13 && bptr->MissionQueue != 0x13) {
+                            if (bptr->Get_Mission() != 0x13 && bptr->MissionQueue != 0x13) {
                                 found = true;
                                 break;
                             }

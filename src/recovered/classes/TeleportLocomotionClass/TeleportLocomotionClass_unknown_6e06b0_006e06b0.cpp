@@ -30,7 +30,7 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
         bool bridge = (Map[coord].unknown_140 & 0x100) && Object_Coord(LinkedTo).Z > Map.Unknown_0055A280(coord) + unknown_geometry_g * 3;
         if (LinkedTo->Kind_Of() == 15) {
             bool target_here = false;
-            if (LinkedTo->unknown_slot91() == 8 || LinkedTo->unknown_slot91() == 9 || LinkedTo->unknown_slot91() == 7 || LinkedTo->unknown_slot91() == 25) {
+            if (LinkedTo->Get_Mission() == 8 || LinkedTo->Get_Mission() == 9 || LinkedTo->Get_Mission() == 7 || LinkedTo->Get_Mission() == 25) {
                 {
                     ObjectClass *target = (ObjectClass *)LinkedTo->unknown_494;
                     if (target != 0 && target->Kind_Of() == 1 && target->unknown_slot104() == Coord_Cell(to)) {

@@ -23,7 +23,7 @@
 void JumpjetLocomotionClass::unknown_530550()
 {
     CellClass &cell = Map[unknown_3c];
-    if ((cell.unknown_ec == 2 || cell.unknown_ec == 6) && LinkedTo->MissionQueue != 7 && LinkedTo->unknown_slot91() != 7) {
+    if ((cell.unknown_ec == 2 || cell.unknown_ec == 6) && LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
         if (unknown_tracker_839ea0.Unknown_004132E0(LinkedTo)) {
             int facing = Random_Pick(0, 7);
             CellClass *here = (CellClass *)LinkedTo->unknown_slot105();
@@ -47,7 +47,7 @@ void JumpjetLocomotionClass::unknown_530550()
     if (LinkedTo->Kind_Of() == 1 && spot == 0) {
         landable = true;
     }
-    if (LinkedTo->MissionQueue != 7 && LinkedTo->unknown_slot91() != 7) {
+    if (LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
         if (!landable || (!(Map[unknown_3c].unknown_140 & 0x100) && (result > 2 || (result == 2 && !unknown_88)))) {
             Stop_Moving();
             return;

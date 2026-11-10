@@ -10,7 +10,7 @@ int __stdcall AircraftClass::Landing_Altitude()
 {
     if (Type->Carryall && Cargo.Object == 0 && In_Radio_Contact()) {
         TechnoClass *contact = Contact_With_Whom(0);
-        if (unknown_slot91() == 7 && contact != 0 && contact->Kind_Of() == 6) {
+        if (Get_Mission() == 7 && contact != 0 && contact->Kind_Of() == 6) {
             BuildingTypeClass *type = ((BuildingClass *)contact)->Type;
             if (type->unknown_1349 || type->unknown_1365) {
                 return 0;

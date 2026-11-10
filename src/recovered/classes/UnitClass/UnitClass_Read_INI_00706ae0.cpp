@@ -103,7 +103,7 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                         unit->unknown_70 = unit->Strength;
                         if (unknown_game_mode_a3d298 == 0 || unit->House->Unknown_004F52F0()) {
                             unit->unknown_slot116(mission, false);
-                            if (unit->unknown_slot122()) unit->unknown_slot117();
+                            if (unit->unknown_slot122()) unit->Commence();
                         } else {
                             unit->unknown_slot261(false, true);
                         }

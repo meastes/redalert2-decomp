@@ -19,7 +19,7 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
                 LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, 1);
             } else {
                 AbstractClass *destination;
-                if (LinkedTo->unknown_slot91() == 1) destination = aircraft->unknown_4198b0();
+                if (LinkedTo->Get_Mission() == 1) destination = aircraft->unknown_4198b0();
                 else destination = aircraft->Select_Landing_Destination_004185b0(&Map[cell]);
                 LinkedTo->Assign_Destination(destination, true);
                 return;

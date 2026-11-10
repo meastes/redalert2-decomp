@@ -28,7 +28,7 @@ inline CoordStruct Snap_To_Cell_Center(CoordStruct const &coord)
 {
     return CoordStruct(coord.X/256*256+128,coord.Y/256*256+128,coord.Z);
 }
-int BuildingClass::unknown_slot140()
+int BuildingClass::Do_MISSION_DECONSTRUCTION()
 {
     unknown_slot97(0);
     bool selected=unknown_77;

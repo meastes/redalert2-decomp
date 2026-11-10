@@ -137,21 +137,21 @@ public:
     virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x00418840
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00418E00
     virtual void unknown_slot116(int mission, bool commence);         // slot 116 0x0041B160
-    virtual bool unknown_slot117();                                   // slot 117 0x0041AFC0
-    virtual void unknown_slot118(int mission);                        // slot 118 0x0041B120
-    virtual void unknown_slot119(int mission, AbstractClass *target, AbstractClass *destination);   // slot 119 0x0041B1A0
+    virtual bool Commence();                                   // slot 117 0x0041AFC0
+    virtual void Set_Mission(int mission);                        // slot 118 0x0041B120
+    virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);   // slot 119 0x0041B1A0
     virtual bool unknown_slot122();                                   // slot 122 0x0041AD30
-    virtual int unknown_slot126();                                    // slot 126 0x004178A0
-    virtual int unknown_slot129();                                    // slot 129 0x00419D00
-    virtual int unknown_slot130();                                    // slot 130 0x0041A080
-    virtual int unknown_slot132();                                    // slot 132 0x004146C0
-    virtual int unknown_slot133();                                    // slot 133 0x00415FF0
-    virtual int unknown_slot134();                                    // slot 134 0x00415300
-    virtual int unknown_slot137();                                    // slot 137 0x00414D90
-    virtual int unknown_slot138();                                    // slot 138 0x004193D0
-    virtual int unknown_slot145();                                    // slot 145 0x00416C20
-    virtual int unknown_slot146();                                    // slot 146 0x00415190
-    virtual int unknown_slot147();                                    // slot 147 0x00415210
+    virtual int Do_MISSION_ATTACK();                                    // slot 126 0x004178A0
+    virtual int Do_MISSION_GUARD();                                    // slot 129 0x00419D00
+    virtual int Do_MISSION_GUARD_AREA();                                    // slot 130 0x0041A080
+    virtual int Do_MISSION_HUNT();                                    // slot 132 0x004146C0
+    virtual int Do_MISSION_MOVE();                                    // slot 133 0x00415FF0
+    virtual int Do_MISSION_RETREAT();                                    // slot 134 0x00415300
+    virtual int Do_MISSION_UNLOAD();                                    // slot 137 0x00414D90
+    virtual int Do_MISSION_ENTER();                                    // slot 138 0x004193D0
+    virtual int Do_MISSION_PATROL();                                    // slot 145 0x00416C20
+    virtual int Do_MISSION_PARADROP_APPROACH();                                    // slot 146 0x00415190
+    virtual int Do_MISSION_PARADROP_OVERFLY();                                    // slot 147 0x00415210
     virtual UnknownFacingDir unknown_slot162();                               // slot 162 0x0041B5E0
     virtual int unknown_slot182(AbstractClass *object, Cell *cell);          // slot 182 0x00418CF0
     virtual UnknownFacingDir unknown_slot183();                               // slot 183 0x00419CB0

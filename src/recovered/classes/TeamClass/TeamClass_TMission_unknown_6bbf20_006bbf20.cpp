@@ -21,7 +21,7 @@ void TeamClass::TMission_unknown_6bbf20(ScriptMissionClass const &mission, bool 
                     member->unknown_slot220(0);
                 }
                 if (target->unknown_228 != 0) {
-                    if (!member->Locomotor.Checked()->Is_Moving() && member->unknown_slot163() && member->unknown_slot91() == 5) {
+                    if (!member->Locomotor.Checked()->Is_Moving() && member->unknown_slot163() && member->Get_Mission() == 5) {
                         member->unknown_slot116(1, false);
                         member->unknown_slot220(target->unknown_228);
                     }

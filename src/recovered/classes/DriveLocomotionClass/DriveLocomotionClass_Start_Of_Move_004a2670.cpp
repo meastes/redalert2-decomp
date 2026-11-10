@@ -57,7 +57,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
     if (!Is_Moving() && facing == -1) {
         unknown_61 = false;
         Stop_Driver();
-        if (LinkedTo->unknown_slot91() == 2) {
+        if (LinkedTo->Get_Mission() == 2) {
             stop_processing = LinkedTo->unknown_slot261(false, true);
         }
         return false;
@@ -97,7 +97,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
 
                 if (unknown_34 == unknown_geometry_l) return false;
 
-                if (!LinkedTo->unknown_4c8d60() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->unknown_slot91() == 2 || LinkedTo->unknown_slot91() == 11)) {
+                if (!LinkedTo->unknown_4c8d60() && LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
                     Stop_Driver();
                     if (unknown_4a4850()) return true;
                     if (!LinkedTo->unknown_7d) return false;
@@ -305,11 +305,11 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 }
                 if (Map[destcell].unknown_471830(Point2D(0, 0), 0)) {
                     if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[destcell].unknown_471830(Point2D(0, 0), 0))) {
-                        LinkedTo->unknown_slot119(1, Map[destcell].unknown_471830(Point2D(0, 0), 0), 0);
+                        LinkedTo->Override_Mission(1, Map[destcell].unknown_471830(Point2D(0, 0), 0), 0);
                     }
                 } else {
                     if (Map[destcell].OverlayIndex != -1 && OverlayTypes[Map[destcell].OverlayIndex]->Wall) {
-                        LinkedTo->unknown_slot119(1, &Map[destcell], 0);
+                        LinkedTo->Override_Mission(1, &Map[destcell], 0);
                     }
                 }
             } else {

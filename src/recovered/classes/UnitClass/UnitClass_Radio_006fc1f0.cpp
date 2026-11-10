@@ -21,7 +21,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
             CellClass &tile = Map[unknown_slot19(0)];
             if ((tile.unknown_140 & 0x100) && !unknown_slot46(0)) return 10;
         }
-        if (unknown_slot91() == 16) return 10;
+        if (Get_Mission() == 16) return 10;
         if (unknown_370) return 10;
         return unknown_574 == -1 ? 1 : 10;
     case 7:
@@ -60,7 +60,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
         }
         if (!Locomotor.Checked()->Is_Moving()) {
             TechnoClass *contact = Contact(0);
-            if (unknown_370 && contact && contact->Kind_Of() == 6 && unknown_slot91() == 7)
+            if (unknown_370 && contact && contact->Kind_Of() == 6 && Get_Mission() == 7)
                 unknown_slot150(21, contact);
         }
         return 1;
@@ -122,11 +122,11 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
             unknown_5b9 = false;
             unknown_slot87(unknown_geometry_l, true, false);
             unknown_slot116(10, false);
-            if (unknown_slot122()) unknown_slot117();
+            if (unknown_slot122()) Commence();
         }
         break;
     case 3:
-        if (unknown_slot91() == 12) unknown_slot116(5, false);
+        if (Get_Mission() == 12) unknown_slot116(5, false);
         FootClass::unknown_slot95(radio, message, param);
         return 1;
     }

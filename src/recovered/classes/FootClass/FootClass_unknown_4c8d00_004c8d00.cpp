@@ -3,7 +3,7 @@
 // by that house, +0x76 clear, in no team, in an idle mission (0x00594DB0)
 // and with +0x379 set.
 #include "shared/foot.hpp"
-// @ref ?unknown_594db0@MissionClass@@SI_NH@Z=00594db0
+// @ref ?Is_Recruitable_Mission@MissionClass@@SI_NH@Z=00594db0
 
 bool FootClass::unknown_4c8d00(HouseClass *house)
 {
@@ -16,7 +16,7 @@ bool FootClass::unknown_4c8d00(HouseClass *house)
     if (Team != 0) {
         return false;
     }
-    if (!MissionClass::unknown_594db0(unknown_slot91())) {
+    if (!MissionClass::Is_Recruitable_Mission(Get_Mission())) {
         return false;
     }
     return unknown_379 ? true : false;

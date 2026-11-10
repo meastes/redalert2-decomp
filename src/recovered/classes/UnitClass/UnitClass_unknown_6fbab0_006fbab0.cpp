@@ -4,7 +4,7 @@
 #include "shared/map_view.hpp"
 bool UnitClass::unknown_6fbab0()
 {
-    if (unknown_slot91() == 5) {
+    if (Get_Mission() == 5) {
         CoordStruct position = Coord;
         if (!Map.Unknown_0054AB00(position) && unknown_32d) {
             if (Team) {

@@ -30,7 +30,7 @@ bool TeamClass::unknown_func_6ba600()
                     member->Assign_Destination(unknown_38, true);
                 }
                 lagging = true;
-            } else if (member->unknown_slot91() != 5) {
+            } else if (member->Get_Mission() != 5) {
                 member->unknown_slot116(5, false);
                 member->Assign_Destination(0, true);
             }

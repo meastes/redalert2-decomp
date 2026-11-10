@@ -23,7 +23,7 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
     Cell cell=unknown_slot104();
     ShapeFileStruct const *shape=(ShapeFileStruct const *)unknown_slot26();
     if(shape==0) return;
-    if(this!=0 && Kind_Of()==6 && unknown_42c==0 && unknown_slot91()==19) {
+    if(this!=0 && Kind_Of()==6 && unknown_42c==0 && Get_Mission()==19) {
         for(int index=0;index<18;index++) {
             if(unknown_454[index]) {
                 static_cast<AnimClass *>(unknown_454[index])->unknown_17d=true;
@@ -34,13 +34,13 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
     Point2D depth_point(198,446);
     int z_adjust=Type->NormalZAdjust;
     bool air_product=false;
-    if(unknown_slot91()==16) {
+    if(Get_Mission()==16) {
         TechnoClass *product=Contact2(0);
         if(product && (product->unknown_slot32()->JumpJet || product->unknown_slot32()->BalloonHover)) {
             air_product=true;
         }
     }
-    if(unknown_slot91()==24 && (unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b30())) {
+    if(Get_Mission()==24 && (unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b30())) {
         int stage=(int)(unknown_2a8.Progress_00496C70()*Type->GateStages);
         if(unknown_2a8.unknown_496ab0()) stage=Type->GateStages-stage;
         if(unknown_2a8.unknown_496b50()) stage=0;
@@ -53,13 +53,13 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
             z_adjust-Unknown_006A2970(unknown_slot110()),2,1,Map[cell].unknown_10a,0,0,Point2D(0,0),0);
         return;
     }
-    if(unknown_slot91()==16) {
+    if(Get_Mission()==16) {
         if((air_product && Type->unknown_11b0) || (!air_product && Type->unknown_11a0)) {
             shape=(ShapeFileStruct const *)(air_product ? Type->unknown_11b0 : Type->unknown_11a0);
             z_adjust=-20;
         }
     }
-    int mission=unknown_slot91();
+    int mission=Get_Mission();
     if(mission!=18 && mission!=19) {
         depth_point+=Type->ZShapePointMove;
     }
@@ -76,7 +76,7 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
         unknown_6d1510(Type->unknown_11cc,unknown_43be20(),&draw_point,&bounds,0,256,
             -1-Unknown_006A2970(unknown_slot110()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
     }
-    if(unknown_slot91()==16 && ((air_product && Type->unknown_11b8!=0) || (!air_product && Type->unknown_11a8!=0))) {
+    if(Get_Mission()==16 && ((air_product && Type->unknown_11b8!=0) || (!air_product && Type->unknown_11a8!=0))) {
         if(air_product) {
             unknown_6d1510(Type->unknown_11b8,Health_Ratio()<=Rules->unknown_1368,&draw_point,&bounds,0,256,
                 -Unknown_006A2970(unknown_slot110()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);

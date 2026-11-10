@@ -56,7 +56,7 @@ bool __stdcall DropPodLocomotionClass::Process()
             linked->Mark(1);
             linked->unknown_slot109(0);
             linked->unknown_slot261(false, true);
-            linked->unknown_slot117();
+            linked->Commence();
             linked->unknown_slot87(unknown_geometry_l, false, false);
         }
         Release();

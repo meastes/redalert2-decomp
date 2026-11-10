@@ -26,7 +26,7 @@ void __fastcall InfantryClass::Write_INI(CCINIClass &ini)
             } else {
                 tag = "None";
             }
-            int mission = infantry->unknown_slot91() == -1 ? infantry->MissionQueue : infantry->unknown_slot91();
+            int mission = infantry->Get_Mission() == -1 ? infantry->MissionQueue : infantry->Get_Mission();
             unsigned raw = *(unsigned const *)&infantry->unknown_2e0.Current();
             unsigned direction = (((raw >> 7) + 1) >> 1) & 0xff;
             CoordStruct coord = infantry->Coord;

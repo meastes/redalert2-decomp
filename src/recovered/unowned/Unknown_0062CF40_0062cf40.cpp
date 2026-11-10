@@ -87,7 +87,7 @@ void __fastcall Unknown_0062CF40(int index)
         InfantryClass *infp = Infantry[count];
         obj->Coord = Coord_CRC(infp->Coord);
         obj->Facing = Dir_To_256(infp->unknown_2e0.Current());
-        obj->Mission = infp->unknown_slot91();
+        obj->Mission = infp->Get_Mission();
         obj->Type = infp->Type->ArrayIndex;
         obj->Speed = infp->unknown_468 * 256.0;
         obj->Owner = infp->House->ArrayIndex;
@@ -140,7 +140,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj->Coord = Coord_CRC(unitp->Coord);
         obj->Facing = Dir_To_256(unitp->unknown_2e0.Current());
         obj->Facing2 = Dir_To_256(unitp->unknown_2f8.Current());
-        obj->Mission = unitp->unknown_slot91();
+        obj->Mission = unitp->Get_Mission();
         obj->Type = unitp->Type->ArrayIndex;
         obj->Speed = unitp->unknown_468 * 256.0;
         obj->Owner = unitp->House->ArrayIndex;
@@ -196,7 +196,7 @@ void __fastcall Unknown_0062CF40(int index)
         AircraftClass *aircraftp = Aircraft[i];
         obj->Coord = Coord_CRC(aircraftp->Coord);
         obj->Facing = Dir_To_256(aircraftp->unknown_2e0.Current());
-        obj->Mission = aircraftp->unknown_slot91();
+        obj->Mission = aircraftp->Get_Mission();
         obj->Type = aircraftp->Type->ArrayIndex;
         obj->Speed = aircraftp->unknown_468 * 256.0;
         obj->Owner = aircraftp->House->ArrayIndex;
@@ -249,7 +249,7 @@ void __fastcall Unknown_0062CF40(int index)
         BuildingClass *bldgp = unknown_BuildingClass_list_00a40af8[i];
         obj->Coord = Coord_CRC(bldgp->Coord);
         obj->Facing = Dir_To_256(bldgp->unknown_2e0.Current());
-        obj->Mission = bldgp->unknown_slot91();
+        obj->Mission = bldgp->Get_Mission();
         obj->Type = bldgp->Type->ArrayIndex;
         obj->Owner = bldgp->House->ArrayIndex;
         obj->NavComID = 0;

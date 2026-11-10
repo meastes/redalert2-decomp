@@ -36,7 +36,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
     }
     if (House->unknown_func_4f52f0() && target && unknown_494==target &&
         unknown_5c3 && !Type->Fraidycat && !Type->Cyborg) unknown_slot311(7,false,false);
-    if (unknown_slot91()==7 || MissionQueue==7) {
+    if (Get_Mission()==7 || MissionQueue==7) {
         if (!In_Radio_Contact()) {
             TechnoClass *transport=target->As_Techno();
             if (transport) {

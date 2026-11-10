@@ -4,7 +4,7 @@
 
 CoordStruct TechnoClass::unknown_slot241()
 {
-    if (unknown_slot91() == 1 && unknown_228) {
+    if (Get_Mission() == 1 && unknown_228) {
         return unknown_228->unknown_slot22();
     }
     return Coord;

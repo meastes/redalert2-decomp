@@ -304,7 +304,7 @@ public:
     virtual bool unknown_slot88();                                         // slot 88 (+0x160) 0x5d2d00
     virtual void unknown_slot89();                                         // slot 89 (+0x164) 0x5d2d10
     virtual int unknown_slot90();                                          // slot 90 (+0x168) 0x5d2d20
-    virtual int unknown_slot91();                                          // slot 91 (+0x16C) 0x5d2d30
+    virtual int Get_Mission();                                          // slot 91 (+0x16C) 0x5d2d30
     virtual void unknown_slot92(int arg1);                                 // slot 92 (+0x170) 0x41b310
     virtual void unknown_slot93(int arg1);                                 // slot 93 (+0x174) 0x423df0
     virtual BuildingClass *Who_Can_Build_Me(bool in_theory, bool legal);   // slot 94 (+0x178) 0x5d4500 (RA1 name)

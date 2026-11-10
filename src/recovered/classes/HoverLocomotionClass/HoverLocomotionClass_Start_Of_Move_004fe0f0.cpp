@@ -62,7 +62,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             LinkedTo->Assign_Destination(0,true);
             return;
         }
-        if (!LinkedTo->unknown_4c8d60() && Hover_Foot_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && (LinkedTo->unknown_slot91()==2 || LinkedTo->unknown_slot91()==11)) {
+        if (!LinkedTo->unknown_4c8d60() && Hover_Foot_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && (LinkedTo->Get_Mission()==2 || LinkedTo->Get_Mission()==11)) {
             LinkedTo->Assign_Destination(0,true);
             if (!LinkedTo->unknown_7d) return;
         } else {

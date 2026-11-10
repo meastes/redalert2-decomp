@@ -199,12 +199,12 @@ public:
     virtual void unknown_slot93(int arg1);   // slot 93 0x00500AA0 ret 4
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00503190 ret 0x14
     virtual bool unknown_slot122();   // slot 122 0x00508770 ret 0
-    virtual int unknown_slot126();   // slot 126 0x00506280 ret 0
-    virtual int unknown_slot129();   // slot 129 0x00506470 ret 0
-    virtual int unknown_slot130();   // slot 130 0x00506490 ret 0
-    virtual int unknown_slot132();   // slot 132 0x005063E0 ret 0
-    virtual int unknown_slot133();   // slot 133 0x005064B0 ret 0
-    virtual int unknown_slot137();   // slot 137 0x00506530 ret 0
+    virtual int Do_MISSION_ATTACK();   // slot 126 0x00506280 ret 0
+    virtual int Do_MISSION_GUARD();   // slot 129 0x00506470 ret 0
+    virtual int Do_MISSION_GUARD_AREA();   // slot 130 0x00506490 ret 0
+    virtual int Do_MISSION_HUNT();   // slot 132 0x005063E0 ret 0
+    virtual int Do_MISSION_MOVE();   // slot 133 0x005064B0 ret 0
+    virtual int Do_MISSION_UNLOAD();   // slot 137 0x00506530 ret 0
     virtual int unknown_slot174(AbstractClass *target);   // slot 174 0x00508530 ret 4
     virtual CoordStruct unknown_slot181(int arg1);   // slot 181 0x00508940 ret 8
     virtual bool unknown_slot193();   // slot 193 0x00509090 ret 0

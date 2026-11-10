@@ -200,17 +200,17 @@ public:
     virtual void unknown_slot98(int arg1);                            // slot 98 0x004437A0
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x004453B0
     virtual bool unknown_slot122();                                   // slot 122 0x0044F3B0
-    virtual int unknown_slot126();                                    // slot 126 0x00446920
-    virtual int unknown_slot127();                                    // slot 127 0x00447240
-    virtual int unknown_slot129();                                    // slot 129 0x00445620
-    virtual int unknown_slot130();                                    // slot 130 0x00445940
-    virtual int unknown_slot131();                                    // slot 131 0x00447250
-    virtual int unknown_slot137();                                    // slot 137 0x00449290
-    virtual int unknown_slot139();                                    // slot 139 0x00445950
-    virtual int unknown_slot140();                                    // slot 140 0x00445B30
-    virtual int unknown_slot141();                                    // slot 141 0x00447260
-    virtual int unknown_slot142();                                    // slot 142 0x00448400
-    virtual int unknown_slot143();                                    // slot 143 0x004499D0
+    virtual int Do_MISSION_ATTACK();                                    // slot 126 0x00446920
+    virtual int Do_MISSION_CAPTURE();                                    // slot 127 0x00447240
+    virtual int Do_MISSION_GUARD();                                    // slot 129 0x00445620
+    virtual int Do_MISSION_GUARD_AREA();                                    // slot 130 0x00445940
+    virtual int Do_MISSION_HARVEST();                                    // slot 131 0x00447250
+    virtual int Do_MISSION_UNLOAD();                                    // slot 137 0x00449290
+    virtual int Do_MISSION_CONSTRUCTION();                                    // slot 139 0x00445950
+    virtual int Do_MISSION_DECONSTRUCTION();                                    // slot 140 0x00445B30
+    virtual int Do_MISSION_REPAIR();                                    // slot 141 0x00447260
+    virtual int Do_MISSION_MISSILE();                                    // slot 142 0x00448400
+    virtual int Do_MISSION_OPEN();                                    // slot 143 0x004499D0
     virtual bool unknown_slot153();                                   // slot 153 0x00450F50
     virtual bool unknown_slot160();                                     // slot 160 0x00452940
     virtual bool unknown_slot161();                                     // slot 161 0x00452A90

@@ -34,11 +34,11 @@ void TeamClass::unknown_func_6ba1a0()
                 if (unknown_func_6ba7d0(unit)) {
                     finished = false;
                 }
-                if (unit->unknown_slot91() == 0x10 || unit->MissionQueue == 0x10) {
+                if (unit->Get_Mission() == 0x10 || unit->MissionQueue == 0x10) {
                     finished = false;
                 }
                 if (unknown_func_6bdd80(unit) && (unit->unknown_579 || unit->Kind_Of() == 2)
-                    && unit->unknown_slot91() != 0x10 && unit->MissionQueue != 0x10) {
+                    && unit->Get_Mission() != 0x10 && unit->MissionQueue != 0x10) {
                     int stray = Unknown_006BE6A0();
                     if (unit->unknown_slot21()) {
                         stray *= 2;
@@ -53,10 +53,10 @@ void TeamClass::unknown_func_6ba1a0()
                         if (Class->Aggressive && unit->unknown_228 != 0) {
                             continue;
                         }
-                        if (unit->unknown_slot91() != 2) {
+                        if (unit->Get_Mission() != 2) {
                             unit->unknown_slot116(2, false);
                             if (unit->unknown_slot122()) {
-                                unit->unknown_slot117();
+                                unit->Commence();
                             }
                         }
                         if (unit->unknown_494 == 0) {
@@ -71,7 +71,7 @@ void TeamClass::unknown_func_6ba1a0()
                         }
                         finished = false;
                     } else {
-                        if (unit->unknown_slot91() == 2
+                        if (unit->Get_Mission() == 2
                             && (unit->unknown_494 == 0
                                 || (unit->unknown_5d4c00(unit->unknown_494) <= Rules->unknown_1380 && !unit->Locomotor.Checked()->Is_Moving()))
                             && unit->unknown_228 == 0) {

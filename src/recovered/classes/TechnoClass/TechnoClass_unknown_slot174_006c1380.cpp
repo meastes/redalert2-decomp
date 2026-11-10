@@ -32,7 +32,7 @@ int TechnoClass::unknown_slot174(AbstractClass *target)
     if (secondary->unknown_112) {
         return 0;
     }
-    if (secondary->unknown_126 && unknown_slot91() == 0x10) {
+    if (secondary->unknown_126 && Get_Mission() == 0x10) {
         return 1;
     }
     if (Kind_Of() == 6 && ((BuildingClass *)this)->unknown_531) {

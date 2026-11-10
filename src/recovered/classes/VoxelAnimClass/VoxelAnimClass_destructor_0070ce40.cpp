@@ -127,7 +127,7 @@
 // @ref ?unknown_slot88@ObjectClass@@UAE_NXZ=005d2d00
 // @ref ?unknown_slot89@ObjectClass@@UAEXXZ=005d2d10
 // @ref ?unknown_slot90@ObjectClass@@UAEHXZ=005d2d20
-// @ref ?unknown_slot91@ObjectClass@@UAEHXZ=005d2d30
+// @ref ?Get_Mission@ObjectClass@@UAEHXZ=005d2d30
 // @ref ?unknown_slot92@ObjectClass@@UAEXH@Z=0041b310
 // @ref ?unknown_slot93@ObjectClass@@UAEXH@Z=00423df0
 // @ref ?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z=005d4500

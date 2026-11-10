@@ -27,7 +27,7 @@ bool TechnoClass::unknown_slot96(HouseClass *house)
         unknown_374 = true;
     }
     if (ObjectClass::unknown_slot96(house)) {
-        if (!house->Unknown_004F52F0() && unknown_slot91() == 14) {
+        if (!house->Unknown_004F52F0() && Get_Mission() == 14) {
             unknown_slot116(15, false);
         }
         if (house == unknown_player_a35db4) {

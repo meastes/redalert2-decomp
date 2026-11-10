@@ -91,7 +91,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
 
                 if (object->Kind_Of() != 2) {
                     object->unknown_slot116(5, false);
-                    object->unknown_slot117();
+                    object->Commence();
                 }
 
                 if (drop_pod) {

@@ -80,7 +80,7 @@ void FootClass::unknown_slot93(int why)
             inrange = unknown_slot84(((FootClass *)unknown_228)->unknown_slot287(), primary);
         }
 
-        if ((unknown_slot91() == 21 || unknown_slot91() == 11 || unknown_slot91() == 1 || unknown_slot91() == 15) && inrange && unknown_478.Count() == 0) {
+        if ((Get_Mission() == 21 || Get_Mission() == 11 || Get_Mission() == 1 || Get_Mission() == 15) && inrange && unknown_478.Count() == 0) {
             Assign_Destination(0, true);
             Path[0] = -1;
         }

@@ -30,7 +30,7 @@ void BuildingClass::unknown_44dfc0(int dir)
         }
 
         BuildingClass *post = unknown_44ddb0(dir, false, -1);
-        if (post != 0 && post->unknown_slot91() != 19) {
+        if (post != 0 && post->Get_Mission() != 19) {
             int fenceid;
             for (fenceid = 0; fenceid < BuildingTypes.Count(); fenceid++) {
                 if (BuildingTypes[fenceid]->LaserFence) {

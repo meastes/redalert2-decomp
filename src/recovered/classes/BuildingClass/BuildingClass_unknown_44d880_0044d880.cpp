@@ -9,7 +9,7 @@ bool BuildingClass::unknown_44d880()
     if (!Type->Gate) {
         return true;
     }
-    if (unknown_slot91() == 24 && unknown_2a8.unknown_496b30()) {
+    if (Get_Mission() == 24 && unknown_2a8.unknown_496b30()) {
         return true;
     }
     return false;

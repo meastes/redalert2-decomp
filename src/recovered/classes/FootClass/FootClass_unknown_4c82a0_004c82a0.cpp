@@ -28,7 +28,7 @@ int FootClass::unknown_4c82a0(AbstractClass *target)
     if (Team != 0 && !defense) {
         return 0;
     }
-    if (unknown_slot91() == 10 || unknown_slot168() == 0) {
+    if (Get_Mission() == 10 || unknown_slot168() == 0) {
         return 0;
     }
     int range = unknown_5d4c00(target);

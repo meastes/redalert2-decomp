@@ -23,8 +23,8 @@ void TeamClass::TMission_unknown_6bbbb0(ScriptMissionClass const &mission, bool 
                 unit->unknown_slot116(2, false);
                 Cell dest = unit->unknown_4c8af0(Coord_Cell(unknown_34->Center_Coord()));
                 unit->Assign_Destination(&Map[dest], true);
-            } else if (unit->unknown_228 == 0 && unit->unknown_494 == 0 && unit->unknown_slot91() != do_mission
-                && (do_mission != 5 || unit->unknown_slot91() != 0x10)) {
+            } else if (unit->unknown_228 == 0 && unit->unknown_494 == 0 && unit->Get_Mission() != do_mission
+                && (do_mission != 5 || unit->Get_Mission() != 0x10)) {
                 unit->unknown_6d6e50(0);
                 unit->unknown_slot116(do_mission, false);
                 unit->unknown_slot220(0);

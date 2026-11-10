@@ -4,7 +4,7 @@
 
 bool InfantryClass::unknown_slot204()
 {
-    if ((unknown_slot91() == 5 || unknown_slot91() == 11)
+    if ((Get_Mission() == 5 || Get_Mission() == 11)
         && (Sequence == 0 || Sequence == 9 || Sequence == 10 || Sequence == 32)) {
         return true;
     }

@@ -15,6 +15,6 @@ void MissionClass::unknown_slot116(int mission, bool commence)
         unknown_a4 = false;
     }
     if (commence && unknown_slot122()) {
-        unknown_slot117();
+        Commence();
     }
 }

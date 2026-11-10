@@ -1,4 +1,4 @@
-// int UnitClass::unknown_slot131() (0x007025A0, slot 131)
+// int UnitClass::Do_MISSION_HARVEST() (0x007025A0, slot 131)
 // TibSun UnitClass::Mission_Harvest: the harvester state machine (looking,
 // harvesting, find home, heading home, going idle). Goes to guard when no dock
 // building type is owned.
@@ -60,7 +60,7 @@ inline int Dist_B(ObjectClass const *self, ObjectClass const *other)
 #define DIST_A(o) Dist_A(this, o)
 #define DIST_B(o) Dist_B(this, o)
 
-int UnitClass::unknown_slot131()
+int UnitClass::Do_MISSION_HARVEST()
 {
     enum { LOOKING, HARVESTING, FINDHOME, HEADINGHOME, GOINGTOIDLE };
     int index;

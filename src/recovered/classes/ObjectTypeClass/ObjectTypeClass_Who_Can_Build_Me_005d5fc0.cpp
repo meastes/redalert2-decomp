@@ -29,7 +29,7 @@ BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, boo
         if (legal && !building->unknown_530) {
             continue;
         }
-        if (building->unknown_slot91() == 0x13 || building->MissionQueue == 0x13) {
+        if (building->Get_Mission() == 0x13 || building->MissionQueue == 0x13) {
             continue;
         }
         if (check_limit && building->House->Can_Build((TechnoTypeClass const *)this, 1, 1) <= 0) {

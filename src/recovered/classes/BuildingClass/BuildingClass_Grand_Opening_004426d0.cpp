@@ -163,7 +163,7 @@ void BuildingClass::unknown_slot282(bool captured)
             }
             if (placed) {
                 unit->unknown_slot116(10, false);
-                unit->unknown_slot117();
+                unit->Commence();
             }
         } else {
             House->Refund_Money(Type->FreeUnit->unknown_slot46(House, true));

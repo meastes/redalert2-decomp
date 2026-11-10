@@ -10,7 +10,7 @@ bool FootClass::unknown_slot279()
         if (unknown_4c1) {
             unknown_4c1 = false;
             result = unknown_slot277();
-        } else if (unknown_slot91() == 5 || unknown_slot91() == 5) {
+        } else if (Get_Mission() == 5 || Get_Mission() == 5) {
             result = unknown_slot277();
         } else {
             unknown_slot269();
