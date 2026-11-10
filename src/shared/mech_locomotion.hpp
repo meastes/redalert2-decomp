@@ -34,8 +34,8 @@ public:
     virtual void __stdcall Mark_All_Occupation_Bits(int mark);                  // 0x00593210
     virtual bool __stdcall Is_Moving_Here(CoordStruct to);                      // 0x00593260
 
-    void unknown_5919a0(bool arg);                                              // 0x005919A0 (Process's step)
-    bool unknown_592f70(CoordStruct const &coord);                              // 0x00592F70 (heads for a coordinate: marks the cell, true when it can be entered)
+    void Movement_AI(bool arg);                                              // 0x005919A0 (Process's step)
+    bool Mark_Head_To(CoordStruct const &coord);                              // 0x00592F70 (heads for a coordinate: marks the cell, true when it can be entered)
 
     CoordStruct unknown_18;             // +0x18 destination
     CoordStruct unknown_24;             // +0x24 head-to coordinate

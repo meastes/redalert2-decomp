@@ -74,7 +74,7 @@ static inline Cell Adjacent_Cell_V(Cell cell, int facing)
     return Cell(cell.X + offset.X, cell.Y + offset.Y);
 }
 
-void MechLocomotionClass::unknown_5919a0(bool continue_moving)
+void MechLocomotionClass::Movement_AI(bool continue_moving)
 {
     if (LinkedTo->unknown_2e0.Is_Rotating()) {
         return;
@@ -174,7 +174,7 @@ void MechLocomotionClass::unknown_5919a0(bool continue_moving)
                         LinkedTo->Path[0] = -1;
                         unknown_24 = unknown_geometry_l;
                         LinkedTo->unknown_530 = 0;
-                        unknown_5919a0(false);
+                        Movement_AI(false);
                         return;
                     }
                     int dist = Distance3(LinkedTo->Center_Coord(), unknown_18);
@@ -241,7 +241,7 @@ void MechLocomotionClass::unknown_5919a0(bool continue_moving)
                                 LinkedTo->Path[0] = -1;
                                 unknown_24 = unknown_geometry_l;
                                 LinkedTo->unknown_530 = 0;
-                                unknown_5919a0(false);
+                                Movement_AI(false);
                                 return;
                             }
                             if (object != 0) {
@@ -265,11 +265,11 @@ void MechLocomotionClass::unknown_5919a0(bool continue_moving)
                 LinkedTo->Path[0] = -1;
                 unknown_24 = unknown_geometry_l;
                 LinkedTo->unknown_530 = 0;
-                unknown_5919a0(false);
+                Movement_AI(false);
                 return;
             }
 
-            if (unknown_592f70(head_coord)) {
+            if (Mark_Head_To(head_coord)) {
                 {
                     if (LinkedTo->Path[0] != -1 && LinkedTo->Path[0] != 8) {
                         Cell cell = Adjacent_Tube(LinkedTo->unknown_slot104(), LinkedTo->Path[0]);
@@ -315,7 +315,7 @@ void MechLocomotionClass::unknown_5919a0(bool continue_moving)
         LinkedTo->unknown_slot103(unknown_24);
         LinkedTo->unknown_450 = unknown_24.As_Cell();
         LinkedTo->unknown_slot109(0);
-        unknown_592f70(unknown_geometry_l);
+        Mark_Head_To(unknown_geometry_l);
         if (LinkedTo->Path[0] == -1) {
             LinkedTo->unknown_slot306(0.0);
         }

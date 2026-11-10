@@ -4,8 +4,8 @@
     "id": "population-3123",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "b0cca47d1e7389c1e68917bdfe8f8147b6e584f7a098c56cf8ec7846529d44d7",
-    "historical_acceptance_sha256": "f736147354034d0692984c353dd962e55ef7c49b5c01e7da497949ea6ea14e2d"
+    "historical_population_sha256": "7ad5878c4ee3e5dde023bee6d6371e97004fbb9858992c0859a1bca45adb99a1",
+    "historical_acceptance_sha256": "55258767685d9e8d614b295fdb5efa767b1a85de083ecbcd8e05ab0504a6d1c1"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1471,7 +1471,7 @@
     "??_7MechLocomotionClass@@6BIPersistStream@@@": 8020340,
     "??_7MechLocomotionClass@@6BILocomotion@@@": 8020140,
     "??1LocomotionClass@@UAE@XZ": 5492720,
-    "?unknown_5919a0@MechLocomotionClass@@QAEX_N@Z": 5839264,
+    "?Movement_AI@MechLocomotionClass@@QAEX_N@Z": 5839264,
     "?Unknown_006A29B0@@YIHH@Z": 6957488,
     "?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950576,
     "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
@@ -1501,7 +1501,7 @@
     "?Stop_Moving@MechLocomotionClass@@UAGXXZ": 5839104,
     "?Do_Turn@MechLocomotionClass@@UAGXUUnknownFacingDir@@@Z": 5839184,
     "?Force_Immediate_Destination@MechLocomotionClass@@UAGXUCoordStruct@@@Z": 5839232,
-    "?unknown_592f70@MechLocomotionClass@@QAE_NABUCoordStruct@@@Z": 5844848,
+    "?Mark_Head_To@MechLocomotionClass@@QAE_NABUCoordStruct@@@Z": 5844848,
     "?GetClassID@MechLocomotionClass@@UAGJPAUGUID@@@Z": 5845280,
     "?Load@MechLocomotionClass@@UAGJPAUIStream@@@Z": 5845344,
     "?Layer@MechLocomotionClass@@UAGHXZ": 5845392,
@@ -11048,7 +11048,8 @@
     "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Mark_Head_To@WalkLocomotionClass@@QAE_NABUCoordStruct@@@Z": 7468432
   },
   "regions": [
     {
@@ -12282,13 +12283,13 @@
         {
           "offset": 11,
           "kind": 20,
-          "symbol": "?unknown_5919a0@MechLocomotionClass@@QAEX_N@Z",
+          "symbol": "?Movement_AI@MechLocomotionClass@@QAEX_N@Z",
           "target": 5839264,
           "addend": 0,
           "resolved": 337
         }
       ],
-      "source_sha256": "7754f48f68c71138255230e1134e64e4f4c730e1ff7abf6a7d255ad5e2b17d3c",
+      "source_sha256": "846599aa2f525121a6a39db73227e75cee97bca0a6549a14ffc0ae2d877b31f2",
       "source": "src/recovered/classes/MechLocomotionClass/MechLocomotionClass_Process_00591840.cpp",
       "population": "population-3123",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -12574,8 +12575,8 @@
     {
       "entry": 5844848,
       "method": "00592f70",
-      "symbol": "?unknown_592f70@MechLocomotionClass@@QAE_NABUCoordStruct@@@Z",
-      "symbol_prefix": "?unknown_592f70@MechLocomotionClass@@QAE_NABUCoordStruct@@@Z",
+      "symbol": "?Mark_Head_To@MechLocomotionClass@@QAE_NABUCoordStruct@@@Z",
+      "symbol_prefix": "?Mark_Head_To@MechLocomotionClass@@QAE_NABUCoordStruct@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -12757,13 +12758,13 @@
           "resolved": 10947360
         }
       ],
-      "source_sha256": "9671d531257c56777762caa56565ec158c8ed157ec9d9f6d0c8fe7919419704d",
-      "source": "src/recovered/classes/MechLocomotionClass/MechLocomotionClass_unknown_592f70_00592f70.cpp",
+      "source_sha256": "77d6a296ab199a6bb3f94a575a5057f555f61d91d37a776b62b1a266be01aa68",
+      "source": "src/recovered/classes/MechLocomotionClass/MechLocomotionClass_Mark_Head_To_00592f70.cpp",
       "population": "population-3123",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MechLocomotionClass_unknown_592f70_00592f70",
+      "semantic_name": "MechLocomotionClass_Mark_Head_To_00592f70",
       "source_order": 123118
     },
     {

@@ -1,4 +1,4 @@
-// bool MechLocomotionClass::unknown_592f70(CoordStruct const &coord) (0x00592F70)
+// bool MechLocomotionClass::Mark_Head_To(CoordStruct const &coord) (0x00592F70)
 // Heads for a coordinate on the ground (raised by the bridge height on a
 // bridge cell well below the object): clears the old head-to mark, takes
 // the coordinate when its cell can be entered, and marks the head-to cell
@@ -10,7 +10,7 @@
 // @ref ?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z=00476cc0
 // @ref _unknown_geometry_l=00a70b18
 
-bool MechLocomotionClass::unknown_592f70(CoordStruct const &coord)
+bool MechLocomotionClass::Mark_Head_To(CoordStruct const &coord)
 {
     CoordStruct to = coord;
     if (to != unknown_geometry_l) {
