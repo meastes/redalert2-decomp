@@ -2316,3 +2316,39 @@ declaration-count window: find the original's state with evidenced forms, never 
 Correction (Scout1216 unit 3): symbol numbering is not the counter (unused declarations are inert); the lab's period-3 stepping is the
 scratch-register cursor choosing eax/ecx/edx for each copy. Once registers match, the residue is the scheduler sliding fstp/fld past
 independent stores, perturbed hash-like by address-taken temporaries before the block (Draw_Voxel 0x6FF690 stays 99.54).
+
+## The loop-exit restore group of lent webs is emitted in descending web weight (Scout1217 lab E)
+At a loop exit where several lent webs are restored, the reloads run in descending web weight; a depth-2 use of an enclosing-loop
+counter ranks it first; candidate counts in its range do not move it (Egos 0x4B37C0 frame/step order; build/class-work/Scout1217/lab).
+
+## Candidate text for docs/VC6_MATCHING_NOTES.md (owner's call; from Scout1218, 2026-11-10)
+
+### A narrowed subtraction chain's operand order is a whole-function property of its variables (Scout1218)
+In `zval = (unsigned short)(MaxValue - a) - b - 2` VC6 picks which of `a`, `b` goes into the 16-bit first
+subtraction (and which is folded as a word memory operand) by a whole-function property of the two variables, not
+by the written order or by local register residence: Draw_Sonic 0x7225B0 writes the forward chain with zpix first
+and the two backward chains with endy first; our draft gives starty first / endy first, and a named copy
+`int position = zpix;` before the forward chain fixes the forward order but flips BOTH backward chains (where the
+copy is unused). Declaration count (0-8 header `struct X;` lines) and the inline `Get_Scroll_Delta(int position)`
+spelling (its parameter copy is substituted away for a plain variable argument, also with `return(...)` and an
+unsigned member) do not move it. Integer twin of the x87 term-order note (Scout1169); when such a chain is the
+last diff, look for the variable's other uses across the function, not at the chain.
+
+### The original's third Draw_Sonic slot (Scout1218, refines Scout1212 "summed references" and Scout1215)
+Draw_Sonic's slot 0x08 is opened by `xstop` declared once per Direction arm (4 + 4 = 8 references, processed after
+y 13 and xoff 12); zpix (4) only joins it as the newest compatible slot. Together with per-loop `dest` (TibSun form,
+4 references per web, so starty 7 opens 0x0c next) and the backward fast loop tail written in the forward loop's
+statement order with signs flipped (`zptr -= zwidth; dest -= stride; zval++; points--;`), 68.12 -> 71.04, frame
+slots 0x00-0x0c = the original's membership. Still open (strict refs-desc violations no count key gives): starty(7)
+created before the equal-count forward xstop, a 4-5 reference backward web opening a slot before right(5), and
+index8/zwidth opening one before surfptr/yoff; declaration order and position are inert.
+
+## Narrowed chain order is an inventory tie, landed by an evidenced local elsewhere (Scout1218 round 2)
+Lab (build/class-work/Scout1218/lab/C): for `(unsigned short)(M - a) - b - 2` the later-defined operand takes the
+16-bit first subtraction; a named copy flips it and every other chain on that variable; use counts, address-taking,
+`base_z` locals and every inline `Get_Scroll_Delta` signature are inert (a plain variable argument is substituted,
+no parameter copy). With several chains in one function the order flips with the OTHER chains' spelling at
+identical code (one `base_z` site vs two), i.e. a tie over the function's temporary inventory. Draw_Sonic
+0x7225B0: TibSun's `int zy = y - TacticalRect.Y;` in both slow loops (feeding the `Point2D zpos` cursor) sets all
+three chains to the original's order, 71.04 -> 79.12 (build/class-work/Scout1218/keep/sonic_H2_7912.cpp); TibSun's
+full `int xpos; int zy;` cursor gives the chains but loses the slow loops' memory layout (58.03).
