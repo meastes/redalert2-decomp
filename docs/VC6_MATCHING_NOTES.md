@@ -2250,3 +2250,7 @@ is inert): look for the candidates the original had live along that range (a loc
 the loop, a repeated constant, a value carried from a test into an arm) and for weaker in-loop webs in ours. A real
 local live across a loop costs every web live through it about 1.3 per loop block, which is why one named local can
 reorder long webs (the count-calibrated-locals effect).
+Refinement (Scout1212 lab M): the penalty counts callee-saved candidates (values live across a call or a loop) referenced in any
+block of the web's range, weighted by block frequency: about 1.3 per candidate in an unconditional block, 0.25 in a conditional
+arm, more in loops. A local used once (scratch) or loads without a local cost 0; "straight-line code never counts" means plain
+code, not candidates in straight-line blocks.
