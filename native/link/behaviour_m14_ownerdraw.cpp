@@ -15,6 +15,7 @@
 #define RA2_OWNERDRAW_CHECK_FIELDS
 #define RA2_OWNERDRAW_BUTTON_FIELDS
 #define RA2_OWNERDRAW_EDIT_FIELDS
+#define RA2_COMBO_DROP_UNIT
 #include "shared/unknown_globals.hpp"
 #include "shared/win32_api.hpp"
 #include "shared/win32_window.hpp"
@@ -31,6 +32,9 @@
 #include "shared/movie.hpp"
 #include "shared/movie_list.hpp"
 #include "shared/shape_file.hpp"
+#include "shared/wol_ladder_list_cell.hpp"
+#include "shared/hicolor.hpp"
+#include "shared/rect.hpp"
 
 extern WolDictionary<HWND, WNDPROC> unknown_window_proc_table_a73688;   // 0x00A73688 (its initializer 0x005DE9C0)
 extern void *unknown_art_ac10c0;                                        // 0x00AC10C0 (kind-3 button shape; 0x006F1B60 loads it)
@@ -45,6 +49,12 @@ namespace OwnerDraw {
 
 BOOL __stdcall unknown_5ed180(HWND window, LPARAM lparam);                 // 0x005ED180 (subclass a control)
 BOOL __stdcall unknown_restore_child_5edd30(HWND window, LPARAM lparam);   // 0x005EDD30
+void __fastcall unknown_draw_dimmed_back_5fe490(Rect const &area, HWND window, int kind);   // 0x005FE490
+void __fastcall unknown_draw_edit_text_600830(Surface *surface, Rect &rect, wchar_t const *text, int caret,
+                                              BitFontClass *font, unsigned int color, int *scroll, int ime,
+                                              int password, int frame, int unknown9);   // 0x00600830
+extern int unknown_caret_hidden_a763ec;                                    // 0x00A763EC
+void __fastcall unknown_draw_arrow_5fd960(Surface *surface, Rect const &rect, int upward, int pressed, bool prefixed);   // 0x005FD960
 
 namespace {
 
@@ -550,10 +560,77 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
     return Original(window, message, wparam, lparam);   // everything else (WM_ERASEBKGND too) to the Win32 procedure
 }
 
+// 0x005F6690's columns (M25, Scout1202; NOT EXACT: a native side table, the original
+// keeps them in the record at +0xF8 as {count, ?, 0x14-byte entries}). 0x4A6 adds a
+// column (wparam its width, 0 to the right edge; lparam its x, which is also its id:
+// the load/save dialogs send (249, 2), (56, 255), (0, 315), the phone book (144, 2),
+// (121, 150), (0, 275)); 0x4A8 sets a row's cell (wparam: the column id low, the row
+// high; lparam a WolLadderListCell, Flags then Text) and answers -1 for an unknown
+// column (the load dialog's game-mode "*" cell at 200 is dropped that way, as in the
+// original's search). The row's own text draws in the first column.
+namespace {
+struct ListCell { int row; int column; wchar_t text[64]; };
+struct ListColumns {
+    HWND window;
+    int count;
+    int x[8], width[8];
+    int cells_used;
+    ListCell cells[96];
+};
+ListColumns list_columns[8];
+ListColumns *List_Columns(HWND window, bool make)
+{
+    for (int i = 0; i < 8; ++i)
+        if (list_columns[i].window == window) return &list_columns[i];
+    if (make)
+        for (int i = 0; i < 8; ++i)
+            if (!list_columns[i].window) {
+                memset(&list_columns[i], 0, sizeof list_columns[i]);
+                list_columns[i].window = window;
+                return &list_columns[i];
+            }
+    return 0;
+}
+// Rows at or after row move by delta (insert +1, delete -1; a deleted row's cells go).
+void List_Shift_Rows(ListColumns *columns, int row, int delta)
+{
+    int kept = 0;
+    for (int i = 0; i < columns->cells_used; ++i) {
+        ListCell cell = columns->cells[i];
+        if (delta < 0 && cell.row == row) continue;
+        if (cell.row >= row) cell.row += delta;
+        columns->cells[kept++] = cell;
+    }
+    columns->cells_used = kept;
+}
+}
+
 // 0x005F6690: the list box procedure.
 LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
     UnknownControlRecord *record = Get_Record(window);
+    if (record && message == 0x4A6) {
+        ListColumns *columns = List_Columns(window, true);
+        if (!columns || columns->count >= 8) return -1;
+        int at = columns->count++;
+        while (at > 0 && columns->x[at - 1] > (int)lparam) {
+            columns->x[at] = columns->x[at - 1];
+            columns->width[at] = columns->width[at - 1];
+            --at;
+        }
+        columns->x[at] = (int)lparam;
+        columns->width[at] = (int)wparam;
+        return at;
+    }
+    if (record && message == 0x2) {
+        if (ListColumns *columns = List_Columns(window, false)) columns->window = 0;
+    }
+    if (record && (message == 0x184 || message == 0x182)) {
+        if (ListColumns *columns = List_Columns(window, false)) {
+            if (message == 0x184) columns->cells_used = 0;
+            else List_Shift_Rows(columns, (int)wparam, -1);
+        }
+    }
     if (record && (message == 0x4C8 || message == 0x4CD || message == 0x4C9 || message == 0x4CE)) {
         // Wide text rows (pass-6a decompile 005f6690 case 0x4CD: LB_ADDSTRING 0x180, or
         // LB_INSERTSTRING 0x181 at wparam, with lparam's text; LoadOptionsClass::Fill_List
@@ -566,12 +643,35 @@ LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wpa
         narrow[n] = 0;
         bool append = message == 0x4C8 || message == 0x4CD;
         LRESULT row = Original(window, append ? 0x180 : 0x181, append ? 0 : wparam, (LPARAM)narrow);
+        if (!append && row >= 0)
+            if (ListColumns *columns = List_Columns(window, false)) List_Shift_Rows(columns, (int)row, 1);
         InvalidateRect(window, 0, TRUE);
         return row;
     }
     if (record && message == 0x4A8) {
-        // A row's extra column cell (0x005F6690 case 0x4A8: the date and time of a saved
-        // game): not kept by the simplified list (NOT EXACT: only the first column shows).
+        // A row's cell (the date and time of a saved game).
+        ListColumns *columns = List_Columns(window, false);
+        int id = (int)(wparam & 0xFFFF), row = (int)((wparam >> 16) & 0xFFFF);
+        if (!columns || !lparam) return -1;
+        int column = -1;
+        for (int i = 0; i < columns->count; ++i)
+            if (columns->x[i] == id) column = i;
+        if (column < 0 || row >= (int)Original(window, 0x18B, 0, 0)) return -1;
+        WolLadderListCell const *from = (WolLadderListCell const *)lparam;
+        ListCell *cell = 0;
+        for (int i = 0; i < columns->cells_used; ++i)
+            if (columns->cells[i].row == row && columns->cells[i].column == column) cell = &columns->cells[i];
+        if (!cell) {
+            if (columns->cells_used >= 96) return -1;
+            cell = &columns->cells[columns->cells_used++];
+            cell->row = row;
+            cell->column = column;
+        }
+        int n = 0;
+        unsigned short const *text = from->Text.Get();
+        for (; text && text[n] && n < 63; ++n) cell->text[n] = text[n];
+        cell->text[n] = 0;
+        InvalidateRect(window, 0, TRUE);
         return 0;
     }
     if (!record || message != 0xF) {
@@ -594,7 +694,26 @@ LRESULT __stdcall unknown_list_proc_5f6690(HWND window, UINT message, WPARAM wpa
             if (row.Y + row.Height > area.Y + area.Height) break;
             if (i == selected) Frame(row, unknown_5fda40(unknown_color_a733e4));
             wchar_t text[256];
-            if (Item_Text(window, false, i, text, 256)) Text(record, Rect(row.X + 2, row.Y, row.Width - 4, row.Height), text, 0, 1);
+            ListColumns *columns = List_Columns(window, false);
+            if (!columns || columns->count == 0) {
+                if (Item_Text(window, false, i, text, 256)) Text(record, Rect(row.X + 2, row.Y, row.Width - 4, row.Height), text, 0, 1);
+                continue;
+            }
+            for (int c = 0; c < columns->count; ++c) {
+                int left = area.X + columns->x[c];
+                // A cell reaches the next column (the gap between columns is the cell's own
+                // margin); the last column reaches the box's right edge.
+                int right = c + 1 < columns->count ? area.X + columns->x[c + 1] : area.X + area.Width - 2;
+                if (right > area.X + area.Width - 2) right = area.X + area.Width - 2;
+                if (right <= left) continue;
+                Rect cell_area(left + 1, row.Y, right - left - 2, row.Height);
+                if (c == 0) {
+                    if (Item_Text(window, false, i, text, 256)) Text(record, cell_area, text, 0, 1);
+                    continue;
+                }
+                for (int k = 0; k < columns->cells_used; ++k)
+                    if (columns->cells[k].row == i && columns->cells[k].column == c) Text(record, cell_area, columns->cells[k].text, 0, 1);
+            }
         }
     }
     ValidateRect(window, 0);
@@ -789,12 +908,66 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
         return result;
     }
     if (!record->unknown_bc) {
+        // M25 (Scout1202): the calls of the original's paint (asm 0x005F4D68-0x005F5581),
+        // geometry and colour choice approximate. NOT EXACT. The saved background under
+        // the box (0x005FE490 with +0xC8, then 0x005FEB60), the one-pixel frame (default colour; the
+        // original packs 0x00A73910 / 0x00A76154 for some states), the drop arrow (0x005FD960 at
+        // the right 20 pixels, pointing up and pressed while the list is down, the
+        // alternate art for +0xCD), the disabled darkening (0x005FEB60 again), then for
+        // a drop list (CBS_DROPDOWNLIST) the selected item's wide text (its record, as
+        // the original reads it through 0x199/0x150), in the item's colour (+0x110) when
+        // it has one and +0xCC is set, shortened with "..." to fit, drawn by 0x005FE020
+        // (flags 4, 0xC: vertically centred) 2 pixels in from the left.
         Rect area = Area(window);
-        Frame(area, unknown_5fda40(unknown_color_a76158));
-        int selected = (int)Original(window, 0x147, 0, 0);
-        wchar_t text[256];
-        if (selected >= 0 && Item_Text(window, true, selected, text, 256))
-            Text(record, Rect(area.X + 4, area.Y, area.Width - 8, area.Height), text, 0, 1);
+        Surface *surface = unknown_surface_839958;
+        LONG style = GetWindowLongA(window, GWL_STYLE);
+        bool disabled = (style & 0x8000000) != 0;
+        bool dropped = Combo_Drop(window, false) != 0;
+        unknown_draw_dimmed_back_5fe490(area, window, record->unknown_c8);
+        Unknown_005feb60(&area, surface, 0, record->unknown_c8);
+        unknown_5fdb20(surface, area, 1, -1);
+        Rect arrow(area.X + area.Width - 20, area.Y + 1, 19, area.Height - 2);
+        unknown_draw_arrow_5fd960(surface, arrow, dropped, dropped, record->alternate_cd);
+        if (disabled) Unknown_005feb60(&area, surface, 0, record->unknown_c8);
+        if ((style & 3) == 3) {
+            int selected = (int)Original(window, 0x147, 0, 0);
+            wchar_t text[256];
+            text[0] = 0;
+            ComboItem *item = selected >= 0 ? Combo_Item(window, selected) : 0;
+            if (item && item->text) {
+                int n = 0;
+                for (; item->text[n] && n < 255; ++n) text[n] = item->text[n];
+                text[n] = 0;
+            } else if (selected >= 0) {
+                Item_Text(window, true, selected, text, 256);
+            }
+            unsigned long color = disabled ? unknown_color_a7363c : unknown_color_a733e4;
+            if (record->item_fills_cc && selected >= 0 && selected < 50 && record->item_colors_110[selected] >= 0) {
+                // A colour box (+0xCC, the skirmish/LAN colour choice): the item's colour
+                // fills the box shrunk by 2 (0x006F1B00) under the text (asm 0x005F53AD-0x005F548F).
+                unsigned long fill = record->item_colors_110[selected];
+                Rect swatch(area.X, area.Y, area.Width - 20, area.Height);
+                Unknown_Rect_Shrink_006F1B00(&swatch, 2);
+                surface->Fill_Rect(swatch, Build_Hicolor_Pixel(fill & 0xFF, (fill >> 8) & 0xFF, (fill >> 16) & 0xFF));
+                color = fill;
+            }
+            RECT box = {area.X + 2, area.Y, area.X + area.Width - 20, area.Y + area.Height};
+            int room = box.right - box.left;
+            int length = 0;
+            while (text[length]) ++length;
+            if (record->font_64) {
+                while (length > 0 && record->font_64->String_Pixel_Width(text, 0) > room) {
+                    --length;
+                    text[length] = 0;
+                    int cut = length >= 3 ? length - 3 : 0;
+                    text[cut] = 0;
+                    text[cut] = '.'; text[cut + 1] = '.'; text[cut + 2] = '.'; text[cut + 3] = 0;
+                    length = cut + 3;
+                    if (cut == 0) break;
+                }
+            }
+            if (text[0]) unknown_draw_text_5fe020(surface, text, &box, record->font_64, color, 4, 0xC, 0, 0, 0);
+        }
     }
     ValidateRect(window, 0);
     return 0;
@@ -827,6 +1000,7 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
     }
     WideString &text = *record->unknown_3c;
     int &limit = *(int *)record->unknown_48;
+    int &caret_hidden = *(int *)(record->unknown_48 + 4);   // +0x4C
     HWND parent = GetParent(window);
     switch (message) {
     case 0x100: case 0x101:                         // WM_KEYDOWN / WM_KEYUP
@@ -891,16 +1065,43 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
         InvalidateRect(window, 0, TRUE);
         SendMessageA(parent, 0x111, (WPARAM)((GetDlgCtrlID(window) & 0xFFFF) | (0x300 << 16)), (LPARAM)window);   // EN_CHANGE
         return 0;
-    case 0x14:
-        return 1;
-    case 0xF: {
-        if (!record->unknown_bc) {
-            Rect area = Area(window);
-            Frame(area, unknown_5fda40(unknown_color_a76158));
-            Text(record, Rect(area.X + 3, area.Y, area.Width - 6, area.Height), (wchar_t const *)text.Get(), 0, 1);
-        }
-        ValidateRect(window, 0);
+    case 0x7:                                       // WM_SETFOCUS: the caret blinks once a second
+        caret_hidden = 0;
+        SetTimer(window, 0, 1000, 0);
+        InvalidateRect(window, 0, FALSE);
+        break;
+    case 0x8:                                       // WM_KILLFOCUS
+        KillTimer(window, 0);
+        InvalidateRect(window, 0, FALSE);
+        break;
+    case 0x113:                                     // WM_TIMER
+        caret_hidden ^= 1;
+        InvalidateRect(window, 0, FALSE);
         return 0;
+    case 0x14:
+    case 0xF: {
+        // The original's paint (asm 0x005F261A-0x005F279E, M25 Scout1202; the same calls as
+        // the recovered edit procedure 0x005F1900): the saved background under the
+        // control (0x005FE490 with +0xC8), a one-pixel frame unless the parent is a combo
+        // box, then the text 2 pixels in from the left through 0x00600830 with the caret
+        // at +0x40, the scroll +0x44, the caret flag +0x38, ES_PASSWORD from +0x54 and
+        // the blink state +0x4C in 0x00A763EC. NOT EXACT: the WM_PAINT update rectangle
+        // the original offsets but does not use is skipped.
+        RECT display;
+        char class_name[32] = "";
+        Window_Rect_In_Main_Client(window, &display);
+        GetClassNameA(parent, class_name, sizeof class_name);
+        bool combo = strcmp(class_name, "ComboBox") == 0;
+        Rect background(display.left, display.top, display.right - display.left + 1, display.bottom - display.top + 1);
+        unknown_draw_dimmed_back_5fe490(background, window, record->unknown_c8);
+        if (!combo) unknown_5fdb20(unknown_surface_839958, background, 1, -1);
+        Rect area(display.left + 2, display.top, display.right - (display.left + 2) + 1, display.bottom - display.top + 1);
+        unknown_caret_hidden_a763ec = caret_hidden;
+        unknown_draw_edit_text_600830(unknown_surface_839958, area, (wchar_t const *)text.Get(), record->unknown_40,
+                                      record->font_64, unknown_color_a733e4, &record->unknown_44, record->unknown_38,
+                                      ((unsigned int)record->unknown_54 >> 5) & 1, 0, 0);
+        ValidateRect(window, 0);
+        return message == 0x14 ? 1 : 0;
     }
     case 0x201:
         SetFocus(window);

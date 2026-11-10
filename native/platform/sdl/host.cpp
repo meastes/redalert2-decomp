@@ -469,7 +469,10 @@ void script_key_event(int frame, bool down, const char *name)
         else if (!strncasecmp(name, "alt+", 4)) { mod |= SDL_KMOD_LALT; name += 4; }
         else break;
     }
-    SDL_Keycode key = SDL_GetKeyFromName(name);
+    // '_' stands for a space in SDL key names ("Left_Ctrl"; M25: Ctrl+number groups).
+    std::string spaced(name);
+    for (char &c : spaced) if (c == '_') c = ' ';
+    SDL_Keycode key = SDL_GetKeyFromName(spaced.c_str());
     if (key == SDLK_UNKNOWN) {
         fprintf(stderr, "input-script: unknown key %s\n", name);
         return;

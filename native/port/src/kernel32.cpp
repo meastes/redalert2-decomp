@@ -606,7 +606,9 @@ int GetDateFormatA(DWORD locale, DWORD flags, const SYSTEMTIME *st, const char *
     SYSTEMTIME now;
     if (!st) { GetSystemTime(&now); st = &now; }
     char buf[64];
-    int n = snprintf(buf, sizeof buf, "%02u/%02u/%04u", st->wMonth, st->wDay, st->wYear) + 1;
+    // Windows' en-US short date (DATE_SHORTDATE, "M/d/yyyy"; M25: the load dialog's
+    // 56-pixel date column fits it).
+    int n = snprintf(buf, sizeof buf, "%u/%u/%04u", st->wMonth, st->wDay, st->wYear) + 1;
     if (size == 0) return n;
     if (n > size) return 0;
     memcpy(out, buf, (size_t)n);
@@ -619,7 +621,9 @@ int GetTimeFormatA(DWORD locale, DWORD flags, const SYSTEMTIME *st, const char *
     SYSTEMTIME now;
     if (!st) { GetSystemTime(&now); st = &now; }
     char buf[64];
-    int n = snprintf(buf, sizeof buf, "%02u:%02u:%02u", st->wHour, st->wMinute, st->wSecond) + 1;
+    // Windows' en-US time ("h:mm:ss tt"; M25).
+    unsigned hour = st->wHour % 12 ? st->wHour % 12 : 12;
+    int n = snprintf(buf, sizeof buf, "%u:%02u:%02u %s", hour, st->wMinute, st->wSecond, st->wHour < 12 ? "AM" : "PM") + 1;
     if (size == 0) return n;
     if (n > size) return 0;
     memcpy(out, buf, (size_t)n);

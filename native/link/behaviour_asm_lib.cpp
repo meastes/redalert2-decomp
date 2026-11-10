@@ -177,9 +177,59 @@ void RDTSC()
     TSC_High = (unsigned int)(t >> 32);
 }
 
+// Get_CPU_Speed 0x005ABF70 (M25, Scout1202): the original's measurement (TibSun mpu.cpp,
+// src/recovered/unowned/Get_CPU_Speed_005abf70.cpp) with the virtual TSC for its two
+// rdtsc reads and the port's performance counter (the same nanosecond clock, frequency
+// 10^9): up to 20 samples of 1,000 counter ticks until three agree within 1 MHz, then
+// the rounding to a tenth. NOT EXACT only in the rdtsc source; it returns 1000 here,
+// as before, now by measuring.
+// (The port's QueryPerformanceCounter reads mach_absolute_time in nanoseconds, the clock
+// CLOCK_UPTIME_RAW gives: read here directly, so native-asm-check links without the port.)
+namespace {
+int QueryPerformanceFrequency(int64_t *frequency) { *frequency = 1000000000; return 1; }
+int QueryPerformanceCounter(int64_t *counter) { *counter = (int64_t)virtual_tsc(); return 1; }
+}
+
 int Get_CPU_Speed()
 {
-    return 1000;
+    int64_t t0, t1, count_freq;
+    unsigned int freq = 0, freq2 = 0, freq3 = 0, total = 0;
+    int tries = 0;
+    unsigned int total_cycles = 0, cycles, stamp0, stamp1, total_ticks = 0, ticks;
+    if (!QueryPerformanceFrequency(&count_freq)) return 0;
+    unsigned int freq_low = (unsigned int)count_freq;
+    auto spread = [](unsigned int a, unsigned int t) { int d = (int)(3 * a - t); return d < 0 ? -d : d; };
+    do {
+        tries++;
+        freq3 = freq2;
+        freq2 = freq;
+        QueryPerformanceCounter(&t0);
+        t1 = t0;
+        while ((unsigned int)t1 - (unsigned int)t0 < 50) QueryPerformanceCounter(&t1);
+        stamp0 = (unsigned int)virtual_tsc();
+        t0 = t1;
+        while ((unsigned int)t1 - (unsigned int)t0 < 1000) QueryPerformanceCounter(&t1);
+        stamp1 = (unsigned int)virtual_tsc();
+        cycles = stamp1 - stamp0;
+        ticks = (unsigned int)t1 - (unsigned int)t0;
+        ticks = ticks * 100000;
+        ticks = ticks / (freq_low / 10);
+        total_ticks += ticks;
+        total_cycles += cycles;
+        if (ticks % freq_low > freq_low / 2) ticks++;
+        if (ticks == 0) ticks = 1;                 // native guard (the original divides by it)
+        freq = cycles / ticks;
+        if (cycles % ticks > ticks / 2) freq++;
+        total = freq + freq2 + freq3;
+    } while (tries < 3 || (tries < 20 && (spread(freq, total) > 3 || spread(freq2, total) > 3 || spread(freq3, total) > 3)));
+    if (total_ticks == 0) return 0;
+    freq3 = (total_cycles * 10) / total_ticks;
+    freq2 = (total_cycles * 100) / total_ticks;
+    if (freq2 - freq3 * 10 >= 6) freq3++;
+    int norm_freq = total_cycles / total_ticks;
+    freq = norm_freq * 10;
+    if (freq3 - freq >= 6) norm_freq++;
+    return norm_freq;
 }
 
 // ---------------------------------------------------------------------------

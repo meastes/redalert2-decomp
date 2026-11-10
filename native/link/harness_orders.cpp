@@ -36,6 +36,7 @@
 #include "shared/infantry_type.hpp"
 #include "shared/super.hpp"
 #include "shared/super_weapon_type.hpp"
+#include "shared/laser_draw.hpp"
 
 #include <stdlib.h>
 
@@ -162,6 +163,30 @@ int Scripted_Order(char const *command)
             Append(name, "harness-super-");
             Append_Int(name, index);
             ra2port_progress(name, super->Type ? super->Type->ID.Buffer : "?");
+        }
+        return 1;
+    }
+    if (Same(word[1], "laser", 6)) {
+        // `laser` (Scout1202, M25; test scaffolding): four laser beams from
+        // the player's first building (east, south, north-east and a steep one from 8 cells
+        // up), drawn by LaserDrawClass::Draw_All through DSurface::Draw_Depth_Antialiased_Line
+        // for 90 frames: covers the x-major, y-major and depth-major bodies.
+        HouseClass *player = unknown_player_a35db4;
+        if (player == 0 || player->Buildings.Count() == 0) return -1;
+        CoordStruct from = player->Buildings[0]->Coord;
+        from.Z += 200;
+        static int const offsets[4][3] = {{2560, 0, 0}, {0, 2560, 0}, {1800, -1800, -100}, {256, 256, -2000}};
+        for (int i = 0; i < 4; ++i) {
+            CoordStruct start = from, end = from;
+            if (i == 3) start.Z += 2048;
+            end.X += offsets[i][0];
+            end.Y += offsets[i][1];
+            end.Z += offsets[i][2];
+            // Beams 0 and 2 blink (inner and glow lines through slot 15), 1 and 3 have no outer
+            // colour (the inner line through slot 15); a glowing steady beam would use slot 16.
+            bool blinks = (i & 1) == 0;
+            new LaserDrawClass(start, end, 0, false, RGBClass(255, 64, 64), blinks ? RGBClass(80, 80, 255) : RGBClass(0, 0, 0),
+                               RGBClass(40, 40, 120), 90, blinks, true, 1.0f, 0.2f);
         }
         return 1;
     }

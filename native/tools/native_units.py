@@ -48,6 +48,10 @@ SUBSYSTEMS = {
 LONG_PROTECT = [(re.compile(r'\blong(\s+)long\b'), 'RA2_LL_PLACEHOLDER'),
                 (re.compile(r'\blong(\s+)double\b'), 'RA2_LD_PLACEHOLDER')]
 RULES = [
+    # RA2_SDK_HEADERS (migration switch, DECISIONS "SDK headers for a unit") makes the
+    # shared wrappers include the pinned VC98 SDK headers; the native port supplies its
+    # own Win32 layer, so a converted unit is built natively without the switch.
+    (re.compile(r'^[ \t]*#[ \t]*define[ \t]+RA2_SDK_HEADERS\b[^\n]*$', re.M), '// RA2_SDK_HEADERS: VC98 SDK only'),
     # COM class factories (TClassFactory<X>::CreateInstance, 74 accepted rows)
     # allocate X through a light in-file view padded to the VC6 size; the real
     # constructor then fills the arm64 layout, which is larger (pointers and

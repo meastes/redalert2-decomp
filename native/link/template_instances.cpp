@@ -140,6 +140,7 @@ template class DynamicVectorClass<TechnoClass*>;  // instance: DynamicVectorClas
 template class DynamicVectorClass<TechnoTypeClass const*>;  // instance: DynamicVectorClass<TechnoTypeClass const*>::
 template class DynamicVectorClass<UnknownGlobalPacket*>;  // instance: DynamicVectorClass<UnknownGlobalPacket*>::
 template class DynamicVectorClass<WIN32_FIND_DATA*>;  // instance: DynamicVectorClass<WIN32_FIND_DATA*>::
+template class DynamicVectorClass<char const*>;  // instance: DynamicVectorClass<char const*>::
 template class DynamicVectorClass<char*>;  // instance: DynamicVectorClass<char*>::
 template class DynamicVectorClass<double>;  // instance: DynamicVectorClass<double>::
 template class DynamicVectorClass<unsigned short const*>;  // instance: DynamicVectorClass<unsigned short const*>::
