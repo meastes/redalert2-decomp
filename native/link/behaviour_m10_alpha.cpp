@@ -54,7 +54,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &pixel, Rect const &
         int mask_skip = 60 - r4.Width;
         unsigned char const *maskptr = &tilemask[60 * dy + dx];
         unsigned char const *shapeptr = &data[src_x + src_y * frame.Width];
-        unsigned short *alphaptr = buffer->Get_Buffer_Ptr(Point2D(left, top - unknown_rect_839630.Y));
+        unsigned short *alphaptr = buffer->Get_Buffer_Offset(Point2D(left, top - unknown_rect_839630.Y));
         for (int y = top; y < bottom; y++) {
             for (int x = left; x < right; x++) {
                 unsigned char value = *shapeptr++;

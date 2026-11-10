@@ -102,7 +102,7 @@ void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const &point, Rect const &clip,
     Point2D at;
     at.X = x0;
     at.Y = y0 - unknown_int_839634;
-    unsigned short *dest = buffer->Get_Buffer_Ptr(at);
+    unsigned short *dest = buffer->Get_Buffer_Offset(at);
     unsigned char const *source = pixels + fw * (y0 - top) + skip;
     unsigned char const *transparent = (unsigned char const *)ra2port::original_data_pointer(0x0079DAD0);
     unsigned char clear = transparent != 0 ? *transparent : 0xFE;

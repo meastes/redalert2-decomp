@@ -10,5 +10,5 @@ extern MouseClass Map;                 // 0x008324E0 (as shared/map_view.hpp dec
 // on Map, for the Set_Cursor_Pos draft 0x004994D0 whose unit sees a light MouseClass.
 Cell Native_Radar_Cell_At(Point2D const &xy)
 {
-    return Map.unknown_slot51(xy);
+    return Map.Click_Cell_Calc(xy);
 }

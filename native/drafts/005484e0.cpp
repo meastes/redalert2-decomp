@@ -1,4 +1,4 @@
-// NON-EXACT DRAFT 0x5484E0 MapClass::unknown_slot28 (Set_Map_Dimensions)
+// NON-EXACT DRAFT 0x5484E0 MapClass::Set_Map_Dimensions (Set_Map_Dimensions)
 // entry 0x5484E0; exact-match score 94.60 (Scout1013 best; loose 98.86); plan "draft, verify"
 // origin lane: Scout1013 (build/class-work/Scout1013/keep/smd_9460.cpp; from Scout1002 w3/smd0.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -10,7 +10,7 @@
 // added are read through native helpers compiled against the real headers
 // (native/link/behaviour_map_dimensions.cpp), and the tube cells use Cell + Cell
 // (same value as the base operator+= 0x0056AA20). Each changed line is marked NATIVE.
-// void MapClass::unknown_slot28 (0x005484E0): TibSun Set_Map_Dimensions.
+// void MapClass::Set_Map_Dimensions (0x005484E0): TibSun Set_Map_Dimensions.
 #include "shared/map.hpp"
 #include "shared/map_cell.hpp"
 #include "shared/map_techno.hpp"
@@ -52,7 +52,7 @@ extern int unknown_833968;
 extern int unknown_int_8325d0;   // NATIVE: declared here (shared/main_loop.hpp, left out above)
 extern int unknown_int_8325d4;   // NATIVE
 
-void MapClass::unknown_slot28(Rect const *rect, bool reset_cells, int cell_height, bool refresh_map)
+void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_height, bool refresh_map)
 {
     int i = 0;
     int w = MapSize.Width;

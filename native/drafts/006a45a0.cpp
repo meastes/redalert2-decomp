@@ -118,10 +118,10 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
                 unknown_surface_839964->Copy_From(destrect, *unknown_surface_839944, sourcerect, false, true);
             }
             if (drawpass == 0 || drawpass == 3) {
-                DepthBuffer->Adjust(-xoffset, -yoffset, 0xFFFF);
+                DepthBuffer->Pan(-xoffset, -yoffset, 0xFFFF);
             }
             if (drawpass == 0 || drawpass == 3) {
-                AlphaBuffer->Adjust(-xoffset, -yoffset, 0x7F);
+                AlphaBuffer->Pan(-xoffset, -yoffset, 0x7F);
             }
             if (drawpass == 0 || drawpass == 3) {
                 Surface *oldcomp = unknown_surface_839964;
@@ -132,8 +132,8 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
             }
         } else {
             if (fullredraw && (drawpass == 0 || drawpass == 3)) {
-                DepthBuffer->Clear(0xFFFF);
-                AlphaBuffer->Clear(0x7F);
+                DepthBuffer->Fill(0xFFFF);
+                AlphaBuffer->Fill(0x7F);
             }
         }
 

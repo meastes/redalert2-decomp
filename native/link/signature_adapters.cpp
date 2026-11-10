@@ -26,8 +26,8 @@ extern "C" int ra2_adapter_0002(void * a0) { ra2_adapter_target_0002(a0); return
 extern "C" void ra2_adapter_target_0003(void *) __asm__("__Z15Audio_List_InitP13AudioListNode");
 extern "C" int ra2_adapter_0003(void * a0) __asm__("__ZN13Call_402940_16targetEv");
 extern "C" int ra2_adapter_0003(void * a0) { ra2_adapter_target_0003(a0); return 0; }
-// 0x00411050 Unknown8315B4::Unknown_00411050(int) -> ABuffer::Clear(unsigned short) [width]
-extern "C" void ra2_adapter_target_0004(void *, unsigned short) __asm__("__ZN7ZBuffer5ClearEt");
+// 0x00411050 Unknown8315B4::Unknown_00411050(int) -> ABuffer::Fill(unsigned short) [width]
+extern "C" void ra2_adapter_target_0004(void *, unsigned short) __asm__("__ZN7ZBuffer4FillEt");
 extern "C" void ra2_adapter_0004(void * a0, int a1) __asm__("__ZN13Unknown8315B416Unknown_00411050Ei");
 extern "C" void ra2_adapter_0004(void * a0, int a1) { ra2_adapter_target_0004(a0, (unsigned short)(unsigned int)(int)a1); }
 // 0x004314B0 seed_004316b0::Callee_004314b0::FUN_004314b0(unsigned short*, int*, int*, int) -> BitFontClass::Get_Text_Area(unsigned short const*, int*, int*, int) [return width]
@@ -210,7 +210,7 @@ extern "C" int ra2_adapter_0048(void * a0, int a1) { return (int)(unsigned int)(
 extern "C" bool ra2_adapter_target_0049(void *, unsigned short) __asm__("__ZN10WideString16Remove_CharacterEt");
 extern "C" int ra2_adapter_0049(void * a0, int a1) __asm__("__ZN13Call_7701b0_16targetEj");
 extern "C" int ra2_adapter_0049(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0049(a0, (unsigned short)(unsigned int)(int)a1); }
-// 0x00776160 Unknown839C6C::Unknown_00776160(int) -> ZBuffer::Clear(unsigned short) [width]
-extern "C" void ra2_adapter_target_0050(void *, unsigned short) __asm__("__ZN7ABuffer5ClearEt");
+// 0x00776160 Unknown839C6C::Unknown_00776160(int) -> ZBuffer::Fill(unsigned short) [width]
+extern "C" void ra2_adapter_target_0050(void *, unsigned short) __asm__("__ZN7ABuffer4FillEt");
 extern "C" void ra2_adapter_0050(void * a0, int a1) __asm__("__ZN13Unknown839C6C16Unknown_00776160Ei");
 extern "C" void ra2_adapter_0050(void * a0, int a1) { ra2_adapter_target_0050(a0, (unsigned short)(unsigned int)(int)a1); }

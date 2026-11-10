@@ -78,7 +78,7 @@ RULES = [
     # positions in `unsigned int` locals (they fold through Wrap_Overflow/
     # Wrap_Underflow above) and pass them on as `(void *)`: pointer width natively.
     (re.compile(r'\bunsigned int (depth_pointer|alpha_pointer) = 0;'), r'uintptr_t \1 = 0;'),
-    (re.compile(r'\(unsigned int\)((?:[AZ]BufferPtr|DepthBuffer|AlphaBuffer)->Get_Buffer_Ptr)'), r'(uintptr_t)\1'),
+    (re.compile(r'\(unsigned int\)((?:[AZ]BufferPtr|DepthBuffer|AlphaBuffer)->Get_Buffer_Offset)'), r'(uintptr_t)\1'),
     # The sight-scan RadiusCount table (0x007A5908, 12 ints) is split by the
     # data tables at its second element (unknown_cell_count_7a590c names
     # 0x007A590C), so natively the unsized array is a 4-byte storage and

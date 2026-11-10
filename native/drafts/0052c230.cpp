@@ -369,10 +369,10 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
                         if (!record->IsHasZData) {
                             use_z = false;
                         } else if (use_z) {
-                            IsoDrawData.DepthPtr = DepthBuffer->Get_Buffer_Ptr(Point2D(lock_x, work_y - unknown_rect_839630.Y));
+                            IsoDrawData.DepthPtr = DepthBuffer->Get_Buffer_Offset(Point2D(lock_x, work_y - unknown_rect_839630.Y));
                             IsoDrawData.DepthWidth = DepthBuffer->Width;
                         }
-                        IsoDrawData.AlphaPtr = AlphaBuffer->Get_Buffer_Ptr(Point2D(lock_x, work_y - unknown_rect_839630.Y));
+                        IsoDrawData.AlphaPtr = AlphaBuffer->Get_Buffer_Offset(Point2D(lock_x, work_y - unknown_rect_839630.Y));
                         IsoDrawData.AlphaWidth = AlphaBuffer->Width;
                         IsoDrawData.SrcPixel = (intptr_t)(record + 1);
                         unsigned char const * image = (unsigned char const *)IsoDrawData.SrcPixel;
@@ -758,10 +758,10 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
                             IsoDrawData.ImageRowStep = record->ExtraWidth - IsoDrawData.SpanWidth;
                             IsoDrawData.SurfacePitch = surface.Stride() - IsoDrawData.SpanWidth * surface.Bytes_Per_Pixel();
                             if (use_z) {
-                                IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Ptr(Point2D(ex, ey - unknown_rect_839630.Y));
+                                IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(ex, ey - unknown_rect_839630.Y));
                                 IsoDrawData.DepthWidth = DepthBuffer->Width - IsoDrawData.SpanWidth;
                             }
-                            IsoDrawData.AlphaPtr = (unsigned short *)AlphaBuffer->Get_Buffer_Ptr(Point2D(ex, ey - unknown_rect_839630.Y));
+                            IsoDrawData.AlphaPtr = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(ex, ey - unknown_rect_839630.Y));
                             IsoDrawData.AlphaWidth = AlphaBuffer->Width - IsoDrawData.SpanWidth;
                             IsoDrawData.DestPtr = (unsigned short *)surface.Lock(Point2D(ex, ey));
                             if (IsoDrawData.DestPtr != NULL) {

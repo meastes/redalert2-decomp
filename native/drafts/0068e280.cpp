@@ -781,7 +781,7 @@ error_code = 0;
 }
 MultiplayerGameMode::unknown_delete_modes_5b8d40();
 RadarEventClass_unknown_delete_all_63b890();
-Map.TabClass::unknown_slot50();
+Map.TabClass::DisposeOfArt();
 Unknown_00603FA0();
 Unknown_0059D900();
 Unknown_005D5F40();

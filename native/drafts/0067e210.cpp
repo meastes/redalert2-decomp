@@ -58,7 +58,7 @@ bool SidebarClass::unknown_slot54(int control)
     if (changed) {
         Set_Buttons(unknown_4ee1);
         if (unknown_4ee1) {
-            unknown_slot34();
+            Reposition_Sidebar();
             unknown_4ee2 = true;
             unknown_button_ab96b8.Zap();
             Add_A_Button(unknown_button_ab96b8);

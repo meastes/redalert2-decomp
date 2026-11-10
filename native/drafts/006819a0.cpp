@@ -3,7 +3,7 @@
 // origin lane: Scout908 (build/class-work/Scout908/w/sb1.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1069 (native/drafts.json). Not original bytes.
-// void SidebarClass::unknown_slot34() (0x006819A0, slot 34)
+// void SidebarClass::Reposition_Sidebar() (0x006819A0, slot 34)
 // Lays the sidebar out again: after the power bar's layout it places the
 // sidebar at the right of the tactical area (or at 0 when it is on the left),
 // moves the button columns with it (the 18/26 command bar offsets), loads the
@@ -20,7 +20,7 @@
 // @ref ??_C@_0N@JNGJ@SIDEGDI1?4SHP?$AA@=007f3f44
 // @ref ??_C@_0N@NNCD@SIDEGDI3?4SHP?$AA@=007f3f24
 // @ref ??_C@_0O@IOEL@TXT_SELL_MODE?$AA@=007dcf10
-// @ref ?unknown_slot34@PowerClass@@UAEXXZ=0061d130
+// @ref ?Reposition_Sidebar@PowerClass@@UAEXXZ=0061d130
 // @ref ?unknown_flag_a40b30@@3_NA=00a40b30
 // @ref ?unknown_int_839638@@3HA=00839638
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
@@ -36,9 +36,9 @@
 // @ref ?Remove@ToolTipManager@@QAEXI@Z=006eba10
 // @ref ?Add@ToolTipManager@@QAE_NABVToolTip@@@Z=006eb860
 
-void SidebarClass::unknown_slot34()
+void SidebarClass::Reposition_Sidebar()
 {
-    PowerClass::unknown_slot34();
+    PowerClass::Reposition_Sidebar();
 
     if (unknown_flag_a40b30) {
         unknown_rect_839620.X = unknown_int_839638 + unknown_rect_839630.X;

@@ -24,7 +24,7 @@
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_a40d13@@3_NA=00a40d13
-// @ref ?unknown_slot51@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z=0062fbd0
+// @ref ?Click_Cell_Calc@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z=0062fbd0
 // @ref ?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z=006a6bd0
 // @ref ?Clamp_Cursor_To_Tactical@Tactical@@QAE?AVCell@@ABV2@PBV2@@Z=006aa970
 // @ref ?Unknown_004998C0@DisplayClass@@QAEXABVCell@@_N@Z=004998c0
@@ -42,7 +42,7 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
         Point2D tl = Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
         if (xy.X >= tl.X && xy.X < tl.X + unknown_rect_839630.Width && xy.Y >= tl.Y && xy.Y < tl.Y + unknown_rect_839630.Height) {
             Point2D mouse = WWMouse->Get_Mouse_XY();
-            Cell click = Native_Radar_Cell_At(mouse);   // NATIVE: Map.unknown_slot51(mouse)
+            Cell click = Native_Radar_Cell_At(mouse);   // NATIVE: Map.Click_Cell_Calc(mouse)
             if (click != unknown_geometry_k) {
                 pos = click;
             }

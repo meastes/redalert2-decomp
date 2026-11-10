@@ -7,7 +7,7 @@
 // by 0x0061BE40), Direction = Direction, LaserEC = LaserEC, the depth test reads the
 // ZBuffer ring (0x00839C6C; MaxValue +0x24 is the scroll bias), LogicalSurface is the
 // current drawing surface 0x0083995C, TacticalRect.Y is 0x00839634.
-// Native differences (flagged): every depth value is fetched through Get_Buffer_Ptr (the
+// Native differences (flagged): every depth value is fetched through Get_Buffer_Offset (the
 // original's slow, wrapping path; its fast path walks a running pointer when the wave fits
 // before the ring's end; same values), the sonic margins are the fast path's 3 pixels, the
 // laser's right/bottom limits stay inside the clip rectangle (the fast path reaches one past
@@ -63,7 +63,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
                 int zy = y - unknown_int_839634;
                 for (int i = 0; i <= xstop - xstart; ++i) {
                     int x = forward ? xstart + i : xstop - i;
-                    if (*depth->Get_Buffer_Ptr(Point2D(x, zy)) > zval) {
+                    if (*depth->Get_Buffer_Offset(Point2D(x, zy)) > zval) {
                         if (ypos < 300 && abs(x - WaveStartMiddle.X - xoff) < 300) {
                             Brighten_Pixel_007219c0(x, xoff, ypos, row + x);
                         }
@@ -110,7 +110,7 @@ void WaveClass::Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect)
                 unsigned short *row = buffer + y * stride;
                 int zy = y - unknown_int_839634;
                 for (int x = xstart; x <= xstop; ++x) {
-                    if (*depth->Get_Buffer_Ptr(Point2D(x, zy)) > zval) {
+                    if (*depth->Get_Buffer_Offset(Point2D(x, zy)) > zval) {
                         Set_Laser_Pixel_00721b00(row + x, LaserEC);
                     }
                 }

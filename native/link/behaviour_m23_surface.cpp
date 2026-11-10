@@ -197,8 +197,8 @@ bool DSurface::Draw_Depth_Antialiased_Line(Rect const &cliprect, Point2D const &
         Unlock();
         return false;
     }
-    unsigned short *aptr = abuf->Get_Buffer_Ptr(Point2D(p0.X, p0.Y - abuf->Area.Y));
-    unsigned short *zptr = zbuf->Get_Buffer_Ptr(Point2D(p0.X - zbuf->Area.X, p0.Y - zbuf->Area.Y));
+    unsigned short *aptr = abuf->Get_Buffer_Offset(Point2D(p0.X, p0.Y - abuf->Area.Y));
+    unsigned short *zptr = zbuf->Get_Buffer_Offset(Point2D(p0.X - zbuf->Area.X, p0.Y - zbuf->Area.Y));
     int bufstep = abuf->Width;
     int rowdepth = -1;
     int depth = (unsigned short)(abuf->MaxValue + abuf->Area.Y) - p0.Y - clip.Y + zs;

@@ -14,8 +14,8 @@
 // @ref ?Clip_Line@@YI_NAAUPoint2D@@0ABVRect@@@Z=00775620
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?Get_Buffer_Ptr@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
-// @ref ?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z=00776340
+// @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
+// @ref ?Get_Buffer_Offset@ZBuffer@@QAEPAGUPoint2D@@@Z=00776340
 // @ref ?AlphaBuffer@@3PAVABuffer@@A=008315b4
 // @ref ?DepthBuffer@@3PAVZBuffer@@A=00839c6c
 // @ref ?Brighten_Hicolor_Pixel@@YIHABVRGBClass@@HHH@Z=004ae8d0
@@ -88,10 +88,10 @@ bool DSurface::Draw_Trail_Line_4AE9C0(Rect const & cliprect, Point2D const & sta
     if (DepthBuffer != 0) {
     Point2D point = start;
     point.Y -= DepthBuffer->Area.Y;
-    unsigned short * zbuffer = DepthBuffer->Get_Buffer_Ptr(point);
+    unsigned short * zbuffer = DepthBuffer->Get_Buffer_Offset(point);
     point = start;
     point.Y -= AlphaBuffer->Area.Y;
-    unsigned short * level = AlphaBuffer->Get_Buffer_Ptr(point);
+    unsigned short * level = AlphaBuffer->Get_Buffer_Offset(point);
     int start_y = start.Y;
     int zwrap = -1;
     ZBuffer *depth_buffer = DepthBuffer;

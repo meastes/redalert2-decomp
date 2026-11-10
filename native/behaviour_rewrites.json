@@ -1569,7 +1569,7 @@
   },
   {
    "entry": "0x006822A0",
-   "name": "SidebarClass::unknown_slot31/unknown_slot30 (0x006822A0, 0x00682290)",
+   "name": "SidebarClass::Save/unknown_slot30 (0x006822A0, 0x00682290)",
    "origin_class": "unmatched (leaf)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -1769,7 +1769,7 @@
   },
   {
    "entry": "0x0049AF80",
-   "name": "DisplayClass::unknown_slot44",
+   "name": "DisplayClass::Mouse_Right_Press",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2874,7 +2874,7 @@
    "exact": false,
    "file": "native/link/behaviour_m26_wave.cpp",
    "source": "pass-6a decompile 007225b0; TibSun wave.cpp Draw_Sonic (shape reference)",
-   "notes": "depth via Get_Buffer_Ptr (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)"
+   "notes": "depth via Get_Buffer_Offset (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)"
   },
   {
    "entry": "0x00722CB0",
@@ -2885,7 +2885,7 @@
    "exact": false,
    "file": "native/link/behaviour_m26_wave.cpp",
    "source": "pass-6a decompile 00722cb0; TibSun wave.cpp Draw_Laser (shape reference)",
-   "notes": "depth via Get_Buffer_Ptr (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)"
+   "notes": "depth via Get_Buffer_Offset (slow path), clamps flagged in the file; harness order `wave`; Scout1208 (M26)"
   },
   {
    "entry": "0x0055AA50",
