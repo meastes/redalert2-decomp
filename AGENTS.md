@@ -150,6 +150,20 @@ and preserve unexpected changes rather than overwriting them.
   gain, reviewed or not) and the judgment-call bytes from STATUS beside Reproduced .text. Every ruling
   stays reversible (drafts kept, flags set). Every lane hand-back states "Calibration used: yes/no".
 
+## Status format (user, 2026-11-09)
+
+Every status (each landing and lane hand-back) uses this order, in plain words, with a
+function's name rather than its address where it has one:
+1. What happened since the last status.
+2. Measures table: Reproduced .text %, in-scope C/C++ %, judgment-call bytes and rows, usage
+   per account with Weekly · Fable %.
+3. Decision log: one line per ruling, with cost or gain and reviewed or not.
+4. Lanes running, one line each; Windows deliveries pending.
+5. Anything that needs the user, last and numbered.
+
+Working notes between statuses stay to one line. When the conversation is summarized, copy
+the latest full status into the summary word for word.
+
 ## Controls
 
 The prepared goal text lives in `docs/ORIGINAL_TARGET_GOAL.md`; do not create,

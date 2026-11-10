@@ -5,6 +5,22 @@ Current state only (2026-11-05 05:09Z). Numbers: [STATUS.md](STATUS.md). Workflo
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
+## After a compaction (owner checklist)
+
+1. Re-read the Environment lines below before the first command: tests and tools run with
+   `$RA2_PYTHON` (`private/matching-pilot/20261020T123117Z/env/bin/python`); zsh noclobber is on,
+   so overwrite with `>|` (a failed `>` silently skips the next command; check logs are fresh).
+2. Numbers: `$RA2_PYTHON -B tools/original_target/treemap.py --json build/treemap.json`, then
+   `status.py --write`. Never redirect treemap's stdout into the json; check the file is non-empty.
+3. Never amend a commit a landing has seen: `land.sh` syncs the Windows mirror after each landing.
+   Extra files (e.g. a rename's native rewrite) go in before the commit or in a follow-up commit.
+4. A failed accept leaves state in three places: revert `manifests/original_target/index.json` and
+   the touched population files, delete the new `population-N.json`, remove `population-N` from
+   `private/original-target.interactive.json`, and move its `inventory/composite-<plan>` folder aside.
+5. Before queueing a lane delivery behind landings that change shared headers, land it first or have
+   the lane re-verify at the HEAD it will land on.
+6. Post the status in the AGENTS.md "Status format" at the next landing or hand-back.
+
 ## Owner state (2026-11-04 01:30Z): start here
 
 - **Numbers.** 80.68% matched .text (see STATUS.md), up from 67.38% at the account switch below. The queue is empty; [STATUS.md](STATUS.md) has current figures.
