@@ -36,8 +36,9 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   `src/`, authored tools/tests, byte-free manifests, docs.
 - **External references:** public/recomp/YRpp material supplies hypotheses only;
   verify on the exact target and check licenses (`THIRD_PARTY.md`). Exception
-  (user, 2026-11-06; extended 2026-11-09): text from ra2-decomp, the TibSun archive
-  and mischa85/RedAlert2 may be adopted with attribution (`THIRD_PARTY.md`);
+  (user, 2026-11-06; extended 2026-11-09): text from ra2-decomp, the TibSun archive,
+  mischa85/RedAlert2 and electronicarts/CnC_Renegade may be adopted with attribution
+  (`THIRD_PARTY.md`);
   acceptance is unchanged. Standing pulls (user, 2026-11-09): at each landing
   point pull `private/reference/ra2-decomp` and `private/reference/mischa85-RedAlert2`
   (at most hourly) and report functions they match that we have not accepted.

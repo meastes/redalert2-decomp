@@ -83,6 +83,13 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   under the ignored `private/reference/`. No header, implementation or data was
   incorporated; they supply naming, member-order and idiom hypotheses that are
   verified on the base executable like every other reference.
+  Exception (user decision, 2026-11-09): Renegade text may be adopted into `src/` with
+  attribution, like TibSun, ra2-decomp and mischa85: an adopted file keeps the SPDX and
+  copyright lines and the EA notice, is marked modified, and the commit subject says
+  "from Renegade <file>". First use: the Westwood Online API headers `Code/wolapi/`
+  (WOLAPI.h, WOLAPI_i.c, chatdefs.h, netutildefs.h, downloaddefs.h; text files only,
+  not the DLLs), fetched into the ignored `private/reference/renegade-wolapi-3e00c3a/`.
+  Acceptance is unchanged.
 
 - **TibSun reconstruction** (`OpenTS-Developers/TibSun` commit `dbfbfbfaac40364ce7e1cd8fad7bcade5c6fb0d4`,
   `code/` only; read-only shape reference, see [docs/WESTWOOD_SOURCES.md](docs/WESTWOOD_SOURCES.md)): a community
@@ -94,7 +101,8 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
 - **ra2-decomp** (`gibbo101/ra2-decomp` commit `6e6f6a1a3430ae9e2b743fe4fe176da2b5ccf661`, 2026-11-07; earlier pins ca9b8ad, 4453ab030): a matching
   decompilation of Yuri's Revenge gamemd.exe 1.001 built with the same VC6 SP3. Game source in `src/` and `include/`
   GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors, with Electronic Arts' section 7 terms on files carrying an
-  EA copyright line (COPYING.md); tooling and data MIT. The maintainer gave the user explicit permission to reuse it.
+  EA copyright line (COPYING.md); tooling and data MIT. The maintainer, Luke Gibson (gibbo101), gave the user explicit
+  permission to reuse it and contributed 39 twin leads (pull request 1, 2026-11-06; closed 2026-11-09 with 37 accepted).
   Cloned read-only under the ignored `private/reference/ra2-decomp`. Since 2026-11-06 (user decision) functions whose
   RA2 body matches a YR twin may be adopted into `src/` adapted to our headers (their names follow YRpp and must be
   mapped to ours); an adopted file keeps their SPDX and copyright lines and the commit subject says

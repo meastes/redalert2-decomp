@@ -2204,3 +2204,9 @@ VC6 reorders an unparenthesised flat `+` chain into its own order: every permuta
 
 ## A by-value Point2D cursor keeps two frame slots and an in-memory increment (Scout1198)
 When the original keeps X and Y of a depth-buffer position in two adjacent frame slots and increments X in memory inside a pixel loop, the source walked a by-value `Point2D zpos(xstart, y - TacticalRect.Y)` with `zpos.X++` (WaveClass Draw_Laser 0x722CB0 and Draw_Sonic 0x7225B0 slow branches), not a per-pixel `Point2D(x, ypos)` temporary or an int `xpos`: VC6 merges an int position with the loop counter into one induction variable and the frame comes out 8 B short. Both rows' frames match with the cursor (0x40, 0x3c).
+
+## Write `coord.As_Cell()` where the twin does, not `Cell(coord)` (Scout1204)
+A coordinate-to-cell conversion through our `Cell(CoordStruct)` constructor and through TibSun `Coord::As_Cell()` produce
+different code in a joined unit: Get_Obstacle 0x4BBAF0 sat at 97.80 for that one expression and went exact with two of its
+three uses written as `As_Cell()` (TibSun point.h TPoint3D text under RA2_POINT3D_TIBSUN). In any near miss with a
+coordinate-to-cell site, try `As_Cell()` first.

@@ -46,6 +46,25 @@ The recovery goal is active and incomplete. Native adaptation
 and Yuri's Revenge remain later work. See [provenance](THIRD_PARTY.md); this local
 migration grants no rights to proprietary material and publishes nothing.
 
+## Credits
+
+This work stands on other people's. Text from these projects is adopted with
+attribution; licences and pinned commits are in [THIRD_PARTY.md](THIRD_PARTY.md).
+
+- **Luke Gibson ([gibbo101](https://github.com/gibbo101))** and the
+  [ra2-decomp](https://github.com/gibbo101/ra2-decomp) contributors: the Yuri's
+  Revenge matching decompilation. Luke gave permission to reuse its source and
+  sent the twin leads in
+  [pull request 1](https://github.com/meastes/redalert2-decomp/pull/1); functions
+  adopted from it say "from ra2-decomp" in the commit subject.
+- **The OpenTS developers**: the
+  [Tiberian Sun reconstruction](https://github.com/OpenTS-Developers/TibSun).
+- **Marcel Bierling ([mischa85](https://github.com/mischa85))**:
+  [RedAlert2](https://github.com/mischa85/RedAlert2), a matching decompilation of
+  the same executable.
+- **Electronic Arts**: the GPL source releases of Red Alert, Tiberian Dawn and
+  Renegade.
+
 Day-to-day recovery uses the iteration tools in
 [build setup](docs/ORIGINAL_TARGET_BUILD.md#iteration-tools): Ghidra seeding,
 scored instruction diffs, bulk seed sweeps and a vtable class inventory. The
