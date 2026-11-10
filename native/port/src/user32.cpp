@@ -285,7 +285,7 @@ BOOL ShowWindow(HWND hwnd, int cmd)
         progress_count("dialogs shown", detail);
         if (dialogs_shown++ == 0) progress("menu", detail);
         dialog_show_times.push_back(now_ms());
-        if (getenv("RA2_NATIVE_MSG_LOG")) fprintf(stderr, "dialog shown #%d\n", dialogs_shown);
+        if (getenv("RA2_NATIVE_MSG_LOG") || getenv("RA2_NATIVE_DIALOG_LOG")) fprintf(stderr, "dialog shown #%d (template %u) t%llu\n", dialogs_shown, w->template_id, (unsigned long long)now_ms());
         // The main menu (its single-player button 0x683) shown again after a
         // game ran: the menu-to-game-to-menu loop closed (Scout1119, M14).
         extern int ra2port_last_frame(void);

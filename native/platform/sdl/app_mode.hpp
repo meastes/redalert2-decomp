@@ -14,7 +14,6 @@
 // unchanged); macOS only.
 #pragma once
 #include <SDL3/SDL.h>
-#include <CommonCrypto/CommonDigest.h>
 #include <mach-o/dyld.h>
 #include <mach-o/loader.h>
 #include <cxxabi.h>
@@ -39,14 +38,16 @@
 #include <string>
 #include <vector>
 
+#include "ra2port/game_builds.hpp"
+
 extern char **environ;
 
 namespace app {
 
 // The supported game.exe (AGENTS.md "Fixed constraints"; the same check as
 // port/src/original_image.cpp, which reads its data).
-const long long kTargetSize = 4485392;
-const char kTargetSha256[] = "e6418111c2c36081a1795fb000e0927beea1630170b334c5013d12102602e70f";
+using ra2build::kTargetSize;
+using ra2build::kTargetSha256;
 
 std::string home()
 {
@@ -154,27 +155,36 @@ std::string missing_mix(std::string const &dir)
 }
 
 enum class Exe { missing, supported, other };
+// Why the last checked game.exe was refused (ra2build::classify).
+std::string &exe_reason() { static std::string r; return r; }
 Exe check_exe(std::string const &path, std::string &digest, long long &size)
 {
     digest.clear();
     size = 0;
     FILE *f = path.empty() ? nullptr : fopen(path.c_str(), "rb");
     if (!f) return Exe::missing;
-    CC_SHA256_CTX ctx;
-    CC_SHA256_Init(&ctx);
+    ra2build::Sha256 whole;
     unsigned char buf[65536];
     size_t n;
+    std::vector<unsigned char> file;
     while ((n = fread(buf, 1, sizeof buf, f)) > 0) {
-        CC_SHA256_Update(&ctx, buf, (CC_LONG)n);
+        whole.update(buf, n);
+        file.insert(file.end(), buf, buf + n);
         size += (long long)n;
     }
     fclose(f);
-    unsigned char md[CC_SHA256_DIGEST_LENGTH];
-    CC_SHA256_Final(md, &ctx);
-    char hex[2 * CC_SHA256_DIGEST_LENGTH + 1];
-    for (int i = 0; i < CC_SHA256_DIGEST_LENGTH; ++i) snprintf(hex + 2 * i, 3, "%02x", md[i]);
+    char hex[65];
+    whole.hex(hex);
     digest = hex;
-    return size == kTargetSize && digest == kTargetSha256 ? Exe::supported : Exe::other;
+    // The target, or another build with the target's data (ra2port/game_builds.hpp).
+    ra2build::Kind kind = ra2build::classify(file.data(), file.size(), digest, [](unsigned char const *p, size_t len) {
+        ra2build::Sha256 part;
+        part.update(p, len);
+        char h[65];
+        part.hex(h);
+        return std::string(h);
+    }, &exe_reason());
+    return kind == ra2build::Kind::other ? Exe::other : Exe::supported;
 }
 
 // ---- dialogs (SDL: NSAlert and NSOpenPanel on macOS) --------------------
@@ -331,12 +341,13 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
     std::string sizes = bytes(size);
     std::string why = state == Exe::missing
         ? "There is no game.exe in\n" + dir + "\n\n"
-        : "The game.exe in this folder is a different build of Red Alert 2 (" + sizes + ", SHA-256 " +
-              digest.substr(0, 16) + "…).\n\n";
-    std::string supported = "This version of the native game reads its tables and dialogs from one build only: the base "
-                            "Red Alert 2 game.exe of 4,485,392 bytes (SHA-256 e6418111c2c36081…). Other builds are not "
-                            "supported yet.\n\nIf you have that game.exe elsewhere (for example a backup), choose it. "
-                            "Otherwise the game cannot start.";
+        : "The game.exe in this folder is a build of Red Alert 2 the native game cannot read (" + sizes + ", SHA-256 " +
+              digest.substr(0, 16) + "…: " + exe_reason() + ").\n\n";
+    std::string supported = std::string("The native game reads its tables and dialogs from ") +
+                            ra2build::supported_builds_text() +
+                            ". Any other build is refused: its data may sit at other addresses, and reading it there "
+                            "would give wrong tables.\n\nIf you have a supported game.exe elsewhere (for example a "
+                            "backup), choose it. Otherwise the game cannot start.";
     for (;;) {
         int b = ask(kTitle, why + supported, {"Choose game.exe…", "Quit"}, true);
         if (b != 0) return false;
@@ -351,8 +362,8 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
         }
         sizes = bytes(size);
         why = c == Exe::missing ? chosen + "\ncannot be read.\n\n"
-                                : chosen + "\nis not the supported game.exe either (" + sizes + ", SHA-256 " +
-                                      digest.substr(0, 16) + "…).\n\n";
+                                : chosen + "\nis not a supported game.exe either (" + sizes + ", SHA-256 " +
+                                      digest.substr(0, 16) + "…: " + exe_reason() + ").\n\n";
     }
 }
 

@@ -2963,6 +2963,61 @@
    "file": "native/link/behaviour_m26_rows.cpp",
    "source": "pass-6a decompile 00435ff0",
    "notes": "returns Type (+0x30); Scout1208 (M26)"
+  },
+  {
+   "entry": "0x00579960",
+   "name": "MapGeneratorClass::Read_Settings_00579960",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m27_mapgen.cpp",
+   "source": "pass-6a decompile 00579960; RMG.INI keys from game.exe strings",
+   "notes": "Get_Int defaults kept as current values; skirmish Random Map; Scout1208 (M27)"
+  },
+  {
+   "entry": "0x00482100",
+   "name": "Default_Map_Generation_Callback_00482100",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m27_mapgen.cpp",
+   "source": "pass-6a decompile 00482100",
+   "notes": "calls 0x00481FB0, returns false; skirmish Random Map; Scout1208 (M27)"
+  },
+  {
+   "entry": "0x0056DBA0",
+   "name": "Get_Cell_Data_0056dba0",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m27_mapcells.cpp",
+   "source": "pass-6a decompile 0056dba0; ra2-decomp MapRegionClass::Get_Cell_Data",
+   "notes": "indexes unknown_map_cells_a70a24; skirmish Random Map; Scout1208 (M27)"
+  },
+  {
+   "entry": "0x0056DBC0",
+   "name": "Get_Cell_Data_0056dbc0",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m27_mapcells.cpp",
+   "source": "pass-6a decompile 0056dbc0; ra2-decomp MapRegionClass::Get_Cell_Data",
+   "notes": "indexes unknown_map_cells_a70a24; skirmish Random Map; Scout1208 (M27)"
+  },
+  {
+   "entry": "0x0052E390",
+   "name": "IsometricTileTypeClass::Preview_Tile",
+   "symbol": "",
+   "origin_class": "unrecovered",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m27_mapcells.cpp",
+   "source": "pass-6a decompile 0052e390; TibSun Preview_Tile",
+   "notes": "skirmish Random Map; Scout1208 (M27)"
   }
  ]
 }

@@ -669,10 +669,32 @@ void play(Scripted &s, int number)
                 x = (float)px;
                 y = (float)py;
             }
+            // RA2_NATIVE_SCRIPT_AS_USER=1 (test scaffolding, M27): the event as a player's mouse
+            // makes it, in window coordinates (converted back by the pump like a real event).
+            static bool as_user = getenv("RA2_NATIVE_SCRIPT_AS_USER") != nullptr;
+            if (as_user && renderer) {
+                float wx = x, wy = y;
+                SDL_RenderCoordinatesToWindow(renderer, x, y, &wx, &wy);
+                x = wx;
+                y = wy;
+                if (e.type == SDL_EVENT_MOUSE_MOTION) e.motion.which = 0; else e.button.which = 0;
+            }
             if (e.type == SDL_EVENT_MOUSE_MOTION) { e.motion.windowID = id; e.motion.x = x; e.motion.y = y; }
             else { e.button.windowID = id; e.button.x = x; e.button.y = y; }
         }
         SDL_PushEvent(&e);
+        // As a player's keyboard: a printable key also types its character (SDL text input).
+        static bool as_user_keys = getenv("RA2_NATIVE_SCRIPT_AS_USER") != nullptr;
+        if (as_user_keys && e.type == SDL_EVENT_KEY_DOWN && e.key.key >= 0x20 && e.key.key < 0x7F) {
+            static char text[2];
+            text[0] = (char)e.key.key;
+            text[1] = 0;
+            SDL_Event t = {};
+            t.type = SDL_EVENT_TEXT_INPUT;
+            t.text.windowID = id;
+            t.text.text = text;
+            SDL_PushEvent(&t);
+        }
     }
 }
 

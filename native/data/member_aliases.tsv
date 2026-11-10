@@ -222,3 +222,5 @@ _DAT_00b292f0	_unknown_timer_b292e8	8	8	compatible	DAT_00b292f0	unknown_timer_b2
 _unknown_int_839648	_unknown_window_839640	8	8	exact	unknown_int_839648	unknown_window_839640	X.Width	int	int	16
 _unknown_int_83964c	_unknown_window_839640	12	12	exact	unknown_int_83964c	unknown_window_839640	X.Height	int	int	16
 _unknown_module_locks_b2930c	_wol_module_b292f8	40	20	exact	unknown_module_locks_b2930c	wol_module_b292f8	cbSize.m_nLockCnt	int	RA2_LONG	240
+_unknown_vegetation_min_a6fff0	_RandomMapGen	784	648	exact	unknown_vegetation_min_a6fff0	RandomMapGen	RMGVegetationMinimums.base:class DynamicVectorClass<int>.base:class VectorClass<int>.Vector	int*	int*	968
+_unknown_vegetation_max_a7000c	_RandomMapGen	824	676	exact	unknown_vegetation_max_a7000c	RandomMapGen	RMGVegetationMaximums.base:class DynamicVectorClass<int>.base:class VectorClass<int>.Vector	int*	int*	968

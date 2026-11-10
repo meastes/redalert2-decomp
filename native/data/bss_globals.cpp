@@ -533,8 +533,6 @@ alignas(16) unsigned char ra2_bss_0434[176] __asm__("_unknown_shore_offsets_a6f9
 alignas(16) unsigned char ra2_bss_0435[584] __asm__("_unknown_int_a6fa2c");  // 0x00A6FA2C unknown_int_a6fa2c (?unknown_int_a6fa2c@@3HA)
 alignas(16) unsigned char ra2_bss_0436[488] __asm__("_unknown_zone_a6fc34");  // 0x00A6FC34 unknown_zone_a6fc34 (?unknown_zone_a6fc34@@3HA)
 alignas(16) unsigned char ra2_bss_0437[536] __asm__("_unknown_preview_a6fee4");  // 0x00A6FEE4 unknown_preview_a6fee4 (?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A)
-alignas(16) unsigned char ra2_bss_0438[56] __asm__("_unknown_vegetation_min_a6fff0");  // 0x00A6FFF0 unknown_vegetation_min_a6fff0 (?unknown_vegetation_min_a6fff0@@3PAHA)
-alignas(16) unsigned char ra2_bss_0439[184] __asm__("_unknown_vegetation_max_a7000c");  // 0x00A7000C unknown_vegetation_max_a7000c (?unknown_vegetation_max_a7000c@@3PAHA)
 alignas(16) unsigned char ra2_bss_0440[112] __asm__("_unknown_generate_flag_a70068");  // 0x00A70068 unknown_generate_flag_a70068 (?unknown_generate_flag_a70068@@3_NA)
 __asm__(".globl _unknown_map_dialog_modified_a70068\n.set _unknown_map_dialog_modified_a70068, _unknown_generate_flag_a70068\n");  // same address: unknown_map_dialog_modified_a70068
 alignas(16) unsigned char ra2_bss_0441[168] __asm__("_unknown_seed_text_a709c8");  // 0x00A709C8 unknown_seed_text_a709c8 (?unknown_seed_text_a709c8@@3PADA)

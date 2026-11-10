@@ -584,7 +584,10 @@ place covers its one pointer, a `ptrs` place its declared elements, pointer slot
 scaled to 8 bytes; the TSV extent runs on into the literals that follow), from
 this file and `bss_globals.cpp`, else the mapped image's initialised data, else
 null). `port/src/original_image.cpp` maps the executable's sections (after
-checking size and SHA-256 against the pinned target) and fills them before
+checking size and SHA-256 against the pinned target, or that the build's section
+table and .rdata/.data/.rsrc bytes are the target's: an identity address map,
+`port/include/ra2port/game_builds.hpp`; the signed 4,489,184-byte no-CD build is
+one) and fills them before
 WinMain (milestone `original-data`; static initialisers run before main and see
 zeros). `RA2_GAME_EXE=<path>` names the supported executable when the
 installation carries another build. Structs of scalars and fixed scalar arrays

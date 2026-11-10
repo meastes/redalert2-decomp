@@ -21,10 +21,12 @@ native/packaging/make_app.sh build/native/ra2-native build/native   # writes bui
    **Choose Folder…** and pick the folder where the game is installed (the one
    with `ra2.mix` and `game.exe`). The app reads the game's files from there
    and never changes them.
-3. The app needs the base Red Alert 2 `game.exe` of 4,485,392 bytes. If the
-   folder has another build, it says so and lets you pick the right `game.exe`
-   from somewhere else (for example a backup). Other builds are not supported
-   yet.
+3. The app needs the base Red Alert 2 `game.exe` of 4,485,392 bytes, or a copy
+   of that build whose data is unchanged (for example the signed 4,489,184-byte
+   `game.exe` with no-CD patches; `port/include/ra2port/game_builds.hpp`). If the
+   folder has any other build, it says so (with the reason, e.g. "different data
+   in .data") and lets you pick a supported `game.exe` from somewhere else (for
+   example a backup); otherwise the game cannot start.
 4. The game starts at its main menu. Your choice is remembered; to choose
    again, delete `~/Library/Application Support/RA2Native/settings`.
 

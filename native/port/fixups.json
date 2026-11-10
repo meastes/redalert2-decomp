@@ -1454,6 +1454,97 @@
    "old": "    void *unknown_18;               // +0x18 a pointer: ObjectClass::Load 0x005D4760 swizzles it (pointee unknown)",
    "new": "    int unknown_18;                 // +0x18 NATIVE: kept 4 bytes (see why)",
    "why": "The original field is a 4-byte pointer (ObjectClass::Load 0x005D4760 swizzles it). An 8-byte arm64 pointer lets clang reuse AbstractClass's tail padding differently and shifts every derived class's native layout (static layout asserts, e.g. CellClass::MapCoords). No recovered code stores a non-zero value there; the ObjectClass::Load fixup skips the swizzle of a zero field, as the original's null swizzle does nothing."
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Map_0057ae00.cpp",
+   "old": "namespace seed_00663220 { void __fastcall FUN_00663220(int address); }",
+   "new": "namespace seed_00663220 {   // NATIVE: Clear_All_Waypoints written over the real member\nextern \"C\" unsigned int _DAT_00ab6e88;\ninline void __fastcall FUN_00663220(UnknownIDSource *scenario)\n{\n    unsigned int *waypoint = (unsigned int *)scenario->Waypoints;\n    for (int remaining = 101; remaining != 0; --remaining) *waypoint++ = _DAT_00ab6e88;\n}\n}",
+   "why": "Init_Map (0x0057AE00) calls Clear_All_Waypoints (0x00663220, the seed in src/recovered/00663220.cpp) with the scenario pointer cast to a 32-bit int; the seed writes 101 cells at +0x632. Natively the cast truncates the pointer (the skirmish Random Map's Generate Map faulted, Scout1208 M27) and the layout differs. As Clear_Scenario's fixups: a native inline that takes the pointer and writes UnknownIDSource::Waypoints with the empty cell (0x00AB6E88). Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Map_0057ae00.cpp",
+   "old": "seed_00663220::FUN_00663220(reinterpret_cast<int>(unknown_id_source_a3d290));",
+   "new": "seed_00663220::FUN_00663220(unknown_id_source_a3d290);   // NATIVE",
+   "why": "Init_Map (0x0057AE00) calls Clear_All_Waypoints (0x00663220, the seed in src/recovered/00663220.cpp) with the scenario pointer cast to a 32-bit int; the seed writes 101 cells at +0x632. Natively the cast truncates the pointer (the skirmish Random Map's Generate Map faulted, Scout1208 M27) and the layout differs. As Clear_Scenario's fixups: a native inline that takes the pointer and writes UnknownIDSource::Waypoints with the empty cell (0x00AB6E88). Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Map_0057ae00.cpp",
+   "old": "if(!MapPreview)MapPreview=(int)new UnknownPreview_0061D430;",
+   "new": "if(!unknown_preview_a6fee4)unknown_preview_a6fee4=new UnknownPreview_0061D430;   // NATIVE: MapPreview's storage",
+   "why": "MapGeneratorClass::MapPreview (+0x17C of RandomMapGen 0x00A6FD68) is the storage the name unknown_preview_a6fee4 (0x00A6FEE4) denotes; the header types it int. Natively the int truncates the preview pointer and the named global has its own storage, so Init_Map (0x0057AE00) made a preview Generate_Random_Map (0x0057A0D0) never saw (null: the skirmish Random Map's Generate Map faulted in 0x0061D660, Scout1208 M27). Natively both rows use the named pointer, as every other preview row (Do_Random_Map, the dialog procedure) does. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/MapGeneratorClass_destructor_005771b0.cpp",
+   "old": "    if(MapPreview!=0) {\n        delete reinterpret_cast<UnknownPreview_0061D430 *>(MapPreview);\n        MapPreview=0;\n    }",
+   "new": "    if(unknown_preview_a6fee4!=0) {   // NATIVE: MapPreview's storage\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }",
+   "why": "MapGeneratorClass::MapPreview (+0x17C of RandomMapGen 0x00A6FD68) is the storage the name unknown_preview_a6fee4 (0x00A6FEE4) denotes; the header types it int. Natively the int truncates the preview pointer and the named global has its own storage, so Init_Map (0x0057AE00) made a preview Generate_Random_Map (0x0057A0D0) never saw (null: the skirmish Random Map's Generate Map faulted in 0x0061D660, Scout1208 M27). Natively both rows use the named pointer, as every other preview row (Do_Random_Map, the dialog procedure) does. Same meaning; the exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Start_Points_00583790.cpp",
+   "old": "reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::FUN_0056dba0((short *)&position))->",
+   "new": "Get_Cell_Data_0056dba0(position).",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Start_Points_00583790.cpp",
+   "old": "reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::FUN_0056dba0((short *)&seed))->",
+   "new": "Get_Cell_Data_0056dba0(seed).",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Start_Points_00583790.cpp",
+   "old": "reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::FUN_0056dba0((short *)&adjacent))->",
+   "new": "Get_Cell_Data_0056dba0(adjacent).",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Init_Start_Points_00583790.cpp",
+   "old": "bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);",
+   "new": "bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);\nUnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dba0(Cell const &cell);   // NATIVE",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Place_Forest_00585dc0.cpp",
+   "old": "namespace seed_0056dba0 { int __fastcall FUN_0056dba0(short *position); }",
+   "new": "// NATIVE: the cell-record lookup is Get_Cell_Data_0056dba0 (declared after the includes)",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Place_Forest_00585dc0.cpp",
+   "old": "(*reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::FUN_0056dba0((short *)&position)))",
+   "new": "Get_Cell_Data_0056dba0(position)",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Place_Forest_00585dc0.cpp",
+   "old": "(*reinterpret_cast<UnknownMapGenerationCell *>(seed_0056dba0::FUN_0056dba0((short *)&next)))",
+   "new": "Get_Cell_Data_0056dba0(next)",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/MapGeneratorClass/Place_Forest_00585dc0.cpp",
+   "old": "#include \"shared/vein_heap.hpp\"\n",
+   "new": "#include \"shared/vein_heap.hpp\"\nUnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dba0(Cell const &cell);   // NATIVE\n",
+   "why": "The generator's cell-record lookup 0x0056DBA0 is spelled here as a seed returning the record's address as a 32-bit int (X + Y * side records of 0x50 bytes from 0x00A70A24). Natively the int truncates the pointer and the record size differs (the skirmish Random Map's Generate Map faulted in Init_Start_Points, Scout1208 M27). Natively each call is Get_Cell_Data_0056dba0 (native/link/behaviour_m27_mapcells.cpp: unknown_map_cells_a70a24[X + Y * side]), the same record. The exact build is unchanged.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Audio_Ring_Node_Create_00408ca0.cpp",
+   "old": "    node->Base = (char *)(((1 << shift) + (unsigned long)node->Data - 1) & (-1 << shift));",
+   "new": "    node->Base = (char *)(((1 << shift) + (uintptr_t)node->Data - 1) & (uintptr_t)(intptr_t)(-1 << shift));   // NATIVE",
+   "why": "Audio_Ring_Node_Create (0x00408CA0) aligns the ring buffer through `unsigned long` (b5e7063db, Scout1188 r2). The native dialect keeps Windows' 32-bit long (RA2_LONG), so the cast cut the 64-bit allocation pointer: every audio stream read into a bad address (ReadFile failed or stalled), so Audio_Stream_Open failed: EVA speech never played (Speech_Update: ceva049.WAV opened, no stream) and the theme reopened its song every frame (about 1,000 opens per 1,000 frames; Scout1208 M27, user report: no voices). Pointer-width natively; the same alignment.",
+   "verified": true
   }
  ]
 }
