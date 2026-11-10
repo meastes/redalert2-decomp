@@ -1356,13 +1356,13 @@
   {
    "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
    "old": "                case 3:\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 3;\n                    IPXAddressClass::Set_Protocol(1);\n",
-   "new": "                case 3:\n                    if (Native_Multiplayer_Unavailable()) {   /* NATIVE: multiplayer out of scope */\n                        selection = 0x12;\n                        break;\n                    }\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 3;\n                    IPXAddressClass::Set_Protocol(1);\n",
+   "new": "                case 3:\n                    if (Native_LAN_Unavailable()) {   /* NATIVE: LAN only with RA2_NATIVE_LAN=1 (IPXManagerClass::Service and the lobby rows are still traps) */\n                        selection = 0x12;\n                        break;\n                    }\n                    selection = 0x10;\n                    unknown_session_a3d298.Type = 3;\n                    IPXAddressClass::Set_Protocol(1);\n",
    "why": "Native single player scope (Scout1187, M23; user decision: multiplayer is out of scope, its WOL/IPX/modem code stays link-closure traps): the main menu's Internet (2) and Network (3) selections of Select_Game 0x005135F0 start WOL (session type 4) and the LAN game (type 3), which reach IPXManagerClass::Service and fault natively. Natively they first ask Native_Multiplayer_Unavailable (link/behaviour_m23.cpp), which says so in a message box and returns true; Select_Game then shows the main menu again (selection 0x12, as its own failure paths do). The original statements follow unchanged for a build that has the network."
   },
   {
    "source": "src/recovered/unowned/Select_Game_005135f0.cpp",
    "old": "struct UnknownMovieEntry {",
-   "new": "bool Native_Multiplayer_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nstruct UnknownMovieEntry {",
+   "new": "bool Native_Multiplayer_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nbool Native_LAN_Unavailable();   // NATIVE: link/behaviour_m23.cpp\nstruct UnknownMovieEntry {",
    "why": "Native single player scope (Scout1187, M23; user decision: multiplayer is out of scope, its WOL/IPX/modem code stays link-closure traps): the main menu's Internet (2) and Network (3) selections of Select_Game 0x005135F0 start WOL (session type 4) and the LAN game (type 3), which reach IPXManagerClass::Service and fault natively. Natively they first ask Native_Multiplayer_Unavailable (link/behaviour_m23.cpp), which says so in a message box and returns true; Select_Game then shows the main menu again (selection 0x12, as its own failure paths do). The original statements follow unchanged for a build that has the network."
   },
   {

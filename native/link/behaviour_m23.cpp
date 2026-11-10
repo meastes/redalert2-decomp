@@ -52,6 +52,16 @@ bool Native_Multiplayer_Unavailable()
     return true;
 }
 
+// The Network (LAN) selection: the same box unless RA2_NATIVE_LAN=1 (test runs, Scout1209
+// r7). IPX is carried over UDP (port/src/wsock32.cpp); the LAN code then reaches
+// IPXManagerClass::Service 0x00525F60 and the lobby rows, which are still link-closure traps.
+extern "C" char *getenv(char const *name);
+bool Native_LAN_Unavailable()
+{
+    static bool lan = getenv("RA2_NATIVE_LAN") != 0;
+    return lan ? false : Native_Multiplayer_Unavailable();
+}
+
 // Audio state the original keeps in its initialised data as zeros (0x00830ED8,
 // 0x00830F70, 0x00830FD8: all zero in game.exe): native storage, zero as there.
 // Audio_Events_Init 0x00403EB0 / Audio_Init 0x00406AD0 initialise them.

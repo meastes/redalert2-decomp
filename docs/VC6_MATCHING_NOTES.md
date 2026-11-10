@@ -2304,3 +2304,6 @@ reloaded at use in use order. On 440 accepted functions the per-edge count raise
 75.1% (exact layouts 56 to 60 of 127); implemented as key `r1b` in build/class-work/Scout1215/fsim.py. Still open:
 ties whose last reference is a loop-exit reload (Load_MFCI 0x77A4C0 orders by the last reference inside the loop) and
 Draw_Sonic's third slot.
+Addendum (Scout1215 lab W3): when two equal-reference webs are reloaded together after a loop, the one whose first use inside the
+loop comes earlier takes the lower slot; definition order and post-loop use order never change it; webs only carried through the
+loop are reloaded in reverse definition order; webs unused in the loop are reloaded at their uses in use order.

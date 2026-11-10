@@ -2,11 +2,24 @@
 // gives the clashing calls. Translates the Winsock sockaddr_in (no sin_len,
 // 16-bit family) and HOSTENT (16-bit type/length), and emulates WSAAsyncSelect
 // with a poll thread that posts the window message as Winsock does.
+//
+// IPX (Scout1209 r7): RA2 1.006's LAN game speaks only IPX (IPXInterfaceClass
+// 0x0076A3A0: socket(AF_IPX 6, SOCK_DGRAM, NSPROTO_IPX 1000)). Hosts have no IPX
+// stack, so an IPX datagram socket is carried as a UDP socket: each running game
+// claims one UDP port of a fixed range (ipx_base_port .. +ipx_port_count) and its
+// IPX node address is its IPv4 address and that port (6 bytes, network number 0).
+// A send to node FF:FF:FF:FF:FF:FF goes to the UDP broadcast address on every port
+// of the range (other machines and other games on this one); any other node is a
+// unicast to the address and port it names. A datagram received from ip:port is
+// reported as from node ip:port. Only standard sockets calls (and getifaddrs for
+// the local address), so other ports can reuse it.
 #include "ra2port/win32_port.hpp"
 
 #include <arpa/inet.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <ifaddrs.h>
+#include <net/if.h>
 #include <map>
 #include <mutex>
 #include <netdb.h>
@@ -54,6 +67,82 @@ void to_win(const struct sockaddr_in *bsd, void *win)
     w->family = bsd->sin_family;
     w->port = bsd->sin_port;
     w->addr = bsd->sin_addr.s_addr;
+}
+
+// ---- IPX over UDP ------------------------------------------------------------
+// Winsock SOCKADDR_IPX (14 bytes): short family (6), netnum[4], nodenum[6],
+// socket (big-endian); IPX_ADDRESS_DATA (24 bytes) for getsockopt(IPX_ADDRESS).
+#pragma pack(push, 1)
+struct WinSockAddrIpx { int16_t family; uint8_t netnum[4]; uint8_t nodenum[6]; uint16_t socket; };
+#pragma pack(pop)
+struct WinIpxAddressData { int32_t adapternum; uint8_t netnum[4]; uint8_t nodenum[6]; uint8_t wan, status; int32_t maxpkt; uint32_t linkspeed; };
+const int AF_IPX_WIN = 6, NSPROTO_IPX_WIN = 1000;
+const int IPX_ADDRESS_OPT = 0x4007, IPX_MAX_ADAPTER_NUM_OPT = 0x400D;
+const uint16_t ipx_base_port = 26300;
+const int ipx_port_count = 8;
+struct IpxSocket { uint16_t number = 0; };
+std::mutex ipx_lock;
+std::map<SOCKET, IpxSocket> ipx_sockets;
+uint16_t ipx_port = 0;          // this game's UDP port (0: not claimed yet)
+int ipx_reserve = -1;           // holds the claimed port until the game binds its socket
+
+bool is_ipx(SOCKET s)
+{
+    std::lock_guard<std::mutex> g(ipx_lock);
+    return ipx_sockets.count(s) != 0;
+}
+// The first up, non-loopback IPv4 address (the one other machines reach), else loopback.
+uint32_t ipx_local_address()
+{
+    uint32_t found = htonl(INADDR_LOOPBACK);
+    struct ifaddrs *list = nullptr;
+    if (getifaddrs(&list) != 0) return found;
+    for (struct ifaddrs *i = list; i; i = i->ifa_next) {
+        if (!i->ifa_addr || i->ifa_addr->sa_family != AF_INET) continue;
+        if (!(i->ifa_flags & IFF_UP) || (i->ifa_flags & IFF_LOOPBACK)) continue;
+        found = ((struct sockaddr_in *)i->ifa_addr)->sin_addr.s_addr;
+        break;
+    }
+    freeifaddrs(list);
+    return found;
+}
+struct sockaddr_in udp_address(uint32_t address, uint16_t port)
+{
+    struct sockaddr_in a;
+    memset(&a, 0, sizeof a);
+#if defined(__APPLE__) || defined(__FreeBSD__)
+    a.sin_len = sizeof a;
+#endif
+    a.sin_family = AF_INET;
+    a.sin_port = htons(port);
+    a.sin_addr.s_addr = address;
+    return a;
+}
+// Claims the first free port of the range for this game (held by a reserving
+// socket until the game binds its IPX socket).
+uint16_t ipx_claim_port()
+{
+    std::lock_guard<std::mutex> g(ipx_lock);
+    if (ipx_port) return ipx_port;
+    for (int i = 0; i < ipx_port_count; ++i) {
+        int fd = socket(AF_INET, SOCK_DGRAM, 0);
+        if (fd < 0) break;
+        struct sockaddr_in a = udp_address(htonl(INADDR_ANY), (uint16_t)(ipx_base_port + i));
+        if (bind(fd, (struct sockaddr *)&a, sizeof a) == 0) {
+            ipx_reserve = fd;
+            ipx_port = (uint16_t)(ipx_base_port + i);
+            return ipx_port;
+        }
+        close(fd);
+    }
+    return 0;
+}
+void ipx_node(uint8_t node[6])
+{
+    uint32_t address = ipx_local_address();
+    uint16_t port = htons(ipx_claim_port());
+    memcpy(node, &address, 4);
+    memcpy(node + 4, &port, 2);
 }
 
 struct AsyncSelect { HWND window; UINT message; LONG events; };
@@ -135,6 +224,17 @@ int EnumProtocolsA(int *protocols, void *buffer, uint32_t *length)
 
 SOCKET ra2_socket(int family, int type, int protocol)
 {
+    if (family == AF_IPX_WIN) {
+        // An IPX datagram socket: a UDP socket that may broadcast (see the file comment).
+        if (type != SOCK_DGRAM || protocol != NSPROTO_IPX_WIN) { wsa_error = 10043; return ~0u; }   // WSAEPROTONOSUPPORT
+        int s = socket(AF_INET, SOCK_DGRAM, 0);
+        if (s < 0) { set_error(); return ~0u; }
+        int one = 1;
+        setsockopt(s, SOL_SOCKET, SO_BROADCAST, &one, sizeof one);
+        std::lock_guard<std::mutex> g(ipx_lock);
+        ipx_sockets[(SOCKET)s] = IpxSocket();
+        return (SOCKET)s;
+    }
     int s = socket(family, type, protocol);
     if (s < 0) { set_error(); return ~0u; }
     return (SOCKET)s;
@@ -145,10 +245,32 @@ int closesocket(SOCKET s)
         std::lock_guard<std::mutex> g(async_lock);
         async_sockets.erase(s);
     }
+    {
+        std::lock_guard<std::mutex> g(ipx_lock);
+        ipx_sockets.erase(s);
+    }
     return close((int)s) == 0 ? 0 : set_error();
 }
 int ra2_bind(SOCKET s, const void *address, int length)
 {
+    if (is_ipx(s)) {
+        // The game's own socket number (non-zero) takes this game's port of the range;
+        // a socket bound to number 0 (the net card query) takes any port.
+        const WinSockAddrIpx *w = (const WinSockAddrIpx *)address;
+        uint16_t number = ntohs(w->socket);
+        uint16_t port = 0;
+        if (number != 0) {
+            port = ipx_claim_port();
+            if (port == 0) { wsa_error = 10048; return -1; }   // WSAEADDRINUSE: the range is full
+            std::lock_guard<std::mutex> g(ipx_lock);
+            if (ipx_reserve >= 0) { close(ipx_reserve); ipx_reserve = -1; }
+        }
+        struct sockaddr_in a = udp_address(htonl(INADDR_ANY), port);
+        if (bind((int)s, (struct sockaddr *)&a, sizeof a) != 0) return set_error();
+        std::lock_guard<std::mutex> g(ipx_lock);
+        ipx_sockets[s].number = number;
+        return 0;
+    }
     (void)length;
     struct sockaddr_in a;
     to_bsd(address, &a);
@@ -156,6 +278,25 @@ int ra2_bind(SOCKET s, const void *address, int length)
 }
 int ra2_sendto(SOCKET s, const char *buffer, int length, int flags, const void *to, int tolength)
 {
+    if (is_ipx(s)) {
+        const WinSockAddrIpx *w = (const WinSockAddrIpx *)to;
+        static const uint8_t broadcast[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+        if (memcmp(w->nodenum, broadcast, 6) == 0) {
+            bool sent = false;
+            for (int i = 0; i < ipx_port_count; ++i) {
+                struct sockaddr_in a = udp_address(htonl(INADDR_BROADCAST), (uint16_t)(ipx_base_port + i));
+                if (sendto((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, sizeof a) >= 0) sent = true;
+            }
+            return sent ? length : set_error();
+        }
+        uint32_t address;
+        uint16_t port;
+        memcpy(&address, w->nodenum, 4);
+        memcpy(&port, w->nodenum + 4, 2);
+        struct sockaddr_in a = udp_address(address, ntohs(port));
+        ssize_t n = sendto((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, sizeof a);
+        return n < 0 ? set_error() : (int)n;
+    }
     (void)tolength;
     struct sockaddr_in a;
     to_bsd(to, &a);
@@ -168,17 +309,59 @@ int ra2_recvfrom(SOCKET s, char *buffer, int length, int flags, void *from, int 
     socklen_t al = sizeof a;
     ssize_t n = recvfrom((int)s, buffer, (size_t)length, flags, (struct sockaddr *)&a, &al);
     if (n < 0) return set_error();
+    if (is_ipx(s)) {
+        // The sender's node is its IPv4 address and UDP port (see the file comment).
+        if (from) {
+            WinSockAddrIpx w;
+            memset(&w, 0, sizeof w);
+            w.family = AF_IPX_WIN;
+            memcpy(w.nodenum, &a.sin_addr.s_addr, 4);
+            memcpy(w.nodenum + 4, &a.sin_port, 2);
+            {
+                std::lock_guard<std::mutex> g(ipx_lock);
+                w.socket = htons(ipx_sockets[s].number);
+            }
+            memcpy(from, &w, sizeof w);
+        }
+        if (fromlength) *fromlength = (int)sizeof(WinSockAddrIpx);
+        return (int)n;
+    }
     if (from) to_win(&a, from);
     if (fromlength) *fromlength = 16;
     return (int)n;
 }
 int ra2_setsockopt(SOCKET s, int level, int name, const char *value, int length)
 {
+    // IPX's packet type and filter (IPX_PTYPE, IPX_FILTERTYPE) mean nothing over UDP.
+    if (level == NSPROTO_IPX_WIN && is_ipx(s)) return 0;
     if (level == 0xFFFF) level = SOL_SOCKET;
     return setsockopt((int)s, level, name, value, (socklen_t)length) == 0 ? 0 : set_error();
 }
 int ra2_getsockopt(SOCKET s, int level, int name, char *value, int *length)
 {
+    if (level == NSPROTO_IPX_WIN && is_ipx(s)) {
+        if (name == IPX_MAX_ADAPTER_NUM_OPT && *length >= 4) {   // one adapter
+            int32_t one = 1;
+            memcpy(value, &one, 4);
+            *length = 4;
+            return 0;
+        }
+        if (name == IPX_ADDRESS_OPT && *length >= (int)sizeof(WinIpxAddressData)) {
+            WinIpxAddressData data;
+            memcpy(&data, value, sizeof data);          // adapternum comes in
+            memset(data.netnum, 0, sizeof data.netnum);
+            ipx_node(data.nodenum);
+            data.wan = 0;
+            data.status = 1;
+            data.maxpkt = 1400;
+            data.linkspeed = 1000000;
+            memcpy(value, &data, sizeof data);
+            *length = (int)sizeof data;
+            return 0;
+        }
+        wsa_error = 10042;   // WSAENOPROTOOPT
+        return -1;
+    }
     if (level == 0xFFFF) level = SOL_SOCKET;
     socklen_t l = (socklen_t)*length;
     int r = getsockopt((int)s, level, name, value, &l);
