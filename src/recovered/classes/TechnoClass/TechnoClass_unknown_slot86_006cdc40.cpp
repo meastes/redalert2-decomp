@@ -110,7 +110,7 @@ int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
             if (unknown_slot32()->DieSound.Count()>0) {
                 Voc_Play_At(unknown_slot32()->DieSound.Pick(unknown_random_839218()),Position_Coord_004f3f40(),0);
             }
-            unknown_slot152(3);
+            SendToEachLink(3);
             unknown_slot210();
             if (unknown_25c[0]) { unknown_25c[0]->unknown_slot60(); unknown_25c[0]=0; }
             if (!(unknown_slot108()<=10 && unknown_7c && Map[Position_Coord_004f3f40()].unknown_ec==2)) {

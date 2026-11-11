@@ -78,7 +78,7 @@ bool BuildingClass::Mark(int mark)
                         }
 
                         if (any_created) {
-                            unknown_slot152(3);
+                            SendToEachLink(3);
                             unknown_slot60();
                             return true;
                         } else {
@@ -91,7 +91,7 @@ bool BuildingClass::Mark(int mark)
                     }
                 } else if (Type->Wall) {
                     new OverlayClass(Type->ToOverlay, cell, House->Type->House);
-                    unknown_slot152(3);
+                    SendToEachLink(3);
                     unknown_slot60();
 
                 } else {

@@ -6,7 +6,7 @@
 bool RadioClass::unknown_slot52()
 {
     if (!unknown_76) {
-        unknown_slot152(3);
+        SendToEachLink(3);
     }
     return ObjectClass::unknown_slot52();
 }

@@ -33,7 +33,7 @@ void BuildingClass::unknown_slot54(bool removing)
         }
     }
     else {
-        unknown_slot152(3);
+        SendToEachLink(3);
     }
     ObjectClass::unknown_slot54(removing);
 }

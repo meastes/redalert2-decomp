@@ -317,7 +317,7 @@ void EventClass::Execute()
                 ((FootClass *)techno)->unknown_41c = Cell(0, 0);
                 ((FootClass *)techno)->unknown_420 = Cell(0, 0);
             }
-            techno->unknown_slot152(3);
+            techno->SendToEachLink(3);
             techno->Assign_Destination(0, true);
             techno->unknown_slot220(0);
             if (techno->SpawnManager) {

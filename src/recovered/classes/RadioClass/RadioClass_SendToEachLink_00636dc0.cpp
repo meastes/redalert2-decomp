@@ -1,7 +1,7 @@
-// void RadioClass::unknown_slot152(int message) (0x00636DC0, slot 152): to every contact.
+// void RadioClass::SendToEachLink(int message) (0x00636DC0, slot 152): to every contact.
 #include "shared/radio.hpp"
 
-void RadioClass::unknown_slot152(int message)
+void RadioClass::SendToEachLink(int message)
 {
     for (int index = 0; index < RadioLinks.Length(); index++) {
         if (RadioLinks[index] != 0) {

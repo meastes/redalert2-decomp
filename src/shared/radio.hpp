@@ -24,10 +24,10 @@ public:
     RadioClass(NoInitClass const &noinit);                      // 0x006368C0
 
     bool In_Radio_Contact() const;                              // 0x00636F10 (hypothesis)
-    bool Unknown_00636EA0() const;                              // 0x00636EA0 (has an empty contact slot; hypothesis)
+    bool Unknown_00636EA0() const;                              // 0x00636EA0 (has an empty contact slot)
     TechnoClass *Contact_With_Whom(int index) const;            // 0x00636E20 (hypothesis)
-    bool Unknown_00636ED0(TechnoClass *techno) const;           // 0x00636ED0 (in contact with techno; hypothesis)
-    int Unknown_00636E70(TechnoClass *techno) const;            // 0x00636E70 (the techno's index among the contacts, or -1; hypothesis)
+    bool Unknown_00636ED0(TechnoClass *techno) const;           // 0x00636ED0 (in contact with techno)
+    int Unknown_00636E70(TechnoClass *techno) const;            // 0x00636E70 (the techno's index among the contacts, or -1)
     bool Is_Radio_Contact(TechnoClass *techno) const;           // 0x00636E30 (techno is one of RadioLinks; hypothesis)
     virtual ~RadioClass() {}
 
@@ -41,7 +41,7 @@ public:
     virtual int unknown_slot149(int message);                   // slot 149 0x00636D90 to the first contact
     virtual int unknown_slot150(int message, TechnoClass *techno);  // slot 150 0x00636B80
     virtual int unknown_slot151(int message, AbstractClass **param, TechnoClass *techno);  // slot 151 0x00636A50 transmit
-    virtual void unknown_slot152(int message);                  // slot 152 0x00636DC0 to every contact
+    virtual void SendToEachLink(int message);                   // slot 152 0x00636DC0 to every contact
 
     void Set_Radio_Count(int count);                            // 0x00636F40 (grows RadioLinks, clearing new entries; name hypothesis)
     TechnoClass *Contact(int index) const;                      // 0x00636E10

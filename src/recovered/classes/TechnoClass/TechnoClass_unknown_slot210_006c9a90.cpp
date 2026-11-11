@@ -9,7 +9,7 @@ void TechnoClass::unknown_slot210()
 {
     unknown_slot220(0);
     Assign_Destination(0, true);
-    unknown_slot152(3);
+    SendToEachLink(3);
     if (SpawnManager) {
         SpawnManager->Kill_Nodes();
         SpawnManager->Abandon_Target();

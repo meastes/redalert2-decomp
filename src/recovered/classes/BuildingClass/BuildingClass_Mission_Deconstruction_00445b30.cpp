@@ -59,13 +59,13 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
             return 1;
         }
         unknown_5ad=false;
-        unknown_slot152(23);
+        SendToEachLink(23);
         if(Type->LaserFencePost) unknown_44e5a0(0);
         unknown_4397c0();
         unknown_a8=1;
         break;
     case 1:
-        unknown_slot152(3);
+        SendToEachLink(3);
         if(!unknown_370) {
             if(!unknown_1b0 || !Type->UndeploysInto) {
                 int count=unknown_slot172();
