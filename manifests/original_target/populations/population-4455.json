@@ -4,8 +4,8 @@
     "id": "population-4455",
     "inventory_sha256": "d560a1f7a688b6181678a6326d45545bf332c3aaad990e3cd83fa98e6cbb7a9c",
     "gaps_sha256": "2af1585aa67775da144ddea3ac65322994de55f00b2d9aaa804dc42919bf5cfb",
-    "historical_population_sha256": "e7edb02ae997926005c6f5c29663507bb55a3609df8d54a5432b766b9376aab2",
-    "historical_acceptance_sha256": "a11f609d18c9c568e86020c103be21fb60aba697fa34e0eaa7578fc7499537cd"
+    "historical_population_sha256": "31ecfa28196f20f1236c64dab2d9c143db7db1e347124bec1caca71e41e214fe",
+    "historical_acceptance_sha256": "566e49d034a77623697a47793b9a945e97a498516c9cb529b84c4b471f1e29fe"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10186,7 +10186,7 @@
     "?Has_Ended@DelayTimerClass@@QBE_NXZ": 4811472,
     "?Reverse@DelayTimerClass@@QAEXXZ": 4811792,
     "?Percent_Complete@DelayTimerClass@@QBENXZ": 4811888,
-    "?unknown_47bb30@UnknownCellClass@@QAEXXZ": 4700976,
+    "?Trigger_Veins@UnknownCellClass@@QAEXXZ": 4700976,
     "?unknown_slot185@TechnoClass@@UAE_NXZ": 7131904,
     "?unknown_slot252@TechnoClass@@UAEX_N@Z": 7139920,
     "?unknown_slot253@TechnoClass@@UAEX_N@Z": 7140096,
@@ -10471,7 +10471,7 @@
     "?unknown_6c6130@TechnoClass@@QAE_NHHPBVCell@@HPAPAVObjectClass@@PAHH@Z": 7102768,
     "?unknown_6c5570@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z": 7099760,
     "?unknown_6cc020@TechnoClass@@QAEXXZ": 7127072,
-    "?unknown_47bb30@CellClass@@QAEXXZ": 4700976,
+    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
     "?unknown_slot251@TechnoClass@@UAEXABUPoint2D@@0ABVRect@@@Z": 7165200,
     "?Find_Moving_Blocker@AStarClass@@QAEPAVObjectClass@@ABVCell@@H@Z": 4360528,
     "?unknown_4cbb40@FootClass@@QAE?AVCell@@H@Z": 5028672,
@@ -11448,8 +11448,8 @@
     "?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?Is_Near_Tunnel_NW@CellClass@@QAE_NXZ": 4693232,
     "?Is_Near_Tunnel_ES@CellClass@@QAE_NXZ": 4693872,
-    "?unknown_475fe0@CellClass@@QAEHH@Z": 4677600,
-    "?unknown_47bb10@CellClass@@QBE_NXZ": 4700944,
+    "?Reduce_Wall@CellClass@@QAEHH@Z": 4677600,
+    "?Is_Tile_Destroyable_Cliff@CellClass@@QBE_NXZ": 4700944,
     "?Select_Blitter_00485AA0@ConvertClass@@QAEPAVBlitter@@I@Z": 4741792,
     "?unknown_47c040@CellClass@@QAEHXZ": 4702272,
     "?Tiberium_Type_Here@CellClass@@QBEHXZ": 4694560,
@@ -14515,7 +14515,11 @@
     "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
     "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
-    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
   },
   "regions": [
     {
@@ -16856,7 +16860,7 @@
         {
           "offset": 1029,
           "kind": 20,
-          "symbol": "?unknown_475fe0@CellClass@@QAEHH@Z",
+          "symbol": "?Reduce_Wall@CellClass@@QAEHH@Z",
           "target": 4677600,
           "addend": 0,
           "resolved": 4294932759
@@ -17870,7 +17874,7 @@
           "resolved": 3156105
         }
       ],
-      "source_sha256": "550fea444fd44e5f1f565d433992fb5b8c681256810c34cb9dc3741a4bfe9bd9",
+      "source_sha256": "55f197b4e7c7b04246073c73e49d815230ab763100c6eab7a0a39595b44aedf5",
       "source": "src/recovered/unowned/Explosion_Damage_0047e2c0.cpp",
       "population": "population-4455",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

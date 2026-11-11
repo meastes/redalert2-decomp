@@ -1,12 +1,12 @@
 // Damage eligible cell occupants, then wall/chain-reaction overlays and terrain.
-// @ref ?unknown_47bb10@CellClass@@QBE_NXZ=0047bb10
+// @ref ?Is_Tile_Destroyable_Cliff@CellClass@@QBE_NXZ=0047bb10
 #include "shared/wave.hpp"
 #include "shared/cell.hpp"
 #include "shared/weapon_type.hpp"
 #include "shared/overlay_type.hpp"
 #include "shared/rules.hpp"
 #include "shared/unknown_geometry.hpp"
-// @ref ?unknown_475fe0@CellClass@@QAEHH@Z=00475fe0
+// @ref ?Reduce_Wall@CellClass@@QAEHH@Z=00475fe0
 // @ref ?Unknown_00562F50@MapClass@@QAEXPAVCellClass@@@Z=00562f50
 // @ref ?unknown_47e2b0@Cell@@QAEXXZ=0047e2b0
 void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
@@ -31,9 +31,9 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
                 location = cell.MapCoords;
                 location.unknown_47e2b0();
             }
-            if (overlay->Wall) cell.unknown_475fe0(weapon->unknown_98);
+            if (overlay->Wall) cell.Reduce_Wall(weapon->unknown_98);
         }
-        if (cell.unknown_47bb10()) {
+        if (cell.Is_Tile_Destroyable_Cliff()) {
             int chance = Rules->unknown_140c;
             if (unknown_id_source_a3d290->Random()(0, 99) < chance) Map.Unknown_00562F50(&cell);
         }

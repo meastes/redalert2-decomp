@@ -185,7 +185,7 @@ public:
     Cell Fetch_CellID() const { return MapCoords; }
 #endif
 
-    int unknown_475fe0(int damage); // 00475FE0: wall mutation, full EAX/RET4; hypothesis
+    int Reduce_Wall(int damage); // 00475FE0: wall mutation, full EAX/RET4; hypothesis
     CellClass();                                                        // 0x00470F10
     CellClass(NoInitClass const &noinit);                               // 0x00470680
     virtual ~CellClass();                                               // 0x00470E80
@@ -236,7 +236,7 @@ public:
     bool unknown_47b980() const;                // 0x0047B980
     bool unknown_47b9a0() const;                // 0x0047B9A0
     bool unknown_47b9c0() const;                // 0x0047B9C0
-    bool unknown_47bb10() const;                // 0x0047BB10
+    bool Is_Tile_Destroyable_Cliff() const;     // 0x0047BB10
 
     // Per-house bits.
     bool Is_House_Bit(int house) const;         // 0x0047C2C0
@@ -334,7 +334,7 @@ public:
     class BuildingClass *Get_Gate() const;   // Westwood's Get_Gate: the gate building in the cell, or 0 (inline in the Cell unit)
     CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any = false, bool alt = false) const;   // 0x004764B0 (the free sub-cell spot nearest coord, alt on the bridge; any: the nearest spot even if taken)
     void Recalc_Passability();                      // 0x00478F40 (Westwood's Recalc_Passability: sets unknown_4c from the overlay, land and occupiers)
-    void unknown_47bb30();                      // 0x0047BB30 (veins attack the occupants; hypothesis)
+    void Trigger_Veins();                       // 0x0047BB30 (veins attack the occupants; hypothesis)
     int Bounce_Direction(CoordStruct const &origin) const;   // 0x00479AC0 (Westwood's Bounce_Direction: the facing to bounce toward from origin's cell)
     void Inc_Drawer_Ref_Count(LightConvertClass *drawer) const;   // 0x00479C90
     void Dec_Drawer_Ref_Count(LightConvertClass *drawer) const;   // 0x00479CA0

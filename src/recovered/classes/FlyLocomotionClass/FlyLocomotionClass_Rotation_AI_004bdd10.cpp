@@ -2,7 +2,7 @@
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
-// @ref ?unknown_47bb30@CellClass@@QAEXXZ=0047bb30
+// @ref ?Trigger_Veins@CellClass@@QAEXXZ=0047bb30
 #include "shared/fly_locomotion.hpp"
 #include "shared/cell.hpp"
 extern "C" int __cdecl abs(int);
@@ -22,7 +22,7 @@ void FlyLocomotionClass::Rotation_AI()
             else unknown_54-=step;
         } else {
             unknown_53=false;
-            Map[Object_Coord(LinkedTo)].unknown_47bb30();
+            Map[Object_Coord(LinkedTo)].Trigger_Veins();
         }
     }
 }

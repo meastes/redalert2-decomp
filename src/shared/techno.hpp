@@ -247,7 +247,7 @@ public:
     CoordStruct unknown_475d60() const;     // 0x00475D60 (CellClass: the centre at the middle's height; TechnoClass 0x006CA340)
     bool Is_Sensed(int house);     // 0x0047C2E0
     bool unknown_47c300(int house);     // 0x0047C300 (FootClass slot 26: the house's index)
-    void unknown_47bb30();              // 0x0047BB30 (TechnoClass slot 93)
+    void Trigger_Veins();               // 0x0047BB30 (TechnoClass slot 93)
     void Adjust_Threat(int house, int value);  // 0x00476B20 (TechnoClass 0x006D95A0/0x006D95D0)
     bool Unknown_0047C200();            // 0x0047C200 (FootClass 0x004C3000)
     bool Unknown_0047CDD0();            // 0x0047CDD0 (the land allows standing here; FootClass 0x004C4C30)

@@ -127,7 +127,7 @@ void FootClass::unknown_slot304()
     }
     if (unknown_228->Kind_Of()==11) {
         CellClass *target_cell=(CellClass *)unknown_228;
-        if (target_cell->unknown_47bb10()) {
+        if (target_cell->Is_Tile_Destroyable_Cliff()) {
             Cell destination=unknown_slot19(0).As_Cell();
             Cell nearer=Map.Unknown_00568ED0(target_cell->MapCoords,destination);
             unknown_slot220(&Map[nearer]);

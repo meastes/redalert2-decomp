@@ -64,7 +64,7 @@ void CellClass::Place_Veins()
                 Map.Radar_Background(adjacent.MapCoords);
             }
 
-            unknown_47bb30();
+            Trigger_Veins();
         } else {
             OverlayData = 2 * unknown_11c + (abs(unknown_id_source_a3d290->Random()()) & 1) + 0x33;
         }

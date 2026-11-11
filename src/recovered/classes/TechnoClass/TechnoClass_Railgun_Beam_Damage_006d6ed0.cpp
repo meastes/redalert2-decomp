@@ -96,7 +96,7 @@ CoordStruct TechnoClass::Railgun_Beam_Damage(CoordStruct const &coord, AbstractC
                 optr = optr->unknown_30;
             }
             if (Map.Get_Height_GL(final_impact) > final_impact.Z) {
-                if (Map[final_impact].unknown_47bb10()) {
+                if (Map[final_impact].Is_Tile_Destroyable_Cliff()) {
                     if (Percent_Chance(Rules->unknown_140c)) {
                         Map.Collapse_Cliff(&Map[final_impact]);
                     }
@@ -115,7 +115,7 @@ CoordStruct TechnoClass::Railgun_Beam_Damage(CoordStruct const &coord, AbstractC
         int damage = weapon->unknown_98;
         targets[j]->unknown_slot86(&damage, 0, weapon->Warhead, this, false, 0);
     }
-    if (abstract->Kind_Of() == 11 && ((CellClass *)abstract)->unknown_47bb10()) {
+    if (abstract->Kind_Of() == 11 && ((CellClass *)abstract)->Is_Tile_Destroyable_Cliff()) {
         if (Percent_Chance(Rules->unknown_140c)) {
             Map.Collapse_Cliff((CellClass *)abstract);
         }

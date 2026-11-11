@@ -390,7 +390,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         }
         LinkedTo->unknown_slot109(0);
         LinkedTo->Mark(1);
-        Map[Object_Coord(LinkedTo)].unknown_47bb30();
+        Map[Object_Coord(LinkedTo)].Trigger_Veins();
     } else {
         bool was_down = LinkedTo->unknown_74;
         LinkedTo->unknown_74 = false;

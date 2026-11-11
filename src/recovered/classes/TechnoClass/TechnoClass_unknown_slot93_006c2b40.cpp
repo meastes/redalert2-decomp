@@ -4,7 +4,7 @@
 #include "shared/gscreen.hpp"
 #include "shared/techno_map.hpp"
 #include "shared/house.hpp"
-// @ref ?unknown_47bb30@UnknownCellClass@@QAEXXZ=0047bb30
+// @ref ?Trigger_Veins@UnknownCellClass@@QAEXXZ=0047bb30
 
 void TechnoClass::unknown_slot93(int arg1)
 {
@@ -23,6 +23,6 @@ void TechnoClass::unknown_slot93(int arg1)
         if (!unknown_373 && (Map_Cell_At(cell)->unknown_12c & 0x10)) {
             unknown_slot96(unknown_player_a35db4);
         }
-        Map_Cell_At(cell)->unknown_47bb30();
+        Map_Cell_At(cell)->Trigger_Veins();
     }
 }

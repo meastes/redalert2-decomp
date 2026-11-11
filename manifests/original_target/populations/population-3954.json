@@ -4,8 +4,8 @@
     "id": "population-3954",
     "inventory_sha256": "2453ae9d9fc846cb9decec4f09948e35a35128aa5036ab4731d2499b59503014",
     "gaps_sha256": "e3abcf5a8d4815be993570e83c2b3721307b00b8a8f98d2f6d8b258eba01c519",
-    "historical_population_sha256": "260bbd521c3bc7d91ad269a8dcd2bcdcd7668b5bd311ad7961e21f6ca17ed82c",
-    "historical_acceptance_sha256": "bbeab4ab22eb7697d77313dc1bb1df69947feab8d3e9a5885077b9d7f08c89b7"
+    "historical_population_sha256": "27dbb6ea8f9e026d186a4745efa780334b7d8abf144118062210b42df3c5552c",
+    "historical_acceptance_sha256": "ad18bc977b13a2752649062d84016b94bda86dce3178cecc7fc94e7b24566aeb"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -6287,7 +6287,7 @@
     "?Detach@HouseClass@@UAEXPAVAbstractClass@@_N@Z": 5140960,
     "___RTDynamicCast": 7879908,
     "?unknown_slot93@TechnoClass@@UAEXH@Z": 7088960,
-    "?unknown_47bb30@UnknownCellClass@@QAEXXZ": 4700976,
+    "?Trigger_Veins@UnknownCellClass@@QAEXXZ": 4700976,
     "?unknown_slot185@TechnoClass@@UAE_NXZ": 7131904,
     "?unknown_slot252@TechnoClass@@UAEX_N@Z": 7139920,
     "?unknown_slot253@TechnoClass@@UAEX_N@Z": 7140096,
@@ -8122,7 +8122,7 @@
     "?unknown_6cc020@TechnoClass@@QAEXXZ": 7127072,
     "_?pattern@?1??unknown_6cc020@TechnoClass@@QAEXXZ@4PA_NA": 8352020,
     "?Closest_Free_Spot@CellClass@@QBE?AUCoordStruct@@ABU2@_N1@Z": 4678832,
-    "?unknown_47bb30@CellClass@@QAEXXZ": 4700976,
+    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
     "_?shapes@?1??Draw_Fog_Shape@CellClass@@QAEXABUPoint2D@@ABVRect@@H@Z@4PBUShapeFileStruct@@B": 8719344,
     "??0RadioClass@@QAE@XZ": 6514736,
     "?Clear@?$VectorClass@PBVBuildingTypeClass@@@@UAEXXZ": 5206272,
@@ -9884,8 +9884,8 @@
     "?Cell_Object@CellClass@@QAEPAVObjectClass@@ABUPoint2D@@_N@Z": 4659248,
     "?Is_Near_Tunnel_NW@CellClass@@QAE_NXZ": 4693232,
     "?Is_Near_Tunnel_ES@CellClass@@QAE_NXZ": 4693872,
-    "?unknown_475fe0@CellClass@@QAEHH@Z": 4677600,
-    "?unknown_47bb10@CellClass@@QBE_NXZ": 4700944,
+    "?Reduce_Wall@CellClass@@QAEHH@Z": 4677600,
+    "?Is_Tile_Destroyable_Cliff@CellClass@@QBE_NXZ": 4700944,
     "?unknown_47c040@CellClass@@QAEHXZ": 4702272,
     "?Tiberium_Type_Here@CellClass@@QBEHXZ": 4694560,
     "?unknown_475db0@CellClass@@QAEHH@Z": 4677040,
@@ -11463,7 +11463,24 @@
     "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552
   },
   "regions": [
     {
@@ -16996,7 +17013,7 @@
         {
           "offset": 2075,
           "kind": 20,
-          "symbol": "?unknown_47bb30@CellClass@@QAEXXZ",
+          "symbol": "?Trigger_Veins@CellClass@@QAEXXZ",
           "target": 4700976,
           "addend": 0,
           "resolved": 4294439761
@@ -17042,7 +17059,7 @@
           "resolved": 10752184
         }
       ],
-      "source_sha256": "9d346db5aba6e9fda76c7cc41b74e182c52befdd8e97e2099f0d788710b95f28",
+      "source_sha256": "9bd56f40c33777dcc7178b99d61476799357026b33f0618e208c6bb288817899",
       "source": "src/recovered/classes/HoverLocomotionClass/HoverLocomotionClass_Process_004fbfc0.cpp",
       "population": "population-3954",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

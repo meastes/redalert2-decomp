@@ -1,4 +1,4 @@
-// void CellClass::unknown_47bb30() (0x0047BB30)
+// void CellClass::Trigger_Veins() (0x0047BB30)
 // Veins attack: on a grown vein cell (overlay 0x7E, data 48 or more, +0x11C
 // clear) not yet marked (+0x140 bit 0x20000), each low occupant (slot 108 at
 // most 5) that is a techno not immune to veins and without ability 8 gets the
@@ -9,7 +9,7 @@
 #include "shared/anim.hpp"
 #include "shared/rules.hpp"
 
-void CellClass::unknown_47bb30()
+void CellClass::Trigger_Veins()
 {
     if (OverlayIndex == 0x7E && OverlayData >= 48 && !unknown_11c && !(unknown_140 & 0x20000)) {
         for (ObjectClass *object = OccupierPtr; object != 0; object = object->unknown_30) {

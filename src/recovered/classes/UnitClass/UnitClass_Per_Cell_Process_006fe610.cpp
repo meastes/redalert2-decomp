@@ -162,7 +162,7 @@ void UnitClass::unknown_slot93(int reason)
         OverlayTypeClass *overlay=OverlayTypes[current_cell->OverlayIndex];
         if (overlay->unknown_1fd) {
             Voc_Play_At(overlay->unknown_1c0,Center_Coord(),0);
-            current_cell->unknown_475fe0(-1);
+            current_cell->Reduce_Wall(-1);
             unknown_59f=false;
             unknown_28c+=0.019999999552965164f;
         }

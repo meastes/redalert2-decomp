@@ -4,8 +4,8 @@
     "id": "population-4304",
     "inventory_sha256": "8846afd6e81536f62a87eb1fd08d96e34907c9e41725b51187f53f93ac94a7d5",
     "gaps_sha256": "a5ae73248cbf6ad2c48cea37f365397a261dba8cc7ddee79b3bd82d572300466",
-    "historical_population_sha256": "f7b9ffd422feb246b917642a67c04a5bb3c7eacc75123de799106acd144f054e",
-    "historical_acceptance_sha256": "d132c376d0b96fd2f1c7fafba5306848c6f6b03e9feba3d541a05be141818aa0"
+    "historical_population_sha256": "23639500de75f193abc083cdc13511802d7310372c8ab9a590b5f0fc171609ae",
+    "historical_acceptance_sha256": "963e08267b471abddca5c706e2d78e481625de076560a156bdd09c877973bca4"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1695,7 +1695,7 @@
     "?unknown_move_angle_scale_79b620@@3NB": 7976480,
     "?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951008,
     "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
-    "?unknown_47bb30@CellClass@@QAEXXZ": 4700976,
+    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
     "?Release_Held@?$UnknownComPtr@UUnknownFlyInterface@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEXXZ": 4979648,
     "?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950576,
     "?_com_issue_error@@YGXJ@Z": 7952704,
@@ -5698,7 +5698,7 @@
     "_wcscpy": 7878281,
     "_wcslen": 7878149,
     "?unknown_slot93@TechnoClass@@UAEXH@Z": 7088960,
-    "?unknown_47bb30@UnknownCellClass@@QAEXXZ": 4700976,
+    "?Trigger_Veins@UnknownCellClass@@QAEXXZ": 4700976,
     "?unknown_slot185@TechnoClass@@UAE_NXZ": 7131904,
     "?unknown_slot252@TechnoClass@@UAEX_N@Z": 7139920,
     "?unknown_slot253@TechnoClass@@UAEX_N@Z": 7140096,
@@ -7948,8 +7948,8 @@
     "?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?Is_Near_Tunnel_NW@CellClass@@QAE_NXZ": 4693232,
     "?Is_Near_Tunnel_ES@CellClass@@QAE_NXZ": 4693872,
-    "?unknown_475fe0@CellClass@@QAEHH@Z": 4677600,
-    "?unknown_47bb10@CellClass@@QBE_NXZ": 4700944,
+    "?Reduce_Wall@CellClass@@QAEHH@Z": 4677600,
+    "?Is_Tile_Destroyable_Cliff@CellClass@@QBE_NXZ": 4700944,
     "?unknown_47c040@CellClass@@QAEHXZ": 4702272,
     "?Tiberium_Type_Here@CellClass@@QBEHXZ": 4694560,
     "?unknown_475db0@CellClass@@QAEHH@Z": 4677040,
@@ -14881,13 +14881,13 @@
         {
           "offset": 201,
           "kind": 20,
-          "symbol": "?unknown_47bb30@CellClass@@QAEXXZ",
+          "symbol": "?Trigger_Veins@CellClass@@QAEXXZ",
           "target": 4700976,
           "addend": 0,
           "resolved": 4294696275
         }
       ],
-      "source_sha256": "3d02ddc8463fbb3617ba6a7b278aab4b56a0d631615a7a79c29effecd0114723",
+      "source_sha256": "62357d29fd4c461827f9561dff12286792a2eaaecb9257a1c6961fee88838cbd",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Rotation_AI_004bdd10.cpp",
       "population": "population-4304",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

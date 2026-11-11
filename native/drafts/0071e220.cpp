@@ -338,7 +338,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         }
         LinkedTo->unknown_slot109(0);
         LinkedTo->Mark(1);
-        Map[Object_Coord(LinkedTo)].unknown_47bb30();
+        Map[Object_Coord(LinkedTo)].Trigger_Veins();
         LinkedTo->unknown_57a = false;
     } else {
         bool was_down = LinkedTo->unknown_74;

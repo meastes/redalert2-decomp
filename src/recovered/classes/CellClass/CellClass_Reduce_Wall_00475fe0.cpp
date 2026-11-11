@@ -1,4 +1,4 @@
-// int CellClass::unknown_475fe0(int damage) (0x00475FE0): TibSun Reduce_Wall.
+// int CellClass::Reduce_Wall(int damage) (0x00475FE0): TibSun Reduce_Wall.
 // Damages the cell's wall overlay (-1: destroy it outright); a wall that
 // reaches its last damage stage takes its same-type neighbours down a stage,
 // and a destroyed wall loses its overlay and owner, updates the zones, the
@@ -13,7 +13,7 @@
 #include "shared/id_source.hpp"
 #include "shared/unknown_globals.hpp"
 
-int CellClass::unknown_475fe0(int damage)
+int CellClass::Reduce_Wall(int damage)
 {
     if (OverlayIndex != -1) {
         bool destroyed;
@@ -34,7 +34,7 @@ int CellClass::unknown_475fe0(int damage)
                     for (int dir = 0; dir < 8; dir += 2) {
                         CellClass *adjacent = (CellClass *)&((CellClass const *)this)->Adjacent_Cell(dir);
                         if (adjacent->OverlayIndex != -1 && OverlayTypes[adjacent->OverlayIndex]->Wall && adjacent->OverlayIndex == OverlayIndex && adjacent->OverlayData < 0x10) {
-                            adjacent->unknown_475fe0(200);
+                            adjacent->Reduce_Wall(200);
                         }
                     }
                 }

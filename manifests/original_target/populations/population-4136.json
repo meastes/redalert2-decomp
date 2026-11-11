@@ -4,8 +4,8 @@
     "id": "population-4136",
     "inventory_sha256": "13cf0ffeec18693fc2cf1b8401ea36f0290b5b722628721d64b8b2a819fa88db",
     "gaps_sha256": "ef726fa32fef57074fb033a40e10b26da6c1a3d19675814c79e01f2466d8b4d5",
-    "historical_population_sha256": "6a4ab76e37582d9676ebd6415580c2a2a34f4bc6d1dd12fd3e34268e8cb661f6",
-    "historical_acceptance_sha256": "1156aa66f0db9ce24a2ec60c612e2f2e20c108dce4d806166ee14e5a0879d850"
+    "historical_population_sha256": "1679d4e4d4d19bc360f8d23019ed90c22b49f82468cbd654cb4dde1750747712",
+    "historical_acceptance_sha256": "3e1111219e36e3bdb346ece0abcdf8eade95013d4f5789a8ef939a1e507c6251"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -6865,7 +6865,7 @@
     "?Detach@HouseClass@@UAEXPAVAbstractClass@@_N@Z": 5140960,
     "___RTDynamicCast": 7879908,
     "?unknown_slot93@TechnoClass@@UAEXH@Z": 7088960,
-    "?unknown_47bb30@UnknownCellClass@@QAEXXZ": 4700976,
+    "?Trigger_Veins@UnknownCellClass@@QAEXXZ": 4700976,
     "?unknown_slot185@TechnoClass@@UAE_NXZ": 7131904,
     "?unknown_slot252@TechnoClass@@UAEX_N@Z": 7139920,
     "?unknown_slot253@TechnoClass@@UAEX_N@Z": 7140096,
@@ -6990,8 +6990,8 @@
     "__real@8@4002c000000000000000": 8019480,
     "__real@8@3ffdfae147ae147ae000": 8020048,
     "?unknown_47e2b0@Cell@@QAEXXZ": 4711088,
-    "?unknown_475fe0@CellClass@@QAEHH@Z": 4677600,
-    "?unknown_47bb10@CellClass@@QBE_NXZ": 4700944,
+    "?Reduce_Wall@CellClass@@QAEHH@Z": 4677600,
+    "?Is_Tile_Destroyable_Cliff@CellClass@@QBE_NXZ": 4700944,
     "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
     "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@": 7999920,
     "??_7FoggedObjectClass@@6BIPersistStream@@@": 7999816,
@@ -9036,7 +9036,7 @@
     "?unknown_47b5e0@CellClass@@QBE_NXZ": 4699616,
     "?unknown_tileset_a6cb70@@3HA": 10931056,
     "?unknown_tileset_a52e64@@3HA": 10825316,
-    "?unknown_47bb30@CellClass@@QAEXXZ": 4700976,
+    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
     "?Occupation_Mask@CellClass@@QAEHH@Z": 4702112,
     "?Cell_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4674224,
     "_?shapes@?1??Draw_Fog_Shape@CellClass@@QAEXABUPoint2D@@ABVRect@@H@Z@4PBUShapeFileStruct@@B": 8719344,
@@ -24954,7 +24954,7 @@
         {
           "offset": 1009,
           "kind": 20,
-          "symbol": "?unknown_47bb10@CellClass@@QBE_NXZ",
+          "symbol": "?Is_Tile_Destroyable_Cliff@CellClass@@QBE_NXZ",
           "target": 4700944,
           "addend": 0,
           "resolved": 4294666987
@@ -25456,7 +25456,7 @@
           "resolved": 534454
         }
       ],
-      "source_sha256": "83f72114dd39ec3db39426cfbf058c872fb96884640880b9029426ddb77e4573",
+      "source_sha256": "26287f8b418f072a64c04f44927ea3a49c9c1bed0e4ea926b2a33054f8140517",
       "source": "src/recovered/classes/FootClass/FootClass_Approach_Target_004c4c30.cpp",
       "population": "population-4136",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

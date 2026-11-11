@@ -176,9 +176,9 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
             }
             if (overlay->Wall) {
                 if (warhead->WallAbsoluteDestroyer) {
-                    cptr->unknown_475fe0(-1);
+                    cptr->Reduce_Wall(-1);
                 } else if (warhead->Wall || (warhead->Wood && overlay->unknown_9c == 6)) {
-                    cptr->unknown_475fe0(strength);
+                    cptr->Reduce_Wall(strength);
                 }
             }
             if (cptr->OverlayIndex == -1) {
