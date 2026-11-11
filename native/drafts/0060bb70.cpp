@@ -40,7 +40,7 @@ static inline FootClass *Foot_Of(ObjectClass *object)
 void ParticleSystemClass::unknown_func_60bb70()
 {
     if (Object_Flag_Set(Owner) && Owner->What_Am_I() != 6) {
-        unknown_slot103(Owner->Center_Coord() + unknown_9c);
+        Set_Coord(Owner->Center_Coord() + unknown_9c);
     }
 
     int index;
@@ -94,7 +94,7 @@ void ParticleSystemClass::unknown_func_60bb70()
                     ppart->unknown_11f = particle->unknown_11f + (unknown_id_source_a3d290->Random() % 6 != 0 ? 25 : 0);
                 }
             }
-            particle->unknown_slot60();
+            particle->Delete_Me();
         } else {
             Particles[index]->Motion_AI();
         }

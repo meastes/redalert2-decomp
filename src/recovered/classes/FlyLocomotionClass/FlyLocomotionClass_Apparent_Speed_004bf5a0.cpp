@@ -5,5 +5,5 @@
 
 int __stdcall FlyLocomotionClass::Apparent_Speed()
 {
-    return LinkedTo->unknown_slot32()->Speed * unknown_48;
+    return LinkedTo->Techno_Type_Class()->Speed * unknown_48;
 }

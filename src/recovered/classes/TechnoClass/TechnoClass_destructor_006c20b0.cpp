@@ -44,7 +44,7 @@ TechnoClass::~TechnoClass()
     Technos.Delete(this);
     unknown_abstracts_ac0d08.Delete(this);
     if (unknown_108 != 0) {
-        unknown_108->unknown_slot60();
+        unknown_108->Delete_Me();
         unknown_108 = 0;
     }
     unknown_abstracts_ac0bf8.Delete(this);

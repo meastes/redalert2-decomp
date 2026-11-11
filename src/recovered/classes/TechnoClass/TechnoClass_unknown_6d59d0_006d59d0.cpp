@@ -17,7 +17,7 @@ int TechnoClass::unknown_6d59d0()
         }
         double damage = weapon->unknown_a4 * warhead->Verses[0];
         int value = (int)(damage * range / weapon->unknown_b0);
-        if (unknown_slot32()->Is_Two_Shooter()) {
+        if (Techno_Type_Class()->Is_Two_Shooter()) {
             value += value;
         }
         if (projectile->Inaccurate) {

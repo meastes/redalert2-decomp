@@ -373,34 +373,34 @@ public:
     virtual int unknown_slot25(bool arg1, int arg2);             // slot 25 0x006CF3C0
     virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);   // slot 27 0x006CCCE0
     virtual int unknown_slot28(ObjectClass *object, bool arg2);             // slot 28 0x006CC5D0
-    virtual TechnoTypeClass *unknown_slot32();                  // slot 32 0x006C12C0 (Class_Of as a techno type)
-    virtual int unknown_slot34();                               // slot 34 0x006D3E40
-    virtual bool unknown_slot36();                              // slot 36 0x006CD690
-    virtual bool unknown_slot38();                              // slot 38 0x006CD630
-    virtual bool unknown_slot39();                              // slot 39 0x006CD290
+    virtual TechnoTypeClass *Techno_Type_Class();                  // slot 32 0x006C12C0 (Class_Of as a techno type)
+    virtual int Get_Ownable();                               // slot 34 0x006D3E40
+    virtual bool Can_Repair();                              // slot 36 0x006CD690
+    virtual bool Can_Player_Fire();                              // slot 38 0x006CD630
+    virtual bool Can_Player_Move();                              // slot 39 0x006CD290
     virtual CoordStruct unknown_slot43(int arg1);             // slot 43 0x006C1830
     virtual bool unknown_slot48() { return unknown_170; }       // slot 48 kept copy 0x0041B410
     virtual bool unknown_slot49(HouseClass *house) { return unknown_170; }   // slot 49 kept copy 0x0041B420
-    virtual bool unknown_slot52();                               // slot 52 0x006C4480
+    virtual bool Limbo();                               // slot 52 0x006C4480
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);             // slot 53 0x006C4610
-    virtual void unknown_slot55(TechnoClass *techno);                      // slot 55 0x006CED90
-    virtual void unknown_slot61();                              // slot 61 0x006CF3B0
-    virtual int unknown_slot62(TechnoClass *techno);                       // slot 62 0x006D4880
+    virtual void Record_The_Kill(TechnoClass *techno);                      // slot 55 0x006CED90
+    virtual void Do_Shimmer();                              // slot 61 0x006CF3B0
+    virtual int Exit_Object(TechnoClass *techno);                       // slot 62 0x006D4880
     virtual void unknown_slot65(int arg1, int arg2);            // slot 65 0x006C3B30
     virtual void unknown_slot66(Point2D const &point, Rect const &window);            // slot 66 0x006C2C40
-    virtual void unknown_slot69();                              // slot 69 0x006C2520
-    virtual void unknown_slot70(bool arg1, bool arg2);            // slot 70 0x006D5AA0
+    virtual void Hidden();                              // slot 69 0x006C2520
+    virtual void Look(bool arg1, bool arg2);            // slot 70 0x006D5AA0
     virtual bool Mark(int arg1);                      // slot 71 0x006C2550
-    virtual void unknown_slot79(int arg1);                      // slot 79 0x006C7440
+    virtual void Clicked_As_Target(int arg1);                      // slot 79 0x006C7440
     virtual bool unknown_slot80();                              // slot 80 0x006C91C0
     virtual void unknown_slot82(int arg1);                      // slot 82 0x006D86B0
-    virtual bool unknown_slot84(CoordStruct const &coord, int weapon);  // slot 84 0x006C5240
-    virtual int unknown_slot85(int arg1);                       // slot 85 0x006CD810
-    virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6); // slot 86 0x006CDC40
+    virtual bool In_Range(CoordStruct const &coord, int weapon);  // slot 84 0x006C5240
+    virtual int Weapon_Range(int arg1);                       // slot 85 0x006CD810
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6); // slot 86 0x006CDC40
     virtual int unknown_slot90();                               // slot 90 0x006D3150
     virtual void unknown_slot93(int arg1);                      // slot 93 0x006C2B40
     virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x006C2590
-    virtual bool unknown_slot96(HouseClass *house);             // slot 96 0x006C2440
+    virtual bool Revealed(HouseClass *house);             // slot 96 0x006C2440
     virtual bool unknown_slot111();                             // slot 111 0x006D6DF0
     virtual bool unknown_slot112();                             // slot 112 0x006D6E00
     virtual bool unknown_slot113();                             // slot 113 0x006D6E10
@@ -464,7 +464,7 @@ public:
     virtual bool unknown_slot203() { return unknown_154.Value() > 0; }  // slot 203 (+0x32C) kept copy 0x0041B390 (the +0x154 timer still runs)
     virtual bool unknown_slot204();                                 // slot 204 (+0x330) 0x0041B3D0 (kept copy elsewhere)
     virtual void unknown_slot205();                                 // slot 205 (+0x334) 0x0041B3E0 (kept copy elsewhere)
-    virtual int unknown_slot206() { TechnoTypeClass *type = unknown_slot32(); if (type) { return type->Speed; } return 0; } // slot 206 (+0x338) 0x006D8E90
+    virtual int unknown_slot206() { TechnoTypeClass *type = Techno_Type_Class(); if (type) { return type->Speed; } return 0; } // slot 206 (+0x338) 0x006D8E90
     virtual void unknown_slot207();                             // slot 207 (+0x33C) 0x006D7E00
     virtual bool unknown_slot208(ObjectClass *target);              // slot 208 (+0x340) 0x006D8DB0
     virtual bool unknown_slot209(CoordStruct const *coord, int arg2);   // slot 209 (+0x344) 0x006D46D0

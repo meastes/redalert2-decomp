@@ -57,9 +57,9 @@ void BuildingClass::Update_Firestorm_Wall_00450950()
                         ObjectClass *next = occupier->unknown_30;
                         bool is_foot;
                         if (occupier) is_foot = occupier->AbstractFlags.IsFoot;
-                        if (occupier && is_foot && static_cast<FootClass *>(occupier)->Locomotor.Checked()->Is_Moving_Here(center) && !occupier->unknown_slot32()->unknown_209) {
+                        if (occupier && is_foot && static_cast<FootClass *>(occupier)->Locomotor.Checked()->Is_Moving_Here(center) && !occupier->Techno_Type_Class()->unknown_209) {
                             int damage = occupier->Strength;
-                            occupier->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 1);
+                            occupier->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 1);
                         }
                         occupier = next;
                     }

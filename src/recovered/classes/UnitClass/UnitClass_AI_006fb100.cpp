@@ -57,7 +57,7 @@ void UnitClass::AI()
         if (unknown_5c0++ >= Type->MaxDeathCounter) {
             unknown_6fd3a0();
             Mark(0);
-            unknown_slot60();
+            Delete_Me();
             return;
         }
     }
@@ -85,16 +85,16 @@ void UnitClass::AI()
     if (unknown_325) {
         CoordStruct position = Coord;
         CoordStruct lowered(position.X, position.Y, position.Z - 5);
-        unknown_slot103(lowered);
-        if (unknown_slot108() < -400) {
-            unknown_slot55(0);
-            unknown_slot60();
+        Set_Coord(lowered);
+        if (Get_Height_AGL() < -400) {
+            Record_The_Kill(0);
+            Delete_Me();
             return;
         }
         if ((Frame & 3) == 0) {
             int y_offset = unknown_id_source_a3d290->Random()(-170, 170);
             int x_offset = unknown_id_source_a3d290->Random()(-170, 170);
-            int height = unknown_slot108();
+            int height = Get_Height_AGL();
             CoordStruct offset(x_offset, y_offset, -height);
             CoordStruct origin = Coord;
             offset.X = origin.X + offset.X;
@@ -113,7 +113,7 @@ void UnitClass::AI()
             if (!Map.Unknown_0054AB00(position) && unknown_32d) {
                 if (Team) Team->TargetNotAssigned = true;
                 unknown_slot210();
-                unknown_slot60();
+                Delete_Me();
                 return;
             }
         }
@@ -123,7 +123,7 @@ void UnitClass::AI()
             unknown_2a8.Count_Down(Type->DeployTime);
         }
         if (unknown_slot122()) Commence();
-        if (unknown_1b8 == 2 && unknown_5b4 != -1) unknown_slot61();
+        if (unknown_1b8 == 2 && unknown_5b4 != -1) Do_Shimmer();
         if ((Frame & 15) == 0 && (Mission == 11 || Mission == 5) && !House->Is_Human_Player() && MissionQueue == -1 && Strength < Type->MaxStrength && (!unknown_1b0 || Mission == 11) && !Type->Harvester && !Type->Weeder) {
             BuildingClass *repair_building = Unknown_00450F90(House, this);
             if (repair_building) {

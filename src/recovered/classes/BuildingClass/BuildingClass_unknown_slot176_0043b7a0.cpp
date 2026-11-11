@@ -7,7 +7,7 @@
 
 int BuildingClass::unknown_slot176()
 {
-    int height = -Unknown_006A2970(unknown_slot110());
+    int height = -Unknown_006A2970(Get_Height());
     if (Type->TurretAnimIsVoxel) {
         return Type->Anims[9].ZAdjust + height;
     }

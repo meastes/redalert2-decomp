@@ -35,7 +35,7 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
 
     switch (action) {
     case 51:
-        if (unknown_slot39()) {
+        if (Can_Player_Move()) {
             Cell moveto = unknown_4cca40(cell, false);
             unknown_slot200(0x19, 0, &Map[moveto], 0);
             break;
@@ -43,7 +43,7 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
         return false;
 
     case 26:
-        if ((unknown_slot38() || unknown_slot193()) && unknown_slot39()) {
+        if ((Can_Player_Fire() || unknown_slot193()) && Can_Player_Move()) {
             unknown_slot200(0xB, (AbstractClass *)&Map[cell], 0, 0);
             break;
         }
@@ -98,14 +98,14 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
         return false;
 
     case 9:
-        if (unknown_slot39()) {
+        if (Can_Player_Move()) {
             unknown_slot200(8, 0, &Map[cell], 0);
             break;
         }
         return false;
 
     case 3:
-        if (unknown_slot39()) {
+        if (Can_Player_Move()) {
             unknown_slot200(7, 0, &Map[cell], 0);
             break;
         }

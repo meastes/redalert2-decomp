@@ -52,10 +52,10 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
 {
     if (!unknown_51) return true;
     bool has_landed=false;
-    int height=LinkedTo->unknown_slot108();
+    int height=LinkedTo->Get_Height_AGL();
     if ((Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height>=unknown_geometry_j)
         height-=unknown_geometry_j;
-    if (LinkedTo->unknown_slot32()->IsDropship) {
+    if (LinkedTo->Techno_Type_Class()->IsDropship) {
       if (height==0 && LinkedTo->unknown_240>unknown_fly_pitch_zero_79a738) {
         double pitch=LinkedTo->unknown_240-unknown_fly_pitch_rate_7a0ff8;
         if (unknown_fly_pitch_floor_79b610>pitch) pitch=unknown_fly_pitch_floor_79b610;
@@ -80,7 +80,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
             if ((reinterpret_cast<UnknownLocoCell *>(&Map[nearby])->Flags&0x100)) next.Z+=unknown_geometry_j;
             Move_To(next);
         } else {
-            LinkedTo->unknown_slot86(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,1);
+            LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,1);
             unknown_1c=unknown_geometry_l;
             return false;
         }
@@ -89,18 +89,18 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
         CoordStruct coord=Object_Coord(LinkedTo);
         coord.Z=Map.Get_Height_GL(coord);
         unknown_52=true;
-        if (LinkedTo->unknown_slot32()->IsDropship) {
+        if (LinkedTo->Techno_Type_Class()->IsDropship) {
             new AnimClass(AnimTypes[AnimTypeClass::From_Name("DROPLAND")],coord,0,1,0x600,0);
         } else if (LinkedTo->Kind_Of()==2 && static_cast<AircraftClass *>(LinkedTo)->Type->Carryall) {
             new AnimClass(AnimTypes[AnimTypeClass::From_Name("CARYLAND")],coord,0,1,0x600,0);
         }
-        if (LinkedTo->Strength>0) Voc_Play_At(LinkedTo->unknown_slot32()->AuxSound2,coord,0);
+        if (LinkedTo->Strength>0) Voc_Play_At(LinkedTo->Techno_Type_Class()->AuxSound2,coord,0);
     }
     if (height<=landing_altitude && LinkedTo->unknown_240<=unknown_fly_pitch_zero_79a738) {
         CoordStruct coord=Object_Coord(LinkedTo);
         if ((Loco_Cell(coord)->Flags&0x100) && coord.Z>=Map.Get_Height_GL(coord)+unknown_geometry_j)
             LinkedTo->unknown_79=true;
-        LinkedTo->unknown_slot109(landing_altitude);
+        LinkedTo->Set_Height_AGL(landing_altitude);
         unknown_51=false;
         unknown_50=false;
         has_landed=true;

@@ -16,7 +16,7 @@ void AnimClass::unknown_func_422f50()
     CoordStruct coord = Coord;
     UnknownAnimCell *cell = (UnknownAnimCell *)&Map[coord];
     ObjectClass *object = cell->unknown_e4;
-    if (object == 0 || object->unknown_slot108() > 0 || cell->unknown_44 != 0x7E ||
+    if (object == 0 || object->Get_Height_AGL() > 0 || cell->unknown_44 != 0x7E ||
         cell->unknown_11e < 0x30 || cell->unknown_11c) {
         unknown_17b = true;
     }
@@ -25,10 +25,10 @@ void AnimClass::unknown_func_422f50()
             ObjectClass *next = object->unknown_30;
             int damage = Rules->unknown_e4;
             UnknownAnimTechno *techno = (UnknownAnimTechno *)object->As_Techno();
-            if (techno != 0 && !((UnknownAnimTechnoType *)techno->unknown_slot32())->ImmuneToVeins &&
+            if (techno != 0 && !((UnknownAnimTechnoType *)techno->Techno_Type_Class())->ImmuneToVeins &&
                 !techno->Unknown_006D7910(8) && techno->Strength > 0 && techno->unknown_7d &&
-                techno->unknown_slot108() <= 5) {
-                techno->unknown_slot86(&damage, 0, (WarheadTypeClass *)Rules->unknown_cb0, 0, 0, 0);
+                techno->Get_Height_AGL() <= 5) {
+                techno->Take_Damage(&damage, 0, (WarheadTypeClass *)Rules->unknown_cb0, 0, 0, 0);
             }
             object = next;
         }

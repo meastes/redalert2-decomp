@@ -41,7 +41,7 @@ void ObjectClass::AI()
     if (!unknown_7a) return;
 
     int previous_state = unknown_slot29();
-    int new_height = (int)((unsigned int)unknown_slot110() +
+    int new_height = (int)((unsigned int)Get_Height() +
                           (unsigned int)unknown_24.unknown_08);
     if (unknown_74) {
         Mark(0);
@@ -50,8 +50,8 @@ void ObjectClass::AI()
     } else {
         Coord.Z = new_height;
     }
-    if (unknown_slot108() <= 0) {
-        unknown_slot109(0);
+    if (Get_Height_AGL() <= 0) {
+        Set_Height_AGL(0);
         unknown_7a = false;
         unknown_slot93(2);
         Unknown_00420D30(this);
@@ -66,7 +66,7 @@ void ObjectClass::AI()
         if (!unknown_7a) {
         if (unknown_7c && Strength > 0) {
             int damage = Strength;
-            unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 1);
+            Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 1);
         }
         if (Kind_Of() == 4) {
             AnimClass *animation = static_cast<AnimClass *>(this);

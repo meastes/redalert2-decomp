@@ -35,7 +35,7 @@ void TerrainClass::AI()
     if (Animation.Graphic_Logic()) {
         if (unknown_b5) {
             if (Animation.Fetch_Stage() == ((ShapeFileStruct const *)Class->Get_Image_Data())->FrameCount - 1) {
-                unknown_slot60();
+                Delete_Me();
                 return;
             }
         }

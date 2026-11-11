@@ -11,10 +11,10 @@ CoordStruct ParasiteClass::Unknown_00607C30()
     {
         bool can_exit = false;
         if (!unknown_28->unknown_slot21()) {
-            if (Owner->unknown_slot32()->Naval) {
+            if (Owner->Techno_Type_Class()->Naval) {
                 can_exit = true;
-            } else if (!(Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->unknown_slot105())->Cell_Terrain() != 0)) {
-                int land = ((CellClass *)unknown_28->unknown_slot105())->unknown_ec;
+            } else if (!(Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->Get_Cell_Ptr())->Cell_Terrain() != 0)) {
+                int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->unknown_ec;
                 if (land != 2 && land != 6 && land != 3) can_exit = true;
             }
         }
@@ -22,9 +22,9 @@ CoordStruct ParasiteClass::Unknown_00607C30()
             return unknown_28->Coord;
         }
         int facing = Dir_To_8(unknown_28->unknown_2e0.Current());
-        CellClass *victim_cell = (CellClass *)unknown_28->unknown_slot105();
+        CellClass *victim_cell = (CellClass *)unknown_28->Get_Cell_Ptr();
         CellClass &cell = victim_cell->Adjacent_Cell(facing);
-        if (!Owner->unknown_slot32()->Naval) {
+        if (!Owner->Techno_Type_Class()->Naval) {
             int land = cell.unknown_ec;
             if (land == 2 || land == 6 || land == 3) {
                 return unknown_geometry_l;

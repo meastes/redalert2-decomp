@@ -28,7 +28,7 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
                 unknown_5669=true;
                 Building_Refresh_House_Buildings_0044fa40(this);
             } else {
-                building->unknown_slot98(1);
+                building->Sell_Back(1);
                 if (building->Type->Gate) unknown_55f0.Nodes.Delete(i);
                 refund+=building->unknown_slot167();
             }

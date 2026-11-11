@@ -15,7 +15,7 @@
 
 bool FootClass::unknown_slot224(int source)
 {
-    if (unknown_slot108() > 0) {
+    if (Get_Height_AGL() > 0) {
         if (Strength > 0) {
             if (source != 0 && unknown_34 != 0) {
                 unknown_34->Spring(0x26, this, unknown_geometry_k, 0, 0);
@@ -29,7 +29,7 @@ bool FootClass::unknown_slot224(int source)
             if (!unknown_7d) {
                 return true;
             }
-            unknown_slot55((TechnoClass *)source);
+            Record_The_Kill((TechnoClass *)source);
             if (!unknown_7d) {
                 return true;
             }

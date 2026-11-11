@@ -25,7 +25,7 @@ int FootClass::Do_MISSION_CAPTURE()
     if (unknown_494 == 0) {
         unknown_slot261(0, true);
         if (((UnknownCellClass *)&Map[Center_Coord()])->Unknown_004717B0() != 0) {
-            unknown_slot87(unknown_geometry_l, 1 != 0, 0 != 0);
+            Scatter(unknown_geometry_l, 1 != 0, 0 != 0);
         }
     }
     if (unknown_228 == 0 && !House->Unknown_004F52F0()

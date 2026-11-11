@@ -106,6 +106,6 @@ void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window)
     {
         RectPoint2D draw2(position.X + offset_x, position.Y + offset_y);
         unknown_blit_49f3a0(*unknown_surface_83995c, drawer, Voxel_Render_Surface_00717040(), rect, draw2, window, 0,
-                            drawer->Select_Blitter_00485AA0(flags), -2 - Unknown_006A2970(unknown_slot110()), 0, brightness, 0);
+                            drawer->Select_Blitter_00485AA0(flags), -2 - Unknown_006A2970(Get_Height()), 0, brightness, 0);
     }
 }

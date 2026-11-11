@@ -100,7 +100,7 @@ inline bool Is_Foot_006ca890(ObjectClass const *object)
 inline bool Has_Ability_006ca890(TechnoClass *techno, int ability)
 {
     if (techno->unknown_118.Is_Veteran() || techno->unknown_118.Is_Elite()) {
-        TechnoTypeClass *type = techno->unknown_slot32();
+        TechnoTypeClass *type = techno->Techno_Type_Class();
         if ((techno->unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[ability])
             || (techno->unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) {
             return true;
@@ -144,8 +144,8 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
         return 0;
     }
     if (weapon->unknown_11c) {
-        int damage = unknown_slot32()->MaxStrength;
-        unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, false);
+        int damage = Techno_Type_Class()->MaxStrength;
+        Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, false);
         return 0;
     }
     if ((weapon->unknown_105 && unknown_25c[0] != 0) || (weapon->unknown_109 && unknown_25c[4] != 0)
@@ -205,9 +205,9 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
     BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, firepower, weapon->Warhead, speed, weapon->unknown_10b);
     if (bullet != 0) {
         bullet->Set_Weapon_Type(weapon);
-        bullet->unknown_slot52();
+        bullet->Limbo();
         if (Is_Foot_006ca890(this)) {
-            if (static_cast<FootClass *>(this)->Locomotor.Checked()->Is_Moving() && !unknown_slot32()->JumpJet) {
+            if (static_cast<FootClass *>(this)->Locomotor.Checked()->Is_Moving() && !Techno_Type_Class()->JumpJet) {
                 bullet->unknown_a0 = true;
             }
         }
@@ -229,7 +229,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
                 float length = Point3F_006ca890((float)displacement.X, (float)displacement.Y, (float)displacement.Z).Length();
                 int spread = Random_Pick(0, Rules->unknown_139c);
                 spread *= (int)length;
-                spread /= unknown_slot85(which);
+                spread /= Weapon_Range(which);
                 UnknownFacingDir facing(Random_Direction_006ca890());
                 displacement = Move_Coord_006ca890(displacement, facing, spread);
             }
@@ -246,7 +246,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
         if (speed > Length_006ca890(displacement) / 2) {
             speed = Length_006ca890(displacement) / 2;
         }
-        int segments = unknown_slot32()->RadialFireSegments;
+        int segments = Techno_Type_Class()->RadialFireSegments;
         BulletTypeClass *projectile = weapon->Projectile;
         if (projectile->ROT > 0 || projectile->Vertical) {
             if (segments == 0) {
@@ -326,7 +326,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
             if (bullet->Type->Inviso && object != 0 && object->unknown_79) {
                 bullet->unknown_79 = true;
             }
-            if (unknown_slot232() && unknown_slot32()->TurretRecoil) {
+            if (unknown_slot232() && Techno_Type_Class()->TurretRecoil) {
                 Recoil_Start_006ca890(unknown_330);
                 Recoil_Start_006ca890(unknown_350);
             }
@@ -376,7 +376,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
             if (weapon->unknown_10c) {
                 unknown_27c = new WaveClass(fire_coord, target_coord, this, 0, (ObjectClass *)target);
             }
-            if (unknown_slot32()->TargetLaser && House->Is_Player_Control()) {
+            if (Techno_Type_Class()->TargetLaser && House->Is_Player_Control()) {
                 unknown_314 = 15;
             }
             if (weapon->unknown_121) {
@@ -435,26 +435,26 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
         }
     }
     if (weapon->unknown_10e) {
-        if (unknown_slot32()->ReselectIfLimboed && unknown_77) {
+        if (Techno_Type_Class()->ReselectIfLimboed && unknown_77) {
             HouseClass *house = Owning_House();
             if (house->Is_Player_Control() && target->Kind_Of() == 15) {
                 unknown_381 = true;
             }
         }
-        if (unknown_slot32()->RejoinTeamIfLimboed && this != 0 && AbstractFlags.IsFoot && static_cast<FootClass *>(this)->Team != 0 && target->Kind_Of() == 15) {
+        if (Techno_Type_Class()->RejoinTeamIfLimboed && this != 0 && AbstractFlags.IsFoot && static_cast<FootClass *>(this)->Team != 0 && target->Kind_Of() == 15) {
             unknown_384 = (this != 0 && AbstractFlags.IsFoot ? static_cast<FootClass *>(this) : 0)->Team;
         }
-        unknown_slot52();
+        Limbo();
         if (weapon->Warhead->Parasite) {
             if (target->AbstractFlags.IsFoot) {
                 static_cast<FootClass *>(target)->unknown_584 = Frame + 20;
             }
-            bullet->unknown_slot52();
+            bullet->Limbo();
             bullet->Construct(weapon->Projectile, target, this, firepower, weapon->Warhead, weapon->unknown_a8, weapon->unknown_10b);
             bullet->unknown_slot118(fire_coord, velocity);
         }
     }
-    if (unknown_slot32()->DistributedFire && (Mission != 1 || Kind_Of() == 6)) {
+    if (Techno_Type_Class()->DistributedFire && (Mission != 1 || Kind_Of() == 6)) {
         unknown_3c0.Add(target);
         unknown_slot220(0);
     }

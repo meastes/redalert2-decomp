@@ -34,13 +34,13 @@ bool TechnoClass::unknown_6d4180()
     if (!unknown_6d40c0()) {
         return false;
     }
-    if (Mission == 2 && unknown_slot32()->BalloonHover) {
+    if (Mission == 2 && Techno_Type_Class()->BalloonHover) {
         foot2 = false;
         if (this != 0) foot2 = AbstractFlags.IsFoot;
         if (!foot2) {
             return false;
         }
-        if (((FootClass *)this)->unknown_494 == unknown_slot105()) {
+        if (((FootClass *)this)->unknown_494 == Get_Cell_Ptr()) {
             if (unknown_408 == 0) {
                 return true;
             }
@@ -49,7 +49,7 @@ bool TechnoClass::unknown_6d4180()
             }
         }
     }
-    if (!unknown_slot32()->OpportunityFire) {
+    if (!Techno_Type_Class()->OpportunityFire) {
         if (Mission != 5) {
             return false;
         }

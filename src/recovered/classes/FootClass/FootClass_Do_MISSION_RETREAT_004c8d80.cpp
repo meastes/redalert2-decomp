@@ -25,11 +25,11 @@ int FootClass::Do_MISSION_RETREAT()
             Cell cell(0, 0);
             if (Team != 0 && Team->Class->Unknown_006BFA90() != unknown_geometry_k) {
                 cell = Map.Calculated_Cell(House->unknown_128, Team->Class->Unknown_006BFA90(),
-                    Coord_Cell(Center_Coord()), unknown_slot32()->SpeedType, 1, 0);
+                    Coord_Cell(Center_Coord()), Techno_Type_Class()->SpeedType, 1, 0);
             }
             if (cell == unknown_geometry_k) {
                 cell = Map.Calculated_Cell(House->unknown_128, unknown_geometry_k,
-                    Coord_Cell(Center_Coord()), unknown_slot32()->SpeedType, 1, 0);
+                    Coord_Cell(Center_Coord()), Techno_Type_Class()->SpeedType, 1, 0);
             }
             Assign_Destination((AbstractClass *)&Map[cell], true);
             unknown_a8 = 1;

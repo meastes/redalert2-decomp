@@ -59,7 +59,7 @@ public:
     virtual ObjectTypeClass *Class_Of() const { return 0; }         // 0x00434170 slot 33 (inline)
     // Slots 52 and 53 return bool (needs the bool declarations proposed for
     // object.hpp, radio.hpp and techno.hpp).
-    virtual bool unknown_slot52();                                  // 0x004347C0
+    virtual bool Limbo();                                  // 0x004347C0
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);              // 0x004347E0
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                // 0x00433380
 

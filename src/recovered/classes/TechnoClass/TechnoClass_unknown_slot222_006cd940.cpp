@@ -27,8 +27,8 @@ bool TechnoClass::unknown_slot222(HouseClass *house, int arg2)
         Assign_Destination(0, true);
         unknown_6155e0();
         House->Unknown_004ED440(this, false);
-        unknown_slot55(0);
-        house->unknown_5418 += unknown_slot32()->Cost_Of(House);
+        Record_The_Kill(0);
+        house->unknown_5418 += Techno_Type_Class()->Cost_Of(House);
         House->unknown_4ea800(this);
         house->unknown_4ea970(this);
         switch (Kind_Of()) {

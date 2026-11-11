@@ -139,7 +139,7 @@ void ParticleClass::unknown_func_609540()
         unknown_121 = true;
     }
 
-    unknown_slot103((CoordStruct const &)UnknownVector3(position.X, position.Y, position.Z));
+    Set_Coord((CoordStruct const &)UnknownVector3(position.X, position.Y, position.Z));
     double color_change = unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10;
     color_change *= Particle_Color_Step_007a10f8;
     color_change += Class->ColorSpeed;

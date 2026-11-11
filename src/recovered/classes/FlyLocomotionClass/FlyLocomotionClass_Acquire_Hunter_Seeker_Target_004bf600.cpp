@@ -34,7 +34,7 @@ void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
             }
 
             if (enemy && techno->Strength > 0 && !techno->unknown_76 && techno->unknown_7d &&
-                !techno->unknown_slot32()->Invisible && techno->unknown_slot32()->unknown_201 &&
+                !techno->Techno_Type_Class()->Invisible && techno->Techno_Type_Class()->unknown_201 &&
                 !(unknown_id_source_a3d290->Special().HarvesterImmune && techno->Kind_Of() == 1 && ((UnitClass *)techno)->Type->Harvester)) {
 
                 if (unknown_game_mode_a3d298 != 0 && LinkedTo->House->Is_Human_Player() && !techno->House->Type->MultiplayPassive &&

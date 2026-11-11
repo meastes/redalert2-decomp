@@ -17,8 +17,8 @@ void HouseClass::Unknown_004F6310()
         for (int index=0;index<count;++index) {
             TechnoClass *techno=Technos[index];
             if (techno && techno->House==this && techno->Kind_Of()!=6 && techno->Kind_Of()!=2 &&
-                (!techno->unknown_slot32()->DeploysInto ||
-                 !techno->unknown_slot32()->DeploysInto->ConstructionYard) &&
+                (!techno->Techno_Type_Class()->DeploysInto ||
+                 !techno->Techno_Type_Class()->DeploysInto->ConstructionYard) &&
                 Coord_Cell(BaseCenter)!=unknown_cell_a40f10) {
                 techno->Assign_Destination(&Map[destination],true);
                 techno->unknown_6d6e50(0);

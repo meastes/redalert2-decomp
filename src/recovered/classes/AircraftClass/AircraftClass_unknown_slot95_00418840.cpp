@@ -15,7 +15,7 @@ static inline InfantryClass *Aircraft_Radio_Infantry(RadioClass *radio)
 static inline bool Aircraft_Accepts_Radio_00418840(int mission) { return mission != 4 && (mission <= 25 || mission > 27); }
 static inline bool Aircraft_Radio_Target_Is_Current_Cell_00418840(AircraftClass *aircraft)
 {
-    AbstractClass *cell = aircraft->unknown_slot105();
+    AbstractClass *cell = aircraft->Get_Cell_Ptr();
     AbstractClass *target = aircraft->unknown_494;
     return target == cell;
 }
@@ -92,7 +92,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, AbstractClass 
                         unknown_slot150(3, (TechnoClass *)radio);
                         return 1;
                     }
-                    Contact(0)->unknown_slot81();
+                    Contact(0)->Unselect();
                 }
             }
             return 1;

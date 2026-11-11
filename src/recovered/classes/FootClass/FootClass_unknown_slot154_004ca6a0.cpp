@@ -9,7 +9,7 @@
 bool FootClass::unknown_slot154()
 {
     if (TechnoClass::unknown_slot154()) {
-        if (!unknown_slot32()->CloakStop || !Locomotor.Checked()->Is_Moving_Now()) {
+        if (!Techno_Type_Class()->CloakStop || !Locomotor.Checked()->Is_Moving_Now()) {
             return true;
         }
     }

@@ -21,7 +21,7 @@ void UnitClass::Unknown_00709EC0()
         if (Locomotor.Checked()->Is_Moving()) goto clear_disguise;
         if (Frame % 8 != 0) {
             Cell position = unknown_slot104();
-            bool bridge = ((CellClass *)unknown_slot105())->unknown_47b960();
+            bool bridge = ((CellClass *)Get_Cell_Ptr())->unknown_47b960();
             for (int facing = 0; facing < 8; facing++) {
                 Cell adjacent = AdjacentCell[facing & 7] + position;
                 CellClass &tile = Map[adjacent];

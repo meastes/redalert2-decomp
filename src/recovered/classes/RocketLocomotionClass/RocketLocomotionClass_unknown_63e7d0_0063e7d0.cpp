@@ -38,5 +38,5 @@ void RocketLocomotionClass::unknown_63e7d0()
     new AnimClass(Select_Damage_Anim(damage, warhead, Land_Type_At(cell), &coord), coord, 0, 1, 0x2600, Unknown_0047FCC0(coord));
     Unknown_0047F600(coord, damage, warhead, 0, 0);
     Unknown_0047E2C0(coord, damage, LinkedTo, warhead, true);
-    LinkedTo->unknown_slot60();
+    LinkedTo->Delete_Me();
 }

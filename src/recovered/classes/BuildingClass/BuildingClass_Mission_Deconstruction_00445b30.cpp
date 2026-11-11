@@ -30,7 +30,7 @@ inline CoordStruct Snap_To_Cell_Center(CoordStruct const &coord)
 }
 int BuildingClass::Do_MISSION_DECONSTRUCTION()
 {
-    unknown_slot97(0);
+    Repair(0);
     bool selected=unknown_77;
     switch(unknown_a8) {
     case 0:
@@ -42,7 +42,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
             TechnoClass *contact=Contact(0);
             unknown_slot149(3);
             if(unknown_372) Speech_Play_Name(deconstruction_eva_unit_sold_007cf9c4,-1,-1);
-            contact->unknown_slot98(1);
+            contact->Sell_Back(1);
             unknown_slot116(5,false);
             return 1;
         }
@@ -90,7 +90,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                         } else {
                             if(infantry->Type->Nominal) infantry->unknown_5c1=true;
                             --unknown_a40774;
-                            infantry->unknown_slot87(unknown_geometry_l,true,false);
+                            infantry->Scatter(unknown_geometry_l,true,false);
                             ++unknown_a40774;
                             infantry->unknown_slot116(2,false);
                         }
@@ -148,7 +148,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                             targetters.Add(techno);
                         }
                     }
-                    unknown_slot52();
+                    Limbo();
                     int deploy_facing=Type->unknown_func_45ec90();
                     if(unit->unknown_slot53(&place,deploy_facing)) {
                         unit->Strength=(int)(unit->Class_Of()->MaxStrength*ratio);
@@ -177,14 +177,14 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                 }
                 unknown_slot54(true);
                 unknown_570.Unknown_00406070();
-                unknown_slot60();
+                Delete_Me();
                 Building_Refresh_House_Buildings_0044fa40(House);
             } else {
                 unknown_434=-1;
-                unknown_slot55(0);
+                Record_The_Kill(0);
                 if(unknown_4e8) unknown_4e8->Deactivate(0);
                 House->Refund_Money(unknown_slot167());
-                unknown_slot52();
+                Limbo();
                 StorageClass *storage=&unknown_294;
                 int slot=storage->First_Used_Slot();
                 while(slot!=-1) {
@@ -192,7 +192,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     House->Harvested((float)amount,slot);
                     slot=storage->First_Used_Slot();
                 }
-                unknown_slot60();
+                Delete_Me();
                 Building_Refresh_House_Buildings_0044fa40(House);
                 if(Type->CloakGenerator) {
                     unknown_5bb=-1;

@@ -21,7 +21,7 @@ void MapClass::Unknown_00568520(CellClass *cell, HouseClass *house, bool arg3)
             }
             TechnoClass *techno = (TechnoClass *)cellptr->Unknown_00471660(Point2D(0, 0), 0, 0);
             if (techno != 0) {
-                techno->unknown_slot96(house);
+                techno->Revealed(house);
             }
         }
         where.X++;

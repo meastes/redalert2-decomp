@@ -31,7 +31,7 @@ void __fastcall Unknown_006F7020(char const *id)
         }
     }
     int total = list->Count();
-    for (int index = 0; index < total; index++) (*list)[index]->unknown_slot81();
+    for (int index = 0; index < total; index++) (*list)[index]->Unselect();
     delete list;
 }
 

@@ -71,7 +71,7 @@ void Tactical::Draw_Objects(bool forced)
                     if (unknown_tactical_83996c->Coord_To_Pixel(obj->Center_Coord(), pixel)) {
                         obj->unknown_85 = true;
                         obj->unknown_slot65((int)&pixel, (int)&unknown_rect_839630);
-                        obj->unknown_slot63(&unknown_rect_839630, forced, false);
+                        obj->Render(&unknown_rect_839630, forced, false);
                     }
                 }
             } else if (Is_Techno_Object(obj)) {
@@ -79,7 +79,7 @@ void Tactical::Draw_Objects(bool forced)
                 if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
                     obj->unknown_85 = true;
                     Draw_Render_Hooks(obj, unknown_rect_839630);
-                    obj->unknown_slot63(&unknown_rect_839630, forced, true);
+                    obj->Render(&unknown_rect_839630, forced, true);
                 }
             } else {
                 int rtti = obj->Kind_Of();
@@ -91,7 +91,7 @@ void Tactical::Draw_Objects(bool forced)
                         if (!anim->unknown_100 && anim->Class->ShouldFogRemove && Map.Is_Fogged(obj->Center_Coord())) {
                             continue;
                         }
-                        obj->unknown_slot63(&unknown_rect_839630, forced, false);
+                        obj->Render(&unknown_rect_839630, forced, false);
                     }
                 } else if (rtti == 0x24) {
                     if (Is_Animating((TerrainClass *)obj)) {
@@ -101,7 +101,7 @@ void Tactical::Draw_Objects(bool forced)
                                 continue;
                             }
                             obj->unknown_85 = true;
-                            obj->unknown_slot63(&unknown_rect_839630, forced, false);
+                            obj->Render(&unknown_rect_839630, forced, false);
                         }
                     }
                 } else {
@@ -111,7 +111,7 @@ void Tactical::Draw_Objects(bool forced)
                         if (unknown_tactical_83996c->Coord_To_Pixel(obj->Center_Coord(), pixel)) {
                             obj->unknown_85 = true;
                             obj->unknown_slot65((int)&pixel, (int)&unknown_rect_839630);
-                            obj->unknown_slot63(&unknown_rect_839630, forced, false);
+                            obj->Render(&unknown_rect_839630, forced, false);
                         }
                     }
                 }

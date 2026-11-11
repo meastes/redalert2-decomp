@@ -10,7 +10,7 @@
 IsometricTileClass::~IsometricTileClass()
 {
     Unknown_006ECB90(this, true);
-    IsometricTileClass::unknown_slot52();
+    IsometricTileClass::Limbo();
     Type = 0;
     IsoTiles.Delete(this);
     unknown_objects_ac0cb0.Delete(this);

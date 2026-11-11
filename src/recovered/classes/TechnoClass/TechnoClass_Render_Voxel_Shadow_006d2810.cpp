@@ -26,7 +26,7 @@ SurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const 
     }
     Matrix3D basis;
     basis.Make_Identity();
-    if (unknown_slot32()->ConsideredAircraft) basis.Scale(0.5f);
+    if (Techno_Type_Class()->ConsideredAircraft) basis.Scale(0.5f);
     VoxelDrawSystem::Reset();
     VoxelDrawSystem::Prep_For_Shadow(voxel.unknown_00,layer,0,unknown_voxel_transform_839a70*basis,combined,unknown_839a60,mask,unknown_2,unknown_3);
     SurfaceRegion region=VoxelDrawSystem::Render();

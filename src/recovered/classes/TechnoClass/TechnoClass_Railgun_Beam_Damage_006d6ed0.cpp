@@ -113,7 +113,7 @@ CoordStruct TechnoClass::Railgun_Beam_Damage(CoordStruct const &coord, AbstractC
     }
     for (int j = 0; j < targets.Count(); j++) {
         int damage = weapon->unknown_98;
-        targets[j]->unknown_slot86(&damage, 0, weapon->Warhead, this, false, 0);
+        targets[j]->Take_Damage(&damage, 0, weapon->Warhead, this, false, 0);
     }
     if (abstract->Kind_Of() == 11 && ((CellClass *)abstract)->Is_Tile_Destroyable_Cliff()) {
         if (Percent_Chance(Rules->unknown_140c)) {

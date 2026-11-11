@@ -23,9 +23,9 @@ void BuildingClass::unknown_44e260(int facing, bool explode)
                 if ((unsigned)(Dir_To_8(segment->unknown_2e0.Current()) & 3) != axis) return;
                 if (explode) {
                     Unknown_0047F600(segment->Center_Coord(), segment->Strength, Rules->unknown_c74, 0, 0);
-                    segment->unknown_slot86(&segment->Strength, 0, Rules->unknown_c74, 0, true, 1);
+                    segment->Take_Damage(&segment->Strength, 0, Rules->unknown_c74, 0, true, 1);
                 } else {
-                    segment->unknown_slot60();
+                    segment->Delete_Me();
                 }
             }
         }

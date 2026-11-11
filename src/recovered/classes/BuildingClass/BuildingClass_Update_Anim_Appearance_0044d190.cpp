@@ -15,7 +15,7 @@
 void BuildingClass::Update_Anim_Appearance_0044d190()
 {
     ConvertClass *value = unknown_slot115();
-    unknown_5c4 = unknown_4521e0(((UnknownBuildingSlot105 *)unknown_slot105())->unknown_10a);
+    unknown_5c4 = unknown_4521e0(((UnknownBuildingSlot105 *)Get_Cell_Ptr())->unknown_10a);
     unknown_44d0f0(value, (unsigned short)unknown_5c4);
     unknown_44d2d0(unknown_5bd);
 }

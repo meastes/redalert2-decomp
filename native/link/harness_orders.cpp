@@ -118,7 +118,7 @@ int Scripted_Order(char const *command)
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
             if (techno == 0 || techno->House == unknown_player_a35db4) continue;
-            TechnoTypeClass *type = techno->unknown_slot32();
+            TechnoTypeClass *type = techno->Techno_Type_Class();
             Cell cell = techno->Center_Coord().As_Cell();
             fprintf(stderr, "harness-list h%d %s k%d @%d,%d\n", techno->House ? techno->House->ArrayIndex : -1,
                     type ? type->ID.Buffer : "?", techno->Kind_Of(), cell.X, cell.Y);
@@ -267,8 +267,8 @@ int Scripted_Order(char const *command)
     if (attack_type) {
         for (int i = 0; i < Technos.Count() && target == 0; ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno == 0 || techno->House == unknown_player_a35db4 || techno->unknown_slot32() == 0) continue;
-            if (Same_Type(techno->unknown_slot32()->ID.Buffer, word[3])) target = techno;
+            if (techno == 0 || techno->House == unknown_player_a35db4 || techno->Techno_Type_Class() == 0) continue;
+            if (Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[3])) target = techno;
         }
         if (target == 0) return -1;
     } else if (attack) {
@@ -284,7 +284,7 @@ int Scripted_Order(char const *command)
         if (techno == 0 || techno->House != unknown_player_a35db4) continue;
         int kind = techno->Kind_Of();
         if (kind != 1 && kind != 0x0F) continue;     // UnitClass, InfantryClass
-        TechnoTypeClass *type = techno->unknown_slot32();
+        TechnoTypeClass *type = techno->Techno_Type_Class();
         char const *id = type ? type->ID.Buffer : "";
         if (attack && Same_Type(id, word[2]) && (!Same_Type(id, "TANY") || Same_Type(word[2], "TANY"))) {
             if (attack_mission == 17) Queue_Mission(TargetClass(techno), attack_mission, TargetClass(), TargetClass(target));
@@ -388,7 +388,7 @@ void Native_Harness_Orders(int frame)
         if (techno == 0 || techno->House != unknown_player_a35db4) continue;
         int kind = techno->Kind_Of();
         if (kind != 1 && kind != 0x0F) continue;     // UnitClass, InfantryClass
-        TechnoTypeClass *type = techno->unknown_slot32();
+        TechnoTypeClass *type = techno->Techno_Type_Class();
         if (deploy && kind == 1 && type != 0 && type->DeploysInto != 0) {
             Queue_Mission(TargetClass(techno), 16, TargetClass(), TargetClass());
             ++deployed;

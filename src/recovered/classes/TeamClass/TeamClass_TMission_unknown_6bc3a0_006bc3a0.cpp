@@ -12,7 +12,7 @@ void TeamClass::TMission_unknown_6bc3a0(ScriptMissionClass const &mission, bool 
         for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
             if (member->Strength > 0 && member->unknown_7d && member->unknown_74 && !member->unknown_76) {
                 int damage = member->Strength;
-                member->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                member->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
                 hit = true;
             }
         }

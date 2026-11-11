@@ -62,7 +62,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVecto
     _subzone_flood_visited[(dim - 1) & cptr->MapCoords.X][(dim - 1) & cptr->MapCoords.Y] = 1;
     int count = 1;
 
-    int *mzone_table = unknown_table_7e00c4[foot->unknown_slot32()->unknown_500];
+    int *mzone_table = unknown_table_7e00c4[foot->Techno_Type_Class()->unknown_500];
 
     while (true) {
 

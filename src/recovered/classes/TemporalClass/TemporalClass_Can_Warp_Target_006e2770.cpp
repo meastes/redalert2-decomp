@@ -10,7 +10,7 @@ bool TemporalClass::Can_Warp_Target(TechnoClass *target) const
     if (target == 0) {
         return false;
     }
-    if (!target->unknown_slot32()->Warpable) {
+    if (!target->Techno_Type_Class()->Warpable) {
         return false;
     }
     if (target->unknown_slot203()) {

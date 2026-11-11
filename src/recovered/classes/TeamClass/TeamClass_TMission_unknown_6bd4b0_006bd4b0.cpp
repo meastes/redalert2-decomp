@@ -40,13 +40,13 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
     bool aircraft = unknown_func_6bd810();
     while (unit != 0) {
         FootClass *next = (FootClass *)unit->unknown_4c8;
-        if (unit->unknown_slot32()->Passengers == 0 || aircraft && unit->Kind_Of() != 2) {
+        if (unit->Techno_Type_Class()->Passengers == 0 || aircraft && unit->Kind_Of() != 2) {
             if (mode == 1 || mode == 3) {
                 Unknown_006B8FB0(unit, -1, false);
                 unit->unknown_slot220(0);
                 unit->Assign_Destination(0, true);
             }
-        } else if (unit->unknown_slot32()->Passengers > 0) {
+        } else if (unit->Techno_Type_Class()->Passengers > 0) {
             if (Class->TransportsReturnOnUnload) {
                 Unknown_006B8FB0(unit, -1, false);
                 unit->unknown_slot220(0);

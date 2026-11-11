@@ -46,12 +46,12 @@ void TechnoClass::Init()
             unknown_372 = false;
         }
     }
-    if (unknown_slot32() == 0) {
+    if (Techno_Type_Class() == 0) {
         return;
     }
-    if (unknown_slot32()->Spawns != 0) {
-        SpawnManager = new SpawnManagerClass(this, unknown_slot32()->Spawns, unknown_slot32()->SpawnsNumber,
-            unknown_slot32()->SpawnRegenRate, unknown_slot32()->SpawnReloadRate);
+    if (Techno_Type_Class()->Spawns != 0) {
+        SpawnManager = new SpawnManagerClass(this, Techno_Type_Class()->Spawns, Techno_Type_Class()->SpawnsNumber,
+            Techno_Type_Class()->SpawnRegenRate, Techno_Type_Class()->SpawnReloadRate);
     }
     if (unknown_slot231(0)->WeaponType != 0 && unknown_slot231(0)->WeaponType->Warhead->MindControl) {
         unknown_230 = new CaptureManagerClass(this);
@@ -63,7 +63,7 @@ void TechnoClass::Init()
         unknown_208 = (UnknownTechno208 *)new TemporalClass(this);
         ((TemporalClass *)unknown_208)->unknown_4c = unknown_slot231(0)->WeaponType->unknown_a4;
     }
-    if (unknown_slot32()->CanDisguise && unknown_slot32()->PermaDisguise) {
+    if (Techno_Type_Class()->CanDisguise && Techno_Type_Class()->PermaDisguise) {
         unknown_170 = true;
         unknown_410 = House;
         if (House->unknown_130 == 0) {
@@ -72,8 +72,8 @@ void TechnoClass::Init()
             unknown_40c = Rules->unknown_b70;
         }
     }
-    Copy_Recoil(unknown_330, unknown_slot32()->TurretAnimData);
-    Copy_Recoil(unknown_350, unknown_slot32()->BarrelAnimData);
+    Copy_Recoil(unknown_330, Techno_Type_Class()->TurretAnimData);
+    Copy_Recoil(unknown_350, Techno_Type_Class()->BarrelAnimData);
     unknown_3ec = 1;
     unknown_3f0 = 0;
 }

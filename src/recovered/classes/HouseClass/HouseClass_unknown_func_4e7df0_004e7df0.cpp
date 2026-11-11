@@ -29,7 +29,7 @@ void HouseClass::unknown_func_4e7df0()
             if (techno->unknown_20c != 0) {
                 ((UnknownTechno20cView *)techno->unknown_20c)->unknown_func_6e2680();
             }
-            techno->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 1);
+            techno->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 1);
             last = techno;
         } else {
             index++;

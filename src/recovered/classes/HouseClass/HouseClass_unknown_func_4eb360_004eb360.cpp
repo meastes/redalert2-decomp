@@ -24,7 +24,7 @@ AbstractClass *HouseClass::unknown_func_4eb360(CoordStruct const &coord)
     for (int index = 0; index < count; index++) {
         TechnoClass *unit = (TechnoClass *)Map[center + unknown_cells_a6f248[index]].Cell_Unit(true);
         if (unit != 0 && !unit->unknown_76 && !Is_Ally(unit) && unit->House->Which_Zone(unit) == -1
-                && unit->unknown_slot108() >= -20 && unit->unknown_1b8 != 2) {
+                && unit->Get_Height_AGL() >= -20 && unit->unknown_1b8 != 2) {
             int distance = Coord_Distance(coord, unit->Center_Coord());
             if (unit->unknown_6d5870() != 0) {
                 distance *= 2;

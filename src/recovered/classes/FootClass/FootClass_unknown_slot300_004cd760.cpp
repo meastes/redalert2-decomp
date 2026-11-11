@@ -26,7 +26,7 @@ TechnoClass *FootClass::unknown_slot300(TechnoTypeClass *type, int arg2, int arg
                 if (Kind_Of() != 2) {
                     Cell there = Coord_Cell(building->Center_Coord());
                     Cell here = Coord_Cell(unknown_slot19(0));
-                    if (!Map.Unknown_0054F7C0(here, there, unknown_slot32()->MovementZone, unknown_slot46(0), 0, 0)) {
+                    if (!Map.Unknown_0054F7C0(here, there, Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0), 0, 0)) {
                         continue;
                     }
                 }

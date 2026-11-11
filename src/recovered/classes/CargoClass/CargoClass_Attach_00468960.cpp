@@ -17,7 +17,7 @@ void CargoClass::Attach(FootClass *passenger)
 {
     if (passenger == 0) return;
 
-    passenger->unknown_slot52();
+    passenger->Limbo();
 
     ObjectClass *o = 0;
     if (passenger->unknown_30 && Cargo_Is_Foot(passenger->unknown_30)) {

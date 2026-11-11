@@ -35,14 +35,14 @@ bool ObjectClass::unknown_slot56(CoordStruct const &coord)
             }
             bool clear = true;
             if (this != 0 && techno) {
-                int zone = unknown_slot32()->MovementZone;
+                int zone = Techno_Type_Class()->MovementZone;
                 Cell position = Cell(coord.X / 256, coord.Y / 256);
-                clear = cell->Unknown_00478760(unknown_slot32()->SpeedType, 0, 0,
+                clear = cell->Unknown_00478760(Techno_Type_Class()->SpeedType, 0, 0,
                     Map.Zone(position, zone, unknown_79), zone, -1, 1);
             }
             if (clear) {
                 if (unknown_slot53(&coord, 0x80)) {
-                    unknown_slot103(coord);
+                    Set_Coord(coord);
                     AnimClass *anim;
                     if (Kind_Of() == 8) {
                         anim = new AnimClass(Rules->unknown_a78, coord, 0, 1, 0x600, 0);
@@ -55,7 +55,7 @@ bool ObjectClass::unknown_slot56(CoordStruct const &coord)
                         anim->Attach_To(this);
                         if (Kind_Of() != 8) {
                             anim->unknown_bc = unknown_slot115();
-                            anim->unknown_e4 = ((UnknownCellClass *)unknown_slot105())->unknown_10a;
+                            anim->unknown_e4 = ((UnknownCellClass *)Get_Cell_Ptr())->unknown_10a;
                         }
                     }
                     return true;

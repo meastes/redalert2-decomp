@@ -6,5 +6,5 @@
 bool BuildingClass::unknown_4538d0(ObjectTypeClass *type)
 {
     TechnoClass *object = (TechnoClass *)type->Create_One_Of(House);
-    return unknown_slot62(object) != 0 ? true : false;
+    return Exit_Object(object) != 0 ? true : false;
 }

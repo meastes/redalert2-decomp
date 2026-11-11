@@ -25,5 +25,5 @@ void ParticleClass::Smoke_Motion_AI()
         next.Z += unknown_b0.Z;
         if (next.Z < Map.Get_Height_GL(next) + 5) next.Z = Map.Get_Height_GL(next) + 5;
     }
-    unknown_slot103(next);
+    Set_Coord(next);
 }

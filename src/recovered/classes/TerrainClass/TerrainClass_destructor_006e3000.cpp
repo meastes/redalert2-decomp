@@ -16,7 +16,7 @@ TerrainClass::~TerrainClass()
     Terrains.Delete(this);
     if (unknown_flag_a40958 && Class != 0) {
         unknown_7d = true;
-        TerrainClass::unknown_slot52();
+        TerrainClass::Limbo();
     }
     unknown_object_index_abff58.Remove_Index(AbstractClass::Fetch_ID());
 }

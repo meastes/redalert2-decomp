@@ -15,7 +15,7 @@ void TechnoClass::unknown_6d3040(TechnoClass *killer)
         }
         passenger = Cargo.Detach_Object();
         if (passenger != 0) {
-            passenger->unknown_slot55(killer);
+            passenger->Record_The_Kill(killer);
             delete passenger;
         }
     }

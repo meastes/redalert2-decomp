@@ -33,27 +33,27 @@ public:
 
 class ObjectClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual int unknown_slot29() const;   // slot 29 (+0x74; as shared/object.hpp; TibSun In_Which_Layer)
-    virtual void unknown_slot30(); virtual void unknown_slot31(); virtual UnknownMapTechnoType *unknown_slot32() const; virtual ObjectTypeClass *Class_Of() const;   // slot 33 (+0x84; as shared/object.hpp)
-    virtual void unknown_slot34(); virtual void unknown_slot35();
-    virtual void unknown_slot36(); virtual void unknown_slot37(); virtual void unknown_slot38(); virtual void unknown_slot39(); virtual void unknown_slot40(); virtual void unknown_slot41();
-    virtual void unknown_slot42(); virtual void unknown_slot43(); virtual void unknown_slot44(); virtual void unknown_slot45(); virtual void unknown_slot46(); virtual void unknown_slot47();
-    virtual void unknown_slot48(); virtual void unknown_slot49(); virtual void unknown_slot50(); virtual void unknown_slot51(); virtual void unknown_slot52();
+    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual int unknown_slot29() const;   // slot 29 (+0x74; as shared/object.hpp; TibSun In_Which_Layer)
+    virtual void Not_Underground(); virtual void unknown_slot31(); virtual UnknownMapTechnoType *Techno_Type_Class() const; virtual ObjectTypeClass *Class_Of() const;   // slot 33 (+0x84; as shared/object.hpp)
+    virtual void Get_Ownable(); virtual void unknown_slot35();
+    virtual void Can_Repair(); virtual void Can_Demolish(); virtual void Can_Player_Fire(); virtual void Can_Player_Move(); virtual void unknown_slot40(); virtual void unknown_slot41();
+    virtual void unknown_slot42(); virtual void unknown_slot43(); virtual void unknown_slot44(); virtual void Sort_Y(); virtual void Is_Moving_Onto_Bridge(); virtual void unknown_slot47();
+    virtual void unknown_slot48(); virtual void unknown_slot49(); virtual void unknown_slot50(); virtual void unknown_slot51(); virtual void Limbo();
     virtual bool unknown_slot53(CoordStruct const &coord, int dir);   // slot 53 (+0xD4; shared/object.hpp passes a pointer; TibSun Unlimbo)
 #ifdef RA2_MAP_COLLAPSE_CLIFF
-    virtual void unknown_slot54(); virtual void unknown_slot55(); virtual void unknown_slot56(); virtual void unknown_slot57(); virtual void unknown_slot58(); virtual void unknown_slot59();
-    virtual void unknown_slot60(); virtual void unknown_slot61(); virtual void unknown_slot62(); virtual void unknown_slot63(); virtual Cell const *unknown_slot64(int arg1);   // slot 64 (+0x100; as shared/object.hpp; TibSun Occupy_List)
+    virtual void unknown_slot54(); virtual void Record_The_Kill(); virtual void unknown_slot56(); virtual void Fall_From_Height(); virtual void Set_Occupy_Bit(); virtual void Clear_Occupy_Bit();
+    virtual void Delete_Me(); virtual void Do_Shimmer(); virtual void Exit_Object(); virtual void Render(); virtual Cell const *unknown_slot64(int arg1);   // slot 64 (+0x100; as shared/object.hpp; TibSun Occupy_List)
     virtual void unknown_slot65();
-    virtual void unknown_slot66(); virtual void unknown_slot67(); virtual void unknown_slot68(); virtual void unknown_slot69(); virtual void unknown_slot70();
+    virtual void unknown_slot66(); virtual void unknown_slot67(); virtual void Editor_Draw_It(); virtual void Hidden(); virtual void Look();
     virtual bool Mark(int arg1);                            // slot 71 (+0x11C; as shared/object.hpp)
-    virtual void unknown_slot72(); virtual void unknown_slot73(); virtual void unknown_slot74(); virtual void unknown_slot75(); virtual void unknown_slot76();
-    virtual void unknown_slot77(); virtual void unknown_slot78(); virtual void unknown_slot79(); virtual void unknown_slot80(); virtual void unknown_slot81(); virtual void unknown_slot82();
-    virtual void unknown_slot83(); virtual void unknown_slot84(); virtual void unknown_slot85(); virtual void unknown_slot86(); virtual void unknown_slot87(); virtual void unknown_slot88();
-    virtual void unknown_slot89(); virtual void unknown_slot90(); virtual void Get_Mission(); virtual void unknown_slot92(); virtual void unknown_slot93(); virtual void unknown_slot94();
-    virtual void unknown_slot95(); virtual void unknown_slot96(); virtual void unknown_slot97(); virtual void unknown_slot98(); virtual void unknown_slot99(); virtual void unknown_slot100();
+    virtual void Get_Visual_Rect(); virtual void Get_Render_Rect(); virtual void unknown_slot74(); virtual void Mark_For_Redraw(); virtual void CanBeSelected();
+    virtual void unknown_slot77(); virtual void unknown_slot78(); virtual void Clicked_As_Target(); virtual void unknown_slot80(); virtual void Unselect(); virtual void unknown_slot82();
+    virtual void unknown_slot83(); virtual void In_Range(); virtual void Weapon_Range(); virtual void Take_Damage(); virtual void Scatter(); virtual void Catch_Fire();
+    virtual void Fire_Out(); virtual void unknown_slot90(); virtual void Get_Mission(); virtual void unknown_slot92(); virtual void unknown_slot93(); virtual void unknown_slot94();
+    virtual void unknown_slot95(); virtual void Revealed(); virtual void Repair(); virtual void Sell_Back(); virtual void Set_Waypoint_Path(); virtual void Move();
     virtual int unknown_slot101(CellClass *cell, int facing, int level, CellClass *alt, bool flag) const;   // slot 101 (+0x194; TibSun Can_Enter_Cell)
     virtual void unknown_slot102();
-    virtual void unknown_slot103(CoordStruct const &coord);           // slot 103 (+0x19C; as shared/object.hpp)
+    virtual void Set_Coord(CoordStruct const &coord);           // slot 103 (+0x19C; as shared/object.hpp)
 
     char unknown_24[0x74 - 0x24];
     bool unknown_74;                        // +0x74 (as shared/object.hpp)
@@ -69,23 +69,23 @@ public:
 
 class TechnoClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual void unknown_slot29();
-    virtual void unknown_slot30(); virtual void unknown_slot31(); virtual void unknown_slot32(); virtual void unknown_slot33(); virtual void unknown_slot34(); virtual void unknown_slot35();
-    virtual void unknown_slot36(); virtual void unknown_slot37(); virtual void unknown_slot38(); virtual void unknown_slot39(); virtual void unknown_slot40(); virtual void unknown_slot41();
-    virtual void unknown_slot42(); virtual void unknown_slot43(); virtual void unknown_slot44(); virtual void unknown_slot45(); virtual void unknown_slot46(); virtual void unknown_slot47();
-    virtual void unknown_slot48(); virtual void unknown_slot49(); virtual void unknown_slot50(); virtual void unknown_slot51(); virtual void unknown_slot52(); virtual void unknown_slot53();
-    virtual void unknown_slot54(); virtual void unknown_slot55(); virtual void unknown_slot56(); virtual void unknown_slot57(); virtual void unknown_slot58(); virtual void unknown_slot59();
-    virtual void unknown_slot60(); virtual void unknown_slot61(); virtual void unknown_slot62(); virtual void unknown_slot63(); virtual void unknown_slot64(); virtual void unknown_slot65();
-    virtual void unknown_slot66(); virtual void unknown_slot67(); virtual void unknown_slot68(); virtual void unknown_slot69();
-    virtual void unknown_slot70(bool arg1, bool arg2);              // slot 70 (+0x118; as shared/techno.hpp)
-    virtual void Mark(); virtual void unknown_slot72(); virtual void unknown_slot73(); virtual void unknown_slot74(); virtual void unknown_slot75(); virtual void unknown_slot76();
-    virtual void unknown_slot77(); virtual void unknown_slot78(); virtual void unknown_slot79(); virtual void unknown_slot80(); virtual void unknown_slot81(); virtual void unknown_slot82();
-    virtual void unknown_slot83(); virtual void unknown_slot84(); virtual void unknown_slot85(); virtual void unknown_slot86(); virtual void unknown_slot87(); virtual void unknown_slot88();
-    virtual void unknown_slot89(); virtual void unknown_slot90(); virtual void Get_Mission(); virtual void unknown_slot92(); virtual void unknown_slot93(); virtual void unknown_slot94();
+    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual void unknown_slot29();
+    virtual void Not_Underground(); virtual void unknown_slot31(); virtual void Techno_Type_Class(); virtual void unknown_slot33(); virtual void Get_Ownable(); virtual void unknown_slot35();
+    virtual void Can_Repair(); virtual void Can_Demolish(); virtual void Can_Player_Fire(); virtual void Can_Player_Move(); virtual void unknown_slot40(); virtual void unknown_slot41();
+    virtual void unknown_slot42(); virtual void unknown_slot43(); virtual void unknown_slot44(); virtual void Sort_Y(); virtual void Is_Moving_Onto_Bridge(); virtual void unknown_slot47();
+    virtual void unknown_slot48(); virtual void unknown_slot49(); virtual void unknown_slot50(); virtual void unknown_slot51(); virtual void Limbo(); virtual void unknown_slot53();
+    virtual void unknown_slot54(); virtual void Record_The_Kill(); virtual void unknown_slot56(); virtual void Fall_From_Height(); virtual void Set_Occupy_Bit(); virtual void Clear_Occupy_Bit();
+    virtual void Delete_Me(); virtual void Do_Shimmer(); virtual void Exit_Object(); virtual void Render(); virtual void unknown_slot64(); virtual void unknown_slot65();
+    virtual void unknown_slot66(); virtual void unknown_slot67(); virtual void Editor_Draw_It(); virtual void Hidden();
+    virtual void Look(bool arg1, bool arg2);              // slot 70 (+0x118; as shared/techno.hpp)
+    virtual void Mark(); virtual void Get_Visual_Rect(); virtual void Get_Render_Rect(); virtual void unknown_slot74(); virtual void Mark_For_Redraw(); virtual void CanBeSelected();
+    virtual void unknown_slot77(); virtual void unknown_slot78(); virtual void Clicked_As_Target(); virtual void unknown_slot80(); virtual void Unselect(); virtual void unknown_slot82();
+    virtual void unknown_slot83(); virtual void In_Range(); virtual void Weapon_Range(); virtual void Take_Damage(); virtual void Scatter(); virtual void Catch_Fire();
+    virtual void Fire_Out(); virtual void unknown_slot90(); virtual void Get_Mission(); virtual void unknown_slot92(); virtual void unknown_slot93(); virtual void unknown_slot94();
     virtual void unknown_slot95();
-    virtual void unknown_slot96(HouseClass *house);                  // slot 96 (+0x180; MapClass 0x00568520: reveals the techno to a house)
-    virtual void unknown_slot97(); virtual void unknown_slot98(); virtual void unknown_slot99(); virtual void unknown_slot100();
-    virtual void unknown_slot101(); virtual void unknown_slot102(); virtual void unknown_slot103();
+    virtual void Revealed(HouseClass *house);                  // slot 96 (+0x180; MapClass 0x00568520: reveals the techno to a house)
+    virtual void Repair(); virtual void Sell_Back(); virtual void Set_Waypoint_Path(); virtual void Move();
+    virtual void unknown_slot101(); virtual void unknown_slot102(); virtual void Set_Coord();
     virtual Cell unknown_slot104() const;                            // slot 104 (+0x1A0) the object's cell (as shared/object.hpp)
 
     // The distance to a cell (ObjectClass 0x005D4C00 takes an AbstractClass *; the Map

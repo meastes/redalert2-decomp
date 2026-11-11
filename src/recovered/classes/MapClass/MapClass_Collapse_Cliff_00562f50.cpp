@@ -32,7 +32,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         Cell origin = cell->MapCoords + Cell(-((unsigned char)cell->unknown_11a % 6), -((unsigned char)cell->unknown_11a / 6));
 
         ObjectClass *object = IsoTileTypes[unknown_tileset_a6e0f8]->Create_One_Of(0);
-        object->unknown_slot103(origin);
+        object->Set_Coord(origin);
         object->unknown_76 = false;
         object->unknown_74 = true;
         object->Mark(0);
@@ -112,7 +112,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         Cell origin = cell->MapCoords + Cell(-((unsigned char)cell->unknown_11a % 4), -((unsigned char)cell->unknown_11a / 4));
 
         ObjectClass *object = IsoTileTypes[unknown_tileset_a6e0f8 + 1]->Create_One_Of(0);
-        object->unknown_slot103(origin);
+        object->Set_Coord(origin);
         object->unknown_76 = false;
         object->unknown_74 = true;
         object->Mark(0);

@@ -8,7 +8,7 @@
 // @ref ??0ObjectClass@@QAE@XZ=005d22e0
 // @ref ?Create_ID@AbstractClass@@UAGXXZ=0040ffd0
 // @ref ?unknown_slot53@ObjectClass@@UAE_NABUCoordStruct@@H@Z=005d3890
-// @ref ?unknown_slot60@ObjectClass@@UAEXXZ=005d4e90
+// @ref ?Delete_Me@ObjectClass@@UAEXXZ=005d4e90
 // @ref ?unknown_placing_house_7f4230@@3HA=007f4230
 // @ref ?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A=00a3d240
 // @ref _unknown_geometry_l=00abcee8
@@ -25,7 +25,7 @@ SmudgeClass::SmudgeClass(SmudgeTypeClass *type, CoordStruct const &coord, int ho
     if (coord.X != unknown_geometry_l.X || coord.Y != unknown_geometry_l.Y || coord.Z != unknown_geometry_l.Z) {
         unknown_placing_house_7f4230 = house;
         if (!ObjectClass::unknown_slot53(&coord, 0)) {
-            ObjectClass::unknown_slot60();
+            ObjectClass::Delete_Me();
             return;
         }
         unknown_placing_house_7f4230 = -1;

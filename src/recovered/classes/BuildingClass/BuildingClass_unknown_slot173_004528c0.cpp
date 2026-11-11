@@ -16,7 +16,7 @@ void BuildingClass::unknown_slot173()
         ObjectClass *building = Map[infantry->unknown_slot19(0)].Cell_Building();
         if (infantry->unknown_7d && building && building == this
             && (!infantry->unknown_494 || infantry->unknown_494 == building)) {
-            infantry->unknown_slot87(unknown_geometry_l, 1 != 0, 1 != 0);
+            infantry->Scatter(unknown_geometry_l, 1 != 0, 1 != 0);
         }
     }
 }

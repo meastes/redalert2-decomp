@@ -4,7 +4,7 @@
 // animation follows it) and leaves the map (slot 52, expanded here). Then
 // it leaves the object list, releases its type's image and audio, and
 // leaves Anims (or the 0x00A35E60 list for an ID of -2).
-// Needs ObjectClass::unknown_slot52 declared bool (see slot 52).
+// Needs ObjectClass::Limbo declared bool (see slot 52).
 #include "shared/anim.hpp"
 // @ref ?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z=006ecb90
 // @ref ?unknown_flag_a40958@@3_NA=00a40958
@@ -29,12 +29,12 @@ AnimClass::~AnimClass()
                 }
             }
             if (index == Anims.Count()) {
-                object->unknown_slot89();
+                object->Fire_Out();
                 object->unknown_78 = false;
             }
             unknown_b4 = 0;
         }
-        unknown_slot52();
+        Limbo();
     }
     unknown_objects_ac0cb0.Delete(this);
     Class->unknown_func_426700();

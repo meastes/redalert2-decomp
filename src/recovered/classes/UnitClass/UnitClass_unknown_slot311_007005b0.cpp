@@ -49,7 +49,7 @@ inline bool Unit_Voxel_Loaded_007005b0(UnknownObjectPair const &voxel)
 void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
 {
     UnknownObjectPair *voxel;
-    ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(unknown_slot26());
+    ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(Get_Image_Data());
     bool barrel_above=true;
     int frame;
     if (Type->Facings==8 && !unknown_slot48()) frame=(Dir_To_8(unknown_2e0.Current())+1)&7;

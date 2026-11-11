@@ -10,7 +10,7 @@ Matrix3D * __stdcall FlyLocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *ke
 {
     CoordStruct coord = LinkedTo->Coord;
     int ramp = Map[coord].unknown_11c;
-    if (LinkedTo->unknown_slot32()->IsDropship) {
+    if (LinkedTo->Techno_Type_Class()->IsDropship) {
         ramp = 0;
     }
     Matrix3D transform;

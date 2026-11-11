@@ -14,7 +14,7 @@
 
 void FootClass::unknown_slot285(Cell cell)
 {
-    int range = unknown_slot32()->SensorsSight;
+    int range = Techno_Type_Class()->SensorsSight;
     int range_squared = range * range;
     int house = House->ArrayIndex;
     if (cell == unknown_geometry_k) {

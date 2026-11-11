@@ -37,7 +37,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
         shadow_point += Locomotor.Checked()->Shadow_Point();
 
         int key = 0;
-        int saved_height = unknown_slot108();
+        int saved_height = Get_Height_AGL();
         bool saved_flag = unknown_slot47();
         unknown_5a0 = false;
         UnknownCellClass *cell = reinterpret_cast<UnknownCellClass *>(&Map[Position_Coord_004f3f40()]);
@@ -49,13 +49,13 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
             if ((cell->Flags & 0x100) &&
                 (((cell->Flags & 0x800) && (cell->Unknown_00476AC0(0)->Flags & 0x100)) ||
                  (!(cell->Flags & 0x800) && (cell->Unknown_00476AC0(6)->Flags & 0x100)))) {
-                unknown_slot109(unknown_geometry_j);
+                Set_Height_AGL(unknown_geometry_j);
                 shadow_point.Y -= Unknown_006A2970(unknown_geometry_j);
             } else {
                 draw_on_ground = true;
             }
         }
-        if (draw_on_ground) unknown_slot109(0);
+        if (draw_on_ground) Set_Height_AGL(0);
 
         Matrix3D matrix;
         matrix = *Locomotor.Checked()->Shadow_Matrix(&COMMatrix3DStruct(), &key);
@@ -65,14 +65,14 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
                 window, shadow_point,
                 Aircraft_Isometric_View_Matrix_00717f90() * matrix, true, 0, 0, 0);
         }
-        unknown_slot109(saved_height);
+        Set_Height_AGL(saved_height);
         unknown_5a0 = saved_flag;
         unknown_tactical_83996c->Add_To_Selectables(this, draw_point);
 
         int scenario_scale;
         if (Unknown_0051FC50()) scenario_scale = unknown_id_source_a3d290->IonLevel;
         else scenario_scale = unknown_id_source_a3d290->AmbientLevel;
-        int level = unknown_slot108() / (unknown_geometry_g + unknown_geometry_g);
+        int level = Get_Height_AGL() / (unknown_geometry_g + unknown_geometry_g);
         int altitude_term = level * scenario_scale;
         UnknownCellClass *ground_cell = reinterpret_cast<UnknownCellClass *>(&Map[ground]);
         int shadow_height = ground_cell->unknown_10a + Rules->ExtraAircraftLight;

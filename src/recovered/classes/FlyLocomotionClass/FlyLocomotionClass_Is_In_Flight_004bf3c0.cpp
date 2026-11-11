@@ -6,7 +6,7 @@
 
 bool FlyLocomotionClass::Is_In_Flight()
 {
-    if (!unknown_51 && (!unknown_50 || LinkedTo->unknown_slot108() >= unknown_38 / 2)) {
+    if (!unknown_51 && (!unknown_50 || LinkedTo->Get_Height_AGL() >= unknown_38 / 2)) {
         return true;
     }
     return false;

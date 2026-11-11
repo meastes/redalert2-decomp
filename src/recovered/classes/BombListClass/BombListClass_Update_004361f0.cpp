@@ -46,7 +46,7 @@ void BombListClass::Unknown_004361F0()
                         double y=delta.Y;
                         double x=delta.X;
                         int distance=(int)unknown_sqrt_4ba410(x*x+y*y+z*z);
-                        if(distance<detector->unknown_slot32()->BombSight*256) {
+                        if(distance<detector->Techno_Type_Class()->BombSight*256) {
                             visible=true;
                             break;
                         }

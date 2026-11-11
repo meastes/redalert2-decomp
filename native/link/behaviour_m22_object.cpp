@@ -27,7 +27,7 @@ bool ObjectClass::unknown_slot112() { return false; }                      // 0x
 bool ObjectClass::unknown_slot113() { return false; }                      // 0x00423E40
 bool ObjectClass::unknown_slot114() { return true; }                       // 0x00423E50
 int ObjectTypeClass::unknown_slot28() const { return -1; }                 // 0x00426760
-int TechnoClass::unknown_slot62(TechnoClass *techno) { (void)techno; return 0; }   // 0x006D4880
+int TechnoClass::Exit_Object(TechnoClass *techno) { (void)techno; return 0; }   // 0x006D4880
 
 // 0x004F3160 (pass-6a decompile): sets +0x143. Reached by BuildingClass slots 52 and 53.
 void HouseClass::unknown_func_4f3160()

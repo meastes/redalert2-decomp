@@ -14,7 +14,7 @@ void TeamClass::unknown_func_6bd870(DynamicVectorClass<TechnoTypeClass *> &types
         }
     }
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-        TechnoTypeClass *type = member->unknown_slot32();
+        TechnoTypeClass *type = member->Techno_Type_Class();
         types.Delete(type);
     }
 }

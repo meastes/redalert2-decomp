@@ -12,7 +12,7 @@
 
 void FootClass::unknown_slot216(int arg1)
 {
-    if (House->Is_Player_Control() && !unknown_slot32()->Spawned) {
+    if (House->Is_Player_Control() && !Techno_Type_Class()->Spawned) {
         if (Unknown_0063B5B0(7, unknown_slot104())) {
             Speech_Play_Name("EVA_UnitLost", -1, -1);
         }

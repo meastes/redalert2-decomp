@@ -38,7 +38,7 @@ void ParticleClass::Fire_Behavior_AI()
             int distance = Particle_Distance(delta);
             int damage = Class->Damage;
             if (target->Strength > 0 && target->unknown_7d && target != System->Owner) {
-                target->unknown_slot86(&damage, distance / 10, Class->Warhead, 0, false, 0);
+                target->Take_Damage(&damage, distance / 10, Class->Warhead, 0, false, 0);
             }
             target = target->unknown_30;
         }

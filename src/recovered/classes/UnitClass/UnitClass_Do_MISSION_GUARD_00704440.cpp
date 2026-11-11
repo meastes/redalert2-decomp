@@ -43,7 +43,7 @@ int UnitClass::Do_MISSION_GUARD()
                 }
             }
         } else if (Type->Teleporter) {
-            CellClass *cell = (CellClass *)unknown_slot105();
+            CellClass *cell = (CellClass *)Get_Cell_Ptr();
             for (int facing = 0; facing < 8; facing++) {
                 UnknownUnitBuildingView2 *building = (UnknownUnitBuildingView2 *)cell->Adjacent_Cell(facing).Cell_Building();
                 if (building && building->Type->Refinery && building->House == House) {

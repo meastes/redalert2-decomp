@@ -5,5 +5,5 @@
 
 void __stdcall ShipLocomotionClass::Unlimbo()
 {
-    Force_New_Slope(((CellClass *)LinkedTo->unknown_slot105())->unknown_11c);
+    Force_New_Slope(((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_11c);
 }

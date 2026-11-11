@@ -101,11 +101,12 @@ def rename_definitions(text, family, methods):
     pattern = family_pattern(family)
     for old, new in methods:
         text = re.sub(r'\b(%s)::%s\b' % (pattern, re.escape(old)), r'\1::' + new, text)
-        text = re.sub(r'(?<![\w.>:~])%s(?=\s*\()' % re.escape(old), new, text)
+        text = re.sub(r'(?<![\w.~])(?<!->)(?<!::)%s(?=\s*\()' % re.escape(old), new, text)
     return text
 
 
 C2039 = re.compile(r"^(?P<file>.+?)\((?P<line>\d+)\) : error C2039: '(?P<name>\w+)' : is not a member of '(?P<cls>[\w:]+)'", re.M)
+C2065 = re.compile(r"^(?P<file>.+?)\((?P<line>\d+)\) : error C2065: '(?P<name>\w+)' : undeclared identifier", re.M)
 
 
 def unit_starts(texts):
@@ -141,11 +142,20 @@ def classify(log, starts, parts):
             undo.setdefault(path, {}).setdefault(line, set()).update(back)
         else:
             other.append(m.group(0))
+    for m in C2065.finditer(log):
+        # an unqualified call of an old name inside a family member defined outside the family's class directories
+        path, line = locate(m.group('file'), int(m.group('line')), starts)
+        news = {n for _, methods in parts for o, n in methods if o == m.group('name')}
+        if len(news) == 1:
+            fixes.setdefault(path, {}).setdefault(line, set()).add((m.group('name'), news.pop()))
+        else:
+            other.append(m.group(0))
     return fixes, undo, other
 
 
 def mangling_rules(methods, family):
-    return [{'pattern': r'(?<![\w])%s@(?=(?:%s)@)' % (old, family_pattern(family)), 'replace': new + '@'} for old, new in methods]
+    # the class may end the string: catalog symbol prefixes are `?old@Class` without the signature
+    return [{'pattern': r'(?<![\w])%s@(?=(?:%s)(?![\w]))' % (old, family_pattern(family)), 'replace': new + '@'} for old, new in methods]
 
 
 def source_pass(args):
@@ -232,7 +242,7 @@ def source_pass(args):
                         undo.setdefault(k, {}).setdefault(line, set()).update(pairs)
                 other += o
                 code = unit['returncode'].read_text().strip() if unit['returncode'].exists() else '1'
-                if code != '0' and not C2039.search(text):
+                if code != '0' and not C2039.search(text) and not C2065.search(text):
                     other.append('%s: %s' % (unit['cwd'].name, ' | '.join(l for l in text.splitlines() if 'error' in l)[:300]))
             for rel, lines in fixes.items():
                 rows = read(repo / rel).split('\n')
@@ -282,6 +292,7 @@ def source_pass(args):
     return 0 if clean else 1
 
 
+CLANG_UNDECLARED = re.compile(r"^(?P<f>[^:\n]+):(?P<l>\d+):(?P<c>\d+): error: use of undeclared identifier '(?P<n>\w+)'", re.M)
 CLANG = re.compile(r"^(?P<f>[^:\n]+):(?P<l>\d+):(?P<c>\d+): error: no member named '(?P<n>\w+)' in '(?:[\w:]+::)?(?P<k>\w+)'", re.M)
 
 
@@ -289,7 +300,7 @@ def native_symbol_text(text, methods, family):
     for old, new in methods:
         for c in family:
             text = re.sub(r'(?<![0-9])%d%s%d%s' % (len(c), c, len(old), old), '%d%s%d%s' % (len(c), c, len(new), new), text)
-            text = re.sub(r'(?<![\w])%s@%s@' % (old, c), '%s@%s@' % (new, c), text)
+            text = re.sub(r'(?<![\w])%s@%s(?![\w])' % (old, c), '%s@%s' % (new, c), text)
         text = re.sub(r'\b(%s)::%s\b' % (family_pattern(family), old), r'\1::' + new, text)
     return text
 
@@ -352,7 +363,14 @@ def native_pass(args):
     for round_ in range(6):
         subprocess.run(['cmake', bdir], cwd=repo, capture_output=True)
         out = subprocess.run(['cmake', '--build', bdir, '--', '-k', '0'], cwd=repo, capture_output=True, text=True)
-        hits = {(m.group('f'), int(m.group('l')), int(m.group('c')), m.group('n'), m.group('k')) for m in CLANG.finditer(out.stdout + out.stderr)}
+        text = out.stdout + out.stderr
+        hits = {(m.group('f'), int(m.group('l')), int(m.group('c')), m.group('n'), m.group('k')) for m in CLANG.finditer(text)}
+        # an unqualified call inside a family member (drafts define members outside the class files): the old name's only new name
+        for m in CLANG_UNDECLARED.finditer(text):
+            news = {n for _, methods in parts for o, n in methods if o == m.group('n')}
+            if len(news) == 1:
+                cls = next(iter(f for f, methods in parts for o, n in methods if o == m.group('n')))
+                hits.add((m.group('f'), int(m.group('l')), int(m.group('c')), m.group('n'), next(iter(cls))))
         todo = [h for h in hits if new_for(h[3], h[4])]
         unresolved = [h for h in hits if h not in todo and h[3] in allnames]
         print('native round %d: build exit %d, %d call sites' % (round_, out.returncode, len(todo)), flush=True)

@@ -10,7 +10,7 @@ int __fastcall Wave_Direction_00721db0(Point2D const &start, Point2D const &end)
 // @ref ?Update_Wave_00724200@WaveClass@@QAEXXZ=00724200
 WaveClass::WaveClass(CoordStruct const &start, CoordStruct const &end, TechnoClass *owner, int type, ObjectClass *target) : Target(target), Type(type), IsWaveActive(true), unknown_119(false), WaveEC(100), WaveProgress(0), FadeProgress(0), Polygon_130(), Scanlines_168(), LaserEC(0), Owner(owner), Cells(5)
 {
-    if (start == end) { ObjectClass::unknown_slot60(); return; }
+    if (start == end) { ObjectClass::Delete_Me(); return; }
     AbstractClass::Create_ID();
     Waves.Add(this);
     if (!Wave_Tables_Initialized_00b25554) {

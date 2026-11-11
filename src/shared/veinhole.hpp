@@ -89,7 +89,7 @@ public:
     virtual void AI();                                              // 0x00710250 slot 23
     virtual int unknown_slot29() const;                             // 0x00712720 (-1)
     virtual ObjectTypeClass *Class_Of() const;                      // 0x007122F0 slot 33
-    virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // 0x007109C0
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // 0x007109C0
 
     int GrowthCount;                // +0x98
     UnknownVeinHeap *GrowthQueue;   // +0x9C

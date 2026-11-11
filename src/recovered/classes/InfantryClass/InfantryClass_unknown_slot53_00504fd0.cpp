@@ -33,7 +33,7 @@ bool InfantryClass::unknown_slot53(CoordStruct const *coord, int dir)
             unknown_373 = false;
         }
         if (where.Z <= unknown_geometry_j + ground) {
-            unknown_slot58(where);
+            Set_Occupy_Bit(where);
         }
         unknown_5d0 = 2;
         return true;

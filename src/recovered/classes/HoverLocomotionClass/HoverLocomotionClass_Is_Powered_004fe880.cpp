@@ -5,7 +5,7 @@
 
 bool __stdcall HoverLocomotionClass::Is_Powered()
 {
-    if (LocomotionClass::Is_Powered() || LinkedTo->unknown_slot108() > 0) {
+    if (LocomotionClass::Is_Powered() || LinkedTo->Get_Height_AGL() > 0) {
         return true;
     }
     return false;

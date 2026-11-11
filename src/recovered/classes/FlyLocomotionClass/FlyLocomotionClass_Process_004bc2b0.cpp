@@ -13,7 +13,7 @@
 bool __stdcall FlyLocomotionClass::Process()
 {
     if (!unknown_51 && !unknown_50 && unknown_40 >= 1.0 && unknown_38 == 0) {
-        unknown_38 = LinkedTo->unknown_slot32()->Flight_Level();
+        unknown_38 = LinkedTo->Techno_Type_Class()->Flight_Level();
     }
     if (LinkedTo->Strength > 0 && !unknown_51 && !unknown_50 && LinkedTo->unknown_slot122()) {
         LinkedTo->Commence();
@@ -26,7 +26,7 @@ bool __stdcall FlyLocomotionClass::Process()
     if (!LinkedTo->unknown_7d) {
         return false;
     }
-    if (LinkedTo->Strength > 0 && unknown_1c != unknown_geometry_l && !unknown_51 && !unknown_50 && LinkedTo->unknown_slot108() > 0) {
+    if (LinkedTo->Strength > 0 && unknown_1c != unknown_geometry_l && !unknown_51 && !unknown_50 && LinkedTo->Get_Height_AGL() > 0) {
         unknown_4be720(true, CoordStruct(unknown_1c.X, unknown_1c.Y, unknown_1c.Z));
     }
     if (LinkedTo->Strength > 0) {

@@ -24,7 +24,7 @@ bool HouseClass::Can_Build_Team(TeamTypeClass *team)
             bool found = false;
             for (int foot_index = unknown_FootClass_list_00865f38.Count() - 1; foot_index >= 0; foot_index--) {
                 FootClass *foot = unknown_FootClass_list_00865f38[foot_index];
-                if (foot->House == this && type == foot->unknown_slot32() && team->unknown_func_6c0010(foot, this)) {
+                if (foot->House == this && type == foot->Techno_Type_Class() && team->unknown_func_6c0010(foot, this)) {
                     found = true;
                     break;
                 }

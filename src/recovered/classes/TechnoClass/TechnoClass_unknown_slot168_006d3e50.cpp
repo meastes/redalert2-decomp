@@ -6,7 +6,7 @@
 
 int TechnoClass::unknown_slot168()
 {
-    TechnoTypeClass *type = unknown_slot32();
+    TechnoTypeClass *type = Techno_Type_Class();
     if (type) {
         if (Kind_Of() == 6 && ((BuildingClass *)this)->unknown_4532f0() > 0) {
             int value = Rules->unknown_be8;

@@ -8,10 +8,10 @@ void TechnoClass::unknown_slot65(int point, int cliprect)
 {
     if (Kind_Of() == 6 && unknown_77 && Kind_Of() != 15) {
         int color = 15;
-        if (unknown_slot108() < -4) {
+        if (Get_Height_AGL() < -4) {
             color = 12;
         }
-        CoordStruct const &lepton = unknown_slot32()->Lepton_Dimensions();
+        CoordStruct const &lepton = Techno_Type_Class()->Lepton_Dimensions();
         ::Coord dim = lepton;
         dim.X /= 2;
         dim.Y /= 2;

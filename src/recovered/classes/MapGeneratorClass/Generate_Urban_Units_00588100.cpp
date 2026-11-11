@@ -34,7 +34,7 @@ void MapGeneratorClass::Generate_Urban_Units(DynamicVectorClass<Cell> &cells)
             Cell position=cells[Map_Random_Range_005797a0(0,cells.Count()-1)];
             if(Map.Unknown_0055A660(position,true) && Map[position].OccupierPtr==0) {
                 if(unit->unknown_slot53(&CoordStruct(position.X*256+128,position.Y*256+128,0),Map_Random_Range_005797a0(0,7)*32)) {
-                    int strength=unit->unknown_slot32()->MaxStrength;
+                    int strength=unit->Techno_Type_Class()->MaxStrength;
                     unit->Strength=strength;
                     unit->unknown_70=strength;
                     unit->Mark(2);

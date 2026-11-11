@@ -9,7 +9,7 @@
 // @ref ?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z=006b8fb0
 // @ref ?unknown_4ea800@HouseClass@@QAEXPAVTechnoClass@@@Z=004ea800
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
-// @ref ?unknown_slot52@FootClass@@UAE_NXZ=004c9bd0
+// @ref ?Limbo@FootClass@@UAE_NXZ=004c9bd0
 // @ref ?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z=006ecb90
 // @ref ?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A=00a35e48
 // @ref ?Fetch_ID@AbstractClass@@UAGJXZ=0040ffc0
@@ -28,7 +28,7 @@ InfantryClass::~InfantryClass()
             Team = 0;
         }
         House->unknown_4ea800(this);
-        InfantryClass::unknown_slot52();
+        InfantryClass::Limbo();
     }
     Unknown_006ECB90(this, true);
     Infantry.Delete(this);

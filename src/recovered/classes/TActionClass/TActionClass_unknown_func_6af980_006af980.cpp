@@ -12,7 +12,7 @@ bool TActionClass::unknown_func_6af980(HouseClass *house, ObjectClass *object, T
     for (int index = 0; index < ParticleSystems.Count(); index++) {
         ParticleSystemClass *system = ParticleSystems[index];
         if (system->unknown_7d && system->unknown_slot104() == waypoint) {
-            system->unknown_slot60();
+            system->Delete_Me();
         }
     }
     return true;

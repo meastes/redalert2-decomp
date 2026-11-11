@@ -15,7 +15,7 @@ extern double const unknown_cyborg_recovery_007a7670;
 // @ref ??0AnimClass@@=00420110
 // @ref ?Unknown_006B3DF0@TagClass@@=006b3df0
 // @ref _unknown_geometry_k=00a72ee0
-int ObjectClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead,
+int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
     TechnoClass *source, bool forced, int unknown_argument)
 {
     int state = 0;
@@ -29,7 +29,7 @@ int ObjectClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
         int before_heal = Strength;
         Strength = (int)((unsigned int)before_heal - (unsigned int)*damage);
         if (Strength > maximum_strength) Strength = maximum_strength;
-        if (before_heal != Strength) unknown_slot79(7);
+        if (before_heal != Strength) Clicked_As_Target(7);
         return 0;
     }
     state = 1;
@@ -77,7 +77,7 @@ int ObjectClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
             }
             if (unknown_7d && (strength_after_damage <= 0 || Strength > 0)) {
                 if (Strength == 0) {
-                    unknown_slot55(source);
+                    Record_The_Kill(source);
                     state = 4;
                     unknown_slot54(true);
                 }

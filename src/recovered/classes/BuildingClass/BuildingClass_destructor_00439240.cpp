@@ -14,7 +14,7 @@
 // @ref ?Unknown_00405C10@UnknownAudioController@@QAEXXZ=00405c10
 // @ref ?unknown_537560@UnknownBuilding4E8@@QAEXH@Z=00537560
 // @ref ?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z=006ecb90
-// @ref ?unknown_slot52@BuildingClass@@UAE_NXZ=00442060
+// @ref ?Limbo@BuildingClass@@UAE_NXZ=00442060
 // @ref ?unknown_44cfd0@BuildingClass@@QAEXH@Z=0044cfd0
 // @ref ?Free_Buildup@BuildingTypeClass@@QAEXXZ=0045e920
 // @ref ?Cloaking_AI@BuildingClass@@UAEXH@Z=0044fb50
@@ -58,7 +58,7 @@ BuildingClass::~BuildingClass()
         unknown_4e8 = 0;
     }
     Unknown_006ECB90(this, true);
-    unknown_slot52();
+    Limbo();
     unknown_BuildingClass_list_00a40af8.Delete(this);
     unknown_44cfd0(-2);
     Type->Free_Buildup();
@@ -83,7 +83,7 @@ BuildingClass::~BuildingClass()
             if (House) {
                 House->unknown_4ea800(this);
             }
-            unknown_slot52();
+            Limbo();
         }
     }
     delete unknown_41c;

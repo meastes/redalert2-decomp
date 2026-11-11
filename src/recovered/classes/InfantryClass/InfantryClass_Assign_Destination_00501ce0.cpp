@@ -66,7 +66,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
         persist.Checked()->GetClassID(&class_id);
         if (memcmp(&class_id,&unknown_Walk_clsid_007a1fa0,sizeof(GUID))==0) {
             unknown_49c.Add_Head(target);
-            target=unknown_slot107();
+            target=Get_Target_Cell_Ptr();
             if (target && (static_cast<CellClass *>(target)->unknown_140&0x100)) target=0;
         }
     }

@@ -19,6 +19,6 @@ void AnimClass::Detach(AbstractClass *target, bool all)
     }
     if (unknown_15c == target) {
         unknown_15c = 0;
-        unknown_slot60();
+        Delete_Me();
     }
 }

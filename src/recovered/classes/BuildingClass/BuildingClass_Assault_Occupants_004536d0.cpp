@@ -19,7 +19,7 @@ void BuildingClass::Unknown_004536D0(InfantryClass *infantry)
 {
     if(!infantry) {
         for(int index=unknown_554.Count()-1;index>=0;--index)
-            unknown_554[index]->unknown_slot60();
+            unknown_554[index]->Delete_Me();
     } else {
         for(int index=unknown_554.Count()-1;index>=0;--index) {
             CoordStruct coordinate;
@@ -27,12 +27,12 @@ void BuildingClass::Unknown_004536D0(InfantryClass *infantry)
             coordinate=coordinate+unknown_slot42();
             AnimClass *animation=new AnimClass(reinterpret_cast<AnimTypeClass *>(infantry->unknown_slot231(0)->WeaponType->unknown_f4),coordinate,0,1,0x600,0);
             animation->ZAdjust=-200;
-            infantry->unknown_slot55(unknown_554[index]);
-            unknown_554[index]->unknown_slot60();
+            infantry->Record_The_Kill(unknown_554[index]);
+            unknown_554[index]->Delete_Me();
         }
     }
     int capacity=unknown_554.Length();
     unknown_554.Clear();
     unknown_554.Resize(capacity,0);
-    Unknown_006D9610(unknown_slot105());
+    Unknown_006D9610(Get_Cell_Ptr());
 }

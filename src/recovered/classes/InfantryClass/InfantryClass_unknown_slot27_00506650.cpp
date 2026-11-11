@@ -38,7 +38,7 @@ int InfantryClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
             if (Type->DeployFire) {
                 int weapon_index = unknown_slot174(0);
                 CoordStruct fire_coord(cell->X * 256 + 128, cell->Y * 256 + 128, 0);
-                if (!unknown_slot84(fire_coord, weapon_index)) result = 2;
+                if (!In_Range(fire_coord, weapon_index)) result = 2;
             } else result = 2;
         } else {
             goto ordinary_cell;

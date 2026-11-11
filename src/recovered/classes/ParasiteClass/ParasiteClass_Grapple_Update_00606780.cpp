@@ -24,7 +24,7 @@ void ParasiteClass::Unknown_00606780()
     WeaponTypeClass *weapon = Owner->unknown_slot231(0)->WeaponType;
     WarheadTypeClass *warhead = weapon->Warhead;
     CoordStruct coord = unknown_28->Coord;
-    CellClass *cell = (CellClass *)unknown_28->unknown_slot105();
+    CellClass *cell = (CellClass *)unknown_28->Get_Cell_Ptr();
     double sign = 1.0;
     if (!cell || cell->Is_Tile_Water()) {
         unknown_28->unknown_58c = CDTimerClass<FrameTimerClass>(warhead->Paralyzes);
@@ -84,9 +84,9 @@ void ParasiteClass::Unknown_00606780()
             }
             if (warhead->Culling && (unknown_28->unknown_func_5d46b0() == 0 ||
                 (unknown_28->unknown_func_5d46b0() == 1 && Owner->unknown_118.Is_Elite()))) {
-                if (Owner->unknown_slot32()->Trainable) {
-                    TechnoTypeClass *victim_type = unknown_28->unknown_slot32();
-                    TechnoTypeClass *owner_type = Owner->unknown_slot32();
+                if (Owner->Techno_Type_Class()->Trainable) {
+                    TechnoTypeClass *victim_type = unknown_28->Techno_Type_Class();
+                    TechnoTypeClass *owner_type = Owner->Techno_Type_Class();
                     Owner->unknown_118.Made_A_Kill(owner_type->Cost_Of(Owner->House),
                         victim_type->Cost_Of(unknown_28->House));
                 }
@@ -100,7 +100,7 @@ void ParasiteClass::Unknown_00606780()
                 return;
             }
             damage = weapon->unknown_a4;
-            unknown_28->unknown_slot86(&damage, 0, warhead, Owner, false, true);
+            unknown_28->Take_Damage(&damage, 0, warhead, Owner, false, true);
             if (unknown_28) {
                 unknown_48 = unknown_id_source_a3d290->Random()(0, 1) ? 2 : 3;
                 Reset_Grapple_Counters_006066a0();
@@ -117,7 +117,7 @@ void ParasiteClass::Unknown_00606780()
         }
         AnimClass *anim = (AnimClass *)Victim;
         if (anim && Owner && unknown_28) {
-            CellClass *cell = (CellClass *)unknown_28->unknown_slot105();
+            CellClass *cell = (CellClass *)unknown_28->Get_Cell_Ptr();
             anim->Attach_To(unknown_28);
             anim->unknown_bc = Owner->unknown_slot115();
             if (cell) anim->unknown_e4 = cell->unknown_10a;

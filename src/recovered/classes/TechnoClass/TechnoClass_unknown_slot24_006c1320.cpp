@@ -6,7 +6,7 @@
 bool TechnoClass::unknown_slot24()
 {
     if (Strength > 0 && !unknown_76 && unknown_32d && Kind_Of() != 6 && unknown_373 &&
-            unknown_slot32()->unknown_200) {
+            Techno_Type_Class()->unknown_200) {
         return House->Is_Player_Control() ? true : false;
     }
     return false;

@@ -24,7 +24,7 @@ extern double const unknown_facing_origin_79b630;
 
 void JumpjetLocomotionClass::unknown_52fd50()
 {
-    int height = LinkedTo->unknown_slot108();
+    int height = LinkedTo->Get_Height_AGL();
     if (!LinkedTo->unknown_79 && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100) && height >= unknown_geometry_j) {
         height -= unknown_geometry_j;
     }
@@ -39,13 +39,13 @@ void JumpjetLocomotionClass::unknown_52fd50()
             LinkedTo->Assign_Destination(&here.Adjacent_Cell(facing), true);
             unknown_4c = 3;
         } else {
-            ((CellClass *)LinkedTo->unknown_slot105())->Set_unknown_e0(LinkedTo);
+            ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(LinkedTo);
             unknown_4c = 2;
         }
         return;
     }
     int limit;
-    if (LinkedTo->Kind_Of() == 1 && LinkedTo->unknown_slot32()->BalloonHover) {
+    if (LinkedTo->Kind_Of() == 1 && LinkedTo->Techno_Type_Class()->BalloonHover) {
         limit = unknown_78 / 2;
     } else {
         limit = unknown_78 / 4;
@@ -68,8 +68,8 @@ void JumpjetLocomotionClass::unknown_52fd50()
                 LinkedTo->INoticeSink_Unknown(0x117B, 0);
             }
         }
-        if (cell == Coord_Cell(unknown_3c) && !LinkedTo->unknown_slot32()->BalloonHover) {
-            unknown_78 = LinkedTo->unknown_slot108();
+        if (cell == Coord_Cell(unknown_3c) && !LinkedTo->Techno_Type_Class()->BalloonHover) {
+            unknown_78 = LinkedTo->Get_Height_AGL();
             unknown_4c = 3;
         }
     }

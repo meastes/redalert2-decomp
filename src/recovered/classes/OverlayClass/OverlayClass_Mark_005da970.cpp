@@ -106,7 +106,7 @@ bool OverlayClass::Mark(int mark)
                         cellptr->Adjacent_Cell(face).unknown_122++;
                     }
                 } else {
-                    unknown_slot60();
+                    Delete_Me();
                     return false;
                 }
             } else if (Class->ArrayIndex >= 0x7A && Class->ArrayIndex <= 0x7D) {
@@ -300,7 +300,7 @@ bool OverlayClass::Mark(int mark)
             unknown_74 = false;
             unknown_76 = true;
 
-            unknown_slot60();
+            Delete_Me();
             return true;
         }
     }

@@ -13,14 +13,14 @@ int TechnoClass::unknown_slot188(int arg1)
     }
     if (arg1 == 0) {
         bool flag = unknown_slot193();
-        if (unknown_slot32()->GuardRange.Value != 0 && !flag) {
-            return unknown_slot32()->GuardRange.Value;
+        if (Techno_Type_Class()->GuardRange.Value != 0 && !flag) {
+            return Techno_Type_Class()->GuardRange.Value;
         }
         return 0;
     }
-    int range = unknown_slot32()->GuardRange.Value;
+    int range = Techno_Type_Class()->GuardRange.Value;
     if (range == 0) {
-        range = (unknown_slot85(0) > unknown_slot85(1)) ? unknown_slot85(0) : unknown_slot85(1);
+        range = (Weapon_Range(0) > Weapon_Range(1)) ? Weapon_Range(0) : Weapon_Range(1);
     }
     range *= 2;
     if (arg1 == 2) {

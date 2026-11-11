@@ -105,7 +105,7 @@ bool __stdcall RocketLocomotionClass::Process()
                 unknown_tracker_839ea0.Unknown_004131E0(LinkedTo);
             }
             new AnimClass(AnimTypes[AnimTypeClass::From_Name(unknown_rocket_takeoff_anim_7ee804)], Object_Coord(LinkedTo), 2, 1, 0x600, -10);
-            Voc_Play_At(LinkedTo->unknown_slot32()->AuxSound1, Object_Coord(LinkedTo), 0);
+            Voc_Play_At(LinkedTo->Techno_Type_Class()->AuxSound1, Object_Coord(LinkedTo), 0);
         } else {
             float initial = rocket->PitchInitial * 1.5707963267948966;
             float final = rocket->PitchFinal * 1.5707963267948966;
@@ -114,18 +114,18 @@ bool __stdcall RocketLocomotionClass::Process()
         break;
     case 3:
         unknown_48 += rocket->Acceleration;
-        if (unknown_48 > LinkedTo->unknown_slot32()->Speed) {
-            unknown_48 = LinkedTo->unknown_slot32()->Speed;
+        if (unknown_48 > LinkedTo->Techno_Type_Class()->Speed) {
+            unknown_48 = LinkedTo->Techno_Type_Class()->Speed;
         }
-        if (LinkedTo->unknown_slot108() >= rocket->Altitude) {
+        if (LinkedTo->Get_Height_AGL() >= rocket->Altitude) {
             unknown_40 = 4;
             unknown_54 = Ground_Distance(unknown_18, LinkedTo);
         }
         break;
     case 4:
         unknown_48 += rocket->Acceleration;
-        if (unknown_48 > LinkedTo->unknown_slot32()->Speed) {
-            unknown_48 = LinkedTo->unknown_slot32()->Speed;
+        if (unknown_48 > LinkedTo->Techno_Type_Class()->Speed) {
+            unknown_48 = LinkedTo->Techno_Type_Class()->Speed;
         }
         if (rocket->LazyCurve && unknown_54 != 0) {
             if (unknown_63dcf0(rocket)) {
@@ -183,7 +183,7 @@ bool __stdcall RocketLocomotionClass::Process()
     }
     if (unknown_48 > 0.0) {
         CoordStruct coord = unknown_63dbe0((int)unknown_48);
-        LinkedTo->unknown_slot103(coord);
+        LinkedTo->Set_Coord(coord);
         Cell cell = LinkedTo->unknown_slot104();
         if (cell != LinkedTo->unknown_458 && LinkedTo->unknown_7d) {
             unknown_tracker_839ea0.Unknown_00413600(LinkedTo, LinkedTo->unknown_458, cell);

@@ -31,7 +31,7 @@ void BuildingClass::Draw_Selection_Overlay_0043b660(Point2D const &point, Rect c
             TechnoClass *product = factory->Get_Object();
             if (product) {
                 CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4,
-                    static_cast<ShapeFileStruct const *>(product->unknown_slot32()->unknown_slot38()),
+                    static_cast<ShapeFileStruct const *>(product->Techno_Type_Class()->unknown_slot38()),
                     0, point, bounds, 0xe00, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
         }

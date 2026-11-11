@@ -17,10 +17,10 @@ extern bool unknown_flag_a40958;
 // @ref ?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z=006a29d0
 // @ref ?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z=006a3020
 // @ref _unknown_static_rect=00a72ed0
-bool ObjectClass::unknown_slot52()
+bool ObjectClass::Limbo()
 {
     if (!unknown_flag_a40958 || unknown_76) return false;
-    unknown_slot81();
+    Unselect();
     unknown_slot54(true);
     Mark(0);
     Map.Remove(this);
@@ -44,7 +44,7 @@ bool ObjectClass::unknown_slot52()
         unknown_tactical_83996c->Register_Dirty_Area(
             Rect(pixel.X, pixel.Y, shape->Width, shape->Height), 1);
     }
-    unknown_slot69();
+    Hidden();
     unknown_76 = true;
     unknown_75 = false;
     return true;

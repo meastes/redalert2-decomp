@@ -23,7 +23,7 @@ inline CoordStruct Hover_Adjacent_Coord_004fb9d0(CoordStruct const &coord,int fa
 }
 void HoverLocomotionClass::Gravity_AI_004fb9d0()
 {
-    int height=LinkedTo->unknown_slot108();
+    int height=LinkedTo->Get_Height_AGL();
     int clearance=height;
     if (LinkedTo->unknown_4d0!=-1) {
         int ground=Map.Get_Height_GL(Object_Coord(LinkedTo));
@@ -37,7 +37,7 @@ void HoverLocomotionClass::Gravity_AI_004fb9d0()
     if (height<0) { unknown_60=0; height=0; }
     bool wasdown=LinkedTo->unknown_74;
     LinkedTo->unknown_74=false;
-    LinkedTo->unknown_slot109(height);
+    LinkedTo->Set_Height_AGL(height);
     LinkedTo->unknown_74=wasdown;
     if (clearance<Rules->HoverHeight) {
         if (LocomotionClass::Is_Powered()) {

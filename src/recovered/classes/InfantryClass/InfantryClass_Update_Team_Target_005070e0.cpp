@@ -14,7 +14,7 @@ bool InfantryClass::unknown_5070e0()
         CoordStruct coord = Coord;
         if (!Map.Unknown_0054AB00(coord)) {
             unknown_slot210();
-            unknown_slot60();
+            Delete_Me();
             return true;
         }
     }

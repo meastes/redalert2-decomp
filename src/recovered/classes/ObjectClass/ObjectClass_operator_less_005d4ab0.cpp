@@ -3,5 +3,5 @@
 
 bool ObjectClass::operator<(ObjectClass const &other) const
 {
-    return unknown_slot45() < other.unknown_slot45();
+    return Sort_Y() < other.Sort_Y();
 }

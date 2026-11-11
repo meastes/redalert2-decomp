@@ -37,7 +37,7 @@ int InfantryClass::unknown_slot218(AbstractClass *target, int weapon, bool check
             if (weapon_type->unknown_105 && unknown_494 != 0) {
                 return 7;
             }
-            if (weapon_type->unknown_126 && target != unknown_slot105()) {
+            if (weapon_type->unknown_126 && target != Get_Cell_Ptr()) {
                 return 5;
             }
             WarheadTypeClass *warhead = weapon_type->Warhead;

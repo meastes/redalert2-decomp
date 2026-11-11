@@ -33,7 +33,7 @@
 // @ref ?Unknown_005D9760@UnknownSpeedA40B18@@QAEHH@Z=005d9760
 // @ref ?unknown_speed_a40b18@@3VUnknownSpeedA40B18@@A=00a40b18
 // @ref ?unknown_func_5d4920@ObjectClass@@QAEXH@Z=005d4920
-// @ref ?unknown_slot109@ObjectClass@@UAEXH@Z=005d4860
+// @ref ?Set_Height_AGL@ObjectClass@@UAEXH@Z=005d4860
 // @ref ?unknown_slot53@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
 // @ref ?Center_Coord@ObjectClass@@UBE?AUCoordStruct@@XZ=005d4e40
 // @ref __ftol=0077f110
@@ -111,7 +111,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     if (Class->Layer == 3 || Class->Layer == 4) {
         unknown_func_5d4920(Rules->unknown_6dc);
     } else {
-        ObjectClass::unknown_slot109(0);
+        ObjectClass::Set_Height_AGL(0);
     }
     if (Class->Reverse) {
         Set_Stage(Class->LoopEnd);

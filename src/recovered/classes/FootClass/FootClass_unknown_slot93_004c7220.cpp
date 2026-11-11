@@ -35,7 +35,7 @@ void FootClass::unknown_slot93(int why)
         unknown_59c = false;
         unknown_59a = false;
 
-        if (unknown_slot32()->SensorsSight != 0) {
+        if (Techno_Type_Class()->SensorsSight != 0) {
             unknown_slot286(unknown_454);
             unknown_slot285(unknown_geometry_k);
         }
@@ -43,7 +43,7 @@ void FootClass::unknown_slot93(int why)
         if (unknown_454 != Cell(0, 0)) {
             if (Map.Unknown_0054E370(unknown_454) != Map.Unknown_0054E370(unknown_slot104())) {
                 unknown_6d95d0((UnknownCellClass *)&Map[unknown_454]);
-                unknown_6d95a0((UnknownCellClass *)unknown_slot105());
+                unknown_6d95a0((UnknownCellClass *)Get_Cell_Ptr());
             }
             int face;
             for (face = 0; face < 8; face++) {
@@ -66,8 +66,8 @@ void FootClass::unknown_slot93(int why)
                 if (Map.Unknown_0055A660(cell, true)) {
                     TechnoClass *techno = ((UnknownCellClass *)&Map[cell])->Unknown_00471660(Point2D(0, 0), 0, 0);
 
-                    if (techno && !techno->House->Is_Ally(this) && (techno->unknown_slot32()->Sensors || techno->unknown_6d7910(12))) {
-                        unknown_slot61();
+                    if (techno && !techno->House->Is_Ally(this) && (techno->Techno_Type_Class()->Sensors || techno->unknown_6d7910(12))) {
+                        Do_Shimmer();
                         break;
                     }
                 }
@@ -77,7 +77,7 @@ void FootClass::unknown_slot93(int why)
         int primary = unknown_slot174(unknown_228);
         bool inrange = false;
         if (unknown_228 != 0 && unknown_228->AbstractFlags.IsFoot) {
-            inrange = unknown_slot84(((FootClass *)unknown_228)->unknown_slot287(), primary);
+            inrange = In_Range(((FootClass *)unknown_228)->unknown_slot287(), primary);
         }
 
         if ((Get_Mission() == 21 || Get_Mission() == 11 || Get_Mission() == 1 || Get_Mission() == 15) && inrange && unknown_478.Count() == 0) {
@@ -127,7 +127,7 @@ void FootClass::unknown_slot93(int why)
                 tag = unknown_tags_866238[unknown_tag_position_a35e24];
                 if (tag != 0) {
                     if (tag->Is_Enters_Zone()) {
-                        if (Map.Unknown_0054F7C0(tag->Get_Cell(), Coord_Cell(unknown_slot19(0)), unknown_slot32()->MovementZone, ((UnknownCellClass *)&Map[tag->Get_Cell()])->Flags >> 8 & 1, unknown_slot46(0), false)) {
+                        if (Map.Unknown_0054F7C0(tag->Get_Cell(), Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, ((UnknownCellClass *)&Map[tag->Get_Cell()])->Flags >> 8 & 1, Is_Moving_Onto_Bridge(0), false)) {
                             tag->Spring(0x18, this, Coord_Cell(unknown_slot19(0)));
                         }
                     }
@@ -140,24 +140,24 @@ void FootClass::unknown_slot93(int why)
             if (building->Type->LaserFence && building->unknown_4ec < 8) {
                 int rtti = Kind_Of();
                 if (rtti > 0 && (rtti <= 2 || rtti == 15) && Strength > 0) {
-                    unknown_slot86(&Strength, 0, Rules->unknown_c74, (TechnoClass *)building, true, true);
+                    Take_Damage(&Strength, 0, Rules->unknown_c74, (TechnoClass *)building, true, true);
                 }
             }
         }
 
         if (unknown_79 && !(((UnknownCellClass *)&Map[CoordStruct(Coord)])->Flags & 0x100)) {
-            unknown_slot57();
+            Fall_From_Height();
         }
 
         if (!unknown_7d) return;
 
         if (!Map.Unknown_0055A660(unknown_slot104(), true) && unknown_slot282()) {
-            unknown_slot60();
+            Delete_Me();
             return;
         }
 
         if (unknown_77 && !House->Is_Player_Control() && Map.Is_Shrouded(CoordStruct(Coord))) {
-            unknown_slot81();
+            Unselect();
         }
     }
 

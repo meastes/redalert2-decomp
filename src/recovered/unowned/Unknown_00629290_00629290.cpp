@@ -190,7 +190,7 @@ void __fastcall Unknown_00629290(int start, int count)
                 step = Normalized(step);
                 int tries = 0;
                 bool detour = false;
-                TechnoTypeClass *type = object->unknown_slot32();
+                TechnoTypeClass *type = object->Techno_Type_Class();
                 int zone = Map.Zone(dest, type->MovementZone, true);
                 bool found = false;
                 Cell spot;

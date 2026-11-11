@@ -20,7 +20,7 @@
 inline bool _Can_Burrow(FootClass *object)
 {
     while (object != 0) {
-        TechnoTypeClass const *tclass = object->unknown_slot32();
+        TechnoTypeClass const *tclass = object->Techno_Type_Class();
         if (!(tclass->Locomotor == CLSID_TunnelLocomotionClass)) {
             return false;
         }
@@ -47,7 +47,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
         }
         eface = (FacingType)(source << 1);
     } else {
-        cell = Map.Nearby_Location(cell, object->unknown_slot32()->SpeedType, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+        cell = Map.Nearby_Location(cell, object->Techno_Type_Class()->SpeedType, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
     }
 
     Cell newcell = cell;
@@ -66,7 +66,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
 
             bool placed = false;
             if (drop_pod) {
-                object->unknown_slot103(CoordStruct(newcell));
+                object->Set_Coord(CoordStruct(newcell));
                 object->Assign_Destination((AbstractClass *)&Map[newcell], true);
                 object->Locomotor.Checked()->Move_To(Cell_Coord(newcell));
                 object->unknown_slot262(false, false, false, 0);
@@ -77,7 +77,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                 CoordStruct coord = Map[newcell].unknown_475d60() - CoordStruct(0, 0, 400);
                 placed = object->unknown_slot53(&coord, desiredfacing.As_Dir256());
                 if (placed) {
-                    object->unknown_slot103(object->Position_Coord_004f3f40() + CoordStruct(0, 0, -256 - object->unknown_slot110()));
+                    object->Set_Coord(object->Position_Coord_004f3f40() + CoordStruct(0, 0, -256 - object->Get_Height()));
                     object->Assign_Destination((AbstractClass *)&Map[newcell], true);
                     object->unknown_slot306(1.0);
                     object->Locomotor.Checked()->Move_To(Cell_Coord(newcell));

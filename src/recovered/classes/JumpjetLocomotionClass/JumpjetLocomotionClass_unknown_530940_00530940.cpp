@@ -22,13 +22,13 @@ void JumpjetLocomotionClass::unknown_530940()
     if (Map.In_Radar(Coord_Cell(coord))) {
         Map.Remove(LinkedTo);
         LinkedTo->Mark(0);
-        LinkedTo->unknown_slot103(coord);
+        LinkedTo->Set_Coord(coord);
         LinkedTo->Mark(1);
         Map.Submit(LinkedTo);
     }
-    if (LinkedTo->unknown_slot108() <= 0) {
-        if (((CellClass *)LinkedTo->unknown_slot105())->unknown_e0 == LinkedTo) {
-            ((CellClass *)LinkedTo->unknown_slot105())->Set_unknown_e0(0);
+    if (LinkedTo->Get_Height_AGL() <= 0) {
+        if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == LinkedTo) {
+            ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);
         }
         unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
         unknown_4c = 6;

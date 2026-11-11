@@ -38,7 +38,7 @@ DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test,
 // Whether the techno is a selectable combatant (not a building, kind 6; type flag +0xB58).
 static bool Is_Combatant(TechnoClass *techno)
 {
-    return techno->Kind_Of() != 6 && techno->unknown_slot32()->IsSelectableCombatant;
+    return techno->Kind_Of() != 6 && techno->Techno_Type_Class()->IsSelectableCombatant;
 }
 
 // Whether no combatant of the list is on the screen (+0x77 clear on every one).

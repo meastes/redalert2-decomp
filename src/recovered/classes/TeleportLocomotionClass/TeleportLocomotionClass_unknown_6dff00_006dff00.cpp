@@ -45,15 +45,15 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
         for (; object != 0; object = object->unknown_30) {
             if (!object->unknown_slot83() && object->Kind_Of() == 15 && LinkedTo->Kind_Of() == 15) {
                 if (coord == object->Center_Coord()) {
-                    int damage = object->unknown_slot32()->MaxStrength;
-                    object->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                    int damage = object->Techno_Type_Class()->MaxStrength;
+                    object->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
                 }
             } else if (!object->unknown_slot83() && Foot_Of_6dff00(object) != 0) {
-                int damage = object->unknown_slot32()->MaxStrength;
-                object->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                int damage = object->Techno_Type_Class()->MaxStrength;
+                object->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
             } else if (object->unknown_slot83()) {
-                int damage = LinkedTo->unknown_slot32()->MaxStrength;
-                LinkedTo->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                int damage = LinkedTo->Techno_Type_Class()->MaxStrength;
+                LinkedTo->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
             } else if (Foot_Of_6dff00(object) == 0) {
                 blocked = true;
             }
@@ -64,7 +64,7 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
         CellClass *cell = &Map[Coord_Cell(LinkedTo->Center_Coord())];
         bool alt = cell->Is_Bridge_Here;
         if ((overlay != -1 && !unknown_overlay_types_a35de8[overlay]->unknown_279 && !alt) || blocked) {
-            int zone = LinkedTo->unknown_slot32()->MovementZone;
+            int zone = LinkedTo->Techno_Type_Class()->MovementZone;
             if (zone == 9) {
                 zone = 0;
             } else if (zone == 2) {
@@ -81,9 +81,9 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
         }
     } else {
         if (unknown_28 != unknown_geometry_l) {
-            LinkedTo->unknown_slot59(unknown_28);
+            LinkedTo->Clear_Occupy_Bit(unknown_28);
         } else {
-            LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+            LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
         }
         unknown_28 = LinkedTo->unknown_21c;
         unknown_28.Z = Map.Get_Height_GL(unknown_28);
@@ -93,12 +93,12 @@ bool TeleportLocomotionClass::unknown_6dff00(CoordStruct coord, bool arrive)
         } else {
             LinkedTo->unknown_79 = false;
         }
-        LinkedTo->unknown_slot58(unknown_28);
+        LinkedTo->Set_Occupy_Bit(unknown_28);
     }
     if (unknown_28 != unknown_geometry_l) {
-        LinkedTo->unknown_slot58(unknown_28);
+        LinkedTo->Set_Occupy_Bit(unknown_28);
     } else {
-        LinkedTo->unknown_slot58(Object_Coord(LinkedTo));
+        LinkedTo->Set_Occupy_Bit(Object_Coord(LinkedTo));
     }
     return true;
 }

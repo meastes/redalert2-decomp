@@ -5,5 +5,5 @@
 
 bool TechnoClass::unknown_slot275()
 {
-    return unknown_slot32()->CanAttackMove();
+    return Techno_Type_Class()->CanAttackMove();
 }

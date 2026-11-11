@@ -14,7 +14,7 @@ void SidebarClass::Unknown_0067C150(ObjectClass *object)
     if (!unknown_4ee1 || !object) {
         return;
     }
-    TechnoTypeClass *type = object->unknown_slot32();
+    TechnoTypeClass *type = object->Techno_Type_Class();
     if (!unknown_player_a35db4) {
         return;
     }

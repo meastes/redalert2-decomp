@@ -152,7 +152,7 @@ select_destination:
             Debug_Printf(unknown_aircraft_move_log_7ce6ac);
             if (unknown_slot149(19) == 1) {
                 Debug_Printf(unknown_aircraft_move_log_7ce664);
-                passenger->unknown_slot52();
+                passenger->Limbo();
                 passenger->unknown_79 = false;
                 passenger->unknown_37c = true;
                 Cargo.Attach(passenger);

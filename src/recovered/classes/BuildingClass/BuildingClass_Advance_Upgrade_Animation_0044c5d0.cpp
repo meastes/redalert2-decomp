@@ -28,7 +28,7 @@ bool BuildingClass::Advance_Upgrade_Animation_0044c5d0()
                 }
             }
         }
-        if(Health_Ratio()>Rules->unknown_1368 && unknown_25c[3]) unknown_25c[3]->unknown_slot60();
+        if(Health_Ratio()>Rules->unknown_1368 && unknown_25c[3]) unknown_25c[3]->Delete_Me();
         for(int index=3;index<=6;++index) {
             if(!unknown_454[index]) {
                 char const *name=Type->Anims[index].Anim.Buffer;

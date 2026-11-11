@@ -53,31 +53,31 @@ void UnitClass::unknown_slot93(int reason)
             if (contact==Map[cell-Cell(0,1)].Cell_Building()) {
                 switch (unknown_slot150(21,contact)) {
                 case 1: case 5: break;
-                default: unknown_slot87(unknown_geometry_l,true,false);break;
+                default: Scatter(unknown_geometry_l,true,false);break;
                 }
             }
         }
-        UnknownCellClass *current=(UnknownCellClass *)unknown_slot105();
+        UnknownCellClass *current=(UnknownCellClass *)Get_Cell_Ptr();
         TechnoClass *transport=current->Unknown_004717B0();
         if (!transport) {
-            transport=((UnknownCellClass *)unknown_slot105())->Unknown_00473E80(unknown_79);
+            transport=((UnknownCellClass *)Get_Cell_Ptr())->Unknown_00473E80(unknown_79);
             if (!transport) {
-                transport=((UnknownCellClass *)unknown_slot105())->Unknown_00473E30(unknown_79);
+                transport=((UnknownCellClass *)Get_Cell_Ptr())->Unknown_00473E30(unknown_79);
             }
         }
         if (transport==this) transport=Unknown_0040DC20(transport->unknown_30);
         if (Get_Mission()==7 && transport && transport!=this) {
-            if (unknown_slot104()==transport->unknown_slot104() && Is_Radio_Contact(transport) && transport->unknown_slot32()->Passengers>0) {
+            if (unknown_slot104()==transport->unknown_slot104() && Is_Radio_Contact(transport) && transport->Techno_Type_Class()->Passengers>0) {
                 if (unknown_slot150(15,transport)==1) {
                     unknown_6d6e50(0);
                     unknown_79=false;
-                    unknown_slot52();
+                    Limbo();
                     transport->Cargo.Attach(this);
-                    unknown_slot69();
+                    Hidden();
                 } else {
                     Assign_Destination(0,true);
                     unknown_slot116(5,false);
-                    unknown_slot87(unknown_geometry_l,true,true);
+                    Scatter(unknown_geometry_l,true,true);
                 }
                 return;
             }
@@ -90,7 +90,7 @@ void UnitClass::unknown_slot93(int reason)
                 if (arrived || !contact || contact->Kind_Of()!=6 || !((BuildingClass *)contact)->Type->WeaponsFactory || Map[Position_Coord_004f3f40()].Cell_Building()!=contact) {
                     int response=unknown_slot149(8);
                     if (response==23) {
-                        if (unknown_494 && unknown_494!=unknown_slot105()) {
+                        if (unknown_494 && unknown_494!=Get_Cell_Ptr()) {
                             AbstractClass *destination=unknown_494;
                             if (destination && destination->AbstractFlags.IsTechno) unknown_slot150(14,(TechnoClass *)destination);
                         } else {
@@ -110,7 +110,7 @@ void UnitClass::unknown_slot93(int reason)
                                 } else {
                                     AbstractClass *destination=unknown_1b0;
                                     if (destination && destination!=unknown_494) Assign_Destination(destination,true);
-                                    else { unknown_4cd9b0();unknown_slot87(unknown_geometry_l,true,false); }
+                                    else { unknown_4cd9b0();Scatter(unknown_geometry_l,true,false); }
                                 }
                             } else unknown_slot116(10,true);
                         }
@@ -119,16 +119,16 @@ void UnitClass::unknown_slot93(int reason)
                             unknown_slot116(10,false);
                             Assign_Destination(unknown_1b0,true);
                             unknown_6d6e50(0);
-                        } else if (!unknown_494) unknown_slot87(unknown_geometry_l,true,false);
+                        } else if (!unknown_494) Scatter(unknown_geometry_l,true,false);
                     }
                 }
             }
-            if (Map[Position_Coord_004f3f40()].Cell_Building() && !unknown_494 && unknown_49c.Count()==0 && unknown_478.Count()==0) unknown_slot87(unknown_geometry_l,true,true);
+            if (Map[Position_Coord_004f3f40()].Cell_Building() && !unknown_494 && unknown_49c.Count()==0 && unknown_478.Count()==0) Scatter(unknown_geometry_l,true,true);
         }
         if (Get_Mission()==5 && !Map.Unknown_0054AB00(Position_Coord_004f3f40()) && unknown_32d) {
             if (Team) Team->TargetNotAssigned=true;
             unknown_slot210();
-            unknown_slot60();
+            Delete_Me();
             return;
         }
         unknown_slot263(false,false,false,0);
@@ -151,10 +151,10 @@ void UnitClass::unknown_slot93(int reason)
                 new AnimClass(Select_Damage_Anim(Strength,Rules->unknown_c74,land,&Position_Coord_004f3f40()),Position_Coord_004f3f40(),0,1,0x2600,Unknown_0047FCC0(Position_Coord_004f3f40()));
                 int damage=Strength;
                 Unknown_0047F600(Center_Coord(),damage,Rules->unknown_c74,0,0);
-                unknown_slot86(&damage,0,Rules->unknown_c74,0,true,0);
+                Take_Damage(&damage,0,Rules->unknown_c74,0,true,0);
                 return;
             }
-            unknown_slot87(unknown_geometry_l,true,true);
+            Scatter(unknown_geometry_l,true,true);
         }
     }
     CellClass *current_cell=&Map[cell];

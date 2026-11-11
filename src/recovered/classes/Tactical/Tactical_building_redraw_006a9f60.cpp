@@ -18,10 +18,10 @@ void Tactical::Unknown_006A9F60(bool arg1, Rect const &rect1, Rect const &rect2)
             BuildingClass *building = (BuildingClass *)object;
             if (!building->unknown_5b7 || Debug_Map) {
                 Point2D offset(unknown_rect_839630.X, unknown_rect_839630.Y);
-                Rect area = Offset_Rect(object->unknown_slot73(), offset.X, offset.Y);
+                Rect area = Offset_Rect(object->Get_Render_Rect(), offset.X, offset.Y);
                 if (Rects_Overlap(area, clip)) {
                     Rect bounds = rect2;
-                    object->unknown_slot63(&bounds, arg1, false);
+                    object->Render(&bounds, arg1, false);
                     object->unknown_75 = false;
                 }
             }

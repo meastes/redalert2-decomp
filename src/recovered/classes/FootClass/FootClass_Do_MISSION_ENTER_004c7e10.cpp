@@ -44,7 +44,7 @@ int FootClass::Do_MISSION_ENTER()
                 Assign_Destination(unknown_478[0], false);
                 unknown_478.Delete(0);
             }
-        } else if (unknown_slot32()->Teleporter) {
+        } else if (Techno_Type_Class()->Teleporter) {
             AbstractClass *target = unknown_494;
             unknown_490 = 0;
             unknown_494 = 0;

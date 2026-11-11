@@ -13,10 +13,10 @@ int TechnoClass::unknown_slot175(ObjectClass *target)
     if (!active) {
         return -1;
     }
-    bool underwater = target->unknown_slot32()->Underwater;
-    bool organic = target->unknown_slot32()->Organic;
-    bool hover = target->unknown_slot32()->SpeedType == 3;
-    switch (unknown_slot32()->NavalTargeting) {
+    bool underwater = target->Techno_Type_Class()->Underwater;
+    bool organic = target->Techno_Type_Class()->Organic;
+    bool hover = target->Techno_Type_Class()->SpeedType == 3;
+    switch (Techno_Type_Class()->NavalTargeting) {
     case 0:
         if (underwater && ((TechnoClass *)target)->unknown_1b8 != 0) {
             return -1;

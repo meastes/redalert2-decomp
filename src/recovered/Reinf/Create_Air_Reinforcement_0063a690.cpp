@@ -53,7 +53,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
                     for (int index = passenger_count; index; index--) {
                         FootClass *inf = (FootClass *)ptype->Create_One_Of(house);
                         if (inf) {
-                            inf->unknown_slot52();
+                            inf->Limbo();
                             obj->Cargo.Attach(inf);
                         }
                     }

@@ -8,8 +8,8 @@ void LayerClass::Sort()
     for (int index = 0; index < Count() - 1; index++) {
         ObjectClass *next = (*this)[index + 1];
         ObjectClass *object = (*this)[index];
-        int value = next->unknown_slot45();
-        if (value < object->unknown_slot45()) {
+        int value = next->Sort_Y();
+        if (value < object->Sort_Y()) {
             (*this)[index + 1] = object;
             (*this)[index] = next;
         }

@@ -28,7 +28,7 @@ void JumpjetLocomotionClass::unknown_530180()
         - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
     unknown_50.Set_Desired(dir);
     UnknownFacingDir difference = unknown_50.Difference_To_Desired();
-    bool balloon = LinkedTo->unknown_slot32()->BalloonHover;
+    bool balloon = LinkedTo->Techno_Type_Class()->BalloonHover;
     TPoint2D<int> here(position.X, position.Y);
     TPoint2D<int> goal(to.X, to.Y);
     int distance = here.Distance_To(goal);
@@ -39,7 +39,7 @@ void JumpjetLocomotionClass::unknown_530180()
         position.Y = unknown_3c.Y;
         bool down = LinkedTo->unknown_74;
         LinkedTo->unknown_74 = false;
-        LinkedTo->unknown_slot103(position);
+        LinkedTo->Set_Coord(position);
         LinkedTo->unknown_74 = down;
         if (LinkedTo->unknown_228 == 0 && !balloon) {
             unknown_78 = 0;
@@ -51,7 +51,7 @@ void JumpjetLocomotionClass::unknown_530180()
                 CellClass &here_cell = Map[cell];
                 LinkedTo->Assign_Destination(&here_cell.Adjacent_Cell(facing), true);
             } else {
-                ((CellClass *)LinkedTo->unknown_slot105())->Set_unknown_e0(LinkedTo);
+                ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(LinkedTo);
                 unknown_4c = 2;
             }
         }

@@ -9,7 +9,7 @@
 
 bool FootClass::unknown_slot171(CoordStruct const &coord)
 {
-    int zone = unknown_slot32()->MovementZone;
+    int zone = Techno_Type_Class()->MovementZone;
     if (zone == -1) {
         return true;
     }
@@ -18,6 +18,6 @@ bool FootClass::unknown_slot171(CoordStruct const &coord)
         return false;
     }
     Cell here = Coord_Cell(unknown_slot19(0));
-    return Map.Unknown_0054F7C0(here, cell, zone, unknown_slot46(0),
+    return Map.Unknown_0054F7C0(here, cell, zone, Is_Moving_Onto_Bridge(0),
         (unsigned char)((((UnknownCellClass *)&Map[cell])->Flags >> 8) & 1), unknown_slot189());
 }

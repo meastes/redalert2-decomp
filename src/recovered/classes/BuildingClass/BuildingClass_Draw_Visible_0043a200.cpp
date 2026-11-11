@@ -17,14 +17,14 @@ inline bool Overlap_Draw_Bounds(Rect const &clip,Rect const &draw) {
         && (int)((unsigned int)clip.Height+(unsigned int)clip.Y)>draw.Y;
 }
 inline Rect Offset_Draw_Bounds(Rect const &bounds,Point2D const &pixel);
-bool BuildingClass::unknown_slot63(Rect *bounds,bool force,bool alternate)
+bool BuildingClass::Render(Rect *bounds,bool force,bool alternate)
 {
     if(Debug_Map || !MainWindow || ((force || unknown_75) && unknown_74 && !unknown_76)) {
         unknown_75=false;
         *bounds=bounds->Intersect(unknown_rect_839630);
         Point2D origin=Point2D(unknown_rect_839630.X,unknown_rect_839630.Y);
 
-        if(Overlap_Draw_Bounds(*bounds,Offset_Draw_Bounds(unknown_slot73(),origin))) {
+        if(Overlap_Draw_Bounds(*bounds,Offset_Draw_Bounds(Get_Render_Rect(),origin))) {
             Point2D pixel;
             unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(),pixel);
             if(bounds->X>unknown_rect_839630.X) {

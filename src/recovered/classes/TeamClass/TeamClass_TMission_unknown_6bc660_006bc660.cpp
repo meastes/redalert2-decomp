@@ -13,7 +13,7 @@
 void TeamClass::TMission_unknown_6bc660(ScriptMissionClass const &mission, bool unknown)
 {
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-        if (member->Kind_Of() == 1 && _stricmp(member->unknown_slot32()->ID, "TRUCKA") == 0) {
+        if (member->Kind_Of() == 1 && _stricmp(member->Techno_Type_Class()->ID, "TRUCKA") == 0) {
             ((UnitClass *)member)->Type = UnitTypes[UnitTypeClass::From_Name("TRUCKB")];
         }
     }

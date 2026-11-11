@@ -10,7 +10,7 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
     : unknown_24(-1),unknown_28(building->House),unknown_2c(0),unknown_30(6),Coord(building->Coord),
       unknown_50(Map[CoordStruct(building->Coord)].unknown_11b),unknown_54(-1),unknown_58(0),unknown_74(fade)
 {
-    unknown_40=building->unknown_slot73();
+    unknown_40=building->Get_Render_Rect();
     Array.Add(this);
     Index.Add_Index(unknown_index_key(unknown_coord_cell(Coord),unknown_30),this);
     building->unknown_5b7=true;
@@ -28,7 +28,7 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass *building,bool fade)
         if(building->unknown_454[index]) {
             ((AnimClass*)building->unknown_454[index])->unknown_179=true;
             AnimTypeClass *type=((AnimClass*)building->unknown_454[index])->Class;
-            unknown_40=Union(unknown_40,((AnimClass*)building->unknown_454[index])->unknown_slot72());
+            unknown_40=Union(unknown_40,((AnimClass*)building->unknown_454[index])->Get_Visual_Rect());
             record.Type=type;
             record.unknown_04=type->Start+((AnimClass*)building->unknown_454[index])->Stage;
             record.unknown_08=0;

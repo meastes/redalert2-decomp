@@ -102,7 +102,7 @@ int BuildingClass::Do_MISSION_ATTACK()
                         double dy = center.Y - where.Y;
                         double dz = center.Z - where.Z;
                         int distance = (int)unknown_sqrt_4ba410(dx * dx + dy * dy + dz * dz);
-                        if (distance <= unknown_slot85(1) && (support == 0 || distance < support_distance)) {
+                        if (distance <= Weapon_Range(1) && (support == 0 || distance < support_distance)) {
                             support = other;
                             support_distance = distance;
                         }
@@ -144,7 +144,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             return 1;
         }
         AbstractClass *target = unknown_228;
-        bool aircraft = target != 0 && target->Kind_Of() == 2 && ((ObjectClass *)target)->unknown_slot110() != 0;
+        bool aircraft = target != 0 && target->Kind_Of() == 2 && ((ObjectClass *)target)->Get_Height() != 0;
         if (!aircraft) {
             unknown_slot220(0);
             unknown_a8 = 0;
@@ -167,7 +167,7 @@ int BuildingClass::Do_MISSION_ATTACK()
     }
     if (unknown_a8 == 1) {                      // firing
         AbstractClass *target = unknown_228;
-        bool aircraft = target != 0 && target->Kind_Of() == 2 && ((ObjectClass *)target)->unknown_slot110() != 0;
+        bool aircraft = target != 0 && target->Kind_Of() == 2 && ((ObjectClass *)target)->Get_Height() != 0;
         if (aircraft) {
             int fire = unknown_slot218(unknown_228, 0, true);
             if (fire == 5 || fire == 6 || fire == 8) {

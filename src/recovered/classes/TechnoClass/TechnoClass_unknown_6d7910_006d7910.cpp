@@ -8,7 +8,7 @@
 bool TechnoClass::unknown_6d7910(int ability)
 {
     if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
-        TechnoTypeClass *type = unknown_slot32();
+        TechnoTypeClass *type = Techno_Type_Class();
         if (unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[ability]) {
             return true;
         }

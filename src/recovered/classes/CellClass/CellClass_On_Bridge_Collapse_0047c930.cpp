@@ -33,7 +33,7 @@ void CellClass::On_Bridge_Collapse()
                             FootClass *fptr = (FootClass *)optr;
                             if (fptr->Locomotor.Checked()->Is_Moving_Here(coord)) {
                                 int damage = fptr->Strength;
-                                fptr->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, true);
+                                fptr->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, true);
                             }
                         }
                         optr = next;
@@ -49,7 +49,7 @@ void CellClass::On_Bridge_Collapse()
                             FootClass *fptr = (FootClass *)optr;
                             if (fptr->Locomotor.Checked()->Is_Moving_Here(coord)) {
                                 int damage = fptr->Strength;
-                                fptr->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, true);
+                                fptr->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, true);
                             }
                         }
                         optr = next;

@@ -23,8 +23,8 @@ void ParasiteClass::AI()
     if (unknown_28 == 0) {
         return;
     }
-    if (unknown_28->unknown_slot32()->Naval && !unknown_28->unknown_slot32()->Organic
-        && Owner->unknown_slot32()->Naval && Owner->unknown_slot32()->Organic) {
+    if (unknown_28->Techno_Type_Class()->Naval && !unknown_28->Techno_Type_Class()->Organic
+        && Owner->Techno_Type_Class()->Naval && Owner->Techno_Type_Class()->Organic) {
         Unknown_00606780();
         return;
     }
@@ -39,7 +39,7 @@ void ParasiteClass::AI()
     int damage;
     if (unknown_28->Kind_Of() == 15) {
         damage = unknown_28->Strength;
-        unknown_28->unknown_slot86(&damage, 0, warhead, Owner, true, true);
+        unknown_28->Take_Damage(&damage, 0, warhead, Owner, true, true);
     } else {
         new ParticleSystemClass(Rules->unknown_ce0, coord, 0, 0, unknown_geometry_l);
         UnknownFacingDir dir = unknown_28->unknown_2e0.Current();
@@ -58,6 +58,6 @@ void ParasiteClass::AI()
         CoordStruct push(x, y, z);
         unknown_28->unknown_slot223(push, 1.5f);
         damage = weapon->unknown_a4;
-        unknown_28->unknown_slot86(&damage, 0, warhead, Owner, false, true);
+        unknown_28->Take_Damage(&damage, 0, warhead, Owner, false, true);
     }
 }

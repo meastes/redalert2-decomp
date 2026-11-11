@@ -7,14 +7,14 @@
 
 void TechnoClass::unknown_6c8300()
 {
-    int ammo = unknown_slot32()->Ammo;
+    int ammo = Techno_Type_Class()->Ammo;
     if (unknown_254 < ammo) {
-        if (unknown_254 == 0 && unknown_slot32()->EmptyReload != -1) {
-            unknown_194 = CDTimerClass<FrameTimerClass>(unknown_slot32()->EmptyReload);
+        if (unknown_254 == 0 && Techno_Type_Class()->EmptyReload != -1) {
+            unknown_194 = CDTimerClass<FrameTimerClass>(Techno_Type_Class()->EmptyReload);
         } else {
-            int groups = unknown_slot32()->PipWrap == 0 ? 1 : unknown_254 / unknown_slot32()->PipWrap;
-            int delay = unknown_slot32()->ReloadIncrement * groups * groups;
-            unknown_194 = CDTimerClass<FrameTimerClass>(unknown_slot32()->Reload + delay);
+            int groups = Techno_Type_Class()->PipWrap == 0 ? 1 : unknown_254 / Techno_Type_Class()->PipWrap;
+            int delay = Techno_Type_Class()->ReloadIncrement * groups * groups;
+            unknown_194 = CDTimerClass<FrameTimerClass>(Techno_Type_Class()->Reload + delay);
         }
     }
 }

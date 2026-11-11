@@ -7,7 +7,7 @@ int TechnoClass::unknown_6c16f0(int weapon)
     int value=0;
     if(weapon==-1) {
         int divisor=0;
-        if(unknown_slot32()->Has_Turret_Weapons()) {
+        if(Techno_Type_Class()->Has_Turret_Weapons()) {
             WeaponStruct *slot=unknown_slot231(unknown_10c);
             if(!slot) return 0;
             if(!slot->WeaponType) return 0;

@@ -18,7 +18,7 @@ int FootClass::unknown_slot28(ObjectClass *object, bool arg2)
         coord.Z += unknown_geometry_j;
     }
     if (Map.Is_Shrouded(coord) && result != 0 && unknown_game_mode_a3d298 == 0) {
-        return unknown_slot32()->MoveToShroud ? 1 : 2;
+        return Techno_Type_Class()->MoveToShroud ? 1 : 2;
     }
     return result;
 }

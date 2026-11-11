@@ -52,19 +52,19 @@ void InfantryClass::unknown_slot93(int why)
             if (building==cell->Unknown_004717B0()) {
                 if (!building->Unknown_00452EB0(this)) {
                     Assign_Destination(0,1);
-                    unknown_slot87(building->Center_Coord(),true,true);
+                    Scatter(building->Center_Coord(),true,true);
                     return;
                 }
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                 if (Type->Occupier) {
-                    unknown_slot52();
+                    Limbo();
                     building->unknown_554.Add(this);
-                    building->Unknown_006D9610(building->unknown_slot105());
+                    building->Unknown_006D9610(building->Get_Cell_Ptr());
                     return;
                 } else if (Type->Assaulter) {
                     building->Unknown_004536D0(this);
                     Assign_Destination(0,1);
-                    unknown_slot87(building->Center_Coord(),true,true);
+                    Scatter(building->Center_Coord(),true,true);
                     return;
                 }
                 return;
@@ -74,17 +74,17 @@ void InfantryClass::unknown_slot93(int why)
             BuildingClass *building=cell->Unknown_004717B0();
             if (building && (building==unknown_494 || building==unknown_228)) {
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
-                if (unknown_slot32()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
+                if (Techno_Type_Class()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
                     CoordStruct location=Coord;
-                    Voc_Play_At(unknown_slot32()->VoiceDie.Pick(unknown_random_839218()),location,0);
+                    Voc_Play_At(Techno_Type_Class()->VoiceDie.Pick(unknown_random_839218()),location,0);
                 }
-                if (unknown_slot32()->DieSound.Count()>0) {
+                if (Techno_Type_Class()->DieSound.Count()>0) {
                     CoordStruct location=Coord;
-                    Voc_Play_At(unknown_slot32()->DieSound.Pick(unknown_random_839218()),location,0);
+                    Voc_Play_At(Techno_Type_Class()->DieSound.Pick(unknown_random_839218()),location,0);
                 }
                 building->House->Refund_Money(unknown_slot167());
                 if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);
-                unknown_slot60();
+                Delete_Me();
                 return;
             }
         }
@@ -103,7 +103,7 @@ void InfantryClass::unknown_slot93(int why)
                         destination->unknown_slot173();
                         if (unknown_34 && unknown_34->Is_To_Inherit()) destination->Attach_Tag(unknown_34);
                         if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);
-                        unknown_slot60();
+                        Delete_Me();
                         return;
                     }
                     UnknownCoord434820 locomotor_destination(Locomotor.Checked()->Destination());
@@ -134,9 +134,9 @@ void InfantryClass::unknown_slot93(int why)
                         for (int index=Infantry.Count()-1;index>=0;--index) Infantry[index]->Detach(building,false);
                         building->unknown_slot173();
                     } else if (House->Is_Ally(building) || (building->House->Type->MultiplayPassive && building->Type->CanBeOccupied)) {
-                        if (building->Strength==building->unknown_slot32()->MaxStrength) {
+                        if (building->Strength==building->Techno_Type_Class()->MaxStrength) {
                             Assign_Destination(0,1);
-                            unknown_slot87(building->Center_Coord(),true,true);
+                            Scatter(building->Center_Coord(),true,true);
                             return;
                         }
                         building->unknown_slot233();
@@ -144,14 +144,14 @@ void InfantryClass::unknown_slot93(int why)
                         bool capturable=false;
                         if (As_Building(building)) capturable=building->Type->Capturable;
                         if (unknown_game_mode_a3d298!=0 && unknown_session_a3d298.unknown_34 && building->Health_Ratio()>Rules->unknown_1370) {
-                            int max_damage=building->Strength-int(building->unknown_slot32()->MaxStrength*Rules->unknown_1370*0.5);
+                            int max_damage=building->Strength-int(building->Techno_Type_Class()->MaxStrength*Rules->unknown_1370*0.5);
                             double cap=max_damage;
-                            int damage=int((building->unknown_slot32()->MaxStrength*((1.0-Rules->unknown_1370*0.5)*0.5) < cap) ? building->unknown_slot32()->MaxStrength*((1.0-Rules->unknown_1370*0.5)*0.5) : cap);
-                            building->unknown_slot86(&damage,0,Rules->unknown_c74,this,true,0);
+                            int damage=int((building->Techno_Type_Class()->MaxStrength*((1.0-Rules->unknown_1370*0.5)*0.5) < cap) ? building->Techno_Type_Class()->MaxStrength*((1.0-Rules->unknown_1370*0.5)*0.5) : cap);
+                            building->Take_Damage(&damage,0,Rules->unknown_c74,this,true,0);
                         } else if (capturable) {
                             if (building->Mission==19) {
                                 Assign_Destination(0,1);
-                                unknown_slot87(building->Center_Coord(),true,true);
+                                Scatter(building->Center_Coord(),true,true);
                                 return;
                             }
                             if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
@@ -164,23 +164,23 @@ void InfantryClass::unknown_slot93(int why)
                     }
                 } else if (Type->Agent) Native_Building_Infiltrate_00452390(building, House);   // NATIVE: map_techno.hpp's BuildingClass view lacks the member (link/behaviour_m10.cpp)
                 if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);
-                unknown_slot60();
+                Delete_Me();
                 return;
             }
             if (!unknown_494) {
                 if (Mission!=11) unknown_slot261(false,true);
-                if (Map_Cell(CoordStruct(Coord))->Unknown_004717B0()) unknown_slot87(unknown_geometry_l,true,false);
+                if (Map_Cell(CoordStruct(Coord))->Unknown_004717B0()) Scatter(unknown_geometry_l,true,false);
             }
         }
         TechnoClass *transport;
         if (Type->VehicleThief) {
-            transport=static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_00473E30(unknown_79);
-            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_00473E80(unknown_79);
-            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_004717B0();
+            transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E30(unknown_79);
+            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E80(unknown_79);
+            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_004717B0();
         } else {
-            transport=static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_004717B0();
-            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_00473E80(unknown_79);
-            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_00473E30(unknown_79);
+            transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_004717B0();
+            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E80(unknown_79);
+            if (!transport) transport=static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_00473E30(unknown_79);
         }
         TechnoClass *at_destination=0;
         if (unknown_494 && unknown_494->Kind_Of()==11) {
@@ -198,8 +198,8 @@ void InfantryClass::unknown_slot93(int why)
         if (Get_Mission()==7 && transport && (unknown_494==transport || unknown_228==transport || (at_destination && transport==at_destination))) {
             if (transport->unknown_34) transport->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
             if (transport->Kind_Of()==6) {
-                if (transport==static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_004717B0() && unknown_slot149(21)==1) {
-                    unknown_slot52();
+                if (transport==static_cast<UnknownCellClass *>(static_cast<void *>(Get_Cell_Ptr()))->Unknown_004717B0() && unknown_slot149(21)==1) {
+                    Limbo();
                     unknown_slot150(2,transport);
                     transport->Cargo.Attach(this);
                     unknown_4cd9b0();
@@ -209,14 +209,14 @@ void InfantryClass::unknown_slot93(int why)
                 if (unknown_slot150(15,transport)==1) {
                     unknown_6d6e50(0);
                     unknown_79=false;
-                    unknown_slot52();
+                    Limbo();
                     static_cast<FootClass *>(transport)->Unknown_004CCE80(this);
-                    unknown_slot69();
+                    Hidden();
                     return;
                 }
                 Assign_Destination(0,1);
                 unknown_slot116(5,false);
-                unknown_slot87(unknown_geometry_l,true,true);
+                Scatter(unknown_geometry_l,true,true);
                 return;
             }
         }
@@ -232,25 +232,25 @@ void InfantryClass::unknown_slot93(int why)
                     if (Native_Building_Is_Going_To_Blow_00500AA0(building)) {
                         Assign_Destination(0,1);
                         unknown_244=unknown_slot187(1);
-                        unknown_slot87(building->Center_Coord(),true,true);
+                        Scatter(building->Center_Coord(),true,true);
                         return;
                     }
                     Native_Building_Set_Going_To_Blow_00500AA0(building);
                     double warning_delay=Rules->unknown_13b8*900.0;
                     warning_delay*=0.5;
-                    building->unknown_slot79(int(warning_delay));
+                    building->Clicked_As_Target(int(warning_delay));
                     Native_Building_Arm_C4_00500AA0(building,int(Rules->unknown_13b8*900.0),this);
                 }
                 unknown_4cd9b0();
                 unknown_slot252(false);
                 unknown_244=unknown_slot187(1);
-                unknown_slot87(building->Center_Coord(),true,true);
+                Scatter(building->Center_Coord(),true,true);
                 return;
             }
             if (reinterpret_cast<AbstractClass *>(Map_Cell(Center_Coord()))==unknown_494) {
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->unknown_c74,true);
                 unknown_slot291();
-                unknown_slot87(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(unknown_2e0.Current())),true,true);
+                Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(unknown_2e0.Current())),true,true);
                 unknown_slot116(2,false);
                 if (!unknown_494 || Map_Cell(unknown_494->Center_Coord())->unknown_ec==2) Mark(1);
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);
@@ -275,7 +275,7 @@ void InfantryClass::unknown_slot93(int why)
         int land=current->unknown_ec;
         if (!Locomotor.Checked()->Is_Moving() && !Type->C4 && !unknown_6d7910(14) && (land==3 || land==2) && (!unknown_79 || !(current->Flags & 0x100))) {
             int damage=Strength;
-            unknown_slot86(&damage,0,Rules->unknown_c74,0,true,0);
+            Take_Damage(&damage,0,Rules->unknown_c74,0,true,0);
             return;
         }
     }

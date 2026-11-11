@@ -18,7 +18,7 @@
 
 int TechnoClass::unknown_slot174(AbstractClass *target)
 {
-    if (unknown_slot32()->Has_Turret_Weapons()) {
+    if (Techno_Type_Class()->Has_Turret_Weapons()) {
         return unknown_10c != -1 ? unknown_10c : 0;
     }
     WeaponTypeClass *secondary = unknown_slot231(1)->WeaponType;
@@ -55,16 +55,16 @@ int TechnoClass::unknown_slot174(AbstractClass *target)
         return 0;
     }
     ObjectClass *object = (ObjectClass *)target;
-    int armor = object->unknown_slot32()->unknown_9c;
+    int armor = object->Techno_Type_Class()->unknown_9c;
     if (secondary->Warhead->Verses[armor] == 0.0) {
         return 0;
     }
-    armor = object->unknown_slot32()->unknown_9c;
+    armor = object->Techno_Type_Class()->unknown_9c;
     if (primary->Warhead->Verses[armor] == 0.0) {
         return 1;
     }
-    bool ground = ((CellClass *)object->unknown_slot105())->unknown_ec == 2
-        || ((CellClass *)object->unknown_slot105())->unknown_ec == 6;
+    bool ground = ((CellClass *)object->Get_Cell_Ptr())->unknown_ec == 2
+        || ((CellClass *)object->Get_Cell_Ptr())->unknown_ec == 6;
     if (object->unknown_slot21()) {
         ground = false;
     }

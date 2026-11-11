@@ -33,7 +33,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
     }
     if (unknown_6c16f0(-1) < 0 && House->Is_Player_Control() && action != 4) {
         if (House->Is_Ally((TechnoClass *)object)) {
-            if (object->unknown_slot31() && object != this && object->unknown_slot30()) {
+            if (object->unknown_slot31() && object != this && object->Not_Underground()) {
                 if (object->Kind_Of() != 2 || Map[object->Center_Coord()].Cell_Building() == 0) {
                     if (object->Health_Ratio() < Rules->unknown_1360) {
                         action = 0x1d;
@@ -47,7 +47,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
         }
     }
     if (action == 5) {
-        if (!unknown_slot38()) {
+        if (!Can_Player_Fire()) {
             if ((Type->Crusher || unknown_6d7910(0x11)) && object->Class_Of()->unknown_1fd) {
                 action = 1;
             } else {
@@ -78,10 +78,10 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
                     } else if (!unknown_79) {
                         CellClass *cell = &Map[CoordStruct(Coord)];
                         ObjectClass *passenger = Cargo.Attached_Object();
-                        if (passenger != 0 && Ground[Land_Type_00703bd0(cell)].Cost[passenger->unknown_slot32()->SpeedType] < 0.01 && Land_Type_00703bd0(cell) != 2) {
+                        if (passenger != 0 && Ground[Land_Type_00703bd0(cell)].Cost[passenger->Techno_Type_Class()->SpeedType] < 0.01 && Land_Type_00703bd0(cell) != 2) {
                             action = 0x1e;
                         }
-                        if (Type->SpeedType != 3 && unknown_slot108() != 0) {
+                        if (Type->SpeedType != 3 && Get_Height_AGL() != 0) {
                             action = 0x1e;
                         }
                     }
@@ -116,7 +116,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
     }
     if (action != 0x1F) {
         if (House->Is_Ally((TechnoClass *)object) && House->Is_Player_Control() && As_Techno_0040dbd0(object) != 0 && action != 5 && action != 0x1D && action != 0x1A) {
-            TechnoTypeClass *type = object->unknown_slot32();
+            TechnoTypeClass *type = object->Techno_Type_Class();
             if (object != this && type != 0 && type->Passengers > 0) {
                 if (object != 0 && object->AbstractFlags.IsFoot && static_cast<FootClass *>(object)->Locomotor.Checked()->Is_Moving()) {
                     action = 0x1F;

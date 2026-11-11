@@ -29,7 +29,7 @@ void ObjectClass::unknown_slot54(bool arg1)
         }
     }
     if (arg1 || house == 0 || (!house->Is_Player_Control() && !keep)) {
-        unknown_slot81();
+        Unselect();
     }
     if (Map.Unknown_0049EC40() == this) {
         Map.Unknown_0049EC60(0);

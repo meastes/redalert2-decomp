@@ -154,7 +154,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
 
                 case CRATE_VETERAN:
                     if (object->AbstractFlags.IsTechno) {
-                        if (!object->unknown_slot32()->Trainable) {
+                        if (!object->Techno_Type_Class()->Trainable) {
                             powerup = CRATE_MONEY;
                         } else if (object->AbstractFlags.IsTechno && object->unknown_118.Is_Elite()) {
                             powerup = CRATE_MONEY;
@@ -315,7 +315,7 @@ crate_money:
                 damage = data;
                 {
                     int d = damage;
-                    object->unknown_slot86(&d, 0, Rules->unknown_c74, 0, true, 0);
+                    object->Take_Damage(&d, 0, Rules->unknown_c74, 0, true, 0);
                 }
                 {
                 for (int i = 0; i < 5; i++) {
@@ -335,7 +335,7 @@ crate_money:
                 damage = data;
                 {
                     int d = damage;
-                    object->unknown_slot86(&d, 0, Rules->FlameDamage, 0, true, 0);
+                    object->Take_Damage(&d, 0, Rules->FlameDamage, 0, true, 0);
                 }
                 Unknown_0047E2C0(coord, damage, (TechnoClass *)0, Rules->FlameDamage, true);
                 break;
@@ -359,7 +359,7 @@ crate_money:
                 for (int i = 0; i < DisplayClass::Layer[2].Count(); i++) {
                     ObjectClass *obj = DisplayClass::Layer[2][i];
                     if (obj != 0 && obj->unknown_74 && obj->Is_Techno() && Length3(Ground_Coord() - obj->Center_Coord()) < Rules->CrateRadius &&
-                            ((TechnoClass *)obj)->unknown_slot32()->Trainable) {
+                            ((TechnoClass *)obj)->Techno_Type_Class()->Trainable) {
                         for (int count = 0; count < data; count++) {
                             VeterancyClass *vet = &((TechnoClass *)obj)->unknown_118;
                             if (vet->Is_Veteran()) vet->Set_Elite(true);
@@ -384,7 +384,7 @@ crate_money:
                     ObjectClass *obj = unknown_list_832470[i];
                     if (obj != 0 && object->Is_Techno() && object->House == obj->Owning_House()) {
                         int damage = obj->Strength - obj->Class_Of()->MaxStrength;
-                        obj->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 1);
+                        obj->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 1);
                     }
                 }
                 }

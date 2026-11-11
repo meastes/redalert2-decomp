@@ -19,10 +19,10 @@ bool BulletClass::Is_Forced_To_Explode_00461c10(CoordStruct &coord)
         CellClass *previous = &Map[LastMapCoords];
         if (Unknown_004BBAF0(source, destination, previous, coord, Type, Owner == 0 ? 0 : Owner->House)) return true;
     }
-    if (unknown_slot108() <= -unknown_geometry_g * 4) return true;
+    if (Get_Height_AGL() <= -unknown_geometry_g * 4) return true;
     if (Target != 0 && Type->FlakScatter) {
         CoordStruct current = Coord;
-        if (current.Z < Target->unknown_slot22().Z && unknown_slot108() < 0) return true;
+        if (current.Z < Target->unknown_slot22().Z && Get_Height_AGL() < 0) return true;
     }
     if (Type->Level && cell->unknown_slot20()) return true;
     if (Type->AA && Target != 0 && Target->unknown_slot21() && unknown_5d4c00(Target) < 0x80) return true;

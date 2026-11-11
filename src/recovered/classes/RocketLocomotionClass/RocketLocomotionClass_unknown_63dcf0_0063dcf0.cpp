@@ -16,7 +16,7 @@ bool RocketLocomotionClass::unknown_63dcf0(RocketStruct const *rocket)
         unknown_63e7d0();
         return true;
     }
-    CellClass *cell = static_cast<CellClass *>(LinkedTo->unknown_slot105());
+    CellClass *cell = static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr());
     if (cell != 0) {
         if (cell->unknown_140 & 0x100) {
             if (cell->Center_Coord().Z == unknown_18.Z) {

@@ -15,7 +15,7 @@ void __fastcall Unknown_0042e830(Unknown84E8D0 *receiver);
 void __cdecl Clear_Selected_Objects_00482bc0()
 {
     while (unknown_objects_a40c60.Count()!=0)
-        unknown_objects_a40c60[0]->unknown_slot81();
+        unknown_objects_a40c60[0]->Unselect();
     Unknown_006f6780(0);
     Unknown_0042e830(&unknown_object_84e8d0);
 }

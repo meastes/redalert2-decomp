@@ -21,7 +21,7 @@ void TechnoClass::unknown_slot93(int arg1)
             unknown_32d = true;
         }
         if (!unknown_373 && (Map_Cell_At(cell)->unknown_12c & 0x10)) {
-            unknown_slot96(unknown_player_a35db4);
+            Revealed(unknown_player_a35db4);
         }
         Map_Cell_At(cell)->Trigger_Veins();
     }

@@ -38,7 +38,7 @@ CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, floa
 void BuildingLightClass::AI()
 {
     if (Owner == 0 || !Owner->unknown_7d) {
-        unknown_slot60();
+        Delete_Me();
         return;
     }
 
@@ -114,7 +114,7 @@ void BuildingLightClass::AI()
 
     }
 
-    unknown_slot103(coord);
+    Set_Coord(coord);
 
     BuildingClass *owner_building = (Owner->Kind_Of() == 6) ? (BuildingClass *)Owner : 0;
 

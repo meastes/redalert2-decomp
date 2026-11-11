@@ -8,7 +8,7 @@ void BuildingClass::unknown_4397c0()
 {
     for (int index = 0; index < 8; index++) {
         if (unknown_49c[index]) {
-            unknown_49c[index]->unknown_slot60();
+            unknown_49c[index]->Delete_Me();
             unknown_49c[index] = 0;
         }
     }

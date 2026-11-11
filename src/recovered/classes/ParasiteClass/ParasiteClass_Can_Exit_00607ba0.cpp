@@ -14,11 +14,11 @@ bool ParasiteClass::Can_Exit_00607BA0()
     if (unknown_28->unknown_slot21()) {
         return false;
     }
-    if (!Owner->unknown_slot32()->Naval) {
-        if (Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->unknown_slot105())->Cell_Terrain() != 0) {
+    if (!Owner->Techno_Type_Class()->Naval) {
+        if (Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->Get_Cell_Ptr())->Cell_Terrain() != 0) {
             return false;
         }
-        int land = ((CellClass *)unknown_28->unknown_slot105())->unknown_ec;
+        int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->unknown_ec;
         if (land == 2 || land == 6 || land == 3) {
             return false;
         }

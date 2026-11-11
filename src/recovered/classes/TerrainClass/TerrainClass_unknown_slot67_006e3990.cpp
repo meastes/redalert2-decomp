@@ -28,7 +28,7 @@ void TerrainClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
     Cell where = unknown_slot104();
     CellClass &cell = Map_Cell(where);
-    ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_slot26();
+    ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
     if (shape != 0) {
         int frame = 0;
         if (Class->IsAnimated) {
@@ -39,7 +39,7 @@ void TerrainClass::unknown_slot67(Point2D const &point, Rect const &window)
             frame = 1;
         }
         Point2D position = point;
-        int height = -Unknown_006A2970(unknown_slot110());
+        int height = -Unknown_006A2970(Get_Height());
         if (cell.unknown_34 == 0) {
             cell.Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
         }

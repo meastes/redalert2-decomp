@@ -35,7 +35,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
 
     switch (action) {
     case 26:
-        if (unknown_slot38() && unknown_slot39()) {
+        if (Can_Player_Fire() && Can_Player_Move()) {
             if (((Kind_Of() == 15 && ((InfantryClass *)this)->Type->C4) || unknown_6d7910(14))
                 && object->Kind_Of() == 6 && !House->Is_Ally((TechnoClass const *)object)) {
                 unknown_slot200(0x11, 0, object, 0);
@@ -60,49 +60,49 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
     case 53:
     case 63:
     case 64:
-        if (unknown_slot38()) {
+        if (Can_Player_Fire()) {
             unknown_slot200(1, object, 0, 0);
             return true;
         }
         break;
 
     case 3:
-        if (unknown_slot39() && object && object->As_Techno()) {
+        if (Can_Player_Move() && object && object->As_Techno()) {
             unknown_slot200(7, 0, object, 0);
             return true;
         }
         break;
 
     case 9:
-        if (unknown_slot39()) {
+        if (Can_Player_Move()) {
             unknown_slot200(8, 0, object, 0);
             return true;
         }
         break;
 
     case 11:
-        if (unknown_slot39()) {
+        if (Can_Player_Move()) {
             unknown_slot200(9, 0, object, 0);
             return true;
         }
         break;
 
     case 16:
-        if (unknown_slot39()) {
+        if (Can_Player_Move()) {
             unknown_slot200(0x11, 0, object, 0);
             return true;
         }
         break;
 
     case 2:
-        if (Map.Is_Shrouded(object->Center_Coord()) && !unknown_slot32()->MoveToShroud) {
+        if (Map.Is_Shrouded(object->Center_Coord()) && !Techno_Type_Class()->MoveToShroud) {
             return false;
         }
         // Fall into next case.
 
     case 1:
     case 62:
-        if (unknown_slot39()) {
+        if (Can_Player_Move()) {
             AbstractClass *targ = object;
 
             CoordStruct center = object->Center_Coord();
@@ -110,9 +110,9 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
                 center.Z = Map.Get_Height_GL(center);
             }
 
-            if (((unknown_slot32()->unknown_af5 && !Rules->AllowShroudedSubteranneanMoves) || Kind_Of() == 2) && Map.Is_Shrouded(center)) return true;
+            if (((Techno_Type_Class()->unknown_af5 && !Rules->AllowShroudedSubteranneanMoves) || Kind_Of() == 2) && Map.Is_Shrouded(center)) return true;
 
-            int mzone = unknown_slot32()->MovementZone;
+            int mzone = Techno_Type_Class()->MovementZone;
             Cell cell = Coord_Cell(object->unknown_slot19(0));
             bool in_radar = Map.Unknown_0055A660(cell, true);
             UnknownCellClass *cptr = (UnknownCellClass *)&Map[unknown_slot19(0)];
@@ -120,22 +120,22 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
             if (mzone == 6) mzone = 0;
             else if (mzone == 9) mzone = 7;
 
-            bool moveanywhere = unknown_slot21() || unknown_slot32()->unknown_af5 || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet) || Kind_Of() == 2;
+            bool moveanywhere = unknown_slot21() || Techno_Type_Class()->unknown_af5 || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet) || Kind_Of() == 2;
 
-            bool ontobridge = unknown_slot46(0);
+            bool ontobridge = Is_Moving_Onto_Bridge(0);
             CoordStruct coord = Cell_Coord(cell);
             coord.Z = Map.Get_Height_GL(coord);
             bool shrouded = Map.Is_Shrouded(coord);
             bool forcemove = !arg3 && (Foot_Key_Down(unknown_key_a40ba4) || Foot_Key_Down(unknown_key_a40ba8));
 
             if (moveanywhere && action == 2) {
-                Cell nearby = Map.Nearby_Location(cell, unknown_slot32()->SpeedType, -1, mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, unknown_slot32()->unknown_af5 && unknown_slot108() < 0, 1, Cell(0, 0), 0);
+                Cell nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, -1, mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, Techno_Type_Class()->unknown_af5 && Get_Height_AGL() < 0, 1, Cell(0, 0), 0);
                 if (nearby != unknown_geometry_k) {
                     targ = &Map[nearby];
                 }
             } else {
                 if (!in_radar || !moveanywhere && (shrouded || action == 2 || forcemove && Kind_Of() == 15 || !Map.Unknown_0054F7C0(cptr->unknown_24, cell, mzone, ontobridge, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, false))) {
-                    Cell nearby = Map.Nearby_Location(cell, unknown_slot32()->SpeedType, Map.Zone(cptr->unknown_24, mzone, ontobridge), mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
+                    Cell nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, Map.Zone(cptr->unknown_24, mzone, ontobridge), mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
                     if (nearby != unknown_geometry_k) {
                         targ = &Map[nearby];
                     }

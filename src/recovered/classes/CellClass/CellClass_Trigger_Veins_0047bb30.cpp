@@ -13,13 +13,13 @@ void CellClass::Trigger_Veins()
 {
     if (OverlayIndex == 0x7E && OverlayData >= 48 && !unknown_11c && !(unknown_140 & 0x20000)) {
         for (ObjectClass *object = OccupierPtr; object != 0; object = object->unknown_30) {
-            if (object->unknown_slot108() <= 5) {
+            if (object->Get_Height_AGL() <= 5) {
                 bool is_techno;
                 if (object != 0) {
                     is_techno = object->AbstractFlags.IsTechno;
                 }
                 TechnoClass *techno = (object != 0 && is_techno) ? (TechnoClass *)object : 0;
-                if (techno != 0 && !techno->unknown_slot32()->ImmuneToVeins && !techno->unknown_6d7910(8)) {
+                if (techno != 0 && !techno->Techno_Type_Class()->ImmuneToVeins && !techno->unknown_6d7910(8)) {
                     new AnimClass(Rules->VeinAttack, unknown_475d60() - CoordStruct(128, 128, 0), 0, 1, 0x600, 0);
                     unknown_140 |= 0x20000;
                 }

@@ -32,14 +32,14 @@ bool TechnoClass::unknown_slot53(CoordStruct const *coord, int dir)
         }
         unknown_slot262(0, 0, 0, 0);
         Map.Unknown_0054A550(CoordStruct(Coord), 0, unknown_1f4 + 3, 0);
-        if (unknown_slot32()->BombSight != 0) {
+        if (Techno_Type_Class()->BombSight != 0) {
             unknown_list_8322e0.Unknown_00436680(this);
         }
         House->Unknown_004ED610(this, false);
         unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
         unknown_2c8.Set_Current(UnknownFacingDir(0x4000));
         {
-            UnknownFacingDir fire = UnknownFacingDir((unsigned short)(0x4000 - ((unsigned char)unknown_slot32()->FireAngle << 8)));
+            UnknownFacingDir fire = UnknownFacingDir((unsigned short)(0x4000 - ((unsigned char)Techno_Type_Class()->FireAngle << 8)));
             unknown_2c8.Set_Desired(fire);
         }
         unknown_3ec = 1;
@@ -56,7 +56,7 @@ bool TechnoClass::unknown_slot53(CoordStruct const *coord, int dir)
         if (!Map.Unknown_0055A660(Coord_Cell(*coord), true)) {
             unknown_373 = false;
         }
-        UnknownCellClass *here = (UnknownCellClass *)unknown_slot105();
+        UnknownCellClass *here = (UnknownCellClass *)Get_Cell_Ptr();
         if (here != 0) {
             unknown_400 = unknown_slot168();
             here->Adjust_Threat(Owner(), unknown_400);

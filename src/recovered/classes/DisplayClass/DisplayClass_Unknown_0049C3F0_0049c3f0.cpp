@@ -16,7 +16,7 @@ void __fastcall Unknown_0049C3F0(ObjectClass *object)
 {
     HouseClass *house = object->Owning_House();
     BuildingClass *building = object->Kind_Of() == 6 ? (BuildingClass *)object : 0;
-    if (house != 0 && house->Is_Player_Control() && object->unknown_slot76()) {
+    if (house != 0 && house->Is_Player_Control() && object->CanBeSelected()) {
         if (building != 0) {
             BuildingTypeClass *type = building->Type;
             if (type->UndeploysInto == 0) {

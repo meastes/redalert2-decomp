@@ -5,7 +5,7 @@
 bool ParticleSystemClass::Remove_Particle(int index)
 {
     if (index < Particles.Count()) {
-        Particles[index]->unknown_slot60();
+        Particles[index]->Delete_Me();
         Particles.Delete(Particles[index]);
         return true;
     }

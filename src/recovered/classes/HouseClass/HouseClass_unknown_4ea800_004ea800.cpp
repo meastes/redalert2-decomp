@@ -10,7 +10,7 @@
 void HouseClass::unknown_4ea800(TechnoClass *techno)
 {
     techno->unknown_324 = false;
-    if (!techno->unknown_slot32()->unknown_202) {
+    if (!techno->Techno_Type_Class()->unknown_202) {
         switch (techno->Kind_Of()) {
         case 6:
             if (techno->unknown_slot31()) {
@@ -18,20 +18,20 @@ void HouseClass::unknown_4ea800(TechnoClass *techno)
             } else {
                 CurBuildings--;
             }
-            unknown_5420.Decrement(techno->unknown_slot32()->unknown_slot16());
+            unknown_5420.Decrement(techno->Techno_Type_Class()->unknown_slot16());
             break;
         case 2:
             unknown_238--;
-            unknown_5450.Decrement(techno->unknown_slot32()->unknown_slot16());
+            unknown_5450.Decrement(techno->Techno_Type_Class()->unknown_slot16());
             break;
         case 15:
             unknown_234--;
-            unknown_5440.Decrement(techno->unknown_slot32()->unknown_slot16());
+            unknown_5440.Decrement(techno->Techno_Type_Class()->unknown_slot16());
             break;
         case 1:
             unknown_228--;
-            unknown_5430.Decrement(techno->unknown_slot32()->unknown_slot16());
-            if (techno->unknown_slot32()->Naval && techno->unknown_slot32()->Passengers == 0) {
+            unknown_5430.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+            if (techno->Techno_Type_Class()->Naval && techno->Techno_Type_Class()->Passengers == 0) {
                 unknown_22c--;
             }
             break;

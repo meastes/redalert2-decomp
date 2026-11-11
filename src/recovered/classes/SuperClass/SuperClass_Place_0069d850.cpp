@@ -129,10 +129,10 @@ void SuperClass::Place(Cell const &cell, bool player)
             while (object != 0) {
                 FootClass *foot = (FootClass *)object;
                 if (object->Is_Foot() && !object->unknown_slot21()) {
-                    TechnoTypeClass *ttype = object->unknown_slot32();
-                    if (ttype->Organic && !object->unknown_slot32()->Teleporter && !object->unknown_slot21()) {
-                        int damage = object->unknown_slot32()->MaxStrength;
-                        object->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                    TechnoTypeClass *ttype = object->Techno_Type_Class();
+                    if (ttype->Organic && !object->Techno_Type_Class()->Teleporter && !object->unknown_slot21()) {
+                        int damage = object->Techno_Type_Class()->MaxStrength;
+                        object->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
                     } else if (!foot->unknown_slot203() && !foot->unknown_210 && !object->unknown_slot111() && !object->unknown_slot112()) {
                         UnknownComPtr<IPiggyback, &unknown_uuid_IPiggyback_7cfc30> piggyback(foot->Locomotor);
                         UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> teleport(CLSID_TeleportLocomotionClass);
@@ -144,7 +144,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                         if (unit != 0) {
                             foot->Locomotor.Checked()->Mark_All_Occupation_Bits(0);
                             foot->Locomotor.Checked()->Force_Track(-1, CoordStruct(coord));
-                            object->unknown_slot59(coord);
+                            object->Clear_Occupy_Bit(coord);
                             foot->unknown_5a0 = true;
                         }
                         teleport.Checked()->Link_To_Object(object);

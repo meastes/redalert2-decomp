@@ -44,7 +44,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
         if (unknown_32c && unknown_372) {
             return 0;
         }
-        if (!object->unknown_slot76() || object->unknown_77) {
+        if (!object->CanBeSelected() || object->unknown_77) {
             return 0;
         }
         return 7;
@@ -83,40 +83,40 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
         if (!third) {
             goto attack;
         }
-        if (unknown_slot39()) {
+        if (Can_Player_Move()) {
             return 0x1A;
         }
     }
-    if (third && House->Is_Player_Control() && unknown_slot39()) {
+    if (third && House->Is_Player_Control() && Can_Player_Move()) {
         return 1;
     }
 attack:
     {
-        TechnoTypeClass *type = unknown_slot32();
+        TechnoTypeClass *type = Techno_Type_Class();
         int weapon = unknown_slot174(object);
-        if (object->unknown_slot30()) {
+        if (object->Not_Underground()) {
             WeaponTypeClass *weapon_type = unknown_slot231(weapon)->WeaponType;
             bool disguised = Rules->AttackCursorOnDisguise
-                || (object->AbstractFlags.IsTechno && (object->unknown_slot32()->PermaDisguise
+                || (object->AbstractFlags.IsTechno && (object->Techno_Type_Class()->PermaDisguise
                     || (object->AbstractFlags.IsTechno && ((TechnoClass *)object)->unknown_184.Value() != 0)));
             bool owned = object->unknown_slot49(House) && !disguised;
             bool capture = owned && object->unknown_slot51(true) == 0;
             bool can208 = unknown_slot208(object);
             bool usable = !owned || (capture && can208);
-            bool ivan = weapon_type != 0 && weapon_type->Warhead->IvanBomb && object->unknown_slot32() != 0
-                && object->unknown_slot32()->Passengers > 0;
+            bool ivan = weapon_type != 0 && weapon_type->Warhead->IvanBomb && object->Techno_Type_Class() != 0
+                && object->Techno_Type_Class()->Passengers > 0;
             bool foot = false;
             if (weapon_type != 0 && weapon_type->Warhead->Sonic) {
                 foot = object->AbstractFlags.IsFoot;
             }
             bool sonic = foot && ((FootClass *)object)->unknown_580 != 0;
-            bool friendly = unknown_slot32()->AttackFriendlies || (unknown_slot32()->AttackCursorOnFriendlies && !ivan) || sonic;
+            bool friendly = Techno_Type_Class()->AttackFriendlies || (Techno_Type_Class()->AttackCursorOnFriendlies && !ivan) || sonic;
             bool enemy = !House->Is_Ally((TechnoClass *)object) || friendly;
             bool owned_friendly = owned && friendly;
             if (House->Is_Player_Control()) {
                 if (force_fire || (enemy && (usable || owned_friendly) && (object->Class_Of()->unknown_201 || can208))) {
                     bool infiltrate = Kind_Of() == 15 && ((InfantryTypeClass *)type)->Infiltrate;
-                    if ((unknown_slot163() || infiltrate) && (unknown_slot39() || unknown_slot212(object, weapon))) {
+                    if ((unknown_slot163() || infiltrate) && (Can_Player_Move() || unknown_slot212(object, weapon))) {
                         bool special = false;
                         if (infiltrate) {
                             if ((!((InfantryClass *)this)->Type->Agent && object->Kind_Of() == 6 && ((BuildingClass *)object)->Type->Capturable)
@@ -139,7 +139,7 @@ attack:
     if (unknown_32c && unknown_372) {
         return 0;
     }
-    if (!object->unknown_slot76() || object->unknown_77 || object->unknown_slot111()) {
+    if (!object->CanBeSelected() || object->unknown_77 || object->unknown_slot111()) {
         return 0;
     }
     return 7;

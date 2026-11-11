@@ -35,7 +35,7 @@ void AnimClass::AI()
         else unknown_17d=false;
     }
     if (Class->HideIfNoOre) {
-        AbstractClass *object=unknown_slot105();
+        AbstractClass *object=Get_Cell_Ptr();
         CellClass *cell=(CellClass *)object;
         if (!cell || !cell->Get_Tiberium_Value()) unknown_17d=true;
         else unknown_17d=false;
@@ -97,7 +97,7 @@ void AnimClass::AI()
                     unknown_tactical_83996c->Register_Dirty_Area(update,false);
                 }
             }
-            unknown_slot60();
+            Delete_Me();
             return;
         }
     }
@@ -106,7 +106,7 @@ void AnimClass::AI()
             new AnimClass(Class->TrailerAnim,Center_Coord(),1,1,0x600,0);
     }
     if (Class==Rules->DropZoneAnim && Map[Center_Coord()].Cell_Building()) unknown_17b=true;
-    if (unknown_17b) { unknown_slot60(); return; }
+    if (unknown_17b) { Delete_Me(); return; }
     if (unknown_17c) { unknown_17c=false; return; }
     if (LoopDelay) {
         --LoopDelay;
@@ -174,7 +174,7 @@ void AnimClass::AI()
                         unknown_func_4226d0();
                     } else {
                         unknown_159=true;
-                        unknown_slot60();
+                        Delete_Me();
                     }
                 }
             }

@@ -24,13 +24,13 @@ void DisplayClass::Constrained_Look(CoordStruct const &center, int distance)
         TechnoClass *techno = Layer[2][index]->As_Techno();
         if (techno != 0) {
             if (techno->House->Is_Player_Control()) {
-                if (techno->unknown_373 && Coord_Length(center - techno->Center_Coord()) <= techno->unknown_slot32()->Sight * 256 + distance) {
-                    techno->unknown_slot70(false, false);
+                if (techno->unknown_373 && Coord_Length(center - techno->Center_Coord()) <= techno->Techno_Type_Class()->Sight * 256 + distance) {
+                    techno->Look(false, false);
                 }
             } else {
                 if (techno->Kind_Of() == 6 && Rules->unknown_142b && techno->House->Is_Ally(unknown_player_a35db4)
-                    && Coord_Distance(techno->Center_Coord(), center) <= techno->unknown_slot32()->Sight * 256 + distance) {
-                    techno->unknown_slot70(false, false);
+                    && Coord_Distance(techno->Center_Coord(), center) <= techno->Techno_Type_Class()->Sight * 256 + distance) {
+                    techno->Look(false, false);
                 }
             }
         }

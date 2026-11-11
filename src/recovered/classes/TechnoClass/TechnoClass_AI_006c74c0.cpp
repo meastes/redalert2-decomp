@@ -65,11 +65,11 @@ void TechnoClass::AI()
         if (unknown_70+30<0) unknown_70=-30;
         ++unknown_70;
     }
-    if (unknown_slot32()->Turret) {
+    if (Techno_Type_Class()->Turret) {
         if (unknown_3f0) {
         if (unknown_3ec) {
             unknown_3d8.Unknown_00405D50();
-            Voc_Play_At(unknown_slot32()->TurretRotateSound,Position_Coord_004f3f40(),&unknown_3d8);
+            Voc_Play_At(Techno_Type_Class()->TurretRotateSound,Position_Coord_004f3f40(),&unknown_3d8);
             unknown_3ec=0;
         }
         } else { unknown_3d8.Unknown_00406070(); unknown_3ec=1; }
@@ -100,7 +100,7 @@ void TechnoClass::AI()
         unknown_6d9080(point,&window);
     } else if (unknown_108) {
         if (Kind_Of()!=6) unknown_abstracts_ac0bf8.Delete(this);
-        unknown_108->unknown_slot60();
+        unknown_108->Delete_Me();
         unknown_108=0;
     }
     if (!House->Is_Human_Player() && unknown_228 && House->Is_Ally(static_cast<ObjectClass *>(unknown_228))) {
@@ -115,12 +115,12 @@ void TechnoClass::AI()
         int fire_error=unknown_slot217(unknown_228,unknown_slot174(unknown_228));
         if (unknown_228 && (fire_error==5 || fire_error==6)) unknown_slot220(0);
     }
-    if (unknown_slot32()->TurretRecoil) { unknown_330.unknown_6d8bc0(); unknown_350.unknown_6d8bc0(); }
-    if (unknown_slot32()->IsChargeTurret && unknown_slot32()->Has_Turret_Weapons()) {
+    if (Techno_Type_Class()->TurretRecoil) { unknown_330.unknown_6d8bc0(); unknown_350.unknown_6d8bc0(); }
+    if (Techno_Type_Class()->IsChargeTurret && Techno_Type_Class()->Has_Turret_Weapons()) {
         int turret=0;
         if (unknown_250>0) {
-            turret=unknown_slot32()->TurretCount*unknown_244.Value()/unknown_250;
-            if (turret>=unknown_slot32()->TurretCount) turret=unknown_slot32()->TurretCount-1;
+            turret=Techno_Type_Class()->TurretCount*unknown_244.Value()/unknown_250;
+            if (turret>=Techno_Type_Class()->TurretCount) turret=Techno_Type_Class()->TurretCount-1;
             else if (turret<0) turret=0;
         }
         unknown_100=turret;
@@ -145,7 +145,7 @@ void TechnoClass::AI()
     if (!unknown_7d) return;
     if (unknown_slot157()) {
         ++Strength;
-        if ((Health_Ratio()>Rules->unknown_1368 || unknown_slot108()<-10) && unknown_25c[3]) unknown_25c[3]->unknown_slot60();
+        if ((Health_Ratio()>Rules->unknown_1368 || Get_Height_AGL()<-10) && unknown_25c[3]) unknown_25c[3]->Delete_Me();
     }
     Cloaking_AI(0);
     if (SpawnManager) SpawnManager->AI();
@@ -155,7 +155,7 @@ void TechnoClass::AI()
     if (unknown_228 && unknown_game_mode_a3d298!=0 && House->unknown_134 && unknown_6c16f0(-1)<0 && !House->Is_Ally(static_cast<ObjectClass *>(unknown_228))) unknown_slot220(0);
     if (unknown_228 && unknown_228->Kind_Of()==2) {
         ObjectClass *aircraft=static_cast<ObjectClass *>(unknown_228);
-        if (Kind_Of()==1 && unknown_6c16f0(-1)<0 && (aircraft->unknown_slot108()>0 || Map[aircraft->Position_Coord_004f3f40()].Cell_Building())) unknown_slot220(0);
+        if (Kind_Of()==1 && unknown_6c16f0(-1)<0 && (aircraft->Get_Height_AGL()>0 || Map[aircraft->Position_Coord_004f3f40()].Cell_Building())) unknown_slot220(0);
     }
     if (Kind_Of()!=2 && unknown_228 && !unknown_slot156()) {
         FootClass *foot=0;
@@ -175,11 +175,11 @@ void TechnoClass::AI()
     bool was_flash_on=(old_flash&2)==2;
     if (FlasherClass::Process()) Mark(2);
     if (old_flash && old_flash!=FlashCount && Kind_Of()==6 && was_flash_on!=((FlashCount&2)==2)) {
-        unknown_tactical_83996c->Register_Dirty_Area(unknown_slot73(),false);
+        unknown_tactical_83996c->Register_Dirty_Area(Get_Render_Rect(),false);
         static_cast<BuildingClass *>(this)->Update_Anim_Appearance_0044d190();
     }
-    TechnoTypeClass const *type=unknown_slot32();
-    if (type->unknown_a9b && Health_Ratio()<Rules->unknown_1368 && unknown_slot108()>-10) {
+    TechnoTypeClass const *type=Techno_Type_Class();
+    if (type->unknown_a9b && Health_Ratio()<Rules->unknown_1368 && Get_Height_AGL()>-10) {
         DynamicVectorClass<ParticleSystemTypeClass const *> sparks;
         for (int i=0;i<type->DamageParticleSystems.Count();++i) {
             if (type->DamageParticleSystems[i]->BehavesLike==3) sparks.Add(type->DamageParticleSystems[i]);
@@ -187,7 +187,7 @@ void TechnoClass::AI()
         if (!unknown_25c[1] && sparks.Count()>0) {
             double probability=Health_Ratio()<Rules->unknown_1370 ? Rules->ConditionRedSparkingProbability:Rules->ConditionYellowSparkingProbability;
             if (double(unknown_id_source_a3d290->Random()(0,0x7ffffffe))*unknown_random_scale_79c280<probability) {
-                unknown_25c[1]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(sparks[unknown_id_source_a3d290->Random()(0,sparks.Count()-1)]),unknown_slot32()->Damage_Smoke_Offset()+Center_Coord(),0,this,unknown_geometry_l);
+                unknown_25c[1]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(sparks[unknown_id_source_a3d290->Random()(0,sparks.Count()-1)]),Techno_Type_Class()->Damage_Smoke_Offset()+Center_Coord(),0,this,unknown_geometry_l);
             }
         }
     }

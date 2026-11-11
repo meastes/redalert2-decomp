@@ -110,7 +110,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                         } else if (ok == 6) {
                             CellClass *cellptr = &Map[cell];
                             TechnoClass *blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
-                            if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->unknown_slot32()->IsTrain) {
+                            if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
                                 if (LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()) {
                                     if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                                         if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
@@ -170,7 +170,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     CoordStruct center(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
                     blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(center) + 2 * unknown_geometry_g, 0);
                 }
-                if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->unknown_slot32()->IsTrain) {
+                if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
                     if (LinkedTo->Distance(unknown_34) < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()) {
                         if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                             if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
@@ -225,9 +225,9 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         int cando = LinkedTo->unknown_slot101(destptr, facing, cell_height, 0, true);
         LinkedTo->Mark(1);
 
-        if (cando < 7 && LinkedTo->unknown_slot32()->IsTrain) {
+        if (cando < 7 && LinkedTo->Techno_Type_Class()->IsTrain) {
             cando = 0;
-        } else if ((cando == 5 || cando == 4) && LinkedTo->unknown_slot32()->Crusher && destptr->OverlayIndex == 0) {
+        } else if ((cando == 5 || cando == 4) && LinkedTo->Techno_Type_Class()->Crusher && destptr->OverlayIndex == 0) {
             cando = 0;
         }
 
@@ -240,7 +240,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
             if (cando == 3) {
                 unknown_4a47c0(destcell);
             } else if (cando == 6) {
-                if (!LinkedTo->unknown_slot32()->IsTrain) {
+                if (!LinkedTo->Techno_Type_Class()->IsTrain) {
                     FootClass *unit = LinkedTo;
                     if (retry) {
                         unit->Path[0] = -1;
@@ -340,20 +340,20 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
             ground = 1;
         }
 
-        TechnoTypeClass *ttype = LinkedTo->unknown_slot32();
+        TechnoTypeClass *ttype = LinkedTo->Techno_Type_Class();
         double speed = Ground[ground].Cost[ttype->SpeedType];
         if (speed > 1.0) speed = 1.0;
 
         int destheight = Map.Get_Height_GL(Map[destcell].unknown_475d60());
         int unitheight = Map.Get_Height_GL(Object_Coord(LinkedTo));
         if (destheight > unitheight && LinkedTo->Kind_Of() == 1) {
-            if (LinkedTo->unknown_slot32()->SpeedType == 1) {
+            if (LinkedTo->Techno_Type_Class()->SpeedType == 1) {
                 speed *= Rules->TrackedUphill;
             } else {
                 speed *= Rules->WheeledUphill;
             }
         } else if (destheight < unitheight && LinkedTo->Kind_Of() == 1) {
-            if (LinkedTo->unknown_slot32()->SpeedType == 1) {
+            if (LinkedTo->Techno_Type_Class()->SpeedType == 1) {
                 speed *= Rules->TrackedDownhill;
             } else {
                 speed *= Rules->WheeledDownhill;
@@ -378,7 +378,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         int nextface = LinkedTo->Path[1];
         if (nextface == -1) {
             if (LinkedTo->Distance(unknown_34) > 0x200) {
-                int patharg = LinkedTo->unknown_slot32()->IsTrain ? 1 : 0;
+                int patharg = LinkedTo->Techno_Type_Class()->IsTrain ? 1 : 0;
                 bool found = LinkedTo->unknown_4c3000((unknown_34).As_Cell(), patharg, 0);
                 bool &result = found;
                 if (!result) {
@@ -422,9 +422,9 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 dest = Adjacent_Coord_SOM(dest, nextface);
                 destcell = (dest).As_Cell();
                 nextcando = LinkedTo->unknown_slot101(&Map[destcell], nextface, height, 0, true);
-                if (nextcando < 7 && LinkedTo->unknown_slot32()->IsTrain) {
+                if (nextcando < 7 && LinkedTo->Techno_Type_Class()->IsTrain) {
                     nextcando = 0;
-                } else if ((nextcando == 4 || nextcando == 5) && LinkedTo->unknown_slot32()->Crusher && Map[destcell].OverlayIndex == 0) {
+                } else if ((nextcando == 4 || nextcando == 5) && LinkedTo->Techno_Type_Class()->Crusher && Map[destcell].OverlayIndex == 0) {
                     nextcando = 0;
                 }
             }
@@ -436,7 +436,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                 } else if (nextcando == 2) {
                     return Start_Of_Move(stop_processing, retry, true);
                 } else if (nextcando == 6) {
-                    if (!LinkedTo->unknown_slot32()->IsTrain) {
+                    if (!LinkedTo->Techno_Type_Class()->IsTrain) {
                         if (retry) {
                             LinkedTo->Path[0] = -1;
                             LinkedTo->unknown_530 = CDTimerClass<FrameTimerClass>(0);

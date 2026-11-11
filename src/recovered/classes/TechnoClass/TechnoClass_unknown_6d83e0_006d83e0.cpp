@@ -5,5 +5,5 @@
 
 bool TechnoClass::unknown_6d83e0()
 {
-    return unknown_slot32()->Has_Turret_Weapons();
+    return Techno_Type_Class()->Has_Turret_Weapons();
 }

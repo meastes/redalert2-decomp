@@ -104,7 +104,7 @@ bool __fastcall Unknown_0063A880(TeamTypeClass *teamtype, int wp)
         CellClass *cellptr = &Map[coord];
         int tries = 0;
         while (result == unknown_geometry_l && tries < 255) {
-            Cell newcell = Map.Nearby_Location(Coord_Cell(cellptr->Center_Coord()), object->unknown_slot32()->SpeedType, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
+            Cell newcell = Map.Nearby_Location(Coord_Cell(cellptr->Center_Coord()), object->Techno_Type_Class()->SpeedType, -1, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);
             cellptr = &Map[newcell];
             if (is_unit) {
                 result = cellptr->Center_Coord();

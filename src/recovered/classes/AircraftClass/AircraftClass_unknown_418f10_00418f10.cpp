@@ -43,7 +43,7 @@ AbstractClass *AircraftClass::unknown_418f10(AbstractClass *desired)
     if (desired) {
         if (Is_Strafe()) return desired;
 
-        int range = unknown_slot85(0);
+        int range = Weapon_Range(0);
         CoordStruct center = desired->Center_Coord();
         Cell best_cell = unknown_geometry_k;
         Cell previous_record_cell = unknown_geometry_k;

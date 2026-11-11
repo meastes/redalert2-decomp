@@ -92,7 +92,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
                 unknown_slot149(3);
                 Map.Sight_From(*coord, Type->Sight, House, false, false, false, true, false);
                 Map.Sight_From(*coord, Type->Sight, House, false, false, false, true, true);
-                unknown_slot60();
+                Delete_Me();
                 return true;
             }
         }
@@ -140,7 +140,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
                 if (Type->IsThreatRatingNode) {
                     House->unknown_func_4f3160();
                 }
-                unknown_slot60();
+                Delete_Me();
                 return true;
             }
         }
@@ -160,7 +160,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
         unknown_4ec = 0;
         BuildingClass *building = static_cast<BuildingClass *>(Map[coord->As_Cell()].Cell_Building());
         if (building != 0 && building->Type->LaserFence && Owner() == building->Owner()) {
-            building->unknown_slot60();
+            building->Delete_Me();
         }
     }
 
@@ -216,7 +216,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
         unknown_43c = 0;
 
         if ((!unknown_373 && (Map[*coord].unknown_12c & 0x10)) || unknown_game_mode_a3d298 != 0) {
-            unknown_slot96(unknown_player_a35db4);
+            Revealed(unknown_player_a35db4);
         } else if (Type->LightIntensity != 0) {
             if (unknown_4e8 == 0) {
                 unknown_4e8 = new LightSourceClass(Center_Coord(), Type->LightVisibility, Type->LightIntensity, Type->LightRedTint, Type->LightGreenTint, Type->LightBlueTint);
@@ -235,7 +235,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
         }
 
         if (!House->Unknown_004F52F0()) {
-            unknown_slot96(House);
+            Revealed(House);
         }
 
         if (unknown_372) {

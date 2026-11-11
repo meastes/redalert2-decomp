@@ -25,7 +25,7 @@ bool UnitClass::unknown_slot122()
     if (Mission == 6 || Mission == 21 || unknown_5b9) {
         return false;
     }
-    if (MissionQueue != 7 && Locomotor.Checked()->Is_Moving_Now() && unknown_slot108() >= 0
+    if (MissionQueue != 7 && Locomotor.Checked()->Is_Moving_Now() && Get_Height_AGL() >= 0
         && Get_Mission() != 5 && (Get_Mission() != 1 || unknown_228) && !unknown_a4) {
         return false;
     }

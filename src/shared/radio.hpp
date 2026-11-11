@@ -37,7 +37,7 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // slot 13 0x00636BF0
     virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x00636900
 
-    virtual bool unknown_slot52();                               // slot 52 0x00636B60
+    virtual bool Limbo();                               // slot 52 0x00636B60
     virtual int unknown_slot149(int message);                   // slot 149 0x00636D90 to the first contact
     virtual int unknown_slot150(int message, TechnoClass *techno);  // slot 150 0x00636B80
     virtual int unknown_slot151(int message, AbstractClass **param, TechnoClass *techno);  // slot 151 0x00636A50 transmit

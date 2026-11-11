@@ -122,8 +122,8 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
         Cell unload_cell=unknown_slot104()+unknown_unload_offset_851a88;
         BuildingClass *refinery=(BuildingClass *)Map[unload_cell].Cell_Building();
         if(refinery && Type->Harvester) {
-            if(refinery->unknown_25c[5]) refinery->unknown_25c[5]->unknown_slot60();
-            if(refinery->unknown_25c[6]) refinery->unknown_25c[6]->unknown_slot60();
+            if(refinery->unknown_25c[5]) refinery->unknown_25c[5]->Delete_Me();
+            if(refinery->unknown_25c[6]) refinery->unknown_25c[6]->Delete_Me();
             if(refinery->unknown_454[10]) refinery->unknown_44cfd0(10);
         }
     }
@@ -213,10 +213,10 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		if (memcmp(&clsid,&CLSID_DriveLocomotionClass,sizeof(GUID))==0) {
 			unknown_49c.Add_Head(target);
 			unknown_478.Clear();
-			CellClass * tcell = unknown_slot107();
+			CellClass * tcell = Get_Target_Cell_Ptr();
 			target = tcell;
 			immediate = false;
-			if (tcell != 0 && ((tcell->unknown_140&0x100)!=0) && !unknown_slot46(0)) {
+			if (tcell != 0 && ((tcell->unknown_140&0x100)!=0) && !Is_Moving_Onto_Bridge(0)) {
 				Cell nearby = Map.Nearby_Location(tcell->MapCoords, 1, Map.Zone(tcell->MapCoords, Type->MovementZone, false), Type->MovementZone, false, Point2D(1, 1), false, true, false, false, Cell(0,0), 0);
 				if (nearby != unknown_geometry_k) {
 					target = &Map[nearby];
@@ -235,7 +235,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		 * it can burrow straight to the destination or has to plan a surface route.
 		 */
 		if (Type->unknown_af5 && immediate) {
-			bool isbridge = unknown_slot46(0);
+			bool isbridge = Is_Moving_Onto_Bridge(0);
 
 			Cell from = Cell(unknown_slot19(0));
 			bool canburrowfrom = Map[from].Can_Burrow_Here();
@@ -244,7 +244,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			CellClass * tocell = &Map[to];
 			bool isunderbridgeto = ((tocell->unknown_140&0x100)!=0);
 			bool canburrowto = tocell->Can_Burrow_Here();
-			int height = unknown_slot108();
+			int height = Get_Height_AGL();
 
 			if (isbridge && isunderbridgeto) {
 				int z1 = Map.Zone_Connection_Index(from, 3, 0);
@@ -338,20 +338,20 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
         }
 		GUID clsid;
 		persist.Checked()->GetClassID(&clsid);
-		if (memcmp(&clsid,&CLSID_TunnelLocomotionClass,sizeof(GUID))==0 && unknown_slot108() == 0) {
+		if (memcmp(&clsid,&CLSID_TunnelLocomotionClass,sizeof(GUID))==0 && Get_Height_AGL() == 0) {
             CoordStruct tc = target->Center_Coord();
 			int gl = Map.Get_Height_GL(tc);
 			if (tc.Z < gl) tc.Z = gl;
 
 			bool doswap = needsswap;
 			if (!doswap) {
-				bool canburrow = !unknown_slot46(0)
+				bool canburrow = !Is_Moving_Onto_Bridge(0)
 					&& !(Map[target->Center_Coord()].unknown_140&0x100)
 					&& Map[unknown_slot19(0)].Can_Burrow_Here()
 					&& Map[target->Center_Coord()].Can_Burrow_Here();
 				if (canburrow) {
 					Cell to = Cell(target->Center_Coord());
-					if (!unknown_709790(&unknown_slot106(), &to)) {
+					if (!unknown_709790(&Get_Target_Cell(), &to)) {
 						doswap = true;
 					}
 				} else {
@@ -463,7 +463,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	 * back on when an adjacent friendly repair facility occupies our cell.
 	 */
 	if (!Locomotor.Checked()->Is_Powered() && !House->Unknown_0051FC80()) {
-		CellClass * cellptr = (CellClass *)unknown_slot105();
+		CellClass * cellptr = (CellClass *)Get_Cell_Ptr();
 		if (!(cellptr->unknown_140&0x100)) {
 			ObjectClass * occupier = cellptr->OccupierPtr;
 			while (occupier != 0) {

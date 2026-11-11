@@ -36,7 +36,7 @@ void ParticleSystemClass::Fire_AI()
     }
     for (i = Particles.Count() - 1; i >= 0; --i) {
         ParticleClass *particle = Particles[i];
-        if (particle->unknown_121) particle->unknown_slot60();
+        if (particle->unknown_121) particle->Delete_Me();
     }
     bool reaimed = false;
     TechnoClass *source = Owner->As_Techno();
@@ -47,12 +47,12 @@ void ParticleSystemClass::Fire_AI()
                 CoordStruct delta = target - source->Position_Coord_004f3f40();
                 int distance = (int)Fast_Sqrt((double)delta.X * delta.X + (double)delta.Y * delta.Y + (double)delta.Z * delta.Z);
                 TargetCoord = Particle_Coord_Along_Facing(source->unknown_2e0.Current(), distance, source->Position_Coord_004f3f40());
-                unknown_slot103(source->unknown_slot43(0));
+                Set_Coord(source->unknown_slot43(0));
                 reaimed = true;
             }
         }
-        if (!source->unknown_7d) unknown_slot60();
-    } else unknown_slot60();
+        if (!source->unknown_7d) Delete_Me();
+    } else Delete_Me();
     if (!unknown_e4 && (!(Frame % Class->SpawnFrames) || (!(Frame % 3) && reaimed))) {
         int index = Frame % 500;
         CoordStruct delta = Position_Coord_004f3f40() - TargetCoord;

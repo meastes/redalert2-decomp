@@ -49,7 +49,7 @@ void TeamClass::TMission_unknown_6bddb0(ScriptMissionClass const &mission, bool 
         double y = center.Y;
         CoordStruct coord((int)(unknown_cos_4ba4d0(angle) * distance + center.X), (int)(y - unknown_sin_4ba480(angle) * distance), center.Z);
         Cell cell = Coord_Cell(coord);
-        cell = Map.Nearby_Location(cell, leader->unknown_slot32()->SpeedType, -1, 0, false,
+        cell = Map.Nearby_Location(cell, leader->Techno_Type_Class()->SpeedType, -1, 0, false,
             Point2D(3, 3), 0, 0, 0, 1, Cell(0, 0), 0);
         unknown_func_6b79e0(&Map[cell]);
     }

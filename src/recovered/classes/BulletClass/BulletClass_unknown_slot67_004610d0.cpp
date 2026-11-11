@@ -28,10 +28,10 @@ void BulletClass::unknown_slot67(Point2D const &point, Rect const &clip)
         Draw_Voxel_00463a00(Type->unknown_b0, Bullet_Isometric_View() * matrix, *(RectPoint2D const *)&point, clip, 0, 0x800, 1000);
         return;
     }
-    ShapeFileStruct const *image = (ShapeFileStruct const *)unknown_slot26();
+    ShapeFileStruct const *image = (ShapeFileStruct const *)Get_Image_Data();
     if (!image) return;
     int shape = unknown_slot116();
-    int height_agl = unknown_slot108();
+    int height_agl = Get_Height_AGL();
     int ground_height = Map.Get_Height_GL(CoordStruct(Coord));
     if (!unknown_79 && (Map[CoordStruct(Coord)].unknown_140 & 0x100) && height_agl >= unknown_geometry_j) {
         height_agl -= unknown_geometry_j;
@@ -47,5 +47,5 @@ void BulletClass::unknown_slot67(Point2D const &point, Rect const &clip)
         if (InheritedColor != -1) drawer = ColorSchemes[InheritedColor]->Converter;
         else drawer = ColorSchemes[unknown_player_a35db4->ColorSchemeIndex]->Converter;
     }
-    CC_Draw_Shape(unknown_surface_83995c, drawer, image, shape, point, clip, 0x2e00, 0, -30 - Bullet_Height_Pixel(unknown_slot110()), 0, 1000, 0, 0, Point2D(0, 0));
+    CC_Draw_Shape(unknown_surface_83995c, drawer, image, shape, point, clip, 0x2e00, 0, -30 - Bullet_Height_Pixel(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
 }

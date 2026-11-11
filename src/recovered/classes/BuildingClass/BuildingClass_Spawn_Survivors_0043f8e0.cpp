@@ -64,7 +64,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
                     --remaining;
                     int maximumStrength=survivor->Type->MaxStrength;
                     survivor->Strength=unknown_id_source_a3d290->Random()(5,maximumStrength);
-                    survivor->unknown_slot87(unknown_geometry_l,true,false);
+                    survivor->Scatter(unknown_geometry_l,true,false);
                     if(attacker && !House->Is_Ally(attacker)) {
                         survivor->unknown_slot116(1,false);
                         survivor->unknown_slot220(attacker);

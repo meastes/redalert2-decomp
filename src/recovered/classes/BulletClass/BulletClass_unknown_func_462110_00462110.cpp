@@ -134,7 +134,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
     CoordStruct impact = position;
     if (Type->Inviso) impact = Coord_Scatter(impact, 32, false);
     int land = -1;
-    if (unknown_slot108() < unknown_geometry_g * 2) {
+    if (Get_Height_AGL() < unknown_geometry_g * 2) {
         land = Map[CoordStruct(Coord)].unknown_ec;
         if (land == 2 && damage_result == 0) {
             ObjectClass *occupier = Map[CoordStruct(Coord)].OccupierPtr;
@@ -169,7 +169,7 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
             WeaponTypeClass *weapon = Type->AirburstWeapon;
             BulletTypeClass *projectile = weapon->Projectile;
             unsigned facing = 0;
-            CellClass *center = static_cast<CellClass *>(unknown_slot105());
+            CellClass *center = static_cast<CellClass *>(Get_Cell_Ptr());
             int remaining = 8;
             do {
                 CellClass &neighbor = center->Adjacent_Cell(facing);

@@ -26,7 +26,7 @@ bool AircraftClass::unknown_slot53(CoordStruct const *coord, int dir)
         StageClass::Set_Rate(1);
         StageClass::Stage = 0;
         int altitude = Type->Flight_Level();
-        if (unknown_slot108() == altitude) unknown_slot306(1.0);
+        if (Get_Height_AGL() == altitude) unknown_slot306(1.0);
         else unknown_slot306(0.0);
         return true;
     }

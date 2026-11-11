@@ -15,8 +15,8 @@
 bool __stdcall TunnelLocomotionClass::Process()
 {
     if (Is_Moving()) {
-        int agl = LinkedTo->unknown_slot108();
-        int height = LinkedTo->unknown_slot110();
+        int agl = LinkedTo->Get_Height_AGL();
+        int height = LinkedTo->Get_Height();
         switch (unknown_18) {
         case 1:
             if (agl < 0) {
@@ -56,7 +56,7 @@ bool __stdcall TunnelLocomotionClass::Process()
         if (LinkedTo->unknown_77) {
             if (!LinkedTo->House->Is_Player_Control()) {
                 if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || (unknown_id_source_a3d290->Special().FogOfWar && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
-                    LinkedTo->unknown_slot81();
+                    LinkedTo->Unselect();
                 }
             }
         }

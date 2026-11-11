@@ -17,7 +17,7 @@ void InfantryClass::unknown_slot240()
         found = unknown_slot219(1, &coord, 0);
     }
     unknown_slot220(found);
-    if (found == 0 && Mission != 5 && !unknown_slot32()->JumpJet) {
+    if (found == 0 && Mission != 5 && !Techno_Type_Class()->JumpJet) {
         unknown_slot261(0, 1);
     }
 }

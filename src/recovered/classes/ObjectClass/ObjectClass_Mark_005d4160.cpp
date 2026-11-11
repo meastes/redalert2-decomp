@@ -9,7 +9,7 @@ bool ObjectClass::Mark(int request)
     if (!unknown_76) {
         if (action == 2) {
             if (!unknown_75 && unknown_74) {
-                unknown_slot75();
+                Mark_For_Redraw();
                 return true;
             }
         } else {
@@ -24,7 +24,7 @@ bool ObjectClass::Mark(int request)
             }
             if ((action == 1 || action == 3) && !unknown_74) {
                 unknown_74 = true;
-                unknown_slot75();
+                Mark_For_Redraw();
                 return true;
             }
             if (action == 0 && unknown_74) {

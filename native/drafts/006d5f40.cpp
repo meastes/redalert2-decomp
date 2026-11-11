@@ -32,7 +32,7 @@ inline double Rock_Length(Vector3 const &v)
 }
 void TechnoClass::unknown_slot223(CoordStruct const &coord, float force)
 {
-    if (unknown_slot32()->unknown_b0.unknown_00 && !unknown_slot32()->unknown_b0.unknown_00->LoadFailed) {
+    if (Techno_Type_Class()->unknown_b0.unknown_00 && !Techno_Type_Class()->unknown_b0.unknown_00->LoadFailed) {
         CoordStruct pos=Coord;
         Vector3 vec1;
         vec1.X=pos.X-coord.X;
@@ -46,7 +46,7 @@ void TechnoClass::unknown_slot223(CoordStruct const &coord, float force)
 
         float dist1=Rock_Length(vec1);
 
-        float scale=(0.04f-dist1*0.000025f)*force/unknown_slot32()->Weight;
+        float scale=(0.04f-dist1*0.000025f)*force/Techno_Type_Class()->Weight;
 
         if (fabs(dist1)>=0.00002 && scale>=0.01f) {
             if (scale>0.05f) {

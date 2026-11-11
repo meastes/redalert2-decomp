@@ -49,7 +49,7 @@ SpawnManagerClass::SpawnManagerClass(TechnoClass *owner, AircraftTypeClass *type
             } else {
                 node->IsMissile = 0;
             }
-            node->Unit->unknown_slot52();
+            node->Unit->Limbo();
             node->Unit->unknown_23c = Owner;
             node->Status = 0;
             node->Timer = 0;

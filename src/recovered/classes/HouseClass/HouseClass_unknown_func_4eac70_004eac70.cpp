@@ -7,7 +7,7 @@
 void HouseClass::unknown_func_4eac70(TechnoClass *techno)
 {
     if (techno->Kind_Of() == 6) {
-        TechnoTypeClass *type = techno->unknown_slot32();
+        TechnoTypeClass *type = techno->Techno_Type_Class();
         int *value = unknown_func_4eab10(((UnknownBuildingTypeView *)((UnknownBuildingView *)techno)->Type)->unknown_c44,
                                          type != 0 && type->Naval);
         if (value != 0) {

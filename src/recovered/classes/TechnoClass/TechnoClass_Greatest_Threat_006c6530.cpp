@@ -35,9 +35,9 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
     int best_value=-1;
     int zone=-1;
     ++unknown_target_scan_a40be4;
-    if (unknown_slot32()->NoAutoFire && House->Is_Human_Player()) return 0;
+    if (Techno_Type_Class()->NoAutoFire && House->Is_Human_Player()) return 0;
     if (!(method&1) && Kind_Of()!=6 && Kind_Of()!=2) {
-        zone=Map.Zone(Cell(Center_Coord()),unknown_slot32()->MovementZone,true);
+        zone=Map.Zone(Cell(Center_Coord()),Techno_Type_Class()->MovementZone,true);
     }
     if (Kind_Of()==15) {
         if (unknown_6c16f0(-1)<0) method=(method&3)|0x4008;
@@ -51,7 +51,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
     if (method&0x1ba60) mask|=0x40;
     if (method&8) mask|=0x8000;
     if (method&0x50) mask|=2;
-    if (unknown_slot32()->DistributedFire) {
+    if (Techno_Type_Class()->DistributedFire) {
         unknown_3a8.Clear();
         unknown_390.Clear();
     }
@@ -65,11 +65,11 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
         if (unknown_6c16f0(-1)<0 && Mission==5) range=512;
         int cell_range=range/256;
         if (!range) {
-            if (unknown_slot32()->Has_Turret_Weapons()) cell_range=unknown_slot85(unknown_10c)/256;
-            else if (unknown_slot32()->Underwater && unknown_slot32()->Organic && unknown_slot32()->SelfHealing) cell_range=unknown_slot32()->GuardRange.Value/256;
-            else cell_range=((unknown_slot85(0)>unknown_slot85(1)) ? unknown_slot85(0):unknown_slot85(1))/256;
+            if (Techno_Type_Class()->Has_Turret_Weapons()) cell_range=Weapon_Range(unknown_10c)/256;
+            else if (Techno_Type_Class()->Underwater && Techno_Type_Class()->Organic && Techno_Type_Class()->SelfHealing) cell_range=Techno_Type_Class()->GuardRange.Value/256;
+            else cell_range=((Weapon_Range(0)>Weapon_Range(1)) ? Weapon_Range(0):Weapon_Range(1))/256;
             ++cell_range;
-            cell_range+=unknown_slot32()->AirRangeBonus/256;
+            cell_range+=Techno_Type_Class()->AirRangeBonus/256;
         }
         Cell center(*coord);
         if (method&4) {
@@ -79,7 +79,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
             while (object) {
                 int value=0;
                 if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->unknown_74 && object->unknown_slot29()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && unknown_6c5570(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
-                    if (unknown_slot32()->DistributedFire) {
+                    if (Techno_Type_Class()->DistributedFire) {
                         unknown_3a8.Add(object);
                         unknown_390.Add(value);
                     }
@@ -100,7 +100,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                     Cell scan=center+Cell(x,-radius);
                     if (Map.In_Radar(scan)) {
                         if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
-                            if (unknown_slot32()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
+                            if (Techno_Type_Class()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
                         if (!best_object) {
@@ -111,7 +111,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                     scan=center+Cell(x,radius);
                     if (Map.In_Radar(scan)) {
                         if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
-                            if (unknown_slot32()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
+                            if (Techno_Type_Class()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
                         if (!best_object) {
@@ -124,7 +124,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                     Cell scan=center+Cell(-radius,y);
                     if (Map.In_Radar(scan)) {
                         if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
-                            if (unknown_slot32()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
+                            if (Techno_Type_Class()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
                         if (!best_object) {
@@ -135,7 +135,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                     scan=center+Cell(radius,y);
                     if (Map.In_Radar(scan)) {
                         if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
-                            if (unknown_slot32()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
+                            if (Techno_Type_Class()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
                         if (!best_object) {

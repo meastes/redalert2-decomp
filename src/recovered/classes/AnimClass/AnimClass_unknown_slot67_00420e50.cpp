@@ -33,7 +33,7 @@ void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
         return;
     }
     if (!unknown_17d && Class->DetailLevel <= unknown_a40b2c && (!unknown_179 || !Class->ShouldFogRemove)) {
-        ShapeFileStruct const *shapefile = (ShapeFileStruct const *)unknown_slot26();
+        ShapeFileStruct const *shapefile = (ShapeFileStruct const *)Get_Image_Data();
         if (shapefile != 0) {
             int flags = unknown_170;
             int shapenum = Class->Start + Stage;
@@ -76,7 +76,7 @@ void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
                 flags |= 0x800;
             }
 
-            int height = unknown_slot108();
+            int height = Get_Height_AGL();
             int brightness = 1000;
             ConvertClass *convert;
 
@@ -110,7 +110,7 @@ void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
             }
 
             if (unknown_174) {
-                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset + Unknown_006A2970(height)), cliprect, 0x2601, 0, Class->YDrawOffset - Unknown_006A2970(unknown_slot110()), 0, 1000, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset + Unknown_006A2970(height)), cliprect, 0x2601, 0, Class->YDrawOffset - Unknown_006A2970(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
             }
 
             if (Class->Tiled) {
@@ -118,7 +118,7 @@ void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
                 Point2D origin = point;
                 Point2D drawpoint = origin - Point2D(0, frameheight / 2);
                 bool done = false;
-                int height_offset = ZAdjust + Class->YDrawOffset - Unknown_006A2970(unknown_slot110()) - 50;
+                int height_offset = ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 50;
                 while (!done) {
                     CC_Draw_Shape(unknown_surface_83995c, Unit_Draw_Convert_008323C0, shapefile, shapenum, Point2D(origin.X, drawpoint.Y + Class->YDrawOffset), unknown_rect_839630, flags | 0x2000, 0, height_offset, 2, brightness, 0, 0, Point2D(0, 0));
                     if (drawpoint.Y < 0) done = true;
@@ -126,11 +126,11 @@ void AnimClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
                     height_offset -= frameheight + frameheight / 2;
                 }
             } else if (Class->Flat) {
-                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(unknown_slot110()) - 3, 0, brightness, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 3, 0, brightness, 0, 0, Point2D(0, 0));
             } else {
-                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(unknown_slot110()) - 2, 2, brightness, 0, 0, Point2D(0, 0));
+                CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum, point + Point2D(0, Class->YDrawOffset), cliprect, flags | 0x2000, 0, ZAdjust + Class->YDrawOffset - Unknown_006A2970(Get_Height()) - 2, 2, brightness, 0, 0, Point2D(0, 0));
                 if (Class->Shadow) {
-                    CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum + shapefile->Get_Count() / 2, point, cliprect, flags & ~6 | 0x601, 0, -2 - Unknown_006A2970(unknown_slot110()), 0, 1000, 0, 0, Point2D(0, 0));
+                    CC_Draw_Shape(unknown_surface_83995c, convert, shapefile, shapenum + shapefile->Get_Count() / 2, point, cliprect, flags & ~6 | 0x601, 0, -2 - Unknown_006A2970(Get_Height()), 0, 1000, 0, 0, Point2D(0, 0));
                 }
             }
         }

@@ -67,7 +67,7 @@ void BuildingClass::unknown_44e5a0(int force)
                                 if(kind>0 && (kind<=2 || kind==15)) {
                                     ObjectClass *next=object->unknown_30;
                                     if(object->Strength>0)
-                                        object->unknown_slot86(&object->Strength,0,Rules->unknown_c74,segment,true,1);
+                                        object->Take_Damage(&object->Strength,0,Rules->unknown_c74,segment,true,1);
                                     object=next;
                                 } else object=object->unknown_30;
                             }

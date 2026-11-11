@@ -28,12 +28,12 @@ void TunnelLocomotionClass::Process_Tunneling()
    cell=Map.Nearby_Location(cell,1,Map.Zone(cell,0,false),0,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
    if(cell==unknown_geometry_k) cell=Map.Nearby_Location(LinkedTo->unknown_slot104(),1,-1,6,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
    if(cell==unknown_geometry_k) {
-    LinkedTo->unknown_slot86(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,true);
+    LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,true);
     return;
    }
    Move_To(CoordStruct(cell,0));
   } else {
-   if(LinkedTo->unknown_slot108()>-50) Voc_Play_At(Rules->unknown_16c,CoordStruct(LinkedTo->Coord),0);
+   if(LinkedTo->Get_Height_AGL()>-50) Voc_Play_At(Rules->unknown_16c,CoordStruct(LinkedTo->Coord),0);
    unknown_18=5;
    LinkedTo->Mark(1);
    IsUnderground=false;
@@ -41,7 +41,7 @@ void TunnelLocomotionClass::Process_Tunneling()
  } else {
   coord=Tunnel_Move_Coord(coord,Tunnel_Direction_To(coord,DestinationCoord),19);
  }
- LinkedTo->unknown_slot103(coord);
+ LinkedTo->Set_Coord(coord);
 }
 // @ref _unknown_geometry_k=00ac0f10
 // @ref __real@8@40039800000000000000=007adca8

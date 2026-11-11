@@ -47,7 +47,7 @@ int FootClass::Do_MISSION_GUARD()
         } else {
             unknown_slot258();
         }
-    } else if (unknown_slot32()->HoverAttack && unknown_slot108() == 0) {
+    } else if (Techno_Type_Class()->HoverAttack && Get_Height_AGL() == 0) {
         Assign_Destination((AbstractClass *)&Map[unknown_6cf130(this)], true);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
@@ -59,7 +59,7 @@ int FootClass::Do_MISSION_GUARD()
     int result = 0;
     if (unknown_244.Value() != 0) {
         result = unknown_244.Value();
-    } else if (!unknown_slot32()->DistributedFire || unknown_3a8.Count() <= 0) {
+    } else if (!Techno_Type_Class()->DistributedFire || unknown_3a8.Count() <= 0) {
         result = delay + unknown_id_source_a3d290->Random()(0, 2);
     }
     return result;

@@ -203,7 +203,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
                 }
                 if (object->Strength > 0 && object->unknown_74 && !object->unknown_76 && distance <= range) {
                     int damage = strength;
-                    object->unknown_slot86(&damage, distance, warhead, source, false, 0);
+                    object->Take_Damage(&damage, distance, warhead, source, false, 0);
                     hit = true;
                 }
             }

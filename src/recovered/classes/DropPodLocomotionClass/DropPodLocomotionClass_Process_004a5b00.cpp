@@ -23,7 +23,7 @@ bool __stdcall DropPodLocomotionClass::Process()
 {
     CoordStruct coord = LinkedTo->Coord;
     CoordStruct smoke = coord;
-    int speed = LinkedTo->unknown_slot108() / 10 + 2;
+    int speed = LinkedTo->Get_Height_AGL() / 10 + 2;
     if (Rules->DropPodSpeed > speed) {
         speed = Rules->DropPodSpeed;
     }
@@ -33,12 +33,12 @@ bool __stdcall DropPodLocomotionClass::Process()
         coord.X -= unknown_cos_4ba4d0(Rules->DropPodAngle) * speed;
     }
     coord.Z -= unknown_sin_4ba480(Rules->DropPodAngle) * speed;
-    int height = LinkedTo->unknown_slot108();
+    int height = LinkedTo->Get_Height_AGL();
     FootClass *linked = LinkedTo;
     if (height <= 0) {
-        linked->unknown_slot109(0);
+        linked->Set_Height_AGL(0);
         coord = linked->Coord;
-        linked->unknown_slot52();
+        linked->Limbo();
         AddRef();
         UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> &locomotor = LinkedTo->Locomotor;
         locomotor.Attach(0);
@@ -54,14 +54,14 @@ bool __stdcall DropPodLocomotionClass::Process()
                 new AnimClass(Rules->DropPod[0], coord, 0, 1, 0x600, 0);
             }
             linked->Mark(1);
-            linked->unknown_slot109(0);
+            linked->Set_Height_AGL(0);
             linked->unknown_slot261(false, true);
             linked->Commence();
-            linked->unknown_slot87(unknown_geometry_l, false, false);
+            linked->Scatter(unknown_geometry_l, false, false);
         }
         Release();
     } else {
-        linked->unknown_slot103(coord);
+        linked->Set_Coord(coord);
         WeaponTypeClass *weapon = Rules->DropPodWeapon;
         if (weapon != 0) {
             if (Frame % 6 == 0) {

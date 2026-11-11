@@ -127,13 +127,13 @@ public:
     virtual ObjectTypeClass *Class_Of() const;                        // slot 33 0x0041B600
     virtual wchar_t const *unknown_slot35();                          // slot 35 0x0041B5D0 (the type's UIName)
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);                   // slot 53 0x00414020
-    virtual int unknown_slot62(TechnoClass *techno);                           // slot 62 0x004153C0
+    virtual int Exit_Object(TechnoClass *techno);                           // slot 62 0x004153C0
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x004141C0
-    virtual void unknown_slot70(bool arg1, bool arg2);                  // slot 70 0x0041A530
+    virtual void Look(bool arg1, bool arg2);                  // slot 70 0x0041A530
     virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);  // slot 77 0x00417560
     virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);        // slot 78 0x004174B0
-    virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x00415E70
-    virtual void unknown_slot87(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x00419CD0
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x00415E70
+    virtual void Scatter(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x00419CD0
     virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x00418840
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00418E00
     virtual void unknown_slot116(int mission, bool commence);         // slot 116 0x0041B160

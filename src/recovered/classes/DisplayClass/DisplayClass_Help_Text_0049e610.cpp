@@ -65,7 +65,7 @@ wchar_t const *DisplayClass::Help_Text(int id)
             if (techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
                 return 0;
             }
-            if (techno->unknown_slot32()->Invisible) {
+            if (techno->Techno_Type_Class()->Invisible) {
                 return 0;
             }
         }

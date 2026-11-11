@@ -89,7 +89,7 @@ void InfantryClass::unknown_5025c0()
             unknown_575++;
             int tube_dir = tube->Directions[unknown_575];
             finished = tube_dir == -1;
-            unknown_slot103(unknown_45c);
+            Set_Coord(unknown_45c);
             if (!finished) {
                 CoordStruct coord = Tube_Adjacent(unknown_45c, tube->Directions[unknown_575]);
                 unknown_45c = Tube_Plus(unknown_45c, reinterpret_cast<TPoint2D<int> const &>(Map[coord].unknown_475d60()) - reinterpret_cast<TPoint2D<int> const &>(Map[unknown_45c].unknown_475d60()));
@@ -103,7 +103,7 @@ void InfantryClass::unknown_5025c0()
                     divisor = unknown_tube_width_79a700;
                 }
                 new_coord.Z += (speed - distance) / divisor * height_step;
-                unknown_slot103(new_coord);
+                Set_Coord(new_coord);
                 return;
             }
         } else {
@@ -116,7 +116,7 @@ void InfantryClass::unknown_5025c0()
                 divisor = unknown_tube_width_79a700;
             }
             new_coord.Z += speed / divisor * height_step;
-            unknown_slot103(new_coord);
+            Set_Coord(new_coord);
             return;
         }
     }
@@ -134,7 +134,7 @@ void InfantryClass::unknown_5025c0()
                 if (object->Kind_Of() == 1 || object->Kind_Of() == 15) {
                     FootClass *unit = static_cast<FootClass *>(object);
                     if (!unit->Locomotor.Checked()->Is_Moving()) {
-                        unit->unknown_slot87(CoordStruct(0, 0, 0), true, true);
+                        unit->Scatter(CoordStruct(0, 0, 0), true, true);
                     }
                 }
             }
@@ -142,13 +142,13 @@ void InfantryClass::unknown_5025c0()
         } else {
             CoordStruct spot = reinterpret_cast<UnknownCellClass *>(cell)->Unknown_004764B0(Object_Coord(this), 0, false);
             spot.Z = Map.Get_Height_GL(spot);
-            unknown_slot103(spot);
+            Set_Coord(spot);
             Locomotor.Checked()->Force_Immediate_Destination(unknown_coord_a410f8);
             Locomotor.Checked()->Stop_Movement_Animation();
             Mark(1);
-            unknown_slot58(Object_Coord(this));
+            Set_Occupy_Bit(Object_Coord(this));
             if (unknown_494 == cell) {
-                unknown_slot87(CoordStruct(0, 0, 0), true, true);
+                Scatter(CoordStruct(0, 0, 0), true, true);
             } else {
                 unknown_slot306(1.0);
             }

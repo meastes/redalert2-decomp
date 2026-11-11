@@ -4,5 +4,5 @@
 
 int __stdcall FlyLocomotionClass::Layer()
 {
-    return LinkedTo->unknown_slot108() <= 0 ? 2 : 4;
+    return LinkedTo->Get_Height_AGL() <= 0 ? 2 : 4;
 }

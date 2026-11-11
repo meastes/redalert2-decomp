@@ -142,7 +142,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
 
     CurrentCellHeight = (foot->Kind_Of() == 2 || !foot->unknown_79) ? from_ptr->unknown_11b : from_ptr->unknown_11b + 4;
 
-    if (foot->unknown_slot32()->IsTrain) {
+    if (foot->Techno_Type_Class()->IsTrain) {
         if (from_ptr->unknown_140 & 0x100) {
             if (abs(CoordStruct(foot->Coord).Z / unknown_geometry_g - CurrentCellHeight) > 2) {
                 CurrentCellHeight += 4;
@@ -150,7 +150,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
         }
     }
 
-    ObjectSpeed = foot->unknown_slot32()->SpeedType;
+    ObjectSpeed = foot->Techno_Type_Class()->SpeedType;
     HierNodeIndex = 0;
     HierLastNodeCell = from;
     int *fine_final_ids = HierOnPath[0];
@@ -185,7 +185,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
     };
 
     bool is_train = false;
-    if (foot->unknown_slot32()->IsTrain) {
+    if (foot->Techno_Type_Class()->IsTrain) {
         is_train = true;
         for (face = 0; face <= 8; face++) {
             int facing_diff = Dir_To_8(foot->unknown_2e0.Current()) - face;

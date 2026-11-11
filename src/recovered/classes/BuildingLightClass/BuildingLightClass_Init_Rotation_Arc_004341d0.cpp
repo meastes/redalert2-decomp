@@ -4,7 +4,7 @@
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
 // @ref ?unknown_sin_4ba480@@YANN@Z=004ba480
 // @ref ?unknown_cos_4ba4d0@@YANN@Z=004ba4d0
-// @ref ?unknown_slot103@ObjectClass@@UAEXABUCoordStruct@@@Z=005d51c0
+// @ref ?Set_Coord@ObjectClass@@UAEXABUCoordStruct@@@Z=005d51c0
 
 // The point DISTANCE leptons from COORD along FACING (in the ground plane;
 // Z is kept). Expanded twice by 0x004341D0 and, through it, the constructor.
@@ -18,7 +18,7 @@ static inline CoordStruct Coord_Along_Facing(UnknownFacingDir facing, int distan
 // Moves LIGHT to COORD (virtual slot 103).
 static inline void Move_To(BuildingLightClass *light, CoordStruct const &coord)
 {
-    light->unknown_slot103(coord);
+    light->Set_Coord(coord);
 }
 
 // Places the light's two points in front of and behind OBJECT (Rules

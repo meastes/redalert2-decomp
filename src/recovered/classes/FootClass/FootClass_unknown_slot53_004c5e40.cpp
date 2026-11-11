@@ -29,7 +29,7 @@ bool FootClass::unknown_slot53(CoordStruct const *coord, int dir)
         } else {
             Locomotor.Checked()->Power_On();
         }
-        unknown_slot96(House);
+        Revealed(House);
         unknown_4d0 = -1;
         Cell cell = unknown_slot104();
         for (int facing = 0; facing < 8; facing++) {
@@ -38,12 +38,12 @@ bool FootClass::unknown_slot53(CoordStruct const *coord, int dir)
         }
         if (!unknown_slot21()) {
             unknown_454 = cell;
-        } else if (unknown_slot32()->ConsideredAircraft) {
+        } else if (Techno_Type_Class()->ConsideredAircraft) {
             unknown_tracker_839ea0.Unknown_004131E0(this);
         }
-        double threat = unknown_slot32()->ThreatAvoidanceCoefficient;
+        double threat = Techno_Type_Class()->ThreatAvoidanceCoefficient;
         unknown_428 = threat;
-        if (unknown_slot32()->SensorsSight != 0) {
+        if (Techno_Type_Class()->SensorsSight != 0) {
             unknown_slot285(unknown_geometry_k);
         }
         return true;

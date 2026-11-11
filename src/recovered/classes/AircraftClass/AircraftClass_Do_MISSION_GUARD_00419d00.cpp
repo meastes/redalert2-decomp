@@ -33,7 +33,7 @@ extern bool unknown_flag_83c4d5;
 int AircraftClass::Do_MISSION_GUARD()
 {
     int level = Type->Flight_Level();
-    if (unknown_slot108() == level) {
+    if (Get_Height_AGL() == level) {
         if (Team != 0) {
             if (unknown_494 != 0) {
                 unknown_5bc = true;
@@ -78,7 +78,7 @@ reloading:
     if (!unknown_slot163()) {
         return 0x2D;
     }
-    if (unknown_slot108() == 0 && !In_Radio_Contact()) {
+    if (Get_Height_AGL() == 0 && !In_Radio_Contact()) {
         return 0x2D;
     }
     if (!House->Unknown_004F52F0()) {

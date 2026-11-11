@@ -28,7 +28,7 @@ void TunnelLocomotionClass::Process_Turning()
             Do_Turn(dir);
             return;
         }
-        int delay = (int)(64.0 / LinkedTo->unknown_slot32()->ROT / Rules->unknown_20);
+        int delay = (int)(64.0 / LinkedTo->Techno_Type_Class()->ROT / Rules->unknown_20);
         DigTimer = UnknownTunnelTimer(delay);
         unknown_18 = 2;
         Voc_Play_At(Rules->unknown_16c, CoordStruct(LinkedTo->Coord), 0);

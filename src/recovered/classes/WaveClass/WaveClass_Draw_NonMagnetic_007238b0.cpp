@@ -27,7 +27,7 @@ void WaveClass::Draw_NonMagnetic_007238b0(CoordStruct const &source, CoordStruct
     TPoint3D<float> planar_delta(start.X-end.X,start.Y-end.Y,0);
     int distance=Fast_Sqrt((double)planar_delta.Y*planar_delta.Y+(double)planar_delta.X*planar_delta.X);
     StartCoord=start;
-    unknown_slot103(StartCoord);
+    Set_Coord(StartCoord);
     EndCoord=end;
     Polygon_130.Count=6;
     Polygon_130.Points=&Polygon_130.InlinePoint0;

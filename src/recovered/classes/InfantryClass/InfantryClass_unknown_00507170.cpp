@@ -26,7 +26,7 @@ bool InfantryClass::unknown_507170()
             if (unknown_34 && unknown_34->Is_To_Inherit()) vehicle->Attach_Tag(unknown_34);
             vehicle->unknown_slot222(House,1);
             vehicle->unknown_290=Type->ArrayIndex;
-            unknown_slot60();
+            Delete_Me();
             return true;
         }
     }

@@ -66,7 +66,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         unknown_5c=false;
     }
     CoordStruct coord;
-    if ((!Is_Powered() || LinkedTo->Strength==0) && LinkedTo->unknown_slot108()!=0) {
+    if ((!Is_Powered() || LinkedTo->Strength==0) && LinkedTo->Get_Height_AGL()!=0) {
         if (LinkedTo->Strength==0) {
             unknown_58+=1;
         } else {
@@ -80,32 +80,32 @@ void FlyLocomotionClass::unknown_4bcd50()
         if (Map.In_Radar(Cell(coord))) {
             Map.Remove(LinkedTo);
             LinkedTo->Mark(0);
-            LinkedTo->unknown_slot103(coord);
+            LinkedTo->Set_Coord(coord);
             LinkedTo->Mark(1);
             Map.Submit(LinkedTo);
         }
-        if (LinkedTo->unknown_slot108()<=0) {
+        if (LinkedTo->Get_Height_AGL()<=0) {
             unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
-            LinkedTo->unknown_slot109(0);
+            LinkedTo->Set_Height_AGL(0);
             int damage=LinkedTo->Strength;
             if (damage==0) {
                 Cell cell=Cell(coord);
                 LinkedTo->unknown_6d7e20(0);
                 int sound;
                 if (Map[cell].unknown_ec!=2) {
-                    sound=LinkedTo->unknown_slot32()->ImpactLandSound;
+                    sound=LinkedTo->Techno_Type_Class()->ImpactLandSound;
                     if (sound==-1) sound=Rules->ImpactLandSound;
                 } else {
-                    sound=LinkedTo->unknown_slot32()->ImpactWaterSound;
+                    sound=LinkedTo->Techno_Type_Class()->ImpactWaterSound;
                     if (sound==-1) sound=Rules->ImpactWaterSound;
                 }
                 if (sound!=-1) {
                     Voc_Play_At(sound,Object_Coord(LinkedTo),0);
                 }
-                LinkedTo->unknown_slot60();
+                LinkedTo->Delete_Me();
                 return;
             }
-            LinkedTo->unknown_slot86(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,1);
+            LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->unknown_c74,0,true,1);
             Cell cell=Cell(coord);
             new AnimClass(Select_Damage_Anim(damage,Rules->unknown_c74,Fly_Land_004bcd50(Map[cell]),&oldcoord),coord,0,1,0x2600,Unknown_0047FCC0(coord));
             Unknown_0047F600(coord,damage,Rules->unknown_c74,0,0);
@@ -120,7 +120,7 @@ void FlyLocomotionClass::unknown_4bcd50()
     if (!Is_Moving()) {
         return;
     }
-    TechnoTypeClass *ttype=LinkedTo->unknown_slot32();
+    TechnoTypeClass *ttype=LinkedTo->Techno_Type_Class();
     bool is_dropship=ttype->IsDropship;
     bool is_hunter_seeker=ttype->HunterSeeker;
     LinkedTo->Mark(0);
@@ -135,18 +135,18 @@ void FlyLocomotionClass::unknown_4bcd50()
             coord.X-=128;
         }
         if (Map.In_Radar(Cell(coord))) {
-            LinkedTo->unknown_slot103(coord);
+            LinkedTo->Set_Coord(coord);
         } else {
             coord=Coord_Scatter(coord,64,false);
             if (Map.In_Radar(Cell(coord))) {
-                LinkedTo->unknown_slot103(coord);
+                LinkedTo->Set_Coord(coord);
             }
         }
     } else {
-        LinkedTo->unknown_slot103(coord);
+        LinkedTo->Set_Coord(coord);
     }
     int bridge_height=0;
-    int current_height=LinkedTo->unknown_slot108();
+    int current_height=LinkedTo->Get_Height_AGL();
     if (!LinkedTo->unknown_79 && current_height>=unknown_geometry_j && (Loco_Cell(Object_Coord(LinkedTo))->Flags&0x100)) {
         current_height-=unknown_geometry_j;
         bridge_height=unknown_geometry_j;
@@ -162,21 +162,21 @@ void FlyLocomotionClass::unknown_4bcd50()
         if (is_dropship) {
             int climb=unknown_38-current_height;
             if (climb>16) climb=16;
-            LinkedTo->unknown_slot109(bridge_height+current_height+climb);
+            LinkedTo->Set_Height_AGL(bridge_height+current_height+climb);
         } else if (is_hunter_seeker) {
             if (unknown_50) {
                 int climb=unknown_38-current_height;
                 climb=MIN(Rules->HunterSeekerEmergeSpeed,climb);
-                LinkedTo->unknown_slot109(bridge_height+current_height+climb);
+                LinkedTo->Set_Height_AGL(bridge_height+current_height+climb);
             } else {
                 int climb=unknown_38-current_height;
                 climb=MIN(Rules->HunterSeekerAscentSpeed,climb);
-                LinkedTo->unknown_slot109(bridge_height+current_height+climb);
+                LinkedTo->Set_Height_AGL(bridge_height+current_height+climb);
             }
         } else {
             int climb=unknown_38-current_height;
             climb=MIN(is_loaded?10:20,climb);
-            LinkedTo->unknown_slot109(bridge_height+current_height+climb);
+            LinkedTo->Set_Height_AGL(bridge_height+current_height+climb);
         }
         LinkedTo->unknown_79=false;
     }
@@ -186,7 +186,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             if (unknown_51) {
                 int limit=descent/20+10;
                 descent=MIN(MIN(limit,48),descent);
-            } else if (unknown_38==LinkedTo->unknown_slot32()->Flight_Level()) {
+            } else if (unknown_38==LinkedTo->Techno_Type_Class()->Flight_Level()) {
                 if (current_height>16) descent=16;
                 else descent=current_height;
             } else {
@@ -215,7 +215,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             LinkedTo->unknown_79=true;
             bridge_height=0;
         }
-        LinkedTo->unknown_slot109(bridge_height+current_height);
+        LinkedTo->Set_Height_AGL(bridge_height+current_height);
         if (LinkedTo->Strength>0 && unknown_1c!=unknown_geometry_l) {
             if (LinkedTo->Get_Mission()!=7 || LinkedTo->unknown_494==0
                 || LinkedTo->unknown_494->Kind_Of()!=6
@@ -223,7 +223,7 @@ void FlyLocomotionClass::unknown_4bcd50()
                 Cell target=Cell(unknown_1c);
                 CoordStruct center(target.X*256+128,target.Y*256+128,0);
                 CoordStruct current=Object_Coord(LinkedTo);
-                LinkedTo->unknown_slot103(Fly_Move_Coord_004bcd50(current,Fly_Direction_004bcd50(current,center),5));
+                LinkedTo->Set_Coord(Fly_Move_Coord_004bcd50(current,Fly_Direction_004bcd50(current,center),5));
             }
         }
     }
@@ -231,7 +231,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
         if (!unknown_4bf8f0()) {
             unknown_40=1.0;
-        } else if (LinkedTo->unknown_slot32()->HunterSeeker) {
+        } else if (LinkedTo->Techno_Type_Class()->HunterSeeker) {
             if (!unknown_50 && LinkedTo->unknown_228!=0) {
                 unknown_40=1.0;
             } else {
@@ -263,7 +263,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         int slowdown=ttype->SlowdownDistance;
         if (dist<slowdown) {
             double factor=1.0-((double)dist-((double)slowdown*0.6))/((double)slowdown*0.4);
-            LinkedTo->unknown_240=MIN(LinkedTo->unknown_slot32()->PitchAngle,factor*LinkedTo->unknown_slot32()->PitchAngle);
+            LinkedTo->unknown_240=MIN(LinkedTo->Techno_Type_Class()->PitchAngle,factor*LinkedTo->Techno_Type_Class()->PitchAngle);
         }
     }
     if (!unknown_5c && LinkedTo->Strength>0 && !unknown_51 && !unknown_50) {

@@ -22,7 +22,7 @@ void AircraftClass::unknown_416420()
         passenger->Locomotor.Checked()->Release();
         passenger->Locomotor.Detach();
         passenger->Locomotor = UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600>(
-            passenger->unknown_slot32()->Locomotor);
+            passenger->Techno_Type_Class()->Locomotor);
     }
     passenger->Locomotor.Checked()->Link_To_Object(passenger);
     if (!passenger->unknown_slot53(&position, 0)) {

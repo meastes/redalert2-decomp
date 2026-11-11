@@ -67,6 +67,6 @@ void ParticleSystemClass::Spark_AI()
     for (index=0;index<Particles.Count();++index) Particles[index]->Behavior_AI();
     for (index=Particles.Count()-1;index>=0;--index) {
         ParticleClass *particle=Particles[index];
-        if (particle->unknown_121) particle->unknown_slot60();
+        if (particle->unknown_121) particle->Delete_Me();
     }
 }

@@ -20,7 +20,7 @@ bool TechnoClass::unknown_slot245(HouseClass *house)
         }
         return true;
     }
-    UnknownCellClass *cell = (UnknownCellClass *)unknown_slot105();
+    UnknownCellClass *cell = (UnknownCellClass *)Get_Cell_Ptr();
     if (unknown_slot48() && cell != 0 && !cell->unknown_47c300(house->ArrayIndex)) {
         return false;
     }

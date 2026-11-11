@@ -12,11 +12,11 @@
 void TechnoClass::unknown_slot233()
 {
     Mark(2);
-    int strength = unknown_slot32()->MaxStrength;
+    int strength = Techno_Type_Class()->MaxStrength;
     Strength = strength;
     unknown_70 = strength;
     if (Kind_Of() == 6) {
-        unknown_slot97(0);
+        Repair(0);
         ((BuildingClass *)this)->unknown_44d070(Health_Ratio() <= Rules->unknown_1368);
         Voc_Play_At(Rules->unknown_1bc, Center_Coord(), 0);
     }

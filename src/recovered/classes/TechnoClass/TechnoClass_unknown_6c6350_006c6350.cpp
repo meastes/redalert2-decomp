@@ -29,7 +29,7 @@ int TechnoClass::unknown_6c6350(Cell const *cell)
         return 0;
     }
     int weapon = unknown_slot174((AbstractClass *)&Map[*cell]);
-    if (!unknown_slot84(CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0), weapon)) {
+    if (!In_Range(CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0), weapon)) {
         return 0;
     }
     WeaponStruct *primary = unknown_slot230();
@@ -47,5 +47,5 @@ int TechnoClass::unknown_6c6350(Cell const *cell)
         return 0;
     }
     int distance = Offset_Length(Center_Coord() - CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0));
-    return unknown_slot85(0) - distance;
+    return Weapon_Range(0) - distance;
 }

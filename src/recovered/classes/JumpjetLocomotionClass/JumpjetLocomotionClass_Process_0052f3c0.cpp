@@ -25,7 +25,7 @@ bool __stdcall JumpjetLocomotionClass::Process()
         if (LinkedTo->House->Unknown_0051FC80() && unknown_4c != 0 && unknown_4c != 5) {
             LinkedTo->unknown_slot224(0);
         }
-        if (LinkedTo->unknown_37d && unknown_4c != 5 && unknown_4c != 6 && LinkedTo->unknown_slot108() > 0) {
+        if (LinkedTo->unknown_37d && unknown_4c != 5 && unknown_4c != 6 && LinkedTo->Get_Height_AGL() > 0) {
             unknown_78 = -5;
             unknown_4c = 5;
             if (LinkedTo->Kind_Of() == 0xF) {
@@ -58,12 +58,12 @@ bool __stdcall JumpjetLocomotionClass::Process()
         if (LinkedTo->unknown_77 && LinkedTo->House != unknown_player_a35db4) {
             if (Map.Is_Shrouded(Object_Coord(LinkedTo)) ||
                 ((unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
-                LinkedTo->unknown_slot81();
+                LinkedTo->Unselect();
             }
         }
         if (!LinkedTo->unknown_373 && LinkedTo->House != unknown_player_a35db4) {
             if (!Map.Is_Shrouded(Object_Coord(LinkedTo))) {
-                LinkedTo->unknown_slot96(unknown_player_a35db4);
+                LinkedTo->Revealed(unknown_player_a35db4);
             }
         }
     }

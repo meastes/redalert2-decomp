@@ -8,7 +8,7 @@
 void TeamClass::TMission_unknown_6bb310(ScriptMissionClass const &mission, bool unknown)
 {
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-        member->unknown_slot87(unknown_geometry_l, true, false);
+        member->Scatter(unknown_geometry_l, true, false);
     }
     StepCompleted = true;
 }

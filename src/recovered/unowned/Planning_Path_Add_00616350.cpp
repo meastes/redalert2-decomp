@@ -31,7 +31,7 @@ inline void __fastcall Planning_Close_Loop(TechnoClass *techno, PlanningNodeClas
             for (int i = 0; i < count; i++) {
                 TechnoClass *member = last->Members[i]->Owner;
                 if (member->unknown_77) {
-                    member->unknown_slot81();
+                    member->Unselect();
                 }
             }
         }

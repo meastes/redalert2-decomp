@@ -19,7 +19,7 @@
 
 bool IsometricTileClass::Mark(int mark)
 {
-    IsoTileImageStruct *image = (IsoTileImageStruct *)unknown_slot26();
+    IsoTileImageStruct *image = (IsoTileImageStruct *)Get_Image_Data();
     if (image == 0 || !ObjectClass::Mark(mark)) {
         return false;
     }

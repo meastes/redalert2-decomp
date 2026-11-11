@@ -45,8 +45,8 @@ void BulletClass::unknown_func_462c50()
     } else {
         count = shrapnel;
     }
-    if (static_cast<CellClass *>(unknown_slot105())->OccupierPtr == 0) return;
-    CellClass *center = static_cast<CellClass *>(unknown_slot105());
+    if (static_cast<CellClass *>(Get_Cell_Ptr())->OccupierPtr == 0) return;
+    CellClass *center = static_cast<CellClass *>(Get_Cell_Ptr());
     if (center->OccupierPtr->Kind_Of() == 6) return;
     WeaponTypeClass *weapon = Type->ShrapnelWeapon;
     BulletTypeClass *projectile = weapon->Projectile;

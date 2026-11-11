@@ -81,7 +81,7 @@ int InfantryClass::unknown_slot101(CellClass *cell,int direction,int height,Cell
                 }
             }
             if (Get_Mission()==11 && unknown_1b0==occupant && unknown_1b0->Kind_Of()==1) return 7;
-            if (Type->VehicleThief && occupant->unknown_slot31() && unknown_494==occupant && !occupant->unknown_slot32()->IsTrain) return 0;
+            if (Type->VehicleThief && occupant->unknown_slot31() && unknown_494==occupant && !occupant->Techno_Type_Class()->IsTrain) return 0;
             if (occupant->Kind_Of()==6) {
                 BuildingClass *building=static_cast<BuildingClass*>(occupant);
                 if (building->Type->InvisibleInGame || (building->Type->LaserFence && (building->unknown_4ec==12 || building->unknown_4ec==8))) {

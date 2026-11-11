@@ -8,11 +8,11 @@
 FootClass *FootClass::unknown_4ccfc0()
 {
     FootClass *passenger = (FootClass *)Cargo.Detach_Object();
-    if (unknown_slot32()->Gunner && Cargo.Count == 0) {
+    if (Techno_Type_Class()->Gunner && Cargo.Count == 0) {
         unknown_slot281((int)passenger);
     }
-    if (passenger != 0 && unknown_slot32()->LeaveTransportSound != -1) {
-        Voc_Static_Add(unknown_slot32()->LeaveTransportSound, CoordStruct(Coord), 0);
+    if (passenger != 0 && Techno_Type_Class()->LeaveTransportSound != -1) {
+        Voc_Static_Add(Techno_Type_Class()->LeaveTransportSound, CoordStruct(Coord), 0);
     }
     return passenger;
 }

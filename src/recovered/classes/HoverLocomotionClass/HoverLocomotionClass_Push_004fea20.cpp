@@ -21,11 +21,11 @@ bool __stdcall HoverLocomotionClass::Push(UnknownFacingDir dir)
             unknown_70=true;
             if (Is_Moving()) {
                 LinkedTo->Path[0]=-1;
-                if (unknown_24!=unknown_geometry_l) LinkedTo->unknown_slot59(unknown_24);
+                if (unknown_24!=unknown_geometry_l) LinkedTo->Clear_Occupy_Bit(unknown_24);
                 unknown_24=CoordStruct(cell.X*256+128,cell.Y*256+128,0);
                 unknown_24.Z=Map.Get_Height_GL(unknown_24);
                 if (Object_Coord(LinkedTo).Z>=unknown_24.Z+unknown_geometry_g*3) unknown_24.Z+=unknown_geometry_j;
-                LinkedTo->unknown_slot58(unknown_24);
+                LinkedTo->Set_Occupy_Bit(unknown_24);
             } else {
                 Move_To(CoordStruct(cell.X*256+128,cell.Y*256+128,0));
             }

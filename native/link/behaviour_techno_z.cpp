@@ -48,7 +48,7 @@ int TechnoClass::unknown_slot176()
     int const ramp1 = Stored_Int(0x007F7124, -1);
     int const ramp2 = Stored_Int(0x007F7128, -1);
     int const rock = Stored_Int(0x007F712C, 3);
-    int zadjust = -Unknown_006A2970(unknown_slot110());
+    int zadjust = -Unknown_006A2970(Get_Height());
     Cell cell = unknown_slot104();
     CellClass *here = &Map[cell];
     if (Kind_Of() == 1) {
@@ -60,7 +60,7 @@ int TechnoClass::unknown_slot176()
             }
         }
         if (unit->Type->Harvester) {
-            CellClass *cell_ptr = (CellClass *)unknown_slot105();
+            CellClass *cell_ptr = (CellClass *)Get_Cell_Ptr();
             BuildingClass *building = cell_ptr != 0 ? (BuildingClass *)cell_ptr->Cell_Building() : 0;
             if (building != 0 && building->Type->Refinery) {
                 return zadjust - 14;

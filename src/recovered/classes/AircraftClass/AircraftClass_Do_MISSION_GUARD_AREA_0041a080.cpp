@@ -8,7 +8,7 @@
 
 int AircraftClass::Do_MISSION_GUARD_AREA()
 {
-    if (unknown_slot108() == Type->Flight_Level()) {
+    if (Get_Height_AGL() == Type->Flight_Level()) {
         if (Team == 0) {
             unknown_slot261(0, 1);
         }

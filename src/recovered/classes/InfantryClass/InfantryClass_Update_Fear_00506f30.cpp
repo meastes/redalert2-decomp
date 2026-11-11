@@ -29,7 +29,7 @@ void InfantryClass::unknown_506f30()
     }
     if (Type->Fraidycat && unknown_5bc > 50 && !unknown_5090d0() && !unknown_7a) {
         if (!Locomotor.Checked()->Is_Moving() && unknown_494 == 0) {
-            unknown_slot87(unknown_geometry_l, true, false);
+            Scatter(unknown_geometry_l, true, false);
         }
     }
 }

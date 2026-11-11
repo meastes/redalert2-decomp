@@ -39,5 +39,5 @@ void __fastcall Building_Refresh_Fence_Cell_0044e440(Cell const &origin)
     }
     if(found)return;
 destroy:
-    fence->unknown_slot60();
+    fence->Delete_Me();
 }

@@ -19,7 +19,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
         if (unknown_slot111()) return 0;
         {
             CellClass &tile = Map[unknown_slot19(0)];
-            if ((tile.unknown_140 & 0x100) && !unknown_slot46(0)) return 10;
+            if ((tile.unknown_140 & 0x100) && !Is_Moving_Onto_Bridge(0)) return 10;
         }
         if (Get_Mission() == 16) return 10;
         if (unknown_370) return 10;
@@ -44,9 +44,9 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
                     *(int const *)((char const *)sender->unknown_230 + 0x24) != 0) return 0;
                 int capacity = Type->Passengers;
 
-                if (!(Unit_Radio_Used_Size(Cargo) + sender->unknown_slot32()->Size <= capacity))
+                if (!(Unit_Radio_Used_Size(Cargo) + sender->Techno_Type_Class()->Size <= capacity))
                     goto no_transport_room;
-                if (sender->unknown_slot32()->Size > Type->SizeLimit)
+                if (sender->Techno_Type_Class()->Size > Type->SizeLimit)
                     goto no_transport_room;
                 return 1;
             }
@@ -76,19 +76,19 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
         if (Contact(0) != radio) {
             int capacity = Type->Passengers;
 
-            if (Unit_Radio_Used_Size(Cargo) + sender->unknown_slot32()->Size <= capacity &&
-                !(sender->unknown_slot32()->Size > Type->SizeLimit)) {
+            if (Unit_Radio_Used_Size(Cargo) + sender->Techno_Type_Class()->Size <= capacity &&
+                !(sender->Techno_Type_Class()->Size > Type->SizeLimit)) {
                 if (!In_Radio_Contact()) unknown_slot150(2, sender);
             } else goto no_transport_room;
         }
         if (!unknown_494) {
             Cell cell = unknown_slot104();
             CellClass &tile = Map[cell];
-            int own_zone = Map.Zone(unknown_454, sender->unknown_slot32()->MovementZone, false);
+            int own_zone = Map.Zone(unknown_454, sender->Techno_Type_Class()->MovementZone, false);
             int sender_zone = -1;
             if (radio && radio->AbstractFlags.IsFoot)
                 sender_zone = Map.Zone(((FootClass *)radio)->unknown_454,
-                                       sender->unknown_slot32()->MovementZone, false);
+                                       sender->Techno_Type_Class()->MovementZone, false);
             if (own_zone != sender_zone) {
                 Assign_Destination(radio, true);
                 return 14;
@@ -102,8 +102,8 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
             if (Type->Passengers > 0) {
                 int capacity = Type->Passengers;
 
-                if (Unit_Radio_Used_Size(Cargo) + sender->unknown_slot32()->Size <= capacity &&
-                    !(sender->unknown_slot32()->Size > Type->SizeLimit)) {
+                if (Unit_Radio_Used_Size(Cargo) + sender->Techno_Type_Class()->Size <= capacity &&
+                    !(sender->Techno_Type_Class()->Size > Type->SizeLimit)) {
                     FootClass::unknown_slot95(radio, message, param);
                     if (!Locomotor.Checked()->Is_Moving() && !unknown_599 && !unknown_370 &&
                         unknown_slot150(0x13, sender) == 1) {
@@ -120,7 +120,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
     case 23:
         if ((Type->Harvester || Type->Weeder) && unknown_5b9) {
             unknown_5b9 = false;
-            unknown_slot87(unknown_geometry_l, true, false);
+            Scatter(unknown_geometry_l, true, false);
             unknown_slot116(10, false);
             if (unknown_slot122()) Commence();
         }

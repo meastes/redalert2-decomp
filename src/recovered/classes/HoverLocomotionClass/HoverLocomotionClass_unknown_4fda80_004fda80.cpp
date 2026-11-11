@@ -11,7 +11,7 @@ void HoverLocomotionClass::unknown_4fda80()
     unknown_48 = 0;
     LinkedTo->unknown_slot306(0);
     if (unknown_24 != unknown_geometry_l) {
-        LinkedTo->unknown_slot59(unknown_24);
+        LinkedTo->Clear_Occupy_Bit(unknown_24);
         unknown_24 = unknown_geometry_l;
     }
 }

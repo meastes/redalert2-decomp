@@ -133,7 +133,7 @@ BulletClass *AircraftClass::unknown_slot221(AbstractClass *target, int arg2)
         }
     }
     if (unknown_5b2) {
-        unknown_slot60();
+        Delete_Me();
     }
     return bullet;
 }

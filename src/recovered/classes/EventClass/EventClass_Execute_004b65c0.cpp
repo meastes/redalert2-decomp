@@ -142,7 +142,7 @@ void EventClass::Execute()
         techno = TargetAt(0x07).As_Techno();
         Planning_Techno_00615480(techno, 0);
         if (techno && techno->unknown_7d) {
-            techno->unknown_slot97(-1);
+            techno->Repair(-1);
         }
         break;
 
@@ -152,7 +152,7 @@ void EventClass::Execute()
         if (techno && techno->unknown_7d && techno->House->ArrayIndex == House) {
             if (techno->Kind_Of() == 6
                 || ((techno->Kind_Of() == 1 || techno->Kind_Of() == 2) && Map[techno->Center_Coord()].Cell_Building())) {
-                techno->unknown_slot98(-1);
+                techno->Sell_Back(-1);
             }
         }
         break;
@@ -259,7 +259,7 @@ void EventClass::Execute()
                 ((FootClass *)techno)->Team->Unknown_006B8FB0((FootClass *)techno, -1, true);
             }
             if (object && unknown_player_a35db4->Is_Ally(techno)) {
-                object->unknown_slot79(7);
+                object->Clicked_As_Target(7);
             }
             int mission = techno->unknown_slot268((UnknownSlot268Arg const *)this);
             techno->unknown_slot116(mission, false);
@@ -371,7 +371,7 @@ void EventClass::Execute()
         }
         if (techno && foot && techno->unknown_7d && !techno->unknown_76 && !techno->unknown_370) {
             ((FootClass *)techno)->unknown_59c = true;
-            techno->unknown_slot87(unknown_geometry_l, true, false);
+            techno->Scatter(unknown_geometry_l, true, false);
         }
         break;
 

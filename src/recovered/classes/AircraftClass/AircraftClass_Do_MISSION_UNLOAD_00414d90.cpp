@@ -16,7 +16,7 @@ int AircraftClass::Do_MISSION_UNLOAD()
 {
     switch (unknown_a8) {
     case 0:
-        if (unknown_slot108() == 0 && unknown_240 == 0.0) {
+        if (Get_Height_AGL() == 0 && unknown_240 == 0.0) {
             if (unknown_494) {
                 CoordStruct current = Coord;
                 if (current != unknown_494->Center_Coord()) goto choose_destination;
@@ -30,7 +30,7 @@ mission_delay:
 
         }
 choose_destination:
-        if (!unknown_494 && Type->IsDropship && unknown_slot108() > 0) {
+        if (!unknown_494 && Type->IsDropship && Get_Height_AGL() > 0) {
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
             if (dock) Assign_Destination(dock, true);
             else Assign_Destination(unknown_4198b0(), true);
@@ -46,7 +46,7 @@ choose_destination:
             }
         } else {
             int flight_level = Type->Flight_Level();
-            unknown_a8 = unknown_slot108() == flight_level ? 1 : 4;
+            unknown_a8 = Get_Height_AGL() == flight_level ? 1 : 4;
         }
         goto mission_delay;
     case 1:
@@ -66,7 +66,7 @@ choose_destination:
                 } else {
                 FootClass *passenger = (FootClass *)Cargo.Detach_Object();
                 Map.Pick_Up(unknown_slot104(), this);
-                if (unknown_slot62(passenger)) passenger->unknown_37c = false;
+                if (Exit_Object(passenger)) passenger->unknown_37c = false;
                 Map.Place_Down(unknown_slot104(), this);
                 if (!passenger->unknown_37c && passenger->Team) Team->unknown_func_6b8cc0(passenger);
                 if (!Cargo.Object) unknown_slot261(false, true);

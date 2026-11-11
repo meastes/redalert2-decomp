@@ -24,7 +24,7 @@ void TeamClass::TMission_unknown_6bb020(ScriptMissionClass const &mission, bool 
     }
     if (unknown_3c != 0) {
         for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-            if (member->unknown_slot32()->Ammo <= 0 || member->unknown_254 > 0) {
+            if (member->Techno_Type_Class()->Ammo <= 0 || member->unknown_254 > 0) {
                 unknown_func_6b9bb0();
                 return;
             }

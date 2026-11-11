@@ -30,7 +30,7 @@ int AStarClass::Test_Cell_Walk(Cell const &from, Cell const &to, FootClass *foot
     Cell hs_to = Map.Get_Bridge_Zone_Connection_Cell(to_ptr, to_bridge);
     if (arg6 == -1) {
         if (foot) {
-            arg6 = foot->unknown_slot32()->MovementZone;
+            arg6 = foot->Techno_Type_Class()->MovementZone;
         } else {
             arg6 = 0;
         }

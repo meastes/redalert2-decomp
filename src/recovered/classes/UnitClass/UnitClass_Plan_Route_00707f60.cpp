@@ -20,9 +20,9 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
 {
 
     unknown_478.Clear();
-    bool leaving_bridge=unknown_slot46(0);
+    bool leaving_bridge=Is_Moving_Onto_Bridge(0);
     Cell origin=Cell(unknown_slot19(0));
-    bool origin_burrow=Map[origin].Can_Burrow_Here() || unknown_slot108()<0;
+    bool origin_burrow=Map[origin].Can_Burrow_Here() || Get_Height_AGL()<0;
     Cell goal=Cell(target->Center_Coord());
     CellClass *goal_cell=&Map[goal];
     bool goal_bridge=(goal_cell->unknown_140&0x100)!=0;
@@ -47,12 +47,12 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
                         target=&Map[last];
                     } else {
                         Cell alternative=Map.Nearby_Location(goal,1,Map.Zone(origin,0,true),0,true,Point2D(1,1),0,1,0,1,Cell(0,0),0);
-                        if (alternative==unknown_geometry_k || unknown_slot108()<0) return 0;
+                        if (alternative==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                         target=&Map[alternative];
                     }
                 } else {
                     Cell alternative=Map.Nearby_Location(goal,1,Map.Zone(origin,0,true),0,true,Point2D(1,1),0,1,0,1,Cell(0,0),0);
-                    if (alternative==unknown_geometry_k || unknown_slot108()<0) return 0;
+                    if (alternative==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                     target=&Map[alternative];
                 }
             } else {
@@ -69,7 +69,7 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
                     if (departure!=origin) unknown_478.Add(&Map[departure]);
                 } else {
                     Cell alternative=Map.Nearby_Location(goal,1,Map.Zone(origin,0,true),0,true,Point2D(1,1),0,1,0,1,Cell(0,0),0);
-                    if (alternative==unknown_geometry_k || unknown_slot108()<0) return 0;
+                    if (alternative==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                     target=&Map[alternative];
                 }
             } else if (departure!=origin) unknown_478.Add(&Map[departure]);
@@ -90,12 +90,12 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
                         target=&Map[last];
                     } else {
                         Cell replacement=Map.Nearby_Location(goal,1,Map.Zone(origin,0,true),0,true,Point2D(1,1),0,1,0,1,Cell(0,0),0);
-                        if (replacement==unknown_geometry_k || unknown_slot108()<0) return 0;
+                        if (replacement==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                         target=&Map[replacement];
                     }
                 } else {
                     Cell alternative=Map.Nearby_Location(goal,1,Map.Zone(origin,0,true),0,true,Point2D(1,1),0,1,0,1,Cell(0,0),0);
-                    if (alternative==unknown_geometry_k || unknown_slot108()<0) return 0;
+                    if (alternative==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                     target=&Map[alternative];
                 }
             } else if (departure!=origin) unknown_478.Add(&Map[departure]);
@@ -115,7 +115,7 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
                         target=&Map[last];
                     } else {
                         Cell replacement=Map.Nearby_Location(goal,1,Map.Zone(origin,0,false),0,false,Point2D(1,1),0,1,0,1,Cell(0,0),0);
-                        if (replacement==unknown_geometry_k || unknown_slot108()<0) return 0;
+                        if (replacement==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                         target=&Map[replacement];
                     }
                 }
@@ -130,7 +130,7 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
                     target=&Map[last];
                 } else {
                     Cell replacement=Map.Nearby_Location(goal,1,Map.Zone(origin,0,false),0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
-                    if (replacement==unknown_geometry_k || unknown_slot108()<0) return 0;
+                    if (replacement==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                     target=&Map[replacement];
                 }
             }
@@ -152,12 +152,12 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
                     target=&Map[last];
                 } else {
                     Cell replacement=Map.Nearby_Location(goal,1,Map.Zone(origin,0,false),0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
-                    if (replacement==unknown_geometry_k || unknown_slot108()<0) return 0;
+                    if (replacement==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                     target=&Map[replacement];
                 }
             } else {
                 Cell alternative=Map.Nearby_Location(goal,1,Map.Zone(origin,0,false),0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
-                if (alternative==unknown_geometry_k || unknown_slot108()<0) return 0;
+                if (alternative==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                 target=&Map[alternative];
             }
         } else if (arrival!=origin) unknown_478.Add(&Map[arrival]);
@@ -168,7 +168,7 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
                 unknown_478.Add(&Map[first]);
             } else if (!Map.Unknown_0054F7C0(origin,goal,0,false,false,false)) {
                 Cell alternative=Map.Nearby_Location(goal,1,Map.Zone(origin,0,false),0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
-                if (alternative==unknown_geometry_k || unknown_slot108()<0) return 0;
+                if (alternative==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                 target=&Map[alternative];
             }
         }
@@ -186,12 +186,12 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
                     target=&Map[last];
                 } else {
                     Cell replacement=Map.Nearby_Location(goal,1,Map.Zone(origin,0,false),0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
-                    if (replacement==unknown_geometry_k || unknown_slot108()<0) return 0;
+                    if (replacement==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                     target=&Map[replacement];
                 }
             } else {
                 Cell alternative=Map.Nearby_Location(goal,1,Map.Zone(origin,0,false),0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
-                if (alternative==unknown_geometry_k || unknown_slot108()<0) return 0;
+                if (alternative==unknown_geometry_k || Get_Height_AGL()<0) return 0;
                 target=&Map[alternative];
             }
         }

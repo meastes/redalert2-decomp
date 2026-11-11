@@ -53,7 +53,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         TechnoClass *techno = As_Techno_0040dbd0(object);
         if (techno != 0 && !techno->unknown_372) {
             if ((techno->unknown_1b8 == 2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex))
-                    || techno->unknown_slot32()->Invisible) {
+                    || techno->Techno_Type_Class()->Invisible) {
                 visible = false;
             }
         }
@@ -64,7 +64,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
             visible = false;
         }
         if (visible) {
-            if (object != 0 && object->unknown_slot76()
+            if (object != 0 && object->CanBeSelected()
                     && (object->Kind_Of() != 6 || !((BuildingClass *)object)->unknown_5b7)
                     && (techno == 0 || !techno->unknown_32c)) {
                 action = 7;
@@ -75,7 +75,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         }
 
         if (Map.unknown_11ac) {
-            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->unknown_slot36()) {
+            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->Can_Repair()) {
                 action = 10;
             } else {
                 action = 15;
@@ -85,7 +85,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         if (Map.unknown_11ae) {
             action = 0x22;
             if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control()
-                    && object->Kind_Of() == 6 && object->unknown_slot76() && !object->unknown_slot31()) {
+                    && object->Kind_Of() == 6 && object->CanBeSelected() && !object->unknown_slot31()) {
                 BuildingTypeClass *type = ((BuildingClass *)object)->Type;
                 if (type->TogglePower && (type->PowerDrain_c6c > 0 || type->Powered)) {
                     action = 0x21;
@@ -122,7 +122,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         }
 
         if (Map.unknown_11ad) {
-            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->unknown_slot37()) {
+            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->Can_Demolish()) {
                 if (object->Kind_Of() == 6) {
                     action = object->unknown_slot31() ? 14 : 12;
                 } else {

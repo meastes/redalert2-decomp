@@ -81,11 +81,11 @@ int BuildingClass::Do_MISSION_REPAIR()
                         }
                         // Both completed treatment and an empty reply release the patient.
                     case 10:
-                        unknown_slot62((TechnoClass *)Cargo.Detach_Object());
+                        Exit_Object((TechnoClass *)Cargo.Detach_Object());
                         unknown_slot116(5, false);
                         break;
                     case 32:
-                        unknown_slot62((TechnoClass *)Cargo.Detach_Object());
+                        Exit_Object((TechnoClass *)Cargo.Detach_Object());
                         break;
                     }
                 }
@@ -113,7 +113,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     TechnoClass *contact = Contact_With_Whom();
                     if (contact->unknown_118.Is_Dumbass()) contact->unknown_118.Set_Veteran(true);
                     else contact->unknown_118.Set_Elite(true);
-                    unknown_slot62((TechnoClass *)Cargo.Detach_Object());
+                    Exit_Object((TechnoClass *)Cargo.Detach_Object());
                     unknown_slot116(5, false);
                 }
 
@@ -238,7 +238,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                 if (unknown_slot149(19) == 1) {
                     TechnoClass *client = Contact_With_Whom();
                     bool damaged = client->Health_Ratio() < Rules->unknown_1360;
-                    bool manual_reload = client->unknown_slot32()->ManualReload;
+                    bool manual_reload = client->Techno_Type_Class()->ManualReload;
                     int reply = unknown_slot149(28);
                     bool roger = reply == 1;
                     bool all_done = reply == 33;
@@ -274,7 +274,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                         unknown_4f4.Set_Stage(0);
                         unknown_4f4.Set_Rate(1);
                     } else {
-                        client->unknown_slot98(1);
+                        client->Sell_Back(1);
                         unknown_a8 = 0;
                         unknown_5ad = true;
                     }
@@ -290,7 +290,7 @@ int BuildingClass::Do_MISSION_REPAIR()
         for (int index=0; index<RadioLinks.Length(); ++index) {
             TechnoClass *contact = Contact(index);
             if (contact) {
-                if (unknown_slot150(29, contact) == 1 && contact->Strength == contact->unknown_slot32()->MaxStrength) goto release_contact;
+                if (unknown_slot150(29, contact) == 1 && contact->Strength == contact->Techno_Type_Class()->MaxStrength) goto release_contact;
                 if (contact->Get_Mission() != 7 && unknown_slot150(19, contact) == 1) {
                     servicing = true;
                     if (contact->Get_Mission() != 0) {

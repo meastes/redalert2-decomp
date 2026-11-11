@@ -15,7 +15,7 @@ bool WaveClass::unknown_slot53(CoordStruct const *coord, int dir)
         }
         unknown_76 = false;
         unknown_75 = false;
-        unknown_slot103(*coord);
+        Set_Coord(*coord);
         if (Mark(1)) {
             if (unknown_7d) {
                 if (unknown_slot29() != -1) {

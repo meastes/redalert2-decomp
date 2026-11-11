@@ -29,10 +29,10 @@ void ParticleSystemClass::AI()
         break;
     }
     if (--Lifetime == 0) {
-        unknown_slot60();
+        Delete_Me();
     }
     if (unknown_7d && unknown_e4 && Particles.Count() == 0) {
-        unknown_slot52();
+        Limbo();
         unknown_7d = false;
         unknown_objects_ac0cd8.Add(this);
     }

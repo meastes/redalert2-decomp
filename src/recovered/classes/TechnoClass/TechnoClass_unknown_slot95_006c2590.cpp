@@ -88,15 +88,15 @@ int TechnoClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&p
         RadioClass::unknown_slot95(from, message, param);
         return 1;
     case 31:
-        if (unknown_254 == unknown_slot32()->Ammo) {
+        if (unknown_254 == Techno_Type_Class()->Ammo) {
             return 10;
         }
         unknown_254++;
         return 1;
     case 28:
         if (Health_Ratio() < Rules->unknown_1360) {
-            int cost = unknown_slot32()->Repair_Cost();
-            int step = unknown_slot32()->Repair_Step();
+            int cost = Techno_Type_Class()->Repair_Cost();
+            int step = Techno_Type_Class()->Repair_Step();
             if (step <= 1) {
                 step = 1;
             }
@@ -114,15 +114,15 @@ int TechnoClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&p
                     ((FootClass *)this)->unknown_580->unknown_588->unknown_2c = 50;
                     ((FootClass *)this)->unknown_580->unknown_588->Unknown_00607440();
                 }
-                if (Health_Ratio() > Rules->unknown_1368 || unknown_slot108() < -10) {
+                if (Health_Ratio() > Rules->unknown_1368 || Get_Height_AGL() < -10) {
                     if (unknown_25c[3] != 0) {
-                        unknown_25c[3]->unknown_slot60();
+                        unknown_25c[3]->Delete_Me();
                     }
                 }
                 if (Health_Ratio() < Rules->unknown_1360) {
                     return 1;
                 }
-                int strength = unknown_slot32()->MaxStrength;
+                int strength = Techno_Type_Class()->MaxStrength;
                 Strength = strength;
                 unknown_70 = strength;
                 return 0x21;

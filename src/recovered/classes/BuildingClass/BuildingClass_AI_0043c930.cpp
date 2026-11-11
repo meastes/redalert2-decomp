@@ -138,9 +138,9 @@ void BuildingClass::AI()
     if (Strength == 0) {
         unknown_4397c0();
         if (unknown_420 == 0) {
-            unknown_slot52();
+            Limbo();
             Spawn_Survivors_0043f8e0((ObjectClass *)unknown_438);
-            unknown_slot60();
+            Delete_Me();
             Leave_Rubble_0043eba0();
         }
         return;
@@ -188,7 +188,7 @@ void BuildingClass::AI()
             unknown_5af = false;
             unknown_438 = 0;
         } else {
-            unknown_slot86(&damage, 0, Rules->unknown_c74, (TechnoClass *)unknown_438, true, 0);
+            Take_Damage(&damage, 0, Rules->unknown_c74, (TechnoClass *)unknown_438, true, 0);
         }
         if (!unknown_7d) return;
         Mark(2);

@@ -6,6 +6,6 @@ void WaveClass::Laser_AI()
 {
     LaserEC -= 6;
     if (LaserEC < 0x20) {
-        unknown_slot60();
+        Delete_Me();
     }
 }

@@ -52,19 +52,19 @@ void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *po
         case 1:
             if (static_cast<UnitClass *>(this)->Type->SmallVisceroid || static_cast<UnitClass *>(this)->Type->LargeVisceroid) shadow=false;
         case 15:
-            if (unknown_slot108()==0) z_adjust+=unknown_slot176();
-            else { z_adjust-=Unknown_006A2970(unknown_slot110()); shadow=false; }
+            if (Get_Height_AGL()==0) z_adjust+=unknown_slot176();
+            else { z_adjust-=Unknown_006A2970(Get_Height()); shadow=false; }
             break;
         case 2:
-            draw_point.Y-=Unknown_006A2970(unknown_slot110());
-            z_adjust-=Unknown_006A2970(unknown_slot110());
+            draw_point.Y-=Unknown_006A2970(Get_Height());
+            z_adjust-=Unknown_006A2970(Get_Height());
             break;
         }
-        if (unknown_slot32()->NoShadow) shadow=false;
+        if (Techno_Type_Class()->NoShadow) shadow=false;
         if (!unknown_slot245(unknown_player_a35db4)) {
             if (unknown_slot50(true)->Kind_Of()!=21 && unknown_slot50(true)->Kind_Of()!=37) converter=ColorSchemes[unknown_slot51(true)->ColorSchemeIndex]->Converter;
             else {
-                CellClass *cell=static_cast<CellClass *>(unknown_slot105());
+                CellClass *cell=static_cast<CellClass *>(Get_Cell_Ptr());
                 converter=cell->unknown_34;
                 if (!converter) {
                     cell->Init_Drawer(0,0x10000,0,1000,1000,1000);
@@ -95,7 +95,7 @@ void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *po
         case 0:
             CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
             if (shadow) {
-                z_adjust=-2-Unknown_006A2970(unknown_slot110());
+                z_adjust=-2-Unknown_006A2970(Get_Height());
                 if (unknown_37c) draw_point.Y-=14;
                 flags&=~6;
                 CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame+shape_file->FrameCount/2,draw_point,*bounds,flags|0x601,0,z_adjust-2,0,1000,0,0,Point2D(0,0));
@@ -104,7 +104,7 @@ void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *po
         case 1:
             CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame,draw_point,*bounds,flags|0x600,0,z_adjust-2,gradient,brightness,zshape,zframe,offset);
             if (shadow) {
-                z_adjust=-2-Unknown_006A2970(unknown_slot110());
+                z_adjust=-2-Unknown_006A2970(Get_Height());
                 flags&=~6;
                 if (unknown_37c) draw_point.Y-=14;
                 CC_Draw_Shape(unknown_surface_83995c,converter,shape_file,frame+shape_file->FrameCount/2,draw_point,*bounds,flags|0x601,0,z_adjust-2,0,1000,0,0,Point2D(0,0));

@@ -20,14 +20,14 @@ void CellClass::Destroy_Bridge()
         ObjectClass *occupier = OccupierPtr;
         while (occupier != 0) {
             ObjectClass *next = occupier->unknown_30;
-            occupier->unknown_slot86(&occupier->Strength, 0, Rules->unknown_c74, 0, true, true);
+            occupier->Take_Damage(&occupier->Strength, 0, Rules->unknown_c74, 0, true, true);
             occupier = next;
         }
 
         occupier = AltOccupierPtr;
         while (occupier != 0) {
             ObjectClass *next = occupier->unknown_30;
-            occupier->unknown_slot57();
+            occupier->Fall_From_Height();
             occupier = next;
         }
 

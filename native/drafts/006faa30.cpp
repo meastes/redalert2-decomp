@@ -68,7 +68,7 @@ void UnitClass::Unknown_006FAA30()
             unknown_575++;
             int tube_dir = tube->Directions[unknown_575];
             finished = tube_dir == -1;
-            unknown_slot103(unknown_45c);
+            Set_Coord(unknown_45c);
             if (!finished) {
                 coord = Adjacent_Coord_006faa30(unknown_45c, tube_dir);
                 CoordStruct delta = Map[coord].unknown_475d60() - Map[unknown_45c].unknown_475d60();
@@ -83,7 +83,7 @@ void UnitClass::Unknown_006FAA30()
                     divisor = unknown_lepton_79a700;
                 }
                 new_coord.Z += (speed - distance) / divisor * height_step;
-                unknown_slot103(new_coord);
+                Set_Coord(new_coord);
                 return;
             }
         } else {
@@ -96,7 +96,7 @@ void UnitClass::Unknown_006FAA30()
                 divisor = unknown_lepton_79a700;
             }
             new_coord.Z += speed / divisor * height_step;
-            unknown_slot103(new_coord);
+            Set_Coord(new_coord);
             return;
         }
     }
@@ -112,7 +112,7 @@ void UnitClass::Unknown_006FAA30()
             ObjectClass *object = list[index];
             if (object->Kind_Of() == 1 || object->Kind_Of() == 15) {
                 if (!static_cast<FootClass *>(object)->Locomotor.Checked()->Is_Moving()) {
-                    object->unknown_slot87(CoordStruct(0, 0, 0), true, true);
+                    object->Scatter(CoordStruct(0, 0, 0), true, true);
                 }
             }
         }
@@ -120,11 +120,11 @@ void UnitClass::Unknown_006FAA30()
     } else {
         TubeClass *tube = unknown_TubeClass_list_008661c8[unknown_574];
         CoordStruct exit_coord = Cell_Center_006faa30(tube->ExitCell, unknown_45c.Z);
-        unknown_slot103(exit_coord);
+        Set_Coord(exit_coord);
         unknown_574 = -1;
         Mark(1);
         if (unknown_494 == cell) {
-            unknown_slot87(CoordStruct(0, 0, 0), true, true);
+            Scatter(CoordStruct(0, 0, 0), true, true);
         }
         unknown_57b = true;
         unknown_slot93(2);

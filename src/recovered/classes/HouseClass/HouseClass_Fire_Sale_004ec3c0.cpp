@@ -10,7 +10,7 @@ HRESULT __stdcall HouseClass::Fire_Sale()
         for (int index = 0; index < count; index++) {
             UnknownBuildingView *building = (UnknownBuildingView *)Buildings[index];
             if (building != 0 && !building->unknown_76 && building->Strength > 0) {
-                building->unknown_slot98(1);
+                building->Sell_Back(1);
             }
         }
         return S_OK;

@@ -46,10 +46,10 @@ void HouseClass::unknown_func_4f3170(int kind, bool naval, int arg3)
         }
     }
     if (factory->Object != 0) {
-        if (factory->Object->unknown_slot32()->Who_Can_Build_Me(true, false, true, this) == 0) {
+        if (factory->Object->Techno_Type_Class()->Who_Can_Build_Me(true, false, true, this) == 0) {
             factory->Abandon_Production_004B97C0();
             factory->Start_Next_Queued_004B9D70();
-        } else if (factory->Object->unknown_slot32()->Who_Can_Build_Me(true, true, true, this) == 0) {
+        } else if (factory->Object->Techno_Type_Class()->Who_Can_Build_Me(true, true, true, this) == 0) {
             factory->Suspend_004B9630(false);
             if (unknown_player_a35db4 == this) {
                 Map.Unknown_0067C2D0(SidebarClass::Which_Column(kind, arg3, naval));

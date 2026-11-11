@@ -9,7 +9,7 @@ extern Rect unknown_rect_839630;
 // @ref ?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z=006a29d0
 #include "shared/rect_intersect.hpp"
 
-bool ObjectClass::unknown_slot63(Rect *bounds, bool redraw, bool arg3)
+bool ObjectClass::Render(Rect *bounds, bool redraw, bool arg3)
 {
     Point2D pixel;
     if (!Debug_Map && unknown_b263d8 && ((!redraw && !unknown_75) || unknown_76)) goto not_drawable;

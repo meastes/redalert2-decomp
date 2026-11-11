@@ -46,7 +46,7 @@ inline CoordStruct XY_0043b7e0(CoordStruct const &from, int z)
 UnknownFacingDir BuildingClass::unknown_slot170(AbstractClass *target)
 {
     if (unknown_slot231(0)->WeaponType->unknown_121) {
-        unknown_slot32();
+        Techno_Type_Class();
         if (target != 0) {
             CoordStruct predicted = unknown_6d65b0();
             WeaponStruct *weap = unknown_slot231(0);

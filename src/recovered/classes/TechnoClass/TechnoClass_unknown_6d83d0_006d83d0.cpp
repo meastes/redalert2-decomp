@@ -4,5 +4,5 @@
 
 bool TechnoClass::unknown_6d83d0()
 {
-    return unknown_slot32()->HasTurretTooltips;
+    return Techno_Type_Class()->HasTurretTooltips;
 }

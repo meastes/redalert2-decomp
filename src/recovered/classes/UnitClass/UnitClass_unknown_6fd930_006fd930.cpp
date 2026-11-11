@@ -125,6 +125,6 @@ bool UnitClass::unknown_6fd930()
     }
 finish:
     Mark(1);
-    if (!unknown_494 && !House->Unknown_004F52F0()) unknown_slot87(unknown_geometry_l, false, false);
+    if (!unknown_494 && !House->Unknown_004F52F0()) Scatter(unknown_geometry_l, false, false);
     return false;
 }

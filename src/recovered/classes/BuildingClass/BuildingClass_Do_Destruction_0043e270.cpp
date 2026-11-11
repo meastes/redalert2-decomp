@@ -62,7 +62,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
     unknown_6d3040(source);
     for (int index=0;index<8;++index) {
         if (unknown_49c[index]) {
-            unknown_49c[index]->unknown_slot60();
+            unknown_49c[index]->Delete_Me();
             unknown_49c[index]=0;
         }
     }
@@ -78,7 +78,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         Cloaking_AI(1);
     }
     if (Type->LaserFencePost) unknown_44dc40(true);
-    if (unknown_slot32()->DieSound.Count()==0) Voc_Static_Add(Rules->BuildingDieSound,Position_Coord_00450950(*this),0);
+    if (Techno_Type_Class()->DieSound.Count()==0) Voc_Static_Add(Rules->BuildingDieSound,Position_Coord_00450950(*this),0);
     if (Type->Width()>=2 && Type->Foundation_Height(false)>=2) {
         if (Type->Width()>2) Random_Pick(0,Type->Width()-2);
         if (Type->Foundation_Height(false)>2) Random_Pick(0,Type->Foundation_Height(false)-2);
@@ -121,7 +121,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         AnimTypeClass *type=Type->DestroyAnim.Pick(unknown_id_source_a3d290->Random()());
         if (type) {
             AnimClass *animation=new AnimClass(type,unknown_slot42(),0,1,0x600,0);
-            if (unknown_slot32()->Palette) {
+            if (Techno_Type_Class()->Palette) {
                 animation->unknown_bc=unknown_slot115();
                 if (Type->PaletteFile.Buffer[0]) strncpy(animation->Palette.Buffer,Type->PaletteFile.Buffer,32);
             }
@@ -129,14 +129,14 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
     }
     // Original RTTI79D0CC: DynamicVectorClass<const ParticleSystemTypeClass *>.
     DynamicVectorClass<ParticleSystemTypeClass const *> systems;
-    for (int system_index=unknown_slot32()->DestroyParticleSystems.Count()-1;system_index>=0;--system_index) {
-        if (unknown_slot32()->DestroyParticleSystems[system_index]->BehavesLike==0) {
-            systems.Add(unknown_slot32()->DestroyParticleSystems[system_index]);
+    for (int system_index=Techno_Type_Class()->DestroyParticleSystems.Count()-1;system_index>=0;--system_index) {
+        if (Techno_Type_Class()->DestroyParticleSystems[system_index]->BehavesLike==0) {
+            systems.Add(Techno_Type_Class()->DestroyParticleSystems[system_index]);
         }
     }
     // Existing eight-pointer view: the last slot is the destruction particle system at+278.
-    if (!unknown_25c[7] && systems.Count()>0 && unknown_slot108()>-10) {
-        TechnoTypeClass *type=unknown_slot32();
+    if (!unknown_25c[7] && systems.Count()>0 && Get_Height_AGL()>-10) {
+        TechnoTypeClass *type=Techno_Type_Class();
         UnknownCoord434820 smoke_offset(type->DestroySmokeOffset);
         unknown_25c[7]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(systems[Random_Pick(0,systems.Count()-1)]),Position_Coord_00450950(*this)+smoke_offset,0,this,unknown_geometry_l);
     }

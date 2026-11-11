@@ -38,21 +38,21 @@ bool TechnoClass::unknown_slot200(int mission, AbstractClass *target, AbstractCl
         } else if (mission == 2) {
             unknown_slot197();
         } else if (mission == 7) {
-            if (unknown_slot32()->VoiceEnter != -1) {
-                Voc_Play(unknown_slot32()->VoiceEnter, 1.0f, 0x2000, 0);
+            if (Techno_Type_Class()->VoiceEnter != -1) {
+                Voc_Play(Techno_Type_Class()->VoiceEnter, 1.0f, 0x2000, 0);
             } else {
                 unknown_slot197();
             }
         } else if (mission == 8) {
-            if (unknown_slot32()->VoiceCapture != -1) {
-                Voc_Play(unknown_slot32()->VoiceCapture, 1.0f, 0x2000, 0);
-            } else if (unknown_slot32()->VoiceEnter != -1) {
-                Voc_Play(unknown_slot32()->VoiceEnter, 1.0f, 0x2000, 0);
+            if (Techno_Type_Class()->VoiceCapture != -1) {
+                Voc_Play(Techno_Type_Class()->VoiceCapture, 1.0f, 0x2000, 0);
+            } else if (Techno_Type_Class()->VoiceEnter != -1) {
+                Voc_Play(Techno_Type_Class()->VoiceEnter, 1.0f, 0x2000, 0);
             } else {
                 unknown_slot197();
             }
-        } else if (unknown_slot32()->VoiceSpecialAttack.Count() > 0) {
-            DynamicVectorClass<int> &sounds = unknown_slot32()->VoiceSpecialAttack;
+        } else if (Techno_Type_Class()->VoiceSpecialAttack.Count() > 0) {
+            DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceSpecialAttack;
             unsigned random = unknown_random_839218();
             Voc_Play(sounds[random % sounds.Count()], 1.0f, 0x2000, 0);
         }

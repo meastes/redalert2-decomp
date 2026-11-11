@@ -11,7 +11,7 @@
 
 bool __stdcall ShipLocomotionClass::Process()
 {
-    Set_Slope(static_cast<CellClass *>(LinkedTo->unknown_slot105())->unknown_11c);
+    Set_Slope(static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->unknown_11c);
     if (unknown_58 != -1 && unknown_63) {
         if (While_Moving(false) || !LinkedTo->unknown_7d) {
             return false;
@@ -80,8 +80,8 @@ bool __stdcall ShipLocomotionClass::Process()
             }
         }
     }
-    if (Is_Moving_Now() && Frame % 8 == 0 && !LinkedTo->unknown_slot32()->Underwater && !LinkedTo->unknown_79
-        && static_cast<CellClass *>(LinkedTo->unknown_slot105())->Land_Type() == 2 && Rules->unknown_09c != 0) {
+    if (Is_Moving_Now() && Frame % 8 == 0 && !LinkedTo->Techno_Type_Class()->Underwater && !LinkedTo->unknown_79
+        && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2 && Rules->unknown_09c != 0) {
         new AnimClass(Rules->unknown_09c, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
     }
     if (unknown_34 == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->unknown_468 > 0.0) {

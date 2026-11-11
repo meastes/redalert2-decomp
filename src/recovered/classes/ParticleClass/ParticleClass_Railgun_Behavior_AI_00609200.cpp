@@ -12,7 +12,7 @@ void ParticleClass::Railgun_Behavior_AI()
     Velocity += (unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10 - 0.5) * 0.1;
     Advance_Particle_Position(unknown_108, step);
     CoordStruct coord; coord.X = (int)unknown_108.X; coord.Y = (int)unknown_108.Y; coord.Z = (int)unknown_108.Z;
-    unknown_slot103(coord);
+    Set_Coord(coord);
     double color_change = unknown_id_source_a3d290->Random()(0, 0x7ffffffe) * 4.656612877414201e-10;
     color_change *= Particle_Color_Step_007a10f8;
     color_change += Class->ColorSpeed;

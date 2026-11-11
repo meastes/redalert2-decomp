@@ -11,10 +11,10 @@ WeaponStruct *TechnoClass::unknown_slot231(int index)
         return 0;
     }
     if (unknown_118.Is_Elite()) {
-        WeaponStruct *weapon = unknown_slot32()->Get_Elite_Weapon(index);
+        WeaponStruct *weapon = Techno_Type_Class()->Get_Elite_Weapon(index);
         if (weapon && weapon->WeaponType) {
             return weapon;
         }
     }
-    return unknown_slot32()->Get_Weapon(index);
+    return Techno_Type_Class()->Get_Weapon(index);
 }

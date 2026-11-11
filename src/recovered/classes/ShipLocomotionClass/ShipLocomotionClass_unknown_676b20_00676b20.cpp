@@ -22,19 +22,19 @@ void ShipLocomotionClass::unknown_676b20(CoordStruct const &headto, int mark)
                     Point2D offset = points[cell].Offset;
                     Point2D point = Smooth_Turn(offset, facing);
                     if (mark == 0) {
-                        CoordStruct coord(point.X, point.Y, LinkedTo->unknown_slot110());
-                        LinkedTo->unknown_slot59(coord);
+                        CoordStruct coord(point.X, point.Y, LinkedTo->Get_Height());
+                        LinkedTo->Clear_Occupy_Bit(coord);
                     } else if (mark == 1 || mark == 3) {
-                        CoordStruct coord(point.X, point.Y, LinkedTo->unknown_slot110());
-                        LinkedTo->unknown_slot58(coord);
+                        CoordStruct coord(point.X, point.Y, LinkedTo->Get_Height());
+                        LinkedTo->Set_Occupy_Bit(coord);
                     }
                 }
             }
         }
     }
     if (mark == 0) {
-        LinkedTo->unknown_slot59(headto);
+        LinkedTo->Clear_Occupy_Bit(headto);
     } else if (mark == 1 || mark == 3) {
-        LinkedTo->unknown_slot58(headto);
+        LinkedTo->Set_Occupy_Bit(headto);
     }
 }

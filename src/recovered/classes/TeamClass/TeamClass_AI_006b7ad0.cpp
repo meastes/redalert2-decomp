@@ -92,7 +92,7 @@ void TeamClass::AI()
             StepCompleted = false;
             Script->Next_Mission();
             for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-                if (Class->TransportsReturnOnUnload && member->unknown_slot32()->Passengers > 0) {
+                if (Class->TransportsReturnOnUnload && member->Techno_Type_Class()->Passengers > 0) {
                     if (member->unknown_1b0 != 0) {
                         Debug_Printf("A Transport just recieved orders to go home after unloading\n");
                     }

@@ -28,13 +28,13 @@ void DisplayClass::Unknown_0049E000(bool skip_buildings, bool arg2)
         if (techno->House->Is_Player_Control()) {
             if (techno->unknown_373) {
                 techno->unknown_slot263(0, 0, false, 0);
-                if (techno->unknown_slot32()->GapGenerator) {
+                if (techno->Techno_Type_Class()->GapGenerator) {
                     techno->unknown_slot236();
                 }
             }
         } else if (techno->Kind_Of() == 6 && Rules->unknown_142b && techno->House->Is_Ally(unknown_player_a35db4)) {
             techno->unknown_slot263(0, arg2, false, 0);
-        } else if (techno->unknown_slot32()->GapGenerator) {
+        } else if (techno->Techno_Type_Class()->GapGenerator) {
             techno->unknown_slot236();
         }
     }

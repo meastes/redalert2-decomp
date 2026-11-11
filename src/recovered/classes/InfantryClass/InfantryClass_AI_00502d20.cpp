@@ -76,7 +76,7 @@ void InfantryClass::AI()
                 goto scatter;
             } else if (!building->Type->Gate || !building->unknown_44d880()) {
             scatter:
-                unknown_slot87(unknown_geometry_l, true, true);
+                Scatter(unknown_geometry_l, true, true);
             }
         }
     }

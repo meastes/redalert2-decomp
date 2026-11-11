@@ -18,7 +18,7 @@ void BuildingClass::Factory_AI_0044b480()
 {
     if (unknown_41c && static_cast<FactoryClass *>(unknown_41c)->Is_Complete_004B9900() && unknown_448.Value() == 0) {
         TechnoClass *product = static_cast<FactoryClass *>(unknown_41c)->Get_Object();
-        switch (unknown_slot62(product)) {
+        switch (Exit_Object(product)) {
         case 0:
             if (product->Kind_Of() == 6 && static_cast<BuildingClass *>(product)->Type->Naval) {
                 product->Owning_House()->unknown_138 = false;

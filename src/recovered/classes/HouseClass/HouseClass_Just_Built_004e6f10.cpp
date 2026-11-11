@@ -11,7 +11,7 @@ void HouseClass::Just_Built(TechnoClass *techno)
 {
     int sound = -1;
     unknown_18d = true;
-    TechnoTypeClass *type = techno->unknown_slot32();
+    TechnoTypeClass *type = techno->Techno_Type_Class();
     switch (techno->Kind_Of()) {
     case 1:
         unknown_1bc = type->unknown_slot16();

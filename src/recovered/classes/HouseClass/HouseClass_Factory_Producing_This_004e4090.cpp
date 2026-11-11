@@ -9,7 +9,7 @@ FactoryClass *HouseClass::Factory_Producing_This_004e4090(TechnoTypeClass const 
     for (int index=0;index<Factories.Count();++index) {
         if (Factories[index]->Get_House_004e4090()==this) {
             if (Factories[index]->Get_Object()!=0 &&
-                Factories[index]->Get_Object()->unknown_slot32()==type) {
+                Factories[index]->Get_Object()->Techno_Type_Class()==type) {
                 factory=Factories[index];
                 break;
             }

@@ -65,25 +65,25 @@ bool __stdcall TeleportLocomotionClass::Process()
                     LinkedTo->Mark(0);
                     {
                         FootClass *linked = LinkedTo;
-                        int sound = linked->unknown_slot32()->ChronoOutSound;
+                        int sound = linked->Techno_Type_Class()->ChronoOutSound;
                         if (sound != -1 || (sound = Rules->ChronoOutSound) != -1) {
                             Voc_Play_At(sound, Object_Coord(linked), 0);
                         }
                     }
-                    LinkedTo->unknown_slot103(unknown_28);
+                    LinkedTo->Set_Coord(unknown_28);
                     Cell where = Coord_Cell(unknown_28);
                     CellClass *cell = &Map[where];
-                    LinkedTo->unknown_slot103(unknown_28);
+                    LinkedTo->Set_Coord(unknown_28);
                     if (cell->unknown_140 & 0x100) {
                         LinkedTo->unknown_79 = true;
                     } else {
                         LinkedTo->unknown_79 = false;
                     }
-                    LinkedTo->unknown_slot109(0);
+                    LinkedTo->Set_Height_AGL(0);
                     LinkedTo->Mark(1);
                     {
                         FootClass *linked = LinkedTo;
-                        int sound = linked->unknown_slot32()->ChronoInSound;
+                        int sound = linked->Techno_Type_Class()->ChronoInSound;
                         if (sound != -1 || (sound = Rules->ChronoInSound) != -1) {
                             Voc_Play_At(sound, Object_Coord(linked), 0);
                         }
@@ -117,7 +117,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         LinkedTo->Mark(0);
         {
             FootClass *linked = LinkedTo;
-            int sound = linked->unknown_slot32()->ChronoOutSound;
+            int sound = linked->Techno_Type_Class()->ChronoOutSound;
             if (sound != -1 || (sound = Rules->ChronoOutSound) != -1) {
                 Voc_Play_At(sound, Object_Coord(linked), 0);
             }
@@ -143,19 +143,19 @@ bool __stdcall TeleportLocomotionClass::Process()
     }
     if (unknown_38 == 4) {
         unknown_6dff00(LinkedTo->unknown_21c, true);
-        LinkedTo->unknown_slot103(unknown_28);
-        LinkedTo->unknown_slot109(0);
+        LinkedTo->Set_Coord(unknown_28);
+        LinkedTo->Set_Height_AGL(0);
         LinkedTo->Mark(1);
         unknown_38++;
         return false;
     }
     if (unknown_38 == 5) {
-        LinkedTo->unknown_slot103(unknown_28);
-        LinkedTo->unknown_slot109(0);
+        LinkedTo->Set_Coord(unknown_28);
+        LinkedTo->Set_Height_AGL(0);
         LinkedTo->Mark(1);
         {
             FootClass *linked = LinkedTo;
-            int sound = linked->unknown_slot32()->ChronoInSound;
+            int sound = linked->Techno_Type_Class()->ChronoInSound;
             if (sound != -1 || (sound = Rules->ChronoInSound) != -1) {
                 Voc_Play_At(sound, Object_Coord(linked), 0);
             }

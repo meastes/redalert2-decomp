@@ -13,7 +13,7 @@ bool CaptureManagerClass::Can_Capture(TechnoClass *target)
     if (target->Owning_House() == Owner->Owning_House()) {
         return false;
     }
-    if (target->unknown_slot32()->ImmuneToPsionics) {
+    if (target->Techno_Type_Class()->ImmuneToPsionics) {
         return false;
     }
     if (target->unknown_234 != 0) {

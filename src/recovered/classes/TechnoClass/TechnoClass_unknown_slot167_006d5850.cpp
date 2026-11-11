@@ -4,5 +4,5 @@
 
 int TechnoClass::unknown_slot167()
 {
-    return unknown_slot32()->unknown_slot46(House, 0);
+    return Techno_Type_Class()->unknown_slot46(House, 0);
 }

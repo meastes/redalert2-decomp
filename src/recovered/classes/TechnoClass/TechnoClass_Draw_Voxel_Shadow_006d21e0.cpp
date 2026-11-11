@@ -5,9 +5,9 @@
 // Complete original shadow draw764body+4padding, eleven stack arguments.
 void TechnoClass::Unknown_006D21E0(UnknownObjectPair const &voxel,int layer,int key,UnknownBuffer *cache,Rect const &cliprect,Point2D const &draw_point,Matrix3D const &transform,bool force_cache,Surface *mask,unsigned unknown_2,unsigned unknown_3)
 {
-    if (unknown_1b8 || unknown_slot32()->NoShadow || voxel.unknown_00->LoadFailed) return;
+    if (unknown_1b8 || Techno_Type_Class()->NoShadow || voxel.unknown_00->LoadFailed) return;
     if (key!=-1) {
-        if (!cache || unknown_slot32()->DisableShadowCache) key=-1;
+        if (!cache || Techno_Type_Class()->DisableShadowCache) key=-1;
         else {
             void *entry=(*cache)[key];
             if (entry) {

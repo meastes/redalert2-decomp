@@ -52,8 +52,8 @@ bool InfantryClass::unknown_slot290(CoordStruct &headto)
     }
     if (headto!=unknown_geometry_l && FootClass::unknown_slot290(headto)) {
         if (!unknown_7d) return false;
-        unknown_slot59(CoordStruct(Coord));
-        unknown_slot58(headto);
+        Clear_Occupy_Bit(CoordStruct(Coord));
+        Set_Occupy_Bit(headto);
         return true;
     }
     return false;

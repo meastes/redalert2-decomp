@@ -7,9 +7,9 @@ bool BuildingClass::unknown_450cb0(ObjectClass *object, bool damage)
 {
     if(object && object->Strength > 0) {
         if(damage) {
-            object->unknown_slot86(&object->Strength, 0, Rules->unknown_cac, 0, true, 1);
+            object->Take_Damage(&object->Strength, 0, Rules->unknown_cac, 0, true, 1);
         }
-        if(object->unknown_slot108() > 100) {
+        if(object->Get_Height_AGL() > 100) {
             new AnimClass(Rules->FirestormAirAnim, CoordStruct(object->Coord), 0, 1, 0x600, -10);
         } else {
             new AnimClass(Rules->FirestormGroundAnim, CoordStruct(Coord), 0, 1, 0x600, -10);

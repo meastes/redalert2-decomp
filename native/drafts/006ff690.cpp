@@ -100,7 +100,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     int turret_key=key;
     if (turret_key!=-1) {
         turret_key=(turret_key&~31)|unknown_2f8.Current().As_Dir32();
-        if (unknown_slot32()->TurretOffset==0) turret_key&=0xfffffc1f;
+        if (Techno_Type_Class()->TurretOffset==0) turret_key&=0xfffffc1f;
     }
     if (!type->Turret && (!unknown_6d83e0() || !unknown_6d8460())) {
         if (Unit_Voxel_Loaded_007005b0(type->unknown_c0)) {
@@ -187,7 +187,7 @@ plain:
             shadow_drawpoint+=Locomotor.Checked()->Shadow_Point();
         }
         if (unknown_37c) shadow_drawpoint.Y-=14;
-        int height=unknown_slot108();
+        int height=Get_Height_AGL();
         CellClass *cell= &Map[Position_Coord_004f3f40()];
         if (unknown_37c && !unknown_79 && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
             (((cell->unknown_140&0x800) && (cell->Adjacent_Cell(0).unknown_140&0x100)) ||
@@ -197,11 +197,11 @@ plain:
         else {
             cache_key=composite_surface;
             if (Type->BalloonHover || Type->SpeedType==1 || Type->SpeedType==2) {
-                if (unknown_slot108()<=0) key|=0x80000000;
+                if (Get_Height_AGL()<=0) key|=0x80000000;
                 else key=-1;
             }
         }
-        if (unknown_slot108()>0) {
+        if (Get_Height_AGL()>0) {
             unknown_4c9a40(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y+1);
         } else {
             unknown_4c9a40(type->unknown_b0,type->ShadowIndex,key,&type->unknown_23c,window,shadow_drawpoint,Unit_Isometric_View_00717f90()*main_matrix,true,cache_key,Locomotor.Checked()->Shadow_Point().X,Locomotor.Checked()->Shadow_Point().Y);

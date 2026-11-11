@@ -34,7 +34,7 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
                     landing_altitude = flyctrl->Landing_Altitude();
                 }
 
-                if ((LinkedTo->unknown_slot108() > landing_altitude || unknown_50) && !unknown_51) {
+                if ((LinkedTo->Get_Height_AGL() > landing_altitude || unknown_50) && !unknown_51) {
                     unknown_1c = LinkedTo->Position_Coord_004f3f40();
                     unknown_4bf1f0();
                 } else {
@@ -45,7 +45,7 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
                 unknown_1c = to;
 
                 if (LinkedTo->unknown_228 && LinkedTo->unknown_254) {
-                    unknown_1c.Z = LinkedTo->unknown_slot32()->Flight_Level() + Map.Get_Height_GL(to);
+                    unknown_1c.Z = LinkedTo->Techno_Type_Class()->Flight_Level() + Map.Get_Height_GL(to);
                 }
 
                 UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
@@ -56,7 +56,7 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
 
                 unknown_34 = true;
 
-                if (LinkedTo->Strength > 0 && !unknown_50 && (unknown_51 || LinkedTo->unknown_slot108() <= landing_altitude)) {
+                if (LinkedTo->Strength > 0 && !unknown_50 && (unknown_51 || LinkedTo->Get_Height_AGL() <= landing_altitude)) {
                     Take_Off_004bf0d0();
                 }
 

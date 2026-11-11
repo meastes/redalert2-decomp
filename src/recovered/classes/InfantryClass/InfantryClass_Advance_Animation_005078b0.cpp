@@ -74,12 +74,12 @@ void InfantryClass::Advance_Animation_005078b0()
                     new AnimClass(Pick_Dead_Body(false),
                         Center_Coord(), 0, 1, 0x600, 0);
                 }
-                unknown_slot60();
+                Delete_Me();
             }
             break;
         case 20: case 21: case 36:
             if (StageClass::Stage >= Type->DoControls[Sequence].Count) {
-                unknown_slot60();
+                Delete_Me();
             }
             break;
         case 33:

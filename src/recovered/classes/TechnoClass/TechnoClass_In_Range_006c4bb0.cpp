@@ -59,7 +59,7 @@ bool TechnoClass::unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target
             return true;
         }
         if (target->unknown_slot21()) {
-            range += unknown_slot32()->AirRangeBonus;
+            range += Techno_Type_Class()->AirRangeBonus;
         }
         BulletTypeClass *bullet = weapon->Projectile;
         int ground_range = range;

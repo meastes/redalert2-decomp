@@ -13,7 +13,7 @@ bool FootClass::unknown_slot282()
     if (Team != 0 && !Team->Unknown_006BA990()) {
         return false;
     }
-    if (unknown_slot32()->IsTrain && unknown_494 != 0) {
+    if (Techno_Type_Class()->IsTrain && unknown_494 != 0) {
         if (Map.Unknown_0055A7F0(unknown_494->Center_Coord())) {
             return false;
         }

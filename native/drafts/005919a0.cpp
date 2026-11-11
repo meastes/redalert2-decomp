@@ -106,7 +106,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             Cell dest = unknown_18.As_Cell();
                             if (LinkedTo->unknown_32d) {
                                 Cell nav_dest = LinkedTo->unknown_slot19(0).As_Cell();
-                                if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->unknown_slot32()->MovementZone, LinkedTo->unknown_slot46(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
+                                if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                     LinkedTo->Assign_Destination(0, 1);
                                 }
                             }
@@ -114,7 +114,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                                 Cell tar_dest = LinkedTo->unknown_228->unknown_slot19(LinkedTo).As_Cell();
                                 if (LinkedTo->unknown_32d) {
                                     Cell nav_dest = LinkedTo->unknown_slot19(LinkedTo).As_Cell();
-                                    if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->unknown_slot32()->MovementZone, LinkedTo->unknown_slot46(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
+                                    if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                         LinkedTo->unknown_slot220(0);
                                     }
                                 }
@@ -134,7 +134,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                 int tube = Map[Object_Coord(LinkedTo)].unknown_116;
                 if (tube >= 0 && tube < unknown_TubeClass_list_008661c8.Count()) {
                     LinkedTo->Mark(0);
-                    LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+                    LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
                     TubeClass *tube_ptr = unknown_TubeClass_list_008661c8[tube];
                     Cell cell = tube_ptr->ExitCell;
                     unknown_24 = Cell_Coord(cell);
@@ -166,7 +166,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                 LinkedTo->unknown_57b = true;
             }
             int can_enter = LinkedTo->unknown_slot101(&Map[what], dir, LinkedTo->Unknown_005D47D0(), 0, true);
-            if (((can_enter != 5 && can_enter != 4) || !LinkedTo->unknown_slot32()->Crusher || what_cell->OverlayIndex != 0) && can_enter != 0) {
+            if (((can_enter != 5 && can_enter != 4) || !LinkedTo->Techno_Type_Class()->Crusher || what_cell->OverlayIndex != 0) && can_enter != 0) {
                 LinkedTo->unknown_slot307();
                 if (can_enter == 6) {
                     CellClass *cellptr = &Map[what];
@@ -276,9 +276,9 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         int overlay = Map[cell].OverlayIndex;
                         if (overlay != -1) {
                             OverlayTypeClass *otype = OverlayTypes[overlay];
-                            if ((LinkedTo->unknown_slot32()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
+                            if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
                                 LinkedTo->unknown_59f = true;
-                                if (LinkedTo->unknown_slot32()->TiltsWhenCrushes) {
+                                if (LinkedTo->Techno_Type_Class()->TiltsWhenCrushes) {
                                     LinkedTo->unknown_28c = -0.01f;
                                 }
                             }
@@ -312,9 +312,9 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         }
         memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
         LinkedTo->Path[23] = -1;
-        LinkedTo->unknown_slot103(unknown_24);
+        LinkedTo->Set_Coord(unknown_24);
         LinkedTo->unknown_450 = unknown_24.As_Cell();
-        LinkedTo->unknown_slot109(0);
+        LinkedTo->Set_Height_AGL(0);
         Mark_Head_To(unknown_geometry_l);
         if (LinkedTo->Path[0] == -1) {
             LinkedTo->unknown_slot306(0.0);
@@ -344,9 +344,9 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         int overlay = Map[cell].OverlayIndex;
                         if (overlay != -1) {
                             OverlayTypeClass *otype = OverlayTypes[overlay];
-                            if ((LinkedTo->unknown_slot32()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
+                            if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
                                 LinkedTo->unknown_59f = true;
-                                if (LinkedTo->unknown_slot32()->TiltsWhenCrushes) {
+                                if (LinkedTo->Techno_Type_Class()->TiltsWhenCrushes) {
                                     LinkedTo->unknown_28c = -0.01f;
                                 }
                             }
@@ -369,7 +369,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         return;
     }
     if (LinkedTo->unknown_slot47()) {
-        LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+        LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
         LinkedTo->unknown_5a0 = false;
         LinkedTo->unknown_5a1 = false;
     }
@@ -379,7 +379,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
     Cell new_cell = new_coord.As_Cell();
     if (old_cell != new_cell) {
         LinkedTo->Mark(0);
-        LinkedTo->unknown_slot103(new_coord);
+        LinkedTo->Set_Coord(new_coord);
         CellClass *old_cellptr = &Map[old_cell];
         CellClass *new_cellptr = &Map[new_cell];
         if (new_cellptr->unknown_11b == old_cellptr->unknown_11b - 4 && new_cellptr->IsUnderBridge) {
@@ -388,14 +388,14 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
         if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
             LinkedTo->unknown_79 = false;
         }
-        LinkedTo->unknown_slot109(0);
+        LinkedTo->Set_Height_AGL(0);
         LinkedTo->Mark(1);
         Map[Object_Coord(LinkedTo)].Trigger_Veins();
     } else {
         bool was_down = LinkedTo->unknown_74;
         LinkedTo->unknown_74 = false;
-        LinkedTo->unknown_slot103(new_coord);
-        LinkedTo->unknown_slot109(0);
+        LinkedTo->Set_Coord(new_coord);
+        LinkedTo->Set_Height_AGL(0);
         LinkedTo->unknown_74 = was_down;
     }
     }

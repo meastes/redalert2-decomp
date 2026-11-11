@@ -20,7 +20,7 @@ Point2D __stdcall FlyLocomotionClass::Draw_Point()
     if (source) {
         height = source->unknown_slot3();
     }
-    if (!LinkedTo->unknown_slot32()->IsDropship && !unknown_51 && !unknown_50 && LinkedTo->unknown_slot108() > height) {
+    if (!LinkedTo->Techno_Type_Class()->IsDropship && !unknown_51 && !unknown_50 && LinkedTo->Get_Height_AGL() > height) {
         bob = (int)(Fast_Sin((Frame % 20) * 0.3141592653589793) * 1.5 + 0.5);
     }
     return Point2D(0, bob);

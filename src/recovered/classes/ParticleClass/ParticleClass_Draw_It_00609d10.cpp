@@ -38,8 +38,8 @@ void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
         }
 
         if (Class->BehavesLike != 3 && Class->BehavesLike != 4) {
-            int height_offset = -15 - Unknown_006A2970(unknown_slot110());
-            ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_slot26();
+            int height_offset = -15 - Unknown_006A2970(Get_Height());
+            ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
             if (shape != 0) {
                 int flags = 0x2800;
                 int shapenum = unknown_slot116();

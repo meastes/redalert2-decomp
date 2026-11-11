@@ -90,31 +90,31 @@ void FootClass::AI()
         return;
     }
     unknown_59d = false;
-    if (Frame % Rules->unknown_144c == 0 && !unknown_slot32()->ImmuneToRadiation && !unknown_slot21()) {
+    if (Frame % Rules->unknown_144c == 0 && !Techno_Type_Class()->ImmuneToRadiation && !unknown_slot21()) {
         Cell cell = Coord_Cell(Center_Coord());
         int amount = Map_Cell_At(cell)->Unknown_0047CE70();
         if (amount > 0) {
             int damage = (int)(amount * Rules->unknown_1460);
-            unknown_slot86(&damage, 0, Rules->unknown_147c, 0, false, 1);
+            Take_Damage(&damage, 0, Rules->unknown_147c, 0, false, 1);
             if (!unknown_7d) {
                 return;
             }
         }
     }
-    if (!unknown_32d && unknown_slot32()->BalloonHover
-        && Map.Unknown_0055A740((CellClass *)unknown_slot105(), 1)) {
+    if (!unknown_32d && Techno_Type_Class()->BalloonHover
+        && Map.Unknown_0055A740((CellClass *)Get_Cell_Ptr(), 1)) {
         unknown_32d = true;
     }
     if (Locomotor.Checked()->Is_Moving_Now() && unknown_slot21() && House->Is_Ally(unknown_player_a35db4)
         && unknown_54c.Value() == 0) {
         unknown_slot263(0, 0, 0, 0);
         unknown_slot262(0, 0, 0, 0);
-        if (unknown_1f8 != unknown_slot108()) {
+        if (unknown_1f8 != Get_Height_AGL()) {
             Map.Unknown_0054A550(CoordStruct(Coord), 0, unknown_1f4 + 3, 0);
         } else {
             Map.Unknown_0054A550(CoordStruct(Coord), unknown_1f4 - 3, unknown_1f4 + 3, 0);
         }
-        unknown_1f8 = unknown_slot108();
+        unknown_1f8 = Get_Height_AGL();
         unknown_54c = CDTimerClass<FrameTimerClass>(15);
     }
 
@@ -125,17 +125,17 @@ void FootClass::AI()
             return;
         }
         if (((Locomotor.Checked()->Is_Moving_Now() && !unknown_slot112())
-                || (unknown_228 != 0 && unknown_slot32()->HoverAttack))
-            && Frame % unknown_slot32()->WalkRate == 0 && !unknown_slot111() && !unknown_slot112()
-            || unknown_slot32()->IdleRate != 0 && !Locomotor.Checked()->Is_Moving_Now()
-            && Frame % unknown_slot32()->IdleRate == 0 && !unknown_slot111() && !unknown_slot112()) {
+                || (unknown_228 != 0 && Techno_Type_Class()->HoverAttack))
+            && Frame % Techno_Type_Class()->WalkRate == 0 && !unknown_slot111() && !unknown_slot112()
+            || Techno_Type_Class()->IdleRate != 0 && !Locomotor.Checked()->Is_Moving_Now()
+            && Frame % Techno_Type_Class()->IdleRate == 0 && !unknown_slot111() && !unknown_slot112()) {
             unknown_430++;
         }
     }
     if ((frame != unknown_430 || Locomotor.Checked()->Is_Moving_Now()) && !unknown_7a && !unknown_37d) {
-        if (!unknown_434 && unknown_slot32()->MoveSound.Count() > 0) {
+        if (!unknown_434 && Techno_Type_Class()->MoveSound.Count() > 0) {
             unknown_43c.Unknown_00405D50();
-            Voc_Play_At(Random_Sound(unknown_slot32()->MoveSound), CoordStruct(Coord), &unknown_43c);
+            Voc_Play_At(Random_Sound(Techno_Type_Class()->MoveSound), CoordStruct(Coord), &unknown_43c);
             unknown_434 = true;
         }
         unknown_438 = 3;
@@ -150,18 +150,18 @@ void FootClass::AI()
     }
 
     if (unknown_7a != unknown_7b) {
-        if (unknown_7a && unknown_slot32()->VoiceFalling != -1 && unknown_7c) {
-            Voc_Play_At(unknown_slot32()->VoiceFalling, CoordStruct(Coord), 0);
+        if (unknown_7a && Techno_Type_Class()->VoiceFalling != -1 && unknown_7c) {
+            Voc_Play_At(Techno_Type_Class()->VoiceFalling, CoordStruct(Coord), 0);
         }
         unknown_7b = unknown_7a;
     }
     if (unknown_325 != unknown_326) {
         if (unknown_325) {
-            if (unknown_slot32()->VoiceSinking != -1) {
-                Voc_Play_At(unknown_slot32()->VoiceSinking, CoordStruct(Coord), 0);
+            if (Techno_Type_Class()->VoiceSinking != -1) {
+                Voc_Play_At(Techno_Type_Class()->VoiceSinking, CoordStruct(Coord), 0);
             }
-            if (unknown_slot32()->SinkingSound != -1) {
-                Voc_Play_At(unknown_slot32()->SinkingSound, CoordStruct(Coord), &unknown_43c);
+            if (Techno_Type_Class()->SinkingSound != -1) {
+                Voc_Play_At(Techno_Type_Class()->SinkingSound, CoordStruct(Coord), &unknown_43c);
             } else if (Rules->unknown_200 != -1) {
                 Voc_Play_At(Rules->unknown_200, CoordStruct(Coord), &unknown_43c);
             }
@@ -173,11 +173,11 @@ void FootClass::AI()
     if (unknown_37d != unknown_37e) {
         if (unknown_37d) {
             unknown_43c.Unknown_00406070();
-            if (unknown_slot32()->VoiceCrashing != -1 && House->Is_Player_Control()) {
-                Voc_Play_At(unknown_slot32()->VoiceCrashing, CoordStruct(Coord), 0);
+            if (Techno_Type_Class()->VoiceCrashing != -1 && House->Is_Player_Control()) {
+                Voc_Play_At(Techno_Type_Class()->VoiceCrashing, CoordStruct(Coord), 0);
             }
-            if (unknown_slot32()->CrashingSound != -1) {
-                Voc_Play_At(unknown_slot32()->CrashingSound, CoordStruct(Coord), &unknown_43c);
+            if (Techno_Type_Class()->CrashingSound != -1) {
+                Voc_Play_At(Techno_Type_Class()->CrashingSound, CoordStruct(Coord), &unknown_43c);
             }
         } else if (!unknown_434) {
             unknown_43c.Unknown_00406070();
@@ -187,8 +187,8 @@ void FootClass::AI()
     Voc_Update_At(CoordStruct(Coord), &unknown_43c);
 
     if ((Frame & 0x3F) == 0x3F && unknown_494 == 0 && !unknown_79
-        && !((UnknownCellClass *)unknown_slot105())->unknown_11c && (unsigned char)unknown_slot164() && unknown_slot108() == 0) {
-        unknown_slot87(CoordStruct(0, 0, 0), 1 != 0, 0 != 0);
+        && !((UnknownCellClass *)Get_Cell_Ptr())->unknown_11c && (unsigned char)unknown_slot164() && Get_Height_AGL() == 0) {
+        Scatter(CoordStruct(0, 0, 0), 1 != 0, 0 != 0);
     }
 
     UnknownPiggybackPtr piggyback(Locomotor);

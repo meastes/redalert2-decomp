@@ -29,7 +29,7 @@ void VoxelAnimClass::AI()
         Voc_Update_At(Center_Coord(), &unknown_fc);
     }
     if (unknown_f8) {
-        unknown_slot60();
+        Delete_Me();
         return;
     }
     if (unknown_128 != 0) {
@@ -98,7 +98,7 @@ void VoxelAnimClass::AI()
                 }
             }
         }
-        unknown_slot60();
+        Delete_Me();
         return;
     }
     if (Class->TrailerAnim != 0 && Frame % 2 == 0) {
@@ -123,7 +123,7 @@ void VoxelAnimClass::AI()
                     CoordStruct delta = BounceClass::Coord() - CoordStruct(object->Coord);
                     int distance = abs(delta.Y) + abs(delta.X);
                     if (distance <= Class->DamageRadius) {
-                        object->unknown_slot86(&Class->Damage, Unknown_006A2970(distance), Class->Warhead, 0, 0, 0);
+                        object->Take_Damage(&Class->Damage, Unknown_006A2970(distance), Class->Warhead, 0, 0, 0);
                     }
                 }
             }
@@ -132,5 +132,5 @@ void VoxelAnimClass::AI()
             unknown_128 = 0;
             break;
     }
-    unknown_slot103(BounceClass::Coord());
+    Set_Coord(BounceClass::Coord());
 }

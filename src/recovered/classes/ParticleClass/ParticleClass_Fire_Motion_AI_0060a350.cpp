@@ -24,5 +24,5 @@ void ParticleClass::Fire_Motion_AI()
             unknown_121 = true;
         }
     }
-    unknown_slot103(next);
+    Set_Coord(next);
 }

@@ -23,7 +23,7 @@ inline UnknownFacingDir Fly_Direction_004bddf0(CoordStruct const &from,CoordStru
 }
 bool FlyLocomotionClass::Process_Take_Off_004bddf0()
 {
-    int height=LinkedTo->unknown_slot108();
+    int height=LinkedTo->Get_Height_AGL();
     if (!LinkedTo->unknown_79 && (Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height>=unknown_geometry_j)
         height-=unknown_geometry_j;
     UnknownFlyPtr flyctrl(LinkedTo);

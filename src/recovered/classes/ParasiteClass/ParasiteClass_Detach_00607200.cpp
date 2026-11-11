@@ -26,7 +26,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
         if (unknown_2c.Value() > 0 && !Owner->unknown_slot203()) {
             unknown_28->unknown_580 = 0;
             unknown_28 = 0;
-            Owner->unknown_slot60();
+            Owner->Delete_Me();
             return;
         }
         CoordStruct coord = Unknown_00607C30();
@@ -55,7 +55,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
         }
         unknown_a40774--;
         Owner->Strength = 0;
-        Owner->unknown_slot60();
+        Owner->Delete_Me();
         unknown_28 = 0;
         return;
     }

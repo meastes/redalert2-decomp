@@ -58,7 +58,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
             if(stage>=Type->DoorStages) stage=Type->DoorStages-1;
             if(stage<0) stage=0;
             if(Health_Ratio()<=Rules->unknown_1368 && Type->DamagedDoor) stage+=Type->DoorStages;
-            int z_adjust=-5-Unknown_006A2970(unknown_slot110());
+            int z_adjust=-5-Unknown_006A2970(Get_Height());
             unknown_6d1510(Type->DoorAnimData_11c0,stage,&xy,&bounds,0,256,z_adjust,0,0,Map[cell].unknown_10a,0,0,Point2D(0,0),0);
             if(unknown_2a8.Is_Count_Down_Active() && stage==0) unknown_75=true;
         }
@@ -127,14 +127,14 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
             AnimClass *animation=static_cast<AnimClass *>(unknown_454[9]);
             if(in_front && animation) {
                 if(unknown_barrel_make_visible_7cf65c) animation->unknown_17d=false;
-                animation->unknown_slot63(&unknown_rect_839630,true,false);
+                animation->Render(&unknown_rect_839630,true,false);
                 animation->unknown_17d=true;
             }
             unknown_slot246(Type->unknown_c0,0,-1,&Type->unknown_214,bounds,xy+Point2D(Type->Anims[9].Offset.X,Type->Anims[9].Offset.Y),
                 Aircraft_Isometric_View_Matrix_00717f90()*matrix,Map[cell].unknown_10a,0);
             if(!in_front && animation) {
                 if(unknown_barrel_make_visible_7cf65c) animation->unknown_17d=false;
-                animation->unknown_slot63(&unknown_rect_839630,true,false);
+                animation->Render(&unknown_rect_839630,true,false);
                 animation->unknown_17d=true;
             }
         }

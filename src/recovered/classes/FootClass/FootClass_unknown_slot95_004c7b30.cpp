@@ -45,7 +45,7 @@ int FootClass::unknown_slot95(RadioClass *from, int message, AbstractClass *&par
             unknown_slot116(5, false);
         }
         if (!unknown_599 && unknown_494 == 0) {
-            unknown_slot87(unknown_geometry_l, 1 != 0, 1 != 0);
+            Scatter(unknown_geometry_l, 1 != 0, 1 != 0);
         }
         break;
     case 19:

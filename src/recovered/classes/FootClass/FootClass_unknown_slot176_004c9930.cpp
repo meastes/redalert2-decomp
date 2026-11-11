@@ -16,12 +16,12 @@ int FootClass::unknown_slot176()
     if (Locomotor) {
         adjust = Locomotor.Checked()->Z_Adjust();
     }
-    int fudge = unknown_slot32()->ZFudgeColumn * unknown_6cf9d0();
-    int tunnel = unknown_slot32()->ZFudgeTunnel * unknown_6cfb60();
-    int cliff = unknown_slot32()->ZFudgeCliff * unknown_6cfda0();
+    int fudge = Techno_Type_Class()->ZFudgeColumn * unknown_6cf9d0();
+    int tunnel = Techno_Type_Class()->ZFudgeTunnel * unknown_6cfb60();
+    int cliff = Techno_Type_Class()->ZFudgeCliff * unknown_6cfda0();
     int bridge = 0;
     if (unknown_6cf670()) {
-        bridge = unknown_slot32()->ZFudgeBridge;
+        bridge = Techno_Type_Class()->ZFudgeBridge;
     }
     if (fudge <= tunnel) {
         fudge = tunnel;

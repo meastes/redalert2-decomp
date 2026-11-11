@@ -22,7 +22,7 @@ void JumpjetLocomotionClass::unknown_52fff0()
         CoordStruct coord = LinkedTo->Coord;
         if (head.X == coord.X && head.Y == coord.Y) {
             if (LinkedTo->unknown_228 == 0) {
-                if (LinkedTo->unknown_slot32()->BalloonHover) {
+                if (LinkedTo->Techno_Type_Class()->BalloonHover) {
                     unknown_4c = 2;
                     LinkedTo->unknown_6d1470();
                 } else {
@@ -40,10 +40,10 @@ void JumpjetLocomotionClass::unknown_52fff0()
             dir = UnknownFacingDir((unsigned short)(int)((Fast_Atan2(double(from.Y) - to.Y, double(to.X) - from.X)
                 - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
             unknown_50.Set_Desired(dir);
-            if (((CellClass *)LinkedTo->unknown_slot105())->unknown_e0 == 0 && Map[LinkedTo->unknown_458].unknown_e0 == LinkedTo) {
+            if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == 0 && Map[LinkedTo->unknown_458].unknown_e0 == LinkedTo) {
                 Map[LinkedTo->unknown_458].Set_unknown_e0(0);
             }
-            ((CellClass *)LinkedTo->unknown_slot105())->Set_unknown_e0(0);
+            ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);
             unknown_4c = 3;
         }
     }

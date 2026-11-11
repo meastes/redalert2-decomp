@@ -97,7 +97,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
         Motion_AI_004fdaf0();
         if (!LinkedTo->unknown_7d) return false;
 
-        int height = LinkedTo->unknown_slot110();
+        int height = LinkedTo->Get_Height();
         int speed = (int)(LinkedTo->unknown_slot303() * unknown_50);
         UnknownFacingDir direction = Hover_Direction_004fbfc0(LinkedTo->Center_Coord(), unknown_24);
 
@@ -144,7 +144,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             CoordStruct coord = Object_Coord(LinkedTo);
 
             if (LinkedTo->unknown_slot47() && unknown_24 != unknown_geometry_l) {
-                LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+                LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
                 LinkedTo->unknown_5a0 = false;
                 LinkedTo->unknown_5a1 = false;
             }
@@ -154,10 +154,10 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             coord.Y = moved.Y;
             if (coord.As_Cell() != Object_Coord(LinkedTo).As_Cell()) {
                 LinkedTo->Mark(0);
-                LinkedTo->unknown_slot103(coord);
+                LinkedTo->Set_Coord(coord);
                 LinkedTo->unknown_func_5d4920(height);
                 CellClass *cellptr = &Map[coord];
-                if (!LinkedTo->unknown_79 && Hover_Under_Bridge_004fbfc0(cellptr) && LinkedTo->unknown_slot108() >= unknown_geometry_j) {
+                if (!LinkedTo->unknown_79 && Hover_Under_Bridge_004fbfc0(cellptr) && LinkedTo->Get_Height_AGL() >= unknown_geometry_j) {
                     LinkedTo->unknown_79 = true;
                 }
                 if (LinkedTo->unknown_79 == true && !Hover_Under_Bridge_004fbfc0(cellptr)) {
@@ -167,7 +167,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             } else {
                 bool wasdown = LinkedTo->unknown_74;
                 LinkedTo->unknown_74 = false;
-                LinkedTo->unknown_slot103(coord);
+                LinkedTo->Set_Coord(coord);
                 LinkedTo->unknown_func_5d4920(height);
                 LinkedTo->unknown_74 = wasdown;
             }
@@ -175,7 +175,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
     }
 
     if (Is_Moving_Now() && (Frame % 10) == 0) {
-        if (!LinkedTo->unknown_79 && static_cast<CellClass *>(LinkedTo->unknown_slot105())->Land_Type() == 2) {
+        if (!LinkedTo->unknown_79 && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2) {
             if (Rules->unknown_09c != 0) {
                 new AnimClass(Rules->unknown_09c, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
             }
@@ -207,7 +207,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
             Map[Object_Coord(LinkedTo)].Trigger_Veins();
             if (Map[Object_Coord(LinkedTo)].Land_Type() == 2) {
                 if (Object_Coord(LinkedTo).Z < Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_g) {
-                    LinkedTo->unknown_slot57();
+                    LinkedTo->Fall_From_Height();
                 }
             }
         }

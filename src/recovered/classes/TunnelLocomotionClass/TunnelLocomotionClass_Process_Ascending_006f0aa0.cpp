@@ -12,7 +12,7 @@ void TunnelLocomotionClass::Process_Ascending()
     CoordStruct coord = LinkedTo->Coord;
     int ground = Map.Get_Height_GL(coord);
     if (coord.Z < ground) {
-        int height = LinkedTo->unknown_slot108();
+        int height = LinkedTo->Get_Height_AGL();
         int rate = (int)(LinkedTo->unknown_slot303() * Rules->unknown_20);
         if (rate <= 5) {
             rate = 5;
@@ -21,14 +21,14 @@ void TunnelLocomotionClass::Process_Ascending()
         if (coord.Z > ground) {
             coord.Z = ground;
         }
-        LinkedTo->unknown_slot103(coord);
-        if (height <= -0x32 && LinkedTo->unknown_slot108() > -0x32) {
+        LinkedTo->Set_Coord(coord);
+        if (height <= -0x32 && LinkedTo->Get_Height_AGL() > -0x32) {
             Voc_Play_At(Rules->unknown_16c, CoordStruct(LinkedTo->Coord), 0);
             new AnimClass(Rules->unknown_228, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
         }
     } else {
-        LinkedTo->unknown_slot70(0, 0);
-        int delay = (int)(64.0 / LinkedTo->unknown_slot32()->ROT);
+        LinkedTo->Look(0, 0);
+        int delay = (int)(64.0 / LinkedTo->Techno_Type_Class()->ROT);
         DigTimer = UnknownTunnelTimer(delay);
         LinkedTo->unknown_slot306(0.0);
         unknown_18 = 6;

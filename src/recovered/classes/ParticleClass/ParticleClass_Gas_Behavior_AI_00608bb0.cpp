@@ -135,7 +135,7 @@ void ParticleClass::Gas_Behavior_AI()
             Slope_Vector(velocity, coord2, 1);
         }
 
-        if (unknown_slot108() > 5 && (Frame % 2) == 0) {
+        if (Get_Height_AGL() > 5 && (Frame % 2) == 0) {
             unknown_b0.Z = (-5 > unknown_b0.Z - 1) ? -5 : unknown_b0.Z - 1;
         } else {
             unknown_b0.Z = (unknown_b0.Z > 0) ? unknown_b0.Z : 0;
@@ -153,7 +153,7 @@ void ParticleClass::Gas_Behavior_AI()
             if (occupier->unknown_7d) {
                 if (occupier->Strength > 0) {
                     int damage = Class->Damage;
-                    occupier->unknown_slot86(&damage, Unknown_006A2970(abs(delta.X) + abs(delta.Y)), Class->Warhead, 0, 0, 0);
+                    occupier->Take_Damage(&damage, Unknown_006A2970(abs(delta.X) + abs(delta.Y)), Class->Warhead, 0, 0, 0);
                 }
             }
             occupier = next;

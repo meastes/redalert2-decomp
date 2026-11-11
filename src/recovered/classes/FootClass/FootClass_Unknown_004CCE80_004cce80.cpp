@@ -9,10 +9,10 @@
 void FootClass::Unknown_004CCE80(FootClass *passenger)
 {
     Cargo.Attach(passenger);
-    if (passenger != 0 && unknown_slot32()->EnterTransportSound != -1) {
-        Voc_Static_Add(unknown_slot32()->EnterTransportSound, CoordStruct(Coord), 0);
+    if (passenger != 0 && Techno_Type_Class()->EnterTransportSound != -1) {
+        Voc_Static_Add(Techno_Type_Class()->EnterTransportSound, CoordStruct(Coord), 0);
     }
-    if (unknown_slot32()->Gunner && Cargo.Count == 1) {
+    if (Techno_Type_Class()->Gunner && Cargo.Count == 1) {
         unknown_slot280((int)passenger);
     }
 }

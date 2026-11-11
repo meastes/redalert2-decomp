@@ -38,7 +38,7 @@ inline int Tube_Height_Step(CoordStruct const &exit, TubeClass const *tube, int 
 int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
 {
     if (unknown_24 != unknown_geometry_l) {
-        LinkedTo->unknown_slot59(unknown_24);
+        LinkedTo->Clear_Occupy_Bit(unknown_24);
         unknown_24 = unknown_geometry_l;
     }
 
@@ -56,7 +56,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
         int tubenum = Map[Object_Coord(LinkedTo)].unknown_116;
         if (tubenum >= 0 && tubenum < unknown_TubeClass_list_008661c8.Count()) {
             LinkedTo->Mark(0);
-            LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+            LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
             TubeClass *tube = unknown_TubeClass_list_008661c8[tubenum];
             Cell exit = tube->ExitCell;
             unknown_24 = exit.As_Coord();
@@ -68,7 +68,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             TPoint2D<short> const &enter = tube->EnterCell;
             CoordStruct diff = Map[Adjacent_Cell(Cell(enter), tube->Directions[0])].unknown_475d60() - CoordStruct(Cell(enter));
             LinkedTo->unknown_45c = diff + Object_Coord(LinkedTo);
-            int height = LinkedTo->unknown_slot110();
+            int height = LinkedTo->Get_Height();
             int current_height = Map.Get_Height_GL(Object_Coord(LinkedTo));
             Cell exit2 = tube->ExitCell;
             int z = height + Tube_Height_Step(exit2, tube, current_height);
@@ -169,7 +169,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
                 return 7;
             }
             if (LinkedTo->unknown_32d) {
-                LinkedTo->unknown_slot58(unknown_24);
+                LinkedTo->Set_Occupy_Bit(unknown_24);
             }
             memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
             LinkedTo->Path[23] = -1;

@@ -93,17 +93,17 @@ public:
     virtual bool unknown_slot49(HouseClass *house);                            // slot 49 0x00709D50
     virtual ObjectTypeClass *unknown_slot50(bool arg1);                        // slot 50 0x00709BB0
     virtual HouseClass *unknown_slot51(bool arg1);                         // slot 51 0x00709BF0
-    virtual bool unknown_slot52();                                     // slot 52 0x007078F0
+    virtual bool Limbo();                                     // slot 52 0x007078F0
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);                   // slot 53 0x006FC940
-    virtual void unknown_slot55(TechnoClass *techno);                            // slot 55 0x00707ED0
-    virtual void unknown_slot58(CoordStruct const &coord);                             // slot 58 0x00707980
-    virtual void unknown_slot59(CoordStruct const &coord);                             // slot 59 0x007079E0
-    virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);  // slot 63 0x006FF350
+    virtual void Record_The_Kill(TechnoClass *techno);                            // slot 55 0x00707ED0
+    virtual void Set_Occupy_Bit(CoordStruct const &coord);                             // slot 58 0x00707980
+    virtual void Clear_Occupy_Bit(CoordStruct const &coord);                             // slot 59 0x007079E0
+    virtual bool Render(Rect *bounds, bool arg2, bool arg3);  // slot 63 0x006FF350
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x00700E70
     virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);  // slot 77 0x006FD610
     virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);        // slot 78 0x006FD5A0
-    virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x006FCA30
-    virtual void unknown_slot87(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x007072D0
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x006FCA30
+    virtual void Scatter(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x007072D0
     virtual void unknown_slot93(int arg1);                            // slot 93 0x006FE610
     virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x006FC1F0
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00703040

@@ -13,8 +13,8 @@ void BuildingClass::unknown_44a000(UnknownBuildingFactory *factory)
         bool saved = unknown_76;
         unknown_76 = true;
         if (object) {
-            if (!object->unknown_slot32()->Who_Can_Build_Me(true, false, false, House)) {
-                House->unknown_func_4e64f0(Type->Factory, object->unknown_slot32()->unknown_slot16(), 0);
+            if (!object->Techno_Type_Class()->Who_Can_Build_Me(true, false, false, House)) {
+                House->unknown_func_4e64f0(Type->Factory, object->Techno_Type_Class()->unknown_slot16(), 0);
             }
         }
         unknown_76 = saved;

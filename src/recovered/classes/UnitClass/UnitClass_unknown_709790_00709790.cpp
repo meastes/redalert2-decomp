@@ -14,7 +14,7 @@ extern "C" int __cdecl abs(int value);
 
 bool UnitClass::unknown_709790(Cell const *from, Cell const *to)
 {
-    if (unknown_slot108() >= 0 && Map.Unknown_0054F7C0(*from, *to, 0, false, 0, false)) {
+    if (Get_Height_AGL() >= 0 && Map.Unknown_0054F7C0(*from, *to, 0, false, 0, false)) {
         if (from->X == to->X && from->Y == to->Y) {
             return false;
         }

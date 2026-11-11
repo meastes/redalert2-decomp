@@ -11,9 +11,9 @@
 bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
 {
     if (unknown_28 != unknown_geometry_l) {
-        LinkedTo->unknown_slot59(unknown_28);
+        LinkedTo->Clear_Occupy_Bit(unknown_28);
     } else {
-        LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+        LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
     }
 
     CoordStruct crd = coord;
@@ -50,10 +50,10 @@ bool WalkLocomotionClass::Mark_Head_To(CoordStruct const &coord)
     }
 
     if (unknown_28 != unknown_geometry_l) {
-        LinkedTo->unknown_slot58(unknown_28);
+        LinkedTo->Set_Occupy_Bit(unknown_28);
         return true;
     }
 
-    LinkedTo->unknown_slot58(Object_Coord(LinkedTo));
+    LinkedTo->Set_Occupy_Bit(Object_Coord(LinkedTo));
     return false;
 }

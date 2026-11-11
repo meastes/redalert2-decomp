@@ -10,7 +10,7 @@ bool TechnoClass::unknown_6c6130(int method,int mask,Cell const *cell,int range,
     *object=0;
     *value=0;
     UnknownCellClass *cellptr=reinterpret_cast<UnknownCellClass *>(&Map[*cell]);
-    if(zone!=-1 && Map.Zone(*cell,unknown_slot32()->MovementZone,true)!=zone) return false;
+    if(zone!=-1 && Map.Zone(*cell,Techno_Type_Class()->MovementZone,true)!=zone) return false;
     ObjectClass *tentative=cellptr->unknown_e8;
     TechnoClass *tech=0;
     if(!tentative) tentative=cellptr->unknown_e4;
@@ -25,7 +25,7 @@ bool TechnoClass::unknown_6c6130(int method,int mask,Cell const *cell,int range,
                 if(unknown_6c16f0(-1)<0) {
                     if(tech->Health_Ratio()<Rules->unknown_1360 && House->Is_Ally(tech)) break;
                 } else {
-                    if(!House->Is_Ally(tech) || unknown_slot32()->AttackFriendlies
+                    if(!House->Is_Ally(tech) || Techno_Type_Class()->AttackFriendlies
                        || (Kind_Of()==15 && (static_cast<InfantryClass *>(this)->unknown_5c0
                        || (static_cast<InfantryClass *>(this)->Type->Engineer && Mission==11
                            && tech->Health_Ratio()<=Rules->unknown_1370 && tech->Kind_Of()==6

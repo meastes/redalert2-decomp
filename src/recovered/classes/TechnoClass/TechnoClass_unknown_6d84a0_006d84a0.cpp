@@ -5,7 +5,7 @@
 
 int TechnoClass::unknown_6d84a0()
 {
-    if (unknown_slot32()->Has_Turret_Weapons()) {
+    if (Techno_Type_Class()->Has_Turret_Weapons()) {
         return unknown_10c;
     }
     return 0;

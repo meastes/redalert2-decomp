@@ -74,7 +74,7 @@ void AnimClass::Flaming_Guy_AI()
         if (Flaming_Offset(coord, target).Length() <= 18) {
             if (!unknown_7a) {
                 CoordStruct nextcoord = unknown_func_4237b0();
-                bool sink = (Map[unknown_f0].unknown_ec == 2 || Map[unknown_f0].unknown_ec == 6) && unknown_slot108() <= unknown_geometry_g;
+                bool sink = (Map[unknown_f0].unknown_ec == 2 || Map[unknown_f0].unknown_ec == 6) && Get_Height_AGL() <= unknown_geometry_g;
                 if (nextcoord != unknown_geometry_l && unknown_fc < 7 && !sink) {
                     unknown_fc++;
                     int z = Position_Coord_004f3f40().Z;
@@ -84,7 +84,7 @@ void AnimClass::Flaming_Guy_AI()
                     } else {
                         oldcoord.Z = Map.Get_Height_GL(oldcoord) + unknown_geometry_j;
                     }
-                    unknown_slot103(oldcoord);
+                    Set_Coord(oldcoord);
                     unknown_f0 = nextcoord;
                 } else {
                     unknown_f0 = unknown_geometry_l;
@@ -103,7 +103,7 @@ void AnimClass::Flaming_Guy_AI()
             } else {
                 newcoord.Z = Map.Get_Height_GL(newcoord) + unknown_geometry_j;
             }
-            unknown_slot103(newcoord);
+            Set_Coord(newcoord);
         }
 
         if (!unknown_7a) {
@@ -138,9 +138,9 @@ void AnimClass::Flaming_Guy_AI()
         Stage = stage + Frame / 3 % Class->RunningFrames;
         return;
     } else {
-        int stage = ((ShapeFileStruct const *)unknown_slot26())->FrameCount / 2 - 1;
+        int stage = ((ShapeFileStruct const *)Get_Image_Data())->FrameCount / 2 - 1;
         if (Stage >= stage) {
-            unknown_slot60();
+            Delete_Me();
         }
     }
 }

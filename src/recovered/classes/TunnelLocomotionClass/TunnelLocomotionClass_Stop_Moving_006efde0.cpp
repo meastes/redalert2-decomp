@@ -45,7 +45,7 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
                 nearby = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
             }
             if (nearby == unknown_geometry_k) {
-                LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, true);
+                LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, true);
                 DestinationCoord = unknown_geometry_l;
             } else {
                 DestinationCoord = Cell_Coord(nearby);

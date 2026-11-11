@@ -23,35 +23,35 @@ Matrix3D * __stdcall FlyLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
         *key |= Dir_To_32(LinkedTo->unknown_2f8.Current()) << 3;
     }
     transform.Rotate_Z((float)((Dir_To_32(LinkedTo->unknown_2f8.Current()) - 8) * -0.19634954084936207));
-    if (LinkedTo->unknown_slot108() > 0) {
+    if (LinkedTo->Get_Height_AGL() > 0) {
         if (LinkedTo->unknown_37d) {
             transform.Rotate_X(LinkedTo->unknown_280);
-            if (unknown_48 > LinkedTo->unknown_slot32()->PitchSpeed) {
-                transform.Rotate_Y((float)(LinkedTo->unknown_284 + LinkedTo->unknown_slot32()->PitchAngle));
+            if (unknown_48 > LinkedTo->Techno_Type_Class()->PitchSpeed) {
+                transform.Rotate_Y((float)(LinkedTo->unknown_284 + LinkedTo->Techno_Type_Class()->PitchAngle));
             } else {
                 transform.Rotate_Y(LinkedTo->unknown_284);
             }
             if (key != 0) {
                 *key = -1;
             }
-        } else if (unknown_48 > LinkedTo->unknown_slot32()->PitchSpeed) {
-            if (LinkedTo->unknown_slot32()->PitchAngle != 0.0) {
+        } else if (unknown_48 > LinkedTo->Techno_Type_Class()->PitchSpeed) {
+            if (LinkedTo->Techno_Type_Class()->PitchAngle != 0.0) {
                 if (key != 0) {
                     *key |= 4;
                 }
-                transform.Rotate_Y((float)LinkedTo->unknown_slot32()->PitchAngle);
+                transform.Rotate_Y((float)LinkedTo->Techno_Type_Class()->PitchAngle);
             }
-            if (LinkedTo->unknown_slot32()->RollAngle != 0.0) {
+            if (LinkedTo->Techno_Type_Class()->RollAngle != 0.0) {
                 if (LinkedTo->unknown_2f8.Is_Turning_Positive()) {
                     if (key != 0) {
                         *key |= 1;
                     }
-                    transform.Rotate_X((float)LinkedTo->unknown_slot32()->RollAngle);
+                    transform.Rotate_X((float)LinkedTo->Techno_Type_Class()->RollAngle);
                 } else if (LinkedTo->unknown_2f8.Is_Turning_Negative()) {
                     if (key != 0) {
                         *key |= 2;
                     }
-                    transform.Rotate_X((float)-LinkedTo->unknown_slot32()->RollAngle);
+                    transform.Rotate_X((float)-LinkedTo->Techno_Type_Class()->RollAngle);
                 }
             }
         }

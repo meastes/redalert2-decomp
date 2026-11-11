@@ -47,7 +47,7 @@ void Unknown_006F5940()
 
     for (index = 0; index < count; index++) {
         ObjectClass *object = unknown_objects_a40c60[index];
-        if (object != 0 && (object->unknown_slot39() || object->unknown_slot38()) && object->AbstractFlags.IsTechno
+        if (object != 0 && (object->Can_Player_Move() || object->Can_Player_Fire()) && object->AbstractFlags.IsTechno
             && ((TechnoClass *)object)->unknown_slot185() && ((TechnoClass *)object)->unknown_slot186()) {
             if (object->Kind_Of() == 15 && ((InfantryClass *)object)->unknown_5090a0() && deploying && undeployed
                 && ((InfantryClass *)object)->unknown_5090d0()) {

@@ -14,7 +14,7 @@
 
 int FootClass::Do_MISSION_ATTACK()
 {
-    if (unknown_slot32()->HoverAttack && unknown_slot108() == 0) {
+    if (Techno_Type_Class()->HoverAttack && Get_Height_AGL() == 0) {
         Assign_Destination((AbstractClass *)&Map[unknown_6cf130(this)], true);
     }
     if (unknown_57e) {

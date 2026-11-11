@@ -32,16 +32,16 @@ void CellClass::Occupy_Down(ObjectClass *object, bool alt)
     }
 
     if (!Map.Is_Shrouded(unknown_475d60()) && !Map.Is_Fogged(unknown_475d60()) || unknown_game_mode_a3d298 != 0) {
-        object->unknown_slot96(unknown_player_a35db4);
+        object->Revealed(unknown_player_a35db4);
     }
 
     if (object->Kind_Of() != 0x0F && object->unknown_slot47()) {
         if (object->Kind_Of() == 6) {
             CoordStruct center(MapCoords.X * 256 + 128, MapCoords.Y * 256 + 128, 0);
-            object->unknown_slot58(center);
+            object->Set_Occupy_Bit(center);
         } else {
             CoordStruct coord = object->Coord;
-            object->unknown_slot58(coord);
+            object->Set_Occupy_Bit(coord);
         }
     }
 }

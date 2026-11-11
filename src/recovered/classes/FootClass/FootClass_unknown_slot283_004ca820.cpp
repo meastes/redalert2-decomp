@@ -8,11 +8,11 @@ bool FootClass::unknown_slot283()
     if (unknown_slot231(0) == 0) {
         return true;
     }
-    if (unknown_slot32()->TechLevel == -1) {
+    if (Techno_Type_Class()->TechLevel == -1) {
         return true;
     }
-    if (unknown_slot32()->DeploysInto != 0) {
+    if (Techno_Type_Class()->DeploysInto != 0) {
         return true;
     }
-    return unknown_slot32()->Speed <= 13 ? true : false;
+    return Techno_Type_Class()->Speed <= 13 ? true : false;
 }

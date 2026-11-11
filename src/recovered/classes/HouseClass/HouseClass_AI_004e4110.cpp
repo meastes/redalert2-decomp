@@ -122,13 +122,13 @@ void HouseClass::AI()
             bool moving=false;
             foot=House_Foot_View(occupant);
             if (foot && foot->unknown_494) moving=true;
-            if (!moving) occupant->unknown_slot87(unknown_coord_a40f48,true,true);
+            if (!moving) occupant->Scatter(unknown_coord_a40f48,true,true);
             if (foot && foot->unknown_494) moving=true;
             if (!moving) {
                 int count=0;
                 while (!occupant->unknown_76 && count++<5) {
                     int damage=occupant->Strength;
-                    occupant->unknown_slot86(&damage,0,Rules->unknown_c74,0,true,0);
+                    occupant->Take_Damage(&damage,0,Rules->unknown_c74,0,true,0);
                 }
             }
         }

@@ -26,7 +26,7 @@ void TechnoClass::unknown_slot246(UnknownObjectPair const &voxel,int frame,int k
     brightness=unknown_slot254(brightness);
     if (unknown_slot203()) brightness=unknown_6d86f0(brightness);
     if (key!=-1) {
-        if (!cache || unknown_slot32()->DisableVoxelCache) key=-1;
+        if (!cache || Techno_Type_Class()->DisableVoxelCache) key=-1;
         else {
             void *entry=(*cache)[key];
             if (entry) {

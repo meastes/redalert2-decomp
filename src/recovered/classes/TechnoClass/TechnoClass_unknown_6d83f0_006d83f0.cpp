@@ -6,12 +6,12 @@
 
 void TechnoClass::unknown_6d83f0(int index)
 {
-    if (!unknown_slot32()->IsChargeTurret) {
+    if (!Techno_Type_Class()->IsChargeTurret) {
         if (index >= 0 && index < 15) {
-            unknown_100 = unknown_slot32()->Get_Turret_Weapon(index);
+            unknown_100 = Techno_Type_Class()->Get_Turret_Weapon(index);
             unknown_10c = index;
         } else {
-            unknown_100 = unknown_slot32()->Get_Turret_Weapon(0);
+            unknown_100 = Techno_Type_Class()->Get_Turret_Weapon(0);
             unknown_10c = 0;
         }
     }

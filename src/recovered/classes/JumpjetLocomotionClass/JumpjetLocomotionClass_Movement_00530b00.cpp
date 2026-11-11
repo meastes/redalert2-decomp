@@ -53,23 +53,23 @@ void JumpjetLocomotionClass::unknown_530b00()
         unknown_80+=unknown_jumpjet_full_turn_79c9b8/(unknown_jumpjet_cycle_7a5398/Wobbles);
     else unknown_80=0;
     int desired_height=(int)(Fast_Sin(unknown_80)*Deviation+unknown_78);
-    int height=LinkedTo->unknown_slot110();
+    int height=LinkedTo->Get_Height();
     int ground=Map.Get_Height_GL(Object_Coord(LinkedTo));
     if ((Map[Object_Coord(LinkedTo)].unknown_140&0x100) && Object_Coord(LinkedTo).Z>=ground+unknown_geometry_g*4)
         ground+=unknown_geometry_j;
     int difference;
-    if (unknown_4c!=4 && unknown_4c!=0 && (!at_destination || LinkedTo->unknown_slot32()->BalloonHover))
+    if (unknown_4c!=4 && unknown_4c!=0 && (!at_destination || LinkedTo->Techno_Type_Class()->BalloonHover))
         difference=height-unknown_531140();
     else difference=height-ground;
     bool moved=false;
     if (difference<desired_height) {
-        int height_agl=LinkedTo->unknown_slot108();
+        int height_agl=LinkedTo->Get_Height_AGL();
         if ((Map[Object_Coord(LinkedTo)].unknown_140&0x100) && !LinkedTo->unknown_79) {
             if (Object_Coord(LinkedTo).Z>=Map.Get_Height_GL(Object_Coord(LinkedTo))+unknown_geometry_j)
                 height_agl-=unknown_geometry_j;
         }
         if (height_agl==0) {
-            LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+            LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
             LinkedTo->unknown_79=false;
         }
         if (difference+Climb>desired_height) height+=desired_height-difference;
@@ -93,7 +93,7 @@ void JumpjetLocomotionClass::unknown_530b00()
     CoordStruct start=Object_Coord(LinkedTo);
     int distance=(int)unknown_68;
     CoordStruct next=Jumpjet_Move_Coord_00530b00(start,unknown_50.Current(),distance);
-    LinkedTo->unknown_slot103(next);
+    LinkedTo->Set_Coord(next);
     BuildingClass *building=static_cast<BuildingClass *>(Map[next].Cell_Building());
     if (building && building->Type->FirestormWall && building->House->unknown_142)
         building->unknown_450cb0(LinkedTo,true);

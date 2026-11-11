@@ -7,5 +7,5 @@ int ObjectClass::unknown_slot29() const
     if (!unknown_slot21()) {
         return 2;
     }
-    return (unknown_slot108() >= Rules->unknown_378) + 3;
+    return (Get_Height_AGL() >= Rules->unknown_378) + 3;
 }

@@ -83,14 +83,14 @@ return_capture_action:
                     } else return 0x1a;
                 }
                 TechnoClass *transport = As_Techno_0040dbd0(object);
-                if (!transport || transport->unknown_slot32()->Passengers == 0) {
+                if (!transport || transport->Techno_Type_Class()->Passengers == 0) {
                     if (action == 0x1a || action == 1) goto return_selected_action;
                     return 7;
                 }
             } else return 0x3b;
         }
         if (House->Is_Player_Control() && Type->VehicleThief && object->unknown_slot31()) {
-            if (target->unknown_slot32()->IsTrain) return 7;
+            if (target->Techno_Type_Class()->IsTrain) return 7;
             if (target->House != House) {
                 if ((unknown_id_source_a3d290->unknown_000 & 0x800) != 0) {
                     for (int i = 0; i < Rules->unknown_9ec.Count(); ++i) {
@@ -169,7 +169,7 @@ check_action_31:
         }
         TechnoTypeClass *transport_type;
         if (House->Is_Ally(target) && House->Is_Player_Control() && As_Techno_0040dbd0(object) &&
-            action != 5 && action != 0x1a && (transport_type = target->unknown_slot32()) != 0 && transport_type->Passengers > 0) {
+            action != 5 && action != 0x1a && (transport_type = target->Techno_Type_Class()) != 0 && transport_type->Passengers > 0) {
             if (Type->BalloonHover) action = 0x1f;
             else {
                 FootClass *foot = static_cast<FootClass *>(object);
@@ -193,7 +193,7 @@ infiltration:
                 action = 9;
                 if (object->Kind_Of() == 6) {
                     Cell base = Coord_Cell(object->Center_Coord());
-                    int zone = Map.Zone(unknown_slot106(),Type->MovementZone,unknown_79);
+                    int zone = Map.Zone(Get_Target_Cell(),Type->MovementZone,unknown_79);
                     Cell const *offset = building->Type->Occupy_List(0);
                     bool found = false;
                     while (!(offset->X == 0x7fff && offset->Y == 0x7fff) && !found) {

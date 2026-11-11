@@ -11,7 +11,7 @@ void __stdcall JumpjetLocomotionClass::Mark_All_Occupation_Bits(int mark)
     if (mark == 0) {
         UnknownCoord434820 head = Head_To_Coord();
         if (head != unknown_geometry_l && (unknown_4c == 0 || unknown_88)) {
-            LinkedTo->unknown_slot59(head);
+            LinkedTo->Clear_Occupy_Bit(head);
             unknown_88 = false;
         }
     }

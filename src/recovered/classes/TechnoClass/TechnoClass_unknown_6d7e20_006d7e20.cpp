@@ -18,17 +18,17 @@ int TechnoClass::unknown_6d7e20(int extra)
 {
     WeaponTypeClass *weapon;
     int damage;
-    if (unknown_slot32()->DeathWeapon != 0) {
-        weapon = unknown_slot32()->DeathWeapon;
-        damage = weapon->unknown_a4 * unknown_slot32()->DeathWeaponDamageModifier;
+    if (Techno_Type_Class()->DeathWeapon != 0) {
+        weapon = Techno_Type_Class()->DeathWeapon;
+        damage = weapon->unknown_a4 * Techno_Type_Class()->DeathWeaponDamageModifier;
     } else {
         WeaponStruct *primary = unknown_slot230();
         if (primary != 0 && primary->WeaponType != 0) {
             weapon = unknown_slot230()->WeaponType;
-            damage = weapon->unknown_a4 * unknown_slot32()->DeathWeaponDamageModifier;
+            damage = weapon->unknown_a4 * Techno_Type_Class()->DeathWeaponDamageModifier;
         } else {
             weapon = Rules->DeathWeapon;
-            damage = unknown_slot32()->MaxStrength * 0.5;
+            damage = Techno_Type_Class()->MaxStrength * 0.5;
         }
     }
     if (weapon == 0) {
@@ -38,7 +38,7 @@ int TechnoClass::unknown_6d7e20(int extra)
     BulletClass *bullet = Create_Bullet(weapon->Projectile, this, this, damage, weapon->Warhead, 0, weapon->unknown_10b);
     if (bullet != 0) {
         bullet->Set_Weapon_Type(weapon);
-        bullet->unknown_slot52();
+        bullet->Limbo();
         bullet->unknown_func_462110(Center_Coord());
         bullet->Release();
     }

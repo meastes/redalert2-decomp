@@ -96,7 +96,7 @@ bool Is_Combat(TechnoClass *techno)
 {
     int kind = techno->Kind_Of();
     if (kind != 1 && kind != 0x0F) return false;           // UnitClass, InfantryClass
-    TechnoTypeClass *type = techno->unknown_slot32();
+    TechnoTypeClass *type = techno->Techno_Type_Class();
     if (type == 0 || type->DeploysInto != 0) return false;  // the MCV
     for (int i = 0; i < 2; ++i) {
         if (Same_Name(type->ID.Buffer, harvester_names[i])) return false;
@@ -127,7 +127,7 @@ int Riflemen()
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
         if (techno == 0 || techno->House != unknown_player_a35db4 || techno->Kind_Of() != 0x0F) continue;
-        TechnoTypeClass *type = techno->unknown_slot32();
+        TechnoTypeClass *type = techno->Techno_Type_Class();
         if (type != 0 && infantry_index >= 0 && type == InfantryTypes[infantry_index]) ++count;
     }
     return count;
@@ -138,7 +138,7 @@ int Tanks()
     for (int i = 0; i < Technos.Count(); ++i) {
         TechnoClass *techno = Technos[i];
         if (techno == 0 || techno->House != unknown_player_a35db4 || techno->Kind_Of() != 1) continue;
-        TechnoTypeClass *type = techno->unknown_slot32();
+        TechnoTypeClass *type = techno->Techno_Type_Class();
         if (type != 0 && tank_index >= 0 && type == UnitTypes[tank_index]) ++count;
     }
     return count;

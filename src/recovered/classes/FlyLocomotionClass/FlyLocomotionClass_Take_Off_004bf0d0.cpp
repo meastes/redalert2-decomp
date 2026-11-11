@@ -14,10 +14,10 @@ void FlyLocomotionClass::Take_Off_004bf0d0()
         unknown_50=true;
         if (LinkedTo->unknown_slot178()==unknown_geometry_k)
             unknown_tracker_839ea0.Unknown_004131E0(LinkedTo);
-        unknown_38=LinkedTo->unknown_slot32()->Flight_Level();
-        if (LinkedTo->unknown_slot108()==0) {
+        unknown_38=LinkedTo->Techno_Type_Class()->Flight_Level();
+        if (LinkedTo->Get_Height_AGL()==0) {
             LinkedTo->unknown_2e0.Set_Current(LinkedTo->unknown_2f8.unknown_4b8c80());
         }
-        Voc_Play_At(LinkedTo->unknown_slot32()->AuxSound1,Object_Coord(LinkedTo),0);
+        Voc_Play_At(LinkedTo->Techno_Type_Class()->AuxSound1,Object_Coord(LinkedTo),0);
     }
 }

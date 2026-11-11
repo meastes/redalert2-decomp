@@ -20,10 +20,10 @@ CarryoverClass::CarryoverClass(TechnoClass *techno) :
         switch (RTTI) {
             case 1:
             case 6:
-                Type = techno->unknown_slot32()->unknown_slot16();
+                Type = techno->Techno_Type_Class()->unknown_slot16();
                 break;
             case 15:
-                Type = techno->unknown_slot32()->unknown_slot16();
+                Type = techno->Techno_Type_Class()->unknown_slot16();
                 break;
         }
         House = techno->House->Type->House;

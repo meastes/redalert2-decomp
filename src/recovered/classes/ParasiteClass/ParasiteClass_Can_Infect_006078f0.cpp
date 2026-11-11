@@ -10,9 +10,9 @@
 bool ParasiteClass::Can_Infect_006078F0(FootClass *target)
 {
     if (target != 0 && !target->unknown_76 && target->unknown_7d && target->Strength != 0
-        && target->unknown_580 == 0 && target->unknown_slot32()->Parasiteable) {
-        if (Owner == 0 || !Owner->unknown_slot32()->Naval || target->unknown_slot105() == 0
-            || ((CellClass *)target->unknown_slot105())->Is_Tile_Water()) {
+        && target->unknown_580 == 0 && target->Techno_Type_Class()->Parasiteable) {
+        if (Owner == 0 || !Owner->Techno_Type_Class()->Naval || target->Get_Cell_Ptr() == 0
+            || ((CellClass *)target->Get_Cell_Ptr())->Is_Tile_Water()) {
             return true;
         }
     }

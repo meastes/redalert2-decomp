@@ -16,7 +16,7 @@ bool TechnoClass::unknown_slot160()
     if (!unknown_slot154()) {
         bool allowed = true;
         if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
-            TechnoTypeClass *type = unknown_slot32();
+            TechnoTypeClass *type = Techno_Type_Class();
             if (unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[6]) {
                 allowed = false;
             } else if (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[6] || type->EliteAbilities.Ability[6])) {

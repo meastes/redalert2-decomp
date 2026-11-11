@@ -17,7 +17,7 @@
 int TechnoClass::Unknown_006C22A0()
 {
     int time = Class_Of()->unknown_slot34();
-    time = House->unknown_func_4f5a70(unknown_slot32()) * time;
+    time = House->unknown_func_4f5a70(Techno_Type_Class()) * time;
     float power = House->Power_Fraction();
     float speed = 1.0f - (1.0f - power) * Rules->LowPowerPenaltyModifier;
     if ((double)Rules->MinLowPowerProductionSpeed >= speed) {
@@ -32,7 +32,7 @@ int TechnoClass::Unknown_006C22A0()
     time = time / speed;
     bool naval = false;
     if (Kind_Of() == 1) {
-        TechnoTypeClass *type = unknown_slot32();
+        TechnoTypeClass *type = Techno_Type_Class();
         if (type != 0) {
             naval = type->Naval;
         }

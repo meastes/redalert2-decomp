@@ -34,15 +34,15 @@ int AnimClass::unknown_slot116()
                 int distance = abs(delta.X) + abs(delta.Y);
                 if (distance <= Class->DamageRadius) {
                     int damage = Class->Damage;
-                    object->unknown_slot86(&damage, Unknown_006A2970(distance), (WarheadTypeClass *)Class->Warhead, 0, 0, 0);
+                    object->Take_Damage(&damage, Unknown_006A2970(distance), (WarheadTypeClass *)Class->Warhead, 0, 0, 0);
                 }
             }
         }
         break;
     case 2:
-        unknown_slot60();
+        Delete_Me();
         break;
     }
-    unknown_slot103(unknown_108.Unknown_00436F80());
+    Set_Coord(unknown_108.Unknown_00436F80());
     return state;
 }

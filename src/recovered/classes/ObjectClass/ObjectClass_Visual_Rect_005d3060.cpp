@@ -10,11 +10,11 @@
 extern Rect unknown_rect_839630;
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref _unknown_static_rect=00a72ed0
-Rect ObjectClass::unknown_slot72()
+Rect ObjectClass::Get_Visual_Rect()
 {
     Point2D pixel;
     unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(),pixel);
-    ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(unknown_slot26());
+    ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(Get_Image_Data());
     if (!shape) return unknown_static_rect;
     Rect frame=shape->Get_Frame_Rect(0);
     Rect visual(pixel.X+frame.X-shape->Get_Width()/2,

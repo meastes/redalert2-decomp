@@ -8,19 +8,19 @@ int TechnoClass::unknown_slot166()
 {
     double amount;
     double maximum;
-    switch (unknown_slot32()->PipScale) {
+    switch (Techno_Type_Class()->PipScale) {
     case 1:
         amount = unknown_254;
-        maximum = unknown_slot32()->Ammo;
+        maximum = Techno_Type_Class()->Ammo;
         break;
     case 3:
         amount = Cargo.Count;
-        maximum = unknown_slot32()->Passengers;
+        maximum = Techno_Type_Class()->Passengers;
         break;
     default:
         return 0;
     }
-    int pips = (int)(unknown_slot32()->Max_Pips() * (amount / maximum) + 0.5);
+    int pips = (int)(Techno_Type_Class()->Max_Pips() * (amount / maximum) + 0.5);
     if (pips == 0 && amount > 0.0) {
         pips = 1;
     }

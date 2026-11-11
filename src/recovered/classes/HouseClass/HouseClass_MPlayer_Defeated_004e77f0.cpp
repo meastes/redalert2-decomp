@@ -49,7 +49,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
     if (unknown_game_mode_a3d298!=0 && (unknown_id_source_a3d290->unknown_000 & 0x800)) {
         for (i=0;i<Units.Count();++i) {
             UnitClass *unit=Units[i];
-            if (unit->House==this && unit->unknown_7d) unit->unknown_slot60();
+            if (unit->House==this && unit->unknown_7d) unit->Delete_Me();
         }
     }
     if (unknown_player_a35db4==this) {

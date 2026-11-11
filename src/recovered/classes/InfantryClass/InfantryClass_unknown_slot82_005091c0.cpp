@@ -7,5 +7,5 @@
 void InfantryClass::unknown_slot82(int arg1)
 {
     int damage = Type->MaxStrength;
-    unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 0);
+    Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
 }

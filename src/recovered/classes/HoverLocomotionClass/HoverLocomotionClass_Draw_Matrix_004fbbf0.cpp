@@ -34,8 +34,8 @@ Matrix3D *__stdcall HoverLocomotionClass::Draw_Matrix(Matrix3D *matrix,int *key)
         translation.Make_Identity();
         Matrix3D rotation;
         rotation.Make_Identity();
-        float width=(float)LinkedTo->unknown_slot32()->unknown_330;
-        float length=(float)LinkedTo->unknown_slot32()->unknown_338;
+        float width=(float)LinkedTo->Techno_Type_Class()->unknown_330;
+        float length=(float)LinkedTo->Techno_Type_Class()->unknown_338;
         float cos_pitch=Fast_Cos(LinkedTo->unknown_284);
         float sin_pitch=Fast_Sin(LinkedTo->unknown_284);
         float cos_roll=Fast_Cos(LinkedTo->unknown_280);

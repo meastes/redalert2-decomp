@@ -11,7 +11,7 @@ bool UnitClass::unknown_6fbab0()
                 Team->TargetNotAssigned = true;
             }
             unknown_slot210();
-            unknown_slot60();
+            Delete_Me();
             return true;
         }
     }

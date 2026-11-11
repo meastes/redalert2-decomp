@@ -4,5 +4,5 @@
 
 bool __stdcall FlyLocomotionClass::Is_Ion_Sensitive()
 {
-    return !LinkedTo->unknown_slot32()->HunterSeeker;
+    return !LinkedTo->Techno_Type_Class()->HunterSeeker;
 }

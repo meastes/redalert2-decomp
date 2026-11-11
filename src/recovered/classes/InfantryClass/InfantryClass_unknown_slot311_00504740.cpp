@@ -48,13 +48,13 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
         return false;
     }
     if (sequence == 27) {
-        if (unknown_slot32()->DeploySound != -1) {
+        if (Techno_Type_Class()->DeploySound != -1) {
             CoordStruct coord = Coord;
-            Voc_Play_At(unknown_slot32()->DeploySound, coord, 0);
+            Voc_Play_At(Techno_Type_Class()->DeploySound, coord, 0);
         }
-    } else if (sequence == 31 && unknown_slot32()->UndeploySound != -1) {
+    } else if (sequence == 31 && Techno_Type_Class()->UndeploySound != -1) {
         CoordStruct coord = Coord;
-        Voc_Play_At(unknown_slot32()->UndeploySound, coord, 0);
+        Voc_Play_At(Techno_Type_Class()->UndeploySound, coord, 0);
     }
     Sequence = sequence;
     if (Is_Prone_Sequence_005096e0(sequence)) {

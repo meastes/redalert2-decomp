@@ -106,7 +106,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             Cell dest = unknown_1c.As_Cell();
                             if (LinkedTo->unknown_32d) {
                                 Cell nav_dest = LinkedTo->unknown_slot19(0).As_Cell();
-                                if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->unknown_slot32()->MovementZone, LinkedTo->unknown_slot46(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
+                                if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                     LinkedTo->Assign_Destination(0, true);
                                 }
                             }
@@ -114,7 +114,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                                 Cell tar_dest = LinkedTo->unknown_228->unknown_slot19(LinkedTo).As_Cell();
                                 if (LinkedTo->unknown_32d && LinkedTo->unknown_228 != 0) {
                                     Cell nav_dest = LinkedTo->unknown_slot19(LinkedTo).As_Cell();
-                                    if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->unknown_slot32()->MovementZone, LinkedTo->unknown_slot46(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
+                                    if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                         LinkedTo->unknown_slot220(0);
                                     }
                                 }
@@ -138,7 +138,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 int tube = Map[Object_Coord(LinkedTo)].unknown_116;
                 if (tube >= 0 && tube < unknown_TubeClass_list_008661c8.Count()) {
                     LinkedTo->Mark(0);
-                    LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+                    LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
                     TubeClass *tube_ptr = unknown_TubeClass_list_008661c8[tube];
                     Cell cell = tube_ptr->ExitCell;
                     unknown_28 = Cell_Coord(cell);
@@ -286,9 +286,9 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         }
         memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
         LinkedTo->Path[23] = -1;
-        LinkedTo->unknown_slot103(unknown_28);
+        LinkedTo->Set_Coord(unknown_28);
         LinkedTo->unknown_450 = unknown_28.As_Cell();
-        LinkedTo->unknown_slot109(0);
+        LinkedTo->Set_Height_AGL(0);
         LinkedTo->unknown_5a1 = false;
         Mark_Head_To(unknown_geometry_l);
         if (LinkedTo->Path[0] == -1) {
@@ -325,7 +325,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
     Cell new_cell = new_coord.As_Cell();
     if (old_cell != new_cell) {
         LinkedTo->Mark(0);
-        LinkedTo->unknown_slot103(new_coord);
+        LinkedTo->Set_Coord(new_coord);
         CellClass *old_cellptr = &Map[old_cell];
         CellClass *new_cellptr = &Map[new_cell];
         if (new_cellptr->unknown_11b == old_cellptr->unknown_11b - 4) {
@@ -336,15 +336,15 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
             LinkedTo->unknown_79 = false;
         }
-        LinkedTo->unknown_slot109(0);
+        LinkedTo->Set_Height_AGL(0);
         LinkedTo->Mark(1);
         Map[Object_Coord(LinkedTo)].Trigger_Veins();
         LinkedTo->unknown_57a = false;
     } else {
         bool was_down = LinkedTo->unknown_74;
         LinkedTo->unknown_74 = false;
-        LinkedTo->unknown_slot103(new_coord);
-        LinkedTo->unknown_slot109(0);
+        LinkedTo->Set_Coord(new_coord);
+        LinkedTo->Set_Height_AGL(0);
         LinkedTo->unknown_74 = was_down;
         LinkedTo->unknown_57a = false;
     }

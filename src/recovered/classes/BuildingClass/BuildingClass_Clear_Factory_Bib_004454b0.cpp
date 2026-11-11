@@ -25,13 +25,13 @@ bool BuildingClass::unknown_4454b0()
         CellClass &exit=Map[lookup];
         ObjectClass *occupant=exit.Cell_Techno(Point2D(0,0),false,this);
         if(occupant) {
-            Debug_Printf(Factory_Exit_Message,(char const *)occupant->unknown_slot32()->ID);
+            Debug_Printf(Factory_Exit_Message,(char const *)occupant->Techno_Type_Class()->ID);
             exit.Incoming(&unknown_geometry_l,true,true,false);
             for(int facing=0;facing<8;++facing) {
                 CellClass &neighbor=exit.Adjacent_Cell(facing);
                 occupant=neighbor.Cell_Techno(Point2D(0,0),false,this);
                 if(occupant) {
-                    Debug_Printf(Factory_Bib_Message,(char const *)occupant->unknown_slot32()->ID);
+                    Debug_Printf(Factory_Bib_Message,(char const *)occupant->Techno_Type_Class()->ID);
                     neighbor.Incoming(&coordinate,true,true,false);
                 }
             }

@@ -38,9 +38,14 @@ class CallsiteRenameTests(unittest.TestCase):
         self.assertIn('other->Fire(1)', out)
 
     def test_definitions_rename_qualified_and_unqualified_calls_only(self):
-        text = 'int Leaf::unknown_slot5(int a)\n{\n    unknown_slot5(a);\n    x->unknown_slot5(a);\n    Base::unknown_slot5(a);\n}\n'
+        text = 'int Leaf::unknown_slot5(int a)\n{\n    unknown_slot5(a);\n    x->unknown_slot5(a);\n    Base::unknown_slot5(a);\n    b = a>unknown_slot5(1);\n}\n'
         out = cr.rename_definitions(text, {'Base', 'Leaf'}, METHODS)
-        self.assertEqual(out, 'int Leaf::Fire(int a)\n{\n    Fire(a);\n    x->unknown_slot5(a);\n    Base::Fire(a);\n}\n')
+        self.assertEqual(out, 'int Leaf::Fire(int a)\n{\n    Fire(a);\n    x->unknown_slot5(a);\n    Base::Fire(a);\n    b = a>Fire(1);\n}\n')
+
+    def test_undeclared_old_name_is_a_call_site(self):
+        log = "accepted.cpp(2) : error C2065: 'unknown_slot5' : undeclared identifier\n"
+        fixes, _, other = cr.classify(log, [(1, 'src/a.cpp')], [({'Leaf'}, METHODS)])
+        self.assertEqual((fixes, other), ({'src/a.cpp': {2: {('unknown_slot5', 'Fire')}}}, []))
 
     def test_group_lines_map_back_to_sources_and_headers(self):
         starts = cr.unit_starts([('src/a.cpp', b'1\n2\n3'), ('src/b.cpp', b'1\n2')])
@@ -74,6 +79,8 @@ class CallsiteRenameTests(unittest.TestCase):
         self.assertEqual(re.sub(rule['pattern'], rule['replace'], '?unknown_slot5@Leaf@@UAEHH@Z ?unknown_slot5@Unrelated@@UAEHH@Z'),
                          '?Fire@Leaf@@UAEHH@Z ?unknown_slot5@Unrelated@@UAEHH@Z')
         self.assertEqual(re.sub(rule['pattern'], rule['replace'], '?unknown_slot55@Leaf@@'), '?unknown_slot55@Leaf@@')
+        self.assertEqual(re.sub(rule['pattern'], rule['replace'], '?unknown_slot5@Leaf'), '?Fire@Leaf')
+        self.assertEqual(re.sub(rule['pattern'], rule['replace'], '?unknown_slot5@LeafX@@'), '?unknown_slot5@LeafX@@')
 
     def test_native_symbols_and_clang_column_edits(self):
         text = '__ZN4Leaf13unknown_slot5Ei ?unknown_slot5@Leaf@@ Leaf::unknown_slot5 Other::unknown_slot5'
@@ -81,6 +88,8 @@ class CallsiteRenameTests(unittest.TestCase):
                          '__ZN4Leaf4FireEi ?Fire@Leaf@@ Leaf::Fire Other::unknown_slot5')
         self.assertEqual(cr.rename_at('a->unknown_slot5(b->unknown_slot5());', 4, 'unknown_slot5', 'Fire'),
                          'a->Fire(b->unknown_slot5());')
+        u = cr.CLANG_UNDECLARED.search("/x/y.cpp:3:5: error: use of undeclared identifier 'unknown_slot5'; did you mean 'unknown_slot4'?")
+        self.assertEqual((u.group('l'), u.group('c'), u.group('n')), ('3', '5', 'unknown_slot5'))
         m = cr.CLANG.search("/x/y.cpp:12:9: error: no member named 'unknown_slot5' in 'Leaf'")
         self.assertEqual((m.group('l'), m.group('c'), m.group('k')), ('12', '9', 'Leaf'))
 

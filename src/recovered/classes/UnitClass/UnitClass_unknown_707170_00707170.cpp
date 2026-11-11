@@ -23,7 +23,7 @@ bool UnitClass::unknown_707170(TechnoClass *target)
     if (!Type->Crusher && !unknown_6d7910(17)) {
         return false;
     }
-    if (target && target->unknown_slot32()->unknown_1fd) {
+    if (target && target->Techno_Type_Class()->unknown_1fd) {
         if (Coord_Distance(Center_Coord(), target->Center_Coord()) <= Rules->unknown_1390
             && (!House->Unknown_004F52F0() || Rules->unknown_142f || Type->AutoCrush)
             && House->unknown_c8 != 2

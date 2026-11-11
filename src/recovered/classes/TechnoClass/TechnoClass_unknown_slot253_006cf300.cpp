@@ -13,7 +13,7 @@ void TechnoClass::unknown_slot253(bool quiet)
         unknown_slot54(false);
         unknown_1b8 = 1;
         unknown_1bc.Value = 0;
-        unknown_1bc.Set_Rate(unknown_slot32()->CloakingSpeed);
+        unknown_1bc.Set_Rate(Techno_Type_Class()->CloakingSpeed);
         unknown_1bc.unknown_14 = 1;
         if (!quiet) {
             Voc_Play_At(Rules->unknown_5c0, CoordStruct(Coord), 0);

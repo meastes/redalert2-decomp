@@ -24,7 +24,7 @@ void BulletClass::unknown_func_463c50()
     TechnoClass *owner = Owner;
     BulletClass *bullet = Create_Bullet(projectile, target, owner, damage, warhead, speed, true);
     if (bullet != 0) {
-        bullet->unknown_slot52();
+        bullet->Limbo();
         bullet->Set_Weapon_Type(payload);
         CoordStruct launch = target_cell->Center_Coord();
         launch = launch + CoordStruct(0, 0, WeaponType->Projectile->DetonationAltitude);

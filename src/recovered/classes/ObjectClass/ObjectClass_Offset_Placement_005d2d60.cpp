@@ -8,10 +8,10 @@ static inline CoordStruct Object_Translation_005D2D60(TPoint2D<int> const &offse
     return CoordStruct((int)((unsigned int)origin.X + (unsigned int)offset.X),
         (int)((unsigned int)origin.Y + (unsigned int)offset.Y), origin.Z);
 }
-void ObjectClass::unknown_slot100(int facing)
+void ObjectClass::Move(int facing)
 {
     Mark(0);
     CoordStruct destination = Object_Translation_005D2D60(unknown_facing_offsets_851ac0[facing & 7], Coord);
-    if (unknown_slot101(&Map[destination], facing, -1, 0, 1) == 0) unknown_slot103(destination);
+    if (unknown_slot101(&Map[destination], facing, -1, 0, 1) == 0) Set_Coord(destination);
     Mark(1);
 }

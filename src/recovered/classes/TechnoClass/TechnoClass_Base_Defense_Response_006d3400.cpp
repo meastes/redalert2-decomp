@@ -27,7 +27,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     if (!attacker || House->Is_Ally(attacker) || House->Is_Human_Player() || attacker->unknown_76) return;
     if (!unknown_game_mode_a3d298 && unknown_slot163()) return;
     if (attacker->Kind_Of()!=15 && attacker->Kind_Of()!=1) return;
-    if (unknown_slot32()->unknown_202) return;
+    if (Techno_Type_Class()->unknown_202) return;
     bool is_foot;
     if (attacker) is_foot=attacker->AbstractFlags.IsFoot;
     if (attacker && is_foot && static_cast<FootClass *>(attacker)->unknown_540!=0) return;
@@ -38,11 +38,11 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
         if (member && member->unknown_7d && member->Owner()==Owner()) {
             bool base_defense=member->Team && member->Team->Class->IsBaseDefense;
             if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->unknown_06 || unknown_game_mode_a3d298)) {
-                int armor=attacker->unknown_slot32()->unknown_9c;
+                int armor=attacker->Techno_Type_Class()->unknown_9c;
                 if (member->unknown_slot230()->WeaponType->Warhead->Verses[armor]!=0.0) {
                     Cell from=Coord_Cell(unknown_slot19(0));
                     Cell to=Coord_Cell(member->unknown_slot19(0));
-                    if (Map.Unknown_0054F7C0(to,from,member->Type->MovementZone,member->unknown_slot46(0),false,false)) {
+                    if (Map.Unknown_0054F7C0(to,from,member->Type->MovementZone,member->Is_Moving_Onto_Bridge(0),false,false)) {
                         int value=member->unknown_4c82a0(attacker);
                         if (value) {
                             if (unknown_1b0==this) value*=100;
@@ -70,11 +70,11 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
             if (member_owner!=Owner()) continue;
             bool base_defense=member->Team && member->Team->Class->IsBaseDefense;
             if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->unknown_06 || unknown_game_mode_a3d298)) {
-                int armor=attacker->unknown_slot32()->unknown_9c;
+                int armor=attacker->Techno_Type_Class()->unknown_9c;
                 if (member->unknown_slot230()->WeaponType->Warhead->Verses[armor]!=0.0) {
                     Cell from=Coord_Cell(unknown_slot19(0));
                     Cell to=Coord_Cell(member->unknown_slot19(0));
-                    if (Map.Unknown_0054F7C0(to,from,member->Type->MovementZone,member->unknown_slot46(0),false,false)) {
+                    if (Map.Unknown_0054F7C0(to,from,member->Type->MovementZone,member->Is_Moving_Onto_Bridge(0),false,false)) {
                         int value=member->unknown_4c82a0(attacker);
                         if (value) {
                             if (value>0 && unknown_1b0==this) value*=10;

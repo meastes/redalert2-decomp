@@ -8,7 +8,7 @@ void PlanningNodeClass::unknown_6120c0()
     for (int i = 0; i < count; i++) {
         TechnoClass *techno = Members[i]->Owner;
         if (techno->unknown_77) {
-            techno->unknown_slot81();
+            techno->Unselect();
         }
     }
 }

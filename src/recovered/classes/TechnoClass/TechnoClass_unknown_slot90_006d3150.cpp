@@ -19,5 +19,5 @@ int TechnoClass::unknown_slot90()
             }
         }
     }
-    return unknown_slot32()->unknown_59c + unknown_slot168() + passengers;
+    return Techno_Type_Class()->unknown_59c + unknown_slot168() + passengers;
 }

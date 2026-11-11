@@ -29,10 +29,10 @@ void CellClass::Occupy_Up(ObjectClass *object, bool alt)
             CoordStruct coord;
             if (object->Kind_Of() == 6) {
                 CoordStruct center(MapCoords.X * 256 + 128, MapCoords.Y * 256 + 128, 0);
-                object->unknown_slot59(center);
+                object->Clear_Occupy_Bit(center);
             } else {
                 CoordStruct coord = object->Coord;
-                object->unknown_slot59(coord);
+                object->Clear_Occupy_Bit(coord);
             }
         }
     }

@@ -92,13 +92,13 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                     action = 7;
                 } else if (object->unknown_77) {
                     if (Unknown_006F76B0()) Unknown_006F7020(object->Class_Of()->ID);
-                    else object->unknown_slot81();
+                    else object->Unselect();
                 } else {
                     if (Unknown_006F76B0()) Unknown_006F71E0(object->Class_Of()->ID);
                     else object->unknown_slot80();
                 }
             }
-            if ((action == 7 && object) || (action == 0 && object && object->unknown_slot76() && !object->unknown_77)) {
+            if ((action == 7 && object) || (action == 0 && object && object->CanBeSelected() && !object->unknown_77)) {
                 if (object->Kind_Of() != 6 || static_cast<BuildingClass *>(object)->House->Is_Player_Control() ||
                     static_cast<BuildingClass *>(object)->unknown_5bd != 15 || static_cast<TechnoClass *>(object)->unknown_slot191()) {
                     Clear_Selected_Objects_00482bc0();

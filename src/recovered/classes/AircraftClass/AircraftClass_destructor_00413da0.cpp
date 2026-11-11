@@ -27,7 +27,7 @@ AircraftClass::~AircraftClass()
             Team = 0;
         }
         House->unknown_4ea800(this);
-        FootClass::unknown_slot52();
+        FootClass::Limbo();
         Type = 0;
     }
     Unknown_006ECB90(this, true);

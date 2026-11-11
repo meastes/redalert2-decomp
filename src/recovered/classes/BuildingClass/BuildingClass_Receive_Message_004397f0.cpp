@@ -40,10 +40,10 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&
         if (!House->Is_Ally(sender)) return 0;
         if (Get_Mission()==18 || Get_Mission()==19 || unknown_42c==0 ||
             (!unknown_a40774 && !Unknown_00636ED0(sender))) return 10;
-        if (sender->unknown_slot32()->MovementZone!=5 &&
-            ((unknown_slot32()->Naval && !sender->unknown_slot32()->Naval) ||
-             (!unknown_slot32()->Naval && sender->unknown_slot32()->Naval))) return 10;
-        if (sender->unknown_slot32()->BalloonHover) return 10;
+        if (sender->Techno_Type_Class()->MovementZone!=5 &&
+            ((Techno_Type_Class()->Naval && !sender->Techno_Type_Class()->Naval) ||
+             (!Techno_Type_Class()->Naval && sender->Techno_Type_Class()->Naval))) return 10;
+        if (sender->Techno_Type_Class()->BalloonHover) return 10;
         if (!unknown_530) return 10;
         if (Type->UnitRepair) {
             if (radio->Kind_Of()==1 || radio->Kind_Of()==2) {
@@ -99,7 +99,7 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&
                     param=&Map[unknown_slot104()+Cell(3,1)];
                     if (unknown_slot151(18,&param,sender)==20) {
                         unknown_slot150(24,sender);
-                        if (unknown_slot150(22,sender)!=1) radio->unknown_slot87(unknown_geometry_l,true,true);
+                        if (unknown_slot150(22,sender)!=1) radio->Scatter(unknown_geometry_l,true,true);
                     }
                 } else if (Type->Helipad) {
                     param=this;

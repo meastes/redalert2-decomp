@@ -92,7 +92,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         }
                         break;
                     }
-                    if (!placed) { Cargo.Attach(passenger);passenger->unknown_slot69(); }
+                    if (!placed) { Cargo.Attach(passenger);passenger->Hidden(); }
                 }
             } else unknown_a8=4;
             break;
@@ -199,16 +199,16 @@ int UnitClass::Do_MISSION_UNLOAD()
                 } else {
                     if (StageClass::Stage>=Rules->HarvesterDumpRate*900.0) {
                         DynamicVectorClass<ParticleSystemTypeClass const *> smoke;
-                        for (int n=building->unknown_slot32()->DamageParticleSystems.Count()-1;n>=0;--n) {
-                            if (building->unknown_slot32()->DamageParticleSystems[n]->BehavesLike==0) smoke.Add(building->unknown_slot32()->DamageParticleSystems[n]);
+                        for (int n=building->Techno_Type_Class()->DamageParticleSystems.Count()-1;n>=0;--n) {
+                            if (building->Techno_Type_Class()->DamageParticleSystems[n]->BehavesLike==0) smoke.Add(building->Techno_Type_Class()->DamageParticleSystems[n]);
                         }
-                        if (!building->unknown_25c[5] && smoke.Count()>0 && unknown_slot108()>-10) {
-                            TechnoTypeClass *type=building->unknown_slot32();
+                        if (!building->unknown_25c[5] && smoke.Count()>0 && Get_Height_AGL()>-10) {
+                            TechnoTypeClass *type=building->Techno_Type_Class();
                             CoordStruct &o=type->RefnSmokeOffsetOne; CoordStruct offset=o;
                             building->unknown_25c[5]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
                         }
-                        if (!building->unknown_25c[6] && smoke.Count()>0 && unknown_slot108()>-10) {
-                            TechnoTypeClass *type=building->unknown_slot32();
+                        if (!building->unknown_25c[6] && smoke.Count()>0 && Get_Height_AGL()>-10) {
+                            TechnoTypeClass *type=building->Techno_Type_Class();
                             CoordStruct &o=type->RefnSmokeOffsetTwo; CoordStruct offset=o;
                             building->unknown_25c[6]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[unknown_id_source_a3d290->Random()(0,smoke.Count()-1)]),building->Position_Coord_004f3f40()+offset,0,building,unknown_geometry_l);
                         }
@@ -233,16 +233,16 @@ int UnitClass::Do_MISSION_UNLOAD()
                         } else {
                             if (building->Type->Refinery) building->unknown_44c920(8,building->Health_Ratio()<=Rules->unknown_1368,false,0);
                             unknown_a8=4;
-                            if (building->unknown_25c[5]) building->unknown_25c[5]->unknown_slot60();
-                            if (building->unknown_25c[6]) building->unknown_25c[6]->unknown_slot60();
+                            if (building->unknown_25c[5]) building->unknown_25c[5]->Delete_Me();
+                            if (building->unknown_25c[6]) building->unknown_25c[6]->Delete_Me();
                             if (building->unknown_454[10]) building->unknown_44cfd0(10);
                         }
                     }
                     if (unknown_494 && MissionQueue!=-1 && MissionQueue!=10) {
                         if (building->Type->Refinery) building->unknown_44c920(8,building->Health_Ratio()<=Rules->unknown_1368,false,0);
                         unknown_a8=4;
-                        if (building->unknown_25c[5]) building->unknown_25c[5]->unknown_slot60();
-                        if (building->unknown_25c[6]) building->unknown_25c[6]->unknown_slot60();
+                        if (building->unknown_25c[5]) building->unknown_25c[5]->Delete_Me();
+                        if (building->unknown_25c[6]) building->unknown_25c[6]->Delete_Me();
                         if (building->unknown_454[10]) building->unknown_44cfd0(10);
                     }
                     return 1;

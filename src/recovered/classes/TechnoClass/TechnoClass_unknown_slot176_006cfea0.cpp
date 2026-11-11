@@ -36,7 +36,7 @@ int TechnoClass::unknown_slot176()
     CellClass *cptrs[3];
     int width;
     int height;
-    int z = -Unknown_006A2970(unknown_slot110());
+    int z = -Unknown_006A2970(Get_Height());
     int zadjust2 = z;
     int zadjust = z;
     Cell cell = unknown_slot104();
@@ -50,7 +50,7 @@ int TechnoClass::unknown_slot176()
             }
         }
         if (unit->Type->Harvester) {
-            BuildingClass *building = (BuildingClass *)((CellClass *)unknown_slot105())->Cell_Building();
+            BuildingClass *building = (BuildingClass *)((CellClass *)Get_Cell_Ptr())->Cell_Building();
             if (building != 0 && building->Type->Refinery) {
                 return zadjust2 - 14;
             }

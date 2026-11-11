@@ -24,15 +24,15 @@ static inline BuildingClass *Building_Destination(AbstractClass *target)
 int AircraftClass::Do_MISSION_ENTER()
 {
     enum { MoveMission = 2, GuardMission = 5 };
-    if (unknown_slot108() == 0 && Type->AirportBound && unknown_494) {
-        if (unknown_494 != ((CellClass *)unknown_slot105())->Unknown_004717B0()) {
+    if (Get_Height_AGL() == 0 && Type->AirportBound && unknown_494) {
+        if (unknown_494 != ((CellClass *)Get_Cell_Ptr())->Unknown_004717B0()) {
             unknown_5b4 = Building_Destination(unknown_494);
             unknown_slot149(3);
             unknown_slot116(2, true);
             return 1;
         }
     }
-    if (unknown_slot108() > 0) {
+    if (Get_Height_AGL() > 0) {
         AbstractClass *target = unknown_494;
         TechnoClass *previous = unknown_5b4;
         if (previous != target && target && target->Kind_Of() == 6)
@@ -53,7 +53,7 @@ int AircraftClass::Do_MISSION_ENTER()
         unknown_5bc = true;
         return 1;
     case 6:
-        if (Type->AirportBound && unknown_slot108() != 0) unknown_slot149(14);
+        if (Type->AirportBound && Get_Height_AGL() != 0) unknown_slot149(14);
         if (!In_Radio_Contact()) {
             if (!unknown_6d8080()) {
                 if (Locomotor.Checked()->Get_Status() == 1) {
@@ -71,7 +71,7 @@ int AircraftClass::Do_MISSION_ENTER()
             unknown_5bc = true;
             return 1;
         }
-        if (Locomotor.Checked()->Get_Status() == 1 || (Type->AirportBound && unknown_slot108() == 0)) {
+        if (Locomotor.Checked()->Get_Status() == 1 || (Type->AirportBound && Get_Height_AGL() == 0)) {
             unknown_a8 = 7;
             unknown_5bc = false;
         }
@@ -94,7 +94,7 @@ int AircraftClass::Do_MISSION_ENTER()
                 } else if (dy < -5) dy = -5;
                 current.X += dx;
                 current.Y += dy;
-                unknown_slot103(current);
+                Set_Coord(current);
             }
             unknown_5bc = true;
             return 1;
@@ -105,7 +105,7 @@ int AircraftClass::Do_MISSION_ENTER()
             unknown_slot261(false, true);
             return 1;
         case 5:
-            unknown_slot52();
+            Limbo();
             Contact(0)->Cargo.Attach(this);
             return 1;
         case 1:

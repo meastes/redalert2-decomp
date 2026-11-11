@@ -14,7 +14,7 @@ bool TActionClass::unknown_buildings_with_tag_slot98(HouseClass *house, ObjectCl
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
         if (building->unknown_7d && building->unknown_74 && !building->unknown_76 && building->unknown_34 != 0
             && building->unknown_34->Is_Trigger_Attached(trigger)) {
-            building->unknown_slot98(1);
+            building->Sell_Back(1);
             handled = true;
         }
     }

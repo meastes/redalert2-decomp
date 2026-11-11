@@ -8,20 +8,20 @@
 void __stdcall JumpjetLocomotionClass::Move_To(CoordStruct to)
 {
     if (unknown_3c != unknown_geometry_l && unknown_4c != 0 && unknown_88) {
-        LinkedTo->unknown_slot59(unknown_3c);
+        LinkedTo->Clear_Occupy_Bit(unknown_3c);
         unknown_88 = false;
     }
     unknown_3c = CoordStruct(to.X, to.Y, to.Z);
     if (to != unknown_geometry_l) {
         Cell cell;
         if (LinkedTo->Kind_Of() == 1 && !((UnitClass *)LinkedTo)->Type->BalloonHover) {
-            cell = Map.Nearby_Location(Coord_Cell(to), LinkedTo->unknown_slot32()->SpeedType, -1, 9, false, Point2D(1, 1), 0, 0, 0, 0, Cell(0, 0), 0);
+            cell = Map.Nearby_Location(Coord_Cell(to), LinkedTo->Techno_Type_Class()->SpeedType, -1, 9, false, Point2D(1, 1), 0, 0, 0, 0, Cell(0, 0), 0);
         } else {
-            cell = Map.Nearby_Location(Coord_Cell(to), LinkedTo->unknown_slot32()->SpeedType, -1, 9, (Map[CoordStruct(to)].unknown_140 >> 8) & 1, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            cell = Map.Nearby_Location(Coord_Cell(to), LinkedTo->Techno_Type_Class()->SpeedType, -1, 9, (Map[CoordStruct(to)].unknown_140 >> 8) & 1, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
         }
         CoordStruct coord = unknown_5310a0(CoordStruct(cell));
         if (coord != unknown_geometry_l) {
-            if (LinkedTo->Kind_Of() != 1 || (!LinkedTo->unknown_slot32()->BalloonHover && LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7)) {
+            if (LinkedTo->Kind_Of() != 1 || (!LinkedTo->Techno_Type_Class()->BalloonHover && LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7)) {
                 unknown_3c = coord;
             }
             if (LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {

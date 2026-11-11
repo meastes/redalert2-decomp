@@ -24,7 +24,7 @@ void FootClass::Assign_Destination(AbstractClass *target, bool immediate)
     unknown_494 = target;
     if (target != 0) {
         if (unknown_25c[0] != 0) {
-            unknown_25c[0]->unknown_slot60();
+            unknown_25c[0]->Delete_Me();
             unknown_25c[0] = 0;
         }
         UnknownComPtr<IPersist, &unknown_uuid_IPersist_7cf208> persist(Locomotor);

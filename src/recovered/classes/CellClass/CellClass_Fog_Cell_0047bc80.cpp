@@ -49,7 +49,7 @@ void CellClass::Fog_Cell()
                                 building->Create_Fogged_Copy_00452c70(fogged, &other, fade);
                             }
                         } else if (kind == 1 || kind == 2 || kind == 0x0F) {
-                            object->unknown_slot81();
+                            object->Unselect();
                         }
                     }
                     if (fogged->Count() > 0) {

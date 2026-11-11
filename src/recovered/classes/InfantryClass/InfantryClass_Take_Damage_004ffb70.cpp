@@ -10,16 +10,16 @@
 #include "shared/unknown_geometry.hpp"
 // @ref ??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z=00420110
 // @ref ??2@YAPAXI@Z=00782017
-// @ref ?unknown_slot86@FootClass@@=004c6000
+// @ref ?Take_Damage@FootClass@@=004c6000
 // @ref ?unknown_6d3040@TechnoClass@@=006d3040
 
-int InfantryClass::unknown_slot86(int *damage,int distance,WarheadTypeClass *warhead,TechnoClass *source,bool forced,int no_crew)
+int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhead,TechnoClass *source,bool forced,int no_crew)
 {
     if (unknown_5c3 && *damage>0 && !forced) {
         *damage=int(*damage*warhead->ProneDamage);
         if (*damage<1) *damage=1;
     }
-    int result=FootClass::unknown_slot86(damage,distance,warhead,source,forced,no_crew);
+    int result=FootClass::Take_Damage(damage,distance,warhead,source,forced,no_crew);
     if (result==5) return result;
     if (result==0) return result;
     if (result==4) {
@@ -36,7 +36,7 @@ int InfantryClass::unknown_slot86(int *damage,int distance,WarheadTypeClass *war
             delete_after_sequence=true;
             if (unknown_7c) new AnimClass(Rules->InfantryExplode,CoordStruct(Coord),0,1,0x600,0);
         }
-        if (unknown_slot108()<=10 && Map[CoordStruct(Coord)].unknown_ec==2 && unknown_7c) {
+        if (Get_Height_AGL()<=10 && Map[CoordStruct(Coord)].unknown_ec==2 && unknown_7c) {
             new AnimClass(Rules->unknown_09c,CoordStruct(Coord),0,1,0x600,0);
             new AnimClass(Rules->SplashList[0],CoordStruct(Coord)+CoordStruct(0,0,3),0,1,0x600,0);
             delete_after_sequence=true;
@@ -93,17 +93,17 @@ int InfantryClass::unknown_slot86(int *damage,int distance,WarheadTypeClass *war
         if (delete_after_sequence) {
             if (Type->Crashable) {
                 if (!unknown_slot224(0)) {
-                    unknown_slot60();
+                    Delete_Me();
                     return 4;
                 }
-            } else unknown_slot60();
+            } else Delete_Me();
         }
         return 4;
     }
     if (result!=4) {
         CoordStruct source_position=source ? CoordStruct(source->Coord) : unknown_geometry_l;
         if (!House->Is_Human_Player() && Type->Engineer && (Get_Mission()==5 || Get_Mission()==11)) unknown_slot116(15,false);
-        if (source) unknown_slot87(source_position,false,false);
+        if (source) Scatter(source_position,false,false);
         if (source && unknown_5bc<100) {
             if (Type->Fraidycat) unknown_5bc=300;
             else if (!Type->Fearless && !unknown_6d7910(13)) unknown_5bc=100;

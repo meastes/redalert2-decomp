@@ -4,8 +4,8 @@
 
 bool TechnoClass::unknown_slot158()
 {
-    if (unknown_slot32()->unknown_b0.unknown_00 == 0) {
+    if (Techno_Type_Class()->unknown_b0.unknown_00 == 0) {
         return false;
     }
-    return *(char const *)unknown_slot32()->unknown_b0.unknown_00 == 0 ? true : false;
+    return *(char const *)Techno_Type_Class()->unknown_b0.unknown_00 == 0 ? true : false;
 }

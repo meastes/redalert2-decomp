@@ -47,16 +47,16 @@ void AircraftClass::AI()
     if (!unknown_7d) return;
     if (unknown_325) {
         CoordStruct current = Coord;
-        unknown_slot103(current - CoordStruct(0, 0, 5));
-        if (unknown_slot108() < -400) {
-            unknown_slot55(0);
-            unknown_slot60();
+        Set_Coord(current - CoordStruct(0, 0, 5));
+        if (Get_Height_AGL() < -400) {
+            Record_The_Kill(0);
+            Delete_Me();
             return;
         }
         if ((Frame & 3) == 0) {
             int offset_y = unknown_id_source_a3d290->Random()(-170, 170);
             int offset_x = unknown_id_source_a3d290->Random()(-170, 170);
-            CoordStruct offset(offset_x, offset_y, -unknown_slot108());
+            CoordStruct offset(offset_x, offset_y, -Get_Height_AGL());
             current = Coord;
             current = current + offset;
             new AnimClass(Rules->unknown_09c, current, 0, 1, 0x600, 0);
@@ -66,7 +66,7 @@ void AircraftClass::AI()
     if (Type->Trailer && Frame % Type->SpawnDelay == 0)
         new AnimClass(Type->Trailer, position, 1, 1, 0x600, 0);
     if (!Map.Unknown_0055A660(unknown_slot104(), true) && unknown_slot282()) {
-        unknown_slot60();
+        Delete_Me();
         return;
     }
     if (unknown_494 == &unknown_dummy_cell_a6f9f8) {
@@ -84,7 +84,7 @@ void AircraftClass::AI()
         unknown_5b0 = false;
         --unknown_254;
     }
-    if (Health_Ratio() < Rules->unknown_1370 && unknown_slot108() > 0) {
+    if (Health_Ratio() < Rules->unknown_1370 && Get_Height_AGL() > 0) {
         int chance = Strength != 0 ? 10 : 80;
         if (unknown_id_source_a3d290->Random()(0, 99) < chance)
             new AnimClass(AnimTypes[AnimTypeClass::From_Name("SGRYSMK1")], CoordStruct(Coord), 0, 1, 0x600, 0);
@@ -93,6 +93,6 @@ void AircraftClass::AI()
         ((TechnoClass *)Cargo.Attached_Object())->unknown_2e0 = unknown_2f8;
         ((TechnoClass *)Cargo.Attached_Object())->unknown_2f8 = unknown_2f8;
         CoordStruct passenger_position = Coord;
-        Cargo.Attached_Object()->unknown_slot103(passenger_position);
+        Cargo.Attached_Object()->Set_Coord(passenger_position);
     }
 }

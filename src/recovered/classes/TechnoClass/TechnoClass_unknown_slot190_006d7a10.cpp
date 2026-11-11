@@ -19,7 +19,7 @@
 
 bool TechnoClass::unknown_slot190(int *out_kind)
 {
-    TechnoTypeClass *type = unknown_slot32();
+    TechnoTypeClass *type = Techno_Type_Class();
     if (type->Invisible || unknown_325) {
         return false;
     }
@@ -29,7 +29,7 @@ bool TechnoClass::unknown_slot190(int *out_kind)
     if (House->Is_Player_Control()) {
         return unknown_373 ? true : false;
     }
-    int value = unknown_slot108();
+    int value = Get_Height_AGL();
     bool ability = unknown_6d7910(11);
     bool hidden = Map.Is_Shrouded(CoordStruct(Coord)) && unknown_b263d8 != 0;
     bool tunnel = (unknown_id_source_a3d290->unknown_000 & 0x1000) && Map.Is_Fogged(CoordStruct(Coord));

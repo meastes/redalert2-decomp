@@ -45,7 +45,7 @@ no_action:
             action = 0; goto result_action; }
     }
     if (action == 1 || action == 2) {
-        if (!unknown_slot39()) { action = 7; goto result_action; }
+        if (!Can_Player_Move()) { action = 7; goto result_action; }
         int factory = Type->Factory;
         if (factory == 16 || factory == 40 || factory == 3) {
             if (!Building_Key_Down(unknown_key_a40ba4) && !Building_Key_Down(unknown_key_a40ba8)) { action = 7; goto result_action; }

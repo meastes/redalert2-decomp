@@ -19,13 +19,13 @@ void SpawnManagerClass::Kill_Nodes()
         }
         if (status == 0 || status == 6) {
             SpawnedNodes[i]->Status = 7;
-            SpawnedNodes[i]->Unit->unknown_slot60();
+            SpawnedNodes[i]->Unit->Delete_Me();
             SpawnedNodes[i]->Unit = 0;
             SpawnedNodes[i]->Timer = RegenRate;
         } else if (status == 1) {
             KamikazeTracker.Detach(SpawnedNodes[i]->Unit);
             SpawnedNodes[i]->Status = 7;
-            SpawnedNodes[i]->Unit->unknown_slot60();
+            SpawnedNodes[i]->Unit->Delete_Me();
             SpawnedNodes[i]->Unit = 0;
             SpawnedNodes[i]->Timer = RegenRate;
         } else {

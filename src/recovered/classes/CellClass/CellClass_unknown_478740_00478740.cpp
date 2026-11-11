@@ -6,6 +6,6 @@
 void CellClass::unknown_478740()
 {
     for (ObjectClass *object = OccupierPtr; object != 0; object = object->unknown_30) {
-        object->unknown_slot61();
+        object->Do_Shimmer();
     }
 }

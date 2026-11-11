@@ -7,7 +7,7 @@ long __stdcall HouseClass::Category_Quantity(int category)
     int count = 0;
     for (int index = 0; index < Technos.Count(); index++) {
         TechnoClass *techno = Technos[index];
-        if (techno->House == this && techno->unknown_slot32()->Category == category) {
+        if (techno->House == this && techno->Techno_Type_Class()->Category == category) {
             count++;
         }
     }

@@ -27,9 +27,9 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     int which=unknown_slot174(object);
     WeaponTypeClass *weapon=unknown_slot231(which)->WeaponType;
     if(!(method&0x18200) && unknown_slot217(object,which)==5) return false;
-    if(object->unknown_70<=0 && unknown_slot32()->VHPScan==2) return false;
+    if(object->unknown_70<=0 && Techno_Type_Class()->VHPScan==2) return false;
     if(weapon && weapon->Warhead) {
-        if((int)(weapon->Warhead->Verses[object->unknown_slot32()->unknown_9c]*100.0)==1) return false;
+        if((int)(weapon->Warhead->Verses[object->Techno_Type_Class()->unknown_9c]*100.0)==1) return false;
     }
     if(object==0 || object->unknown_76 || object->Strength==0) return false;
     if(tech->unknown_1b8==2) {
@@ -37,14 +37,14 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     }
     if(!tech->unknown_32d) return false;
     if(tech->Control()->unknown_04) return false;
-    if(object->unknown_slot108()<-20) return false;
+    if(object->Get_Height_AGL()<-20) return false;
     CoordStruct objectcoord=object->Center_Coord();
-    if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),unknown_slot32()->MovementZone,object->unknown_79)!=zone) return false;
-    if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->unknown_5c0) && !unknown_slot32()->AttackFriendlies && House->Is_Ally(tech)) {
+    if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->unknown_79)!=zone) return false;
+    if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->unknown_5c0) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
         if(unknown_6c16f0(-1)>=0 && !engineer) return false;
         if(object->Health_Ratio()==Rules->unknown_1360) return false;
         if(object->Kind_Of()==2 && Kind_Of()==1) {
-            if(object->unknown_slot108()>0) return false;
+            if(object->Get_Height_AGL()>0) return false;
             if(Map[object->Center_Coord()].Cell_Building()) return false;
         } else if(Kind_Of()==1 && !object->unknown_slot31()) return false;
     }
@@ -66,7 +66,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     }
     if(range==0) {
         if(!unknown_slot163()) {
-            if(dist>unknown_slot32()->GuardRange.Value) return false;
+            if(dist>Techno_Type_Class()->GuardRange.Value) return false;
         } else {
             if(!unknown_slot212(object,which)) return false;
         }
@@ -75,7 +75,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if(object->Kind_Of()==6 && static_cast<BuildingClass *>(object)->Type->InvisibleInGame) return false;
     int otype=object->Kind_Of();
     if(!((1<<otype)&mask) && (!(mask&2) || !object->unknown_slot31())) return false;
-    TechnoTypeClass *tclass=object->unknown_slot32();
+    TechnoTypeClass *tclass=object->Techno_Type_Class();
     if(!tclass->unknown_201) return false;
     if(unknown_game_mode_a3d298!=0 && tech->House->Type->MultiplayPassive) {
         if(House->Is_Human_Player() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
@@ -100,7 +100,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         if(unknown_game_mode_a3d298==0 || defense || (!capture && !occupy)) return false;
     }
     if(tclass->IsTrain && Kind_Of()==15 && static_cast<InfantryClass *>(this)->Type->VehicleThief) return false;
-    if(object->unknown_slot49(House) && !unknown_slot32()->DetectDisguise) {
+    if(object->unknown_slot49(House) && !Techno_Type_Class()->DetectDisguise) {
         if(!tech->unknown_184.Value()) return false;
         if(House->Is_Human_Player()) return false;
         int roll=unknown_id_source_a3d290->Random()(0,99);
@@ -115,7 +115,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if(this) foot=AbstractFlags.IsFoot;
     if((!foot || !static_cast<FootClass *>(this)->Team) && House->Is_Human_Player() && !object->unknown_slot31() && otype==6) {
         WeaponStruct *armed=tech->unknown_slot230();
-        if((!armed || !armed->WeaponType || !object->unknown_slot32()->ThreatPosed) && !engineer) return false;
+        if((!armed || !armed->WeaponType || !object->Techno_Type_Class()->ThreatPosed) && !engineer) return false;
     }
     if(engineer) {
         if(object->Kind_Of()!=6) return false;
@@ -129,9 +129,9 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     CellClass *there=&Map[object->Position_Coord_004f3f40()];
     if((here->unknown_140&0x100) && (there->unknown_140&0x100) && unknown_79!=object->unknown_79) return false;
     *value=(int)unknown_6d7550(object,*coord);
-    if(unknown_slot32()->VHPScan==1) {
+    if(Techno_Type_Class()->VHPScan==1) {
         if(object->unknown_70<=0) *value=*value/2;
-        else if(object->unknown_70<=object->unknown_slot32()->MaxStrength/2) *value=*value*2;
+        else if(object->unknown_70<=object->Techno_Type_Class()->MaxStrength/2) *value=*value*2;
     }
     if(House->unknown_190 && House->unknown_54f0!=-1 && tech->House!=Houses[House->unknown_54f0]) *value=1;
     BuildingTypeClass *btype=static_cast<BuildingTypeClass *>(tclass);

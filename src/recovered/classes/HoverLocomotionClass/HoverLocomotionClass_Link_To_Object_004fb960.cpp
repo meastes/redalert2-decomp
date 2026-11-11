@@ -7,7 +7,7 @@
 HRESULT __stdcall HoverLocomotionClass::Link_To_Object(void *object)
 {
     HRESULT result = LocomotionClass::Link_To_Object(object);
-    FacingClass facing(LinkedTo->unknown_slot32()->ROT * 2);
+    FacingClass facing(LinkedTo->Techno_Type_Class()->ROT * 2);
     unknown_30 = facing;
     return result;
 }

@@ -35,7 +35,7 @@ void CellClass::Incoming(void const *threat, bool forced, bool nokidding, bool a
         TechnoClass *techno = objs[i]->As_Techno();
         if (elite || nokidding || Rules->unknown_1431
             || (techno != 0 && (techno->unknown_6d7910(3) || techno->House->unknown_194 >= Rules->IQScatter))) {
-            objs[i]->unknown_slot87(*(CoordStruct const *)threat, forced, nokidding);
+            objs[i]->Scatter(*(CoordStruct const *)threat, forced, nokidding);
         }
     }
 }

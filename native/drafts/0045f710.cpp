@@ -98,7 +98,7 @@ void BulletClass::AI()
         unknown_abstracts_ac0bf8.Delete(this);
         SpawnNextAnim = false;
         unknown_func_461de0(false);
-        unknown_slot60();
+        Delete_Me();
         return;
     }
 
@@ -180,17 +180,17 @@ void BulletClass::AI()
         CellClass *cell = &Map[coord];
         TVelocity3D<double> new_velocity = velocity;
         Velocity = new_velocity;
-        if (distance <= Velocity.Speed() * 0.5 || unknown_slot108() <= 0) {
+        if (distance <= Velocity.Speed() * 0.5 || Get_Height_AGL() <= 0) {
             forced = true;
             impact = 1;
-            if (unknown_slot108() > 0 && !Type->Airburst) {
+            if (Get_Height_AGL() > 0 && !Type->Airburst) {
                 if (target_coord != unknown_coord_none_850310) {
                     coord = target_coord;
                 }
             }
         }
         if (target_coord == unknown_coord_none_850310) {
-            if (unknown_slot108() >= Rules->MissileSafetyAltitude) {
+            if (Get_Height_AGL() >= Rules->MissileSafetyAltitude) {
                 forced = true;
                 impact = 1;
             }
@@ -247,7 +247,7 @@ void BulletClass::AI()
             if (coord.Z > Type->DetonationAltitude) {
                 impact = 1;
                 forced = true;
-            } else if (unknown_slot108() < 0) {
+            } else if (Get_Height_AGL() < 0) {
                 impact = 1;
                 forced = true;
             } else {
@@ -349,7 +349,7 @@ bounced:
         }
         Cell here = Coord_Cell_Of(coord);
         Cell there = Coord_Cell_Of(TargetCoords);
-        if (here.X == there.X && here.Y == there.Y && !Type->Vertical && unknown_slot108() < unknown_geometry_g * 2) {
+        if (here.X == there.X && here.Y == there.Y && !Type->Vertical && Get_Height_AGL() < unknown_geometry_g * 2) {
             impact = 1;
             forced = true;
             collided = true;
@@ -359,7 +359,7 @@ bounced:
             ObjectClass *building = cell.Cell_Building();
             ObjectClass *target_building = target_cell.Cell_Building();
             if (building != 0 && !Type->Vertical && building == target_building
-                && unknown_slot108() < unknown_geometry_g * 2) {
+                && Get_Height_AGL() < unknown_geometry_g * 2) {
                 impact = 1;
                 forced = true;
                 collided = true;
@@ -391,7 +391,7 @@ bounced:
                     if (!Type->Vertical) {
                         Velocity = TVelocity3D<double>(new_velocity.X, new_velocity.Y, velocity.Z);
                     }
-                    if (Velocity.Speed() < 10.0 && unknown_slot108() < 10) {
+                    if (Velocity.Speed() < 10.0 && Get_Height_AGL() < 10) {
                         impact = 1;
                         forced = true;
                     }
@@ -403,31 +403,31 @@ flown:
     switch (impact) {
     case 2:
         Mark(2);
-        unknown_slot60();
+        Delete_Me();
         break;
     default:
     case 0:
     case 1:
         Mark(2);
-        unknown_slot103(coord);
+        Set_Coord(coord);
         BuildingClass *building = (BuildingClass *)Map[coord].Cell_Building();
         if (building != 0 && building->Type->FirestormWall && building->House->unknown_142
             && (Owner == 0 || building->House != Owner->House)
             && Class_Of() != 0 && !Class_Of()->unknown_209) {
             building->unknown_450cb0(this, false);
-            unknown_slot60();
+            Delete_Me();
             break;
         }
         if (!forced) {
             CoordStruct current = Coord;
             forced = Is_Forced_To_Explode_00461c10(current);
-            unknown_slot103(current);
+            Set_Coord(current);
         }
-        if (forced && unknown_slot108() < 0) {
-            unknown_slot109(0);
+        if (forced && Get_Height_AGL() < 0) {
+            Set_Height_AGL(0);
         }
         int fuse = Type->ROT > 0 || Type->Ranged ? Data.Proximity_004ceee0(coord) : 0;
-        if (Owner != 0 && Owner->unknown_slot32()->JumpJet && fuse == 2) {
+        if (Owner != 0 && Owner->Techno_Type_Class()->JumpJet && fuse == 2) {
             fuse = 1;
         }
         if (!forced && (Type->Dropping || fuse == 0)) {
@@ -445,12 +445,12 @@ flown:
                 distance /= 3;
             }
             if (fuse == 1 || distance <= ((128) > (Velocity.Speed() * 2) ? (128) : (Velocity.Speed() * 2))) {
-                unknown_slot103(Target->Center_Coord());
+                Set_Coord(Target->Center_Coord());
             }
         }
         if (*(AbstractTypeClass *)WH == "NUKE") {
-            if (unknown_slot108() < 0) {
-                unknown_slot109(0);
+            if (Get_Height_AGL() < 0) {
+                Set_Height_AGL(0);
             }
             Start_Dominator_Lighting_005208A0();
             Unknown_0063B5B0(13, unknown_slot104());
@@ -464,7 +464,7 @@ flown:
             }
         }
         unknown_func_461de0(forced);
-        unknown_slot60();
+        Delete_Me();
         break;
     }
     LastMapCoords = Coord_Cell_Of(coord);

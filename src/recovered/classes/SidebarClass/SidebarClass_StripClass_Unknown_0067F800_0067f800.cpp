@@ -178,7 +178,7 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                         FactoryClass *queue = ((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004EB580(obj->Kind_Of(), obj->Naval, 0);
                         if (queue) {
                             int total = queue->Count_Type_004B9E40(obj);
-                            if (total > 1 || total > 0 && (!queue->Object || queue->Object->unknown_slot32() && queue->Object->unknown_slot32() != obj)) {
+                            if (total > 1 || total > 0 && (!queue->Object || queue->Object->Techno_Type_Class() && queue->Object->Techno_Type_Class() != obj)) {
                                 wchar_t buffer[256];
                                 swprintf(buffer, L"%d", total);
                                 Point2D point(x + 60, y + 1);

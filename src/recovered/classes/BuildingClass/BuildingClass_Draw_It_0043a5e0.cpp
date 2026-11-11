@@ -21,7 +21,7 @@
 void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds)
 {
     Cell cell=unknown_slot104();
-    ShapeFileStruct const *shape=(ShapeFileStruct const *)unknown_slot26();
+    ShapeFileStruct const *shape=(ShapeFileStruct const *)Get_Image_Data();
     if(shape==0) return;
     if(this!=0 && Kind_Of()==6 && unknown_42c==0 && Get_Mission()==19) {
         for(int index=0;index<18;index++) {
@@ -36,7 +36,7 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
     bool air_product=false;
     if(Get_Mission()==16) {
         TechnoClass *product=Contact2(0);
-        if(product && (product->unknown_slot32()->JumpJet || product->unknown_slot32()->BalloonHover)) {
+        if(product && (product->Techno_Type_Class()->JumpJet || product->Techno_Type_Class()->BalloonHover)) {
             air_product=true;
         }
     }
@@ -47,10 +47,10 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
         if(unknown_2a8.Is_Count_Up_Complete()) stage=Type->GateStages-1;
         if(stage>=Type->GateStages) stage=Type->GateStages-1;
         if(stage<0) stage=0;
-        ShapeFileStruct const *gate_shape=(ShapeFileStruct const *)unknown_slot26();
+        ShapeFileStruct const *gate_shape=(ShapeFileStruct const *)Get_Image_Data();
         stage+=(Health_Ratio()<=Rules->unknown_1368 ? Type->GateStages+1 : 0);
         unknown_6d1510(gate_shape,stage,&draw_point,&bounds,0,256,
-            z_adjust-Unknown_006A2970(unknown_slot110()),2,1,Map[cell].unknown_10a,0,0,Point2D(0,0),0);
+            z_adjust-Unknown_006A2970(Get_Height()),2,1,Map[cell].unknown_10a,0,0,Point2D(0,0),0);
         return;
     }
     if(Get_Mission()==16) {
@@ -70,19 +70,19 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
     if(bounds.Height>0) {
         int frame=unknown_43be20()<shape->Get_Count()/2 ? unknown_43be20() : shape->Get_Count()/2;
         unknown_6d1510(shape,frame,&draw_point,&bounds,0,256,
-            z_adjust-Unknown_006A2970(unknown_slot110()),2,1,Map[cell].unknown_10a+Type->ExtraLight,depth_shape,0,depth_point,0);
+            z_adjust-Unknown_006A2970(Get_Height()),2,1,Map[cell].unknown_10a+Type->ExtraLight,depth_shape,0,depth_point,0);
     }
     if(Type->unknown_11cc && unknown_42c!=0) {
         unknown_6d1510(Type->unknown_11cc,unknown_43be20(),&draw_point,&bounds,0,256,
-            -1-Unknown_006A2970(unknown_slot110()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
+            -1-Unknown_006A2970(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
     }
     if(Get_Mission()==16 && ((air_product && Type->unknown_11b8!=0) || (!air_product && Type->unknown_11a8!=0))) {
         if(air_product) {
             unknown_6d1510(Type->unknown_11b8,Health_Ratio()<=Rules->unknown_1368,&draw_point,&bounds,0,256,
-                -Unknown_006A2970(unknown_slot110()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
+                -Unknown_006A2970(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
         } else {
             unknown_6d1510(Type->unknown_11a8,Health_Ratio()<=Rules->unknown_1368,&draw_point,&bounds,0,256,
-                -Unknown_006A2970(unknown_slot110()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
+                -Unknown_006A2970(Get_Height()),0,1,Map[cell].unknown_10a+Type->ExtraLight,0,0,Point2D(0,0),0);
         }
     }
 }

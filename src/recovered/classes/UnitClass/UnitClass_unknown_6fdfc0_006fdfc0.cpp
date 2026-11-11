@@ -70,7 +70,7 @@ bool UnitClass::unknown_6fdfc0()
                             techno->unknown_228 == this && techno->unknown_7d &&
                             techno != this && techno != building) {
                             if (building->Type->ConstructionYard && techno->Kind_Of() == 15 &&
-                                ((InfantryTypeClass *)techno->unknown_slot32())->VehicleThief) {
+                                ((InfantryTypeClass *)techno->Techno_Type_Class())->VehicleThief) {
                                 techno->unknown_slot220(0);
                             } else {
                                 techno->unknown_slot220(building);
@@ -90,7 +90,7 @@ bool UnitClass::unknown_6fdfc0()
                         building->unknown_2c8.Set_Current(UnknownFacingDir(0x4000));
                     }
                     building->unknown_slot220(unknown_228);
-                    building->unknown_slot96(House);
+                    building->Revealed(House);
                     building->unknown_5ad = true;
                     if (!House->Unknown_004F52F0() && building->Type->ConstructionYard && unknown_game_mode_a3d298) {
                         CoordStruct position = building->Coord;
@@ -114,7 +114,7 @@ bool UnitClass::unknown_6fdfc0()
                         unknown_34->AttachCount--;
                         unknown_34 = 0;
                     }
-                    unknown_slot60();
+                    Delete_Me();
                     return true;
                 }
                 delete building;

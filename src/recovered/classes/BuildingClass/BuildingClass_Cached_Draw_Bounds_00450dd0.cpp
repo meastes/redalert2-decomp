@@ -5,7 +5,7 @@
 // @ref ?Coord_To_Pixel@Tactical@@=006a29d0
 // @ref ?unknown_func_45e290@BuildingTypeClass@@=0045e290
 inline Rect Offset_Draw_Bounds(Rect const &bounds,Point2D const &pixel) { Point2D origin(bounds.X,bounds.Y); Point2D shifted=Point_Sum(origin,pixel); return Rect(shifted.X,shifted.Y,bounds.Width,bounds.Height); }
-Rect BuildingClass::unknown_slot73()
+Rect BuildingClass::Get_Render_Rect()
 {
     CoordStruct position=unknown_slot42();
     Point2D view(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY);

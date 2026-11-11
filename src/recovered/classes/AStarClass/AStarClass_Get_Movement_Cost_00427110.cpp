@@ -73,7 +73,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
                 }
                 clear = false;
                 cellptr = &Map[Path_Adjacent_Cell(occupier->unknown_slot104(), facing)];
-                on_bridge = (cellptr->unknown_140 & 0x100) && (occupier->unknown_79 || ((CellClass *)occupier->unknown_slot105())->unknown_11b - cellptr->unknown_11b > 2);
+                on_bridge = (cellptr->unknown_140 & 0x100) && (occupier->unknown_79 || ((CellClass *)occupier->Get_Cell_Ptr())->unknown_11b - cellptr->unknown_11b > 2);
                 next_occupier = on_bridge ? cellptr->AltOccupierPtr : cellptr->OccupierPtr;
                 occupier = next_occupier;
             }

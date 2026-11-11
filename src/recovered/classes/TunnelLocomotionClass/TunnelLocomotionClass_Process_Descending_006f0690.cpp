@@ -14,7 +14,7 @@ void TunnelLocomotionClass::Process_Descending()
         if (coord.Z < -0x100) {
             coord.Z = -0x100;
         }
-        LinkedTo->unknown_slot103(coord);
+        LinkedTo->Set_Coord(coord);
     } else {
         LinkedTo->Mark(0);
         unknown_18 = 4;

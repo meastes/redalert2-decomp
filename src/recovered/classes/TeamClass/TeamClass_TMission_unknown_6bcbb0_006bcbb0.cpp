@@ -52,7 +52,7 @@ void TeamClass::TMission_unknown_6bcbb0(ScriptMissionClass const &mission, bool 
                 Point2D radius(1, 1);
                 Cell no_cell(0, 0);
                 CoordStruct coord = building->Coord;
-                Cell dest = Map.Nearby_Location(Coord_Cell(coord), leader->unknown_slot32()->SpeedType, -1, 0, false,
+                Cell dest = Map.Nearby_Location(Coord_Cell(coord), leader->Techno_Type_Class()->SpeedType, -1, 0, false,
                     radius, 0, 0, 0, 1, no_cell, 0);
                 if (dest != unknown_geometry_k) {
                     unknown_func_6b79e0(&Map[dest]);

@@ -20,7 +20,7 @@
 
 double TechnoClass::unknown_6d7550(ObjectClass *target, CoordStruct const &coord)
 {
-    TechnoTypeClass *type = unknown_slot32();
+    TechnoTypeClass *type = Techno_Type_Class();
     if (target->Class_Of() == 0) {
         return unknown_double_79b610;
     }
@@ -57,7 +57,7 @@ double TechnoClass::unknown_6d7550(ObjectClass *target, CoordStruct const &coord
                 value = target_effectiveness * their_weapon->Warhead->Verses[type->unknown_9c];
             }
         }
-        value += target_special_threat * techno->unknown_slot32()->SpecialThreatValue;
+        value += target_special_threat * techno->Techno_Type_Class()->SpecialThreatValue;
         if (House->unknown_54f0 != -1 && House->unknown_54f0 == techno->House->ArrayIndex) {
             value += Rules->EnemyHouseThreatBonus;
         }
@@ -70,7 +70,7 @@ double TechnoClass::unknown_6d7550(ObjectClass *target, CoordStruct const &coord
     if (weapon != 0) {
         range = weapon->unknown_b4;
     } else {
-        range = unknown_slot32()->GuardRange.Value;
+        range = Techno_Type_Class()->GuardRange.Value;
     }
     range /= 256;
     int distance;

@@ -194,14 +194,14 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         for (i = 0; i < unknown_objects_a40368.Count(); i++) {
             ObjectClass *obj = unknown_objects_a40368[i];
             if (obj->Kind_Of() != 4) {
-                obj->unknown_slot103(ra2native_object_coord_5484e0(obj) + coord);   // NATIVE: Coord +0x88
+                obj->Set_Coord(ra2native_object_coord_5484e0(obj) + coord);   // NATIVE: Coord +0x88
             }
         }
 
         for (i = 0; i < Anims.Count(); i++) {
             AnimClass *anim = Anims[i];
             if (!ra2native_anim_attached_5484e0(anim)) {   // NATIVE: AnimClass +0xB4
-                anim->unknown_slot103(ra2native_object_coord_5484e0(anim) + coord);   // NATIVE
+                anim->Set_Coord(ra2native_object_coord_5484e0(anim) + coord);   // NATIVE
             }
         }
 
@@ -214,7 +214,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
                 while (*list != Cell(0x7FFF, 0x7FFF)) {
                     Cell ncell = cell + *list;
                     if (!In_Radar(ncell)) {
-                        unknown_objects_a40368[i]->unknown_slot52();
+                        unknown_objects_a40368[i]->Limbo();
                         delete unknown_objects_a40368[i];
                         i--;
                         break;

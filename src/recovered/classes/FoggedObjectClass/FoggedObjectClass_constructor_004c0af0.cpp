@@ -20,7 +20,7 @@ FoggedObjectClass::FoggedObjectClass(AnimClass *anim)
     : unknown_24(-1), unknown_28(0), unknown_2c(0), unknown_30(0x24), Coord(anim->Coord),
       unknown_50(Map[CoordStruct(anim->Coord)].unknown_11b), unknown_54(-1), unknown_58(0), unknown_74(true)
 {
-    unknown_40 = anim->unknown_slot73();
+    unknown_40 = anim->Get_Render_Rect();
     unknown_40.X += unknown_tactical_83996c->TacPixelX;
     unknown_40.Y += unknown_tactical_83996c->TacPixelY;
     Array.Add(this);

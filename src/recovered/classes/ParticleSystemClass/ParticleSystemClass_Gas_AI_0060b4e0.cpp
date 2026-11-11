@@ -31,7 +31,7 @@ void ParticleSystemClass::Gas_AI()
                     spawned->unknown_b0 = particle->unknown_b0;
                 }
             }
-            particle->unknown_slot60();
+            particle->Delete_Me();
         } else {
             particle->Motion_AI();
         }

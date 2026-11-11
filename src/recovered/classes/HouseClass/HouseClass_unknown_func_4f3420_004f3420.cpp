@@ -36,7 +36,7 @@ void HouseClass::unknown_func_4f3420()
             }
             unknown_func_4e5dc0(region, threat);
         } else {
-            unknown_func_4e5dc0(Map.Unknown_0054E370(((CellClass *)techno->unknown_slot105())->MapCoords), threat);
+            unknown_func_4e5dc0(Map.Unknown_0054E370(((CellClass *)techno->Get_Cell_Ptr())->MapCoords), threat);
         }
     }
 }

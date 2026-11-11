@@ -123,7 +123,7 @@ public:
     virtual void AI();                                                  // 0x0060CB70 slot 23
     virtual int unknown_slot29() const;                                 // 0x0060CC90 (2)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x0060D020 slot 33 (inline)
-    virtual void unknown_slot60() { unknown_e4 = true; }                // 0x0060CFF0 (inline)
+    virtual void Delete_Me() { unknown_e4 = true; }                // 0x0060CFF0 (inline)
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x0060B090
 
     ParticleClass *Spawn_Particle(CoordStruct const &coord, CoordStruct const &target);            // 0x0060B190

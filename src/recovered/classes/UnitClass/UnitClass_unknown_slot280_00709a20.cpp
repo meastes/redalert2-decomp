@@ -25,5 +25,5 @@ void UnitClass::unknown_slot280(int arg1)
             unknown_244 = CDTimerClass<FrameTimerClass>(unknown_slot187(7));
         }
     }
-    unknown_6d83f0(from->unknown_slot32()->IFVMode);
+    unknown_6d83f0(from->Techno_Type_Class()->IFVMode);
 }

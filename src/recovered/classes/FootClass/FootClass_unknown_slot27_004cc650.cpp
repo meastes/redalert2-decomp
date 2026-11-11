@@ -17,7 +17,7 @@ int FootClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
         coord.Z += unknown_geometry_j;
     }
     if (Map.Is_Shrouded(coord) && result != 0) {
-        if (unknown_slot32()->MoveToShroud && Map.Unknown_0055A660(*cell, true)) {
+        if (Techno_Type_Class()->MoveToShroud && Map.Unknown_0055A660(*cell, true)) {
             if (result != 0x33) {
                 return 1;
             }

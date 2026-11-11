@@ -7,7 +7,7 @@
 int TechnoClass::unknown_6d85e0(int index)
 {
     bool basic = index < 2;
-    bool turret = unknown_slot32()->Has_Turret_Weapons() && index < unknown_slot32()->WeaponCount;
+    bool turret = Techno_Type_Class()->Has_Turret_Weapons() && index < Techno_Type_Class()->WeaponCount;
     if (index >= -1 && (basic || turret)) {
         return 1;
     }

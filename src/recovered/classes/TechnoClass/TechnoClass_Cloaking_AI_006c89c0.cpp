@@ -102,7 +102,7 @@ void TechnoClass::Cloaking_AI(int arg1)
                 unknown_1bc.Set_Stage(0);
                 Mark(2);
                 if (Kind_Of() == 1 && ((UnitClass *)this)->unknown_5b4 != -1) {
-                    unknown_slot61();
+                    Do_Shimmer();
                 } else {
                     DynamicVectorClass<TechnoClass *> attackers;
                     for (int index = Technos.Count() - 1; index >= 0; index--) {
@@ -120,7 +120,7 @@ void TechnoClass::Cloaking_AI(int arg1)
                     }
                 }
                 if (Kind_Of() == 1 && !House->Unknown_004F52F0()) {
-                    unknown_slot87(unknown_geometry_l, true, false);
+                    Scatter(unknown_geometry_l, true, false);
                 }
                 break;
             }

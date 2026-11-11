@@ -57,7 +57,7 @@ public:
     virtual int unknown_slot29() const;                                 // 0x0070DDA0 (3)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x0070DF70 slot 33 (inline)
     virtual Cell const *unknown_slot64(int arg1) { return 0; }    // 0x0070DF80 (inline)
-    virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);    // 0x0070CF70
+    virtual bool Render(Rect *bounds, bool arg2, bool arg3);    // 0x0070CF70
 #ifdef RA2_VOXEL_DRAW_UNIT
     virtual void unknown_slot67(Point2D const &point, Rect const &window); // 0x0070CFC0
 #endif

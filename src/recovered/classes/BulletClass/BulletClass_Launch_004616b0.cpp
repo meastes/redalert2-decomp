@@ -58,16 +58,16 @@ bool BulletClass::unknown_slot118(CoordStruct const &source, TVelocity3D<double>
             CoordStruct collision = Map.Unknown_00569FB0(source, target, house);
             if (collision != unknown_geometry_l) {
                 collision.Z = Map.Get_Height_GL(collision);
-                unknown_slot103(collision);
+                Set_Coord(collision);
                 BuildingClass *building = static_cast<BuildingClass *>(Map[collision].Cell_Building());
                 building->Unknown_00450CB0(this, false);
-                unknown_slot60();
+                Delete_Me();
             } else {
                 CellClass *blocking = Trace_Projectile_Line_004bb890(source, target, Type, house);
-                if (blocking != 0) unknown_slot103(blocking->Center_Coord());
-                else unknown_slot103(target);
+                if (blocking != 0) Set_Coord(blocking->Center_Coord());
+                else Set_Coord(target);
                 // Original calls again even after the blocking-cell branch.
-                unknown_slot103(target);
+                Set_Coord(target);
                 Speed = 0;
                 Set_Projectile_Speed(Velocity,0.0);
             }

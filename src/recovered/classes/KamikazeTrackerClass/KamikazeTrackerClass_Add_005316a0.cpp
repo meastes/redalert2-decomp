@@ -17,7 +17,7 @@ void KamikazeTrackerClass::Add(AircraftClass *missile, AbstractClass *target)
     node->Unit = missile;
     if (target == 0) {
         int facing = Dir_To_8(missile->unknown_2e0.Current());
-        CellClass *here = (CellClass *)missile->unknown_slot105();
+        CellClass *here = (CellClass *)missile->Get_Cell_Ptr();
         node->Cell = &here->Adjacent_Cell(facing);
     } else {
         node->Cell = &Map[Coord_Cell(target->Center_Coord())];

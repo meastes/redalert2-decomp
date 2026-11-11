@@ -9,7 +9,7 @@ void BuildingClass::Create_Fogged_Copy_00452c70(
     CellClass *replacement_cell, bool arg)
 {
     Cell const *offset=Type->Occupy_List(0);
-    unknown_slot81();
+    Unselect();
     FoggedObjectClass *copy=new FoggedObjectClass(this,arg);
     Cell base=unknown_slot104();
     for(;offset->X!=0x7fff || offset->Y!=0x7fff;++offset) {

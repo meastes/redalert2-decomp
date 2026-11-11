@@ -13,7 +13,7 @@ void CellClass::Force_New_Slope_For_Occupiers()
     }
     for (int index = 0; index < count; index++) {
         ObjectClass *occupant = objects[index];
-        occupant->unknown_slot109(0);
+        occupant->Set_Height_AGL(0);
         if (occupant->Kind_Of() == 1 || occupant->Kind_Of() == 2) {
             ((FootClass *)occupant)->Locomotor.Checked()->Force_New_Slope(unknown_11c);
         }

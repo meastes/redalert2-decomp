@@ -18,7 +18,7 @@ bool BuildingClass::unknown_slot161()
             for(int y=-1;y<=height;++y) {
                 TechnoClass *object=static_cast<TechnoClass *>(Cell_At(Cell((short)(origin.X+x),(short)(origin.Y+y))).Cell_Techno(Point2D(0,0),false,0));
                 if(object==this) object=static_cast<TechnoClass *>(Cell_At(Cell((short)(origin.X+x),(short)(origin.Y+y))).Cell_Infantry(false));
-                if(object && object->House!=House && object->unknown_slot32()->Sensors) goto detected;
+                if(object && object->House!=House && object->Techno_Type_Class()->Sensors) goto detected;
             }
         }
         return false;

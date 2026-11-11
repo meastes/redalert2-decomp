@@ -16,7 +16,7 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
         if (linked && linked->Kind_Of() == 2) {
             AircraftClass *aircraft = static_cast<AircraftClass *>(linked);
             if (cell == unknown_geometry_k) {
-                LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, 1);
+                LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, 1);
             } else {
                 AbstractClass *destination;
                 if (LinkedTo->Get_Mission() == 1) destination = aircraft->unknown_4198b0();
@@ -35,7 +35,7 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
                 return;
             }
             if (LinkedTo->Strength <= 0) return;
-            LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, 1);
+            LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, 1);
         }
         unknown_1c = unknown_geometry_l;
     }

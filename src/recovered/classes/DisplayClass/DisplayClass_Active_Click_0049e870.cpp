@@ -41,7 +41,7 @@ void DisplayClass::Active_Click_0049E870(ObjectClass *object, Cell cell, int act
     }
 
     for (index = 0; index < unknown_objects_a40c60.Count(); index++) {
-        unknown_objects_a40c60[index]->unknown_slot99(waypoint_path, waypoint_id);
+        unknown_objects_a40c60[index]->Set_Waypoint_Path(waypoint_path, waypoint_id);
         if (Is_Foot(unknown_objects_a40c60[index])) {
             TechnoClass *techno = (TechnoClass *)unknown_objects_a40c60[index];
             techno->unknown_37f = false;

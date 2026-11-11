@@ -132,7 +132,7 @@ void ParticleSystemClass::Railgun_AI()
     for (int j = Particles.Count() - 1; j >= 0; j--) {
         ParticleClass *particle = Particles[j];
         if (particle->unknown_121) {
-            particle->unknown_slot60();
+            particle->Delete_Me();
         }
     }
 }

@@ -14,7 +14,7 @@
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
 // @ref ??0RGBClass@@QAE@ABV0@0M@Z=0063cc80
-// @ref ?unknown_slot103@ObjectClass@@UAEXABUCoordStruct@@@Z=005d51c0
+// @ref ?Set_Coord@ObjectClass@@UAEXABUCoordStruct@@@Z=005d51c0
 // @ref ?unknown_slot53@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
 // @ref _unknown_geometry_l=00a764e8
 // @ref __real@8@00000000000000000000=0079b610
@@ -78,7 +78,7 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
     if (place.Z <= Map.Get_Height_GL(coord)) {
         place.Z = Map.Get_Height_GL(coord);
     }
-    unknown_slot103(place);
+    Set_Coord(place);
     unknown_fc = Normalized(unknown_fc);
     if (Class->Normalized) {
         CoordStruct delta(coord.X - target.X, coord.Y - target.Y, coord.Z - target.Z);

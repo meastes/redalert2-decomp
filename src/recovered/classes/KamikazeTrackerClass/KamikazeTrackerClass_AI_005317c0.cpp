@@ -18,7 +18,7 @@ void KamikazeTrackerClass::AI()
             missile->unknown_254 = 1;
             if (cell == 0) {
                 int facing = Dir_To_8(missile->unknown_2e0.Current());
-                CellClass *here = (CellClass *)missile->unknown_slot105();
+                CellClass *here = (CellClass *)missile->Get_Cell_Ptr();
                 CellClass *adjacent = &here->Adjacent_Cell(facing);
                 missile->unknown_slot220(adjacent);
                 missile->unknown_slot116(1, false);

@@ -47,7 +47,7 @@ void SpawnManagerClass::AI()
                     break;
                 }
             }
-            if (Owner->unknown_slot32()->MissileSpawn) {
+            if (Owner->Techno_Type_Class()->MissileSpawn) {
                 unknown_5c = 9;
             } else {
                 unknown_5c = 20;
@@ -133,7 +133,7 @@ void SpawnManagerClass::AI()
                 SpawnedNodes[i]->Unit->unknown_slot220(Destination);
                 SpawnedNodes[i]->Unit->unknown_slot116(1, false);
             } else if (unit->unknown_slot104() == Owner->unknown_slot104() && CoordStruct(unit->Coord).Z - CoordStruct(Owner->Coord).Z < 20) {
-                unit->unknown_slot52();
+                unit->Limbo();
                 SpawnedNodes[i]->Status = 6;
                 SpawnedNodes[i]->Timer = ReloadRate;
             } else {
@@ -159,7 +159,7 @@ void SpawnManagerClass::AI()
                 } else {
                     SpawnedNodes[i]->IsMissile = 0;
                 }
-                SpawnedNodes[i]->Unit->unknown_slot52();
+                SpawnedNodes[i]->Unit->Limbo();
                 SpawnedNodes[i]->Unit->unknown_23c = Owner;
                 SpawnedNodes[i]->Status = 0;
             }

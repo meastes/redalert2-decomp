@@ -16,7 +16,7 @@ void FlyLocomotionClass::unknown_4bf1f0()
         if (LinkedTo->Kind_Of() == 2) {
             AircraftClass *aircraft = (AircraftClass *)LinkedTo;
             if (aircraft->Type->AirportBound) {
-                CellClass *cell = (CellClass *)aircraft->unknown_slot105();
+                CellClass *cell = (CellClass *)aircraft->Get_Cell_Ptr();
                 if (!LinkedTo->Is_Radio_Contact((TechnoClass *)cell->Cell_Building())) {
                     aircraft->unknown_slot261(false, true);
                     return;

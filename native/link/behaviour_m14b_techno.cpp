@@ -15,7 +15,7 @@ bool TechnoClass::unknown_slot156()
 // TechnoTypeClass::Turret).
 bool TechnoClass::unknown_slot232()
 {
-    return unknown_slot32()->Turret;
+    return Techno_Type_Class()->Turret;
 }
 
 // 0x00453B60 (TechnoClass slot 169, +0x2A4; kept copy elsewhere): the shared

@@ -93,14 +93,14 @@ public:
     virtual void AI();                                                  // 0x00421710 slot 23
     virtual int unknown_slot29() const;                                 // 0x004226A0 (layer)
     virtual ObjectTypeClass *Class_Of() const;                          // 0x00422EC0 slot 33
-    virtual int unknown_slot45() const;                                 // 0x00420D70
-    virtual bool unknown_slot52();                                       // 0x00422ED0
-    virtual void unknown_slot60();                                      // 0x00423070
-    virtual bool unknown_slot63(Rect *bounds, bool arg2, bool arg3);    // 0x00420E20
+    virtual int Sort_Y() const;                                 // 0x00420D70
+    virtual bool Limbo();                                       // 0x00422ED0
+    virtual void Delete_Me();                                      // 0x00423070
+    virtual bool Render(Rect *bounds, bool arg2, bool arg3);    // 0x00420E20
     virtual Cell const *unknown_slot64(int arg1);                 // 0x00421520 (no cell: a local static)
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x00420E50
     virtual bool Mark(int arg1);                              // 0x00421500
-    virtual int unknown_slot110() const;                                // 0x004230E0
+    virtual int Get_Height() const;                                // 0x004230E0
     virtual int unknown_slot116();                                      // 0x00421580 (new: bounce step)
     virtual int unknown_slot117() const;                                // 0x00422EB0 (new: Class->End)
 

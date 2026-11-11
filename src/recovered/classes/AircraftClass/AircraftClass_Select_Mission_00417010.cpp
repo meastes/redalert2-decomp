@@ -29,7 +29,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
     int mission = !House->Is_Human_Player() && !Team && unknown_slot163() ? 11 : 5;
     int landing_altitude = Landing_Altitude();
     if (unknown_slot29() == 2) goto grounded;
-    if (unknown_slot108() <= landing_altitude || Type->MissileSpawn) goto grounded;
+    if (Get_Height_AGL() <= landing_altitude || Type->MissileSpawn) goto grounded;
     if (Cargo.Object) {
         if (!unknown_32c) goto select_destination;
         if (!Team) {

@@ -38,12 +38,12 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
     int distance=Path_Distance3(Center_Coord(),Cell_Center(cell));
     int close_enough=Team?Team->Unknown_006BE6A0():Rules->unknown_1380;
     int max_distance=0;
-    bool train=unknown_slot32()->IsTrain;
+    bool train=Techno_Type_Class()->IsTrain;
     int move=unknown_slot101(&Map[cell],-1,-1,0,true);
     if(move==6 && distance>close_enough && !train) {
-        int zone=unknown_zone_table_7a1200[unknown_slot32()->MovementZone];
-        bool check=unknown_slot32()->unknown_af5 && Map[cell].Can_Burrow_Here();
-        Cell nearby=Map.Nearby_Location(cell,unknown_slot32()->SpeedType,
+        int zone=unknown_zone_table_7a1200[Techno_Type_Class()->MovementZone];
+        bool check=Techno_Type_Class()->unknown_af5 && Map[cell].Can_Burrow_Here();
+        Cell nearby=Map.Nearby_Location(cell,Techno_Type_Class()->SpeedType,
             Map.Zone(unknown_slot104(),zone,unknown_79),zone,unknown_79,Point2D(1,1),false,true,check,true,unknown_slot104(),0);
         int dest_y=cell.Y;
         int nearby_y=nearby.Y;
@@ -60,9 +60,9 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
     }
     if(move==7 && !train) {
         if(Map[cell].Cell_Building()!=0) {
-            int zone=unknown_zone_table_7a1200[unknown_slot32()->MovementZone];
-            bool check=unknown_slot32()->unknown_af5 && Map[cell].Can_Burrow_Here();
-            Cell nearby=Map.Nearby_Location(cell,unknown_slot32()->SpeedType,
+            int zone=unknown_zone_table_7a1200[Techno_Type_Class()->MovementZone];
+            bool check=Techno_Type_Class()->unknown_af5 && Map[cell].Can_Burrow_Here();
+            Cell nearby=Map.Nearby_Location(cell,Techno_Type_Class()->SpeedType,
                 Map.Zone(unknown_slot104(),zone,unknown_79),zone,unknown_79,Point2D(1,1),false,true,check,true,unknown_slot104(),0);
             Assign_Destination(&Map[nearby],true);
             cell=nearby;

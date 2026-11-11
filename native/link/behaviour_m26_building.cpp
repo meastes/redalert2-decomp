@@ -110,7 +110,7 @@ int BuildingClass::Do_MISSION_MISSILE()
                     ((AnimClass *)unknown_444)->unknown_func_422680(bullet);
                     unknown_444 = 0;
                 }
-                bullet->unknown_slot52();
+                bullet->Limbo();
                 CoordStruct launch = unknown_slot43(0);
                 // Straight up at speed 10 (TibSun: Velocity(DIR_N, DIR_N, 10)): yaw 0, pitch 0 of the
                 // RA2 direction view gives the vector below.
@@ -215,7 +215,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             velocity.Set_Pitch(pitch);
 
             if (bullet && valid && bullet->unknown_slot118(source, TVelocity3D<double>(velocity.X, velocity.Y, velocity.Z))) {
-                if (unknown_slot232() && unknown_slot32()->TurretRecoil) {
+                if (unknown_slot232() && Techno_Type_Class()->TurretRecoil) {
                     unknown_330.unknown_6d8b90();
                     unknown_350.unknown_6d8b90();
                 }

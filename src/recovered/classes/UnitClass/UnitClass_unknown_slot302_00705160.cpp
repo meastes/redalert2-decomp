@@ -71,16 +71,16 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
                 unknown_372 = infantry->unknown_372;
                 unknown_slot54(false);
                 unknown_slot222(infantry->House, 1);
-                object->unknown_slot60();
+                object->Delete_Me();
                 object = next;
             } else {
                 ObjectClass *next = object->unknown_30;
                 crushed = 1;
                 Voc_Play_At(object->Class_Of()->unknown_1c0, CoordStruct(Coord), 0);
-                object->unknown_slot55(this);
+                object->Record_The_Kill(this);
                 object->Mark(0);
-                object->unknown_slot52();
-                object->unknown_slot60();
+                object->Limbo();
+                object->Delete_Me();
                 object = next;
             }
         } else {

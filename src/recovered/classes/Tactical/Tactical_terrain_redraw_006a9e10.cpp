@@ -29,10 +29,10 @@ void Tactical::Unknown_006A9E10(bool arg1, Rect const &rect1, Rect const &rect2)
             TerrainClass *terrain = (TerrainClass *)object;
             if (!terrain->Class->IsAnimated && !terrain->unknown_b5) {
                 Point2D offset(unknown_rect_839630.X, unknown_rect_839630.Y);
-                Rect area = Offset_Rect(object->unknown_slot73(), offset.X, offset.Y);
+                Rect area = Offset_Rect(object->Get_Render_Rect(), offset.X, offset.Y);
                 if (Rects_Overlap(area, clip)) {
                     Rect bounds = rect2;
-                    object->unknown_slot63(&bounds, arg1, false);
+                    object->Render(&bounds, arg1, false);
                     object->unknown_75 = false;
                 }
             }

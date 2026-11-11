@@ -22,7 +22,7 @@ int BuildingClass::unknown_slot27(Cell const *cell,bool alternate,bool mode)
     if(Type->UndeploysInto && alternate) action=TechnoClass::unknown_slot27(cell,false,mode);
     else action=TechnoClass::unknown_slot27(cell,alternate,mode);
     if(action==1 || action==2) {
-        if(!unknown_slot39() && action==1) {
+        if(!Can_Player_Move() && action==1) {
             action=0;
             goto owner_action;
         }

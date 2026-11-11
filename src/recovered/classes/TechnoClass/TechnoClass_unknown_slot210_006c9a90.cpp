@@ -15,5 +15,5 @@ void TechnoClass::unknown_slot210()
         SpawnManager->Abandon_Target();
     }
     unknown_slot54(1);
-    unknown_slot81();
+    Unselect();
 }

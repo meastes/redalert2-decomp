@@ -32,7 +32,7 @@ int FootClass::unknown_4c82a0(AbstractClass *target)
         return 0;
     }
     int range = unknown_5d4c00(target);
-    int distance = range - unknown_slot85(0);
+    int distance = range - Weapon_Range(0);
     int rate = unknown_slot168() << 10;
     if (distance > 0) {
         int speed = (unsigned)unknown_slot206() > 1 ? unknown_slot206() : 1;

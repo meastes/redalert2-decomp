@@ -79,7 +79,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
             cells.Delete(0);
         }
     }
-    unit->unknown_slot52();
+    unit->Limbo();
     delete unit;
     if (!found) {
         unknown_55f0.Nodes.Delete(node);

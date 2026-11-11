@@ -41,7 +41,7 @@ void TechnoClass::unknown_slot267(bool arg1)
         }
     }
     if (!rect.Is_Point_Within(point) && visible) {
-        visible = Map.Unknown_0055A740(unknown_slot107(), true);
+        visible = Map.Unknown_0055A740(Get_Target_Cell_Ptr(), true);
         if (visible) {
             point = Map.Coord_To_Radar_Pixel(CoordStruct(Coord), true);
         }

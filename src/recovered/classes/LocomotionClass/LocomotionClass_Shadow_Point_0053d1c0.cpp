@@ -4,5 +4,5 @@
 
 Point2D __stdcall LocomotionClass::Shadow_Point()
 {
-    return Point2D(0, Unknown_006A2970(LinkedTo->unknown_slot108()));
+    return Point2D(0, Unknown_006A2970(LinkedTo->Get_Height_AGL()));
 }

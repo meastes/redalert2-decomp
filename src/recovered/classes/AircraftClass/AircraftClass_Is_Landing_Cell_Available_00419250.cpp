@@ -12,7 +12,7 @@ bool AircraftClass::Is_Landing_Cell_Available_00419250(Cell const &cell, bool al
         TechnoClass *occupant = (TechnoClass *)Map[cell].Cell_Techno(offset, false, 0);
         if (occupant) {
             if (occupant->SpawnManager) return true;
-            if (occupant->unknown_slot32()->Spawned) return true;
+            if (occupant->Techno_Type_Class()->Spawned) return true;
         }
     }
     if (Type->AirportBound) return true;

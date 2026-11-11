@@ -131,7 +131,7 @@ void BuildingClass::unknown_slot282(bool captured)
     unknown_5b4 = true;
     House->unknown_5668 = true;
     House->unknown_5669 = true;
-    if (unknown_slot32()->GapGenerator) unknown_slot235();
+    if (Techno_Type_Class()->GapGenerator) unknown_slot235();
     if (Type->FreeUnit && unknown_a40774 == 0 && !captured && !Debug_Map &&
         (!House->Is_Human_Player() || unknown_258 == 0 || unknown_258 > Type->Raw_Cost())) {
         Cell origin(Center_Coord());
@@ -173,7 +173,7 @@ void BuildingClass::unknown_slot282(bool captured)
         ++unknown_a40774;
         AircraftClass *aircraft = new AircraftClass(Rules->PadAircraft[0], House);
         if (aircraft) {
-            aircraft->unknown_slot109(0);
+            aircraft->Set_Height_AGL(0);
             if (aircraft->unknown_slot53(&Center_Coord(), aircraft->Pose_Dir_00417890())) {
                 aircraft->unknown_slot116(5, false);
                 aircraft->unknown_slot150(2, this);

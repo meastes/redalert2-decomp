@@ -8,7 +8,7 @@
 void TeamClass::TMission_unknown_6bc5b0(ScriptMissionClass const &mission, bool unknown)
 {
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-        if (member->unknown_slot32()->Passengers > member->Cargo.Count) {
+        if (member->Techno_Type_Class()->Passengers > member->Cargo.Count) {
             return;
         }
     }

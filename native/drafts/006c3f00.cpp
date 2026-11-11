@@ -19,8 +19,8 @@
 void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool arg3)
 {
     if (Kind_Of() == 6) {
-        unknown_slot108();
-        CoordStruct dim = unknown_slot32()->Lepton_Dimensions();
+        Get_Height_AGL();
+        CoordStruct dim = Techno_Type_Class()->Lepton_Dimensions();
         CoordStruct coord = dim - dim / 2;
         coord.X = -coord.X;
         coord.Z = dim.Z;

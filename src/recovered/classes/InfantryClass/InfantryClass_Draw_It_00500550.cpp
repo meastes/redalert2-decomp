@@ -35,12 +35,12 @@ bool Unknown_0051FC60();
 void InfantryClass::unknown_slot67(Point2D const &input, Rect const &window)
 {
     Point2D point=input;
-    Cell cell=unknown_slot106();
+    Cell cell=Get_Target_Cell();
     if (unknown_574==-1) {
         UnknownComPtr<IPersist,&unknown_uuid_IPersist_7cf208> persist(Locomotor);
         GUID class_id;
         persist.Checked()->GetClassID(&class_id);
-        if (unknown_slot108()>0 && memcmp(&class_id,&CLSID_BallisticLocomotionClass,sizeof(GUID))==0) {
+        if (Get_Height_AGL()>0 && memcmp(&class_id,&CLSID_BallisticLocomotionClass,sizeof(GUID))==0) {
             ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(MixFileClass::Retrieve("POD.SHP"));
             // COM returns a separate two-int point layout. The existing interface
             // spells that result Point2D; this storage view preserves its ABI and
@@ -52,9 +52,9 @@ void InfantryClass::unknown_slot67(Point2D const &input, Rect const &window)
             Map[cell];
             unknown_slot293(shape,Locomotor.Checked()->Drawing_Code(),&input,&window,0,256,0,2,0,1000,0,0,Point2D(0,0),0);
         } else {
-            ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(unknown_slot26());
+            ShapeFileStruct const *shape=static_cast<ShapeFileStruct const *>(Get_Image_Data());
             if (!shape) return;
-            Cell target_cell=unknown_slot106();
+            Cell target_cell=Get_Target_Cell();
             unknown_tactical_83996c->Add_To_Selectables(this, point);
             int level_light;
             if (Unknown_0051FC50()) level_light=unknown_id_source_a3d290->IonLevel;
@@ -63,13 +63,13 @@ void InfantryClass::unknown_slot67(Point2D const &input, Rect const &window)
             int brightness;
             if (unknown_79 || ((Map[Position_Coord_004f3f40()].unknown_140&0x10000) &&
                 Position_Coord_004f3f40().Z>Map.Get_Height_GL(Position_Coord_004f3f40())+unknown_geometry_j/2)) {
-                int light=level_light*(unknown_slot108()/(unknown_geometry_g*2));
+                int light=level_light*(Get_Height_AGL()/(unknown_geometry_g*2));
                 brightness=Map[target_cell].unknown_10a+light;
             } else {
                 brightness=Map[target_cell].unknown_10a+((Map[Position_Coord_004f3f40()].unknown_140&0x10000)?-500:0);
             }
             brightness+=Rules->ExtraInfantryLight;
-            int height=unknown_slot108();
+            int height=Get_Height_AGL();
             CellClass *current_cell=&Map[Position_Coord_004f3f40()];
             if ((current_cell->unknown_140&0x100) && height>=unknown_geometry_j) {
                 if (((current_cell->unknown_140&0x800) && (current_cell->Adjacent_Cell(0).unknown_140&0x100)) ||

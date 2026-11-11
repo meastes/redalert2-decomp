@@ -70,11 +70,11 @@ inline CoordStruct::CoordStruct(Point2D const &point, int z) : BASECLASS(point.X
 
 bool DriveLocomotionClass::While_Moving(bool just_started)
 {
-    if ((!unknown_63 || unknown_58 == -1) && LinkedTo->Path[0] != 8 || (unknown_62 && !LinkedTo->unknown_slot32()->Turret)) {
+    if ((!unknown_63 || unknown_58 == -1) && LinkedTo->Path[0] != 8 || (unknown_62 && !LinkedTo->Techno_Type_Class()->Turret)) {
         unknown_4c = 0;
         return false;
     }
-    if (LinkedTo->unknown_slot32()->Accelerates) {
+    if (LinkedTo->Techno_Type_Class()->Accelerates) {
         bool not_passive = LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->Type->Passive;
         if (unknown_58 < 0x40 && not_passive) {
             CoordStruct dest_coord = unknown_34;
@@ -84,7 +84,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
             bool forced_speed = false;
             double speed = LinkedTo->unknown_468;
 
-            TechnoTypeClass const *tclass = LinkedTo->unknown_slot32();
+            TechnoTypeClass const *tclass = LinkedTo->Techno_Type_Class();
             int maxspeed = LinkedTo->unknown_slot206();
 
             if (distance < tclass->SlowdownDistance) {
@@ -133,7 +133,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
         LinkedTo->Mark(0);
         Stop_Driver();
 
-        CellClass *cell = (CellClass *)LinkedTo->unknown_slot105();
+        CellClass *cell = (CellClass *)LinkedTo->Get_Cell_Ptr();
         int tubenum = cell->unknown_116;
         if (tubenum >= 0 && tubenum < unknown_TubeClass_list_008661c8.Count()) {
             TubeClass *tube = unknown_TubeClass_list_008661c8[tubenum];
@@ -193,7 +193,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
             offset = ptr[unknown_5c].Offset;
             if (offset != Point2D(0, 0) || !unknown_5c) {
                 if (LinkedTo->unknown_slot47()) {
-                    LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+                    LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
                     LinkedTo->unknown_5a0 = false;
                     LinkedTo->unknown_5a1 = false;
                 }
@@ -215,7 +215,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
                 if (a0 != b0) {
                     LinkedTo->Mark(0);
-                    LinkedTo->unknown_slot103(newcoord);
+                    LinkedTo->Set_Coord(newcoord);
                     CellClass *oldcellptr = &Map[oldcell];
                     CellClass *newcellptr = &Map[newcell];
                     if (newcellptr->unknown_11b == oldcellptr->unknown_11b - 4 && newcellptr->IsUnderBridge) {
@@ -224,7 +224,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                     if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
                         LinkedTo->unknown_79 = false;
                     }
-                    if (LinkedTo->unknown_slot32()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
+                    if (LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
                         FootClass *train = LinkedTo;
                         bool is_bridge = train->unknown_79 || (Object_Coord(LinkedTo).Z >= (Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_j));
                         ObjectClass *object = is_bridge ? Map[newcell].AltOccupierPtr : Map[newcell].OccupierPtr;
@@ -234,9 +234,9 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                             ObjectClass *next = occupier->unknown_30;
                             if (!occupier->Class_Of()->unknown_1fd) {
                                 int strength = 10000;
-                                occupier->unknown_slot86(&strength, 0, Rules->unknown_c74, 0, true, true);
+                                occupier->Take_Damage(&strength, 0, Rules->unknown_c74, 0, true, true);
                                 strength = 20;
-                                train->unknown_slot86(&strength, 0, Rules->unknown_c74, 0, true, false);
+                                train->Take_Damage(&strength, 0, Rules->unknown_c74, 0, true, false);
                             }
                             occupier = next;
                         }
@@ -246,9 +246,9 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
                     if (newcellptr->OverlayIndex != -1) {
                         OverlayTypeClass *otype = OverlayTypes[newcellptr->OverlayIndex];
-                        if (unknown_64 && (LinkedTo->unknown_slot32()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
+                        if (unknown_64 && (LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->unknown_6d7910(0x11)) && otype->ArrayIndex == 0) {
                             LinkedTo->unknown_59f = true;
-                            TechnoTypeClass const *ttype = LinkedTo->unknown_slot32();
+                            TechnoTypeClass const *ttype = LinkedTo->Techno_Type_Class();
                             if (ttype->TiltsWhenCrushes) {
                                 LinkedTo->unknown_28c = -0.02f;
                             }
@@ -257,7 +257,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                 } else {
                     bool down = LinkedTo->unknown_74;
                     LinkedTo->unknown_74 = false;
-                    LinkedTo->unknown_slot103(newcoord);
+                    LinkedTo->Set_Coord(newcoord);
                     LinkedTo->unknown_74 = down;
                 }
 
@@ -267,13 +267,13 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
                 bool down = LinkedTo->unknown_74;
                 LinkedTo->unknown_74 = false;
-                LinkedTo->unknown_slot109(0);
+                LinkedTo->Set_Height_AGL(0);
                 LinkedTo->unknown_74 = down;
 
                 LinkedTo->unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
 
                 if (unknown_5c && DriveRawTracks[tracknum - 1].Cell == unknown_5c) {
-                    LinkedTo->unknown_slot59(Object_Coord(LinkedTo));
+                    LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
                 }
 
                 if (nextface != 8 && nextface != -1 && adj && DriveRawTracks[tracknum - 1].Jump == unknown_5c && unknown_5c) {
@@ -348,14 +348,14 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                 Cell here = Object_Coord(LinkedTo).As_Cell();
                 if (here != unknown_40.As_Cell()) {
                     LinkedTo->Mark(0);
-                    LinkedTo->unknown_slot103(unknown_40);
-                    LinkedTo->unknown_slot109(0);
+                    LinkedTo->Set_Coord(unknown_40);
+                    LinkedTo->Set_Height_AGL(0);
                     LinkedTo->Mark(1);
                 } else {
                     bool down = LinkedTo->unknown_74;
                     LinkedTo->unknown_74 = false;
-                    LinkedTo->unknown_slot103(unknown_40);
-                    LinkedTo->unknown_slot109(0);
+                    LinkedTo->Set_Coord(unknown_40);
+                    LinkedTo->Set_Height_AGL(0);
                     LinkedTo->unknown_74 = down;
                 }
 
@@ -442,7 +442,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
             if (coord.As_Cell() != Object_Coord(LinkedTo).As_Cell()) {
                 LinkedTo->Mark(0);
-                LinkedTo->unknown_slot103(coord);
+                LinkedTo->Set_Coord(coord);
                 if (newcellptr->unknown_11b == oldcellptr->unknown_11b - 4 && newcellptr->IsUnderBridge) {
                     LinkedTo->unknown_79 = true;
                 }
@@ -453,7 +453,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
             } else {
                 bool down = LinkedTo->unknown_74;
                 LinkedTo->unknown_74 = false;
-                LinkedTo->unknown_slot103(coord);
+                LinkedTo->Set_Coord(coord);
                 LinkedTo->unknown_74 = down;
             }
         }

@@ -23,7 +23,7 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
         else object = cell.AltOccupierPtr;
         for (; object; object = object->unknown_30) {
             if (object != Owner && object->unknown_7d && object->unknown_74 && !object->unknown_76 && object->Strength > 0)
-                object->unknown_slot86(&damage, 0, warhead, Owner, false, 0);
+                object->Take_Damage(&damage, 0, warhead, Owner, false, 0);
         }
         if (cell.OverlayIndex != -1) {
             OverlayTypeClass *overlay = (OverlayTypeClass *)unknown_overlay_types_a35de8[cell.OverlayIndex];

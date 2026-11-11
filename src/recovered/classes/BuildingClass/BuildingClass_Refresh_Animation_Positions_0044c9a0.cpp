@@ -11,7 +11,7 @@ void BuildingClass::unknown_44c9a0()
         ObjectClass *animation=static_cast<ObjectClass *>(unknown_454[index]);
         if(animation) {
             CoordStruct position=unknown_tactical_83996c->Unknown_006A2BF0(Type->Anims[index].Offset)+center;
-            animation->unknown_slot103(position);
+            animation->Set_Coord(position);
         }
     }
 }

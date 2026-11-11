@@ -24,7 +24,7 @@ void ParticleClass::Gas_Motion_AI()
             return;
         }
     }
-    unknown_slot103(next);
+    Set_Coord(next);
 }
 
 // @ref __real@8@4000a000000000000000=007a7f38

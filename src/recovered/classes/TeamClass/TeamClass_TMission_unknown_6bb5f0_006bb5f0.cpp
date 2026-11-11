@@ -14,7 +14,7 @@ void TeamClass::TMission_unknown_6bb5f0(ScriptMissionClass const &mission, bool 
     FootClass *trans = 0;
     bool aircraft = unknown_func_6bd810();
     while (unit != 0) {
-        if (unit->unknown_slot32()->Passengers > 0 && unit->Cargo.How_Many() < unit->unknown_slot32()->Passengers) {
+        if (unit->Techno_Type_Class()->Passengers > 0 && unit->Cargo.How_Many() < unit->Techno_Type_Class()->Passengers) {
             if ((!aircraft && unit->Kind_Of() == 1) || (aircraft && unit->Kind_Of() == 2)) {
                 trans = unit;
                 break;

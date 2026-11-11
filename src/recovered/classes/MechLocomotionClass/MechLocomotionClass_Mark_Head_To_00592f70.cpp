@@ -22,7 +22,7 @@ bool MechLocomotionClass::Mark_Head_To(CoordStruct const &coord)
         }
     }
     if (unknown_24 != unknown_geometry_l) {
-        LinkedTo->unknown_slot59(unknown_24);
+        LinkedTo->Clear_Occupy_Bit(unknown_24);
     }
     if (Map[to].Goodie_Check(LinkedTo) && !LinkedTo->unknown_76) {
         unknown_24 = to;
@@ -33,9 +33,9 @@ bool MechLocomotionClass::Mark_Head_To(CoordStruct const &coord)
         }
     }
     if (unknown_24 != unknown_geometry_l) {
-        LinkedTo->unknown_slot58(unknown_24);
+        LinkedTo->Set_Occupy_Bit(unknown_24);
         return true;
     }
-    LinkedTo->unknown_slot58(Object_Coord(LinkedTo));
+    LinkedTo->Set_Occupy_Bit(Object_Coord(LinkedTo));
     return false;
 }

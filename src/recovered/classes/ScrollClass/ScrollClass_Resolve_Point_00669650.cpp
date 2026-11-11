@@ -36,7 +36,7 @@ bool ScrollClass::Resolve_Point(Point2D const &xy,Cell &cell,CoordStruct &coord,
             object=unknown_tactical_83996c->Get_Selectable_Object_006aa990(xy);
             TechnoClass *techno=object->As_Techno();
             if (techno && !techno->unknown_372) {
-                if ((techno->unknown_1b8==2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) || techno->unknown_slot32()->Invisible) object=0;
+                if ((techno->unknown_1b8==2 && !Map[techno->Center_Coord()].Is_Sensed(unknown_player_a35db4->ArrayIndex)) || techno->Techno_Type_Class()->Invisible) object=0;
             }
             if (object && object->Kind_Of()==6) {
                 BuildingClass *building=static_cast<BuildingClass *>(object);

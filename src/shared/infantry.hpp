@@ -177,7 +177,7 @@ public:
     virtual int Size_Of() const { return sizeof(InfantryClass); }   // slot 12 0x005097B0 ret 0 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;   // slot 13 0x005088A0 ret 4
     virtual void AI();   // slot 23 0x00502D20 ret 0
-    virtual void *unknown_slot26();          // slot 26 0x00508310 ret 
+    virtual void *Get_Image_Data();          // slot 26 0x00508310 ret 
     virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);   // slot 27 0x00506650 ret 0xc
     virtual int unknown_slot28(ObjectClass *object, bool arg2);   // slot 28 0x00505390 ret 8
     virtual ObjectTypeClass * Class_Of() const;   // slot 33 0x00506950 ret 0
@@ -185,17 +185,17 @@ public:
     virtual bool unknown_slot49(HouseClass *house);   // slot 49 0x00509390 ret 4
     virtual ObjectTypeClass *unknown_slot50(bool arg1);   // slot 50 0x00509200 ret 4
     virtual HouseClass *unknown_slot51(bool arg1);   // slot 51 0x00509270 ret 4
-    virtual bool unknown_slot52();  // slot 52 0x00504F00 ret 0
+    virtual bool Limbo();  // slot 52 0x00504F00 ret 0
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);   // slot 53 0x00504FD0 ret 8
     virtual bool unknown_slot56(CoordStruct const &coord);   // slot 56 0x005083B0 ret 4
-    virtual void unknown_slot58(CoordStruct const &coord);   // slot 58 0x00508410 ret 4
-    virtual void unknown_slot59(CoordStruct const &coord);   // slot 59 0x005084A0 ret 4
+    virtual void Set_Occupy_Bit(CoordStruct const &coord);   // slot 58 0x00508410 ret 4
+    virtual void Clear_Occupy_Bit(CoordStruct const &coord);   // slot 59 0x005084A0 ret 4
     virtual void unknown_slot67(Point2D const &point, Rect const &window);   // slot 67 0x00500550 ret 8
     virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);   // slot 77 0x00506100 ret 0x10
     virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);   // slot 78 0x00506050 ret 0xc
     virtual void unknown_slot82(int arg1);   // slot 82 0x005091C0 ret 4
-    virtual int unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);   // slot 86 0x004FFB70 ret 0x18
-    virtual void unknown_slot87(CoordStruct const &source, bool forced, bool nokidding);   // slot 87 0x00504120 ret 
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);   // slot 86 0x004FFB70 ret 0x18
+    virtual void Scatter(CoordStruct const &source, bool forced, bool nokidding);   // slot 87 0x00504120 ret 
     virtual void unknown_slot93(int arg1);   // slot 93 0x00500AA0 ret 4
     virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00503190 ret 0x14
     virtual bool unknown_slot122();   // slot 122 0x00508770 ret 0

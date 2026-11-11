@@ -24,8 +24,8 @@ Matrix3D * __stdcall DriveLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *ke
         Matrix3D rotation;
         transform.Make_Identity();
         rotation.Make_Identity();
-        float length = (float)LinkedTo->unknown_slot32()->unknown_330;
-        float width = (float)LinkedTo->unknown_slot32()->unknown_338;
+        float length = (float)LinkedTo->Techno_Type_Class()->unknown_330;
+        float width = (float)LinkedTo->Techno_Type_Class()->unknown_338;
         float roll_cos = Fast_Cos(LinkedTo->unknown_284);
         float roll_sin = Fast_Sin(LinkedTo->unknown_284);
         float pitch_cos = Fast_Cos(LinkedTo->unknown_280);

@@ -13,7 +13,7 @@ void Tactical::Register_Dirty_Buildings(Rect area)
     for (int index = 0; index < DisplayClass::Layer[2].Count(); index++) {
         ObjectClass *object = DisplayClass::Layer[2][index];
         if (object->Kind_Of() == 6 && object->unknown_75) {
-            Rect const &render = object->unknown_slot73();
+            Rect const &render = object->Get_Render_Rect();
             if (area.Is_Overlapping(render + Point2D(unknown_rect_839630.X, unknown_rect_839630.Y))) {
                 Register_Dirty_Area(render, false);
                 object->unknown_75 = false;

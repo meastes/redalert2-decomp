@@ -37,7 +37,7 @@ update_geometry:
     if (unknown_119 && FadeProgress <= Wave_Advance_Step_007aec88 * 0.5 + WaveProgress) {
         FadeProgress += Wave_Advance_Step_007aec88;
         if (FadeProgress >= WaveProgress) {
-            unknown_slot60();
+            Delete_Me();
             return;
         }
         Polygon_130.Points[3] = Interpolate_Wave_Pixel(WaveEndRight, WaveStartRight, FadeProgress);

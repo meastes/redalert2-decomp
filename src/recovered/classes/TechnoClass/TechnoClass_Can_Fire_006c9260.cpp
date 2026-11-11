@@ -60,15 +60,15 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
         if(other && ((other->unknown_105 && unknown_25c[0]) || (other->unknown_109 && unknown_25c[4]) || (other->unknown_106 && unknown_25c[1]) || (other->unknown_10c && unknown_27c))) goto CANT;
         if(target->unknown_slot21() && !weapon->Projectile->AA) goto ILLEGAL;
         if(techno) {
-            water=(reinterpret_cast<CellClass *>(techno->unknown_slot105())->unknown_ec==2)
-                || (reinterpret_cast<CellClass *>(techno->unknown_slot105())->unknown_ec==6);
+            water=(reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_ec==2)
+                || (reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_ec==6);
             if(techno->unknown_slot21()) water=false;
             if(techno->unknown_79) water=false;
             else if(water && unknown_slot175(static_cast<ObjectClass *>(target))==-1) goto ILLEGAL;
-            if(target->unknown_slot20() && !water && unknown_slot32()->LandTargeting==1) return 5;
+            if(target->unknown_slot20() && !water && Techno_Type_Class()->LandTargeting==1) return 5;
         } else {
             if(!target->unknown_slot21() && !weapon->Projectile->AG) return 5;
-            if(target->Kind_Of()==0xb && As_Cell(target)->unknown_ec!=2 && As_Cell(target)->unknown_ec!=6 && unknown_slot32()->LandTargeting==1) goto ILLEGAL;
+            if(target->Kind_Of()==0xb && As_Cell(target)->unknown_ec!=2 && As_Cell(target)->unknown_ec!=6 && Techno_Type_Class()->LandTargeting==1) goto ILLEGAL;
         }
         check_rearm=true;
         if(which==0 && this && Kind_Of()==1) {
@@ -86,7 +86,7 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
         if(weapon->unknown_10c && unknown_27c) return 3;
         if(unknown_254==0) return 1;
         if(weapon->unknown_10f && unknown_1b8!=0 && (Kind_Of()!=2 || unknown_1b8==2)) return 9;
-        if(unknown_slot32()->HunterSeeker) return 8;
+        if(Techno_Type_Class()->HunterSeeker) return 8;
         if(weapon->Warhead->Parasite && this && AbstractFlags.IsFoot) {
             foot=target->AbstractFlags.IsFoot?static_cast<FootClass *>(target):0;
             if(!static_cast<FootClass *>(this)->unknown_588->Can_Infect_006078F0(foot)) return 5;
@@ -97,19 +97,19 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
             if(parasite && techno->unknown_slot203()) return 5;
             if(weapon->Warhead->MindControl && !reinterpret_cast<CaptureManagerClass *>(unknown_230)->Can_Capture(techno)) return 5;
             WarheadTypeClass *warhead=weapon->Warhead;
-            if(warhead->Verses[techno->unknown_slot32()->unknown_9c]==0.0) return 5;
+            if(warhead->Verses[techno->Techno_Type_Class()->unknown_9c]==0.0) return 5;
             if(warhead->BombDisarm && techno->unknown_38==0) return 5;
             if(warhead->IvanBomb && techno->unknown_38!=0) return 5;
             if(techno->unknown_325) return 5;
             if(unknown_79!=techno->unknown_79) {
-                if(unknown_slot105() && (reinterpret_cast<CellClass *>(unknown_slot105())->unknown_140&0x100) && !unknown_slot21()
-                    && techno->unknown_slot105() && (reinterpret_cast<CellClass *>(techno->unknown_slot105())->unknown_140&0x100)) return 5;
+                if(Get_Cell_Ptr() && (reinterpret_cast<CellClass *>(Get_Cell_Ptr())->unknown_140&0x100) && !unknown_slot21()
+                    && techno->Get_Cell_Ptr() && (reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_140&0x100)) return 5;
                 int mine=Position_Coord_004f3f40().Z;
                 int theirs=techno->Position_Coord_004f3f40().Z;
                 if(weapon->Warhead->Parasite && abs(mine-theirs)>unknown_geometry_g*2) return 5;
             }
         }
-        if(unknown_slot32()->Organic && unknown_slot202()) return 5;
+        if(Techno_Type_Class()->Organic && unknown_slot202()) return 5;
         if(check_range && !unknown_slot212(target,which)) return 8;
         return 0;
     }

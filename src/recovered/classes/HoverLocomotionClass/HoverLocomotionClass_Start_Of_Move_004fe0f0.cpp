@@ -80,7 +80,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             LinkedTo->unknown_slot220(0);
         }
         if (unknown_24!=unknown_geometry_l) {
-            LinkedTo->unknown_slot59(unknown_24);
+            LinkedTo->Clear_Occupy_Bit(unknown_24);
             unknown_24=unknown_geometry_l;
         }
         Stop_Moving();

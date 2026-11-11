@@ -12,7 +12,7 @@ void __fastcall Unknown_006f6780(unsigned int value);
 void Tactical::Unknown_006AAD40()
 {
     while (unknown_objects_a40c60.Count()) {
-        unknown_objects_a40c60[0]->unknown_slot81();
+        unknown_objects_a40c60[0]->Unselect();
     }
     Unknown_006f6780(0);
 }

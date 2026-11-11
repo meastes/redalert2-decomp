@@ -50,7 +50,7 @@ void TechnoClass::unknown_slot220(AbstractClass *target)
         unknown_310 = 0;
     }
     if (unknown_25c[0] != 0 && !unknown_slot213(target)) {
-        unknown_25c[0]->unknown_slot60();
+        unknown_25c[0]->Delete_Me();
         unknown_25c[0] = 0;
     }
 }

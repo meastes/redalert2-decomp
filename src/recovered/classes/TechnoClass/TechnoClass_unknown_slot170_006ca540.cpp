@@ -21,11 +21,11 @@
 
 UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
 {
-    UnknownFacingDir dir((unsigned short)(unknown_slot32()->FireAngle << 8));
+    UnknownFacingDir dir((unsigned short)(Techno_Type_Class()->FireAngle << 8));
     if (target != 0) {
         CoordStruct end = unknown_6d65b0();
         int weapon;
-        if (unknown_slot32()->Has_Turret_Weapons()) {
+        if (Techno_Type_Class()->Has_Turret_Weapons()) {
             weapon = unknown_10c;
         } else {
             weapon = 0;

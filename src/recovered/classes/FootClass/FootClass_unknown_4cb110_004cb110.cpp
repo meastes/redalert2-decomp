@@ -53,8 +53,8 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             if (unknown_player_a35db4->Is_Ally(techno->House)) {
                 if (techno->Kind_Of() == 6) {
                     BuildingClass *building = (BuildingClass *)techno;
-                    bool repair = building->Type->UnitRepair && Strength < unknown_slot32()->MaxStrength && Kind_Of() != 15;
-                    bool reload = building->Type->UnitReload && unknown_254 < unknown_slot32()->Ammo && unknown_254 != -1;
+                    bool repair = building->Type->UnitRepair && Strength < Techno_Type_Class()->MaxStrength && Kind_Of() != 15;
+                    bool reload = building->Type->UnitReload && unknown_254 < Techno_Type_Class()->Ammo && unknown_254 != -1;
                     bool allied = building->House->Is_Ally(unknown_player_a35db4);
                     if ((repair || reload) && allied && action != 7 && action != 8) {
                         click = true;
@@ -65,7 +65,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             }
 
             if (!click) {
-                Cell nearby = Map.Nearby_Location(cell, unknown_slot32()->SpeedType, Map.Zone(cell, unknown_slot32()->MovementZone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1), unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
+                Cell nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, Map.Zone(cell, Techno_Type_Class()->MovementZone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1), Techno_Type_Class()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
                 if (nearby != unknown_geometry_k) {
                     unknown_41c = nearby - cell;
                     direct = false;
@@ -84,9 +84,9 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             UnknownCellClass *adjusted_cell = (UnknownCellClass *)&Map[adjusted];
             UnknownCellClass *cell_ptr = (UnknownCellClass *)&Map[cell];
             int adjusted_action = unknown_slot27(&adjusted, false, true);
-            int zone = Map.Zone(cell, unknown_slot32()->MovementZone, cell_ptr->Flags >> 8 & 1);
-            int adjusted_zone = Map.Zone(adjusted, unknown_slot32()->MovementZone, adjusted_cell->Flags >> 8 & 1);
-            int dest_zone = Map.Zone(Coord_Cell(unknown_slot19(0)), unknown_slot32()->MovementZone, unknown_slot46(0));
+            int zone = Map.Zone(cell, Techno_Type_Class()->MovementZone, cell_ptr->Flags >> 8 & 1);
+            int adjusted_zone = Map.Zone(adjusted, Techno_Type_Class()->MovementZone, adjusted_cell->Flags >> 8 & 1);
+            int dest_zone = Map.Zone(Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0));
             int entry = unknown_slot101((CellClass *)adjusted_cell, -1, adjusted_cell->unknown_11b + (adjusted_cell->Flags >> 8 & 1) * 4, 0, 1);
 
             int limit = abs(offset.X) > abs(offset.Y) ? abs(offset.X) : abs(offset.Y);

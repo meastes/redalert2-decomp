@@ -11,7 +11,7 @@
 // @ref ?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z=006b8fb0
 // @ref ?unknown_4ea800@HouseClass@@QAEXPAVTechnoClass@@@Z=004ea800
 // @ref ?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ=004689f0
-// @ref ?unknown_slot52@FootClass@@UAE_NXZ=004c9bd0
+// @ref ?Limbo@FootClass@@UAE_NXZ=004c9bd0
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
 // @ref ?unknown_4e76a0@HouseClass@@QAE_NABVCell@@_N@Z=004e76a0
 // @ref ?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z=006ecb90
@@ -44,7 +44,7 @@ UnitClass::~UnitClass()
                 }
             }
         }
-        if (FootClass::unknown_slot52() && unknown_5b4 != -1) {
+        if (FootClass::Limbo() && unknown_5b4 != -1) {
             ObjectClass *object = this;   // (the call below stays virtual, as in the original)
             Houses[unknown_5b4]->unknown_4e76a0(object->unknown_slot104(), 0);
             unknown_5b4 = -1;

@@ -10,14 +10,14 @@
 
 bool TechnoClass::unknown_slot157()
 {
-    if (!unknown_slot32()->SelfHealing && !unknown_6d7910(9)) {
+    if (!Techno_Type_Class()->SelfHealing && !unknown_6d7910(9)) {
         return false;
     }
     if (Frame % (int)(Rules->unknown_1348 * 900.0) != 0) {
         return false;
     }
     int strength = Strength;
-    if (strength == unknown_slot32()->MaxStrength) {
+    if (strength == Techno_Type_Class()->MaxStrength) {
         return false;
     }
     return strength != 0 ? true : false;

@@ -46,8 +46,8 @@ void TeamClass::unknown_func_6ba1a0()
                     found = true;
                     int distance = unit->unknown_5d4c00(unknown_40);
                     if (distance > stray
-                        || (unit->unknown_slot108() < 0 && Script->Get_Next_Mission().Mission != 3)
-                        || (unit->Kind_Of() == 2 && unit->unknown_slot110() > 0
+                        || (unit->Get_Height_AGL() < 0 && Script->Get_Next_Mission().Mission != 3)
+                        || (unit->Kind_Of() == 2 && unit->Get_Height() > 0
                             && &Map[unit->Center_Coord()] != unknown_40
                             && Script->Get_Next_Mission().Mission != 3)) {
                         if (Class->Aggressive && unit->unknown_228 != 0) {
@@ -64,8 +64,8 @@ void TeamClass::unknown_func_6ba1a0()
                         }
                         AbstractClass *navcom = unit->unknown_494;
                         if (navcom != unknown_40) {
-                            if (unit->unknown_slot32()->BalloonHover
-                                || (navcom != unknown_40 && unit->Kind_Of() == 2 && navcom == unit->unknown_slot105())) {
+                            if (unit->Techno_Type_Class()->BalloonHover
+                                || (navcom != unknown_40 && unit->Kind_Of() == 2 && navcom == unit->Get_Cell_Ptr())) {
                                 unit->Assign_Destination(unknown_40, true);
                             }
                         }
@@ -79,8 +79,8 @@ void TeamClass::unknown_func_6ba1a0()
                             unit->unknown_slot261(false, true);
                         }
                     }
-                    bool arrived = unit->Kind_Of() == 2 && unit->unknown_494 == unit->unknown_slot105();
-                    bool hovering = unit->AbstractFlags.IsTechno && unit->unknown_slot32()->BalloonHover && distance < stray;
+                    bool arrived = unit->Kind_Of() == 2 && unit->unknown_494 == unit->Get_Cell_Ptr();
+                    bool hovering = unit->AbstractFlags.IsTechno && unit->Techno_Type_Class()->BalloonHover && distance < stray;
                     if (unit->unknown_494 != 0 && !arrived && !hovering) {
                         finished = false;
                     }

@@ -37,7 +37,7 @@ inline Cell Center_Cell(AbstractClass *object)
 {
     return Cell(object->Center_Coord());
 }
-int BuildingClass::unknown_slot62(TechnoClass *base)
+int BuildingClass::Exit_Object(TechnoClass *base)
 {
     if (!base) return 0;
     base->unknown_32d = true;
@@ -97,7 +97,7 @@ exitcell.X += random; exitcell.Y += random;
                 if (aircraft->unknown_slot53(&unknown_slot41((intptr_t)aircraft), aircraft->Pose_Dir_00417890())) {
                     unknown_slot150(2, aircraft);
                     unknown_slot150(0x18, aircraft);
-                    aircraft->unknown_slot103(unknown_slot41((intptr_t)aircraft));
+                    aircraft->Set_Coord(unknown_slot41((intptr_t)aircraft));
                     aircraft->unknown_5b4 = this;
                     if (unknown_1b0 && !aircraft->Type->AirportBound) {
                         aircraft->Assign_Destination(unknown_1b0, 1);
@@ -134,7 +134,7 @@ exitcell.X += random; exitcell.Y += random;
                     }
                     if (unknown_1b0 && Map[navalcell].unknown_ec == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
  } else {
-                        navalcell = Map.Nearby_Location(Center_Cell(this), base->unknown_slot32()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+                        navalcell = Map.Nearby_Location(Center_Cell(this), base->Techno_Type_Class()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
  }
                     if (!base->unknown_slot53(&Map[navalcell].Center_Coord(), 0x40)) return 0;
                     if (unknown_1b0) {
@@ -142,7 +142,7 @@ exitcell.X += random; exitcell.Y += random;
                         base->unknown_slot116(2, 0);
                     }
                     base->Mark(0);
-                    base->unknown_slot103(Map[navalcell].unknown_475d60());
+                    base->Set_Coord(Map[navalcell].unknown_475d60());
                     base->Mark(1);
                     return 2;
                 } else {
@@ -155,7 +155,7 @@ exitcell.X += random; exitcell.Y += random;
                                 AbstractClass *temp = unknown_41c;
                                 bldg->unknown_41c = temp;
                                 unknown_41c = 0;
-                                int retval = bldg->unknown_slot62(base);
+                                int retval = bldg->Exit_Object(base);
                                 bldg->unknown_41c = 0;
                                 unknown_41c = temp;
                                 return retval;
@@ -166,7 +166,7 @@ exitcell.X += random; exitcell.Y += random;
                     ++unknown_a40774;
                     if (base->unknown_slot53(&unknown_slot44(0), 0x40)) {
                         base->Mark(0);
-                        base->unknown_slot103(unknown_slot44(0));
+                        base->Set_Coord(unknown_slot44(0));
                         base->Mark(1);
                         unknown_slot150(2, base);
                         unknown_slot150(0x18, base);
@@ -180,11 +180,11 @@ exitcell.X += random; exitcell.Y += random;
                 exitcell = unknown_slot280(base);
                 if (exitcell == unknown_geometry_k) return 0;
                 if (Type->Factory == 0x10 && !Type->Cloning) {
-                    TechnoTypeClass *type = base->unknown_slot32();
+                    TechnoTypeClass *type = base->Techno_Type_Class();
                     for (int index = 0; index < House->unknown_98.Count(); index++) {
                         BuildingClass *vat = House->unknown_98[index];
                         TechnoClass *object = (TechnoClass *)type->Create_One_Of(vat->House);
-                        vat->unknown_slot62(object);
+                        vat->Exit_Object(object);
                     }
                 }
                 CoordStruct exitcoord;
@@ -216,7 +216,7 @@ exitcell.X += random; exitcell.Y += random;
                 if (base->unknown_slot53(&exitcoord, dir)) {
                     FootClass *foot = (FootClass *)base;
                     if (foot->unknown_494) {
-                        if (!base->unknown_slot32()->JumpJet && !base->unknown_slot32()->Teleporter) {
+                        if (!base->Techno_Type_Class()->JumpJet && !base->Techno_Type_Class()->Teleporter) {
                             if (foot->unknown_494) base->unknown_6d6e50(foot->unknown_494);
                             base->unknown_slot116(2, 0);
                             base->Assign_Destination(&Map[exitcell], 1);
@@ -291,7 +291,7 @@ exitcell.X += random; exitcell.Y += random;
                     base->unknown_slot116(10, 0);
                 }
             } else {
-                base->unknown_slot87(unknown_geometry_l, true, false);
+                base->Scatter(unknown_geometry_l, true, false);
                 return 0;
             }
         }

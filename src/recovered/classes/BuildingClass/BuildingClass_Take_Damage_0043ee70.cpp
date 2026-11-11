@@ -23,7 +23,7 @@ extern bool Damage_Radio_Runaway_007cf670;
 extern float const Damage_Spawn_Multiplier_0079d0e8;
 // @ref ?Damage_Radio_Runaway_007cf670@@=007cf670
 // @ref ?Damage_Spawn_Multiplier_0079d0e8@@=0079d0e8
-// @ref ?unknown_slot86@TechnoClass@@=006cdc40
+// @ref ?Take_Damage@TechnoClass@@=006cdc40
 // @ref ??0AnimClass@@=00420110
 // @ref ??0UnknownVector3@@=0041b630
 // @ref ?Length@UnknownVector3@@=0041b780
@@ -60,7 +60,7 @@ inline UnknownFacingDir Damage_Random_Direction_0043ee70()
     return result;
 }
 
-int BuildingClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int no_crew)
+int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int no_crew)
 {
     int result=0;
     if (this!=source) {
@@ -80,7 +80,7 @@ int BuildingClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *w
     if (Type->LaserFence && !forced) return 0;
     if (Type->BridgeRepairHut && Type->unknown_203) return 0;
     if (Strength!=0) {
-        result=TechnoClass::unknown_slot86(damage,distance,warhead,source,forced,no_crew);
+        result=TechnoClass::Take_Damage(damage,distance,warhead,source,forced,no_crew);
         if (!unknown_7d) return result;
         switch (result) {
         case 5:
@@ -89,8 +89,8 @@ int BuildingClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *w
             for (int index=0;index<contacts.Count();++index) {
                 TechnoClass *contact=contacts[index];
                 if (Damage_Object_Distance_0043ee70(*this,*contact)<256 || Type->Helipad) {
-                    int strength=10*contact->unknown_slot32()->MaxStrength;
-                    contact->unknown_slot86(&strength,0,Rules->unknown_c74,0,true,1);
+                    int strength=10*contact->Techno_Type_Class()->MaxStrength;
+                    contact->Take_Damage(&strength,0,Rules->unknown_c74,0,true,1);
                 } else {
                     unknown_slot150(23,contact);
                     contact->unknown_3f8=0;
@@ -101,7 +101,7 @@ int BuildingClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *w
             if (unknown_4e8) unknown_4e8->Deactivate(false);
             unknown_slot286(0,source,forced,offset);
             if (unknown_420.Value()>0) {
-                unknown_slot60();
+                Delete_Me();
                 Leave_Rubble_0043eba0();
             }
             break;
@@ -121,7 +121,7 @@ int BuildingClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *w
                     }
                 }
             }
-            if (unknown_slot32()->DamageSound==-1) Voc_Static_Add(Rules->BuildingDamageSound,Position_Coord_00450950(*this),0);
+            if (Techno_Type_Class()->DamageSound==-1) Voc_Static_Add(Rules->BuildingDamageSound,Position_Coord_00450950(*this),0);
             while (*offset!=Cell(32767,32767)) {
                 Cell relative(*offset++);
                 Cell cell=unknown_slot104()+relative;

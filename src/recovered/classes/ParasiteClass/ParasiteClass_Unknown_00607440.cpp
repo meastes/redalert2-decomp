@@ -14,7 +14,7 @@
 // @ref ?AdjacentCell@@3QBUCell@@B=00851a70
 void ParasiteClass::Unknown_00607440()
 {
-    bool naval = Owner->unknown_slot32()->Naval;
+    bool naval = Owner->Techno_Type_Class()->Naval;
     int facing = Dir_To_8(unknown_28->unknown_2e0.Current());
     UnknownFacingDir exit_dir;
     if (facing >= 0 && facing <= 2) {
@@ -31,14 +31,14 @@ void ParasiteClass::Unknown_00607440()
         Owner->Strength = 0;
         unknown_28->unknown_58c = CDTimerClass<FrameTimerClass>(0);
         unknown_28->unknown_580 = 0;
-        Owner->unknown_slot60();
+        Owner->Delete_Me();
         unknown_28 = 0;
         return;
     }
     CellClass &target_cell = Map[cell];
-    if (!target_cell.Is_Clear_To_Move(Owner->unknown_slot32()->SpeedType, false, false,
-        Map.Zone(cell, Owner->unknown_slot32()->MovementZone, false),
-        Owner->unknown_slot32()->MovementZone, -1, true)) {
+    if (!target_cell.Is_Clear_To_Move(Owner->Techno_Type_Class()->SpeedType, false, false,
+        Map.Zone(cell, Owner->Techno_Type_Class()->MovementZone, false),
+        Owner->Techno_Type_Class()->MovementZone, -1, true)) {
         cell = unknown_28->unknown_6cf130(0);
     }
     CoordStruct coord = unknown_geometry_l;
@@ -47,10 +47,10 @@ void ParasiteClass::Unknown_00607440()
     }
     bool can_exit = false;
     if (cell != unknown_geometry_k && coord != unknown_geometry_l && unknown_28 != 0 && !unknown_28->unknown_slot21()) {
-        if (Owner->unknown_slot32()->Naval) {
+        if (Owner->Techno_Type_Class()->Naval) {
             can_exit = true;
-        } else if (!(Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->unknown_slot105())->Cell_Terrain() != 0)) {
-            int land = ((CellClass *)unknown_28->unknown_slot105())->unknown_ec;
+        } else if (!(Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->Get_Cell_Ptr())->Cell_Terrain() != 0)) {
+            int land = ((CellClass *)unknown_28->Get_Cell_Ptr())->unknown_ec;
             if (land != 2 && land != 6 && land != 3) can_exit = true;
         }
     }
@@ -73,7 +73,7 @@ void ParasiteClass::Unknown_00607440()
         Unknown_006064C0();
     } else {
         Owner->Strength = 0;
-        Owner->unknown_slot60();
+        Owner->Delete_Me();
     }
     unknown_28->unknown_280 = 0.0f;
     unknown_28->unknown_58c = CDTimerClass<FrameTimerClass>(0);

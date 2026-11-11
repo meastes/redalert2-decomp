@@ -29,7 +29,7 @@ bool FlyLocomotionClass::Edge_Of_World_AI()
                 LinkedTo->Team->TargetNotAssigned = true;
             }
             LinkedTo->unknown_slot210();
-            LinkedTo->unknown_slot60();
+            LinkedTo->Delete_Me();
             return true;
         }
     } else {

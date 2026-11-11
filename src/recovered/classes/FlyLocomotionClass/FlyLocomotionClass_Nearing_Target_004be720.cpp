@@ -44,7 +44,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
     }
     CoordStruct aim=coord;
     ObjectClass *building=Map[Cell(coord)].Cell_Building();
-    if (building!=0 && !LinkedTo->unknown_slot32()->HunterSeeker) {
+    if (building!=0 && !LinkedTo->Techno_Type_Class()->HunterSeeker) {
         if (!LinkedTo->Is_Radio_Contact((TechnoClass *)building)) {
             FootClass *self=LinkedTo;
             if (self!=0 && self->Kind_Of()==2) {
@@ -59,7 +59,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
             aim=building->unknown_slot41((int)LinkedTo);
         }
     }
-    LinkedTo->unknown_slot110();
+    LinkedTo->Get_Height();
     int dist=Fly_Distance_XY_004be720(LinkedTo->Center_Coord(),aim);
     if (flyctrl==0 || !flyctrl->Is_Locked()) {
         UnknownFacingDir dir=UnknownFacingDir(LinkedTo->Center_Coord(),CoordStruct(coord));
@@ -75,7 +75,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
             LinkedTo->unknown_2e0.Set_Desired(Fly_Direction_XY_004be720(LinkedTo->Center_Coord(),CoordStruct(coord)));
         }
     }
-    if (dist<0x100 && stage && !LinkedTo->unknown_slot32()->HunterSeeker) {
+    if (dist<0x100 && stage && !LinkedTo->Techno_Type_Class()->HunterSeeker) {
         if (LinkedTo->unknown_228!=0 && LinkedTo->unknown_254!=0 && (flyctrl==0 || !flyctrl->Is_Strafe())) {
             if (flyctrl==0 || !flyctrl->Is_Locked()) {
                 LinkedTo->unknown_2f8.Set_Desired(LinkedTo->Direction_To(LinkedTo->unknown_228));
@@ -96,17 +96,17 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
     }
     if (unknown_5c && dist<0x300) {
         unknown_38=unknown_1c.Z-Map.Get_Height_GL(unknown_1c);
-    } else if (LinkedTo->unknown_slot32()->IsDropship) {
-        if (dist>=LinkedTo->unknown_slot32()->SlowdownDistance) {
-            unknown_38=LinkedTo->unknown_slot32()->Flight_Level();
+    } else if (LinkedTo->Techno_Type_Class()->IsDropship) {
+        if (dist>=LinkedTo->Techno_Type_Class()->SlowdownDistance) {
+            unknown_38=LinkedTo->Techno_Type_Class()->Flight_Level();
         } else {
-            float ratio=(float)(dist/LinkedTo->unknown_slot32()->SlowdownDistance);
-            unknown_38=(int)(LinkedTo->unknown_slot32()->Flight_Level()*ratio+(1.0f-ratio)*(LinkedTo->unknown_slot32()->Flight_Level()/3));
+            float ratio=(float)(dist/LinkedTo->Techno_Type_Class()->SlowdownDistance);
+            unknown_38=(int)(LinkedTo->Techno_Type_Class()->Flight_Level()*ratio+(1.0f-ratio)*(LinkedTo->Techno_Type_Class()->Flight_Level()/3));
         }
     } else {
-        unknown_38=LinkedTo->unknown_slot32()->Flight_Level();
+        unknown_38=LinkedTo->Techno_Type_Class()->Flight_Level();
     }
-    if (!LinkedTo->unknown_slot32()->HunterSeeker && unknown_4bf8f0()) {
+    if (!LinkedTo->Techno_Type_Class()->HunterSeeker && unknown_4bf8f0()) {
         if (dist<0x80) {
             if (stage) {
                 unknown_40=0.0;
@@ -124,7 +124,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
     }
     if (LinkedTo->unknown_77 && !LinkedTo->House->Is_Player_Control()) {
         if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || ((*(unsigned int *)unknown_id_source_a3d290&0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
-            LinkedTo->unknown_slot81();
+            LinkedTo->Unselect();
         }
     }
     return dist;

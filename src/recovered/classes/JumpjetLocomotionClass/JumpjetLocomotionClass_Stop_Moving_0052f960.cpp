@@ -17,11 +17,11 @@ void __stdcall JumpjetLocomotionClass::Stop_Moving()
 {
     if (unknown_a40774 == 0 && unknown_48) {
         if (unknown_3c != unknown_geometry_l && unknown_4c != 0 && unknown_88) {
-            LinkedTo->unknown_slot59(unknown_3c);
+            LinkedTo->Clear_Occupy_Bit(unknown_3c);
             unknown_88 = false;
         }
         Cell here = Coord_Cell(Object_Coord(LinkedTo));
-        Cell cell = Map.Nearby_Location(here, LinkedTo->unknown_slot32()->SpeedType, -1, LinkedTo->unknown_slot32()->MovementZone, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+        Cell cell = Map.Nearby_Location(here, LinkedTo->Techno_Type_Class()->SpeedType, -1, LinkedTo->Techno_Type_Class()->MovementZone, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
         if (cell != unknown_geometry_k) {
             CoordStruct coord = Cell_Coord(cell);
             coord.Z = Map.Get_Height_GL(coord);
@@ -32,7 +32,7 @@ void __stdcall JumpjetLocomotionClass::Stop_Moving()
             return;
         }
         if (LinkedTo->Strength > 0) {
-            LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, 1, 1);
+            LinkedTo->Take_Damage(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, 1, 1);
             unknown_3c = unknown_geometry_l;
         }
     }

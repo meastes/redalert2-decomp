@@ -78,14 +78,14 @@ after_first_edge:
         InfantryClass *member = unknown_554[index];
         if (member->unknown_slot53(&destination, 0)) {
             member->unknown_slot220(0);
-            member->unknown_slot87(Center_Coord(), true, true);
+            member->Scatter(Center_Coord(), true, true);
             if ((unsigned char)control != 0) {
                 TeamClass *team = member->Team;
                 if (team) team->Unknown_006B8FB0(member, -1, 0);
                 member->unknown_slot116(15, false);
             }
         } else {
-            member->unknown_slot60();
+            member->Delete_Me();
         }
     }
     unknown_a40774 = (int)((unsigned int)unknown_a40774 - 1u);
@@ -93,5 +93,5 @@ after_first_edge:
     int capacity = occupants.Length();
     occupants.Clear();
     occupants.Resize(capacity, 0);
-    Unknown_006D9610(unknown_slot105());
+    Unknown_006D9610(Get_Cell_Ptr());
 }

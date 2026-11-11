@@ -20,7 +20,7 @@ int AircraftClass::Do_MISSION_RETREAT()
             Assign_Destination((AbstractClass *)&Map[cell], true);
             return 3;
         }
-    } else if (unknown_494 == unknown_slot105()) {
+    } else if (unknown_494 == Get_Cell_Ptr()) {
         Assign_Destination(0, true);
     }
     return 3;

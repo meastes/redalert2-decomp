@@ -24,7 +24,7 @@
 int FootClass::Do_MISSION_HUNT()
 {
     CoordStruct coord;
-    if (!unknown_slot32()->StupidHunt && unknown_slot209(&(coord = Coord), 0)) {
+    if (!Techno_Type_Class()->StupidHunt && unknown_slot209(&(coord = Coord), 0)) {
         InfantryClass *infantry = Kind_Of() == 15 ? (InfantryClass *)this : 0;
         if (infantry != 0 && infantry->Type->Engineer && !infantry->Type->C4 && !infantry->unknown_6d7910(14)) {
             Assign_Destination(unknown_228, true);

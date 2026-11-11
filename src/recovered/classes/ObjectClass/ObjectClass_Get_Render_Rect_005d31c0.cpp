@@ -19,7 +19,7 @@ static inline bool Object_Is_Building(ObjectClass const *object)
     return object->Kind_Of() == 6;
 }
 
-Rect ObjectClass::unknown_slot73()
+Rect ObjectClass::Get_Render_Rect()
 {
     Point2D drawpoint;
     unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), drawpoint);

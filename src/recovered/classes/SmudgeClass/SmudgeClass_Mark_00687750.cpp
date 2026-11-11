@@ -17,7 +17,7 @@ bool SmudgeClass::Mark(int arg1)
             Class->Place(cell);
         }
         unknown_74 = false;
-        unknown_slot60();
+        Delete_Me();
         return true;
     }
     return false;

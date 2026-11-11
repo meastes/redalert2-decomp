@@ -8,7 +8,7 @@
 // @ref ??0ObjectClass@@QAE@XZ=005d22e0
 // @ref ?Create_ID@AbstractClass@@UAGXXZ=0040ffd0
 // @ref ?Fetch_ID@AbstractClass@@UAGJXZ=0040ffc0
-// @ref ?unknown_slot60@ObjectClass@@UAEXXZ=005d4e90
+// @ref ?Delete_Me@ObjectClass@@UAEXXZ=005d4e90
 // @ref ?Terrains@@3V?$DynamicVectorClass@PAVTerrainClass@@@@A=00a40940
 // @ref ?unknown_object_index_abff58@@3V?$IndexClass@JPAVAbstractClass@@@@A=00abff58
 // @ref ?Frame@@3HA=00a40d2c
@@ -28,7 +28,7 @@ TerrainClass::TerrainClass(TerrainTypeClass *type, Cell const &cell) :
     if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
         if (!TerrainClass::unknown_slot53(&coord, 0)) {
-            ObjectClass::unknown_slot60();
+            ObjectClass::Delete_Me();
         }
     }
     Animation.Set_Rate(0);

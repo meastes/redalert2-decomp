@@ -10,7 +10,7 @@
 
 int FootClass::unknown_slot303()
 {
-    int speed = (int)(unknown_slot206() * House->Unknown_004F5A20(unknown_slot32()) * unknown_470);
+    int speed = (int)(unknown_slot206() * House->Unknown_004F5A20(Techno_Type_Class()) * unknown_470);
     if (unknown_6d7910(0)) {
         speed = (int)(speed * Rules->unknown_598);
     }

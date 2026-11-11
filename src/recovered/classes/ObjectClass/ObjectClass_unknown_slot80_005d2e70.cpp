@@ -23,11 +23,11 @@ void __fastcall Unknown_006f6780(unsigned int value);
 
 bool ObjectClass::unknown_slot80()
 {
-    if (!Debug_Map && (unknown_76 || unknown_77 || !unknown_slot76())) {
+    if (!Debug_Map && (unknown_76 || unknown_77 || !CanBeSelected())) {
         return false;
     }
     TechnoClass *techno = As_Techno();
-    if (!Debug_Map && unknown_slot39() && techno && techno->unknown_32c) {
+    if (!Debug_Map && Can_Player_Move() && techno && techno->unknown_32c) {
         return false;
     }
     if (unknown_833684) {

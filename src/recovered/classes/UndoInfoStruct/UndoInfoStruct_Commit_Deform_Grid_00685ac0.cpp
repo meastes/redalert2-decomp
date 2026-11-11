@@ -123,7 +123,7 @@ bool __fastcall Commit_Deform_Grid_00685ac0(bool forced, Cell center)
                 bound = Union(bound, cell_bound);
                 for (index = 0; index < objects.Count(); index++) {
                     objects[index]->Mark(1);
-                    objects[index]->unknown_slot109(0);
+                    objects[index]->Set_Height_AGL(0);
                 }
             }
         }

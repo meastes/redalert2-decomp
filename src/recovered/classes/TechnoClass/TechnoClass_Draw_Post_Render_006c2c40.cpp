@@ -37,8 +37,8 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
 {
     bool sensed_underground = false;
     if (!unknown_325) {
-        CellClass *cell = static_cast<CellClass *>(unknown_slot105());
-        if (!unknown_77 && unknown_slot108() < -20 && cell && cell->Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
+        CellClass *cell = static_cast<CellClass *>(Get_Cell_Ptr());
+        if (!unknown_77 && Get_Height_AGL() < -20 && cell && cell->Is_Sensed(unknown_player_a35db4->ArrayIndex)) {
             sensed_underground = true;
         }
         if (unknown_68 && unknown_38 && !Map[unknown_slot104()].unknown_47cb50()) {
@@ -66,10 +66,10 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
         if (unknown_77 || sensed_underground) {
             if (Kind_Of() == 6) {
                 int color = 15;
-                if (unknown_slot108() < -4) {
+                if (Get_Height_AGL() < -4) {
                     color = 12;
                 }
-                CoordStruct const &lepton = unknown_slot32()->Lepton_Dimensions();
+                CoordStruct const &lepton = Techno_Type_Class()->Lepton_Dimensions();
                 ::Coord dim = lepton;
                 int x = dim.X / 2;
                 dim.Y /= 2;

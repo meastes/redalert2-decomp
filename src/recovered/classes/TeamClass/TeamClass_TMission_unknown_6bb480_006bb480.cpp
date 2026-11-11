@@ -21,7 +21,7 @@ void TeamClass::TMission_unknown_6bb480(ScriptMissionClass const &mission, bool 
         bool armed = true;
         if (unknown_3c != 0) {
             for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-                if (member->unknown_slot32()->Ammo <= 0 || member->unknown_254 > 0) {
+                if (member->Techno_Type_Class()->Ammo <= 0 || member->unknown_254 > 0) {
                     armed = false;
                     break;
                 }
@@ -34,7 +34,7 @@ void TeamClass::TMission_unknown_6bb480(ScriptMissionClass const &mission, bool 
     bool armed = true;
     if (unknown_3c != 0) {
         for (FootClass *member = Member; member != 0; member = (FootClass *)member->unknown_4c8) {
-            if (member->unknown_slot32()->Ammo <= 0 || member->unknown_254 > 0) {
+            if (member->Techno_Type_Class()->Ammo <= 0 || member->unknown_254 > 0) {
                 armed = false;
                 break;
             }

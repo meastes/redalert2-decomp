@@ -31,7 +31,7 @@ static bool _Pop_Group_Out_Of_Object(FootClass *group, TechnoClass *object)
 
         switch (object->Kind_Of()) {
             case 6:
-                if (object->unknown_slot62(todo) != 2) {
+                if (object->Exit_Object(todo) != 2) {
                     delete todo;
                 } else {
                     object->unknown_slot149(3);
@@ -42,7 +42,7 @@ static bool _Pop_Group_Out_Of_Object(FootClass *group, TechnoClass *object)
             case 1:
             case 2:
                 object->Cargo.Attach((FootClass *)todo);
-                todo->unknown_slot69();
+                todo->Hidden();
                 object->unknown_slot116(0x10, false);
                 ++quantity;
                 break;

@@ -51,7 +51,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
         infantry->unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         if (is_cow || (!infantry->House->Unknown_004F52F0() && infantry->Type->Fraidycat)) {
-            infantry->unknown_slot87(unknown_geometry_l, true, false);
+            infantry->Scatter(unknown_geometry_l, true, false);
             return true;
         }
         break;
@@ -72,7 +72,7 @@ bool InfantryClass::unknown_slot258()
             Rules->IdleActionFrequency * 450.0,
             Rules->IdleActionFrequency * 1800.0));
         if (Type->Fraidycat && !House->Unknown_004F52F0() && unknown_5bc > 50) {
-            unknown_slot87(unknown_geometry_l, true, false);
+            Scatter(unknown_geometry_l, true, false);
             return true;
         }
         return Infantry_Play_Idle_Action(this);

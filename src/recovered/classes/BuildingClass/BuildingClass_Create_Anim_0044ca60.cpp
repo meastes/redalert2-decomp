@@ -41,7 +41,7 @@ void BuildingClass::unknown_44ca60(char const *name, int index, bool damaged, bo
         if (!unknown_5ba && Type->Anims[index].Powered) animation->unknown_func_422c10();
         if (animation->Class->ShouldUseCellDrawer) {
             animation->unknown_bc = unknown_slot115();
-            int height = reinterpret_cast<UnknownBuildingSlot105 *>(unknown_slot105())->unknown_10a;
+            int height = reinterpret_cast<UnknownBuildingSlot105 *>(Get_Cell_Ptr())->unknown_10a;
             int brightness = unknown_slot254(height);
             if (unknown_slot203()) brightness = unknown_6d86f0(brightness);
             animation->unknown_e4 = brightness;

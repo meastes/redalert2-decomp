@@ -42,7 +42,7 @@ bool TechnoClass::unknown_slot209(CoordStruct const *coord, int arg2)
     }
     if (unknown_228 == 0) {
         AbstractClass *target = unknown_slot219(method, coord, false);
-        if (unknown_slot32()->DistributedFire) {
+        if (Techno_Type_Class()->DistributedFire) {
             unknown_6d4400();
         } else {
             if (target != 0) {

@@ -55,7 +55,7 @@ void UnitClass::unknown_slot67(Point2D const &input, Rect const &window)
     Cell cell = unknown_slot104();
     if (unknown_slot25(false, 0) != 5) {
         unknown_tactical_83996c->Add_To_Selectables(this, adjusted_point);
-        int height = unknown_slot108();
+        int height = Get_Height_AGL();
         CellClass *cptr = &Map[CoordStruct(Coord)];
         int brightness;
         if (((!unknown_79 && height >= unknown_geometry_j) || (unknown_79 && height >= 0))

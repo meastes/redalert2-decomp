@@ -17,7 +17,7 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
         TechnoClass::unknown_slot261(initial,resume_waypoint);
         if (unknown_577) {
             unknown_577=false;
-            unknown_slot87(unknown_geometry_l,true,false);
+            Scatter(unknown_geometry_l,true,false);
         }
         bool was_piggybacking=false;
         UnknownComPtr<IPiggyback,&unknown_uuid_IPiggyback_7cfc30> piggyback(Locomotor);

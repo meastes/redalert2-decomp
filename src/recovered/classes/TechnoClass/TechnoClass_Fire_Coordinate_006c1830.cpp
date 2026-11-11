@@ -18,7 +18,7 @@ inline double UnknownFacingDir::As_Radian32() const
 }
 CoordStruct TechnoClass::unknown_slot43(int which)
 {
-    TechnoTypeClass *type=unknown_slot32();
+    TechnoTypeClass *type=Techno_Type_Class();
     WeaponStruct *weapon=unknown_slot231(which);
     int fire_x=weapon->FLH.X;
     int fire_y=weapon->FLH.Y;

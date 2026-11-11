@@ -20,11 +20,11 @@ bool InfantryClass::INoticeSink_Unknown(int code, int arg)
             return true;
         }
         Unknown_004CD9B0();
-        unknown_slot87(unknown_geometry_l, true, false);
+        Scatter(unknown_geometry_l, true, false);
         return true;
     }
     if (Type->Crashable && code == 0x117C) {
-        unknown_slot109(0);
+        Set_Height_AGL(0);
         unknown_slot311(0x24, 1, 0);
         return true;
     }

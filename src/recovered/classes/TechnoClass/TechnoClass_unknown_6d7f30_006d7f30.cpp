@@ -7,9 +7,9 @@
 
 void TechnoClass::unknown_6d7f30()
 {
-    if (Health_Ratio() > Rules->unknown_1368 || unknown_slot108() < -10) {
+    if (Health_Ratio() > Rules->unknown_1368 || Get_Height_AGL() < -10) {
         if (unknown_25c[3] != 0) {
-            unknown_25c[3]->unknown_slot60();
+            unknown_25c[3]->Delete_Me();
         }
     }
 }

@@ -26,11 +26,11 @@ void JumpjetLocomotionClass::unknown_530550()
     if ((cell.unknown_ec == 2 || cell.unknown_ec == 6) && LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
         if (unknown_tracker_839ea0.Unknown_004132E0(LinkedTo)) {
             int facing = Random_Pick(0, 7);
-            CellClass *here = (CellClass *)LinkedTo->unknown_slot105();
+            CellClass *here = (CellClass *)LinkedTo->Get_Cell_Ptr();
             LinkedTo->Assign_Destination(&here->Adjacent_Cell(facing), true);
             unknown_4c = 3;
         } else {
-            ((CellClass *)LinkedTo->unknown_slot105())->Set_unknown_e0(LinkedTo);
+            ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(LinkedTo);
             unknown_4c = 2;
             unknown_78 = Height;
         }
@@ -54,18 +54,18 @@ void JumpjetLocomotionClass::unknown_530550()
         }
         if (!unknown_88) {
             unknown_88 = true;
-            LinkedTo->unknown_slot58(unknown_3c);
+            LinkedTo->Set_Occupy_Bit(unknown_3c);
         }
     }
     unknown_78 = 0;
-    int height = LinkedTo->unknown_slot108();
+    int height = LinkedTo->Get_Height_AGL();
     if (!LinkedTo->unknown_79 && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100) && height >= unknown_geometry_j) {
         height -= unknown_geometry_j;
     }
     if (height == 0) {
         LinkedTo->unknown_slot306(0);
         LinkedTo->Mark(0);
-        LinkedTo->unknown_slot103(unknown_3c);
+        LinkedTo->Set_Coord(unknown_3c);
         if (Object_Coord(LinkedTo).Z > Map.Get_Height_GL(Object_Coord(LinkedTo)) && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100)) {
             LinkedTo->unknown_79 = true;
         }
@@ -82,8 +82,8 @@ void JumpjetLocomotionClass::unknown_530550()
             if (LinkedTo->unknown_7d) {
                 Map.Unknown_0054A550(Object_Coord(LinkedTo), LinkedTo->unknown_1f4 - 3, LinkedTo->unknown_1f4 + 3, 0);
             }
-            if (((CellClass *)LinkedTo->unknown_slot105())->unknown_e0 == LinkedTo) {
-                ((CellClass *)LinkedTo->unknown_slot105())->Set_unknown_e0(0);
+            if (((CellClass *)LinkedTo->Get_Cell_Ptr())->unknown_e0 == LinkedTo) {
+                ((CellClass *)LinkedTo->Get_Cell_Ptr())->Set_unknown_e0(0);
             }
             unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
             unknown_4c = 0;

@@ -18,9 +18,9 @@ void TemporalClass::AI()
         } else {
             new AnimClass(Rules->WarpAway,Target->Position_Coord_004f3f40(),0,1,0x600,0);
         }
-        if(Owner->unknown_slot32()->Trainable) {
-            TechnoTypeClass *target_type=Target->unknown_slot32();
-            TechnoTypeClass *owner_type=Owner->unknown_slot32();
+        if(Owner->Techno_Type_Class()->Trainable) {
+            TechnoTypeClass *target_type=Target->Techno_Type_Class();
+            TechnoTypeClass *owner_type=Owner->Techno_Type_Class();
             Owner->unknown_118.Made_A_Kill(owner_type->Cost_Of(Owner->House),target_type->Cost_Of(Target->House));
         }
         if(Target!=0) {
@@ -40,13 +40,13 @@ void TemporalClass::AI()
                     unknown_3c=0;
                 }
                 Target->unknown_slot216((int)Owner);
-                Target->unknown_slot55(Owner);
-                Target->unknown_slot60();
+                Target->Record_The_Kill(Owner);
+                Target->Delete_Me();
                 building->House->unknown_144=true;
             } else {
                 Target->unknown_slot216((int)Owner);
-                Target->unknown_slot55(Owner);
-                Target->unknown_slot60();
+                Target->Record_The_Kill(Owner);
+                Target->Delete_Me();
             }
         }
         Target=0;unknown_44=0;unknown_40=0;unknown_3c=0;unknown_38=0;

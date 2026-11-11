@@ -54,7 +54,7 @@ int AircraftClass::unknown_415510()
             }
         }
         Cargo.Attach(passenger);
-        passenger->unknown_slot69();
+        passenger->Hidden();
         ++unknown_254;
     }
     return 0;

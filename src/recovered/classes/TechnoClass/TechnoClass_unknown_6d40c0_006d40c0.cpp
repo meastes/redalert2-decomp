@@ -14,7 +14,7 @@ bool TechnoClass::unknown_6d40c0()
 {
     if ((unsigned)(Frame - unknown_3f4) >= unknown_ac01cc) {
         if (!unknown_slot113()) {
-            if (unknown_slot32()->CanPassiveAquire) {
+            if (Techno_Type_Class()->CanPassiveAquire) {
                 if (Kind_Of() != 6 || !((UnknownTechnoBuildingType *)((BuildingClass *)this)->Type)->unknown_121e
                     || ((BuildingClass *)this)->unknown_4532f0() != 0) {
                     bool busy = unknown_230 != 0 && ((UnknownTechno230 *)unknown_230)->unknown_24 != 0;

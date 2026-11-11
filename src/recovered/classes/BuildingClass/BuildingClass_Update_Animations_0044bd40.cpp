@@ -43,7 +43,7 @@ inline void Apply_Frame_And_Layer_0044BD40(BuildingClass *building,ConvertClass 
 inline void Refresh_Building_Frame_0044BD40(BuildingClass *building)
 {
     ConvertClass *value=building->unknown_slot115();
-    CellClass *cell=static_cast<CellClass *>(building->unknown_slot105());
+    CellClass *cell=static_cast<CellClass *>(building->Get_Cell_Ptr());
     int level=building->unknown_4521e0(cell->unknown_10a);
     building->unknown_5c4=(short)level;
     Apply_Frame_And_Layer_0044BD40(building,value,level);

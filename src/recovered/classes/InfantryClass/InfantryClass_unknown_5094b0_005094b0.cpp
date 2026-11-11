@@ -12,14 +12,14 @@
 void InfantryClass::unknown_5094b0(BuildingClass *building)
 {
     if (Type->Occupier) {
-        unknown_slot52();
+        Limbo();
         building->unknown_554.Add(this);
-        building->Unknown_006D9610(building->unknown_slot105());
+        building->Unknown_006D9610(building->Get_Cell_Ptr());
         return;
     }
     if (Type->Assaulter) {
         building->Unknown_004536D0(this);
         Assign_Destination(0, true);
-        unknown_slot87(building->Center_Coord(), true, true);
+        Scatter(building->Center_Coord(), true, true);
     }
 }

@@ -19,7 +19,7 @@ bool FlyLocomotionClass::unknown_4bca00()
         unknown_5c=true;
         unknown_51=false;
         unknown_50=false;
-        unknown_38=LinkedTo->unknown_slot32()->Flight_Level();
+        unknown_38=LinkedTo->Techno_Type_Class()->Flight_Level();
         return false;
     }
     if (LinkedTo->Strength>0 && (unknown_51 || unknown_50)) {
@@ -35,7 +35,7 @@ bool FlyLocomotionClass::unknown_4bca00()
                     unknown_50=true;
                     LinkedTo->unknown_79=false;
                     LinkedTo->Mark(0);
-                    LinkedTo->unknown_slot109(LinkedTo->unknown_slot108()+10);
+                    LinkedTo->Set_Height_AGL(LinkedTo->Get_Height_AGL()+10);
                     LinkedTo->Mark(1);
                     ok=false;
                 }

@@ -18,7 +18,7 @@ FootClass *TeamClass::unknown_func_6baa60()
     FootClass *leader = Member;
     int best = -1;
     for (; member != 0; member = (FootClass *)member->unknown_4c8) {
-        int rating = member->unknown_slot32()->LeadershipRating;
+        int rating = member->Techno_Type_Class()->LeadershipRating;
         if (_Is_It_Playing(member) && rating > best) {
             leader = member;
             best = rating;

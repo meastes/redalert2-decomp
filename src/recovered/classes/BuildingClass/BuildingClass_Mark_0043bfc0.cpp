@@ -79,7 +79,7 @@ bool BuildingClass::Mark(int mark)
 
                         if (any_created) {
                             SendToEachLink(3);
-                            unknown_slot60();
+                            Delete_Me();
                             return true;
                         } else {
                             TechnoClass::Mark(0);
@@ -92,7 +92,7 @@ bool BuildingClass::Mark(int mark)
                 } else if (Type->Wall) {
                     new OverlayClass(Type->ToOverlay, cell, House->Type->House);
                     SendToEachLink(3);
-                    unknown_slot60();
+                    Delete_Me();
 
                 } else {
                     if (mark != 3) {
@@ -101,7 +101,7 @@ bool BuildingClass::Mark(int mark)
                         }
                     }
                     Map.Place_Down(cell, this);
-                    unknown_slot103(Type->Coord_Fixup(CoordStruct(cell)));
+                    Set_Coord(Type->Coord_Fixup(CoordStruct(cell)));
                     unknown_44c9a0();
 
                     int w = Type->Width();

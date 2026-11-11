@@ -36,7 +36,7 @@ void DisplayClass::Unknown_0049DE00(bool skip_buildings, bool arg2)
                 techno->unknown_slot262(0, 0, false, 0);
                 CoordStruct coord = techno->Coord;
                 Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);
-                if (techno->unknown_slot32()->GapGenerator) {
+                if (techno->Techno_Type_Class()->GapGenerator) {
                     techno->unknown_slot235();
                 }
             }
@@ -44,11 +44,11 @@ void DisplayClass::Unknown_0049DE00(bool skip_buildings, bool arg2)
             techno->unknown_slot262(0, arg2, false, 0);
             CoordStruct coord = techno->Coord;
             Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);
-        } else if (techno->Kind_Of() == 6 && techno->unknown_slot32()->RevealToAll && !techno->House->Is_Player_Control()) {
+        } else if (techno->Kind_Of() == 6 && techno->Techno_Type_Class()->RevealToAll && !techno->House->Is_Player_Control()) {
             techno->unknown_slot262(0, 0, true, unknown_player_a35db4);
             CoordStruct coord = techno->Coord;
             Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);
-        } else if (techno->unknown_slot32()->GapGenerator) {
+        } else if (techno->Techno_Type_Class()->GapGenerator) {
             techno->unknown_slot235();
         }
     }

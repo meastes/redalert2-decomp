@@ -12,7 +12,7 @@ void HouseClass::unknown_func_4f3320(HouseClass *house)
             TechnoClass *techno = Technos[index];
             if (techno != 0 && !techno->unknown_76 && techno->House == this) {
                 CoordStruct coord = techno->Coord;
-                Map.Unknown_00549C50(coord, techno->unknown_slot32()->Sight, this, false, false, false, true, true);
+                Map.Unknown_00549C50(coord, techno->Techno_Type_Class()->Sight, this, false, false, false, true, true);
             }
         }
         Map.Flag_To_Redraw(2);

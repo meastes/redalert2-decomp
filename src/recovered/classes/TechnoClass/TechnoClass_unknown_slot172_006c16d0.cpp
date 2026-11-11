@@ -4,5 +4,5 @@
 
 int TechnoClass::unknown_slot172()
 {
-    return unknown_slot32()->Crewed != false;
+    return Techno_Type_Class()->Crewed != false;
 }

@@ -23,7 +23,7 @@ int TechnoClass::unknown_slot187(int which)
     } else {
         int delay=weapon->unknown_b0*House->unknown_f0+Random_Pick(0,2);
         if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
-            TechnoTypeClass *type=unknown_slot32();
+            TechnoTypeClass *type=Techno_Type_Class();
             if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[4]) ||
                 (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[4] || type->EliteAbilities.Ability[4]))) {
                 delay=delay*Rules->VeteranROF;

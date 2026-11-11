@@ -126,7 +126,7 @@ building:
                         case 2:
                         case 15:
                             OutList.Add(EventClass(pending->Owner(), 11, pending->Kind_Of(), -1,
-                                pending->unknown_slot32()->Naval, unknown_geometry_k));
+                                pending->Techno_Type_Class()->Naval, unknown_geometry_k));
                             Buildables[index].unknown_10 = 0;
                             break;
                         }

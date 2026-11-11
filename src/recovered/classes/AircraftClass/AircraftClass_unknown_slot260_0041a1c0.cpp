@@ -71,7 +71,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                 }
             }
         }
-        UnknownCellClass *cell = reinterpret_cast<UnknownCellClass *>(unknown_slot105());
+        UnknownCellClass *cell = reinterpret_cast<UnknownCellClass *>(Get_Cell_Ptr());
         if (!(cell->Flags & 0x100)) {
             ObjectClass *occupier = cell->unknown_e4;
             while (occupier && (occupier == this || occupier->Kind_Of() != 6)) {

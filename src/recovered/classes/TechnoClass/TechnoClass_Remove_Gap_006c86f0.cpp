@@ -5,7 +5,7 @@
 void TechnoClass::unknown_slot236()
 {
     if (unknown_player_a35db4 && unknown_1fd) {
-        if (!unknown_200) unknown_200=unknown_slot32()->GapRadiusInCells;
+        if (!unknown_200) unknown_200=Techno_Type_Class()->GapRadiusInCells;
         unknown_1fd=false;
         CoordStruct projected=Coord;
         projected.X+=(Unknown_006A2970(projected.Z)/-30)*256;

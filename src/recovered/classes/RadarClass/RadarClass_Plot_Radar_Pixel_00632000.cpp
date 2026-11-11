@@ -24,7 +24,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
         TechnoClass *candidate=items[index].Key.unknown_00;
         if(items[index].Key.unknown_04==point &&
             (!shadow || candidate->House->Is_Player_Control()) &&
-            (!candidate->unknown_slot32()->unknown_1ff || unknown_player_a35db4->Is_Ally(candidate))) {
+            (!candidate->Techno_Type_Class()->unknown_1ff || unknown_player_a35db4->Is_Ally(candidate))) {
             tech=candidate;
             break;
         }

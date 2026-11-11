@@ -76,7 +76,7 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
     }
     bool can_deploy = unknown_slot193();
     if (House->Is_Player_Control() && ((force_fire && third) || unknown_388)
-        && unknown_slot39() && (unknown_slot38() || can_deploy)) {
+        && Can_Player_Move() && (Can_Player_Fire() || can_deploy)) {
         if (unknown_player_a35db4->Waypoint_At(*cell) == 0 && !unknown_388) {
             return 0x1A;
         }
@@ -99,17 +99,17 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
             bool occupied = object != 0 && !object->unknown_e8 && object->unknown_6c > 0;
             if (force_fire || overlay == 0 || occupied
                 || (enemy && overlay->unknown_278 && (warhead->Wall || (warhead->Wood && overlay->unknown_9c == 6)))) {
-                if (unknown_slot39() || unknown_slot84(CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0), weapon)) {
+                if (Can_Player_Move() || In_Range(CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0), weapon)) {
                     return 5;
                 }
             }
         }
         if (unknown_slot208((ObjectClass *)cellptr)
-            && (unknown_slot39() || unknown_slot84(CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0), weapon))) {
+            && (Can_Player_Move() || In_Range(CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0), weapon))) {
             return 5;
         }
     }
-    if (House->Is_Player_Control() && (unknown_slot39() || unknown_slot153())) {
+    if (House->Is_Player_Control() && (Can_Player_Move() || unknown_slot153())) {
         if (Map.Unknown_0055A660(*cell, true)) {
             if (force_move) {
                 return 1;
@@ -117,11 +117,11 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
             if (unknown_slot153() && third) {
                 return 1;
             }
-            if (unknown_slot39()) {
+            if (Can_Player_Move()) {
                 if (unknown_slot101(&Map[*cell], -1, -1, 0, 1) <= 1 || arg2) {
                     return 1;
                 }
-                if (unknown_slot32()->unknown_af5
+                if (Techno_Type_Class()->unknown_af5
                     && unknown_slot101(&Map[*cell], -1, -1, 0, 0) <= 1) {
                     return 1;
                 }

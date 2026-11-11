@@ -24,10 +24,10 @@ void DisplayClass::Unknown_0049E110(bool skip_buildings, bool arg2)
         }
         if (techno->House->Is_Player_Control()) {
             if (techno->unknown_373) {
-                techno->unknown_slot70(false, arg2);
+                techno->Look(false, arg2);
             }
         } else if (techno->Kind_Of() == 6 && Rules->unknown_142b && techno->House->Is_Ally(unknown_player_a35db4)) {
-            techno->unknown_slot70(arg2, 0);
+            techno->Look(arg2, 0);
         }
     }
 }

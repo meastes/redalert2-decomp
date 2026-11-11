@@ -3,7 +3,7 @@
 // leaves the system and object lists.
 #include "shared/particle_system.hpp"
 // @ref ?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z=006ecb90
-// @ref ?unknown_slot52@ObjectClass@@UAE_NXZ=005d3700
+// @ref ?Limbo@ObjectClass@@UAE_NXZ=005d3700
 // @ref ?unknown_objects_ac0cd8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A=00ac0cd8
 // @ref ?unknown_objects_ac0cb0@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00ac0cb0
 // @ref ??_7?$VectorClass@PAVParticleClass@@@@6B@=007a22c4
@@ -13,7 +13,7 @@
 ParticleSystemClass::~ParticleSystemClass()
 {
     Unknown_006ECB90(this, true);
-    ObjectClass::unknown_slot52();
+    ObjectClass::Limbo();
     while (Particles.Count() != 0) {
         delete Particles[0];
         unknown_objects_ac0cd8.Delete(Particles[0]);

@@ -14,7 +14,7 @@ void WaveClass::Sonic_AI()
         Damage_Cell_00721eb0(Cells[index]->unknown_475d60());
     }
     if (--WaveEC < 0) {
-        unknown_slot60();
+        Delete_Me();
     } else {
         ObjectClass::AI();
     }

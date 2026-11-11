@@ -16,11 +16,11 @@ bool Tactical::Unknown_006AAD70()
         if (object->Owning_House() != 0) {
             if (unknown_game_mode_a3d298 == 0) {
                 if (!object->Owning_House()->unknown_135) {
-                    object->unknown_slot81();
+                    object->Unselect();
                     return true;
                 }
             } else if (!object->Owning_House()->Is_Player_Control()) {
-                object->unknown_slot81();
+                object->Unselect();
                 return true;
             }
         }

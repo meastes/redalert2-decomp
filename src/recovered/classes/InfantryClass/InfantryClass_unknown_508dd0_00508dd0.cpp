@@ -18,11 +18,11 @@
 
 bool InfantryClass::unknown_508dd0(Cell const *from, Cell const *to)
 {
-    unknown_slot108();
+    Get_Height_AGL();
     if (House->Unknown_0051FC80()) {
         return false;
     }
-    if (unknown_slot108() > 0) {
+    if (Get_Height_AGL() > 0) {
         return true;
     }
     if (House->Unknown_004F52F0()) {

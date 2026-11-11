@@ -76,7 +76,7 @@ void FootClass::unknown_slot304()
 {
     if (unknown_228) {
     int weapon=unknown_slot174(unknown_228);
-    int maximum_range=unknown_slot85(weapon);
+    int maximum_range=Weapon_Range(weapon);
     if (maximum_range>=512) maximum_range-=128;
     bool in_range=unknown_slot212(unknown_228,weapon);
     if (!in_range) {
@@ -85,7 +85,7 @@ void FootClass::unknown_slot304()
             Assign_Destination(0,true);
             return;
         }
-        if (!unknown_slot32()->CanApproachTarget) {
+        if (!Techno_Type_Class()->CanApproachTarget) {
             bool pursue=false;
             if (Mission==1) pursue=true;
             if (Mission==11 && House->Is_Human_Player()) pursue=true;
@@ -111,7 +111,7 @@ void FootClass::unknown_slot304()
     persist.Checked()->GetClassID(&class_id);
     if (class_id==CLSID_JumpjetLocomotionClass) flyer=true;
     if (unknown_494) {
-        if (unknown_228 && unknown_slot32()->CanRecalcApproachTarget && !in_range) {
+        if (unknown_228 && Techno_Type_Class()->CanRecalcApproachTarget && !in_range) {
             int separation=Approach_Coord_Distance_004c4c30(unknown_494->Center_Coord(),unknown_228->Center_Coord());
             if (separation>Rules->unknown_bec*maximum_range) {
                 unknown_490=0;
@@ -154,7 +154,7 @@ void FootClass::unknown_slot304()
         AbstractClass *target=unknown_228;
         if (target && target->AbstractFlags.IsObject) target_bridge=((ObjectClass *)target)->unknown_79;
     }
-    int movement_zone=unknown_slot32()->MovementZone;
+    int movement_zone=Techno_Type_Class()->MovementZone;
     bool found=false;
     double floating_radius;
     int radius=maximum_range;
@@ -170,7 +170,7 @@ void FootClass::unknown_slot304()
             if (!unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)) continue;
             trial_cell=trial_position.As_Cell();
             if (!Map.Unknown_0055A660(trial_cell,true)) continue;
-            bool clear=Map[trial_cell].Is_Clear_To_Move(unknown_slot32()->SpeedType,false,false,
+            bool clear=Map[trial_cell].Is_Clear_To_Move(Techno_Type_Class()->SpeedType,false,false,
                 Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,unknown_79),movement_zone,-1,true);
             if (!clear) {
                 if (Kind_Of()==15) continue;
@@ -180,7 +180,7 @@ void FootClass::unknown_slot304()
                     trial_cell=AdjacentCell[adjacent&7].TPoint2D<short>::operator+(trial_cell);
                     trial_position=CoordStruct(trial_cell);
                     if (unknown_6c4bb0(&trial_position,unknown_228,unknown_slot231(weapon)->WeaponType)
-                        && Map[trial_cell].Is_Clear_To_Move(unknown_slot32()->SpeedType,false,false,
+                        && Map[trial_cell].Is_Clear_To_Move(Techno_Type_Class()->SpeedType,false,false,
                             Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,unknown_79),movement_zone,-1,true)) {
                         clear=true;
                         break;
@@ -203,7 +203,7 @@ void FootClass::unknown_slot304()
                 int dest_dx=abs((int)destination.X-trial_cell.X);
                 int dest_distance=dest_dx>dest_dy?dest_dx:dest_dy;
                 if (Search.Test_Cell_Walk(destination,trial_cell,this,
-                        unknown_slot46(0),(cell->unknown_140&0x100)!=0,-1)>dest_distance+8) continue;
+                        Is_Moving_Onto_Bridge(0),(cell->unknown_140&0x100)!=0,-1)>dest_distance+8) continue;
             }
             found=true;
             break;
@@ -213,11 +213,11 @@ void FootClass::unknown_slot304()
     }
     if (found) {
         Assign_Destination(&Map[trial_cell],true);
-    } else if (unknown_slot32()->HunterSeeker || (Kind_Of()==15 && ((InfantryClass *)this)->Type->VehicleThief)) {
+    } else if (Techno_Type_Class()->HunterSeeker || (Kind_Of()==15 && ((InfantryClass *)this)->Type->VehicleThief)) {
         Assign_Destination(unknown_228,true);
     } else {
-        trial_cell=Map.Nearby_Location(trial_cell,unknown_slot32()->SpeedType,
-            Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,unknown_slot46(0)),movement_zone,
+        trial_cell=Map.Nearby_Location(trial_cell,Techno_Type_Class()->SpeedType,
+            Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,Is_Moving_Onto_Bridge(0)),movement_zone,
             (Map[trial_cell].unknown_140&0x100)!=0,Point2D(1,1),false,true,false,false,Cell(0,0),0);
         unknown_slot220(0);
         if (trial_cell!=unknown_geometry_k) Assign_Destination(&Map[trial_cell],true);

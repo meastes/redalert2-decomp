@@ -8,7 +8,7 @@ BulletClass::~BulletClass()
         unknown_abstracts_ac0bf8.Delete(this);
     }
     if (unknown_flag_a40958) {
-        ObjectClass::unknown_slot52();
+        ObjectClass::Limbo();
     }
     Type = 0;
     Owner = 0;

@@ -13,5 +13,5 @@ void __fastcall Building_Refund_Upgrades_00452710(BuildingClass *building)
         building->House->unknown_5669 = true;
         Building_Refresh_House_Buildings_0044fa40(building->House);
     }
-    building->unknown_slot98(1);
+    building->Sell_Back(1);
 }

@@ -8,8 +8,8 @@
 void TechnoClass::unknown_slot198()
 {
     if (unknown_sound_enabled_7d88d6) {
-        if (unknown_slot32()->VoiceAttack.Count()) {
-            DynamicVectorClass<int> &sounds = unknown_slot32()->VoiceAttack;
+        if (Techno_Type_Class()->VoiceAttack.Count()) {
+            DynamicVectorClass<int> &sounds = Techno_Type_Class()->VoiceAttack;
             unsigned random = unknown_random_839218();
             Voc_Play(sounds[random % sounds.Count()], 1.0f, 0x2000, 0);
         }

@@ -91,7 +91,7 @@ void TeamClass::unknown_func_6b9610(AbstractClass **center, AbstractClass **clos
                     y += member->Position_Coord_004f3f40().Y;
                     quantity++;
                 }
-                if (member->unknown_slot32()->Passengers <= 0 || !member->unknown_slot32()->Naval) {
+                if (member->Techno_Type_Class()->Passengers <= 0 || !member->Techno_Type_Class()->Naval) {
                     int try_dist = member->Distance_Squared((ObjectClass *)unknown_40);
                     if (!dist || try_dist < dist) {
                         dist = try_dist;

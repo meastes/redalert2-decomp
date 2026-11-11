@@ -24,12 +24,12 @@ void AnimClass::Attach_To(ObjectClass *object)
             }
         }
         if (index == Anims.Count()) {
-            old->unknown_slot89();
+            old->Fire_Out();
             old->unknown_78 = false;
         }
         CoordStruct coord = Center_Coord();
         unknown_b4 = 0;
-        unknown_slot103(coord);
+        Set_Coord(coord);
         if (on_map) {
             Map.Submit(this);
         }
@@ -40,7 +40,7 @@ void AnimClass::Attach_To(ObjectClass *object)
         object->unknown_78 = true;
         unknown_b4 = object;
         CoordStruct offset = coord - object->Center_Coord();
-        unknown_slot103(offset);
+        Set_Coord(offset);
         Map.Submit(this);
     }
 }

@@ -29,7 +29,7 @@ bool TeamClass::unknown_func_6b8cc0(FootClass *member)
     member->Team = this;
     member->unknown_1ac = Class->Get_Group();
     if (Tag != 0) {
-        if (!Class->OnTransOnly || member->unknown_slot32()->Passengers > 0) {
+        if (!Class->OnTransOnly || member->Techno_Type_Class()->Passengers > 0) {
             member->Attach_Tag(Tag);
         }
     }

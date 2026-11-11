@@ -9,8 +9,8 @@ void TeamClass::TMission_unknown_6bc410(ScriptMissionClass const &mission, bool 
     FootClass *member = Member;
     while (member != 0) {
         FootClass *next = (FootClass *)member->unknown_4c8;
-        member->unknown_slot52();
-        member->unknown_slot60();
+        member->Limbo();
+        member->Delete_Me();
         member = next;
     }
     StepCompleted = true;

@@ -7,7 +7,7 @@
 
 int __stdcall JumpjetLocomotionClass::Layer()
 {
-    int height = LinkedTo->unknown_slot108();
+    int height = LinkedTo->Get_Height_AGL();
     if (!LinkedTo->unknown_79) {
         if ((Loco_Cell(Object_Coord(LinkedTo))->Flags & 0x100) && height >= unknown_geometry_j && !LinkedTo->unknown_7a) {
             height -= unknown_geometry_j;

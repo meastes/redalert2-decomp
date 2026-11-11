@@ -34,8 +34,8 @@ Matrix3D * __stdcall ShipLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key
     if (!Is_Level()) {
         transform.Make_Identity();
         rotation.Make_Identity();
-        float length = LinkedTo->unknown_slot32()->unknown_330;
-        float width = LinkedTo->unknown_slot32()->unknown_338;
+        float length = LinkedTo->Techno_Type_Class()->unknown_330;
+        float width = LinkedTo->Techno_Type_Class()->unknown_338;
         float roll_cos = Fast_Cos(LinkedTo->unknown_284);
         float roll_sin = Fast_Sin(LinkedTo->unknown_284);
         float pitch_cos = Fast_Cos(LinkedTo->unknown_280);

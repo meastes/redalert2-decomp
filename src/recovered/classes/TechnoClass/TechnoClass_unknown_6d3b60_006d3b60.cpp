@@ -26,7 +26,7 @@ bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
     if (source == 0) {
         return false;
     }
-    if (!unknown_slot32()->CanRetaliate) {
+    if (!Techno_Type_Class()->CanRetaliate) {
         return false;
     }
     if (unknown_230 != 0 && ((UnknownTechno230 *)unknown_230)->unknown_24 != 0) {
@@ -53,7 +53,7 @@ bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
     if (!unknown_slot163()) {
         return false;
     }
-    TechnoTypeClass *type = unknown_slot32();
+    TechnoTypeClass *type = Techno_Type_Class();
     int weapon = unknown_slot174(source);
     int result = unknown_slot217(source, weapon);
     if (result == 5 || result == 6) {

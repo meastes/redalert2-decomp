@@ -10,7 +10,7 @@
 
 InfantryTypeClass *TechnoClass::unknown_slot184()
 {
-    if (!unknown_slot32()->Crewed) {
+    if (!Techno_Type_Class()->Crewed) {
         return 0;
     }
     InfantryTypeClass *crew;

@@ -13,9 +13,9 @@
 
 void FootClass::unknown_slot82(int arg1)
 {
-    if (unknown_slot32()->Organic) {
-        int damage = unknown_slot32()->MaxStrength;
-        unknown_slot86(&damage, 0, Rules->unknown_c74, 0, false, 0);
+    if (Techno_Type_Class()->Organic) {
+        int damage = Techno_Type_Class()->MaxStrength;
+        Take_Damage(&damage, 0, Rules->unknown_c74, 0, false, 0);
         return;
     }
     if (unknown_580 != 0) {

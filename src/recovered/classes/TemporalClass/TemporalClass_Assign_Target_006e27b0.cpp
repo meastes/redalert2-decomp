@@ -19,7 +19,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
         Target=target;
         if(Target->unknown_20c==0) {
             target->unknown_20c=this;
-            unknown_48=Target->unknown_slot32()->MaxStrength*10;
+            unknown_48=Target->Techno_Type_Class()->MaxStrength*10;
             if(Target!=0 && Target->Kind_Of()==1) {
                 TechnoClass *object=Target;
                 UnitClass *unit;
@@ -30,7 +30,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
                     if(Unknown_0063B5B0(4,cell)) Speech_Play_Name("EVA_OreMinerUnderAttack",-1,-1);
                 }
             }
-            if(Target->Kind_Of()==6 && !Target->unknown_slot32()->unknown_202 && !Target->unknown_slot31())
+            if(Target->Kind_Of()==6 && !Target->Techno_Type_Class()->unknown_202 && !Target->unknown_slot31())
                 Target->House->Attacked(As_Building(Target));
         } else {
             unknown_40=(TemporalClass *)Target->unknown_20c;

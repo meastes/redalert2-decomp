@@ -22,9 +22,9 @@ void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to)
             unknown_1c = true;
             start.X = (int)(unknown_20.X - Rules->DropPodHeight / unknown_math_4ba520(Rules->DropPodAngle));
         }
-        LinkedTo->unknown_slot103(start);
+        LinkedTo->Set_Coord(start);
         if (LinkedTo->unknown_slot53(&start, 0x80)) {
-            LinkedTo->unknown_slot103(start);
+            LinkedTo->Set_Coord(start);
             LinkedTo->unknown_2e0.Set_Current(UnknownFacingDir(0x8000));
             new AnimClass(Rules->AtmosphereEntry, start, 0, 1, 0x600, 0);
         } else {

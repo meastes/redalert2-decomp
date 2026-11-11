@@ -29,12 +29,12 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass *foot)
     FootClass *blocker=(FootClass*)(bridge?next->AltOccupierPtr:next->OccupierPtr);
     if(!blocker)blocker=(FootClass*)Find_Moving_Blocker(next->MapCoords,next->unknown_11b+(bridge?4:0));
     bool marked=false;
-    TechnoTypeClass const *type=foot->unknown_slot32();
+    TechnoTypeClass const *type=foot->Techno_Type_Class();
     while(blocker) {
         if(blocker->Kind_Of()==1 || blocker->Kind_Of()==15) {
             int index=0;
             Cell position=blocker->unknown_450;
-            TechnoTypeClass const *other=blocker->unknown_slot32();
+            TechnoTypeClass const *other=blocker->Techno_Type_Class();
             if(Avoidance==2 || (type!=other && type->Speed>other->Speed && Map.Unknown_0055A660(position,true))) {
                 if(blocker->Kind_Of()==1) {
                     if(blocker->Path[0]==-1 || blocker->Path[1]==-1) {blocker=(FootClass*)blocker->unknown_30;continue;}

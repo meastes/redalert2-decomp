@@ -38,7 +38,7 @@ bool ObjectClass::unknown_slot53(CoordStruct const *coord, int direction)
     ObjectTypeClass *type = Class_Of();
     CoordStruct placed = *coord;
     if (type) placed = type->Coord_Fixup(*coord);
-    unknown_slot103(placed);
+    Set_Coord(placed);
     if (Mark(1)) {
         if (unknown_7d) {
             if (unknown_slot29() != -1) Map.Submit(this);

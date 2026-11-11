@@ -66,7 +66,7 @@ bool TechnoClass::unknown_slot186()
                 if (House->unknown_134 && here->unknown_ec == 2) {
                     break;
                 }
-                if (((CellClass *)unknown_slot105())->Cell_Building()) {
+                if (((CellClass *)Get_Cell_Ptr())->Cell_Building()) {
                     break;
                 }
                 return true;
@@ -82,7 +82,7 @@ bool TechnoClass::unknown_slot186()
             }
             break;
         default:
-            if (!unknown_slot201() && unknown_slot32()->Passengers != 0) {
+            if (!unknown_slot201() && Techno_Type_Class()->Passengers != 0) {
                 return true;
             }
             return false;

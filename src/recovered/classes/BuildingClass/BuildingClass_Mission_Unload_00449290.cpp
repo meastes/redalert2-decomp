@@ -86,7 +86,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
                             unit->Locomotor.Checked()->Force_Track(66,destination);
                         } else {
                             int damage=unit->Strength;
-                            unit->unknown_slot86(&damage,0,Rules->unknown_c74,0,true,0);
+                            unit->Take_Damage(&damage,0,Rules->unknown_c74,0,true,0);
                         }
                     } else if(!(classid==CLSID_DriveLocomotionClass)) {
                         unit->Assign_Destination(&Map[unknown_slot104()+Cell(5,1)],true);

@@ -56,8 +56,8 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
         offset = Point2D(4, 0);
         pip_shapes = pips2;
     }
-    if (Kind_Of() == 6 && unknown_slot32()->PipScale == 2) return;
-    int spawns = unknown_slot32()->SpawnsNumber;
+    if (Kind_Of() == 6 && Techno_Type_Class()->PipScale == 2) return;
+    int spawns = Techno_Type_Class()->SpawnsNumber;
     if (spawns > 0) {
         int docked = SpawnManager->Docked_Count();
         for (int i = 0; i < spawns; i++) {
@@ -78,10 +78,10 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
             }
         }
     }
-    if (unknown_slot32()->Passengers > 0) {
+    if (Techno_Type_Class()->Passengers > 0) {
         Point2D shift(0, 0);
         int pips = Class_Of()->Max_Pips();
-        unknown_slot32();
+        Techno_Type_Class();
         int *colors = new int[pips];
         for (int c = 0; c < pips; c++) colors[c] = 0;
         int passengers = Cargo.Count;
@@ -92,7 +92,7 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
             if (object->Kind_Of() == 15) {
                 colors[index] = static_cast<InfantryClass *>(object)->Type->Pip;
             } else if (object->Kind_Of() == 1) {
-                int size = (int)(static_cast<TechnoClass *>(object)->unknown_slot32()->Size - 1.0);
+                int size = (int)(static_cast<TechnoClass *>(object)->Techno_Type_Class()->Size - 1.0);
                 for (int k = size; k > 0; k--) colors[index--] = 4;
                 colors[index] = 5;
             } else {
@@ -102,7 +102,7 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
             index--;
         }
         int start = 0;
-        if (unknown_slot32()->Gunner) {
+        if (Techno_Type_Class()->Gunner) {
             CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pip_shapes, colors[0], xy, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             start = 1;
             shift = offset * 2;
@@ -113,13 +113,13 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
         delete colors;
     } else {
         int pips = unknown_slot166();
-        if (Kind_Of() == 1 && unknown_slot32()->PipScale == 2) {
+        if (Kind_Of() == 1 && Techno_Type_Class()->PipScale == 2) {
             float gold = unknown_294.Get_Amount(0);
             float gems = unknown_294.Get_Amount(2);
             float ore = unknown_294.Get_Amount(3);
             float other = unknown_294.Get_Amount(1);
-            int greenpips = (int)(unknown_slot32()->Max_Pips() * ((double)(ore + gems + gold) / unknown_slot32()->Storage) + 0.5);
-            int bluepips = (int)(unknown_slot32()->Max_Pips() * ((double)other / unknown_slot32()->Storage) + 0.5);
+            int greenpips = (int)(Techno_Type_Class()->Max_Pips() * ((double)(ore + gems + gold) / Techno_Type_Class()->Storage) + 0.5);
+            int bluepips = (int)(Techno_Type_Class()->Max_Pips() * ((double)other / Techno_Type_Class()->Storage) + 0.5);
             for (int i = 0; i < Class_Of()->Max_Pips(); i++) {
                 int shape = 0;
                 if (bluepips > 0) {
@@ -131,8 +131,8 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
                 }
                 CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pip_shapes, shape, xy + offset * i, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             }
-        } else if (unknown_slot32()->PipScale == 1) {
-            int wrap = unknown_slot32()->PipWrap;
+        } else if (Techno_Type_Class()->PipScale == 1) {
+            int wrap = Techno_Type_Class()->PipWrap;
             if (wrap == 0) {
                 int left = pips;
                 for (int i = 0; i < Class_Of()->Max_Pips(); i++) {

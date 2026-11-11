@@ -40,7 +40,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                     builder = tech->Who_Can_Build_Me(true, true);
                 }
                 if (builder) {
-                    int exit = builder->unknown_slot62(tech);
+                    int exit = builder->Exit_Object(tech);
                     if (exit == 2 || (exit == 1 && builder->Kind_Of() == 6 && builder->unknown_41c != 0)) {
                         if (Is_Player_Control()) {
                             if (Unknown_0063B5B0(6, Coord_Cell(builder->Center_Coord()))) {
@@ -79,7 +79,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                         Abandon_Production(kind, index, naval);
                         placed = true;
                         if (unknown_player_a35db4 == this) {
-                            if (tech->unknown_7d && !tech->unknown_373) tech->unknown_slot96(this);
+                            if (tech->unknown_7d && !tech->unknown_373) tech->Revealed(this);
                             Voc_Play(Rules->BuildingSlam, 1.0f, 0x2000, 0);
                             if (!Debug_Map) {
                                 Map.Set_Cursor_Shape(0);

@@ -11,7 +11,7 @@ int CargoClass::GetTotalSize() const
         FootClass *passenger = static_cast<FootClass *>(Attached_Object());
         if (passenger) {
             for (int index = 0; index < limit && passenger; ++index) {
-                total_size = (int)(total_size + passenger->unknown_slot32()->Size);
+                total_size = (int)(total_size + passenger->Techno_Type_Class()->Size);
                 passenger = static_cast<FootClass *>(passenger->unknown_30);
             }
         }

@@ -52,7 +52,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
     bool has_suspended=false;
     if (factory->unknown_6c) {
         TechnoClass *object=factory->Object;
-        if (object && object->unknown_slot32()==type) has_suspended=true;
+        if (object && object->Techno_Type_Class()==type) has_suspended=true;
     }
     if (!has_suspended) result=factory->unknown_4b9440(type,this,resume);
     if (result) {
@@ -62,7 +62,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
             bool suspended=factory->unknown_6c;
             factory->Start_Production_004B9670(onhold);
             if (!suspended && unknown_game_mode_a3d298 && unknown_134) {
-                int duration=factory->Object->unknown_slot32()->unknown_slot34();
+                int duration=factory->Object->Techno_Type_Class()->unknown_slot34();
                 int stage=(int)(((unsigned)unknown_a3d568*(unsigned)unknown_max_ahead_a3d560/60)*54)/duration;
                 if (stage>=53) stage=53;
                 if (was_suspended) factory->Stage=stage;

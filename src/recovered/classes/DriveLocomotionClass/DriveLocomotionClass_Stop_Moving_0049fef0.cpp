@@ -11,7 +11,7 @@
 
 void __stdcall DriveLocomotionClass::Stop_Moving()
 {
-    if (unknown_40 != unknown_geometry_l && LinkedTo->unknown_slot32()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
+    if (unknown_40 != unknown_geometry_l && LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
         for (UnitClass *car = (UnitClass *)((UnitClass *)LinkedTo)->unknown_5b0; car != 0; ) {
             car->Locomotor.Checked()->Stop_Moving();
             car = (UnitClass *)car->unknown_5b0;

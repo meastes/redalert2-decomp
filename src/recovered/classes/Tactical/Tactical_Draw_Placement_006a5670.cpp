@@ -57,11 +57,11 @@ void Tactical::Draw_Placement(bool drawtrans)
                 coord = Coord_Snap(coord);
             }
             coord.Z = Map.Get_Height_GL(coord);
-            Map.unknown_11a0->unknown_slot103(coord);
+            Map.unknown_11a0->Set_Coord(coord);
             Point2D pixel;
             Coord_To_Pixel(coord, pixel);
             if (rtti != 0x12) {
-                Map.unknown_11a0->unknown_slot68(pixel, unknown_rect_839630);
+                Map.unknown_11a0->Editor_Draw_It(pixel, unknown_rect_839630);
             }
         }
 

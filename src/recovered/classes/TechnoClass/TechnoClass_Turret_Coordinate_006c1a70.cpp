@@ -6,7 +6,7 @@
 extern "C" double const unknown_fire_angle_scale_79d090;
 CoordStruct TechnoClass::unknown_slot181(int which)
 {
-    TechnoTypeClass *type=unknown_slot32();
+    TechnoTypeClass *type=Techno_Type_Class();
     Matrix3D matrix;
     double angle;
     FootClass *foot=this && AbstractFlags.IsFoot ? static_cast<FootClass *>(this) : 0;

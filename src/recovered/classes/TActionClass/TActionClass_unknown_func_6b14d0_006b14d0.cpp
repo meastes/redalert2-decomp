@@ -23,7 +23,7 @@ bool TActionClass::unknown_func_6b14d0(HouseClass *house, ObjectClass *object, T
             if (techno->Strength > 0 && techno->unknown_7d && techno->unknown_74 && !techno->unknown_76 && techno->unknown_34 != 0
                 && techno->unknown_34->Is_Trigger_Attached(trigger)) {
                 int damage = techno->Strength;
-                techno->unknown_slot86(&damage, 0, Rules->unknown_c74, 0, true, 0);
+                techno->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
                 killed = true;
                 again = true;
                 index--;

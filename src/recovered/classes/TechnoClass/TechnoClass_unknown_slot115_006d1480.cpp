@@ -10,7 +10,7 @@
 
 ConvertClass *TechnoClass::unknown_slot115()
 {
-    TechnoTypeClass *type = unknown_slot32();
+    TechnoTypeClass *type = Techno_Type_Class();
     int scheme = House->ColorSchemeIndex;
     DynamicVectorClass<ColorScheme *> *palette = (DynamicVectorClass<ColorScheme *> *)type->Palette;
     if (palette != 0) {

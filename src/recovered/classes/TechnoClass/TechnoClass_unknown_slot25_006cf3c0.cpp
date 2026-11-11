@@ -18,10 +18,10 @@
 
 int TechnoClass::unknown_slot25(bool arg1, int arg2)
 {
-    if (unknown_slot32()->Invisible && unknown_372) {
+    if (Techno_Type_Class()->Invisible && unknown_372) {
         return 0;
     }
-    if (unknown_slot32()->Invisible && !unknown_372 && !Debug_Map) {
+    if (Techno_Type_Class()->Invisible && !unknown_372 && !Debug_Map) {
         return 5;
     }
     if (unknown_1b8 == 0 || Debug_Map) {
