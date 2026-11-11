@@ -90,9 +90,9 @@ void AircraftClass::AI()
             new AnimClass(AnimTypes[AnimTypeClass::From_Name("SGRYSMK1")], CoordStruct(Coord), 0, 1, 0x600, 0);
     }
     if (Cargo.Object && Type->Carryall) {
-        ((TechnoClass *)Cargo.unknown_468a10())->unknown_2e0 = unknown_2f8;
-        ((TechnoClass *)Cargo.unknown_468a10())->unknown_2f8 = unknown_2f8;
+        ((TechnoClass *)Cargo.Attached_Object())->unknown_2e0 = unknown_2f8;
+        ((TechnoClass *)Cargo.Attached_Object())->unknown_2f8 = unknown_2f8;
         CoordStruct passenger_position = Coord;
-        Cargo.unknown_468a10()->unknown_slot103(passenger_position);
+        Cargo.Attached_Object()->unknown_slot103(passenger_position);
     }
 }

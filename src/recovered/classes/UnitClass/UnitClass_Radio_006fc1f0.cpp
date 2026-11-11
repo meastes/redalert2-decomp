@@ -10,7 +10,7 @@
 #include "shared/map_view.hpp"
 // @ref _unknown_geometry_l=00ad04c0
 
-static inline double Unit_Radio_Used_Size(UnknownCargo const &cargo) { return (double)cargo.Unknown_00468A20(); }
+static inline double Unit_Radio_Used_Size(CargoClass const &cargo) { return (double)cargo.GetTotalSize(); }
 int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&param)
 {
     TechnoClass *sender = (TechnoClass *)radio;
@@ -67,7 +67,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
     case 21:
         {
             int capacity = Type->Passengers;
-            if (Cargo.Unknown_00468A20() == capacity)
+            if (Cargo.GetTotalSize() == capacity)
                 unknown_2a8.Count_Down(Type->DeployTime);
         }
         return 5;

@@ -54,7 +54,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
                         FootClass *inf = (FootClass *)ptype->unknown_slot35(house);
                         if (inf) {
                             inf->unknown_slot52();
-                            obj->Cargo.Unknown_00468960(inf);
+                            obj->Cargo.Attach(inf);
                         }
                     }
                 }

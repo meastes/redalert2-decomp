@@ -85,9 +85,9 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
         int *colors = new int[pips];
         for (int c = 0; c < pips; c++) colors[c] = 0;
         int passengers = Cargo.Count;
-        int index = Cargo.Unknown_00468A20() - 1;
+        int index = Cargo.GetTotalSize() - 1;
         if (index > pips) index = pips;
-        ObjectClass *object = Cargo.unknown_468a10();
+        ObjectClass *object = Cargo.Attached_Object();
         for (int i = 0; i < passengers && object; i++) {
             if (object->Kind_Of() == 15) {
                 colors[index] = static_cast<InfantryClass *>(object)->Type->Pip;

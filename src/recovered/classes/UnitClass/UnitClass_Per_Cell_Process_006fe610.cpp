@@ -72,7 +72,7 @@ void UnitClass::unknown_slot93(int reason)
                     unknown_6d6e50(0);
                     unknown_79=false;
                     unknown_slot52();
-                    transport->Cargo.Unknown_00468960(this);
+                    transport->Cargo.Attach(this);
                     unknown_slot69();
                 } else {
                     Assign_Destination(0,true);

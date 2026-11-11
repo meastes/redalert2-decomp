@@ -88,7 +88,7 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
     unknown_59c=true;
     if(Type->NeedsEngineer) { unknown_44d600(); }
     if(unknown_game_mode_a3d298==4) { newowner->unknown_42a8.Unknown_0070C490(Type->ArrayIndex); }
-    TechnoClass *passenger=(TechnoClass*)Cargo.unknown_468a10();
+    TechnoClass *passenger=(TechnoClass*)Cargo.Attached_Object();
     if(passenger) { passenger->unknown_slot222(newowner,1); }
     DynamicVectorClass<Reestablish*> reestablish;
     int i;

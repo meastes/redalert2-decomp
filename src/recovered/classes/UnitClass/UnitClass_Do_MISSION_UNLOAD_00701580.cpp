@@ -92,7 +92,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         }
                         break;
                     }
-                    if (!placed) { Cargo.Unknown_00468960(passenger);passenger->unknown_slot69(); }
+                    if (!placed) { Cargo.Attach(passenger);passenger->unknown_slot69(); }
                 }
             } else unknown_a8=4;
             break;

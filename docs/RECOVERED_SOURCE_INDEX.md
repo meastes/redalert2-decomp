@@ -1082,7 +1082,7 @@
 | [classes/MillisecondTimerClass](../src/recovered/classes/MillisecondTimerClass/) | 3 | 316 | 3 | 0x00593530–0x005935E0 |
 | [classes/RLEBlitTransLucent25ZReadWrite_unsigned_short](../src/recovered/classes/RLEBlitTransLucent25ZReadWrite_unsigned_short/) | 2 | 310 | 2 | 0x0048A9D0–0x0048D4D0 |
 | [classes/RLEBlitTransLucent75ZReadWrite_unsigned_short](../src/recovered/classes/RLEBlitTransLucent75ZReadWrite_unsigned_short/) | 2 | 310 | 2 | 0x0048A7A0–0x0048D490 |
-| [classes/UnknownCargo](../src/recovered/classes/UnknownCargo/) | 4 | 309 | 4 | 0x00468960–0x00468A70 |
+| [classes/CargoClass](../src/recovered/classes/CargoClass/) | 4 | 309 | 4 | 0x00468960–0x00468A70 |
 | [classes/RLEBlitTransZRemapXlatZReadWrite_unsigned_short](../src/recovered/classes/RLEBlitTransZRemapXlatZReadWrite_unsigned_short/) | 2 | 305 | 2 | 0x0048A5A0–0x0048D450 |
 | [classes/WorldDominationTour__History](../src/recovered/classes/WorldDominationTour__History/) | 6 | 305 | 6 | 0x00728E50–0x00728F60 |
 | [classes/RLEBlitTransLucent50ZReadWrite_unsigned_short](../src/recovered/classes/RLEBlitTransLucent50ZReadWrite_unsigned_short/) | 2 | 303 | 2 | 0x0048A8C0–0x0048D4B0 |

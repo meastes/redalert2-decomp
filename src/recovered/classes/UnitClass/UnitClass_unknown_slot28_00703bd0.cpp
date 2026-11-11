@@ -77,7 +77,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
                         action = 0x1e;
                     } else if (!unknown_79) {
                         CellClass *cell = &Map[CoordStruct(Coord)];
-                        ObjectClass *passenger = Cargo.unknown_468a10();
+                        ObjectClass *passenger = Cargo.Attached_Object();
                         if (passenger != 0 && Ground[Land_Type_00703bd0(cell)].Cost[passenger->unknown_slot32()->SpeedType] < 0.01 && Land_Type_00703bd0(cell) != 2) {
                             action = 0x1e;
                         }

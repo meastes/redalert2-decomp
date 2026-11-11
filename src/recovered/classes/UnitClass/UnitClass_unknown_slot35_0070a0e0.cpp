@@ -12,7 +12,7 @@
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 // @ref ?unknown_6d83e0@TechnoClass@@QAE_NXZ=006d83e0
 // @ref ?unknown_6d83d0@TechnoClass@@QAE_NXZ=006d83d0
-// @ref ?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ=00468a10
+// @ref ?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ=00468a10
 // @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
 // @ref _swprintf=00783764
 // @ref ??_C@_0BA@DDPG@D?3?2Ra2?2Unit?4CPP?$AA@=007f8fe0
@@ -37,7 +37,7 @@ wchar_t const *UnitClass::unknown_slot35()
     }
     if (unknown_6d83e0() && unknown_6d83d0()) {
         wchar_t const *role = 0;
-        TechnoClass *passenger = (TechnoClass *)Cargo.unknown_468a10();
+        TechnoClass *passenger = (TechnoClass *)Cargo.Attached_Object();
         if (passenger && passenger->Kind_Of() == 15) {
             if (passenger->unknown_slot193()) {
                 role = StringTable::Load_String("Tip:Repair", 0, "D:\\Ra2\\Unit.CPP", 10328);

@@ -4,8 +4,8 @@
     "id": "population-4235",
     "inventory_sha256": "3f54c0e551b036669c18b4d4a5d9e97c28493eca113b04be1d91fece82ac5cbd",
     "gaps_sha256": "9ef6f5269597739e9db790831568d18a6c710427f5d7be98f87bb75e668ae6b1",
-    "historical_population_sha256": "b79473b6f23777a8a498b0bf7e7666418737f7fc4c1a0bdbcef2f4d209711a4d",
-    "historical_acceptance_sha256": "c5299b98edd46a78b7c92e1d95307e82f780c2f33e8ef85e384dc28055887320"
+    "historical_population_sha256": "c8a5a3ab60af016f5236cd6e059aa75021b7bd62ec79403fd5446b7f7d4b8748",
+    "historical_acceptance_sha256": "b6b6797f4678e5c5f0d7d81959d03d01127d4ec22a3668733f78e209c0b461f3"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -4852,8 +4852,8 @@
     "?Unknown_004536D0@BuildingClass@@QAEXPAVInfantryClass@@@Z": 4536016,
     "?Detach_Target_468120@CaptureManagerClass@@QAE_NPAVAbstractClass@@@Z": 4620576,
     "?Release_4681e0@CaptureManagerClass@@QAEXXZ": 4620768,
-    "?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z": 4622688,
-    "?Unknown_00468A70@UnknownCargo@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Attach@CargoClass@@QAEXPAVFootClass@@@Z": 4622688,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
     "?Unknown_00471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?Unknown_00471660@UnknownCellClass@@QBEPAVTechnoClass@@ABUPoint2D@@_NPAVObjectClass@@@Z": 4658784,
     "?Unknown_004717B0@UnknownAircraftCell@@QAEPAUUnknownAircraftBuilding@@XZ": 4659120,
@@ -6438,8 +6438,8 @@
     "?unknown_44d070@BuildingClass@@QAEXH@Z": 4509808,
     "?unknown_44d070@BuildingClass@@QAEX_N@Z": 4509808,
     "?unknown_4532f0@BuildingClass@@QAEHXZ": 4535024,
-    "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ": 4622832,
-    "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ": 4622864,
+    "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ": 4622832,
+    "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ": 4622864,
     "?Adjust_Threat@UnknownCellClass@@QAEXHH@Z": 4680480,
     "?Fog_Cell@CellClass@@QAEXXZ": 4701312,
     "?unknown_47be00@CellClass@@QAEXXZ": 4701696,

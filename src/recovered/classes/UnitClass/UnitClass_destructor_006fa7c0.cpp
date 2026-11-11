@@ -10,7 +10,7 @@
 // @ref ?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z=004e3660
 // @ref ?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z=006b8fb0
 // @ref ?unknown_4ea800@HouseClass@@QAEXPAVTechnoClass@@@Z=004ea800
-// @ref ?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ=004689f0
+// @ref ?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ=004689f0
 // @ref ?unknown_slot52@FootClass@@UAE_NXZ=004c9bd0
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
 // @ref ?unknown_4e76a0@HouseClass@@QAE_NABVCell@@_N@Z=004e76a0
@@ -38,7 +38,7 @@ UnitClass::~UnitClass()
         House->unknown_4ea800(this);
         if (unknown_a40774 == 0) {
             while (Cargo.Object != 0) {
-                ObjectClass *passenger = Cargo.unknown_4689f0();
+                ObjectClass *passenger = Cargo.Detach_Object();
                 if (passenger != 0) {
                     delete passenger;
                 }

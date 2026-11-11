@@ -1,5 +1,5 @@
 #include "shared/techno.hpp"
-ObjectClass *UnknownCargo::unknown_4689f0() {
+ObjectClass *CargoClass::Detach_Object() {
     ObjectClass *passenger = Object;
     if (!passenger) return 0;
     Object = passenger->unknown_30;

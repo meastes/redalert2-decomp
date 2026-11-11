@@ -98,7 +98,7 @@ int TeamClass::unknown_func_6b91c0(int slot)
                 best->unknown_slot220(0);
                 unknown_func_6b8cc0(best);
                 added++;
-                FootClass *passenger = (FootClass *)best->Cargo.unknown_468a10();
+                FootClass *passenger = (FootClass *)best->Cargo.Attached_Object();
                 while (passenger != 0) {
                     unknown_func_6b8cc0(passenger);
                     ObjectClass *next = passenger->unknown_30;

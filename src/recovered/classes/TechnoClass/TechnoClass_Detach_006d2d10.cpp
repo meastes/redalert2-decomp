@@ -17,7 +17,7 @@
 #include "shared/gscreen.hpp"
 #include "shared/techno_map.hpp"
 // @ref ?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z=00636ba0
-// @ref ?Unknown_00468A70@UnknownCargo@@QAEXPAVFootClass@@@Z=00468a70
+// @ref ?Detach@CargoClass@@QAEXPAVFootClass@@@Z=00468a70
 // @ref ?Is_Sensed@UnknownCellClass@@QAE_NH@Z=0047c2e0
 // @ref ?unknown_a40774@@3HA=00a40774
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
@@ -30,7 +30,7 @@ void TechnoClass::Detach(AbstractClass *target, bool all)
 {
     RadioClass::Detach(target, all);
     if (all) {
-        Cargo.Unknown_00468A70((FootClass *)target);
+        Cargo.Detach((FootClass *)target);
     }
     bool forget = true;
     if (target == unknown_23c) {

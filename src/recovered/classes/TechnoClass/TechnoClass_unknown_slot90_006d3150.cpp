@@ -6,7 +6,7 @@
 #include "shared/techno_type.hpp"
 #include "shared/house.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ=00468a10
+// @ref ?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ=00468a10
 
 int TechnoClass::unknown_slot90()
 {
@@ -14,7 +14,7 @@ int TechnoClass::unknown_slot90()
     HouseClass *house = House;
     if (Rules->Diff[house->unknown_c8].ContentScan || house->unknown_194 >= Rules->unknown_10b8) {
         if (Cargo.Object != 0) {
-            for (ObjectClass *object = Cargo.unknown_468a10(); object != 0; object = object->unknown_30) {
+            for (ObjectClass *object = Cargo.Attached_Object(); object != 0; object = object->unknown_30) {
                 passengers += object->unknown_slot90();
             }
         }

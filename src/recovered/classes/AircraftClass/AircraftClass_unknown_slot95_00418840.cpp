@@ -108,7 +108,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, AbstractClass 
     }
     case 8:
         if (Type->Carryall && Get_Mission() == 2 && unknown_370) {
-            if ((Cargo.Object && Cargo.unknown_468a10() == radio) || unknown_494 == radio) return 10;
+            if ((Cargo.Object && Cargo.Attached_Object() == radio) || unknown_494 == radio) return 10;
         }
         break;
     default:

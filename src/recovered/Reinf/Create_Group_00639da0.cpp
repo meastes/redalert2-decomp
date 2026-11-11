@@ -94,7 +94,7 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
     }
 
     if (transport != 0 && object != 0 && teamtype->Full) {
-        transport->Cargo.Unknown_00468960(object);
+        transport->Cargo.Attach(object);
 
         if (hasunload && transport->Kind_Of() == 2) {
             transport->unknown_32c = true;

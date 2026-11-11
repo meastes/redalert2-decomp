@@ -201,7 +201,7 @@ void InfantryClass::unknown_slot93(int why)
                 if (transport==static_cast<UnknownCellClass *>(static_cast<void *>(unknown_slot105()))->Unknown_004717B0() && unknown_slot149(21)==1) {
                     unknown_slot52();
                     unknown_slot150(2,transport);
-                    transport->Cargo.Unknown_00468960(this);
+                    transport->Cargo.Attach(this);
                     unknown_4cd9b0();
                     return;
                 }

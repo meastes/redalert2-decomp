@@ -155,7 +155,7 @@ select_destination:
                 passenger->unknown_slot52();
                 passenger->unknown_79 = false;
                 passenger->unknown_37c = true;
-                Cargo.Unknown_00468960(passenger);
+                Cargo.Attach(passenger);
                 goto finalize_pickup;
             }
         }

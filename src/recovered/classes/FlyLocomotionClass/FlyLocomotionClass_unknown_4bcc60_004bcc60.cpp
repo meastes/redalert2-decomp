@@ -16,7 +16,7 @@ bool FlyLocomotionClass::unknown_4bcc60()
     if (!Map.Unknown_0055A7F0(CoordStruct(LinkedTo->Coord))) {
         if (LinkedTo->Get_Mission() == 4) {
             while (LinkedTo->Cargo.Object) {
-                FootClass *passenger = (FootClass *)LinkedTo->Cargo.unknown_4689f0();
+                FootClass *passenger = (FootClass *)LinkedTo->Cargo.Detach_Object();
                 if (Is_Civilian_Passenger_004139F0(passenger)) {
                     passenger->House->unknown_141 = true;
                 }

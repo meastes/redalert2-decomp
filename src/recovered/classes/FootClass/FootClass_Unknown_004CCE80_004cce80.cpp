@@ -3,12 +3,12 @@
 // EnterTransportSound plays at the transport, and a Gunner type with its
 // first passenger runs slot 280.
 #include "shared/foot.hpp"
-// @ref ?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z=00468960
+// @ref ?Attach@CargoClass@@QAEXPAVFootClass@@@Z=00468960
 // @ref ?Voc_Static_Add@@YIPAUAudioEvent@@HABUCoordStruct@@I@Z=00714290
 
 void FootClass::Unknown_004CCE80(FootClass *passenger)
 {
-    Cargo.Unknown_00468960(passenger);
+    Cargo.Attach(passenger);
     if (passenger != 0 && unknown_slot32()->EnterTransportSound != -1) {
         Voc_Static_Add(unknown_slot32()->EnterTransportSound, CoordStruct(Coord), 0);
     }

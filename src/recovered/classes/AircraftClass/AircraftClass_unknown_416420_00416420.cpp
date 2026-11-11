@@ -8,7 +8,7 @@
 void AircraftClass::unknown_416420()
 {
     Debug_Printf("Do_MISSION_MOVE_Carryall - LAND - Dropping off cargo\n");
-    FootClass *passenger = static_cast<FootClass *>(Cargo.unknown_4689f0());
+    FootClass *passenger = static_cast<FootClass *>(Cargo.Detach_Object());
     CoordStruct position = Coord;
     position.Z = Map.Get_Height_GL(position);
     UnknownCellClass *cell = reinterpret_cast<UnknownCellClass *>(&Map[position]);
@@ -26,7 +26,7 @@ void AircraftClass::unknown_416420()
     }
     passenger->Locomotor.Checked()->Link_To_Object(passenger);
     if (!passenger->unknown_slot53(&position, 0)) {
-        Cargo.Unknown_00468960(passenger);
+        Cargo.Attach(passenger);
         return;
     }
     {

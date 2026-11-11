@@ -41,7 +41,7 @@ static bool _Pop_Group_Out_Of_Object(FootClass *group, TechnoClass *object)
 
             case 1:
             case 2:
-                object->Cargo.Unknown_00468960((FootClass *)todo);
+                object->Cargo.Attach((FootClass *)todo);
                 todo->unknown_slot69();
                 object->unknown_slot116(0x10, false);
                 ++quantity;
@@ -128,7 +128,7 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
         unknown_a40774--;
         if (placed) {
             plane->unknown_5b1 = true;
-            plane->Cargo.Unknown_00468960(object);
+            plane->Cargo.Attach(object);
             plane->Commence();
             return true;
         } else {

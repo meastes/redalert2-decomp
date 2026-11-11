@@ -159,18 +159,18 @@ struct UnknownSlot268Arg {
 
 // The passengers (hypothesis: Westwood's CargoClass): a count and a chain of
 // objects linked through ObjectClass +0x30.
-class UnknownCargo {
+class CargoClass {
 public:
-    UnknownCargo() : Count(0), Object(0) {}
-    UnknownCargo(NoInitClass const &noinit) {}
-    ObjectClass *unknown_468a10() const;    // 0x00468A10 (the first passenger)
-    int Unknown_00468A20() const; // 0x00468A20; existing Scope12 ABI hypothesis
+    CargoClass() : Count(0), Object(0) {}
+    CargoClass(NoInitClass const &noinit) {}
+    ObjectClass *Attached_Object() const;   // 0x00468A10 (the first passenger)
+    int GetTotalSize() const; // 0x00468A20; existing Scope12 ABI hypothesis
 #ifdef RA2_TEAM_AI_HANDLERS
     int How_Many() const { return Count; } // Cargo passenger count; original inline reads +0.
 #endif
-    ObjectClass *unknown_4689f0();          // 0x004689F0 (detaches the first passenger)
-    void Unknown_00468960(FootClass *passenger);    // 0x00468960 (adds a passenger; InfantryClass slot 93)
-    void Unknown_00468A70(FootClass *passenger);    // 0x00468A70 (removes a given passenger; FootClass 0x004CCF20)
+    ObjectClass *Detach_Object();           // 0x004689F0 (detaches the first passenger)
+    void Attach(FootClass *passenger);              // 0x00468960 (adds a passenger; InfantryClass slot 93)
+    void Detach(FootClass *passenger);              // 0x00468A70 (removes a given passenger; FootClass 0x004CCF20)
     int Count;                              // +0x00
     ObjectClass *Object;                    // +0x04
 };
@@ -636,7 +636,7 @@ public:
     int unknown_6d5900();                                       // 0x006D5900 (ground strength of the secondary weapon, Verses[4])
     int unknown_6d59d0();                                       // 0x006D59D0 (the same with Verses[0])
 
-    UnknownCargo Cargo;                     // +0x0F8 (count, first object; swizzled)
+    CargoClass Cargo;                       // +0x0F8 (count, first object; swizzled)
     int unknown_100;                        // +0x100 (-1)
     int unknown_104;                        // +0x104 (-1)
     ObjectClass *unknown_108;               // +0x108 (swizzled; listed in 0x00AC0BF8)

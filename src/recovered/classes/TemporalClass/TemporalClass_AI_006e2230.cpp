@@ -30,7 +30,7 @@ void TemporalClass::AI()
                     if(building->unknown_4532f0()>0) building->Unknown_004536D0(0);
                     if(unknown_a40774==0) {
                         while(building->Cargo.Object!=0) {
-                            ObjectClass *passenger=building->Cargo.unknown_4689f0();
+                            ObjectClass *passenger=building->Cargo.Detach_Object();
                             delete passenger;
                         }
                     }
@@ -63,5 +63,5 @@ void TemporalClass::AI()
 // @ref ?Unknown_004536D0@BuildingClass@@QAEXPAVInfantryClass@@@Z=004536d0
 // @ref ?Made_A_Kill@VeterancyClass@@QAEXHH@Z=00713360
 // @ref ?unknown_4532f0@BuildingClass@@QAEHXZ=004532f0
-// @ref ?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ=004689f0
+// @ref ?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ=004689f0
 // @ref ?unknown_a40774@@3HA=00a40774

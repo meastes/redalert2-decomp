@@ -1,4 +1,4 @@
-// void UnknownCargo::Unknown_00468960(FootClass *passenger) (0x00468960)
+// void CargoClass::Attach(FootClass *passenger) (0x00468960)
 // Adds a passenger to the hold (TibSun CargoClass::Attach): the passenger
 // leaves the map, any foot objects already chained to it are kept in front of
 // the old hold, and the count is recomputed along the foot chain.
@@ -13,7 +13,7 @@ inline bool Cargo_Is_Foot(ObjectClass const *object)
     return object != 0 && is_foot;
 }
 
-void UnknownCargo::Unknown_00468960(FootClass *passenger)
+void CargoClass::Attach(FootClass *passenger)
 {
     if (passenger == 0) return;
 

@@ -37,7 +37,7 @@ choose_destination:
         } else if (!unknown_494) {
             unknown_a8 = 2;
         } else if (unknown_slot309(unknown_494)) {
-            FootClass *passenger = (FootClass *)Cargo.unknown_468a10();
+            FootClass *passenger = (FootClass *)Cargo.Attached_Object();
             if (!passenger || !passenger->Team || passenger->Team->Class->Waypoint_Location() == unknown_geometry_k) {
                 Assign_Destination(Select_Landing_Destination_004185b0(&Map[unknown_id_source_a3d290->Get_Waypoint_Location(99)]), true);
                 if (Team) Team->unknown_func_6b79e0(unknown_494);
@@ -64,7 +64,7 @@ choose_destination:
                     unknown_416420();
                     Mark(1);
                 } else {
-                FootClass *passenger = (FootClass *)Cargo.unknown_4689f0();
+                FootClass *passenger = (FootClass *)Cargo.Detach_Object();
                 Map.Unknown_0054AF70(unknown_slot104(), this);
                 if (unknown_slot62(passenger)) passenger->unknown_37c = false;
                 Map.Unknown_0054AB70(unknown_slot104(), this);

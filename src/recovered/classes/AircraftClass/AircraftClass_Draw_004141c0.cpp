@@ -26,7 +26,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
     Point2D draw_point = point;
     draw_point += Locomotor.Checked()->Draw_Point();
     if (Cargo.Object && Type->Carryall) {
-        Cargo.unknown_468a10()->unknown_slot67(draw_point, window);
+        Cargo.Attached_Object()->unknown_slot67(draw_point, window);
     }
     unknown_slot104();
     if (Type->unknown_206 && Type->unknown_b0.unknown_00) {

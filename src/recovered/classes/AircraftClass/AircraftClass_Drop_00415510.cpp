@@ -16,7 +16,7 @@ double __cdecl unknown_cos_4ba4d0(double angle);
 int AircraftClass::unknown_415510()
 {
     // Cargo detach's FootClass result association remains a layout hypothesis.
-    FootClass *passenger = static_cast<FootClass *>(Cargo.unknown_4689f0());
+    FootClass *passenger = static_cast<FootClass *>(Cargo.Detach_Object());
     if (passenger) {
         --unknown_254;
         CoordStruct landing = Center_Coord();
@@ -53,7 +53,7 @@ int AircraftClass::unknown_415510()
                 }
             }
         }
-        Cargo.Unknown_00468960(passenger);
+        Cargo.Attach(passenger);
         passenger->unknown_slot69();
         ++unknown_254;
     }

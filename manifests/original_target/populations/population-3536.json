@@ -4,8 +4,8 @@
     "id": "population-3536",
     "inventory_sha256": "95d7c9e5d6feaf9a325660e9853d1c49a47c455ed737f8ba4457dcaf1c52a9e0",
     "gaps_sha256": "efa2ccc6a15fb75e408875cb5c0feb1a1209cf6a17dc080067614cf25f805723",
-    "historical_population_sha256": "47d658f16d6805d046369fea2655ab58bdd27e833f64507fb5d89a0b4a0f7d64",
-    "historical_acceptance_sha256": "70562e0a061471b86a489b68da8dea2f43c5c427ee1097806da64699aa3b019a"
+    "historical_population_sha256": "056c1b7141b1d91186b6a54bd4d780cadbff1a3b2cf41f5ac12a296a216a9a5a",
+    "historical_acceptance_sha256": "fcdb1c311092676cc49f4b157b27805fde9da24181e9100f71323710074e83f2"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -4735,7 +4735,7 @@
     "?Unknown_004536D0@BuildingClass@@QAEXPAVInfantryClass@@@Z": 4536016,
     "?Made_A_Kill@VeterancyClass@@QAEXHH@Z": 7418720,
     "?unknown_4532f0@BuildingClass@@QAEHXZ": 4535024,
-    "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ": 4622832,
+    "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ": 4622832,
     "?unknown_a40774@@3HA": 10749812,
     "?FUN_0044d380@seed_0044d380@@YIXH@Z": 4510592,
     "?FUN_0044d320@seed_0044d320@@YIXH@Z": 4510496,
@@ -4889,7 +4889,7 @@
     "??0BulletTypeClass@@QAE@PBD@Z": 4605152,
     "?Set_unknown_2b8@BulletTypeClass@@QAEXH@Z": 4608336,
     "?unknown_slot35@BulletTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z": 4608400,
-    "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ": 4622864,
+    "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ": 4622864,
     "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
     "?Put_ColorScheme@CCINIClass@@QAE_NPBD0H@Z": 4628448,
     "?Put_String@INIClass@@QAE_NPBD00@Z": 5301744,
@@ -6474,8 +6474,8 @@
     "?Unknown_004EB270@HouseClass@@QAE?AVCell@@PAVFootClass@@@Z": 5157488,
     "?unknown_slot194@FootClass@@UAEXXZ": 5033456,
     "?unknown_slot60@FootClass@@UAEXXZ": 5033536,
-    "?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z": 4622688,
-    "?Unknown_00468A70@UnknownCargo@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Attach@CargoClass@@QAEXPAVFootClass@@@Z": 4622688,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
     "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516432,
     "?unknown_slot77@BuildingClass@@UAE_NHPBVCell@@0_N@Z": 4456416,
     "?unknown_func_4e8640@HouseClass@@QAEXXZ": 5146176,
@@ -6873,7 +6873,7 @@
     "?Get_Point@INIClass@@QBE?AUINIPoint3D@@PBD0ABU2@@Z": 5306944,
     "_unknown_clsid_7a1fd0": 8003536,
     "?unknown_slot95@UnitClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 7324144,
-    "?Unknown_00468A20@UnknownCargo@@QBEHXZ": 4622880,
+    "?GetTotalSize@CargoClass@@QBEHXZ": 4622880,
     "?unknown_slot274@UnitClass@@UAE_NXZ": 7381600,
     "?unknown_slot275@UnitClass@@UAE_NXZ": 7381616,
     "??0RulesClass@@QAE@ABVNoInitClass@@@Z": 6554720,
@@ -10451,7 +10451,8 @@
     "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "??_EXSurface@@UAEPAXI@Z": 4264736,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488
   },
   "regions": [
     {
@@ -12636,7 +12637,7 @@
         {
           "offset": 412,
           "kind": 20,
-          "symbol": "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ",
+          "symbol": "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ",
           "target": 4622832,
           "addend": 0,
           "resolved": 4292372000
@@ -12650,7 +12651,7 @@
           "resolved": 4294682734
         }
       ],
-      "source_sha256": "0d8ff6ee4a574892bace5e6cf9c5d9bbc2d059ebd1aded78ba6cbaffb15c835e",
+      "source_sha256": "939b4ef3abf775fdf20aa0424cbd569ab11ea0be373da234df859684a01c0907",
       "source": "src/recovered/classes/TemporalClass/TemporalClass_AI_006e2230.cpp",
       "population": "population-3536",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

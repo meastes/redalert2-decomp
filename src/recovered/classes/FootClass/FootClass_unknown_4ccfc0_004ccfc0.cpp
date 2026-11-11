@@ -2,12 +2,12 @@
 // The first passenger leaves this transport: a Gunner type left empty runs
 // slot 281, and the type's LeaveTransportSound plays at the transport.
 #include "shared/foot.hpp"
-// @ref ?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ=004689f0
+// @ref ?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ=004689f0
 // @ref ?Voc_Static_Add@@YIPAUAudioEvent@@HABUCoordStruct@@I@Z=00714290
 
 FootClass *FootClass::unknown_4ccfc0()
 {
-    FootClass *passenger = (FootClass *)Cargo.unknown_4689f0();
+    FootClass *passenger = (FootClass *)Cargo.Detach_Object();
     if (unknown_slot32()->Gunner && Cargo.Count == 0) {
         unknown_slot281((int)passenger);
     }

@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "e218e6fdb2a1c1021ac4b8a17272233eda9cca6fdb4717de4c4d8d610c7ba704",
-    "historical_acceptance_sha256": "b3331980639fe1c403a24cc3b056fedfda1c2784365f4932d97dc51ac59dd378"
+    "historical_population_sha256": "13cc7576cfbd42f15101cd34a269c9c348aa0b1b4a4172dcf34ec34785d51dfb",
+    "historical_acceptance_sha256": "cf8081440e7e24bdfb4c9ebe961b5379293bb1762ae6c721cb8ba86c28167c4e"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1700,8 +1700,8 @@
     "?Unknown_004717B0@CellClass@@QAEPAVBuildingClass@@XZ": 4659120,
     "?unknown_6d8080@TechnoClass@@QAE_NXZ": 7176320,
     "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
-    "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ": 4622832,
-    "?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z": 4622688,
+    "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ": 4622832,
+    "?Attach@CargoClass@@QAEXPAVFootClass@@@Z": 4622688,
     "?Unknown_004F52F0@HouseClass@@QAE_NXZ": 5198576,
     "?unknown_func_4eb360@HouseClass@@QAEPAVAbstractClass@@ABUCoordStruct@@@Z": 5157728,
     "?Do_MISSION_GUARD@FootClass@@UAEHXZ": 4998752,
@@ -4446,7 +4446,7 @@
     "?Unknown_004536D0@BuildingClass@@QAEXPAVInfantryClass@@@Z": 4536016,
     "?Detach_Target_468120@CaptureManagerClass@@QAE_NPAVAbstractClass@@@Z": 4620576,
     "?Release_4681e0@CaptureManagerClass@@QAEXXZ": 4620768,
-    "?Unknown_00468A70@UnknownCargo@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
     "?Unknown_00471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?Unknown_00471660@UnknownCellClass@@QBEPAVTechnoClass@@ABUPoint2D@@_NPAVObjectClass@@@Z": 4658784,
     "?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ": 4659120,
@@ -4811,7 +4811,7 @@
     "?unknown_44d070@BuildingClass@@QAEXH@Z": 4509808,
     "?unknown_44d070@BuildingClass@@QAEX_N@Z": 4509808,
     "?unknown_4532f0@BuildingClass@@QAEHXZ": 4535024,
-    "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ": 4622864,
+    "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ": 4622864,
     "?Adjust_Threat@UnknownCellClass@@QAEXHH@Z": 4680480,
     "?Is_Sensed@UnknownCellClass@@QAE_NH@Z": 4702944,
     "?unknown_47c300@CellClass@@QBE_NH@Z": 4702976,
@@ -7883,7 +7883,7 @@
     "??0SmudgeTypeClass@@QAE@PBD@Z": 6847904,
     "?AI@FactoryClass@@UAEXXZ": 4952832,
     "?unknown_slot95@UnitClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z": 7324144,
-    "?Unknown_00468A20@UnknownCargo@@QBEHXZ": 4622880,
+    "?GetTotalSize@CargoClass@@QBEHXZ": 4622880,
     "?unknown_slot274@UnitClass@@UAE_NXZ": 7381600,
     "?unknown_slot275@UnitClass@@UAE_NXZ": 7381616,
     "?QueryInterface@?$TClassFactory@VCStreamClass@@@@UAGJABUGUID@@PAPAX@Z": 6886640,
@@ -11078,7 +11078,11 @@
     "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
+    "?Unknown_0055DCA0@MapClass@@QAE_NABVCell@@@Z": 5627040,
+    "?Unknown_0055EDB0@MapClass@@QAE_NABVCell@@@Z": 5631408,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992
   },
   "regions": [
     {
@@ -16786,7 +16790,7 @@
         {
           "offset": 1330,
           "kind": 20,
-          "symbol": "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ",
+          "symbol": "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ",
           "target": 4622864,
           "addend": 0,
           "resolved": 343274
@@ -16794,7 +16798,7 @@
         {
           "offset": 1354,
           "kind": 20,
-          "symbol": "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ",
+          "symbol": "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ",
           "target": 4622864,
           "addend": 0,
           "resolved": 343250
@@ -16802,13 +16806,13 @@
         {
           "offset": 1402,
           "kind": 20,
-          "symbol": "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ",
+          "symbol": "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ",
           "target": 4622864,
           "addend": 0,
           "resolved": 343202
         }
       ],
-      "source_sha256": "99ae43067cb4cd7c21591e047db4e9d0037bd4945cf59216059dde8be3036a04",
+      "source_sha256": "59cf91b0311cf26a0c7e67491d4252f81fab486f000012e97db6ca3b937333f9",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_AI_004147f0.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -17485,7 +17489,7 @@
         {
           "offset": 341,
           "kind": 20,
-          "symbol": "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ",
+          "symbol": "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ",
           "target": 4622864,
           "addend": 0,
           "resolved": 342823
@@ -17621,7 +17625,7 @@
         {
           "offset": 815,
           "kind": 20,
-          "symbol": "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ",
+          "symbol": "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ",
           "target": 4622832,
           "addend": 0,
           "resolved": 342317
@@ -17707,7 +17711,7 @@
           "resolved": 4280677
         }
       ],
-      "source_sha256": "9497bb5e9f0d17a3ed80bf6907b4ad7ce9eaf46a4231061710511bc26d13d989",
+      "source_sha256": "b1e30cb0746499c8d0e7f8f68dfd1c6facc195e48b55eb8ea76ed5d45d4cc24b",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Do_MISSION_UNLOAD_00414d90.cpp",
       "population": "population-3943",
@@ -17753,7 +17757,7 @@
         {
           "offset": 32,
           "kind": 20,
-          "symbol": "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ",
+          "symbol": "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ",
           "target": 4622832,
           "addend": 0,
           "resolved": 337324
@@ -17833,7 +17837,7 @@
         {
           "offset": 345,
           "kind": 20,
-          "symbol": "?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z",
+          "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
           "target": 4622688,
           "addend": 0,
           "resolved": 336867
@@ -17903,7 +17907,7 @@
           "resolved": 1251877
         }
       ],
-      "source_sha256": "d47fd2867c9d51d711703ff03b0ef8224e753f69c9d0850f0018b2e139cd12d8",
+      "source_sha256": "c33e44c2299a9e92751400a036c67474a28bfac674cf3cc5661435039dfe8b2c",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_416420_00416420.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -18194,7 +18198,7 @@
         {
           "offset": 15,
           "kind": 20,
-          "symbol": "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ",
+          "symbol": "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ",
           "target": 4622832,
           "addend": 0,
           "resolved": 341197
@@ -18370,13 +18374,13 @@
         {
           "offset": 600,
           "kind": 20,
-          "symbol": "?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z",
+          "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
           "target": 4622688,
           "addend": 0,
           "resolved": 340468
         }
       ],
-      "source_sha256": "bc40386a4bdb4024fc665624559239dac35db10cbd926e468897a09ef8bd02f9",
+      "source_sha256": "efdba522d5fdac988516cd11c2c1da0c079753d0cd0747e4fa26df5e5e4f5c85",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Drop_00415510.cpp",
       "population": "population-3943",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -18856,7 +18860,7 @@
         {
           "offset": 1356,
           "kind": 20,
-          "symbol": "?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z",
+          "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
           "target": 4622688,
           "addend": 0,
           "resolved": 335264
@@ -18894,7 +18898,7 @@
           "resolved": 4287102
         }
       ],
-      "source_sha256": "e59da72ddeec297f156ec010a272220cf07527ad7c041c9f19862aab188263c6",
+      "source_sha256": "1482babe466cece0d017a14f1c656f4665b35451bdbc53361d962acf4feaebfa",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Move_Carryall_00416670.cpp",
       "population": "population-3943",
@@ -19267,7 +19271,7 @@
         {
           "offset": 969,
           "kind": 20,
-          "symbol": "?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z",
+          "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
           "target": 4622688,
           "addend": 0,
           "resolved": 324035
@@ -19283,7 +19287,7 @@
         {
           "offset": 1040,
           "kind": 20,
-          "symbol": "?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ",
+          "symbol": "?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ",
           "target": 4622832,
           "addend": 0,
           "resolved": 324108
@@ -19291,7 +19295,7 @@
         {
           "offset": 1080,
           "kind": 20,
-          "symbol": "?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z",
+          "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
           "target": 4622688,
           "addend": 0,
           "resolved": 323924
@@ -19377,7 +19381,7 @@
           "resolved": 4298329
         }
       ],
-      "source_sha256": "7994c5cdd66259e8eb7a932260ec558560b7af0691f456d593f7a6fd89f3bf90",
+      "source_sha256": "f0d9dfafa020cfc365b02bf607ff7c8ac599c11fff0bb9975b7ad1e3778d83f5",
       "switch_data_bytes": 32,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Do_MISSION_ENTER_004193d0.cpp",
       "population": "population-3943",
@@ -20496,7 +20500,7 @@
         {
           "offset": 1084,
           "kind": 20,
-          "symbol": "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ",
+          "symbol": "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ",
           "target": 4622864,
           "addend": 0,
           "resolved": 327056
@@ -20590,7 +20594,7 @@
           "resolved": 4294998
         }
       ],
-      "source_sha256": "83bb0d7624d29f8d4893f156dd9e716a34d9e3630512ad49da61cbcfd0745fe3",
+      "source_sha256": "f79569a9f886f9f22ff305a302cf31399201ddaf797a1cbf1e1fda14d8f145d7",
       "switch_data_bytes": 70,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot95_00418840.cpp",
       "population": "population-3943",
@@ -21846,7 +21850,7 @@
         {
           "offset": 329,
           "kind": 20,
-          "symbol": "?unknown_468a10@UnknownCargo@@QBEPAVObjectClass@@XZ",
+          "symbol": "?Attached_Object@CargoClass@@QBEPAVObjectClass@@XZ",
           "target": 4622864,
           "addend": 0,
           "resolved": 345859
@@ -22108,7 +22112,7 @@
           "resolved": 742691
         }
       ],
-      "source_sha256": "7d6b9818cb0053b4e8757fef47152748fa54f64a91a20d86108df0c6ad826b7e",
+      "source_sha256": "4681bad8fe7c7cbfe54c031cee48a6d3c2d2d7ecf55c598a71729a2a53507996",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Draw_004141c0.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

@@ -81,11 +81,11 @@ int BuildingClass::Do_MISSION_REPAIR()
                         }
                         // Both completed treatment and an empty reply release the patient.
                     case 10:
-                        unknown_slot62((TechnoClass *)Cargo.unknown_4689f0());
+                        unknown_slot62((TechnoClass *)Cargo.Detach_Object());
                         unknown_slot116(5, false);
                         break;
                     case 32:
-                        unknown_slot62((TechnoClass *)Cargo.unknown_4689f0());
+                        unknown_slot62((TechnoClass *)Cargo.Detach_Object());
                         break;
                     }
                 }
@@ -113,7 +113,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     TechnoClass *contact = Contact_With_Whom();
                     if (contact->unknown_118.Is_Dumbass()) contact->unknown_118.Set_Veteran(true);
                     else contact->unknown_118.Set_Elite(true);
-                    unknown_slot62((TechnoClass *)Cargo.unknown_4689f0());
+                    unknown_slot62((TechnoClass *)Cargo.Detach_Object());
                     unknown_slot116(5, false);
                 }
 

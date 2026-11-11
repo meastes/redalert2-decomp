@@ -3,12 +3,12 @@
 // expand it): it leaves the cargo, the type's LeaveTransportSound plays at
 // the transport, and a Gunner type left empty runs slot 281.
 #include "shared/foot.hpp"
-// @ref ?Unknown_00468A70@UnknownCargo@@QAEXPAVFootClass@@@Z=00468a70
+// @ref ?Detach@CargoClass@@QAEXPAVFootClass@@@Z=00468a70
 // @ref ?Voc_Static_Add@@YIPAUAudioEvent@@HABUCoordStruct@@I@Z=00714290
 
 void FootClass::unknown_4ccf20(FootClass *passenger)
 {
-    Cargo.Unknown_00468A70(passenger);
+    Cargo.Detach(passenger);
     if (passenger != 0 && unknown_slot32()->LeaveTransportSound != -1) {
         Voc_Static_Add(unknown_slot32()->LeaveTransportSound, CoordStruct(Coord), 0);
     }

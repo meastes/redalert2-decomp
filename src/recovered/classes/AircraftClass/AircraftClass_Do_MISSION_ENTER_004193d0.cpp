@@ -12,8 +12,8 @@
 // @ref ?unknown_6d8080@TechnoClass@@QAE_NXZ=006d8080
 // @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
-// @ref ?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ=004689f0
-// @ref ?Unknown_00468960@UnknownCargo@@QAEXPAVFootClass@@@Z=00468960
+// @ref ?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ=004689f0
+// @ref ?Attach@CargoClass@@QAEXPAVFootClass@@@Z=00468960
 // The destination as a building (it may also be a cell).
 static inline BuildingClass *Building_Destination(AbstractClass *target)
 {
@@ -106,17 +106,17 @@ int AircraftClass::Do_MISSION_ENTER()
             return 1;
         case 5:
             unknown_slot52();
-            Contact(0)->Cargo.Unknown_00468960(this);
+            Contact(0)->Cargo.Attach(this);
             return 1;
         case 1:
             break;
         }
         if (Type->Carryall && Cargo.Object) {
             TechnoClass *contact = Contact(0);
-            FootClass *passenger = (FootClass *)Cargo.unknown_4689f0();
+            FootClass *passenger = (FootClass *)Cargo.Detach_Object();
             unknown_slot149(3);
             if (passenger->unknown_slot150(2, contact) == 1) {
-                Cargo.Unknown_00468960(passenger);
+                Cargo.Attach(passenger);
                 Mark(0);
                 unknown_416420();
                 Mark(1);
