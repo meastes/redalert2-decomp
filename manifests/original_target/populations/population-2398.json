@@ -4,8 +4,8 @@
     "id": "population-2398",
     "inventory_sha256": "447c9259c6070bb87aa86ab7b2d3230b5812a3127e2acb09db2ac728d9d33d63",
     "gaps_sha256": "f0ec9a5cc0a6dc4ee037a643db5b3c86894fa65e5e902507bab8a87b8e253acd",
-    "historical_population_sha256": "37e0bb86235aa709181b2f59c7d16be615634844dba93b8fa9f668ecfcfffa95",
-    "historical_acceptance_sha256": "4f16c354a7f99106e3a2a01308df4260275a84232b8051430a480962a1e721ad"
+    "historical_population_sha256": "d53768c0fded2db515f38cc3247765e8d3ff644c8d6e93242dde0ce1b0cb815b",
+    "historical_acceptance_sha256": "c63cbc138fc7915bb52e6597ee3a80f10a0287df0aa4eaca2d2cb0ec1a1f510f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -942,10 +942,10 @@
     "_$E38": 6003456,
     "??0MultiplayerTeam@@QAE@ABVWideString@@H@Z": 6003488,
     "??1MultiplayerTeam@@UAE@XZ": 6003536,
-    "?unknown_slot1@MultiplayerTeam@@UAE_NH@Z": 6003552,
-    "?unknown_slot2@MultiplayerTeam@@UAE_NH@Z": 6003584,
-    "?unknown_count_members_5b9bb0@MultiplayerTeam@@QBEHXZ": 6003632,
-    "?unknown_add_to_combo_5b9be0@MultiplayerTeam@@QAEHPAUHWND__@@@Z": 6003680,
+    "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z": 6003552,
+    "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z": 6003584,
+    "?CountMembers@MultiplayerTeam@@QBEHXZ": 6003632,
+    "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z": 6003680,
     "??_GMultiplayerTeam@@UAEPAXI@Z": 6003744,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?Clear@?$DynamicVectorClass@PAVBombClass@@@@UAEXXZ": 4240720,
@@ -2268,8 +2268,8 @@
     "?unknown_slot17@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@@Z": 5907440,
     "?unknown_slot39@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z": 5907664,
     "?unknown_number_text_7710c0@@YI?AVWideString@@H@Z": 7803072,
-    "?unknown_slot1@MultiplayerBattleTeam@@UAE_NH@Z": 5907888,
-    "?unknown_slot2@MultiplayerBattleTeam@@UAE_NH@Z": 5907920,
+    "?IsTeamIncluded@MultiplayerBattleTeam@@UAE_NH@Z": 5907888,
+    "?SetPlayerTeam@MultiplayerBattleTeam@@UAE_NH@Z": 5907920,
     "??1FreeForAll@@UAE@XZ": 5927072,
     "?AssignTeams@FreeForAll@@UAE_NXZ": 5927088,
     "?AssignTeamsAtStart@FreeForAll@@UAE_NXZ": 5927184,
@@ -2287,7 +2287,7 @@
     "??0MultiplayerSiegeAttackerTeam@@QAE@XZ": 5946976,
     "??_7MultiplayerObserverTeam@@6B@": 8022876,
     "??_7MultiplayerSiegeDefenderTeam@@6B@": 8023124,
-    "?unknown_slot1@MultiplayerSiegeDefenderTeam@@UAE_NH@Z": 5946912,
+    "?IsTeamIncluded@MultiplayerSiegeDefenderTeam@@UAE_NH@Z": 5946912,
     "??_7MultiplayerSiegeAttackerTeam@@6B@": 8023140,
     "__imp__QueryPerformanceCounter@4": 7971272,
     "__imp__DeleteCriticalSection@4": 7971288,
@@ -3714,7 +3714,9 @@
     "__real@8@3ffe947ae147ae147800": 8049000,
     "__real@8@3fe3c8000000c8000000": 8019992,
     "__except_handler3": 7885524,
-    "__except_list": 0
+    "__except_list": 0,
+    "?Count@UnknownSelection@@QAEHXZ": 6997936,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552
   },
   "regions": [
     {
@@ -4541,8 +4543,8 @@
     {
       "entry": 6003552,
       "method": "005b9b60",
-      "symbol": "?unknown_slot1@MultiplayerTeam@@UAE_NH@Z",
-      "symbol_prefix": "?unknown_slot1@MultiplayerTeam@@UAE_NH@Z",
+      "symbol": "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z",
+      "symbol_prefix": "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -4564,20 +4566,20 @@
           "resolved": 10746508
         }
       ],
-      "source_sha256": "5424f8eb401b57519822ef22eca194fde82ed9125e8767bcc3066b185fe09bf3",
-      "source": "src/recovered/classes/MultiplayerTeam/MultiplayerTeam_unknown_slot1_005b9b60.cpp",
+      "source_sha256": "bc8b33e22f4350707b52ea7be659369d0f25f5850da54e9ce2dd8a34dd4dd92f",
+      "source": "src/recovered/classes/MultiplayerTeam/MultiplayerTeam_IsTeamIncluded_005b9b60.cpp",
       "population": "population-2398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MultiplayerTeam_unknown_slot1_005b9b60",
+      "semantic_name": "MultiplayerTeam_IsTeamIncluded_005b9b60",
       "source_order": 89963
     },
     {
       "entry": 6003584,
       "method": "005b9b80",
-      "symbol": "?unknown_slot2@MultiplayerTeam@@UAE_NH@Z",
-      "symbol_prefix": "?unknown_slot2@MultiplayerTeam@@UAE_NH@Z",
+      "symbol": "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z",
+      "symbol_prefix": "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -4599,20 +4601,20 @@
           "resolved": 10746496
         }
       ],
-      "source_sha256": "d84d45dbc5c95647aa3d8d7397cf772417d3f3bfd95923d909b94ddc934482b5",
-      "source": "src/recovered/classes/MultiplayerTeam/MultiplayerTeam_unknown_slot2_005b9b80.cpp",
+      "source_sha256": "8c9b660f2831f67145909f8aed342052f4ea38fdb032feb4074cb059c90badf6",
+      "source": "src/recovered/classes/MultiplayerTeam/MultiplayerTeam_SetPlayerTeam_005b9b80.cpp",
       "population": "population-2398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MultiplayerTeam_unknown_slot2_005b9b80",
+      "semantic_name": "MultiplayerTeam_SetPlayerTeam_005b9b80",
       "source_order": 89964
     },
     {
       "entry": 6003632,
       "method": "005b9bb0",
-      "symbol": "?unknown_count_members_5b9bb0@MultiplayerTeam@@QBEHXZ",
-      "symbol_prefix": "?unknown_count_members_5b9bb0@MultiplayerTeam@@QBEHXZ",
+      "symbol": "?CountMembers@MultiplayerTeam@@QBEHXZ",
+      "symbol_prefix": "?CountMembers@MultiplayerTeam@@QBEHXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -4642,20 +4644,20 @@
           "resolved": 10746496
         }
       ],
-      "source_sha256": "dd613bf1e79241a3c15042f455d608f8af8a33c231caaf269b18efaa6deab522",
-      "source": "src/recovered/classes/MultiplayerTeam/MultiplayerTeam_unknown_count_members_005b9bb0.cpp",
+      "source_sha256": "25d86688700d78275598a09ba7716fc6d88b8452307de7e8fc3f843f2e9ae4e4",
+      "source": "src/recovered/classes/MultiplayerTeam/MultiplayerTeam_CountMembers_005b9bb0.cpp",
       "population": "population-2398",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MultiplayerTeam_unknown_count_members_005b9bb0",
+      "semantic_name": "MultiplayerTeam_CountMembers_005b9bb0",
       "source_order": 89965
     },
     {
       "entry": 6003680,
       "method": "005b9be0",
-      "symbol": "?unknown_add_to_combo_5b9be0@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
-      "symbol_prefix": "?unknown_add_to_combo_5b9be0@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
+      "symbol": "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
+      "symbol_prefix": "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -4685,13 +4687,13 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "df3b6b1837956c0b9a7e9a299a34c9b8b7c27265e2a6dae70307babf18b5fe3e",
-      "source": "src/recovered/classes/MultiplayerTeam/MultiplayerTeam_unknown_add_to_combo_005b9be0.cpp",
+      "source_sha256": "3c35bdf8ec7f3e27663b43d69310381c42c74bd548a42b337d0c851a15597fc9",
+      "source": "src/recovered/classes/MultiplayerTeam/MultiplayerTeam_AddToList_005b9be0.cpp",
       "population": "population-2398",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MultiplayerTeam_unknown_add_to_combo_005b9be0",
+      "semantic_name": "MultiplayerTeam_AddToList_005b9be0",
       "source_order": 89966
     },
     {

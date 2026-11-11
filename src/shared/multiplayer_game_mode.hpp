@@ -45,14 +45,14 @@ public:
     MultiplayerTeam(WideString const &name, int number);     // 0x005B9B20
     virtual ~MultiplayerTeam();                               // 0x005B9B50 (scalar deleting 0x005B9C20)
     // Slot 1: true for a valid player list index.
-    virtual bool unknown_slot1(int player);                   // 0x005B9B60
+    virtual bool IsTeamIncluded(int player);                  // 0x005B9B60
     // Slot 2: puts a valid player on this team.
-    virtual bool unknown_slot2(int player);                   // 0x005B9B80
+    virtual bool SetPlayerTeam(int player);                   // 0x005B9B80
     // The number of players on this team.
-    int unknown_count_members_5b9bb0() const;                 // 0x005B9BB0
+    int CountMembers() const;                                 // 0x005B9BB0
     // Adds the team name to a combo box with the team number as item data;
     // returns the new item's index.
-    int unknown_add_to_combo_5b9be0(HWND combo);              // 0x005B9BE0
+    int AddToList(HWND combo);                                // 0x005B9BE0
 
     WideString Name;                                          // +0x04
     int Number;                                               // +0x08
@@ -375,22 +375,22 @@ extern int unknown_colors_a71118[8];
 class MultiplayerBattleTeam : public MultiplayerTeam {
 public:
     MultiplayerBattleTeam(WideString const &name, int number);   // 0x005A2530
-    virtual bool unknown_slot1(int unknown);                  // 0x005A25B0
-    virtual bool unknown_slot2(int unknown);                  // 0x005A25D0
+    virtual bool IsTeamIncluded(int unknown);                 // 0x005A25B0
+    virtual bool SetPlayerTeam(int unknown);                  // 0x005A25D0
 };
 
 // vtable 0x007A6B5C (scalar deleting destructor 0x005AA810)
 class MultiplayerObserverTeam : public MultiplayerTeam {
 public:
     MultiplayerObserverTeam();
-    virtual bool unknown_slot1(int unknown);                  // 0x005AA800
+    virtual bool IsTeamIncluded(int unknown);                 // 0x005AA800
 };
 
 // vtable 0x007A6C54 (scalar deleting destructor 0x005ABEC0)
 class MultiplayerSiegeDefenderTeam : public MultiplayerTeam {
 public:
     MultiplayerSiegeDefenderTeam();
-    virtual bool unknown_slot1(int unknown);                  // 0x005ABE20
+    virtual bool IsTeamIncluded(int unknown);                 // 0x005ABE20
 };
 
 // vtable 0x007A6C64 (scalar deleting destructor 0x005ABEF0)

@@ -22,9 +22,9 @@ MultiplayerManBattle::~MultiplayerManBattle()
 }
 
 // 0x005AA800 (pass-6a decompile): forwards to MultiplayerTeam's slot 1.
-bool MultiplayerObserverTeam::unknown_slot1(int unknown)
+bool MultiplayerObserverTeam::IsTeamIncluded(int unknown)
 {
-    return MultiplayerTeam::unknown_slot1(unknown);
+    return MultiplayerTeam::IsTeamIncluded(unknown);
 }
 
 // 0x005E8710 (pass-6a decompile; lobby.hpp): the Choose Map dialog's message

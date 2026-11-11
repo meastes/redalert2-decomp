@@ -134,8 +134,8 @@ extern "C" void ra2_adapter_0029(void * a0, int a1, int a2, int a3, int a4, int 
 extern "C" void ra2_adapter_target_0030(void *, void *, int) __asm__("__ZN19MultiplayerGameMode29PopulateTeamDropdownForPlayerEP6HWND__i");
 extern "C" int ra2_adapter_0030(void * a0, int a1, int a2) __asm__("__ZN13Target_5a3f706targetEjj");
 extern "C" int ra2_adapter_0030(void * a0, int a1, int a2) { ra2_adapter_target_0030(a0, (void *)(uintptr_t)(unsigned int)a1, a2); return 0; }
-// 0x005B9B60 Target_5aa800::target(unsigned int) -> MultiplayerTeam::unknown_slot1(int) [return width]
-extern "C" bool ra2_adapter_target_0031(void *, int) __asm__("__ZN15MultiplayerTeam13unknown_slot1Ei");
+// 0x005B9B60 Target_5aa800::target(unsigned int) -> MultiplayerTeam::IsTeamIncluded(int) [return width]
+extern "C" bool ra2_adapter_target_0031(void *, int) __asm__("__ZN15MultiplayerTeam14IsTeamIncludedEi");
 extern "C" int ra2_adapter_0031(void * a0, int a1) __asm__("__ZN13Target_5aa8006targetEj");
 extern "C" int ra2_adapter_0031(void * a0, int a1) { return (int)(unsigned int)(int)ra2_adapter_target_0031(a0, a1); }
 // 0x005C3230 Popup_005c3230(unsigned short const*, int, bool (*)(), int) -> Message_Box_005c3230(unsigned short const*, int, bool (*)(), bool) [width]

@@ -11,7 +11,7 @@
 // @ref ??0MultiplayerTeam@@QAE@ABVWideString@@H@Z=005b9b20
 // @ref ??_7MultiplayerSiegeDefenderTeam@@6B@=007a6c54
 // @ref ??_GMultiplayerSiegeDefenderTeam@@UAEPAXI@Z=005abec0
-// @ref ?unknown_slot2@MultiplayerTeam@@UAE_NH@Z=005b9b80
+// @ref ?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z=005b9b80
 // @ref ??_C@_0BA@NAFP@MP?3DefenderTeam?$AA@=007e5764
 // @ref ??_C@_0BH@CFFE@D?3?2Ra2?2MPSiegeTeam?4cpp?$AA@=007e5774
 
