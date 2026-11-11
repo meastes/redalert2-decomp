@@ -10,7 +10,7 @@
 #include "shared/special.hpp"
 #include "shared/id_source.hpp"
 // @ref ?Value@?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ=004a4d20
-// @ref ?unknown_6f0730@TunnelLocomotionClass@@QAEXXZ=006f0730
+// @ref ?Process_Tunneling@TunnelLocomotionClass@@QAEXXZ=006f0730
 
 bool __stdcall TunnelLocomotionClass::Process()
 {
@@ -22,14 +22,14 @@ bool __stdcall TunnelLocomotionClass::Process()
             if (agl < 0) {
                 unknown_18 = 3;
             } else {
-                unknown_6f03b0();
+                Process_Turning();
             }
             break;
         case 2:
             if (agl < 0) {
                 unknown_18 = 3;
             } else {
-                unknown_6f0530();
+                Process_Digging_In();
             }
             break;
         case 3:
@@ -37,20 +37,20 @@ bool __stdcall TunnelLocomotionClass::Process()
                 LinkedTo->Mark(0);
                 unknown_18 = 4;
             } else {
-                unknown_6f0690();
+                Process_Descending();
             }
             break;
         case 4:
-            unknown_6f0730();
+            Process_Tunneling();
             break;
         case 5:
-            unknown_6f0aa0();
+            Process_Ascending();
             break;
         case 6:
-            unknown_6f0c50();
+            Process_Emerging();
             break;
         case 7:
-            unknown_6f0630();
+            Process_Aborting();
             break;
         }
         if (LinkedTo->unknown_77) {

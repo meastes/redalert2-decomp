@@ -13,7 +13,7 @@
 
 TunnelLocomotionClass::TunnelLocomotionClass() :
     unknown_18(0),
-    unknown_1c(unknown_geometry_l),
-    unknown_38(false)
+    DestinationCoord(unknown_geometry_l),
+    IsUnderground(false)
 {
 }

@@ -7,7 +7,7 @@
 // @ref __ftol=0077f110
 // @ref __real@8@40058000000000000000=007adca0
 
-void TunnelLocomotionClass::unknown_6f0aa0()
+void TunnelLocomotionClass::Process_Ascending()
 {
     CoordStruct coord = LinkedTo->Coord;
     int ground = Map.Get_Height_GL(coord);
@@ -29,7 +29,7 @@ void TunnelLocomotionClass::unknown_6f0aa0()
     } else {
         LinkedTo->unknown_slot70(0, 0);
         int delay = (int)(64.0 / LinkedTo->unknown_slot32()->ROT);
-        unknown_28 = UnknownTunnelTimer(delay);
+        DigTimer = UnknownTunnelTimer(delay);
         LinkedTo->unknown_slot306(0.0);
         unknown_18 = 6;
     }

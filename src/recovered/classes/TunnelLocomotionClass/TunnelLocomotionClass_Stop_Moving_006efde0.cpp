@@ -25,20 +25,20 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
 {
     switch (unknown_18) {
     case 1:
-        unknown_1c = unknown_geometry_l;
+        DestinationCoord = unknown_geometry_l;
         break;
     case 5:
-        unknown_1c = unknown_geometry_l;
+        DestinationCoord = unknown_geometry_l;
         break;
     case 6:
-        unknown_1c = unknown_geometry_l;
+        DestinationCoord = unknown_geometry_l;
         break;
     case 7:
-        unknown_1c = unknown_geometry_l;
+        DestinationCoord = unknown_geometry_l;
         break;
     case 4: {
         CoordStruct pos = LinkedTo->Coord;
-        if (Point_Length(Point2D(pos.X, pos.Y) - Point2D(unknown_1c.X, unknown_1c.Y)) > unknown_geometry_diagonal) {
+        if (Point_Length(Point2D(pos.X, pos.Y) - Point2D(DestinationCoord.X, DestinationCoord.Y)) > unknown_geometry_diagonal) {
             Cell cell = LinkedTo->unknown_slot104();
             Cell nearby = Map.Nearby_Location(cell, 1, Map.Zone(cell, 0, false), 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
             if (nearby == unknown_geometry_k) {
@@ -46,20 +46,20 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
             }
             if (nearby == unknown_geometry_k) {
                 LinkedTo->unknown_slot86(&LinkedTo->Strength, 0, Rules->unknown_c74, 0, true, true);
-                unknown_1c = unknown_geometry_l;
+                DestinationCoord = unknown_geometry_l;
             } else {
-                unknown_1c = Cell_Coord(nearby);
+                DestinationCoord = Cell_Coord(nearby);
             }
         }
         break;
     }
     case 3:
         unknown_18 = 5;
-        unknown_1c = unknown_geometry_l;
+        DestinationCoord = unknown_geometry_l;
         break;
     case 2:
         unknown_18 = 7;
-        unknown_1c = unknown_geometry_l;
+        DestinationCoord = unknown_geometry_l;
         break;
     }
 }

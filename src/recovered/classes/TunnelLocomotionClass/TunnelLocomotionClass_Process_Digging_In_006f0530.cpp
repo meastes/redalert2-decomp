@@ -6,9 +6,9 @@
 // @ref __real@8@3fff8000000000000000=0079a708
 // @ref ?Frame@@3HA=00a40d2c
 
-void TunnelLocomotionClass::unknown_6f0530()
+void TunnelLocomotionClass::Process_Digging_In()
 {
-    if (unknown_28.Ratio() == 1.0) {
+    if (DigTimer.Ratio() == 1.0) {
         LinkedTo->unknown_slot306(1.0);
         unknown_18 = 3;
         Voc_Play_At(Rules->unknown_16c, CoordStruct(LinkedTo->Coord), 0);

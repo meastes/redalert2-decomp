@@ -17,11 +17,11 @@ static inline CoordStruct Tunnel_Move_Coord(CoordStruct const &start, UnknownFac
  return CoordStruct((int)(point.X+Fast_Cos(radians)*(double)distance),
                     (int)(point.Y-Fast_Sin(radians)*(double)distance),start.Z);
 }
-void TunnelLocomotionClass::unknown_6f0730()
+void TunnelLocomotionClass::Process_Tunneling()
 {
  CoordStruct coord=LinkedTo->Coord;
- if((Point2D(unknown_1c.X,unknown_1c.Y)-Point2D(coord.X,coord.Y)).Length()<20) {
-  coord=unknown_1c;
+ if((Point2D(DestinationCoord.X,DestinationCoord.Y)-Point2D(coord.X,coord.Y)).Length()<20) {
+  coord=DestinationCoord;
   coord.Z=-256;
   if(LinkedTo->unknown_slot101(&Map[CoordStruct(LinkedTo->Coord)],-1,-1,0,true) && Map.Unknown_0055A7F0(CoordStruct(LinkedTo->Coord))) {
    Cell cell=LinkedTo->unknown_slot104();
@@ -36,10 +36,10 @@ void TunnelLocomotionClass::unknown_6f0730()
    if(LinkedTo->unknown_slot108()>-50) Voc_Play_At(Rules->unknown_16c,CoordStruct(LinkedTo->Coord),0);
    unknown_18=5;
    LinkedTo->Mark(1);
-   unknown_38=false;
+   IsUnderground=false;
   }
  } else {
-  coord=Tunnel_Move_Coord(coord,Tunnel_Direction_To(coord,unknown_1c),19);
+  coord=Tunnel_Move_Coord(coord,Tunnel_Direction_To(coord,DestinationCoord),19);
  }
  LinkedTo->unknown_slot103(coord);
 }

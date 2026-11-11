@@ -20,20 +20,20 @@ static inline UnknownFacingDir Coord_Direction(CoordStruct const &from, CoordStr
     return UnknownFacingDir((unsigned short)(int)((angle - 1.5707963267948966) * -10430.060040584269));
 }
 
-void TunnelLocomotionClass::unknown_6f03b0()
+void TunnelLocomotionClass::Process_Turning()
 {
     if (!LinkedTo->unknown_2e0.Is_Rotating()) {
-        UnknownFacingDir dir = Coord_Direction(LinkedTo->Coord, unknown_1c);
+        UnknownFacingDir dir = Coord_Direction(LinkedTo->Coord, DestinationCoord);
         if (dir.Raw != LinkedTo->unknown_2e0.Current().Raw) {
             Do_Turn(dir);
             return;
         }
         int delay = (int)(64.0 / LinkedTo->unknown_slot32()->ROT / Rules->unknown_20);
-        unknown_28 = UnknownTunnelTimer(delay);
+        DigTimer = UnknownTunnelTimer(delay);
         unknown_18 = 2;
         Voc_Play_At(Rules->unknown_16c, CoordStruct(LinkedTo->Coord), 0);
         new AnimClass(Rules->unknown_228, CoordStruct(LinkedTo->Coord), 0, 1, 0x600, 0);
-        unknown_38 = false;
+        IsUnderground = false;
     }
 }
 

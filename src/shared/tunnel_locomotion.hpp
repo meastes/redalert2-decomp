@@ -1,11 +1,11 @@
 // TunnelLocomotionClass (Tunnel.cpp, 0x006EF9F0-0x006F13DF; RTTI vtables
 // 0x007ADC74 IPersistStream, 0x007ADBAC ILocomotion at +4). Size 0x3C.
-// Layout from the constructor 0x006EFBE0 and Load 0x006F12F0 (names are
-// hypotheses):
-//   +0x18  int state (0 idle; 4 underground)
-//   +0x1C  CoordStruct destination (from the unit's zero 0x00AC0F30)
-//   +0x28  frame timer and its total duration (16 bytes, restarted by Load),
-//   +0x38  bool
+// Layout from the constructor 0x006EFBE0 and Load 0x006F12F0 (names from
+// TibSun tunnel.h):
+//   +0x18  int state (0 idle; 4 underground; TibSun State)
+//   +0x1C  CoordStruct DestinationCoord (from the unit's zero 0x00AC0F30)
+//   +0x28  DigTimer: frame timer and its total duration (16 bytes, restarted by Load),
+//   +0x38  bool IsUnderground
 #ifndef RA2_SHARED_TUNNEL_LOCOMOTION_HPP
 #define RA2_SHARED_TUNNEL_LOCOMOTION_HPP
 
@@ -61,18 +61,18 @@ public:
 
     // The state handlers Process dispatches to (hypotheses; 0x006F0530, 0x006F0630,
     // 0x006F0690 and 0x006F0C50 are the out-of-line copies of the ones it expands).
-    void unknown_6f03b0();                      // 0x006F03B0 (state 1)
-    void unknown_6f0530();                      // 0x006F0530 (state 2)
-    void unknown_6f0690();                      // 0x006F0690 (state 3)
-    void unknown_6f0730();                      // 0x006F0730 (state 4)
-    void unknown_6f0aa0();                      // 0x006F0AA0 (state 5)
-    void unknown_6f0c50();                      // 0x006F0C50 (state 6)
-    void unknown_6f0630();                      // 0x006F0630 (state 7)
+    void Process_Turning();                     // 0x006F03B0 (state 1)
+    void Process_Digging_In();                  // 0x006F0530 (state 2)
+    void Process_Descending();                  // 0x006F0690 (state 3)
+    void Process_Tunneling();                   // 0x006F0730 (state 4)
+    void Process_Ascending();                   // 0x006F0AA0 (state 5)
+    void Process_Emerging();                    // 0x006F0C50 (state 6)
+    void Process_Aborting();                    // 0x006F0630 (state 7)
 
     int unknown_18;                             // +0x18 state
-    CoordStruct unknown_1c;                     // +0x1C
-    UnknownTunnelTimer unknown_28;              // +0x28
-    bool unknown_38;                            // +0x38
+    CoordStruct DestinationCoord;               // +0x1C
+    UnknownTunnelTimer DigTimer;                // +0x28
+    bool IsUnderground;                         // +0x38
 };
 
 #endif

@@ -3,9 +3,9 @@
 // @ref __real@8@3fff8000000000000000=0079a708
 // @ref ?Frame@@3HA=00a40d2c
 
-void TunnelLocomotionClass::unknown_6f0c50()
+void TunnelLocomotionClass::Process_Emerging()
 {
-    if (unknown_28.Ratio() == 1.0) {
+    if (DigTimer.Ratio() == 1.0) {
         LinkedTo->unknown_slot93(2);
         if (LinkedTo->unknown_7d && !LinkedTo->unknown_76 && !LinkedTo->unknown_7a) {
             Stop_Moving();
