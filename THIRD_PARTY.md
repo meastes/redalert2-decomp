@@ -107,6 +107,9 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   RA2 body matches a YR twin may be adopted into `src/` adapted to our headers (their names follow YRpp and must be
   mapped to ours); an adopted file keeps their SPDX and copyright lines and the commit subject says
   "from ra2-decomp <YR address>". Acceptance is unchanged: strict audit and exact whole-file build.
+  Adopted 2026-11-11 (Scout1266, owner ruling under DECISIONS row 24): the member AbstractClass::Is_Techno from
+  include/abstract.h:92 (header inline in src/shared/abstract_class.hpp; its COMDAT 0x006F8A70 is emitted by
+  UICmnds.cpp); the body is respelled to the out-of-line bytes.
 
 - **mischa85/RedAlert2** (`github.com/mischa85/RedAlert2` commit `5a79accc`, 2026-11-09): a matching decompilation
   of the same RA2 1.006 game.exe (config/ra2-1.006/game.sha256 equals our target), VC6, built on the TibSun archive

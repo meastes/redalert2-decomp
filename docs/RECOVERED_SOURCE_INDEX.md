@@ -6,7 +6,7 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| [unowned](../src/recovered/unowned/) | 1442 | 439,570 | 1442 | 0x00401000–0x0077A940 |
+| [unowned](../src/recovered/unowned/) | 1441 | 439,557 | 1441 | 0x00401000–0x0077A940 |
 | [classes/MapClass](../src/recovered/classes/MapClass/) | 216 | 134,732 | 216 | 0x0049ED10–0x0056A9D0 |
 | [classes/BuildingClass](../src/recovered/classes/BuildingClass/) | 204 | 97,604 | 204 | 0x00438A60–0x004D3450 |
 | [classes/TechnoClass](../src/recovered/classes/TechnoClass/) | 234 | 90,625 | 231 | 0x0041B370–0x006D9750 |
@@ -280,9 +280,9 @@
 | [classes/RGBClass](../src/recovered/classes/RGBClass/) | 8 | 1,231 | 8 | 0x00432D70–0x0063D000 |
 | [classes/IPXAddressClass](../src/recovered/classes/IPXAddressClass/) | 18 | 1,229 | 18 | 0x00523410–0x00523960 |
 | [classes/DynamicVectorClass](../src/recovered/classes/DynamicVectorClass/) | 10 | 1,226 | 10 | 0x004FAAF0–0x00635110 |
+| [classes/AbstractClass](../src/recovered/classes/AbstractClass/) | 39 | 1,225 | 39 | 0x0040DB60–0x006F8A70 |
 | [interpal](../src/recovered/interpal/) | 7 | 1,225 | 7 | 0x0051E7F0–0x0051EB00 |
 | [classes/LineTrail](../src/recovered/classes/LineTrail/) | 11 | 1,223 | 11 | 0x00539360–0x005397B0 |
-| [classes/AbstractClass](../src/recovered/classes/AbstractClass/) | 38 | 1,212 | 38 | 0x0040DB60–0x006EC5D0 |
 | [classes/EnumConnectionPointsClass](../src/recovered/classes/EnumConnectionPointsClass/) | 10 | 1,208 | 7 | 0x00492B20–0x00492FB0 |
 | [classes/VQAMovieCompanion](../src/recovered/classes/VQAMovieCompanion/) | 6 | 1,193 | 6 | 0x0069B190–0x0069B500 |
 | [globals](../src/recovered/globals/) | 35 | 1,187 | 35 | 0x0040D060–0x00716F10 |

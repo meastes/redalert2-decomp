@@ -7,6 +7,8 @@
 // Vector members stay declarations (their bodies are kept elsewhere) except the
 // accessors and Add this unit expands; the guard keeps later headers from
 // widening that.
+// AbstractClass::Is_Techno, called out of line here until this unit emits its COMDAT (0x006F8A70).
+#define RA2_ABSTRACT_IS_TECHNO_DECL
 #define VECTOR_IMPLEMENT_VECTOR_ACCESSORS
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
 #define VECTOR_IMPLEMENT_DYNAMIC_ADD
