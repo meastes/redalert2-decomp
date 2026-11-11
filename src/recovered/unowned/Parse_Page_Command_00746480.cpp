@@ -5,7 +5,7 @@
 extern "C" int __cdecl _wcsnicmp(wchar_t const *,wchar_t const *,unsigned);
 extern "C" int __cdecl wcsncmp(wchar_t const *,wchar_t const *,unsigned);
 extern "C" int __cdecl _wcsicmp(wchar_t const *,wchar_t const *);
-int unknown_scheme_index_4cefc0();
+int Gadget_Color_Scheme();
 extern char wol_source_file_007fd62c[];
 // @ref ?wol_source_file_007fd62c@@3PADA=007fd62c
 extern char wol_reply_observer_label_007fe964[];
@@ -15,7 +15,7 @@ extern wchar_t wol_reply_space_007d64f4[];
 // @ref __wcsnicmp=007970a0
 // @ref _wcsncmp=007846cc
 // @ref __wcsicmp=00796318
-// @ref ?unknown_scheme_index_4cefc0@@YAHXZ=004cefc0
+// @ref ?Gadget_Color_Scheme@@YAHXZ=004cefc0
 // @ref __real@8@4008e100000000000000=0079b608
 // @ref ?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z=005b4da0
 extern char wol_page_label_007dfc7c[];
@@ -63,7 +63,7 @@ int __fastcall Parse_Page_Command_00746480(wchar_t const *text)
                 }
                 result=1;
             } else {
-                int color=unknown_scheme_index_4cefc0();
+                int color=Gadget_Color_Scheme();
                 unknown_session_a3d298.Messages.Add_Message(0,0,
                 StringTable::Load_String(wol_reply_observer_label_007fe964,0,wol_source_file_007fd62c,0x297b),
                 color,0x16,(int)(Rules->MessageDelay*900.0),false);

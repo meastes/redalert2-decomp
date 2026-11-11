@@ -20,7 +20,7 @@ extern wchar_t unknown_text_ab9274[];   // 0x00AB9274
 // @ref ?unknown_button_abccc0@SidebarClass@@2VShapeButtonClass@@A=00abccc0
 // @ref ?unknown_button_abcbe8@SidebarClass@@2VShapeButtonClass@@A=00abcbe8
 // @ref ?unknown_buttons_ab9508@SidebarClass@@2PAVShapeButtonClass@@A=00ab9508
-// @ref ?Is_Enabled@GadgetClass@@QAE_NXZ=004cf160
+// @ref ?Is_Enabled@GadgetClass@@QBE_NXZ=004cf160
 // @ref ?Help_Text@StripClass@SidebarClass@@QAEPBGH@Z=0067f580
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?unknown_int_83962c@@3HA=0083962c

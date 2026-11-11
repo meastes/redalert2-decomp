@@ -9,10 +9,10 @@
 ColorScheme *ProgressScreenClass::Text_Color_Scheme()
 {
     if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_players_a3fa7c[0]->Team == -1) {
-        return unknown_color_scheme_663d30("LightGrey", 1);
+        return Fetch_Scheme_By_Name("LightGrey", 1);
     }
     if (Side == 0) {
-        return unknown_color_scheme_663d30("AlliedLoad", 1);
+        return Fetch_Scheme_By_Name("AlliedLoad", 1);
     }
-    return unknown_color_scheme_663d30("SovietLoad", 1);
+    return Fetch_Scheme_By_Name("SovietLoad", 1);
 }

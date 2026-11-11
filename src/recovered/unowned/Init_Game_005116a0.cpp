@@ -139,7 +139,7 @@
 // @ref ?unknown_palette_838410@@3VPaletteClass@@A=00838410
 // @ref ?unknown_palette_838a10@@3VPaletteClass@@A=00838a10
 // @ref ?unknown_palette_838d10@@3VPaletteClass@@A=00838d10
-// @ref ?unknown_remap_name_7d83b4@@3PBDB=007d83b4
+// @ref ?Gadget_Scheme_Name@@3PBDB=007d83b4
 // @ref ??_C@_04HPIL@Grey?$AA@=007d83b8
 // @ref ?unknown_use_voxel_cache_839a58@@3_NA=00839a58
 // @ref ?unknown_voxel_colors_ae3008@@3PAVRGBClass@@A=00ae3008
@@ -161,7 +161,6 @@ extern float unknown_light_angle_79acf0;        // 0x0079ACF0 default
 extern int unknown_af6614;                      // 0x00AF6614
 extern int unknown_af6610;                      // 0x00AF6610
 extern MouseClass Map;                          // 0x008324E0
-extern char const *unknown_remap_name_7d83b4;   // 0x007D83B4
 extern unsigned __int64 unknown_loading_time_a41668;
 extern ConvertClass *unknown_drawer_8323c8;     // 0x008323C8 (TS MouseDrawer)    // 0x00A41668 when the loading screen may go
 
@@ -252,7 +251,7 @@ int __fastcall Init_Game()
     VQA_Unknown_0071DB60(0);
 
     Debug_Printf("Init Color Remap Tables\n");
-    unknown_remap_name_7d83b4 = "Grey";
+    Gadget_Scheme_Name = "Grey";
 
     Debug_Printf("Creating TacticalMap\n");
     delete unknown_tactical_83996c;
@@ -339,7 +338,7 @@ int __fastcall Init_Game()
     unknown_481fb0();
 
     unknown_max_players_a3d558 = Rules->MaxPlayers;
-    unknown_remap_name_7d83b4 = "Grey";
+    Gadget_Scheme_Name = "Grey";
 
     unknown_session_a3d298.unknown_22f4 = 0;
     unknown_session_a3d298.ScoreCount = 0;

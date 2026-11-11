@@ -97,8 +97,8 @@ public:
     // Westwood GadgetClass flag setter (TibSun gadget.h); layout is unchanged.
     void Set_Flags(unsigned flags) { Flags = flags; }
 #endif
-    bool Is_Enabled();                                              // 0x004CF160 !IsDisabled (Sidebar copy; name hypothesis)
-    GadgetClass *Extract_At(int x, int y);                          // 0x004CF290 (smallest enabled gadget at x, y; name hypothesis; near miss)
+    bool Is_Enabled() const;                                        // 0x004CF160 !IsDisabled (RA2)
+    GadgetClass *Extract_Gadget_At(int x, int y);                   // 0x004CF290 the smallest enabled gadget at x, y (RA2)
 
     int X;                  // +0x0C
     int Y;                  // +0x10
@@ -112,7 +112,7 @@ public:
     static GadgetClass *StuckOn;        // 0x00865FF0
     static GadgetClass *LastList;       // 0x00865FF4
     static GadgetClass *Focused;        // 0x00865FF8
-    static GadgetClass *MouseOver;      // 0x00865FFC (name hypothesis)
+    static GadgetClass *MouseOver;      // 0x00865FFC the gadget under the mouse (RA2)
 };
 
 // ControlClass (Control.cpp, unit 0x004831A0): a gadget with an ID that
@@ -248,8 +248,9 @@ public:
 
 extern "C" unsigned int __cdecl wcslen(unsigned short const *string);   // 0x00783605 (as msfont.hpp)
 // The colour scheme index the gadgets draw with: the scheme named by Gadget_Scheme_Name
-// ("Grey"), 0 when unknown (0x004CEFC0; Westwood's GadgetClass::Get_Color_Scheme and
-// CurrentColorScheme, non-members here; names hypotheses).
+// ("Grey"), 0 when unknown (0x004CEFC0; Westwood's static members GadgetClass::Get_Color_Scheme
+// and CurrentColorScheme, non-members here: as members they change other units, see
+// manifests/original_target/modules.json gadget header_gaps).
 int __cdecl Gadget_Color_Scheme();      // 0x004CEFC0
 extern char const *Gadget_Scheme_Name;  // 0x007D83B4
 

@@ -6,12 +6,12 @@
 #include "shared/gadget.hpp"
 // @ref ?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A=00ab6ef8
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
-// @ref ?unknown_scheme_index_4cefc0@@YAHXZ=004cefc0
+// @ref ?Gadget_Color_Scheme@@YAHXZ=004cefc0
 // @ref ?Fancy_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIH@Z=00497990
 
 void TextButtonClass::Draw_Text(wchar_t const *text)
 {
-    int index = unknown_scheme_index_4cefc0();
+    int index = Gadget_Color_Scheme();
     if (String != 0) {
         unsigned flags;
         if (IsDisabled) {

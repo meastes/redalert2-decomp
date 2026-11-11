@@ -5,7 +5,7 @@
 // @ref ?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A=00ab6ef8
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_drawer_8323c4@@3PAVConvertClass@@A=008323c4
-// @ref ?unknown_scheme_index_4cefc0@@YAHXZ=004cefc0
+// @ref ?Gadget_Color_Scheme@@YAHXZ=004cefc0
 // @ref ?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z=00497e80
 // @ref ?Get_Item@ListClass@@UBEPAGH@Z=0053a480
 // @ref _swprintf=00783764
@@ -22,7 +22,7 @@ void CheckListClass::Draw_Entry(int index, int x, int y, int width, int selected
             buffer[1] = L' ';
             swprintf(&buffer[2], object->Text);
             unsigned flags = TextFlags;
-            int scheme = unknown_scheme_index_4cefc0();
+            int scheme = Gadget_Color_Scheme();
             if (selected) {
                 flags |= 0x2000;
                 unknown_surface_83995c->Fill_Rect(Rect(x, y, width, LineHeight),

@@ -1394,10 +1394,10 @@
    "draft": "native/drafts/0071e220.cpp",
    "adapted": "its own unit: population macros spelled at the top",
    "behaviour_verdict": "cannot tell",
-   "behaviour_checked_by": "codex4 r562",
+   "behaviour_checked_by": "codex4 r570",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "8f7ead839468473a5e7a15519bb62644f2dc2381",
-   "notes": "codex4 r562: same in equal-precision callers; Rules.PathDelay double(1/900) gives 0 retry ticks in the original and 1 in the portable model (x87 64-bit-significand original vs a 53-bit portable model; shared native FP follow-up with r556/r557/r560/r562)."
+   "behaviour_checked_head": "ce72465323407d4578037e1dd7b15fa42db2453e",
+   "notes": "codex4 r562: same in equal-precision callers; Rules.PathDelay double(1/900) gives 0 retry ticks in the original and 1 in the portable model (x87 64-bit-significand original vs a 53-bit portable model; shared native FP follow-up with r556/r557/r560/r562). codex4 r570 (supersedes the r562 precision note): the original runs with 53-bit precision rounding toward zero (CRT _controlfp at 0x00786D49, WinMain at 0x0068E89E), which the port now applies (8e78a7f34); under it PathDelay 1/900 gives 0 retry ticks in both callers, so the r562 case is not a difference. Same in 127 complete-caller cases (944 ordered calls, 1,233 ordered writes, all 1,505 original instructions covered); native arm64 execution and runtime geometry not checked."
   },
   {
    "entry": "0x566340",
@@ -1668,10 +1668,11 @@
    "origin": "build/class-work/Scout719/w/keep/tunnel_ai_t4_6032.cpp",
    "author": "Scout719",
    "draft": "native/drafts/005025c0.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r563",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "71afc7500fba51709df841258f0b025d747e8535",
+   "notes": "codex4 r563 (with r563-correction): same in 297 complete-caller cases (2,549 ordered callbacks, 1,780 ordered writes, final memory, ABI; 3 COM errors to a modelled noreturn boundary, no unwind claim); 554/560 original and 542/548 candidate instructions covered, the 6 uncovered per body are the invalid negative-direction adjustment."
   },
   {
    "entry": "0x6FAA30",
@@ -1688,10 +1689,11 @@
    "origin": "build/class-work/Scout824/keep/tunnel_tu5_5039.cpp",
    "author": "Scout824",
    "draft": "native/drafts/006faa30.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r564",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "71afc7500fba51709df841258f0b025d747e8535",
+   "notes": "codex4 r564: same in 491 complete-caller cases (3,540 ordered callbacks, final memory, ABI; 1 COM error boundary, no unwind claim); in 80 cases the ordered writes differ only by the original storing the unchanged head Z at 0x006FAC47 before the 0x006FAC56 update (same value, final memory equal); 516/522 original instructions covered, the 6 uncovered are the invalid negative-direction remainder."
   },
   {
    "entry": "0x5BEFE0",
@@ -1708,11 +1710,11 @@
    "origin": "build/class-work/Scout595/w/best_5befe0_95.68.cpp",
    "author": "Scout595",
    "draft": "native/drafts/005befe0.cpp",
-   "notes": "NATIVE edits: includes shared/session_state.hpp; Unknown_005cb8d0 and Unknown_00737060 renamed to their accepted names (Change_Scenario_Slots_005cb8d0, unknown_center_on_owner_737060). Scout1209 r9 Scout1274 static review: both jump tables decoded; 0x5BF9B0 pre-call, message returns, command ids (slot combos, cancel, 0x588, chat 0x540, country/colour ids), map choice, 0x497 init, tooltip layout match; native handle edits intended",
-   "behaviour_verdict": "same",
-   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "notes": "NATIVE edits: includes shared/session_state.hpp; Unknown_005cb8d0 and Unknown_00737060 renamed to their accepted names (Change_Scenario_Slots_005cb8d0, unknown_center_on_owner_737060). Scout1209 r9 Scout1274 static review: both jump tables decoded; 0x5BF9B0 pre-call, message returns, command ids (slot combos, cancel, 0x588, chat 0x540, country/colour ids), map choice, 0x497 init, tooltip layout match; native handle edits intended codex4 r565: at its checked head the draft read the game mode through the old view unknown_session_a3d29c, which natively had its own zero storage, so the init path kept lobby flag 0/team 7 (original -1/team 0) and a map change losing unlimited slots kept 4 AIs (original 0); 151 caller cases agree after the typed Session.Mode repair. Already closed natively before delivery by the r36 member alias (9734e519c binds 0x00A3D29C to Session.Mode); the typed reads land separately as a cleanup.",
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "codex4 r565",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "aee5c0b5c"
+   "behaviour_checked_head": "71afc7500fba51709df841258f0b025d747e8535"
   },
   {
    "entry": "0x5CBF20",
@@ -1729,11 +1731,11 @@
    "origin": "build/class-work/Netshare247/c/best_5cbf20.cpp",
    "author": "Netshare247",
    "draft": "native/drafts/005cbf20.cpp",
-   "behaviour_verdict": "differs",
-   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r566",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "aee5c0b5c",
-   "notes": "Scout1274 static review: the computer-entry and previous-computer blocks are if / else if (0x005CC608 jmp 0x005CC632); the draft ran both, so changing a slot from one AI difficulty to another reset it to -1/-1/-1. Fixed in native/drafts/005cbf20.cpp"
+   "behaviour_checked_head": "ce72465323407d4578037e1dd7b15fa42db2453e",
+   "notes": "Scout1274 static review: the computer-entry and previous-computer blocks are if / else if (0x005CC608 jmp 0x005CC632); the draft ran both, so changing a slot from one AI difficulty to another reset it to -1/-1/-1. Fixed in native/drafts/005cbf20.cpp codex4 r566: the current draft (Scout1274 fix, ae09d30ec) agrees in 865 complete-caller cases (6,955 ordered callbacks, 7,384 ordered writes, final memory, fastcall RET 8; all 619 original instructions covered); the pre-fix draft differed in 96 cases (the 0x005CC608 jmp 0x005CC632 if/else), confirming the Scout1274 finding."
   },
   {
    "entry": "0x5C3FF0",
@@ -1750,11 +1752,11 @@
    "origin": "build/class-work/Netshare385/c/3ff0.cpp",
    "author": "Netshare385",
    "draft": "native/drafts/005c3ff0.cpp",
-   "notes": "NATIVE edit: defined under the callers' name Decode_Pub_Gameopt_005c3ff0. Scout1209 r9 Scout1274 static review: the L (slot names) non-observer branch fills the side combo only when a game mode is set and its slot 1 is false (0x005C4A13: test ecx; je); the draft tested == 0 ||. Fixed in native/drafts/005c3ff0.cpp. All received option values (map, credits, units, speed, flags, slots, AI table) matched",
+   "notes": "NATIVE edit: defined under the callers' name Decode_Pub_Gameopt_005c3ff0. Scout1209 r9 Scout1274 static review: the L (slot names) non-observer branch fills the side combo only when a game mode is set and its slot 1 is false (0x005C4A13: test ecx; je); the draft tested == 0 ||. Fixed in native/drafts/005c3ff0.cpp. All received option values (map, credits, units, speed, flags, slots, AI table) matched codex4 r567: the L-route side-combo predicate (0x005C4A0B-0x005C4A29) read the mode through the old view unknown_session_a3d29c, natively separate zero storage at its checked head, so a changed non-observer slot with a base mode skipped Fill_Side_Combo (96 projected traces); 144 focused cases agree after the typed Session.Mode repair. Already closed natively by the r36 member alias (9734e519c); the typed read lands separately as a cleanup. Whole function not classified.",
    "behaviour_verdict": "differs",
-   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_by": "codex4 r567",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "aee5c0b5c"
+   "behaviour_checked_head": "ce72465323407d4578037e1dd7b15fa42db2453e"
   },
   {
    "entry": "0x6282D0",
@@ -1793,10 +1795,10 @@
    "author": "Scout1181",
    "draft": "native/drafts/00626cb0.cpp",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_by": "codex4 r568",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "aee5c0b5c",
-   "notes": "Scout1274 static review: body 0x626CB0-0x626F94 (741 B, one RET); loop bound, rectangle, colour thresholds, bar width and draw order match; the original reads Players[i]->ID before the Session.Type test (no effect)"
+   "behaviour_checked_head": "ce72465323407d4578037e1dd7b15fa42db2453e",
+   "notes": "Scout1274 static review: body 0x626CB0-0x626F94 (741 B, one RET); loop bound, rectangle, colour thresholds, bar width and draw order match; the original reads Players[i]->ID before the Session.Type test (no effect) codex4 r568: same in 1,536 complete-caller cases (26,784 ordered callbacks, no external writes, final memory, fastcall ABI), all 220 original instructions covered; surface/Win32/IPX callbacks are contracts, not executed helper bodies."
   },
   {
    "entry": "0x47AD00",
@@ -1813,11 +1815,11 @@
    "origin": "build/class-work/Scout1166/keep/place_veins_7839.cpp",
    "author": "Scout1166",
    "draft": "native/drafts/0047ad00.cpp",
-   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::unknown_func_5dc180) on maps with veins; the lane's overlay names mapped to current src/shared names. Scout1274 static review: 16 call sites in order, Union argument order, OverlayIndex/OverlayData/+0x11C fields, skip rule and frame branch match (verdicts/0047ad00)",
+   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::unknown_func_5dc180) on maps with veins; the lane's overlay names mapped to current src/shared names. Scout1274 static review: 16 call sites in order, Union argument order, OverlayIndex/OverlayData/+0x11C fields, skip rule and frame branch match (verdicts/0047ad00) codex4 r569: same in 1,092 complete-caller cases (36,536 ordered callbacks, 18,710 ordered writes, final memory, thiscall ABI) with the 7 accepted Rect/Point/Union/Random2 helpers executed; 564/669 original instructions covered (the rest are two zero-Rect guard blocks, invariants asserted).",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_by": "codex4 r569",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "aee5c0b5c"
+   "behaviour_checked_head": "ce72465323407d4578037e1dd7b15fa42db2453e"
   }
  ]
 }

@@ -4,8 +4,8 @@
     "id": "population-4400",
     "inventory_sha256": "3e8e480171b05ea290e656559b8680fd9315a5ac2c3c5a1bb5c5a6c85cd670ff",
     "gaps_sha256": "aaa95b1b571cbfaa5277d90f4dd9aa5d1c126f35fc4ddda2792853b3045bcf30",
-    "historical_population_sha256": "bb637c58827074d07ee8f73d8ff6fd71288251e9e0db005fc261c2f3ccc98407",
-    "historical_acceptance_sha256": "3f6a87898f3707d6394d446b5f64dbdadbb4c1a61cd1cebc96ebc1476e89bce5"
+    "historical_population_sha256": "bfb4ad256d9e145633964369e77ac111d282d0ea6d6334f1e9098cf7f01eaec4",
+    "historical_acceptance_sha256": "8feb1d904307734019c1471e878630f0d8b4be53c45f87644fdffe6c2b0540d1"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2046,7 +2046,7 @@
     "?unknown_palette_838410@@3VPaletteClass@@A": 8619024,
     "?unknown_palette_838a10@@3VPaletteClass@@A": 8620560,
     "?unknown_palette_838d10@@3VPaletteClass@@A": 8621328,
-    "?unknown_remap_name_7d83b4@@3PBDB": 8225716,
+    "?Gadget_Scheme_Name@@3PBDB": 8225716,
     "??_C@_04HPIL@Grey?$AA@": 8225720,
     "?unknown_use_voxel_cache_839a58@@3_NA": 8624728,
     "?unknown_voxel_colors_ae3008@@3PAVRGBClass@@A": 11415560,
@@ -6585,7 +6585,7 @@
     "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
     "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
     "?Input@GadgetClass@@UAEHXZ": 5042992,
-    "?Extract_At@GadgetClass@@QAEPAV1@HH@Z": 5042832,
+    "?Extract_Gadget_At@GadgetClass@@QAEPAV1@HH@Z": 5042832,
     "?MouseOver@GadgetClass@@2PAV1@A": 8806396,
     "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
     "?Sticky_Process@GadgetClass@@UAEXI@Z": 5043632,
@@ -6600,7 +6600,7 @@
     "?Draw_Me@TextButtonClass@@UAEHH@Z": 7238400,
     "?Set_Text@TextButtonClass@@UAEXPBG_N@Z": 7238464,
     "?Draw_Background@TextButtonClass@@UAEXXZ": 7238544,
-    "?unknown_scheme_index_4cefc0@@YAHXZ": 5042112,
+    "?Gadget_Color_Scheme@@YAHXZ": 5042112,
     "?Draw_Box@@YIXABVRect@@H_N@Z": 4813776,
     "?Draw_Text@TextButtonClass@@UAEXPBG@Z": 7238752,
     "?Fancy_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIH@Z": 4815248,
@@ -6610,7 +6610,6 @@
     "?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z": 6770992,
     "??0EditClass@@QAE@IPAGHIHHHHH@Z": 4925808,
     "??_7EditClass@@6B@": 7997372,
-    "?Gadget_Color_Scheme@@YAHXZ": 5042112,
     "??1EditClass@@UAE@XZ": 4926048,
     "?Set_Text@EditClass@@UAEXPAGH@Z": 4926096,
     "?Draw_Me@EditClass@@UAEHH@Z": 4926144,
@@ -6745,7 +6744,7 @@
     "?Unknown_0067C850@SidebarClass@@QAEXXZ": 6801488,
     "?unknown_int_83962c@@3HA": 8623660,
     "?unknown_int_839624@@3HA": 8623652,
-    "?Is_Enabled@GadgetClass@@QAE_NXZ": 5042528,
+    "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
     "?Unknown_0067C910@SidebarClass@@QAEXH@Z": 6801680,
     "?Scroll@SidebarClass@@QAE_N_NH@Z": 6802896,
     "?unknown_int_a40d34@@3HA": 10751284,
@@ -14529,7 +14528,7 @@
     "?unknown_countdown_ad08c8@@3HC": 11339976,
     "?unknown_flag_ad0958@@3HA": 11340120,
     "?Refresh@ToolTipManager@@UAEX_N@Z": 7257696,
-    "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z": 6700336,
+    "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z": 6700336,
     "?unknown_vox_playing_ad0954@@3PAVVoxClass@@A": 11340116,
     "?unknown_vox_stream_ad095c@@3PAUAudioStreamPlayer@@A": 11340124,
     "?unknown_run_716f40@@YIHPAX@Z": 7434048,
@@ -15768,7 +15767,6 @@
     "?Insert_Disk@CD@@UAE_NH@Z": 4646176,
     "?Unknown_00600C80@@YI_NPBG@Z": 6294656,
     "?Set_Shadow_Color@BitFontClass@@QAEGG@Z": 4396096,
-    "?Gadget_Scheme_Name@@3PBDB": 8225716,
     "?Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z": 7435968,
     "?CreateInstance@?$TClassFactory@VCampaignClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z": 6891824,
     "?CreateInstance@?$TClassFactory@VAlphaShapeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z": 6914864,
@@ -18064,7 +18062,9 @@
     "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
     "__encoder": 7980576,
     "__pad": 7980572,
-    "__decoder": 7980580
+    "__decoder": 7980580,
+    "?Advance@EgoClass@@QAE_NH@Z": 4929136,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -45623,7 +45623,7 @@
         {
           "offset": 3257,
           "kind": 6,
-          "symbol": "?unknown_remap_name_7d83b4@@3PBDB",
+          "symbol": "?Gadget_Scheme_Name@@3PBDB",
           "target": 8225716,
           "addend": 0,
           "resolved": 8225716
@@ -46391,7 +46391,7 @@
         {
           "offset": 4207,
           "kind": 6,
-          "symbol": "?unknown_remap_name_7d83b4@@3PBDB",
+          "symbol": "?Gadget_Scheme_Name@@3PBDB",
           "target": 8225716,
           "addend": 0,
           "resolved": 8225716
@@ -46565,7 +46565,7 @@
           "resolved": 34121
         }
       ],
-      "source_sha256": "d01d3f3cb44839d0a7899763e61af39ff6367c4ed4f874e79b9a0055be418479",
+      "source_sha256": "b230882c718f9749654113a883e985ab02db86eefa9ba8fab1b1c3e3d12868cb",
       "source": "src/recovered/unowned/Init_Game_005116a0.cpp",
       "population": "population-4400",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

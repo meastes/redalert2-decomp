@@ -52,17 +52,17 @@ void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
     Surface *surface = unknown_surface_839964;
 
     swprintf(buffer, L"Rtry delta: %d", 1000 * RetryDelta / 60);
-    Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 402), unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+    Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 402), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
     swprintf(buffer, L"Rtry timeout: %d", 1000 * Timeout / 60);
-    Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 412), unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+    Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 412), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
     swprintf(buffer, L"Lat Fudge : %d", unknown_a3fba4);
-    Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 422), unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+    Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 422), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
     if (unknown_frame_sync_timer_a780c0 / 60) {
         swprintf(buffer, L"FSPS : %d", unknown_frame_syncs_ab62e4 / (unknown_frame_sync_timer_a780c0 / 60));
-        Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 432), unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+        Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 432), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
         if ((Frame & 0x7F) == 0x7F) {
             unknown_frame_sync_timer_a780c0 = 0;
             unknown_frame_syncs_ab62e4 = 0;
@@ -71,7 +71,7 @@ void IPXManagerClass::Multiplayer_Debug_Print_00526d90()
 
     if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
         swprintf(buffer, L"MC resp: %d", 1000 * unknown_ipx_manager_a40978.unknown_526c70() / 60);
-        Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 442), unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+        Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 442), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
     }
 
     for (int i = 0; i < NumConnections; i++) {

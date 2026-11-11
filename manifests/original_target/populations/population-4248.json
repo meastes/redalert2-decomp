@@ -4,8 +4,8 @@
     "id": "population-4248",
     "inventory_sha256": "756ed369d2d6372466a6e95d150f1c4dbabe49f7d504b7801b76e4360a95fb52",
     "gaps_sha256": "7141d33b1d4a10fec7c68601749a101c0e291bf8c5f048c84a3f9f0d37258256",
-    "historical_population_sha256": "7163363223962b8cf4e31798535edc5792411c2713305c6e2d44e451224a6b48",
-    "historical_acceptance_sha256": "9c60734403e2935e7f5beeb2b91e6e7affebc20bec8341b0188f5706e05f6c7c"
+    "historical_population_sha256": "1c9ef2437605c40909aa47722bed5b599d049d46a9a89afe5c4d4e8c849960a4",
+    "historical_acceptance_sha256": "967d013a228b112275da5c7cb8788bf43576347ad0b1128c62911bd8346849ab"
   },
   "references": {
     "?OnServerTime@CChatEventSink@@UAGJJJ@Z": 7756112,
@@ -6479,7 +6479,7 @@
     "?online_command_label_007fe950@@3PADA": 8382800,
     "?missing_name_label_007fe944@@3PADA": 8382788,
     "?online_last_name_00b29cd8@@3PADA": 11705560,
-    "?unknown_scheme_index_4cefc0@@YAHXZ": 5042112,
+    "?Gadget_Color_Scheme@@YAHXZ": 5042112,
     "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z": 5983648,
     "?wol_reply_observer_label_007fe964@@3PADA": 8382820,
     "?wol_reply_space_007d64f4@@3PAGA": 8217844,
@@ -10126,7 +10126,7 @@
     "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
     "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
     "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
-    "?Extract_At@GadgetClass@@QAEPAV1@HH@Z": 5042832,
+    "?Extract_Gadget_At@GadgetClass@@QAEPAV1@HH@Z": 5042832,
     "?MouseOver@GadgetClass@@2PAV1@A": 8806396,
     "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
     "?Sticky_Process@GadgetClass@@UAEXI@Z": 5043632,
@@ -10150,7 +10150,6 @@
     "?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z": 6770992,
     "??0EditClass@@QAE@IPAGHIHHHHH@Z": 4925808,
     "??_7EditClass@@6B@": 7997372,
-    "?Gadget_Color_Scheme@@YAHXZ": 5042112,
     "??1EditClass@@UAE@XZ": 4926048,
     "?Set_Text@EditClass@@UAEXPAGH@Z": 4926096,
     "?Draw_Me@EditClass@@UAEHH@Z": 4926144,
@@ -10243,7 +10242,7 @@
     "??0SidebarClass@@QAE@ABVNoInitClass@@@Z": 6797232,
     "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
     "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
-    "?Is_Enabled@GadgetClass@@QAE_NXZ": 5042528,
+    "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
     "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,
     "?Step@StripClass@SidebarClass@@QAE_N_N@Z": 6811376,
     "?Mouse_Enter@SelectClass@StripClass@SidebarClass@@UAEXXZ": 6821376,
@@ -11661,7 +11660,7 @@
     "??_7ProgressScreenClass@@6B@": 8029244,
     "?Get_Progress@ProgressScreenClass@@QAENH@Z": 6423536,
     "?Get_Side@CCINIClass@@QBEHPBD0H@Z": 4631344,
-    "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z": 6700336,
+    "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z": 6700336,
     "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Set_Progress_006201c0@ProgressScreenClass@@QAEXHNUPoint2D@@@Z": 6422976,
     "?Side_Color_Scheme@ProgressScreenClass@@QAEPAVColorScheme@@XZ": 6418000,
@@ -15201,7 +15200,13 @@
     "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
     "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
     "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
-    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Incoming@CellClass@@QAEXPBX_N11@Z": 4679968,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
+    "?Speed@?$TVelocity2D@N@@QBENXZ": 4306768,
+    "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -35853,7 +35858,7 @@
         {
           "offset": 2795,
           "kind": 20,
-          "symbol": "?unknown_scheme_index_4cefc0@@YAHXZ",
+          "symbol": "?Gadget_Color_Scheme@@YAHXZ",
           "target": 5042112,
           "addend": 0,
           "resolved": 4292261217
@@ -35907,7 +35912,7 @@
           "resolved": 11705560
         }
       ],
-      "source_sha256": "5bb600a37c0803de92a5bb027f89ea962c53a56b5c2f972a0b3a94ce273f2ce5",
+      "source_sha256": "e232d899651aa07e586aaea053330d3ae0c60005fb2c1f604cb8f666e65c5a17",
       "source": "src/recovered/classes/CChatEventSink/CChatEventSink_OnFind_00762f70.cpp",
       "population": "population-4248",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -45972,7 +45977,7 @@
         {
           "offset": 480,
           "kind": 20,
-          "symbol": "?unknown_scheme_index_4cefc0@@YAHXZ",
+          "symbol": "?Gadget_Color_Scheme@@YAHXZ",
           "target": 5042112,
           "addend": 0,
           "resolved": 4292381596
@@ -46018,7 +46023,7 @@
           "resolved": 4293323079
         }
       ],
-      "source_sha256": "f0d54113c06294d122df7b9faf15f89129aa169ff64679f0ad25277a90047d82",
+      "source_sha256": "16693eb0696362040b54afb58bd0cdf40d878ea880009bfe0dda4bfbcd26a0ff",
       "source": "src/recovered/unowned/Parse_Online_Command_00746240.cpp",
       "population": "population-4248",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -55186,7 +55191,7 @@
         {
           "offset": 476,
           "kind": 20,
-          "symbol": "?unknown_scheme_index_4cefc0@@YAHXZ",
+          "symbol": "?Gadget_Color_Scheme@@YAHXZ",
           "target": 5042112,
           "addend": 0,
           "resolved": 4292381024
@@ -55264,7 +55269,7 @@
           "resolved": 243341
         }
       ],
-      "source_sha256": "6c65da6428cf2a556138cda73078a6a6555c25cb677d0c82c6662c3e16f7e669",
+      "source_sha256": "0cf8c3c4f4eb77ae527b1510564bf598cdbf87efd7207f422e426367c0f4256d",
       "source": "src/recovered/unowned/Parse_Page_Command_00746480.cpp",
       "population": "population-4248",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -55637,7 +55642,7 @@
         {
           "offset": 620,
           "kind": 20,
-          "symbol": "?unknown_scheme_index_4cefc0@@YAHXZ",
+          "symbol": "?Gadget_Color_Scheme@@YAHXZ",
           "target": 5042112,
           "addend": 0,
           "resolved": 4292380304
@@ -55669,7 +55674,7 @@
         {
           "offset": 665,
           "kind": 20,
-          "symbol": "?unknown_scheme_index_4cefc0@@YAHXZ",
+          "symbol": "?Gadget_Color_Scheme@@YAHXZ",
           "target": 5042112,
           "addend": 0,
           "resolved": 4292380259
@@ -55747,7 +55752,7 @@
           "resolved": 242575
         }
       ],
-      "source_sha256": "15da3f7bea04dd2d858c6bf6fad756aa5fedf5d3c5b9df1e5c88c5b78b2c0a25",
+      "source_sha256": "9bde4905ae6e9064834854431f089db65609717d5f725cd211567c2fd2459808",
       "source": "src/recovered/unowned/Reply_To_Last_Pager_007466c0.cpp",
       "population": "population-4248",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

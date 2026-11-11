@@ -56,9 +56,9 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
     text[n] = 0;
     ColorScheme *scheme;
     if (house == unknown_house_a72d28) {
-        scheme = unknown_color_scheme_663d30("LightGrey", 1);
+        scheme = Fetch_Scheme_By_Name("LightGrey", 1);
     } else if (house->unknown_13d) {
-        scheme = unknown_color_scheme_663d30("Grey", 1);
+        scheme = Fetch_Scheme_By_Name("Grey", 1);
     } else {
         scheme = ColorSchemes[house->ColorSchemeIndex];
     }

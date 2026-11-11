@@ -1,6 +1,6 @@
 #include "shared/dial8.hpp"
 #include "shared/mouse.hpp"
-// @ref ?unknown_scheme_index_4cefc0@@YAHXZ=004cefc0
+// @ref ?Gadget_Color_Scheme@@YAHXZ=004cefc0
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?unknown_drawer_8323c4@@3PAVConvertClass@@A=008323c4
@@ -8,7 +8,7 @@
 // @ref ?Draw_Box@@YIXABVRect@@H_N@Z=004973d0
 int Dial8Class::Draw_Me(int forced)
 {
-    int scheme = unknown_scheme_index_4cefc0();
+    int scheme = Gadget_Color_Scheme();
     if (ControlClass::Draw_Me(forced)) {
         WWMouse->Hide_Mouse();
         Draw_Box(Rect(X, Y, Width, Height), 0, true);

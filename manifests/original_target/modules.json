@@ -272,5 +272,35 @@
   "notes": [
    "The unit's rows include the kept copies FileClass::Get_Date_Time/Set_Date_Time (0x6386B0, 0x6386C0), FileClass's and RawFileClass's scalar deleting destructors (0x6386D0, 0x639450) and RawFileClass::Is_Open (0x6394D0), placed by the linker outside the module's range"
   ]
+ },
+ "gadget": {
+  "source": "src/recovered/gadget.cpp",
+  "header": "src/shared/gadget.hpp",
+  "twin": "mischa85/RedAlert2 src/gadget.cpp (exact target; this file takes its text with the accepted bodies); TibSun gadget.cpp; ra2-decomp gadget.cpp (YR)",
+  "data": [
+   [
+    "007d83b4",
+    "007d83c0"
+   ]
+  ],
+  "header_gaps": [
+   "Get_Color_Scheme and CurrentColorScheme are the free Gadget_Color_Scheme and the global Gadget_Scheme_Name (template: static members of GadgetClass): the static member function changes WinMain (826 bytes); the static data member changes 145 regions in 20 populations that include gadget.hpp (their _$E initializer numbers shift, Destroy_Map_Paths and WinMain change)",
+   "Key codes are unsigned, not KeyNumType (Input returns int; Action and Clicked_On take unsigned &): the keyboard module is not converted",
+   "Access levels stay public (template: Clicked_On private; Action and Sticky_Process protected; the four static pointers protected): not tried this round",
+   "The flag enumerators RIGHTPRESS, RIGHTHELD, RIGHTRELEASE, LEFTUP and RIGHTUP are not declared (Input and Sticky_Process spell 0x08-0x80): an enumerator set is a declaration-count change, not tried this round",
+   "The screen size tables keep the stand-in names unknown_screen_widths_7add68/unknown_screen_heights_7add74 (template ScreenWidths, ScreenHeights; owned by another unit)",
+   "Gadget_Color_Scheme is also declared in text_print.hpp and locally in three online-command units and CChatEventSink::OnFind (formerly as unknown_scheme_index_4cefc0, now under the module's name): those units do not include gadget.hpp, and removing a declaration changes their declaration set; not tried this round"
+  ],
+  "source_gaps": [
+   "The function bodies are the accepted ones, not the twin's text (KeyNumType, Keyboard, BASECLASS, Get_Mouse_X)"
+  ],
+  "data_notes": [
+   "StuckOn, LastList, Focused and MouseOver (0x865FF0-0x865FFF) are zero-initialised storage; the ledger proves only the initialised range",
+   "The ledger cannot bind the static-initializer table entry _$S3 (the unit's pointer to its empty-rect initializer 0x4CEFA0, CRT initializer table): reported as one refused section"
+  ],
+  "notes": [
+   "The unit's rows include its first function, the dynamic initializer of shape_file.hpp's empty rectangle (0x4CEFA0), and the scalar deleting destructors of GadgetClass and LinkClass (0x4CF6A0, 0x4CF710); Is_Enabled (0x4CF160) joined the unit from the seed population-42 in this round",
+   "The scalar deleting destructors 0x497320 (Dial8Class vtable) and 0x4A57C0 (ToggleClass vtable) stay seed-shaped rows but now call GadgetClass::~GadgetClass by its real name; they left the seed population-61 (whose unit cannot include gadget.hpp) for a population of their own"
+  ]
  }
 }

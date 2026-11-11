@@ -52,39 +52,39 @@ void __fastcall Unknown_005419E0(bool noframecheck)
 
         swprintf(buffer, L"Frame : %d", Frame);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 302),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         swprintf(buffer, L"FPS : %d", unknown_a6eb1c);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 312),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         swprintf(buffer, L"MaxAhead : %d", unknown_max_ahead_a3d560);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 322),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         swprintf(buffer, L"Resp Time : %d ms", (int)(unknown_ipx_manager_a40978.Response_Time() * 1000) / 60);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 332),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         swprintf(buffer, L"Req fps : %d", unknown_a3d568);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 342),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         swprintf(buffer, L"Process : %d", unknown_session_a3d298.Players[0]->unknown_63);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 352),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         swprintf(buffer, L"Rout resp: %d", (unknown_a402dc * 1000) / 60);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 362),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         swprintf(buffer, L"NFT : %d", unknown_net_frame_timer_839970);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 372),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         swprintf(buffer, L"LNFT : %d", unknown_net_frame_delay_a6ebcc);
         Fancy_Text_Printf(buffer, surface, &surface->Get_Rect(), &Point2D(0, 382),
-            unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+            Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
 
         unknown_ipx_manager_a40978.Multiplayer_Debug_Print_00526d90();
 

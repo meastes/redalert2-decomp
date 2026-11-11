@@ -11,36 +11,6 @@
 #include "shared/vector_class.hpp"
 #include "shared/multi_mission.hpp"
 
-// --- Gadgets -----------------------------------------------------------------
-
-// 0x004CF290 GadgetClass::Extract_At (gadget.hpp; GadgetClass::Input 0x004CF330;
-// the row's decompile): of the enabled gadgets in the list from this one that
-// contain (x, y), the one with the smallest area (the last of equal ones).
-// NATIVE: the original starts from a width/height pair in data (0x007ADD70,
-// 0x007ADD7C, unsourced); here the first containing gadget always qualifies.
-GadgetClass *GadgetClass::Extract_At(int x, int y)
-{
-    GadgetClass *found = 0;
-    bool any = false;
-    int best_w = 0;
-    int best_h = 0;
-    for (GadgetClass *gadget = this; gadget != 0; gadget = (GadgetClass *)gadget->Get_Next()) {
-        if (gadget->IsDisabled) {
-            continue;
-        }
-        int w = gadget->Width;
-        int h = gadget->Height;
-        if (gadget->X <= x && x < gadget->X + w && gadget->Y <= y && y < gadget->Y + h
-            && (!any || h * w - best_h * best_w <= 0)) {
-            found = gadget;
-            any = true;
-            best_w = w;
-            best_h = h;
-        }
-    }
-    return found;
-}
-
 // --- BitFontClass (text_print.hpp) -------------------------------------------
 
 #include "shared/text_print.hpp"

@@ -4,8 +4,8 @@
     "id": "population-4445",
     "inventory_sha256": "cc09830fa7ef0ddee7c93867f5654aa3f393058cabcb73486fad0310480f424d",
     "gaps_sha256": "dcb030c50674df8a417424f1994ad9399e7443314c72e846ff231468a8465a6b",
-    "historical_population_sha256": "0a15bfbbf65859d2796420bec7cc98b1187ba8da9b92699aab84930367e8f3ef",
-    "historical_acceptance_sha256": "6f17c5004d64cbfef54ab90f9a937cd1b9d3e9e3c9c8927dd43c1223570d00f3"
+    "historical_population_sha256": "235a849d4bf724211c3bccd3d5550faf81d34546f2e30f26dd97b9e710c17552",
+    "historical_acceptance_sha256": "0b94a4fc73e269aa12ad17a55d48ccc7992f5cbde5238075330dc6c92fc25b04"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1959,7 +1959,7 @@
     "?unknown_dial_drag_00852478@@3HA": 8725624,
     "?WWMouse@@3PAVMouse@@A": 8625256,
     "__real@8@c00ca5f9836e4e441800": 7976488,
-    "?unknown_scheme_index_4cefc0@@YAHXZ": 5042112,
+    "?Gadget_Color_Scheme@@YAHXZ": 5042112,
     "?unknown_surface_83995c@@3PAVSurface@@A": 8624476,
     "?unknown_drawer_8323c4@@3PAVConvertClass@@A": 8594372,
     "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
@@ -3418,7 +3418,7 @@
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Event_Flags@TEventClass@@SIHH@Z": 7236144,
     "?Expand@DropListClass@@QAEXXZ": 4870464,
-    "?Extract_At@GadgetClass@@QAEPAV1@HH@Z": 5042832,
+    "?Extract_Gadget_At@GadgetClass@@QAEPAV1@HH@Z": 5042832,
     "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
     "?Fancy_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIIPBH@Z": 4816512,
     "?Fancy_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIH@Z": 4815248,
@@ -3643,7 +3643,6 @@
     "?From_Name@VocClass@@SIHPBD@Z": 7424320,
     "?From_Name@VoxelAnimTypeClass@@SIHPBD@Z": 7400032,
     "?From_Name@WarheadTypeClass@@SIPAV1@PBD@Z": 7475232,
-    "?Gadget_Color_Scheme@@YAHXZ": 5042112,
     "?Generic_Naming_Convention@ObjectTypeClass@@SIXPAD@Z": 6126624,
     "?Get@BlowStraw@@UAEHPAXH@Z": 4413504,
     "?Get@CacheStraw@@UAEHPAXH@Z": 4802400,
@@ -3896,7 +3895,7 @@
     "?Is_Direct_Draw@DSurface@@UAE_NXZ": 4920544,
     "?Is_Direct_Draw@Surface@@UAE_NXZ": 4264768,
     "?Is_Direct_Draw@XSurface@@UAE_NXZ": 4264720,
-    "?Is_Enabled@GadgetClass@@QAE_NXZ": 5042528,
+    "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
     "?Is_Event_Tripped@TriggerClass@@QBE_NH@Z": 7264624,
     "?Is_Hidden@WWMouseClass@@UBE_NXZ": 7812752,
     "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
@@ -9629,7 +9628,16 @@
     "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
     "?Clear@AStarClass@@QAEXXZ": 4357776,
     "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
-    "__real@8@3ffefd70a3d70a3d7000": 7986552
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
   },
   "regions": [
     {
@@ -10932,7 +10940,7 @@
         {
           "offset": 7,
           "kind": 20,
-          "symbol": "?unknown_scheme_index_4cefc0@@YAHXZ",
+          "symbol": "?Gadget_Color_Scheme@@YAHXZ",
           "target": 5042112,
           "addend": 0,
           "resolved": 228997
@@ -11026,7 +11034,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "4d1d7b262ce128e1804b27572dcbe5a54d25c293d819a2d0202f2878549adf9f",
+      "source_sha256": "3037ec84cbfbc70ca23859f30243a1e43f3128fa58b10b6775c42d07c722b8bf",
       "source": "src/recovered/classes/Dial8Class/Dial8Class_Draw_Me_00497130.cpp",
       "population": "population-4445",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

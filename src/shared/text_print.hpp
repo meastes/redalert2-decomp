@@ -161,7 +161,7 @@ extern BitTextClass *BitText;               // 0x0084E9D0
 // The surface the GUI draws on (as shared/gscreen.hpp).
 
 // The index of the colour scheme boxes are drawn in (0x004CEFC0, outside this unit).
-int unknown_scheme_index_4cefc0();
+int Gadget_Color_Scheme();
 
 // A 16-byte buffer of the unit (0x00852480).
 extern unsigned char unknown_buffer_852480[16];

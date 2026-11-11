@@ -12,7 +12,7 @@
 // @ref ?unknown_flag_8373c0@@3_NA=008373c0
 // @ref ?BitFont@@3PAVBitFontClass@@A=0084e9e8
 // @ref ?BitText@@3PAVBitTextClass@@A=0084e9d0
-// @ref ?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z=00663d30
+// @ref ?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z=00663d30
 // @ref ?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ=004ff050
 // @ref ?Set_Clipping@BitFontClass@@QAEEE@Z=00431450
 // @ref ?Set_Clip_Box@BitFontClass@@QAEXPBUtagRECT@@@Z=00431460
@@ -28,7 +28,7 @@ void __fastcall Unknown_00682140(wchar_t const *text, Point2D const &point, Rect
     if (unknown_flag_8373c0 && text != 0) {
         Point2D xy = point;
         BitFontClass *font = BitFont;
-        ColorScheme *scheme = unknown_color_scheme_663d30("DarkRed", 1);
+        ColorScheme *scheme = Fetch_Scheme_By_Name("DarkRed", 1);
         RGBClass color = scheme->BaseColor.To_RGB();
         unsigned pixel = ((color.Red >> unknown_shift_852fbc) << unknown_shift_852fb8)
             | ((color.Green >> unknown_shift_852fcc) << unknown_shift_852fc8)

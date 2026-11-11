@@ -1,6 +1,7 @@
 // long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned wparam, long lparam) (0x005BEFE0)
 // The LAN host dialog's procedure (from Red Alert's Net_New_Dialog).
 #include "shared/session_state.hpp"
+#include "shared/multiplayer_game_mode.hpp"
 void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_event_data.cpp
 #include "shared/lobby.hpp"
 #include "shared/gdlg_supp.hpp"
@@ -148,8 +149,8 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         case 0x5AA:             // the map choice
             if (!unknown_lock_a71e98) {
                 int old_scenario = unknown_session_a3d2b4;
-                bool old_unlimited = unknown_session_a3d29c == 0 || unknown_session_a3d29c->unknown_slot12();
-                bool old_flag = unknown_session_a3d29c == 0 || unknown_session_a3d29c->unknown_slot40();
+                bool old_unlimited = unknown_session_a3d298.Mode == 0 || unknown_session_a3d298.Mode->unknown_slot12();
+                bool old_flag = unknown_session_a3d298.Mode == 0 || unknown_session_a3d298.Mode->unknown_slot40();
                 Unknown_005e5fc0(window);
                 ShowWindow(window, SW_HIDE);
                 unknown_host_shown_7e6dc0 = false;
@@ -172,8 +173,8 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                 ShowWindow(window, SW_SHOW);
                 unknown_set_dialog_item_text_005c34b0(window);
                 Load_Random_Map_Preview_005cc800(window);
-                bool unlimited = unknown_session_a3d29c == 0 || unknown_session_a3d29c->unknown_slot12();
-                bool flag = unknown_session_a3d29c == 0 || unknown_session_a3d29c->unknown_slot40();
+                bool unlimited = unknown_session_a3d298.Mode == 0 || unknown_session_a3d298.Mode->unknown_slot12();
+                bool flag = unknown_session_a3d298.Mode == 0 || unknown_session_a3d298.Mode->unknown_slot40();
                 if (old_flag && !flag) {
                     Unknown_005cb560(window);
                 }
@@ -235,24 +236,23 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         Select_Player_Color_4d23c0(window, unknown_lobby_a3fa94);
         Unknown_005bbdd0(false);
         Load_Lobby_Options_005cca30(window, &unknown_session_a3d298.LANOptions);
-        if (unknown_session_a3d29c != 0 && !unknown_session_a3d29c->unknown_slot40()) {
+        if (unknown_session_a3d298.Mode != 0 && !unknown_session_a3d298.Mode->unknown_slot40()) {
             unknown_lobby_flag_7e6d90 = -1;
             unknown_a72c68 = 0;
             Unknown_005cd540(0);
             unknown_player_slots_a3fa98[0]->Team = 0;
-            unknown_player_slots_a3fa98[0]->unknown_66e2d0(unknown_session_a3d29c->unknown_slot10());
+            unknown_player_slots_a3fa98[0]->unknown_66e2d0(unknown_session_a3d298.Mode->unknown_slot10());
             unknown_player_slots_a3fa98[0]->unknown_66e300(-2);
             Fill_Color_Combos_4d2300(window);
         }
         Unknown_005c9b90(window, 0, true);
         Change_Scenario_Slots_005cb8d0(window, -1, unknown_session_a3d2b4);
-        if (unknown_lobby_flag_7e6d90 == 0 && unknown_session_a3d29c != 0 && unknown_session_a3d29c->unknown_slot40()) {
+        if (unknown_lobby_flag_7e6d90 == 0 && unknown_session_a3d298.Mode != 0 && unknown_session_a3d298.Mode->unknown_slot40()) {
             unknown_player_slots_a3fa98[0]->unknown_66e2d0(-3);
             unknown_player_slots_a3fa98[0]->Team = -1;
         }
         Refresh_Slot_Images_005c9ec0(window);
-        // NATIVE (Scout1209 r9): unknown_session_a3d29c (0x00A3D29C, Session.Mode) has its own null storage
-        // natively (its view type conflicts with the member's); the member is the same object.
+        // NATIVE (codex4 r565): every mode read goes through Session.Mode (0x00A3D29C); the old view unknown_session_a3d29c is the same object only through the r36 member alias.
         unknown_set_dialog_wide_text_005c3450(window, (UnknownTextOwner_005c3450 *)unknown_session_a3d298.Mode);
         unknown_set_dialog_item_text_005c34b0(window);
         Load_Random_Map_Preview_005cc800(window);

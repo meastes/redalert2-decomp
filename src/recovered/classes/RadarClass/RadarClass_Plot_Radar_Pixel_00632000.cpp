@@ -5,7 +5,7 @@
 #include "shared/hicolor.hpp"
 
 extern MouseClass Map;
-ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name,int kind);
+ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name,int kind);
 
 void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 {
@@ -34,7 +34,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
         if(tech->unknown_slot48()) owner=tech->unknown_slot51(false);
         int color;
         if(owner) color=Build_Hicolor_Pixel(owner->unknown_55e9.Red,owner->unknown_55e9.Green,owner->unknown_55e9.Blue);
-        else color=unknown_color_scheme_663d30("LightGrey",1)->unknown_color_0x330;
+        else color=Fetch_Scheme_By_Name("LightGrey",1)->unknown_color_0x330;
         int remaining=tech->unknown_13c.Value();
         if(remaining>0 && ((remaining-1)/Rules->FlashFrameTime)%2==1 && tech->House==unknown_player_a35db4)
             unknown_1218->Put_Pixel(point,~color);
@@ -64,7 +64,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 // @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 // @ref ?Is_Under_Fog@MapClass@@QAE_NABUCoordStruct@@@Z=00568280
 // @ref ?unknown_b263d8@@3HA=00b263d8
-// @ref ?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z=00663d30
+// @ref ?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z=00663d30
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc

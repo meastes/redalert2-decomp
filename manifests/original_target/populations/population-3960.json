@@ -4,8 +4,8 @@
     "id": "population-3960",
     "inventory_sha256": "c6d2bd62e1f0a08aefc5e1d8d087812d643d4fbc498cd8dffeda137f68b60500",
     "gaps_sha256": "e4b8fbd89f60886113ebf9005354a950ea7edfe2c9659b37417776f2ddff7238",
-    "historical_population_sha256": "7fd3524bb462a0ad41f25d19e023d25b3baa09671f03b32d3b4154eb85a5f928",
-    "historical_acceptance_sha256": "05e1e767ae417725ef6d5c6b070796b0ecf870a84152a010592ba162509317b2"
+    "historical_population_sha256": "233edf776de8f22545319750c078dfaa9f182197fae972f9214536397df44d65",
+    "historical_acceptance_sha256": "d47a95eea3835466000583f3c15f40a8406fc691f5263f377f0f1d758d62e271"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8673,7 +8673,7 @@
     "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
     "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
     "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
-    "?Extract_At@GadgetClass@@QAEPAV1@HH@Z": 5042832,
+    "?Extract_Gadget_At@GadgetClass@@QAEPAV1@HH@Z": 5042832,
     "?MouseOver@GadgetClass@@2PAV1@A": 8806396,
     "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
     "?Sticky_Process@GadgetClass@@UAEXI@Z": 5043632,
@@ -8687,7 +8687,7 @@
     "?Draw_Me@TextButtonClass@@UAEHH@Z": 7238400,
     "?Set_Text@TextButtonClass@@UAEXPBG_N@Z": 7238464,
     "?Draw_Background@TextButtonClass@@UAEXXZ": 7238544,
-    "?unknown_scheme_index_4cefc0@@YAHXZ": 5042112,
+    "?Gadget_Color_Scheme@@YAHXZ": 5042112,
     "?Draw_Box@@YIXABVRect@@H_N@Z": 4813776,
     "?Draw_Text@TextButtonClass@@UAEXPBG@Z": 7238752,
     "?Fancy_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@PAVColorScheme@@IIH@Z": 4815248,
@@ -8697,7 +8697,6 @@
     "?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z": 6770992,
     "??0EditClass@@QAE@IPAGHIHHHHH@Z": 4925808,
     "??_7EditClass@@6B@": 7997372,
-    "?Gadget_Color_Scheme@@YAHXZ": 5042112,
     "??1EditClass@@UAE@XZ": 4926048,
     "?Set_Text@EditClass@@UAEXPAGH@Z": 4926096,
     "?Draw_Me@EditClass@@UAEHH@Z": 4926144,
@@ -8800,7 +8799,7 @@
     "?Init_IO@RadarClass@@UAEXXZ": 6485136,
     "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
     "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
-    "?Is_Enabled@GadgetClass@@QAE_NXZ": 5042528,
+    "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
     "?unknown_int_a40d34@@3HA": 10751284,
     "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,
     "?Step@StripClass@SidebarClass@@QAE_N_N@Z": 6811376,
@@ -10743,7 +10742,7 @@
     "??1ProgressScreenClass@@QAE@XZ": 6417744,
     "??_7ProgressScreenClass@@6B@": 8029244,
     "?Get_Progress@ProgressScreenClass@@QAENH@Z": 6423536,
-    "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z": 6700336,
+    "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z": 6700336,
     "?unknown_debug_display_a3d8c5@@3_NA": 10737861,
     "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?ProgressScreen@@3VProgressScreenClass@@A": 10971624,
@@ -11823,7 +11822,50 @@
     "??_7WaveClass@@6B@": 8056016,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
     "??_EWaveClass@@UAEPAXI@Z": 7489024,
-    "??_EMouseClass@@UAEPAXI@Z": 4247904
+    "??_EMouseClass@@UAEPAXI@Z": 4247904,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z": 4717904,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_7?$VectorClass@PAUDamageGroup@@@@6B@": 7986524,
+    "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z": 4718672,
+    "?Play@BinkClass@@QAEXXZ": 4391984,
+    "?Set_Position@BinkClass@@QAEXHH@Z": 4391552,
+    "?Restore@MSBinkAnim@@UAEXH@Z": 5954448,
+    "?Restore@MSAnim@@UAEXH@Z": 5962896,
+    "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
+    "?Restore@Anim@Voices@WorldDominationTour@@UAEXH@Z": 7547936,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
+    "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
+    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
+    "?Normalize@Quaternion@@QAEXXZ": 6431136,
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "?Search@@3UAStarClass@@A": 8590792,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Place_Tiberium@CellClass@@QAE_NHH@Z": 4703136,
+    "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512
   },
   "regions": [
     {
@@ -17031,7 +17073,7 @@
         {
           "offset": 312,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1188372
@@ -17079,7 +17121,7 @@
         {
           "offset": 401,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1188283
@@ -17127,7 +17169,7 @@
         {
           "offset": 491,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1188193
@@ -17183,7 +17225,7 @@
         {
           "offset": 619,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1188065
@@ -17231,7 +17273,7 @@
         {
           "offset": 709,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1187975
@@ -17279,7 +17321,7 @@
         {
           "offset": 803,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1187881
@@ -17327,7 +17369,7 @@
         {
           "offset": 914,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1187770
@@ -17391,7 +17433,7 @@
         {
           "offset": 1028,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1187656
@@ -17439,7 +17481,7 @@
         {
           "offset": 1117,
           "kind": 20,
-          "symbol": "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z",
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
           "target": 6700336,
           "addend": 0,
           "resolved": 1187567
@@ -17477,7 +17519,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "fdd734bdf0c2a7ead3790d8072e5d5e5bc40d8e42943eb8ab0e6588c495705cc",
+      "source_sha256": "c25ba1faed63f2e1c9f72a59aee7c2e5d320d6b56361b1699c432e4b9b4d0cc1",
       "source": "src/recovered/MainLoop/Multiplayer_Debug_Print_005419e0.cpp",
       "population": "population-3960",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

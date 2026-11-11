@@ -4,31 +4,25 @@
 // Body: 30 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 __thiscall FUN_004a57c0(undefined4 param_1,byte param_2)
-// Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+// Calls GadgetClass::~GadgetClass, then operator delete when flags bit 0 is set
+// (a scalar deleting destructor of a GadgetClass-derived class with a trivial destructor).
 //
 // Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);
 // rename and retype as the purpose becomes known.
 //
-// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;
-// delete this line when editing it by hand.
-#include "shared/ghidra_types.hpp"
+#include "shared/gadget.hpp"
 
 namespace seed_004a57c0 {
 
-extern void __fastcall FUN_004cf080(void);
-extern void  FUN_00781d3b(undefined4 param_1);
+struct Owner_004a57c0 { unsigned int FUN_004a57c0(unsigned char flags); };
 
-struct Owner_004a57c0 { undefined4 FUN_004a57c0(byte param_2); };
-
-undefined4 Owner_004a57c0::FUN_004a57c0(byte param_2)
+unsigned int Owner_004a57c0::FUN_004a57c0(unsigned char flags)
 {
-    undefined4 param_1 = (undefined4)this;
-    FUN_004cf080();
-    if ((param_2 & 1) != 0) {
-        FUN_00781d3b((undefined4)(param_1));
+    ((GadgetClass *)this)->GadgetClass::~GadgetClass();
+    if ((flags & 1) != 0) {
+        operator delete(this);
     }
-    return param_1;
+    return (unsigned int)this;
 }
 
 }  // namespace seed_004a57c0

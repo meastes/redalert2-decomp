@@ -36,7 +36,7 @@ extern int unknown_8523e0,unknown_8523e4;
 extern TTimerClass<SystemTimerClass> TickCount;
 extern wchar_t labels_0085311c[];
 extern int credits_scroll_speed_007d6430;
-ColorScheme *__fastcall unknown_color_scheme_663d30(char const *,int);
+ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *,int);
 // @ref ?unknown_scheme_name_007d83b4@@3PBDB=007d83b4
 // @ref ?unknown_surfaces_restored_008523dc@@3_NA=008523dc
 // @ref ?labels_0085311c@@3PAGA=0085311c
@@ -81,7 +81,7 @@ void __fastcall Show_Who_Was_Responsible_004b37c0()
         char *credits=new char[file.Size()+1];
         file.Read(credits,file.Size());
         unknown_scheme_name_007d83b4="Green";
-        Fancy_Text_Printf(L" ",unknown_surface_83995c,&unknown_surface_83995c->Get_Rect(),&Point2D(0,0),unknown_color_scheme_663d30("LightGold",1),0,0x148);
+        Fancy_Text_Printf(L" ",unknown_surface_83995c,&unknown_surface_83995c->Get_Rect(),&Point2D(0,0),Fetch_Scheme_By_Name("LightGold",1),0,0x148);
         int length=file.Size();
         int line=0,column=0;
         char *cursor=credits;

@@ -21,7 +21,7 @@ void ProgressScreenClass::Draw_Bar(Point2D xy, double fraction, Surface *surface
     Unknown_Rect_Shrink_006F1B00(&outline, -3);
     ConvertClass *drawer;
     if (scheme == 0) {
-        scheme = unknown_color_scheme_663d30("DarkRed", 1);
+        scheme = Fetch_Scheme_By_Name("DarkRed", 1);
         drawer = unknown_drawer_8323c4;
     } else {
         drawer = scheme->Converter;

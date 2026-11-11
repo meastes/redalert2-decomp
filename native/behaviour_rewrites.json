@@ -287,17 +287,6 @@
    "test": null
   },
   {
-   "entry": "0x004CF290",
-   "name": "GadgetClass::Extract_At",
-   "origin_class": "unmatched (launch path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_launch.cpp",
-   "source": "the row decompile; GadgetClass::Input 0x004CF330",
-   "reached": "launch path 0x4CF290 (skirmish frame, Scout1050); blocked draft was a raw seed",
-   "notes": "NATIVE: starting width/height pair (0x007ADD70/0x007ADD7C) unsourced: the first containing gadget always qualifies"
-  },
-  {
    "entry": "0x00577010",
    "name": "MapGeneratorClass::MapGeneratorClass",
    "origin_class": "unmatched (launch path)",
@@ -730,16 +719,6 @@
    "exact": false,
    "file": "native/link/behaviour_game.cpp",
    "source": "seed src/recovered/classes/SidebarClass__SBGadgetClass/006816b0.cpp (Map 0x0059F250(0, 0); return 1); TibSun sidebar.cpp"
-  },
-  {
-   "entry": "0x004CF160",
-   "name": "GadgetClass::Is_Enabled()",
-   "symbol": "__ZN11GadgetClass10Is_EnabledEv",
-   "origin_class": "unmatched (skirmish path)",
-   "plan": "behaviour rewrite",
-   "exact": false,
-   "file": "native/link/behaviour_game.cpp",
-   "source": "seed src/recovered/004cf160.cpp (+0x1E == 0)"
   },
   {
    "entry": "0x00474260",

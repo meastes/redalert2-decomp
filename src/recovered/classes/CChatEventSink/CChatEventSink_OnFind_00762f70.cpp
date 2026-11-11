@@ -7,7 +7,7 @@
 extern "C" int __cdecl _strnicmp(char const *,char const *,unsigned int);
 extern "C" long __cdecl atol(char const *);
 extern "C" long __cdecl time(long *);
-int unknown_scheme_index_4cefc0();
+int Gadget_Color_Scheme();
 WideString __fastcall unknown_number_text_7710c0(int value);
 extern char wol_find_requested_name_b29cd8[];
 extern char wol_lobby_prefix_7fd358[];
@@ -158,7 +158,7 @@ HRESULT __stdcall CChatEventSink::OnFind(HRESULT result,WOL::Channel *channel)
         }
     }
     if(unknown_session_a3d298.Unknown_00672F10()) {
-        int color=unknown_scheme_index_4cefc0();
+        int color=Gadget_Color_Scheme();
         unknown_session_a3d298.Messages.Add_Message(0,0,text,color,0x16,(int)(Rules->MessageDelay*900.0),false);
     }
     wol_find_requested_name_b29cd8[0]=0;

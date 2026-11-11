@@ -562,7 +562,15 @@ def main():
         by_pass.setdefault(aligned if aligned.exists() else directory, []).append((entry, bound, item))
     output.mkdir(parents=True)
     results = []
-    next_population = max(int(p['id'].split('-')[1]) for p in catalog['populations']) + 1
+    # Above every id the shared private configs already map: lanes accept concurrently in their
+    # own trees and write their new ids there, so an id free in this catalog may be another lane's.
+    taken = [int(p['id'].split('-')[1]) for p in catalog['populations']]
+    for name in CONFIGS:
+        path = REPOSITORY / 'private' / name
+        if path.exists():
+            taken += [int(k.split('-')[1]) for k in json.loads(path.read_bytes()).get('populations', {})
+                      if re.fullmatch(r'population-\d+', k)]
+    next_population = max(taken) + 1
     installs = []
     for directory, entries in sorted(by_pass.items()):
         gaps_path = directory / 'unassigned-executable.jsonl'

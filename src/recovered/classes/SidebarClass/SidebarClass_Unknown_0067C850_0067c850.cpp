@@ -1,7 +1,7 @@
 // void SidebarClass::Unknown_0067C850() (0x0067C850)
 // Enables the scroll buttons while the active strip has more icons than fit.
 #include "shared/sidebar.hpp"
-// @ref ?Is_Enabled@GadgetClass@@QAE_NXZ=004cf160
+// @ref ?Is_Enabled@GadgetClass@@QBE_NXZ=004cf160
 // @ref ?Enable@GadgetClass@@UAEXXZ=004cf140
 // @ref ?Disable@GadgetClass@@UAEXXZ=004cf150
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290

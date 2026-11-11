@@ -25,7 +25,7 @@ void const *__fastcall Unknown_Load_Shape_00495270(char const *filename, bool &a
 
 class ColorScheme;
 // The colour scheme of a name (0x00663D30; kind 1 in every use here).
-ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name, int kind);
+ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name, int kind);
 
 // Draws a background image on the primary surface (0x00515A80; clears the
 // surface first; the flag presents it as well; hypothesis).

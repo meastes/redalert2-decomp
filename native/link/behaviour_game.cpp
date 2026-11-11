@@ -15,12 +15,3 @@ int SidebarClass::SBGadgetClass::Action(unsigned flags, unsigned &key)
     Map.MouseClass::Override_Mouse_Shape(0, false);
     return 1;
 }
-
-#include "shared/gadget.hpp"
-
-// 0x004CF160 GadgetClass::Is_Enabled (seed src/recovered/004cf160.cpp, a
-// __fastcall leaf): the gadget's +0x1E IsDisabled byte is clear.
-bool GadgetClass::Is_Enabled()
-{
-    return !IsDisabled;
-}

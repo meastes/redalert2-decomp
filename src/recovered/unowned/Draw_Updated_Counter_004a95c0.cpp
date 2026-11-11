@@ -5,7 +5,7 @@ extern wchar_t counter_current_text_00852a68[];
 extern wchar_t counter_previous_text_00852ab8[];
 extern wchar_t const counter_text_format_007d61ec[];
 extern char const counter_scheme_007d61e4[];
-ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name,int kind);
+ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name,int kind);
 void __fastcall unknown_blit_49f3a0(Surface &dest,void *convert,Surface &source,Rect const &sourcerect,
     RectPoint2D const &destpoint,Rect const &destclip,unsigned char const *unknown1, class Blitter const *unknown2,int unknown3,int unknown4,int unknown5,int unknown6);
 // @ref ?counter_current_text_00852a68@@3PAGA=00852a68
@@ -16,7 +16,7 @@ void __fastcall unknown_blit_49f3a0(Surface &dest,void *convert,Surface &source,
 // @ref _swprintf=00783764
 // @ref ?Font_For_Style@@YIPAVBitFontClass@@H@Z=00497a50
 // @ref ?String_Pixel_Width@BitFontClass@@QBEHPBGH@Z=00431690
-// @ref ?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z=00663d30
+// @ref ?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z=00663d30
 // The original merge retains the inclusive right/bottom adjustment.
 inline Rect Merge_Counter_Areas(Rect const &first,Rect const &second)
 {
@@ -62,5 +62,5 @@ void __fastcall Draw_Updated_Counter_004a95c0(int current,int previous,Surface *
     unknown_blit_49f3a0(*unknown_surface_839954,convert,*background,area,RectPoint2D(0,0),screen_area,0,blitter,0,0,1000,0);
     Fancy_Text_Printf(counter_current_text_00852a68,unknown_surface_839954,
         &unknown_surface_839954->Get_Rect(),&position,
-        unknown_color_scheme_663d30(counter_scheme_007d61e4,1),0,style);
+        Fetch_Scheme_By_Name(counter_scheme_007d61e4,1),0,style);
 }

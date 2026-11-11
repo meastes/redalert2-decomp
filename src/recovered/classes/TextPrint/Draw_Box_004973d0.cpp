@@ -8,7 +8,7 @@
 #include "shared/text_print.hpp"
 // @ref ?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A=00ab6ef8
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
-// @ref ?unknown_scheme_index_4cefc0@@YAHXZ=004cefc0
+// @ref ?Gadget_Color_Scheme@@YAHXZ=004cefc0
 
 struct BoxStyleType {
     int Filler;
@@ -19,7 +19,7 @@ struct BoxStyleType {
 
 void __fastcall Draw_Box(Rect const &rect, int style, bool fill)
 {
-    ColorScheme *scheme = ColorSchemes[unknown_scheme_index_4cefc0()];
+    ColorScheme *scheme = ColorSchemes[Gadget_Color_Scheme()];
     BoxStyleType const styles[6] = {
         {scheme->unknown_color_0x320, scheme->unknown_color_0x328, scheme->unknown_color_0x31c, scheme->unknown_color_0x324},
         {scheme->unknown_color_0x320, scheme->unknown_color_0x31c, scheme->unknown_color_0x328, scheme->unknown_color_0x324},

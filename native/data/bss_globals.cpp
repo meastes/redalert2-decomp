@@ -259,10 +259,6 @@ alignas(16) unsigned char ra2_bss_0201[16] __asm__("_ExceptionReturnAddress");  
 alignas(16) unsigned char ra2_bss_0202[944] __asm__("_ImageHelp_00865c20");  // 0x00865C20 ImageHelp_00865c20 (?ImageHelp_00865c20@@3UImageHelpStruct@@A)
 alignas(16) unsigned char ra2_bss_0203[112] __asm__("_unknown_approach_none_865f00");  // 0x00865F00 unknown_approach_none_865f00 (?unknown_approach_none_865f00@@3VCell@@B)
 alignas(16) unsigned char ra2_bss_0204[128] __asm__("_unknown_approach_bridge_height_865f60");  // 0x00865F60 unknown_approach_bridge_height_865f60 (?unknown_approach_bridge_height_865f60@@3HA)
-alignas(16) unsigned char ra2_bss_0205[16] __asm__("__ZN11GadgetClass7StuckOnE");  // 0x00865FF0 GadgetClass::StuckOn (?StuckOn@GadgetClass@@2PAV1@A)
-alignas(16) unsigned char ra2_bss_0206[16] __asm__("__ZN11GadgetClass8LastListE");  // 0x00865FF4 GadgetClass::LastList (?LastList@GadgetClass@@2PAV1@A)
-alignas(16) unsigned char ra2_bss_0207[16] __asm__("__ZN11GadgetClass7FocusedE");  // 0x00865FF8 GadgetClass::Focused (?Focused@GadgetClass@@2PAV1@A)
-alignas(16) unsigned char ra2_bss_0208[240] __asm__("__ZN11GadgetClass9MouseOverE");  // 0x00865FFC GadgetClass::MouseOver (?MouseOver@GadgetClass@@2PAV1@A)
 alignas(16) unsigned char ra2_bss_0209[272] __asm__("_unknown_color_entries_8660d8");  // 0x008660D8 unknown_color_entries_8660d8 (?unknown_color_entries_8660d8@@3PAUUnknownColorEntry@@A)
 alignas(16) unsigned char ra2_bss_0210[16] __asm__("_player_restarts_866250");  // 0x00866250 player_restarts_866250 (?player_restarts_866250@@3_NA)
 __asm__(".globl _unknown_flag_00866250\n.set _unknown_flag_00866250, _player_restarts_866250\n");  // same address: unknown_flag_00866250

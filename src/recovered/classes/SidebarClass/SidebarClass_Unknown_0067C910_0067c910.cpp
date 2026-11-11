@@ -8,7 +8,7 @@
 // @ref ?unknown_int_839624@@3HA=00839624
 // @ref ?unknown_abcd64@@3HA=00abcd64
 // @ref ?unknown_shapes_abcd20@@3PAPBXA=00abcd20
-// @ref ?Is_Enabled@GadgetClass@@QAE_NXZ=004cf160
+// @ref ?Is_Enabled@GadgetClass@@QBE_NXZ=004cf160
 // @ref ?Enable@GadgetClass@@UAEXXZ=004cf140
 // @ref ?Disable@GadgetClass@@UAEXXZ=004cf150
 

@@ -1,4 +1,4 @@
-// ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name, int kind) -- 0x00663D30
+// ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name, int kind) -- 0x00663D30
 // Purpose: the scheme named `name` (case insensitive) whose +0x310 field
 // equals kind, through the index lookup (0x00663D90) expanded inline; null
 // when there is none.
@@ -26,7 +26,7 @@ static inline int Index(char const *name, int kind)
     return -1;
 }
 
-ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name, int kind)
+ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name, int kind)
 {
     int index = Index(name, kind);
     if (index >= 0) {

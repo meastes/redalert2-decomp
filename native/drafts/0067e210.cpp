@@ -19,7 +19,7 @@
 // @ref ?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z=004e0b00
 // @ref ?Enable@GadgetClass@@UAEXXZ=004cf140
 // @ref ?Disable@GadgetClass@@UAEXXZ=004cf150
-// @ref ?Is_Enabled@GadgetClass@@QAE_NXZ=004cf160
+// @ref ?Is_Enabled@GadgetClass@@QBE_NXZ=004cf160
 // @ref ?Turn_On@ToggleClass@@QAEXXZ=006eb160
 // @ref ?Unknown_005A09E0@@YAXXZ=005a09e0
 // @ref ?RadarButton@RadarClass@@2VRTacticalClass@@A=00ab6478

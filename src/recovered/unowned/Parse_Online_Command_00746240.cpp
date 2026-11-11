@@ -4,7 +4,7 @@
 #include "shared/session_state.hpp"
 #include "shared/rules.hpp"
 #include "shared/unknown_player_entry.hpp"
-int unknown_scheme_index_4cefc0();
+int Gadget_Color_Scheme();
 extern "C" int __cdecl wcsncmp(wchar_t const *,wchar_t const *,unsigned int);
 extern char online_command_label_007fe950[],missing_name_label_007fe944[],wol_source_file_007fd62c[];
 extern char online_last_name_00b29cd8[];
@@ -14,7 +14,7 @@ extern char online_last_name_00b29cd8[];
 // @ref ?missing_name_label_007fe944@@3PADA=007fe944
 // @ref ?wol_source_file_007fd62c@@3PADA=007fd62c
 // @ref ?online_last_name_00b29cd8@@3PADA=00b29cd8
-// @ref ?unknown_scheme_index_4cefc0@@YAHXZ=004cefc0
+// @ref ?Gadget_Color_Scheme@@YAHXZ=004cefc0
 // @ref ?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z=005b4da0
 int __fastcall Parse_Online_Command_00746240(wchar_t const *text)
 {
@@ -46,7 +46,7 @@ int __fastcall Parse_Online_Command_00746240(wchar_t const *text)
             if(GetDlgItem(window,0x5b5)) Unknown_005c2d10(unknown_color_7a7360,(unsigned short const *)message);
         }
         if(unknown_session_a3d298.Unknown_00672F10()) {
-            int color=unknown_scheme_index_4cefc0();
+            int color=Gadget_Color_Scheme();
             unknown_session_a3d298.Messages.Add_Message(0,0,(unsigned short const *)message,color,0x16,Rules->MessageDelay*900,false);
         }
         handled=1;

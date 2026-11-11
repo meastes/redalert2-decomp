@@ -18,11 +18,11 @@
 // @ref ??_C@_17IPOH@?$AA?$CF?$AA2?$AAd?$AA?$AA@=007ee1bc
 // @ref ??_C@_1BC@LNGA@?$AA_?$AA_?$AA_?$AA_?$AA_?$AA_?$AA_?$AA_?$AA?$AA@=007ee1c4
 // @ref ?unknown_shape_ab64a0@@3PAXA=00ab64a0
-// @ref ?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z=00663d30
+// @ref ?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z=00663d30
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
 // @ref ?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A=00ab6ef8
 
-ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name, int kind);
+ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name, int kind);
 
 void RadarClass::Draw_Names()
 {
@@ -32,10 +32,10 @@ void RadarClass::Draw_Names()
                       Point2D(0, 0));
         int y = unknown_11f0 + 2;
         Fancy_Text_Printf(StringTable::Load_String("TXT_NAME_COLON", 0, "D:\\Ra2\\Radar.CPP", 1217), unknown_surface_839948,
-                          &unknown_surface_839948->Get_Rect(), &Point2D(unknown_11ec, y), unknown_color_scheme_663d30("Grey", 1), 0, 0x19);
+                          &unknown_surface_839948->Get_Rect(), &Point2D(unknown_11ec, y), Fetch_Scheme_By_Name("Grey", 1), 0, 0x19);
         Fancy_Text_Printf(StringTable::Load_String("TXT_KILLS_COLON", 0, "D:\\Ra2\\Radar.CPP", 1219), unknown_surface_839948,
                           &unknown_surface_839948->Get_Rect(), &Point2D(unknown_11ec + unknown_11f4 - 2, y),
-                          unknown_color_scheme_663d30("Grey", 1), 0, 0x219);
+                          Fetch_Scheme_By_Name("Grey", 1), 0, 0x219);
         y += 7;
         unknown_surface_839948->Draw_Line(Point2D(unknown_11ec, y), Point2D(unknown_11ec + unknown_11f4 - 1, y),
                                           unknown_drawer_8323cc->Convert(14));
@@ -47,7 +47,7 @@ void RadarClass::Draw_Names()
                 unsigned flags;
                 int color = house->ColorSchemeIndex;
                 if (house->unknown_13d) {
-                    scheme = unknown_color_scheme_663d30("Grey", 1);
+                    scheme = Fetch_Scheme_By_Name("Grey", 1);
                     flags = 0x19;
                 } else {
                     scheme = ColorSchemes[color];

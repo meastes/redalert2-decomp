@@ -10,7 +10,7 @@ extern wchar_t const type_armament_none_007d6218[];
 extern wchar_t const type_armor_format_007d6204[];
 extern char const type_green_scheme_007d61fc[];
 extern char const type_red_scheme_007d61f8[];
-ColorScheme *__fastcall unknown_color_scheme_663d30(char const *name,int kind);
+ColorScheme *__fastcall Fetch_Scheme_By_Name(char const *name,int kind);
 void __fastcall unknown_blit_49f3a0(Surface &dest,void *convert,Surface &source,Rect const &sourcerect,
     RectPoint2D const &destpoint,Rect const &destclip,unsigned char const *unknown1, class Blitter const *unknown2,int unknown3,int unknown4,int unknown5,int unknown6);
 // @ref ?type_name_format_007d627c@@=007d627c
@@ -24,7 +24,7 @@ void __fastcall unknown_blit_49f3a0(Surface &dest,void *convert,Surface &source,
 // @ref ?ArmorNames@@=0079de28
 // @ref ?unknown_surface_83995c@@=0083995c
 // @ref ?unknown_surface_839954@@=00839954
-// @ref ?unknown_color_scheme_663d30@@=00663d30
+// @ref ?Fetch_Scheme_By_Name@@=00663d30
 // @ref ?unknown_blit_49f3a0@@=0049f3a0
 // @ref ?Get_Weapon@TechnoTypeClass@@=006df5c0
 // @ref ?Select_Blitter_00485AA0@ConvertClass@@=00485aa0
@@ -59,8 +59,8 @@ void __fastcall Draw_Type_Details_004a97b0(Surface *background, ConvertClass *co
         else swprintf(armament,type_armament_none_007d6218);
         swprintf(armor,type_armor_format_007d6204,ArmorNames[type->unknown_9c]);
         ColorScheme *scheme;
-        if(show_cost) scheme=unknown_color_scheme_663d30(type_green_scheme_007d61fc,1);
-        else scheme=unknown_color_scheme_663d30(type_red_scheme_007d61f8,1);
+        if(show_cost) scheme=Fetch_Scheme_By_Name(type_green_scheme_007d61fc,1);
+        else scheme=Fetch_Scheme_By_Name(type_red_scheme_007d61f8,1);
         {
             Point2D position = Point2D(offset.X+450,offset.Y+300);
             Fancy_Text_Printf(name,unknown_surface_839954,&unknown_surface_839954->Get_Rect(),

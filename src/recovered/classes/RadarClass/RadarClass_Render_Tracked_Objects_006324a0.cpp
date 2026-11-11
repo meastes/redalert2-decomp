@@ -31,7 +31,7 @@ void RadarClass::Render_Tracked_Objects()
                     if (tech->unknown_slot51(false) != 0) {
                         scheme = ColorSchemes[tech->unknown_slot51(false)->ColorSchemeIndex];
                     } else {
-                        scheme = unknown_color_scheme_663d30("LightGrey", 1);
+                        scheme = Fetch_Scheme_By_Name("LightGrey", 1);
                     }
                 }
                 int color = scheme->Converter->Convert(scheme->unknown_color_0x330);
