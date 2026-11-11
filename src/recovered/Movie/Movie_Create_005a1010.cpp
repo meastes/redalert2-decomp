@@ -24,7 +24,7 @@
 // @ref ?Movie_Lock_Surface@@YIHXZ=005a0dc0
 // @ref ?Movie_Unlock_Surface@@YAXXZ=005a0e20
 // @ref ?Movie_Blit_To_Screen_Hidden@@YAXXZ=005a0ec0
-// @ref ?Get_Unknown_7d6290@@YAHXZ=004abb90
+// @ref ?Get_Unknown_7d6290@@YIHXZ=004abb90
 // @ref ?unknown_create_companion_69b190@@YIPAVVQAMovieCompanion@@PBD@Z=0069b190
 
 int MovieInt1;      // 0x00A710B4 (TibSun MovieInt1: 1 adds player flag 2)

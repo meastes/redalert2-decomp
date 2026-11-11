@@ -72,6 +72,7 @@ INLINE_ASM_FILES = ('conquer.cpp', 'xsurface.cpp', 'keyboard.cpp', 'mpu.cpp', 'l
 INLINE_ASM_CITATION = re.compile(r'TibSun (%s):([1-9][0-9]*)' % '|'.join(map(re.escape, INLINE_ASM_FILES)))
 TIBSUN_ARCHIVE = Path('private/reference/TibSun/code')
 _ASM_TOKEN = re.compile(r'(?<![A-Za-z0-9_$])(?:__asm|_asm)(?![A-Za-z0-9_$])')
+_ASM_MACRO = re.compile(r'[ \t]*#[ \t]*define[ \t]+(\w+)[ \t]+([^\n]*\S)[ \t]*')
 
 
 def _mask_comments_and_literals(text):
@@ -166,9 +167,30 @@ def module_inline_asm_blocks(text, rows):
     if not blocks:
         return {row['entry']: [] for row in rows}
     directives = {m.start(): m.end() for m in re.finditer(r'(?m)^[ \t]*#(?:[^\n]*\\\n)*[^\n]*', masked)}
-    for offset, _ in blocks:
-        require(not any(start <= offset < end for start, end in directives.items()),
+    # Asm-only archive macros (amendment, reviewed 2026-11-11): `#define NAME <__asm statements>`
+    # counts as expanded at each invocation; any other __asm in a directive refuses.
+    macros = {}
+    for start, end in directives.items():
+        if not _ASM_TOKEN.search(masked, start, end):
+            continue
+        macro = _ASM_MACRO.fullmatch(masked[start:end])
+        require(macro is not None,
                 'Module source: an __asm block in a macro cannot be attributed to one function')
+        name, body = macro.group(1), macro.group(2)
+        require(_ASM_TOKEN.match(body.strip()) is not None and '\\' not in body,
+                'Module source: macro %s holds a non-asm token (asm-only macros only)' % name)
+        expansion = inline_asm_blocks(body)
+        require(name not in macros, 'Module source: macro %s defined twice' % name)
+        macros[name] = [instructions for _, instructions in expansion]
+    blocks = [b for b in blocks if not any(start <= b[0] < end for start, end in directives.items())]
+    for name, expansion in macros.items():
+        for match in re.finditer(r'(?<![A-Za-z0-9_$])%s(?![A-Za-z0-9_$])' % re.escape(name), masked):
+            if any(start <= match.start() < end for start, end in directives.items()):
+                continue
+            # The invocation, then one block per __asm statement of the macro.
+            blocks.append((match.start(), None, name))
+            blocks.extend((match.start(), instructions, name) for instructions in expansion)
+    blocks.sort(key=lambda b: (b[0], len(b) > 2 and b[1] is not None))
     # Function bodies: a `{` whose header (since the previous `;`, `}` or `{`) holds a
     # parameter list and is no class/struct/union/enum/namespace head.
     functions, stack, header_start = [], [], 0
@@ -219,13 +241,19 @@ def module_inline_asm_blocks(text, rows):
     return attributed
 
 
-def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=None):
+def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=None, unit=None):
     """Refuse `__asm` in a candidate unless `row` is flagged as evidenced inline
     assembly with eligible TibSun citations; with `archive` (the TibSun code
     directory), each block must equal the archive block that starts on its cited
     line. Returns the number of blocks. `blocks`, for a row of a module source,
     are the blocks attributed to its own function (module_inline_asm_blocks):
-    the flag is then required on rows with blocks and refused on rows without."""
+    the flag is then required on rows with blocks and refused on rows without.
+
+    An asm-only macro invocation in a module source (amendment, reviewed 2026-11-11)
+    takes one citation for the invocation (the archive line where the author invokes
+    the macro) and one per __asm statement of the macro (its archive definition line;
+    the repeat count restarts per invocation). `unit` is the module source's file
+    name: the macro must be the archive's own in that unit (TibSun <unit>)."""
     text = data.decode(errors='replace') if isinstance(data, bytes) else data
     if blocks is None:
         blocks = inline_asm_blocks(text)
@@ -241,13 +269,15 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
     require(len(citations) == len(blocks), 'One inline_asm_citation per __asm block, in source order')
     for citation in citations:
         require(citation in text, 'Inline-assembly citation %s not quoted in the source' % citation)
+    for block, citation in zip(blocks, citations):
+        if len(block) > 2:
+            require(unit is not None and INLINE_ASM_CITATION.fullmatch(citation).group(1) == unit,
+                    'Asm macro %s cited outside its own unit (%s): %s' % (block[2], unit, citation))
     if archive is None or not Path(archive).is_dir():
         require(not require_archive, 'TibSun archive unavailable: evidenced inline assembly cannot be verified')
         return len(blocks)
-    for index, ((_, instructions), citation) in enumerate(zip(blocks, citations)):
-        # A repeated citation names the next block on the same archive line
-        # (`__asm _emit 0x0f __asm _emit 0x31`).
-        repeat = citations[:index].count(citation)
+    plain, invocations, expansion = [], set(), 0
+    for block, citation in zip(blocks, citations):
         name, line = INLINE_ASM_CITATION.fullmatch(citation).groups()
         path = Path(archive) / name
         require(path.is_file(), 'Cited TibSun archive file missing: %s' % name)
@@ -255,9 +285,33 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
         lines = source.splitlines(keepends=True)
         require(int(line) <= len(lines), 'Cited TibSun line out of range: %s' % citation)
         first = sum(len(l) for l in lines[:int(line) - 1])
+        cited_line = _mask_comments_and_literals(source)[first:first + len(lines[int(line) - 1])]
+        if len(block) > 2 and block[1] is None:
+            # The invocation: the author invokes this macro on the cited line, once per citation.
+            require(re.match(r'[ \t]*#', cited_line) is None and
+                    re.search(r'(?<![A-Za-z0-9_$])%s(?![A-Za-z0-9_$])' % re.escape(block[2]), cited_line),
+                    'Asm macro %s has no archive invocation on the cited line %s' % (block[2], citation))
+            require(citation not in invocations, 'Asm macro invocation cited twice: %s' % citation)
+            invocations.add(citation)
+            expansion = 0
+            continue
+        if len(block) > 2:
+            # One __asm statement of the macro: the archive's own definition, same instructions.
+            definition = _ASM_MACRO.fullmatch(cited_line.rstrip('\r\n'))
+            require(definition is not None and definition.group(1) == block[2],
+                    'Asm macro %s is not defined on the cited TibSun line %s' % (block[2], citation))
+            cited = inline_asm_blocks(definition.group(2))
+            require(len(cited) > expansion and block[1] == cited[expansion][1],
+                    'Asm macro %s differs from the archive definition %s' % (block[2], citation))
+            expansion += 1
+            continue
+        # A repeated citation names the next block on the same archive line
+        # (`__asm _emit 0x0f __asm _emit 0x31`).
+        repeat = plain.count(citation)
+        plain.append(citation)
         cited = [b for b in inline_asm_blocks(source, first) if b[0] < first + len(lines[int(line) - 1])]
         require(len(cited) > repeat, 'No __asm block starts on the cited TibSun line: %s' % citation)
-        require(instructions == cited[repeat][1],
+        require(block[1] == cited[repeat][1],
                 'Inline-assembly block differs from the cited TibSun archive block %s' % citation)
     return len(blocks)
 
@@ -501,7 +555,8 @@ def validate_catalog(repository, catalog, modules=True):
             if row['source'] not in module_blocks:
                 module_blocks[row['source']] = module_inline_asm_blocks(
                     data.decode(errors='replace'), module_rows[row['source']])
-            validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE, blocks=module_blocks[row['source']][va])
+            validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE, blocks=module_blocks[row['source']][va],
+                                unit=Path(row['source']).name)
         else:
             validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
         validate_count_calibrated(row)

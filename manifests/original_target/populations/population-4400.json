@@ -4,8 +4,8 @@
     "id": "population-4400",
     "inventory_sha256": "3e8e480171b05ea290e656559b8680fd9315a5ac2c3c5a1bb5c5a6c85cd670ff",
     "gaps_sha256": "aaa95b1b571cbfaa5277d90f4dd9aa5d1c126f35fc4ddda2792853b3045bcf30",
-    "historical_population_sha256": "2b4905132b3ef2d3367d125e86c3189adfc6aa1f2f3bab3f9723b41da376592f",
-    "historical_acceptance_sha256": "55b7470c6986f28ff0b194577724fe004408c2e145a87367715d558f2bfff6d0"
+    "historical_population_sha256": "bb637c58827074d07ee8f73d8ff6fd71288251e9e0db005fc261c2f3ccc98407",
+    "historical_acceptance_sha256": "3f6a87898f3707d6394d446b5f64dbdadbb4c1a61cd1cebc96ebc1476e89bce5"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2251,7 +2251,7 @@
     "?unknown_drop_pod_voxel_a40c80@@3VUnknownObjectPair@@A": 10751104,
     "?Unknown_00458370@@YAXXZ": 4555632,
     "?Unknown_004E2E30@@YAXXZ": 5123632,
-    "?Unknown_005DD760@@YAXXZ": 6149984,
+    "?Unknown_005DD760@@YIXXZ": 6149984,
     "?Unknown_00521A90@@YIXXZ": 5380752,
     "??_C@_08PKHB@DPOD?4VXL?$AA@": 8241264,
     "??_C@_08DBAB@DPOD?4HVA?$AA@": 8241224,
@@ -4852,7 +4852,7 @@
     "?unknown_shift_852fc0@@3HA": 8728512,
     "?Get_Blue_Right@@YAHXZ": 4897664,
     "?unknown_shift_852fc4@@3HA": 8728516,
-    "?Get_Unknown_7d6290@@YAHXZ": 4897680,
+    "?Get_Unknown_7d6290@@YIHXZ": 4897680,
     "?unknown_7d6290@@3HA": 8217232,
     "?Copy_From@DSurface@@UAE_NAAVSurface@@_N1@Z": 4920512,
     "?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z": 7818848,
@@ -18060,7 +18060,11 @@
     "??_7?$VectorClass@PAUDamageGroup@@@@6B@": 7986524,
     "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z": 4718672,
     "?Version_Name@WindowsVersionInfo@@QAEPADXZ": 7565120,
-    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580
   },
   "regions": [
     {
@@ -42835,7 +42839,7 @@
         {
           "offset": 156,
           "kind": 20,
-          "symbol": "?Unknown_005DD760@@YAXXZ",
+          "symbol": "?Unknown_005DD760@@YIXXZ",
           "target": 6149984,
           "addend": 0,
           "resolved": 814528
@@ -43105,7 +43109,7 @@
           "resolved": 4294019179
         }
       ],
-      "source_sha256": "2cf3f0b3363f416a889cdc236dc063c69db3d11dfef95bf669c93e8e2f47a617",
+      "source_sha256": "e8d82c460f768304b33b2480fa16aca32cde77263ba8a7d1fda6bdd682390e10",
       "source": "src/recovered/unowned/Init_Bulk_Data_00516900.cpp",
       "population": "population-4400",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

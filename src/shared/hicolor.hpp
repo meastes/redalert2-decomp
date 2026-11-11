@@ -76,6 +76,6 @@ int Get_Green_Left();       // 0x004ABB50
 int Get_Green_Right();      // 0x004ABB60
 int Get_Blue_Left();        // 0x004ABB70
 int Get_Blue_Right();       // 0x004ABB80
-int Get_Unknown_7d6290();   // 0x004ABB90
+int __fastcall Get_Unknown_7d6290();   // 0x004ABB90
 
 #endif

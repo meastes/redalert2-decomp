@@ -28,6 +28,9 @@ semantic name dropped), and the population recompiles as one unit like any
 other. `options` sets a population's recorded option set (one of
 canonical.RECORDED_OPTIONS), e.g. /GR for a unit whose emitted RTTI and
 vtable are then compared with the original's.
+A module item may also give `inline_asm_citation`: {entry: [citation, ...]} for its
+evidenced inline-assembly rows, restated for the per-function attribution (an asm-only
+archive macro counts once per invocation: docs/DECISIONS.md).
 
 `mangling_rewrite` rules expand into further renames: every name in the
 catalog and symbols.json they change (the expanded list is in the receipt).
@@ -171,6 +174,14 @@ def apply_modules(catalog, spec, files, removed):
         if len({r['population'] for r in rows}) != 1:
             raise SystemExit('%s: regions of several populations' % module)
         files[module] = (REPOSITORY / item['draft']).read_bytes()
+        # Evidenced inline assembly rows restate their citations for the module's
+        # per-function attribution (canonical.module_inline_asm_blocks); the flag stays.
+        citations = {int(e, 16): c for e, c in item.get('inline_asm_citation', {}).items()}
+        for row in rows:
+            if row['entry'] in citations:
+                if row.get('inline_asm') != 'evidenced':
+                    raise SystemExit('%s: %08x is not an evidenced inline-asm row' % (module, row['entry']))
+                row['inline_asm_citation'] = citations[row['entry']]
         for row in rows:
             if row['source'] != module and row['source'] not in removed:
                 removed.append(row['source'])
@@ -414,6 +425,7 @@ def main():
         before = {r['entry']: json.dumps(r, sort_keys=True) for r in catalog['regions'] if r['population'] in users}
         misses, manifest = verify(catalog, populations | users, config, output, phase)
         if misses:
+            (output / 'misses.json').write_text(json.dumps(misses, indent=1) + '\n')
             raise SystemExit('refused, %d regions no longer match (tree restored):\n%s' %
                              (len(misses), json.dumps(misses[:20], indent=1)))
         # The receipts are fresh now: references into a source-form module must name its symbols.

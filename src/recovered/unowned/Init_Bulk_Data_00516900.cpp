@@ -20,7 +20,7 @@
 // @ref ?unknown_drop_pod_voxel_a40c80@@3VUnknownObjectPair@@A=00a40c80
 // @ref ?Unknown_00458370@@YAXXZ=00458370
 // @ref ?Unknown_004E2E30@@YAXXZ=004e2e30
-// @ref ?Unknown_005DD760@@YAXXZ=005dd760
+// @ref ?Unknown_005DD760@@YIXXZ=005dd760
 // @ref ?Unknown_00521A90@@YIXXZ=00521a90
 // @ref ??_C@_08PKHB@DPOD?4VXL?$AA@=007dc070
 // @ref ??_C@_08DBAB@DPOD?4HVA?$AA@=007dc048
@@ -31,7 +31,7 @@ extern UnknownObjectPair unknown_drop_pod_voxel_a40c80;    // 0x00A40C80 the dro
 void unknown_481fb0();                  // 0x00481FB0 once per frame
 void Unknown_00458370();                // 0x00458370 empty (a type class One_Time in TS's order)
 void Unknown_004E2E30();                // 0x004E2E30 empty (TS: HouseClass::One_Time)
-void Unknown_005DD760();                // 0x005DD760 (TS order: SpotLightClass::One_Time)
+void __fastcall Unknown_005DD760();                // 0x005DD760 (TS order: SpotLightClass::One_Time)
 void __fastcall Unknown_00521A90();                // 0x00521A90 (TS order: IonBlastClass::One_Time)
 
 // Runs the one-time system initialisations and loads the drop pod voxel (TS's Init_One_Time_Systems;

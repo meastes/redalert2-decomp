@@ -323,6 +323,7 @@ void Scripted_Orders(int frame)
         Append(detail, q);
         Append(detail, ": units ");
         Append_Int(detail, count);
+        fprintf(stderr, "harness-order %s\n", detail);   // the app's log too (Scout1288)
         static char names[16][24];
         static int named = 0;
         if (named < 16) {
@@ -424,4 +425,44 @@ void Native_Harness_Orders(int frame)
     Append(detail, ", deployed ");
     Append_Int(detail, deployed);
     ra2port_progress("harness-order", detail);
+}
+
+// RA2_NATIVE_ALLY_LOG=1 (Scout1288, test diagnostics): whenever the alliances between the
+// playing houses change, or a house is defeated, a line on stderr:
+//   alliances frame <n>: <i>:<name>[ defeated] ... allies <i>><j> ...
+// (i>j: house i counts house j as an ally, HouseClass::Is_Ally 0x004E5540), so a scripted
+// game can confirm an alliance the diplomacy dialog formed and the end of a house.
+// Not game behaviour.
+#include "shared/house_type.hpp"
+void Native_Alliance_Log(int frame)
+{
+    static int on = -1;
+    if (on < 0) on = getenv("RA2_NATIVE_ALLY_LOG") ? 1 : 0;
+    if (!on) return;
+    static char last[512];
+    char now[512];
+    now[0] = 0;
+    int count = Houses.Count();
+    size_t n = 0;
+    for (int i = 0; i < count && i < 16 && n + 64 < sizeof now; ++i) {
+        HouseClass *h = Houses[i];
+        if (!h || !h->Type || !h->Type->Multiplay) continue;
+        n += snprintf(now + n, sizeof now - n, " %d:%s%s", i, h->IniName.Buffer, h->unknown_13d ? " defeated" : "");
+    }
+    n += snprintf(now + n, sizeof now - n, " allies");
+    for (int i = 0; i < count && i < 16; ++i) {
+        HouseClass *h = Houses[i];
+        if (!h || !h->Type || !h->Type->Multiplay) continue;
+        for (int j = 0; j < count && j < 16 && n + 8 < sizeof now; ++j) {
+            HouseClass *o = Houses[j];
+            if (i == j || !o || !o->Type || !o->Type->Multiplay) continue;
+            if (h->Is_Ally(o)) n += snprintf(now + n, sizeof now - n, " %d>%d", i, j);
+        }
+    }
+    bool same = true;
+    for (size_t k = 0; same && (now[k] || last[k]); ++k) same = now[k] == last[k];
+    if (!same) {
+        fprintf(stderr, "alliances frame %d:%s\n", frame, now);
+        for (size_t k = 0; (last[k] = now[k]) != 0; ++k) {}
+    }
 }

@@ -218,9 +218,12 @@ class ModuleInlineAsmTests(unittest.TestCase):
             module_inline_asm_blocks(helper, ROWS)
 
     def test_block_in_a_macro_refuses_the_file(self):
-        macro = '#define ASM_RDTSC _asm _emit 0x0f _asm _emit 0x31\n' + MODULE
+        macro = '#define STAMP(x) _asm mov x, eax\n' + MODULE
         with self.assertRaisesRegex(ValueError, 'in a macro'):
             module_inline_asm_blocks(macro, ROWS)
+        conditional = '#if 1 /* _asm */\n#endif\n#ifdef X _asm nop\n#endif\n' + MODULE
+        with self.assertRaisesRegex(ValueError, 'in a macro'):
+            module_inline_asm_blocks(conditional, ROWS)
 
     def test_overloaded_name_is_uncertain(self):
         rows = ROWS + [dict(entry=0x5abfff, symbol_prefix='?Get_CPU_Speed@@YAHH@Z')]
@@ -237,6 +240,127 @@ class ModuleInlineAsmTests(unittest.TestCase):
         # attributes blocks when several rows share a file), macro included.
         text = '// TibSun mpu.cpp:8\n' + MODULE[MODULE.index('void RDTSC'):MODULE.index('// TibSun mpu.cpp:17')]
         self.assertEqual(validate_inline_asm(text.encode(), ROWS[1], self.archive, require_archive=True), 1)
+
+
+
+# The archive's own asm-only macro (TibSun mpu.cpp:134 ASM_RDTSC), defined once and invoked
+# by RDTSC (inside its __asm block) and by Get_CPU_Speed (as a statement).
+ARCHIVE_MPU_MACRO = """#define ASM_RDTSC _asm _emit 0x0f _asm _emit 0x31
+
+void RDTSC(void)
+{
+\t_asm
+\t{
+\t\tASM_RDTSC;
+\t\tmov\tTSC_Low, eax
+\t}
+}
+
+int Get_CPU_Speed(void)
+{
+\tASM_RDTSC;
+\t_asm\tmov\tstamp0, EAX
+\treturn 0;
+}
+"""
+MACRO_MODULE = """// TibSun mpu.cpp:1
+#define ASM_RDTSC _asm _emit 0x0f _asm _emit 0x31
+
+unsigned int __fastcall Get_CPU_Rate(unsigned int *high)
+{
+    *high = 0;
+    return 0;
+}
+
+// TibSun mpu.cpp:5, invoking the macro at TibSun mpu.cpp:7
+void RDTSC(void)
+{
+\t_asm
+\t{
+\t\tASM_RDTSC;
+\t\tmov\tTSC_Low, eax
+\t}
+}
+
+// TibSun mpu.cpp:14 (the macro), TibSun mpu.cpp:15
+int Get_CPU_Speed(void)
+{
+    unsigned int stamp0;
+\tASM_RDTSC;
+\t_asm\tmov\tstamp0, EAX
+    return stamp0 != 0;
+}
+"""
+MACRO_ROWS = [dict(entry=0x5abf20, symbol_prefix='?Get_CPU_Rate@@'),
+              dict(entry=0x5abf60, symbol_prefix='?RDTSC@@', inline_asm='evidenced',
+                   inline_asm_citation=['TibSun mpu.cpp:5', 'TibSun mpu.cpp:7', 'TibSun mpu.cpp:1', 'TibSun mpu.cpp:1']),
+              dict(entry=0x5abf70, symbol_prefix='?Get_CPU_Speed@@', inline_asm='evidenced',
+                   inline_asm_citation=['TibSun mpu.cpp:14', 'TibSun mpu.cpp:1', 'TibSun mpu.cpp:1', 'TibSun mpu.cpp:15'])]
+
+
+class ModuleAsmMacroTests(unittest.TestCase):
+    """Asm-only archive macros in module sources (amendment, reviewed 2026-11-11)."""
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.archive = Path(self.temp.name)
+        (self.archive/'mpu.cpp').write_text(ARCHIVE_MPU_MACRO)
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def validate(self, text, rows=MACRO_ROWS, unit='mpu.cpp'):
+        attributed = module_inline_asm_blocks(text, rows)
+        return {row['entry']: validate_inline_asm(text.encode(), row, self.archive, require_archive=True,
+                                                  blocks=attributed[row['entry']], unit=unit) for row in rows}
+
+    def test_archive_macro_is_accepted(self):
+        self.assertEqual(self.validate(MACRO_MODULE), {0x5abf20: 0, 0x5abf60: 4, 0x5abf70: 4})
+        expansion = module_inline_asm_blocks(MACRO_MODULE, MACRO_ROWS)[0x5abf70]
+        self.assertEqual([b[1] for b in expansion], [None, ['_emit 0x0f'], ['_emit 0x31'], ['mov stamp0, EAX']])
+
+    def test_non_asm_token_is_refused(self):
+        token = MACRO_MODULE.replace('#define ASM_RDTSC _asm', '#define ASM_RDTSC Stamp(); _asm')
+        with self.assertRaisesRegex(ValueError, 'non-asm token'):
+            self.validate(token)
+        changed = MACRO_MODULE.replace('_emit 0x31\n', '_emit 0x90\n', 1)
+        with self.assertRaisesRegex(ValueError, 'differs from the archive definition'):
+            self.validate(changed)
+        with self.assertRaisesRegex(ValueError, 'not defined on the cited'):
+            rows = [dict(r) for r in MACRO_ROWS]
+            rows[2]['inline_asm_citation'] = ['TibSun mpu.cpp:14', 'TibSun mpu.cpp:15', 'TibSun mpu.cpp:1',
+                                              'TibSun mpu.cpp:15']
+            self.validate(MACRO_MODULE, rows)
+
+    def test_invocation_outside_a_function_is_refused(self):
+        outside = MACRO_MODULE + 'struct S {\n    int x;\n    ASM_RDTSC\n};\n'
+        with self.assertRaisesRegex(ValueError, 'outside a function body'):
+            module_inline_asm_blocks(outside, MACRO_ROWS)
+        helper = MACRO_MODULE + 'static inline void Stamp(void)\n{\n\tASM_RDTSC;\n}\n'
+        with self.assertRaisesRegex(ValueError, 'not one row'):
+            module_inline_asm_blocks(helper, MACRO_ROWS)
+
+    def test_invocation_without_an_archive_counterpart_is_refused(self):
+        rows = [dict(r) for r in MACRO_ROWS]
+        rows[2]['inline_asm_citation'] = ['TibSun mpu.cpp:15', 'TibSun mpu.cpp:1', 'TibSun mpu.cpp:1',
+                                          'TibSun mpu.cpp:15']
+        with self.assertRaisesRegex(ValueError, 'no archive invocation'):
+            self.validate(MACRO_MODULE, rows)
+        rows[2]['inline_asm_citation'] = ['TibSun mpu.cpp:1', 'TibSun mpu.cpp:1', 'TibSun mpu.cpp:1',
+                                          'TibSun mpu.cpp:15']
+        with self.assertRaisesRegex(ValueError, 'no archive invocation'):
+            self.validate(MACRO_MODULE, rows)
+        extra = MACRO_MODULE.replace('    return stamp0 != 0;', '\tASM_RDTSC;\n    return stamp0 != 0;')
+        rows[2]['inline_asm_citation'] = ['TibSun mpu.cpp:14', 'TibSun mpu.cpp:1', 'TibSun mpu.cpp:1',
+                                          'TibSun mpu.cpp:15', 'TibSun mpu.cpp:14', 'TibSun mpu.cpp:1',
+                                          'TibSun mpu.cpp:1']
+        with self.assertRaisesRegex(ValueError, 'cited twice'):
+            self.validate(extra, rows)
+
+    def test_macro_outside_its_unit_is_refused(self):
+        with self.assertRaisesRegex(ValueError, 'outside its own unit'):
+            self.validate(MACRO_MODULE, unit='conquer.cpp')
+        with self.assertRaisesRegex(ValueError, 'outside its own unit'):
+            self.validate(MACRO_MODULE, unit=None)
 
 
 if __name__ == '__main__':

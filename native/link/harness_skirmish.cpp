@@ -383,6 +383,7 @@ static void Native_Net_Timing_Log(uint64_t work_ns)
     work_frames = 0;
 }
 
+void Native_Alliance_Log(int frame);   // harness_orders.cpp (RA2_NATIVE_ALLY_LOG)
 bool Native_Main_Loop_Seam()
 {
     uint64_t work_start = ra2port_monotonic_ns(), slept_start = ra2port_slept_ns;
@@ -401,6 +402,7 @@ bool Native_Main_Loop_Seam()
         Append_Int(detail, ++frames_done, sizeof detail);
         ra2port_progress("frame", detail);
         Native_Harness_Orders(frames_done);
+        Native_Alliance_Log(frames_done);
         Native_Harness_Input(frames_done);
         Native_Harness_Save(frames_done);
         Native_Checkpoint();
