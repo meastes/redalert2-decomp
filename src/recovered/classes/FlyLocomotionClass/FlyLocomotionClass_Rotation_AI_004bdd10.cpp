@@ -10,7 +10,7 @@ inline UnknownFacingDir Fly_Add_Rotation_004bdd10(UnknownFacingDir const &direct
 {
     return UnknownFacingDir((unsigned short)(direction.Raw+((unsigned int)rotation<<8)));
 }
-void FlyLocomotionClass::unknown_4bdd10()
+void FlyLocomotionClass::Rotation_AI()
 {
     if (unknown_53 && LinkedTo->Strength>0) {
         if (!Is_Powered()) {

@@ -125,10 +125,10 @@ public:
     virtual void __stdcall Acquire_Hunter_Seeker_Target();                      // 0x004BF600
 
     // Helpers Fly.cpp defines and expands (names hypotheses).
-    bool unknown_4bf3c0();                                                      // 0x004BF3C0 (not +0x51, and not +0x50 or at least half +0x38 high)
+    bool Is_In_Flight();                                                        // 0x004BF3C0 (not +0x51, and not +0x50 or at least half +0x38 high)
     void Start_Drift();                                                         // 0x004BF550 (a drift of 20..30 either way; Power_Off)
     void unknown_4bf1f0();                                                      // 0x004BF1F0 (unless on mission 7 or the techno check 0x006D1470 holds: an airport-bound aircraft out of radio contact with the building in its cell calls slot 261, else the flight state resets)
-    bool unknown_4bcc60();                                                      // 0x004BCC60 (landed carrier unloads its passengers)
+    bool Edge_Of_World_AI();                                                    // 0x004BCC60 (landed carrier unloads its passengers)
     bool unknown_4bca00();                                                      // 0x004BCA00 (TibSun Landing_Takeoff_AI)
     void unknown_4bcd50();                                                      // 0x004BCD50 (TibSun Movement_AI)
     bool unknown_4bf8f0();                                                      // 0x004BF8F0 (TibSun Needs_To_Land)
@@ -136,7 +136,7 @@ public:
     bool Process_Take_Off_004bddf0();
     bool Process_Landing_004bdfb0();
     void Take_Off_004bf0d0();
-    void unknown_4bdd10();                                                      // 0x004BDD10 (TibSun Rotation_AI)
+    void Rotation_AI();                                                         // 0x004BDD10 (TibSun Rotation_AI)
     int unknown_4be720(bool stage, CoordStruct coord);                          // 0x004BE720 (TibSun Nearing_Target)
 
     int Physics_004bdc20(CoordStruct &coord,UnknownFacingDir facing);

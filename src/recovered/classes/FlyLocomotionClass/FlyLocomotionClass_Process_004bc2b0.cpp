@@ -6,7 +6,7 @@
 #include "shared/techno_type.hpp"
 // @ref ?unknown_4bca00@FlyLocomotionClass@@QAE_NXZ=004bca00
 // @ref ?unknown_4bcd50@FlyLocomotionClass@@QAEXXZ=004bcd50
-// @ref ?unknown_4bdd10@FlyLocomotionClass@@QAEXXZ=004bdd10
+// @ref ?Rotation_AI@FlyLocomotionClass@@QAEXXZ=004bdd10
 // @ref ?unknown_4be720@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z=004be720
 // @ref _unknown_geometry_l=00865df8
 
@@ -18,7 +18,7 @@ bool __stdcall FlyLocomotionClass::Process()
     if (LinkedTo->Strength > 0 && !unknown_51 && !unknown_50 && LinkedTo->unknown_slot122()) {
         LinkedTo->Commence();
     }
-    unknown_4bdd10();
+    Rotation_AI();
     unknown_4bcd50();
     if (!Is_Powered()) {
         return false;
@@ -32,6 +32,6 @@ bool __stdcall FlyLocomotionClass::Process()
     if (LinkedTo->Strength > 0) {
         unknown_4bca00();
     }
-    unknown_4bcc60();
+    Edge_Of_World_AI();
     return Is_Moving();
 }

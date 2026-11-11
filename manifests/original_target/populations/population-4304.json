@@ -4,8 +4,8 @@
     "id": "population-4304",
     "inventory_sha256": "8846afd6e81536f62a87eb1fd08d96e34907c9e41725b51187f53f93ac94a7d5",
     "gaps_sha256": "a5ae73248cbf6ad2c48cea37f365397a261dba8cc7ddee79b3bd82d572300466",
-    "historical_population_sha256": "84b1e8cb561d93fbae15ff0cf5a78266e6e0af864b1b693474a3ae9f6aa2e013",
-    "historical_acceptance_sha256": "17f8260b32694d281f22ebf78785a0b0901436635269ea50ebd19d9d2d3236d0"
+    "historical_population_sha256": "cbf1733457f868f54c3ef82a612ac924d20ecd9bb3dd37578ff8feb54b7ae012",
+    "historical_acceptance_sha256": "b67732c6fb0d3895d2c4db819b911aef3a3ee4e25af937a81c37998a3a481184"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1672,7 +1672,7 @@
     "??1LocomotionClass@@UAE@XZ": 5492720,
     "?unknown_4bca00@FlyLocomotionClass@@QAE_NXZ": 4966912,
     "?unknown_4bcd50@FlyLocomotionClass@@QAEXXZ": 4967760,
-    "?unknown_4bdd10@FlyLocomotionClass@@QAEXXZ": 4971792,
+    "?Rotation_AI@FlyLocomotionClass@@QAEXXZ": 4971792,
     "?unknown_4be720@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z": 4974368,
     "?Query_From@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEJABQAVFootClass@@@Z": 4979744,
     "?Release_Held@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEXXZ": 4979648,
@@ -1768,10 +1768,10 @@
     "?Move_To@FlyLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 4965344,
     "?Stop_Moving@FlyLocomotionClass@@": 4966192,
     "?unknown_4bca00@FlyLocomotionClass@@": 4966912,
-    "?unknown_4bcc60@FlyLocomotionClass@@QAE_NXZ": 4967520,
+    "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ": 4967520,
     "?unknown_4bcd50@FlyLocomotionClass@@": 4967760,
     "?Physics_004bdc20@FlyLocomotionClass@@": 4971552,
-    "?unknown_4bdd10@FlyLocomotionClass@@": 4971792,
+    "?Rotation_AI@FlyLocomotionClass@@": 4971792,
     "?Process_Take_Off_004bddf0@FlyLocomotionClass@@": 4972016,
     "?Process_Landing_004bdfb0@FlyLocomotionClass@@": 4972464,
     "?Draw_Matrix@FlyLocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": 4976016,
@@ -1781,7 +1781,7 @@
     "?unknown_4bf1f0@FlyLocomotionClass@@QAEXXZ": 4977136,
     "?Shadow_Matrix@FlyLocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z": 4977280,
     "?Do_Turn@FlyLocomotionClass@@UAGXUUnknownFacingDir@@@Z": 4977552,
-    "?unknown_4bf3c0@FlyLocomotionClass@@QAE_NXZ": 4977600,
+    "?Is_In_Flight@FlyLocomotionClass@@QAE_NXZ": 4977600,
     "?GetClassID@FlyLocomotionClass@@UAGJPAUGUID@@@Z": 4977664,
     "?Load@FlyLocomotionClass@@UAGJPAUIStream@@@Z": 4977728,
     "?Layer@FlyLocomotionClass@@UAGHXZ": 4977776,
@@ -13696,8 +13696,8 @@
     {
       "entry": 4977600,
       "method": "004bf3c0",
-      "symbol": "?unknown_4bf3c0@FlyLocomotionClass@@QAE_NXZ",
-      "symbol_prefix": "?unknown_4bf3c0@FlyLocomotionClass@@QAE_NXZ",
+      "symbol": "?Is_In_Flight@FlyLocomotionClass@@QAE_NXZ",
+      "symbol_prefix": "?Is_In_Flight@FlyLocomotionClass@@QAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13710,8 +13710,8 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "85592b3fae9457a64ba1175d545d4280b2864a3cc53164de6065b7f2803b364f",
       "relocations": [],
-      "source_sha256": "44896cbdbc5d7149f03187951bc3d7a90fcacf376bbd2e8f0eeb36f5514bb73c",
-      "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_unknown_4bf3c0_004bf3c0.cpp",
+      "source_sha256": "f816301511a72524988c4ce272443812ea8a1ebfe5e3ba041949ee59631afb30",
+      "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Is_In_Flight_004bf3c0.cpp",
       "population": "population-4304",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -14352,8 +14352,8 @@
     {
       "entry": 4967520,
       "method": "004bcc60",
-      "symbol": "?unknown_4bcc60@FlyLocomotionClass@@QAE_NXZ",
-      "symbol_prefix": "?unknown_4bcc60@FlyLocomotionClass@@QAE_NXZ",
+      "symbol": "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ",
+      "symbol_prefix": "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14399,13 +14399,13 @@
           "resolved": 4294274331
         }
       ],
-      "source_sha256": "61e6f627f30095a6dd0f88cceff788f1d6064a805766a28121832dfd26aeed24",
-      "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_unknown_4bcc60_004bcc60.cpp",
+      "source_sha256": "a2e997dd20942337923fd69c6cab999a4602b611ce7dd797ab98b6083096c8bf",
+      "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Edge_Of_World_AI_004bcc60.cpp",
       "population": "population-4304",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "FlyLocomotionClass_unknown_4bcc60_004bcc60",
+      "semantic_name": "FlyLocomotionClass_Edge_Of_World_AI_004bcc60",
       "source_order": 225073
     },
     {
@@ -14436,7 +14436,7 @@
         {
           "offset": 121,
           "kind": 20,
-          "symbol": "?unknown_4bdd10@FlyLocomotionClass@@QAEXXZ",
+          "symbol": "?Rotation_AI@FlyLocomotionClass@@QAEXXZ",
           "target": 4971792,
           "addend": 0,
           "resolved": 6627
@@ -14492,13 +14492,13 @@
         {
           "offset": 287,
           "kind": 20,
-          "symbol": "?unknown_4bcc60@FlyLocomotionClass@@QAE_NXZ",
+          "symbol": "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ",
           "target": 4967520,
           "addend": 0,
           "resolved": 2189
         }
       ],
-      "source_sha256": "e2967aa55cdce23aff19aea3426d6864f47661f394c75e12a6b6a8e93bad0030",
+      "source_sha256": "755ba64d1d4c292147d82e99bbe419ff56ef1aaec18bba03c389e841ecd0239c",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Process_004bc2b0.cpp",
       "population": "population-4304",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -14811,8 +14811,8 @@
     {
       "entry": 4971792,
       "method": "004bdd10",
-      "symbol": "?unknown_4bdd10@FlyLocomotionClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_4bdd10@FlyLocomotionClass@@",
+      "symbol": "?Rotation_AI@FlyLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Rotation_AI@FlyLocomotionClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14866,8 +14866,8 @@
           "resolved": 4294696275
         }
       ],
-      "source_sha256": "ec4d403bfc55d7fdebda67ba1fa6bbcb8e5dcee40091c7bd4b774655b6959fe0",
-      "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Rotation_004bdd10.cpp",
+      "source_sha256": "3d02ddc8463fbb3617ba6a7b278aab4b56a0d631615a7a79c29effecd0114723",
+      "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Rotation_AI_004bdd10.cpp",
       "population": "population-4304",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -16895,7 +16895,7 @@
           "resolved": 7980400
         }
       ],
-      "source_sha256": "d5d4098e9c5302f14abcf1507f4831bcab321daad492b26754b01cc2d98d44d4",
+      "source_sha256": "fc5c314112db3a25063088fdd86cc23771aed9e38a4656fbe45fa8aca52f5585",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Movement_AI_004bcd50.cpp",
       "population": "population-4304",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

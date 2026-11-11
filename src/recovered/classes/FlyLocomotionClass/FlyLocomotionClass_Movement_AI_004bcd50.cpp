@@ -227,7 +227,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             }
         }
     }
-    if (LinkedTo->Strength>0 && unknown_4bf3c0() && unknown_1c!=unknown_geometry_l) {
+    if (LinkedTo->Strength>0 && Is_In_Flight() && unknown_1c!=unknown_geometry_l) {
         UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
         if (!unknown_4bf8f0()) {
             unknown_40=1.0;

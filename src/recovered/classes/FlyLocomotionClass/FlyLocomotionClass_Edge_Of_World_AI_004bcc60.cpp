@@ -1,4 +1,4 @@
-// bool FlyLocomotionClass::unknown_4bcc60() (0x004BCC60)
+// bool FlyLocomotionClass::Edge_Of_World_AI() (0x004BCC60)
 // Landing check: a blocked cell flags the aircraft; a landed carrier (mission 4)
 // unloads and frees its passengers, then both finishing slots are called.
 // @ref ?Is_Civilian_Passenger_004139F0@@YI_NPAVFootClass@@@Z=004139f0
@@ -11,7 +11,7 @@
 
 bool __fastcall Is_Civilian_Passenger_004139F0(FootClass *passenger);
 
-bool FlyLocomotionClass::unknown_4bcc60()
+bool FlyLocomotionClass::Edge_Of_World_AI()
 {
     if (!Map.Unknown_0055A7F0(CoordStruct(LinkedTo->Coord))) {
         if (LinkedTo->Get_Mission() == 4) {
