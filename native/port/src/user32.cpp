@@ -924,11 +924,48 @@ int GetKeyNameTextA(LONG lparam, char *text, int size)
     snprintf(text, (size_t)size, (scan >= 0x20 && scan < 0x7F) ? "%c" : "Key %d", scan);
     return (int)strlen(text);
 }
+// The character of a virtual key on the US layout, as Windows' ToAscii answers it
+// from the caller's key state (WWKeyboardClass::To_ASCII sets shift, control and
+// alt there from the queued key's bits): letters follow shift and caps lock, or
+// give their control character under Ctrl; the control keys give their own
+// codes (Return '\r', Backspace 8, Tab 9, Escape 0x1B), which the in-game chat
+// line's opening test in Message_Input 0x00540C20 reads (Return, Backspace and
+// backslash; Scout1236: the port answered 0 for them, so the chat never opened).
 int ToAscii(UINT vk, UINT scan, const BYTE *state, WORD *out, UINT flags)
 {
-    (void)scan; (void)state; (void)flags;
-    if ((vk >= '0' && vk <= '9') || (vk >= 'A' && vk <= 'Z') || vk == ' ') { *out = (WORD)(vk >= 'A' && vk <= 'Z' ? vk + 32 : vk); return 1; }
-    return 0;
+    (void)scan; (void)flags;
+    bool shift = state && (state[0x10] & 0x80);
+    bool control = state && (state[0x11] & 0x80);
+    bool caps = state && (state[0x14] & 0x01);
+    int ch = 0;
+    if (vk >= 'A' && vk <= 'Z') {
+        if (control) ch = (int)vk & 0x1F;
+        else ch = (shift != caps) ? (int)vk : (int)vk + 32;
+    } else if (vk >= '0' && vk <= '9') {
+        if (control) return 0;
+        ch = shift ? ")!@#$%^&*("[vk - '0'] : (int)vk;
+    } else if (vk >= 0x60 && vk <= 0x69) {           // VK_NUMPAD0..9
+        if (control) return 0;
+        ch = '0' + (int)(vk - 0x60);
+    } else {
+        struct Pair { UINT vk; char plain, shifted, controlled; };
+        static Pair const table[] = {
+            {0x08, 8, 8, 0x7F},  {0x09, 9, 9, 9},     {0x0D, '\r', '\r', '\n'}, {0x1B, 0x1B, 0x1B, 0x1B},
+            {0x20, ' ', ' ', ' '}, {0x6A, '*', '*', 0}, {0x6B, '+', '+', 0},   {0x6D, '-', '-', 0},
+            {0x6E, '.', '.', 0},  {0x6F, '/', '/', 0},
+            {0xBA, ';', ':', 0},  {0xBB, '=', '+', 0}, {0xBC, ',', '<', 0},   {0xBD, '-', '_', 0x1F},
+            {0xBE, '.', '>', 0},  {0xBF, '/', '?', 0}, {0xC0, '`', '~', 0},   {0xDB, '[', '{', 0x1B},
+            {0xDC, '\\', '|', 0x1C}, {0xDD, ']', '}', 0x1D}, {0xDE, '\'', '"', 0},
+        };
+        for (Pair const &p : table) {
+            if (p.vk != vk) continue;
+            ch = control ? p.controlled : shift ? p.shifted : p.plain;
+            break;
+        }
+    }
+    if (!ch) return 0;
+    *out = (WORD)(unsigned char)ch;
+    return 1;
 }
 BOOL CharToOemBuffA(const char *src, char *dst, DWORD n) { if (src != dst) memmove(dst, src, n); return 1; }
 

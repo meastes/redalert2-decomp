@@ -15,7 +15,7 @@
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
 // <frame> hunt; <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
-// <frame> grant <index>; <frame> super <index> enemy" (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
+// <frame> grant <index>; <frame> super <index> enemy [<house>] [units]" (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
 // object of that type; Tanya only when named); train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
@@ -57,6 +57,16 @@ bool Same(char const *a, char const *b, int n)
 {
     for (int i = 0; i < n; ++i) if (a[i] != b[i]) return false;
     return true;
+}
+// A super weapon's target for `super <index> enemy`: a building, or with `units` a vehicle or
+// infantry standing on the map (kind 1 or 15; aircraft and anything in limbo at cell 0,0 are not).
+bool Super_Target(TechnoClass *techno, bool units)
+{
+    int kind = techno->Kind_Of();
+    if (!units) return kind == 6;
+    if (kind != 1 && kind != 15) return false;
+    Cell cell = techno->Center_Coord().As_Cell();
+    return cell.X != 0 || cell.Y != 0;
 }
 void Append_Int(char *to, int value)
 {
@@ -137,24 +147,27 @@ int Scripted_Order(char const *command)
         }
         return -1;
     }
-    if (Same(word[1], "super", 6) && (words == 4 || words == 5) && Same(word[3], "enemy", 6)) {
-        // `super <index> enemy [<house>]` (Scout1187, M23): the cell of an enemy building,
+    if (Same(word[1], "super", 6) && (words >= 4 && words <= 6) && Same(word[3], "enemy", 6)) {
+        // `super <index> enemy [<house>] [units]` (Scout1187, M23): the cell of an enemy building,
         // the next one at each such order (the skirmish AIs' bases in turn); with a house
         // index, that house's buildings only (Scout1209 r17: a campaign's civilian city is
-        // not a target, Allied 1 is lost when it falls).
+        // not a target, Allied 1 is lost when it falls); with `units` (Scout1236) that house's
+        // vehicles and infantry on the map instead (Soviet 2's destroyers at sea, which no land
+        // unit reaches), each order the next one.
         static int next_target = 0;
-        int only = words == 5 ? atoi(word[4]) : -1;
+        int only = words >= 5 ? atoi(word[4]) : -1;
+        bool units = words == 6 && Same(word[5], "units", 6);
         int buildings = 0;
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno && techno->House != unknown_player_a35db4 && techno->Kind_Of() == 6
+            if (techno && techno->House != unknown_player_a35db4 && Super_Target(techno, units)
                 && (only < 0 || (techno->House && techno->House->ArrayIndex == only))) ++buildings;
         }
         if (buildings == 0) return -1;
         int pick = (next_target++ * 7) % buildings;
         for (int i = 0; i < Technos.Count(); ++i) {
             TechnoClass *techno = Technos[i];
-            if (techno && techno->House != unknown_player_a35db4 && techno->Kind_Of() == 6
+            if (techno && techno->House != unknown_player_a35db4 && Super_Target(techno, units)
                 && (only < 0 || (techno->House && techno->House->ArrayIndex == only)) && pick-- == 0) {
                 Cell cell = techno->Center_Coord().As_Cell();
                 char text[64] = "0 super ";

@@ -10,7 +10,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,520,579 of 3,769,805 (93.39%)** |
+| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,520,648 of 3,769,805 (93.39%)** |
 | Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated; read from the manifest) | 14,606 in 7 regions (0.39% of .text) |
 | Accepted regions | 17,903 |
 | Matched C/C++ body bytes | 3,269,034 (86.72% of .text) |
@@ -18,13 +18,13 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 2,514 (0.07% of .text) |
 | Frozen padding bytes | 142,974 |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |
-| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,058 in 891 sections (2.36% of .text) |
+| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,127 in 899 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,268,924 of 3,515,710 (92.98%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,881 of 17,987 (99.41%) |
 | Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 99 of 106 scored) | 99.07% by bytes, 99.84% per function |
-| Original .text scaffold bytes | 249,226 |
+| Original .text scaffold bytes | 249,157 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 697 |
 
@@ -2305,6 +2305,7 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `39b6058dd` | 2026-11-10 20:15 -0600 | 17,903 | 3,269,034 | +0 | 0 |
 | `679a22e6a` | 2026-11-10 20:20 -0600 | 17,903 | 3,269,034 | +0 | 0 |
 | `8021c5aba` | 2026-11-10 20:24 -0600 | 17,903 | 3,269,034 | +0 | 0 |
+| `ce5bfa564` | 2026-11-10 20:28 -0600 | 17,903 | 3,269,034 | +0 | 0 |
 
 <!-- /generated:status -->
 

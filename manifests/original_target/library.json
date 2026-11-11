@@ -10,7 +10,7 @@
    "name": "LIBCMT.LIB",
    "role": "VC6 SP3",
    "sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "members_used": 539
+   "members_used": 547
   },
   {
    "name": "COMSUPP.LIB",
@@ -6710,6 +6710,63 @@
    "sha256": "ef9bd145d22a4b2ee6d51fb9014182360d0d6070763b550668e0df4e26d9f53b"
   },
   {
+   "entry": "00781d27",
+   "bytes": 4,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "typinfo.obj",
+   "member_index": 77,
+   "section_index": 5,
+   "assignment": "by position after the last placed section of the member",
+   "section": ".text",
+   "symbols": [
+    "?raw_name@type_info@@QBEPBDXZ"
+   ],
+   "relocations": [],
+   "sha256": "840cd7c1c41b518c1fe191951395dcac56c16a63d65f97ad855355ba794b2ca7"
+  },
+  {
+   "entry": "00781d2b",
+   "bytes": 11,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "typinfo.obj",
+   "member_index": 77,
+   "section_index": 6,
+   "assignment": "by position after the last placed section of the member",
+   "section": ".text",
+   "symbols": [
+    "??0type_info@@AAE@ABV0@@Z"
+   ],
+   "relocations": [
+    {
+     "offset": 4,
+     "type": 6,
+     "resolved": 8066532
+    }
+   ],
+   "sha256": "7ce6293d68c8718c31d03a46342a7f13ce1ac2c7743a426d4374afb71f8dc340"
+  },
+  {
+   "entry": "00781d36",
+   "bytes": 5,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "typinfo.obj",
+   "member_index": 77,
+   "section_index": 7,
+   "assignment": "by position after the last placed section of the member",
+   "section": ".text",
+   "symbols": [
+    "??4type_info@@AAEAAV0@ABV0@@Z"
+   ],
+   "relocations": [],
+   "sha256": "e58773679e693e79ccf3a079b2d7c66b6103cf65bb691bf2e5991ab2eaa2769d"
+  },
+  {
    "entry": "00781d46",
    "bytes": 340,
    "archive": "LIBCMT.LIB",
@@ -12433,6 +12490,29 @@
     }
    ],
    "sha256": "f1a40bf348a4696a87aed34f28510c13949b91ba8b003d858b3557e386ede7ee"
+  },
+  {
+   "entry": "007858a8",
+   "bytes": 7,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "tmpfile.obj",
+   "member_index": 430,
+   "section_index": 4,
+   "assignment": "by position after the last placed section of the member",
+   "section": ".text",
+   "symbols": [
+    "___inc_tmpoff"
+   ],
+   "relocations": [
+    {
+     "offset": 2,
+     "type": 6,
+     "resolved": 8583168
+    }
+   ],
+   "sha256": "0d5cd90aec15ad868eeb9d4ce59e54eff14f7070e484877dfcaeabab9dfb0973"
   },
   {
    "entry": "007858af",
@@ -20337,6 +20417,52 @@
    "sha256": "f91336f7e3ad9d33f37ee6611eb3489326cd6f08b0c9984af677cc8e10d86bea"
   },
   {
+   "entry": "0078ccbf",
+   "bytes": 9,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "winsig.obj",
+   "member_index": 321,
+   "section_index": 4,
+   "assignment": "by position after the last placed section of the member",
+   "section": ".text",
+   "symbols": [
+    "___fpecode"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 20,
+     "resolved": 4294953431
+    }
+   ],
+   "sha256": "6838f6a771be9f680a16e52f78e59f7d11afc35e5cb3cf5a644469e2aeb35c29"
+  },
+  {
+   "entry": "0078ccc8",
+   "bytes": 9,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "winsig.obj",
+   "member_index": 321,
+   "section_index": 5,
+   "assignment": "by position after the last placed section of the member",
+   "section": ".text",
+   "symbols": [
+    "___pxcptinfoptrs"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 20,
+     "resolved": 4294953422
+    }
+   ],
+   "sha256": "1d0c9185b4e940920e6b5dfc8d72a119110699e1ad0937193cf5749883af18d3"
+  },
+  {
    "entry": "0078ccd1",
    "bytes": 84,
    "archive": "LIBCMT.LIB",
@@ -27547,6 +27673,34 @@
    "sha256": "84d126a0f1fb6ab889c6f2988069d470af63883de7f4af05ff18527fa712330e"
   },
   {
+   "entry": "00792ae5",
+   "bytes": 13,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "unhandld.obj",
+   "member_index": 68,
+   "section_index": 2,
+   "assignment": "by position after the last placed section of the member",
+   "section": ".text",
+   "symbols": [
+    "?__CxxRestoreUnhandledExceptionFilter@@YAXXZ"
+   ],
+   "relocations": [
+    {
+     "offset": 2,
+     "type": 6,
+     "resolved": 11711292
+    },
+    {
+     "offset": 8,
+     "type": 6,
+     "resolved": 7971132
+    }
+   ],
+   "sha256": "2d6b3e7d15d83d06a1399190dc774e28194d3d2d5eacf4790a5729937560e966"
+  },
+  {
    "entry": "00792af2",
    "bytes": 295,
    "archive": "LIBCMT.LIB",
@@ -28132,6 +28286,29 @@
     }
    ],
    "sha256": "7ea830616f6b511588eac30e62ef5e0828e65e6abbd67c5b9a110ae2f457fbaa"
+  },
+  {
+   "entry": "00793366",
+   "bytes": 11,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fgetwc.obj",
+   "member_index": 366,
+   "section_index": 2,
+   "assignment": "by position after the last placed section of the member",
+   "section": ".text",
+   "symbols": [
+    "_getwc"
+   ],
+   "relocations": [
+    {
+     "offset": 5,
+     "type": 20,
+     "resolved": 4294967011
+    }
+   ],
+   "sha256": "74ba99bf5796b3840636e71be082b3100f601441359c0dbe17c51c50b5ed3cee"
   },
   {
    "entry": "00793371",
@@ -34524,7 +34701,58 @@
    "import_": "KERNEL32.DLL!WriteConsoleA"
   }
  ],
- "skipped_overlapping_accepted": [],
+ "skipped_overlapping_accepted": [
+  {
+   "entry": "00784a3c",
+   "bytes": 11,
+   "member": "fgetc.obj",
+   "symbols": [
+    "_getc"
+   ],
+   "accepted_entry": "00784a3c",
+   "accepted_symbol": "?FUN_00784a3c@seed_00784a3c@@YAXI@Z"
+  },
+  {
+   "entry": "0078991e",
+   "bytes": 9,
+   "member": "dosmap.obj",
+   "symbols": [
+    "__errno"
+   ],
+   "accepted_entry": "0078991e",
+   "accepted_symbol": "?FUN_0078991e@seed_0078991e@@YAHXZ"
+  },
+  {
+   "entry": "00789927",
+   "bytes": 9,
+   "member": "dosmap.obj",
+   "symbols": [
+    "___doserrno"
+   ],
+   "accepted_entry": "00789927",
+   "accepted_symbol": "?FUN_00789927@seed_00789927@@YAHXZ"
+  },
+  {
+   "entry": "0078b1e7",
+   "bytes": 13,
+   "member": "stdexcpt.obj",
+   "symbols": [
+    "?what@exception@@UBEPBDXZ"
+   ],
+   "accepted_entry": "0078b1e7",
+   "accepted_symbol": "?get@Leaf_78b1e7@@QAEIXZ"
+  },
+  {
+   "entry": "00792ad4",
+   "bytes": 17,
+   "member": "unhandld.obj",
+   "symbols": [
+    "?__CxxSetUnhandledExceptionFilter@@YAXXZ"
+   ],
+   "accepted_entry": "00792ad4",
+   "accepted_symbol": "?FUN_00792ad4@seed_00792ad4@@YAXXZ"
+  }
+ ],
  "skipped_other": [
   {
    "entry": "005b6a20",

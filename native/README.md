@@ -552,8 +552,13 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   `RA2_NATIVE_LIST_MAPS=1` prints the scenario list with player ranges (`'#10'`
   is MP01T4, four players); `RA2_NATIVE_ORDERS="<frame> super <index> enemy [<house>]"`
   fires a super weapon at an enemy building (the next one each time; with a house
-  index, that house's only: Allied 1 is lost when the city's civilian buildings fall);
+  index, that house's only: Allied 1 is lost when the city's civilian buildings fall;
+  with `units` after the house index, that house's vehicles and infantry on the map
+  instead: Soviet 2's destroyers at sea, Scout1236);
   `RA2_NATIVE_FORCE_END` entries fire at the first frame at or past them.
+  `RA2_NATIVE_FILE_DUMP="<name>:<out path>[;...]"` (Scout1236) writes the named game
+  files (read through CCFileClass, loose files then the mixes) at a game's first frame,
+  so a campaign script can be planned from the mission INI's triggers.
 
 ### Fidelity rows, main menu movie, frame pacing (Scout1191, M24)
 

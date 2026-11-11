@@ -1846,6 +1846,27 @@
    "new": "#include \"shared/queue.hpp\"\nbool Native_Wait_Pass_Due();   // NATIVE: native/link/native_event_data.cpp\n",
    "why": "Declares the row above's helper (Scout1231).",
    "verified": true
+  },
+  {
+   "source": "src/recovered/classes/ThemeClass/ThemeClass_unknown_theme_length_006e8150.cpp",
+   "old": "struct ThemeControl {\n    char unknown_000[0x284];\n    float unknown_284;                      // +0x284\n};\n\nclass ThemeClass {\npublic:\n    int unknown_theme_length(unsigned theme) const;\n\n    char unknown_00[0x18];\n    ThemeControl **Themes;                  // +0x18 (vector storage)\n    int unknown_1c;\n    int unknown_20;\n    unsigned ThemeCount;                    // +0x24 (active count)\n};\n\nint ThemeClass::unknown_theme_length(unsigned theme) const\n{\n    if (theme < ThemeCount) {\n        return (int)Themes[theme]->unknown_284;\n    }\n    return 0;\n}\n",
+   "new": "#define THEME_CONTROL_RECORD\n#define THEME_SOUND_CONTROLS\n#include \"shared/theme.hpp\"   // NATIVE: the real ThemeClass (the unit's own view puts the records at the VC6 offsets +0x18/+0x24)\n\nint ThemeClass::unknown_theme_length(unsigned theme) const\n{\n    if (theme < (unsigned)Themes.Count()) {\n        return (int)Themes[theme]->Duration;\n    }\n    return 0;\n}\n",
+   "why": "ThemeClass::unknown_theme_length 0x006E8150 (and unknown_is_flagged 0x006E84E0) declare their own ThemeClass with the record storage at +0x18 and the count at +0x24 (the VC6 DynamicVectorClass at +0x14); on arm64 +0x18 is the vector's vtable pointer, so the Sound options list (Sound_Option_Dialog_Func 0x00688DA0 fills it from every theme) dereferenced vtable entries as records: SIGSEGV in unknown_theme_length+0x14 (user report, Scout1236). Natively the real ThemeClass: Count() and operator[] of the Themes vector, the same +0x284 duration / +0x288 flag of the record.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ThemeClass/ThemeClass_unknown_is_flagged_006e84e0.cpp",
+   "old": "struct ThemeControl {\n    char unknown_000[0x288];\n    bool unknown_288;                       // +0x288\n};\n\nclass ThemeClass {\npublic:\n    bool unknown_is_flagged(unsigned theme) const;\n\n    char unknown_00[0x18];\n    ThemeControl **Themes;                  // +0x18 (vector storage)\n    int unknown_1c;\n    int unknown_20;\n    unsigned ThemeCount;                    // +0x24 (active count)\n};\n\nbool ThemeClass::unknown_is_flagged(unsigned theme) const\n{\n    if (theme == (unsigned)-3 || theme == (unsigned)-2 || theme >= ThemeCount) {\n        return false;\n    }\n    return Themes[theme]->unknown_288 ? true : false;\n}\n",
+   "new": "#define THEME_CONTROL_RECORD\n#define THEME_SOUND_CONTROLS\n#include \"shared/theme.hpp\"   // NATIVE: the real ThemeClass (the unit's own view puts the records at the VC6 offsets +0x18/+0x24)\n\nbool ThemeClass::unknown_is_flagged(unsigned theme) const\n{\n    if (theme == (unsigned)-3 || theme == (unsigned)-2 || theme >= (unsigned)Themes.Count()) {\n        return false;\n    }\n    return Themes[theme]->unknown_288 ? true : false;\n}\n",
+   "why": "The same for unknown_is_flagged 0x006E84E0 (Scout1236): see the 0x006E8150 fixup.",
+   "verified": false
+  },
+  {
+   "source": "src/shared/theme.hpp",
+   "old": "    int unknown_theme_length(unsigned theme) const;\n    int Max_Themes() const { return Themes.Count(); }\n",
+   "new": "    int unknown_theme_length(unsigned theme) const;\n    int Max_Themes() const { return Themes.Count(); }\n    bool unknown_is_flagged(unsigned theme) const;   // NATIVE: 0x006E84E0 (+0x288 of the record; the unit's own VC6-offset view is replaced natively)\n",
+   "why": "Declares unknown_is_flagged 0x006E84E0 on the real ThemeClass for its unit's native body (Scout1236).",
+   "verified": false
   }
  ]
 }

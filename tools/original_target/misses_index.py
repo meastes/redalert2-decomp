@@ -331,6 +331,11 @@ def main():
     if treemap and false_path.exists():
         false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']}
         treemap = [r for r in treemap if r['entry'] not in false_rows]
+    library_path = REPOSITORY / 'manifests/original_target/library.json'
+    if treemap and library_path.exists():
+        # rows the library ledger links from a pinned archive are accepted (own category), not misses
+        linked = {int(r['entry'], 16) for r in json.loads(library_path.read_text())['regions']}
+        treemap = [r for r in treemap if r['entry'] not in linked]
     out = build(text, treemap, lane_resolver(args.lanes_root), load_rescore(args.rescore))
     if args.entry:
         e = int(args.entry, 16)

@@ -20,6 +20,7 @@
 #include "shared/unknown_globals.hpp"
 #include "shared/debug_printf.hpp"
 #include "shared/main_loop.hpp"
+#include "shared/cc_file_class.hpp"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -265,6 +266,38 @@ void Native_Harness_Orders(int frame);   // harness_orders.cpp
 void Native_Harness_Input(int frame);    // harness_input.cpp
 void Native_Harness_Save(int frame);     // harness_save.cpp
 void Native_Harness_Event_Test(int frame);   // harness_event_test.cpp (RA2_NATIVE_EVENT_TEST)
+void Native_Harness_Theme_Test(int frame);   // harness_theme_test.cpp (RA2_NATIVE_THEME_TEST)
+// RA2_NATIVE_FILE_DUMP="<name>:<out path>[;...]" (Scout1236, test scaffolding): at the
+// first frame of a game each named game file is read through the game's own file layer
+// (CCFileClass: loose files, then the mixes) and written to the out path, so a scripted
+// campaign run can be planned from the mission's INI (its triggers and lose conditions).
+static void Native_Harness_File_Dump(int frame)
+{
+    if (frame != 1) return;
+    char const *env = getenv("RA2_NATIVE_FILE_DUMP");
+    for (char const *p = env; p && *p;) {
+        char name[64], out[512];
+        int n = 0;
+        while (*p && *p != ':' && n < 63) name[n++] = *p++;
+        name[n] = 0;
+        if (*p != ':') break;
+        ++p;
+        n = 0;
+        while (*p && *p != ';' && n < 511) out[n++] = *p++;
+        out[n] = 0;
+        if (*p == ';') ++p;
+        CCFileClass file(name);
+        if (!file.Is_Available()) { fprintf(stderr, "file-dump: %s not found\n", name); continue; }
+        long size = file.Size();
+        char *buffer = (char *)malloc(size > 0 ? (size_t)size : 1);
+        long got = file.Read(buffer, size);
+        file.Close();
+        FILE *f = fopen(out, "wb");
+        if (f) { fwrite(buffer, 1, (size_t)(got > 0 ? got : 0), f); fclose(f); }
+        fprintf(stderr, "file-dump: %s %ld bytes -> %s\n", name, got, out);
+        free(buffer);
+    }
+}
 void Native_Note_Frame();                   // native_event_data.cpp
 
 // Native frame pacing (user report 2026-11-09, M20: real play "far too fast").
@@ -333,6 +366,8 @@ bool Native_Main_Loop_Seam()
         Native_Harness_Input(frames_done);
         Native_Harness_Save(frames_done);
         Native_Harness_Event_Test(frames_done);
+        Native_Harness_File_Dump(frames_done);
+        Native_Harness_Theme_Test(frames_done);
         ra2port_frame(frames_done);     // scripted input due at the next frame (--input-script)
         if (frames_done >= ra2port_skirmish_frames()) {
             ra2port_progress("frames", detail);

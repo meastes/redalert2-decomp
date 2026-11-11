@@ -103,7 +103,7 @@ def accepted_extents():
     return sorted((r['entry'], r['entry'] + r['full_extent_bytes'], r.get('symbol') or '') for r in cat['regions'])
 
 
-def place(text, base, lo, hi, archives):
+def place(text, base, lo, hi, archives, boundaries=frozenset()):
     """Non-overlapping placement, longest section first, earlier archive first on ties."""
     import re
     taken = bytearray(len(text))
@@ -180,6 +180,38 @@ def place(text, base, lo, hi, archives):
             taken[h:h + n] = b'\1' * n
             s = dict(s, assignment='by order among %d identical sections' % len(group))
             rows.append((base + h, s))
+    # Fourth pass (Scout1244): the unplaced sections that follow a member's last placed
+    # section, in object order, are laid out consecutively after it when every one of
+    # them matches with relocation sites masked, none overlaps a placed byte, and the
+    # run ends exactly at a known boundary (a placed library byte, an accepted source
+    # region or an inventory function entry). Same layout evidence as the second pass,
+    # for the member's tail instead of a gap between two placed sections.
+    by_member = {}
+    for va, s in rows:
+        by_member.setdefault((s['order'], s['member_index']), []).append((va, s))
+    for key, placed in by_member.items():
+        placed.sort(key=lambda t: t[0])
+        members = sections_by_member.get(key, {})
+        va1, s1 = max(placed, key=lambda t: t[1]['section_index'])
+        if va1 != placed[-1][0]:
+            continue                                   # object order and address order disagree
+        rest = [members[i] for i in sorted(members) if i > s1['section_index']]
+        if not rest:
+            continue
+        pos = va1 + len(s1['raw']); run = []; ok = True
+        for s in rest:
+            n = len(s['raw']); off = pos - base
+            if base + off + n > base + len(text) or any(taken[off:off + n]) or \
+               any(m and text[off + k] != s['raw'][k] for k, m in enumerate(s['mask'])):
+                ok = False; break
+            if n == 6 and s['raw'][:2] == b'\xff\x25':
+                ok = False; break                      # indistinguishable from a linker import thunk: left to that pass
+            run.append((pos, s)); pos += n
+        if not ok or not (pos in boundaries or taken[pos - base]):
+            continue
+        for p, s in run:
+            n = len(s['raw']); taken[p - base:p - base + n] = b'\1' * n
+            rows.append((p, dict(s, assignment='by position after the last placed section of the member')))
     rows.sort(key=lambda t: t[0])
     return rows
 
@@ -304,7 +336,9 @@ def main():
     archives = [(name, role, path, archive_sections(path)) for name, role, path in DEFAULT_ARCHIVES if path.exists()]
     accepted = accepted_extents()
     rows, skipped = [], []
-    for va, s in place(text, base, lo, hi, archives):
+    from inventory import Inventory
+    boundaries = {a for a, _b, _s in accepted} | set(Inventory().all_functions())
+    for va, s in place(text, base, lo, hi, archives, boundaries):
         n = len(s['raw']); off = va - base
         original = text[off:off + n]
         overlap = next(((a, b, sym) for a, b, sym in accepted if a < va + n and va < b), None)
