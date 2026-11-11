@@ -3231,6 +3231,12 @@ def earlier_uncontradicted_inventory(entry, inventory, owner=None):
 
 def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     text = inventory.decompiled(entry)
+    if entry == 0x622290 and entry not in accepted and text is not None:
+        from seed_quaternion import optional_quaternion_seed
+
+        repaired = optional_quaternion_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
     if text is None:
         raise ValueError('No Ghidra export for %08x' % entry)
     from seed_fp_bitview import optional_raw_scalar
