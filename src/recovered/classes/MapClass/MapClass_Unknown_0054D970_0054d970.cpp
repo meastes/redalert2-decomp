@@ -13,7 +13,7 @@ int MapClass::Unknown_0054D970(Pipe &pipe)
     for (int i = 0; i < Cells.Length(); i++) {
         CellClass *cellptr = Cells[i];
         if (i != 0 && cellptr) {
-            if (Unknown_0054AAB0(cellptr->Fetch_CellID())) {
+            if (In_Radar(cellptr->Fetch_CellID())) {
                 if (cellptr->Fetch_CellID() != unknown_cell_a6f238 && cellptr != &unknown_dummy_cell_a6f9f8 &&
                     (cellptr->IsoTileIndex != 0xFFFF || cellptr->unknown_11b > 0)) {
                     Cell cell = cellptr->Fetch_CellID();

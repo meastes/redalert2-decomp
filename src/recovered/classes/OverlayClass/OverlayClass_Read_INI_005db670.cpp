@@ -57,7 +57,7 @@ void __fastcall OverlayClass::Read_INI(CCINIClass &ini)
                         overlay &= 0xFF;
                         if (overlay != 0xFFFFFFFF) {
                             if ((OverlayTypes[overlay]->unknown_slot39() || OverlayTypes[overlay]->CellAnim) && (!unknown_game_mode_a3d298 || !OverlayTypes[overlay]->Crate)) {
-                                if (Map.Unknown_0054AAB0(cell)) {
+                                if (Map.In_Radar(cell)) {
                                     unsigned char data = Map_Cell(cell).OverlayData;
                                     new OverlayClass(OverlayTypes[overlay], cell, -1);
                                     if (overlay == 0x18 || overlay == 0x19 || overlay == 0xED || overlay == 0xEE) {
@@ -84,7 +84,7 @@ void __fastcall OverlayClass::Read_INI(CCINIClass &ini)
                     Cell cell((short)x, (short)y);
                     unsigned char data = 0;
                     data_lcw_straw.Get(&data, 1);
-                    if (Map.Unknown_0054AAB0(cell)) {
+                    if (Map.In_Radar(cell)) {
                         Map_Cell(cell).OverlayData = data;
                     }
                 }

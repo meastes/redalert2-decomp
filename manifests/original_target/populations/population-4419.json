@@ -4,8 +4,8 @@
     "id": "population-4419",
     "inventory_sha256": "ef49f203a8456d9af663cd1a776115a0e22673145d72f7d9dc2a0223d9bec385",
     "gaps_sha256": "361162abe062f779acd1edd6a0b1b84617fbd33c4a06c90d83ba151831048f4d",
-    "historical_population_sha256": "1080c8f51eebae3a4af5fc4a1ed497bd59af9ce571cf8662f676b98f2fa9d79e",
-    "historical_acceptance_sha256": "87f52e2cc891f10714be32d928cd17ea93c655f4bb71903ff9c4365b8091bdac"
+    "historical_population_sha256": "f70c274268ad1b9c60bfc926f3e2651f0f0964e6037ebe2e1626552a7b48aa35",
+    "historical_acceptance_sha256": "948b5f7ecffa7ff6ad821b9d9741adb846fccf23f11fb07fa922d61d7e2263a1"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -9561,7 +9561,7 @@
     "?Unknown_00548070@UnknownMap8324E0@@QAEHABVCell@@@Z": 5537904,
     "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z": 5547344,
     "?Unknown_0054A550@UnknownMap8324E0@@QAEXABUCoordStruct@@HHH@Z": 5547344,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0054AAB0@UnknownMap8324E0@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0054AB70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
     "?Unknown_0054AB70@UnknownMap8324E0@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
@@ -14337,7 +14337,8 @@
     "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z": 4718672,
     "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
     "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
-    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440
   },
   "regions": [
     {
@@ -33448,7 +33449,7 @@
         {
           "offset": 89,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1050195
@@ -33480,7 +33481,7 @@
         {
           "offset": 210,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1050074
@@ -33512,7 +33513,7 @@
         {
           "offset": 397,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1049887
@@ -33544,7 +33545,7 @@
         {
           "offset": 479,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1049805
@@ -33576,7 +33577,7 @@
         {
           "offset": 566,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1049718
@@ -33608,7 +33609,7 @@
         {
           "offset": 741,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1049543
@@ -33656,7 +33657,7 @@
         {
           "offset": 885,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1049399
@@ -33688,7 +33689,7 @@
         {
           "offset": 973,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1049311
@@ -33744,7 +33745,7 @@
         {
           "offset": 1131,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1049153
@@ -33776,7 +33777,7 @@
         {
           "offset": 1219,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1049065
@@ -33814,7 +33815,7 @@
           "resolved": 8711440
         }
       ],
-      "source_sha256": "d7253fdac666ab505773629b7aa82b8fb4a9fd8a97225a799322e838f54fbe4a",
+      "source_sha256": "fa2e3ecfc768319a86f1cfbd478469d67fa6645ae4d861908e0d116ff21fc640",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Find_Exit_Cell_0044a400.cpp",
       "population": "population-4419",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

@@ -7,7 +7,7 @@
 #include "shared/foot.hpp"
 #include "shared/rules.hpp"
 #include "shared/house.hpp"
-// @ref ?Unknown_0054AAB0@MapClass@@=0054aab0
+// @ref ?In_Radar@MapClass@@=0054aab0
 // @ref ?unknown_44d900@BuildingClass@@=0044d900
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVHouseClass@@@Z=004e5540
 // @ref ?Incoming@CellClass@@=00476920
@@ -38,7 +38,7 @@ int BuildingTypeClass::unknown_458b10(Cell const &origin,HouseClass *house) cons
  offset=unknown_slot36(1);
  while(*offset!=Cell(0x7fff,0x7fff)) {
   Cell cell=origin+*offset++;
-  if(!Map.Unknown_0054AAB0(cell))continue;
+  if(!Map.In_Radar(cell))continue;
   CellClass &map_cell=Map[cell];
   if(map_cell.OverlayIndex!=-1) {
    if(this!=Rules->unknown_78c || map_cell.OverlayIndex!=2)return 2;

@@ -149,7 +149,7 @@ bool OverlayClass::Mark(int mark)
                     bool found_end = false;
                     int end_overlay = _direction_to_end[join_direction / 2];
 
-                    while (Map.Unknown_0054AAB0(work_cell) && !found_end) {
+                    while (Map.In_Radar(work_cell) && !found_end) {
                         CellClass &check_cell_class = Map[work_cell];
                         if (check_cell_class.OverlayIndex == end_overlay && check_cell_class.OverlayData == 1) {
                             found_end = true;
@@ -214,7 +214,7 @@ bool OverlayClass::Mark(int mark)
                     bool found_end = false;
                     int end_overlay = _direction_to_end2[join_direction / 2];
 
-                    while (Map.Unknown_0054AAB0(work_cell) && !found_end) {
+                    while (Map.In_Radar(work_cell) && !found_end) {
                         CellClass &check_cell_class = Map[work_cell];
                         if (check_cell_class.OverlayIndex == end_overlay && check_cell_class.OverlayData == 1) {
                             found_end = true;

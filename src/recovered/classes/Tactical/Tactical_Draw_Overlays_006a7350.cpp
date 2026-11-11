@@ -33,7 +33,7 @@ void Tactical::Draw_Overlays(Rect const &area)
         Cell cell = base + step;
 
         for (ix = xcount; ix > 0; ix--) {
-            if (Map.Unknown_0054AAB0(cell)) {
+            if (Map.In_Radar(cell)) {
                 CellClass *cellptr = &Map[cell];
                 if (cellptr->OverlayIndex != -1) {
                     Rect render = cellptr->Overlay_Render_Rect();
@@ -55,7 +55,7 @@ void Tactical::Draw_Overlays(Rect const &area)
         Cell cell = base + step;
 
         for (ix = xcount; ix > 0; ix--) {
-            if (Map.Unknown_0054AAB0(cell)) {
+            if (Map.In_Radar(cell)) {
                 CellClass *cellptr = &Map[cell];
                 if (cellptr->OverlayIndex != -1) {
                     Rect shadow = cellptr->Overlay_Shadow_Render_Rect();

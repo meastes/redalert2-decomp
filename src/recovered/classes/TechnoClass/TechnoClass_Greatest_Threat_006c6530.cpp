@@ -5,7 +5,7 @@
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
-// @ref ?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z=0054aab0
+// @ref ?In_Radar@MapClass@@QAE_NABVCell@@@Z=0054aab0
 // @ref ?Zone@MapClass@@QAEHABVCell@@H_N@Z=0054f8f0
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
 // @ref ?unknown_6c5570@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z=006c5570
@@ -98,7 +98,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
             for (int radius=0;radius<cell_range;++radius) {
                 for (int x=-radius;x<=radius;++x) {
                     Cell scan=center+Cell(x,-radius);
-                    if (Map.Unknown_0054AAB0(scan)) {
+                    if (Map.In_Radar(scan)) {
                         if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (unknown_slot32()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
@@ -109,7 +109,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                         }
                     }
                     scan=center+Cell(x,radius);
-                    if (Map.Unknown_0054AAB0(scan)) {
+                    if (Map.In_Radar(scan)) {
                         if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (unknown_slot32()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
@@ -122,7 +122,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                 }
                 for (int y=1-radius;y<radius;++y) {
                     Cell scan=center+Cell(-radius,y);
-                    if (Map.Unknown_0054AAB0(scan)) {
+                    if (Map.In_Radar(scan)) {
                         if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (unknown_slot32()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
@@ -133,7 +133,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                         }
                     }
                     scan=center+Cell(radius,y);
-                    if (Map.Unknown_0054AAB0(scan)) {
+                    if (Map.In_Radar(scan)) {
                         if (unknown_6c6130(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (unknown_slot32()->DistributedFire) { unknown_3a8.Add(object);unknown_390.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }

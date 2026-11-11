@@ -9,7 +9,7 @@
 #include "shared/map_region.hpp"
 // @ref ?Get_Cell_Data_0056dba0@@YIAAUUnknownMapGenerationCell@@ABVCell@@@Z=0056dba0
 // @ref ?unknown_47b5e0@CellClass@@QBE_NXZ=0047b5e0
-// @ref ?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z=0054aab0
+// @ref ?In_Radar@MapClass@@QAE_NABVCell@@@Z=0054aab0
 
 // The generator record of a cell (TibSun MapRegionClass::Get_Cell_Data; __fastcall).
 UnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dba0(Cell const &cell);
@@ -20,7 +20,7 @@ unsigned int MapClass::Unknown_0055BD70(CellClass *cellptr)
     int height = cellptr->unknown_11b;
     Cell origin = cellptr->Fetch_CellID();
 
-    if (!Map.Unknown_0054AAB0(origin) || !Get_Cell_Data_0056dba0(origin).unknown_45[5]) {
+    if (!Map.In_Radar(origin) || !Get_Cell_Data_0056dba0(origin).unknown_45[5]) {
         return 0;
     }
 
@@ -33,28 +33,28 @@ unsigned int MapClass::Unknown_0055BD70(CellClass *cellptr)
     CellClass *cptr_nw = &Map[(Cell)(origin + Cell(-1, -1))];
     CellClass *cptr_n = &Map[(Cell)(origin + Cell(0, -1))];
 
-    if (Map.Unknown_0054AAB0(origin + Cell(-1, -1)) && cptr_nw->unknown_11b == height + 4 && !cptr_nw->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(-1, -1)) && cptr_nw->unknown_11b == height + 4 && !cptr_nw->unknown_47b5e0()) {
         mask |= 0x40;
     }
-    if (Map.Unknown_0054AAB0(origin + Cell(0, -1)) && cptr_n->unknown_11b == height + 4 && !cptr_n->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(0, -1)) && cptr_n->unknown_11b == height + 4 && !cptr_n->unknown_47b5e0()) {
         mask |= 0x80;
     }
-    if (Map.Unknown_0054AAB0(origin + Cell(1, -1)) && cptr_ne->unknown_11b == height + 4 && !cptr_ne->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(1, -1)) && cptr_ne->unknown_11b == height + 4 && !cptr_ne->unknown_47b5e0()) {
         mask |= 0x01;
     }
-    if (Map.Unknown_0054AAB0(origin + Cell(-1, 0)) && cptr_w->unknown_11b == height + 4 && !cptr_w->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(-1, 0)) && cptr_w->unknown_11b == height + 4 && !cptr_w->unknown_47b5e0()) {
         mask |= 0x20;
     }
-    if (Map.Unknown_0054AAB0(origin + Cell(1, 0)) && cptr_e->unknown_11b == height + 4 && !cptr_e->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(1, 0)) && cptr_e->unknown_11b == height + 4 && !cptr_e->unknown_47b5e0()) {
         mask |= 0x02;
     }
-    if (Map.Unknown_0054AAB0(origin + Cell(-1, 1)) && cptr_sw->unknown_11b == height + 4 && !cptr_sw->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(-1, 1)) && cptr_sw->unknown_11b == height + 4 && !cptr_sw->unknown_47b5e0()) {
         mask |= 0x10;
     }
-    if (Map.Unknown_0054AAB0(origin + Cell(0, 1)) && cptr_s->unknown_11b == height + 4 && !cptr_s->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(0, 1)) && cptr_s->unknown_11b == height + 4 && !cptr_s->unknown_47b5e0()) {
         mask |= 0x08;
     }
-    if (Map.Unknown_0054AAB0(origin + Cell(1, 1)) && cptr_se->unknown_11b == height + 4 && !cptr_se->unknown_47b5e0()) {
+    if (Map.In_Radar(origin + Cell(1, 1)) && cptr_se->unknown_11b == height + 4 && !cptr_se->unknown_47b5e0()) {
         mask |= 0x04;
     }
     return mask;

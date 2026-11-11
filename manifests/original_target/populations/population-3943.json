@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "111e6c4f714b180889f5772f03aa3d6c5f7f39d8162f35b76c1fd333993ad700",
-    "historical_acceptance_sha256": "d8b9b783a9a0da0ccff6314afb310ad065d5dcacde49cae9b4f0daf7801b0246"
+    "historical_population_sha256": "de800242d9c26bacc1875f9e44d95fa61dd367d986c1e1fcab1b691a76d96125",
+    "historical_acceptance_sha256": "126a232193c4816b70179334f6ccb1a491dd6c757d00d9ab7ea8a2358b740948"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4499,7 +4499,7 @@
     "?Unknown_00548070@UnknownMap8324E0@@QAEHABVCell@@@Z": 5537904,
     "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z": 5547344,
     "?Unknown_0054A550@UnknownMap8324E0@@QAEXABUCoordStruct@@HHH@Z": 5547344,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0054AAB0@UnknownMap8324E0@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0054AB70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
     "?Unknown_0054AB70@UnknownMap8324E0@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
@@ -11082,7 +11082,9 @@
     "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
     "?Unknown_0055DCA0@MapClass@@QAE_NABVCell@@@Z": 5627040,
     "?Unknown_0055EDB0@MapClass@@QAE_NABVCell@@@Z": 5631408,
-    "?Redraw@BinkClass@@QAEXXZ": 4392992
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336
   },
   "regions": [
     {
@@ -13732,7 +13734,7 @@
         {
           "offset": 126,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 1252670
@@ -13770,7 +13772,7 @@
           "resolved": 8185064
         }
       ],
-      "source_sha256": "d013e0a1e3e6ead59dc0dd76c08047065b8e84a4d3458e441a53cc37e9200cdf",
+      "source_sha256": "2e95c77cd62127a22819a139ee29338438c498fbcff1f6fdbf8931b870ccd806",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot182_00418cf0.cpp",
       "population": "population-3943",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

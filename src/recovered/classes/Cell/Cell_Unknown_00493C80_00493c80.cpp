@@ -12,7 +12,7 @@
 
 bool Cell::Unknown_00493C80()
 {
-    if (Map.Unknown_0054AAB0(*this)) {
+    if (Map.In_Radar(*this)) {
         CellClass &cell = Map[*this];
         if (cell.OverlayIndex != -1) {
             OverlayTypeClass *type = OverlayTypes[cell.OverlayIndex];

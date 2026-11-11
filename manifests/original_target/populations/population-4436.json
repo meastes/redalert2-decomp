@@ -4,8 +4,8 @@
     "id": "population-4436",
     "inventory_sha256": "8c502343a335377c2daa19399479a385be44d4e954a6b63315bee285f02863f7",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "387ffd7bd16a08ba19a602b0e56eabcc9001062d0ab737632fd957ffee24b0ab",
-    "historical_acceptance_sha256": "59df1d272287b7372120e7c8521e133e9797d61135be0f1015561eaa80e5948b"
+    "historical_population_sha256": "92cce5d4bc61113df842a876a05d1fdadc8976dff4be4df48d4a5648cf2b07e4",
+    "historical_acceptance_sha256": "1a70c7583096ed1705644b36dac666e042e5d2376ac2c913d46ffdaa9c663305"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -5616,7 +5616,7 @@
     "?unknown_slot27@AircraftClass@@UAEHPBVCell@@_N1@Z": 4290624,
     "?unknown_slot27@FootClass@@UAEHPBVCell@@_N1@Z": 5031504,
     "?unknown_slot182@AircraftClass@@UAEHPAVAbstractClass@@PAVCell@@@Z": 4295920,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_00478760@CellClass@@QAE_NHHHHHHH@Z": 4687712,
     "?unknown_slot101@AircraftClass@@UAEHPAVCellClass@@HH0_N@Z": 4296192,
     "?Unknown_006BA990@TeamClass@@QAE_NXZ": 7055760,
@@ -14249,7 +14249,8 @@
     "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
     "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
-    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440
   },
   "regions": [
     {
@@ -32750,7 +32751,7 @@
         {
           "offset": 1430,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293410790
@@ -32790,7 +32791,7 @@
         {
           "offset": 1859,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293410361
@@ -32830,7 +32831,7 @@
         {
           "offset": 2345,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293409875
@@ -32870,7 +32871,7 @@
         {
           "offset": 2774,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293409446
@@ -33052,7 +33053,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "03b4979d3c71b4427ef860ca033cd370a5d4bcbbb6e09de4ccc4815341884f3d",
+      "source_sha256": "cbc8879f6938f65c2f1fe020a3d9ae806852e09950eca7e94b30a5233d1b2860",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_Greatest_Threat_006c6530.cpp",
       "population": "population-4436",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

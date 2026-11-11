@@ -4,8 +4,8 @@
     "id": "population-4195",
     "inventory_sha256": "31d639dbaf9424d5a06d0d3dff0394405aaf49af7f8c2ec587c0c470a7bde64e",
     "gaps_sha256": "c39982183334853b1d09bc43d6f8f5b7a3ee17249bfc4054e8b26a97dfef201c",
-    "historical_population_sha256": "30aa9ff3aea146b665c26e3cc729eef682a45763313b2a0a9f1d75e55a0df503",
-    "historical_acceptance_sha256": "1bb82a2a2317639f1627252885721f5bc4b2af31e25271eb506fc4020118c018"
+    "historical_population_sha256": "f7b1273b55660ec7dc27e4e81002d6b928572c2f2d602df29b1fac91155c57d2",
+    "historical_acceptance_sha256": "a48dd4ed49cb6aebf5352473f347472871e4beaf87e2ac61cd8001fc6c415cad"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -7518,7 +7518,7 @@
     "?unknown_slot27@AircraftClass@@UAEHPBVCell@@_N1@Z": 4290624,
     "?unknown_slot27@FootClass@@UAEHPBVCell@@_N1@Z": 5031504,
     "?unknown_slot182@AircraftClass@@UAEHPAVAbstractClass@@PAVCell@@@Z": 4295920,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_00478760@CellClass@@QAE_NHHHHHHH@Z": 4687712,
     "?unknown_slot101@AircraftClass@@UAEHPAVCellClass@@HH0_N@Z": 4296192,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
@@ -33976,7 +33976,7 @@
         {
           "offset": 26,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293828402
@@ -34318,7 +34318,7 @@
           "resolved": 6687979
         }
       ],
-      "source_sha256": "d39ba0f3d0c202c6d817d210e54770766bc149b86a99801d017f3aa1ec68bc0d",
+      "source_sha256": "e6b6bce59c97b2cb36d3ae5304870e20f2634ae28940472f3b0f58a86d202624",
       "switch_data_bytes": 32,
       "source": "src/recovered/unowned/Scan_Place_Object_00660b60.cpp",
       "population": "population-4195",

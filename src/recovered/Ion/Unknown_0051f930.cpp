@@ -37,14 +37,14 @@
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
 // @ref ?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z=00713db0
-// @ref ?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z=0054aab0
+// @ref ?In_Radar@MapClass@@QAE_NABVCell@@@Z=0054aab0
 // @ref ?Unknown_0063B5B0@@YI_NHVCell@@@Z=0063b5b0
 // @ref ?unknown_int_a3d548@@3HA=00a3d548
 
 void __fastcall Unknown_0051F930(int duration, int deferment, Cell cell, HouseClass *owner)
 {
     if (cell == unknown_geometry_k) {
-        while (!Map.Unknown_0054AAB0(cell)) {
+        while (!Map.In_Radar(cell)) {
             cell = Cell(Random_Pick(0, Map.unknown_128), Random_Pick(0, Map.unknown_12c));
         }
     }

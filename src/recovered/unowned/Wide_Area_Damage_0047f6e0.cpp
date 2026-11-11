@@ -29,7 +29,7 @@ void __fastcall Wide_Area_Damage(CoordStruct const &coord, int radius, int rawda
                 continue;
             }
             Cell tcell = Cell(xpos, ypos);
-            if (!Map.Unknown_0054AAB0(tcell)) {
+            if (!Map.In_Radar(tcell)) {
                 continue;
             }
 

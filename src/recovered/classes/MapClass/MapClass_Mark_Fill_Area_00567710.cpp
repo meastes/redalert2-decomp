@@ -40,7 +40,7 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
     frontier_cells.Add(origin);
     region_cells.Add(origin);
 
-    if (Unknown_0054AAB0(origin)) {
+    if (In_Radar(origin)) {
         Get_Cell_Data_0056dba0(origin).unknown_45[4] = 1;
     }
 
@@ -52,14 +52,14 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
 
         for (int dir = 0; dir < 8; dir++) {
             Cell adjacent = Adjacent_Cell(cell, dir);
-            if (Unknown_0054AAB0(adjacent)) {
+            if (In_Radar(adjacent)) {
                 UnknownMapGenerationCell &data = Get_Cell_Data_0056dba0(adjacent);
                 CellClass *adjptr = &Map[adjacent];
                 if (!data.unknown_45[4]) {
                     if (on_water && adjptr->unknown_47b7e0() || !on_water && adjptr->unknown_11b == height && adjptr->unknown_47b590()) {
                         frontier_cells.Add(adjacent);
-                        bool legal = Unknown_0054AAB0(adjacent);
-                        bool legal2 = Unknown_0054AAB0(cell);
+                        bool legal = In_Radar(adjacent);
+                        bool legal2 = In_Radar(cell);
                         region_cells.Add(adjacent);
                         data.unknown_45[4] = 1;
                     }
@@ -75,7 +75,7 @@ void MapClass::Mark_Fill_Area(Cell const &origin, bool on_water)
                 Cell influence;
                 influence.X = x;
                 influence.Y = y;
-                if (Unknown_0054AAB0(influence)) {
+                if (In_Radar(influence)) {
                     Get_Cell_Data_0056dba0(Cell(x, y)).unknown_45[5] = 1;
                 }
             }

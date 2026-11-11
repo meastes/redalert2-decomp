@@ -3,7 +3,7 @@
 // the given cell, for the cells on the map.
 #include "shared/display.hpp"
 #include "shared/map_cell.hpp"
-// @ref ?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z=0054aab0
+// @ref ?In_Radar@MapClass@@QAE_NABVCell@@@Z=0054aab0
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref _unknown_geometry_k=00852610
 
@@ -15,7 +15,7 @@ void DisplayClass::Unknown_004998C0(Cell const &cell, bool set)
     Cell const *offset = unknown_1178;
     while (*offset != Cell(0x7FFF, 0x7FFF)) {
         Cell target = cell + *offset++;
-        if (Unknown_0054AAB0(target)) {
+        if (In_Radar(target)) {
             CellClass &target_cell = (*this)[target];
             if (set) {
                 target_cell.unknown_12c = target_cell.unknown_12c | 2;

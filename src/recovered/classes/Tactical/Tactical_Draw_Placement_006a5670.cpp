@@ -41,7 +41,7 @@ void Tactical::Draw_Placement(bool drawtrans)
                 Point2D pixel;
                 Coord_To_Pixel(coord, pixel);
                 pixel.X = pixel.X - 30;
-                if (Map.Unknown_0054AAB0(cell)) {
+                if (Map.In_Radar(cell)) {
                     CellClass *cellptr = &Map[cell];
                     all_valid = cellptr->Draw_Placement_Cursor(pixel, unknown_rect_839630, drawtrans) && all_valid;
                 }
@@ -91,7 +91,7 @@ void Tactical::Draw_Placement(bool drawtrans)
                 Point2D pixel;
                 Coord_To_Pixel(coord, pixel);
                 pixel.X = pixel.X - 30;
-                if (Map.Unknown_0054AAB0(cell)) {
+                if (Map.In_Radar(cell)) {
                     CellClass *cellptr = &Map[cell];
                     cellptr->Draw_Placement_Cursor(pixel, unknown_rect_839630, drawtrans);
                 }

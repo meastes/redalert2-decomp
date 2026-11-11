@@ -45,7 +45,7 @@ void MapClass::Sight_From(CoordStruct const &xcoord, int sightrange, HouseClass 
     Cell cell = Coord_Cell(coord);
     Cell hoffset = cell - Coord_Cell(xcoord) - Cell(2, 2);
 
-    if (!Unknown_0054AAB0(cell)) return;
+    if (!In_Radar(cell)) return;
     if (!sightrange) return;
     if (sightrange >= 11 || sightrange > 10) sightrange = 10;
 
@@ -87,7 +87,7 @@ void MapClass::Sight_From(CoordStruct const &xcoord, int sightrange, HouseClass 
         newcell = cell + *ptr++;
         ptr2++;
 
-        if (!Unknown_0054AAB0(newcell)) continue;
+        if (!In_Radar(newcell)) continue;
         xdiff = newcell.X - xx;
         xdiff = abs(xdiff);
         if (xdiff > sightrange) continue;

@@ -30,7 +30,7 @@ bool HouseClass::unknown_func_4e7580(AbstractClass *object, bool arg2)
             }
         } else {
             Cell cell = Coord_Cell(object->Center_Coord());
-            if (Map.Unknown_0054AAB0(cell)) {
+            if (Map.In_Radar(cell)) {
                 result = ((UnknownCellView *)&Map[cell])->unknown_func_478720();
                 if (result && unknown_5308 == object) {
                     unknown_5308 = 0;

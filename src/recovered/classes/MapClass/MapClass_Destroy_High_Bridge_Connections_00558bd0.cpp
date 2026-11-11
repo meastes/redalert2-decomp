@@ -82,7 +82,7 @@ void MapClass::Destroy_High_Bridge_Connections_00558BD0(Cell const &cell)
     Rect dirty = unknown_empty_rect;
 
     while (true) {
-        if (!Map.Unknown_0054AAB0(current)) {
+        if (!Map.In_Radar(current)) {
             return;
         }
 

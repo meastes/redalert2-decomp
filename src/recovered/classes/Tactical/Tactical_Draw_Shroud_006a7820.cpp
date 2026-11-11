@@ -28,7 +28,7 @@ void Tactical::Draw_Shroud(Rect const &area)
             Cell step(y/2,(y+1)/2);
             scan=base+step;
             for(x=columns;x>0;--x) {
-                if(Map.Unknown_0054AAB0(scan)) {
+                if(Map.In_Radar(scan)) {
                     CellClass *cell=&Map[scan];
                     CoordStruct coord=Coord_Snap(Cell_Center(scan));
                     Point2D pixel;

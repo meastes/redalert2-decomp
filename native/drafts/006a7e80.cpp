@@ -53,7 +53,7 @@ void Tactical::Draw_Pixel_Effects(Rect const &area, Rect const &cliprect)
         Cell step(y / 2, (y + 1) / 2);
         scan = base + step;
         for (int x = columns; x > 0; --x) {
-            if (Map.Unknown_0054AAB0(scan)) {
+            if (Map.In_Radar(scan)) {
                 CellClass &cell = Map[scan];
                 int value = cell.Get_Tiberium_Value();
                 if (cell.Flags_12c & 0x10 && !cell.unknown_47cb50()

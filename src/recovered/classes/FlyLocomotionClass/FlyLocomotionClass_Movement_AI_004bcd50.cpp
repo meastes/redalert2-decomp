@@ -77,7 +77,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         coord.Z-=unknown_58;
         Map.Get_Height_GL(coord);
         Map[coord];
-        if (Map.Unknown_0054AAB0(Cell(coord))) {
+        if (Map.In_Radar(Cell(coord))) {
             Map.Remove(LinkedTo);
             LinkedTo->Mark(0);
             LinkedTo->unknown_slot103(coord);
@@ -126,7 +126,7 @@ void FlyLocomotionClass::unknown_4bcd50()
     LinkedTo->Mark(0);
     coord=Object_Coord(LinkedTo);
     Physics_004bdc20(coord,LinkedTo->unknown_2e0.Current());
-    if (!Map.Unknown_0054AAB0(Cell(coord)) && LinkedTo->unknown_slot282()) {
+    if (!Map.In_Radar(Cell(coord)) && LinkedTo->unknown_slot282()) {
         Cell cell=Cell(coord);
         Cell edge=Map.Unknown_00547F30(cell);
         if (edge.X<Map.unknown_128/2) {
@@ -134,11 +134,11 @@ void FlyLocomotionClass::unknown_4bcd50()
         } else {
             coord.X-=128;
         }
-        if (Map.Unknown_0054AAB0(Cell(coord))) {
+        if (Map.In_Radar(Cell(coord))) {
             LinkedTo->unknown_slot103(coord);
         } else {
             coord=Coord_Scatter(coord,64,false);
-            if (Map.Unknown_0054AAB0(Cell(coord))) {
+            if (Map.In_Radar(Cell(coord))) {
                 LinkedTo->unknown_slot103(coord);
             }
         }

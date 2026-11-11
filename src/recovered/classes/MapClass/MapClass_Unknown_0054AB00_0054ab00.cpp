@@ -6,5 +6,5 @@
 
 bool MapClass::Unknown_0054AB00(CoordStruct const &coord)
 {
-    return Unknown_0054AAB0(Cell(coord));
+    return In_Radar(Cell(coord));
 }

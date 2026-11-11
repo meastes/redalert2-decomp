@@ -6,7 +6,7 @@
 // originx/originy (minx is spilled to its home and reloaded after each painted cell because
 // `level` evicts it from ebp), the painted cell's position is kept as the Point2D offset from the
 // bounding box with its two-pixel area as a Rect, and the waypoint square is built in place.
-// Names of the callees are the unit's current ones: Unknown_0054AAB0 is TibSun In_Radar,
+// Names of the callees are the unit's current ones: In_Radar is TibSun In_Radar,
 // unknown_func_5dd000 is OverlayTypeClass::Get_Radar_Color, Put_Pixel with a clip rectangle is
 // TibSun Put_Pixel_Clip, 0x24 is RTTI_TERRAIN.
 
@@ -23,7 +23,7 @@ void MapPreviewClass::Create_Preview()
 
     cptr = Map.Iterate();
     while (cptr != 0) {
-        if (Map.Unknown_0054AAB0(cptr->MapCoords)) {
+        if (Map.In_Radar(cptr->MapCoords)) {
             Point2D pixel = Cell_To_Preview_Pixel(cptr->MapCoords);
             if (pixel.X < minx) {
                 minx = pixel.X;
@@ -58,7 +58,7 @@ void MapPreviewClass::Create_Preview()
     unknown_00->Lock();
     while (cptr != 0) {
         Cell cell = cptr->Fetch_CellID();
-        if (Map.Unknown_0054AAB0(cell)) {
+        if (Map.In_Radar(cell)) {
             unsigned char unknown = 0;
             unsigned int lowcolor = Map[cell].Preview_Cell_Color(unknown, false);
             Point2D pixel = Cell_To_Preview_Pixel(cell);

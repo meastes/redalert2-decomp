@@ -41,7 +41,7 @@ int CellClass::unknown_475db0(int levels)
             TiberiumClass::Clear_Spread_Cell(MapCoords);
             for (int facing = 0; facing < 8; facing++) {
                 Cell adjacent = Adjacent_Cell(MapCoords, facing);
-                if (Map.Unknown_0054AAB0(adjacent) && !tiberium->SpreadMap[unknown_cell_index_428a90(adjacent)]) {
+                if (Map.In_Radar(adjacent) && !tiberium->SpreadMap[unknown_cell_index_428a90(adjacent)]) {
                     tiberium->Add_Spread_Cell(adjacent);
                 }
             }

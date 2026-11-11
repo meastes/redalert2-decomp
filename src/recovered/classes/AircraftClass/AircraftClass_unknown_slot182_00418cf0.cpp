@@ -17,7 +17,7 @@ int AircraftClass::unknown_slot182(AbstractClass *object, Cell *cell)
     Cell center = Coord_Cell(Center_Coord());
     for (int index = 0; index < 8; index++) {
         *cell = Adjacent_Cell(Cell(center), unknown_facings_7ce4c8[index]);
-        if (Map.Unknown_0054AAB0(*cell)) {
+        if (Map.In_Radar(*cell)) {
             Cell here = Coord_Cell(object->Center_Coord());
             if (here.X == cell->X && here.Y == cell->Y) {
                 break;

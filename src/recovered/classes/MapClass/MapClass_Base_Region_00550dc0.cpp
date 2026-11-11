@@ -11,7 +11,7 @@
 
 bool MapClass::Base_Region(Cell const &cell, int &house, int &zone)
 {
-    if (cell != unknown_cell_a6f238 && Unknown_0054AAB0(cell)) {
+    if (cell != unknown_cell_a6f238 && In_Radar(cell)) {
         for (int index = 0; index < Houses.Count(); index++) {
             HouseClass *h = Houses[index];
 

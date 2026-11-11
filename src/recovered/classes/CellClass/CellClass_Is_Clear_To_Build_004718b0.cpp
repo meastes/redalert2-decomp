@@ -59,7 +59,7 @@ bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, Hous
     }
 
     if (Debug_Map) {
-        if (!Map.Unknown_0054AAB0(MapCoords)) {
+        if (!Map.In_Radar(MapCoords)) {
             return false;
         }
     } else {

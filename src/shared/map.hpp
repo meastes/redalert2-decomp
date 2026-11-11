@@ -156,7 +156,7 @@ public:
     void Unknown_0055D990(Cell const &cell);      // 0x0055D990
     void Unknown_00562F50(CellClass *cell); // 00562F50: observed thiscall/RET4; unused return hypothesis
     CellClass *Unknown_005629D0(AbstractClass *object);                         // 0x005629D0 (the cell under an object; hypothesis)
-    bool Unknown_0054AAB0(Cell const &cell);      // 0x0054AAB0 (a cell test: on the map; hypothesis)
+    bool In_Radar(Cell const &cell);              // 0x0054AAB0 (a cell test: on the map; hypothesis)
     bool Base_Region(Cell const &cell, int &house, int &zone);   // 0x00550DC0 (TibSun Base_Region: the house whose base zone holds the cell)
     bool Unknown_0054AB00(CoordStruct const &coord);    // 0x0054AB00 (a coordinate test; InfantryClass 0x005070E0 tests al)
     // The +0x02 value of the cell's +0x64 element (0x0054FA60); the cell's

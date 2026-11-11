@@ -19,7 +19,7 @@ void JumpjetLocomotionClass::unknown_530940()
     }
     Map.Get_Height_GL(coord);
     Map[coord];
-    if (Map.Unknown_0054AAB0(Coord_Cell(coord))) {
+    if (Map.In_Radar(Coord_Cell(coord))) {
         Map.Remove(LinkedTo);
         LinkedTo->Mark(0);
         LinkedTo->unknown_slot103(coord);

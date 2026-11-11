@@ -111,7 +111,7 @@ void MapClass::Unknown_00552570(Cell const &cell)
     DynamicVectorClass<Cell> cells;
     Rect dirty;
     while (true) {
-        if (!Map.Unknown_0054AAB0(spancell)) {
+        if (!Map.In_Radar(spancell)) {
             break;
         }
         if (Cells[spancell.X + spancell.Y * 512] != 0) {

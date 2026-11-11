@@ -25,7 +25,7 @@ void Tactical::Draw_Tile_Shadows(Rect const &area,Rect const &cliprect)
         Cell step(y/2,(y+1)/2);
         scan=base+step;
         for(x=columns;x>0;--x) {
-            if(Map.Unknown_0054AAB0(scan)) {
+            if(Map.In_Radar(scan)) {
                 int x=scan.X*256+128;
                 int y=scan.Y*256+128;
                 CoordStruct coord=UnknownCoord434820(x/256*256,y/256*256,0);

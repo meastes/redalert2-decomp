@@ -78,7 +78,7 @@ void Tactical::Draw_Tiles(Cell const &cell, Rect const &cliprect)
         for (int col = 0; col < 3; col++) {
             int cx = x + ((col + 1) >> 1);
             int cy = y - (col >> 1) + 1;
-            if (Map.Unknown_0054AAB0(Cell(cx, cy))) {
+            if (Map.In_Radar(Cell(cx, cy))) {
                 CellClass *cellptr = &Map[Cell(cx, cy)];
                 bool overlap = false;
                 bool draw = false;

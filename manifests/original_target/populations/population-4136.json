@@ -4,8 +4,8 @@
     "id": "population-4136",
     "inventory_sha256": "13cf0ffeec18693fc2cf1b8401ea36f0290b5b722628721d64b8b2a819fa88db",
     "gaps_sha256": "ef726fa32fef57074fb033a40e10b26da6c1a3d19675814c79e01f2466d8b4d5",
-    "historical_population_sha256": "bfc9f678e65793e805026efd1d9c5348c96a196d80055a2e8af69216eb8399a3",
-    "historical_acceptance_sha256": "1734479f6a90d9e566d4cc1fc9f9791372fa540e32578687b2b998c51407f29c"
+    "historical_population_sha256": "11edc56bb7473fef36fa7cd2098967eb4f824a19defadc910ca7b720696ac484",
+    "historical_acceptance_sha256": "1dcfef1195aea1587d6bce7b132ec59974e59fbc29b39b6e4ad6e0e259ed98b6"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -9929,7 +9929,7 @@
     "_CLSID_DropPodLocomotionClass": 8003504,
     "?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAUUnknownTube@@@@A": 8806856,
     "?unknown_drawer_8323c4@@3PAVConvertClass@@A": 8594372,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?unknown_rect_839630@@3VRect@@A": 8623664,
     "?unknown_action_line_pattern_7d81dc@@3QB_NB": 8225244,
     "?Unknown_0055A7F0@MapClass@@QAE_NABUCoordStruct@@@Z": 5613552,
@@ -12275,7 +12275,10 @@
     "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
-    "__real@8@3ffefd70a3d70a3d7000": 7986552
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312
   },
   "regions": [
     {
@@ -20510,7 +20513,7 @@
         {
           "offset": 476,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 524320
@@ -20620,7 +20623,7 @@
           "resolved": 2120088
         }
       ],
-      "source_sha256": "1d716f208ded7b0b8cd38818550d7a119e7789064136f57aa09a232fd34b0cf0",
+      "source_sha256": "3ef4bb5b4d8bfa224142c0ee609ff67ed5ff0d86ffd87c662a33616b49624f23",
       "source": "src/recovered/classes/FootClass/FootClass_unknown_slot243_004ca8b0.cpp",
       "population": "population-4136",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -26286,7 +26289,7 @@
         {
           "offset": 289,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 523771
@@ -26604,7 +26607,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "2fd3b6a9f8bc1be997edbaaa2ed69db7d170be0ac2d7bcd53cb0a26f307d77f9",
+      "source_sha256": "0f8c2606bc5c9e4b429c65e193f326aa9c31eec5174ec235a6118abb057a4a83",
       "source": "src/recovered/classes/FootClass/FootClass_Draw_Action_Line_004cab90.cpp",
       "population": "population-4136",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

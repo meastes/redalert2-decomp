@@ -4,8 +4,8 @@
     "id": "population-4383",
     "inventory_sha256": "66c0f183965995a65b47b97c59055e6eca957e1cff781a5498b4362a8551cd58",
     "gaps_sha256": "b8cf9bc8d07633025048201f3b2f4d7a7e45a6ff8d1f46e6e1064514fab06f38",
-    "historical_population_sha256": "a7dc30dd9fed786d6f575892c7275cea0f93ff7d8d648a8836ed04e2517f3a58",
-    "historical_acceptance_sha256": "dedc82e2ead0ded1cf525183832e693ac06c1290d076c131d24fc25b45618f50"
+    "historical_population_sha256": "7e87390bf51082bc18992200d45766a98f37955e1560171e76f85a88c919fc09",
+    "historical_acceptance_sha256": "37fcd77f5cd797b1ee936f78f23d051c9a01214fedbed548f83c5ee8686a4ddc"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -7139,7 +7139,7 @@
     "?AdjacentCell@@3QBVCell@@B": 8723056,
     "?unknown_slot78@AircraftClass@@UAE_NHPAVObjectClass@@_N@Z": 4289712,
     "?unknown_slot78@FootClass@@UAE_NHPAVObjectClass@@_N@Z": 5005728,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_00478760@CellClass@@QAE_NHHHHHHH@Z": 4687712,
     "?unknown_slot101@AircraftClass@@UAEHPAVCellClass@@HH0_N@Z": 4296192,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
@@ -15282,7 +15282,25 @@
     "?Redraw@BinkClass@@QAEXXZ": 4392992,
     "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
     "?Reset@AStarClass@@QAEXXZ": 4364944,
-    "?Clear@AStarClass@@QAEXXZ": 4357776
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Search@@3UAStarClass@@A": 8590792,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552
   },
   "regions": [
     {
@@ -22658,7 +22676,7 @@
         {
           "offset": 503,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293546565
@@ -23058,7 +23076,7 @@
         {
           "offset": 1691,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293545377
@@ -23096,7 +23114,7 @@
           "resolved": 4292665832
         }
       ],
-      "source_sha256": "1b8e978d923ae80b66faf4a45b998b5e59116d2f3a7b3d70f02a1c3562b0659c",
+      "source_sha256": "38d5108f16048d1173a8b84eacff21bde4d5e864b9231cc058d47bb742aee172",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Placement_006a5670.cpp",
       "population": "population-4383",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -23665,7 +23683,7 @@
         {
           "offset": 396,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293538048
@@ -23775,7 +23793,7 @@
           "resolved": 4292311631
         }
       ],
-      "source_sha256": "0ebed8c7cbf6d96a0cc220f1be54252f56a85c69a726742ba51aec55f6b7524e",
+      "source_sha256": "8ff12f6624f2b9b32061427e48b12386f652f92c8610113c4e0be1507999b5e9",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Shroud_006a7820.cpp",
       "population": "population-4383",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -23948,7 +23966,7 @@
         {
           "offset": 578,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293535274
@@ -23994,7 +24012,7 @@
           "resolved": 4292661422
         }
       ],
-      "source_sha256": "651ba6e251770d803b8772f0e1de8625aa09d999df55a1c8287302387845b3a0",
+      "source_sha256": "2c72a721cefe8f58f293a3fc96a1600391a3be349fa4a9e471914dc78dbd5f03",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Tile_Shadows_006a8240.cpp",
       "population": "population-4383",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -24226,7 +24244,7 @@
         {
           "offset": 429,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293539247
@@ -24298,7 +24316,7 @@
         {
           "offset": 911,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293538765
@@ -24352,7 +24370,7 @@
           "resolved": 4292661324
         }
       ],
-      "source_sha256": "9b205c8e3c451b298c865a5058bddce920af5f698e52e5cdc89160e57de6d504",
+      "source_sha256": "f75858b91015c7b24e078252ce0791c900ece1dcec6f0e0110abeb91415216b0",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Overlays_006a7350.cpp",
       "population": "population-4383",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -25510,7 +25528,7 @@
         {
           "offset": 385,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293537163
@@ -25572,7 +25590,7 @@
           "resolved": 4292663356
         }
       ],
-      "source_sha256": "d7435bd87ea3b00303a56fa4b44559325ca10d4e34b003b722c8d98ae757c173",
+      "source_sha256": "09f8e7c28aba5770d4edc5a6449b6961a09e9d3ca8237dcd0ac9cbd551bd65fb",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Tiles_006a7ba0.cpp",
       "population": "population-4383",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -25756,7 +25774,7 @@
         {
           "offset": 376,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293533844
@@ -25802,7 +25820,7 @@
           "resolved": 4292659962
         }
       ],
-      "source_sha256": "a0bec82ef61d886e37444c337fd01becc5830ebcf14e68264cd402d70330bf31",
+      "source_sha256": "2ba9b7cc7b434eba6395bf1d929f70d70bf99fd3b92f9710c6a2e64212816314",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Tile_Shadows_Area_006a88a0.cpp",
       "population": "population-4383",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

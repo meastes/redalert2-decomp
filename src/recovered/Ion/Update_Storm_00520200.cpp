@@ -49,7 +49,7 @@
 // @ref ??_C@_0P@CMOA@D?3?2Ra2?2Ion?4cpp?$AA@=007ddb84
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
-// @ref ?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z=0054aab0
+// @ref ?In_Radar@MapClass@@QAE_NABVCell@@@Z=0054aab0
 // @ref ?Speech_Play_Name@@YIXPBDHH@Z=00715b40
 // @ref ??_C@_0BK@OPHL@EVA_LightningStormCreated?$AA@=007ddbc8
 // @ref ??_C@_0CA@DHJF@TXT_LIGHTNING_STORM_APPROACHING?$AA@=007ddba8
@@ -128,7 +128,7 @@ void __fastcall Update_Storm_00520200()
                         break;
                     }
                 }
-                if (Map.Unknown_0054AAB0(cell) && !crowded) {
+                if (Map.In_Radar(cell) && !crowded) {
                     break;
                 }
             }

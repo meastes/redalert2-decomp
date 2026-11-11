@@ -79,7 +79,7 @@ void MapClass::Compute_Zone_Connections()
                 int facing = _facings[faceindex];
 
                 CellClass *bptr;
-                for (bptr = &cptr->Adjacent_Cell(facing); Unknown_0054AAB0(bptr->MapCoords) && !crossed; bptr = &bptr->Adjacent_Cell(facing)) {
+                for (bptr = &cptr->Adjacent_Cell(facing); In_Radar(bptr->MapCoords) && !crossed; bptr = &bptr->Adjacent_Cell(facing)) {
                     if (bptr->unknown_47b960()) {
                         int index = bptr->IsoTileIndex - unknown_tileset_a52c74;
                         if (index != -1 && _bridge_subtiles2[index] == (unsigned char)bptr->unknown_11a) {

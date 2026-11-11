@@ -37,7 +37,7 @@ ObjectClass *MapClass::Close_Object(CoordStruct const &coord)
     static Cell _offsets[] = {Cell(0, 0), Cell(-1, 0), Cell(1, 0), Cell(0, -1), Cell(0, 1), Cell(-1, 1), Cell(1, 1), Cell(1, -1), Cell(-1, -1)};
     for (int index = 0; index < 9; index++) {
         Cell newcell = Cell(cell + _offsets[index]);
-        if (Unknown_0054AAB0(newcell)) {
+        if (In_Radar(newcell)) {
             TechnoClass *o = (TechnoClass *)(*this)[newcell].Cell_Occupier();
             while (o != 0) {
                 if (!o->AbstractFlags.IsTechno || o->unknown_372 || o->unknown_1b8 != 2) {

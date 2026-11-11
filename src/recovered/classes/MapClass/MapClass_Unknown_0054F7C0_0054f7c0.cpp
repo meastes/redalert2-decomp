@@ -14,13 +14,13 @@ bool MapClass::Unknown_0054F7C0(Cell const &from, Cell const &to, int zone, bool
     }
 
     bool from_local = Map.Unknown_0055A660(from, true);
-    bool from_map = Map.Unknown_0054AAB0(from);
+    bool from_map = Map.In_Radar(from);
     if (!from_local && from_map) {
         return true;
     }
 
     bool to_local = Map.Unknown_0055A660(to, true);
-    bool to_map = Map.Unknown_0054AAB0(to);
+    bool to_map = Map.In_Radar(to);
     if (arg6 && from_local && !to_local && to_map) {
         return true;
     }

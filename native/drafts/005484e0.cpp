@@ -67,7 +67,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
     }
 
     for (; i < Cells.Length(); i++) {
-        if (!Unknown_0054AAB0(Cell(i % 512, i / 512))) {
+        if (!In_Radar(Cell(i % 512, i / 512))) {
             CellClass *c = Cells[i];
             if (c != 0) {
                 c->unknown_11b = cell_height;
@@ -114,7 +114,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
     for (; y < 2 * unknown_12c + 2; y++) {
         for (int x = 0; x < unknown_128 + 2; x++) {
             Cell cell(x, y);
-            if (Unknown_0054AAB0(cell)) {
+            if (In_Radar(cell)) {
                 int idx = (512 * y) + x;
                 CellClass *c = Cells[idx];
                 if (c == 0) {
@@ -213,7 +213,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
                 Cell const *list = unknown_objects_a40368[i]->unknown_slot64(0);
                 while (*list != Cell(0x7FFF, 0x7FFF)) {
                     Cell ncell = cell + *list;
-                    if (!Unknown_0054AAB0(ncell)) {
+                    if (!In_Radar(ncell)) {
                         unknown_objects_a40368[i]->unknown_slot52();
                         delete unknown_objects_a40368[i];
                         i--;
@@ -230,7 +230,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
             CellClass *c1 = Cells[i];
             CellClass **c2 = &Cells[i];
             if (c1 != 0) {
-                if (!Unknown_0054AAB0(Cell(i % 512, i / 512))) {
+                if (!In_Radar(Cell(i % 512, i / 512))) {
                     *c2 = 0;
                     delete c1;
                 }

@@ -8,7 +8,7 @@ int FlyLocomotionClass::Physics_004bdc20(CoordStruct &coord,UnknownFacingDir fac
     if (actual>0) {
         CoordStruct next=Fly_Move_Coord_004bcd50(coord,facing,actual);
         coord=next;
-        if (!Map.Unknown_0054AAB0(coord.As_Cell())) return 2;
+        if (!Map.In_Radar(coord.As_Cell())) return 2;
         return 1;
     }
     return 0;

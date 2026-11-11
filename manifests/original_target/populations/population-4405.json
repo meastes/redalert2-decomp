@@ -4,8 +4,8 @@
     "id": "population-4405",
     "inventory_sha256": "c6b081ea298ce6ce40f3449457e2092b420dd98904de884728f60b0d33e2c164",
     "gaps_sha256": "390084c009b787bbd1e4c6e2bb4bb695461ba9c523b54b50393f91740d7d4717",
-    "historical_population_sha256": "b867a504c94bc977cb007a8f68ed27012637eccbdac981b1b8ed0bc07dd702f7",
-    "historical_acceptance_sha256": "2820629c681d2da9c9c2b26cc44d5a7b640752fd233293fdebfb8b2082cd6a4c"
+    "historical_population_sha256": "99fea6b030334fee3f9f27c604b53e8ca1a8493620ad5dd7a0c7add1765e782e",
+    "historical_acceptance_sha256": "f1a8f558489e21ae7234e5367c1dee465cda5f85d905100c290e0017200a99af"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1974,7 +1974,7 @@
     "?Foundation_Height@BuildingTypeClass@@QBEH_N@Z": 4557120,
     "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
     "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z": 4823696,
     "?Submit@LayerClass@@UAE_NPAVObjectClass@@_N@Z": 5458080,
     "?Unknown_006AA840@Tactical@@QAEHH@Z": 6989888,
@@ -16929,7 +16929,7 @@
         {
           "offset": 107,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 725377
@@ -16943,7 +16943,7 @@
           "resolved": 714545
         }
       ],
-      "source_sha256": "a0c579401d9e69c45815b9dca18ea72a7691ee561926c3e1b157fa2e37b0e50f",
+      "source_sha256": "06aee3d5ebbc3d56cda170344dcabb5be962be26dad45406fd8655aa67ae1064",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_004998C0_004998c0.cpp",
       "population": "population-4405",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -16987,7 +16987,7 @@
         {
           "offset": 107,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 725201
@@ -17001,7 +17001,7 @@
           "resolved": 714369
         }
       ],
-      "source_sha256": "60c7c50df366997d26d3f640eec59755533e42e7325991dc111f4c92016b517a",
+      "source_sha256": "3a5dcb1541f3e703849adbe450c6550843945da615c70eed38f8556f31127dd2",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_00499970_00499970.cpp",
       "population": "population-4405",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -18850,7 +18850,7 @@
         {
           "offset": 36,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 712296
@@ -18866,7 +18866,7 @@
         {
           "offset": 128,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 712204
@@ -18904,7 +18904,7 @@
           "resolved": 5135
         }
       ],
-      "source_sha256": "9f4dde840e294cf927b4ff1d4a65f0a960eca37e5641b81ab388f852879eb1ea",
+      "source_sha256": "f39b8a91744557c496ade332880446baa541ded049740a8c1950aab0cbb9efa9",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_0049CC20_0049cc20.cpp",
       "population": "population-4405",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -19022,7 +19022,7 @@
         {
           "offset": 13,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 711919
@@ -19132,7 +19132,7 @@
           "resolved": 4294831511
         }
       ],
-      "source_sha256": "fa0046c5ee1f8f350b2e13da22941fb36a1363cb31ae314686e0dd812c13d82e",
+      "source_sha256": "7048e6073d8e7113da9d6cbb628c8b98428294e45dd95050bf306295bca7a686",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_0049CDB0_0049cdb0.cpp",
       "population": "population-4405",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -19160,7 +19160,7 @@
         {
           "offset": 11,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 711585
@@ -19238,7 +19238,7 @@
           "resolved": 2154009
         }
       ],
-      "source_sha256": "88f54f179ca65f42e2fba4ecefe02303de541c373a8aebe2ab0cd55876e157b9",
+      "source_sha256": "1191cfb1e0cd9028de050e9e237b62a47cdb3b8e658f832a05be22ef74bc0738",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_0049CF00_0049cf00.cpp",
       "population": "population-4405",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

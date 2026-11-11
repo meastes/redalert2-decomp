@@ -48,7 +48,7 @@ void Tactical::Draw_Tiles(Rect const &area, Rect const &cliprect)
         Cell cell = base + step;
 
         for (ix = xcount; ix > 0; ix--) {
-            if (Map.Unknown_0054AAB0(cell)) {
+            if (Map.In_Radar(cell)) {
                 CellClass *cellptr = &Map[cell];
                 Rect render = cellptr->Cell_Render_Rect();
                 Rect inter = Intersect(area, render);

@@ -11,7 +11,7 @@
 
 bool HouseClass::unknown_4e76a0(Cell const &cell, bool arg2)
 {
-    if (Map.Unknown_0054AAB0(cell)) {
+    if (Map.In_Radar(cell)) {
         unknown_func_4e7580(unknown_5308, arg2);
         Cell target = cell;
         bool ok = Map[target].unknown_4786d0(Type->House);

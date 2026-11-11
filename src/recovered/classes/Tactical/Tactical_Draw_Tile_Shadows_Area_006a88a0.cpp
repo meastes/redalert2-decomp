@@ -53,7 +53,7 @@ void Tactical::Draw_Tile_Shadows(int, Rect const &area)
         Cell cell = base + step;
 
         for (ix = xcount; ix > 0; ix--) {
-            if (Map.Unknown_0054AAB0(cell)) {
+            if (Map.In_Radar(cell)) {
                 Point2D pixel;
                 Coord_To_Pixel(Coord_Whole(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)), pixel);
                 pixel.X -= 30;

@@ -4,8 +4,8 @@
     "id": "population-4296",
     "inventory_sha256": "c8ade57a7ef121cfc197baea3a1c21f881ffdf4a120f25eb855a6a58faed8963",
     "gaps_sha256": "bce33ede8698077d6b1b0f7a5b8dc058830b5f67f95202c7848c1361291e61b3",
-    "historical_population_sha256": "268811dace7012501007ec9477b22dc749b3458ee23b4fd32bfbe358f20514c9",
-    "historical_acceptance_sha256": "5e14d137dfc2c1fe2d666e3cd899139c35bdada826a97cdf5a391d07a89cf0f6"
+    "historical_population_sha256": "2b25a6d5b68e2875e9d3e14bd0584c515e4f4a9e6fc1a1f2ddf953ad32fc3f16",
+    "historical_acceptance_sha256": "e25dba06783d07e9a796602caa35813304b911b51598710d9768ef787b917b8f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8978,7 +8978,7 @@
     "?unknown_facings_7ce4a8@@3QBHB": 8185000,
     "?AdjacentCell@@3QBVCell@@B": 8723056,
     "?unknown_facings_7ce4c8@@3QBHB": 8185032,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
     "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
     "?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z": 5546256,
@@ -10984,7 +10984,9 @@
     "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336
   },
   "regions": [
     {
@@ -12615,7 +12617,7 @@
         {
           "offset": 1178,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293985730
@@ -12671,7 +12673,7 @@
         {
           "offset": 1315,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 4293985593
@@ -12741,7 +12743,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "c549aa9ebc7acb443b074d0c0c335bd910b7b4c48cc53737ada3ac6c02de1fed",
+      "source_sha256": "50750bc5402631f0623525129a199c739a2932cb711d76dade565bd0b29793e7",
       "source": "src/recovered/Reinf/Create_Reinforcement_0063a050.cpp",
       "population": "population-4296",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

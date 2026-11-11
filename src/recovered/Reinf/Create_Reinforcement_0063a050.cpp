@@ -98,7 +98,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                     FacingType adj;
                     for (adj = FACING_N; adj < FACING_COUNT; adj++) {
                         Cell trycell = Adjacent_Cell(newcell, adj);
-                        if (Map.Unknown_0054AAB0(trycell)) {
+                        if (Map.In_Radar(trycell)) {
                             newcell = trycell;
                             break;
                         }
@@ -111,7 +111,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                 FacingType adj;
                 for (adj = FACING_N; adj < FACING_COUNT; adj++) {
                     Cell trycell = Adjacent_Cell(newcell, adj);
-                    if (!Map.Unknown_0054AAB0(trycell) && object->unknown_slot101(&Map[trycell], adj, -1, 0, 1) == 0) {
+                    if (!Map.In_Radar(trycell) && object->unknown_slot101(&Map[trycell], adj, -1, 0, 1) == 0) {
                         newcell = trycell;
                         break;
                     }

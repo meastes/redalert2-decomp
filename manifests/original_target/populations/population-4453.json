@@ -4,8 +4,8 @@
     "id": "population-4453",
     "inventory_sha256": "ea5762d5548bceca3d8134307b4c56eff483fecfd4ed8adbf17baedbe77ad8d0",
     "gaps_sha256": "ba4ebc621bce9d7f6bad0a6c50aeaf111d58d38e882fb0ff34bb477da0979385",
-    "historical_population_sha256": "fc09611ba26ab0aebd0ecc92dcedd5241d5914324342f821d914287e872bf1f9",
-    "historical_acceptance_sha256": "a578b2fec1a25e7189dc03f9339a775ff714fe7521d417bdc65f7fce2356fafb"
+    "historical_population_sha256": "bcaa1c4811700bfb4d01780ae43e86727bb6eb7ff390edf43fc4c27bc9526144",
+    "historical_acceptance_sha256": "933093dfb1032ab0066fa39b037349a22a93355086204408a75fa10858f45e12"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5434,7 +5434,7 @@
     "?Redraw_Radar@RadarClass@@QAEX_N@Z": 6500832,
     "?Complete_Radar_Refresh@RadarClass@@QAEXXZ": 6504496,
     "?Calculated_Cell@DisplayClass@@QAE?AVCell@@HABV2@0H_NH@Z": 4826880,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z": 5613376,
     "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
     "?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z": 5546256,
@@ -14008,7 +14008,9 @@
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ": 7412880
+    "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ": 7412880,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336
   },
   "regions": [
     {
@@ -30702,7 +30704,7 @@
         {
           "offset": 151,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 889189
@@ -30868,7 +30870,7 @@
           "resolved": 7972664
         }
       ],
-      "source_sha256": "916c62e5763d6179f6bb1ddd56b3801234b496f7280a9ab0249d83eb4d11836f",
+      "source_sha256": "61e1a4f7ed4a643724c0b8c276dbdf8dee7bbedce2f532f0ea5623c20c67351c",
       "source": "src/recovered/classes/CellClass/CellClass_Is_Clear_To_Build_004718b0.cpp",
       "population": "population-4453",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

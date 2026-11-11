@@ -47,7 +47,7 @@ void FootClass::unknown_4cab90()
         } else {
             end_coord = unknown_478[unknown_478.Count() - 1]->Center_Coord();
         }
-        if (Map.Unknown_0054AAB0(Coord_Cell(end_coord)) && (Map[end_coord].unknown_140 & 0x100)) {
+        if (Map.In_Radar(Coord_Cell(end_coord)) && (Map[end_coord].unknown_140 & 0x100)) {
             end_coord.Z = Map.Get_Height_GL(end_coord) + unknown_geometry_j;
         }
     }

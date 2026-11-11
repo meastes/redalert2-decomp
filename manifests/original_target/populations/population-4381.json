@@ -4,8 +4,8 @@
     "id": "population-4381",
     "inventory_sha256": "8c0546d37d9cb4ef72695c68451d741e04efa53cf396071c24030258aa74574c",
     "gaps_sha256": "58667a1d65a6054e28efea4cf9a8d99045b5b76cd6cb4f6bc45988085117bf7f",
-    "historical_population_sha256": "9a1488ede9f3c93611a46caa706d7cd9acf000c9ae9c6e21f32991e8cb8c6b41",
-    "historical_acceptance_sha256": "aaa8e8eac7656d9a3df143cc99bb84b853cab120c65eb0dbb3a5fbcf947a42b3"
+    "historical_population_sha256": "6a5173ff40bc307db0326502df2d5485b621fb6e147c85111ae0854b28aa6781",
+    "historical_acceptance_sha256": "72d9f829abbca624e34b247b45e03b2003798d92b18cf59ed83cf79460a84005"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1707,7 +1707,7 @@
     "?unknown_foundation_height_7cfcc8@@3QBHB": 8191176,
     "?Rules@@3PAVRulesClass@@A": 8624200,
     "?unknown_slot29@TechnoTypeClass@@UBEHXZ": 7201312,
-    "?Unknown_0054AAB0@MapClass@@": 5548720,
+    "?In_Radar@MapClass@@": 5548720,
     "?unknown_44d900@BuildingClass@@": 4512000,
     "?Is_Ally@HouseClass@@QBE_NPBVHouseClass@@@Z": 5133632,
     "?Incoming@CellClass@@": 4679968,
@@ -4578,7 +4578,7 @@
     "?unknown_slot25@BuildingClass@@UAEH_NH@Z": 4519424,
     "?unknown_slot31@BuildingClass@@UAE_NXZ": 4532192,
     "?unknown_slot82@BuildingClass@@UAEXH@Z": 4533856,
-    "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z": 5548720,
+    "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z": 4823696,
     "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z": 4823904,
     "?Unknown_00478760@CellClass@@QAE_NH_N0HHH0@Z": 4687712,
@@ -13690,7 +13690,11 @@
     "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
-    "__real@8@3ffefd70a3d70a3d7000": 7986552
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336
   },
   "regions": [
     {
@@ -26713,7 +26717,7 @@
         {
           "offset": 130,
           "kind": 20,
-          "symbol": "?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z",
+          "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
           "target": 5548720,
           "addend": 0,
           "resolved": 991002
@@ -26807,7 +26811,7 @@
           "resolved": 121978
         }
       ],
-      "source_sha256": "16ae4a501dab7f9984f214f4f4e68ba3ae0d36e30c6aca75ed8d686c73792d03",
+      "source_sha256": "fcc429db1ad2a075fd7b946df6549a1db222b4158ea7920ce7281b4b7b4254e2",
       "source": "src/recovered/classes/BuildingTypeClass/BuildingTypeClass_Check_Foundation_Clearance_00458b10.cpp",
       "population": "population-4381",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

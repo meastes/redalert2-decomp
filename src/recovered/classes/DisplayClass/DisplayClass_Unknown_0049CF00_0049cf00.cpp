@@ -6,14 +6,14 @@
 #include "shared/map_cell.hpp"
 #include "shared/tactical.hpp"
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
-// @ref ?Unknown_0054AAB0@MapClass@@QAE_NABVCell@@@Z=0054aab0
+// @ref ?In_Radar@MapClass@@QAE_NABVCell@@@Z=0054aab0
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
 
 void DisplayClass::Unknown_0049CF00(Cell const &cell)
 {
-    if (!Unknown_0054AAB0(cell)) {
+    if (!In_Radar(cell)) {
         return;
     }
     CellClass &target = (*this)[cell];
