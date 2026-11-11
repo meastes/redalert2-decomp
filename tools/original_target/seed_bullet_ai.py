@@ -76,6 +76,8 @@ def verify_native(repository, inventory):
                     address, operand.mem.disp, operand.size, 0x45fef8, slot, 4)
                     for slot in (0x2c, 0x38, 0x4c)), "Bullet signed Z source is ambiguous")
 
+    return graph, known, receivers
+
 
 def verify_height_receivers(graph, frames):
     """Bind the two signed coordinate outputs surrounding the velocity add."""
@@ -111,6 +113,42 @@ def verify_height_receivers(graph, frames):
     for producer in (0x4603f2, 0x460430):
         require(0x460497 not in reachable(graph["edges"], [graph["entry"]], blocked=[producer]),
                 "Height comparison can bypass a coordinate producer")
+
+def verify_coordinate_calls(graph, known, receivers):
+    known = dict(known)
+    coordinate_calls = (
+        ("AbstractClass", 22, 0x45fb5c, 0x45fb54),
+        ("ObjectClass", 40, 0x45fb94, 0x45fb8c),
+        ("BulletClass", 18, 0x45fc26, 0x45fc13),
+    )
+    for owner, slot, call, _ in coordinate_calls:
+        family = receivers.family(("input", 0, owner), slot)
+        require(family["pop"] == 4 and family["record_result"] == "CoordStruct",
+                "Coordinate result ABI differs")
+        known[call] = family["pop"]
+    frames = aligned_frames(graph, known)
+    verify_coordinate_returns(graph, frames, coordinate_calls)
+
+
+def verify_coordinate_returns(graph, frames, calls):
+    nodes = graph["nodes"]
+    for _, slot, call, setup in calls:
+        instruction = nodes[call]
+        argument = nodes[setup].operands[1]
+        require(instruction.mnemonic == "call" and instruction.operands[0].type == X.X86_OP_MEM
+                and instruction.operands[0].mem.disp == slot * 4 and nodes[setup].mnemonic == "lea"
+                and argument.type == X.X86_OP_MEM and argument.mem.base == X.X86_REG_ESP
+                and not argument.mem.index and frames.height(setup) + argument.mem.disp == -256,
+                "Coordinate result buffer differs")
+    require(nodes[0x45fb6f].op_str == "ecx, dword ptr [ebp + 0xf4]" and
+            nodes[0x45fb84].op_str == "byte ptr [ecx + 0x14], 2" and
+            nodes[0x45fb88].mnemonic == "je" and graph["pred"][0x45fb8a] == {0x45fb88} and
+            nodes[0x45fc20].op_str == "ecx, ebp", "Coordinate receiver root differs")
+    ctor = nodes[0x45fc4a]
+    require(ctor.mnemonic == "call" and ctor.operands[0].imm == 0x41b630 and
+            nodes[0x45fc45].op_str == "ecx, [esp + 0x70]" and
+            frames.height(0x45fc45) + 0x70 == -320,
+            "Coordinate delta constructor differs")
 
 
 def repair_speed_and_rotation(orig):
@@ -274,15 +312,66 @@ def repair_height_receivers(text):
     return (text[:start] + span + text[stop:]).replace("    int local_100;\n", "")
 
 
+def repair_coordinate_returns(original):
+    text=original.replace('#include "shared/ghidra_types.hpp"', '#include "shared/bullet.hpp"\n#include "shared/dir_type.hpp"\nnamespace seed_0045f710 {\n#include "shared/ghidra_types.hpp"\n}')
+    old_include='''#define RA2_DIR_MISSILE_ANGLES
+#define RA2_BULLET_MISSILE_VELOCITY
+#include "shared/bullet_velocity.hpp"
+#undef RA2_BULLET_MISSILE_VELOCITY
+#undef RA2_DIR_MISSILE_ANGLES
+'''
+    require(text.count(old_include)==1, "Frozen coordinate seed shape changed")
+    text=text.replace(old_include,"")
+    require(text.count("local_108")==3, "Frozen coordinate seed shape changed")
+    text=text.replace("    undefined1 local_108 [8];\n","")
+    start=text.index('        if ((uint)((int *)param_1[0x3d]) == (uint)((int *)0x0)) {\n            pdVar7')
+    stop=text.index("        iVar5 = (int)((**(code **)(param_1[1] + 0x10))",start)
+    text=text[:start]+'''        BulletClass *bullet = reinterpret_cast<BulletClass *>(param_1);
+        AbstractClass *target_object = bullet->Target;
+        CoordStruct target;
+        if (target_object == 0) {
+            target = *reinterpret_cast<CoordStruct const *>(&DAT_00850310);
+        }
+        else {
+            target = target_object->unknown_slot22();
+        }
+        target_object = bullet->Target;
+        if (target_object != 0 && target_object->AbstractFlags.IsObject) {
+            target = static_cast<ObjectClass *>(target_object)->unknown_slot40();
+        }
+'''+text[stop:]
+    start=text.index("        piVar8 = (int *)(**(code **)(*param_1 + 0x48))((int)&local_110 + 4);")
+    stop=text.index("        if (iVar5 < 0x100)",start)
+    span=text[start:stop]
+    require(span.count("FUN_0041b630")==1 and span.count("FUN_004ba410")==1 and span.count("FUN_0077f110")==1, "Frozen coordinate seed shape changed")
+    text=text[:start]+'''        CoordStruct center = bullet->Center_Coord();
+        UnknownVector3 delta(center.X - target.X, center.Y - target.Y, center.Z - target.Z);
+        double dx = delta.X;
+        double dy = delta.Y;
+        double dz = delta.Z;
+        iVar5 = (int)Fast_Sqrt(dx * dx + (dy * dy + dz * dz));
+'''+text[stop:]
+    labels=r"(?m)^[ \t]*((?:LAB_|joined_r0x)\w+):"
+    require(re.findall(labels,text)==re.findall(labels,original), "Frozen coordinate seed shape changed")
+    return text
+
+
 def optional_bullet_ai(text, entry, inventory, repository, accepted):
     if entry != ENTRY or entry in accepted:
         return text
     if hashlib.sha256(text.encode("utf-8")).hexdigest() != SEED_SHA256:
         return text
     try:
-        verify_native(Path(repository), inventory)
+        graph, known, receivers = verify_native(Path(repository), inventory)
         result = repair_height_receivers(repair_signed_coordinates(repair_speed_and_rotation(text)))
     except (ValueError, TypeError, KeyError, OSError):
         return text
+    try:
+        verify_coordinate_calls(graph, known, receivers)
+        result = repair_coordinate_returns(result)
+    except (ValueError, TypeError, KeyError, OSError):
+        # The previous repair is valid even if the separate virtual families
+        # cannot be proved from the local metadata.
+        pass
     return ("// Scratch hypothesis: separate floating and signed integer lifetimes in Bullet AI.\n"
             + result)
