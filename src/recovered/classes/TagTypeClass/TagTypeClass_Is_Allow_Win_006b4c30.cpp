@@ -1,10 +1,10 @@
-// bool TagTypeClass::unknown_func_6b4c30() const (0x006B4C30)
+// bool TagTypeClass::Is_Allow_Win() const (0x006B4C30)
 // Whether any trigger type answers TriggerTypeClass::Is_Allow_Win.
 #include "shared/object.hpp"
 
-bool TagTypeClass::unknown_func_6b4c30() const
+bool TagTypeClass::Is_Allow_Win() const
 {
-    for (TriggerTypeClass *trigger = Triggers; trigger != 0; trigger = trigger->Next) {
+    for (TriggerTypeClass *trigger = FirstTrigger; trigger != 0; trigger = trigger->Next) {
         if (trigger->Is_Allow_Win()) {
             return true;
         }

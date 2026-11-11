@@ -43,10 +43,10 @@ public:
     void Mark_To_Delete();                                              // 0x006B3CC0
     bool Is_Marked_To_Delete() const;                                   // 0x006B3D20
     Cell Get_Cell() const;                                        // 0x006B3D80
-    bool Is_Cross_Vertical() const;                                     // 0x006B3D90 (Class->unknown_func_6b4c90)
-    bool Is_Cross_Horizontal() const;                                   // 0x006B3DA0 (Class->unknown_func_6b4c60)
-    bool Is_Enters_Zone() const;                                        // 0x006B3DB0 (Class->unknown_func_6b4cc0)
-    bool Is_Allow_Win() const;                                          // 0x006B3DC0 (Class->unknown_func_6b4c30)
+    bool Is_Cross_Vertical() const;                                     // 0x006B3D90 (Class->Is_Cross_Vertical)
+    bool Is_Cross_Horizontal() const;                                   // 0x006B3DA0 (Class->Is_Cross_Horizontal)
+    bool Is_Enters_Zone() const;                                        // 0x006B3DB0 (Class->Is_Enters_Zone)
+    bool Is_Allow_Win() const;                                          // 0x006B3DC0 (Class->Is_Allow_Win)
     bool Is_Trigger_Attached(TriggerClass *trigger) const;              // 0x006B3DD0
     // Offers an event to the attached triggers (0x006B3DF0; TS's TagClass::Spring). source is the
     // event's originator (an object pointer the callers pass as an int).

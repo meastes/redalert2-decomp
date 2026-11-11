@@ -18,7 +18,7 @@ extern bool unknown_flag_a40d04;
 TagClass::~TagClass()
 {
     Unknown_006ECB90(this, true);
-    if (unknown_flag_a40958 && unknown_flag_a40d04 && Class != 0 && (Class->unknown_func_6b4c00() & 0x10)) {
+    if (unknown_flag_a40958 && unknown_flag_a40d04 && Class != 0 && (Class->Attaches_To() & 0x10)) {
         int index = unknown_tags_866160.ID(this);
         if (unknown_tag_position_a35d44 >= index) {
             if (--unknown_tag_position_a35d44 < 0 && unknown_tags_866160.Count() == 0) {
@@ -26,7 +26,7 @@ TagClass::~TagClass()
             }
         }
     }
-    if (unknown_flag_a40958 && unknown_flag_a40d04 && Class != 0 && (Class->unknown_func_6b4c00() & 4)) {
+    if (unknown_flag_a40958 && unknown_flag_a40d04 && Class != 0 && (Class->Attaches_To() & 4)) {
         int index = unknown_tags_866238.ID(this);
         if (unknown_tag_position_a35e24 >= index) {
             if (--unknown_tag_position_a35e24 < 0 && unknown_tags_866238.Count() == 0) {
@@ -35,7 +35,7 @@ TagClass::~TagClass()
         }
     }
     if (unknown_flag_a40958 && unknown_flag_a40d04 && Trigger != 0 && Trigger->Class != 0 &&
-        Trigger->Class->House != 0 && Class->unknown_func_6b4c30()) {
+        Trigger->Class->House != 0 && Class->Is_Allow_Win()) {
         HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)Trigger->Class->House)->House);
         if (house->unknown_1c4 != 0) {
             house->unknown_1c4--;

@@ -1,11 +1,11 @@
-// bool TagTypeClass::Detach_Trigger(TriggerTypeClass *trigger) (0x006B4810)
+// bool TagTypeClass::Unlink(TriggerTypeClass *trigger) (0x006B4810)
 #include "shared/object.hpp"
 
-bool TagTypeClass::Detach_Trigger(TriggerTypeClass *trigger)
+bool TagTypeClass::Unlink(TriggerTypeClass *trigger)
 {
-    TriggerTypeClass *current = Triggers;
+    TriggerTypeClass *current = FirstTrigger;
     if (current == trigger) {
-        Triggers = trigger->Next;
+        FirstTrigger = trigger->Next;
         return true;
     }
     while (current != 0) {

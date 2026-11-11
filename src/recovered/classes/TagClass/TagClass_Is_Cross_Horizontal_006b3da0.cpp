@@ -3,5 +3,5 @@
 
 bool TagClass::Is_Cross_Horizontal() const
 {
-    return Class->unknown_func_6b4c60();
+    return Class->Is_Cross_Horizontal();
 }

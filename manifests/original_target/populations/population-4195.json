@@ -4,8 +4,8 @@
     "id": "population-4195",
     "inventory_sha256": "31d639dbaf9424d5a06d0d3dff0394405aaf49af7f8c2ec587c0c470a7bde64e",
     "gaps_sha256": "c39982183334853b1d09bc43d6f8f5b7a3ee17249bfc4054e8b26a97dfef201c",
-    "historical_population_sha256": "7771950d9bea79d0dbb69f97d1fab9c0d7ab1f9c81b082f76d19bdd3273e3f0e",
-    "historical_acceptance_sha256": "644c1f229d504d0e01fea13a6f89a972a82c3d13ccddcc0e7a91d6ad52400735"
+    "historical_population_sha256": "bfa1bdf3d9698f17afb81d6bf247da3f4227cf01dcf8b8e3e31a5d27c332ebfa",
+    "historical_acceptance_sha256": "5e68bdddd5111633e47d0f3a0bff2ccb796cb42a9834b16ff5a5c8281a232a5e"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -6676,7 +6676,7 @@
     "?get@Leaf_6b35b0@@QAEPAXI@Z": 7026096,
     "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
     "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
-    "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
+    "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
     "??0TagTypeClass@@QAE@PBD@Z": 7030128,
     "_CLSID_TagTypeClass": 8002880,
     "??_GTagTypeClass@@UAEPAXI@Z": 7032528,
@@ -7057,7 +7057,7 @@
     "?Set_Mission@ScriptClass@@QAE_NH@Z": 6719760,
     "??_7ScrollClass@@6BSidebarClass@@@": 8033348,
     "??_7ScrollClass@@6BINoticeSink@@@": 8033340,
-    "?Attach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
+    "?Link@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
     "?unknown_slot172@TechnoClass@@UAEHXZ": 7083728,
     "?DisposeOfArt@PowerClass@@UAEXXZ": 6407552,
     "?DisposeOfArt@RadarClass@@UAEXXZ": 6484496,
@@ -7388,20 +7388,20 @@
     "??_7TagTypeClass@@6BIRTTITypeInfo@@@": 8046536,
     "??_7TagTypeClass@@6BINoticeSink@@@": 8046528,
     "??_7TagTypeClass@@6BINoticeSource@@@": 8046520,
-    "?Detach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
+    "?Unlink@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
     "?unknown_tags_section_7ac770@@3QBDB": 8046448,
     "?Unknown_00412390@@YIJPBD@Z": 4268944,
-    "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ": 7031808,
+    "?Attaches_To@TagTypeClass@@QBEHXZ": 7031808,
     "?Attaches_To@TriggerTypeClass@@QBEHXZ": 7267344,
-    "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ": 7031856,
+    "?Is_Allow_Win@TagTypeClass@@QBE_NXZ": 7031856,
     "?Is_Allow_Win@TriggerTypeClass@@QBE_NXZ": 7266832,
-    "?unknown_func_6b4c60@TagTypeClass@@QBE_NXZ": 7031904,
+    "?Is_Cross_Horizontal@TagTypeClass@@QBE_NXZ": 7031904,
     "?Is_Cross_Horizontal@TriggerTypeClass@@QBE_NXZ": 7266736,
-    "?unknown_func_6b4c90@TagTypeClass@@QBE_NXZ": 7031952,
+    "?Is_Cross_Vertical@TagTypeClass@@QBE_NXZ": 7031952,
     "?Is_Cross_Vertical@TriggerTypeClass@@QBE_NXZ": 7266688,
-    "?unknown_func_6b4cc0@TagTypeClass@@QBE_NXZ": 7032000,
+    "?Is_Enters_Zone@TagTypeClass@@QBE_NXZ": 7032000,
     "?Is_Enters_Zone@TriggerTypeClass@@QBE_NXZ": 7266784,
-    "?Is_Trigger_Attached@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
+    "?Is_Linked@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
     "?Is_Linked_To_Global@TriggerTypeClass@@QBE_NH@Z": 7266880,
     "?Is_Linked_To_Local@TriggerTypeClass@@QBE_NH@Z": 7266944,
     "?Persistence_From_Name@TriggerTypeClass@@SIHPBD@Z": 7267264,
@@ -32187,7 +32187,7 @@
         {
           "offset": 280,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -32195,7 +32195,7 @@
         {
           "offset": 296,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -32203,7 +32203,7 @@
         {
           "offset": 306,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ",
+          "symbol": "?Attaches_To@TagTypeClass@@QBEHXZ",
           "target": 7031808,
           "addend": 0,
           "resolved": 359674
@@ -32291,7 +32291,7 @@
         {
           "offset": 411,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ",
+          "symbol": "?Attaches_To@TagTypeClass@@QBEHXZ",
           "target": 7031808,
           "addend": 0,
           "resolved": 359569
@@ -32379,7 +32379,7 @@
         {
           "offset": 517,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ",
+          "symbol": "?Attaches_To@TagTypeClass@@QBEHXZ",
           "target": 7031808,
           "addend": 0,
           "resolved": 359463
@@ -32403,7 +32403,7 @@
         {
           "offset": 627,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -32427,7 +32427,7 @@
         {
           "offset": 660,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -32435,7 +32435,7 @@
         {
           "offset": 670,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ",
+          "symbol": "?Is_Allow_Win@TagTypeClass@@QBE_NXZ",
           "target": 7031856,
           "addend": 0,
           "resolved": 359358
@@ -32451,7 +32451,7 @@
         {
           "offset": 708,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -32865,7 +32865,7 @@
           "resolved": 4293789058
         }
       ],
-      "source_sha256": "f19279f5f54fd536f42e1f1256751e8ed035fb530fb9aff8395e93e3cfdaed0b",
+      "source_sha256": "7517790eaf41dafa6a5e50b8b4aeb968f6a6d60798c84027918a96ea020f22c8",
       "source": "src/recovered/classes/UnknownIDSource/Fill_In_Data_0065cdd0.cpp",
       "population": "population-4195",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -33318,7 +33318,7 @@
         {
           "offset": 548,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -33334,7 +33334,7 @@
         {
           "offset": 565,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -33342,7 +33342,7 @@
         {
           "offset": 584,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -33916,7 +33916,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "e2557968162abe2bc2622514f846d099611d1ca304c28de64d7b09b41ae1897e",
+      "source_sha256": "caf0f1de0f7197ff81ea0d907934bbaced016bdc2b74636efa938b7f5dac4a72",
       "source": "src/recovered/unowned/Clear_Scenario_0065d370.cpp",
       "population": "population-4195",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

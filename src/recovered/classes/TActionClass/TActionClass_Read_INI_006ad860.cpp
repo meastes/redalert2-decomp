@@ -54,7 +54,7 @@ void TActionClass::Read_INI()
             if (value == -1) {
                 unknown_4c = 0;
             } else if (strlen(token) < 3) {
-                unknown_4c = unknown_TagTypeClass_list_00abfea0[value];
+                unknown_4c = TagTypes[value];
             } else {
                 unknown_4c = TagTypeClass::Find_Or_Make(token);
             }

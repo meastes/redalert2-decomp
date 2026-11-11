@@ -3,5 +3,5 @@
 
 bool TagClass::Is_Allow_Win() const
 {
-    return Class->unknown_func_6b4c30();
+    return Class->Is_Allow_Win();
 }

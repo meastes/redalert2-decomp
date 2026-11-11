@@ -4,8 +4,8 @@
     "id": "population-2419",
     "inventory_sha256": "c28308841e483241a4d3301b59cf57be2e778453f38252e4f86ef74a7583a625",
     "gaps_sha256": "a9c4c7f81f0640d005fa5f78ab77663a7d7453497a605a59a3d30b260dd05157",
-    "historical_population_sha256": "d1d4ce1a6537eae6729aab074d7c2342a5ebbf366f3e91df414f81c20bd9a4ae",
-    "historical_acceptance_sha256": "6c467b5d1778ac71cc38518b440733313e89dddbb42c711462bc20c2cdcbf195"
+    "historical_population_sha256": "c41175a3567387d9e5025ec82cb86cdaf3b95385f22c0c6050a892e051f128cd",
+    "historical_acceptance_sha256": "2ac1633004536f9be283c244400478896eebf73bb34369d8ac6a787a9bd3b7a1"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -23,7 +23,7 @@
     "?ID@?$VectorClass@PAVTagTypeClass@@@@UAEHPBQAVTagTypeClass@@@Z": 7033008,
     "?Resize@?$DynamicVectorClass@PAVTagTypeClass@@@@UAE_NHPBQAVTagTypeClass@@@Z": 7033040,
     "?Resize@?$VectorClass@PAVTagTypeClass@@@@UAE_NHPBQAVTagTypeClass@@@Z": 7032720,
-    "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
+    "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
     "?unknown_math_4ba520@@YANN@Z": 4957472,
     "?unknown_math_4ba5b0@@YANN@Z": 4957616,
     "?unknown_sqrt_4ba410@@YANN@Z": 4957200,
@@ -2924,7 +2924,7 @@
     "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
     "?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z": 6112304,
     "??0TabClass@@QAE@XZ": 6948576,
-    "?Attach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
+    "?Link@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
     "?Get_Rect@MSBitPrintAnim@@UAE?AVRect@@XZ": 5956896,
     "?DisposeOfArt@PowerClass@@UAEXXZ": 6407552,
     "?DisposeOfArt@RadarClass@@UAEXXZ": 6484496,
@@ -3506,7 +3506,7 @@
     "??_7TagTypeClass@@6BIRTTITypeInfo@@@": 8046536,
     "??_7TagTypeClass@@6BINoticeSink@@@": 8046528,
     "??_7TagTypeClass@@6BINoticeSource@@@": 8046520,
-    "?Detach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
+    "?Unlink@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
     "?From_Name@TagTypeClass@@SIPAV1@PBD@Z": 7030912,
     "?Read_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031008,
     "?unknown_tags_section_7ac770@@3QBDB": 8046448,
@@ -3514,17 +3514,17 @@
     "?Write_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031280,
     "?Write_INI@TagTypeClass@@UBE_NAAVCCINIClass@@@Z": 7031664,
     "__imp__wsprintfA": 7972004,
-    "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ": 7031808,
+    "?Attaches_To@TagTypeClass@@QBEHXZ": 7031808,
     "?Attaches_To@TriggerTypeClass@@QBEHXZ": 7267344,
-    "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ": 7031856,
+    "?Is_Allow_Win@TagTypeClass@@QBE_NXZ": 7031856,
     "?Is_Allow_Win@TriggerTypeClass@@QBE_NXZ": 7266832,
-    "?unknown_func_6b4c60@TagTypeClass@@QBE_NXZ": 7031904,
+    "?Is_Cross_Horizontal@TagTypeClass@@QBE_NXZ": 7031904,
     "?Is_Cross_Horizontal@TriggerTypeClass@@QBE_NXZ": 7266736,
-    "?unknown_func_6b4c90@TagTypeClass@@QBE_NXZ": 7031952,
+    "?Is_Cross_Vertical@TagTypeClass@@QBE_NXZ": 7031952,
     "?Is_Cross_Vertical@TriggerTypeClass@@QBE_NXZ": 7266688,
-    "?unknown_func_6b4cc0@TagTypeClass@@QBE_NXZ": 7032000,
+    "?Is_Enters_Zone@TagTypeClass@@QBE_NXZ": 7032000,
     "?Is_Enters_Zone@TriggerTypeClass@@QBE_NXZ": 7266784,
-    "?Is_Trigger_Attached@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
+    "?Is_Linked@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
     "?Load@TagTypeClass@@UAGJPAUIStream@@@Z": 7032352,
     "?Is_Linked_To_Global@TriggerTypeClass@@QBE_NH@Z": 7266880,
     "?Is_Linked_To_Local@TriggerTypeClass@@QBE_NH@Z": 7266944,
@@ -5207,19 +5207,19 @@
     "_$E35": 7029936,
     "_$E38": 7029968,
     "_$E43": 7030000,
-    "?Attach_Trigger@TagTypeClass@@": 7030752,
-    "?Detach_Trigger@TagTypeClass@@": 7030800,
+    "?Link@TagTypeClass@@": 7030752,
+    "?Unlink@TagTypeClass@@": 7030800,
     "?Detach@TagTypeClass@@": 7030880,
     "?From_Name@TagTypeClass@@": 7030912,
     "?Read_Scenario_INI@TagTypeClass@@": 7031008,
     "?Write_Scenario_INI@TagTypeClass@@": 7031280,
     "?Write_INI@TagTypeClass@@": 7031664,
-    "?unknown_func_6b4c00@TagTypeClass@@": 7031808,
-    "?unknown_func_6b4c30@TagTypeClass@@": 7031856,
-    "?unknown_func_6b4c60@TagTypeClass@@": 7031904,
-    "?unknown_func_6b4c90@TagTypeClass@@": 7031952,
-    "?unknown_func_6b4cc0@TagTypeClass@@": 7032000,
-    "?Is_Trigger_Attached@TagTypeClass@@": 7032048,
+    "?Attaches_To@TagTypeClass@@": 7031808,
+    "?Is_Allow_Win@TagTypeClass@@": 7031856,
+    "?Is_Cross_Horizontal@TagTypeClass@@": 7031904,
+    "?Is_Cross_Vertical@TagTypeClass@@": 7031952,
+    "?Is_Enters_Zone@TagTypeClass@@": 7032000,
+    "?Is_Linked@TagTypeClass@@": 7032048,
     "?Find_Or_Make@TagTypeClass@@": 7032096,
     "?GetClassID@TagTypeClass@@": 7032240,
     "?Compute_CRC@TagTypeClass@@": 7032304,
@@ -7462,7 +7462,249 @@
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
     "??_EWaveClass@@UAEPAXI@Z": 7489024,
     "??_EWideString@@QAEPAXI@Z": 6296624,
-    "??_EMouseClass@@UAEPAXI@Z": 4247904
+    "??_EMouseClass@@UAEPAXI@Z": 4247904,
+    "??_7?$DynamicVectorClass@PBVCommandClass@@@@6B@": 7972892,
+    "??_G?$VectorClass@PBVCommandClass@@@@UAEPAXI@Z": 4243488,
+    "??_7?$VectorClass@PBVCommandClass@@@@6B@": 7972924,
+    "??_G?$DynamicVectorClass@PBVCommandClass@@@@UAEPAXI@Z": 4243568,
+    "??_7?$DynamicVectorClass@PAVLightConvertClass@@@@6B@": 7972956,
+    "??_G?$VectorClass@PAVLightConvertClass@@@@UAEPAXI@Z": 4244480,
+    "??_7?$VectorClass@PAVLightConvertClass@@@@6B@": 7972988,
+    "??_G?$DynamicVectorClass@PAVLightConvertClass@@@@UAEPAXI@Z": 4244560,
+    "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@": 7973428,
+    "??_7?$DynamicVectorClass@PAVAlphaLightingRemapClass@@@@6B@": 7976960,
+    "??_7?$DynamicVectorClass@PAVConvertClass@@@@6B@": 7986992,
+    "??0?$VectorClass@PBVBuildingTypeClass@@@@QAE@IPBQBVBuildingTypeClass@@@Z": 5212576,
+    "??_7?$VectorClass@PBVBuildingTypeClass@@@@6B@": 8007432,
+    "??_7?$DynamicVectorClass@PAVIonBlastClass@@@@6B@": 8013268,
+    "??_7?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@": 8016188,
+    "??0?$VectorClass@PAVTeamClass@@@@QAE@IPBQAVTeamClass@@@Z": 5497808,
+    "??_7?$DynamicVectorClass@PAVMapRegionClass@@@@6B@": 8019344,
+    "??8?$VectorClass@PBD@@UBE_NABV0@@Z": 5906464,
+    "??_7?$DynamicVectorClass@PAUHWND__@@@@6B@": 8024292,
+    "??_7?$DynamicVectorClass@UAcceleratorTracker@@@@6B@": 8024356,
+    "??_7?$DynamicVectorClass@PAVObjectTypeClass@@@@6B@": 8025740,
+    "??_G?$VectorClass@VHSVClass@@@@UAEPAXI@Z": 6313744,
+    "??_7?$VectorClass@VHSVClass@@@@6B@": 8027128,
+    "??_G?$DynamicVectorClass@VHSVClass@@@@UAEPAXI@Z": 6313824,
+    "??_G?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6315568,
+    "??_7?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@": 8027096,
+    "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@": 8027032,
+    "??0?$VectorClass@W4DiskID@@@@QAE@IPBW4DiskID@@@Z": 6769312,
+    "??_7?$VectorClass@W4DiskID@@@@6B@": 8033828,
+    "??0?$VectorClass@PAVSubTitle@@@@QAE@IPBQAVSubTitle@@@Z": 6931296,
+    "??_7?$VectorClass@PAVSubTitle@@@@6B@": 8044980,
+    "??_G?$VectorClass@USwizzlePointerClass@@@@UAEPAXI@Z": 6947120,
+    "??_7?$VectorClass@USwizzlePointerClass@@@@6B@": 8045436,
+    "??_G?$DynamicVectorClass@USwizzlePointerClass@@@@UAEPAXI@Z": 6947200,
+    "??_7?$DynamicVectorClass@UDirtyAreaStruct@@@@6B@": 8045764,
+    "??_7?$DynamicVectorClass@PAVShadowControlClass@@@@6B@": 8045828,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@": 8056972,
+    "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ": 6629440,
+    "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ": 6629488,
+    "??1?$VectorClass@I@@UAE@XZ": 7547984,
+    "??0?$VectorClass@PAUNodeNameType@@@@QAE@IPBQAUNodeNameType@@@Z": 5926352,
+    "??_7?$VectorClass@PAUNodeNameType@@@@6B@": 8022148,
+    "??_F?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAEXXZ": 6313712,
+    "??_7?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@": 8027000,
+    "??0?$VectorClass@PAVPlanningNodeClass@@@@QAE@IPBQAVPlanningNodeClass@@@Z": 6405488,
+    "??0?$VectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z": 4242448,
+    "??_7?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@": 8057004,
+    "??_G?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z": 7504720,
+    "??_G?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z": 7504912,
+    "??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z": 5823360,
+    "??4?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z": 5823648,
+    "??4?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z": 6630688,
+    "??0?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE@IPBQAVTechnoTypeClass@@@Z": 6698208,
+    "??0?$DynamicVectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z": 7309952,
+    "??0?$DynamicVectorClass@PBD@@QAE@IPBQBD@Z": 7310048,
+    "??_7?$DynamicVectorClass@UWaypointClass@@@@6B@": 8056716,
+    "??0?$VectorClass@UWaypointClass@@@@QAE@IPBUWaypointClass@@@Z": 7494464,
+    "??_G?$DynamicVectorClass@UWaypointClass@@@@UAEPAXI@Z": 7492560,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "??_E?$DynamicVectorClass@U?$HashObject@II@@@@UAEPAXI@Z": 5686288,
+    "??_7?$VectorClass@U?$HashObject@II@@@@6B@": 8018680,
+    "??_E?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEPAXI@Z": 5686816,
+    "??_7?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@6B@": 8018712,
+    "??_7?$VectorClass@PAVNeuronClass@@@@6B@": 7981908,
+    "??_7?$DynamicVectorClass@USubzoneConnectionStruct@@@@6B@": 8018648,
+    "??0?$VectorClass@USubzoneConnectionStruct@@@@QAE@IPBUSubzoneConnectionStruct@@@Z": 5687888,
+    "??4?$VectorClass@USubzoneConnectionStruct@@@@QAEAAV0@ABV0@@Z": 5688048,
+    "??4?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAEAAV0@ABV0@@Z": 5687728,
+    "??_G?$VectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5685840,
+    "??_G?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5686160,
+    "??4?$VectorClass@PBVTeamTypeClass@@@@QAEAAV0@ABV0@@Z": 7080240,
+    "??0?$VectorClass@PAUSpawnControl@@@@QAE@IPBQAUSpawnControl@@@Z": 6861024,
+    "??_7?$DynamicVectorClass@PAUSpawnControl@@@@6B@": 8042796,
+    "??_7?$VectorClass@PAUSpawnControl@@@@6B@": 8042828,
+    "??0?$VectorClass@PAVMultiplayerGameMode@@@@QAE@IPBQAVMultiplayerGameMode@@@Z": 6002912,
+    "??_7?$VectorClass@PAVColorScheme@@@@6B@": 8027064,
+    "??0?$VectorClass@USwizzlePointerClass@@@@QAE@IPBUSwizzlePointerClass@@@Z": 6947280,
+    "??_7?$DynamicVectorClass@USwizzlePointerClass@@@@6B@": 8045404,
+    "??0?$VectorClass@PAVKamikazeControl@@@@QAE@IPBQAVKamikazeControl@@@Z": 5447392,
+    "??_7?$DynamicVectorClass@PAVKamikazeControl@@@@6B@": 8016820,
+    "??_7?$VectorClass@PAVKamikazeControl@@@@6B@": 8016852,
+    "??_7?$DynamicVectorClass@PAVMultiplayerTeam@@@@6B@": 8024688,
+    "??0?$VectorClass@I@@QAE@IPBI@Z": 4371728,
+    "??_7?$VectorClass@PAVAlphaLightingRemapClass@@@@6B@": 7976992,
+    "??_7?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@": 8057576,
+    "??_7?$VectorClass@UDrawRecord@FoggedObjectClass@@@@6B@": 7999952,
+    "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@IPBUDrawRecord@FoggedObjectClass@@@Z": 4990240,
+    "??0?$VectorClass@PAVMPlayerScoreType@@@@QAE@IPBQAVMPlayerScoreType@@@Z": 5926272,
+    "??_7?$DynamicVectorClass@PAVMPlayerScoreType@@@@6B@": 8022244,
+    "??0?$DynamicVectorClass@PAVMPlayerScoreType@@@@QAE@ABV0@@Z": 5923536,
+    "??_7?$VectorClass@PAVMPlayerScoreType@@@@6B@": 8022212,
+    "??_7?$VectorClass@PAVCoopCampaignClass@@@@6B@": 8022180,
+    "??_7?$DynamicVectorClass@PAUNodeNameType@@@@6B@": 8022116,
+    "??0?$VectorClass@PAVCoopCampaignClass@@@@QAE@IPBQAVCoopCampaignClass@@@Z": 5926432,
+    "??_7?$DynamicVectorClass@PAVCoopCampaignClass@@@@6B@": 8022084,
+    "??0?$DynamicVectorClass@PAVMultiplayerGameMode@@@@QAE@IPBQAVMultiplayerGameMode@@@Z": 6002112,
+    "??0?$VectorClass@VBaseNodeClass@@@@QAE@IPBVBaseNodeClass@@@Z": 4379696,
+    "??_7?$DynamicVectorClass@VBaseNodeClass@@@@6B@": 7980480,
+    "??0?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@QAE@IPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7518992,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@": 8057372,
+    "??_7?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@": 8057340,
+    "??_G?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518448,
+    "??_7?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@": 8057404,
+    "??_G?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518640,
+    "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@": 8007396,
+    "??_7?$VectorClass@VWstring@@@@6B@": 8033860,
+    "??_G?$VectorClass@VWstring@@@@UAEPAXI@Z": 6768608,
+    "??0?$VectorClass@VWstring@@@@QAE@IPBVWstring@@@Z": 6769392,
+    "??_7?$DynamicVectorClass@VWstring@@@@6B@": 8033892,
+    "??_G?$DynamicVectorClass@VWstring@@@@UAEPAXI@Z": 6768720,
+    "??_7?$VectorClass@PBG@@6B@": 8017716,
+    "??_7?$VectorClass@PAVPhoneEntryClass@@@@6B@": 8033796,
+    "??_7?$VectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033764,
+    "??_7?$VectorClass@PAVMultiMission@@@@6B@": 8033732,
+    "??_7?$DynamicVectorClass@PAVFileEntryClass@@@@6B@": 8017988,
+    "??_7?$VectorClass@PAVFileEntryClass@@@@6B@": 8018020,
+    "??_7?$VectorClass@PAUThemeControl@@@@6B@": 8006340,
+    "??0?$VectorClass@G@@QAE@IPBG@Z": 4372000,
+    "??_7?$DynamicVectorClass@G@@6B@": 7980372,
+    "??_7?$VectorClass@G@@6B@": 7980340,
+    "??0?$VectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z": 5828672,
+    "??0?$VectorClass@PAVHouseClass@@@@QAE@IPBQAVHouseClass@@@Z": 6769568,
+    "??0?$VectorClass@PAVObjectClass@@@@QAE@IPBQAVObjectClass@@@Z": 4979664,
+    "??0?$VectorClass@VRect@@@@QAE@IPBVRect@@@Z": 5829216,
+    "??_7?$DynamicVectorClass@VRect@@@@6B@": 8019676,
+    "??_7?$VectorClass@UDirtyAreaStruct@@@@6B@": 8045796,
+    "??_7?$VectorClass@PAVShadowControlClass@@@@6B@": 8045860,
+    "??4?$VectorClass@VCell@@@@QAEAAV0@ABV0@@Z": 6698384,
+    "??0?$VectorClass@PAUIConnectionPoint@@@@QAE@IPBQAUIConnectionPoint@@@Z": 5212656,
+    "??0?$VectorClass@PAUWIN32_FIND_DATA@@@@QAE@IPBQAUWIN32_FIND_DATA@@@Z": 5829136,
+    "??_7?$DynamicVectorClass@PAUWIN32_FIND_DATA@@@@6B@": 8019596,
+    "??_7?$VectorClass@PAUWIN32_FIND_DATA@@@@6B@": 8019564,
+    "??_G?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212160,
+    "??_7?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@6B@": 8007596,
+    "??0?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@QAE@IPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5213552,
+    "??0?$DynamicVectorClass@PBVTeamTypeClass@@@@QAE@ABV0@@Z": 5205808,
+    "??0?$VectorClass@PAVCCINIClass@@@@QAE@IPBQAVCCINIClass@@@Z": 5367568,
+    "??_7?$DynamicVectorClass@PAVCCINIClass@@@@6B@": 8010788,
+    "??_7?$VectorClass@PAVCCINIClass@@@@6B@": 8010756,
+    "??0?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE@IPBUSubzoneConnectionStruct@@@Z": 5680864,
+    "??0?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE@IPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7080352,
+    "??_7?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@": 8047200,
+    "??_G?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7079984,
+    "??0?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@QAE@IPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039888,
+    "??_7?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@6B@": 8001492,
+    "??_7?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@6B@": 8001532,
+    "??_G?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z": 5040784,
+    "??_G?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z": 5040944,
+    "??0?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6314672,
+    "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6315648,
+    "??0?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@QAE@IPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z": 7499840,
+    "??4?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@QAEAAV0@ABV0@@Z": 7523008,
+    "??_G?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524048,
+    "??_7?$VectorClass@E@@6B@": 8054508,
+    "??0?$VectorClass@PBVParticleSystemTypeClass@@@@QAE@IPBQBVParticleSystemTypeClass@@@Z": 4541136,
+    "??_7?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@6B@": 7983308,
+    "??_7?$VectorClass@PBVParticleSystemTypeClass@@@@6B@": 7983276,
+    "??_7?$DynamicVectorClass@PAVGraphicMenuItem@@@@6B@": 8006468,
+    "??_7?$VectorClass@PAVGraphicMenuItem@@@@6B@": 8006500,
+    "??0?$VectorClass@PAVGraphicMenuItem@@@@QAE@IPBQAVGraphicMenuItem@@@Z": 5108448,
+    "??_7?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@": 8016220,
+    "??_7?$DynamicVectorClass@PAUThemeControl@@@@6B@": 8050708,
+    "??_7?$DynamicVectorClass@PAVSubTitle@@@@6B@": 8044948,
+    "??_7?$VectorClass@PAVConvertClass@@@@6B@": 7987024,
+    "??_F?$DynamicVectorClass@I@@QAEXXZ": 7547952,
+    "??1?$DynamicVectorClass@I@@UAE@XZ": 7547984,
+    "??0?$DynamicVectorClass@PBVTeamTypeClass@@@@QAE@IPBQBVTeamTypeClass@@@Z": 7078880,
+    "??_7?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@": 8047232,
+    "??_G?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7080144,
+    "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@": 8057436,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@": 8057624,
+    "??_G?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
+    "??_7?$VectorClass@PAVObjectTypeClass@@@@6B@": 8025772,
+    "??_7?$VectorClass@PAVIonBlastClass@@@@6B@": 8013300,
+    "??_7?$VectorClass@PAVMixFileClass@@@@6B@": 7973460,
+    "??0?$VectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z": 6315424,
+    "??_7?$DynamicVectorClass@VHSVClass@@@@6B@": 8026968,
+    "??_E?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6313536,
+    "??_7?$VectorClass@PAUHWND__@@@@6B@": 8024324,
+    "??_7?$VectorClass@UAcceleratorTracker@@@@6B@": 8024388,
+    "??0?$VectorClass@PAVFoggedObjectClass@@@@QAE@IPBQAVFoggedObjectClass@@@Z": 4706528,
+    "??_7?$VectorClass@PAVMapRegionClass@@@@6B@": 8019376,
+    "??_7?$DynamicVectorClass@PBVBuildingTypeClass@@@@6B@": 8007464,
+    "??0?$VectorClass@_N@@QAE@IPB_N@Z": 5213472,
+    "??_7?$DynamicVectorClass@_N@@6B@": 8007556,
+    "??_7?$VectorClass@_N@@6B@": 8007524,
+    "??0?$VectorClass@PAVtConnInfoStruct@@@@QAE@IPBQAVtConnInfoStruct@@@Z": 7766208,
+    "??_7?$DynamicVectorClass@PAVtConnInfoStruct@@@@6B@": 8059268,
+    "??_7?$VectorClass@PAVtConnInfoStruct@@@@6B@": 8059236,
+    "??0?$VectorClass@N@@QAE@IPBN@Z": 5829328,
+    "??_7?$DynamicVectorClass@N@@6B@": 8019884,
+    "??_7?$VectorClass@N@@6B@": 8019852,
+    "??0?$DynamicVectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z": 7489232,
+    "??_7?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@6B@": 8007628,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@6B@": 8056836,
+    "??_7?$VectorClass@V?$TRect@H@@@@6B@": 8019632,
+    "??_7?$VectorClass@UCentroid@WorldDominationTour@@@@6B@": 8057496,
+    "??0?$VectorClass@PAVMSAnim@@@@QAE@IPBQAVMSAnim@@@Z": 7537776,
+    "??0?$VectorClass@PAVMSSfxEntry@@@@QAE@IPBQAVMSSfxEntry@@@Z": 7537856,
+    "??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z": 6312432,
+    "??0?$DynamicVectorClass@PAVPlanningMemberClass@@@@QAE@IPBQAVPlanningMemberClass@@@Z": 6401152,
+    "??0?$DynamicVectorClass@PAVPlanningBranchClass@@@@QAE@IPBQAVPlanningBranchClass@@@Z": 6401936,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@IPBQAUButtonFadeEffect@@@Z": 4891152,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@IPBQAUCrossDissolveEffect@@@Z": 4891232,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
+    "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
+    "??0?$VectorClass@PAVReestablish@@@@QAE@IPBQAVReestablish@@@Z": 4541344,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344,
+    "??_E?$VectorClass@PBVCommandClass@@@@UAEPAXI@Z": 4243488,
+    "??_E?$DynamicVectorClass@PBVCommandClass@@@@UAEPAXI@Z": 4243568,
+    "??_E?$VectorClass@PAVLightConvertClass@@@@UAEPAXI@Z": 4244480,
+    "??_E?$DynamicVectorClass@PAVLightConvertClass@@@@UAEPAXI@Z": 4244560,
+    "??_E?$VectorClass@VHSVClass@@@@UAEPAXI@Z": 6313744,
+    "??_E?$DynamicVectorClass@VHSVClass@@@@UAEPAXI@Z": 6313824,
+    "??_E?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6315568,
+    "??_E?$VectorClass@USwizzlePointerClass@@@@UAEPAXI@Z": 6947120,
+    "??_E?$DynamicVectorClass@USwizzlePointerClass@@@@UAEPAXI@Z": 6947200,
+    "??_E?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z": 7504720,
+    "??_E?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z": 7504912,
+    "??_E?$DynamicVectorClass@UWaypointClass@@@@UAEPAXI@Z": 7492560,
+    "??_E?$VectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5685840,
+    "??_E?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5686160,
+    "??_E?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518448,
+    "??_E?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518640,
+    "??_E?$VectorClass@VWstring@@@@UAEPAXI@Z": 6768608,
+    "??_E?$DynamicVectorClass@VWstring@@@@UAEPAXI@Z": 6768720,
+    "??_E?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212160,
+    "??_E?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7079984,
+    "??_E?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z": 5040784,
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z": 5040944,
+    "??_E?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524048,
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7080144,
+    "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320
   },
   "regions": [
     {
@@ -7523,7 +7765,7 @@
           "resolved": 11271896
         }
       ],
-      "source_sha256": "50721c307a60654d9d64ef370bab434322ab9941b31cbc53cbf7fb0623ad2e0e",
+      "source_sha256": "b71bd9c2e9c9293dac59e9facbb2664bab48a237f8c352a0b7507df04190326b",
       "source": "src/recovered/header_statics/006b4300/HeaderStatics_diagonal_init_006b4300.cpp",
       "population": "population-2419",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -8215,7 +8457,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -8223,7 +8465,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 8,
           "resolved": 11271848
@@ -8231,7 +8473,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 12,
           "resolved": 11271852
@@ -8239,7 +8481,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 13,
           "resolved": 11271853
@@ -8247,7 +8489,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 0,
           "resolved": 11271840
@@ -8263,7 +8505,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 20,
           "resolved": 11271860
@@ -8271,7 +8513,7 @@
         {
           "offset": 50,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -8310,7 +8552,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "96470ad23b1ac56c656b65a8746944eac8b49170ff38205b4a384c539a877033",
       "relocations": [],
-      "source_sha256": "e8e02476e5a956206298700d6b2ad0a3f8a5a352c7f2267051d82c2e881f4535",
+      "source_sha256": "f5c3913a26bf72a114495c73008865be7d8263f56736f244ef7d410a2e4b4f40",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Detach_006b4860.cpp",
       "population": "population-2419",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -8370,7 +8612,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -8378,7 +8620,7 @@
         {
           "offset": 52,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -8394,7 +8636,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -8418,13 +8660,13 @@
         {
           "offset": 116,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
         }
       ],
-      "source_sha256": "abdf6f833cdaaed2695f58b36152b78021e16f2c6f3b60978af6e4c110461c67",
+      "source_sha256": "e66f4ab17ea9d59a9b6f7de8c5f9b89d3f9c44b67ebe7e212abfd338c65c7093",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Find_Or_Make_006b4d20.cpp",
       "population": "population-2419",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8686,8 +8928,8 @@
     {
       "entry": 7030752,
       "method": "006b47e0",
-      "symbol": "?Attach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z",
-      "symbol_prefix": "?Attach_Trigger@TagTypeClass@@",
+      "symbol": "?Link@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z",
+      "symbol_prefix": "?Link@TagTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -8700,8 +8942,8 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "ef6e4bd526613c57135914643a330bbb64e8d3e3aef58277d80ccd86f8c6a634",
       "relocations": [],
-      "source_sha256": "b4fd137398a22bd7e2f0893f84a9140b9d458cf20ba1fa4768d47b6dcb48a781",
-      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Attach_Trigger_006b47e0.cpp",
+      "source_sha256": "4844557d54e6564f05d586ff008d7d3d754603410d5df19e73092984d366d05a",
+      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Link_006b47e0.cpp",
       "population": "population-2419",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -8728,7 +8970,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -8736,7 +8978,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 0,
           "resolved": 11271840
@@ -8752,7 +8994,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 13,
           "resolved": 11271853
@@ -8768,7 +9010,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -8776,7 +9018,7 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 13,
           "resolved": 11271853
@@ -8784,7 +9026,7 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 8,
           "resolved": 11271848
@@ -8938,7 +9180,7 @@
         {
           "offset": 219,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 0,
           "resolved": 11271840
@@ -8946,7 +9188,7 @@
         {
           "offset": 229,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 0,
           "resolved": 11271840
@@ -8954,7 +9196,7 @@
         {
           "offset": 247,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -8962,7 +9204,7 @@
         {
           "offset": 260,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -8970,7 +9212,7 @@
         {
           "offset": 268,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -8978,7 +9220,7 @@
         {
           "offset": 282,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -8992,7 +9234,7 @@
           "resolved": 4292198247
         }
       ],
-      "source_sha256": "06e83e3d94438f59d5478e47c6d9b8b64f0c809aa704c6a4d738bb245b3530a5",
+      "source_sha256": "b9b4d0711e1935c61030d7886078805dc38ef5991f3dad9f5c27a15694cebb92",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_destructor_006b46b0.cpp",
       "population": "population-2419",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -9003,8 +9245,8 @@
     {
       "entry": 7030800,
       "method": "006b4810",
-      "symbol": "?Detach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z",
-      "symbol_prefix": "?Detach_Trigger@TagTypeClass@@",
+      "symbol": "?Unlink@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z",
+      "symbol_prefix": "?Unlink@TagTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9017,8 +9259,8 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "74633bbc04ec542361ab422fb2a91a986a9aa103de36ab53a33af4eaeccf771b",
       "relocations": [],
-      "source_sha256": "4e50b77f08a3721f2da451e1ac3a2f1a52d37787d38b4c9a8c20510d2a1ab679",
-      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Detach_Trigger_006b4810.cpp",
+      "source_sha256": "b05a826fac8805df2cf3646966d8152d0d4c18e860130257d8d08c8f15c4aadf",
+      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Unlink_006b4810.cpp",
       "population": "population-2419",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9045,7 +9287,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -9053,7 +9295,7 @@
         {
           "offset": 21,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -9077,13 +9319,13 @@
         {
           "offset": 63,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
         }
       ],
-      "source_sha256": "82b059b9ef75290df8343897a06d3e64be4cbaf38601178abd828aba160efdb6",
+      "source_sha256": "15c373511384d0f411b211d6bcbc2d1e02a9f4d5b0c732a08f330926db5b25cf",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_From_Name_006b4880.cpp",
       "population": "population-2419",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -9199,7 +9441,7 @@
         {
           "offset": 124,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -9207,7 +9449,7 @@
         {
           "offset": 136,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -9223,7 +9465,7 @@
         {
           "offset": 161,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -9247,7 +9489,7 @@
         {
           "offset": 200,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -9385,7 +9627,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -9393,7 +9635,7 @@
         {
           "offset": 115,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -9401,13 +9643,13 @@
         {
           "offset": 129,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
         }
       ],
-      "source_sha256": "a9a5673f43680eeb7d97296777ce05346ec101423217ad5c19f49bf5634386a5",
+      "source_sha256": "b1f53b21f8f59949c14a9eb5da3d6b86282f3e97625cecc55c3f8aaf3ed1fb37",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Write_Scenario_INI_006b49f0.cpp",
       "population": "population-2419",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -9489,7 +9731,7 @@
           "resolved": 4293237255
         }
       ],
-      "source_sha256": "e80ae220e655edc4a155d71cf9e5ceb8d5136092e6b7055761fe2a34665296f9",
+      "source_sha256": "9a8091138bc931dd40cca344b70780e17499b66de9ffafe1dc9bc7035b8e4f5f",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Write_INI_006b4b70.cpp",
       "population": "population-2419",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -9500,8 +9742,8 @@
     {
       "entry": 7031808,
       "method": "006b4c00",
-      "symbol": "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ",
-      "symbol_prefix": "?unknown_func_6b4c00@TagTypeClass@@",
+      "symbol": "?Attaches_To@TagTypeClass@@QBEHXZ",
+      "symbol_prefix": "?Attaches_To@TagTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9523,8 +9765,8 @@
           "resolved": 235515
         }
       ],
-      "source_sha256": "c0c4c3e3fcd4a2efe4c77871c85c3a1784e85126ebd9cb2898df6a422e71ea1d",
-      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_unknown_func_6b4c00_006b4c00.cpp",
+      "source_sha256": "44d3d4bea9577d8523a6f1ebc1886d7803a2a547d3326adfc43b80dad97c34cb",
+      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Attaches_To_006b4c00.cpp",
       "population": "population-2419",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9534,8 +9776,8 @@
     {
       "entry": 7031856,
       "method": "006b4c30",
-      "symbol": "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b4c30@TagTypeClass@@",
+      "symbol": "?Is_Allow_Win@TagTypeClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Allow_Win@TagTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9557,8 +9799,8 @@
           "resolved": 234958
         }
       ],
-      "source_sha256": "f16dd4813ba44fbc98a130d7084a0f86ba2cf8457031b4e9fa9e6d5bd2fe212b",
-      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_unknown_func_6b4c30_006b4c30.cpp",
+      "source_sha256": "127e24a762eeccd82e42a36ce7a8d25302f35dbcd7fbeb6b3b2228116572c93e",
+      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Is_Allow_Win_006b4c30.cpp",
       "population": "population-2419",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9568,8 +9810,8 @@
     {
       "entry": 7031904,
       "method": "006b4c60",
-      "symbol": "?unknown_func_6b4c60@TagTypeClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b4c60@TagTypeClass@@",
+      "symbol": "?Is_Cross_Horizontal@TagTypeClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Cross_Horizontal@TagTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9591,8 +9833,8 @@
           "resolved": 234814
         }
       ],
-      "source_sha256": "efe07946fb54ba93a62175984a1b779cd1fabd490573a30763d4b06cf8ac0722",
-      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_unknown_func_6b4c60_006b4c60.cpp",
+      "source_sha256": "890810cab2bc27f0fdac5bd2eff4a0045954efab007931471ed27a8b4b3a7a4b",
+      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Is_Cross_Horizontal_006b4c60.cpp",
       "population": "population-2419",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9602,8 +9844,8 @@
     {
       "entry": 7031952,
       "method": "006b4c90",
-      "symbol": "?unknown_func_6b4c90@TagTypeClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b4c90@TagTypeClass@@",
+      "symbol": "?Is_Cross_Vertical@TagTypeClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Cross_Vertical@TagTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9625,8 +9867,8 @@
           "resolved": 234718
         }
       ],
-      "source_sha256": "2b28619ae4e8f8e29fbdf590fbd24395cd746f808e5b7c1a47ae61dcf1bdfe54",
-      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_unknown_func_6b4c90_006b4c90.cpp",
+      "source_sha256": "10488d3f91df5b1e95da8f09333acae1b1c71c63ad4d231bf319b9b9ed083bca",
+      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Is_Cross_Vertical_006b4c90.cpp",
       "population": "population-2419",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9636,8 +9878,8 @@
     {
       "entry": 7032000,
       "method": "006b4cc0",
-      "symbol": "?unknown_func_6b4cc0@TagTypeClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b4cc0@TagTypeClass@@",
+      "symbol": "?Is_Enters_Zone@TagTypeClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Enters_Zone@TagTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9659,8 +9901,8 @@
           "resolved": 234766
         }
       ],
-      "source_sha256": "3f936b383382889de420cf18694bac5073c7fa5c03980489fd1bba57dd9422e4",
-      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_unknown_func_6b4cc0_006b4cc0.cpp",
+      "source_sha256": "7a5a9d849e08868f9c7c4f6894ef1217126c76dae9dfa207e32c43a0e4b5c7c2",
+      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Is_Enters_Zone_006b4cc0.cpp",
       "population": "population-2419",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9670,8 +9912,8 @@
     {
       "entry": 7032048,
       "method": "006b4cf0",
-      "symbol": "?Is_Trigger_Attached@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z",
-      "symbol_prefix": "?Is_Trigger_Attached@TagTypeClass@@",
+      "symbol": "?Is_Linked@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z",
+      "symbol_prefix": "?Is_Linked@TagTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9684,8 +9926,8 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "12c3e61ed7f23a38d9bf70a5584da98e92a668d69f6f38bfe4ed3eea7b0de016",
       "relocations": [],
-      "source_sha256": "28e35c3d6923656d5f4ead8636c134f7a581081556769d04f23557304a1e2bb0",
-      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Is_Trigger_Attached_006b4cf0.cpp",
+      "source_sha256": "ee27023f0b4e0943ddf7d3e20b9d9780efe8504e61a389f8d6ec818ad2653681",
+      "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Is_Linked_006b4cf0.cpp",
       "population": "population-2419",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9774,7 +10016,7 @@
           "resolved": 4294880432
         }
       ],
-      "source_sha256": "0752caf380c0ef6eff3e962121f5b7f16a58daecd9090975c9b085439960d4c0",
+      "source_sha256": "49e009177f139421cefc6b17d28d40620affcfc7a077279b849ea056cc2ff27f",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Load_006b4e20.cpp",
       "population": "population-2419",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -9850,7 +10092,7 @@
         {
           "offset": 129,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -9858,7 +10100,7 @@
         {
           "offset": 141,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 8,
           "resolved": 11271848
@@ -9866,7 +10108,7 @@
         {
           "offset": 147,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -9874,7 +10116,7 @@
         {
           "offset": 155,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 13,
           "resolved": 11271853
@@ -9882,7 +10124,7 @@
         {
           "offset": 167,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 20,
           "resolved": 11271860
@@ -9890,7 +10132,7 @@
         {
           "offset": 177,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 0,
           "resolved": 11271840
@@ -9898,7 +10140,7 @@
         {
           "offset": 186,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 0,
           "resolved": 11271840
@@ -9906,7 +10148,7 @@
         {
           "offset": 199,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -9914,7 +10156,7 @@
         {
           "offset": 208,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -9922,7 +10164,7 @@
         {
           "offset": 214,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -10000,7 +10242,7 @@
           "resolved": 11275444
         }
       ],
-      "source_sha256": "2ef95a7f0cfb27986ed28f32c96d8a1b880ecf5c71136e629822b48490f8ee37",
+      "source_sha256": "523984f9b4e1c0ce45d8095653cf9c55147a7eefa32af477f256acd164069017",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_constructor_006b4570.cpp",
       "population": "population-2419",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -10122,7 +10364,7 @@
           "resolved": 237948
         }
       ],
-      "source_sha256": "49e4d0cf7b97a39219fbe272f9a6b677b4f097fcc5c2ae0b71ff50dfc4f71b30",
+      "source_sha256": "9c7ae734eb49b5cfad4866d042c59ad5cc45a6a4c209154493ecfbc68e9a770b",
       "source": "src/recovered/classes/TagTypeClass/TagTypeClass_Read_INI_006b4a90.cpp",
       "population": "population-2419",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

@@ -5,8 +5,8 @@
 TagTypeClass *__fastcall TagTypeClass::From_Name(char const *name)
 {
     if (name != 0) {
-        for (int index = 0; index < unknown_TagTypeClass_list_00abfea0.Count(); index++) {
-            TagTypeClass *type = unknown_TagTypeClass_list_00abfea0[index];
+        for (int index = 0; index < TagTypes.Count(); index++) {
+            TagTypeClass *type = TagTypes[index];
             if (!_stricmp(type->ID, name) || !_stricmp(type->Name, name)) {
                 return type;
             }

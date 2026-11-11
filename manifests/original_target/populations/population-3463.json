@@ -4,8 +4,8 @@
     "id": "population-3463",
     "inventory_sha256": "a3c60baecfad77f348b0e3e170d72a077b03542638f4cc6fccf85d32a5965eaf",
     "gaps_sha256": "056a1f15da5301a374d420e771bd033f508a67a332a8a278e663431d39c55408",
-    "historical_population_sha256": "1116d8aab3e3cbf747e7f5eeccd38785bd0efd7827647f0217d70e2a3512c45d",
-    "historical_acceptance_sha256": "0c3a039804576928c71a6d3c17f70707468308b8a80fb606db987c02aa5ee38c"
+    "historical_population_sha256": "c067ea99cd61c251b4b99d76646f5d7ce5a35161d9a3ba88c3b26264a07d344b",
+    "historical_acceptance_sha256": "a87f322ede8548ccf54189c4b6e9630f125ea4ecde7cd0d0b6a24fad049d7f45"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5527,7 +5527,7 @@
     "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
     "?Size_Of@TagClass@@UBEHXZ": 7029440,
     "?Kind_Of@TagClass@@UBEHXZ": 7029456,
-    "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
+    "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
     "?Find_Or_Make@TagTypeClass@@SIPAV1@PBD@Z": 7032096,
     "??0TagTypeClass@@QAE@PBD@Z": 7030128,
     "_CLSID_TagTypeClass": 8002880,
@@ -6386,7 +6386,7 @@
     "??_7ScrollClass@@6BSidebarClass@@@": 8033348,
     "??_7ScrollClass@@6BINoticeSink@@@": 8033340,
     "?unknown_flag_a40d44@@3_NA": 10751300,
-    "?Attach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
+    "?Link@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
     "?unknown_slot172@TechnoClass@@UAEHXZ": 7083728,
     "?DisposeOfArt@PowerClass@@UAEXXZ": 6407552,
     "?DisposeOfArt@RadarClass@@UAEXXZ": 6484496,
@@ -7010,24 +7010,24 @@
     "??_7TagTypeClass@@6BIRTTITypeInfo@@@": 8046536,
     "??_7TagTypeClass@@6BINoticeSink@@@": 8046528,
     "??_7TagTypeClass@@6BINoticeSource@@@": 8046520,
-    "?Detach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
+    "?Unlink@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
     "?From_Name@TagTypeClass@@SIPAV1@PBD@Z": 7030912,
     "?Read_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031008,
     "?unknown_tags_section_7ac770@@3QBDB": 8046448,
     "?Unknown_00412390@@YIJPBD@Z": 4268944,
     "?Write_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031280,
     "?Write_INI@TagTypeClass@@UBE_NAAVCCINIClass@@@Z": 7031664,
-    "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ": 7031808,
+    "?Attaches_To@TagTypeClass@@QBEHXZ": 7031808,
     "?Attaches_To@TriggerTypeClass@@QBEHXZ": 7267344,
-    "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ": 7031856,
+    "?Is_Allow_Win@TagTypeClass@@QBE_NXZ": 7031856,
     "?Is_Allow_Win@TriggerTypeClass@@QBE_NXZ": 7266832,
-    "?unknown_func_6b4c60@TagTypeClass@@QBE_NXZ": 7031904,
+    "?Is_Cross_Horizontal@TagTypeClass@@QBE_NXZ": 7031904,
     "?Is_Cross_Horizontal@TriggerTypeClass@@QBE_NXZ": 7266736,
-    "?unknown_func_6b4c90@TagTypeClass@@QBE_NXZ": 7031952,
+    "?Is_Cross_Vertical@TagTypeClass@@QBE_NXZ": 7031952,
     "?Is_Cross_Vertical@TriggerTypeClass@@QBE_NXZ": 7266688,
-    "?unknown_func_6b4cc0@TagTypeClass@@QBE_NXZ": 7032000,
+    "?Is_Enters_Zone@TagTypeClass@@QBE_NXZ": 7032000,
     "?Is_Enters_Zone@TriggerTypeClass@@QBE_NXZ": 7266784,
-    "?Is_Trigger_Attached@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
+    "?Is_Linked@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
     "?Is_Linked_To_Global@TriggerTypeClass@@QBE_NH@Z": 7266880,
     "?Is_Linked_To_Local@TriggerTypeClass@@QBE_NH@Z": 7266944,
     "?From_Name@TriggerTypeClass@@SIPAV1@PBD@Z": 7267152,
@@ -17443,7 +17443,7 @@
         {
           "offset": 768,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -17451,7 +17451,7 @@
         {
           "offset": 780,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -17459,7 +17459,7 @@
         {
           "offset": 798,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -18209,7 +18209,7 @@
           "resolved": 4293126844
         }
       ],
-      "source_sha256": "e8ff7163a1f3f948fc1bf295149505b6dae81b567dd970be20668ac579c237f8",
+      "source_sha256": "7431589c38af914c9d7038cf267bbe98404472f2782ea74dadbef93fd28f2f88",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Game_CRC_00654c90.cpp",
       "population": "population-3463",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -19436,7 +19436,7 @@
         {
           "offset": 2267,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -19444,7 +19444,7 @@
         {
           "offset": 2309,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -20266,7 +20266,7 @@
           "resolved": 596630
         }
       ],
-      "source_sha256": "034b90636bb6e9d2dc64fef7e61d23c9b3537171021939a147a2a8f6201fed50",
+      "source_sha256": "cdd3fb53276eb23f30752451f457bc5126f2e5cc9f2cdef12fd675966b7d8a7d",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Put_All_006558b0.cpp",
       "population": "population-3463",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

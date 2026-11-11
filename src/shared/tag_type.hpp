@@ -8,7 +8,7 @@
 //   +0x00  AbstractTypeClass (0x98)
 //   +0x98  int ArrayIndex   (the index in TagTypes)
 //   +0x9C  int Persistence  (0, 1, 2)
-//   +0xA0  TriggerTypeClass *Triggers (chained through Next)
+//   +0xA0  TriggerTypeClass *FirstTrigger (chained through Next)
 //   size 0xA4
 // Every type is added to TagTypes (0x00ABFEA0) and the abstract list
 // 0x00AC0CB0.
@@ -46,14 +46,14 @@ public:
     virtual bool Read_INI(CCINIClass &ini);                             // 0x006B4A90 slot 25
     virtual bool Write_INI(CCINIClass &ini) const;                      // 0x006B4B70 slot 26
 
-    bool Attach_Trigger(TriggerTypeClass *trigger);                     // 0x006B47E0
-    bool Detach_Trigger(TriggerTypeClass *trigger);                     // 0x006B4810
-    int unknown_func_6b4c00() const;                                    // 0x006B4C00 (the triggers' flags)
-    bool unknown_func_6b4c30() const;                                   // 0x006B4C30
-    bool unknown_func_6b4c60() const;                                   // 0x006B4C60
-    bool unknown_func_6b4c90() const;                                   // 0x006B4C90
-    bool unknown_func_6b4cc0() const;                                   // 0x006B4CC0
-    bool Is_Trigger_Attached(TriggerTypeClass *trigger) const;          // 0x006B4CF0
+    bool Link(TriggerTypeClass *trigger);                               // 0x006B47E0
+    bool Unlink(TriggerTypeClass *trigger);                             // 0x006B4810
+    int Attaches_To() const;                                            // 0x006B4C00 (the triggers' flags; TibSun AttachType)
+    bool Is_Allow_Win() const;                                          // 0x006B4C30
+    bool Is_Cross_Horizontal() const;                                   // 0x006B4C60
+    bool Is_Cross_Vertical() const;                                     // 0x006B4C90
+    bool Is_Enters_Zone() const;                                        // 0x006B4CC0
+    bool Is_Linked(TriggerTypeClass *trigger) const;                    // 0x006B4CF0
 
     static TagTypeClass *__fastcall From_Name(char const *name);        // 0x006B4880 (by ID or name)
     static void __fastcall Read_Scenario_INI(CCINIClass &ini);          // 0x006B48E0
@@ -62,10 +62,10 @@ public:
 
     int ArrayIndex;                         // +0x98
     int Persistence;                        // +0x9C
-    TriggerTypeClass *Triggers;             // +0xA0
+    TriggerTypeClass *FirstTrigger;         // +0xA0
 };
 
 // Every tag type (0x00ABFEA0; defined in this unit).
-extern DynamicVectorClass<TagTypeClass *> unknown_TagTypeClass_list_00abfea0;
+extern DynamicVectorClass<TagTypeClass *> TagTypes;
 
 #endif

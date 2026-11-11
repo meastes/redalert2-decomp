@@ -4,8 +4,8 @@
     "id": "population-3790",
     "inventory_sha256": "1ee2af7ea9833afe759f4a0ef737054ece626ed960449a344b0e00fb1aadf5ba",
     "gaps_sha256": "127d116d9a790e6a709dbd0dc436e408108faee9625ba6a17e1883537f2821a3",
-    "historical_population_sha256": "ac4c0e834062d35865f5fcadc2088ebc58233dea77a3334641520c9fe3307d29",
-    "historical_acceptance_sha256": "a683f2add3a8e6b9e6751f74789f51d05a519ad24b3cde96dd2b2e3bd5b0179f"
+    "historical_population_sha256": "ad506b1702ae62cb0493b47daa7c6d23ed1fd4b1655fc7e49f6825f65fc7dad7",
+    "historical_acceptance_sha256": "221faad426cd625e7d22606e9df8b012f19254a7064a02a6c191cb6c9a8f6750"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -1805,7 +1805,7 @@
     "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
     "?Size_Of@TagClass@@UBEHXZ": 7029440,
     "?Kind_Of@TagClass@@UBEHXZ": 7029456,
-    "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
+    "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
     "??_7?$DynamicVectorClass@PAVTagTypeClass@@@@6B@": 8046456,
     "?Detach@TagTypeClass@@UAEXPAVAbstractClass@@_N@Z": 7030880,
     "?Find_Or_Make@TagTypeClass@@SIPAV1@PBD@Z": 7032096,
@@ -3191,7 +3191,7 @@
     "?Get_Local_Variable@UnknownIDSource@@QAE_NHPA_N@Z": 6690384,
     "??0TabClass@@QAE@XZ": 6948576,
     "?unknown_flag_a40d44@@3_NA": 10751300,
-    "?Attach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
+    "?Link@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
     "?Get_Rect@MSBitPrintAnim@@UAE?AVRect@@XZ": 5956896,
     "?DisposeOfArt@PowerClass@@UAEXXZ": 6407552,
     "?DisposeOfArt@RadarClass@@UAEXXZ": 6484496,
@@ -3819,24 +3819,24 @@
     "??_7TagTypeClass@@6BIRTTITypeInfo@@@": 8046536,
     "??_7TagTypeClass@@6BINoticeSink@@@": 8046528,
     "??_7TagTypeClass@@6BINoticeSource@@@": 8046520,
-    "?Detach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
+    "?Unlink@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
     "?From_Name@TagTypeClass@@SIPAV1@PBD@Z": 7030912,
     "?Read_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031008,
     "?unknown_tags_section_7ac770@@3QBDB": 8046448,
     "?Write_Scenario_INI@TagTypeClass@@SIXAAVCCINIClass@@@Z": 7031280,
     "?Write_INI@TagTypeClass@@UBE_NAAVCCINIClass@@@Z": 7031664,
     "__imp__wsprintfA": 7972004,
-    "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ": 7031808,
+    "?Attaches_To@TagTypeClass@@QBEHXZ": 7031808,
     "?Attaches_To@TriggerTypeClass@@QBEHXZ": 7267344,
-    "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ": 7031856,
+    "?Is_Allow_Win@TagTypeClass@@QBE_NXZ": 7031856,
     "?Is_Allow_Win@TriggerTypeClass@@QBE_NXZ": 7266832,
-    "?unknown_func_6b4c60@TagTypeClass@@QBE_NXZ": 7031904,
+    "?Is_Cross_Horizontal@TagTypeClass@@QBE_NXZ": 7031904,
     "?Is_Cross_Horizontal@TriggerTypeClass@@QBE_NXZ": 7266736,
-    "?unknown_func_6b4c90@TagTypeClass@@QBE_NXZ": 7031952,
+    "?Is_Cross_Vertical@TagTypeClass@@QBE_NXZ": 7031952,
     "?Is_Cross_Vertical@TriggerTypeClass@@QBE_NXZ": 7266688,
-    "?unknown_func_6b4cc0@TagTypeClass@@QBE_NXZ": 7032000,
+    "?Is_Enters_Zone@TagTypeClass@@QBE_NXZ": 7032000,
     "?Is_Enters_Zone@TriggerTypeClass@@QBE_NXZ": 7266784,
-    "?Is_Trigger_Attached@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
+    "?Is_Linked@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
     "?Load@TagTypeClass@@UAGJPAUIStream@@@Z": 7032352,
     "?Is_Linked_To_Global@TriggerTypeClass@@QBE_NH@Z": 7266880,
     "?Is_Linked_To_Local@TriggerTypeClass@@QBE_NH@Z": 7266944,
@@ -12075,7 +12075,7 @@
           "resolved": 235603
         }
       ],
-      "source_sha256": "aad5be357e4b061359dbd4b0eedd9157623c4756e4db643cb532f092cccc58b7",
+      "source_sha256": "ffe1c9406c4260d8c4dcb5d319e4273c9dfdabc1d12f91c2885fc673c391c4b2",
       "source": "src/recovered/classes/TagClass/TagClass_constructor_006b3870.cpp",
       "population": "population-3790",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -12159,7 +12159,7 @@
         {
           "offset": 71,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ",
+          "symbol": "?Attaches_To@TagTypeClass@@QBEHXZ",
           "target": 7031808,
           "addend": 0,
           "resolved": 4549
@@ -12223,7 +12223,7 @@
         {
           "offset": 172,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ",
+          "symbol": "?Attaches_To@TagTypeClass@@QBEHXZ",
           "target": 7031808,
           "addend": 0,
           "resolved": 4448
@@ -12287,7 +12287,7 @@
         {
           "offset": 289,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ",
+          "symbol": "?Is_Allow_Win@TagTypeClass@@QBE_NXZ",
           "target": 7031856,
           "addend": 0,
           "resolved": 4379
@@ -12549,7 +12549,7 @@
           "resolved": 4292199138
         }
       ],
-      "source_sha256": "67f4b1a6eae689e70a18c7363eead5700abfff5ab18f453aee0fc60c114f7d38",
+      "source_sha256": "3f0299944f0ba287b8eb59cecf01ae76faa8549eb7e55ac1f26be6c68bf598a5",
       "source": "src/recovered/classes/TagClass/TagClass_destructor_006b39f0.cpp",
       "population": "population-3790",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -12758,13 +12758,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c90@TagTypeClass@@QBE_NXZ",
+          "symbol": "?Is_Cross_Vertical@TagTypeClass@@QBE_NXZ",
           "target": 7031952,
           "addend": 0,
           "resolved": 3832
         }
       ],
-      "source_sha256": "10ceb5c658c2f1cbeed81471e69c98209f3fc108cb3d0ac793db6fc157717f3f",
+      "source_sha256": "1744b75d2c2b03988da55d379a07eb560ecaeef9bffe4dfc5c448622ce706dd8",
       "source": "src/recovered/classes/TagClass/TagClass_Is_Cross_Vertical_006b3d90.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -12792,13 +12792,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c60@TagTypeClass@@QBE_NXZ",
+          "symbol": "?Is_Cross_Horizontal@TagTypeClass@@QBE_NXZ",
           "target": 7031904,
           "addend": 0,
           "resolved": 3768
         }
       ],
-      "source_sha256": "69627228e3cc129bd06b239c8a1b63fd39dc6508d100d13926b6c34edf3003e7",
+      "source_sha256": "ebee9804aec210b9868c3b1c409ca7185e84d9d8405851d29baaaf955d22c991",
       "source": "src/recovered/classes/TagClass/TagClass_Is_Cross_Horizontal_006b3da0.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -12826,13 +12826,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?unknown_func_6b4cc0@TagTypeClass@@QBE_NXZ",
+          "symbol": "?Is_Enters_Zone@TagTypeClass@@QBE_NXZ",
           "target": 7032000,
           "addend": 0,
           "resolved": 3848
         }
       ],
-      "source_sha256": "e2cc7ad216a9f2b67aa624ed144ca0bcb4ea78f6232b1ab4ce2b37175050243e",
+      "source_sha256": "390d6bb2e6ba1aa80d8a2fff347e4971d3685d7fbb8c076dd12193a939f7a63a",
       "source": "src/recovered/classes/TagClass/TagClass_Is_Enters_Zone_006b3db0.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -12860,13 +12860,13 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ",
+          "symbol": "?Is_Allow_Win@TagTypeClass@@QBE_NXZ",
           "target": 7031856,
           "addend": 0,
           "resolved": 3688
         }
       ],
-      "source_sha256": "e4b6211c966cbfa9c5acae77041a5c1d3253fce53f2c48553600cfa5fdb8a3a3",
+      "source_sha256": "990ddb1fa960889d63d74423f039c19a5dd5200870ef101eed97b5a25247b34e",
       "source": "src/recovered/classes/TagClass/TagClass_Is_Allow_Win_006b3dc0.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

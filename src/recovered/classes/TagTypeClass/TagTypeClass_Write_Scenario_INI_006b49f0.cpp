@@ -12,7 +12,7 @@ void __fastcall TagTypeClass::Write_Scenario_INI(CCINIClass &ini)
         ini.Clear(buffer, 0);
     }
     ini.Clear(unknown_tags_section_7ac770, 0);
-    for (int i = 0; i < unknown_TagTypeClass_list_00abfea0.Count(); i++) {
-        unknown_TagTypeClass_list_00abfea0[i]->Write_INI(ini);
+    for (int i = 0; i < TagTypes.Count(); i++) {
+        TagTypes[i]->Write_INI(ini);
     }
 }

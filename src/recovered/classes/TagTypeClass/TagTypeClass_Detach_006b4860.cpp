@@ -3,7 +3,7 @@
 
 void TagTypeClass::Detach(AbstractClass *target, bool all)
 {
-    if ((AbstractClass *)Triggers == target) {
-        Triggers = Triggers->Next;
+    if ((AbstractClass *)FirstTrigger == target) {
+        FirstTrigger = FirstTrigger->Next;
     }
 }

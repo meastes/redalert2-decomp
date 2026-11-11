@@ -53,17 +53,17 @@ void __fastcall Fill_In_Data_0065cdd0()
         }
     }
 
-    for (int tag_index = 0; tag_index < unknown_TagTypeClass_list_00abfea0.Count(); tag_index++) {
-        TagTypeClass *tagtype = unknown_TagTypeClass_list_00abfea0[tag_index];
-        if (tagtype->unknown_func_6b4c00() & 4) {
+    for (int tag_index = 0; tag_index < TagTypes.Count(); tag_index++) {
+        TagTypeClass *tagtype = TagTypes[tag_index];
+        if (tagtype->Attaches_To() & 4) {
             unknown_tags_866238.Add(TagClass::Find_Or_Make(tagtype));
         }
-        if (tagtype->unknown_func_6b4c00() & 0x10) {
+        if (tagtype->Attaches_To() & 0x10) {
             unknown_tags_866160.Add(TagClass::Find_Or_Make(tagtype));
         }
-        if (tagtype->unknown_func_6b4c00() & 8) {
+        if (tagtype->Attaches_To() & 8) {
             TagClass *tag = TagClass::Find_Or_Make(tagtype);
-            HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)tag->Class->Triggers->House)->House);
+            HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)tag->Class->FirstTrigger->House)->House);
             if (house != 0) {
                 house->unknown_38.Add(tag);
             }
@@ -71,10 +71,10 @@ void __fastcall Fill_In_Data_0065cdd0()
     }
     unknown_a40774--;
 
-    for (int count_index = 0; count_index < unknown_TagTypeClass_list_00abfea0.Count(); count_index++) {
-        TagTypeClass *tagtype = unknown_TagTypeClass_list_00abfea0[count_index];
-        if (tagtype->unknown_func_6b4c30()) {
-            HouseClass *owner = HouseClass::As_Pointer(((HouseTypeClass *)tagtype->Triggers->House)->ArrayIndex);
+    for (int count_index = 0; count_index < TagTypes.Count(); count_index++) {
+        TagTypeClass *tagtype = TagTypes[count_index];
+        if (tagtype->Is_Allow_Win()) {
+            HouseClass *owner = HouseClass::As_Pointer(((HouseTypeClass *)tagtype->FirstTrigger->House)->ArrayIndex);
             owner->unknown_1c4++;
         }
     }

@@ -5,8 +5,8 @@
 TagTypeClass::~TagTypeClass()
 {
     Unknown_006ECB90(this, true);
-    TriggerTypeClass *trigger = Triggers;
-    Triggers = 0;
+    TriggerTypeClass *trigger = FirstTrigger;
+    FirstTrigger = 0;
     while (trigger != 0) {
         TriggerTypeClass *next = trigger->Next;
         trigger->Next = 0;
@@ -20,5 +20,5 @@ TagTypeClass::~TagTypeClass()
         }
     }
     unknown_objects_ac0cb0.Delete((ObjectClass *)this);
-    unknown_TagTypeClass_list_00abfea0.Delete(this);
+    TagTypes.Delete(this);
 }

@@ -123,8 +123,8 @@ void Clear_Scenario_0065d370()
         }
     }
     unknown_flag_7df630 = true;
-    while (unknown_TagTypeClass_list_00abfea0.Count()) {
-        delete unknown_TagTypeClass_list_00abfea0[0];
+    while (TagTypes.Count()) {
+        delete TagTypes[0];
     }
     unknown_tags_866238.Clear();
     unknown_tags_866160.Clear();

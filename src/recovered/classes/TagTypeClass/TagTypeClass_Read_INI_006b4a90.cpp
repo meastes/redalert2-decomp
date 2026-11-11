@@ -17,7 +17,7 @@ bool TagTypeClass::Read_INI(CCINIClass &ini)
         strtok(buffer, ",");
         Persistence = atoi(buffer);
         Name = FixedString<49>(strtok(0, ","));
-        Triggers = TriggerTypeClass::Find_Or_Make(strtok(0, ","));
+        FirstTrigger = TriggerTypeClass::Find_Or_Make(strtok(0, ","));
         return true;
     }
     return false;

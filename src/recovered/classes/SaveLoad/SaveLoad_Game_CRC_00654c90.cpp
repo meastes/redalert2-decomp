@@ -116,8 +116,8 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < Scripts.Count(); index++) {
         Scripts[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_TagTypeClass_list_00abfea0.Count(); index++) {
-        unknown_TagTypeClass_list_00abfea0[index]->Compute_CRC(crc);
+    for (index = 0; index < TagTypes.Count(); index++) {
+        TagTypes[index]->Compute_CRC(crc);
     }
     for (index = 0; index < Tags.Count(); index++) {
         Tags[index]->Compute_CRC(crc);

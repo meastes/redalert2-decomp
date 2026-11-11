@@ -188,7 +188,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    if (FAILED(Save_Vector(stream, unknown_TagTypeClass_list_00abfea0))) {
+    if (FAILED(Save_Vector(stream, TagTypes))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }

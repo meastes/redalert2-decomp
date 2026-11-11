@@ -3,5 +3,5 @@
 
 bool TagClass::Is_Cross_Vertical() const
 {
-    return Class->unknown_func_6b4c90();
+    return Class->Is_Cross_Vertical();
 }

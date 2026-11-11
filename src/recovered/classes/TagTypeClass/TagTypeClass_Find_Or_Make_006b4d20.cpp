@@ -7,9 +7,9 @@ TagTypeClass *__fastcall TagTypeClass::Find_Or_Make(char const *name)
     if (!_stricmp("<none>", name) || !_stricmp("none", name)) {
         return 0;
     }
-    for (int index = 0; index < unknown_TagTypeClass_list_00abfea0.Count(); index++) {
-        if (!_stricmp(unknown_TagTypeClass_list_00abfea0[index]->ID, name)) {
-            return unknown_TagTypeClass_list_00abfea0[index];
+    for (int index = 0; index < TagTypes.Count(); index++) {
+        if (!_stricmp(TagTypes[index]->ID, name)) {
+            return TagTypes[index];
         }
     }
     return new TagTypeClass(name);

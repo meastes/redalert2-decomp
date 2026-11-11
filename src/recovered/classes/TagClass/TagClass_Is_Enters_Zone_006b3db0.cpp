@@ -3,5 +3,5 @@
 
 bool TagClass::Is_Enters_Zone() const
 {
-    return Class->unknown_func_6b4cc0();
+    return Class->Is_Enters_Zone();
 }

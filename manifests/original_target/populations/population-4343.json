@@ -4,8 +4,8 @@
     "id": "population-4343",
     "inventory_sha256": "b4cb8deda2da311ef237336bf9bff06f922b5635475e43294bce3439cf82ab17",
     "gaps_sha256": "a1fe9a04dea9f8e68a0a88226c5b0115710ae09e9a9ac275c73c8b3916f54198",
-    "historical_population_sha256": "acf405bb86001d7874e073a4d9511f3bfd69f6e0f516b763bf3082e47d695de1",
-    "historical_acceptance_sha256": "a0a59097aab7b82b7dd4580dea18bb4f6447ba427bc8f1706ea07a34776dc608"
+    "historical_population_sha256": "59a146d98faaadf02ce1a9a655758fbdb868abc6448f358ddd1b4b7593b3e1ca",
+    "historical_acceptance_sha256": "4d7e2d4cdd1ffe254b9052b2d524c934446bc0e177fe2786f339ad907458eccc"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -9565,7 +9565,7 @@
     "_CLSID_TActionClass": 8002928,
     "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
     "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
-    "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
+    "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
     "_CLSID_TagTypeClass": 8002880,
     "?unknown_object_index_abff58@@3V?$IndexClass@JPAVAbstractClass@@@@A": 11272024,
     "_CLSID_TeamClass": 8002768,
@@ -9714,7 +9714,7 @@
     "?Is_Prone_Sequence_005096e0@InfantryClass@@QBE_NH@Z": 5281504,
     "?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z": 6112304,
     "?Set_Mission@ScriptClass@@QAE_NH@Z": 6719760,
-    "?Attach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
+    "?Link@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030752,
     "?unknown_slot172@TechnoClass@@UAEHXZ": 7083728,
     "?DisposeOfArt@PowerClass@@UAEXXZ": 6407552,
     "?DisposeOfArt@RadarClass@@UAEXXZ": 6484496,
@@ -9895,20 +9895,20 @@
     "?unknown_cell_abd768@@3VCell@@B": 11261800,
     "?unknown_supers_a35db8@@3V?$DynamicVectorClass@PAVSuperClass@@@@A": 10706360,
     "?unknown_69ca70@SuperClass@@QAEXXZ": 6933104,
-    "?Detach_Trigger@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
+    "?Unlink@TagTypeClass@@QAE_NPAVTriggerTypeClass@@@Z": 7030800,
     "?unknown_tags_section_7ac770@@3QBDB": 8046448,
     "?Unknown_00412390@@YIJPBD@Z": 4268944,
-    "?unknown_func_6b4c00@TagTypeClass@@QBEHXZ": 7031808,
+    "?Attaches_To@TagTypeClass@@QBEHXZ": 7031808,
     "?Attaches_To@TriggerTypeClass@@QBEHXZ": 7267344,
-    "?unknown_func_6b4c30@TagTypeClass@@QBE_NXZ": 7031856,
+    "?Is_Allow_Win@TagTypeClass@@QBE_NXZ": 7031856,
     "?Is_Allow_Win@TriggerTypeClass@@QBE_NXZ": 7266832,
-    "?unknown_func_6b4c60@TagTypeClass@@QBE_NXZ": 7031904,
+    "?Is_Cross_Horizontal@TagTypeClass@@QBE_NXZ": 7031904,
     "?Is_Cross_Horizontal@TriggerTypeClass@@QBE_NXZ": 7266736,
-    "?unknown_func_6b4c90@TagTypeClass@@QBE_NXZ": 7031952,
+    "?Is_Cross_Vertical@TagTypeClass@@QBE_NXZ": 7031952,
     "?Is_Cross_Vertical@TriggerTypeClass@@QBE_NXZ": 7266688,
-    "?unknown_func_6b4cc0@TagTypeClass@@QBE_NXZ": 7032000,
+    "?Is_Enters_Zone@TagTypeClass@@QBE_NXZ": 7032000,
     "?Is_Enters_Zone@TriggerTypeClass@@QBE_NXZ": 7266784,
-    "?Is_Trigger_Attached@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
+    "?Is_Linked@TagTypeClass@@QBE_NPAVTriggerTypeClass@@@Z": 7032048,
     "?Is_Linked_To_Global@TriggerTypeClass@@QBE_NH@Z": 7266880,
     "?Is_Linked_To_Local@TriggerTypeClass@@QBE_NH@Z": 7266944,
     "?Persistence_From_Name@TriggerTypeClass@@SIHPBD@Z": 7267264,
@@ -30249,7 +30249,7 @@
         {
           "offset": 7602,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -30257,7 +30257,7 @@
         {
           "offset": 7614,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 4,
           "resolved": 11271844
@@ -30281,7 +30281,7 @@
         {
           "offset": 7663,
           "kind": 6,
-          "symbol": "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
+          "symbol": "?TagTypes@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A",
           "target": 11271840,
           "addend": 16,
           "resolved": 11271856
@@ -32903,7 +32903,7 @@
           "resolved": 1403439
         }
       ],
-      "source_sha256": "497bc9a73945c5d988454a9945c1ec5333b33b36d771249e1fd8867d56c5bbec",
+      "source_sha256": "e710f4ddcb8a6245af76a0e6e40c102670e055c63278930f0b038b149b4fc341",
       "source": "src/recovered/unowned/Print_CRCs_0062a360.cpp",
       "population": "population-4343",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
