@@ -249,18 +249,21 @@ struct UnknownSessionState {
     unsigned Record : 1;                    // +0x2368 bit 0 (Red Alert's Session.Record; hypothesis)
     unsigned Play : 1;                      //         bit 1 (Red Alert's Session.Play: SyncBug settings are read)
     unsigned Attract : 1;                   //         bit 2 (Red Alert's Session.Attract; Parse_Command_Line -ATTRACT)
+    // Real bridge flag, also cleared by the session constructor. Keeping its
+    // type in every view aligns the field after the playback bit-field unit.
+    int unknown_236c;                       // +0x236C (TibSun SessionClass::IsBridge)
 #ifdef RA2_CONQUER_IPX_CALL_BACK
-    char unknown_236c[0x237D - 0x236C];
+    char unknown_2370[0x237D - 0x2370];
     bool NetProtect;                        // +0x237D messages must carry the game's name CRC (Red Alert's Session.NetProtect)
     bool NetOpen;                           // +0x237E the game is open (also unknown_session_a3f616; Red Alert's Session.NetOpen)
     char unknown_237f;
 #elif defined(RA2_SESSION_CTOR_FIELDS)
-    int unknown_236c; IPXAddressClass unknown_2370; bool unknown_237c;
+    IPXAddressClass unknown_2370; bool unknown_237c;
     bool NetProtect;                        // +0x237D
     bool NetOpen;                           // +0x237E
     char unknown_237f;
 #else
-    char unknown_236c[0x2380 - 0x236C];
+    char unknown_2370[0x2380 - 0x2370];
 #endif
     unsigned short HostName_2380[20];       // +0x2380 the host's name (wide; also unknown_host_name_a3f618)
     UnknownGlobalPacket GPacket;            // +0x23A8 (also unknown_gpacket_a3f640; Red Alert's Session.GPacket)
