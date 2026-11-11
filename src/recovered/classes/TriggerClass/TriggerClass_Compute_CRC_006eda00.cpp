@@ -8,8 +8,8 @@ void TriggerClass::Compute_CRC(WWCRCEngine &crc) const
     if (LinkedTo != 0) {
         crc(LinkedTo->Fetch_ID());
     }
-    crc((char)IsToDelete);
-    crc((char)IsActive);
+    crc(IsToDelete);
+    crc(IsActive);
     crc(Timer.Value());
     crc((long)IsTripped);
 }

@@ -4,8 +4,8 @@
     "id": "population-3961",
     "inventory_sha256": "7c93e0e0ffb024f6f3938abd1198dbe5cf03632b37dee1109c848a98d75bb596",
     "gaps_sha256": "f56ce2bf65f22675f3be45e88fbe60a530ffa9bebaf5d442b3dc614ebad6c064",
-    "historical_population_sha256": "5220c1944395f5e938837ee983bfd41245470f191ba894bad439b4f9378b42d8",
-    "historical_acceptance_sha256": "501b15c837aaa41eef9e027df5378b70538c8ca1dd561d5afd3c88bb46a9e471"
+    "historical_population_sha256": "f52f75443150f4bd1ab0786744887ed27644e38fc81b3923803c1f57756b615f",
+    "historical_acceptance_sha256": "3c18a7e789404560376d6193d804417c7aa2e9f46e12e97d2cda12c6b2107dce"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1738,7 +1738,6 @@
     "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
     "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
     "?Compute_CRC@ObjectClass@@UBEXAAVWWCRCEngine@@@Z": 6114064,
-    "??RWWCRCEngine@@QAEXD@Z": 4800128,
     "??RWWCRCEngine@@QAEXJ@Z": 4800304,
     "_CLSID_VoxelAnimClass": 8002496,
     "_$E2": 7390736,
@@ -10634,7 +10633,13 @@
     "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
     "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
     "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
-    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -12287,7 +12292,7 @@
         {
           "offset": 112,
           "kind": 20,
-          "symbol": "??RWWCRCEngine@@QAEXD@Z",
+          "symbol": "??RWWCRCEngine@@QAEX_N@Z",
           "target": 4800128,
           "addend": 0,
           "resolved": 4292370332
@@ -12295,7 +12300,7 @@
         {
           "offset": 126,
           "kind": 20,
-          "symbol": "??RWWCRCEngine@@QAEXD@Z",
+          "symbol": "??RWWCRCEngine@@QAEX_N@Z",
           "target": 4800128,
           "addend": 0,
           "resolved": 4292370318
@@ -12309,7 +12314,7 @@
           "resolved": 4292370480
         }
       ],
-      "source_sha256": "aa8cdb79fedf98ed32b5c4d6c963efa516ac61ce095f262d6be3e505c3eb4969",
+      "source_sha256": "0cad6ce5c647f62fba06dc11fa8533bd37ee09b3aa139a19517c12c1a2a76bc7",
       "source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_Compute_CRC_0070de70.cpp",
       "population": "population-3961",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

@@ -4,8 +4,8 @@
     "id": "population-3795",
     "inventory_sha256": "4f80a63f926f33aeb9b7b467dd7d99b8d833d3b9e1b72f69e4c8d5e6cd55424f",
     "gaps_sha256": "2c84b4d4c235c27539f0dd924fe1c12f9821484c4b753a9441fde002bd373e51",
-    "historical_population_sha256": "dfb2bc2d90d02169e5e815953688f49b70e29a5d518f668dfb259b809abb47eb",
-    "historical_acceptance_sha256": "e42ffb5f18daa80815184c08a9d1bc6e829edfc6bbd9590853493d8230e48010"
+    "historical_population_sha256": "c9dd763e58aff17d081c6df0c6c4a1b9d837a118ef5a7a12bc0af4015d56254b",
+    "historical_acceptance_sha256": "6d44c8ec39af29fb3533f6bf0c495d8db1dc8c0fb7073277d0607230658b0248"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1616,7 +1616,6 @@
     "??_C@_0P@FNM@AttachedSystem?$AA@": 8361056,
     "??_C@_00A@?$AA@": 8635740,
     "?Compute_CRC@AbstractTypeClass@@UBEXAAVWWCRCEngine@@@Z": 4262240,
-    "??RWWCRCEngine@@QAEXD@Z": 4800128,
     "??RWWCRCEngine@@QAEXJ@Z": 4800304,
     "??RWWCRCEngine@@QAEXN@Z": 4800368,
     "_CLSID_VoxelAnimTypeClass": 8002816,
@@ -8317,7 +8316,21 @@
     "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
     "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
     "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
-    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
+    "?Get_Height@Surface@@UAEHXZ": 4264656,
+    "?Can_Enter_Cell@LocomotionClass@@UAGHVCell@@@Z": 5494000,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
+    "?Get_Height@AnimFile@@UAEHXZ": 4342688,
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -9871,7 +9884,7 @@
         {
           "offset": 24,
           "kind": 20,
-          "symbol": "??RWWCRCEngine@@QAEXD@Z",
+          "symbol": "??RWWCRCEngine@@QAEX_N@Z",
           "target": 4800128,
           "addend": 0,
           "resolved": 4292367284
@@ -9879,7 +9892,7 @@
         {
           "offset": 38,
           "kind": 20,
-          "symbol": "??RWWCRCEngine@@QAEXD@Z",
+          "symbol": "??RWWCRCEngine@@QAEX_N@Z",
           "target": 4800128,
           "addend": 0,
           "resolved": 4292367270
@@ -9887,7 +9900,7 @@
         {
           "offset": 52,
           "kind": 20,
-          "symbol": "??RWWCRCEngine@@QAEXD@Z",
+          "symbol": "??RWWCRCEngine@@QAEX_N@Z",
           "target": 4800128,
           "addend": 0,
           "resolved": 4292367256
@@ -9959,7 +9972,7 @@
         {
           "offset": 220,
           "kind": 20,
-          "symbol": "??RWWCRCEngine@@QAEXD@Z",
+          "symbol": "??RWWCRCEngine@@QAEX_N@Z",
           "target": 4800128,
           "addend": 0,
           "resolved": 4292367088
@@ -10007,13 +10020,13 @@
         {
           "offset": 304,
           "kind": 20,
-          "symbol": "??RWWCRCEngine@@QAEXD@Z",
+          "symbol": "??RWWCRCEngine@@QAEX_N@Z",
           "target": 4800128,
           "addend": 0,
           "resolved": 4292367004
         }
       ],
-      "source_sha256": "b529a9d750148b1ac830a8e052799c919def1bbada67f337b051f1764fd49b86",
+      "source_sha256": "4e649ad6df92cf2291a120a19f08d453d6e161b4cfe61007d4ba2333f26f936d",
       "source": "src/recovered/classes/VoxelAnimTypeClass/VoxelAnimTypeClass_Compute_CRC_0070eab0.cpp",
       "population": "population-3795",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

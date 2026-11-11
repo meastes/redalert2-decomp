@@ -8,5 +8,5 @@ void TagClass::Compute_CRC(WWCRCEngine &crc) const
     if (Trigger != 0) {
         crc(Trigger->Fetch_ID());
     }
-    crc((char)IsToDie);
+    crc(IsToDie);
 }
