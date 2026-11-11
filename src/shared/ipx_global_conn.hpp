@@ -44,17 +44,17 @@ public:
     {
         return ConnectionClass::Get_Packet(buf, buflen);
     }
-    virtual int unknown_slot6();                                        // slot 6 0x00524A30 (drops failed sends; their count)
+    virtual int Discard_Undeliverable_Packets();                        // slot 6 0x00524A30 (drops failed sends; their count)
     virtual int Service_Receive_Queue();                                // slot 8 0x00524830
     virtual int Send(char *buf, int buflen, void *extrabuf, int extralen, bool flagged, unsigned short id);   // slot 9 0x005247B0
     virtual int Send_To(char *buf, int buflen, IPXAddressClass *address, unsigned char *immed, bool flagged, unsigned short id);   // slot 10 0x00524B50
     virtual int Send_Packet(void *buf, int buflen, IPXAddressClass *address, int ack_req, unsigned short id, unsigned long packet_id);   // slot 11 0x005242F0
     virtual int Receive_Packet(void *buf, int buflen, IPXAddressClass *address, unsigned short port);   // slot 12 0x005243D0
     virtual int Get_Packet(void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id);   // slot 13 0x00524670
-    virtual int unknown_slot14(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id);   // slot 14 0x00524700 (reads a packet without marking it)
-    virtual void unknown_slot15(int index);                             // slot 15 0x00524790 (marks a receive entry read)
-    virtual int unknown_slot16(IPXAddressClass *address, unsigned short id);   // slot 16 0x00524AA0 (drops unacknowledged sends to an address)
-    virtual void unknown_slot17(unsigned long age);                     // slot 17 0x00524870 (strips received entries older than age ticks)
+    virtual int Peek_Packet(int index, void *buf, int *buflen, IPXAddressClass *address, unsigned short *product_id, unsigned long *packet_id);      // slot 14 0x00524700 (reads a packet without marking it)
+    virtual void Mark_Packet_Read(int index);                           // slot 15 0x00524790 (marks a receive entry read)
+    virtual int Discard_Packets_To(IPXAddressClass *address, unsigned short id); // slot 16 0x00524AA0 (drops unacknowledged sends to an address)
+    virtual void Discard_Old_Packets(unsigned long age);                // slot 17 0x00524870 (strips received entries older than age ticks)
 
     void Set_Bridge(NetNumType bridge);                                 // 0x00524A10 (Red Alert's Set_Bridge: clears IsBridge once configured)
 

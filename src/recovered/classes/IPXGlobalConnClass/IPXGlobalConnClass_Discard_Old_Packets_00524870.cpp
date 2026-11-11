@@ -1,4 +1,4 @@
-// void IPXGlobalConnClass::unknown_slot17(unsigned long age) (0x00524870, slot 17)
+// void IPXGlobalConnClass::Discard_Old_Packets(unsigned long age) (0x00524870, slot 17)
 // Strips received global packets older than AGE ticks from the receive queue
 // and forgets their packet IDs in the duplicate ring (unknown_d0).
 #include "shared/ipx_global_conn.hpp"
@@ -11,7 +11,7 @@
 // @ref ?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z=004809c0
 // @ref ?UnQueue_Receive@CommBufferClass@@QAEHPAXPAHH01@Z=00480870
 
-void IPXGlobalConnClass::unknown_slot17(unsigned long age)
+void IPXGlobalConnClass::Discard_Old_Packets(unsigned long age)
 {
     Debug_Printf("Stripping queue entries older than %d seconds. Num receive = %d\n", age / 60, Queue->ReceiveCount);
     for (int i = 0; i < Queue->ReceiveCount; i++) {

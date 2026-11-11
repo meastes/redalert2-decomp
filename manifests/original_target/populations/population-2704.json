@@ -4,8 +4,8 @@
     "id": "population-2704",
     "inventory_sha256": "f16c7c47dcbbacbc90ddca69d2ac7644c8c14a1a75c20182ac97aae659d03dc5",
     "gaps_sha256": "e035fb5d699b2bf6605336a9e1c33698dc5dd5a23622e7c60f887e9d50bdbc4d",
-    "historical_population_sha256": "8b2898994044113750aacd735068f6545d2b9bd2c1a7cfbc6a7b4ab606261dc5",
-    "historical_acceptance_sha256": "62bba94e940e18eb632099791e7d08811fb265f9ab067525415b72bc44e7dcd7"
+    "historical_population_sha256": "910c78329c035c02fea0be92baadf7a92edf9f4bca510cccce8935a4a876814a",
+    "historical_acceptance_sha256": "2b379bdc6056c288024beb2e6ed75ed9d9f79650a0dd0b970e5294e32df8757b"
   },
   "references": {
     "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A": 8594304,
@@ -307,7 +307,7 @@
     "?Clear@?$VectorClass@PAVDamageGroup@@@@UAEXXZ": 4718144,
     "?ID@?$VectorClass@PAVDamageGroup@@@@UAEHABQAVDamageGroup@@@Z": 4718192,
     "?ID@?$VectorClass@PAVDamageGroup@@@@UAEHPBQAVDamageGroup@@@Z": 4718256,
-    "?unknown_slot6@ConnectionClass@@UAEHXZ": 4724048,
+    "?Discard_Undeliverable_Packets@ConnectionClass@@UAEHXZ": 4724048,
     "?Clear@?$DynamicVectorClass@PAVConvertClass@@@@UAEXXZ": 4743744,
     "?ID@?$DynamicVectorClass@PAVConvertClass@@@@UAEHPBQAVConvertClass@@@Z": 4743792,
     "?Fetch@?$VectorClass@PAVConvertClass@@@@UBEPAVConvertClass@@H@Z": 4743824,
@@ -2592,7 +2592,7 @@
     "?Load@UnitTypeClass@@UAGJPAUIStream@@@Z": 7386240,
     "?Init@CommBufferClass@@QAEXXZ": 4719232,
     "?Init@IPXConnClass@@UAEXXZ": 5389344,
-    "?unknown_slot6@IPXGlobalConnClass@@UAEHXZ": 5392944,
+    "?Discard_Undeliverable_Packets@IPXGlobalConnClass@@UAEHXZ": 5392944,
     "?Init@IPXManagerClass@@QAEHXZ": 5394880,
     "__wcsicmp": 7955224,
     "??_7?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@6B@": 8059612,

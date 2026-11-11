@@ -12,7 +12,7 @@
 // @ref ?Receive_Packet@ConnectionClass@@UAEHPAXH@Z=00481000
 // @ref ?Get_Packet@ConnectionClass@@UAEHPAXPAH@Z=004812e0
 // @ref ?Service@ConnectionClass@@UAEHXZ=00481370
-// @ref ?unknown_slot6@ConnectionClass@@UAEHXZ=00481550
+// @ref ?Discard_Undeliverable_Packets@ConnectionClass@@UAEHXZ=00481550
 // @ref ?Service_Send_Queue@ConnectionClass@@UAEHXZ=004813a0
 // @ref ?Service_Receive_Queue@ConnectionClass@@UAEHXZ=00481560
 // @ref ??_7NullModemConnClass@@6B@=007a73c8

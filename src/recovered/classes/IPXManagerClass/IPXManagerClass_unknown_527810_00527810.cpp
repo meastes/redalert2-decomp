@@ -5,6 +5,6 @@
 void IPXManagerClass::unknown_527810(IPXAddressClass *address, unsigned short id)
 {
     if (GlobalChannel) {
-        GlobalChannel->unknown_slot16(address, id);
+        GlobalChannel->Discard_Packets_To(address, id);
     }
 }

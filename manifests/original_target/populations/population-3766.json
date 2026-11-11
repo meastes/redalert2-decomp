@@ -4,8 +4,8 @@
     "id": "population-3766",
     "inventory_sha256": "a654ef992da11eca0f96ce4e84cb9246477d7eba1a06423be7639f251f50c498",
     "gaps_sha256": "71556148ad33fcac9e0376bb86676715f632bdca0f504ff0cfd8f5e41b873178",
-    "historical_population_sha256": "ebe55229f08af35958437a8711f3cbc03f7402968dad917d50f2bf6fa3c1cd5c",
-    "historical_acceptance_sha256": "353e0d74fe39262471b2f5b0f51d3ef9801a4ef84cb975022234f7063a8b34ba"
+    "historical_population_sha256": "29c695bb7f6fe5ef62272ff0a44f17c3f4749221a16a316c60be38fc72e6d03f",
+    "historical_acceptance_sha256": "de153a48bdca3878c4175afed9c66c31dca0301422af7500c46f680e2edd9a5a"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -715,9 +715,9 @@
     "?unknown_slot35@UnitTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z": 7383680,
     "?unknown_slot31@UnitTypeClass@@UBE?AUCoordStruct@@XZ": 7383792,
     "?unknown_slot27@UnitTypeClass@@UBE?AUCoordStruct@@ABU2@@Z": 7385888,
-    "?unknown_slot14@IPXGlobalConnClass@@UAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z": 5392128,
-    "?unknown_slot15@IPXGlobalConnClass@@UAEXH@Z": 5392272,
-    "?unknown_slot16@IPXGlobalConnClass@@UAEHPAVIPXAddressClass@@G@Z": 5393056,
+    "?Peek_Packet@IPXGlobalConnClass@@UAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z": 5392128,
+    "?Mark_Packet_Read@IPXGlobalConnClass@@UAEXH@Z": 5392272,
+    "?Discard_Packets_To@IPXGlobalConnClass@@UAEHPAVIPXAddressClass@@G@Z": 5393056,
     "?unknown_slot19@IPXManagerClass@@UAEHPAVConnectionClass@@@Z": 5396400,
     "?Clear_Broadcast_Addresses@UDPInterfaceClass@@UAEXXZ": 7782960,
     "?Set_Broadcast_Address@UDPInterfaceClass@@UAEXPADG@Z": 7783056,

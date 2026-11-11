@@ -43,7 +43,7 @@ public:
     virtual int Receive_Packet(void *buf, int buflen);                  // slot 3 0x00481000
     virtual int Get_Packet(void *buf, int *buflen);                     // slot 4 0x004812E0
     virtual int Service();                                              // slot 5 0x00481370
-    virtual int unknown_slot6();                                        // slot 6 0x00481550
+    virtual int Discard_Undeliverable_Packets();                        // slot 6 0x00481550
     virtual int Service_Send_Queue();                                   // slot 7 0x004813A0
     virtual int Service_Receive_Queue();                                // slot 8 0x00481560
     virtual int Send(char *buf, int buflen, void *extrabuf, int extralen, bool flagged, unsigned short id) = 0;   // slot 9

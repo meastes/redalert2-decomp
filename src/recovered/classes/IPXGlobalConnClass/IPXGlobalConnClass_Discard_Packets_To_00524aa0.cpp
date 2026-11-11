@@ -1,4 +1,4 @@
-// int IPXGlobalConnClass::unknown_slot16(IPXAddressClass *address, unsigned short id) (0x00524AA0, slot 16)
+// int IPXGlobalConnClass::Discard_Packets_To(IPXAddressClass *address, unsigned short id) (0x00524AA0, slot 16)
 // Removes the unacknowledged sends to an address (same node) with the given ID and
 // returns how many.
 #include "shared/ipx_global_conn.hpp"
@@ -7,7 +7,7 @@
 // @ref ??0IPXAddressClass@@QAE@XZ=00523410
 // @ref ?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z=00523690
 
-int IPXGlobalConnClass::unknown_slot16(IPXAddressClass *address, unsigned short id)
+int IPXGlobalConnClass::Discard_Packets_To(IPXAddressClass *address, unsigned short id)
 {
     int count = 0;
     for (int i = 0; i < Queue->SendCount; i++) {

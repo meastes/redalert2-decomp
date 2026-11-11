@@ -5,6 +5,6 @@
 void IPXManagerClass::unknown_525b30(int index)
 {
     if (IPXStatus && Listening) {
-        GlobalChannel->unknown_slot15(index);
+        GlobalChannel->Mark_Packet_Read(index);
     }
 }

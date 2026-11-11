@@ -58,7 +58,7 @@ int IPXManagerClass::Service()
         }
     }
     if (GlobalChannel != 0 && PacketTransport != 0 && !GlobalChannel->Service()) {
-        GlobalChannel->unknown_slot6();
+        GlobalChannel->Discard_Undeliverable_Packets();
         rc = 0;
     }
     if (PacketTransport != 0) {

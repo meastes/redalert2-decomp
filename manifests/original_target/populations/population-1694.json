@@ -4,8 +4,8 @@
     "id": "population-1694",
     "inventory_sha256": "9e2cd973910f0ed6e2fb8298c3a5ad8212dd4286bcbedec15dc0282757007aca",
     "gaps_sha256": "fe6df666ecfeabc59ac0c96c3ef4814604ed83e019eaa0b84c394eb053b9756c",
-    "historical_population_sha256": "74440cebf37e28f2fe333edaa028cfa62a5acbed806ed02e97c6805a0e14feea",
-    "historical_acceptance_sha256": "c8f9949249e546894b4693868e7148c3211cb2e6b9d84b7cddc6ad05e88e5141"
+    "historical_population_sha256": "ab067571d203e1751455791e3d07130c8d927b2c1fdf2288404c099fb5816af2",
+    "historical_acceptance_sha256": "b93c0b9c25664c8fc965811a9528886884d3e1ba1b43b44ea4fcc7d708a7fa7f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1473,7 +1473,7 @@
     "?Load@UnitTypeClass@@UAGJPAUIStream@@@Z": 7386240,
     "?Init@CommBufferClass@@QAEXXZ": 4719232,
     "?Init@IPXConnClass@@UAEXXZ": 5389344,
-    "?unknown_slot16@IPXGlobalConnClass@@UAEHPAVIPXAddressClass@@G@Z": 5393056,
+    "?Discard_Packets_To@IPXGlobalConnClass@@UAEHPAVIPXAddressClass@@G@Z": 5393056,
     "?Init@IPXManagerClass@@QAEHXZ": 5394880,
     "?unknown_slot19@IPXManagerClass@@UAEHPAVConnectionClass@@@Z": 5396400,
     "_time": 7878783,
@@ -4281,7 +4281,7 @@
     "?Add@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z": 6402816,
     "?Clear@?$VectorClass@PAVPlanningMemberClass@@@@UAEXXZ": 6401008,
     "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z": 5104000,
-    "?unknown_slot17@IPXGlobalConnClass@@UAEXK@Z": 5392496,
+    "?Discard_Old_Packets@IPXGlobalConnClass@@UAEXK@Z": 5392496,
     "?Process@ShipLocomotionClass@@UAG_NXZ": 6776240,
     "__real@8@40039000000000000000": 7979656,
     "__real@8@3ffe9999999999999800": 7979632,

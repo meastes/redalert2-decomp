@@ -4,6 +4,6 @@
 void IPXManagerClass::unknown_527830(int index)
 {
     if (GlobalChannel) {
-        GlobalChannel->unknown_slot17(index);
+        GlobalChannel->Discard_Old_Packets(index);
     }
 }

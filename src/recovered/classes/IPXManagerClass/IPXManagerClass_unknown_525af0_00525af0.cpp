@@ -7,5 +7,5 @@ int IPXManagerClass::unknown_525af0(int index, void *buf, int *buflen, IPXAddres
     if (!IPXStatus || !Listening) {
         return 0;
     }
-    return GlobalChannel->unknown_slot14(index, buf, buflen, address, product_id, packet_id);
+    return GlobalChannel->Peek_Packet(index, buf, buflen, address, product_id, packet_id);
 }

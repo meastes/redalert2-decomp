@@ -1,4 +1,4 @@
-// int IPXGlobalConnClass::unknown_slot6() (0x00524A30, slot 6)
+// int IPXGlobalConnClass::Discard_Undeliverable_Packets() (0x00524A30, slot 6)
 // Removes the sends that failed (retry or time limit) without an ACK and
 // returns how many.
 #include "shared/ipx_global_conn.hpp"
@@ -6,7 +6,7 @@
 // @ref ?UnQueue_Send@CommBufferClass@@QAEHPAXPAHH01PAG@Z=00480550
 // @ref ??0IPXAddressClass@@QAE@XZ=00523410
 
-int IPXGlobalConnClass::unknown_slot6()
+int IPXGlobalConnClass::Discard_Undeliverable_Packets()
 {
     int count = 0;
     for (int i = 0; i < Queue->SendCount; i++) {
