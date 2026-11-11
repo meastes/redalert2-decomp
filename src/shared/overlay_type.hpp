@@ -43,7 +43,7 @@ public:
     static int __fastcall From_Name(char const *name);                  // 0x005DC7B0
     static void __fastcall Init(int theater);                           // 0x005DC960
     static OverlayTypeClass *__fastcall Find_Or_Make(char const *name); // 0x005DCF70
-    RGBClass unknown_func_5dd000(unsigned frame) const;                 // 0x005DD000 (a frame's colour; radar hypothesis)
+    RGBClass Get_Radar_Color(unsigned frame) const;                     // 0x005DD000 (a frame's colour; radar hypothesis)
 
     virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x005DCF30 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                    // 0x005DCE10 slot 5

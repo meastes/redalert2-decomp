@@ -4,8 +4,8 @@
     "id": "population-4458",
     "inventory_sha256": "2f779c2f5adca215337b5e47822fc0b9b4a328a6cbb7b06fb45359e3174b0e32",
     "gaps_sha256": "59d173ebc432aa613fd3955205433be0603147080a533a029c5fcdaaf2ddf82c",
-    "historical_population_sha256": "25d02e9b57b14a7f8cbfed991713708bc5080f20567248cb9ec98a3971a2b90d",
-    "historical_acceptance_sha256": "428b5d58bfc8bca1412954ff56c99c6be2666126f6a5a322869f0a36a2e00d34"
+    "historical_population_sha256": "55447dc63581198dbf993b573dbc1ff707411ef27c9ae2ce78f4866472fb1f43",
+    "historical_acceptance_sha256": "f47324bcfe3a6429b2114f69f68f247fba8f5e8a5eb797877678e263a09e795c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10031,7 +10031,7 @@
     "?Delete_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
     "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z": 7491952,
     "?unknown_show_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7013440,
-    "?unknown_func_5dd000@OverlayTypeClass@@QBE?AVRGBClass@@I@Z": 6148096,
+    "?Get_Radar_Color@OverlayTypeClass@@QBE?AVRGBClass@@I@Z": 6148096,
     "??9BaseNodeClass@@QAE_NABV0@@Z": 4374288,
     "??0UnknownSessionState@@QAE@XZ": 6742912,
     "?unknown_slot63@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
@@ -12876,7 +12876,7 @@
         {
           "offset": 669,
           "kind": 20,
-          "symbol": "?unknown_func_5dd000@OverlayTypeClass@@QBE?AVRGBClass@@I@Z",
+          "symbol": "?Get_Radar_Color@OverlayTypeClass@@QBE?AVRGBClass@@I@Z",
           "target": 6148096,
           "addend": 0,
           "resolved": 4294702847
@@ -13162,7 +13162,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "b0149dd7f490811eb74e23970482c3c2d0ee6e8b4bbb8df1743f031e702eddf7",
+      "source_sha256": "db10f0d70c785e3113d5dd93051871379a338f42c2b9f95e20d40c7798a654da",
       "source": "src/recovered/classes/MapPreviewClass/MapPreviewClass_Create_Preview_0061d660.cpp",
       "population": "population-4458",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

@@ -23,7 +23,7 @@ void CellClass::Cell_Color(RGBClass &lowcolor, RGBClass &highcolor) const
     }
 
     if (IsUnderBridge) {
-        highcolor = lowcolor = OverlayTypes[24]->unknown_func_5dd000(0);
+        highcolor = lowcolor = OverlayTypes[24]->Get_Radar_Color(0);
         return;
     }
 
@@ -35,9 +35,9 @@ void CellClass::Cell_Color(RGBClass &lowcolor, RGBClass &highcolor) const
 
         if (!otype->Tiberium) {
             if ((overlay >= 74 && overlay <= 99) || (overlay >= 205 && overlay <= 230)) {
-                lowcolor = OverlayTypes[overlay]->unknown_func_5dd000(1);
+                lowcolor = OverlayTypes[overlay]->Get_Radar_Color(1);
             } else {
-                lowcolor = OverlayTypes[overlay]->unknown_func_5dd000(OverlayData);
+                lowcolor = OverlayTypes[overlay]->Get_Radar_Color(OverlayData);
             }
             highcolor = lowcolor;
             return;

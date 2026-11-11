@@ -38,7 +38,7 @@ unsigned int CellClass::Preview_Cell_Color(unsigned char &unknown, bool flag)
     }
 
     if (IsUnderBridge) {
-        RGBClass bridge_color = OverlayTypes[24]->unknown_func_5dd000(0);
+        RGBClass bridge_color = OverlayTypes[24]->Get_Radar_Color(0);
         unsigned int color = RGB_To_Pixel(bridge_color.Get_Red(), bridge_color.Get_Green(), bridge_color.Get_Blue());
         return (color << 16) | color;
     }

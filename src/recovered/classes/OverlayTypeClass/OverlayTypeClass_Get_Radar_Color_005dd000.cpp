@@ -1,4 +1,4 @@
-// RGBClass OverlayTypeClass::unknown_func_5dd000(unsigned frame) const (0x005DD000)
+// RGBClass OverlayTypeClass::Get_Radar_Color(unsigned frame) const (0x005DD000)
 // The radar colour of a frame of the type's image, or of its cell animation's
 // (TibSun overtype.cpp OverlayTypeClass::Get_Radar_Color): tiberium overlays
 // (0x7F-0x8A, 0x93-0x9E) swap green and blue; black without an image.
@@ -6,7 +6,7 @@
 #include "shared/anim_type.hpp"
 #include "shared/shape_file.hpp"
 
-RGBClass OverlayTypeClass::unknown_func_5dd000(unsigned frame) const
+RGBClass OverlayTypeClass::Get_Radar_Color(unsigned frame) const
 {
     ShapeFileStruct const *image = (ShapeFileStruct const *)unknown_slot39();
 

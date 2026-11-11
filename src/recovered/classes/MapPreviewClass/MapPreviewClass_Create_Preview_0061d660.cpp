@@ -7,7 +7,7 @@
 // `level` evicts it from ebp), the painted cell's position is kept as the Point2D offset from the
 // bounding box with its two-pixel area as a Rect, and the waypoint square is built in place.
 // Names of the callees are the unit's current ones: In_Radar is TibSun In_Radar,
-// unknown_func_5dd000 is OverlayTypeClass::Get_Radar_Color, Put_Pixel with a clip rectangle is
+// Get_Radar_Color is OverlayTypeClass::Get_Radar_Color, Put_Pixel with a clip rectangle is
 // TibSun Put_Pixel_Clip, 0x24 is RTTI_TERRAIN.
 
 void MapPreviewClass::Create_Preview()
@@ -73,7 +73,7 @@ void MapPreviewClass::Create_Preview()
 
             if (cptr->OverlayIndex != -1) {
                 OverlayTypeClass *optr = OverlayTypes[cptr->OverlayIndex];
-                RGBClass rgb = optr->unknown_func_5dd000(cptr->OverlayData);
+                RGBClass rgb = optr->Get_Radar_Color(cptr->OverlayData);
                 if (optr->Tiberium) {
                     level = 75;
                     hasradarcolor = true;
