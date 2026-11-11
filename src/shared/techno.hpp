@@ -9,7 +9,7 @@
 // they follow from the code):
 //   +0x0D8 FlasherClass base; +0x0E0 StageClass base (original RTTI)
 //   +0x114  int (the owner's +0x130 when constructed with an owner)
-//   +0x118  UnknownTechnoPair (two cleared words, out-of-line ctor/dtor)
+//   +0x118  VeterancyClass (two cleared words, out-of-line ctor/dtor)
 //   +0x120, +0x128  double 1.0
 //   +0x130..+0x19C  frame timers (+0x148 starts at 45)
 //   +0x1B4  HouseClass *House   the constructor argument (Owning_House)
@@ -643,7 +643,7 @@ public:
     int unknown_10c;                        // +0x10C
     int unknown_110;                        // +0x110 (-1)
     int unknown_114;                        // +0x114 (-1)
-    UnknownTechnoPair unknown_118;          // +0x118
+    VeterancyClass unknown_118;          // +0x118
     double unknown_120;                     // +0x120 (1.0)
     double unknown_128;                     // +0x128 (1.0)
     CDTimerClass<FrameTimerClass> unknown_130;  // +0x130

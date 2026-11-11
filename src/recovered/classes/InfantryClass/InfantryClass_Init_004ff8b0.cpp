@@ -6,7 +6,7 @@
 #include "shared/house_type.hpp"
 // @ref ?Init@TechnoClass@@UAEXXZ=006c1c50
 // @ref ?unknown_4ea970@HouseClass@@QAEXPAVTechnoClass@@@Z=004ea970
-// @ref ?unknown_713520@UnknownTechnoPair@@QAEX_N@Z=00713520
+// @ref ?Set_Veteran@VeterancyClass@@QAEX_N@Z=00713520
 
 void InfantryClass::Init()
 {
@@ -19,13 +19,13 @@ void InfantryClass::Init()
             TypeList<InfantryTypeClass *> &types = House->Type->VeteranInfantry;
             for (int index = 0; index < types.Count(); index++) {
                 if (types[index] == Type) {
-                    unknown_118.unknown_713520(true);
+                    unknown_118.Set_Veteran(true);
                     break;
                 }
             }
         }
         if (House != 0 && House->unknown_206 && Type->Trainable) {
-            unknown_118.unknown_713520(true);
+            unknown_118.Set_Veteran(true);
         }
         Strength = Type->MaxStrength;
         unknown_70 = Type->MaxStrength;

@@ -22,7 +22,7 @@ void RocketLocomotionClass::unknown_63e7d0()
 {
     unknown_tracker_839ea0.Unknown_00413310(LinkedTo);
     TechnoClass *spawner = static_cast<TechnoClass *>(LinkedTo->unknown_23c);
-    bool elite = spawner != 0 && spawner->unknown_118.unknown_713420();
+    bool elite = spawner != 0 && spawner->unknown_118.Is_Elite();
     RocketStruct const *rocket;
     WarheadTypeClass *warhead;
     if (((AircraftClass *)LinkedTo)->Type == Rules->V3Rocket.Type) {

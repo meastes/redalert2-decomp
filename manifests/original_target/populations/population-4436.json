@@ -4,8 +4,8 @@
     "id": "population-4436",
     "inventory_sha256": "8c502343a335377c2daa19399479a385be44d4e954a6b63315bee285f02863f7",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "c7f5323d0464355fc62af877cb2f4423b43cd869b4dd5be477f71bc8b4843c07",
-    "historical_acceptance_sha256": "bd3e4748f15c29182cb2b68b0b1a6ff4dd5eb89e8627e4965266f8c172807d23"
+    "historical_population_sha256": "17b308211ae50dbab6e3c884b18b1beacd2e5a7ca4854ec6c9b220976c5aabc1",
+    "historical_acceptance_sha256": "e704538dfa26b63716ec802b91cf159f4c6d21766e367130b74c35eba332261a"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -2837,9 +2837,9 @@
     "?ID@?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@UAEHABQAVVeinholeMonsterClass@@@Z": 7416288,
     "?get@Leaf_712a40@@QAEPAXI@Z": 7416384,
     "?get@Leaf_712a90@@QAEPAXI@Z": 7416464,
-    "??0UnknownTechnoPair@@QAE@XZ": 7418688,
-    "??1UnknownTechnoPair@@QAE@XZ": 7418704,
-    "?Set_Rookie@UnknownTechnoPair@@QAEX_N@Z": 7419152,
+    "??0VeterancyClass@@QAE@XZ": 7418688,
+    "??1VeterancyClass@@QAE@XZ": 7418704,
+    "?Set_Rookie@VeterancyClass@@QAEX_N@Z": 7419152,
     "?Clear@?$DynamicVectorClass@PAVVocClass@@@@UAEXXZ": 7425328,
     "?ID@?$DynamicVectorClass@PAVVocClass@@@@UAEHPBQAVVocClass@@@Z": 7425376,
     "?Fetch@?$VectorClass@PAVVocClass@@@@UBEPAVVocClass@@H@Z": 7425408,
@@ -3056,7 +3056,7 @@
     "?Set_Decrement@LineTrail@@QAEXH@Z": 5477648,
     "?unknown_a40b2c@@3HA": 10750764,
     "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
-    "?Unknown_007134E0@UnknownTechnoPair@@QAEX_N@Z": 7419104,
+    "?Set_Dumbass@VeterancyClass@@QAEX_N@Z": 7419104,
     "?As_Integer@WideString@@QBEHXZ": 7802992,
     "_wcstol": 7883704,
     "?Commence@AircraftClass@@UAE_NXZ": 4304832,
@@ -3166,8 +3166,8 @@
     "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z": 7309856,
     "?ID@?$VectorClass@E@@UAEHPBE@Z": 7402864,
     "?unknown_slot29@VeinholeMonsterClass@@UBEHXZ": 7415584,
-    "?unknown_713520@UnknownTechnoPair@@QAEX_N@Z": 7419168,
-    "?Unknown_00713550@UnknownTechnoPair@@QAEX_N@Z": 7419216,
+    "?Set_Veteran@VeterancyClass@@QAEX_N@Z": 7419168,
+    "?Set_Elite@VeterancyClass@@QAEX_N@Z": 7419216,
     "?ID@?$DynamicVectorClass@UWaypointClass@@@@UAEHPBUWaypointClass@@@Z": 7492368,
     "?ID@?$VectorClass@UWaypointClass@@@@UAEHABUWaypointClass@@@Z": 7493184,
     "?ID@?$VectorClass@UWaypointClass@@@@UAEHPBUWaypointClass@@@Z": 7493264,
@@ -4647,7 +4647,7 @@
     "?unknown_slot225@TechnoClass@@UAE_NXZ": 7177424,
     "?unknown_slot229@TechnoClass@@UAEPAUWeaponStruct@@XZ": 7177504,
     "?unknown_slot231@TechnoClass@@UAEPAUWeaponStruct@@H@Z": 7177536,
-    "?unknown_713420@UnknownTechnoPair@@QBE_NXZ": 7418912,
+    "?Is_Elite@VeterancyClass@@QBE_NXZ": 7418912,
     "?unknown_slot230@TechnoClass@@UAEPAUWeaponStruct@@XZ": 7177632,
     "?unknown_slot255@TechnoClass@@UAEXPAV1@@Z": 7177856,
     "?unknown_slot82@TechnoClass@@UAEXH@Z": 7177904,
@@ -5956,7 +5956,7 @@
     "?unknown_6d5900@TechnoClass@@QAEHXZ": 7166208,
     "?unknown_6d59d0@TechnoClass@@QAEHXZ": 7166416,
     "?unknown_slot157@TechnoClass@@UAE_NXZ": 7169920,
-    "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ": 7418784,
+    "?Is_Veteran@VeterancyClass@@QBE_NXZ": 7418784,
     "?unknown_slot164@TechnoClass@@UAEHXZ": 7171680,
     "?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z": 6974032,
     "?unknown_6d7910@TechnoClass@@QAE_NH@Z": 7174416,
@@ -6202,7 +6202,7 @@
     "?Get_Cell_Ramp_006a7110@Tactical@@QAEHABUCoordStruct@@@Z": 6975760,
     "?Draw_Fogged_Objects@Tactical@@QAEXABVRect@@@Z": 6987600,
     "?Draw_Fogged_Objects@@YIXABVRect@@@Z": 4984848,
-    "?unknown_713580@UnknownTechnoPair@@QBEHXZ": 7419264,
+    "?To_Integer@VeterancyClass@@QBEHXZ": 7419264,
     "__real@8@4005c800000000000000": 7976944,
     "?unknown_14@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525040,
     "?To_Lower@WideString@@QAEXXZ": 7801312,
@@ -6737,7 +6737,7 @@
     "?unknown_list_8322e0@@3VUnknownList8322E0@@A": 8594144,
     "?Unknown_004366D0@UnknownList8322E0@@QAEXPAVTechnoClass@@@Z": 4417232,
     "?Unknown_004ED440@HouseClass@@QAEXPAVTechnoClass@@_N@Z": 5166144,
-    "?Unknown_00713360@UnknownTechnoPair@@QAEXHH@Z": 7418720,
+    "?Made_A_Kill@VeterancyClass@@QAEXHH@Z": 7418720,
     "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z": 7390352,
     "?Unknown_006331A0@RadarClass@@QAE_NXZ": 6500768,
     "?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z": 6515616,
@@ -7310,7 +7310,7 @@
     "?Unknown_006D8640@TechnoClass@@QAE_NPAUWeaponStruct@@@Z": 7177792,
     "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5269856,
     "?unknown_ini_format_a40d24@@3HA": 10751268,
-    "?Unknown_00713590@UnknownTechnoPair@@QAEXH@Z": 7419280,
+    "?From_Integer@VeterancyClass@@QAEXH@Z": 7419280,
     "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ": 5281888,
     "?ID@?$DynamicVectorClass@PBVTechnoTypeClass@@@@UAEHPBQBVTechnoTypeClass@@@Z": 4956304,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
@@ -7959,7 +7959,7 @@
     "?unknown_6d2ca0@TechnoClass@@QAEXHH@Z": 7154848,
     "?unknown_6d46b0@TechnoClass@@QAEHH@Z": 7161520,
     "?unknown_slot250@TechnoClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7164992,
-    "?unknown_713400@UnknownTechnoPair@@QBE_NXZ": 7418880,
+    "?Is_Dumbass@VeterancyClass@@QBE_NXZ": 7418880,
     "?unknown_slot263@TechnoClass@@UAEX_N00PAVHouseClass@@@Z": 7167632,
     "?unknown_6d7e20@TechnoClass@@QAEHH@Z": 7175712,
     "?unknown_6d8fd0@TechnoClass@@SIXPAV1@H@Z": 7180240,
@@ -9113,7 +9113,7 @@
     "?Zone_Cell@HouseClass@@QBE?AVCell@@H@Z": 5156656,
     "?Unknown_006AAD70@UnknownSelection@@QAEXXZ": 6991216,
     "?Unknown_006AAD40@UnknownSelection@@QAEXXZ": 6991168,
-    "?unknown_713440@UnknownTechnoPair@@QBEHXZ": 7418944,
+    "?Remaining_Levels@VeterancyClass@@QBEHXZ": 7418944,
     "__imp__SetWindowPos@28": 7971792,
     "?AI_Unit@HouseClass@@QAEHXZ": 5151888,
     "?AI_Infantry@HouseClass@@QAEHXZ": 5153200,
@@ -9909,8 +9909,8 @@
     "?Repair_Train_Bridge_From_Cell_0054d0a0@MapClass@@QAEXABVCell@@@Z": 5558432,
     "?Repair_Train_Bridge_Span_0054be80@MapClass@@QAEXPAVCellClass@@W4FacingType@@PAVRect@@@Z": 5553792,
     "__iob": 8580240,
-    "?Is_Rookie@UnknownTechnoPair@@QBE_NXZ": 7418832,
-    "?Modify@UnknownTechnoPair@@QAENN@Z": 7418992,
+    "?Is_Rookie@VeterancyClass@@QBE_NXZ": 7418832,
+    "?Modify@VeterancyClass@@QAENN@Z": 7418992,
     "__real@8@bff8a3d70a3d70a3d800": 8055152,
     "?BlackColor@HSVClass@@2V1@B": 10752188,
     "??0HashString@@QAE@PBD@Z": 5116224,
@@ -10154,8 +10154,8 @@
     "?Unknown_004B9780@UnknownFactory@@QAEHXZ": 4953984,
     "?Unknown_004EB770@UnknownSidebarHouse@@QAE_NH_NH@Z": 5158768,
     "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z": 7310144,
-    "?unknown_7133d0@UnknownTechnoPair@@QBE_NXZ": 7418832,
-    "?unknown_713510@UnknownTechnoPair@@QAEX_N@Z": 7419152,
+    "?unknown_7133d0@VeterancyClass@@QBE_NXZ": 7418832,
+    "?unknown_713510@VeterancyClass@@QAEX_N@Z": 7419152,
     "??0CoordStruct@@QAE@ABVCell@@H@Z": 6417024,
     "?unknown_waypoint_sound_6b0ec0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7016128,
     "__real@4@4003f000000000000000": 8030272,
@@ -17912,7 +17912,7 @@
         {
           "offset": 27,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 241345
@@ -17934,7 +17934,7 @@
           "resolved": 28720
         }
       ],
-      "source_sha256": "825384e68f69da5dc8c7dbec095f46ed349904e97c3322a90ab6b10d68070b53",
+      "source_sha256": "7577323842e3ed67a253d02b21d62d4509ffba41c56fe6c42f622ad677112a55",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot231_006d8540.cpp",
       "population": "population-4436",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -18872,7 +18872,7 @@
         {
           "offset": 32,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 248828
@@ -18880,7 +18880,7 @@
         {
           "offset": 43,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 248945
@@ -18888,7 +18888,7 @@
         {
           "offset": 66,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 248794
@@ -18896,7 +18896,7 @@
         {
           "offset": 87,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 248901
@@ -19006,7 +19006,7 @@
         {
           "offset": 14,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 244350
@@ -19014,7 +19014,7 @@
         {
           "offset": 25,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 244467
@@ -19022,7 +19022,7 @@
         {
           "offset": 48,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 244316
@@ -19030,13 +19030,13 @@
         {
           "offset": 82,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 244410
         }
       ],
-      "source_sha256": "2d9755d724d136c71603d3a0a77ed446e6027c8918be7ec3a6c87bdb4360db4e",
+      "source_sha256": "d06add890a5f1d36570be91ae24dda05bbeea2528bf6570edeffbd183e537ae8",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_6d7910_006d7910.cpp",
       "population": "population-4436",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -19953,7 +19953,7 @@
         {
           "offset": 357,
           "kind": 20,
-          "symbol": "??1UnknownTechnoPair@@QAE@XZ",
+          "symbol": "??1VeterancyClass@@QAE@XZ",
           "target": 7418704,
           "addend": 0,
           "resolved": 332087
@@ -20047,7 +20047,7 @@
           "resolved": 4293984931
         }
       ],
-      "source_sha256": "9c736b902673c8fb4628dd74f1710d861636b90dd60da1598af789777b5e35a5",
+      "source_sha256": "11656a4dae65a857dae1560af447c9a033a22d7f8894e9eed7e93477534c371f",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_destructor_006c20b0.cpp",
       "population": "population-4436",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -20582,7 +20582,7 @@
         {
           "offset": 280,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 279796
@@ -20590,7 +20590,7 @@
         {
           "offset": 295,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 279909
@@ -20598,7 +20598,7 @@
         {
           "offset": 364,
           "kind": 20,
-          "symbol": "?Unknown_00713360@UnknownTechnoPair@@QAEXHH@Z",
+          "symbol": "?Made_A_Kill@VeterancyClass@@QAEXHH@Z",
           "target": 7418720,
           "addend": 0,
           "resolved": 279648
@@ -20606,7 +20606,7 @@
         {
           "offset": 462,
           "kind": 20,
-          "symbol": "?Unknown_00713360@UnknownTechnoPair@@QAEXHH@Z",
+          "symbol": "?Made_A_Kill@VeterancyClass@@QAEXHH@Z",
           "target": 7418720,
           "addend": 0,
           "resolved": 279550
@@ -20764,7 +20764,7 @@
           "resolved": 7139580
         }
       ],
-      "source_sha256": "189fa7bad27743dea5edd9ed09d1b5f3a7f74e93dcd9d28e7d32ca6b41016348",
+      "source_sha256": "5dd3edf5adea5fdf72e795e4262b653191f0b6546a02c36010855f20b8fb5a0b",
       "switch_data_bytes": 35,
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot55_006ced90.cpp",
       "population": "population-4436",
@@ -23094,7 +23094,7 @@
         {
           "offset": 182,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 251974
@@ -23102,7 +23102,7 @@
         {
           "offset": 193,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 252091
@@ -23110,7 +23110,7 @@
         {
           "offset": 216,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 251940
@@ -23118,7 +23118,7 @@
         {
           "offset": 237,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 252047
@@ -23164,7 +23164,7 @@
           "resolved": 4293345334
         }
       ],
-      "source_sha256": "52e5c2e97b1c30f72afd16af59e5a481cbe5fb65b5296839f021b5b32d71ae65",
+      "source_sha256": "dc268233e86a5d0add133e721cc63d401f5bc8ae0039fc153ba23a43c0d2f9f9",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot70_006d5aa0.cpp",
       "population": "population-4436",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -23743,7 +23743,7 @@
         {
           "offset": 99,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 304201
@@ -23751,7 +23751,7 @@
         {
           "offset": 110,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 304318
@@ -23759,7 +23759,7 @@
         {
           "offset": 133,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 304167
@@ -23767,7 +23767,7 @@
         {
           "offset": 158,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 304270
@@ -23797,7 +23797,7 @@
           "resolved": 4292555449
         }
       ],
-      "source_sha256": "f8116086289b2ad262f48945d3aaa68f2aaed943125e72dd4c20f9d63f9cf207",
+      "source_sha256": "0cdddf58938a6f1d2c9b2a24872c8f2ea8881d955993819c9e5e33c280314c76",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot161_006c8ef0.cpp",
       "population": "population-4436",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -23826,7 +23826,7 @@
         {
           "offset": 33,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 303963
@@ -23834,7 +23834,7 @@
         {
           "offset": 44,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 304080
@@ -23842,7 +23842,7 @@
         {
           "offset": 67,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 303929
@@ -23850,7 +23850,7 @@
         {
           "offset": 92,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 304032
@@ -23896,7 +23896,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "a07217e0f52d423b725ec3a3c1038e9798fe8316c255c64bb9bac3d107ad240b",
+      "source_sha256": "b86724fa25343ad2be9aa264dc73b331cd99b5713048099f1df4a297a5ffb8f6",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot160_006c9020.cpp",
       "population": "population-4436",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -24182,7 +24182,7 @@
         {
           "offset": 111,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 298093
@@ -24190,7 +24190,7 @@
         {
           "offset": 122,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 298210
@@ -24198,7 +24198,7 @@
         {
           "offset": 145,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 298059
@@ -24206,7 +24206,7 @@
         {
           "offset": 166,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 298166
@@ -24246,7 +24246,7 @@
         {
           "offset": 278,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 297926
@@ -24254,7 +24254,7 @@
         {
           "offset": 289,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 298043
@@ -24262,7 +24262,7 @@
         {
           "offset": 312,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 297892
@@ -24270,7 +24270,7 @@
         {
           "offset": 333,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 297999
@@ -24300,7 +24300,7 @@
           "resolved": 4292557138
         }
       ],
-      "source_sha256": "3a05028287d30501c1423961c0d1323d169df1b12ad212896b06f284fb6b9e52",
+      "source_sha256": "f3c2f473c32455d8c44bfaffbcc20181e969404f4741384ff1727c945d692b34",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_6ca6c0_006ca6c0.cpp",
       "population": "population-4436",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -24406,7 +24406,7 @@
         {
           "offset": 35,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 253753
@@ -24414,7 +24414,7 @@
         {
           "offset": 51,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 253865
@@ -24422,7 +24422,7 @@
         {
           "offset": 67,
           "kind": 20,
-          "symbol": "?unknown_713400@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Dumbass@VeterancyClass@@QBE_NXZ",
           "target": 7418880,
           "addend": 0,
           "resolved": 253817
@@ -24452,7 +24452,7 @@
           "resolved": 4292647325
         }
       ],
-      "source_sha256": "d0e04d0760f3a35d6cdf7b5f2669c52fa674ee88656f7fe19b96e878a2c4773b",
+      "source_sha256": "4fa8eb0ecf4a7c2993f3c24ed4d80f70da851f717585245b9a30288bbb9b42fa",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot250_006d5440.cpp",
       "population": "population-4436",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -25387,7 +25387,7 @@
         {
           "offset": 175,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 251581
@@ -25395,7 +25395,7 @@
         {
           "offset": 186,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 251698
@@ -25403,7 +25403,7 @@
         {
           "offset": 211,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 251545
@@ -25411,7 +25411,7 @@
         {
           "offset": 236,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 251648
@@ -25489,7 +25489,7 @@
           "resolved": 4293345939
         }
       ],
-      "source_sha256": "213a8542afcffd31923dae666052246ea5f02e7c7223283d52c87d05a1c65c59",
+      "source_sha256": "b65a752992806ec6a41f7dec1c625591c299f8848731ff60a3c9b4dda3b20ccc",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot262_006d5c30.cpp",
       "population": "population-4436",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -26051,7 +26051,7 @@
         {
           "offset": 330,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 259826
@@ -26059,7 +26059,7 @@
         {
           "offset": 341,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 259943
@@ -26067,7 +26067,7 @@
         {
           "offset": 364,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 259792
@@ -26075,7 +26075,7 @@
         {
           "offset": 389,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 259895
@@ -26145,7 +26145,7 @@
           "resolved": 14172
         }
       ],
-      "source_sha256": "be84e312c050bc59a46b339e543170fbff15127f23ca63a354b0902d80197884",
+      "source_sha256": "722399fc249218b48e03ed050ea6f8e79999d826e6797ec5eed641644595871d",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_6d3b60_006d3b60.cpp",
       "population": "population-4436",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -26444,7 +26444,7 @@
         {
           "offset": 124,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 243984
@@ -26452,7 +26452,7 @@
         {
           "offset": 135,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 244101
@@ -26460,7 +26460,7 @@
         {
           "offset": 158,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 243950
@@ -26468,7 +26468,7 @@
         {
           "offset": 186,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 244050
@@ -28093,7 +28093,7 @@
         {
           "offset": 323,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 300633
@@ -28101,7 +28101,7 @@
         {
           "offset": 334,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 300750
@@ -28109,7 +28109,7 @@
         {
           "offset": 357,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 300599
@@ -28117,7 +28117,7 @@
         {
           "offset": 378,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 300706
@@ -28155,7 +28155,7 @@
           "resolved": 4292384038
         }
       ],
-      "source_sha256": "ff32a82eda4c3b9d653a15c88f9f6eae3c8cb3277dcdb692473135edcd0fab40",
+      "source_sha256": "c1928ba1f9780a4eee48c7e49e6e506726e5ddd7a6eab421ac43f28495960444",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_Rearm_Delay_006c9c00.cpp",
       "population": "population-4436",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -29205,7 +29205,7 @@
         {
           "offset": 123,
           "kind": 20,
-          "symbol": "??0UnknownTechnoPair@@QAE@XZ",
+          "symbol": "??0VeterancyClass@@QAE@XZ",
           "target": 7418688,
           "addend": 0,
           "resolved": 337393
@@ -29619,7 +29619,7 @@
           "resolved": 4294407569
         }
       ],
-      "source_sha256": "d979e267683f6b3d2d5cf1c091f8d18129c0fbe45ae9bbdece0c5491e5919e2b",
+      "source_sha256": "7cae14cf68138c08e1c43e2c25f962b9b15f6cc64cd8fc7a49b2c50adcb854c5",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_constructor_006c0cd0.cpp",
       "population": "population-4436",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -33250,7 +33250,7 @@
         {
           "offset": 277,
           "kind": 20,
-          "symbol": "?unknown_713440@UnknownTechnoPair@@QBEHXZ",
+          "symbol": "?Remaining_Levels@VeterancyClass@@QBEHXZ",
           "target": 7418944,
           "addend": 0,
           "resolved": 310887
@@ -33258,7 +33258,7 @@
         {
           "offset": 301,
           "kind": 20,
-          "symbol": "?unknown_713440@UnknownTechnoPair@@QBEHXZ",
+          "symbol": "?Remaining_Levels@VeterancyClass@@QBEHXZ",
           "target": 7418944,
           "addend": 0,
           "resolved": 310863
@@ -33314,7 +33314,7 @@
         {
           "offset": 409,
           "kind": 20,
-          "symbol": "?unknown_713440@UnknownTechnoPair@@QBEHXZ",
+          "symbol": "?Remaining_Levels@VeterancyClass@@QBEHXZ",
           "target": 7418944,
           "addend": 0,
           "resolved": 310755
@@ -33362,7 +33362,7 @@
         {
           "offset": 499,
           "kind": 20,
-          "symbol": "?unknown_713440@UnknownTechnoPair@@QBEHXZ",
+          "symbol": "?Remaining_Levels@VeterancyClass@@QBEHXZ",
           "target": 7418944,
           "addend": 0,
           "resolved": 310665
@@ -33944,7 +33944,7 @@
           "resolved": 10750320
         }
       ],
-      "source_sha256": "34d4efbe12b8b085e8d3758b86e5863425ad6211958bdff007e331b64826b4a6",
+      "source_sha256": "076cf8299536dd7c43ff4e9a26ae55bc41452f78a609e28ebee34463dec267a2",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_AI_006c74c0.cpp",
       "population": "population-4436",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -37053,7 +37053,7 @@
         {
           "offset": 100,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 305528
@@ -37061,7 +37061,7 @@
         {
           "offset": 111,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 305645
@@ -37069,7 +37069,7 @@
         {
           "offset": 138,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 305490
@@ -37077,7 +37077,7 @@
         {
           "offset": 157,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 305599
@@ -37323,7 +37323,7 @@
           "resolved": 4294375887
         }
       ],
-      "source_sha256": "9e09faa75c8397c5cad7cc3addb3e02d536400b6a1d90037a10e1b73e16174ef",
+      "source_sha256": "8895157e4014a281e1e9424fa74ce1e5df8db50cdb4836e7dd1246a24b659d72",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_Cloaking_AI_006c89c0.cpp",
       "population": "population-4436",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -37894,7 +37894,7 @@
         {
           "offset": 113,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 284395
@@ -37902,7 +37902,7 @@
         {
           "offset": 124,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 284512
@@ -37910,7 +37910,7 @@
         {
           "offset": 147,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 284361
@@ -37918,7 +37918,7 @@
         {
           "offset": 168,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 284468
@@ -38254,7 +38254,7 @@
         {
           "offset": 2503,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 282005
@@ -38262,7 +38262,7 @@
         {
           "offset": 2514,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 282122
@@ -38270,7 +38270,7 @@
         {
           "offset": 2537,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 281971
@@ -38278,7 +38278,7 @@
         {
           "offset": 2558,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 282078
@@ -38558,7 +38558,7 @@
         {
           "offset": 4012,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 280496
@@ -38566,7 +38566,7 @@
         {
           "offset": 4023,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 280613
@@ -38574,7 +38574,7 @@
         {
           "offset": 4050,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 280458
@@ -38582,7 +38582,7 @@
         {
           "offset": 4075,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 280561
@@ -38622,7 +38622,7 @@
         {
           "offset": 4293,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 280215
@@ -38630,7 +38630,7 @@
         {
           "offset": 4304,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 280332
@@ -38638,7 +38638,7 @@
         {
           "offset": 4327,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 280181
@@ -38646,7 +38646,7 @@
         {
           "offset": 4348,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 280288
@@ -38700,7 +38700,7 @@
           "resolved": 7135613
         }
       ],
-      "source_sha256": "889e6f8deb57d8b51f3606cda5d3244f3358c039acf1419f15e5a4e9df03eda4",
+      "source_sha256": "251e553b6e4c79b8439cead36bd4bf59dd2a02e9f8741291108531c995917295",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot86_006cdc40.cpp",
       "population": "population-4436",
@@ -39906,7 +39906,7 @@
         {
           "offset": 843,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 296897
@@ -39914,7 +39914,7 @@
         {
           "offset": 858,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 297010
@@ -39922,7 +39922,7 @@
         {
           "offset": 887,
           "kind": 20,
-          "symbol": "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
           "target": 7418784,
           "addend": 0,
           "resolved": 296853
@@ -39930,7 +39930,7 @@
         {
           "offset": 916,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 296952
@@ -41104,7 +41104,7 @@
           "resolved": 4294883825
         }
       ],
-      "source_sha256": "19f567f17db6986dc14bfdac6d481f84e734aff67f35d53f8e4b592a3b8ad7c2",
+      "source_sha256": "42149bbf3183a9c6ac3e08b113bb0bd84e31de3a02554c5be15f9d62a81cefa1",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot221_006ca890.cpp",
       "population": "population-4436",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

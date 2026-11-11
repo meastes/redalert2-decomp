@@ -4,8 +4,8 @@
     "id": "population-4301",
     "inventory_sha256": "e3904bfa22cf989d2d26a0e016aa2ca52c5e3d67a4090506b1b079d75be5f0b8",
     "gaps_sha256": "4f9095dc7124eab2120fdf153a9045bf73f463ee8ba9a29887bab38154c7913f",
-    "historical_population_sha256": "1ed8211def781167b1913e0e2fc8e2e444af3d954ad786c1ea661b1c39651ced",
-    "historical_acceptance_sha256": "a8cb8fe072fdae63935fec656f8b76ce2847ccfd59928469139dfdbc18338abe"
+    "historical_population_sha256": "ae4fa959d32908f8a5e3da62d2b99ce4fff1c4452ac61c1abb24e86f0a640729",
+    "historical_acceptance_sha256": "a9b35175d0cfe3b18315dbcd7269cf0924b2dc2e2eb6591427f7f2ee556db730"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2791,9 +2791,9 @@
     "?ID@?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@UAEHABQAVVeinholeMonsterClass@@@Z": 7416288,
     "?get@Leaf_712a40@@QAEPAXI@Z": 7416384,
     "?get@Leaf_712a90@@QAEPAXI@Z": 7416464,
-    "??0UnknownTechnoPair@@QAE@XZ": 7418688,
-    "??1UnknownTechnoPair@@QAE@XZ": 7418704,
-    "?Set_Rookie@UnknownTechnoPair@@QAEX_N@Z": 7419152,
+    "??0VeterancyClass@@QAE@XZ": 7418688,
+    "??1VeterancyClass@@QAE@XZ": 7418704,
+    "?Set_Rookie@VeterancyClass@@QAEX_N@Z": 7419152,
     "?Clear@?$DynamicVectorClass@PAVVocClass@@@@UAEXXZ": 7425328,
     "?ID@?$DynamicVectorClass@PAVVocClass@@@@UAEHPBQAVVocClass@@@Z": 7425376,
     "?Fetch@?$VectorClass@PAVVocClass@@@@UBEPAVVocClass@@H@Z": 7425408,
@@ -3006,7 +3006,7 @@
     "??8AbstractTypeClass@@QBE_NPBD@Z": 4261824,
     "?Set_Decrement@LineTrail@@QAEXH@Z": 5477648,
     "?unknown_a40b2c@@3HA": 10750764,
-    "?Unknown_007134E0@UnknownTechnoPair@@QAEX_N@Z": 7419104,
+    "?Set_Dumbass@VeterancyClass@@QAEX_N@Z": 7419104,
     "?As_Integer@WideString@@QBEHXZ": 7802992,
     "_wcstol": 7883704,
     "?Commence@AircraftClass@@UAE_NXZ": 4304832,
@@ -3092,8 +3092,8 @@
     "?FUN_006f8a20@seed_006f8a20@@YIXH@Z": 7309856,
     "?ID@?$VectorClass@E@@UAEHPBE@Z": 7402864,
     "?unknown_slot29@VeinholeMonsterClass@@UBEHXZ": 7415584,
-    "?unknown_713520@UnknownTechnoPair@@QAEX_N@Z": 7419168,
-    "?Unknown_00713550@UnknownTechnoPair@@QAEX_N@Z": 7419216,
+    "?Set_Veteran@VeterancyClass@@QAEX_N@Z": 7419168,
+    "?Set_Elite@VeterancyClass@@QAEX_N@Z": 7419216,
     "?ID@?$DynamicVectorClass@UWaypointClass@@@@UAEHPBUWaypointClass@@@Z": 7492368,
     "?ID@?$VectorClass@UWaypointClass@@@@UAEHABUWaypointClass@@@Z": 7493184,
     "?ID@?$VectorClass@UWaypointClass@@@@UAEHPBUWaypointClass@@@Z": 7493264,
@@ -4382,7 +4382,7 @@
     "?unknown_slot225@TechnoClass@@UAE_NXZ": 7177424,
     "?unknown_slot229@TechnoClass@@UAEPAUWeaponStruct@@XZ": 7177504,
     "?unknown_slot231@TechnoClass@@UAEPAUWeaponStruct@@H@Z": 7177536,
-    "?unknown_713420@UnknownTechnoPair@@QBE_NXZ": 7418912,
+    "?Is_Elite@VeterancyClass@@QBE_NXZ": 7418912,
     "?unknown_slot230@TechnoClass@@UAEPAUWeaponStruct@@XZ": 7177632,
     "?unknown_slot255@TechnoClass@@UAEXPAV1@@Z": 7177856,
     "?unknown_slot82@TechnoClass@@UAEXH@Z": 7177904,
@@ -5369,7 +5369,7 @@
     "?unknown_6d5900@TechnoClass@@QAEHXZ": 7166208,
     "?unknown_6d59d0@TechnoClass@@QAEHXZ": 7166416,
     "?unknown_slot157@TechnoClass@@UAE_NXZ": 7169920,
-    "?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ": 7418784,
+    "?Is_Veteran@VeterancyClass@@QBE_NXZ": 7418784,
     "?unknown_slot164@TechnoClass@@UAEHXZ": 7171680,
     "?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z": 6974032,
     "?unknown_6d7910@TechnoClass@@QAE_NH@Z": 7174416,
@@ -5573,7 +5573,7 @@
     "??YWideString@@QAEAAV0@ABV0@@Z": 7798352,
     "?Release_Held@?$UnknownComPtr@UILinkStream@@$1?unknown_uuid_ILinkStream_7f1b50@@3UGUID@@B@@QAEXXZ": 6652000,
     "?Release_Held@?$UnknownComPtr@UIStream@@$1?unknown_uuid_IStream@@3UGUID@@B@@QAEXXZ": 6664880,
-    "?unknown_713580@UnknownTechnoPair@@QBEHXZ": 7419264,
+    "?To_Integer@VeterancyClass@@QBEHXZ": 7419264,
     "__real@8@4005c800000000000000": 7976944,
     "?unknown_14@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525040,
     "?To_Lower@WideString@@QAEXXZ": 7801312,
@@ -6034,7 +6034,7 @@
     "?unknown_list_8322e0@@3VUnknownList8322E0@@A": 8594144,
     "?Unknown_004366D0@UnknownList8322E0@@QAEXPAVTechnoClass@@@Z": 4417232,
     "?Unknown_004ED440@HouseClass@@QAEXPAVTechnoClass@@_N@Z": 5166144,
-    "?Unknown_00713360@UnknownTechnoPair@@QAEXHH@Z": 7418720,
+    "?Made_A_Kill@VeterancyClass@@QAEXHH@Z": 7418720,
     "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z": 7390352,
     "?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z": 6515616,
     "?Unlink@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z": 6858080,
@@ -6468,7 +6468,7 @@
     "?Unknown_006D8640@TechnoClass@@QAE_NPAUWeaponStruct@@@Z": 7177792,
     "?Read_INI@InfantryClass@@SIXAAVCCINIClass@@@Z": 5269856,
     "?unknown_ini_format_a40d24@@3HA": 10751268,
-    "?Unknown_00713590@UnknownTechnoPair@@QAEXH@Z": 7419280,
+    "?From_Integer@VeterancyClass@@QAEXH@Z": 7419280,
     "?Release_Held@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QAEXXZ": 5281888,
     "?ID@?$DynamicVectorClass@PBVTechnoTypeClass@@@@UAEHPBQBVTechnoTypeClass@@@Z": 4956304,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
@@ -6986,7 +6986,7 @@
     "?unknown_6d2ca0@TechnoClass@@QAEXHH@Z": 7154848,
     "?unknown_6d46b0@TechnoClass@@QAEHH@Z": 7161520,
     "?unknown_slot250@TechnoClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7164992,
-    "?unknown_713400@UnknownTechnoPair@@QBE_NXZ": 7418880,
+    "?Is_Dumbass@VeterancyClass@@QBE_NXZ": 7418880,
     "?unknown_slot263@TechnoClass@@UAEX_N00PAVHouseClass@@@Z": 7167632,
     "?unknown_6d7e20@TechnoClass@@QAEHH@Z": 7175712,
     "?unknown_6d8fd0@TechnoClass@@SIXPAV1@H@Z": 7180240,
@@ -7953,7 +7953,7 @@
     "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z": 6997952,
     "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z": 4274096,
     "?Zone_Cell@HouseClass@@QBE?AVCell@@H@Z": 5156656,
-    "?unknown_713440@UnknownTechnoPair@@QBEHXZ": 7418944,
+    "?Remaining_Levels@VeterancyClass@@QBEHXZ": 7418944,
     "__imp__SetWindowPos@28": 7971792,
     "?AI_Unit@HouseClass@@QAEHXZ": 5151888,
     "?AI_Infantry@HouseClass@@QAEHXZ": 5153200,
@@ -8484,8 +8484,8 @@
     "_?empty@?1??Version_Name_007131d0@@YIPBDXZ@4_NA": 8362264,
     "_?buffer@?1??Version_Name_007131d0@@YIPBDXZ@4PADA": 8361752,
     "__iob": 8580240,
-    "?Is_Rookie@UnknownTechnoPair@@QBE_NXZ": 7418832,
-    "?Modify@UnknownTechnoPair@@QAENN@Z": 7418992,
+    "?Is_Rookie@VeterancyClass@@QBE_NXZ": 7418832,
+    "?Modify@VeterancyClass@@QAENN@Z": 7418992,
     "__real@8@bff8a3d70a3d70a3d800": 8055152,
     "??0PaletteClass@@QAE@ABVRGBClass@@@Z": 6303696,
     "??0PaletteClass@@QAE@PAE@Z": 6303776,
@@ -8661,8 +8661,8 @@
     "?Action@SelectClass@StripClass@SidebarClass@@UAEHIAAI@Z": 6818288,
     "?Unknown_0069D680@SuperClass@@QAEXXZ": 6936192,
     "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z": 7310144,
-    "?unknown_7133d0@UnknownTechnoPair@@QBE_NXZ": 7418832,
-    "?unknown_713510@UnknownTechnoPair@@QAEX_N@Z": 7419152,
+    "?unknown_7133d0@VeterancyClass@@QBE_NXZ": 7418832,
+    "?unknown_713510@VeterancyClass@@QAEX_N@Z": 7419152,
     "??0CoordStruct@@QAE@ABVCell@@H@Z": 6417024,
     "?unknown_waypoint_sound_6b0ec0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7016128,
     "__real@4@4003f000000000000000": 8030272,
@@ -12851,7 +12851,14 @@
     "?Redraw@BinkClass@@QAEXXZ": 4392992,
     "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "_CLSID_LightSource": 8003120,
+    "?Enable_Cloak_Generator_0044fa90@BuildingClass@@QAEXXZ": 4520592,
+    "?Disable_Cloak_Generator_0044fad0@BuildingClass@@QAEXXZ": 4520656
   },
   "regions": [
     {
@@ -14416,7 +14423,7 @@
         {
           "offset": 92,
           "kind": 20,
-          "symbol": "?unknown_713520@UnknownTechnoPair@@QAEX_N@Z",
+          "symbol": "?Set_Veteran@VeterancyClass@@QAEX_N@Z",
           "target": 7419168,
           "addend": 0,
           "resolved": 2178064
@@ -14424,13 +14431,13 @@
         {
           "offset": 141,
           "kind": 20,
-          "symbol": "?unknown_713520@UnknownTechnoPair@@QAEX_N@Z",
+          "symbol": "?Set_Veteran@VeterancyClass@@QAEX_N@Z",
           "target": 7419168,
           "addend": 0,
           "resolved": 2178015
         }
       ],
-      "source_sha256": "9110f10011167bc09df54c3b00dd73443627b9254b2a945c9f89b3a9ecb2955c",
+      "source_sha256": "bcbb722241fbbe3ea1711438096f070d4f38e528d9b02d8c61de7f4603926128",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Init_004ff8b0.cpp",
       "population": "population-4301",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -17516,7 +17523,7 @@
         {
           "offset": 269,
           "kind": 20,
-          "symbol": "?unknown_713580@UnknownTechnoPair@@QBEHXZ",
+          "symbol": "?To_Integer@VeterancyClass@@QBEHXZ",
           "target": 7419264,
           "addend": 0,
           "resolved": 2148095
@@ -17602,7 +17609,7 @@
           "resolved": 10706520
         }
       ],
-      "source_sha256": "c933590cb89f0ec4cd3622da31da647b421e06d5d620ca84ce6c8cbeb8e90098",
+      "source_sha256": "781a7e091a065d13453903efe77d7e21515ca453e2e4e5eeabdde187a868357a",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Write_INI_00506d70.cpp",
       "population": "population-4301",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -19446,7 +19453,7 @@
         {
           "offset": 1369,
           "kind": 20,
-          "symbol": "?unknown_713420@UnknownTechnoPair@@QBE_NXZ",
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
           "target": 7418912,
           "addend": 0,
           "resolved": 2153267
@@ -19652,7 +19659,7 @@
           "resolved": 10706356
         }
       ],
-      "source_sha256": "c872fb41df6d1d499d55fb2c80399dacba8658e2fdbd5a206906f3b9e4ee41a5",
+      "source_sha256": "1020af89cc6683ca15997ef1fe0d854b7c1155f20c6b8909faf32a15e2c875d6",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Select_Object_Action_00505390.cpp",
       "population": "population-4301",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -20132,7 +20139,7 @@
         {
           "offset": 610,
           "kind": 20,
-          "symbol": "?Unknown_00713590@UnknownTechnoPair@@QAEXH@Z",
+          "symbol": "?From_Integer@VeterancyClass@@QAEXH@Z",
           "target": 7419280,
           "addend": 0,
           "resolved": 2148810
@@ -20330,7 +20337,7 @@
           "resolved": 4294895071
         }
       ],
-      "source_sha256": "fe252c1bace865afd7b05634106f1af07434b830479108b30a5509f66eefb523",
+      "source_sha256": "5ff33af868b0c9de7e61d0db8b664e39eaf1f2f7df532420c1366d9118b16e58",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Read_INI_00506960.cpp",
       "population": "population-4301",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

@@ -1,4 +1,4 @@
-// Tiberian Sun's veteran.cpp: a techno's experience (UnknownTechnoPair, TS VeterancyClass).
+// Tiberian Sun's veteran.cpp: a techno's experience (VeterancyClass, TS VeterancyClass).
 #define RA2_TECHNO_PAIR_ROOKIE
 #define RA2_VETERANCY_UNIT
 #include "shared/techno_pair.hpp"
@@ -8,7 +8,7 @@
 
 extern "C" double __cdecl floor(double value);
 
-UnknownTechnoPair::UnknownTechnoPair() :
+VeterancyClass::VeterancyClass() :
     Experience(0)
 {
 }

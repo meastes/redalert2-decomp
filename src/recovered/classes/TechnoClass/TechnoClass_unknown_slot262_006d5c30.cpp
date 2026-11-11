@@ -29,10 +29,10 @@ void TechnoClass::unknown_slot262(bool arg1, bool arg2, bool arg3, HouseClass *h
     }
     unknown_378 = level;
     int sight = (int)(unknown_slot32()->Sight * (unknown_378 * 0.01 + 1.0));
-    if (unknown_118.unknown_7133a0() || unknown_118.unknown_713420()) {
+    if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
         TechnoTypeClass *type = unknown_slot32();
-        if ((unknown_118.unknown_7133a0() && type->VeteranAbilities.Ability[5])
-            || (unknown_118.unknown_713420() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
+        if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[5])
+            || (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
             if (Rules->unknown_5a0 != 0.0) {
                 sight = (int)(sight * Rules->unknown_5a0);
             }

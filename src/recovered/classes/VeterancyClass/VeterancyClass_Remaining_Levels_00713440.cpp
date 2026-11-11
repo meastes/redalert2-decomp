@@ -1,5 +1,5 @@
 // The rank: 0 elite, 1 veteran, 2 rookie (0x00713440).
-int UnknownTechnoPair::unknown_713440() const
+int VeterancyClass::Remaining_Levels() const
 {
     if (Experience >= 2) {
         return 0;

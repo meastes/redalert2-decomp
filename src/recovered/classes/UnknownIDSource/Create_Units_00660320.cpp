@@ -66,7 +66,7 @@
 // @ref ?Multiplayer_Start_Waypoints_0065fff0@@YI?AV?$DynamicVectorClass@VCell@@@@_N@Z=0065fff0
 // @ref ?Unknown_004EF6F0@HouseClass@@QAEPAVUnitTypeClass@@ABV?$TypeList@PAVUnitTypeClass@@@@@Z=004ef6f0
 // @ref ?Unknown_00660b60@@YIHPAVObjectClass@@AAVCell@@H@Z=00660b60
-// @ref ?Unknown_00713550@UnknownTechnoPair@@QAEX_N@Z=00713550
+// @ref ?Set_Elite@VeterancyClass@@QAEX_N@Z=00713550
 // Westwood's Create_Units (name hypothesis): makes every multiplayer house's
 // start units. The budget is the session's unit count (one less with bases)
 // times the average Raw_Cost of the unit and infantry types allowed at the
@@ -212,7 +212,7 @@ void __fastcall Create_Units_00660320(bool official)
                 cost += type->Raw_Cost();
                 objects.Add(techno);
                 if (unknown_id_source_a3d290->Special().InitialVeteran) {
-                    techno->unknown_118.Unknown_00713550(true);
+                    techno->unknown_118.Set_Elite(true);
                 }
                 if (!house->unknown_func_4f52f0()) {
                     techno->Set_Mission(11);

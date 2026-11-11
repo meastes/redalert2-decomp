@@ -14,11 +14,11 @@ bool TechnoClass::unknown_slot161()
     if (!(unknown_slot154() || unknown_32a) || unknown_slot201() || unknown_slot202() || unknown_slot111()
         || unknown_slot112()) {
         bool allowed = true;
-        if (unknown_118.unknown_7133a0() || unknown_118.unknown_713420()) {
+        if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
             TechnoTypeClass *type = unknown_slot32();
-            if (unknown_118.unknown_7133a0() && type->VeteranAbilities.Ability[6]) {
+            if (unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[6]) {
                 allowed = false;
-            } else if (unknown_118.unknown_713420() && (type->VeteranAbilities.Ability[6] || type->EliteAbilities.Ability[6])) {
+            } else if (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[6] || type->EliteAbilities.Ability[6])) {
                 allowed = false;
             }
         }

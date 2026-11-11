@@ -3,7 +3,7 @@
 // double-returning inline accessor reproduces; reading the member directly copies it as two dwords.
 #define MIN(a,b) (((a)<(b))?(a):(b))
 inline double Veteran_Cap() { return Rules->VeteranCap; }
-void UnknownTechnoPair::Unknown_00713360(int cost, int value)
+void VeterancyClass::Made_A_Kill(int cost, int value)
 {
     Experience += value / (cost * Rules->VeteranRatio);
     Experience = MIN(Experience, Veteran_Cap());

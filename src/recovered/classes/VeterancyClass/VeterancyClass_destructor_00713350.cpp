@@ -1,0 +1,3 @@
+VeterancyClass::~VeterancyClass()
+{
+}

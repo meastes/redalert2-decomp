@@ -12,7 +12,7 @@
 // @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 // @ref ?unknown_selected_83996c@@3PAUUnknownSelection@@A=0083996c
 // @ref ?Unknown_006AAD40@UnknownSelection@@QAEXXZ=006aad40
-// @ref ?unknown_713440@UnknownTechnoPair@@QBEHXZ=00713440
+// @ref ?Remaining_Levels@VeterancyClass@@QBEHXZ=00713440
 // @ref ??_C@_09MLOC@MSG?3Elite?$AA@=007f8cdc
 // @ref ??_C@_0M@KCCB@MSG?3Veteran?$AA@=007f8cd0
 // @ref ??_C@_0BF@BENO@MSG?3LittleExperience?$AA@=007f8cb8
@@ -92,7 +92,7 @@ static wchar_t const *Experience_Message(int kind)
     int objects_count = objects->Count();
     for (int check = 0; check < objects_count; check++) {
         TechnoClass *item = (*objects)[check];
-        if (item->unknown_118.unknown_713440() != kind) {
+        if (item->unknown_118.Remaining_Levels() != kind) {
             text = StringTable::Load_String("MSG:Mixed", 0, "D:\\Ra2\\UICmnds.cpp", 0x5e4);
             break;
         }
@@ -121,7 +121,7 @@ void __fastcall Unknown_006F7EC0(bool flag)
     int count = list->Count();
     for (int index = 0; index < count; index++) {
         TechnoClass *techno = (*list)[index];
-        if (techno->unknown_118.unknown_713440() == kind) {
+        if (techno->unknown_118.Remaining_Levels() == kind) {
             techno->unknown_slot80();
         }
     }

@@ -49,8 +49,8 @@
 // @ref ??_C@_0CH@HHGF@Crate?5at?5?$CFd?0?$CFd?5contains?5veteranc@=007d2d98
 // @ref ??_C@_0CJ@JEKO@Crate?5at?5?$CFd?0?$CFd?5contains?5cloaking@=007d2dc0
 // @ref ?Remove_Crate@MapClass@@QAE_NABVCell@@@Z=0054e6e0
-// @ref ?unknown_7133d0@UnknownTechnoPair@@QBE_NXZ=007133d0
-// @ref ?unknown_713510@UnknownTechnoPair@@QAEX_N@Z=00713510
+// @ref ?unknown_7133d0@VeterancyClass@@QBE_NXZ=007133d0
+// @ref ?unknown_713510@VeterancyClass@@QAEX_N@Z=00713510
 // @ref ?unknown_cell_850bd8@@3VCell@@A=00850bd8
 
 extern Cell unknown_cell_850bd8;
@@ -156,7 +156,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
                     if (object->AbstractFlags.IsTechno) {
                         if (!object->unknown_slot32()->Trainable) {
                             powerup = CRATE_MONEY;
-                        } else if (object->AbstractFlags.IsTechno && object->unknown_118.unknown_713420()) {
+                        } else if (object->AbstractFlags.IsTechno && object->unknown_118.Is_Elite()) {
                             powerup = CRATE_MONEY;
                         }
                     }
@@ -361,10 +361,10 @@ crate_money:
                     if (obj != 0 && obj->unknown_74 && obj->Is_Techno() && Length3(Ground_Coord() - obj->Center_Coord()) < Rules->CrateRadius &&
                             ((TechnoClass *)obj)->unknown_slot32()->Trainable) {
                         for (int count = 0; count < data; count++) {
-                            UnknownTechnoPair *vet = &((TechnoClass *)obj)->unknown_118;
-                            if (vet->unknown_7133a0()) vet->Unknown_00713550(true);
-                            if (vet->unknown_7133d0()) vet->unknown_713520(true);
-                            if (vet->unknown_713400()) vet->unknown_713510(true);
+                            VeterancyClass *vet = &((TechnoClass *)obj)->unknown_118;
+                            if (vet->Is_Veteran()) vet->Set_Elite(true);
+                            if (vet->unknown_7133d0()) vet->Set_Veteran(true);
+                            if (vet->Is_Dumbass()) vet->unknown_713510(true);
                         }
                     }
                 }

@@ -111,7 +111,7 @@ return_capture_action:
             } else action = 0x1f;
         }
         if (object->Kind_Of() == 6 && House->Is_Ally(target) && House->Unknown_004F52B0() && building->Type->Armory) {
-            if (!unknown_118.unknown_713420()) {
+            if (!unknown_118.Is_Elite()) {
                 if (!Type->Deployer || (Sequence != 27 && Sequence != 28 && Sequence != 29 && Sequence != 30)) {
                     switch (unknown_slot150(15,target)) {
                     case 1: action = 3; break;

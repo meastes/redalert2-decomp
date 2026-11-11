@@ -20,7 +20,7 @@
 // @ref ?Mission_From_Name@MissionClass@@SIHPBD@Z=00594fe0
 // @ref ?From_Name@TagTypeClass@@SIPAV1@PBD@Z=006b4880
 // @ref ?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z=006b3d30
-// @ref ?Unknown_00713590@UnknownTechnoPair@@QAEXH@Z=00713590
+// @ref ?From_Integer@VeterancyClass@@QAEXH@Z=00713590
 // @ref _unknown_geometry_j=00a41120
 extern char const *unknown_infantry_section_7a33f0;
 extern int unknown_ini_format_a40d24;
@@ -72,7 +72,7 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                     }
                     token = strtok(0, ",");
                     if (token != 0) {
-                        infantry->unknown_118.Unknown_00713590(atoi(token));
+                        infantry->unknown_118.From_Integer(atoi(token));
                     }
                     token = strtok(0, ",");
                     if (token != 0) {

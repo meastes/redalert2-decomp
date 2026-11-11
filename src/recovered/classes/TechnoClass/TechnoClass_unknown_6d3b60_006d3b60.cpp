@@ -18,8 +18,8 @@
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
 // @ref ?unknown_6d7550@TechnoClass@@QAENPAVObjectClass@@ABUCoordStruct@@@Z=006d7550
 // @ref _unknown_geometry_l=00ac0188
-// @ref ?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ=007133a0
-// @ref ?unknown_713420@UnknownTechnoPair@@QBE_NXZ=00713420
+// @ref ?Is_Veteran@VeterancyClass@@QBE_NXZ=007133a0
+// @ref ?Is_Elite@VeterancyClass@@QBE_NXZ=00713420
 
 bool TechnoClass::unknown_6d3b60(TechnoClass *source, int arg2)
 {

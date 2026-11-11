@@ -15,7 +15,7 @@ void CellClass::Incoming(void const *threat, bool forced, bool nokidding, bool a
     if (!nokidding) {
         while (object != 0) {
             TechnoClass *techno = object->As_Techno();
-            if (techno != 0 && techno->unknown_118.unknown_713420()) {
+            if (techno != 0 && techno->unknown_118.Is_Elite()) {
                 elite = true;
                 break;
             }

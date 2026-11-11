@@ -21,7 +21,7 @@ void TemporalClass::AI()
         if(Owner->unknown_slot32()->Trainable) {
             TechnoTypeClass *target_type=Target->unknown_slot32();
             TechnoTypeClass *owner_type=Owner->unknown_slot32();
-            Owner->unknown_118.Unknown_00713360(owner_type->unknown_slot33(Owner->House),target_type->unknown_slot33(Target->House));
+            Owner->unknown_118.Made_A_Kill(owner_type->unknown_slot33(Owner->House),target_type->unknown_slot33(Target->House));
         }
         if(Target!=0) {
             if(Target->Kind_Of()==6) {
@@ -61,7 +61,7 @@ void TemporalClass::AI()
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Suspend@SuperClass@@QAE_N_N@Z=0069cc60
 // @ref ?Unknown_004536D0@BuildingClass@@QAEXPAVInfantryClass@@@Z=004536d0
-// @ref ?Unknown_00713360@UnknownTechnoPair@@QAEXHH@Z=00713360
+// @ref ?Made_A_Kill@VeterancyClass@@QAEXHH@Z=00713360
 // @ref ?unknown_4532f0@BuildingClass@@QAEHXZ=004532f0
 // @ref ?unknown_4689f0@UnknownCargo@@QAEPAVObjectClass@@XZ=004689f0
 // @ref ?unknown_a40774@@3HA=00a40774

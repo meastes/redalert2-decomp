@@ -3,14 +3,14 @@
 #include "shared/techno.hpp"
 // @ref ?Get_Elite_Weapon@TechnoTypeClass@@QAEPAUWeaponStruct@@H@Z=006df5e0
 // @ref ?Get_Weapon@TechnoTypeClass@@QAEPAUWeaponStruct@@H@Z=006df5c0
-// @ref ?unknown_713420@UnknownTechnoPair@@QBE_NXZ=00713420
+// @ref ?Is_Elite@VeterancyClass@@QBE_NXZ=00713420
 
 WeaponStruct *TechnoClass::unknown_slot231(int index)
 {
     if (index == -1) {
         return 0;
     }
-    if (unknown_118.unknown_713420()) {
+    if (unknown_118.Is_Elite()) {
         WeaponStruct *weapon = unknown_slot32()->Get_Elite_Weapon(index);
         if (weapon && weapon->WeaponType) {
             return weapon;

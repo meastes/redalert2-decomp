@@ -83,11 +83,11 @@ void ParasiteClass::Unknown_00606780()
                 new AnimClass(Rules->SplashList[unknown_id_source_a3d290->Random()(0, count - 1)], splash, 2, 1, 0x600, -10);
             }
             if (warhead->Culling && (unknown_28->unknown_func_5d46b0() == 0 ||
-                (unknown_28->unknown_func_5d46b0() == 1 && Owner->unknown_118.unknown_713420()))) {
+                (unknown_28->unknown_func_5d46b0() == 1 && Owner->unknown_118.Is_Elite()))) {
                 if (Owner->unknown_slot32()->Trainable) {
                     TechnoTypeClass *victim_type = unknown_28->unknown_slot32();
                     TechnoTypeClass *owner_type = Owner->unknown_slot32();
-                    Owner->unknown_118.Unknown_00713360(owner_type->unknown_slot33(Owner->House),
+                    Owner->unknown_118.Made_A_Kill(owner_type->unknown_slot33(Owner->House),
                         victim_type->unknown_slot33(unknown_28->House));
                 }
                 FootClass *victim = unknown_28;

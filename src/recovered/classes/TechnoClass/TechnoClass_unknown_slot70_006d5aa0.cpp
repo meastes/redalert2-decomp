@@ -15,8 +15,8 @@
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_00549C50@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z=00549c50
-// @ref ?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ=007133a0
-// @ref ?unknown_713420@UnknownTechnoPair@@QBE_NXZ=00713420
+// @ref ?Is_Veteran@VeterancyClass@@QBE_NXZ=007133a0
+// @ref ?Is_Elite@VeterancyClass@@QBE_NXZ=00713420
 // @ref __real@8@3ff8a3d70a3d70a3d800=0079c518
 // @ref __real@8@3fff8000000000000000=0079a708
 // @ref __real@8@00000000000000000000=0079b610
@@ -37,10 +37,10 @@ void TechnoClass::unknown_slot70(bool arg1, bool arg2)
     }
     unknown_378 = level;
     int sight = (int)(unknown_slot32()->Sight * (unknown_378 * 0.01 + 1.0));
-    if (unknown_118.unknown_7133a0() || unknown_118.unknown_713420()) {
+    if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
         TechnoTypeClass *type = unknown_slot32();
-        if ((unknown_118.unknown_7133a0() && type->VeteranAbilities.Ability[5])
-            || (unknown_118.unknown_713420() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
+        if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[5])
+            || (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[5] || type->EliteAbilities.Ability[5]))) {
             if (Rules->unknown_5a0 != 0.0) {
                 sight = (int)(sight * Rules->unknown_5a0);
             }

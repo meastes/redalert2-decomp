@@ -8,7 +8,7 @@
 // @ref ??_C@_04COF@None?$AA@=007ce9b4
 // @ref ?Name_From_Mission@MissionClass@@SIPBDH@Z=00595020
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
-// @ref ?unknown_713580@UnknownTechnoPair@@QBEHXZ=00713580
+// @ref ?To_Integer@VeterancyClass@@QBEHXZ=00713580
 extern char const *unknown_aircraft_section_79b0d0;
 void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
 {
@@ -29,7 +29,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
                     (int)(aircraft->Health_Ratio() * 256.0),
                     aircraft->unknown_slot104().X, aircraft->unknown_slot104().Y,
                     direction, MissionClass::Name_From_Mission(aircraft->Get_Mission()), tag,
-                    aircraft->unknown_118.unknown_713580(), aircraft->unknown_1ac,
+                    aircraft->unknown_118.To_Integer(), aircraft->unknown_1ac,
                     aircraft->unknown_379, aircraft->unknown_37a);
             ini.Put_String(unknown_aircraft_section_79b0d0, id, line);
         }

@@ -21,9 +21,9 @@
 // @ref ?unknown_cell_ac0148@@3VCell@@A=00ac0148
 // @ref ?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z=006b3df0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
-// @ref ?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ=007133a0
-// @ref ?unknown_713420@UnknownTechnoPair@@QBE_NXZ=00713420
-// @ref ?Unknown_00713360@UnknownTechnoPair@@QAEXHH@Z=00713360
+// @ref ?Is_Veteran@VeterancyClass@@QBE_NXZ=007133a0
+// @ref ?Is_Elite@VeterancyClass@@QBE_NXZ=00713420
+// @ref ?Made_A_Kill@VeterancyClass@@QAEXHH@Z=00713360
 // @ref ?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z=0070c490
 
 void TechnoClass::unknown_slot55(TechnoClass *killer)
@@ -52,17 +52,17 @@ void TechnoClass::unknown_slot55(TechnoClass *killer)
     if (killer != 0) {
         if (killer->House->Is_Ally(this)) {
             points = 0;
-        } else if (unknown_118.unknown_7133a0()) {
+        } else if (unknown_118.Is_Veteran()) {
             points += points;
-        } else if (unknown_118.unknown_713420()) {
+        } else if (unknown_118.Is_Elite()) {
             points *= 3;
         }
         if (killer->unknown_slot32()->Trainable) {
-            killer->unknown_118.Unknown_00713360(killer->unknown_slot32()->unknown_slot33(House), points);
+            killer->unknown_118.Made_A_Kill(killer->unknown_slot32()->unknown_slot33(House), points);
         }
         if (killer->unknown_slot32()->MissileSpawn && killer->unknown_23c != 0
             && ((TechnoClass *)killer->unknown_23c)->unknown_slot32()->Trainable) {
-            ((TechnoClass *)killer->unknown_23c)->unknown_118.Unknown_00713360(
+            ((TechnoClass *)killer->unknown_23c)->unknown_118.Made_A_Kill(
                 ((TechnoClass *)killer->unknown_23c)->unknown_slot32()->unknown_slot33(House), points);
         }
         House->unknown_53b8 = killer->Owner();

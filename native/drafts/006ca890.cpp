@@ -166,9 +166,9 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
     }
     if (firepower > 0) {
         firepower = (int)(House->unknown_d0 * unknown_128 * attack);
-        if (unknown_118.unknown_7133a0() || unknown_118.unknown_713420()) {
+        if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
             TechnoTypeClass *type = unknown_slot32();
-            if ((unknown_118.unknown_7133a0() && type->VeteranAbilities.Ability[2]) || (unknown_118.unknown_713420() && (type->VeteranAbilities.Ability[2] || type->EliteAbilities.Ability[2]))) {
+            if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[2]) || (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[2] || type->EliteAbilities.Ability[2]))) {
                 firepower = (int)(firepower * Rules->VeteranCombat);
             }
         }

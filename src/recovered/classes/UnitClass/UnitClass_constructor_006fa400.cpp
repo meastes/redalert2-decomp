@@ -21,7 +21,7 @@
 // @ref ?Frame@@3HA=00a40d2c
 // @ref ?unknown_4ea970@UnknownUnitHouse@@QAEXPAVUnitClass@@@Z=004ea970
 // @ref ?Init@TechnoClass@@UAEXXZ=006c1c50
-// @ref ?unknown_713520@UnknownTechnoPair@@QAEX_N@Z=00713520
+// @ref ?Set_Veteran@VeterancyClass@@QAEX_N@Z=00713520
 // @ref ?unknown_6d83f0@TechnoClass@@QAEXH@Z=006d83f0
 // @ref ?unknown_object_index_abff58@@3V?$IndexClass@JPAVAbstractClass@@@@A=00abff58
 
@@ -71,13 +71,13 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
             DynamicVectorClass<UnitTypeClass *> &veterans = Unit_House_View(House)->unknown_34->unknown_168;
             for (int index = 0; index < veterans.Count(); index++) {
                 if (veterans[index] == Type) {
-                    unknown_118.unknown_713520(true);
+                    unknown_118.Set_Veteran(true);
                     break;
                 }
             }
         }
         if (House && Unit_House_View(House)->unknown_207 && !Type->Naval && Type->Trainable) {
-            unknown_118.unknown_713520(true);
+            unknown_118.Set_Veteran(true);
         }
         if (Type->Gunner) {
             unknown_6d83f0(0);

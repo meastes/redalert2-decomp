@@ -1,7 +1,7 @@
 // Techno defaults and membership registration; unknown field names retain offsets.
 #include "shared/techno.hpp"
 // @ref ??0RadioClass@@QAE@XZ=00636830
-// @ref ??0UnknownTechnoPair@@QAE@XZ=00713340
+// @ref ??0VeterancyClass@@QAE@XZ=00713340
 TechnoClass::TechnoClass(HouseClass *house) :
     RadioClass(), FlasherClass(), StageClass(), Cargo(),
     unknown_100(-1), unknown_104(-1), unknown_108(0), unknown_10c(0),

@@ -7,7 +7,7 @@
 #include "shared/gadget.hpp"
 #include "shared/gscreen.hpp"
 // @ref ?unknown_pips_shapes_a72fe4@@3PBXB=00a72fe4
-// @ref ?unknown_713400@UnknownTechnoPair@@QBE_NXZ=00713400
+// @ref ?Is_Dumbass@VeterancyClass@@QBE_NXZ=00713400
 // @ref ?unknown_drawer_8323c4@@3PAVConvertClass@@A=008323c4
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
@@ -17,13 +17,13 @@ void TechnoClass::unknown_slot250(Point2D const &point, Rect const &window)
     ObjectTypeClass *type = Class_Of();
     void const *pips = unknown_pips_shapes_a72fe4;
     int frame = -1;
-    if (unknown_118.unknown_7133a0()) {
+    if (unknown_118.Is_Veteran()) {
         frame = 13;
     }
-    if (unknown_118.unknown_713420()) {
+    if (unknown_118.Is_Elite()) {
         frame = 14;
     }
-    if (unknown_118.unknown_713400()) {
+    if (unknown_118.Is_Dumbass()) {
         frame = 18;
     }
     if (frame != -1) {

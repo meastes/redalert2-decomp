@@ -13,7 +13,7 @@
 // @ref ?Mission_From_Name@MissionClass@@SIHPBD@Z=00594fe0
 // @ref ?From_Name@TagTypeClass@@SIPAV1@PBD@Z=006b4880
 // @ref ?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z=006b3d30
-// @ref ?Unknown_00713590@UnknownTechnoPair@@QAEXH@Z=00713590
+// @ref ?From_Integer@VeterancyClass@@QAEXH@Z=00713590
 extern char const *unknown_aircraft_section_79b0d0;
 extern int unknown_ini_format_a40d24;
 void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
@@ -50,7 +50,7 @@ void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
                         if (tag) aircraft->Attach_Tag(tag);
                     }
                     char *token = strtok(0, ",");
-                    if (token) aircraft->unknown_118.Unknown_00713590(atoi(token));
+                    if (token) aircraft->unknown_118.From_Integer(atoi(token));
                     token = strtok(0, ",");
                     if (token) aircraft->unknown_1ac = atoi(token);
                     token = strtok(0, ",");

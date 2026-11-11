@@ -4,7 +4,7 @@
 // @ref __real@8@3ff8a3d70a3d70a3d800=0079c518
 // @ref __real@8@3fff8000000000000000=0079a708
 // @ref __real@8@bfff8000000000000000=0079d578
-double UnknownTechnoPair::Modify(double value)
+double VeterancyClass::Modify(double value)
 {
     double lvl = Experience;
     lvl = floor(lvl);

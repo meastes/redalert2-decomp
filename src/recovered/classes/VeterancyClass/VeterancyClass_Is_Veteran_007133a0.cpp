@@ -1,4 +1,4 @@
-bool UnknownTechnoPair::unknown_7133a0() const
+bool VeterancyClass::Is_Veteran() const
 {
     return Experience >= 1 && Experience < 2;
 }

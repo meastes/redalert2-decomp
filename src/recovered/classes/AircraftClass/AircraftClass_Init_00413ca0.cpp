@@ -4,7 +4,7 @@
 // flight level, ammunition and strength; finally tells the house.
 #include "shared/aircraft.hpp"
 // @ref ?Init@TechnoClass@@UAEXXZ=006c1c50
-// @ref ?unknown_713520@UnknownTechnoPair@@QAEX_N@Z=00713520
+// @ref ?Set_Veteran@VeterancyClass@@QAEX_N@Z=00713520
 // @ref ?Set_ROT@FacingClass@@QAEXH@Z=004b8e90
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
 // @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
@@ -18,7 +18,7 @@ void AircraftClass::Init()
             DynamicVectorClass<TechnoTypeClass *> &types = (DynamicVectorClass<TechnoTypeClass *> &)House->Type->VeteranAircraft;
             for (int index = 0; index < types.Count(); index++) {
                 if (types[index] == Type) {
-                    unknown_118.unknown_713520(true);
+                    unknown_118.Set_Veteran(true);
                     break;
                 }
             }

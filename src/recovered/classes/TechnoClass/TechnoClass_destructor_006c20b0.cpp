@@ -10,7 +10,7 @@
 // @ref ??_7TechnoClass@@6BIRTTITypeInfo@@@=007acb64
 // @ref ??_7TechnoClass@@6BINoticeSink@@@=007acb5c
 // @ref ??_7TechnoClass@@6BINoticeSource@@@=007acb54
-// @ref ??1UnknownTechnoPair@@QAE@XZ=00713350
+// @ref ??1VeterancyClass@@QAE@XZ=00713350
 // @ref ?Delete@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NH@Z=0061bdc0
 // @ref ?unknown_6130b0@UnknownTechno408@@QAEXXZ=006130b0
 // @ref ?Unknown_00405FE0@UnknownAudioController@@QAEXXZ=00405fe0

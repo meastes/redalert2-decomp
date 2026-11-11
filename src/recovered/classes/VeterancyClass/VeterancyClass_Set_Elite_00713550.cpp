@@ -1,4 +1,4 @@
-void UnknownTechnoPair::Unknown_00713550(bool set)
+void VeterancyClass::Set_Elite(bool set)
 {
     if (set) {
         Experience = 2;

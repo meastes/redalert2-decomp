@@ -25,19 +25,19 @@ int TechnoClass::unknown_6ca6c0(TechnoClass *target, WeaponTypeClass *weapon)
     }
     if (damage > 0) {
         damage = House->unknown_d0 * unknown_128 * damage;
-        if (unknown_118.unknown_7133a0() || unknown_118.unknown_713420()) {
+        if (unknown_118.Is_Veteran() || unknown_118.Is_Elite()) {
             TechnoTypeClass *type = unknown_slot32();
-            if ((unknown_118.unknown_7133a0() && type->VeteranAbilities.Ability[2])
-                || (unknown_118.unknown_713420() && (type->VeteranAbilities.Ability[2] || type->EliteAbilities.Ability[2]))) {
+            if ((unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[2])
+                || (unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[2] || type->EliteAbilities.Ability[2]))) {
                 damage = damage * Rules->VeteranCombat;
             }
         }
         double value = damage;
         damage = value / (target->House->unknown_func_4f58a0(unknown_slot32()) * unknown_120);
-        if (target->unknown_118.unknown_7133a0() || target->unknown_118.unknown_713420()) {
+        if (target->unknown_118.Is_Veteran() || target->unknown_118.Is_Elite()) {
             TechnoTypeClass *type = target->unknown_slot32();
-            if ((target->unknown_118.unknown_7133a0() && type->VeteranAbilities.Ability[1])
-                || (target->unknown_118.unknown_713420() && (type->VeteranAbilities.Ability[1] || type->EliteAbilities.Ability[1]))) {
+            if ((target->unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[1])
+                || (target->unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[1] || type->EliteAbilities.Ability[1]))) {
                 damage = damage / Rules->VeteranArmor;
             }
         }

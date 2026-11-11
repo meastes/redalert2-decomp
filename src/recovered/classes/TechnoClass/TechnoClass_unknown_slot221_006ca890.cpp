@@ -99,10 +99,10 @@ inline bool Is_Foot_006ca890(ObjectClass const *object)
 }
 inline bool Has_Ability_006ca890(TechnoClass *techno, int ability)
 {
-    if (techno->unknown_118.unknown_7133a0() || techno->unknown_118.unknown_713420()) {
+    if (techno->unknown_118.Is_Veteran() || techno->unknown_118.Is_Elite()) {
         TechnoTypeClass *type = techno->unknown_slot32();
-        if ((techno->unknown_118.unknown_7133a0() && type->VeteranAbilities.Ability[ability])
-            || (techno->unknown_118.unknown_713420() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) {
+        if ((techno->unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[ability])
+            || (techno->unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) {
             return true;
         }
     }

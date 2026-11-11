@@ -1,3 +1,0 @@
-UnknownTechnoPair::~UnknownTechnoPair()
-{
-}

@@ -24,10 +24,10 @@
 inline FootClass *As_Foot_L(TechnoClass *t) { return (t && t->AbstractFlags.IsFoot) ? static_cast<FootClass *>(t) : 0; }
 inline bool Has_Ability_L(TechnoClass *t, int ability)
 {
-    if (t->unknown_118.unknown_7133a0() || t->unknown_118.unknown_713420()) {
+    if (t->unknown_118.Is_Veteran() || t->unknown_118.Is_Elite()) {
         TechnoTypeClass *type=t->unknown_slot32();
-        if ((t->unknown_118.unknown_7133a0() && type->VeteranAbilities.Ability[ability]) ||
-            (t->unknown_118.unknown_713420() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) return true;
+        if ((t->unknown_118.Is_Veteran() && type->VeteranAbilities.Ability[ability]) ||
+            (t->unknown_118.Is_Elite() && (type->VeteranAbilities.Ability[ability] || type->EliteAbilities.Ability[ability]))) return true;
     }
     return false;
 }

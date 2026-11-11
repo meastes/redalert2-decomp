@@ -14,7 +14,7 @@
 // @ref ??_C@_0CK@COGK@?$CFs?0?$CFs?0?$CFd?0?$CFd?0?$CFd?0?$CFd?0?$CFs?0?$CFs?0?$CFd?0?$CFd?0?$CFd@=007f8f8c
 // @ref ?Name_From_Mission@MissionClass@@SIPBDH@Z=00595020
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
-// @ref ?unknown_713580@UnknownTechnoPair@@QBEHXZ=00713580
+// @ref ?To_Integer@VeterancyClass@@QBEHXZ=00713580
 
 extern char const *unknown_units_section_7addc0;
 
@@ -42,7 +42,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
                     unit->unknown_slot104().X, unit->unknown_slot104().Y,
                     direction,
                     MissionClass::Name_From_Mission(unit->Get_Mission()), tag,
-                    unit->unknown_118.unknown_713580(), unit->unknown_1ac, unit->unknown_79, linked,
+                    unit->unknown_118.To_Integer(), unit->unknown_1ac, unit->unknown_79, linked,
                     unit->unknown_379, unit->unknown_37a);
             ini.Put_String(unknown_units_section_7addc0, id, line);
         }

@@ -111,8 +111,8 @@ int BuildingClass::Do_MISSION_REPAIR()
                 unknown_4f4.Graphic_Logic();
                 if (unknown_4f4.Fetch_Stage() >= Rules->IRepairRate * 900.0) {
                     TechnoClass *contact = Contact_With_Whom();
-                    if (contact->unknown_118.unknown_713400()) contact->unknown_118.unknown_713520(true);
-                    else contact->unknown_118.Unknown_00713550(true);
+                    if (contact->unknown_118.Is_Dumbass()) contact->unknown_118.Set_Veteran(true);
+                    else contact->unknown_118.Set_Elite(true);
                     unknown_slot62((TechnoClass *)Cargo.unknown_4689f0());
                     unknown_slot116(5, false);
                 }

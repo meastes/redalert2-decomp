@@ -5,7 +5,7 @@
 #include "shared/team_type.hpp"
 #include "shared/task_force.hpp"
 #include "shared/foot.hpp"
-// @ref ?Unknown_007134E0@UnknownTechnoPair@@QAEX_N@Z=007134e0
+// @ref ?Set_Dumbass@VeterancyClass@@QAEX_N@Z=007134e0
 
 FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
 {
@@ -46,15 +46,15 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
 
                 switch (teamtype->VeteranLevel) {
                     case 0:
-                        temp->unknown_118.Unknown_007134E0(true);
+                        temp->unknown_118.Set_Dumbass(true);
                         break;
                     case 1:
                         break;
                     case 2:
-                        temp->unknown_118.unknown_713520(true);
+                        temp->unknown_118.Set_Veteran(true);
                         break;
                     case 3:
-                        temp->unknown_118.Unknown_00713550(true);
+                        temp->unknown_118.Set_Elite(true);
                         break;
                 }
 

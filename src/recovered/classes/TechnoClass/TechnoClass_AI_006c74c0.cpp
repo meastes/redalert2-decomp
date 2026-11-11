@@ -76,17 +76,17 @@ void TechnoClass::AI()
         Voc_Update_At(Position_Coord_004f3f40(),&unknown_3d8);
     }
     int old_rank=unknown_110;
-    if (old_rank!=unknown_118.unknown_713440()) {
+    if (old_rank!=unknown_118.Remaining_Levels()) {
         if (old_rank!=-1) {
-            if (unknown_118.unknown_713440()==0) {
+            if (unknown_118.Remaining_Levels()==0) {
                 if (House->Unknown_004F52B0()) { Voc_Play_At(Rules->UpgradeEliteSound,Position_Coord_004f3f40(),0); Speech_Play_Name("EVA_UnitPromoted",-1,-1); }
                 FlashCount=Rules->EliteFlashTimer;
-            } else if (unknown_118.unknown_713440()==1 && House->Unknown_004F52B0()) {
+            } else if (unknown_118.Remaining_Levels()==1 && House->Unknown_004F52B0()) {
                 Voc_Play_At(Rules->UpgradeVeteranSound,Position_Coord_004f3f40(),0);
                 Speech_Play_Name("EVA_UnitPromoted",-1,-1);
             }
         }
-        unknown_110=unknown_118.unknown_713440();
+        unknown_110=unknown_118.Remaining_Levels();
     }
     if (unknown_slot158()) { unknown_slot237(); if (!unknown_7d) return; }
     Cell where(Center_Coord());

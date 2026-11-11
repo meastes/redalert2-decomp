@@ -482,7 +482,7 @@
 | [classes/DynamicVectorClass_int](../src/recovered/classes/DynamicVectorClass_int/) | 7 | 499 | 6 | 0x0046CC80–0x006DF8A0 |
 | [classes/VectorClass_bool](../src/recovered/classes/VectorClass_bool/) | 8 | 498 | 6 | 0x004F6E50–0x004F87B0 |
 | [classes/Base64Pipe](../src/recovered/classes/Base64Pipe/) | 3 | 496 | 3 | 0x0042B670–0x00510B40 |
-| [classes/UnknownTechnoPair](../src/recovered/classes/UnknownTechnoPair/) | 15 | 496 | 15 | 0x00713340–0x00713590 |
+| [classes/VeterancyClass](../src/recovered/classes/VeterancyClass/) | 15 | 496 | 15 | 0x00713340–0x00713590 |
 | [classes/RLEBlitTransLucent50AlphaZReadWarp_unsigned_short](../src/recovered/classes/RLEBlitTransLucent50AlphaZReadWarp_unsigned_short/) | 2 | 492 | 1 | 0x0048BAF0–0x0048D7B0 |
 | [classes/ScorePrintClass](../src/recovered/classes/ScorePrintClass/) | 3 | 492 | 3 | 0x006680A0–0x006683B0 |
 | [classes/VectorClass_HashObject_unsigned_int_unsigned_int](../src/recovered/classes/VectorClass_HashObject_unsigned_int_unsigned_int/) | 7 | 488 | 6 | 0x0056AD90–0x0056C910 |

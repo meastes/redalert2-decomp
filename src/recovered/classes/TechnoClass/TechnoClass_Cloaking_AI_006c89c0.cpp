@@ -24,8 +24,8 @@
 #include "shared/gscreen.hpp"
 #include "shared/techno_map.hpp"
 #include "shared/unknown_geometry.hpp"
-// @ref ?unknown_7133a0@UnknownTechnoPair@@QBE_NXZ=007133a0
-// @ref ?unknown_713420@UnknownTechnoPair@@QBE_NXZ=00713420
+// @ref ?Is_Veteran@VeterancyClass@@QBE_NXZ=007133a0
+// @ref ?Is_Elite@VeterancyClass@@QBE_NXZ=00713420
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
 // @ref ??B?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ=00453eb0
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
