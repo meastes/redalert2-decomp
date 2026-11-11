@@ -5,6 +5,7 @@ This binding recognizes one complete seed revision. The generated text is a
 draft and the proof does not replace strict candidate or whole-file checks.
 """
 import hashlib
+import json
 import re
 import struct
 from pathlib import Path
@@ -205,6 +206,58 @@ def verify_late_coordinates(graph, known, receivers):
         require(instruction.mnemonic == "lea" and operand.type == X.X86_OP_MEM and
                 operand.mem.base == X.X86_REG_ESP and not operand.mem.index and
                 frames.height(setup) + operand.mem.disp == home, "Late coordinate buffer differs")
+    return known
+
+
+
+def verify_late_distance(graph, known, receivers, repository):
+    nodes = graph["nodes"]
+    audit = receivers.audit
+    ledger = json.loads((repository / "manifests/original_target/assembly.json").read_text())
+    ftol = [row for row in ledger["regions"] if row["entry"] == "0077f110"]
+    require(len(ftol) == 1 and ftol[0]["symbol"] == "__ftol", "Late distance conversion ABI differs")
+    row = ftol[0]
+    original = audit.original(0x77f110, row["bytes"])
+    require(hashlib.sha256(original).hexdigest() == row["sha256"]
+            and hashlib.sha256((repository / row["source"]).read_bytes()).hexdigest() == row["source_sha256"],
+            "Late distance conversion provenance differs")
+    returns = [ins for ins in audit.decoder.disasm(original, 0x77f110) if ins.mnemonic == "ret"]
+    require(returns and all(not ins.operands for ins in returns), "Late conversion changes stack cleanup")
+    require(receivers.accepted(0x4ba410)["symbol"] == "?Fast_Sqrt@@YAMN@Z"
+            and receivers.cleanup(0x4ba410) == 0, "Late square root ABI differs")
+    require(struct.unpack("<d", audit.original(0x79b618, 8)) == (128.0,),
+            "Late speed floor differs")
+
+    known = dict(known)
+    known[0x460db8] = 0
+    frames = aligned_frames(graph, known)
+    for setup, store, call, cleanup in (
+            (0x460d4c, 0x460da7, 0x460db0, 0x460db5),
+            (0x460e02, 0x460e0d, 0x460e16, 0x460e23),
+            (0x460e4f, 0x460e5a, 0x460e63, 0x460e6a)):
+        require(nodes[setup].mnemonic == "sub" and nodes[setup].op_str == "esp, 8"
+                and nodes[store].mnemonic == "fstp" and nodes[store].op_str == "qword ptr [esp]"
+                and nodes[call].mnemonic == "call" and nodes[call].op_str == "0x4ba410"
+                and nodes[cleanup].mnemonic == "add" and nodes[cleanup].op_str == "esp, 8"
+                and frames.height(setup) - 8 == frames.height(store) == frames.height(call) == frames.height(cleanup),
+                "Late square root double argument differs")
+    expected = {
+        0x460db8: ("call", "0x77f110"),
+        0x460dbd: ("mov", "ecx, eax"),
+        0x460dcb: ("mov", "eax, 0x55555556"),
+        0x460dd0: ("imul", "ecx"),
+        0x460dd4: ("shr", "eax, 0x1f"),
+        0x460dd7: ("add", "edx, eax"),
+        0x460e1b: ("fadd", "st(0), st(0)"),
+        0x460e1d: ("fcomp", "qword ptr [0x79b618]"),
+        0x460e2d: ("fld", "qword ptr [0x79b618]"),
+        0x460e68: ("fadd", "st(0), st(0)"),
+        0x460e6d: ("fild", "dword ptr [esp + 0x10]"),
+        0x460e75: ("test", "ah, 0x41"),
+    }
+    require(all((nodes[at].mnemonic, nodes[at].op_str) == pair for at, pair in expected.items())
+            and graph["pred"][0x460db8] == {0x460db5}
+            and graph["pred"][0x460db5] == {0x460db0}, "Late signed distance or limit differs")
 
 
 def repair_speed_and_rotation(orig):
@@ -454,6 +507,66 @@ def repair_late_coordinates(text):
     return text
 
 
+
+def repair_late_distance(text):
+    declaration = 'extern "C" undefined4 _DAT_0079b618;\n'
+    original = r"""            iStack_170 = iVar9 - late_coord.Y;
+            local_16c = (late_coord.Z + iVar11) / 2 - late_coord.Z;
+            iStack_174 = (int)(uVar17 - late_coord.X);
+            FUN_004ba410((int)((double)iStack_170 * (double)iStack_170 +
+                                      (double)local_16c * (double)local_16c + (double)iStack_174 * (double)iStack_174));
+            uStack_1a8 = (undefined4)(FUN_0077f110());
+            if (local_199 != '\0') {
+                uStack_1a8 = (undefined4)(uStack_1a8 / 3);
+            }
+            if (local_168 != 1) {
+                fVar24 = (float10)FUN_004ba410((int)(*(double *)(param_1 + 0x38) * *(double *)(param_1 + 0x38) +
+                                                                              *(double *)(param_1 + 0x36) * *(double *)(param_1 + 0x36) +
+                                                                              *(double *)(param_1 + 0x34) * *(double *)(param_1 + 0x34)));
+                if ((float10)_DAT_0079b618 <= fVar24 + fVar24) {
+                    fVar24 = (float10)FUN_004ba410((int)(*(double *)(param_1 + 0x38) * *(double *)(param_1 + 0x38) +
+                                                                                  *(double *)(param_1 + 0x36) * *(double *)(param_1 + 0x36) +
+                                                                                  *(double *)(param_1 + 0x34) * *(double *)(param_1 + 0x34)));
+                    fVar24 = (float10)(fVar24 + fVar24);
+                }
+                else {
+                    fVar24 = (float10)_DAT_0079b618;
+                }
+                if (fVar24 < (float10)uStack_1a8) goto LAB_00460e98;
+            }
+"""
+    replacement = r"""            int delta_y = iVar9 - late_coord.Y;
+            int delta_z = (late_coord.Z + iVar11) / 2 - late_coord.Z;
+            int delta_x = (int)(uVar17 - late_coord.X);
+            double x = delta_x;
+            double y = delta_y;
+            double z = delta_z;
+            int distance = (int)Fast_Sqrt((x * x + z * z) + y * y);
+            if (local_199 != '\0') {
+                distance /= 3;
+            }
+            if (local_168 != 1) {
+                TVelocity3D<double> const &velocity = bullet->Velocity;
+                double speed = Fast_Sqrt((velocity.X * velocity.X + velocity.Y * velocity.Y)
+                                         + velocity.Z * velocity.Z);
+                double limit = speed + speed;
+                const double minimum_limit = 128.0;
+                if (minimum_limit <= limit) {
+                    speed = Fast_Sqrt((velocity.X * velocity.X + velocity.Y * velocity.Y)
+                                      + velocity.Z * velocity.Z);
+                    limit = speed + speed;
+                }
+                else {
+                    limit = minimum_limit;
+                }
+                if (limit < (double)distance) goto LAB_00460e98;
+            }
+"""
+    require(text.count(declaration) == 1 and text.count("_DAT_0079b618") == 3
+            and text.count(original) == 1, "Frozen late distance seed shape changed")
+    return text.replace(declaration, "", 1).replace(original, replacement, 1)
+
+
 def optional_bullet_ai(text, entry, inventory, repository, accepted):
     if entry != ENTRY or entry in accepted:
         return text
@@ -473,9 +586,15 @@ def optional_bullet_ai(text, entry, inventory, repository, accepted):
         pass
     else:
         try:
-            verify_late_coordinates(graph, known, receivers)
+            known = verify_late_coordinates(graph, known, receivers)
             result = repair_late_coordinates(result)
         except (ValueError, TypeError, KeyError, OSError):
             pass
+        else:
+            try:
+                verify_late_distance(graph, known, receivers, Path(repository))
+                result = repair_late_distance(result)
+            except (ValueError, TypeError, KeyError, OSError):
+                pass
     return ("// Scratch hypothesis: separate floating and signed integer lifetimes in Bullet AI.\n"
             + result)
