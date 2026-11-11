@@ -1,4 +1,4 @@
-// CoordStruct Tactical::Unknown_006A2B10(Point2D const &point) (0x006A2B10): the
+// CoordStruct Tactical::Pixel_To_Coord(Point2D const &point) (0x006A2B10): the
 // coordinate under a screen point: the point plus the view position through the
 // projection matrix at +0xDE4, Z 0; the unit's zero coordinate when the point
 // lies right of or below the rectangle at 0x00ABE560 (hypothesis).
@@ -7,7 +7,7 @@
 // @ref ?unknown_rect_abe560@@3VRect@@A=00abe560
 // @ref ??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z=00591380
 
-CoordStruct Tactical::Unknown_006A2B10(Point2D const &point)
+CoordStruct Tactical::Pixel_To_Coord(Point2D const &point)
 {
     if (point.X < unknown_rect_abe560.Width && point.Y < unknown_rect_abe560.Height + unknown_rect_abe560.Y) {
         Point2D view(TacPixelX, TacPixelY);

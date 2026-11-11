@@ -44,7 +44,7 @@ void MapClass::Unknown_0054A550(CoordStruct const &coord, int start, int sightra
             if (frame != cellptr.unknown_120) {
                 cellptr.unknown_120 = frame;
                 cellptr.unknown_138 = true;
-                unknown_tactical_83996c->Unknown_006AADD0(&cellptr);
+                unknown_tactical_83996c->Flag_Cell(&cellptr);
             }
         }
     }

@@ -106,13 +106,13 @@ public:
     void Unknown_006A66B0(CoordStruct const &coord);    // the same entry, given a coordinate
     // The coordinate under a screen point (0x006A2B10) and the cell under it
     // (0x006A6BD0; radar slot 51).
-    CoordStruct Unknown_006A2B10(Point2D const &point);
+    CoordStruct Pixel_To_Coord(Point2D const &point);
     CoordStruct Unknown_006A2BF0(Point2D const &point); // original ECX Tactical, hidden CoordStruct result, RET8
     // The absolute screen pixel of a coordinate: the isometric rotation, leptons to pixels, less the height
     // (0x006A27A0; TibSun Tactical::Coord_To_Pixel_Absolute(Coord const &)), and of a flat point (0x006A2870).
     Point2D Coord_To_Pixel_Absolute(CoordStruct const &coord);
     Point2D Coord_To_Pixel_Absolute(Point2D const &point);
-    Cell Unknown_006A6BD0(Point2D const &point);
+    Cell Pixel_To_Cell(Point2D const &point);
     // The cell drawn over a coordinate: scans back along the view diagonal for the cell whose raised ground covers it (0x006A6A50).
     Cell Coord_To_Cell(CoordStruct const &coord);
     void Setup_Trigger_Scroll(CoordStruct const &coord, int arg2);   // 0x006A2CB0 (TeamClass script handler 0x006BC4C0: looks at a coordinate; hypothesis)
@@ -125,7 +125,7 @@ public:
     // The shroud (fog: the fog) edge frame of a cell from its eight neighbours: -2 solid black, -1 none
     // (0x006A8D40; TibSun Tactical::Cell_Shadow; the flag is read as a byte).
     int Cell_Shadow(Cell const &cell, bool fog);
-    void Unknown_006AADD0(CellClass *cell);        // 0x006AADD0 (DisplayClass slot 37: a cell to redraw; hypothesis)
+    void Flag_Cell(CellClass *cell);               // 0x006AADD0 (DisplayClass slot 37: a cell to redraw; hypothesis)
     void Draw_Rally_Points(bool inshroud);         // 0x006AAFD0 (TibSun name)
     // Draws the radial indicators of the current objects, then the selected building's (0x006AC420; TibSun
     // Tactical::Draw_Radial_Indicators; Render calls it with this in ECX after the effect Update_All calls).

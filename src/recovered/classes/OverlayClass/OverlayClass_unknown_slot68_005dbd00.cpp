@@ -59,8 +59,8 @@ void OverlayClass::unknown_slot68(Point2D const &point, Rect const &window)
         CellClass *drawn;
         if (Map.In_Radar(Coord_Cell(CoordStruct(Coord)))) {
             drawn = &Map[CoordStruct(Coord)];
-        } else if (Map.In_Radar(unknown_tactical_83996c->Unknown_006A6BD0(position))) {
-            drawn = &Map[unknown_tactical_83996c->Unknown_006A6BD0(position)];
+        } else if (Map.In_Radar(unknown_tactical_83996c->Pixel_To_Cell(position))) {
+            drawn = &Map[unknown_tactical_83996c->Pixel_To_Cell(position)];
         } else {
             drawn = &Map[Cell(1, unknown_short_8325d0)];
         }

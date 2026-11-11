@@ -17,7 +17,7 @@
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z=006a8d40
-// @ref ?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
+// @ref ?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
 // @ref ?Unknown_00568520@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z=00568520
 // @ref ?unknown_47be00@CellClass@@QAEXXZ=0047be00
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
@@ -38,7 +38,7 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
         target.unknown_140 |= 1;
     }
     if (changed) {
-        unknown_tactical_83996c->Unknown_006AADD0(&target);
+        unknown_tactical_83996c->Flag_Cell(&target);
     }
     for (int facing = 0; facing < 8; facing++) {
         Cell adjacent = Adjacent_Cell(cell, facing);
@@ -52,14 +52,14 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
                 unknown_slot38(adjacent, house);
             } else {
                 next.unknown_140 |= 1;
-                unknown_tactical_83996c->Unknown_006AADD0(&next);
+                unknown_tactical_83996c->Flag_Cell(&next);
                 for (int around = 0; around < 8; around++) {
                     Cell beyond = Adjacent_Cell(adjacent, around);
                     CellClass &far_cell = (*this)[beyond];
                     signed char far_frame = unknown_tactical_83996c->Cell_Shadow(beyond, 1);
                     if (far_frame != far_cell.unknown_121) {
                         far_cell.unknown_121 = far_frame;
-                        unknown_tactical_83996c->Unknown_006AADD0(&far_cell);
+                        unknown_tactical_83996c->Flag_Cell(&far_cell);
                     }
                 }
             }
@@ -67,7 +67,7 @@ bool DisplayClass::unknown_slot38(Cell const &cell, HouseClass *house)
             unknown_slot38(adjacent, house);
         } else if (next_frame >= 0 && next_frame != next.unknown_121) {
             next.unknown_121 = next_frame;
-            unknown_tactical_83996c->Unknown_006AADD0(&next);
+            unknown_tactical_83996c->Flag_Cell(&next);
         }
     }
     if (changed) {

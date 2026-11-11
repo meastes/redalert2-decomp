@@ -4,8 +4,8 @@
     "id": "population-4383",
     "inventory_sha256": "66c0f183965995a65b47b97c59055e6eca957e1cff781a5498b4362a8551cd58",
     "gaps_sha256": "b8cf9bc8d07633025048201f3b2f4d7a7e45a6ff8d1f46e6e1064514fab06f38",
-    "historical_population_sha256": "9f3a0efa8a9162d8f7a7e24fa0b9e1aeeef75e104b0365ce746bc4eca762803b",
-    "historical_acceptance_sha256": "349c5041be8a8fec19c544c819bdd1efc7f6219a8700385be0574dc1ba997b41"
+    "historical_population_sha256": "537ac5ef173dfb91da7f628235638bc59b74d84cf9885c53b89267a4a3912048",
+    "historical_acceptance_sha256": "50b3e3eddb5dc229c496b192a0d673d6b94c94dd22677f5879174fcaffbef829"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1763,7 +1763,7 @@
     "?Infantry_As_Techno_0040dbd0@@YIPAVTechnoClass@@PAVObjectClass@@@Z": 4250576,
     "?Is_Sensed@UnknownCellClass@@QAE_NH@Z": 4702944,
     "?Map@@3VMapClass@@A": 8594656,
-    "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
+    "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
     "?unknown_sound_enabled_7d88d6@@3_NA": 8227030,
     "?Unknown_006F76B0@@YA_NXZ": 7304880,
@@ -1807,7 +1807,7 @@
     "?Unknown_006A2970@@": 6957424,
     "?Unknown_006A29B0@@": 6957488,
     "?Coord_To_Pixel@Tactical@@": 6957520,
-    "?Unknown_006A2B10@Tactical@@": 6957840,
+    "?Pixel_To_Coord@Tactical@@": 6957840,
     "?Unknown_006A2BF0@Tactical@@": 6958064,
     "?Setup_Trigger_Scroll@Tactical@@": 6958256,
     "?Register_Dirty_Area@Tactical@@": 6959136,
@@ -1853,7 +1853,7 @@
     "?Unknown_006AABC0@Tactical@@": 6990784,
     "?Unknown_006AAD40@Tactical@@": 6991168,
     "?Unknown_006AAD70@Tactical@@": 6991216,
-    "?Unknown_006AADD0@Tactical@@": 6991312,
+    "?Flag_Cell@Tactical@@": 6991312,
     "?Reset_Dirty_Rectangles@Tactical@@": 6991744,
     "?Draw_Rally_Points@Tactical@": 6991824,
     "?Draw_Waypoints@Tactical@": 6992736,
@@ -4633,7 +4633,7 @@
     "?Scroll@StripClass@SidebarClass@@QAE_N_NH@Z": 6811232,
     "?unknown_flag_abcd84@@3_NA": 11259268,
     "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z": 7309856,
-    "?Unknown_006A2B10@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
+    "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
     "?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 6487168,
     "?Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4823984,
     "?RevealFogShroud@RadarClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z": 6487200,
@@ -4922,7 +4922,7 @@
     "__imp__KillTimer@8": 7972036,
     "?INoticeSink_Unknown@InfantryClass@@UAE_NHH@Z": 5281168,
     "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z": 6982976,
-    "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
+    "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
     "?Unknown_006AA5E0@Tactical@@QAEXABUPoint2D@@@Z": 6989280,
     "?Unknown_006AA5A0@Tactical@@QAEXABUPoint2D@@@Z": 6989216,
     "?Unknown_006AA770@Tactical@@QAEXXZ": 6989680,
@@ -17460,8 +17460,8 @@
     {
       "entry": 6957840,
       "method": "006a2b10",
-      "symbol": "?Unknown_006A2B10@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
-      "symbol_prefix": "?Unknown_006A2B10@Tactical@@",
+      "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+      "symbol_prefix": "?Pixel_To_Coord@Tactical@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -17547,13 +17547,13 @@
           "resolved": 11265352
         }
       ],
-      "source_sha256": "cf1249683fb4a58b7d7f1572d58e73fda0aeeb348a8950a5bfd889136262fb8c",
-      "source": "src/recovered/classes/Tactical/Tactical_point_to_coord_006a2b10.cpp",
+      "source_sha256": "4a7bbceabd9a67dbd5432451b555d265dea9889ddaf0ba846e6fcf5e04f8b01e",
+      "source": "src/recovered/classes/Tactical/Tactical_Pixel_To_Coord_006a2b10.cpp",
       "population": "population-4383",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Tactical_point_to_coord_006a2b10",
+      "semantic_name": "Tactical_Pixel_To_Coord_006a2b10",
       "source_order": 232832
     },
     {
@@ -21393,7 +21393,7 @@
         {
           "offset": 348,
           "kind": 20,
-          "symbol": "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+          "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
           "target": 6974416,
           "addend": 0,
           "resolved": 4294951136
@@ -21415,7 +21415,7 @@
           "resolved": 4293514603
         }
       ],
-      "source_sha256": "082c135193a6039a3e33af0f6e04901451b567fc01f1c0bf3289d273f8854e53",
+      "source_sha256": "3a9dcaae5342da36d034666c8a89e8d73b7d27be8f3678c6d3e5e25af5704a87",
       "source": "src/recovered/classes/Tactical/Tactical_Get_Selectable_Object_006aa990.cpp",
       "population": "population-4383",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -25605,8 +25605,8 @@
     {
       "entry": 6991312,
       "method": "006aadd0",
-      "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
-      "symbol_prefix": "?Unknown_006AADD0@Tactical@@",
+      "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
+      "symbol_prefix": "?Flag_Cell@Tactical@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -25684,13 +25684,13 @@
           "resolved": 8623676
         }
       ],
-      "source_sha256": "d0287b2c2e20e095acdb56ba317383c0206332dca7236c13bb82ea982eb79fc3",
-      "source": "src/recovered/classes/Tactical/Tactical_Unknown_006AADD0_006aadd0.cpp",
+      "source_sha256": "e7c5d7313c8c5954461fccdccafa01039745371483caac5d17c10435f5a3def4",
+      "source": "src/recovered/classes/Tactical/Tactical_Flag_Cell_006aadd0.cpp",
       "population": "population-4383",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Tactical_Unknown_006AADD0_006aadd0",
+      "semantic_name": "Tactical_Flag_Cell_006aadd0",
       "source_order": 232884
     },
     {
@@ -26158,8 +26158,8 @@
     {
       "entry": 6974416,
       "method": "006a6bd0",
-      "symbol": "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
-      "symbol_prefix": "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+      "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+      "symbol_prefix": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -26317,13 +26317,13 @@
           "resolved": 4294949005
         }
       ],
-      "source_sha256": "5cb6ea2707e5e2a65360cd38d1d389e44ed2e52cbbcb1958af5e3aad9a380848",
-      "source": "src/recovered/classes/Tactical/Tactical_Unknown_006A6BD0_006a6bd0.cpp",
+      "source_sha256": "9505c0982af4f8c514e01edc99842645d0641c26d174e4b5bd8179b5dd978ce5",
+      "source": "src/recovered/classes/Tactical/Tactical_Pixel_To_Cell_006a6bd0.cpp",
       "population": "population-4383",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Tactical_Unknown_006A6BD0_006a6bd0",
+      "semantic_name": "Tactical_Pixel_To_Cell_006a6bd0",
       "source_order": 232854
     }
   ]

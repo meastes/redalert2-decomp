@@ -12,7 +12,7 @@
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z=006a8d40
-// @ref ?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
+// @ref ?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
 // @ref ?Unknown_00568520@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z=00568520
 // @ref ?unknown_47be00@CellClass@@QAEXXZ=0047be00
 // @ref ?unknown_47c840@CellClass@@QAEXXZ=0047c840
@@ -48,7 +48,7 @@ bool DisplayClass::RevealFogShroud(Cell const &cell, HouseClass *house, bool arg
         target.unknown_140 |= 1;
     }
     if (changed) {
-        unknown_tactical_83996c->Unknown_006AADD0(&target);
+        unknown_tactical_83996c->Flag_Cell(&target);
         Map.Unknown_00568520(&target, house, mapped);
     }
     if ((target.unknown_140 & 2) && unmapped && (unknown_id_source_a3d290->unknown_000 & 0x1000)) {

@@ -4,8 +4,8 @@
     "id": "population-4405",
     "inventory_sha256": "c6b081ea298ce6ce40f3449457e2092b420dd98904de884728f60b0d33e2c164",
     "gaps_sha256": "390084c009b787bbd1e4c6e2bb4bb695461ba9c523b54b50393f91740d7d4717",
-    "historical_population_sha256": "510a4e04721e974b9c88607d95ddbd05f24e8fe15a4c48eb680efa982c52e03d",
-    "historical_acceptance_sha256": "8a1acf019e82489e430107aeac9794e379c5d43ab0c80aefdbdfc65b3c613789"
+    "historical_population_sha256": "2ef679a5f380c30ad493c6b5c030b6fdf7f4e2e1d25b4f14f5daf903548106bb",
+    "historical_acceptance_sha256": "974770d7533c9e56e50ae3881d73aa090ecc3043524e2d83e9d279be62a16b20"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1980,7 +1980,7 @@
     "?Unknown_006AA840@Tactical@@QAEHH@Z": 6989888,
     "?Unknown_006A8B70@Tactical@@QAEXHH@Z": 6982512,
     "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z": 6982976,
-    "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
+    "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
     "?Unknown_00568520@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z": 5670176,
     "?unknown_47be00@CellClass@@QAEXXZ": 4701696,
     "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": 10736272,
@@ -5335,12 +5335,12 @@
     "?Unknown_0067C2D0@SidebarClass@@QAEXH@Z": 6800080,
     "?Unlink@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z": 6858080,
     "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z": 6957520,
-    "?Unknown_006A2B10@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
+    "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
     "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z": 6958256,
     "?Render@Tactical@@QAEXPAVSurface@@_NH@Z": 6964640,
     "?Unknown_006A66B0@Tactical@@QAEXABUPoint2D@@@Z": 6973104,
     "?Unknown_006A6A50@UnknownTacticalView@@QAE?AVCell@@ABUCoordStruct@@@Z": 6974032,
-    "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
+    "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
     "?Unknown_006AAD40@Tactical@@QAEXXZ": 6991168,
     "?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z": 7028208,
     "?Unknown_006B5810@UnknownTarget@@QBEPAVAbstractClass@@XZ": 7034896,
@@ -18138,7 +18138,7 @@
         {
           "offset": 224,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2166060
@@ -18176,7 +18176,7 @@
           "resolved": 4294843682
         }
       ],
-      "source_sha256": "720608e6c8c8d5c857dcf61755473558f68399078e8908da6c3b4cf3737b39f9",
+      "source_sha256": "f1ca2620f0f5f9f235d3a360168d60c9be6e9186cc23220077c4cd2bef928f1d",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_RevealFogShroud_00499fc0.cpp",
       "population": "population-4405",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -18236,7 +18236,7 @@
         {
           "offset": 133,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2165847
@@ -18300,7 +18300,7 @@
         {
           "offset": 332,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2165648
@@ -18364,7 +18364,7 @@
         {
           "offset": 448,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2165532
@@ -18380,7 +18380,7 @@
         {
           "offset": 530,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2165450
@@ -18418,7 +18418,7 @@
           "resolved": 4294843045
         }
       ],
-      "source_sha256": "82972311ac3dd2e56db72f669781314c7aa88c863d7696ade333ca30a7ec9b19",
+      "source_sha256": "b938ce29801fc097ac66d30dde47e247dffa01b5427098023edf681dc27e822b",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_unknown_slot38_0049a0f0.cpp",
       "population": "population-4405",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -19050,7 +19050,7 @@
         {
           "offset": 92,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2154432
@@ -19122,7 +19122,7 @@
         {
           "offset": 280,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2154244
@@ -19136,7 +19136,7 @@
           "resolved": 4294831511
         }
       ],
-      "source_sha256": "7048e6073d8e7113da9d6cbb628c8b98428294e45dd95050bf306295bca7a686",
+      "source_sha256": "768c5173804991730288614b2cb7cc4d03ee656b8850771466951091e5f0871e",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_0049CDB0_0049cdb0.cpp",
       "population": "population-4405",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -19188,7 +19188,7 @@
         {
           "offset": 64,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2154124
@@ -19236,13 +19236,13 @@
         {
           "offset": 179,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2154009
         }
       ],
-      "source_sha256": "1191cfb1e0cd9028de050e9e237b62a47cdb3b8e658f832a05be22ef74bc0738",
+      "source_sha256": "d0857dcaf0d5c048f679823eb02041a86df4a745387b85b06490cb762ebd6b9e",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Unknown_0049CF00_0049cf00.cpp",
       "population": "population-4405",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -20510,7 +20510,7 @@
         {
           "offset": 228,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2167096
@@ -20566,7 +20566,7 @@
         {
           "offset": 422,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2166902
@@ -20622,7 +20622,7 @@
         {
           "offset": 534,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2166790
@@ -20638,7 +20638,7 @@
         {
           "offset": 619,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2166705
@@ -20670,7 +20670,7 @@
         {
           "offset": 739,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2166585
@@ -20726,7 +20726,7 @@
         {
           "offset": 851,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2166473
@@ -20742,7 +20742,7 @@
         {
           "offset": 936,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2166388
@@ -20780,7 +20780,7 @@
           "resolved": 4294843983
         }
       ],
-      "source_sha256": "33fc5611be97883c8566268aacdbad35548bae66691d8cc6bc0c4d5fc6796757",
+      "source_sha256": "4ec554e3b1976f51996ceb26aa24c87559fe1d748e738d29be8b3ceaf1553cd6",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_Map_Cell_00499bb0.cpp",
       "population": "population-4405",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -20849,7 +20849,7 @@
         {
           "offset": 126,
           "kind": 20,
-          "symbol": "?Unknown_006A2B10@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+          "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
           "target": 6957840,
           "addend": 0,
           "resolved": 2128926
@@ -20927,7 +20927,7 @@
           "resolved": 213673
         }
       ],
-      "source_sha256": "1a097c8ac0b8b349a37aa0a939d05275811775eec435f6e105b7f9c09283bcdd",
+      "source_sha256": "27609b3afcc7b094841dfbc42073ba0ef1de9d479e9aa6e535ef49092935d690",
       "source": "src/recovered/classes/DisplayClass__TacticalClass/TacticalClass_Action_0049ae70.cpp",
       "population": "population-4405",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -21089,7 +21089,7 @@
         {
           "offset": 118,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2165222
@@ -21153,7 +21153,7 @@
         {
           "offset": 316,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2165024
@@ -21209,7 +21209,7 @@
         {
           "offset": 428,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2164912
@@ -21225,7 +21225,7 @@
         {
           "offset": 510,
           "kind": 20,
-          "symbol": "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z",
           "target": 6991312,
           "addend": 0,
           "resolved": 2164830
@@ -21247,7 +21247,7 @@
           "resolved": 843647
         }
       ],
-      "source_sha256": "847778cea1b9300155bb1bf01c83a2598a51f10f35e6412941bf82f126725db4",
+      "source_sha256": "b11a9e22f409a75219c744356f0d444efa5bd03da4dd2cfb9c52cc638d397e99",
       "source": "src/recovered/classes/DisplayClass/DisplayClass_unknown_slot39_0049a370.cpp",
       "population": "population-4405",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

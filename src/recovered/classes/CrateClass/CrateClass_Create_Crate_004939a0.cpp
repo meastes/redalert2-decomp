@@ -20,7 +20,7 @@ bool CrateClass::Create_Crate(Cell const &cell)
     Remove_It();
     Cell loc = cell;
     if (Put_Crate(loc)) {
-        unknown_tactical_83996c->Unknown_006AADD0(&Map[cell]);
+        unknown_tactical_83996c->Flag_Cell(&Map[cell]);
         Location = loc;
         Timer = int(Random_Double(Rules->CrateRegen * 450.0, Rules->CrateRegen * 1800.0));
         Timer.Start();

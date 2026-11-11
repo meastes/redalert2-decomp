@@ -18,7 +18,7 @@ void RadarClass::Render_Radar()
     int edge;
     Rect previous = unknown_1208;
     bool tactical = unknown_14ac == 1 && unknown_14a8 == 1;
-    Cell center = Map[unknown_tactical_83996c->Unknown_006A6BD0(Point2D(
+    Cell center = Map[unknown_tactical_83996c->Pixel_To_Cell(Point2D(
         unknown_rect_839630.X + unknown_rect_839630.Width / 2,
         unknown_rect_839630.Y + unknown_rect_839630.Height / 2))].Fetch_CellID();
     unknown_14d8 = Cell_To_Radar_Pixel(center);

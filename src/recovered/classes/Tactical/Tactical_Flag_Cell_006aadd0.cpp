@@ -2,7 +2,7 @@
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void Tactical::Unknown_006AADD0(CellClass *cell) (0x006AADD0)
+// void Tactical::Flag_Cell(CellClass *cell) (0x006AADD0)
 // Adopted from ra2-decomp Tactical::Flag_Cell (YR 0x006DA7D0).
 // During a dirty redraw, lists a mapped (or newly revealed) cell not yet
 // flagged this frame for redrawing when its ground pixel lies near the
@@ -13,7 +13,7 @@
 #include "shared/cell.hpp"
 #include "shared/cd_timer.hpp"
 
-void Tactical::Unknown_006AADD0(CellClass *cell)
+void Tactical::Flag_Cell(CellClass *cell)
 {
     if (Map.IsToRedraw == 0 && cell->unknown_5c != Frame && ((cell->unknown_12c & 8) || cell->unknown_138)) {
         cell->unknown_5c = Frame;

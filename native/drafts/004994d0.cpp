@@ -25,7 +25,7 @@
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?unknown_a40d13@@3_NA=00a40d13
 // @ref ?Click_Cell_Calc@RadarClass@@QAE?AVCell@@ABUPoint2D@@@Z=0062fbd0
-// @ref ?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z=006a6bd0
+// @ref ?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z=006a6bd0
 // @ref ?Clamp_Cursor_To_Tactical@Tactical@@QAE?AVCell@@ABV2@PBV2@@Z=006aa970
 // @ref ?Unknown_004998C0@DisplayClass@@QAEXABVCell@@_N@Z=004998c0
 // @ref ?Passes_Proximity_Check_004991D0@DisplayClass@@QBE_NPBVObjectTypeClass@@HPBVCell@@ABV3@@Z=004991d0
@@ -48,7 +48,7 @@ Cell DisplayClass::Unknown_004994D0(Cell const &xpos)
             }
         } else {
             Point2D mouse = WWMouse->Get_Mouse_XY();
-            pos = unknown_tactical_83996c->Unknown_006A6BD0(mouse - tl);
+            pos = unknown_tactical_83996c->Pixel_To_Cell(mouse - tl);
         }
     }
 

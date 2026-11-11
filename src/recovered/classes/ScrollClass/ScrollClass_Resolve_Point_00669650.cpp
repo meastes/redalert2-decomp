@@ -21,8 +21,8 @@ bool ScrollClass::Resolve_Point(Point2D const &xy,Cell &cell,CoordStruct &coord,
     fog=false;
     shadow=false;
     if (xy.X<0 || xy.Y<0) return false;
-    cell = unknown_tactical_83996c ? unknown_tactical_83996c->Unknown_006A6BD0(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_k;
-    coord = unknown_tactical_83996c ? unknown_tactical_83996c->Unknown_006A2B10(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_l;
+    cell = unknown_tactical_83996c ? unknown_tactical_83996c->Pixel_To_Cell(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_k;
+    coord = unknown_tactical_83996c ? unknown_tactical_83996c->Pixel_To_Coord(xy+Point2D(unknown_rect_839630.X,unknown_rect_839630.Y)) : unknown_geometry_l;
     if (unknown_tactical_83996c && Map.Unknown_0054AB00(coord)) {
         UnknownCoord434820 adjusted = UnknownCoord434820(cell,Map.Get_Height_GL(UnknownCoord434820(cell)));
         shadow=Map.Is_Shrouded(adjusted) && unknown_b263d8!=0;

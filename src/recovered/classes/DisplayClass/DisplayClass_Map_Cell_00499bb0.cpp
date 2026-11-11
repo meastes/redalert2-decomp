@@ -17,7 +17,7 @@
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
 // @ref ?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z=006a8d40
-// @ref ?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
+// @ref ?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
 // @ref ?Unknown_00568520@MapClass@@QAEXPAVCellClass@@PAVHouseClass@@_N@Z=00568520
 // @ref ?unknown_47be00@CellClass@@QAEXXZ=0047be00
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
@@ -48,7 +48,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
         target.unknown_140 |= 1;
     }
     if (changed) {
-        unknown_tactical_83996c->Unknown_006AADD0(&target);
+        unknown_tactical_83996c->Flag_Cell(&target);
     }
 
     for (int facing = 0; facing < 8; facing++) {
@@ -62,14 +62,14 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
                     Map_Cell(adjacent, house);
                 } else {
                     near_cell.unknown_12c |= 0x10;
-                    unknown_tactical_83996c->Unknown_006AADD0(&near_cell);
+                    unknown_tactical_83996c->Flag_Cell(&near_cell);
                     for (int around = 0; around < 8; around++) {
                         Cell next = AdjacentCell[around & 7] + adjacent;
                         CellClass &next_cell = (*this)[next];
                         signed char next_frame = unknown_tactical_83996c->Cell_Shadow(next, 0);
                         if (next_frame != next_cell.unknown_120) {
                             next_cell.unknown_120 = next_frame;
-                            unknown_tactical_83996c->Unknown_006AADD0(&next_cell);
+                            unknown_tactical_83996c->Flag_Cell(&next_cell);
                         }
                     }
                 }
@@ -77,7 +77,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
                 Map_Cell(adjacent, house);
             } else if (shade >= 0 && shade != near_cell.unknown_120) {
                 near_cell.unknown_120 = shade;
-                unknown_tactical_83996c->Unknown_006AADD0(&near_cell);
+                unknown_tactical_83996c->Flag_Cell(&near_cell);
             }
         }
 
@@ -88,14 +88,14 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
                     Map_Cell(adjacent, house);
                 } else {
                     near_cell.unknown_140 |= 1;
-                    unknown_tactical_83996c->Unknown_006AADD0(&near_cell);
+                    unknown_tactical_83996c->Flag_Cell(&near_cell);
                     for (int around = 0; around < 8; around++) {
                         Cell next = AdjacentCell[around & 7] + adjacent;
                         CellClass &next_cell = (*this)[next];
                         signed char next_frame = unknown_tactical_83996c->Cell_Shadow(next, 1);
                         if (next_frame != next_cell.unknown_121) {
                             next_cell.unknown_121 = next_frame;
-                            unknown_tactical_83996c->Unknown_006AADD0(&next_cell);
+                            unknown_tactical_83996c->Flag_Cell(&next_cell);
                         }
                     }
                 }
@@ -103,7 +103,7 @@ bool DisplayClass::Map_Cell(Cell const &cell, HouseClass *house)
                 Map_Cell(adjacent, house);
             } else if (shade >= 0 && shade != near_cell.unknown_121) {
                 near_cell.unknown_121 = shade;
-                unknown_tactical_83996c->Unknown_006AADD0(&near_cell);
+                unknown_tactical_83996c->Flag_Cell(&near_cell);
             }
         }
     }

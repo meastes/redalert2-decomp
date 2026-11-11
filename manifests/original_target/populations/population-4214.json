@@ -4,8 +4,8 @@
     "id": "population-4214",
     "inventory_sha256": "c918b16fbbdb9ff12a56e940f85b8885b32f01b6879f9f207e05fbe91271cf21",
     "gaps_sha256": "29612fd36fc68d14ddf66ecf474746bf7e17bfb91418dd1046ff2ae728a7b7e7",
-    "historical_population_sha256": "50a331e4d79b41fc798510b52df371dfc4cd082ef1fc884a228f628af50997b1",
-    "historical_acceptance_sha256": "c31e08068f1fffcbf84e168f5df6ff775388094267edb6e0c3cb588cc5943c61"
+    "historical_population_sha256": "8de8ffaccc1baa09355572d0613aaa50cdffa4b3e6785315cde72b40d28332a7",
+    "historical_acceptance_sha256": "3a3102ae2ea7903cafed98e226fe5fa945585981e6dc1966d2c49a805159d17c"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -9920,10 +9920,10 @@
     "?Resize@?$VectorClass@PAVIConnectionPoint@@@@UAE_NHPBQAVIConnectionPoint@@@Z": 4797568,
     "?Spawn_Held_Particle@ParticleSystemClass@@QAEPAVParticleClass@@PAVParticleTypeClass@@ABUCoordStruct@@@Z": 6337088,
     "?Spawn_Particle@ParticleSystemClass@@QAEPAVParticleClass@@ABUCoordStruct@@0@Z": 6336912,
-    "?Unknown_006A2B10@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
+    "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
     "?Setup_Trigger_Scroll@Tactical@@QAEXABUCoordStruct@@H@Z": 6958256,
     "?Unknown_006A66B0@Tactical@@QAEXABUPoint2D@@@Z": 6973104,
-    "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
+    "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
     "?Unknown_006A8B70@Tactical@@QAEXHH@Z": 6982512,
     "?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z": 6982976,
     "?Unknown_006AA5A0@Tactical@@QAEXABUPoint2D@@@Z": 6989216,
@@ -9931,7 +9931,7 @@
     "?Unknown_006AA770@Tactical@@QAEXXZ": 6989680,
     "?Unknown_006AA840@Tactical@@QAEHH@Z": 6989888,
     "?Unknown_006AAD40@Tactical@@QAEXXZ": 6991168,
-    "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
+    "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
     "?Unknown_00721DB0@@YIHABUPoint2D@@0@Z": 7478704,
     "?base@Init_498a50@@QAEXXZ": 5536096,
     "?get@Append_658070@@QAEEPBI@Z": 6652016,

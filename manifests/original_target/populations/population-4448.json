@@ -4,8 +4,8 @@
     "id": "population-4448",
     "inventory_sha256": "54098f3f0f8b93205801268038ebc6a7cfb4ac77d43853e5fcf7ca588ea27ba7",
     "gaps_sha256": "5995c87da0770257b119363f65e7f32bf0001937526baa0be2c03fc402bc725a",
-    "historical_population_sha256": "0cce54d8e23dd8b6e7ca07005fa7a8f97f0f97bbed7c675514f95281a8b1c6db",
-    "historical_acceptance_sha256": "b1f33903e4062f19e91d0d092055097d301df2281ec318ddba594a5e85fabc86"
+    "historical_population_sha256": "fdae8351f95c1dbb11174ffecc0bde22e175717a123403fd8ff56e2e9f82d29a",
+    "historical_acceptance_sha256": "2f7385b83cf048e9a5bdafbdcba922e140a28d37819b946e817e6616d6a1ec6f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2017,8 +2017,8 @@
     "?Draw_Names@RadarClass@@QAEXXZ": 6488912,
     "?Play_Movie@RadarClass@@QAEXXZ": 6503728,
     "?unknown_tactical_83996c@@3PAVTactical@@A": 8624492,
-    "?Unknown_006A2B10@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
-    "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
+    "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z": 6957840,
+    "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z": 6974416,
     "?Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4823984,
     "?RevealFogShroud@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z": 4825024,
     "?AI@DisplayClass@@UAEXAAHABUPoint2D@@@Z": 4823584,
@@ -5370,7 +5370,7 @@
     "?Unknown_006AA770@Tactical@@QAEXXZ": 6989680,
     "?Unknown_006AA840@Tactical@@QAEHH@Z": 6989888,
     "?Unknown_006AAD40@Tactical@@QAEXXZ": 6991168,
-    "?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
+    "?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z": 6991312,
     "?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z": 7028208,
     "?Unknown_006B5810@UnknownTarget@@QBEPAVAbstractClass@@XZ": 7034896,
     "?Unknown_006BF260@@YIPAVAbstractTypeClass@@PBD@Z": 7074400,
@@ -13959,7 +13959,9 @@
     "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
     "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
     "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
-    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
   },
   "regions": [
     {
@@ -16562,7 +16564,7 @@
         {
           "offset": 38,
           "kind": 20,
-          "symbol": "?Unknown_006A2B10@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
+          "symbol": "?Pixel_To_Coord@Tactical@@QAE?AUCoordStruct@@ABUPoint2D@@@Z",
           "target": 6957840,
           "addend": 0,
           "resolved": 470806
@@ -16610,7 +16612,7 @@
         {
           "offset": 105,
           "kind": 20,
-          "symbol": "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+          "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
           "target": 6974416,
           "addend": 0,
           "resolved": 487315
@@ -16626,7 +16628,7 @@
         {
           "offset": 135,
           "kind": 20,
-          "symbol": "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+          "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
           "target": 6974416,
           "addend": 0,
           "resolved": 487285
@@ -16640,7 +16642,7 @@
           "resolved": 11232048
         }
       ],
-      "source_sha256": "554bb7d6dfa4eacba50172c68995bb6566244c871e655326e7875e28b0fd97fa",
+      "source_sha256": "1eaf8743fc9b716797c14b827fd3e59f56ca26d748a59dcac4f675d40acb0523",
       "source": "src/recovered/classes/RadarClass/RadarClass_Click_Cell_Calc_0062fbd0.cpp",
       "population": "population-4448",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -21972,7 +21974,7 @@
         {
           "offset": 143,
           "kind": 20,
-          "symbol": "?Unknown_006A6BD0@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
+          "symbol": "?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABUPoint2D@@@Z",
           "target": 6974416,
           "addend": 0,
           "resolved": 473389
@@ -22282,7 +22284,7 @@
           "resolved": 33586
         }
       ],
-      "source_sha256": "c5a3be3f976f99abf228bc01bf785fe143908f92dcdde9065bcc349ddabc968c",
+      "source_sha256": "ef9ebfb175a7fef007d3db0cbc03d1bb84d1ee6f0ed56e2e305bec5c3c380cd3",
       "source": "src/recovered/classes/RadarClass/RadarClass_Render_Radar_00633210.cpp",
       "population": "population-4448",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

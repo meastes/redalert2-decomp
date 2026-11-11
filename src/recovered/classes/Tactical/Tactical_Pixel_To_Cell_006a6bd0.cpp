@@ -1,4 +1,4 @@
-// Cell Tactical::Unknown_006A6BD0(Point2D const &point) (0x006A6BD0): the cell under a
+// Cell Tactical::Pixel_To_Cell(Point2D const &point) (0x006A6BD0): the cell under a
 // screen point: scans up to 180 pixels below the point for the first cell whose
 // lifted top lies at or above it, allowing for bridges (TibSun Tactical::Pixel_To_Cell).
 // Unlike TibSun's early returns, the found cell is stored into the fallback and the scan
@@ -11,7 +11,7 @@
 // @ref ?unknown_rect_839630@@3VRect@@A=00839630
 // @ref ??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z=00591380
 
-Cell Tactical::Unknown_006A6BD0(Point2D const &point)
+Cell Tactical::Pixel_To_Cell(Point2D const &point)
 {
     Point2D lepton = Unknown_006A2900(Point2D(TacPixelX, TacPixelY) + point - Point2D(unknown_rect_839630.X, unknown_rect_839630.Y));
 

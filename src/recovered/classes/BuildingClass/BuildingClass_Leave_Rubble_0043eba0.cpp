@@ -32,7 +32,7 @@ void BuildingClass::Leave_Rubble_0043eba0()
         Point2D view_origin(unknown_rect_839630.X, unknown_rect_839630.Y);
         Point2D translated(area.X - view_origin.X, area.Y - view_origin.Y);
         unknown_tactical_83996c->Register_Dirty_Area(Rect(RectPoint2D(translated.X, translated.Y), area.Width, area.Height), 0);
-        unknown_tactical_83996c->Unknown_006AADD0(&Map[origin]);
+        unknown_tactical_83996c->Flag_Cell(&Map[origin]);
     }
     if (Type->CrateBeneath) {
         Cell position = Coord_Cell(unknown_slot42());

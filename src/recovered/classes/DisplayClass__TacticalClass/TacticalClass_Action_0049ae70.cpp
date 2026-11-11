@@ -24,7 +24,7 @@ int DisplayClass::TacticalClass::Action(unsigned flags, unsigned &key)
         WWMouse->Get_Mouse_Y();
         xy = WWMouse->Get_Mouse_XY();
     }
-    unknown_tactical_83996c->Unknown_006A2B10(xy);
+    unknown_tactical_83996c->Pixel_To_Coord(xy);
     xy -= Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
     Cell cell;
     CoordStruct coord;

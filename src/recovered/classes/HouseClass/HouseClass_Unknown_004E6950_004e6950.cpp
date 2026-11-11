@@ -104,7 +104,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                             if (Map.unknown_1190) {
                                 Map.Unknown_00498F10(((ObjectTypeClass *)Map.unknown_1190)->unknown_slot36(1));
                                 Point2D xy = WWMouse->Get_Mouse_XY();
-                                unknown_tactical_83996c->Unknown_006A2B10(xy);
+                                unknown_tactical_83996c->Pixel_To_Coord(xy);
                                 xy -= Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);
                                 Cell mouse_cell;
                                 CoordStruct mouse_coord;

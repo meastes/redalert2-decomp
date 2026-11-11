@@ -12,7 +12,7 @@
 // @ref ?In_Radar@MapClass@@QAE_NABVCell@@@Z=0054aab0
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?unknown_tactical_83996c@@3PAVTactical@@A=0083996c
-// @ref ?Unknown_006AADD0@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
+// @ref ?Flag_Cell@Tactical@@QAEXPAVCellClass@@@Z=006aadd0
 // @ref ?Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z=006a8d40
 // @ref ?Fog_Cell@CellClass@@QAEXXZ=0047bc80
 // @ref ?Unknown_0049CDB0@DisplayClass@@QAEXABVCell@@@Z=0049cdb0
@@ -30,7 +30,7 @@ void DisplayClass::Unknown_0049CDB0(Cell const &cell)
     target.unknown_140 &= ~3;
     target.unknown_121 = 0xFE;
     if (target.unknown_12c & 8) {
-        unknown_tactical_83996c->Unknown_006AADD0(&target);
+        unknown_tactical_83996c->Flag_Cell(&target);
     }
     for (int facing = 0; facing < 8; facing++) {
         Cell adjacent = Adjacent_Cell(cell, facing);
@@ -43,7 +43,7 @@ void DisplayClass::Unknown_0049CDB0(Cell const &cell)
             if (frame >= 0 && (char)next.unknown_121 >= -1) {
                 next.unknown_121 = frame;
                 next.unknown_140 = (next.unknown_140 & ~1) | 2;
-                unknown_tactical_83996c->Unknown_006AADD0(&next);
+                unknown_tactical_83996c->Flag_Cell(&next);
             }
         }
     }
