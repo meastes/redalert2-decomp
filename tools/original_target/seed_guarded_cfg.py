@@ -54,10 +54,12 @@ def guarded_graph(audit,inventory,entry):
             edges[at]=targets
             for target in targets:pred[target].add(at)
             pending.extend(targets)
-        return nodes,edges,pred,unknown
+        return nodes,edges,pred,unknown,occupied
 
     def readonly(address,size):
-        require(address>=hi and 0<size<=1024,'Unknown or code-overlapping switch data extent')
+        in_body = lo <= address and address + size <= hi
+        require((address >= hi or in_body) and 0 < size <= 1024,
+                'Unknown switch data extent')
         section=audit.pe.get_section_by_rva(address-audit.base)
         require(section is not None and section.Characteristics&0x40000000 and not section.Characteristics&0x80000000,'Writable/unknown switch table')
         end=section.VirtualAddress+min(section.SizeOfRawData,section.Misc_VirtualSize)
@@ -110,7 +112,7 @@ def guarded_graph(audit,inventory,entry):
         return dict(dispatch=at,level=level,input_index=input_index,index=index,bound=count,guard=compare.address,range_branch=branch.address,targets=targets,literals=literals,guard_chain=chain)
 
     while True:
-        nodes,edges,pred,unknown=walk()
+        nodes,edges,pred,unknown,occupied=walk()
         require(len(unknown)<=32,'Excessive unresolved switches')
         if not unknown:break
         for at in sorted(unknown):
@@ -118,4 +120,12 @@ def guarded_graph(audit,inventory,entry):
     for at,proof in proofs.items():
         final=inspect(at,nodes,edges,pred)
         require(final==proof,'Expanded switch graph changed guard evidence')
+    # An embedded table is safe only after expanding every switch edge.
+    # Reject an instruction that enters any byte of a proved literal.
+    for proof in proofs.values():
+        for literal in proof['literals']:
+            address = literal['address']
+            if address < hi:
+                require(occupied.keys().isdisjoint(range(address, address + literal['size'])),
+                        'Embedded switch data overlaps reachable instructions')
     return dict(entry=entry,nodes=nodes,edges=edges,pred=pred,raw=raw,body_sha256=hashlib.sha256(raw).hexdigest(),switches=[proofs[at] for at in sorted(proofs)],code_end=hi,calls_assumed_returning=True,body_acceptance_claimed=False)
