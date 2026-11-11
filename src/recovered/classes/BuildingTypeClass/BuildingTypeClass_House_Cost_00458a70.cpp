@@ -11,16 +11,16 @@
 // Maximum_Cost is defined with Raw_Cost earlier in this whole class unit.
 template<class T> inline T Maximum_Cost(T first,T second);
 
-int BuildingTypeClass::unknown_slot33(HouseClass *house) const
+int BuildingTypeClass::Cost_Of(HouseClass *house) const
 {
-    int value=TechnoTypeClass::unknown_slot33(house);
+    int value=TechnoTypeClass::Cost_Of(house);
     TechnoTypeClass *first_type=Rules->PadAircraft[0];
     if(this==first_type->Dock[0] && !Rules->unknown_142c) {
-        int average=(int)((unsigned int)Rules->PadAircraft[0]->unknown_slot33(house)+(unsigned int)Rules->PadAircraft[1]->unknown_slot33(house))/2;
+        int average=(int)((unsigned int)Rules->PadAircraft[0]->Cost_Of(house)+(unsigned int)Rules->PadAircraft[1]->Cost_Of(house))/2;
         value=(int)((unsigned int)value+(unsigned int)average);
     }
     if(FreeUnit) {
-        value=(int)((unsigned int)value+(unsigned int)FreeUnit->unknown_slot33(house));
+        value=(int)((unsigned int)value+(unsigned int)FreeUnit->Cost_Of(house));
         return Maximum_Cost(value,0);
     }
     return value;

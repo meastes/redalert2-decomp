@@ -15,8 +15,8 @@ extern "C" ClearIconOffset const Clear_Icon_Adjacent[8];
 static Point2D Clear_Icon_Dimensions(IsometricTileTypeClass const *type)
 {
     Point2D size;
-    size.X=((IsoTileImageStruct const*)type->unknown_slot39())->unknown_00[0];
-    size.Y=((IsoTileImageStruct const*)type->unknown_slot39())->unknown_00[1];
+    size.X=((IsoTileImageStruct const*)type->Get_Image_Data())->unknown_00[0];
+    size.Y=((IsoTileImageStruct const*)type->Get_Image_Data())->unknown_00[1];
     return size;
 }
 // Choose a tile variation from the cell's wrapped position and the seeded pattern.
@@ -45,7 +45,7 @@ int CellClass::Clear_Icon(int type,int count) const
     Cell cell=Fetch_CellID();
     if(unknown_11a) {
         IsometricTileTypeClass const *tile=IsoTileTypes[type];
-        if(!tile->unknown_slot39()) return 0;
+        if(!tile->Get_Image_Data()) return 0;
         Point2D dimensions=Clear_Icon_Dimensions(tile);
         cell=cell-Cell((unsigned char)unknown_11a%dimensions.X,(unsigned char)unknown_11a/dimensions.X);
         cell.X/=dimensions.X;

@@ -111,7 +111,7 @@ void BuildingClass::unknown_slot286(TechnoClass *last_contact,TechnoClass *sourc
         CoordStruct coord=Coord_Scatter(Position_Coord_00450950(*this),Random_Pick(256,768),true);
         Map[coord].Place_Tiberium(type, 1);
     }
-    int shakes=Type->unknown_slot33(House)/Rules->unknown_4e8;
+    int shakes=Type->Cost_Of(House)/Rules->unknown_4e8;
     if (shakes>0) ((Leaf_482e00 *)shakes)->get();
     if (Get_Mission()==19 || Type->Explodes) {
         unknown_420=CDTimerClass<FrameTimerClass>(0);

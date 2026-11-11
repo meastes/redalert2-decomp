@@ -124,7 +124,7 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass *type, int (__fastcal
                 for (int attempt = 0; attempt < 3; ++attempt) {
                     Rect rect(pos.X - spacing, pos.Y - spacing, width + spacing * 2, height + spacing * 2);
                     if (Map.Unknown_005686B0(rect, ArrayIndex)) {
-                        if (type->unknown_slot42(pos, this)) {
+                        if (type->Legal_Placement(pos, this)) {
                             if (abs(base_height - Map[pos].unknown_11b) < 3 && unknown_func_4f5320(type, pos)) {
                                 return pos;
                             }

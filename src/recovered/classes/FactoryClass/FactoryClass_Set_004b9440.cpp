@@ -30,7 +30,7 @@ bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsi
         static_cast<BuildingClass *>(Object)->unknown_59a=true;
     if (Object) {
         Owner=Object->House;
-        UnspentCost=type->unknown_slot33(Owner);
+        UnspentCost=type->Cost_Of(Owner);
         Object->unknown_258=UnspentCost;
     }
     return Object!=0;

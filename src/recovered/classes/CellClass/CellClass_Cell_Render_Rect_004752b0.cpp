@@ -28,7 +28,7 @@ Rect CellClass::Cell_Render_Rect() const
     if (IsoTileIndex >= 0 && IsoTileIndex < IsoTileTypes.Count()) {
         IsometricTileTypeClass *itype = IsoTileTypes[IsoTileIndex];
         int subtile = (unsigned char)unknown_11a;
-        IsoTileImageStruct const *image = (IsoTileImageStruct const *)itype->unknown_slot39();
+        IsoTileImageStruct const *image = (IsoTileImageStruct const *)itype->Get_Image_Data();
         if (image == 0) {
             return Rect();
         }

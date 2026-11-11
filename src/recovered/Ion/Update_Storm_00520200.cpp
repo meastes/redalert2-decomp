@@ -70,7 +70,7 @@ void __fastcall Update_Storm_00520200()
         for (int index = IonStormClass::BoltsPresent.Count() - 1; index >= 0; index--) {
             AnimClass *bolt = IonStormClass::BoltsPresent[index];
             int stage = bolt->Stage;
-            if (stage >= ((ShapeFileStruct *)bolt->Class_Of()->unknown_slot39())->FrameCount / 2) {
+            if (stage >= ((ShapeFileStruct *)bolt->Class_Of()->Get_Image_Data())->FrameCount / 2) {
                 IonStormClass::BoltsPresent.Delete(index);
             }
         }
@@ -78,7 +78,7 @@ void __fastcall Update_Storm_00520200()
     for (int index = IonStormClass::CloudsManifesting.Count() - 1; index >= 0; index--) {
         AnimClass *cloud = IonStormClass::CloudsManifesting[index];
         int stage = cloud->Stage;
-        if (stage > ((ShapeFileStruct *)cloud->Class_Of()->unknown_slot39())->FrameCount / 2) {
+        if (stage > ((ShapeFileStruct *)cloud->Class_Of()->Get_Image_Data())->FrameCount / 2) {
             Storm_Strike_0051FE50(cloud->Center_Coord());
             IonStormClass::CloudsManifesting.Delete(index);
         }
@@ -87,7 +87,7 @@ void __fastcall Update_Storm_00520200()
         for (int index = IonStormClass::CloudsPresent.Count() - 1; index >= 0; index--) {
             AnimClass *cloud = IonStormClass::CloudsPresent[index];
             int stage = cloud->Stage;
-            if (stage >= ((ShapeFileStruct *)cloud->Class_Of()->unknown_slot39())->FrameCount - 1) {
+            if (stage >= ((ShapeFileStruct *)cloud->Class_Of()->Get_Image_Data())->FrameCount - 1) {
                 IonStormClass::CloudsPresent.Delete(index);
             }
         }

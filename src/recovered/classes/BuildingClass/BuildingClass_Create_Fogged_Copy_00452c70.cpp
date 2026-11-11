@@ -8,7 +8,7 @@ void BuildingClass::Create_Fogged_Copy_00452c70(
     DynamicVectorClass<FoggedObjectClass *> *replacement_list,
     CellClass *replacement_cell, bool arg)
 {
-    Cell const *offset=Type->unknown_slot36(0);
+    Cell const *offset=Type->Occupy_List(0);
     unknown_slot81();
     FoggedObjectClass *copy=new FoggedObjectClass(this,arg);
     Cell base=unknown_slot104();

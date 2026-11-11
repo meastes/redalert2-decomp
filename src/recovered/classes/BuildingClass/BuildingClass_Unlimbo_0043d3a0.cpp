@@ -63,7 +63,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
             }
         } else if (Type->Gate) {
             Cell cell = coord->As_Cell();
-            Cell const *occupy = Type->unknown_slot36(true);
+            Cell const *occupy = Type->Occupy_List(true);
             while (*occupy != Cell(32767, 32767)) {
                 CellClass *cellptr = &Map[cell + *occupy];
                 HouseClass *owner = 0;

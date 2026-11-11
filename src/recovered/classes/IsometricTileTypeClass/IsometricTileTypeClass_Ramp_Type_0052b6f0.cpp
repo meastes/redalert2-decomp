@@ -5,7 +5,7 @@
 
 int IsometricTileTypeClass::Ramp_Type(int index)
 {
-    IsoTileImageStruct const *image = (IsoTileImageStruct const *)unknown_slot39();
+    IsoTileImageStruct const *image = (IsoTileImageStruct const *)Get_Image_Data();
     if (image != 0) {
         IsoTileCellStruct const *record = (IsoTileCellStruct const *)image->Tiles[index % (image->unknown_00[0] * image->unknown_00[1])];
         if (record != 0) {

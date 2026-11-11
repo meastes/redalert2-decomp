@@ -140,20 +140,20 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0045D8F0
     virtual int unknown_slot16() const;                                 // 0x0045ED20 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00459A00
-    virtual CoordStruct unknown_slot27(CoordStruct const &coord) const; // 0x0045D830 (on the ground)
-    virtual int unknown_slot29() const;                                 // 0x00458980 Max_Pips
-    virtual CoordStruct unknown_slot30() const;                         // 0x00458840
-    virtual CoordStruct unknown_slot31() const;                         // 0x0045D8B0
+    virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x0045D830 (on the ground)
+    virtual int Max_Pips() const;                                 // 0x00458980 Max_Pips
+    virtual CoordStruct Pixel_Dimensions() const;                         // 0x00458840
+    virtual CoordStruct Lepton_Dimensions() const;                         // 0x0045D8B0
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x00458420
-    virtual int unknown_slot33(HouseClass *house) const;                        // 0x00458A70
+    virtual int Cost_Of(HouseClass *house) const;                        // 0x00458A70
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;           // 0x004584A0 (new building)
-    virtual Cell const *unknown_slot36(int arg1) const;           // 0x004588C0
-    virtual void *unknown_slot39() const;                               // 0x00458CE0
-    virtual bool unknown_slot40() const;                                // 0x0045E740
-    virtual bool unknown_slot41() const;                                // 0x0045E750
-    virtual bool unknown_slot42(Cell const &cell, HouseClass *house) const; // 0x0045D880
+    virtual Cell const *Occupy_List(int arg1) const;           // 0x004588C0
+    virtual void *Get_Image_Data() const;                               // 0x00458CE0
+    virtual bool CanUseWaypoint() const;                                // 0x0045E740
+    virtual bool CanAttackMove() const;                                // 0x0045E750
+    virtual bool Legal_Placement(Cell const &cell, HouseClass *house) const; // 0x0045D880
     virtual int Raw_Cost() const;                                       // 0x004589F0
-    virtual void *unknown_slot48();                                     // 0x0045E790 (new slot; the buildup image +0xB98, loaded on demand)
+    virtual void *Get_Buildup_Data();                                     // 0x0045E790 (new slot; the buildup image +0xB98, loaded on demand)
 
     static int __fastcall From_Name(char const *name);                  // 0x004583D0 (by ID)
     static int __fastcall From_Full_Name(char const *name);             // 0x00458380 (by Name)

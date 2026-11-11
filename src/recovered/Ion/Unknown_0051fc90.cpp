@@ -30,7 +30,7 @@
 void __stdcall Unknown_0051FC90(Cell cell)
 {
     CellClass &cellptr = Map[cell];
-    int half = ((ShapeFileStruct *)Rules->WeatherConBolts[0]->unknown_slot39())->Height / 2;
+    int half = ((ShapeFileStruct *)Rules->WeatherConBolts[0]->Get_Image_Data())->Height / 2;
     int height = Unknown_006A29B0(half);
     CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128,
         cellptr.unknown_11b * unknown_geometry_g + height + ((cellptr.unknown_140 & 0x100) ? unknown_geometry_j : 0));

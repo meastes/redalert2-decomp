@@ -21,7 +21,7 @@ bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &cell);
 void __fastcall Erase_Tile_Footprint_00589670(int tile,Cell const &position)
 {
     IsometricTileTypeClass *type=IsoTileTypes[tile];
-    IsoTileImageStruct const *image=(IsoTileImageStruct const *)type->unknown_slot39();
+    IsoTileImageStruct const *image=(IsoTileImageStruct const *)type->Get_Image_Data();
     if(image) {
         for(int y=0;y<type->unknown_2b8;y++) {
             for(int x=0;x<type->unknown_2b4;x++) {

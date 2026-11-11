@@ -120,8 +120,8 @@ public:
 class OverlayTypeClass;
 class BuildingTypeClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual void unknown_slot29();
-    virtual void unknown_slot30(); virtual void unknown_slot31(); virtual void Create_And_Place(); virtual void unknown_slot33(); virtual void unknown_slot34();
+    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void Coord_Fixup(); virtual void unknown_slot28(); virtual void Max_Pips();
+    virtual void Pixel_Dimensions(); virtual void Lepton_Dimensions(); virtual void Create_And_Place(); virtual void Cost_Of(); virtual void unknown_slot34();
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;   // slot 35 (+0x8C) a new building (as shared/building_type_class.hpp)
 
     char unknown_024[0x504 - 0x24];

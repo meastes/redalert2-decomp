@@ -10,8 +10,8 @@
 // @ref ?QueryInterface@AbstractClass@@W3AGJABUGUID@@PAPAX@Z=00410380
 // @ref ?AddRef@AbstractClass@@W3AGKXZ=00410390
 // @ref ?Release@AbstractClass@@W3AGKXZ=004103a0
-// @ref ?unknown_slot27@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z=0041c2e0
-// @ref ?unknown_slot39@ObjectTypeClass@@UBEPAXXZ=0041c300
+// @ref ?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z=0041c2e0
+// @ref ?Get_Image_Data@ObjectTypeClass@@UBEPAXXZ=0041c300
 // @ref ??_7SmudgeTypeClass@@6BINoticeSink@@@=007ab77c
 // @ref ??_7SmudgeTypeClass@@6BINoticeSource@@@=007ab774
 

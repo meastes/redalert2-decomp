@@ -44,7 +44,7 @@ void CellClass::Cell_Color(RGBClass &lowcolor, RGBClass &highcolor) const
         }
 
         if (otype->CellAnim != 0) {
-            ShapeFileStruct const *shape = (ShapeFileStruct const *)otype->CellAnim->unknown_slot39();
+            ShapeFileStruct const *shape = (ShapeFileStruct const *)otype->CellAnim->Get_Image_Data();
             highcolor = lowcolor = shape->Get_Color(OverlayData);
             return;
         }

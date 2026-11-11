@@ -10,7 +10,7 @@
 // @ref ?QueryInterface@AbstractClass@@W3AGJABUGUID@@PAPAX@Z=00410380
 // @ref ?AddRef@AbstractClass@@W3AGKXZ=00410390
 // @ref ?Release@AbstractClass@@W3AGKXZ=004103a0
-// @ref ?unknown_slot39@ObjectTypeClass@@UBEPAXXZ=0041c300
+// @ref ?Get_Image_Data@ObjectTypeClass@@UBEPAXXZ=0041c300
 // @ref ??_7TerrainTypeClass@@6BINoticeSink@@@=007ad5bc
 // @ref ??_7TerrainTypeClass@@6BINoticeSource@@@=007ad5b4
 

@@ -1,0 +1,9 @@
+// CoordStruct InfantryTypeClass::Lepton_Dimensions() const (0x0050A940)
+// 0x55 leptons square, twice the 0x00A411B0 height.
+#include "shared/infantry_type.hpp"
+// @ref _unknown_geometry_g=00a411b0
+
+CoordStruct InfantryTypeClass::Lepton_Dimensions() const
+{
+    return CoordStruct(0x55, 0x55, unknown_geometry_g * 2);
+}

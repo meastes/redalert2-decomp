@@ -89,7 +89,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
                 ObjectTypeClass *type = data->DrawRecords[0].Type;
                 CellClass *cellptr = &Map[CoordStruct(*position)];
                 int shapenum = data->DrawRecords[0].unknown_04;
-                ShapeFileStruct const *shape = (ShapeFileStruct const *)type->unknown_slot39();
+                ShapeFileStruct const *shape = (ShapeFileStruct const *)type->Get_Image_Data();
 
                 Point2D xy;
                 unknown_tactical_83996c->Coord_To_Pixel(CoordStruct(*position), xy);
@@ -114,7 +114,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
 
                     BuildingTypeClass *type = (BuildingTypeClass *)data->DrawRecords[record].Type;
                     int shapenum = data->DrawRecords[record].unknown_04;
-                    ShapeFileStruct const *shape = (ShapeFileStruct const *)type->unknown_slot39();
+                    ShapeFileStruct const *shape = (ShapeFileStruct const *)type->Get_Image_Data();
                     unsigned char heightadjust = data->DrawRecords[record].unknown_08;
                     ConvertClass *converter = ColorSchemes[((HouseClass *)data->unknown_28)->ColorSchemeIndex]->Converter;
 
@@ -207,7 +207,7 @@ void __fastcall Draw_Fogged_Objects(Rect const &rect)
             case 0x1d: {
                 Point2D point = data->unknown_40.Top_Left() - RectPoint2D(unknown_tactical_83996c->TacPixelX, unknown_tactical_83996c->TacPixelY) + (unknown_rect_839630.Top_Left() + RectPoint2D(60 / 2, 0)) - rect.Top_Left();
 
-                ShapeFileStruct const *shape = (ShapeFileStruct const *)SmudgeTypes[data->unknown_54]->unknown_slot39();
+                ShapeFileStruct const *shape = (ShapeFileStruct const *)SmudgeTypes[data->unknown_54]->Get_Image_Data();
                 if (shape != 0) {
                     TPoint3D<int> *position = &data->Coord;
                     CellClass *cellptr = &Map[CoordStruct(*position)];

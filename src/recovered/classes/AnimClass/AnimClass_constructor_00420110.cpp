@@ -29,7 +29,7 @@
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?unknown_slot39@ObjectTypeClass@@UBEPAXXZ=00426550
+// @ref ?Get_Image_Data@ObjectTypeClass@@UBEPAXXZ=00426550
 // @ref ?Unknown_005D9760@UnknownSpeedA40B18@@QAEHH@Z=005d9760
 // @ref ?unknown_speed_a40b18@@3VUnknownSpeedA40B18@@A=00a40b18
 // @ref ?unknown_func_5d4920@ObjectClass@@QAEXH@Z=005d4920
@@ -84,7 +84,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
     unknown_7d = true;
     YSortAdjust = Class->YSortAdjust;
     if (Class->End == -1) {
-        Class->End = ((ShapeFileStruct *)Class->unknown_slot39())->FrameCount;
+        Class->End = ((ShapeFileStruct *)Class->Get_Image_Data())->FrameCount;
         if (Class->Shadow) {
             Class->End = Class->End / 2;
         }

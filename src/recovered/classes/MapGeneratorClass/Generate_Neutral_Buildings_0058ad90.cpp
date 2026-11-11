@@ -53,7 +53,7 @@ void MapGeneratorClass::Generate_Neutral_Buildings()
                 if(tries>=100)break;
                 Cell position=Pick_Random_Clear_Map_Cell();
                 int height=Cell_Height(position);
-                Cell const *list=building->Type->unknown_slot36(1);
+                Cell const *list=building->Type->Occupy_List(1);
                 bool clear=true;
                 while(!Is_List_End(list)) {
                     Cell next=position + *list;

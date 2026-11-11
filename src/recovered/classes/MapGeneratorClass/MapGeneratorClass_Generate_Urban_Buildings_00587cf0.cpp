@@ -30,7 +30,7 @@ void MapGeneratorClass::Generate_Urban_Buildings(DynamicVectorClass<Cell> &cells
                 while(!wasPlaced) {
                     if(attempts>=60)break;
                     Cell position=cells[Map_Random_Range_005797a0(0,cells.Count()-1)];
-                    Cell const *list=building->Type->unknown_slot36(1);
+                    Cell const *list=building->Type->Occupy_List(1);
                     bool clear=true;
                     while(list->X!=0x7fff || list->Y!=0x7fff) {
                         Cell next=(position + *list);

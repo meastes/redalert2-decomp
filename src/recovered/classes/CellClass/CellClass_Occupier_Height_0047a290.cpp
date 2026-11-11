@@ -18,7 +18,7 @@ int CellClass::Occupier_Height() const
     }
     BuildingClass *building = (BuildingClass *)Cell_Building();
     if (building != 0) {
-        CoordStruct dimensions = building->Type->unknown_slot31();
+        CoordStruct dimensions = building->Type->Lepton_Dimensions();
         height += dimensions.Z;
     } else if (Cell_Techno(Point2D(0, 0), false, 0) != 0) {
         height += 0x55;

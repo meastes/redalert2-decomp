@@ -61,7 +61,7 @@ bool TerrainTypeClass::Read_INI(CCINIClass &ini)
             _makepath(fullname, 0, 0, unknown_1c8, ".SHP");
             unknown_a4 = (void *)MixFileClass::Retrieve(fullname);
         }
-        ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_slot39();
+        ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
         if (shape != 0) {
             RadarColor = Frame_Color(shape, 0);
         }

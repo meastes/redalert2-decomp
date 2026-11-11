@@ -26,7 +26,7 @@ char *__fastcall Unknown_006F85E0(DynamicVectorClass<TechnoClass *> const &objec
         int found = unknown_find_name_index(*names, id);
         HouseClass *house = object->House;
         int sum = (*costs)[found];
-        int cost = ((TechnoTypeClass *)object->Class_Of())->unknown_slot33(house);
+        int cost = ((TechnoTypeClass *)object->Class_Of())->Cost_Of(house);
         (*costs)[found] = sum + cost;
     }
     *best = 0;

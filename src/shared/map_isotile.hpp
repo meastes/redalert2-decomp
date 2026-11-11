@@ -28,15 +28,15 @@ struct IsoTileImageStruct {
 
 class IsometricTileTypeClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual void unknown_slot29();
-    virtual void unknown_slot30(); virtual void unknown_slot31(); virtual void Create_And_Place(); virtual void unknown_slot33(); virtual void unknown_slot34(); 
+    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void Coord_Fixup(); virtual void unknown_slot28(); virtual void Max_Pips();
+    virtual void Pixel_Dimensions(); virtual void Lepton_Dimensions(); virtual void Create_And_Place(); virtual void Cost_Of(); virtual void unknown_slot34(); 
 #ifdef RA2_MAP_COLLAPSE_CLIFF
     virtual class ObjectClass *Create_One_Of(class HouseClass *house) const;
 #else
     virtual void Create_One_Of();
 #endif
-    virtual void unknown_slot36(); virtual void unknown_slot37(); virtual void unknown_slot38();
-    virtual void *unknown_slot39() const;               // slot 39 (+0x9C) the image (0x005293D0)
+    virtual void Occupy_List(); virtual void unknown_slot37(); virtual void unknown_slot38();
+    virtual void *Get_Image_Data() const;               // slot 39 (+0x9C) the image (0x005293D0)
 
     // The tile type a map file's index stands for (0xFFFF, no tile, unchanged; 0x00529550;
     // hypothesis: TibSun Fixup_Tile_Type).

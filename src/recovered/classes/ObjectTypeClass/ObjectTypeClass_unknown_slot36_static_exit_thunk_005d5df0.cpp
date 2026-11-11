@@ -1,4 +1,4 @@
-// Exit thunk of the function-local static in ObjectTypeClass::unknown_slot36
+// Exit thunk of the function-local static in ObjectTypeClass::Occupy_List
 // (0x005D5DF0)
 // Compiler generated ($E) right after unknown_slot36: UnknownStaticCell's empty
 // destructor over the array, registered with atexit on first use.

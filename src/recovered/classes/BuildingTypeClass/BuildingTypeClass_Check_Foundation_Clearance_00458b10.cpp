@@ -35,7 +35,7 @@ int BuildingTypeClass::unknown_458b10(Cell const &origin,HouseClass *house) cons
  bool scattered=false;
  Cell const *offset;
  if(origin==unknown_geometry_k)goto no_placement;
- offset=unknown_slot36(1);
+ offset=Occupy_List(1);
  while(*offset!=Cell(0x7fff,0x7fff)) {
   Cell cell=origin+*offset++;
   if(!Map.In_Radar(cell))continue;

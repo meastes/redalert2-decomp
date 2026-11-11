@@ -81,13 +81,13 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0050AA20
     virtual int unknown_slot16() const;                                 // 0x0050AF80 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0050A3C0
-    virtual CoordStruct unknown_slot27(CoordStruct const &coord) const; // 0x0050A9B0 (raised to the ground)
-    virtual CoordStruct unknown_slot31() const;                         // 0x0050A940
+    virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x0050A9B0 (raised to the ground)
+    virtual CoordStruct Lepton_Dimensions() const;                         // 0x0050A940
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x00509F20
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x00509EF0 (new infantry)
-    virtual Cell const *unknown_slot36(int arg1) const;           // 0x0050A000
-    virtual bool unknown_slot40() const;                                // 0x0050A990 (TechnoType's)
-    virtual bool unknown_slot41() const;                                // 0x0050A9A0 (TechnoType's)
+    virtual Cell const *Occupy_List(int arg1) const;           // 0x0050A000
+    virtual bool CanUseWaypoint() const;                                // 0x0050A990 (TechnoType's)
+    virtual bool CanAttackMove() const;                                // 0x0050A9A0 (TechnoType's)
     virtual int Repair_Cost() const;                                    // 0x0050A980 (0)
     virtual int Repair_Step() const;                                    // 0x0050A970
 

@@ -10,7 +10,7 @@
 // @ref ?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z=00495230
 void *__fastcall Load_Alloc_Data(FileClass &file);
 extern "C" void __cdecl _makepath(char *, char const *, char const *, char const *, char const *);
-void *BuildingTypeClass::unknown_slot48()
+void *BuildingTypeClass::Get_Buildup_Data()
 {
     if(BuildupData==0 && DemandLoadBuildup) {
         if(strlen(BuildupFile)!=0) {

@@ -8,10 +8,10 @@
 
 RGBClass OverlayTypeClass::Get_Radar_Color(unsigned frame) const
 {
-    ShapeFileStruct const *image = (ShapeFileStruct const *)unknown_slot39();
+    ShapeFileStruct const *image = (ShapeFileStruct const *)Get_Image_Data();
 
     if (image == 0 && CellAnim != 0) {
-        image = (ShapeFileStruct const *)CellAnim->unknown_slot39();
+        image = (ShapeFileStruct const *)CellAnim->Get_Image_Data();
     }
 
     if (image != 0) {

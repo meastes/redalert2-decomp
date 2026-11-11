@@ -13,7 +13,7 @@ int UnitClass::unknown_slot166()
     case 2:
     {
         double ratio = unknown_294.Get_Total_Amount() / Type->Storage;
-        return (int)(Type->unknown_slot29() * ratio + 0.5);
+        return (int)(Type->Max_Pips() * ratio + 0.5);
     }
     }
     return TechnoClass::unknown_slot166();

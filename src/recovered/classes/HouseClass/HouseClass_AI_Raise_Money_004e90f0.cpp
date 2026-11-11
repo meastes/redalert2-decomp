@@ -13,8 +13,8 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
                               unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0) &&
                              (unknown_5460.unknown_func_491d10(Rules->BuildWeapons[0]->ArrayIndex)>0 ||
                               unknown_5460.unknown_func_491d10(Rules->BuildWeapons[1]->ArrayIndex)>0);
-    if (can_build_harvester) needed=Unknown_004EF6F0(Rules->unknown_9ec)->unknown_slot33(this);
-    else needed=unknown_func_4ef600(Rules->BuildRefinery)->unknown_slot33(this);
+    if (can_build_harvester) needed=Unknown_004EF6F0(Rules->unknown_9ec)->Cost_Of(this);
+    else needed=unknown_func_4ef600(Rules->BuildRefinery)->Cost_Of(this);
     int i=unknown_55f0.Nodes.Count()-1;
     for (;i>=0;--i) {
         BuildingClass *building=unknown_55f0.Get_Building(i);

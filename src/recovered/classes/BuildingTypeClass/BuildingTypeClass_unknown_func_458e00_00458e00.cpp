@@ -7,7 +7,7 @@
 bool BuildingTypeClass::unknown_func_458e00(void **image, int *frame) const
 {
     if (LeaveRubble && image) {
-        *image = unknown_slot39();
+        *image = Get_Image_Data();
         if (*image && ((ShapeFileStruct *)*image)->FrameCount / 2 > 3) {
             *frame = 3;
             return true;

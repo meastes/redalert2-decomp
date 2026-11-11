@@ -3,5 +3,5 @@
 
 void *ObjectClass::unknown_slot26()
 {
-    return Class_Of()->unknown_slot39();
+    return Class_Of()->Get_Image_Data();
 }

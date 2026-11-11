@@ -282,7 +282,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
             IsoSpanTablesBuilt = 1;
         }
         if (surface.Bytes_Per_Pixel() == 2) {
-            const IsoTileSet * set = (const IsoTileSet *)tileptr->unknown_slot39();
+            const IsoTileSet * set = (const IsoTileSet *)tileptr->Get_Image_Data();
             if (set != NULL) {
                 if (use_z) {
                     IsoDrawData.BaseDepth = (unsigned short)(LOWORD(DepthBuffer->MaxValue) + LOWORD(DepthBuffer->Area.Y) - y - LOWORD(set->Height));

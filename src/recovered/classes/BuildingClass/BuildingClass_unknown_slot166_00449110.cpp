@@ -14,7 +14,7 @@ int BuildingClass::unknown_slot166()
     case 2:
         if (type->Weeder) {
             double ratio = House->unknown_func_4e5240();
-            return type->unknown_slot29() * ratio;
+            return type->Max_Pips() * ratio;
         }
         return 0;
     default:

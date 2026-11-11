@@ -38,7 +38,7 @@ public:
     virtual int Size_Of() const;                                        // 0x00465170 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00464E70 slot 13
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00464800 slot 25
-    virtual CoordStruct unknown_slot27(CoordStruct const &coord) const; // 0x00464E00
+    virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x00464E00
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x00465180 (false)
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x00465190 (0)
 

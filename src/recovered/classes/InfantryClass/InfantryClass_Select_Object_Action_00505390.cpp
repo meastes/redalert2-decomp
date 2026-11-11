@@ -194,7 +194,7 @@ infiltration:
                 if (object->Kind_Of() == 6) {
                     Cell base = Coord_Cell(object->Center_Coord());
                     int zone = Map.Zone(unknown_slot106(),Type->MovementZone,unknown_79);
-                    Cell const *offset = building->Type->unknown_slot36(0);
+                    Cell const *offset = building->Type->Occupy_List(0);
                     bool found = false;
                     while (!(offset->X == 0x7fff && offset->Y == 0x7fff) && !found) {
                         Cell foundation = Infantry_Add_Cells(base, *offset++);

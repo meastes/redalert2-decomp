@@ -25,7 +25,7 @@ extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir
 
 void ObjectTypeClass::Fetch_Aux_Voxel_Image()
 {
-    if (Kind_Of() == 0x28 && unknown_slot39() != 0 && ((TechnoTypeClass *)this)->Turret) {
+    if (Kind_Of() == 0x28 && Get_Image_Data() != 0 && ((TechnoTypeClass *)this)->Turret) {
         char name[256];
         char fullname[260];
 

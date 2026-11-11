@@ -5,5 +5,5 @@
 
 bool TechnoClass::unknown_slot274()
 {
-    return unknown_slot32()->unknown_slot40();
+    return unknown_slot32()->CanUseWaypoint();
 }

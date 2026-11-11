@@ -71,12 +71,12 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0041C110
     virtual int unknown_slot16() const;                                 // 0x0041C330 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0041BFD0
-    virtual CoordStruct unknown_slot31() const;                         // 0x0041BFA0
+    virtual CoordStruct Lepton_Dimensions() const;                         // 0x0041BFA0
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x0041BF90 (false)
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x0041BED0 (new aircraft)
-    virtual Cell const *unknown_slot36(int arg1) const;           // 0x0041BF20
-    virtual bool unknown_slot40() const;                                // 0x0041BF00 (false)
-    virtual bool unknown_slot41() const;                                // 0x0041BF10 (false)
+    virtual Cell const *Occupy_List(int arg1) const;           // 0x0041BF20
+    virtual bool CanUseWaypoint() const;                                // 0x0041BF00 (false)
+    virtual bool CanAttackMove() const;                                // 0x0041BF10 (false)
 
     static int __fastcall From_Name(char const *name);                  // 0x0041BE60
     static void Init();                                                 // 0x0041BEB0 (rotor shapes)

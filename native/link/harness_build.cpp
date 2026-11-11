@@ -92,7 +92,7 @@ bool Was_Tried(Cell const &cell)
 // Whether the original's placement tests accept the type's top-left cell.
 bool Legal_Cell(BuildingTypeClass *type, HouseClass *house, Cell const &cell)
 {
-    Cell const *list = type->unknown_slot36(true);
+    Cell const *list = type->Occupy_List(true);
     if (!Map.Passes_Proximity_Check_004991D0(type, house->ArrayIndex, list, cell)) return false;
     if (list == 0) return false;
     for (; list->X != 0x7FFF || list->Y != 0x7FFF; ++list) {

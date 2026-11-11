@@ -639,7 +639,7 @@
    "verified": false
   },
   {
-   "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_unknown_slot36_00529450.cpp",
+   "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Occupy_List_00529450.cpp",
    "old": "    int const *tile = image->Tiles;\n",
    "new": "    ra2port::IsoTileRef const *tile = image->Tiles;   // NATIVE: the slots' type (each still tested against 0)\n",
    "why": "See the isometric_tile_type.hpp IsoTileImageStruct fixup: the walk over the 4-byte slots keeps its element type.",
@@ -1088,7 +1088,7 @@
    "source": "src/recovered/unowned/unknown_frame_table_value_00529300.cpp",
    "old": "    UnknownImage_00529300 *image = unknown_image_slot39();\n",
    "new": "    UnknownImage_00529300 *image = (UnknownImage_00529300 *)Native_Object_Type_Image(this);   // NATIVE: the real ObjectTypeClass slot 39 (link/behaviour_m18.cpp)\n",
-   "why": "Scout1142: this view of ObjectTypeClass (IsometricTileTypeClass) lists the VC6 vtable as 40 plain virtual slots to call slot 39 (ObjectTypeClass::unknown_slot39, the image). The native vtable of the real class has another order and size (Itanium: two destructor entries, the COM interface layout), so natively slot 39 is entry 45 and the view called another function: the image was null and Land_Type 0x00529300 answered 0 (clear) for every tile, water included (Allied 1: no ship or amphibious path entered water). The call goes to the real virtual through Native_Object_Type_Image (link/behaviour_m18.cpp).",
+   "why": "Scout1142: this view of ObjectTypeClass (IsometricTileTypeClass) lists the VC6 vtable as 40 plain virtual slots to call slot 39 (ObjectTypeClass::Get_Image_Data, the image). The native vtable of the real class has another order and size (Itanium: two destructor entries, the COM interface layout), so natively slot 39 is entry 45 and the view called another function: the image was null and Land_Type 0x00529300 answered 0 (clear) for every tile, water included (Allied 1: no ship or amphibious path entered water). The call goes to the real virtual through Native_Object_Type_Image (link/behaviour_m18.cpp).",
    "verified": true
   },
   {
@@ -1102,7 +1102,7 @@
    "source": "src/recovered/unowned/unknown_frame_extent_0052dfa0.cpp",
    "old": "    UnknownImage_0052dfa0 *image = unknown_image_slot39();\n",
    "new": "    UnknownImage_0052dfa0 *image = (UnknownImage_0052dfa0 *)Native_Object_Type_Image(this);   // NATIVE: the real ObjectTypeClass slot 39 (link/behaviour_m18.cpp)\n",
-   "why": "Scout1142: this view of ObjectTypeClass (IsometricTileTypeClass) lists the VC6 vtable as 40 plain virtual slots to call slot 39 (ObjectTypeClass::unknown_slot39, the image). The native vtable of the real class has another order and size (Itanium: two destructor entries, the COM interface layout), so natively slot 39 is entry 45 and the view called another function: the image was null and Land_Type 0x00529300 answered 0 (clear) for every tile, water included (Allied 1: no ship or amphibious path entered water). The call goes to the real virtual through Native_Object_Type_Image (link/behaviour_m18.cpp).",
+   "why": "Scout1142: this view of ObjectTypeClass (IsometricTileTypeClass) lists the VC6 vtable as 40 plain virtual slots to call slot 39 (ObjectTypeClass::Get_Image_Data, the image). The native vtable of the real class has another order and size (Itanium: two destructor entries, the COM interface layout), so natively slot 39 is entry 45 and the view called another function: the image was null and Land_Type 0x00529300 answered 0 (clear) for every tile, water included (Allied 1: no ship or amphibious path entered water). The call goes to the real virtual through Native_Object_Type_Image (link/behaviour_m18.cpp).",
    "verified": true
   },
   {

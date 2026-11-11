@@ -15,7 +15,7 @@
 bool __fastcall Can_Use_Tile_Footprint_005894e0(int tile,Cell const &position,unsigned char check_mark,unsigned char reject_outside)
 {
     IsometricTileTypeClass *type=IsoTileTypes[tile];
-    IsoTileImageStruct const *image=(IsoTileImageStruct const *)type->unknown_slot39();
+    IsoTileImageStruct const *image=(IsoTileImageStruct const *)type->Get_Image_Data();
     if(!image)return true;
     for(int y=0;y<type->unknown_2b8;y++) {
         for(int x=0;x<type->unknown_2b4;x++) {

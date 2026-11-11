@@ -20,7 +20,7 @@ int TechnoClass::unknown_slot166()
     default:
         return 0;
     }
-    int pips = (int)(unknown_slot32()->unknown_slot29() * (amount / maximum) + 0.5);
+    int pips = (int)(unknown_slot32()->Max_Pips() * (amount / maximum) + 0.5);
     if (pips == 0 && amount > 0.0) {
         pips = 1;
     }

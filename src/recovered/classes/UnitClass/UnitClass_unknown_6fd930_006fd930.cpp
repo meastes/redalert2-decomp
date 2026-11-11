@@ -69,7 +69,7 @@ bool UnitClass::unknown_6fd930()
     }
     if (!unknown_494) {
         {
-        if (Type->DeploysInto->unknown_slot42(Deploy_Origin_6fd930(Coord_Cell(Center_Coord())), 0)) {
+        if (Type->DeploysInto->Legal_Placement(Deploy_Origin_6fd930(Coord_Cell(Center_Coord())), 0)) {
             Mark(1);
             return true;
         }
@@ -116,7 +116,7 @@ bool UnitClass::unknown_6fd930()
             for (int offset_index = 0; offset_index < 36; offset_index++) {
                 Cell adjacent = Offset_Cell_6fd930(offsets[offset_index], unknown_slot104());
                 Cell placement = adjacent + AdjacentCell[7];
-                if (Type->DeploysInto->unknown_slot42(placement, 0)) {
+                if (Type->DeploysInto->Legal_Placement(placement, 0)) {
                     Assign_Destination(&Map[adjacent], true);
                     break;
                 }

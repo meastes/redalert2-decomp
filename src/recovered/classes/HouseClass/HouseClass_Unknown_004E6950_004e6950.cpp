@@ -102,7 +102,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                             Map.unknown_1174 = Map.unknown_1182;
                             Map.unknown_1178 = Map.unknown_1188;
                             if (Map.unknown_1190) {
-                                Map.Unknown_00498F10(((ObjectTypeClass *)Map.unknown_1190)->unknown_slot36(1));
+                                Map.Unknown_00498F10(((ObjectTypeClass *)Map.unknown_1190)->Occupy_List(1));
                                 Point2D xy = WWMouse->Get_Mouse_XY();
                                 unknown_tactical_83996c->Pixel_To_Coord(xy);
                                 xy -= Point2D(unknown_rect_839630.X, unknown_rect_839630.Y);

@@ -10,7 +10,7 @@
 bool BuildingClass::unknown_452be0()
 {
     Cell cell = unknown_slot104();
-    Cell const *occupy = Type->unknown_slot36(0);
+    Cell const *occupy = Type->Occupy_List(0);
     while (*occupy != Cell(32767, 32767)) {
         if (!(Map[Cell(occupy->operator+(cell))].unknown_140 & 0x400000)) {
             return false;

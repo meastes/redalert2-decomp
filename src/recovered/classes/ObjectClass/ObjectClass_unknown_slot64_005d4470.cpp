@@ -12,5 +12,5 @@ Cell const *ObjectClass::unknown_slot64(int arg1)
     if (Class_Of() == 0) {
         return &unknown_none.Cell;
     }
-    return Class_Of()->unknown_slot36(arg1);
+    return Class_Of()->Occupy_List(arg1);
 }

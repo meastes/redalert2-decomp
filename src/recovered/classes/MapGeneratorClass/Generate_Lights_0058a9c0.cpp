@@ -72,7 +72,7 @@ void MapGeneratorClass::Generate_Lights()
                         direction.From_Radian(index*unknown_angle_turn_79c9b8/lightCount+angle);
                         CoordStruct position=Move_Coord(Cell_Center(waypoint),direction,8*256);
                         Cell cell(position);
-                        if(!BuildingTypes[lightType]->unknown_slot42(cell,owner) || !Map.In_Radar(cell)) { clear=false;break; }
+                        if(!BuildingTypes[lightType]->Legal_Placement(cell,owner) || !Map.In_Radar(cell)) { clear=false;break; }
                     }
                     if(clear) {
                         for(index=0;index<lightCount;++index) {

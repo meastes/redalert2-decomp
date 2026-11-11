@@ -64,13 +64,13 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0070B3E0
     virtual int unknown_slot16() const;                                 // 0x0070B5F0 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0070AB40
-    virtual CoordStruct unknown_slot27(CoordStruct const &coord) const; // 0x0070B320 (raised to the ground)
-    virtual CoordStruct unknown_slot30() const;                         // 0x0070AAB0
-    virtual CoordStruct unknown_slot31() const;                         // 0x0070AAF0
+    virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x0070B320 (raised to the ground)
+    virtual CoordStruct Pixel_Dimensions() const;                         // 0x0070AAB0
+    virtual CoordStruct Lepton_Dimensions() const;                         // 0x0070AAF0
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x0070A9D0
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x0070AA80 (new vehicle)
-    virtual bool unknown_slot40() const;                                // 0x0070A8E0 (TechnoType's)
-    virtual bool unknown_slot41() const;                                // 0x0070A8F0 (TechnoType's)
+    virtual bool CanUseWaypoint() const;                                // 0x0070A8E0 (TechnoType's)
+    virtual bool CanAttackMove() const;                                // 0x0070A8F0 (TechnoType's)
     virtual int Repair_Step() const;                                    // 0x0070B390
     // The turret offset for a facing (Westwood Turret_Adjust; the base returns xy unchanged, no callers).
     Point2D Turret_Adjust(int dir, Point2D const &xy) const;            // 0x0070AB20

@@ -56,7 +56,7 @@ void __fastcall OverlayClass::Read_INI(CCINIClass &ini)
                     if (overlay != 0xFFFFFFFF) {
                         overlay &= 0xFF;
                         if (overlay != 0xFFFFFFFF) {
-                            if ((OverlayTypes[overlay]->unknown_slot39() || OverlayTypes[overlay]->CellAnim) && (!unknown_game_mode_a3d298 || !OverlayTypes[overlay]->Crate)) {
+                            if ((OverlayTypes[overlay]->Get_Image_Data() || OverlayTypes[overlay]->CellAnim) && (!unknown_game_mode_a3d298 || !OverlayTypes[overlay]->Crate)) {
                                 if (Map.In_Radar(cell)) {
                                     unsigned char data = Map_Cell(cell).OverlayData;
                                     new OverlayClass(OverlayTypes[overlay], cell, -1);

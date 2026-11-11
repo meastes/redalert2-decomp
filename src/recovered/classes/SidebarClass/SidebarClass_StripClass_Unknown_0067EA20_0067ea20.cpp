@@ -98,8 +98,8 @@ bool SidebarClass::StripClass::Unknown_0067EA20(int type, int id, int other_type
     if (techno->TechLevel > other->TechLevel) {
         return false;
     }
-    int cost = techno->unknown_slot33(unknown_player_a35db4);
-    int other_cost = other->unknown_slot33(unknown_player_a35db4);
+    int cost = techno->Cost_Of(unknown_player_a35db4);
+    int other_cost = other->Cost_Of(unknown_player_a35db4);
     if (cost < other_cost) {
         return true;
     }

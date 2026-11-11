@@ -101,7 +101,7 @@ bool BuildingClass::Mark(int mark)
                         }
                     }
                     Map.Place_Down(cell, this);
-                    unknown_slot103(Type->unknown_slot27(CoordStruct(cell)));
+                    unknown_slot103(Type->Coord_Fixup(CoordStruct(cell)));
                     unknown_44c9a0();
 
                     int w = Type->Width();

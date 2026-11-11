@@ -3,7 +3,7 @@
 
 bool IsometricTileTypeClass::Get_Tile_Pixel_Dimensions(int tile, int &width, int &height)
 {
-    IsoTileImageStruct const *image = (IsoTileImageStruct const *)unknown_slot39();
+    IsoTileImageStruct const *image = (IsoTileImageStruct const *)Get_Image_Data();
     if (image != 0) {
         IsoTileCellStruct const *record = (IsoTileCellStruct const *)image->Tiles[tile % (image->unknown_00[0] * image->unknown_00[1])];
         width = image->unknown_00[2];

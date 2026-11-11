@@ -24,7 +24,7 @@ Rect ObjectClass::unknown_slot73()
     Point2D drawpoint;
     unknown_tactical_83996c->Coord_To_Pixel(unknown_slot42(), drawpoint);
 
-    ShapeFileStruct const *sdata = (ShapeFileStruct const *)Class_Of()->unknown_slot39();
+    ShapeFileStruct const *sdata = (ShapeFileStruct const *)Class_Of()->Get_Image_Data();
     if (sdata == 0) {
         return SHAPE_FILE_EMPTY_RECT;
     }

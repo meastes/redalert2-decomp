@@ -35,7 +35,7 @@ Rect BuildingTypeClass::unknown_func_45e290()
 {
     int frame;
     if(unknown_11ec!=unknown_static_rect)return unknown_11ec;
-    ShapeFileStruct const *image=(ShapeFileStruct const *)unknown_slot39();
+    ShapeFileStruct const *image=(ShapeFileStruct const *)Get_Image_Data();
     if(image==0)return unknown_static_rect;
     int frames=image->Get_Count();
     Rect bounds=unknown_static_rect;
@@ -45,7 +45,7 @@ Rect BuildingTypeClass::unknown_func_45e290()
         bounds=Union(bounds,image->Get_Frame_Rect(frame));
     }
     bool free_buildup=BuildupData==0;
-    image=(ShapeFileStruct const *)unknown_slot48();
+    image=(ShapeFileStruct const *)Get_Buildup_Data();
     if(image) {
         frames=image->Get_Count();
         for(frame=0;frame<frames;frame++) {

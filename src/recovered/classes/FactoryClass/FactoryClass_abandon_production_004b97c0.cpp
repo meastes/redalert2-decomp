@@ -2,7 +2,7 @@ bool FactoryClass::Abandon_Production_004B97C0()
 {
     if (Object) {
         Debug_Printf(unknown_abandon_message_7d7f44, (char const *)Object->Class_Of()->Name);
-        Owner->Refund_Money(Object->Class_Of()->unknown_slot33(Object->House) - UnspentCost);
+        Owner->Refund_Money(Object->Class_Of()->Cost_Of(Object->House) - UnspentCost);
         UnspentCost = 0;
         if (unknown_64) unknown_64 = -1;
         Set_Rate(0);

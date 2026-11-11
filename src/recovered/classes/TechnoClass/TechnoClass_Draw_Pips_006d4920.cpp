@@ -80,7 +80,7 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
     }
     if (unknown_slot32()->Passengers > 0) {
         Point2D shift(0, 0);
-        int pips = Class_Of()->unknown_slot29();
+        int pips = Class_Of()->Max_Pips();
         unknown_slot32();
         int *colors = new int[pips];
         for (int c = 0; c < pips; c++) colors[c] = 0;
@@ -118,9 +118,9 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
             float gems = unknown_294.Get_Amount(2);
             float ore = unknown_294.Get_Amount(3);
             float other = unknown_294.Get_Amount(1);
-            int greenpips = (int)(unknown_slot32()->unknown_slot29() * ((double)(ore + gems + gold) / unknown_slot32()->Storage) + 0.5);
-            int bluepips = (int)(unknown_slot32()->unknown_slot29() * ((double)other / unknown_slot32()->Storage) + 0.5);
-            for (int i = 0; i < Class_Of()->unknown_slot29(); i++) {
+            int greenpips = (int)(unknown_slot32()->Max_Pips() * ((double)(ore + gems + gold) / unknown_slot32()->Storage) + 0.5);
+            int bluepips = (int)(unknown_slot32()->Max_Pips() * ((double)other / unknown_slot32()->Storage) + 0.5);
+            for (int i = 0; i < Class_Of()->Max_Pips(); i++) {
                 int shape = 0;
                 if (bluepips > 0) {
                     shape = 5;
@@ -135,14 +135,14 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
             int wrap = unknown_slot32()->PipWrap;
             if (wrap == 0) {
                 int left = pips;
-                for (int i = 0; i < Class_Of()->unknown_slot29(); i++) {
+                for (int i = 0; i < Class_Of()->Max_Pips(); i++) {
                     if (left > 0) {
                         left--;
                         CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323c4, pips2, 12, xy + offset * i - Point2D(0, 3), window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                     }
                 }
             } else {
-                int rows = Class_Of()->unknown_slot29() / wrap;
+                int rows = Class_Of()->Max_Pips() / wrap;
                 for (int i = 0; i < wrap; i++) {
                     int frame = 13;
                     for (int j = rows - 1; j >= 0; j--) {

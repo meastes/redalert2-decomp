@@ -7,5 +7,5 @@
 // (port/fixups.json).
 void *Native_Object_Type_Image(void *object)
 {
-    return ((ObjectTypeClass *)object)->unknown_slot39();
+    return ((ObjectTypeClass *)object)->Get_Image_Data();
 }

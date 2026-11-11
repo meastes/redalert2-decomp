@@ -46,7 +46,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         Zone_Reset();
 
         IsometricTileTypeClass *isotype = IsoTileTypes[unknown_tileset_a6e0f8];
-        IsoTileImageStruct *image = (IsoTileImageStruct *)isotype->unknown_slot39();
+        IsoTileImageStruct *image = (IsoTileImageStruct *)isotype->Get_Image_Data();
 
         int x;
         int y;
@@ -126,7 +126,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         Zone_Reset();
 
         IsometricTileTypeClass *isotype = IsoTileTypes[unknown_tileset_a6e0f8 + 1];
-        IsoTileImageStruct *image = (IsoTileImageStruct *)isotype->unknown_slot39();
+        IsoTileImageStruct *image = (IsoTileImageStruct *)isotype->Get_Image_Data();
 
         int x;
         int y;

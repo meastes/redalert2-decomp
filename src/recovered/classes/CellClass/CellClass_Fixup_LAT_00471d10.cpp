@@ -172,7 +172,7 @@ bool CellClass::Fixup_LAT()
     }
     if (old_tile != IsoTileIndex) {
         IsometricTileTypeClass *tile_type = IsoTileTypes[IsoTileIndex];
-        if (tile_type->unknown_slot39() == 0) tile_type->Load_Tile_Image();
+        if (tile_type->Get_Image_Data() == 0) tile_type->Load_Tile_Image();
     }
     return old_tile != IsoTileIndex;
 }

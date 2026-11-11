@@ -118,7 +118,7 @@ void AnimClass::AI()
             if (overlay==-1 || OverlayTypes[overlay]->CellAnim!=Class) unknown_17b=true;
         }
         if (Class->End==-1) {
-            Class->End=((ShapeFileStruct const *)Class->unknown_slot39())->Get_Count();
+            Class->End=((ShapeFileStruct const *)Class->Get_Image_Data())->Get_Count();
             if (Class->Shadow) Class->End/=2;
         }
         if (Class->LoopEnd==-1) Class->LoopEnd=Class->End;
@@ -158,7 +158,7 @@ void AnimClass::AI()
                     if (Class->Next) {
                         Class=Class->Next;
                         if (Class->End==-1) {
-                            Class->End=((ShapeFileStruct const *)Class->unknown_slot39())->Get_Count();
+                            Class->End=((ShapeFileStruct const *)Class->Get_Image_Data())->Get_Count();
                             if (Class->Shadow) Class->End/=2;
                         }
                         if (Class->LoopEnd==-1) Class->LoopEnd=Class->End;

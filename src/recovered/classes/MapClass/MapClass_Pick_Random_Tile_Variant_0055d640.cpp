@@ -33,7 +33,7 @@ bool MapClass::Pick_Random_Tile_Variant(int first, int last, int height, int reg
     if (((AbstractClass *)Map.unknown_11a4)->Kind_Of() == 18) {
         if (set_region) region_id = 0;
         IsometricTileTypeClass *type = (IsometricTileTypeClass *)Map.unknown_11a4;
-        IsoTileImageStruct const *image = (IsoTileImageStruct const *)type->unknown_slot39();
+        IsoTileImageStruct const *image = (IsoTileImageStruct const *)type->Get_Image_Data();
         if (image != 0) {
             for (int row = 0; row < type->unknown_2b8; ++row) {
                 for (int column = 0; column < type->unknown_2b4; ++column) {

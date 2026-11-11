@@ -6,7 +6,7 @@ bool IsometricTileTypeClass::Is_Tile_Index_Valid(int tile, bool load)
     if (load) {
         Load_Tile_Image();
     }
-    IsoTileImageStruct const *image = (IsoTileImageStruct const *)unknown_slot39();
+    IsoTileImageStruct const *image = (IsoTileImageStruct const *)Get_Image_Data();
     if (image != 0 && tile < image->unknown_00[0] * image->unknown_00[1] && image->Tiles[tile] != 0) {
         return true;
     }

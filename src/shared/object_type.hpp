@@ -123,23 +123,23 @@ public:
     // copies of 27 and 39 come from AircraftType.cpp (0x0041C2E0,
     // 0x0041C300, the first type unit in link order); 28 from AnimType.cpp
     // (0x00426760).
-    virtual CoordStruct unknown_slot27(CoordStruct const &coord) const { return coord; }  // slot 27
+    virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const { return coord; }  // slot 27
     virtual int unknown_slot28() const;                                  // slot 28 (-1)
-    virtual int unknown_slot29() const;                                  // 0x005D5D00 (0)
-    virtual CoordStruct unknown_slot30() const;                          // 0x005D5D10 (10, 10, 10)
-    virtual CoordStruct unknown_slot31() const;                          // 0x005D5D30
+    virtual int Max_Pips() const;                                  // 0x005D5D00 (0)
+    virtual CoordStruct Pixel_Dimensions() const;                          // 0x005D5D10 (10, 10, 10)
+    virtual CoordStruct Lepton_Dimensions() const;                          // 0x005D5D30
     // Slots 32 and 35 (RA1: Create_And_Place, Create_One_Of; the overrides
     // take two and one stack arguments).
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const = 0;   // slot 32
-    virtual int unknown_slot33(HouseClass *house) const;                          // 0x005D5D60 (0)
+    virtual int Cost_Of(HouseClass *house) const;                          // 0x005D5D60 (0)
     virtual int unknown_slot34() const;                                  // 0x005D5D70 (0)
     virtual ObjectClass *Create_One_Of(HouseClass *house) const = 0;   // slot 35
-    virtual Cell const *unknown_slot36(int arg1) const;            // 0x005D5D90
+    virtual Cell const *Occupy_List(int arg1) const;            // 0x005D5D90
     // The house's building that can produce this type (RA1:
     // Who_Can_Build_Me): primary factories first, else the last match.
     virtual BuildingClass *Who_Can_Build_Me(bool in_theory, bool legal, bool check_limit, HouseClass *house) const; // 0x005D5FC0 slot 37
     virtual void const *unknown_slot38() const;                          // 0x005D5D80 (0) Get_Cameo_Data
-    virtual void *unknown_slot39() const { return unknown_a4; }          // slot 39
+    virtual void *Get_Image_Data() const { return unknown_a4; }          // slot 39
 
     // Loads the shared pip and talk-bubble shapes once (PIPBRD.SHP,
     // PIPS.SHP, PIPS2.SHP, TALKBUBL.SHP; RA1 name One_Time).

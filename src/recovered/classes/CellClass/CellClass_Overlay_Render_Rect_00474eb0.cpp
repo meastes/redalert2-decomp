@@ -24,9 +24,9 @@ Rect CellClass::Overlay_Render_Rect() const
         if (tib != -1) {
             TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[tib];
             if (unknown_11c != 0) {
-                image = (ShapeFileStruct *)OverlayTypes[tiberium->Image->ArrayIndex + tiberium->NumFrames + tiberium->NumImages / 4 * (unknown_11c - 1) + MapCoords.X * MapCoords.Y % (tiberium->NumImages / 4)]->unknown_slot39();
+                image = (ShapeFileStruct *)OverlayTypes[tiberium->Image->ArrayIndex + tiberium->NumFrames + tiberium->NumImages / 4 * (unknown_11c - 1) + MapCoords.X * MapCoords.Y % (tiberium->NumImages / 4)]->Get_Image_Data();
             } else {
-                image = (ShapeFileStruct *)OverlayTypes[tiberium->Image->ArrayIndex + MapCoords.X * MapCoords.Y % tiberium->NumFrames]->unknown_slot39();
+                image = (ShapeFileStruct *)OverlayTypes[tiberium->Image->ArrayIndex + MapCoords.X * MapCoords.Y % tiberium->NumFrames]->Get_Image_Data();
             }
         }
     } else if (overlay->IsRubble) {
@@ -35,7 +35,7 @@ Rect CellClass::Overlay_Render_Rect() const
             ((BuildingTypeClass *)unknown_40)->unknown_func_458e00((void **)&image, &frame);
         }
     } else {
-        image = (ShapeFileStruct *)overlay->unknown_slot39();
+        image = (ShapeFileStruct *)overlay->Get_Image_Data();
     }
     Point2D point;
     unknown_tactical_83996c->Coord_To_Pixel(Coord_Snap(Cell_Coord(MapCoords)), point);

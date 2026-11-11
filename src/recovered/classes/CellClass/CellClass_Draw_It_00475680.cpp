@@ -37,13 +37,13 @@ void CellClass::Draw_It(Point2D const &xpoint, Rect const &clip, bool objects)
         point.X = xpoint.X;
         point.Y = xpoint.Y - 15 * unknown_11b;
 
-        if (ittype->unknown_slot39()) {
+        if (ittype->Get_Image_Data()) {
             ittype->unknown_func_52c230(unknown_34, subtile, unknown_surface_83995c, point.X, point.Y + unknown_int_839634, clip, unknown_11b, unknown_10c, 1, icon, 0, 0, 0, 0);
         }
 
         if (SmudgeIndex != -1) {
             Point2D p = point + Point2D(30, unknown_int_839634) - Point2D(clip.X, clip.Y);
-            SmudgeTypes[SmudgeIndex]->unknown_slot40(&p, &clip, SmudgeData, unknown_level_850c40 * unknown_11b, &MapCoords);
+            SmudgeTypes[SmudgeIndex]->Draw_It(&p, &clip, SmudgeData, unknown_level_850c40 * unknown_11b, &MapCoords);
         }
     }
 }

@@ -13,7 +13,7 @@ Rect CellClass::Overlay_Shadow_Render_Rect() const
         return Rect(0, 0, 0, 0);
     }
     OverlayTypeClass *overlay = OverlayTypes[OverlayIndex];
-    ShapeFileStruct *image = (ShapeFileStruct *)overlay->unknown_slot39();
+    ShapeFileStruct *image = (ShapeFileStruct *)overlay->Get_Image_Data();
     if (image == 0) {
         return Rect(0, 0, 0, 0);
     }

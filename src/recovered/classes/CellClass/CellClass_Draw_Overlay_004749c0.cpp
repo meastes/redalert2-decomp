@@ -44,7 +44,7 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
     if (unknown_34 == 0) {
         Init_Drawer(0, 0x10000, 0, 1000, 1000, 1000);
     }
-    ShapeFileStruct *shape = (ShapeFileStruct *)otype->unknown_slot39();
+    ShapeFileStruct *shape = (ShapeFileStruct *)otype->Get_Image_Data();
     if (IsBridgeDeck) {
         if (unknown_64 != Frame || unknown_118 != unknown_redraws_833634
             || unknown_68 != clip) {
@@ -71,7 +71,7 @@ void CellClass::Draw_Overlay(Point2D const &xpoint, Rect const &clip)
         } else {
             tib_overlay = OverlayTypes[tiberium->Image->ArrayIndex + MapCoords.X * MapCoords.Y % tiberium->NumFrames];
         }
-        ShapeFileStruct *tibshape = (ShapeFileStruct *)tib_overlay->unknown_slot39();
+        ShapeFileStruct *tibshape = (ShapeFileStruct *)tib_overlay->Get_Image_Data();
         if (unknown_11c != 0) {
             CC_Draw_Shape(unknown_surface_83995c, unknown_drawer_8323b8, tibshape, OverlayData, point, clip, 0x4E00, 0, -2 - yoffset, 0, 1000, (ShapeFileStruct const *)unknown_slope_shapes_a52eb0[unknown_11c - 1], 0, Point2D(0, 0));
         } else {

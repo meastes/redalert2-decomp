@@ -37,7 +37,7 @@ bool ObjectClass::unknown_slot53(CoordStruct const *coord, int direction)
     unknown_75 = false;
     ObjectTypeClass *type = Class_Of();
     CoordStruct placed = *coord;
-    if (type) placed = type->unknown_slot27(*coord);
+    if (type) placed = type->Coord_Fixup(*coord);
     unknown_slot103(placed);
     if (Mark(1)) {
         if (unknown_7d) {

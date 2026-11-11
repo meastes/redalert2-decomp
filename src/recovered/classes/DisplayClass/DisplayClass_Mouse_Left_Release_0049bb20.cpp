@@ -61,7 +61,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                 unknown_1182 = unknown_1174;
                 unknown_1188 = unknown_1178;
                 unknown_1194 = unknown_11a8;
-                if (unknown_11a4) Map.Set_Cursor_Shape(unknown_11a4->unknown_slot36(true));
+                if (unknown_11a4) Map.Set_Cursor_Shape(unknown_11a4->Occupy_List(true));
                 Map.Unknown_00498F10(0);
                 Map.unknown_11a0 = 0;
                 Map.unknown_11a4 = 0;

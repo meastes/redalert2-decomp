@@ -34,13 +34,13 @@ void TerrainClass::AI()
     }
     if (Animation.Graphic_Logic()) {
         if (unknown_b5) {
-            if (Animation.Fetch_Stage() == ((ShapeFileStruct const *)Class->unknown_slot39())->FrameCount - 1) {
+            if (Animation.Fetch_Stage() == ((ShapeFileStruct const *)Class->Get_Image_Data())->FrameCount - 1) {
                 unknown_slot60();
                 return;
             }
         }
         if (Class->SpawnsTiberium && Class->IsAnimated) {
-            if (Animation.Fetch_Stage() == ((ShapeFileStruct const *)Class->unknown_slot39())->FrameCount / 2) {
+            if (Animation.Fetch_Stage() == ((ShapeFileStruct const *)Class->Get_Image_Data())->FrameCount / 2) {
                 Animation.Set_Stage(0);
                 Animation.Set_Rate(0);
                 CoordStruct coord = Coord;

@@ -24,7 +24,7 @@ void TeamClass::TMission_unknown_6bb8b0(ScriptMissionClass const &mission, bool 
                 finished = false;
                 if (unit->Get_Mission() != 0x10) {
                     unit->Mark(0);
-                    if (!((UnitClass *)unit)->Type->DeploysInto->unknown_slot42(unit->unknown_slot104(), 0)) {
+                    if (!((UnitClass *)unit)->Type->DeploysInto->Legal_Placement(unit->unknown_slot104(), 0)) {
                         ((UnitClass *)unit)->Type->DeploysInto->unknown_458b10(unit->unknown_slot104(), unit->House);
                         unit->Mark(1);
                     } else {

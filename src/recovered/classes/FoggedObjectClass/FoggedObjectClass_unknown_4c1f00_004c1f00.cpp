@@ -7,7 +7,7 @@
 Cell const *FoggedObjectClass::unknown_4c1f00() const
 {
     if (unknown_30 == 6) {
-        return DrawRecords[0].Type->unknown_slot36(0);
+        return DrawRecords[0].Type->Occupy_List(0);
     }
     return 0;
 }

@@ -28,7 +28,7 @@ static inline bool Has_Extra_Data(CellClass const *cellptr)
     if (type == 0) {
         return false;
     }
-    IsoTileImageStruct *set = (IsoTileImageStruct *)type->unknown_slot39();
+    IsoTileImageStruct *set = (IsoTileImageStruct *)type->Get_Image_Data();
     if (set == 0) {
         return false;
     }

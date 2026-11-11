@@ -99,14 +99,14 @@ public:
     // Overrides of ObjectTypeClass slots (meanings from RA1's
     // TechnoTypeClass, hypotheses).
     virtual int unknown_slot28() const;         // 0x006DACF0 Get_Ownable
-    virtual int unknown_slot29() const;         // 0x006DE220 Max_Pips
-    virtual int unknown_slot33(HouseClass *house) const; // 0x006DAD30 Cost_Of(HouseClass *)
+    virtual int Max_Pips() const;         // 0x006DE220 Max_Pips
+    virtual int Cost_Of(HouseClass *house) const; // 0x006DAD30 Cost_Of(HouseClass *)
     virtual int unknown_slot34() const;         // 0x006DAD10
     virtual void const *unknown_slot38() const; // 0x006DAE40 Get_Cameo_Data (TibSun returns void const *)
 
-    virtual bool unknown_slot40() const;                                // 0x006DACB0 (true)
-    virtual bool unknown_slot41() const;                                // 0x006DACC0
-    virtual bool unknown_slot42(Cell const &cell, HouseClass *house) const; // 0x006DE0E0
+    virtual bool CanUseWaypoint() const;                                // 0x006DACB0 (true)
+    virtual bool CanAttackMove() const;                                // 0x006DACC0
+    virtual bool Legal_Placement(Cell const &cell, HouseClass *house) const; // 0x006DE0E0
     virtual int Raw_Cost() const;                                       // 0x006DACE0 slot 43
     virtual int Repair_Cost() const;                                    // 0x006DAEC0 slot 44
     virtual int Repair_Step() const;                                    // 0x006DAF10 slot 45

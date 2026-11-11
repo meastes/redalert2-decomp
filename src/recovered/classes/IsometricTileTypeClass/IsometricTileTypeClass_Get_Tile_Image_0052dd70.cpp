@@ -48,7 +48,7 @@ bool IsometricTileTypeClass::Get_Tile_Image(int tile, unsigned char **buffer, in
     int tilew = 0;
     int tileh = 0;
     memset(*buffer, 0, width * height);
-    IsoTileImageStruct const *image = (IsoTileImageStruct const *)unknown_slot39();
+    IsoTileImageStruct const *image = (IsoTileImageStruct const *)Get_Image_Data();
 
     if (image != 0) {
         tile = tile % (image->unknown_00[0] * image->unknown_00[1]);

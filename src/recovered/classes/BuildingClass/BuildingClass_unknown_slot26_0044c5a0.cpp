@@ -6,7 +6,7 @@
 void *BuildingClass::unknown_slot26()
 {
     if (unknown_42c && unknown_5b4) {
-        return Type->unknown_slot39();
+        return Type->Get_Image_Data();
     }
-    return Type->unknown_slot48();
+    return Type->Get_Buildup_Data();
 }

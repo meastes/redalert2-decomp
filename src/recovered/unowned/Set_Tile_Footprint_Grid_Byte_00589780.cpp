@@ -15,7 +15,7 @@ bool __fastcall Generation_Cell_In_Bounds_0058da10(Cell const &position);
 void __fastcall Set_Tile_Footprint_Grid_Byte_00589780(int tile,Cell const &position,unsigned char value)
 {
     IsometricTileTypeClass *type=IsoTileTypes[tile];
-    IsoTileImageStruct const *image=(IsoTileImageStruct const *)type->unknown_slot39();
+    IsoTileImageStruct const *image=(IsoTileImageStruct const *)type->Get_Image_Data();
     if(image) {
         for(int y=0;y<type->unknown_2b8;y++) {
             for(int x=0;x<type->unknown_2b4;x++) {

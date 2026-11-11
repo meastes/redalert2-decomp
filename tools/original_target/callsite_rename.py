@@ -4,6 +4,9 @@
     callsite_rename.py CFG.json --output DIR [--repository R] [--config C] [--max-iter N]
     callsite_rename.py native SPEC.json CALLSITES.txt [--repository R] [--build-dir B]
 
+CFG may also hold parts [{root|family, methods}, ...] (several families in one spec, e.g. slots that sibling branches
+introduce under different names); headers shared by stacked specs conflict in apply_rename's merge, so such slots go in one spec.
+
 CFG keys: name; root (the family is the root and every class deriving from it, transitively, by the src/shared headers) or family
 [classes]; methods [[old, new], ...]; optional dirs {class: directory} and prefixes {class: file prefix} for class files that live in
 src/recovered/classes/<dir>/<prefix>_<method>_<addr>.cpp.
@@ -20,7 +23,7 @@ Source pass (default):
    repository's files are restored. DIR must be inside the repository (apply_rename reads the staged copies by repository path).
    Compile folders go to <repository>/build/callsite-loop/<name>/ (the remote compiler maps only repository paths).
 
-Native pass (`native`, run after the spec has been applied): family-limited Itanium (<n>Fam<n>old), MSVC (old@Fam@) and qualified
+Native pass (`native`, run after the spec has been applied): the spec's file moves, family-limited Itanium (<n>Fam<n>old), MSVC (old@Fam@) and qualified
 (Fam::old) spellings under native/, then reconfigure + `cmake --build -k 0` and rename each clang `no member named 'old' in 'Fam'` at
 its line and column, repeating until no such error (at most 6 rounds). Prints `total leftovers in native/: N`.
 """
@@ -123,17 +126,19 @@ def locate(path, line, starts):
     return path[path.rfind('/src/') + 1:], line
 
 
-def classify(log, starts, methods, family):
-    """fixes {path: {lines}} (old name on a family class), undo {path: {lines}} (new name on another class), other [messages]."""
-    olds, news = {o for o, _ in methods}, {n for _, n in methods}
+def classify(log, starts, parts):
+    """parts [(family, methods)]. fixes {path: {line: {(old, new)}}} (an old name on a class of the part that renames it),
+    undo {path: {line: {(new, old)}}} (a new name reported on a class outside its part's family), other [messages]."""
     fixes, undo, other = {}, {}, []
     for m in C2039.finditer(log):
         path, line = locate(m.group('file'), int(m.group('line')), starts)
         name, cls = m.group('name'), m.group('cls').split('::')[-1]
-        if name in olds and cls in family:
-            fixes.setdefault(path, set()).add(line)
-        elif name in news and cls not in family:
-            undo.setdefault(path, set()).add(line)
+        fix = [(o, n) for family, methods in parts for o, n in methods if o == name and cls in family]
+        back = [(n, o) for family, methods in parts for o, n in methods if n == name and cls not in family]
+        if fix:
+            fixes.setdefault(path, {}).setdefault(line, set()).update(fix[:1])
+        elif back:
+            undo.setdefault(path, {}).setdefault(line, set()).update(back)
         else:
             other.append(m.group(0))
     return fixes, undo, other
@@ -151,9 +156,12 @@ def source_pass(args):
     sys.path.insert(0, str(repo / 'tools/original_target'))
     import build, catalog_io, canonical
     cfg = json.loads(args.cfg.read_text())
-    name, methods = cfg['name'], [tuple(m) for m in cfg['methods']]
+    name = cfg['name']
     headers = sorted(str(p.relative_to(repo)) for p in (repo / 'src/shared').rglob('*.hpp'))
-    family = set(cfg['family']) if 'family' in cfg else family_of(cfg['root'], base_map(read(repo / h) for h in headers))
+    bases = base_map(read(repo / h) for h in headers)
+    parts = [(set(p['family']) if 'family' in p else family_of(p['root'], bases), [tuple(m) for m in p['methods']])
+             for p in cfg.get('parts', [cfg])]
+    all_methods = [m for _, methods in parts for m in methods]
     backup, changed, moves, log = {}, set(), {}, []
 
     def change(rel, text):
@@ -164,10 +172,12 @@ def source_pass(args):
 
     for h in headers:
         t = read(repo / h)
-        n = rename_in_bodies(t, family, methods)
+        n = t
+        for family, methods in parts:
+            n = rename_in_bodies(n, family, methods)
         if n != t:
             change(h, n)
-    for cls in sorted(family):
+    for cls, family, methods in sorted((c, f, m) for f, m in parts for c in f):
         d = repo / 'src/recovered/classes' / cfg.get('dirs', {}).get(cls, cls)
         prefix = cfg.get('prefixes', {}).get(cls, cls)
         for f in sorted(d.glob('*.cpp')) if d.is_dir() else []:
@@ -189,7 +199,7 @@ def source_pass(args):
             key = canonical.compile_group_key(row, separate)
             if row['source'] not in groups.setdefault(key, []):
                 groups[key].append(row['source'])
-        names = re.compile(r'\b(%s)\b' % '|'.join(sorted({x for m in methods for x in m}, key=len, reverse=True)))
+        names = re.compile(r'\b(%s)\b' % '|'.join(sorted({x for m in all_methods for x in m}, key=len, reverse=True)))
         clean = False
         for iteration in range(args.max_iter):
             todo = [k for k, sources in groups.items() if any(names.search(read(repo / s)) for s in sources)]
@@ -213,25 +223,27 @@ def source_pass(args):
             fixes, undo, other = {}, {}, []
             for unit, starts in zip(units, maps):
                 text = unit['log'].read_text(encoding='latin-1', errors='replace') if unit['log'].exists() else ''
-                f, u, o = classify(text, starts, methods, family)
+                f, u, o = classify(text, starts, parts)
                 for k, v in f.items():
-                    fixes.setdefault(k, set()).update(v)
+                    for line, pairs in v.items():
+                        fixes.setdefault(k, {}).setdefault(line, set()).update(pairs)
                 for k, v in u.items():
-                    undo.setdefault(k, set()).update(v)
+                    for line, pairs in v.items():
+                        undo.setdefault(k, {}).setdefault(line, set()).update(pairs)
                 other += o
                 code = unit['returncode'].read_text().strip() if unit['returncode'].exists() else '1'
                 if code != '0' and not C2039.search(text):
                     other.append('%s: %s' % (unit['cwd'].name, ' | '.join(l for l in text.splitlines() if 'error' in l)[:300]))
             for rel, lines in fixes.items():
                 rows = read(repo / rel).split('\n')
-                for line in sorted(lines):
-                    rows[line - 1] = rename_names(rows[line - 1], methods)
+                for line, pairs in sorted(lines.items()):
+                    rows[line - 1] = rename_names(rows[line - 1], sorted(pairs))
                     log.append('%s:%d %s' % (rel, line, rows[line - 1].strip()[:160]))
                 change(rel, '\n'.join(rows))
             for rel, lines in undo.items():
                 rows = read(repo / rel).split('\n')
-                for line in sorted(lines):
-                    rows[line - 1] = rename_names(rows[line - 1], [(n, o) for o, n in methods])
+                for line, pairs in sorted(lines.items()):
+                    rows[line - 1] = rename_names(rows[line - 1], sorted(pairs))
                     log.append('UNDO %s:%d' % (rel, line))
                 change(rel, '\n'.join(rows))
             print('  %d call-site lines, %d undone, %d other errors' % (
@@ -243,7 +255,7 @@ def source_pass(args):
                 break
         spec = dict(name=name, header_base=subprocess.run(['git', '-C', str(repo), 'rev-parse', 'HEAD'], capture_output=True,
                                                           text=True).stdout.strip(),
-                    mangling_rewrite=mangling_rules(methods, family), rewrite=[], headers={}, sources={}, moves=moves)
+                    mangling_rewrite=[r for family, methods in parts for r in mangling_rules(methods, family)], rewrite=[], headers={}, sources={}, moves=moves)
 
         def mangle(s):
             for r in spec['mangling_rewrite']:
@@ -263,9 +275,10 @@ def source_pass(args):
         for rel, t in backup.items():
             write(repo / rel, t)
     (output / (name + '.json')).write_text(json.dumps(spec, indent=1))
-    (output / 'callsites.txt').write_text('family: %s\n%s\n' % (' '.join(sorted(family)), '\n'.join(log)))
-    print('%s: family %d classes, %d sources, %d headers, %d moves, %d call-site lines%s' % (
-        name, len(family), len(spec['sources']), len(spec['headers']), len(moves), len(log), '' if clean else ' (NOT CLEAN)'))
+    (output / 'callsites.txt').write_text(''.join('family: %s | %s\n' % (' '.join(sorted(f)), ' '.join('%s=%s' % m for m in ms))
+                                                  for f, ms in parts) + '\n'.join(log) + '\n')
+    print('%s: families %s, %d sources, %d headers, %d moves, %d call-site lines%s' % (
+        name, '+'.join(str(len(f)) for f, _ in parts), len(spec['sources']), len(spec['headers']), len(moves), len(log), '' if clean else ' (NOT CLEAN)'))
     return 0 if clean else 1
 
 
@@ -288,18 +301,50 @@ def rename_at(row, column, old, new):
     return re.sub(r'\b%s\b' % old, new, row)
 
 
+def read_parts(callsites_text):
+    """[(family, [(old, new)])] from callsites.txt's leading `family: A B | old=new ...` lines."""
+    parts = []
+    for line in callsites_text.split('\n'):
+        if not line.startswith('family:'):
+            break
+        classes, _, pairs = line.split(':', 1)[1].partition('|')
+        parts.append((set(classes.split()), [tuple(p.split('=', 1)) for p in pairs.split()]))
+    return parts
+
+
+def move_rules(moves):
+    """(pattern, replacement) for moved sources as native/ spells them: repository paths, classes/... tails, bare file names."""
+    rules = []
+    for old, new in sorted(moves.items(), key=lambda kv: -len(kv[0])):
+        rules.append((re.escape(old), new))
+        ot, nt = old.split('src/recovered/', 1)[-1], new.split('src/recovered/', 1)[-1]
+        if ot != nt:
+            rules.append((r'(?<![\w/])' + re.escape(ot), nt))
+        ob, nb = old.rsplit('/', 1)[-1], new.rsplit('/', 1)[-1]
+        if ob != nb:
+            rules.append((r'(?<![\w])' + re.escape(ob), nb))
+    return rules
+
+
 def native_pass(args):
     repo = args.repository.resolve()
-    spec = json.loads(args.spec.read_text())
-    family = set(args.callsites.read_text().split('\n', 1)[0].split(':', 1)[1].split())
-    methods = [(r['pattern'].split('@')[0].replace('(?<![\\w])', ''), r['replace'][:-1]) for r in spec['mangling_rewrite']]
-    olds = dict(methods)
+    parts = read_parts(args.callsites.read_text())
+    moves = json.loads(args.spec.read_text()).get('moves', {})
+    def new_for(old, cls):
+        return next((n for family, methods in parts for o, n in methods if o == old and cls in family), None)
+    allnames = {x for _, methods in parts for m in methods for x in m}
     bdir = args.build_dir or ('build/native-play' if (repo / 'build/native-play').is_dir() else 'build/native')
+    if not (repo / bdir / 'CMakeCache.txt').is_file():
+        raise SystemExit('%s is not a configured native build directory' % bdir)
     files = [f for f in subprocess.run(['git', '-C', str(repo), 'ls-files', 'native'], capture_output=True, text=True).stdout.split()
              if f.endswith(('.cpp', '.hpp', '.h', '.json', '.tsv', '.txt', '.py'))]
     for f in files:
         t = read(repo / f)
-        n = native_symbol_text(t, methods, family)
+        n = t
+        for pattern, replacement in move_rules(moves):
+            n = re.sub(pattern, replacement, n)
+        for family, methods in parts:
+            n = native_symbol_text(n, methods, family)
         if n != t:
             write(repo / f, n)
             print('rewrote', f)
@@ -308,22 +353,23 @@ def native_pass(args):
         subprocess.run(['cmake', bdir], cwd=repo, capture_output=True)
         out = subprocess.run(['cmake', '--build', bdir, '--', '-k', '0'], cwd=repo, capture_output=True, text=True)
         hits = {(m.group('f'), int(m.group('l')), int(m.group('c')), m.group('n'), m.group('k')) for m in CLANG.finditer(out.stdout + out.stderr)}
-        todo = [h for h in hits if h[3] in olds and h[4] in family]
-        unresolved = [h for h in hits if h not in todo and (h[3] in olds or h[3] in olds.values())]
+        todo = [h for h in hits if new_for(h[3], h[4])]
+        unresolved = [h for h in hits if h not in todo and h[3] in allnames]
         print('native round %d: build exit %d, %d call sites' % (round_, out.returncode, len(todo)), flush=True)
         if not todo:
             break
         for f in sorted({h[0] for h in todo}):
             path = Path(f) if os.path.isabs(f) else repo / f
             rows = read(path).split('\n')
-            for _, line, column, old, _ in sorted((h for h in todo if h[0] == f), key=lambda h: -h[2]):
-                rows[line - 1] = rename_at(rows[line - 1], column, old, olds[old])
+            for _, line, column, old, cls in sorted((h for h in todo if h[0] == f), key=lambda h: -h[2]):
+                rows[line - 1] = rename_at(rows[line - 1], column, old, new_for(old, cls))
                 print('  call site %s:%d' % (os.path.relpath(path, repo), line))
             write(path, '\n'.join(rows))
     left = []
-    for old in olds:
-        left += subprocess.run(['git', '-C', str(repo), 'grep', '-n', '-P', r'\b(%s)::%s\b' % (family_pattern(family), old), '--', 'native'],
-                               capture_output=True, text=True).stdout.splitlines()
+    for family, methods in parts:
+        for old, _ in methods:
+            left += subprocess.run(['git', '-C', str(repo), 'grep', '-n', '-P', r'\b(%s)::%s\b' % (family_pattern(family), old), '--', 'native'],
+                                   capture_output=True, text=True).stdout.splitlines()
     left += ['compiler: %s:%d %s in %s' % (u[0], u[1], u[3], u[4]) for u in unresolved]
     for l in left:
         print('  ', l[:200])

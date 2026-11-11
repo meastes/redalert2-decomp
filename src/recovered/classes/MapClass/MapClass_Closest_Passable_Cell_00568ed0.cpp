@@ -21,7 +21,7 @@ Cell MapClass::Unknown_00568ED0(Cell const &cell, Cell const &from)
     }
 
     IsometricTileTypeClass *iptr = IsoTileTypes[cptr->IsoTileIndex];
-    IsoTileImageStruct *image = (IsoTileImageStruct *)iptr->unknown_slot39();
+    IsoTileImageStruct *image = (IsoTileImageStruct *)iptr->Get_Image_Data();
 
     int w = iptr->unknown_2b4;
     int h = iptr->unknown_2b8;

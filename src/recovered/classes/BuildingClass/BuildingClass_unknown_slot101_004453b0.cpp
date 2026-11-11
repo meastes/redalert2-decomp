@@ -22,5 +22,5 @@ int BuildingClass::unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClas
     if (Type->UndeploysInto != 0 && unknown_74) {
         return ((UnknownPlacementCellView &)Map[cell]).Unknown_004718B0(Type->SpeedType, Type, House) ? 0 : 7;
     }
-    return Type->unknown_slot42(cell, House) ? 0 : 7;
+    return Type->Legal_Placement(cell, House) ? 0 : 7;
 }

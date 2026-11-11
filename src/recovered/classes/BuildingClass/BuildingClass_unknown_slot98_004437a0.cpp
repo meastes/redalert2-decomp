@@ -43,7 +43,7 @@ void BuildingClass::unknown_slot98(int mode)
             Voc_Play(Rules->unknown_62c, 1.0f, 0x2000, 0);
         }
     } else if (Type->FirestormWall) {
-        Type->unknown_slot33(House);
+        Type->Cost_Of(House);
         House->Unknown_004F52F0();
         unknown_slot52();
         unknown_slot60();

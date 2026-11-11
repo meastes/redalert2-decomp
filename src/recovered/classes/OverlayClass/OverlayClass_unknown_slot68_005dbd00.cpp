@@ -34,7 +34,7 @@ extern short unknown_short_8325d0;                          // 0x008325D0
 
 void OverlayClass::unknown_slot68(Point2D const &point, Rect const &window)
 {
-    void *shape = Class->unknown_slot39();
+    void *shape = Class->Get_Image_Data();
     int height = Unknown_006A2970(Map.Get_Height_GL(CoordStruct(Coord)));
     int overlay = Overlay_Type_Index(Class);
     Point2D position = Point2D(point.X, point.Y + Draw_Offset(overlay).Y);
@@ -42,9 +42,9 @@ void OverlayClass::unknown_slot68(Point2D const &point, Rect const &window)
     if (Class->Tiberium) {
         TiberiumClass *tiberium = unknown_TiberiumClass_list_00ac0b30[To_Tiberium(Overlay_Type_Index(Class))];
         ColorScheme *scheme = ColorSchemes[tiberium->unknown_c0];
-        shape = OverlayTypes[tiberium->Image->ArrayIndex]->unknown_slot39();
+        shape = OverlayTypes[tiberium->Image->ArrayIndex]->Get_Image_Data();
         if (!shape && Class->CellAnim) {
-            shape = Class->CellAnim->unknown_slot39();
+            shape = Class->CellAnim->Get_Image_Data();
         }
         CC_Draw_Shape(unknown_surface_83995c, scheme->Converter, (ShapeFileStruct const *)shape, 0, position, window,
                       0xE00, 0, -2 - height, 0, 1000, 0, 0, Point2D(0, 0));

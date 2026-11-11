@@ -11,7 +11,7 @@
 void __fastcall Place_Tile_Footprint_005883f0(int tile,Cell const &position,int region,int height)
 {
     IsometricTileTypeClass *type=IsoTileTypes[tile];
-    IsoTileImageStruct const *image=(IsoTileImageStruct const *)type->unknown_slot39();
+    IsoTileImageStruct const *image=(IsoTileImageStruct const *)type->Get_Image_Data();
     if(image) {
         for(int y=0;y<type->unknown_2b8;y++) {
             for(int x=0;x<type->unknown_2b4;x++) {

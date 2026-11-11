@@ -23,7 +23,7 @@ void BuildingClass::Init()
             unknown_254 = Type->InitialAmmo;
         }
         unknown_2e0.Set_ROT(Type->ROT);
-        if (!Type->unknown_slot48()) {
+        if (!Type->Get_Buildup_Data()) {
             unknown_5ac = false;
             return;
         }

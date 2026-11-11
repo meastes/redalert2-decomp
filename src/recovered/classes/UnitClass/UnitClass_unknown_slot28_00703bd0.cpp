@@ -66,7 +66,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
                 }
                 Mark(0);
                 Locomotor.Checked()->Mark_All_Occupation_Bits(0);
-                if (!Type->DeploysInto->unknown_slot42(cell, 0)) {
+                if (!Type->DeploysInto->Legal_Placement(cell, 0)) {
                     action = 0x1e;
                 }
                 Locomotor.Checked()->Mark_All_Occupation_Bits(1);

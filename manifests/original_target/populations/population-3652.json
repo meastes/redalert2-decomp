@@ -4,8 +4,8 @@
     "id": "population-3652",
     "inventory_sha256": "ab8b042e4fb82b5156c58fe3ef8d76323de9b63f7677ca7c912ac332274d16c0",
     "gaps_sha256": "0432b47d38c99195d1922e52ceabf6f50d8937bf0fb1c7d6cf24d1311f38f5b7",
-    "historical_population_sha256": "2c4e982c9e7d2ea3f2ba653bab96d29b3791d1826a81d037c6dfd24c67158e53",
-    "historical_acceptance_sha256": "c497c519bd378c93b966a63839bcd538b02bbe1a130f676c9457d1f2f7bd5475"
+    "historical_population_sha256": "a41c895af03bb089c864a8f212cd5d915cfd8d712140fa64b2ffeff46cd44593",
+    "historical_acceptance_sha256": "cf7a9c20d3a806b74951c934776035aff1a16e0b102a4a4606d7137184873702"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1648,8 +1648,8 @@
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?unknown_rules_839848@@3PAUUnknownRules839848@@A": 8624200,
     "?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z": 7261072,
-    "?unknown_slot27@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z": 4309728,
-    "?unknown_slot39@ObjectTypeClass@@UBEPAXXZ": 4309760,
+    "?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z": 4309728,
+    "?Get_Image_Data@ObjectTypeClass@@UBEPAXXZ": 4309760,
     "?unknown_slot178@TechnoClass@@UAE?AVCell@@XZ": 4537216,
     "?unknown_slot179@TechnoClass@@UAEXVCell@@@Z": 4537232,
     "?unknown_slot178@FootClass@@UAE?AVCell@@XZ": 4306256,
@@ -3742,7 +3742,7 @@
     "?Set_Defaults@UnknownIDSource@@QAEXXZ": 6666288,
     "?Init@SpecialClass@@QAEXXZ": 6861600,
     "?Toggle_Display_Mode_0065c480@@YIX_N@Z": 6669440,
-    "_?list@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
+    "_?list@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
     "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
     "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,

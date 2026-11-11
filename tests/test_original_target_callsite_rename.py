@@ -53,8 +53,20 @@ class CallsiteRenameTests(unittest.TestCase):
         log = ("accepted.cpp(3) : error C2039: 'unknown_slot5' : is not a member of 'Leaf'\n"
                "accepted.cpp(7) : error C2039: 'Fire' : is not a member of 'Unrelated'\n"
                "accepted.cpp(9) : error C2039: 'unknown_slot5' : is not a member of 'Unrelated'\n")
-        fixes, undo, other = cr.classify(log, starts, METHODS, {'Base', 'Leaf'})
-        self.assertEqual((fixes, undo, len(other)), ({'src/a.cpp': {3}}, {'src/a.cpp': {7}}, 1))
+        fixes, undo, other = cr.classify(log, starts, [({'Base', 'Leaf'}, METHODS)])
+        self.assertEqual(fixes, {'src/a.cpp': {3: {('unknown_slot5', 'Fire')}}})
+        self.assertEqual(undo, {'src/a.cpp': {7: {('Fire', 'unknown_slot5')}}})
+        self.assertEqual(len(other), 1)
+
+    def test_parts_give_one_old_name_a_new_name_per_family(self):
+        parts = [({'TechnoType'}, [('unknown_slot40', 'CanUseWaypoint')]), ({'OverlayType'}, [('unknown_slot40', 'Draw_It')])]
+        log = ("accepted.cpp(2) : error C2039: 'unknown_slot40' : is not a member of 'OverlayType'\n"
+               "accepted.cpp(4) : error C2039: 'unknown_slot40' : is not a member of 'TechnoType'\n")
+        fixes, _, _ = cr.classify(log, [(1, 'src/a.cpp')], parts)
+        self.assertEqual(fixes, {'src/a.cpp': {2: {('unknown_slot40', 'Draw_It')}, 4: {('unknown_slot40', 'CanUseWaypoint')}}})
+        text = 'family: TechnoType UnitType | unknown_slot40=CanUseWaypoint unknown_slot41=CanAttackMove\nfamily: OverlayType | unknown_slot40=Draw_It\nsrc/x.cpp:1 y\n'
+        self.assertEqual(cr.read_parts(text), [({'TechnoType', 'UnitType'}, [('unknown_slot40', 'CanUseWaypoint'), ('unknown_slot41', 'CanAttackMove')]),
+                                               ({'OverlayType'}, [('unknown_slot40', 'Draw_It')])])
 
     def test_mangling_rules_are_family_limited(self):
         rule = cr.mangling_rules(METHODS, {'Base', 'Leaf'})[0]

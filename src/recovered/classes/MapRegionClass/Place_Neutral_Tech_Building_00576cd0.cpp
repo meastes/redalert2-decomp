@@ -26,7 +26,7 @@ void MapRegionClass::Place_Neutral_Tech_Building_00576cd0()
         if(tries>=100)break;
         Cell position=Cells[Map_Random_Range_005797a0(0,Cells.Count()-1)];
         int height=Map[position].unknown_11b;
-        Cell const *list=building->Type->unknown_slot36(1);
+        Cell const *list=building->Type->Occupy_List(1);
         bool clear=true;
         while(list->X!=0x7fff || list->Y!=0x7fff) {
             Cell next=position + *list;

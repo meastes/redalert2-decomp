@@ -18,7 +18,7 @@ void CellClass::Draw_Overlay_Shadow(Point2D const &xpoint, Rect const &clip)
 {
     int yoffset = unknown_11b * 15;
     OverlayTypeClass *overlay = OverlayTypes[OverlayIndex];
-    ShapeFileStruct *shape = (ShapeFileStruct *)overlay->unknown_slot39();
+    ShapeFileStruct *shape = (ShapeFileStruct *)overlay->Get_Image_Data();
     Point2D point = xpoint + unknown_475440();
     point -= Point2D(clip.X, clip.Y);
     if (unknown_140 & 0x80) {

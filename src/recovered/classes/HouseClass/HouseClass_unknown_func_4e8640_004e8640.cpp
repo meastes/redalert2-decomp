@@ -38,7 +38,7 @@ void HouseClass::unknown_func_4e8640()
         for (int index = 0; index < buildings; index++) {
             UnknownBuildingView *building = (UnknownBuildingView *)Buildings[index];
             if (building != 0 && !building->unknown_76 && building->Strength > 0) {
-                int weight = building->Type->unknown_slot33(this) / 1000 + 1;
+                int weight = building->Type->Cost_Of(this) / 1000 + 1;
                 for (int i = 0; i < weight; i++) {
                     x += building->Center_Coord().X;
                     y += building->Center_Coord().Y;
