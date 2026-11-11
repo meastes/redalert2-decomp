@@ -41,11 +41,11 @@ public:
     virtual int Size_Of() const;                                        // 0x006EDB80 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006EDA00 slot 13
 
-    bool Is_Cross_Horizontal() const;                                   // 0x006ED4D0 (chain: TriggerTypeClass::unknown_func_6ee1b0)
-    bool Is_Cross_Vertical() const;                                     // 0x006ED510 (chain: unknown_func_6ee180)
-    bool Is_Enters_Zone() const;                                        // 0x006ED550 (this and next: unknown_func_6ee1e0)
-    bool Is_Allow_Win() const;                                          // 0x006ED590 (this and next: unknown_func_6ee210)
-    bool Is_Linked_To_Global(int value) const;                          // 0x006ED5D0 (this and next: unknown_func_6ee240)
+    bool Is_Cross_Horizontal() const;                                   // 0x006ED4D0 (chain: TriggerTypeClass::Is_Cross_Horizontal)
+    bool Is_Cross_Vertical() const;                                     // 0x006ED510 (chain: Is_Cross_Vertical)
+    bool Is_Enters_Zone() const;                                        // 0x006ED550 (this and next: Is_Enters_Zone)
+    bool Is_Allow_Win() const;                                          // 0x006ED590 (this and next: Is_Allow_Win)
+    bool Is_Linked_To_Global(int value) const;                          // 0x006ED5D0 (this and next: Is_Linked_To_Global)
     void Reset_Global_Linked_Timed_Events(int value);                   // 0x006ED620 (resets the chain's triggers that answer 0x006EE240)
     void Reset_Local_Linked_Timed_Events(int value);                    // 0x006ED650 (resets the chain's triggers that answer 0x006EE280)
     void Reset();                                                       // 0x006ED680 (restarts the timed events)

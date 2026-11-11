@@ -4,7 +4,7 @@
 void TriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
     AbstractTypeClass::Compute_CRC(crc);
-    crc(unknown_a4->Fetch_ID());
+    crc(House->Fetch_ID());
     if (Next != 0) {
         crc(Next->Fetch_ID());
     }

@@ -35,8 +35,8 @@ TagClass::~TagClass()
         }
     }
     if (unknown_flag_a40958 && unknown_flag_a40d04 && Trigger != 0 && Trigger->Class != 0 &&
-        Trigger->Class->unknown_a4 != 0 && Class->unknown_func_6b4c30()) {
-        HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)Trigger->Class->unknown_a4)->House);
+        Trigger->Class->House != 0 && Class->unknown_func_6b4c30()) {
+        HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)Trigger->Class->House)->House);
         if (house->unknown_1c4 != 0) {
             house->unknown_1c4--;
         }

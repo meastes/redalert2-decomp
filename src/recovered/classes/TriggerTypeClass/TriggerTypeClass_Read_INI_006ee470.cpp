@@ -18,9 +18,9 @@ bool TriggerTypeClass::Read_INI(CCINIClass &ini)
     if (ini.Get_String(unknown_triggers_section_7ada50, ID, "", buffer, sizeof(buffer))) {
         char *token = strtok(buffer, ",");
         if (_stricmp(token, "<none>") == 0) {
-            unknown_a4 = HouseTypes[0];
+            House = HouseTypes[0];
         } else {
-            unknown_a4 = HouseTypes[HouseTypeClass::Find_Index(token)];
+            House = HouseTypes[HouseTypeClass::Find_Index(token)];
         }
 
         token = strtok(0, ",");
@@ -58,7 +58,7 @@ bool TriggerTypeClass::Read_INI(CCINIClass &ini)
         }
         token = strtok(0, ",");
         if (token != 0 && atoi(token) != 0) {
-            unknown_a0 = true;
+            IsToInherit = true;
         }
 
         if (ini.Get_String(unknown_events_section_7ada58, ID, "", buffer, sizeof(buffer))) {

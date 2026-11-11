@@ -5,7 +5,7 @@
 // Layout (from the constructor 0x006EDEB0; names are hypotheses):
 //   +0x00  AbstractTypeClass (0x98)
 //   +0x98  int ArrayIndex (-1), +0x9C..+0x9F bools (true), +0xA0 bool
-//   +0xA4  HouseTypeClass *unknown_a4 (swizzled; CRC'd by ID)
+//   +0xA4  HouseTypeClass *House (swizzled; CRC'd by ID)
 //   +0xA8  TriggerTypeClass *Next (the tag type's chain)
 //   +0xAC  TEventClass *Events, +0xB0 TActionClass *Actions (chained)
 // Every type is added to the abstract lists 0x00AC0C98 and 0x00AC0CB0.
@@ -53,13 +53,13 @@ public:
     static TriggerTypeClass *__fastcall From_Name(char const *name);    // 0x006EE350 (by ID or name)
     static int __fastcall Persistence_From_Name(char const *name);      // 0x006EE3C0
 
-    int unknown_func_6ee410() const;                                    // 0x006EE410 (event flags)
-    bool unknown_func_6ee180() const;                                   // 0x006EE180
-    bool unknown_func_6ee1b0() const;                                   // 0x006EE1B0
-    bool unknown_func_6ee1e0() const;                                   // 0x006EE1E0
-    bool unknown_func_6ee210() const;                                   // 0x006EE210
-    bool unknown_func_6ee240(int value) const;                          // 0x006EE240
-    bool unknown_func_6ee280(int value) const;                          // 0x006EE280
+    int Attaches_To() const;                                            // 0x006EE410 (event flags; TibSun AttachType)
+    bool Is_Cross_Vertical() const;                                     // 0x006EE180
+    bool Is_Cross_Horizontal() const;                                   // 0x006EE1B0
+    bool Is_Enters_Zone() const;                                        // 0x006EE1E0
+    bool Is_Allow_Win() const;                                          // 0x006EE210
+    bool Is_Linked_To_Global(int value) const;                          // 0x006EE240
+    bool Is_Linked_To_Local(int value) const;                           // 0x006EE280
     static TriggerTypeClass *__fastcall Find_Or_Make(char const *name); // 0x006EECC0
     static char const *__fastcall Name_From_Persistence(int persistence);   // 0x006EE400
     static void __fastcall Read_Scenario_INI(CCINIClass &ini);          // 0x006EE7F0
@@ -70,8 +70,8 @@ public:
     bool IsNormal;                          // +0x9D enabled on normal
     bool IsHard;                            // +0x9E enabled on hard
     bool IsEnabled;                         // +0x9F
-    bool unknown_a0;                        // +0xA0
-    HouseTypeClass *unknown_a4;             // +0xA4 the house (Read_INI: HouseTypes; TriggerClass::Spring
+    bool IsToInherit;                       // +0xA0
+    HouseTypeClass *House;                  // +0xA4 the house (Read_INI: HouseTypes; TriggerClass::Spring
                                             // passes its house to the events)
     TriggerTypeClass *Next;                 // +0xA8
     TEventClass *Events;                    // +0xAC

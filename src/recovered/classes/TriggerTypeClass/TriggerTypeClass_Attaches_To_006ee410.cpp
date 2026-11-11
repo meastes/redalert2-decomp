@@ -1,8 +1,8 @@
-// int TriggerTypeClass::unknown_func_6ee410() const (0x006EE410)
+// int TriggerTypeClass::Attaches_To() const (0x006EE410)
 // The combined flags of the events and actions of this and the later types.
 #include "shared/object.hpp"
 
-int TriggerTypeClass::unknown_func_6ee410() const
+int TriggerTypeClass::Attaches_To() const
 {
     int flags = 0;
     for (TEventClass *event = Events; event != 0; event = event->Next) {
@@ -12,7 +12,7 @@ int TriggerTypeClass::unknown_func_6ee410() const
         flags |= TActionClass::Action_Flags(action->Type);
     }
     if (Next != 0) {
-        return Next->unknown_func_6ee410() | flags;
+        return Next->Attaches_To() | flags;
     }
     return flags;
 }

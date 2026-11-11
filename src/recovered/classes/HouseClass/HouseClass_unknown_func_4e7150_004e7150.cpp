@@ -13,7 +13,7 @@ void HouseClass::unknown_func_4e7150()
         }
     }
     for (int i = 0; i < Triggers.Count(); i++) {
-        if ((AbstractTypeClass *)Triggers[i]->Class->unknown_a4 == Type) {
+        if ((AbstractTypeClass *)Triggers[i]->Class->House == Type) {
             delete Triggers[i];
             i--;
         }

@@ -17,7 +17,7 @@ bool TriggerClass::Spring(int event, ObjectClass *object, bool forced, bool pers
     if (!forced) {
         int index = 0;
         for (TEventClass *e = Class->Events; e != 0; e = e->Next) {
-            if (!Is_Event_Marked(index) && !e->unknown_func_6e6050(event, HouseClass::As_Pointer(Class->unknown_a4->ArrayIndex),
+            if (!Is_Event_Marked(index) && !e->unknown_func_6e6050(event, HouseClass::As_Pointer(Class->House->ArrayIndex),
                                                              object, &Timer, &persistent, source)) {
                 sprung = false;
             } else if (persistent && e->unknown_func_6e6cf0() && e->unknown_func_6e6d50()) {

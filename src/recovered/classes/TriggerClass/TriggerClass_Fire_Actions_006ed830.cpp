@@ -13,7 +13,7 @@ bool TriggerClass::Fire_Actions(ObjectClass *object, Cell cell)
     }
     bool acted = false;
     for (TActionClass *action = Class->Actions; action != 0; action = action->Next) {
-        if (action->Execute(HouseClass::As_Pointer(Class->unknown_a4->ArrayIndex), object, this, &cell)) {
+        if (action->Execute(HouseClass::As_Pointer(Class->House->ArrayIndex), object, this, &cell)) {
             acted = true;
         }
     }

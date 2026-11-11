@@ -24,9 +24,9 @@ bool TriggerTypeClass::Write_INI(CCINIClass &ini) const
 {
     char buffer[512];
     sprintf(buffer, "%s,%s,%s,%d,%d,%d,%d,%d",
-        unknown_a4 != 0 ? (char const *)unknown_a4->ID : "<none>",
+        House != 0 ? (char const *)House->ID : "<none>",
         Next != 0 ? (char const *)Next->ID : "<none>",
-        (char const *)Name, IsEnabled ? 0 : 1, IsEasy ? 1 : 0, IsNormal ? 1 : 0, IsHard ? 1 : 0, unknown_a0 ? 1 : 0);
+        (char const *)Name, IsEnabled ? 0 : 1, IsEasy ? 1 : 0, IsNormal ? 1 : 0, IsHard ? 1 : 0, IsToInherit ? 1 : 0);
     ini.Put_String(unknown_triggers_section_7ada50, ID, buffer);
 
     int count = 0;

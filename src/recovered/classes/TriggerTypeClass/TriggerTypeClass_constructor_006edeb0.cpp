@@ -12,8 +12,8 @@ TriggerTypeClass::TriggerTypeClass(char const *ini_name) :
     IsNormal(true),
     IsHard(true),
     IsEnabled(true),
-    unknown_a0(false),
-    unknown_a4(0),
+    IsToInherit(false),
+    House(0),
     Next(0),
     Events(0),
     Actions(0)

@@ -1,12 +1,12 @@
-// bool TriggerTypeClass::unknown_func_6ee1e0() const (0x006EE1E0)
-// Whether the type has an Event of type 0x18.
+// bool TriggerTypeClass::Is_Cross_Horizontal() const (0x006EE1B0)
+// Whether the type has an Event of type 0x19.
 #include "shared/object.hpp"
 
-bool TriggerTypeClass::unknown_func_6ee1e0() const
+bool TriggerTypeClass::Is_Cross_Horizontal() const
 {
     bool result = false;
     for (TEventClass *item = Events; item != 0; item = item->Next) {
-        if (item->Type == 0x18) {
+        if (item->Type == 0x19) {
             result = true;
             break;
         }

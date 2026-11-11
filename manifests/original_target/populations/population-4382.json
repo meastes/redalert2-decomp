@@ -4,8 +4,8 @@
     "id": "population-4382",
     "inventory_sha256": "5e09bf3a0f33d259dcdf962fd73840b52de18279c15e186a4b9580bbc8ce1733",
     "gaps_sha256": "23de4e14877f0fa0c7e5836453b7e1167c4a630816489878e5a15c634eaf158d",
-    "historical_population_sha256": "8d835ed5121b4224e1083002c04e86be1faddc05c699f0001e3faa07f5ecf3fa",
-    "historical_acceptance_sha256": "58311787054ea3855b39a4464fb38c1bdd8b18530e81c17ae5d18da943726210"
+    "historical_population_sha256": "f0d3143ab6b4c488517138d4382a0553a99b94141eef36b1452fde26f4901885",
+    "historical_acceptance_sha256": "e67b3081d39f7308b3e7f08b83efc6d7d99aa3faf13ea93f39c49c7a7a8bc162"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -9728,13 +9728,13 @@
     "?Fire_Actions@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z": 7264304,
     "?Mark_To_Delete@TriggerClass@@QAEXXZ": 7264656,
     "?Is_Marked_To_Delete@TriggerClass@@QBE_NXZ": 7264752,
-    "?unknown_func_6ee180@TriggerTypeClass@@QBE_NXZ": 7266688,
-    "?unknown_func_6ee1b0@TriggerTypeClass@@QBE_NXZ": 7266736,
-    "?unknown_func_6ee1e0@TriggerTypeClass@@QBE_NXZ": 7266784,
-    "?unknown_func_6ee210@TriggerTypeClass@@QBE_NXZ": 7266832,
-    "?unknown_func_6ee240@TriggerTypeClass@@QBE_NH@Z": 7266880,
-    "?unknown_func_6ee280@TriggerTypeClass@@QBE_NH@Z": 7266944,
-    "?unknown_func_6ee410@TriggerTypeClass@@QBEHXZ": 7267344,
+    "?Is_Cross_Vertical@TriggerTypeClass@@QBE_NXZ": 7266688,
+    "?Is_Cross_Horizontal@TriggerTypeClass@@QBE_NXZ": 7266736,
+    "?Is_Enters_Zone@TriggerTypeClass@@QBE_NXZ": 7266784,
+    "?Is_Allow_Win@TriggerTypeClass@@QBE_NXZ": 7266832,
+    "?Is_Linked_To_Global@TriggerTypeClass@@QBE_NH@Z": 7266880,
+    "?Is_Linked_To_Local@TriggerTypeClass@@QBE_NH@Z": 7266944,
+    "?Attaches_To@TriggerTypeClass@@QBEHXZ": 7267344,
     "?unknown_func_7049c0@UnknownUnitView@@QAE_NH@Z": 7358912,
     "?unknown_func_7049f0@UnknownUnitReleaseView@@QAE_NXZ": 7358960,
     "?unknown_func_7339c0@WeaponTypeClass@@QAEXXZ": 7551424,
@@ -19192,7 +19192,7 @@
           "resolved": 10750640
         }
       ],
-      "source_sha256": "3100036b8bf07978a48e55867e0429ffea66794225b519bbf4e1a18ebdf3a573",
+      "source_sha256": "3a23d4dd32d7338eff7a7301dbdc5fb4ae9fedd67440bcdd7e63147e9d2bfdab",
       "source": "src/recovered/classes/HouseClass/HouseClass_unknown_func_4e7150_004e7150.cpp",
       "population": "population-4382",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
