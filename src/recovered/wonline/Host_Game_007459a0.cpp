@@ -61,8 +61,8 @@ inline void Show_Game_Options()
         HWND dialog=unknown_create_dialog_5ff610(0xc2,(DialogProc)WOL_Game_Options_Proc_0074a710,0);
         unknown_session_a3d298.Mode->unknown_slot33();
         unknown_session_a3d298.Mode->unknown_slot8();
-        unknown_session_a3d298.Mode->unknown_slot6();
-        unknown_session_a3d298.Mode->unknown_slot26();
+        unknown_session_a3d298.Mode->AssignTeamsAtStart();
+        unknown_session_a3d298.Mode->UnfixAlliances();
         ShowWindow(dialog,1);
         if(window) ShowWindow(window,0);
     }

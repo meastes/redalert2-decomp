@@ -514,10 +514,13 @@ BOOL GetVolumeInformationA(const char *root, char *name, DWORD name_size, DWORD 
 DWORD GetModuleFileNameA(HINSTANCE module, char *buffer, DWORD size)
 {
     (void)module;
-    // The game derives its folder from this: report the data root's game.exe.
-    char path[1024];
-    snprintf(path, sizeof path, "%s/game.exe", data_dir());
-    for (char *c = path; *c; ++c) if (*c == '/') *c = '\\';
+    // The game derives its folder from this (WinMain 0x0068E280: _splitpath, then
+    // SetCurrentDirectoryA): the data root's game.exe as the game would see it on
+    // Windows, "C:\game.exe" (host_path maps a drive-qualified path onto the data
+    // root). Not the host path: WinMain keeps it in a 132-byte buffer, and an iOS
+    // app's container path is longer (the Simulator's about 190 characters): the
+    // game cut it and made a parent folder its current directory (Scout1247).
+    const char path[] = "C:\\game.exe";
     DWORD n = (DWORD)strlen(path);
     if (size == 0) return 0;
     if (n >= size) n = size - 1;

@@ -131,6 +131,13 @@ UINT timeSetEvent(UINT delay, UINT resolution, TIMECALLBACK callback, uintptr_t 
             next += std::chrono::milliseconds(delay ? delay : 1);
             std::this_thread::sleep_until(next);
             if (t->stop) break;
+            if (ra2port::held()) {
+                // The host pause holds the game (Scout1247): no callbacks while it
+                // lasts; afterwards this one, and none owed for the time held.
+                while (ra2port::held() && !t->stop) std::this_thread::sleep_for(std::chrono::milliseconds(5));
+                if (t->stop) break;
+                next = std::chrono::steady_clock::now();
+            }
             callback(id, 0, user, 0, 0);
         } while (periodic && !t->stop);
     });

@@ -21,8 +21,12 @@ extern "C" {
 // The clocks are what the game's busy waits poll (Init_Game 0x005116A0 spins on
 // Audio_Now until its minimum loading time): each read lets the host keep the
 // window responsive (ra2port::keep_alive, rate-limited).
-uint32_t timeGetTime(void) { ra2port::keep_alive(); return (uint32_t)(monotonic_ns() / 1000000u); }
-uint32_t GetTickCount(void) { ra2port::keep_alive(); return (uint32_t)(monotonic_ns() / 1000000u); }
+// They are the game's clock (ra2port::game_clock_ns): it stands still while the
+// host pause holds the game (Scout1247).
+uint32_t timeGetTime(void) { ra2port::keep_alive(); return (uint32_t)(ra2port::game_clock_ns() / 1000000u); }
+uint32_t GetTickCount(void) { ra2port::keep_alive(); return (uint32_t)(ra2port::game_clock_ns() / 1000000u); }
+// The game's clock for the link layer (the virtual TSC, link/behaviour_asm_lib.cpp).
+uint64_t ra2port_game_ns(void) { return ra2port::game_clock_ns(); }
 
 // Native diagnostics (Scout1191, M24): the time spent in Sleep, so a test run
 // can tell a frame's work from the game's own pacing (harness frame times).
@@ -78,7 +82,7 @@ int QueryPerformanceFrequency(int64_t *frequency)
 int QueryPerformanceCounter(int64_t *counter)
 {
     ra2port::keep_alive();
-    *counter = (int64_t)monotonic_ns();
+    *counter = (int64_t)ra2port::game_clock_ns();
     return 1;
 }
 

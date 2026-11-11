@@ -514,7 +514,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
     }
     unknown_session_a3d298.Mode = mode;
     if (mode != 0 && !same) {
-        mode->unknown_slot26();
+        mode->UnfixAlliances();
     }
     HWND dialog = Find_Lobby_Window_005c2c40();
     SendMessageA(GetDlgItem(dialog, 0x6EC), 0x4B2, 0, (LPARAM)mode->unknown_name_20.unknown_text_770430());

@@ -138,6 +138,7 @@ template class DynamicVectorClass<ScoreAnimClass*>;  // instance: DynamicVectorC
 template class DynamicVectorClass<ScoreSoundClass*>;  // instance: DynamicVectorClass<ScoreSoundClass*>::
 template class DynamicVectorClass<TechnoClass*>;  // instance: DynamicVectorClass<TechnoClass*>::
 template class DynamicVectorClass<TechnoTypeClass const*>;  // instance: DynamicVectorClass<TechnoTypeClass const*>::
+template class DynamicVectorClass<ThemeControl*>;  // instance: DynamicVectorClass<ThemeControl*>:: (the -O2 build, Scout1248)
 template class DynamicVectorClass<UnknownGlobalPacket*>;  // instance: DynamicVectorClass<UnknownGlobalPacket*>::
 template class DynamicVectorClass<WIN32_FIND_DATA*>;  // instance: DynamicVectorClass<WIN32_FIND_DATA*>::
 template class DynamicVectorClass<char const*>;  // instance: DynamicVectorClass<char const*>::

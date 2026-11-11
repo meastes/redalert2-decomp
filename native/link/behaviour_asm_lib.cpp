@@ -149,13 +149,16 @@ int LCW_Comp(void const *source, void *dest, int datasize)
 // 0x005ABF60 (TibSun mpu.cpp: rdtsc into TSC_Low/TSC_High) and Get_CPU_Speed
 // 0x005ABF70 (TibSun mpu.cpp: the TSC rate in MHz, measured against the
 // performance counter). Natively the TSC is a virtual 1 GHz counter (the
-// monotonic clock in nanoseconds, the same clock the port's
+// port's game clock in nanoseconds, the same clock the port's
 // QueryPerformanceCounter reads), so its rate is exactly 1000 MHz:
 // Get_CPU_Speed returns the value the original's measurement converges to
 // (its rounding steps leave an exact rate unchanged) without the busy loop.
 // ---------------------------------------------------------------------------
+// The port's game clock (port/src/win32_time.cpp): it stands still while the host
+// pause holds the game (Scout1247), and keeps Apple's clock out of this layer.
+extern "C" uint64_t ra2port_game_ns(void);
 namespace {
-uint64_t virtual_tsc() { return clock_gettime_nsec_np(CLOCK_UPTIME_RAW); }
+uint64_t virtual_tsc() { return ra2port_game_ns(); }
 }
 
 unsigned int Get_CPU_Clock(unsigned int &high)

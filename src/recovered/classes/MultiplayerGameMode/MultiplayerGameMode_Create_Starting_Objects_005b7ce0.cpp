@@ -55,7 +55,7 @@ bool MultiplayerGameMode::Create_Starting_Objects_005b7ce0()
                 }
             }
             int money = starting_money;
-            if (!unknown_slot43(house, &money) || !unknown_slot44(house, &money)) return false;
+            if (!SpawnBaseUnits(house, &money) || !GenerateStartingUnits(house, &money)) return false;
             if (money > 0) house->Refund_Money(money);
             // These four 16-byte fields contain CounterClass objects, whose public base is VectorClass<int>.
             reinterpret_cast<VectorClass<int> *>(&house->unknown_54a0)->Clear();

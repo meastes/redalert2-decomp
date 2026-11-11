@@ -340,7 +340,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
             if(unknown_users_b2a728.Count>4) { Unknown_005C2C80(-1,StringTable::Load_String(host_label_7fec24,0,wol_source_file_007fd62c,0x39d1)); return 0; }
             MultiplayerGameMode *mode=unknown_session_a3d298.Mode;
             WideString error;
-            if(!mode->unknown_slot5(&error)) {
+            if(!mode->CheckStartConditions(&error)) {
                 Unknown_005C2C80(-1,error.Get()); EnableWindow(GetDlgItem(Unknown_00735B10(),0x588),1); return 0;
             }
             if(Unknown_0073c3c0(&unknown_game_channel_b299c0)) {
@@ -418,7 +418,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
         MultiplayerGameMode *mode=MultiplayerGameMode::unknown_first_mode_5b6ec0();
         unknown_session_a3d298.GameModeIndex=mode->unknown_28; unknown_session_a3d298.Mode=mode;
         mode->unknown_slot8(); Unknown_005c3450(window,mode);
-        unknown_session_a3d2b4=mode->unknown_slot13(); Select_Scenario_005c7c30(unknown_session_a3d2b4);
+        unknown_session_a3d2b4=mode->FirstValidMapIndex(); Select_Scenario_005c7c30(unknown_session_a3d2b4);
         Fill_Side_Combos_4d16d0(window); Init_Color_Entries_4d1ea0(); Fill_Color_Combos_4d2300(window);
         Select_Player_Side_4d1820(window,unknown_lobby_a3fa94); Select_Player_Color_4d23c0(window,unknown_lobby_a3fa94);
         Unknown_005cca30(window,&unknown_session_a3d298.WonlineOptions);

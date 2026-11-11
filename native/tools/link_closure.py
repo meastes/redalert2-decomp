@@ -45,20 +45,45 @@ def nm_symbols(paths):
     return defined, undefined
 
 
-def system_exports():
-    sdk = subprocess.run(['xcrun', '--show-sdk-path'], capture_output=True, text=True).stdout.strip()
+def tbd_exports(path):
+    """Exported names of a text stub (.tbd): symbols, and the Objective-C classes,
+    metaclasses, exception types and ivars it lists without their prefixes."""
+    text = Path(path).read_text(errors='replace')
+    names = set(re.findall(r"'?(_[A-Za-z0-9_$.]+)'?", text))
+    for key, prefixes in (('objc-classes', ('_OBJC_CLASS_$_', '_OBJC_METACLASS_$_')),
+                          ('objc-eh-types', ('_OBJC_EHTYPE_$_',)), ('objc-ivars', ('_OBJC_IVAR_$_',))):
+        for group in re.findall(key + r':\s*\[([^\]]*)\]', text):
+            for name in re.findall(r"[A-Za-z_][A-Za-z0-9_.$]*", group):
+                names.update(prefix + name for prefix in prefixes)
+    return names
+
+
+def system_exports(sdk='', frameworks=('Foundation', 'AppKit'), libs=()):
+    """Names the system defines: libSystem, libc++, libobjc and the named frameworks
+    of the SDK (SDK path or name, default xcrun's: the host's macOS SDK; an iOS
+    build passes its sysroot), and the libraries given (default Homebrew's SDL3
+    dylib; an iOS build passes its static SDL3)."""
+    cmd = ['xcrun'] + (['--sdk', sdk] if sdk and not os.path.isabs(sdk) else []) + ['--show-sdk-path']
+    sdk_path = sdk if sdk and os.path.isabs(sdk) else subprocess.run(cmd, capture_output=True, text=True).stdout.strip()
     names = set()
-    for tbd in [sdk + '/usr/lib/libSystem.B.tbd', sdk + '/usr/lib/libc++.tbd', sdk + '/usr/lib/libc++abi.tbd'] + \
-            glob.glob(sdk + '/usr/lib/system/*.tbd'):
+    stubs = [sdk_path + '/usr/lib/libSystem.B.tbd', sdk_path + '/usr/lib/libc++.tbd', sdk_path + '/usr/lib/libc++abi.tbd',
+             sdk_path + '/usr/lib/libobjc.A.tbd'] + glob.glob(sdk_path + '/usr/lib/system/*.tbd')
+    # CoreFoundation re-exports the toll-free bridged classes Foundation's users name.
+    for framework in list(frameworks) + (['CoreFoundation'] if frameworks else []):
+        stubs += glob.glob('%s/System/Library/Frameworks/%s.framework/**/*.tbd' % (sdk_path, framework), recursive=True)
+    for tbd in stubs:
         if os.path.exists(tbd):
-            names.update(re.findall(r"'?(_[A-Za-z0-9_$.]+)'?", Path(tbd).read_text(errors='replace')))
-    for lib in glob.glob('/opt/homebrew/lib/libSDL3*.dylib'):
+            names.update(tbd_exports(tbd))
+    for lib in (libs or glob.glob('/opt/homebrew/lib/libSDL3*.dylib')):
         out = subprocess.run(['nm', '-gU', lib], capture_output=True, text=True).stdout
-        names.update(l.split()[-1] for l in out.splitlines() if l.strip())
+        names.update(l.split()[-1] for l in out.splitlines() if l.strip() and not l.endswith(':'))
     # A sanitizer build (-fsanitize=address/undefined) links the toolchain's
     # runtime dylib: its entry points are not unrecovered code.
     clang_rt = subprocess.run(['xcrun', 'clang', '--print-resource-dir'], capture_output=True, text=True).stdout.strip()
-    for lib in glob.glob(clang_rt + '/lib/darwin/libclang_rt.*san_osx_dynamic.dylib'):
+    # The compiler's builtins (libclang_rt.osx/ios/iossim.a: __isPlatformVersionAtLeast
+    # behind @available, the host's .mm; Scout1248) are linked by the driver.
+    rt_libs = [clang_rt + '/lib/darwin/libclang_rt.%s.a' % os_name for os_name in ('osx', 'ios', 'iossim')]
+    for lib in glob.glob(clang_rt + '/lib/darwin/libclang_rt.*san_osx_dynamic.dylib') + [l for l in rt_libs if os.path.exists(l)]:
         out = subprocess.run(['nm', '-gU', lib], capture_output=True, text=True).stdout
         names.update(l.split()[-1] for l in out.splitlines() if l.strip())
     return names
@@ -118,14 +143,17 @@ def classify(missing):
     return rows
 
 
-def missing_symbols(paths, aliases=()):
+def missing_symbols(paths, aliases=(), system=None):
     """Undefined symbols of a link over paths (after the system libraries), less
     those an alias TSV binds to a defined name; (missing, alias pairs)."""
     defined, undefined = nm_symbols(paths)
     # ___dso_handle, the Mach-O header and section boundary symbols
-    # (section$start$SEG$SECT, e.g. a coverage build's guards) are synthesized by the linker.
-    missing = sorted(s for s in undefined - defined - system_exports() - {'___dso_handle', '__mh_execute_header'}
-                     if not s.startswith(('section$', 'segment$')))
+    # (section$start$SEG$SECT, e.g. a coverage build's guards) and Objective-C selector
+    # stubs (_objc_msgSend$sel, the host's .mm) are synthesized by the linker.
+    if system is None:
+        system = system_exports()
+    missing = sorted(s for s in undefined - defined - system - {'___dso_handle', '__mh_execute_header'}
+                     if not s.startswith(('section$', 'segment$', '_objc_msgSend$')))
     alias_list = []
     for tsv in aliases:
         if not tsv.exists():
@@ -148,12 +176,16 @@ def main():
     ap.add_argument('--list-undefined', type=Path, help='also write the bare undefined list (for data_globals.py)')
     ap.add_argument('--aliases', type=Path, nargs='*', default=[], help='alias TSVs (alias, target, ...)')
     ap.add_argument('--alias-list', type=Path, help='write the applicable aliases as an ld64 -alias_list file')
+    ap.add_argument('--sdk', default='', help='SDK path or name for the system exports (default: the host macOS SDK)')
+    ap.add_argument('--frameworks', nargs='*', default=[], help='SDK frameworks the host links (their exports are system)')
+    ap.add_argument('--system-libs', nargs='*', default=[], help='libraries whose exports are system (default: Homebrew SDL3)')
     args = ap.parse_args()
     paths = [p for p in args.inputs.read_text().split('\n') if p.strip()]
     paths += [p for p in args.host if p.strip()]
     # Names of one original address (address_aliases.py, data_globals.py): bound
     # to the defined name through ld64 -alias_list instead of a trap.
-    missing, alias_list = missing_symbols(paths, args.aliases)
+    missing, alias_list = missing_symbols(paths, args.aliases,
+                                          system_exports(args.sdk, args.frameworks, [l for l in args.system_libs if l]))
     taken = {a for _, a in alias_list}
     if args.alias_list:
         args.alias_list.write_text(''.join('%s %s\n' % pair for pair in sorted(set(alias_list))))

@@ -397,7 +397,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
             }
             {
                 WideString message;
-                if (!mode->unknown_slot5(&message)) {
+                if (!mode->CheckStartConditions(&message)) {
                     Unknown_005C2C80(-1, message.Get());
                     EnableWindow(GetDlgItem(Unknown_00735B10(), 0x588), TRUE);
                     unknown_lobby_result_a71e8c = 0;

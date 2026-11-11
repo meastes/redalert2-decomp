@@ -49,16 +49,16 @@ void LightSourceClass::Compute_CRC(WWCRCEngine &crc) const
 // MPCooperative (multiplayer_game_mode.hpp), pass-6a decompiles.
 bool MPCooperative::unknown_slot1() { return true; }                       // 0x005A6280
 void MPCooperative::unknown_slot9() { unknown_344 = true; }                // 0x005A31F0
-bool MPCooperative::unknown_slot11() { return false; }                     // 0x005A46B0
-void MPCooperative::unknown_slot16(HWND combo, int team)                   // 0x005A3F70
+bool MPCooperative::IsAIAllowed() { return false; }                     // 0x005A46B0
+void MPCooperative::PopulateTeamDropdownForPlayer(HWND combo, int team)                   // 0x005A3F70
 {
-    MultiplayerGameMode::unknown_slot16(combo, team);
+    MultiplayerGameMode::PopulateTeamDropdownForPlayer(combo, team);
 }
 int MPCooperative::unknown_slot32() { return 2; }                          // 0x005A5340
 bool MPCooperative::unknown_slot40() { return false; }                     // 0x005A62A0
 
 // 0x005AC390: with multiplayer bases on (session +0x20, 0x00A3D2B8) the base mode's test.
-bool UnholyAlliance::unknown_slot5(WideString *message)
+bool UnholyAlliance::CheckStartConditions(WideString *message)
 {
-    return unknown_flag_a3d2b8 && MultiplayerGameMode::unknown_slot5(message);
+    return unknown_flag_a3d2b8 && MultiplayerGameMode::CheckStartConditions(message);
 }

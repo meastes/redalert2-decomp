@@ -9,7 +9,7 @@
 bool MultiplayerGameMode::unknown_5b7470(MultiMission *map)
 {
     if (map->Unknown_006720C0()) {
-        return unknown_slot11();
+        return IsAIAllowed();
     }
     if (!map->unknown_17c && unknown_73c370()) {
         return false;

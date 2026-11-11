@@ -10,6 +10,9 @@
 // Game data comes from the user's installation at run time (--data-dir or
 // RA2_DATA_DIR); nothing from it is built in.
 #include <SDL3/SDL.h>
+// On iOS SDL's own main starts UIKit and calls this file's main (as SDL_main) on
+// the main thread; elsewhere main stays the program's entry (Scout1247).
+#include <SDL3/SDL_main.h>
 #include <stdio.h>
 #include "ra2port/win32_port.hpp"
 
@@ -38,6 +41,8 @@ void ra2_install_sdl_host();
 #ifdef RA2_NATIVE_GAME
 void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)());
 bool ra2_sdl_host_fullscreen();
+void ra2_sdl_host_use_window(SDL_Window *window);
+void ra2_sdl_host_touch_options(double scale, void (*on_scale)(double), int checkpoint_seconds);
 #endif
 extern "C" int ra2port_initterm_last(int *units);
 extern "C" void ra2port_run_to(const char *target, int seconds);
@@ -49,8 +54,9 @@ extern "C" void ra2port_set_frames(int frames);
 #include <sys/stat.h>
 #include <string.h>
 #include <unistd.h>
-// The Mac app mode needs the game (host.cpp is linked with it only).
-#if defined(__APPLE__) && defined(RA2_NATIVE_GAME)
+// The app mode needs the game (host.cpp is linked with it only). Its platform
+// services come from host_os.hpp (Scout1247).
+#if defined(RA2_NATIVE_GAME)
 #define RA2_APP_MODE 1
 #include "app_mode.hpp"
 #endif
@@ -58,6 +64,15 @@ extern "C" void ra2port_set_frames(int frames);
 #ifdef RA2_APP_MODE
 namespace {
 app::Settings app_settings;
+SDL_Window *app_window = nullptr;     // iOS: the window made before the game (setup_imported)
+// The interface scale the player picks on the touch controls (Scout1248): kept for the next start.
+void save_ui_scale(double scale)
+{
+    char text[16];
+    snprintf(text, sizeof text, "%g", scale);
+    app_settings.values["ui_scale"] = text;
+    app_settings.save();
+}
 // The fullscreen state is remembered for the next start, however the game ends
 // (WinMain returning, the game's own exit, the host's quit fallback).
 void save_app_settings()
@@ -175,7 +190,20 @@ int main(int argc, char **argv)
         std::string folder, exe;
         bool force = setup_flag || (getenv("RA2_NATIVE_SETUP") && *getenv("RA2_NATIVE_SETUP") == '1');
         if (data && !force) app_settings.values["data_dir"] = data;    // --data-dir / RA2_DATA_DIR win
-        if (!app::setup(app_settings, force, folder, exe)) {
+        bool ready;
+        if (hostos::imports_game_files()) {
+            // iOS (Scout1247): the game's window first (the picker and the messages are shown
+            // over it); the game's CreateWindowExA takes it over.
+            SDL_Window *window = SDL_CreateWindow("Red Alert 2", 800, 600, SDL_WINDOW_FULLSCREEN | SDL_WINDOW_HIGH_PIXEL_DENSITY);
+            app_window = window;
+            if (!window) fprintf(stderr, "app: window: %s\n", SDL_GetError());
+            ra2_sdl_host_use_window(window);
+            void *native = window ? SDL_GetPointerProperty(SDL_GetWindowProperties(window), SDL_PROP_WINDOW_UIKIT_WINDOW_POINTER, nullptr) : nullptr;
+            ready = app::setup_imported(native, force, folder, exe);
+        } else {
+            ready = app::setup(app_settings, force, folder, exe);
+        }
+        if (!ready) {
             fprintf(stderr, "app: setup cancelled\n");
             SDL_Quit();
             return 0;
@@ -188,13 +216,31 @@ int main(int argc, char **argv)
         // Writes (RA2.INI, saved games) beside the settings, never into the installation.
         if (!write_dir) {
             static std::string game_writes;
-            game_writes = app::support_dir() + "/Game";
+            game_writes = app::game_write_dir();
             app::make_dirs(game_writes);
             ra2port::set_write_dir(game_writes.c_str());
             fprintf(stderr, "app: writes go to %s\n", game_writes.c_str());
         }
         ra2_sdl_host_options(true, app_settings.get("fullscreen") == "1", save_app_settings);
         atexit(save_app_settings);
+        if (hostos::imports_game_files() && app_window) {
+            // The touch app (Scout1248): the in-game resolution from the usable part of the
+            // screen and the interface scale; checkpoints in the background and every 3 minutes.
+            double scale = atof(app_settings.get("ui_scale").c_str());
+            if (scale != 1.25 && scale != 1.5) scale = 1.0;
+            for (int i = 0; i < 10; ++i) SDL_PumpEvents();     // the safe area settles with the window
+            void *native = SDL_GetPointerProperty(SDL_GetWindowProperties(app_window), SDL_PROP_WINDOW_UIKIT_WINDOW_POINTER, nullptr);
+            hostos::Rect r;
+            int ww = 0, wh = 0;
+            SDL_GetWindowSize(app_window, &ww, &wh);
+            if (!native || !hostos::usable_rect(native, &r)) r = hostos::Rect{0, 0, (double)ww, (double)wh};
+            if (r.w < r.h) std::swap(r.w, r.h);     // started upright or folded: the landscape inner screen
+            int gw = 0, gh = 0;
+            app::game_resolution(r.w, r.h, scale, gw, gh);
+            fprintf(stderr, "app: usable %.0fx%.0f points (window %dx%d), scale %g\n", r.w, r.h, ww, wh, scale);
+            app::set_ini_resolution(ra2port::write_dir() ? ra2port::write_dir() : app::game_write_dir().c_str(), folder, gw, gh);
+            ra2_sdl_host_touch_options(scale, save_ui_scale, 180);
+        }
         // lan=1 in the settings file turns on the Network (LAN) button, as RA2_NATIVE_LAN=1 does
         // for a test run: a Finder-launched app has no environment of its own (packaging/README.md).
         if (app_settings.get("lan") == "1" && !getenv("RA2_NATIVE_LAN")) setenv("RA2_NATIVE_LAN", "1", 1);

@@ -38,10 +38,10 @@ bool MPCooperative::unknown_slot21()
         unknown_player_colors_5a3920();
         for (int slot = 0; slot < 8; slot++) {
             if (slot < players) {
-                unknown_1a8[slot].Add(unknown_slot23());
+                unknown_1a8[slot].Add(RandomHumanCountryIndex());
                 unknown_268[slot].Add(unknown_colors_a71118[slot]);
             } else {
-                unknown_1a8[slot].Add(unknown_slot24());
+                unknown_1a8[slot].Add(RandomAICountryIndex());
                 int color;
                 bool taken;
                 do {

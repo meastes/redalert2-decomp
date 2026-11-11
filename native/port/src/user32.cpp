@@ -395,6 +395,13 @@ HWND GetForegroundWindow(void) { return main_hwnd; }
 BOOL SetForegroundWindow(HWND hwnd) { return win(hwnd) != nullptr; }
 BOOL BringWindowToTop(HWND hwnd) { return win(hwnd) != nullptr; }
 HWND GetFocus(void) { return focus_hwnd; }
+// The focus is in a visible edit control (the lobby's name field, a dialog's text
+// box): the host shows the on-screen keyboard (iOS, Scout1248).
+extern "C" int ra2port_text_input_wanted(void)
+{
+    Window *w = win(focus_hwnd);
+    return w && w->visible && !strcasecmp(w->cls.c_str(), "Edit");
+}
 // The focus moves to a window, as on Windows: a control's dialog remembers it, and a dialog
 // given the focus passes it on to the control that had it last (DefDlgProc's WM_SETFOCUS).
 // Focus_Restore 0x00737400 calls SetFocus(dialog) at every activation: the lobby's name field
@@ -603,6 +610,8 @@ BOOL PeekMessageA(MSG *msg, HWND hwnd, UINT first, UINT last, UINT remove)
         return 1;
     }
     idle_backoff(now, next_pump);
+    // The host pause (Scout1247) holds the game here, where it found nothing to do.
+    hold_if_paused();
     return 0;
 }
 
@@ -677,6 +686,8 @@ static bool dialog_shown()
     for (HWND d : dialog_windows) if (Window *w = win(d)) if (w->visible) return true;
     return false;
 }
+// A menu dialog is shown (the host's touch gestures: no sidebar then; Scout1248).
+extern "C" int ra2port_menu_shown(void) { return dialog_shown() ? 1 : 0; }
 extern "C" bool ra2port_presents_held(void)
 {
     bool menu = dialog_shown();

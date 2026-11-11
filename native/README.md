@@ -866,6 +866,95 @@ repeat the last three until `bss_globals.cpp` no longer changes.
    VC6 select-any semantics at link (`tools/weaken_duplicates.py`). Until the tree
    is closed, `RA2_NATIVE_LINK_CLOSURE` adds traps/placeholders for what is still
    unrecovered (`tools/link_closure.py`, never shipped).
+   **Host services** (Scout1247): what the host needs from the operating system
+   beyond SDL and POSIX is declared in `platform/sdl/host_os.hpp` (paths for the
+   settings, the game's writes and the log; the executable; the crash dialog's new
+   process; showing a file; the test keyboard's AppKit events; the iOS folder
+   picker) and implemented for macOS and iOS in `platform/sdl/host_apple.mm`, the
+   host's only file with Apple-only calls (the port's is `port/src/os_apple.cpp`).
+   `app_mode.hpp` (the app's setup, settings, log and crash dialog) uses only
+   those. No SDL in `port/` or `link/`.
+   **Host pause**: `ra2port::request_pause` (win32_port.hpp) holds the game's main
+   thread inside its next read of an empty message queue, pumping host events,
+   until the host lifts it; meanwhile `ra2port::game_clock_ns` (timeGetTime,
+   GetTickCount, QueryPerformanceCounter, the virtual TSC, the Bink clock, silent
+   DirectSound cursors) stands still, the multimedia timers skip their callbacks
+   and the host stops its audio device (Host::held). No game code changes; it
+   works in menus, movies and missions. The Mac app pauses on focus loss (not in a
+   network session: `ra2_native_network_game`, link/harness_skirmish.cpp); iOS
+   when the app goes to the background.
+
+## iOS (Scout1247, first boot)
+
+`native/build-ios.command [simulator|device]` builds `RA2.app` for iOS (arm64)
+with Ninja and `CMAKE_SYSTEM_NAME=iOS`: the same tree, link closure and host as
+the Mac app, SDL 3.4.2 built statically from `RA2_SDL_SOURCE` (default
+`private/vendor/SDL3-3.4.2`, extracted from the tarball after its SHA-256 check;
+nothing is downloaded). The Simulator build is signed ad hoc; a device build needs
+the team id on the command line (`RA2_IOS_TEAM`, never in Git) and is a later
+step. `packaging/audit_ios_bundle.py` checks the bundle: an allowlist (the
+executable, Info.plist, SDL's licence, the signature), no game files, no
+libraries outside the system, and with `RA2_GAME_EXE` that no sampled piece of
+game.exe's code or resources is in the executable.
+First start: the app asks for the game folder once (Files' folder picker), copies
+the files the game reads (base MIX files, map packs and maps, INI/CSF/PKT files,
+game.exe and BINKW32.DLL; Yuri's Revenge files stay behind) into
+`Library/Application Support/RA2Native/GameData` with lower-case names (excluded
+from backups), checks them (the four base MIX files, a supported game.exe,
+BINKW32.DLL) and swaps them in by rename; later starts skip the picker.
+`RA2_NATIVE_IMPORT=<folder>` (tests: `SIMCTL_CHILD_RA2_NATIVE_IMPORT`) imports
+without the picker. The game's writes (RA2.INI, saved games) go to
+`Documents/Game`, visible in Files. Port lookups ignore case on the
+case-sensitive container volume, also in the write folder.
+**Touch, layout and lifecycle (Scout1248).** Touches make their own gestures
+(`platform/sdl/touch.cpp`; SDL's mouse-from-touch is off): a tap is a left click; a
+swipe over the map pans it (`ra2_native_scroll_map`), over the sidebar it turns the
+wheel; holding about 400 ms and then dragging draws a selection box (the drag's moves
+wait until the game has seen the button held); holding and releasing on the map, holding
+on a sidebar cameo, and a two-finger tap are right clicks. A touch never leaves the
+pointer within 10 pixels of the picture's edge (no edge scrolling from touches). The toggles
+(Scout1249: a Liquid Glass toolbar, `hostos::toolbar_create` in host_apple.mm, in the
+look of the user's duo-vnc toolbar: dark interactive UIGlassEffect, capsule corners, SF
+Symbols) sit under a "…" button at the usable area's top left that slides them in and out,
+so nothing stays over the map: Fire holds Ctrl (force fire), Move holds Alt (force move)
+and Add holds Shift (add to the selection) while on (accent tint), Keys shows the keyboard
+(it also appears while an edit control has the focus, `ra2port_text_input_wanted`) and
+the last item picks the interface scale (1x, 1.25x, 1.5x; next start). On the Mac
+(`RA2_NATIVE_TOUCH_UI=1`, tests) the host draws a plain column of the same toggles. The
+touch app hides the game's own cursor (`link/native_touch_cursor.cpp`: one extra
+WWMouseClass::Hide_Mouse whenever it is shown; `RA2_NATIVE_TOUCH_CURSOR=1` keeps it). Input scripts take `tdown|tmove|tup X Y
+[finger]`; `RA2_NATIVE_TOUCH_UI=1` shows the toggles on the Mac.
+The picture is drawn into the largest landscape rectangle clear of the safe area and the
+device's reserved regions (`hostos::usable_rect`; the renderer no longer uses SDL's logical
+presentation, the host converts coordinates itself). The in-game resolution (RA2.INI
+[Video], written before the game starts) is that rectangle divided by the scale, at least
+800x600 (the menus share the primary surface: 656x480 cut them off); on the iPhone Duo
+(594x432 points clear in the Simulator) that is 824x600, and a width just over 800 (under
+864) at 600 high becomes 800: the 800-wide menus left strips the game never paints, which
+showed old surface contents as coloured noise (Scout1249).
+The host pause's reasons are combined (`update_pause`): the background (an SDL event
+watch, so it takes effect before the game reads its queue again), the focus lost, a
+folded or upright device (usable area under 480x320 points or portrait; a note is drawn
+instead of the game) and audio-session interruptions (`hostos::watch_audio_interruptions`).
+Checkpoints (`ra2port::request_checkpoint`; link/harness_save.cpp `Native_Checkpoint`): when
+the app goes to the background, and every 3 minutes of play, the end of the Main_Loop pass
+saves CHECKPT.SAV ("Checkpoint", listed by Load Saved Game, read by the Mac app too) unless
+a network game runs; a pause asked for with a checkpoint waits for it up to a second.
+`RA2_NATIVE_CHECKPOINT_SECONDS=N` sets the period (tests: also on the Mac). Every 30 s of
+play the log gets the frame rate and, on iOS, memory footprint and thermal state.
+The iOS build is optimised at -O2 (`RA2_IOS_OPT`); the Mac tree at -O2 passes the census.
+Two template members that only -O0 builds emitted out of line are instantiated in
+`link/template_instances*.cpp`. Device builds: `RA2_IOS_TEAM=<team> native/build-ios.command
+device` signs with an existing development profile and identity (`packaging/ios_sign.py`),
+then `xcrun devicectl device install app --device <udid> build/ios-device/RA2.app`.
+
+iOS rules checked before the port started (Scout1247): no memory is mapped at
+fixed addresses (game.exe is read into an ordinary buffer), the executable has
+the standard 4 GB __PAGEZERO and segments (no -pagezero_size, -segaddr or
+-image_base), no page is writable and executable (no JIT; writable literals are
+plain __DATA), nothing loads code at run time (no dlopen; LoadLibraryA answers
+only comctl32's version from the port), and the only fork/exec (the Mac crash
+dialog) and /usr/bin/open (Show Log) are macOS-only in host_apple.mm.
 
 `historical/native-reconstruction/` stays preserved as reference (SDL3 choice,
 MIX/SHP readers usable as test oracles); its own simulation is not reused.

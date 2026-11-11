@@ -75,32 +75,32 @@ public:
     virtual bool unknown_slot2() { return false; }               // 2 0x005A2390
     // Lobby 0x005C6CAC passes its constructed WideString address; pointer spelling is a hypothesis.
     virtual bool unknown_slot3(WideString *message) { return true; } // 3 0x005A23A0
-    virtual bool unknown_slot4();                                  // 4 0x005B7350
-    virtual bool unknown_slot5(WideString *message);                                // 5 0x005B73A0
-    virtual bool unknown_slot6();                                  // 6 0x005B73D0
+    virtual bool AssignTeams();                                    // 4 0x005B7350
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005B73A0
+    virtual bool AssignTeamsAtStart();                             // 6 0x005B73D0
     virtual bool unknown_slot7(int unknown);                       // 7 0x005B7830 (true)
     virtual void unknown_slot8() {}                              // 8 0x005A23B0
     virtual void unknown_slot9() {}                              // 9 0x005A23C0
     virtual int unknown_slot10();                                  // 10 0x005B6EB0 (-2)
-    virtual bool unknown_slot11();                                 // 11 0x005B73E0 (unknown_34)
+    virtual bool IsAIAllowed();                                    // 11 0x005B73E0 (unknown_34)
     virtual bool unknown_slot12();                                 // 12 0x005B73F0
     // Slot 13: the index of the first multiplayer map this mode can play
     // (unknown_5b7470), or -1.
-    virtual int unknown_slot13();                                  // 13 0x005B7400
-    virtual void unknown_slot14(HWND combo, DynamicVectorClass<int> const *items, int selected);                               // 14 0x005B74E0
-    virtual void unknown_slot15(HWND list, DynamicVectorClass<MultiMission *> const *maps, MultiMission *selected);                               // 15 0x005B7550
-    virtual void unknown_slot16(HWND combo, int team);                                // 16 0x005B75D0
+    virtual int FirstValidMapIndex();                              // 13 0x005B7400
+    virtual void PopulateTeamDropdown(HWND combo, DynamicVectorClass<int> const *items, int selected);                         // 14 0x005B74E0
+    virtual void DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission *> const *maps, MultiMission *selected);                             // 15 0x005B7550
+    virtual void PopulateTeamDropdownForPlayer(HWND combo, int team);                 // 16 0x005B75D0
     virtual bool unknown_slot17(int unknown_1, DynamicVectorClass<int> unknown_list) { return false; } // 17 0x005A23F0
     virtual bool unknown_slot18(int index, DynamicVectorClass<int> choices, char const *second_name, char const *first_name) { return false; } // 18 0x005A23D0
     virtual bool unknown_slot19(int index, int time, MPlayerScoreType *scores) { return true; } // 19 0x005A2410
     virtual bool unknown_slot20();                                 // 20 0x005B73B0 (true)
     virtual bool unknown_slot21();                                 // 21 0x005B73C0 (true)
     virtual bool unknown_slot22() { return true; }               // 22 0x005A2420
-    virtual int unknown_slot23();                                 // 23 0x005B74C0 (the session's 0x00672940)
-    virtual int unknown_slot24();                                 // 24 0x005B74D0 (slot 23)
+    virtual int RandomHumanCountryIndex();                        // 23 0x005B74C0 (the session's 0x00672940)
+    virtual int RandomAICountryIndex();                           // 24 0x005B74D0 (slot 23)
     virtual void unknown_slot25(int kind, char *text) {} // 25 0x005A2430
-    virtual bool unknown_slot26();                                 // 26 0x005B7820
-    virtual bool unknown_slot27(bool official);                    // 27 0x005B7C00
+    virtual bool UnfixAlliances();                                 // 26 0x005B7820
+    virtual bool StartingPositionsToHouseBaseCells(bool official); // 27 0x005B7C00
     virtual bool unknown_slot28();                                 // 28 0x005B8420 (true)
     virtual bool unknown_slot29();                                 // 29 0x005B8470 (true)
     virtual void unknown_slot30() {}                             // 30 0x005A2440
@@ -114,18 +114,18 @@ public:
     virtual void unknown_slot38() {}                             // 38 0x005A24C0
     virtual bool unknown_slot39(DynamicVectorClass<int> unknown_list, int *unknown_result) { return false; } // 39 0x005A24D0
     virtual bool unknown_slot40() { return true; }               // 40 0x005A24F0
-    virtual void unknown_slot41(DynamicVectorClass<MultiplayerTeam *> *teams);                               // 41 0x005B7720
-    virtual Cell unknown_slot42(int house, DynamicVectorClass<Cell> &cells, bool *taken); // 42 0x005B7920
+    virtual void CreateMPTeams(DynamicVectorClass<MultiplayerTeam *> *teams);                                // 41 0x005B7720
+    virtual Cell AssignStartingPositionsToHouse(int house, DynamicVectorClass<Cell> &cells, bool *taken); // 42 0x005B7920
     // Slots 43 and 44 (ret 8): place a house's starting objects (0x005B7CE0 calls both with the house and its
     // remaining starting money); false when one cannot be placed.
-    virtual bool unknown_slot43(HouseClass *house, int *money);    // 43 0x005B7F90 (the base unit at BaseCenter)
-    virtual bool unknown_slot44(HouseClass *house, int *money);    // 44 0x005B8060
+    virtual bool SpawnBaseUnits(HouseClass *house, int *money);    // 43 0x005B7F90 (the base unit at BaseCenter)
+    virtual bool GenerateStartingUnits(HouseClass *house, int *money); // 44 0x005B8060
 
 #ifdef RA2_MPGAME_START_OBJECTS
     bool Create_Starting_Objects_005b7ce0(); // 0x005B7CE0, existing no-argument thiscall entry
 #endif
 
-    MultiplayerTeam *unknown_find_team_5b76b0(int number);   // 0x005B76B0
+    MultiplayerTeam *GetTeam(int number);                    // 0x005B76B0
     void unknown_clear_teams_5b77e0();                       // 0x005B77E0
     int unknown_team_of_5b8430(int id);                      // 0x005B8430
     CCINIClass *unknown_ini_5b7840();                        // 0x005B7840: the mode's INI, read on first use
@@ -218,14 +218,14 @@ public:
     MultiplayerSiege(WideString const &name, WideString const &description, Wstring const &ini_name,
         Wstring const &unknown_4, bool unknown_5, int id);
     virtual ~MultiplayerSiege();
-    virtual bool unknown_slot4();                                  // 4 0x005AB5F0
-    virtual bool unknown_slot5(WideString *message);                                // 5 0x005AB640
-    virtual bool unknown_slot6();                                  // 6 0x005AB740
-    virtual bool unknown_slot11();                                 // 11 0x005AB750 (false)
-    virtual bool unknown_slot26();                                 // 26 0x005AB760
-    virtual bool unknown_slot27(bool official);                    // 27 0x005AB770
-    virtual void unknown_slot41(DynamicVectorClass<MultiplayerTeam *> *teams);                               // 41 0x005AB970
-    virtual bool unknown_slot43(HouseClass *house, int *money);    // 43 0x005ABA80
+    virtual bool AssignTeams();                                    // 4 0x005AB5F0
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005AB640
+    virtual bool AssignTeamsAtStart();                             // 6 0x005AB740
+    virtual bool IsAIAllowed();                                    // 11 0x005AB750 (false)
+    virtual bool UnfixAlliances();                                 // 26 0x005AB760
+    virtual bool StartingPositionsToHouseBaseCells(bool official); // 27 0x005AB770
+    virtual void CreateMPTeams(DynamicVectorClass<MultiplayerTeam *> *teams);                                // 41 0x005AB970
+    virtual bool SpawnBaseUnits(HouseClass *house, int *money);    // 43 0x005ABA80
 };
 
 // vtable 0x007A6914 (scalar deleting destructor 0x005A71C0)
@@ -234,11 +234,11 @@ public:
     FreeForAll(WideString const &name, WideString const &description, Wstring const &ini_name,
         Wstring const &unknown_4, bool unknown_5, int id);
     virtual ~FreeForAll();
-    virtual bool unknown_slot4();                                  // 4 0x005A70B0
-    virtual bool unknown_slot5(WideString *message);                                // 5 0x005A70C0
-    virtual bool unknown_slot6();                                  // 6 0x005A7110
+    virtual bool AssignTeams();                                    // 4 0x005A70B0
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005A70C0
+    virtual bool AssignTeamsAtStart();                             // 6 0x005A7110
     virtual bool unknown_slot12();                                 // 12 0x005A71B0
-    virtual void unknown_slot16(HWND combo, int team);                                // 16 0x005A7150
+    virtual void PopulateTeamDropdownForPlayer(HWND combo, int team);                 // 16 0x005A7150
 };
 
 // vtable 0x007A6AA4 (scalar deleting destructor 0x005AA780)
@@ -256,10 +256,10 @@ public:
     UnholyAlliance(WideString const &name, WideString const &description, Wstring const &ini_name,
         Wstring const &unknown_4, bool unknown_5, int id);
     virtual ~UnholyAlliance();
-    virtual bool unknown_slot4();                                  // 4 0x005AC380
-    virtual bool unknown_slot5(WideString *message);                                // 5 0x005AC390
-    virtual bool unknown_slot6();                                  // 6 0x005AC3C0
-    virtual bool unknown_slot43(HouseClass *house, int *money);    // 43 0x005AC3D0
+    virtual bool AssignTeams();                                    // 4 0x005AC380
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005AC390
+    virtual bool AssignTeamsAtStart();                             // 6 0x005AC3C0
+    virtual bool SpawnBaseUnits(HouseClass *house, int *money);    // 43 0x005AC3D0
 };
 
 // vtable 0x007A678C (scalar deleting destructor 0x005A62B0)
@@ -270,17 +270,17 @@ public:
     virtual ~MPCooperative();
     virtual bool unknown_slot1();                                  // 1 0x005A6280
     virtual bool unknown_slot2();                                  // 2 0x005A6290
-    virtual bool unknown_slot4();                                  // 4 0x005A2D70
-    virtual bool unknown_slot5(WideString *message);                                // 5 0x005A32E0
-    virtual bool unknown_slot6();                                  // 6 0x005A3320
+    virtual bool AssignTeams();                                    // 4 0x005A2D70
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005A32E0
+    virtual bool AssignTeamsAtStart();                             // 6 0x005A3320
     virtual bool unknown_slot7(int unknown);                       // 7 0x005A2CD0
     virtual void unknown_slot8();                                  // 8 0x005A2EF0
     virtual void unknown_slot9();                                  // 9 0x005A31F0
     virtual int unknown_slot10();                                  // 10 0x005A34B0
-    virtual bool unknown_slot11();                                 // 11 0x005A46B0
-    virtual int unknown_slot13();                                  // 13 0x005A3200
-    virtual void unknown_slot15(HWND list, DynamicVectorClass<MultiMission *> const *maps, MultiMission *selected);                               // 15 0x005A4B70
-    virtual void unknown_slot16(HWND combo, int team);                                // 16 0x005A3F70
+    virtual bool IsAIAllowed();                                    // 11 0x005A46B0
+    virtual int FirstValidMapIndex();                              // 13 0x005A3200
+    virtual void DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission *> const *maps, MultiMission *selected);                             // 15 0x005A4B70
+    virtual void PopulateTeamDropdownForPlayer(HWND combo, int team);                 // 16 0x005A3F70
     virtual bool unknown_slot18(int index, DynamicVectorClass<int> choices, char const *second_name, char const *first_name); // 18 0x005A3500
     virtual bool unknown_slot19(int index, int time, MPlayerScoreType *scores); // 19 0x005A35D0
     virtual bool unknown_slot20();                                 // 20 0x005A38D0
@@ -289,11 +289,11 @@ public:
     // expanded in slot 21, no callers).
     static void unknown_player_colors_5a3920();
     virtual bool unknown_slot22();                                 // 22 0x005A4250
-    virtual int unknown_slot23();                                 // 23 0x005A4540
-    virtual int unknown_slot24();                                 // 24 0x005A45F0
+    virtual int RandomHumanCountryIndex();                        // 23 0x005A4540
+    virtual int RandomAICountryIndex();                           // 24 0x005A45F0
     virtual void unknown_slot25(int kind, char *text);     // 25 0x005A3CA0
-    virtual bool unknown_slot26();                                 // 26 0x005A3EE0
-    virtual bool unknown_slot27(bool official);                    // 27 0x005A4170
+    virtual bool UnfixAlliances();                                 // 26 0x005A3EE0
+    virtual bool StartingPositionsToHouseBaseCells(bool official); // 27 0x005A4170
     virtual bool unknown_slot28();                                 // 28 0x005A43C0
     virtual bool unknown_slot29();                                 // 29 0x005A46A0
     virtual void unknown_slot30();                                 // 30 0x005A5000
@@ -307,7 +307,7 @@ public:
     virtual void unknown_slot38();                                 // 38 0x005A6040
     virtual bool unknown_slot39(DynamicVectorClass<int> unknown_list, int *unknown_result); // 39 0x005A6230
     virtual bool unknown_slot40();                                 // 40 0x005A62A0
-    virtual Cell unknown_slot42(int house, DynamicVectorClass<Cell> &cells, bool *taken); // 42 0x005A3F90
+    virtual Cell AssignStartingPositionsToHouse(int house, DynamicVectorClass<Cell> &cells, bool *taken); // 42 0x005A3F90
 
     int Unknown_005A2E50();                                       // 0x005A2E50
     void Unknown_005A3650(HWND dialog, int id);                   // 0x005A3650

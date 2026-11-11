@@ -4,6 +4,11 @@
 #   cmake -S native -B build/native -G Ninja && cmake --build build/native
 cmake_minimum_required(VERSION 3.20)
 project(ra2_native VERSION 0.1.0 LANGUAGES C CXX ASM)
+if(APPLE)
+  # The host's Apple services (platform/sdl/host_apple.mm). Before any subdirectory
+  # (the iOS build's SDL3), so every directory sees the language.
+  enable_language(OBJCXX)
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -120,11 +125,19 @@ add_library(ra2_port STATIC ${RA2_PORT_SOURCES})
 target_include_directories(ra2_port PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/port/include")
 target_compile_options(ra2_port PRIVATE -Wall -Wno-unused-parameter -Wno-unused-function)
 
+# The iOS build (build-ios.command, Scout1247) makes the game app only: the checks
+# below run on the Mac build.
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  set(RA2_NATIVE_CHECKS OFF)
+else()
+  set(RA2_NATIVE_CHECKS ON)
+endif()
+enable_testing()
+if(RA2_NATIVE_CHECKS)
 # 5. Proof: recovered RandomClass / Random3Class run natively.
 add_executable(native-core-check tests/core_check.cpp)
 target_link_libraries(native-core-check PRIVATE ra2_recovered)
 target_link_options(native-core-check PRIVATE -Wl,-dead_strip)
-enable_testing()
 add_test(NAME native-core-check COMMAND native-core-check)
 
 # 6. The behaviour rewrites of the handwritten-assembly functions
@@ -141,16 +154,52 @@ add_test(NAME native-asm-check COMMAND native-asm-check)
 #    or uses one (tools/view_audit.py, Scout1108). Needs the generated units.
 add_test(NAME native-view-audit COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/view_audit.py"
          --build "${CMAKE_CURRENT_BINARY_DIR}")
+endif()
 
+# Libraries whose exports the link closure counts as system (default: Homebrew's
+# SDL3 dylib; the iOS build passes its static SDL3).
+set(RA2_NATIVE_CLOSURE_SYSTEM_LIBS "" CACHE STRING "Libraries whose exports link_closure.py treats as system")
 option(RA2_NATIVE_LINK_CLOSURE "Close the ra2-native link with generated trap stubs for still-unrecovered code and placeholders for unsourced data (never shipped; lists them in gen/link_closure.json)" OFF)
 
-if(RA2_NATIVE_SDL)
+# SDL3 from a source folder, built here as a static library (the iOS build: no
+# dylib may ship in an iOS app; build-ios.command passes SDL 3.4.2's source),
+# else the installed SDL3 package (Homebrew's dylib on the Mac).
+set(RA2_NATIVE_SDL_SOURCE "" CACHE PATH "SDL3 source folder to build statically (the iOS build)")
+if(RA2_NATIVE_SDL AND RA2_NATIVE_SDL_SOURCE)
+  set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+  set(SDL_STATIC ON CACHE BOOL "" FORCE)
+  set(SDL_TEST_LIBRARY OFF CACHE BOOL "" FORCE)
+  set(SDL_TESTS OFF CACHE BOOL "" FORCE)
+  set(SDL_EXAMPLES OFF CACHE BOOL "" FORCE)
+  add_subdirectory("${RA2_NATIVE_SDL_SOURCE}" "${CMAKE_CURRENT_BINARY_DIR}/sdl3" EXCLUDE_FROM_ALL)
+  set(SDL3_FOUND TRUE)
+  set(RA2_NATIVE_CLOSURE_SYSTEM_LIBS "$<TARGET_FILE:SDL3-static>")
+elseif(RA2_NATIVE_SDL)
   find_package(SDL3 3.2 CONFIG)
+endif()
+if(RA2_NATIVE_SDL)
   if(SDL3_FOUND)
+    # The host's platform services (platform/sdl/host_os.hpp): host_apple.mm on
+    # macOS and iOS, the host's only file with Apple-only calls (Scout1247).
+    set(ra2_host_sources platform/sdl/main.cpp platform/sdl/host.cpp platform/sdl/touch.cpp)
+    set(ra2_host_frameworks "")
+    set(ra2_closure_frameworks "")
+    if(APPLE)
+      list(APPEND ra2_host_sources platform/sdl/host_apple.mm)
+      set_source_files_properties(platform/sdl/host_apple.mm PROPERTIES COMPILE_OPTIONS "-fobjc-arc")
+      if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+        set(ra2_closure_frameworks Foundation UIKit UniformTypeIdentifiers AVFAudio CoreGraphics)
+      else()
+        set(ra2_closure_frameworks Foundation AppKit)
+      endif()
+      foreach(f IN LISTS ra2_closure_frameworks)
+        list(APPEND ra2_host_frameworks "-framework ${f}")
+      endforeach()
+    endif()
     if(RA2_NATIVE_SUBSYSTEM STREQUAL "all")
       # The game: SDL3 host + every recovered object (initialiser order) +
       # native data + the platform seams.
-      set(ra2_game_inputs platform/sdl/main.cpp platform/sdl/host.cpp
+      set(ra2_game_inputs ${ra2_host_sources}
           $<TARGET_OBJECTS:ra2_recovered_objs> $<TARGET_OBJECTS:ra2_data>)
       file(GENERATE OUTPUT "${RA2_NATIVE_GEN}/link_inputs.txt"
            CONTENT "$<JOIN:$<TARGET_OBJECTS:ra2_recovered_objs>;$<TARGET_OBJECTS:ra2_data>;$<TARGET_FILE:ra2_port>,\n>\n")
@@ -158,7 +207,7 @@ if(RA2_NATIVE_SDL)
         # Undefined symbols after the real inputs, as trap functions and zero
         # placeholders (tools/link_closure.py). The JSON report is the work
         # queue: every entry is unrecovered code or unsourced data.
-        add_library(ra2_host_objs OBJECT platform/sdl/main.cpp platform/sdl/host.cpp)
+        add_library(ra2_host_objs OBJECT ${ra2_host_sources})
         target_link_libraries(ra2_host_objs PRIVATE SDL3::SDL3 ra2_port)
         target_compile_definitions(ra2_host_objs PRIVATE RA2_NATIVE_GAME=1)
         add_custom_command(
@@ -168,7 +217,9 @@ if(RA2_NATIVE_SDL)
                   --out "${RA2_NATIVE_GEN}/link_closure.c"
                   --aliases "${CMAKE_CURRENT_SOURCE_DIR}/data/address_aliases.tsv" "${CMAKE_CURRENT_SOURCE_DIR}/data/bss_aliases.tsv"
                   --alias-list "${RA2_NATIVE_GEN}/alias_list.txt"
-          DEPENDS ra2_recovered_objs ra2_data ra2_port ra2_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
+                  "--sdk=${CMAKE_OSX_SYSROOT}" --frameworks ${ra2_closure_frameworks}
+                  --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS}
+          DEPENDS ra2_recovered_objs ra2_data ra2_port ra2_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py" ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS}
                   "${CMAKE_CURRENT_SOURCE_DIR}/data/address_aliases.tsv"
                   $<TARGET_OBJECTS:ra2_data> $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:ra2_host_objs>
                   "${RA2_NATIVE_GEN}/units.cmake"
@@ -177,7 +228,7 @@ if(RA2_NATIVE_SDL)
             $<TARGET_OBJECTS:ra2_data> "${RA2_NATIVE_GEN}/link_closure.c")
       endif()
       add_executable(ra2-native ${ra2_game_inputs})
-      target_link_libraries(ra2-native PRIVATE SDL3::SDL3 ra2_port)
+      target_link_libraries(ra2-native PRIVATE SDL3::SDL3 ra2_port ${ra2_host_frameworks})
       if(RA2_NATIVE_LINK_CLOSURE)
         # One original address, several names: ld64 aliases (data/address_aliases.tsv).
         target_link_options(ra2-native PRIVATE "LINKER:-alias_list,${RA2_NATIVE_GEN}/alias_list.txt")
@@ -189,6 +240,35 @@ if(RA2_NATIVE_SDL)
         COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/weaken_duplicates.py"
                 --inputs "${RA2_NATIVE_GEN}/link_inputs.txt" --report "${RA2_NATIVE_GEN}/duplicates.json"
         VERBATIM)
+      if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+        # The iOS app (build-ios.command, Scout1247): RA2.app with the executable, its
+        # Info.plist and the SDL3 licence; never game data (packaging/audit_ios_bundle.py).
+        # The team id for a device build comes from the command line, never from Git.
+        set(RA2_IOS_TEAM "" CACHE STRING "Apple Development team id (device builds only; never in Git)")
+        set(RA2_IOS_BUILD "1" CACHE STRING "CFBundleVersion of the iOS app")
+        if(CMAKE_OSX_SYSROOT MATCHES "[Ss]imulator")
+          set(RA2_IOS_PLATFORM iPhoneSimulator)
+          set(RA2_IOS_PLATFORM_NAME iphonesimulator)
+        else()
+          set(RA2_IOS_PLATFORM iPhoneOS)
+          set(RA2_IOS_PLATFORM_NAME iphoneos)
+        endif()
+        execute_process(COMMAND xcrun --sdk ${RA2_IOS_PLATFORM_NAME} --show-sdk-version
+                        OUTPUT_VARIABLE ra2_ios_sdk_version OUTPUT_STRIP_TRAILING_WHITESPACE)
+        set(RA2_IOS_SDK_NAME "${RA2_IOS_PLATFORM_NAME}${ra2_ios_sdk_version}")
+        configure_file(packaging/ios/Info.plist.in "${CMAKE_CURRENT_BINARY_DIR}/ios/Info.plist.in" @ONLY)
+        set(ra2_sdl_licence "${RA2_NATIVE_SDL_SOURCE}/LICENSE.txt")
+        target_sources(ra2-native PRIVATE "${ra2_sdl_licence}")
+        set_source_files_properties("${ra2_sdl_licence}" PROPERTIES MACOSX_PACKAGE_LOCATION "licenses")
+        set_target_properties(ra2-native PROPERTIES
+          MACOSX_BUNDLE TRUE
+          OUTPUT_NAME RA2
+          MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_BINARY_DIR}/ios/Info.plist.in"
+          MACOSX_BUNDLE_EXECUTABLE_NAME RA2
+          MACOSX_BUNDLE_GUI_IDENTIFIER "io.github.ra2native.RA2"
+          MACOSX_BUNDLE_BUNDLE_VERSION "${RA2_IOS_BUILD}"
+          MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}")
+      endif()
       # 8. Native census (Scout1209): the game to 600 skirmish frames with all
       #    harness orders; any trap, fault or unrecovered call fails it (the
       #    smoke test only opens the window). Needs the installed game: set the

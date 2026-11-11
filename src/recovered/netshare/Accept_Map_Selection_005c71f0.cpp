@@ -103,8 +103,8 @@ bool __fastcall Accept_Map_Selection_005c71f0(HWND dialog)
     if (mode != 0) {
         mode->unknown_slot9();
     }
-    mode->unknown_slot6();
-    mode->unknown_slot26();
+    mode->AssignTeamsAtStart();
+    mode->UnfixAlliances();
     Unknown_007357E0(dialog, 1);
     HWND setup = Find_Dialog_00735940(0xC2);
     if (setup == 0) {

@@ -416,7 +416,7 @@ struct SoundBuffer {
         if (!mixer_active()) {
             static bool logged = false;
             if (!logged) { logged = true; unimplemented("DirectSound output (no host audio device: buffers play silently)"); }
-            if (!playing) start = std::chrono::steady_clock::now() - std::chrono::microseconds(offset_us());
+            if (!playing) start_ns = ra2port::game_clock_ns() - offset_us() * 1000u;
         } else if (!playing && cursor >= data.size()) {
             cursor = 0;
         }
@@ -427,7 +427,7 @@ struct SoundBuffer {
     virtual HRESULT SetCurrentPosition(DWORD p)
     {
         std::lock_guard<std::mutex> lock(mixer_mutex());
-        cursor = p; frac = 0; start = std::chrono::steady_clock::now();
+        cursor = p; frac = 0; start_ns = ra2port::game_clock_ns();
         return DD_OK;
     }
     virtual HRESULT SetFormat(const WAVEFORMATEX *f) { format = *f; frequency = f->nSamplesPerSec; return DD_OK; }
@@ -453,7 +453,7 @@ struct SoundBuffer {
     bool playing = false, looping = false;
     WAVEFORMATEX format = {1, 2, 22050, 88200, 4, 16, 0};
     std::vector<unsigned char> data;
-    std::chrono::steady_clock::time_point start;
+    uint64_t start_ns = 0;            // game clock at the silent play cursor's start (Scout1247: stands still while held)
 
     uint64_t offset_us() const
     {
@@ -463,7 +463,7 @@ struct SoundBuffer {
     uint64_t position_raw() const
     {
         if (!playing || mixer_active()) return cursor;
-        uint64_t us = (uint64_t)std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - start).count();
+        uint64_t us = (ra2port::game_clock_ns() - start_ns) / 1000u;
         uint64_t bytes = us * frequency * format.nBlockAlign / 1000000ull;
         return format.nBlockAlign ? bytes / format.nBlockAlign * format.nBlockAlign : bytes;
     }

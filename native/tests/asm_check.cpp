@@ -65,6 +65,14 @@ unsigned int Get_CPU_Clock(unsigned int &high);
 int Get_CPU_Speed();
 void RDTSC();
 extern unsigned int TSC_Low, TSC_High;
+// The port's game clock the virtual TSC reads (port/src/win32_time.cpp; the check
+// links the behaviour file without the port): the monotonic clock here.
+extern "C" uint64_t ra2port_game_ns(void)
+{
+    struct timespec t;
+    clock_gettime(CLOCK_MONOTONIC, &t);
+    return (uint64_t)t.tv_sec * 1000000000u + (uint64_t)t.tv_nsec;
+}
 
 static uint32_t rng_state = 0x12345678;
 static uint32_t rnd() { rng_state = rng_state * 1103515245u + 12345u; return rng_state >> 8; }

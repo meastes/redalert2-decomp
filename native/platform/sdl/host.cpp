@@ -11,11 +11,10 @@
 #include <string>
 #include <vector>
 #include <atomic>
-#if defined(__APPLE__)
-#include <dlfcn.h>   // the Objective-C runtime, looked up at run time (its headers define BOOL, as the Win32 port does)
-#endif
 
 #include "ra2port/win32_port.hpp"
+#include "host_os.hpp"
+#include "touch.hpp"
 
 namespace ra2port { void set_key_state(int vk, bool down); }
 // A scripted point "@ID..." as game pixels (port/src/run_progress.cpp asks the
@@ -34,7 +33,16 @@ extern "C" __attribute__((weak)) int ra2_native_scroll_map(int, int, int, int) {
 // game's settings (RA2.INI) as the main menu's Exit Game does, through this
 // hook (weak default: nothing to save; native/link may define it).
 extern "C" __attribute__((weak)) void ra2_native_save_settings(void) {}
+// A network game runs (LAN lobby or game; native/link may define it): the host pause
+// on focus loss would stall the other players, so the game goes on in the background
+// there, as the original does on Windows. Weak default: no network game.
+extern "C" __attribute__((weak)) int ra2_native_network_game(void) { return 0; }
+// The touch app hides the game's own cursor, each mouse the game makes once (Scout1249;
+// link/native_touch_cursor.cpp). Weak default: nothing to hide.
+extern "C" __attribute__((weak)) int ra2_native_hide_game_cursor(void) { return 1; }
 extern "C" int ra2port_last_frame(void);
+extern "C" int ra2port_text_input_wanted(void);   // port/src/user32.cpp: an edit control has the focus
+extern "C" int ra2port_menu_shown(void);          // port/src/user32.cpp: a menu dialog is shown (no sidebar)
 extern "C" __attribute__((weak)) bool ra2port_presents_held(void);   // port/src/user32.cpp
 
 namespace {
@@ -54,6 +62,43 @@ int tex_w = 0, tex_h = 0;
 // before quitting a game; what to save before a quit ends the process.
 bool want_fullscreen = false;
 bool app_mode = false;
+// The host pause (ra2port::request_pause, Scout1247) when the window loses the focus:
+// on in the app, off in test runs; RA2_NATIVE_FOCUS_PAUSE=1 or 0 overrides either.
+bool pause_on_focus_loss = false;
+// iOS: the app is in the background (nothing may be drawn there).
+bool in_background = false;
+// Why the host pause is wanted (Scout1248; update_pause): the window lost the focus
+// (settled), the device is folded or turned so the usable part is too small, an
+// audio-session interruption (a call).
+bool focus_paused = false, folded = false, audio_interrupted = false;
+// Checkpoint saves (ra2port::request_checkpoint): when the app goes to the background
+// and every checkpoint_period_ms of play (0: never); on in the iOS app.
+bool checkpoints = false;
+Uint64 checkpoint_period_ms = 0, last_checkpoint_ms = 0;
+
+// The layout (Scout1248): the usable part of the window in points (hostos::usable_rect:
+// the iOS safe area less the hinge; elsewhere the whole window) and the game picture
+// fitted into it, aspect kept, in points. Window coordinates convert to the game's
+// pixels through it (the renderer draws in device pixels, no logical presentation).
+hostos::Rect usable = {0, 0, 800, 600};
+hostos::Rect picture = {0, 0, 800, 600};
+int pic_w = 800, pic_h = 600;     // the game picture's size in game pixels
+bool layout_dirty = true;
+
+// The touch controls (Scout1248): on where the screen is touched (iOS), or with
+// RA2_NATIVE_TOUCH_UI=1 (tests). A column of toggles at the usable part's left edge:
+// force fire (Ctrl), force move (Alt), add to the selection (Shift) stay held while
+// on; the keyboard; the interface scale (takes effect at the next start).
+bool touch_ui = false;
+bool system_toolbar = false;   // the iOS glass toolbar holds the toggles (hostos::toolbar_create; Scout1249)
+struct Toggle { const char *label; int vk; bool on; };
+Toggle toggles[] = {{"FIRE", 0x11, false}, {"MOVE", 0x12, false}, {"ADD", 0x10, false}, {"KEYS", 0, false}, {"SCALE", 0, false}};
+constexpr int kToggleCount = 5, kKeysToggle = 3, kScaleToggle = 4;
+double ui_scale = 1.0;
+void (*scale_changed)(double) = nullptr;
+bool text_input_on = false;
+SDL_TouchID const script_touch = 0x5C5D;   // scripted fingers: coordinates in game pixels
+SDL_FingerID toggle_finger = 0;            // the finger that pressed a toggle (its gesture is the toggle's)
 void (*before_exit)() = nullptr;     // the app's settings (main.cpp)
 // The last pointer position in game pixels (the trackpad hook's cursor).
 float pointer_x = 0, pointer_y = 0;
@@ -158,9 +203,85 @@ Deferred deferred;
 Uint64 last_present_ms = 0;
 SDL_Mutex *deferred_lock = nullptr;
 
+void sync_toolbar();
+void toolbar_tapped(int i);
+float pixel_density()
+{
+    int ww = 0, wh = 0, pw = 0, ph = 0;
+    if (!window || !SDL_GetWindowSize(window, &ww, &wh) || !SDL_GetWindowSizeInPixels(window, &pw, &ph) || ww <= 0) return 1.0f;
+    return (float)pw / (float)ww;
+}
+void update_layout()
+{
+    layout_dirty = false;
+    if (!window) return;
+    int ww = 0, wh = 0;
+    SDL_GetWindowSize(window, &ww, &wh);
+    usable = hostos::Rect{0, 0, (double)ww, (double)wh};
+    void *native = SDL_GetPointerProperty(SDL_GetWindowProperties(window), SDL_PROP_WINDOW_UIKIT_WINDOW_POINTER, nullptr);
+    hostos::Rect r;
+    bool device = native && hostos::usable_rect(native, &r);
+    if (device && r.w > 0 && r.h > 0) usable = r;
+    // Folded (the iPhone Duo's outer display) or upright: too small for the game. (The
+    // Duo's inner display in landscape leaves about 594x432 points clear in the Simulator.)
+    bool was = folded;
+    folded = device && (usable.w < 480 || usable.h < 320 || usable.w < usable.h);
+    if (folded != was) fprintf(stderr, "host: usable area %.0fx%.0f points: %s\n", usable.w, usable.h, folded ? "too small (folded?): pause" : "fits");
+    if (touch_ui && !system_toolbar && native) {
+        static const hostos::ToolbarItem items[kToggleCount] = {
+            {"scope", "Fire"}, {"arrow.up.and.down.and.arrow.left.and.right", "Move"},
+            {"plus.square.on.square", "Add"}, {"keyboard", "Keys"}, {"textformat.size", "1x"}};
+        system_toolbar = hostos::toolbar_create(native, items, kToggleCount, toolbar_tapped);
+        if (system_toolbar) sync_toolbar();
+    }
+    if (system_toolbar) hostos::toolbar_place(usable);
+    double scale = SDL_min(usable.w / pic_w, usable.h / pic_h);
+    picture = hostos::Rect{usable.x + (usable.w - pic_w * scale) / 2, usable.y + (usable.h - pic_h * scale) / 2, pic_w * scale, pic_h * scale};
+}
+void window_to_game(float wx, float wy, float *gx, float *gy)
+{
+    *gx = picture.w > 0 ? (float)((wx - picture.x) * pic_w / picture.w) : wx;
+    *gy = picture.h > 0 ? (float)((wy - picture.y) * pic_h / picture.h) : wy;
+}
+void game_to_window(float gx, float gy, float *wx, float *wy)
+{
+    *wx = (float)(picture.x + gx * picture.w / pic_w);
+    *wy = (float)(picture.y + gy * picture.h / pic_h);
+}
+// A mouse event's window coordinates to the game's pixels (what the renderer's logical
+// presentation did before Scout1248).
+void convert_event(SDL_Event &e)
+{
+    double sx = picture.w > 0 ? pic_w / picture.w : 1, sy = picture.h > 0 ? pic_h / picture.h : 1;
+    if (e.type == SDL_EVENT_MOUSE_MOTION) {
+        window_to_game(e.motion.x, e.motion.y, &e.motion.x, &e.motion.y);
+        e.motion.xrel = (float)(e.motion.xrel * sx);
+        e.motion.yrel = (float)(e.motion.yrel * sy);
+    } else if (e.type == SDL_EVENT_MOUSE_BUTTON_DOWN || e.type == SDL_EVENT_MOUSE_BUTTON_UP) {
+        window_to_game(e.button.x, e.button.y, &e.button.x, &e.button.y);
+    } else if (e.type == SDL_EVENT_MOUSE_WHEEL) {
+        window_to_game(e.wheel.mouse_x, e.wheel.mouse_y, &e.wheel.mouse_x, &e.wheel.mouse_y);
+    }
+}
+// The toggles' places in window points: a column at the usable part's left edge.
+hostos::Rect toggle_rect(int i)
+{
+    double size = 44, gap = 6;
+    return hostos::Rect{usable.x + 6, usable.y + 6 + i * (size + gap), size, size};
+}
+int toggle_at(float wx, float wy)
+{
+    if (!touch_ui || system_toolbar) return -1;
+    for (int i = 0; i < kToggleCount; ++i) {
+        hostos::Rect r = toggle_rect(i);
+        if (wx >= r.x && wx < r.x + r.w && wy >= r.y && wy < r.y + r.h) return i;
+    }
+    return -1;
+}
+
 void *create_window(const char *title, int width, int height)
 {
-    if (!window) {
+    if (!renderer) {
         // Resizable, HiDPI (the renderer draws in device pixels; the picture
         // keeps its aspect, letterboxed).
         SDL_SetHint(SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES, "0");
@@ -168,7 +289,9 @@ void *create_window(const char *title, int width, int height)
         // (WM_MOUSEACTIVATE answered MA_ACTIVATE): a click on the lobby's name field with
         // another app in front was lost (Scout1223).
         SDL_SetHint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
-        window = SDL_CreateWindow(title, width, height, SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
+        // A window the app made already (iOS: the import's; ra2_sdl_host_use_window) is the game's.
+        if (window) SDL_SetWindowTitle(window, title);
+        else window = SDL_CreateWindow(title, width, height, SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
         renderer = window ? SDL_CreateRenderer(window, nullptr) : nullptr;
         if (window) {
             SDL_SetWindowMinimumSize(window, 320, 240);
@@ -180,10 +303,14 @@ void *create_window(const char *title, int width, int height)
             SDL_RaiseWindow(window);
         }
         if (!deferred_lock) deferred_lock = SDL_CreateMutex();
-        // The logical size follows the presented surface (present below), so
-        // mouse positions convert to the game's pixels.
-        if (renderer) SDL_SetRenderLogicalPresentation(renderer, width, height, SDL_LOGICAL_PRESENTATION_LETTERBOX);
-        SDL_StartTextInput(window);
+        // The game picture fills the usable part of the window, aspect kept (update_layout);
+        // mouse positions convert to the game's pixels through it.
+        pic_w = width;
+        pic_h = height;
+        layout_dirty = true;
+        // Text input (WM_CHAR) from a keyboard; not where it would raise the on-screen
+        // keyboard over the game (iOS, Scout1247).
+        if (!SDL_HasScreenKeyboardSupport()) SDL_StartTextInput(window);
     }
     return window;
 }
@@ -255,14 +382,17 @@ void present_deferred()
 // 50 ms where no frames run, the menus) is held back until then (Scout1209).
 struct HeldButton { int down_frame = 0; Uint64 down_ms = 0; bool release_pending = false; float x = 0, y = 0; };
 HeldButton held[2];   // left, right
+bool button_down[2];  // the game was told the button is down (and not yet up)
 void press_button(int b, float x, float y)
 {
+    button_down[b] = true;
     ra2port::set_key_state(b ? 0x02 : 0x01, true);
     ra2port::post_message(ra2port::main_window(), b ? 0x0204 : 0x0201, 0, mouse_lparam(x, y));   // WM_RBUTTONDOWN / WM_LBUTTONDOWN
 }
 void release_button(int b)
 {
     held[b].release_pending = false;
+    button_down[b] = false;
     ra2port::set_key_state(b ? 0x02 : 0x01, false);
     ra2port::post_message(ra2port::main_window(), b ? 0x0205 : 0x0202, 0, mouse_lparam(held[b].x, held[b].y));   // WM_RBUTTONUP / WM_LBUTTONUP
 }
@@ -279,12 +409,12 @@ void release_held_buttons()
         if (held[b].release_pending && seen_held(b)) release_button(b);
 }
 
-#if defined(__APPLE__)
 // RA2_NATIVE_NSEVENT_KEYS="<ms>:<text>[;<ms>:<text>...]" (test scaffolding, Scout1223): at that
-// many milliseconds after start the host posts key-down and key-up NSEvents for each character
-// ('<' is Backspace, '|' Return; a text "@X,Y" is a left click at game pixel X, Y) into the application's own event queue, so they take the real keyboard's
-// path (NSApplication sendEvent, SDL's key handling and text input) without the Accessibility
-// permission that posting system keyboard events needs.
+// many milliseconds after start the host posts key-down and key-up events for each character
+// ('<' is Backspace, '|' Return; a text "@X,Y" is a left click at game pixel X, Y) into the
+// application's own event queue (hostos::post_system_keys/_click: AppKit events on the Mac), so
+// they take the real keyboard's path (NSApplication sendEvent, SDL's key handling and text input)
+// without the Accessibility permission that posting system keyboard events needs.
 void post_nsevent_keys()
 {
     struct Group { Uint64 ms; std::string text; };
@@ -303,58 +433,186 @@ void post_nsevent_keys()
         }
     }
     if (groups.empty() || !window || SDL_GetTicks() < groups.front().ms) return;
-    typedef void *(*Lookup)(const char *);
-    static Lookup objc_getClass = (Lookup)dlsym(RTLD_DEFAULT, "objc_getClass");
-    static Lookup sel_registerName = (Lookup)dlsym(RTLD_DEFAULT, "sel_registerName");
-    static void *objc_msgSend = dlsym(RTLD_DEFAULT, "objc_msgSend");
-    if (!objc_getClass || !sel_registerName || !objc_msgSend) return;
     std::string text = groups.front().text;
     groups.erase(groups.begin());
-    void *nswindow = SDL_GetPointerProperty(SDL_GetWindowProperties(window), SDL_PROP_WINDOW_COCOA_WINDOW_POINTER, nullptr);
-    void *app = ((void *(*)(void *, void *))objc_msgSend)(objc_getClass("NSApplication"), sel_registerName("sharedApplication"));
-    if (!nswindow || !app) return;
-    long number = ((long (*)(void *, void *))objc_msgSend)(nswindow, sel_registerName("windowNumber"));
+    void *native = SDL_GetPointerProperty(SDL_GetWindowProperties(window), SDL_PROP_WINDOW_COCOA_WINDOW_POINTER, nullptr);
+    if (!native) return;
     if (text[0] == '@') {
-        // "@X,Y": a left click at game pixel X, Y (mouse-down and mouse-up NSEvents).
+        // "@X,Y": a left click at game pixel X, Y.
         float gx = 0, gy = 0, wx = 0, wy = 0;
-        int ww = 0, wh = 0;
         if (sscanf(text.c_str() + 1, "%f,%f", &gx, &gy) != 2 || !renderer) return;
-        SDL_RenderCoordinatesToWindow(renderer, gx, gy, &wx, &wy);
-        SDL_GetWindowSize(window, &ww, &wh);
-        struct Point { double x, y; } at = {wx, (double)wh - wy};   // window coordinates: origin at the bottom left
+        game_to_window(gx, gy, &wx, &wy);
         SDL_WarpMouseInWindow(window, wx, wy);   // AppKit reads the pointer's own position for the click
-        for (int step = 0; step < 3; ++step) {
-            static unsigned long const types[3] = {5, 1, 2};   // NSEventTypeMouseMoved, LeftMouseDown, LeftMouseUp
-            void *ev = ((void *(*)(void *, void *, unsigned long, Point, unsigned long, double, long, void *, long, long, float))objc_msgSend)(
-                objc_getClass("NSEvent"), sel_registerName("mouseEventWithType:location:modifierFlags:timestamp:windowNumber:context:eventNumber:clickCount:pressure:"),
-                types[step], at, 0ul, 0.0, number, nullptr, 0l, step ? 1l : 0l, step == 1 ? 1.0f : 0.0f);
-            if (ev) ((void (*)(void *, void *, void *, signed char))objc_msgSend)(app, sel_registerName("postEvent:atStart:"), ev, (signed char)0);
-        }
-        fprintf(stderr, "nsevent-keys: clicked %g,%g (window %g,%g)\n", gx, gy, wx, wy);
+        if (hostos::post_system_click(native, wx, wy))
+            fprintf(stderr, "nsevent-keys: clicked %g,%g (window %g,%g)\n", gx, gy, wx, wy);
         return;
     }
-    static const char letters[] = "asdfhgzxcv?bqweryt";   // macOS virtual key codes 0-17
-    for (char c : text) {
-        unsigned short code = 0;
-        char chars[2] = {c, 0};
-        if (c == '<') { code = 51; chars[0] = 0x7F; }
-        else if (c == '|') { code = 36; chars[0] = '\r'; }   // Return (Scout1231: the in-game chat line)
-        else if (const char *at = strchr(letters, c)) code = (unsigned short)(at - letters);
-        else continue;
-        void *str = ((void *(*)(void *, void *, const char *))objc_msgSend)(objc_getClass("NSString"), sel_registerName("stringWithUTF8String:"), chars);
-        for (int up = 0; up < 2; ++up) {
-            struct Point { double x, y; } at = {10, 10};
-            void *ev = ((void *(*)(void *, void *, unsigned long, Point, unsigned long, double, long, void *, void *, void *, signed char, unsigned short))objc_msgSend)(
-                objc_getClass("NSEvent"), sel_registerName("keyEventWithType:location:modifierFlags:timestamp:windowNumber:context:characters:charactersIgnoringModifiers:isARepeat:keyCode:"),
-                up ? 11ul : 10ul, at, 0ul, 0.0, number, nullptr, str, str, (signed char)0, code);   // NSEventTypeKeyDown / KeyUp
-            if (ev) ((void (*)(void *, void *, void *, signed char))objc_msgSend)(app, sel_registerName("postEvent:atStart:"), ev, (signed char)0);
-        }
-    }
-    fprintf(stderr, "nsevent-keys: posted \"%s\"\n", text.c_str());
+    if (hostos::post_system_keys(native, text.c_str())) fprintf(stderr, "nsevent-keys: posted \"%s\"\n", text.c_str());
 }
-#else
-void post_nsevent_keys() {}
-#endif
+
+void mouse_move(float x, float y)
+{
+    pointer_x = x;
+    pointer_y = y;
+    ra2port::post_message(ra2port::main_window(), 0x0200, 0, mouse_lparam(x, y));
+}
+void mouse_button(int b, bool down, float x, float y)
+{
+    if (down) {
+        if (held[b].release_pending) release_button(b);   // a second tap before the first was seen
+        held[b].down_frame = ra2port_last_frame();
+        held[b].down_ms = SDL_GetTicks();
+        press_button(b, x, y);
+    } else if (!seen_held(b)) {
+        // Released before the game saw the button held: kept down until it has.
+        held[b].release_pending = true;
+        held[b].x = x;
+        held[b].y = y;
+    } else {
+        held[b].x = x;
+        held[b].y = y;
+        release_button(b);
+    }
+}
+
+// The host pause's reasons combined (Scout1248): the background (iOS), the focus lost
+// (settled), folded, an audio interruption.
+void update_pause()
+{
+    bool want = in_background || focus_paused || folded || audio_interrupted;
+    if (want != ra2port::pause_requested())
+        fprintf(stderr, "host: pause %s (background %d focus %d folded %d audio %d)\n", want ? "on" : "off",
+                in_background, focus_paused, folded, audio_interrupted);
+    ra2port::request_pause(want);
+}
+
+// Touch gestures out (touch.hpp): the same mouse, pan and wheel paths as the mouse's.
+void touch_pan(float dx, float dy, float x, float y)
+{
+    if (pan_last_ms && SDL_GetTicks() - pan_last_ms > 250) pan_dx = pan_dy = pan_wheel = 0;
+    pointer_x = x;
+    pointer_y = y;
+    pan_dx += dx;
+    pan_dy += dy;
+    pan_last_ms = SDL_GetTicks();
+}
+void touch_wheel(int notches, float x, float y)
+{
+    int delta = notches * 120;
+    ra2port::post_message(ra2port::main_window(), 0x020A, (WPARAM)((delta & 0xFFFF) << 16), mouse_lparam(x, y));
+}
+// A touch drag after its press (the selection box): the moves wait until the game has
+// seen the button held (seen_held), as a mouse's press lasts frames before it moves;
+// the game took a press and an immediate move as a click where the finger lifted.
+bool touch_move_waiting = false;
+float touch_move_x = 0, touch_move_y = 0;
+void touch_moves_due();
+void touch_button(int b, bool down, float x, float y)
+{
+    if (!down && touch_move_waiting) {          // the drag's last move before its release
+        touch_move_waiting = false;
+        mouse_move(touch_move_x, touch_move_y);
+    }
+    fprintf(stderr, "touch: %s %s at %.0f,%.0f\n", b ? "right" : "left", down ? "down" : "up", x, y);
+    mouse_button(b, down, x, y);
+}
+void touch_pan_logged(float dx, float dy, float x, float y)
+{
+    static Uint64 last = 0;
+    if (SDL_GetTicks() - last > 500) fprintf(stderr, "touch: pan from %.0f,%.0f\n", x, y);
+    last = SDL_GetTicks();
+    touch_pan(dx, dy, x, y);
+}
+void touch_wheel_logged(int notches, float x, float y)
+{
+    fprintf(stderr, "touch: wheel %+d at %.0f,%.0f\n", notches, x, y);
+    touch_wheel(notches, x, y);
+}
+bool left_down_unseen()
+{
+    return button_down[0] && !seen_held(0);
+}
+void touch_move(float x, float y)
+{
+    if (left_down_unseen()) {
+        touch_move_waiting = true;
+        touch_move_x = x;
+        touch_move_y = y;
+        return;
+    }
+    touch_move_waiting = false;
+    mouse_move(x, y);
+}
+void touch_moves_due()
+{
+    if (touch_move_waiting && !left_down_unseen()) touch_move(touch_move_x, touch_move_y);
+}
+const touch::Output touch_out = {touch_move, touch_button, touch_pan_logged, touch_wheel_logged};
+
+void redraw();
+// The glass toolbar shows the toggles' states and the scale (Scout1249).
+void sync_toolbar()
+{
+    if (!system_toolbar) return;
+    char scale[8];
+    snprintf(scale, sizeof scale, "%gx", ui_scale);
+    for (int i = 0; i < kToggleCount; ++i)
+        hostos::toolbar_set(i, toggles[i].on || (i == kKeysToggle && text_input_on), i == kScaleToggle ? scale : nullptr);
+}
+void press_toggle(int i);
+void toolbar_tapped(int i) { press_toggle(i); }
+void press_toggle(int i)
+{
+    Toggle &t = toggles[i];
+    HWND w = ra2port::main_window();
+    if (i == kScaleToggle) {
+        ui_scale = ui_scale < 1.1 ? 1.25 : ui_scale < 1.4 ? 1.5 : 1.0;
+        fprintf(stderr, "host: interface scale %.2f (at the next start)\n", ui_scale);
+        if (scale_changed) scale_changed(ui_scale);
+    } else {
+        t.on = !t.on;
+        if (t.vk) {
+            ra2port::set_key_state(t.vk, t.on);
+            ra2port::post_message(w, t.on ? 0x0100 : 0x0101, (WPARAM)t.vk, (LPARAM)(t.on ? 1 : (1 | (3u << 30))));
+        }
+        fprintf(stderr, "host: toggle %s %s\n", t.label, t.on ? "on" : "off");
+    }
+    sync_toolbar();
+    redraw();
+}
+
+// SDL's finger events: direct touches only (a Mac trackpad's touches are its mouse and
+// wheel). Window-normalised coordinates to points, then to game pixels; scripted fingers
+// (input script tdown/tmove/tup) are in game pixels already.
+void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
+{
+    bool scripted = f.touchID == script_touch;
+    if (!scripted && (!touch_ui || SDL_GetTouchDeviceType(f.touchID) != SDL_TOUCH_DEVICE_DIRECT)) return;
+    float gx = f.x, gy = f.y;
+    if (!scripted) {
+        int ww = 0, wh = 0;
+        SDL_GetWindowSize(window, &ww, &wh);
+        float wx = f.x * ww, wy = f.y * wh;
+        if (type == SDL_EVENT_FINGER_DOWN) {
+            int t = toggle_at(wx, wy);
+            if (t >= 0) {
+                toggle_finger = f.fingerID;
+                press_toggle(t);
+                return;
+            }
+        }
+        if (toggle_finger && f.fingerID == toggle_finger) {
+            if (type == SDL_EVENT_FINGER_UP || type == SDL_EVENT_FINGER_CANCELED) toggle_finger = 0;
+            return;
+        }
+        window_to_game(wx, wy, &gx, &gy);
+    }
+    touch::set_screen(pic_w, pic_h, ra2port_menu_shown() ? 0 : pic_w - 168);
+    Uint64 now = SDL_GetTicks();
+    if (type == SDL_EVENT_FINGER_DOWN) touch::finger_down(f.fingerID, gx, gy, now, touch_out);
+    else if (type == SDL_EVENT_FINGER_MOTION) touch::finger_move(f.fingerID, gx, gy, now, touch_out);
+    else touch::finger_up(f.fingerID, gx, gy, now, touch_out);
+}
 
 void pump_events()
 {
@@ -371,14 +629,14 @@ void pump_events()
                         (e.type == SDL_EVENT_MOUSE_WHEEL && e.wheel.which == script_mouse) ||
                         ((e.type == SDL_EVENT_MOUSE_BUTTON_DOWN || e.type == SDL_EVENT_MOUSE_BUTTON_UP) &&
                          e.button.which == script_mouse);
-        if (renderer && !scripted) SDL_ConvertEventToRenderCoordinates(renderer, &e);
+        if (renderer && !scripted) convert_event(e);
         switch (e.type) {
         case SDL_EVENT_QUIT:
             quit();
             break;
-        case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED: case SDL_EVENT_WINDOW_ENTER_FULLSCREEN:
-        case SDL_EVENT_WINDOW_LEAVE_FULLSCREEN:
+        case SDL_EVENT_WINDOW_ENTER_FULLSCREEN: case SDL_EVENT_WINDOW_LEAVE_FULLSCREEN:
             apply_mouse_grab();
+            layout_dirty = true;
             break;
         case SDL_EVENT_KEY_DOWN: case SDL_EVENT_KEY_UP: {
             // Command-key shortcuts are the Mac's, never the game's: Cmd+Return
@@ -412,33 +670,25 @@ void pump_events()
                 if (*c < 0x80) ra2port::post_message(w, 0x0102, *c, 1);   // WM_CHAR (ASCII)
             break;
         case SDL_EVENT_MOUSE_MOTION:
+            if (e.motion.which == SDL_TOUCH_MOUSEID) break;     // touches have their own gestures (touch.cpp)
             clamp_to_picture(e.motion.x, e.motion.y);
-            pointer_x = e.motion.x;
-            pointer_y = e.motion.y;
-            ra2port::post_message(w, 0x0200, 0, mouse_lparam(e.motion.x, e.motion.y));
+            mouse_move(e.motion.x, e.motion.y);
             break;
         case SDL_EVENT_MOUSE_BUTTON_DOWN: case SDL_EVENT_MOUSE_BUTTON_UP: {
-            bool down = e.type == SDL_EVENT_MOUSE_BUTTON_DOWN;
+            if (e.button.which == SDL_TOUCH_MOUSEID) break;
             clamp_to_picture(e.button.x, e.button.y);
             if (e.button.button != SDL_BUTTON_LEFT && e.button.button != SDL_BUTTON_RIGHT) break;
-            int b = e.button.button == SDL_BUTTON_RIGHT ? 1 : 0;
-            if (down) {
-                if (held[b].release_pending) release_button(b);   // a second tap before the first was seen
-                held[b].down_frame = ra2port_last_frame();
-                held[b].down_ms = SDL_GetTicks();
-                press_button(b, e.button.x, e.button.y);
-            } else if (!seen_held(b)) {
-                // Released before the game saw the button held: kept down until it has.
-                held[b].release_pending = true;
-                held[b].x = e.button.x;
-                held[b].y = e.button.y;
-            } else {
-                held[b].x = e.button.x;
-                held[b].y = e.button.y;
-                release_button(b);
-            }
+            mouse_button(e.button.button == SDL_BUTTON_RIGHT ? 1 : 0, e.type == SDL_EVENT_MOUSE_BUTTON_DOWN, e.button.x, e.button.y);
             break;
         }
+        case SDL_EVENT_FINGER_DOWN: case SDL_EVENT_FINGER_MOTION: case SDL_EVENT_FINGER_UP: case SDL_EVENT_FINGER_CANCELED:
+            finger_event(e.tfinger, e.type);
+            break;
+        case SDL_EVENT_WINDOW_RESIZED: case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED: case SDL_EVENT_WINDOW_SAFE_AREA_CHANGED:
+        case SDL_EVENT_DISPLAY_ORIENTATION:
+            if (e.type == SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED) apply_mouse_grab();
+            layout_dirty = true;
+            break;
         case SDL_EVENT_MOUSE_WHEEL: {
             // A trackpad (fractional, two-axis deltas) over the tactical view
             // pans the map: collected here, handed to the game at the next frame
@@ -490,6 +740,37 @@ void pump_events()
     if (window_focused != game_active && SDL_GetTicks() - window_focus_ms >= kFocusSettleMs) {
         game_active = window_focused;
         ra2port::post_message(w, 0x001C, game_active ? 1 : 0, 0);   // WM_ACTIVATEAPP
+        // The host pause (Scout1247): the game stops where it is while another app is in
+        // front, its clocks with it (a mission's timers and the movies do not run on), once
+        // it has read the WM_ACTIVATEAPP above (the pause takes hold at the next empty
+        // queue read). Not in a network game, which the other players' games pace.
+        if (pause_on_focus_loss) {
+            bool pause = !game_active && !ra2_native_network_game();
+            if (pause != focus_paused) fprintf(stderr, "host: focus %s: %s\n", game_active ? "back" : "lost", pause ? "pause" : "resume");
+            focus_paused = pause;
+            update_pause();
+        }
+    }
+    // Touch: a finger held still becomes a hold; the on-screen keyboard follows an edit
+    // control's focus or the KEYS toggle; the layout follows rotation, folding and the
+    // safe area (Scout1248).
+    touch::tick(SDL_GetTicks(), touch_out);
+    touch_moves_due();
+    static const bool keep_cursor = getenv("RA2_NATIVE_TOUCH_CURSOR") != nullptr;
+    if (touch_ui && !keep_cursor) ra2_native_hide_game_cursor();
+    if (SDL_HasScreenKeyboardSupport() && window) {
+        bool want = toggles[kKeysToggle].on || ra2port_text_input_wanted();
+        if (want != text_input_on) {
+            text_input_on = want;
+            if (want) SDL_StartTextInput(window); else SDL_StopTextInput(window);
+            sync_toolbar();
+        }
+    }
+    if (layout_dirty) {
+        bool was = folded;
+        update_layout();
+        if (was != folded) update_pause();
+        redraw();
     }
 }
 
@@ -515,26 +796,68 @@ void present(const void *pixels, int width, int height, int pitch, int bits)
     if (SDL_IsMainThread() && SDL_GetTicks() - last_present_ms >= 100) present_deferred();
 }
 
+// The touch controls over the picture (Scout1248): the toggles, and while the device
+// is folded a note in place of the game.
+void draw_overlay(float density)
+{
+    if (folded) {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+        SDL_SetRenderScale(renderer, 2 * density, 2 * density);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+        SDL_RenderDebugText(renderer, (float)(usable.x / 2 + 8), (float)(usable.y / 2 + usable.h / 4), "Open the phone to play.");
+        SDL_SetRenderScale(renderer, 1, 1);
+        return;
+    }
+    if (!touch_ui || system_toolbar) return;
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    for (int i = 0; i < kToggleCount; ++i) {
+        hostos::Rect r = toggle_rect(i);
+        SDL_FRect box = {(float)(r.x * density), (float)(r.y * density), (float)(r.w * density), (float)(r.h * density)};
+        if (toggles[i].on) SDL_SetRenderDrawColor(renderer, 200, 30, 20, 210);
+        else SDL_SetRenderDrawColor(renderer, 0, 0, 0, 150);
+        SDL_RenderFillRect(renderer, &box);
+        SDL_SetRenderDrawColor(renderer, 230, 200, 60, 230);
+        SDL_RenderRect(renderer, &box);
+        char label[8];
+        if (i == kScaleToggle) snprintf(label, sizeof label, "%gx", ui_scale);
+        else snprintf(label, sizeof label, "%s", toggles[i].label);
+        float text_scale = density * 1.25f;
+        float tw = 8.0f * (float)strlen(label);
+        SDL_SetRenderScale(renderer, text_scale, text_scale);
+        SDL_RenderDebugText(renderer, (box.x + box.w / 2) / text_scale - tw / 2, (box.y + box.h / 2) / text_scale - 4, label);
+        SDL_SetRenderScale(renderer, 1, 1);
+    }
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
+}
+
 void present_now(const void *pixels, int width, int height, int pitch)
 {
+    if (in_background || !renderer) return;     // iOS: no drawing in the background
     last_present_ms = SDL_GetTicks();
     if (!texture || tex_w != width || tex_h != height) {
         if (texture) SDL_DestroyTexture(texture);
         // The game's resolution (its DirectDraw display mode): the window
         // takes that size (in points; fullscreen keeps the display) and the
         // mouse maps onto those pixels.
-        SDL_SetRenderLogicalPresentation(renderer, width, height, SDL_LOGICAL_PRESENTATION_LETTERBOX);
+        pic_w = width;
+        pic_h = height;
         fit_window(width, height);
+        update_layout();
         texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_STREAMING, width, height);
         // Sharp pixels at any scale (Retina 2x, fullscreen's fractional fit).
         if (texture) SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_PIXELART);
         tex_w = width;
         tex_h = height;
     }
-    SDL_UpdateTexture(texture, nullptr, pixels, pitch);
+    if (layout_dirty) update_layout();
+    if (pixels) SDL_UpdateTexture(texture, nullptr, pixels, pitch);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
-    SDL_RenderTexture(renderer, texture, nullptr, nullptr);
+    float density = pixel_density();
+    SDL_FRect dst = {(float)(picture.x * density), (float)(picture.y * density), (float)(picture.w * density), (float)(picture.h * density)};
+    if (texture) SDL_RenderTexture(renderer, texture, nullptr, &dst);
+    draw_overlay(density);
     // RA2_NATIVE_WINDOW_DUMP=<file> (test runs): every 2 s, the whole window
     // as drawn (device pixels: the scaling, letterbox and fullscreen) to
     // <file>.<n>.bmp; RA2_NATIVE_WINDOW_DUMP_MS=<ms> sets another period (0: every present).
@@ -555,6 +878,12 @@ void present_now(const void *pixels, int width, int height, int pitch)
     SDL_RenderPresent(renderer);
 }
 
+// The last picture again (a toggle changed, the layout moved, folded).
+void redraw()
+{
+    if (SDL_IsMainThread() && texture) present_now(nullptr, tex_w, tex_h, 0);
+}
+
 void set_relative_cursor(bool show)
 {
     if (show) SDL_ShowCursor(); else SDL_HideCursor();
@@ -563,6 +892,7 @@ void set_relative_cursor(bool show)
 // Audio: an SDL3 playback stream (stereo, signed 16-bit) that asks the port's
 // DirectSound mixer for every block the device consumes.
 void (*audio_mix)(short *out, int frames) = nullptr;
+SDL_AudioStream *audio_stream = nullptr;
 void SDLCALL audio_callback(void *, SDL_AudioStream *stream, int additional, int)
 {
     short block[2048 * 2];
@@ -591,6 +921,7 @@ bool open_audio(int rate, void (*mix)(short *out, int frames))
         return false;
     }
     SDL_ResumeAudioStreamDevice(stream);
+    audio_stream = stream;
     const char *device = SDL_GetAudioDeviceName(SDL_GetAudioStreamDevice(stream));
     fprintf(stderr, "audio: playing on \"%s\" (driver %s, %d Hz stereo)\n", device ? device : "default", SDL_GetCurrentAudioDriver(), rate);
     return true;
@@ -743,6 +1074,21 @@ void load_script()
                 s.event.wheel.mouse_y = tokens.size() >= 6 ? strtof(tokens[5].c_str(), nullptr) : 300.0f;
             } else ok = false;
             if (ok) script.push_back(s);
+        } else if (action == "tdown" || action == "tmove" || action == "tup") {
+            // tdown|tmove|tup X Y [finger]: a touch at game pixel X, Y (finger 1 by default;
+            // the touch gestures' tests, Scout1248).
+            Point a = script_point(tokens, i);
+            ok = a.ok && a.spec.empty();
+            if (ok) {
+                Scripted s = {frame, {}, std::string()};
+                if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
+                s.event.type = action == "tdown" ? SDL_EVENT_FINGER_DOWN : action == "tmove" ? SDL_EVENT_FINGER_MOTION : SDL_EVENT_FINGER_UP;
+                s.event.tfinger.touchID = script_touch;
+                s.event.tfinger.fingerID = i < tokens.size() ? (SDL_FingerID)atoi(tokens[i].c_str()) : 1;
+                s.event.tfinger.x = a.x;
+                s.event.tfinger.y = a.y;
+                script.push_back(s);
+            }
         } else if (action == "key" || action == "keydown" || action == "keyup") {
             if (tokens.size() < 3) ok = false;
             else {
@@ -795,6 +1141,31 @@ size_t timed_next = 0;
 void frame(int number)
 {
     release_held_buttons();
+    // Every 30 s of play, the frame rate and (iOS) memory and thermal state in the log
+    // (Scout1248).
+    {
+        static Uint64 since = 0;
+        static int frames = 0;
+        Uint64 now = SDL_GetTicks();
+        if (!since) since = now;
+        ++frames;
+        if (now - since >= 30000) {
+            std::string device = hostos::device_report();
+            fprintf(stderr, "host: stats: %.1f frames/s%s%s\n", frames * 1000.0 / (double)(now - since), device.empty() ? "" : ", ", device.c_str());
+            since = now;
+            frames = 0;
+        }
+    }
+    // Periodic checkpoints while a game runs (Scout1248): the game side saves at the end
+    // of this Main_Loop pass.
+    if (checkpoints && checkpoint_period_ms) {
+        Uint64 now = SDL_GetTicks();
+        if (!last_checkpoint_ms) last_checkpoint_ms = now;
+        else if (now - last_checkpoint_ms >= checkpoint_period_ms) {
+            last_checkpoint_ms = now;
+            ra2port::request_checkpoint();
+        }
+    }
     // Trackpad panning collected since the last frame (pump_events).
     int dx = (int)pan_dx, dy = (int)pan_dy;
     if (pan_last_ms && SDL_GetTicks() - pan_last_ms > 250) {
@@ -851,6 +1222,8 @@ void play(Scripted &s, int number)
         } else if (e.type == SDL_EVENT_WINDOW_FOCUS_LOST || e.type == SDL_EVENT_WINDOW_FOCUS_GAINED) {
             e.window.windowID = id;
         } else if (e.type == SDL_EVENT_QUIT) {
+        } else if (e.type == SDL_EVENT_FINGER_DOWN || e.type == SDL_EVENT_FINGER_MOTION || e.type == SDL_EVENT_FINGER_UP) {
+            e.tfinger.windowID = id;
         } else if (e.type == SDL_EVENT_MOUSE_WHEEL) {
             e.wheel.windowID = id;
         } else {
@@ -879,7 +1252,7 @@ void play(Scripted &s, int number)
             static bool as_user = getenv("RA2_NATIVE_SCRIPT_AS_USER") != nullptr;
             if (as_user && renderer) {
                 float wx = x, wy = y;
-                SDL_RenderCoordinatesToWindow(renderer, x, y, &wx, &wy);
+                game_to_window(x, y, &wx, &wy);
                 x = wx;
                 y = wy;
                 if (e.type == SDL_EVENT_MOUSE_MOTION) e.motion.which = 0; else e.button.which = 0;
@@ -919,10 +1292,69 @@ void keep_alive()
     if (SDL_IsMainThread()) SDL_PumpEvents();
 }
 
-const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame, wait_begins, keep_alive};
+// Host::held: the port's pause hold began or ended (Scout1247). The audio device stops
+// with it (the mixer's play cursors stand still, as the game's clocks do) and starts again.
+void game_held(bool on)
+{
+    if (audio_stream) {
+        if (on) SDL_PauseAudioStreamDevice(audio_stream);
+        else SDL_ResumeAudioStreamDevice(audio_stream);
+    }
+    fprintf(stderr, "host: game %s\n", on ? "held (paused)" : "running again");
+}
+
+const ra2port::Host sdl_host = {create_window, pump_events, present, set_relative_cursor, open_audio, frame, wait_begins, keep_alive, game_held};
+
+// Lifecycle (Scout1248): SDL calls this as each event is queued, so going to the
+// background takes effect before the game reads its queue again: a checkpoint is asked
+// for, the pause is requested and nothing more is drawn.
+bool SDLCALL lifecycle_watch(void *, SDL_Event *e)
+{
+    switch (e->type) {
+    case SDL_EVENT_WILL_ENTER_BACKGROUND: case SDL_EVENT_DID_ENTER_BACKGROUND:
+        if (!in_background) {
+            fprintf(stderr, "host: background\n");
+            in_background = true;
+            if (checkpoints) ra2port::request_checkpoint();
+            update_pause();
+        }
+        break;
+    case SDL_EVENT_WILL_ENTER_FOREGROUND: case SDL_EVENT_DID_ENTER_FOREGROUND:
+        if (in_background) {
+            fprintf(stderr, "host: foreground\n");
+            in_background = false;
+            layout_dirty = true;
+            update_pause();
+        }
+        break;
+    default:
+        break;
+    }
+    return true;
+}
+void audio_interruption(bool on)
+{
+    fprintf(stderr, "host: audio interruption %s\n", on ? "began" : "ended");
+    audio_interrupted = on;
+    update_pause();
+}
 }  // namespace
 
-void ra2_install_sdl_host() { ra2port::set_host(&sdl_host); }
+void ra2_install_sdl_host()
+{
+    ra2port::set_host(&sdl_host);
+    if (const char *v = getenv("RA2_NATIVE_FOCUS_PAUSE")) pause_on_focus_loss = *v == '1';
+    // Touches make their own gestures (touch.cpp), never SDL's mouse.
+    SDL_SetHint(SDL_HINT_TOUCH_MOUSE_EVENTS, "0");
+    touch_ui = SDL_HasScreenKeyboardSupport();
+    if (const char *v = getenv("RA2_NATIVE_TOUCH_UI")) touch_ui = *v == '1';
+    if (const char *v = getenv("RA2_NATIVE_CHECKPOINT_SECONDS")) {
+        checkpoint_period_ms = (Uint64)atoi(v) * 1000u;
+        checkpoints = true;
+    }
+    SDL_AddEventWatch(lifecycle_watch, nullptr);
+    hostos::watch_audio_interruptions(audio_interruption);
+}
 // Mac app (main.cpp): start in fullscreen; what to save before a quit ends the
 // process.
 void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)())
@@ -930,6 +1362,20 @@ void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)())
     app_mode = app;
     want_fullscreen = fullscreen;
     before_exit = on_quit;
+    pause_on_focus_loss = app;
 }
+// The touch app (iOS, main.cpp; Scout1248): the interface scale shown on its toggle and
+// where a new choice goes; checkpoints when it goes to the background and every
+// `checkpoint_seconds` of play.
+void ra2_sdl_host_touch_options(double scale, void (*on_scale)(double), int checkpoint_seconds)
+{
+    ui_scale = scale;
+    scale_changed = on_scale;
+    checkpoints = true;
+    if (!getenv("RA2_NATIVE_CHECKPOINT_SECONDS")) checkpoint_period_ms = (Uint64)checkpoint_seconds * 1000u;
+}
+// The app's own window becomes the game's (iOS: made before the game starts, for
+// the import; Scout1247).
+void ra2_sdl_host_use_window(SDL_Window *made) { window = made; }
 // The window's fullscreen state at exit (remembered in the settings).
 bool ra2_sdl_host_fullscreen() { return is_fullscreen(); }

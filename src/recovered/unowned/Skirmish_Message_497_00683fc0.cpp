@@ -76,12 +76,12 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
     unknown_session_a3d298.ScenarioIndex = Select_Scenario_005c7c30(unknown_session_a3d298.SkirmishOptions.ScenIndex) ? unknown_session_a3d298.SkirmishOptions.ScenIndex : 0;
     MultiMission *map = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex];
     if (!mode->unknown_5b7470(map)) {
-        int selection = mode->unknown_slot13();
+        int selection = mode->FirstValidMapIndex();
         if (selection == -1) {
             mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
             unknown_session_a3d298.SkirmishOptions.GameMode = mode->unknown_28;
             unknown_session_a3d298.GameModeIndex = mode->unknown_28;
-            selection = mode->unknown_slot13();
+            selection = mode->FirstValidMapIndex();
         }
         map = unknown_multi_missions_a3d8d8[selection];
         unknown_session_a3d298.SkirmishOptions.ScenIndex = selection;

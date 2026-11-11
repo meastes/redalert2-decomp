@@ -37,12 +37,12 @@ void __fastcall Load_Lobby_Options_005cca30(HWND dialog, UnknownGameOptions *opt
     unknown_session_a3d298.ScenarioIndex = Select_Scenario_005c7c30(options->ScenIndex) ? options->ScenIndex : 0;
     MultiMission *scen = unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex];
     if (!mode->unknown_5b7470(scen)) {
-        int index = mode->unknown_slot13();
+        int index = mode->FirstValidMapIndex();
         if (index == -1) {
             mode = MultiplayerGameMode::unknown_first_mode_5b6ec0();
             options->GameMode = mode->Get_ID();
             unknown_session_a3d298.GameModeIndex = mode->Get_ID();
-            index = mode->unknown_slot13();
+            index = mode->FirstValidMapIndex();
         }
         options->ScenIndex = index;
         unknown_session_a3d298.ScenarioIndex = index;
@@ -52,8 +52,8 @@ void __fastcall Load_Lobby_Options_005cca30(HWND dialog, UnknownGameOptions *opt
     Select_Scenario_005c7c30(unknown_session_a3d298.ScenarioIndex);
     unknown_session_a3d298.Mode->unknown_slot8();
     unknown_session_a3d298.Mode->unknown_slot9();
-    mode->unknown_slot6();
-    mode->unknown_slot26();
+    mode->AssignTeamsAtStart();
+    mode->UnfixAlliances();
     int limit = 8;
     if (unknown_game_mode_a3d298 == 4) {
         limit = (unknown_73c370() && !unknown_73c3a0()) ? 2 : 4;

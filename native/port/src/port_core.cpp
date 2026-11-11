@@ -197,6 +197,31 @@ Lookup lookup(const std::string &dir, const std::string &name, std::string *real
 // looked up), 2 the last component is missing, 3 a folder on the way is missing
 // (Win32's ERROR_FILE_NOT_FOUND and ERROR_PATH_NOT_FOUND).
 thread_local int last_lookup = 0;
+
+// A path below root ("/A/B/c.ini"), each component spelled as it already exists
+// there in any case, or as given from the first missing one on (Scout1247: the
+// write folder on a case-sensitive volume, as iOS's is: the game names a file
+// RA2.INI in one place and ra2.ini in another, and a folder "Saved Games" and
+// "SAVED GAMES"; each must stay one file and one folder). found: all exist.
+std::string resolve_below(const std::string &root, const std::string &rel, bool *found)
+{
+    std::string result = root;
+    bool all = true;
+    size_t start = 0;
+    while (start <= rel.size()) {
+        size_t slash = rel.find('/', start);
+        std::string part = rel.substr(start, slash == std::string::npos ? std::string::npos : slash - start);
+        if (!part.empty()) {
+            std::string real = part;
+            if (all && lookup(result, part, &real) != FOUND) all = false;
+            result += "/" + real;
+        }
+        if (slash == std::string::npos) break;
+        start = slash + 1;
+    }
+    if (found) *found = all;
+    return result;
+}
 }  // namespace
 
 int host_path_missing() { return last_lookup; }
@@ -208,9 +233,12 @@ char *host_path(const char *game_path, char *out, size_t n)
     for (auto &c : p) if (c == '\\') c = '/';
     // A drive-qualified path ("C:/...") is taken relative to the data root:
     // the game only names its own installation and save folders.
-    if (p.size() >= 2 && p[1] == ':') p = p.substr(2);
+    bool drive = p.size() >= 2 && p[1] == ':';
+    if (drive) p = p.substr(2);
     std::string base = data_dir();
-    if (!p.empty() && p[0] == '/') {
+    if (!p.empty() && p[0] == '/' && drive) {
+        p = p.substr(1);     // "C:\" is the data root, never the host's root folder (Scout1247)
+    } else if (!p.empty() && p[0] == '/') {
         // An absolute host path that exists stays as it is.
         struct stat st;
         fs_op(FS_STAT);
@@ -223,7 +251,9 @@ char *host_path(const char *game_path, char *out, size_t n)
         size_t slash = p.find('/', start);
         std::string part = p.substr(start, slash == std::string::npos ? std::string::npos : slash - start);
         if (!part.empty() && part != ".") {
-            std::string real;
+            // Below a missing folder the rest keeps the game's spelling (Scout1247: it was
+            // dropped, and a write into a folder the installation lacks lost its file name).
+            std::string real = part;
             Lookup found = last_lookup == 3 ? NO_DIR : lookup(result, part, &real);
             if (found != FOUND) last_lookup = (found == NO_DIR || slash != std::string::npos) ? 3 : 2;
             result += "/" + real;
@@ -232,13 +262,15 @@ char *host_path(const char *game_path, char *out, size_t n)
         start = slash + 1;
     }
     if (!write_root().empty()) {
-        // The write folder's twin, when it exists, is the file the game sees.
+        // The write folder's twin, when it exists (any case), is the file the game sees.
         std::string w = overlay_path(result);
-        size_t cut = w.rfind('/');
-        std::string real;
-        if (!w.empty() && cut != std::string::npos && lookup(w.substr(0, cut), w.substr(cut + 1), &real) == FOUND) {
-            result = w.substr(0, cut + 1) + real;
-            last_lookup = 0;
+        bool found = false;
+        if (w.size() > write_root().size()) {
+            std::string twin = resolve_below(write_root(), w.substr(write_root().size()), &found);
+            if (found) {
+                result = twin;
+                last_lookup = 0;
+            }
         }
     }
     snprintf(out, n, "%s", result.c_str());
@@ -276,7 +308,9 @@ char *host_path_write(const char *game_path, char *out, size_t n)
     }
     if (write_root().empty()) return out;
     std::string w = overlay_path(out);
-    // Create the overlay's parent directories.
+    // The components that exist already keep their spelling (any case); then the
+    // overlay's missing parent directories are created.
+    if (w.size() > write_root().size()) w = resolve_below(write_root(), w.substr(write_root().size()), nullptr);
     for (size_t i = write_root().size() + 1; i < w.size(); ++i) {
         if (w[i] == '/') mkdir(w.substr(0, i).c_str(), 0755);
     }
@@ -294,7 +328,63 @@ size_t wlen(const WCHAR *s)
 void set_host(const Host *h) { current_host = h; }
 const Host *host() { return current_host; }
 
+// Host pause (win32_port.hpp, Scout1247).
+namespace {
+std::atomic<bool> pause_wanted{false};
+std::atomic<bool> holding{false};
+std::mutex game_clock_lock;
+uint64_t held_since_ns = 0;      // monotonic time the hold began (0: not held)
+uint64_t held_total_ns = 0;      // time spent in earlier holds
+}
+std::atomic<bool> checkpoint_wanted{false};
+std::atomic<uint64_t> checkpoint_asked_ns{0};
+void request_pause(bool on) { pause_wanted = on; }
+void request_checkpoint()
+{
+    checkpoint_asked_ns = os::monotonic_ns();
+    checkpoint_wanted = true;
+}
+bool pause_requested() { return pause_wanted; }
+bool held() { return holding; }
+uint64_t game_clock_ns()
+{
+    std::lock_guard<std::mutex> g(game_clock_lock);
+    return (held_since_ns ? held_since_ns : os::monotonic_ns()) - held_total_ns;
+}
+void hold_if_paused()
+{
+    if (!pause_wanted || holding) return;
+    // A checkpoint asked for with the pause is saved first (its Main_Loop pass ends
+    // after this read), unless no game takes it within a second (menus, movies).
+    if (checkpoint_wanted && os::monotonic_ns() - checkpoint_asked_ns < 1000000000u) return;
+    const Host *h = host();
+    {
+        std::lock_guard<std::mutex> g(game_clock_lock);
+        held_since_ns = os::monotonic_ns();
+    }
+    holding = true;
+    if (h && h->held) h->held(true);
+    fprintf(stderr, "port: pause: game held (clocks stopped)\n");
+    while (pause_wanted) {
+        if (h && h->pump_events) h->pump_events();
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    uint64_t length;
+    {
+        std::lock_guard<std::mutex> g(game_clock_lock);
+        length = os::monotonic_ns() - held_since_ns;
+        held_total_ns += length;
+        held_since_ns = 0;
+    }
+    holding = false;
+    if (h && h->held) h->held(false);
+    fprintf(stderr, "port: pause: game resumed after %llu ms\n", (unsigned long long)(length / 1000000u));
+}
+
 }  // namespace ra2port
+
+// The game side's end of a Main_Loop pass takes a checkpoint request (Scout1248).
+extern "C" int ra2port_take_checkpoint(void) { return ra2port::checkpoint_wanted.exchange(false) ? 1 : 0; }
 
 extern "C" {
 DWORD GetLastError(void) { return ra2port::last_error; }

@@ -50,7 +50,7 @@ static inline void Populate_Compatible_Map_List(HWND window, MultiplayerGameMode
     DynamicVectorClass<MultiMission *> maps;
     Collect_Compatible_Maps(mode, maps);
     HWND list = GetDlgItem(window, 0x553);
-    mode->unknown_slot15(list, &maps, 0);
+    mode->DrawTeamDropdown(list, &maps, 0);
 }
 
 // Refill the maps and update the random-map control for the new mode.
@@ -64,9 +64,9 @@ static inline void Refresh_Mode_Map_Controls(HWND window, MultiplayerGameMode *m
                             if (mode->unknown_5b7470(map)) maps.Add(map);
                         }
                         HWND list = GetDlgItem(window, 0x553);
-                        mode->unknown_slot15(list, &maps, 0);
+                        mode->DrawTeamDropdown(list, &maps, 0);
                     }
-                    bool can_random = mode->unknown_slot11();
+                    bool can_random = mode->IsAIAllowed();
                     HWND random_button = GetDlgItem(window, 0x583);
                     EnableWindow(random_button, can_random);
 }
@@ -81,7 +81,7 @@ static inline void Change_Lobby_Game_Mode(HWND window, unsigned wparam, wchar_t 
                 if (!mode) return;
                 WideString reason;
                 if (mode->unknown_slot3(&reason)) {
-                    mode->unknown_slot4();
+                    mode->AssignTeams();
                     Refresh_Mode_Map_Controls(window, mode);
                     if (selected_name) {
                     int found = 0;
@@ -175,7 +175,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
             if (mode) {
                 Populate_Compatible_Map_List(window, mode);
             }
-            bool can_random = mode->unknown_slot11();
+            bool can_random = mode->IsAIAllowed();
             HWND random_button = GetDlgItem(window, 0x583);
                     EnableWindow(random_button, can_random);
             if (unknown_session_a3d2b4 != -1 && unknown_session_a3d2b4 < unknown_multi_missions_a3d8d8.Count()) {

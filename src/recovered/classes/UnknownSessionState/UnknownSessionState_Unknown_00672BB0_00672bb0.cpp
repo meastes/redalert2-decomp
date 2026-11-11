@@ -18,7 +18,7 @@ void UnknownSessionState::Unknown_00672BB0()
             if (player->unknown_4f == -2) {
                 player->unknown_4f = -1;
                 if (Mode) {
-                    player->unknown_4b = Mode->unknown_slot23();
+                    player->unknown_4b = Mode->RandomHumanCountryIndex();
                 } else {
                     player->unknown_4b = unknown_session_a3d298.Unknown_00672940();
                 }
@@ -36,7 +36,7 @@ void UnknownSessionState::Unknown_00672BB0()
     for (i = 0; i < 8; i++) {
         if (unknown_session_a3d298.AICountry[i] == -2) {
             if (Mode) {
-                unknown_session_a3d298.AICountry[i] = Mode->unknown_slot24();
+                unknown_session_a3d298.AICountry[i] = Mode->RandomAICountryIndex();
             } else {
                 unknown_session_a3d298.AICountry[i] = unknown_session_a3d298.Unknown_00672940();
             }

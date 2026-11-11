@@ -4,8 +4,8 @@
     "id": "population-1659",
     "inventory_sha256": "0e347aa084b49cbd9c4c51d5ffd0f8e51a85856605687be820fbb86f133dd3f1",
     "gaps_sha256": "37b33e9230f88e1bdafca3941c5789a5c1379eb27a4167a27e49c8a4ccc2e5ee",
-    "historical_population_sha256": "1e62078e6467afcd33c645cd32e945f8a6a7b04852f8e1cc21da22ab8e6524a4",
-    "historical_acceptance_sha256": "7eb641523ce42f13bbe08c515e98f30b55cb04247243e08b88a2c67ab9153b0d"
+    "historical_population_sha256": "d2d1d9b20fef45fa315a321885b5f61668479b2e5e7ba4b889e6deee539c51ca",
+    "historical_acceptance_sha256": "76bceb91cf38cbe3494344ec195fd1be6fd9f955308342dc5d857b587da2cd2d"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2831,9 +2831,9 @@
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
     "?Get@UnknownList_768260@@QAE_NPAPAXH@Z": 7766624,
     "?Find_Or_Make@TerrainTypeClass@@SIPAV1@PBD@Z": 7232032,
-    "?unknown_slot16@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z": 5993936,
+    "?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z": 5993936,
     "?unknown_slot17@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@@Z": 5907440,
-    "?unknown_slot16@FreeForAll@@UAEXPAUHWND__@@H@Z": 5927248,
+    "?PopulateTeamDropdownForPlayer@FreeForAll@@UAEXPAUHWND__@@H@Z": 5927248,
     "__imp__QueryPerformanceCounter@4": 7971272,
     "__imp__DeleteCriticalSection@4": 7971288,
     "__imp__QueryPerformanceFrequency@4": 7971276,
@@ -4140,7 +4140,7 @@
     "?unknown_slot16@TerrainTypeClass@@UBEHXZ": 7232208,
     "?Unknown_Rect_Shrink_006F1B00@@YIXPAVRect@@H@Z": 7281408,
     "??1WaypointClass@@QAE@XZ": 7490304,
-    "?unknown_slot24@MultiplayerGameMode@@UAEHXZ": 5993680,
+    "?RandomAICountryIndex@MultiplayerGameMode@@UAEHXZ": 5993680,
     "?ID@?$DynamicVectorClass@UWaypointClass@@@@UAEHABUWaypointClass@@@Z": 7493632,
     "??_7Surface@@6B@": 7974944,
     "??_GSurface@@UAEPAXI@Z": 4264784,

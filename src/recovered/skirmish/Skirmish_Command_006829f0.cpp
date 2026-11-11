@@ -180,7 +180,7 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
         }
         MultiplayerGameMode *mode = unknown_session_a3d298.Mode;
         WideString message;
-        if (!mode->unknown_slot5(&message)) {
+        if (!mode->CheckStartConditions(&message)) {
             if (id == 0x617) {
                 WWMessageBox(L" ").Process(message.Get(), StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\Skirmish.cpp", 0x34B), 0, 0, false);
                 EnableWindow(Get_Item(dialog, 0x617), 1);

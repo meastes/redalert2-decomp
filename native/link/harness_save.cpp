@@ -11,10 +11,13 @@
 #include "shared/load_dlg.hpp"
 #include "shared/main_loop.hpp"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 extern "C" {
 void ra2port_progress(const char *milestone, const char *detail);
+int ra2port_take_checkpoint(void);          // port/src/port_core.cpp
+int ra2_native_network_game(void);          // harness_skirmish.cpp
 }
 
 namespace {
@@ -86,4 +89,21 @@ void Native_Harness_Save(int frame)
     if (saved && leave && *leave == '1') {
         player_aborts_a35db0 = true;
     }
+}
+
+// Checkpoint saves (Scout1248, not original code): when the host asks (the iOS app
+// going to the background, and periodically; ra2port::request_checkpoint), the end
+// of the Main_Loop pass saves the game as the options menu's Save does (Save_Game
+// 0x006554A0) under CHECKPT.SAV, "Checkpoint", which the Load dialog lists with the
+// player's own saves and the Mac app reads as well. Not in a network game.
+void Native_Checkpoint()
+{
+    if (!ra2port_take_checkpoint()) return;
+    if (ra2_native_network_game()) {
+        fprintf(stderr, "checkpoint: skipped (network game)\n");
+        return;
+    }
+    bool saved = Unknown_006554A0("CHECKPT.SAV", L"Checkpoint", 0);
+    fprintf(stderr, "checkpoint: %s\n", saved ? "saved CHECKPT.SAV" : "save failed");
+    ra2port_progress("checkpoint", saved ? "saved CHECKPT.SAV" : "save failed");
 }

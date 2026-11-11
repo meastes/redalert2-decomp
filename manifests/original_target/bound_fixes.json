@@ -1,0 +1,9 @@
+{
+  "note": "Reporting-only corrections for inventory rows that the seeded passes split at an early ret (head fragments). Read by treemap.py (and through it misses_index.py); the frozen, hash-pinned inventories are not edited and acceptance bounds are unaffected. Source: Scout1233 inventory_bounds_proposal (linear disassembly to the last ret plus fill to the next entry), agreeing with the frozen first-pass inventory. Owner 2026-11-11.",
+  "rows": [
+    {"entry": "0x5820B0", "name": "MapGeneratorClass::Grow_Water_Region", "end_inclusive": "0x582965", "body_bytes": 2230},
+    {"entry": "0x56EF20", "name": "MapRegionClass::Split_Region", "end_inclusive": "0x56FECB", "body_bytes": 4012},
+    {"entry": "0x535BF0", "name": "Unknown535910::Unknown_00535BF0 (loading-screen draw)", "end_inclusive": "0x536B79", "body_bytes": 3978},
+    {"entry": "0x579960", "name": "FUN_00579960 (map generator)", "end_inclusive": "0x57A0C8", "body_bytes": 1897}
+  ]
+}

@@ -168,6 +168,15 @@ def collect():
         return None
 
     rows = inv.all_functions()
+    # reporting-only bound fixes for head-fragment rows (manifests/original_target/bound_fixes.json)
+    fixes = REPOSITORY / 'manifests/original_target/bound_fixes.json'
+    if fixes.exists():
+        for fix in json.loads(fixes.read_text())['rows']:
+            entry = int(fix['entry'], 16)
+            if entry in rows:
+                rows[entry] = dict(rows[entry], contiguous=True,
+                                   ranges=[dict(start='%08x' % entry, end_inclusive=fix['end_inclusive'][2:].lower(),
+                                                length=fix['body_bytes'])])
     remaining = {}
     for entry, row in rows.items():
         if entry in accepted or not row.get('contiguous') or len(row['ranges']) != 1:

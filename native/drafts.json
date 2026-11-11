@@ -1,5 +1,5 @@
 {
- "about": "Unmatched launch-path functions carried in the native tree as their best parked draft (Scout1050 trace table, plans 'draft as-is' (score >= 95) and 'draft, verify'). NON-EXACT: never exact-match credit. score = misses_index best; last_lane_score = the last score a lane reported; draft_found_by: index = misses_index names this draft, search = newest/highest .cpp naming the entry (unconfirmed). The draft text is appended to the compile group of host_source (the neighbouring accepted row's unit), as the exact-tree join does. Each included draft is tracked as native/drafts/<entry>.cpp (header: entry, score, origin lane, NON-EXACT DRAFT); origin = the lane scratch path it was copied from (provenance only, never read by the build); author = the lane or worker that wrote it. Blocked rows carry no file (draft null). native: 'compiles' = the draft passes clang (arm64) inside its host group and is appended; 'blocked: <first error>' = not appended (it needs header declarations or macros from the lane's private overlay, or it repeats neighbouring definitions); raw_seed = the path is a Ghidra seed (seed_ namespace, Ghidra types), not the scored draft, so it does not define the real symbol. host_source null = the draft is its own unit (linked after the initialiser units); adapted = a native adaptation of the scored draft (private headers inlined, non-portable statements replaced, each marked NATIVE in the text).",
+ "about": "Unmatched launch-path functions carried in the native tree as their best parked draft (Scout1050 trace table, plans 'draft as-is' (score >= 95) and 'draft, verify'). NON-EXACT: never exact-match credit. score = misses_index best; last_lane_score = the last score a lane reported; draft_found_by: index = misses_index names this draft, search = newest/highest .cpp naming the entry (unconfirmed). The draft text is appended to the compile group of host_source (the neighbouring accepted row's unit), as the exact-tree join does. Each included draft is tracked as native/drafts/<entry>.cpp (header: entry, score, origin lane, NON-EXACT DRAFT); origin = the lane scratch path it was copied from (provenance only, never read by the build); author = the lane or worker that wrote it. Blocked rows carry no file (draft null). native: 'compiles' = the draft passes clang (arm64) inside its host group and is appended; 'blocked: <first error>' = not appended (it needs header declarations or macros from the lane's private overlay, or it repeats neighbouring definitions); raw_seed = the path is a Ghidra seed (seed_ namespace, Ghidra types), not the scored draft, so it does not define the real symbol. host_source null = the draft is its own unit (linked after the initialiser units); adapted = a native adaptation of the scored draft (private headers inlined, non-portable statements replaced, each marked NATIVE in the text). behaviour_verdict (null | 'same' | 'differs' | 'cannot tell'), behaviour_checked_by (worker/lane and delivery, e.g. codex4 r474), behaviour_checked_date (YYYY-MM-DD) and behaviour_checked_head (the main commit the draft was compiled and diffed at) record a behaviour check of the draft against the original (Windows pilot 2026-11-11); null = not checked. A 'differs' verdict's patch is applied to native/drafts/<entry>.cpp.",
  "drafts": [
   {
    "entry": "0x42E370",
@@ -15,7 +15,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1030/w/f1.cpp",
    "author": "Scout1030",
-   "draft": "native/drafts/0042e370.cpp"
+   "draft": "native/drafts/0042e370.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x525F60",
@@ -31,7 +35,11 @@
    "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )",
    "origin": "build/class-work/Scout915/sweep/1/00525f60.cpp",
    "author": "Scout915",
-   "draft": null
+   "draft": null,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5E9410",
@@ -47,7 +55,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout888/w/keep/e9_k111A_9979.cpp",
    "author": "Scout888",
-   "draft": "native/drafts/005e9410.cpp"
+   "draft": "native/drafts/005e9410.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5EE460",
@@ -63,7 +75,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1045/w/y1_a2.cpp",
    "author": "Scout1045",
-   "draft": "native/drafts/005ee460.cpp"
+   "draft": "native/drafts/005ee460.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x68CCE0",
@@ -79,7 +95,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout782/w/bw_9937.cpp",
    "author": "Scout782",
-   "draft": "native/drafts/0068cce0.cpp"
+   "draft": "native/drafts/0068cce0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4B37C0",
@@ -95,7 +115,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout912/w/eg_f1.cpp",
    "author": "Scout912",
-   "draft": "native/drafts/004b37c0.cpp"
+   "draft": "native/drafts/004b37c0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5BCCF0",
@@ -111,7 +135,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout932/keep/n1.cpp",
    "author": "Scout932",
-   "draft": "native/drafts/005bccf0.cpp"
+   "draft": "native/drafts/005bccf0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x673090",
@@ -127,7 +155,11 @@
    "native": "blocked: no matching function for call to 'strcpy'",
    "origin": "build/class-work/Scout775/keep/ap_z1_8290_loose9238.cpp",
    "author": "Scout775",
-   "draft": null
+   "draft": null,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x67E210",
@@ -143,7 +175,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1018/keep/slot54_67e210_M1a_9904.cpp",
    "author": "Scout1018",
-   "draft": "native/drafts/0067e210.cpp"
+   "draft": "native/drafts/0067e210.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x421710",
@@ -160,7 +196,11 @@
    "origin": "build/class-work/Scout766/keep/an_8574.cpp",
    "author": "Scout766",
    "draft": "native/drafts/00421710.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4386F0",
@@ -176,7 +216,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout773/keep/dt_p5_probe_fetch_8927.cpp",
    "author": "Scout773",
-   "draft": "native/drafts/004386f0.cpp"
+   "draft": "native/drafts/004386f0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x43EE70",
@@ -193,7 +237,11 @@
    "origin": "build/class-work/Scout862/w/tdJ_g1.cpp",
    "author": "Scout862",
    "draft": "native/drafts/0043ee70.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x440520",
@@ -210,7 +258,11 @@
    "origin": "build/class-work/Scout761/keep/eo_F_9193.cpp",
    "author": "Scout761",
    "draft": "native/drafts/00440520.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x462C50",
@@ -226,7 +278,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout631/w/shrapnel_best_88.69.cpp",
    "author": "Scout631",
-   "draft": "native/drafts/00462c50.cpp"
+   "draft": "native/drafts/00462c50.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x473F20",
@@ -242,7 +298,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout814/w/cu1.cpp",
    "author": "Scout814",
-   "draft": "native/drafts/00473f20.cpp"
+   "draft": "native/drafts/00473f20.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x47C3A0",
@@ -258,7 +318,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout674/w/keep/place_tiberium_9891.cpp",
    "author": "Scout674",
-   "draft": "native/drafts/0047c3a0.cpp"
+   "draft": "native/drafts/0047c3a0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x47E2C0",
@@ -275,7 +339,11 @@
    "origin": "build/class-work/Scout765/w/keep/ed6_9792.cpp",
    "author": "Scout765 (keep/ed6_9792.cpp 97.92; Scout767 w/ed7.cpp; native adaptation Scout1108)",
    "draft": "native/drafts/0047e2c0.cpp",
-   "adapted": "its own unit: the lane's private overlay (vector Reset, Vector3::Normalize, MapClass 0x0055DCA0/0x0055EDB0 on map_view.hpp's Map) spelled as file-local functions; Unknown_00472540 is Recalc_Attributes"
+   "adapted": "its own unit: the lane's private overlay (vector Reset, Vector3::Normalize, MapClass 0x0055DCA0/0x0055EDB0 on map_view.hpp's Map) spelled as file-local functions; Unknown_00472540 is Recalc_Attributes",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4AE9C0",
@@ -292,7 +360,11 @@
    "origin": "build/class-work/Scout795/w/t2.cpp",
    "author": "Scout795",
    "draft": "native/drafts/004ae9c0.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4BBAF0",
@@ -309,7 +381,11 @@
    "origin": "build/class-work/Scout535/w/best_4bbaf0_97.38.cpp",
    "author": "Scout535",
    "draft": "native/drafts/004bbaf0.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4CF290",
@@ -325,7 +401,11 @@
    "native": "superseded: behaviour rewrite (native/link/behaviour_launch.cpp, behaviour_rewrites.json); the scored draft was never found, only a raw seed",
    "origin": "build/class-work/Scout915/sweep/1/004cf290.cpp",
    "author": "Scout915",
-   "draft": null
+   "draft": null,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x52C230",
@@ -342,7 +422,11 @@
    "origin": "build/class-work/Scout978/keep/probe_k6.cpp",
    "author": "Scout978",
    "draft": "native/drafts/0052c230.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x535BF0",
@@ -358,7 +442,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1024/keep/ld_u3_9055.cpp",
    "author": "Scout1024",
-   "draft": "native/drafts/00535bf0.cpp"
+   "draft": "native/drafts/00535bf0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5539B0",
@@ -374,7 +462,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout957/w/h4v.cpp",
    "author": "Scout957",
-   "draft": "native/drafts/005539b0.cpp"
+   "draft": "native/drafts/005539b0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x55DEF0",
@@ -390,7 +482,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1029/keep/e0.cpp",
    "author": "Scout1029",
-   "draft": "native/drafts/0055def0.cpp"
+   "draft": "native/drafts/0055def0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x55E410",
@@ -406,7 +502,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1029/keep/n0.cpp",
    "author": "Scout1029",
-   "draft": "native/drafts/0055e410.cpp"
+   "draft": "native/drafts/0055e410.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x55F020",
@@ -422,7 +522,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1029/keep/e2.cpp",
    "author": "Scout1029",
-   "draft": "native/drafts/0055f020.cpp"
+   "draft": "native/drafts/0055f020.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x55F540",
@@ -438,7 +542,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1029/keep/n2.cpp",
    "author": "Scout1029",
-   "draft": "native/drafts/0055f540.cpp"
+   "draft": "native/drafts/0055f540.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x569320",
@@ -454,7 +562,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout889/w/keep/d_9949_head.cpp",
    "author": "Scout889",
-   "draft": "native/drafts/00569320.cpp"
+   "draft": "native/drafts/00569320.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x576420",
@@ -470,7 +582,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout677/w/keep/start_points_576420_draft.cpp",
    "author": "Scout677",
-   "draft": "native/drafts/00576420.cpp"
+   "draft": "native/drafts/00576420.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x635C30",
@@ -486,7 +602,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout993/w/c0.cpp",
    "author": "Scout993",
-   "draft": "native/drafts/00635c30.cpp"
+   "draft": "native/drafts/00635c30.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x636130",
@@ -503,7 +623,11 @@
    "origin": "build/class-work/Scout993/w/a3.cpp",
    "author": "Scout993",
    "draft": "native/drafts/00636130.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x65C520",
@@ -520,7 +644,11 @@
    "origin": "build/class-work/Scout1049/w/wfp_9697.cpp",
    "author": "Scout1049",
    "draft": "native/drafts/0065c520.cpp",
-   "notes": "Scout1209 r12: the carried text is Scout1049 w/wfp_9697.cpp, the same text Scout1218 rebased (build/class-work/Scout1218/wfp/w/w0.cpp, 96.97); the 90.4 score was stale."
+   "notes": "Scout1209 r12: the carried text is Scout1049 w/wfp_9697.cpp, the same text Scout1218 rebased (build/class-work/Scout1218/wfp/w/w0.cpp, 96.97); the 90.4 score was stale.",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6A7E80",
@@ -536,7 +664,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout778/keep/px_8626.cpp",
    "author": "Scout778",
-   "draft": "native/drafts/006a7e80.cpp"
+   "draft": "native/drafts/006a7e80.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6A8560",
@@ -553,7 +685,11 @@
    "origin": "build/class-work/Scout876/w/z1.cpp",
    "author": "Scout876",
    "draft": "native/drafts/006a8560.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6C5270",
@@ -569,7 +705,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout898/w/am0.cpp",
    "author": "Scout898",
-   "draft": "native/drafts/006c5270.cpp"
+   "draft": "native/drafts/006c5270.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6C5570",
@@ -585,7 +725,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout668/w/keep/eo_9170.cpp",
    "author": "Scout668",
-   "draft": "native/drafts/006c5570.cpp"
+   "draft": "native/drafts/006c5570.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6C9DF0",
@@ -601,7 +745,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1020/keep/lz_c103_9946.cpp",
    "author": "Scout1020",
-   "draft": "native/drafts/006c9df0.cpp"
+   "draft": "native/drafts/006c9df0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6CA890",
@@ -618,7 +766,11 @@
    "origin": "build/class-work/Scout708/w/keep/fm_b_7834_s9926.cpp",
    "author": "Scout708",
    "draft": "native/drafts/006ca890.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6D5F40",
@@ -635,7 +787,11 @@
    "origin": "build/class-work/Scout767/w/keep/rk5.cpp",
    "author": "Scout767",
    "draft": "native/drafts/006d5f40.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x70C800",
@@ -651,7 +807,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout931/w/t2.cpp",
    "author": "Scout931",
-   "draft": "native/drafts/0070c800.cpp"
+   "draft": "native/drafts/0070c800.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x7225B0",
@@ -667,7 +827,11 @@
    "native": "blocked: out-of-line definition of 'unknown_func_7225b0' does not match any declaration in 'WaveClass'",
    "origin": "build/class-work/Wave362/best/draw_sonic_7225b0_40.47.cpp",
    "author": "Wave362",
-   "draft": null
+   "draft": null,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x773F00",
@@ -683,7 +847,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout848/w/pg.cpp",
    "author": "Scout848",
-   "draft": "native/drafts/00773f00.cpp"
+   "draft": "native/drafts/00773f00.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x68E280",
@@ -700,7 +868,11 @@
    "adapted": "codex4's private shared/startup_*.hpp inlined; RA2_STARTUP_* header additions spelled locally; SEH __try/__except around Main_Game dropped (no SEH natively)",
    "origin": "build/class-work/Scout1058/draft/winmain_68e280_native.cpp",
    "author": "codex4 (residue_batch_96/immediate.cpp, 98.55); native adaptation Scout1058",
-   "draft": "native/drafts/0068e280.cpp"
+   "draft": "native/drafts/0068e280.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x444660",
@@ -716,7 +888,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout878/w/cu2.cpp",
    "author": "Scout878",
-   "draft": "native/drafts/00444660.cpp"
+   "draft": "native/drafts/00444660.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x49B0F0",
@@ -732,7 +908,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout926/w/mu2.cpp",
    "author": "Scout926",
-   "draft": "native/drafts/0049b0f0.cpp"
+   "draft": "native/drafts/0049b0f0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x475DB0",
@@ -748,7 +928,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout998/w/rt0.cpp",
    "author": "Scout998",
-   "draft": "native/drafts/00475db0.cpp"
+   "draft": "native/drafts/00475db0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4D2080",
@@ -764,7 +948,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1018/keep/fill_color_combo_4d2080_fc1_8609.cpp",
    "author": "Scout1018",
-   "draft": "native/drafts/004d2080.cpp"
+   "draft": "native/drafts/004d2080.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x54FDA0",
@@ -780,7 +968,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1027/keep/map_zone_connections_54fda0_6063.cpp",
    "author": "Scout1027",
-   "draft": "native/drafts/0054fda0.cpp"
+   "draft": "native/drafts/0054fda0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5689D0",
@@ -796,7 +988,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout664/w/keep/ce_6000.cpp",
    "author": "Scout664",
-   "draft": "native/drafts/005689d0.cpp"
+   "draft": "native/drafts/005689d0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5C7EF0",
@@ -812,7 +1008,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout992/keep/upload_k7_8877.cpp",
    "author": "Scout992",
-   "draft": "native/drafts/005c7ef0.cpp"
+   "draft": "native/drafts/005c7ef0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5DD760",
@@ -828,7 +1028,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout558/sp_loop2_fresh_ptr_48.00.cpp",
    "author": "Scout558",
-   "draft": "native/drafts/005dd760.cpp"
+   "draft": "native/drafts/005dd760.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x60D110",
@@ -844,7 +1048,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout611/w/J_pcx_best_89.68.cpp",
    "author": "Scout611",
-   "draft": "native/drafts/0060d110.cpp"
+   "draft": "native/drafts/0060d110.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x61D660",
@@ -860,7 +1068,11 @@
    "native": "compiles",
    "origin": "build/class-work/Prog441/w/best_0061d660_62.63.cpp",
    "author": "Prog441",
-   "draft": "native/drafts/0061d660.cpp"
+   "draft": "native/drafts/0061d660.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5820B0",
@@ -876,7 +1088,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout638/keep/gw_m3_8409.cpp",
    "author": "Scout638",
-   "draft": "native/drafts/005820b0.cpp"
+   "draft": "native/drafts/005820b0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x63A880",
@@ -892,7 +1108,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout929/w/ch2.cpp",
    "author": "Scout929",
-   "draft": "native/drafts/0063a880.cpp"
+   "draft": "native/drafts/0063a880.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x616A50",
@@ -908,7 +1128,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout923/w/a2.cpp",
    "author": "Scout923",
-   "draft": "native/drafts/00616a50.cpp"
+   "draft": "native/drafts/00616a50.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6F7360",
@@ -924,7 +1148,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1001/keep/u_7360iN.cpp",
    "author": "Scout1001",
-   "draft": "native/drafts/006f7360.cpp"
+   "draft": "native/drafts/006f7360.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6F71E0",
@@ -940,7 +1168,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1030/w/q1.cpp",
    "author": "Scout1030",
-   "draft": "native/drafts/006f71e0.cpp"
+   "draft": "native/drafts/006f71e0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x70C0A0",
@@ -956,7 +1188,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout845/w/u21.cpp",
    "author": "Scout845",
-   "draft": "native/drafts/0070c0a0.cpp"
+   "draft": "native/drafts/0070c0a0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6F9790",
@@ -972,7 +1208,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout909/keep/rtr1.cpp",
    "author": "Scout909",
-   "draft": "native/drafts/006f9790.cpp"
+   "draft": "native/drafts/006f9790.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6FF690",
@@ -988,7 +1228,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout974/best_8676.cpp",
    "author": "Scout974",
-   "draft": "native/drafts/006ff690.cpp"
+   "draft": "native/drafts/006ff690.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6819A0",
@@ -1004,7 +1248,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout908/w/sb1.cpp",
    "author": "Scout908",
-   "draft": "native/drafts/006819a0.cpp"
+   "draft": "native/drafts/006819a0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6D0990",
@@ -1021,7 +1269,11 @@
    "origin": "build/class-work/Scout1009/keep/990_while_6991.cpp",
    "author": "Scout1009",
    "draft": "native/drafts/006d0990.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x67F800",
@@ -1038,7 +1290,11 @@
    "origin": "build/class-work/Scout1018/keep/draw_67f800_h1_9091.cpp",
    "author": "Scout1018",
    "draft": "native/drafts/0067f800.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6A45A0",
@@ -1055,7 +1311,11 @@
    "origin": "build/class-work/Scout958/w/keep/render_b3_5645.cpp",
    "author": "Scout958",
    "draft": "native/drafts/006a45a0.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x521A90",
@@ -1071,7 +1331,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1076/wt/native/drafts/00521a90.cpp",
    "author": "Scout1076 (TibSun ionblast.cpp text, adopted with attribution)",
-   "draft": "native/drafts/00521a90.cpp"
+   "draft": "native/drafts/00521a90.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x468F90",
@@ -1087,7 +1351,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1076/x/c/ccw.cpp",
    "author": "Scout1076",
-   "draft": "native/drafts/00468f90.cpp"
+   "draft": "native/drafts/00468f90.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5A74B0",
@@ -1103,7 +1371,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1076/d/exact/mmb.cpp",
    "author": "Scout1076",
-   "draft": "native/drafts/005a74b0.cpp"
+   "draft": "native/drafts/005a74b0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5BA280",
@@ -1119,7 +1391,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1076/d/exact/fwl.cpp",
    "author": "Scout1076",
-   "draft": "native/drafts/005ba280.cpp"
+   "draft": "native/drafts/005ba280.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x671F90",
@@ -1135,7 +1411,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1076/d/exact/MultiMission_Unknown_00671F90_00671f90.cpp",
    "author": "Scout1076",
-   "draft": "native/drafts/00671f90.cpp"
+   "draft": "native/drafts/00671f90.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5FFB00",
@@ -1152,7 +1432,11 @@
    "origin": "build/class-work/OwnrDraw406/c/5ffb00a.cpp",
    "author": "OwnrDraw389/OwnrDraw406",
    "draft": "native/drafts/005ffb00.cpp",
-   "adapted": "OwnrDraw406's scratch-overlay declarations spelled locally (as the accepted ownrdraw rows declare them); unknown_prepare_dialog copied from 0x5FF7E0's accepted inline"
+   "adapted": "OwnrDraw406's scratch-overlay declarations spelled locally (as the accepted ownrdraw rows declare them); unknown_prepare_dialog copied from 0x5FF7E0's accepted inline",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5484E0",
@@ -1169,7 +1453,11 @@
    "origin": "build/class-work/Scout1013/keep/smd_9460.cpp",
    "author": "Scout1013",
    "draft": "native/drafts/005484e0.cpp",
-   "adapted": true
+   "adapted": true,
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x54EBD0",
@@ -1185,7 +1473,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout641/w/keep/zone_reset_8441.cpp",
    "author": "Scout641",
-   "draft": "native/drafts/0054ebd0.cpp"
+   "draft": "native/drafts/0054ebd0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x563D80",
@@ -1201,7 +1493,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout664/w/keep/a6_7689.cpp",
    "author": "Scout660",
-   "draft": "native/drafts/00563d80.cpp"
+   "draft": "native/drafts/00563d80.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x564290",
@@ -1217,7 +1513,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout664/w/keep/b_4247.cpp",
    "author": "Scout660",
-   "draft": "native/drafts/00564290.cpp"
+   "draft": "native/drafts/00564290.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x603750",
@@ -1233,7 +1533,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1008/w/st0.cpp",
    "author": "Scout1008",
-   "draft": "native/drafts/00603750.cpp"
+   "draft": "native/drafts/00603750.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x67DC90",
@@ -1249,7 +1553,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout626/w/ai0.cpp",
    "author": "Scout626",
-   "draft": "native/drafts/0067dc90.cpp"
+   "draft": "native/drafts/0067dc90.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x41F5E0",
@@ -1265,7 +1573,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1000/w/a2.cpp",
    "author": "Scout1000",
-   "draft": "native/drafts/0041f5e0.cpp"
+   "draft": "native/drafts/0041f5e0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6AC420",
@@ -1281,7 +1593,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout861/w/ri1h.cpp",
    "author": "Scout861",
-   "draft": "native/drafts/006ac420.cpp"
+   "draft": "native/drafts/006ac420.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6802D0",
@@ -1297,7 +1613,11 @@
    "native": "compiles",
    "origin": "build/class-work/Sidebar361/w/rc_0.cpp",
    "author": "Sidebar361",
-   "draft": "native/drafts/006802d0.cpp"
+   "draft": "native/drafts/006802d0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4718B0",
@@ -1313,7 +1633,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout998/w/ctb0.cpp",
    "author": "Scout998",
-   "draft": "native/drafts/004718b0.cpp"
+   "draft": "native/drafts/004718b0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6C3F00",
@@ -1329,7 +1653,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1059/keep/hb2.cpp",
    "author": "Scout1059",
-   "draft": "native/drafts/006c3f00.cpp"
+   "draft": "native/drafts/006c3f00.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6CD340",
@@ -1346,7 +1674,11 @@
    "origin": "build/class-work/Scout753/w/keep/s0_8196.cpp",
    "author": "Scout753",
    "draft": "native/drafts/006cd340.cpp",
-   "adapted": "its own unit"
+   "adapted": "its own unit",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x500AA0",
@@ -1363,7 +1695,11 @@
    "origin": "build/class-work/Scout612/w/pd3.cpp",
    "author": "Scout612",
    "draft": "native/drafts/00500aa0.cpp",
-   "adapted": "its own unit"
+   "adapted": "its own unit",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x427370",
@@ -1380,7 +1716,11 @@
    "origin": "build/class-work/Scout965/keep/a0.cpp",
    "author": "Scout965 (keep/a0.cpp 78.55; native adaptation Scout1103)",
    "draft": "native/drafts/00427370.cpp",
-   "adapted": "its own unit: population macros at the top; the lane's private path_estimator.hpp queue helpers and +0x30/+0x34 names spelled in the file; Map.Cells through link/behaviour_m10_map.cpp"
+   "adapted": "its own unit: population macros at the top; the lane's private path_estimator.hpp queue helpers and +0x30/+0x34 names spelled in the file; Map.Cells through link/behaviour_m10_map.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x67C530",
@@ -1397,7 +1737,11 @@
    "origin": "build/class-work/Scout624/w/c530_0.cpp",
    "author": "Scout624 (lane best 72.12 Scout998, text not kept)",
    "draft": "native/drafts/0067c530.cpp",
-   "adapted": "its own unit"
+   "adapted": "its own unit",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x67CA50",
@@ -1414,7 +1758,11 @@
    "origin": "build/class-work/Scout624/w/ca50_5.cpp",
    "author": "Scout624 (ca50_5, its own score not recorded; lane best 59.51 Scout998, text not kept)",
    "draft": "native/drafts/0067ca50.cpp",
-   "adapted": "its own unit"
+   "adapted": "its own unit",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4370E0",
@@ -1430,7 +1778,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout811/w/ba0.cpp",
    "author": "Scout811",
-   "draft": "native/drafts/004370e0.cpp"
+   "draft": "native/drafts/004370e0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x71E220",
@@ -1447,7 +1799,11 @@
    "origin": "build/class-work/Scout1104/keep/walk_best_8983.cpp",
    "author": "Scout1104 (Scout1101 89.52 and Scout1099 74.48 before it)",
    "draft": "native/drafts/0071e220.cpp",
-   "adapted": "its own unit: population macros spelled at the top"
+   "adapted": "its own unit: population macros spelled at the top",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x566340",
@@ -1464,7 +1820,11 @@
    "origin": "build/class-work/Scout664/w/keep/c_6437.cpp",
    "author": "Scout664 (Scout662 51.41 before it)",
    "draft": "native/drafts/00566340.cpp",
-   "adapted": "its own unit; RA2_MAP_COLLAPSE_CLIFF spelled at the top"
+   "adapted": "its own unit; RA2_MAP_COLLAPSE_CLIFF spelled at the top",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x609540",
@@ -1481,7 +1841,11 @@
    "origin": "build/class-work/Scout709/w/keep/sp_6645.cpp",
    "author": "Scout709 (66.45; Scout588 64.60)",
    "draft": "native/drafts/00609540.cpp",
-   "adapted": "its own unit; the 0x00608BB0 unit's file-local helpers (Slope_Vector, Bridge_Height, Limit) inlined"
+   "adapted": "its own unit; the 0x00608BB0 unit's file-local helpers (Slope_Vector, Bridge_Height, Limit) inlined",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x60BB70",
@@ -1498,7 +1862,11 @@
    "origin": "build/class-work/Scout1127/keep/smoke_5423_m6.cpp",
    "author": "Scout1127 (54.23, shape 93.54; earlier Scout1123 49.78, Scout588/Scout1000 37.95, Scout1005 53.12 text not kept)",
    "draft": "native/drafts/0060bb70.cpp",
-   "adapted": "its own unit; text unchanged"
+   "adapted": "its own unit; text unchanged",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4ECA50",
@@ -1515,7 +1883,11 @@
    "origin": "build/class-work/Scout1046/w/rz0.cpp",
    "author": "Scout705 rz3 (Scout1046 rescore; House204 before)",
    "draft": "native/drafts/004eca50.cpp",
-   "adapted": "its own unit; text unchanged"
+   "adapted": "its own unit; text unchanged",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x617340",
@@ -1532,7 +1904,11 @@
    "origin": "build/class-work/Scout779/keep/ld1_3831.cpp",
    "author": "Scout779 (Scout923 misses_index row)",
    "draft": "native/drafts/00617340.cpp",
-   "adapted": "HEAD signature (int x, int y); the draft's light MouseClass/Map copies dropped (the host unit declares them)"
+   "adapted": "HEAD signature (int x, int y); the draft's light MouseClass/Map copies dropped (the host unit declares them)",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x4994D0",
@@ -1549,7 +1925,11 @@
    "origin": "build/class-work/Scout1075/keep/scp_k6_natural_7848.cpp",
    "author": "Scout620/Scout1075",
    "draft": "native/drafts/004994d0.cpp",
-   "adapted": "RadarClass slot 51 through a link adapter (Native_Radar_Cell_At), unknown_a40d13 spelled Debug_Map; joined to Passes_Shroud_Check 0x00499390's unit"
+   "adapted": "RadarClass slot 51 through a link adapter (Native_Radar_Cell_At), unknown_a40d13 spelled Debug_Map; joined to Passes_Shroud_Check 0x00499390's unit",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x45F710",
@@ -1566,7 +1946,11 @@
    "origin": "build/class-work/Scout949/w/y1.cpp",
    "author": "Scout949/Scout1004",
    "draft": "native/drafts/0045f710.cpp",
-   "adapted": "lane overlay guards and declarations inlined (NATIVE block): unknown_coord_none_850310 = unknown_geometry_l, Slope_Matrix via Unknown_00718D60, Projectile_Motion through the 0x593870 draft's C adapter"
+   "adapted": "lane overlay guards and declarations inlined (NATIVE block): unknown_coord_none_850310 = unknown_geometry_l, Slope_Matrix via Unknown_00718D60, Projectile_Motion through the 0x593870 draft's C adapter",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x593870",
@@ -1583,7 +1967,11 @@
    "origin": "build/class-work/Scout914/w/pmD1.cpp",
    "author": "Scout914/Scout918",
    "draft": "native/drafts/00593870.cpp",
-   "adapted": "C adapter ra2_native_projectile_motion_593870 for BulletClass::AI's draft (layout-identical TibSun-shaped types)"
+   "adapted": "C adapter ra2_native_projectile_motion_593870 for BulletClass::AI's draft (layout-identical TibSun-shaped types)",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5C69E0",
@@ -1600,7 +1988,11 @@
    "origin": "build/class-work/Scout1005/keep/h5c69e0/best-9362-head.cpp",
    "author": "codex3/Scout1005",
    "draft": "native/drafts/005c69e0.cpp",
-   "adapted": "as parked (TibSun netshare.cpp Scenario_DlgProc shape, attribution kept)"
+   "adapted": "as parked (TibSun netshare.cpp Scenario_DlgProc shape, attribution kept)",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x676010",
@@ -1616,7 +2008,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout592/w/dm_best_97.08.cpp",
    "author": "Scout592/Scout1028",
-   "draft": "native/drafts/00676010.cpp"
+   "draft": "native/drafts/00676010.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x559000",
@@ -1633,7 +2029,11 @@
    "origin": "build/class-work/Scout1157/keep/high_rt_pa_9117.cpp",
    "author": "codex4/Scout953; Scout1157 (return after a middle-span collapse)",
    "draft": "native/drafts/00559000.cpp",
-   "adapted": "as parked plus RA2_MAP_BRIDGE_PIECES (TibSun map.cpp Damage_High_Bridge shape, attribution kept); replaced the 56.15 draft, which fell through after a middle-span collapse (Scout1153, M19)"
+   "adapted": "as parked plus RA2_MAP_BRIDGE_PIECES (TibSun map.cpp Damage_High_Bridge shape, attribution kept); replaced the 56.15 draft, which fell through after a middle-span collapse (Scout1153, M19)",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x614BA0",
@@ -1650,7 +2050,11 @@
    "origin": "build/class-work/Scout1175/keep/head_Planning_Execute_00614ba0.cpp",
    "author": "Scout743/1165/1175",
    "draft": "native/drafts/00614ba0.cpp",
-   "adapted": "retired accepted text kept as the native body after the 2026-11-09 Is_At ruling"
+   "adapted": "retired accepted text kept as the native body after the 2026-11-09 Is_At ruling",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5919A0",
@@ -1666,7 +2070,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout783/keep/d1_8822.cpp",
    "author": "Scout783",
-   "draft": "native/drafts/005919a0.cpp"
+   "draft": "native/drafts/005919a0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5025C0",
@@ -1682,7 +2090,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout719/w/keep/tunnel_ai_t4_6032.cpp",
    "author": "Scout719",
-   "draft": "native/drafts/005025c0.cpp"
+   "draft": "native/drafts/005025c0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6FAA30",
@@ -1698,7 +2110,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout824/keep/tunnel_tu5_5039.cpp",
    "author": "Scout824",
-   "draft": "native/drafts/006faa30.cpp"
+   "draft": "native/drafts/006faa30.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5BEFE0",
@@ -1715,7 +2131,11 @@
    "origin": "build/class-work/Scout595/w/best_5befe0_95.68.cpp",
    "author": "Scout595",
    "draft": "native/drafts/005befe0.cpp",
-   "notes": "NATIVE edits: includes shared/session_state.hpp; Unknown_005cb8d0 and Unknown_00737060 renamed to their accepted names (Change_Scenario_Slots_005cb8d0, unknown_center_on_owner_737060). Scout1209 r9"
+   "notes": "NATIVE edits: includes shared/session_state.hpp; Unknown_005cb8d0 and Unknown_00737060 renamed to their accepted names (Change_Scenario_Slots_005cb8d0, unknown_center_on_owner_737060). Scout1209 r9",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5CBF20",
@@ -1731,7 +2151,11 @@
    "native": "compiles",
    "origin": "build/class-work/Netshare247/c/best_5cbf20.cpp",
    "author": "Netshare247",
-   "draft": "native/drafts/005cbf20.cpp"
+   "draft": "native/drafts/005cbf20.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x5C3FF0",
@@ -1748,7 +2172,11 @@
    "origin": "build/class-work/Netshare385/c/3ff0.cpp",
    "author": "Netshare385",
    "draft": "native/drafts/005c3ff0.cpp",
-   "notes": "NATIVE edit: defined under the callers' name Decode_Pub_Gameopt_005c3ff0. Scout1209 r9"
+   "notes": "NATIVE edit: defined under the callers' name Decode_Pub_Gameopt_005c3ff0. Scout1209 r9",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x6282D0",
@@ -1765,7 +2193,11 @@
    "origin": "build/class-work/Scout1174/keep/extract_ex2_5762.cpp",
    "author": "Scout1174",
    "draft": "native/drafts/006282d0.cpp",
-   "notes": "NATIVE edit (Scout1223 r19): records whose type, length, 0x1F data size or megamission slot/unit count run past the packet or the event stop the decode and are logged with the packet bytes (a stack overrun here aborted a two-Mac LAN game). NATIVE edit (Scout1209 r10): the type 0x1F data address is a 32-bit handle in the field at +0x07 (native/link/native_event_data.cpp) instead of the overlay's Data.Variable.Pointer, so EventClass keeps the original 0x6F-byte layout and wire format. A Fable lane works the exact match; src/ untouched."
+   "notes": "NATIVE edit (Scout1223 r19): records whose type, length, 0x1F data size or megamission slot/unit count run past the packet or the event stop the decode and are logged with the packet bytes (a stack overrun here aborted a two-Mac LAN game). NATIVE edit (Scout1209 r10): the type 0x1F data address is a 32-bit handle in the field at +0x07 (native/link/native_event_data.cpp) instead of the overlay's Data.Variable.Pointer, so EventClass keeps the original 0x6F-byte layout and wire format. A Fable lane works the exact match; src/ untouched.",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x626CB0",
@@ -1781,7 +2213,11 @@
    "native": "compiles",
    "origin": "build/class-work/Scout1181/keep/dsb_r2_7578.cpp",
    "author": "Scout1181",
-   "draft": "native/drafts/00626cb0.cpp"
+   "draft": "native/drafts/00626cb0.cpp",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   },
   {
    "entry": "0x47AD00",
@@ -1798,7 +2234,11 @@
    "origin": "build/class-work/Scout1166/keep/place_veins_7839.cpp",
    "author": "Scout1166",
    "draft": "native/drafts/0047ad00.cpp",
-   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::unknown_func_5dc180) on maps with veins; the lane's overlay names mapped to current src/shared names."
+   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::unknown_func_5dc180) on maps with veins; the lane's overlay names mapped to current src/shared names.",
+   "behaviour_verdict": null,
+   "behaviour_checked_by": null,
+   "behaviour_checked_date": null,
+   "behaviour_checked_head": null
   }
  ]
 }

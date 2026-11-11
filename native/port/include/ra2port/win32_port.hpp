@@ -110,8 +110,36 @@ struct Host {
     // most every 50 ms (keep_alive below); off the main thread the host does
     // nothing. May be null (Scout1209).
     void (*keep_alive)();
+    // The port's pause hold began (true) or ended (false): see request_pause. The
+    // host stops and restarts its audio device (the mixer's play cursors stand
+    // still with the game's clocks). May be null (Scout1247).
+    void (*held)(bool on);
 };
 void set_host(const Host *host);
+
+// Host pause (Scout1247): the host asks for it (the Mac app when its window loses
+// the focus; the iOS app when it goes to the background) and lifts it again. The
+// game is not told and no game code changes: the port holds the game's main thread
+// inside its next read of an empty message queue (PeekMessageA: every menu, movie
+// and mission loop reads its queue), pumping the host's events until the pause is
+// lifted, so the game stops wherever it was. While held, the game's clocks
+// (timeGetTime, GetTickCount, QueryPerformanceCounter, the virtual TSC, the Bink
+// movie clock, silent DirectSound play cursors) stand still and the multimedia
+// timers do not fire; afterwards they go on from where they stopped, without a
+// catch-up burst. The pause takes effect only at that hold: until the main thread
+// reaches it the clocks run (a loading screen's busy wait on them still ends).
+void request_pause(bool on);
+bool pause_requested();
+bool held();                 // the main thread is in the hold now
+void hold_if_paused();       // the queue reads call it when they find nothing
+// The game's clock: the monotonic clock less the time spent held (nanoseconds).
+uint64_t game_clock_ns();
+// Checkpoint saves (Scout1248): the host asks for one (the iOS app when it goes to
+// the background, and periodically); the game side takes the request at the end of
+// its next Main_Loop pass (ra2port_take_checkpoint, link/harness_save.cpp) and saves
+// a single-player or skirmish game. A pause requested with a checkpoint waits for it
+// up to one second before it holds the game.
+void request_checkpoint();
 
 // File-system operations on the game's behalf (Scout1209 diagnostics): counted
 // per kind for RA2_NATIVE_PERF_LOG, and slowed by RA2_NATIVE_FS_LATENCY_US

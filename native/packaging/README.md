@@ -66,6 +66,11 @@ If the game stops with an error, a window names the part of the game that
 failed and points at the log. Parts of the game that are not rebuilt yet stop
 it this way.
 
+When another app is in front, the game pauses where it is: in a mission, a
+menu or a movie, its clocks stand still (timers, the movie and its sound do not
+run on) and it goes on from the same moment when you come back. A network (LAN)
+game is not paused: the other players' games set its pace, as on Windows.
+
 ## LAN games (experimental, off by default)
 
 Network (LAN) play between Macs on the same local network works in tests
@@ -120,6 +125,11 @@ permission that system-wide keystrokes need. Example: the lobby's name field,
 `RA2_NATIVE_NSEVENT_KEYS="26000:@400,170;36000:<<zq"` after Network.
 
 Focus changes reach the game (WM_ACTIVATEAPP) once they have held for 150 ms.
+A loss then also starts the host pause (Scout1247; `ra2port::request_pause`,
+port/include/ra2port/win32_port.hpp): the game's next read of an empty message
+queue holds it until the focus is back, its clocks stopped; the log shows
+`port: pause: game held` and `game resumed after N ms`. On in the app, off in test
+runs; `RA2_NATIVE_FOCUS_PAUSE=1` or `0` overrides either.
 While the game is in the background with a menu shown, the window keeps the last
 picture it showed in front (an inactive Windows game keeps its last frame); after
 it comes back the window keeps that picture until the menu has redrawn its

@@ -1,21 +1,22 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// The Mac app mode of the SDL host (README "Mac app"): what RA2.app adds to the
-// plain ra2-native binary when it is launched from Finder.
+// The app mode of the SDL host (packaging/README.md): what RA2.app adds to the
+// plain ra2-native binary when it is launched from Finder (and, later, the iOS app).
 //   - First-run setup: the user picks the installed game folder (validated:
 //     its MIX files), and the supported game.exe is located (the folder's own,
 //     or one the user picks when the folder carries another build). The choice
-//     is kept in ~/Library/Application Support/RA2Native/settings.
-//   - Writes (RA2.INI, saved games) go to ~/Library/Application Support/
-//     RA2Native/Game, never into the installation.
-//   - stdout/stderr go to ~/Library/Logs/RA2Native/ra2-native.log.
+//     is kept in the settings folder (hostos::settings_dir; on the Mac
+//     ~/Library/Application Support/RA2Native/settings).
+//   - Writes (RA2.INI, saved games) go to hostos::game_write_dir (on the Mac
+//     ~/Library/Application Support/RA2Native/Game), never into the installation.
+//   - stdout/stderr go to hostos::log_dir()/ra2-native.log (on the Mac
+//     ~/Library/Logs/RA2Native/ra2-native.log).
 //   - A trap (unrecovered code reached) or a fault shows a dialog naming the
 //     function and the log, instead of a silent exit.
-// Included once, by main.cpp (no separate unit, so native/CMakeLists.txt is
-// unchanged); macOS only.
+// Included once, by main.cpp. Platform services (paths, the crash dialog's new
+// process, the file manager) come from host_os.hpp (Scout1247): no Apple-only
+// calls here.
 #pragma once
 #include <SDL3/SDL.h>
-#include <mach-o/dyld.h>
-#include <mach-o/loader.h>
 #include <cxxabi.h>
 #include <dirent.h>
 #include <dlfcn.h>
@@ -23,24 +24,22 @@
 #include <execinfo.h>
 #include <fcntl.h>
 #include <signal.h>
-#include <spawn.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
 #include <sys/stat.h>
-#include <sys/ucontext.h>
-#include <sys/wait.h>
+#include <ctype.h>
 #include <limits.h>
 #include <time.h>
 #include <unistd.h>
 #include <map>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "ra2port/game_builds.hpp"
-
-extern char **environ;
+#include "host_os.hpp"
 
 namespace app {
 
@@ -49,13 +48,9 @@ namespace app {
 using ra2build::kTargetSize;
 using ra2build::kTargetSha256;
 
-std::string home()
-{
-    const char *h = getenv("HOME");
-    return h && *h ? h : "/tmp";
-}
-std::string support_dir() { return home() + "/Library/Application Support/RA2Native"; }
-std::string log_dir() { return home() + "/Library/Logs/RA2Native"; }
+std::string support_dir() { return hostos::settings_dir(); }
+std::string game_write_dir() { return hostos::game_write_dir(); }
+std::string log_dir() { return hostos::log_dir(); }
 std::string settings_path()
 {
     // RA2_NATIVE_SETTINGS: another settings file (tests of the first run).
@@ -80,16 +75,9 @@ bool is_file(std::string const &path)
     return !path.empty() && stat(path.c_str(), &st) == 0 && S_ISREG(st.st_mode);
 }
 
-std::string exe_path()
-{
-    char buf[4096];
-    uint32_t n = sizeof buf;
-    if (_NSGetExecutablePath(buf, &n) != 0) return "";
-    char real[PATH_MAX];
-    return realpath(buf, real) ? real : buf;
-}
-// Launched as RA2.app's executable (Contents/MacOS/).
-bool in_bundle() { return exe_path().find(".app/Contents/MacOS/") != std::string::npos; }
+std::string exe_path() { return hostos::executable_path(); }
+// Launched as an app (RA2.app's executable, Contents/MacOS/; the iOS app).
+bool in_bundle() { return hostos::launched_as_app(); }
 
 // ---- settings: "key=value" lines ---------------------------------------
 struct Settings {
@@ -367,10 +355,284 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
     }
 }
 
+// ---- iOS: the game files imported once into the app (Scout1247) ----------
+// An iOS app cannot read a folder in place from one start to the next, so the
+// first start copies the files the native game reads from the folder the user
+// picks (Files: a Mac share, a USB drive, On My iPhone) into the app's own
+// Library/Application Support/RA2Native/GameData, names lower-cased (the
+// container's volume is case-sensitive; the port's lookups ignore case), then
+// checks them: the four base MIX files, a supported game.exe and BINKW32.DLL.
+// The copy is built beside the old one and swapped in by rename, so a failed or
+// cancelled import keeps the previous files. Later starts skip the picker.
+// Only these names are copied (base Red Alert 2; Yuri's Revenge files and
+// everything else stay behind): never code to run, only data and the two
+// Windows files the port reads data from (game.exe's tables and dialogs,
+// BINKW32.DLL's Bink tables).
+bool import_wanted(std::string const &lower)
+{
+    auto ends = [&](const char *suffix) {
+        size_t n = strlen(suffix);
+        return lower.size() > n && lower.compare(lower.size() - n, n, suffix) == 0;
+    };
+    auto numbered = [&](const char *stem, const char *ext) {   // stem + digits + ext
+        size_t a = strlen(stem), b = strlen(ext);
+        if (lower.size() <= a + b || lower.compare(0, a, stem) != 0 || !ends(ext)) return false;
+        for (size_t i = a; i < lower.size() - b; ++i) if (lower[i] < '0' || lower[i] > '9') return false;
+        return true;
+    };
+    if (lower == "game.exe" || lower == "binkw32.dll") return true;
+    for (const char *name : {"ra2.mix", "language.mix", "multi.mix", "theme.mix", "wdt.mix"}) if (lower == name) return true;
+    for (const char *stem : {"maps", "movies", "expand", "ecache", "elocal"}) if (numbered(stem, ".mix")) return true;
+    for (const char *ext : {".mmx", ".map", ".mpr", ".ini", ".csf", ".pkt"}) if (ends(ext)) return true;
+    return false;
+}
+
+std::string game_data_dir() { return support_dir() + "/GameData"; }
+
+// The imported files are complete: "" or why not.
+std::string imported_problem(std::string const &dir)
+{
+    if (!is_dir(dir)) return "no game files have been imported";
+    std::string missing = missing_mix(dir);
+    if (!missing.empty()) return "missing " + missing;
+    if (!is_file(dir + "/binkw32.dll")) return "missing BINKW32.DLL";
+    std::string digest;
+    long long size = 0;
+    Exe exe = check_exe(dir + "/game.exe", digest, size);
+    if (exe == Exe::missing) return "missing game.exe";
+    if (exe == Exe::other) return "game.exe is a build the native game cannot read (" + exe_reason() + ")";
+    return "";
+}
+
+bool copy_file(std::string const &from, std::string const &to)
+{
+    int in = open(from.c_str(), O_RDONLY);
+    if (in < 0) return false;
+    int out = open(to.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    bool ok = out >= 0;
+    static char buf[1 << 20];
+    while (ok) {
+        ssize_t n = read(in, buf, sizeof buf);
+        if (n == 0) break;
+        if (n < 0) { if (errno == EINTR) continue; ok = false; break; }
+        for (ssize_t done = 0; ok && done < n;) {
+            ssize_t w = write(out, buf + done, (size_t)(n - done));
+            if (w < 0 && errno == EINTR) continue;
+            if (w <= 0) ok = false;
+            else done += w;
+        }
+    }
+    if (out >= 0 && close(out) != 0) ok = false;
+    close(in);
+    return ok;
+}
+
+void remove_tree(std::string const &path)
+{
+    if (DIR *d = opendir(path.c_str())) {
+        while (struct dirent *e = readdir(d)) {
+            if (!strcmp(e->d_name, ".") || !strcmp(e->d_name, "..")) continue;
+            std::string child = path + "/" + e->d_name;
+            if (is_dir(child)) remove_tree(child);
+            else unlink(child.c_str());
+        }
+        closedir(d);
+    }
+    rmdir(path.c_str());
+}
+
+// A start after an import that stopped between its two renames finds the
+// previous files under GameData.previous: they are put back.
+void recover_import()
+{
+    std::string dir = game_data_dir(), previous = dir + ".previous";
+    if (!is_dir(dir) && is_dir(previous)) rename(previous.c_str(), dir.c_str());
+}
+
+// Copies the wanted files of source into GameData; "" or the reason it failed
+// (the previous files are kept then).
+std::string import_game_files(std::string source)
+{
+    while (source.size() > 1 && source.back() == '/') source.pop_back();
+    std::string dir = game_data_dir(), staging = dir + ".importing", previous = dir + ".previous";
+    char real_source[PATH_MAX], real_support[PATH_MAX];
+    make_dirs(support_dir());
+    if (realpath(source.c_str(), real_source) && realpath(support_dir().c_str(), real_support) &&
+        !strncmp(real_source, real_support, strlen(real_support)))
+        return "choose a folder outside the app's own files";
+    remove_tree(staging);
+    make_dirs(staging);
+    DIR *d = opendir(source.c_str());
+    if (!d) return "the folder cannot be read (" + std::string(strerror(errno)) + ")";
+    std::vector<std::string> names;
+    std::map<std::string, std::string> by_lower;
+    std::string problem;
+    while (struct dirent *e = readdir(d)) {
+        std::string lower = e->d_name;
+        for (char &c : lower) c = (char)tolower((unsigned char)c);
+        if (lower.compare(0, 2, "._") == 0 || !import_wanted(lower)) continue;
+        std::string from = source + "/" + e->d_name;
+        struct stat st;
+        if (lstat(from.c_str(), &st) != 0 || !S_ISREG(st.st_mode)) continue;     // ordinary files only
+        if (!by_lower.emplace(lower, e->d_name).second) { problem = "two files are named " + lower + " apart from case"; break; }
+    }
+    closedir(d);
+    long long bytes = 0;
+    int files = 0;
+    for (auto const &kv : by_lower) {
+        if (!problem.empty()) break;
+        if (!copy_file(source + "/" + kv.second, staging + "/" + kv.first)) problem = "copying " + kv.second + " failed (" + strerror(errno) + ")";
+        struct stat st;
+        if (stat((staging + "/" + kv.first).c_str(), &st) == 0) bytes += st.st_size;
+        ++files;
+    }
+    if (problem.empty()) problem = imported_problem(staging);
+    if (!problem.empty()) {
+        remove_tree(staging);
+        fprintf(stderr, "app: import from %s failed: %s\n", source.c_str(), problem.c_str());
+        return problem;
+    }
+    remove_tree(previous);
+    if (is_dir(dir) && rename(dir.c_str(), previous.c_str()) != 0) { remove_tree(staging); return "the old files could not be moved aside"; }
+    if (rename(staging.c_str(), dir.c_str()) != 0) {
+        rename(previous.c_str(), dir.c_str());
+        remove_tree(staging);
+        return "the new files could not be put in place";
+    }
+    remove_tree(previous);
+    hostos::exclude_from_backup(dir.c_str());     // the user can import them again
+    fprintf(stderr, "app: imported %d files (%lld bytes) from %s into %s\n", files, bytes, source.c_str(), dir.c_str());
+    return "";
+}
+
+struct ImportPick { bool done = false; std::string path, error; };
+void import_picked(void *user, const char *path)
+{
+    ImportPick *p = (ImportPick *)user;
+    // The picker's folder is readable only during this call: the copy runs here.
+    if (path && *path) {
+        p->path = path;
+        p->error = import_game_files(path);
+    }
+    p->done = true;
+}
+
+// The setup of an app that imports the game files (hostos::imports_game_files:
+// iOS). RA2_NATIVE_IMPORT=<folder> (tests) imports from that folder without the
+// picker. Returns false when the user gives up.
+bool setup_imported(void *native_window, bool force, std::string &data_dir, std::string &game_exe)
+{
+    recover_import();
+    std::string dir = game_data_dir();
+    const char *scripted = getenv("RA2_NATIVE_IMPORT");
+    if (scripted && *scripted && (force || !imported_problem(dir).empty())) {
+        // A relative folder is in the app's Documents (a device test copies the files
+        // there: xcrun devicectl device copy to ... --destination "Documents/<folder>").
+        std::string source = scripted;
+        if (source[0] != '/') {
+            std::string writes = game_write_dir();
+            source = writes.substr(0, writes.rfind('/') + 1) + source;
+        }
+        std::string error = import_game_files(source);
+        if (!error.empty()) fprintf(stderr, "app: RA2_NATIVE_IMPORT failed: %s\n", error.c_str());
+    }
+    std::string problem = force ? "import requested" : imported_problem(dir);
+    std::string note;
+    while (!problem.empty()) {
+        fprintf(stderr, "app: game files: %s\n", problem.c_str());
+        int b = ask(kTitle, note + "Red Alert 2 needs your game files once. Choose the folder where Red Alert 2 is "
+                    "installed (it holds ra2.mix and game.exe), for example on a Mac shared in Files or copied to "
+                    "On My iPhone.\n\nThe app copies the game's data files (about 1 GB) into its own storage and never "
+                    "changes the folder.", {"Choose Folder…", "Not Now"});
+        if (b != 0) return false;
+        ImportPick pick;
+        std::string answer;
+        if (scripted_answer(answer)) import_picked(&pick, answer.c_str());
+        else if (!hostos::pick_import_folder(native_window, import_picked, &pick)) return false;
+        while (!pick.done) {
+            SDL_Event e;
+            SDL_WaitEventTimeout(&e, 50);
+        }
+        // Cancelled: the files imported before, when complete, are used; else ask again.
+        problem = pick.path.empty() || pick.error.empty() ? imported_problem(dir) : pick.error;
+        note = problem.empty() ? "" : "The import did not work: " + problem + ".\n\n";
+    }
+    data_dir = dir;
+    game_exe = dir + "/game.exe";
+    return true;
+}
+
+// ---- iOS: the in-game resolution from the screen (Scout1248) ----------------
+// The game's resolution in play is RA2.INI's [Video] ScreenWidth/ScreenHeight (the
+// menus are 800x600 whatever it says). On a phone it is the usable part of the
+// screen (hostos::usable_rect, points) divided by the interface scale the player
+// chose (1, 1.25 or 1.5), the width a multiple of 8, but never below 800x600: the
+// game keeps its 800x600 menus on the same primary surface, and a smaller one cut
+// them off (Scout1248, a 656x480 trial). Below that the same aspect is enlarged and
+// the picture scaled down to fit (on the iPhone Duo, 594x432 points clear: 824x600,
+// then 800x600 below).
+void game_resolution(double usable_w, double usable_h, double scale, int &w, int &h)
+{
+    if (scale < 1) scale = 1;
+    double gw = usable_w / scale, gh = usable_h / scale;
+    if (gh < 600) { gw *= 600 / gh; gh = 600; }
+    if (gw < 800) { gh *= 800 / gw; gw = 800; }
+    w = ((int)(gw + 0.5)) & ~7;
+    h = ((int)(gh + 0.5)) & ~1;
+    // Just wider than 800 at 600 high, the menus (800 wide) leave strips the game never
+    // paints, which showed old surface contents as coloured noise beside the shell
+    // (Scout1249, the Duo's 824x600): 800x600 then, the picture letterboxed by a few points.
+    if (h == 600 && w < 864) w = 800;
+}
+// Writes ScreenWidth/ScreenHeight into the game's RA2.INI in its write folder
+// (made from the imported ra2.ini the first time), keeping every other line.
+void set_ini_resolution(std::string const &write_dir, std::string const &data_dir, int w, int h)
+{
+    std::string path = write_dir + "/RA2.INI";
+    std::vector<std::string> lines;
+    FILE *f = fopen(path.c_str(), "r");
+    if (!f) f = fopen((data_dir + "/ra2.ini").c_str(), "r");
+    if (f) {
+        char line[1024];
+        while (fgets(line, sizeof line, f)) {
+            size_t n = strlen(line);
+            while (n && (line[n - 1] == '\n' || line[n - 1] == '\r')) line[--n] = 0;
+            lines.push_back(line);
+        }
+        fclose(f);
+    }
+    std::string width = "ScreenWidth=" + std::to_string(w), height = "ScreenHeight=" + std::to_string(h);
+    bool in_video = false, have_video = false, wrote_w = false, wrote_h = false;
+    std::vector<std::string> out;
+    auto finish_video = [&]() {
+        if (!wrote_w) out.push_back(width);
+        if (!wrote_h) out.push_back(height);
+        wrote_w = wrote_h = true;
+    };
+    for (std::string const &line : lines) {
+        if (!line.empty() && line[0] == '[') {
+            if (in_video) finish_video();
+            in_video = !strcasecmp(line.c_str(), "[Video]");
+            have_video = have_video || in_video;
+        } else if (in_video && !strncasecmp(line.c_str(), "ScreenWidth=", 12)) { out.push_back(width); wrote_w = true; continue; }
+        else if (in_video && !strncasecmp(line.c_str(), "ScreenHeight=", 13)) { out.push_back(height); wrote_h = true; continue; }
+        out.push_back(line);
+    }
+    if (in_video) finish_video();
+    if (!have_video) { out.push_back("[Video]"); finish_video(); }
+    std::string tmp = path + ".tmp";
+    if (FILE *o = fopen(tmp.c_str(), "w")) {
+        for (std::string const &line : out) fprintf(o, "%s\r\n", line.c_str());
+        fclose(o);
+        rename(tmp.c_str(), path.c_str());
+        fprintf(stderr, "app: in-game resolution %dx%d (RA2.INI [Video])\n", w, h);
+    }
+}
+
 // ---- log file and crash dialog -----------------------------------------
 char log_path[1024];
 char self_path[1024];
-const struct mach_header *main_image = nullptr;
+const void *main_image = nullptr;     // the executable's load address (dladdr's dli_fbase)
 
 // stdout and stderr to ~/Library/Logs/RA2Native/ra2-native.log (the previous
 // session's log kept as ra2-native.previous.log).
@@ -411,8 +673,9 @@ const char *signal_name(int sig)
 // The fault handler: names the function (the faulting instruction's, or for
 // an abort the first frame in the game that called it), writes the backtrace
 // to the log, then starts this executable again as the crash dialog
-// (--crash-report; a fresh process, as a signal handler cannot run Cocoa) and
-// ends. Async-signal-safe apart from dladdr/backtrace, as such handlers are.
+// (--crash-report; a fresh process, as a signal handler cannot run Cocoa; where
+// no process can be started, iOS, the next start shows it) and ends.
+// Async-signal-safe apart from dladdr/backtrace, as such handlers are.
 void on_crash(int sig, siginfo_t *, void *context)
 {
     static volatile sig_atomic_t entered = 0;
@@ -421,17 +684,14 @@ void on_crash(int sig, siginfo_t *, void *context)
     int n = backtrace(frames, 64);
     void *candidates[66];
     int count = 0;
-#if defined(__arm64__)
-    if (sig != SIGABRT && context) candidates[count++] = (void *)((ucontext_t *)context)->uc_mcontext->__ss.__pc;
-#elif defined(__x86_64__)
-    if (sig != SIGABRT && context) candidates[count++] = (void *)((ucontext_t *)context)->uc_mcontext->__ss.__rip;
-#endif
+    uintptr_t pc = 0;
+    if (sig != SIGABRT && hostos::fault_pc(context, &pc)) candidates[count++] = (void *)pc;
     for (int i = 0; i < n; ++i) candidates[count++] = frames[i];
     const char *name = "an unknown function";
     unsigned long offset = 0;
     for (int i = 0; i < count; ++i) {
         Dl_info info = {};
-        if (!dladdr(candidates[i], &info) || info.dli_fbase != (void *)main_image || !info.dli_sname) continue;
+        if (!dladdr(candidates[i], &info) || info.dli_fbase != main_image || !info.dli_sname) continue;
         if (strstr(info.dli_sname, "on_crash") || strstr(info.dli_sname, "ra2_unrecovered") ||
             strstr(info.dli_sname, "ra2_trap_") || strstr(info.dli_sname, "ra2port_trap_reached")) continue;
         name = info.dli_sname;
@@ -442,18 +702,15 @@ void on_crash(int sig, siginfo_t *, void *context)
     int len = snprintf(line, sizeof line, "ra2-native: crash: signal %d (%s) in %s+%#lx\n", sig, signal_name(sig), name, offset);
     if (len > 0) write(2, line, (size_t)len < sizeof line ? (size_t)len : sizeof line - 1);
     backtrace_symbols_fd(frames, n, 2);
-    pid_t child = fork();
-    if (child == 0) {
-        execl(self_path, self_path, "--crash-report", log_path[0] ? log_path : "-", (char *)nullptr);
-        _exit(1);
-    }
+    hostos::start_crash_report(self_path, log_path[0] ? log_path : "-");
     _exit(128 + sig);
 }
 
 void install_crash_handler()
 {
     snprintf(self_path, sizeof self_path, "%s", exe_path().c_str());
-    main_image = _dyld_get_image_header(0);
+    Dl_info self = {};
+    if (dladdr((void *)&install_crash_handler, &self)) main_image = self.dli_fbase;
     static char alt_stack[256 * 1024];
     stack_t ss = {};
     ss.ss_sp = alt_stack;
@@ -529,11 +786,7 @@ int crash_report(const char *path)
         return 1;
     }
     int b = ask("Red Alert 2 stopped", message, {"OK", "Show Log"}, true);
-    if (b == 1 && strcmp(path, "-")) {
-        pid_t pid;
-        const char *argv[] = {"/usr/bin/open", "-R", path, nullptr};
-        if (posix_spawn(&pid, argv[0], nullptr, nullptr, (char *const *)argv, environ) == 0) waitpid(pid, nullptr, 0);
-    }
+    if (b == 1 && strcmp(path, "-")) hostos::reveal_file(path);
     SDL_Quit();
     return 0;
 }

@@ -53,16 +53,24 @@ for size in 16 32 128 256 512; do
 done
 iconutil -c icns "$iconset" -o "$contents/Resources/RA2.icns"
 
-# Non-system libraries (SDL3 from Homebrew) into Frameworks, rewired to the bundle.
-otool -L "$binary" | tail -n +2 | awk '{print $1}' | while read -r lib; do
-    case "$lib" in
-    /usr/lib/*|/System/*|@*) continue ;;
-    esac
+# Non-system libraries (SDL3 from Homebrew) into Frameworks, rewired to the bundle,
+# with the non-system libraries they link in turn (Scout1247). A build that links
+# SDL3 statically (as the iOS build does) has none: Frameworks is then left out.
+non_system() {
+    otool -L "$1" | tail -n +2 | awk '{print $1}' | while read -r dep; do
+        case "$dep" in
+        /usr/lib/*|/System/*|@*) ;;
+        *) echo "$dep" ;;
+        esac
+    done
+}
+bundle_lib() {
+    lib=$1
     name=$(basename "$lib")
+    [ -f "$contents/Frameworks/$name" ] && return 0
     /bin/cp -f "$lib" "$contents/Frameworks/$name"
     chmod 644 "$contents/Frameworks/$name"
     install_name_tool -id "@rpath/$name" "$contents/Frameworks/$name"
-    install_name_tool -change "$lib" "@executable_path/../Frameworks/$name" "$contents/MacOS/RA2"
     # The library's licence beside it (SDL3: zlib).
     prefix=$(cd "$(dirname "$lib")/.." && pwd)
     for licence in LICENSE.txt LICENSE COPYING.txt; do
@@ -71,12 +79,24 @@ otool -L "$binary" | tail -n +2 | awk '{print $1}' | while read -r lib; do
             break
         fi
     done
+    for dep in $(non_system "$lib"); do
+        bundle_lib "$dep"
+        install_name_tool -change "$dep" "@loader_path/$(basename "$dep")" "$contents/Frameworks/$name"
+    done
+}
+for lib in $(non_system "$binary"); do
+    bundle_lib "$lib"
+    install_name_tool -change "$lib" "@executable_path/../Frameworks/$(basename "$lib")" "$contents/MacOS/RA2"
 done
-if otool -L "$contents/MacOS/RA2" | tail -n +2 | awk '{print $1}' | grep -v -e '^/usr/lib/' -e '^/System/' -e '^@executable_path/' >/dev/null; then
-    echo "make_app: unbundled library left:" >&2
-    otool -L "$contents/MacOS/RA2" >&2
-    exit 1
-fi
+for file in "$contents/MacOS/RA2" "$contents/Frameworks"/*; do
+    [ -f "$file" ] || continue
+    if [ -n "$(non_system "$file")" ]; then
+        echo "make_app: unbundled library left in $file:" >&2
+        otool -L "$file" >&2
+        exit 1
+    fi
+done
+rmdir "$contents/Frameworks" 2>/dev/null || true
 
 # Never game data or a game executable in the bundle.
 if find "$app" -type f \( -iname '*.mix' -o -iname '*.exe' -o -iname '*.mmx' -o -iname '*.tlb' -o -iname '*.dll' -o -iname '*.ini' \) | grep -q .; then
@@ -86,7 +106,7 @@ fi
 
 # Ad-hoc signature (this Mac only): the libraries first, then the app.
 for lib in "$contents/Frameworks"/*; do
-    [ -f "$lib" ] && codesign --force --sign - "$lib"
+    if [ -f "$lib" ]; then codesign --force --sign - "$lib"; fi
 done
 codesign --force --sign - --identifier io.github.ra2native.RA2 "$app"
 codesign --verify --strict --deep "$app"

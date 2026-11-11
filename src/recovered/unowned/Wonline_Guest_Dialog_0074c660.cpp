@@ -257,7 +257,7 @@ int __stdcall Wonline_Guest_Dialog_0074c660(HWND window,UINT message,WPARAM wpar
         MultiplayerGameMode *mode=MultiplayerGameMode::unknown_first_mode_5b6ec0();
         unknown_session_a3d298.GameModeIndex=mode->unknown_28;
         Unknown_005c3450(window,mode);
-        unknown_session_a3d2b4=mode->unknown_slot13();
+        unknown_session_a3d2b4=mode->FirstValidMapIndex();
         Select_Scenario_005c7c30(unknown_session_a3d2b4);
         Fill_Side_Combos_4d16d0(window);
         Init_Color_Entries_4d1ea0();

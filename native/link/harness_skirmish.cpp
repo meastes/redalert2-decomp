@@ -265,6 +265,7 @@ bool Native_Skirmish_Menu_Bypass()
 void Native_Harness_Orders(int frame);   // harness_orders.cpp
 void Native_Harness_Input(int frame);    // harness_input.cpp
 void Native_Harness_Save(int frame);     // harness_save.cpp
+void Native_Checkpoint();               // harness_save.cpp (host checkpoints)
 void Native_Harness_Event_Test(int frame);   // harness_event_test.cpp (RA2_NATIVE_EVENT_TEST)
 void Native_Harness_Theme_Test(int frame);   // harness_theme_test.cpp (RA2_NATIVE_THEME_TEST)
 // RA2_NATIVE_FILE_DUMP="<name>:<out path>[;...]" (Scout1236, test scaffolding): at the
@@ -319,6 +320,15 @@ extern "C" void ra2port_sleep_until_ns(uint64_t deadline);
 // frame's end: the old floor overshot by about 1.5 ms a frame (57 frames per
 // second measured with 3 AIs, not the intended 62). A frame that ran late starts
 // a new deadline from now (no catch-up burst).
+// The host asks before it pauses the game on focus loss (platform/sdl/host.cpp,
+// Scout1247): not in a network session (lobby or game), which the other players'
+// games pace; single player (0) and skirmish (5) may pause. Not original code.
+extern "C" int ra2_native_network_game(void)
+{
+    int type = unknown_session_a3d298.Type;
+    return type != 0 && type != 5;
+}
+
 static void Native_Frame_Floor()
 {
     static int uncapped = -1;
@@ -365,6 +375,7 @@ bool Native_Main_Loop_Seam()
         Native_Harness_Orders(frames_done);
         Native_Harness_Input(frames_done);
         Native_Harness_Save(frames_done);
+        Native_Checkpoint();
         Native_Harness_Event_Test(frames_done);
         Native_Harness_File_Dump(frames_done);
         Native_Harness_Theme_Test(frames_done);

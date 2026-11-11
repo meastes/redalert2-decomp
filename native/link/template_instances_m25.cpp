@@ -13,3 +13,9 @@ template class VectorClass<PassabilityType>;
 template class VectorClass<HashObject<HashString, SchemeNode *>>;
 template class VectorClass<WorldDominationTour::Map::AnimationPalette *>;
 template class DynamicVectorClass<HashObject<HashString, SchemeNode *>>;
+
+// Scout1248 (the -O2 iOS build): List<INIClass::INISection *>'s constructor, which units
+// built with LIST_DECLARE_CONSTRUCTOR call out of line; at -O0 another unit's inline copy
+// defined it, at -O2 every copy is inlined away.
+#include "shared/ini_class.hpp"
+template class List<INIClass::INISection *>;

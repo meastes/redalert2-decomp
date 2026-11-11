@@ -323,9 +323,10 @@ const char *last_error = "";
 bool sound_system = false;           // BinkSetSoundSystem was given a DirectSound
 int volume = 32768;
 
+// The game's clock (stands still while the host pause holds the game, Scout1247).
 double now()
 {
-    return std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();
+    return (double)ra2port::game_clock_ns() / 1e9;
 }
 bool skip_movies()
 {
