@@ -11,7 +11,7 @@
 // @ref ?unknown_abcd58@@3HA=00abcd58
 // @ref ?unknown_abcd5c@@3HA=00abcd5c
 // @ref ?unknown_int_abcd70@@3HA=00abcd70
-// @ref ?Unknown_00675300@ShapeButtonClass@@QAE_NXZ=00675300
+// @ref ?Stop_Flashing@ShapeButtonClass@@QAE_NXZ=00675300
 // @ref ?Disable@GadgetClass@@UAEXXZ=004cf150
 // @ref ?Unknown_0067E7E0@StripClass@SidebarClass@@QAEXH@Z=0067e7e0
 // @ref ?unknown_flag_a40b30@@3_NA=00a40b30
@@ -45,7 +45,7 @@ void SidebarClass::Init_IO()
     unknown_button_abcc58.IsOn = false;
     unknown_button_abcc58.ToggleType = 1;
     unknown_button_abcc58.unknown_40 = true;
-    unknown_button_abcc58.Unknown_00675300();
+    unknown_button_abcc58.Stop_Flashing();
 
     unknown_button_ab96b8.IsSticky = true;
     unknown_button_ab96b8.ID = 102;
@@ -58,7 +58,7 @@ void SidebarClass::Init_IO()
     unknown_button_ab96b8.IsOn = false;
     unknown_button_ab96b8.ToggleType = 1;
     unknown_button_ab96b8.unknown_40 = true;
-    unknown_button_ab96b8.Unknown_00675300();
+    unknown_button_ab96b8.Stop_Flashing();
 
     for (int index = 0; index < 4; index++) {
         unknown_buttons_ab9508[index].IsSticky = true;
@@ -73,7 +73,7 @@ void SidebarClass::Init_IO()
         unknown_buttons_ab9508[index].ToggleType = 2;
         unknown_buttons_ab9508[index].unknown_40 = true;
         unknown_buttons_ab9508[index].Disable();
-        unknown_buttons_ab9508[index].Unknown_00675300();
+        unknown_buttons_ab9508[index].Stop_Flashing();
     }
 
     unknown_button_abcbe8.IsSticky = true;
@@ -81,14 +81,14 @@ void SidebarClass::Init_IO()
     unknown_button_abcbe8.unknown_4c = true;
     unknown_button_abcbe8.unknown_50 = unknown_drawer_8323cc;
     unknown_button_abcbe8.Flags = 0x55;
-    unknown_button_abcbe8.Unknown_00675300();
+    unknown_button_abcbe8.Stop_Flashing();
 
     unknown_button_abccc0.IsSticky = true;
     unknown_button_abccc0.ID = 200;
     unknown_button_abccc0.unknown_4c = true;
     unknown_button_abccc0.unknown_50 = unknown_drawer_8323cc;
     unknown_button_abccc0.Flags = 0x55;
-    unknown_button_abccc0.Unknown_00675300();
+    unknown_button_abccc0.Stop_Flashing();
 
     for (int column = 0; column < 4; column++) {
         Column[column].unknown_1c = unknown_abcd60;

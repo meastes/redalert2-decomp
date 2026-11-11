@@ -1,7 +1,7 @@
-// bool ShapeButtonClass::Unknown_00675300() (0x00675300)
+// bool ShapeButtonClass::Stop_Flashing() (0x00675300)
 // Stops the span; true if one was running.
 
-bool ShapeButtonClass::Unknown_00675300()
+bool ShapeButtonClass::Stop_Flashing()
 {
     if (unknown_38) {
         unknown_34 = false;

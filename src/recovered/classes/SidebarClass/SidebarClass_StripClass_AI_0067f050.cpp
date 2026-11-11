@@ -96,14 +96,14 @@ bool SidebarClass::StripClass::AI(int &input, Point2D const &xy)
                 }
             }
         }
-        unknown_buttons_ab9508[unknown_34].Unknown_00675300();
+        unknown_buttons_ab9508[unknown_34].Stop_Flashing();
     }
     goto building;
 flash:
     {
         int frame = Frame;
         int length = 10 - frame % 10;
-        unknown_buttons_ab9508[unknown_34].Unknown_006752D0(10, length, ((frame + length) / 10) % 2 == 0);
+        unknown_buttons_ab9508[unknown_34].Start_Flashing(10, length, ((frame + length) / 10) % 2 == 0);
         Map.unknown_4ee3 = true;
         Map.Flag_To_Redraw(false);
     }

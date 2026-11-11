@@ -4,8 +4,8 @@
     "id": "population-4374",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "8f24eb072bb7fb81723e00ab6d955f4e24d42e81eeb9d2d0f245e0efdd1c4d60",
-    "historical_acceptance_sha256": "52f496c0e53e2e677d9ea1a5c592f7dd0b0601719a775c1854de2e3ef9569945"
+    "historical_population_sha256": "5d7c68b8b8d7f9409fe702ba89fb58bddd3339c280e708e3abbe901bf4aaa16f",
+    "historical_acceptance_sha256": "3ede270bccca7d8427d46d8db2424936044d0363cacf1fe6b5f4f8a626529548"
   },
   "references": {
     "_unknown_empty_rect": 11243904,
@@ -1458,10 +1458,10 @@
     "?Set_Shape@ShapeButtonClass@@": 6770992,
     "?Free_Shape@ShapeButtonClass@@": 6771104,
     "?Set_Allocated@ShapeButtonClass@@": 6771152,
-    "?Unknown_006752D0@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,
-    "?Unknown_00675300@ShapeButtonClass@@QAE_NXZ": 6771456,
-    "?Unknown_00675320@ShapeButtonClass@@QAE_NXZ": 6771488,
-    "?Unknown_00675360@ShapeButtonClass@@QBE_NXZ": 6771552,
+    "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,
+    "?Stop_Flashing@ShapeButtonClass@@QAE_NXZ": 6771456,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
+    "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
     "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
     "__strcmp": 7888160,
     "__strlen": 7903280,
@@ -4916,7 +4916,11 @@
     "?FUN_00784ae6@": 7883494,
     "?FUN_0078bbb0@": 7912368,
     "?FUN_00784e11@": 7884305,
-    "?FUN_00784e32@": 7884338
+    "?FUN_00784e32@": 7884338,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?AI@AnimClass@@UAEXXZ": 4331280
   },
   "regions": [
     {
@@ -5042,8 +5046,8 @@
     {
       "entry": 6771552,
       "method": "00675360",
-      "symbol": "?Unknown_00675360@ShapeButtonClass@@QBE_NXZ",
-      "symbol_prefix": "?Unknown_00675360@ShapeButtonClass@@QBE_NXZ",
+      "symbol": "?Is_Flashing@ShapeButtonClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Flashing@ShapeButtonClass@@QBE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -5056,13 +5060,13 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "7df962e6f2d0933914041b2bf883d66a78b002bfcefb2524bfac00a7929a3fd4",
       "relocations": [],
-      "source_sha256": "4cc3f141cf7ea175b731f3c3c095ae55e1056f96c5a6e520ef7c5325bcdf9e74",
-      "source": "src/recovered/classes/ShapeButtonClass/ShapeButtonClass_Unknown_00675360_00675360.cpp",
+      "source_sha256": "f8c874f207d784e85bac92ab72338e0ab50aaa985cfdbe4f37eb2d2e1154cc98",
+      "source": "src/recovered/classes/ShapeButtonClass/ShapeButtonClass_Is_Flashing_00675360.cpp",
       "population": "population-4374",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ShapeButtonClass_Unknown_00675360_00675360",
+      "semantic_name": "ShapeButtonClass_Is_Flashing_00675360",
       "source_order": 232271
     },
     {
@@ -5094,8 +5098,8 @@
     {
       "entry": 6771456,
       "method": "00675300",
-      "symbol": "?Unknown_00675300@ShapeButtonClass@@QAE_NXZ",
-      "symbol_prefix": "?Unknown_00675300@ShapeButtonClass@@QAE_NXZ",
+      "symbol": "?Stop_Flashing@ShapeButtonClass@@QAE_NXZ",
+      "symbol_prefix": "?Stop_Flashing@ShapeButtonClass@@QAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -5108,13 +5112,13 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "6174c887791546cb28db95f1509207ddb57106f2a761c402ce821d330d8a482c",
       "relocations": [],
-      "source_sha256": "efa614085a0225713967e0fb7f12362b6e8b4309982ca0aa789701e25df4994d",
-      "source": "src/recovered/classes/ShapeButtonClass/ShapeButtonClass_Unknown_00675300_00675300.cpp",
+      "source_sha256": "8e06d9bbd21e83a1436dbfece1fa60013d24b1e60b504173352b1ee7be7f869e",
+      "source": "src/recovered/classes/ShapeButtonClass/ShapeButtonClass_Stop_Flashing_00675300.cpp",
       "population": "population-4374",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ShapeButtonClass_Unknown_00675300_00675300",
+      "semantic_name": "ShapeButtonClass_Stop_Flashing_00675300",
       "source_order": 232269
     },
     {
@@ -5375,8 +5379,8 @@
     {
       "entry": 6771408,
       "method": "006752d0",
-      "symbol": "?Unknown_006752D0@ShapeButtonClass@@QAE_NHH_N@Z",
-      "symbol_prefix": "?Unknown_006752D0@ShapeButtonClass@@QAE_NHH_N@Z",
+      "symbol": "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z",
+      "symbol_prefix": "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -5389,20 +5393,20 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "dddf8ed0b443cfb30ef6682e511436c4ee1ad939edd5da438b53b825a9b6e008",
       "relocations": [],
-      "source_sha256": "7966b3e61d01e01a18a20356fca174d7afb64270cf69a3362c86683ccdd5e3be",
-      "source": "src/recovered/classes/ShapeButtonClass/ShapeButtonClass_Unknown_006752D0_006752d0.cpp",
+      "source_sha256": "91aa3a9a108030de3d27db7debfb0b8fbe487212f38abc86bab5f3390f6a3b59",
+      "source": "src/recovered/classes/ShapeButtonClass/ShapeButtonClass_Start_Flashing_006752d0.cpp",
       "population": "population-4374",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ShapeButtonClass_Unknown_006752D0_006752d0",
+      "semantic_name": "ShapeButtonClass_Start_Flashing_006752d0",
       "source_order": 232268
     },
     {
       "entry": 6771488,
       "method": "00675320",
-      "symbol": "?Unknown_00675320@ShapeButtonClass@@QAE_NXZ",
-      "symbol_prefix": "?Unknown_00675320@ShapeButtonClass@@QAE_NXZ",
+      "symbol": "?AI@ShapeButtonClass@@QAE_NXZ",
+      "symbol_prefix": "?AI@ShapeButtonClass@@QAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -5415,13 +5419,13 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "4a8902a9bf44a24fe24ac730a40600cc31a053d0355228282b5890ebef724513",
       "relocations": [],
-      "source_sha256": "b6a2fadedafe4140eb74b4e76faa19e0baa570f1c1e4ecf425c862b777f310ab",
-      "source": "src/recovered/classes/ShapeButtonClass/ShapeButtonClass_Unknown_00675320_00675320.cpp",
+      "source_sha256": "ae2c8cc2878556679983398aed07f0c4b0b45eff6a20fc9ee2cad37f67262dcc",
+      "source": "src/recovered/classes/ShapeButtonClass/ShapeButtonClass_AI_00675320.cpp",
       "population": "population-4374",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ShapeButtonClass_Unknown_00675320_00675320",
+      "semantic_name": "ShapeButtonClass_AI_00675320",
       "source_order": 232270
     }
   ]

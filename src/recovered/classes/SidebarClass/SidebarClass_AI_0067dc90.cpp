@@ -24,7 +24,7 @@
 // @ref ?Unknown_006820A0@SidebarClass@@QAEHXZ=006820a0
 // @ref ?Unknown_006820F0@SidebarClass@@QAEHXZ=006820f0
 // @ref ?Unknown_0067C850@SidebarClass@@QAEXXZ=0067c850
-// @ref ?Unknown_00675320@ShapeButtonClass@@QAE_NXZ=00675320
+// @ref ?AI@ShapeButtonClass@@QAE_NXZ=00675320
 // @ref ?unknown_flag_8373c3@@3_NA=008373c3
 // @ref ?unknown_flag_abcd84@@3_NA=00abcd84
 // @ref ?AI@PowerClass@@UAEXAAHABUPoint2D@@@Z=0061cc30
@@ -87,7 +87,7 @@ void SidebarClass::AI(int &input, Point2D const &xy)
 
         bool flashed = false;
         for (int tab = 0; tab < 4; tab++) {
-            if (unknown_buttons_ab9508[tab].Unknown_00675320()) {
+            if (unknown_buttons_ab9508[tab].AI()) {
                 flashed = true;
             }
         }
