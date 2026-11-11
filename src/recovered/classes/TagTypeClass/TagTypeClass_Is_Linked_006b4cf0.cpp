@@ -3,7 +3,7 @@
 
 bool TagTypeClass::Is_Linked(TriggerTypeClass *trigger) const
 {
-    for (TriggerTypeClass *attached = FirstTrigger; attached != 0; attached = attached->Next) {
+    for (TriggerTypeClass *attached = FirstTrigger; attached != 0; attached = attached->LinkedTo) {
         if (attached == trigger) {
             return true;
         }

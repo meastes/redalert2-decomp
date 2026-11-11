@@ -8,8 +8,8 @@ TagTypeClass::~TagTypeClass()
     TriggerTypeClass *trigger = FirstTrigger;
     FirstTrigger = 0;
     while (trigger != 0) {
-        TriggerTypeClass *next = trigger->Next;
-        trigger->Next = 0;
+        TriggerTypeClass *next = trigger->LinkedTo;
+        trigger->LinkedTo = 0;
         delete trigger;
         trigger = next;
     }

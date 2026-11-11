@@ -10,13 +10,13 @@ TriggerTypeClass::~TriggerTypeClass()
 {
     Unknown_006ECB90(this, true);
     TriggerTypes.Delete(this);
-    TActionClass *action = Actions;
+    TActionClass *action = FirstAction;
     while (action != 0) {
         TActionClass *next = action->Next;
         delete action;
         action = next;
     }
-    TEventClass *event = Events;
+    TEventClass *event = FirstEvent;
     while (event != 0) {
         TEventClass *next = event->Next;
         delete event;

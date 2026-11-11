@@ -4,8 +4,8 @@
     "id": "population-4402",
     "inventory_sha256": "70aa9f2ecd9bbb3c083b271a1e0b57b09bef7c9d0c8ac65ba60d7d7d5d7f7455",
     "gaps_sha256": "9537bed7eae7292861c701d4b04004959446ba22ef69c039cd3f0182d31987e2",
-    "historical_population_sha256": "545b8c5002bb405741f28505f0f8f5f578df9b4f16da50a8c5d0791189d98662",
-    "historical_acceptance_sha256": "a43a5dac0d309cbc9f44747789b688485bb036c692b9f3f68ddadfc068838611"
+    "historical_population_sha256": "8832e12b1460b1ff70412bb61487c74365687137bfc3260a9aed863cd86c6e7b",
+    "historical_acceptance_sha256": "13c48daf79d5d8a71d5d0aa8e72f6327e70b500020a97d1d838cbeffe19d01e8"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -3579,7 +3579,7 @@
     "?Remove@Wstring@@QAE_NHH@Z": 7791376,
     "?Remove_Character@WideString@@QAE_NG@Z": 7799056,
     "?Remove_Character@Wstring@@QAE_ND@Z": 7791584,
-    "?Remove_Event@TriggerTypeClass@@QAE_NPAVTEventClass@@@Z": 7269472,
+    "?Delete_Event@TriggerTypeClass@@QAE_NPAVTEventClass@@@Z": 7269472,
     "?Remove_Index@?$IndexClass@HPAUINISection@INIClass@@@@QAE_NABH@Z": 5312272,
     "?Remove_Spaces@Wstring@@QAEXXZ": 7791776,
     "?Repair_Cost@InfantryTypeClass@@UBEHXZ": 5286272,
@@ -11081,7 +11081,7 @@
     "?Cell_Is_Impassable_Row_00453af0@BuildingClass@@QAE_NPBVCellClass@@@Z": 4537072,
     "?Remove@?$WolArrayList@VWstring@@@@QAE_NH@Z": 7758320,
     "?BombList@@3VBombListClass@@A": 8594144,
-    "?Remove_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
+    "?Delete_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
     "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
     "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z": 7491952,
     "?unknown_show_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7013440,

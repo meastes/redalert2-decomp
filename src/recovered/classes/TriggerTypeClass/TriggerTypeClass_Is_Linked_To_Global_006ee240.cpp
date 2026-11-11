@@ -5,7 +5,7 @@
 bool TriggerTypeClass::Is_Linked_To_Global(int value) const
 {
     bool result = false;
-    for (TEventClass *event = Events; event != 0; event = event->Next) {
+    for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
         if ((event->Type == 0x1B || event->Type == 0x1C) && event->Data == value) {
             result = true;
             break;

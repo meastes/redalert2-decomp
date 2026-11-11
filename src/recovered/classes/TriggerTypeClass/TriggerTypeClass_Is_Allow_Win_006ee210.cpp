@@ -5,7 +5,7 @@
 bool TriggerTypeClass::Is_Allow_Win() const
 {
     bool result = false;
-    for (TActionClass *item = Actions; item != 0; item = item->Next) {
+    for (TActionClass *item = FirstAction; item != 0; item = item->Next) {
         if (item->Type == 0xF) {
             result = true;
             break;

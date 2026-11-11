@@ -4,7 +4,7 @@
 
 bool TagTypeClass::Is_Allow_Win() const
 {
-    for (TriggerTypeClass *trigger = FirstTrigger; trigger != 0; trigger = trigger->Next) {
+    for (TriggerTypeClass *trigger = FirstTrigger; trigger != 0; trigger = trigger->LinkedTo) {
         if (trigger->Is_Allow_Win()) {
             return true;
         }

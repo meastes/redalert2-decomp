@@ -5,15 +5,15 @@ bool TagTypeClass::Unlink(TriggerTypeClass *trigger)
 {
     TriggerTypeClass *current = FirstTrigger;
     if (current == trigger) {
-        FirstTrigger = trigger->Next;
+        FirstTrigger = trigger->LinkedTo;
         return true;
     }
     while (current != 0) {
-        if (current->Next == trigger) {
-            current->Next = trigger->Next;
+        if (current->LinkedTo == trigger) {
+            current->LinkedTo = trigger->LinkedTo;
             return true;
         }
-        current = current->Next;
+        current = current->LinkedTo;
     }
     return false;
 }

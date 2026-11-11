@@ -1,12 +1,12 @@
-// bool TriggerTypeClass::Remove_Event(TEventClass *event) (0x006EEC60)
+// bool TriggerTypeClass::Delete_Event(TEventClass *event) (0x006EEC60)
 // Unlinks and deletes an event of the type.
 #include "shared/object.hpp"
 
-bool TriggerTypeClass::Remove_Event(TEventClass *event)
+bool TriggerTypeClass::Delete_Event(TEventClass *event)
 {
-    TEventClass *current = Events;
+    TEventClass *current = FirstEvent;
     if (current == event) {
-        Events = event->Next;
+        FirstEvent = event->Next;
         delete event;
         return true;
     }

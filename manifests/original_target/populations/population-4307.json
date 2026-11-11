@@ -4,8 +4,8 @@
     "id": "population-4307",
     "inventory_sha256": "907352a1804d9c8f0cd2bc4e3d5f387a158a3041d8ebd7ae1631df42c764bf49",
     "gaps_sha256": "95ba998a63428c12a8821d5960dec54d41caa78da777bc7e0f16e2856c739749",
-    "historical_population_sha256": "9f2d81b59aca8b3cb58b622148c01846c1e7dba7ba4cb2199bec97ebdeddfd40",
-    "historical_acceptance_sha256": "ae2d5d5ebc3adc146d9978cf2f47fb4a93d17e91aec11ae386bc86eeb5581acf"
+    "historical_population_sha256": "5497b3f1d9e26cf45e545fa98a92633bb61e7d254f313b29a4f00a3b865282d9",
+    "historical_acceptance_sha256": "edd36e2424574f30a57778f13ee0a3ff30f77759c3ba401d5b5e33710cb4912d"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4393,7 +4393,7 @@
     "?Persistence_From_Name@TriggerTypeClass@@SIHPBD@Z": 7267264,
     "?Event_Flags@TEventClass@@SIHH@Z": 7236144,
     "?Action_Flags@TActionClass@@SIHH@Z": 7024112,
-    "?Remove_Event@TriggerTypeClass@@QAE_NPAVTEventClass@@@Z": 7269472,
+    "?Delete_Event@TriggerTypeClass@@QAE_NPAVTEventClass@@@Z": 7269472,
     "?Compute_CRC@TriggerTypeClass@@UBEXAAVWWCRCEngine@@@Z": 7269712,
     "?Load@TriggerTypeClass@@UAGJPAUIStream@@@Z": 7269904,
     "??_7TriggerTypeClass@@6BIPersistStream@@@": 8051340,
@@ -8617,7 +8617,7 @@
     "?Place@SuperClass@@QAEXABVCell@@_N@Z": 6936656,
     "?Detach@MapClass@@QAEXPAVAbstractClass@@_N@Z": 5610880,
     "?QueryInterface@TiberianSunClassFactory@@UAGJABUGUID@@PAPAX@Z": 4352784,
-    "?Remove_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
+    "?Delete_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
     "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
     "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z": 7491952,
     "?unknown_show_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7013440,

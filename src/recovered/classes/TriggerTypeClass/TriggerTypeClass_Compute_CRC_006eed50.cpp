@@ -5,13 +5,13 @@ void TriggerTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
     AbstractTypeClass::Compute_CRC(crc);
     crc(House->Fetch_ID());
-    if (Next != 0) {
-        crc(Next->Fetch_ID());
+    if (LinkedTo != 0) {
+        crc(LinkedTo->Fetch_ID());
     }
-    if (Events != 0) {
-        crc(Events->Fetch_ID());
+    if (FirstEvent != 0) {
+        crc(FirstEvent->Fetch_ID());
     }
-    if (Actions != 0) {
-        crc(Actions->Fetch_ID());
+    if (FirstAction != 0) {
+        crc(FirstAction->Fetch_ID());
     }
 }

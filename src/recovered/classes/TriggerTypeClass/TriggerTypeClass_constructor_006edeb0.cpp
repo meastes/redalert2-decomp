@@ -8,15 +8,15 @@
 TriggerTypeClass::TriggerTypeClass(char const *ini_name) :
     AbstractTypeClass(ini_name),
     ArrayIndex(-1),
-    IsEasy(true),
-    IsNormal(true),
-    IsHard(true),
+    IsEnabledOnEasy(true),
+    IsEnabledOnMedium(true),
+    IsEnabledOnHard(true),
     IsEnabled(true),
     IsToInherit(false),
     House(0),
-    Next(0),
-    Events(0),
-    Actions(0)
+    LinkedTo(0),
+    FirstEvent(0),
+    FirstAction(0)
 {
     unknown_AbstractClass_list_00ac0c98.Add(this);
     unknown_objects_ac0cb0.Add(this);

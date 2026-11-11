@@ -12,7 +12,7 @@ bool TriggerClass::Spring(ObjectClass *object, Cell cell)
         return false;
     }
     bool acted = false;
-    for (TActionClass *action = Class->Actions; action != 0; action = action->Next) {
+    for (TActionClass *action = Class->FirstAction; action != 0; action = action->Next) {
         if (action->Execute(HouseClass::As_Pointer(Class->House->ArrayIndex), object, this, &cell)) {
             acted = true;
         }

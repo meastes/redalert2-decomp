@@ -16,7 +16,7 @@ bool TriggerClass::Should_Spring(int event, ObjectClass *object, bool forced, bo
     bool sprung = true;
     if (!forced) {
         int index = 0;
-        for (TEventClass *e = Class->Events; e != 0; e = e->Next) {
+        for (TEventClass *e = Class->FirstEvent; e != 0; e = e->Next) {
             if (!Is_Event_Tripped(index) && !e->unknown_func_6e6050(event, HouseClass::As_Pointer(Class->House->ArrayIndex),
                                                              object, &Timer, &persistent, source)) {
                 sprung = false;

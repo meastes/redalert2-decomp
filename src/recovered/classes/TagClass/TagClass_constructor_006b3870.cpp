@@ -17,7 +17,7 @@ TagClass::TagClass(TagTypeClass *type) :
     unknown_objects_ac0cb0.Add((ObjectClass *)this);
     unknown_AbstractClass_list_00ac0d48.Add(this);
     if (type != 0) {
-        for (TriggerTypeClass *trigger = type->FirstTrigger; trigger != 0; trigger = trigger->Next) {
+        for (TriggerTypeClass *trigger = type->FirstTrigger; trigger != 0; trigger = trigger->LinkedTo) {
             TriggerClass *made = new TriggerClass(trigger);
             made->LinkedTo = Trigger;
             Trigger = made;

@@ -4,6 +4,6 @@
 void TagTypeClass::Detach(AbstractClass *target, bool all)
 {
     if ((AbstractClass *)FirstTrigger == target) {
-        FirstTrigger = FirstTrigger->Next;
+        FirstTrigger = FirstTrigger->LinkedTo;
     }
 }

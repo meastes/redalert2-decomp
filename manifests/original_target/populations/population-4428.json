@@ -4,8 +4,8 @@
     "id": "population-4428",
     "inventory_sha256": "71d13e2a075dd225ad11262153dab008260799596e7a9bd5f220ffece13a5ed6",
     "gaps_sha256": "4fb94dca7d9b1ad1308b3804779160d585de0847c7b06f58458c143797360083",
-    "historical_population_sha256": "8bf0c22ee44f18cb4d0d8f127ff442ddd20e1f67033f107dd74641909aab989d",
-    "historical_acceptance_sha256": "67cc493125df3334a9ee7b4867f2450199ab9301bad07622dc96ff42714abd6d"
+    "historical_population_sha256": "b965c25f7d2b862e44254c8273b99c2b366361105afa600e144602402a262c92",
+    "historical_acceptance_sha256": "b9b87a92c7cb176e9059576fcc53938fce49a787a6fe5211fd9f41f6e42c600d"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -8829,7 +8829,7 @@
     "?Persistence_From_Name@TriggerTypeClass@@SIHPBD@Z": 7267264,
     "?Event_Flags@TEventClass@@SIHH@Z": 7236144,
     "?Action_Flags@TActionClass@@SIHH@Z": 7024112,
-    "?Remove_Event@TriggerTypeClass@@QAE_NPAVTEventClass@@@Z": 7269472,
+    "?Delete_Event@TriggerTypeClass@@QAE_NPAVTEventClass@@@Z": 7269472,
     "??_7TriggerTypeClass@@6BIPersistStream@@@": 8051340,
     "??_7TriggerTypeClass@@6BIRTTITypeInfo@@@": 8051312,
     "??_7TriggerTypeClass@@6BINoticeSink@@@": 8051304,
@@ -11669,7 +11669,7 @@
     "?Move_To@DriveLocomotionClass@@UAGXUCOMCoordStruct@@@Z": 4849200,
     "?_AddRef@?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QBEXXZ": 4538016,
     "?BombList@@3VBombListClass@@A": 8594144,
-    "?Remove_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
+    "?Delete_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
     "?unknown_show_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7013440,
     "?unknown_func_5dd000@OverlayTypeClass@@QBE?AVRGBClass@@I@Z": 6148096,
     "?unknown_slot63@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,

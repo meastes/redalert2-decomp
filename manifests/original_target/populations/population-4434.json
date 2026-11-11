@@ -4,8 +4,8 @@
     "id": "population-4434",
     "inventory_sha256": "31667cb6477e0ff8d62b23293a38d811ec11c6490943468b4e0384a70daf5492",
     "gaps_sha256": "649aa888b2351b49997ac7145d2b34f4ccc321a171428b48257dbb0bdc68a552",
-    "historical_population_sha256": "2b4eac75ec997859271308e29ab3800a5f7acc947b74bb4d75e66430ccea6e33",
-    "historical_acceptance_sha256": "96f41d0a76fb06fdb4185927ae3057028512bfd2d95f2a1c6e72827ed0fa757b"
+    "historical_population_sha256": "3b967f4ca0c94806f9e91c7316af40631697557642c94b9b468ab4884d86dee5",
+    "historical_acceptance_sha256": "de1c9b1558c3567cf456887dc620208d96dcdad9434c552225c7845f190f7458"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -9256,7 +9256,7 @@
     "?Persistence_From_Name@TriggerTypeClass@@SIHPBD@Z": 7267264,
     "?Event_Flags@TEventClass@@SIHH@Z": 7236144,
     "?Action_Flags@TActionClass@@SIHH@Z": 7024112,
-    "?Remove_Event@TriggerTypeClass@@QAE_NPAVTEventClass@@@Z": 7269472,
+    "?Delete_Event@TriggerTypeClass@@QAE_NPAVTEventClass@@@Z": 7269472,
     "??_7TriggerTypeClass@@6BIPersistStream@@@": 8051340,
     "??_7TriggerTypeClass@@6BIRTTITypeInfo@@@": 8051312,
     "??_7TriggerTypeClass@@6BINoticeSink@@@": 8051304,
@@ -10413,7 +10413,7 @@
     "?unknown_719c10@UnknownPairFirst@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z": 7445520,
     "?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ": 7390480,
     "?Place@SuperClass@@QAEXABVCell@@_N@Z": 6936656,
-    "?Remove_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
+    "?Delete_Action@TriggerTypeClass@@QAE_NPAVTActionClass@@@Z": 7269376,
     "?unknown_show_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7013440,
     "?unknown_func_5dd000@OverlayTypeClass@@QBE?AVRGBClass@@I@Z": 6148096,
     "?unknown_slot63@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,

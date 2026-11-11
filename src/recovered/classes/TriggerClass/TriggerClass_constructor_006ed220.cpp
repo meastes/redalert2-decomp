@@ -17,8 +17,8 @@ TriggerClass::TriggerClass(TriggerTypeClass *type) :
     Triggers.Add(this);
     if (Class != 0) {
         Reset_All_Timed_Events();
-        if (!Class->IsEnabled || (Scenario_Difficulty() == 0 && !Class->IsEasy) ||
-            (Scenario_Difficulty() == 1 && !Class->IsNormal) || (Scenario_Difficulty() == 2 && !Class->IsHard)) {
+        if (!Class->IsEnabled || (Scenario_Difficulty() == 0 && !Class->IsEnabledOnEasy) ||
+            (Scenario_Difficulty() == 1 && !Class->IsEnabledOnMedium) || (Scenario_Difficulty() == 2 && !Class->IsEnabledOnHard)) {
             IsActive = false;
         }
     }

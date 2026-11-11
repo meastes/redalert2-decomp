@@ -8,7 +8,7 @@
 void TriggerClass::Reset_All_Timed_Events()
 {
     int index = 0;
-    TEventClass *event = Class->Events;
+    TEventClass *event = Class->FirstEvent;
     while (event != 0) {
         if (event->Type == 0x0D) {
             Timer = event->Data * 15;

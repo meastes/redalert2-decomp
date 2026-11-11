@@ -5,7 +5,7 @@
 bool TriggerTypeClass::Is_Enters_Zone() const
 {
     bool result = false;
-    for (TEventClass *item = Events; item != 0; item = item->Next) {
+    for (TEventClass *item = FirstEvent; item != 0; item = item->Next) {
         if (item->Type == 0x18) {
             result = true;
             break;

@@ -5,7 +5,7 @@
 int TagTypeClass::Attaches_To() const
 {
     int flags = 0;
-    for (TriggerTypeClass *trigger = FirstTrigger; trigger != 0; trigger = trigger->Next) {
+    for (TriggerTypeClass *trigger = FirstTrigger; trigger != 0; trigger = trigger->LinkedTo) {
         flags |= trigger->Attaches_To();
     }
     return flags;

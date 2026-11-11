@@ -4,7 +4,7 @@
 bool TagTypeClass::Link(TriggerTypeClass *trigger)
 {
     if (trigger != 0) {
-        trigger->Next = FirstTrigger;
+        trigger->LinkedTo = FirstTrigger;
         FirstTrigger = trigger;
         return true;
     }

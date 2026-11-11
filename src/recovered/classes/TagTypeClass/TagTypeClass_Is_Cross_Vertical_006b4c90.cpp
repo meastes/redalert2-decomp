@@ -4,7 +4,7 @@
 
 bool TagTypeClass::Is_Cross_Vertical() const
 {
-    for (TriggerTypeClass *trigger = FirstTrigger; trigger != 0; trigger = trigger->Next) {
+    for (TriggerTypeClass *trigger = FirstTrigger; trigger != 0; trigger = trigger->LinkedTo) {
         if (trigger->Is_Cross_Vertical()) {
             return true;
         }

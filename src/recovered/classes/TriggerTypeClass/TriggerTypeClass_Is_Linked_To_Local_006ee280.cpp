@@ -5,7 +5,7 @@
 bool TriggerTypeClass::Is_Linked_To_Local(int value) const
 {
     bool result = false;
-    for (TEventClass *event = Events; event != 0; event = event->Next) {
+    for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
         if ((event->Type == 0x24 || event->Type == 0x25) && event->Data == value) {
             result = true;
             break;

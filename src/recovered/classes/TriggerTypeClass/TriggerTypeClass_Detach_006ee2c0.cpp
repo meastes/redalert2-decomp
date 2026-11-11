@@ -4,19 +4,19 @@
 
 void TriggerTypeClass::Detach(AbstractClass *target, bool all)
 {
-    if (Next != 0 && (AbstractClass *)Next == target) {
-        Next = Next->Next;
+    if (LinkedTo != 0 && (AbstractClass *)LinkedTo == target) {
+        LinkedTo = LinkedTo->LinkedTo;
     }
-    for (TActionClass *action = Actions; action != 0; action = action->Next) {
+    for (TActionClass *action = FirstAction; action != 0; action = action->Next) {
         action->Detach(target, true);
     }
-    if ((AbstractClass *)Actions == target) {
-        Actions = Actions->Next;
+    if ((AbstractClass *)FirstAction == target) {
+        FirstAction = FirstAction->Next;
     }
-    for (TEventClass *event = Events; event != 0; event = event->Next) {
+    for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
         event->Detach(target, true);
     }
-    if ((AbstractClass *)Events == target) {
-        Events = Events->Next;
+    if ((AbstractClass *)FirstEvent == target) {
+        FirstEvent = FirstEvent->Next;
     }
 }

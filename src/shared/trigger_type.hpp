@@ -6,8 +6,8 @@
 //   +0x00  AbstractTypeClass (0x98)
 //   +0x98  int ArrayIndex (-1), +0x9C..+0x9F bools (true), +0xA0 bool
 //   +0xA4  HouseTypeClass *House (swizzled; CRC'd by ID)
-//   +0xA8  TriggerTypeClass *Next (the tag type's chain)
-//   +0xAC  TEventClass *Events, +0xB0 TActionClass *Actions (chained)
+//   +0xA8  TriggerTypeClass *LinkedTo (the tag type's chain)
+//   +0xAC  TEventClass *FirstEvent, +0xB0 TActionClass *FirstAction (chained)
 // Every type is added to the abstract lists 0x00AC0C98 and 0x00AC0CB0.
 #ifndef RA2_SHARED_TRIGGER_TYPE_HPP
 #define RA2_SHARED_TRIGGER_TYPE_HPP
@@ -47,9 +47,9 @@ public:
     virtual bool Write_INI(CCINIClass &ini) const;                      // 0x006EE8C0 slot 26
 
 #ifdef RA2_TRIGGER_TYPE_REMOVE_ACTION
-    bool Remove_Action(TActionClass *action);                           // 0x006EEC00 (deletes it)
+    bool Delete_Action(TActionClass *action);                           // 0x006EEC00 (deletes it)
 #endif
-    bool Remove_Event(TEventClass *event);                              // 0x006EEC60 (deletes it)
+    bool Delete_Event(TEventClass *event);                              // 0x006EEC60 (deletes it)
     static TriggerTypeClass *__fastcall From_Name(char const *name);    // 0x006EE350 (by ID or name)
     static int __fastcall Persistence_From_Name(char const *name);      // 0x006EE3C0
 
@@ -66,16 +66,16 @@ public:
     static void __fastcall Write_Scenario_INI(CCINIClass &ini);         // 0x006EEAA0
 
     int ArrayIndex;                         // +0x98
-    bool IsEasy;                            // +0x9C enabled on easy (hypothesis)
-    bool IsNormal;                          // +0x9D enabled on normal
-    bool IsHard;                            // +0x9E enabled on hard
+    bool IsEnabledOnEasy;                   // +0x9C enabled on easy
+    bool IsEnabledOnMedium;                 // +0x9D enabled on normal
+    bool IsEnabledOnHard;                   // +0x9E enabled on hard
     bool IsEnabled;                         // +0x9F
     bool IsToInherit;                       // +0xA0
-    HouseTypeClass *House;                  // +0xA4 the house (Read_INI: HouseTypes; TriggerClass::Spring
+    HouseTypeClass *House;                  // +0xA4 the house (Read_INI: HouseTypes; TriggerClass::Should_Spring
                                             // passes its house to the events)
-    TriggerTypeClass *Next;                 // +0xA8
-    TEventClass *Events;                    // +0xAC
-    TActionClass *Actions;                  // +0xB0
+    TriggerTypeClass *LinkedTo;             // +0xA8
+    TEventClass *FirstEvent;                // +0xAC
+    TActionClass *FirstAction;              // +0xB0
 };
 
 // The scenario INI sections of triggers (0x007ADA50 "Triggers", 0x007ADA54

@@ -12,9 +12,9 @@ bool TActionClass::unknown_func_6b1f10(HouseClass *house, ObjectClass *object, T
         for (int index = 0; index < Triggers.Count(); index++) {
             TriggerTypeClass *type = Triggers[index]->Class;
             if ((AbstractClass *)type == unknown_50) {
-                if ((unknown_id_source_a3d290->Difficulty != 0 || type->IsEasy)
-                        && (unknown_id_source_a3d290->Difficulty != 1 || type->IsNormal)
-                        && (unknown_id_source_a3d290->Difficulty != 2 || type->IsHard)) {
+                if ((unknown_id_source_a3d290->Difficulty != 0 || type->IsEnabledOnEasy)
+                        && (unknown_id_source_a3d290->Difficulty != 1 || type->IsEnabledOnMedium)
+                        && (unknown_id_source_a3d290->Difficulty != 2 || type->IsEnabledOnHard)) {
                     Triggers[index]->Enable();
                 }
             }

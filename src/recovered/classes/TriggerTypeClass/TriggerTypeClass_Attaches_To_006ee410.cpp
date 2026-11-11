@@ -5,14 +5,14 @@
 int TriggerTypeClass::Attaches_To() const
 {
     int flags = 0;
-    for (TEventClass *event = Events; event != 0; event = event->Next) {
+    for (TEventClass *event = FirstEvent; event != 0; event = event->Next) {
         flags |= TEventClass::Event_Flags(event->Type);
     }
-    for (TActionClass *action = Actions; action != 0; action = action->Next) {
+    for (TActionClass *action = FirstAction; action != 0; action = action->Next) {
         flags |= TActionClass::Action_Flags(action->Type);
     }
-    if (Next != 0) {
-        return Next->Attaches_To() | flags;
+    if (LinkedTo != 0) {
+        return LinkedTo->Attaches_To() | flags;
     }
     return flags;
 }

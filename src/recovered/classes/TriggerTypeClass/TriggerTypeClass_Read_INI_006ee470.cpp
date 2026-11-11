@@ -24,9 +24,9 @@ bool TriggerTypeClass::Read_INI(CCINIClass &ini)
         }
 
         token = strtok(0, ",");
-        Next = 0;
+        LinkedTo = 0;
         if (_stricmp(token, "<none>") != 0) {
-            Next = Find_Or_Make(token);
+            LinkedTo = Find_Or_Make(token);
         }
 
         token = strtok(0, ",");
@@ -40,21 +40,21 @@ bool TriggerTypeClass::Read_INI(CCINIClass &ini)
         }
         token = strtok(0, ",");
         if (token != 0 && atoi(token) != 0) {
-            IsEasy = true;
+            IsEnabledOnEasy = true;
         } else {
-            IsEasy = false;
+            IsEnabledOnEasy = false;
         }
         token = strtok(0, ",");
         if (token != 0 && atoi(token) != 0) {
-            IsNormal = true;
+            IsEnabledOnMedium = true;
         } else {
-            IsNormal = false;
+            IsEnabledOnMedium = false;
         }
         token = strtok(0, ",");
         if (token != 0 && atoi(token) != 0) {
-            IsHard = true;
+            IsEnabledOnHard = true;
         } else {
-            IsHard = false;
+            IsEnabledOnHard = false;
         }
         token = strtok(0, ",");
         if (token != 0 && atoi(token) != 0) {
@@ -66,20 +66,20 @@ bool TriggerTypeClass::Read_INI(CCINIClass &ini)
             for (; count != 0; count--) {
                 TEventClass *event = new TEventClass();
                 event->Read_INI();
-                event->Next = Events;
-                Events = event;
+                event->Next = FirstEvent;
+                FirstEvent = event;
             }
         }
 
         if (ini.Get_String(unknown_actions_section_7ada54, ID, "", buffer, sizeof(buffer))) {
             int count = atoi(strtok(buffer, ","));
             TActionClass *last = 0;
-            Actions = 0;
+            FirstAction = 0;
             for (; count != 0; count--) {
                 TActionClass *action = new TActionClass();
                 action->Read_INI();
-                if (Actions == 0) {
-                    Actions = action;
+                if (FirstAction == 0) {
+                    FirstAction = action;
                 } else {
                     last->Next = action;
                 }

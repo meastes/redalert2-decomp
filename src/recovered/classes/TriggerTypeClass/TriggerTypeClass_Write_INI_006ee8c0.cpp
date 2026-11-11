@@ -25,17 +25,17 @@ bool TriggerTypeClass::Write_INI(CCINIClass &ini) const
     char buffer[512];
     sprintf(buffer, "%s,%s,%s,%d,%d,%d,%d,%d",
         House != 0 ? (char const *)House->ID : "<none>",
-        Next != 0 ? (char const *)Next->ID : "<none>",
-        (char const *)Name, IsEnabled ? 0 : 1, IsEasy ? 1 : 0, IsNormal ? 1 : 0, IsHard ? 1 : 0, IsToInherit ? 1 : 0);
+        LinkedTo != 0 ? (char const *)LinkedTo->ID : "<none>",
+        (char const *)Name, IsEnabled ? 0 : 1, IsEnabledOnEasy ? 1 : 0, IsEnabledOnMedium ? 1 : 0, IsEnabledOnHard ? 1 : 0, IsToInherit ? 1 : 0);
     ini.Put_String(unknown_triggers_section_7ada50, ID, buffer);
 
     int count = 0;
     TEventClass *event;
-    for (event = Events; event != 0; event = event->Next) {
+    for (event = FirstEvent; event != 0; event = event->Next) {
         count++;
     }
     sprintf(buffer, "%d", count);
-    for (event = Events; event != 0; event = event->Next) {
+    for (event = FirstEvent; event != 0; event = event->Next) {
         strcat(buffer, ",");
         event->Build_INI_Entry(buffer);
     }
@@ -43,11 +43,11 @@ bool TriggerTypeClass::Write_INI(CCINIClass &ini) const
 
     count = 0;
     TActionClass *action;
-    for (action = Actions; action != 0; action = action->Next) {
+    for (action = FirstAction; action != 0; action = action->Next) {
         count++;
     }
     sprintf(buffer, "%d", count);
-    for (action = Actions; action != 0; action = action->Next) {
+    for (action = FirstAction; action != 0; action = action->Next) {
         strcat(buffer, ",");
         action->Build_INI_Entry(buffer);
     }
