@@ -1,3 +1,4 @@
+#define RA2_CELL_OCCUPIER  // Create_Preview 0x0061D660 reads the cell occupier (TibSun Cell_Occupier)
 #define RA2_COORD_FROM_CELL  // the unit defines CoordStruct(Cell const &, int) 0x0061EA80 (shared/coord.hpp)
 #define MAP_PREVIEW_DECLARE_INTERNALS
 #define TACTICAL_DECLARE_LEPTON_TO_MAP_PIXEL
