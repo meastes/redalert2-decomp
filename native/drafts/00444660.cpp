@@ -102,7 +102,7 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
         if(contact) {
             bool captured=false;
             if(!contact->AbstractFlags.IsFoot) contact=0;
-            else if(unknown_slot150(19,contact)==1 && (Type->WeaponsFactory || Coord_Difference(contact->Center_Coord(),unknown_slot41((int)contact)).Length()<64)) captured=true;
+            else if(unknown_slot150(19,contact)==1 && (Type->WeaponsFactory || Coord_Difference(contact->Center_Coord(),unknown_slot41((intptr_t)contact)).Length()<64)) captured=true;
             if(!captured) {
                 unknown_slot150(23,contact);
                 unknown_slot150(3,contact);

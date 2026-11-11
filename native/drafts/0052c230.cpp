@@ -286,7 +286,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
             if (set != NULL) {
                 if (use_z) {
                     IsoDrawData.BaseDepth = (unsigned short)(LOWORD(DepthBuffer->MaxValue) + LOWORD(DepthBuffer->Area.Y) - y - LOWORD(set->Height));
-                    IsoDrawData.BaseDepth = (int)&((unsigned char *)IsoDrawData.BaseDepth)[height * set->Height / -2];
+                    IsoDrawData.BaseDepth += height * set->Height / -2;   // NATIVE: the same sum as integers (the draft formed it through a pointer; Scout1246)
                 }
                 const IsoTileRecord * record = set->Fetch_Record_Pointer(subtile);
                 if (record == NULL) {

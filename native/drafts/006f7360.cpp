@@ -37,7 +37,7 @@ void __fastcall Unknown_006F58E0(wchar_t const *text, int delay);
 void __fastcall Unknown_006F6790(wchar_t *buffer);
 int __fastcall Unknown_006F6FE0(TechnoClass *techno, int argument);
 DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F6930(UnknownTest test, int argument);
-DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, int argument);
+DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, intptr_t argument);   // NATIVE: pointer-sized argument (Scout1242)
 DynamicVectorClass<char const *> *Unknown_006F76C0();
 
 // Whether no techno of the list with one of the names is on the screen (+0x77 clear).

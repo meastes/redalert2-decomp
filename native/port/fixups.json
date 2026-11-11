@@ -1867,6 +1867,524 @@
    "new": "    int unknown_theme_length(unsigned theme) const;\n    int Max_Themes() const { return Themes.Count(); }\n    bool unknown_is_flagged(unsigned theme) const;   // NATIVE: 0x006E84E0 (+0x288 of the record; the unit's own VC6-offset view is replaced natively)\n",
    "why": "Declares unknown_is_flagged 0x006E84E0 on the real ThemeClass for its unit's native body (Scout1236).",
    "verified": false
+  },
+  {
+   "source": "src/recovered/netshare/Refill_Slots_005cb3f0.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declarations for the slot-entry handle helpers (native/link/native_event_data.cpp). Scout1242.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/netshare/Refill_Slots_005cb3f0.cpp",
+   "old": "        NodeNameType *entry = (NodeNameType *)SendDlgItemMessageA(dialog, id, 0x150, index, 0);\n",
+   "new": "        LRESULT data = SendDlgItemMessageA(dialog, id, 0x150, index, 0);   // NATIVE: slot-entry handle\n        NodeNameType *entry = data == -1 ? (NodeNameType *)-1 : (NodeNameType *)Native_Entry_From_Handle((int)data);\n",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and Unknown_005cbf20 then stored the handle as a slot entry pointer (unknown_player_slots_a3fa98) for the rows past the old player count, dereferenced later (->Team, ->Name) when the host changes to a map with more start positions (Change_Scenario_Slots 0x005CB8D0). The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/netshare/Slots_Need_Confirm_005cbdb0.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declarations for the slot-entry handle helpers (native/link/native_event_data.cpp). Scout1242.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/netshare/Slots_Need_Confirm_005cbdb0.cpp",
+   "old": "            entry = (NodeNameType *)data;\n",
+   "new": "            entry = (NodeNameType *)Native_Entry_From_Handle(data);   // NATIVE: slot-entry handle\n",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and entry->unknown_66e290() dereferenced the handle (address below 4 GiB: the arm64 page zero) for every slot at or past the new map's player count: a LAN host accepting a map with fewer than eight start positions (Accept_Map_Selection 0x005C71F0 -> Unknown_005bc430) faulted. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/netshare/Save_Lobby_Options_005cc890.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declarations for the slot-entry handle helpers (native/link/native_event_data.cpp). Scout1242.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/netshare/Save_Lobby_Options_005cc890.cpp",
+   "old": "Entry_Kind_005c9650((NodeNameType *)(data == -1 ? 0 : data));",
+   "new": "Entry_Kind_005c9650((NodeNameType *)Native_Entry_From_Handle(data == -1 ? 0 : data));   /* NATIVE: slot-entry handle */",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and Entry_Kind saved every slot as kind 2 (open) in the remembered lobby options. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Clear_Closed_Slots_005cacb0.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declarations for the slot-entry handle helpers (native/link/native_event_data.cpp). Scout1242.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Clear_Closed_Slots_005cacb0.cpp",
+   "old": "        LRESULT data = SendDlgItemMessageA(dialog, id, 0x150, selected, 0);\n",
+   "new": "        LRESULT data = (LRESULT)Native_Entry_From_Handle((int)SendDlgItemMessageA(dialog, id, 0x150, selected, 0));   // NATIVE: slot-entry handle\n",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and the computer-player slots were never found (the comparison with the AI entries' addresses failed), so they were not cleared. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/gdlg_supp/Fill_Side_Combos_4d16d0_004d16d0.cpp",
+   "old": "#include \"shared/gdlg_supp.hpp\"\n",
+   "new": "#include \"shared/gdlg_supp.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declarations for the slot-entry handle helpers (native/link/native_event_data.cpp). Scout1242.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/gdlg_supp/Fill_Side_Combos_4d16d0_004d16d0.cpp",
+   "old": "data == (int)unknown_player_a72d44)",
+   "new": "Native_Entry_From_Handle(data) == (void *)unknown_player_a72d44)   /* NATIVE: slot-entry handle */",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and an observer slot never got the observer side list (the int comparison with the observer entry's cut address failed). The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/WOL_Game_Options_Proc_0074a710.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declarations for the slot-entry handle helpers (native/link/native_event_data.cpp). Scout1242.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/WOL_Game_Options_Proc_0074a710.cpp",
+   "old": "(NodeNameType *)unknown_combo_selected_data_005c99d0(window,id,request->unknown_04)",
+   "new": "(NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window,id,request->unknown_04))",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and the Westwood Online lobby's slot names, tool tips and slot changes saw a seated human for every row. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/WOL_Game_Options_Proc_0074a710.cpp",
+   "old": "(NodeNameType *)unknown_combo_selected_data_005c99d0(window,id,-1)",
+   "new": "(NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window,id,-1))",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and the Westwood Online lobby's slot names, tool tips and slot changes saw a seated human for every row. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/WOL_Game_Options_Proc_0074a710.cpp",
+   "old": "(NodeNameType *)unknown_combo_selected_data_005c99d0(window,slot,-1)",
+   "new": "(NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window,slot,-1))",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and the Westwood Online lobby's slot names, tool tips and slot changes saw a seated human for every row. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/WOL_Game_Options_Proc_0074a710.cpp",
+   "old": "(NodeNameType *)unknown_combo_selected_data_005c99d0(window,command,-1)",
+   "new": "(NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window,command,-1))",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and the Westwood Online lobby's slot names, tool tips and slot changes saw a seated human for every row. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Wonline_Guest_Dialog_0074c660.cpp",
+   "old": "#include \"shared/lobby.hpp\"\n",
+   "new": "#include \"shared/lobby.hpp\"\nint Native_Entry_Handle(void const *entry);   // NATIVE: native/link/native_event_data.cpp\nvoid *Native_Entry_From_Handle(int handle);\n",
+   "why": "Declarations for the slot-entry handle helpers (native/link/native_event_data.cpp). Scout1242.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Wonline_Guest_Dialog_0074c660.cpp",
+   "old": "(NodeNameType *)unknown_combo_selected_data_005c99d0(window,id,request->unknown_04)",
+   "new": "(NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window,id,request->unknown_04))",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and the Westwood Online lobby's slot names, tool tips and slot changes saw a seated human for every row. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Wonline_Guest_Dialog_0074c660.cpp",
+   "old": "(NodeNameType *)unknown_combo_selected_data_005c99d0(window,id,-1)",
+   "new": "(NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window,id,-1))",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and the Westwood Online lobby's slot names, tool tips and slot changes saw a seated human for every row. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Wonline_Guest_Dialog_0074c660.cpp",
+   "old": "(NodeNameType *)unknown_combo_selected_data_005c99d0(window,slot,-1)",
+   "new": "(NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window,slot,-1))",
+   "why": "Lobby slot combos hold a 32-bit handle for their slot entry natively (Refill_Slot_Combos 0x005CA6C0 fixup, native/link/native_event_data.cpp); this reader cast the item data straight back to NodeNameType *, so natively it saw 0x4000000n: never equal to the open/closed/AI/observer sentinels, so every slot read as a seated human and the Westwood Online lobby's slot names, tool tips and slot changes saw a seated human for every row. The handle is decoded here as at the other readers (Join_Lobby_Dialog_Proc 0x005C2330, Host_Dialog_Proc 0x005BEFE0); -1/0 and the other combos' small integers decode to 0 as before. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/tag.hpp",
+   "old": "bool Spring(int event, ObjectClass *object, Cell cell, bool forced = false, int source = 0);",
+   "new": "bool Spring(int event, ObjectClass *object, Cell cell, bool forced = false, intptr_t source = 0);   /* NATIVE: pointer-sized source */",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_techno.hpp",
+   "old": "bool Spring(int event, ObjectClass *object, Cell cell, bool forced = false, int source = 0);",
+   "new": "bool Spring(int event, ObjectClass *object, Cell cell, bool forced = false, intptr_t source = 0);   /* NATIVE: pointer-sized source */",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/trigger.hpp",
+   "old": "bool Should_Spring(int event, ObjectClass *object, bool forced, bool persistent, int source);",
+   "new": "bool Should_Spring(int event, ObjectClass *object, bool forced, bool persistent, intptr_t source);   /* NATIVE: pointer-sized source */",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/tevent.hpp",
+   "old": "                             bool *persistent, int source);",
+   "new": "                             bool *persistent, intptr_t source);   /* NATIVE: pointer-sized source */",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TagClass/TagClass_Spring_006b3df0.cpp",
+   "old": "bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, int source)\n",
+   "new": "bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, intptr_t source)   // NATIVE: pointer-sized source\n",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TriggerClass/TriggerClass_Should_Spring_006ed740.cpp",
+   "old": "bool TriggerClass::Should_Spring(int event, ObjectClass *object, bool forced, bool persistent, int source)\n",
+   "new": "bool TriggerClass::Should_Spring(int event, ObjectClass *object, bool forced, bool persistent, intptr_t source)   // NATIVE: pointer-sized source\n",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TEventClass/TEventClass_unknown_func_6e6050_006e6050.cpp",
+   "old": "                                      CDTimerClass<FrameTimerClass> *timer, bool *tripped, int source)\n",
+   "new": "                                      CDTimerClass<FrameTimerClass> *timer, bool *tripped, intptr_t source)   // NATIVE: pointer-sized source\n",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ObjectClass/ObjectClass_Damage_005d3d20.cpp",
+   "old": "reinterpret_cast<int>(source)",
+   "new": "reinterpret_cast<intptr_t>(source)",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/BulletClass/BulletClass_unknown_func_462110_00462110.cpp",
+   "old": "false, (int)Owner);",
+   "new": "false, (intptr_t)Owner);",
+   "why": "The trigger 'source' (the attacking TechnoClass; TS TechnoClass *source) is passed through TagClass::Spring 0x006B3DF0 and TriggerClass::Should_Spring 0x006ED740 to TEventClass 0x006E6050 as an int, and event 0x2C dereferences it (((TechnoClass *)source)->House->ArrayIndex). Natively the int cut the 64-bit address, so an object whose tag has event 0x2C faulted when damaged (ObjectClass::Take_Damage 0x005D3D20, the bullet path 0x00462110). Natively the parameter is pointer-sized (intptr_t); the VC6 int is the same 32 bits on x86. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/uicmnds.hpp",
+   "old": "typedef bool (__fastcall *UnknownTest)(void *item, int argument);",
+   "new": "typedef bool (__fastcall *UnknownTest)(void *item, intptr_t argument);   /* NATIVE: pointer-sized argument */",
+   "why": "The selection-filter commands pass their argument through UnknownTest/Unknown_006F69F0 0x006F69F0 as an int; the type-select path (Unknown_006F71E0 0x006F71E0 from a double click, DisplayClass::Mouse_Left_Release 0x0049BB20, and the band apply 0x006AABC0; Unknown_006F7800 0x006F7800) passes the type's ID string (char const *) and the test Unknown_006F7190 reads it as a pointer (techno->unknown_func_5d27d0(name)). Natively (int)name cut the 64-bit address and the test dereferenced it. The argument is pointer-sized natively (intptr_t); the integer arguments (0, flags) are unchanged. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Selected_Where_006f69f0.cpp",
+   "old": "DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, int argument)\n",
+   "new": "DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, intptr_t argument)   // NATIVE: pointer-sized argument\n",
+   "why": "The selection-filter commands pass their argument through UnknownTest/Unknown_006F69F0 0x006F69F0 as an int; the type-select path (Unknown_006F71E0 0x006F71E0 from a double click, DisplayClass::Mouse_Left_Release 0x0049BB20, and the band apply 0x006AABC0; Unknown_006F7800 0x006F7800) passes the type's ID string (char const *) and the test Unknown_006F7190 reads it as a pointer (techno->unknown_func_5d27d0(name)). Natively (int)name cut the 64-bit address and the test dereferenced it. The argument is pointer-sized natively (intptr_t); the integer arguments (0, flags) are unchanged. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Command_Experience_006f7ec0.cpp",
+   "old": "DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, int argument);",
+   "new": "DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, intptr_t argument);",
+   "why": "The selection-filter commands pass their argument through UnknownTest/Unknown_006F69F0 0x006F69F0 as an int; the type-select path (Unknown_006F71E0 0x006F71E0 from a double click, DisplayClass::Mouse_Left_Release 0x0049BB20, and the band apply 0x006AABC0; Unknown_006F7800 0x006F7800) passes the type's ID string (char const *) and the test Unknown_006F7190 reads it as a pointer (techno->unknown_func_5d27d0(name)). Natively (int)name cut the 64-bit address and the test dereferenced it. The argument is pointer-sized natively (intptr_t); the integer arguments (0, flags) are unchanged. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Rebuild_List_006f79c0.cpp",
+   "old": "DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, int argument);",
+   "new": "DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, intptr_t argument);",
+   "why": "The selection-filter commands pass their argument through UnknownTest/Unknown_006F69F0 0x006F69F0 as an int; the type-select path (Unknown_006F71E0 0x006F71E0 from a double click, DisplayClass::Mouse_Left_Release 0x0049BB20, and the band apply 0x006AABC0; Unknown_006F7800 0x006F7800) passes the type's ID string (char const *) and the test Unknown_006F7190 reads it as a pointer (techno->unknown_func_5d27d0(name)). Natively (int)name cut the 64-bit address and the test dereferenced it. The argument is pointer-sized natively (intptr_t); the integer arguments (0, flags) are unchanged. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Command_Select_006f7b80.cpp",
+   "old": "DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, int argument);",
+   "new": "DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, intptr_t argument);",
+   "why": "The selection-filter commands pass their argument through UnknownTest/Unknown_006F69F0 0x006F69F0 as an int; the type-select path (Unknown_006F71E0 0x006F71E0 from a double click, DisplayClass::Mouse_Left_Release 0x0049BB20, and the band apply 0x006AABC0; Unknown_006F7800 0x006F7800) passes the type's ID string (char const *) and the test Unknown_006F7190 reads it as a pointer (techno->unknown_func_5d27d0(name)). Natively (int)name cut the 64-bit address and the test dereferenced it. The argument is pointer-sized natively (intptr_t); the integer arguments (0, flags) are unchanged. Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TemporalClass/TemporalClass_Assign_Target_006e27b0.cpp",
+   "old": "namespace seed_0044d320 { void __fastcall FUN_0044d320(int building); }\n",
+   "new": "namespace seed_0044d320 { void __fastcall FUN_0044d320(int building); }\nvoid Native_Building_Temporal_Freeze_0044D320(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
+   "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TemporalClass/TemporalClass_Assign_Target_006e27b0.cpp",
+   "old": "seed_0044d320::FUN_0044d320((int)building);",
+   "new": "Native_Building_Temporal_Freeze_0044D320(building);   /* NATIVE: real members (Scout1242) */",
+   "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TemporalClass/TemporalClass_Let_Go_Of_Target_006e2500.cpp",
+   "old": "namespace seed_0044d380 { void __fastcall FUN_0044d380(int building); }\n",
+   "new": "namespace seed_0044d380 { void __fastcall FUN_0044d380(int building); }\nvoid Native_Building_Temporal_Thaw_0044D380(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
+   "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TemporalClass/TemporalClass_Let_Go_Of_Target_006e2500.cpp",
+   "old": "seed_0044d380::FUN_0044d380((int)building);",
+   "new": "Native_Building_Temporal_Thaw_0044D380(building);   /* NATIVE: real members (Scout1242) */",
+   "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TemporalClass/TemporalClass_Release_Target_State_006e2610.cpp",
+   "old": "namespace seed_0044d380 { void __fastcall FUN_0044d380(int building); }\n",
+   "new": "namespace seed_0044d380 { void __fastcall FUN_0044d380(int building); }\nvoid Native_Building_Temporal_Thaw_0044D380(TechnoClass *building);   // NATIVE: native/link/behaviour_temporal_building.cpp\n",
+   "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TemporalClass/TemporalClass_Release_Target_State_006e2610.cpp",
+   "old": "seed_0044d380::FUN_0044d380((int)building);",
+   "new": "Native_Building_Temporal_Thaw_0044D380(building);   /* NATIVE: real members (Scout1242) */",
+   "why": "TemporalClass passes the warped building to 0x0044D320 / 0x0044D380 as an int; their seed sources write the building's fields at VC6 offsets through it, so natively the cut 64-bit address faulted on a Chrono Legionnaire's first shot at a building. The calls go to behaviour rows that use the real members (native/link/behaviour_temporal_building.cpp). Scout1242 (64/32 audit).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Read_INI_005d7810.cpp",
+   "old": "#include \"shared/object_type.hpp\"\n",
+   "new": "#include \"shared/object_type.hpp\"\nint Native_Pointer_Handle(void const *pointer);   // NATIVE: native/link/native_pointer_handles.cpp\nvoid *Native_Pointer_From_Handle(int handle);\n",
+   "why": "Declarations for the pointer-handle helpers (native/link/native_pointer_handles.cpp). Scout1246.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Read_INI_005d7810.cpp",
+   "old": "unknown_ac = (int)MixFileClass::Retrieve(filename);",
+   "new": "unknown_ac = Native_Pointer_Handle(MixFileClass::Retrieve(filename));   /* NATIVE: 32-bit handle */",
+   "why": "ObjectTypeClass +0xAC holds the AlphaImage shape (MixFileClass::Retrieve in Read_INI 0x005D7810 and Load 0x005D7C30; read back as ShapeFileStruct * by AlphaShapeClass 0x0041EBE0 and 0x0041F5E0). Stored as an int it cut the 64-bit address, so an object type with AlphaImage= handed its alpha shape a dead pointer. The class's native layout is pinned (link/check_real_offsets_object_type.cpp), so the field keeps its int and carries a 32-bit handle (native/link/native_pointer_handles.cpp); 0 stays 0. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Load_005d7c30.cpp",
+   "old": "#include \"shared/object_type.hpp\"\n",
+   "new": "#include \"shared/object_type.hpp\"\nint Native_Pointer_Handle(void const *pointer);   // NATIVE: native/link/native_pointer_handles.cpp\nvoid *Native_Pointer_From_Handle(int handle);\n",
+   "why": "Declarations for the pointer-handle helpers (native/link/native_pointer_handles.cpp). Scout1246.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Load_005d7c30.cpp",
+   "old": "unknown_ac = (int)MixFileClass::Retrieve(filename);",
+   "new": "unknown_ac = Native_Pointer_Handle(MixFileClass::Retrieve(filename));   /* NATIVE: 32-bit handle */",
+   "why": "ObjectTypeClass +0xAC holds the AlphaImage shape (MixFileClass::Retrieve in Read_INI 0x005D7810 and Load 0x005D7C30; read back as ShapeFileStruct * by AlphaShapeClass 0x0041EBE0 and 0x0041F5E0). Stored as an int it cut the 64-bit address, so an object type with AlphaImage= handed its alpha shape a dead pointer. The class's native layout is pinned (link/check_real_offsets_object_type.cpp), so the field keeps its int and carries a 32-bit handle (native/link/native_pointer_handles.cpp); 0 stays 0. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/AlphaShapeClass/AlphaShapeClass_constructor_0041ebe0.cpp",
+   "old": "#include \"shared/object_type.hpp\"\n",
+   "new": "#include \"shared/object_type.hpp\"\nint Native_Pointer_Handle(void const *pointer);   // NATIVE: native/link/native_pointer_handles.cpp\nvoid *Native_Pointer_From_Handle(int handle);\n",
+   "why": "Declarations for the pointer-handle helpers (native/link/native_pointer_handles.cpp). Scout1246.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/AlphaShapeClass/AlphaShapeClass_constructor_0041ebe0.cpp",
+   "old": "(ShapeFileStruct *)object->Class_Of()->unknown_ac;",
+   "new": "(ShapeFileStruct *)Native_Pointer_From_Handle(object->Class_Of()->unknown_ac);   /* NATIVE: 32-bit handle */",
+   "why": "ObjectTypeClass +0xAC holds the AlphaImage shape (MixFileClass::Retrieve in Read_INI 0x005D7810 and Load 0x005D7C30; read back as ShapeFileStruct * by AlphaShapeClass 0x0041EBE0 and 0x0041F5E0). Stored as an int it cut the 64-bit address, so an object type with AlphaImage= handed its alpha shape a dead pointer. The class's native layout is pinned (link/check_real_offsets_object_type.cpp), so the field keeps its int and carries a 32-bit handle (native/link/native_pointer_handles.cpp); 0 stays 0. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/color_scheme.hpp",
+   "old": "ConvertClass *__fastcall Unknown_00663690(HSVClass const *base, void *unknown_a, int unknown_b, RGBClass *palette,",
+   "new": "ConvertClass *__fastcall Unknown_00663690(HSVClass const *base, void *unknown_a, intptr_t unknown_b, RGBClass *palette,   /* NATIVE: pointer-sized palette */",
+   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Unknown_00663B40 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ColorScheme/Build_Light_Converter_00663690.cpp",
+   "old": "void *base, int unknown_b, RGBClass *remapped,",
+   "new": "void *base, intptr_t unknown_b, RGBClass *remapped,   /* NATIVE: pointer-sized palette */",
+   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Unknown_00663B40 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ColorScheme/ColorScheme_constructor_006639f0.cpp",
+   "old": "unknown_a, (int)palette, Palette,",
+   "new": "unknown_a, (intptr_t)palette, Palette,",
+   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Unknown_00663B40 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ColorScheme/ColorScheme_Build_Light_Converters_00663b40.cpp",
+   "old": "unknown_a, (int)palette, Palette,",
+   "new": "unknown_a, (intptr_t)palette, Palette,",
+   "why": "Build_Light_Converter 0x00663690 takes the screen palette (PaletteClass *) as an int and dereferences it for the LightConvertClass; the callers (ColorScheme constructor 0x006639F0, Unknown_00663B40 0x00663B40) pass (int)palette. Natively the int cut the 64-bit address. The parameter is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/udp_interface.hpp",
+   "old": "virtual int Get_Local_Address(int index) { return (int)LocalAddresses[index]; }",
+   "new": "virtual intptr_t Get_Local_Address(int index) { return (intptr_t)LocalAddresses[index]; }   /* NATIVE: pointer-sized */",
+   "why": "UDPInterfaceClass::Get_Local_Address (slot 19, 0x0076D440, inline) returns LocalAddresses[index] (unsigned char *) as an int; every caller (OwnerTalkClass::Start_Router 0x0063F510, Print_CRCs 0x0062A360, 0x0062DBA0, Write_Multiplayer_Statistics 0x00482FE0) casts it back to a pointer and reads the address bytes. Natively the int cut the 64-bit address. The slot returns intptr_t natively (WinsockInterfaceClass's 0x0076AA30 too, so the override still matches). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/winsock_interface.hpp",
+   "old": "virtual int Get_Local_Address(int arg1) { return 0; }",
+   "new": "virtual intptr_t Get_Local_Address(int arg1) { return 0; }   /* NATIVE: pointer-sized (UDPInterfaceClass returns a pointer) */",
+   "why": "UDPInterfaceClass::Get_Local_Address (slot 19, 0x0076D440, inline) returns LocalAddresses[index] (unsigned char *) as an int; every caller (OwnerTalkClass::Start_Router 0x0063F510, Print_CRCs 0x0062A360, 0x0062DBA0, Write_Multiplayer_Statistics 0x00482FE0) casts it back to a pointer and reads the address bytes. Natively the int cut the 64-bit address. The slot returns intptr_t natively (WinsockInterfaceClass's 0x0076AA30 too, so the override still matches). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/map_seed.hpp",
+   "old": "    int unknown_14;\n    int State;",
+   "new": "    intptr_t unknown_14;   // NATIVE: a function pointer (0x0053B770), pointer-sized\n    int State;",
+   "why": "LoadOptionsClass +0x14 is called as a function (LoadOptionsClass::Dialog 0x0053B770: ((void (*)())unknown_14)()); as an int it could not hold a 64-bit code address. Pointer-sized natively (nothing in the tree sets it besides the constructor's 0). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/graphic_menu.hpp",
+   "old": "virtual void Play_Sound(int unknown);",
+   "new": "virtual void Play_Sound(intptr_t unknown);   /* NATIVE: pointer-sized (the MSEngine) */",
+   "why": "GraphicMenu::Run 0x004DE9E0 passes the menu's MSEngine to the selected item's Play_Sound (slot 3) as (int)&Engine and GraphicMenuImageItem::Play_Sound 0x004DFE70 casts it back (MSEngine *) to queue the item's movie on engine->Anims and wait for it. Natively the int cut the 64-bit address (a main-menu item with a select movie faulted). The slot's argument is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/GraphicMenuItem/GraphicMenuItem_Play_Sound_004e01e0.cpp",
+   "old": "void GraphicMenuItem::Play_Sound(int unknown)\n",
+   "new": "void GraphicMenuItem::Play_Sound(intptr_t unknown)   // NATIVE: pointer-sized\n",
+   "why": "GraphicMenu::Run 0x004DE9E0 passes the menu's MSEngine to the selected item's Play_Sound (slot 3) as (int)&Engine and GraphicMenuImageItem::Play_Sound 0x004DFE70 casts it back (MSEngine *) to queue the item's movie on engine->Anims and wait for it. Natively the int cut the 64-bit address (a main-menu item with a select movie faulted). The slot's argument is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/GraphicMenuImageItem/GraphicMenuImageItem_Play_Sound_004dfe70.cpp",
+   "old": "void GraphicMenuImageItem::Play_Sound(int unknown)\n",
+   "new": "void GraphicMenuImageItem::Play_Sound(intptr_t unknown)   // NATIVE: pointer-sized\n",
+   "why": "GraphicMenu::Run 0x004DE9E0 passes the menu's MSEngine to the selected item's Play_Sound (slot 3) as (int)&Engine and GraphicMenuImageItem::Play_Sound 0x004DFE70 casts it back (MSEngine *) to queue the item's movie on engine->Anims and wait for it. Natively the int cut the 64-bit address (a main-menu item with a select movie faulted). The slot's argument is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/GraphicMenu/GraphicMenu_Run_004de9e0.cpp",
+   "old": "selected->Play_Sound((int)&Engine);",
+   "new": "selected->Play_Sound((intptr_t)&Engine);   /* NATIVE: pointer-sized */",
+   "why": "GraphicMenu::Run 0x004DE9E0 passes the menu's MSEngine to the selected item's Play_Sound (slot 3) as (int)&Engine and GraphicMenuImageItem::Play_Sound 0x004DFE70 casts it back (MSEngine *) to queue the item's movie on engine->Anims and wait for it. Natively the int cut the 64-bit address (a main-menu item with a select movie faulted). The slot's argument is pointer-sized natively. Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/WideString/WideString_Replace_007706e0.cpp",
+   "old": "int length = (int)found - (int)current;",
+   "new": "int length = (int)((intptr_t)found - (intptr_t)current);   /* NATIVE: pointer-sized arithmetic */",
+   "why": "WideString::Replace 0x007706E0 does its pointer arithmetic through int ((int)found - (int)current, a byte count, and (int)found + wcslen(find) * 2 cast back to a pointer). Natively the second cut the 64-bit address: the next search started at a dead pointer after the first replacement. The same byte arithmetic through intptr_t (the byte count kept, as the original). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/WideString/WideString_Replace_007706e0.cpp",
+   "old": "current = (unsigned short const *)((int)found + wcslen(find) * 2);",
+   "new": "current = (unsigned short const *)((intptr_t)found + wcslen(find) * 2);   /* NATIVE: pointer-sized arithmetic */",
+   "why": "WideString::Replace 0x007706E0 does its pointer arithmetic through int ((int)found - (int)current, a byte count, and (int)found + wcslen(find) * 2 cast back to a pointer). Natively the second cut the 64-bit address: the next search started at a dead pointer after the first replacement. The same byte arithmetic through intptr_t (the byte count kept, as the original). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/object.hpp",
+   "old": "virtual CoordStruct unknown_slot41(int arg1) const;",
+   "new": "virtual CoordStruct unknown_slot41(intptr_t arg1) const;   /* NATIVE: pointer-sized (the docking techno) */",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/building_class.hpp",
+   "old": "virtual CoordStruct unknown_slot41(int arg1) const;",
+   "new": "virtual CoordStruct unknown_slot41(intptr_t arg1) const;   /* NATIVE: pointer-sized (the docking techno) */",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/ObjectClass/ObjectClass_unknown_slot41_005d54f0.cpp",
+   "old": "CoordStruct ObjectClass::unknown_slot41(int arg1) const\n",
+   "new": "CoordStruct ObjectClass::unknown_slot41(intptr_t arg1) const   // NATIVE: pointer-sized\n",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_Docking_Coord_004440e0.cpp",
+   "old": "CoordStruct BuildingClass::unknown_slot41(int dock) const\n",
+   "new": "CoordStruct BuildingClass::unknown_slot41(intptr_t dock) const   // NATIVE: pointer-sized\n",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/shared/techno.hpp",
+   "old": "virtual Cell unknown_slot180(int arg1);",
+   "new": "virtual Cell unknown_slot180(intptr_t arg1);   /* NATIVE: pointer-sized (passed on to slot 41) */",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot180_006d5800.cpp",
+   "old": "Cell TechnoClass::unknown_slot180(int arg1)\n",
+   "new": "Cell TechnoClass::unknown_slot180(intptr_t arg1)   // NATIVE: pointer-sized\n",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/AircraftClass/AircraftClass_Do_MISSION_ENTER_004193d0.cpp",
+   "old": "unknown_slot41((int)",
+   "new": "unknown_slot41((intptr_t)",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_Captured_00444660.cpp",
+   "old": "unknown_slot41((int)",
+   "new": "unknown_slot41((intptr_t)",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_Find_Exit_Cell_0044a400.cpp",
+   "old": "unknown_slot41((int)",
+   "new": "unknown_slot41((intptr_t)",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_Receive_Message_004397f0.cpp",
+   "old": "unknown_slot41((int)",
+   "new": "unknown_slot41((intptr_t)",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_unknown_slot19_00444340.cpp",
+   "old": "unknown_slot41((int)",
+   "new": "unknown_slot41((intptr_t)",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_unknown_slot281_004442b0.cpp",
+   "old": "unknown_slot41((int)",
+   "new": "unknown_slot41((intptr_t)",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Nearing_Target_004be720.cpp",
+   "old": "unknown_slot41((int)",
+   "new": "unknown_slot41((intptr_t)",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/classes/UnitClass/UnitClass_Per_Cell_Process_006fe610.cpp",
+   "old": "unknown_slot41((int)",
+   "new": "unknown_slot41((intptr_t)",
+   "why": "ObjectClass/BuildingClass slot 41 (0x005D54F0 / Docking_Coord 0x004440E0) takes the docking techno as an int; BuildingClass's helipad/repair-depot branch casts it back (TechnoClass *) and looks it up among the radio contacts (RadioClass 0x00636E70). Natively the int cut the 64-bit address, the lookup never matched, so every aircraft on a multi-dock pad (and every unit at a multi-dock depot) was sent to the building's centre instead of its own dock. The slot's argument is pointer-sized natively; the callers pass (intptr_t). Scout1246 (64/32 audit, Scout1242 finding).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Net2_Encode_Game_Options_005bc940.cpp",
+   "old": "net2_useroptions_a71bdc[strlen(net2_useroptions_a71bdc)-1]=':';",
+   "new": "{ unsigned int length=strlen(net2_useroptions_a71bdc); if(length!=0) net2_useroptions_a71bdc[length-1]=':'; }   /* NATIVE: the empty-list index wrap (Scout1246) */",
+   "why": "The player loop leaves the options text empty when the session player list is empty, and the original then writes ':' at [strlen - 1]: strlen is unsigned 32-bit, so the index is 0xFFFFFFFF and the 32-bit address wraps to the byte before the buffer (0x00A71BDB / 0x00B29AD3), a stray but harmless store. Natively the unsigned index is zero-extended and the store lands 4 GiB past the buffer: the intermittent LAN host fault Build_Game_Options_005bc940+564 (fault address = net2_useroptions + 0xFFFFFFFF, Scout1242 crawl lan-054: the lobby's periodic options send, Net_Join_Dialog 0x005BD070 -> Unknown_005C3810, with the host's list emptied). Natively the stray store before the buffer is skipped; the text is unchanged in every case. Scout1246.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/wonline/Encode_Game_Options_0073ccb0.cpp",
+   "old": "wol_useroptions_b29ad4[strlen(wol_useroptions_b29ad4)-1]=':';",
+   "new": "{ unsigned int length=strlen(wol_useroptions_b29ad4); if(length!=0) wol_useroptions_b29ad4[length-1]=':'; }   /* NATIVE: the empty-list index wrap (Scout1246) */",
+   "why": "The player loop leaves the options text empty when the session player list is empty, and the original then writes ':' at [strlen - 1]: strlen is unsigned 32-bit, so the index is 0xFFFFFFFF and the 32-bit address wraps to the byte before the buffer (0x00A71BDB / 0x00B29AD3), a stray but harmless store. Natively the unsigned index is zero-extended and the store lands 4 GiB past the buffer: the intermittent LAN host fault Build_Game_Options_005bc940+564 (fault address = net2_useroptions + 0xFFFFFFFF, Scout1242 crawl lan-054: the lobby's periodic options send, Net_Join_Dialog 0x005BD070 -> Unknown_005C3810, with the host's list emptied). Natively the stray store before the buffer is skipped; the text is unchanged in every case. Scout1246.",
+   "verified": false
   }
  ]
 }

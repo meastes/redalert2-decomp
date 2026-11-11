@@ -94,10 +94,10 @@ exitcell.X += random; exitcell.Y += random;
                     return 2;
                 }
             } else {
-                if (aircraft->unknown_slot53(&unknown_slot41((int)aircraft), aircraft->Pose_Dir_00417890())) {
+                if (aircraft->unknown_slot53(&unknown_slot41((intptr_t)aircraft), aircraft->Pose_Dir_00417890())) {
                     unknown_slot150(2, aircraft);
                     unknown_slot150(0x18, aircraft);
-                    aircraft->unknown_slot103(unknown_slot41((int)aircraft));
+                    aircraft->unknown_slot103(unknown_slot41((intptr_t)aircraft));
                     aircraft->unknown_5b4 = this;
                     if (unknown_1b0 && !aircraft->Type->AirportBound) {
                         aircraft->Assign_Destination(unknown_1b0, 1);

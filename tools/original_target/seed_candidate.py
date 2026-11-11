@@ -176,6 +176,52 @@ def scalar_partials(body):
     return body
 
 
+def validate_synthetic_storage(body, params=()):
+    """Refuse undeclared Ghidra storage, rather than inventing its width.
+
+    A unique-space temporary has no addressable C++ storage without a declared
+    type. An underscored alias of a declared byte/word slot can cover more of
+    the frame or argument slot than that declaration. Neither spelling proves
+    an extent, overlap, signedness or safe new local. This check only refuses;
+    declared names, members, labels and calls keep their existing handling.
+    """
+    view = code_view(body)
+    if re.search(r'#|\b(?:typedef|using|class|struct|union|enum)\b', view):
+        return
+    rows, comma = scalar_declarations(view)
+    if comma:
+        return
+    slots = {}
+    for kind, name, array in rows:
+        slots.setdefault(name, []).append((kind, array))
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind, None))
+    for match in re.finditer(r'\(\s*(?:__\w+\s+)?\*\s*(\w+)\s*\)\s*\(', view+' '+' '.join(params)):
+        slots.setdefault(match[1], []).append(('', None))
+    narrow = {'char', 'signed char', 'unsigned char', 'uchar', 'byte', 'undefined1',
+              'short', 'signed short', 'unsigned short', 'ushort', 'undefined2', 'bool'}
+    pattern = r'\b(unique0x[0-9a-fA-F]+|_(param_\d+|local_[0-9a-fA-F]+))\b'
+    for match in re.finditer(pattern, view):
+        name = match[1]
+        if name in slots:
+            continue
+        before, after = view[:match.start()].rstrip(), view[match.end():].lstrip()
+        if (before.endswith(('.', '->', '::')) or after.startswith(('(', ':')) or
+                re.search(r'\bgoto\s*$', before)):
+            continue
+        if name.startswith('unique0x'):
+            raise ValueError('Undeclared Ghidra unique storage %s: width and storage are unverified' % name)
+        base = match[2]
+        declarations = slots.get(base, [])
+        if len(declarations) != 1:
+            continue
+        kind, array = declarations[0]
+        if not array and clean_type(kind) in narrow:
+            raise ValueError('Undeclared widened Ghidra storage alias %s for %s %s: '
+                             'extent and overlap are unverified' % (name, kind, base))
+
+
 def scalar_declarations(view):
     """Find simple statement/parameter declarations, including nested scopes.
 
@@ -1069,7 +1115,35 @@ def byte_update_value_safe(value):
     return True
 
 
-def floating_word_store_artifacts(body, params=()):
+_CARRIER_ORIGINAL = {}
+
+
+def native_carrier_stores(body, params, entry, inventory):
+    from seed_carrier_stores import source_groups, inspect_carrier_stores, CarrierRefusal
+    from types import SimpleNamespace
+    api = SimpleNamespace(code_view=code_view, scalar_declarations=scalar_declarations,
+                          param_parts=param_parts, split_args=split_args, INTEGRAL32=INTEGRAL32)
+    groups = source_groups(body, params, api)
+    if groups is None or inventory is None:
+        return set()
+    evidence_root = (REPOSITORY / 'private/original-target-20261020/inventory').resolve()
+    directory = next((p for p in inventory.passes if (p/'decompiled'/('%08x.c'%entry)).is_file()), None)
+    if directory is None or not directory.resolve().is_relative_to(evidence_root):
+        return set()
+    key = REPOSITORY.resolve()
+    if key not in _CARRIER_ORIGINAL:
+        from verify_manifest import Audit
+        _CARRIER_ORIGINAL[key] = (Audit(REPOSITORY, 'private/original-target-20261020/inputs/game.exe'),
+                                  {r['entry'] for r in catalog_io.load(catalog_io.locate(REPOSITORY), references=False)['regions']})
+    audit, accepted = _CARRIER_ORIGINAL[key]
+    try:
+        facts = inspect_carrier_stores(audit, entry, inventory, groups, accepted)
+    except (CarrierRefusal, ValueError, KeyError):
+        return set()
+    return {row['start'] for row in facts['stores']}
+
+
+def floating_word_store_artifacts(body, params=(), native_stores=()):
     """Recover a low DWORD stored in Ghidra's merged double stack carrier.
 
     slot=(double)CONCAT44(slot._4_4_, value) is a storage reconstruction:
@@ -1100,7 +1174,8 @@ def floating_word_store_artifacts(body, params=()):
         if before and before[-1] not in '{;}':
             continue
         slot = match['slot']
-        if slots.get(slot) != [('double', None)]:
+        if (slots.get(slot) != [('double', None)] and
+                not (slots.get(slot) == [('undefined8', None)] and match.start('slot') in native_stores)):
             continue
         opening = match.end()-1
         closing = matching_paren(view, opening)
@@ -1814,6 +1889,112 @@ def equality_type(expression, types):
     return None
 
 
+def function_address_arithmetic(body, params=()):
+    """Lower casted sums of function-address bits, not callable ABIs.
+
+    The i386 export occasionally merges an integer scratch slot with WNDPROC
+    or code*. C++ forbids adding to a function pointer. An explicit 32-bit
+    result cast and a pure, typed integer RHS permit unsigned address-bit
+    arithmetic. Preserve the RHS (including signed division), calls, storage,
+    and every other use of the pointer. Unknown or shadowed types refuse it.
+    """
+    view = code_view(body)
+    if re.search(r'#|\b(?:typedef|using|class|struct|union|enum)\b', view):
+        return body
+    rows, comma = scalar_declarations(view)
+    if comma:
+        return body
+    slots = {}
+    for kind, name, array in rows:
+        slots.setdefault(name, []).append((kind, array))
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind, None))
+    for match in re.finditer(r'(?:^|[;{}\n])\s*[A-Za-z_]\w*(?:\s+[A-Za-z_]\w*)*\s*\(\s*(?:__\w+\s+)?\*\s*(\w+)\s*\)\s*\(', view+'\n'+';\n'.join(params), re.M):
+        slots.setdefault(match[1], []).append(('', None))
+    def kind_of(name):
+        declarations = slots.get(name, [])
+        if len(declarations) != 1 or declarations[0][1]:
+            return ''
+        kind = ' '.join(declarations[0][0].split())
+        if re.search(r'\b(?:volatile|extern|static)\b|&', kind):
+            return ''
+        return re.sub(r'\s*\*\s*', '*', kind)
+    functions = {'WNDPROC', 'code*'}
+    # A local named like a type makes cast interpretation ambiguous.
+    if set(slots) & (INTEGRAL32 | {'WNDPROC', 'code'}):
+        return body
+    def integer_rhs(text):
+        if re.search(r'\+\+|--', text):
+            return False
+        tokens = re.findall(r'0[xX][0-9a-fA-F]+[uUlL]*|[0-9]+[uUlL]*|[A-Za-z_]\w*|\S', text)
+        position = [0]
+        def unary():
+            pos = position[0]
+            if pos == len(tokens):
+                raise ValueError()
+            token = tokens[pos]
+            position[0] += 1
+            if token in ('+', '-'):
+                if unary() != 'int32': raise ValueError()
+                return 'int32'
+            if token == '(':
+                end = pos + 1
+                while end < len(tokens) and re.fullmatch(r'[A-Za-z_]\w*', tokens[end]): end += 1
+                kind = ' '.join(tokens[pos+1:end])
+                if end < len(tokens) and tokens[end] == ')' and kind in INTEGRAL32:
+                    position[0] = end + 1
+                    if unary() not in ('int32', 'bits32'): raise ValueError()
+                    return 'int32'
+                result = expression(0)
+                if position[0] == len(tokens) or tokens[position[0]] != ')': raise ValueError()
+                position[0] += 1
+                return result
+            if re.fullmatch(r'0[xX][0-9a-fA-F]+[uUlL]*|[0-9]+[uUlL]*', token):
+                suffix = re.search(r'[uUlL]*$', token)[0].lower()
+                if suffix not in ('', 'u', 'l', 'ul', 'lu'): raise ValueError()
+                number = token[:-len(suffix)] if suffix else token
+                base = 16 if number.lower().startswith('0x') else 8 if len(number)>1 and number[0]=='0' else 10
+                if int(number, base) > 0xffffffff: raise ValueError()
+                return 'int32'
+            kind = kind_of(token)
+            if kind in INTEGRAL32: return 'int32'
+            if kind in functions or kind.endswith('*') and kind[:-1] in INTEGRAL32:
+                return 'bits32'
+            raise ValueError()
+        precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '%': 2}
+        def expression(minimum):
+            result = unary()
+            while position[0] < len(tokens):
+                op = tokens[position[0]]
+                if precedence.get(op, -1) < minimum: break
+                position[0] += 1
+                other = expression(precedence[op] + 1)
+                if result != 'int32' or other != 'int32': raise ValueError()
+                result = 'int32'
+            return result
+        try:
+            return expression(0) == 'int32' and position[0] == len(tokens)
+        except (ValueError, RecursionError):
+            return False
+    edits = []
+    for match in re.finditer(r'\(\s*([A-Za-z_][\w\s]*?(?:\s*\*)?)\s*\)\s*\(\s*([A-Za-z_]\w*)\s*([+-])(?![+=\->])', view):
+        result_kind = re.sub(r'\s*\*\s*', '*', ' '.join(match[1].split()))
+        if result_kind not in functions | INTEGRAL32 or kind_of(match[2]) not in functions:
+            continue
+        opening = view.rfind('(', match.start(), match.start(2))
+        try:
+            closing = matching_paren(view, opening)
+        except ValueError:
+            continue
+        if not integer_rhs(view[match.end():closing]):
+            continue
+        edits.append((match.start(2), match.end(2), '((unsigned int)%s)' % match[2]))
+    for start, end, replacement in reversed(edits):
+        body = body[:start] + replacement + body[end:]
+    return body
+
+
 def full_pointer_equality(body, params=(), globals_=None):
     types = variable_types(body, params)
     types.update(globals_ or {})
@@ -2432,6 +2613,34 @@ def inventory_call_names(inventory):
     return names
 
 
+def direct_call_aliases(body, params, direct_targets):
+    """Normalize Ghidra func_0x spellings only for observed direct calls.
+
+    A suffix alone is not callee evidence. Local bindings, qualified names,
+    and address-only/mixed uses keep their spelling and remain hypotheses.
+    The existing FUN_ pipeline supplies the prototype and ECX/stack handling.
+    """
+    view = code_view(body)
+    if re.search(r'^\s*#', view, re.M):
+        return body
+    declared = set(variable_types(body, params))
+    declared.update(name for _, name, _ in scalar_declarations(view)[0])
+    aliases = set(re.findall(r'\bfunc_0x[0-9a-fA-F]{8}\b', view))
+    edits = []
+    for name in sorted(aliases - declared):
+        target = int(name[7:], 16)
+        if target not in direct_targets or 'FUN_%08x' % target in declared:
+            continue
+        uses = list(re.finditer(r'\b' + re.escape(name) + r'\b', view))
+        if any(view[:use.start()].rstrip().endswith(('::', '.', '->')) or
+               not re.match(r'\s*\(', view[use.end():]) for use in uses):
+            continue
+        edits.extend((use.start(), use.end(), 'FUN_%08x' % target) for use in uses)
+    for start, end, replacement in sorted(edits, reverse=True):
+        body = body[:start] + replacement + body[end:]
+    return body
+
+
 def named_calls(body, inventory, direct_targets, excluded=()):
     """Bind duplicate function names using the caller's original direct targets."""
     names = inventory_call_names(inventory)
@@ -2451,6 +2660,83 @@ def named_calls(body, inventory, direct_targets, excluded=()):
                                  (name, target))
         result[name] = next(iter(addresses))
     return result
+
+
+
+def qualified_constructor_calls(body, params, inventory, direct_targets):
+    """Lower pointer-only Ghidra constructor tags through the member pipeline.
+
+    A library tag is not a recovered class identity. Require one observed
+    direct target, an explicit matching thiscall export and consistent native
+    stack cleanup. Only erase the receiver's pointer cast; never invent class
+    storage, infer ECX, change argument bits or add an overload/body.
+    """
+    view = code_view(body)
+    if re.search(r'^\s*#', view, re.M):
+        return body, {}
+    pattern = re.compile(r'(?<![\w:])(?P<owner>[A-Za-z_]\w*)\s*::\s*(?P=owner)\s*\(')
+    groups = {}
+    for match in pattern.finditer(view):
+        groups.setdefault(match['owner'], []).append(match)
+    bindings = inventory_call_names(inventory) if groups else {}
+    declarations, comma = scalar_declarations(view)
+    if comma:
+        return body, {}
+    variables = set(variable_types(body, params))
+    variables.update(name for _, name, _ in declarations)
+    edits, prototypes = [], {}
+    scalar = INTEGRAL32 | {'float'}
+    for owner, matches in groups.items():
+        addresses = set(bindings.get(owner, ())).intersection(direct_targets)
+        if len(addresses) != 1 or owner in variables:
+            continue
+        target = next(iter(addresses))
+        name = 'FUN_%08x' % target
+        if name in variables or re.search(r'\(\s*\*\s*(?:'+re.escape(owner)+'|'+name+r')\b', view+' '+' '.join(params)):
+            continue
+        exported = code_view(inventory.decompiled(target) or '')
+        header = re.search(r'^\s*void\s+__thiscall\s+'+re.escape(owner)+r'\s*::\s*'+re.escape(owner)+r'\s*\(([^)]*)\)\s*$', exported, re.M)
+        if not header:
+            continue
+        c_params = split_params(header[1])
+        if not c_params or re.sub(r'\s+', '', param_parts(c_params[0])[0]) != owner+'*':
+            continue
+        if any(clean_type(param_parts(p)[0]) not in scalar for p in c_params[1:]):
+            continue
+        if stack_cleanup(inventory.function(target)[1]) != 4 * (len(c_params)-1):
+            continue
+        changes = []
+        for match in matches:
+            before = view[:match.start()].rstrip()
+            if (before.endswith(('.', '->', '::', 'return')) or
+                    before and before[-1] in '=(),!&|+-*<>?:'):
+                break
+            opening = match.end()-1
+            closing = matching_paren(view, opening)
+            args = split_args(body[opening+1:closing])
+            if len(args) != len(c_params):
+                break
+            cast = re.match(r'^\(\s*'+re.escape(owner)+r'\s*\*\s*\)', code_view(args[0]))
+            if not cast or args[0][:cast.end()] != code_view(args[0])[:cast.end()]:
+                break
+            # No comment in the qualified tag is discarded.
+            if body[match.start():opening+1] != view[match.start():opening+1]:
+                break
+            args[0] = '(void *)'+args[0][cast.end():]
+            changes.append((match.start(), closing+1, name+'('+', '.join(args)+')'))
+        else:
+            changed = body
+            for lo, hi, text in reversed(changes):
+                changed = changed[:lo]+text+changed[hi:]
+            # Remaining uses may require class layout: arrays, by-value slots,
+            # sizeof, a pointer variable, or an unhandled/mixed qualified use.
+            if re.search(r'\b'+re.escape(owner)+r'\b', code_view(changed+' '+' '.join(params))):
+                continue
+            edits.extend(changes)
+            prototypes[target] = ('void', '__thiscall', c_params)
+    for lo, hi, text in sorted(edits, reverse=True):
+        body = body[:lo]+text+body[hi:]
+    return body, prototypes
 
 
 def named_thunk_values(body, entry, inventory, params=()):
@@ -2538,6 +2824,27 @@ def fit_convention(conv, params, popped, has_this):
         raise ValueError('Non-DWORD return cleanup %d cannot be represented by the generated i386 C++ ABI; '
                          'entry and prototype remain unverified' % popped)
     fixed = {'__thiscall': 1, '__fastcall': 2}.get(conv, 0) if has_this or conv == '__fastcall' else 0
+    if conv == '__fastcall' and popped > 0 and len(params) < fixed:
+        # The first two DWORD-or-smaller arguments occupy ECX/EDX. If Ghidra
+        # exports only ECX, appending stack placeholders first would put one
+        # in EDX and make the generated RET pop four bytes too few.
+        # Do not apply this correction to FP/by-value/unknown parameters:
+        # those do not establish occupied integer-register positions.
+        register_scalars = INTEGRAL32 | POINTER_ALIASES | {
+            'bool', 'char', 'signed char', 'unsigned char', 'byte', 'uchar',
+            'short', 'signed short', 'unsigned short', 'ushort',
+            'undefined1', 'undefined2'}
+        kinds = [param_parts(p)[0].strip() for p in params]
+        if any(kind not in register_scalars and '*' not in kind for kind in kinds):
+            raise ValueError('Missing fastcall register positions with unverified parameter representation')
+        names = {param_parts(p)[1] for p in params}
+        params = list(params)
+        for slot in range(len(params), fixed):
+            name = 'unused_fastcall_register_%d' % slot
+            while name in names:
+                name += '_'
+            names.add(name)
+            params.append('int ' + name)
     stack = params[fixed:]
     if popped == 0 and conv == '__stdcall' and stack:
         return '__cdecl', params
@@ -2926,6 +3233,10 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     text = inventory.decompiled(entry)
     if text is None:
         raise ValueError('No Ghidra export for %08x' % entry)
+    from seed_fp_bitview import optional_raw_scalar
+    text, raw_scalar_notes = optional_raw_scalar(entry,text,inventory,REPOSITORY,globals())
+    from seed_integer_candidate import optional_integer_candidate
+    text, integer_candidate_notes = optional_integer_candidate(entry,text,inventory,REPOSITORY,globals())
     alias_imports = {}
     if _import_aliases:
         macros = set(re.findall(r'^\s*#\s*define\s+(\w+)',
@@ -2973,34 +3284,66 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     conv, params = fit_convention(conv, params, stack_cleanup(inventory.function(entry)[1]),
                                   conv == '__thiscall')
     body = nonnegative_tests(reindent(text[end:].strip()))
+    frozen_body = body
+    from seed_capture_native import optional_capture
+    from types import SimpleNamespace
+    body, capture_notes = optional_capture(body, params, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_packed_value import optional_packed_copy
+    body, packed_notes = optional_packed_copy(body, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_recursive_forwarding import optional_recursive_forwarding
+    body, recursive_notes = optional_recursive_forwarding(body, name, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_recursive_diamond import optional_recursive_diamond
+    body, diamond_notes = optional_recursive_diamond(body, name, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_height_coordinate import optional_height_coordinate
+    body, height_prototypes, height_headers, height_notes = optional_height_coordinate(
+        body, frozen_body, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_rect_scan import optional_rect_scan
+    body, params, rect_headers, rect_notes = optional_rect_scan(
+        body, frozen_body, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    validate_synthetic_storage(body, params)
     body = large_integer_member_artifacts(body, params)
     body = normalize_import_exrefs(body)
     body, labels = local_labels(body)
     body = terminal_label_statements(body)
     body, switch_notes = indexed_switch_artifacts(body, entry, params)
     owners = ecx_owners(inventory.function(entry)[1])
+    body = direct_call_aliases(body, params, owners)
     body = nan_artifacts(body, params, inventory_call_names(inventory) if re.search(r'\bNAN\s*\(', code_view(body)) else ())
-    body = floating_word_store_artifacts(body, params)
+    body = floating_word_store_artifacts(body, params, native_carrier_stores(body, params, entry, inventory))
+    from seed_wide_partial_stores import low_word_store_hypotheses
+    from types import SimpleNamespace
+    body, wide_partial_notes = low_word_store_hypotheses(body, params, SimpleNamespace(**globals()))
+    from seed_opaque_fp_storage import optional_fp_storage
+    body, opaque_fp_notes = optional_fp_storage(body, params, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
     body = partial_byte_update_artifacts(body, params)
+    from seed_dword_partials import low24_store_hypotheses
+    body, low24_notes = low24_store_hypotheses(body, params, SimpleNamespace(**globals()))
     body = byte_update_artifacts(body, params)
     body, word_store_notes = word_store_artifacts(body, params, entry, inventory)
     body = stack_artifacts(extend_artifacts(concat_artifacts(body)), params, conv)
     body = LABEL.sub(lambda m: m.group(1) + re.sub(r'\W', '_', m.group(2)) + m.group(3), body)
     body = RAM.sub(lambda m: '(*(%s *)0x%s)' % (RAM_TYPES.get(m.group(1), 'int'), m.group(2)), body)
     body = input_record_byte_partials(body, params, ret)
+    from seed_pointer_storage import validate_pointer_storage
+    validate_pointer_storage(body, params, SimpleNamespace(**globals()))
     body = scalar_partials(body)
     body = array_byte_partials(body, params)
     body, scalar_view_notes = scalar_address_views(body, params)
     body, rtti_notes = rtti_address_labels(body)
-    declarations, notes = [], list(rtti_notes) + switch_notes + scalar_view_notes + word_store_notes
+    abi_forwards = set(height_headers) | set(rect_headers)
+    declarations, notes = [], list(rtti_notes) + switch_notes + scalar_view_notes + word_store_notes + raw_scalar_notes + integer_candidate_notes + wide_partial_notes + opaque_fp_notes + capture_notes + low24_notes + packed_notes + recursive_notes + diamond_notes + height_notes + rect_notes
     this_name = param_parts(params[0])[1] if conv == '__thiscall' and params else None
+    body, constructor_prototypes = qualified_constructor_calls(body, params, inventory, owners)
     for callee in sorted(set(CALLEE.findall(code_view(body))) - {name}):
         address = int(callee[4:], 16)
         if address in accepted:
             notes.append('//   %s -> %s' % (callee, accepted[address]))
         callee_text = inventory.decompiled(address)
         try:
-            c_ret, c_conv, _, c_params, _ = parse_header(callee_text or '')
+            if address in constructor_prototypes:
+                c_ret, c_conv, c_params = constructor_prototypes[address]
+            else:
+                c_ret, c_conv, _, c_params, _ = parse_header(callee_text or '')
         except ValueError:
             declarations.append('extern void %s(...);  // no Ghidra prototype' % callee); continue
         popped = stack_cleanup(inventory.function(address)[1])
@@ -3008,6 +3351,18 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
             c_conv = '__stdcall'          # callee pops its own arguments
         elif popped == 0 and c_conv == '__stdcall':
             c_conv = '__cdecl'
+        from seed_scalar_fp import recover as recover_scalar_fp
+        from types import SimpleNamespace
+        fp_view = recover_scalar_fp(REPOSITORY, inventory, entry, address, body, params,
+                                    (c_ret, c_conv, c_params), accepted, SimpleNamespace(**globals()))
+        if not fp_view:
+            from seed_scalar_pairs import recover_pairs
+            fp_view = recover_pairs(REPOSITORY, inventory, entry, address, body, params,
+                                    (c_ret, c_conv, c_params), accepted, SimpleNamespace(**globals()))
+        if fp_view:
+            body = fp_view['body']
+            c_ret, c_conv, c_params = fp_view['prototype']
+            notes.append(fp_view['note'])
         # The original's ECX load before each call names an owner Ghidra's
         # text dropped: one global object for every site, or this function's
         # own `this` kept in a register.
@@ -3021,6 +3376,23 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
                     c_conv, c_params = '__thiscall', ['void *this_'] + list(c_params)
             elif this_name:
                 hint = this_name
+        if address in height_prototypes:
+            c_ret, c_conv, c_params = height_prototypes[address]
+        from seed_callee_abi import accepted_member_view
+        from types import SimpleNamespace
+        abi = accepted_member_view(REPOSITORY, inventory, entry, address, body, params,
+                                   (c_ret, c_conv, c_params), this_name, accepted,
+                                   SimpleNamespace(**globals()))
+        if not abi:
+            from seed_wide_callee_abi import accepted_wide_member_view
+            abi = accepted_wide_member_view(REPOSITORY, inventory, entry, address, body, params,
+                                           (c_ret, c_conv, c_params), this_name, accepted,
+                                           SimpleNamespace(**globals()))
+        if abi:
+            c_ret, c_conv, c_params = abi['prototype']
+            hint = abi.get('owner', this_name)
+            abi_forwards.update(abi['forwards'])
+            notes.append(abi['note'])
         body, lines = declare_callee(body, callee, (c_ret, c_conv, c_params), hint)
         declarations.extend(lines)
     if list(call_sites(body, name)):
@@ -3067,7 +3439,7 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     body = unsigned_pointer_ordering(body, params, global_types)
     body = primitive_pointer_ordering(body, params, global_types)
     body = cast_storage_boundaries(body, params, global_types)
-    body = address_stores(cast_assignments(body, params))
+    body = function_address_arithmetic(address_stores(cast_assignments(body, params)), params)
     body = return_boundaries(body, ret)
     if conv == '__thiscall' and params:
         this_type, this_name = param_parts(params[0])
@@ -3088,7 +3460,7 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
         except AliasRefusal:
             return seed(entry, inventory, accepted, _import_aliases=False, _typed=_typed)
     result = '\n'.join(documentation(entry, inventory, text[start:end].strip(), notes) +
-                     [MARKER, INCLUDE, '', 'namespace seed_%08x {' % entry, '',
+                     [MARKER, INCLUDE, ''] + (sorted(abi_forwards)+[''] if abi_forwards else []) + ['namespace seed_%08x {' % entry, '',
                       preamble, ''] +
                      (declarations + [''] if declarations else []) +
                      [definition.rstrip(), '', '}  // namespace seed_%08x' % entry, ''])
@@ -3098,6 +3470,9 @@ def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
         variables=variable_types(text[end:],params)
         result,_=adapt_seed(result,text,entry,owner,schema,variables,
                             lambda body:cast_assignments(body,params),placeholder_types(inventory.passes,entry),static)
+    if entry not in accepted:
+        from seed_bullet_ai import optional_bullet_ai
+        result = optional_bullet_ai(result, entry, inventory, REPOSITORY, accepted)
     return result
 
 

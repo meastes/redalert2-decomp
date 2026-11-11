@@ -108,28 +108,57 @@ class SharedTypes:
     def __init__(self, directory):
         self.directory = Path(directory)
         choices = {}
+        from seed_shared_preprocessor import structural_views
+        conditional_ambiguous = set()
         for path in sorted(self.directory.glob('*.hpp')):
             text = path.read_text(encoding='utf-8')
-            view = re.sub(r"^[ \t]*#[^\n]*", lambda m: " " * len(m[0]), code_view(text), flags=re.M)
-            for match in _CLASS.finditer(view):
-                opening = match.end() - 1
-                closing = _closing(view, opening)
-                body = view[opening + 1:closing]
-                access = 'public' if match[1] == 'struct' else 'private'
-                fields = {}
-                for statement, access in _member_statements(body, access):
-                    field = _FIELD.match(statement + ';')
-                    if field and '(' not in statement and not re.match(r'^\s*(?:typedef|static|friend|using)\b', statement):
-                        kind = field[1].strip()
-                        if kind:
-                            fields[field[2]] = Field(field[2], kind, access, field[3])
-                bases = tuple(type_name(re.sub(r'\b(?:public|protected|private|virtual)\b', '', b))
-                              for b in (match[3] or '').split(',') if b.strip())
-                record = Record(match[2], 'shared/' + path.name, bases, fields, tuple(_methods(text[opening+1:closing], body)), bool(re.search(r'\bvirtual\b', body)))
-                choices.setdefault(record.name, []).append(record)
+            # This index consumes class declarations, not typedef/macro-only
+            # support headers (which may be supplied as include fragments).
+            if not _CLASS.search(code_view(text)):
+                continue
+            variants = []
+            for projected in structural_views(text, code_view):
+                text_view = projected
+                view = code_view(projected)
+                variant = {}
+                for match in _CLASS.finditer(view):
+                    opening = match.end() - 1
+                    closing = _closing(view, opening)
+                    body = view[opening + 1:closing]
+                    access = 'public' if match[1] == 'struct' else 'private'
+                    fields = {}
+                    for statement, access in _member_statements(body, access):
+                        field = _FIELD.match(statement + ';')
+                        if field and '(' not in statement and not re.match(r'^\s*(?:typedef|static|friend|using)\b', statement):
+                            kind = field[1].strip()
+                            if kind:
+                                fields[field[2]] = Field(field[2], kind, access, field[3])
+                    bases = tuple(type_name(re.sub(r'\b(?:public|protected|private|virtual)\b', '', b))
+                                  for b in (match[3] or '').split(',') if b.strip())
+                    record = Record(match[2], 'shared/' + path.name, bases, fields, tuple(_methods(text_view[opening+1:closing], body)), bool(re.search(r'\bvirtual\b', body)))
+                    variant.setdefault(record.name, []).append(record)
+                variants.append(variant)
+            names = set().union(*(variant.keys() for variant in variants))
+            for name in names:
+                rows = [variant.get(name, []) for variant in variants]
+                def layout(record):
+                    return (record.bases, tuple(sorted((f.name, f.kind, f.access, f.dimensions) for f in record.fields.values())), record.polymorphic)
+                signatures = [frozenset(layout(record) for record in records) for records in rows]
+                if any(signature != signatures[0] for signature in signatures[1:]):
+                    conditional_ambiguous.add(name)
+                    continue
+                # Only native-address-bearing methods common to every projection
+                # may supply an ABI. Ordinary balanced alternatives retain their
+                # previous combined view.
+                common = set.intersection(*(set(method for record in records for method in record.methods) for records in rows))
+                for record in rows[0]:
+                    record.methods = tuple(method for method in record.methods if method in common)
+                    choices.setdefault(record.name, []).append(record)
         self.records = {}
-        self.ambiguous = set()
+        self.ambiguous = set(conditional_ambiguous)
         for name, records in choices.items():
+            if name in conditional_ambiguous:
+                continue
             # Full declarations have more fields than intentional light views/stubs.
             largest = max(len(r.fields) for r in records)
             best = [r for r in records if len(r.fields) == largest]

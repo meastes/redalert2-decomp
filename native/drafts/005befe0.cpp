@@ -293,7 +293,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
                     }
                 }
             } else {
-                request->Text = Entry_Type_Name_005c9870((NodeNameType *)unknown_combo_selected_data_005c99d0(window, control, request->Item));
+                request->Text = Entry_Type_Name_005c9870((NodeNameType *)Native_Entry_From_Handle(unknown_combo_selected_data_005c99d0(window, control, request->Item)));   // NATIVE: slot-entry handle (Scout1242)
             }
         }
         return 1;

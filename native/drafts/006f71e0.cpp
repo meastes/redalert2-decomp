@@ -15,12 +15,12 @@ void __fastcall Unknown_006F71E0(char const *name)
         int count = Technos.Count();
         for (int index = 0; index < count; index++) {
             TechnoClass *techno = Technos[index];
-            if (test(techno, (int)name)) {
+            if (test(techno, (intptr_t)name   /* NATIVE: pointer-sized argument (Scout1242) */)) {
                 list->Add(techno);
             }
         }
     } else {
-        list = Unknown_006F69F0(test, (int)name);
+        list = Unknown_006F69F0(test, (intptr_t)name   /* NATIVE: pointer-sized argument (Scout1242) */);
     }
     int total = list->Count();
     for (int index = 0; index < total; index++) {

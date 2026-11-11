@@ -12,6 +12,7 @@
 #include "shared/display.hpp"
 #include "shared/object.hpp"
 #include "shared/object_type.hpp"
+void *Native_Pointer_From_Handle(int handle);   // NATIVE: native/link/native_pointer_handles.cpp
 #include "shared/shape_file.hpp"
 #include "shared/tactical.hpp"
 // @ref ?unknown_AlphaShapeClass_list_0083c648@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A=0083c648
@@ -45,7 +46,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                 int y1 = r1.Y;
                 ShapeFileStruct const *shape = unknown_AlphaShapeClass_list_0083c648[index]->Image;
                 if (shape == 0) {
-                    unknown_AlphaShapeClass_list_0083c648[index]->Image = (ShapeFileStruct *)unknown_AlphaShapeClass_list_0083c648[index]->Owner->Class_Of()->unknown_ac;
+                    unknown_AlphaShapeClass_list_0083c648[index]->Image = (ShapeFileStruct *)Native_Pointer_From_Handle(unknown_AlphaShapeClass_list_0083c648[index]->Owner->Class_Of()->unknown_ac);   // NATIVE: 32-bit handle (Scout1246)
                     shape = unknown_AlphaShapeClass_list_0083c648[index]->Image;
                 }
                 Rect shape_rect = shape->Get_Frame_Rect(0);

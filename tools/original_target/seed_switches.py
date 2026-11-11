@@ -123,7 +123,7 @@ def inspect_index_switch(audit, entry, dispatch, table, accepted_entries=()):
     gap = table-code_end
     require(0 <= gap <= 3, 'Unknown gap before the switch table')
     alignment = audit.original(code_end, gap) if gap else b''
-    require(all(byte in (0x90, 0xcc) for byte in alignment) or alignment == b'\x8b\xff',
+    require(all(byte in (0x90, 0xcc) for byte in alignment) or alignment in (b'\x8b\xff', b'\x8d\x49\x00'),
             'Unidentified original internal alignment')
     return dict(entry=entry, dispatch=dispatch, table=table, targets=targets,
                 original_code_bytes=code_end-entry, internal_alignment_bytes=gap,
