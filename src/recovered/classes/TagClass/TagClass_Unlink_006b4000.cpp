@@ -5,11 +5,11 @@
 bool TagClass::Unlink(TriggerClass *trigger)
 {
     if (trigger != 0) {
-        if (AttachedTrigger == trigger) {
-            AttachedTrigger = trigger->Next;
+        if (Trigger == trigger) {
+            Trigger = trigger->Next;
             return true;
         }
-        TriggerClass *trigptr = AttachedTrigger;
+        TriggerClass *trigptr = Trigger;
         while (trigptr != 0) {
             if (trigptr->Next == trigger) {
                 trigptr->Next = trigger->Next;

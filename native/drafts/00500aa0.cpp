@@ -29,7 +29,7 @@ void Native_Building_Arm_C4_00500AA0(BuildingClass *building, int countdown, Abs
 // @ref ?Unknown_004536D0@BuildingClass@@=004536d0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Spring@TagClass@@=006b3df0
-// @ref ?unknown_func_6b41f0@TagClass@@=006b41f0
+// @ref ?Is_To_Inherit@TagClass@@=006b41f0
 // @ref ?Unknown_006D9610@TechnoClass@@=006d9610
 // @ref ?unknown_slot93@FootClass@@=004c7220
 
@@ -101,7 +101,7 @@ void InfantryClass::unknown_slot93(int why)
                         destination->unknown_slot222(House,1);
                         destination->unknown_290=Type->ArrayIndex;
                         destination->unknown_slot173();
-                        if (unknown_34 && unknown_34->unknown_func_6b41f0()) destination->Attach_Tag(unknown_34);
+                        if (unknown_34 && unknown_34->Is_To_Inherit()) destination->Attach_Tag(unknown_34);
                         if (unknown_34) unknown_34->Spring(48,this,unknown_geometry_k,false,0);
                         unknown_slot60();
                         return;
@@ -156,7 +156,7 @@ void InfantryClass::unknown_slot93(int why)
                             }
                             if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                             building->House->unknown_18b=true;
-                            if (unknown_34 && unknown_34->unknown_func_6b41f0()) building->Attach_Tag(unknown_34);
+                            if (unknown_34 && unknown_34->Is_To_Inherit()) building->Attach_Tag(unknown_34);
                             building->unknown_slot222(House,1);
                             building->unknown_290=Type->ArrayIndex;
                             building->unknown_slot173();

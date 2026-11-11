@@ -3,7 +3,7 @@
 // unless +0x290 is set and the tag declines (0x006B41F0); then the techno
 // behaviour.
 #include "shared/unit.hpp"
-// @ref ?unknown_func_6b41f0@TagClass@@QBE_NXZ=006b41f0
+// @ref ?Is_To_Inherit@TagClass@@QBE_NXZ=006b41f0
 // @ref ?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z=006b3df0
 // @ref ?unknown_slot55@TechnoClass@@UAEXPAV1@@Z=006ced90
 // @ref _unknown_geometry_k=00ad0488
@@ -12,7 +12,7 @@
 
 void UnitClass::unknown_slot55(TechnoClass *killer)
 {
-    if (unknown_34 && (unknown_290 == -1 || !unknown_34->unknown_func_6b41f0())) {
+    if (unknown_34 && (unknown_290 == -1 || !unknown_34->Is_To_Inherit())) {
         if (killer != 0) {
             unknown_34->Spring(7, this, unknown_geometry_k, 0, 0);
         }

@@ -107,7 +107,7 @@ void Clear_Scenario_0065d370()
                 if (old_value != false) {
                     state.Value = false;
                     scenario->unknown_222e = true;
-                    TagClass::unknown_func_6b4220(variable);
+                    TagClass::All_Timer_Global_Reset(variable);
                 }
         }
     }

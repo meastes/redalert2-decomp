@@ -105,7 +105,7 @@ void FootClass::unknown_slot93(int why)
                     cellptr = (UnknownCellClass *)&Map[Cell(index + Map.unknown_120, y)];
                     tag = cellptr->unknown_3c;
                     if (tag != 0) {
-                        if (tag->unknown_func_6b3da0()) {
+                        if (tag->Is_Cross_Horizontal()) {
                             tag->Spring(0x19, this, unknown_slot104());
                         }
                     }
@@ -116,7 +116,7 @@ void FootClass::unknown_slot93(int why)
                 for (int index = 0; index < Map.unknown_12c; index++) {
                     tag = ((UnknownCellClass *)&Map[Cell(x, index + Map.unknown_124)])->unknown_3c;
                     if (tag != 0) {
-                        if (tag->unknown_func_6b3d90()) {
+                        if (tag->Is_Cross_Vertical()) {
                             tag->Spring(0x1A, this, unknown_slot104());
                         }
                     }
@@ -126,7 +126,7 @@ void FootClass::unknown_slot93(int why)
             for (unknown_tag_position_a35e24 = 0; unknown_tag_position_a35e24 < unknown_tags_866238.Count(); unknown_tag_position_a35e24++) {
                 tag = unknown_tags_866238[unknown_tag_position_a35e24];
                 if (tag != 0) {
-                    if (tag->unknown_func_6b3db0()) {
+                    if (tag->Is_Enters_Zone()) {
                         if (Map.Unknown_0054F7C0(tag->Get_Cell(), Coord_Cell(unknown_slot19(0)), unknown_slot32()->MovementZone, ((UnknownCellClass *)&Map[tag->Get_Cell()])->Flags >> 8 & 1, unknown_slot46(0), false)) {
                             tag->Spring(0x18, this, Coord_Cell(unknown_slot19(0)));
                         }

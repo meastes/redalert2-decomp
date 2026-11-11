@@ -4,8 +4,8 @@
 
 TagClass *__fastcall TagClass::Find_Or_Make(TagTypeClass *type)
 {
-    for (int index = 0; index < unknown_TagClass_list_00abfe48.Count(); index++) {
-        TagClass *tag = unknown_TagClass_list_00abfe48[index];
+    for (int index = 0; index < Tags.Count(); index++) {
+        TagClass *tag = Tags[index];
         if (tag->Class == type) {
             return tag;
         }

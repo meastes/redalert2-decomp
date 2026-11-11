@@ -14,7 +14,7 @@
 // @ref ?Register_Success@AITriggerTypeClass@@QAEXXZ=0041dfb0
 // @ref ?Register_Failure@AITriggerTypeClass@@QAEXXZ=0041e070
 // @ref ?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z=006b8fb0
-// @ref ?unknown_func_6b3cc0@TagClass@@QAEXXZ=006b3cc0
+// @ref ?Mark_To_Delete@TagClass@@QAEXXZ=006b3cc0
 // @ref ?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z=006ecb90
 // @ref ??1AbstractClass@@UAE@XZ=0040ff90
 // @ref ?unknown_flag_a40958@@3_NA=00a40958
@@ -45,8 +45,8 @@ TeamClass::~TeamClass()
         }
         Class->unknown_d4--;
         if (Tag != 0) {
-            if (Tag->unknown_2c == 0) {
-                Tag->unknown_func_6b3cc0();
+            if (Tag->AttachCount == 0) {
+                Tag->Mark_To_Delete();
             }
             Tag = 0;
         }

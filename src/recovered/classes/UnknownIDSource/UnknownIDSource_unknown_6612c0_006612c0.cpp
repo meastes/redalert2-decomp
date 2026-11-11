@@ -12,7 +12,7 @@ bool UnknownIDSource::unknown_6612c0(unsigned index, bool value)
         if (old != value) {
             Variables[index].Value = value;
             unknown_222e = true;
-            TagClass::unknown_func_6b4220(index);
+            TagClass::All_Timer_Global_Reset(index);
         }
         return old;
     }

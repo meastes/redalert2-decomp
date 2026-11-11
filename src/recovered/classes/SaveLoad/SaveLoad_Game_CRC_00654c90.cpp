@@ -119,8 +119,8 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < unknown_TagTypeClass_list_00abfea0.Count(); index++) {
         unknown_TagTypeClass_list_00abfea0[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_TagClass_list_00abfe48.Count(); index++) {
-        unknown_TagClass_list_00abfe48[index]->Compute_CRC(crc);
+    for (index = 0; index < Tags.Count(); index++) {
+        Tags[index]->Compute_CRC(crc);
     }
     for (index = 0; index < TriggerTypes.Count(); index++) {
         TriggerTypes[index]->Compute_CRC(crc);

@@ -4,8 +4,8 @@
     "id": "population-4418",
     "inventory_sha256": "a03052fc790966c1d618ec4bcb4e056a8de953e628f903008437cc6eb0dd46a3",
     "gaps_sha256": "08e88490cf94f19ffab21b058b78a99b27facc0a0edb95695b0560f4d05ac3ae",
-    "historical_population_sha256": "ad82fcd5fac78e5de14e32ad358ea34465ed4e7ce61ed6fc9d7c36b424f5b9be",
-    "historical_acceptance_sha256": "be5ac5d3bede6c79778e4eb43950ad4a8a095bbfefdd53c489a01f71721dc61a"
+    "historical_population_sha256": "62bbac6ca9fd95c4d81187f2bf8e87f6508637d4874827392676b13969d1a7e1",
+    "historical_acceptance_sha256": "0b63251832617999f58c61c47cf787e0fde79a4d8d225a1c447b70d4a7bc81f7"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -9147,8 +9147,8 @@
     "?unknown_slot28@BuildingClass@@UAEHPAVObjectClass@@_N@Z": 4470944,
     "?Set_Wall_Owner@CellClass@@QAEXXZ": 4662432,
     "?Tiberium_Adjust@CellClass@@QAEH_N@Z": 4680608,
-    "?unknown_func_6b3d90@TagClass@@QBE_NXZ": 7028112,
-    "?unknown_func_6b3da0@TagClass@@QBE_NXZ": 7028128,
+    "?Is_Cross_Vertical@TagClass@@QBE_NXZ": 7028112,
+    "?Is_Cross_Horizontal@TagClass@@QBE_NXZ": 7028128,
     "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABUSurfaceRegion@@@Z": 6922704,
     "?Reset@VoxelDrawSystem@@YAXXZ": 7434704,
     "?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ": 7436512,
@@ -35117,7 +35117,7 @@
         {
           "offset": 302,
           "kind": 20,
-          "symbol": "?unknown_func_6b3da0@TagClass@@QBE_NXZ",
+          "symbol": "?Is_Cross_Horizontal@TagClass@@QBE_NXZ",
           "target": 7028128,
           "addend": 0,
           "resolved": 1477006
@@ -35165,7 +35165,7 @@
         {
           "offset": 428,
           "kind": 20,
-          "symbol": "?unknown_func_6b3d90@TagClass@@QBE_NXZ",
+          "symbol": "?Is_Cross_Vertical@TagClass@@QBE_NXZ",
           "target": 7028112,
           "addend": 0,
           "resolved": 1476864
@@ -35251,7 +35251,7 @@
           "resolved": 61263
         }
       ],
-      "source_sha256": "ab4e1fe52be136d2c9fdd6a3b35874f89385fb84acbdbfadb0812db39d974f63",
+      "source_sha256": "7d83644f32f58bd5e015916b80bf5fef80412ad5199a565a29faa33ad82e144a",
       "source": "src/recovered/classes/MapClass/MapClass_Overpass_0054b2e0.cpp",
       "population": "population-4418",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

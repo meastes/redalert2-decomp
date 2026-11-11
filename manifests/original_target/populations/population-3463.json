@@ -4,8 +4,8 @@
     "id": "population-3463",
     "inventory_sha256": "a3c60baecfad77f348b0e3e170d72a077b03542638f4cc6fccf85d32a5965eaf",
     "gaps_sha256": "056a1f15da5301a374d420e771bd033f508a67a332a8a278e663431d39c55408",
-    "historical_population_sha256": "a2cc7dbbc7057b1677bb301241f562d2ab7f5b371fc74c946c679bdcc078e543",
-    "historical_acceptance_sha256": "276cdbad537f75de60a81ea51663f1392eda1ed6281b386dac6a327b0553470d"
+    "historical_population_sha256": "f5c359e394332d8f74ee3e7d66059a26c19e89b6483e19d1485d4cf0504f50d2",
+    "historical_acceptance_sha256": "ac05df3e694a713818ce365c04e60606107cd56afa76ea535fb93f53a6178374"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5523,7 +5523,7 @@
     "?Clear@?$VectorClass@PAVTActionClass@@@@UAEXXZ": 7025648,
     "?get@Leaf_6b3560@@QAEPAXI@Z": 7026016,
     "?get@Leaf_6b35b0@@QAEPAXI@Z": 7026096,
-    "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
+    "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
     "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
     "?Size_Of@TagClass@@UBEHXZ": 7029440,
     "?Kind_Of@TagClass@@UBEHXZ": 7029456,
@@ -6254,7 +6254,7 @@
     "?Is_Available@RAMFileClass@@UAE_NH@Z": 6521824,
     "?Set_Date_Time@RAMFileClass@@UAE_NK@Z": 6522432,
     "??RRandomClass@@QAEHXZ": 6522624,
-    "?unknown_func_6b3d20@TagClass@@QBE_NXZ": 7028000,
+    "?Is_Marked_To_Delete@TagClass@@QBE_NXZ": 7028000,
     "?Count@ToolTipManager@@QBEHXZ": 7256144,
     "?unknown_func_6ed9f0@TriggerClass@@QBE_NXZ": 7264752,
     "?Z_Gradient@TunnelLocomotionClass@@UAGHXZ": 7279040,
@@ -7049,23 +7049,23 @@
     "??0TriggerClass@@QAE@PAVTriggerTypeClass@@@Z": 7262752,
     "?unknown_flag_a40d04@@3_NA": 10751236,
     "?As_Pointer@HouseClass@@SIPAV1@H@Z": 5166944,
-    "?unknown_func_6b3cc0@TagClass@@QAEXXZ": 7027904,
+    "?Mark_To_Delete@TagClass@@QAEXXZ": 7027904,
     "?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z": 7028016,
     "?Get_Cell@TagClass@@QBE?AVCell@@XZ": 7028096,
-    "?unknown_func_6b3d90@TagClass@@QBE_NXZ": 7028112,
-    "?unknown_func_6b3da0@TagClass@@QBE_NXZ": 7028128,
-    "?unknown_func_6b3db0@TagClass@@QBE_NXZ": 7028144,
-    "?unknown_func_6b3dc0@TagClass@@QBE_NXZ": 7028160,
+    "?Is_Cross_Vertical@TagClass@@QBE_NXZ": 7028112,
+    "?Is_Cross_Horizontal@TagClass@@QBE_NXZ": 7028128,
+    "?Is_Enters_Zone@TagClass@@QBE_NXZ": 7028144,
+    "?Is_Allow_Win@TagClass@@QBE_NXZ": 7028160,
     "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z": 7028176,
     "?Clear_All@TagClass@@SAXXZ": 7028640,
-    "?unknown_func_6b3fd0@TagClass@@QAEXH@Z": 7028688,
+    "?Timer_Global_Reset@TagClass@@QAEXH@Z": 7028688,
     "?unknown_func_6ed620@TriggerClass@@QAEXH@Z": 7263776,
     "?Compute_CRC@TagClass@@UBEXAAVWWCRCEngine@@@Z": 7029008,
-    "?unknown_func_6b41f0@TagClass@@QBE_NXZ": 7029232,
-    "?unknown_func_6b4220@TagClass@@SIXH@Z": 7029280,
-    "?unknown_func_6b4250@TagClass@@SIXH@Z": 7029328,
+    "?Is_To_Inherit@TagClass@@QBE_NXZ": 7029232,
+    "?All_Timer_Global_Reset@TagClass@@SIXH@Z": 7029280,
+    "?All_Timer_Local_Reset@TagClass@@SIXH@Z": 7029328,
     "?unknown_func_6ed650@TriggerClass@@QAEXH@Z": 7263824,
-    "?unknown_func_6b4280@TagClass@@QBE_NXZ": 7029376,
+    "?Is_One_Of_A_Kind@TagClass@@QBE_NXZ": 7029376,
     "??0TEventClass@@QAE@XZ": 7232992,
     "??_7TEventClass@@6BIPersistStream@@@": 8050432,
     "??_7TEventClass@@6BIRTTITypeInfo@@@": 8050404,
@@ -13241,7 +13241,7 @@
     "?Put_PipScale@CCINIClass@@QAE_NPBD0H@Z": 4628080,
     "??1SideClass@@UAE@XZ": 6794960,
     "?End@Benchmark@@QAEXXZ": 4387136,
-    "?unknown_func_6b3fe0@TagClass@@QAEXH@Z": 7028704,
+    "?Timer_Local_Reset@TagClass@@QAEXH@Z": 7028704,
     "?Link@TagClass@@QAEXPAVTriggerClass@@@Z": 7028720,
     "?Unlink@TagClass@@QAE_NPAVTriggerClass@@@Z": 7028736,
     "??0RandomClass@@QAE@I@Z": 6522608,
@@ -17467,7 +17467,7 @@
         {
           "offset": 808,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -17475,7 +17475,7 @@
         {
           "offset": 820,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -17483,7 +17483,7 @@
         {
           "offset": 838,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -18209,7 +18209,7 @@
           "resolved": 4293126844
         }
       ],
-      "source_sha256": "9852be0c2385acd3455fb787b85c0f971e12392699f21f15205206e8a34482ca",
+      "source_sha256": "456b048d7c6f27597d6695e4e13dbbc397762a5fab2f2ce7c397d6698239ef15",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Game_CRC_00654c90.cpp",
       "population": "population-3463",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -19460,7 +19460,7 @@
         {
           "offset": 2388,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -19468,7 +19468,7 @@
         {
           "offset": 2430,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -20266,7 +20266,7 @@
           "resolved": 596630
         }
       ],
-      "source_sha256": "d8b27165508b43935cfe392af3957a439ed0cede3d7b551739b6f49831aad293",
+      "source_sha256": "cf93f044db45e31393468e49e2595dc993f79daf779683d24cb51fcad96409a0",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Put_All_006558b0.cpp",
       "population": "population-3463",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

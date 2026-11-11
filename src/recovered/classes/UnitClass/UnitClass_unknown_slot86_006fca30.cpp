@@ -31,7 +31,7 @@ extern char const Unit_Ore_Miner_Under_Attack_007F819C[];
 // @ref ?unknown_6fd3a0@UnitClass@@QAEXXZ=006fd3a0
 // @ref ?unknown_707170@UnitClass@@QAE_NPAVTechnoClass@@@Z=00707170
 // @ref ?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z=006b8cc0
-// @ref ?unknown_func_6b41f0@TagClass@@QBE_NXZ=006b41f0
+// @ref ?Is_To_Inherit@TagClass@@QBE_NXZ=006b41f0
 // @ref ?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
 // @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
@@ -152,7 +152,7 @@ passenger_removed:
                     if (!House->Unknown_004F52F0()) crew->unknown_slot116(15, false);
                     else crew->unknown_slot116(5, false);
                     if (restore_selection) crew->unknown_slot80();
-                    if (unknown_34 && unknown_34->unknown_func_6b41f0()) crew->Attach_Tag(unknown_34);
+                    if (unknown_34 && unknown_34->Is_To_Inherit()) crew->Attach_Tag(unknown_34);
                 } else {
                     delete crew;
                 }

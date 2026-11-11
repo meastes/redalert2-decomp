@@ -111,7 +111,7 @@ bool UnitClass::unknown_6fdfc0()
                     unknown_slot210();
                     if (unknown_34) {
                         building->Attach_Tag(unknown_34);
-                        unknown_34->unknown_2c--;
+                        unknown_34->AttachCount--;
                         unknown_34 = 0;
                     }
                     unknown_slot60();

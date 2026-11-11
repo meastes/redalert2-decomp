@@ -3,7 +3,7 @@
 
 bool TagClass::Is_Trigger_Attached(TriggerClass *trigger) const
 {
-    for (TriggerClass *attached = AttachedTrigger; attached != 0; attached = attached->Next) {
+    for (TriggerClass *attached = Trigger; attached != 0; attached = attached->Next) {
         if (attached == trigger) {
             return true;
         }

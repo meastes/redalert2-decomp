@@ -3,5 +3,5 @@
 
 void TagClass::Set_Cell(Cell cell)
 {
-    unknown_30 = cell;
+    CellID = cell;
 }

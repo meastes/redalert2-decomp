@@ -8,11 +8,11 @@
 void CellClass::Attach_Tag(TagClass *tag)
 {
     if (unknown_3c != 0) {
-        unknown_3c->unknown_2c--;
+        unknown_3c->AttachCount--;
     }
     unknown_3c = tag;
     if (tag != 0) {
         unknown_map_tagged_cells_833638.Add(MapCoords);
-        unknown_3c->unknown_2c++;
+        unknown_3c->AttachCount++;
     }
 }

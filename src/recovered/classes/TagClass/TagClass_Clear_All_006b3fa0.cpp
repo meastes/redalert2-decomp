@@ -4,7 +4,7 @@
 
 void TagClass::Clear_All()
 {
-    while (unknown_TagClass_list_00abfe48.Count() > 0) {
-        delete unknown_TagClass_list_00abfe48[0];
+    while (Tags.Count() > 0) {
+        delete Tags[0];
     }
 }

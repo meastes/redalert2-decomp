@@ -12,11 +12,11 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
     bool sprung = false;
     bool remove = false;
     bool detach = false;
-    if (unknown_35) {
+    if (IsCurrentlySprung) {
         return false;
     }
-    unknown_35 = true;
-    for (TriggerClass *trigger = AttachedTrigger; trigger != 0; trigger = trigger->Next) {
+    IsCurrentlySprung = true;
+    for (TriggerClass *trigger = Trigger; trigger != 0; trigger = trigger->Next) {
         if (trigger->Spring(event, object, forced, Class->Persistence == 2, source)) {
             switch (Class->Persistence) {
             case 0:
@@ -27,7 +27,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
                 detach = true;
                 break;
             case 1:
-                if (unknown_2c == 1) {
+                if (AttachCount == 1) {
                     trigger->Fire_Actions(object, cell);
                     trigger->unknown_func_6ed990();
                     remove = true;
@@ -43,7 +43,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
             }
         }
     }
-    unknown_35 = false;
+    IsCurrentlySprung = false;
     if (detach) {
         if (object != 0 && object->unknown_34 == this) {
             object->Attach_Tag(0);

@@ -3,5 +3,5 @@
 
 Cell TagClass::Get_Cell() const
 {
-    return unknown_30;
+    return CellID;
 }

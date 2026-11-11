@@ -4,7 +4,7 @@
 void ObjectClass::Detach(AbstractClass *target, bool all)
 {
     if (unknown_34 == target && unknown_34 != 0) {
-        unknown_34->unknown_2c--;
+        unknown_34->AttachCount--;
         unknown_34 = 0;
     }
     if (all && target == unknown_30 && target != 0) {

@@ -13,9 +13,9 @@ TagTypeClass::~TagTypeClass()
         delete trigger;
         trigger = next;
     }
-    for (int index = 0; index < unknown_TagClass_list_00abfe48.Count(); index++) {
-        if (unknown_TagClass_list_00abfe48[index]->Class == this) {
-            delete unknown_TagClass_list_00abfe48[index];
+    for (int index = 0; index < Tags.Count(); index++) {
+        if (Tags[index]->Class == this) {
+            delete Tags[index];
             index--;
         }
     }

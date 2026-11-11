@@ -5,8 +5,8 @@ void TagClass::Compute_CRC(WWCRCEngine &crc) const
 {
     AbstractClass::Compute_CRC(crc);
     crc(Class->Fetch_ID());
-    if (AttachedTrigger != 0) {
-        crc(AttachedTrigger->Fetch_ID());
+    if (Trigger != 0) {
+        crc(Trigger->Fetch_ID());
     }
-    crc((char)unknown_34);
+    crc((char)IsToDie);
 }

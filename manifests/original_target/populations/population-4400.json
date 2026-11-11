@@ -4,8 +4,8 @@
     "id": "population-4400",
     "inventory_sha256": "3e8e480171b05ea290e656559b8680fd9315a5ac2c3c5a1bb5c5a6c85cd670ff",
     "gaps_sha256": "aaa95b1b571cbfaa5277d90f4dd9aa5d1c126f35fc4ddda2792853b3045bcf30",
-    "historical_population_sha256": "a5e28c2c03aa7c6f5a50c177a2d1a2c7e503cae1a78f1561eb55f7e1216b6840",
-    "historical_acceptance_sha256": "af9197ac5214368b67128d60a063e78f09149dd5530e55cf58064d7ae430dc53"
+    "historical_population_sha256": "30fd25aec84571dbf1d827492a96aa7358c31141b053d5d88724a30b0c47c280",
+    "historical_acceptance_sha256": "790e3213566fe548eb7bc9d1d8194f1dd4e561217c82a0da90cebb5bd016a1e6"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8919,7 +8919,7 @@
     "??0SuperWeaponTypeClass@@QAE@PBD@Z": 6942720,
     "?unknown_TActionClass_list_00abfd88@@3V?$DynamicVectorClass@PAVTActionClass@@@@A": 11271560,
     "_CLSID_TActionClass": 8002928,
-    "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
+    "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
     "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
     "?unknown_TagTypeClass_list_00abfea0@@3V?$DynamicVectorClass@PAVTagTypeClass@@@@A": 11271840,
     "?Find_Or_Make@TagTypeClass@@SIPAV1@PBD@Z": 7032096,
@@ -9086,7 +9086,7 @@
     "?Timer_Value@MissionClass@@QBEHXZ": 5853424,
     "?Get_Spread@RadSiteClass@@QBEHXZ": 6518128,
     "??RRandomClass@@QAEHXZ": 6522624,
-    "?unknown_func_6b3d20@TagClass@@QBE_NXZ": 7028000,
+    "?Is_Marked_To_Delete@TagClass@@QBE_NXZ": 7028000,
     "?unknown_func_6ed9f0@TriggerClass@@QBE_NXZ": 7264752,
     "?Z_Gradient@TunnelLocomotionClass@@UAGHXZ": 7279040,
     "?Is_Surfacing@TunnelLocomotionClass@@UAG_NXZ": 7279488,
@@ -9494,22 +9494,22 @@
     "??_7TagClass@@6BINoticeSource@@@": 8046292,
     "??0TriggerClass@@QAE@PAVTriggerTypeClass@@@Z": 7262752,
     "?As_Pointer@HouseClass@@SIPAV1@H@Z": 5166944,
-    "?unknown_func_6b3cc0@TagClass@@QAEXXZ": 7027904,
+    "?Mark_To_Delete@TagClass@@QAEXXZ": 7027904,
     "?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z": 7028016,
     "?Get_Cell@TagClass@@QBE?AVCell@@XZ": 7028096,
-    "?unknown_func_6b3d90@TagClass@@QBE_NXZ": 7028112,
-    "?unknown_func_6b3da0@TagClass@@QBE_NXZ": 7028128,
-    "?unknown_func_6b3db0@TagClass@@QBE_NXZ": 7028144,
-    "?unknown_func_6b3dc0@TagClass@@QBE_NXZ": 7028160,
+    "?Is_Cross_Vertical@TagClass@@QBE_NXZ": 7028112,
+    "?Is_Cross_Horizontal@TagClass@@QBE_NXZ": 7028128,
+    "?Is_Enters_Zone@TagClass@@QBE_NXZ": 7028144,
+    "?Is_Allow_Win@TagClass@@QBE_NXZ": 7028160,
     "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z": 7028176,
     "?Clear_All@TagClass@@SAXXZ": 7028640,
-    "?unknown_func_6b3fd0@TagClass@@QAEXH@Z": 7028688,
+    "?Timer_Global_Reset@TagClass@@QAEXH@Z": 7028688,
     "?unknown_func_6ed620@TriggerClass@@QAEXH@Z": 7263776,
-    "?unknown_func_6b41f0@TagClass@@QBE_NXZ": 7029232,
-    "?unknown_func_6b4220@TagClass@@SIXH@Z": 7029280,
-    "?unknown_func_6b4250@TagClass@@SIXH@Z": 7029328,
+    "?Is_To_Inherit@TagClass@@QBE_NXZ": 7029232,
+    "?All_Timer_Global_Reset@TagClass@@SIXH@Z": 7029280,
+    "?All_Timer_Local_Reset@TagClass@@SIXH@Z": 7029328,
     "?unknown_func_6ed650@TriggerClass@@QAEXH@Z": 7263824,
-    "?unknown_func_6b4280@TagClass@@QBE_NXZ": 7029376,
+    "?Is_One_Of_A_Kind@TagClass@@QBE_NXZ": 7029376,
     "??0TEventClass@@QAE@XZ": 7232992,
     "??_7TEventClass@@6BIPersistStream@@@": 8050432,
     "??_7TEventClass@@6BIRTTITypeInfo@@@": 8050404,
@@ -15760,7 +15760,7 @@
     "?Damage_Low_Bridge2_Piece_NS_00560C10@MapClass@@QAEXABVCell@@@Z": 5639184,
     "??_7?$VectorClass@PAVMixFileClass@@@@6B@": 7973460,
     "?BombList@@3VBombListClass@@A": 8594144,
-    "?unknown_func_6b3fe0@TagClass@@QAEXH@Z": 7028704,
+    "?Timer_Local_Reset@TagClass@@QAEXH@Z": 7028704,
     "??0UnknownPairSecond@@QAE@XZ": 5892960,
     "?Clear@?$DynamicVectorClass@VHSVClass@@@@UAEXXZ": 6311216,
     "?Clear@?$VectorClass@VHSVClass@@@@UAEXXZ": 6312848,
@@ -18029,7 +18029,18 @@
     "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
     "??0?$VectorClass@PAVReestablish@@@@QAE@IPBQAVReestablish@@@Z": 4541344,
-    "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344
+    "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344,
+    "_CLSID_EMPulseClass": 8003200,
+    "_CLSID_LightSource": 8003120,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
+    "?Update@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Update@ABuffer@@QAEXVRect@@@Z": 4264112,
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "_CLSID_CellClass": 8003184,
+    "?unknown_6c9df0@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPAVWeaponTypeClass@@ABUCoordStruct@@@Z": 7118320,
+    "?unknown_slot222@BuildingClass@@UAE_NPAVHouseClass@@H@Z": 4474464,
+    "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ": 4306992
   },
   "regions": [
     {
@@ -32389,7 +32400,7 @@
         {
           "offset": 194,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -32397,7 +32408,7 @@
         {
           "offset": 202,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -32405,7 +32416,7 @@
         {
           "offset": 221,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -33331,7 +33342,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "e8d5d28a7c23b6527286512e956f9839878c1fb46aa222aabbebeea0fe1c7a1b",
+      "source_sha256": "0eb401c0000a2f0865856cd5180f55d08843551b9e9ab9e85ef333698ad8269e",
       "source": "src/recovered/unowned/Delete_All_Objects_00519960.cpp",
       "population": "population-4400",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

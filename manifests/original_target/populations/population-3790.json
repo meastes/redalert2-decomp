@@ -4,8 +4,8 @@
     "id": "population-3790",
     "inventory_sha256": "1ee2af7ea9833afe759f4a0ef737054ece626ed960449a344b0e00fb1aadf5ba",
     "gaps_sha256": "127d116d9a790e6a709dbd0dc436e408108faee9625ba6a17e1883537f2821a3",
-    "historical_population_sha256": "24500036e6396e65427b0fed2ec3b7e9454ffdee3ec733a106bace26cf29cb21",
-    "historical_acceptance_sha256": "417580a45fc1915d224046792440ebc3d90a7b3d9020f41b0eb0a258a33d1538"
+    "historical_population_sha256": "b961cce7400a9bb1a0fde19d6a2b12c3f8a055fef13553c86db50ad939bdbc3a",
+    "historical_acceptance_sha256": "12e9396d1e4b873b921318e24b2b32c98992b12b3c14d024e42a3fbf175a1251"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -23,7 +23,7 @@
     "?ID@?$VectorClass@PAVTagClass@@@@UAEHPBQAVTagClass@@@Z": 5069424,
     "?Resize@?$DynamicVectorClass@PAVTagClass@@@@UAE_NHPBQAVTagClass@@@Z": 5069456,
     "?Resize@?$VectorClass@PAVTagClass@@@@UAE_NHPBQAVTagClass@@@Z": 5069136,
-    "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
+    "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
     "?unknown_math_4ba520@@YANN@Z": 4957472,
     "?unknown_math_4ba5b0@@YANN@Z": 4957616,
     "?unknown_sqrt_4ba410@@YANN@Z": 4957200,
@@ -2996,7 +2996,7 @@
     "?Save@SuperClass@@UAGJPAUIStream@@H@Z": 6941392,
     "?Save@SuperWeaponTypeClass@@UAGJPAUIStream@@H@Z": 6943488,
     "?Save@TActionClass@@UAGJPAUIStream@@H@Z": 7023936,
-    "?unknown_func_6b3d20@TagClass@@QBE_NXZ": 7028000,
+    "?Is_Marked_To_Delete@TagClass@@QBE_NXZ": 7028000,
     "?Save@TagClass@@UAGJPAUIStream@@H@Z": 7029200,
     "?Save@TagTypeClass@@UAGJPAUIStream@@H@Z": 7032448,
     "?Save@TaskForceClass@@UAGJPAUIStream@@H@Z": 7041088,
@@ -3860,25 +3860,25 @@
     "??_7TagClass@@6BINoticeSource@@@": 8046292,
     "??0TriggerClass@@QAE@PAVTriggerTypeClass@@@Z": 7262752,
     "?unknown_flag_a40d04@@3_NA": 10751236,
-    "?unknown_func_6b3cc0@TagClass@@QAEXXZ": 7027904,
+    "?Mark_To_Delete@TagClass@@QAEXXZ": 7027904,
     "?Find_Or_Make@TagClass@@SIPAV1@PAVTagTypeClass@@@Z": 7028016,
     "?Get_Cell@TagClass@@QBE?AVCell@@XZ": 7028096,
-    "?unknown_func_6b3d90@TagClass@@QBE_NXZ": 7028112,
-    "?unknown_func_6b3da0@TagClass@@QBE_NXZ": 7028128,
-    "?unknown_func_6b3db0@TagClass@@QBE_NXZ": 7028144,
-    "?unknown_func_6b3dc0@TagClass@@QBE_NXZ": 7028160,
+    "?Is_Cross_Vertical@TagClass@@QBE_NXZ": 7028112,
+    "?Is_Cross_Horizontal@TagClass@@QBE_NXZ": 7028128,
+    "?Is_Enters_Zone@TagClass@@QBE_NXZ": 7028144,
+    "?Is_Allow_Win@TagClass@@QBE_NXZ": 7028160,
     "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z": 7028176,
     "?Clear_All@TagClass@@SAXXZ": 7028640,
-    "?unknown_func_6b3fd0@TagClass@@QAEXH@Z": 7028688,
+    "?Timer_Global_Reset@TagClass@@QAEXH@Z": 7028688,
     "?unknown_func_6ed620@TriggerClass@@QAEXH@Z": 7263776,
     "?Detach@TagClass@@UAEXPAVAbstractClass@@_N@Z": 7028800,
     "?Compute_CRC@TagClass@@UBEXAAVWWCRCEngine@@@Z": 7029008,
     "?Load@TagClass@@UAGJPAUIStream@@@Z": 7029088,
-    "?unknown_func_6b41f0@TagClass@@QBE_NXZ": 7029232,
-    "?unknown_func_6b4220@TagClass@@SIXH@Z": 7029280,
-    "?unknown_func_6b4250@TagClass@@SIXH@Z": 7029328,
+    "?Is_To_Inherit@TagClass@@QBE_NXZ": 7029232,
+    "?All_Timer_Global_Reset@TagClass@@SIXH@Z": 7029280,
+    "?All_Timer_Local_Reset@TagClass@@SIXH@Z": 7029328,
     "?unknown_func_6ed650@TriggerClass@@QAEXH@Z": 7263824,
-    "?unknown_func_6b4280@TagClass@@QBE_NXZ": 7029376,
+    "?Is_One_Of_A_Kind@TagClass@@QBE_NXZ": 7029376,
     "??0TEventClass@@QAE@XZ": 7232992,
     "??_7TEventClass@@6BIPersistStream@@@": 8050432,
     "??_7TEventClass@@6BIRTTITypeInfo@@@": 8050404,
@@ -6704,7 +6704,7 @@
     "?Put_PipScale@CCINIClass@@QAE_NPBD0H@Z": 4628080,
     "??1SideClass@@UAE@XZ": 6794960,
     "?End@Benchmark@@QAEXXZ": 4387136,
-    "?unknown_func_6b3fe0@TagClass@@QAEXH@Z": 7028704,
+    "?Timer_Local_Reset@TagClass@@QAEXH@Z": 7028704,
     "?Link@TagClass@@QAEXPAVTriggerClass@@@Z": 7028720,
     "?Unlink@TagClass@@QAE_NPAVTriggerClass@@@Z": 7028736,
     "??_7?$VectorClass@PAVMixFileClass@@@@6B@": 7973460,
@@ -7091,27 +7091,27 @@
     "_$E35": 7026608,
     "_$E38": 7026640,
     "_$E43": 7026672,
-    "?unknown_func_6b3cc0@TagClass@@": 7027904,
-    "?unknown_func_6b3d20@TagClass@@": 7028000,
+    "?Mark_To_Delete@TagClass@@": 7027904,
+    "?Is_Marked_To_Delete@TagClass@@": 7028000,
     "?Find_Or_Make@TagClass@@": 7028016,
     "?Get_Cell@TagClass@@": 7028096,
-    "?unknown_func_6b3d90@TagClass@@": 7028112,
-    "?unknown_func_6b3da0@TagClass@@": 7028128,
-    "?unknown_func_6b3db0@TagClass@@": 7028144,
-    "?unknown_func_6b3dc0@TagClass@@": 7028160,
+    "?Is_Cross_Vertical@TagClass@@": 7028112,
+    "?Is_Cross_Horizontal@TagClass@@": 7028128,
+    "?Is_Enters_Zone@TagClass@@": 7028144,
+    "?Is_Allow_Win@TagClass@@": 7028160,
     "?Is_Trigger_Attached@TagClass@@": 7028176,
     "?Set_Cell@TagClass@@": 7028624,
     "?Clear_All@TagClass@@": 7028640,
-    "?unknown_func_6b3fd0@TagClass@@": 7028688,
+    "?Timer_Global_Reset@TagClass@@": 7028688,
     "?Detach@TagClass@@": 7028800,
     "?GetClassID@TagClass@@UAGJPAUGUID@@@Z": 7028944,
     "?Compute_CRC@TagClass@@": 7029008,
     "?Load@TagClass@@": 7029088,
     "?Save@TagClass@@": 7029200,
-    "?unknown_func_6b41f0@TagClass@@": 7029232,
-    "?unknown_func_6b4220@TagClass@@": 7029280,
-    "?unknown_func_6b4250@TagClass@@": 7029328,
-    "?unknown_func_6b4280@TagClass@@": 7029376,
+    "?Is_To_Inherit@TagClass@@": 7029232,
+    "?All_Timer_Global_Reset@TagClass@@": 7029280,
+    "?All_Timer_Local_Reset@TagClass@@": 7029328,
+    "?Is_One_Of_A_Kind@TagClass@@": 7029376,
     "?Size_Of@TagClass@@": 7029440,
     "?Kind_Of@TagClass@@": 7029456,
     "?target@Call_46fd60_0@@QAEIXZ": 4387568,
@@ -10600,7 +10600,87 @@
     "??_ELightSourceClass@@UAEPAXI@Z": 5471280,
     "??_ETubeClass@@UAEPAXI@Z": 7272720,
     "??_EWideString@@QAEPAXI@Z": 6296624,
-    "??_EMouseClass@@UAEPAXI@Z": 4247904
+    "??_EMouseClass@@UAEPAXI@Z": 4247904,
+    "??_7?$DynamicVectorClass@PAVMapRegionClass@@@@6B@": 8019344,
+    "??_7?$DynamicVectorClass@PAUHWND__@@@@6B@": 8024292,
+    "??_7?$DynamicVectorClass@UAcceleratorTracker@@@@6B@": 8024356,
+    "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4989632,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4990016,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039776,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5040560,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210704,
+    "?ID@?$VectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5681840,
+    "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5682304,
+    "?ID@?$VectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683136,
+    "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683696,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990080,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990448,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
+    "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6998848,
+    "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6999296,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
+    "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z": 7518288,
+    "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ": 6629440,
+    "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ": 6629488,
+    "??1?$VectorClass@I@@UAE@XZ": 7547984,
+    "??0?$VectorClass@PAVPlanningNodeClass@@@@QAE@IPBQAVPlanningNodeClass@@@Z": 6405488,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "??_7?$VectorClass@PAUHWND__@@@@6B@": 8024324,
+    "??_7?$VectorClass@UAcceleratorTracker@@@@6B@": 8024388,
+    "??0?$VectorClass@PAVFoggedObjectClass@@@@QAE@IPBQAVFoggedObjectClass@@@Z": 4706528,
+    "??_7?$VectorClass@PAVMapRegionClass@@@@6B@": 8019376,
+    "??_7?$DynamicVectorClass@PBVBuildingTypeClass@@@@6B@": 8007464,
+    "??0?$VectorClass@_N@@QAE@IPB_N@Z": 5213472,
+    "??_7?$DynamicVectorClass@_N@@6B@": 8007556,
+    "??_7?$VectorClass@_N@@6B@": 8007524,
+    "??0?$VectorClass@PAVtConnInfoStruct@@@@QAE@IPBQAVtConnInfoStruct@@@Z": 7766208,
+    "??_7?$DynamicVectorClass@PAVtConnInfoStruct@@@@6B@": 8059268,
+    "??_7?$VectorClass@PAVtConnInfoStruct@@@@6B@": 8059236,
+    "??0?$VectorClass@N@@QAE@IPBN@Z": 5829328,
+    "??_7?$DynamicVectorClass@N@@6B@": 8019884,
+    "??_7?$VectorClass@N@@6B@": 8019852,
+    "??0?$DynamicVectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z": 7489232,
+    "??_7?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@6B@": 8007628,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@6B@": 8056836,
+    "??_7?$VectorClass@V?$TRect@H@@@@6B@": 8019632,
+    "??_7?$VectorClass@UCentroid@WorldDominationTour@@@@6B@": 8057496,
+    "??0?$VectorClass@PAVMSAnim@@@@QAE@IPBQAVMSAnim@@@Z": 7537776,
+    "??0?$VectorClass@PAVMSSfxEntry@@@@QAE@IPBQAVMSSfxEntry@@@Z": 7537856,
+    "??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z": 6312432,
+    "??0?$DynamicVectorClass@PAVPlanningMemberClass@@@@QAE@IPBQAVPlanningMemberClass@@@Z": 6401152,
+    "??0?$DynamicVectorClass@PAVPlanningBranchClass@@@@QAE@IPBQAVPlanningBranchClass@@@Z": 6401936,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@IPBQAUButtonFadeEffect@@@Z": 4891152,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@IPBQAUCrossDissolveEffect@@@Z": 4891232,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
+    "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
+    "??0?$VectorClass@PAVReestablish@@@@QAE@IPBQAVReestablish@@@Z": 4541344,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344,
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "?Get_Anti_Air_Defense_Buildings_004f1e50@HouseClass@@QAE?AV?$DynamicVectorClass@PAVBuildingTypeClass@@@@AAV?$DynamicVectorClass@PBVBuildingTypeClass@@@@@Z": 5185104,
+    "?Get_Anti_Armor_Defense_Buildings_004f1ff0@HouseClass@@QAE?AV?$DynamicVectorClass@PAVBuildingTypeClass@@@@AAV?$DynamicVectorClass@PBVBuildingTypeClass@@@@@Z": 5185520,
+    "?Get_Anti_Ground_Defense_Buildings_004f2190@HouseClass@@QAE?AV?$DynamicVectorClass@PAVBuildingTypeClass@@@@AAV?$DynamicVectorClass@PBVBuildingTypeClass@@@@@Z": 5185936,
+    "?unknown_func_4f5d30@HouseClass@@QAE_NH@Z": 5201200,
+    "?AI_Build_Wall@HouseClass@@QAEXXZ": 5186384,
+    "?Where_To_Place_Building@HouseClass@@QAE?AVCell@@PAVBuildingTypeClass@@P6IHPAV1@ABV2@HH@ZH@Z": 5178304,
+    "?Plan_Naval_Yard_Path_004eecb0@HouseClass@@QAEXH@Z": 5172400,
+    "?Set_Position@BinkClass@@QAEXHH@Z": 4391552,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
   },
   "regions": [
     {
@@ -10661,7 +10741,7 @@
           "resolved": 11271728
         }
       ],
-      "source_sha256": "6046b028fca6d8438ca84fa68c4cc4091f1bd5a5172e5952b62cb38435c280cd",
+      "source_sha256": "cc081a187483e3f8b5a5ba67468d933e8c429e82c47aa925ac20777e85b1f47d",
       "source": "src/recovered/header_statics/006b3600/HeaderStatics_diagonal_init_006b3600.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -11353,7 +11433,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -11361,7 +11441,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 8,
           "resolved": 11271760
@@ -11369,7 +11449,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 12,
           "resolved": 11271764
@@ -11377,7 +11457,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 13,
           "resolved": 11271765
@@ -11385,7 +11465,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 0,
           "resolved": 11271752
@@ -11401,7 +11481,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 20,
           "resolved": 11271772
@@ -11409,7 +11489,7 @@
         {
           "offset": 50,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -11448,7 +11528,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1acd20c4703c2c2e050c2170732024544b97c1fddcc941f4112e9f150c5f5ca0",
       "relocations": [],
-      "source_sha256": "d7b8de6ba3bb5293dd9c29099c073b31b6d1e5f43a0a79c2f7d01d309a0486ef",
+      "source_sha256": "93604afaa3a07d5a6a4cdca1a45050f193c2d5115b07ca9926cc53fd897e8eda",
       "source": "src/recovered/classes/TagClass/TagClass_Set_Cell_006b3f90.cpp",
       "population": "population-3790",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -11551,8 +11631,8 @@
     {
       "entry": 7028000,
       "method": "006b3d20",
-      "symbol": "?unknown_func_6b3d20@TagClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b3d20@TagClass@@",
+      "symbol": "?Is_Marked_To_Delete@TagClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Marked_To_Delete@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -11565,8 +11645,8 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "9f34b4152096e345173825be1b4071703694b27905a8ac7aa299d938be1d2b2e",
       "relocations": [],
-      "source_sha256": "76dfcd98ae54d39f5a6eeb66de42c82a5fe3d7ad23d6d483517985518f4335d3",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b3d20_006b3d20.cpp",
+      "source_sha256": "5845874780823637ff887953dc911d259a184271d43521616177608eb842f337",
+      "source": "src/recovered/classes/TagClass/TagClass_Is_Marked_To_Delete_006b3d20.cpp",
       "population": "population-3790",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -11627,7 +11707,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -11635,7 +11715,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 0,
           "resolved": 11271752
@@ -11651,7 +11731,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 13,
           "resolved": 11271765
@@ -11667,7 +11747,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -11675,7 +11755,7 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 13,
           "resolved": 11271765
@@ -11683,7 +11763,7 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 8,
           "resolved": 11271760
@@ -11765,7 +11845,7 @@
         {
           "offset": 67,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 8,
           "resolved": 11271760
@@ -11773,7 +11853,7 @@
         {
           "offset": 73,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -11781,7 +11861,7 @@
         {
           "offset": 81,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 13,
           "resolved": 11271765
@@ -11789,7 +11869,7 @@
         {
           "offset": 93,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 20,
           "resolved": 11271772
@@ -11797,7 +11877,7 @@
         {
           "offset": 103,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 0,
           "resolved": 11271752
@@ -11805,7 +11885,7 @@
         {
           "offset": 112,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 0,
           "resolved": 11271752
@@ -11813,7 +11893,7 @@
         {
           "offset": 125,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -11821,7 +11901,7 @@
         {
           "offset": 134,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -11829,7 +11909,7 @@
         {
           "offset": 140,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -11995,7 +12075,7 @@
           "resolved": 235603
         }
       ],
-      "source_sha256": "b49ad5224404dbae2752c4eeaee116996e87e78a2bb2a81f7fef9dca5e5b8eb9",
+      "source_sha256": "aad5be357e4b061359dbd4b0eedd9157623c4756e4db643cb532f092cccc58b7",
       "source": "src/recovered/classes/TagClass/TagClass_constructor_006b3870.cpp",
       "population": "population-3790",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -12407,7 +12487,7 @@
         {
           "offset": 615,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 0,
           "resolved": 11271752
@@ -12415,7 +12495,7 @@
         {
           "offset": 625,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 0,
           "resolved": 11271752
@@ -12423,7 +12503,7 @@
         {
           "offset": 643,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -12431,7 +12511,7 @@
         {
           "offset": 656,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -12439,7 +12519,7 @@
         {
           "offset": 664,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -12447,7 +12527,7 @@
         {
           "offset": 678,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -12469,7 +12549,7 @@
           "resolved": 4292199138
         }
       ],
-      "source_sha256": "a1e1c59c7dde16a17941c28f5140589d59eeb5de8530b61a384a129e05cf357e",
+      "source_sha256": "b3e71ddbf727e286d88ade03fc732c1d0a9265464f8b0ba8cb580518b3fa8f9a",
       "source": "src/recovered/classes/TagClass/TagClass_destructor_006b39f0.cpp",
       "population": "population-3790",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -12480,8 +12560,8 @@
     {
       "entry": 7027904,
       "method": "006b3cc0",
-      "symbol": "?unknown_func_6b3cc0@TagClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_6b3cc0@TagClass@@",
+      "symbol": "?Mark_To_Delete@TagClass@@QAEXXZ",
+      "symbol_prefix": "?Mark_To_Delete@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -12567,8 +12647,8 @@
           "resolved": 11275484
         }
       ],
-      "source_sha256": "2d2e5ba2b22e951ea07d256691564d46f6ba3a04f4145ec9dc019f20dd6f41e4",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b3cc0_006b3cc0.cpp",
+      "source_sha256": "544160485ee8c38a57db1032877c67af707c71eaf9198cd720ae3fa0d0a52220",
+      "source": "src/recovered/classes/TagClass/TagClass_Mark_To_Delete_006b3cc0.cpp",
       "population": "population-3790",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -12595,7 +12675,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -12603,7 +12683,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -12625,7 +12705,7 @@
           "resolved": 4294966021
         }
       ],
-      "source_sha256": "4b503c5efcc7551954aafd6e5bcd274e9ff217bc7ca2876c75448c2755a58427",
+      "source_sha256": "95f8c4599ee4ce9bf5123ae1dbd2ad044e04dcb075e4733403e92fd8280e10f6",
       "source": "src/recovered/classes/TagClass/TagClass_Find_Or_Make_006b3d30.cpp",
       "population": "population-3790",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -12650,7 +12730,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "634972f3a29d03b030518d672e9838ac514b1a971c5628b3920ff4f6fbe6bcb0",
       "relocations": [],
-      "source_sha256": "e0cd6b715614545baf0ecd6b0648b30ed252995c942f0e5955126bc16271689e",
+      "source_sha256": "a4cfa2b6cc96022fcdad6d1132580a3c51258c8dc3bf4c165fb92d8334f0f002",
       "source": "src/recovered/classes/TagClass/TagClass_Get_Cell_006b3d80.cpp",
       "population": "population-3790",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -12661,8 +12741,8 @@
     {
       "entry": 7028112,
       "method": "006b3d90",
-      "symbol": "?unknown_func_6b3d90@TagClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b3d90@TagClass@@",
+      "symbol": "?Is_Cross_Vertical@TagClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Cross_Vertical@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -12684,8 +12764,8 @@
           "resolved": 3832
         }
       ],
-      "source_sha256": "9ab81cf2449bf2d9d04b97ea27f5f320ff342b9f465ed29d979ebd598fda0097",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b3d90_006b3d90.cpp",
+      "source_sha256": "10ceb5c658c2f1cbeed81471e69c98209f3fc108cb3d0ac793db6fc157717f3f",
+      "source": "src/recovered/classes/TagClass/TagClass_Is_Cross_Vertical_006b3d90.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -12695,8 +12775,8 @@
     {
       "entry": 7028128,
       "method": "006b3da0",
-      "symbol": "?unknown_func_6b3da0@TagClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b3da0@TagClass@@",
+      "symbol": "?Is_Cross_Horizontal@TagClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Cross_Horizontal@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -12718,8 +12798,8 @@
           "resolved": 3768
         }
       ],
-      "source_sha256": "19bb9048f254b5e884c099a084b16b027cd45308782e1ed791c8b7478f714bdb",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b3da0_006b3da0.cpp",
+      "source_sha256": "69627228e3cc129bd06b239c8a1b63fd39dc6508d100d13926b6c34edf3003e7",
+      "source": "src/recovered/classes/TagClass/TagClass_Is_Cross_Horizontal_006b3da0.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -12729,8 +12809,8 @@
     {
       "entry": 7028144,
       "method": "006b3db0",
-      "symbol": "?unknown_func_6b3db0@TagClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b3db0@TagClass@@",
+      "symbol": "?Is_Enters_Zone@TagClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Enters_Zone@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -12752,8 +12832,8 @@
           "resolved": 3848
         }
       ],
-      "source_sha256": "c562d75177586e1d3217fa471a0b0e67d0d9b0fe93c598ab6992e272d4d19c76",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b3db0_006b3db0.cpp",
+      "source_sha256": "e2cc7ad216a9f2b67aa624ed144ca0bcb4ea78f6232b1ab4ce2b37175050243e",
+      "source": "src/recovered/classes/TagClass/TagClass_Is_Enters_Zone_006b3db0.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -12763,8 +12843,8 @@
     {
       "entry": 7028160,
       "method": "006b3dc0",
-      "symbol": "?unknown_func_6b3dc0@TagClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b3dc0@TagClass@@",
+      "symbol": "?Is_Allow_Win@TagClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Allow_Win@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -12786,8 +12866,8 @@
           "resolved": 3688
         }
       ],
-      "source_sha256": "99f41208c7af4c080ad905aa32a163f94816cc9f52e0fce02aa9e3ef3ed5afaa",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b3dc0_006b3dc0.cpp",
+      "source_sha256": "e4b6211c966cbfa9c5acae77041a5c1d3253fce53f2c48553600cfa5fdb8a3a3",
+      "source": "src/recovered/classes/TagClass/TagClass_Is_Allow_Win_006b3dc0.cpp",
       "population": "population-3790",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -12811,7 +12891,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "908ccfbbe1763af2492f0130afc4a064b208e3dcf85e358afa911adb3de6b436",
       "relocations": [],
-      "source_sha256": "cc999c39acf3c26f59ec90229fc83720e11e4baf95ef0dba9239eb74c0ea30d7",
+      "source_sha256": "54915c6cdc09fb51b0c1805f4a18a59b59b9b42da95853edbdf4614692e70723",
       "source": "src/recovered/classes/TagClass/TagClass_Is_Trigger_Attached_006b3dd0.cpp",
       "population": "population-3790",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -12839,7 +12919,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -12847,7 +12927,7 @@
         {
           "offset": 10,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -12855,13 +12935,13 @@
         {
           "offset": 28,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
         }
       ],
-      "source_sha256": "c746c21c05d516d1ba5e55bcc4c283aab50f2f1d54da3bb7e7232faab76aa826",
+      "source_sha256": "af9e84c945be682840cbabd38837a5b6a87986232e362e06dab697d07dd4667b",
       "source": "src/recovered/classes/TagClass/TagClass_Clear_All_006b3fa0.cpp",
       "population": "population-3790",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -12872,8 +12952,8 @@
     {
       "entry": 7028688,
       "method": "006b3fd0",
-      "symbol": "?unknown_func_6b3fd0@TagClass@@QAEXH@Z",
-      "symbol_prefix": "?unknown_func_6b3fd0@TagClass@@",
+      "symbol": "?Timer_Global_Reset@TagClass@@QAEXH@Z",
+      "symbol_prefix": "?Timer_Global_Reset@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -12895,8 +12975,8 @@
           "resolved": 235075
         }
       ],
-      "source_sha256": "3e7fe93b506c73cb9aad6dbdb288d126fda2781ce220be8d0dbe3f31aecd1f71",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b3fd0_006b3fd0.cpp",
+      "source_sha256": "b9e6fa518a94c380d26be66dd1807146e2e06e9413900ac6d8b4a4e2ca875e53",
+      "source": "src/recovered/classes/TagClass/TagClass_Timer_Global_Reset_006b3fd0.cpp",
       "population": "population-3790",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -12993,7 +13073,7 @@
           "resolved": 11275484
         }
       ],
-      "source_sha256": "531c824dba4f7bbb2102d00afa41366f6bd8d1adacd53b1b1c5f87b4323f8b02",
+      "source_sha256": "5c0cce993b64aa255ed776578554f83bf6ecaa606458d20515f45b7577594e07",
       "source": "src/recovered/classes/TagClass/TagClass_Detach_006b4040.cpp",
       "population": "population-3790",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13051,7 +13131,7 @@
           "resolved": 4292738346
         }
       ],
-      "source_sha256": "e24d1f694b1270cb0a0aad6d55f1a5f9620308a595c1a5227da358b309e866d6",
+      "source_sha256": "ba9abc5fcd96de46898a2f2f0250666978b8cce19fd89caa210725846db5207f",
       "source": "src/recovered/classes/TagClass/TagClass_Compute_CRC_006b4110.cpp",
       "population": "population-3790",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -13157,7 +13237,7 @@
           "resolved": 4294883685
         }
       ],
-      "source_sha256": "1eece83b298250bc11e24cd60210eba1e894edcae88fd8300ed8f71ef21cdc3e",
+      "source_sha256": "6395d85ede942978e5f04babd710027a8c6c2496ae8c77a1133c5ca70bede9af",
       "source": "src/recovered/classes/TagClass/TagClass_Load_006b4160.cpp",
       "population": "population-3790",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -13168,8 +13248,8 @@
     {
       "entry": 7029232,
       "method": "006b41f0",
-      "symbol": "?unknown_func_6b41f0@TagClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b41f0@TagClass@@",
+      "symbol": "?Is_To_Inherit@TagClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_To_Inherit@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13182,8 +13262,8 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "7eeca5add404fab5b39d7e5994904f60be8d963c77910265ce062caab24a6681",
       "relocations": [],
-      "source_sha256": "e340c6112eb907f8eedd4c28e4f9f90a25a20d048e313c0089573a877f854f2e",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b41f0_006b41f0.cpp",
+      "source_sha256": "9727cba24d5d6408a8d5445af06201e69388aa7f526e2af55ee568511a6b6298",
+      "source": "src/recovered/classes/TagClass/TagClass_Is_To_Inherit_006b41f0.cpp",
       "population": "population-3790",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13193,8 +13273,8 @@
     {
       "entry": 7029280,
       "method": "006b4220",
-      "symbol": "?unknown_func_6b4220@TagClass@@SIXH@Z",
-      "symbol_prefix": "?unknown_func_6b4220@TagClass@@",
+      "symbol": "?All_Timer_Global_Reset@TagClass@@SIXH@Z",
+      "symbol_prefix": "?All_Timer_Global_Reset@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13210,7 +13290,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -13218,7 +13298,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -13234,14 +13314,14 @@
         {
           "offset": 33,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
         }
       ],
-      "source_sha256": "141127408b459a1a85e438df3d03370023fda6419f8cd38f401d2bdb10e3c0d0",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b4220_006b4220.cpp",
+      "source_sha256": "b1849881da281e37bfaf48e0b563a4c059c780c6ae45d9dbea7d9aba43dddc5e",
+      "source": "src/recovered/classes/TagClass/TagClass_All_Timer_Global_Reset_006b4220.cpp",
       "population": "population-3790",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13251,8 +13331,8 @@
     {
       "entry": 7029328,
       "method": "006b4250",
-      "symbol": "?unknown_func_6b4250@TagClass@@SIXH@Z",
-      "symbol_prefix": "?unknown_func_6b4250@TagClass@@",
+      "symbol": "?All_Timer_Local_Reset@TagClass@@SIXH@Z",
+      "symbol_prefix": "?All_Timer_Local_Reset@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13268,7 +13348,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -13276,7 +13356,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
@@ -13292,14 +13372,14 @@
         {
           "offset": 33,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
         }
       ],
-      "source_sha256": "8f958fe8aa9c9d635320e6f2b8e3cc0154390e80aef6f6f601c0aa27e4b68475",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b4250_006b4250.cpp",
+      "source_sha256": "cb37fecace547e5a4adf75715edfe171b797d08e6c0091d5cd89a26344fb58e8",
+      "source": "src/recovered/classes/TagClass/TagClass_All_Timer_Local_Reset_006b4250.cpp",
       "population": "population-3790",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13309,8 +13389,8 @@
     {
       "entry": 7029376,
       "method": "006b4280",
-      "symbol": "?unknown_func_6b4280@TagClass@@QBE_NXZ",
-      "symbol_prefix": "?unknown_func_6b4280@TagClass@@",
+      "symbol": "?Is_One_Of_A_Kind@TagClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_One_Of_A_Kind@TagClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13326,7 +13406,7 @@
         {
           "offset": 5,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 16,
           "resolved": 11271768
@@ -13334,14 +13414,14 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
           "target": 11271752,
           "addend": 4,
           "resolved": 11271756
         }
       ],
-      "source_sha256": "749c80331eb0133f05b3d6c305be7206331c5ce0687c563ce26d417ed3ce5d11",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b4280_006b4280.cpp",
+      "source_sha256": "5b8083d0b238137d6b1f3d600dce01d4ba5b19efe779f5ff311dfbacad8093d4",
+      "source": "src/recovered/classes/TagClass/TagClass_Is_One_Of_A_Kind_006b4280.cpp",
       "population": "population-3790",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13542,7 +13622,7 @@
           "resolved": 11275484
         }
       ],
-      "source_sha256": "ec7d41384af0afc639fea5a7146d34b1210afd3db3a03f96c8871f8b93c4183f",
+      "source_sha256": "96491cc4d313a4680fa1c20b8ad9d0c541966134eb8d46ca91d083608418d8ce",
       "source": "src/recovered/classes/TagClass/TagClass_Spring_006b3df0.cpp",
       "population": "population-3790",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -13554,8 +13634,8 @@
     {
       "entry": 7028704,
       "method": "006b3fe0",
-      "symbol": "?unknown_func_6b3fe0@TagClass@@QAEXH@Z",
-      "symbol_prefix": "?unknown_func_6b3fe0@TagClass@@QAEXH@Z",
+      "symbol": "?Timer_Local_Reset@TagClass@@QAEXH@Z",
+      "symbol_prefix": "?Timer_Local_Reset@TagClass@@QAEXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -13577,13 +13657,13 @@
           "resolved": 235107
         }
       ],
-      "source_sha256": "c22f1a80e0a8d195d8f65086ae403bc0525b89df471cf0946ab6eec246316c38",
-      "source": "src/recovered/classes/TagClass/TagClass_unknown_func_6b3fe0_006b3fe0.cpp",
+      "source_sha256": "9f55050fd206b46f874526d7a9b7ea2ff73083db94e1a10ddfbf878cb090bfba",
+      "source": "src/recovered/classes/TagClass/TagClass_Timer_Local_Reset_006b3fe0.cpp",
       "population": "population-3790",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "TagClass_unknown_func_6b3fe0_006b3fe0",
+      "semantic_name": "TagClass_Timer_Local_Reset_006b3fe0",
       "source_order": 167888
     },
     {
@@ -13603,7 +13683,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "e33fc089b73263491fa76176ca30ec6a68a47f5d94d4e30baabaed1d83583c12",
       "relocations": [],
-      "source_sha256": "b0c915cb16f5b1a7e74679d109c2ab36c8de632aecb79c86660277c5489e0f7b",
+      "source_sha256": "69993cbaa4646f488e5c596ff62eebe0e0f0281537e23fcc9624f23bf017ddd8",
       "source": "src/recovered/classes/TagClass/TagClass_Link_006b3ff0.cpp",
       "population": "population-3790",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -13629,7 +13709,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "5034bb37b065e4889a05e9f5960f2f337853662b503851551f535c1bd9aa33cc",
       "relocations": [],
-      "source_sha256": "fc6d953648e1a13ab5725ddef8526f665b7f39ab1a6f0803637979a8f806c63a",
+      "source_sha256": "9ce26f1092795ba424df2fba26e02749eda230089e8cbd848dda55701ae34282",
       "source": "src/recovered/classes/TagClass/TagClass_Unlink_006b4000.cpp",
       "population": "population-3790",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

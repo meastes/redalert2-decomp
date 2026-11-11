@@ -34,19 +34,19 @@ TagClass::~TagClass()
             }
         }
     }
-    if (unknown_flag_a40958 && unknown_flag_a40d04 && AttachedTrigger != 0 && AttachedTrigger->Class != 0 &&
-        AttachedTrigger->Class->unknown_a4 != 0 && Class->unknown_func_6b4c30()) {
-        HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)AttachedTrigger->Class->unknown_a4)->House);
+    if (unknown_flag_a40958 && unknown_flag_a40d04 && Trigger != 0 && Trigger->Class != 0 &&
+        Trigger->Class->unknown_a4 != 0 && Class->unknown_func_6b4c30()) {
+        HouseClass *house = HouseClass::As_Pointer(((HouseTypeClass *)Trigger->Class->unknown_a4)->House);
         if (house->unknown_1c4 != 0) {
             house->unknown_1c4--;
         }
         house->unknown_1e0 = 60;
     }
-    for (TriggerClass *trigger = AttachedTrigger; trigger != 0; trigger = trigger->Next) {
+    for (TriggerClass *trigger = Trigger; trigger != 0; trigger = trigger->Next) {
         unknown_objects_ac0cd8.Add(trigger);
     }
     unknown_objects_ac0cb0.Delete((ObjectClass *)this);
     unknown_AbstractClass_list_00ac0d48.Delete(this);
-    unknown_TagClass_list_00abfe48.Delete(this);
+    Tags.Delete(this);
     Unknown_006ECB90(this, true);
 }

@@ -6,7 +6,7 @@
 #include "shared/crt_memory.hpp"
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Spring@TagClass@@=006b3df0
-// @ref ?unknown_func_6b41f0@TagClass@@=006b41f0
+// @ref ?Is_To_Inherit@TagClass@@=006b41f0
 // @ref ?Attach_Tag@ObjectClass@@=005d4430
 
 bool InfantryClass::unknown_507170()
@@ -23,7 +23,7 @@ bool InfantryClass::unknown_507170()
             if (vehicle->unknown_34) vehicle->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
             vehicle->unknown_slot149(3);
             vehicle->unknown_slot54(false);
-            if (unknown_34 && unknown_34->unknown_func_6b41f0()) vehicle->Attach_Tag(unknown_34);
+            if (unknown_34 && unknown_34->Is_To_Inherit()) vehicle->Attach_Tag(unknown_34);
             vehicle->unknown_slot222(House,1);
             vehicle->unknown_290=Type->ArrayIndex;
             unknown_slot60();

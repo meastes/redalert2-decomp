@@ -164,7 +164,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                         }
                         if(unknown_34) {
                             unit->Attach_Tag(unknown_34);
-                            --unknown_34->unknown_2c;
+                            --unknown_34->AttachCount;
                             unknown_34=0;
                         }
                         if(selected) unit->unknown_slot80();

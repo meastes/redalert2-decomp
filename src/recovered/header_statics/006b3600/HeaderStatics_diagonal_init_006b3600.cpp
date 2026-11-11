@@ -12,7 +12,7 @@
 #include "shared/object.hpp"
 
 // The unit's list of TagClass objects (0x00ABFE48; name is a hypothesis).
-DynamicVectorClass<TagClass *> unknown_TagClass_list_00abfe48;
+DynamicVectorClass<TagClass *> Tags;
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??8?$VectorClass@PAVTagClass@@@@UBE_NABV0@@Z=004d5910
 // @ref ??_7?$DynamicVectorClass@PAVTagClass@@@@6B@=007a2ae4
@@ -28,7 +28,7 @@ DynamicVectorClass<TagClass *> unknown_TagClass_list_00abfe48;
 // @ref ?ID@?$VectorClass@PAVTagClass@@@@UAEHPBQAVTagClass@@@Z=004d5a70
 // @ref ?Resize@?$DynamicVectorClass@PAVTagClass@@@@UAE_NHPBQAVTagClass@@@Z=004d5a90
 // @ref ?Resize@?$VectorClass@PAVTagClass@@@@UAE_NHPBQAVTagClass@@@Z=004d5950
-// @ref ?unknown_TagClass_list_00abfe48@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00abfe48
+// @ref ?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A=00abfe48
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410

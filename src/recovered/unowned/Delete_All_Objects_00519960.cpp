@@ -79,8 +79,8 @@ void __fastcall Delete_All_Objects_00519960()
         delete unknown_objects_a40368[0];
     }
     Unknown_006ecf10();
-    while (unknown_TagClass_list_00abfe48.Count()) {
-        delete unknown_TagClass_list_00abfe48[0];
+    while (Tags.Count()) {
+        delete Tags[0];
     }
     Unknown_006ecf10();
     while (unknown_TriggerClass_list_00a40aa0.Count()) {

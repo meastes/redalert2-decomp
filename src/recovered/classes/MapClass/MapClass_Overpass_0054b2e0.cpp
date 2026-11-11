@@ -44,12 +44,12 @@ int MapClass::Overpass()
 
         if (iter->unknown_3c) {
 
-            if (iter->unknown_3c->unknown_func_6b3da0()) {
+            if (iter->unknown_3c->Is_Cross_Horizontal()) {
                 for (i = 0; i < Map.unknown_128; i++) {
                     Map[XY_Cell(i + unknown_120, iter->MapCoords.Y)].IsHorizontalLine = true;
                 }
             }
-            else if (iter->unknown_3c->unknown_func_6b3d90()) {
+            else if (iter->unknown_3c->Is_Cross_Vertical()) {
                 for (i = 0; i < Map.unknown_12c; i++) {
                     Map[XY_Cell(iter->MapCoords.X, i + unknown_124)].IsVerticalLine = true;
                 }

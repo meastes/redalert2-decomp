@@ -9,7 +9,7 @@ void CellClass::unknown_47a340(AbstractClass *target)
 {
     if (unknown_3c == target) {
         if (unknown_3c != 0) {
-            unknown_3c->unknown_2c--;
+            unknown_3c->AttachCount--;
         }
         unknown_3c = 0;
         unknown_map_tagged_cells_833638.Delete(MapCoords);
