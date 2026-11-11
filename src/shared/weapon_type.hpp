@@ -58,10 +58,10 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00733AB0 slot 13
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00733220 slot 25
 
-    int unknown_func_733a60() const;                                    // 0x00733A60 (projectile flags; callers or the whole of eax: Building/Unit slot 219)
-    bool unknown_func_733a90() const;                                   // 0x00733A90
-    void unknown_func_7339c0();                                         // 0x007339C0 (sets unknown_a8)
-    int unknown_func_733f70(int range) const;                           // 0x00733F70
+    int Allowed_Threats() const;                                        // 0x00733A60 (projectile flags; callers or the whole of eax: Building/Unit slot 219)
+    bool Is_Wall_Destroyer() const;                                     // 0x00733A90
+    void Init_Max_Speed();                                              // 0x007339C0 (sets unknown_a8)
+    int Get_Speed(int range) const;                                     // 0x00733F70
     static int __fastcall Index_From_Name(char const *name);            // 0x00733F30 (-1 if none)
     static WeaponTypeClass *__fastcall Find_Or_Make(char const *name);  // 0x00733EA0
 

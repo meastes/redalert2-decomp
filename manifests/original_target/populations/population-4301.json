@@ -4,8 +4,8 @@
     "id": "population-4301",
     "inventory_sha256": "e3904bfa22cf989d2d26a0e016aa2ca52c5e3d67a4090506b1b079d75be5f0b8",
     "gaps_sha256": "4f9095dc7124eab2120fdf153a9045bf73f463ee8ba9a29887bab38154c7913f",
-    "historical_population_sha256": "feef5fc0e127afb5d1eaf279541a2f8e79c08674de027a8af302bcc5ef671ec0",
-    "historical_acceptance_sha256": "9af8d6cfb1e35169ae8a684f1fa0eabd2bec6fed43806e4daa318f3ee46ed308"
+    "historical_population_sha256": "15b901b908498fef3ae5c0815c04f23321203f0d7e55d45b70f9aa5b5c4e102a",
+    "historical_acceptance_sha256": "c4d4f0d0913853ca29d885fe5850d580a8e61621914f22c8608bf46e2c4c14da"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3100,7 +3100,7 @@
     "?ID@?$DynamicVectorClass@UWaypointClass@@@@UAEHABUWaypointClass@@@Z": 7493632,
     "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHPBUCentroid@WorldDominationTour@@@Z": 7518368,
     "?unknown_18@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525008,
-    "?unknown_func_733a60@WeaponTypeClass@@QBEHXZ": 7551584,
+    "?Allowed_Threats@WeaponTypeClass@@QBEHXZ": 7551584,
     "?Init_Ports@UDPInterfaceClass@@UAE_NXZ": 7784144,
     "?Init@WinsockInterfaceClass@@QAE_NXZ": 7778464,
     "?Get_Port@UDPInterfaceClass@@UAEGXZ": 7787600,
@@ -4624,14 +4624,14 @@
     "??_7WeaponTypeClass@@6BIRTTITypeInfo@@@": 8057924,
     "??_7WeaponTypeClass@@6BINoticeSink@@@": 8057960,
     "??_7WeaponTypeClass@@6BINoticeSource@@@": 8057952,
-    "?unknown_func_7339c0@WeaponTypeClass@@QAEXXZ": 7551424,
+    "?Init_Max_Speed@WeaponTypeClass@@QAEXXZ": 7551424,
     "?Unknown_0047FCD0@@YANXZ": 4717776,
     "?Unknown_0047FB70@@YIHHN@Z": 4717424,
-    "?unknown_func_733a90@WeaponTypeClass@@QBE_NXZ": 7551632,
+    "?Is_Wall_Destroyer@WeaponTypeClass@@QBE_NXZ": 7551632,
     "?Compute_CRC@WeaponTypeClass@@UBEXAAVWWCRCEngine@@@Z": 7551664,
     "?Save@WeaponTypeClass@@UAGJPAUIStream@@H@Z": 7552496,
     "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z": 7552816,
-    "?unknown_func_733f70@WeaponTypeClass@@QBEHH@Z": 7552880,
+    "?Get_Speed@WeaponTypeClass@@QBEHH@Z": 7552880,
     "??_GWeaponTypeClass@@UAEPAXI@Z": 7553008,
     "??0TechnoTypeClass@@QAE@PBDH@Z": 7183168,
     "??_7AircraftTypeClass@@6BIPersistStream@@@": 7976568,
@@ -12833,7 +12833,25 @@
     "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
     "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z": 7518288,
     "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
-    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?Set_Position@BinkClass@@QAEXHH@Z": 4391552,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
   },
   "regions": [
     {
@@ -15324,7 +15342,7 @@
         {
           "offset": 428,
           "kind": 20,
-          "symbol": "?unknown_func_733a60@WeaponTypeClass@@QBEHXZ",
+          "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
           "target": 7551584,
           "addend": 0,
           "resolved": 2287504
@@ -15332,7 +15350,7 @@
         {
           "offset": 466,
           "kind": 20,
-          "symbol": "?unknown_func_733a60@WeaponTypeClass@@QBEHXZ",
+          "symbol": "?Allowed_Threats@WeaponTypeClass@@QBEHXZ",
           "target": 7551584,
           "addend": 0,
           "resolved": 2287466
@@ -15362,7 +15380,7 @@
           "resolved": 4294717599
         }
       ],
-      "source_sha256": "082b4f913f0d86f40bca1a2c312746e8b233af84a5eee41ff5b6077b6fa5e1aa",
+      "source_sha256": "0ea4c07dbac6b645c0911009b9e558a0316d8988240331e7814374ad73ac053e",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_unknown_slot219_00505120.cpp",
       "population": "population-4301",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -22807,7 +22825,7 @@
         {
           "offset": 625,
           "kind": 20,
-          "symbol": "?unknown_func_733a90@WeaponTypeClass@@QBE_NXZ",
+          "symbol": "?Is_Wall_Destroyer@WeaponTypeClass@@QBE_NXZ",
           "target": 7551632,
           "addend": 0,
           "resolved": 2295435
@@ -23029,7 +23047,7 @@
           "resolved": 5257419
         }
       ],
-      "source_sha256": "c2ed06c08b51b58a36f3a14f11f613b75746192efea180bfcf609e0a3ccc0849",
+      "source_sha256": "72afe1919231d9424a6c60a7f3118373aca943a3769232c41f8db5dc1af2457e",
       "switch_data_bytes": 31,
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Can_Enter_Cell_00503190.cpp",
       "population": "population-4301",

@@ -11,7 +11,7 @@
 // @ref _unknown_geometry_l=00ac0188
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
 // @ref ?Distance_To@ObjectClass@@QBEHPBVAbstractClass@@@Z=005d4c00
-// @ref ?unknown_func_733f70@WeaponTypeClass@@QBEHH@Z=00733f70
+// @ref ?Get_Speed@WeaponTypeClass@@QBEHH@Z=00733f70
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
 // @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Fast_Cos@@YANN@Z=004ba4d0
@@ -43,7 +43,7 @@ CoordStruct TechnoClass::unknown_6d65b0()
                 WeaponStruct *weapon = unknown_slot230();
                 if (weapon != 0 && weapon->WeaponType != 0) {
                     double range = distance;
-                    int lead = (int)(range / (weapon->WeaponType->unknown_func_733f70(distance) * 0.9) * speed);
+                    int lead = (int)(range / (weapon->WeaponType->Get_Speed(distance) * 0.9) * speed);
                     coord = Move_Coord(coord, unit->unknown_2e0.Current(), lead);
                 }
             }

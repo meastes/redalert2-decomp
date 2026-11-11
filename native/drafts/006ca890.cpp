@@ -175,7 +175,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
     }
     int dx = target_coord.X - fire_coord.X;
     int dy = target_coord.Y - fire_coord.Y;
-    int speed = weapon->unknown_func_733f70((int)Fast_Sqrt((double)(dy * dy + dx * dx)));
+    int speed = weapon->Get_Speed((int)Fast_Sqrt((double)(dy * dy + dx * dx)));
     BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, firepower, weapon->Warhead, speed, weapon->unknown_10b);
     if (bullet != 0) {
         bullet->Set_Weapon_Type(weapon);

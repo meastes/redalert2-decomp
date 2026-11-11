@@ -14,7 +14,7 @@
 // @ref __CIpow=007821b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
 // @ref ?Unknown_0047FCD0@@YANXZ=0047fcd0
-// @ref ?unknown_func_733f70@WeaponTypeClass@@QBEHH@Z=00733f70
+// @ref ?Get_Speed@WeaponTypeClass@@QBEHH@Z=00733f70
 // @ref ?Unknown_0047F8B0@@YI_N_NHHHNPAUUnknownFacingDir@@@Z=0047f8b0
 // @ref ?unknown_6d7d20@TechnoClass@@QAE_NH@Z=006d7d20
 // @ref ?Has_Turret_Weapons@TechnoTypeClass@@QBE_NXZ=006df680
@@ -37,7 +37,7 @@ UnknownFacingDir TechnoClass::unknown_slot170(AbstractClass *target)
             speed = Unknown_0047FCD0();
         }
         int distance = (int)unknown_sqrt_4ba410(pow(delta.X, 2.0) + pow(delta.Y, 2.0));
-        int velocity = type->unknown_func_733f70(distance);
+        int velocity = type->Get_Speed(distance);
         if (!Unknown_0047F8B0(unknown_6d7d20(weapon), velocity, distance, delta.Z, speed, &dir)) {
             dir = UnknownFacingDir(0xE000);
         }

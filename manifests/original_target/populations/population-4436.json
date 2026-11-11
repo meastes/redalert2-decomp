@@ -4,8 +4,8 @@
     "id": "population-4436",
     "inventory_sha256": "8c502343a335377c2daa19399479a385be44d4e954a6b63315bee285f02863f7",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "64e374b94bb78d2c9234173aad39428c31f78ca61f6c7b5537bc555c0aa5f27a",
-    "historical_acceptance_sha256": "6bd5524f663056ecdd8562bb70c81475a22358e6126832d33aff5c73cb7870a1"
+    "historical_population_sha256": "1fb3812f8de3c987ad715cc2aef31dff8d436749d21f9b0357ae65393e79b473",
+    "historical_acceptance_sha256": "03f9eba77511183194e23c0c2a335131d1d6b8532c66099a2cf948448d33147f"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -3177,7 +3177,7 @@
     "?unknown_18@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525008,
     "?Unknown_Slot7@Anim@Voices@WorldDominationTour@@UAE_NXZ": 7547920,
     "?Speech_Is_Playing@@YA_NXZ": 7429664,
-    "?unknown_func_733a60@WeaponTypeClass@@QBEHXZ": 7551584,
+    "?Allowed_Threats@WeaponTypeClass@@QBEHXZ": 7551584,
     "?Init_Ports@UDPInterfaceClass@@UAE_NXZ": 7784144,
     "?Init@WinsockInterfaceClass@@QAE_NXZ": 7778464,
     "?Get_Port@UDPInterfaceClass@@UAEGXZ": 7787600,
@@ -4923,14 +4923,14 @@
     "??_7WeaponTypeClass@@6BIRTTITypeInfo@@@": 8057924,
     "??_7WeaponTypeClass@@6BINoticeSink@@@": 8057960,
     "??_7WeaponTypeClass@@6BINoticeSource@@@": 8057952,
-    "?unknown_func_7339c0@WeaponTypeClass@@QAEXXZ": 7551424,
+    "?Init_Max_Speed@WeaponTypeClass@@QAEXXZ": 7551424,
     "?Unknown_0047FCD0@@YANXZ": 4717776,
     "?Unknown_0047FB70@@YIHHN@Z": 4717424,
-    "?unknown_func_733a90@WeaponTypeClass@@QBE_NXZ": 7551632,
+    "?Is_Wall_Destroyer@WeaponTypeClass@@QBE_NXZ": 7551632,
     "?Compute_CRC@WeaponTypeClass@@UBEXAAVWWCRCEngine@@@Z": 7551664,
     "?Save@WeaponTypeClass@@UAGJPAUIStream@@H@Z": 7552496,
     "?Index_From_Name@WeaponTypeClass@@SIHPBD@Z": 7552816,
-    "?unknown_func_733f70@WeaponTypeClass@@QBEHH@Z": 7552880,
+    "?Get_Speed@WeaponTypeClass@@QBEHH@Z": 7552880,
     "??_GWeaponTypeClass@@UAEPAXI@Z": 7553008,
     "??0TechnoTypeClass@@QAE@PBDH@Z": 7183168,
     "??_7AircraftTypeClass@@6BIPersistStream@@@": 7976568,
@@ -25114,7 +25114,7 @@
         {
           "offset": 267,
           "kind": 20,
-          "symbol": "?unknown_func_733f70@WeaponTypeClass@@QBEHH@Z",
+          "symbol": "?Get_Speed@WeaponTypeClass@@QBEHH@Z",
           "target": 7552880,
           "addend": 0,
           "resolved": 432417
@@ -25136,7 +25136,7 @@
           "resolved": 4292563513
         }
       ],
-      "source_sha256": "2dafbb0df925d10500d8fa4ca94597dec2c220ac12670debd9c078f732f55210",
+      "source_sha256": "2bf2736cd9d014ea2735286f483da3088f03997a6b4af1f30dda2a866b0076db",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot170_006ca540.cpp",
       "population": "population-4436",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -36749,7 +36749,7 @@
         {
           "offset": 226,
           "kind": 20,
-          "symbol": "?unknown_func_733f70@WeaponTypeClass@@QBEHH@Z",
+          "symbol": "?Get_Speed@WeaponTypeClass@@QBEHH@Z",
           "target": 7552880,
           "addend": 0,
           "resolved": 383194
@@ -36819,7 +36819,7 @@
           "resolved": 690667
         }
       ],
-      "source_sha256": "a97c2422ed7da52d068751751c0cb5ad1362f392ea0c5718ce0147d4fea49b4a",
+      "source_sha256": "02cb10b84e20196df4ae6b1b8b357a45620d652f38c3d6cd6bc46d6dbc3060dc",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_6d65b0_006d65b0.cpp",
       "population": "population-4436",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -39968,7 +39968,7 @@
         {
           "offset": 1050,
           "kind": 20,
-          "symbol": "?unknown_func_733f70@WeaponTypeClass@@QBEHH@Z",
+          "symbol": "?Get_Speed@WeaponTypeClass@@QBEHH@Z",
           "target": 7552880,
           "addend": 0,
           "resolved": 430786
@@ -41102,7 +41102,7 @@
           "resolved": 4294883825
         }
       ],
-      "source_sha256": "52bfc28526fae3512628a984564e0f422b247eb114ee5e6754d6b37d99386b8a",
+      "source_sha256": "19f567f17db6986dc14bfdac6d481f84e734aff67f35d53f8e4b592a3b8ad7c2",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot221_006ca890.cpp",
       "population": "population-4436",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

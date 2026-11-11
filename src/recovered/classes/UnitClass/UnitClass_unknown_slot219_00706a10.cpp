@@ -7,7 +7,7 @@
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?unknown_6d83e0@TechnoClass@@QAE_NXZ=006d83e0
 // @ref ?unknown_6d84a0@TechnoClass@@QAEHXZ=006d84a0
-// @ref ?unknown_func_733a60@WeaponTypeClass@@QBEHXZ=00733a60
+// @ref ?Allowed_Threats@WeaponTypeClass@@QBEHXZ=00733a60
 // @ref ?unknown_slot219@FootClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z=004c8420
 
 AbstractClass *UnitClass::unknown_slot219(int arg1, CoordStruct const *coord, bool arg3)
@@ -17,13 +17,13 @@ AbstractClass *UnitClass::unknown_slot219(int arg1, CoordStruct const *coord, bo
     }
     if (!(arg1 & 0x1B978)) {
         if (unknown_6d83e0()) {
-            arg1 |= unknown_slot231(unknown_6d84a0())->WeaponType->unknown_func_733a60();
+            arg1 |= unknown_slot231(unknown_6d84a0())->WeaponType->Allowed_Threats();
         } else {
             if (unknown_slot231(0)->WeaponType) {
-                arg1 |= unknown_slot231(0)->WeaponType->unknown_func_733a60();
+                arg1 |= unknown_slot231(0)->WeaponType->Allowed_Threats();
             }
             if (unknown_slot231(1)->WeaponType) {
-                arg1 |= unknown_slot231(1)->WeaponType->unknown_func_733a60();
+                arg1 |= unknown_slot231(1)->WeaponType->Allowed_Threats();
             }
         }
     }

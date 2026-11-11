@@ -75,7 +75,7 @@ bool RulesClass::Objects(CCINIClass &ini)
         unknown_WarheadTypeClass_list_00839b00[index]->Read_INI(ini);
     }
     for (index = 0; index < unknown_WeaponTypeClass_list_00839b90.Count(); index++) {
-        unknown_WeaponTypeClass_list_00839b90[index]->unknown_func_7339c0();
+        unknown_WeaponTypeClass_list_00839b90[index]->Init_Max_Speed();
     }
     for (index = 0; index < BuildingTypes.Count(); index++) {
         BuildingTypes[index]->unknown_func_45eaa0();

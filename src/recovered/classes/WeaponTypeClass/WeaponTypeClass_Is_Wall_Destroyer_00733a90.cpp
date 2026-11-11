@@ -1,7 +1,7 @@
-// bool WeaponTypeClass::unknown_func_733a90() const (0x00733A90)
+// bool WeaponTypeClass::Is_Wall_Destroyer() const (0x00733A90)
 #include "shared/weapon_type.hpp"
 
-bool WeaponTypeClass::unknown_func_733a90() const
+bool WeaponTypeClass::Is_Wall_Destroyer() const
 {
     if (Warhead && Warhead->Wall) {
         return true;

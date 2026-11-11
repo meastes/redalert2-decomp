@@ -201,7 +201,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
     }
     Point2D delta = Point2D(target_coord.X, target_coord.Y) - Point2D(fire_coord.X, fire_coord.Y);
     int distance = (int)Fast_Sqrt((double)(delta.X * delta.X + delta.Y * delta.Y));
-    int speed = weapon->unknown_func_733f70(distance);
+    int speed = weapon->Get_Speed(distance);
     BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, firepower, weapon->Warhead, speed, weapon->unknown_10b);
     if (bullet != 0) {
         bullet->Set_Weapon_Type(weapon);

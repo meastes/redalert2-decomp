@@ -49,7 +49,7 @@ int InfantryClass::unknown_slot101(CellClass *cell,int direction,int height,Cell
         OverlayTypeClass *overlay=OverlayTypes[cell->OverlayIndex];
         if (overlay->Crate && !House->unknown_func_4f52f0()) return 7;
         if (overlay->Wall && (cell->OverlayData>>4)!=overlay->DamageLevels) {
-            if (!unknown_slot163() || !unknown_slot231(0)->WeaponType->unknown_func_733a90()) return 7;
+            if (!unknown_slot163() || !unknown_slot231(0)->WeaponType->Is_Wall_Destroyer()) return 7;
             result=House->Is_Ally(cell->unknown_50) ? 4 : 5;
         }
     }
