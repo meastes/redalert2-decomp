@@ -3231,6 +3231,12 @@ def earlier_uncontradicted_inventory(entry, inventory, owner=None):
 
 def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     text = inventory.decompiled(entry)
+    if entry == 0x6faa30 and entry not in accepted and text is not None:
+        from seed_unit_tunnel import optional_tunnel_seed
+
+        repaired = optional_tunnel_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
     if entry == 0x6ff690 and entry not in accepted and text is not None:
         from seed_unit_voxel import optional_voxel_seed
 
