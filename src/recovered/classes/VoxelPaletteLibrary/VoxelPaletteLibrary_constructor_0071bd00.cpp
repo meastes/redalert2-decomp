@@ -2,18 +2,18 @@
 VoxelPaletteLibrary::VoxelPaletteLibrary(unsigned char *palette, unsigned char *table)
 {
     if (palette == 0) {
-        Palette = (unsigned char *)operator new(0x300);
-        unknown_18 = 1;
+        Colors = (unsigned char *)operator new(0x300);
+        ColorsAllocated = 1;
     } else {
-        Palette = palette;
-        unknown_18 = 0;
+        Colors = palette;
+        ColorsAllocated = 0;
     }
     if (table == 0) {
-        unknown_14 = (unsigned char *)operator new(0x8000);
-        unknown_1c = 1;
+        LUT = (unsigned char *)operator new(0x8000);
+        LUTAllocated = 1;
     } else {
-        unknown_14 = table;
-        unknown_1c = 0;
+        LUT = table;
+        LUTAllocated = 0;
     }
 }
 

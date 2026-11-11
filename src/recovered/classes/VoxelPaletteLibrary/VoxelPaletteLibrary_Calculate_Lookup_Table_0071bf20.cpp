@@ -33,31 +33,31 @@ void VoxelPaletteLibrary::Calculate_Lookup_Table(float *levels, int count)
     for (entry = 0; entry < 16; entry++) {
         for (index = 1; index < 256; index++) {
             remap = index >= Header.unknown_00 && index <= Header.unknown_04;
-            float red = Palette[index * 3];
+            float red = Colors[index * 3];
             red *= shades[entry];
-            float green = Palette[index * 3 + 1];
+            float green = Colors[index * 3 + 1];
             green *= shades[entry];
-            float blue = Palette[index * 3 + 2];
+            float blue = Colors[index * 3 + 2];
             blue *= shades[entry];
             pos = (entry << 8) | index;
-            unknown_14[pos] = Closest_Color(red, green, blue, remap);
+            LUT[pos] = Closest_Color(red, green, blue, remap);
         }
     }
     remap = false;
     for (entry = 16; entry < 32; entry++) {
         for (index = 1; index < 256; index++) {
             remap = index >= Header.unknown_00 && index <= Header.unknown_04;
-            float red = Palette[index * 3];
+            float red = Colors[index * 3];
             red *= shades[entry];
-            float green = Palette[index * 3 + 1];
+            float green = Colors[index * 3 + 1];
             green *= shades[entry];
-            float blue = Palette[index * 3 + 2];
+            float blue = Colors[index * 3 + 2];
             blue *= shades[entry];
             red = red <= 255 ? red : 255;
             green = green <= 255 ? green : 255;
             blue = blue <= 255 ? blue : 255;
             pos = (entry << 8) | index;
-            unknown_14[pos] = Closest_Color(red, green, blue, remap);
+            LUT[pos] = Closest_Color(red, green, blue, remap);
         }
     }
 }

@@ -153,7 +153,8 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         bool keep=false;
         if(w && w->WeaponType && otype==6) {
             BuildingClass *b=object->Kind_Of()==6?static_cast<BuildingClass *>(object):0;
-            if(b->Type->CanBeOccupied && b->unknown_4532f0()!=0) keep=true;
+            // behaviour fix (codex4 r505): a building that cannot be occupied keeps its score.
+            if(!b->Type->CanBeOccupied || b->unknown_4532f0()!=0) keep=true;
         }
         if(!keep) *value=0;
     }

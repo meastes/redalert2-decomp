@@ -86,7 +86,8 @@ bool __cdecl Generate_Starting_Points_00576420()
     }
     if(RandomMapGen.SeedData.MapType==0) {
         for(i=0;i<sorted.Count();i++) {
-            if(sorted[i]->unknown_20==0 && unknown_map_random_a705c0()*unknown_random_scale_7a5dd0<0.5) {
+            // behaviour fix (codex4 r501): the original zero-extends the 32-bit RNG word before scaling.
+            if(sorted[i]->unknown_20==0 && (unsigned int)unknown_map_random_a705c0()*unknown_random_scale_7a5dd0<0.5) {
                 sorted[i]->Place_Neutral_Tech_Building_00576cd0();
             }
         }

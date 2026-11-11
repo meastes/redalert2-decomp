@@ -26,10 +26,10 @@ public:
     unsigned char Closest_Color(float red, float green, float blue, bool remap);     // 0x0071C250
 
     UnknownVoxelPaletteHeader Header;   // +0x00
-    unsigned char *Palette;             // +0x10 256 RGB byte triples
-    unsigned char *unknown_14;          // +0x14 section count * 256 lookup
-    int unknown_18;                     // +0x18 Palette is owned
-    int unknown_1c;                     // +0x1C unknown_14 is owned
+    unsigned char *Colors;              // +0x10 256 RGB byte triples
+    unsigned char *LUT;                 // +0x14 section count * 256 lookup
+    int ColorsAllocated;                // +0x18 Colors is owned
+    int LUTAllocated;                   // +0x1C LUT is owned
 };
 
 #endif

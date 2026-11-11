@@ -14,9 +14,9 @@ unsigned char VoxelPaletteLibrary::Closest_Color(float red, float green, float b
                 continue;
             }
         }
-        float dx = red - Palette[index * 3];
-        float dy = green - Palette[index * 3 + 1];
-        float dz = blue - Palette[index * 3 + 2];
+        float dx = red - Colors[index * 3];
+        float dy = green - Colors[index * 3 + 1];
+        float dz = blue - Colors[index * 3 + 2];
         float distance = dx * dx + dy * dy + dz * dz;
         if (distance < best_distance) {
             best_distance = distance;

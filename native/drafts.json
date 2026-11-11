@@ -137,9 +137,9 @@
    "author": "Scout775",
    "draft": null,
    "behaviour_verdict": "cannot tell",
-   "behaviour_checked_by": "codex4 r484",
+   "behaviour_checked_by": "codex4 r500 (r484)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "67abe5a36cc772ac6f850064c9fe4532cd176064"
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x67E210",
@@ -177,9 +177,9 @@
    "author": "Scout773",
    "draft": "native/drafts/004386f0.cpp",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "codex4 r483",
+   "behaviour_checked_by": "codex4 r493 (r483)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "67abe5a36cc772ac6f850064c9fe4532cd176064"
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x440520",
@@ -198,9 +198,9 @@
    "draft": "native/drafts/00440520.cpp",
    "adapted": true,
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "codex4 r485",
+   "behaviour_checked_by": "codex4 r497 (r485)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "67abe5a36cc772ac6f850064c9fe4532cd176064"
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x47E2C0",
@@ -261,9 +261,9 @@
    "draft": "native/drafts/0052c230.cpp",
    "adapted": true,
    "behaviour_verdict": "cannot tell",
-   "behaviour_checked_by": "codex4 r486",
+   "behaviour_checked_by": "codex4 r499 (r486)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "67abe5a36cc772ac6f850064c9fe4532cd176064"
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x535BF0",
@@ -280,10 +280,11 @@
    "origin": "build/class-work/Scout1024/keep/ld_u3_9055.cpp",
    "author": "Scout1024",
    "draft": "native/drafts/00535bf0.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "cannot tell",
+   "behaviour_checked_by": "codex4 r498",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6",
+   "notes": "codex4 r498: 112 branch senses/targets match but 5360AF-536177, 536544-53668E and 5368DB-536B79 need a rectangle/point/text-call dataflow map; a CDECL Unpack must not bind the original FASTCALL 0x536ED0."
   },
   {
    "entry": "0x55DEF0",
@@ -400,10 +401,11 @@
    "origin": "build/class-work/Scout677/w/keep/start_points_576420_draft.cpp",
    "author": "Scout677",
    "draft": "native/drafts/00576420.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "codex4 r501",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6",
+   "notes": "codex4 r501: original zero-extends the 32-bit RNG word before the 0.5 neutral-tech test; the draft sign-extended (fixed). Independent bound 993 code bytes + 15 NOP (bytes 925 here is stale). The MapRegion vector constructor and IndexClass comparator bindings are unresolved; the row stays draft, verify."
   },
   {
    "entry": "0x635C30",
@@ -462,10 +464,10 @@
    "author": "Scout1049",
    "draft": "native/drafts/0065c520.cpp",
    "notes": "Scout1209 r12: the carried text is Scout1049 w/wfp_9697.cpp, the same text Scout1218 rebased (build/class-work/Scout1218/wfp/w/w0.cpp, 96.97); the 90.4 score was stale.",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r502",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x6A7E80",
@@ -482,10 +484,10 @@
    "origin": "build/class-work/Scout778/keep/px_8626.cpp",
    "author": "Scout778",
    "draft": "native/drafts/006a7e80.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r503",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x6A8560",
@@ -503,10 +505,10 @@
    "author": "Scout876",
    "draft": "native/drafts/006a8560.cpp",
    "adapted": true,
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r504",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x6C5270",
@@ -543,10 +545,11 @@
    "origin": "build/class-work/Scout668/w/keep/eo_9170.cpp",
    "author": "Scout668",
    "draft": "native/drafts/006c5570.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "codex4 r505",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6",
+   "notes": "codex4 r505: the 0x2000 occupiable-building filter keeps the score when CanBeOccupied is false (!CanBeOccupied || occupancy test); the draft cleared it (fixed). Helper 0x6C5270 is not cleared by this check."
   },
   {
    "entry": "0x6C9DF0",
@@ -1110,9 +1113,9 @@
    "draft": "native/drafts/005484e0.cpp",
    "adapted": true,
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "codex4 r475",
+   "behaviour_checked_by": "codex4 r494 (r475)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "67abe5a36cc772ac6f850064c9fe4532cd176064"
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x54EBD0",
@@ -1130,9 +1133,9 @@
    "author": "Scout641",
    "draft": "native/drafts/0054ebd0.cpp",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "codex4 r476",
+   "behaviour_checked_by": "codex4 r492 (r476)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "67abe5a36cc772ac6f850064c9fe4532cd176064"
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
   },
   {
    "entry": "0x563D80",
@@ -1582,10 +1585,11 @@
    "author": "codex3/Scout1005",
    "draft": "native/drafts/005c69e0.cpp",
    "adapted": "as parked (TibSun netshare.cpp Scenario_DlgProc shape, attribution kept)",
-   "behaviour_verdict": "cannot tell",
-   "behaviour_checked_by": "codex4 r481",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r495 (r481)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "67abe5a36cc772ac6f850064c9fe4532cd176064"
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6",
+   "notes": "codex4 r495: same behaviour scoped to its nearest same-family compile context (host population 4258, 111 controls); this row has host_source null and the owner harness is not independently specified (r481 recorded cannot tell for that reason)."
   },
   {
    "entry": "0x676010",

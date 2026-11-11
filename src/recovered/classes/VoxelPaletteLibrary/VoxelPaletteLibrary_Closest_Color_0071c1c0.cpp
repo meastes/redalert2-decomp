@@ -2,13 +2,13 @@
 // float; the search starts at a distance of 100000).
 unsigned char VoxelPaletteLibrary::Closest_Color(float red, float green, float blue)
 {
-    unsigned char *entry = Palette;
+    unsigned char *entry = Colors;
     int best = 0;
     float best_distance = 100000.0f;
     for (int index = 0; index < 256; index++) {
-        float dx = red - Palette[index * 3];
-        float dy = green - Palette[index * 3 + 1];
-        float dz = blue - Palette[index * 3 + 2];
+        float dx = red - Colors[index * 3];
+        float dy = green - Colors[index * 3 + 1];
+        float dz = blue - Colors[index * 3 + 2];
         float distance = dx * dx + dy * dy + dz * dz;
         if (distance < best_distance) {
             best = index;

@@ -11,9 +11,9 @@ int VoxelPaletteLibrary::Read_File(FileClass *file)
         Header.unknown_04 = header.unknown_04;
         Header.unknown_08 = header.unknown_08;
         Header.unknown_0c = header.unknown_0c;
-        if (file->Read(Palette, 0x300) != 0x300) {
+        if (file->Read(Colors, 0x300) != 0x300) {
             failed = 1;
-        } else if (file->Read(unknown_14, Header.unknown_08 << 8) != Header.unknown_08 << 8) {
+        } else if (file->Read(LUT, Header.unknown_08 << 8) != Header.unknown_08 << 8) {
             failed = 1;
         }
     }

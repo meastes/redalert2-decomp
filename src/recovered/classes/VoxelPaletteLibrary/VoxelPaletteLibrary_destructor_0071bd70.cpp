@@ -1,11 +1,11 @@
 #pragma auto_inline(off)
 VoxelPaletteLibrary::~VoxelPaletteLibrary()
 {
-    if (unknown_18) {
-        operator delete(Palette);
+    if (ColorsAllocated) {
+        operator delete(Colors);
     }
-    if (unknown_1c) {
-        operator delete(unknown_14);
+    if (LUTAllocated) {
+        operator delete(LUT);
     }
 }
 
