@@ -4,8 +4,8 @@
     "id": "population-4419",
     "inventory_sha256": "ef49f203a8456d9af663cd1a776115a0e22673145d72f7d9dc2a0223d9bec385",
     "gaps_sha256": "361162abe062f779acd1edd6a0b1b84617fbd33c4a06c90d83ba151831048f4d",
-    "historical_population_sha256": "705ea6b883f87e77960bada5675475e98a76673819192618e18a2529de450052",
-    "historical_acceptance_sha256": "71402ec4ae21c25e7f6c013f8d40268fa2f2b0dcbce4a4fad968be23e463ddb8"
+    "historical_population_sha256": "3476d61fff42f0aeef2734aa9708ce4829a05157ec26986d7b3d9265ef312d40",
+    "historical_acceptance_sha256": "a9efc70310241041fde70e2a14515a6bfd69708d689e11038b22f3e01c0c325b"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -9563,9 +9563,9 @@
     "?Unknown_0054A550@UnknownMap8324E0@@QAEXABUCoordStruct@@HHH@Z": 5547344,
     "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0054AAB0@UnknownMap8324E0@@QAE_NABVCell@@@Z": 5548720,
-    "?Unknown_0054AB70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
+    "?Place_Down@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
     "?Unknown_0054AB70@UnknownMap8324E0@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
-    "?Unknown_0054AF70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
+    "?Pick_Up@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
     "?Unknown_0054AF70@UnknownMap8324E0@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
     "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z": 5568448,
     "?Unknown_0054F7C0@UnknownMap8324E0@@QAE_NABVCell@@0H_NE1@Z": 5568448,
@@ -39348,7 +39348,7 @@
         {
           "offset": 86,
           "kind": 20,
-          "symbol": "?Unknown_0054AF70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z",
+          "symbol": "?Pick_Up@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z",
           "target": 5549936,
           "addend": 0,
           "resolved": 1109846
@@ -39628,7 +39628,7 @@
         {
           "offset": 1297,
           "kind": 20,
-          "symbol": "?Unknown_0054AB70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z",
+          "symbol": "?Place_Down@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z",
           "target": 5548912,
           "addend": 0,
           "resolved": 1107611
@@ -39802,7 +39802,7 @@
           "resolved": 4440105
         }
       ],
-      "source_sha256": "a6faf25063a5d18c5ba6e2ac525754698b75385749d3294b66091dbd8a5197e3",
+      "source_sha256": "fc2ffda514566c9bcb9f00aafd20c84836c0c815cfe6d5c5140a96988f76de47",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Mark_0043bfc0.cpp",
       "population": "population-4419",

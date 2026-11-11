@@ -65,9 +65,9 @@ choose_destination:
                     Mark(1);
                 } else {
                 FootClass *passenger = (FootClass *)Cargo.Detach_Object();
-                Map.Unknown_0054AF70(unknown_slot104(), this);
+                Map.Pick_Up(unknown_slot104(), this);
                 if (unknown_slot62(passenger)) passenger->unknown_37c = false;
-                Map.Unknown_0054AB70(unknown_slot104(), this);
+                Map.Place_Down(unknown_slot104(), this);
                 if (!passenger->unknown_37c && passenger->Team) Team->unknown_func_6b8cc0(passenger);
                 if (!Cargo.Object) unknown_slot261(false, true);
                 }

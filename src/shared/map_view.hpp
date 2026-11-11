@@ -109,8 +109,8 @@ public:
     Cell Unknown_00547F30(Cell const &cell);                              // 0x00547F30 (TibSun Cell_To_LocalRect; Fly unit only)
 #endif
     bool Unknown_0054AB00(CoordStruct const &coord);                            // 0x0054AB00
-    void Unknown_0054AB70(Cell const &cell, ObjectClass *object);         // 0x0054AB70
-    void Unknown_0054AF70(Cell const &cell, ObjectClass *object);         // 0x0054AF70
+    void Place_Down(Cell const &cell, ObjectClass *object);               // 0x0054AB70
+    void Pick_Up(Cell const &cell, ObjectClass *object);                  // 0x0054AF70
     bool Unknown_0054F7C0(Cell const &from, Cell const &to, int zone, bool arg4, bool bridge, bool arg6);   // 0x0054F7C0
     int Zone(Cell const &cell, int zone_type, bool alt);                  // 0x0054F8F0
 #ifdef RA2_UNIT_PLAN_ROUTE

@@ -1,4 +1,4 @@
-// void MapClass::Unknown_0054AF70(Cell const &cell, ObjectClass *object) (0x0054AF70)
+// void MapClass::Pick_Up(Cell const &cell, ObjectClass *object) (0x0054AF70)
 // TibSun MapClass::Pick_Up: the object leaves the cells of its occupy list (each cell
 // unlinks it, 0x00473D20, and recalculates, 0x00472540). RA2 adds: a building whose
 // type hides the cells behind it (CanHideThings) gives back the OccupyHeight - 1 cells
@@ -14,7 +14,7 @@
 
 void __fastcall Copy_Cell_List_00482e10(Cell const *input, int capacity, Cell *output);
 
-void MapClass::Unknown_0054AF70(Cell const &cell, ObjectClass *object)
+void MapClass::Pick_Up(Cell const &cell, ObjectClass *object)
 {
     if (!object) return;
 

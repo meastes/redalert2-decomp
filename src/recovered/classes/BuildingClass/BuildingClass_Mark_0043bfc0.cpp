@@ -24,7 +24,7 @@ bool BuildingClass::Mark(int mark)
 
         switch (mark) {
             case 0:
-                Map.Unknown_0054AF70(cell, this);
+                Map.Pick_Up(cell, this);
                 break;
 
             case 1:
@@ -100,7 +100,7 @@ bool BuildingClass::Mark(int mark)
                             return false;
                         }
                     }
-                    Map.Unknown_0054AB70(cell, this);
+                    Map.Place_Down(cell, this);
                     unknown_slot103(Type->unknown_slot27(CoordStruct(cell)));
                     unknown_44c9a0();
 

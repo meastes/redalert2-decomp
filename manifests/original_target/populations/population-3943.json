@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "a2c63120c877ad08a987edfd1f26e9b7d2b32d781dcb938e4b8ccf18bcb9dd6e",
-    "historical_acceptance_sha256": "eea39b7fd91498dd0e7aeac56f3a54cd36e849131eb0066187136491053bb48b"
+    "historical_population_sha256": "2aa38400c1c3d6b590e5b16548a336586e80bd7b563487ab71c9f209bf927d1e",
+    "historical_acceptance_sha256": "040a5b35861569c7459eb1451b60c851d616f98c9ac87a155620ff56e50491c5"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4501,9 +4501,9 @@
     "?Unknown_0054A550@UnknownMap8324E0@@QAEXABUCoordStruct@@HHH@Z": 5547344,
     "?In_Radar@MapClass@@QAE_NABVCell@@@Z": 5548720,
     "?Unknown_0054AAB0@UnknownMap8324E0@@QAE_NABVCell@@@Z": 5548720,
-    "?Unknown_0054AB70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
+    "?Place_Down@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
     "?Unknown_0054AB70@UnknownMap8324E0@@QAEXABVCell@@PAVObjectClass@@@Z": 5548912,
-    "?Unknown_0054AF70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
+    "?Pick_Up@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
     "?Unknown_0054AF70@UnknownMap8324E0@@QAEXABVCell@@PAVObjectClass@@@Z": 5549936,
     "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z": 5568448,
     "?Unknown_0054F7C0@UnknownMap8324E0@@QAE_NABVCell@@0H_NE1@Z": 5568448,
@@ -17644,7 +17644,7 @@
         {
           "offset": 844,
           "kind": 20,
-          "symbol": "?Unknown_0054AF70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z",
+          "symbol": "?Pick_Up@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z",
           "target": 5549936,
           "addend": 0,
           "resolved": 1269392
@@ -17660,7 +17660,7 @@
         {
           "offset": 893,
           "kind": 20,
-          "symbol": "?Unknown_0054AB70@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z",
+          "symbol": "?Place_Down@MapClass@@QAEXABVCell@@PAVObjectClass@@@Z",
           "target": 5548912,
           "addend": 0,
           "resolved": 1268319
@@ -17714,7 +17714,7 @@
           "resolved": 4280677
         }
       ],
-      "source_sha256": "b1e30cb0746499c8d0e7f8f68dfd1c6facc195e48b55eb8ea76ed5d45d4cc24b",
+      "source_sha256": "3ed1c31d51c40e5fd26dde22ecb76e9529cffb332c6d878cc3809ea8b3feb251",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Do_MISSION_UNLOAD_00414d90.cpp",
       "population": "population-3943",
