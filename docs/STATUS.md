@@ -10,22 +10,22 @@ original code is still scaffold. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,522,216 of 3,769,805 (93.43%)** |
+| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,523,208 of 3,769,805 (93.46%)** |
 | Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated, split_declaration; read from the manifest) | 29,093 in 9 regions (0.77% of .text) |
-| Accepted regions | 17,904 |
-| Matched C/C++ body bytes | 3,270,592 (86.76% of .text) |
+| Accepted regions | 17,905 |
+| Matched C/C++ body bytes | 3,271,575 (86.78% of .text) |
 | Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user's three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) | 14,606 in 7 regions (0.39% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 2,514 (0.07% of .text) |
-| Frozen padding bytes | 142,984 |
+| Frozen padding bytes | 142,993 |
 | Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 23 module(s): 137 functions, 15,776 code bytes; **1,558 data bytes compiler-emitted and proven at their original addresses** in 34 sections, 224 bytes of vtable/RTTI copies kept elsewhere; 27 header gaps (withheld template details, modules.json header_gaps; no bytes) in 17 module(s); own ledger, no .text credit (b64pipe, b64straw, base64, blowpipe, blwstraw, buff, buffer, category, ccfile, cstraw, facing, ipxaddr, lzo1x_c, lzo1x_d, milsectmr, pipe, random, rawfile, rle, shapipe, shastraw, straw, version) |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,127 in 899 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
-| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,270,482 of 3,515,700 (93.03%) |
+| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,271,465 of 3,515,691 (93.05%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,886 of 17,987 (99.44%) |
 | Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 94 of 101 scored) | 98.90% by bytes, 99.85% per function |
-| Original .text scaffold bytes | 247,589 |
+| Original .text scaffold bytes | 246,597 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 696 |
 
@@ -2386,6 +2386,7 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `38faed686` | 2026-11-11 13:33 -0600 | 17,904 | 3,270,592 | +0 |  |
 | `a5653484c` | 2026-11-11 14:13 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `e2159f4c9` | 2026-11-11 14:32 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `f39386a59` | 2026-11-11 14:53 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 
 <!-- /generated:status -->
 
