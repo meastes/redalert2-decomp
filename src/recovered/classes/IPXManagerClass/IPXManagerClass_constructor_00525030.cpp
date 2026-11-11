@@ -1,6 +1,8 @@
 // IPXManagerClass::IPXManagerClass(int glb_maxlen, int pvt_maxlen, int glb_num_packets, int pvt_num_packets, unsigned short socket, unsigned short product_id) (0x00525030)
 // Probes for a transport (creating and dropping an IPX interface), then
 // keeps the channel sizes, the byte-swapped socket and default timing.
+// IPXManagerClass::CurDataBuf (+0x8C, shared/ipx_manager.hpp) for this unit, whose Service keeps it.
+#define RA2_IPX_MANAGER_CUR_DATA_BUF
 #include "shared/ipx_manager.hpp"
 // @ref ??_7IPXManagerClass@@6B@=007a46e4
 // @ref ??2@YAPAXI@Z=00782017

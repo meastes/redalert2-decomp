@@ -140,7 +140,16 @@ public:
     int unknown_78;                     // +0x78
     int unknown_7c;                     // +0x7C
     int unknown_80;                     // +0x80
+#ifdef RA2_IPX_MANAGER_CUR_DATA_BUF
+    // Service 0x00525F60 keeps the packet it is handling at +0x8C (codex4 r545). Switched on per
+    // unit (the IPXManagerClass unit, IPXManagerClass_constructor_00525030.cpp): one more member
+    // declaration in every unit makes the WinMain unit emit an extra .rdata $T section.
+    char unknown_84[0x8C - 0x84];
+    char *CurDataBuf;                   // +0x8C the packet being serviced
+    char unknown_90[0x94 - 0x90];
+#else
     char unknown_84[0x94 - 0x84];
+#endif
     int unknown_94;                     // +0x94
     int unknown_98;                     // +0x98
     int unknown_9c;                     // +0x9C
