@@ -93,10 +93,6 @@ public:
     // unit (shared/uicmnds.hpp): one more member declaration in every unit flips commutative operand
     // order elsewhere (Reposition_Sidebar 0x006819A0, VC6_MATCHING_NOTES 2026-11-11).
     bool Is_Techno() const { if (this == 0) return false; return AbstractFlags.IsTechno; }
-#elif defined(RA2_ABSTRACT_IS_TECHNO_DECL)
-    // The same member declared only, for the unit that still defines it out of line (0x006F8A70
-    // until the UICmnds unit emits it) and for callers that must call it.
-    bool Is_Techno() const;
 #endif
 #else
     // The same bits without the struct type, for a unit that never reads the

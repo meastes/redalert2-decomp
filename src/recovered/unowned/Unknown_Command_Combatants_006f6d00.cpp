@@ -33,23 +33,7 @@ void __fastcall Unknown_006F58E0(wchar_t const *text, int delay);
 void __fastcall Unknown_006F6790(wchar_t *buffer);
 int __fastcall Unknown_006F6FE0(TechnoClass *techno, int argument);
 DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F6930(UnknownTest test, int argument);
-
-// The selected technos (Is_Techno 0x006F8A70) for which test(object, argument) holds, in a new list.
-static DynamicVectorClass<TechnoClass *> *__fastcall Selected_Where_Flagged(UnknownTest test, int argument)
-{
-    DynamicVectorClass<TechnoClass *> *list = new DynamicVectorClass<TechnoClass *>(0, 0);
-    int count = unknown_selected_83996c->Count();
-    for (int index = 0; index < count; index++) {
-        ObjectClass *object = unknown_selected_83996c->Get(index);
-        if (object->Is_Techno()) {
-            TechnoClass *techno = (TechnoClass *)object;
-            if (test(techno, argument)) {
-                list->Add(techno);
-            }
-        }
-    }
-    return list;
-}
+DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, int argument);
 
 // Whether the techno is a selectable combatant (not a building, kind 6; type flag +0xB58).
 static bool Is_Combatant(TechnoClass *techno)
@@ -87,7 +71,7 @@ void __fastcall Unknown_006F6D00(bool flag)
     if (unknown_flag_ac133c) {
         list = Unknown_006F6930((UnknownTest)Unknown_006F6FE0, 0);
     } else {
-        list = Selected_Where_Flagged((UnknownTest)Unknown_006F6FE0, 0);
+        list = Unknown_006F69F0((UnknownTest)Unknown_006F6FE0, 0);
         if (None_On_Screen(list)) {
             unknown_flag_ac133c = true;
         }
