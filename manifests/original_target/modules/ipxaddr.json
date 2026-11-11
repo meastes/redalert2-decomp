@@ -1,0 +1,1269 @@
+{
+ "module": "ipxaddr",
+ "source": "src/recovered/ipxaddr.cpp",
+ "header": "src/shared/ipx_address.hpp",
+ "population": "population-2655",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 1867,
+ "code": [
+  {
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "entry": "00523410",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "entry": "00523440",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "entry": "00523480",
+   "body_bytes": 59,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "entry": "005234c0",
+   "body_bytes": 55,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "entry": "00523500",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Get_Node@IPXAddressClass@@QAEXQAE@Z",
+   "entry": "00523520",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "entry": "00523540",
+   "body_bytes": 22,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "entry": "00523560",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "entry": "005235d0",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "entry": "00523690",
+   "body_bytes": 45,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??9IPXAddressClass@@QAE_NAAV0@@Z",
+   "entry": "005236c0",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??OIPXAddressClass@@QAE_NAAV0@@Z",
+   "entry": "00523780",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??MIPXAddressClass@@QAE_NAAV0@@Z",
+   "entry": "005237b0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??PIPXAddressClass@@QAE_NAAV0@@Z",
+   "entry": "005237e0",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "??NIPXAddressClass@@QAE_NAAV0@@Z",
+   "entry": "00523810",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "entry": "00523840",
+   "body_bytes": 258,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Set_Protocol@IPXAddressClass@@SIXH@Z",
+   "entry": "00523950",
+   "body_bytes": 7,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "entry": "00523960",
+   "body_bytes": 20,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 1392,
+ "data": [
+  {
+   "symbol": "?AddressProtocol@@3HA",
+   "address": "007ddc70",
+   "bytes": 4,
+   "kind": "table",
+   "section": 2
+  },
+  {
+   "symbol": "??_C@_0BB@IJI@?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?$AA@",
+   "address": "007ddc74",
+   "bytes": 17,
+   "kind": "string",
+   "section": 34
+  },
+  {
+   "symbol": "??_C@_0DE@BPMD@?$CF02X?5?$CF02X?5?$CF02X?5?$CF02X?5?3?5?$CF02X?5?$CF02X?5@",
+   "address": "007ddc88",
+   "bytes": 52,
+   "kind": "string",
+   "section": 36
+  }
+ ],
+ "data_ranges": [
+  {
+   "start": "007ddc70",
+   "end": "007ddcbc",
+   "bytes": 76,
+   "proven_bytes": 73,
+   "alignment_bytes": 3,
+   "sections": 3,
+   "complete": true,
+   "gaps": []
+  }
+ ],
+ "data_bytes_proven": 73,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00523b70",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00523b70",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "005241b0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005242f0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005247b0",
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "target": "00523560",
+   "function_entry": true
+  },
+  {
+   "site": "00524a30",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00524aa0",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "00524aa0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00525830",
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "target": "00523560",
+   "function_entry": true
+  },
+  {
+   "site": "005258b0",
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "target": "00523560",
+   "function_entry": true
+  },
+  {
+   "site": "005259a0",
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "target": "00523560",
+   "function_entry": true
+  },
+  {
+   "site": "0076c960",
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "target": "00523560",
+   "function_entry": true
+  },
+  {
+   "site": "00482fe0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "005d94d0",
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "target": "00523440",
+   "function_entry": true
+  },
+  {
+   "site": "0076a6b0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0076a6b0",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "0065c7d0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "005c91c0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a6040",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005a6040",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "target": "005234c0",
+   "function_entry": true
+  },
+  {
+   "site": "005a6040",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "005a46c0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005a46c0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005a5720",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "target": "005234c0",
+   "function_entry": true
+  },
+  {
+   "site": "005a2960",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "00524b50",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "004b6560",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "005c86e0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c86e0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c86e0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c86e0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c86e0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c86e0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c86e0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c00b0",
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "target": "00523560",
+   "function_entry": true
+  },
+  {
+   "site": "005bc460",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "005be6b0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005be6b0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0059c290",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0059c290",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005986f0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005986f0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066aef0",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0062dba0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0073c130",
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "target": "00523440",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "target": "00523440",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "0066ff90",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0066ff90",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0066ee50",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "007513e0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "007513e0",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "007514d0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "007514d0",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "007515b0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "007515b0",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "0074d7d0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0074d7d0",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "0074d7d0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "0074d7d0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "00750f60",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00750f60",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "0075c470",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "007516c0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00750d10",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "0075a920",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "target": "005234c0",
+   "function_entry": true
+  },
+  {
+   "site": "0074c660",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "target": "005234c0",
+   "function_entry": true
+  },
+  {
+   "site": "00515110",
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "target": "00523440",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "00523d90",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "00525dc0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "00525dc0",
+   "symbol": "?Get_Node@IPXAddressClass@@QAEXQAE@Z",
+   "target": "00523520",
+   "function_entry": true
+  },
+  {
+   "site": "00525dc0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00525dc0",
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "target": "00523540",
+   "function_entry": true
+  },
+  {
+   "site": "00525dc0",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "00525dc0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "005bb540",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0063f2a0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0063f430",
+   "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+   "target": "00523560",
+   "function_entry": true
+  },
+  {
+   "site": "0063f430",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0063f510",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0063f510",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0063f510",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0063f510",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "0063f510",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "0063f510",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "0063f840",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0063f840",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0063f840",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "0063f9a0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0063fa00",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0063fa00",
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "target": "00523540",
+   "function_entry": true
+  },
+  {
+   "site": "0063fa00",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "0063fa00",
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "target": "00523540",
+   "function_entry": true
+  },
+  {
+   "site": "0063fa00",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "0063fba0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "0076cd40",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "005bb5d0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "005b9f90",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "005ba0d0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005baf50",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005baf50",
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "target": "00523540",
+   "function_entry": true
+  },
+  {
+   "site": "005baf50",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "005baf50",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "005ba2c0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005ba2c0",
+   "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+   "target": "00523540",
+   "function_entry": true
+  },
+  {
+   "site": "005ba2c0",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "005ba2c0",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+   "target": "00523500",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??9IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005236c0",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "006829f0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0074fcb0",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "0074fcb0",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "00750330",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "005243d0",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "005243d0",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "005243d0",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "00624c10",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "007459a0",
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "target": "00523440",
+   "function_entry": true
+  },
+  {
+   "site": "0073ccb0",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "target": "005234c0",
+   "function_entry": true
+  },
+  {
+   "site": "00760c00",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00760c00",
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "target": "00523440",
+   "function_entry": true
+  },
+  {
+   "site": "00760c00",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "target": "005234c0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+   "target": "00523960",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+   "target": "005235d0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+   "target": "005234c0",
+   "function_entry": true
+  },
+  {
+   "site": "00482110",
+   "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+   "target": "00523690",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Set_Protocol@IPXAddressClass@@SIXH@Z",
+   "target": "00523950",
+   "function_entry": true
+  },
+  {
+   "site": "005135f0",
+   "symbol": "?Set_Protocol@IPXAddressClass@@SIXH@Z",
+   "target": "00523950",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "0066e380",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "??0IPXAddressClass@@QAE@XZ",
+   "target": "00523410",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+   "target": "00523480",
+   "function_entry": true
+  },
+  {
+   "site": "00761c50",
+   "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
+   "target": "00523840",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+   "target": "00523440",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  }
+ ]
+}

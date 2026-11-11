@@ -4,7 +4,7 @@
 // @ref ?unknown_443d60@BuildingClass@@QAEXH@Z=00443d60
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
 // @ref ?Voc_Update_At@@YIPAUAudioEvent@@ABUCoordStruct@@PAUAudioEventHandle@@@Z=007141b0
-// @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
+// @ref ?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Free_Buildup@BuildingTypeClass@@QAEXXZ=0045e920
 // @ref ?Unknown_00406070@UnknownAudioController@@QAEXXZ=00406070
 int BuildingClass::Do_MISSION_CONSTRUCTION()
@@ -32,7 +32,7 @@ int BuildingClass::Do_MISSION_CONSTRUCTION()
             QueueMission(5,false);
             if(!Type->LaserFence) {
                 UnknownFacingDir direction((unsigned short)((unsigned char)Type->unknown_c64<<8));
-                unknown_2e0.Set_Current(direction);
+                unknown_2e0.Set(direction);
             }
             Type->Free_Buildup();
             unknown_570.Unknown_00406070();

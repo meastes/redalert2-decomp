@@ -5,14 +5,13 @@
 // everything else at zero.
 #include "shared/unit.hpp"
 // @ref ?Unlimbo@FootClass@@UAE_NPBUCoordStruct@@H@Z=004c5e40
-// @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 
 bool UnitClass::Unlimbo(CoordStruct const *coord, int dir)
 {
     if (FootClass::Unlimbo(coord, dir)) {
-        unknown_2f8.Set_Current(UnknownFacingDir((unsigned short)(dir << 8)));
+        unknown_2f8.Set(UnknownFacingDir((unsigned short)(dir << 8)));
         if (unknown_32a && !unknown_32d) {
             unknown_1b8 = 2;
         }

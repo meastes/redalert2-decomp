@@ -1,0 +1,64 @@
+{
+ "module": "b64pipe",
+ "source": "src/recovered/b64pipe.cpp",
+ "header": "src/shared/base64_pipe.hpp",
+ "population": "population-3090",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2012,
+ "code": [
+  {
+   "symbol": "?Put@Base64Pipe@@UAEHPBXH@Z",
+   "entry": "0042b670",
+   "body_bytes": 386,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Flush@Base64Pipe@@UAEHXZ",
+   "entry": "0042b800",
+   "body_bytes": 80,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 480,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0050d0f0",
+   "symbol": "?Put@Base64Pipe@@UAEHPBXH@Z",
+   "target": "0042b670",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Base64_Decode@@YIHPBXHPAXH@Z",
+   "address": "0042d640"
+  },
+  {
+   "symbol": "?Base64_Encode@@YIHPBXHPAXH@Z",
+   "address": "0042d520"
+  },
+  {
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "address": "0060eb10"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ]
+}

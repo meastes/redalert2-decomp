@@ -31,7 +31,7 @@ void __fastcall Poke_The_Host_00750f60()
                 Unknown_0074d7d0(&user);
                 Service_Game_IO_00481fb0();
                 unknown_ipx_manager_a40978.Set_Timing(50,(unsigned long)-1,5000,true);
-                Debug_Printf(wol_host_address_debug_7ff904,unknown_address_a3db2c.As_String_00523840());
+                Debug_Printf(wol_host_address_debug_7ff904,unknown_address_a3db2c.As_String());
                 UnknownGlobalPacket packet;
                 memset(&packet,0,sizeof(packet));
                 packet.Command=13;

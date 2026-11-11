@@ -1,0 +1,60 @@
+{
+ "module": "b64straw",
+ "source": "src/recovered/b64straw.cpp",
+ "header": "src/shared/base64_straw.hpp",
+ "population": "population-3091",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2013,
+ "code": [
+  {
+   "symbol": "?Get@Base64Straw@@UAEHPAXH@Z",
+   "entry": "0042b850",
+   "body_bytes": 245,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 256,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0050cfc0",
+   "symbol": "?Get@Base64Straw@@UAEHPAXH@Z",
+   "target": "0042b850",
+   "function_entry": true
+  },
+  {
+   "site": "0050cfc0",
+   "symbol": "?Get@Base64Straw@@UAEHPAXH@Z",
+   "target": "0042b850",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Base64_Decode@@YIHPBXHPAXH@Z",
+   "address": "0042d640"
+  },
+  {
+   "symbol": "?Base64_Encode@@YIHPBXHPAXH@Z",
+   "address": "0042d520"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ]
+}

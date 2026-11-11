@@ -47,7 +47,7 @@ void UnitClass::unknown_6fbc90()
         }
         if (!unknown_494 && !Locomotor.Checked()->Is_Moving()) {
             unknown_2e0.Set_Desired(Direction_To(unknown_228));
-            unknown_2f8.Set_Desired(unknown_2e0.unknown_4b8c80());
+            unknown_2f8.Set_Desired(unknown_2e0.Desired());
         }
         break;
     case 9:

@@ -4,8 +4,8 @@
     "id": "population-4456",
     "inventory_sha256": "b74438acc86622b2c05c5a89957495d9f7834c409027a33fcfc9c065b59fad96",
     "gaps_sha256": "53fdc6151831fa25236eebff75bbda80a907aee6e1ee02848bdd7b6b0f6cce5f",
-    "historical_population_sha256": "6b2b29772fbec5d46c22e0a63185f1af584c343a48428afe7ade212d5b3f79da",
-    "historical_acceptance_sha256": "822ed8981c3aed7db00f9de2695944f2831140261a490cc3a36f8bc40fbf236c"
+    "historical_population_sha256": "4c4f83943abe353af62dee6370383346f23664a5c350f4ce08f9d3d6026b438c",
+    "historical_acceptance_sha256": "1fed9252abed9bf7f0a2a49568665565f11fcbfe031e9da1e86771597387b81f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3848,8 +3848,8 @@
     "??0DSurface@@QAE@XZ": 4892176,
     "??_GDSurface@@UAEPAXI@Z": 4920560,
     "??RRandomClass@@QAEHHH@Z": 6522656,
-    "?Mix1@Random3Class@@0PAKA": 8316076,
-    "?Mix2@Random3Class@@0PAKA": 8316156,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
     "?Error@?$Int@$0EA@@@2HA": 10753984,
     "_rand": 7882410,
     "?Is_Disk_Inserted@CDFileClass@@SIHH@Z": 4652464,
@@ -4046,7 +4046,7 @@
     "?Peek_Packet@IPXGlobalConnClass@@UAEHHPAXPAHPAVIPXAddressClass@@PAGPAK@Z": 5392128,
     "?Mark_Packet_Read@IPXGlobalConnClass@@UAEXH@Z": 5392272,
     "?Is_Broadcast@IPXAddressClass@@QAEHXZ": 5387616,
-    "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
     "?Unknown_006FA180@@YIPAGPBD@Z": 7315840,
     "?Close@WinsockInterfaceClass@@QAEXXZ": 7777808,
     "?OnGameresSent@CNetUtilEventSink@@UAGJJ@Z": 7721728,
@@ -5666,7 +5666,7 @@
     "?Service_Network_Handshake_00482110@@YAXXZ": 4727056,
     "?last_online_poll_00850e10@@3JA": 8719888,
     "?unknown_login_state_00b2abe4@@3HA": 11709412,
-    "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
+    "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
     "?Fill@ZBuffer@@QAEXG@Z": 7823712,
     "_strstr": 7878320,
@@ -6701,8 +6701,8 @@
     "??_EConnectionClass@@UAEPAXI@Z": 4724240,
     "??_ENullModemConnClass@@UAEPAXI@Z": 6085840,
     "?Set_Protocol@IPXAddressClass@@SIXH@Z": 5388624,
-    "?IPXProtocol@@3HA": 8248432,
-    "?unknown_523960@IPXAddressClass@@QAEXG@Z": 5388640,
+    "?AddressProtocol@@3HA": 8248432,
+    "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "?Simple_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIH@Z": 4814896,
     "?Draw_0068ce80@UnknownBitmapWriter@@QAE_NABVRect@@PAVSurface@@1H@Z": 6868608,
     "?Fill_Rect_Trans@DSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z": 4896560,
@@ -12090,7 +12090,14 @@
     "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
     "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
     "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
-    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?As_String@IPXAddressClass@@": 5388352,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Version_Name@WindowsVersionInfo@@QAEPADXZ": 7565120
   },
   "regions": [
     {
@@ -14525,7 +14532,7 @@
         {
           "offset": 293,
           "kind": 20,
-          "symbol": "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z",
+          "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
           "target": 5388352,
           "addend": 0,
           "resolved": 657207
@@ -14675,7 +14682,7 @@
           "resolved": 3147715
         }
       ],
-      "source_sha256": "70bd5f8a27a6955485326418093fe22cdad392210209033f3996154bf47b64e3",
+      "source_sha256": "57fa5242498a900a30326de84c769698613f148396f3893458776cd36663738f",
       "source": "src/recovered/unowned/Write_Multiplayer_Statistics_00482fe0.cpp",
       "population": "population-4456",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -16565,7 +16572,7 @@
         {
           "offset": 1152,
           "kind": 20,
-          "symbol": "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z",
+          "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
           "target": 5387920,
           "addend": 0,
           "resolved": 659708
@@ -16741,7 +16748,7 @@
         {
           "offset": 1393,
           "kind": 20,
-          "symbol": "?unknown_523960@IPXAddressClass@@QAEXG@Z",
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
           "target": 5388640,
           "addend": 0,
           "resolved": 660187
@@ -17453,7 +17460,7 @@
         {
           "offset": 2185,
           "kind": 20,
-          "symbol": "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z",
+          "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
           "target": 5387920,
           "addend": 0,
           "resolved": 658675
@@ -17723,7 +17730,7 @@
           "resolved": 4729326
         }
       ],
-      "source_sha256": "0307a295273f3f958e16e5210e20b523b1471d4561a3ae2026f6c2cedb33baf9",
+      "source_sha256": "55ecc958104e4bd655e1ed3b30fa54aa07e91a00dd7364247a3f7da22839a994",
       "switch_data_bytes": 90,
       "source": "src/recovered/unowned/IPX_Call_Back_00482110.cpp",
       "population": "population-4456",

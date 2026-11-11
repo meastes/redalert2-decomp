@@ -4,8 +4,8 @@
     "id": "population-4195",
     "inventory_sha256": "31d639dbaf9424d5a06d0d3dff0394405aaf49af7f8c2ec587c0c470a7bde64e",
     "gaps_sha256": "c39982183334853b1d09bc43d6f8f5b7a3ee17249bfc4054e8b26a97dfef201c",
-    "historical_population_sha256": "5937e7f48c4053101b83887e60d817e90ab699801df32071f16706931d71bf79",
-    "historical_acceptance_sha256": "56dbc975080622a79ef64b82e97944894533083260dae8d12f565f4d907cd30c"
+    "historical_population_sha256": "f38b06b2ecebb4006f13f3061c1a2786b212cacedb9b0c36b76ebab5e26df6cd",
+    "historical_acceptance_sha256": "02db6a7b25c9b419e12100b1638b21bf4eb9480aafa804c218ebba7a893a62dd"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1991,7 +1991,7 @@
     "?unknown_basic_section_7a9204@@3PBDB": 8032772,
     "?unknown_variable_names_section_7a9200@@3PBDB": 8032768,
     "?Get_CPU_Info@@YIXPAHPAEPADI@Z": 5057056,
-    "?Performance_Frequency_005abf20@@YIIPAI@Z": 5947168,
+    "?Get_CPU_Rate@@YIIPAI@Z": 5947168,
     "?unknown_cpu_delay_scale_7a9208@@3NB": 8032776,
     "?unknown_cpu_delay_factor_7a9210@@3NB": 8032784,
     "??_C@_09DFBC@Waypoints?$AA@": 8270812,
@@ -7019,8 +7019,8 @@
     "_$E24": 7433952,
     "_wcslen": 7878149,
     "??RRandomClass@@QAEHHH@Z": 6522656,
-    "?Mix1@Random3Class@@0PAKA": 8316076,
-    "?Mix2@Random3Class@@0PAKA": 8316156,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
     "??0PKey@@QAE@PBX0@Z": 6352192,
     "?Is_Disk_Inserted@CDFileClass@@SIHH@Z": 4652464,
     "?Refresh_Search_Drives@CDFileClass@@SIXXZ": 4652576,
@@ -7274,7 +7274,7 @@
     "??0IPXAddressClass@@QAE@XZ": 5387280,
     "?Get_Address@IPXAddressClass@@QAEXQAE0@Z": 5387520,
     "?Is_Broadcast@IPXAddressClass@@QAEHXZ": 5387616,
-    "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
     "??0Matrix3D@@QAE@PBM@Z": 5832160,
     "??0Matrix3D@@QAE@ABV0@@Z": 5832208,
     "??0Matrix3D@@QAE@MMMMMMMMMMMM@Z": 5832240,
@@ -7503,7 +7503,7 @@
     "?Set_Veteran@VeterancyClass@@QAEX_N@Z": 7419168,
     "?Set_ROT@FacingClass@@QAEXH@Z": 4951696,
     "?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951008,
-    "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
     "?unknown_6d3040@TechnoClass@@QAEXPAV1@@Z": 7155776,
     "?Limbo@FootClass@@UAE_NXZ": 5020624,
     "?Do_MISSION_HUNT@AircraftClass@@UAEHXZ": 4277952,
@@ -8205,10 +8205,10 @@
     "?unknown_slot273@TechnoClass@@UAE?AUCoordStruct@@XZ": 7180032,
     "?unknown_slot274@TechnoClass@@UAE_NXZ": 7180064,
     "?unknown_slot275@TechnoClass@@UAE_NXZ": 7180096,
-    "?unknown_4b8c80@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951168,
-    "?Is_Turning_Positive@FacingClass@@QBEDXZ": 4951232,
-    "?Is_Turning_Negative@FacingClass@@QBEDXZ": 4951296,
-    "?Difference_To_Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951168,
+    "?Is_Rotating_CW@FacingClass@@QBEDXZ": 4951232,
+    "?Is_Rotating_CCW@FacingClass@@QBEDXZ": 4951296,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
     "??0?$List@PAUINISection@INIClass@@@@QAE@XZ": 4788208,
     "?Get_Color_0066e2a0@NodeNameType@@QAEHXZ": 6742688,
     "?Compute_CRC_004B4930@TaskForceEntryStruct@@QBEXAAVWWCRCEngine@@@Z": 4933936,
@@ -8227,7 +8227,7 @@
     "?Do_MISSION_UNLOAD@InfantryClass@@UAEHXZ": 5268784,
     "?Unknown_006D8640@TechnoClass@@QAE_NPAUWeaponStruct@@@Z": 7177792,
     "?From_Integer@VeterancyClass@@QAEXH@Z": 7419280,
-    "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
+    "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
     "?Cell_Techno@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
     "?Set_00437690@Vector3@@QAEAAU1@MMM@Z": 4421264,
     "?Scale_004376b0@Vector3@@QAEAAU1@M@Z": 4421296,
@@ -10269,10 +10269,10 @@
     "??0?$VectorClass@PAVMultiplayerGameMode@@@@QAE@IPBQAVMultiplayerGameMode@@@Z": 6002912,
     "??_E?$VectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5685840,
     "?Set_Protocol@IPXAddressClass@@SIXH@Z": 5388624,
-    "?IPXProtocol@@3HA": 8248432,
+    "?AddressProtocol@@3HA": 8248432,
     "?unknown_objects_ac0c30@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275312,
     "?unknown_list_ac0c18@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275288,
-    "?unknown_523960@IPXAddressClass@@QAEXG@Z": 5388640,
+    "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "??0AlphaShapeClass@@QAE@PAVObjectClass@@HH@Z": 4320224,
     "?Unknown_0055A1F0@MapClass@@QAEXXZ": 5612016,
     "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z": 5387456,
@@ -13827,7 +13827,10 @@
     "?Restore@Anim@Voices@WorldDominationTour@@UAEXH@Z": 7547936,
     "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
     "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
-    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624
+    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580
   },
   "regions": [
     {
@@ -24500,7 +24503,7 @@
         {
           "offset": 63,
           "kind": 20,
-          "symbol": "?Performance_Frequency_005abf20@@YIIPAI@Z",
+          "symbol": "?Get_CPU_Rate@@YIIPAI@Z",
           "target": 5947168,
           "addend": 0,
           "resolved": 4294218109
@@ -24546,7 +24549,7 @@
           "resolved": 1164055
         }
       ],
-      "source_sha256": "4a4d8e6da5547f5aef11c9cb537d3d7906c080de4b086401dde6b623179cc2bc",
+      "source_sha256": "a1c2cb1d3e83e0bf6b8d4e37b0251138681c65d42146fb223ff8f0b0a94104fe",
       "source": "src/recovered/classes/UnknownIDSource/CPU_Scaled_Delay_00662d60.cpp",
       "population": "population-4195",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -33946,7 +33949,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "cae5aa8d32873f5e0b403e91c84e021ae672dd3ad39100fb94ae17b380310049",
+      "source_sha256": "8805ec5aa11881baa67f9546b1cbc50d951f69031423815986ae0e6b5a770247",
       "source": "src/recovered/unowned/Clear_Scenario_0065d370.cpp",
       "population": "population-4195",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

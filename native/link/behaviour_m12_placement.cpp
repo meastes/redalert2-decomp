@@ -17,3 +17,17 @@ void __fastcall Unknown_006F8A00(BuildingClass *building)
     }
     ra2_pending_placement_ac1334 = building;
 }
+
+// Behaviour rows (Scout1281, NOT EXACT, native/behaviour_rewrites.json): 0x006F8A50 and
+// 0x006F8A60 return the two slots (mov eax, [0x00AC1334] / [0x00AC1338]; ret).
+// SetStructureTabCommandClass::Execute 0x0051B030 and SetDefenseTabCommandClass::Execute
+// 0x0051B0F0 (the sidebar tab hot keys) hand the waiting building to the player's house.
+BuildingClass *Unknown_006F8A50()
+{
+    return ra2_pending_placement_ac1334;
+}
+
+BuildingClass *Unknown_006F8A60()
+{
+    return ra2_pending_placement_ac1338;
+}

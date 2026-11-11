@@ -35,7 +35,7 @@ bool IPXManagerClass::unknown_525dc0(CommHeaderType *header, char *buf, int bufl
         if (header->unknown_0c == unknown_port_7f60dc) {
             header->unknown_0c = port;
             memcpy(&header->unknown_08, address->NodeAddress, 4);
-            Debug_Printf("Forwarding packet from %s ; %d to forwarder\n", address->As_String_00523840(), port);
+            Debug_Printf("Forwarding packet from %s ; %d to forwarder\n", address->As_String(), port);
             PacketTransport->WriteTo(buf, buflen, &loopback, sizeof(IPXAddressClass), false, 1, unknown_port_7f60dc);
             return true;
         }
@@ -50,10 +50,10 @@ bool IPXManagerClass::unknown_525dc0(CommHeaderType *header, char *buf, int bufl
                 NetNodeType ip;
                 memcpy(ip, &header->unknown_08, 4);
                 target.Set_Node(ip);
-                target.unknown_523960(target_port);
+                target.Set_Port(target_port);
                 header->unknown_0c = 0;
                 memset(&header->unknown_08, 0, sizeof(header->unknown_08));
-                Debug_Printf("Forwarding packet from router to %s\n", target.As_String_00523840());
+                Debug_Printf("Forwarding packet from router to %s\n", target.As_String());
                 PacketTransport->WriteTo(buf, buflen, &target, sizeof(target), false, 1, target_port);
                 return true;
             }

@@ -1,0 +1,67 @@
+{
+ "module": "lzo1x_c",
+ "source": "src/recovered/lzo1x_c.cpp",
+ "header": "src/shared/lzo.hpp",
+ "population": "population-110",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 56,
+ "code": [
+  {
+   "symbol": "?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z",
+   "entry": "0053e420",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?do_compress@@YIHPBEIPAEPAIPAX@Z",
+   "entry": "0053e490",
+   "body_bytes": 1237,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 1360,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0053ebe0",
+   "symbol": "?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z",
+   "target": "0053e420",
+   "function_entry": true
+  },
+  {
+   "site": "0053ebe0",
+   "symbol": "?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z",
+   "target": "0053e420",
+   "function_entry": true
+  },
+  {
+   "site": "0053ee70",
+   "symbol": "?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z",
+   "target": "0053e420",
+   "function_entry": true
+  },
+  {
+   "site": "0053f050",
+   "symbol": "?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z",
+   "target": "0053e420",
+   "function_entry": true
+  },
+  {
+   "site": "00495000",
+   "symbol": "?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z",
+   "target": "0053e420",
+   "function_entry": true
+  }
+ ],
+ "references_out": []
+}

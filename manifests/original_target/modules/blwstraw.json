@@ -1,0 +1,72 @@
+{
+ "module": "blwstraw",
+ "source": "src/recovered/blwstraw.cpp",
+ "header": "src/shared/blow_straw.hpp",
+ "population": "population-99",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 52,
+ "code": [
+  {
+   "symbol": "?Get@BlowStraw@@UAEHPAXH@Z",
+   "entry": "00435840",
+   "body_bytes": 227,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Key@BlowStraw@@QAEXPBXH@Z",
+   "entry": "00435930",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 304,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0060ff10",
+   "symbol": "?Key@BlowStraw@@QAEXPBXH@Z",
+   "target": "00435930",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0BlowfishEngine@@QAE@XZ",
+   "address": "00435580"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "?Decrypt@BlowfishEngine@@QAEHPBXHPAX@Z",
+   "address": "00435660"
+  },
+  {
+   "symbol": "?Encrypt@BlowfishEngine@@QAEHPBXHPAX@Z",
+   "address": "00435630"
+  },
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Submit_Key@BlowfishEngine@@QAEXPBXH@Z",
+   "address": "00435600"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ]
+}

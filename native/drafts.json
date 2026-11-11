@@ -1479,11 +1479,11 @@
    "author": "Scout705 rz3 (Scout1046 rescore; House204 before)",
    "draft": "native/drafts/004eca50.cpp",
    "adapted": "its own unit; text unchanged",
-   "behaviour_verdict": "cannot tell",
-   "behaviour_checked_by": "codex4 r556",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "Scout1281 (native objects; codex4 r556 cases)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "6eb7f5f04da51f5c6b5d837933af4592602f0524",
-   "notes": "codex4 r556: same as the original in the VC6 caller under equal FP precision; the native question is precision: BaseCenter(2560,2560,0), radius 768 picks (9,13) in the original, (10,13) in the portable model (x87 64-bit-significand original vs a 53-bit portable model; shared native FP follow-up with r556/r557/r560/r562)."
+   "behaviour_checked_head": "560d630ca48393c10586cc65a3dca909db51bc46",
+   "notes": "codex4 r556: same as the original in the VC6 caller under equal FP precision; the native question is precision: BaseCenter(2560,2560,0), radius 768 picks (9,13) in the original, (10,13) in the portable model (x87 64-bit-significand original vs a 53-bit portable model; shared native FP follow-up with r556/r557/r560/r562). Scout1281: the native build's own objects (this draft's Random_Cell_In_Zone and Move_Coord, Fast_Sin/Fast_Cos) run on arm64 against a model of the original's x87 code (53-bit precision, rounding toward zero from WinMain; 0x004ECB32-0x004ECB8A, 0x004BA480): under the port's rounding toward zero the r556 cases give (9,13) and (7,9), the original's (round-to-nearest gave codex4's portable (10,13), (7,10)). Remaining difference was Fast_Sin/Fast_Cos narrowing the angle to float (5 of 65,536 facings, a neighbouring table entry); with the fixups.json entries for 0x004BA480/0x004BA4D0 every facing at distances 768-1536 equals the original (50,397,184 cases, 0 differ). FMA contraction (fmsub/fmadd in Move_Coord) is exact here (float sample times an int distance)."
   },
   {
    "entry": "0x617340",

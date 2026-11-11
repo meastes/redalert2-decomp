@@ -108,7 +108,7 @@ int FirewallSettings::Detect_005ba2c0(bool *found)
         NetNodeType node;
         *(unsigned long *)node = ips[k];
         addresses[k].Set_Node(node);
-        addresses[k].unknown_523960(mangler_port);
+        addresses[k].Set_Port(mangler_port);
     }
 
     unsigned short port = Get_Next_Port(1);
@@ -232,7 +232,7 @@ int FirewallSettings::Detect_005ba2c0(bool *found)
                 return result;
             }
             IPXAddressClass other = addresses[0];
-            other.unknown_523960(*(unsigned short *)other.NetworkNumber + 1);
+            other.Set_Port(*(unsigned short *)other.NetworkNumber + 1);
             Send_Mangler_Query(&other, port_a, packet_id, false);
             Send_Mangler_Query(&other, port_a, packet_id, false);
             Send_Mangler_Query(&other, port_a, packet_id, false);

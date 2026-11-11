@@ -4,7 +4,7 @@
 // @ref ?Release_Held@?$UnknownComPtr@UUnknownFlyInterface@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEXXZ=004bfbc0
 // @ref ?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8a30
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
-// @ref ?unknown_4b8c80@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8c80
+// @ref ?Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8c80
 // @ref ?unknown_facing_origin_79b630@@3NB=0079b630
 // @ref ?unknown_facing_scale_79b628@@3NB=0079b628
 // @ref __ftol=0077f110
@@ -34,7 +34,7 @@ bool FlyLocomotionClass::Process_Take_Off_004bddf0()
     unknown_50=false;
     unknown_51=false;
     if (relative_height>relative_level-relative_level/3) {
-        LinkedTo->unknown_2f8.Set_Desired(LinkedTo->unknown_2e0.unknown_4b8c80());
+        LinkedTo->unknown_2f8.Set_Desired(LinkedTo->unknown_2e0.Desired());
     } else if (relative_height>relative_level/2) {
         UnknownFacingDir dir=Fly_Direction_004bddf0(LinkedTo->Center_Coord(),unknown_1c);
         LinkedTo->unknown_2e0.Set_Desired(dir);

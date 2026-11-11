@@ -64,11 +64,11 @@ bool OwnerTalkClass::Unknown_0063F510(unsigned char *address)
         node[2] = address[2];
         node[3] = address[3];
         unknown_forward_address_a3fbb8.Set_Address(net, node, 0);
-        unknown_forward_address_a3fbb8.unknown_523960(*(unsigned short *)&unknown_session_a3d298.Players[0]->Address);
+        unknown_forward_address_a3fbb8.Set_Port(*(unsigned short *)&unknown_session_a3d298.Players[0]->Address);
         unknown_session_a3d298.unknown_292c = *(unsigned short *)&unknown_session_a3d298.Players[0]->Address;
         unknown_forward_address_a3fbac = unknown_session_a3d298.Players[0]->Address;
     }
-    Debug_Printf("Session.PacketRouterAddressTranslate = %s\n", unknown_forward_address_a3fbb8.As_String_00523840());
+    Debug_Printf("Session.PacketRouterAddressTranslate = %s\n", unknown_forward_address_a3fbb8.As_String());
 
 create:
     BOOL result = CreateProcessA("mph.exe", command, 0, 0, false, 0x200, 0, 0, &startup, &process);
@@ -99,7 +99,7 @@ create:
 // @ref ??_C@_0CB@DHAE@Received?5TALK_HELLO?5from?5router?6@=007ee94c
 // @ref ??_C@_0CI@MNDF@CreateProcess?5failed?5with?5error?5@=007ee988
 // @ref ??_C@_0CL@PLML@Session?4PacketRouterAddressTrans@=007ee9b0
-// @ref ?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z=00523840
+// @ref ?As_String@IPXAddressClass@@QAEPADPBV1@@Z=00523840
 // @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 // @ref ?PacketTransport@@3PAVWinsockInterfaceClass@@A=00839c50
 // @ref ?Set_Address@IPXAddressClass@@QAEXQAE0G@Z=00523480

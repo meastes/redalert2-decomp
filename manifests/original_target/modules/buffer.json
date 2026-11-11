@@ -1,0 +1,57 @@
+{
+ "module": "buffer",
+ "source": "src/recovered/buffer.cpp",
+ "header": "src/shared/buffer_class.hpp",
+ "population": "population-3679",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2173,
+ "code": [
+  {
+   "symbol": "??0BufferClass@@QAE@PAXH@Z",
+   "entry": "00438470",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??0BufferClass@@QAE@H@Z",
+   "entry": "004384b0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??0BufferClass@@QAE@XZ",
+   "entry": "004384d0",
+   "body_bytes": 13,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??1BufferClass@@QAE@XZ",
+   "entry": "004384e0",
+   "body_bytes": 17,
+   "padding_bytes": 15
+  }
+ ],
+ "code_bytes": 144,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  }
+ ]
+}

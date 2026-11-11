@@ -14,6 +14,10 @@
 // the main thread; elsewhere main stays the program's entry (Scout1247).
 #include <SDL3/SDL_main.h>
 #include <stdio.h>
+#include <stdlib.h>
+#ifdef __APPLE__
+#include <TargetConditionals.h>
+#endif
 #include "ra2port/win32_port.hpp"
 
 #ifdef RA2_NATIVE_GAME
@@ -296,6 +300,18 @@ int main(int argc, char **argv)
             ra2port_run_end(why);
         }
         SDL_Quit();
+#if defined(__APPLE__) && TARGET_OS_IPHONE
+        // iOS (Scout1281; user report: Exit Game left a black screen). SDL's UIKit start-up
+        // calls this main and, when it returns, keeps the UIKit run loop going without
+        // ending the process (SDL_uikitappdelegate: the app may only have set up in main),
+        // so the window stayed black. The main menu's Exit Game ends WinMain as on Windows;
+        // the process then ends here, as the Outpost 2 port's Exit does (its callbacks
+        // return SDL_APP_SUCCESS and SDL ends the app). exit() runs the atexit handlers
+        // (save_app_settings). The Mac's main returns and the process ends as before.
+        fprintf(stderr, "app: WinMain returned %d: exit\n", code);
+        fflush(stderr);
+        exit(code);
+#endif
         return code;
     }
 #endif

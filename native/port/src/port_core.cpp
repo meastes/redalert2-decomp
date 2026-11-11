@@ -156,6 +156,12 @@ struct DirListing {
 std::mutex dir_cache_lock;
 std::map<std::string, DirListing> dir_cache;
 unsigned dir_generation = 1;
+// The folders the port just resolved a path to write in, and when (Scout1281). host_path_write
+// runs before the caller creates, deletes or renames the file, and its own lookups list the
+// folder again at once, so that listing could miss the file about to be made: RandMap.Sed,
+// saved by the random map dialog and read back by Select_Scenario 0x005C7C30 within the 2 s
+// recheck, was "missing" ("Unable to read scenario!"). These folders are listed afresh for 2 s.
+std::map<std::string, std::chrono::steady_clock::time_point> dir_written;
 std::string folded(const std::string &name)
 {
     std::string f = name;
@@ -170,11 +176,13 @@ Lookup lookup(const std::string &dir, const std::string &name, std::string *real
     auto now = std::chrono::steady_clock::now();
     std::lock_guard<std::mutex> g(dir_cache_lock);
     DirListing &l = dir_cache[where];
-    if (!l.valid || l.generation != dir_generation || now - l.checked >= std::chrono::seconds(2)) {
+    auto written = dir_written.find(where);
+    bool fresh_write = written != dir_written.end() && now - written->second < std::chrono::seconds(2);
+    if (!l.valid || l.generation != dir_generation || fresh_write || now - l.checked >= std::chrono::seconds(2)) {
         struct stat st;
         fs_op(FS_STAT);
         if (stat(where.c_str(), &st) != 0 || !S_ISDIR(st.st_mode)) { l.valid = false; return NO_DIR; }
-        if (!l.valid || l.generation != dir_generation || l.mtime != st.st_mtime) {
+        if (!l.valid || l.generation != dir_generation || fresh_write || l.mtime != st.st_mtime) {
             l.by_folded.clear();
             fs_op(FS_LIST);
             if (DIR *d = opendir(where.c_str())) {
@@ -311,6 +319,11 @@ char *host_path_write(const char *game_path, char *out, size_t n)
     // The components that exist already keep their spelling (any case); then the
     // overlay's missing parent directories are created.
     if (w.size() > write_root().size()) w = resolve_below(write_root(), w.substr(write_root().size()), nullptr);
+    {
+        size_t slash = w.rfind('/');
+        std::lock_guard<std::mutex> g(dir_cache_lock);
+        dir_written[slash == std::string::npos || slash == 0 ? std::string("/") : w.substr(0, slash)] = std::chrono::steady_clock::now();
+    }
     for (size_t i = write_root().size() + 1; i < w.size(); ++i) {
         if (w[i] == '/') mkdir(w.substr(0, i).c_str(), 0755);
     }

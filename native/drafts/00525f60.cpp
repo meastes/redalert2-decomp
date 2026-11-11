@@ -53,7 +53,7 @@ int IPXManagerClass::Service()
             CurDataBuf=receive_buffer;
             CommHeaderType *packet=(CommHeaderType *)receive_buffer;
             if (packet->MagicNumber==GlobalChannel->MagicNum) {
-                Debug_Printf(s_Adding_packet_from__s____d_to_gl_007de2e0,address.As_String_00523840(),(unsigned int)port);
+                Debug_Printf(s_Adding_packet_from__s____d_to_gl_007de2e0,address.As_String(),(unsigned int)port);
                 if (!unknown_525dc0(packet,receive_buffer,packet_length,(IPXAddressClass *)address_buffer,port)) {
                     if (!GlobalChannel->Receive_Packet(receive_buffer,packet_length,&address,port)) {
                         ++unknown_a4;
@@ -63,7 +63,7 @@ int IPXManagerClass::Service()
                     if (unknown_game_mode_a3d298==4 && use_router_a402d0) {
                         int player;
                         for (player=0;player<unknown_players_a3fa7c.Count();++player) {
-                            if (unknown_players_a3fa7c[player]->Address.unknown_523690(address) && unknown_node_ids_a402ba[player]==port)
+                            if (unknown_players_a3fa7c[player]->Address.Is_Same_Node(address) && unknown_node_ids_a402ba[player]==port)
                                 goto next_packet;
                         }
                         if (unknown_players_a3fa7c.Count()!=0) {
@@ -75,7 +75,7 @@ int IPXManagerClass::Service()
                                     strncpy(player_name,CurDataBuf+0x14,20);
                                     for (player=0;player<unknown_players_a3fa7c.Count();++player) {
                                         if (_stricmp(Unknown_006FA120(unknown_players_a3fa7c[player]->Name),player_name)==0) {
-                                            if (!unknown_players_a3fa7c[player]->Address.unknown_523690(address) ||
+                                            if (!unknown_players_a3fa7c[player]->Address.Is_Same_Node(address) ||
                                                 *(unsigned short *)unknown_players_a3fa7c[player]->Address.NetworkNumber!=port) {
                                                 Debug_Printf(s_Player__s_is_having_his_port_tra_007de284,player_name,(unsigned int)port);
                                                 unsigned short old_port=unknown_node_ids_a402ba[player];
@@ -84,31 +84,31 @@ int IPXManagerClass::Service()
                                                 GlobalChannel->Discard_Packets_To(&address,old_port);
                                                 GlobalChannel->Discard_Packets_To(&address,*(unsigned short *)unknown_players_a3fa7c[player]->Address.NetworkNumber);
                                                 unknown_players_a3fa7c[player]->Address=address;
-                                                unknown_players_a3fa7c[player]->Address.unknown_523960(port);
+                                                unknown_players_a3fa7c[player]->Address.Set_Port(port);
                                                 unknown_OwnerTalkClass_00ab6d18.Unknown_0063F9A0(unknown_players_a3fa7c[player]->ID,&unknown_players_a3fa7c[player]->Address);
                                                 int slot=unknown_session_a3d298.Unknown_00672F90(player);
                                                 unknown_player_slots_a3fa98[slot]->Address=address;
                                                 slot=unknown_session_a3d298.Unknown_00672F90(player);
-                                                unknown_player_slots_a3fa98[slot]->Address.unknown_523960(port);
+                                                unknown_player_slots_a3fa98[slot]->Address.Set_Port(port);
                                                 for (int connection=0;connection<NumConnections;++connection) {
                                                     if (_stricmp(Unknown_006FA120(Connection[connection]->Name),player_name)==0) {
                                                         Connection[connection]->Address=address;
-                                                        Connection[connection]->Address.unknown_523960(port);
-                                                        Debug_Printf(s_Set_address_for_connection__d_to_007de25c,connection,Connection[connection]->Address.As_String_00523840());
+                                                        Connection[connection]->Address.Set_Port(port);
+                                                        Debug_Printf(s_Set_address_for_connection__d_to_007de25c,connection,Connection[connection]->Address.As_String());
                                                         break;
                                                     }
                                                 }
                                                 if (!unknown_session_a3f616 && NumConnections!=0 && unknown_players_a3fa7c[player]->ID<Houses.Count() &&
                                                     unknown_session_a3d298.Am_I_Master(Houses[unknown_players_a3fa7c[player]->ID])) {
-                                                    char *new_address=address.As_String_00523840();
-                                                    char *old_address=unknown_50->Address.As_String_00523840();
+                                                    char *new_address=address.As_String();
+                                                    char *old_address=unknown_50->Address.As_String();
                                                     Debug_Printf(s_Frame__d__Router_apparently_chan_007de220,Frame,old_address,new_address);
                                                     unknown_50->Address=address;
-                                                    unknown_50->Address.unknown_523960(port);
+                                                    unknown_50->Address.Set_Port(port);
                                                     unknown_address_a3db2c=address;
-                                                    unknown_address_a3db2c.unknown_523960(port);
+                                                    unknown_address_a3db2c.Set_Port(port);
                                                     unknown_forward_address_a3fbac=address;
-                                                    unknown_forward_address_a3fbac.unknown_523960(port);
+                                                    unknown_forward_address_a3fbac.Set_Port(port);
                                                     *(unsigned short *)&unknown_forward_port_a3fbc4=port;
                                                 }
                                             }
@@ -168,7 +168,7 @@ check_address:
                         else if (packet->Code==PACKET_DATA_NOACK) format=s_Adding_DATA_NOACK_packet__d_from_007de170;
                         else if (packet->Code==PACKET_ACK) format=s_Adding_ACK_packet__d_from__s_____007de1b0;
                         else format=s_Adding_____packet__d_from__s_____007de1e8;
-                        char *text=address.As_String_00523840();
+                        char *text=address.As_String();
                         Debug_Printf(format,packet->PacketID,text,(unsigned int)port);
                         if (!Connection[0]->Receive_Packet(receive_buffer,packet_length)) {
                             ++unknown_a4;
@@ -179,10 +179,10 @@ check_address:
 check_router_address:
                     if (unknown_game_mode_a3d298==4 && unknown_flag_a3fba8 && address!=unknown_50->Address) {
                         for (int player=1;player<unknown_players_a3fa7c.Count();++player) {
-                            if (unknown_players_a3fa7c[player]->Address.unknown_523690(unknown_50->Address) &&
+                            if (unknown_players_a3fa7c[player]->Address.Is_Same_Node(unknown_50->Address) &&
                                 unknown_session_a3d298.Am_I_Master(Houses[unknown_players_a3fa7c[player]->ID])) {
-                                char *new_address=address.As_String_00523840();
-                                char *old_address=unknown_50->Address.As_String_00523840();
+                                char *new_address=address.As_String();
+                                char *old_address=unknown_50->Address.As_String();
                                 Debug_Printf(s_Frame__d__Router_apparently_chan_007de220,Frame,old_address,new_address);
                                 unknown_players_a3fa7c[player]->Address=address;
                                 unknown_50->Address=address;

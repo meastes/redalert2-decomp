@@ -227,7 +227,7 @@ bool __fastcall Find_Local_Address_0074fcb0(IPXAddressClass *address)
                 delete connections[0];
                 connections.Delete(0);
             }while(connections.Count());
-            if(found) Debug_Printf(address_text_007ff4bc,address->As_String_00523840());
+            if(found) Debug_Printf(address_text_007ff4bc,address->As_String());
         }
         FreeLibrary(utility);FreeLibrary(extension);
         return found;

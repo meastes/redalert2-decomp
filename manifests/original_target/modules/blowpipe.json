@@ -1,0 +1,82 @@
+{
+ "module": "blowpipe",
+ "source": "src/recovered/blowpipe.cpp",
+ "header": "src/shared/blow_pipe.hpp",
+ "population": "population-98",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 51,
+ "code": [
+  {
+   "symbol": "?Flush@BlowPipe@@UAEHXZ",
+   "entry": "00435690",
+   "body_bytes": 53,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Put@BlowPipe@@UAEHPBXH@Z",
+   "entry": "004356d0",
+   "body_bytes": 291,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Key@BlowPipe@@QAEXPBXH@Z",
+   "entry": "00435800",
+   "body_bytes": 64,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 432,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0060fba0",
+   "symbol": "?Key@BlowPipe@@QAEXPBXH@Z",
+   "target": "00435800",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0BlowfishEngine@@QAE@XZ",
+   "address": "00435580"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "?Decrypt@BlowfishEngine@@QAEHPBXHPAX@Z",
+   "address": "00435660"
+  },
+  {
+   "symbol": "?Encrypt@BlowfishEngine@@QAEHPBXHPAX@Z",
+   "address": "00435630"
+  },
+  {
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "address": "0060eb10"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  },
+  {
+   "symbol": "?Submit_Key@BlowfishEngine@@QAEXPBXH@Z",
+   "address": "00435600"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ]
+}

@@ -4,7 +4,7 @@
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
 // @ref ?Length@UnknownVector3@@QBEHXZ=0041b780
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
+// @ref ?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8a30
 // @ref ?While_Moving_004fcbc0@HoverLocomotionClass@@QAEH_N@Z=004fcbc0
 // @ref ?Start_Of_Move_004fe0f0@HoverLocomotionClass@@QAEXH@Z=004fe0f0
@@ -56,7 +56,7 @@ void HoverLocomotionClass::Motion_AI_004fdaf0()
     if (Is_Moving() && unknown_24!=unknown_geometry_l) {
         UnknownFacingDir direction=Hover_Assign_Direction_004fdaf0(LinkedTo->Center_Coord(),unknown_24);
         if (!unknown_70) unknown_30.Set_Desired(direction);
-        else unknown_30.Set_Current(direction);
+        else unknown_30.Set(direction);
         if ((Is_Powered() && abs(0x2000)>=abs((short)(unknown_30.Current().Raw-direction.Raw))) || unknown_70) {
             if ((unknown_18==unknown_geometry_l && Hover_Vector_Difference_004fdaf0(LinkedTo->Center_Coord(),unknown_24).Length()<256) ||
                 (unknown_18!=unknown_geometry_l && Hover_Destination_Distance_004fdaf0(LinkedTo->Center_Coord(),unknown_18)<256)) {

@@ -829,7 +829,13 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
             want[wlen] = 0;
             int count = (int)Original(window, 0x146, 0, 0);
             if (count <= 0) return count < 0 ? 0 : -1;
-            for (int i = (int)wparam + 1 < 0 ? 0 : (int)wparam + 1; i < count; ++i) {
+            // As Win32's CB_FINDSTRING: the search starts after wparam and wraps round to the
+            // start, so every item is tried once (Scout1281: the random map dialog finds with
+            // wparam 0, and an item at index 0 was never found: Temperate, Afternoon, Small,
+            // Continent and Low showed blank, and Generate Map read climate -1 and faulted).
+            int start = (int)wparam + 1 < 0 || (int)wparam + 1 >= count ? 0 : (int)wparam + 1;
+            for (int n = 0; n < count; ++n) {
+                int i = (start + n) % count;
                 ComboItem *item = Combo_Item(window, i);
                 if (!item || !item->text) continue;
                 bool match = true;
@@ -846,6 +852,30 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
                 return i;
             }
             return -1;
+        }
+        case 0x4B3: case 0x4B5: {
+            // The selected item's text, wide (0x4B3) or narrow (0x4B5), at most wparam
+            // characters with the terminator (Scout1281). The original's combo procedure
+            // copies the selected item's text into the control's text with 0x4B2/0x4B4
+            // (0x005F5760-0x005F579C) and the control procedure's 0x4B3/0x4B5 read that;
+            // natively the combo draws its items itself, so the text is read from the item.
+            // Options > Keyboard (0x005D97A0 case 0x464) reads the category this way: the
+            // commands list stayed empty.
+            if (!lparam || (int)wparam <= 0) return 0;
+            int selected = (int)Original(window, 0x147, 0, 0);
+            ComboItem *item = selected >= 0 ? Combo_Item(window, selected) : 0;
+            wchar_t const *text = item && item->text ? item->text : L"";
+            int n = 0;
+            if (message == 0x4B3) {
+                unsigned short *out = (unsigned short *)lparam;
+                for (; text[n] && n < (int)wparam - 1; ++n) out[n] = (unsigned short)text[n];
+                out[n] = 0;
+            } else {
+                char *out = (char *)lparam;
+                for (; text[n] && n < (int)wparam - 1; ++n) out[n] = (char)text[n];
+                out[n] = 0;
+            }
+            return n;
         }
         case 0x150: case 0x199: {                   // CB_GETITEMDATA (LB_GETITEMDATA as the original answers it)
             ComboItem *item = Combo_Item(window, (int)wparam);

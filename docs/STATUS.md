@@ -17,7 +17,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user's three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) | 14,606 in 7 regions (0.39% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 2,514 (0.07% of .text) |
 | Frozen padding bytes | 142,984 |
-| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 1 module(s): 12 functions, 2,016 code bytes; **623 data bytes compiler-emitted and proven at their original addresses** in 5 sections, 100 bytes of vtable/RTTI copies kept elsewhere; own ledger, no .text credit (version) |
+| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 23 module(s): 137 functions, 15,776 code bytes; **1,558 data bytes compiler-emitted and proven at their original addresses** in 34 sections, 224 bytes of vtable/RTTI copies kept elsewhere; 27 header gaps (withheld template details, modules.json header_gaps; no bytes) in 17 module(s); own ledger, no .text credit (b64pipe, b64straw, base64, blowpipe, blwstraw, buff, buffer, category, ccfile, cstraw, facing, ipxaddr, lzo1x_c, lzo1x_d, milsectmr, pipe, random, rawfile, rle, shapipe, shastraw, straw, version) |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,127 in 899 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
@@ -27,7 +27,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 94 of 101 scored) | 98.90% by bytes, 99.85% per function |
 | Original .text scaffold bytes | 247,589 |
 | Logical .text bytes | 3,769,805 |
-| Compiler populations | 697 |
+| Compiler populations | 696 |
 
 Manifest history (body bytes added per commit, and per hour since the previous commit):
 
@@ -2353,6 +2353,37 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `6eb7f5f04` | 2026-11-11 05:02 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `8f7ead839` | 2026-11-11 06:35 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `d4fe8d188` | 2026-11-11 09:43 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `61bd12e93` | 2026-11-11 11:06 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `11bbfff52` | 2026-11-11 11:06 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `1fa84e26e` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `f00492f1f` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `344f67ea7` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `1a037ba0c` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `fa09f00a9` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `5da5c86ad` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `c45d7ad25` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `27d31cbe9` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `e7b947a36` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `60bd3544d` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `ee9f830e9` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `27994ad04` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `e8520582e` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `d60e81a68` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `bbcf0f1c0` | 2026-11-11 12:23 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `481c5d38d` | 2026-11-11 13:02 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `742911e9e` | 2026-11-11 13:02 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `b83737898` | 2026-11-11 13:02 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `6f77f7683` | 2026-11-11 13:02 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `44eca944e` | 2026-11-11 13:02 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `c78539a90` | 2026-11-11 13:02 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `3f44f198c` | 2026-11-11 13:02 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `2aa74e604` | 2026-11-11 13:22 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `7cd194d33` | 2026-11-11 13:22 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `59819903f` | 2026-11-11 13:22 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `e7cd52c95` | 2026-11-11 13:22 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `4ab9bb406` | 2026-11-11 13:33 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `15a33fc07` | 2026-11-11 13:33 -0600 | 17,904 | 3,270,592 | +0 |  |
+| `38faed686` | 2026-11-11 13:33 -0600 | 17,904 | 3,270,592 | +0 |  |
 
 <!-- /generated:status -->
 

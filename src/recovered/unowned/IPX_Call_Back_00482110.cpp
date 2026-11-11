@@ -132,7 +132,7 @@ void __fastcall IPX_Call_Back()
                     {
                         Debug_Printf("Got NET_PORT_PROBE packet from %s - port = %d\n", unknown_session_a3d298.GPacket.Name, unknown_session_a3d298.GAddress.Get_Port());
                         for (int i = 0; i < unknown_session_a3d298.Players.Count(); i++) {
-                            if (unknown_session_a3d298.Players[i]->Address.unknown_523690(unknown_session_a3d298.GAddress) && _stricmp(Unknown_006FA120(unknown_session_a3d298.Players[i]->Name), unknown_session_a3d298.GPacket.Name) == 0) {
+                            if (unknown_session_a3d298.Players[i]->Address.Is_Same_Node(unknown_session_a3d298.GAddress) && _stricmp(Unknown_006FA120(unknown_session_a3d298.Players[i]->Name), unknown_session_a3d298.GPacket.Name) == 0) {
                                 for (int index = 0; index < 8; index++) {
                                     if (Same_Name(unknown_session_a3d298.PlayerSlots[index], unknown_session_a3d298.Players[i])) {
                                         unknown_session_a3d298.unknown_2ff4[index] = TickCount.Time();
@@ -147,7 +147,7 @@ void __fastcall IPX_Call_Back()
                                         port = 1234;
                                     }
                                     unknown_session_a3d298.unknown_3022.unknown[i] = port;
-                                    unknown_session_a3d298.Players[i]->Address.unknown_523960(port);
+                                    unknown_session_a3d298.Players[i]->Address.Set_Port(port);
                                     Debug_Printf("Adjusting port number for player %s from %d to %d\n", unknown_session_a3d298.GPacket.Name, old, port);
                                 }
                             }
@@ -259,7 +259,7 @@ void __fastcall IPX_Call_Back()
                     {
                         Debug_Printf("Processing NET_PROGRESS_REPORT\n");
                         for (int i = 0; i < unknown_session_a3d298.Players.Count(); i++) {
-                            if (unknown_session_a3d298.Players[i]->Address.unknown_523690(unknown_session_a3d298.GAddress) && _stricmp(Unknown_006FA120(unknown_session_a3d298.Players[i]->Name), unknown_session_a3d298.GPacket.Name) == 0) {
+                            if (unknown_session_a3d298.Players[i]->Address.Is_Same_Node(unknown_session_a3d298.GAddress) && _stricmp(Unknown_006FA120(unknown_session_a3d298.Players[i]->Name), unknown_session_a3d298.GPacket.Name) == 0) {
                                 ProgressScreen.Set_Progress_006201c0(i, unknown_session_a3d298.GPacket.Progress.Percent, Point2D(-1, -1));
                                 break;
                             }

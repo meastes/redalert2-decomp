@@ -55,7 +55,7 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
                     Debug_Printf("Player %s has a NAT - no preview download possible\n", Unknown_006FA120(unknown_players_a3fa7c[i]->Name));
                     direct = false;
                     break;
-                } else if (!unknown_session_a3d298.unknown_293c.Addresses[house].unknown_523690(unknown_players_a3fa7c[i]->Address)) {
+                } else if (!unknown_session_a3d298.unknown_293c.Addresses[house].Is_Same_Node(unknown_players_a3fa7c[i]->Address)) {
                     Debug_Printf("Player %s has different local and external IPs - no preview download possible\n", Unknown_006FA120(unknown_players_a3fa7c[i]->Name));
                     direct = false;
                     break;
@@ -101,7 +101,7 @@ void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
         unsigned short product;
         if (unknown_ipx_manager_a40978.Get_Global_Message(&reply, &length, &address, &product) && reply.Command == 0x1A) {
             for (int j = 1; j < unknown_players_a3fa7c.Count(); j++) {
-                if (address.unknown_523690(unknown_players_a3fa7c[j]->Address)) {
+                if (address.Is_Same_Node(unknown_players_a3fa7c[j]->Address)) {
                     if (!ready[j]) {
                         ready[j] = true;
                         count++;

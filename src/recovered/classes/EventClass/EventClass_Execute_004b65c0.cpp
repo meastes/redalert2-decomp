@@ -464,7 +464,7 @@ void EventClass::Execute()
         memset(network, 0, sizeof(network));
         *(long *)node = LongAt(0x08);
         IPXAddressClass address(network, node, 0);
-        Debug_Printf("New address is %s\n", address.As_String_00523840(&address));
+        Debug_Printf("New address is %s\n", address.As_String(&address));
         unknown_ipx_manager_a40978.Set_Connection_Address((char)ByteAt(0x07), &address);
         unknown_OwnerTalkClass_00ab6d18.Unknown_0063F9A0((char)ByteAt(0x07), &address);
         int count = unknown_session_a3d298.Players.Count();
@@ -503,7 +503,7 @@ void EventClass::Execute()
                     unsigned char node[6];
                     address->Get_Address(network, node);
                     unknown_forward_address_a3fbac.Set_Address(network, node, 0);
-                    Debug_Printf("Session.PacketRouterAddress = %s\n", unknown_forward_address_a3fbac.As_String_00523840(0));
+                    Debug_Printf("Session.PacketRouterAddress = %s\n", unknown_forward_address_a3fbac.As_String(0));
                     Debug_Printf("Session.PacketRouterPort = %d\n", unknown_session_a3d298.unknown_292c);
                     if (!unknown_session_a3d298.Am_I_Master(0)) {
                         unknown_ipx_manager_a40978.unknown_5277c0(&unknown_forward_address_a3fbac);

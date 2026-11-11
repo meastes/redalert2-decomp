@@ -128,13 +128,107 @@ def inline_asm_blocks(text, start=0):
         blocks.append((match.start(), _asm_instructions(body)))
 
 
-def validate_inline_asm(data, row, archive=None, require_archive=False):
+_SCOPE_KEYWORD = re.compile(r'^\s*(?:template\s*<[^>]*>\s*)?(?:class|struct|union|enum|namespace)\b(?:\s+(\w+))?')
+_DECLARATOR_NAME = re.compile(r'((?:\w+\s*::\s*)*(?:~\s*)?\w+|(?:\w+\s*::\s*)*operator\s*[^\s(]+)\s*$')
+
+
+def _row_function_name(symbol_prefix):
+    """The qualified name a row's decorated symbol names (`?Get@Straw@@` -> `Straw::Get`,
+    `??0X@@` -> `X::X`, `??1X@@` -> `X::~X`); None for operators and other special names."""
+    if not symbol_prefix.startswith('?'):
+        return symbol_prefix.lstrip('_') or None
+    special = None
+    body = symbol_prefix[1:]
+    if body.startswith('?'):
+        if body[1:2] not in ('0', '1'):
+            return None
+        special, body = body[1], body[2:]
+    parts = body.split('@@', 1)[0].split('@')
+    if not parts or not all(re.fullmatch(r'\w+', p) for p in parts):
+        return None
+    if special:
+        scope = parts[::-1]
+        return '::'.join(scope + [('~' if special == '1' else '') + parts[0]])
+    return '::'.join(parts[::-1])
+
+
+def module_inline_asm_blocks(text, rows):
+    """Per-function attribution of the `__asm` blocks of a module source (several
+    rows in one file; review 2026-11-11): {entry: [(offset, instructions), ...]}.
+
+    Every block must lie in the body of exactly one function definition the file
+    holds, and that function must be exactly one row's (its decorated name); a
+    block on a preprocessor line (a macro), outside any function, in a function
+    no row names (an inline helper) or in a function two rows could name refuses
+    the whole file."""
+    masked = _mask_comments_and_literals(text)
+    blocks = inline_asm_blocks(text)
+    if not blocks:
+        return {row['entry']: [] for row in rows}
+    directives = {m.start(): m.end() for m in re.finditer(r'(?m)^[ \t]*#(?:[^\n]*\\\n)*[^\n]*', masked)}
+    for offset, _ in blocks:
+        require(not any(start <= offset < end for start, end in directives.items()),
+                'Module source: an __asm block in a macro cannot be attributed to one function')
+    # Function bodies: a `{` whose header (since the previous `;`, `}` or `{`) holds a
+    # parameter list and is no class/struct/union/enum/namespace head.
+    functions, stack, header_start = [], [], 0
+    index = 0
+    while index < len(masked):
+        char = masked[index]
+        if index in directives:
+            index = header_start = directives[index]
+            continue
+        if char == '{':
+            header = masked[header_start:index]
+            scope = _SCOPE_KEYWORD.match(header)
+            inside_function = any(kind == 'function' for kind, _, _ in stack)
+            if inside_function:
+                kind, name = 'block', None
+            elif scope or '(' not in header:
+                kind, name = 'scope', (scope.group(1) if scope and header.lstrip().startswith('namespace') else None)
+            else:
+                paren = header.index('(')
+                found = _DECLARATOR_NAME.search(header[:paren])
+                kind, name = 'function', (re.sub(r'\s+', '', found.group(1)) if found else None)
+            stack.append((kind, name, index))
+            header_start = index + 1
+        elif char == '}':
+            require(stack, 'Module source: unbalanced braces')
+            kind, name, start = stack.pop()
+            if kind == 'function':
+                namespaces = [n for k, n, _ in stack if k == 'scope' and n]
+                functions.append(('::'.join(namespaces + [name]) if name else None, start, index))
+            header_start = index + 1
+        elif char == ';' and not any(kind == 'function' for kind, _, _ in stack):
+            header_start = index + 1
+        index += 1
+    names = {}
+    for row in rows:
+        name = _row_function_name(row['symbol_prefix'])
+        if name:
+            names.setdefault(name, []).append(row['entry'])
+    attributed = {row['entry']: [] for row in rows}
+    for block in blocks:
+        owners = [f for f in functions if f[1] < block[0] < f[2]]
+        require(len(owners) == 1, 'Module source: an __asm block outside a function body')
+        name = owners[0][0]
+        entries = names.get(name or '', [])
+        require(len(entries) == 1,
+                'Module source: the __asm block in %s is not one row\'s function (inline helper or overload)' % name)
+        attributed[entries[0]].append(block)
+    return attributed
+
+
+def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=None):
     """Refuse `__asm` in a candidate unless `row` is flagged as evidenced inline
     assembly with eligible TibSun citations; with `archive` (the TibSun code
     directory), each block must equal the archive block that starts on its cited
-    line. Returns the number of blocks."""
+    line. Returns the number of blocks. `blocks`, for a row of a module source,
+    are the blocks attributed to its own function (module_inline_asm_blocks):
+    the flag is then required on rows with blocks and refused on rows without."""
     text = data.decode(errors='replace') if isinstance(data, bytes) else data
-    blocks = inline_asm_blocks(text)
+    if blocks is None:
+        blocks = inline_asm_blocks(text)
     flag, citations = row.get('inline_asm'), row.get('inline_asm_citation')
     if not blocks:
         require(flag is None and citations is None, 'inline_asm flag on a source without an __asm block')
@@ -377,6 +471,10 @@ def validate_catalog(repository, catalog, modules=True):
     require(len(ids) == len(set(ids)), 'Duplicate populations')
     entries, paths, orders = set(), {}, set()
     cursor = 0
+    # Module sources (one file, several rows): `__asm` blocks are attributed per function.
+    module_rows, module_blocks = {}, {}
+    for row in catalog['regions']:
+        module_rows.setdefault(row['source'], []).append(row)
     for row in sorted(catalog['regions'], key=lambda r: r['entry']):
         va = row['entry']
         require(va >= cursor and row['body_bytes'] > 0 and 0 <= row['padding_bytes'] <= 15,
@@ -399,7 +497,13 @@ def validate_catalog(repository, catalog, modules=True):
         data = read[resolved] = resolved.read_bytes()
         require(sha(data) == row['source_sha256'], 'Source hash drift')
         validate_includes(data, headers)
-        validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
+        if len(module_rows.get(row['source'], ())) > 1:
+            if row['source'] not in module_blocks:
+                module_blocks[row['source']] = module_inline_asm_blocks(
+                    data.decode(errors='replace'), module_rows[row['source']])
+            validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE, blocks=module_blocks[row['source']][va])
+        else:
+            validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
         validate_count_calibrated(row)
         validate_split_declaration(row)
         entries.add(va); orders.add(row['source_order'])

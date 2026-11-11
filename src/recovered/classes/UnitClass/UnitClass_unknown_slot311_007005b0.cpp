@@ -101,7 +101,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
                 int direction=Dir_To_256(pitch.Current());
                 if (direction>64 && direction<=128) direction=(direction-64)/3+64;
                 else direction=(64-direction)/3+64;
-                pitch.Set_Current(UnknownFacingDir((unsigned short)(direction<<8)));
+                pitch.Set(UnknownFacingDir((unsigned short)(direction<<8)));
             }
             if (unknown_350.unknown_18) barrel_matrix.Translate_X(-unknown_350.unknown_14);
             barrel_matrix.Rotate_Y((float)-Unit_Direction_Radians32_007005b0(pitch.Current()));

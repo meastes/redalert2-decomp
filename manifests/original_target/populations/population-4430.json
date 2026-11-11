@@ -4,8 +4,8 @@
     "id": "population-4430",
     "inventory_sha256": "0d97c30d647b6a85a456db7e5619738b11bd642ce40f96df01724fac2d68a7dc",
     "gaps_sha256": "1d42029e9f0a89b7a77e39f6852fc31359b34dc3ecb45a504041d603f278c2a5",
-    "historical_population_sha256": "bf6698b8c1387fff05d4f1ab142e72d7ff085a48ab010dd7d57de374f3ccbd23",
-    "historical_acceptance_sha256": "b0ec152ceb2eaa9c18f57a0165d6132d581bbd63447948910eb933e39a3b253a"
+    "historical_population_sha256": "04e51cac65c93172b99d822f69510adedae62e6508304ca0b8dc8742883e5f09",
+    "historical_acceptance_sha256": "cd0201f58d27f3b5b05a43f6f74ed8cd13ad88d3cc802ad3463b5d940c11ab65"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8769,12 +8769,12 @@
     "?Update@LaserDrawClass@@QAEXXZ": 5452592,
     "?As_Building@TargetClass@@QBEPAVBuildingClass@@XZ": 7038064,
     "?Set_Protocol@IPXAddressClass@@SIXH@Z": 5388624,
-    "?IPXProtocol@@3HA": 8248432,
+    "?AddressProtocol@@3HA": 8248432,
     "?State@LocomotionClass@@UAGHXZ": 5494272,
     "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
     "??1State@WorldDominationTour@@UAE@XZ": 7538912,
     "??_7State@WorldDominationTour@@6B@": 8057804,
-    "?unknown_523960@IPXAddressClass@@QAEXG@Z": 5388640,
+    "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "?Translate@Matrix3D@@QAEXMMM@Z": 5832848,
     "?Translate@Matrix3D@@QAEXABUVector3@@@Z": 5832944,
     "?Translate_X@Matrix3D@@QAEXM@Z": 5833088,
@@ -8796,7 +8796,7 @@
     "??0IPXAddressClass@@QAE@XZ": 5387280,
     "?Get_Address@IPXAddressClass@@QAEXQAE0@Z": 5387520,
     "?Is_Broadcast@IPXAddressClass@@QAEHXZ": 5387616,
-    "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
     "?unknown_max_ahead_a3d560@@3HA": 10736992,
     "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A": 10746492,
     "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
@@ -8827,7 +8827,7 @@
     "?Audio_Event_Bag@@3PAUAudioBag@@A": 8589228,
     "?unknown_protocol_7fd370@@3IA": 8377200,
     "?Options@@3VOptionsClass@@A": 10750744,
-    "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
+    "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
     "?Set_00437690@Vector3@@QAEAAU1@MMM@Z": 4421264,
     "?Scale_004376b0@Vector3@@QAEAAU1@M@Z": 4421296,
     "?Add_004376e0@Vector3@@QAEAAU1@ABU1@@Z": 4421344,
@@ -9759,8 +9759,8 @@
     "?MissionNames@@3PAPBDA": 8181620,
     "?Name_From_Mission@MissionClass@@SIPBDH@Z": 5853216,
     "??RRandomClass@@QAEHHH@Z": 6522656,
-    "?Mix1@Random3Class@@0PAKA": 8316076,
-    "?Mix2@Random3Class@@0PAKA": 8316156,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
     "?Increment@?$RemainderTable@V?$Int@$0EA@@@@@QAEXG@Z": 6355488,
     "?Unknown_00420D30@@YIXPAVObjectClass@@@Z": 4328752,
     "?unknown_slot219@FootClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z": 5014560,
@@ -9836,7 +9836,7 @@
     "?As_Pointer@HouseClass@@SIPAV1@H@Z": 5166944,
     "?Set_Veteran@VeterancyClass@@QAEX_N@Z": 7419168,
     "?Set_ROT@FacingClass@@QAEXH@Z": 4951696,
-    "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
     "?unknown_4ea970@HouseClass@@QAEXPAVTechnoClass@@@Z": 5155184,
     "?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z": 5125728,
     "?unknown_6d3040@TechnoClass@@QAEXPAV1@@Z": 7155776,
@@ -10219,10 +10219,10 @@
     "?unknown_slot273@TechnoClass@@UAE?AUCoordStruct@@XZ": 7180032,
     "?unknown_slot274@TechnoClass@@UAE_NXZ": 7180064,
     "?unknown_slot275@TechnoClass@@UAE_NXZ": 7180096,
-    "?unknown_4b8c80@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951168,
-    "?Is_Turning_Positive@FacingClass@@QBEDXZ": 4951232,
-    "?Is_Turning_Negative@FacingClass@@QBEDXZ": 4951296,
-    "?Difference_To_Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951168,
+    "?Is_Rotating_CW@FacingClass@@QBEDXZ": 4951232,
+    "?Is_Rotating_CCW@FacingClass@@QBEDXZ": 4951296,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
     "?unknown_slot258@InfantryClass@@UAE_NXZ": 5258752,
     "?unknown_adjacent_851a70@@3QBVCell@@B": 8723056,
     "?Do_MISSION_UNLOAD@InfantryClass@@UAEHXZ": 5268784,
@@ -13600,7 +13600,9 @@
     "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
     "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
     "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
-    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "?Update@ZBuffer@@QAEXVRect@@@Z": 7823808,
+    "?Update@ABuffer@@QAEXVRect@@@Z": 4264112
   },
   "regions": [
     {
@@ -27159,7 +27161,7 @@
           "resolved": 432550
         }
       ],
-      "source_sha256": "eb10e970cce2133358ba838bf5e7ec3a11e87129d05f386cb1761265da361e52",
+      "source_sha256": "be6ae56828c8672953bd7ad1fc057aab0be57c18ca99d605efabd572c105c77c",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_Reposition_Sidebar_006819a0.cpp",
       "population": "population-4430",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -27167,7 +27169,7 @@
       "source_quality_family": "hand-written",
       "semantic_name": "SidebarClass_Reposition_Sidebar_006819a0",
       "count_calibrated": true,
-      "count_calibrated_note": "SidebarClass slot 34 (fragile declaration-count row; Scout1126 r1, Scout1134 r2, Scout1156 r5 re-rolls, Scout1188 r1 re-roll, owner decision 2026-11-09). Calibrated form: the operand order and spelling of unknown_rect_839620.X = unknown_int_839630 + unknown_int_839638 (the X + Width sum, read through the unknown_int names of 0x839630/0x839638) re-measured whenever the unit's declaration count changes; no named locals involved. Scout1188 r1 (display.hpp drops the unknown_rect_85291c extern, one declaration fewer) flips it back from unknown_int_839638 + unknown_int_839630 (99.41 there; Scout1186 ov/r123dA). Evidence checked first: the rect .X/.Width spellings in both orders (99.41) and the HEAD form at each re-roll; no twin form known.",
+      "count_calibrated_note": "SidebarClass slot 34 (fragile declaration-count row; Scout1126 r1, Scout1134 r2, Scout1156 r5 re-rolls, Scout1188 r1 re-roll, owner decision 2026-11-09). Calibrated form: the operand order and spelling of unknown_rect_839620.X = unknown_int_839630 + unknown_int_839638 (the X + Width sum, read through the unknown_int names of 0x839630/0x839638) re-measured whenever the unit's declaration count changes; no named locals involved. Scout1188 r1 (display.hpp drops the unknown_rect_85291c extern, one declaration fewer) flips it back from unknown_int_839638 + unknown_int_839630 (99.41 there; Scout1186 ov/r123dA). Evidence checked first: the rect .X/.Width spellings in both orders (99.41) and the HEAD form at each re-roll; no twin form known. Scout1284 (2026-11-11, DECISIONS row 24 (b)): random.hpp adopts Random3Class::TABLE_SIZE (template header set: random.hpp with the TABLE_SIZE enumerator, random2.hpp without it); under it the row takes unknown_int_839638 + unknown_int_839630 (the original's emitted order, Scout1287 tpl-forms). Recorded alternate: unknown_int_839630 + unknown_int_839638, exact at the previous header set (HEAD 0f929de95).",
       "source_order": 237319
     },
     {

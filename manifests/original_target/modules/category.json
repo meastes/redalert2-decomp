@@ -1,0 +1,245 @@
+{
+ "module": "category",
+ "source": "src/recovered/category.cpp",
+ "header": "src/shared/ini_enums.hpp",
+ "population": "population-3054",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2007,
+ "code": [
+  {
+   "symbol": "?Description_From_Category@@YIPBDW4CategoryType@@@Z",
+   "entry": "00468ea0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Name_From_Category@@YIPBDW4CategoryType@@@Z",
+   "entry": "00468ec0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Category_From_Name@@YI?AW4CategoryType@@PBD@Z",
+   "entry": "00468ee0",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  }
+ ],
+ "code_bytes": 144,
+ "data": [
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string",
+   "section": 24
+  },
+  {
+   "symbol": "??_C@_08NIHI@Civilian?$AA@",
+   "address": "007ceb30",
+   "bytes": 9,
+   "kind": "string",
+   "section": 21
+  },
+  {
+   "symbol": "?CategoryNames@@3PAUCategoryNameStruct@@A",
+   "address": "007d17e0",
+   "bytes": 88,
+   "kind": "table",
+   "section": 2
+  },
+  {
+   "symbol": "??_C@_07DCDF@AirLift?$AA@",
+   "address": "007d1838",
+   "bytes": 8,
+   "kind": "string",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_0O@CPJI@Air?5Transport?$AA@",
+   "address": "007d1840",
+   "bytes": 14,
+   "kind": "string",
+   "section": 4
+  },
+  {
+   "symbol": "??_C@_08IGDF@AirPower?$AA@",
+   "address": "007d1850",
+   "bytes": 9,
+   "kind": "string",
+   "section": 5
+  },
+  {
+   "symbol": "??_C@_0BD@JHBH@Air?5Combat?5Support?$AA@",
+   "address": "007d185c",
+   "bytes": 19,
+   "kind": "string",
+   "section": 6
+  },
+  {
+   "symbol": "??_C@_09JHGB@Transport?$AA@",
+   "address": "007d1870",
+   "bytes": 10,
+   "kind": "string",
+   "section": 7
+  },
+  {
+   "symbol": "??_C@_0BC@NACA@Transport?5Vehicle?$AA@",
+   "address": "007d187c",
+   "bytes": 18,
+   "kind": "string",
+   "section": 8
+  },
+  {
+   "symbol": "??_C@_07PLEC@Support?$AA@",
+   "address": "007d1890",
+   "bytes": 8,
+   "kind": "string",
+   "section": 9
+  },
+  {
+   "symbol": "??_C@_0BG@FBHO@Misc?4?5Support?5Vehicle?$AA@",
+   "address": "007d1898",
+   "bytes": 22,
+   "kind": "string",
+   "section": 10
+  },
+  {
+   "symbol": "??_C@_04MFOD@LRFS?$AA@",
+   "address": "007d18b0",
+   "bytes": 5,
+   "kind": "string",
+   "section": 11
+  },
+  {
+   "symbol": "??_C@_0BG@EILA@Indirect?5Fire?5Support?$AA@",
+   "address": "007d18b8",
+   "bytes": 22,
+   "kind": "string",
+   "section": 12
+  },
+  {
+   "symbol": "??_C@_03GJJB@IFV?$AA@",
+   "address": "007d18d0",
+   "bytes": 4,
+   "kind": "string",
+   "section": 13
+  },
+  {
+   "symbol": "??_C@_0BK@GOBF@Infantry?5Fighting?5Vehicle?$AA@",
+   "address": "007d18d4",
+   "bytes": 26,
+   "kind": "string",
+   "section": 14
+  },
+  {
+   "symbol": "??_C@_03PJCE@AFV?$AA@",
+   "address": "007d18f0",
+   "bytes": 4,
+   "kind": "string",
+   "section": 15
+  },
+  {
+   "symbol": "??_C@_0BJ@OKNA@Armored?5Fighting?5Vehicle?$AA@",
+   "address": "007d18f4",
+   "bytes": 25,
+   "kind": "string",
+   "section": 16
+  },
+  {
+   "symbol": "??_C@_05MDMO@Recon?$AA@",
+   "address": "007d1910",
+   "bytes": 6,
+   "kind": "string",
+   "section": 17
+  },
+  {
+   "symbol": "??_C@_0O@LIOL@Recon?5Vehicle?$AA@",
+   "address": "007d1918",
+   "bytes": 14,
+   "kind": "string",
+   "section": 18
+  },
+  {
+   "symbol": "??_C@_03ENFM@VIP?$AA@",
+   "address": "007d1928",
+   "bytes": 4,
+   "kind": "string",
+   "section": 19
+  },
+  {
+   "symbol": "??_C@_09LNPK@VIP?1Agent?$AA@",
+   "address": "007d192c",
+   "bytes": 10,
+   "kind": "string",
+   "section": 20
+  },
+  {
+   "symbol": "??_C@_07HMHL@Soldier?$AA@",
+   "address": "007d1938",
+   "bytes": 8,
+   "kind": "string",
+   "section": 22
+  }
+ ],
+ "data_ranges": [
+  {
+   "start": "007d17e0",
+   "end": "007d1940",
+   "bytes": 352,
+   "proven_bytes": 324,
+   "alignment_bytes": 28,
+   "sections": 20,
+   "complete": true,
+   "gaps": []
+  }
+ ],
+ "data_bytes_proven": 324,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+   "address": "007cdecc",
+   "bytes": 7,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_08NIHI@Civilian?$AA@",
+   "address": "007ceb30",
+   "bytes": 9,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00469ea0",
+   "symbol": "?Name_From_Category@@YIPBDW4CategoryType@@@Z",
+   "target": "00468ec0",
+   "function_entry": true
+  },
+  {
+   "site": "00469ea0",
+   "symbol": "?Category_From_Name@@YI?AW4CategoryType@@PBD@Z",
+   "target": "00468ee0",
+   "function_entry": true
+  },
+  {
+   "site": "00469ee0",
+   "symbol": "?Name_From_Category@@YIPBDW4CategoryType@@@Z",
+   "target": "00468ec0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "__stricmp",
+   "address": "00781f20"
+  }
+ ]
+}

@@ -5,13 +5,13 @@ IPXAddressClass *OwnerTalkClass::Unknown_0063FA00(char *name)
     NetNodeType node;
     memset(node, 0, sizeof(node));
     address.Set_Node(node);
-    address.unknown_523960(0);
+    address.Set_Port(0);
     for (int index = 0; index < Connections.Count(); index++) {
         if (_stricmp(Connections[index]->Name, name) == 0) {
             NetNodeType ip;
             *(unsigned long *)ip = Connections[index]->Address;
             address.Set_Node(ip);
-            address.unknown_523960(Connections[index]->Port);
+            address.Set_Port(Connections[index]->Port);
             break;
         }
     }
@@ -19,7 +19,7 @@ IPXAddressClass *OwnerTalkClass::Unknown_0063FA00(char *name)
 }
 // @ref ??0IPXAddressClass@@QAE@XZ=00523410
 // @ref ?Set_Node@IPXAddressClass@@QAEXQAE@Z=00523540
-// @ref ?unknown_523960@IPXAddressClass@@QAEXG@Z=00523960
+// @ref ?Set_Port@IPXAddressClass@@QAEXG@Z=00523960
 // @ref _?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A=00ab6d08
 // @ref __stricmp=00781f20
 // @ref _$E68=0063fae0

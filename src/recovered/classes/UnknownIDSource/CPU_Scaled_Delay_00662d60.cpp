@@ -3,7 +3,7 @@
 // above 5), then delay * 200 / the performance counter frequency in MHz
 // (name hypothesis).
 // @ref ?Get_CPU_Info@@YIXPAHPAEPADI@Z=004d2a20
-// @ref ?Performance_Frequency_005abf20@@YIIPAI@Z=005abf20
+// @ref ?Get_CPU_Rate@@YIIPAI@Z=005abf20
 // @ref ?unknown_cpu_delay_scale_7a9208@@3NB=007a9208
 // @ref ?unknown_cpu_delay_factor_7a9210@@3NB=007a9210
 // @ref __real@8@401f8000000000000000=0079de10
@@ -20,7 +20,7 @@ int __fastcall CPU_Scaled_Delay_00662d60(int delay)
         delay = delay * unknown_cpu_delay_scale_7a9208;
     }
     unsigned int high;
-    unsigned int low = Performance_Frequency_005abf20(&high);
+    unsigned int low = Get_CPU_Rate(&high);
     if (low != 0 || high != 0) {
         mhz = (high * 4294967296.0 + low) * 0.000001;
     }

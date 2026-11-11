@@ -116,7 +116,7 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
                     unsigned char node[6];
                     address->Get_Address(network, node);
                     unknown_forward_address_a3fbac.Set_Address(network, node, 0);
-                    Debug_Printf("Session.PacketRouterAddress = %s\n", unknown_forward_address_a3fbac.As_String_00523840(0));
+                    Debug_Printf("Session.PacketRouterAddress = %s\n", unknown_forward_address_a3fbac.As_String(0));
                     Debug_Printf("Session.PacketRouterPort = %d\n", unknown_session_a3d298.unknown_292c);
                     unknown_ipx_manager_a40978.unknown_5277c0(&unknown_forward_address_a3fbac);
                 }

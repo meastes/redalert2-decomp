@@ -356,6 +356,33 @@ extern "C" thread_local uint64_t ra2port_slept_ns;
 static unsigned frame_work_us[1000];
 static int frame_work_count = 0;
 
+// RA2_NATIVE_FPS_LOG=1 in a network game (Scout1288, diagnostics): every 5 s the timing the
+// game negotiated (the TIMING event's desired frame rate, MaxAhead and frames between packets,
+// session +0x2D0/+0x2C8/+0x2CC), this game's mean Main_Loop processing time as Queue_AI
+// reports it (PROCESS_TIME: ProcessTicks / ProcessFrames, session +0x2D8/+0x2DC), and the
+// mean frame work less the thread's sleeps over the same frames.
+static void Native_Net_Timing_Log(uint64_t work_ns)
+{
+    static int on = -1;
+    if (on < 0) on = getenv("RA2_NATIVE_FPS_LOG") ? 1 : 0;
+    if (!on || !ra2_native_network_game()) return;
+    static uint64_t last = 0, work_sum = 0;
+    static unsigned work_frames = 0;
+    work_sum += work_ns;
+    ++work_frames;
+    uint64_t now = ra2port_monotonic_ns();
+    if (last == 0) last = now;
+    if (now - last < 5000000000ull) return;
+    UnknownSessionState &session = unknown_session_a3d298;
+    int frames = unknown_process_frames_a3d574;
+    fprintf(stderr, "net-timing: desired fps %d, max ahead %u, send rate %u, process ticks %d ms/frame (%d frames), work %.1f ms/frame\n",
+            session.unknown_2d0, session.MaxAhead_2c8, session.unknown_2cc,
+            frames ? unknown_process_ticks_a3d570 / frames : -1, frames, work_sum / 1e6 / work_frames);
+    last = now;
+    work_sum = 0;
+    work_frames = 0;
+}
+
 bool Native_Main_Loop_Seam()
 {
     uint64_t work_start = ra2port_monotonic_ns(), slept_start = ra2port_slept_ns;
@@ -363,6 +390,7 @@ bool Native_Main_Loop_Seam()
     {
         uint64_t spent = ra2port_monotonic_ns() - work_start - (ra2port_slept_ns - slept_start);
         if (frame_work_count < 1000) frame_work_us[frame_work_count++] = (unsigned)(spent / 1000u);
+        Native_Net_Timing_Log(spent);
     }
     Native_Frame_Floor();
     Native_Note_Frame();   // native_event_data.cpp: Sync_Delay's in-wait pass waits for a stalled frame

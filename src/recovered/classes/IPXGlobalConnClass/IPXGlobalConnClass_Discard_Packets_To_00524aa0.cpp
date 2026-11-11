@@ -5,7 +5,7 @@
 // @ref ?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z=00480700
 // @ref ?UnQueue_Send@CommBufferClass@@QAEHPAXPAHH01PAG@Z=00480550
 // @ref ??0IPXAddressClass@@QAE@XZ=00523410
-// @ref ?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z=00523690
+// @ref ?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z=00523690
 
 int IPXGlobalConnClass::Discard_Packets_To(IPXAddressClass *address, unsigned short id)
 {
@@ -13,7 +13,7 @@ int IPXGlobalConnClass::Discard_Packets_To(IPXAddressClass *address, unsigned sh
     for (int i = 0; i < Queue->SendCount; i++) {
         SendQueueType *send = Queue->Get_Send(i);
         if (!send->IsACK && send->ExtraLen
-            && ((IPXAddressClass *)send->ExtraBuffer)->unknown_523690(*address) && send->unknown_20 == id) {
+            && ((IPXAddressClass *)send->ExtraBuffer)->Is_Same_Node(*address) && send->unknown_20 == id) {
             char buffer[1024];
             int buflen;
             IPXAddressClass dest;

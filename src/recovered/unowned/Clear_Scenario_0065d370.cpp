@@ -79,7 +79,7 @@ extern Tactical *unknown_tactical_83996c;
 void Clear_Scenario_0065d370()
 {
     unknown_id_source_a3d290->UniqueID = 1000000;
-    unknown_id_source_a3d290->RandomNumber.unknown_0x00 = true;
+    unknown_id_source_a3d290->RandomNumber.IsLocked = true;
     unknown_saved_volume_7f1dec = 0x4000;
     Audio_Global_Levels[7]->Volume.Set(0x4000);
     Unknown_00714410();
@@ -162,7 +162,7 @@ void Clear_Scenario_0065d370()
         delete unknown_gas_cloud_system_a40d20;
         unknown_gas_cloud_system_a40d20 = 0;
     }
-    unknown_id_source_a3d290->RandomNumber.unknown_0x00 = false;
+    unknown_id_source_a3d290->RandomNumber.IsLocked = false;
     Unknown_006F89E0();
     Unknown_006F8A20(0);
     RadarEventClass_unknown_reset_cells();

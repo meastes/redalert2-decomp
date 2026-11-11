@@ -12,8 +12,8 @@
 // @ref ?Rotate_Y@Matrix3D@@QAEXM@Z=00590880
 // @ref ?Rotate_X@Matrix3D@@QAEXM@Z=00590760
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
-// @ref ?Is_Turning_Positive@FacingClass@@QBEDXZ=004b8cc0
-// @ref ?Is_Turning_Negative@FacingClass@@QBEDXZ=004b8d00
+// @ref ?Is_Rotating_CW@FacingClass@@QBEDXZ=004b8cc0
+// @ref ?Is_Rotating_CCW@FacingClass@@QBEDXZ=004b8d00
 
 Matrix3D * __stdcall FlyLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
 {
@@ -42,12 +42,12 @@ Matrix3D * __stdcall FlyLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
                 transform.Rotate_Y((float)LinkedTo->Techno_Type_Class()->PitchAngle);
             }
             if (LinkedTo->Techno_Type_Class()->RollAngle != 0.0) {
-                if (LinkedTo->unknown_2f8.Is_Turning_Positive()) {
+                if (LinkedTo->unknown_2f8.Is_Rotating_CW()) {
                     if (key != 0) {
                         *key |= 1;
                     }
                     transform.Rotate_X((float)LinkedTo->Techno_Type_Class()->RollAngle);
-                } else if (LinkedTo->unknown_2f8.Is_Turning_Negative()) {
+                } else if (LinkedTo->unknown_2f8.Is_Rotating_CCW()) {
                     if (key != 0) {
                         *key |= 2;
                     }

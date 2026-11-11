@@ -99,7 +99,7 @@ target_include_directories(ra2_dialect INTERFACE "${RA2_NATIVE_GEN}/overlay")
 #    archive is only for the small checks.
 add_library(ra2_recovered_objs OBJECT ${RA2_NATIVE_UNITS})
 target_link_libraries(ra2_recovered_objs PUBLIC ra2_dialect)
-add_library(ra2_recovered STATIC $<TARGET_OBJECTS:ra2_recovered_objs> data/random3_tables.cpp)
+add_library(ra2_recovered STATIC $<TARGET_OBJECTS:ra2_recovered_objs>)
 target_link_libraries(ra2_recovered PUBLIC ra2_dialect)
 
 # Native definitions of the data the recovered code reads but does not define
@@ -286,6 +286,13 @@ if(RA2_NATIVE_SDL)
                --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --map "#5" --frames 600 --seconds 900
                --log "${CMAKE_CURRENT_BINARY_DIR}/native-census.log")
       set_tests_properties(native-census PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1000)
+      # 9. Plain-virtual views against the real classes' arm64 vtables (Scout1288,
+      #    tools/vtable_views.py, data/vtable_views.tsv): every view classified, and each
+      #    slot the sources call through a view reaches the real class's entry for that
+      #    VC6 slot (clang vtable dumps of the built units). Needs the linked ra2-native.
+      add_test(NAME native-vtable-views COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/vtable_views.py"
+               --build "${CMAKE_CURRENT_BINARY_DIR}")
+      set_tests_properties(native-vtable-views PROPERTIES TIMEOUT 600)
     else()
       add_executable(ra2-native platform/sdl/main.cpp)
       target_link_libraries(ra2-native PRIVATE SDL3::SDL3 ra2_port)

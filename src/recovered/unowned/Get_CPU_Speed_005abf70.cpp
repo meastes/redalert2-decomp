@@ -13,12 +13,7 @@
 // TibSun mpu.cpp:134, TibSun mpu.cpp:134, TibSun mpu.cpp:237, TibSun mpu.cpp:251
 #define ASM_RDTSC _asm _emit 0x0f _asm _emit 0x31
 
-union LARGE_INTEGER {
-    struct { unsigned long LowPart; long HighPart; };
-    __int64 QuadPart;
-};
-extern "C" __declspec(dllimport) int __stdcall QueryPerformanceCounter(LARGE_INTEGER *);
-extern "C" __declspec(dllimport) int __stdcall QueryPerformanceFrequency(LARGE_INTEGER *);
+#include "shared/win32_api.hpp"
 #include "shared/crt_memory.hpp"
 #define ROUND_THRESHOLD 6
 #define TOLERANCE 1

@@ -25,7 +25,7 @@ void __stdcall DropPodLocomotionClass::Move_To(CoordStruct to)
         LinkedTo->Set_Coord(start);
         if (LinkedTo->Unlimbo(&start, 0x80)) {
             LinkedTo->Set_Coord(start);
-            LinkedTo->unknown_2e0.Set_Current(UnknownFacingDir(0x8000));
+            LinkedTo->unknown_2e0.Set(UnknownFacingDir(0x8000));
             new AnimClass(Rules->AtmosphereEntry, start, 0, 1, 0x600, 0);
         } else {
             LinkedTo->Unlimbo(&start, 0x80);

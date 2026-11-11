@@ -61,7 +61,7 @@ int __fastcall Sync_Scenario_With_Guests_00750330(bool connected)
             if(unknown_ipx_manager_a40978.Get_Global_Message(&unknown_gpacket_a3f640,&scenario_packet_length_a3f808,&unknown_address_a3f80c,&scenario_product_a3f818) && scenario_product_a3f818==0xaa03) {
                 Debug_Printf(scenario_debug_007ff8c0);
                 for(int i=1;i<unknown_session_a3d298.Players.Count();++i) {
-                    if(unknown_session_a3d298.Players[i]->Address.unknown_523690(unknown_address_a3f80c) && !_stricmp(Unknown_006FA120(unknown_session_a3d298.Players[i]->Name),unknown_gpacket_a3f640.Name) && !responses[i]) {
+                    if(unknown_session_a3d298.Players[i]->Address.Is_Same_Node(unknown_address_a3f80c) && !_stricmp(Unknown_006FA120(unknown_session_a3d298.Players[i]->Name),unknown_gpacket_a3f640.Name) && !responses[i]) {
                         if(unknown_gpacket_a3f640.Command==16) {
                             Debug_Printf(scenario_debug_007ff89c);
                             responses[i]=unknown_gpacket_a3f640.Command;

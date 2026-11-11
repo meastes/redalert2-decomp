@@ -465,6 +465,17 @@ def map_member(child, rel, nodes32, off64, l32, l64):
         elif off == rel and want and canon(typ) == want and not ndims:
             row.update(member=path, member_type=typ, offset64=off64[path], kind='exact')
             return row
+    # A pointer name at a pointer member (any pointee: a per-file view class of the
+    # same object) is that member, also inside a union whose other alternative is a
+    # byte array (Scout1288: unknown_session_a3d29c is the session's Mode, +0x04;
+    # natively separate BSS, always null, so RulesClass::Process never read the game
+    # mode's INI). Views called through such a name must keep the real class's
+    # vtable (port/fixups.json: UnknownSessionA3D29C's slot 0 is a destructor).
+    if want and want.endswith('*') and not ndims:
+        for path, off, typ, depth, e32, e64, dims in reversed(chain):
+            if off == rel and not dims and canon(typ).endswith('*') and path in off64:
+                row.update(member=path, member_type=typ, offset64=off64[path], kind='compatible')
+                return row
     # A class-typed name at the start of a class-typed member is that member
     # (per-file view classes of one object: unknown_object_a3dc70 and three
     # other names over the session's MessageListClass Messages, +0x9D8).
@@ -500,6 +511,13 @@ def map_member(child, rel, nodes32, off64, l32, l64):
         if run_preserved(chain, rel, ndims, want, nodes32, off64):
             row.update(offset64=off64[path], kind='range')
             return row
+    if (not dims and off == rel and not ndims and want in SCALAR and etyp in SCALAR and SCALAR[want] > SCALAR[etyp]
+            and run_preserved(chain, rel, [1], want, nodes32, off64)):
+        # A wider scalar name over a run of narrower scalar members that keeps its
+        # relative layout (a GUID's Data2 and Data3 read as one unsigned int by a
+        # GetClassID body, Scout1288): one read covers the same bytes on both targets.
+        row.update(offset64=off64[path], kind='range')
+        return row
     return row
 
 

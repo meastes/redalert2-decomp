@@ -4,8 +4,8 @@
     "id": "population-4237",
     "inventory_sha256": "9f48038f3b6f91a7881477224c1697078769ecad3df0bd65ac5aecb8eb3b3c05",
     "gaps_sha256": "917f8d8e91d74671d9afb73ecf12f3343be9fa1a8184db03b79de19a1a7880d4",
-    "historical_population_sha256": "44345d742639c3e66021a1f4fc55d24f4615f81de6e5d64266e03fea8b8671cd",
-    "historical_acceptance_sha256": "a9db8d1518815ce72aee81a8eff5ba8fe9a1bbc2ec538fd363282ba8a1eba04b"
+    "historical_population_sha256": "7f1cbead7024f1cb9aae999be2eb3522077a3bb5a5952bf549de142881b96689",
+    "historical_acceptance_sha256": "9df5147bcc4e282ccd2473d09f14eed00e8d931f439b7c1d601dfe760d3b164a"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -3141,7 +3141,7 @@
     "??_C@_0CB@DHAE@Received?5TALK_HELLO?5from?5router?6@": 8317260,
     "??_C@_0CI@MNDF@CreateProcess?5failed?5with?5error?5@": 8317320,
     "??_C@_0CL@PLML@Session?4PacketRouterAddressTrans@": 8317360,
-    "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
+    "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
     "?MainWindow@@3PAUHWND__@@A": 11690968,
     "?PacketTransport@@3PAVWinsockInterfaceClass@@A": 8625232,
     "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z": 5387392,
@@ -3160,7 +3160,7 @@
     "_RouterBuffer": 11233508,
     "__imp__timeGetTime@0": 7972132,
     "?Set_Node@IPXAddressClass@@QAEXQAE@Z": 5387584,
-    "?unknown_523960@IPXAddressClass@@QAEXG@Z": 5388640,
+    "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "_$E68": 6552288,
     "_?$S67@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4EA": 11234544,
     "?Am_I_Master@UnknownSessionState@@QAE_NPAVHouseClass@@@Z": 6746448,
@@ -4637,7 +4637,7 @@
     "?get@Leaf_522540@@QAEXXZ": 5383488,
     "?get@Leaf_522e80@@QAEIXZ": 5385856,
     "?Set_Protocol@IPXAddressClass@@SIXH@Z": 5388624,
-    "?IPXProtocol@@3HA": 8248432,
+    "?AddressProtocol@@3HA": 8248432,
     "?Set_Bridge@IPXGlobalConnClass@@QAEXQAE@Z": 5392912,
     "?Configured@IPXConnClass@@2HA": 10822660,
     "?Send_Packet@IPXGlobalConnClass@@UAEHPAXHHE@Z": 5393776,
@@ -6550,7 +6550,7 @@
     "?Service_Receive_Queue@IPXGlobalConnClass@@UAEHXZ": 5392432,
     "?Discard_Undeliverable_Packets@IPXGlobalConnClass@@UAEHXZ": 5392944,
     "?Discard_Packets_To@IPXGlobalConnClass@@UAEHPAVIPXAddressClass@@G@Z": 5393056,
-    "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
     "??_GIPXGlobalConnClass@@UAEPAXI@Z": 5393872,
     "??0IPXInterfaceClass@@QAE@XZ": 7774320,
     "?Init@IPXManagerClass@@QAEHXZ": 5394880,
@@ -9110,7 +9110,11 @@
     "__real@8@3ffe947ae147ae147800": 8049000,
     "__real@8@3fe3c8000000c8000000": 8019992,
     "__except_handler3": 7885524,
-    "__except_list": 0
+    "__except_list": 0,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552
   },
   "regions": [
     {
@@ -10817,7 +10821,7 @@
         {
           "offset": 457,
           "kind": 20,
-          "symbol": "?unknown_523960@IPXAddressClass@@QAEXG@Z",
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
           "target": 5388640,
           "addend": 0,
           "resolved": 4293804675
@@ -10873,7 +10877,7 @@
         {
           "offset": 517,
           "kind": 20,
-          "symbol": "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z",
+          "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
           "target": 5388352,
           "addend": 0,
           "resolved": 4293804327
@@ -11023,7 +11027,7 @@
           "resolved": 4292636872
         }
       ],
-      "source_sha256": "9f4a389d230d4e258dc3a14a678e84320d1448d31df3a7a16df9f61f84540817",
+      "source_sha256": "d7d81e6b180bf08c91d45773aa71f206d39b6c01a0bc92bf38ecc90ed8ab1089",
       "source": "src/recovered/classes/OwnerTalkClass/OwnerTalkClass_Start_Router_0063f510.cpp",
       "population": "population-4237",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11418,7 +11422,7 @@
         {
           "offset": 87,
           "kind": 20,
-          "symbol": "?unknown_523960@IPXAddressClass@@QAEXG@Z",
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
           "target": 5388640,
           "addend": 0,
           "resolved": 4293803781
@@ -11466,7 +11470,7 @@
         {
           "offset": 192,
           "kind": 20,
-          "symbol": "?unknown_523960@IPXAddressClass@@QAEXG@Z",
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
           "target": 5388640,
           "addend": 0,
           "resolved": 4293803676
@@ -11480,7 +11484,7 @@
           "resolved": 11234568
         }
       ],
-      "source_sha256": "f0b1bf0df7564ebf92760d93a679fa00d7f2c8136c3ac7febdf9956af047beae",
+      "source_sha256": "c72af6a5f2554adeaa6b9df7384dc542c0077a894a8a54045c60cad1b2704215",
       "source": "src/recovered/classes/OwnerTalkClass/OwnerTalkClass_Address_Of_Name_0063fa00.cpp",
       "population": "population-4237",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

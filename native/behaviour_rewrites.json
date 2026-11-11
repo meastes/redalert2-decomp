@@ -3190,6 +3190,105 @@
    "file": "native/link/behaviour_r9_lan.cpp",
    "source": "src/recovered/00668ea0.cpp (accepted seed, empty)",
    "notes": "Scout1209 (r14): reachable from the random map dialog (Write_Scenario_INI 0x0065F980)"
+  },
+  {
+   "entry": "0x006F8A50",
+   "name": "Unknown_006F8A50()",
+   "symbol": "__Z16Unknown_006F8A50v",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m12_placement.cpp",
+   "source": "none (6-byte getter: mov eax, [0x00AC1334]; ret)",
+   "notes": "Scout1281: the sidebar tab hot key (SetStructureTabCommandClass::Execute 0x0051B030) reads it; a link-closure trap before (static reach from executed code, coverage battery)"
+  },
+  {
+   "entry": "0x006F8A60",
+   "name": "Unknown_006F8A60()",
+   "symbol": "__Z16Unknown_006F8A60v",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m12_placement.cpp",
+   "source": "none (6-byte getter: mov eax, [0x00AC1338]; ret)",
+   "notes": "Scout1281: the sidebar tab hot key (SetDefenseTabCommandClass::Execute 0x0051B0F0) reads it; a link-closure trap before (static reach from executed code, coverage battery)"
+  },
+  {
+   "entry": "0x00617A00",
+   "name": "unknown_find_617a00()",
+   "symbol": "__Z19unknown_find_617a00v",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m23_planning.cpp",
+   "source": "src/recovered/00617a00.cpp (Leaf_617a00, raw read of 0x00A766B0)",
+   "notes": "Scout1281: the Delete command (DeleteCommandClass::Execute 0x0051DA30 -> unknown_dispatch 0x006F6490) reads it; a link-closure trap before (static reach from executed code, coverage battery)"
+  },
+  {
+   "entry": "0x00454BF0",
+   "name": "UnknownComPtr<IPersist, &unknown_uuid_IPersist_7cf208>::Query(UnknownLocomotionPtr const&)",
+   "symbol": "",
+   "origin_class": "stand-in overload of an accepted row",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m12_piggyback.cpp",
+   "source": "src/recovered/classes/BuildingClass/ComPtr_IPersist_Query_00454bf0.cpp (the other overload)",
+   "notes": "Scout1281: forwards to the accepted overload (the two ILocomotion holders are one _com_ptr_t in the original); ShipLocomotionClass::Piggyback_CLSID reached the trap"
+  },
+  {
+   "entry": "0x005794D0",
+   "name": "MapSeedClass::Delete_File(char const*)",
+   "symbol": "__ZN12MapSeedClass11Delete_FileEPKc",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r32_mapseed.cpp",
+   "source": "src/recovered/classes/MapSeedClass/005794d0.cpp (seed scaffolding)",
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map: Delete_Save_File 0x0053C7D0; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+  },
+  {
+   "entry": "0x005796F0",
+   "name": "MapSeedClass::Load_Menu_Name() const",
+   "symbol": "__ZNK12MapSeedClass14Load_Menu_NameEv",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r32_mapseed.cpp",
+   "source": "src/recovered/classes/MapSeedClass/005796f0.cpp (seed scaffolding)",
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Load Map dialog title GUI:LoadMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+  },
+  {
+   "entry": "0x00579710",
+   "name": "MapSeedClass::Save_Menu_Name() const",
+   "symbol": "__ZNK12MapSeedClass14Save_Menu_NameEv",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r32_mapseed.cpp",
+   "source": "src/recovered/classes/MapSeedClass/00579710.cpp (seed scaffolding)",
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map dialog title GUI:SaveMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+  },
+  {
+   "entry": "0x00579730",
+   "name": "MapSeedClass::Delete_Menu_Name() const",
+   "symbol": "__ZNK12MapSeedClass16Delete_Menu_NameEv",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r32_mapseed.cpp",
+   "source": "src/recovered/classes/MapSeedClass/00579730.cpp (seed scaffolding)",
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map dialog title GUI:DeleteMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
+  },
+  {
+   "entry": "0x00579750",
+   "name": "MapSeedClass::Saved_Message() const",
+   "symbol": "__ZNK12MapSeedClass13Saved_MessageEv",
+   "origin_class": "unmatched (player path)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_r32_mapseed.cpp",
+   "source": "src/recovered/classes/MapSeedClass/00579750.cpp (seed scaffolding)",
+   "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map's message GUI:MapSaved; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)"
   }
  ]
 }

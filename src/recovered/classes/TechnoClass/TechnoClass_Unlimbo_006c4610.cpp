@@ -36,8 +36,8 @@ bool TechnoClass::Unlimbo(CoordStruct const *coord, int dir)
             unknown_list_8322e0.Unknown_00436680(this);
         }
         House->Unknown_004ED610(this, false);
-        unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
-        unknown_2c8.Set_Current(UnknownFacingDir(0x4000));
+        unknown_2e0.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
+        unknown_2c8.Set(UnknownFacingDir(0x4000));
         {
             UnknownFacingDir fire = UnknownFacingDir((unsigned short)(0x4000 - ((unsigned char)Techno_Type_Class()->FireAngle << 8)));
             unknown_2c8.Set_Desired(fire);

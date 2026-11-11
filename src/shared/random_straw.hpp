@@ -9,7 +9,7 @@
 #define RA2_SHARED_RANDOM_STRAW_HPP
 
 #include "shared/straw.hpp"
-#include "shared/random3.hpp"
+#include "shared/random.hpp"
 
 class RandomStraw : public Straw {
 public:

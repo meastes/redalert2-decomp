@@ -12,7 +12,7 @@
 // @ref ?Get_Address@IPXAddressClass@@QAEXQAE0@Z=00523500
 // @ref ?Set_Address@IPXAddressClass@@QAEXQAE0G@Z=00523480
 // @ref ??8IPXAddressClass@@QAE_NAAV0@@Z=005235d0
-// @ref ?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z=00523690
+// @ref ?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z=00523690
 // @ref ?unknown_flag_a3fba8@@3_NA=00a3fba8
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
 // @ref ?unknown_OwnerTalkClass_00ab6d18@@3VOwnerTalkClass@@A=00ab6d18
@@ -49,7 +49,7 @@ int IPXConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address, unsig
         dest = unknown_forward_address_a3fbac;
         port = unknown_port_7f60dc;
         if (unknown_forward_address_a3fbb8 == unknown_players_a3fa7c[0]->Address
-            && dest.unknown_523690(unknown_players_a3fa7c[0]->Address)) {
+            && dest.Is_Same_Node(unknown_players_a3fa7c[0]->Address)) {
             header->unknown_0c = 0;
             memset(&header->unknown_08, 0, sizeof(header->unknown_08));
         } else {

@@ -90,3 +90,12 @@ bool Default_Map_Generation_Callback_00482100()
     unknown_481fb0();
     return false;
 }
+
+// 0x007E09C4 (Scout1281): the generator's progress callback, two names in the tree:
+// Do_Random_Map_Dialog 0x00577490 and Do_Random_Map 0x00577880 store it as rmg_callback_7e09c4,
+// Generate_Random_Map 0x0057A0D0 calls it as unknown_map_generation_callback_7e09c4
+// (native/data/address_aliases.tsv binds that name here). Both had been separate zero-filled
+// link-closure holes, so the generator never called the dialog's callback. Initial value as in
+// game.exe's .data: 0x00482100, Default_Map_Generation_Callback_00482100.
+extern "C" bool (*ra2_rmg_callback_7e09c4)() __asm__("_rmg_callback_7e09c4");
+bool (*ra2_rmg_callback_7e09c4)() = Default_Map_Generation_Callback_00482100;

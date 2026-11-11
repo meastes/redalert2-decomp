@@ -15,7 +15,7 @@ int IPXGlobalConnClass::Receive_Packet(void *buf, int buflen, IPXAddressClass *a
     switch (packet->Code) {
     case PACKET_DATA_ACK: {
         IPXAddressClass received = *address;
-        if (port != 0) received.unknown_523960(port);
+        if (port != 0) received.Set_Port(port);
         int resend = 0;
         for (int index = 0; index < unknown_d4; index++) {
             if ((unsigned int)index >= Queue->ReceiveTotal) break;
@@ -52,7 +52,7 @@ int IPXGlobalConnClass::Receive_Packet(void *buf, int buflen, IPXAddressClass *a
     case PACKET_DATA_NOACK: {
         Debug_Printf("Queueing new global PACKET_DATA_NOACK packet\n");
         IPXAddressClass received = *address;
-        if (port != 0) received.unknown_523960(port);
+        if (port != 0) received.Set_Port(port);
         Queue->Queue_Receive(buf, buflen, &received, sizeof(received));
         break;
     }

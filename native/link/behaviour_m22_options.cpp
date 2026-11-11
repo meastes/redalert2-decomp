@@ -12,8 +12,11 @@
 // combo selection at the start). Native storage: nothing else defines them.
 VideoModeSize *unknown_modes_a6ed10;
 bool unknown_options_ready_a6ed0c;
-int unknown_video_width_a6ec58;     // the mode chosen (also the video mode dialog's)
-int unknown_video_height_a6ec5c;
+// 0x00A6EC58/0x00A6EC5C, the mode chosen, are not storage of their own: they are the
+// ScreenWidth/ScreenHeight (+0x20/+0x24) of unknown_options_a6ec38, the copy of Options
+// Main_Options_Dialog 0x00542460 makes before it opens the dialog (Scout1281; the native
+// tree had defined them here, so they stayed 0, no mode matched and the resolution box
+// showed blank). native/data/member_aliases.tsv binds the names to those members.
 
 // 0x00542590 Main_Options_Proc (shell Options dialog 0xD5; written from the
 // disassembly 0x00542590-0x00542D5C). Reached by the main menu's Options button.

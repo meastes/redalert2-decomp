@@ -28,7 +28,6 @@ _BlastSurfaces	640	BlastSurfaces	BSurface*[80]
 _BombList	72	BombList	BombListClass
 _BuildingLights	32	BuildingLights	DynamicVectorClass<BuildingLightClass*>
 _BuildingTypes	32	BuildingTypes	DynamicVectorClass<BuildingTypeClass*>
-_Building_Radio_No_Coord_0084ed30	12	Building_Radio_No_Coord_0084ed30	CoordStruct
 _BulletTypes	32	BulletTypes	DynamicVectorClass<BulletTypeClass*>
 _CDControl	104	CDControl	CDControlClass
 _CDList	112	CDList	GetCDClass
@@ -39,6 +38,7 @@ _CLSID_AnimClass	16	CLSID_AnimClass	GUID
 _CLSID_AnimTypeClass	16	CLSID_AnimTypeClass	GUID
 _CLSID_BallisticLocomotionClass	16	CLSID_BallisticLocomotionClass	GUID
 _CLSID_Blowfish	16	CLSID_Blowfish	GUID
+_CLSID_BombClass	16	CLSID_BombClass	GUID
 _CLSID_BuildingClass	16	CLSID_BuildingClass	GUID
 _CLSID_BuildingLightClass	16	CLSID_BuildingLightClass	GUID
 _CLSID_BulletClass	16	CLSID_BulletClass	GUID
@@ -46,8 +46,10 @@ _CLSID_BulletTypeClass	16	CLSID_BulletTypeClass	GUID
 _CLSID_CStreamClass	16	CLSID_CStreamClass	GUID
 _CLSID_CampaignClass	16	CLSID_CampaignClass	GUID
 _CLSID_CaptureManagerClass	16	CLSID_CaptureManagerClass	GUID
+_CLSID_CellClass	16	CLSID_CellClass	GUID
 _CLSID_DriveLocomotionClass	16	CLSID_DriveLocomotionClass	GUID
 _CLSID_DropPodLocomotionClass	16	CLSID_DropPodLocomotionClass	GUID
+_CLSID_EMPulseClass	16	CLSID_EMPulseClass	GUID
 _CLSID_FactoryClass	16	CLSID_FactoryClass	GUID
 _CLSID_FlyLocomotionClass	16	CLSID_FlyLocomotionClass	GUID
 _CLSID_FoggedObjectClass	16	CLSID_FoggedObjectClass	GUID
@@ -58,6 +60,7 @@ _CLSID_InfantryClass	16	CLSID_InfantryClass	GUID
 _CLSID_IsometricTileClass	16	CLSID_IsometricTileClass	GUID
 _CLSID_IsometricTileTypeClass	16	CLSID_IsometricTileTypeClass	GUID
 _CLSID_JumpjetLocomotionClass	16	CLSID_JumpjetLocomotionClass	GUID
+_CLSID_LightSource	16	CLSID_LightSource	GUID
 _CLSID_MechLocomotionClass	16	CLSID_MechLocomotionClass	GUID
 _CLSID_NeuronClass	16	CLSID_NeuronClass	GUID
 _CLSID_OverlayClass	16	CLSID_OverlayClass	GUID
@@ -80,6 +83,7 @@ _CLSID_SuperClass	16	CLSID_SuperClass	GUID
 _CLSID_SuperWeaponTypeClass	16	CLSID_SuperWeaponTypeClass	GUID
 _CLSID_TActionClass	16	CLSID_TActionClass	GUID
 _CLSID_TEventClass	16	CLSID_TEventClass	GUID
+_CLSID_Tactical	16	CLSID_Tactical	GUID
 _CLSID_TagClass	16	CLSID_TagClass	GUID
 _CLSID_TagTypeClass	16	CLSID_TagTypeClass	GUID
 _CLSID_TaskForceClass	16	CLSID_TaskForceClass	GUID
@@ -90,6 +94,7 @@ _CLSID_TemporalClass	16	CLSID_TemporalClass	GUID
 _CLSID_TerrainClass	16	CLSID_TerrainClass	GUID
 _CLSID_TerrainTypeClass	16	CLSID_TerrainTypeClass	GUID
 _CLSID_TiberianSun	16	CLSID_TiberianSun	GUID
+_CLSID_TiberiumClass	16	CLSID_TiberiumClass	GUID
 _CLSID_TriggerClass	16	CLSID_TriggerClass	GUID
 _CLSID_TriggerTypeClass	16	CLSID_TriggerTypeClass	GUID
 _CLSID_TubeClass	16	CLSID_TubeClass	GUID
@@ -112,7 +117,6 @@ _DAT_00a521d0	12	DAT_00a521d0	AudioFileRecordHeader
 _DAT_00a52200	88	DAT_00a52200	AudioTimeSpan
 _DAT_00a52280	40	DAT_00a52280	CRITICAL_SECTION
 _Damage_Fire_Offset_End_0084ed30	8	Damage_Fire_Offset_End_0084ed30	Point2D
-_Destruction_No_Coord_0084ed30	12	Destruction_No_Coord_0084ed30	CoordStruct
 _Factories	32	Factories	DynamicVectorClass<FactoryClass*>
 _FastKey	516	FastKey	PKey
 _FoundationNames	352	FoundationNames	NameValueStruct[22]
@@ -169,6 +173,7 @@ _ProgressScreen	176	ProgressScreen	ProgressScreenClass
 _RTTINames	1136	RTTINames	RTTINameStruct[71]
 _ScriptTypes	32	ScriptTypes	DynamicVectorClass<ScriptTypeClass*>
 _Scripts	32	Scripts	DynamicVectorClass<ScriptClass*>
+_Search	3304	Search	AStarClass
 _Sides	32	Sides	DynamicVectorClass<SideClass*>
 _SlopeZShapes	32	SlopeZShapes	void*[4]
 _SmudgeTypes	32	SmudgeTypes	DynamicVectorClass<SmudgeTypeClass*>
@@ -177,6 +182,8 @@ _StormCoords	4	StormCoords	Cell
 _SuperWeaponTypes	32	SuperWeaponTypes	DynamicVectorClass<SuperWeaponTypeClass*>
 _Supers	32	Supers	DynamicVectorClass<SuperClass*>
 _SwizzleManager	72	SwizzleManager	SwizzleManagerClass
+_TagTypes	32	TagTypes	DynamicVectorClass<TagTypeClass*>
+_Tags	32	Tags	DynamicVectorClass<TagClass*>
 _TaskForces	32	TaskForces	DynamicVectorClass<TaskForceClass*>
 _TeamTypes	32	TeamTypes	DynamicVectorClass<TeamTypeClass*>
 _Teams	32	Teams	DynamicVectorClass<TeamClass*>
@@ -185,11 +192,13 @@ _Technos	32	Technos	DynamicVectorClass<TechnoClass*>
 _TerrainTypes	32	TerrainTypes	DynamicVectorClass<TerrainTypeClass*>
 _Terrains	32	Terrains	DynamicVectorClass<TerrainClass*>
 _Theme	64	Theme	ThemeClass
+_TibSunFactory	8	TibSunFactory	TiberianSunClassFactory
 _TickCount	12	TickCount	TTimerClass<SystemTimerClass>
 _TriggerTypes	32	TriggerTypes	DynamicVectorClass<TriggerTypeClass*>
+_Triggers	32	Triggers	DynamicVectorClass<TriggerClass*>
 _UnitTypes	32	UnitTypes	DynamicVectorClass<UnitTypeClass*>
-_Unit_Radio_Zero_Coord_00AD04C0	12	Unit_Radio_Zero_Coord_00AD04C0	CoordStruct
 _Units	32	Units	DynamicVectorClass<UnitClass*>
+_VerNum	80	VerNum	VersionClass
 _WDT_Current_State_b2ad68	16	WDT_Current_State_b2ad68	rc_ptr<WDTState>
 _WDT_Previous_State_b2ad80	16	WDT_Previous_State_b2ad80	rc_ptr<WDTState>
 _Waves	32	Waves	DynamicVectorClass<WaveClass*>
@@ -243,11 +252,8 @@ _unknown_SpotLightClass_list_00a731c0	32	unknown_SpotLightClass_list_00a731c0	Dy
 _unknown_SuperClass_list_00a35db8	32	unknown_SuperClass_list_00a35db8	DynamicVectorClass<SuperClass*>
 _unknown_TActionClass_list_00abfd88	32	unknown_TActionClass_list_00abfd88	DynamicVectorClass<TActionClass*>
 _unknown_TEventClass_list_00ac0808	32	unknown_TEventClass_list_00ac0808	DynamicVectorClass<TEventClass*>
-_unknown_TagClass_list_00abfe48	32	Tags	DynamicVectorClass<TagClass*>
-_unknown_TagTypeClass_list_00abfea0	32	TagTypes	DynamicVectorClass<TagTypeClass*>
 _unknown_TemporalClass_list_00ac02e0	32	unknown_TemporalClass_list_00ac02e0	DynamicVectorClass<TemporalClass*>
 _unknown_TiberiumClass_list_00ac0b30	32	unknown_TiberiumClass_list_00ac0b30	DynamicVectorClass<TiberiumClass*>
-_unknown_TriggerClass_list_00a40aa0	32	Triggers	DynamicVectorClass<TriggerClass*>
 _unknown_TubeClass_list_008661c8	32	unknown_TubeClass_list_008661c8	DynamicVectorClass<TubeClass*>
 _unknown_UndoInfoStruct_list_00abce18	32	unknown_UndoInfoStruct_list_00abce18	DynamicVectorClass<UndoInfoStruct>
 _unknown_VocClass_list_00ad0818	32	unknown_VocClass_list_00ad0818	DynamicVectorClass<VocClass*>
@@ -264,10 +270,10 @@ _unknown_abstracts_ac0d08	32	unknown_abstracts_ac0d08	DynamicVectorClass<Abstrac
 _unknown_address_a3db2c	12	unknown_address_a3db2c	IPXAddressClass
 _unknown_address_a3f80c	12	unknown_address_a3f80c	IPXAddressClass
 _unknown_address_a3fbc8	12	unknown_address_a3fbc8	IPXAddressClass
+_unknown_addresses_a3fbd4	96	unknown_addresses_a3fbd4	IPXAddressClass[8]
 _unknown_adjacent_offsets_00851ac0	64	unknown_adjacent_offsets_00851ac0	Point2D[8]
 _unknown_anims_a35e60	32	unknown_anims_a35e60	DynamicVectorClass<AnimClass*>
 _unknown_application_object_84c7dc	8	unknown_application_object_84c7dc	ApplicationClass
-_unknown_approach_none_865f00	4	unknown_approach_none_865f00	Cell
 _unknown_art_ini_8397f0	128	unknown_art_ini_8397f0	CCINIClass
 _unknown_audio_file_lock_a52268	40	unknown_audio_file_lock_a52268	CRITICAL_SECTION
 _unknown_audio_file_lock_a52280	40	unknown_audio_file_lock_a52280	CRITICAL_SECTION
@@ -284,19 +290,10 @@ _unknown_cell_850bd8	4	unknown_cell_850bd8	Cell
 _unknown_cell_a40f10	4	unknown_cell_a40f10	Cell
 _unknown_cell_a52eac	4	unknown_cell_a52eac	Cell
 _unknown_cell_a6f238	4	unknown_cell_a6f238	Cell
-_unknown_cell_ab7068	4	unknown_cell_ab7068	Cell
-_unknown_cell_ab9698	4	unknown_cell_ab9698	Cell
 _unknown_cell_abd768	4	unknown_cell_abd768	Cell
-_unknown_cell_abfdb0	4	unknown_cell_abfdb0	Cell
-_unknown_cell_ac0050	4	unknown_cell_ac0050	Cell
-_unknown_cell_ac00c8	4	unknown_cell_ac00c8	Cell
 _unknown_cell_ac0148	4	unknown_cell_ac0148	Cell
-_unknown_cell_ac01e8	4	unknown_cell_ac01e8	Cell
-_unknown_cell_ad0488	4	unknown_cell_ad0488	Cell
-_unknown_cell_none_ab71d8	4	unknown_cell_none_ab71d8	Cell
 _unknown_cell_offsets_00850e50	60	unknown_cell_offsets_00850e50	CoordStruct[5]
 _unknown_cells_a6f218	16	unknown_cells_a6f218	Cell[4]
-_unknown_cells_a6f248	1476	unknown_cells_a6f248	Cell[369]
 _unknown_channel_names_b293a0	64	unknown_channel_names_b293a0	WolChannelNameSet
 _unknown_channel_requests_b29390	16	unknown_channel_requests_b29390	WolIntArray
 _unknown_channels_b29478	64	unknown_channels_b29478	WolChannelDictionary
@@ -317,14 +314,10 @@ _unknown_com_pointer_8324b0	8	unknown_com_pointer_8324b0	CComPtr<IUnknown>
 _unknown_command_names_7f67f8	88	unknown_command_names_7f67f8	char*[11]
 _unknown_commands_832358	32	unknown_commands_832358	DynamicVectorClass<CommandClass*>
 _unknown_coord_a40f48	12	unknown_coord_a40f48	CoordStruct
-_unknown_coord_a410f8	12	unknown_coord_a410f8	CoordStruct
-_unknown_coord_ab7088	12	unknown_coord_ab7088	CoordStruct
-_unknown_coord_ac0188	12	unknown_coord_ac0188	CoordStruct
-_unknown_coord_ad04c0	12	unknown_coord_ad04c0	CoordStruct
+_unknown_coord_none_ac0188	12	unknown_coord_none_ac0188	CoordStruct
 _unknown_dest_net_a3f608	12	unknown_dest_net_a3f608	IPXAddressClass
 _unknown_drop_pod_voxel_a40c80	16	unknown_drop_pod_voxel_a40c80	UnknownObjectPair
 _unknown_dummy_cell_a6f9f8	400	unknown_dummy_cell_a6f9f8	CellClass
-_unknown_ebolt_zero_00853028	12	unknown_ebolt_zero_00853028	CoordStruct
 _unknown_event_cells_ab6788	32	unknown_event_cells_ab6788	Cell[8]
 _unknown_event_empty_cell_ab67a8	4	unknown_event_empty_cell_ab67a8	Cell
 _unknown_event_queue_a35f30	29452	unknown_event_queue_a35f30	QueueClass<EventClass,256>
@@ -349,8 +342,7 @@ _unknown_ini_8396e0	128	unknown_ini_8396e0	CCINIClass
 _unknown_ini_839740	128	unknown_ini_839740	CCINIClass
 _unknown_ini_8397a0	128	unknown_ini_8397a0	CCINIClass
 _unknown_ini_839860	128	unknown_ini_839860	CCINIClass
-_unknown_invalid_coord_a41170	12	unknown_invalid_coord_a41170	CoordStruct
-_unknown_ipx_manager_a40978	224	unknown_ipx_manager_a40978	IPXManagerClass
+_unknown_ipx_manager_a40978	232	unknown_ipx_manager_a40978	IPXManagerClass
 _unknown_iso_tiles_a40cd0	32	unknown_iso_tiles_a40cd0	DynamicVectorClass<UnknownIsoTile*>
 _unknown_known_names_b294b8	64	unknown_known_names_b294b8	WolChannelNameSet
 _unknown_ladder_b26970	64	unknown_ladder_b26970	WolLadderCache
@@ -371,7 +363,7 @@ _unknown_map_list_83252c	32	unknown_map_list_83252c	DynamicVectorClass<int>
 _unknown_map_paths_a700a0	2616	unknown_map_paths_a700a0	UnknownMapGenerationPath[109]
 _unknown_map_random_a705c0	1012	unknown_map_random_a705c0	Random2Class
 _unknown_map_regions_a6fd28	32	unknown_map_regions_a6fd28	DynamicVectorClass<MapRegionClass*>
-_unknown_map_seed_a6fd68	400	unknown_map_seed_a6fd68	MapSeedClass
+_unknown_map_seed_a6fd68	408	unknown_map_seed_a6fd68	MapSeedClass
 _unknown_map_tagged_cells_833638	32	unknown_map_tagged_cells_833638	DynamicVectorClass<Cell>
 _unknown_maps_mixes_837468	32	unknown_maps_mixes_837468	DynamicVectorClass<MixFileClass*>
 _unknown_matrices_af73a0	1008	unknown_matrices_af73a0	Matrix3D[21]
@@ -415,8 +407,8 @@ _unknown_palette_838a10	768	unknown_palette_838a10	PaletteClass
 _unknown_palette_838d10	768	unknown_palette_838d10	PaletteClass
 _unknown_palette_entries_00851fcc	1024	unknown_palette_entries_00851fcc	PALETTEENTRY[256]
 _unknown_password_b2a63c	8	unknown_password_b2a63c	Wstring
-_unknown_path_estimator_8315c8	3304	Search	AStarClass
 _unknown_player_b29cf0	2368	unknown_player_b29cf0	WolPlayerData[16]
+_unknown_player_slots_a3fa98	64	unknown_player_slots_a3fa98	NodeNameType*[8]
 _unknown_players_a3fa7c	32	unknown_players_a3fa7c	DynamicVectorClass<NodeNameType*>
 _unknown_point_a76728	8	unknown_point_a76728	Point2D
 _unknown_profile_ptr_b28cc0	16	unknown_profile_ptr_b28cc0	rc_ptr<PlayerProfile>
@@ -488,7 +480,6 @@ _unknown_uuid_IStream_7d5988	16	unknown_uuid_IStream_7d5988	GUID
 _unknown_uuid_IUnknown_7ce610	16	unknown_uuid_IUnknown_7ce610	GUID
 _unknown_vectors_af6768	3072	unknown_vectors_af6768	Vector3[256]
 _unknown_vectors_af7930	3072	unknown_vectors_af7930	Vector3[256]
-_unknown_voc_cell_ad07c0	4	unknown_voc_cell_ad07c0	Cell
 _unknown_voc_static_list_ad07d0	24	unknown_voc_static_list_ad07d0	AudioListNode
 _unknown_vox_list_ad0868	24	unknown_vox_list_ad0868	AudioListNode
 _unknown_vox_list_ad0890	24	unknown_vox_list_ad0890	AudioListNode
@@ -515,6 +506,6 @@ _unknown_wstring_b2a640	8	unknown_wstring_b2a640	Wstring
 _unknown_wstring_b2a71c	8	unknown_wstring_b2a71c	Wstring
 _unknown_wstring_b2a724	8	unknown_wstring_b2a724	Wstring
 _unknown_zone_connections_83252c	32	unknown_zone_connections_83252c	DynamicVectorClass<ZoneConnectionClass>
-_version_object_00a40c88	80	version_object_00a40c88	VersionClass
+_wol_addresses_a3fbd4	96	wol_addresses_a3fbd4	IPXAddressClass[8]
 _wol_firewall_a71b18	16	wol_firewall_a71b18	FirewallSettings
 _wol_module_b292f8	240	wol_module_b292f8	_ATL_MODULE

@@ -1,0 +1,39 @@
+{
+ "module": "cstraw",
+ "source": "src/recovered/cstraw.cpp",
+ "header": "src/shared/cache_straw.hpp",
+ "population": "population-1569",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 165,
+ "code": [
+  {
+   "symbol": "?Get@CacheStraw@@UAEHPAXH@Z",
+   "entry": "00494760",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  }
+ ],
+ "code_bytes": 160,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [],
+ "references_out": [
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "_memmove",
+   "address": "00783290"
+  }
+ ]
+}

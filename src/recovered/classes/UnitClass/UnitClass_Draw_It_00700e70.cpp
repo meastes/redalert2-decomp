@@ -26,19 +26,17 @@ bool Unknown_0051FC60();
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
 // @ref ?unknown_slot67@FootClass@@=004c9bc0
 // @ref _unknown_geometry_j=00ad057c
-// By value: the Move_Coord result is built after radians dies and shares its slot.
+// By value: the Move_Coord result is built after radians dies and shares its slot. Move_Coord is TibSun inline.h's
+// text (the radian computed inside it, as AnimClass::Flaming_Guy_AI spells it): the separate Radian helper was a
+// declaration-count tie (Scout1293: exact under the Can_Deploy_Now headers only with this form).
 inline bool Coord_Pixel_00700e70(CoordStruct coord, Point2D &pixel)
 {
     return unknown_tactical_83996c->Coord_To_Pixel(coord, pixel);
 }
 
-inline double Radian_00700e70(UnknownFacingDir const &dir)
-{
-    return ((short)dir.Raw - 0x3FFF) * unknown_facing_radians_79b620;
-}
 inline CoordStruct Move_Coord_00700e70(CoordStruct const &start, UnknownFacingDir const &dir, int distance)
 {
-    double radians = Radian_00700e70(dir);
+    double radians = ((short)dir.Raw - 0x3FFF) * unknown_facing_radians_79b620;
     return CoordStruct((int)(start.X + unknown_cos_4ba4d0(radians) * distance), (int)(start.Y - unknown_sin_4ba480(radians) * distance), start.Z);
 }
 

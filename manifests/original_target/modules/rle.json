@@ -1,0 +1,61 @@
+{
+ "module": "rle",
+ "source": "src/recovered/rle.cpp",
+ "header": "src/shared/rle_engine.hpp",
+ "population": "population-3446",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2091,
+ "code": [
+  {
+   "symbol": "?Compress@RLEEngine@@QBEHPBXPAXH@Z",
+   "entry": "0063d150",
+   "body_bytes": 95,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Line_Compress@RLEEngine@@QBEHPBXPAXH@Z",
+   "entry": "0063d1b0",
+   "body_bytes": 62,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Decompress@RLEEngine@@QBEHPBXPAXH@Z",
+   "entry": "0063d1f0",
+   "body_bytes": 98,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Line_Decompress@RLEEngine@@QBEHPBXPAX@Z",
+   "entry": "0063d260",
+   "body_bytes": 101,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 384,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0069a1d0",
+   "symbol": "?Line_Compress@RLEEngine@@QBEHPBXPAXH@Z",
+   "target": "0063d1b0",
+   "function_entry": true
+  },
+  {
+   "site": "0069a300",
+   "symbol": "?Line_Compress@RLEEngine@@QBEHPBXPAXH@Z",
+   "target": "0063d1b0",
+   "function_entry": true
+  }
+ ],
+ "references_out": []
+}

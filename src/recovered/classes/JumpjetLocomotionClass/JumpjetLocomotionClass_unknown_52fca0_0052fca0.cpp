@@ -15,7 +15,7 @@ void JumpjetLocomotionClass::unknown_52fca0()
 {
     if (Is_Moving()) {
         LinkedTo->unknown_slot306(1.0);
-        unknown_50.Set_Current(LinkedTo->unknown_2e0.Current());
+        unknown_50.Set(LinkedTo->unknown_2e0.Current());
         unknown_68 = 0;
         unknown_70 = 0;
         unknown_78 = Height;

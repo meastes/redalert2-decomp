@@ -1,0 +1,165 @@
+{
+ "module": "milsectmr",
+ "source": "src/recovered/milsectmr.cpp",
+ "header": "src/shared/milsectmr.hpp",
+ "population": "population-3749",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2199,
+ "code": [
+  {
+   "symbol": "??0MillisecondTimerClass@@QAE@XZ",
+   "entry": "00593530",
+   "body_bytes": 144,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??1MillisecondTimerClass@@QAE@XZ",
+   "entry": "005935c0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??BMillisecondTimerClass@@QBENXZ",
+   "entry": "005935e0",
+   "body_bytes": 149,
+   "padding_bytes": 11
+  }
+ ],
+ "code_bytes": 336,
+ "data": [
+  {
+   "symbol": "__real@8@3ff583126e978d4fe000",
+   "address": "0079c528",
+   "bytes": 8,
+   "kind": "table",
+   "section": 5
+  },
+  {
+   "symbol": "__real@8@401f8000000000000000",
+   "address": "0079de10",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "_?cpu_type@?1???BMillisecondTimerClass@@QBENXZ@4HA",
+   "address": "007e1d04",
+   "bytes": 4,
+   "kind": "static",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_0CL@PEMG@MillisecondTimerClass?5low?5?$DN?5?$CFd?0?5@",
+   "address": "007e1d08",
+   "bytes": 43,
+   "kind": "string",
+   "section": 7
+  }
+ ],
+ "data_ranges": [
+  {
+   "start": "007e1d04",
+   "end": "007e1d34",
+   "bytes": 48,
+   "proven_bytes": 47,
+   "alignment_bytes": 1,
+   "sections": 2,
+   "complete": true,
+   "gaps": []
+  }
+ ],
+ "data_bytes_proven": 47,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@3ff583126e978d4fe000",
+   "address": "0079c528",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@401f8000000000000000",
+   "address": "0079de10",
+   "bytes": 8,
+   "kind": "table"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00537830",
+   "symbol": "??BMillisecondTimerClass@@QBENXZ",
+   "target": "005935e0",
+   "function_entry": true
+  },
+  {
+   "site": "00537830",
+   "symbol": "??BMillisecondTimerClass@@QBENXZ",
+   "target": "005935e0",
+   "function_entry": true
+  },
+  {
+   "site": "00537830",
+   "symbol": "??BMillisecondTimerClass@@QBENXZ",
+   "target": "005935e0",
+   "function_entry": true
+  },
+  {
+   "site": "00537830",
+   "symbol": "??BMillisecondTimerClass@@QBENXZ",
+   "target": "005935e0",
+   "function_entry": true
+  },
+  {
+   "site": "0040d1e0",
+   "symbol": "??0MillisecondTimerClass@@QAE@XZ",
+   "target": "00593530",
+   "function_entry": true
+  },
+  {
+   "site": "0040d200",
+   "symbol": "??1MillisecondTimerClass@@QAE@XZ",
+   "target": "005935c0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Debug_Printf@@YAXPBDZZ",
+   "address": "004068f0"
+  },
+  {
+   "symbol": "?Get_CPU_Clock@@YAKAAK@Z",
+   "address": "0077f274"
+  },
+  {
+   "symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
+   "address": "004d2a20"
+  },
+  {
+   "symbol": "?Get_CPU_Rate@@YIIPAI@Z",
+   "address": "005abf20"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__imp__timeBeginPeriod@4",
+   "address": "0079a52c"
+  },
+  {
+   "symbol": "__imp__timeEndPeriod@4",
+   "address": "0079a520"
+  },
+  {
+   "symbol": "__imp__timeGetTime@0",
+   "address": "0079a524"
+  }
+ ]
+}

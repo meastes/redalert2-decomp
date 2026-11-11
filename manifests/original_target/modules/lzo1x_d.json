@@ -1,0 +1,49 @@
+{
+ "module": "lzo1x_d",
+ "source": "src/recovered/lzo1x_d.cpp",
+ "header": "src/shared/lzo.hpp",
+ "population": "population-94",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 47,
+ "code": [
+  {
+   "symbol": "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z",
+   "entry": "0053e970",
+   "body_bytes": 457,
+   "padding_bytes": 7
+  }
+ ],
+ "code_bytes": 464,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0053ebe0",
+   "symbol": "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z",
+   "target": "0053e970",
+   "function_entry": true
+  },
+  {
+   "site": "0053f050",
+   "symbol": "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z",
+   "target": "0053e970",
+   "function_entry": true
+  },
+  {
+   "site": "00494b40",
+   "symbol": "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z",
+   "target": "0053e970",
+   "function_entry": true
+  }
+ ],
+ "references_out": []
+}

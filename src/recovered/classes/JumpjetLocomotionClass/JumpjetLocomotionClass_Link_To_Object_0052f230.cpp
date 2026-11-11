@@ -6,7 +6,7 @@
 #include "shared/unknown_geometry.hpp"
 // @ref ??0FacingClass@@QAE@H@Z=004b89f0
 // @ref ?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8a30
-// @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
+// @ref ?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Link_To_Object@LocomotionClass@@UAGJPAX@Z=0053d010
 
 HRESULT __stdcall JumpjetLocomotionClass::Link_To_Object(void *object)
@@ -26,6 +26,6 @@ HRESULT __stdcall JumpjetLocomotionClass::Link_To_Object(void *object)
     FacingClass facing(TurnRate);
     unknown_50 = facing;
     unknown_50.Set_Desired(UnknownFacingDir(0x4000));
-    unknown_50.Set_Current(UnknownFacingDir(0x4000));
+    unknown_50.Set(UnknownFacingDir(0x4000));
     return LocomotionClass::Link_To_Object(object);
 }

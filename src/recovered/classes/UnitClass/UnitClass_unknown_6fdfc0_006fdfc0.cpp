@@ -87,7 +87,7 @@ bool UnitClass::unknown_6fdfc0()
                         building->unknown_59b = true;
                     }
                     if (building->Type->Artillary || building->Type->TickTank) {
-                        building->unknown_2c8.Set_Current(UnknownFacingDir(0x4000));
+                        building->unknown_2c8.Set(UnknownFacingDir(0x4000));
                     }
                     building->unknown_slot220(unknown_228);
                     building->Revealed(House);

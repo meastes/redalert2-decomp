@@ -1,0 +1,2032 @@
+{
+ "module": "buff",
+ "source": "src/recovered/buff.cpp",
+ "header": "src/shared/buffer.hpp",
+ "population": "population-64",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 37,
+ "code": [
+  {
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "entry": "004382c0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0Buffer@@QAE@PADJ@Z",
+   "entry": "00438300",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0Buffer@@QAE@PBXJ@Z",
+   "entry": "00438340",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "??0Buffer@@QAE@J@Z",
+   "entry": "00438380",
+   "body_bytes": 45,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "??0Buffer@@QAE@ABV0@@Z",
+   "entry": "004383b0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??4Buffer@@QAEAAV0@ABV0@@Z",
+   "entry": "004383d0",
+   "body_bytes": 51,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??1Buffer@@QAE@XZ",
+   "entry": "00438410",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Reset@Buffer@@QAEXXZ",
+   "entry": "00438440",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  }
+ ],
+ "code_bytes": 432,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00468f50",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00468f90",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00468fd0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0051ad20",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004019a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004691f0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00469220",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00469350",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00469350",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00469400",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00469400",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004113d0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00716da0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00716e00",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00716e20",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00716e80",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00434960",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00434960",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00434a20",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00434a20",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00771f50",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00771f50",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00771f50",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00772740",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00772740",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005b3fd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005b3fd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005b0030",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005b0030",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005b0030",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005ac560",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005ac560",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005adba0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005add90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005af790",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0071c8a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00426550",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00426550",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00698760",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "006987f0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00698830",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006988a0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "006988a0",
+   "symbol": "??4Buffer@@QAEAAV0@ABV0@@Z",
+   "target": "004383d0",
+   "function_entry": true
+  },
+  {
+   "site": "006988a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00698960",
+   "symbol": "??0Buffer@@QAE@J@Z",
+   "target": "00438380",
+   "function_entry": true
+  },
+  {
+   "site": "00698aa0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0070e470",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6150",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6150",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6150",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6150",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6150",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d63f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d63f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d63f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d63f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d63f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d6730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d72b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00730e00",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00730ec0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00458600",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00458ce0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00458ce0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004011c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004011c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00424110",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0045e170",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00495270",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00495310",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00490510",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00490510",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004b8970",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048e870",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048e870",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048eb30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048eb30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048f040",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048f040",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048fbf0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048fbf0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004981c0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00775b80",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00458ea0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00459640",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0045e790",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0045e790",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048fe70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0048fe70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005db670",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00410a60",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00652520",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006525f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00652730",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00458510",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d91b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00578f00",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005791c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005791c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005794e0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005794e0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005dd150",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0065e760",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0065e760",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0065f980",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0065f980",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0065bc70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006433a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0049ed60",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00667dc0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00667e80",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0070a900",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005b6cd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004df5f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004df5f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004dfe70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005a2800",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005a2800",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005af5f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051d570",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051d570",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005127f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005127f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00519240",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00519240",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051a330",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051a330",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051a330",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051a330",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005c6600",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005c6600",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005989b0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005989b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0049edd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005c7c30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005c7c30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005c7c30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00599920",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0066eb20",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0066c5b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0066c5b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0066c5b0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0066bb20",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006909e0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0050cfc0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0050cfc0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0050d0f0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0050d0f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00667900",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005159b0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00516900",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0066f3a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006707d0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "006707d0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "006707d0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006707d0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006707d0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00671670",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00671670",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00671670",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005116a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005fc330",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00577880",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005129c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005129c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005129c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005129c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005129c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005129c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005129c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005129c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005fe490",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049d910",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049d910",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00768c70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00768c70",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006d29d0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "006d29d0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004de260",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004de260",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004de380",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004de380",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0052b560",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006e7af0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0068c600",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0068c600",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0068c600",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0069b190",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0069b300",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0069b300",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006f8e30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006f9400",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "006f9400",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0063b090",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0061dc80",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0061dc80",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0061ded0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0061ded0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0061ded0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0061e170",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0061e170",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0061e2a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0061e2a0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0061e2a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0061e2a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005952f0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005a1bb0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005a1bb0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00744090",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005a1010",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0050bc30",
+   "symbol": "??0Buffer@@QAE@J@Z",
+   "target": "00438380",
+   "function_entry": true
+  },
+  {
+   "site": "0050bc30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0050bc30",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00510ad0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00768e90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00768e90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00768e90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00768e90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00769790",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00769790",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00769790",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005d97a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0059b2c0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0053bf90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0059bc90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005b7840",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0072a280",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00516560",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00516560",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0049eea0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049eea0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049eea0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051e820",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051e8a0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051eb00",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0051eb00",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00595810",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00595810",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00738190",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00738190",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005ee110",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005faff0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005f42d0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0049cfd0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00729510",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0053f490",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0053f490",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00529870",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00529870",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00529870",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00529870",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00529870",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00529870",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00670c50",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005fee70",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "00663fe0",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "005ead20",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "0072e780",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0072e780",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "0072d560",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "00630b70",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005fb270",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005f9fb0",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "005b8490",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??0Buffer@@QAE@PAXJ@Z",
+   "target": "004382c0",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b90",
+   "symbol": "??1Buffer@@QAE@XZ",
+   "target": "00438410",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  }
+ ]
+}

@@ -14,7 +14,6 @@
 // @ref ?Fetch_ID@AbstractClass@@UAGJXZ=0040ffc0
 // @ref ?Units@@3V?$DynamicVectorClass@PAVUnitClass@@@@A=00866198
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
-// @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Set_ROT@FacingClass@@QAEXH@Z=004b8e90
 // @ref ?CreateInstance@?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@QAEJABUGUID@@PAUIUnknown@@K@Z=0041b650
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
@@ -43,7 +42,7 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
 {
     Create_ID();
     Units.Add(this);
-    unknown_2f8.Set_Current(unknown_2e0.Current());
+    unknown_2f8.Set(unknown_2e0.Current());
     if (Type) {
         // Interface* assignment: this unit's Assign_Destination 0x007053F0 specializes the ILocomotion copy assignment.
         Locomotor = (ILocomotion *)UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600>(Type->Locomotor);

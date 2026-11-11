@@ -27,7 +27,7 @@ void JumpjetLocomotionClass::unknown_530180()
     dir = UnknownFacingDir((unsigned short)(int)((Fast_Atan2(double(position.Y) - to.Y, double(to.X) - position.X)
         - unknown_facing_origin_79b630) * unknown_facing_scale_79b628));
     unknown_50.Set_Desired(dir);
-    UnknownFacingDir difference = unknown_50.Difference_To_Desired();
+    UnknownFacingDir difference = unknown_50.Difference();
     bool balloon = LinkedTo->Techno_Type_Class()->BalloonHover;
     TPoint2D<int> here(position.X, position.Y);
     TPoint2D<int> goal(to.X, to.Y);

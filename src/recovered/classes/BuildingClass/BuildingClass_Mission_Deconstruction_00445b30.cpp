@@ -157,7 +157,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                         unit->unknown_114=unknown_114;
                         unit->unknown_1ac=unknown_1ac;
                         unit->unknown_118=unknown_118;
-                        if(Type->Artillary) unit->unknown_2c8.Set_Current(UnknownFacingDir((Dir256)Type->BarrelStartPitch));
+                        if(Type->Artillary) unit->unknown_2c8.Set(UnknownFacingDir((Dir256)Type->BarrelStartPitch));
                         if(archive) {
                             unit->Assign_Destination(archive,true);
                             unit->QueueMission(2,false);

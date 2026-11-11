@@ -80,7 +80,7 @@ HRESULT __stdcall CChatEventSink::OnPrivateGameOptions(HRESULT,WOL::User *user,c
             unsigned int value=0;
             if(token) sscanf(token,hex_format_7db4b0,&value);
             unknown_session_a3d298.unknown_2fa0.unknown[row]=value;
-            Debug_Printf(options_debug_7fdfd0,user->name,country,color,address.As_String_00523840(),unknown_session_a3d298.unknown_299c.unknown[row],value);
+            Debug_Printf(options_debug_7fdfd0,user->name,country,color,address.As_String(),unknown_session_a3d298.unknown_299c.unknown[row],value);
             HWND window=(HWND)Unknown_00735940(0xc2);
             if(!window) window=(HWND)Unknown_00735940(0xc9);
             int old_country=unknown_player_slots_a3fa98[row]->unknown_66e290();

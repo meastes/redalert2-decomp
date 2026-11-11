@@ -32,13 +32,13 @@ int main()
         CHECK(got == expect);
         if (got != expect) break;
     }
-    CHECK(sizeof(r.Seed) == 4);
+    CHECK(sizeof(RandomClass) == 4);
     RandomClass a(7), b(7);
     for (int i = 0; i < 100; ++i) {
         int x = a(3, 9), y = b(3, 9);
         CHECK(x == y && x >= 3 && x <= 9);
     }
-    // Random3Class: Mix1/Mix2 come from native/data (adopted TibSun text). The
+    // Random3Class: Mix1/Mix2 are defined by the random module (src/recovered/random.cpp). The
     // reference below is TibSun random.cpp's algorithm in 32-bit arithmetic.
     {
         static const uint32_t m1[4] = {0xbaa96887u, 0x1e17d32cu, 0x03bcdc3cu, 0x0f33d1b2u};

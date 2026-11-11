@@ -55,7 +55,7 @@ void SidebarClass::Reposition_Sidebar()
     PowerClass::Reposition_Sidebar();
 
     if (unknown_flag_a40b30) {
-        unknown_rect_839620.X = unknown_int_839630 + unknown_int_839638;
+        unknown_rect_839620.X = unknown_int_839638 + unknown_int_839630;
     } else {
         unknown_rect_839620.X = 0;
     }

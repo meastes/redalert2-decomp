@@ -270,7 +270,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 LinkedTo->Set_Height_AGL(0);
                 LinkedTo->unknown_74 = down;
 
-                LinkedTo->unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
+                LinkedTo->unknown_2e0.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
 
                 if (unknown_5c && ShipRawTracks[tracknum - 1].Cell == unknown_5c) {
                     LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));

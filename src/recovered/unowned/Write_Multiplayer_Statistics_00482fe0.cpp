@@ -8,7 +8,7 @@ extern "C" int __cdecl fclose(_iobuf *file);
 // @ref _fopen=00783a45
 // @ref _fprintf=007839d8
 // @ref _fclose=0078395b
-// @ref ?As_String_00523840@IPXAddressClass@@=00523840
+// @ref ?As_String@IPXAddressClass@@=00523840
 // @ref ?PacketTransport@@=00839c50
 // @ref ?Frame@@=00a40d2c
 // @ref ?Options@@=00a40b18
@@ -84,7 +84,7 @@ void __cdecl Write_Multiplayer_Statistics_00482fe0()
                 UnknownNetworkPlayerStatistics &statistics=player_statistics_00a3d584[player];
                 if (statistics.unknown_00[0]) {
                     fprintf(file,stats_name,statistics.unknown_00);
-                    fprintf(file,stats_address,statistics.Address.As_String_00523840(0));
+                    fprintf(file,stats_address,statistics.Address.As_String(0));
                     fprintf(file,stats_max_average_round_trip,statistics.MaxAverageRoundTrip);
                     fprintf(file,stats_max_round_trip,statistics.MaxRoundTrip);
                     fprintf(file,stats_resends,statistics.Resends);

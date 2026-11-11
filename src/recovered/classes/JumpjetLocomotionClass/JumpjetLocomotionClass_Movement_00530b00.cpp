@@ -3,7 +3,7 @@
 // @ref ?Fast_Cos@@YANN@Z=004ba4d0
 // @ref ?Fast_Sin@@YANN@Z=004ba480
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
+// @ref ?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?unknown_450cb0@BuildingClass@@QAE_NPAVObjectClass@@_N@Z=00450cb0
 // @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
@@ -97,7 +97,7 @@ void JumpjetLocomotionClass::unknown_530b00()
     BuildingClass *building=static_cast<BuildingClass *>(Map[next].Cell_Building());
     if (building && building->Type->FirestormWall && building->House->unknown_142)
         building->unknown_450cb0(LinkedTo,true);
-    LinkedTo->unknown_2e0.Set_Current(unknown_50.Current());
+    LinkedTo->unknown_2e0.Set(unknown_50.Current());
     if (need_mark) LinkedTo->Mark(1);
     else LinkedTo->unknown_74=was_down;
 }

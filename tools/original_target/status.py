@@ -264,7 +264,12 @@ def module_form(repository=REPOSITORY):
     bytes proven at their original addresses. The data line is its own ledger, not .text credit."""
     maps = sorted((repository / 'manifests/original_target/modules').glob('*.json'))
     entries = [json.loads(m.read_text()) for m in maps]
-    return dict(modules=len(entries), functions=sum(len(e['code']) for e in entries),
+    # Withheld template details (docs/DECISIONS.md header_gaps): recorded per module, no bytes.
+    declared = repository / 'manifests/original_target/modules.json'
+    declared = json.loads(declared.read_text()) if declared.exists() else {}
+    gaps = {name: len(item.get('header_gaps', [])) for name, item in declared.items()}
+    return dict(modules=len(entries), header_gaps=sum(gaps.values()),
+                header_gap_modules=sum(1 for n in gaps.values() if n), functions=sum(len(e['code']) for e in entries),
                 code_bytes=sum(e['code_bytes'] for e in entries),
                 data_bytes=sum(e['data_bytes_proven'] for e in entries),
                 data_sections=sum(len(e['data']) - len(e['kept_elsewhere']) for e in entries),
@@ -302,10 +307,11 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None):
              '| Frozen padding bytes | {:,} |'.format(now['padding']),
              '| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) '
              '| {:,} module(s): {:,} functions, {:,} code bytes; **{:,} data bytes compiler-emitted and proven at their '
-             'original addresses** in {:,} sections, {:,} bytes of vtable/RTTI copies kept elsewhere; own ledger, no .text '
+             'original addresses** in {:,} sections, {:,} bytes of vtable/RTTI copies kept elsewhere; {:,} header gaps '
+             '(withheld template details, modules.json header_gaps; no bytes) in {:,} module(s); own ledger, no .text '
              'credit ({}) |'.format(modules['modules'], modules['functions'], modules['code_bytes'], modules['data_bytes'],
-                                     modules['data_sections'], modules['kept_elsewhere_bytes'],
-                                     ', '.join(modules['names']) or 'none'),
+                                     modules['data_sections'], modules['kept_elsewhere_bytes'], modules['header_gaps'],
+                                     modules['header_gap_modules'], ', '.join(modules['names']) or 'none'),
              '| C runtime / library bytes (.text >= 0x{:X}; library ledger, not source credit) '
              '| {:,} ({:.2f}% of .text; {:,} matched) |'.format(CRT_START, split['crt'], 100.0 * split['crt'] / text,
                                                               split['crt_matched']),

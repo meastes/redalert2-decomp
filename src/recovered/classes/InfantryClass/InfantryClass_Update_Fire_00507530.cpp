@@ -6,7 +6,6 @@
 // @ref _CLSID_JumpjetLocomotionClass=007a2000
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
 // @ref ?Direction_To@ObjectClass@@QBE?AUUnknownFacingDir@@PBVAbstractClass@@@Z=005d2730
-// @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?unknown_4cd9b0@FootClass@@QAEXXZ=004cd9b0
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
@@ -43,7 +42,7 @@ void InfantryClass::Update_Fire_00507530()
             }
         sequence_started:
             unknown_57d = true;
-            unknown_2e0.Set_Current(Direction_To(unknown_228));
+            unknown_2e0.Set(Direction_To(unknown_228));
             if (unknown_228 == unknown_494) {
                 unknown_4cd9b0();
                 unknown_slot291();

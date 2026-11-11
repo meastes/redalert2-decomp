@@ -13,3 +13,15 @@ template <> void UnknownComPtr<IPiggyback, &unknown_uuid_IPiggyback_7cfc30>::_Ad
 {
     if (Pointer != 0) Pointer->AddRef();
 }
+
+// 0x00454BF0 under its second stand-in name (Scout1281): the IPersist query from a held
+// locomotor. shared/com_ptr.hpp keeps two ILocomotion holder types that are one _com_ptr_t in
+// the original (UnknownComPtr<ILocomotion> and UnknownLocomotionPtr, both one interface
+// pointer); src/recovered/classes/BuildingClass/ComPtr_IPersist_Query_00454bf0.cpp defines the
+// first overload, ShipLocomotionClass::Piggyback_CLSID calls the second, which was a
+// link-closure trap (a save holding a ship that carries a piggybacking locomotor).
+template <>
+HRESULT UnknownComPtr<IPersist, &unknown_uuid_IPersist_7cf208>::Query(UnknownLocomotionPtr const &other)
+{
+    return Query(reinterpret_cast<UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> const &>(other));
+}

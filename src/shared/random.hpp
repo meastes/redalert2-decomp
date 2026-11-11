@@ -1,13 +1,16 @@
-// Westwood's pseudo-random number generators (Random.cpp, 0x00638700+).
+// Westwood's pseudo-random number generators (TibSun random.h; names after mischa85/RedAlert2
+// include/random.h; the module is src/recovered/random.cpp).
 //
 // RandomClass: 32-bit linear congruential generator returning 15 bits.
-// Random2Class: 250-entry XOR lagged-Fibonacci table seeded from a
-//   Random3Class (YRpp calls it Randomizer).
-// Random3Class: counter-based generator using the "psdes" mixing function
-//   with the Mix1/Mix2 constant tables (original data at 0x007EE4AC and
-//   0x007EE4FC).
-// The ranged operator()(min, max) of each class expands the
-// Pick_Random_Number template inline.
+// Random2Class (shared/random2.hpp): 250-entry XOR lagged-Fibonacci table.
+// Random3Class: counter-based generator using the "psdes" mixing function with the Mix1/Mix2
+//   tables.
+// The ranged operator()(min, max) of each class expands the Pick_Random_Number template inline.
+//
+// Known differences from the template header, each kept because the template form changes other
+// units' code (manifests/original_target/modules.json): Random2Class is declared in random2.hpp; the
+// template precedes the classes; Random2Class spells TABLE_SIZE as 250; units other
+// than the module see RandomClass's constructor inline.
 #ifndef RA2_SHARED_RANDOM_HPP
 #define RA2_SHARED_RANDOM_HPP
 
@@ -45,49 +48,47 @@ int Pick_Random_Number(T &generator, int minval, int maxval)
 class RandomClass {
 public:
 #ifdef RA2_RANDOM_UNIT
-    // Out of line in Random.cpp (0x006386F0, unreferenced); other units keep the inline copy.
     RandomClass(unsigned seed = 0);
 #else
     RandomClass(unsigned seed = 0) : Seed(seed) {}
 #endif
 
     operator int() { return operator()(); }
-    int operator()();                               // 0x00638700
-    int operator()(int minval, int maxval);         // 0x00638720
+    int operator()();
+    int operator()(int minval, int maxval);
 
     enum {
         SIGNIFICANT_BITS = 15
     };
 
 protected:
+    unsigned int Seed;
+
     enum {
         MULT_CONSTANT = 0x41C64E6D,
         ADD_CONSTANT = 0x00003039,
         THROW_AWAY_BITS = 10
     };
-
-public:
-    unsigned long Seed;     // +0x00
 };
 
 class Random3Class {
 public:
-    Random3Class(unsigned seed1 = 0, unsigned seed2 = 0);  // 0x00638950
+    Random3Class(unsigned seed1 = 0, unsigned seed2 = 0);
 
     operator int() { return operator()(); }
-    int operator()();                                       // 0x00638970
-    int operator()(int minval, int maxval);                 // 0x006389D0
+    int operator()();
+    int operator()(int minval, int maxval);
 
     enum {
+        TABLE_SIZE = 20,
         SIGNIFICANT_BITS = 32
     };
 
-    int Seed;       // +0x00
-    int Index;      // +0x04
-
-private:
-    static unsigned long Mix1[20];      // 0x007EE4AC
-    static unsigned long Mix2[20];      // 0x007EE4FC
+protected:
+    static int Mix1[TABLE_SIZE];
+    static int Mix2[TABLE_SIZE];
+    int Seed;
+    int Index;
 };
 
 #endif

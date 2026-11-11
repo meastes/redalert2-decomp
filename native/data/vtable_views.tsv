@@ -1,0 +1,128 @@
+# native/tools/vtable_views.py: plain-virtual views and the real classes they stand for (Scout1288).
+# header: includes for the real class, comma separated (define:NAME defines a macro first).
+# verdict: of <real> (native entries checked against the real class), dead (no other object references the file's functions), unused-header (no source includes the header), iunknown-calls (only QueryInterface/AddRef/Release), interface, open (a known mismatch, reported).
+path	class	verdict	real	header	evidence
+native/link/behaviour_scenario.cpp	type_info	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/004137b0.cpp	Append_4137b0	dead			seed call view: no other object references the functions its file defines
+src/recovered/0042b0f0.cpp	Append_42b0f0	dead			seed call view: no other object references the functions its file defines
+src/recovered/0046d300.cpp	Append_46d300	dead			seed call view: no other object references the functions its file defines
+src/recovered/004862e0.cpp	Target_4862e0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00486350.cpp	Target_486350	dead			seed call view: no other object references the functions its file defines
+src/recovered/004863d0.cpp	Target_4863d0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00486440.cpp	Target_486440	dead			seed call view: no other object references the functions its file defines
+src/recovered/004864c0.cpp	Target_4864c0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00486ed0.cpp	Target_486ed0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00486f50.cpp	Target_486f50	dead			seed call view: no other object references the functions its file defines
+src/recovered/00486fc0.cpp	Target_486fc0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487050.cpp	Target_487050	dead			seed call view: no other object references the functions its file defines
+src/recovered/004870e0.cpp	Target_4870e0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487170.cpp	Target_487170	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487200.cpp	Target_487200	dead			seed call view: no other object references the functions its file defines
+src/recovered/004872a0.cpp	Target_4872a0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487360.cpp	Target_487360	dead			seed call view: no other object references the functions its file defines
+src/recovered/004873f0.cpp	Target_4873f0	dead			seed call view: no other object references the functions its file defines
+src/recovered/004874b0.cpp	Target_4874b0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487630.cpp	Target_487630	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487700.cpp	Target_487700	dead			seed call view: no other object references the functions its file defines
+src/recovered/004877d0.cpp	Target_4877d0	dead			seed call view: no other object references the functions its file defines
+src/recovered/004878a0.cpp	Target_4878a0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487940.cpp	Target_487940	dead			seed call view: no other object references the functions its file defines
+src/recovered/004879f0.cpp	Target_4879f0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487ab0.cpp	Target_487ab0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487b50.cpp	Target_487b50	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487c20.cpp	Target_487c20	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487cf0.cpp	Target_487cf0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00487dc0.cpp	Target_487dc0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00488490.cpp	Target_488490	dead			seed call view: no other object references the functions its file defines
+src/recovered/004886c0.cpp	Target_4886c0	dead			seed call view: no other object references the functions its file defines
+src/recovered/00488780.cpp	Target_488780	dead			seed call view: no other object references the functions its file defines
+src/recovered/00488840.cpp	Target_488840	dead			seed call view: no other object references the functions its file defines
+src/recovered/004ce210.cpp	Append_4ce210	dead			seed call view: no other object references the functions its file defines
+src/recovered/004fabf0.cpp	Append_4fabf0	dead			seed call view: no other object references the functions its file defines
+src/recovered/004fafc0.cpp	Append_4fafc0	dead			seed call view: no other object references the functions its file defines
+src/recovered/004fb390.cpp	Append_4fb390	dead			seed call view: no other object references the functions its file defines
+src/recovered/0050b590.cpp	Append_50b590	dead			seed call view: no other object references the functions its file defines
+src/recovered/0051e360.cpp	Append_51e360	dead			seed call view: no other object references the functions its file defines
+src/recovered/0056ba30.cpp	Append_56ba30	dead			seed call view: no other object references the functions its file defines
+src/recovered/0058eff0.cpp	Append_58eff0	dead			seed call view: no other object references the functions its file defines
+src/recovered/005cd880.cpp	Append_5cd880	dead			seed call view: no other object references the functions its file defines
+src/recovered/0060d050.cpp	Append_60d050	dead			seed call view: no other object references the functions its file defines
+src/recovered/0061b300.cpp	Append_61b300	dead			seed call view: no other object references the functions its file defines
+src/recovered/0061b940.cpp	Append_61b940	dead			seed call view: no other object references the functions its file defines
+src/recovered/00653450.cpp	Append_653450	dead			seed call view: no other object references the functions its file defines
+src/recovered/00653840.cpp	Append_653840	dead			seed call view: no other object references the functions its file defines
+src/recovered/00653b50.cpp	Append_653b50	dead			seed call view: no other object references the functions its file defines
+src/recovered/00663540.cpp	Append_663540	dead			seed call view: no other object references the functions its file defines
+src/recovered/006a17b0.cpp	Call_6a17b0_0	dead			seed call view: no other object references the functions its file defines
+src/recovered/006f8b40.cpp	Append_6f8b40	dead			seed call view: no other object references the functions its file defines
+src/recovered/00724730.cpp	Append_724730	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitPlainXlatAlpha_unsigned_short/00487e90.cpp	Target_487e90	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent25AlphaZReadWarp_unsigned_short/004891f0.cpp	Target_4891f0	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent25AlphaZReadWrite_unsigned_short/004897e0.cpp	Target_4897e0	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent25AlphaZRead_unsigned_short/00488e30.cpp	Target_488e30	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent25Alpha_unsigned_short/00488350.cpp	Target_488350	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent50AlphaZReadWarp_unsigned_short/004890b0.cpp	Target_4890b0	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent50AlphaZReadWrite_unsigned_short/004896a0.cpp	Target_4896a0	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent50AlphaZRead_unsigned_short/00488cf0.cpp	Target_488cf0	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent50Alpha_unsigned_short/00488250.cpp	Target_488250	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent75AlphaZReadWarp_unsigned_short/00488f70.cpp	Target_488f70	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent75AlphaZReadWrite_unsigned_short/00489560.cpp	Target_489560	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent75AlphaZRead_unsigned_short/00488bc0.cpp	Target_488bc0	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransLucent75Alpha_unsigned_short/00488160.cpp	Target_488160	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransXlatAlphaZReadWrite_unsigned_short/00489310.cpp	Target_489310	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransXlatAlphaZRead_unsigned_short/00488950.cpp	Target_488950	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransXlatAlpha_unsigned_short/00487f70.cpp	Target_487f70	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransXlatWriteAlpha_unsigned_short/004883f0.cpp	Target_4883f0	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransXlat_unsigned_short/00486210.cpp	Target_486210	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransZRemapXlatAlphaZReadWrite_unsigned_short/00489420.cpp	Target_489420	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransZRemapXlatAlphaZRead_unsigned_short/00488a80.cpp	Target_488a80	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/BlitTransZRemapXlatAlpha_unsigned_short/00488060.cpp	Target_488060	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/FootClass/004c7ac0.cpp	Call_4c7ac0_1	dead			seed call view: no other object references the functions its file defines
+src/recovered/classes/HouseClass/HouseClass_EnumConnectionPoints_004ed340.cpp	UnknownEnumConnectionPoints	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/recovered/classes/HouseClass/HouseClass_unknown_func_4ec5e0_004ec5e0.cpp	UnknownA3D29CView	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	0x00A3D29C is the session Mode, a MultiplayerGameMode (r36)
+src/recovered/classes/SpotLightClass/Unknown_005DDB40_005ddb40.cpp	UnknownSpotLightObject_a731e0	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Process_Deferred_Deletion_006ecf10.cpp	type_info	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/UnknownLayoutList_Layout_005b5d80.cpp	UnknownLayoutItem_005b5d80	dead			a LinkClass view; Layout_005b5d80 is referenced by no object
+src/recovered/unowned/Unknown_Free_All_Art_006f1d20.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Free_Art_Flagged_006f2750.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Free_Art_Pair_006f29f0.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Free_Art_Pair_006f2c00.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Free_Art_Pair_006f2f70.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Free_Art_Sets_006f2130.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Free_Art_Sets_006f2510.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Free_Art_Slots_006f5390.cpp	UnknownOwnedObject	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Load_Art_Flagged_006f2840.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Load_Art_Once_006f2710.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Load_Interface_Art_006f1b60.cpp	UnknownOwnedObject	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Release_Art_006f4450.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Release_Art_Pairs_006f42d0.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Release_Backdrop_006f2ab0.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Release_Reload_Art_Pairs_006f5540.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Release_Shapes_006f2d00.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/Unknown_Reload_Art_006f44d0.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/unowned/unknown_frame_extent_0052dfa0.cpp	UnknownImageOwner_0052dfa0	of	ObjectTypeClass	shared/object_type.hpp	the tile owner is an ObjectTypeClass; behaviour_m18.cpp calls its slot 39 through the real class (README)
+src/recovered/unowned/unknown_frame_table_value_00529300.cpp	UnknownImageOwner_00529300	of	ObjectTypeClass	shared/object_type.hpp	the tile owner is an ObjectTypeClass; behaviour_m18.cpp calls its slot 39 through the real class (README)
+src/recovered/unowned/unknown_free_art_006f2390.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/shared/anim.hpp	UnknownPaletteSource	of	DynamicVectorClass<ColorScheme *>	shared/anim.hpp	AnimClass::Load 0x00422C30 calls slot 6 (Fetch) on PaletteName::Load 0x00603380's DynamicVectorClass<ColorScheme *> (r37)
+src/shared/blowfish_engine.hpp	IBlowfish	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/cell_class.hpp	UnknownCellOwned	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/shared/direct3d.hpp	IDirect3DViewport2	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/direct3d.hpp	IDirect3DDevice2	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/direct3d.hpp	IDirect3D	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/direct3d.hpp	IDirect3D2	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/directdraw.hpp	IDirectDrawClipper	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/directdraw.hpp	IDirectDrawSurface	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/directdraw.hpp	IDirectDraw	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/fly_locomotion.hpp	UnknownFlyInterface	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/multiplayer_game_mode.hpp	MultiplayerSiege	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	a game mode subclass: its objects are game modes; checked against MultiplayerGameMode for every slot called through it
+src/shared/multiplayer_game_mode.hpp	Megawealth	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	a game mode subclass: its objects are game modes; checked against MultiplayerGameMode for every slot called through it
+src/shared/palette_state.hpp	IDirectDrawPalette	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/parasite.hpp	ParasiteVictim	of	FootClass	shared/foot.hpp	ParasiteClass's victim is a FootClass (the parasite rides infantry and vehicles); checked against FootClass
+src/shared/planning.hpp	UnknownPlanningSink	interface			the sink is the INoticeSink pointer 0x00613E00 stores (behaviour_startup.cpp); its slot 0 is INoticeSink_Unknown, entry 0 of the secondary INoticeSink vtable natively too
+src/shared/radsite.hpp	RadSiteCell	of	CellClass	shared/cell_class.hpp	RadSiteClass Get_Rad_Level_At 0x006379B0 casts Map[cell] (a CellClass) to it and calls Center_Coord, slot 18
+src/shared/unknown_base_539000.hpp	UnknownBase539000	unused-header			a LinkClass view (0x00539000 is LinkClass::operator=) that no source includes
+src/shared/unknown_globals.hpp	UnknownSessionA3D29C	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	0x00A3D29C is the session Mode, a MultiplayerGameMode (r36)
+src/shared/wdt_game_options.hpp	PlayerCountGameOption	of	GameOption	shared/wdt_game_options.hpp	a World Domination Tour game option: checked against its base GameOption for the slots called through it
+src/recovered/classes/TClassFactory_FlyLocomotionClass/TClassFactory_FlyLocomotionClass_CreateInstance_00696cb0.cpp	FlyLocomotionClass	iunknown-calls			factory view (CreateInstance 0x00696CB0) that calls only QueryInterface; fly_locomotion.hpp does not compile outside its units for a real-class dump
+src/shared/notice.hpp	INoticeSink	interface			AbstractClass's notice interface (pure, no destructor): its entries are the same on both ABIs; a view only in builds that emit no vtable of it
+src/shared/notice.hpp	INoticeSource	interface			AbstractClass's notice interface (pure, no destructor): its entries are the same on both ABIs; a view only in builds that emit no vtable of it

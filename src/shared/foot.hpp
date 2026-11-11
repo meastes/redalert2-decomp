@@ -404,7 +404,8 @@ public:
     bool Harvester;                             // +0xBA6 (as shared/unit_type.hpp)
     char unknown_ba7[0xBAA - 0xBA7];
     bool DeployToFire;                          // +0xBAA
-    char unknown_bab[0xBB0 - 0xBAB];
+    bool IsSimpleDeployer;                      // +0xBAB (as shared/unit_type.hpp; TechnoClass::Can_Deploy_Now 0x006CD340)
+    char unknown_bac[0xBB0 - 0xBAC];
     bool SmallVisceroid;                        // +0xBB0 (as full UnitTypeClass)
     bool LargeVisceroid;                        // +0xBB1 (as full UnitTypeClass)
     char unknown_bb2[0xBD8 - 0xBB2];

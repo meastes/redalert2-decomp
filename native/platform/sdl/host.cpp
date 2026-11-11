@@ -585,9 +585,18 @@ void press_toggle(int i)
 // wheel). Window-normalised coordinates to points, then to game pixels; scripted fingers
 // (input script tdown/tmove/tup) are in game pixels already.
 bool unreported_finger = false;   // a finger reached the game during a lifecycle pause (resume_unreported_foreground)
+// Scripted fingers held down (input script tdown/tup): no SDL touch device lists them, so
+// forget_lost_fingers leaves them alone (Scout1281: on iOS a scripted hold or long swipe was
+// forgotten after 250 ms).
+uint64_t scripted_down[10];
+int scripted_count = 0;
 void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
 {
     bool scripted = f.touchID == script_touch;
+    if (scripted && type == SDL_EVENT_FINGER_DOWN && scripted_count < 10) scripted_down[scripted_count++] = f.fingerID;
+    if (scripted && (type == SDL_EVENT_FINGER_UP || type == SDL_EVENT_FINGER_CANCELED))
+        for (int i = 0; i < scripted_count; ++i)
+            if (scripted_down[i] == f.fingerID) { scripted_down[i] = scripted_down[--scripted_count]; break; }
     if (!scripted && (!touch_ui || SDL_GetTouchDeviceType(f.touchID) != SDL_TOUCH_DEVICE_DIRECT)) return;
     float gx = f.x, gy = f.y;
     if (!scripted && type == SDL_EVENT_FINGER_DOWN && (in_background || (pause_on_focus_loss && !window_focused)))
@@ -616,7 +625,17 @@ void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
     // quick taps became a two-finger tap. SDL's event timestamps share SDL_GetTicks' clock
     // (nanoseconds); scripted fingers carry none.
     Uint64 now = SDL_GetTicks();
-    if (f.timestamp && f.timestamp / 1000000 <= now) now = f.timestamp / 1000000;
+    if (f.timestamp && f.timestamp / 1000000 <= now) {
+        // A touch read late (a long frame: loading, the first frame of a game) is logged
+        // with its lag, so a gesture decided on these times can be checked (Scout1281).
+        if (type != SDL_EVENT_FINGER_MOTION && now - f.timestamp / 1000000 > 150)
+            fprintf(stderr, "touch: %s read %llu ms late\n", type == SDL_EVENT_FINGER_DOWN ? "down" : "lift",
+                    (unsigned long long)(now - f.timestamp / 1000000));
+        now = f.timestamp / 1000000;
+    }
+    if (type != SDL_EVENT_FINGER_MOTION)
+        fprintf(stderr, "touch: %s %llx at %.0f,%.0f (%llu ms)\n", type == SDL_EVENT_FINGER_DOWN ? "down" : type == SDL_EVENT_FINGER_UP ? "lift" : "cancel",
+                (unsigned long long)f.fingerID, gx, gy, (unsigned long long)now);
     if (type == SDL_EVENT_FINGER_DOWN) touch::finger_down(f.fingerID, gx, gy, now, touch_out);
     else if (type == SDL_EVENT_FINGER_MOTION) touch::finger_move(f.fingerID, gx, gy, now, touch_out);
     else touch::finger_up(f.fingerID, gx, gy, now, touch_out);
@@ -649,6 +668,7 @@ void forget_lost_fingers()
     bool found_lost = false;
     for (int i = 0; i < n && !found_lost; ++i) {
         bool listed = false;
+        for (int k = 0; k < scripted_count && !listed; ++k) listed = scripted_down[k] == held[i];
         for (int d = 0; d < devices && !listed; ++d) {
             int count = 0;
             SDL_Finger **fingers = SDL_GetTouchFingers(ids[d], &count);

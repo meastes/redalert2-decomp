@@ -8,7 +8,7 @@
 #include "shared/fast_math.hpp"
 #include "shared/unknown_geometry.hpp"
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
-// @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
+// @ref ?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Equal_XY_004bfb60@CoordStruct@@QBEHABU1@@Z=004bfb60
 // @ref ?Fast_Atan2@@YAMNN@Z=004ba600
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
@@ -187,7 +187,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
     if (unknown_68) {
         if (Is_Powered()) {
             UnknownFacingDir dir = LinkedTo->unknown_2e0.Current();
-            LinkedTo->unknown_2e0.Set_Current(dir + Dir256_004fbfc0(unknown_6c));
+            LinkedTo->unknown_2e0.Set(dir + Dir256_004fbfc0(unknown_6c));
             int delta = Hover_Abs_004fbfc0(unknown_6c);
             if (delta >= 1) {
                 delta = 1;

@@ -37,7 +37,7 @@ from source_paths import source_path  # noqa: E402
 # one of these prefixes (the whole group is taken, as the exact build does).
 SUBSYSTEMS = {
     'core': [
-        'src/recovered/classes/Random/', 'src/recovered/classes/RandomStraw/',
+        'src/recovered/random.cpp', 'src/recovered/classes/RandomStraw/',
         'src/recovered/classes/CRCEngine/', 'src/recovered/classes/WWCRCEngine/',
         'src/recovered/classes/Matrix3D/', 'src/recovered/classes/Quaternion/',
         'src/recovered/classes/Vector3/', 'src/recovered/classes/Rect/',

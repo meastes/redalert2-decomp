@@ -4,8 +4,8 @@
     "id": "population-3820",
     "inventory_sha256": "43f0a7f1418852672433a98c8f9e4fd8c2f4523486c39d6b7de99522d44545cf",
     "gaps_sha256": "fe124168a4492470ff9a4eb46d4e36e0bead1982f2de3d93031086f12ceb1621",
-    "historical_population_sha256": "05e897fd6b4e59e87e9d603bbb1ff512766393cf311e808bf42b3cb2a9aa49a6",
-    "historical_acceptance_sha256": "f53d6c2fbe2b0a847d3d6e8c8c6893d28b1d43b1cf09b1ccc451e37415f06c1b"
+    "historical_population_sha256": "603cf3f4ff1ebacfd64dc0ee5cb4fabc4ef4391af08a076e5cb6ef5d1234848e",
+    "historical_acceptance_sha256": "6db3a5b9c6cc0a5e223eaeccf41126170e2a9ca1b42ee4e86cc521f7c7be5fb8"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2657,7 +2657,7 @@
     "?Service_Receive_Queue@IPXGlobalConnClass@@UAEHXZ": 5392432,
     "?Discard_Undeliverable_Packets@IPXGlobalConnClass@@UAEHXZ": 5392944,
     "?Discard_Packets_To@IPXGlobalConnClass@@UAEHPAVIPXAddressClass@@G@Z": 5393056,
-    "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
     "??_GIPXGlobalConnClass@@UAEPAXI@Z": 5393872,
     "??0WinsockInterfaceClass@@QAE@XZ": 7777408,
     "??_7WinsockInterfaceClass@@6B@": 8059516,
@@ -3061,7 +3061,7 @@
     "??1HouseClass@@UAE@XZ": 5124288,
     "?Rules@@3PAVRulesClass@@A": 8624200,
     "?Set_Protocol@IPXAddressClass@@SIXH@Z": 5388624,
-    "?IPXProtocol@@3HA": 8248432,
+    "?AddressProtocol@@3HA": 8248432,
     "?Clear@?$DynamicVectorClass@PBD@@UAEXXZ": 5906368,
     "?Fetch@?$VectorClass@PBD@@UBEPBDH@Z": 5906448,
     "?Clear@?$VectorClass@PBD@@UAEXXZ": 5906704,
@@ -3128,7 +3128,7 @@
     "?unknown_a40b2c@@3HA": 10750764,
     "?unknown_slot31@AircraftClass@@UAE_NXZ": 4304960,
     "?In_Which_Layer@AnimClass@@UBEHXZ": 4335264,
-    "?unknown_523960@IPXAddressClass@@QAEXG@Z": 5388640,
+    "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "?unknown_slot32@MultiplayerGameMode@@UAEHXZ": 5907552,
     "?RandomAICountryIndex@MultiplayerGameMode@@UAEHXZ": 5993680,
     "?Global_Num_Send@NullModemClass@@UAEHXZ": 6102992,
@@ -3434,7 +3434,7 @@
     "?unknown_ini_format_a40d24@@3HA": 10751268,
     "?Service@NullModemClass@@UAEHXZ": 6096480,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
-    "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
+    "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
     "__imp__lstrlenA@4": 7971228,
     "__imp__RegOpenKeyExA@20": 7970828,
@@ -9294,7 +9294,26 @@
     "?Clear@AStarClass@@QAEXXZ": 4357776,
     "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Value@ObjectClass@@UAEHXZ": 6106400,
+    "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Render@UnitClass@@UAE_NPAVRect@@_N1@Z": 7336784,
+    "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Render@VoxelAnimClass@@UAE_NPAVRect@@_N1@Z": 7393136,
+    "?Value@TechnoClass@@UAEHXZ": 7156048,
+    "?Render@AnimClass@@UAE_NPAVRect@@_N1@Z": 4328992,
+    "?Render@BuildingClass@@UAE_NPAVRect@@_N1@Z": 4432384,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?Message_Handler@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z": 6726656,
+    "?Render@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
   },
   "regions": [
     {
@@ -12165,7 +12184,7 @@
         {
           "offset": 133,
           "kind": 20,
-          "symbol": "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z",
+          "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
           "target": 5388352,
           "addend": 0,
           "resolved": 4294957559
@@ -12269,7 +12288,7 @@
         {
           "offset": 324,
           "kind": 20,
-          "symbol": "?unknown_523960@IPXAddressClass@@QAEXG@Z",
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
           "target": 5388640,
           "addend": 0,
           "resolved": 4294957656
@@ -12277,7 +12296,7 @@
         {
           "offset": 347,
           "kind": 20,
-          "symbol": "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z",
+          "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
           "target": 5388352,
           "addend": 0,
           "resolved": 4294957345
@@ -12307,7 +12326,7 @@
           "resolved": 8625232
         }
       ],
-      "source_sha256": "a80972a90659a684788b3fa9d113908e60c0a45151c82d541dbea291384a34a8",
+      "source_sha256": "de46f6fd2554e1222dae399be14241dc3f4b3441abd9492be3e66f771f3e57da",
       "source": "src/recovered/classes/IPXManagerClass/IPXManagerClass_unknown_525dc0_00525dc0.cpp",
       "population": "population-3820",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

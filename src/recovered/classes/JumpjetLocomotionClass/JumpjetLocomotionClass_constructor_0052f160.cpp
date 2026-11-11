@@ -5,7 +5,7 @@
 // @ref ??0LocomotionClass@@QAE@XZ=0053cfc0
 // @ref ??0FacingClass@@QAE@H@Z=004b89f0
 // @ref ?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8a30
-// @ref ?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
+// @ref ?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8b10
 // @ref ??_7JumpjetLocomotionClass@@6BIPersistStream@@@=007a536c
 // @ref ??_7JumpjetLocomotionClass@@6BILocomotion@@@=007a52a4
 // @ref _unknown_geometry_l=00a6e3e0
@@ -22,5 +22,5 @@ JumpjetLocomotionClass::JumpjetLocomotionClass() :
     unknown_88(false)
 {
     unknown_50.Set_Desired(UnknownFacingDir(0x4000));
-    unknown_50.Set_Current(UnknownFacingDir(0x4000));
+    unknown_50.Set(UnknownFacingDir(0x4000));
 }

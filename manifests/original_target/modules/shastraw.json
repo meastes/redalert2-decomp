@@ -1,0 +1,56 @@
+{
+ "module": "shastraw",
+ "source": "src/recovered/shastraw.cpp",
+ "header": "src/shared/sha_straw.hpp",
+ "population": "population-3673",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2169,
+ "code": [
+  {
+   "symbol": "?Get@SHAStraw@@UAEHPAXH@Z",
+   "entry": "006753c0",
+   "body_bytes": 63,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Result@SHAStraw@@QBEHPAX@Z",
+   "entry": "00675400",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 80,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00595810",
+   "symbol": "?Result@SHAStraw@@QBEHPAX@Z",
+   "target": "00675400",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Get@Straw@@UAEHPAXH@Z",
+   "address": "0069b0a0"
+  },
+  {
+   "symbol": "?Hash@SHAEngine@@QAEXPBXJ@Z",
+   "address": "00674c90"
+  },
+  {
+   "symbol": "?Result@SHAEngine@@QBEHPAX@Z",
+   "address": "00674d10"
+  }
+ ]
+}

@@ -4,8 +4,8 @@
     "id": "population-4028",
     "inventory_sha256": "46bc959c8807dc2089f9b1111ef435cf2880a949ae4c8d0a8a71c2e3dc3a4768",
     "gaps_sha256": "31c56922f8ba131c38734d1d7f320364dbb09344fccdf56896631de54e2735d5",
-    "historical_population_sha256": "b409ee77523fb9d6bb8f17f69fa435ee6b989a0051f114e70b8e0750910b356f",
-    "historical_acceptance_sha256": "4d9569da46905d490d36948ec2c3da4d9b48772630b2ff8c2a84fbbfa89af74d"
+    "historical_population_sha256": "fe43d1980d03504712360b426ab1289cc633ff613d251e666eac8945302a4c14",
+    "historical_acceptance_sha256": "a66c2431c819ac0c9a5af1e3fd9df8d5edfc357a5c78f0932ddc233628712675"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4008,8 +4008,8 @@
     "??0DSurface@@QAE@XZ": 4892176,
     "??_GDSurface@@UAEPAXI@Z": 4920560,
     "??RRandomClass@@QAEHHH@Z": 6522656,
-    "?Mix1@Random3Class@@0PAKA": 8316076,
-    "?Mix2@Random3Class@@0PAKA": 8316156,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
     "??RRandom2Class@@QAEHXZ": 6522944,
     "??RRandom2Class@@QAEHHH@Z": 6523040,
     "??RRandom3Class@@QAEHHH@Z": 6523344,
@@ -5015,7 +5015,7 @@
     "?Init@TechnoClass@@UAEXXZ": 7085136,
     "?Set_ROT@FacingClass@@QAEXH@Z": 4951696,
     "?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951008,
-    "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
     "?unknown_4ea970@HouseClass@@QAEXPAVTechnoClass@@@Z": 5155184,
     "?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z": 5125728,
     "?unknown_6d3040@TechnoClass@@QAEXPAV1@@Z": 7155776,
@@ -6304,10 +6304,10 @@
     "?Load@FactoryClass@@UAGJPAUIStream@@@Z": 4954688,
     "??_GFactoryClass@@UAEPAXI@Z": 4955968,
     "?Action@EditClass@@UAEHIAAI@Z": 4926272,
-    "?unknown_4b8c80@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951168,
-    "?Is_Turning_Positive@FacingClass@@QBEDXZ": 4951232,
-    "?Is_Turning_Negative@FacingClass@@QBEDXZ": 4951296,
-    "?Difference_To_Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951168,
+    "?Is_Rotating_CW@FacingClass@@QBEDXZ": 4951232,
+    "?Is_Rotating_CCW@FacingClass@@QBEDXZ": 4951296,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
     "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@ABU2@@Z": 4951520,
     "?unknown_instance_00851ca8@@3PAXA": 8723624,
     "??_7CCINIClass@@6B@": 7973604,
@@ -12956,7 +12956,7 @@
         {
           "offset": 265,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294481875
@@ -12970,7 +12970,7 @@
           "resolved": 56524
         }
       ],
-      "source_sha256": "87a3cc49e5adfb30ee2a30ac7a00ee6bcb678b2f6ebf76fdd6a9175e74710c04",
+      "source_sha256": "b204b83713328ea40be8aa78b50779fefb2b59703aaf50fd0e1df5653c0ec899",
       "source": "src/recovered/classes/JumpjetLocomotionClass/JumpjetLocomotionClass_Link_To_Object_0052f230.cpp",
       "population": "population-4028",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -13120,13 +13120,13 @@
         {
           "offset": 152,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294482196
         }
       ],
-      "source_sha256": "7bf2d09c1514825723823c1f059357f683883fa85c1b72ed493c1c3a9b050858",
+      "source_sha256": "ca26f528fa66cab193cf23a462438764296928cf256f24d811ac78a1968ad324",
       "source": "src/recovered/classes/JumpjetLocomotionClass/JumpjetLocomotionClass_constructor_0052f160.cpp",
       "population": "population-4028",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13154,13 +13154,13 @@
         {
           "offset": 27,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294479745
         }
       ],
-      "source_sha256": "bff6ed62d9ffd9fc6aa1981cd7a4f565e69da832009178af92c6fd4f38b280c0",
+      "source_sha256": "b7a55c314143d7dbd7491d1195e48cb402d362318e2984f3b1736909be7cc558",
       "source": "src/recovered/classes/JumpjetLocomotionClass/JumpjetLocomotionClass_Do_Turn_0052fb70.cpp",
       "population": "population-4028",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -13274,7 +13274,7 @@
         {
           "offset": 66,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294479402
@@ -13320,7 +13320,7 @@
           "resolved": 4293801118
         }
       ],
-      "source_sha256": "b72fe1d47f6101e20852c27a68fb85a8eb4202a1b7b1e8ca75fcd6a4095cf115",
+      "source_sha256": "5e074d81576e87f1f9f76cb865e115101f751bc673d96ff56424296f483514df",
       "source": "src/recovered/classes/JumpjetLocomotionClass/JumpjetLocomotionClass_unknown_52fca0_0052fca0.cpp",
       "population": "population-4028",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -15083,13 +15083,13 @@
         {
           "offset": 1377,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294474411
         }
       ],
-      "source_sha256": "471887a49bb49a8caa2aa7b9c1fba7b29ce2da5136eb7cc6a23d125a58bb9266",
+      "source_sha256": "348d6c26e326de2b16d383e3bcbfd48e96a8e4c75a45d942a538dfc0b160ce2c",
       "source": "src/recovered/classes/JumpjetLocomotionClass/JumpjetLocomotionClass_Movement_00530b00.cpp",
       "population": "population-4028",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -15173,7 +15173,7 @@
         {
           "offset": 237,
           "kind": 20,
-          "symbol": "?Difference_To_Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ",
+          "symbol": "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ",
           "target": 4951360,
           "addend": 0,
           "resolved": 4294478543
@@ -15315,7 +15315,7 @@
           "resolved": 96984
         }
       ],
-      "source_sha256": "1bd80ff04109de6d5d49868589bb2958b6cfcbc7b4c9fce6f1cd4fce449c9c50",
+      "source_sha256": "74fe56fa0c1102f7bb5a175d778007ce09b9f776e05d774d883a0a60095e8ddb",
       "source": "src/recovered/classes/JumpjetLocomotionClass/JumpjetLocomotionClass_unknown_530180_00530180.cpp",
       "population": "population-4028",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",

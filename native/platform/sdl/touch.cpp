@@ -35,7 +35,8 @@ enum class State {
     armed,       // held on the map: a drag selects, a release is a right click
     box,         // dragging the selection box (left button down)
     done,        // the gesture already acted (a hold on the sidebar): wait for the fingers to lift
-    two,         // two fingers down
+    two,         // two fingers down: a two-finger tap until they move past kTwoSlop
+    two_pan,     // two fingers moved past kTwoSlop: the map follows them (Scout1281)
     tap_wait,    // a one-finger tap lifted: its left click waits kTapWaitMs for a second finger
 };
 
@@ -51,6 +52,13 @@ int fingers = 0;
 float x0 = 0, y0 = 0, last_x = 0, last_y = 0, wheel_rest = 0, x2 = 0, y2 = 0;
 uint64_t down_ms = 0, up_ms = 0, second_ms = 0;
 bool moved_two = false;
+float x2_last = 0, y2_last = 0;
+float pan_x = 0, pan_y = 0;
+// The last finger that came down during another gesture and was ignored: when that gesture
+// turns out to have been a stale touch (its lift lost), this finger starts the gesture.
+uint64_t ignored_id = 0, ignored_ms = 0;
+float ignored_x = 0, ignored_y = 0;
+bool ignored_valid = false;   // the view movement this one-finger pan has made (undone if it becomes a two-finger tap)
 
 bool add_finger(uint64_t id)
 {
@@ -95,9 +103,21 @@ void start_two(uint64_t id, float x, float y, uint64_t ms)
     second_id = id;
     second_down = true;
     moved_two = false;
-    x2 = x;
-    y2 = y;
+    x2 = x2_last = x;
+    y2 = y2_last = y;
     second_ms = ms;
+}
+// A hold decided by tick (the host's clock) that the finger's own events contradict:
+// the move or lift came less than kHoldMs after the touch by the events' timestamps (a
+// long frame between the touch and the next event read; Scout1281, user report: a tap
+// at the start of a skirmish began a selection box). The gesture is decided again by
+// the events' times.
+bool hold_contradicted(uint64_t ms, const char *what)
+{
+    if (ms - down_ms >= kHoldMs) return false;
+    fprintf(stderr, "touch: hold undone: the %s came %llu ms after the touch\n", what,
+            (unsigned long long)(ms - down_ms));
+    return true;
 }
 
 }  // namespace
@@ -136,6 +156,34 @@ void forget_finger(uint64_t id, uint64_t ms, Output const &out)
 
 void finger_down(uint64_t id, float x, float y, uint64_t ms, Output const &out)
 {
+    // A finger id the gestures still hold: its lift never came (UIKit reuses touch ids, so
+    // the next touch arrives under the same id). The old touch is forgotten first; kept, it
+    // stayed the gesture's first finger, its stale position and time turned the new touch
+    // into a hold, a selection box or a two-finger pan (Scout1281, user reports: a tap began
+    // a selection box; the two-finger tap panned).
+    for (int i = 0; i < fingers; ++i)
+        if (finger_ids[i] == id) {
+            fprintf(stderr, "touch: finger %llx down again with no lift: the old touch is forgotten\n", (unsigned long long)id);
+            forget_finger(id, ms, out);
+            if (state == State::idle && ignored_valid && ms - ignored_ms < kSecondMs) {
+                bool held = false;
+                for (int k = 0; k < fingers; ++k) held = held || finger_ids[k] == ignored_id;
+                if (held) {
+                    fprintf(stderr, "touch: finger %llx (+%llu ms) starts the gesture instead\n",
+                            (unsigned long long)ignored_id, (unsigned long long)(ms - ignored_ms));
+                    state = State::pending;
+                    first_id = ignored_id;
+                    second_down = false;
+                    x0 = last_x = ignored_x;
+                    y0 = last_y = ignored_y;
+                    down_ms = ignored_ms;
+                    wheel_rest = 0;
+                    pan_x = pan_y = 0;
+                }
+            }
+            ignored_valid = false;
+            break;
+        }
     add_finger(id);
     if (state == State::tap_wait) {
         // A second finger soon after a one-finger tap: a two-finger tap whose first finger
@@ -154,17 +202,67 @@ void finger_down(uint64_t id, float x, float y, uint64_t ms, Output const &out)
         y0 = last_y = y;
         down_ms = ms;
         wheel_rest = 0;
+        pan_x = pan_y = 0;
         return;
     }
-    if (state == State::pending && !second_down && ms - down_ms < kSecondMs) start_two(id, x, y, ms);
-    // Other fingers during a gesture are ignored.
+    if (state == State::pending && !second_down && ms - down_ms < kSecondMs) {
+        fprintf(stderr, "touch: second finger +%llu ms: two-finger tap candidate\n", (unsigned long long)(ms - down_ms));
+        start_two(id, x, y, ms);
+        return;
+    }
+    // A second finger soon after the first began a pan (Scout1281; user report: the
+    // two-finger tap kept panning the map): the first finger moved past kSlop before the
+    // second landed. Within kSecondMs and kTwoSlop it is a two-finger tap candidate after
+    // all: the pan so far is undone.
+    if (state == State::pan && !second_down && ms - down_ms < kSecondMs && hypotf(last_x - x0, last_y - y0) <= kTwoSlop) {
+        fprintf(stderr, "touch: second finger +%llu ms during a %.0f px pan: two-finger tap candidate (pan undone)\n",
+                (unsigned long long)(ms - down_ms), hypotf(last_x - x0, last_y - y0));
+        float px = last_x, py = last_y;
+        edge(px, py);
+        if (pan_x != 0 || pan_y != 0) out.pan(-pan_x, -pan_y, px, py);
+        pan_x = pan_y = 0;
+        start_two(id, x, y, ms);
+        return;
+    }
+    // Other fingers during a gesture are ignored (remembered in case the gesture's own
+    // finger proves stale).
+    ignored_id = id;
+    ignored_ms = ms;
+    ignored_x = x;
+    ignored_y = y;
+    ignored_valid = true;
 }
 
 void finger_move(uint64_t id, float x, float y, uint64_t ms, Output const &out)
 {
     if (state == State::two) {
-        if ((id == first_id && hypotf(x - x0, y - y0) > kTwoSlop) || (id == second_id && hypotf(x - x2, y - y2) > kTwoSlop))
-            moved_two = true;
+        float d = id == first_id ? hypotf(x - x0, y - y0) : id == second_id ? hypotf(x - x2, y - y2) : 0;
+        if (d <= kTwoSlop) return;
+        // Past the tap slop: no tap any more; the two fingers pan the map from where they
+        // came down (Scout1281).
+        moved_two = true;
+        state = State::two_pan;
+        last_x = x0;
+        last_y = y0;
+        x2_last = x2;
+        y2_last = y2;
+        fprintf(stderr, "touch: two fingers moved %.0f px (+%llu ms): pan\n", d, (unsigned long long)(ms - down_ms));
+    }
+    if (state == State::two_pan) {
+        // The map follows the fingers' middle: each finger's movement counts half while
+        // both are down.
+        float *lx = id == first_id ? &last_x : id == second_id ? &x2_last : nullptr;
+        float *ly = id == first_id ? &last_y : id == second_id ? &y2_last : nullptr;
+        if (!lx) return;
+        float share = fingers >= 2 ? 0.5f : 1.0f;
+        float dx = (x - *lx) * share, dy = (y - *ly) * share;
+        *lx = x;
+        *ly = y;
+        if (!over_sidebar(x0)) {
+            float px = x, py = y;
+            edge(px, py);
+            out.pan(-dx, -dy, px, py);
+        }
         return;
     }
     if (id != first_id) return;
@@ -183,6 +281,8 @@ void finger_move(uint64_t id, float x, float y, uint64_t ms, Output const &out)
             float px = x, py = y;
             edge(px, py);
             out.pan(-dx, -dy, px, py);
+            pan_x -= dx;
+            pan_y -= dy;
             break;
         }
         [[fallthrough]];
@@ -199,7 +299,22 @@ void finger_move(uint64_t id, float x, float y, uint64_t ms, Output const &out)
     }
     case State::armed:
         if (hypotf(x - x0, y - y0) <= kSlop) return;
+        if (hold_contradicted(ms, "move")) {
+            // A swipe, as it would have been without the hold.
+            state = over_sidebar(x0) ? State::wheel : State::pan;
+            dx = x - x0;
+            dy = y - y0;
+            if (state == State::pan) {
+                float px = x, py = y;
+                edge(px, py);
+                out.pan(-dx, -dy, px, py);
+                pan_x -= dx;
+                pan_y -= dy;
+            }
+            break;
+        }
         {
+            fprintf(stderr, "touch: selection box (held %llu ms)\n", (unsigned long long)(ms - down_ms));
             // The selection box: pressed where the hold was, then dragged.
             float px = x0, py = y0;
             edge(px, py);
@@ -244,8 +359,20 @@ void finger_up(uint64_t id, float x, float y, uint64_t ms, Output const &out)
             state = State::idle;
         }
         break;
+    case State::two_pan:
+        if (fingers == 0) {
+            fprintf(stderr, "touch: two-finger pan ended (+%llu ms)\n", (unsigned long long)(ms - down_ms));
+            state = State::idle;
+        }
+        break;
     case State::armed:
         if (id == first_id) {
+            if (hold_contradicted(ms, "lift")) {
+                state = State::tap_wait;   // a tap after all
+                up_ms = ms;
+                break;
+            }
+            fprintf(stderr, "touch: hold released: right click (held %llu ms)\n", (unsigned long long)(ms - down_ms));
             click(out, 1, x0, y0);   // held still and released on the map: right click
             state = State::idle;
         }
@@ -278,6 +405,7 @@ void tick(uint64_t ms, Output const &out)
         edge(px, py);
         out.move(px, py);            // the pointer shows where the hold is
         state = State::armed;
+        fprintf(stderr, "touch: hold (%llu ms by the clock)\n", (unsigned long long)(ms - down_ms));
     }
 }
 

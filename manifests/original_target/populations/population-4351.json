@@ -4,8 +4,8 @@
     "id": "population-4351",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "4ba9195604600a0c98ce0f134118ac2fcb251d8f4a9229adc144d548346f123c",
-    "historical_acceptance_sha256": "65b0825d0c29af87b8f4a31e5fe36864dbcad4c1fa66a180eaf96ca41f6f0969"
+    "historical_population_sha256": "c66e5f198450436d42a76ee10d8b67bb96783eb19f89f874232962a3c8897345",
+    "historical_acceptance_sha256": "cd663361434c7df691c38c1f4dc438753dcf4d241490fe18b7d0000524dfe4eb"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2281,7 +2281,7 @@
     "??8?$VectorClass@PAVIonBlastClass@@@@UBE_NABV0@@Z": 5382656,
     "?Clear@?$VectorClass@PAVIonBlastClass@@@@UAEXXZ": 5382896,
     "?Set_Protocol@IPXAddressClass@@SIXH@Z": 5388624,
-    "?IPXProtocol@@3HA": 8248432,
+    "?AddressProtocol@@3HA": 8248432,
     "?Set_Bridge@IPXGlobalConnClass@@QAEXQAE@Z": 5392912,
     "?Configured@IPXConnClass@@2HA": 10822660,
     "?Send_Packet@IPXGlobalConnClass@@UAEHPAXHHE@Z": 5393776,
@@ -2790,7 +2790,7 @@
     "?unknown_slot31@AircraftClass@@UAE_NXZ": 4304960,
     "?In_Which_Layer@AnimClass@@UBEHXZ": 4335264,
     "?Reset_Delay@CommBufferClass@@QAEX_N@Z": 4721280,
-    "?unknown_523960@IPXAddressClass@@QAEXG@Z": 5388640,
+    "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "?unknown_slot18@IPXManagerClass@@UAEXKKK@Z": 5395648,
     "?Global_Num_Send@IPXManagerClass@@UAEHXZ": 5401152,
     "?Global_Num_Receive@IPXManagerClass@@UAEHXZ": 5401184,
@@ -3280,7 +3280,7 @@
     "?Service_Receive_Queue@IPXGlobalConnClass@@UAEHXZ": 5392432,
     "?Discard_Undeliverable_Packets@IPXGlobalConnClass@@UAEHXZ": 5392944,
     "?Discard_Packets_To@IPXGlobalConnClass@@UAEHPAVIPXAddressClass@@G@Z": 5393056,
-    "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
     "??_GIPXGlobalConnClass@@UAEPAXI@Z": 5393872,
     "??0IPXManagerClass@@QAE@HHHHGG@Z": 5394480,
     "??_7IPXManagerClass@@6B@": 8013540,
@@ -3693,7 +3693,7 @@
     "??8?$VectorClass@PAVEMPulseClass@@@@UBE_NABV0@@Z": 4936976,
     "?Service@NullModemClass@@UAEHXZ": 6096480,
     "?Service_Game_IO_00481fb0@@YIXXZ": 4726704,
-    "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
+    "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
     "?Clear@GdiBitmapSurface_004981C0@@QAEXE@Z": 4817824,
     "__imp__EndDialog@8": 7971772,
     "__imp__DialogBoxParamA@20": 7971780,
@@ -6641,7 +6641,45 @@
     "??0?$VectorClass@PAVReestablish@@@@QAE@IPBQAVReestablish@@@Z": 4541344,
     "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344,
     "??_EXSurface@@UAEPAXI@Z": 4264736,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z": 4717904,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_7?$VectorClass@PAUDamageGroup@@@@6B@": 7986524,
+    "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z": 4718672,
+    "?Value@ObjectClass@@UAEHXZ": 6106400,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Render@UnitClass@@UAE_NPAVRect@@_N1@Z": 7336784,
+    "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Render@VoxelAnimClass@@UAE_NPAVRect@@_N1@Z": 7393136,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Value@TechnoClass@@UAEHXZ": 7156048,
+    "?Render@AnimClass@@UAE_NPAVRect@@_N1@Z": 4328992,
+    "?Render@BuildingClass@@UAE_NPAVRect@@_N1@Z": 4432384,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Place_Tiberium@CellClass@@QAE_NHH@Z": 4703136,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
+    "?Message_Handler@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z": 6726656,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "?Render@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512
   },
   "regions": [
     {
@@ -7633,7 +7671,7 @@
         {
           "offset": 120,
           "kind": 20,
-          "symbol": "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z",
+          "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
           "target": 5388352,
           "addend": 0,
           "resolved": 4294350900
@@ -7743,7 +7781,7 @@
           "resolved": 8625232
         }
       ],
-      "source_sha256": "6901b58562317e77aad82298cb0ed0a7eec5ae97a0c9b0252e00a7b7606cb688",
+      "source_sha256": "7f979e191538d4c3040cd4f7cefada73268d7a637d3c3a88ddcccbf50250b4d4",
       "source": "src/recovered/classes/FirewallSettings/FirewallSettings_Send_Mangler_Query_005b9f90.cpp",
       "population": "population-4351",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -8114,7 +8152,7 @@
         {
           "offset": 386,
           "kind": 20,
-          "symbol": "?unknown_523960@IPXAddressClass@@QAEXG@Z",
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
           "target": 5388640,
           "addend": 0,
           "resolved": 4294346890
@@ -8122,7 +8160,7 @@
         {
           "offset": 397,
           "kind": 20,
-          "symbol": "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z",
+          "symbol": "?As_String@IPXAddressClass@@QAEPADPBV1@@Z",
           "target": 5388352,
           "addend": 0,
           "resolved": 4294346591
@@ -8352,7 +8390,7 @@
           "resolved": 4293178813
         }
       ],
-      "source_sha256": "9bc319723df6486b72f7a3aa38c04c801121a018998d7360640b3d00986727e6",
+      "source_sha256": "98dc78620f714be5fde6f3c4634d7255d5cbd6f0b5552d5eafc1963881c1f174",
       "source": "src/recovered/classes/FirewallSettings/FirewallSettings_Get_Mangled_Port_005baf50.cpp",
       "population": "population-4351",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -8752,7 +8790,7 @@
         {
           "offset": 606,
           "kind": 20,
-          "symbol": "?unknown_523960@IPXAddressClass@@QAEXG@Z",
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
           "target": 5388640,
           "addend": 0,
           "resolved": 4294349886
@@ -9104,7 +9142,7 @@
         {
           "offset": 2089,
           "kind": 20,
-          "symbol": "?unknown_523960@IPXAddressClass@@QAEXG@Z",
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
           "target": 5388640,
           "addend": 0,
           "resolved": 4294348403
@@ -9254,7 +9292,7 @@
           "resolved": 8625232
         }
       ],
-      "source_sha256": "2d7f6173378875d01c3f9e675ab4071416b7c088315f9a7398be650a247587a4",
+      "source_sha256": "d2aef65e0ad8645cd11dc10d2e6670274c844e6729ab2b2e905ea727334ade96",
       "source": "src/recovered/classes/FirewallSettings/FirewallSettings_Detect_005ba2c0.cpp",
       "population": "population-4351",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

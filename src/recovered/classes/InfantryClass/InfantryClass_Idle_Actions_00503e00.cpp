@@ -11,7 +11,6 @@
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
-// @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref __real@8@3fe08000000200000000=0079c280
 // @ref __real@8@4007e100000000000000=0079e6d0
 // @ref __real@8@4009e100000000000000=0079d140
@@ -35,7 +34,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         return true;
     case 6: {
         UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
-        infantry->unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
+        infantry->unknown_2e0.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         return true;
     }
     case 1: case 2: case 7:
@@ -49,7 +48,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
         break;
     case 8: {
         UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
-        infantry->unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
+        infantry->unknown_2e0.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         if (is_cow || (!infantry->House->Unknown_004F52F0() && infantry->Type->Fraidycat)) {
             infantry->Scatter(unknown_geometry_l, true, false);
             return true;
@@ -58,7 +57,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
     }
     case 9: case 10: {
         UnknownFacingDir facing((unsigned short)(unknown_id_source_a3d290->Random()(0,7)<<13));
-        infantry->unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
+        infantry->unknown_2e0.Set(UnknownFacingDir((unsigned short)(Dir_To_256(facing) << 8)));
         break;
     }
     }

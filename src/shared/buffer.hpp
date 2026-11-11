@@ -1,9 +1,13 @@
 // Buffer: a pointer to a block of memory with its size and ownership.
 //
-// Layout from the constructors at 0x004382C0-0x004383D0 (Westwood's Buffer).
+// Westwood's Buffer (TibSun buff.h).
 // A Buffer either references caller memory or allocates its own block (when
 // given no pointer but a positive size); only owned blocks are deleted.
 // Copies and assignments reference the source's memory without owning it.
+// The module is src/recovered/buff.cpp (TibSun/mischa85 buff.cpp). Known differences from
+// the template header (manifests/original_target/modules.json): the sizes are long, not int,
+// and the operator void * / operator char * conversions are not declared; either changes other
+// units' code.
 #ifndef RA2_SHARED_BUFFER_HPP
 #define RA2_SHARED_BUFFER_HPP
 
@@ -25,7 +29,7 @@ public:
     bool Is_Valid() const { return BufferPtr != 0; }
 
 protected:
-    char *BufferPtr;        // +0x00 memory block (null when empty)
+    void *BufferPtr;        // +0x00 memory block (null when empty)
     long Size;              // +0x04 block size in bytes
     bool IsAllocated;       // +0x08 the block was allocated here and is owned
 };

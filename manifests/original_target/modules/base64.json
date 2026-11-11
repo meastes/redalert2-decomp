@@ -1,0 +1,140 @@
+{
+ "module": "base64",
+ "source": "src/recovered/base64.cpp",
+ "header": "src/shared/base64.hpp",
+ "population": "population-2796",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 1931,
+ "code": [
+  {
+   "symbol": "?Base64_Encode@@YIHPBXHPAXH@Z",
+   "entry": "0042d520",
+   "body_bytes": 285,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Base64_Decode@@YIHPBXHPAXH@Z",
+   "entry": "0042d640",
+   "body_bytes": 304,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 592,
+ "data": [
+  {
+   "symbol": "__pad",
+   "address": "0079c61c",
+   "bytes": 264,
+   "kind": "table",
+   "section": 2
+  },
+  {
+   "symbol": "??_C@_0EB@KOEG@ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef@",
+   "address": "007cf378",
+   "bytes": 65,
+   "kind": "string",
+   "section": 3
+  },
+  {
+   "symbol": "??_C@_01KPOD@?$DN?$AA@",
+   "address": "007cf3bc",
+   "bytes": 2,
+   "kind": "string",
+   "section": 4
+  }
+ ],
+ "data_ranges": [
+  {
+   "start": "0079c61c",
+   "end": "0079c724",
+   "bytes": 264,
+   "proven_bytes": 264,
+   "alignment_bytes": 0,
+   "sections": 1,
+   "complete": true,
+   "gaps": []
+  },
+  {
+   "start": "007cf378",
+   "end": "007cf3c0",
+   "bytes": 72,
+   "proven_bytes": 67,
+   "alignment_bytes": 5,
+   "sections": 2,
+   "complete": true,
+   "gaps": []
+  }
+ ],
+ "data_bytes_proven": 331,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0050d0f0",
+   "symbol": "??_C@_01KPOD@?$DN?$AA@",
+   "target": "007cf3bc",
+   "function_entry": false
+  },
+  {
+   "site": "0042b670",
+   "symbol": "?Base64_Encode@@YIHPBXHPAXH@Z",
+   "target": "0042d520",
+   "function_entry": true
+  },
+  {
+   "site": "0042b670",
+   "symbol": "?Base64_Decode@@YIHPBXHPAXH@Z",
+   "target": "0042d640",
+   "function_entry": true
+  },
+  {
+   "site": "0042b670",
+   "symbol": "?Base64_Encode@@YIHPBXHPAXH@Z",
+   "target": "0042d520",
+   "function_entry": true
+  },
+  {
+   "site": "0042b670",
+   "symbol": "?Base64_Decode@@YIHPBXHPAXH@Z",
+   "target": "0042d640",
+   "function_entry": true
+  },
+  {
+   "site": "0042b800",
+   "symbol": "?Base64_Encode@@YIHPBXHPAXH@Z",
+   "target": "0042d520",
+   "function_entry": true
+  },
+  {
+   "site": "0042b800",
+   "symbol": "?Base64_Decode@@YIHPBXHPAXH@Z",
+   "target": "0042d640",
+   "function_entry": true
+  },
+  {
+   "site": "0042b850",
+   "symbol": "?Base64_Encode@@YIHPBXHPAXH@Z",
+   "target": "0042d520",
+   "function_entry": true
+  },
+  {
+   "site": "0042b850",
+   "symbol": "?Base64_Decode@@YIHPBXHPAXH@Z",
+   "target": "0042d640",
+   "function_entry": true
+  },
+  {
+   "site": "0050c620",
+   "symbol": "??_C@_01KPOD@?$DN?$AA@",
+   "target": "007cf3bc",
+   "function_entry": false
+  }
+ ],
+ "references_out": []
+}

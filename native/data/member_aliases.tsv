@@ -224,3 +224,24 @@ _unknown_int_83964c	_unknown_window_839640	12	12	exact	unknown_int_83964c	unknow
 _unknown_module_locks_b2930c	_wol_module_b292f8	40	20	exact	unknown_module_locks_b2930c	wol_module_b292f8	cbSize.m_nLockCnt	int	RA2_LONG	240
 _unknown_vegetation_min_a6fff0	_RandomMapGen	784	648	exact	unknown_vegetation_min_a6fff0	RandomMapGen	RMGVegetationMinimums.base:class DynamicVectorClass<int>.base:class VectorClass<int>.Vector	int*	int*	968
 _unknown_vegetation_max_a7000c	_RandomMapGen	824	676	exact	unknown_vegetation_max_a7000c	RandomMapGen	RMGVegetationMaximums.base:class DynamicVectorClass<int>.base:class VectorClass<int>.Vector	int*	int*	968
+_unknown_video_width_a6ec58	_unknown_options_a6ec38	32	32	exact	unknown_video_width_a6ec58	unknown_options_a6ec38	GameSpeed.ScreenWidth	int	int	172
+_unknown_video_height_a6ec5c	_unknown_options_a6ec38	36	36	exact	unknown_video_height_a6ec5c	unknown_options_a6ec38	GameSpeed.ScreenHeight	int	int	172
+_source_436100_1	_CLSID_BombClass	4	4	range	source_436100_1	CLSID_BombClass	Data1.Data2	unsigned int	unsigned short	16
+_source_436100_2	_CLSID_BombClass	8	8	range	source_436100_2	CLSID_BombClass	Data1.Data4	unsigned int	unsigned char[8]	16
+_source_436100_3	_CLSID_BombClass	12	12	range	source_436100_3	CLSID_BombClass	Data1.Data4+4	unsigned int	unsigned char[8]	16
+_source_47a410_1	_CLSID_CellClass	4	4	range	source_47a410_1	CLSID_CellClass	Data1.Data2	unsigned int	unsigned short	16
+_source_47a410_2	_CLSID_CellClass	8	8	range	source_47a410_2	CLSID_CellClass	Data1.Data4	unsigned int	unsigned char[8]	16
+_source_47a410_3	_CLSID_CellClass	12	12	range	source_47a410_3	CLSID_CellClass	Data1.Data4+4	unsigned int	unsigned char[8]	16
+_source_6e9120_1	_CLSID_TiberiumClass	4	4	range	source_6e9120_1	CLSID_TiberiumClass	Data1.Data2	unsigned int	unsigned short	16
+_source_6e9120_2	_CLSID_TiberiumClass	8	8	range	source_6e9120_2	CLSID_TiberiumClass	Data1.Data4	unsigned int	unsigned char[8]	16
+_source_6e9120_3	_CLSID_TiberiumClass	12	12	range	source_6e9120_3	CLSID_TiberiumClass	Data1.Data4+4	unsigned int	unsigned char[8]	16
+_unknown_forward_port_a3fbc4	_unknown_session_a3d298	10704	10540	range	unknown_forward_port_a3fbc4	unknown_session_a3d298	(anon).unknown_292c	int	unsigned short	12592
+_unknown_int_a40b54	_Options	60	60	range	unknown_int_a40b54	Options	GameSpeed.SoundLatency	int	unsigned short	172
+_unknown_screen_height_a40b3c	_Options	36	36	exact	unknown_screen_height_a40b3c	Options	GameSpeed.ScreenHeight	int	int	172
+_unknown_screen_width_a40b38	_Options	32	32	exact	unknown_screen_width_a40b38	Options	GameSpeed.ScreenWidth	int	int	172
+_unknown_session_a3d2c4	_unknown_session_a3d298	56	44	range	unknown_session_a3d2c4	unknown_session_a3d298	(anon).unknown_2c	int	_Bool	12592
+_unknown_session_a3d340	_unknown_session_a3d298	180	168	range	unknown_session_a3d340	unknown_session_a3d298	(anon).unknown_a8	int	_Bool	12592
+_unknown_a3d29c	_unknown_session_a3d298	8	4	compatible	unknown_a3d29c	unknown_session_a3d298	(anon).(anon).Type.Mode	UnknownA3D29CView*	MultiplayerGameMode *	12592
+_unknown_session_a3d29c	_unknown_session_a3d298	8	4	compatible	unknown_session_a3d29c	unknown_session_a3d298	(anon).(anon).Type.Mode	UnknownSessionA3D29C*	MultiplayerGameMode *	12592
+_unknown_connection_a409c4	_unknown_ipx_manager_a40978	120	76	compatible	unknown_connection_a409c4	unknown_ipx_manager_a40978	base:class ConnManClass.unknown_4c	ConnectionClass*	IPXGlobalConnClass *	232
+_unknown_profile_b28cc4	_unknown_profile_ptr_b28cc0	8	4	compatible	unknown_profile_b28cc4	unknown_profile_ptr_b28cc0	base:class rc_ptr_base.(vptr).Pointer	PlayerProfile*	ReferenceCounted *	16

@@ -92,7 +92,7 @@ bool __fastcall Get_File_From_Host_0066aef0(char *return_name, int gametype, boo
             Service_Game_IO_00481fb0();
             int receive_packet_length = sizeof(net_receive_packet);
             if (unknown_ipx_manager_a40978.Get_Global_Message(&net_receive_packet, &receive_packet_length, &sender_address, &product_id)) {
-                bool from_host = sender_address.unknown_523690(unknown_address_a3db2c);
+                bool from_host = sender_address.Is_Same_Node(unknown_address_a3db2c);
                 if (unknown_session_a3d298.Type == 4) {
                     WOL::User *host = Unknown_0074DA60();
                     from_host = host != 0 && Compare_Narrow_00781f20(host->name, net_receive_packet.Name) == 0;

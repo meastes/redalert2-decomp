@@ -1,0 +1,86 @@
+{
+ "module": "shapipe",
+ "source": "src/recovered/shapipe.cpp",
+ "header": "src/shared/sha_pipe.hpp",
+ "population": "population-3672",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2168,
+ "code": [
+  {
+   "symbol": "?Put@SHAPipe@@UAEHPBXH@Z",
+   "entry": "00675380",
+   "body_bytes": 38,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Result@SHAPipe@@QBEHPAX@Z",
+   "entry": "006753b0",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 64,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "004696b0",
+   "symbol": "?Result@SHAPipe@@QBEHPAX@Z",
+   "target": "006753b0",
+   "function_entry": true
+  },
+  {
+   "site": "004697e0",
+   "symbol": "?Result@SHAPipe@@QBEHPAX@Z",
+   "target": "006753b0",
+   "function_entry": true
+  },
+  {
+   "site": "004698f0",
+   "symbol": "?Result@SHAPipe@@QBEHPAX@Z",
+   "target": "006753b0",
+   "function_entry": true
+  },
+  {
+   "site": "00469a00",
+   "symbol": "?Result@SHAPipe@@QBEHPAX@Z",
+   "target": "006753b0",
+   "function_entry": true
+  },
+  {
+   "site": "0046c1c0",
+   "symbol": "?Result@SHAPipe@@QBEHPAX@Z",
+   "target": "006753b0",
+   "function_entry": true
+  },
+  {
+   "site": "0046c260",
+   "symbol": "?Result@SHAPipe@@QBEHPAX@Z",
+   "target": "006753b0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "?Hash@SHAEngine@@QAEXPBXJ@Z",
+   "address": "00674c90"
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "address": "0060eaf0"
+  },
+  {
+   "symbol": "?Result@SHAEngine@@QBEHPAX@Z",
+   "address": "00674d10"
+  }
+ ]
+}

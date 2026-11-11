@@ -11,7 +11,6 @@
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref ??0AnimClass@@QAE@PBVAnimTypeClass@@ABUCoordStruct@@HHHH@Z=00420110
 // @ref ??2@YAPAXI@Z=00782017
-// @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?_com_issue_error@@YGXJ@Z=00795940
 // @ref ?unknown_6d96a0@TechnoClass@@QAEXXZ=006d96a0
 inline AnimTypeClass *Pick_Animation(TypeList<AnimTypeClass *> const &list, unsigned draw)
@@ -43,7 +42,7 @@ void InfantryClass::Advance_Animation_005078b0()
                 int facing = Type->DoControls[Sequence].Facing;
                 if (facing != -1) {
                     UnknownFacingDir direction((unsigned short)(facing << 13));
-                    unknown_2e0.Set_Current(direction);
+                    unknown_2e0.Set(direction);
                 }
             }
             if (Locomotor.Checked()->Is_Moving() && unknown_468 > 0.1) {

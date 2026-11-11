@@ -131,7 +131,7 @@ void UnitClass::Unknown_006FAA30()
         unknown_slot306(1.0);
         TubeClass *here = Cell_Tube_0047a130(&Map[CoordStruct(Coord)]);
         if (here != 0) {
-            unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)((here->Facing << 13) - 0x8000)));
+            unknown_2e0.Set(UnknownFacingDir((unsigned short)((here->Facing << 13) - 0x8000)));
         }
     }
 }

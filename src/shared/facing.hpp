@@ -83,27 +83,33 @@ inline int Dir_To_32(UnknownFacingDir const &dir)
 }
 
 
+// Westwood's FacingClass (TibSun/mischa85 facing.h): a direction that turns toward a desired one at a
+// rate. The module is src/recovered/facing.cpp. Known differences from the template header
+// (manifests/original_target/modules.json header_gaps): the directions are UnknownFacingDir, not
+// DirType (the face module is not converted yet), and the members are 16-bit values with their
+// padding words; Is_Rotating_CW/CCW return char and Difference is const.
 class FacingClass {
 public:
-    FacingClass();                      // 0x004B89D0
-    FacingClass(int rate);              // 0x004B89F0
-    FacingClass(NoInitClass const &noinit) : Timer(noinit) {}
-    bool Set_Desired(UnknownFacingDir const &dir);  // 0x004B8A30 (name hypothesis)
-    UnknownFacingDir unknown_4b8c80() const;    // 0x004B8C80 (the direction being turned toward; hypothesis)
-    UnknownFacingDir Current() const;   // 0x004B8BE0 (name hypothesis: the direction now, part way through a turn)
-    UnknownFacingDir Difference_To_Desired() const; // 0x004B8D40
-    UnknownFacingDir Difference(UnknownFacingDir const &dir) const; // 0x004B8DE0
-    bool Set_Current(UnknownFacingDir const &dir);  // 0x004B8B10 (name hypothesis)
-    bool Is_Rotating() const;           // 0x004B8C90 (name hypothesis)
-    char Is_Turning_Positive() const; // 0x004B8CC0
-    char Is_Turning_Negative() const; // 0x004B8D00
-    void Set_ROT(int rate);             // 0x004B8E90 (name hypothesis; BuildingClass::Init passes the type ROT)
-    short Desired;                      // +0x00
+    FacingClass();
+    FacingClass(int rate);
+    FacingClass(NoInitClass const &noinit) : RotationTimer(noinit) {}
+    UnknownFacingDir Current() const;
+    UnknownFacingDir Desired() const;
+    bool Set_Desired(UnknownFacingDir const &facing);
+    void Set_ROT(int rate);
+    bool Set(UnknownFacingDir const &facing);
+    bool Is_Rotating() const;
+    char Is_Rotating_CW() const;
+    char Is_Rotating_CCW() const;
+    UnknownFacingDir Difference() const;
+    UnknownFacingDir Difference(UnknownFacingDir const &facing) const;
+
+    short DesiredFacing;                // +0x00 the direction being turned toward
     short unknown_02;
-    short Start;                        // +0x04
+    short StartFacing;                  // +0x04 the direction the turn started from
     short unknown_06;
-    CDTimerClass<FrameTimerClass> Timer;    // +0x08
-    short ROT;                          // +0x14
+    CDTimerClass<FrameTimerClass> RotationTimer;    // +0x08 frames left in the turn
+    short ROT;                          // +0x14 the turn rate (Dir256 steps in the high byte)
 };
 
 #endif

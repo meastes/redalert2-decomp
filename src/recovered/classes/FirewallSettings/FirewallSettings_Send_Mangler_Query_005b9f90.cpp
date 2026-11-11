@@ -27,7 +27,7 @@ bool FirewallSettings::Send_Mangler_Query(IPXAddressClass *address, unsigned sho
     packet.Port = port;
     packet.unknown_37 = (flag == true);
     int count = unknown_ipx_manager_a40978.Global_Num_Send();
-    Debug_Printf("Sending from port %d to %s\n", port, address->As_String_00523840());
+    Debug_Printf("Sending from port %d to %s\n", port, address->As_String());
     unknown_ipx_manager_a40978.Send_Global_Message(&packet, sizeof(packet), 0, address, *(unsigned short *)address, packet_id);
     CDTimerClass<SystemTimerClass> timer(180);
     while (unknown_ipx_manager_a40978.Global_Num_Send() > count || PacketTransport->OutBuffers.Count()) {

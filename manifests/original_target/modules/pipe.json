@@ -1,0 +1,514 @@
+{
+ "module": "pipe",
+ "source": "src/recovered/pipe.cpp",
+ "header": "src/shared/pipe.hpp",
+ "population": "population-69",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 41,
+ "code": [
+  {
+   "symbol": "??1Pipe@@UAE@XZ",
+   "entry": "0060ea60",
+   "body_bytes": 50,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "entry": "0060eaa0",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "entry": "0060eaf0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "entry": "0060eb10",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  }
+ ],
+ "code_bytes": 192,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [
+  {
+   "section": 3,
+   "symbol": "??_7Pipe@@6B@",
+   "reason": "relocation target unbound: ?End@Pipe@@UAEHXZ"
+  }
+ ],
+ "references_in": [
+  {
+   "site": "0046cb90",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0049edb0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "00510b40",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "00675380",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "00773790",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "00534f50",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "00534f90",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "00534f90",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "00534f90",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "00534f90",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "00534f90",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "00534f90",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "005351c0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "005351c0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "005351c0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "005351c0",
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "target": "0060eb10",
+   "function_entry": true
+  },
+  {
+   "site": "005351c0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "005351c0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "005351c0",
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "target": "0060eb10",
+   "function_entry": true
+  },
+  {
+   "site": "00535280",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0053eba0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0053ebe0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ebe0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ebe0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ebe0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ebe0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ebe0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ee70",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ee70",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ee70",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ee70",
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "target": "0060eb10",
+   "function_entry": true
+  },
+  {
+   "site": "0053ee70",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ee70",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0053ee70",
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "target": "0060eb10",
+   "function_entry": true
+  },
+  {
+   "site": "0053ef60",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "00435690",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "00435690",
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "target": "0060eb10",
+   "function_entry": true
+  },
+  {
+   "site": "004356d0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "004356d0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "004356d0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0060fba0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0060fba0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0060fba0",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0060fd70",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0060fdd0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0060fdd0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "004696b0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "004697e0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "004698f0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "00469a00",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0046c1c0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0046c260",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "00494210",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0049edd0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0050d0f0",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "0050d0f0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0050d0f0",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0042b670",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0042b670",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0042b670",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0042b800",
+   "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+   "target": "0060eaf0",
+   "function_entry": true
+  },
+  {
+   "site": "0042b800",
+   "symbol": "?Flush@Pipe@@UAEHXZ",
+   "target": "0060eb10",
+   "function_entry": true
+  },
+  {
+   "site": "0054d560",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d660",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "0054d970",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "0054db10",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "005dba30",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0049d910",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  },
+  {
+   "site": "0061dc80",
+   "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+   "target": "0060eaa0",
+   "function_entry": true
+  },
+  {
+   "site": "0061dc80",
+   "symbol": "??1Pipe@@UAE@XZ",
+   "target": "0060ea60",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_GPipe@@UAEPAXI@Z",
+   "address": "0049edb0"
+  }
+ ]
+}

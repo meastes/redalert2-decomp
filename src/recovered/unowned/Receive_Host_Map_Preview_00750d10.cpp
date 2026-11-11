@@ -34,7 +34,7 @@ bool __fastcall Receive_Host_Map_Preview_00750d10()
                 unknown_users_b2a728.Get_Copy(user,0);
                 user.next=0;
                 Unknown_0074d7d0(&user);
-                if(unknown_ipx_manager_a40978.Get_Global_Message(&packet,&length,&address,&product) && packet.Command==25 && address.unknown_523690(unknown_address_a3db2c) && product==0xaa03) {
+                if(unknown_ipx_manager_a40978.Get_Global_Message(&packet,&length,&address,&product) && packet.Command==25 && address.Is_Same_Node(unknown_address_a3db2c) && product==0xaa03) {
                     owner=0;
                     for(int i=0;i<unknown_users_b2a728.Count;++i) {
                         unknown_users_b2a728.Get_Copy(unknown_user_b2a658,i);

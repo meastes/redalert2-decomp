@@ -266,7 +266,7 @@ int __fastcall Wait_For_Players(int first_time, ConnManClass *net, int resend_de
                 strncpy(packet.Name, Unknown_006FA120((unsigned short const *)unknown_session_a3d298.Players[0]->Name), 20);
                 *(int *)&packet.unknown_2f[0] = unknown_player_a35db4->ArrayIndex;
                 IPXAddressClass address = unknown_forward_address_a3fbac;
-                address.unknown_523960(unknown_forward_port_a3fbc4);
+                address.Set_Port(unknown_forward_port_a3fbc4);
                 *(IPXAddressClass *)&packet.unknown_2f[4] = address;
                 for (i = 1; i < unknown_session_a3d298.Players.Count(); i++) {
                     int id2 = unknown_session_a3d298.Players[i]->ID;

@@ -44,7 +44,7 @@ int BuildingClass::Do_MISSION_ATTACK()
                 }
             }
             if (snap) {
-                unknown_2e0.Set_Current(dir);
+                unknown_2e0.Set(dir);
                 fire = (unsigned)unknown_slot218(unknown_228, weapon, true);
             }
         }

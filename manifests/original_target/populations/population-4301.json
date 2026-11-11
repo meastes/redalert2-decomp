@@ -4,8 +4,8 @@
     "id": "population-4301",
     "inventory_sha256": "e3904bfa22cf989d2d26a0e016aa2ca52c5e3d67a4090506b1b079d75be5f0b8",
     "gaps_sha256": "4f9095dc7124eab2120fdf153a9045bf73f463ee8ba9a29887bab38154c7913f",
-    "historical_population_sha256": "87c1cbc70cd70bce4c06329b0e0b5de71907b8a6dfb7d967a8eccd1cab1b5461",
-    "historical_acceptance_sha256": "f10f9a1dd8478b081624858ac3c5b2a28237513a1bdf599b8e250eebdaf275bc"
+    "historical_population_sha256": "2f56ea7f56c4b562225902bc252ff95b040fd8a65fa3c05822d1e101cf65021c",
+    "historical_acceptance_sha256": "70675a53593f9377397ec8f7cbee10ccd0d15a9f240ab734c0782198672979b0"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4037,8 +4037,8 @@
     "??0DSurface@@QAE@XZ": 4892176,
     "??_GDSurface@@UAEPAXI@Z": 4920560,
     "??RRandomClass@@QAEHHH@Z": 6522656,
-    "?Mix1@Random3Class@@0PAKA": 8316076,
-    "?Mix2@Random3Class@@0PAKA": 8316156,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
     "??RRandom2Class@@QAEHXZ": 6522944,
     "??RRandom2Class@@QAEHHH@Z": 6523040,
     "??RRandom3Class@@QAEHHH@Z": 6523344,
@@ -5034,7 +5034,7 @@
     "?Init@TechnoClass@@UAEXXZ": 7085136,
     "?Set_ROT@FacingClass@@QAEXH@Z": 4951696,
     "?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951008,
-    "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
     "?unknown_4ea970@HouseClass@@QAEXPAVTechnoClass@@@Z": 5155184,
     "?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z": 5125728,
     "?unknown_6d3040@TechnoClass@@QAEXPAV1@@Z": 7155776,
@@ -6395,10 +6395,10 @@
     "?Load@FactoryClass@@UAGJPAUIStream@@@Z": 4954688,
     "??_GFactoryClass@@UAEPAXI@Z": 4955968,
     "?Action@EditClass@@UAEHIAAI@Z": 4926272,
-    "?unknown_4b8c80@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951168,
-    "?Is_Turning_Positive@FacingClass@@QBEDXZ": 4951232,
-    "?Is_Turning_Negative@FacingClass@@QBEDXZ": 4951296,
-    "?Difference_To_Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Desired@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951168,
+    "?Is_Rotating_CW@FacingClass@@QBEDXZ": 4951232,
+    "?Is_Rotating_CCW@FacingClass@@QBEDXZ": 4951296,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
     "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@ABU2@@Z": 4951520,
     "?unknown_instance_00851ca8@@3PAXA": 8723624,
     "??_7CCINIClass@@6B@": 7973604,
@@ -11284,18 +11284,18 @@
     "??_E?$DynamicVectorClass@UWaypointClass@@@@UAEPAXI@Z": 7492560,
     "??_E?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5686160,
     "?Set_Protocol@IPXAddressClass@@SIXH@Z": 5388624,
-    "?IPXProtocol@@3HA": 8248432,
-    "?unknown_523960@IPXAddressClass@@QAEXG@Z": 5388640,
+    "?AddressProtocol@@3HA": 8248432,
+    "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "_CLSID_TubeClass": 8002752,
     "??0IPXAddressClass@@QAE@XZ": 5387280,
     "?Get_Address@IPXAddressClass@@QAEXQAE0@Z": 5387520,
     "?Is_Broadcast@IPXAddressClass@@QAEHXZ": 5387616,
-    "?unknown_523690@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
     "?unknown_max_ahead_a3d560@@3HA": 10736992,
     "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A": 10746492,
     "?Unknown_0067C150@SidebarClass@@QAEXPAVObjectClass@@@Z": 6799696,
     "?Reset_Radar@RadarClass@@QAEXXZ": 6495552,
-    "?As_String_00523840@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
+    "?As_String@IPXAddressClass@@QAEPADPBV1@@Z": 5388352,
     "?Unknown_0055A120@MapClass@@QAEXXZ": 5611808,
     "?Reset_All_Subzones@MapClass@@QAEXXZ": 5651776,
     "?Zone_Reset@MapClass@@QAEHXZ": 5565392,
@@ -18334,7 +18334,7 @@
         {
           "offset": 501,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294644711
@@ -18380,7 +18380,7 @@
           "resolved": 4294373518
         }
       ],
-      "source_sha256": "8a1b7a09027fba650a39bc97b9cdc96d18d92f4f58592489d81d40fa3729e38f",
+      "source_sha256": "9e77eb2099fa3776790e0764a1cddf2c2d731a981d8b7d37540710ece2adfaf9",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Update_Fire_00507530.cpp",
       "population": "population-4301",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -18938,7 +18938,7 @@
         {
           "offset": 389,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294658951
@@ -18994,7 +18994,7 @@
         {
           "offset": 610,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294658730
@@ -19034,7 +19034,7 @@
         {
           "offset": 736,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294658604
@@ -19120,7 +19120,7 @@
           "resolved": 5259429
         }
       ],
-      "source_sha256": "2ce604f89f53c5872768226fdae121983864ba6f092f86ff2b8418bfb2ef4451",
+      "source_sha256": "608982173f90609f414b1c75c6a8d18db84949ceff15054ec966659d7eab9faa",
       "switch_data_bytes": 40,
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Idle_Actions_00503e00.cpp",
       "population": "population-4301",
@@ -21176,7 +21176,7 @@
         {
           "offset": 461,
           "kind": 20,
-          "symbol": "?Set_Current@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
+          "symbol": "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z",
           "target": 4950800,
           "addend": 0,
           "resolved": 4294643855
@@ -21254,7 +21254,7 @@
           "resolved": 5274188
         }
       ],
-      "source_sha256": "4b139baea3012ece9cd3f782678c27de42e20da3155ce25cf7cb2fb5303c7279",
+      "source_sha256": "6018a279e06de348fa29b5501baf1643cf824913cea6183a04040b15db43c509",
       "switch_data_bytes": 54,
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Advance_Animation_005078b0.cpp",
       "population": "population-4301",

@@ -7,7 +7,6 @@
 // @ref ?Set_Veteran@VeterancyClass@@QAEX_N@Z=00713520
 // @ref ?Set_ROT@FacingClass@@QAEXH@Z=004b8e90
 // @ref ?Current@FacingClass@@QBE?AUUnknownFacingDir@@XZ=004b8be0
-// @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?unknown_4ea970@HouseClass@@QAEXPAVTechnoClass@@@Z=004ea970
 
 void AircraftClass::Init()
@@ -25,7 +24,7 @@ void AircraftClass::Init()
         }
         unknown_2e0.Set_ROT(Type->ROT);
         unknown_2f8.Set_ROT(Type->ROT);
-        unknown_2f8.Set_Current(unknown_2e0.Current());
+        unknown_2f8.Set(unknown_2e0.Current());
         Set_Height_AGL(Type->Flight_Level());
         unknown_254 = Type->InitialAmmo != -1 ? Type->InitialAmmo : Type->Ammo;
         unknown_70 = Strength = Type->MaxStrength;

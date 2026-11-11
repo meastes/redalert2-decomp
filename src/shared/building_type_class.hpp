@@ -159,6 +159,9 @@ public:
     static int __fastcall From_Full_Name(char const *name);             // 0x00458380 (by Name)
     void unknown_func_4584d0(int index, int value0, int value1, int value2); // 0x004584D0
     int Width() const;                                                  // 0x00458930
+    // TibSun builtype.cpp Can_Always_Undeploy (IsLimpetMine || IsMobileWar); RA2 dropped both and returns false.
+    // TechnoClass::Can_Deploy_Now 0x006CD340 asks it for buildings.
+    bool Can_Always_Undeploy() const;                                   // 0x0045EC40
     int Foundation_Height(bool bib) const;                              // 0x00458940
     void unknown_func_459640();                                         // 0x00459640
     void unknown_func_45eaa0();                                         // 0x0045EAA0 (RulesClass::Objects calls it for every type)

@@ -23,7 +23,7 @@ void UnitClass::unknown_6fb890()
     }
     if (Type->TurretSpins) {
         UnknownFacingDir direction((unsigned short)((Dir_To_256(unknown_2f8.Current()) + 8) << 8));
-        unknown_2f8.Set_Current(direction);
+        unknown_2f8.Set(direction);
     } else {
         unknown_599 = false;
         if (Type->Turret) {

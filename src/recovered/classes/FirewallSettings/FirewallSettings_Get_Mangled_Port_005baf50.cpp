@@ -67,8 +67,8 @@ unsigned short FirewallSettings::Get_Mangled_Port(unsigned short port)
         ((unsigned char *)&ip)[0], ((unsigned char *)&ip)[1], ((unsigned char *)&ip)[2], ((unsigned char *)&ip)[3], mangler_port);
     IPXAddressClass address;
     address.Set_Node((unsigned char *)&ip);
-    address.unknown_523960(mangler_port);
-    Debug_Printf("Mangler address is %s\n", address.As_String_00523840());
+    address.Set_Port(mangler_port);
+    Debug_Printf("Mangler address is %s\n", address.As_String());
     unsigned short source = 0;
     unsigned short opened = 0;
     Debug_Printf("fw = %08x\n", type);

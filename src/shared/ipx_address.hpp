@@ -9,7 +9,7 @@ typedef unsigned char NetNodeType[6];
 // The network protocol (0x007DDC70: 1 IPX, 2 UDP). A global, not a static
 // member: a static data member would renumber every including unit's _$E
 // initializers.
-extern int IPXProtocol;
+extern int AddressProtocol;
 
 class IPXAddressClass {
 public:
@@ -23,9 +23,9 @@ public:
     void Set_Address(NetNumType net, NetNodeType node, unsigned short socket);   // 0x00523480
     int Is_Broadcast();                                             // 0x00523560
     bool operator==(IPXAddressClass &address);                      // 0x005235D0 (network and node; UDP: IP and port)
-    bool unknown_523690(IPXAddressClass &address);                  // 0x00523690 (the node only: 4 bytes for UDP, else 6)
-    void unknown_523960(unsigned short port);                       // 0x00523960 (UDP only: the port in the first word)
-    char *As_String_00523840(IPXAddressClass const *address = 0); // optional address override, RET4
+    bool Is_Same_Node(IPXAddressClass &address);                  // 0x00523690 (the node only: 4 bytes for UDP, else 6)
+    void Set_Port(unsigned short port);                       // 0x00523960 (UDP only: the port in the first word)
+    char *As_String(IPXAddressClass const *address = 0); // optional address override, RET4
     void Get_Node(NetNodeType node);                                // 0x00523520
     void Set_Node(NetNodeType node);                                // 0x00523540
     bool operator!=(IPXAddressClass &address);                      // 0x005236C0

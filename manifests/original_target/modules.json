@@ -14,5 +14,263 @@
    "src/shared/version.hpp",
    "src/shared/lobby.hpp"
   ]
+ },
+ "random": {
+  "source": "src/recovered/random.cpp",
+  "header": "src/shared/random.hpp",
+  "twin": "mischa85/RedAlert2 src/random.cpp (exact target); TibSun random.cpp; ra2-decomp random.cpp (YR)",
+  "data": [
+   [
+    "007ee4ac",
+    "007ee54c"
+   ]
+  ],
+  "header_gaps": [
+   "Random2Class is declared in src/shared/random2.hpp, not random.hpp: merging it flips 153 regions (units that include only random2.hpp see random.hpp's anonymous enums and renumber their _$E initializers)",
+   "Pick_Random_Number precedes the classes: the template's position after them changes SidebarClass::Reposition_Sidebar (2 bytes) and the owner-draw trackbar procedure (8 bytes)",
+   "RandomClass's constructor is inline outside the module (RA2_RANDOM_UNIT): the out-of-line declaration alone changes Print_CRCs (4 bytes)",
+   "Random2Class's TABLE_SIZE is spelled 250: adding it beside Random3Class's changes the owner-draw trackbar procedure 0x5FB270 (8 bytes; an unflagged row with no twin form). Random3Class's TABLE_SIZE is adopted (Reposition_Sidebar re-rolled under DECISIONS row 24 (b))"
+  ]
+ },
+ "buff": {
+  "source": "src/recovered/buff.cpp",
+  "header": "src/shared/buffer.hpp",
+  "twin": "mischa85/RedAlert2 src/buff.cpp (exact target); TibSun buff.cpp; ra2-decomp buff.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The sizes are long, not int (the constructors' parameters, Size, Get_Size): int changes Dropship_Screen (5,660 bytes)",
+   "operator void * and operator char * are not declared: with them Print_CRCs, HouseClass::AI_Build_Defense, WinMain, the bitmap writer's Load_Image, SidebarClass::Reposition_Sidebar and two owner-draw procedures change (7 regions)"
+  ]
+ },
+ "buffer": {
+  "source": "src/recovered/buffer.cpp",
+  "header": "src/shared/buffer_class.hpp",
+  "twin": "mischa85/RedAlert2 src/buffer.cpp (exact target, adopted text); TibSun buffer.cpp; ra2-decomp buffer.cpp (YR)",
+  "data": []
+ },
+ "shapipe": {
+  "source": "src/recovered/shapipe.cpp",
+  "header": "src/shared/sha_pipe.hpp",
+  "twin": "mischa85/RedAlert2 src/shapipe.cpp (exact target, adopted text); TibSun shapipe.cpp; ra2-decomp shapipe.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
+  ]
+ },
+ "shastraw": {
+  "source": "src/recovered/shastraw.cpp",
+  "header": "src/shared/sha_straw.hpp",
+  "twin": "mischa85/RedAlert2 src/shastraw.cpp (exact target, adopted text); TibSun shastraw.cpp; ra2-decomp shastraw.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
+  ]
+ },
+ "b64straw": {
+  "source": "src/recovered/b64straw.cpp",
+  "header": "src/shared/base64_straw.hpp",
+  "twin": "mischa85/RedAlert2 src/b64straw.cpp (exact target, adopted text); TibSun b64straw.cpp; ra2-decomp b64straw.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
+  ]
+ },
+ "b64pipe": {
+  "source": "src/recovered/b64pipe.cpp",
+  "header": "src/shared/base64_pipe.hpp",
+  "twin": "mischa85/RedAlert2 src/b64pipe.cpp (exact target, adopted text); TibSun b64pipe.cpp; ra2-decomp b64pipe.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
+  ]
+ },
+ "blwstraw": {
+  "source": "src/recovered/blwstraw.cpp",
+  "header": "src/shared/blow_straw.hpp",
+  "twin": "mischa85/RedAlert2 src/blwstraw.cpp (exact target, adopted text); TibSun blwstraw.cpp; ra2-decomp blwstraw.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
+  ]
+ },
+ "blowpipe": {
+  "source": "src/recovered/blowpipe.cpp",
+  "header": "src/shared/blow_pipe.hpp",
+  "twin": "mischa85/RedAlert2 src/blowpipe.cpp (exact target, adopted text); TibSun blowpipe.cpp; ra2-decomp blowpipe.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
+  ]
+ },
+ "cstraw": {
+  "source": "src/recovered/cstraw.cpp",
+  "header": "src/shared/cache_straw.hpp",
+  "twin": "mischa85/RedAlert2 src/cstraw.cpp (exact target; this file keeps the accepted bodies); TibSun cstraw.cpp; ra2-decomp cstraw.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
+  ],
+  "source_gaps": [
+   "The source keeps the accepted bodies, not the twin's text (the twin text does not compile against the current headers)"
+  ]
+ },
+ "rle": {
+  "source": "src/recovered/rle.cpp",
+  "header": "src/shared/rle_engine.hpp",
+  "twin": "mischa85/RedAlert2 src/rle.cpp (exact target; this file keeps the accepted bodies); TibSun rle.cpp; ra2-decomp rle.cpp (YR)",
+  "data": [],
+  "source_gaps": [
+   "The source keeps the accepted bodies, not the twin's text (the twin text does not compile against the current headers)"
+  ]
+ },
+ "lzo1x_d": {
+  "source": "src/recovered/lzo1x_d.cpp",
+  "header": "src/shared/lzo.hpp",
+  "twin": "mischa85/RedAlert2 src/lzo1x_d.cpp (exact target; this file keeps the accepted bodies); TibSun lzo1x_d.cpp; ra2-decomp lzo1x_d.cpp (YR)",
+  "data": [],
+  "source_gaps": [
+   "The source keeps the accepted bodies, not the twin's text (the twin text does not compile against the current headers)"
+  ]
+ },
+ "lzo1x_c": {
+  "source": "src/recovered/lzo1x_c.cpp",
+  "header": "src/shared/lzo.hpp",
+  "twin": "mischa85/RedAlert2 src/lzo1x_c.cpp (exact target; this file keeps the accepted bodies); TibSun lzo1x_c.cpp; ra2-decomp lzo1x_c.cpp (YR)",
+  "data": [],
+  "source_gaps": [
+   "The source keeps the accepted bodies, not the twin's text (the twin text does not compile against the current headers)"
+  ]
+ },
+ "facing": {
+  "source": "src/recovered/facing.cpp",
+  "header": "src/shared/facing.hpp",
+  "twin": "mischa85/RedAlert2 src/facing.cpp (exact target; this file keeps the accepted bodies); TibSun facing.cpp; ra2-decomp facing.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The directions are UnknownFacingDir, not DirType: the face module (DirType and its per-unit macros) is not converted",
+   "The members are 16-bit values with padding words, not DirType: retyping them changes Print_CRCs (4 bytes)",
+   "Is_Rotating_CW/CCW return char, not bool, and Difference stays const (the template forms were only tried together with the retyped members)"
+  ],
+  "source_gaps": [
+   "The source keeps the accepted bodies, not the twin's text (the twin text needs DirType)"
+  ]
+ },
+ "base64": {
+  "source": "src/recovered/base64.cpp",
+  "header": "src/shared/base64.hpp",
+  "twin": "mischa85/RedAlert2 src/base64.cpp (exact target, adopted text); TibSun base64.cpp; ra2-decomp base64.cpp (YR)",
+  "data": [
+   [
+    "0079c61c",
+    "0079c724"
+   ],
+   [
+    "007cf378",
+    "007cf3c0"
+   ]
+  ]
+ },
+ "milsectmr": {
+  "source": "src/recovered/milsectmr.cpp",
+  "header": "src/shared/milsectmr.hpp",
+  "twin": "mischa85/RedAlert2 src/milsectmr.cpp (exact target, adopted text); TibSun milsectmr.cpp",
+  "data": [
+   [
+    "007e1d04",
+    "007e1d34"
+   ]
+  ],
+  "header_gaps": [
+   "Get_CPU_Rate takes unsigned int * (template: unsigned int &) and Get_CPU_Info keeps its name and pointer parameters (template Get_CPU_Type with references): the getcpu and mpu modules are not converted"
+  ],
+  "data_notes": [
+   "has_mmx (0xA70BCC) is zero-initialised storage; the ledger proves only the initialised range"
+  ]
+ },
+ "category": {
+  "source": "src/recovered/category.cpp",
+  "header": "src/shared/ini_enums.hpp",
+  "twin": "mischa85/RedAlert2 src/category.cpp (exact target, adopted text); TibSun category.cpp",
+  "data": [
+   [
+    "007d17e0",
+    "007d1940"
+   ]
+  ],
+  "header_gaps": [
+   "The table stays the global CategoryNames declared in ini_enums.hpp (template: file-static _categories): removing the declaration and its struct changes HouseClass::AI_Build_Defense (4 B), StripClass::SelectClass::Action 0x6809F0 (4 B), Reposition_Sidebar (2 B) and the trackbar 0x5FB270 (8 B)",
+   "CategoryType has no CATEGORY_FIRST or incdec.h operators; the loop starts at CATEGORY_SOLDIER and steps by hand"
+  ]
+ },
+ "ccfile": {
+  "source": "src/recovered/ccfile.cpp",
+  "header": "src/shared/cc_file_class.hpp",
+  "twin": "mischa85/RedAlert2 src/ccfile.cpp (exact target; this file keeps the accepted bodies); TibSun ccfile.cpp; ra2-decomp ccfile.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "Read, Write, Seek, Size, Get_Date_Time and Set_Date_Time keep long and unsigned long (template: int, unsigned): the FileClass hierarchy's virtuals change together (int sizes changed Dropship_Screen under buffer.hpp)"
+  ],
+  "source_gaps": [
+   "The source keeps the accepted bodies, not the twin's text (int signatures)"
+  ],
+  "notes": [
+   "Open(char const *, int) at 0x401980 and the scalar deleting destructor at 0x4019A0 are this unit's rows whose kept copies the linker placed outside the module's range"
+  ]
+ },
+ "pipe": {
+  "source": "src/recovered/pipe.cpp",
+  "header": "src/shared/pipe.hpp",
+  "twin": "mischa85/RedAlert2 src/pipe.cpp (exact target, adopted text); TibSun pipe.cpp; ra2-decomp pipe.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The private copy constructor and assignment the template declares are not declared (not tried this round)"
+  ]
+ },
+ "straw": {
+  "source": "src/recovered/straw.cpp",
+  "header": "src/shared/straw.hpp",
+  "twin": "mischa85/RedAlert2 src/straw.cpp (exact target, adopted text); TibSun straw.cpp; ra2-decomp straw.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The private copy constructor and assignment the template declares are not declared (not tried this round)"
+  ],
+  "source_gaps": [
+   "#pragma auto_inline(off) around the destructor: the population also compiles the kept scalar deleting destructor 0x49ED40 (from another object), which calls the destructor; pipe.cpp needs no pragma because its copy 0x49EDB0 compiles in another population"
+  ]
+ },
+ "ipxaddr": {
+  "source": "src/recovered/ipxaddr.cpp",
+  "header": "src/shared/ipx_address.hpp",
+  "twin": "mischa85/RedAlert2 src/ipxaddr.cpp (exact target, adopted text); TibSun ipxaddr.cpp",
+  "data": [
+   [
+    "007ddc70",
+    "007ddcbc"
+   ]
+  ],
+  "header_gaps": [
+   "As_String returns char * and takes IPXAddressClass const * (template: const char *, IPXAddressClass *)",
+   "The protocol setter is the static member Set_Protocol (template: the free function Set_Address_Protocol)",
+   "Per-unit macros IPX_ADDRESS_DESTRUCTOR and RA2_CONQUER_IPX_CALL_BACK still show different member sets (an empty destructor, an inline Get_Port) to two units"
+  ],
+  "data_notes": [
+   "As_String's static buffer _addr_str (0xA522E4) is zero-initialised storage"
+  ]
+ },
+ "rawfile": {
+  "source": "src/recovered/rawfile.cpp",
+  "header": "src/shared/raw_file_class.hpp",
+  "twin": "mischa85/RedAlert2 src/rawfile.cpp (exact target; this file keeps the accepted bodies); TibSun rawfile.cpp; ra2-decomp rawfile.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "FileClass/RawFileClass Read, Write, Seek, Size, Raw_Seek and the date-time pair keep long and unsigned long (template: int, unsigned): the virtuals of the whole file hierarchy change together; not tried this round (int sizes flipped Dropship_Screen under buffer.hpp)",
+   "The per-unit macro RA2_STATS_UNIT still shows Get_File_Handle to the Stats unit only (every other unit's declaration count: Print_CRCs)"
+  ],
+  "source_gaps": [
+   "The source keeps the accepted bodies, not the twin's text (int signatures)"
+  ],
+  "notes": [
+   "The unit's rows include the kept copies FileClass::Get_Date_Time/Set_Date_Time (0x6386B0, 0x6386C0), FileClass's and RawFileClass's scalar deleting destructors (0x6386D0, 0x639450) and RawFileClass::Is_Open (0x6394D0), placed by the linker outside the module's range"
+  ]
  }
 }

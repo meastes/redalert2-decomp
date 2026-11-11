@@ -923,16 +923,66 @@ int ShowCursor(BOOL show)
 void *SetCursor(void *cursor_handle) { (void)cursor_handle; return nullptr; }
 void *LoadCursorA(HINSTANCE instance, const char *name) { (void)instance; (void)name; return (void *)(uintptr_t)0x7100; }
 void *LoadIconA(HINSTANCE instance, const char *name) { (void)instance; (void)name; return (void *)(uintptr_t)0x7200; }
+// The US keyboard's virtual keys and set-1 scan codes, as Windows maps them (Scout1281).
+// The game names a hot key with MapVirtualKeyA(vk, 0) << 16 and GetKeyNameTextA
+// (OwnerDraw 0x005FC600: Options > Keyboard, the sidebar's tooltips); the port had
+// answered the virtual key as the scan code and named it by its character, so F1 read
+// "p", Alt "Key 18" and no key "Key 0". As on Windows, MapVirtualKeyA(vk, 0) gives the
+// scan code without the extended bit, so the navigation keys are named by their keypad
+// twins ("Num 8" for Up), as the original shows them; an unknown scan code has no name.
+namespace {
+struct KeyName { unsigned char vk, scan; const char *name; };
+KeyName const key_names[] = {
+    {0x1B, 0x01, "Esc"}, {'1', 0x02, "1"}, {'2', 0x03, "2"}, {'3', 0x04, "3"}, {'4', 0x05, "4"},
+    {'5', 0x06, "5"}, {'6', 0x07, "6"}, {'7', 0x08, "7"}, {'8', 0x09, "8"}, {'9', 0x0A, "9"},
+    {'0', 0x0B, "0"}, {0xBD, 0x0C, "-"}, {0xBB, 0x0D, "="}, {0x08, 0x0E, "Backspace"}, {0x09, 0x0F, "Tab"},
+    {'Q', 0x10, "Q"}, {'W', 0x11, "W"}, {'E', 0x12, "E"}, {'R', 0x13, "R"}, {'T', 0x14, "T"},
+    {'Y', 0x15, "Y"}, {'U', 0x16, "U"}, {'I', 0x17, "I"}, {'O', 0x18, "O"}, {'P', 0x19, "P"},
+    {0xDB, 0x1A, "["}, {0xDD, 0x1B, "]"}, {0x0D, 0x1C, "Enter"}, {0x11, 0x1D, "Ctrl"},
+    {'A', 0x1E, "A"}, {'S', 0x1F, "S"}, {'D', 0x20, "D"}, {'F', 0x21, "F"}, {'G', 0x22, "G"},
+    {'H', 0x23, "H"}, {'J', 0x24, "J"}, {'K', 0x25, "K"}, {'L', 0x26, "L"}, {0xBA, 0x27, ";"},
+    {0xDE, 0x28, "'"}, {0xC0, 0x29, "`"}, {0x10, 0x2A, "Shift"}, {0xDC, 0x2B, "\\"},
+    {'Z', 0x2C, "Z"}, {'X', 0x2D, "X"}, {'C', 0x2E, "C"}, {'V', 0x2F, "V"}, {'B', 0x30, "B"},
+    {'N', 0x31, "N"}, {'M', 0x32, "M"}, {0xBC, 0x33, ","}, {0xBE, 0x34, "."}, {0xBF, 0x35, "/"},
+    {0xA1, 0x36, "Right Shift"}, {0x6A, 0x37, "Num *"}, {0x12, 0x38, "Alt"}, {0x20, 0x39, "Space"},
+    {0x14, 0x3A, "Caps Lock"}, {0x70, 0x3B, "F1"}, {0x71, 0x3C, "F2"}, {0x72, 0x3D, "F3"},
+    {0x73, 0x3E, "F4"}, {0x74, 0x3F, "F5"}, {0x75, 0x40, "F6"}, {0x76, 0x41, "F7"}, {0x77, 0x42, "F8"},
+    {0x78, 0x43, "F9"}, {0x79, 0x44, "F10"}, {0x90, 0x45, "Pause"}, {0x91, 0x46, "Scroll Lock"},
+    {0x67, 0x47, "Num 7"}, {0x68, 0x48, "Num 8"}, {0x69, 0x49, "Num 9"}, {0x6D, 0x4A, "Num -"},
+    {0x64, 0x4B, "Num 4"}, {0x65, 0x4C, "Num 5"}, {0x66, 0x4D, "Num 6"}, {0x6B, 0x4E, "Num +"},
+    {0x61, 0x4F, "Num 1"}, {0x62, 0x50, "Num 2"}, {0x63, 0x51, "Num 3"}, {0x60, 0x52, "Num 0"},
+    {0x6E, 0x53, "Num Del"}, {0x7A, 0x57, "F11"}, {0x7B, 0x58, "F12"},
+    // Keys whose scan code is an extended twin's (MapVirtualKeyA drops the extended bit).
+    {0x24, 0x47, nullptr}, {0x26, 0x48, nullptr}, {0x21, 0x49, nullptr}, {0x25, 0x4B, nullptr},
+    {0x27, 0x4D, nullptr}, {0x23, 0x4F, nullptr}, {0x28, 0x50, nullptr}, {0x22, 0x51, nullptr},
+    {0x2D, 0x52, nullptr}, {0x2E, 0x53, nullptr}, {0x6F, 0x35, nullptr}, {0xA3, 0x1D, nullptr},
+    {0xA5, 0x38, nullptr}, {0xA0, 0x2A, nullptr}, {0xA2, 0x1D, nullptr}, {0xA4, 0x38, nullptr},
+};
+}  // namespace
+
 UINT MapVirtualKeyA(UINT code, UINT type)
 {
-    (void)type;
-    return code;
+    switch (type) {
+    case 0:                                         // MAPVK_VK_TO_VSC
+        for (KeyName const &k : key_names) if (k.vk == code) return k.scan;
+        return 0;
+    case 1: case 3:                                 // MAPVK_VSC_TO_VK(_EX)
+        for (KeyName const &k : key_names) if (k.scan == code && k.name) return k.vk;
+        return 0;
+    case 2:                                         // MAPVK_VK_TO_CHAR (unshifted; letters in upper case)
+        for (KeyName const &k : key_names)
+            if (k.vk == code && k.name && k.name[0] && !k.name[1]) return (unsigned char)k.name[0];
+        return 0;
+    }
+    return 0;
 }
 int GetKeyNameTextA(LONG lparam, char *text, int size)
 {
     if (size <= 0) return 0;
     int scan = (lparam >> 16) & 0xFF;
-    snprintf(text, (size_t)size, (scan >= 0x20 && scan < 0x7F) ? "%c" : "Key %d", scan);
+    text[0] = 0;
+    for (KeyName const &k : key_names)
+        if (k.scan == scan && k.name) { snprintf(text, (size_t)size, "%s", k.name); break; }
     return (int)strlen(text);
 }
 // The character of a virtual key on the US layout, as Windows' ToAscii answers it

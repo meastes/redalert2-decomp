@@ -1,0 +1,1303 @@
+{
+ "module": "rawfile",
+ "source": "src/recovered/rawfile.cpp",
+ "header": "src/shared/raw_file_class.hpp",
+ "population": "population-60",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 36,
+ "code": [
+  {
+   "symbol": "?Get_Date_Time@FileClass@@UAEKXZ",
+   "entry": "006386b0",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "?Set_Date_Time@FileClass@@UAE_NK@Z",
+   "entry": "006386c0",
+   "body_bytes": 5,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "??_GFileClass@@UAEPAXI@Z",
+   "entry": "006386d0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "entry": "00638ac0",
+   "body_bytes": 103,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Error@RawFileClass@@UAEXHHPBD@Z",
+   "entry": "00638b30",
+   "body_bytes": 3,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "entry": "00638b40",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Set_Name@RawFileClass@@UAEPBDPBD@Z",
+   "entry": "00638b70",
+   "body_bytes": 111,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Open@RawFileClass@@UAEHPBDH@Z",
+   "entry": "00638be0",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Open@RawFileClass@@UAEHH@Z",
+   "entry": "00638c00",
+   "body_bytes": 155,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "entry": "00638ca0",
+   "body_bytes": 171,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "entry": "00638d50",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "entry": "00638d90",
+   "body_bytes": 238,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Write@RawFileClass@@UAEJPBXJ@Z",
+   "entry": "00638e80",
+   "body_bytes": 304,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "entry": "00638fb0",
+   "body_bytes": 459,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Size@RawFileClass@@UAEJXZ",
+   "entry": "00639180",
+   "body_bytes": 118,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "entry": "00639200",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "entry": "00639240",
+   "body_bytes": 95,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "entry": "006392a0",
+   "body_bytes": 77,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "entry": "006392f0",
+   "body_bytes": 101,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Bias@RawFileClass@@QAEXHH@Z",
+   "entry": "00639360",
+   "body_bytes": 106,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Raw_Seek@RawFileClass@@IAEJJH@Z",
+   "entry": "006393d0",
+   "body_bytes": 117,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "??_GRawFileClass@@UAEPAXI@Z",
+   "entry": "00639450",
+   "body_bytes": 124,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Is_Open@RawFileClass@@UBE_NXZ",
+   "entry": "006394d0",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  }
+ ],
+ "code_bytes": 2656,
+ "data": [
+  {
+   "symbol": "??_7FileClass@@6B@",
+   "address": "007a8c7c",
+   "bytes": 68,
+   "kind": "vtable",
+   "section": 7
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7FileClass@@6B@",
+   "address": "007a8c7c",
+   "bytes": 68,
+   "kind": "vtable"
+  }
+ ],
+ "failures": [
+  {
+   "section": 8,
+   "symbol": "??_7RawFileClass@@6B@",
+   "reason": "relocation target unbound: ?File_Name@RawFileClass@@UBEPBDXZ"
+  }
+ ],
+ "references_in": [
+  {
+   "site": "0042fd80",
+   "symbol": "?Size@RawFileClass@@UAEJXZ",
+   "target": "00639180",
+   "function_entry": true
+  },
+  {
+   "site": "0042f390",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f390",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f5a0",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f5a0",
+   "symbol": "?Write@RawFileClass@@UAEJPBXJ@Z",
+   "target": "00638e80",
+   "function_entry": true
+  },
+  {
+   "site": "0042f5a0",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f5a0",
+   "symbol": "?Open@RawFileClass@@UAEHH@Z",
+   "target": "00638c00",
+   "function_entry": true
+  },
+  {
+   "site": "0042f5a0",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f5a0",
+   "symbol": "?Write@RawFileClass@@UAEJPBXJ@Z",
+   "target": "00638e80",
+   "function_entry": true
+  },
+  {
+   "site": "0042f5a0",
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "target": "00638d50",
+   "function_entry": true
+  },
+  {
+   "site": "0042f650",
+   "symbol": "?Set_Name@RawFileClass@@UAEPBDPBD@Z",
+   "target": "00638b70",
+   "function_entry": true
+  },
+  {
+   "site": "0042f6e0",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f740",
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "target": "00638d50",
+   "function_entry": true
+  },
+  {
+   "site": "0042f740",
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "target": "00638d50",
+   "function_entry": true
+  },
+  {
+   "site": "0042f740",
+   "symbol": "?Open@RawFileClass@@UAEHH@Z",
+   "target": "00638c00",
+   "function_entry": true
+  },
+  {
+   "site": "0042f740",
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "target": "00638d50",
+   "function_entry": true
+  },
+  {
+   "site": "0042f740",
+   "symbol": "?Open@RawFileClass@@UAEHH@Z",
+   "target": "00638c00",
+   "function_entry": true
+  },
+  {
+   "site": "0042f740",
+   "symbol": "?Open@RawFileClass@@UAEHH@Z",
+   "target": "00638c00",
+   "function_entry": true
+  },
+  {
+   "site": "0042f830",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f830",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f830",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "0042f830",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042f830",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "0042f830",
+   "symbol": "?Write@RawFileClass@@UAEJPBXJ@Z",
+   "target": "00638e80",
+   "function_entry": true
+  },
+  {
+   "site": "0042fa80",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042fa80",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042fa80",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "0042fa80",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042fa80",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "0042fa80",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "0042fc90",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042fc90",
+   "symbol": "?Seek@RawFileClass@@UAEJJH@Z",
+   "target": "00638fb0",
+   "function_entry": true
+  },
+  {
+   "site": "0042fda0",
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "target": "00638d50",
+   "function_entry": true
+  },
+  {
+   "site": "0042fda0",
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "target": "00638d50",
+   "function_entry": true
+  },
+  {
+   "site": "0042f200",
+   "symbol": "?Set_Name@RawFileClass@@UAEPBDPBD@Z",
+   "target": "00638b70",
+   "function_entry": true
+  },
+  {
+   "site": "0042f350",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "0042fdf0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00469220",
+   "symbol": "?Bias@RawFileClass@@QAEXHH@Z",
+   "target": "00639360",
+   "function_entry": true
+  },
+  {
+   "site": "00469220",
+   "symbol": "?Bias@RawFileClass@@QAEXHH@Z",
+   "target": "00639360",
+   "function_entry": true
+  },
+  {
+   "site": "00469350",
+   "symbol": "?Get_Date_Time@RawFileClass@@UAEKXZ",
+   "target": "006392a0",
+   "function_entry": true
+  },
+  {
+   "site": "00469400",
+   "symbol": "?Set_Date_Time@RawFileClass@@UAE_NK@Z",
+   "target": "006392f0",
+   "function_entry": true
+  },
+  {
+   "site": "00670730",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00670730",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005d5e00",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005d5e00",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005d5e00",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005d5e00",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005d5e00",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005d5e00",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005d5e00",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005d5e00",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "007263b0",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "00726580",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "007267c0",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "00726930",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "005b9e80",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005b9e80",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005ba210",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005ba210",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "007391f0",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "00739470",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "00738670",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "00738880",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "00738da0",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "00738fa0",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "0065f980",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "0065f980",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "0042e1a0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "0042e1a0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "0042e1a0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "0042e1a0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "0073c890",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "0073c890",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00670380",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00670380",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00671f00",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00671f00",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00515c90",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00515c90",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005cd3a0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005cd3a0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00515e70",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005989b0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005989b0",
+   "symbol": "?Size@RawFileClass@@UAEJXZ",
+   "target": "00639180",
+   "function_entry": true
+  },
+  {
+   "site": "005989b0",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "005989b0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "target": "00639240",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Open@RawFileClass@@UAEHH@Z",
+   "target": "00638c00",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Write@RawFileClass@@UAEJPBXJ@Z",
+   "target": "00638e80",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Write@RawFileClass@@UAEJPBXJ@Z",
+   "target": "00638e80",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "target": "00638d50",
+   "function_entry": true
+  },
+  {
+   "site": "0059c8b0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Size@RawFileClass@@UAEJXZ",
+   "target": "00639180",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "005c7970",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "target": "00639240",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Open@RawFileClass@@UAEHH@Z",
+   "target": "00638c00",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Write@RawFileClass@@UAEJPBXJ@Z",
+   "target": "00638e80",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Close@RawFileClass@@UAEXXZ",
+   "target": "00638d50",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "target": "00639240",
+   "function_entry": true
+  },
+  {
+   "site": "0066b520",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00514ee0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00514ee0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00577490",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00577490",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00577880",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00577880",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00577880",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00577880",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "005c7570",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "0042ff30",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "0042ff30",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00407a90",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "004016f0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005d97a0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "005d97a0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "005d97a0",
+   "symbol": "?Delete@RawFileClass@@UAEHXZ",
+   "target": "00639240",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "0053b770",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00542d60",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00542d60",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "007395d0",
+   "symbol": "?Create@RawFileClass@@UAEHXZ",
+   "target": "00639200",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "00712b50",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00712d50",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00712d50",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00712d50",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "00712d50",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00712e10",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00712e10",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00712e10",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "00712e10",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00712ed0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00712ed0",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00712ed0",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "00712ed0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00712ed0",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00712ed0",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00712ed0",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "00712ed0",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00713090",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00713090",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00713090",
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "target": "00638d90",
+   "function_entry": true
+  },
+  {
+   "site": "00713090",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00713090",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00595810",
+   "symbol": "?Bias@RawFileClass@@QAEXHH@Z",
+   "target": "00639360",
+   "function_entry": true
+  },
+  {
+   "site": "00595810",
+   "symbol": "?Bias@RawFileClass@@QAEXHH@Z",
+   "target": "00639360",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Set_Name@RawFileClass@@UAEPBDPBD@Z",
+   "target": "00638b70",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Open@RawFileClass@@UAEHH@Z",
+   "target": "00638c00",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "00761890",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  },
+  {
+   "site": "00761890",
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "target": "00638ca0",
+   "function_entry": true
+  },
+  {
+   "site": "00761890",
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "target": "00638ac0",
+   "function_entry": true
+  },
+  {
+   "site": "0068e280",
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "target": "00638b40",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_RawFileReadStopOnError",
+   "address": "00ab663c"
+  },
+  {
+   "symbol": "__imp__CloseHandle@4",
+   "address": "0079a1d4"
+  },
+  {
+   "symbol": "__imp__CreateFileA@28",
+   "address": "0079a1b0"
+  },
+  {
+   "symbol": "__imp__DeleteFileA@4",
+   "address": "0079a128"
+  },
+  {
+   "symbol": "__imp__DosDateTimeToFileTime@12",
+   "address": "0079a1a0"
+  },
+  {
+   "symbol": "__imp__FileTimeToDosDateTime@12",
+   "address": "0079a118"
+  },
+  {
+   "symbol": "__imp__GetFileInformationByHandle@8",
+   "address": "0079a11c"
+  },
+  {
+   "symbol": "__imp__GetFileSize@8",
+   "address": "0079a114"
+  },
+  {
+   "symbol": "__imp__GetLastError@0",
+   "address": "0079a1f4"
+  },
+  {
+   "symbol": "__imp__ReadFile@20",
+   "address": "0079a110"
+  },
+  {
+   "symbol": "__imp__SetFilePointer@16",
+   "address": "0079a1b4"
+  },
+  {
+   "symbol": "__imp__SetFileTime@16",
+   "address": "0079a120"
+  },
+  {
+   "symbol": "__imp__WriteFile@20",
+   "address": "0079a12c"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  },
+  {
+   "symbol": "__strdup",
+   "address": "0078d816"
+  },
+  {
+   "symbol": "_free",
+   "address": "007825e8"
+  }
+ ]
+}
