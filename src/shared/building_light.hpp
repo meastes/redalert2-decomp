@@ -42,10 +42,10 @@ public:
     BuildingLightClass(NoInitClass const &noinit) : ObjectClass(noinit) {}   // (inlined into Load)
     virtual ~BuildingLightClass();                                  // 0x004332F0 (also inlined into 0x00434850)
 
-    void unknown_func_4341d0(TechnoClass *object);                  // 0x004341D0
+    void Init_Rotation_Arc(TechnoClass *object);                    // 0x004341D0
     void Set_Behavior(int behavior);                                // 0x00434370 (name hypothesis)
-    int unknown_func_434530() const;                                // 0x00434530
-    int unknown_func_434610() const;                                // 0x00434610
+    int Detection_Radius() const;                                   // 0x00434530
+    int Sweep_Stage() const;                                        // 0x00434610
 
     virtual HRESULT __stdcall GetClassID(GUID *clsid);              // 0x004340A0 slot 3
     virtual HRESULT __stdcall Load(IStream *stream);                // 0x004340E0 slot 5

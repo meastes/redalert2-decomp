@@ -22,7 +22,7 @@ BuildingLightClass::BuildingLightClass(TechnoClass *owner) :
 {
     BuildingLights.Add(this);
     if (owner != 0) {
-        unknown_func_4341d0(owner);
+        Init_Rotation_Arc(owner);
         BuildingLightClass::unknown_slot53(&CoordStruct(Coord), 0);
         Set_Behavior(1);
         unknown_c0 = BuildingLights.ID(this) % 2 != 0;

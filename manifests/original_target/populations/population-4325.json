@@ -4,8 +4,8 @@
     "id": "population-4325",
     "inventory_sha256": "f7ddb0b6b92bf7dd251e04394e53c5f3a442a680a103437bef94a8752db862b8",
     "gaps_sha256": "b1744b441d9fceece2cf859d039bac44c5a258fd3868c2929580b1a2c3f9cf04",
-    "historical_population_sha256": "fbdda34c9c30f681ff038e318d9ad5e6948bea048df63faa0ee539be6b47f66c",
-    "historical_acceptance_sha256": "0101cd01a996793708a4be37a8f8e5bbe807cc2951e88d2319f6c4edd3f0cfcf"
+    "historical_population_sha256": "3c4d2cd6adbea39ff1accc80fde2b672ae34ed789da7b032b06f952465cdb05f",
+    "historical_acceptance_sha256": "e385457cdd33902675a98d879eab05d6785cc7056d9c16aede509c0645396611"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -16152,9 +16152,9 @@
     "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "?Blend_Source_75@UnknownRemapAlphaBlitter@@QBEXPAGPBEHH0HHH@Z": 4750624,
     "?Set_Behavior@BuildingLightClass@@QAEXH@Z": 4408176,
-    "?unknown_func_434530@BuildingLightClass@@QBEHXZ": 4408624,
+    "?Detection_Radius@BuildingLightClass@@QBEHXZ": 4408624,
     "?unknown_light_scale_79c7a8@@3NB": 7980968,
-    "?unknown_func_434610@BuildingLightClass@@QBEHXZ": 4408848,
+    "?Sweep_Stage@BuildingLightClass@@QBEHXZ": 4408848,
     "?QueryInterface@EnumConnectionsClass@@UAGJABUGUID@@PAPAX@Z": 4792704,
     "_IID_IEnumConnections": 8060160,
     "?Release@EnumConnectionsClass@@UAGKXZ": 4792848,
@@ -22806,7 +22806,7 @@
     "??0?$VectorClass@PAVMSSfxEntry@@@@QAE@IPBQAVMSSfxEntry@@@Z": 7537856,
     "??0?$VectorClass@PAVPlanningNodeClass@@@@QAE@IPBQAVPlanningNodeClass@@@Z": 6405488,
     "??_GLogicClass@@UAEPAXI@Z": 4246288,
-    "?unknown_func_4341d0@BuildingLightClass@@QAEXPAVTechnoClass@@@Z": 4407760,
+    "?Init_Rotation_Arc@BuildingLightClass@@QAEXPAVTechnoClass@@@Z": 4407760,
     "?Compute_Game_CRC@@YIXXZ": 6463392,
     "?Unknown_0053D890@UnknownList832470@@QAEXXZ": 5494928,
     "??_ELogicClass@@UAEPAXI@Z": 4246288,

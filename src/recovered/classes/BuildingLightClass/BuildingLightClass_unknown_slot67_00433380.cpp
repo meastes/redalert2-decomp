@@ -32,9 +32,9 @@
 // @ref ?unknown_func_5ddb90@SpotLightClass@@QAEXXZ=005ddb90
 // @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
 // @ref ??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z=004348f0
-// @ref ?unknown_func_434610@BuildingLightClass@@QBEHXZ=00434610
+// @ref ?Sweep_Stage@BuildingLightClass@@QBEHXZ=00434610
 // @ref ?Length@?$TPoint3D@H@@QBEHXZ=0041b780
-// @ref _?_scale@?1??unknown_func_434530@BuildingLightClass@@QBEHXZ@4NB=0079c7a8
+// @ref _?_scale@?1??Detection_Radius@BuildingLightClass@@QBEHXZ@4NB=0079c7a8
 
 void BuildingLightClass::unknown_slot67(Point2D const &point, Rect const &window)
 {
@@ -52,7 +52,7 @@ void BuildingLightClass::unknown_slot67(Point2D const &point, Rect const &window
     SpotLightClass *spotlight = new SpotLightClass(Position_Coord_004f3f40(), 0x10);
 
     int planar_dist = Distance(Owner->Center_Coord());
-    int stage = unknown_func_434610();
+    int stage = Sweep_Stage();
 
     if (planar_dist > Rules->unknown_6b4 && Behavior == 3) {
         int radius = stage + 80;
@@ -69,7 +69,7 @@ void BuildingLightClass::unknown_slot67(Point2D const &point, Rect const &window
     CoordStruct there = Owner->Center_Coord();
 
     int distance = Distance(there);
-    int detection = unknown_func_434530();
+    int detection = Detection_Radius();
 
     if (distance < detection) {
         return;

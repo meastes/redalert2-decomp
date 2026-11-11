@@ -1,4 +1,4 @@
-// int BuildingLightClass::unknown_func_434610() const (0x00434610)
+// int BuildingLightClass::Sweep_Stage() const (0x00434610)
 // The light's distance from its owner as a step: 0 inside the rules' near
 // range (+0x6B4), then tenths of the span up to the far range (+0x6B0).
 // TibSun blight.cpp Sweep_Stage shape (OpenTS; SPDX-License-Identifier:
@@ -11,7 +11,7 @@
 #include "shared/building_light.hpp"
 #include "shared/rules.hpp"
 
-int BuildingLightClass::unknown_func_434610() const
+int BuildingLightClass::Sweep_Stage() const
 {
     int distance = Distance_To(Owner);
     int near_range = Rules->unknown_6b4;

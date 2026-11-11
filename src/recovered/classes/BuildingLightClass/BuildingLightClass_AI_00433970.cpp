@@ -32,7 +32,7 @@ CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, floa
 // @ref ??0?$TPoint3D@H@@QAE@HHH@Z=0041b630
 // @ref ?Spring@TagClass@@QAE_NHPAVObjectClass@@VCell@@_NH@Z=006b3df0
 // @ref _unknown_geometry_k=0084ea08
-// @ref _?_scale@?1??unknown_func_434530@BuildingLightClass@@QBEHXZ@4NB=0079c7a8
+// @ref _?_scale@?1??Detection_Radius@BuildingLightClass@@QBEHXZ@4NB=0079c7a8
 // @ref __real@8@bffe8000000000000000=0079c9b0
 
 void BuildingLightClass::AI()
@@ -122,7 +122,7 @@ void BuildingLightClass::AI()
         if (owner_building != 0 && owner_building->unknown_7d && owner_building->unknown_slot195() && owner_building->unknown_34 != 0) {
             bool found = false;
             Cell cell = unknown_slot104();
-            int radius = unknown_func_434530();
+            int radius = Detection_Radius();
             int detection = radius + 30;
             HouseClass *house = Owner->House;
 

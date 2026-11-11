@@ -23,7 +23,7 @@ static inline void Move_To(BuildingLightClass *light, CoordStruct const &coord)
 
 // Places the light's two points in front of and behind OBJECT (Rules
 // +0x6B4 ahead, +0x6B0 behind) and moves the light to the front one.
-void BuildingLightClass::unknown_func_4341d0(TechnoClass *object)
+void BuildingLightClass::Init_Rotation_Arc(TechnoClass *object)
 {
     CoordStruct near_point = Coord_Along_Facing(object->unknown_2e0.Current(), Rules->unknown_6b4, object->Coord);
     unknown_ac = near_point;

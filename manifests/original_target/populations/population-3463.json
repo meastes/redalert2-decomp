@@ -4,8 +4,8 @@
     "id": "population-3463",
     "inventory_sha256": "a3c60baecfad77f348b0e3e170d72a077b03542638f4cc6fccf85d32a5965eaf",
     "gaps_sha256": "056a1f15da5301a374d420e771bd033f508a67a332a8a278e663431d39c55408",
-    "historical_population_sha256": "92aea330b5e7ed2e89b783dd4f9f0d171b5b427e39a12338e261795bf8d3d982",
-    "historical_acceptance_sha256": "38f47eb246b3c3c928bf176abc8d028df021a80423262ca6ea743bf417c3cd8b"
+    "historical_population_sha256": "b9e7665dee4ab8773138385466c24959b924537a6f3da2f92811a40701fce46a",
+    "historical_acceptance_sha256": "6f7ec0ad5a485f19e0395d80148cb54f78a5c65e18b7092510a84585b7b2a007"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8225,8 +8225,8 @@
     "?Clear@CounterClass@@UAEXXZ": 4791664,
     "?Update_Rates@FactoryClass@@SIXPAVHouseClass@@@Z": 4955824,
     "?Set_Behavior@BuildingLightClass@@QAEXH@Z": 4408176,
-    "?unknown_func_434530@BuildingLightClass@@QBEHXZ": 4408624,
-    "?unknown_func_434610@BuildingLightClass@@QBEHXZ": 4408848,
+    "?Detection_Radius@BuildingLightClass@@QBEHXZ": 4408624,
+    "?Sweep_Stage@BuildingLightClass@@QBEHXZ": 4408848,
     "_IID_IEnumConnections": 8060160,
     "??_7EnumConnectionsClass@@6B@": 7988732,
     "?Next@EnumConnectionsClass@@UAGJKPAUtagCONNECTDATA@@PAK@Z": 4793008,
@@ -8875,7 +8875,7 @@
     "?Reposition_Sidebar@SidebarClass@@UAEXXZ": 6822304,
     "?AI@SidebarClass@@UAEXAAHABUPoint2D@@@Z": 6806672,
     "?unknown_tileset_a6e018@@3HA": 10936344,
-    "?unknown_func_4341d0@BuildingLightClass@@QAEXPAVTechnoClass@@@Z": 4407760,
+    "?Init_Rotation_Arc@BuildingLightClass@@QAEXPAVTechnoClass@@@Z": 4407760,
     "?unknown_facing_radians_79b620@@3NB": 7976480,
     "?unknown_sin_4ba480@@YANN@Z": 4957312,
     "?unknown_cos_4ba4d0@@YANN@Z": 4957392,
