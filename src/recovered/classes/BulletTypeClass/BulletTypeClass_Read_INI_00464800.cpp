@@ -71,10 +71,10 @@ bool BulletTypeClass::Read_INI(CCINIClass &ini)
         AnimRate = ArtINI.Get_Int(graphic, "AnimRate", AnimRate);
         AnimPalette = ArtINI.Get_Bool(graphic, "AnimPalette", AnimPalette);
         if (!Inviso) {
-            unknown_func_5d7630();
+            Fetch_Normal_Image();
         }
         if (unknown_206) {
-            unknown_func_5d6730();
+            Fetch_Voxel_Image();
         }
         return true;
     }

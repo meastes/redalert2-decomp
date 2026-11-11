@@ -1,4 +1,4 @@
-// void ObjectTypeClass::unknown_func_5d72b0() (0x005D72B0)
+// void ObjectTypeClass::Fetch_Aux_Voxel_Image() (0x005D72B0)
 // For a turreted unit type with an image: loads <image>TUR.VXL and
 // <image>BARL.VXL into unknown_b8 / unknown_c0, each with its .HVA motion
 // scaled by the voxel's first section multiplier.
@@ -23,7 +23,7 @@
 
 extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir, char const *fname, char const *ext);
 
-void ObjectTypeClass::unknown_func_5d72b0()
+void ObjectTypeClass::Fetch_Aux_Voxel_Image()
 {
     if (Kind_Of() == 0x28 && unknown_slot39() != 0 && ((TechnoTypeClass *)this)->Turret) {
         char name[256];

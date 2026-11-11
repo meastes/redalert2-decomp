@@ -4,7 +4,7 @@
 #include "shared/voxel_anim_type.hpp"
 // @ref ?Load@ObjectTypeClass@@UAGJPAUIStream@@@Z=005d7c30
 // @ref ??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z=005d5a80
-// @ref ?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ=005d6730
+// @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
 // @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
 
@@ -21,6 +21,6 @@ HRESULT __stdcall VoxelAnimTypeClass::Load(IStream *stream)
     SwizzleManager.Swizzle((void **)&TrailerAnim);
     SwizzleManager.Swizzle((void **)&Spawns);
     SwizzleManager.Swizzle((void **)&AttachedSystem);
-    unknown_func_5d6730();
+    Fetch_Voxel_Image();
     return S_OK;
 }

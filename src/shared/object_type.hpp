@@ -149,17 +149,17 @@ public:
     // Releases every type's four cached buffers and resets
     // unknown_839aa8 from unknown_839aa4 (name hypothesis).
     static void Clear_Voxel_Indexes();      // 0x005D7EF0
-    void unknown_func_5d6730();             // 0x005D6730 (loads the .VXL voxel; hypothesis)
+    void Fetch_Voxel_Image();               // 0x005D6730 (loads the .VXL voxel; hypothesis)
     // Loads the turret and barrel voxels (<image>TUR / <image>BARL .VXL and
     // .HVA) of a turreted unit type into unknown_b8 and unknown_c0.
-    void unknown_func_5d72b0();             // 0x005D72B0
+    void Fetch_Aux_Voxel_Image();           // 0x005D72B0
     // Loads turret voxel `index` (<image>TUR[n].VXL/.HVA) into
     // unknown_c8[index]; false (and both freed) unless both load.
     bool unknown_func_5d6150(char const *image, int index);    // 0x005D6150
     // The barrel counterpart (<image>BARL[n], unknown_140[index]); a
     // missing .VXL returns true.
     bool unknown_func_5d63f0(char const *image, int index);    // 0x005D63F0
-    void unknown_func_5d7630();             // 0x005D7630 (theater image load; hypothesis)
+    void Fetch_Normal_Image();              // 0x005D7630 (theater image load; hypothesis)
     // Rewrites a file name's second letter for a theater (0x005D7BD0) or to
     // the generic 'G' (0x005D7C20); names hypotheses.
     static void __fastcall Theater_Naming_Convention(char *buffer, int theater);

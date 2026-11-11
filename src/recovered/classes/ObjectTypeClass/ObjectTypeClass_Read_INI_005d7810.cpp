@@ -28,7 +28,7 @@
 // @ref ?From_Name@VocClass@@SIHPBD@Z=00714940
 // @ref ?ArtINI@@3VCCINIClass@@A=008397f0
 // @ref ?unknown_string_83c55c@@3PADA=0083c55c
-// @ref ?unknown_func_5d7630@ObjectTypeClass@@QAEXXZ=005d7630
+// @ref ?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ=005d7630
 // @ref __makepath=007831f0
 // @ref ?Retrieve@MixFileClass@@SIPBXPBD@Z=005956c0
 // @ref ??_C@_04BOIE@?4SHP?$AA@=007ced14
@@ -106,7 +106,7 @@ bool ObjectTypeClass::Read_INI(CCINIClass &ini)
         unknown_207 = ArtINI.Get_Bool(unknown_1c8, "NewTheater", unknown_207);
         unknown_206 = ArtINI.Get_Bool(unknown_1c8, "Voxel", unknown_206);
         if (!unknown_206) {
-            unknown_func_5d7630();
+            Fetch_Normal_Image();
         }
 
         if (unknown_1e3[0] != 0) {

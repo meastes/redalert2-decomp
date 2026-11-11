@@ -680,9 +680,9 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
         unknown_af5 = MovementZone == 6;
 
         if (unknown_206) {
-            unknown_func_5d6730();
+            Fetch_Voxel_Image();
         } else if (Turret) {
-            unknown_func_5d72b0();
+            Fetch_Aux_Voxel_Image();
         }
         if (unknown_b0.unknown_00 != 0 && !unknown_b0.unknown_00->LoadFailed) {
             unknown_330 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a1 * 0.5f + 0.5;

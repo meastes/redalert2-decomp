@@ -13,7 +13,7 @@ void AnimTypeClass::unknown_slot40(int theater)
 {
     if (!DemandLoad) {
         if (unknown_1fc) {
-            unknown_func_5d7630();
+            Fetch_Normal_Image();
         } else {
             if (unknown_a4 != 0 && unknown_a8) {
                 operator delete(unknown_a4);

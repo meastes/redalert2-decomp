@@ -12,8 +12,8 @@
 // @ref ??_G?$DynamicVectorClass@H@@UAEPAXI@Z=0046cf50
 // @ref ?Load@TechnoTypeClass@@UAGJPAUIStream@@@Z=006de260
 // @ref ??0TechnoTypeClass@@QAE@ABVNoInitClass@@@Z=006da6e0
-// @ref ?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ=005d6730
-// @ref ?unknown_func_5d7630@ObjectTypeClass@@QAEXXZ=005d7630
+// @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
+// @ref ?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ=005d7630
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
 // @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
 // @ref ??0?$DynamicVectorClass@PAVAnimTypeClass@@@@QAE@IPBQAVAnimTypeClass@@@Z=0050b480
@@ -46,8 +46,8 @@ HRESULT __stdcall InfantryTypeClass::Load(IStream *stream)
     HRESULT result = TechnoTypeClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) InfantryTypeClass(NoInitClass());
-        unknown_func_5d6730();
-        unknown_func_5d7630();
+        Fetch_Voxel_Image();
+        Fetch_Normal_Image();
         Load_List(stream, VoiceComment);
         Load_List(stream, DeadBodies);
         int index;

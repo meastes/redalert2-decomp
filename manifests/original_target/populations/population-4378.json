@@ -4,8 +4,8 @@
     "id": "population-4378",
     "inventory_sha256": "b3bd2ecf3efc152c46932e33b18c72b7bcc7a53bf12c2be63e594e123f7a15f4",
     "gaps_sha256": "4a5690b66c405687735ff5bece50400359e5f27481176c79472b35d6d2a919b4",
-    "historical_population_sha256": "9c32ebccb3581ef2b8ed2b200f270083fee9dc43b123c10f0759b78aa5376e00",
-    "historical_acceptance_sha256": "0482a0c9e92a067ac28db14e384fd6d029fa5aa0490421557946a3d8a90418e2"
+    "historical_population_sha256": "a3aeccb21bfe29e9b5fa77e5757c9bb3e7623de3d475abf8ca781bec605772c0",
+    "historical_acceptance_sha256": "a0802285427ab63badd03722f1675983a0929f9bb5fe64fd2025be91a76996e1"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1751,7 +1751,7 @@
     "?Get_RGB@CCINIClass@@QBE?AVRGBClass@@PBD0ABV2@@Z": 4628496,
     "?From_Name@VocClass@@SIHPBD@Z": 7424320,
     "?ArtINI@@3VCCINIClass@@A": 8624112,
-    "?unknown_func_5d7630@ObjectTypeClass@@QAEXXZ": 6125104,
+    "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ": 6125104,
     "??_C@_0BB@LLC@IgnoresFirestorm?$AA@": 8290644,
     "??_C@_0BD@COFP@HasRadialIndicator?$AA@": 8290676,
     "??_C@_0BD@GPAN@AlternateArcticArt?$AA@": 8290772,
@@ -1807,8 +1807,8 @@
     "?unknown_slot36@ObjectTypeClass@@UBEPBVCell@@H@Z": 6118800,
     "?One_Time@ObjectTypeClass@@SAXXZ": 6118912,
     "?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z": 6119360,
-    "?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ": 6121264,
-    "?unknown_func_5d72b0@ObjectTypeClass@@QAEXXZ": 6124208,
+    "?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ": 6121264,
+    "?Fetch_Aux_Voxel_Image@ObjectTypeClass@@QAEXXZ": 6124208,
     "?Read_INI@ObjectTypeClass@@UAE_NAAVCCINIClass@@@Z": 6125584,
     "?Theater_Naming_Convention@ObjectTypeClass@@SIXPADH@Z": 6126544,
     "?Generic_Naming_Convention@ObjectTypeClass@@": 6126624,
@@ -12271,7 +12271,9 @@
     "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
     "?Clear@AStarClass@@QAEXXZ": 4357776,
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
-    "__real@8@3ffefd70a3d70a3d7000": 7986552
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488
   },
   "regions": [
     {
@@ -14985,8 +14987,8 @@
     {
       "entry": 6121264,
       "method": "005d6730",
-      "symbol": "?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ",
+      "symbol": "?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ",
+      "symbol_prefix": "?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -16328,20 +16330,20 @@
           "resolved": 4293230772
         }
       ],
-      "source_sha256": "6964e3bfb76829186b982d196f25b1e225051f23be05f1b295f261ccea4c4c70",
-      "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_unknown_func_5d6730_005d6730.cpp",
+      "source_sha256": "e1b34fbfddb302b7e101bf0f2254b93cc17628c1b992c164766c8933050e043c",
+      "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Fetch_Voxel_Image_005d6730.cpp",
       "population": "population-4378",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ObjectTypeClass_unknown_func_5d6730_005d6730",
+      "semantic_name": "ObjectTypeClass_Fetch_Voxel_Image_005d6730",
       "source_order": 232430
     },
     {
       "entry": 6124208,
       "method": "005d72b0",
-      "symbol": "?unknown_func_5d72b0@ObjectTypeClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_5d72b0@ObjectTypeClass@@QAEXXZ",
+      "symbol": "?Fetch_Aux_Voxel_Image@ObjectTypeClass@@QAEXXZ",
+      "symbol_prefix": "?Fetch_Aux_Voxel_Image@ObjectTypeClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -16803,20 +16805,20 @@
           "resolved": 4293229868
         }
       ],
-      "source_sha256": "a11e1a461b1fdb3a4a8eb27e95c2ab2955001c63bf1d3008c431cea7e543f1b1",
-      "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_unknown_func_5d72b0_005d72b0.cpp",
+      "source_sha256": "cc1ad6520a0b46a5e741a811c5b1f2dc569f55b55c92461e16e8ec9e50b16aa6",
+      "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Fetch_Aux_Voxel_Image_005d72b0.cpp",
       "population": "population-4378",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ObjectTypeClass_unknown_func_5d72b0_005d72b0",
+      "semantic_name": "ObjectTypeClass_Fetch_Aux_Voxel_Image_005d72b0",
       "source_order": 232431
     },
     {
       "entry": 6125104,
       "method": "005d7630",
-      "symbol": "?unknown_func_5d7630@ObjectTypeClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_5d7630@ObjectTypeClass@@QAEXXZ",
+      "symbol": "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ",
+      "symbol_prefix": "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -16934,13 +16936,13 @@
           "resolved": 4294696695
         }
       ],
-      "source_sha256": "532c77c11f002a7002ca13337028b637d26fd703c4d78084d7c958e56f97dbb1",
-      "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_unknown_func_5d7630_005d7630.cpp",
+      "source_sha256": "8e342e1e9d1e41c333bd2ce5e8ee1859af5112bb8e5bd85f5fa45989efd081ca",
+      "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Fetch_Normal_Image_005d7630.cpp",
       "population": "population-4378",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ObjectTypeClass_unknown_func_5d7630_005d7630",
+      "semantic_name": "ObjectTypeClass_Fetch_Normal_Image_005d7630",
       "source_order": 232432
     },
     {
@@ -17435,7 +17437,7 @@
         {
           "offset": 871,
           "kind": 20,
-          "symbol": "?unknown_func_5d7630@ObjectTypeClass@@QAEXXZ",
+          "symbol": "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ",
           "target": 6125104,
           "addend": 0,
           "resolved": 4294965941
@@ -17465,7 +17467,7 @@
           "resolved": 4294695695
         }
       ],
-      "source_sha256": "2cb9bd61352a08191160803f4b07fb04261e0fe7e2eb73fc227111e28b10a53f",
+      "source_sha256": "41346d615bf679b0206fe061b9c6c336c6dcb145c3ab3a4b794c9942bb97bd5e",
       "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Read_INI_005d7810.cpp",
       "population": "population-4378",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

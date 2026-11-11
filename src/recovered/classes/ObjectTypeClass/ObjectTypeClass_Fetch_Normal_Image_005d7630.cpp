@@ -1,4 +1,4 @@
-// void ObjectTypeClass::unknown_func_5d7630() (0x005D7630)
+// void ObjectTypeClass::Fetch_Normal_Image() (0x005D7630)
 // (Re)loads the image for the current theater: arctic-art types switch to
 // their "A" image once in the snow theater (theater 1); the file name gets
 // the theater suffix (Theater=) or theater letter (NewTheater=); any owned
@@ -24,7 +24,7 @@
 
 extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir, char const *fname, char const *ext);
 
-void ObjectTypeClass::unknown_func_5d7630()
+void ObjectTypeClass::Fetch_Normal_Image()
 {
     char fullname[260];
     if (unknown_1e1 && unknown_id_source_a3d290->Theater == 1 && !unknown_a8) {

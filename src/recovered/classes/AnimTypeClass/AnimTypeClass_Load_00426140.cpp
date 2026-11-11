@@ -6,7 +6,7 @@
 #include "shared/cc_file_class.hpp"
 #include "shared/mix_file_class.hpp"
 // @ref ?Load@ObjectTypeClass@@UAGJPAUIStream@@@Z=005d7c30
-// @ref ?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ=005d6730
+// @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
 // @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
@@ -18,8 +18,8 @@ HRESULT __stdcall AnimTypeClass::Load(IStream *stream)
         return result;
     }
     new (this) AnimTypeClass(NoInitClass());
-    unknown_func_5d6730();
-    unknown_func_5d7630();
+    Fetch_Voxel_Image();
+    Fetch_Normal_Image();
     SwizzleManager.Swizzle((void **)&Next);
     SwizzleManager.Swizzle((void **)&ExpireAnim);
     SwizzleManager.Swizzle((void **)&TrailerAnim);

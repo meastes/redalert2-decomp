@@ -1,4 +1,4 @@
-// void ObjectTypeClass::unknown_func_5d6730() (0x005D6730)
+// void ObjectTypeClass::Fetch_Voxel_Image() (0x005D6730)
 // Loads the type's voxel: <image>.VXL/.HVA into unknown_b0; for unit
 // types without a turret the water (<image>W, the APC only) and
 // no-spawn-alternate (<image>WO, NoSpawnAlt=) images into unknown_b8; else
@@ -35,7 +35,7 @@
 
 extern "C" void __cdecl _makepath(char *path, char const *drive, char const *dir, char const *fname, char const *ext);
 
-void ObjectTypeClass::unknown_func_5d6730()
+void ObjectTypeClass::Fetch_Voxel_Image()
 {
     char name[256];
     char fullname[260];

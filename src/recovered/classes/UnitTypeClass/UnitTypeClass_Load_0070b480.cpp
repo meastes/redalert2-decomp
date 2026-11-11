@@ -9,8 +9,8 @@
 // @ref ??_7UnitTypeClass@@6BIRTTITypeInfo@@@=007ae30c
 // @ref ??_7UnitTypeClass@@6BINoticeSink@@@=007ae304
 // @ref ??_7UnitTypeClass@@6BINoticeSource@@@=007ae2fc
-// @ref ?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ=005d6730
-// @ref ?unknown_func_5d7630@ObjectTypeClass@@QAEXXZ=005d7630
+// @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
+// @ref ?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ=005d7630
 // @ref ??_C@_04BOIE@?4SHP?$AA@=007ced14
 // @ref __makepath=007831f0
 // @ref ?Retrieve@MixFileClass@@SIPBXPBD@Z=005956c0
@@ -22,8 +22,8 @@ HRESULT __stdcall UnitTypeClass::Load(IStream *stream)
         return result;
     }
     new (this) UnitTypeClass(NoInitClass());
-    unknown_func_5d6730();
-    unknown_func_5d7630();
+    Fetch_Voxel_Image();
+    Fetch_Normal_Image();
     if (AltImage) {
         char filename[260];
         _makepath(filename, 0, 0, AltImageFile, ".SHP");

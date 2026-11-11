@@ -4,8 +4,8 @@
     "id": "population-4341",
     "inventory_sha256": "a1b03d8d4359f17cd961dfd86c92f0787e6cdaace52ee238303b1e88b9effeb7",
     "gaps_sha256": "8ba322497a7c0747637109524718b9f5de4b94b6e276af787b9c9075604d1eca",
-    "historical_population_sha256": "fc6388ba564c5e3b38062ee182bd93dd2acca38465b8c26a8fae6a4cb78aa631",
-    "historical_acceptance_sha256": "2534e7566c0c2cf59e0f9032ee761736a9150338309143f8aa8dc9487f3365e9"
+    "historical_population_sha256": "fcb0bbf61144242a67ce657a6da2c562030059e08b6e869ab1a5c369b5d6d707",
+    "historical_acceptance_sha256": "944628d45c2a0691df6c4d38f70d8ac814893dba5897b397e89b9c4682718aca"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3847,8 +3847,8 @@
     "?Name_From@AnimTypeClass@@SIPBDH@Z": 4347424,
     "?From_Name@AnimTypeClass@@SIHPBD@Z": 4347456,
     "?Load@AnimTypeClass@@UAGJPAUIStream@@@Z": 4350272,
-    "?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ": 6121264,
-    "?unknown_func_5d7630@ObjectTypeClass@@QAEXXZ": 6125104,
+    "?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ": 6121264,
+    "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ": 6125104,
     "?Compute_CRC@AnimTypeClass@@UBEXAAVWWCRCEngine@@@Z": 4350720,
     "?unknown_slot39@AnimTypeClass@@UBEPAXXZ": 4351312,
     "?Theater_Naming_Convention@ObjectTypeClass@@SIXPADH@Z": 6126544,
@@ -4735,7 +4735,7 @@
     "?unknown_59ed30@UnknownPairSecond@@QAEXM@Z": 5893424,
     "?unknown_func_5d63f0@ObjectTypeClass@@QAE_NPBDH@Z": 6120432,
     "?unknown_func_5d66a0@ObjectTypeClass@@QAEXXZ": 6121120,
-    "?unknown_func_5d72b0@ObjectTypeClass@@QAEXXZ": 6124208,
+    "?Fetch_Aux_Voxel_Image@ObjectTypeClass@@QAEXXZ": 6124208,
     "??1UnknownBuffer@@QAE@XZ": 6127728,
     "?Find_From_Name@ObjectTypeClass@@SIPAV1@PBD@Z": 6127264,
     "?Clear_Voxel_Indexes@ObjectTypeClass@@SAXXZ": 6127344,
@@ -10187,7 +10187,10 @@
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "??_EXSurface@@UAEPAXI@Z": 4264736,
     "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488
   },
   "regions": [
     {
@@ -20648,7 +20651,7 @@
         {
           "offset": 12505,
           "kind": 20,
-          "symbol": "?unknown_func_5d6730@ObjectTypeClass@@QAEXXZ",
+          "symbol": "?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ",
           "target": 6121264,
           "addend": 0,
           "resolved": 4293887731
@@ -20656,7 +20659,7 @@
         {
           "offset": 12524,
           "kind": 20,
-          "symbol": "?unknown_func_5d72b0@ObjectTypeClass@@QAEXXZ",
+          "symbol": "?Fetch_Aux_Voxel_Image@ObjectTypeClass@@QAEXXZ",
           "target": 6124208,
           "addend": 0,
           "resolved": 4293890656
@@ -20702,7 +20705,7 @@
           "resolved": 7986560
         }
       ],
-      "source_sha256": "40b2eba0289fa23a4afd8ee8a1bf36886f831345db4ac0d4c9fdd5d5bda74635",
+      "source_sha256": "0fa8a41e28629e0a3eb0d7f013b6e72809bd9c150851f85c1b915d1099894fb9",
       "source": "src/recovered/classes/TechnoTypeClass/TechnoTypeClass_Read_INI_006daf60.cpp",
       "population": "population-4341",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

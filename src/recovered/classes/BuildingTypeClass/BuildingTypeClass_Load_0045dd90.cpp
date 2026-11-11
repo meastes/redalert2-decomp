@@ -36,7 +36,7 @@ HRESULT __stdcall BuildingTypeClass::Load(IStream *stream)
             DockingOffsets[index] = point;
         }
         unknown_func_459640();
-        unknown_func_5d7630();
+        Fetch_Normal_Image();
         unknown_bf0 = 0;
         FoundationData = unknown_foundation_cells_84ede8[Foundation];
         FoundationOutside = unknown_foundation_outside_84f848[Foundation];
