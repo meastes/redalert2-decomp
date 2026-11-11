@@ -1,7 +1,7 @@
 // ApplicationClass (RTTI; vtable 0x0079C3E4, bases IApplication and
 // IUnknown): the scripting application object, the global at 0x0084C7DC
 // (constructor 0x00426B00 stores only its vtable). Slot order from the
-// vtable; slot names past IUnknown are hypotheses from their bodies.
+// vtable; slot names past IUnknown from TibSun app.h.
 #ifndef RA2_SHARED_APPLICATION_HPP
 #define RA2_SHARED_APPLICATION_HPP
 
@@ -34,14 +34,14 @@ extern char unknown_map_object_8324e0;            // 0x008324E0 (only its addres
 
 class __declspec(novtable) IApplication : public IUnknown {
 public:
-    virtual HRESULT __stdcall unknown_slot3_name(BSTR *name) = 0;                // 0x00426D20
-    virtual HRESULT __stdcall unknown_slot4_short_name(BSTR *name) = 0;          // 0x00426D50
-    virtual long __stdcall unknown_slot5() = 0;                                  // 0x00426DA0
-    virtual HRESULT __stdcall unknown_slot6_scenario_name(BSTR *name) = 0;       // 0x00426DB0
-    virtual HRESULT __stdcall unknown_slot7_frame(long *frame) = 0;              // 0x00426E00
-    virtual HRESULT __stdcall unknown_slot8(void *a, void *b) = 0;               // 0x00426E50
-    virtual HRESULT __stdcall unknown_slot9_self(void **object) = 0;             // 0x00426D00
-    virtual HRESULT __stdcall unknown_slot10_self(void **object) = 0;            // 0x00426D80
+    virtual HRESULT __stdcall get_FullName(BSTR *name) = 0;                      // 0x00426D20
+    virtual HRESULT __stdcall get_Name(BSTR *name) = 0;                          // 0x00426D50
+    virtual long __stdcall Quit() = 0;                                           // 0x00426DA0
+    virtual HRESULT __stdcall get_ScenarioName(BSTR *name) = 0;                  // 0x00426DB0
+    virtual HRESULT __stdcall get_FrameCount(long *frame) = 0;                   // 0x00426E00
+    virtual HRESULT __stdcall get_Swizzle_Interface(void *a, void *b) = 0;       // 0x00426E50
+    virtual HRESULT __stdcall App_Interface(void **object) = 0;                  // 0x00426D00
+    virtual HRESULT __stdcall Application_Interface(void **object) = 0;          // 0x00426D80
 };
 
 class ApplicationClass : public IApplication {
@@ -49,14 +49,14 @@ public:
     virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);     // 0x00426C60
     virtual unsigned long __stdcall AddRef();                                    // 0x00426CE0
     virtual unsigned long __stdcall Release();                                   // 0x00426CF0
-    virtual HRESULT __stdcall unknown_slot3_name(BSTR *name);
-    virtual HRESULT __stdcall unknown_slot4_short_name(BSTR *name);
-    virtual long __stdcall unknown_slot5();
-    virtual HRESULT __stdcall unknown_slot6_scenario_name(BSTR *name);
-    virtual HRESULT __stdcall unknown_slot7_frame(long *frame);
-    virtual HRESULT __stdcall unknown_slot8(void *a, void *b);
-    virtual HRESULT __stdcall unknown_slot9_self(void **object);
-    virtual HRESULT __stdcall unknown_slot10_self(void **object);
+    virtual HRESULT __stdcall get_FullName(BSTR *name);
+    virtual HRESULT __stdcall get_Name(BSTR *name);
+    virtual long __stdcall Quit();
+    virtual HRESULT __stdcall get_ScenarioName(BSTR *name);
+    virtual HRESULT __stdcall get_FrameCount(long *frame);
+    virtual HRESULT __stdcall get_Swizzle_Interface(void *a, void *b);
+    virtual HRESULT __stdcall App_Interface(void **object);
+    virtual HRESULT __stdcall Application_Interface(void **object);
 };
 
 #endif
