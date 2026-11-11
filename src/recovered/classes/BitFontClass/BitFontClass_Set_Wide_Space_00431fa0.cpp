@@ -1,8 +1,8 @@
-// void BitFontClass::unknown_431fa0() (0x00431FA0)
+// void BitFontClass::Set_Wide_Space() (0x00431FA0)
 // One pixel taller, with the ideographic space (U+3000) twice as wide as the space.
 #include "shared/text_print.hpp"
 
-void BitFontClass::unknown_431fa0()
+void BitFontClass::Set_Wide_Space()
 {
     if (Data) {
         Height++;

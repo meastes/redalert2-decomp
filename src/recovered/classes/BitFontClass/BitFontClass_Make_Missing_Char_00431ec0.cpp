@@ -1,11 +1,11 @@
-// void BitFontClass::unknown_431ec0() (0x00431EC0)
+// void BitFontClass::Make_Missing_Char() (0x00431EC0)
 // Keeps an inverted copy of the 'X' glyph in unknown_08.
 #include "shared/text_print.hpp"
 // @ref _malloc=00782630
 
 // Never expanded inline in its unit (both callers call it).
 #pragma auto_inline(off)
-void BitFontClass::unknown_431ec0()
+void BitFontClass::Make_Missing_Char()
 {
     unknown_08 = malloc(Data->unknown_08 * Data->Width + 2);
     unsigned char *glyph = Glyph_Data('X');

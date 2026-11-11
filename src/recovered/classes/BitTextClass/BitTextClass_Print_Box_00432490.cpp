@@ -86,7 +86,7 @@ bool BitTextClass::Print_Box(BitFontClass *font, Surface *surface, wchar_t const
     }
 
     font->Set_Surface(surface);
-    font->Set_unknown_20(x);
+    font->Set_Tab_Origin(x);
 
     wchar_t const *start = text;
     int liney = 0;

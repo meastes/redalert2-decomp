@@ -8,7 +8,7 @@
 // @ref ??_7BitFontClass@@6B@=0079c788
 // @ref __imp__SetRect@20=0079a4a8
 // @ref ?Load_Font_Data@BitFontClass@@SIPAUFontDataType@@PBD@Z=00431150
-// @ref ?unknown_431ec0@BitFontClass@@QAEXXZ=00431ec0
+// @ref ?Make_Missing_Char@BitFontClass@@QAEXXZ=00431ec0
 
 inline void BitFontClass::Reset()
 {

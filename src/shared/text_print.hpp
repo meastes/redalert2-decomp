@@ -89,18 +89,18 @@ public:
     // (0x00431F50; Draw_Char 0x004318E0 expands it).
     void *Missing_Glyph(unsigned short *color);
 #endif
-    void unknown_431ec0();                                                          // 0x00431EC0 (inverted copy of 'X' in unknown_08)
-    void unknown_431f70();                                                          // 0x00431F70 (one pixel taller, space one wider)
-    void unknown_431fa0();                                                          // 0x00431FA0 (one pixel taller, U+3000 twice the space)
+    void Make_Missing_Char();                                                       // 0x00431EC0 (inverted copy of 'X' in unknown_08)
+    void Widen_Space();                                                             // 0x00431F70 (one pixel taller, space one wider)
+    void Set_Wide_Space();                                                          // 0x00431FA0 (one pixel taller, U+3000 twice the space)
     bool Intersect_Rect(tagRECT *result, tagRECT const *a, tagRECT const *b);      // 0x00432000 (empty 0,0,-1,-1 when they do not meet)
     void Set_Surface(Surface *surface);                                             // 0x004320B0 (locks it; clip box defaults to it)
     void Release_Surface(Surface *surface);                                         // 0x00432150 (unlocks it)
-    void Set_unknown_20(int value);                                                 // 0x004318D0
+    void Set_Tab_Origin(int value);                                                 // 0x004318D0
     int Draw_Char(wchar_t character, int x, int y, int arg4);                       // 0x004318E0
     int Draw_String(wchar_t const *text, int x, int y, int arg4, int arg5);         // 0x00431CC0
     unsigned short Set_Color(unsigned short color);                                 // 0x00431430 (returns the old one)
     // Stores value at +0x26 and returns the text colour (0x00431440; unreferenced).
-    unsigned short Unknown_00431440(unsigned short value);
+    unsigned short Set_Shadow_Color(unsigned short value);
     unsigned char Set_Clipping(unsigned char clip);                                 // 0x00431450 (returns the old one)
     void Set_Clip_Box(tagRECT const *box);                                          // 0x00431460
     bool Get_Text_Area(wchar_t const *text, int *width, int *height, int max_width);   // 0x004314B0 (false without font or text; name hypothesis)
