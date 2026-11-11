@@ -7,7 +7,7 @@
 #include "shared/house_screen.hpp"
 // @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 
 bool Tactical::Unknown_006AAD70()
 {
@@ -19,7 +19,7 @@ bool Tactical::Unknown_006AAD70()
                     object->unknown_slot81();
                     return true;
                 }
-            } else if (!object->Owning_House()->Unknown_004F52B0()) {
+            } else if (!object->Owning_House()->Is_Player_Control()) {
                 object->unknown_slot81();
                 return true;
             }

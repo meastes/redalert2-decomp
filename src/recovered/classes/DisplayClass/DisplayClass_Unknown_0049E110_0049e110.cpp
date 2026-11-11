@@ -9,7 +9,7 @@
 // @ref ?Layer@DisplayClass@@2PAVLayerClass@@A=00852578
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 
 void DisplayClass::Unknown_0049E110(bool skip_buildings, bool arg2)
@@ -22,7 +22,7 @@ void DisplayClass::Unknown_0049E110(bool skip_buildings, bool arg2)
         if (techno->Kind_Of() == 6 && skip_buildings) {
             continue;
         }
-        if (techno->House->Unknown_004F52B0()) {
+        if (techno->House->Is_Player_Control()) {
             if (techno->unknown_373) {
                 techno->unknown_slot70(false, arg2);
             }

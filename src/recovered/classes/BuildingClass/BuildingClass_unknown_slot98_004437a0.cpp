@@ -8,7 +8,7 @@
 #include "shared/building.hpp"
 #include "shared/house.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z=00713db0
 
@@ -39,7 +39,7 @@ void BuildingClass::unknown_slot98(int mode)
             unknown_slot116(0x13, false);
             Commence();
         }
-        if (House->Unknown_004F52B0()) {
+        if (House->Is_Player_Control()) {
             Voc_Play(Rules->unknown_62c, 1.0f, 0x2000, 0);
         }
     } else if (Type->FirestormWall) {

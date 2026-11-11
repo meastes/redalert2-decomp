@@ -23,7 +23,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,270,482 of 3,515,700 (93.03%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,886 of 17,987 (99.44%) |
-| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 94 of 101 scored) | 98.98% by bytes, 99.85% per function |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 94 of 101 scored) | 98.90% by bytes, 99.85% per function |
 | Original .text scaffold bytes | 247,589 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 697 |
@@ -2333,6 +2333,8 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `5c4372a32` | 2026-11-11 01:50 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `3a3a53e49` | 2026-11-11 01:54 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `4d26f0fa4` | 2026-11-11 01:58 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `036e40916` | 2026-11-11 02:02 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `cfbf729f9` | 2026-11-11 02:08 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 
 <!-- /generated:status -->
 

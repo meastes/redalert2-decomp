@@ -1,7 +1,7 @@
 // int __fastcall Unknown_006F7DF0(TechnoClass *techno, int argument) (0x006F7DF0)
 // Whether a player-side techno in play is not a building (kind 6).
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
 #include "shared/uicmnds.hpp"
 

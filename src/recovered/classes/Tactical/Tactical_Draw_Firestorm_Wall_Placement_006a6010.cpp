@@ -27,7 +27,7 @@ void Tactical::Draw_Firestorm_Wall_Placement(bool drawtrans, Cell cell)
         for (; count < range; count++) {
             scan = Adjacent_Cell(scan, facing);
             BuildingClass *building = (BuildingClass *)Map[scan].Cell_Building();
-            if (building != 0 && building->Type->FirestormWall && building->House->Unknown_004F52B0()) {
+            if (building != 0 && building->Type->FirestormWall && building->House->Is_Player_Control()) {
                 found = true;
                 break;
             }

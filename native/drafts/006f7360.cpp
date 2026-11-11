@@ -7,7 +7,7 @@
 // @ref ?unknown_find_name_index@@YIHABV?$DynamicVectorClass@PBD@@PBD@Z=006f6c90
 // @ref ?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z=006f8b40
 // @ref ?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_flag_ac133c@@3_NA=00ac133c
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
 // @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60

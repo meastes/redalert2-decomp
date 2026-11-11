@@ -24,7 +24,7 @@ inline bool Is_Player_Side(TechnoClass *techno)
     if (unknown_game_mode_a3d298 == 0) {
         return techno->House->unknown_135;
     }
-    return techno->House->Unknown_004F52B0();
+    return techno->House->Is_Player_Control();
 }
 
 // A pointer list as the callbacks see it (DynamicVectorClass<T *>: Items at +4,

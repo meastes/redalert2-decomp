@@ -31,7 +31,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
     if (action == 8) {
         return 8;
     }
-    if (unknown_6c16f0(-1) < 0 && House->Unknown_004F52B0() && action != 4) {
+    if (unknown_6c16f0(-1) < 0 && House->Is_Player_Control() && action != 4) {
         if (House->Is_Ally((TechnoClass *)object)) {
             if (object->unknown_slot31() && object != this && object->unknown_slot30()) {
                 if (object->Kind_Of() != 2 || Map[object->Center_Coord()].Cell_Building() == 0) {
@@ -97,12 +97,12 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
         }
     }
     TechnoClass *techno = As_Techno_0040dbd0(object);
-    if (House->Unknown_004F52B0() && techno != 0 && techno->House->Is_Ally(this)) {
+    if (House->Is_Player_Control() && techno != 0 && techno->House->Is_Ally(this)) {
         if (object->Kind_Of() == 6 && unknown_slot150(0xF, (TechnoClass *)object) == 1) {
             action = 3;
         }
     }
-    if (House->Unknown_004F52B0() && action == 7) {
+    if (House->Is_Player_Control() && action == 7) {
         if (object->Kind_Of() == 6) {
             UnknownBuildingView_00703bd0 *building = (UnknownBuildingView_00703bd0 *)object;
             if (building->Type->UnitRepair && unknown_slot150(0xF, building) == 1 && !building->In_Radio_Contact() && building->Cargo.Object == 0) {
@@ -115,7 +115,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
         }
     }
     if (action != 0x1F) {
-        if (House->Is_Ally((TechnoClass *)object) && House->Unknown_004F52B0() && As_Techno_0040dbd0(object) != 0 && action != 5 && action != 0x1D && action != 0x1A) {
+        if (House->Is_Ally((TechnoClass *)object) && House->Is_Player_Control() && As_Techno_0040dbd0(object) != 0 && action != 5 && action != 0x1D && action != 0x1A) {
             TechnoTypeClass *type = object->unknown_slot32();
             if (object != this && type != 0 && type->Passengers > 0) {
                 if (object != 0 && object->AbstractFlags.IsFoot && static_cast<FootClass *>(object)->Locomotor.Checked()->Is_Moving()) {
@@ -133,7 +133,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
             }
         }
     }
-    if (action == 0 && House->Unknown_004F52B0()) {
+    if (action == 0 && House->Is_Player_Control()) {
         action = 2;
     }
     if (action == 5 && !unknown_slot185()) {

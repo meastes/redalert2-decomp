@@ -260,7 +260,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         int count = unknown_list_a40c20.Count();
         for (i = 0; i < count; i++) {
             TechnoClass *techno = unknown_list_a40c20[i];
-            if (techno->House->Unknown_004F52B0()) {
+            if (techno->House->Is_Player_Control()) {
                 if (!planning && techno->unknown_77) {
                     if (unknown_bool_7f7110) {
                         techno->unknown_slot243(false, 0);

@@ -176,7 +176,7 @@ void EventClass::Execute()
         } else {
             anim = new AnimClass(AnimTypes[Data.LongsCell.Long1], coord, 0, 1, 0x600, 0);
         }
-        if (anim && LongAt(0x0B) != -1 && !Houses[LongAt(0x0B)]->Unknown_004F52B0()) {
+        if (anim && LongAt(0x0B) != -1 && !Houses[LongAt(0x0B)]->Is_Player_Control()) {
             anim->unknown_17d = true;
         }
         break;
@@ -437,11 +437,11 @@ void EventClass::Execute()
         index = Data.LongsCell.Long1;
         house = Houses[index];
         if (unknown_game_mode_a3d298 == 4 && unknown_flag_a3fba8) {
-            if (house->unknown_func_4f52f0()) {
+            if (house->Is_Human_Player()) {
                 unknown_OwnerTalkClass_00ab6d18.Unknown_0063FE20(index);
             }
         }
-        if ((unknown_game_mode_a3d298 == 4 && unknown_b2a7ec) || house->unknown_func_4f52f0()) {
+        if ((unknown_game_mode_a3d298 == 4 && unknown_b2a7ec) || house->Is_Human_Player()) {
             house->unknown_func_4e7e80();
         }
         break;

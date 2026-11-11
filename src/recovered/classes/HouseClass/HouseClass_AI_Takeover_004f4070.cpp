@@ -1,7 +1,7 @@
 // @ref ??_C@_08CJPC@Computer?$AA@=007daa28
 // @ref ??_C@_0N@LAJB@TXT_COMPUTER?$AA@=007d1634
 // @ref ??_C@_03JACL@GDI?$AA@=007daa24
-// void HouseClass::unknown_func_4f4070() (0x004F4070): the AI takes over this house (TibSun AI_Takeover):
+// void HouseClass::AI_Takeover() (0x004F4070): the AI takes over this house (TibSun AI_Takeover):
 // name, factories, handicap, base centre, then rebuilds the base nodes from the buildings it owns.
 #include "shared/house.hpp"
 #include "shared/house_type.hpp"
@@ -16,14 +16,14 @@
 #include "shared/crt_string.hpp"
 #include "shared/ini_class.hpp"
 // A computer house in a network game. The query is one level down here: the original calls
-// Unknown_004F52B0 out of line at this site and expands it at the first one.
+// Is_Player_Control out of line at this site and expands it at the first one.
 inline bool Is_Network_Computer(HouseClass *house)
 {
-    return !house->unknown_func_4f52f0() && unknown_game_mode_a3d298 != 0;
+    return !house->Is_Human_Player() && unknown_game_mode_a3d298 != 0;
 }
-void HouseClass::unknown_func_4f4070()
+void HouseClass::AI_Takeover()
 {
-    if (!unknown_func_4f52f0()) return;
+    if (!Is_Human_Player()) return;
     unknown_134=false;
     unknown_135=false;
     unknown_194=Rules->MaxIQ;

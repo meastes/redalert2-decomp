@@ -53,8 +53,8 @@ clear_force_fire:
     TechnoClass *target = static_cast<TechnoClass *>(object);
     BuildingClass *building = static_cast<BuildingClass *>(object);
     {
-        if (Type->Engineer && House->Unknown_004F52B0() && object->unknown_38 && object->unknown_68) return 0x39;
-        if (Type->Engineer && object->Kind_Of() == 6 && House->Unknown_004F52B0() &&
+        if (Type->Engineer && House->Is_Player_Control() && object->unknown_38 && object->unknown_68) return 0x39;
+        if (Type->Engineer && object->Kind_Of() == 6 && House->Is_Player_Control() &&
             !object->unknown_slot31() && building->Type->Repairable) {
             if (building->Type->BridgeRepairHut) {
                 Cell cell = Coord_Cell(object->Center_Coord());
@@ -70,12 +70,12 @@ clear_force_fire:
                 return 0x1c;
             }
         }
-        if (object->Kind_Of() == 6 && House->Unknown_004F52B0() && building->Unknown_00452EB0(this) && !force_fire) {
+        if (object->Kind_Of() == 6 && House->Is_Player_Control() && building->Unknown_00452EB0(this) && !force_fire) {
 return_capture_action:
             return 9;
         }
         if (Type->Engineer && action == 5) return 2;
-        if (unknown_6c16f0(-1) < 0 && House->Unknown_004F52B0()) {
+        if (unknown_6c16f0(-1) < 0 && House->Is_Player_Control()) {
             if (House->Is_Ally(target)) {
                 if (object->Kind_Of() == 15) {
                     if (object != this) {
@@ -89,7 +89,7 @@ return_capture_action:
                 }
             } else return 0x3b;
         }
-        if (House->Unknown_004F52B0() && Type->VehicleThief && object->unknown_slot31()) {
+        if (House->Is_Player_Control() && Type->VehicleThief && object->unknown_slot31()) {
             if (target->unknown_slot32()->IsTrain) return 7;
             if (target->House != House) {
                 if ((unknown_id_source_a3d290->unknown_000 & 0x800) != 0) {
@@ -100,7 +100,7 @@ return_capture_action:
                 return 9;
             }
         }
-        if (object->Kind_Of() == 6 && House->Is_Ally(target) && House->Unknown_004F52B0() && building->Type->Hospital && !force_fire) {
+        if (object->Kind_Of() == 6 && House->Is_Ally(target) && House->Is_Player_Control() && building->Type->Hospital && !force_fire) {
             if (Strength < Type->MaxStrength) {
                 if (!Type->Deployer || (Sequence != 27 && Sequence != 28 && Sequence != 29 && Sequence != 30)) {
                     switch (unknown_slot150(15,target)) {
@@ -110,7 +110,7 @@ return_capture_action:
                 }
             } else action = 0x1f;
         }
-        if (object->Kind_Of() == 6 && House->Is_Ally(target) && House->Unknown_004F52B0() && building->Type->Armory) {
+        if (object->Kind_Of() == 6 && House->Is_Ally(target) && House->Is_Player_Control() && building->Type->Armory) {
             if (!unknown_118.Is_Elite()) {
                 if (!Type->Deployer || (Sequence != 27 && Sequence != 28 && Sequence != 29 && Sequence != 30)) {
                     switch (unknown_slot150(15,target)) {
@@ -120,17 +120,17 @@ return_capture_action:
                 }
             } else action = 0x1f;
         }
-        if (House->Unknown_004F52B0() && (Type->C4 || unknown_6d7910(14)) && action == 5 && object->Kind_Of() == 6 && !object->unknown_slot31()) {
+        if (House->Is_Player_Control() && (Type->C4 || unknown_6d7910(14)) && action == 5 && object->Kind_Of() == 6 && !object->unknown_slot31()) {
             if (building->Type->CanC4 && !building->Type->InvisibleInGame) return 0x10;
             return 5;
         }
         WeaponTypeClass *weapon = unknown_slot231(unknown_slot174(object))->WeaponType;
         if (action == 5 && weapon && weapon->unknown_115) return 0x40;
-        if (House->Unknown_004F52B0() && action == 5 && Type->Ivan) {
+        if (House->Is_Player_Control() && action == 5 && Type->Ivan) {
             if (object->Class_Of()->unknown_1fe && !object->unknown_38) return 0x35;
             return 0x36;
         }
-        if (House->Unknown_004F52B0() && Type->Deployer && (Sequence == 27 || Sequence == 28 || Sequence == 29 || Sequence == 30)) {
+        if (House->Is_Player_Control() && Type->Deployer && (Sequence == 27 || Sequence == 28 || Sequence == 29 || Sequence == 30)) {
             if (action == 1) return 2;
             if (action == 5) {
                 if (!Type->DeployFire) goto stop_deployed_fire;
@@ -147,7 +147,7 @@ deployed_fire_allowed:;
                 if (Type->UndeployDelay > -1) return 0x1e;
             }
         }
-        if (House->Unknown_004F52B0()) {
+        if (House->Is_Player_Control()) {
             if (action == 4) {
                 if (Type->Deployer && Type->UndeployDelay > -1 && Sequence == 31) return 0x1e;
                 goto check_action_four;
@@ -157,7 +157,7 @@ deployed_fire_allowed:;
         if (action == 4) {
 check_action_four:
             if (Infantry_Action_Allowed_00614b50(4)) {
-                if (!House->Unknown_004F52B0()) action = 0;
+                if (!House->Is_Player_Control()) action = 0;
                 else {
                     if (unknown_slot229()->WeaponType && unknown_slot229()->WeaponType->unknown_126) action = 0x34;
                     else if (!Type->Deployer) action = 0;
@@ -168,7 +168,7 @@ check_action_31:
             if (action == 0x1f) goto infiltration;
         }
         TechnoTypeClass *transport_type;
-        if (House->Is_Ally(target) && House->Unknown_004F52B0() && As_Techno_0040dbd0(object) &&
+        if (House->Is_Ally(target) && House->Is_Player_Control() && As_Techno_0040dbd0(object) &&
             action != 5 && action != 0x1a && (transport_type = target->unknown_slot32()) != 0 && transport_type->Passengers > 0) {
             if (Type->BalloonHover) action = 0x1f;
             else {
@@ -186,7 +186,7 @@ check_action_31:
             }
         }
 infiltration:
-        if (House->Unknown_004F52B0() && Type->Infiltrate) {
+        if (House->Is_Player_Control() && Type->Infiltrate) {
             if (action != 5) goto cloning;
             if ((!Type->Agent && !House->Is_Ally(target) && object->Kind_Of() == 6 && building->Type->Capturable) ||
                 (Type->Agent && !House->Is_Ally(target) && object->Kind_Of() == 6 && building->Type->Spyable)) {
@@ -217,12 +217,12 @@ infiltration:
             if (!unknown_slot163()) action = 0x3b;
         } else {
 cloning:
-            if (action == 7 && object->Kind_Of() == 6 && House->Unknown_004F52B0() && !object->unknown_slot31() && building->Type->Cloning)
+            if (action == 7 && object->Kind_Of() == 6 && House->Is_Player_Control() && !object->unknown_slot31() && building->Type->Cloning)
                 return object->Owning_House() != unknown_player_a35db4 ? 0x1f : 0xb;
             goto finish;
         }
 finish:
-        if (House->Unknown_004F52B0() && action == 0) {
+        if (House->Is_Player_Control() && action == 0) {
             if (unknown_slot111() || unknown_slot112()) goto return_selected_action;
             action = 2;
         }

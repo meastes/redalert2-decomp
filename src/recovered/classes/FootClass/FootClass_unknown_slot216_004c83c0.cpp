@@ -5,14 +5,14 @@
 #include "shared/foot.hpp"
 #include "shared/house.hpp"
 #include "shared/techno_type.hpp"
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Speech_Play_Name@@YIXPBDHH@Z=00715b40
 // @ref ?Unknown_0063B5B0@@YI_NHVCell@@@Z=0063b5b0
 // @ref ??_C@_0N@PGLC@EVA_UnitLost?$AA@=007d82c0
 
 void FootClass::unknown_slot216(int arg1)
 {
-    if (House->Unknown_004F52B0() && !unknown_slot32()->Spawned) {
+    if (House->Is_Player_Control() && !unknown_slot32()->Spawned) {
         if (Unknown_0063B5B0(7, unknown_slot104())) {
             Speech_Play_Name("EVA_UnitLost", -1, -1);
         }

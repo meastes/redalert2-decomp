@@ -37,7 +37,7 @@ inline bool Scroll_Key_Down(int key)
 // @ref ?WWKeyboard@@3PAVWWKeyboardClass@@A=00832468
 // @ref _unknown_geometry_g=00ab70c8
 // @ref ?Next_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@PBV2@@Z=00724f80
-// @ref ?unknown_func_4ed2b0@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z=004ed2b0
+// @ref ?Fetch_Waypoint_Data@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z=004ed2b0
 
 int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
 {
@@ -75,7 +75,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         }
 
         if (Map.unknown_11ac) {
-            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Unknown_004F52B0() && object->unknown_slot36()) {
+            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->unknown_slot36()) {
                 action = 10;
             } else {
                 action = 15;
@@ -84,7 +84,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
 
         if (Map.unknown_11ae) {
             action = 0x22;
-            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Unknown_004F52B0()
+            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control()
                     && object->Kind_Of() == 6 && object->unknown_slot76() && !object->unknown_slot31()) {
                 BuildingTypeClass *type = ((BuildingClass *)object)->Type;
                 if (type->TogglePower && (type->PowerDrain_c6c > 0 || type->Powered)) {
@@ -93,13 +93,13 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
             }
         }
 
-        WaypointClass *waypoint = unknown_player_a35db4->unknown_func_4ed200(cell);
+        WaypointClass *waypoint = unknown_player_a35db4->Waypoint_At(cell);
         if (Map.unknown_11af) {
             bool force = Scroll_Key_Down(KeyForceMove1) || Scroll_Key_Down(KeyForceMove2);
             int path = -1;
             char position;
             if (waypoint != 0) {
-                unknown_player_a35db4->unknown_func_4ed2b0(waypoint, &path, &position);
+                unknown_player_a35db4->Fetch_Waypoint_Data(waypoint, &path, &position);
             }
             if (Map.unknown_11b8 != 0) {
                 action = 0x30;
@@ -122,7 +122,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
         }
 
         if (Map.unknown_11ad) {
-            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Unknown_004F52B0() && object->unknown_slot37()) {
+            if (object != 0 && object->Owning_House() != 0 && object->Owning_House()->Is_Player_Control() && object->unknown_slot37()) {
                 if (object->Kind_Of() == 6) {
                     action = object->unknown_slot31() ? 14 : 12;
                 } else {
@@ -133,7 +133,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
                 coord.Z = Map.Get_Height_GL(coord);
                 if (!Map.Is_Shrouded(coord) && !Map.Is_Fogged(coord)
                         && Map[cell].OverlayIndex != -1 && OverlayTypes[Map[cell].OverlayIndex]->Wall
-                        && Map[cell].unknown_50 != -1 && Houses[Map[cell].unknown_50]->Unknown_004F52B0()) {
+                        && Map[cell].unknown_50 != -1 && Houses[Map[cell].unknown_50]->Is_Player_Control()) {
                     action = 12;
                 } else {
                     action = 14;

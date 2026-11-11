@@ -26,7 +26,7 @@ CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, boo
 // @ref ?Closest_Free_Spot@UnknownPlacementCellView@@=004764b0
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z=004e55e0
-// @ref ?unknown_func_4f52f0@HouseClass@@=004f52f0
+// @ref ?Is_Human_Player@HouseClass@@=004f52f0
 // @ref ?Is_Clear_To_Move@CellClass@@=00478760
 // @ref ?Coord_Scatter@@=00491750
 // @ref ?Create_Scorch@SmudgeTypeClass@@=00688460
@@ -68,7 +68,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
                     if(attacker && !House->Is_Ally(attacker)) {
                         survivor->unknown_slot116(1,false);
                         survivor->unknown_slot220(attacker);
-                    } else if(House->unknown_func_4f52f0()) {
+                    } else if(House->Is_Human_Player()) {
                         survivor->unknown_slot116(2,false);
                     } else {
                         survivor->unknown_slot116(15,false);

@@ -36,7 +36,7 @@ void UnitClass::unknown_slot312(Surface &surface, Point2D point, Rect window, in
         break;
     }
     if (unknown_slot111() || unknown_slot112()) flags |= 4;
-    if (House->Unknown_004F52B0() && unknown_slot48()) flags = unknown_slot244(flags);
+    if (House->Is_Player_Control() && unknown_slot48()) flags = unknown_slot244(flags);
     Blitter *blitter = ColorSchemes[House->ColorSchemeIndex]->Converter->Select_Blitter_00485AA0(flags);
     Rect destination(unknown_unit_rect_ad0490.X + point.X - 128,
                      unknown_unit_rect_ad0490.Y + point.Y - 128,

@@ -71,14 +71,14 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
             if(!unknown_slot212(object,which)) return false;
         }
     }
-    if(House->Unknown_004F52B0() && !tech->unknown_372 && !tech->unknown_373 && unknown_game_mode_a3d298==0 && object->Kind_Of()!=2) return false;
+    if(House->Is_Player_Control() && !tech->unknown_372 && !tech->unknown_373 && unknown_game_mode_a3d298==0 && object->Kind_Of()!=2) return false;
     if(object->Kind_Of()==6 && static_cast<BuildingClass *>(object)->Type->InvisibleInGame) return false;
     int otype=object->Kind_Of();
     if(!((1<<otype)&mask) && (!(mask&2) || !object->unknown_slot31())) return false;
     TechnoTypeClass *tclass=object->unknown_slot32();
     if(!tclass->unknown_201) return false;
     if(unknown_game_mode_a3d298!=0 && tech->House->Type->MultiplayPassive) {
-        if(House->unknown_func_4f52f0() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
+        if(House->Is_Human_Player() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
         InfantryClass *inf=static_cast<InfantryClass *>(this);
         bool defense=false;
         if(inf->Team && inf->Team->Class->IsBaseDefense) defense=true;
@@ -89,7 +89,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         if(unknown_game_mode_a3d298==0 || defense || (!capture && !occupy)) return false;
     }
     if(tclass->unknown_202 && (object->Kind_Of()!=6 || tech->House->Type->MultiplayPassive)) {
-        if(House->unknown_func_4f52f0() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
+        if(House->Is_Human_Player() || object->Kind_Of()!=6 || Kind_Of()!=15) return false;
         InfantryClass *inf=static_cast<InfantryClass *>(this);
         bool defense=false;
         if(inf->Team && inf->Team->Class->IsBaseDefense) defense=true;
@@ -102,7 +102,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if(tclass->IsTrain && Kind_Of()==15 && static_cast<InfantryClass *>(this)->Type->VehicleThief) return false;
     if(object->unknown_slot49(House) && !unknown_slot32()->DetectDisguise) {
         if(!tech->unknown_184.Value()) return false;
-        if(House->unknown_func_4f52f0()) return false;
+        if(House->Is_Human_Player()) return false;
         int roll=unknown_id_source_a3d290->Random()(0,99);
         if(roll>Rules->DisabledDisguiseDetectionPercent[House->unknown_c8]) return false;
     }
@@ -113,7 +113,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
     if((method&0x200) && (otype!=6 || !static_cast<BuildingTypeClass *>(tclass)->Capturable)) return false;
     bool foot=false;
     if(this) foot=AbstractFlags.IsFoot;
-    if((!foot || !static_cast<FootClass *>(this)->Team) && House->unknown_func_4f52f0() && !object->unknown_slot31() && otype==6) {
+    if((!foot || !static_cast<FootClass *>(this)->Team) && House->Is_Human_Player() && !object->unknown_slot31() && otype==6) {
         WeaponStruct *armed=tech->unknown_slot230();
         if((!armed || !armed->WeaponType || !object->unknown_slot32()->ThreatPosed) && !engineer) return false;
     }

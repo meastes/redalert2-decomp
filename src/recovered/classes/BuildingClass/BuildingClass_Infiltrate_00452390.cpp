@@ -36,27 +36,27 @@ extern char const unknown_eva_007cfb74[];
 void BuildingClass::Unknown_00452390(HouseClass *house)
 {
     bool visible = false;
-    if(House->Unknown_004F52B0() || house->Unknown_004F52B0()) {
+    if(House->Is_Player_Control() || house->Is_Player_Control()) {
         if(Unknown_0063B5B0(9, unknown_slot104())) visible = true;
     }
     BuildingTypeClass *type = Type;
     if(type->Radar) {
         House->unknown_func_4f5880();
-        if(House->Unknown_004F52B0() && !House->unknown_566a && visible)
+        if(House->Is_Player_Control() && !House->unknown_566a && visible)
             Speech_Play_Name(unknown_eva_007cfb74,-1,-1);
-        if(house->Unknown_004F52B0() && !House->unknown_566a && visible)
+        if(house->Is_Player_Control() && !House->unknown_566a && visible)
             Speech_Play_Name(unknown_eva_007cfb54,-1,-1);
     } else if(type->Power > 0) {
         House->unknown_func_4f5800(Rules->SpyPowerBlackout);
-        if(House->Unknown_004F52B0() && visible) {
+        if(House->Is_Player_Control() && visible) {
             Speech_Play_Name(unknown_eva_007cfb40,-1,-1);
-        } else if(house->Unknown_004F52B0() && visible) {
+        } else if(house->Is_Player_Control() && visible) {
             Speech_Play_Name(unknown_eva_007cfb28,-1,-1);
             Speech_Play_Name(unknown_eva_007cfb0c,-1,-1);
         }
     } else if(type->SuperWeapon != -1) {
         House->Supers[type->SuperWeapon]->unknown_69ebb0();
-        if(House->Unknown_004F52B0() || (house->Unknown_004F52B0() && visible))
+        if(House->Is_Player_Control() || (house->Is_Player_Control() && visible))
             Speech_Play_Name(unknown_eva_007cfb28,-1,-1);
     } else {
         for(int index=0;index<Rules->BuildTech.Count();++index) {
@@ -64,9 +64,9 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
                 if(House->unknown_130 == 0) house->unknown_205 = true;
                 else house->unknown_204 = true;
                 house->unknown_144 = true;
-                if(House->Unknown_004F52B0() && visible)
+                if(House->Is_Player_Control() && visible)
                     Speech_Play_Name(unknown_eva_007cfac8,-1,-1);
-                if(house->Unknown_004F52B0() && visible) {
+                if(house->Is_Player_Control() && visible) {
                     Speech_Play_Name(unknown_eva_007cfb28,-1,-1);
                     Speech_Play_Name(unknown_eva_007cfaac,-1,-1);
                 }
@@ -77,17 +77,17 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
             int stolen = (int)(House->Available_Money() * Rules->SpyMoneyStealPercent);
             House->Unknown_004E5280(stolen);
             house->Refund_Money(stolen);
-            if(House->Unknown_004F52B0() && visible)
+            if(House->Is_Player_Control() && visible)
                 Speech_Play_Name(unknown_eva_007cfafc,-1,-1);
-            if(house->Unknown_004F52B0() && visible)
+            if(house->Is_Player_Control() && visible)
                 Speech_Play_Name(unknown_eva_007cfae0,-1,-1);
         } else if(type->Factory == 40) {
             house->unknown_207 = true;
             house->unknown_144 = true;
-            if(house->Unknown_004F52B0()) unknown_flag_8373c2 = true;
-            if(House->Unknown_004F52B0() && visible)
+            if(house->Is_Player_Control()) unknown_flag_8373c2 = true;
+            if(House->Is_Player_Control() && visible)
                 Speech_Play_Name(unknown_eva_007cfac8,-1,-1);
-            if(house->Unknown_004F52B0() && visible) {
+            if(house->Is_Player_Control() && visible) {
                 Speech_Play_Name(unknown_eva_007cfb28,-1,-1);
                 Speech_Play_Name(unknown_eva_007cfaac,-1,-1);
             }
@@ -95,10 +95,10 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
         } else if(type->Factory == 16) {
             house->unknown_206 = true;
             house->unknown_144 = true;
-            if(house->Unknown_004F52B0()) unknown_flag_8373c2 = true;
-            if(House->Unknown_004F52B0() && visible)
+            if(house->Is_Player_Control()) unknown_flag_8373c2 = true;
+            if(House->Is_Player_Control() && visible)
                 Speech_Play_Name(unknown_eva_007cfac8,-1,-1);
-            if(house->Unknown_004F52B0() && visible) {
+            if(house->Is_Player_Control() && visible) {
                 Speech_Play_Name(unknown_eva_007cfb28,-1,-1);
                 Speech_Play_Name(unknown_eva_007cfaac,-1,-1);
             }

@@ -25,7 +25,7 @@ void BuildingClass::Draw_Selection_Overlay_0043b660(Point2D const &point, Rect c
     }
     if ((unknown_1a8 & (1 << unknown_player_a35db4->Type->House)) && unknown_77) {
         FactoryClass *factory;
-        if (House->unknown_func_4f52f0()) factory = House->unknown_func_4eb580(Type->Factory, Type->Naval, 0);
+        if (House->Is_Human_Player()) factory = House->unknown_func_4eb580(Type->Factory, Type->Naval, 0);
         else factory = static_cast<FactoryClass *>(unknown_41c);
         if (factory) {
             TechnoClass *product = factory->Get_Object();

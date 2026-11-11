@@ -103,7 +103,7 @@ void BuildingClass::unknown_slot282(bool captured)
         if (Type->DetectDisguise) unknown_slot290(grand_none_0084ed10);
         unknown_5ad = true;
     }
-    if (Type->RevealToAll && !House->Unknown_004F52B0()) {
+    if (Type->RevealToAll && !House->Is_Player_Control()) {
         if (!captured) {
             unknown_slot262(false, false, true, unknown_player_a35db4);
             CoordStruct coordinate = Coord;
@@ -111,7 +111,7 @@ void BuildingClass::unknown_slot282(bool captured)
         }
         Unknown_0063B5B0(12, Cell(Position_Coord_004f3f40()));
     }
-    if (!House->Unknown_004F52B0() && unknown_int_a3d548 == 0 && unknown_game_mode_a3d298 != 0 &&
+    if (!House->Is_Player_Control() && unknown_int_a3d548 == 0 && unknown_game_mode_a3d298 != 0 &&
         (Type->SuperWeapon == -1 || !Supers[Type->SuperWeapon]->Type->AuxBuilding ||
          House->unknown_5460.unknown_func_491d10(Supers[Type->SuperWeapon]->Type->AuxBuilding->ArrayIndex) != 0)) {
         switch (Type->SuperWeapon) {
@@ -133,7 +133,7 @@ void BuildingClass::unknown_slot282(bool captured)
     House->unknown_5669 = true;
     if (unknown_slot32()->GapGenerator) unknown_slot235();
     if (Type->FreeUnit && unknown_a40774 == 0 && !captured && !Debug_Map &&
-        (!House->unknown_func_4f52f0() || unknown_258 == 0 || unknown_258 > Type->Raw_Cost())) {
+        (!House->Is_Human_Player() || unknown_258 == 0 || unknown_258 > Type->Raw_Cost())) {
         Cell origin(Center_Coord());
         short south_y = (short)(origin.Y + grand_south_step_00851a80.Y);
         short south_x = (short)(origin.X + grand_south_step_00851a80.X);

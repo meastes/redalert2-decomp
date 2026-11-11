@@ -35,7 +35,7 @@ void Tactical::Unknown_006AABC0(Rect const *rect, void (__fastcall *callback)(Ob
                             }
                         }
                         HouseClass *house = object->Owning_House();
-                        if (house != 0 && house->Unknown_004F52B0() && object->unknown_slot76()
+                        if (house != 0 && house->Is_Player_Control() && object->unknown_slot76()
                             && (object->Kind_Of() != 6 || undeploys) && object->unknown_slot80()) {
                             unknown_sound_enabled_7d88d6 = false;
                         }

@@ -18,7 +18,7 @@
 // @ref ?Frame@@3HA=00a40d2c
 // @ref ?Unknown_0047CE70@UnknownCellClass@@QAEHXZ=0047ce70
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
 // @ref ?Unknown_00405D50@UnknownAudioController@@QAEXXZ=00405d50
 // @ref ?Unknown_00406070@UnknownAudioController@@QAEXXZ=00406070
@@ -173,7 +173,7 @@ void FootClass::AI()
     if (unknown_37d != unknown_37e) {
         if (unknown_37d) {
             unknown_43c.Unknown_00406070();
-            if (unknown_slot32()->VoiceCrashing != -1 && House->Unknown_004F52B0()) {
+            if (unknown_slot32()->VoiceCrashing != -1 && House->Is_Player_Control()) {
                 Voc_Play_At(unknown_slot32()->VoiceCrashing, CoordStruct(Coord), 0);
             }
             if (unknown_slot32()->CrashingSound != -1) {

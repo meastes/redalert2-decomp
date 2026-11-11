@@ -26,7 +26,7 @@ void MapClass::Set_Local_Dimensions(Rect const &rect)
         TechnoClass *techno = unknown_list_a40c20[index];
         bool was = techno->unknown_32d;
         techno->unknown_32d = Unknown_0055A660(techno->unknown_slot104(), true);
-        if (!was && techno->unknown_32d && techno->House->Unknown_004F52B0()
+        if (!was && techno->unknown_32d && techno->House->Is_Player_Control()
             && techno->Kind_Of() != 6 && techno->unknown_7d && !techno->unknown_76) {
             techno->unknown_slot70(false, false);
         }

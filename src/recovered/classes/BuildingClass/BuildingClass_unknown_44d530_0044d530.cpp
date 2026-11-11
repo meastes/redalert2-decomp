@@ -11,7 +11,7 @@
 #include "shared/rules.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?unknown_44d6c0@BuildingClass@@QAEXXZ=0044d6c0
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_func_4f3170@HouseClass@@QAEXH_NH@Z=004f3170
 // @ref ?unknown_func_4eeb90@HouseClass@@QAEXXZ=004eeb90
 // @ref ?Speech_Play_Name@@YIXPBDHH@Z=00715b40
@@ -26,7 +26,7 @@ void BuildingClass::unknown_44d530()
         House->unknown_5669 = true;
         House->unknown_144 = true;
         unknown_44d6c0();
-        if (House->Unknown_004F52B0()) {
+        if (House->Is_Player_Control()) {
             Speech_Play_Name("EVA_BuildingOffLine", -1, -1);
         }
         if (Type->Factory) {

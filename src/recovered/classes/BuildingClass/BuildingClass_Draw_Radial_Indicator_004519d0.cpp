@@ -6,7 +6,7 @@ extern "C" __declspec(dllimport) unsigned long __stdcall timeGetTime();
 void __fastcall Draw_Radial_Indicator_00451BF0(unsigned int radius,unsigned char mode,
     CoordStruct center,RGBClass color,bool filled,bool radius_is_pixels);
 // @ref ?unknown_451930@BuildingClass@@=00451930
-// @ref ?Unknown_004F52B0@HouseClass@@=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@=004f52b0
 // @ref ?Draw_Radial_Indicator_00451BF0@@=00451bf0
 // @ref ?Adjust@RGBClass@@=0063cf20
 // @ref __real@8@3ffe8000000000000000=0079a728
@@ -18,7 +18,7 @@ void __fastcall Draw_Radial_Indicator_00451BF0(unsigned int radius,unsigned char
 void BuildingClass::unknown_slot74(int arg1)
 {
     unsigned int radius=(unsigned int)unknown_451930();
-    if((int)radius>0 && unknown_530 && House->Unknown_004F52B0()) {
+    if((int)radius>0 && unknown_530 && House->Is_Player_Control()) {
         if(Type->ConcentricRadialIndicator) {
             static RGBClass white(255,255,255);
             RGBClass color=House->unknown_55e9;

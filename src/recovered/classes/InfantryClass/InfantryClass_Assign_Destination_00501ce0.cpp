@@ -24,7 +24,7 @@ inline UnitClass *As_Unit(AbstractClass *object)
 }
 void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
 {
-    if (Owning_House()->unknown_func_4f52f0()) {
+    if (Owning_House()->Is_Human_Player()) {
         if (Sequence==27 || Sequence==28 || Sequence==29 || Sequence==30) return;
     }
     if (Type->JumpJet && target) {
@@ -34,7 +34,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
         Map[Center_Coord()].Is_Clear_To_Move(Type->SpeedType,true,false,-1,0,-1,true)) {
         if (Type->JumpJet || Mission!=1 || unknown_494!=target) unknown_slot291();
     }
-    if (House->unknown_func_4f52f0() && target && unknown_494==target &&
+    if (House->Is_Human_Player() && target && unknown_494==target &&
         unknown_5c3 && !Type->Fraidycat && !Type->Cyborg) unknown_slot311(7,false,false);
     if (Get_Mission()==7 || MissionQueue==7) {
         if (!In_Radio_Contact()) {

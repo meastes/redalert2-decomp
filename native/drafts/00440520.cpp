@@ -222,7 +222,7 @@ exitcell.X += random; exitcell.Y += random;
                             base->Assign_Destination(&Map[exitcell], 1);
                         }
                     }
-                    if (!House->unknown_func_4f52f0() || Type->Hospital) {
+                    if (!House->Is_Human_Player() || Type->Hospital) {
                         base->unknown_slot116(0xB, 0);
                         Cell dest = House->Unknown_004EB270(foot);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
@@ -269,7 +269,7 @@ exitcell.X += random; exitcell.Y += random;
                 if (base->unknown_slot53(&exitcoord, dir)) {
                     base->unknown_slot116(2, 0);
                     base->Assign_Destination(&Map[exitcell], 1);
-                    if (!House->unknown_func_4f52f0()) {
+                    if (!House->Is_Human_Player()) {
                         base->unknown_slot116(0xB, 0);
                         Cell dest = House->Unknown_004EB270((FootClass *)base);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
@@ -298,7 +298,7 @@ exitcell.X += random; exitcell.Y += random;
         --unknown_a40774;
         return 0;
     case 6:
-        if (!House->unknown_func_4f52f0()) {
+        if (!House->Is_Human_Player()) {
             House->unknown_func_4f3720(6);
             House->unknown_553c = -1;
             BuildingClass *building = (BuildingClass *)base;

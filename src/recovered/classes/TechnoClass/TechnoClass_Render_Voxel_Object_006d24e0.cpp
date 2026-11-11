@@ -42,7 +42,7 @@ SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const 
     }
     SurfaceRegion region=VoxelDrawSystem::Render();
     if (unknown_slot111() || unknown_slot112()) flags|=4;
-    if (House->Unknown_004F52B0() && unknown_slot48()) flags=unknown_slot244(flags);
+    if (House->Is_Player_Control() && unknown_slot48()) flags=unknown_slot244(flags);
     Rect cliprect=xcliprect;
     if (unknown_surface_83995c!=unknown_surface_ad0604) {
         if (unknown_322>0) {

@@ -70,12 +70,12 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
     }
     unknown_32b=false;
     if(Type->LaserFencePost) { unknown_44dc40(0); }
-    if(House->Unknown_004F52B0() || newowner->Unknown_004F52B0()) {
+    if(House->Is_Player_Control() || newowner->Is_Player_Control()) {
         if(!newowner->Type->MultiplayPassive && (char)announce) {
             if(Type->NeedsEngineer) {
                 if(House!=newowner) {
-                    if(House->Unknown_004F52B0()) { Speech_Play_Name(capture_eva_tech_lost_007cf958,-1,-1); }
-                    if(newowner->Unknown_004F52B0()) { Speech_Play_Name(capture_eva_tech_007cf93c,-1,-1); }
+                    if(House->Is_Player_Control()) { Speech_Play_Name(capture_eva_tech_lost_007cf958,-1,-1); }
+                    if(newowner->Is_Player_Control()) { Speech_Play_Name(capture_eva_tech_007cf93c,-1,-1); }
                 }
             } else {
                 if(Unknown_0063B5B0(10,unknown_slot104())) { Speech_Play_Name(capture_eva_building_007cf924,-1,-1); }
@@ -148,7 +148,7 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
     oldowner->unknown_func_4e8640();
     House->unknown_func_4e8640();
     if(House->unknown_5410==this) { House->unknown_5410=0; }
-    if(oldowner->Unknown_004F52B0() && Type->ConstructionYard) {
+    if(oldowner->Is_Player_Control() && Type->ConstructionYard) {
         Map.unknown_11a0=0;Map.unknown_11a4=0;Map.unknown_11a8=-1;
         Map.Unknown_00498F10(0);
     }
@@ -159,7 +159,7 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
         unknown_44dbe0();
         Building_Reset_Fence_Progress_0044e570(this);
     }
-    if(House->Unknown_004F52B0()) {unknown_slot262(false,false,false,0);Map.Flag_To_Redraw(1);}
+    if(House->Is_Player_Control()) {unknown_slot262(false,false,false,0);Map.Flag_To_Redraw(1);}
     if(unknown_1a8 & (1<<newowner->Type->House)) { unknown_1a8 &= ~(1<<newowner->Type->House); }
     Update_Anim_Appearance_0044d190();
     if(Rules->unknown_7c8.Is_Present(Type)) { newowner->unknown_50.Add(this); }
@@ -176,7 +176,7 @@ bool BuildingClass::unknown_slot222(HouseClass *newowner, int announce)
         record=reestablish[i];
         if(record->WasTethered) {unknown_370=true;record=reestablish[i];record->Contact->unknown_370=true;}
     }
-    if(unknown_game_mode_a3d298!=0 && !newowner->unknown_func_4f52f0()) {
+    if(unknown_game_mode_a3d298!=0 && !newowner->Is_Human_Player()) {
         Building_Refund_Upgrades_00452710(this);
     }
     oldowner->unknown_144=true;newowner->unknown_144=true;

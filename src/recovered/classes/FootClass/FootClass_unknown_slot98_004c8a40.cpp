@@ -5,7 +5,7 @@
 #include "shared/foot.hpp"
 #include "shared/house.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Speech_Play_Name@@YIXPBDHH@Z=00715b40
 // @ref ?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z=00713db0
 // @ref ?Refund_Money@HouseClass@@QAEXH@Z=004e5440
@@ -14,7 +14,7 @@
 void FootClass::unknown_slot98(int arg1)
 {
     if (arg1) {
-        if (House->Unknown_004F52B0()) {
+        if (House->Is_Player_Control()) {
             Speech_Play_Name("EVA_UnitSold", -1, -1);
             Voc_Play(Rules->unknown_5c4, 1.0f, 0x2000, 0);
         }

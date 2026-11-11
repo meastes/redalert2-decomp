@@ -38,7 +38,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
         return 0;
     }
     if (unknown_slot111()) {
-        if (unknown_slot163() && House->Unknown_004F52B0() && object->Owner() != Owner()) {
+        if (unknown_slot163() && House->Is_Player_Control() && object->Owner() != Owner()) {
             return 0;
         }
         if (unknown_32c && unknown_372) {
@@ -49,7 +49,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
         }
         return 7;
     }
-    if (object == this && unknown_objects_a40c60.Count() == 1 && object->unknown_38 != 0 && object->unknown_38->unknown_28->Unknown_004F52B0()) {
+    if (object == this && unknown_objects_a40c60.Count() == 1 && object->unknown_38 != 0 && object->unknown_38->unknown_28->Is_Player_Control()) {
         if (object->unknown_38->Unknown_00435FF0() == 1 && Rules->CanDetonateDeathBomb) {
             return 0x37;
         }
@@ -62,11 +62,11 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
     if (!arg2 && (Techno_Key_Down(KeyForceMove1) || Techno_Key_Down(KeyForceMove2))) {
         if (force_fire) {
             force_fire = false;
-        } else if (House->Unknown_004F52B0() && !unknown_32c) {
+        } else if (House->Is_Player_Control() && !unknown_32c) {
             return 8;
         }
     }
-    if (object == this && unknown_objects_a40c60.Count() == 1 && House->Unknown_004F52B0()) {
+    if (object == this && unknown_objects_a40c60.Count() == 1 && House->Is_Player_Control()) {
         return 4;
     }
     if (object == this && unknown_objects_a40c60.Count() == 1 && House->Is_Ally(unknown_player_a35db4) && unknown_game_mode_a3d298 == 0) {
@@ -79,7 +79,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
             }
         }
     }
-    if (House->Unknown_004F52B0() && House->Is_Ally((TechnoClass *)object) && Kind_Of() != 2 && force_fire) {
+    if (House->Is_Player_Control() && House->Is_Ally((TechnoClass *)object) && Kind_Of() != 2 && force_fire) {
         if (!third) {
             goto attack;
         }
@@ -87,7 +87,7 @@ int TechnoClass::unknown_slot28(ObjectClass *object, bool arg2)
             return 0x1A;
         }
     }
-    if (third && House->Unknown_004F52B0() && unknown_slot39()) {
+    if (third && House->Is_Player_Control() && unknown_slot39()) {
         return 1;
     }
 attack:
@@ -113,7 +113,7 @@ attack:
             bool friendly = unknown_slot32()->AttackFriendlies || (unknown_slot32()->AttackCursorOnFriendlies && !ivan) || sonic;
             bool enemy = !House->Is_Ally((TechnoClass *)object) || friendly;
             bool owned_friendly = owned && friendly;
-            if (House->Unknown_004F52B0()) {
+            if (House->Is_Player_Control()) {
                 if (force_fire || (enemy && (usable || owned_friendly) && (object->Class_Of()->unknown_201 || can208))) {
                     bool infiltrate = Kind_Of() == 15 && ((InfantryTypeClass *)type)->Infiltrate;
                     if ((unknown_slot163() || infiltrate) && (unknown_slot39() || unknown_slot212(object, weapon))) {
@@ -133,7 +133,7 @@ attack:
             }
         }
     }
-    if (unknown_slot163() && House->Unknown_004F52B0() && object->Owner() != Owner()) {
+    if (unknown_slot163() && House->Is_Player_Control() && object->Owner() != Owner()) {
         return 0;
     }
     if (unknown_32c && unknown_372) {

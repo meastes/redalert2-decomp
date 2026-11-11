@@ -13,7 +13,7 @@
 #include "shared/map_view.hpp"
 // @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_slot27@FootClass@@UAEHPBVCell@@_N1@Z=004cc650
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
@@ -34,12 +34,12 @@ struct UnknownUnitOverlayTypeView {
 
 int UnitClass::unknown_slot27(Cell const *where, bool arg2, bool arg3)
 {
-    if (!House->Unknown_004F52B0()) {
+    if (!House->Is_Player_Control()) {
         return 0;
     }
     CellClass *cell = &Map[*where];
     int action = FootClass::unknown_slot27(where, arg2, arg3);
-    if (unknown_6c16f0(-1) < 0 && House->Unknown_004F52B0() && action == 5) {
+    if (unknown_6c16f0(-1) < 0 && House->Is_Player_Control() && action == 5) {
         action = 59;
     }
     int overlay = -1;

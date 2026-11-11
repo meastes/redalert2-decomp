@@ -40,14 +40,14 @@ void InfantryClass::unknown_slot87(CoordStruct const &threat, bool forced, bool 
 {
     if ((Sequence==27 || Sequence==28 || Sequence==29 || Sequence==30) && forced && nokidding) {
         unknown_slot311(31,false,false);
-    } else if (House->unknown_func_4f52f0()) {
+    } else if (House->Is_Human_Player()) {
         if (Sequence==27 || Sequence==28 || Sequence==29 || Sequence==30) return;
     }
     if (Locomotor.Checked()->Is_Moving()) forced=false;
     if (!Control()->unknown_09 && !forced) return;
     if (!Type->Fraidycat && unknown_228 && !forced) return;
     if (Sequence!=-1 && Sequence!=31 && !unknown_do_controls_7a3474[Sequence].Interrupt) return;
-    if (!Rules->unknown_1431 && !unknown_6d7910(3) && !nokidding && House->unknown_func_4f52f0() && !forced && !Team) return;
+    if (!Rules->unknown_1431 && !unknown_6d7910(3) && !nokidding && House->Is_Human_Player() && !forced && !Team) return;
     if (forced || Type->Fraidycat) {
         int facing;
         if (threat!=unknown_geometry_l) {

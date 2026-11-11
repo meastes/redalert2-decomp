@@ -75,7 +75,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     unknown_4f4.Set_Stage(0);
                     switch (unknown_slot149(28)) {
                     case 33:
-                        if (House->Unknown_004F52B0()) {
+                        if (House->Is_Player_Control()) {
                             if (Unknown_0063B5B0(8, unknown_slot104())) Speech_Play_Name("EVA_UnitRepaired", -1, -1);
                             Voc_Play_At(Rules->HealCrateSound, CoordStruct(Coord), 0);
                         }
@@ -185,7 +185,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                             unknown_44c920(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
                             unknown_a8 = 1;
                             FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
-                            if (mover->unknown_1b0 && !mover->House->unknown_func_4f52f0()) {
+                            if (mover->unknown_1b0 && !mover->House->Is_Human_Player()) {
                                 mover->unknown_slot116(2, false);
                                 mover->Assign_Destination(mover->unknown_1b0, true);
                                 mover->unknown_6d6e50(0);
@@ -246,7 +246,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                         if (client->Health_Ratio() == Rules->unknown_1360 && !((FootClass *)client)->Locomotor.Checked()->Is_Powered()) {
                             FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             mover->Locomotor.Checked()->Power_On();
-                            if (mover->unknown_1b0 && !mover->House->unknown_func_4f52f0()) {
+                            if (mover->unknown_1b0 && !mover->House->Is_Human_Player()) {
                                 mover->unknown_slot116(2, false);
                                 mover->Assign_Destination(mover->unknown_1b0, true);
                                 mover->unknown_6d6e50(0);
@@ -264,7 +264,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                                 }
                             }
                         }
-                    } else if (!client->unknown_328 || client->House->unknown_func_4f52f0()) {
+                    } else if (!client->unknown_328 || client->House->Is_Human_Player()) {
                         if (unknown_372) Speech_Play_Name("EVA_Repairing", -1, -1);
                         unknown_a8 = 2;
                         unknown_44c920(10, Health_Ratio() <= Rules->unknown_1368, false, 0);

@@ -8,7 +8,7 @@ int __fastcall Planning_House(TechnoClass *techno)
 {
     HouseClass *side = techno->House;
     int house = side->ArrayIndex;
-    if (side->Unknown_004F52B0() && unknown_player_a35db4) {
+    if (side->Is_Player_Control() && unknown_player_a35db4) {
         house = unknown_player_a35db4->ArrayIndex;
     }
     return house;

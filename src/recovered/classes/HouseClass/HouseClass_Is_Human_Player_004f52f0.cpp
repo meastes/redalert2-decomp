@@ -2,8 +2,8 @@
 #include "shared/techno.hpp"
 #include "shared/house_views.hpp"
 
-bool HouseClass::unknown_func_4f52f0()
+bool HouseClass::Is_Human_Player()
 {
-    if (unknown_game_mode_a3d298==0) return Unknown_004F52B0();
+    if (unknown_game_mode_a3d298==0) return Is_Player_Control();
     return unknown_134;
 }

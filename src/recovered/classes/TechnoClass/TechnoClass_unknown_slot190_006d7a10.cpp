@@ -9,7 +9,7 @@
 #include "shared/gscreen.hpp"
 #include "shared/techno_map.hpp"
 #include "shared/id_source.hpp"
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_6d7910@TechnoClass@@QAE_NH@Z=006d7910
 // @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 // @ref ?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
@@ -26,7 +26,7 @@ bool TechnoClass::unknown_slot190(int *out_kind)
     if (type->RadarVisible) {
         return true;
     }
-    if (House->Unknown_004F52B0()) {
+    if (House->Is_Player_Control()) {
         return unknown_373 ? true : false;
     }
     int value = unknown_slot108();

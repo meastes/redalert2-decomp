@@ -23,7 +23,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
     for(int index=0;index<count;++index) {
         TechnoClass *candidate=items[index].Key.unknown_00;
         if(items[index].Key.unknown_04==point &&
-            (!shadow || candidate->House->Unknown_004F52B0()) &&
+            (!shadow || candidate->House->Is_Player_Control()) &&
             (!candidate->unknown_slot32()->unknown_1ff || unknown_player_a35db4->Is_Ally(candidate))) {
             tech=candidate;
             break;
@@ -59,7 +59,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
 // @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 // @ref ?Is_Under_Fog@MapClass@@QAE_NABUCoordStruct@@@Z=00568280

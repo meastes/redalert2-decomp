@@ -35,9 +35,9 @@ void DisplayClass::Active_Click_0049E870(ObjectClass *object, Cell cell, int act
     }
 
     cell = Map.Clip_To_Map(cell);
-    WaypointClass *waypoint = unknown_player_a35db4->unknown_func_4ed200(cell);
+    WaypointClass *waypoint = unknown_player_a35db4->Waypoint_At(cell);
     if (waypoint != 0) {
-        unknown_player_a35db4->unknown_func_4ed2b0(waypoint, &waypoint_path, &waypoint_id);
+        unknown_player_a35db4->Fetch_Waypoint_Data(waypoint, &waypoint_path, &waypoint_id);
     }
 
     for (index = 0; index < unknown_objects_a40c60.Count(); index++) {

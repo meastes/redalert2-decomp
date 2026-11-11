@@ -99,7 +99,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     --count;
                 }
             }
-            if(House->Unknown_004F52B0() && !unknown_slot31()) {
+            if(House->Is_Player_Control() && !unknown_slot31()) {
                 Voc_Play_At(Rules->unknown_5c4,Position_Coord_004f3f40(),0);
                 if(Type->PackupSound!=-1) Voc_Play_At(Type->PackupSound,Position_Coord_004f3f40(),&unknown_570);
             }

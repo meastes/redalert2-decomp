@@ -31,7 +31,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
     }
 
     if (waypoint != 0) {
-        unknown_player_a35db4->unknown_func_4ed2b0(waypoint, &unknown_418, &unknown_576);
+        unknown_player_a35db4->Fetch_Waypoint_Data(waypoint, &unknown_418, &unknown_576);
 
         CoordStruct coord = waypoint->Coord;
         ObjectClass *occupier = ((UnknownCellClass *)&Map[coord])->unknown_e4;

@@ -1,10 +1,10 @@
-// WaypointClass *HouseClass::unknown_func_4ed200(Cell const &cell) (0x004ED200)
+// WaypointClass *HouseClass::Waypoint_At(Cell const &cell) (0x004ED200)
 // The waypoint of any path in the cell, else 0 (making missing
 // paths).
 #include "shared/techno.hpp"
 #include "shared/waypoint_path.hpp"
 
-WaypointClass *HouseClass::unknown_func_4ed200(Cell const &cell)
+WaypointClass *HouseClass::Waypoint_At(Cell const &cell)
 {
     for (int index = 0; index < 12; index++) {
         if (WaypointPaths[index] == 0) {

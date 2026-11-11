@@ -25,7 +25,7 @@
 // @ref ?unknown_session_a3d298@@3UUnknownSessionState@@A=00a3d298
 // @ref ?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HIH_N@Z=005b4da0
 // @ref ?Flag_To_Redraw@GScreenClass@@UAEXH@Z=004e09a0
-// @ref ?unknown_func_4f4070@HouseClass@@QAEXXZ=004f4070
+// @ref ?AI_Takeover@HouseClass@@QAEXXZ=004f4070
 // @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
 // @ref ??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@=007e74bc
 // @ref ??_C@_0BE@DDAG@TXT_CONNECTION_LOST?$AA@=007e6954
@@ -82,7 +82,7 @@ void __fastcall Destroy_Null_Connection(int id, int error)
         }
     }
 
-    housep->unknown_func_4f4070();
+    housep->AI_Takeover();
     unknown_session_a3d55c--;
     if (unknown_session_a3d55c == 1) {
         swprintf(txt, L"%s", StringTable::Load_String("TXT_JUST_YOU_AND_ME", 0, "D:\\Ra2\\NullDlg.CPP", 0x1935));

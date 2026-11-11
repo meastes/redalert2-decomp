@@ -7,7 +7,7 @@
 #include "shared/techno_type.hpp"
 #include "shared/house.hpp"
 // @ref ?unknown_a40774@@3HA=00a40774
-// @ref ?unknown_func_4f52f0@HouseClass@@QAE_NXZ=004f52f0
+// @ref ?Is_Human_Player@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z=005d4430
 
 bool TeamClass::Unknown_006B8FB0(FootClass *member, int slot, bool arg3)
@@ -16,7 +16,7 @@ bool TeamClass::Unknown_006B8FB0(FootClass *member, int slot, bool arg3)
     if (this != member->Team) {
         return true;
     }
-    if (member->unknown_34 == Tag && member->House != 0 && !member->House->unknown_func_4f52f0()) {
+    if (member->unknown_34 == Tag && member->House != 0 && !member->House->Is_Human_Player()) {
         member->Attach_Tag(0);
     }
     if (slot == -1 && Class != 0 && Class->TaskForce != 0) {

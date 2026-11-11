@@ -2,7 +2,7 @@
 #include "shared/building.hpp"
 #include "shared/building_map.hpp"
 #include "shared/house.hpp"
-// @ref ?Unknown_004F52B0@HouseClass@@=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@=004f52b0
 // @ref ?Foundation_Height@BuildingTypeClass@@=00458940
 // @ref ?Width@BuildingTypeClass@@=00458930
 // @ref ?Is_Shrouded@MapClass@@=00568140
@@ -14,7 +14,7 @@ bool BuildingClass::unknown_slot190(int *out_kind)
 {
     if (!Type->Invisible) {
         if (Type->RadarVisible) return true;
-        if (House->Unknown_004F52B0()) return unknown_373 ? true : false;
+        if (House->Is_Player_Control()) return unknown_373 ? true : false;
         int height = Type->Foundation_Height(false) * 256 - 256;
         int width = Type->Width() * 256 - 256;
         bool shrouded = Map.Is_Shrouded(CoordStruct(Coord))

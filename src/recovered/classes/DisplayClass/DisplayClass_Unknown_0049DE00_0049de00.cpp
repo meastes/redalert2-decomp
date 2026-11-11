@@ -16,7 +16,7 @@
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z=0054a550
 
@@ -31,7 +31,7 @@ void DisplayClass::Unknown_0049DE00(bool skip_buildings, bool arg2)
         if (techno->Kind_Of() == 6 && skip_buildings) {
             continue;
         }
-        if (techno->House->Unknown_004F52B0()) {
+        if (techno->House->Is_Player_Control()) {
             if (techno->unknown_373) {
                 techno->unknown_slot262(0, 0, false, 0);
                 CoordStruct coord = techno->Coord;
@@ -44,7 +44,7 @@ void DisplayClass::Unknown_0049DE00(bool skip_buildings, bool arg2)
             techno->unknown_slot262(0, arg2, false, 0);
             CoordStruct coord = techno->Coord;
             Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);
-        } else if (techno->Kind_Of() == 6 && techno->unknown_slot32()->RevealToAll && !techno->House->Unknown_004F52B0()) {
+        } else if (techno->Kind_Of() == 6 && techno->unknown_slot32()->RevealToAll && !techno->House->Is_Player_Control()) {
             techno->unknown_slot262(0, 0, true, unknown_player_a35db4);
             CoordStruct coord = techno->Coord;
             Map.Unknown_0054A550(coord, 0, techno->unknown_1f4 + 3, 0);

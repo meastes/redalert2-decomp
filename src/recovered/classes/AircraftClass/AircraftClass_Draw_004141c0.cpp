@@ -20,7 +20,7 @@ void AircraftClass::unknown_slot67(Point2D const &point, Rect const &window)
         CoordStruct destination = (CoordStruct)Locomotor.Checked()->Head_To_Coord();
         destination.Z = Position_Coord_004f3f40().Z;
         if (Map.Is_Fogged(destination) &&
-            Map.Is_Fogged(Position_Coord_004f3f40()) && !House->Unknown_004F52B0()) return;
+            Map.Is_Fogged(Position_Coord_004f3f40()) && !House->Is_Player_Control()) return;
     }
 
     Point2D draw_point = point;

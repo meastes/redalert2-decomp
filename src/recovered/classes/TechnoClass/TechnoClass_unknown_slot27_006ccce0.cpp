@@ -33,8 +33,8 @@
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?Unknown_004C2030@@YIPAUUnknownCellEntryType@@PAUUnknownCellEntry28@@@Z=004c2030
 // @ref ?unknown_overlay_types_a35de8@@3V?$DynamicVectorClass@PAVUnknownOverlayType@@@@A=00a35de8
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
-// @ref ?unknown_func_4ed200@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z=004ed200
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Waypoint_At@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z=004ed200
 // @ref ?Unknown_0047BB10@UnknownCellClass@@QAE_NXZ=0047bb10
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
 // @ref ?Unknown_00710160@@YIPAUUnknownCellObject710160@@ABVCell@@@Z=00710160
@@ -75,15 +75,15 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
         overlay = unknown_overlay_types_a35de8[cellptr->unknown_44];
     }
     bool can_deploy = unknown_slot193();
-    if (House->Unknown_004F52B0() && ((force_fire && third) || unknown_388)
+    if (House->Is_Player_Control() && ((force_fire && third) || unknown_388)
         && unknown_slot39() && (unknown_slot38() || can_deploy)) {
-        if (unknown_player_a35db4->unknown_func_4ed200(*cell) == 0 && !unknown_388) {
+        if (unknown_player_a35db4->Waypoint_At(*cell) == 0 && !unknown_388) {
             return 0x1A;
         }
         return 0x33;
     }
     WeaponStruct *primary;
-    if (House->Unknown_004F52B0() && (primary = unknown_slot230()) != 0 && primary->WeaponType != 0) {
+    if (House->Is_Player_Control() && (primary = unknown_slot230()) != 0 && primary->WeaponType != 0) {
         int weapon = unknown_slot174((AbstractClass *)Map_Cell_At(*cell));
         bool burning = (Map_Cell_At(*cell))->Unknown_0047BB10();
         if (burning) {
@@ -109,7 +109,7 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
             return 5;
         }
     }
-    if (House->Unknown_004F52B0() && (unknown_slot39() || unknown_slot153())) {
+    if (House->Is_Player_Control() && (unknown_slot39() || unknown_slot153())) {
         if (Map.Unknown_0055A660(*cell, true)) {
             if (force_move) {
                 return 1;

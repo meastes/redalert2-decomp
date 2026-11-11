@@ -45,7 +45,7 @@ void __fastcall Planning_Path_Append(TechnoClass *techno, PlanningNodeClass *nod
         update->unknown_611770();
     }
 
-    if (!unknown_flag_a76790 && techno->House->Unknown_004F52B0()) {
+    if (!unknown_flag_a76790 && techno->House->Is_Player_Control()) {
         unknown_flag_a76790 = true;
         PlanningNodeClass *last = target->Last_Node();
         if (!update) {

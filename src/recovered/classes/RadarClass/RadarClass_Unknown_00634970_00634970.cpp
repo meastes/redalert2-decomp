@@ -6,7 +6,7 @@
 #include "shared/house_screen.hpp"
 #include "shared/house_type.hpp"
 // @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Unknown_00634670@RadarClass@@QAEXHHPAVHouseClass@@@Z=00634670
 
 void RadarClass::Unknown_00634970(int arg1)
@@ -16,7 +16,7 @@ void RadarClass::Unknown_00634970(int arg1)
     for (int index = 0; index < count; index++) {
         HouseClass *house = Houses[index];
         if (house) {
-            if (house->Unknown_004F52B0()) {
+            if (house->Is_Player_Control()) {
                 last = index;
             } else if (house->Type->MultiplayPassive) {
                 continue;

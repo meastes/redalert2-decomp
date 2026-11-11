@@ -20,7 +20,7 @@ void TechnoClass::unknown_slot246(UnknownObjectPair const &voxel,int frame,int k
         }
     }
     if ((unknown_slot111() || unknown_slot112()) && (Kind_Of()!=1 || !((UnitClass *)this)->unknown_5bb)) flags|=0x2004;
-    if (House->Unknown_004F52B0() && unknown_slot48() && (Kind_Of()!=1 || !((UnitClass *)this)->unknown_5bb)) flags=unknown_slot244(flags);
+    if (House->Is_Player_Control() && unknown_slot48() && (Kind_Of()!=1 || !((UnitClass *)this)->unknown_5bb)) flags=unknown_slot244(flags);
     flags=(flags|0x800)&~negflags;
     Rect window=cliprect;
     brightness=unknown_slot254(brightness);

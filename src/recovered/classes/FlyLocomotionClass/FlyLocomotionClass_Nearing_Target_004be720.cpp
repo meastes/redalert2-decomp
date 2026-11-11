@@ -1,6 +1,6 @@
 // @ref ?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z=00568140
 // @ref ?Is_Fogged@MapClass@@QAE_NABUCoordStruct@@@Z=005683c0
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 #include "shared/fly_locomotion.hpp"
 #include "shared/fast_math.hpp"
 #include "shared/cell.hpp"
@@ -122,7 +122,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
             unknown_40=0.75;
         }
     }
-    if (LinkedTo->unknown_77 && !LinkedTo->House->Unknown_004F52B0()) {
+    if (LinkedTo->unknown_77 && !LinkedTo->House->Is_Player_Control()) {
         if (Map.Is_Shrouded(Object_Coord(LinkedTo)) || ((*(unsigned int *)unknown_id_source_a3d290&0x1000) && Map.Is_Fogged(Object_Coord(LinkedTo)))) {
             LinkedTo->unknown_slot81();
         }

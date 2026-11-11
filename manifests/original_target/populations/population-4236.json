@@ -4,8 +4,8 @@
     "id": "population-4236",
     "inventory_sha256": "5df409a3dfaf98c8136f3a24ea84ceb84d9a2ee6e64211627aa21778f583b04f",
     "gaps_sha256": "07224572ce5bffdd4a403ef49c782a96ae293ae6d3533c3188ee709c5b28c095",
-    "historical_population_sha256": "e18ed7370322f5c109d46676dca6d7f4b680a15f6ea07757e3f0639e9ae5933d",
-    "historical_acceptance_sha256": "2112804536ae222baa4a4fab791755ac2c348d3e032f220eae61e4a67a1e6f62"
+    "historical_population_sha256": "75cc908ee51910afc583f1f49df992e0cf33f47c61bd38a4f0ec6ae5d9cdabb9",
+    "historical_acceptance_sha256": "86516f5d12da6286590e6539dfbaaf9f5501eae5f84c529cc87fe471f7098ba8"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1644,7 +1644,7 @@
     "?Clear_Selected_Objects_00482bc0@@YAXXZ": 4729792,
     "?Unknown_006f6780@@YIXI@Z": 7300992,
     "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ": 4250656,
-    "?Unknown_004F52B0@HouseClass@@QAE_NXZ": 5198512,
+    "?Is_Player_Control@HouseClass@@QAE_NXZ": 5198512,
     "?unknown_rect_839630@@3VRect@@A": 8623664,
     "_unknown_static_rect": 10956496,
     "?Coord_To_Pixel@Tactical@@QAE_NABUCoordStruct@@AAUPoint2D@@@Z": 6957520,
@@ -4879,9 +4879,9 @@
     "?unknown_func_4ec9b0@HouseClass@@QAEXXZ": 5163440,
     "?unknown_func_4ecfb0@HouseClass@@QAEXABUCoordStruct@@@Z": 5164976,
     "?unknown_func_4ed140@HouseClass@@QAE_NABVCell@@@Z": 5165376,
-    "?unknown_func_4ed200@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
-    "?unknown_func_4ed200@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
-    "?unknown_func_4ed2b0@HouseClass@@QAE_NPAUWaypointClass@@PAHPAD@Z": 5165744,
+    "?Waypoint_At@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Waypoint_At@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAUWaypointClass@@PAHPAD@Z": 5165744,
     "?unknown_func_4eeb90@HouseClass@@QAEXXZ": 5172112,
     "?unknown_func_4eeba0@HouseClass@@QAEXHPAV1@@Z": 5172128,
     "?unknown_func_4f3160@HouseClass@@QAEXXZ": 5189984,
@@ -5814,7 +5814,7 @@
     "?Raw_Cost@BuildingTypeClass@@UBEHXZ": 4557296,
     "?Do_MISSION_CAPTURE@BuildingClass@@UAEHXZ": 4485696,
     "?Do_MISSION_HARVEST@BuildingClass@@UAEHXZ": 4485712,
-    "?unknown_func_4f52f0@HouseClass@@QAE_NXZ": 5198576,
+    "?Is_Human_Player@HouseClass@@QAE_NXZ": 5198576,
     "?unknown_slot287@BuildingClass@@UAE_NXZ": 4474240,
     "?unknown_slot160@BuildingClass@@UAE_NXZ": 4532544,
     "?unknown_slot160@TechnoClass@@UAE_NXZ": 7114784,
@@ -9679,7 +9679,7 @@
     "?Destroy_Null_Connection@@YIXHH@Z": 6089632,
     "?unknown_func_4f5be0@HouseClass@@QAEXXZ": 5200864,
     "?unknown_func_4e7070@HouseClass@@QAE_NPAVTechnoClass@@PAVBuildingClass@@@Z": 5140592,
-    "?unknown_func_4f4070@HouseClass@@QAEXXZ": 5193840,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
     "?Sell_Wall@HouseClass@@QAEXABVCell@@_N@Z": 5145472,
     "?Random_Cell_In_Zone@HouseClass@@QAE?AVCell@@H@Z": 5163600,
     "?unknown_func_4eca30@HouseClass@@QAE?AVCell@@HH@Z": 5163568,
@@ -9735,7 +9735,7 @@
     "?unknown_6c6130@TechnoClass@@QAE_NHHPBVCell@@HPAPAVObjectClass@@PAHH@Z": 7102768,
     "?unknown_6c5570@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z": 7099760,
     "?Is_Sensed@CellClass@@QBE_NH@Z": 4702944,
-    "?unknown_func_4ed2b0@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
+    "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
     "?Fetch@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UBE?AU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@H@Z": 6507536,
     "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z": 6957168,
     "?unknown_6cc020@TechnoClass@@QAEXXZ": 7127072,
@@ -10681,7 +10681,17 @@
     "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
-    "__real@8@3ffefd70a3d70a3d7000": 7986552
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?Help_Text@StripClass@SidebarClass@@QAEPBGH@Z": 6813056,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
+    "?Unknown_0055DCA0@MapClass@@QAE_NABVCell@@@Z": 5627040,
+    "?Unknown_0055EDB0@MapClass@@QAE_NABVCell@@@Z": 5631408,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
   },
   "regions": [
     {
@@ -14891,7 +14901,7 @@
         {
           "offset": 89,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 4294055491
@@ -14937,7 +14947,7 @@
           "resolved": 1150698
         }
       ],
-      "source_sha256": "788f691efc8e369f7515b73d141d5194ce3afcc88007498a36121cbcc7450378",
+      "source_sha256": "9c3094994be2d1ce9f24d2e34314c3a566933f4fa38297f1e452b6fa7e377760",
       "source": "src/recovered/classes/ObjectClass/ObjectClass_unknown_slot54_005d3c10.cpp",
       "population": "population-4236",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -16584,7 +16594,7 @@
         {
           "offset": 150,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 4294058918
@@ -16592,7 +16602,7 @@
         {
           "offset": 163,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 4294058905
@@ -16600,7 +16610,7 @@
         {
           "offset": 179,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 4294058889
@@ -16798,7 +16808,7 @@
           "resolved": 1193784
         }
       ],
-      "source_sha256": "38e4eba1a7fdde5dbcaa79c3c26386d952de87ec3ff0eba6d0182326bf34eea3",
+      "source_sha256": "77eb538ee417da1716ed1876b99a0e3d4e4e1fdc000762fd152b878a80b974c5",
       "source": "src/recovered/classes/ObjectClass/ObjectClass_unknown_slot80_005d2e70.cpp",
       "population": "population-4236",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

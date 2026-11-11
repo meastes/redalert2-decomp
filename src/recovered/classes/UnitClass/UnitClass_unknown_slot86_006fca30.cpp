@@ -33,7 +33,7 @@ extern char const Unit_Ore_Miner_Under_Attack_007F819C[];
 // @ref ?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z=006b8cc0
 // @ref ?Is_To_Inherit@TagClass@@QBE_NXZ=006b41f0
 // @ref ?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?Is_Ally@HouseClass@@QBE_NPAVTechnoClass@@@Z=004e5580
 // @ref ?Health_Ratio@ObjectClass@@QBENXZ=005d4540
@@ -50,7 +50,7 @@ int UnitClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *warhe
                             TechnoClass *source, bool forced, int arg6)
 {
     CoordStruct animation_position;
-    bool restore_selection = unknown_77 && House->Unknown_004F52B0();
+    bool restore_selection = unknown_77 && House->Is_Player_Control();
     int result = FootClass::unknown_slot86(damage, distance, warhead, source, forced, arg6);
     if (result == 5) return result;
     if (result == 4) {

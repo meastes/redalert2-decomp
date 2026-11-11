@@ -2,7 +2,7 @@
 // Clears group (group - 1 at +0x1AC) from every player-side techno of the map.
 #include "shared/uicmnds.hpp"
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
 
 

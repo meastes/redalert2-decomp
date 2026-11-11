@@ -12,7 +12,7 @@
 // @ref ?Layer@DisplayClass@@2PAVLayerClass@@A=00852578
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBV1@@Z=004e5540
 // @ref ?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ=0040dc20
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
@@ -23,7 +23,7 @@ void DisplayClass::Constrained_Look(CoordStruct const &center, int distance)
     for (int index = 0; index < Layer[2].Count(); index++) {
         TechnoClass *techno = Layer[2][index]->As_Techno();
         if (techno != 0) {
-            if (techno->House->Unknown_004F52B0()) {
+            if (techno->House->Is_Player_Control()) {
                 if (techno->unknown_373 && Coord_Length(center - techno->Center_Coord()) <= techno->unknown_slot32()->Sight * 256 + distance) {
                     techno->unknown_slot70(false, false);
                 }

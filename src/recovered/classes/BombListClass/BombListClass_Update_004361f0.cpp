@@ -34,13 +34,13 @@ void BombListClass::Unknown_004361F0()
         BombClass *bomb=Bombs[index];
         bool visible=false;
         bool previous=bomb->Target->unknown_68;
-        if(bomb->unknown_28->Unknown_004F52B0()) visible=true;
+        if(bomb->unknown_28->Is_Player_Control()) visible=true;
         else {
             int scan=0;
             if(unknown_18.Count()>0) {
                 do {
                     TechnoClass *detector=unknown_18[scan];
-                    if(detector->Owning_House()->Unknown_004F52B0()) {
+                    if(detector->Owning_House()->Is_Player_Control()) {
                         CoordStruct delta=detector->Center_Coord()-bomb->Target->Center_Coord();
                         double z=delta.Z;
                         double y=delta.Y;
@@ -61,7 +61,7 @@ void BombListClass::Unknown_004361F0()
 
 // External references checked against complete original body operands.
 // @ref ?Unknown_00405D50@UnknownAudioController@@QAEXXZ=00405d50
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
 // @ref ?Voc_Update_At@@YIPAUAudioEvent@@ABUCoordStruct@@PAUAudioEventHandle@@@Z=007141b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410

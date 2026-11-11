@@ -2,9 +2,9 @@
 // @ref ?Frame@@3HA=00a40d2c
 // @ref ?Is_Build_Limited_004F4F30@HouseClass@@QAE_NPAVTechnoTypeClass@@@Z=004f4f30
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z=00713db0
-// @ref ?unknown_func_4f52f0@HouseClass@@QAE_NXZ=004f52f0
+// @ref ?Is_Human_Player@HouseClass@@QAE_NXZ=004f52f0
 #include "shared/factory_class.hpp"
 #include "shared/house.hpp"
 #include "shared/techno_type.hpp"
@@ -18,7 +18,7 @@ bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsi
             Queue.Add(type);
             return true;
         }
-        if (house->Unknown_004F52B0()) Voc_Play(Rules->unknown_620,1.0f,0x2000,0);
+        if (house->Is_Player_Control()) Voc_Play(Rules->unknown_620,1.0f,0x2000,0);
         return false;
     }
     unknown_59=true;
@@ -26,7 +26,7 @@ bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsi
     Set_Rate(0);
     Stage=0;
     Object=static_cast<TechnoClass *>(type->unknown_slot35(house));
-    if (!house->unknown_func_4f52f0() && Object && Object->Kind_Of()==6)
+    if (!house->Is_Human_Player() && Object && Object->Kind_Of()==6)
         static_cast<BuildingClass *>(Object)->unknown_59a=true;
     if (Object) {
         Owner=Object->House;

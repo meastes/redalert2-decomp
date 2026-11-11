@@ -97,7 +97,7 @@ bool MultiplayerGameMode::GenerateStartingUnits(HouseClass *house, int *money)
                 if (unknown_id_source_a3d290->Special().InitialVeteran) {
                     techno->unknown_118.Set_Elite(true);
                 }
-                if (house->unknown_func_4f52f0()) {
+                if (house->Is_Human_Player()) {
                     techno->Set_Mission(5);
                 } else {
                     techno->Set_Mission(11);

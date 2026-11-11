@@ -4,12 +4,12 @@
 // HouseClass 0x004F52B0.
 #include "shared/techno.hpp"
 // @ref ?Frame@@3HA=00a40d2c
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 
 int TechnoClass::unknown_slot244(int flags)
 {
     int result = flags;
-    if (unknown_184.Value() != 0 && !House->Unknown_004F52B0()) {
+    if (unknown_184.Value() != 0 && !House->Is_Player_Control()) {
         return result;
     }
     int phase = (Frame - unknown_174 + 64) % 256;

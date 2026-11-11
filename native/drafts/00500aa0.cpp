@@ -74,7 +74,7 @@ void InfantryClass::unknown_slot93(int why)
             BuildingClass *building=cell->Unknown_004717B0();
             if (building && (building==unknown_494 || building==unknown_228)) {
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
-                if (unknown_slot32()->VoiceDie.Count()>0 && House->Unknown_004F52B0()) {
+                if (unknown_slot32()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
                     CoordStruct location=Coord;
                     Voc_Play_At(unknown_slot32()->VoiceDie.Pick(unknown_random_839218()),location,0);
                 }
@@ -118,7 +118,7 @@ void InfantryClass::unknown_slot93(int why)
                 if (building->unknown_34) building->unknown_34->Spring(1,this,unknown_geometry_k,false,0);
                 if (Type->Engineer) {
                     if (building->Kind_Of()==6 && building->Type->BridgeRepairHut) {
-                        if (House->Unknown_004F52B0() && Unknown_0063B5B0(14,unknown_slot104())) Speech_Play_Name("EVA_BridgeRepaired",-1,-1);
+                        if (House->Is_Player_Control() && Unknown_0063B5B0(14,unknown_slot104())) Speech_Play_Name("EVA_BridgeRepaired",-1,-1);
                         bool train=false;
                         for (int y=-2;y<3;y++) {
                             for (int x=-2;x<3;x++) {

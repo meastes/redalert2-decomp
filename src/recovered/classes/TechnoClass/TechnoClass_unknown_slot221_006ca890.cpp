@@ -164,7 +164,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
         }
         if (object != 0) {
             HouseClass *owner = object->Owning_House();
-            if (owner != 0 && owner->Unknown_004F52B0() && weapon->unknown_113) {
+            if (owner != 0 && owner->Is_Player_Control() && weapon->unknown_113) {
                 Map.Unknown_00549C50(Center_Coord(), 3, owner, false, false, false, true, false);
             }
             Map.Unknown_0054A550(Center_Coord(), 0, 4, 0);
@@ -376,7 +376,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
             if (weapon->unknown_10c) {
                 unknown_27c = new WaveClass(fire_coord, target_coord, this, 0, (ObjectClass *)target);
             }
-            if (unknown_slot32()->TargetLaser && House->Unknown_004F52B0()) {
+            if (unknown_slot32()->TargetLaser && House->Is_Player_Control()) {
                 unknown_314 = 15;
             }
             if (weapon->unknown_121) {
@@ -422,7 +422,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
                 || ((Map.Is_Shrouded(Center_Coord()) || Map.Is_Fogged(Center_Coord())) && !(Kind_Of() == 2 && unknown_372))) {
                 if (target->AbstractFlags.IsObject) {
                     HouseClass *owner = static_cast<ObjectClass *>(target)->Owning_House();
-                    if (owner != 0 && owner->Unknown_004F52B0() && weapon->unknown_113) {
+                    if (owner != 0 && owner->Is_Player_Control() && weapon->unknown_113) {
                         Map.Unknown_00549C50(Center_Coord(), 3, owner, false, false, false, true, false);
                         Map.Unknown_0054A550(Center_Coord(), 0, 4, 0);
                     }
@@ -437,7 +437,7 @@ BulletClass *TechnoClass::unknown_slot221(AbstractClass *target, int which)
     if (weapon->unknown_10e) {
         if (unknown_slot32()->ReselectIfLimboed && unknown_77) {
             HouseClass *house = Owning_House();
-            if (house->Unknown_004F52B0() && target->Kind_Of() == 15) {
+            if (house->Is_Player_Control() && target->Kind_Of() == 15) {
                 unknown_381 = true;
             }
         }

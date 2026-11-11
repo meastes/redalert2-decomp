@@ -88,7 +88,7 @@ void TechnoClass::unknown_6d1510(void const *shape, int frame, Point2D const *po
             draw_rect.Height=frame_rect.Height;
             unknown_unit_composite_rect_ad0490=Union(unknown_unit_composite_rect_ad0490,draw_rect);
         }
-        if (House->Unknown_004F52B0() && unknown_slot48()) flags=unknown_slot244(flags);
+        if (House->Is_Player_Control() && unknown_slot48()) flags=unknown_slot244(flags);
         brightness=unknown_slot254(brightness);
         if (unknown_slot203()) brightness=unknown_6d86f0(brightness);
         switch (visual) {

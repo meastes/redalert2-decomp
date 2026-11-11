@@ -39,7 +39,7 @@ bool TechnoClass::unknown_6c6130(int method,int mask,Cell const *cell,int range,
     *object=tech;
     bool result=false;
     if(!House->Is_Ally(tech) || unknown_6c16f0(-1)<0
-       || (!House->unknown_func_4f52f0() && this && Kind_Of()==15
+       || (!House->Is_Human_Player() && this && Kind_Of()==15
            && As_Infantry(static_cast<FootClass *>(this))->Type->Engineer)) {
         result=unknown_6c5570(method,mask,range,tech,value,-1,&unknown_geometry_l);
     }

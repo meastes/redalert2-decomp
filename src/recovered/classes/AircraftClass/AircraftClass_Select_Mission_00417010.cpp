@@ -3,7 +3,7 @@
 #include "shared/house.hpp"
 #include "shared/team.hpp"
 // @ref ?unknown_slot261@FootClass@@UAE_N_N0@Z=004c6f10
-// @ref ?unknown_func_4f52f0@HouseClass@@QAE_NXZ=004f52f0
+// @ref ?Is_Human_Player@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
 // @ref ?unknown_func_6baa00@TeamClass@@QAE_NXZ=006baa00
 // @ref ?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z=006b8fb0
@@ -26,7 +26,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
         return false;
     }
     bool result = FootClass::unknown_slot261(first, second);
-    int mission = !House->unknown_func_4f52f0() && !Team && unknown_slot163() ? 11 : 5;
+    int mission = !House->Is_Human_Player() && !Team && unknown_slot163() ? 11 : 5;
     int landing_altitude = Landing_Altitude();
     if (unknown_slot29() == 2) goto grounded;
     if (unknown_slot108() <= landing_altitude || Type->MissileSpawn) goto grounded;
@@ -40,10 +40,10 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
         goto default_mission;
     } else {
         if (!unknown_32c) goto check_owner;
-        if (!House->unknown_func_4f52f0()) goto check_owner;
+        if (!House->Is_Human_Player()) goto check_owner;
         goto check_team;
 check_owner:
-        if (!House->unknown_func_4f52f0() && Type->Ammo == 0) goto check_team;
+        if (!House->Is_Human_Player() && Type->Ammo == 0) goto check_team;
         goto check_weapon;
 check_team:
         if (Team && Team->unknown_func_6baa00())
@@ -99,7 +99,7 @@ grounded:
     }
     Assign_Destination(0, true);
     unknown_slot220(0);
-    if (!House->unknown_func_4f52f0() && !Team && unknown_slot163()) {
+    if (!House->Is_Human_Player() && !Team && unknown_slot163()) {
         mission = 11;
         goto choose_mission;
     }

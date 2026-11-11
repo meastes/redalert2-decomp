@@ -102,7 +102,7 @@ int InfantryClass::unknown_slot86(int *damage,int distance,WarheadTypeClass *war
     }
     if (result!=4) {
         CoordStruct source_position=source ? CoordStruct(source->Coord) : unknown_geometry_l;
-        if (!House->unknown_func_4f52f0() && Type->Engineer && (Get_Mission()==5 || Get_Mission()==11)) unknown_slot116(15,false);
+        if (!House->Is_Human_Player() && Type->Engineer && (Get_Mission()==5 || Get_Mission()==11)) unknown_slot116(15,false);
         if (source) unknown_slot87(source_position,false,false);
         if (source && unknown_5bc<100) {
             if (Type->Fraidycat) unknown_5bc=300;

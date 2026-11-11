@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "2fb617e4eedc9a09a21d86848c1628e8ecffc563a3651838ac2b43aaa525b070",
-    "historical_acceptance_sha256": "6ff579686af222c5e363067f06f1a41b1b46e2c4357a9af64434eccec7759c4a"
+    "historical_population_sha256": "54ebd6481ca5c79fe53bf213f78604acb9ca97506e7f186753d10cd2faddd67e",
+    "historical_acceptance_sha256": "f6f20fdee08a5023d33676373bb6444bfef9d3ef32dc16d9ebf9112dbbb699f2"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1647,7 +1647,7 @@
     "?Velocity_LengthXY_0041B830@@YINPBU?$TVelocity3D@N@@@Z": 4306992,
     "?Fast_Atan2@@YAMNN@Z": 4957696,
     "?Aircraft_XY_Length_0041B750@@YINPBUAircraftVectorXY@@@Z": 4306768,
-    "?Unknown_004F52B0@HouseClass@@QAE_NXZ": 5198512,
+    "?Is_Player_Control@HouseClass@@QAE_NXZ": 5198512,
     "?Is_Shrouded@MapClass@@QAE_NABUCoordStruct@@@Z": 5669184,
     "?Sight_From@MapClass@@QAEXABUCoordStruct@@HPAVHouseClass@@_N2222@Z": 5546256,
     "?unknown_slot86@FootClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 5005312,
@@ -1675,7 +1675,7 @@
     "_unknown_aircraft_move_log_7ce6ac": 8185516,
     "_unknown_aircraft_move_log_7ce664": 8185444,
     "?unknown_slot261@FootClass@@UAE_N_N0@Z": 5009168,
-    "?unknown_func_4f52f0@HouseClass@@QAE_NXZ": 5198576,
+    "?Is_Human_Player@HouseClass@@QAE_NXZ": 5198576,
     "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
     "?unknown_func_6baa00@TeamClass@@QAE_NXZ": 7055872,
     "?unknown_slot78@FootClass@@UAE_NHPAVObjectClass@@_N@Z": 5005728,
@@ -4967,9 +4967,9 @@
     "?unknown_func_4ec9b0@HouseClass@@QAEXXZ": 5163440,
     "?unknown_func_4ecfb0@HouseClass@@QAEXABUCoordStruct@@@Z": 5164976,
     "?unknown_func_4ed140@HouseClass@@QAE_NABVCell@@@Z": 5165376,
-    "?unknown_func_4ed200@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
-    "?unknown_func_4ed200@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
-    "?unknown_func_4ed2b0@HouseClass@@QAE_NPAUWaypointClass@@PAHPAD@Z": 5165744,
+    "?Waypoint_At@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Waypoint_At@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAUWaypointClass@@PAHPAD@Z": 5165744,
     "?unknown_func_4eeb90@HouseClass@@QAEXXZ": 5172112,
     "?unknown_func_4eeba0@HouseClass@@QAEXHPAV1@@Z": 5172128,
     "?unknown_func_4f3160@HouseClass@@QAEXXZ": 5189984,
@@ -9485,7 +9485,7 @@
     "?Read@UnknownGameOptions@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
     "?Write@UnknownGameOptions@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
     "?Init@NullModemClass@@QAEHHHPADHDHH@Z": 6095072,
-    "?unknown_func_4f4070@HouseClass@@QAEXXZ": 5193840,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
     "?Sell_Wall@HouseClass@@QAEXABVCell@@_N@Z": 5145472,
     "?Random_Cell_In_Zone@HouseClass@@QAE?AVCell@@H@Z": 5163600,
     "?unknown_func_4eca30@HouseClass@@QAE?AVCell@@HH@Z": 5163568,
@@ -9976,7 +9976,7 @@
     "?unknown_6c5570@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z": 7099760,
     "?Is_Sensed@CellClass@@QBE_NH@Z": 4702944,
     "?Unknown_0042E860@Unknown84E8D0@@QAEPAVUnknownBeacon@@UCoordStruct@@@Z": 4384864,
-    "?unknown_func_4ed2b0@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
+    "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
     "?Fetch@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UBE?AU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@H@Z": 6507536,
     "?unknown_6cc020@TechnoClass@@QAEXXZ": 7127072,
     "?Closest_Free_Spot@CellClass@@QBE?AUCoordStruct@@ABU2@_N1@Z": 4678832,
@@ -11084,7 +11084,8 @@
     "?Unknown_0055EDB0@MapClass@@QAE_NABVCell@@@Z": 5631408,
     "?Redraw@BinkClass@@QAEXXZ": 4392992,
     "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
-    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336,
+    "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z": 6723936
   },
   "regions": [
     {
@@ -13651,7 +13652,7 @@
         {
           "offset": 10,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 907874
@@ -13665,7 +13666,7 @@
           "resolved": 740833
         }
       ],
-      "source_sha256": "d4f27cd6ea32217799a77e9b08598d199c07965bae6db11dc99740c37c185c2f",
+      "source_sha256": "1a817ff0a80f5f2c12b050517418ed08879c16256693e8c9bae74efa270551cd",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot27_00417840.cpp",
       "population": "population-3943",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -15068,7 +15069,7 @@
         {
           "offset": 87,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 908469
@@ -15092,7 +15093,7 @@
         {
           "offset": 317,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 908239
@@ -15154,7 +15155,7 @@
           "resolved": 368660
         }
       ],
-      "source_sha256": "1ca61d6916fa3fd51d5b06c47081e481912c4e61b53c0faed5d9e34e52b3f991",
+      "source_sha256": "7da9210d4b4b9cfca7f67bee5f7ed96a0d6f6992bb3e419cfbdbbd3298f513dc",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot28_004175a0.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -18938,7 +18939,7 @@
         {
           "offset": 147,
           "kind": 20,
-          "symbol": "?unknown_func_4f52f0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
           "target": 5198576,
           "addend": 0,
           "resolved": 909897
@@ -18954,7 +18955,7 @@
         {
           "offset": 340,
           "kind": 20,
-          "symbol": "?unknown_func_4f52f0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
           "target": 5198576,
           "addend": 0,
           "resolved": 909704
@@ -18962,7 +18963,7 @@
         {
           "offset": 355,
           "kind": 20,
-          "symbol": "?unknown_func_4f52f0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
           "target": 5198576,
           "addend": 0,
           "resolved": 909689
@@ -19002,7 +19003,7 @@
         {
           "offset": 946,
           "kind": 20,
-          "symbol": "?unknown_func_4f52f0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
           "target": 5198576,
           "addend": 0,
           "resolved": 909098
@@ -19024,7 +19025,7 @@
           "resolved": 2226877
         }
       ],
-      "source_sha256": "1086d006887fe0408d419782e08f8706ef6ba93e422dd5266bfa6f5b82a49b6e",
+      "source_sha256": "bdd66baed85c7d5d698257d46503fa4c5940d5e173f441f37779dbb636ac429a",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Select_Mission_00417010.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -21293,7 +21294,7 @@
         {
           "offset": 2956,
           "kind": 20,
-          "symbol": "?unknown_func_4f52f0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
           "target": 5198576,
           "addend": 0,
           "resolved": 904896
@@ -21595,7 +21596,7 @@
           "resolved": 4293576
         }
       ],
-      "source_sha256": "9cb8c37c345fcbcfd969f753a552904cbebe47c846c07aaacc589ac52b4389f8",
+      "source_sha256": "a250d10dd2b59b5c1990de70b2c50ef217a887d030f8431e19fa1f9f247c47e9",
       "switch_data_bytes": 198,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Do_MISSION_ATTACK_004178a0.cpp",
       "population": "population-3943",
@@ -21836,7 +21837,7 @@
         {
           "offset": 202,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 921634
@@ -22114,7 +22115,7 @@
           "resolved": 742691
         }
       ],
-      "source_sha256": "4681bad8fe7c7cbfe54c031cee48a6d3c2d2d7ecf55c598a71729a2a53507996",
+      "source_sha256": "d5d364b152704b25b60d7b4a137b475fd5b7fd665c01789eaeda02cba32e8539",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Draw_004141c0.cpp",
       "population": "population-3943",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -22527,7 +22528,7 @@
         {
           "offset": 1094,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 915158
@@ -22741,7 +22742,7 @@
           "resolved": 1262278
         }
       ],
-      "source_sha256": "b98cd10dbf2b95e56b71180fbc013cfa813c5e29d1edff40e577a9fcffc3d834",
+      "source_sha256": "425d8d2457ed9630f58bbf1ee2cd2ceac3b6fb9edcf296784816ae33a7cee755",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Fire_At_00415790.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

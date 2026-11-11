@@ -8,7 +8,7 @@
 #include "shared/house.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Clear_Owner@LineTrail@@QAEXXZ=005394f0
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Unknown_006ECB90@@YIXPAVAbstractClass@@_N@Z=006ecb90
 
 void ObjectClass::unknown_slot54(bool arg1)
@@ -28,7 +28,7 @@ void ObjectClass::unknown_slot54(bool arg1)
             keep = true;
         }
     }
-    if (arg1 || house == 0 || (!house->Unknown_004F52B0() && !keep)) {
+    if (arg1 || house == 0 || (!house->Is_Player_Control() && !keep)) {
         unknown_slot81();
     }
     if (Map.Unknown_0049EC40() == this) {

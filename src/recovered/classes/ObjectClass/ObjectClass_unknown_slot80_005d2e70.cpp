@@ -18,7 +18,7 @@ void __fastcall Unknown_006f6780(unsigned int value);
 // @ref ?Clear_Selected_Objects_00482bc0@@YAXXZ=00482bc0
 // @ref ?Unknown_006f6780@@YIXI@Z=006f6780
 // @ref ?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ=0040dc20
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60
 
 bool ObjectClass::unknown_slot80()
@@ -36,7 +36,7 @@ bool ObjectClass::unknown_slot80()
     if (unknown_objects_a40c60.Count() > 0) {
         HouseClass *house = Owning_House();
         HouseClass *other = unknown_objects_a40c60[0]->Owning_House();
-        if (other->Unknown_004F52B0() != house->Unknown_004F52B0() || !other->Unknown_004F52B0()) {
+        if (other->Is_Player_Control() != house->Is_Player_Control() || !other->Is_Player_Control()) {
             Clear_Selected_Objects_00482bc0();
         }
     }

@@ -22,7 +22,7 @@ void BombListClass::Add_Bomb(TechnoClass *owner, ObjectClass *target)
         target->unknown_38 = bomb;
         Bombs.Add(bomb);
         unknown_30 = 1;
-        if (Rules->BombAttachSound != -1 && owner->House->Unknown_004F52B0()) {
+        if (Rules->BombAttachSound != -1 && owner->House->Is_Player_Control()) {
             CoordStruct coord = target->Coord;
             Voc_Play_At(Rules->BombAttachSound, coord, 0);
         }

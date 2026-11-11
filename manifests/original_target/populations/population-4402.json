@@ -4,8 +4,8 @@
     "id": "population-4402",
     "inventory_sha256": "70aa9f2ecd9bbb3c083b271a1e0b57b09bef7c9d0c8ac65ba60d7d7d5d7f7455",
     "gaps_sha256": "9537bed7eae7292861c701d4b04004959446ba22ef69c039cd3f0182d31987e2",
-    "historical_population_sha256": "1c3d1bc01cff14e0078fa4d959734f3a9add6116b39effc1a45254ac46b68453",
-    "historical_acceptance_sha256": "fb9ea61225197ea88c1ac609bac1ecf954f9b40400347213779102c3232a7477"
+    "historical_population_sha256": "7052b83ae4bb42957c0443ffc473aaa5f44bf49b032b919be9a343b285467671",
+    "historical_acceptance_sha256": "84e4acbd606aa12882f72e5fa57b81a1824c1f20c50a5ec7dae6f939e8e46e9d"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -306,7 +306,7 @@
     "?Get_Current_Mission@ScriptClass@@QBE?AVScriptMissionClass@@XZ": 6719600,
     "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z": 5852592,
     "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
-    "?unknown_func_4f52f0@HouseClass@@QAE_NXZ": 5198576,
+    "?Is_Human_Player@HouseClass@@QAE_NXZ": 5198576,
     "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A": 10706504,
     "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A": 10748824,
     "?Units@@3V?$DynamicVectorClass@PAVUnitClass@@@@A": 8806808,
@@ -4229,7 +4229,7 @@
     "?Unknown_004E5280@HouseClass@@QAEXH@Z": 5132928,
     "?Unknown_004EB270@HouseClass@@QAE?AVCell@@PAVFootClass@@@Z": 5157488,
     "?Unknown_004ED440@HouseClass@@QAEXPAVTechnoClass@@_N@Z": 5166144,
-    "?Unknown_004F52B0@HouseClass@@QAE_NXZ": 5198512,
+    "?Is_Player_Control@HouseClass@@QAE_NXZ": 5198512,
     "?Unknown_004F52B0@UnknownHouse_00610770@@QAE_NXZ": 5198512,
     "?Unknown_004F52F0@HouseClass@@QAE_NXZ": 5198576,
     "?Unknown_004F5A20@HouseClass@@QAENPAVTechnoTypeClass@@@Z": 5200416,
@@ -5974,9 +5974,9 @@
     "?unknown_func_4ec9b0@HouseClass@@QAEXXZ": 5163440,
     "?unknown_func_4ecfb0@HouseClass@@QAEXABUCoordStruct@@@Z": 5164976,
     "?unknown_func_4ed140@HouseClass@@QAE_NABVCell@@@Z": 5165376,
-    "?unknown_func_4ed200@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
-    "?unknown_func_4ed200@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
-    "?unknown_func_4ed2b0@HouseClass@@QAE_NPAUWaypointClass@@PAHPAD@Z": 5165744,
+    "?Waypoint_At@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Waypoint_At@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAUWaypointClass@@PAHPAD@Z": 5165744,
     "?unknown_func_4eeb90@HouseClass@@QAEXXZ": 5172112,
     "?unknown_func_4eeba0@HouseClass@@QAEXHPAV1@@Z": 5172128,
     "?unknown_func_4f3160@HouseClass@@QAEXXZ": 5189984,
@@ -9406,7 +9406,7 @@
     "?Read@UnknownGameOptions@@QAEXAAVCCINIClass@@PBDHH@Z": 6746608,
     "?Write@UnknownGameOptions@@QAEXAAVCCINIClass@@PBD@Z": 6750832,
     "?Init@NullModemClass@@QAEHHHPADHDHH@Z": 6095072,
-    "?unknown_func_4f4070@HouseClass@@QAEXXZ": 5193840,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
     "?Sell_Wall@HouseClass@@QAEXABVCell@@_N@Z": 5145472,
     "?Random_Cell_In_Zone@HouseClass@@QAE?AVCell@@H@Z": 5163600,
     "?unknown_func_4eca30@HouseClass@@QAE?AVCell@@HH@Z": 5163568,
@@ -10715,7 +10715,7 @@
     "?unknown_6c5570@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z": 7099760,
     "?Is_Sensed@CellClass@@QBE_NH@Z": 4702944,
     "?Unknown_0042E860@Unknown84E8D0@@QAEPAVUnknownBeacon@@UCoordStruct@@@Z": 4384864,
-    "?unknown_func_4ed2b0@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
+    "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
     "?Fetch@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UBE?AU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@H@Z": 6507536,
     "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z": 6957168,
     "?unknown_6cc020@TechnoClass@@QAEXXZ": 7127072,
@@ -12614,7 +12614,8 @@
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
     "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440
   },
   "regions": [
     {
@@ -17567,7 +17568,7 @@
         {
           "offset": 58,
           "kind": 20,
-          "symbol": "?unknown_func_4f52f0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Human_Player@HouseClass@@QAE_NXZ",
           "target": 5198576,
           "addend": 0,
           "resolved": 4293116674
@@ -17589,7 +17590,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "26d5a3c0813519bf5057dde33ab05addb34e49eaddb9760f309109e6148d8f37",
+      "source_sha256": "f531684083f8384004a967f06c5a3d3fc86ba16544994b3aeb542e0a32c56152",
       "source": "src/recovered/classes/TeamClass/TeamClass_Unknown_006B8FB0_006b8fb0.cpp",
       "population": "population-4402",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",

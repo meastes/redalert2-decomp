@@ -40,7 +40,7 @@ void MPCooperative::unknown_slot34(bool player_wins)
 {
     bool win = false;
     for (int i = 0; i < Houses.Count(); i++) {
-        if (Houses[i] != 0 && Houses[i]->unknown_func_4f52f0() && !Houses[i]->unknown_13d) {
+        if (Houses[i] != 0 && Houses[i]->Is_Human_Player() && !Houses[i]->unknown_13d) {
             win = true;
         }
     }

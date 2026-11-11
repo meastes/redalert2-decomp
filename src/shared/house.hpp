@@ -4,7 +4,7 @@
 // +0x24 (15 slots), 0x007A2D4C IPublicHouse at +0x28 (9 slots), 0x007A2D34
 // IConnectionPointContainer at +0x2C (5 slots)). Replaces the stand-in in
 // techno_type.hpp, whose member names (unknown_30, unknown_130,
-// unknown_206/207, Cost_Multiplier, Unknown_004F52B0/Unknown_004F52F0) are
+// unknown_206/207, Cost_Multiplier, Is_Player_Control/Unknown_004F52F0) are
 // kept.
 //
 // Partial layout (from the constructors 0x004E18C0 / 0x004E1680 and the
@@ -205,7 +205,7 @@ public:
     virtual void AI();                                                  // 0x004E4110 slot 23
 
     float Cost_Multiplier(TechnoTypeClass const *type);    // 0x004F5960
-    bool Unknown_004F52B0();                               // 0x004F52B0 (TechnoClass slots 24, 38, 39, 80; ObjectClass slot 80 tests al; local player or human flag)
+    bool Is_Player_Control();                              // 0x004F52B0 (TechnoClass slots 24, 38, 39, 80; ObjectClass slot 80 tests al; local player or human flag)
     bool Unknown_004F52F0();                               // 0x004F52F0
     void Unknown_004EF5A0();                               // 0x004EF5A0 (UnitClass 0x006FDFC0 after moving BaseCenter; result unused)
     void Unknown_004F6310();                               // 0x004F6310 (UnitClass 0x006FDFC0 after moving the base plan; reads BaseCenter)
@@ -268,7 +268,7 @@ public:
     // The first unit type of the list this house can own (0x004EF6F0; the
     // multiplayer base unit from Rules BaseUnit, Create_Units 0x00660320).
     UnitTypeClass *Unknown_004EF6F0(TypeList<UnitTypeClass *> const &list);
-    bool unknown_func_4f52f0();                            // 0x004F52F0 (hypothesis)
+    bool Is_Human_Player();                                // 0x004F52F0 (hypothesis)
     static HouseClass *__fastcall As_Pointer(int type);    // 0x004ED760 (the house of a house type index)
     float Harvested(float amount, int type);                // 0x004E5100 (credits for harvested tiberium)
     void Place_Tiberium(int count, int type);              // 0x004E51F0
@@ -300,7 +300,7 @@ public:
     // Places a finished object (PLACE events; kind, index, naval, cell; 0x004E6950, Red Alert's Place_Object).
     bool Unknown_004E6950(int kind, int index, bool naval, Cell const &cell);
     void unknown_func_4ec9b0();                            // 0x004EC9B0 (a member: its callers pass this)
-    bool unknown_func_4ed2b0(WaypointClass *waypoint, int *path, char *position);   // 0x004ED2B0
+    bool Fetch_Waypoint_Data(WaypointClass *waypoint, int *path, char *position);   // 0x004ED2B0
     void unknown_func_4ecfb0(CoordStruct const &coord);    // 0x004ECFB0
     void unknown_func_4eeba0(int amount, HouseClass *house);   // 0x004EEBA0 (anger)
     bool unknown_func_4f5320(BuildingTypeClass *type, Cell const &cell);   // 0x004F5320 (the widened foundation touches a cell with this house's bit)
@@ -358,7 +358,7 @@ public:
     void unknown_func_4f2e50();                            // 0x004F2E50 (HouseClass::AI: the player's radar)
     bool unknown_func_4f64c0(BaseNodeClass const &node);   // 0x004F64C0 (the node may be built now; BaseClass::Next_Buildable_Index)
     bool unknown_func_4ed140(Cell const &cell);      // 0x004ED140 (no other path has a waypoint there)
-    WaypointClass *unknown_func_4ed200(Cell const &cell);   // 0x004ED200 (a waypoint in the cell, else 0)
+    WaypointClass *Waypoint_At(Cell const &cell);           // 0x004ED200 (a waypoint in the cell, else 0)
     void unknown_func_4eaba0(TechnoClass *techno);         // 0x004EABA0
     void unknown_func_4e8640();                            // 0x004E8640 (BuildingClass slot 52)
     AbstractClass *unknown_func_4eb360(CoordStruct const &coord);   // 0x004EB360 (a target near a coordinate; AircraftClass slot 129)
@@ -406,7 +406,7 @@ public:
     bool Flag_To_Lose(bool quiet);                         // 0x004E80D0 (RA's name)
     // Hands a human player's house to the computer (0x004F4070; Destroy_Null_Connection calls it when a
     // serial player leaves).
-    void unknown_func_4f4070();
+    void AI_Takeover();
     void unknown_func_4f5be0();                            // 0x004F5BE0 (the base building action when the base plan is empty)
     int Check_Raise_Money_004e8d80();
     FactoryClass *Factory_Producing_This_004e4090(TechnoTypeClass const *type) const;

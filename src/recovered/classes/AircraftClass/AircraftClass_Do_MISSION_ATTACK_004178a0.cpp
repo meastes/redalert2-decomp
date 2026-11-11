@@ -299,7 +299,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             }
         }
         if (unknown_254 == 0) {
-            if (unknown_32c || House->unknown_func_4f52f0()) {
+            if (unknown_32c || House->Is_Human_Player()) {
                 unknown_slot220(0);
             }
         } else if (unknown_228 != 0) {

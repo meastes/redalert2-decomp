@@ -88,8 +88,8 @@ void FootClass::unknown_slot304()
         if (!unknown_slot32()->CanApproachTarget) {
             bool pursue=false;
             if (Mission==1) pursue=true;
-            if (Mission==11 && House->unknown_func_4f52f0()) pursue=true;
-            if ((Mission!=15 || House->unknown_func_4f52f0()) && !pursue) {
+            if (Mission==11 && House->Is_Human_Player()) pursue=true;
+            if ((Mission!=15 || House->Is_Human_Player()) && !pursue) {
                 unknown_slot220(0);
                 Assign_Destination(0,true);
                 return;

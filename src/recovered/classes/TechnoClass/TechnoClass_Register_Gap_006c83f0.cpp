@@ -16,7 +16,7 @@ void TechnoClass::unknown_slot235()
             for (int y=-radius-2; y<radius+2; ++y) {
                 if (x*x+y*y<(radius+1)*(radius+1)) {
                     Cell cell=Cell(center.X+x,center.Y+y);
-                    if (!Owning_House()->Unknown_004F52B0() && !House->Is_Ally(unknown_player_a35db4) && !unknown_player_a35db4->unknown_13d) {
+                    if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(unknown_player_a35db4) && !unknown_player_a35db4->unknown_13d) {
                         if (Map[cell].unknown_130!=1 && Map[cell].unknown_130>=0) {
                             ++Map[cell].unknown_130;
                         }
@@ -26,7 +26,7 @@ void TechnoClass::unknown_slot235()
                             Map[cell].unknown_12c&=~0x08u;
                         }
                     }
-                    if (Owning_House()->Unknown_004F52B0() || House->Is_Ally(unknown_player_a35db4) || unknown_player_a35db4->unknown_13d) {
+                    if (Owning_House()->Is_Player_Control() || House->Is_Ally(unknown_player_a35db4) || unknown_player_a35db4->unknown_13d) {
                         ++Map[cell].unknown_13c;
                     }
                 }

@@ -16,7 +16,7 @@
 #include "shared/map_view.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?unknown_slot28@FootClass@@UAEHPAVObjectClass@@_N@Z=004cc740
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636ed0
 // @ref _unknown_geometry_k=0083c478
@@ -42,7 +42,7 @@ int AircraftClass::unknown_slot28(ObjectClass *object, bool arg2)
     if (action == 0x1A && Type->AirportBound) {
         action = 0;
     }
-    if (Type->Carryall && House->Unknown_004F52B0()) {
+    if (Type->Carryall && House->Is_Player_Control()) {
         if (action == 7 || action == 0) {
             if (House->Is_Ally((TechnoClass *)object)) {
                 bool active;
@@ -75,7 +75,7 @@ checks:
         }
     }
 docking:
-    if (House->Unknown_004F52B0() && action == 7 && object->Kind_Of() == 6) {
+    if (House->Is_Player_Control() && action == 7 && object->Kind_Of() == 6) {
         BuildingTypeClass *type = ((UnknownAircraftBuilding *)object)->Type;
         if ((type == Rules->unknown_778 || type->unknown_1365)
             && ((TechnoClass *)object)->Unknown_00636ED0(this) && ((TechnoClass *)object)->Cargo.Object == 0

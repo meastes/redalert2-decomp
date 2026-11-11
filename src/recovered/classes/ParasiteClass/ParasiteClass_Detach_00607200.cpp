@@ -34,7 +34,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
         if (coord != unknown_geometry_l) {
             if (Owner->unknown_slot53(&coord, Dir_To_256(unknown_28->unknown_2e0.Current()))) {
                 unknown_a40774--;
-                if (Owner->unknown_381 && Owner->House->Unknown_004F52B0()) {
+                if (Owner->unknown_381 && Owner->House->Is_Player_Control()) {
                     Owner->unknown_381 = false;
                     Owner->unknown_slot80();
                 }

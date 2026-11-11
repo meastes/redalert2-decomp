@@ -24,7 +24,7 @@ inline void __fastcall Planning_Close_Loop(TechnoClass *techno, PlanningNodeClas
     token->LoopStart = start;
     token->unknown_98 = true;
     if (!unknown_flag_a76788) {
-        if (techno->House->Unknown_004F52B0()) {
+        if (techno->House->Is_Player_Control()) {
             unknown_flag_a76788 = true;
             PlanningNodeClass *last = token->Last_Node();
             int count = last->Members.Count();

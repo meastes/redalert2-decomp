@@ -205,12 +205,12 @@ crate_money:
                 if (!force_money) {
                     force_money = Random_Pick((int)data, (int)data + 900);
                 }
-                if (!object->House->Unknown_004F52B0() || unknown_game_mode_a3d298 != 0) {
+                if (!object->House->Is_Player_Control() || unknown_game_mode_a3d298 != 0) {
                     object->House->Refund_Money(force_money);
                 } else {
                     unknown_player_a35db4->Refund_Money(force_money);
                 }
-                if (object->House->Unknown_004F52B0()) {
+                if (object->House->Is_Player_Control()) {
                     Voc_Play_At(Rules->CrateMoneySound, Ground_Coord(), 0);
                 }
                 break;
@@ -243,14 +243,14 @@ crate_money:
 
             case CRATE_DARKNESS:
                 Debug_Printf("Crate at %d,%d contains 'shroud'\n", MapCoords.X, MapCoords.Y);
-                if (object->House->Unknown_004F52B0()) {
+                if (object->House->Is_Player_Control()) {
                     Map.Unknown_00559F10();
                 }
                 break;
 
             case CRATE_REVEAL:
                 Debug_Printf("Crate at %d,%d contains 'reveal'\n", MapCoords.X, MapCoords.Y);
-                if (object->House->Unknown_004F52B0()) {
+                if (object->House->Is_Player_Control()) {
                     Map.Unknown_0055A120();
                     Voc_Play_At(Rules->CrateRevealSound, Ground_Coord(), 0);
                 }
@@ -290,14 +290,14 @@ crate_money:
                     UnitClass *goodie_unit = (UnitClass *)utp->unknown_slot35(object->House);
                     if (goodie_unit != 0) {
                         if (goodie_unit->unknown_slot53(&Ground_Coord(), 0)) {
-                            if (object->House->Unknown_004F52B0()) {
+                            if (object->House->Is_Player_Control()) {
                                 Voc_Play_At(Rules->CrateUnitSound, Ground_Coord(), 0);
                             }
                             return false;
                         }
                         Cell cell = Map.Nearby_Location(Fetch_CellID(), goodie_unit->Type->SpeedType, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
                         if (cell != unknown_cell_850bd8 && goodie_unit->unknown_slot53(&UnknownCellCoord(cell), 0)) {
-                            if (object->House->Unknown_004F52B0()) {
+                            if (object->House->Is_Player_Control()) {
                                 Voc_Play_At(Rules->CrateUnitSound, Ground_Coord(), 0);
                             }
                             return false;
@@ -369,14 +369,14 @@ crate_money:
                     }
                 }
                 }
-                if (object->House->Unknown_004F52B0()) {
+                if (object->House->Is_Player_Control()) {
                     Voc_Play_At(Rules->CratePromoteSound, Ground_Coord(), 0);
                 }
                 break;
 
             case CRATE_HEAL_BASE:
                 Debug_Printf("Crate at %d,%d contains base healing\n", MapCoords.X, MapCoords.Y);
-                if (object->House->Unknown_004F52B0()) {
+                if (object->House->Is_Player_Control()) {
                     Voc_Play_At(Rules->HealCrateSound, Ground_Coord(), 0);
                 }
                 {
@@ -416,12 +416,12 @@ crate_money:
                     if (obj != 0 && obj->Is_Techno() && Length3(Ground_Coord() - obj->Center_Coord()) < Rules->CrateRadius &&
                             ((TechnoClass *)obj)->unknown_120 == 1) {
                         ((TechnoClass *)obj)->unknown_120 = data * ((TechnoClass *)obj)->unknown_120;
-                        if (obj->Owning_House()->Unknown_004F52B0()) tospeak = true;
+                        if (obj->Owning_House()->Is_Player_Control()) tospeak = true;
                     }
                 }
                 }
                 if (tospeak) Speech_Play_Name("EVA_UnitArmorUpgraded", -1, -1);
-                if (object->House->Unknown_004F52B0()) {
+                if (object->House->Is_Player_Control()) {
                     Voc_Play_At(Rules->CrateArmourSound, Ground_Coord(), 0);
                 }
                 break;
@@ -439,7 +439,7 @@ crate_money:
                 }
                 }
                 if (tospeak) Speech_Play_Name("EVA_UnitSpeedUpgraded", -1, -1);
-                if (object->House->Unknown_004F52B0()) {
+                if (object->House->Is_Player_Control()) {
                     Voc_Play_At(Rules->CrateSpeedSound, Ground_Coord(), 0);
                 }
                 break;
@@ -452,12 +452,12 @@ crate_money:
                     if (obj != 0 && obj->Is_Techno() && Length3_YZX(Ground_Coord() - obj->Center_Coord()) < Rules->CrateRadius &&
                             ((TechnoClass *)obj)->unknown_128 == 1) {
                         ((TechnoClass *)obj)->unknown_128 = data * ((TechnoClass *)obj)->unknown_128;
-                        if (obj->Owning_House()->Unknown_004F52B0()) tospeak = true;
+                        if (obj->Owning_House()->Is_Player_Control()) tospeak = true;
                     }
                 }
                 }
                 if (tospeak) Speech_Play_Name("EVA_UnitFirePowerUpgraded", -1, -1);
-                if (object->House->Unknown_004F52B0()) {
+                if (object->House->Is_Player_Control()) {
                     Voc_Play_At(Rules->CrateFireSound, Ground_Coord(), 0);
                 }
                 break;

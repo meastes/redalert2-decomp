@@ -4,8 +4,8 @@
     "id": "population-4383",
     "inventory_sha256": "66c0f183965995a65b47b97c59055e6eca957e1cff781a5498b4362a8551cd58",
     "gaps_sha256": "b8cf9bc8d07633025048201f3b2f4d7a7e45a6ff8d1f46e6e1064514fab06f38",
-    "historical_population_sha256": "15dbeb15f20a0e0c69bdb55f19e615a53cabcfbca205d104cc836e9335f4aa59",
-    "historical_acceptance_sha256": "b449b4540451894b40cb866db94ff71639e125fc0d07a27e5b8d8db848696a68"
+    "historical_population_sha256": "9f3a0efa8a9162d8f7a7e24fa0b9e1aeeef75e104b0365ce746bc4eca762803b",
+    "historical_acceptance_sha256": "349c5041be8a8fec19c544c819bdd1efc7f6219a8700385be0574dc1ba997b41"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1771,7 +1771,7 @@
     "?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": 10751072,
     "?Unknown_006f6780@@YIXI@Z": 7300992,
     "?unknown_game_mode_a3d298@@3HA": 10736280,
-    "?Unknown_004F52B0@HouseClass@@QAE_NXZ": 5198512,
+    "?Is_Player_Control@HouseClass@@QAE_NXZ": 5198512,
     "?Draw_Rally_Pattern@@3PA_NA": 8350036,
     "??_C@_09JKEA@MOUSE?4SHP?$AA@": 8239460,
     "?unknown_drawer_8323c8@@3PAVConvertClass@@A": 8594376,
@@ -8800,8 +8800,8 @@
     "?Add_Waypoint@WaypointPathClass@@QAE_NABUCoordStruct@@@Z": 7490944,
     "?Add_Waypoint@HouseClass@@QAEXABUCoordStruct@@@Z": 5165280,
     "?unknown_func_4ed140@HouseClass@@QAE_NABVCell@@@Z": 5165376,
-    "?unknown_func_4ed200@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
-    "?unknown_func_4ed2b0@HouseClass@@QAE_NPAUWaypointClass@@PAHPAD@Z": 5165744,
+    "?Waypoint_At@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAUWaypointClass@@PAHPAD@Z": 5165744,
     "?EnumConnectionPoints@HouseClass@@UAGJPAPAUIEnumConnectionPoints@@@Z": 5165888,
     "?FindConnectionPoint@HouseClass@@UAGJABUGUID@@PAPAUIConnectionPoint@@@Z": 5165984,
     "?Make_Waypoint_Path@HouseClass@@QAEXH@Z": 5171360,
@@ -8887,7 +8887,7 @@
     "?unknown_func_458ea0@BuildingTypeClass@@QAEXH@Z": 4558496,
     "?unknown_func_45ec90@BuildingTypeClass@@QBEHXZ": 4582544,
     "?Unknown_00471660@CellClass@@QBEPAVObjectClass@@ABUPoint2D@@_NPAV2@@Z": 4658784,
-    "?unknown_func_4ed200@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Waypoint_At@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
     "?unknown_func_4eab10@HouseClass@@QAEPAHH_N@Z": 5155600,
     "?unknown_func_4eb6d0@HouseClass@@QAEXH_NH@Z": 5158608,
     "?unknown_4ea970@UnknownUnitHouse@@QAEXPAVUnitClass@@@Z": 5155184,
@@ -9158,7 +9158,7 @@
     "?Do_MISSION_CAPTURE@BuildingClass@@UAEHXZ": 4485696,
     "?Do_MISSION_HARVEST@BuildingClass@@UAEHXZ": 4485712,
     "?unknown_func_45e290@BuildingTypeClass@@QAE?AVRect@@XZ": 4579984,
-    "?unknown_func_4f52f0@HouseClass@@QAE_NXZ": 5198576,
+    "?Is_Human_Player@HouseClass@@QAE_NXZ": 5198576,
     "?unknown_451930@BuildingClass@@QAEHXZ": 4528432,
     "?Refresh_State_Animations_00453450@BuildingClass@@QAEXXZ": 4535376,
     "?unknown_43be20@BuildingClass@@QAEHXZ": 4439584,
@@ -10739,7 +10739,7 @@
     "?Destroy_Null_Connection@@YIXHH@Z": 6089632,
     "?unknown_func_4f5be0@HouseClass@@QAEXXZ": 5200864,
     "?unknown_func_4e7070@HouseClass@@QAE_NPAVTechnoClass@@PAVBuildingClass@@@Z": 5140592,
-    "?unknown_func_4f4070@HouseClass@@QAEXXZ": 5193840,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
     "?Sell_Wall@HouseClass@@QAEXABVCell@@_N@Z": 5145472,
     "?Random_Cell_In_Zone@HouseClass@@QAE?AVCell@@H@Z": 5163600,
     "?unknown_func_4eca30@HouseClass@@QAE?AVCell@@HH@Z": 5163568,
@@ -11479,7 +11479,7 @@
     "?unknown_slot187@TechnoClass@@UAEHH@Z": 7117824,
     "?unknown_6c6130@TechnoClass@@QAE_NHHPBVCell@@HPAPAVObjectClass@@PAHH@Z": 7102768,
     "?unknown_6c5570@TechnoClass@@QAE_NHHHPAVObjectClass@@PAHHPBUCoordStruct@@@Z": 7099760,
-    "?unknown_func_4ed2b0@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
+    "?Fetch_Waypoint_Data@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z": 5165744,
     "?Unknown_004F3120@HouseClass@@QBE_NXZ": 5189920,
     "??0CursorPositionCommandClass@@QAE@XZ": 5363984,
     "??_7CursorPositionCommandClass@@6B@": 8013020,
@@ -15300,7 +15300,10 @@
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
     "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336,
-    "__real@8@3ffefd70a3d70a3d7000": 7986552
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
   },
   "regions": [
     {
@@ -17415,7 +17418,7 @@
         {
           "offset": 255,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 4293174765
@@ -17445,7 +17448,7 @@
           "resolved": 8227030
         }
       ],
-      "source_sha256": "e8a7add74136e97656a805b7f584251d43c8f0b14afc2a799bb4eebbc5c9d69b",
+      "source_sha256": "78dd2b6da23640549b5c31c0c7dd0442fa26264d6ef11148a8d22f09fe5a2a17",
       "source": "src/recovered/classes/Tactical/Tactical_band_apply_006aabc0.cpp",
       "population": "population-4383",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -19892,13 +19895,13 @@
         {
           "offset": 61,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 4293174527
         }
       ],
-      "source_sha256": "8c06af976d5baaec58cc5aba4843a7e2f7014d6290ff58c4ca8e8c310517adda",
+      "source_sha256": "064659e6ed8a97f429bae13e7ce20f7026212ce5dbd6b48822c63884a4216211",
       "source": "src/recovered/classes/Tactical/Tactical_Unknown_006AAD70_006aad70.cpp",
       "population": "population-4383",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -23183,7 +23186,7 @@
         {
           "offset": 157,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 4293194239
@@ -23301,7 +23304,7 @@
           "resolved": 4292840552
         }
       ],
-      "source_sha256": "d92b92dd8618bf26b378828e19f0785993cd25009eff5a7557b4e7c2ca798548",
+      "source_sha256": "1b9829de7eded3132144c51b1c824a12de20ba346acd876b69eceeeab40092cc",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Firestorm_Wall_Placement_006a6010.cpp",
       "population": "population-4383",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -24463,7 +24466,7 @@
         {
           "offset": 236,
           "kind": 20,
-          "symbol": "?Unknown_004F52B0@HouseClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
           "target": 5198512,
           "addend": 0,
           "resolved": 4293194832
@@ -24549,7 +24552,7 @@
           "resolved": 4292841201
         }
       ],
-      "source_sha256": "1ffd36b5846bfccc5cff8d3368bdada4b156de4d2398749bd166e93bc0bf5bad",
+      "source_sha256": "62dd8823bea0d1a884f8da57821b100b4edcde93a7d00aa4f6b5c765a6450226",
       "source": "src/recovered/classes/Tactical/Tactical_Draw_Fence_Placement_006a5d70.cpp",
       "population": "population-4383",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

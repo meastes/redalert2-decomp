@@ -29,7 +29,7 @@ void BuildingClass::unknown_440140(Cell const *cell, bool announce)
         OutList.Add(EventClass(Owner(),0x1e,TargetClass(this),TargetClass((AbstractClass *)&Map[Center_Coord()])));
         return;
     }
-    if (announce && House->Unknown_004F52B0() && !Type->ConstructionYard) {
+    if (announce && House->Is_Player_Control() && !Type->ConstructionYard) {
         Speech_Play_Name(unknown_rally_speech_007cf810,-1,-1);
     }
 }

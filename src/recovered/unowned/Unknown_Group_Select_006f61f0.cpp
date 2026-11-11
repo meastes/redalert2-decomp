@@ -7,7 +7,7 @@
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Unknown_0049CAC0@DisplayClass@@QAEXH@Z=0049cac0
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
 
 // @ref ?Unknown_0049C980@UnknownCommandScreen@@QAEXH@Z=0049c980

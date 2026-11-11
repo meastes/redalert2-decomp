@@ -5,15 +5,15 @@
 // holders on a cell 0x0047C300 refuses for house are visible (false).
 #include "shared/techno.hpp"
 // @ref ?Frame@@3HA=00a40d2c
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_47c300@UnknownCellClass@@QAE_NH@Z=0047c300
 
 bool TechnoClass::unknown_slot245(HouseClass *house)
 {
-    if (unknown_184.Value() != 0 && !House->Unknown_004F52B0()) {
+    if (unknown_184.Value() != 0 && !House->Is_Player_Control()) {
         return true;
     }
-    if (House->Unknown_004F52B0() && unknown_slot48()) {
+    if (House->Is_Player_Control() && unknown_slot48()) {
         int phase = (Frame - unknown_174 + 64) % 256;
         if (phase >= 72 && phase <= 119) {
             return false;

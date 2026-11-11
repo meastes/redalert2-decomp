@@ -4,11 +4,11 @@
 #include "shared/display.hpp"
 #include "shared/house_screen.hpp"
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
-// @ref ?unknown_func_4ed200@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z=004ed200
+// @ref ?Waypoint_At@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z=004ed200
 
 int DisplayClass::Action_To_Waypoint_Action(int mouse, Cell const &cell)
 {
-    if (unknown_player_a35db4->unknown_func_4ed200(cell)) {
+    if (unknown_player_a35db4->Waypoint_At(cell)) {
         switch (mouse) {
         case 1:
         case 2:

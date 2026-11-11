@@ -4,14 +4,14 @@
 // event ring (0x0063C6C0).
 #include "shared/building.hpp"
 #include "shared/object.hpp"
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Unknown_0063C6C0@@YIXABVCell@@@Z=0063c6c0
 
 void __fastcall Unknown_0063C6C0(Cell const &cell);       // 0x0063C6C0 (RadarEventClass: remembers a cell)
 
 void BuildingClass::unknown_slot216(int arg1)
 {
-    if (arg1 && House->Unknown_004F52B0()) {
+    if (arg1 && House->Is_Player_Control()) {
         Unknown_0063C6C0(Coord_Cell(unknown_slot19(0)));
     }
 }

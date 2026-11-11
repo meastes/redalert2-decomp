@@ -4,7 +4,7 @@
 #include "shared/fogged_object.hpp"
 #include "shared/building_type.hpp"
 #include "shared/map_view.hpp"
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_slot27@FootClass@@UAEHPBVCell@@_N1@Z=004cc650
 // @ref ?unknown_6c16f0@TechnoClass@@QAEHH@Z=006c16f0
 // @ref ?Is_Near_Tunnel_NW@CellClass@@QAE_NXZ=00479cf0
@@ -19,11 +19,11 @@ inline BuildingTypeClass *Fogged_Building_Type(FoggedObjectClass const *object)
 }
 int InfantryClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
 {
-    if (!House->Unknown_004F52B0()) {
+    if (!House->Is_Player_Control()) {
         return 0;
     }
     int result = FootClass::unknown_slot27(cell, arg2, arg3);
-    if (unknown_6c16f0(-1) < 0 && House->Unknown_004F52B0() && result == 5) {
+    if (unknown_6c16f0(-1) < 0 && House->Is_Player_Control() && result == 5) {
         result = 26;
     }
     if (Type->JumpJet && (result == 1 || result == 2)) {
@@ -31,7 +31,7 @@ int InfantryClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
             result = 0;
         }
     }
-    if (House->Unknown_004F52B0() && Type->Deployer && unknown_5090d0()) {
+    if (House->Is_Player_Control() && Type->Deployer && unknown_5090d0()) {
         if (result == 1) {
             result = 2;
         } else if (result == 5) {
@@ -62,7 +62,7 @@ int InfantryClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
             }
         }
     }
-    if (Type->Engineer && remembered_type != 0 && House->Unknown_004F52B0()) {
+    if (Type->Engineer && remembered_type != 0 && House->Is_Player_Control()) {
         if (remembered_type->BridgeRepairHut) {
             Cell hut_cell = Coord_Cell(remembered->Center_Coord());
             result = Map.Unknown_00569320(hut_cell) ? 29 : 32;
@@ -77,7 +77,7 @@ int InfantryClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
         result = 59;
     }
 result_ready:
-    if (House->Unknown_004F52B0() && result == 0 && !Type->JumpJet && !unknown_slot111() && !unknown_slot112()) {
+    if (House->Is_Player_Control() && result == 0 && !Type->JumpJet && !unknown_slot111() && !unknown_slot112()) {
         result = 2;
     }
     return result;

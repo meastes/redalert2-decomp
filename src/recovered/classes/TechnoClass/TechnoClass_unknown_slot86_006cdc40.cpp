@@ -104,7 +104,7 @@ int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
     switch (result) {
     case 4:
         {
-            if (unknown_slot32()->VoiceDie.Count()>0 && House->Unknown_004F52B0()) {
+            if (unknown_slot32()->VoiceDie.Count()>0 && House->Is_Player_Control()) {
                 Voc_Play_At(unknown_slot32()->VoiceDie.Pick(unknown_random_839218()),Position_Coord_004f3f40(),0);
             }
             if (unknown_slot32()->DieSound.Count()>0) {
@@ -151,7 +151,7 @@ int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
     case 2:
         {
             TechnoTypeClass *type=unknown_slot32();
-            if (type->VoiceFeedback.Count()>0 && unknown_random_839218(0,99)<30 && House->Unknown_004F52B0()) {
+            if (type->VoiceFeedback.Count()>0 && unknown_random_839218(0,99)<30 && House->Is_Player_Control()) {
                 int selection=unknown_random_839218();
                 int voice=type->VoiceFeedback.Pick(selection);
                 Voc_Play_At(voice,Center_Coord(),0);
@@ -169,7 +169,7 @@ int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
         if (unknown_slot32()->DamageSound!=-1) {
             Voc_Static_Add(unknown_slot32()->DamageSound,Position_Coord_004f3f40(),0);
         }
-        if ((unknown_slot32()->ToProtect || unknown_327) && !House->unknown_func_4f52f0() && attacker) unknown_6d3400(attacker);
+        if ((unknown_slot32()->ToProtect || unknown_327) && !House->Is_Human_Player() && attacker) unknown_6d3400(attacker);
         break;
     }
     if (result!=4) {
@@ -195,7 +195,7 @@ int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
             int which=unknown_slot174(target);
             bool retaliate=unknown_slot212(target,which);
             if (!retaliate) {
-                if (House->unknown_func_4f52f0()) {
+                if (House->Is_Human_Player()) {
                     TPoint3D<int> difference=Center_Coord()-target->Center_Coord();
                     double range=(int)unknown_sqrt_4ba410((double)difference.X*(double)difference.X+(double)difference.Z*(double)difference.Z+(double)difference.Y*(double)difference.Y);
                     retaliate=range<=(unknown_slot32()->Sight+0.5)*256.0;
@@ -221,7 +221,7 @@ int TechnoClass::unknown_slot86(int *damage, int distance, WarheadTypeClass *war
             if (Control()->unknown_09) {
                 if (!unknown_370) {
                     if (!foot->Locomotor.Checked()->Is_Moving() && !unknown_228 && !foot->unknown_494 && Kind_Of()!=2) {
-                        if (!House->unknown_func_4f52f0() || Rules->unknown_1431 || Has_Ability_L(this,3)) {
+                        if (!House->Is_Human_Player() || Rules->unknown_1431 || Has_Ability_L(this,3)) {
                             unknown_slot87(unknown_geometry_l,true,false);
                         }
                     }

@@ -47,7 +47,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     }
 
     if (unknown_11af && unknown_11b8 != 0) {
-        if (unknown_player_a35db4->unknown_func_4ed200(cell) == 0 && Map.Unknown_0055A660(cell, true)) {
+        if (unknown_player_a35db4->Waypoint_At(cell) == 0 && Map.Unknown_0055A660(cell, true)) {
             *unknown_11b8 = Cell_Coord(cell);
             unknown_11b8->Z = Map.Get_Height_GL(*unknown_11b8) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
         }
@@ -75,8 +75,8 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     case 0x33: {
         int path = -1;
         char id;
-        WaypointClass *waypoint = unknown_player_a35db4->unknown_func_4ed200(cell);
-        unknown_player_a35db4->unknown_func_4ed2b0(waypoint, &path, &id);
+        WaypointClass *waypoint = unknown_player_a35db4->Waypoint_At(cell);
+        unknown_player_a35db4->Fetch_Waypoint_Data(waypoint, &path, &id);
         if (!unknown_11af) {
             unknown_player_a35db4->unknown_154 = path;
         }

@@ -4,8 +4,8 @@
     "id": "population-3436",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "b064f4d122ab70297a8dd0e4199fd0a5b67a2d6faf4f297bb75af30bf3c7d193",
-    "historical_acceptance_sha256": "6304235e06765608939fe24a4cb4d9b7c36145d87cdae2b1c6551c0a8cb287b0"
+    "historical_population_sha256": "bb47793f27e55838d439c7b26274bad51531833baeff42c6d90003be6a9deb46",
+    "historical_acceptance_sha256": "929cf3aa20cd97c3fc6e4a4ab1d04ed3a7fd982287a1bd9f70a9785201020cb5"
   },
   "references": {
     "_unknown_static_rect": 11261760,
@@ -5677,7 +5677,7 @@
     "?Load_String@StringTable@@SIPBGPBDPAD0H@Z": 7315136,
     "?Find_Index@HouseTypeClass@@SIHPBD@Z": 5215440,
     "?Find_Index@SideClass@@SIHPBD@Z": 6795152,
-    "?Unknown_004F52B0@HouseClass@@QAE_NXZ": 5198512,
+    "?Is_Player_Control@HouseClass@@QAE_NXZ": 5198512,
     "?Unknown_004F52F0@HouseClass@@QAE_NXZ": 5198576,
     "??0TechnoTypeClass@@QAE@ABVNoInitClass@@@Z": 7186144,
     "??_7TechnoTypeClass@@6BIPersistStream@@@": 8048768,
@@ -5719,9 +5719,9 @@
     "?Is_Ally@HouseClass@@QBE_NH@Z": 5133568,
     "?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z": 5133696,
     "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133792,
-    "?unknown_func_4ed200@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Waypoint_At@HouseClass@@QAEPAUWaypointClass@@ABVCell@@@Z": 5165568,
     "?Unknown_004F30D0@HouseClass@@QAEHXZ": 5189840,
-    "?unknown_func_4ed200@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
+    "?Waypoint_At@HouseClass@@QAEPAVWaypointClass@@ABVCell@@@Z": 5165568,
     "?Unknown_004F52B0@UnknownHouse_00610770@@QAE_NXZ": 5198512,
     "?Clear@UnknownTable_70c540@@QAEXXZ": 7390528,
     "?Options@@3VOptionsClass@@A": 10750744,

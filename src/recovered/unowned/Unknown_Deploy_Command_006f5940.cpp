@@ -18,7 +18,7 @@ void Unknown_006F5940()
     if (unknown_objects_a40c60[0] != 0) {
         BuildingClass *building = (BuildingClass *)unknown_objects_a40c60[0];
         if (building != 0 && building->Kind_Of() == 6 && building->unknown_4532f0() > 0
-            && building->House->Unknown_004F52B0()) {
+            && building->House->Is_Player_Control()) {
             ObjectClass *object = unknown_objects_a40c60[0];
             if (object != 0 && object->AbstractFlags.IsTechno && ((TechnoClass *)object)->unknown_slot199(9)) {
                 Voc_Play(Rules->unknown_64c, 1.0f, 0x2000, 0);

@@ -33,7 +33,7 @@ Cell MultiplayerGameMode::AssignStartingPositionsToHouse(int house, DynamicVecto
         HouseClass *owner = Houses[house];
         if (owner != 0) {
             for (int p = 0; p < unknown_players_a3fa7c.Count(); p++) {
-                if (owner->unknown_func_4f52f0() && Compare_Wide_007837d3(owner->UIName, unknown_players_a3fa7c[p]->Name) == 0) {
+                if (owner->Is_Human_Player() && Compare_Wide_007837d3(owner->UIName, unknown_players_a3fa7c[p]->Name) == 0) {
                     observer = unknown_players_a3fa7c[p]->Team == -1;
                     break;
                 }
@@ -59,7 +59,7 @@ Cell MultiplayerGameMode::AssignStartingPositionsToHouse(int house, DynamicVecto
     HouseClass *owner = Houses[house];
     if (owner != 0) {
         for (int p = 0; p < unknown_players_a3fa7c.Count(); p++) {
-            if (owner->unknown_func_4f52f0() && Compare_Wide_007837d3(owner->UIName, unknown_players_a3fa7c[p]->Name) == 0) {
+            if (owner->Is_Human_Player() && Compare_Wide_007837d3(owner->UIName, unknown_players_a3fa7c[p]->Name) == 0) {
                 observer = unknown_players_a3fa7c[p]->Team == -1;
                 break;
             }

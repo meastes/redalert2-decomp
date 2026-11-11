@@ -68,7 +68,7 @@ int UnitClass::Do_MISSION_HARVEST()
     if (!Type->Harvester && !Type->Weeder) {
         return 450;
     }
-    if (Type->Dock.Count() == 0 && !House->unknown_func_4f52f0()) {
+    if (Type->Dock.Count() == 0 && !House->Is_Human_Player()) {
         unknown_slot116(5, false);
         return 1;
     }

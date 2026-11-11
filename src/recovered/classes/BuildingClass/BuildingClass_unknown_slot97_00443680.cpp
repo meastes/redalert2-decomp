@@ -7,7 +7,7 @@
 #include "shared/building.hpp"
 #include "shared/house.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
 // @ref ?Speech_Play_Name@@YIXPBDHH@Z=00715b40
 // @ref ??_C@_0O@MHGH@EVA_Repairing?$AA@=007cf894
@@ -38,18 +38,18 @@ void BuildingClass::unknown_slot97(int mode)
             sound = Rules->unknown_620;
         } else {
             sound = Rules->unknown_62c;
-            if (House->Unknown_004F52B0()) {
+            if (House->Is_Player_Control()) {
                 unknown_slot79(7);
             }
             unknown_5ae = true;
-            if (House->Unknown_004F52B0()) {
+            if (House->Is_Player_Control()) {
                 Speech_Play_Name("EVA_Repairing", -1, -1);
             }
         }
     } else {
         sound = Rules->unknown_62c;
     }
-    if (House->Unknown_004F52B0()) {
+    if (House->Is_Player_Control()) {
         Voc_Play_At(sound, CoordStruct(Coord), 0);
     }
 }

@@ -13,7 +13,7 @@
 // @ref ?unknown_key_a40ba8@@=00a40ba8
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
-// @ref ?Unknown_004F52B0@HouseClass@@=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@=004f52b0
 inline bool Building_Key_Down(int key) { return WWKeyboard->Down(key); }
 int BuildingClass::unknown_slot27(Cell const *cell,bool alternate,bool mode)
 {
@@ -51,7 +51,7 @@ int BuildingClass::unknown_slot27(Cell const *cell,bool alternate,bool mode)
         else if(action==5) goto result_action;
     }
 owner_action:
-    if(unknown_slot153() && House->Unknown_004F52B0()) action=1;
+    if(unknown_slot153() && House->Is_Player_Control()) action=1;
 result_action:
     return action;
 }

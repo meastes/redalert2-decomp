@@ -79,9 +79,9 @@ void TechnoClass::AI()
     if (old_rank!=unknown_118.Remaining_Levels()) {
         if (old_rank!=-1) {
             if (unknown_118.Remaining_Levels()==0) {
-                if (House->Unknown_004F52B0()) { Voc_Play_At(Rules->UpgradeEliteSound,Position_Coord_004f3f40(),0); Speech_Play_Name("EVA_UnitPromoted",-1,-1); }
+                if (House->Is_Player_Control()) { Voc_Play_At(Rules->UpgradeEliteSound,Position_Coord_004f3f40(),0); Speech_Play_Name("EVA_UnitPromoted",-1,-1); }
                 FlashCount=Rules->EliteFlashTimer;
-            } else if (unknown_118.Remaining_Levels()==1 && House->Unknown_004F52B0()) {
+            } else if (unknown_118.Remaining_Levels()==1 && House->Is_Player_Control()) {
                 Voc_Play_At(Rules->UpgradeVeteranSound,Position_Coord_004f3f40(),0);
                 Speech_Play_Name("EVA_UnitPromoted",-1,-1);
             }
@@ -103,7 +103,7 @@ void TechnoClass::AI()
         unknown_108->unknown_slot60();
         unknown_108=0;
     }
-    if (!House->unknown_func_4f52f0() && unknown_228 && House->Is_Ally(static_cast<ObjectClass *>(unknown_228))) {
+    if (!House->Is_Human_Player() && unknown_228 && House->Is_Ally(static_cast<ObjectClass *>(unknown_228))) {
         bool infantry=Kind_Of()==15;
         bool building=unknown_228->Kind_Of()==6;
         bool can_enter=infantry && building && static_cast<BuildingClass *>(unknown_228)->Unknown_00452EB0(this);
@@ -151,7 +151,7 @@ void TechnoClass::AI()
     if (SpawnManager) SpawnManager->AI();
     if (unknown_1b8==0 && Map[Center_Coord()].Is_House_Bit(House->ArrayIndex)) unknown_slot238();
     if (unknown_1b8==2 && !Map[Center_Coord()].Is_House_Bit(House->ArrayIndex)) unknown_slot238();
-    if (unknown_game_mode_a3d298==0 && !House->Unknown_004F52B0() && unknown_228 && !House->Is_Ally(static_cast<ObjectClass *>(unknown_228)) && unknown_6c16f0(-1)<0) unknown_slot220(0);
+    if (unknown_game_mode_a3d298==0 && !House->Is_Player_Control() && unknown_228 && !House->Is_Ally(static_cast<ObjectClass *>(unknown_228)) && unknown_6c16f0(-1)<0) unknown_slot220(0);
     if (unknown_228 && unknown_game_mode_a3d298!=0 && House->unknown_134 && unknown_6c16f0(-1)<0 && !House->Is_Ally(static_cast<ObjectClass *>(unknown_228))) unknown_slot220(0);
     if (unknown_228 && unknown_228->Kind_Of()==2) {
         ObjectClass *aircraft=static_cast<ObjectClass *>(unknown_228);

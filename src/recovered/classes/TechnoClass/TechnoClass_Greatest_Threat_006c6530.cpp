@@ -12,7 +12,7 @@
 // @ref ?unknown_6c6130@TechnoClass@@QAE_NHHPBVCell@@HPAPAVObjectClass@@PAHH@Z=006c6130
 // @ref ?unknown_6c6350@TechnoClass@@QAEHPBVCell@@@Z=006c6350
 // @ref ?unknown_cell_ac0148@@3VCell@@A=00ac0148
-// @ref ?unknown_func_4f52f0@HouseClass@@QAE_NXZ=004f52f0
+// @ref ?Is_Human_Player@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?unknown_tracker_839ea0@@3UUnknownTracker839EA0@@A=00839ea0
 // Target scan: original Techno primary slot219. Flags are retained as target values.
 #include "shared/techno.hpp"
@@ -35,7 +35,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
     int best_value=-1;
     int zone=-1;
     ++unknown_target_scan_a40be4;
-    if (unknown_slot32()->NoAutoFire && House->unknown_func_4f52f0()) return 0;
+    if (unknown_slot32()->NoAutoFire && House->Is_Human_Player()) return 0;
     if (!(method&1) && Kind_Of()!=6 && Kind_Of()!=2) {
         zone=Map.Zone(Cell(Center_Coord()),unknown_slot32()->MovementZone,true);
     }
@@ -163,7 +163,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
         for (index=0;index<Technos.Count();++index) {
             TechnoClass *object=Technos[index];
             int value=0;
-            if ((!House->Is_Ally(object) || unknown_6c16f0(-1)<0 || (!House->unknown_func_4f52f0() && this && Kind_Of()==15 && (this && Kind_Of()==15 ? static_cast<InfantryClass *>(this):0)->Type->Engineer)) && object->unknown_80==2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(object->House)) && unknown_6c5570(method,mask,-1,object,&value,zone,coord) && value>best_value) {best_object=object;best_value=value;}
+            if ((!House->Is_Ally(object) || unknown_6c16f0(-1)<0 || (!House->Is_Human_Player() && this && Kind_Of()==15 && (this && Kind_Of()==15 ? static_cast<InfantryClass *>(this):0)->Type->Engineer)) && object->unknown_80==2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(object->House)) && unknown_6c5570(method,mask,-1,object,&value,zone,coord) && value>best_value) {best_object=object;best_value=value;}
         }
     }
     return best_object;

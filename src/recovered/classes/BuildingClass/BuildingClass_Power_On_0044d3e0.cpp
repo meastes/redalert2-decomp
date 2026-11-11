@@ -4,7 +4,7 @@
 #include "shared/foot.hpp"
 #include "shared/anim.hpp"
 // @ref ?unknown_func_4f3170@HouseClass@@QAEXH_NH@Z=004f3170
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ??_C@_0BD@BHPD@EVA_BuildingOnLine?$AA@=007cfa58
 // @ref ?Speech_Play_Name@@YIXPBDHH@Z=00715b40
 void BuildingClass::unknown_44d3e0()
@@ -21,7 +21,7 @@ void BuildingClass::unknown_44d3e0()
             House->unknown_func_4f3170(Type->Factory,Type->Naval,0);
         }
 
-        if(House->Unknown_004F52B0()) {
+        if(House->Is_Player_Control()) {
             Speech_Play_Name("EVA_BuildingOnLine",-1,-1);
         }
     }

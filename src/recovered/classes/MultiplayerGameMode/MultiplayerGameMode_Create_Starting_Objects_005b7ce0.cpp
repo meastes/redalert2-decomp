@@ -47,7 +47,7 @@ bool MultiplayerGameMode::Create_Starting_Objects_005b7ce0()
         if (!house->Type->MultiplayPassive) {
             if (house != 0) {
                 for (int player_index = 0; player_index < unknown_session_a3d298.Players.Count(); ++player_index) {
-                    if (house->unknown_func_4f52f0() && Compare_Wide_007837d3(house->UIName, unknown_session_a3d298.Players[player_index]->Name) == 0) {
+                    if (house->Is_Human_Player() && Compare_Wide_007837d3(house->UIName, unknown_session_a3d298.Players[player_index]->Name) == 0) {
                         bool const &observer = unknown_session_a3d298.Players[player_index]->Team == -1;
                         if (observer) goto next_house;
                         break;

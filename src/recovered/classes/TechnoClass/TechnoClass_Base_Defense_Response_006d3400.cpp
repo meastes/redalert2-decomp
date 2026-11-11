@@ -24,7 +24,7 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
     int minimum=0;
     int required=attacker->unknown_slot168()*Rules->ComputerBaseDefenseResponse;
     int recruited=0;
-    if (!attacker || House->Is_Ally(attacker) || House->unknown_func_4f52f0() || attacker->unknown_76) return;
+    if (!attacker || House->Is_Ally(attacker) || House->Is_Human_Player() || attacker->unknown_76) return;
     if (!unknown_game_mode_a3d298 && unknown_slot163()) return;
     if (attacker->Kind_Of()!=15 && attacker->Kind_Of()!=1) return;
     if (unknown_slot32()->unknown_202) return;

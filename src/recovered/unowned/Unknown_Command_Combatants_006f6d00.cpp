@@ -4,7 +4,7 @@
 // @ref ??_C@_0BE@LMOP@MSG?3SelAcrossScreen?$AA@=007f8c24
 // @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
 // @ref ?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A=00a40c20
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?unknown_flag_ac133c@@3_NA=00ac133c
 // @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
 // @ref ?unknown_objects_a40c60@@3V?$DynamicVectorClass@PAVObjectClass@@@@A=00a40c60

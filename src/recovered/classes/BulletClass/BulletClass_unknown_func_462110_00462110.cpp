@@ -86,14 +86,14 @@ void BulletClass::unknown_func_462110(CoordStruct const &position)
             ObjectClass *object = Target == 0 ? 0 :
                 (Target->AbstractFlags.IsObject ? static_cast<ObjectClass *>(Target) : 0);
             bool target_house = Target != 0 && Target->AbstractFlags.IsTechno &&
-                static_cast<TechnoClass *>(Target)->House->Unknown_004F52B0();
+                static_cast<TechnoClass *>(Target)->House->Is_Player_Control();
             if (object != 0 && object->unknown_7d && object->unknown_34 != 0) {
                 object->unknown_34->Spring(6, object, unknown_geometry_k, false, (int)Owner);
                 object->unknown_34->Spring(0x2c, object, unknown_geometry_k, false, (int)Owner);
             }
             if (static_cast<CaptureManagerClass *>(Owner->unknown_230)->Capture(static_cast<TechnoClass *>(Target))
                 && Rules->YuriMindControlSound != -1
-                && (Owner->House->Unknown_004F52B0() || target_house)) {
+                && (Owner->House->Is_Player_Control() || target_house)) {
                 Voc_Play_At(Rules->YuriMindControlSound, CoordStruct(object->Coord), 0);
             }
         }

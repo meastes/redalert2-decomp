@@ -9,7 +9,7 @@
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?unknown_func_5d27d0@ObjectClass@@QBE_NPBD@Z=005d27d0
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
-// @ref ?Unknown_004F52B0@HouseClass@@QAE_NXZ=004f52b0
+// @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Voc_Play_At@@YIPAUAudioEvent@@HABUCoordStruct@@PAUAudioEventHandle@@@Z=00713e60
 // @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref __real@8@3fe08000000200000000=0079c280
@@ -40,7 +40,7 @@ inline bool Infantry_Play_Idle_Action(InfantryClass *infantry)
     }
     case 1: case 2: case 7:
         infantry->unknown_slot311(10, false, false);
-        if (!infantry->unknown_77 && infantry->House->Unknown_004F52B0() && infantry->Type->VoiceComment.Count() > 0
+        if (!infantry->unknown_77 && infantry->House->Is_Player_Control() && infantry->Type->VoiceComment.Count() > 0
             && unknown_random_839218(0, 2) == 0) {
             CoordStruct coord = infantry->Coord;
             Voc_Play_At(infantry->Type->VoiceComment[0], coord, 0);

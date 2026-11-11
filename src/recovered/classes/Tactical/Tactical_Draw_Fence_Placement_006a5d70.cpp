@@ -19,7 +19,7 @@ void Tactical::Draw_Fence_Placement(bool drawtrans, Cell cell)
             CellClass *nearby = &Map[scan];
             if (nearby->Cell_Terrain(false) || nearby->unknown_11c > 0 || nearby->unknown_4c != 0 || ++count >= range) break;
         }
-        if (found && building->Type->LaserFencePost && building->House->Unknown_004F52B0() && count > 0) {
+        if (found && building->Type->LaserFencePost && building->House->Is_Player_Control() && count > 0) {
             int flags = drawtrans ? 0x10606 : 0x20606;
             Cell drawcell = Adjacent_Cell(cell, facing);
             for (int i = 0; i < count; ++i) {

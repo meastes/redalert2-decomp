@@ -26,7 +26,7 @@ void CenterBaseCommandClass::Execute(int key) const
     if (unknown_player_a35db4->CurBuildings) {
         for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
             BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
-            if (building != 0 && !building->unknown_76 && building->House->Unknown_004F52B0()) {
+            if (building != 0 && !building->unknown_76 && building->House->Is_Player_Control()) {
                 if (building->Type->ConstructionYard) {
                     yard = building->Center_Coord();
                     if (building->unknown_32b) {
@@ -41,7 +41,7 @@ void CenterBaseCommandClass::Execute(int key) const
     if (other == unknown_geometry_l && yard == unknown_geometry_l && unknown_player_a35db4->unknown_228) {
         for (int index = 0; index < Units.Count(); index++) {
             UnitClass *unit = Units[index];
-            if (unit != 0 && !unit->unknown_76 && unit->House->Unknown_004F52B0()
+            if (unit != 0 && !unit->unknown_76 && unit->House->Is_Player_Control()
                 && unit->Type == unknown_player_a35db4->Unknown_004EF6F0(Rules->BaseUnit)) {
                 yard = unit->Center_Coord();
                 break;

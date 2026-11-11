@@ -50,13 +50,13 @@ public:
     bool unknown_func_4e7070(TechnoClass *builder, BuildingClass *building); // 0x004E7070
     // The real IHouse subobject, which full House exposes through base conversion.
     IHouse *As_IHouse() { return reinterpret_cast<IHouse *>(reinterpret_cast<char *>(this) + 0x24); }
-    bool Unknown_004F52B0();                               // 0x004F52B0 (TechnoClass slots 24, 38, 39, 80)
+    bool Is_Player_Control();                              // 0x004F52B0 (TechnoClass slots 24, 38, 39, 80)
     bool Unknown_004F52F0();                               // 0x004F52F0
     int Which_Zone(Cell const &cell) const;                // 0x004EAEF0 (as shared/house.hpp; MapClass 0x00550DC0)
     int Unknown_004F30D0();                                // 0x004F30D0 a free waypoint path, or -1
     // A waypoint in the cell, else 0 (0x004ED200; shared/house.hpp).
-    class WaypointClass *unknown_func_4ed200(Cell const &cell);
-    bool unknown_func_4ed2b0(class WaypointClass *waypoint, int *path, char *position);   // 0x004ED2B0 (overlay)
+    class WaypointClass *Waypoint_At(Cell const &cell);
+    bool Fetch_Waypoint_Data(class WaypointClass *waypoint, int *path, char *position);   // 0x004ED2B0 (overlay)
     bool Unknown_004F3120() const;                         // 0x004F3120 (overlay)
 
     char unknown_000[0x30];

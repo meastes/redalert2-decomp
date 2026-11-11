@@ -15,7 +15,7 @@ BuildingClass *__fastcall Unknown_00450F90(HouseClass *house, UnitClass *unit);
 // @ref ?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z=006d6e50
 // @ref ?unknown_6cf130@TechnoClass@@QAE?AUCell@@PAVAbstractClass@@@Z=006cf130
 // @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
-// @ref ?unknown_func_4f52f0@HouseClass@@QAE_NXZ=004f52f0
+// @ref ?Is_Human_Player@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ=00496b50
 // @ref ?Count_Down@DelayTimerClass@@QAEXN@Z=00496bc0
 // @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
@@ -72,7 +72,7 @@ void UnitClass::AI()
     if (Type->DeploysInto) {
         for (int index = 0; index < Rules->unknown_7c8.Count(); index++) {
             if (Rules->unknown_7c8[index] == Type->DeploysInto) {
-                if (House->unknown_13b && !House->unknown_func_4f52f0() && unknown_game_mode_a3d298 != 0 && House->unknown_50.Count() == 0 && Mission != 15 && Mission != 16) {
+                if (House->unknown_13b && !House->Is_Human_Player() && unknown_game_mode_a3d298 != 0 && House->unknown_50.Count() == 0 && Mission != 15 && Mission != 16) {
                     unknown_slot116(15, false);
                 }
                 break;
@@ -124,7 +124,7 @@ void UnitClass::AI()
         }
         if (unknown_slot122()) Commence();
         if (unknown_1b8 == 2 && unknown_5b4 != -1) unknown_slot61();
-        if ((Frame & 15) == 0 && (Mission == 11 || Mission == 5) && !House->unknown_func_4f52f0() && MissionQueue == -1 && Strength < Type->MaxStrength && (!unknown_1b0 || Mission == 11) && !Type->Harvester && !Type->Weeder) {
+        if ((Frame & 15) == 0 && (Mission == 11 || Mission == 5) && !House->Is_Human_Player() && MissionQueue == -1 && Strength < Type->MaxStrength && (!unknown_1b0 || Mission == 11) && !Type->Harvester && !Type->Weeder) {
             BuildingClass *repair_building = Unknown_00450F90(House, this);
             if (repair_building) {
                 if (!unknown_1b0) {
@@ -136,7 +136,7 @@ void UnitClass::AI()
                 Assign_Destination(repair_building, true);
             }
         }
-        if (Type->Harvester && !House->unknown_func_4f52f0() && Frame - unknown_ac > 300 && !Locomotor.Checked()->Is_Moving()) {
+        if (Type->Harvester && !House->Is_Human_Player() && Frame - unknown_ac > 300 && !Locomotor.Checked()->Is_Moving()) {
             BuildingClass *refinery = (BuildingClass *)Map[CoordStruct(Coord)].Cell_Building();
             if (refinery && refinery->Type->Refinery) {
                 if (unknown_slot104() == Unit_AI_Refinery_Exit_Cell(refinery->unknown_slot104())) {

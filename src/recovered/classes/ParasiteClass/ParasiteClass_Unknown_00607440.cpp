@@ -55,7 +55,7 @@ void ParasiteClass::Unknown_00607440()
         }
     }
     if (can_exit && Owner->unknown_slot53(&coord, Dir_To_256(exit_dir))) {
-        if (Owner->unknown_381 && Owner->House->Unknown_004F52B0()) {
+        if (Owner->unknown_381 && Owner->House->Is_Player_Control()) {
             Owner->unknown_381 = false;
             Owner->unknown_slot80();
         }
