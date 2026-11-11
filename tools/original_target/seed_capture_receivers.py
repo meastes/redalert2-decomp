@@ -151,7 +151,7 @@ class Receivers:
         tables=physical_family(self.audit,*key);targets=[];pops=set();records=set()
         for target in sorted({row['target'] for row in tables}):
             row=self.accepted(target);pop=self.cleanup(target);pops.add(pop);symbol=row.get('symbol','')
-            record=re.fullmatch(r'\?[A-Za-z_]\w*@[A-Za-z_]\w*@@[QU][AB]E\?AU([A-Za-z_]\w*)@@XZ',symbol)
+            record=re.fullmatch(r'\?[A-Za-z_]\w*@[A-Za-z_]\w*@@[QU][AB]E\?A[UV]([A-Za-z_]\w*)@@XZ',symbol)
             records.add(record[1] if record else None)
             targets.append(dict(entry=target,source=row['source'],source_sha256=row['source_sha256'],body_sha256=row['body_sha256'],symbol=symbol,pop=pop))
         require(len(pops)==1,'Virtual family cleanup differs');pop=next(iter(pops));record=next(iter(records)) if len(records)==1 else None
