@@ -62,7 +62,7 @@ void HouseClass::MPlayer_Defeated_004e77f0()
         Map.Unknown_0049CAC0(0);
         unknown_int_a3d548=1;
         Map.Unknown_0055A1F0();
-        Map.Unknown_00633140(true);
+        Map.Toggle_Radar(true);
         unknown_surface_839954->Fill(0);
         Map.Flag_To_Redraw(2);
         memset(unknown_flags_a3f118,1,sizeof(unknown_flags_a3f118));

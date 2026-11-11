@@ -290,9 +290,9 @@ public:
     void Radar_Pixel(Point2D const &point);                                // 0x00632620
     void Radar_Cell(Cell const &cell);                                    // 0x006328F0 marks the radar pixels of a cell for redraw (as shared/radar.hpp)
     DynamicVectorClass<Point2D> *Unknown_006328D0(BuildingTypeClass *type);     // 0x006328D0
-    bool Unknown_006331A0();                                                    // 0x006331A0
-    bool Unknown_00633130();                                                    // 0x00633130 (+0x14D4: the radar is on; as shared/radar.hpp)
-    void Unknown_00633140(bool on);                                             // 0x00633140 (turns the radar on or off; as shared/radar.hpp)
+    bool Is_Player_Names();                                                     // 0x006331A0
+    bool Is_Radar_Existing();                                                   // 0x00633130 (+0x14D4: the radar is on; as shared/radar.hpp)
+    void Toggle_Radar(bool on);                                                 // 0x00633140 (turns the radar on or off; as shared/radar.hpp)
     void Unknown_00634970(int arg1); // as shared/radar.hpp
     void Redraw_Radar(bool flag);                                           // 0x006331E0
     void Reset_Radar();                                                    // 0x00631D40 (as shared/radar.hpp)

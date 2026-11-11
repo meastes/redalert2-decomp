@@ -4,8 +4,8 @@
     "id": "population-4272",
     "inventory_sha256": "31a287778a1711b1b922bec2102bbd08ce3fbd92555c3559bf3ae73ff2ac2a65",
     "gaps_sha256": "640459b5d6fcc79d78771a65e5936f588e188f7a050a7d5302b5267b602843db",
-    "historical_population_sha256": "4e15ecfa50cee7a8ffd95b152a3266ba7ad1d7634ad540c8b4222dfac8305b92",
-    "historical_acceptance_sha256": "08512bdbfef30068c0aba6311fc70431e9fa7ebc08ddb70666b398541a65fbf6"
+    "historical_population_sha256": "7f07ce4cb09c52089843c74b18519f405d8f0fc383bb6852f6a1d9d0f4113caa",
+    "historical_acceptance_sha256": "37eea10655d471e2e977b982b3fe5ea775b5d0c0e056bcdff2410ccc3a52e257"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3400,7 +3400,7 @@
     "?Iterate@UnknownScreen8324E0@@QAEPAVCellClass@@XZ": 5612688,
     "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ": 4250656,
     "?Unknown_0054A550@MapClass@@QAEXABUCoordStruct@@HHH@Z": 5547344,
-    "?Unknown_006331A0@RadarClass@@QAE_NXZ": 6500768,
+    "?Is_Player_Names@RadarClass@@QAE_NXZ": 6500768,
     "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z": 5568448,
     "?Update_Cell_Zone@MapClass@@QAEXABVCell@@@Z": 5569312,
     "?Unknown_00566340@MapClass@@QAEXABVCell@@@Z": 5661504,
@@ -7119,8 +7119,8 @@
     "?Coord_To_Radar_Pixel@RadarClass@@QAE?AUPoint2D@@ABUCoordStruct@@_N@Z": 6495136,
     "?Unknown_0055A1F0@MapClass@@QAEXXZ": 5612016,
     "??0SubzoneTrackingStruct@@QAE@XZ": 5683632,
-    "?Unknown_00633130@RadarClass@@QAE_NXZ": 6500656,
-    "?Unknown_00633140@RadarClass@@QAEX_N@Z": 6500672,
+    "?Is_Radar_Existing@RadarClass@@QAE_NXZ": 6500656,
+    "?Toggle_Radar@RadarClass@@QAEX_N@Z": 6500672,
     "?Which_Column@SidebarClass@@SIHHH_N@Z": 6822208,
     "?Unknown_00569090@MapClass@@QAE_NPAVCell@@@Z": 5673104,
     "?AssignStartingPositionsToHouse@MPCooperative@@UAE?AVCell@@HAAV?$DynamicVectorClass@VCell@@@@PA_N@Z": 5914512,

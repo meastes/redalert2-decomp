@@ -80,7 +80,7 @@ void TechnoClass::unknown_slot55(TechnoClass *killer)
             killer->House->unknown_3aa0.Unknown_0070C490(((BuildingClass *)this)->Type->ArrayIndex);
             killer->House->unknown_5364[Owner()]++;
         }
-        if (Map.Unknown_006331A0()) {
+        if (Map.Is_Player_Names()) {
             Map.Redraw_Radar(false);
         }
         break;
@@ -102,7 +102,7 @@ void TechnoClass::unknown_slot55(TechnoClass *killer)
         if (killer != 0) {
             killer->House->unknown_5310[Owner()]++;
         }
-        if (Map.Unknown_006331A0()) {
+        if (Map.Is_Player_Names()) {
             Map.Redraw_Radar(false);
         }
         break;

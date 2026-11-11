@@ -4,8 +4,8 @@
     "id": "population-4436",
     "inventory_sha256": "8c502343a335377c2daa19399479a385be44d4e954a6b63315bee285f02863f7",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "dfa2c346148217918aec0064c356eb8192b850b197771152028e348d7e808248",
-    "historical_acceptance_sha256": "ec4020b28399b968126d91648de88bc046ca8420ae28163fa0fd60d0094d4a9d"
+    "historical_population_sha256": "a3cec0c654c945a225ba9363a8c3058c6d4a4183990a41cb57f65472cf8543a1",
+    "historical_acceptance_sha256": "99efc520acdc398528ca9509410bfbf76575a2cd84f86331f167c7faf3b673d3"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -6739,7 +6739,7 @@
     "?Unknown_004ED440@HouseClass@@QAEXPAVTechnoClass@@_N@Z": 5166144,
     "?Made_A_Kill@VeterancyClass@@QAEXHH@Z": 7418720,
     "?Unknown_0070C490@UnknownHouseTracker@@QAEXH@Z": 7390352,
-    "?Unknown_006331A0@RadarClass@@QAE_NXZ": 6500768,
+    "?Is_Player_Names@RadarClass@@QAE_NXZ": 6500768,
     "?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z": 6515616,
     "?Unlink@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z": 6858080,
     "?Unknown_006E24C0@UnknownTechno208@@QAEXPAVAbstractClass@@@Z": 7218368,
@@ -8661,8 +8661,8 @@
     "__imp__ValidateRect@8": 7971832,
     "?Draw_Line@RadBeam@@QAEXABUCoordStruct@@0F@Z": 6510608,
     "?unknown_func_4f2e50@HouseClass@@QAEXXZ": 5189200,
-    "?Unknown_00633130@RadarClass@@QAE_NXZ": 6500656,
-    "?Unknown_00633140@RadarClass@@QAEX_N@Z": 6500672,
+    "?Is_Radar_Existing@RadarClass@@QAE_NXZ": 6500656,
+    "?Toggle_Radar@RadarClass@@QAEX_N@Z": 6500672,
     "?unknown_func_4f2fc0@HouseClass@@QAEXXZ": 5189568,
     "?unknown_6d0990@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@@Z": 7145872,
     "?Execute@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7002848,
@@ -20647,7 +20647,7 @@
         {
           "offset": 636,
           "kind": 20,
-          "symbol": "?Unknown_006331A0@RadarClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Names@RadarClass@@QAE_NXZ",
           "target": 6500768,
           "addend": 0,
           "resolved": 4294328720
@@ -20703,7 +20703,7 @@
         {
           "offset": 856,
           "kind": 20,
-          "symbol": "?Unknown_006331A0@RadarClass@@QAE_NXZ",
+          "symbol": "?Is_Player_Names@RadarClass@@QAE_NXZ",
           "target": 6500768,
           "addend": 0,
           "resolved": 4294328500
@@ -20765,7 +20765,7 @@
           "resolved": 7139580
         }
       ],
-      "source_sha256": "5dd3edf5adea5fdf72e795e4262b653191f0b6546a02c36010855f20b8fb5a0b",
+      "source_sha256": "bf3c252870a5a2b6b9f0c888c7aad0b4e89e2315fd2a81ca66ed26489b7adb87",
       "switch_data_bytes": 35,
       "source": "src/recovered/classes/TechnoClass/TechnoClass_unknown_slot55_006ced90.cpp",
       "population": "population-4436",

@@ -10,8 +10,8 @@
 #include "shared/id_source.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_00633130@RadarClass@@QAE_NXZ=00633130
-// @ref ?Unknown_00633140@RadarClass@@QAEX_N@Z=00633140
+// @ref ?Is_Radar_Existing@RadarClass@@QAE_NXZ=00633130
+// @ref ?Toggle_Radar@RadarClass@@QAEX_N@Z=00633140
 
 void HouseClass::unknown_func_4f2e50()
 {
@@ -37,8 +37,8 @@ void HouseClass::unknown_func_4f2e50()
                 }
             }
         }
-        if (Map.Unknown_00633130() != radar) {
-            Map.Unknown_00633140(radar);
+        if (Map.Is_Radar_Existing() != radar) {
+            Map.Toggle_Radar(radar);
         }
     }
 }
