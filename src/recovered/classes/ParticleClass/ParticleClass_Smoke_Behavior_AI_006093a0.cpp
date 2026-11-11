@@ -1,4 +1,4 @@
-// void ParticleClass::unknown_func_6093a0() (0x006093A0)
+// void ParticleClass::Smoke_Behavior_AI() (0x006093A0)
 // Behaviour 1 (gas): every other frame the drift jitters within +-5, the
 // state frame advances and the speed decays.
 #include "shared/particle.hpp"
@@ -9,7 +9,7 @@
 // @ref __real@8@4000c000000000000000=0079ca88
 
 // Limit: defined by the 0x00608BB0 source earlier in the unit.
-void ParticleClass::unknown_func_6093a0()
+void ParticleClass::Smoke_Behavior_AI()
 {
     if (Frame & 1) {
         if ((abs(unknown_id_source_a3d290->Random()()) & 3) == 0) {

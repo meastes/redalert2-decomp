@@ -16,8 +16,8 @@
 // @ref ??0ParticleClass@@QAE@PAVParticleTypeClass@@ABUCoordStruct@@1PAVParticleSystemClass@@@Z=00608440
 // @ref ?ParticleTypes@@3V?$DynamicVectorClass@PAVParticleTypeClass@@@@A=00a35e00
 // @ref ??2@YAPAXI@Z=00782017
-// @ref ?unknown_func_609c90@ParticleClass@@QAEXXZ=00609c90
-// @ref ?unknown_func_60a420@ParticleClass@@QAEXXZ=0060a420
+// @ref ?Behavior_AI@ParticleClass@@QAEXXZ=00609c90
+// @ref ?Motion_AI@ParticleClass@@QAEXXZ=0060a420
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 
@@ -45,7 +45,7 @@ void ParticleSystemClass::unknown_func_60bb70()
 
     int index;
     for (index = 0; index < Particles.Count(); index++) {
-        Particles[index]->unknown_func_609c90();
+        Particles[index]->Behavior_AI();
     }
 
     for (index = Particles.Count() - 1; index >= 0; index--) {
@@ -96,7 +96,7 @@ void ParticleSystemClass::unknown_func_60bb70()
             }
             particle->unknown_slot60();
         } else {
-            Particles[index]->unknown_func_60a420();
+            Particles[index]->Motion_AI();
         }
     }
 

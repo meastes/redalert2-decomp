@@ -13,7 +13,7 @@ CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, floa
 // @ref ??0ParticleClass@@QAE@PAVParticleTypeClass@@ABUCoordStruct@@1PAVParticleSystemClass@@@Z=00608440
 // @ref ?ParticleTypes@@3V?$DynamicVectorClass@PAVParticleTypeClass@@@@A=00a35e00
 // @ref ??2@YAPAXI@Z=00782017
-// @ref ?unknown_func_609c90@ParticleClass@@QAEXXZ=00609c90
+// @ref ?Behavior_AI@ParticleClass@@QAEXXZ=00609c90
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ??RRandom2Class@@QAEHHH@Z=006388a0
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
@@ -127,7 +127,7 @@ void ParticleSystemClass::unknown_func_60c050()
         unknown_e4 = true;
     }
     for (i = 0; i < Particles.Count(); i++) {
-        Particles[i]->unknown_func_609c90();
+        Particles[i]->Behavior_AI();
     }
     for (int j = Particles.Count() - 1; j >= 0; j--) {
         ParticleClass *particle = Particles[j];

@@ -4,8 +4,8 @@
     "id": "population-4059",
     "inventory_sha256": "22ae47dedb66f940ef26942102ae70ca56868c1635b2ae43426cd8f80184791f",
     "gaps_sha256": "21041081ce01ff36c69a528d37e4c2ee7caf28254af7d11522ee8fd9eb5c8d8c",
-    "historical_population_sha256": "244a63f8dca83905c84e375e2aa7e8d6e2999a6ccdae958578d2d0938a246628",
-    "historical_acceptance_sha256": "611c41ac29e66ba2522f50a20bd3ac574533986d9e532b49efedfb543ee8df01"
+    "historical_population_sha256": "2f319cd5d101d0b9fde809584ef3b28551123b9128147460312415022583c06a",
+    "historical_acceptance_sha256": "9817f1a1cbbadfc3641d272e1d2975d72043bc1a9c51485274ee5e6e5f65db2f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1627,9 +1627,9 @@
     "_Particle_Color_Step_007a10f8": 7999736,
     "?unknown_func_608bb0@ParticleClass@@QAEXXZ": 6327216,
     "?unknown_func_609200@ParticleClass@@QAEXXZ": 6328832,
-    "?unknown_func_6093a0@ParticleClass@@QAEXXZ": 6329248,
+    "?Smoke_Behavior_AI@ParticleClass@@QAEXXZ": 6329248,
     "?unknown_func_609540@ParticleClass@@QAEXXZ": 6329664,
-    "?unknown_func_609970@ParticleClass@@QAEXXZ": 6330736,
+    "?Fire_Behavior_AI@ParticleClass@@QAEXXZ": 6330736,
     "?Unknown_0053D840@@YAIXZ": 5494848,
     "?unknown_a6eb1c@@3IA": 10939164,
     "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z": 4845216,
@@ -1668,11 +1668,11 @@
     "??0ParticleClass@@QAE@XZ": 6326656,
     "??1ParticleClass@@UAE@XZ": 6327072,
     "?unknown_func_609200@ParticleClass@@": 6328832,
-    "?unknown_func_609970@ParticleClass@@": 6330736,
-    "?unknown_func_609c90@ParticleClass@@QAEXXZ": 6331536,
+    "?Fire_Behavior_AI@ParticleClass@@": 6330736,
+    "?Behavior_AI@ParticleClass@@QAEXXZ": 6331536,
     "?unknown_slot67@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
-    "?unknown_func_60a350@ParticleClass@@QAEXXZ": 6333264,
-    "?unknown_func_60a420@ParticleClass@@QAEXXZ": 6333472,
+    "?Fire_Motion_AI@ParticleClass@@QAEXXZ": 6333264,
+    "?Motion_AI@ParticleClass@@QAEXXZ": 6333472,
     "?Mark@ParticleClass@@UAE_NH@Z": 6333744,
     "?unknown_slot64@ParticleClass@@UAEPBVCell@@H@Z": 6333776,
     "_$E44": 6333856,
@@ -11696,7 +11696,28 @@
     "?Update@ScoreTimeClass@@UAE_NPAVSurface@@@Z": 6717328,
     "?Update@LaserDrawClass@@QAEXXZ": 5452592,
     "?Update@ScorePrintClass@@UAE_NPAVSurface@@@Z": 6717680,
-    "?Update@ProgressBarClass@@QAE_NN@Z": 4372944
+    "?Update@ProgressBarClass@@QAE_NN@Z": 4372944,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?Set_Position@BinkClass@@QAEXHH@Z": 4391552,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
   },
   "regions": [
     {
@@ -12981,8 +13002,8 @@
     {
       "entry": 6331536,
       "method": "00609c90",
-      "symbol": "?unknown_func_609c90@ParticleClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_609c90@ParticleClass@@QAEXXZ",
+      "symbol": "?Behavior_AI@ParticleClass@@QAEXXZ",
+      "symbol_prefix": "?Behavior_AI@ParticleClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13014,7 +13035,7 @@
         {
           "offset": 39,
           "kind": 20,
-          "symbol": "?unknown_func_6093a0@ParticleClass@@QAEXXZ",
+          "symbol": "?Smoke_Behavior_AI@ParticleClass@@QAEXXZ",
           "target": 6329248,
           "addend": 0,
           "resolved": 4294964965
@@ -13022,7 +13043,7 @@
         {
           "offset": 48,
           "kind": 20,
-          "symbol": "?unknown_func_609970@ParticleClass@@QAEXXZ",
+          "symbol": "?Fire_Behavior_AI@ParticleClass@@QAEXXZ",
           "target": 6330736,
           "addend": 0,
           "resolved": 4294966444
@@ -13084,9 +13105,9 @@
           "resolved": 6331599
         }
       ],
-      "source_sha256": "42fd10581650b5ab39f72129c8a5aa281bdb628a94fc22704dc381ac10a41e59",
+      "source_sha256": "a53c5f304c0184c33e1653d7afe81b12e0ca693c1db6ddca7b379ffbdc46f262",
       "switch_data_bytes": 20,
-      "source": "src/recovered/classes/ParticleClass/ParticleClass_unknown_func_609c90_00609c90.cpp",
+      "source": "src/recovered/classes/ParticleClass/ParticleClass_Behavior_AI_00609c90.cpp",
       "population": "population-4059",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13448,8 +13469,8 @@
     {
       "entry": 6333264,
       "method": "0060a350",
-      "symbol": "?unknown_func_60a350@ParticleClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_60a350@ParticleClass@@QAEXXZ",
+      "symbol": "?Fire_Motion_AI@ParticleClass@@QAEXXZ",
+      "symbol_prefix": "?Fire_Motion_AI@ParticleClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13511,8 +13532,8 @@
           "resolved": 4294246026
         }
       ],
-      "source_sha256": "62c63904fb1cd007a97c4a33edcb05958d0f3a3b6e4c45b80841aba08f5f1778",
-      "source": "src/recovered/classes/ParticleClass/ParticleClass_unknown_func_60a350_0060a350.cpp",
+      "source_sha256": "42fd917f76ee340f885b21b88197bb2d2890ddd4f4b954f99740a6c378607f0d",
+      "source": "src/recovered/classes/ParticleClass/ParticleClass_Fire_Motion_AI_0060a350.cpp",
       "population": "population-4059",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13522,8 +13543,8 @@
     {
       "entry": 6333472,
       "method": "0060a420",
-      "symbol": "?unknown_func_60a420@ParticleClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_60a420@ParticleClass@@QAEXXZ",
+      "symbol": "?Motion_AI@ParticleClass@@QAEXXZ",
+      "symbol_prefix": "?Motion_AI@ParticleClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13601,8 +13622,8 @@
           "resolved": 4294966208
         }
       ],
-      "source_sha256": "4592c672cf6281a27dd0713d3ac0e5edce21c6ea1d8d5deed187c4f8444e1a05",
-      "source": "src/recovered/classes/ParticleClass/ParticleClass_unknown_func_60a420_0060a420.cpp",
+      "source_sha256": "7f619ca892da8dae4267171e1dfa2e4745ea2191233c29f2aee3bbe1fc3b3cd8",
+      "source": "src/recovered/classes/ParticleClass/ParticleClass_Motion_AI_0060a420.cpp",
       "population": "population-4059",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13703,8 +13724,8 @@
     {
       "entry": 6329248,
       "method": "006093a0",
-      "symbol": "?unknown_func_6093a0@ParticleClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_6093a0@ParticleClass@@QAEXXZ",
+      "symbol": "?Smoke_Behavior_AI@ParticleClass@@QAEXXZ",
+      "symbol_prefix": "?Smoke_Behavior_AI@ParticleClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13790,8 +13811,8 @@
           "resolved": 7981704
         }
       ],
-      "source_sha256": "b23db0305468173ae2908ce235ca99c23e3dac46e7e311a109b701a2caed61c6",
-      "source": "src/recovered/classes/ParticleClass/ParticleClass_unknown_func_6093a0_006093a0.cpp",
+      "source_sha256": "6a3aa0d4d600d24f1a1021f1075f581a4690ac7269bc77ac85aa466b1c6f381d",
+      "source": "src/recovered/classes/ParticleClass/ParticleClass_Smoke_Behavior_AI_006093a0.cpp",
       "population": "population-4059",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13931,8 +13952,8 @@
     {
       "entry": 6330736,
       "method": "00609970",
-      "symbol": "?unknown_func_609970@ParticleClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_609970@ParticleClass@@",
+      "symbol": "?Fire_Behavior_AI@ParticleClass@@QAEXXZ",
+      "symbol_prefix": "?Fire_Behavior_AI@ParticleClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14050,8 +14071,8 @@
           "resolved": 1529096
         }
       ],
-      "source_sha256": "54f983af2c0e4fdaf2a6fdc3d2a79acc12e1824439de9fcbb61a637df878346a",
-      "source": "src/recovered/classes/ParticleClass/ParticleClass_unknown_func_609970_00609970.cpp",
+      "source_sha256": "97b1127025339cef53f0ebafa5a320ecc541b7e5af1e12958ab993f5789d38df",
+      "source": "src/recovered/classes/ParticleClass/ParticleClass_Fire_Behavior_AI_00609970.cpp",
       "population": "population-4059",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

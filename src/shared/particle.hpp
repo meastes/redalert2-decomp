@@ -144,14 +144,14 @@ public:
 
     void unknown_func_608bb0();                 // 0x00608BB0 behaviour 0
     void unknown_func_609200();                 // 0x00609200 behaviour 4
-    void unknown_func_6093a0();                 // 0x006093A0 behaviour 1
+    void Smoke_Behavior_AI();                   // 0x006093A0 behaviour 1
     void unknown_func_609540();                 // 0x00609540 behaviour 3
-    void unknown_func_609970();                 // 0x00609970 behaviour 2
-    void unknown_func_609c90();                 // 0x00609C90 (behaviour by type, then lifetime)
+    void Fire_Behavior_AI();                    // 0x00609970 behaviour 2
+    void Behavior_AI();                         // 0x00609C90 (behaviour by type, then lifetime)
     void unknown_func_60a0e0();                 // 0x0060A0E0 movement of behaviour 0
     void unknown_func_60a230();                 // 0x0060A230 movement of behaviour 1
-    void unknown_func_60a350();                 // 0x0060A350 movement of behaviour 2 (inlined)
-    void unknown_func_60a420();                 // 0x0060A420 movement by behaviour
+    void Fire_Motion_AI();                      // 0x0060A350 movement of behaviour 2 (inlined)
+    void Motion_AI();                           // 0x0060A420 movement by behaviour
 
     ParticleTypeClass *Class;               // +0x098
     RGBClass Color;                         // +0x09C

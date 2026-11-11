@@ -31,8 +31,8 @@ void ParticleSystemClass::unknown_func_60c7c0()
     int i;
     for (i = Particles.Count() - 1; i >= 0; --i) {
         ParticleClass *particle = Particles[i];
-        particle->unknown_func_609c90();
-        particle->unknown_func_60a420();
+        particle->Behavior_AI();
+        particle->Motion_AI();
     }
     for (i = Particles.Count() - 1; i >= 0; --i) {
         ParticleClass *particle = Particles[i];

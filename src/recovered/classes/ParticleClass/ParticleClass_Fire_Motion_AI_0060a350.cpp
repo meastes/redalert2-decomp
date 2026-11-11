@@ -1,4 +1,4 @@
-// void ParticleClass::unknown_func_60a350() (0x0060A350; inlined into
+// void ParticleClass::Fire_Motion_AI() (0x0060A350; inlined into
 // 0x0060A420, never called)
 // Movement of behaviour 2: a moving particle (Velocity > 0) steps by
 // unknown_f0 and is marked done (unknown_11d, unknown_121) when the ground
@@ -8,7 +8,7 @@
 #include "shared/map_view.hpp"
 // @ref __real@8@00000000000000000000=0079b610
 
-void ParticleClass::unknown_func_60a350()
+void ParticleClass::Fire_Motion_AI()
 {
     CoordStruct next = Coord;
     CoordStruct coord = Coord;

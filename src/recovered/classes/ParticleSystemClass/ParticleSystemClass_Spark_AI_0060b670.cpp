@@ -64,7 +64,7 @@ void ParticleSystemClass::unknown_func_60b670()
         }
     }
     int index;
-    for (index=0;index<Particles.Count();++index) Particles[index]->unknown_func_609c90();
+    for (index=0;index<Particles.Count();++index) Particles[index]->Behavior_AI();
     for (index=Particles.Count()-1;index>=0;--index) {
         ParticleClass *particle=Particles[index];
         if (particle->unknown_121) particle->unknown_slot60();

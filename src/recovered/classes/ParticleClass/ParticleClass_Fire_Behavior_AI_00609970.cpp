@@ -5,7 +5,7 @@
 // @ref __real@8@3ff9a3d70a3d70a3d800=007a7f30
 static inline ObjectClass *Fire_Content_At_Height(CellClass &cell, CoordStruct coord) { if (coord.Z >= (cell.unknown_11b + 4) * unknown_geometry_g) return cell.AltOccupierPtr; return cell.OccupierPtr; }
 static inline int Particle_Distance(CoordStruct const &delta) { return (int)unknown_sqrt_4ba410((double)delta.Y * delta.Y + (double)delta.Z * delta.Z + (double)delta.X * delta.X); }
-void ParticleClass::unknown_func_609970()
+void ParticleClass::Fire_Behavior_AI()
 {
     if (Velocity > 0.0) {
     float jitter = (unknown_id_source_a3d290->Random()() % 10 - 5) * 0.02 + 1.0;
