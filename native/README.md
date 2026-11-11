@@ -41,7 +41,7 @@ there as a 24-bit BMP (the file holds the last one; test runs only).
 ## Start-up test runs
 
 `ra2-native --run-to=<milestone> [--run-seconds=N] [--write-dir=D] --data-dir <installation>`
-starts the game (WinMain, `native/drafts.json` 0x68E280) and logs each start-up
+starts the game (WinMain 0x68E280, `src/recovered/startup/WinMain_0068e280.cpp`) and logs each start-up
 milestone to stderr as the port sees it: `main`, `winmain`, `ini` (RA2.INI opened),
 `mix` (first MIX), `strings` (ra2.csf as a loose file; from a MIX it is implied by
 `window`), `window`, `ddraw`, `primary` (first DirectDraw primary surface),

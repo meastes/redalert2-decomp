@@ -11,11 +11,11 @@ void WaveClass::AI()
 {
     switch (Type) {
     case 0:
-        unknown_func_7232d0();
+        Sonic_AI();
         break;
     case 1:
     case 2:
-        unknown_func_723340();
+        Laser_AI();
         break;
     }
 }

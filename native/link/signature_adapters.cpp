@@ -131,7 +131,7 @@ extern "C" void ra2_adapter_target_0029(void *, int, int, int, int, int, int, in
 extern "C" void ra2_adapter_0029(void * a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11) __asm__("__ZN19UnknownObjectA3DC7016Unknown_005B4C60Eiiiiiiiiiii");
 extern "C" void ra2_adapter_0029(void * a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11) { ra2_adapter_target_0029(a0, a1, a2, a3, a4, a5, a6, a7, (((unsigned int)(int)a8 & 0xFFu) != 0), a9, a10, a11); }
 // 0x005B75D0 Target_5a3f70::target(unsigned int, unsigned int) -> MultiplayerGameMode::PopulateTeamDropdownForPlayer(HWND__*, int) [handle, seed view result 0]
-extern "C" void ra2_adapter_target_0030(void *, void *, int) __asm__("__ZN19MultiplayerGameMode14unknown_slot16EP6HWND__i");
+extern "C" void ra2_adapter_target_0030(void *, void *, int) __asm__("__ZN19MultiplayerGameMode29PopulateTeamDropdownForPlayerEP6HWND__i");
 extern "C" int ra2_adapter_0030(void * a0, int a1, int a2) __asm__("__ZN13Target_5a3f706targetEjj");
 extern "C" int ra2_adapter_0030(void * a0, int a1, int a2) { ra2_adapter_target_0030(a0, (void *)(uintptr_t)(unsigned int)a1, a2); return 0; }
 // 0x005B9B60 Target_5aa800::target(unsigned int) -> MultiplayerTeam::unknown_slot1(int) [return width]

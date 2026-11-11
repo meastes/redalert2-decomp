@@ -45,7 +45,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
     if (Scanlines_168.Spans != 0 && depth != 0) {
         int starty = Scanlines_168.FirstY + unknown_int_839634 + yoff;
         int endy = Min_m26(Scanlines_168.Count + starty - 1, cliprect.Height + cliprect.Y);
-        unknown_func_721cc0();
+        Init_Offset_Tables();
         int stride = surface->Stride() >> 1;
         bool forward = Direction > 1 && Direction < 6;
         int first = forward ? starty : endy;

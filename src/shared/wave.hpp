@@ -52,16 +52,16 @@ public:
     virtual bool unknown_slot53(CoordStruct const *coord, int dir);              // 0x00722410
     void Brighten_Pixel_007219c0(int x, int offset, int row, unsigned short *pixel); // 0x007219C0
     void Set_Laser_Pixel_00721b00(unsigned short *pixel, int mult) const; // 0x00721B00 (TibSun Set_Laser_Pixel; inlined into 0x00722CB0)
-    void unknown_func_722040(Cell const &cell);                         // 0x00722040 (adds a cell to Cells once)
-    void unknown_func_721cc0();                                        // 0x00721CC0 (neighbour offsets from the surface stride)
+    void Sonic_Add_Cell(Cell const &cell);                              // 0x00722040 (adds a cell to Cells once)
+    void Init_Offset_Tables();                                         // 0x00721CC0 (neighbour offsets from the surface stride)
     void Damage_Cell_00721eb0(CoordStruct const &coord);                // 0x00721EB0
     void Draw_NonMagnetic_007238b0(CoordStruct const &start, CoordStruct const &end); // 0x007238B0
     void Wave_Recalc_Affected_Cells();                                  // 0x00723360
     void Update_Wave_00724200();                                        // 0x00724200
     void Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect);                      // 0x007225B0 (draws type 0)
     void Draw_Laser_00722cb0(Point2D const &point, Rect const &cliprect);                      // 0x00722CB0 (draws types 1 and 2)
-    void unknown_func_7232d0();                                        // 0x007232D0 (type 0 step)
-    void unknown_func_723340();                                        // 0x00723340 (types 1 and 2 step)
+    void Sonic_AI();                                                   // 0x007232D0 (type 0 step)
+    void Laser_AI();                                                   // 0x00723340 (types 1 and 2 step)
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                // 0x00722530
 
     ObjectClass *Target;                        // +0x98 (constructorlastarg: firingtarget)

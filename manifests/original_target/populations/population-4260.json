@@ -4,8 +4,8 @@
     "id": "population-4260",
     "inventory_sha256": "f86644b9db7412aa0475437fc93dc008f6402ce2e12f5d0ba2faa599333ade5a",
     "gaps_sha256": "58fea66ddbec081c7e9dc97ed9a7f0fdb6e52c0fe76a6a039fb917dad688ab80",
-    "historical_population_sha256": "da19bafcbe38a1f2cc684807175859e63cbb572b609df8004824b7ba4835443b",
-    "historical_acceptance_sha256": "b39db6994bb0a2e1c95dee0cf65d6f828cc784c4fdc508003e8ca76a04555251"
+    "historical_population_sha256": "2c0cc3fd7deba0294d75e13c6bacfdd76f27fe339af2049d7763f80f8a620b9e",
+    "historical_acceptance_sha256": "927d939149854fb48870f5f095ad7f8997fa8eb9ec6ce0c2c493fbd75c20b228"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1704,9 +1704,9 @@
     "?Brighten_Pixel_007219c0@WaveClass@@QAEXHHHPAG@Z": 7477696,
     "?Set_Laser_Pixel_00721b00@WaveClass@@QBEXPAGH@Z": 7478016,
     "?Initialize_Wave_Tables_00721bf0@@": 7478256,
-    "?unknown_func_721cc0@WaveClass@@QAEXXZ": 7478464,
+    "?Init_Offset_Tables@WaveClass@@QAEXXZ": 7478464,
     "?Wave_Direction_00721db0@@": 7478704,
-    "?unknown_func_722040@WaveClass@@QAEXABVCell@@@Z": 7479360,
+    "?Sonic_Add_Cell@WaveClass@@QAEXABVCell@@@Z": 7479360,
     "?Lerp@@YI?AUCoordStruct@@ABU1@0M@Z": 7479488,
     "?Lerp@@YI?AUPoint2D@@ABU1@0M@Z": 7479616,
     "?Detach@WaveClass@@": 7479696,
@@ -1716,8 +1716,8 @@
     "?unknown_slot29@WaveClass@@": 7480304,
     "?Class_Of@WaveClass@@": 7480320,
     "?unknown_slot52@WaveClass@@": 7480528,
-    "?unknown_func_7232d0@WaveClass@@QAEXXZ": 7484112,
-    "?unknown_func_723340@WaveClass@@QAEXXZ": 7484224,
+    "?Sonic_AI@WaveClass@@QAEXXZ": 7484112,
+    "?Laser_AI@WaveClass@@QAEXXZ": 7484224,
     "?Wave_Recalc_Affected_Cells@WaveClass@@QAEXXZ": 7484256,
     "?Kind_Of@WaveClass@@": 7489008,
     "?Planar_Distance@ObjectClass@@QBEHPBVAbstractClass@@@Z": 6114528,
@@ -12195,7 +12195,59 @@
     "??_EState@WorldDominationTour@@UAEPAXI@Z": 7539024,
     "??_ECursorPositionCommandClass@@UAEPAXI@Z": 5365856,
     "??_ELightSourceClass@@UAEPAXI@Z": 5471280,
-    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
+    "?ID@?$DynamicVectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4378064,
+    "?ID@?$VectorClass@VCell@@@@UAEHABVCell@@@Z": 4378592,
+    "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
+    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4379344,
+    "?ID@?$VectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4642992,
+    "?ID@?$DynamicVectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4643376,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4989632,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4990016,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039776,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5040560,
+    "?ID@?$VectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207200,
+    "?ID@?$DynamicVectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207568,
+    "?ID@?$VectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208016,
+    "?ID@?$DynamicVectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208384,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210704,
+    "?ID@?$VectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5681840,
+    "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5682304,
+    "?ID@?$VectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683136,
+    "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683696,
+    "?ID@?$VectorClass@U?$TRect@H@@@@UAEHABU?$TRect@H@@@Z": 5826240,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990080,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990448,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
+    "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6998848,
+    "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6999296,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
+    "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z": 7518288,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Normalize@Quaternion@@QAEXXZ": 6431136,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?Set_Position@BinkClass@@QAEXHH@Z": 4391552,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
   },
   "regions": [
     {
@@ -13525,8 +13577,8 @@
     {
       "entry": 7478464,
       "method": "00721cc0",
-      "symbol": "?unknown_func_721cc0@WaveClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_721cc0@WaveClass@@QAEXXZ",
+      "symbol": "?Init_Offset_Tables@WaveClass@@QAEXXZ",
+      "symbol_prefix": "?Init_Offset_Tables@WaveClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13548,8 +13600,8 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "c7643120a39c072583975709f932868e5b7472283b8e24a0487d19776a4cfc33",
-      "source": "src/recovered/classes/WaveClass/WaveClass_unknown_func_721cc0_00721cc0.cpp",
+      "source_sha256": "27d1b4debc415c7bc646056120e127cab1de89065f2f19ddf519d9b6c2e32112",
+      "source": "src/recovered/classes/WaveClass/WaveClass_Init_Offset_Tables_00721cc0.cpp",
       "population": "population-4260",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13559,8 +13611,8 @@
     {
       "entry": 7479360,
       "method": "00722040",
-      "symbol": "?unknown_func_722040@WaveClass@@QAEXABVCell@@@Z",
-      "symbol_prefix": "?unknown_func_722040@WaveClass@@QAEXABVCell@@@Z",
+      "symbol": "?Sonic_Add_Cell@WaveClass@@QAEXABVCell@@@Z",
+      "symbol_prefix": "?Sonic_Add_Cell@WaveClass@@QAEXABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -13590,8 +13642,8 @@
           "resolved": 4293025822
         }
       ],
-      "source_sha256": "cac7e9f27f95171f7d262f434653941027f4d543372eaf482ebb949bbc8d4187",
-      "source": "src/recovered/classes/WaveClass/WaveClass_unknown_func_722040_00722040.cpp",
+      "source_sha256": "c45885a8d90daccf03e7ceef60ac91964014533213387391fa7068c15e7228e4",
+      "source": "src/recovered/classes/WaveClass/WaveClass_Sonic_Add_Cell_00722040.cpp",
       "population": "population-4260",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13928,7 +13980,7 @@
           "resolved": 4293588268
         }
       ],
-      "source_sha256": "4f2bb8229fb1a064d55394546b9e3badd168cc4776498a17890b93f4e16f5168",
+      "source_sha256": "261177ab767abe0d0d2b06af9c04b90b7555299d08de5606299627d3b3486987",
       "source": "src/recovered/classes/WaveClass/WaveClass_AI_00723220.cpp",
       "population": "population-4260",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -13939,8 +13991,8 @@
     {
       "entry": 7484112,
       "method": "007232d0",
-      "symbol": "?unknown_func_7232d0@WaveClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_7232d0@WaveClass@@QAEXXZ",
+      "symbol": "?Sonic_AI@WaveClass@@QAEXXZ",
+      "symbol_prefix": "?Sonic_AI@WaveClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13986,8 +14038,8 @@
           "resolved": 4293588156
         }
       ],
-      "source_sha256": "ca0403ca40446f3feee652957712da4e466aadf996fb04323873062cb8250ccf",
-      "source": "src/recovered/classes/WaveClass/WaveClass_unknown_func_7232d0_007232d0.cpp",
+      "source_sha256": "1aa03f3e37e3fdb85ddbafade7c59a3da30f6b2cea4930176b8b112d01615c47",
+      "source": "src/recovered/classes/WaveClass/WaveClass_Sonic_AI_007232d0.cpp",
       "population": "population-4260",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13997,8 +14049,8 @@
     {
       "entry": 7484224,
       "method": "00723340",
-      "symbol": "?unknown_func_723340@WaveClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_723340@WaveClass@@QAEXXZ",
+      "symbol": "?Laser_AI@WaveClass@@QAEXXZ",
+      "symbol_prefix": "?Laser_AI@WaveClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14011,8 +14063,8 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "e1d577e98b155d6200ebebba81ef89f7618a1733e779fd1e8358ae7ed7b80c5f",
       "relocations": [],
-      "source_sha256": "057efd94be223edc7eacfe62b0b30ea8520bd2999a36ed657cf44f6b4b718663",
-      "source": "src/recovered/classes/WaveClass/WaveClass_unknown_func_723340_00723340.cpp",
+      "source_sha256": "a2919c48a9e27eb5e7e69f0ab5b45890d89de26d3eb041e4bde46ffbc39d08ce",
+      "source": "src/recovered/classes/WaveClass/WaveClass_Laser_AI_00723340.cpp",
       "population": "population-4260",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15734,7 +15786,7 @@
         {
           "offset": 1191,
           "kind": 20,
-          "symbol": "?unknown_func_722040@WaveClass@@QAEXABVCell@@@Z",
+          "symbol": "?Sonic_Add_Cell@WaveClass@@QAEXABVCell@@@Z",
           "target": 7479360,
           "addend": 0,
           "resolved": 4294961205
@@ -15774,7 +15826,7 @@
         {
           "offset": 1300,
           "kind": 20,
-          "symbol": "?unknown_func_722040@WaveClass@@QAEXABVCell@@@Z",
+          "symbol": "?Sonic_Add_Cell@WaveClass@@QAEXABVCell@@@Z",
           "target": 7479360,
           "addend": 0,
           "resolved": 4294961096
@@ -15804,7 +15856,7 @@
           "resolved": 7972648
         }
       ],
-      "source_sha256": "51ca3d646e4566a0feb27e5f72b07a63d45195fca244ae11efd7f6ee05f231f2",
+      "source_sha256": "ee4fb9e9b606a0677529a41902179b9c25c0838205e5434e20862b0c4345eb46",
       "source": "src/recovered/classes/WaveClass/WaveClass_Wave_Recalc_Affected_Cells_00723360.cpp",
       "population": "population-4260",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

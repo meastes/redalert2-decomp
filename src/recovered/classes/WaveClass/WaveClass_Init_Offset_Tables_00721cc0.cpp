@@ -1,4 +1,4 @@
-// void WaveClass::unknown_func_721cc0() (0x00721CC0)
+// void WaveClass::Init_Offset_Tables() (0x00721CC0)
 // The offsets of the eight neighbours of a pixel on the current surface
 // (rows are Stride / 2 pixels), and the offset of the wave's direction
 // repeated once, twice and three times.
@@ -6,7 +6,7 @@
 #include "shared/surface.hpp"
 // @ref ?unknown_surface_83995c@@3PAVSurface@@A=0083995c
 
-void WaveClass::unknown_func_721cc0()
+void WaveClass::Init_Offset_Tables()
 {
     int row = unknown_surface_83995c->Stride() >> 1;
     DirectionStrides[0] = -row;

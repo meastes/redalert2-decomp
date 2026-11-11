@@ -27,7 +27,7 @@ void WaveClass::Wave_Recalc_Affected_Cells()
             CoordStruct coord = Lerp(StartCoord, EndCoord, t);
             if (start != coord.As_Cell()) {
                 start = coord.As_Cell();
-                unknown_func_722040(start);
+                Sonic_Add_Cell(start);
             }
         }
     } else {
@@ -42,21 +42,21 @@ void WaveClass::Wave_Recalc_Affected_Cells()
                 coord = Lerp(WaveStartLeftCoord, WaveEndLeftCoord, t);
                 if (left != coord.As_Cell()) {
                     left = coord.As_Cell();
-                    unknown_func_722040(left);
+                    Sonic_Add_Cell(left);
                 }
             }
 
             coord = Lerp(StartCoord, EndCoord, t);
             if (middle != coord.As_Cell()) {
                 middle = coord.As_Cell();
-                unknown_func_722040(middle);
+                Sonic_Add_Cell(middle);
             }
 
             if (Direction >= 4) {
                 coord = Lerp(WaveStartRightCoord, WaveEndRightCoord, t);
                 if (right != coord.As_Cell()) {
                     right = coord.As_Cell();
-                    unknown_func_722040(right);
+                    Sonic_Add_Cell(right);
                 }
             }
         }
