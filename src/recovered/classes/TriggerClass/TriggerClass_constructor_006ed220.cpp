@@ -8,13 +8,13 @@ extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d48;
 TriggerClass::TriggerClass(TriggerTypeClass *type) :
     Class(type),
     Next(0),
-    unknown_2c(false),
+    IsToDelete(false),
     Events(0),
     IsEnabled(true)
 {
     unknown_objects_ac0cb0.Add((ObjectClass *)this);
     unknown_AbstractClass_list_00ac0d48.Add(this);
-    unknown_TriggerClass_list_00a40aa0.Add(this);
+    Triggers.Add(this);
     if (Class != 0) {
         Reset();
         if (!Class->IsEnabled || (Scenario_Difficulty() == 0 && !Class->IsEasy) ||

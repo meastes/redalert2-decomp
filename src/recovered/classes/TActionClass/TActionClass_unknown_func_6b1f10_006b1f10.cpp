@@ -9,13 +9,13 @@
 bool TActionClass::unknown_func_6b1f10(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_50 != 0) {
-        for (int index = 0; index < unknown_TriggerClass_list_00a40aa0.Count(); index++) {
-            TriggerTypeClass *type = unknown_TriggerClass_list_00a40aa0[index]->Class;
+        for (int index = 0; index < Triggers.Count(); index++) {
+            TriggerTypeClass *type = Triggers[index]->Class;
             if ((AbstractClass *)type == unknown_50) {
                 if ((unknown_id_source_a3d290->Difficulty != 0 || type->IsEasy)
                         && (unknown_id_source_a3d290->Difficulty != 1 || type->IsNormal)
                         && (unknown_id_source_a3d290->Difficulty != 2 || type->IsHard)) {
-                    unknown_TriggerClass_list_00a40aa0[index]->Enable();
+                    Triggers[index]->Enable();
                 }
             }
         }

@@ -8,7 +8,7 @@
 
 bool TriggerClass::Fire_Actions(ObjectClass *object, Cell cell)
 {
-    if (!IsEnabled || unknown_2c) {
+    if (!IsEnabled || IsToDelete) {
         return false;
     }
     bool acted = false;

@@ -58,7 +58,7 @@ DynamicVectorClass<AITriggerTypeClass *> AITriggerTypes;
 // The unit's list of TriggerTypeClass (0x00866208; name is a hypothesis).
 DynamicVectorClass<TriggerTypeClass *> TriggerTypes;
 // The unit's list of TriggerClass (0x00A40AA0; name is a hypothesis).
-DynamicVectorClass<TriggerClass *> unknown_TriggerClass_list_00a40aa0;
+DynamicVectorClass<TriggerClass *> Triggers;
 // The unit's list of BuildingLightClass (0x00866220; name is a hypothesis).
 DynamicVectorClass<BuildingLightClass *> BuildingLights;
 // The unit's list of ParticleSystemClass (0x00A32280; name is a hypothesis).
@@ -819,7 +819,7 @@ DynamicVectorClass<AnimClass *> unknown_AnimClass_list_00a35e60;
 // @ref ?TechnoTypes@@3V?$DynamicVectorClass@PAVTechnoTypeClass@@@@A=00a40ab8
 // @ref ?Terrains@@3V?$DynamicVectorClass@PAVTerrainClass@@@@A=00a40940
 // @ref ?TerrainTypes@@3V?$DynamicVectorClass@PAVTerrainTypeClass@@@@A=00a40320
-// @ref ?unknown_TriggerClass_list_00a40aa0@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
+// @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
 // @ref ?TriggerTypes@@3V?$DynamicVectorClass@PAVTriggerTypeClass@@@@A=00866208
 // @ref ?unknown_TubeClass_list_008661c8@@3V?$DynamicVectorClass@PAVTubeClass@@@@A=008661c8
 // @ref ?Units@@3V?$DynamicVectorClass@PAVUnitClass@@@@A=00866198

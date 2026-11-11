@@ -5,9 +5,9 @@
 TriggerClass *__fastcall TriggerClass::Find_Or_Make(TriggerTypeClass *type)
 {
     if (type != 0) {
-        for (int index = 0; index < unknown_TriggerClass_list_00a40aa0.Count(); index++) {
-            if (type == unknown_TriggerClass_list_00a40aa0[index]->Class) {
-                return unknown_TriggerClass_list_00a40aa0[index];
+        for (int index = 0; index < Triggers.Count(); index++) {
+            if (type == Triggers[index]->Class) {
+                return Triggers[index];
             }
         }
         return new TriggerClass(type);

@@ -7,10 +7,10 @@
 bool TActionClass::unknown_func_6b1e20(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
     if (unknown_50 != 0) {
-        int count = unknown_TriggerClass_list_00a40aa0.Count();
+        int count = Triggers.Count();
         for (int index = 0; index < count; index++) {
-            if (unknown_TriggerClass_list_00a40aa0[index]->Class == (TriggerTypeClass *)unknown_50) {
-                delete unknown_TriggerClass_list_00a40aa0[index];
+            if (Triggers[index]->Class == (TriggerTypeClass *)unknown_50) {
+                delete Triggers[index];
                 index--;
             }
         }

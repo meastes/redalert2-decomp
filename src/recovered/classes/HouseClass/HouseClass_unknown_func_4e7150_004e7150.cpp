@@ -12,9 +12,9 @@ void HouseClass::unknown_func_4e7150()
             index--;
         }
     }
-    for (int i = 0; i < unknown_TriggerClass_list_00a40aa0.Count(); i++) {
-        if ((AbstractTypeClass *)unknown_TriggerClass_list_00a40aa0[i]->Class->unknown_a4 == Type) {
-            delete unknown_TriggerClass_list_00a40aa0[i];
+    for (int i = 0; i < Triggers.Count(); i++) {
+        if ((AbstractTypeClass *)Triggers[i]->Class->unknown_a4 == Type) {
+            delete Triggers[i];
             i--;
         }
     }

@@ -10,7 +10,7 @@ extern DynamicVectorClass<AbstractClass *> unknown_AbstractClass_list_00ac0d48;
 TriggerClass::~TriggerClass()
 {
     Unknown_006ECB90(this, true);
-    unknown_TriggerClass_list_00a40aa0.Delete(this);
+    Triggers.Delete(this);
     unknown_objects_ac0cb0.Delete((ObjectClass *)this);
     unknown_AbstractClass_list_00ac0d48.Delete(this);
 }

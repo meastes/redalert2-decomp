@@ -200,7 +200,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    if (FAILED(Save_Vector(stream, unknown_TriggerClass_list_00a40aa0))) {
+    if (FAILED(Save_Vector(stream, Triggers))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }

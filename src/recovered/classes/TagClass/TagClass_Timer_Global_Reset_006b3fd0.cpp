@@ -3,5 +3,5 @@
 
 void TagClass::Timer_Global_Reset(int value)
 {
-    Trigger->unknown_func_6ed620(value);
+    Trigger->Reset_Global_Linked_Timed_Events(value);
 }

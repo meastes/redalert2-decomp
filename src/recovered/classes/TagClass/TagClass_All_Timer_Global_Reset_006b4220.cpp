@@ -5,6 +5,6 @@
 void __fastcall TagClass::All_Timer_Global_Reset(int value)
 {
     for (int index = 0; index < Tags.Count(); index++) {
-        Tags[index]->Trigger->unknown_func_6ed620(value);
+        Tags[index]->Trigger->Reset_Global_Linked_Timed_Events(value);
     }
 }

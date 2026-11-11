@@ -8,7 +8,7 @@ void TriggerClass::Compute_CRC(WWCRCEngine &crc) const
     if (Next != 0) {
         crc(Next->Fetch_ID());
     }
-    crc((char)unknown_2c);
+    crc((char)IsToDelete);
     crc((char)IsEnabled);
     crc(Timer.Value());
     crc((long)Events);

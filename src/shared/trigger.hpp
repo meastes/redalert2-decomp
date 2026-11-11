@@ -41,19 +41,19 @@ public:
     virtual int Size_Of() const;                                        // 0x006EDB80 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006EDA00 slot 13
 
-    bool unknown_func_6ed4d0() const;                                   // 0x006ED4D0 (chain: TriggerTypeClass::unknown_func_6ee1b0)
-    bool unknown_func_6ed510() const;                                   // 0x006ED510 (chain: unknown_func_6ee180)
-    bool unknown_func_6ed550() const;                                   // 0x006ED550 (this and next: unknown_func_6ee1e0)
-    bool unknown_func_6ed590() const;                                   // 0x006ED590 (this and next: unknown_func_6ee210)
-    bool unknown_func_6ed5d0(int value) const;                          // 0x006ED5D0 (this and next: unknown_func_6ee240)
-    void unknown_func_6ed620(int value);                                // 0x006ED620 (resets the chain's triggers that answer 0x006EE240)
-    void unknown_func_6ed650(int value);                                // 0x006ED650 (resets the chain's triggers that answer 0x006EE280)
+    bool Is_Cross_Horizontal() const;                                   // 0x006ED4D0 (chain: TriggerTypeClass::unknown_func_6ee1b0)
+    bool Is_Cross_Vertical() const;                                     // 0x006ED510 (chain: unknown_func_6ee180)
+    bool Is_Enters_Zone() const;                                        // 0x006ED550 (this and next: unknown_func_6ee1e0)
+    bool Is_Allow_Win() const;                                          // 0x006ED590 (this and next: unknown_func_6ee210)
+    bool Is_Linked_To_Global(int value) const;                          // 0x006ED5D0 (this and next: unknown_func_6ee240)
+    void Reset_Global_Linked_Timed_Events(int value);                   // 0x006ED620 (resets the chain's triggers that answer 0x006EE240)
+    void Reset_Local_Linked_Timed_Events(int value);                    // 0x006ED650 (resets the chain's triggers that answer 0x006EE280)
     void Reset();                                                       // 0x006ED680 (restarts the timed events)
     void Mark_Event(int index);                                         // 0x006ED930
     void Clear_Event(int index);                                        // 0x006ED950
     bool Is_Event_Marked(int index) const;                              // 0x006ED970
-    void unknown_func_6ed990();                                         // 0x006ED990 (queue for removal)
-    bool unknown_func_6ed9f0() const;                                   // 0x006ED9F0
+    void Mark_To_Delete();                                              // 0x006ED990
+    bool Is_Marked_To_Delete() const;                                   // 0x006ED9F0
     void Enable();                                                      // 0x006EDB60
     void Disable();                                                     // 0x006EDB70
     static TriggerClass *__fastcall Find_Or_Make(TriggerTypeClass *type);   // 0x006ED8A0
@@ -66,7 +66,7 @@ public:
 
     TriggerTypeClass *Class;                // +0x24
     TriggerClass *Next;                     // +0x28
-    bool unknown_2c;                        // +0x2C
+    bool IsToDelete;                        // +0x2C
     CDTimerClass<FrameTimerClass> Timer;    // +0x30
     int Events;                             // +0x3C
     bool IsEnabled;                         // +0x40
@@ -76,7 +76,7 @@ public:
 // The globals unit (0x004D2BA0) defines this list and sets RA2_GLOBAL_LISTS_DEFINED: a later
 // extern declaration there makes VC6 emit a second dynamic initializer and atexit pair.
 #ifndef RA2_GLOBAL_LISTS_DEFINED
-extern DynamicVectorClass<TriggerClass *> unknown_TriggerClass_list_00a40aa0;
+extern DynamicVectorClass<TriggerClass *> Triggers;
 #endif
 
 #endif

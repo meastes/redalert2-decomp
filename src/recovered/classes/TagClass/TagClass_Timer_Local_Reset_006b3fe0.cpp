@@ -4,5 +4,5 @@
 
 void TagClass::Timer_Local_Reset(int value)
 {
-    Trigger->unknown_func_6ed650(value);
+    Trigger->Reset_Local_Linked_Timed_Events(value);
 }

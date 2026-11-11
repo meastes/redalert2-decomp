@@ -10,7 +10,7 @@
 
 bool TriggerClass::Spring(int event, ObjectClass *object, bool forced, bool persistent, int source)
 {
-    if (!IsEnabled || unknown_2c) {
+    if (!IsEnabled || IsToDelete) {
         return false;
     }
     bool sprung = true;

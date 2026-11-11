@@ -125,8 +125,8 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < TriggerTypes.Count(); index++) {
         TriggerTypes[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < unknown_TriggerClass_list_00a40aa0.Count(); index++) {
-        unknown_TriggerClass_list_00a40aa0[index]->Compute_CRC(crc);
+    for (index = 0; index < Triggers.Count(); index++) {
+        Triggers[index]->Compute_CRC(crc);
     }
     for (index = 0; index < unknown_TActionClass_list_00abfd88.Count(); index++) {
         unknown_TActionClass_list_00abfd88[index]->Compute_CRC(crc);

@@ -21,7 +21,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
             switch (Class->Persistence) {
             case 0:
                 trigger->Fire_Actions(object, cell);
-                trigger->unknown_func_6ed990();
+                trigger->Mark_To_Delete();
                 sprung = true;
                 remove = true;
                 detach = true;
@@ -29,7 +29,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
             case 1:
                 if (AttachCount == 1) {
                     trigger->Fire_Actions(object, cell);
-                    trigger->unknown_func_6ed990();
+                    trigger->Mark_To_Delete();
                     remove = true;
                     sprung = true;
                 } else {
