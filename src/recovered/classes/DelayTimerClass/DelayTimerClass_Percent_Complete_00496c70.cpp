@@ -1,5 +1,5 @@
 #include "shared/techno.hpp"
-double UnknownTimed::Progress_00496C70() const
+double DelayTimerClass::Percent_Complete() const
 {
     if (IsActive) {
         return Timer.Percentage();

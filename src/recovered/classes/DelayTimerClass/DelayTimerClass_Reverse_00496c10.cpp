@@ -1,8 +1,8 @@
 #include "shared/techno.hpp"
-void UnknownTimed::Reverse_00496C10()
+void DelayTimerClass::Reverse()
 {
     if (IsActive) {
         Timer.Reverse();
-        IsReverse = !IsReverse;
+        IsToCountUp = !IsToCountUp;
     }
 }

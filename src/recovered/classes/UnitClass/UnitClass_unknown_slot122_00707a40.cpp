@@ -10,7 +10,7 @@
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 // @ref __com_issue_error@4=00795940
-// @ref ?unknown_496b50@UnknownTimed@@QBE_NXZ=00496b50
+// @ref ?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ=00496b50
 // @ref ?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e20
 // @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 
@@ -29,7 +29,7 @@ bool UnitClass::unknown_slot122()
         && Get_Mission() != 5 && (Get_Mission() != 1 || unknown_228) && !unknown_a4) {
         return false;
     }
-    if (!unknown_2a8.unknown_496b50()) {
+    if (!unknown_2a8.Is_Count_Down_Complete()) {
         return false;
     }
     TechnoClass *contact = Contact_With_Whom(0);

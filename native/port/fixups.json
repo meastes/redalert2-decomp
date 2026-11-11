@@ -676,8 +676,8 @@
   {
    "source": "src/recovered/classes/TechnoClass/TechnoClass_AI_006c74c0.cpp",
    "old": "namespace seed_00496ce0 { void __fastcall FUN_00496ce0(int timer); }\n",
-   "new": "namespace seed_00496ce0 { void __fastcall FUN_00496ce0(int timer); }\nvoid Native_Timed_Finish_00496ce0(UnknownTimed *timed);   // NATIVE: native/link/behaviour_frame.cpp\n",
-   "why": "TechnoClass::AI 0x006C74C0 calls the unrecovered 0x00496CE0 (UnknownTimed: ends a finished timed change) through its seed with the object address cast to int, which truncates on arm64. Natively the call goes to a behaviour-written body taking the pointer (same operation, the seed's logic).",
+   "new": "namespace seed_00496ce0 { void __fastcall FUN_00496ce0(int timer); }\nvoid Native_Timed_Finish_00496ce0(DelayTimerClass *timed);   // NATIVE: native/link/behaviour_frame.cpp\n",
+   "why": "TechnoClass::AI 0x006C74C0 calls the unrecovered 0x00496CE0 (DelayTimerClass: ends a finished timed change) through its seed with the object address cast to int, which truncates on arm64. Natively the call goes to a behaviour-written body taking the pointer (same operation, the seed's logic).",
    "verified": false
   },
   {

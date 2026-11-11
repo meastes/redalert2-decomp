@@ -125,7 +125,7 @@ void TechnoClass::AI()
         }
         unknown_100=turret;
     }
-    if (unknown_2a8.Is_Complete_00496AD0()) seed_00496ce0::FUN_00496ce0(reinterpret_cast<int>(&unknown_2a8));
+    if (unknown_2a8.Has_Ended()) seed_00496ce0::FUN_00496ce0(reinterpret_cast<int>(&unknown_2a8));
     if (unknown_376) --unknown_376;
     if (unknown_228 && unknown_404) {
         if (Mission==0 || Mission==7 || Mission==13 || Mission==14 || Mission==16 || Mission==18 || Mission==19 || Mission==20 || Mission==22 || Mission==23 || Mission==28 || Mission==24) unknown_slot220(0);

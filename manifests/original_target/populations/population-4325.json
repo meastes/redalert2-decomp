@@ -4,8 +4,8 @@
     "id": "population-4325",
     "inventory_sha256": "f7ddb0b6b92bf7dd251e04394e53c5f3a442a680a103437bef94a8752db862b8",
     "gaps_sha256": "b1744b441d9fceece2cf859d039bac44c5a258fd3868c2929580b1a2c3f9cf04",
-    "historical_population_sha256": "11ed30073a5fcc6c79133d2d6d0a0185a716fbc3867e443ea673bfcf48a45171",
-    "historical_acceptance_sha256": "326241d8ebfd801842089673e596cb9754f8a3aedc17bd0f885f48773ddb5e18"
+    "historical_population_sha256": "b6e71ad9ceaddfc07fce40e48cfe42d9268cb4a587bbc43831434523f3e3226d",
+    "historical_acceptance_sha256": "6a51f3298dc1cdc1aecc41b6342bda22467472c260a8352e778a7b1a4ee7fd81"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -318,8 +318,8 @@
     "?unknown_6cf130@TechnoClass@@QAE?AUCell@@PAVAbstractClass@@@Z": 7139632,
     "?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ": 4659120,
     "?unknown_func_4f52f0@HouseClass@@QAE_NXZ": 5198576,
-    "?unknown_496b50@UnknownTimed@@QBE_NXZ": 4811600,
-    "?unknown_496bc0@UnknownTimed@@QAEXN@Z": 4811712,
+    "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ": 4811600,
+    "?Count_Down@DelayTimerClass@@QAEXN@Z": 4811712,
     "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
     "?Unknown_0054AB00@MapClass@@QAE_NABUCoordStruct@@@Z": 5548800,
     "?unknown_6fb890@UnitClass@@QAEXXZ": 7321744,
@@ -384,9 +384,9 @@
     "?unknown_cell_ad0488@@": 11338888,
     "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?unknown_slot63@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
-    "?unknown_496a90@UnknownTimed@@QBE_NXZ": 4811408,
-    "?unknown_496ab0@UnknownTimed@@QBE_NXZ": 4811440,
-    "?unknown_496b30@UnknownTimed@@QBE_NXZ": 4811568,
+    "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ": 4811408,
+    "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ": 4811440,
+    "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ": 4811568,
     "?Unit_Isometric_View_00717f90@@": 7438224,
     "?unknown_drawer_8323c4@@": 8594372,
     "?unknown_6cf670@TechnoClass@@": 7140976,
@@ -454,7 +454,7 @@
     "?unknown_facings_7f8f4c@@3QBHB": 8359756,
     "?unknown_slot166@TechnoClass@@UAEHXZ": 7159504,
     "?Get_Total_Amount@StorageClass@@QBEMXZ": 6925840,
-    "?unknown_496b70@UnknownTimed@@QAEXN@Z": 4811632,
+    "?Count_Up@DelayTimerClass@@QAEXN@Z": 4811632,
     "?unknown_slot184@TechnoClass@@UAEPAVInfantryTypeClass@@XZ": 7155888,
     "?unknown_slot183@TechnoClass@@UAE?AUUnknownFacingDir@@XZ": 7159680,
     "?unknown_slot218@TechnoClass@@UAEHPAVAbstractClass@@H_N@Z": 7115360,
@@ -16791,10 +16791,10 @@
     "?Update_Movement_00507b90@InfantryClass@@QAEXXZ": 5274512,
     "??0UnknownPersistPtr@@QAE@ABV?$UnknownComPtr@UILocomotion@@$1?unknown_uuid_ILocomotion_7ce600@@3UGUID@@B@@@Z": 5281904,
     "?Wait_Timer_00496A20@@YIXJ@Z": 4811296,
-    "??0UnknownTimed@@QAE@XZ": 4811376,
-    "?Is_Complete_00496AD0@UnknownTimed@@QBE_NXZ": 4811472,
-    "?Reverse_00496C10@UnknownTimed@@QAEXXZ": 4811792,
-    "?Progress_00496C70@UnknownTimed@@QBENXZ": 4811888,
+    "??0DelayTimerClass@@QAE@XZ": 4811376,
+    "?Has_Ended@DelayTimerClass@@QBE_NXZ": 4811472,
+    "?Reverse@DelayTimerClass@@QAEXXZ": 4811792,
+    "?Percent_Complete@DelayTimerClass@@QBENXZ": 4811888,
     "??0Dial8Class@@QAE@IHHHHI@Z": 4812080,
     "??_7Dial8Class@@6B@": 7989140,
     "?Action@Dial8Class@@UAEHIAAI@Z": 4812768,
@@ -23275,7 +23275,17 @@
     "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
     "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
-    "?Search@@3UUnknownPathEstimator@@A": 8590792
+    "?Search@@3UUnknownPathEstimator@@A": 8590792,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552
   },
   "regions": [
     {
@@ -25003,7 +25013,7 @@
         {
           "offset": 68,
           "kind": 20,
-          "symbol": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811408,
           "addend": 0,
           "resolved": 4292441848
@@ -25011,7 +25021,7 @@
         {
           "offset": 79,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 4292441869
@@ -25019,7 +25029,7 @@
         {
           "offset": 90,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 4292441986
@@ -25027,7 +25037,7 @@
         {
           "offset": 101,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 4292442007
@@ -25041,7 +25051,7 @@
           "resolved": 4293738761
         }
       ],
-      "source_sha256": "772058cc2693d96e5900962903e56969577a65081acb187bf3c5654abeff5729",
+      "source_sha256": "35769a00df7837178d15fa47182ad2983087446e1c0a21dcb84393969dda27f7",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot63_006ff350.cpp",
       "population": "population-4325",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -25507,7 +25517,7 @@
         {
           "offset": 49,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 4292420763
@@ -25515,7 +25525,7 @@
         {
           "offset": 80,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 4292420844
@@ -25529,7 +25539,7 @@
           "resolved": 4292604405
         }
       ],
-      "source_sha256": "b8886fbc343b6ea56a351712e2e26222acb628a59e3fa9c5d20f7849586ac6f5",
+      "source_sha256": "2b934aac9ca5393d373d67cc0f99724f281e7059ffebf0beb30afc8cfa531c29",
       "source": "src/recovered/classes/UnitClass/UnitClass_Do_MISSION_MOVE_00704680.cpp",
       "population": "population-4325",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -25557,7 +25567,7 @@
         {
           "offset": 20,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 4292420696
@@ -25565,7 +25575,7 @@
         {
           "offset": 51,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 4292420777
@@ -25579,7 +25589,7 @@
           "resolved": 4292604466
         }
       ],
-      "source_sha256": "b9362c15f5974f354bd5dba8cdd1bab05f95fd5d2c529429738620e65fce775e",
+      "source_sha256": "be70b572013ffe3eca7d8b677418e264d5469c91ba740466d3c82676d3e7655b",
       "source": "src/recovered/classes/UnitClass/UnitClass_Do_MISSION_PATROL_007046e0.cpp",
       "population": "population-4325",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -26105,7 +26115,7 @@
         {
           "offset": 10,
           "kind": 20,
-          "symbol": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811408,
           "addend": 0,
           "resolved": 4292407602
@@ -26113,7 +26123,7 @@
         {
           "offset": 21,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 4292407623
@@ -26121,13 +26131,13 @@
         {
           "offset": 32,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 4292407740
         }
       ],
-      "source_sha256": "97879b6442c08774a21405117b100da9d18a5a9f9252d67c088773efe7e89c7f",
+      "source_sha256": "23b2dd0207de767fa30b463ab557df720e74a6b3f128556e01923e33d0c11877",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot159_00707950.cpp",
       "population": "population-4325",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -27569,13 +27579,13 @@
         {
           "offset": 76,
           "kind": 20,
-          "symbol": "?unknown_496b70@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
           "target": 4811632,
           "addend": 0,
           "resolved": 4292419712
         }
       ],
-      "source_sha256": "0775c18f90b9a9d5bacbdbfd1eb7b82c31149a4a77321f8e1bb4ab571213db4d",
+      "source_sha256": "d621a76a4b57b2aa7569f2cea05a79606e6820c047f07a1883c973d7ce025080",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_704aa0_00704aa0.cpp",
       "population": "population-4325",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -27989,7 +27999,7 @@
         {
           "offset": 164,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 4292407400
@@ -28027,7 +28037,7 @@
           "resolved": 4292254783
         }
       ],
-      "source_sha256": "843f2eafe3dac53c54bbd0d87699b6643cdb81c71056b643bb8886a09025abd4",
+      "source_sha256": "11ef201403ba99b90fe7079839866053d0fffd7e2a24d20dea0dc1a70fbdba49",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot122_00707a40.cpp",
       "population": "population-4325",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -29267,7 +29277,7 @@
         {
           "offset": 1187,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 4292457897
@@ -29275,7 +29285,7 @@
         {
           "offset": 1250,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 4292457946
@@ -29433,7 +29443,7 @@
           "resolved": 4293183499
         }
       ],
-      "source_sha256": "312986069121485ac96613278fc8fe1b867ccdc3a240f176f3ce87bd8eb09554",
+      "source_sha256": "ccff6f77ea47af8ffdad0d834805a9a6d88bbb29906cefae3ac13ac38b400aa9",
       "source": "src/recovered/classes/UnitClass/UnitClass_AI_006fb100.cpp",
       "population": "population-4325",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -29987,7 +29997,7 @@
         {
           "offset": 877,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 4292453983
@@ -30193,7 +30203,7 @@
           "resolved": 7325844
         }
       ],
-      "source_sha256": "8c13b63e8c1d09520824653a563a1611265da7d7d0eab48be0b2b3b44adf52c1",
+      "source_sha256": "f10468199bc2c1ac3ca58b0dfcacb051f8532b8d97c692300b3cddee8ca8be42",
       "switch_data_bytes": 70,
       "source": "src/recovered/classes/UnitClass/UnitClass_Radio_006fc1f0.cpp",
       "population": "population-4325",
@@ -32734,13 +32744,13 @@
         {
           "offset": 27,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 4292419873
         }
       ],
-      "source_sha256": "b56954847c630d53dd1e32f4bb521216183d66db541ffbbd3ad0bcd8af98ac28",
+      "source_sha256": "c9c4d390f7a6532296e078b8f122071c639c9ad30278448c11f291f8a6bb7021",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_704a80_00704a80.cpp",
       "population": "population-4325",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

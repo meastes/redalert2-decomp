@@ -50,7 +50,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
         case 0: {
             TechnoClass *unit=Contact(0);
             if(unit) { unit->unknown_slot116(5,false); unit->Commence(); }
-            unknown_2a8.unknown_496b70(Type->DeployTime);
+            unknown_2a8.Count_Up(Type->DeployTime);
             unknown_a8=Type->Naval ? 4 : 1;
             unknown_75=true;
             unknown_44cfd0(17);
@@ -64,7 +64,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
             }
             break;
         case 2:
-            if(unknown_2a8.unknown_496b30()) {
+            if(unknown_2a8.Is_Count_Up_Complete()) {
                 FootClass *unit=static_cast<FootClass *>(Contact(0));
                 if(unit) {
                     unit->unknown_slot116(2,false);
@@ -96,16 +96,16 @@ int BuildingClass::Do_MISSION_UNLOAD()
                     unit->unknown_slot306(0.5);
                     unknown_a8=3;
                 } else {
-                    unknown_2a8.unknown_496bc0(Type->DeployTime);
+                    unknown_2a8.Count_Down(Type->DeployTime);
                     unknown_a8=4;
                 }
             }
             break;
         case 3:
-            if(!unknown_370) { unknown_2a8.unknown_496bc0(Type->DeployTime); unknown_a8=4; }
+            if(!unknown_370) { unknown_2a8.Count_Down(Type->DeployTime); unknown_a8=4; }
             break;
         case 4:
-            if(unknown_2a8.unknown_496b50() || Type->Naval) { unknown_slot261(false,true); unknown_75=true; }
+            if(unknown_2a8.Is_Count_Down_Complete() || Type->Naval) { unknown_slot261(false,true); unknown_75=true; }
             break;
         }
         int delay=Control()->Normal_Delay();

@@ -68,7 +68,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
         {
             int capacity = Type->Passengers;
             if (Cargo.Unknown_00468A20() == capacity)
-                unknown_2a8.unknown_496bc0(Type->DeployTime);
+                unknown_2a8.Count_Down(Type->DeployTime);
         }
         return 5;
     case 14:

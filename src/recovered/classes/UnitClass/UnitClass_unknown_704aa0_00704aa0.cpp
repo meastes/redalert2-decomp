@@ -3,11 +3,11 @@
 // +0x2A8 with the type's DeployTime (0x00496B70).
 #include "shared/unit.hpp"
 // @ref __com_issue_error@4=00795940
-// @ref ?unknown_496b70@UnknownTimed@@QAEXN@Z=00496b70
+// @ref ?Count_Up@DelayTimerClass@@QAEXN@Z=00496b70
 
 void UnitClass::unknown_704aa0()
 {
     if (!Locomotor.Checked()->Is_Moving() && !unknown_599) {
-        unknown_2a8.unknown_496b70(Type->DeployTime);
+        unknown_2a8.Count_Up(Type->DeployTime);
     }
 }

@@ -4,8 +4,8 @@
     "id": "population-4445",
     "inventory_sha256": "cc09830fa7ef0ddee7c93867f5654aa3f393058cabcb73486fad0310480f424d",
     "gaps_sha256": "dcb030c50674df8a417424f1994ad9399e7443314c72e846ff231468a8465a6b",
-    "historical_population_sha256": "76d006dba2c712b74f9418f61db1038dcd09a466f9de1845557cfbce391066fe",
-    "historical_acceptance_sha256": "f9345e0097531a80adfb523aa6bb29793dafa240150affdb8d92129e4828367f"
+    "historical_population_sha256": "27a4164e00ddaa330e12e61898d5bdf1d833933fb348c245b4f76a11c14a985b",
+    "historical_acceptance_sha256": "ffe48557106206d5be0b4cd9186ec6426e710f77e72068815ad19a1d3e6a36d4"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1978,16 +1978,16 @@
     "_$E35": 4811232,
     "_$E38": 4811248,
     "?Wait_Timer_00496A20@@YIXJ@Z": 4811296,
-    "??0UnknownTimed@@QAE@XZ": 4811376,
-    "?unknown_496a90@UnknownTimed@@QBE_NXZ": 4811408,
-    "?unknown_496ab0@UnknownTimed@@QBE_NXZ": 4811440,
-    "?Is_Complete_00496AD0@UnknownTimed@@QBE_NXZ": 4811472,
-    "?unknown_496b30@UnknownTimed@@QBE_NXZ": 4811568,
-    "?unknown_496b50@UnknownTimed@@QBE_NXZ": 4811600,
-    "?unknown_496b70@UnknownTimed@@QAEXN@Z": 4811632,
-    "?unknown_496bc0@UnknownTimed@@QAEXN@Z": 4811712,
-    "?Reverse_00496C10@UnknownTimed@@QAEXXZ": 4811792,
-    "?Progress_00496C70@UnknownTimed@@QBENXZ": 4811888,
+    "??0DelayTimerClass@@QAE@XZ": 4811376,
+    "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ": 4811408,
+    "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ": 4811440,
+    "?Has_Ended@DelayTimerClass@@QBE_NXZ": 4811472,
+    "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ": 4811568,
+    "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ": 4811600,
+    "?Count_Up@DelayTimerClass@@QAEXN@Z": 4811632,
+    "?Count_Down@DelayTimerClass@@QAEXN@Z": 4811712,
+    "?Reverse@DelayTimerClass@@QAEXXZ": 4811792,
+    "?Percent_Complete@DelayTimerClass@@QBENXZ": 4811888,
     "??0Dial8Class@@QAE@IHHHHI@Z": 4812080,
     "?Draw_Me@Dial8Class@@UAEHH@Z": 4813104,
     "?Set_Direction@Dial8Class@@QAEXI@Z": 4813536,
@@ -9610,7 +9610,26 @@
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z": 5040944,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7080144,
     "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
-    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Normalize@Quaternion@@QAEXXZ": 6431136,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Incoming@CellClass@@QAEXPBX_N11@Z": 4679968,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Place_Tiberium@CellClass@@QAE_NHH@Z": 4703136,
+    "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552
   },
   "regions": [
     {
@@ -10338,8 +10357,8 @@
     {
       "entry": 4811408,
       "method": "00496a90",
-      "symbol": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
-      "symbol_prefix": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
+      "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10352,8 +10371,8 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "85f12c0d495fa352448882c68c435d9354900e8157ff11d368ee982a78f2495c",
       "relocations": [],
-      "source_sha256": "94944f5a8dba62d253e2b2dcba399b526f29afe05b9a22aab3705a82ea0ea6bf",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_unknown_496a90_00496a90.cpp",
+      "source_sha256": "4845a31b07d4f4e1a0ea9af0d3a62839eeed8a31ee9f47cc78b11bf5df81f4cf",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Is_Count_Up_Active_00496a90.cpp",
       "population": "population-4445",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10363,8 +10382,8 @@
     {
       "entry": 4811440,
       "method": "00496ab0",
-      "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
-      "symbol_prefix": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+      "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10377,8 +10396,8 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "bb716eb5d3a07f578d4d3e71ef965df03e4b61feed95d34879dfe9b596534f26",
       "relocations": [],
-      "source_sha256": "ea55e0c7c4064fb120656ee48db456c5c6aeae32f1e0080697a2d586e47cd8d1",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_unknown_496ab0_00496ab0.cpp",
+      "source_sha256": "4fd880a2000d832afbb252beb84c3a3250f9e63e9240be2b73e480d409d95d72",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Is_Count_Down_Active_00496ab0.cpp",
       "population": "population-4445",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10388,8 +10407,8 @@
     {
       "entry": 4811568,
       "method": "00496b30",
-      "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
-      "symbol_prefix": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+      "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10402,8 +10421,8 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "5bdaad42916a96446c2d77db77149361acebd3e9e18bba66aeb369e3ee56b08d",
       "relocations": [],
-      "source_sha256": "cf25f200e6d33d10e005676ff707caa846015e21ab3c3a7dc9a1d8522b47cea7",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_unknown_496b30_00496b30.cpp",
+      "source_sha256": "85df90c629fc716efad315626b44be7a923e835bbb2eb678b7903c93679d70f0",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Is_Count_Up_Complete_00496b30.cpp",
       "population": "population-4445",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10413,8 +10432,8 @@
     {
       "entry": 4811600,
       "method": "00496b50",
-      "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
-      "symbol_prefix": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+      "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10427,8 +10446,8 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "50290144025179028a3ef1e38407a31965879ddd40270b4066b933070335dc5d",
       "relocations": [],
-      "source_sha256": "9f891ff00558bb06b91acae54694b867ca8eb6b926a6bb73210bd9325cef407e",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_unknown_496b50_00496b50.cpp",
+      "source_sha256": "6ddbe554f699f14ee2648f7900fc31ea79b88b7edb725a1c95e838c74c15d801",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Is_Count_Down_Complete_00496b50.cpp",
       "population": "population-4445",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10480,8 +10499,8 @@
     {
       "entry": 4811376,
       "method": "00496a70",
-      "symbol": "??0UnknownTimed@@QAE@XZ",
-      "symbol_prefix": "??0UnknownTimed@@QAE@XZ",
+      "symbol": "??0DelayTimerClass@@QAE@XZ",
+      "symbol_prefix": "??0DelayTimerClass@@QAE@XZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10503,8 +10522,8 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "92aece61145b21916f314c27ed1ba7ee5f371c7f2dd7bbb0dff9e3c8930f0c81",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_constructor_00496a70.cpp",
+      "source_sha256": "691ebdf408201140e4dc928fe67657e3f0a5fc0e8b8bc78ddb404919b0712de5",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_constructor_00496a70.cpp",
       "population": "population-4445",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10514,8 +10533,8 @@
     {
       "entry": 4811472,
       "method": "00496ad0",
-      "symbol": "?Is_Complete_00496AD0@UnknownTimed@@QBE_NXZ",
-      "symbol_prefix": "?Is_Complete_00496AD0@UnknownTimed@@QBE_NXZ",
+      "symbol": "?Has_Ended@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Has_Ended@DelayTimerClass@@QBE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10545,8 +10564,8 @@
           "resolved": 7972616
         }
       ],
-      "source_sha256": "fe0c84c81e96f11abb070d1ff12ff95bd5dfee8ccd79fca603262e3f61a2bcbf",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_Is_Complete_00496ad0.cpp",
+      "source_sha256": "9abaa304ac41a9d2ceeb5d61e402df19ee7620023251c2b2a6129014ce5c9960",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Has_Ended_00496ad0.cpp",
       "population": "population-4445",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10556,8 +10575,8 @@
     {
       "entry": 4811632,
       "method": "00496b70",
-      "symbol": "?unknown_496b70@UnknownTimed@@QAEXN@Z",
-      "symbol_prefix": "?unknown_496b70@UnknownTimed@@QAEXN@Z",
+      "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
+      "symbol_prefix": "?Count_Up@DelayTimerClass@@QAEXN@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -10595,8 +10614,8 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "d93de9e4e11ebe8c8bf95d8e270942df3b3980e87b2f697f22a27e413124f247",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_unknown_496b70_00496b70.cpp",
+      "source_sha256": "21f402687bec646dec16707d33720a9d22b48c23873e81f8c33090093499c109",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Count_Up_00496b70.cpp",
       "population": "population-4445",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10606,8 +10625,8 @@
     {
       "entry": 4811712,
       "method": "00496bc0",
-      "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
-      "symbol_prefix": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+      "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+      "symbol_prefix": "?Count_Down@DelayTimerClass@@QAEXN@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -10645,8 +10664,8 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e323daaec9706f1c4b1fefc25e0b272d998bfcedeef8e45eb5f666576e2b58ad",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_unknown_496bc0_00496bc0.cpp",
+      "source_sha256": "a4af116869d5d827f886c93b6374da982ab395990b25b8f16ddd684915fc9d3a",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Count_Down_00496bc0.cpp",
       "population": "population-4445",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10656,8 +10675,8 @@
     {
       "entry": 4811792,
       "method": "00496c10",
-      "symbol": "?Reverse_00496C10@UnknownTimed@@QAEXXZ",
-      "symbol_prefix": "?Reverse_00496C10@UnknownTimed@@QAEXXZ",
+      "symbol": "?Reverse@DelayTimerClass@@QAEXXZ",
+      "symbol_prefix": "?Reverse@DelayTimerClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10679,8 +10698,8 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5e121f779d04149df2b06f6cb71011e67c4ad8b1cb99adf98dd046b6ad57ec82",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_Reverse_00496c10.cpp",
+      "source_sha256": "72029a6da92c86940ec541e08bd90e3b0d0486536be38fe766fa75a34a396111",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Reverse_00496c10.cpp",
       "population": "population-4445",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10690,8 +10709,8 @@
     {
       "entry": 4811888,
       "method": "00496c70",
-      "symbol": "?Progress_00496C70@UnknownTimed@@QBENXZ",
-      "symbol_prefix": "?Progress_00496C70@UnknownTimed@@QBENXZ",
+      "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
+      "symbol_prefix": "?Percent_Complete@DelayTimerClass@@QBENXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -10729,8 +10748,8 @@
           "resolved": 7972616
         }
       ],
-      "source_sha256": "1acc91015784287954b78ccde46d19f7bbc2c6282ae65552525e0ed340cde97a",
-      "source": "src/recovered/classes/UnknownTimed/UnknownTimed_Progress_00496c70.cpp",
+      "source_sha256": "cd60a4797cf0150207891710010843afed64cc80ffb000f587107ec6b81adbb9",
+      "source": "src/recovered/classes/DelayTimerClass/DelayTimerClass_Percent_Complete_00496c70.cpp",
       "population": "population-4445",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

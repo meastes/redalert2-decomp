@@ -35,7 +35,7 @@ inline bool Barrel_Side_0043abd0(FacingClass &facing)
 void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
 {
     Cell cell=unknown_slot104();
-    if(Get_Mission()==16 && (unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496b30() || unknown_2a8.unknown_496b50() || unknown_2a8.unknown_496ab0()) && unknown_370) {
+    if(Get_Mission()==16 && (unknown_2a8.Is_Count_Up_Active() || unknown_2a8.Is_Count_Up_Complete() || unknown_2a8.Is_Count_Down_Complete() || unknown_2a8.Is_Count_Down_Active()) && unknown_370) {
         for(int index=0;index<RadioLinks.Length();index++) {
             TechnoClass *product=Contact2(index);
             if(product && !product->unknown_76 && product->Kind_Of()!=6) {
@@ -51,16 +51,16 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
         }
     }
     if(Get_Mission()==16 && Type->DoorAnimData_11c0) {
-        if(unknown_2a8.unknown_496b50() || unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b30()) {
-            int stage=(int)(unknown_2a8.Progress_00496C70()*Type->DoorStages);
-            if(unknown_2a8.unknown_496ab0()) stage=Type->DoorStages-stage;
-            if(unknown_2a8.unknown_496b50()) stage=0;
+        if(unknown_2a8.Is_Count_Down_Complete() || unknown_2a8.Is_Count_Up_Active() || unknown_2a8.Is_Count_Down_Active() || unknown_2a8.Is_Count_Up_Complete()) {
+            int stage=(int)(unknown_2a8.Percent_Complete()*Type->DoorStages);
+            if(unknown_2a8.Is_Count_Down_Active()) stage=Type->DoorStages-stage;
+            if(unknown_2a8.Is_Count_Down_Complete()) stage=0;
             if(stage>=Type->DoorStages) stage=Type->DoorStages-1;
             if(stage<0) stage=0;
             if(Health_Ratio()<=Rules->unknown_1368 && Type->DamagedDoor) stage+=Type->DoorStages;
             int z_adjust=-5-Unknown_006A2970(unknown_slot110());
             unknown_6d1510(Type->DoorAnimData_11c0,stage,&xy,&bounds,0,256,z_adjust,0,0,Map[cell].unknown_10a,0,0,Point2D(0,0),0);
-            if(unknown_2a8.unknown_496ab0() && stage==0) unknown_75=true;
+            if(unknown_2a8.Is_Count_Down_Active() && stage==0) unknown_75=true;
         }
     }
     if(Type->TurretAnimIsVoxel) {

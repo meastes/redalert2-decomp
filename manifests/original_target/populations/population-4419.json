@@ -4,8 +4,8 @@
     "id": "population-4419",
     "inventory_sha256": "ef49f203a8456d9af663cd1a776115a0e22673145d72f7d9dc2a0223d9bec385",
     "gaps_sha256": "361162abe062f779acd1edd6a0b1b84617fbd33c4a06c90d83ba151831048f4d",
-    "historical_population_sha256": "5e35d30d8ce53915004512d39fee26b8b73ba3f7c259085b3060e769a7880a41",
-    "historical_acceptance_sha256": "7bdf970c6d8c0c49bfc373b2c5f8bc801b0272da30d41339cd15b7f256ef1c8c"
+    "historical_population_sha256": "9815be9b03ff60c2769122973931c819c2d1e2d7f2fff42107c3d4eaf092993c",
+    "historical_acceptance_sha256": "59eb01e71c762c456034dfdf65b5131f782e6318203708c5d91f831ef1c82fc1"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -7500,11 +7500,11 @@
     "?Unknown_006A2970@@": 6957424,
     "?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z": 6957168,
     "?unknown_building_depth_shape_85029c@@": 8716956,
-    "?unknown_496a90@UnknownTimed@@": 4811408,
-    "?unknown_496ab0@UnknownTimed@@": 4811440,
-    "?unknown_496b30@UnknownTimed@@": 4811568,
-    "?unknown_496b50@UnknownTimed@@": 4811600,
-    "?Progress_00496C70@UnknownTimed@@": 4811888,
+    "?Is_Count_Up_Active@DelayTimerClass@@": 4811408,
+    "?Is_Count_Down_Active@DelayTimerClass@@": 4811440,
+    "?Is_Count_Up_Complete@DelayTimerClass@@": 4811568,
+    "?Is_Count_Down_Complete@DelayTimerClass@@": 4811600,
+    "?Percent_Complete@DelayTimerClass@@": 4811888,
     "?unknown_voxel_cache_839a58@@": 8624728,
     "?unknown_barrel_dir_adjust_7cf658@@": 8189528,
     "?unknown_barrel_make_visible_7cf65c@@": 8189532,
@@ -7733,9 +7733,9 @@
     "?unknown_func_422c20@AnimClass@@QAEXXZ": 4336672,
     "?unknown_44f8e0@BuildingClass@@QAEXXZ": 4520160,
     "?unknown_422c10@UnknownBuildingAnim@@QAEXXZ": 4336656,
-    "?unknown_496ab0@UnknownTimed@@QBE_NXZ": 4811440,
-    "?unknown_496b50@UnknownTimed@@QBE_NXZ": 4811600,
-    "?unknown_496b30@UnknownTimed@@QBE_NXZ": 4811568,
+    "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ": 4811440,
+    "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ": 4811600,
+    "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ": 4811568,
     "?Get_Weapon@TechnoTypeClass@@QAEPAUWeaponStruct@@H@Z": 7206336,
     "?unknown_slot231@TechnoClass@@UAEPAUWeaponStruct@@H@Z": 7177536,
     "?unknown_44dfc0@BuildingClass@@QAEXH@Z": 4513728,
@@ -8307,7 +8307,7 @@
     "??0UnknownHouseBase@@QAE@XZ": 4876560,
     "??0UnknownHouseCounter@@QAE@XZ": 4791296,
     "??0UnknownQuaternion@@QAE@MMMM@Z": 6431072,
-    "??0UnknownTimed@@QAE@XZ": 4811376,
+    "??0DelayTimerClass@@QAE@XZ": 4811376,
     "??0UnknownTimer423F60@@QAE@ABVNoInitClass@@@Z": 4341600,
     "??0WaypointPathClass@@QAE@H@Z": 7490544,
     "??1?$VectorClass@H@@UAE@XZ": 4791328,
@@ -9203,7 +9203,7 @@
     "?Is_Allowed_To_Ally@HouseClass@@QAE_NPAV1@@Z": 5162208,
     "?Is_Ally@HouseClass@@QBE_NH@Z": 5133568,
     "?Is_Button_Listed@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114528,
-    "?Is_Complete_00496AD0@UnknownTimed@@QBE_NXZ": 4811472,
+    "?Has_Ended@DelayTimerClass@@QBE_NXZ": 4811472,
     "?Is_Direct_Draw@DSurface@@UAE_NXZ": 4920544,
     "?Is_Direct_Draw@Surface@@UAE_NXZ": 4264768,
     "?Is_Direct_Draw@XSurface@@UAE_NXZ": 4264720,
@@ -9317,7 +9317,7 @@
     "?Power_On@LocomotionClass@@UAG_NXZ": 5493232,
     "?Power_Output@HouseClass@@UAGJXZ": 5122976,
     "?Print@BitTextClass@@QAEXPAVBitFontClass@@PAVSurface@@PBGHHHH@Z": 4399952,
-    "?Progress_00496C70@UnknownTimed@@QBENXZ": 4811888,
+    "?Percent_Complete@DelayTimerClass@@QBENXZ": 4811888,
     "?Public_Base_Center@HouseClass@@UAG?AVCell@@XZ": 5123488,
     "?Public_Category_Power@HouseClass@@UAGJH@Z": 5123312,
     "?Public_Category_Quantity@HouseClass@@UAGJH@Z": 5123104,
@@ -9347,7 +9347,7 @@
     "?Resize@?$DynamicVectorClass@PAVIConnectionPoint@@@@UAE_NHPBQAVIConnectionPoint@@@Z": 4797888,
     "?Resize@?$VectorClass@PAVIConnectionPoint@@@@UAE_NHPBQAVIConnectionPoint@@@Z": 4797568,
     "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
-    "?Reverse_00496C10@UnknownTimed@@QAEXXZ": 4811792,
+    "?Reverse@DelayTimerClass@@QAEXXZ": 4811792,
     "?Revert_Mouse_Shape@MouseClass@@UAEXXZ": 5894272,
     "?Rotate_Vector@Matrix3D@@QBE?AUVector3@@ABU2@@Z": 5835984,
     "?Rotate_X@Matrix3D@@QAEXM@Z": 5834592,
@@ -10265,9 +10265,9 @@
     "?unknown_47c8a0@CellClass@@QAEXXZ": 4704416,
     "?Can_Build_Here@CellClass@@QBE_NXZ": 4705744,
     "?unknown_481fb0@@YAXXZ": 4726704,
-    "?unknown_496a90@UnknownTimed@@QBE_NXZ": 4811408,
-    "?unknown_496b70@UnknownTimed@@QAEXN@Z": 4811632,
-    "?unknown_496bc0@UnknownTimed@@QAEXN@Z": 4811712,
+    "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ": 4811408,
+    "?Count_Up@DelayTimerClass@@QAEXN@Z": 4811632,
+    "?Count_Down@DelayTimerClass@@QAEXN@Z": 4811712,
     "?unknown_4c45b0@FootClass@@QAEPAVBuildingClass@@XZ": 4998576,
     "?unknown_4c4c30@FootClass@@QAEXXZ": 5000240,
     "?unknown_4c82a0@FootClass@@QAEHPAVAbstractClass@@@Z": 5014176,
@@ -17358,13 +17358,13 @@
         {
           "offset": 45,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 299647
         }
       ],
-      "source_sha256": "1747277477edd91c666841424e12b2402f36206560b013cf7dd0f0f9a631f1a8",
+      "source_sha256": "60865cdcc673fe58d7f9ae1e402a83d2ce48d3ecc49f996db7a92cde2938a981",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_unknown_44d880_0044d880.cpp",
       "population": "population-4419",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -20755,7 +20755,7 @@
         {
           "offset": 49,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 299691
@@ -20763,7 +20763,7 @@
         {
           "offset": 60,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 299840
@@ -20771,13 +20771,13 @@
         {
           "offset": 107,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 299761
         }
       ],
-      "source_sha256": "54335e2dbe8e146847da664cc09f3508a2101d01741876432bef7d1037cf7172",
+      "source_sha256": "54dab1159f67d3a0b60bb16e85c45c0f1f2269e8e1d9c4b27edc17113d429d6c",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_unknown_44d7d0_0044d7d0.cpp",
       "population": "population-4419",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -28787,7 +28787,7 @@
         {
           "offset": 54,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 315686
@@ -28859,7 +28859,7 @@
         {
           "offset": 177,
           "kind": 20,
-          "symbol": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811408,
           "addend": 0,
           "resolved": 315403
@@ -28867,7 +28867,7 @@
         {
           "offset": 192,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 315420
@@ -28875,7 +28875,7 @@
         {
           "offset": 203,
           "kind": 20,
-          "symbol": "?Reverse_00496C10@UnknownTimed@@QAEXXZ",
+          "symbol": "?Reverse@DelayTimerClass@@QAEXXZ",
           "target": 4811792,
           "addend": 0,
           "resolved": 315761
@@ -28883,7 +28883,7 @@
         {
           "offset": 235,
           "kind": 20,
-          "symbol": "?unknown_496b70@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
           "target": 4811632,
           "addend": 0,
           "resolved": 315569
@@ -28947,7 +28947,7 @@
         {
           "offset": 431,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 315453
@@ -29019,7 +29019,7 @@
         {
           "offset": 673,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 315067
@@ -29027,7 +29027,7 @@
         {
           "offset": 700,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 315072
@@ -29035,7 +29035,7 @@
         {
           "offset": 739,
           "kind": 20,
-          "symbol": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811408,
           "addend": 0,
           "resolved": 314841
@@ -29043,7 +29043,7 @@
         {
           "offset": 750,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 314862
@@ -29051,7 +29051,7 @@
         {
           "offset": 761,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 314979
@@ -29059,7 +29059,7 @@
         {
           "offset": 772,
           "kind": 20,
-          "symbol": "?Progress_00496C70@UnknownTimed@@QBENXZ",
+          "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
           "target": 4811888,
           "addend": 0,
           "resolved": 315288
@@ -29113,7 +29113,7 @@
           "resolved": 4496515
         }
       ],
-      "source_sha256": "72d8202d43922b222420423c34be8c4fb36a16cb23d972fac2182f59f4d2829d",
+      "source_sha256": "0ded0d7d835c8950771e159a4dc6e670104ed1c93635dacb7965469e695f809f",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Gate_Mission_004499d0.cpp",
       "population": "population-4419",
@@ -36994,7 +36994,7 @@
         {
           "offset": 257,
           "kind": 20,
-          "symbol": "?unknown_496b70@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
           "target": 4811632,
           "addend": 0,
           "resolved": 317403
@@ -37058,7 +37058,7 @@
         {
           "offset": 447,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 317149
@@ -37250,7 +37250,7 @@
         {
           "offset": 1265,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 316475
@@ -37258,7 +37258,7 @@
         {
           "offset": 1314,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 316426
@@ -37266,7 +37266,7 @@
         {
           "offset": 1333,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 316295
@@ -37352,7 +37352,7 @@
           "resolved": 4495294
         }
       ],
-      "source_sha256": "e9d99bb67191e1b22cc48781d3da76d081a8ad0ec1c51b4ca37f72fd6492c70f",
+      "source_sha256": "08477c27f6241dfc8e34438ad8e24a77d729133076793b4a52878efcf5578fff",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Mission_Unload_00449290.cpp",
       "population": "population-4419",
@@ -37897,7 +37897,7 @@
         {
           "offset": 267,
           "kind": 20,
-          "symbol": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811408,
           "addend": 0,
           "resolved": 377761
@@ -37905,7 +37905,7 @@
         {
           "offset": 278,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 377782
@@ -37913,7 +37913,7 @@
         {
           "offset": 289,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 377899
@@ -37921,7 +37921,7 @@
         {
           "offset": 304,
           "kind": 20,
-          "symbol": "?Progress_00496C70@UnknownTimed@@QBENXZ",
+          "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
           "target": 4811888,
           "addend": 0,
           "resolved": 378204
@@ -37937,7 +37937,7 @@
         {
           "offset": 330,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 377730
@@ -37945,7 +37945,7 @@
         {
           "offset": 357,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 377863
@@ -37953,7 +37953,7 @@
         {
           "offset": 370,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 377818
@@ -38239,7 +38239,7 @@
           "resolved": 2713945
         }
       ],
-      "source_sha256": "d8b93f5ef9dc7b7cd140092cc44f012d7fcca7ff09a917db31f445b7bcef7612",
+      "source_sha256": "dd2a53301e7bbc2834afa36566141a652316de57b5073befefba3d7276fe96c9",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Draw_It_0043a5e0.cpp",
       "population": "population-4419",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -38268,7 +38268,7 @@
         {
           "offset": 63,
           "kind": 20,
-          "symbol": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811408,
           "addend": 0,
           "resolved": 376445
@@ -38276,7 +38276,7 @@
         {
           "offset": 74,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 376594
@@ -38284,7 +38284,7 @@
         {
           "offset": 85,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 376615
@@ -38292,7 +38292,7 @@
         {
           "offset": 96,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 376444
@@ -38380,7 +38380,7 @@
         {
           "offset": 458,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 376242
@@ -38388,7 +38388,7 @@
         {
           "offset": 469,
           "kind": 20,
-          "symbol": "?unknown_496a90@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811408,
           "addend": 0,
           "resolved": 376039
@@ -38396,7 +38396,7 @@
         {
           "offset": 480,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 376060
@@ -38404,7 +38404,7 @@
         {
           "offset": 491,
           "kind": 20,
-          "symbol": "?unknown_496b30@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811568,
           "addend": 0,
           "resolved": 376177
@@ -38412,7 +38412,7 @@
         {
           "offset": 506,
           "kind": 20,
-          "symbol": "?Progress_00496C70@UnknownTimed@@QBENXZ",
+          "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
           "target": 4811888,
           "addend": 0,
           "resolved": 376482
@@ -38428,7 +38428,7 @@
         {
           "offset": 532,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 376008
@@ -38436,7 +38436,7 @@
         {
           "offset": 559,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 376141
@@ -38492,7 +38492,7 @@
         {
           "offset": 755,
           "kind": 20,
-          "symbol": "?unknown_496ab0@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
           "target": 4811440,
           "addend": 0,
           "resolved": 375785
@@ -38906,7 +38906,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "1bee02407b4f7ca6f6a0646d7f68904c152245cd6cb888002cecb0000a8099a3",
+      "source_sha256": "f5d988541d00276fb44a10979a25243f5d4baf04f89bf9024f265681825c449d",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Draw_Extras_0043abd0.cpp",
       "population": "population-4419",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -38961,7 +38961,7 @@
         {
           "offset": 91,
           "kind": 20,
-          "symbol": "?unknown_496b50@UnknownTimed@@QBE_NXZ",
+          "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
           "target": 4811600,
           "addend": 0,
           "resolved": 378737
@@ -39055,7 +39055,7 @@
           "resolved": 2715459
         }
       ],
-      "source_sha256": "a51e84947fb5063fa5947bcc57f4602ead8d4083285216feeb7502a7a28d6c49",
+      "source_sha256": "f5fabf05d8b87277450c11522759e530aabe671dbb5177954d75b069b856b396",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Editor_Draw_It_0043a380.cpp",
       "population": "population-4419",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

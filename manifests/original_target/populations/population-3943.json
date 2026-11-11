@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "faf45ce9bf18cad7cbac02f03feb05df1940f4d00053c662c85fc7939df4c617",
-    "historical_acceptance_sha256": "81b1332352a3ef0fa98684d85fc9694d73fcd98465ef84c638ee0ecb7b74b626"
+    "historical_population_sha256": "677743f8b307908b4ab2e68c06c11c28a08e8c698bb2e0e322204a3f849afbec",
+    "historical_acceptance_sha256": "5cf8a4f8242df356017a6e4b2fef18b316437d20f60eb03c97547b3e9658231d"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2012,7 +2012,7 @@
     "??0UnknownHouseCounter@@QAE@XZ": 4791296,
     "??0UnknownPairFirst@@QAE@PAVFileClass@@H@Z": 7442560,
     "??0UnknownPairSecond@@QAE@PAVFileClass@@@Z": 5892976,
-    "??0UnknownTimed@@QAE@XZ": 4811376,
+    "??0DelayTimerClass@@QAE@XZ": 4811376,
     "??0UnknownTimer423F60@@QAE@ABVNoInitClass@@@Z": 4341600,
     "??0VoxelAnimClass@@QAE@XZ": 7392544,
     "??0VoxelAnimTypeClass@@QAE@PBD@Z": 7397792,
@@ -3697,7 +3697,7 @@
     "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
     "?Is_Available@RAMFileClass@@UAE_NH@Z": 6521824,
     "?Is_Available@RawFileClass@@UAE_NH@Z": 6524064,
-    "?Is_Complete_00496AD0@UnknownTimed@@QBE_NXZ": 4811472,
+    "?Has_Ended@DelayTimerClass@@QBE_NXZ": 4811472,
     "?Is_Event_Tripped@TriggerClass@@QBE_NH@Z": 7264624,
     "?Is_Fighter@AircraftClass@@UAGJXZ": 4304784,
     "?Is_Ion_Sensitive@FlyLocomotionClass@@UAG_NXZ": 4977952,
@@ -3971,7 +3971,7 @@
     "?Process@LocomotionClass@@UAG_NXZ": 5494112,
     "?Process@MechLocomotionClass@@UAG_NXZ": 5838912,
     "?Process@WalkLocomotionClass@@UAG_NXZ": 7462896,
-    "?Progress_00496C70@UnknownTimed@@QBENXZ": 4811888,
+    "?Percent_Complete@DelayTimerClass@@QBENXZ": 4811888,
     "?Public_Base_Center@HouseClass@@UAG?AVCell@@XZ": 5123488,
     "?Public_Category_Power@HouseClass@@UAGJH@Z": 5123312,
     "?Public_Category_Quantity@HouseClass@@UAGJH@Z": 5123104,
@@ -4170,7 +4170,7 @@
     "?Resize@?$DynamicVectorClass@PAVIConnectionPoint@@@@UAE_NHPBQAVIConnectionPoint@@@Z": 4797888,
     "?Resize@?$VectorClass@PAVIConnectionPoint@@@@UAE_NHPBQAVIConnectionPoint@@@Z": 4797568,
     "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
-    "?Reverse_00496C10@UnknownTimed@@QAEXXZ": 4811792,
+    "?Reverse@DelayTimerClass@@QAEXXZ": 4811792,
     "?Revert@CStreamClass@@UAGJXZ": 4804336,
     "?Revert_Mouse_Shape@MouseClass@@UAEXXZ": 5894272,
     "?Save@?$TypeList@H@@QAEXPAUIStream@@@Z": 6630400,
@@ -4816,12 +4816,12 @@
     "?Is_Sensed@UnknownCellClass@@QAE_NH@Z": 4702944,
     "?unknown_47c300@CellClass@@QBE_NH@Z": 4702976,
     "?unknown_47c300@UnknownCellClass@@QAE_NH@Z": 4702976,
-    "?unknown_496a90@UnknownTimed@@QBE_NXZ": 4811408,
-    "?unknown_496ab0@UnknownTimed@@QBE_NXZ": 4811440,
-    "?unknown_496b30@UnknownTimed@@QBE_NXZ": 4811568,
-    "?unknown_496b50@UnknownTimed@@QBE_NXZ": 4811600,
-    "?unknown_496b70@UnknownTimed@@QAEXN@Z": 4811632,
-    "?unknown_496bc0@UnknownTimed@@QAEXN@Z": 4811712,
+    "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ": 4811408,
+    "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ": 4811440,
+    "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ": 4811568,
+    "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ": 4811600,
+    "?Count_Up@DelayTimerClass@@QAEXN@Z": 4811632,
+    "?Count_Down@DelayTimerClass@@QAEXN@Z": 4811712,
     "?unknown_4c45b0@FootClass@@QAEPAVBuildingClass@@XZ": 4998576,
     "?unknown_4c4c30@FootClass@@QAEXXZ": 5000240,
     "?unknown_4c82a0@FootClass@@QAEHPAVAbstractClass@@@Z": 5014176,
@@ -11065,7 +11065,19 @@
     "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
     "?Place_Tiberium@CellClass@@QAE_NHH@Z": 4703136,
     "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
-    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552
   },
   "regions": [
     {
@@ -20435,7 +20447,7 @@
         {
           "offset": 606,
           "kind": 20,
-          "symbol": "?unknown_496bc0@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
           "target": 4811712,
           "addend": 0,
           "resolved": 516382
@@ -20459,7 +20471,7 @@
         {
           "offset": 828,
           "kind": 20,
-          "symbol": "?unknown_496b70@UnknownTimed@@QAEXN@Z",
+          "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
           "target": 4811632,
           "addend": 0,
           "resolved": 516080
@@ -20577,7 +20589,7 @@
           "resolved": 4294998
         }
       ],
-      "source_sha256": "2ffd74637985d619ea005e84afb85e11b482f26da78af0bca2a65c1cd2cbd0bd",
+      "source_sha256": "83bb0d7624d29f8d4893f156dd9e716a34d9e3630512ad49da61cbcfd0745fe3",
       "switch_data_bytes": 70,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot95_00418840.cpp",
       "population": "population-3943",

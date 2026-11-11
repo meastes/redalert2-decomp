@@ -4,16 +4,16 @@
 // 24 again (slots 118, 116, 117) and the answer is false; otherwise the
 // answer of unknown_44d880.
 #include "shared/building.hpp"
-// @ref ?unknown_496ab0@UnknownTimed@@QBE_NXZ=00496ab0
-// @ref ?unknown_496b50@UnknownTimed@@QBE_NXZ=00496b50
-// @ref ?unknown_496b30@UnknownTimed@@QBE_NXZ=00496b30
+// @ref ?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ=00496ab0
+// @ref ?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ=00496b50
+// @ref ?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ=00496b30
 
 bool BuildingClass::unknown_44d7d0()
 {
     if (!Type->Gate) {
         return true;
     }
-    if (Get_Mission() != 24 || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b50()) {
+    if (Get_Mission() != 24 || unknown_2a8.Is_Count_Down_Active() || unknown_2a8.Is_Count_Down_Complete()) {
         Set_Mission(-1);
         unknown_slot116(24, false);
         Commence();

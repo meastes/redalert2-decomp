@@ -18,7 +18,7 @@
 //   +0x1E8, +0x21C  CoordStruct (the unit's zero coordinate)
 //   +0x208, +0x230, +0x238  owned objects deleted by the destructor
 //   +0x25C  ObjectClass *unknown_25c[8]   cleared, swizzled
-//   +0x294  StorageClass, +0x2A8 UnknownTimed (out-of-line constructors)
+//   +0x294  StorageClass, +0x2A8 DelayTimerClass (out-of-line constructors)
 //   +0x2C8, +0x2E0, +0x2F8  FacingClass (the first with rate 3)
 //   +0x320  short: a random value from the scenario when constructed
 //   +0x330, +0x350  UnknownTechnoBlock (constructed by both constructors)
@@ -68,7 +68,7 @@ public:
     long DelayTime;
 };
 
-// INTEG RESOLUTION CANDIDATE: codex1 r38's 16-byte duration timer (UnknownTimed +0x08),
+// INTEG RESOLUTION CANDIDATE: codex1 r38's 16-byte duration timer (DelayTimerClass +0x08),
 // the 12-byte UnknownTimer423F60 plus the initial duration.
 class UnknownDurationTimer423F60 : public UnknownTimer423F60 {
 public:
@@ -94,24 +94,25 @@ public:
     long TotalTime;
 };
 
-// 0x20 bytes around a timer at +0x08 (constructor 0x00496A70 is out of line).
-class UnknownTimed {
+// 0x20 bytes around a timer at +0x08 (constructor 0x00496A70 is out of line). TibSun delay.h's DelayTimerClass
+// (mischa85 delay.h and names.csv agree at every address).
+class DelayTimerClass {
 public:
-    bool Is_Complete_00496AD0() const;
-    void Reverse_00496C10();
-    double Progress_00496C70() const;
-    UnknownTimed();                     // 0x00496A70
-    UnknownTimed(NoInitClass const &noinit) : Timer(noinit) {}
-    bool unknown_496a90() const;        // 0x00496A90 (+0x18 and +0x19 set)
-    bool unknown_496ab0() const;        // 0x00496AB0 (+0x18 set, +0x19 clear)
-    bool unknown_496b30() const;        // 0x00496B30 (+0x18 set, or +0x19 is 1)
-    bool unknown_496b50() const;        // 0x00496B50 (neither +0x18 nor +0x19 set)
-    void unknown_496bc0(double time);   // 0x00496BC0 (starts a timed change; UnitClass slot 145 passes DeployTime)
-    void unknown_496b70(double time);   // 0x00496B70 (the reverse timed change; AircraftClass slot 95 passes DeployTime)
-    double FrameDuration;                 // +00 duration scaled to frames
-    UnknownDurationTimer423F60 Timer;           // +0x08,16bytes including TotalTime at+14
+    bool Has_Ended() const;
+    void Reverse();
+    double Percent_Complete() const;
+    DelayTimerClass();                      // 0x00496A70
+    DelayTimerClass(NoInitClass const &noinit) : Timer(noinit) {}
+    bool Is_Count_Up_Active() const;        // 0x00496A90 (+0x18 and +0x19 set)
+    bool Is_Count_Down_Active() const;      // 0x00496AB0 (+0x18 set, +0x19 clear)
+    bool Is_Count_Up_Complete() const;      // 0x00496B30 (+0x18 set, or +0x19 is 1)
+    bool Is_Count_Down_Complete() const;    // 0x00496B50 (neither +0x18 nor +0x19 set)
+    void Count_Down(double time);           // 0x00496BC0 (starts a timed change; UnitClass slot 145 passes DeployTime)
+    void Count_Up(double time);             // 0x00496B70 (the reverse timed change; AircraftClass slot 95 passes DeployTime)
+    double Duration;                        // +00 duration scaled to frames
+    UnknownDurationTimer423F60 Timer;       // +0x08,16bytes including TotalTime at+14
     bool IsActive;
-    bool IsReverse;
+    bool IsToCountUp;
     int unknown_1c;
 };
 
@@ -702,7 +703,7 @@ public:
     int unknown_290;                        // +0x290 (-1)
     StorageClass unknown_294;               // +0x294
     int unknown_2a4;                        // +0x2A4
-    UnknownTimed unknown_2a8;               // +0x2A8
+    DelayTimerClass unknown_2a8;               // +0x2A8
     FacingClass unknown_2c8;                // +0x2C8 (rate 3)
     FacingClass unknown_2e0;                // +0x2E0
     FacingClass unknown_2f8;                // +0x2F8

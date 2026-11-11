@@ -442,7 +442,7 @@
 | [classes/MissionControlClass](../src/recovered/classes/MissionControlClass/) | 4 | 523 | 4 | 0x004D4520–0x00594E30 |
 | [classes/RLEBlitTransLucent25AlphaZReadWrite_unsigned_short](../src/recovered/classes/RLEBlitTransLucent25AlphaZReadWrite_unsigned_short/) | 2 | 516 | 1 | 0x0048C5C0–0x0048D930 |
 | [classes/RLEBlitTransLucent75AlphaZReadWrite_unsigned_short](../src/recovered/classes/RLEBlitTransLucent75AlphaZReadWrite_unsigned_short/) | 2 | 516 | 1 | 0x0048C200–0x0048D8B0 |
-| [classes/UnknownTimed](../src/recovered/classes/UnknownTimed/) | 10 | 514 | 10 | 0x00496A70–0x00496C70 |
+| [classes/DelayTimerClass](../src/recovered/classes/DelayTimerClass/) | 10 | 514 | 10 | 0x00496A70–0x00496C70 |
 | [classes/RLEBlitTransLucent25AlphaZReadWarp_unsigned_short](../src/recovered/classes/RLEBlitTransLucent25AlphaZReadWarp_unsigned_short/) | 2 | 513 | 1 | 0x0048BCB0–0x0048D7F0 |
 | [classes/RLEBlitTransLucent75AlphaZReadWarp_unsigned_short](../src/recovered/classes/RLEBlitTransLucent75AlphaZReadWarp_unsigned_short/) | 2 | 513 | 1 | 0x0048B920–0x0048D770 |
 | [classes/VectorClass_AbstractClass_ptr](../src/recovered/classes/VectorClass_AbstractClass_ptr/) | 8 | 513 | 6 | 0x004CDE80–0x004CEB90 |

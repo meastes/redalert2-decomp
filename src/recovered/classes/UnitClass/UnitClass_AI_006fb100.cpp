@@ -16,8 +16,8 @@ BuildingClass *__fastcall Unknown_00450F90(HouseClass *house, UnitClass *unit);
 // @ref ?unknown_6cf130@TechnoClass@@QAE?AUCell@@PAVAbstractClass@@@Z=006cf130
 // @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 // @ref ?unknown_func_4f52f0@HouseClass@@QAE_NXZ=004f52f0
-// @ref ?unknown_496b50@UnknownTimed@@QBE_NXZ=00496b50
-// @ref ?unknown_496bc0@UnknownTimed@@QAEXN@Z=00496bc0
+// @ref ?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ=00496b50
+// @ref ?Count_Down@DelayTimerClass@@QAEXN@Z=00496bc0
 // @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Unknown_0054AB00@MapClass@@QAE_NABUCoordStruct@@@Z=0054ab00
 // @ref ?unknown_6fb890@UnitClass@@QAEXXZ=006fb890
@@ -119,8 +119,8 @@ void UnitClass::AI()
         }
         if (Type->SmallVisceroid || Type->LargeVisceroid) unknown_6fbf40();
         unknown_slot239();
-        if (Type->Passengers > 0 && !unknown_2a8.unknown_496b50() && Get_Mission() != 16 && unknown_slot149(17) != 1) {
-            unknown_2a8.unknown_496bc0(Type->DeployTime);
+        if (Type->Passengers > 0 && !unknown_2a8.Is_Count_Down_Complete() && Get_Mission() != 16 && unknown_slot149(17) != 1) {
+            unknown_2a8.Count_Down(Type->DeployTime);
         }
         if (unknown_slot122()) Commence();
         if (unknown_1b8 == 2 && unknown_5b4 != -1) unknown_slot61();

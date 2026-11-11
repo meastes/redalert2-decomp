@@ -13,11 +13,11 @@
 // @ref ?Unknown_006A2970@@=006a2970
 // @ref ?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z=006a2870
 // @ref ?unknown_building_depth_shape_85029c@@=0085029c
-// @ref ?unknown_496a90@UnknownTimed@@=00496a90
-// @ref ?unknown_496ab0@UnknownTimed@@=00496ab0
-// @ref ?unknown_496b30@UnknownTimed@@=00496b30
-// @ref ?unknown_496b50@UnknownTimed@@=00496b50
-// @ref ?Progress_00496C70@UnknownTimed@@=00496c70
+// @ref ?Is_Count_Up_Active@DelayTimerClass@@=00496a90
+// @ref ?Is_Count_Down_Active@DelayTimerClass@@=00496ab0
+// @ref ?Is_Count_Up_Complete@DelayTimerClass@@=00496b30
+// @ref ?Is_Count_Down_Complete@DelayTimerClass@@=00496b50
+// @ref ?Percent_Complete@DelayTimerClass@@=00496c70
 void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds)
 {
     Cell cell=unknown_slot104();
@@ -40,11 +40,11 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
             air_product=true;
         }
     }
-    if(Get_Mission()==24 && (unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b30())) {
-        int stage=(int)(unknown_2a8.Progress_00496C70()*Type->GateStages);
-        if(unknown_2a8.unknown_496ab0()) stage=Type->GateStages-stage;
-        if(unknown_2a8.unknown_496b50()) stage=0;
-        if(unknown_2a8.unknown_496b30()) stage=Type->GateStages-1;
+    if(Get_Mission()==24 && (unknown_2a8.Is_Count_Up_Active() || unknown_2a8.Is_Count_Down_Active() || unknown_2a8.Is_Count_Up_Complete())) {
+        int stage=(int)(unknown_2a8.Percent_Complete()*Type->GateStages);
+        if(unknown_2a8.Is_Count_Down_Active()) stage=Type->GateStages-stage;
+        if(unknown_2a8.Is_Count_Down_Complete()) stage=0;
+        if(unknown_2a8.Is_Count_Up_Complete()) stage=Type->GateStages-1;
         if(stage>=Type->GateStages) stage=Type->GateStages-1;
         if(stage<0) stage=0;
         ShapeFileStruct const *gate_shape=(ShapeFileStruct const *)unknown_slot26();

@@ -71,7 +71,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, AbstractClass 
         AircraftTypeClass *type = Type;
         int count = Cargo.Count;
         int capacity = type->Passengers;
-        if (count == capacity) unknown_2a8.unknown_496bc0(type->DeployTime);
+        if (count == capacity) unknown_2a8.Count_Down(type->DeployTime);
         InfantryClass *infantry = Aircraft_Radio_Infantry(radio);
         if (infantry && infantry->Type->Civilian && !infantry->unknown_5c1) {
             unknown_slot220(0);
@@ -85,7 +85,7 @@ int AircraftClass::unknown_slot95(RadioClass *radio, int message, AbstractClass 
         if (capacity > 0 && Cargo.Count < capacity) {
             FootClass::unknown_slot95(radio, message, param);
             if (!Locomotor.Checked()->Is_Moving()) {
-                unknown_2a8.unknown_496b70(Type->DeployTime);
+                unknown_2a8.Count_Up(Type->DeployTime);
                 if (unknown_slot150(19, (TechnoClass *)radio) == 1) {
                     param = this;
                     if (unknown_slot151(18, &param, (TechnoClass *)radio) != 1) {

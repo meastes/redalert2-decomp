@@ -78,23 +78,23 @@ bool Planning_Active()
     return unknown_flag_a767a4;
 }
 
-// --- UnknownTimed (TechnoClass +0x2A8) -------------------------------------------
+// --- DelayTimerClass (TechnoClass +0x2A8) -------------------------------------------
 #include "shared/techno.hpp"
 
 // 0x00496CE0 (seed src/recovered/00496ce0.cpp; TechnoClass::AI 0x006C74C0 calls it
 // once the timer completed): an active reverse change ends as reversed (+0x18 0,
 // +0x19 1); an active forward change ends cleared (both 0). Native name: the seed
 // passed the object as an int (fixup in TechnoClass_AI_006c74c0.cpp).
-void Native_Timed_Finish_00496ce0(UnknownTimed *timed)
+void Native_Timed_Finish_00496ce0(DelayTimerClass *timed)
 {
     if (timed->IsActive) {
-        if (timed->IsReverse) {
+        if (timed->IsToCountUp) {
             timed->IsActive = false;
-            timed->IsReverse = true;
+            timed->IsToCountUp = true;
         }
-        if (timed->IsActive && !timed->IsReverse) {
+        if (timed->IsActive && !timed->IsToCountUp) {
             timed->IsActive = false;
-            timed->IsReverse = false;
+            timed->IsToCountUp = false;
         }
     }
 }

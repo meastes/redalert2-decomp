@@ -11,7 +11,7 @@ void BuildingClass::unknown_slot68(Point2D const &point_ref, Rect const &bounds)
     ShapeFileStruct const *shape = (ShapeFileStruct const *)unknown_slot26();
     if (shape == 0) return;
     if (Type->InvisibleInGame) return;
-    if (Get_Mission() != 24 || unknown_2a8.unknown_496b50()) {
+    if (Get_Mission() != 24 || unknown_2a8.Is_Count_Down_Complete()) {
         if (Get_Mission() == 16 && Type->unknown_11a0 != 0) {
             TechnoClass *product = ((UnknownBuildingFactory *)unknown_41c)->Get_Object();
             if (product != 0 && product->unknown_slot32()->JumpJet) shape = (ShapeFileStruct const *)Type->unknown_11b0;

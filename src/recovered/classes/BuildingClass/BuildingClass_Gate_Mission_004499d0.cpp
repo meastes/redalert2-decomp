@@ -15,15 +15,15 @@ int BuildingClass::Do_MISSION_OPEN()
     if (Type->Gate) {
         switch (unknown_a8) {
         case 0:
-            if (unknown_2a8.unknown_496b30()) {
+            if (unknown_2a8.Is_Count_Up_Complete()) {
                 GateTimer = (int)(Type->GateCloseDelay * 900.0);
                 unknown_a8 = 2;
             } else {
-                if (!unknown_2a8.unknown_496a90()) {
-                    if (unknown_2a8.unknown_496ab0()) {
-                        unknown_2a8.Reverse_00496C10();
+                if (!unknown_2a8.Is_Count_Up_Active()) {
+                    if (unknown_2a8.Is_Count_Down_Active()) {
+                        unknown_2a8.Reverse();
                     } else {
-                        unknown_2a8.unknown_496b70(Type->DeployTime);
+                        unknown_2a8.Count_Up(Type->DeployTime);
                         CoordStruct position = Coord;
                         Voc_Play_At(Rules->GateDown, position, 0);
                         unknown_tactical_83996c->Register_Dirty_Area(unknown_slot73(), 0);
@@ -35,7 +35,7 @@ int BuildingClass::Do_MISSION_OPEN()
             }
             break;
         case 3:
-            unknown_2a8.unknown_496bc0(Type->DeployTime);
+            unknown_2a8.Count_Down(Type->DeployTime);
             unknown_a8 = 4;
             closing_position = Coord;
             Voc_Play_At(Rules->GateUp, closing_position, 0);
@@ -48,16 +48,16 @@ int BuildingClass::Do_MISSION_OPEN()
             }
             break;
         case 1:
-            if (unknown_2a8.unknown_496b30()) unknown_a8 = 2;
+            if (unknown_2a8.Is_Count_Up_Complete()) unknown_a8 = 2;
             // Fall through to the animation refresh.
         case 4:
-            if (unknown_2a8.unknown_496b50()) {
+            if (unknown_2a8.Is_Count_Down_Complete()) {
                 unknown_slot261(false, true);
                 unknown_a8 = 5;
                 unknown_75 = true;
             }
-            if (unknown_2a8.unknown_496a90() || unknown_2a8.unknown_496ab0() || unknown_2a8.unknown_496b30()) {
-                int stage = (int)(unknown_2a8.Progress_00496C70() * Type->GateStages);
+            if (unknown_2a8.Is_Count_Up_Active() || unknown_2a8.Is_Count_Down_Active() || unknown_2a8.Is_Count_Up_Complete()) {
+                int stage = (int)(unknown_2a8.Percent_Complete() * Type->GateStages);
                 if (stage != unknown_5c7) {
                     unknown_5c7 = (char)stage;
                     unknown_75 = true;
