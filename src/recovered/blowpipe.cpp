@@ -55,10 +55,10 @@ int BlowPipe::Flush(void)
 {
 	int total = 0;
 	if (Counter > 0 && BF != 0) {
-		total += Pipe::Put(Buffer, Counter);
+		total += BASECLASS::Put(Buffer, Counter);
 	}
 	Counter = 0;
-	total += Pipe::Flush();
+	total += BASECLASS::Flush();
 	return(total);
 }
 
@@ -85,7 +85,7 @@ int BlowPipe::Flush(void)
 int BlowPipe::Put(void const * source, int slen)
 {
 	if (source == 0 || slen < 1) {
-		return(Pipe::Put(source, slen));
+		return(BASECLASS::Put(source, slen));
 	}
 
 	/*
@@ -93,7 +93,7 @@ int BlowPipe::Put(void const * source, int slen)
 	**	unchanged in any way.
 	*/
 	if (BF == 0) {
-		return(Pipe::Put(source, slen));
+		return(BASECLASS::Put(source, slen));
 	}
 
 	int total = 0;
@@ -117,7 +117,7 @@ int BlowPipe::Put(void const * source, int slen)
 			} else {
 				BF->Encrypt(Buffer, sizeof(Buffer), Buffer);
 			}
-			total += Pipe::Put(Buffer, sizeof(Buffer));
+			total += BASECLASS::Put(Buffer, sizeof(Buffer));
 			Counter = 0;
 		}
 	}
@@ -132,7 +132,7 @@ int BlowPipe::Put(void const * source, int slen)
 		} else {
 			BF->Encrypt(source, sizeof(Buffer), Buffer);
 		}
-		total += Pipe::Put(Buffer, sizeof(Buffer));
+		total += BASECLASS::Put(Buffer, sizeof(Buffer));
 		source = ((char *)source) + sizeof(Buffer);
 		slen -= sizeof(Buffer);
 	}

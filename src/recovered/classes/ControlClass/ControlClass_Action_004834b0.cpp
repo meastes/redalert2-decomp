@@ -2,7 +2,7 @@
 // Reports the event as button key ID | 0x8000 (| 0x4000 for event 0x40 on a
 // gadget that takes event 0x10), tells the peer, then runs GadgetClass::Action.
 #include "shared/gadget.hpp"
-// @ref ?Action@GadgetClass@@UAEHIAAI@Z=004cf220
+// @ref ?Action@GadgetClass@@MAEHIAAI@Z=004cf220
 
 int ControlClass::Action(unsigned flags, unsigned &key)
 {

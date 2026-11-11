@@ -10,6 +10,8 @@
 #include "shared/sha.hpp"
 
 class SHAPipe : public Pipe {
+        typedef Pipe BASECLASS;
+
 public:
     SHAPipe() {}
     virtual int Put(void const *source, int slen); // 0x00675380

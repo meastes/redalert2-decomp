@@ -59,7 +59,7 @@ int SHAStraw::Get(void * source, int slen)
 		return(0);
 	}
 
-	int counter = Straw::Get(source, slen);
+	int counter = BASECLASS::Get(source, slen);
 	if (!IsDisabled) {
 		SHA.Hash(source, counter);
 	}

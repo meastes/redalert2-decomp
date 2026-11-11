@@ -4,7 +4,7 @@
 #include "shared/gadget.hpp"
 #include "shared/mouse.hpp"
 // @ref ?WWMouse@@3PAVMouse@@A=00839c68
-// @ref ?StuckOn@GadgetClass@@2PAV1@A=00865ff0
+// @ref ?StuckOn@GadgetClass@@1PAV1@A=00865ff0
 // @ref ?Action@ControlClass@@UAEHIAAI@Z=004834b0
 
 int GaugeClass::Action(unsigned flags, unsigned &key)

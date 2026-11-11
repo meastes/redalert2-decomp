@@ -4,8 +4,8 @@
     "id": "population-98",
     "inventory_sha256": "4232d2dda98e295f61803dbc4fcbb292ea3d9f7538d3e795187a5a6002131795",
     "gaps_sha256": "822c18f53e7523905e56188baff31fb4ad04d8e9d13148cc461972c1cdae9d60",
-    "historical_population_sha256": "53fa62485b0581a0356041a5936d5fb1a659eb172d79d78022f6d1b453e93753",
-    "historical_acceptance_sha256": "c28b02de1857f3bff06a636c6bb04356f34b8463bdcc83962f986d26793ea7ab"
+    "historical_population_sha256": "c647cc05cd7e83348b89283cc5c84e78b1a7cf1b68cba87c14df10c23e0db020",
+    "historical_acceptance_sha256": "9927511921a7a680b829a09a98cd83e424f5e76a0ac8a144314e5926328c96b2"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -829,7 +829,11 @@
     "__imp__RevokeActiveObject": 7971668,
     "__imp__LoadTypeLib": 7971672,
     "__purecall": 4950368,
-    "??_EBlowfishEngine@@QAEPAXI@Z": 5856320
+    "??_EBlowfishEngine@@QAEPAXI@Z": 5856320,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -866,7 +870,7 @@
           "resolved": 1938512
         }
       ],
-      "source_sha256": "ec7654c106b94a06c38821730a760f0ad84b7066e10a0cc78bca9452d85da13c",
+      "source_sha256": "4e8d6a1b1e1c454392c99aa168cf423822e2980f988530a06713a73c4fbe310c",
       "source": "src/recovered/blowpipe.cpp",
       "population": "population-98",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -964,7 +968,7 @@
           "resolved": 1938179
         }
       ],
-      "source_sha256": "ec7654c106b94a06c38821730a760f0ad84b7066e10a0cc78bca9452d85da13c",
+      "source_sha256": "4e8d6a1b1e1c454392c99aa168cf423822e2980f988530a06713a73c4fbe310c",
       "source": "src/recovered/blowpipe.cpp",
       "population": "population-98",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -1014,7 +1018,7 @@
           "resolved": 4294966723
         }
       ],
-      "source_sha256": "ec7654c106b94a06c38821730a760f0ad84b7066e10a0cc78bca9452d85da13c",
+      "source_sha256": "4e8d6a1b1e1c454392c99aa168cf423822e2980f988530a06713a73c4fbe310c",
       "source": "src/recovered/blowpipe.cpp",
       "population": "population-98",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

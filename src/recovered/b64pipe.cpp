@@ -57,7 +57,7 @@
 int Base64Pipe::Put(void const * source, int slen)
 {
 	if (source == 0 || slen < 1) {
-		return(Pipe::Put(source, slen));
+		return(BASECLASS::Put(source, slen));
 	}
 
 	int total = 0;
@@ -93,7 +93,7 @@ int Base64Pipe::Put(void const * source, int slen)
 			} else {
 				outcount = Base64_Decode(from, fromsize, to, tosize);
 			}
-			total += Pipe::Put(to, outcount);
+			total += BASECLASS::Put(to, outcount);
 			Counter = 0;
 		}
 	}
@@ -106,7 +106,7 @@ int Base64Pipe::Put(void const * source, int slen)
 			outcount = Base64_Decode(source, fromsize, to, tosize);
 		}
 		source = ((char *)source) + fromsize;
-		total += Pipe::Put(to, outcount);
+		total += BASECLASS::Put(to, outcount);
 		slen -= fromsize;
 	}
 
@@ -142,13 +142,13 @@ int Base64Pipe::Flush(void)
 	if (Counter) {
 		if (Control == ENCODE) {
 			int chars = Base64_Encode(PBuffer, Counter, CBuffer, sizeof(CBuffer));
-			len += Pipe::Put(CBuffer, chars);
+			len += BASECLASS::Put(CBuffer, chars);
 		} else {
 			int chars = Base64_Decode(CBuffer, Counter, PBuffer, sizeof(PBuffer));
-			len += Pipe::Put(PBuffer, chars);
+			len += BASECLASS::Put(PBuffer, chars);
 		}
 		Counter = 0;
 	}
-	len += Pipe::Flush();
+	len += BASECLASS::Flush();
 	return(len);
 }

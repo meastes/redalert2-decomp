@@ -11,6 +11,8 @@
 #include "shared/straw.hpp"
 
 class Base64Straw : public Straw {
+        typedef Straw BASECLASS;
+
 public:
     enum CodeControl {
         ENCODE,

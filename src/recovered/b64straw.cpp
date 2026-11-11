@@ -96,7 +96,7 @@ int Base64Straw::Get(void * source, int slen)
 		/*
 		**	More bytes are needed, so fetch and process another base 64 block.
 		*/
-		int incount = Straw::Get(from, fromsize);
+		int incount = BASECLASS::Get(from, fromsize);
 		if (Control == ENCODE) {
 			Counter = Base64_Encode(from, incount, to, tosize);
 		} else {

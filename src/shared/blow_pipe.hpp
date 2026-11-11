@@ -12,6 +12,8 @@
 #include "shared/blowfish_engine.hpp"
 
 class BlowPipe : public Pipe {
+        typedef Pipe BASECLASS;
+
 public:
     // Direction of the data transformation.
     typedef enum CryptControl {

@@ -13,6 +13,8 @@ void __fastcall Get_CPU_Info(int *family, unsigned char *has_cpuid, char *text, 
 int Get_CPU_Type();
 char const *__fastcall Get_CPU_Type_Name();
 int Get_RDTSC_CPU_Speed();
+// Reads the time stamp counter into TSC_Low/TSC_High (mpu.cpp, 0x005ABF60).
+void RDTSC();
 
 // The CPU vendor text (0x008015A5; Get_CPU_Info 0x004D2A20 copies it, the version dialog prints it).
 extern char unknown_cpu_text_8015a5[];

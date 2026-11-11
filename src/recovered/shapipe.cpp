@@ -54,7 +54,7 @@
 int SHAPipe::Put(void const * source, int slen)
 {
 	SHA.Hash(source, slen);
-	return(Pipe::Put(source, slen));
+	return(BASECLASS::Put(source, slen));
 }
 
 

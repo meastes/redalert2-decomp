@@ -52,55 +52,37 @@
   "source": "src/recovered/shapipe.cpp",
   "header": "src/shared/sha_pipe.hpp",
   "twin": "mischa85/RedAlert2 src/shapipe.cpp (exact target, adopted text); TibSun shapipe.cpp; ra2-decomp shapipe.cpp (YR)",
-  "data": [],
-  "header_gaps": [
-   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
-  ]
+  "data": []
  },
  "shastraw": {
   "source": "src/recovered/shastraw.cpp",
   "header": "src/shared/sha_straw.hpp",
   "twin": "mischa85/RedAlert2 src/shastraw.cpp (exact target, adopted text); TibSun shastraw.cpp; ra2-decomp shastraw.cpp (YR)",
-  "data": [],
-  "header_gaps": [
-   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
-  ]
+  "data": []
  },
  "b64straw": {
   "source": "src/recovered/b64straw.cpp",
   "header": "src/shared/base64_straw.hpp",
   "twin": "mischa85/RedAlert2 src/b64straw.cpp (exact target, adopted text); TibSun b64straw.cpp; ra2-decomp b64straw.cpp (YR)",
-  "data": [],
-  "header_gaps": [
-   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
-  ]
+  "data": []
  },
  "b64pipe": {
   "source": "src/recovered/b64pipe.cpp",
   "header": "src/shared/base64_pipe.hpp",
   "twin": "mischa85/RedAlert2 src/b64pipe.cpp (exact target, adopted text); TibSun b64pipe.cpp; ra2-decomp b64pipe.cpp (YR)",
-  "data": [],
-  "header_gaps": [
-   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
-  ]
+  "data": []
  },
  "blwstraw": {
   "source": "src/recovered/blwstraw.cpp",
   "header": "src/shared/blow_straw.hpp",
   "twin": "mischa85/RedAlert2 src/blwstraw.cpp (exact target, adopted text); TibSun blwstraw.cpp; ra2-decomp blwstraw.cpp (YR)",
-  "data": [],
-  "header_gaps": [
-   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
-  ]
+  "data": []
  },
  "blowpipe": {
   "source": "src/recovered/blowpipe.cpp",
   "header": "src/shared/blow_pipe.hpp",
   "twin": "mischa85/RedAlert2 src/blowpipe.cpp (exact target, adopted text); TibSun blowpipe.cpp; ra2-decomp blowpipe.cpp (YR)",
-  "data": [],
-  "header_gaps": [
-   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
-  ]
+  "data": []
  },
  "cstraw": {
   "source": "src/recovered/cstraw.cpp",
@@ -108,7 +90,7 @@
   "twin": "mischa85/RedAlert2 src/cstraw.cpp (exact target; this file keeps the accepted bodies); TibSun cstraw.cpp; ra2-decomp cstraw.cpp (YR)",
   "data": [],
   "header_gaps": [
-   "The class's BASECLASS typedef is not declared; the source names the base class (typedef not tried against other units this round)"
+   "The class's BASECLASS typedef is not declared; the source names the base class: the typedef in cache_straw.hpp changes WinMain (826 bytes; tried 2026-11-11, the six other straw and pipe headers took theirs)"
   ],
   "source_gaps": [
    "The source keeps the accepted bodies, not the twin's text (the twin text does not compile against the current headers)"
@@ -223,7 +205,7 @@
   "twin": "mischa85/RedAlert2 src/pipe.cpp (exact target, adopted text); TibSun pipe.cpp; ra2-decomp pipe.cpp (YR)",
   "data": [],
   "header_gaps": [
-   "The private copy constructor and assignment the template declares are not declared (not tried this round)"
+   "The private copy constructor and assignment the template declares are not declared: with them (both headers together, tried 2026-11-11) Pick_Lobby, Print_CRCs, WinMain, StripClass::SelectClass::Action, Reposition_Sidebar and Planning_Update change (6 regions)"
   ]
  },
  "straw": {
@@ -232,7 +214,7 @@
   "twin": "mischa85/RedAlert2 src/straw.cpp (exact target, adopted text); TibSun straw.cpp; ra2-decomp straw.cpp (YR)",
   "data": [],
   "header_gaps": [
-   "The private copy constructor and assignment the template declares are not declared (not tried this round)"
+   "The private copy constructor and assignment the template declares are not declared: with them (both headers together, tried 2026-11-11) Pick_Lobby, Print_CRCs, WinMain, StripClass::SelectClass::Action, Reposition_Sidebar and Planning_Update change (6 regions)"
   ],
   "source_gaps": [
    "#pragma auto_inline(off) around the destructor: the population also compiles the kept scalar deleting destructor 0x49ED40 (from another object), which calls the destructor; pipe.cpp needs no pragma because its copy 0x49EDB0 compiles in another population"
@@ -286,8 +268,7 @@
   "header_gaps": [
    "Get_Color_Scheme and CurrentColorScheme are the free Gadget_Color_Scheme and the global Gadget_Scheme_Name (template: static members of GadgetClass): the static member function changes WinMain (826 bytes); the static data member changes 145 regions in 20 populations that include gadget.hpp (their _$E initializer numbers shift, Destroy_Map_Paths and WinMain change)",
    "Key codes are unsigned, not KeyNumType (Input returns int; Action and Clicked_On take unsigned &): the keyboard module is not converted",
-   "Access levels stay public (template: Clicked_On private; Action and Sticky_Process protected; the four static pointers protected): not tried this round",
-   "The flag enumerators RIGHTPRESS, RIGHTHELD, RIGHTRELEASE, LEFTUP and RIGHTUP are not declared (Input and Sticky_Process spell 0x08-0x80): an enumerator set is a declaration-count change, not tried this round",
+   "The flag enumerators LEFTUP, RIGHTPRESS, RIGHTHELD, RIGHTRELEASE and RIGHTUP are not declared (Input and Sticky_Process spell 0x08-0x80): adding them to the enum changes Generate_Rural_Buildings 0x589AC0 (tried 2026-11-11)",
    "The screen size tables keep the stand-in names unknown_screen_widths_7add68/unknown_screen_heights_7add74 (template ScreenWidths, ScreenHeights; owned by another unit)",
    "Gadget_Color_Scheme is also declared in text_print.hpp and locally in three online-command units and CChatEventSink::OnFind (formerly as unknown_scheme_index_4cefc0, now under the module's name): those units do not include gadget.hpp, and removing a declaration changes their declaration set; not tried this round"
   ],
@@ -310,7 +291,6 @@
   "data": [],
   "header_gaps": [
    "The module's declarations stay in cpu_info.hpp beside getcpu's (template: mpu.h): the getcpu module is not converted (parked behind Print_CRCs)",
-   "RDTSC is not declared in a header (template mpu.h declares it): a new declaration in cpu_info.hpp is a declaration-count change, not tried this round",
    "Get_CPU_Rate is __fastcall as this tree declares it (the template declares no convention; mischa85 builds with a fastcall default)"
   ],
   "source_gaps": [

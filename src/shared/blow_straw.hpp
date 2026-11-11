@@ -13,6 +13,8 @@
 #include "shared/blowfish_engine.hpp"
 
 class BlowStraw : public Straw {
+        typedef Straw BASECLASS;
+
 public:
     // Direction of the data transformation.
     typedef enum CryptControl {

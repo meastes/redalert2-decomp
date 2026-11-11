@@ -68,7 +68,7 @@ int BlowStraw::Get(void * source, int slen)
 	**	unchanged.
 	*/
 	if (BF == 0) {
-		return(Straw::Get(source, slen));
+		return(BASECLASS::Get(source, slen));
 	}
 
 	int total = 0;
@@ -92,7 +92,7 @@ int BlowStraw::Get(void * source, int slen)
 		/*
 		**	Fetch and encrypt/decrypt the next block.
 		*/
-		int incount = Straw::Get(Buffer, sizeof(Buffer));
+		int incount = BASECLASS::Get(Buffer, sizeof(Buffer));
 		if (incount == 0) break;
 
 		/*

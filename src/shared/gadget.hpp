@@ -89,9 +89,15 @@ public:
     virtual int Draw_Me(int forced = false);                        // slot 27 0x004CF240
     virtual void Mouse_Enter();                                     // slot 28 0x004CF200 (name hypothesis)
     virtual void Mouse_Leave();                                     // slot 29 0x004CF210 (name hypothesis)
+
+protected:
     virtual void Sticky_Process(unsigned flags);                    // slot 30 0x004CF5B0
     virtual int Action(unsigned flags, unsigned &key);            // slot 31 0x004CF220
+
+private:
     virtual int Clicked_On(unsigned &key, unsigned flags, int x, int y);   // slot 32 0x004CF0E0
+
+public:
 
 #ifdef RA2_GADGET_SET_FLAGS
     // Westwood GadgetClass flag setter (TibSun gadget.h); layout is unchanged.
@@ -109,6 +115,8 @@ public:
     bool IsDisabled;        // +0x1E
     unsigned Flags;         // +0x20
 
+
+protected:
     static GadgetClass *StuckOn;        // 0x00865FF0
     static GadgetClass *LastList;       // 0x00865FF4
     static GadgetClass *Focused;        // 0x00865FF8

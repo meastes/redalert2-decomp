@@ -12,6 +12,8 @@
 #include "shared/pipe.hpp"
 
 class Base64Pipe : public Pipe {
+        typedef Pipe BASECLASS;
+
 public:
     enum CodeControl {
         ENCODE,

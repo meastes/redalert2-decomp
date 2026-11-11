@@ -11,6 +11,8 @@
 #include "shared/sha.hpp"
 
 class SHAStraw : public Straw {
+        typedef Straw BASECLASS;
+
 public:
     SHAStraw() : IsDisabled(false) {}
     virtual int Get(void *source, int slen);       // 0x006753C0
