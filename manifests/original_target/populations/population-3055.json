@@ -4,8 +4,8 @@
     "id": "population-3055",
     "inventory_sha256": "f173aecbb9993dc0518c3bf0fa2b7725710b3af064600997a3fa2eee7215458e",
     "gaps_sha256": "b8a953af5966440214c650992e3d84ffae5b356ae60b5f8a154c34cdfe443a1a",
-    "historical_population_sha256": "c47dd290ce2ad95b04d1acffa5c43960dc88e1abffaf237ccbc7683de357e929",
-    "historical_acceptance_sha256": "e6cff86558828289c3eb88e780ea93d09d032562122d1c431fa2b5f6ccde4293"
+    "historical_population_sha256": "4cceb0bd11eb3c7a465027013e29bd292c69462e46bde373e072bac03efb58ba",
+    "historical_acceptance_sha256": "2262d92928b0e035bef94fb57f918d27963c77a0563455eb7cc49feb3a90078f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4471,7 +4471,7 @@
     "?Save@ScriptClass@@UAGJPAUIStream@@H@Z": 6720000,
     "?Save@ScriptTypeClass@@UAGJPAUIStream@@H@Z": 6721872,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Save@SmudgeTypeClass@@UAGJPAUIStream@@H@Z": 6849392,
     "?AddRef@?$TClassFactory@VCStreamClass@@@@UAGKXZ": 6886752,
     "?AddRef@?$TClassFactory@VWaveClass@@@@UAGKXZ": 6887136,
@@ -5632,8 +5632,8 @@
     "?unknown_int_839630@@3HA": 8623664,
     "?unknown_drawer_8323cc@@3PAVConvertClass@@A": 8594380,
     "?Init_For_House@SidebarClass@@UAEXXZ": 6798736,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
     "?Scroll@SidebarClass@@QAE_N_NH@Z": 6802896,
     "?unknown_flag_8373c3@@3_NA": 8614851,

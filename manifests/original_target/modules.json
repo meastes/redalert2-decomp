@@ -323,5 +323,27 @@
   "notes": [
    "RDTSC and Get_RDTSC_CPU_Speed are evidenced inline assembly rows; ASM_RDTSC is the archive's asm-only macro (TibSun mpu.cpp:134), counted at each invocation (docs/DECISIONS.md amendment 2026-11-11)"
   ]
+ },
+ "shapebtn": {
+  "source": "src/recovered/shapebtn.cpp",
+  "header": "src/shared/gadget.hpp",
+  "twin": "mischa85/RedAlert2 src/shapebtn.cpp (exact target; this file takes its text and member names with the accepted bodies); TibSun shapebtn.cpp; ra2-decomp shapebtn.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "ShapeButtonClass stays in gadget.hpp (template: shapebtn.h): the gadget family shares one header in this tree",
+   "The shape is void const * (template: ShapeSet const *) and ShapeDrawer is void * (template: ConvertClass *): the ShapeSet class is not declared in this tree",
+   "Is_Flashing and Is_Flash_On are const (template: non-const); the ShapeButtonClassEnums shape indices and the BASECLASS typedef are not declared (not tried this round)"
+  ],
+  "source_gaps": [
+   "The function bodies are the accepted ones, not the twin's text (the constructor and destructor inline Set_Shape and Clear_Shape; Draw_Me calls CC_Draw_Shape with this tree's argument list)"
+  ],
+  "notes": [
+   "The unit's rows include its first function, the dynamic initializer of shape_file.hpp's empty rectangle (0x675000), and Is_Flash_On (0x675370), which mischa85's map leaves unplaced",
+   "Renaming the members to the template's names touched 14 other units' accesses (Sidebar, Tab, Radar, DropList, Dropship_Screen); no byte changed",
+   "The scalar deleting destructor 0x4A57A0 (kept from the DropList unit) stays a stand-in owner row but now calls ShapeButtonClass::~ShapeButtonClass and operator delete by their real names"
+  ],
+  "data_notes": [
+   "The ledger cannot bind the static-initializer table entry _$S3 (the unit's pointer to its empty-rect initializer 0x675000): reported as one refused section"
+  ]
  }
 }

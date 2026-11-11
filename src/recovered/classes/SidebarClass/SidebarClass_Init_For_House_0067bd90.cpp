@@ -10,7 +10,7 @@
 // @ref ?unknown_surface_839950@@3PAVSurface@@A=00839950
 // @ref ?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z=00495270
 // @ref ?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z=00675130
-// @ref ?Set_Allocated@ShapeButtonClass@@QAEX_N@Z=006751d0
+// @ref ?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z=006751d0
 // @ref _sprintf=007820f4
 // @ref ?unknown_shapes_abcd20@@3PAPBXA=00abcd20
 // @ref ?unknown_shapes_allocated_abcd40@@3PA_NA=00abcd40
@@ -38,28 +38,28 @@ void SidebarClass::Init_For_House()
 
     bool allocated = false;
     unknown_button_ab96b8.Set_Shape(Unknown_Load_Shape_00495270("SELL.SHP", allocated));
-    unknown_button_ab96b8.Set_Allocated(allocated);
-    unknown_button_ab96b8.unknown_50 = unknown_drawer_8323cc;
+    unknown_button_ab96b8.Set_Shape_Loaded(allocated);
+    unknown_button_ab96b8.ShapeDrawer = unknown_drawer_8323cc;
 
     unknown_button_abcc58.Set_Shape(Unknown_Load_Shape_00495270("REPAIR.SHP", allocated));
-    unknown_button_abcc58.Set_Allocated(allocated);
-    unknown_button_abcc58.unknown_50 = unknown_drawer_8323cc;
+    unknown_button_abcc58.Set_Shape_Loaded(allocated);
+    unknown_button_abcc58.ShapeDrawer = unknown_drawer_8323cc;
 
     for (int index = 0; index < 4; index++) {
         char name[256];
         sprintf(name, "TAB%02d.SHP", index);
         unknown_buttons_ab9508[index].Set_Shape(Unknown_Load_Shape_00495270(name, allocated));
-        unknown_buttons_ab9508[index].Set_Allocated(allocated);
-        unknown_buttons_ab9508[index].unknown_50 = unknown_drawer_8323cc;
+        unknown_buttons_ab9508[index].Set_Shape_Loaded(allocated);
+        unknown_buttons_ab9508[index].ShapeDrawer = unknown_drawer_8323cc;
     }
 
     unknown_button_abcbe8.Set_Shape(Unknown_Load_Shape_00495270("R-DN.SHP", allocated));
-    unknown_button_abcbe8.Set_Allocated(allocated);
-    unknown_button_abcbe8.unknown_50 = unknown_drawer_8323cc;
+    unknown_button_abcbe8.Set_Shape_Loaded(allocated);
+    unknown_button_abcbe8.ShapeDrawer = unknown_drawer_8323cc;
 
     unknown_button_abccc0.Set_Shape(Unknown_Load_Shape_00495270("R-UP.SHP", allocated));
-    unknown_button_abccc0.Set_Allocated(allocated);
-    unknown_button_abccc0.unknown_50 = unknown_drawer_8323cc;
+    unknown_button_abccc0.Set_Shape_Loaded(allocated);
+    unknown_button_abccc0.ShapeDrawer = unknown_drawer_8323cc;
 
     unknown_shapes_abcd20[0] = Unknown_Load_Shape_00495270("SIDE1.SHP", unknown_shapes_allocated_abcd40[0]);
     unknown_shapes_abcd20[1] = Unknown_Load_Shape_00495270("SIDE2.SHP", unknown_shapes_allocated_abcd40[1]);

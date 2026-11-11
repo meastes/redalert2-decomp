@@ -16,10 +16,10 @@ void RadarClass::Reposition_Sidebar()
 {
     DisplayClass::Reposition_Sidebar();
     int offset = unknown_flag_a40b30 ? unknown_int_839638 : 0;
-    unknown_button_ab63e8.OffsetX = -offset;
+    unknown_button_ab63e8.DrawOffsetX = -offset;
     unknown_button_ab63e8.Set_Position(unknown_int_ab6468 + offset, unknown_int_ab646c);
     unknown_button_ab63e8.Flag_To_Redraw();
-    unknown_button_ab6380.OffsetX = -offset;
+    unknown_button_ab6380.DrawOffsetX = -offset;
     unknown_button_ab6380.Set_Position(unknown_int_ab6338 + offset, unknown_int_ab633c);
     unknown_button_ab6380.Flag_To_Redraw();
     RadarButton.Set_Position(unknown_11ec + offset, unknown_11f0);

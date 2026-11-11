@@ -61,6 +61,8 @@ boxes, unported imports and traps. The installation is never written: every
 create/write/delete goes to `--write-dir` (default a fresh `$TMPDIR/ra2-native-run-*`)
 and reads look there first. Message boxes print to stderr; no modal UI is shown.
 The host plays the launcher's part (the launch mutex and event RA2.EXE created).
+Without `--run-to` (the app, a LAN pair) `RA2_NATIVE_PROGRESS_LOG=1` prints each
+milestone (`progress: <name>  <detail>`, every time it is reached) to the log instead.
 
 ### Skirmish harness
 
@@ -151,7 +153,9 @@ scripted input through the same SDL event path, one event per line
 `<frame> <action> <args>` at the start of that Main_Loop frame: `move P`,
 `ldown P`, `lup P`, `rdown P`, `rup P`, `click P` (move, then down and up on the
 next two frames), `rclick P`, `drag P0 P1`, `key NAME` / `keydown NAME` /
-`keyup NAME` (SDL key names). A point P is `X Y` in game pixels or
+`keyup NAME` (SDL key names), `blur` / `focus` (the window loses or regains the
+focus; an inactive game ignores in-game clicks, so a LAN pair on one Mac gives each
+instance a `focus` line before them: Scout1295, the host's Diplomacy click). A point P is `X Y` in game pixels or
 `@ID[:n][+dx,dy]`: the human player's n-th object of type ID, moved by dx, dy
 cells (`link/harness_input.cpp` answers its screen pixel). The last frame logs
 `harness-input` (the selection count and each of the player's objects as
@@ -924,7 +928,7 @@ the last item picks the interface scale (1x, 1.25x, 1.5x; next start). On the Ma
 (`RA2_NATIVE_TOUCH_UI=1`, tests) the host draws a plain column of the same toggles. The
 touch app hides the game's own cursor (`link/native_touch_cursor.cpp`: one extra
 WWMouseClass::Hide_Mouse whenever it is shown; `RA2_NATIVE_TOUCH_CURSOR=1` keeps it). Input scripts take `tdown|tmove|tup X Y
-[finger]`; `RA2_NATIVE_TOUCH_UI=1` shows the toggles on the Mac.
+[finger]` (or an `@ID` point, as for the mouse: Scout1295); `RA2_NATIVE_TOUCH_UI=1` shows the toggles on the Mac.
 The picture is drawn into the largest landscape rectangle clear of the safe area and the
 device's reserved regions (`hostos::usable_rect`; the renderer no longer uses SDL's logical
 presentation, the host converts coordinates itself). The in-game resolution (RA2.INI

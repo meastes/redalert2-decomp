@@ -100,11 +100,11 @@ void RadarClass::Draw_It(bool complete)
         SidebarClass::unknown_button_abcc58.Draw_Me(true);
         SidebarClass::unknown_button_ab96b8.Draw_Me(true);
     }
-    if (unknown_button_ab63e8.unknown_54) {
+    if (unknown_button_ab63e8.IsDrawn) {
         unknown_1208 = Union(unknown_1208, unknown_rect_ab6468);
         unknown_flag_abcd84 = true;
     }
-    if (unknown_button_ab6380.unknown_54) {
+    if (unknown_button_ab6380.IsDrawn) {
         unknown_1208 = Union(unknown_1208, unknown_rect_ab6338);
         unknown_flag_abcd84 = true;
     }

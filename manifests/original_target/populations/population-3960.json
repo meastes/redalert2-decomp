@@ -4,8 +4,8 @@
     "id": "population-3960",
     "inventory_sha256": "c6d2bd62e1f0a08aefc5e1d8d087812d643d4fbc498cd8dffeda137f68b60500",
     "gaps_sha256": "e4b8fbd89f60886113ebf9005354a950ea7edfe2c9659b37417776f2ddff7238",
-    "historical_population_sha256": "233edf776de8f22545319750c078dfaa9f182197fae972f9214536397df44d65",
-    "historical_acceptance_sha256": "d47a95eea3835466000583f3c15f40a8406fc691f5263f377f0f1d758d62e271"
+    "historical_population_sha256": "1bad43e1b26282bc6587370a19b50df764f4feeb89ef66ffaf37554d9b3b554c",
+    "historical_acceptance_sha256": "b734b9e0256b6ffe0b2ebfae5a5286a53bc99bbbac2127d21a47bd41b919a52c"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -8553,7 +8553,7 @@
     "?Shear_Z@Matrix3D@@QAEXMM@Z": 5833632,
     "?Is_Active@RadBeam@@QBE_NXZ": 6510576,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Buttons@TabClass@@2PAVShapeButtonClass@@A": 11262232,
     "?Unknown_006A6800@@YIXHHPAH0@Z": 6973440,
     "?Get_Delay@ToolTipManager@@QBEHXZ": 7256048,
@@ -8797,8 +8797,8 @@
     "?unknown_viewport_852fe4@@3PAUIDirect3DViewport2@@A": 8728548,
     "?Init_IO@SidebarClass@@UAEXXZ": 6798032,
     "?Init_IO@RadarClass@@UAEXXZ": 6485136,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
     "?unknown_int_a40d34@@3HA": 10751284,
     "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,

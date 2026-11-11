@@ -88,25 +88,25 @@ void SidebarClass::Reposition_Sidebar()
 
     unknown_button_abcc58.Set_Position(unknown_abcd48, unknown_abcd4c);
     unknown_button_abcc58.Flag_To_Redraw();
-    unknown_button_abcc58.OffsetX = -unknown_rect_839620.X;
+    unknown_button_abcc58.DrawOffsetX = -unknown_rect_839620.X;
 
     unknown_button_ab96b8.Set_Position(unknown_button_abcc58.X + unknown_abcd50, unknown_button_abcc58.Y);
     unknown_button_ab96b8.Flag_To_Redraw();
-    unknown_button_ab96b8.OffsetX = -unknown_rect_839620.X;
+    unknown_button_ab96b8.DrawOffsetX = -unknown_rect_839620.X;
 
     for (int tab = 0; tab < 4; tab++) {
         unknown_buttons_ab9508[tab].Set_Position(unknown_abcd5c * tab + unknown_abcd54, unknown_abcd58);
         unknown_buttons_ab9508[tab].Flag_To_Redraw();
-        unknown_buttons_ab9508[tab].OffsetX = -unknown_rect_839620.X;
+        unknown_buttons_ab9508[tab].DrawOffsetX = -unknown_rect_839620.X;
     }
 
     unknown_button_abcbe8.Set_Position(unknown_abcd74, unknown_abcd78);
     unknown_button_abcbe8.Flag_To_Redraw();
-    unknown_button_abcbe8.OffsetX = -unknown_rect_839620.X;
+    unknown_button_abcbe8.DrawOffsetX = -unknown_rect_839620.X;
 
     unknown_button_abccc0.Set_Position(unknown_abcd74 + unknown_abcd7c, unknown_abcd78);
     unknown_button_abccc0.Flag_To_Redraw();
-    unknown_button_abccc0.OffsetX = -unknown_rect_839620.X;
+    unknown_button_abccc0.DrawOffsetX = -unknown_rect_839620.X;
 
     int rows = Max_Visible_Cameos();
     int count = rows * 2;

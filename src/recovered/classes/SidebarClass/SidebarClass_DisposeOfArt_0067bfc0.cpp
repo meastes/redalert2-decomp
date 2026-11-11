@@ -5,7 +5,7 @@
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?unknown_shapes_abcd20@@3PAPBXA=00abcd20
 // @ref ?unknown_shapes_allocated_abcd40@@3PA_NA=00abcd40
-// @ref ?Free_Shape@ShapeButtonClass@@QAEXXZ=006751a0
+// @ref ?Clear_Shape@ShapeButtonClass@@QAEXXZ=006751a0
 
 void SidebarClass::DisposeOfArt()
 {
@@ -42,11 +42,11 @@ void SidebarClass::DisposeOfArt()
         operator delete((void *)unknown_shapes_abcd20[7]);
         unknown_shapes_allocated_abcd40[7] = false;
     }
-    unknown_button_ab96b8.Free_Shape();
-    unknown_button_abcc58.Free_Shape();
+    unknown_button_ab96b8.Clear_Shape();
+    unknown_button_abcc58.Clear_Shape();
     for (int index = 0; index < 4; index++) {
-        unknown_buttons_ab9508[index].Free_Shape();
+        unknown_buttons_ab9508[index].Clear_Shape();
     }
-    unknown_button_abcbe8.Free_Shape();
-    unknown_button_abccc0.Free_Shape();
+    unknown_button_abcbe8.Clear_Shape();
+    unknown_button_abccc0.Clear_Shape();
 }

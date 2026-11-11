@@ -4,8 +4,8 @@
     "id": "population-4427",
     "inventory_sha256": "b6047876bb36bea5f8541882ea35b4b691929b609c59a7250f926aabe1518a2b",
     "gaps_sha256": "25bc691900fe659f630940bcb5664c802d4e5e9376599fd72065cc1bfc7349db",
-    "historical_population_sha256": "aef401f6d31189571ed1c306c7aa116eaebe5fbf562ed3b58ad6a41e2c66cecb",
-    "historical_acceptance_sha256": "3ac1618dcb75d0db39b5ada5ec4a0ba1cf7c27f1949246e86a79d7cb2976b580"
+    "historical_population_sha256": "8811ca9f3b8e44044e9f9b880e10847d84380e6281c0cf0aebf1e53244a42d44",
+    "historical_acceptance_sha256": "4f9d614264c7579a9ded5fbca30844911aa88439d551e274b6eca96a04da79cc"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -2928,7 +2928,7 @@
     "?Socket@IPXConnClass@@2GA": 10822608,
     "?Set_Decrement@LineTrail@@QAEXH@Z": 5477648,
     "?unknown_a40b2c@@3HA": 10750764,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
     "?unknown_slot31@AircraftClass@@UAE_NXZ": 4304960,
     "?In_Which_Layer@AnimClass@@UBEHXZ": 4335264,
     "?Size@BufferIOFileClass@@UAEJXZ": 4390272,
@@ -3140,7 +3140,7 @@
     "??_GPowerClass@@UAEPAXI@Z": 6410784,
     "??1RadarClass@@UAE@XZ": 6484096,
     "?Clear@?$VectorClass@PAVGlobalPacketType@@@@UAEXXZ": 6767552,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?Release@?$TClassFactory@VCStreamClass@@@@UAGKXZ": 6886784,
     "__imp__InterlockedDecrement@4": 7971264,
     "?Release@?$TClassFactory@VWaveClass@@@@UAGKXZ": 6887168,
@@ -3619,7 +3619,7 @@
     "?Save@ScriptClass@@UAGJPAUIStream@@H@Z": 6720000,
     "?Save@ScriptTypeClass@@UAGJPAUIStream@@H@Z": 6721872,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Save@SmudgeTypeClass@@UAGJPAUIStream@@H@Z": 6849392,
     "?AddRef@?$TClassFactory@VCStreamClass@@@@UAGKXZ": 6886752,
     "?AddRef@?$TClassFactory@VWaveClass@@@@UAGKXZ": 6887136,

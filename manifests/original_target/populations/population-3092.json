@@ -4,8 +4,8 @@
     "id": "population-3092",
     "inventory_sha256": "2731a920403dcdf2b925c817b33704ad5f4c99c1d2546380034766868d886072",
     "gaps_sha256": "cb3fb5be8b0422d025103c4e9f69ecb40563f8db5951ff78b86241daf46e28ea",
-    "historical_population_sha256": "8eb8d35e7e79eec57d2a57f7c21abe2c57e9e6487e48788b7eb7e8bdd0f02f1b",
-    "historical_acceptance_sha256": "991e63a33127feac8c04c566fbb104e7fcd5e221b6bc741fa7d0bb7737dc3332"
+    "historical_population_sha256": "c8aecdb069d6f4e3bb7df0100651ab191f88e2b272efed76d751ede88918c12c",
+    "historical_acceptance_sha256": "4307cebb0012c0bbb02dfebb06d6cdd55870c92f20f3bb5f3a1bb2771f8165c9"
   },
   "references": {
     "_unknown_empty_rect": 8710160,
@@ -1931,7 +1931,7 @@
     "?Create_And_Place@ParticleSystemTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 6426272,
     "?Create_And_Place@ParticleTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 6430304,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Count@ToolTipManager@@QBEHXZ": 7256144,
     "?Create_And_Place@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7401008,
     "?Is_Valid@Conflict@WorldDominationTour@@QBE_NXZ": 7500768,
@@ -2470,8 +2470,8 @@
     "??_7RadarClass@@6B@": 8029980,
     "?unknown_int_839630@@3HA": 8623664,
     "?unknown_drawer_8323cc@@3PAVConvertClass@@A": 8594380,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
     "?unknown_flag_8373c3@@3_NA": 8614851,
     "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,

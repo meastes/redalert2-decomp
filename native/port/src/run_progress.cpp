@@ -161,7 +161,13 @@ void on_signal(int sig, siginfo_t *info, void *context)
 void progress(const char *milestone, const char *detail)
 {
     State &s = state();
-    if (!s.active) return;
+    if (!s.active) {
+        // RA2_NATIVE_PROGRESS_LOG=1 (test diagnostics, Scout1295): the milestones of a run
+        // without --run-to (the app, a LAN pair) on stderr, each time it is reached.
+        static const bool log = getenv("RA2_NATIVE_PROGRESS_LOG") != nullptr;
+        if (log) fprintf(stderr, "progress: %s%s%s\n", milestone, detail ? "  " : "", detail ? detail : "");
+        return;
+    }
     std::lock_guard<std::mutex> g(s.lock);
     bool primary = false;
     for (auto &r : s.reached) {

@@ -356,7 +356,7 @@ void __fastcall Dropship_Screen_004A6B90()
     int id = 1;
     for (i = 0; i < 8; ++i) {
         ShapeButtonClass *button = new ShapeButtonClass(id, i < candidates.Count() ? (ShapeFileStruct const *)candidates[i]->unknown_slot38() : no_cameo_shape, screen_origin.X + 491 + (64 + 4) * (i % 2), screen_origin.Y + 25 + (48 + 2) * (i / 2), 0, 0, true);
-        button->unknown_50 = unknown_drawer_8323b0;
+        button->ShapeDrawer = unknown_drawer_8323b0;
         buttons[i] = button;
         if (i == 0) {
             button_list = buttons[0];
@@ -367,14 +367,14 @@ void __fastcall Dropship_Screen_004A6B90()
     }
 
     ShapeButtonClass *up_button = new ShapeButtonClass(id, MixFileClass::Retrieve("DROPUP.SHP"), screen_origin.X + 527, screen_origin.Y + 229, 0, 0, false);
-    up_button->unknown_50 = drawer_dropship;
+    up_button->ShapeDrawer = drawer_dropship;
     up_button->IsSticky = true;
     buttons[8] = up_button;
     up_button->Add(*button_list);
     ++id;
 
     ShapeButtonClass *down_button = new ShapeButtonClass(id, MixFileClass::Retrieve("DROPDOWN.SHP"), screen_origin.X + 557, screen_origin.Y + 229, 0, 0, false);
-    down_button->unknown_50 = drawer_dropship;
+    down_button->ShapeDrawer = drawer_dropship;
     down_button->IsSticky = true;
     buttons[9] = down_button;
     down_button->Add(*button_list);
@@ -384,7 +384,7 @@ void __fastcall Dropship_Screen_004A6B90()
         for (j = 0; j < 5; ++j) {
             int xpos = j * (64 + 2);
             ShapeButtonClass *button = new ShapeButtonClass(id, 0, screen_origin.X + 53 + (xpos < 2 * (64 + 2) ? xpos : xpos - 2 * (64 + 2)), screen_origin.Y + _loadout_slot_ys[dropship_count - 1][i][j], 0, 0, false);
-            button->unknown_50 = unknown_drawer_8323b0;
+            button->ShapeDrawer = unknown_drawer_8323b0;
             buttons[id - 1] = button;
             button->Add(*button_list);
             ++id;

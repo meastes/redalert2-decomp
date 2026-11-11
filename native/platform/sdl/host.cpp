@@ -1176,9 +1176,9 @@ void load_script()
             // tdown|tmove|tup X Y [finger]: a touch at game pixel X, Y (finger 1 by default;
             // the touch gestures' tests, Scout1248).
             Point a = script_point(tokens, i);
-            ok = a.ok && a.spec.empty();
+            ok = a.ok;
             if (ok) {
-                Scripted s = {frame, {}, std::string()};
+                Scripted s = {frame, {}, a.spec};   // @ID points resolve when played (Scout1295)
                 if (script_ms >= 0) { s.ms = script_ms; s.frame = 0x7FFFFFFF; s.dialog = script_dialog; }
                 s.event.type = action == "tdown" ? SDL_EVENT_FINGER_DOWN : action == "tmove" ? SDL_EVENT_FINGER_MOTION : SDL_EVENT_FINGER_UP;
                 s.event.tfinger.touchID = script_touch;
@@ -1322,6 +1322,15 @@ void play(Scripted &s, int number)
         } else if (e.type == SDL_EVENT_QUIT) {
         } else if (e.type == SDL_EVENT_FINGER_DOWN || e.type == SDL_EVENT_FINGER_MOTION || e.type == SDL_EVENT_FINGER_UP) {
             e.tfinger.windowID = id;
+            int px = 0, py = 0;
+            if (!s.spec.empty()) {
+                if (!ra2port_resolve_point(s.spec.c_str(), &px, &py)) {
+                    fprintf(stderr, "input-script: frame %d: no point for @%s\n", number, s.spec.c_str());
+                    return;
+                }
+                e.tfinger.x = (float)px;
+                e.tfinger.y = (float)py;
+            }
         } else if (e.type == SDL_EVENT_MOUSE_WHEEL) {
             e.wheel.windowID = id;
         } else {

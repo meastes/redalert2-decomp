@@ -4,8 +4,8 @@
     "id": "population-4448",
     "inventory_sha256": "54098f3f0f8b93205801268038ebc6a7cfb4ac77d43853e5fcf7ca588ea27ba7",
     "gaps_sha256": "5995c87da0770257b119363f65e7f32bf0001937526baa0be2c03fc402bc725a",
-    "historical_population_sha256": "b1ecabf94af8e8a4a113d3a6d1044d40f360e3c3897f49182dee1ed7bfa4079b",
-    "historical_acceptance_sha256": "8343a3cb431446bc2d6d1f33df174cdb5026b333ba621a883dad2f1d768a6c74"
+    "historical_population_sha256": "241f66ad53d6a39f2c7d5d53a5a605594f449fac19936f41bbb52ae3d059cb8a",
+    "historical_acceptance_sha256": "9cf922de5922768d1cb3664cf9a6efc1f923a70f17e8592dca5848b5b7da97d2"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4290,7 +4290,7 @@
     "?Focused@GadgetClass@@2PAV1@A": 8806392,
     "?Font_For_Style@@YIPAVBitFontClass@@H@Z": 4815440,
     "?Foundation_Height@BuildingTypeClass@@QBEH_N@Z": 4557120,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?From_Name@AircraftTypeClass@@SIHPBD@Z": 4308576,
     "?From_Name@AnimTypeClass@@SIHPBD@Z": 4347456,
     "?From_Name@BuildingTypeClass@@SIHPBD@Z": 4555728,
@@ -5053,7 +5053,7 @@
     "?Seek@RAMFileClass@@UAEJJH@Z": 6522080,
     "?Seek@RawFileClass@@UAEJJH@Z": 6524848,
     "?SetSize@CStreamClass@@UAGJTULARGE_INTEGER@@@Z": 4804144,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
     "?Set_Cell@TagClass@@QAEXVCell@@@Z": 7028624,
     "?Set_Char@UnknownWideString_00770950@@QAE_NGI@Z": 7801168,
     "?Set_Char@WideString@@QAE_NGI@Z": 7801168,
@@ -9238,7 +9238,7 @@
     "?Shear_Z@Matrix3D@@QAEXMM@Z": 5833632,
     "?Is_Active@RadBeam@@QBE_NXZ": 6510576,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Unknown_006A6800@@YIXHHPAH0@Z": 6973440,
     "?Save@TubeClass@@UAGJPAUIStream@@H@Z": 7271392,
     "??0Vector3@@QAE@XZ": 7437520,
@@ -16538,7 +16538,7 @@
           "resolved": 4293525551
         }
       ],
-      "source_sha256": "45c2188b2b39053f1ed2f985cb4243aa8e4031d2bbafcaa144693d7d9f7affa4",
+      "source_sha256": "eaccf3f72e3f10fe8b0b7d924ce910feb9d524db92b06a1f6ff21d72910b6b77",
       "source": "src/recovered/classes/RadarClass/RadarClass_Init_IO_0062f490.cpp",
       "population": "population-4448",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -17797,7 +17797,7 @@
           "resolved": 766002
         }
       ],
-      "source_sha256": "a343b542626adbe3524915f4ee14cd1ce0a96607b3f9b2fcf831e15510284a45",
+      "source_sha256": "6678c0f8439016b4edc2f95bcc14910bc5ecc97f89d1cda4798d3f5dffd052b6",
       "source": "src/recovered/classes/RadarClass/RadarClass_Reposition_Sidebar_006306d0.cpp",
       "population": "population-4448",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -19834,7 +19834,7 @@
           "resolved": 6486365
         }
       ],
-      "source_sha256": "528f3d171396f3868cdb330d475db6009142391030389fd7e20b5f1611fd9ee9",
+      "source_sha256": "210b45dd4ce790e7d4b5aba762297bc277d349126240c9d061d86ca254cab6af",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/RadarClass/RadarClass_Draw_It_0062f580.cpp",
       "population": "population-4448",

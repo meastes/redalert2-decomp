@@ -4,8 +4,8 @@
     "id": "population-3698",
     "inventory_sha256": "4cc6fbbae277de2aa5f54bc8335844228867de8d5c647826102563b21f7282cf",
     "gaps_sha256": "c1a5b0a01c67f73a667a0934832e35e24f65b9332cee30a2b1637e5383e37462",
-    "historical_population_sha256": "bcb1ee666d126a24d4ae1d89ce886b7f8db93cf3a4b628ee116e57edf3207a63",
-    "historical_acceptance_sha256": "4717c83d8487685f01470613fa7da7ca59db85c9864361af579559a3b06316f9"
+    "historical_population_sha256": "e5ee1fb4e885732fc0a21cdb885f6184e972e405d7b0612f54bcb8828e9aacf8",
+    "historical_acceptance_sha256": "52ce3eff90cd1c08d7958953015cc559dcf7465fb0cb5482f886e66a52f70e9e"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -11437,7 +11437,7 @@
     "?Unknown_00631C60@@YIHABURadarTrackingStruct@@@Z": 6495328,
     "?Deactivate@RadBeam@@QAEXXZ": 6510560,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Unknown_0067E640@SidebarClass@@SIHH@Z": 6809152,
     "?unknown_abcd68@@3HA": 11259240,
     "?Unknown_0067E650@SidebarClass@@SIHH@Z": 6809168,
@@ -11781,8 +11781,8 @@
     "?Unknown_006F45E0@@YAPAVPaletteClass@@XZ": 7292384,
     "?unknown_shapes_allocated_abcd40@@3PA_NA": 11259200,
     "?unknown_shapes_abcd20@@3PAPBXA": 11259168,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?Unknown_0067C150@SidebarClass@@QAEXPAVObjectClass@@@Z": 6799696,
     "?Unknown_004EB550@@YIHHH@Z": 5158224,
     "?Unknown_004F4F30@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z": 5197616,

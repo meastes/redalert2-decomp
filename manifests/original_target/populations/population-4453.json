@@ -4,8 +4,8 @@
     "id": "population-4453",
     "inventory_sha256": "ea5762d5548bceca3d8134307b4c56eff483fecfd4ed8adbf17baedbe77ad8d0",
     "gaps_sha256": "ba4ebc621bce9d7f6bad0a6c50aeaf111d58d38e882fb0ff34bb477da0979385",
-    "historical_population_sha256": "6eb2f6790323589b522b750cea79392acd9769354f422a399ab4e576322ac626",
-    "historical_acceptance_sha256": "93756fcc648c3c140e37224629b62d9b18ac0fc6526a5d43485ccce085efd581"
+    "historical_population_sha256": "33810eb1b3e2911ef9d5e543c1b33890b7f2954006814e3009adef2db1681be1",
+    "historical_acceptance_sha256": "14ae19b53a958fc1f55537d6c2a61afa79231c61a5e6dd194e6e09947d546cd5"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10858,7 +10858,7 @@
     "?Buffer_Size@@YIHAAVSurface@@HH@Z": 4409664,
     "?Is_Active@RadBeam@@QBE_NXZ": 6510576,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Buttons@TabClass@@2PAVShapeButtonClass@@A": 11262232,
     "?Draw_Line_Depth_Masked@XSurface@@UAE_NABUPoint2D@@0H_N@Z": 7814832,
     "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1IHH_N@Z": 7814848,
@@ -11068,8 +11068,8 @@
     "_IID_IDirect3D2": 8061120,
     "_IID_IDirect3DHALDevice": 8061184,
     "?unknown_viewport_852fe4@@3PAUIDirect3DViewport2@@A": 8728548,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?Is_Enabled@GadgetClass@@QBE_NXZ": 5042528,
     "?unknown_int_a40d34@@3HA": 10751284,
     "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,

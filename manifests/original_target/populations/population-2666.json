@@ -4,8 +4,8 @@
     "id": "population-2666",
     "inventory_sha256": "457c223bbe3017670b62056b16b03ea6fdb4b79228becdd97c39b3a0a46ed65e",
     "gaps_sha256": "505127c4cdd739d9f6d1f1e87fd84ffa851f605ec57e351578df12c163260985",
-    "historical_population_sha256": "c81f31c00dd7a223087fba9e7b4c0a909c9da2b8aa2b7a29782ca95e5d56932c",
-    "historical_acceptance_sha256": "f09f57d4f68e096dfc95e5c5d6511f528a8b52f02f676c3f68ece6803b61599e"
+    "historical_population_sha256": "7f111a80cbea0266e4717e8853af4e34ebff4c8936ab46d887e7827206d96960",
+    "historical_acceptance_sha256": "232106f3bddf3818dc576118e0bd1035f8d4aa4e4e50fa1307e86a1ab0b8b903"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4720,8 +4720,8 @@
     "?Unknown_006F45E0@@YAPAVPaletteClass@@XZ": 7292384,
     "?unknown_shapes_allocated_abcd40@@3PA_NA": 11259200,
     "?unknown_shapes_abcd20@@3PAPBXA": 11259168,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?Unknown_0067C150@SidebarClass@@QAEXPAVObjectClass@@@Z": 6799696,
     "?Unknown_004EB550@@YIHHH@Z": 5158224,
     "?Unknown_004F4F30@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z": 5197616,
@@ -8458,7 +8458,7 @@
     "__imp__SendDlgItemMessageA@20": 7971972,
     "?unknown_slot7@MultiplayerGameMode@@UAE_NH@Z": 5994544,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?unknown_b2a7ec@@3HA": 11708396,
     "__imp__EnableWindow@8": 7971984,
     "__imp__ShowWindow@8": 7971992,

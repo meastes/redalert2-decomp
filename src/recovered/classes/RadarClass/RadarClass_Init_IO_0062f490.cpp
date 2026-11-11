@@ -22,8 +22,8 @@ void RadarClass::Init_IO()
     DisplayClass::Init_IO();
     if (!Debug_Map) {
         unknown_button_ab63e8.ID = 0xF2;
-        unknown_button_ab63e8.unknown_4c = true;
-        unknown_button_ab63e8.unknown_50 = unknown_drawer_8323cc;
+        unknown_button_ab63e8.DrawOnSidebar = true;
+        unknown_button_ab63e8.ShapeDrawer = unknown_drawer_8323cc;
         unknown_button_ab63e8.IsOn = false;
         unknown_button_ab63e8.ToggleType = 0;
         unknown_button_ab63e8.Flags = 5;
@@ -32,8 +32,8 @@ void RadarClass::Init_IO()
         unknown_button_ab63e8.Flag_To_Redraw();
 
         unknown_button_ab6380.ID = 0xF3;
-        unknown_button_ab6380.unknown_4c = true;
-        unknown_button_ab6380.unknown_50 = unknown_drawer_8323cc;
+        unknown_button_ab6380.DrawOnSidebar = true;
+        unknown_button_ab6380.ShapeDrawer = unknown_drawer_8323cc;
         unknown_button_ab6380.IsOn = false;
         unknown_button_ab6380.ToggleType = 0;
         unknown_button_ab6380.Flags = 5;

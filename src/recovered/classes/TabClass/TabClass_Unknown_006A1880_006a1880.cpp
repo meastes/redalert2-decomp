@@ -12,7 +12,7 @@ void TabClass::Unknown_006A1880()
             int y = unknown_int_abe374;
             if (box.Width+x<=right) {
                 button->ID=slot+0xd6;
-                button->unknown_50=unknown_drawer_8323cc;
+                button->ShapeDrawer=unknown_drawer_8323cc;
                 button->IsOn=false;
                 button->ToggleType=0;
                 button->Set_Flags(5);
@@ -24,7 +24,7 @@ void TabClass::Unknown_006A1880()
     ShapeButtonClass *planning=Unknown_006A0600(unknown_int_abe36c);
     if (planning) {
         planning->ToggleType=1;
-        planning->unknown_40=true;
+        planning->ReflectButtonState=true;
     }
     for (int team_slot=unknown_int_abe370;team_slot<=unknown_int_abe468;team_slot++) {
         ShapeButtonClass *button=Unknown_006A0600(team_slot);

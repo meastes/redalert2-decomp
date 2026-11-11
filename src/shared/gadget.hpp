@@ -198,17 +198,19 @@ public:
     int PrintFlags;         // +0x3C
 };
 
-// ShapeButtonClass (unit 0x00675000-0x006753FF): a toggle button drawn from
-// a shape file (frames by state).
-//   +0x34  bool unknown_34        +0x38 int unknown_38     +0x3C int unknown_3c
-//   +0x40  bool unknown_40        (selects the on/off frames in Draw_Me)
-//   +0x44  int OffsetX            +0x48 int OffsetY        (drawing offset)
-//   +0x4C  bool unknown_4c
-//   +0x50  void *unknown_50       the global at 0x008323C4 (drawer; hypothesis)
-//   +0x54  bool unknown_54        set by Draw_Me
-//   +0x55  bool unknown_55        constructor argument (draw flag 0x800)
-//   +0x58  void const *Shape      shape file; its header gives the size
-//   +0x5C  bool IsShapeAllocated  the button owns (and frees) the shape
+// ShapeButtonClass (shapebtn.cpp, unit 0x00675000-0x006753FF; names from mischa85
+// include/shapebtn.h): a toggle button drawn from a shape file (frames by state).
+//   +0x34  bool IsFlashOn          lit in this flash period
+//   +0x38  int FlashDelay          AI calls per flash period; 0 when not flashing
+//   +0x3C  int FlashCounter        AI calls left in this flash period
+//   +0x40  bool ReflectButtonState (draws the on/off frames)
+//   +0x44  int DrawOffsetX         +0x48 int DrawOffsetY   (drawing offset)
+//   +0x4C  bool DrawOnSidebar      draws on the sidebar surface
+//   +0x50  void *ShapeDrawer       the global at 0x008323C4 (the GUI palette converter)
+//   +0x54  bool IsDrawn            set by Draw_Me
+//   +0x55  bool DrawFaded          constructor argument (draw flag 0x800)
+//   +0x58  void const *ShapeData   shape file; its header gives the size
+//   +0x5C  bool IsShapeLoaded      the button owns (and frees) the shape
 extern ConvertClass *unknown_drawer_8323c4;     // 0x008323C4 (the GUI palette converter)
 
 class ShapeButtonClass : public ToggleClass {
@@ -220,30 +222,30 @@ public:
 
     virtual int Draw_Me(int forced = false);                        // slot 27 0x006751E0
     virtual void Set_Shape(void const *shape, int w = 0, int h = 0);   // slot 34 0x00675130
-    bool Start_Flashing(int start, int length, bool flag);          // 0x006752D0 starts the +0x38/+0x3C span (Sidebar)
-    bool Stop_Flashing();                                           // 0x00675300 clears it (Sidebar)
-    bool AI();                                                      // 0x00675320 advances it; true when it needs a redraw (Sidebar)
-    bool Is_Flashing() const;                                       // 0x00675360 whether the span runs (+0x38 set)
-    bool Unknown_00675370() const;                                  // 0x00675370 returns +0x34
-    void Free_Shape();                                              // 0x006751A0 frees an allocated shape (Sidebar slot 50; name hypothesis)
-    void Set_Allocated(bool allocated);                             // 0x006751D0 sets IsShapeAllocated (Sidebar slot 53)
+    bool Start_Flashing(int delay, int initdelay, bool start);      // 0x006752D0
+    bool Stop_Flashing();                                           // 0x00675300
+    bool AI();                                                      // 0x00675320 true when the imagery changes
+    bool Is_Flashing() const;                                       // 0x00675360 a flash period is set
+    bool Is_Flash_On() const;                                       // 0x00675370 lit in this flash period
+    void Clear_Shape();                                             // 0x006751A0 frees an owned shape (Sidebar slot 50)
+    void Set_Shape_Loaded(bool loaded);                             // 0x006751D0 the button owns its shape (Sidebar slot 53)
 #ifdef RA2_SHAPE_BUTTON_SHAPE_DATA
     // TibSun ShapeButtonClass::Get_Shape_Data (shapebtn.h): the shape the button draws.
-    void const *Get_Shape_Data() { return Shape; }
+    void const *Get_Shape_Data() { return ShapeData; }
 #endif
 
-    bool unknown_34;            // +0x34
-    int unknown_38;             // +0x38
-    int unknown_3c;             // +0x3C
-    bool unknown_40;            // +0x40
-    int OffsetX;                // +0x44
-    int OffsetY;                // +0x48
-    bool unknown_4c;            // +0x4C
-    void *unknown_50;           // +0x50
-    bool unknown_54;            // +0x54
-    bool unknown_55;            // +0x55
-    void const *Shape;          // +0x58
-    bool IsShapeAllocated;      // +0x5C
+    bool IsFlashOn;             // +0x34
+    int FlashDelay;             // +0x38
+    int FlashCounter;           // +0x3C
+    bool ReflectButtonState;    // +0x40
+    int DrawOffsetX;            // +0x44
+    int DrawOffsetY;            // +0x48
+    bool DrawOnSidebar;         // +0x4C
+    void *ShapeDrawer;          // +0x50
+    bool IsDrawn;               // +0x54
+    bool DrawFaded;             // +0x55
+    void const *ShapeData;      // +0x58
+    bool IsShapeLoaded;         // +0x5C
 };
 
 extern "C" unsigned int __cdecl wcslen(unsigned short const *string);   // 0x00783605 (as msfont.hpp)

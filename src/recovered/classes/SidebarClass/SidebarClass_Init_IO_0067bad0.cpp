@@ -38,26 +38,26 @@ void SidebarClass::Init_IO()
     unknown_button_abcc58.ID = 101;
     unknown_button_abcc58.X = unknown_abcd48;
     unknown_button_abcc58.Y = unknown_abcd4c;
-    unknown_button_abcc58.OffsetX = -480;
-    unknown_button_abcc58.OffsetY = 0;
-    unknown_button_abcc58.unknown_4c = true;
-    unknown_button_abcc58.unknown_50 = unknown_drawer_8323cc;
+    unknown_button_abcc58.DrawOffsetX = -480;
+    unknown_button_abcc58.DrawOffsetY = 0;
+    unknown_button_abcc58.DrawOnSidebar = true;
+    unknown_button_abcc58.ShapeDrawer = unknown_drawer_8323cc;
     unknown_button_abcc58.IsOn = false;
     unknown_button_abcc58.ToggleType = 1;
-    unknown_button_abcc58.unknown_40 = true;
+    unknown_button_abcc58.ReflectButtonState = true;
     unknown_button_abcc58.Stop_Flashing();
 
     unknown_button_ab96b8.IsSticky = true;
     unknown_button_ab96b8.ID = 102;
     unknown_button_ab96b8.X = unknown_button_abcc58.X + unknown_abcd50;
     unknown_button_ab96b8.Y = unknown_button_abcc58.Y;
-    unknown_button_ab96b8.OffsetX = -480;
-    unknown_button_ab96b8.OffsetY = 0;
-    unknown_button_ab96b8.unknown_4c = true;
-    unknown_button_ab96b8.unknown_50 = unknown_drawer_8323cc;
+    unknown_button_ab96b8.DrawOffsetX = -480;
+    unknown_button_ab96b8.DrawOffsetY = 0;
+    unknown_button_ab96b8.DrawOnSidebar = true;
+    unknown_button_ab96b8.ShapeDrawer = unknown_drawer_8323cc;
     unknown_button_ab96b8.IsOn = false;
     unknown_button_ab96b8.ToggleType = 1;
-    unknown_button_ab96b8.unknown_40 = true;
+    unknown_button_ab96b8.ReflectButtonState = true;
     unknown_button_ab96b8.Stop_Flashing();
 
     for (int index = 0; index < 4; index++) {
@@ -65,28 +65,28 @@ void SidebarClass::Init_IO()
         unknown_buttons_ab9508[index].ID = 203 + index;
         unknown_buttons_ab9508[index].X = unknown_abcd5c * index + unknown_abcd54;
         unknown_buttons_ab9508[index].Y = unknown_abcd58;
-        unknown_buttons_ab9508[index].OffsetX = -480;
-        unknown_buttons_ab9508[index].OffsetY = 0;
-        unknown_buttons_ab9508[index].unknown_4c = true;
-        unknown_buttons_ab9508[index].unknown_50 = unknown_drawer_8323cc;
+        unknown_buttons_ab9508[index].DrawOffsetX = -480;
+        unknown_buttons_ab9508[index].DrawOffsetY = 0;
+        unknown_buttons_ab9508[index].DrawOnSidebar = true;
+        unknown_buttons_ab9508[index].ShapeDrawer = unknown_drawer_8323cc;
         unknown_buttons_ab9508[index].IsOn = false;
         unknown_buttons_ab9508[index].ToggleType = 2;
-        unknown_buttons_ab9508[index].unknown_40 = true;
+        unknown_buttons_ab9508[index].ReflectButtonState = true;
         unknown_buttons_ab9508[index].Disable();
         unknown_buttons_ab9508[index].Stop_Flashing();
     }
 
     unknown_button_abcbe8.IsSticky = true;
     unknown_button_abcbe8.ID = 201;
-    unknown_button_abcbe8.unknown_4c = true;
-    unknown_button_abcbe8.unknown_50 = unknown_drawer_8323cc;
+    unknown_button_abcbe8.DrawOnSidebar = true;
+    unknown_button_abcbe8.ShapeDrawer = unknown_drawer_8323cc;
     unknown_button_abcbe8.Flags = 0x55;
     unknown_button_abcbe8.Stop_Flashing();
 
     unknown_button_abccc0.IsSticky = true;
     unknown_button_abccc0.ID = 200;
-    unknown_button_abccc0.unknown_4c = true;
-    unknown_button_abccc0.unknown_50 = unknown_drawer_8323cc;
+    unknown_button_abccc0.DrawOnSidebar = true;
+    unknown_button_abccc0.ShapeDrawer = unknown_drawer_8323cc;
     unknown_button_abccc0.Flags = 0x55;
     unknown_button_abccc0.Stop_Flashing();
 

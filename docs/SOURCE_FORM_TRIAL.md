@@ -184,3 +184,10 @@ the flags word where version.hpp has the four bit-fields; version.hpp alone decl
   through `apply_rename.py`); `regenerate_seeds.py` only touches seed-generated rows;
   `callsite_rename.py` already grouped by file; `misses_index.py`/rescore and
   `sync_windows.sh` do not read sources.
+
+## Measured cost after 25 modules (2026-11-11)
+
+- 9.45 lane-hours for 25 modules (171 functions, 18,256 code bytes, 1,567 data bytes proven at their original addresses): 0.38 h per module, 3.3 min per function, 0.52 h per KB of code; about 9 weekly usage points (estimated, not metered).
+- These were small leaf modules (730 B on average against about 7.8 KB for the average unit). Eleven took about 2 minutes each; medium ones (1-2.7 KB) took 0.4-1.1 h and left 1-6 header gaps each. The time goes into header attempts, each of which recompiles every unit that includes the header.
+- 36 template details are withheld (modules.json header_gaps) because they shift a small set of declaration-count-fragile functions elsewhere (Reposition_Sidebar, Print_CRCs, AI_Build_Defense, WinMain, an owner-draw trackbar, Dropship_Screen, and initializer renumbering). Gaps grow with how widely a module's header is included, not with its size. The template headers (ra2-decomp, mischa85) did not shift fewer functions than ours.
+- Whole tree (estimate): about 420 units, 500-1,300 lane-hours (central about 800), with the large class units (Techno, Building, Map, Unit, House) at 8-25 h each, plus 20-60 h at the end to re-roll the fragile functions under final headers (some as flagged calibrated forms). Parallel converters shorten the calendar time, not the total; four bring it to about 200-600 wall-clock hours, and the class hierarchy keeps the large units mostly serial.

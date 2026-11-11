@@ -75,26 +75,26 @@ void SidebarClass::Draw_It(bool complete)
     }
     Column[unknown_4ed8].Unknown_0067F800(unknown_4ee3);
     PowerClass::Draw_It(complete || drawn);
-    if (unknown_button_ab96b8.unknown_54) {
-        unknown_button_ab96b8.unknown_54 = false;
+    if (unknown_button_ab96b8.IsDrawn) {
+        unknown_button_ab96b8.IsDrawn = false;
         unknown_flag_abcd84 = true;
     }
-    if (unknown_button_abcc58.unknown_54) {
-        unknown_button_abcc58.unknown_54 = false;
+    if (unknown_button_abcc58.IsDrawn) {
+        unknown_button_abcc58.IsDrawn = false;
         unknown_flag_abcd84 = true;
     }
     for (int tab = 0; tab < 4; tab++) {
-        if (unknown_buttons_ab9508[tab].unknown_54) {
+        if (unknown_buttons_ab9508[tab].IsDrawn) {
             unknown_flag_abcd84 = true;
-            unknown_buttons_ab9508[tab].unknown_54 = false;
+            unknown_buttons_ab9508[tab].IsDrawn = false;
         }
     }
-    if (unknown_button_abcbe8.unknown_54) {
-        unknown_button_abcbe8.unknown_54 = false;
+    if (unknown_button_abcbe8.IsDrawn) {
+        unknown_button_abcbe8.IsDrawn = false;
         unknown_flag_abcd84 = true;
     }
-    if (unknown_button_abccc0.unknown_54) {
-        unknown_button_abccc0.unknown_54 = false;
+    if (unknown_button_abccc0.IsDrawn) {
+        unknown_button_abccc0.IsDrawn = false;
         unknown_flag_abcd84 = true;
     }
     if (ToolTips) {

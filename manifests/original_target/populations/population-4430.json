@@ -4,8 +4,8 @@
     "id": "population-4430",
     "inventory_sha256": "0d97c30d647b6a85a456db7e5619738b11bd642ce40f96df01724fac2d68a7dc",
     "gaps_sha256": "1d42029e9f0a89b7a77e39f6852fc31359b34dc3ecb45a504041d603f278c2a5",
-    "historical_population_sha256": "f124e05bab8086acbb917dfd30195acdde7a16a1700ce657221471fe8ee809bf",
-    "historical_acceptance_sha256": "4448544fd59ebb63e4d9a398380aaee78aaa314bb02052dd59f4a710983e9efa"
+    "historical_population_sha256": "9e5304ca8875b40a8abac7433fc5d99af48298ad10d1957c6152f72118647629",
+    "historical_acceptance_sha256": "38d9ef6cd539a952a66f95875cf9efab61eb79aee866d96d3482347a85b4bf0e"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1962,7 +1962,7 @@
     "?unknown_surface_839950@@3PAVSurface@@A": 8624464,
     "?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z": 4805232,
     "?Set_Shape@ShapeButtonClass@@UAEXPBXHH@Z": 6770992,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
     "_sprintf": 7872756,
     "?unknown_shapes_abcd20@@3PAPBXA": 11259168,
     "?unknown_shapes_allocated_abcd40@@3PA_NA": 11259200,
@@ -1977,7 +1977,7 @@
     "??_C@_08GFHD@SELL?4SHP?$AA@": 8338984,
     "??_C@_0M@JIPG@GCLOCK2?4SHP?$AA@": 8338996,
     "?DisposeOfArt@PowerClass@@UAEXXZ": 6407552,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "?unknown_player_a35db4@@3PAVHouseClass@@A": 10706356,
     "?Unknown_004F4F30@UnknownSidebarHouse@@QAE_NPAVTechnoTypeClass@@@Z": 5197616,
     "?Unknown_004EB550@@YIHHH@Z": 5158224,
@@ -8490,7 +8490,7 @@
     "?Deactivate@RadBeam@@QAEXXZ": 6510560,
     "?Is_Active@RadBeam@@QBE_NXZ": 6510576,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Save@TubeClass@@UAGJPAUIStream@@H@Z": 7271392,
     "??1BitFontClass@@UAE@XZ": 4395264,
     "__imp__MoveWindow@24": 7971808,
@@ -16866,7 +16866,7 @@
           "resolved": 10908
         }
       ],
-      "source_sha256": "a4b7867ee6216dcade1bf47d637427daf8b31bfee90ef0c7a7f56c24acd8a6c3",
+      "source_sha256": "2f96cf7413f27f78dfdf208eeb5f0f39f060ba3dc5319a57709e68e9f92f213b",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_Init_IO_0067bad0.cpp",
       "population": "population-4430",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -17038,7 +17038,7 @@
         {
           "offset": 193,
           "kind": 20,
-          "symbol": "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z",
+          "symbol": "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z",
           "target": 6771152,
           "addend": 0,
           "resolved": 4294939515
@@ -17102,7 +17102,7 @@
         {
           "offset": 247,
           "kind": 20,
-          "symbol": "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z",
+          "symbol": "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z",
           "target": 6771152,
           "addend": 0,
           "resolved": 4294939461
@@ -17166,7 +17166,7 @@
         {
           "offset": 322,
           "kind": 20,
-          "symbol": "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z",
+          "symbol": "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z",
           "target": 6771152,
           "addend": 0,
           "resolved": 4294939386
@@ -17230,7 +17230,7 @@
         {
           "offset": 387,
           "kind": 20,
-          "symbol": "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z",
+          "symbol": "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z",
           "target": 6771152,
           "addend": 0,
           "resolved": 4294939321
@@ -17294,7 +17294,7 @@
         {
           "offset": 443,
           "kind": 20,
-          "symbol": "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z",
+          "symbol": "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z",
           "target": 6771152,
           "addend": 0,
           "resolved": 4294939265
@@ -17444,7 +17444,7 @@
           "resolved": 11259180
         }
       ],
-      "source_sha256": "28590de96d90db06abe8a337a9fc14fdb700f8cd68eb6aa04b78bf8b5a6dde67",
+      "source_sha256": "71ad83dd7ea77ac75878b51a53c806ec55c9fd5a4b0ed9f1602d4e0712a06237",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_Init_For_House_0067bd90.cpp",
       "population": "population-4430",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -17744,7 +17744,7 @@
         {
           "offset": 245,
           "kind": 20,
-          "symbol": "?Free_Shape@ShapeButtonClass@@QAEXXZ",
+          "symbol": "?Clear_Shape@ShapeButtonClass@@QAEXXZ",
           "target": 6771104,
           "addend": 0,
           "resolved": 4294938855
@@ -17760,7 +17760,7 @@
         {
           "offset": 255,
           "kind": 20,
-          "symbol": "?Free_Shape@ShapeButtonClass@@QAEXXZ",
+          "symbol": "?Clear_Shape@ShapeButtonClass@@QAEXXZ",
           "target": 6771104,
           "addend": 0,
           "resolved": 4294938845
@@ -17776,7 +17776,7 @@
         {
           "offset": 267,
           "kind": 20,
-          "symbol": "?Free_Shape@ShapeButtonClass@@QAEXXZ",
+          "symbol": "?Clear_Shape@ShapeButtonClass@@QAEXXZ",
           "target": 6771104,
           "addend": 0,
           "resolved": 4294938833
@@ -17800,7 +17800,7 @@
         {
           "offset": 288,
           "kind": 20,
-          "symbol": "?Free_Shape@ShapeButtonClass@@QAEXXZ",
+          "symbol": "?Clear_Shape@ShapeButtonClass@@QAEXXZ",
           "target": 6771104,
           "addend": 0,
           "resolved": 4294938812
@@ -17816,13 +17816,13 @@
         {
           "offset": 298,
           "kind": 20,
-          "symbol": "?Free_Shape@ShapeButtonClass@@QAEXXZ",
+          "symbol": "?Clear_Shape@ShapeButtonClass@@QAEXXZ",
           "target": 6771104,
           "addend": 0,
           "resolved": 4294938802
         }
       ],
-      "source_sha256": "aa3eebbea3094d7cd720eedc58578c632060d67e3d08e0d6fc9c7330ca9b5ce2",
+      "source_sha256": "a8aa3cd7ca3ada28c8f9b8b6423f6d14b4e86df069fc174fa407e3db83cada87",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_DisposeOfArt_0067bfc0.cpp",
       "population": "population-4430",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -21999,7 +21999,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "9df513768a5e26b79ab9f9b63037f5079d064960430fefdac904d52bfa51ef8a",
+      "source_sha256": "a654fb71d03844cfffcee3f50788cb2c63801ef809a0a914a74528196c975e3a",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_Draw_It_0067cf80.cpp",
       "population": "population-4430",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -27164,7 +27164,7 @@
           "resolved": 432550
         }
       ],
-      "source_sha256": "be6ae56828c8672953bd7ad1fc057aab0be57c18ca99d605efabd572c105c77c",
+      "source_sha256": "9159a4742329e86bc36de363a010696045c975a7a88895cb4054b0583c65aa73",
       "source": "src/recovered/classes/SidebarClass/SidebarClass_Reposition_Sidebar_006819a0.cpp",
       "population": "population-4430",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

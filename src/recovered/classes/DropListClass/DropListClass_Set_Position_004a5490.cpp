@@ -6,6 +6,6 @@
 void DropListClass::Set_Position(int x, int y)
 {
     GadgetClass::Set_Position(x, y);
-    List.Set_Position(x, ((short const *)DropButton.Shape)[2] + y);
+    List.Set_Position(x, ((short const *)DropButton.ShapeData)[2] + y);
     DropButton.Set_Position(Width + x, y);
 }

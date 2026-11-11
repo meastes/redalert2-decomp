@@ -22,7 +22,7 @@ void TabClass::Init_IO()
     if (!Debug_Map && Unknown_Get_Art_006f4590()) {
         Unknown_006A1880();
         unknown_button_abe400.ID = 0xF0;
-        unknown_button_abe400.unknown_50 = unknown_drawer_8323cc;
+        unknown_button_abe400.ShapeDrawer = unknown_drawer_8323cc;
         unknown_button_abe400.IsOn = false;
         unknown_button_abe400.ToggleType = 0;
         unknown_button_abe400.Flags = 5;
@@ -31,7 +31,7 @@ void TabClass::Init_IO()
         unknown_button_abe400.Set_Position(area.X, area.Y);
         unknown_button_abe400.Set_Shape(shape, 0, 0);
         unknown_button_abe390.ID = 0xF1;
-        unknown_button_abe390.unknown_50 = unknown_drawer_8323cc;
+        unknown_button_abe390.ShapeDrawer = unknown_drawer_8323cc;
         unknown_button_abe390.IsOn = false;
         unknown_button_abe390.ToggleType = 0;
         unknown_button_abe390.Flags = 5;

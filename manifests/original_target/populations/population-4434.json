@@ -4,8 +4,8 @@
     "id": "population-4434",
     "inventory_sha256": "31667cb6477e0ff8d62b23293a38d811ec11c6490943468b4e0384a70daf5492",
     "gaps_sha256": "649aa888b2351b49997ac7145d2b34f4ccc321a171428b48257dbb0bdc68a552",
-    "historical_population_sha256": "b7db33787663fb3a0580910ae4f360a83ec44c29a7eeda13f939d572e414c5a1",
-    "historical_acceptance_sha256": "2bf3b48123b0225234864371617e30d997db9d92db2f09585944c26105afc8cf"
+    "historical_population_sha256": "5a85b0491948320ff60d23a43265ab44bb065d5c25f31789f59c6eefac2716e9",
+    "historical_acceptance_sha256": "4b3a7c359a9d9abe3e899f02050d540fc58e347470838107bb7a4667631d8d86"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -2975,7 +2975,7 @@
     "?Is_Locked@XSurface@@UAE_NXZ": 4264704,
     "?Set_Decrement@LineTrail@@QAEXH@Z": 5477648,
     "?unknown_a40b2c@@3HA": 10750764,
-    "?Set_Allocated@ShapeButtonClass@@QAEX_N@Z": 6771152,
+    "?Set_Shape_Loaded@ShapeButtonClass@@QAEX_N@Z": 6771152,
     "?unknown_slot31@AircraftClass@@UAE_NXZ": 4304960,
     "?In_Which_Layer@AnimClass@@UBEHXZ": 4335264,
     "?Size@BufferIOFileClass@@UAEJXZ": 4390272,
@@ -3199,7 +3199,7 @@
     "??_GPowerClass@@UAEPAXI@Z": 6410784,
     "??1RadarClass@@UAE@XZ": 6484096,
     "?Clear@?$VectorClass@PAVGlobalPacketType@@@@UAEXXZ": 6767552,
-    "?Free_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
+    "?Clear_Shape@ShapeButtonClass@@QAEXXZ": 6771104,
     "??_GSBGadgetClass@SidebarClass@@UAEPAXI@Z": 6825056,
     "?Release@?$TClassFactory@VCStreamClass@@@@UAGKXZ": 6886784,
     "__imp__InterlockedDecrement@4": 7971264,
@@ -3690,7 +3690,7 @@
     "?Save@ScriptClass@@UAGJPAUIStream@@H@Z": 6720000,
     "?Save@ScriptTypeClass@@UAGJPAUIStream@@H@Z": 6721872,
     "?Is_Flashing@ShapeButtonClass@@QBE_NXZ": 6771552,
-    "?Unknown_00675370@ShapeButtonClass@@QBE_NXZ": 6771568,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568,
     "?Unknown_0067E640@SidebarClass@@SIHH@Z": 6809152,
     "?unknown_abcd68@@3HA": 11259240,
     "?Unknown_0067E650@SidebarClass@@SIHH@Z": 6809168,

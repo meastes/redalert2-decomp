@@ -40,7 +40,7 @@ void TabClass::Draw_It(bool complete)
     if (!redraw) {
         for (int slot = 0; slot < 25; slot++) {
             ShapeButtonClass *button = Unknown_006A0600(slot);
-            if (button != 0 && button->unknown_54) {
+            if (button != 0 && button->IsDrawn) {
                 redraw = true;
                 break;
             }
@@ -108,9 +108,9 @@ void TabClass::Draw_It(bool complete)
                 }
                 for (int slot = 0; slot < 25; slot++) {
                     ShapeButtonClass *button = Unknown_006A0600(slot);
-                    if (button != 0 && button->Shape != 0) {
+                    if (button != 0 && button->ShapeData != 0) {
                         button->Draw_Me(1);
-                        button->unknown_54 = false;
+                        button->IsDrawn = false;
                     }
                 }
             }
