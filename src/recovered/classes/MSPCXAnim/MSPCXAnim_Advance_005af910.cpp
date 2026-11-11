@@ -1,10 +1,10 @@
-// bool MSPCXAnim::Unknown_Slot4(Surface *surface, Rect *dirty) (0x005AF910, slot 4)
+// bool MSPCXAnim::Advance(Surface *surface, Rect *dirty) (0x005AF910, slot 4)
 // The first time (while active): copies the picture into the background,
 // draws it onto `surface`, reports its rectangle and redraws every other
 // animation of the list inside it. True once shown unless unknown_28.
 #include "shared/ms_anim.hpp"
 
-bool MSPCXAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSPCXAnim::Advance(Surface *surface, Rect *dirty)
 {
     if (!Done) {
         if (unknown_0C) {

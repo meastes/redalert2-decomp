@@ -1,4 +1,4 @@
-// bool MSBitPrintAnim::Unknown_Slot4(Surface *surface, Rect *dirty) (0x005AE560, slot 4)
+// bool MSBitPrintAnim::Advance(Surface *surface, Rect *dirty) (0x005AE560, slot 4)
 // Prints the text clipped to TextRect with the bitmap font and reports
 // TextRect as the area to refresh; done once unknown_30 is set.
 #include "shared/ms_anim.hpp"
@@ -7,7 +7,7 @@
 // @ref ?unknown_bit_font_84e9e8_ptr@@3PAVunknown_bit_font_84e9e8@@A=0084e9e8
 // @ref ?unknown_bit_printer_84e9d0_ptr@@3PAVunknown_bit_printer_84e9d0@@A=0084e9d0
 
-bool MSBitPrintAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSBitPrintAnim::Advance(Surface *surface, Rect *dirty)
 {
     if (unknown_bit_printer_84e9d0_ptr != 0 && unknown_bit_font_84e9e8_ptr != 0) {
         RECT box;

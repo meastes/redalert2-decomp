@@ -9,7 +9,7 @@ void MSEngine::Wait_For(MSAnim *anim,unsigned time)
     while (true) {
         int index=Anims.ID(anim);
         if (index==-1) break;
-        if (Anims[index]->Unknown_Slot7()) break;
+        if (Anims[index]->Has_Finished()) break;
         if (time<=0) break;
         Run(1);
     }

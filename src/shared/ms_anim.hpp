@@ -56,11 +56,11 @@ public:
     // target surface and a rectangle to receive the area to refresh, and
     // deletes the animation when it returns true; slot 5 draws an
     // animation onto a freshly cleared surface (second argument 0).
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty) = 0;     // slot 4 (+0x10)
+    virtual bool Advance(Surface *surface, Rect *dirty) = 0;           // slot 4 (+0x10)
     virtual void Draw(Surface *surface, Rect const *clip) = 0;         // slot 5 (+0x14) clip 0: everything
     virtual Rect Get_Rect() = 0;                                // slot 6 (+0x18)
-    virtual bool Unknown_Slot7() { return false; }              // slot 7 (+0x1C) 0x005AFC80 (MSEngine::Wait_For stops when true)
-    virtual void Unknown_Slot8(int unknown1) {}                 // slot 8 (+0x20) 0x005AFC90
+    virtual bool Has_Finished() { return false; }               // slot 7 (+0x1C) 0x005AFC80 (MSEngine::Wait_For stops when true)
+    virtual void Restore(int unknown1) {}                       // slot 8 (+0x20) 0x005AFC90
 
     int X;                                  // +0x04
     int Y;                                  // +0x08
@@ -72,7 +72,7 @@ class MSShapeAnim : public MSAnim {
 public:
     MSShapeAnim(Wstring const &filename, int x, int y, ConvertClass *drawer, int unknown_24, bool unknown_34, int flags);  // 0x005AC6A0
     virtual ~MSShapeAnim();                                     // 0x005AC720
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);     // 0x005AC850
+    virtual bool Advance(Surface *surface, Rect *dirty);           // 0x005AC850
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005ACBB0
     virtual Rect Get_Rect();                                    // 0x005ACD00
 
@@ -98,7 +98,7 @@ class MSFadeAnim : public MSShapeAnim {
 public:
     MSFadeAnim(Wstring const &filename, int x, int y, ConvertClass *drawer, int unknown_24, int flags,
                DynamicVectorClass<MSAnim *> *anims);           // 0x005ACDB0
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);     // 0x005ACE30
+    virtual bool Advance(Surface *surface, Rect *dirty);           // 0x005ACE30
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005AD210
 
     int unknown_40;             // +0x40
@@ -112,10 +112,10 @@ public:
     MSOverlayAnim(Wstring const &filename, int x, int y, ConvertClass *drawer, int unknown_24,
                   DynamicVectorClass<MSAnim *> *anims,
                   bool unknown_48, int frame, bool unknown9);    // 0x005AD370
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);     // 0x005AD450
+    virtual bool Advance(Surface *surface, Rect *dirty);           // 0x005AD450
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005AD6B0
-    virtual bool Unknown_Slot7();                               // 0x005AD8C0
-    virtual void Unknown_Slot8(int unknown1);                   // 0x005AD840
+    virtual bool Has_Finished();                                // 0x005AD8C0
+    virtual void Restore(int unknown1);                         // 0x005AD840
 
     // Restart the fade at a new frame / at the current one (TibSun names;
     // both clear unknown_40; accepted as seeds Leaf_5ad820/Leaf_5ad810).
@@ -147,10 +147,10 @@ class MSBitPrintAnim : public MSAnim {
 public:
     MSBitPrintAnim(WideString const &text, Rect const &rect, bool unknown_31);  // 0x005AE480
     virtual ~MSBitPrintAnim();                                  // 0x005AE4F0
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);     // 0x005AE560
+    virtual bool Advance(Surface *surface, Rect *dirty);           // 0x005AE560
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005AE620
     virtual Rect Get_Rect();                                    // 0x005AE520
-    virtual bool Unknown_Slot7();                               // 0x005AE550
+    virtual bool Has_Finished();                                // 0x005AE550
 
     void Set_Unknown_30(bool value);                            // 0x005AE510
 
@@ -168,11 +168,11 @@ class MSPrintAnim : public MSAnim {
 public:
     MSPrintAnim(WideString const &text, int x, int y, MSFont *font, Rect const &rect, unsigned position,
                 int char_delay, bool unknown_30, bool centered);   // 0x005AE6C0
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);     // 0x005AEDA0
+    virtual bool Advance(Surface *surface, Rect *dirty);           // 0x005AEDA0
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005AF030
     virtual ~MSPrintAnim() {}
     virtual Rect Get_Rect();                                    // 0x005AF400
-    virtual bool Unknown_Slot7();                               // 0x005AF450
+    virtual bool Has_Finished();                                // 0x005AF450
 
     // Fits TextRect to the text, centred in rect when it is not empty
     // (clipped to it), else placed at X, Y (0x005AE7E0; name hypothesis).
@@ -225,11 +225,11 @@ public:
     MSBinkAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSAnim *> *anims, Rect const &rect,
                bool unknown_38);                                // 0x005AD8E0
     virtual ~MSBinkAnim();                                      // 0x005AD9A0
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);     // 0x005ADA20
+    virtual bool Advance(Surface *surface, Rect *dirty);           // 0x005ADA20
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005ADAF0
     virtual Rect Get_Rect();                                    // 0x005AD9D0
-    virtual bool Unknown_Slot7();                               // 0x005ADA00 no movie, or it finished
-    virtual void Unknown_Slot8(int unknown1);                   // 0x005ADB90
+    virtual bool Has_Finished();                                // 0x005ADA00 no movie, or it finished
+    virtual void Restore(int unknown1);                         // 0x005ADB90
 
     BinkClass *Movie;                       // +0x1C
     Surface *Target;                        // +0x20 given to the player
@@ -249,11 +249,11 @@ public:
     MSVQAnim(Wstring const &name, Surface *surface, DynamicVectorClass<MSAnim *> *anims,
              bool unknown_2c);                                  // 0x005ADD90
     virtual ~MSVQAnim();                                        // 0x005ADF90
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);     // 0x005ADFE0
+    virtual bool Advance(Surface *surface, Rect *dirty);           // 0x005ADFE0
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005AE230
     virtual Rect Get_Rect();                                    // 0x005AE3E0
-    virtual bool Unknown_Slot7();                               // 0x005AE470
-    virtual void Unknown_Slot8(int unknown1);                   // 0x005AE390 recopies the picture
+    virtual bool Has_Finished();                                // 0x005AE470
+    virtual void Restore(int unknown1);                         // 0x005AE390 recopies the picture
 
     VQAMovie *Movie;                        // +0x1C
     Surface *Target;                        // +0x20
@@ -282,11 +282,11 @@ public:
     MSPCXAnim(Wstring const &name, DynamicVectorClass<MSAnim *> *anims, Point2D const &position,
               bool unknown_28);                                 // 0x005AF790 loads <name up to '.'>.PCX
     virtual ~MSPCXAnim();                                       // 0x005AF8F0
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);     // 0x005AF910
+    virtual bool Advance(Surface *surface, Rect *dirty);           // 0x005AF910
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x005AFA00
     virtual Rect Get_Rect();                                    // 0x005AFBC0
-    virtual bool Unknown_Slot7();                               // 0x005AFBF0
-    virtual void Unknown_Slot8(int unknown1);                   // 0x005AFB80 recopies the picture
+    virtual bool Has_Finished();                                // 0x005AFBF0
+    virtual void Restore(int unknown1);                         // 0x005AFB80 recopies the picture
 
     Surface *Background;                    // +0x1C 0x00839958 when constructed
     DynamicVectorClass<MSAnim *> *Anims;    // +0x20 redrawn over the picture

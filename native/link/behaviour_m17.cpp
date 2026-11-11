@@ -23,7 +23,7 @@ MSFrameAnim::~MSFrameAnim()
 // 0x00729200 (pass-6a decompile; the same body is accepted as the free
 // unknown_callback_6f3650, src/recovered/unowned): redraws the interface frame
 // into the dirty area while 0x007FBD04 is set; never reports a change.
-bool MSFrameAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSFrameAnim::Advance(Surface *surface, Rect *dirty)
 {
     if (unknown_flag_7fbd04) {
         Unknown_006F3650(surface, *dirty, true);

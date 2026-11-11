@@ -29,7 +29,7 @@ class MSFrameAnim : public MSAnim {
 public:
     MSFrameAnim();                                                  // 0x007291C0
     virtual ~MSFrameAnim();                                         // 0x007291F0 (deleting 0x0072AF00)
-    virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);      // 0x00729200
+    virtual bool Advance(Surface *surface, Rect *dirty);            // 0x00729200
     virtual void Draw(Surface *surface, Rect const *clip);          // 0x00729220
     virtual Rect Get_Rect();                                        // 0x007292B0 (the 640x480 screen)
 };

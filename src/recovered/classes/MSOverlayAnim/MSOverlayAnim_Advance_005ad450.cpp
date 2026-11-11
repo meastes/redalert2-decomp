@@ -1,4 +1,4 @@
-// bool MSOverlayAnim::Unknown_Slot4(Surface *surface, Rect *dirty) (0x005AD450, slot 4)
+// bool MSOverlayAnim::Advance(Surface *surface, Rect *dirty) (0x005AD450, slot 4)
 // While the fade level is below 4, every unknown_24 ticks redraws the current
 // frame at the next fade level over the restored background and the other
 // animations of Anims, reporting its area; at level 4 the frame is also drawn
@@ -7,7 +7,7 @@
 // @ref _unknown_empty_rect=00a71808
 // @ref ??0Rect@@QAE@HHHH@Z=0042bcd0
 
-bool MSOverlayAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSOverlayAnim::Advance(Surface *surface, Rect *dirty)
 {
     if (unknown_0C == true && Timer.Value() == 0) {
         Timer = CDTimerClass<SystemTimerClass>(unknown_24);

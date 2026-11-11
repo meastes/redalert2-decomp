@@ -12,7 +12,7 @@
 #include "shared/hicolor.hpp"
 #include "shared/cpu_info.hpp"
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref __real@8@bff6b60b60b60b60b800=007a7b00
+// @ref __real@8@bff6b6db6db6db6db800=007a7b00
 // @ref ?unknown_spot_light_shapes_a731e0@@3PAPAVBSurface@@A=00a731e0
 // @ref ?unknown_block_a73378@@3PAXA=00a73378
 // @ref ??2@YAPAXI@Z=00782017
@@ -76,7 +76,8 @@ void Unknown_005DD760()
 
             BSurface work(256, 256, 1);
             work.Fill(0);
-            work.Fill_Circle(Point2D(0x80, 0x80), step - (int)(Rules->unknown_6d0 * 60 * (-1.0 / 360.0)),
+            // behaviour fix (codex4 r536): the original factor is -1/358.4 (literal 0x007A7B00), not -1/360.
+            work.Fill_Circle(Point2D(0x80, 0x80), step - (int)(Rules->unknown_6d0 * 60 * (-1.0 / 358.4)),
                 Rect(0, 0, 255, 255), strength);
             for (int y = 0; y < 0x80; y++) {
                 Rect source = Rect(0, y * 2, 255, 1);

@@ -1,11 +1,11 @@
-// bool MSVQAnim::Unknown_Slot4(Surface *surface, Rect *dirty) (0x005ADFE0, slot 4)
+// bool MSVQAnim::Advance(Surface *surface, Rect *dirty) (0x005ADFE0, slot 4)
 // Shows each new movie frame and, when the movie ends, the picture; every
 // other animation of the list is redrawn over the area. Without a movie the
 // picture is shown once. True when done unless unknown_2c.
 #include "shared/ms_anim.hpp"
 // @ref ?VQA_Movie_Unknown_005A15F0@@YI_NPAVVQAMovie@@PA_N@Z=005a15f0
 
-bool MSVQAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSVQAnim::Advance(Surface *surface, Rect *dirty)
 {
     int index;
     int i;

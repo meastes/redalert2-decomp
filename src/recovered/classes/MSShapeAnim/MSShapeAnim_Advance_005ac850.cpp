@@ -3,7 +3,7 @@
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 // @ref ?unknown_surface_839958@@3PAVSurface@@A=00839958
 #include "shared/ms_anim.hpp"
-bool MSShapeAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSShapeAnim::Advance(Surface *surface, Rect *dirty)
 {
     if (unknown_0C == true && Timer.Value()==0) {
         Timer=unknown_24;

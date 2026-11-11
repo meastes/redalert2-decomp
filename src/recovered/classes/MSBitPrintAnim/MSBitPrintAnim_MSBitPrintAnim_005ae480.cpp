@@ -5,7 +5,7 @@
 // @ref ??_7MSAnim@@6B@=007a6d3c
 // @ref ??0WideString@@QAE@ABV0@@Z=0076fa10
 // Slots 4 and 5 are near misses, not in this unit's plan yet:
-// @ref ?Unknown_Slot4@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z=005ae560
+// @ref ?Advance@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z=005ae560
 // @ref ?Draw@MSBitPrintAnim@@UAEXPAVSurface@@PBVRect@@@Z=005ae620
 // @ref ??_EMSBitPrintAnim@@UAEPAXI@Z=005afe50
 

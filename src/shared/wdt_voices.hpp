@@ -58,11 +58,11 @@ public:
         virtual void Set_Unknown_0C(bool value);                    // 0x00732AF0 (false stops the voices)
         virtual void Pause();                                       // 0x00732B50
         virtual void Resume();                                      // 0x00732BA0
-        virtual bool Unknown_Slot4(Surface *surface, Rect *dirty);  // 0x00732BC0
+        virtual bool Advance(Surface *surface, Rect *dirty);        // 0x00732BC0
         virtual void Draw(Surface *surface, Rect const *clip);      // 0x00732BD0
         virtual Rect Get_Rect();                                    // 0x00732BE0 (an unset rectangle)
-        virtual bool Unknown_Slot7();                               // 0x00732C10 (true once nothing is said)
-        virtual void Unknown_Slot8(int unknown1);                   // 0x00732C20
+        virtual bool Has_Finished();                                // 0x00732C10 (true once nothing is said)
+        virtual void Restore(int unknown1);                         // 0x00732C20
 
         Voices *Owner;                                              // +0x1C
     };

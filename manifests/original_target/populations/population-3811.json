@@ -4,8 +4,8 @@
     "id": "population-3811",
     "inventory_sha256": "9b82cd2caaca73cd32fe88ec97da4b494b9129a49d304e21ebcfa7058e2daa4f",
     "gaps_sha256": "ddc6eea8e28cf0df2b8d65b49b1a5ae1d93341b43c00233fa2d79ac579b888bd",
-    "historical_population_sha256": "1e9a746fdb7e48db4458c3ac5b37ff3783c6a334efd3ca0f3a7174c141b496ab",
-    "historical_acceptance_sha256": "f9c9696a213f8ce397bcdb1ec5a9db3391f734c6ac86e6dfcf8d66cdca2cba5a"
+    "historical_population_sha256": "0eaa7b2421e16bf5abe3f1fddab3abc39d2bbe7f7e6f327f9ff6178ea45a55e5",
+    "historical_acceptance_sha256": "b34cfb73c8af9dc740ff5c9113a33f32ba5887740c736f6019c9b2bc32af0265"
   },
   "references": {
     "_unknown_empty_rect": 10950664,
@@ -934,15 +934,15 @@
     "?target@Target_5aa800@@QAEII@Z": 6003552,
     "??1MSAnim@@UAE@XZ": 5949072,
     "??_7MSAnim@@6B@": 8023356,
-    "?Unknown_Slot8@MSBinkAnim@@UAEXH@Z": 5954448,
-    "?Unknown_Slot7@MSVQAnim@@UAE_NXZ": 5956720,
+    "?Restore@MSBinkAnim@@UAEXH@Z": 5954448,
+    "?Has_Finished@MSVQAnim@@UAE_NXZ": 5956720,
     "??1MSBitPrintAnim@@UAE@XZ": 5956848,
     "??_7MSBitPrintAnim@@6B@": 8023596,
     "??1WideString@@QAE@XZ": 7797328,
-    "?Unknown_Slot7@MSBitPrintAnim@@UAE_NXZ": 5956944,
-    "?Unknown_Slot7@MSPCXAnim@@UAE_NXZ": 5962736,
-    "?Unknown_Slot7@MSAnim@@UAE_NXZ": 5962880,
-    "?Unknown_Slot8@MSAnim@@UAEXH@Z": 5962896,
+    "?Has_Finished@MSBitPrintAnim@@UAE_NXZ": 5956944,
+    "?Has_Finished@MSPCXAnim@@UAE_NXZ": 5962736,
+    "?Has_Finished@MSAnim@@UAE_NXZ": 5962880,
+    "?Restore@MSAnim@@UAEXH@Z": 5962896,
     "?Play@MSSfxEntry@@QAEXXZ": 5969616,
     "?Clear@?$DynamicVectorClass@UPoint2D@@@@UAEXXZ": 5969632,
     "?ID@?$DynamicVectorClass@UPoint2D@@@@UAEHPBUPoint2D@@@Z": 5969680,
@@ -1409,7 +1409,7 @@
     "?target@Call_7302e0_1@@QAEII@Z": 6526256,
     "??1Wstring@@QAE@XZ": 7789024,
     "?Draw@Anim@Voices@WorldDominationTour@@UAEXPAVSurface@@PBVRect@@@Z": 7547856,
-    "?Unknown_Slot8@Anim@Voices@WorldDominationTour@@UAEXH@Z": 7547936,
+    "?Restore@Anim@Voices@WorldDominationTour@@UAEXH@Z": 7547936,
     "?target@Call_7395b0_0@@QAEIXZ": 7789024,
     "?target@Call_7395b0_1@@QAEIXZ": 6526736,
     "?target@Call_765aa0_0@@QAEIXZ": 6295744,
@@ -1535,7 +1535,7 @@
     "?ID@?$DynamicVectorClass@UWaypointClass@@@@UAEHABUWaypointClass@@@Z": 7493632,
     "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHPBUCentroid@WorldDominationTour@@@Z": 7518368,
     "?unknown_18@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525008,
-    "?Unknown_Slot7@Anim@Voices@WorldDominationTour@@UAE_NXZ": 7547920,
+    "?Has_Finished@Anim@Voices@WorldDominationTour@@UAE_NXZ": 7547920,
     "?Init_Ports@UDPInterfaceClass@@UAE_NXZ": 7784144,
     "?Get_Port@UDPInterfaceClass@@UAEGXZ": 7787600,
     "?VQA_CloseAudio@@YIXPAUVQAHandleP@@@Z": 7824416,
@@ -2310,15 +2310,15 @@
     "__imp__GetSystemMetrics@4": 7971804,
     "?unknown_load_drawer_5ac560@@YIPAVConvertClass@@ABVWstring@@@Z": 5948768,
     "??0CCFileClass@@QAE@ABVWstring@@@Z": 4624272,
-    "?Unknown_Slot8@MSOverlayAnim@@UAEXH@Z": 5953600,
+    "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
     "?unknown_fade_flags_7e57f0@@3PAHA": 8280048,
     "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z": 4845216,
     "??0MSBinkAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVRect@@_N@Z": 5953760,
     "??_7MSBinkAnim@@6B@": 8023516,
     "??1MSBinkAnim@@UAE@XZ": 5953952,
     "?Get_Rect@MSBinkAnim@@UAE?AVRect@@XZ": 5954000,
-    "?Unknown_Slot7@MSBinkAnim@@UAE_NXZ": 5954048,
-    "?Unknown_Slot4@MSBinkAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5954080,
+    "?Has_Finished@MSBinkAnim@@UAE_NXZ": 5954048,
+    "?Advance@MSBinkAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5954080,
     "?Draw@MSBinkAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5954288,
     "??0MSVQAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVRect@@_N@Z": 5954464,
     "??_7MSVQAnim@@6B@": 8023556,
@@ -2327,17 +2327,17 @@
     "?unknown_load_pcx_60d110@@YIPAVSurface@@PAVFileClass@@PAVPaletteClass@@HH@Z": 6344976,
     "??0MSVQAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@_N@Z": 5954960,
     "??1MSVQAnim@@UAE@XZ": 5955472,
-    "?Unknown_Slot4@MSVQAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5955552,
+    "?Advance@MSVQAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5955552,
     "?Draw@MSVQAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5956144,
-    "?Unknown_Slot8@MSVQAnim@@UAEXH@Z": 5956496,
+    "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
     "?Get_Rect@MSVQAnim@@UAE?AVRect@@XZ": 5956576,
     "_?empty@?1??Get_Rect@MSVQAnim@@UAE?AVRect@@XZ@4V3@A": 10950680,
     "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABUPoint2D@@_N@Z": 5961616,
     "??_7MSPCXAnim@@6B@": 8023680,
     "??1MSPCXAnim@@UAE@XZ": 5961968,
-    "?Unknown_Slot4@MSPCXAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5962000,
+    "?Advance@MSPCXAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5962000,
     "?Draw@MSPCXAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5962240,
-    "?Unknown_Slot8@MSPCXAnim@@UAEXH@Z": 5962624,
+    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
     "?Get_Rect@MSPCXAnim@@UAE?AVRect@@XZ": 5962688,
     "??_GMSBinkAnim@@UAEPAXI@Z": 5963184,
     "??_GMSVQAnim@@UAEPAXI@Z": 5963248,
@@ -2765,7 +2765,7 @@
     "?Value@UnknownTimeSource_0069a160@@QAEHXZ": 6923312,
     "?unknown_object_84e8d0@@3UUnknownFallback_006f6490@@A": 8710352,
     "?Resume@Anim@Voices@WorldDominationTour@@UAEXXZ": 7547808,
-    "?Unknown_Slot4@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@PAVRect@@@Z": 7547840,
+    "?Advance@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@PAVRect@@@Z": 7547840,
     "??YWideString@@QAEAAV0@PBG@Z": 7798224,
     "??YWideString@@QAEAAV0@ABV0@@Z": 7798352,
     "?Load_CLIP@@YIJPAUVQAHandleP@@K@Z": 7840576,
@@ -3765,7 +3765,7 @@
     "?Set_Local_Dimensions@MapClass@@UAEXABVRect@@@Z": 5544672,
     "?Detach@MapClass@@UAEXPAVAbstractClass@@_N@Z": 5610880,
     "?Detach@ParasiteClass@@UAEXPAVAbstractClass@@_N@Z": 6320640,
-    "?Unknown_Slot4@MSPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5959072,
+    "?Advance@MSPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5959072,
     "?unknown_char_770400@WideString@@QBEGI@Z": 7799808,
     "?Load@BaseClass@@UAGJPAUIStream@@@Z": 4376224,
     "__real@8@3fe2a0000000a0000000": 8019752,
@@ -3785,10 +3785,10 @@
     "??_7MSPrintAnim@@6B@": 8023636,
     "?Set_Rect@MSPrintAnim@@QAEXABVRect@@@Z": 5957600,
     "?Get_Rect@MSPrintAnim@@UAE?AVRect@@XZ": 5960704,
-    "?Unknown_Slot7@MSPrintAnim@@UAE_NXZ": 5960784,
+    "?Has_Finished@MSPrintAnim@@UAE_NXZ": 5960784,
     "?Pause@MSAnim@@UAEXXZ": 5962768,
     "??_GMSPrintAnim@@UAEPAXI@Z": 5963392,
-    "?Unknown_Slot4@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5956960,
+    "?Advance@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5956960,
     "?unknown_bit_printer_84e9d0_ptr@@3PAVunknown_bit_printer_84e9d0@@A": 8710608,
     "?unknown_bit_font_84e9e8_ptr@@3PAVunknown_bit_font_84e9e8@@A": 8710632,
     "?Set_Clip_431460@unknown_bit_font_84e9e8@@QAEXPBURECT@@@Z": 4396128,
@@ -3801,8 +3801,8 @@
     "?Draw@MSShapeAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5950384,
     "?Draw@MSFadeAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5952016,
     "?Draw@MSOverlayAnim@@UAEXPAVSurface@@PBVRect@@@Z": 5953200,
-    "?Unknown_Slot4@MSFadeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5951024,
-    "?Unknown_Slot4@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5952592,
+    "?Advance@MSFadeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5951024,
+    "?Advance@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5952592,
     "?unknown_slot32@UnitTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": 7383504,
     "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z": 6040992,
     "?Destroy_Connection_005bb5d0@@YIXHH@Z": 6010320,
@@ -4206,7 +4206,7 @@
     "?unknown_slot27@MapClass@@QAEXXZ": 5563136,
     "__real@8@3ffef333333333333000": 7986032,
     "?Action@CheckBoxClass@@UAEHIAAI@Z": 4706928,
-    "?Unknown_Slot4@MSShapeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5949520,
+    "?Advance@MSShapeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5949520,
     "?Line_Width@MSPrintAnim@@QAEHABVWideString@@@Z": 5960832,
     "?Draw_Completed_005af4f0@MSPrintAnim@@QAEXPAVSurface@@PBVRect@@@Z": 5960944,
     "__real@4@3ffecccccd0000000000": 8055372,
@@ -4505,7 +4505,7 @@
     "??_C@_04DCKM@?4PCX?$AA@": 8232324,
     "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
     "_$E2": 5948736,
-    "?Unknown_Slot4@MSShapeAnim@@": 5949520,
+    "?Advance@MSShapeAnim@@": 5949520,
     "?Set_Rect@MSPrintAnim@@": 5957600,
     "?unknown_paginate_text_5aece0@@YIHAAVWideString@@PAVMSFont@@H@Z": 5958880,
     "?Line_Width@MSPrintAnim@@": 5960832,
@@ -5774,7 +5774,29 @@
     "__except_handler3": 7885524,
     "__except_list": 0,
     "?AI@AnimClass@@UAEXXZ": 4331280,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Search@@3UAStarClass@@A": 8590792,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Advance@EgoClass@@QAE_NH@Z": 4929136,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Place_Tiberium@CellClass@@QAE_NHH@Z": 4703136,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552
   },
   "regions": [
     {
@@ -5874,8 +5896,8 @@
     {
       "entry": 5954448,
       "method": "005adb90",
-      "symbol": "?Unknown_Slot8@MSBinkAnim@@UAEXH@Z",
-      "symbol_prefix": "?Unknown_Slot8@MSBinkAnim@@UAEXH@Z",
+      "symbol": "?Restore@MSBinkAnim@@UAEXH@Z",
+      "symbol_prefix": "?Restore@MSBinkAnim@@UAEXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -5888,20 +5910,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
       "relocations": [],
-      "source_sha256": "63170fd6ac4dbca54a4eea7219bd393763f21b8453776132e61a8effdf90dc30",
-      "source": "src/recovered/classes/MSBinkAnim/MSBinkAnim_Unknown_Slot8_005adb90.cpp",
+      "source_sha256": "98e09cd30465cc4b1f5962cf99f93485725d7e6460d6160b1d5fb49f10824f2e",
+      "source": "src/recovered/classes/MSBinkAnim/MSBinkAnim_Restore_005adb90.cpp",
       "population": "population-3811",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSBinkAnim_Unknown_Slot8_005adb90",
+      "semantic_name": "MSBinkAnim_Restore_005adb90",
       "source_order": 169447
     },
     {
       "entry": 5956720,
       "method": "005ae470",
-      "symbol": "?Unknown_Slot7@MSVQAnim@@UAE_NXZ",
-      "symbol_prefix": "?Unknown_Slot7@MSVQAnim@@UAE_NXZ",
+      "symbol": "?Has_Finished@MSVQAnim@@UAE_NXZ",
+      "symbol_prefix": "?Has_Finished@MSVQAnim@@UAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -5914,13 +5936,13 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "742792ffcf01f7871afae169ca4286b527fe5ac09cd15a56c2a2216d3d435846",
       "relocations": [],
-      "source_sha256": "3090020850f319aa537a2ec2b159dee889ba54a3637524b76fe025a439a1a93d",
-      "source": "src/recovered/classes/MSVQAnim/MSVQAnim_Unknown_Slot7_005ae470.cpp",
+      "source_sha256": "41909733e6134edbcef5eddec1cf4c6d293ffa413fd2fb38f8b7d7764b943eea",
+      "source": "src/recovered/classes/MSVQAnim/MSVQAnim_Has_Finished_005ae470.cpp",
       "population": "population-3811",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSVQAnim_Unknown_Slot7_005ae470",
+      "semantic_name": "MSVQAnim_Has_Finished_005ae470",
       "source_order": 169456
     },
     {
@@ -5977,8 +5999,8 @@
     {
       "entry": 5956944,
       "method": "005ae550",
-      "symbol": "?Unknown_Slot7@MSBitPrintAnim@@UAE_NXZ",
-      "symbol_prefix": "?Unknown_Slot7@MSBitPrintAnim@@UAE_NXZ",
+      "symbol": "?Has_Finished@MSBitPrintAnim@@UAE_NXZ",
+      "symbol_prefix": "?Has_Finished@MSBitPrintAnim@@UAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -5991,20 +6013,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "6a4cb770818f03624b844f4f3691866c59e5acd247c24c73292503a164daf46f",
       "relocations": [],
-      "source_sha256": "4ee7490f33a87e9f671d1a27a0db2b5b784b5cf95969f19c4bfff7073f9f7097",
-      "source": "src/recovered/classes/MSBitPrintAnim/MSBitPrintAnim_Unknown_Slot7_005ae550.cpp",
+      "source_sha256": "a1d1d92f2b6e4bae0a6c7a719913925c0c4e168b2ab046d64b4dcb38427f6596",
+      "source": "src/recovered/classes/MSBitPrintAnim/MSBitPrintAnim_Has_Finished_005ae550.cpp",
       "population": "population-3811",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSBitPrintAnim_Unknown_Slot7_005ae550",
+      "semantic_name": "MSBitPrintAnim_Has_Finished_005ae550",
       "source_order": 169461
     },
     {
       "entry": 5962736,
       "method": "005afbf0",
-      "symbol": "?Unknown_Slot7@MSPCXAnim@@UAE_NXZ",
-      "symbol_prefix": "?Unknown_Slot7@MSPCXAnim@@UAE_NXZ",
+      "symbol": "?Has_Finished@MSPCXAnim@@UAE_NXZ",
+      "symbol_prefix": "?Has_Finished@MSPCXAnim@@UAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -6017,20 +6039,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "4851c756038cd15838be12bf5f1373acc6b21afd631c0d52f275d1d1601a8b11",
       "relocations": [],
-      "source_sha256": "14cae537abb8705bd2abb9ef2597b8d087f56bf039fbd7261265729870b5c568",
-      "source": "src/recovered/classes/MSPCXAnim/MSPCXAnim_Unknown_Slot7_005afbf0.cpp",
+      "source_sha256": "e6e74b68a111b8b372b9ab02940843ccd3fed871619b93bb6b247499a5f49829",
+      "source": "src/recovered/classes/MSPCXAnim/MSPCXAnim_Has_Finished_005afbf0.cpp",
       "population": "population-3811",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSPCXAnim_Unknown_Slot7_005afbf0",
+      "semantic_name": "MSPCXAnim_Has_Finished_005afbf0",
       "source_order": 169482
     },
     {
       "entry": 5962880,
       "method": "005afc80",
-      "symbol": "?Unknown_Slot7@MSAnim@@UAE_NXZ",
-      "symbol_prefix": "?Unknown_Slot7@MSAnim@@UAE_NXZ",
+      "symbol": "?Has_Finished@MSAnim@@UAE_NXZ",
+      "symbol_prefix": "?Has_Finished@MSAnim@@UAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -6043,20 +6065,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
       "relocations": [],
-      "source_sha256": "eded43be7904785129da4deeea52a568e9368add7b3b2419f6a4393c985565d3",
-      "source": "src/recovered/classes/MSAnim/MSAnim_Unknown_Slot7_005afc80.cpp",
+      "source_sha256": "5868779b9cc94feb64dd91b19f0a1215db7b14f42993def2ac3662c80c1b4e67",
+      "source": "src/recovered/classes/MSAnim/MSAnim_Has_Finished_005afc80.cpp",
       "population": "population-3811",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSAnim_Unknown_Slot7_005afc80",
+      "semantic_name": "MSAnim_Has_Finished_005afc80",
       "source_order": 169486
     },
     {
       "entry": 5962896,
       "method": "005afc90",
-      "symbol": "?Unknown_Slot8@MSAnim@@UAEXH@Z",
-      "symbol_prefix": "?Unknown_Slot8@MSAnim@@UAEXH@Z",
+      "symbol": "?Restore@MSAnim@@UAEXH@Z",
+      "symbol_prefix": "?Restore@MSAnim@@UAEXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6069,13 +6091,13 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
       "relocations": [],
-      "source_sha256": "be40b4ddd442eca22b3e4c8dfbfee9c44c66cd378cba0fb6918dca8f38d36d4d",
-      "source": "src/recovered/classes/MSAnim/MSAnim_Unknown_Slot8_005afc90.cpp",
+      "source_sha256": "81cf9942a05b56067456979079f149422c6c0c08d04318a708fb50b92b7964a0",
+      "source": "src/recovered/classes/MSAnim/MSAnim_Restore_005afc90.cpp",
       "population": "population-3811",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSAnim_Unknown_Slot8_005afc90",
+      "semantic_name": "MSAnim_Restore_005afc90",
       "source_order": 169487
     },
     {
@@ -6835,7 +6857,7 @@
           "resolved": 8023596
         }
       ],
-      "source_sha256": "b3681877b0bc585808ca05e23a74aac71c2f59ca50d9f74635a0925f78924fd6",
+      "source_sha256": "fd7097987fb65ac49231e1552c05fc31a872bd6d91b22d94357e44509cd9f1c7",
       "source": "src/recovered/classes/MSBitPrintAnim/MSBitPrintAnim_MSBitPrintAnim_005ae480.cpp",
       "population": "population-3811",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -7111,8 +7133,8 @@
     {
       "entry": 5953600,
       "method": "005ad840",
-      "symbol": "?Unknown_Slot8@MSOverlayAnim@@UAEXH@Z",
-      "symbol_prefix": "?Unknown_Slot8@MSOverlayAnim@@UAEXH@Z",
+      "symbol": "?Restore@MSOverlayAnim@@UAEXH@Z",
+      "symbol_prefix": "?Restore@MSOverlayAnim@@UAEXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7158,13 +7180,13 @@
           "resolved": 4293858798
         }
       ],
-      "source_sha256": "9003e264869606da09ed7b950c95388910056c620699451c1f3dc414d729abf1",
-      "source": "src/recovered/classes/MSOverlayAnim/MSOverlayAnim_Unknown_Slot8_005ad840.cpp",
+      "source_sha256": "8d16610bd075981151856866a1509caf97eed431ecf8cacb6741e5e4a6c78b14",
+      "source": "src/recovered/classes/MSOverlayAnim/MSOverlayAnim_Restore_005ad840.cpp",
       "population": "population-3811",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSOverlayAnim_Unknown_Slot8_005ad840",
+      "semantic_name": "MSOverlayAnim_Restore_005ad840",
       "source_order": 169440
     },
     {
@@ -7346,8 +7368,8 @@
     {
       "entry": 5954048,
       "method": "005ada00",
-      "symbol": "?Unknown_Slot7@MSBinkAnim@@UAE_NXZ",
-      "symbol_prefix": "?Unknown_Slot7@MSBinkAnim@@UAE_NXZ",
+      "symbol": "?Has_Finished@MSBinkAnim@@UAE_NXZ",
+      "symbol_prefix": "?Has_Finished@MSBinkAnim@@UAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -7369,20 +7391,20 @@
           "resolved": 4293405204
         }
       ],
-      "source_sha256": "aa66478db18bb8f7f86a17643c98e0c9c8fc7bf155987da485ed36ed317927f1",
-      "source": "src/recovered/classes/MSBinkAnim/MSBinkAnim_Unknown_Slot7_005ada00.cpp",
+      "source_sha256": "e48bda3e722470caac4e490f4743ea14862341315d64f5fcd87929f2d6b12ffa",
+      "source": "src/recovered/classes/MSBinkAnim/MSBinkAnim_Has_Finished_005ada00.cpp",
       "population": "population-3811",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSBinkAnim_Unknown_Slot7_005ada00",
+      "semantic_name": "MSBinkAnim_Has_Finished_005ada00",
       "source_order": 169444
     },
     {
       "entry": 5954080,
       "method": "005ada20",
-      "symbol": "?Unknown_Slot4@MSBinkAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Slot4@MSBinkAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol": "?Advance@MSBinkAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol_prefix": "?Advance@MSBinkAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7420,13 +7442,13 @@
           "resolved": 4293405016
         }
       ],
-      "source_sha256": "c02426cab26da16694b161201cec5d7cbbb80876d5e1df51a742ce2e65cf05bf",
-      "source": "src/recovered/classes/MSBinkAnim/MSBinkAnim_Unknown_Slot4_005ada20.cpp",
+      "source_sha256": "1ccb6ce16f1bb8385585d0f95c2549b7c834e7ddf15d47275a9e2d4bfd8561e2",
+      "source": "src/recovered/classes/MSBinkAnim/MSBinkAnim_Advance_005ada20.cpp",
       "population": "population-3811",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSBinkAnim_Unknown_Slot4_005ada20",
+      "semantic_name": "MSBinkAnim_Advance_005ada20",
       "source_order": 169445
     },
     {
@@ -7988,8 +8010,8 @@
     {
       "entry": 5955552,
       "method": "005adfe0",
-      "symbol": "?Unknown_Slot4@MSVQAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Slot4@MSVQAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol": "?Advance@MSVQAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol_prefix": "?Advance@MSVQAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8011,13 +8033,13 @@
           "resolved": 4294915555
         }
       ],
-      "source_sha256": "8225620baacf4b6eb3c62efb8316e13440822e9228a4f31a50fbe8cd07a04496",
-      "source": "src/recovered/classes/MSVQAnim/MSVQAnim_Unknown_Slot4_005adfe0.cpp",
+      "source_sha256": "598575cfee51af129fd39e06aefb0079fbd4edefab3c67a7d003520088e4847d",
+      "source": "src/recovered/classes/MSVQAnim/MSVQAnim_Advance_005adfe0.cpp",
       "population": "population-3811",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSVQAnim_Unknown_Slot4_005adfe0",
+      "semantic_name": "MSVQAnim_Advance_005adfe0",
       "source_order": 169451
     },
     {
@@ -8066,8 +8088,8 @@
     {
       "entry": 5956496,
       "method": "005ae390",
-      "symbol": "?Unknown_Slot8@MSVQAnim@@UAEXH@Z",
-      "symbol_prefix": "?Unknown_Slot8@MSVQAnim@@UAEXH@Z",
+      "symbol": "?Restore@MSVQAnim@@UAEXH@Z",
+      "symbol_prefix": "?Restore@MSVQAnim@@UAEXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8080,13 +8102,13 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "6a9e0dd1ba91de41ae0e219adc7466bbba0cbee040ba890d9a2edfaca44fff00",
       "relocations": [],
-      "source_sha256": "1031124a79eb80d30e1594ab6a3d5be3a305ceba5319bf2551f7b4130b78353b",
-      "source": "src/recovered/classes/MSVQAnim/MSVQAnim_Unknown_Slot8_005ae390.cpp",
+      "source_sha256": "7303d543f04327d47dab884e45b8ed0b6b06f7e1e7fa8f408d9f6726bfa15c2e",
+      "source": "src/recovered/classes/MSVQAnim/MSVQAnim_Restore_005ae390.cpp",
       "population": "population-3811",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSVQAnim_Unknown_Slot8_005ae390",
+      "semantic_name": "MSVQAnim_Restore_005ae390",
       "source_order": 169453
     },
     {
@@ -8413,8 +8435,8 @@
     {
       "entry": 5962000,
       "method": "005af910",
-      "symbol": "?Unknown_Slot4@MSPCXAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Slot4@MSPCXAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol": "?Advance@MSPCXAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol_prefix": "?Advance@MSPCXAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8427,13 +8449,13 @@
       "full_extent_bytes": 240,
       "full_extent_sha256": "7a9118caa18b1c759b8841c4b435ae1c2b2d4f6a08b858080b53d80bedb0915d",
       "relocations": [],
-      "source_sha256": "165a748ca6d18e3b50e656f439d0dc35b8ff6f4be9f1684bd2546197ee055f8f",
-      "source": "src/recovered/classes/MSPCXAnim/MSPCXAnim_Unknown_Slot4_005af910.cpp",
+      "source_sha256": "6be186cd769eb32afaf260bec536b756ac2c546d3e347c93d70c046d13d6eb3f",
+      "source": "src/recovered/classes/MSPCXAnim/MSPCXAnim_Advance_005af910.cpp",
       "population": "population-3811",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSPCXAnim_Unknown_Slot4_005af910",
+      "semantic_name": "MSPCXAnim_Advance_005af910",
       "source_order": 169478
     },
     {
@@ -8474,8 +8496,8 @@
     {
       "entry": 5962624,
       "method": "005afb80",
-      "symbol": "?Unknown_Slot8@MSPCXAnim@@UAEXH@Z",
-      "symbol_prefix": "?Unknown_Slot8@MSPCXAnim@@UAEXH@Z",
+      "symbol": "?Restore@MSPCXAnim@@UAEXH@Z",
+      "symbol_prefix": "?Restore@MSPCXAnim@@UAEXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8488,13 +8510,13 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "30148b82713d2e1a5625e8a80fcc1826cfdce783633e2a8bb0eadb92fb0a9c25",
       "relocations": [],
-      "source_sha256": "bf72f228f28aa28661f2658ecc60f21e13485a7dab36d7396a15fa7d7efc81e6",
-      "source": "src/recovered/classes/MSPCXAnim/MSPCXAnim_Unknown_Slot8_005afb80.cpp",
+      "source_sha256": "355f62070aaeb6609ef728a62c80d1b6a7617aa2a78386888f63b79ae148ea41",
+      "source": "src/recovered/classes/MSPCXAnim/MSPCXAnim_Restore_005afb80.cpp",
       "population": "population-3811",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSPCXAnim_Unknown_Slot8_005afb80",
+      "semantic_name": "MSPCXAnim_Restore_005afb80",
       "source_order": 169480
     },
     {
@@ -8719,8 +8741,8 @@
     {
       "entry": 5959072,
       "method": "005aeda0",
-      "symbol": "?Unknown_Slot4@MSPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Slot4@MSPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol": "?Advance@MSPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol_prefix": "?Advance@MSPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8862,13 +8884,13 @@
           "resolved": 1840255
         }
       ],
-      "source_sha256": "e94bd4abfbfda45bbe9450986ce9e3e3957d55e0cdd7fa238ce7812e6b808d5a",
-      "source": "src/recovered/classes/MSPrintAnim/MSPrintAnim_Unknown_Slot4_005aeda0.cpp",
+      "source_sha256": "ce1209a9e5dad01dc24fd88dbe5c63c3cc5486bee27809aa5549904d1c8ee15f",
+      "source": "src/recovered/classes/MSPrintAnim/MSPrintAnim_Advance_005aeda0.cpp",
       "population": "population-3811",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSPrintAnim_Unknown_Slot4_005aeda0",
+      "semantic_name": "MSPrintAnim_Advance_005aeda0",
       "source_order": 169468
     },
     {
@@ -9138,8 +9160,8 @@
     {
       "entry": 5960784,
       "method": "005af450",
-      "symbol": "?Unknown_Slot7@MSPrintAnim@@UAE_NXZ",
-      "symbol_prefix": "?Unknown_Slot7@MSPrintAnim@@UAE_NXZ",
+      "symbol": "?Has_Finished@MSPrintAnim@@UAE_NXZ",
+      "symbol_prefix": "?Has_Finished@MSPrintAnim@@UAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -9161,13 +9183,13 @@
           "resolved": 1839166
         }
       ],
-      "source_sha256": "d05c01aa7f6fae1aadfb4b5615777775bacef2bf9732f82d38cb835345c5a109",
-      "source": "src/recovered/classes/MSPrintAnim/MSPrintAnim_Unknown_Slot7_005af450.cpp",
+      "source_sha256": "1cd25c9818b1342618938317388b8b079de946bf948bff75427e7290cf095a53",
+      "source": "src/recovered/classes/MSPrintAnim/MSPrintAnim_Has_Finished_005af450.cpp",
       "population": "population-3811",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSPrintAnim_Unknown_Slot7_005af450",
+      "semantic_name": "MSPrintAnim_Has_Finished_005af450",
       "source_order": 169472
     },
     {
@@ -9267,8 +9289,8 @@
     {
       "entry": 5956960,
       "method": "005ae560",
-      "symbol": "?Unknown_Slot4@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Slot4@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol": "?Advance@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol_prefix": "?Advance@MSBitPrintAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -9338,13 +9360,13 @@
           "resolved": 4293410474
         }
       ],
-      "source_sha256": "22e7d3d47b465176b40af94f86129db50eddbcaee30b395fccfbb1144261630c",
-      "source": "src/recovered/classes/MSBitPrintAnim/MSBitPrintAnim_Unknown_Slot4_005ae560.cpp",
+      "source_sha256": "d7c3a6d5d358df4c21a9e9f71e5a3d8fb3607103b2a63ca6e283af1318fd419e",
+      "source": "src/recovered/classes/MSBitPrintAnim/MSBitPrintAnim_Advance_005ae560.cpp",
       "population": "population-3811",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSBitPrintAnim_Unknown_Slot4_005ae560",
+      "semantic_name": "MSBitPrintAnim_Advance_005ae560",
       "source_order": 169462
     },
     {
@@ -10427,8 +10449,8 @@
     {
       "entry": 5951024,
       "method": "005ace30",
-      "symbol": "?Unknown_Slot4@MSFadeAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Slot4@MSFadeAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol": "?Advance@MSFadeAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol_prefix": "?Advance@MSFadeAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -10578,20 +10600,20 @@
           "resolved": 10950672
         }
       ],
-      "source_sha256": "89e85e6ef7692f8fff2e938f6c50e1cc4f68c8bdb26c1cdb788b992106f03020",
-      "source": "src/recovered/classes/MSFadeAnim/MSFadeAnim_Unknown_Slot4_005ace30.cpp",
+      "source_sha256": "452719542557f0d80f2e3e7c2733acc7ccabf6d257e88d79cfa0bfb36de83c9f",
+      "source": "src/recovered/classes/MSFadeAnim/MSFadeAnim_Advance_005ace30.cpp",
       "population": "population-3811",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSFadeAnim_Unknown_Slot4_005ace30",
+      "semantic_name": "MSFadeAnim_Advance_005ace30",
       "source_order": 169435
     },
     {
       "entry": 5952592,
       "method": "005ad450",
-      "symbol": "?Unknown_Slot4@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Slot4@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol": "?Advance@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol_prefix": "?Advance@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -10701,20 +10723,20 @@
           "resolved": 4293859371
         }
       ],
-      "source_sha256": "3471567b7dc977556c5009331a520d3ed015a4783a10a094d84bcf1499f1ce7a",
-      "source": "src/recovered/classes/MSOverlayAnim/MSOverlayAnim_Unknown_Slot4_005ad450.cpp",
+      "source_sha256": "a103208715e89659567bcd1e773b75e95487c7934f0ffcf87796ef2839e82737",
+      "source": "src/recovered/classes/MSOverlayAnim/MSOverlayAnim_Advance_005ad450.cpp",
       "population": "population-3811",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "MSOverlayAnim_Unknown_Slot4_005ad450",
+      "semantic_name": "MSOverlayAnim_Advance_005ad450",
       "source_order": 169438
     },
     {
       "entry": 5949520,
       "method": "005ac850",
-      "symbol": "?Unknown_Slot4@MSShapeAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
-      "symbol_prefix": "?Unknown_Slot4@MSShapeAnim@@",
+      "symbol": "?Advance@MSShapeAnim@@UAE_NPAVSurface@@PAVRect@@@Z",
+      "symbol_prefix": "?Advance@MSShapeAnim@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -10832,8 +10854,8 @@
           "resolved": 10950676
         }
       ],
-      "source_sha256": "9890f90f5645f047e50cc78bf327534b04ff7c30462d16a6ad1cac48b1a759f4",
-      "source": "src/recovered/classes/MSShapeAnim/MSShapeAnim_Unknown_Slot4_005ac850.cpp",
+      "source_sha256": "0f5e06f0d30fff5e10e977143d1d5d39fa81e4c90c00f06b6948719c8b93dd2f",
+      "source": "src/recovered/classes/MSShapeAnim/MSShapeAnim_Advance_005ac850.cpp",
       "population": "population-3811",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

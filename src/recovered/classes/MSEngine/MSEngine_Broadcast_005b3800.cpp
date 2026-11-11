@@ -5,6 +5,6 @@
 void MSEngine::Broadcast(int unknown1)
 {
     for (int index = 0; index < Anims.Count(); index++) {
-        Anims[index]->Unknown_Slot8(unknown1);
+        Anims[index]->Restore(unknown1);
     }
 }

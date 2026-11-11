@@ -1,11 +1,11 @@
-// bool MSBinkAnim::Unknown_Slot4(Surface *surface, Rect *dirty) (0x005ADA20, slot 4)
+// bool MSBinkAnim::Advance(Surface *surface, Rect *dirty) (0x005ADA20, slot 4)
 // Shows each new movie frame: draws it, reports the movie rectangle and
 // redraws every other animation of the list inside it. True once the movie
 // finished unless unknown_38.
 #include "shared/ms_anim.hpp"
 // @ref ?Render_Frame@BinkClass@@QAE_NXZ=00430800
 
-bool MSBinkAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSBinkAnim::Advance(Surface *surface, Rect *dirty)
 {
     if (surface == 0) {
         return false;

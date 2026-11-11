@@ -1,4 +1,4 @@
-// bool MSPrintAnim::Unknown_Slot4(Surface *surface, Rect *dirty) (0x005AEDA0, slot 4)
+// bool MSPrintAnim::Advance(Surface *surface, Rect *dirty) (0x005AEDA0, slot 4)
 // Types the next character once the per-character delay has run out: redraws
 // the visible lines up to it (centring each line when Centered), scrolls to
 // the next line when the text runs past the bottom of TextRect, and reports
@@ -8,7 +8,7 @@
 #include "shared/msfont.hpp"
 // @ref ?unknown_char_770400@WideString@@QBEGI@Z=00770400
 
-bool MSPrintAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSPrintAnim::Advance(Surface *surface, Rect *dirty)
 {
     dirty->X = 0;
     dirty->Y = 0;

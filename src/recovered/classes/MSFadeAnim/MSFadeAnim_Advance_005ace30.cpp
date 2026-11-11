@@ -1,4 +1,4 @@
-// bool MSFadeAnim::Unknown_Slot4(Surface *surface, Rect *dirty) (0x005ACE30, slot 4)
+// bool MSFadeAnim::Advance(Surface *surface, Rect *dirty) (0x005ACE30, slot 4)
 // Every unknown_24 ticks restores the old frame's area, redraws the other
 // animations of Anims over it, steps the frame (true with an empty area when
 // the last frame is passed and unknown_34 is clear) and the fade level, draws
@@ -7,7 +7,7 @@
 // @ref _unknown_empty_rect=00a71808
 // @ref ??0Rect@@QAE@HHHH@Z=0042bcd0
 
-bool MSFadeAnim::Unknown_Slot4(Surface *surface, Rect *dirty)
+bool MSFadeAnim::Advance(Surface *surface, Rect *dirty)
 {
     if (unknown_0C == true && Timer.Value() == 0) {
         Timer = CDTimerClass<SystemTimerClass>(unknown_24);

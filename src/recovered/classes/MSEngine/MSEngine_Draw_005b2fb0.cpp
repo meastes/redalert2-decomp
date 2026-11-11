@@ -26,7 +26,7 @@ void MSEngine::Draw(Surface *surface)
     }
     for (index = 0; index < Anims.Count(); index++) {
         Rect dirty;
-        if (Anims[index]->Unknown_Slot4(surface, &dirty) == true) {
+        if (Anims[index]->Advance(surface, &dirty) == true) {
             delete Anims[index];
             Anims.Delete(index);
         }
