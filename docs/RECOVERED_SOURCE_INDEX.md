@@ -129,7 +129,7 @@
 | [classes/UnknownTracker839EA0](../src/recovered/classes/UnknownTracker839EA0/) | 14 | 4,357 | 14 | 0x004125D0–0x00413600 |
 | [classes/TEventClass](../src/recovered/classes/TEventClass/) | 20 | 4,331 | 20 | 0x006E5D60–0x006E6DA0 |
 | [persistence](../src/recovered/persistence/) | 34 | 4,318 | 34 | 0x006580C0–0x00659140 |
-| [classes/UnknownPairFirst](../src/recovered/classes/UnknownPairFirst/) | 12 | 4,276 | 12 | 0x00719060–0x00719F60 |
+| [classes/VoxelLibrary](../src/recovered/classes/VoxelLibrary/) | 12 | 4,276 | 12 | 0x00719060–0x00719F60 |
 | [classes/TriggerTypeClass](../src/recovered/classes/TriggerTypeClass/) | 32 | 4,236 | 32 | 0x004D2E10–0x006EEF80 |
 | [classes/BitFontClass](../src/recovered/classes/BitFontClass/) | 25 | 4,188 | 25 | 0x00431040–0x00432200 |
 | [classes/UnitTypeClass](../src/recovered/classes/UnitTypeClass/) | 26 | 4,176 | 26 | 0x004D3D10–0x0070B600 |

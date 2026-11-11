@@ -12,10 +12,10 @@ struct VxlFileHeader { char Name[16]; unsigned PaletteCount; int LayerCount, Lay
 struct VxlLayerHeader { char Name[16]; int InfoIndex, Unused1; unsigned char Unused2; };
 struct VxlLayerInfo { int StartOffset, EndOffset, DataOffset; float Scale; float Transform[12]; float MinBounds[3], MaxBounds[3]; unsigned char XSize,YSize,ZSize,NormalType; };
 struct VxlMatrixData { float Data[12]; };
-int UnknownPairFirst::unknown_719160(FileClass *file, int load_palette)
+int VoxelLibrary::Read_File(FileClass *file, int load_palette)
 {
     unsigned i = 0;
-    unknown_719110();
+    Clear();
     if (!file->Open(1)) return 0;
     VxlLayerInfo layer_info;
     VxlFileHeader header;
@@ -28,13 +28,13 @@ int UnknownPairFirst::unknown_719160(FileClass *file, int load_palette)
     unknown_14 = new UnknownVoxelTailer[unknown_08];
     unknown_18 = new unsigned char[unknown_0c];
     if (!unknown_10 || !unknown_14 || !unknown_18) {
-        unknown_719110(); file->Close(); return 0;
+        Clear(); file->Close(); return 0;
     }
     if (load_palette) {
         VoxelPaletteLibrary palette((unsigned char *)VoxelRGBColors,VoxelPaletteTranslateTable);
         unsigned char first, last;
-        if (file->Read(&first,1)!=1) { file->Close(); unknown_719110(); return 0; }
-        if (file->Read(&last,1)!=1) { file->Close(); unknown_719110(); return 0; }
+        if (file->Read(&first,1)!=1) { file->Close(); Clear(); return 0; }
+        if (file->Read(&last,1)!=1) { file->Close(); Clear(); return 0; }
         palette.Header.unknown_00=first;
         palette.Header.unknown_04=last;
         for (unsigned char *green=&VoxelRGBColors[0].Green;green<&VoxelRGBColors[256].Green;green+=3) {
@@ -46,15 +46,15 @@ int UnknownPairFirst::unknown_719160(FileClass *file, int load_palette)
     } else file->Seek(770*header.PaletteCount,1);
     for (i=0;i<(unsigned)unknown_04;++i) {
 
-        if (file->Read(&layer_header,sizeof(layer_header))!=sizeof(layer_header)) { unknown_719110(); file->Close(); return 0; }
+        if (file->Read(&layer_header,sizeof(layer_header))!=sizeof(layer_header)) { Clear(); file->Close(); return 0; }
         unknown_10[i].unknown_00=layer_header.InfoIndex;
         unknown_10[i].unknown_04=layer_header.Unused1;
         *(unsigned char *)&unknown_10[i].unknown_08=layer_header.Unused2;
     }
-    if (file->Read(unknown_18,unknown_0c)!=unknown_0c) { unknown_719110(); file->Close(); return 0; }
+    if (file->Read(unknown_18,unknown_0c)!=unknown_0c) { Clear(); file->Close(); return 0; }
     for (i=0;i<unknown_08;++i) {
 
-        if (file->Read(&layer_info,sizeof(layer_info))!=sizeof(layer_info)) { unknown_719110(); file->Close(); return 0; }
+        if (file->Read(&layer_info,sizeof(layer_info))!=sizeof(layer_info)) { Clear(); file->Close(); return 0; }
         unknown_14[i].unknown_a0=layer_info.XSize;
         unknown_14[i].unknown_a1=layer_info.YSize;
         unknown_14[i].unknown_a2=layer_info.ZSize;

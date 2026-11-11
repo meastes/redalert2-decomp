@@ -5,12 +5,12 @@
 
 #include "shared/vector3.hpp"
 
-class UnknownPairFirst;
+class VoxelLibrary;
 
 // A voxel object record: the library, section and frame, the corner nearest the viewer, the transformed
 // bounds and the eight transformed box corners.
 struct UnknownVoxelRecord88 {
-    UnknownPairFirst *Library;          // +0x00
+    VoxelLibrary *Library;          // +0x00
     int Section;                        // +0x04
     int Frame;                          // +0x08
     int AnchorCorner;                   // +0x0C

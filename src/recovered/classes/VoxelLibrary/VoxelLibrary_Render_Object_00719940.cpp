@@ -3,9 +3,9 @@
 // corners, in 8.8 fixed point; the z steps only when unknown_af6610) and calls
 // the drawer chosen by the view's flags, 2 (unknown_af6610), 4
 // (unknown_af6614) and 8 (no normal table).
-void UnknownPairFirst::unknown_719940(UnknownVoxelDrawState *state, Vector3 const *origin)
+void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *origin)
 {
-    UnknownVoxelTailer *tailer = unknown_719860(state->unknown_04, state->unknown_08);
+    UnknownVoxelTailer *tailer = Get_Layer_Info(state->unknown_04, state->unknown_08);
     unsigned char size_x = tailer->unknown_a0;
     unsigned char size_y = tailer->unknown_a1;
     unsigned char size_z = tailer->unknown_a2;

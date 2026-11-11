@@ -5,7 +5,7 @@
 #include "shared/cc_file_class.hpp"
 #include "shared/mix_file_class.hpp"
 // @ref ?Load@AbstractClass@@UAGJPAUIStream@@@Z=00410120
-// @ref ??1UnknownPairFirst@@QAE@XZ=007190c0
+// @ref ??1VoxelLibrary@@QAE@XZ=007190c0
 // @ref ??1UnknownPairSecond@@QAE@XZ=0059eba0
 // @ref ??1UnknownBuffer@@QAE@XZ=005d8070
 // @ref ?unknown_func_5d66a0@ObjectTypeClass@@QAEXXZ=005d66a0

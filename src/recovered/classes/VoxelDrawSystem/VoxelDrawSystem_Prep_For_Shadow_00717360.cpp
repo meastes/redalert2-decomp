@@ -2,9 +2,9 @@
 // mask surface and offset) and grows the bounds.
 #include "shared/voxel_draw_system.hpp"
 
-void __fastcall VoxelDrawSystem::Prep_For_Shadow(UnknownPairFirst *voxlib, int layer, int info, Matrix3D const &camera, Matrix3D const &motion, Vector3 const &light, Surface *mask, int mask_x, int mask_y)
+void __fastcall VoxelDrawSystem::Prep_For_Shadow(VoxelLibrary *voxlib, int layer, int info, Matrix3D const &camera, Matrix3D const &motion, Vector3 const &light, Surface *mask, int mask_x, int mask_y)
 {
-    UnknownVoxelTailer const *layer_info = voxlib->unknown_719860(layer, info);
+    UnknownVoxelTailer const *layer_info = voxlib->Get_Layer_Info(layer, info);
 
     UnknownVoxelRecord48 &data = unknown_records_af3408[unknown_voxel_shadow_count_ae3000];
 

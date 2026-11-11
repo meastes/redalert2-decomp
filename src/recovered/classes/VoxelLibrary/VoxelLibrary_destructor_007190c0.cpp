@@ -1,4 +1,4 @@
-UnknownPairFirst::~UnknownPairFirst()
+VoxelLibrary::~VoxelLibrary()
 {
     if (unknown_10 != 0) {
         operator delete(unknown_10);

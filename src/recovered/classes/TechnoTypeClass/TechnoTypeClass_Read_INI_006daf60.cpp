@@ -685,8 +685,8 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
             unknown_func_5d72b0();
         }
         if (unknown_b0.unknown_00 != 0 && !unknown_b0.unknown_00->unknown_00) {
-            unknown_330 = unknown_b0.unknown_00->unknown_719860(0, 0)->unknown_a1 * 0.5f + 0.5;
-            unknown_338 = unknown_b0.unknown_00->unknown_719860(0, 0)->unknown_a0 * 0.5f;
+            unknown_330 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a1 * 0.5f + 0.5;
+            unknown_338 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a0 * 0.5f;
         }
 
         return true;

@@ -91,7 +91,7 @@ void IonBlastClass::AI()
                                 *(signed char *)&foot->unknown_59e = 2 * draw_offset;
                             }
 
-                            UnknownPairFirst *voxel;
+                            VoxelLibrary *voxel;
                             if (foot->unknown_slot32()->unknown_b0.unknown_00 != 0 && (voxel = foot->unknown_slot32()->unknown_b0.unknown_00, !voxel->unknown_00) && *displacement >= 0) {
 
                                 CoordStruct blast_coord = Coord;

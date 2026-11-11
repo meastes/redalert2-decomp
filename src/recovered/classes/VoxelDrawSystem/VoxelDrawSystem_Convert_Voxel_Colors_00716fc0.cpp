@@ -20,9 +20,9 @@
 // @ref _?_need_buffer_init@?1??Reset@VoxelDrawSystem@@YAXXZ@4HA=007f9d80
 // @ref _?render_data@?1??Render@VoxelDrawSystem@@YIXAAVRect@@AAH1@Z@4PAPAUUnknownVoxelRecord88@@A=00ae3308
 // @ref _?render_data@?1??Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ@4PAPAUUnknownVoxelRecord88@@A=00ae0cb4
-// @ref ?unknown_719860@UnknownPairFirst@@QAEPAUUnknownVoxelTailer@@HH@Z=00719860
-// @ref ?unknown_719940@UnknownPairFirst@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z=00719940
-// @ref ?unknown_719c10@UnknownPairFirst@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z=00719c10
+// @ref ?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z=00719860
+// @ref ?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z=00719940
+// @ref ?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z=00719c10
 // @ref ??D@YI?AUVector3@@ABVMatrix3D@@ABU0@@Z=00591380
 // @ref __real@4@3ffe8000000000000000=0079dd80
 // @ref __ftol=0077f110
@@ -65,11 +65,11 @@ void __fastcall unknown_normal_lookup_71baa0(Vector3 const &light, Vector3 const
 namespace VoxelDrawSystem {
     void __fastcall Convert_Voxel_Colors(int red_left, int red_right, int green_left, int green_right, int blue_left, int blue_right);
     unsigned char *Get_Surface_Buffer();
-    void __fastcall Precalculate_Light(UnknownPairFirst *voxlib, int layer, int info, Matrix3D const &light_transform, Vector3 const &light);
-    void __fastcall Precalculate_Light(UnknownPairFirst *voxlib, int layer, int info, Matrix3D const &light_transform, Matrix3D const &view_transform, Vector3 const &light, float specular_strength);
+    void __fastcall Precalculate_Light(VoxelLibrary *voxlib, int layer, int info, Matrix3D const &light_transform, Vector3 const &light);
+    void __fastcall Precalculate_Light(VoxelLibrary *voxlib, int layer, int info, Matrix3D const &light_transform, Matrix3D const &view_transform, Vector3 const &light, float specular_strength);
     void Reset();
-    void __fastcall Prep_For_Shadow(UnknownPairFirst *voxlib, int layer, int info, Matrix3D const &camera, Matrix3D const &motion, Vector3 const &light, Surface *mask, int mask_x, int mask_y);
-    void __fastcall Prep_For_Object(UnknownPairFirst *voxlib, int layer, int info, Matrix3D const &transform);
+    void __fastcall Prep_For_Shadow(VoxelLibrary *voxlib, int layer, int info, Matrix3D const &camera, Matrix3D const &motion, Vector3 const &light, Surface *mask, int mask_x, int mask_y);
+    void __fastcall Prep_For_Object(VoxelLibrary *voxlib, int layer, int info, Matrix3D const &transform);
     void __fastcall Render(Rect &rect, int &x, int &y);
     SurfaceRegion __fastcall Render();
     void Clear_Buffer();

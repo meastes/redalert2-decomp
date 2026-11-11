@@ -59,9 +59,9 @@ inline void Draw_Shadow(VoxelFuncArgumentStruct *parameters, Surface *surface, i
     }
 }
 
-void UnknownPairFirst::unknown_719c10(UnknownVoxelRecord48 *record, Vector3 const *origin)
+void VoxelLibrary::Render_Shadow(UnknownVoxelRecord48 *record, Vector3 const *origin)
 {
-    UnknownVoxelTailer *tailer = unknown_719860(record->unknown_04, record->unknown_08);
+    UnknownVoxelTailer *tailer = Get_Layer_Info(record->unknown_04, record->unknown_08);
     VoxelFuncArgumentStruct parameters;
     unsigned char size_x = tailer->unknown_a0;
     unsigned char size_y = tailer->unknown_a1;

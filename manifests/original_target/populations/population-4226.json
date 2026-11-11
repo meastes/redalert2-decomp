@@ -4,8 +4,8 @@
     "id": "population-4226",
     "inventory_sha256": "609eefbc72cedcf8216e2e96de705f972e69a1b22ec4d3fe4826dbdf784c6592",
     "gaps_sha256": "21065825b61fc51d4f655181781b6b5c6978c6d523359e7cc982058d092003ba",
-    "historical_population_sha256": "6414bcd2fcf7017d17d9c4071cadb931a2229c74282c66132190125ed4901a5c",
-    "historical_acceptance_sha256": "5bf82e76c69989a3a8ac9722eb14ee6a319b2ab58873e9bb698fe050ac48ff82"
+    "historical_population_sha256": "16e60d071f7e7d07ea1de31e03d12ac826c90810dd8cdd2ffa64f1c8b9cf8cab",
+    "historical_acceptance_sha256": "175503f51cb6ddae7cba1b36bee6e2e8813333bdedd8ba04eb3984e7a5fbb97b"
   },
   "references": {
     "_unknown_static_rect": 11504128,
@@ -28,7 +28,7 @@
     "??3@YAXPAX@Z": 7871803,
     "__ftol": 7860496,
     "?Fast_Sqrt@@YAMN@Z": 4957200,
-    "?unknown_719160@UnknownPairFirst@@QAEHPAVFileClass@@H@Z": 7442784,
+    "?Read_File@VoxelLibrary@@QAEHPAVFileClass@@H@Z": 7442784,
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
     "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A": 8363904,
     "?unknown_normal_counts_7f9f94@@3PAHA": 8363924,
@@ -1078,7 +1078,7 @@
     "__malloc": 7874096,
     "___amsg_exit": 7887784,
     "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
-    "?unknown_719860@UnknownPairFirst@@QAEPAUUnknownVoxelTailer@@HH@Z": 7444576,
+    "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z": 7444576,
     "__DAT_0084ed10": 8711440,
     "_memmove": 7877264,
     "?Close@RawFileClass@@UAEXXZ": 6524240,
@@ -1141,7 +1141,7 @@
     "??_7MSShapeAnim@@6B@": 8023396,
     "??1RadarClass@@UAE@XZ": 6484096,
     "__imp__InterlockedDecrement@4": 7971264,
-    "??1UnknownPairFirst@@QAE@XZ": 7442624,
+    "??1VoxelLibrary@@QAE@XZ": 7442624,
     "??1VoxelPaletteLibrary@@QAE@XZ": 7454064,
     "__imp__InterlockedIncrement@4": 7971260,
     "__imp__SendDlgItemMessageA@20": 7971972,
@@ -1161,9 +1161,9 @@
     "?Is_Available@RAMFileClass@@UAE_NH@Z": 6521824,
     "?Set_Date_Time@RAMFileClass@@UAE_NK@Z": 6522432,
     "??0Vector3@@QAE@XZ": 7437520,
-    "?unknown_719110@UnknownPairFirst@@QAEXXZ": 7442704,
-    "?unknown_719850@UnknownPairFirst@@QAEPAUUnknownVoxelSection@@H@Z": 7444560,
-    "?unknown_719920@UnknownPairFirst@@QAEHXZ": 7444768,
+    "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
+    "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z": 7444560,
+    "?Memory_Used@VoxelLibrary@@QAEHXZ": 7444768,
     "?Is_Valid@Conflict@WorldDominationTour@@QBE_NXZ": 7500768,
     "?Is_Valid@History@WorldDominationTour@@QBEHI@Z": 7507744,
     "__imp__GetCommModemStatus@8": 7971188,
@@ -1295,7 +1295,7 @@
     "__imp__EnableWindow@8": 7971984,
     "__imp__timeGetTime@0": 7972132,
     "__imp__ShowWindow@8": 7971992,
-    "??0UnknownPairFirst@@QAE@PAVFileClass@@H@Z": 7442560,
+    "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z": 7442560,
     "__real@8@4005c800000000000000": 7976944,
     "?unknown_14@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525040,
     "__real@4@3fffc000000000000000": 7983336,
@@ -1673,10 +1673,10 @@
     "?Get_Rect@INIClass@@QBE?AUINIRect@@PBD0ABU2@@Z": 5299536,
     "__real@4@c001c000000000000000": 8055344,
     "__real@4@c000c000000000000000": 8055352,
-    "??0UnknownPairFirst@@QAE@XZ": 7442528,
-    "?unknown_719890@UnknownPairFirst@@QAE?AUVector3@@HH@Z": 7444624,
-    "?unknown_719940@UnknownPairFirst@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z": 7444800,
-    "?unknown_719f60@UnknownPairFirst@@QAEXXZ": 7446368,
+    "??0VoxelLibrary@@QAE@XZ": 7442528,
+    "?Get_Bounding_Box_Center@VoxelLibrary@@QAE?AUVector3@@HH@Z": 7444624,
+    "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z": 7444800,
+    "?Compute_Bounding_Box@VoxelLibrary@@QAEXXZ": 7446368,
     "?Read_Colors@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454112,
     "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
     "?Write_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454336,
@@ -1753,7 +1753,7 @@
     "__real@8@3ffef333333333333000": 7986032,
     "?Action@CheckBoxClass@@UAEHIAAI@Z": 4706928,
     "?Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z": 7454496,
-    "?unknown_719c10@UnknownPairFirst@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z": 7445520,
+    "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z": 7445520,
     "?Draw_It@LaserDrawClass@@QAEXXZ": 5453040,
     "__real@8@40078cccccccccccd000": 8001480,
     "__real@8@4006b333333333333000": 8001472,
@@ -1997,7 +1997,7 @@
     "?unknown_lit_colors_af4608@@3PAY0BAA@EA": 11486728,
     "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z@4MB": 8055368,
     "_$E2": 7442496,
-    "?unknown_719160@UnknownPairFirst@@": 7442784,
+    "?Read_File@VoxelLibrary@@": 7442784,
     "?Draw_Voxel_Regular_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7446912,
     "?Draw_Voxel_Reverse_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7447344,
     "?Draw_Voxel_Regular_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7447760,
@@ -6310,7 +6310,21 @@
     "__except_list": 0,
     "?AI@AnimClass@@UAEXXZ": 4331280,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?Clear@?$DynamicVectorClass@VHSVClass@@@@UAEXXZ": 6311216,
+    "?Clear@?$VectorClass@VHSVClass@@@@UAEXXZ": 6312848,
+    "?Clear@?$WolArrayList@VWstring@@@@QAEXXZ": 7758272,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Clear@?$VectorClass@PBVTeamTypeClass@@@@UAEXXZ": 5209296,
+    "?Clear@?$VectorClass@PBVBuildingTypeClass@@@@UAEXXZ": 5206272,
+    "?Clear@BooleanVectorClass@@QAEXXZ": 7402176,
+    "?Clear@UnknownVeinHeap@@QAEXXZ": 7416336,
+    "?Clear@?$VectorClass@PAVPlanningMemberClass@@@@UAEXXZ": 6401008,
+    "?Clear@?$VectorClass@V?$TRect@H@@@@UAEXXZ": 5826192,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Reset@AStarClass@@QAEXXZ": 4364944
   },
   "regions": [
     {
@@ -6363,7 +6377,7 @@
           "resolved": 11504140
         }
       ],
-      "source_sha256": "685f8de55f893283e1b09f96c9c275b3f13bd80ad1921964212e5331e191a753",
+      "source_sha256": "85786574a6fa5b0c49caaf4e416f7c5a100c0e2813a1919d25334751da3ab391",
       "source": "src/recovered/header_statics/00719040/HeaderStatics_static_rect_init_00719040.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6418,8 +6432,8 @@
     {
       "entry": 7444576,
       "method": "00719860",
-      "symbol": "?unknown_719860@UnknownPairFirst@@QAEPAUUnknownVoxelTailer@@HH@Z",
-      "symbol_prefix": "?unknown_719860@UnknownPairFirst@@QAEPAUUnknownVoxelTailer@@HH@Z",
+      "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
+      "symbol_prefix": "?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6432,20 +6446,20 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "3e81d0583862630da539051c69932013220adf36b9d402560a9bec840439d44c",
       "relocations": [],
-      "source_sha256": "5d39b54109454d0ee724a530494c28d28af60db57b1ac985faa608888bdfb43a",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719860_00719860.cpp",
+      "source_sha256": "0b6cc1c8a6c1c3c7bcbfc556b10f761c42b062456b7acfa034cbf9a7cc85f97a",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Get_Layer_Info_00719860.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_unknown_719860_00719860",
+      "semantic_name": "VoxelLibrary_Get_Layer_Info_00719860",
       "source_order": 216979
     },
     {
       "entry": 7442624,
       "method": "007190c0",
-      "symbol": "??1UnknownPairFirst@@QAE@XZ",
-      "symbol_prefix": "??1UnknownPairFirst@@QAE@XZ",
+      "symbol": "??1VoxelLibrary@@QAE@XZ",
+      "symbol_prefix": "??1VoxelLibrary@@QAE@XZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -6483,13 +6497,13 @@
           "resolved": 429122
         }
       ],
-      "source_sha256": "2514a9ae3f0725a4b83827341a76e5152acd5f1281637badcca812349b41a286",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_destructor_007190c0.cpp",
+      "source_sha256": "4fdde8b65631b699328caa0b6132824907bfa0602b2983ada6dea92122be793e",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_destructor_007190c0.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_destructor_007190c0",
+      "semantic_name": "VoxelLibrary_destructor_007190c0",
       "source_order": 216975
     },
     {
@@ -6538,8 +6552,8 @@
     {
       "entry": 7442704,
       "method": "00719110",
-      "symbol": "?unknown_719110@UnknownPairFirst@@QAEXXZ",
-      "symbol_prefix": "?unknown_719110@UnknownPairFirst@@QAEXXZ",
+      "symbol": "?Clear@VoxelLibrary@@QAEXXZ",
+      "symbol_prefix": "?Clear@VoxelLibrary@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -6577,20 +6591,20 @@
           "resolved": 429042
         }
       ],
-      "source_sha256": "828f074f2082e9fc92db50ff556aba9c1f439fc803ec53101c8792af7a0da329",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719110_00719110.cpp",
+      "source_sha256": "e4bd4db36b9eda215d65cc02c21ed9df0ef19d25c755e9bf117a97813c93065b",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Clear_00719110.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_unknown_719110_00719110",
+      "semantic_name": "VoxelLibrary_Clear_00719110",
       "source_order": 216976
     },
     {
       "entry": 7444560,
       "method": "00719850",
-      "symbol": "?unknown_719850@UnknownPairFirst@@QAEPAUUnknownVoxelSection@@H@Z",
-      "symbol_prefix": "?unknown_719850@UnknownPairFirst@@QAEPAUUnknownVoxelSection@@H@Z",
+      "symbol": "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z",
+      "symbol_prefix": "?Get_Layer@VoxelLibrary@@QAEPAUUnknownVoxelSection@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6603,20 +6617,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "9a57a0f97e8389dbd8dbd25551bed768a425f5dd89a343fb23816490cc493f17",
       "relocations": [],
-      "source_sha256": "b979b2f32012857cbd2b5bfa7a3780537062f557fc847ebb89f46f1341333499",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719850_00719850.cpp",
+      "source_sha256": "9c859df97dde36ee1e97f90efc45c10e55997c7b0e3f781c8438baf2230e727d",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Get_Layer_00719850.cpp",
       "population": "population-4226",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_unknown_719850_00719850",
+      "semantic_name": "VoxelLibrary_Get_Layer_00719850",
       "source_order": 216978
     },
     {
       "entry": 7444768,
       "method": "00719920",
-      "symbol": "?unknown_719920@UnknownPairFirst@@QAEHXZ",
-      "symbol_prefix": "?unknown_719920@UnknownPairFirst@@QAEHXZ",
+      "symbol": "?Memory_Used@VoxelLibrary@@QAEHXZ",
+      "symbol_prefix": "?Memory_Used@VoxelLibrary@@QAEHXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -6629,13 +6643,13 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "2c53c1fbab99d0f769c8a8af6cd963bec789e8deca42a25179a32fa5e1f5002c",
       "relocations": [],
-      "source_sha256": "194c6ec8030081eb47de707201be75f13a4599e515f15d233411df0b2339f6da",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719920_00719920.cpp",
+      "source_sha256": "5edc4b11e09f65cd24c6d494ac316bd16d9429ae27f80b815aec817ae6bc876d",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Memory_Used_00719920.cpp",
       "population": "population-4226",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_unknown_719920_00719920",
+      "semantic_name": "VoxelLibrary_Memory_Used_00719920",
       "source_order": 216981
     },
     {
@@ -6676,8 +6690,8 @@
     {
       "entry": 7442560,
       "method": "00719080",
-      "symbol": "??0UnknownPairFirst@@QAE@PAVFileClass@@H@Z",
-      "symbol_prefix": "??0UnknownPairFirst@@QAE@PAVFileClass@@H@Z",
+      "symbol": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
+      "symbol_prefix": "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6693,19 +6707,19 @@
         {
           "offset": 38,
           "kind": 20,
-          "symbol": "?unknown_719160@UnknownPairFirst@@QAEHPAVFileClass@@H@Z",
+          "symbol": "?Read_File@VoxelLibrary@@QAEHPAVFileClass@@H@Z",
           "target": 7442784,
           "addend": 0,
           "resolved": 182
         }
       ],
-      "source_sha256": "003823f28cf0b46479677fdf291d31b0dcdaee9cc586a922c9b76381b12c1315",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_constructor_00719080.cpp",
+      "source_sha256": "ffeef1ca879d3198c4ba9596c802c88448619f06bd9b87594b69bedcdb6d2abe",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_constructor_00719080.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_constructor_00719080",
+      "semantic_name": "VoxelLibrary_constructor_00719080",
       "source_order": 216974
     },
     {
@@ -6737,8 +6751,8 @@
     {
       "entry": 7442528,
       "method": "00719060",
-      "symbol": "??0UnknownPairFirst@@QAE@XZ",
-      "symbol_prefix": "??0UnknownPairFirst@@QAE@XZ",
+      "symbol": "??0VoxelLibrary@@QAE@XZ",
+      "symbol_prefix": "??0VoxelLibrary@@QAE@XZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -6751,20 +6765,20 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "4d1ab2ff2c43f3bca687afe6be3850d5864f5f5b996cede970804cb0087d8b13",
       "relocations": [],
-      "source_sha256": "1158ef7fb79bac4ea056a81e6e13fa0f151f4b255c20dc70cc5e148c5d9cb08a",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_constructor_00719060.cpp",
+      "source_sha256": "a6342b547d7f047a510856d4dc8ec2919cf4f59ca9ffd5ef53ba476044beaec0",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_constructor_00719060.cpp",
       "population": "population-4226",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_constructor_00719060",
+      "semantic_name": "VoxelLibrary_constructor_00719060",
       "source_order": 216973
     },
     {
       "entry": 7444624,
       "method": "00719890",
-      "symbol": "?unknown_719890@UnknownPairFirst@@QAE?AUVector3@@HH@Z",
-      "symbol_prefix": "?unknown_719890@UnknownPairFirst@@QAE?AUVector3@@HH@Z",
+      "symbol": "?Get_Bounding_Box_Center@VoxelLibrary@@QAE?AUVector3@@HH@Z",
+      "symbol_prefix": "?Get_Bounding_Box_Center@VoxelLibrary@@QAE?AUVector3@@HH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6802,20 +6816,20 @@
           "resolved": 7986560
         }
       ],
-      "source_sha256": "5a718e78fa45036b3bfe7ed4f4da7f466c6b6b6d7b43f6048afb794fcf0411ad",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719890_00719890.cpp",
+      "source_sha256": "4e6668cfb538f54d20d42d16200355f3d2ead91ede8488063aa3f7f562243328",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Get_Bounding_Box_Center_00719890.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_unknown_719890_00719890",
+      "semantic_name": "VoxelLibrary_Get_Bounding_Box_Center_00719890",
       "source_order": 216980
     },
     {
       "entry": 7444800,
       "method": "00719940",
-      "symbol": "?unknown_719940@UnknownPairFirst@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
-      "symbol_prefix": "?unknown_719940@UnknownPairFirst@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
+      "symbol": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
+      "symbol_prefix": "?Render_Object@VoxelLibrary@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7149,20 +7163,20 @@
           "resolved": 8363488
         }
       ],
-      "source_sha256": "87504928e54ea55321e3758749d3fc562e9eaa045d516e584bbb60d72bddd593",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719940_00719940.cpp",
+      "source_sha256": "7fb0fa1410754799ea92b900cdc0715c54b31d50b2933f002c49018bc3a80003",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Render_Object_00719940.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_unknown_719940_00719940",
+      "semantic_name": "VoxelLibrary_Render_Object_00719940",
       "source_order": 216982
     },
     {
       "entry": 7446368,
       "method": "00719f60",
-      "symbol": "?unknown_719f60@UnknownPairFirst@@QAEXXZ",
-      "symbol_prefix": "?unknown_719f60@UnknownPairFirst@@QAEXXZ",
+      "symbol": "?Compute_Bounding_Box@VoxelLibrary@@QAEXXZ",
+      "symbol_prefix": "?Compute_Bounding_Box@VoxelLibrary@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -7224,13 +7238,13 @@
           "resolved": 7986560
         }
       ],
-      "source_sha256": "5b700713ba497bbe006d9ae13539b5410f2358d06e0c8401870a7d09e12b2dca",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719f60_00719f60.cpp",
+      "source_sha256": "82c250f8b50f4f5c2879ada8f410941d6aed94270d0ff91ace62a2df339987bc",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Compute_Bounding_Box_00719f60.cpp",
       "population": "population-4226",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_unknown_719f60_00719f60",
+      "semantic_name": "VoxelLibrary_Compute_Bounding_Box_00719f60",
       "source_order": 216984
     },
     {
@@ -8734,8 +8748,8 @@
     {
       "entry": 7445520,
       "method": "00719c10",
-      "symbol": "?unknown_719c10@UnknownPairFirst@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
-      "symbol_prefix": "?unknown_719c10@UnknownPairFirst@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+      "symbol": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
+      "symbol_prefix": "?Render_Shadow@VoxelLibrary@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8909,20 +8923,20 @@
           "resolved": 11416585
         }
       ],
-      "source_sha256": "bc2e47300d041ab27fc806bd8a3e8a06d086ede595354bcf59eb21d566b7b50a",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719c10_00719c10.cpp",
+      "source_sha256": "448a2f6d04d3c648ed51ee52b7a5589e7308fd111fe5b84466119f52861fe42e",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Render_Shadow_00719c10.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_unknown_719c10_00719c10",
+      "semantic_name": "VoxelLibrary_Render_Shadow_00719c10",
       "source_order": 216983
     },
     {
       "entry": 7442784,
       "method": "00719160",
-      "symbol": "?unknown_719160@UnknownPairFirst@@QAEHPAVFileClass@@H@Z",
-      "symbol_prefix": "?unknown_719160@UnknownPairFirst@@",
+      "symbol": "?Read_File@VoxelLibrary@@QAEHPAVFileClass@@H@Z",
+      "symbol_prefix": "?Read_File@VoxelLibrary@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -9184,13 +9198,13 @@
           "resolved": 427285
         }
       ],
-      "source_sha256": "cfa04a83fab5fd8b5fbe0927cebca6231d4c16d6a6cb7d94e2fa2961f189167c",
-      "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_Read_File_00719160.cpp",
+      "source_sha256": "b4b6f5201b6314ddc00796929b019a1742ba6240cf03d3635ad12b7b40d8a94b",
+      "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Read_File_00719160.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownPairFirst_Read_File_00719160",
+      "semantic_name": "VoxelLibrary_Read_File_00719160",
       "source_order": 216977
     },
     {

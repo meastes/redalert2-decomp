@@ -44,7 +44,7 @@ public:
     UnknownObjectPair(NoInitClass const &noinit) {}
     ~UnknownObjectPair();               // 0x005D4A60
 
-    UnknownPairFirst *unknown_00;
+    VoxelLibrary *unknown_00;
     UnknownPairSecond *unknown_04;
 };
 

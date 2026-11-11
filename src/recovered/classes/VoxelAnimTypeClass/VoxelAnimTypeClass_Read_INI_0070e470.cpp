@@ -13,8 +13,8 @@
 // @ref ?From_Name@VocClass@@SIHPBD@Z=00714940
 // @ref ?Get_Object_Type@CCINIClass@@QAEPAVObjectTypeClass@@PBD0@Z=0046c2f0
 // @ref __makepath=007831f0
-// @ref ??0UnknownPairFirst@@QAE@PAVFileClass@@H@Z=00719080
-// @ref ??1UnknownPairFirst@@QAE@XZ=007190c0
+// @ref ??0VoxelLibrary@@QAE@PAVFileClass@@H@Z=00719080
+// @ref ??1VoxelLibrary@@QAE@XZ=007190c0
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??0CCFileClass@@QAE@PBD@Z=00468f50
@@ -156,7 +156,7 @@ bool VoxelAnimTypeClass::Read_INI(CCINIClass &ini)
             _makepath(fullname, 0, 0, unknown_1c8, ".VXL");
             CCFileClass file(fullname);
             delete unknown_b0.unknown_00;
-            unknown_b0.unknown_00 = new UnknownPairFirst(&file);
+            unknown_b0.unknown_00 = new VoxelLibrary(&file);
         }
         return true;
     }

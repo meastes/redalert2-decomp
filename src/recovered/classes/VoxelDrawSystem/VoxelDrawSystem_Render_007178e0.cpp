@@ -15,7 +15,7 @@ SurfaceRegion __fastcall VoxelDrawSystem::Render()
     center.Z = (unknown_bounds_max_ae0dd8.Z + unknown_bounds_min_ae0a70.Z) * 0.5f;
 
     for (index = 0; index < unknown_voxel_shadow_count_ae3000; index++) {
-        unknown_records_af3408[index].unknown_00->unknown_719c10(&unknown_records_af3408[index], &center);
+        unknown_records_af3408[index].unknown_00->Render_Shadow(&unknown_records_af3408[index], &center);
     }
 
     for (index = 0; index < unknown_voxel_record_count_ae0cb0; index++) {
@@ -36,11 +36,11 @@ SurfaceRegion __fastcall VoxelDrawSystem::Render()
 
     if (unknown_af6610) {
         for (index = unknown_voxel_record_count_ae0cb0 - 1; index >= 0; index--) {
-            render_data[index]->Library->unknown_719940((UnknownVoxelDrawState *)render_data[index], &center);
+            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);
         }
     } else {
         for (index = 0; index < unknown_voxel_record_count_ae0cb0; index++) {
-            render_data[index]->Library->unknown_719940((UnknownVoxelDrawState *)render_data[index], &center);
+            render_data[index]->Library->Render_Object((UnknownVoxelDrawState *)render_data[index], &center);
         }
     }
 

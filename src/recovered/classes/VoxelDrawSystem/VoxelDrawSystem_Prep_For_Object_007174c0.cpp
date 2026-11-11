@@ -1,9 +1,9 @@
 // VoxelDrawSystem::Prep_For_Object (0x007174C0): queues a section with its transformed box and bounds.
 #include "shared/voxel_draw_system.hpp"
 
-void __fastcall VoxelDrawSystem::Prep_For_Object(UnknownPairFirst *voxlib, int layer, int info, Matrix3D const &transform)
+void __fastcall VoxelDrawSystem::Prep_For_Object(VoxelLibrary *voxlib, int layer, int info, Matrix3D const &transform)
 {
-    UnknownVoxelTailer const *layer_info = voxlib->unknown_719860(layer, info);
+    UnknownVoxelTailer const *layer_info = voxlib->Get_Layer_Info(layer, info);
 
     UnknownVoxelRecord88 &data = unknown_records_ae0de8[unknown_voxel_record_count_ae0cb0];
 

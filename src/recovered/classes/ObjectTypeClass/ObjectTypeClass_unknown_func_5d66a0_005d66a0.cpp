@@ -1,7 +1,7 @@
 // void ObjectTypeClass::unknown_func_5d66a0() (0x005D66A0)
 // Frees both voxel-pair tables (unknown_c8 and unknown_140, 15 each).
 #include "shared/object_type.hpp"
-// @ref ??1UnknownPairFirst@@QAE@XZ=007190c0
+// @ref ??1VoxelLibrary@@QAE@XZ=007190c0
 // @ref ??1UnknownPairSecond@@QAE@XZ=0059eba0
 // @ref ??3@YAXPAX@Z=00781d3b
 

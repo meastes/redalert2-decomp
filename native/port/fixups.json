@@ -716,14 +716,14 @@
    "verified": true
   },
   {
-   "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719940_00719940.cpp",
-   "old": "void UnknownPairFirst::unknown_719940(UnknownVoxelDrawState *state, Vector3 const *origin)\n{\n",
-   "new": "// native: the drawer table's entries are code addresses (native/link/behaviour_voxel.cpp maps them).\nvoid (*Native_Voxel_Drawer_7f9de0(int index))(VoxelFuncArgumentStruct *parameters);\nvoid UnknownPairFirst::unknown_719940(UnknownVoxelDrawState *state, Vector3 const *origin)\n{\n",
+   "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Render_Object_00719940.cpp",
+   "old": "void VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *origin)\n{\n",
+   "new": "// native: the drawer table's entries are code addresses (native/link/behaviour_voxel.cpp maps them).\nvoid (*Native_Voxel_Drawer_7f9de0(int index))(VoxelFuncArgumentStruct *parameters);\nvoid VoxelLibrary::Render_Object(UnknownVoxelDrawState *state, Vector3 const *origin)\n{\n",
    "why": "unknown_drawers_7f9de0 (0x007F9DE0, 32 entries) holds code addresses: the voxel span drawers 0x0071A180-0x0071B7E0 and, in the first half, the winasm.asm MMX drawers 0x00798A00-0x00798F40. The run-time data loader leaves code pointers null (skirmish fault drawing the start units, Scout1091). The native call reads the stored entry from game.exe and calls the recovered drawer at that address; an assembly entry maps to the C drawer at the same index of the table's second half (the original's own non-MMX entries). Native only.",
    "verified": true
   },
   {
-   "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_unknown_719940_00719940.cpp",
+   "source": "src/recovered/classes/VoxelLibrary/VoxelLibrary_Render_Object_00719940.cpp",
    "old": "    unknown_drawers_7f9de0[drawer](&parameters);\n",
    "new": "    Native_Voxel_Drawer_7f9de0(drawer)(&parameters);   // NATIVE: unknown_drawers_7f9de0[drawer]\n",
    "why": "See the declaration fixup above.",

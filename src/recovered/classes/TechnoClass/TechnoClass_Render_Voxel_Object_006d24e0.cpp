@@ -6,8 +6,8 @@
 #include "shared/tactical.hpp"
 namespace VoxelDrawSystem {
     void Reset();
-    void __fastcall Precalculate_Light(UnknownPairFirst *voxel,int layer,int info,Matrix3D const &motion,Matrix3D const &camera,Vector3 const &light,float scale);
-    void __fastcall Prep_For_Object(UnknownPairFirst *voxel,unsigned layer,int info,Matrix3D const &matrix);
+    void __fastcall Precalculate_Light(VoxelLibrary *voxel,int layer,int info,Matrix3D const &motion,Matrix3D const &camera,Vector3 const &light,float scale);
+    void __fastcall Prep_For_Object(VoxelLibrary *voxel,unsigned layer,int info,Matrix3D const &matrix);
     SurfaceRegion __fastcall Render();
 }
 extern Matrix3D unknown_voxel_transform_839a70;
@@ -28,7 +28,7 @@ SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const 
     combined=transform;
     Matrix3D base;
     base=transform;
-    UnknownPairFirst *voxlib=voxel.unknown_00;
+    VoxelLibrary *voxlib=voxel.unknown_00;
     UnknownPairSecond *motion=voxel.unknown_04;
     VoxelDrawSystem::Precalculate_Light(voxlib,0,0,base,unknown_voxel_transform_839a70,unknown_voxel_light_839ab0,3.0f);
     VoxelDrawSystem::Reset();
@@ -61,8 +61,8 @@ SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const 
     unknown_blit_49f3a0(*unknown_surface_83995c,converter,*VoxelDrawSystem::Get_Surface(),region.Bounds,RectPoint2D(destination.X,destination.Y),cliprect,0,converter->Select_Blitter_00485AA0(flags),unknown_slot176(),unknown_slot177(),brightness,phase);
     return region;
 }
-// @ref ?Precalculate_Light@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@1ABUVector3@@M@Z=007170d0
-// @ref ?Prep_For_Object@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@IHABVMatrix3D@@@Z=007174c0
+// @ref ?Precalculate_Light@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@M@Z=007170d0
+// @ref ?Prep_For_Object@VoxelDrawSystem@@YIXPAVVoxelLibrary@@IHABVMatrix3D@@@Z=007174c0
 // @ref ?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ=007178e0
 // @ref ?Reset@VoxelDrawSystem@@YAXXZ=007171d0
 // @ref ??D@YI?AVMatrix3D@@ABV0@0@Z=00591180

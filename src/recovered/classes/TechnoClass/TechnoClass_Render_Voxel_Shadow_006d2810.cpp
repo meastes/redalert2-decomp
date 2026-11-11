@@ -5,7 +5,7 @@
 #include "shared/surface_blit.hpp"
 namespace VoxelDrawSystem {
     void Reset();
-    void __fastcall Prep_For_Shadow(UnknownPairFirst *voxel,int layer,int info,Matrix3D const &camera,Matrix3D const &motion,Vector3 const &light,Surface *mask,int mask_x,int mask_y);
+    void __fastcall Prep_For_Shadow(VoxelLibrary *voxel,int layer,int info,Matrix3D const &camera,Matrix3D const &motion,Vector3 const &light,Surface *mask,int mask_x,int mask_y);
     SurfaceRegion __fastcall Render();
 }
 extern Matrix3D unknown_voxel_transform_839a70;
@@ -37,7 +37,7 @@ SurfaceRegion TechnoClass::Render_Voxel_Shadow_006d2810(UnknownObjectPair const 
     }
     return region;
 }
-// @ref ?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVUnknownPairFirst@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z=00717360
+// @ref ?Prep_For_Shadow@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@1ABUVector3@@PAVSurface@@HH@Z=00717360
 // @ref ?Render@VoxelDrawSystem@@YI?AUSurfaceRegion@@XZ=007178e0
 // @ref ?Reset@VoxelDrawSystem@@YAXXZ=007171d0
 // @ref ??D@YI?AVMatrix3D@@ABV0@0@Z=00591180

@@ -56,7 +56,7 @@ static bool Init_One_Time_Systems()
     Unknown_00521A90();
 
     CCFileClass dropvxl("DPOD.VXL");
-    unknown_drop_pod_voxel_a40c80.unknown_00 = new UnknownPairFirst(&dropvxl, 0);
+    unknown_drop_pod_voxel_a40c80.unknown_00 = new VoxelLibrary(&dropvxl, 0);
     if (unknown_drop_pod_voxel_a40c80.unknown_00 == 0) {
         Debug_Printf("Failed to create VoxLib!\n");
         return false;

@@ -1,4 +1,4 @@
-// The .VXL voxel library (UnknownPairFirst, 0x00719060-0x0071BCD6) and the
+// The .VXL voxel library (VoxelLibrary, 0x00719060-0x0071BCD6) and the
 // voxel palette lookup (VoxelPaletteLibrary, 0x0071BD00-0x0071C314). The unit's
 // only dynamic initializer (0x00719040) is shared/unknown_static_rect.hpp's.
 #include "shared/unknown_static_rect.hpp"
@@ -27,7 +27,7 @@
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref __ftol=0077f110
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
-// @ref ?unknown_719160@UnknownPairFirst@@QAEHPAVFileClass@@H@Z=00719160
+// @ref ?Read_File@VoxelLibrary@@QAEHPAVFileClass@@H@Z=00719160
 // @ref ?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z=0071c250
 // @ref ?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A=007f9f80
 // @ref ?unknown_normal_counts_7f9f94@@3PAHA=007f9f94

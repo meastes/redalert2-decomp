@@ -1,6 +1,6 @@
 // Sets the eight corners of each tailer's box from its size, centered on the
 // origin.
-void UnknownPairFirst::unknown_719f60()
+void VoxelLibrary::Compute_Bounding_Box()
 {
     for (unsigned index = 0; index < unknown_08; index++) {
         UnknownVoxelTailer *tailer = &unknown_14[index];

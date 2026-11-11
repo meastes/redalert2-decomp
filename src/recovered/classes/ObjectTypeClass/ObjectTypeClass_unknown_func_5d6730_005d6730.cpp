@@ -15,9 +15,9 @@
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??0CCFileClass@@QAE@PBD@Z=00468f50
 // @ref ?Is_Available@CCFileClass@@UAE_NH@Z=004691a0
-// @ref ??0UnknownPairFirst@@QAE@PAVFileClass@@H@Z=00719080
-// @ref ??1UnknownPairFirst@@QAE@XZ=007190c0
-// @ref ?unknown_719860@UnknownPairFirst@@QAEPAUUnknownVoxelTailer@@HH@Z=00719860
+// @ref ??0VoxelLibrary@@QAE@PAVFileClass@@H@Z=00719080
+// @ref ??1VoxelLibrary@@QAE@XZ=007190c0
+// @ref ?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z=00719860
 // @ref ??0UnknownPairSecond@@QAE@PAVFileClass@@@Z=0059eb70
 // @ref ??1UnknownPairSecond@@QAE@XZ=0059eba0
 // @ref ?unknown_59ed30@UnknownPairSecond@@QAEXM@Z=0059ed30
@@ -45,7 +45,7 @@ void ObjectTypeClass::unknown_func_5d6730()
     CCFileClass voxel(fullname);
     if (voxel.Is_Available()) {
         delete unknown_b0.unknown_00;
-        unknown_b0.unknown_00 = new UnknownPairFirst(&voxel);
+        unknown_b0.unknown_00 = new VoxelLibrary(&voxel);
         if (unknown_b0.unknown_00 == 0 || unknown_b0.unknown_00->unknown_00) {
             failed = true;
         }
@@ -54,7 +54,7 @@ void ObjectTypeClass::unknown_func_5d6730()
         delete unknown_b0.unknown_04;
         unknown_b0.unknown_04 = new UnknownPairSecond(&motion);
         if (unknown_b0.unknown_04 != 0 && !unknown_b0.unknown_04->unknown_00) {
-            unknown_b0.unknown_04->unknown_59ed30(unknown_b0.unknown_00->unknown_719860(0, 0)->unknown_0c);
+            unknown_b0.unknown_04->unknown_59ed30(unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
         } else {
             failed = true;
         }
@@ -69,7 +69,7 @@ void ObjectTypeClass::unknown_func_5d6730()
             CCFileClass voxel(fullname);
             if (voxel.Is_Available()) {
                 delete unknown_b8.unknown_00;
-                unknown_b8.unknown_00 = new UnknownPairFirst(&voxel);
+                unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
                 if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->unknown_00) {
                     failed = true;
                 }
@@ -79,7 +79,7 @@ void ObjectTypeClass::unknown_func_5d6730()
                 delete unknown_b8.unknown_04;
                 unknown_b8.unknown_04 = new UnknownPairSecond(&motion);
                 if (unknown_b8.unknown_04 != 0 && !unknown_b8.unknown_04->unknown_00) {
-                    unknown_b8.unknown_04->unknown_59ed30(unknown_b8.unknown_00->unknown_719860(0, 0)->unknown_0c);
+                    unknown_b8.unknown_04->unknown_59ed30(unknown_b8.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
                 } else {
                     failed = true;
                 }
@@ -91,7 +91,7 @@ void ObjectTypeClass::unknown_func_5d6730()
             CCFileClass voxel(fullname);
             if (voxel.Is_Available()) {
                 delete unknown_b8.unknown_00;
-                unknown_b8.unknown_00 = new UnknownPairFirst(&voxel);
+                unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
                 if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->unknown_00) {
                     failed = true;
                 }
@@ -101,7 +101,7 @@ void ObjectTypeClass::unknown_func_5d6730()
                 delete unknown_b8.unknown_04;
                 unknown_b8.unknown_04 = new UnknownPairSecond(&motion);
                 if (unknown_b8.unknown_04 != 0 && !unknown_b8.unknown_04->unknown_00) {
-                    unknown_b8.unknown_04->unknown_59ed30(unknown_b8.unknown_00->unknown_719860(0, 0)->unknown_0c);
+                    unknown_b8.unknown_04->unknown_59ed30(unknown_b8.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
                 } else {
                     failed = true;
                 }
@@ -121,7 +121,7 @@ void ObjectTypeClass::unknown_func_5d6730()
         CCFileClass voxel(fullname);
         if (voxel.Is_Available()) {
             delete unknown_b8.unknown_00;
-            unknown_b8.unknown_00 = new UnknownPairFirst(&voxel);
+            unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
             if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->unknown_00) {
                 failed = true;
             }
@@ -131,7 +131,7 @@ void ObjectTypeClass::unknown_func_5d6730()
             delete unknown_b8.unknown_04;
             unknown_b8.unknown_04 = new UnknownPairSecond(&motion);
             if (unknown_b8.unknown_04 != 0 && !unknown_b8.unknown_04->unknown_00) {
-                unknown_b8.unknown_04->unknown_59ed30(unknown_b8.unknown_00->unknown_719860(0, 0)->unknown_0c);
+                unknown_b8.unknown_04->unknown_59ed30(unknown_b8.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
             } else {
                 failed = true;
             }
@@ -153,7 +153,7 @@ void ObjectTypeClass::unknown_func_5d6730()
             CCFileClass voxel(fullname);
             if (voxel.Is_Available()) {
                 delete unknown_c0.unknown_00;
-                unknown_c0.unknown_00 = new UnknownPairFirst(&voxel);
+                unknown_c0.unknown_00 = new VoxelLibrary(&voxel);
                 if (unknown_c0.unknown_00 == 0 || unknown_c0.unknown_00->unknown_00) {
                     failed = true;
                 }
@@ -163,7 +163,7 @@ void ObjectTypeClass::unknown_func_5d6730()
                 delete unknown_c0.unknown_04;
                 unknown_c0.unknown_04 = new UnknownPairSecond(&motion);
                 if (unknown_c0.unknown_04 != 0 && !unknown_c0.unknown_04->unknown_00) {
-                    unknown_c0.unknown_04->unknown_59ed30(unknown_c0.unknown_00->unknown_719860(0, 0)->unknown_0c);
+                    unknown_c0.unknown_04->unknown_59ed30(unknown_c0.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
                 } else {
                     failed = true;
                 }
@@ -193,16 +193,16 @@ void ObjectTypeClass::unknown_func_5d6730()
             }
         }
     } else {
-        int size = unknown_b0.unknown_00->unknown_719860(0, 0)->unknown_a0;
+        int size = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a0;
         for (int index = 0; index < unknown_b0.unknown_00->unknown_04; index++) {
-            if (size <= unknown_b0.unknown_00->unknown_719860(index, 0)->unknown_a0) {
-                size = unknown_b0.unknown_00->unknown_719860(index, 0)->unknown_a0;
+            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a0) {
+                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a0;
             }
-            if (size <= unknown_b0.unknown_00->unknown_719860(index, 0)->unknown_a1) {
-                size = unknown_b0.unknown_00->unknown_719860(index, 0)->unknown_a1;
+            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a1) {
+                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a1;
             }
-            if (size <= unknown_b0.unknown_00->unknown_719860(index, 0)->unknown_a2) {
-                size = unknown_b0.unknown_00->unknown_719860(index, 0)->unknown_a2;
+            if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a2) {
+                size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a2;
             }
         }
         unknown_1bc = size > 8 ? size : 8;

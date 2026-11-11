@@ -8,9 +8,9 @@ struct BulletVoxelBounds {
     RectPoint2D offset; // first8, original463B0C/463B10
     Rect rectangle; // +08, original463B6C LEA passes this field
 };
-void __fastcall Prepare_Voxel_Lighting_00717050(UnknownPairFirst *voxel, int section, int arg3, Matrix3D const &matrix, Vector3 const &light);
+void __fastcall Prepare_Voxel_Lighting_00717050(VoxelLibrary *voxel, int section, int arg3, Matrix3D const &matrix, Vector3 const &light);
 void __cdecl Reset_Voxel_Renderer_007171d0();
-void __fastcall Add_Voxel_Section_007174c0(UnknownPairFirst *voxel, unsigned section, int arg3, Matrix3D const &matrix);
+void __fastcall Add_Voxel_Section_007174c0(VoxelLibrary *voxel, unsigned section, int arg3, Matrix3D const &matrix);
 BulletVoxelBounds __fastcall Voxel_Render_Bounds_007178e0();
 Surface &__cdecl Voxel_Render_Surface_00717040();
 extern Matrix3D unknown_voxel_transform_839a70;
@@ -32,7 +32,7 @@ void BulletClass::Draw_Voxel_00463a00(UnknownObjectPair const &pair, Matrix3D co
                                    RectPoint2D const &point, Rect const &window, unsigned frame,
                                    unsigned flags, int brightness)
 {
-    UnknownPairFirst *voxel = pair.unknown_00;
+    VoxelLibrary *voxel = pair.unknown_00;
     UnknownPairSecond *motion = pair.unknown_04;
     Prepare_Voxel_Lighting_00717050(voxel, 0, 0, matrix, unknown_voxel_light_839ab0);
     Reset_Voxel_Renderer_007171d0();

@@ -12,10 +12,10 @@
 #include "shared/color_scheme.hpp"
 #include "shared/surface_blit.hpp"
 #include "shared/convert.hpp"
-void __fastcall Prepare_Voxel_Lighting_00717050(UnknownPairFirst *voxel, int section, int arg3, Matrix3D const &matrix, Vector3 const &light);
+void __fastcall Prepare_Voxel_Lighting_00717050(VoxelLibrary *voxel, int section, int arg3, Matrix3D const &matrix, Vector3 const &light);
 void __cdecl Reset_Voxel_Renderer_007171d0();
-void __fastcall Add_Voxel_Section_007174c0(UnknownPairFirst *voxel, unsigned section, int arg3, Matrix3D const &matrix);
-void __fastcall Voxel_Draw_Section_00717360(UnknownPairFirst *voxel, int section, int arg3, Matrix3D const &transform, Matrix3D const &matrix, Vector3 const &light, Surface *mask, int mask_x, int mask_y);
+void __fastcall Add_Voxel_Section_007174c0(VoxelLibrary *voxel, unsigned section, int arg3, Matrix3D const &matrix);
+void __fastcall Voxel_Draw_Section_00717360(VoxelLibrary *voxel, int section, int arg3, Matrix3D const &transform, Matrix3D const &matrix, Vector3 const &light, Surface *mask, int mask_x, int mask_y);
 void __fastcall Voxel_Render_Bounds_007176c0(Rect *rect, int *x, int *y);
 Surface &__cdecl Voxel_Render_Surface_00717040();
 extern Matrix3D unknown_voxel_transform_839a70;
@@ -65,7 +65,7 @@ void VoxelAnimClass::unknown_slot67(Point2D const &point, Rect const &window)
         }
     }
     if (unknown_124) return;
-    UnknownPairFirst *voxel = Class->unknown_b0.unknown_00;
+    VoxelLibrary *voxel = Class->unknown_b0.unknown_00;
     if (voxel == 0) return;
     Matrix3D matrix;
     matrix = BounceClass::unknown_matrix_436fc0();

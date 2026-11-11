@@ -10,9 +10,9 @@
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??0CCFileClass@@QAE@PBD@Z=00468f50
 // @ref ?Is_Available@CCFileClass@@UAE_NH@Z=004691a0
-// @ref ??0UnknownPairFirst@@QAE@PAVFileClass@@H@Z=00719080
-// @ref ??1UnknownPairFirst@@QAE@XZ=007190c0
-// @ref ?unknown_719860@UnknownPairFirst@@QAEPAUUnknownVoxelTailer@@HH@Z=00719860
+// @ref ??0VoxelLibrary@@QAE@PAVFileClass@@H@Z=00719080
+// @ref ??1VoxelLibrary@@QAE@XZ=007190c0
+// @ref ?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z=00719860
 // @ref ??0UnknownPairSecond@@QAE@PAVFileClass@@@Z=0059eb70
 // @ref ??1UnknownPairSecond@@QAE@XZ=0059eba0
 // @ref ?unknown_59ed30@UnknownPairSecond@@QAEXM@Z=0059ed30
@@ -34,14 +34,14 @@ void ObjectTypeClass::unknown_func_5d72b0()
         CCFileClass turret(fullname);
         if (turret.Is_Available()) {
             delete unknown_b8.unknown_00;
-            unknown_b8.unknown_00 = new UnknownPairFirst(&turret);
+            unknown_b8.unknown_00 = new VoxelLibrary(&turret);
             if (unknown_b8.unknown_00 != 0 && !unknown_b8.unknown_00->unknown_00) {
                 sprintf(name, "%sTUR", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
                 delete unknown_b8.unknown_04;
                 unknown_b8.unknown_04 = new UnknownPairSecond(&motion);
-                unknown_b8.unknown_04->unknown_59ed30(unknown_b8.unknown_00->unknown_719860(0, 0)->unknown_0c);
+                unknown_b8.unknown_04->unknown_59ed30(unknown_b8.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
             }
         }
 
@@ -50,14 +50,14 @@ void ObjectTypeClass::unknown_func_5d72b0()
         CCFileClass barrel(fullname);
         if (barrel.Is_Available()) {
             delete unknown_c0.unknown_00;
-            unknown_c0.unknown_00 = new UnknownPairFirst(&barrel);
+            unknown_c0.unknown_00 = new VoxelLibrary(&barrel);
             if (unknown_c0.unknown_00 != 0 && !unknown_c0.unknown_00->unknown_00) {
                 sprintf(name, "%sBARL", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
                 delete unknown_c0.unknown_04;
                 unknown_c0.unknown_04 = new UnknownPairSecond(&motion);
-                unknown_c0.unknown_04->unknown_59ed30(unknown_c0.unknown_00->unknown_719860(0, 0)->unknown_0c);
+                unknown_c0.unknown_04->unknown_59ed30(unknown_c0.unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
             }
         }
     }

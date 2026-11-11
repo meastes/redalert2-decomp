@@ -10,9 +10,9 @@
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??0CCFileClass@@QAE@PBD@Z=00468f50
 // @ref ?Is_Available@CCFileClass@@UAE_NH@Z=004691a0
-// @ref ??0UnknownPairFirst@@QAE@PAVFileClass@@H@Z=00719080
-// @ref ??1UnknownPairFirst@@QAE@XZ=007190c0
-// @ref ?unknown_719860@UnknownPairFirst@@QAEPAUUnknownVoxelTailer@@HH@Z=00719860
+// @ref ??0VoxelLibrary@@QAE@PAVFileClass@@H@Z=00719080
+// @ref ??1VoxelLibrary@@QAE@XZ=007190c0
+// @ref ?Get_Layer_Info@VoxelLibrary@@QAEPAUUnknownVoxelTailer@@HH@Z=00719860
 // @ref ??0UnknownPairSecond@@QAE@PAVFileClass@@@Z=0059eb70
 // @ref ??1UnknownPairSecond@@QAE@XZ=0059eba0
 // @ref ?unknown_59ed30@UnknownPairSecond@@QAEXM@Z=0059ed30
@@ -40,7 +40,7 @@ bool ObjectTypeClass::unknown_func_5d6150(char const *image, int index)
     }
 
     bool voxel_loaded = false;
-    unknown_c8[index].unknown_00 = new UnknownPairFirst(&voxel);
+    unknown_c8[index].unknown_00 = new VoxelLibrary(&voxel);
     if (unknown_c8[index].unknown_00 != 0 && !unknown_c8[index].unknown_00->unknown_00) {
         voxel_loaded = true;
     }
@@ -59,7 +59,7 @@ bool ObjectTypeClass::unknown_func_5d6150(char const *image, int index)
     }
 
     if (voxel_loaded && motion_loaded) {
-        unknown_c8[index].unknown_04->unknown_59ed30(unknown_c8[index].unknown_00->unknown_719860(0, 0)->unknown_0c);
+        unknown_c8[index].unknown_04->unknown_59ed30(unknown_c8[index].unknown_00->Get_Layer_Info(0, 0)->unknown_0c);
         return true;
     }
     delete unknown_c8[index].unknown_00;

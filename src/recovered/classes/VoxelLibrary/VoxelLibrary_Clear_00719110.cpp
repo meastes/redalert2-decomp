@@ -1,4 +1,4 @@
-void UnknownPairFirst::unknown_719110()
+void VoxelLibrary::Clear()
 {
     if (unknown_10 != 0) {
         operator delete(unknown_10);
