@@ -35,7 +35,7 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
 
         for (int sub = 0; sub < teamtype->TaskForce->Entries[index].Amount; sub++) {
             unknown_a40774++;
-            FootClass *temp = (FootClass *)tclass->unknown_slot35(teamtype->Owner);
+            FootClass *temp = (FootClass *)tclass->Create_One_Of(teamtype->Owner);
             unknown_a40774--;
 
             if (temp != 0) {

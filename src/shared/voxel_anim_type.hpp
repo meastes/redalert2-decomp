@@ -56,8 +56,8 @@ public:
     virtual int Size_Of() const { return sizeof(VoxelAnimTypeClass); }  // 0x0070EE20 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0070EAB0 slot 13
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0070E470 slot 25
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const { return false; }   // 0x0070EE30 (inline)
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const { return 0; }   // 0x0070EE40 (inline)
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const { return false; }   // 0x0070EE30 (inline)
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const { return 0; }   // 0x0070EE40 (inline)
 
     bool Normalized;                        // +0x264
     bool Translucent;                       // +0x265

@@ -58,8 +58,8 @@ public:
     virtual int Size_Of() const;                                        // 0x00621E40 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00621A10 slot 13
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00621490 slot 25
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const;   // 0x00621E60
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const;       // 0x00621E70
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x00621E60
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x00621E70
 
     CoordStruct NextParticleOffset;         // +0x264
     int XVelocity;                          // +0x270

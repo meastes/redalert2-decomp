@@ -39,8 +39,8 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00464E70 slot 13
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00464800 slot 25
     virtual CoordStruct unknown_slot27(CoordStruct const &coord) const; // 0x00464E00
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const;   // 0x00465180 (false)
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const;       // 0x00465190 (0)
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x00465180 (false)
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x00465190 (0)
 
     void Set_unknown_2b8(int value);                                    // 0x00465150
     static BulletTypeClass *__fastcall Find_Or_Make(char const *name);  // 0x004650A0

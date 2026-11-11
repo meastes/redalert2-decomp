@@ -47,7 +47,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
             return 1;
         }
         if(unknown_5c6) {
-            TechnoClass *upgrade=(TechnoClass*)unknown_4c0[unknown_5c6-1]->unknown_slot35(House);
+            TechnoClass *upgrade=(TechnoClass*)unknown_4c0[unknown_5c6-1]->Create_One_Of(House);
             House->Refund_Money(upgrade->unknown_slot167());
             delete upgrade;
             unknown_44c860();

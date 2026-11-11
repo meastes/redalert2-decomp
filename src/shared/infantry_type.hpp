@@ -83,8 +83,8 @@ public:
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0050A3C0
     virtual CoordStruct unknown_slot27(CoordStruct const &coord) const; // 0x0050A9B0 (raised to the ground)
     virtual CoordStruct unknown_slot31() const;                         // 0x0050A940
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const; // 0x00509F20
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const;       // 0x00509EF0 (new infantry)
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x00509F20
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x00509EF0 (new infantry)
     virtual Cell const *unknown_slot36(int arg1) const;           // 0x0050A000
     virtual bool unknown_slot40() const;                                // 0x0050A990 (TechnoType's)
     virtual bool unknown_slot41() const;                                // 0x0050A9A0 (TechnoType's)

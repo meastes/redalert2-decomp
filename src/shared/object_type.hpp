@@ -130,10 +130,10 @@ public:
     virtual CoordStruct unknown_slot31() const;                          // 0x005D5D30
     // Slots 32 and 35 (RA1: Create_And_Place, Create_One_Of; the overrides
     // take two and one stack arguments).
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const = 0;   // slot 32
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const = 0;   // slot 32
     virtual int unknown_slot33(HouseClass *house) const;                          // 0x005D5D60 (0)
     virtual int unknown_slot34() const;                                  // 0x005D5D70 (0)
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const = 0;   // slot 35
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const = 0;   // slot 35
     virtual Cell const *unknown_slot36(int arg1) const;            // 0x005D5D90
     // The house's building that can produce this type (RA1:
     // Who_Can_Build_Me): primary factories first, else the last match.

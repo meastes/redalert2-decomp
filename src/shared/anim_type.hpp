@@ -84,8 +84,8 @@ public:
     virtual int unknown_slot16() const { return ArrayIndex; }           // 0x00426780 (inline)
     virtual void unknown_slot24(int theater);                           // 0x004253C0 (theater change)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00425690 slot 25
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const { return false; }   // 0x004267A0 (inline)
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const { return 0; }   // 0x004267B0 (inline)
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const { return false; }   // 0x004267A0 (inline)
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const { return 0; }   // 0x004267B0 (inline)
     virtual void *unknown_slot39() const;                               // 0x00426550 (demand-loads the image)
     virtual void unknown_slot40(int theater);                           // 0x00425490 (loads the image)
 

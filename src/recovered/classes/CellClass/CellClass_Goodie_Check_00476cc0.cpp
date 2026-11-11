@@ -287,7 +287,7 @@ crate_money:
                 }
 
                 if (utp != 0) {
-                    UnitClass *goodie_unit = (UnitClass *)utp->unknown_slot35(object->House);
+                    UnitClass *goodie_unit = (UnitClass *)utp->Create_One_Of(object->House);
                     if (goodie_unit != 0) {
                         if (goodie_unit->unknown_slot53(&Ground_Coord(), 0)) {
                             if (object->House->Is_Player_Control()) {

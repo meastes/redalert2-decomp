@@ -96,7 +96,7 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
     Cell dest;
     TechnoTypeClass *ptype = AircraftTypes[AircraftTypeClass::From_Name("PDPLANE")];
     unknown_a40774++;
-    AircraftClass *plane = (AircraftClass *)ptype->unknown_slot35(object->House);
+    AircraftClass *plane = (AircraftClass *)ptype->Create_One_Of(object->House);
     unknown_a40774--;
     if (plane) {
         plane->unknown_32c = true;

@@ -23,8 +23,8 @@
 // @ref ?Compute_CRC@IsometricTileTypeClass@@UBEXAAVWWCRCEngine@@@Z=0052e0b0
 // @ref ?unknown_slot16@IsometricTileTypeClass@@UBEHXZ=0052e6a0
 // @ref ?unknown_slot27@IsometricTileTypeClass@@UBE?AUCoordStruct@@ABU2@@Z=0052e090
-// @ref ?unknown_slot32@IsometricTileTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z=0052dfe0
-// @ref ?unknown_slot35@IsometricTileTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z=0052e020
+// @ref ?Create_And_Place@IsometricTileTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z=0052dfe0
+// @ref ?Create_One_Of@IsometricTileTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z=0052e020
 // @ref ?unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z=00529450
 // @ref ?unknown_slot39@IsometricTileTypeClass@@UBEPAXXZ=005293d0
 // @ref ??_G?$DynamicVectorClass@PAG@@UAEPAXI@Z=0052eca0

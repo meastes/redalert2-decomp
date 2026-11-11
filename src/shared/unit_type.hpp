@@ -67,8 +67,8 @@ public:
     virtual CoordStruct unknown_slot27(CoordStruct const &coord) const; // 0x0070B320 (raised to the ground)
     virtual CoordStruct unknown_slot30() const;                         // 0x0070AAB0
     virtual CoordStruct unknown_slot31() const;                         // 0x0070AAF0
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const; // 0x0070A9D0
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const;       // 0x0070AA80 (new vehicle)
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x0070A9D0
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x0070AA80 (new vehicle)
     virtual bool unknown_slot40() const;                                // 0x0070A8E0 (TechnoType's)
     virtual bool unknown_slot41() const;                                // 0x0070A8F0 (TechnoType's)
     virtual int Repair_Step() const;                                    // 0x0070B390

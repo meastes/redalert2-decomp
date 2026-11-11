@@ -14,7 +14,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
     int sub;
     for (sub = 0; sub < number; sub++) {
         unknown_a40774++;
-        TechnoClass *obj = (TechnoClass *)type->unknown_slot35(house);
+        TechnoClass *obj = (TechnoClass *)type->Create_One_Of(house);
         unknown_a40774--;
         if (!obj) return sub;
 
@@ -51,7 +51,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
                 TechnoTypeClass const *ptype = InfantryTypes[passenger];
                 if (ptype) {
                     for (int index = passenger_count; index; index--) {
-                        FootClass *inf = (FootClass *)ptype->unknown_slot35(house);
+                        FootClass *inf = (FootClass *)ptype->Create_One_Of(house);
                         if (inf) {
                             inf->unknown_slot52();
                             obj->Cargo.Attach(inf);

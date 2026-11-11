@@ -1,4 +1,4 @@
-// bool UnitTypeClass::unknown_slot32(Cell const &cell, HouseClass *house) const (0x0070A9D0)
+// bool UnitTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const (0x0070A9D0)
 // Places a new vehicle of this type for the house at the cell centre, facing a
 // random direction (RA1: Create_And_Place).
 #include "shared/unit_type.hpp"
@@ -10,7 +10,7 @@
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 
-bool UnitTypeClass::unknown_slot32(Cell const &cell, HouseClass *house) const
+bool UnitTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
 {
     ObjectClass *unit = (ObjectClass *)new UnitClass((UnitTypeClass *)this, house);
     if (unit != 0) {

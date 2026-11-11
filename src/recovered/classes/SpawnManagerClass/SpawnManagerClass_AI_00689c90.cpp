@@ -153,7 +153,7 @@ void SpawnManagerClass::AI()
 
         case 7:
             if (!SpawnedNodes[i]->Timer.Value()) {
-                SpawnedNodes[i]->Unit = (AircraftClass *)SpawnType->unknown_slot35(Owner->Owning_House());
+                SpawnedNodes[i]->Unit = (AircraftClass *)SpawnType->Create_One_Of(Owner->Owning_House());
                 if (SpawnType == Rules->V3Rocket.Type || SpawnType == Rules->DMisl.Type) {
                     SpawnedNodes[i]->IsMissile = 1;
                 } else {

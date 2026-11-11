@@ -86,7 +86,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
 
     if (Type->Wall) {
         if (unknown_slot101(&Map[*coord], -1, -1, 0, true) == 0) {
-            ObjectClass *o = Type->ToOverlay->unknown_slot35(House);
+            ObjectClass *o = Type->ToOverlay->Create_One_Of(House);
             if (o && o->unknown_slot53(coord, 0)) {
                 Map[*coord].unknown_50 = House->ArrayIndex;
                 unknown_slot149(3);

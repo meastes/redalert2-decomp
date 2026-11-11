@@ -1,4 +1,4 @@
-// ObjectClass *IsometricTileTypeClass::unknown_slot35(HouseClass *house) const (0x0052E020, slot 35)
+// ObjectClass *IsometricTileTypeClass::Create_One_Of(HouseClass *house) const (0x0052E020, slot 35)
 // A new tile of this type at no cell, loading the type's image first when
 // it is missing and allowed (unknown_2c4).
 // Only the list accessors expand here: the colour table constructor stays a call.
@@ -14,7 +14,7 @@
 // The "no cell" position (0x00A52EAC; hypothesis).
 extern Cell const unknown_cell_a52eac;
 
-ObjectClass *IsometricTileTypeClass::unknown_slot35(HouseClass *house) const
+ObjectClass *IsometricTileTypeClass::Create_One_Of(HouseClass *house) const
 {
     if (unknown_a4 == 0 && unknown_2c4) {
         const_cast<IsometricTileTypeClass *>(this)->Load_Tile_Data();

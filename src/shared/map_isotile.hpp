@@ -29,11 +29,11 @@ struct IsoTileImageStruct {
 class IsometricTileTypeClass : public AbstractClass {
 public:
     virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void unknown_slot26(); virtual void unknown_slot27(); virtual void unknown_slot28(); virtual void unknown_slot29();
-    virtual void unknown_slot30(); virtual void unknown_slot31(); virtual void unknown_slot32(); virtual void unknown_slot33(); virtual void unknown_slot34(); 
+    virtual void unknown_slot30(); virtual void unknown_slot31(); virtual void Create_And_Place(); virtual void unknown_slot33(); virtual void unknown_slot34(); 
 #ifdef RA2_MAP_COLLAPSE_CLIFF
-    virtual class ObjectClass *unknown_slot35(class HouseClass *house) const;
+    virtual class ObjectClass *Create_One_Of(class HouseClass *house) const;
 #else
-    virtual void unknown_slot35();
+    virtual void Create_One_Of();
 #endif
     virtual void unknown_slot36(); virtual void unknown_slot37(); virtual void unknown_slot38();
     virtual void *unknown_slot39() const;               // slot 39 (+0x9C) the image (0x005293D0)

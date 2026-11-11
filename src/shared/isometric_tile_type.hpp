@@ -94,8 +94,8 @@ public:
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0052E0B0 slot 13
     virtual int unknown_slot16() const;                                 // 0x0052E6A0 (ArrayIndex)
     virtual CoordStruct unknown_slot27(CoordStruct const &coord) const; // 0x0052E090
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const;   // 0x0052DFE0
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const;       // 0x0052E020
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x0052DFE0
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x0052E020
     virtual Cell const *unknown_slot36(int arg1) const;           // 0x00529450
     virtual void *unknown_slot39() const;                               // 0x005293D0
 

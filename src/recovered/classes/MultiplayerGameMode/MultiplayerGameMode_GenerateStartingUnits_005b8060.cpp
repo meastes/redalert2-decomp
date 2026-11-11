@@ -86,7 +86,7 @@ bool MultiplayerGameMode::GenerateStartingUnits(HouseClass *house, int *money)
             } else {
                 type = infantry_list[unknown_id_source_a3d290->Random()(0, infantry_list.Count() - 1)];
             }
-            ObjectClass *object = type->unknown_slot35(house);
+            ObjectClass *object = type->Create_One_Of(house);
             TechnoClass *techno = dynamic_cast<TechnoClass *>(object);
             Cell cell = Cell(house->BaseCenter.X / 256, house->BaseCenter.Y / 256);
             if (!Unknown_00660b60(techno, cell, 4)) {

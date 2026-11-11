@@ -31,16 +31,16 @@ void MapClass::Unknown_00562F50(CellClass *cell)
     if (cell->IsoTileIndex == unknown_tileset_a6e0f8) {
         Cell origin = cell->MapCoords + Cell(-((unsigned char)cell->unknown_11a % 6), -((unsigned char)cell->unknown_11a / 6));
 
-        ObjectClass *object = IsoTileTypes[unknown_tileset_a6e0f8]->unknown_slot35(0);
+        ObjectClass *object = IsoTileTypes[unknown_tileset_a6e0f8]->Create_One_Of(0);
         object->unknown_slot103(origin);
         object->unknown_76 = false;
         object->unknown_74 = true;
         object->Mark(0);
         delete object;
 
-        ObjectClass *slope1 = IsoTileTypes[unknown_tileset_a6e038]->unknown_slot35(0);
+        ObjectClass *slope1 = IsoTileTypes[unknown_tileset_a6e038]->Create_One_Of(0);
         slope1->unknown_slot53(origin, 0);
-        ObjectClass *slope2 = IsoTileTypes[unknown_tileset_a6e038 + 1]->unknown_slot35(0);
+        ObjectClass *slope2 = IsoTileTypes[unknown_tileset_a6e038 + 1]->Create_One_Of(0);
         slope2->unknown_slot53((Cell)(origin + Cell(3, 0)), 0);
 
         Zone_Reset();
@@ -111,16 +111,16 @@ void MapClass::Unknown_00562F50(CellClass *cell)
     } else if (cell->IsoTileIndex == unknown_tileset_a6e0f8 + 1) {
         Cell origin = cell->MapCoords + Cell(-((unsigned char)cell->unknown_11a % 4), -((unsigned char)cell->unknown_11a / 4));
 
-        ObjectClass *object = IsoTileTypes[unknown_tileset_a6e0f8 + 1]->unknown_slot35(0);
+        ObjectClass *object = IsoTileTypes[unknown_tileset_a6e0f8 + 1]->Create_One_Of(0);
         object->unknown_slot103(origin);
         object->unknown_76 = false;
         object->unknown_74 = true;
         object->Mark(0);
         delete object;
 
-        ObjectClass *slope1 = IsoTileTypes[unknown_tileset_a6e038 + 3]->unknown_slot35(0);
+        ObjectClass *slope1 = IsoTileTypes[unknown_tileset_a6e038 + 3]->Create_One_Of(0);
         slope1->unknown_slot53(origin, 0);
-        ObjectClass *slope2 = IsoTileTypes[unknown_tileset_a6e038 + 2]->unknown_slot35(0);
+        ObjectClass *slope2 = IsoTileTypes[unknown_tileset_a6e038 + 2]->Create_One_Of(0);
         slope2->unknown_slot53((Cell)(origin + Cell(0, 3)), 0);
 
         Zone_Reset();

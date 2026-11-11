@@ -58,7 +58,7 @@ bool BuildingClass::Mark(int mark)
                                                 }
                                             }
                                         }
-                                        ObjectClass *iptr = Type->unknown_bf0->unknown_slot35(House);
+                                        ObjectClass *iptr = Type->unknown_bf0->Create_One_Of(House);
                                         iptr->unknown_slot53(&CoordStruct(newcell), 0);
                                         if (House == unknown_player_a35db4) {
                                             Map.Sight_From(CoordStruct(newcell), 1, unknown_player_a35db4, false, false, false, true, false);

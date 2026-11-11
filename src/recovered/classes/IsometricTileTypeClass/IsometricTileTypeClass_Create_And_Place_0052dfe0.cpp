@@ -1,4 +1,4 @@
-// bool IsometricTileTypeClass::unknown_slot32(Cell const &cell, HouseClass *house) const (0x0052DFE0, slot 32)
+// bool IsometricTileTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const (0x0052DFE0, slot 32)
 // Places a tile of this type at the cell (ObjectTypeClass slot 32: create
 // the object there); true when one was made.
 // Only the list accessors expand here: the colour table constructor stays a call.
@@ -9,7 +9,7 @@
 #include "shared/isometric_tile.hpp"
 // @ref ??0IsometricTileClass@@QAE@HABVCell@@@Z=00527ed0
 
-bool IsometricTileTypeClass::unknown_slot32(Cell const &cell, HouseClass *house) const
+bool IsometricTileTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
 {
     if (new IsometricTileClass(ArrayIndex, cell) != 0) {
         return true;

@@ -203,7 +203,7 @@ void __fastcall Create_Units_00660320(bool official)
             } else if (infantry_list.Count() > 0) {
                 type = infantry_list[unknown_id_source_a3d290->Random()(0, infantry_list.Count() - 1)];
             }
-            ObjectClass *object = type->unknown_slot35(house);
+            ObjectClass *object = type->Create_One_Of(house);
             TechnoClass *techno = object->As_Techno();
             if (!Unknown_00660b60(object, cell, 4)) {
                 delete object;

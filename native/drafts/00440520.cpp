@@ -183,7 +183,7 @@ exitcell.X += random; exitcell.Y += random;
                     TechnoTypeClass *type = base->unknown_slot32();
                     for (int index = 0; index < House->unknown_98.Count(); index++) {
                         BuildingClass *vat = House->unknown_98[index];
-                        TechnoClass *object = (TechnoClass *)type->unknown_slot35(vat->House);
+                        TechnoClass *object = (TechnoClass *)type->Create_One_Of(vat->House);
                         vat->unknown_slot62(object);
                     }
                 }

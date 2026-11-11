@@ -42,7 +42,7 @@ SpawnManagerClass::SpawnManagerClass(TechnoClass *owner, AircraftTypeClass *type
         if (!node) {
             break;
         }
-        node->Unit = (AircraftClass *)SpawnType->unknown_slot35(Owner->Owning_House());
+        node->Unit = (AircraftClass *)SpawnType->Create_One_Of(Owner->Owning_House());
         if (node->Unit) {
             if (SpawnType == Rules->V3Rocket.Type || SpawnType == Rules->DMisl.Type) {
                 node->IsMissile = 1;

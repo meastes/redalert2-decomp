@@ -43,8 +43,8 @@ public:
     virtual int Size_Of() const;                                        // 0x00620E80 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00620C60 slot 13
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00620830 slot 25
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const;   // 0x00620EA0
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const;       // 0x00620EB0
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x00620EA0
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x00620EB0
 
     ParticleSystemTypeClass(char const *ini_name);                      // 0x00620600
     static int __fastcall Index_Or_Make(char const *name);            // 0x00620B90

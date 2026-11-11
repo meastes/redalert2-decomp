@@ -144,9 +144,9 @@ public:
     virtual int unknown_slot29() const;                                 // 0x00458980 Max_Pips
     virtual CoordStruct unknown_slot30() const;                         // 0x00458840
     virtual CoordStruct unknown_slot31() const;                         // 0x0045D8B0
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const; // 0x00458420
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x00458420
     virtual int unknown_slot33(HouseClass *house) const;                        // 0x00458A70
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const;           // 0x004584A0 (new building)
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const;           // 0x004584A0 (new building)
     virtual Cell const *unknown_slot36(int arg1) const;           // 0x004588C0
     virtual void *unknown_slot39() const;                               // 0x00458CE0
     virtual bool unknown_slot40() const;                                // 0x0045E740

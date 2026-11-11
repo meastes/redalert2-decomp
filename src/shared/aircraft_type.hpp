@@ -72,8 +72,8 @@ public:
     virtual int unknown_slot16() const;                                 // 0x0041C330 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0041BFD0
     virtual CoordStruct unknown_slot31() const;                         // 0x0041BFA0
-    virtual bool unknown_slot32(Cell const &cell, HouseClass *house) const; // 0x0041BF90 (false)
-    virtual ObjectClass *unknown_slot35(HouseClass *house) const;       // 0x0041BED0 (new aircraft)
+    virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x0041BF90 (false)
+    virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x0041BED0 (new aircraft)
     virtual Cell const *unknown_slot36(int arg1) const;           // 0x0041BF20
     virtual bool unknown_slot40() const;                                // 0x0041BF00 (false)
     virtual bool unknown_slot41() const;                                // 0x0041BF10 (false)

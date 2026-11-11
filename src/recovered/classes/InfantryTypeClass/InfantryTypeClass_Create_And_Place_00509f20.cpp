@@ -1,4 +1,4 @@
-// bool InfantryTypeClass::unknown_slot32(Cell const &cell, HouseClass *house) const (0x00509F20)
+// bool InfantryTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const (0x00509F20)
 // Places a new infantry of this type for the house at the nearest free spot
 // of the cell, facing 0x40; deletes it when the cell has no room.
 #include "shared/infantry_type.hpp"
@@ -17,7 +17,7 @@ static inline bool Is_Valid(CoordStruct const &coord)
         || coord.Z != unknown_geometry_l.Z;
 }
 
-bool InfantryTypeClass::unknown_slot32(Cell const &cell, HouseClass *house) const
+bool InfantryTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
 {
     InfantryClass *infantry = new InfantryClass(const_cast<InfantryTypeClass *>(this), house);
     if (infantry != 0) {
