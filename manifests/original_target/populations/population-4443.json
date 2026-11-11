@@ -4,8 +4,8 @@
     "id": "population-4443",
     "inventory_sha256": "2c742ecb1dc3d6064401f2604c8eb537265139a39fa185b8da5621468ac0980d",
     "gaps_sha256": "d547a7060b9c421b15a98390a7a4e0b37c0594421b892943b8c3d47cc17aeafb",
-    "historical_population_sha256": "5ab9f6e5610e89cc74f67c88d5f18db66483f7838f57eaf3c7df08ff3393efee",
-    "historical_acceptance_sha256": "b198d2e09e9c0a063b5634864c4f44bbcf56a82a6eb771f032a63156815c6b49"
+    "historical_population_sha256": "85b9fcdeb46617f4c1d99a6bc4282cd9c53a1d9a6b7d84f75b1fb60e91fda4f8",
+    "historical_acceptance_sha256": "5527f2879285ed5327bd8bb901d12f7487b48f8ef406c6f268bffa1b7b18939f"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -15,7 +15,7 @@
     "??_7?$VectorClass@PAVVeinholeMonsterClass@@@@6B@": 8054612,
     "??_G?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@UAEPAXI@Z": 7416464,
     "??_G?$VectorClass@PAVVeinholeMonsterClass@@@@UAEPAXI@Z": 7416384,
-    "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A": 11339592,
+    "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A": 11339592,
     "?Clear@?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@UAEXXZ": 7415632,
     "?Clear@?$VectorClass@PAVVeinholeMonsterClass@@@@UAEXXZ": 7415968,
     "?Fetch@?$VectorClass@PAVVeinholeMonsterClass@@@@UBEPAVVeinholeMonsterClass@@H@Z": 7415712,
@@ -4785,13 +4785,13 @@
     "?unknown_slot63@VoxelAnimClass@@UAE_NPAVRect@@_N1@Z": 7393136,
     "?Load@VoxelAnimClass@@UAGJPAUIStream@@@Z": 7396784,
     "?Compute_CRC@VoxelAnimClass@@UBEXAAVWWCRCEngine@@@Z": 7396976,
-    "?Find_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z": 7405920,
-    "?Find_Covering@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z": 7406000,
-    "?All_Draw@VeinholeMonsterClass@@SAXXZ": 7407648,
-    "?unknown_func_710880@VeinholeMonsterClass@@QAEXXZ": 7407744,
-    "?Load_Shape@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Get_Monster_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z": 7405920,
+    "?Get_Vein_Owner_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z": 7406000,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?unknown_veinhole_shape_ad079c@@3PBXB": 11339676,
-    "?Clear_All@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
     "?Load@BuildingLightClass@@UAGJPAUIStream@@@Z": 4407520,
     "??_7BuildingLightClass@@6BIPersistStream@@@": 7981024,
     "??_7BuildingLightClass@@6BIRTTITypeInfo@@@": 7980996,
@@ -4817,7 +4817,7 @@
     "?unknown_veinhole_buffer_ad07a0@@3PAEA": 11339680,
     "?unknown_slot86@VeinholeMonsterClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 7408064,
     "?unknown_slot86@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 6110496,
-    "?Can_Spawn_At@VeinholeMonsterClass@@SI_NABVCell@@@Z": 7408224,
+    "?Can_Monster_Go_Here@VeinholeMonsterClass@@SI_NABVCell@@@Z": 7408224,
     "?Unknown_Free_Art_Sets_006F2510@@YIXXZ": 7283984,
     "?Unknown_Free_Art_Pair_006F26D0@@YIXXZ": 7284432,
     "?Close_All_Port_Sockets@UDPInterfaceClass@@UAEXXZ": 7785664,
@@ -5578,14 +5578,14 @@
     "?Draw_It@TabClass@@UAEX_N@Z": 6951632,
     "?Draw_It@SidebarClass@@UAEX_N@Z": 6803328,
     "??0VeinholeMonsterClass@@QAE@PBVCell@@@Z": 7403952,
-    "?All_AI@VeinholeMonsterClass@@SAXXZ": 7406064,
-    "?unknown_func_710ff0@VeinholeMonsterClass@@QAEXXZ": 7409648,
-    "?unknown_func_712300@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z": 7414528,
-    "?unknown_func_711280@VeinholeMonsterClass@@SIX_N@Z": 7410304,
-    "?unknown_func_711c90@VeinholeMonsterClass@@QAEXXZ": 7412880,
-    "?unknown_func_711aa0@VeinholeMonsterClass@@QAEXXZ": 7412384,
-    "?unknown_func_7115b0@VeinholeMonsterClass@@QAEXXZ": 7411120,
-    "?Delete_Dead@VeinholeMonsterClass@@SAXXZ": 7413280,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Shrink@VeinholeMonsterClass@@QAEXXZ": 7409648,
+    "?Reduce_Veins_At@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z": 7414528,
+    "?Init_Vein_Growth_System@VeinholeMonsterClass@@SIX_N@Z": 7410304,
+    "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ": 7412880,
+    "?Build_Shrinking_Queue@VeinholeMonsterClass@@QAEXXZ": 7412384,
+    "?Build_Growth_Queue@VeinholeMonsterClass@@QAEXXZ": 7411120,
+    "?Remove_Dead@VeinholeMonsterClass@@SAXXZ": 7413280,
     "?unknown_slot77@InfantryClass@@UAE_NHPBVCell@@0_N@Z": 5267712,
     "?unknown_slot43@ObjectClass@@UAE?AUCoordStruct@@H@Z": 4341072,
     "?unknown_slot100@ObjectClass@@UAEXH@Z": 6106464,
@@ -5666,7 +5666,7 @@
     "?unknown_slot20@CellClass@@UBE_NXZ": 4700656,
     "?Center_Coord@CellClass@@UBE?AUCoordStruct@@XZ": 4700752,
     "?Get_Char@WideString@@QBEGI@Z": 7799920,
-    "?unknown_func_710bb0@VeinholeMonsterClass@@QAEXXZ": 7408560,
+    "?Grow@VeinholeMonsterClass@@QAEXXZ": 7408560,
     "?Sift_Down@UnknownVeinHeap@@QAEXH@Z": 5828752,
     "??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z": 5823360,
     "??4?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z": 5823648,
@@ -6590,7 +6590,7 @@
     "__real@4@40078000000000000000": 7975084,
     "__real@4@40038000000000000000": 8055360,
     "__real@4@3ffccccccd0000000000": 8055364,
-    "?unknown_func_711d20@VeinholeMonsterClass@@QAEXXZ": 7413024,
+    "?Destroy_Monster@VeinholeMonsterClass@@QAEXXZ": 7413024,
     "?Save_All@VeinholeMonsterClass@@SI_NPAUIStream@@@Z": 7414096,
     "_?$S43@?1??Build_Final_Path@AStarClass@@QAEPAUPathStruct@@PAURegularOpenNode@@PAH@Z@4EA": 8710100,
     "_?path@?1??Build_Final_Path@AStarClass@@QAEPAUPathStruct@@PAURegularOpenNode@@PAH@Z@4U3@A": 8701968,
@@ -7523,8 +7523,8 @@
     "_$E35": 7403344,
     "_$E38": 7403360,
     "_$E45": 7403392,
-    "?unknown_func_710880@VeinholeMonsterClass@@": 7407744,
-    "?unknown_func_710bb0@VeinholeMonsterClass@@": 7408560,
+    "?Draw_It@VeinholeMonsterClass@@": 7407744,
+    "?Grow@VeinholeMonsterClass@@": 7408560,
     "?Deinit_Vein_Growth_System@VeinholeMonsterClass@@SAXXZ": 7410928,
     "?Clear_Global_Data@VeinholeMonsterClass@@SAXXZ": 7412848,
     "?target@Call_468f90_0@@QAEIXZ": 4652432,
@@ -11787,7 +11787,31 @@
     "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
     "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
     "?Redraw@BinkClass@@QAEXXZ": 4392992,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z": 4717904,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_7?$VectorClass@PAUDamageGroup@@@@6B@": 7986524,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z": 4718672,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Grow@?$UnknownGrowArray@UUnknownGrowElement8@@@@QAE_NH@Z": 5213280,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Shrink@?$WolArrayList@VWstring@@@@QAE_NXZ": 7764768,
+    "?Grow@?$WolArrayList@VWstring@@@@QAE_NXZ": 7766816,
+    "?Grow@WolIntArray@@QAE_NXZ": 7766672,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Search@@3UAStarClass@@A": 8590792
   },
   "regions": [
     {
@@ -11840,7 +11864,7 @@
           "resolved": 11339556
         }
       ],
-      "source_sha256": "03a23e64c4acd37590b2ae8424befed0776a6eb95a8c70ce1424e2ccd8f6a1c9",
+      "source_sha256": "7304ad6ce57104cab7be1b592b8d1ab8ab344d3d27c5868469bcdfb4bfd1f924",
       "source": "src/recovered/header_statics/0070f590/HeaderStatics_empty_rect_init_0070f590.cpp",
       "population": "population-4443",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -12553,7 +12577,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -12561,7 +12585,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 8,
           "resolved": 11339600
@@ -12569,7 +12593,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 12,
           "resolved": 11339604
@@ -12577,7 +12601,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -12585,7 +12609,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -12601,7 +12625,7 @@
         {
           "offset": 41,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 20,
           "resolved": 11339612
@@ -12609,7 +12633,7 @@
         {
           "offset": 50,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -12935,8 +12959,8 @@
     {
       "entry": 7412880,
       "method": "00711c90",
-      "symbol": "?unknown_func_711c90@VeinholeMonsterClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_711c90@VeinholeMonsterClass@@QAEXXZ",
+      "symbol": "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ",
+      "symbol_prefix": "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -12982,8 +13006,8 @@
           "resolved": 458806
         }
       ],
-      "source_sha256": "4410a1fbef6a05d0b988ccc33a8cc555cae3859f5c780c1946d73cda1749d81e",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_711c90_00711c90.cpp",
+      "source_sha256": "5a3f5eef867573c18c5fcb1a873929536896923a80a46ba70f6b06bb2678d543",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Clear_Growth_00711c90.cpp",
       "population": "population-4443",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -13010,7 +13034,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13018,7 +13042,7 @@
         {
           "offset": 24,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13080,7 +13104,7 @@
           "resolved": 11339680
         }
       ],
-      "source_sha256": "332c703475a5dfe9f218c78b29eb21091b22052c31fa9fb238f476b0f05bac76",
+      "source_sha256": "1ffa73b23e648fa6946357b921ef904cf837fb20e614e869645e2a30b5d2ef56",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Deinit_Vein_Growth_System_007114f0.cpp",
       "population": "population-4443",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -13116,7 +13140,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -13132,7 +13156,7 @@
         {
           "offset": 27,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13148,7 +13172,7 @@
         {
           "offset": 43,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -13164,7 +13188,7 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13172,7 +13196,7 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -13180,7 +13204,7 @@
         {
           "offset": 79,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 8,
           "resolved": 11339600
@@ -13198,8 +13222,8 @@
     {
       "entry": 7405920,
       "method": "00710160",
-      "symbol": "?Find_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z",
-      "symbol_prefix": "?Find_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z",
+      "symbol": "?Get_Monster_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z",
+      "symbol_prefix": "?Get_Monster_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -13215,7 +13239,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13223,26 +13247,26 @@
         {
           "offset": 17,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
         }
       ],
-      "source_sha256": "a30699af2da3f8fe49b9ef60c319a6d0299e82f5b3bfbe219c9b4893ef15ca03",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Find_At_00710160.cpp",
+      "source_sha256": "246fdabe3e47623efe19299f729cf6624bf087f552c6bf4b96bde426679dc9f2",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Get_Monster_At_00710160.cpp",
       "population": "population-4443",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_Find_At_00710160",
+      "semantic_name": "VeinholeMonsterClass_Get_Monster_At_00710160",
       "source_order": 239478
     },
     {
       "entry": 7406000,
       "method": "007101b0",
-      "symbol": "?Find_Covering@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z",
-      "symbol_prefix": "?Find_Covering@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z",
+      "symbol": "?Get_Vein_Owner_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z",
+      "symbol_prefix": "?Get_Vein_Owner_At@VeinholeMonsterClass@@SIPAV1@ABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -13258,7 +13282,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13274,26 +13298,26 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
         }
       ],
-      "source_sha256": "0dc3641ca723b380eb539a0967f904f9e4812b7fec905c1096ae75c2087b7b81",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Find_Covering_007101b0.cpp",
+      "source_sha256": "1f91aeb690c343ac73187db5198206ab7bab9763217f92756186617982a0f334",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Get_Vein_Owner_At_007101b0.cpp",
       "population": "population-4443",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_Find_Covering_007101b0",
+      "semantic_name": "VeinholeMonsterClass_Get_Vein_Owner_At_007101b0",
       "source_order": 239479
     },
     {
       "entry": 7407648,
       "method": "00710820",
-      "symbol": "?All_Draw@VeinholeMonsterClass@@SAXXZ",
-      "symbol_prefix": "?All_Draw@VeinholeMonsterClass@@SAXXZ",
+      "symbol": "?Draw_All@VeinholeMonsterClass@@SAXXZ",
+      "symbol_prefix": "?Draw_All@VeinholeMonsterClass@@SAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13309,7 +13333,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13317,7 +13341,7 @@
         {
           "offset": 15,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13325,26 +13349,26 @@
         {
           "offset": 23,
           "kind": 20,
-          "symbol": "?unknown_func_710880@VeinholeMonsterClass@@QAEXXZ",
+          "symbol": "?Draw_It@VeinholeMonsterClass@@QAEXXZ",
           "target": 7407744,
           "addend": 0,
           "resolved": 69
         }
       ],
-      "source_sha256": "c846ae6e2ff474ae22cd3b79cf539ece2432c3dd3ff9f05d4f6f634be80bc5f2",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_All_Draw_00710820.cpp",
+      "source_sha256": "32b7b63b1edd8080545b343d98c878ee701fac039e6c833f38da0e18a4e1cf13",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Draw_All_00710820.cpp",
       "population": "population-4443",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_All_Draw_00710820",
+      "semantic_name": "VeinholeMonsterClass_Draw_All_00710820",
       "source_order": 239482
     },
     {
       "entry": 7407680,
       "method": "00710840",
-      "symbol": "?Load_Shape@VeinholeMonsterClass@@SIXH@Z",
-      "symbol_prefix": "?Load_Shape@VeinholeMonsterClass@@SIXH@Z",
+      "symbol": "?Init@VeinholeMonsterClass@@SIXH@Z",
+      "symbol_prefix": "?Init@VeinholeMonsterClass@@SIXH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -13398,20 +13422,20 @@
           "resolved": 11339676
         }
       ],
-      "source_sha256": "4f70716adaccf08d024a7a84193039117694c8259dc45ba55732274443fb9f4b",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Load_Shape_00710840.cpp",
+      "source_sha256": "3c9f265686f6ebab5520b337726c0f9defc7904007aa779215e8f11dd5352b0c",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Init_00710840.cpp",
       "population": "population-4443",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_Load_Shape_00710840",
+      "semantic_name": "VeinholeMonsterClass_Init_00710840",
       "source_order": 239483
     },
     {
       "entry": 7408464,
       "method": "00710b50",
-      "symbol": "?Clear_All@VeinholeMonsterClass@@SAXXZ",
-      "symbol_prefix": "?Clear_All@VeinholeMonsterClass@@SAXXZ",
+      "symbol": "?Reset@VeinholeMonsterClass@@SAXXZ",
+      "symbol_prefix": "?Reset@VeinholeMonsterClass@@SAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13427,7 +13451,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13435,7 +13459,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13443,7 +13467,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13451,7 +13475,7 @@
         {
           "offset": 46,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13459,7 +13483,7 @@
         {
           "offset": 56,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -13475,7 +13499,7 @@
         {
           "offset": 73,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13483,7 +13507,7 @@
         {
           "offset": 79,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -13491,19 +13515,19 @@
         {
           "offset": 85,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 8,
           "resolved": 11339600
         }
       ],
-      "source_sha256": "bb65d0b907e24f2d4c84aff6eb469d8ff81d4b8fbf42a254610b20742a651cb0",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Clear_All_00710b50.cpp",
+      "source_sha256": "8355724c24403c1c7deaee3ac5317638c279c51d4ecabfe3f7ee7854dbb8ea56",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Reset_00710b50.cpp",
       "population": "population-4443",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_Clear_All_00710b50",
+      "semantic_name": "VeinholeMonsterClass_Reset_00710b50",
       "source_order": 239487
     },
     {
@@ -13574,7 +13598,7 @@
         {
           "offset": 63,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 8,
           "resolved": 11339600
@@ -13582,7 +13606,7 @@
         {
           "offset": 69,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13590,7 +13614,7 @@
         {
           "offset": 77,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -13598,7 +13622,7 @@
         {
           "offset": 91,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 20,
           "resolved": 11339612
@@ -13606,7 +13630,7 @@
         {
           "offset": 101,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -13614,7 +13638,7 @@
         {
           "offset": 111,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -13622,7 +13646,7 @@
         {
           "offset": 124,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13630,7 +13654,7 @@
         {
           "offset": 133,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13638,7 +13662,7 @@
         {
           "offset": 139,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13732,7 +13756,7 @@
           "resolved": 468609
         }
       ],
-      "source_sha256": "ddff98f8a9762731cba332ade6a1816080893745f9a1e4b9ccbc91d798853350",
+      "source_sha256": "705dcac571887d0bede81af77db87114050a4c092c94aebcaf48bc73f7dd9323",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_constructor_0070f820.cpp",
       "population": "population-4443",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13783,7 +13807,7 @@
           "resolved": 4294820165
         }
       ],
-      "source_sha256": "fb6b731a6d4ef12364cc00c8853c7bbe0a89b55c57afe2443d7e9fd73bede0c5",
+      "source_sha256": "eb9a9dd2d97ad69227da18c18d44b8b98cc611c70034b41300be0ca519ebedc7",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_slot86_007109c0.cpp",
       "population": "population-4443",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -13795,8 +13819,8 @@
     {
       "entry": 7408224,
       "method": "00710a60",
-      "symbol": "?Can_Spawn_At@VeinholeMonsterClass@@SI_NABVCell@@@Z",
-      "symbol_prefix": "?Can_Spawn_At@VeinholeMonsterClass@@SI_NABVCell@@@Z",
+      "symbol": "?Can_Monster_Go_Here@VeinholeMonsterClass@@SI_NABVCell@@@Z",
+      "symbol_prefix": "?Can_Monster_Go_Here@VeinholeMonsterClass@@SI_NABVCell@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -13820,7 +13844,7 @@
         {
           "offset": 23,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13828,7 +13852,7 @@
         {
           "offset": 36,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -13866,13 +13890,13 @@
           "resolved": 4293096791
         }
       ],
-      "source_sha256": "b23ed59ebe5d62438a2c4a6682ee46c0a82657653923f98e7112c4020561c6c2",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Can_Spawn_At_00710a60.cpp",
+      "source_sha256": "cc57ecca557f45cf862e2229536ee42dc1011e07c6177dc3fbd147234ffdf474",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Can_Monster_Go_Here_00710a60.cpp",
       "population": "population-4443",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_Can_Spawn_At_00710a60",
+      "semantic_name": "VeinholeMonsterClass_Can_Monster_Go_Here_00710a60",
       "source_order": 239486
     },
     {
@@ -13975,7 +13999,7 @@
         {
           "offset": 213,
           "kind": 20,
-          "symbol": "?Can_Spawn_At@VeinholeMonsterClass@@SI_NABVCell@@@Z",
+          "symbol": "?Can_Monster_Go_Here@VeinholeMonsterClass@@SI_NABVCell@@@Z",
           "target": 7408224,
           "addend": 0,
           "resolved": 4055
@@ -13983,7 +14007,7 @@
         {
           "offset": 226,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 8,
           "resolved": 11339600
@@ -13991,7 +14015,7 @@
         {
           "offset": 232,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -13999,7 +14023,7 @@
         {
           "offset": 242,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -14007,7 +14031,7 @@
         {
           "offset": 254,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 20,
           "resolved": 11339612
@@ -14015,7 +14039,7 @@
         {
           "offset": 264,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -14023,7 +14047,7 @@
         {
           "offset": 273,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -14031,7 +14055,7 @@
         {
           "offset": 286,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -14039,7 +14063,7 @@
         {
           "offset": 295,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -14047,7 +14071,7 @@
         {
           "offset": 301,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14389,7 +14413,7 @@
           "resolved": 11272028
         }
       ],
-      "source_sha256": "3d1d8f28f3e67383197bb108f2c4f05b766cc958b2a1dcfb06fff16c655d469a",
+      "source_sha256": "089ad2c491bff936cccdccd92761921c41d07a4963bd300d65467e9e40fefff7",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_constructor_0070f9b0.cpp",
       "population": "population-4443",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14401,8 +14425,8 @@
     {
       "entry": 7406064,
       "method": "007101f0",
-      "symbol": "?All_AI@VeinholeMonsterClass@@SAXXZ",
-      "symbol_prefix": "?All_AI@VeinholeMonsterClass@@SAXXZ",
+      "symbol": "?Update_All@VeinholeMonsterClass@@SAXXZ",
+      "symbol_prefix": "?Update_All@VeinholeMonsterClass@@SAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14418,7 +14442,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -14426,7 +14450,7 @@
         {
           "offset": 15,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14434,7 +14458,7 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -14442,7 +14466,7 @@
         {
           "offset": 43,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14450,26 +14474,26 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
         }
       ],
-      "source_sha256": "5ecfbbd9651e11d56f9631fe1852ec4b6db9b394c46f1b5595102d42112b724f",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_All_AI_007101f0.cpp",
+      "source_sha256": "6bebb8a96c4b3f2ce30c2493cf5a8ae296f35e7e9bfb052710f5ce80cb53c481",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Update_All_007101f0.cpp",
       "population": "population-4443",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_All_AI_007101f0",
+      "semantic_name": "VeinholeMonsterClass_Update_All_007101f0",
       "source_order": 239480
     },
     {
       "entry": 7409648,
       "method": "00710ff0",
-      "symbol": "?unknown_func_710ff0@VeinholeMonsterClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_710ff0@VeinholeMonsterClass@@QAEXXZ",
+      "symbol": "?Shrink@VeinholeMonsterClass@@QAEXXZ",
+      "symbol_prefix": "?Shrink@VeinholeMonsterClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14533,26 +14557,26 @@
         {
           "offset": 368,
           "kind": 20,
-          "symbol": "?unknown_func_712300@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Reduce_Veins_At@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z",
           "target": 7414528,
           "addend": 0,
           "resolved": 4508
         }
       ],
-      "source_sha256": "d65edb968d7eb5134117603273f6203e9a5e1d7a47ce3bf35956cf9dba629859",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_710ff0_00710ff0.cpp",
+      "source_sha256": "1e40cb33fbdb40b4db36512e538cf7aff43d34c020d3b67de4b7c780f440a254",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Shrink_00710ff0.cpp",
       "population": "population-4443",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_unknown_func_710ff0_00710ff0",
+      "semantic_name": "VeinholeMonsterClass_Shrink_00710ff0",
       "source_order": 239489
     },
     {
       "entry": 7410304,
       "method": "00711280",
-      "symbol": "?unknown_func_711280@VeinholeMonsterClass@@SIX_N@Z",
-      "symbol_prefix": "?unknown_func_711280@VeinholeMonsterClass@@SIX_N@Z",
+      "symbol": "?Init_Vein_Growth_System@VeinholeMonsterClass@@SIX_N@Z",
+      "symbol_prefix": "?Init_Vein_Growth_System@VeinholeMonsterClass@@SIX_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -14576,7 +14600,7 @@
         {
           "offset": 29,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -14584,7 +14608,7 @@
         {
           "offset": 44,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14592,7 +14616,7 @@
         {
           "offset": 52,
           "kind": 20,
-          "symbol": "?unknown_func_711c90@VeinholeMonsterClass@@QAEXXZ",
+          "symbol": "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ",
           "target": 7412880,
           "addend": 0,
           "resolved": 2520
@@ -14624,7 +14648,7 @@
         {
           "offset": 86,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -14648,7 +14672,7 @@
         {
           "offset": 143,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14680,7 +14704,7 @@
         {
           "offset": 248,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14696,7 +14720,7 @@
         {
           "offset": 269,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14704,7 +14728,7 @@
         {
           "offset": 289,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14712,7 +14736,7 @@
         {
           "offset": 319,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14800,7 +14824,7 @@
         {
           "offset": 470,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -14808,7 +14832,7 @@
         {
           "offset": 483,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14816,7 +14840,7 @@
         {
           "offset": 501,
           "kind": 20,
-          "symbol": "?unknown_func_711aa0@VeinholeMonsterClass@@QAEXXZ",
+          "symbol": "?Build_Shrinking_Queue@VeinholeMonsterClass@@QAEXXZ",
           "target": 7412384,
           "addend": 0,
           "resolved": 1575
@@ -14824,7 +14848,7 @@
         {
           "offset": 508,
           "kind": 20,
-          "symbol": "?unknown_func_7115b0@VeinholeMonsterClass@@QAEXXZ",
+          "symbol": "?Build_Growth_Queue@VeinholeMonsterClass@@QAEXXZ",
           "target": 7411120,
           "addend": 0,
           "resolved": 304
@@ -14894,20 +14918,20 @@
           "resolved": 4293169078
         }
       ],
-      "source_sha256": "08a9cca3eb91a384dfe18e341098bb00985a8190ad11c22f549bd991b4406b78",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_711280_00711280.cpp",
+      "source_sha256": "3e13abf26569770b6e34e3115938b7081c4183187ee18558dfd45f47466814b7",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Init_Vein_Growth_System_00711280.cpp",
       "population": "population-4443",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_unknown_func_711280_00711280",
+      "semantic_name": "VeinholeMonsterClass_Init_Vein_Growth_System_00711280",
       "source_order": 239490
     },
     {
       "entry": 7413280,
       "method": "00711e20",
-      "symbol": "?Delete_Dead@VeinholeMonsterClass@@SAXXZ",
-      "symbol_prefix": "?Delete_Dead@VeinholeMonsterClass@@SAXXZ",
+      "symbol": "?Remove_Dead@VeinholeMonsterClass@@SAXXZ",
+      "symbol_prefix": "?Remove_Dead@VeinholeMonsterClass@@SAXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14923,7 +14947,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -14931,7 +14955,7 @@
         {
           "offset": 14,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -14939,26 +14963,26 @@
         {
           "offset": 54,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
         }
       ],
-      "source_sha256": "3f843ddf3538fe4d73b10cc3c87ac7e522b04b3ef8fe1c7401575afc3105e347",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Delete_Dead_00711e20.cpp",
+      "source_sha256": "1f292f3822edbb55afb3a945ccb40691152ec5e1f3a2a615de198dec086cb857",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Remove_Dead_00711e20.cpp",
       "population": "population-4443",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_Delete_Dead_00711e20",
+      "semantic_name": "VeinholeMonsterClass_Remove_Dead_00711e20",
       "source_order": 239497
     },
     {
       "entry": 7408560,
       "method": "00710bb0",
-      "symbol": "?unknown_func_710bb0@VeinholeMonsterClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_710bb0@VeinholeMonsterClass@@",
+      "symbol": "?Grow@VeinholeMonsterClass@@QAEXXZ",
+      "symbol_prefix": "?Grow@VeinholeMonsterClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -15172,20 +15196,20 @@
           "resolved": 11339680
         }
       ],
-      "source_sha256": "b8921c343e0ea80b3bda4c121797dec15ade48671cd9075497cc80d932898d68",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_710bb0_00710bb0.cpp",
+      "source_sha256": "005ac4252f0fe072a4e7a9f849847f5deed74d17c3256d6015a803e7fada02b7",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Grow_00710bb0.cpp",
       "population": "population-4443",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_unknown_func_710bb0_00710bb0",
+      "semantic_name": "VeinholeMonsterClass_Grow_00710bb0",
       "source_order": 239488
     },
     {
       "entry": 7412384,
       "method": "00711aa0",
-      "symbol": "?unknown_func_711aa0@VeinholeMonsterClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_711aa0@VeinholeMonsterClass@@QAEXXZ",
+      "symbol": "?Build_Shrinking_Queue@VeinholeMonsterClass@@QAEXXZ",
+      "symbol_prefix": "?Build_Shrinking_Queue@VeinholeMonsterClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -15287,20 +15311,20 @@
           "resolved": 4293167167
         }
       ],
-      "source_sha256": "04a7c791eaa9a4c52221aa12d9a8f1f12aff88b62cc7a59fc15d43d58eb7c719",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_711aa0_00711aa0.cpp",
+      "source_sha256": "6ecaa07db140576b3e22cd05349415c40cd7e33eab5fa3259d6261d2311b0126",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Build_Shrinking_Queue_00711aa0.cpp",
       "population": "population-4443",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_unknown_func_711aa0_00711aa0",
+      "semantic_name": "VeinholeMonsterClass_Build_Shrinking_Queue_00711aa0",
       "source_order": 239493
     },
     {
       "entry": 7413024,
       "method": "00711d20",
-      "symbol": "?unknown_func_711d20@VeinholeMonsterClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_711d20@VeinholeMonsterClass@@QAEXXZ",
+      "symbol": "?Destroy_Monster@VeinholeMonsterClass@@QAEXXZ",
+      "symbol_prefix": "?Destroy_Monster@VeinholeMonsterClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -15380,7 +15404,7 @@
         {
           "offset": 203,
           "kind": 20,
-          "symbol": "?unknown_func_711aa0@VeinholeMonsterClass@@QAEXXZ",
+          "symbol": "?Build_Shrinking_Queue@VeinholeMonsterClass@@QAEXXZ",
           "target": 7412384,
           "addend": 0,
           "resolved": 4294966449
@@ -15418,13 +15442,13 @@
           "resolved": 4293215547
         }
       ],
-      "source_sha256": "bcb36af87b75d0aad41a9bda7f6d965bb5eeed55a4076b0c491ea67e4b62b736",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_711d20_00711d20.cpp",
+      "source_sha256": "4e4e54ce8cfe9c189c159ad54a1f8aa2d941b2094925b6a84d072720b9bee68a",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Destroy_Monster_00711d20.cpp",
       "population": "population-4443",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_unknown_func_711d20_00711d20",
+      "semantic_name": "VeinholeMonsterClass_Destroy_Monster_00711d20",
       "source_order": 239496
     },
     {
@@ -15447,7 +15471,7 @@
         {
           "offset": 4,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -15471,7 +15495,7 @@
         {
           "offset": 114,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -15479,7 +15503,7 @@
         {
           "offset": 146,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -15487,7 +15511,7 @@
         {
           "offset": 173,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -15503,7 +15527,7 @@
         {
           "offset": 216,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -15511,13 +15535,13 @@
         {
           "offset": 248,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
         }
       ],
-      "source_sha256": "90bc9a80c2d040c96640c0a4b84f7d9ea2e6ef319137e1c7aa6a9fb26b9b6a61",
+      "source_sha256": "ebd6c60e0852e7c2ec9f8cf2979100384525038908dd7ce3b32cc8a658b0427a",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Save_All_00712150.cpp",
       "population": "population-4443",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -15529,8 +15553,8 @@
     {
       "entry": 7414528,
       "method": "00712300",
-      "symbol": "?unknown_func_712300@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z",
-      "symbol_prefix": "?unknown_func_712300@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z",
+      "symbol": "?Reduce_Veins_At@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z",
+      "symbol_prefix": "?Reduce_Veins_At@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15696,13 +15720,13 @@
           "resolved": 11339680
         }
       ],
-      "source_sha256": "5547993f4572b80bdbe9418cb5936f13127128320e671a46f2cb912376c6dfd9",
-      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_unknown_func_712300_00712300.cpp",
+      "source_sha256": "6cbc49c1b3f4c41e128ec40653c306910121bdedb93f5a54df29275368cbe1b8",
+      "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Reduce_Veins_At_00712300.cpp",
       "population": "population-4443",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VeinholeMonsterClass_unknown_func_712300_00712300",
+      "semantic_name": "VeinholeMonsterClass_Reduce_Veins_At_00712300",
       "source_order": 239502
     },
     {
@@ -15725,7 +15749,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -15733,7 +15757,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -15741,7 +15765,7 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -15749,7 +15773,7 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 16,
           "resolved": 11339608
@@ -15757,7 +15781,7 @@
         {
           "offset": 63,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -15773,7 +15797,7 @@
         {
           "offset": 82,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 4,
           "resolved": 11339596
@@ -15781,7 +15805,7 @@
         {
           "offset": 88,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 13,
           "resolved": 11339605
@@ -15789,7 +15813,7 @@
         {
           "offset": 95,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 8,
           "resolved": 11339600
@@ -16011,7 +16035,7 @@
           "resolved": 11272028
         }
       ],
-      "source_sha256": "83fe1e62ba72df3c6d9aa29e22cf99ae91f4e658b2ee25db4a13c973b63e3de6",
+      "source_sha256": "6cd3ba6e248503d9de57ea4e9aef4b908b866f0cd6fbbfae73a975d6e9812f07",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Load_All_00711e60.cpp",
       "population": "population-4443",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -16023,8 +16047,8 @@
     {
       "entry": 7411120,
       "method": "007115b0",
-      "symbol": "?unknown_func_7115b0@VeinholeMonsterClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_7115b0@VeinholeMonsterClass@@QAEXXZ",
+      "symbol": "?Build_Growth_Queue@VeinholeMonsterClass@@QAEXXZ",
+      "symbol_prefix": "?Build_Growth_Queue@VeinholeMonsterClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -16190,7 +16214,7 @@
           "resolved": 459440
         }
       ],
-      "source_sha256": "65a62a14029a98c9c63569f5bf54a5d4953354eaa8bb08370226c5841bb29f65",
+      "source_sha256": "2a58f2bc1c51f21af8bbc3db118be54882c97c6b25cd59840c7603d4c2f6b08f",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Build_Growth_Queue_007115b0.cpp",
       "population": "population-4443",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -16547,7 +16571,7 @@
         {
           "offset": 1019,
           "kind": 20,
-          "symbol": "?unknown_func_711d20@VeinholeMonsterClass@@QAEXXZ",
+          "symbol": "?Destroy_Monster@VeinholeMonsterClass@@QAEXXZ",
           "target": 7413024,
           "addend": 0,
           "resolved": 5841
@@ -16563,7 +16587,7 @@
         {
           "offset": 1075,
           "kind": 20,
-          "symbol": "?unknown_func_710bb0@VeinholeMonsterClass@@QAEXXZ",
+          "symbol": "?Grow@VeinholeMonsterClass@@QAEXXZ",
           "target": 7408560,
           "addend": 0,
           "resolved": 1321
@@ -16643,7 +16667,7 @@
         {
           "offset": 1267,
           "kind": 20,
-          "symbol": "?unknown_func_712300@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z",
+          "symbol": "?Reduce_Veins_At@VeinholeMonsterClass@@QAEXPAVCellClass@@@Z",
           "target": 7414528,
           "addend": 0,
           "resolved": 7097
@@ -16737,7 +16761,7 @@
           "resolved": 7407150
         }
       ],
-      "source_sha256": "f18d9d23a58f7819d1854079c2d4ad743601fc86c4b418da7552814853d43349",
+      "source_sha256": "a8a98439f57da7b5c0879f6580de439e63a088b2655e4182f6487df787940723",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_AI_00710250.cpp",
       "population": "population-4443",
@@ -16975,7 +16999,7 @@
         {
           "offset": 687,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -16983,7 +17007,7 @@
         {
           "offset": 696,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -16991,7 +17015,7 @@
         {
           "offset": 715,
           "kind": 6,
-          "symbol": "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
+          "symbol": "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A",
           "target": 11339592,
           "addend": 0,
           "resolved": 11339592
@@ -17109,7 +17133,7 @@
           "resolved": 4293665765
         }
       ],
-      "source_sha256": "d90a7a3a98c02309a858a6ed9073aaf62f321f624ddc015511ad9ff3daa5736a",
+      "source_sha256": "6f971094f7e06223c1c397cd1bfcc2ea3a08bccb4fd9505fa6f00fa20c50f49d",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_destructor_0070fdf0.cpp",
       "population": "population-4443",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -17121,8 +17145,8 @@
     {
       "entry": 7407744,
       "method": "00710880",
-      "symbol": "?unknown_func_710880@VeinholeMonsterClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_710880@VeinholeMonsterClass@@",
+      "symbol": "?Draw_It@VeinholeMonsterClass@@QAEXXZ",
+      "symbol_prefix": "?Draw_It@VeinholeMonsterClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -17272,7 +17296,7 @@
           "resolved": 4292404464
         }
       ],
-      "source_sha256": "8bc4e3c9c4f085126ba4c5a625ed363cc00bada105cb55017ccf2644bca03aa8",
+      "source_sha256": "e3fbb572155eb578cbe209f88a5eb793af37a71527d882b79693d7d10c40e196",
       "source": "src/recovered/classes/VeinholeMonsterClass/VeinholeMonsterClass_Draw_It_00710880.cpp",
       "population": "population-4443",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

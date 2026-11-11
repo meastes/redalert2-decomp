@@ -4,8 +4,8 @@
     "id": "population-4433",
     "inventory_sha256": "cbcd84b3ff4a9047bbb52c1f47082b372cd4bc4425ad911e4a28ca52911a1941",
     "gaps_sha256": "811af9619f93d9f7e2db2eed0ff8cf8b4b14f027a9818d4ad10716196c37642a",
-    "historical_population_sha256": "d5d6975cb63252787876ddbbd5acb111c90c5297aaffb860d227a96adbf5a7e2",
-    "historical_acceptance_sha256": "e5ca81d76f2d8fe5caf536e6feab87f25a12cde6ff45b36f5f0ca434947e3dad"
+    "historical_population_sha256": "8715cd32556411c47ec63a94aa3d43dbd18e532a6356a69f668f7d97b55f18ea",
+    "historical_acceptance_sha256": "1fdf6bd8451d6d5c823783fdd6fc53b7dedbc5a7957f9875d518bfd95afddcc6"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3573,7 +3573,7 @@
     "?Size_Of@VoxelAnimTypeClass@@UBEHXZ": 7400992,
     "?unknown_slot35@VoxelAnimTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z": 7401024,
     "?Clear@?$VectorClass@E@@UAEXXZ": 7402752,
-    "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A": 11339592,
+    "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A": 11339592,
     "?Save@VeinholeMonsterClass@@UAGJPAUIStream@@H@Z": 7414480,
     "?GetClassID@VeinholeMonsterClass@@UAGJPAUGUID@@@Z": 7415488,
     "?Kind_Of@VeinholeMonsterClass@@UBEHXZ": 7415552,
@@ -8912,7 +8912,7 @@
     "?Audio_Event_Finish@@YIXPAUAudioEvent@@@Z": 4216208,
     "?Audio_Channel_Lock@@YIXPAUAudioChannel@@@Z": 4204192,
     "?Audio_Channel_Unlock@@YIXPAUAudioChannel@@@Z": 4204208,
-    "?Load_Shape@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Audio_Events_Init@@YIHPAUAudioDevice@@PAUAudioBag@@@Z": 4210352,
     "?Audio_Event_Type_List@@3UAudioListNode@@A": 8589168,
     "?Audio_Event_Levels@@3UAudioLevelSet@@A": 8589016,

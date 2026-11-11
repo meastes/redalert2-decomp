@@ -10,7 +10,7 @@
 // @ref ?Sift_Down@UnknownVeinHeap@@QAEXH@Z=0058f090
 // @ref ??_C@_0BJ@EOJK@Exiting?5Remove_Matching?6?$AA@=007f96e4
 
-void VeinholeMonsterClass::unknown_func_712300(CellClass *cellptr)
+void VeinholeMonsterClass::Reduce_Veins_At(CellClass *cellptr)
 {
     if (cellptr->OverlayIndex == 0x7e && cellptr->OverlayData >= 0x30) {
 
@@ -22,19 +22,19 @@ void VeinholeMonsterClass::unknown_func_712300(CellClass *cellptr)
         }
 
         cellptr->Redraw_Veins();
-        unknown_ec--;
+        VeinCount--;
 
         for (facing = 0; facing < 8; facing += 2) {
             CellClass *adjacent = &cellptr->Adjacent_Cell(facing);
             if (adjacent->OverlayIndex == -1) {
                 int cindex = unknown_cell_index_428a90(adjacent->MapCoords);
                 if (cindex >= 0 && cindex < unknown_cells_428ac0()) {
-                    unknown_b0[cindex] = false;
+                    GrowthState[cindex] = false;
                     unknown_veinhole_buffer_ad07a0[cindex] = false;
                 }
 
-                if (facingbools[facing / 2] == true && !unknown_e8) {
-                    unknown_9c->Remove_Matching(UnknownVeinNode(adjacent->MapCoords));
+                if (facingbools[facing / 2] == true && !IsDead) {
+                    GrowthQueue->Remove_Matching(UnknownVeinNode(adjacent->MapCoords));
                 }
             }
         }
@@ -44,14 +44,14 @@ void VeinholeMonsterClass::unknown_func_712300(CellClass *cellptr)
         int cindex = unknown_cell_index_428a90(cell);
         if (cindex >= 0 && cindex < unknown_cells_428ac0()) {
             if (overlay == -1) {
-                unknown_b0[cindex] = false;
+                GrowthState[cindex] = false;
                 unknown_veinhole_buffer_ad07a0[cindex] = false;
-            } else if (!unknown_e8) {
-                if (unknown_98 < Rules->unknown_d4) {
-                    unknown_a0[unknown_98].Position = cell;
-                    unknown_a0[unknown_98].Key = float(Frame / 50 + abs(unknown_id_source_a3d290->Random()() % 50) + 1);
-                    unknown_9c->Insert(&unknown_a0[unknown_98++]);
-                    unknown_b0[cindex] = true;
+            } else if (!IsDead) {
+                if (GrowthCount < Rules->unknown_d4) {
+                    GrowthNodes[GrowthCount].Position = cell;
+                    GrowthNodes[GrowthCount].Key = float(Frame / 50 + abs(unknown_id_source_a3d290->Random()() % 50) + 1);
+                    GrowthQueue->Insert(&GrowthNodes[GrowthCount++]);
+                    GrowthState[cindex] = true;
                     unknown_veinhole_buffer_ad07a0[cindex] = true;
                 }
             }

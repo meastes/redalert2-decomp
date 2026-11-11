@@ -4,7 +4,7 @@
 
 bool __fastcall VeinholeMonsterClass::Save_All(IStream *stream)
 {
-    int monster_count = Array.Count();
+    int monster_count = VeinholeMonsters.Count();
     if (FAILED(stream->Write(&monster_count, sizeof(monster_count), 0))) {
         return false;
     }
@@ -15,24 +15,24 @@ bool __fastcall VeinholeMonsterClass::Save_All(IStream *stream)
     }
 
     for (int i = 0; i < monster_count; i++) {
-        LONG_PTR id = (LONG_PTR)Array[i];
+        LONG_PTR id = (LONG_PTR)VeinholeMonsters[i];
         if (FAILED(stream->Write(&id, sizeof(id), 0))) {
             return false;
         }
 
-        if (FAILED(stream->Write(Array[i], sizeof(VeinholeMonsterClass), 0))) {
+        if (FAILED(stream->Write(VeinholeMonsters[i], sizeof(VeinholeMonsterClass), 0))) {
             return false;
         }
 
-        if (FAILED(stream->Write(Array[i]->unknown_b0, cell_count, 0))) {
+        if (FAILED(stream->Write(VeinholeMonsters[i]->GrowthState, cell_count, 0))) {
             return false;
         }
 
-        if (FAILED(stream->Write(Array[i]->unknown_a0, sizeof(UnknownVeinNode) * Rules->unknown_d4, 0))) {
+        if (FAILED(stream->Write(VeinholeMonsters[i]->GrowthNodes, sizeof(UnknownVeinNode) * Rules->unknown_d4, 0))) {
             return false;
         }
 
-        Array[i]->unknown_9c->Save(stream, Array[i]->unknown_a0);
+        VeinholeMonsters[i]->GrowthQueue->Save(stream, VeinholeMonsters[i]->GrowthNodes);
     }
 
     return true;

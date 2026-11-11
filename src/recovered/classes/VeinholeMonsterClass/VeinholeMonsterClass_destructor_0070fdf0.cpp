@@ -20,11 +20,11 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
 {
     for (int x = -2; x <= 2; x++) {
         for (int y = -2; y <= 2; y++) {
-            ::Cell cell(Cell + ::Cell(x, y));
+            ::Cell cell(CellID + ::Cell(x, y));
             int cell_id = unknown_cell_index_428a90(cell);
             if (cell_id >= 0 && cell_id < unknown_cells_428ac0()) {
                 unknown_veinhole_buffer_ad07a0[cell_id] = false;
-                unknown_b0[cell_id] = false;
+                GrowthState[cell_id] = false;
             }
             CellClass *map_cell = &Map[cell];
             if (map_cell->OverlayIndex == 0x7e || (map_cell->OverlayIndex != -1 && OverlayTypes[map_cell->OverlayIndex]->IsVeins)) {
@@ -39,7 +39,7 @@ VeinholeMonsterClass::~VeinholeMonsterClass()
     unknown_76 = true;
     unknown_74 = false;
     if (Strength > 0) Unknown_006ECB90(this, true);
-    unknown_func_711c90();
-    Array.Delete(this);
+    Clear_Growth();
+    VeinholeMonsters.Delete(this);
     unknown_object_index_abff58.Remove_Index(Fetch_ID());
 }

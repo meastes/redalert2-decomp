@@ -4,8 +4,8 @@
     "id": "population-4260",
     "inventory_sha256": "f86644b9db7412aa0475437fc93dc008f6402ce2e12f5d0ba2faa599333ade5a",
     "gaps_sha256": "58fea66ddbec081c7e9dc97ed9a7f0fdb6e52c0fe76a6a039fb917dad688ab80",
-    "historical_population_sha256": "b0e55dd725480645a56177299e451f3173635eff7bb658ac2854c75753286d96",
-    "historical_acceptance_sha256": "9d15623ec11f2281d5eefda82db6e29cf7997bbe60d303e3a31b0a8bb136873f"
+    "historical_population_sha256": "2488c1a9d6274bd819983f11505d86a87cf08e6e7c2cccf4fe78fad14041ec7c",
+    "historical_acceptance_sha256": "19dbe080969fcb52b5c1cd589a40bdb0384c5853c778937ba0d43a78f1499885"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2842,7 +2842,7 @@
     "?Array@PendingCellClass@LightSourceClass@@2V?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@A": 10938440,
     "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A": 11232480,
     "?Array@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A": 11233256,
-    "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A": 11339592,
+    "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A": 11339592,
     "?ArtINI@@3VCCINIClass@@A": 8624112,
     "?As_Integer@WideString@@QBEHXZ": 7802992,
     "?As_Integer@Wstring@@QBEHXZ": 7796080,
@@ -3209,7 +3209,7 @@
     "?Clear@UnknownTable_70c540@@QAEXXZ": 7390528,
     "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
     "?Clear_All@TagClass@@SAXXZ": 7028640,
-    "?Clear_All@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
     "?Clear_Event@TriggerClass@@QAEXH@Z": 7264592,
     "?Clear_Voxel_Indexes@ObjectTypeClass@@SAXXZ": 6127344,
     "?Clip_Blit_Rects@@YI_NAAVRect@@ABV1@01@Z": 7819664,

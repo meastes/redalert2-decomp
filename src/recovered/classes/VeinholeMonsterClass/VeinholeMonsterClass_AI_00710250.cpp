@@ -32,79 +32,79 @@ inline double Vein_Random_Double(double low,double high)
 void VeinholeMonsterClass::AI()
 {
     // Same evidenced 0x18 layout, using the shared StageClass operation hierarchy.
-    ((StageClass *)&unknown_bc)->Graphic_Logic();
-    switch(unknown_b4) {
+    ((StageClass *)&Control)->Graphic_Logic();
+    switch(CurrentState) {
     case 0:
-        if(unknown_d4!=0) {
-            if(unknown_b8!=3) unknown_b8=2;
-        } else if(unknown_b8!=3) {
-            if(Map.Is_Something_Nearby(Cell,2)) unknown_b8=1;
-            else if(((StageClass *)&unknown_bc)->Fetch_Stage()==vein_transition_7f95e4[unknown_b4]) {
+        if(LogicTimer!=0) {
+            if(DesiredState!=3) DesiredState=2;
+        } else if(DesiredState!=3) {
+            if(Map.Is_Something_Nearby(CellID,2)) DesiredState=1;
+            else if(((StageClass *)&Control)->Fetch_Stage()==vein_transition_7f95e4[CurrentState]) {
                 if((double)(abs(unknown_id_source_a3d290->Random()())%10000)*vein_idle_scale_7a5fe8<vein_idle_chance_7ae718) {
-                    ((StageClass *)&unknown_bc)->Set_Stage(vein_loop_7f95f4[unknown_b4]-1);
-                    ((StageClass *)&unknown_bc)->Set_Step(-1);
+                    ((StageClass *)&Control)->Set_Stage(vein_loop_7f95f4[CurrentState]-1);
+                    ((StageClass *)&Control)->Set_Step(-1);
                 }
             }
         }
         break;
     case 1:
-        if(unknown_d4!=0) {
-            if(unknown_b8!=3) unknown_b8=2;
-            ((StageClass *)&unknown_bc)->Set_Step(1);
-            if(((StageClass *)&unknown_bc)->Fetch_Stage()<0) ((StageClass *)&unknown_bc)->Set_Stage(0);
-        } else if(!Map.Is_Something_Nearby(Cell,2) && unknown_b8==1) {
-            unknown_b8=0;
-            ((StageClass *)&unknown_bc)->Set_Step(1);
-            if(((StageClass *)&unknown_bc)->Fetch_Stage()<0) ((StageClass *)&unknown_bc)->Set_Stage(0);
+        if(LogicTimer!=0) {
+            if(DesiredState!=3) DesiredState=2;
+            ((StageClass *)&Control)->Set_Step(1);
+            if(((StageClass *)&Control)->Fetch_Stage()<0) ((StageClass *)&Control)->Set_Stage(0);
+        } else if(!Map.Is_Something_Nearby(CellID,2) && DesiredState==1) {
+            DesiredState=0;
+            ((StageClass *)&Control)->Set_Step(1);
+            if(((StageClass *)&Control)->Fetch_Stage()<0) ((StageClass *)&Control)->Set_Stage(0);
         }
         break;
     case 2:
-        if(((StageClass *)&unknown_bc)->Fetch_Stage()>=0 && vein_frames_7f9514[2][((StageClass *)&unknown_bc)->Fetch_Stage()]==11) {
-            if(!unknown_e9) {
-                CoordStruct base(Cell);
-                CoordStruct position=Cell.As_Coord(Map.Get_Height_GL(base)+400);
+        if(((StageClass *)&Control)->Fetch_Stage()>=0 && vein_frames_7f9514[2][((StageClass *)&Control)->Fetch_Stage()]==11) {
+            if(!IsToPuffGas) {
+                CoordStruct base(CellID);
+                CoordStruct position=CellID.As_Coord(Map.Get_Height_GL(base)+400);
                 ParticleClass *particle=unknown_gas_cloud_system_a40d20->Spawn_Held_Particle(ParticleTypes[ParticleTypeClass::Index_Or_Make(vein_gas_7f96cc)],position);
                 particle->unknown_b0.Z=12;
                 double angle=Vein_Random_Double(0.0,1.0)*vein_full_angle_79c9b8;
                 particle->unknown_b0.X=(int)(Fast_Cos(angle)*vein_speed_79d558);
                 particle->unknown_b0.Y=(int)(Fast_Sin(angle)*vein_speed_79d558);
-                unknown_e9=true;
+                IsToPuffGas=true;
             }
-        } else unknown_e9=false;
-        if(unknown_d4!=0 || unknown_e9) {
-            if(((StageClass *)&unknown_bc)->Fetch_Stage()==vein_transition_7f95e4[unknown_b4]) {
+        } else IsToPuffGas=false;
+        if(LogicTimer!=0 || IsToPuffGas) {
+            if(((StageClass *)&Control)->Fetch_Stage()==vein_transition_7f95e4[CurrentState]) {
                 if(Vein_Random_Double(0.0,1.0)<vein_attack_chance_7ae720) {
-                    ((StageClass *)&unknown_bc)->Set_Stage(vein_loop_7f95f4[unknown_b4]-1);
-                    ((StageClass *)&unknown_bc)->Set_Step(-1);
+                    ((StageClass *)&Control)->Set_Stage(vein_loop_7f95f4[CurrentState]-1);
+                    ((StageClass *)&Control)->Set_Step(-1);
                 }
             }
         } else {
-            if(unknown_b8!=3) unknown_b8=0;
-            ((StageClass *)&unknown_bc)->Set_Step(-1);
+            if(DesiredState!=3) DesiredState=0;
+            ((StageClass *)&Control)->Set_Step(-1);
         }
         break;
     case 3:
-        if(((StageClass *)&unknown_bc)->Fetch_Stage()==vein_transition_7f95e4[3] && !unknown_e8) unknown_func_711d20();
+        if(((StageClass *)&Control)->Fetch_Stage()==vein_transition_7f95e4[3] && !IsDead) Destroy_Monster();
         break;
     }
-    if(unknown_a4==0) {
-        if(!unknown_e8) {
-            unknown_func_710bb0();
-            unknown_a4=Rules->VeinholeGrowthRate;
+    if(GrowthTimer==0) {
+        if(!IsDead) {
+            Grow();
+            GrowthTimer=Rules->VeinholeGrowthRate;
         } else {
-            unknown_func_710ff0();
-            unknown_a4=Rules->VeinholeShrinkRate;
+            Shrink();
+            GrowthTimer=Rules->VeinholeShrinkRate;
         }
     }
-    if(!unknown_e8) {
-        if(((StageClass *)&unknown_bc)->Fetch_Stage()==vein_transition_7f95e4[unknown_b4]) {
-            if(unknown_b8!=unknown_b4) {
-                unknown_b4=unknown_b8;
-                ((StageClass *)&unknown_bc)->Set_Step(vein_step_7f9604[unknown_b4]);
-                ((StageClass *)&unknown_bc)->Set_Stage(vein_stage_7f9614[unknown_b4]);
-            } else ((StageClass *)&unknown_bc)->Set_Step(0);
-        } else if(((StageClass *)&unknown_bc)->Fetch_Stage()!=-1) unknown_e4=vein_frames_7f9514[unknown_b4][((StageClass *)&unknown_bc)->Fetch_Stage()]-1;
-        else ((StageClass *)&unknown_bc)->Set_Step(0);
+    if(!IsDead) {
+        if(((StageClass *)&Control)->Fetch_Stage()==vein_transition_7f95e4[CurrentState]) {
+            if(DesiredState!=CurrentState) {
+                CurrentState=DesiredState;
+                ((StageClass *)&Control)->Set_Step(vein_step_7f9604[CurrentState]);
+                ((StageClass *)&Control)->Set_Stage(vein_stage_7f9614[CurrentState]);
+            } else ((StageClass *)&Control)->Set_Step(0);
+        } else if(((StageClass *)&Control)->Fetch_Stage()!=-1) ShapeFrame=vein_frames_7f9514[CurrentState][((StageClass *)&Control)->Fetch_Stage()]-1;
+        else ((StageClass *)&Control)->Set_Step(0);
     }
 }
 

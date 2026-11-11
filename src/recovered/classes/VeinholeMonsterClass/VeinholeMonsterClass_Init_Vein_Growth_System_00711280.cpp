@@ -1,4 +1,4 @@
-// static void VeinholeMonsterClass::unknown_func_711280(bool rebuild) (0x00711280)
+// static void VeinholeMonsterClass::Init_Vein_Growth_System(bool rebuild) (0x00711280)
 // With rebuild, frees every monster's buffers and the shared table and
 // allocates them again (nodes, heap and per-cell table); then clears the
 // shared table and the cells' vein bit (0x8000), lets every monster mark its
@@ -10,22 +10,22 @@
 // @ref ?unknown_cells_428ac0@@YIHXZ=00428ac0
 // @ref ?unknown_veinhole_buffer_ad07a0@@3PAEA=00ad07a0
 // @ref ?unknown_cell_index_428a90@@YIHABVCell@@@Z=00428a90
-// @ref ?unknown_func_711c90@VeinholeMonsterClass@@QAEXXZ=00711c90
-// @ref ?unknown_func_711aa0@VeinholeMonsterClass@@QAEXXZ=00711aa0
-// @ref ?unknown_func_7115b0@VeinholeMonsterClass@@QAEXXZ=007115b0
+// @ref ?Clear_Growth@VeinholeMonsterClass@@QAEXXZ=00711c90
+// @ref ?Build_Shrinking_Queue@VeinholeMonsterClass@@QAEXXZ=00711aa0
+// @ref ?Build_Growth_Queue@VeinholeMonsterClass@@QAEXXZ=007115b0
 
-void __fastcall VeinholeMonsterClass::unknown_func_711280(bool rebuild)
+void __fastcall VeinholeMonsterClass::Init_Vein_Growth_System(bool rebuild)
 {
     int cells = unknown_cells_428ac0();
     int index;
     if (rebuild) {
         Deinit_Vein_Growth_System();
-        for (index = Array.Count() - 1; index >= 0; index--) {
-            Array[index]->unknown_a0 = new UnknownVeinNode[Rules_Vein_Node_Count()];
-            Array[index]->unknown_9c = new UnknownVeinHeap(Rules_Vein_Node_Count());
-            Array[index]->unknown_b0 = new unsigned char[cells];
-            memset(Array[index]->unknown_b0, 0, cells);
-            Array[index]->unknown_9c->Clear();
+        for (index = VeinholeMonsters.Count() - 1; index >= 0; index--) {
+            VeinholeMonsters[index]->GrowthNodes = new UnknownVeinNode[Rules_Vein_Node_Count()];
+            VeinholeMonsters[index]->GrowthQueue = new UnknownVeinHeap(Rules_Vein_Node_Count());
+            VeinholeMonsters[index]->GrowthState = new unsigned char[cells];
+            memset(VeinholeMonsters[index]->GrowthState, 0, cells);
+            VeinholeMonsters[index]->GrowthQueue->Clear();
         }
     }
     if (unknown_veinhole_buffer_ad07a0 == 0) {
@@ -36,11 +36,11 @@ void __fastcall VeinholeMonsterClass::unknown_func_711280(bool rebuild)
         cell->unknown_140 &= ~0x8000;
     }
     memset(unknown_veinhole_buffer_ad07a0, 0, cells);
-    for (index = Array.Count() - 1; index >= 0; index--) {
-        if (Array[index]->unknown_e8) {
-            Array[index]->unknown_func_711aa0();
+    for (index = VeinholeMonsters.Count() - 1; index >= 0; index--) {
+        if (VeinholeMonsters[index]->IsDead) {
+            VeinholeMonsters[index]->Build_Shrinking_Queue();
         } else {
-            Array[index]->unknown_func_7115b0();
+            VeinholeMonsters[index]->Build_Growth_Queue();
         }
     }
     Map.Reset_Iterator();

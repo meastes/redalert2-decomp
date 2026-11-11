@@ -1,4 +1,4 @@
-// void VeinholeMonsterClass::Load_Shape(int theater) (0x00710840)
+// void VeinholeMonsterClass::Init(int theater) (0x00710840)
 // Loads VEINHOLE.<theater suffix> into the shape pointer.
 #include "shared/veinhole.hpp"
 #include "shared/anim_type.hpp"
@@ -9,7 +9,7 @@
 // @ref ?unknown_veinhole_shape_ad079c@@3PBXB=00ad079c
 // @ref ??_C@_0M@BKDE@VEINHOLE?4?$CFs?$AA@=007f96d8
 
-void __fastcall VeinholeMonsterClass::Load_Shape(int theater)
+void __fastcall VeinholeMonsterClass::Init(int theater)
 {
     char name[32];
     sprintf(name, "VEINHOLE.%s", Theaters[theater].Suffix);

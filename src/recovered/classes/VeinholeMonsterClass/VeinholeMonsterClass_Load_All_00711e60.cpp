@@ -8,7 +8,7 @@
 
 bool __fastcall VeinholeMonsterClass::Load_All(IStream *stream)
 {
-    Clear_All();
+    Reset();
 
     int cell_count = unknown_cells_428ac0();
 
@@ -39,24 +39,24 @@ bool __fastcall VeinholeMonsterClass::Load_All(IStream *stream)
             new (monster) VeinholeMonsterClass(NoInitClass());
         }
 
-        unsigned char *state = monster->unknown_b0;
-        UnknownVeinHeap *queue = monster->unknown_9c;
-        UnknownVeinNode *nodes = monster->unknown_a0;
+        unsigned char *state = monster->GrowthState;
+        UnknownVeinHeap *queue = monster->GrowthQueue;
+        UnknownVeinNode *nodes = monster->GrowthNodes;
 
         if (FAILED(stream->Read(state, cell_count, 0))) {
             return false;
         }
-        monster->unknown_b0 = state;
+        monster->GrowthState = state;
 
         if (FAILED(stream->Read(nodes, sizeof(UnknownVeinNode) * Rules->unknown_d4, 0))) {
             return false;
         }
-        monster->unknown_a0 = nodes;
+        monster->GrowthNodes = nodes;
 
         if (!queue->Load(stream, nodes)) {
             return false;
         }
-        monster->unknown_9c = queue;
+        monster->GrowthQueue = queue;
 
         unknown_object_index_abff58.Add_Index(monster->Fetch_ID(), monster);
     }

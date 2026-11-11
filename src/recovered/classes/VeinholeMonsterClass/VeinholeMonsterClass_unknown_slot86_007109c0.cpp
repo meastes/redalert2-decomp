@@ -12,14 +12,14 @@ int VeinholeMonsterClass::unknown_slot86(int *damage, int distance, WarheadTypeC
     case 0:
         break;
     case 4:
-        unknown_b8 = 3;
+        DesiredState = 3;
         Unknown_006ECB90(this, false);
         break;
     case 5:
         return 5;
     default:
-        unknown_b8 = 2;
-        unknown_d4 = CDTimerClass<FrameTimerClass>(120);
+        DesiredState = 2;
+        LogicTimer = CDTimerClass<FrameTimerClass>(120);
         break;
     }
     return result;

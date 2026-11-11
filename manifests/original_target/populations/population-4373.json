@@ -4,8 +4,8 @@
     "id": "population-4373",
     "inventory_sha256": "a8abf58a833831c885b7d72539e5e1940e9573560fcdfb0afc3a52e202590177",
     "gaps_sha256": "53fdc6151831fa25236eebff75bbda80a907aee6e1ee02848bdd7b6b0f6cce5f",
-    "historical_population_sha256": "2501d3a9ce4ee6f6c858c0cfcdbf6355a9ad6f29d16462a99f58a5b0aab58b7d",
-    "historical_acceptance_sha256": "9e03393865a950bc6da44f12a064b2e5fdcd8e5c7a94d7c3c6e2703a98090401"
+    "historical_population_sha256": "ff0587d40123faa033e2ad28b0a430abe99afec94dfc5f2718643f645992328f",
+    "historical_acceptance_sha256": "ed50ecefc28aa4b8c0b3929852fa70cf959ce9273393460d2c775f50ae3f5697"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -5133,7 +5133,7 @@
     "??_7VoxelAnimClass@@6BINoticeSink@@@": 8053764,
     "??_7VoxelAnimClass@@6BINoticeSource@@@": 8053756,
     "?unknown_slot63@VoxelAnimClass@@UAE_NPAVRect@@_N1@Z": 7393136,
-    "?Clear_All@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
     "??_7BuildingLightClass@@6BIPersistStream@@@": 7981024,
     "??_7BuildingLightClass@@6BIRTTITypeInfo@@@": 7980996,
     "??_7BuildingLightClass@@6BINoticeSink@@@": 7980988,
@@ -6329,7 +6329,7 @@
     "?unknown_color_scheme_663d30@@YIPAVColorScheme@@PBDH@Z": 6700336,
     "?unknown_color_scheme_index_663d90@@YIHPBDH@Z": 6700432,
     "??1ColorScheme@@QAE@XZ": 6699952,
-    "?Load_Shape@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
     "?Unknown_006A2970@@YIHH@Z": 6957424,
     "?unknown_flag_a3d2c1@@3_NA": 10736321,
     "?Unknown_0065C1F0@@YIXH@Z": 6668784,
@@ -7754,7 +7754,7 @@
     "?Radar_Untrack@RadarClass@@QAEXPAVTechnoClass@@UPoint2D@@@Z": 6494960,
     "?unknown_TiberiumClass_list_00ac0b30@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A": 11275056,
     "_$E51": 7259856,
-    "?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A": 11339592,
+    "?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A": 11339592,
     "?Get_Mouse_State@WWMouseClass@@UBEHXZ": 7806176,
     "?Conditional_Hide_Mouse@WWMouseClass@@UAEXVRect@@@Z": 7811296,
     "?Is_Captured@WWMouseClass@@UBE_NXZ": 7812768,

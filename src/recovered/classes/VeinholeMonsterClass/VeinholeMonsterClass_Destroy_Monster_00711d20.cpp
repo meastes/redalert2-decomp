@@ -1,11 +1,11 @@
 #include "shared/veinhole.hpp"
 #include "shared/map_cell_view.hpp"
 #include "shared/map_view.hpp"
-// @ref ?unknown_func_711aa0@VeinholeMonsterClass@@QAEXXZ=00711aa0
+// @ref ?Build_Shrinking_Queue@VeinholeMonsterClass@@QAEXXZ=00711aa0
 
-void VeinholeMonsterClass::unknown_func_711d20()
+void VeinholeMonsterClass::Destroy_Monster()
 {
-    CellClass &cptr = Map[Cell];
+    CellClass &cptr = Map[CellID];
     cptr.OverlayIndex = 0x7e;
     cptr.OverlayData = 0;
     cptr.Recalc_Attributes(-1);
@@ -21,13 +21,13 @@ void VeinholeMonsterClass::unknown_func_711d20()
     }
     for (int y = -2; y <= 2; y++) {
         for (int x = -2; x <= 2; x++) {
-            CellClass &cptr2 = Map[::Cell(x, y) + Cell];
+            CellClass &cptr2 = Map[::Cell(x, y) + CellID];
             cptr2.Place_Veins();
             cptr2.Recalc_Attributes(-1);
         }
     }
-    unknown_func_711aa0();
-    Map.Update_Cell_Zone(Cell);
-    Map.Unknown_00566340(Cell);
-    unknown_e8 = true;
+    Build_Shrinking_Queue();
+    Map.Update_Cell_Zone(CellID);
+    Map.Unknown_00566340(CellID);
+    IsDead = true;
 }

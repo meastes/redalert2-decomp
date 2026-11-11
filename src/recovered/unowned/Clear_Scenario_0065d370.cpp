@@ -138,7 +138,7 @@ void Clear_Scenario_0065d370()
     LightSourceClass::Clear_All();
     Init_Storm_0051F2F0();
     EMPulseClass::Delete_All_004B4DC0();
-    VeinholeMonsterClass::Clear_All();
+    VeinholeMonsterClass::Reset();
     seed_006e9670::FUN_006e9670();
     seed_006ea130::FUN_006ea130();
     unknown_bomb_list_8322e0.Clear();

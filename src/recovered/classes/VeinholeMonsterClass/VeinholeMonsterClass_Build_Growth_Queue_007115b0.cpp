@@ -21,31 +21,31 @@
 #include "shared/map_view.hpp"
 // @ref ?unknown_cells_428ac0@@YIHXZ=00428ac0
 // @ref ?unknown_cell_index_428a90@@YIHABVCell@@@Z=00428a90
-void VeinholeMonsterClass::unknown_func_7115b0()
+void VeinholeMonsterClass::Build_Growth_Queue()
 {
     DynamicVectorClass<::Cell> pending;
     pending.Set_Growth_Step(5000);
-    unknown_98=0;
-    unknown_ec=0;
-    unknown_9c->Clear();
-    for (int index=unknown_cells_428ac0()-1; index>=0; --index) unknown_b0[index]=0;
+    GrowthCount=0;
+    VeinCount=0;
+    GrowthQueue->Clear();
+    for (int index=unknown_cells_428ac0()-1; index>=0; --index) GrowthState[index]=0;
     int row_or_facing;
     for (row_or_facing=-2; row_or_facing<=2; ++row_or_facing) {
         for (int column=-2; column<=2; ++column) {
-            CellClass *cell=&Map[::Cell(column,row_or_facing)+Cell];
+            CellClass *cell=&Map[::Cell(column,row_or_facing)+CellID];
             if (cell->OverlayIndex==0x7e) {
                 int index=unknown_cell_index_428a90(cell->MapCoords);
-                pending.Add(::Cell(column,row_or_facing)+Cell);
+                pending.Add(::Cell(column,row_or_facing)+CellID);
                 if (index>=0 && index<unknown_cells_428ac0()) {
                     unknown_veinhole_buffer_ad07a0[index]=1;
-                    unknown_b0[index]=1;
+                    GrowthState[index]=1;
                     cell->unknown_140|=0x8000;
                     if (cell->OverlayData>=0x30 && cell->OverlayData<=0x33) {
-                        ++unknown_ec;
-                    } else if (unknown_98<Rules_Vein_Node_Count()) {
-                        unknown_a0[unknown_98].Position=cell->MapCoords;
-                        unknown_a0[unknown_98].Key=0;
-                        unknown_9c->Insert(&unknown_a0[unknown_98++]);
+                        ++VeinCount;
+                    } else if (GrowthCount<Rules_Vein_Node_Count()) {
+                        GrowthNodes[GrowthCount].Position=cell->MapCoords;
+                        GrowthNodes[GrowthCount].Key=0;
+                        GrowthQueue->Insert(&GrowthNodes[GrowthCount++]);
                     }
                 }
             }
@@ -61,19 +61,19 @@ void VeinholeMonsterClass::unknown_func_7115b0()
             if (adjacent->OverlayIndex==0x7e && !(adjacent->unknown_140&0x8000)) {
                 if ((adjacent->OverlayData>=0x30 && adjacent->OverlayData<0x35) || !adjacent->Can_Place_Veins()) {
                     pending.Add(adjacent->MapCoords);
-                    ++unknown_ec;
-                } else if (unknown_98<Rules_Vein_Node_Count()) {
-                    unknown_a0[unknown_98].Position=adjacent->MapCoords;
-                    unknown_a0[unknown_98].Key=0;
-                    unknown_9c->Insert(&unknown_a0[unknown_98++]);
+                    ++VeinCount;
+                } else if (GrowthCount<Rules_Vein_Node_Count()) {
+                    GrowthNodes[GrowthCount].Position=adjacent->MapCoords;
+                    GrowthNodes[GrowthCount].Key=0;
+                    GrowthQueue->Insert(&GrowthNodes[GrowthCount++]);
                     if (adjacent->OverlayData>=0x30) pending.Add(adjacent->MapCoords);
                 }
                 adjacent->unknown_140|=0x8000;
                 if (index>=0 && index<unknown_cells_428ac0()) {
                     unknown_veinhole_buffer_ad07a0[index]=1;
-                    unknown_b0[index]=1;
+                    GrowthState[index]=1;
                 }
-                ++unknown_ec;
+                ++VeinCount;
             }
         }
     }

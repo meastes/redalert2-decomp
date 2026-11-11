@@ -19,14 +19,14 @@
 #include "shared/veinhole.hpp"
 
 
-DynamicVectorClass<VeinholeMonsterClass *> VeinholeMonsterClass::Array;
+DynamicVectorClass<VeinholeMonsterClass *> VeinholeMonsterClass::VeinholeMonsters;
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ??8?$VectorClass@PAVVeinholeMonsterClass@@@@UBE_NABV0@@Z=007127b0
 // @ref ??_7?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@6B@=007ae734
 // @ref ??_7?$VectorClass@PAVVeinholeMonsterClass@@@@6B@=007ae754
 // @ref ??_G?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@UAEPAXI@Z=00712a90
 // @ref ??_G?$VectorClass@PAVVeinholeMonsterClass@@@@UAEPAXI@Z=00712a40
-// @ref ?Array@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A=00ad0748
+// @ref ?VeinholeMonsters@VeinholeMonsterClass@@2V?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@A=00ad0748
 // @ref ?Clear@?$DynamicVectorClass@PAVVeinholeMonsterClass@@@@UAEXXZ=00712750
 // @ref ?Clear@?$VectorClass@PAVVeinholeMonsterClass@@@@UAEXXZ=007128a0
 // @ref ?Fetch@?$VectorClass@PAVVeinholeMonsterClass@@@@UBEPAVVeinholeMonsterClass@@H@Z=007127a0

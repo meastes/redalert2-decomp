@@ -25,7 +25,7 @@ void __fastcall Post_Load_Game_0065d2c0()
 {
     BuildingTypeClass::unknown_func_45e170();
     Unknown_006EA9B0();
-    VeinholeMonsterClass::Load_Shape(unknown_id_source_a3d290->Theater);
+    VeinholeMonsterClass::Init(unknown_id_source_a3d290->Theater);
     Map.Post_Load_Radar_Fixup();
     CDTimerClass<FrameTimerClass> &timer = unknown_timer_ac0178;
     timer.Stop();

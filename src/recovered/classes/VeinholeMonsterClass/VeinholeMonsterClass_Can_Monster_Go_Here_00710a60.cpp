@@ -1,4 +1,4 @@
-// bool VeinholeMonsterClass::Can_Spawn_At(Cell const &cell) (0x00710A60)
+// bool VeinholeMonsterClass::Can_Monster_Go_Here(Cell const &cell) (0x00710A60)
 // True while the global at 0x00A40774 is positive; otherwise only when no
 // monster is within 2 cells and the 3x3 block around the cell has no blocked
 // cell, no occupier list and the same level as the cell (+0x11B).
@@ -10,13 +10,13 @@
 
 extern int unknown_a40774;
 
-bool __fastcall VeinholeMonsterClass::Can_Spawn_At(::Cell const &cell)
+bool __fastcall VeinholeMonsterClass::Can_Monster_Go_Here(::Cell const &cell)
 {
     if (unknown_a40774 > 0) {
         return true;
     }
-    for (int index = Array.Count() - 1; index >= 0; index--) {
-        if (abs(cell.X - Array[index]->Cell.X) < 3 && abs(cell.Y - Array[index]->Cell.Y) < 3) {
+    for (int index = VeinholeMonsters.Count() - 1; index >= 0; index--) {
+        if (abs(cell.X - VeinholeMonsters[index]->CellID.X) < 3 && abs(cell.Y - VeinholeMonsters[index]->CellID.Y) < 3) {
             return false;
         }
     }

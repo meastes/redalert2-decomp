@@ -73,7 +73,7 @@ bool OverlayClass::Mark(int mark)
             }
 
             if (type == 0xA7) {
-                if (VeinholeMonsterClass::Can_Spawn_At(cellptr->MapCoords)) {
+                if (VeinholeMonsterClass::Can_Monster_Go_Here(cellptr->MapCoords)) {
                     for (int face = 0; face < 8; face++) {
                         CellClass *adj = &cellptr->Adjacent_Cell(face);
                         adj->OverlayIndex = 0xB2;

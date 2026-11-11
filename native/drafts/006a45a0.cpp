@@ -236,7 +236,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
         Draw_Waypoints(false);
         Draw_Rally_Points(false);
         Draw_Placement(false);
-        VeinholeMonsterClass::All_Draw();
+        VeinholeMonsterClass::Draw_All();
         Unknown_00521FB0();
         Draw_Objects(true);
         SpotLightClass::Draw_All();

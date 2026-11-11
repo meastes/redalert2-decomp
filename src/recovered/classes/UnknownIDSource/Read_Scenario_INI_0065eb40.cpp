@@ -321,7 +321,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
     OverlayClass::unknown_func_5dc180();
     TerrainClass::Read_INI(ini);
     Service_Game_IO_00481fb0();
-    VeinholeMonsterClass::unknown_func_711280(true);
+    VeinholeMonsterClass::Init_Vein_Growth_System(true);
     Unknown_006e9fe0();
     Unknown_006e9520();
     unknown_session_a3d298.Loading_Progress_00672160(72);

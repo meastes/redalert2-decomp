@@ -81,7 +81,7 @@ void DisplayClass::Read_INI_0049CFD0(CCINIClass &ini)
     BuildingTypeClass::Init(unknown_id_source_a3d290->Theater);
     AnimTypeClass::Init(unknown_id_source_a3d290->Theater);
     SmudgeTypeClass::Init(unknown_id_source_a3d290->Theater);
-    VeinholeMonsterClass::Load_Shape(unknown_id_source_a3d290->Theater);
+    VeinholeMonsterClass::Init(unknown_id_source_a3d290->Theater);
 
     unknown_session_a3d298.Loading_Progress_00672160(65);
     unknown_481fb0();

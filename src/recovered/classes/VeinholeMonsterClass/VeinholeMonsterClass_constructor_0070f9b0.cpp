@@ -1,6 +1,6 @@
 // VeinholeMonsterClass::VeinholeMonsterClass(Cell const *cell) (0x0070F9B0)
-// A veinhole monster at the cell. Only where one may spawn (Can_Spawn_At)
-// does it join Array, sink and retile its 3x3 cells (unless 0x00A40774 is
+// A veinhole monster at the cell. Only where one may spawn (Can_Monster_Go_Here)
+// does it join VeinholeMonsters, sink and retile its 3x3 cells (unless 0x00A40774 is
 // set), start its stage timer, build the node block, heap and tables, move
 // onto the map at the cell's center and register in the techno index.
 #include "shared/veinhole.hpp"
@@ -31,24 +31,24 @@
 extern unsigned char const unknown_veinhole_tiles_7f9508[3][3];
 
 VeinholeMonsterClass::VeinholeMonsterClass(::Cell const *cell) :
-    unknown_98(0),
-    unknown_9c(0),
-    unknown_a0(0),
-    unknown_a4(Rules->VeinholeGrowthRate),
-    unknown_b0(0),
-    unknown_b4(0),
-    unknown_b8(0),
-    Cell(*cell),
-    unknown_e4(0),
-    unknown_e8(false),
-    unknown_e9(false),
-    unknown_ec(0)
+    GrowthCount(0),
+    GrowthQueue(0),
+    GrowthNodes(0),
+    GrowthTimer(Rules->VeinholeGrowthRate),
+    GrowthState(0),
+    CurrentState(0),
+    DesiredState(0),
+    CellID(*cell),
+    ShapeFrame(0),
+    IsDead(false),
+    IsToPuffGas(false),
+    VeinCount(0)
 {
     AbstractClass::Create_ID();
-    if (!Can_Spawn_At(*cell)) {
+    if (!Can_Monster_Go_Here(*cell)) {
         return;
     }
-    Array.Add(this);
+    VeinholeMonsters.Add(this);
     if (unknown_a40774 == 0) {
         for (int y = -1; y <= 1; y++) {
             for (int x = -1; x <= 1; x++) {
@@ -64,16 +64,16 @@ VeinholeMonsterClass::VeinholeMonsterClass(::Cell const *cell) :
             }
         }
     }
-    unknown_bc.Set_Rate(4);
-    unknown_bc.unknown_14 = 0;
-    unknown_bc.Value = -1;
-    unknown_a0 = new UnknownVeinNode[Rules_Vein_Node_Count()];
-    unknown_9c = new UnknownVeinHeap(Rules_Vein_Node_Count());
-    unknown_9c->Clear();
+    Control.Set_Rate(4);
+    Control.unknown_14 = 0;
+    Control.Value = -1;
+    GrowthNodes = new UnknownVeinNode[Rules_Vein_Node_Count()];
+    GrowthQueue = new UnknownVeinHeap(Rules_Vein_Node_Count());
+    GrowthQueue->Clear();
     if (unknown_veinhole_buffer_ad07a0 == 0) {
         unknown_veinhole_buffer_ad07a0 = new unsigned char[unknown_cells_428ac0()];
     }
-    unknown_b0 = new unsigned char[unknown_cells_428ac0()];
+    GrowthState = new unsigned char[unknown_cells_428ac0()];
     CoordStruct coord = CoordStruct(cell->X * 256 + 128, cell->Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
     ObjectClass::unknown_slot53(&coord, 0);
