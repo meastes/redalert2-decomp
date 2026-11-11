@@ -29,9 +29,9 @@
 // @ref ?Compare_Narrow_00781f20@@YAHPBD0@Z=00781f20
 // @ref ?Send_Remote_File_0066bb20@@YI_NPBDH_N1@Z=0066bb20
 // @ref ?Service_Game_IO_00481fb0@@YIXXZ=00481fb0
-// @ref ?Unknown_0061E490@UnknownPreview_0061D430@@QAEPAGHPAH@Z=0061e490
+// @ref ?Create_Paletted_Preview@MapPreviewClass@@QAEPAGHPAH@Z=0061e490
 // @ref ?serial_manager_00a40a28@@3VNullModemClass@@A=00a40a28
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_session_a3d298@@3UUnknownSessionState@@A=00a3d298
@@ -68,7 +68,7 @@ void ModemHost::Send_Preview_0059c8b0()
         return;
     }
     int size = 0;
-    unsigned short *image = unknown_dialog_preview_a72ce8->Unknown_0061E490(0x40, &size);
+    unsigned short *image = unknown_dialog_preview_a72ce8->Create_Paletted_Preview(0x40, &size);
     Debug_Printf("Preview size is %d bytes\n", size);
     char *data = new char[size * 4];
     BufferPipe pipe(data, size * 4);

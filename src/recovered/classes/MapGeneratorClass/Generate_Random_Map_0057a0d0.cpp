@@ -41,7 +41,7 @@ void Initialize_Grid_Thresholds_00585240();
 // @ref ?Create_Tiberium@MapGeneratorClass@@=00583b80
 // @ref ?Generate_Hills@MapGeneratorClass@@=00584dd0
 // @ref ?Generate_Vegetation@MapGeneratorClass@@=005852c0
-// @ref ?unknown_005c7ef0@UnknownPreview_0061D430@@=005c7ef0
+// @ref ?unknown_005c7ef0@MapPreviewClass@@=005c7ef0
 extern "C" char unknown_rmg_message_007e19b4[];
 // @ref _unknown_rmg_message_007e19b4=007e19b4
 extern "C" char unknown_rmg_message_007e19a0[];
@@ -132,7 +132,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     unknown_a40774=(int)((unsigned)unknown_a40774+1u);
     if((unsigned char)fullInit) {
-        unknown_preview_a6fee4->Unknown_0061D660();
+        unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
@@ -146,7 +146,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Report_Generation_Progress_0057be50(55);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
-        unknown_preview_a6fee4->Unknown_0061D660();
+        unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
@@ -154,7 +154,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Report_Generation_Progress_0057be50(60);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
-        unknown_preview_a6fee4->Unknown_0061D660();
+        unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
@@ -174,7 +174,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Report_Generation_Progress_0057be50(70);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
-        unknown_preview_a6fee4->Unknown_0061D660();
+        unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
@@ -216,7 +216,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Report_Generation_Progress_0057be50(80);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
-        unknown_preview_a6fee4->Unknown_0061D660();
+        unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
@@ -224,7 +224,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Report_Generation_Progress_0057be50(85);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
-        unknown_preview_a6fee4->Unknown_0061D660();
+        unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
@@ -238,7 +238,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Report_Generation_Progress_0057be50(90);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
-        unknown_preview_a6fee4->Unknown_0061D660();
+        unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }
@@ -255,7 +255,7 @@ void MapGeneratorClass::Unknown_0057A0D0(int fullInit,int dialogValue)
     Report_Generation_Progress_0057be50(95);
     if(unknown_map_generation_callback_7e09c4)unknown_map_generation_callback_7e09c4();
     if((unsigned char)fullInit) {
-        unknown_preview_a6fee4->Unknown_0061D660();
+        unknown_preview_a6fee4->Create_Preview();
         SendMessageA(window,15,0,0);
         if(unknown_session_a3d298.Type==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     }

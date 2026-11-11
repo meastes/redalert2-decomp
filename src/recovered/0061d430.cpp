@@ -26,7 +26,7 @@
 #include "shared/crt_memory.hpp"
 #include "shared/debug_printf.hpp"
 
-UnknownPreview_0061D430::UnknownPreview_0061D430() :
+MapPreviewClass::MapPreviewClass() :
     unknown_00(0)
 {
 }

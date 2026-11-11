@@ -22,7 +22,7 @@ extern char const rmg_preview_filename_7e1540[];
 // @ref ?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z=007698c0
 // @ref ??0RawFileClass@@QAE@PBD@Z=00638b40
 // @ref ??1RawFileClass@@UAE@XZ=00638ac0
-// @ref ??1UnknownPreview_0061D430@@QAE@XZ=0061d440
+// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
 // Free fastcall ECXcallback/EAXresult/RET0, independently observed. Callback bool intent follows AL0 at482100.
 int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
 {

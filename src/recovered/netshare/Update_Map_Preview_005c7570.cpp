@@ -20,7 +20,7 @@
 #include "shared/mix_file_class.hpp"
 // @ref ??_C@_04MJPP@?4MPR?$AA@=007e7118
 // @ref ??_C@_0CJ@BALP@Checking?5for?5file?5?$CFs?5in?5local?5di@=007e7120
-// @ref ?Unknown_0061E2A0@UnknownPreview_0061D430@@QAE_NPBD@Z=0061e2a0
+// @ref ?Read_INI_Preview@MapPreviewClass@@QAE_NPBD@Z=0061e2a0
 
 void __fastcall Unknown_005c7570(HWND dialog)
 {
@@ -118,10 +118,10 @@ void __fastcall Unknown_005c7570(HWND dialog)
     }
     bool missing = !CCFileClass(unknown_session_a3d298.ScenarioFileName_658).Is_Available();
     if (!missing) {
-        unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
+        unknown_dialog_preview_a72ce8 = new MapPreviewClass;
     }
     if (unknown_dialog_preview_a72ce8 != 0) {
-        unknown_dialog_preview_a72ce8->Unknown_0061E2A0(unknown_session_a3d298.ScenarioFileName_658);
+        unknown_dialog_preview_a72ce8->Read_INI_Preview(unknown_session_a3d298.ScenarioFileName_658);
         InvalidateRect(dialog, 0, FALSE);
     }
 }

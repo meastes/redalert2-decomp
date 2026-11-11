@@ -1,4 +1,4 @@
-bool UnknownPreview_0061D430::Load_0061E170(char const *filename)
+bool MapPreviewClass::Read_PCX_Preview(char const *filename)
 {
     CCFileClass file(filename);
 

@@ -124,7 +124,7 @@ int __stdcall Wonline_Guest_Dialog_0074c660(HWND window,UINT message,WPARAM wpar
     case 0xf:
         Unknown_005FEE70(window);
         unknown_dialog_5e5f20(window);
-        if(unknown_dialog_preview_a72ce8) unknown_dialog_preview_a72ce8->Draw_0061D460(window);
+        if(unknown_dialog_preview_a72ce8) unknown_dialog_preview_a72ce8->Blit_Preview(window);
         if(ProgressScreen.Has_Window()) ProgressScreen.Draw_It(Point2D(-1,-1));
         ValidateRect(window,0);
         return 0;

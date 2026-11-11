@@ -17,7 +17,7 @@
 #include "shared/session_state.hpp"
 // @ref ??_C@_0BB@BKAI@Settings?5change?6?$AA@=007e20b0
 // @ref ?Unknown_005c7570@@YIXPAUHWND__@@@Z=005c7570
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?unknown_house_setting_7d88d8@@3HA=007d88d8
 // @ref ?unknown_map_name_a3d342@@3PAGA=00a3d342
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520

@@ -138,8 +138,8 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
     if (item) SendMessageA(item, 0xF1, unknown_session_a3d298.unknown_crates_29 != false, 0);
     if (map->Unknown_006720C0()) {
         if (unknown_dialog_preview_a72ce8) delete unknown_dialog_preview_a72ce8;
-        unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-        unknown_dialog_preview_a72ce8->Load_0061E170("RandMap.img");
+        unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+        unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
         if (!unknown_dialog_preview_a72ce8->unknown_00) Unknown_005c7570(dialog);
     } else Unknown_005c7570(dialog);
     return 0;

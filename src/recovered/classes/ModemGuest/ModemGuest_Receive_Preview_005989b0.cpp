@@ -28,9 +28,9 @@
 // @ref ??_C@_0DB@NCGA@Cleaning?5up?5the?5temporary?5decomp@=007e22b8
 // @ref ??_C@_0DJ@PFBB@Calling?5Get_File_From_Host?5to?5re@=007e2380
 // @ref ?Service_Game_IO_00481fb0@@YIXXZ=00481fb0
-// @ref ?Unknown_0061E930@UnknownPreview_0061D430@@QAEXPBG@Z=0061e930
+// @ref ?Create_Preview_Surface@MapPreviewClass@@QAEXPBG@Z=0061e930
 // @ref ?serial_manager_00a40a28@@3VNullModemClass@@A=00a40a28
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
@@ -72,8 +72,8 @@ void ModemGuest::Receive_Preview_005989b0()
     if (unknown_dialog_preview_a72ce8) {
         delete unknown_dialog_preview_a72ce8;
     }
-    unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-    unknown_dialog_preview_a72ce8->Unknown_0061E930(image);
+    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+    unknown_dialog_preview_a72ce8->Create_Preview_Surface(image);
     InvalidateRect(Window, 0, 0);
     Debug_Printf("Cleaning up the temporary decompression buffers\n");
     delete image;

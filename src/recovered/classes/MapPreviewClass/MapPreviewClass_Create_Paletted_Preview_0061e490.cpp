@@ -1,4 +1,4 @@
-unsigned short *UnknownPreview_0061D430::Unknown_0061E490(int colorcount, int *size)
+unsigned short *MapPreviewClass::Create_Paletted_Preview(int colorcount, int *size)
 {
     int i;
     int k;

@@ -3,7 +3,7 @@
 // origin lane: Scout992 (build/class-work/Scout992/keep/upload_k7_8877.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
 // Scout1069 (native/drafts.json). Not original bytes.
-// void Upload_Map_Preview_005c7ef0(UnknownPreview_0061D430 *preview) (0x005C7EF0)
+// void Upload_Map_Preview_005c7ef0(MapPreviewClass *preview) (0x005C7EF0)
 // The host sends the map preview to the other players. In a World Online game a player whose NAT
 // flags or addresses rule out a direct transfer makes the host send the public options text "Z3"
 // instead. Otherwise the players are told the preview mode (global command 0x19, 1200 ticks to
@@ -33,11 +33,11 @@
 // @ref ??_C@_0DE@JGDI@Player?5?$CFs?5has?5a?5NAT?5?9?5no?5preview@=007e7264
 // @ref ??_C@_0EP@CBDM@Player?5?$CFs?5has?5different?5local?5an@=007e7214
 // @ref ??_C@_0M@CNHP@Preview?4bin?$AA@=007e2720
-// @ref ?Unknown_0061E490@UnknownPreview_0061D430@@QAEPAGHPAH@Z=0061e490
+// @ref ?Create_Paletted_Preview@MapPreviewClass@@QAEPAGHPAH@Z=0061e490
 // @ref ?Send_Remote_File_0066bb20@@YI_NPBDHHH@Z=0066bb20
 // @ref ?Unknown_00672F90@UnknownSessionState@@QAEHH@Z=00672f90
 
-void __fastcall Upload_Map_Preview_005c7ef0(UnknownPreview_0061D430 *preview)
+void __fastcall Upload_Map_Preview_005c7ef0(MapPreviewClass *preview)
 {
     CDTimerClass<SystemTimerClass> timer;
     char options[256];
@@ -116,7 +116,7 @@ void __fastcall Upload_Map_Preview_005c7ef0(UnknownPreview_0061D430 *preview)
     }
     Debug_Printf("Creating low-res preview image\n");
     int size = 0;
-    unsigned short *image = preview->Unknown_0061E490(0x40, &size);
+    unsigned short *image = preview->Create_Paletted_Preview(0x40, &size);
     Debug_Printf("Preview size is %d bytes\n", size);
     void *compressed = operator new(size * 4);
     BufferPipe target(compressed, size * 4);

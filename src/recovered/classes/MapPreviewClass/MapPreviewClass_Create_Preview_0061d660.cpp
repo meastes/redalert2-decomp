@@ -10,7 +10,7 @@
 // unknown_func_5dd000 is OverlayTypeClass::Get_Radar_Color, Put_Pixel with a clip rectangle is
 // TibSun Put_Pixel_Clip, 0x24 is RTTI_TERRAIN.
 
-void UnknownPreview_0061D430::Unknown_0061D660()
+void MapPreviewClass::Create_Preview()
 {
     CellClass *cptr;
 

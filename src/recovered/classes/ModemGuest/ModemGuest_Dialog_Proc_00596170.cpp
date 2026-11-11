@@ -14,14 +14,14 @@
 #include "shared/keyboard.hpp"
 #include "shared/map_preview.hpp"
 #include "shared/options_dialog.hpp"
-// @ref ?Draw_0061D460@UnknownPreview_0061D430@@QAEXPAUHWND__@@@Z=0061d460
+// @ref ?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z=0061d460
 // @ref ?Read_Color_00597010@ModemGuest@@QAEXXZ=00597010
 // @ref ?Read_Color_Entry_00596fc0@ModemGuest@@QAEXXZ=00596fc0
 // @ref ?Read_Dialog_00596d50@ModemGuest@@QAEXXZ=00596d50
 // @ref ?Read_Name_005970b0@ModemGuest@@QAEX_N@Z=005970b0
 // @ref ?Send_Chat_00596e30@ModemGuest@@QAEXXZ=00596e30
 // @ref ?Send_Ready_005974f0@ModemGuest@@QAEXXZ=005974f0
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z=005ffb00
 // @ref ?unknown_math_4ba520@@YANN@Z=004ba520
 // @ref ?unknown_math_4ba5b0@@YANN@Z=004ba5b0
@@ -77,7 +77,7 @@ int __stdcall ModemGuest::Dialog_Proc_00596170(HWND window, UINT message, WPARAM
         break;
     case 0xF:
         if (unknown_dialog_preview_a72ce8) {
-            unknown_dialog_preview_a72ce8->Draw_0061D460(window);
+            unknown_dialog_preview_a72ce8->Blit_Preview(window);
         }
         ValidateRect(window, 0);
         break;

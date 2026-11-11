@@ -64,7 +64,7 @@
 // @ref ?unknown_a3d3bc@@3HA=00a3d3bc
 // @ref ?unknown_color_7a737c@@3HA=007a737c
 // @ref ?unknown_color_values_7e6d94@@3QBHB=007e6d94
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?unknown_empty_wide_839d4c@@3QBGB=00839d4c
 // @ref ?unknown_house_setting_7d88d8@@3HA=007d88d8
 // @ref ?unknown_map_name_a3d342@@3PAGA=00a3d342

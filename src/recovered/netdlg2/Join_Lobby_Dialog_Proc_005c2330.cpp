@@ -23,7 +23,7 @@
 // @ref ?ProgressScreen@@3VProgressScreenClass@@A=00a769e8
 // @ref __imp__ChildWindowFromPointEx@16=0079a3a4
 // @ref ??3@YAXPAX@Z=00781d3b
-// @ref ??1UnknownPreview_0061D430@@QAE@XZ=0061d440
+// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
 
 long __stdcall Join_Lobby_Dialog_Proc_005c2330(HWND window, unsigned message, unsigned wparam, long lparam)
 {
@@ -46,7 +46,7 @@ long __stdcall Join_Lobby_Dialog_Proc_005c2330(HWND window, unsigned message, un
     case 0x0F:                  // WM_PAINT
         Unknown_005FEE70(window);
         if (unknown_dialog_preview_a72ce8 != 0) {
-            unknown_dialog_preview_a72ce8->Draw_0061D460(window);
+            unknown_dialog_preview_a72ce8->Blit_Preview(window);
         }
         if (ProgressScreen.Has_Window()) {
             ProgressScreen.Draw_It(Point2D(-1, -1));

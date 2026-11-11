@@ -1471,14 +1471,14 @@
   },
   {
    "source": "src/recovered/classes/MapGeneratorClass/Init_Map_0057ae00.cpp",
-   "old": "if(!MapPreview)MapPreview=(int)new UnknownPreview_0061D430;",
-   "new": "if(!unknown_preview_a6fee4)unknown_preview_a6fee4=new UnknownPreview_0061D430;   // NATIVE: MapPreview's storage",
+   "old": "if(!MapPreview)MapPreview=(int)new MapPreviewClass;",
+   "new": "if(!unknown_preview_a6fee4)unknown_preview_a6fee4=new MapPreviewClass;   // NATIVE: MapPreview's storage",
    "why": "MapGeneratorClass::MapPreview (+0x17C of RandomMapGen 0x00A6FD68) is the storage the name unknown_preview_a6fee4 (0x00A6FEE4) denotes; the header types it int. Natively the int truncates the preview pointer and the named global has its own storage, so Init_Map (0x0057AE00) made a preview Generate_Random_Map (0x0057A0D0) never saw (null: the skirmish Random Map's Generate Map faulted in 0x0061D660, Scout1208 M27). Natively both rows use the named pointer, as every other preview row (Do_Random_Map, the dialog procedure) does. Same meaning; the exact build is unchanged.",
    "verified": false
   },
   {
    "source": "src/recovered/classes/MapGeneratorClass/MapGeneratorClass_destructor_005771b0.cpp",
-   "old": "    if(MapPreview!=0) {\n        delete reinterpret_cast<UnknownPreview_0061D430 *>(MapPreview);\n        MapPreview=0;\n    }",
+   "old": "    if(MapPreview!=0) {\n        delete reinterpret_cast<MapPreviewClass *>(MapPreview);\n        MapPreview=0;\n    }",
    "new": "    if(unknown_preview_a6fee4!=0) {   // NATIVE: MapPreview's storage\n        delete unknown_preview_a6fee4;\n        unknown_preview_a6fee4=0;\n    }",
    "why": "MapGeneratorClass::MapPreview (+0x17C of RandomMapGen 0x00A6FD68) is the storage the name unknown_preview_a6fee4 (0x00A6FEE4) denotes; the header types it int. Natively the int truncates the preview pointer and the named global has its own storage, so Init_Map (0x0057AE00) made a preview Generate_Random_Map (0x0057A0D0) never saw (null: the skirmish Random Map's Generate Map faulted in 0x0061D660, Scout1208 M27). Natively both rows use the named pointer, as every other preview row (Do_Random_Map, the dialog procedure) does. Same meaning; the exact build is unchanged.",
    "verified": false

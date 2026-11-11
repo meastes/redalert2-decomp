@@ -32,8 +32,8 @@ char *__cdecl strncat(char *,char const *,unsigned);
 // @ref ?rmg_description_7e15dc@@=007e15dc
 // @ref ?Random_Map_CRC_005c8420@@YIPADXZ=005c8420
 // @ref ?Write_PCX_File@@YIHAAVFileClass@@AAVSurface@@PAVPaletteClass@@@Z=007698c0
-// @ref ?unknown_005c7ef0@UnknownPreview_0061D430@@=005c7ef0
-// @ref ?Load_0061E170@UnknownPreview_0061D430@@QAE_NPBD@Z=0061e170
+// @ref ?unknown_005c7ef0@MapPreviewClass@@=005c7ef0
+// @ref ?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z=0061e170
 // @ref ?Clean_Up_RMCache_005775b0@@=005775b0
 // ECX dialog/EDX callback, no stack arguments, plain RET. Name from reference operation; callback intent qualified.
 void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
@@ -50,8 +50,8 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
     strncat(name,rmg_cache_suffix_7e15e8,sizeof(name));
     CCFileClass cached(name);
     if(cached.Is_Available()) {
-        if(unknown_preview_a6fee4==0)unknown_preview_a6fee4=new UnknownPreview_0061D430;
-        if(unknown_preview_a6fee4->Load_0061E170(name)) {
+        if(unknown_preview_a6fee4==0)unknown_preview_a6fee4=new MapPreviewClass;
+        if(unknown_preview_a6fee4->Read_PCX_Preview(name)) {
             RawFileClass file(rmg_preview_filename_7e1540);
             Write_PCX_File(file,*static_cast<Surface *>(unknown_preview_a6fee4->unknown_00),&unknown_palette_837e10);
             delete unknown_preview_a6fee4;
@@ -66,7 +66,7 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
     if(RandomMapGen.SeedData.Seed==-1)
         RandomMapGen.SeedData.Seed=unknown_random_839218(0,65535);
     RandomMapGen.Unknown_0057A0D0(1,(int)dialog);
-    unknown_preview_a6fee4->Unknown_0061D660();
+    unknown_preview_a6fee4->Create_Preview();
     if(unknown_game_mode_a3d298==4 && unknown_a3d2a4==2)unknown_preview_a6fee4->unknown_005c7ef0();
     if(RandomMapGen.MapSeeder!=0)delete reinterpret_cast<MapSeedClass *>(RandomMapGen.MapSeeder);
     RandomMapGen.MapSeeder=(int)new MapSeedClass;

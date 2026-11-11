@@ -5,7 +5,7 @@
 extern DynamicVectorClass<MapRegionClass *> unknown_map_regions_a6fd28;
 // @ref ??1MapGeneratorClass@@QAE@XZ=005771b0
 // @ref ??1MapRegionClass@@QAE@XZ=0056d970
-// @ref ??1UnknownPreview_0061D430@@QAE@XZ=0061d440
+// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
 MapGeneratorClass::~MapGeneratorClass()
 {
     MapRegionClass::Destroy_Cell_Regions();
@@ -18,7 +18,7 @@ MapGeneratorClass::~MapGeneratorClass()
         MapSeeder=0;
     }
     if(MapPreview!=0) {
-        delete reinterpret_cast<UnknownPreview_0061D430 *>(MapPreview);
+        delete reinterpret_cast<MapPreviewClass *>(MapPreview);
         MapPreview=0;
     }
 }

@@ -36,10 +36,10 @@
    "origin": "build/class-work/Scout888/w/keep/e9_k111A_9979.cpp",
    "author": "Scout888",
    "draft": "native/drafts/005e9410.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r508",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "1ddffd0ffc6e3047e5faf93c528e08852c744154"
   },
   {
    "entry": "0x5EE460",
@@ -56,10 +56,11 @@
    "origin": "build/class-work/Scout1045/w/y1_a2.cpp",
    "author": "Scout1045",
    "draft": "native/drafts/005ee460.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "cannot tell",
+   "behaviour_checked_by": "codex4 r509",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "1ddffd0ffc6e3047e5faf93c528e08852c744154",
+   "notes": "codex4 r509: independent bound 7252 code bytes + 12 NOP (bytes 1003 here is stale); open at 5EE4C0-5EE550 (dictionary lookup), 5EF84F-5EFA36 (reentrant paint) and 5EFC7D-5EFD94 (dictionary Remove); the native UpdateWindow after slide-in (Scout1209 r15) is an intended difference."
   },
   {
    "entry": "0x68CCE0",
@@ -76,10 +77,10 @@
    "origin": "build/class-work/Scout782/w/bw_9937.cpp",
    "author": "Scout782",
    "draft": "native/drafts/0068cce0.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r516",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "5be69695a3b644dbde029c14784ffce6cb76d44e"
   },
   {
    "entry": "0x4B37C0",
@@ -96,10 +97,10 @@
    "origin": "build/class-work/Scout912/w/eg_f1.cpp",
    "author": "Scout912",
    "draft": "native/drafts/004b37c0.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r512",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "1ddffd0ffc6e3047e5faf93c528e08852c744154"
   },
   {
    "entry": "0x5BCCF0",
@@ -132,14 +133,16 @@
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/UnknownSessionState/UnknownSessionState_Unknown_00673030_00673030.cpp",
    "raw_seed": false,
-   "native": "blocked: no matching function for call to 'strcpy'",
+   "native": "compiles",
    "origin": "build/class-work/Scout775/keep/ap_z1_8290_loose9238.cpp",
    "author": "Scout775",
-   "draft": null,
-   "behaviour_verdict": "cannot tell",
-   "behaviour_checked_by": "codex4 r500 (r484)",
+   "draft": "native/drafts/00673090.cpp",
+   "adapted": true,
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "codex4 r506 (r500)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6"
+   "behaviour_checked_head": "74a9490def1159ba9681893439af110e8a922dc6",
+   "notes": "codex4 r506: checked on the origin text (ap_z1_8290_loose9238.cpp, 82.90 after the fix; the 94.42 score is a different form): the original calls UDP slot 23 OpenSocket(port) where the draft called slot 15 Open_Socket, which ignores the port (fixed). Needs the +0x2DD0 names as char[8][0x24] and the address port word."
   },
   {
    "entry": "0x67E210",
@@ -381,10 +384,10 @@
    "origin": "build/class-work/Scout889/w/keep/d_9949_head.cpp",
    "author": "Scout889",
    "draft": "native/drafts/00569320.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r513",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "5be69695a3b644dbde029c14784ffce6cb76d44e"
   },
   {
    "entry": "0x576420",
@@ -422,10 +425,10 @@
    "origin": "build/class-work/Scout993/w/c0.cpp",
    "author": "Scout993",
    "draft": "native/drafts/00635c30.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r510",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "1ddffd0ffc6e3047e5faf93c528e08852c744154"
   },
   {
    "entry": "0x636130",
@@ -566,10 +569,11 @@
    "origin": "build/class-work/Scout1020/keep/lz_c103_9946.cpp",
    "author": "Scout1020",
    "draft": "native/drafts/006c9df0.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r514",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "5be69695a3b644dbde029c14784ffce6cb76d44e",
+   "notes": "codex4 r514: independent bound 560 bytes (bytes 368 here is stale)."
   },
   {
    "entry": "0x6CA890",
@@ -628,10 +632,10 @@
    "origin": "build/class-work/Scout931/w/t2.cpp",
    "author": "Scout931",
    "draft": "native/drafts/0070c800.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r518",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "6406ccdcc41282f5686da121ccf64960456de349"
   },
   {
    "entry": "0x7225B0",
@@ -668,10 +672,10 @@
    "origin": "build/class-work/Scout848/w/pg.cpp",
    "author": "Scout848",
    "draft": "native/drafts/00773f00.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r515",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "5be69695a3b644dbde029c14784ffce6cb76d44e"
   },
   {
    "entry": "0x49B0F0",
@@ -828,26 +832,6 @@
    "origin": "build/class-work/Scout611/w/J_pcx_best_89.68.cpp",
    "author": "Scout611",
    "draft": "native/drafts/0060d110.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
-  },
-  {
-   "entry": "0x61D660",
-   "name": "FUN_0061d660",
-   "plan": "review: rewrite likely",
-   "tier": "skirmish frame",
-   "bytes": 315,
-   "score": 62.63,
-   "last_lane_score": 62.63,
-   "draft_found_by": "search",
-   "host_source": "src/recovered/classes/MapPreviewClass/MapPreviewClass_Cell_To_Preview_Pixel_0061d5e0.cpp",
-   "raw_seed": false,
-   "native": "compiles",
-   "origin": "build/class-work/Prog441/w/best_0061d660_62.63.cpp",
-   "author": "Prog441",
-   "draft": "native/drafts/0061d660.cpp",
    "behaviour_verdict": null,
    "behaviour_checked_by": null,
    "behaviour_checked_date": null,
@@ -1375,10 +1359,10 @@
    "origin": "build/class-work/Scout811/w/ba0.cpp",
    "author": "Scout811",
    "draft": "native/drafts/004370e0.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r511",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "1ddffd0ffc6e3047e5faf93c528e08852c744154"
   },
   {
    "entry": "0x71E220",
@@ -1564,10 +1548,10 @@
    "author": "Scout914/Scout918",
    "draft": "native/drafts/00593870.cpp",
    "adapted": "C adapter ra2_native_projectile_motion_593870 for BulletClass::AI's draft (layout-identical TibSun-shaped types)",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r517",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "d57333d460172ca7485eedf71d0506477d34bf51"
   },
   {
    "entry": "0x5C69E0",

@@ -61,8 +61,8 @@ void ModemHost::Select_Random_Map_0059b2c0()
             strcpy(unknown_session_a3d298.ScenarioFileName_658, "RandMap.Sed");
             strcpy(unknown_id_source_a3d290->FileName, unknown_session_a3d298.ScenarioFileName_658);
             if (CCFileClass(unknown_session_a3d298.ScenarioFileName_658).Is_Available()) {
-                unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-                unknown_dialog_preview_a72ce8->Load_0061E170("RandMap.img");
+                unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+                unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
                 PostMessageA(Window, 0xF, 0, 0);
             }
         }

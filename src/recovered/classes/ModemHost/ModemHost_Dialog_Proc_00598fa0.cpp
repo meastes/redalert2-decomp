@@ -3,7 +3,7 @@
 // chat chain (Send_Chat 0x59A880 -> 0x59BFA0 -> Show_Chat 0x59C0B0 calls) and the checkbox readers' named
 // state/checked locals: Read_Unit_Count inlines, Read_Tech_Level and ??_G 0x59CB80 stay calls.
 // @ref ?Select_Multi_Map_0059b090@ModemHost@@QAEXXZ=0059b090
-// @ref ??_GUnknownPreview_0061D430@@QAEPAXI@Z=0059cb80
+// @ref ??_GMapPreviewClass@@QAEPAXI@Z=0059cb80
 #define VECTOR_IMPLEMENT_VECTOR_ACCESSORS
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
 #define VECTOR_IMPLEMENT_DYNAMIC_ADD
@@ -153,8 +153,8 @@ extern unsigned short const unknown_empty_wide_839d4c[];
 // @ref ??_C@_0M@FDHG@RandMap?4Sed?$AA@=007e16e8
 // @ref ?Compare_Narrow_00781f20@@YAHPBD0@Z=00781f20
 // @ref ?Send_Remote_File_0066bb20@@YI_NPBDHHH@Z=0066bb20
-// @ref ?Unknown_0061E490@UnknownPreview_0061D430@@QAEPAGHPAH@Z=0061e490
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?Create_Paletted_Preview@MapPreviewClass@@QAEPAGHPAH@Z=0061e490
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ??_7BufferPipe@@6B@=0079ea08
 // @ref ?Send_Options_0059bc90@ModemHost@@QAEXXZ=0059bc90
 // Set_Guest_0059ab80 (0x0059AB80)
@@ -165,7 +165,7 @@ extern "C" void __cdecl srand(unsigned int seed);
 extern "C" int __cdecl rand();
 // @ref ?unknown_modem_host_first_7e2410@@3_NA=007e2410
 // @ref ?Unknown_0068B420@SpecialClass@@QAEXXZ=0068b420
-// @ref ?Unknown_0061E2A0@UnknownPreview_0061D430@@QAEXPBD@Z=0061e2a0
+// @ref ?Read_INI_Preview@MapPreviewClass@@QAEXPBD@Z=0061e2a0
 // @ref ??_C@_07NKKE@TXT_RED?$AA@=007e2000
 // @ref ??_C@_08LPFB@TXT_PINK?$AA@=007e1fb4
 // @ref ??_C@_08NALB@TXT_GOLD?$AA@=007e2008
@@ -299,7 +299,7 @@ int __stdcall ModemHost::Dialog_Proc_00598fa0(HWND window, UINT message, WPARAM 
         break;
     case 0xF:
         if (unknown_dialog_preview_a72ce8) {
-            unknown_dialog_preview_a72ce8->Draw_0061D460(window);
+            unknown_dialog_preview_a72ce8->Blit_Preview(window);
         }
         ValidateRect(window, 0);
         break;

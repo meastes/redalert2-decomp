@@ -1,4 +1,4 @@
-bool UnknownPreview_0061D430::Read_INI(CCINIClass const &ini)
+bool MapPreviewClass::Read_INI(CCINIClass const &ini)
 {
     static char const * const PREVIEW = "Preview";
     static char const * const PREVIEWPACK = "PreviewPack";
@@ -42,8 +42,8 @@ bool UnknownPreview_0061D430::Read_INI(CCINIClass const &ini)
     unknown_surface_839958->Unlock();
     return true;
 }
-// @ref _?PREVIEW@?1??Read_INI@UnknownPreview_0061D430@@QAE_NABVCCINIClass@@@Z@4QBDB=007a8420
-// @ref _?PREVIEWPACK@?1??Read_INI@UnknownPreview_0061D430@@QAE_NABVCCINIClass@@@Z@4QBDB=007a8424
+// @ref _?PREVIEW@?1??Read_INI@MapPreviewClass@@QAE_NABVCCINIClass@@@Z@4QBDB=007a8420
+// @ref _?PREVIEWPACK@?1??Read_INI@MapPreviewClass@@QAE_NABVCCINIClass@@@Z@4QBDB=007a8424
 // @ref ??_GStraw@@UAEPAXI@Z=0049ed40
 // @ref ??_GBufferStraw@@UAEPAXI@Z=0049ed60
 // @ref ??0Buffer@@QAE@PAXJ@Z=004382c0

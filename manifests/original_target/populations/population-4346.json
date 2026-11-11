@@ -4,8 +4,8 @@
     "id": "population-4346",
     "inventory_sha256": "d5abe83cc977baf2bcfea63778dd86e12814a595c7a64093fb487559cd4a3bc0",
     "gaps_sha256": "f0375cf45016fbed8bf963a71a56dfbcaf36d03603db8d6c58c8e4637dc7cc54",
-    "historical_population_sha256": "1ca7135d25fdf0c33e8a57346e108d782f44f40f8b18ee830835e1e128ebc281",
-    "historical_acceptance_sha256": "bc2fbe9ffa4b1190951c7497b434e03cec9505b394031aa8da288a528b0c0ebd"
+    "historical_population_sha256": "e5e9ea998bf89ec4c90b05877504c64c2eb7b818e5a8f2c451daae1441a936bf",
+    "historical_acceptance_sha256": "ec5a99b71aa37b422acb39c1559e0c7dbf6f844f0e25cbbd037e68d3d96a3801"
   },
   "references": {
     "??_E?$DynamicVectorClass@VCell@@@@UAEPAXI@Z": 4379616,
@@ -2559,7 +2559,7 @@
     "?PowerPipShapeAllocated@PowerClass@@2_NA": 10971424,
     "?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z": 4805232,
     "?PowerPipShape@PowerClass@@2PBXB": 10971420,
-    "??0UnknownPreview_0061D430@@QAE@XZ": 6411312,
+    "??0MapPreviewClass@@QAE@XZ": 6411312,
     "?Clear_unknown_60@ProgressScreenClass@@QAEXXZ": 6417904,
     "?Set_Side@ProgressScreenClass@@QAEXH@Z": 6417968,
     "?Get_Side@ProgressScreenClass@@QAEHXZ": 6417984,
@@ -9629,10 +9629,10 @@
     "?Load_Shape@ProgressScreenClass@@QAEXPBDPBXPAVConvertClass@@@Z": 6418240,
     "?Unknown_00515A80@@YIXPBX_N@Z": 5331584,
     "?Write_Scenario_INI_0065f980@@YIXPBD_N@Z": 6683008,
-    "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A": 10944228,
-    "?Write_INI_0061DC80@UnknownPreview_0061D430@@QAE_NAAVCCINIClass@@@Z": 6413440,
-    "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ": 6411872,
-    "??1UnknownPreview_0061D430@@QAE@XZ": 6411328,
+    "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A": 10944228,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Create_Preview@MapPreviewClass@@QAEXXZ": 6411872,
+    "??1MapPreviewClass@@QAE@XZ": 6411328,
     "?Write_INI_0049D910@DisplayClass@@QAEXAAVCCINIClass@@@Z": 4839696,
     "?Write_INI@OverlayClass@@SIXAAVCCINIClass@@@Z": 6142512,
     "?Write_INI@TubeClass@@SIXAAVCCINIClass@@@Z": 7271552,
@@ -9978,9 +9978,9 @@
     "?Attacked@HouseClass@@QAEXPAVTechnoClass@@@Z": 5132128,
     "?unknown_func_4f3420@HouseClass@@QAEXXZ": 5190688,
     "?unknown_func_4f5320@HouseClass@@QAE_NPAVBuildingTypeClass@@ABVCell@@@Z": 5198624,
-    "?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A": 10956008,
+    "?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A": 10956008,
     "?unknown_5e4720@OwnerDraw@@YI_NPAUHWND__@@@Z": 6178592,
-    "?Draw_0061D460@UnknownPreview_0061D430@@QAEXPAUHWND__@@@Z": 6411360,
+    "?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z": 6411360,
     "__imp__ValidateRect@8": 7971832,
     "?Draw_Line@RadBeam@@QAEXABUCoordStruct@@0F@Z": 6510608,
     "?OwnerDraw_Control_Test_005e6860@@YI_NIPAUHWND__@@@Z": 6187104,
@@ -10525,7 +10525,7 @@
     "?unknown_max_players_a3d558@@3HA": 10736984,
     "?Set_Value_00672a30@UnknownSessionState@@QAEXH_N@Z": 6761008,
     "?Set_Value_00672ae0@UnknownSessionState@@QAEXH_N@Z": 6761184,
-    "?Load_0061E170@UnknownPreview_0061D430@@QAE_NPBD@Z": 6414704,
+    "?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z": 6414704,
     "?Unknown_005cd030@@YIXPAUHWND__@@_N@Z": 6082608,
     "?Find_Next_File@CDFileClass@@SI_NPAD@Z": 4654080,
     "?Find_Close@CDFileClass@@SAXXZ": 4654192,
@@ -10555,8 +10555,8 @@
     "?unknown_a71ea4@@3HA": 10952356,
     "?unknown_session_a3f616@@3_NA": 10745366,
     "?unknown_a3fba4@@3HA": 10746788,
-    "?Unknown_0061E930@UnknownPreview_0061D430@@QAEXPBG@Z": 6416688,
-    "?Unknown_0061E490@UnknownPreview_0061D430@@QAEPAGHPAH@Z": 6415504,
+    "?Create_Preview_Surface@MapPreviewClass@@QAEXPBG@Z": 6416688,
+    "?Create_Paletted_Preview@MapPreviewClass@@QAEPAGHPAH@Z": 6415504,
     "?Unknown_0074DA60@@YAPAUUser@WOL@@XZ": 7658080,
     "?unknown_address_a3f80c@@3VIPXAddressClass@@A": 10745868,
     "__imp__IsWindowEnabled@4": 7971760,
@@ -10564,7 +10564,7 @@
     "?Show@Selection@WorldDominationTour@@SIXABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z": 7536512,
     "??0Selection@WorldDominationTour@@QAE@ABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z": 7525728,
     "??1Selection@WorldDominationTour@@UAE@XZ": 7526800,
-    "?Unknown_0061E2A0@UnknownPreview_0061D430@@QAE_NPBD@Z": 6415008,
+    "?Read_INI_Preview@MapPreviewClass@@QAE_NPBD@Z": 6415008,
     "__imp__PostMessageA@16": 7971952,
     "?Count_Owned@State@WorldDominationTour@@QBEHH@Z": 7538944,
     "?Run@MSEngine@@QAEXH@Z": 5977424,
@@ -11270,7 +11270,7 @@
     "?MPlayer_Defeated_004e77f0@HouseClass@@QAEXXZ": 5142512,
     "?Unknown_0042EBE0@Unknown84E8D0@@QAEXH@Z": 4385760,
     "??_GPlayerProfile@@UAEPAXI@Z": 7577744,
-    "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ": 6061808,
+    "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ": 6061808,
     "?Generate_Lights@MapGeneratorClass@@QAEXXZ": 5810624,
     "__real@8@3fe1c90fdaa2ea789800": 8019424,
     "__real@8@400a8000000000000000": 8020080,
@@ -11637,8 +11637,8 @@
     "??_GConvertClass@@UAEPAXI@Z": 4743456,
     "?Load@TiberiumClass@@UAGJPAUIStream@@@Z": 7246176,
     "?Unknown_00537830@LightSourceClass@@SIXH_N@Z": 5470256,
-    "?Cell_To_Preview_Pixel@UnknownPreview_0061D430@@QBE?AUPoint2D@@VCell@@@Z": 6411744,
-    "?Read_INI@UnknownPreview_0061D430@@QAE_NABVCCINIClass@@@Z": 6414032,
+    "?Cell_To_Preview_Pixel@MapPreviewClass@@QBE?AUPoint2D@@VCell@@@Z": 6411744,
+    "?Read_INI@MapPreviewClass@@QAE_NABVCCINIClass@@@Z": 6414032,
     "?unknown_rect_ac1204@@3PAVRect@@A": 11276804,
     "?unknown_rect_ac120c@@3PAVRect@@A": 11276812,
     "?unknown_rect_ac1208@@3PAVRect@@A": 11276808,
@@ -11789,7 +11789,7 @@
     "?Get@SHAStraw@@UAEHPAXH@Z": 6771648,
     "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z": 7491952,
     "?unknown_show_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z": 7013440,
-    "??_GUnknownPreview_0061D430@@QAEPAXI@Z": 5884800,
+    "??_GMapPreviewClass@@QAEPAXI@Z": 5884800,
     "?unknown_func_5dd000@OverlayTypeClass@@QBE?AVRGBClass@@I@Z": 6148096,
     "??9BaseNodeClass@@QAE_NABV0@@Z": 4374288,
     "??0UnknownSessionState@@QAE@XZ": 6742912,
@@ -12700,7 +12700,7 @@
     "??_ELoadOptionsClass@@UAEPAXI@Z": 5491184,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7080144,
     "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
-    "??_EUnknownPreview_0061D430@@QAEPAXI@Z": 5884800,
+    "??_EMapPreviewClass@@QAEPAXI@Z": 5884800,
     "??_Erc_ptr_base@@UAEPAXI@Z": 6526336,
     "??_EWideString@@QAEPAXI@Z": 6296624,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
@@ -12788,7 +12788,7 @@
     "?rmg_cache_directory_7e15d4@@": 8263124,
     "?rmg_description_7e15dc@@": 8263132,
     "?Random_Map_CRC_005c8420@@YIPADXZ": 6063136,
-    "?unknown_005c7ef0@UnknownPreview_0061D430@@": 6061808,
+    "?unknown_005c7ef0@MapPreviewClass@@": 6061808,
     "?Clean_Up_RMCache_005775b0@@": 5731760,
     "?unknown_selection_7e0adc@@3HA": 8260316,
     "?unknown_preview_flag_7e0ae0@@3_NA": 8260320,
@@ -12852,7 +12852,7 @@
     "?Clear_Tile_Use_Counts_0052b650@@": 5420624,
     "?Load_Isometric_Tiles_0052b2e0@@": 5419744,
     "?Set_Map_Dimensions@RadarClass@@": 6488832,
-    "??0UnknownPreview_0061D430@@": 6411312,
+    "??0MapPreviewClass@@": 6411312,
     "??0Tactical@@": 6956208,
     "??0?$List@PAUINISection@INIClass@@@@QAE@XZ": 4788208,
     "??0?$IndexClass@HPAUINISection@INIClass@@@@QAE@XZ": 4788416,
@@ -27367,7 +27367,18 @@
     "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
     "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?unknown_5e12a0@OwnerDraw@@YIHPAUHWND__@@0@Z": 6165152,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312
   },
   "regions": [
     {
@@ -37538,7 +37549,7 @@
         {
           "offset": 137,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -37586,7 +37597,7 @@
         {
           "offset": 181,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -37618,7 +37629,7 @@
         {
           "offset": 212,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -37626,7 +37637,7 @@
         {
           "offset": 223,
           "kind": 20,
-          "symbol": "??1UnknownPreview_0061D430@@QAE@XZ",
+          "symbol": "??1MapPreviewClass@@QAE@XZ",
           "target": 6411328,
           "addend": 0,
           "resolved": 679629
@@ -37642,7 +37653,7 @@
         {
           "offset": 238,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -37664,7 +37675,7 @@
           "resolved": 10944224
         }
       ],
-      "source_sha256": "758b61681000dce178cbfc223062014013ded2eb5b757f8ecd8abdd984e0d57c",
+      "source_sha256": "15769a383830070a47d0921ff103a8caefc5d4f45f3da0e740404995f1df518d",
       "source": "src/recovered/unowned/Do_Random_Map_Dialog_00577490.cpp",
       "population": "population-4346",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -38158,7 +38169,7 @@
         {
           "offset": 245,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38174,7 +38185,7 @@
         {
           "offset": 270,
           "kind": 20,
-          "symbol": "??0UnknownPreview_0061D430@@QAE@XZ",
+          "symbol": "??0MapPreviewClass@@QAE@XZ",
           "target": 6411312,
           "addend": 0,
           "resolved": 678558
@@ -38182,7 +38193,7 @@
         {
           "offset": 279,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38190,7 +38201,7 @@
         {
           "offset": 294,
           "kind": 20,
-          "symbol": "?Load_0061E170@UnknownPreview_0061D430@@QAE_NPBD@Z",
+          "symbol": "?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z",
           "target": 6414704,
           "addend": 0,
           "resolved": 681926
@@ -38214,7 +38225,7 @@
         {
           "offset": 317,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38238,7 +38249,7 @@
         {
           "offset": 339,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38246,7 +38257,7 @@
         {
           "offset": 350,
           "kind": 20,
-          "symbol": "??1UnknownPreview_0061D430@@QAE@XZ",
+          "symbol": "??1MapPreviewClass@@QAE@XZ",
           "target": 6411328,
           "addend": 0,
           "resolved": 678494
@@ -38262,7 +38273,7 @@
         {
           "offset": 369,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38278,7 +38289,7 @@
         {
           "offset": 385,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38286,7 +38297,7 @@
         {
           "offset": 396,
           "kind": 20,
-          "symbol": "??1UnknownPreview_0061D430@@QAE@XZ",
+          "symbol": "??1MapPreviewClass@@QAE@XZ",
           "target": 6411328,
           "addend": 0,
           "resolved": 678448
@@ -38302,7 +38313,7 @@
         {
           "offset": 411,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38374,7 +38385,7 @@
         {
           "offset": 473,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38382,7 +38393,7 @@
         {
           "offset": 478,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 678910
@@ -38406,7 +38417,7 @@
         {
           "offset": 502,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38414,7 +38425,7 @@
         {
           "offset": 507,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 328817
@@ -38494,7 +38505,7 @@
         {
           "offset": 599,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38518,7 +38529,7 @@
         {
           "offset": 632,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38606,7 +38617,7 @@
         {
           "offset": 724,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38614,7 +38625,7 @@
         {
           "offset": 735,
           "kind": 20,
-          "symbol": "??1UnknownPreview_0061D430@@QAE@XZ",
+          "symbol": "??1MapPreviewClass@@QAE@XZ",
           "target": 6411328,
           "addend": 0,
           "resolved": 678109
@@ -38630,7 +38641,7 @@
         {
           "offset": 750,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -38700,7 +38711,7 @@
           "resolved": 792907
         }
       ],
-      "source_sha256": "eb0707c759c069f4ff08c13f6c90e6d24702423374a6d0019140f830ef2617c5",
+      "source_sha256": "08ad20a60bf765bd5f1231a19f054aeaa9abbc3332efa7bf981f5817bfe8e9b2",
       "source": "src/recovered/unowned/Do_Random_Map_00577880.cpp",
       "population": "population-4346",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -39826,7 +39837,7 @@
         {
           "offset": 563,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -39834,7 +39845,7 @@
         {
           "offset": 568,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 677972
@@ -40194,7 +40205,7 @@
         {
           "offset": 1075,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -40202,7 +40213,7 @@
         {
           "offset": 1086,
           "kind": 20,
-          "symbol": "??1UnknownPreview_0061D430@@QAE@XZ",
+          "symbol": "??1MapPreviewClass@@QAE@XZ",
           "target": 6411328,
           "addend": 0,
           "resolved": 676910
@@ -40226,7 +40237,7 @@
         {
           "offset": 1113,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -40530,7 +40541,7 @@
         {
           "offset": 1585,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -40602,7 +40613,7 @@
         {
           "offset": 1671,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -40626,7 +40637,7 @@
         {
           "offset": 1704,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -40634,7 +40645,7 @@
         {
           "offset": 1710,
           "kind": 20,
-          "symbol": "?Draw_0061D460@UnknownPreview_0061D430@@QAEXPAUHWND__@@@Z",
+          "symbol": "?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z",
           "target": 6411360,
           "addend": 0,
           "resolved": 676318
@@ -40872,7 +40883,7 @@
           "resolved": 5734877
         }
       ],
-      "source_sha256": "0a21f6a523a9e8367dbee540b0c47fc558974fd8ff61effc8fe8d3aaa50c85ee",
+      "source_sha256": "34804c0b9063acc8cbd700872bd684f7c5df7fed35769f96153aaf0f7c60677c",
       "switch_data_bytes": 16,
       "source": "src/recovered/unowned/Map_Seed_Dialog_Proc_00577bd0.cpp",
       "population": "population-4346",
@@ -42025,7 +42036,7 @@
         {
           "offset": 324,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -42033,7 +42044,7 @@
         {
           "offset": 329,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 668739
@@ -42057,7 +42068,7 @@
         {
           "offset": 360,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -42065,7 +42076,7 @@
         {
           "offset": 365,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 318639
@@ -42177,7 +42188,7 @@
         {
           "offset": 518,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -42185,7 +42196,7 @@
         {
           "offset": 523,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 668545
@@ -42209,7 +42220,7 @@
         {
           "offset": 554,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -42217,7 +42228,7 @@
         {
           "offset": 559,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 318445
@@ -42281,7 +42292,7 @@
         {
           "offset": 652,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -42289,7 +42300,7 @@
         {
           "offset": 657,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 668411
@@ -42313,7 +42324,7 @@
         {
           "offset": 688,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -42321,7 +42332,7 @@
         {
           "offset": 693,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 318311
@@ -42633,7 +42644,7 @@
         {
           "offset": 1141,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -42641,7 +42652,7 @@
         {
           "offset": 1146,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 667922
@@ -42673,7 +42684,7 @@
         {
           "offset": 1188,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -42681,7 +42692,7 @@
         {
           "offset": 1193,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 317811
@@ -43153,7 +43164,7 @@
         {
           "offset": 1767,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -43161,7 +43172,7 @@
         {
           "offset": 1772,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 667296
@@ -43193,7 +43204,7 @@
         {
           "offset": 1821,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -43201,7 +43212,7 @@
         {
           "offset": 1826,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 317178
@@ -43273,7 +43284,7 @@
         {
           "offset": 1932,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -43281,7 +43292,7 @@
         {
           "offset": 1937,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 667131
@@ -43305,7 +43316,7 @@
         {
           "offset": 1974,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -43313,7 +43324,7 @@
         {
           "offset": 1979,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 317025
@@ -43481,7 +43492,7 @@
         {
           "offset": 2167,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -43489,7 +43500,7 @@
         {
           "offset": 2172,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 666896
@@ -43513,7 +43524,7 @@
         {
           "offset": 2209,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -43521,7 +43532,7 @@
         {
           "offset": 2214,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 316790
@@ -43729,7 +43740,7 @@
         {
           "offset": 2473,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -43737,7 +43748,7 @@
         {
           "offset": 2478,
           "kind": 20,
-          "symbol": "?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?Create_Preview@MapPreviewClass@@QAEXXZ",
           "target": 6411872,
           "addend": 0,
           "resolved": 666590
@@ -43761,7 +43772,7 @@
         {
           "offset": 2515,
           "kind": 6,
-          "symbol": "?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A",
+          "symbol": "?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A",
           "target": 10944228,
           "addend": 0,
           "resolved": 10944228
@@ -43769,7 +43780,7 @@
         {
           "offset": 2520,
           "kind": 20,
-          "symbol": "?unknown_005c7ef0@UnknownPreview_0061D430@@QAEXXZ",
+          "symbol": "?unknown_005c7ef0@MapPreviewClass@@QAEXXZ",
           "target": 6061808,
           "addend": 0,
           "resolved": 316484
@@ -44231,7 +44242,7 @@
           "resolved": 677629
         }
       ],
-      "source_sha256": "11e5c2b05448d2ed655ce3867913c84e6e35d6fc00cc18632058fb928a820441",
+      "source_sha256": "86834c84703bf5460c9b98561bcd8cf07d06e551ddd16b76ededbec4042a3249",
       "source": "src/recovered/classes/MapGeneratorClass/Generate_Random_Map_0057a0d0.cpp",
       "population": "population-4346",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -44455,7 +44466,7 @@
         {
           "offset": 171,
           "kind": 20,
-          "symbol": "??1UnknownPreview_0061D430@@QAE@XZ",
+          "symbol": "??1MapPreviewClass@@QAE@XZ",
           "target": 6411328,
           "addend": 0,
           "resolved": 680417
@@ -44605,7 +44616,7 @@
           "resolved": 4294720687
         }
       ],
-      "source_sha256": "9d2ec4d8745a46823a8ba2895bc3e891cfd2702d7ab068a65db36a7ef13ced8e",
+      "source_sha256": "f9930c52b183fc0d665fefbeb5db0758631f4422e6ff9f439d9fe082250513e2",
       "source": "src/recovered/classes/MapGeneratorClass/MapGeneratorClass_destructor_005771b0.cpp",
       "population": "population-4346",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -48746,7 +48757,7 @@
         {
           "offset": 1249,
           "kind": 20,
-          "symbol": "??0UnknownPreview_0061D430@@QAE@XZ",
+          "symbol": "??0MapPreviewClass@@QAE@XZ",
           "target": 6411312,
           "addend": 0,
           "resolved": 663883
@@ -50672,7 +50683,7 @@
           "resolved": 4294507146
         }
       ],
-      "source_sha256": "bd9cf7cb39fa7e3a559b6cb819151a02b0aa5a517e7254de8bbed85d8929803e",
+      "source_sha256": "1153d949b11293ffffe3cbc7fa2c2115c79d76093b199c36f25fdcd1f368f530",
       "source": "src/recovered/classes/MapGeneratorClass/Init_Map_0057ae00.cpp",
       "population": "population-4346",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

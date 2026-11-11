@@ -92,8 +92,8 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
                 if (unknown_dialog_preview_a72ce8) {
                     delete unknown_dialog_preview_a72ce8;
                 }
-                unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-                unknown_dialog_preview_a72ce8->Load_0061E170("RandMap.img");
+                unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+                unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
                 if (!unknown_dialog_preview_a72ce8->Is_Present()) {
                     Unknown_005c7570(dialog);
                 }
@@ -129,8 +129,8 @@ void __fastcall Skirmish_Command(HWND dialog, int id, HWND control, int code)
             if (unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Unknown_006720C0()) {
                 if (unknown_dialog_preview_a72ce8) {
                     delete unknown_dialog_preview_a72ce8;
-                    unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-                    unknown_dialog_preview_a72ce8->Load_0061E170("RandMap.img");
+                    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+                    unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
                 }
                 if (!unknown_dialog_preview_a72ce8->Is_Present()) {
                     Unknown_005c7570(dialog);

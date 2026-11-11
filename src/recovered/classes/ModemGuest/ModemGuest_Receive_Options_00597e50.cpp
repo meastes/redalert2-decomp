@@ -20,7 +20,7 @@
 #include "shared/special.hpp"
 #include "shared/multi_mission.hpp"
 #include "shared/session_state.hpp"
-// @ref ??1UnknownPreview_0061D430@@QAE@XZ=0061d440
+// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
 // @ref ??_C@_0BG@JFGK@Scenario?5has?5changed?6?$AA@=007e2264
 // @ref ??_C@_0BH@OIIO@Decoding?5game?5options?6?$AA@=007e227c
 // @ref ??_C@_0M@FDHG@RandMap?4Sed?$AA@=007e16e8
@@ -28,7 +28,7 @@
 // @ref ?Unknown_0068B410@SpecialClass@@QAEXXZ=0068b410
 // @ref ?Equals_Options@SpecialClass@@QBE_NABV1@@Z=0068b3f0
 // @ref ?unknown_a40b18@@3HA=00a40b18
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?unknown_house_setting_7d88d8@@3HA=007d88d8
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?unknown_map_name_a3d342@@3PAGA=00a3d342

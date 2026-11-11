@@ -10,8 +10,8 @@
 // @ref ?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z=005ffb00
 // @ref ?Skirmish_Message_497@@YIHPAUHWND__@@IJ@Z=00683fc0
 // @ref ?unknown_5e4720@OwnerDraw@@YI_NPAUHWND__@@@Z=005e4720
-// @ref ?Draw_0061D460@UnknownPreview_0061D430@@QAEXPAUHWND__@@@Z=0061d460
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z=0061d460
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?Side_Combo_Player_4d13b0@@YIHH@Z=004d13b0
 // @ref ?Color_Combo_Player_4d1d10@@YIHH@Z=004d1d10
 // @ref ?Side_Name_4d1420@@YIPBGH@Z=004d1420
@@ -33,7 +33,7 @@ int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
     switch (message) {
     case 0x0F:
         if (unknown_dialog_preview_a72ce8 != 0 && !OwnerDraw::unknown_5e4720(GetDlgItem(window, 0x468))) {
-            unknown_dialog_preview_a72ce8->Draw_0061D460(window);
+            unknown_dialog_preview_a72ce8->Blit_Preview(window);
         }
         ValidateRect(window, 0);
         return 0;

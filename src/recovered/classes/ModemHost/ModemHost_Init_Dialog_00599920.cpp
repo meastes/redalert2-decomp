@@ -28,7 +28,7 @@ extern "C" void __cdecl srand(unsigned int seed);
 extern "C" int __cdecl rand();
 // @ref ?unknown_modem_host_first_7e2410@@3_NA=007e2410
 // @ref ?Unknown_0068B420@SpecialClass@@QAEXXZ=0068b420
-// @ref ?Unknown_0061E2A0@UnknownPreview_0061D430@@QAE_NPBD@Z=0061e2a0
+// @ref ?Read_INI_Preview@MapPreviewClass@@QAE_NPBD@Z=0061e2a0
 // @ref ??_C@_07NKKE@TXT_RED?$AA@=007e2000
 // @ref ??_C@_08LPFB@TXT_PINK?$AA@=007e1fb4
 // @ref ??_C@_08NALB@TXT_GOLD?$AA@=007e2008
@@ -211,8 +211,8 @@ void ModemHost::Init_Dialog_00599920()
     SendMessageA(control, 0x4B2, 0, (LPARAM)unknown_map_name_a3d342);
     unknown_session_a3f616 = true;
     if (CCFileClass(unknown_session_a3d298.ScenarioFileName_658).Is_Available()) {
-        unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-        unknown_dialog_preview_a72ce8->Unknown_0061E2A0(unknown_session_a3d298.ScenarioFileName_658);
+        unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+        unknown_dialog_preview_a72ce8->Read_INI_Preview(unknown_session_a3d298.ScenarioFileName_658);
         PostMessageA(Window, 0xF, 0, 0);
     }
     if (strlen(ModemRXString) > 78) {

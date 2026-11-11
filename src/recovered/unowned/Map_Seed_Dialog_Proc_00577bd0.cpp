@@ -46,7 +46,7 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
     case 0xf:
         if(unknown_preview_a6fee4) {
             HWND handle=GetDlgItem(window,0x468);
-            if(!OwnerDraw::unknown_5e4720(handle))unknown_preview_a6fee4->Draw_0061D460(window);
+            if(!OwnerDraw::unknown_5e4720(handle))unknown_preview_a6fee4->Blit_Preview(window);
         }
         if(ProgressScreen.Has_Window())ProgressScreen.Draw_It(Point2D(-1,-1));
         ValidateRect(window,0);
@@ -102,7 +102,7 @@ int __stdcall Map_Seed_Dialog_Proc_00577bd0(HWND window,UINT message,WPARAM wpar
             wcscpy(RandomMapGen.SeedData.DescriptionBuffer,
                 StringTable::Load_String(unknown_description_label_7e14dc,0,unknown_mapgen_file_7e14f8,0xed1));
             RandomMapGen.Unknown_0057A0D0(1,(int)window);
-            unknown_preview_a6fee4->Unknown_0061D660();
+            unknown_preview_a6fee4->Create_Preview();
             EnableWindow(GetDlgItem(window,0x405),1);
             EnableWindow(GetDlgItem(window,0x3ea),1);
             EnableWindow(GetDlgItem(window,0x407),1);

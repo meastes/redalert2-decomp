@@ -1,4 +1,4 @@
-bool UnknownPreview_0061D430::Unknown_0061E2A0(char const *filename)
+bool MapPreviewClass::Read_INI_Preview(char const *filename)
 {
     CCFileClass file(filename);
     if (file.Is_Available() && file.Open(FILE_RIGHTS_READ)) {
@@ -37,7 +37,7 @@ bool UnknownPreview_0061D430::Unknown_0061E2A0(char const *filename)
     return false;
 }
 // @ref ??_C@_05PMLP@?$FLMap?$FN?$AA@=007ebf50
-// @ref ?Read_INI@UnknownPreview_0061D430@@QAE_NABVCCINIClass@@@Z=0061ded0
+// @ref ?Read_INI@MapPreviewClass@@QAE_NABVCCINIClass@@@Z=0061ded0
 // @ref ??_GCCINIClass@@UAEPAXI@Z=0040e2e0
 // @ref ??0?$List@PAUINISection@INIClass@@@@QAE@XZ=00490ff0
 // @ref ??_GGenericNode@@UAEPAXI@Z=0040e1d0

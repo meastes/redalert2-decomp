@@ -1,12 +1,12 @@
 
-bool UnknownPreview_0061D430::Write_INI_0061DC80(CCINIClass &ini)
+bool MapPreviewClass::Write_INI(CCINIClass &ini)
 {
     static char const * const PREVIEW = "Preview";
     static char const * const PREVIEWPACK = "PreviewPack";
 
     bool created = false;
     if (unknown_00 == 0) {
-        Unknown_0061D660();
+        Create_Preview();
         created = true;
     }
 
@@ -47,8 +47,8 @@ bool UnknownPreview_0061D430::Write_INI_0061DC80(CCINIClass &ini)
     }
     return total > 0;
 }
-// @ref _?PREVIEW@?1??Write_INI_0061DC80@UnknownPreview_0061D430@@QAE_NAAVCCINIClass@@@Z@4QBDB=007a8418
-// @ref _?PREVIEWPACK@?1??Write_INI_0061DC80@UnknownPreview_0061D430@@QAE_NAAVCCINIClass@@@Z@4QBDB=007a841c
+// @ref _?PREVIEW@?1??Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z@4QBDB=007a8418
+// @ref _?PREVIEWPACK@?1??Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z@4QBDB=007a841c
 // @ref ??_C@_07IFKH@Preview?$AA@=007ebf48
 // @ref ??_C@_0M@BNBE@PreviewPack?$AA@=007ebf3c
 // @ref ??_C@_04BBDK@Size?$AA@=007d5e28
@@ -67,7 +67,7 @@ bool UnknownPreview_0061D430::Write_INI_0061DC80(CCINIClass &ini)
 // @ref ?Put_Rect@INIClass@@QAE_NPBD0ABUINIRect@@@Z=0050dca0
 // @ref ?Put_To@Pipe@@UAEXPAV1@@Z=0060eaa0
 // @ref ?Put_UUBlock@INIClass@@QAE_NPBDPBXH@Z=0050cfc0
-// @ref ?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ=0061d660
+// @ref ?Create_Preview@MapPreviewClass@@QAEXXZ=0061d660
 // @ref ?unknown_shift_852fb8@@3HA=00852fb8
 // @ref ?unknown_shift_852fbc@@3HA=00852fbc
 // @ref ?unknown_shift_852fc0@@3HA=00852fc0

@@ -6,7 +6,7 @@
 #include "shared/map_preview.hpp"
 #include "shared/ipx_conn.hpp"
 // @ref ??_C@_0M@EOLM@RandMap?4img?$AA@=007e1540
-// @ref ?Load_0061E170@UnknownPreview_0061D430@@QAEXPBD@Z=0061e170
+// @ref ?Read_PCX_Preview@MapPreviewClass@@QAEXPBD@Z=0061e170
 // @ref ?unknown_lobby_dialog_a728e0@@3PAUHWND__@@A=00a728e0
 // @ref ?unknown_lobby_map_a728d0@@3HA=00a728d0
 // @ref ?unknown_lobby_map_a72c80@@3HA=00a72c80
@@ -33,8 +33,8 @@ bool Lobby_Dialog_Update_005c67c0()
             Select_Scenario_005c7c30(found);
             if (unknown_multi_missions_a3d8d8[found]->Unknown_006720C0()) {
                 delete unknown_dialog_preview_a72ce8;
-                unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-                unknown_dialog_preview_a72ce8->Load_0061E170("RandMap.img");
+                unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+                unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
                 if (unknown_dialog_preview_a72ce8->unknown_00 == 0) {
                     Unknown_005c7570(unknown_lobby_dialog_a728e0);
                 }

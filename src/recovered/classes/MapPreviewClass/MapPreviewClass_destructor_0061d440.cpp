@@ -1,4 +1,4 @@
-UnknownPreview_0061D430::~UnknownPreview_0061D430()
+MapPreviewClass::~MapPreviewClass()
 {
     if (unknown_00 != 0) {
         delete unknown_00;

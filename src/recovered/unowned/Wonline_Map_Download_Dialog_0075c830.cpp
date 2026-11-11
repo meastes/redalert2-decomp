@@ -22,9 +22,9 @@ int __stdcall Wonline_Map_Download_Dialog_0075c830(HWND window, UINT message, WP
     case 0xf: {
         Unknown_005FEE70(window);
         unknown_dialog_5e5f20(window);
-        UnknownPreview_0061D430 *preview = unknown_dialog_preview_a72ce8;
+        MapPreviewClass *preview = unknown_dialog_preview_a72ce8;
         if (!preview && unknown_session_a3d2b4 == -1) preview = unknown_preview_a6fee4;
-        if (preview) preview->Draw_0061D460(window);
+        if (preview) preview->Blit_Preview(window);
         if (ProgressScreen.Has_Window()) ProgressScreen.Draw_It(Point2D(-1, -1));
         ValidateRect(window, 0);
         return 1;
@@ -45,9 +45,9 @@ int __stdcall Wonline_Map_Download_Dialog_0075c830(HWND window, UINT message, WP
     return 0;
 }
 // @ref ?wol_wait_events_b264f8@@3PAPAXA=00b264f8
-// @ref ??1UnknownPreview_0061D430@@QAE@XZ=0061d440
+// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
 // @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?Draw_0061D460@UnknownPreview_0061D430@@QAEXPAUHWND__@@@Z=0061d460
+// @ref ?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z=0061d460
 // @ref ?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z=00620050
 // @ref ?Has_Window@ProgressScreenClass@@QAE_NXZ=006203c0
 // @ref ?ProgressScreen@@3VProgressScreenClass@@A=00a769e8
@@ -55,9 +55,9 @@ int __stdcall Wonline_Map_Download_Dialog_0075c830(HWND window, UINT message, WP
 // @ref ?Unknown_005FEE70@@YIXPAUHWND__@@@Z=005fee70
 // @ref ?Unknown_007357E0@@YIXPAXH@Z=007357e0
 // @ref ?unknown_dialog_5e5f20@@YIXPAUHWND__@@@Z=005e5f20
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?unknown_dialog_proc_5ffb00@@YIHPAUHWND__@@IIJ@Z=005ffb00
-// @ref ?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A=00a6fee4
+// @ref ?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A=00a6fee4
 // @ref ?unknown_session_a3d2b4@@3HA=00a3d2b4
 // @ref __imp__SetEvent@4=0079a234
 // @ref __imp__ValidateRect@8=0079a3f8

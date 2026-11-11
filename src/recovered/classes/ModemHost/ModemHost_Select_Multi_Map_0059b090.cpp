@@ -8,13 +8,13 @@
 #include "shared/win32_window.hpp"
 #include "shared/crt_string.hpp"
 // @ref ?unknown_session_a3d298@@3UUnknownSessionState@@A=00a3d298
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 // @ref ?unknown_map_name_a3d342@@3PAGA=00a3d342
 // @ref ?Unknown_005c7570@@YIXPAUHWND__@@@Z=005c7570
 // @ref ?Select_Scenario_005c7c30@@YI_NH@Z=005c7c30
-// @ref ?Load_0061E170@UnknownPreview_0061D430@@QAE_NPBD@Z=0061e170
-// @ref ??1UnknownPreview_0061D430@@QAE@XZ=0061d440
-// @ref ??0UnknownPreview_0061D430@@QAE@XZ=0061d430
+// @ref ?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z=0061e170
+// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
+// @ref ??0MapPreviewClass@@QAE@XZ=0061d430
 // @ref _wcscpy=00783689
 // @ref __imp__ShowWindow@8=0079a498
 // @ref __imp__InvalidateRect@12=0079a494
@@ -44,8 +44,8 @@ void ModemHost::Select_Multi_Map_0059b090()
             if (unknown_dialog_preview_a72ce8 != 0) {
                 delete unknown_dialog_preview_a72ce8;
             }
-            unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-            unknown_dialog_preview_a72ce8->Load_0061E170("RandMap.img");
+            unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+            unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
             if (unknown_dialog_preview_a72ce8->unknown_00 == 0) {
                 Unknown_005c7570(Window);
             }
@@ -61,8 +61,8 @@ void ModemHost::Select_Multi_Map_0059b090()
             if (_stricmp(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58, "RandMap.Sed") == 0) {
                 if (unknown_dialog_preview_a72ce8 != 0) {
                     delete unknown_dialog_preview_a72ce8;
-                    unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-                    unknown_dialog_preview_a72ce8->Load_0061E170("RandMap.img");
+                    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+                    unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
                 }
                 if (unknown_dialog_preview_a72ce8->unknown_00 == 0) {
                     Unknown_005c7570(Window);

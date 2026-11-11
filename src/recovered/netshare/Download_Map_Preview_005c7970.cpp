@@ -23,7 +23,7 @@
 // @ref ??_C@_0CG@MHNB@Loading?5the?5compressed?5preview?5i@=007e2334
 // @ref ??_C@_0DB@NCGA@Cleaning?5up?5the?5temporary?5decomp@=007e22b8
 // @ref ??_C@_0DJ@PFBB@Calling?5Get_File_From_Host?5to?5re@=007e2380
-// @ref ?Unknown_0061E930@UnknownPreview_0061D430@@QAEXPBG@Z=0061e930
+// @ref ?Create_Preview_Surface@MapPreviewClass@@QAEXPBG@Z=0061e930
 // @ref ?Unknown_0074DA60@@YAPAUUser@WOL@@XZ=0074da60
 // @ref ?unknown_address_a3f80c@@3VIPXAddressClass@@A=00a3f80c
 
@@ -79,8 +79,8 @@ void __fastcall Download_Map_Preview_005c7970()
     if (unknown_dialog_preview_a72ce8 != 0) {
         delete unknown_dialog_preview_a72ce8;
     }
-    unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-    unknown_dialog_preview_a72ce8->Unknown_0061E930(image);
+    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+    unknown_dialog_preview_a72ce8->Create_Preview_Surface(image);
     InvalidateRect(Unknown_00735B10(), 0, FALSE);
     Debug_Printf("Cleaning up the temporary decompression buffers\n");
     operator delete(image);

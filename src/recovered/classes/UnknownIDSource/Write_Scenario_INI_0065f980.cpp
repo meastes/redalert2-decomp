@@ -5,11 +5,11 @@
 // sections, the preview (or the houses without flag), the map, the objects,
 // the teams and AI triggers (unless flag and not Debug_Map), the triggers
 // and tags, and saves the INI.
-// @ref ?unknown_preview_a6fee4@@3PAVUnknownPreview_0061D430@@A=00a6fee4
-// @ref ??0UnknownPreview_0061D430@@QAE@XZ=0061d430
-// @ref ??1UnknownPreview_0061D430@@QAE@XZ=0061d440
-// @ref ?Unknown_0061D660@UnknownPreview_0061D430@@QAEXXZ=0061d660
-// @ref ?Write_INI_0061DC80@UnknownPreview_0061D430@@QAE_NAAVCCINIClass@@@Z=0061dc80
+// @ref ?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A=00a6fee4
+// @ref ??0MapPreviewClass@@QAE@XZ=0061d430
+// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
+// @ref ?Create_Preview@MapPreviewClass@@QAEXXZ=0061d660
+// @ref ?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z=0061dc80
 // @ref ?Write_INI_0049D910@DisplayClass@@QAEXAAVCCINIClass@@@Z=0049d910
 // @ref ?Write_INI@TubeClass@@SIXAAVCCINIClass@@@Z=006ef480
 // @ref ?Unknown_00668EA0@@YIXAAVCCINIClass@@H@Z=00668ea0
@@ -48,11 +48,11 @@ void __fastcall Write_Scenario_INI_0065f980(char const *filename, bool flag)
     unknown_id_source_a3d290->Write_Basic(ini, flag);
     if (flag) {
         if (unknown_preview_a6fee4 != 0 && unknown_preview_a6fee4->Is_Present()) {
-            unknown_preview_a6fee4->Write_INI_0061DC80(ini);
+            unknown_preview_a6fee4->Write_INI(ini);
         } else {
-            UnknownPreview_0061D430 preview;
-            preview.Unknown_0061D660();
-            preview.Write_INI_0061DC80(ini);
+            MapPreviewClass preview;
+            preview.Create_Preview();
+            preview.Write_INI(ini);
         }
     } else {
         HouseClass::Write_Scenario_INI(ini);

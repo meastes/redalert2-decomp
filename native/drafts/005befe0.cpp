@@ -33,7 +33,7 @@ void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_even
 // @ref ?unknown_lobby_result_a71e8c@@3HA=00a71e8c
 // @ref ?ProgressScreen@@3VProgressScreenClass@@A=00a769e8
 // @ref ??3@YAXPAX@Z=00781d3b
-// @ref ??1UnknownPreview_0061D430@@QAE@XZ=0061d440
+// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
 // @ref __imp__ChildWindowFromPointEx@16=0079a3a4
 // @ref _srand=0078469d
 // @ref _rand=007846aa
@@ -90,7 +90,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
     case 0x0F:                  // WM_PAINT
         Unknown_005FEE70(window);
         if (unknown_dialog_preview_a72ce8 != 0) {
-            unknown_dialog_preview_a72ce8->Draw_0061D460(window);
+            unknown_dialog_preview_a72ce8->Blit_Preview(window);
         }
         if (ProgressScreen.Has_Window()) {
             ProgressScreen.Draw_It(Point2D(-1, -1));

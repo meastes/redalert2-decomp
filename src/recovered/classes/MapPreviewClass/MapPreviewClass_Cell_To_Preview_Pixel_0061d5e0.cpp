@@ -1,4 +1,4 @@
-Point2D UnknownPreview_0061D430::Cell_To_Preview_Pixel(Cell cell) const
+Point2D MapPreviewClass::Cell_To_Preview_Pixel(Cell cell) const
 {
     int x;
     int y;

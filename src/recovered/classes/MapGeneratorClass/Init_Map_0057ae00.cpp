@@ -58,7 +58,7 @@ extern "C" wchar_t *__cdecl wcscpy(wchar_t *target,wchar_t const *text);
 // @ref ?Clear_Tile_Use_Counts_0052b650@@=0052b650
 // @ref ?Load_Isometric_Tiles_0052b2e0@@=0052b2e0
 // @ref ?Set_Map_Dimensions@RadarClass@@=00630300
-// @ref ??0UnknownPreview_0061D430@@=0061d430
+// @ref ??0MapPreviewClass@@=0061d430
 // @ref ??0Tactical@@=006a24b0
 // @ref _wcslen=00783605
 // @ref _wcscpy=00783689
@@ -140,7 +140,7 @@ void MapGeneratorClass::Init_Map(int fullInit)
         unknown_a40774--;
     } else {
         unknown_id_source_a3d290->Set_Defaults();
-        if(!MapPreview)MapPreview=(int)new UnknownPreview_0061D430;
+        if(!MapPreview)MapPreview=(int)new MapPreviewClass;
         Report_Generation_Progress_0057be50(2);
         int theater=SeedData.Theater;
         bool changed=true;

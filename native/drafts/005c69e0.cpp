@@ -117,7 +117,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
         return 1;
     case 0xf:
         OwnerDraw::unknown_draw_dialog_back_5fee70(window);
-        if (unknown_dialog_preview_a72ce8) unknown_dialog_preview_a72ce8->Draw_0061D460(window);
+        if (unknown_dialog_preview_a72ce8) unknown_dialog_preview_a72ce8->Blit_Preview(window);
         unknown_dialog_5e5f20(window);
         ValidateRect(window, 0);
         return 0;

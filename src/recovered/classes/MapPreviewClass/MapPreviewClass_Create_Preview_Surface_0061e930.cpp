@@ -1,4 +1,4 @@
-void UnknownPreview_0061D430::Unknown_0061E930(unsigned short const *image)
+void MapPreviewClass::Create_Preview_Surface(unsigned short const *image)
 {
     int *header = (int *)image;
 

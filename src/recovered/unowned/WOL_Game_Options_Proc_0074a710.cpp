@@ -208,8 +208,8 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
     case 0xf:
         Unknown_005FEE70(window);
         unknown_dialog_5e5f20(window);
-        if(unknown_dialog_preview_a72ce8) unknown_dialog_preview_a72ce8->Draw_0061D460(window);
-        else if(unknown_session_a3d2b4==-1 && unknown_preview_a6fee4) unknown_preview_a6fee4->Draw_0061D460(window);
+        if(unknown_dialog_preview_a72ce8) unknown_dialog_preview_a72ce8->Blit_Preview(window);
+        else if(unknown_session_a3d2b4==-1 && unknown_preview_a6fee4) unknown_preview_a6fee4->Blit_Preview(window);
         if(ProgressScreen.Has_Window()) ProgressScreen.Draw_It(Point2D(-1,-1));
         ValidateRect(window,0);
         return 0;

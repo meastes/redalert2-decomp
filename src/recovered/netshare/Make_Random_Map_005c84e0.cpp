@@ -42,8 +42,8 @@ int __fastcall Make_Random_Map_005c84e0()
     unknown_host_shown_7e6dc0 = true;
     RandomMapGen.SeedData.Save_Or_Prompt_00578ed0("RandMap.Sed");
     delete unknown_dialog_preview_a72ce8;
-    unknown_dialog_preview_a72ce8 = new UnknownPreview_0061D430;
-    unknown_dialog_preview_a72ce8->Load_0061E170("RandMap.img");
+    unknown_dialog_preview_a72ce8 = new MapPreviewClass;
+    unknown_dialog_preview_a72ce8->Read_PCX_Preview("RandMap.img");
     int index;
     bool found = false;
     for (index = 0; index < unknown_multi_missions_a3d8d8.Count(); index++) {

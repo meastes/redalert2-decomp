@@ -4,7 +4,7 @@ template <class T> T min(T a, T b)
     return (b < a) ? b : a;
 }
 
-void UnknownPreview_0061D430::Draw_0061D460(HWND window)
+void MapPreviewClass::Blit_Preview(HWND window)
 {
     ValidateRect(window, 0);
 

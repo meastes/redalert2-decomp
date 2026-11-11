@@ -22,7 +22,7 @@
 // @ref ?unknown_dialog_5ff6e0@@YIXPAUHWND__@@@Z=005ff6e0
 // @ref ?unknown_dialog_5ff7c0@@YIXPAUHWND__@@@Z=005ff7c0
 // @ref ?SkirmishDialog@@3PAUHWND__@@A=00abcdfc
-// @ref ?unknown_dialog_preview_a72ce8@@3PAVUnknownPreview_0061D430@@A=00a72ce8
+// @ref ?unknown_dialog_preview_a72ce8@@3PAVMapPreviewClass@@A=00a72ce8
 int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);  // @ref ?Skirmish_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z=00683d10
 
 bool __fastcall Skirmish_Dialog()
