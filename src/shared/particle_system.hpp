@@ -131,11 +131,11 @@ public:
     ParticleClass *Spawn_Particle(CoordStruct const &coord, CoordStruct const &target, int range); // 0x0060B2D0
     bool Remove_Particle(int index);                                    // 0x0060B3E0
     void Remove_All_Particles();                                        // 0x0060B460
-    void unknown_func_60b4e0();                 // 0x0060B4E0 behaviour 1
-    void unknown_func_60b670();                 // 0x0060B670 behaviour 3
+    void Gas_AI();                              // 0x0060B4E0 behaviour 1
+    void Spark_AI();                            // 0x0060B670 behaviour 3
     void unknown_func_60bb70();                 // 0x0060BB70 behaviour 0
-    void unknown_func_60c050();                 // 0x0060C050 behaviour 4
-    void unknown_func_60c7c0();                 // 0x0060C7C0 behaviour 2
+    void Railgun_AI();                          // 0x0060C050 behaviour 4
+    void Fire_AI();                             // 0x0060C7C0 behaviour 2
 
     ParticleSystemTypeClass *Class;                 // +0x098
     CoordStruct unknown_9c;                         // +0x09C

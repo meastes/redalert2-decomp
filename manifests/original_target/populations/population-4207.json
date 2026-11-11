@@ -4,8 +4,8 @@
     "id": "population-4207",
     "inventory_sha256": "e2f0b4d381ce0b8414dc743b715ea21ae265ff7fa89ff20f8288e1ba9a6ec396",
     "gaps_sha256": "50df54e4f89cbf47cc885c25505689a8d78e0fb0d2032fba39a09cbebf9a8ccc",
-    "historical_population_sha256": "d884528ab8225132ae961d078941e7516ae3ace7aa44b820e418d2d51d43130b",
-    "historical_acceptance_sha256": "13d28b7feacce166102739caffaf8a5140cac1ee95c160593c34e65e8810021f"
+    "historical_population_sha256": "a368296c24cdf6a84134154ce7b0055cf9aacac924566dea4ce8eea8e135a5e2",
+    "historical_acceptance_sha256": "e94d58818d2b4c89164930c766993660a464d1a8556c83c87bdc57571a0f5cc7"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1657,11 +1657,11 @@
     "?Particle_Fire_Step_X@@3PAHA": 8304772,
     "?Particle_Fire_Step_Y@@3PAHA": 8304804,
     "?Wave_Direction_00721db0@@YIHABUPoint2D@@0@Z": 7478704,
-    "?unknown_func_60b4e0@ParticleSystemClass@@QAEXXZ": 6337760,
-    "?unknown_func_60b670@ParticleSystemClass@@QAEXXZ": 6338160,
+    "?Gas_AI@ParticleSystemClass@@QAEXXZ": 6337760,
+    "?Spark_AI@ParticleSystemClass@@QAEXXZ": 6338160,
     "?unknown_func_60bb70@ParticleSystemClass@@QAEXXZ": 6339440,
-    "?unknown_func_60c050@ParticleSystemClass@@QAEXXZ": 6340688,
-    "?unknown_func_60c7c0@ParticleSystemClass@@QAEXXZ": 6342592,
+    "?Railgun_AI@ParticleSystemClass@@QAEXXZ": 6340688,
+    "?Fire_AI@ParticleSystemClass@@QAEXXZ": 6342592,
     "?Detach@ObjectClass@@UAEXPAVAbstractClass@@_N@Z": 6110160,
     "?Load@ObjectClass@@UAGJPAUIStream@@@Z": 6113120,
     "??0?$VectorClass@PAVParticleClass@@@@QAE@IPBQAVParticleClass@@@Z": 6344864,
@@ -1693,8 +1693,8 @@
     "?Spawn_Particle@ParticleSystemClass@@QAEPAVParticleClass@@ABUCoordStruct@@0H@Z": 6337232,
     "?Remove_Particle@ParticleSystemClass@@QAE_NH@Z": 6337504,
     "?Remove_All_Particles@ParticleSystemClass@@QAEXXZ": 6337632,
-    "?unknown_func_60b670@ParticleSystemClass@@": 6338160,
-    "?unknown_func_60c7c0@ParticleSystemClass@@": 6342592,
+    "?Spark_AI@ParticleSystemClass@@": 6338160,
+    "?Fire_AI@ParticleSystemClass@@": 6342592,
     "?AI@ParticleSystemClass@@UAEXXZ": 6343536,
     "?unknown_slot17@ParticleSystemClass@@UBE_NXZ": 6343792,
     "?unknown_slot29@ParticleSystemClass@@UBEHXZ": 6343824,
@@ -10597,7 +10597,9 @@
     "?unknown_slot222@BuildingClass@@UAE_NPAVHouseClass@@H@Z": 4474464,
     "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
     "?Update@ZBuffer@@QAEXVRect@@@Z": 7823808,
-    "?Update@ABuffer@@QAEXVRect@@@Z": 4264112
+    "?Update@ABuffer@@QAEXVRect@@@Z": 4264112,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488
   },
   "regions": [
     {
@@ -12317,7 +12319,7 @@
         {
           "offset": 39,
           "kind": 20,
-          "symbol": "?unknown_func_60b4e0@ParticleSystemClass@@QAEXXZ",
+          "symbol": "?Gas_AI@ParticleSystemClass@@QAEXXZ",
           "target": 6337760,
           "addend": 0,
           "resolved": 4294961477
@@ -12325,7 +12327,7 @@
         {
           "offset": 48,
           "kind": 20,
-          "symbol": "?unknown_func_60c7c0@ParticleSystemClass@@QAEXXZ",
+          "symbol": "?Fire_AI@ParticleSystemClass@@QAEXXZ",
           "target": 6342592,
           "addend": 0,
           "resolved": 4294966300
@@ -12333,7 +12335,7 @@
         {
           "offset": 57,
           "kind": 20,
-          "symbol": "?unknown_func_60b670@ParticleSystemClass@@QAEXXZ",
+          "symbol": "?Spark_AI@ParticleSystemClass@@QAEXXZ",
           "target": 6338160,
           "addend": 0,
           "resolved": 4294961859
@@ -12341,7 +12343,7 @@
         {
           "offset": 66,
           "kind": 20,
-          "symbol": "?unknown_func_60c050@ParticleSystemClass@@QAEXXZ",
+          "symbol": "?Railgun_AI@ParticleSystemClass@@QAEXXZ",
           "target": 6340688,
           "addend": 0,
           "resolved": 4294964378
@@ -12459,7 +12461,7 @@
           "resolved": 6343599
         }
       ],
-      "source_sha256": "48fe04774a52ccd89c9227d6899fc6b66713c040253dd6ec56c251c27831ba43",
+      "source_sha256": "39aa61982c683388d49fedb32fa2f328d8a9c15105bff5fa25dbfa05363fba4f",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/ParticleSystemClass/ParticleSystemClass_AI_0060cb70.cpp",
       "population": "population-4207",
@@ -13186,8 +13188,8 @@
     {
       "entry": 6337760,
       "method": "0060b4e0",
-      "symbol": "?unknown_func_60b4e0@ParticleSystemClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_60b4e0@ParticleSystemClass@@QAEXXZ",
+      "symbol": "?Gas_AI@ParticleSystemClass@@QAEXXZ",
+      "symbol_prefix": "?Gas_AI@ParticleSystemClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13249,13 +13251,13 @@
           "resolved": 4294962637
         }
       ],
-      "source_sha256": "40fd6b12f26771b39bac19c13877123e89958ce234d84aeae736aafa13cd0401",
-      "source": "src/recovered/classes/ParticleSystemClass/ParticleSystemClass_unknown_func_60b4e0_0060b4e0.cpp",
+      "source_sha256": "bb34eac93cd941c48b7ee3eae051288e59bad9ae3aaf94565edb4ef3f4763547",
+      "source": "src/recovered/classes/ParticleSystemClass/ParticleSystemClass_Gas_AI_0060b4e0.cpp",
       "population": "population-4207",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ParticleSystemClass_unknown_func_60b4e0_0060b4e0",
+      "semantic_name": "ParticleSystemClass_Gas_AI_0060b4e0",
       "source_order": 215326
     },
     {
@@ -13328,8 +13330,8 @@
     {
       "entry": 6342592,
       "method": "0060c7c0",
-      "symbol": "?unknown_func_60c7c0@ParticleSystemClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_60c7c0@ParticleSystemClass@@",
+      "symbol": "?Fire_AI@ParticleSystemClass@@QAEXXZ",
+      "symbol_prefix": "?Fire_AI@ParticleSystemClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13527,7 +13529,7 @@
           "resolved": 4294961012
         }
       ],
-      "source_sha256": "cbf0ed14cbc37768d557899e6648e85cd4c7b71896e595e2bcb3afc61ea42d87",
+      "source_sha256": "7ab53d1542b36770c33ce939cdc1e5fd8c9b67210426fc9d9a1b24d23199547c",
       "source": "src/recovered/classes/ParticleSystemClass/ParticleSystemClass_Fire_AI_0060c7c0.cpp",
       "population": "population-4207",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -13539,8 +13541,8 @@
     {
       "entry": 6340688,
       "method": "0060c050",
-      "symbol": "?unknown_func_60c050@ParticleSystemClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_60c050@ParticleSystemClass@@QAEXXZ",
+      "symbol": "?Railgun_AI@ParticleSystemClass@@QAEXXZ",
+      "symbol_prefix": "?Railgun_AI@ParticleSystemClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13994,7 +13996,7 @@
           "resolved": 4294956298
         }
       ],
-      "source_sha256": "32efb7a2b84da2b700c36a7da65abc1019534c2ca774251e1fde51f665dd1453",
+      "source_sha256": "958bbfd8e8362a94dce74e61a8ce21d843c8a384ced1e789c1e4d411812ee881",
       "source": "src/recovered/classes/ParticleSystemClass/ParticleSystemClass_Railgun_AI_0060c050.cpp",
       "population": "population-4207",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -14006,8 +14008,8 @@
     {
       "entry": 6338160,
       "method": "0060b670",
-      "symbol": "?unknown_func_60b670@ParticleSystemClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_60b670@ParticleSystemClass@@",
+      "symbol": "?Spark_AI@ParticleSystemClass@@QAEXXZ",
+      "symbol_prefix": "?Spark_AI@ParticleSystemClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14285,7 +14287,7 @@
           "resolved": 4294959453
         }
       ],
-      "source_sha256": "1ae56c5cef2d907d8482ef8152b8f137be9d89a562ff8c3ec74a85b9370c5551",
+      "source_sha256": "d00ec29b8e5c5a0637bcaa23c2b9025c4bb103f36c007720dd98edfb0de2ee67",
       "source": "src/recovered/classes/ParticleSystemClass/ParticleSystemClass_Spark_AI_0060b670.cpp",
       "population": "population-4207",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

@@ -3,11 +3,11 @@
 // runs out, and once ended and empty leaves the map and queues itself in the
 // 0x00AC0CD8 list.
 #include "shared/particle_system.hpp"
-// @ref ?unknown_func_60b4e0@ParticleSystemClass@@QAEXXZ=0060b4e0
-// @ref ?unknown_func_60b670@ParticleSystemClass@@QAEXXZ=0060b670
+// @ref ?Gas_AI@ParticleSystemClass@@QAEXXZ=0060b4e0
+// @ref ?Spark_AI@ParticleSystemClass@@QAEXXZ=0060b670
 // @ref ?unknown_func_60bb70@ParticleSystemClass@@QAEXXZ=0060bb70
-// @ref ?unknown_func_60c050@ParticleSystemClass@@QAEXXZ=0060c050
-// @ref ?unknown_func_60c7c0@ParticleSystemClass@@QAEXXZ=0060c7c0
+// @ref ?Railgun_AI@ParticleSystemClass@@QAEXXZ=0060c050
+// @ref ?Fire_AI@ParticleSystemClass@@QAEXXZ=0060c7c0
 
 void ParticleSystemClass::AI()
 {
@@ -16,16 +16,16 @@ void ParticleSystemClass::AI()
         unknown_func_60bb70();
         break;
     case 1:
-        unknown_func_60b4e0();
+        Gas_AI();
         break;
     case 2:
-        unknown_func_60c7c0();
+        Fire_AI();
         break;
     case 3:
-        unknown_func_60b670();
+        Spark_AI();
         break;
     case 4:
-        unknown_func_60c050();
+        Railgun_AI();
         break;
     }
     if (--Lifetime == 0) {

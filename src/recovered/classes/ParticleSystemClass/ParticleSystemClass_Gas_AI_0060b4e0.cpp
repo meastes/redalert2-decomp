@@ -1,4 +1,4 @@
-// void ParticleSystemClass::unknown_func_60b4e0() (0x0060B4E0)
+// void ParticleSystemClass::Gas_AI() (0x0060B4E0)
 // Behaviour 1 (gas): every particle runs its behaviour, then each finished
 // particle is replaced by its type's next particle (carrying velocity and
 // step over) and removed; the others move.
@@ -10,7 +10,7 @@
 // @ref ?Behavior_AI@ParticleClass@@QAEXXZ=00609c90
 // @ref ?Motion_AI@ParticleClass@@QAEXXZ=0060a420
 
-void ParticleSystemClass::unknown_func_60b4e0()
+void ParticleSystemClass::Gas_AI()
 {
     int index;
     for (index = Particles.Count() - 1; index >= 0; index--) {

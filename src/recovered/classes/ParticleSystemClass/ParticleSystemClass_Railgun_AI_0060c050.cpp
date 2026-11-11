@@ -1,4 +1,4 @@
-// void ParticleSystemClass::unknown_func_60c050() (0x0060C050)
+// void ParticleSystemClass::Railgun_AI() (0x0060C050)
 // Behaviour 4 (railgun): once, lays a spiral of particles along the line
 // from the system to its target (with random position, direction and speed
 // perturbation) and draws the laser when the type has one; then runs and
@@ -57,7 +57,7 @@ static inline double Velocity_Limit(ParticleSystemTypeClass const *type)
     return type->VelocityPerturbationCoefficient;
 }
 
-void ParticleSystemClass::unknown_func_60c050()
+void ParticleSystemClass::Railgun_AI()
 {
     int i;
     if (!unknown_e4 && Particles.Count() == 0) {

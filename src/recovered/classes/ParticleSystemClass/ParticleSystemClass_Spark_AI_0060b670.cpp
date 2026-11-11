@@ -15,7 +15,7 @@ inline Vector3 operator*(float scale,Vector3 const &vector)
 {
     return Vector3(scale*vector.X,scale*vector.Y,scale*vector.Z);
 }
-void ParticleSystemClass::unknown_func_60b670()
+void ParticleSystemClass::Spark_AI()
 {
     if (unknown_dc>0) {
         if (unknown_dc==1 || Random_Double(0.0,1.0)<=Class->SpawnSparkPercentage) {

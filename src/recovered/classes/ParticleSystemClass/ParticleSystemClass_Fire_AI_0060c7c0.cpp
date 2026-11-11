@@ -26,7 +26,7 @@ inline CoordStruct Particle_Coord_Along_Facing(UnknownFacingDir facing, int dist
     memcpy(&result, &point, sizeof result);
     return result;
 }
-void ParticleSystemClass::unknown_func_60c7c0()
+void ParticleSystemClass::Fire_AI()
 {
     int i;
     for (i = Particles.Count() - 1; i >= 0; --i) {
