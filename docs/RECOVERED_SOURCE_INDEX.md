@@ -17,8 +17,8 @@
 | [classes/MapGeneratorClass](../src/recovered/classes/MapGeneratorClass/) | 56 | 56,683 | 56 | 0x0056D4C0–0x0058AD90 |
 | [classes/CellClass](../src/recovered/classes/CellClass/) | 134 | 46,843 | 130 | 0x00470680–0x0047CFC0 |
 | [classes/FootClass](../src/recovered/classes/FootClass/) | 125 | 46,400 | 121 | 0x0041B470–0x004CDE10 |
-| [classes/BuildingTypeClass](../src/recovered/classes/BuildingTypeClass/) | 62 | 40,277 | 62 | 0x00454EE0–0x004D3C50 |
-| (discovery: address-named) | 918 | 38,555 | 154 | 0x004010A0–0x00793976 |
+| [classes/BuildingTypeClass](../src/recovered/classes/BuildingTypeClass/) | 63 | 40,280 | 63 | 0x00454EE0–0x004D3C50 |
+| (discovery: address-named) | 917 | 38,552 | 154 | 0x004010A0–0x00793976 |
 | [classes/Tactical](../src/recovered/classes/Tactical/) | 94 | 34,434 | 92 | 0x006A22D0–0x006AC800 |
 | [classes/InfantryClass](../src/recovered/classes/InfantryClass/) | 92 | 34,203 | 92 | 0x004D3390–0x00509810 |
 | [classes/MapRegionClass](../src/recovered/classes/MapRegionClass/) | 50 | 32,850 | 50 | 0x0056D530–0x0058DA70 |

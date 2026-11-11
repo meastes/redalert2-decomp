@@ -29,7 +29,7 @@ bool TechnoClass::unknown_slot186()
                 break;
             }
             UnitTypeClass *type = ((UnitClass *)this)->Type;
-            if (type->DeploysInto == 0 && type->Passengers == 0 && !type->unknown_bab[0] /* NATIVE: IsSimpleDeployer +0xBAB (foot.hpp's view pads it) */) {
+            if (type->DeploysInto == 0 && type->Passengers == 0 && !type->IsSimpleDeployer) {
                 break;
             }
             if (type->DeploysInto != 0 && type->DeploysInto->ConstructionYard
