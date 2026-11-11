@@ -65,34 +65,6 @@
       "catchup_previous_source_sha256": "4249394203801e163691680c9584adf1e7005f9e1c1893a0682124b6a5ae0b82"
     },
     {
-      "entry": 4717856,
-      "method": "47fd20",
-      "symbol": "?GetGuardedScaledOffset_0047fd20@WordOffset_47fd20@@QBEII@Z",
-      "symbol_prefix": "?GetGuardedScaledOffset_0047fd20@WordOffset_47fd20@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 27,
-      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
-      "padding_bytes": 5,
-      "full_extent_bytes": 32,
-      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
-      "relocations": [],
-      "source": "src/recovered/address_offsets/GetGuardedScaledOffset_0047fd20.cpp",
-      "source_sha256": "b2466c116e22d431c2d96c33338f8c1a21abf3b93fe88f133581544f3ff87c43",
-      "source_order": 1093,
-      "population": "population-11",
-      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "semantic_name": "GetGuardedScaledOffset_0047fd20",
-      "source_quality_family": "guarded-scaled-offset",
-      "catchup_previous_symbol": "?get@WordOffset_47fd20@@QBEII@Z",
-      "catchup_previous_source_sha256": "f0f084922591764c1fbf4c3222ea5e63134aa30b2192fbf472296669cd213ad0"
-    },
-    {
       "entry": 4809888,
       "method": "4964a0",
       "symbol": "?GetGuardedScaledOffset_004964a0@WordOffset_4964a0@@QBEII@Z",

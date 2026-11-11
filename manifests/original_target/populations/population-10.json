@@ -97,39 +97,6 @@
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
     },
     {
-      "entry": 4717808,
-      "method": "47fcf0",
-      "symbol": "?get@Cleanup_47fcf0@@QAEXXZ",
-      "symbol_prefix": "?get@Cleanup_47fcf0@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 42,
-      "body_sha256": "8b1bd559a39f4d5adc4ec08aa0a56b43cd62420916896bdffe6605ec685c3545",
-      "padding_bytes": 6,
-      "full_extent_bytes": 48,
-      "full_extent_sha256": "f24a56012e82292c18f533d60838d44cd9714070e675c93af4634ed21ac7581d",
-      "relocations": [
-        {
-          "offset": 23,
-          "kind": 20,
-          "symbol": "_release_47fcf0",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 3153968
-        }
-      ],
-      "source": "src/recovered/0047fcf0.cpp",
-      "source_sha256": "b93cf2d373e91b853ccd0b977e8ea60ebf43f0ea038736a90a099142a82078b5",
-      "source_order": 1092,
-      "population": "population-10",
-      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function"
-    },
-    {
       "entry": 4809840,
       "method": "496470",
       "symbol": "?get@Cleanup_496470@@QAEXXZ",

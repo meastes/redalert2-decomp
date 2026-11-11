@@ -1928,49 +1928,6 @@
       "source_order": 104497
     },
     {
-      "entry": 4718288,
-      "method": "0047fed0",
-      "symbol": "?Resize@?$DynamicVectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z",
-      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAUDamageGroup@@",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy"
-      ],
-      "body_bytes": 176,
-      "body_sha256": "ac2e8ffe5855f998cb66b711ed21987bc36eea1b71f088db45aee08efdb8425f",
-      "padding_bytes": 0,
-      "full_extent_bytes": 176,
-      "full_extent_sha256": "ac2e8ffe5855f998cb66b711ed21987bc36eea1b71f088db45aee08efdb8425f",
-      "relocations": [
-        {
-          "offset": 35,
-          "kind": 20,
-          "symbol": "??2@YAPAXI@Z",
-          "target": 7872535,
-          "addend": 0,
-          "resolved": 3154208
-        },
-        {
-          "offset": 106,
-          "kind": 20,
-          "symbol": "??3@YAXPAX@Z",
-          "target": 7871803,
-          "addend": 0,
-          "resolved": 3153405
-        }
-      ],
-      "source_sha256": "f64e4580efe8299ded70202ee56cbd02663313baec18c939fe551bfa84f6b8bc",
-      "source": "src/recovered/classes/DynamicVectorClass_DamageGroup_ptr/DynamicVectorClass_DamageGroup_ptr_Resize_0047fed0.cpp",
-      "population": "population-2685",
-      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_DamageGroup_ptr_Resize_0047fed0",
-      "source_order": 104498
-    },
-    {
       "entry": 5108000,
       "method": "004df120",
       "symbol": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z",

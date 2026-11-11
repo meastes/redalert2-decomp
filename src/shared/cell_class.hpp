@@ -416,6 +416,17 @@ public:
 #ifdef RA2_MAP_CLOSE_OBJECT
     ObjectClass *Cell_Occupier() const { return OccupierPtr; } // (TibSun Cell_Occupier; MapClass 0x0054E8D0)
 #endif
+#ifdef RA2_CELL_OCCUPIER_BRIDGE
+    // TibSun cell.h / mischa85 cell.h declare `Cell_Occupier(bool bridge=false)`; the if-form body is what
+    // Explosion_Damage 0x0047E2C0 binds (the ternary body emits one instruction more there).
+    ObjectClass *Cell_Occupier(bool bridge) const
+    {
+        if (bridge) {
+            return AltOccupierPtr;
+        }
+        return OccupierPtr;
+    }
+#endif
     // The cell of the bridge deck piece over this cell (TibSun Get_Bridge_Deck_Cell).
     Cell Get_Bridge_Deck_Cell() const
     {

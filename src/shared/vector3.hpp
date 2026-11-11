@@ -28,6 +28,17 @@ struct Vector3 {
     float Length2() const { return X * X + Y * Y + Z * Z; }
     float Length() const { return Fast_Sqrt(Length2()); }
 #endif
+#ifdef RA2_VECTOR3_NORMALIZE
+    // TibSun Normalize: unit length, a zero vector stays as it is (Explosion_Damage 0x0047E2C0).
+    Vector3 Normalize() const
+    {
+        double length = unknown_sqrt_4ba410(X * X + Y * Y + Z * Z);
+        if (length != 0.0) {
+            return Vector3(X / length, Y / length, Z / length);
+        }
+        return *this;
+    }
+#endif
     static Vector3 Cross_Product(Vector3 const &a, Vector3 const &b)
     {
         return Vector3(a.Y * b.Z - a.Z * b.Y, a.Z * b.X - a.X * b.Z, a.X * b.Y - a.Y * b.X);

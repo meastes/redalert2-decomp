@@ -1,3 +1,12 @@
+// Unit-wide forms for Explosion_Damage 0x0047E2C0 (the DamageGroup vector, Vector3::Normalize, the low-bridge damage members, CellClass::Cell_Occupier(bool)).
+#define VECTOR_IMPLEMENT_VECTOR_ACCESSORS
+#define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
+#define VECTOR_IMPLEMENT_DYNAMIC_ADD
+#define VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR
+#define RA2_VECTOR3_NORMALIZE
+#define RA2_VECTOR_RESET_INLINE
+#define RA2_MAP_DAMAGE_LOW_BRIDGE
+#define RA2_CELL_OCCUPIER_BRIDGE
 // Header-static dynamic initializers of the unit at 0x0047DFD0: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x0047DFD0-0x0047E1B1); the other
 // drafts of this plan are emitted by these includes.

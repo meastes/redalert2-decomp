@@ -74,6 +74,10 @@ public:
 
     virtual bool Resize(int newsize, T const *array = 0);
     virtual void Clear();
+#ifdef RA2_VECTOR_RESET_INLINE
+    // Empties the list, keeping its size (inline; Explosion_Damage 0x0047E2C0; Scout765 form).
+    void Reset() { int size = VectorMax; Clear(); Resize(size); }
+#endif
     virtual int ID(T const *ptr);
     virtual int ID(T const &object);
 

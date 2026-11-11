@@ -117,6 +117,10 @@ public:
     Cell Unknown_005651E0(Cell const &cell, Cell const &from);   // 0x005651E0 (as shared/map.hpp)
 #endif
     void Update_Cell_Zone(Cell const &cell);                              // 0x0054FB20
+#ifdef RA2_MAP_DAMAGE_LOW_BRIDGE
+    bool Unknown_0055DCA0(Cell const &cell);      // 0x0055DCA0 (as shared/map.hpp; TibSun Damage_Low_Bridge)
+    bool Unknown_0055EDB0(Cell const &cell);      // 0x0055EDB0 (as shared/map.hpp)
+#endif
     int Get_Height_GL(CoordStruct const &coord);                             // 0x0055A280
     void Collapse_Cliff(CellClass *cell);    // 0x00562F50 (TibSun name)
     CellClass *Iterate();
