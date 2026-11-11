@@ -1,4 +1,4 @@
-int UnknownVoxelPalette::Run(FileClass *file)
+int VoxelPaletteLibrary::Read_File(FileClass *file)
 {
     int failed = 0;
     UnknownVoxelPaletteHeader header;

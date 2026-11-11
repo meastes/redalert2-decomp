@@ -1,6 +1,6 @@
 // The nearest palette entry (1..255) inside the remap range when `remap`,
 // outside it otherwise.
-unsigned char UnknownVoxelPalette::unknown_71c250(float red, float green, float blue, bool remap)
+unsigned char VoxelPaletteLibrary::Closest_Color(float red, float green, float blue, bool remap)
 {
     int best = remap ? Header.unknown_00 : 1;
     float best_distance = 100000.0f;

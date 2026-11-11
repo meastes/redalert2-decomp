@@ -254,7 +254,7 @@
 | [classes/SmudgeClass](../src/recovered/classes/SmudgeClass/) | 15 | 1,517 | 15 | 0x004D3290–0x00687B00 |
 | [classes/Dial8Class](../src/recovered/classes/Dial8Class/) | 5 | 1,504 | 4 | 0x00496D30–0x00497320 |
 | [classes/CampaignClass](../src/recovered/classes/CampaignClass/) | 14 | 1,503 | 14 | 0x00465450–0x004D37D0 |
-| [classes/UnknownVoxelPalette](../src/recovered/classes/UnknownVoxelPalette/) | 8 | 1,495 | 8 | 0x0071BD00–0x0071C250 |
+| [classes/VoxelPaletteLibrary](../src/recovered/classes/VoxelPaletteLibrary/) | 8 | 1,495 | 8 | 0x0071BD00–0x0071C250 |
 | [WritePCX](../src/recovered/WritePCX/) | 2 | 1,492 | 2 | 0x007698C0–0x00769E00 |
 | [classes/MultiplayerSiege](../src/recovered/classes/MultiplayerSiege/) | 11 | 1,479 | 7 | 0x005AB5A0–0x005ABBA0 |
 | [LdPrgMgr](../src/recovered/LdPrgMgr/) | 14 | 1,469 | 14 | 0x00535910–0x00536EA0 |

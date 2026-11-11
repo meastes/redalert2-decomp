@@ -1,4 +1,4 @@
-// @ref _?_addend@?1??unknown_71bf20@UnknownVoxelPalette@@QAEXPAMH@Z@4MB=007aea48
+// @ref _?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z@4MB=007aea48
 // @ref __real@4@3ffb8000000000000000=007a7b20
 // @ref __real@4@3ffecccccd0000000000=007aea4c
 // @ref __real@4@3ffdccccccd000000000=007a7b18
@@ -8,7 +8,7 @@
 // in unknown_levels_af8f10) scales every palette color
 // 1..255, and the nearest color of the same remap kind is stored. The upper
 // 16 default sections clamp each channel to 255.
-void UnknownVoxelPalette::unknown_71bf20(float *levels, int count)
+void VoxelPaletteLibrary::Calculate_Lookup_Table(float *levels, int count)
 {
     int index;
     int entry;
@@ -40,7 +40,7 @@ void UnknownVoxelPalette::unknown_71bf20(float *levels, int count)
             float blue = Palette[index * 3 + 2];
             blue *= shades[entry];
             pos = (entry << 8) | index;
-            unknown_14[pos] = unknown_71c250(red, green, blue, remap);
+            unknown_14[pos] = Closest_Color(red, green, blue, remap);
         }
     }
     remap = false;
@@ -57,7 +57,7 @@ void UnknownVoxelPalette::unknown_71bf20(float *levels, int count)
             green = green <= 255 ? green : 255;
             blue = blue <= 255 ? blue : 255;
             pos = (entry << 8) | index;
-            unknown_14[pos] = unknown_71c250(red, green, blue, remap);
+            unknown_14[pos] = Closest_Color(red, green, blue, remap);
         }
     }
 }

@@ -1,6 +1,6 @@
 // The index of the palette entry nearest to a color (squared distance in
 // float; the search starts at a distance of 100000).
-unsigned char UnknownVoxelPalette::Closest_Color(float red, float green, float blue)
+unsigned char VoxelPaletteLibrary::Closest_Color(float red, float green, float blue)
 {
     unsigned char *entry = Palette;
     int best = 0;

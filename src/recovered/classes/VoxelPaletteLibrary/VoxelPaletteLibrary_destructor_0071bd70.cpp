@@ -1,5 +1,5 @@
 #pragma auto_inline(off)
-UnknownVoxelPalette::~UnknownVoxelPalette()
+VoxelPaletteLibrary::~VoxelPaletteLibrary()
 {
     if (unknown_18) {
         operator delete(Palette);

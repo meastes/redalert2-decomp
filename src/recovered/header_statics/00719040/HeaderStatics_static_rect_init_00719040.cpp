@@ -1,5 +1,5 @@
 // The .VXL voxel library (UnknownPairFirst, 0x00719060-0x0071BCD6) and the
-// voxel palette lookup (UnknownVoxelPalette, 0x0071BD00-0x0071C314). The unit's
+// voxel palette lookup (VoxelPaletteLibrary, 0x0071BD00-0x0071C314). The unit's
 // only dynamic initializer (0x00719040) is shared/unknown_static_rect.hpp's.
 #include "shared/unknown_static_rect.hpp"
 #include "shared/unknown_pair_first.hpp"
@@ -28,7 +28,7 @@
 // @ref __ftol=0077f110
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
 // @ref ?unknown_719160@UnknownPairFirst@@QAEHPAVFileClass@@H@Z=00719160
-// @ref ?unknown_71c250@UnknownVoxelPalette@@QAEEMMM_N@Z=0071c250
+// @ref ?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z=0071c250
 // @ref ?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A=007f9f80
 // @ref ?unknown_normal_counts_7f9f94@@3PAHA=007f9f94
 // @ref ?unknown_shades_af8e10@@3PAEA=00af8e10
@@ -88,7 +88,7 @@ extern unsigned char unknown_grid_ae3408[];
 extern Vector3 const *unknown_normal_tables_7f9f80[5];
 extern int unknown_normal_counts_7f9f94[5];
 
-// The default brightness levels of UnknownVoxelPalette::unknown_71bf20.
+// The default brightness levels of VoxelPaletteLibrary::Calculate_Lookup_Table.
 float unknown_levels_af8f10[32];
 
 // The shade per normal (0x10 is unlit).

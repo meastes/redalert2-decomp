@@ -1,4 +1,4 @@
-int UnknownVoxelPalette::unknown_71bda0(FileClass *file)
+int VoxelPaletteLibrary::Read_Colors(FileClass *file)
 {
     int failed = 0;
     file->Open(1);

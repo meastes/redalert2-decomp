@@ -1,4 +1,4 @@
-int UnknownVoxelPalette::unknown_71be80(FileClass *file)
+int VoxelPaletteLibrary::Write_File(FileClass *file)
 {
     int failed = 0;
     UnknownVoxelPaletteHeader header;

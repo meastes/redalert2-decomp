@@ -4,8 +4,8 @@
     "id": "population-4226",
     "inventory_sha256": "609eefbc72cedcf8216e2e96de705f972e69a1b22ec4d3fe4826dbdf784c6592",
     "gaps_sha256": "21065825b61fc51d4f655181781b6b5c6978c6d523359e7cc982058d092003ba",
-    "historical_population_sha256": "722190a3fe42eef7021e138deb9551504b3c184a02d326d3000f06be65bbebe5",
-    "historical_acceptance_sha256": "7e3d4d1ee8655fc71cf4f7feee553709733ea03201636c81b5ca4ade3663240f"
+    "historical_population_sha256": "6414bcd2fcf7017d17d9c4071cadb931a2229c74282c66132190125ed4901a5c",
+    "historical_acceptance_sha256": "5bf82e76c69989a3a8ac9722eb14ee6a319b2ab58873e9bb698fe050ac48ff82"
   },
   "references": {
     "_unknown_static_rect": 11504128,
@@ -29,7 +29,7 @@
     "__ftol": 7860496,
     "?Fast_Sqrt@@YAMN@Z": 4957200,
     "?unknown_719160@UnknownPairFirst@@QAEHPAVFileClass@@H@Z": 7442784,
-    "?unknown_71c250@UnknownVoxelPalette@@QAEEMMM_N@Z": 7455312,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
     "?unknown_normal_tables_7f9f80@@3PAPBUVector3@@A": 8363904,
     "?unknown_normal_counts_7f9f94@@3PAHA": 8363924,
     "?unknown_shades_af8e10@@3PAEA": 11505168,
@@ -1062,7 +1062,7 @@
     "?get@Leaf_793976@@QAEHXZ": 7944566,
     "?get@Leaf_795940@@QAEII@Z": 7952704,
     "?Action@GadgetClass@@UAEHIAAI@Z": 5042720,
-    "??0UnknownVoxelPalette@@QAE@PAE0@Z": 7453952,
+    "??0VoxelPaletteLibrary@@QAE@PAE0@Z": 7453952,
     "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
     "?Size@BufferIOFileClass@@UAEJXZ": 4390272,
     "?Size@RawFileClass@@UAEJXZ": 6525312,
@@ -1142,7 +1142,7 @@
     "??1RadarClass@@UAE@XZ": 6484096,
     "__imp__InterlockedDecrement@4": 7971264,
     "??1UnknownPairFirst@@QAE@XZ": 7442624,
-    "??1UnknownVoxelPalette@@QAE@XZ": 7454064,
+    "??1VoxelPaletteLibrary@@QAE@XZ": 7454064,
     "__imp__InterlockedIncrement@4": 7971260,
     "__imp__SendDlgItemMessageA@20": 7971972,
     "__imp__GetDlgItem@8": 7971996,
@@ -1583,7 +1583,7 @@
     "__real@8@3ffda0d97bb4e7870000": 7999744,
     "?AI@Tactical@@UAEXXZ": 6958544,
     "__imp__SetActiveWindow@4": 7971872,
-    "?Closest_Color@UnknownVoxelPalette@@QAEEMMM@Z": 7455168,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM@Z": 7455168,
     "?AI@ThemeClass@@QAEXXZ": 7240912,
     "??0FoggedObjectClass@@QAE@XZ": 4980768,
     "??1FoggedObjectClass@@UAE@XZ": 4984272,
@@ -1677,9 +1677,9 @@
     "?unknown_719890@UnknownPairFirst@@QAE?AUVector3@@HH@Z": 7444624,
     "?unknown_719940@UnknownPairFirst@@QAEXPAUUnknownVoxelDrawState@@PBUVector3@@@Z": 7444800,
     "?unknown_719f60@UnknownPairFirst@@QAEXXZ": 7446368,
-    "?unknown_71bda0@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z": 7454112,
-    "?Run@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z": 7454176,
-    "?unknown_71be80@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z": 7454336,
+    "?Read_Colors@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454112,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "?Write_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454336,
     "_?path@?1??Build_Final_Path@AStarClass@@QAEPAUPathStruct@@PAURegularOpenNode@@PAH@Z@4U3@A": 8701968,
     "__real@8@3fe1c0000000c0000000": 8019840,
     "__open": 7919681,
@@ -1752,7 +1752,7 @@
     "?AI@KamikazeTrackerClass@@QAEXXZ": 5445568,
     "__real@8@3ffef333333333333000": 7986032,
     "?Action@CheckBoxClass@@UAEHIAAI@Z": 4706928,
-    "?unknown_71bf20@UnknownVoxelPalette@@QAEXPAMH@Z": 7454496,
+    "?Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z": 7454496,
     "?unknown_719c10@UnknownPairFirst@@QAEXPAUUnknownVoxelRecord48@@PBUVector3@@@Z": 7445520,
     "?Draw_It@LaserDrawClass@@QAEXXZ": 5453040,
     "__real@8@40078cccccccccccd000": 8001480,
@@ -1995,7 +1995,7 @@
     "?VoxelPaletteTranslateTable@@3PAEA": 11486728,
     "?unknown_zbuffer_ad0a70@@3PAEA": 11340400,
     "?unknown_lit_colors_af4608@@3PAY0BAA@EA": 11486728,
-    "_?_addend@?1??unknown_71bf20@UnknownVoxelPalette@@QAEXPAMH@Z@4MB": 8055368,
+    "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z@4MB": 8055368,
     "_$E2": 7442496,
     "?unknown_719160@UnknownPairFirst@@": 7442784,
     "?Draw_Voxel_Regular_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7446912,
@@ -6282,7 +6282,35 @@
     "??0Matrix3D@@QAE@ABUCOMMatrix3DStruct@@@Z": 5832208,
     "?Pre_Rotate_Y@Matrix3D@@QAEXM@Z": 5834064,
     "_?direction@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA": 11235436,
-    "?Hover@Selection@WorldDominationTour@@QAE_NABUPoint2D@@@Z": 7530064
+    "?Hover@Selection@WorldDominationTour@@QAE_NABUPoint2D@@@Z": 7530064,
+    "_unknown_empty_rect": 8594576,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "??1Tactical@@UAE@XZ": 6956816,
+    "?Read@WinsockInterfaceClass@@UAEHPAXPAH01PAG@Z": 7779744,
+    "?Draw_Fogged_Objects@Tactical@@QAEXABVRect@@@Z": 6987600,
+    "?Draw_Fogged_Objects@@YIXABVRect@@@Z": 4984848,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "?Action@RTacticalClass@@UAEHIAAI@Z": 6487600,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "?AI@AnimClass@@UAEXXZ": 4331280,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672
   },
   "regions": [
     {
@@ -6335,7 +6363,7 @@
           "resolved": 11504140
         }
       ],
-      "source_sha256": "2aba933d0b5dd9341ac34befe6316fb690a4d9de93054966f264be1dfc31c863",
+      "source_sha256": "685f8de55f893283e1b09f96c9c275b3f13bd80ad1921964212e5331e191a753",
       "source": "src/recovered/header_statics/00719040/HeaderStatics_static_rect_init_00719040.cpp",
       "population": "population-4226",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6347,8 +6375,8 @@
     {
       "entry": 7453952,
       "method": "0071bd00",
-      "symbol": "??0UnknownVoxelPalette@@QAE@PAE0@Z",
-      "symbol_prefix": "??0UnknownVoxelPalette@@QAE@PAE0@Z",
+      "symbol": "??0VoxelPaletteLibrary@@QAE@PAE0@Z",
+      "symbol_prefix": "??0VoxelPaletteLibrary@@QAE@PAE0@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6378,13 +6406,13 @@
           "resolved": 418519
         }
       ],
-      "source_sha256": "1d6644cc5cb3cc86b2b50fa5e50a2fdbe1caa026ea8869cd64d9a9f07004534a",
-      "source": "src/recovered/classes/UnknownVoxelPalette/UnknownVoxelPalette_constructor_0071bd00.cpp",
+      "source_sha256": "30acaee6eed832cc65f0f22275dc39b8f434375e43670fa4407d27be06c577b4",
+      "source": "src/recovered/classes/VoxelPaletteLibrary/VoxelPaletteLibrary_constructor_0071bd00.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownVoxelPalette_constructor_0071bd00",
+      "semantic_name": "VoxelPaletteLibrary_constructor_0071bd00",
       "source_order": 217001
     },
     {
@@ -6467,8 +6495,8 @@
     {
       "entry": 7454064,
       "method": "0071bd70",
-      "symbol": "??1UnknownVoxelPalette@@QAE@XZ",
-      "symbol_prefix": "??1UnknownVoxelPalette@@QAE@XZ",
+      "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
+      "symbol_prefix": "??1VoxelPaletteLibrary@@QAE@XZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -6498,13 +6526,13 @@
           "resolved": 417701
         }
       ],
-      "source_sha256": "4ae936392cfeff15111fa6f53eece1bc10d5e76ebea03300c6bbb99ea300d220",
-      "source": "src/recovered/classes/UnknownVoxelPalette/UnknownVoxelPalette_destructor_0071bd70.cpp",
+      "source_sha256": "fc3fc536299ad625e2c6019decb858ae9501e443023c4b5ccd46d4fb895463ce",
+      "source": "src/recovered/classes/VoxelPaletteLibrary/VoxelPaletteLibrary_destructor_0071bd70.cpp",
       "population": "population-4226",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownVoxelPalette_destructor_0071bd70",
+      "semantic_name": "VoxelPaletteLibrary_destructor_0071bd70",
       "source_order": 217002
     },
     {
@@ -6683,8 +6711,8 @@
     {
       "entry": 7455168,
       "method": "0071c1c0",
-      "symbol": "?Closest_Color@UnknownVoxelPalette@@QAEEMMM@Z",
-      "symbol_prefix": "?Closest_Color@UnknownVoxelPalette@@QAEEMMM@Z",
+      "symbol": "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM@Z",
+      "symbol_prefix": "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -6697,13 +6725,13 @@
       "full_extent_bytes": 144,
       "full_extent_sha256": "ecbf0ae1f6ab5a8ef908f2bdd304bdd6d93e8709581b5199cda3c568af8befc7",
       "relocations": [],
-      "source_sha256": "561c64704572c2be63e5ebc51eb91ba0423a92402871abf3cab934bb03185cfc",
-      "source": "src/recovered/classes/UnknownVoxelPalette/UnknownVoxelPalette_Closest_Color_0071c1c0.cpp",
+      "source_sha256": "c6981e1f2e6dedd2deb604e46a9b566184a74dc9a4339b6131353649e66508ae",
+      "source": "src/recovered/classes/VoxelPaletteLibrary/VoxelPaletteLibrary_Closest_Color_0071c1c0.cpp",
       "population": "population-4226",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownVoxelPalette_Closest_Color_0071c1c0",
+      "semantic_name": "VoxelPaletteLibrary_Closest_Color_0071c1c0",
       "source_order": 217007
     },
     {
@@ -7690,8 +7718,8 @@
     {
       "entry": 7454112,
       "method": "0071bda0",
-      "symbol": "?unknown_71bda0@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z",
-      "symbol_prefix": "?unknown_71bda0@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z",
+      "symbol": "?Read_Colors@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
+      "symbol_prefix": "?Read_Colors@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7704,20 +7732,20 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "0636978a8c6728cb3ebf9cdeb7c8c98a368d0c4dc1c9b5350ccee0bb0b9c8561",
       "relocations": [],
-      "source_sha256": "ca4132772afd0fe8f2f65f76bf0172c172d03c625b469ae5471b286da1d4e79b",
-      "source": "src/recovered/classes/UnknownVoxelPalette/UnknownVoxelPalette_unknown_71bda0_0071bda0.cpp",
+      "source_sha256": "2983e16909046544cfc4438abc3a242808f55f227a55389333a4c847f501df9f",
+      "source": "src/recovered/classes/VoxelPaletteLibrary/VoxelPaletteLibrary_Read_Colors_0071bda0.cpp",
       "population": "population-4226",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownVoxelPalette_unknown_71bda0_0071bda0",
+      "semantic_name": "VoxelPaletteLibrary_Read_Colors_0071bda0",
       "source_order": 217003
     },
     {
       "entry": 7454176,
       "method": "0071bde0",
-      "symbol": "?Run@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z",
-      "symbol_prefix": "?Run@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z",
+      "symbol": "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
+      "symbol_prefix": "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7730,20 +7758,20 @@
       "full_extent_bytes": 160,
       "full_extent_sha256": "828a4627d0c2933dfe9fda3810aa868903b5892ccb12e1b6a145bf1a62518ca0",
       "relocations": [],
-      "source_sha256": "7ce57f52746fed44e93d4f02638fb5b812e526054d4ec98846e9a10d8d753c0a",
-      "source": "src/recovered/classes/UnknownVoxelPalette/UnknownVoxelPalette_Run_0071bde0.cpp",
+      "source_sha256": "f941827d52eb5c3e2a604918957dd3d73f9c65e7c31a42e60822ed5adb438c9a",
+      "source": "src/recovered/classes/VoxelPaletteLibrary/VoxelPaletteLibrary_Read_File_0071bde0.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownVoxelPalette_Run_0071bde0",
+      "semantic_name": "VoxelPaletteLibrary_Read_File_0071bde0",
       "source_order": 217004
     },
     {
       "entry": 7454336,
       "method": "0071be80",
-      "symbol": "?unknown_71be80@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z",
-      "symbol_prefix": "?unknown_71be80@UnknownVoxelPalette@@QAEHPAVFileClass@@@Z",
+      "symbol": "?Write_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
+      "symbol_prefix": "?Write_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7756,20 +7784,20 @@
       "full_extent_bytes": 160,
       "full_extent_sha256": "32ab9292a3f863a8e3576c3edf503a84ab1aabab2faa79688d5a09b93304d1ba",
       "relocations": [],
-      "source_sha256": "29936b7ff546f01e6e26f663f6bd4ab6d6d565ae18da1c4f7500fc3d38d7c418",
-      "source": "src/recovered/classes/UnknownVoxelPalette/UnknownVoxelPalette_unknown_71be80_0071be80.cpp",
+      "source_sha256": "a6fdb297e87017a34c3420c461fe0f6b874391970c9a4fd4e8f03f29b79a8270",
+      "source": "src/recovered/classes/VoxelPaletteLibrary/VoxelPaletteLibrary_Write_File_0071be80.cpp",
       "population": "population-4226",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownVoxelPalette_unknown_71be80_0071be80",
+      "semantic_name": "VoxelPaletteLibrary_Write_File_0071be80",
       "source_order": 217005
     },
     {
       "entry": 7455312,
       "method": "0071c250",
-      "symbol": "?unknown_71c250@UnknownVoxelPalette@@QAEEMMM_N@Z",
-      "symbol_prefix": "?unknown_71c250@UnknownVoxelPalette@@QAEEMMM_N@Z",
+      "symbol": "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z",
+      "symbol_prefix": "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -7782,13 +7810,13 @@
       "full_extent_bytes": 208,
       "full_extent_sha256": "4321605b415b3314fea38ec8f7ba2c9137ca047e75f36cae9dc7ab5bc66ca827",
       "relocations": [],
-      "source_sha256": "fde1d67012384abe5dec1b2ae9195a17aaee9aa477d1ef2a6f2ea655b7df63d5",
-      "source": "src/recovered/classes/UnknownVoxelPalette/UnknownVoxelPalette_unknown_71c250_0071c250.cpp",
+      "source_sha256": "3c3c82bb95fab8aa2d94468bb9d0ea7995268300856a114dfd6f375fee56a4c8",
+      "source": "src/recovered/classes/VoxelPaletteLibrary/VoxelPaletteLibrary_Closest_Color_0071c250.cpp",
       "population": "population-4226",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownVoxelPalette_unknown_71c250_0071c250",
+      "semantic_name": "VoxelPaletteLibrary_Closest_Color_0071c250",
       "source_order": 217008
     },
     {
@@ -8420,8 +8448,8 @@
     {
       "entry": 7454496,
       "method": "0071bf20",
-      "symbol": "?unknown_71bf20@UnknownVoxelPalette@@QAEXPAMH@Z",
-      "symbol_prefix": "?unknown_71bf20@UnknownVoxelPalette@@QAEXPAMH@Z",
+      "symbol": "?Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z",
+      "symbol_prefix": "?Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -8469,7 +8497,7 @@
         {
           "offset": 91,
           "kind": 6,
-          "symbol": "_?_addend@?1??unknown_71bf20@UnknownVoxelPalette@@QAEXPAMH@Z@4MB",
+          "symbol": "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z@4MB",
           "target": 8055368,
           "addend": 0,
           "resolved": 8055368
@@ -8509,7 +8537,7 @@
         {
           "offset": 310,
           "kind": 20,
-          "symbol": "?unknown_71c250@UnknownVoxelPalette@@QAEEMMM_N@Z",
+          "symbol": "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z",
           "target": 7455312,
           "addend": 0,
           "resolved": 502
@@ -8541,19 +8569,19 @@
         {
           "offset": 596,
           "kind": 20,
-          "symbol": "?unknown_71c250@UnknownVoxelPalette@@QAEEMMM_N@Z",
+          "symbol": "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z",
           "target": 7455312,
           "addend": 0,
           "resolved": 216
         }
       ],
-      "source_sha256": "63cebac7d1a95f9a783d9609de2f2f2a5706550f1b140b49ecc3b56017e46bc7",
-      "source": "src/recovered/classes/UnknownVoxelPalette/UnknownVoxelPalette_unknown_71bf20_0071bf20.cpp",
+      "source_sha256": "80cd581a6290a69a7470d200b8e3380fcca7e681b582549e1a132673a47449a5",
+      "source": "src/recovered/classes/VoxelPaletteLibrary/VoxelPaletteLibrary_Calculate_Lookup_Table_0071bf20.cpp",
       "population": "population-4226",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "UnknownVoxelPalette_unknown_71bf20_0071bf20",
+      "semantic_name": "VoxelPaletteLibrary_Calculate_Lookup_Table_0071bf20",
       "source_order": 217006
     },
     {
@@ -8990,7 +9018,7 @@
         {
           "offset": 312,
           "kind": 20,
-          "symbol": "??0UnknownVoxelPalette@@QAE@PAE0@Z",
+          "symbol": "??0VoxelPaletteLibrary@@QAE@PAE0@Z",
           "target": 7453952,
           "addend": 0,
           "resolved": 10852
@@ -9038,7 +9066,7 @@
         {
           "offset": 480,
           "kind": 20,
-          "symbol": "??1UnknownVoxelPalette@@QAE@XZ",
+          "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
           "target": 7454064,
           "addend": 0,
           "resolved": 10796
@@ -9062,7 +9090,7 @@
         {
           "offset": 627,
           "kind": 20,
-          "symbol": "?unknown_71bf20@UnknownVoxelPalette@@QAEXPAMH@Z",
+          "symbol": "?Calculate_Lookup_Table@VoxelPaletteLibrary@@QAEXPAMH@Z",
           "target": 7454496,
           "addend": 0,
           "resolved": 11081
@@ -9070,7 +9098,7 @@
         {
           "offset": 639,
           "kind": 20,
-          "symbol": "??1UnknownVoxelPalette@@QAE@XZ",
+          "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
           "target": 7454064,
           "addend": 0,
           "resolved": 10637
@@ -9156,7 +9184,7 @@
           "resolved": 427285
         }
       ],
-      "source_sha256": "a32c0de1710810bd1d15ea64a112847ed84d9d98d33ea5334ea1809a38f790d7",
+      "source_sha256": "cfa04a83fab5fd8b5fbe0927cebca6231d4c16d6a6cb7d94e2fa2961f189167c",
       "source": "src/recovered/classes/UnknownPairFirst/UnknownPairFirst_Read_File_00719160.cpp",
       "population": "population-4226",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

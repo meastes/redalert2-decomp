@@ -1,5 +1,5 @@
-// UnknownVoxelPalette: a voxel palette lookup (hypothesis: a .VPL file; members
-// 0x0071BD00-0x0071C314). A 0x10-byte header (remap range, section count),
+// VoxelPaletteLibrary (TibSun voxlib.h; mischa85 names.csv agrees at every address): a .VPL voxel palette
+// lookup (members 0x0071BD00-0x0071C314). A 0x10-byte header (remap range, section count),
 // a 256-entry RGB palette (0x300 bytes) and section count * 256 bytes of
 // lookup; each buffer is either supplied or owned.
 #ifndef RA2_SHARED_UNKNOWN_VOXEL_PALETTE_HPP
@@ -14,16 +14,16 @@ struct UnknownVoxelPaletteHeader {
     int unknown_0c;                     // +0x0C
 };
 
-class UnknownVoxelPalette {
+class VoxelPaletteLibrary {
 public:
-    UnknownVoxelPalette(unsigned char *palette, unsigned char *table);     // 0x0071BD00
-    ~UnknownVoxelPalette();                                     // 0x0071BD70
-    int unknown_71bda0(FileClass *file);                        // 0x0071BDA0 (reads the palette; 1 on failure)
-    int Run(FileClass *file);                                   // 0x0071BDE0 (reads; 1 on failure)
-    int unknown_71be80(FileClass *file);                        // 0x0071BE80 (writes; 1 on failure)
-    void unknown_71bf20(float *levels, int count);              // 0x0071BF20 (builds the lookup)
+    VoxelPaletteLibrary(unsigned char *palette, unsigned char *table);     // 0x0071BD00
+    ~VoxelPaletteLibrary();                                     // 0x0071BD70
+    int Read_Colors(FileClass *file);                           // 0x0071BDA0 (reads the palette; 1 on failure)
+    int Read_File(FileClass *file);                             // 0x0071BDE0 (reads; 1 on failure)
+    int Write_File(FileClass *file);                            // 0x0071BE80 (writes; 1 on failure)
+    void Calculate_Lookup_Table(float *levels, int count);      // 0x0071BF20 (builds the lookup)
     unsigned char Closest_Color(float red, float green, float blue);    // 0x0071C1C0
-    unsigned char unknown_71c250(float red, float green, float blue, bool remap);    // 0x0071C250
+    unsigned char Closest_Color(float red, float green, float blue, bool remap);     // 0x0071C250
 
     UnknownVoxelPaletteHeader Header;   // +0x00
     unsigned char *Palette;             // +0x10 256 RGB byte triples

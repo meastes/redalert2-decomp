@@ -31,7 +31,7 @@ int UnknownPairFirst::unknown_719160(FileClass *file, int load_palette)
         unknown_719110(); file->Close(); return 0;
     }
     if (load_palette) {
-        UnknownVoxelPalette palette((unsigned char *)VoxelRGBColors,VoxelPaletteTranslateTable);
+        VoxelPaletteLibrary palette((unsigned char *)VoxelRGBColors,VoxelPaletteTranslateTable);
         unsigned char first, last;
         if (file->Read(&first,1)!=1) { file->Close(); unknown_719110(); return 0; }
         if (file->Read(&last,1)!=1) { file->Close(); unknown_719110(); return 0; }
@@ -42,7 +42,7 @@ int UnknownPairFirst::unknown_719160(FileClass *file, int load_palette)
             file->Read(green+channel++-1,1); file->Read(green+channel++-1,1); file->Read(green+channel-1,1);
         }
         if (header.PaletteCount>1) file->Seek(768*header.PaletteCount-768,1);
-        palette.unknown_71bf20(0,0);
+        palette.Calculate_Lookup_Table(0,0);
     } else file->Seek(770*header.PaletteCount,1);
     for (i=0;i<(unsigned)unknown_04;++i) {
 
