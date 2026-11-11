@@ -640,7 +640,7 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
                             *record = (void *)((unsigned int)mixfile_set + (unsigned int)*record);
                         }
                     }
-                    tile->unknown_func_52e3d0();
+                    tile->Build_Preview_Tiles();
                 } else {
                     if (tile_count == 0) {
                         tile->unknown_2b4 = 0;

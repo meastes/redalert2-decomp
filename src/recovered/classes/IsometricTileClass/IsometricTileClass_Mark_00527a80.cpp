@@ -10,7 +10,7 @@
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
 #include "shared/anim.hpp"
-// @ref ?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z=0052b6f0
+// @ref ?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z=0052b6f0
 // @ref ?Fixup_LAT@CellClass@@QAEXXZ=00471d10
 // @ref ?unknown_tileset_a52ee8@@3HA=00a52ee8
 // @ref ?unknown_tileset_a52eec@@3HA=00a52eec
@@ -47,7 +47,7 @@ bool IsometricTileClass::Mark(int mark)
                 } else {
                     here.IsoTileIndex = Type->ArrayIndex;
                     here.unknown_11a = index;
-                    here.unknown_11c = Type->unknown_func_52b6f0(index);
+                    here.unknown_11c = Type->Ramp_Type(index);
                     if (here.IsoTileIndex == unknown_tileset_a6e038 + 5) {
                         switch ((unsigned char)here.unknown_11a) {
                         case 0:

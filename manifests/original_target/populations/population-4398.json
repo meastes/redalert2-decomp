@@ -4,8 +4,8 @@
     "id": "population-4398",
     "inventory_sha256": "8b535662116274dc5d511e9ba2471fe83d27b887344b8352e7f84c9316eb9a34",
     "gaps_sha256": "f824756eaf9954442945b1b72e7f1d05ac32893c2bdb011c3649c16f40c92d77",
-    "historical_population_sha256": "c39f72d710491b1762d68dba128f13294abe72d17b104a368003dc2690aa6bf9",
-    "historical_acceptance_sha256": "88016ea788ecd23d2664a03e14894b1001cd8cc18dc76126e363926394cc55aa"
+    "historical_population_sha256": "c75af6ad90c194da5f2b06d4ac96d82831869923ea4c5a513a88e80c099f8867",
+    "historical_acceptance_sha256": "f952c14ae727a9b76715db09bf2cd4267e891225aa1fab371d2c9db132ec4eb8"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -309,7 +309,7 @@
     "??_E?$VectorClass@PAG@@UAEPAXI@Z": 5434448,
     "??_G?$VectorClass@PAG@@UAEPAXI@Z": 5434448,
     "?Clear@?$VectorClass@PAG@@UAEXXZ": 5433472,
-    "?unknown_func_52b560@IsometricTileTypeClass@@QAEXXZ": 5420384,
+    "?Load_Tile_Data@IsometricTileTypeClass@@QAEXXZ": 5420384,
     "_?$S57@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4EA": 10825352,
     "_?list@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "_$E58": 5412112,
@@ -497,7 +497,7 @@
     "?Debug_Printf@@YAXPBDZZ": 4221168,
     "??_C@_0CL@HLMC@Loaded?5?$CFd?5isometric?5tiles?5consum@": 8253968,
     "??0CCFileClass@@QAE@PBD@Z": 4624208,
-    "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ": 5420384,
+    "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ": 5420384,
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
     "??_GCCFileClass@@UAEPAXI@Z": 4200864,
     "??_GCDFileClass@@UAEPAXI@Z": 4200784,
@@ -555,14 +555,14 @@
     "??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z": 6118016,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
-    "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ": 5432272,
+    "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ": 5432272,
     "?unknown_LightConvertClass_list_00832398@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A": 8594328,
     "?Save@ObjectTypeClass@@UAGJPAUIStream@@H@Z": 6127200,
     "_CLSID_IsometricTileTypeClass": 8002400,
     "?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A": 8806880,
     "??0RGBClass@@QAE@ABV0@0M@Z": 6540416,
     "?Set@RGBClass@@QAEAAV1@ABV1@M@Z": 6540784,
-    "_?_brightness_factor@?M@??unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ@4MB": 8016180,
+    "_?_brightness_factor@?M@??Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ@4MB": 8016180,
     "_$E2": 5407616,
     "_$E5": 5407648,
     "_$E8": 5407696,
@@ -596,13 +596,13 @@
     "?Load_Tiles@IsometricTileTypeClass@@SIX_N0@Z": 5419744,
     "?Clear_Use_Counts@IsometricTileTypeClass@@SAXXZ": 5420624,
     "?Get_Tile_Pixel_Dimensions@IsometricTileTypeClass@@QAE_NHAAH0@Z": 5420688,
-    "?unknown_func_52b6f0@IsometricTileTypeClass@@": 5420784,
+    "?Ramp_Type@IsometricTileTypeClass@@": 5420784,
     "?Is_Randomized@IsometricTileTypeClass@@QBE_NH@Z": 5420848,
     "?Draw_Shadow_Caster@IsometricTileTypeClass@@": 5420912,
     "?Shadow_Caster_List@IsometricTileTypeClass@@": 5421232,
     "?Get_Tile_Image@IsometricTileTypeClass@@QAE_NHPAPAEHH@Z": 5430640,
     "?Load@IsometricTileTypeClass@@UAGJPAUIStream@@@Z": 5431744,
-    "?unknown_func_52e360@IsometricTileTypeClass@@QBEGHH_N@Z": 5432160,
+    "?Preview_Tile_Color@IsometricTileTypeClass@@QBEGHH_N@Z": 5432160,
     "__strcmp": 7888160,
     "__strlen": 7903280,
     "__malloc": 7874096,
@@ -9236,7 +9236,7 @@
     "?Detach@MapClass@@UAEXPAVAbstractClass@@_N@Z": 5610880,
     "?Detach@ParasiteClass@@UAEXPAVAbstractClass@@_N@Z": 6320640,
     "?Mark@IsometricTileClass@@UAE_NH@Z": 5405312,
-    "?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z": 5420784,
+    "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z": 5420784,
     "?Increase_Table_Size@?$IndexClass@HPAVMapRegionClass@@@@QAE_NH@Z": 5828944,
     "??1LightConvertClass@@UAE@XZ": 5476128,
     "??1ConvertClass@@UAE@XZ": 4739856,
@@ -13269,7 +13269,78 @@
     "??_ESBGadgetClass@SidebarClass@@UAEPAXI@Z": 6825056,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
     "??_EState@WorldDominationTour@@UAEPAXI@Z": 7539024,
-    "??_ECursorPositionCommandClass@@UAEPAXI@Z": 5365856
+    "??_ECursorPositionCommandClass@@UAEPAXI@Z": 5365856,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Compute_CRC@TiberiumClass@@UBEXAAVWWCRCEngine@@@Z": 7245984,
+    "?ID@?$DynamicVectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4378064,
+    "?ID@?$VectorClass@VCell@@@@UAEHABVCell@@@Z": 4378592,
+    "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
+    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4379344,
+    "?ID@?$VectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4642992,
+    "?ID@?$DynamicVectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4643376,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4989632,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4990016,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039776,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5040560,
+    "?ID@?$VectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207200,
+    "?ID@?$DynamicVectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207568,
+    "?ID@?$VectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208016,
+    "?ID@?$DynamicVectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208384,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210704,
+    "?ID@?$VectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5681840,
+    "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5682304,
+    "?ID@?$VectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683136,
+    "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683696,
+    "?ID@?$VectorClass@U?$TRect@H@@@@UAEHABU?$TRect@H@@@Z": 5826240,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990080,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990448,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
+    "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6998848,
+    "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6999296,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
+    "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z": 7518288,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Normalize@Quaternion@@QAEXXZ": 6431136,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z": 4717904,
+    "??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_7?$VectorClass@PAUDamageGroup@@@@6B@": 7986524,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z": 4718672,
+    "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ": 6629440,
+    "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ": 6629488,
+    "??1?$VectorClass@I@@UAE@XZ": 7547984,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Set_Position@BinkClass@@QAEXHH@Z": 4391552,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Reverse@DelayTimerClass@@QAEXXZ": 4811792,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336,
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Search@@3UAStarClass@@A": 8590792
   },
   "regions": [
     {
@@ -14263,13 +14334,13 @@
         {
           "offset": 24,
           "kind": 20,
-          "symbol": "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ",
+          "symbol": "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ",
           "target": 5420384,
           "addend": 0,
           "resolved": 8612
         }
       ],
-      "source_sha256": "0b566a1024e10df45f66e338fbf7abbabfb4206e4f2c2ece1e936e18b128b508",
+      "source_sha256": "f56970d2c4fb68107a7b9dcd98ad6c936cee0b8a28b7a05142368a966f860d06",
       "source": "src/recovered/005293a0.cpp",
       "population": "population-4398",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -14280,8 +14351,8 @@
     {
       "entry": 5420784,
       "method": "0052b6f0",
-      "symbol": "?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z",
-      "symbol_prefix": "?unknown_func_52b6f0@IsometricTileTypeClass@@",
+      "symbol": "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z",
+      "symbol_prefix": "?Ramp_Type@IsometricTileTypeClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14294,13 +14365,13 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "742ea839bce1ac12916f9b028f41baf6a4234c0791cffc4e2edcf81c4604bdab",
       "relocations": [],
-      "source_sha256": "c8656b28f3ca1b958583c106df1dfae2c5896114cb14b9c094dfda9dbd124b09",
-      "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_unknown_func_52b6f0_0052b6f0.cpp",
+      "source_sha256": "c8c35de228614f6505b48916bd871abacb462683fc3254b69349e90b31ed7dfe",
+      "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Ramp_Type_0052b6f0.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "IsometricTileTypeClass_unknown_func_52b6f0_0052b6f0",
+      "semantic_name": "IsometricTileTypeClass_Ramp_Type_0052b6f0",
       "source_order": 233682
     },
     {
@@ -14619,7 +14690,7 @@
         {
           "offset": 24,
           "kind": 20,
-          "symbol": "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ",
+          "symbol": "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ",
           "target": 5420384,
           "addend": 0,
           "resolved": 4294956324
@@ -14649,7 +14720,7 @@
           "resolved": 4294942320
         }
       ],
-      "source_sha256": "de6e5309ac68140b8ca92efa1e79599b758b1cf8c71b315c9ef8214a38cacee9",
+      "source_sha256": "95d647714fd7cc27674a806a815fdcfe785ebdab53a31c27121f28f1ace4fe01",
       "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_unknown_slot35_0052e020.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -14838,13 +14909,13 @@
         {
           "offset": 215,
           "kind": 20,
-          "symbol": "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ",
+          "symbol": "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ",
           "target": 5432272,
           "addend": 0,
           "resolved": 309
         }
       ],
-      "source_sha256": "306ec933cf6287054663c9f607256542a2d21739893bd7eec374135ba0162db7",
+      "source_sha256": "975bc791982c7af9c74cab59c51c0d95552dcff03f2779bf80ad918ed1f13d75",
       "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Load_0052e1c0.cpp",
       "population": "population-4398",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -14855,8 +14926,8 @@
     {
       "entry": 5432160,
       "method": "0052e360",
-      "symbol": "?unknown_func_52e360@IsometricTileTypeClass@@QBEGHH_N@Z",
-      "symbol_prefix": "?unknown_func_52e360@IsometricTileTypeClass@@QBEGHH_N@Z",
+      "symbol": "?Preview_Tile_Color@IsometricTileTypeClass@@QBEGHH_N@Z",
+      "symbol_prefix": "?Preview_Tile_Color@IsometricTileTypeClass@@QBEGHH_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -14869,8 +14940,8 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "8aa28c477cf076d3c6e0898cd904f3bf0f178f896f0a3ab4cb7229cbc32d33b4",
       "relocations": [],
-      "source_sha256": "4cffda8b0530514eaf4268c5e6bce9a3a0d2e2aa579f51213e05b751b3c99f51",
-      "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_unknown_func_52e360_0052e360.cpp",
+      "source_sha256": "8a6b0485eb0097cde9a7f8bf8080c3a003270444315c50ace2bb8e1cd33523f6",
+      "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Preview_Tile_Color_0052e360.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -14897,13 +14968,13 @@
         {
           "offset": 26,
           "kind": 20,
-          "symbol": "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ",
+          "symbol": "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ",
           "target": 5420384,
           "addend": 0,
           "resolved": 8562
         }
       ],
-      "source_sha256": "0e364cbe64d5d96703cf4b9cfe3ece87a74dc1b0bc4c82936887dbf470916358",
+      "source_sha256": "1e07dbc4ce2343c7012d29c487c6bf1d7b846e9b085a523bfe8ebe0551616856",
       "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_unknown_slot39_005293d0.cpp",
       "population": "population-4398",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -17596,7 +17667,7 @@
         {
           "offset": 32,
           "kind": 20,
-          "symbol": "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ",
+          "symbol": "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ",
           "target": 5420384,
           "addend": 0,
           "resolved": 8700
@@ -18373,7 +18444,7 @@
         {
           "offset": 557,
           "kind": 20,
-          "symbol": "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ",
+          "symbol": "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ",
           "target": 5420384,
           "addend": 0,
           "resolved": 79
@@ -18403,7 +18474,7 @@
           "resolved": 4293768094
         }
       ],
-      "source_sha256": "ca6a55a34cb2f3cdef93cd11d8d181fb129fbdc684b9b5e59ad020dcd5a040ae",
+      "source_sha256": "04a196cf77413c926738d69d10bb8594694301f2b1a1180d6ed2a2d011c219f5",
       "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Load_Tiles_0052b2e0.cpp",
       "population": "population-4398",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -18415,8 +18486,8 @@
     {
       "entry": 5420384,
       "method": "0052b560",
-      "symbol": "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ",
-      "symbol_prefix": "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ",
+      "symbol": "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ",
+      "symbol_prefix": "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -18472,7 +18543,7 @@
         {
           "offset": 176,
           "kind": 20,
-          "symbol": "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ",
+          "symbol": "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ",
           "target": 5432272,
           "addend": 0,
           "resolved": 11708
@@ -18510,7 +18581,7 @@
           "resolved": 4293934354
         }
       ],
-      "source_sha256": "79274796c1329c210354c16f72896393d5213faf9e69a50b0c188574b541e165",
+      "source_sha256": "f5b45365023a229669fe1d1b8ed59fbf7f215b1e4f04992ad3d551a773c69427",
       "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Load_Tile_Data_0052b560.cpp",
       "population": "population-4398",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -18916,8 +18987,8 @@
     {
       "entry": 5432272,
       "method": "0052e3d0",
-      "symbol": "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ",
+      "symbol": "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ",
+      "symbol_prefix": "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -18949,7 +19020,7 @@
         {
           "offset": 227,
           "kind": 6,
-          "symbol": "_?_brightness_factor@?M@??unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ@4MB",
+          "symbol": "_?_brightness_factor@?M@??Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ@4MB",
           "target": 8016180,
           "addend": 0,
           "resolved": 8016180
@@ -18965,7 +19036,7 @@
         {
           "offset": 256,
           "kind": 6,
-          "symbol": "_?_brightness_factor@?M@??unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ@4MB",
+          "symbol": "_?_brightness_factor@?M@??Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ@4MB",
           "target": 8016180,
           "addend": 0,
           "resolved": 8016180
@@ -19099,7 +19170,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "4fa0a2defaabfe0d50ac45ea2b1bb2c1ba8e7d18d58404013d0c8bfe0f79041b",
+      "source_sha256": "f74ade4f3f9a09e575736f84efd182bc7d3318283b6683af137dc8aac3ab1890",
       "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Build_Preview_Tiles_0052e3d0.cpp",
       "population": "population-4398",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -24838,7 +24909,7 @@
         {
           "offset": 6293,
           "kind": 20,
-          "symbol": "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ",
+          "symbol": "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ",
           "target": 5432272,
           "addend": 0,
           "resolved": 12999
@@ -24972,7 +25043,7 @@
           "resolved": 4294837761
         }
       ],
-      "source_sha256": "d0d20a198d3c5d181706aaff39ffe506f6ddbb136e41c759f5b30663e89e3227",
+      "source_sha256": "405d393c69cb26a51ab132c067144a481eb2d59810031f2255639a0032dda166",
       "source": "src/recovered/classes/IsometricTileTypeClass/IsometricTileTypeClass_Read_Control_File_00529870.cpp",
       "population": "population-4398",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

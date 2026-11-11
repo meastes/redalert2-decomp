@@ -50,7 +50,7 @@ void CellClass::Recalc_Attributes(int cell_height)
         if (unknown_ec == 4 || unknown_ec == 9 || otype->NoUseTileLandType) {
             if (IsoTileIndex != 0xFFFF && IsoTileIndex < IsoTileTypes.Count()) {
                 IsometricTileTypeClass *itype = IsoTileTypes[IsoTileIndex];
-                unknown_11c = itype->unknown_func_52b6f0((unsigned char)unknown_11a);
+                unknown_11c = itype->Ramp_Type((unsigned char)unknown_11a);
             }
             if (unknown_11c != 0 && otype->Tiberium) {
                 OverlayIndex = -1;
@@ -113,7 +113,7 @@ void CellClass::Recalc_Attributes(int cell_height)
             return;
         }
 
-        unknown_11c = itype->unknown_func_52b6f0((unsigned char)unknown_11a);
+        unknown_11c = itype->Ramp_Type((unsigned char)unknown_11a);
         Fixup_LAT();
         if (OverlayIndex != -1) {
             if (OverlayClass::To_Tiberium(OverlayIndex) != -1) {

@@ -4,8 +4,8 @@
     "id": "population-4453",
     "inventory_sha256": "ea5762d5548bceca3d8134307b4c56eff483fecfd4ed8adbf17baedbe77ad8d0",
     "gaps_sha256": "ba4ebc621bce9d7f6bad0a6c50aeaf111d58d38e882fb0ff34bb477da0979385",
-    "historical_population_sha256": "b8f3eac145e35adb40881823ec3afb97d9218a326215a2e46fb0fb9056ba3bc6",
-    "historical_acceptance_sha256": "4e1707e8a53e5a5ea958225e56c4581a1e03e45c071c6bc07b14b1ff04881e5f"
+    "historical_population_sha256": "ce55815ce58c06a5118740bf3d2396ec2c9638ce0b83680f7c2c0563c3eee9c7",
+    "historical_acceptance_sha256": "cf669a06d3aab5dc19c3ed33f0ffe7454360d53fa696d1d22e93ec26ade55c10"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -11958,11 +11958,11 @@
     "?TileInsertTypes@IsometricTileTypeClass@@2V?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@A": 10825416,
     "_CLSID_IsometricTileTypeClass": 8002400,
     "?Load_Tile_Image@IsometricTileTypeClass@@QAE_NXZ": 5411744,
-    "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ": 5420384,
+    "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ": 5420384,
     "?Clear_Use_Counts@IsometricTileTypeClass@@SAXXZ": 5420624,
-    "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ": 5432272,
-    "?unknown_func_52e360@IsometricTileTypeClass@@QBEGHH_N@Z": 5432160,
-    "?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z": 5420784,
+    "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ": 5432272,
+    "?Preview_Tile_Color@IsometricTileTypeClass@@QBEGHH_N@Z": 5432160,
+    "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z": 5420784,
     "?IsoTilePalette@@3VPaletteClass@@A": 10935568,
     "?ShadowCasterCliffInfo@@3PAUShadowCasterInfo@@A": 10936584,
     "?ShadowCasterSlopeInfo@@3PAUShadowCasterInfo@@A": 10936384,
@@ -29407,7 +29407,7 @@
         {
           "offset": 170,
           "kind": 20,
-          "symbol": "?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z",
+          "symbol": "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z",
           "target": 5420784,
           "addend": 0,
           "resolved": 758018
@@ -29695,7 +29695,7 @@
         {
           "offset": 1367,
           "kind": 20,
-          "symbol": "?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z",
+          "symbol": "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z",
           "target": 5420784,
           "addend": 0,
           "resolved": 756821
@@ -30037,7 +30037,7 @@
           "resolved": 24439
         }
       ],
-      "source_sha256": "95a245940efc30950da95f7f2f6e76a55809ebb071feed62a3cab43b34ede948",
+      "source_sha256": "f3b2f841d25aebc13f9cf7f198780e7432aa33bc86f488c554c1fd0ff8c5be30",
       "source": "src/recovered/classes/CellClass/CellClass_Recalc_Attributes_00472540.cpp",
       "population": "population-4453",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

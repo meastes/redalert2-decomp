@@ -6,13 +6,13 @@
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
 #include "shared/vector_class.hpp"
 #include "shared/isometric_tile_type.hpp"
-// @ref ?unknown_func_52b560@IsometricTileTypeClass@@QAEXXZ=0052b560
+// @ref ?Load_Tile_Data@IsometricTileTypeClass@@QAEXXZ=0052b560
 
 void *IsometricTileTypeClass::unknown_slot39() const
 {
     void *image = unknown_a4;
     if (image == 0 && unknown_2c4) {
-        ((IsometricTileTypeClass *)this)->unknown_func_52b560();
+        ((IsometricTileTypeClass *)this)->Load_Tile_Data();
         image = unknown_a4;
     }
     return image;

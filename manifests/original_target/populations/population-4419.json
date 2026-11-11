@@ -4,8 +4,8 @@
     "id": "population-4419",
     "inventory_sha256": "ef49f203a8456d9af663cd1a776115a0e22673145d72f7d9dc2a0223d9bec385",
     "gaps_sha256": "361162abe062f779acd1edd6a0b1b84617fbd33c4a06c90d83ba151831048f4d",
-    "historical_population_sha256": "14d23344235c73270c1b0926a41e916eeb81bd6dea330078e462ddbb078d408d",
-    "historical_acceptance_sha256": "194cd2de4e41366abe04d9a2776bd0078949c0302103cb3f4c3609b9b819c919"
+    "historical_population_sha256": "ade3db492cbf718b380e2388714f2e950c3aef851368726f39d5cc84c121e448",
+    "historical_acceptance_sha256": "4aa9577cd540ccd579d1081e43bee8e74e7812ea85d8a7470f7e01d661a2eff5"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -2726,8 +2726,8 @@
     "?unknown_slot20@IPXManagerClass@@UAEHXZ": 5401216,
     "?unknown_slot21@IPXManagerClass@@UAEHXZ": 5401248,
     "?Load_Tile_Image@IsometricTileTypeClass@@QAE_NXZ": 5411744,
-    "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ": 5420384,
-    "?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z": 5420784,
+    "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ": 5420384,
+    "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z": 5420784,
     "?unknown_53f460@@YA_NXZ": 5502048,
     "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHPBUSubzoneTrackingStruct@@@Z": 5680064,
     "?ID@?$DynamicVectorClass@U?$HashObject@IVSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IVSubzoneConnectionStruct@@@@@Z": 5680608,
@@ -4859,8 +4859,8 @@
     "??_7IsometricTileTypeClass@@6BIRTTITypeInfo@@@": 8016268,
     "??_7IsometricTileTypeClass@@6BINoticeSink@@@": 8016260,
     "??_7IsometricTileTypeClass@@6BINoticeSource@@@": 8016252,
-    "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ": 5432272,
-    "?unknown_func_52e360@IsometricTileTypeClass@@QBEGHH_N@Z": 5432160,
+    "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ": 5432272,
+    "?Preview_Tile_Color@IsometricTileTypeClass@@QBEGHH_N@Z": 5432160,
     "?Coord@BounceClass@@QBE?AUCoordStruct@@XZ": 4419456,
     "?unknown_slot53@TechnoClass@@UAE_NPBUCoordStruct@@H@Z": 7095824,
     "?unknown_slot86@FootClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z": 5005312,

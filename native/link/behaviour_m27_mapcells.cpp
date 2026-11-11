@@ -25,7 +25,7 @@ UnknownMapGenerationCell &__fastcall Get_Cell_Data_0056dbc0(int index)
 unsigned short *IsometricTileTypeClass::Preview_Tile(int tile, int level)
 {
     if (unknown_a4 == 0 && unknown_2c4) {
-        unknown_func_52b560();
+        Load_Tile_Data();
     }
     return unknown_274[tile] + level * 2;
 }

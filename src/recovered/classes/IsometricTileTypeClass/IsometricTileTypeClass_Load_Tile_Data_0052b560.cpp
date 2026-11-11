@@ -1,12 +1,12 @@
-// int IsometricTileTypeClass::unknown_func_52b560() (0x0052B560): reads the image file, turns its
+// int IsometricTileTypeClass::Load_Tile_Data() (0x0052B560): reads the image file, turns its
 // cell offsets into pointers and rebuilds the preview colours; returns the file's size
 // (TibSun Load_Tile_Data).
 #include "shared/isometric_tile_type.hpp"
 #include "shared/cc_file_class.hpp"
 // @ref ??0CCFileClass@@QAE@PBD@Z=00468f50
-// @ref ?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ=0052b560
+// @ref ?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ=0052b560
 
-int IsometricTileTypeClass::unknown_func_52b560()
+int IsometricTileTypeClass::Load_Tile_Data()
 {
     CCFileClass file(Filename);
     int size = file.Size();
@@ -30,7 +30,7 @@ int IsometricTileTypeClass::unknown_func_52b560()
             }
         }
     }
-    unknown_func_52e3d0();
+    Build_Preview_Tiles();
     return size;
 }
 // @ref ?Open@CCFileClass@@UAEHPBDH@Z=00401980

@@ -1,11 +1,11 @@
-// void IsometricTileTypeClass::unknown_func_52e3d0() (0x0052E3D0): rebuilds the preview colour
+// void IsometricTileTypeClass::Build_Preview_Tiles() (0x0052E3D0): rebuilds the preview colour
 // tables, 13 light levels of the low and high colour per sub tile (TibSun Build_Preview_Tiles).
 #include "shared/isometric_tile_type.hpp"
 #include "shared/hicolor.hpp"
 // @ref ??0RGBClass@@QAE@ABV0@0M@Z=0063cc80
 // @ref ?Set@RGBClass@@QAEAAV1@ABV1@M@Z=0063cdf0
 
-void IsometricTileTypeClass::unknown_func_52e3d0()
+void IsometricTileTypeClass::Build_Preview_Tiles()
 {
     int i;
     int j;
@@ -43,5 +43,5 @@ void IsometricTileTypeClass::unknown_func_52e3d0()
         }
     }
 }
-// @ref _?_brightness_factor@?M@??unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ@4MB=007a5134
+// @ref _?_brightness_factor@?M@??Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ@4MB=007a5134
 // @ref __real@8@3ffbaaaaaaaaaaaaa800=007a5288

@@ -49,7 +49,7 @@
 // @ref ??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z=005d5a80
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
 // @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
-// @ref ?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ=0052e3d0
+// @ref ?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ=0052e3d0
 // @ref ?unknown_LightConvertClass_list_00832398@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A=00832398
 
 
@@ -71,6 +71,6 @@ HRESULT __stdcall IsometricTileTypeClass::Load(IStream *stream)
     for (index = 0; index < unknown_LightConvertClass_list_00832398.Count(); index++) {
         unknown_LightConvertClass_list_00832398[index] = 0;
     }
-    unknown_func_52e3d0();
+    Build_Preview_Tiles();
     return S_OK;
 }

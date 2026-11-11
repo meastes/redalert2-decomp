@@ -4,8 +4,8 @@
     "id": "population-2888",
     "inventory_sha256": "3eb61f49fd96152d63a132b8b3abe756ec3f606bbf0e08948e632351ad8aec54",
     "gaps_sha256": "4bb3b5053c7f55be4b2d384941de4ffcbb72975bfd7ec448cba1f87098c01750",
-    "historical_population_sha256": "45e0d0912b06464f704e37eb0dc7fe871e3ea52d1dbd87f29d7e7e5864b37e6a",
-    "historical_acceptance_sha256": "53f50e817986651663f3576fb8d37d542360c34bdd33d4511fd5604c2bae14e8"
+    "historical_population_sha256": "74803ae09a8c7153d0bd1b028a0e4272466c82deb996b148f62a7fd00f0190dc",
+    "historical_acceptance_sha256": "b84d99faf915c544fc9995336e4ee96d0934873edfb8d5831307c30749a87181"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1385,7 +1385,7 @@
     "??_EMSShapeAnim@@UAEPAXI@Z": 5962944,
     "??_EObjectClass@@UAEPAXI@Z": 6116672,
     "??_ERadarClass@@UAEPAXI@Z": 6507216,
-    "?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z": 5420784,
+    "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z": 5420784,
     "?Fixup_LAT@CellClass@@QAEXXZ": 4660496,
     "?unknown_tileset_a52ee8@@3HA": 10825448,
     "?unknown_tileset_a52eec@@3HA": 10825452,
@@ -7198,9 +7198,9 @@
     "?unknown_14@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525040,
     "?Partial_Adjust@PaletteClass@@QAEXHABV1@PA_N@Z": 6304096,
     "?Zone@MapClass@@QAEHABVCell@@H_N@Z": 5568752,
-    "?unknown_func_52b560@IsometricTileTypeClass@@QAEXXZ": 5420384,
-    "?unknown_func_52e3d0@IsometricTileTypeClass@@QAEXXZ": 5432272,
-    "?unknown_func_52e360@IsometricTileTypeClass@@QBEGHH_N@Z": 5432160,
+    "?Load_Tile_Data@IsometricTileTypeClass@@QAEXXZ": 5420384,
+    "?Build_Preview_Tiles@IsometricTileTypeClass@@QAEXXZ": 5432272,
+    "?Preview_Tile_Color@IsometricTileTypeClass@@QBEGHH_N@Z": 5432160,
     "?Unknown_0054F7C0@MapClass@@QAE_NABVCell@@0H_N11@Z": 5568448,
     "?Find_Or_Make_ParticleSystemType_00620df0@@YIPAVParticleSystemTypeClass@@PBD@Z": 6426096,
     "??0VoxelLibrary@@QAE@PAVFileClass@@H@Z": 7442560,
@@ -8526,7 +8526,7 @@
     "?ObjectTypes@ObjectTypeClass@@2V?$DynamicVectorClass@PAVObjectTypeClass@@@@A": 10956688,
     "??AQuaternion@@QAEAAMH@Z": 6431280,
     "?Load_Tile_Image@IsometricTileTypeClass@@QAE_NXZ": 5411744,
-    "?unknown_func_52b560@IsometricTileTypeClass@@QAEHXZ": 5420384,
+    "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ": 5420384,
     "?Init_Clear@MouseClass@@UAEXXZ": 5895440,
     "?Init_Clear@SidebarClass@@UAEXXZ": 6797488,
     "?Is_Bridge_Here@CellClass@@QBEIXZ": 4688080,
@@ -11690,7 +11690,7 @@
         {
           "offset": 365,
           "kind": 20,
-          "symbol": "?unknown_func_52b6f0@IsometricTileTypeClass@@QAEHH@Z",
+          "symbol": "?Ramp_Type@IsometricTileTypeClass@@QAEHH@Z",
           "target": 5420784,
           "addend": 0,
           "resolved": 15103
@@ -11936,7 +11936,7 @@
           "resolved": 5405807
         }
       ],
-      "source_sha256": "ecd425ead6b1c661bdb1e3b035584134fbdf433a8e9053eb4881e2d79ce778e8",
+      "source_sha256": "910a515127ed581a52693a6193849fd0003f73007547964d17c57f828a1d5240",
       "switch_data_bytes": 52,
       "source": "src/recovered/classes/IsometricTileClass/IsometricTileClass_Mark_00527a80.cpp",
       "population": "population-2888",

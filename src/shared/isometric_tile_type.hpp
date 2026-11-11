@@ -131,10 +131,10 @@ public:
     // Draws the shadow a slope or cliff tile casts on cell part `index` (0x0052B770; TibSun
     // Draw_Shadow_Caster; slopes from ShadowCasterSlopeInfo, cliffs from ShadowCasterCliffInfo).
     void Draw_Shadow_Caster(int index, Surface *surface, Point2D point, Rect cliprect, int offset);
-    int unknown_func_52b560();                                          // 0x0052B560 (loads the image; TibSun Load_Tile_Data: returns its size)
-    void unknown_func_52e3d0();                                         // 0x0052E3D0 (rebuilds unknown_274)
-    int unknown_func_52b6f0(int index);                                // 0x0052B6F0 (a cell's +0x2A byte of the image; hypothesis)
-    unsigned short unknown_func_52e360(int index, int value, bool second) const;
+    int Load_Tile_Data();                                               // 0x0052B560 (loads the image; TibSun Load_Tile_Data: returns its size)
+    void Build_Preview_Tiles();                                         // 0x0052E3D0 (rebuilds unknown_274)
+    int Ramp_Type(int index);                                          // 0x0052B6F0 (a cell's +0x2A byte of the image; hypothesis)
+    unsigned short Preview_Tile_Color(int index, int value, bool second) const;
     // The preview colour pair of sub tile `tile` at light level `level`, loading the image first
     // (0x0052E390; TibSun Preview_Tile).
     unsigned short *Preview_Tile(int tile, int level);    // 0x0052E360

@@ -69,7 +69,7 @@ void __fastcall IsometricTileTypeClass::Load_Tiles(bool skip_iteration, bool is_
                     }
                 } else {
                     if (ptr->unknown_a4 == 0) {
-                        bytes += ptr->unknown_func_52b560();
+                        bytes += ptr->Load_Tile_Data();
                         tile_count++;
                     }
                 }
