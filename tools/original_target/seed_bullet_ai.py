@@ -128,6 +128,7 @@ def verify_coordinate_calls(graph, known, receivers):
         known[call] = family["pop"]
     frames = aligned_frames(graph, known)
     verify_coordinate_returns(graph, frames, coordinate_calls)
+    return known
 
 
 def verify_coordinate_returns(graph, frames, calls):
@@ -149,6 +150,61 @@ def verify_coordinate_returns(graph, frames, calls):
             nodes[0x45fc45].op_str == "ecx, [esp + 0x70]" and
             frames.height(0x45fc45) + 0x70 == -320,
             "Coordinate delta constructor differs")
+
+
+def verify_late_coordinates(graph, known, receivers):
+    nodes = graph["nodes"]
+    coordinates = (
+        (22, 0x460d47, 0x460cee, 0x460d31, "eax", 0x460d3f, -220),
+        (18, 0x460e8c, 0x460e7c, 0x460e89, "edx", 0x460e85, -376),
+    )
+    known = dict(known)
+    for slot, call, root, vptr, register, _, _ in coordinates:
+        family = receivers.family(("input", 0, "AbstractClass"), slot)
+        require(family["pop"] == 4 and family["record_result"] == "CoordStruct",
+                "Late coordinate return ABI differs")
+        instruction = nodes[call]
+        require(instruction.mnemonic == "call" and instruction.operands[0].type == X.X86_OP_MEM
+                and instruction.operands[0].mem.disp == 4 * slot
+                and instruction.reg_name(instruction.operands[0].mem.base) == register
+                and nodes[vptr].op_str == f"{register}, dword ptr [ecx]"
+                and nodes[root].op_str == "ecx, dword ptr [ebp + 0xf4]",
+                "Late coordinate virtual slot or root differs")
+        pending = list(graph["pred"][call])
+        seen = set()
+        definitions = set()
+        while pending:
+            address = pending.pop()
+            if address in seen:
+                continue
+            seen.add(address)
+            instruction = nodes[address]
+            if instruction.mnemonic == "call" or X.X86_REG_ECX in instruction.regs_access()[1]:
+                definitions.add(address)
+            else:
+                pending.extend(graph["pred"][address])
+        require(definitions == {root} and graph["entry"] not in seen,
+                "Late coordinate receiver can be replaced")
+        known[call] = family["pop"]
+    setter = receivers.family(("input", 0, "BulletClass"), 103)
+    require(setter["pop"] == 4 and setter["targets"] and
+            all(re.fullmatch(r"\?\w+@\w+@@[QU]AEXABUCoordStruct@@@Z", target["symbol"])
+                for target in setter["targets"]), "Late coordinate consumer ABI differs")
+    require(nodes[0x460e82].op_str == "esi, dword ptr [ebp]"
+            and nodes[0x460e8f].mnemonic == "push" and nodes[0x460e8f].op_str == "eax"
+            and nodes[0x460e90].op_str == "ecx, ebp" and nodes[0x460e92].mnemonic == "call"
+            and nodes[0x460e92].op_str == "dword ptr [esi + 0x19c]"
+            and graph["pred"][0x460e8f] == {0x460e8c}
+            and graph["pred"][0x460e90] == {0x460e8f} and graph["pred"][0x460e92] == {0x460e90},
+            "Late coordinate forwarding differs")
+    known[0x460e92] = setter["pop"]
+    frames = aligned_frames(graph, known)
+    for _, _, _, _, _, setup, home in coordinates:
+        instruction = nodes[setup]
+        operand = instruction.operands[1]
+        require(instruction.mnemonic == "lea" and operand.type == X.X86_OP_MEM and
+                operand.mem.base == X.X86_REG_ESP and not operand.mem.index and
+                frames.height(setup) + operand.mem.disp == home, "Late coordinate buffer differs")
 
 
 def repair_speed_and_rotation(orig):
@@ -356,6 +412,48 @@ def repair_coordinate_returns(original):
     return text
 
 
+def repair_late_coordinates(text):
+    function_entry = "void __fastcall FUN_0045f710(int *param_1)\n{\n"
+    local_receiver = "        BulletClass *bullet = reinterpret_cast<BulletClass *>(param_1);\n"
+    function_receiver = "    BulletClass *bullet = reinterpret_cast<BulletClass *>(param_1);\n"
+    raw_getter = r"""        if (((uint)((int *)param_1[0x3d]) != (uint)((int *)0x0)) &&
+              (((local_168 == 1 || (local_199 != '\0')) &&
+                ((*(char *)(param_1[0x26] + 0x264) == '\0' && (*(char *)(param_1[0x26] + 0x272) == '\0')))))
+              ) {
+            pdVar14 = (double *)(**(code **)(*(int *)param_1[0x3d] + 0x58))(&uStack_ec);
+            *((double *)&(local_110)) = *pdVar14;
+            iStack_170 = (int)(iVar9 - *(int *)((int)pdVar14 + 4));
+            local_16c = (int)((*(int *)(pdVar14 + 1) + iVar11) / 2 - *(int *)(pdVar14 + 1));
+            iStack_174 = (int)(uVar17 - *(int *)pdVar14);
+"""
+    typed_getter = r"""        AbstractClass *late_target = bullet->Target;
+        if (late_target != 0 &&
+              (((local_168 == 1 || (local_199 != '\0')) &&
+                ((*(char *)(param_1[0x26] + 0x264) == '\0' && (*(char *)(param_1[0x26] + 0x272) == '\0')))))
+              ) {
+            CoordStruct late_coord = late_target->unknown_slot22();
+            iStack_170 = iVar9 - late_coord.Y;
+            local_16c = (late_coord.Z + iVar11) / 2 - late_coord.Z;
+            iStack_174 = (int)(uVar17 - late_coord.X);
+"""
+    raw_forward = r"""            iVar5 = (int)(*param_1);
+            uVar20 = (undefined4)((**(code **)(*(int *)param_1[0x3d] + 0x48))(&projected_coord.Y));
+            (**(code **)(iVar5 + 0x19c))(uVar20);"""
+    typed_forward = r"""            bullet->unknown_slot103(bullet->Target->Center_Coord());"""
+
+    replacements = (
+        (function_entry, function_entry + function_receiver),
+        (local_receiver, ""),
+        ("    undefined4 uStack_ec;\n", ""),
+        (raw_getter, typed_getter),
+        (raw_forward, typed_forward),
+    )
+    for before, after in replacements:
+        require(text.count(before) == 1, "Frozen late coordinate seed shape changed")
+        text = text.replace(before, after, 1)
+    return text
+
+
 def optional_bullet_ai(text, entry, inventory, repository, accepted):
     if entry != ENTRY or entry in accepted:
         return text
@@ -367,11 +465,17 @@ def optional_bullet_ai(text, entry, inventory, repository, accepted):
     except (ValueError, TypeError, KeyError, OSError):
         return text
     try:
-        verify_coordinate_calls(graph, known, receivers)
+        known = verify_coordinate_calls(graph, known, receivers)
         result = repair_coordinate_returns(result)
     except (ValueError, TypeError, KeyError, OSError):
         # The previous repair is valid even if the separate virtual families
         # cannot be proved from the local metadata.
         pass
+    else:
+        try:
+            verify_late_coordinates(graph, known, receivers)
+            result = repair_late_coordinates(result)
+        except (ValueError, TypeError, KeyError, OSError):
+            pass
     return ("// Scratch hypothesis: separate floating and signed integer lifetimes in Bullet AI.\n"
             + result)
