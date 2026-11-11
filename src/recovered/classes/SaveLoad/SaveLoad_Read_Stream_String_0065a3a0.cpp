@@ -1,9 +1,9 @@
-// HRESULT SavegameInformation::Read_Stream_String(IStorage *storage, int id, char *buffer) (0x0065A3A0; name hypothesis)
+// HRESULT SaveVersionInfo::Read_Stream_String(IStorage *storage, int id, char *buffer) (0x0065A3A0; name hypothesis)
 // Reads a summary value stored as a wide-string stream (127 characters).
 #include "shared/savegame_info.hpp"
 #include "shared/com_ptr.hpp"
 
-HRESULT SavegameInformation::Read_Stream_String(IStorage *storage, int id, char *buffer)
+HRESULT SaveVersionInfo::Read_Stream_String(IStorage *storage, int id, char *buffer)
 {
     UnknownComPtr<IStream, &unknown_uuid_IStream> stream;
     wchar_t text[128];

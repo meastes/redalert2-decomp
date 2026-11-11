@@ -4,8 +4,8 @@
     "id": "population-4371",
     "inventory_sha256": "91c8e1eb4c6870dd1d5c051261789e6b16786ef7809219c69ac31b5850279c39",
     "gaps_sha256": "99b9d4f57ea25d8cbaa73dc8f4b81cf2171de552512f7bc40ea4ab3193dcb557",
-    "historical_population_sha256": "f58a94d2a33c11bd53da2592f66035a6bae5cf9e350118d77dd927089b35eac6",
-    "historical_acceptance_sha256": "39e9e6e32a7928462165254d69bae4e12c9697bb8082cc995304f0d1ab10f867"
+    "historical_population_sha256": "23002ce786b8a3507f7b64c40757eb15dde40ab9810f13e889b2b17ea670710e",
+    "historical_acceptance_sha256": "126a143151b87b2ac9868a034dc1a775858217e701970a92240451859d3dfe81"
   },
   "references": {
     "?target@Call_402190_0@@QAEIXZ": 4198400,
@@ -2994,7 +2994,7 @@
     "_?list@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "?unknown_slot30@UnitTypeClass@@UBE?AUCoordStruct@@XZ": 7383728,
     "__real@8@3ffd99999a0000000000": 7989832,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
     "__real@8@bfffc90fdaa22168c000": 8032208,
     "__real@8@40048000000000000000": 8051888,
     "?Unknown_005A09E0@@YAXXZ": 5900768,
@@ -4032,7 +4032,7 @@
     "__imp__RegSetValueExA@24": 7970836,
     "?Loading_Progress_00672160@UnknownSessionState@@QAEXH@Z": 6758752,
     "?Unknown_006715D0@UnknownSessionState@@QAEHH@Z": 6755792,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
     "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A": 10737880,
     "?Create_Connections@UnknownSessionState@@QAEHXZ": 6745680,
     "__imp__RegQueryInfoKeyA@48": 7970816,
@@ -7927,7 +7927,7 @@
     "?Compute_CRC@OverlayTypeClass@@UBEXAAVWWCRCEngine@@@Z": 6147440,
     "?Compute_CRC@SmudgeTypeClass@@UBEXAAVWWCRCEngine@@@Z": 6849200,
     "?Compute_CRC@TerrainTypeClass@@UBEXAAVWWCRCEngine@@@Z": 7231680,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "?Compute_CRC@UnknownIDSource@@QBEXAAVWWCRCEngine@@@Z": 6696448,
     "?QueryInterface@LocomotionClass@@W3AGJABUGUID@@PAPAX@Z": 4979872,
     "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,

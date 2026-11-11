@@ -271,7 +271,7 @@ void release_held_buttons()
 #if defined(__APPLE__)
 // RA2_NATIVE_NSEVENT_KEYS="<ms>:<text>[;<ms>:<text>...]" (test scaffolding, Scout1223): at that
 // many milliseconds after start the host posts key-down and key-up NSEvents for each character
-// ('<' is Backspace; a text "@X,Y" is a left click at game pixel X, Y) into the application's own event queue, so they take the real keyboard's
+// ('<' is Backspace, '|' Return; a text "@X,Y" is a left click at game pixel X, Y) into the application's own event queue, so they take the real keyboard's
 // path (NSApplication sendEvent, SDL's key handling and text input) without the Accessibility
 // permission that posting system keyboard events needs.
 void post_nsevent_keys()
@@ -327,6 +327,7 @@ void post_nsevent_keys()
         unsigned short code = 0;
         char chars[2] = {c, 0};
         if (c == '<') { code = 51; chars[0] = 0x7F; }
+        else if (c == '|') { code = 36; chars[0] = '\r'; }   // Return (Scout1231: the in-game chat line)
         else if (const char *at = strchr(letters, c)) code = (unsigned short)(at - letters);
         else continue;
         void *str = ((void *(*)(void *, void *, const char *))objc_msgSend)(objc_getClass("NSString"), sel_registerName("stringWithUTF8String:"), chars);

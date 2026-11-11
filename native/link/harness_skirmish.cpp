@@ -264,6 +264,8 @@ bool Native_Skirmish_Menu_Bypass()
 void Native_Harness_Orders(int frame);   // harness_orders.cpp
 void Native_Harness_Input(int frame);    // harness_input.cpp
 void Native_Harness_Save(int frame);     // harness_save.cpp
+void Native_Harness_Event_Test(int frame);   // harness_event_test.cpp (RA2_NATIVE_EVENT_TEST)
+void Native_Note_Frame();                   // native_event_data.cpp
 
 // Native frame pacing (user report 2026-11-09, M20: real play "far too fast").
 // The skirmish dialog's speed slider stores 6 - position in Options.GameSpeed
@@ -320,6 +322,7 @@ bool Native_Main_Loop_Seam()
         if (frame_work_count < 1000) frame_work_us[frame_work_count++] = (unsigned)(spent / 1000u);
     }
     Native_Frame_Floor();
+    Native_Note_Frame();   // native_event_data.cpp: Sync_Delay's in-wait pass waits for a stalled frame
     // Every game counts its frames (a game started from the menus too:
     // --frames=N, scripted input by frame; Scout1119, M14).
     {
@@ -329,6 +332,7 @@ bool Native_Main_Loop_Seam()
         Native_Harness_Orders(frames_done);
         Native_Harness_Input(frames_done);
         Native_Harness_Save(frames_done);
+        Native_Harness_Event_Test(frames_done);
         ra2port_frame(frames_done);     // scripted input due at the next frame (--input-script)
         if (frames_done >= ra2port_skirmish_frames()) {
             ra2port_progress("frames", detail);

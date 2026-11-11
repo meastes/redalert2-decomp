@@ -172,12 +172,18 @@ int __fastcall Extract_Compressed_Events(void *buf, int bufsize)
             count++;
             pos += (datasize + sizeof(eventdata.Type));
             leftover -= (datasize + sizeof(eventdata.Type));
-            if (leftover) {
-                event = (EventClass *)(((char *)buf) + pos);
-                datasize = unknown_event_lengths_7d659c[event->Type];
-                if (event->Type == 4) {
-                    datasize += sizeof(numunits);
-                }
+            // The original leaves when the packet is used up (0x006287FE, `je` on the subtraction):
+            // the earlier draft fell through to the loop test with the record's datasize, which is
+            // -1 after a cached unit list ("Used old unit list"), so 0 >= 0 ran one more pass over
+            // the stale bytes after the packet (garbage events, then a stack overrun: the two-Mac
+            // LAN crash, Scout1231).
+            if (leftover == 0) {
+                return count;
+            }
+            event = (EventClass *)(((char *)buf) + pos);
+            datasize = unknown_event_lengths_7d659c[event->Type];
+            if (event->Type == 4) {
+                datasize += sizeof(numunits);
             }
         } else {
             pos += (datasize + sizeof(eventdata.Type));

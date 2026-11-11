@@ -4,8 +4,8 @@
     "id": "population-4432",
     "inventory_sha256": "a51b3265af345fbccfc1aced30deddade7d91adb9774cde2151bc075ce420f12",
     "gaps_sha256": "16e79693913815dab0ca2f66af90490ef45c77626b600c2f1a4cc190addfb82d",
-    "historical_population_sha256": "c27060953a4ef77e1458cc02952a8c15f59fbce271c90f7f9a52190bbe0f300c",
-    "historical_acceptance_sha256": "9117cfaf56b8f0c7d2293b9a34536b308ee7e2a295c183b3ddbf613aa62dc379"
+    "historical_population_sha256": "6569890e653f58bce4964a25baa9466ba79e454becde48d675ec6f17bbf42094",
+    "historical_acceptance_sha256": "3ca4cccf5029babae9d5226bb483b3bd3a3692b21f9d9756e984767abf07878c"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -608,20 +608,20 @@
     "?ID@?$DynamicVectorClass@PAVConnectionListStruct@OwnerTalkClass@@@@UAEHABQAVConnectionListStruct@OwnerTalkClass@@@Z": 6554016,
     "_IID_IPersistStream": 8060112,
     "__imp__OleSaveToStream@8": 7972328,
-    "?Set_unknown_04@SavegameInformation@@QAEXH@Z": 6656688,
-    "?Set_unknown_00@SavegameInformation@@QAEXH@Z": 6656720,
-    "?Get_unknown_00@SavegameInformation@@QBEHXZ": 6656736,
-    "?Get_Description@SavegameInformation@@QBEPBGXZ": 6656784,
-    "?Get_Player_Name@SavegameInformation@@QBEPBGXZ": 6656848,
-    "?Set_unknown_188@SavegameInformation@@QAEXH@Z": 6656864,
-    "?Get_unknown_188@SavegameInformation@@QBEHXZ": 6656880,
-    "?Set_unknown_18c@SavegameInformation@@QAEXH@Z": 6656896,
-    "?Get_unknown_18c@SavegameInformation@@QBEHXZ": 6656912,
-    "?Set_Start_Time@SavegameInformation@@QAEXABUFILETIME@@@Z": 6657104,
-    "?Set_Save_Time@SavegameInformation@@QAEXABUFILETIME@@@Z": 6657168,
-    "?Set_Play_Time@SavegameInformation@@QAEXABUFILETIME@@@Z": 6657232,
-    "?Set_Game_Type@SavegameInformation@@QAEXH@Z": 6657296,
-    "?Get_Game_Type@SavegameInformation@@QBEHXZ": 6657312,
+    "?Set_Version@SaveVersionInfo@@QAEXH@Z": 6656688,
+    "?Set_Internal_Version@SaveVersionInfo@@QAEXH@Z": 6656720,
+    "?Get_Internal_Version@SaveVersionInfo@@QBEHXZ": 6656736,
+    "?Get_Scenario_Description@SaveVersionInfo@@QBEPBGXZ": 6656784,
+    "?Get_Player_House@SaveVersionInfo@@QBEPBGXZ": 6656848,
+    "?Set_Campaign_Number@SaveVersionInfo@@QAEXH@Z": 6656864,
+    "?Get_Campaign_Number@SaveVersionInfo@@QBEHXZ": 6656880,
+    "?Set_Scenario_Number@SaveVersionInfo@@QAEXH@Z": 6656896,
+    "?Get_Scenario_Number@SaveVersionInfo@@QBEHXZ": 6656912,
+    "?Set_Start_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z": 6657104,
+    "?Set_Play_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z": 6657168,
+    "?Set_Last_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z": 6657232,
+    "?Set_Game_Type@SaveVersionInfo@@QAEXH@Z": 6657296,
+    "?Get_Game_Type@SaveVersionInfo@@QBEHXZ": 6657312,
     "?GetClassID@ScriptClass@@UAGJPAUGUID@@@Z": 6719840,
     "?GetClassID@ScriptTypeClass@@UAGJPAUGUID@@@Z": 6721728,
     "?ID@?$DynamicVectorClass@UDiskID@@@@UAEHPBUDiskID@@@Z": 6764544,
@@ -832,9 +832,9 @@
     "?ID@?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEHABU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@Z": 6507984,
     "?ID@?$DynamicVectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEHABU?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@Z": 6508368,
     "?Create@RAMFileClass@@UAEHXZ": 6521760,
-    "?Set_Description@SavegameInformation@@QAEXPBG@Z": 6656752,
+    "?Set_Scenario_Description@SaveVersionInfo@@QAEXPBG@Z": 6656752,
     "_wcsncpy": 7878178,
-    "?Set_Player_Name@SavegameInformation@@QAEXPBG@Z": 6656800,
+    "?Set_Player_House@SaveVersionInfo@@QAEXPBG@Z": 6656800,
     "_strncpy": 7873488,
     "__DAT_00ab6e88": 11234952,
     "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844272,
@@ -863,7 +863,7 @@
     "?ID@?$VectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z": 6311712,
     "?ID@?$VectorClass@VHSVClass@@@@UAEHPBVHSVClass@@@Z": 6312992,
     "?ID@?$VectorClass@PAVPlanningBranchClass@@@@UAEHPBQAVPlanningBranchClass@@@Z": 6401904,
-    "?Set_unknown_2d4@SavegameInformation@@QAEXPBD@Z": 6657040,
+    "?Set_Executable_Name@SaveVersionInfo@@QAEXPBD@Z": 6657040,
     "?ID@?$VectorClass@UDiskID@@@@UAEHPBUDiskID@@@Z": 6765472,
     "?ID@?$VectorClass@UWstring@@@@UAEHPBUWstring@@@Z": 6766288,
     "?ID@?$VectorClass@PAVSpawnControl@@@@UAEHPBQAVSpawnControl@@@Z": 6859840,
@@ -1026,13 +1026,13 @@
     "__splitpath": 7882867,
     "__makepath": 7877104,
     "__strupr": 7954916,
-    "?Get_unknown_04@SavegameInformation@@QBEHXZ": 6656704,
-    "?Set_unknown_190@SavegameInformation@@QAEXPBD@Z": 6656928,
-    "?Get_unknown_190@SavegameInformation@@QBEPBDXZ": 6656976,
-    "?Set_unknown_294@SavegameInformation@@QAEXPBD@Z": 6656992,
-    "?Get_unknown_2d4@SavegameInformation@@QBEPBDXZ": 6657088,
-    "?Get_Start_Time@SavegameInformation@@QBEXAAUFILETIME@@@Z": 6657136,
-    "?Get_Save_Time@SavegameInformation@@QBEXAAUFILETIME@@@Z": 6657200,
+    "?Get_Version@SaveVersionInfo@@QBEHXZ": 6656704,
+    "?Set_Unknown_String@SaveVersionInfo@@QAEXPBD@Z": 6656928,
+    "?Get_Unknown_String@SaveVersionInfo@@QBEPBDXZ": 6656976,
+    "?Set_Player_Name@SaveVersionInfo@@QAEXPBD@Z": 6656992,
+    "?Get_Executable_Name@SaveVersionInfo@@QBEPBDXZ": 6657088,
+    "?Get_Start_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z": 6657136,
+    "?Get_Play_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z": 6657200,
     "?Save@ScriptClass@@UAGJPAUIStream@@H@Z": 6720000,
     "?Save@ScriptTypeClass@@UAGJPAUIStream@@H@Z": 6721872,
     "?Save@SmudgeTypeClass@@UAGJPAUIStream@@H@Z": 6849392,
@@ -1163,7 +1163,7 @@
     "__imp__ClientToScreen@8": 7972012,
     "__imp__GetCursorPos@4": 7971752,
     "?AddRef@CStreamClass@@UAGKXZ": 4802832,
-    "?Get_Play_Time@SavegameInformation@@QBEXAAUFILETIME@@@Z": 6657264,
+    "?Get_Last_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z": 6657264,
     "?Release@?$TClassFactory@VCampaignClass@@@@UAGKXZ": 6891776,
     "?AddRef@?$TClassFactory@VParasiteClass@@@@UAGKXZ": 6894048,
     "?Release@?$TClassFactory@VAlphaShapeClass@@@@UAGKXZ": 6914816,
@@ -1647,29 +1647,29 @@
     "__real@8@3feb8637bd05af6c6800": 8027424,
     "__real@8@3ffd99999a0000000000": 7989832,
     "?Skip_Objects@@YIJPAUIStream@@@Z": 6638656,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
     "__imp__StgOpenStorage@24": 7972312,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
-    "??0SavegameInformation@@QAE@XZ": 6656576,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
+    "??0SaveVersionInfo@@QAE@XZ": 6656576,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "_IID_IPropertySetStorage": 8060240,
-    "?Write_Property_Wide@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBG@Z": 6663152,
-    "?Write_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HH@Z": 6663632,
-    "?Write_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z": 6664528,
-    "?Write_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBD@Z": 6662864,
-    "?Write_Stream_Wide@SavegameInformation@@QAEJPAUIStorage@@HPBG@Z": 6662608,
-    "?Write_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HH@Z": 6663392,
-    "?Write_Stream_Time@SavegameInformation@@QAEJPAUIStorage@@HPBUFILETIME@@@Z": 6664288,
-    "?Write_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPBD@Z": 6662288,
-    "?Read_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPAD@Z": 6661024,
-    "?Read_Stream_Wide@SavegameInformation@@QAEJPAUIStorage@@HPAG@Z": 6661264,
-    "?Read_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAD@Z": 6661440,
+    "?Write_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBG@Z": 6663152,
+    "?Write_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HH@Z": 6663632,
+    "?Write_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z": 6664528,
+    "?Write_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBD@Z": 6662864,
+    "?Write_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPBG@Z": 6662608,
+    "?Write_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HH@Z": 6663392,
+    "?Write_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPBUFILETIME@@@Z": 6664288,
+    "?Write_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPBD@Z": 6662288,
+    "?Read_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPAD@Z": 6661024,
+    "?Read_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPAG@Z": 6661264,
+    "?Read_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAD@Z": 6661440,
     "_unknown_fmtid_7afd60": 8060256,
-    "?Read_Property_Wide@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAG@Z": 6661664,
-    "?Read_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HPAH@Z": 6661888,
-    "?Read_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAH@Z": 6662080,
-    "?Read_Stream_Time@SavegameInformation@@QAEJPAUIStorage@@HPAUFILETIME@@@Z": 6663872,
-    "?Read_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z": 6664064,
+    "?Read_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAG@Z": 6661664,
+    "?Read_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HPAH@Z": 6661888,
+    "?Read_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAH@Z": 6662080,
+    "?Read_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPAUFILETIME@@@Z": 6663872,
+    "?Read_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z": 6664064,
     "__real@8@bfffc90fdaa22168c000": 8032208,
     "__real@8@40048000000000000000": 8051888,
     "?QueryInterface@LocomotionClass@@W3AGJABUGUID@@PAPAX@Z": 4979872,
@@ -2117,49 +2117,49 @@
     "??_7AbstractClass@@6B@": 7974360,
     "??_EAbstractClass@@UAEPAXI@Z": 4260672,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
-    "?Set_unknown_04@SavegameInformation@@": 6656688,
-    "?Get_unknown_04@SavegameInformation@@": 6656704,
-    "?Set_unknown_00@SavegameInformation@@": 6656720,
-    "?Get_unknown_00@SavegameInformation@@": 6656736,
-    "?Set_Description@SavegameInformation@@": 6656752,
-    "?Get_Description@SavegameInformation@@": 6656784,
-    "?Set_Player_Name@SavegameInformation@@": 6656800,
-    "?Get_Player_Name@SavegameInformation@@": 6656848,
-    "?Set_unknown_188@SavegameInformation@@": 6656864,
-    "?Get_unknown_188@SavegameInformation@@": 6656880,
-    "?Set_unknown_18c@SavegameInformation@@": 6656896,
-    "?Get_unknown_18c@SavegameInformation@@": 6656912,
-    "?Set_unknown_190@SavegameInformation@@": 6656928,
-    "?Get_unknown_190@SavegameInformation@@": 6656976,
-    "?Set_unknown_294@SavegameInformation@@": 6656992,
-    "?Get_unknown_294@SavegameInformation@@QBEPBDXZ": 6657024,
-    "?Set_unknown_2d4@SavegameInformation@@": 6657040,
-    "?Get_unknown_2d4@SavegameInformation@@": 6657088,
-    "?Set_Start_Time@SavegameInformation@@": 6657104,
-    "?Get_Start_Time@SavegameInformation@@": 6657136,
-    "?Set_Save_Time@SavegameInformation@@": 6657168,
-    "?Get_Save_Time@SavegameInformation@@": 6657200,
-    "?Set_Play_Time@SavegameInformation@@": 6657232,
-    "?Get_Play_Time@SavegameInformation@@": 6657264,
-    "?Set_Game_Type@SavegameInformation@@": 6657296,
-    "?Get_Game_Type@SavegameInformation@@": 6657312,
-    "?Save@SavegameInformation@@": 6657328,
-    "?Read_Stream_String@SavegameInformation@@": 6661024,
-    "?Read_Stream_Wide@SavegameInformation@@": 6661264,
-    "?Read_Property_String@SavegameInformation@@": 6661440,
-    "?Read_Property_Wide@SavegameInformation@@": 6661664,
-    "?Read_Stream_Int@SavegameInformation@@": 6661888,
-    "?Read_Property_Int@SavegameInformation@@": 6662080,
-    "?Write_Stream_String@SavegameInformation@@": 6662288,
-    "?Write_Stream_Wide@SavegameInformation@@": 6662608,
-    "?Write_Property_String@SavegameInformation@@": 6662864,
-    "?Write_Property_Wide@SavegameInformation@@": 6663152,
-    "?Write_Stream_Int@SavegameInformation@@": 6663392,
-    "?Write_Property_Int@SavegameInformation@@": 6663632,
-    "?Read_Stream_Time@SavegameInformation@@": 6663872,
-    "?Read_Property_Time@SavegameInformation@@": 6664064,
-    "?Write_Stream_Time@SavegameInformation@@": 6664288,
-    "?Write_Property_Time@SavegameInformation@@": 6664528,
+    "?Set_Version@SaveVersionInfo@@": 6656688,
+    "?Get_Version@SaveVersionInfo@@": 6656704,
+    "?Set_Internal_Version@SaveVersionInfo@@": 6656720,
+    "?Get_Internal_Version@SaveVersionInfo@@": 6656736,
+    "?Set_Scenario_Description@SaveVersionInfo@@": 6656752,
+    "?Get_Scenario_Description@SaveVersionInfo@@": 6656784,
+    "?Set_Player_House@SaveVersionInfo@@": 6656800,
+    "?Get_Player_House@SaveVersionInfo@@": 6656848,
+    "?Set_Campaign_Number@SaveVersionInfo@@": 6656864,
+    "?Get_Campaign_Number@SaveVersionInfo@@": 6656880,
+    "?Set_Scenario_Number@SaveVersionInfo@@": 6656896,
+    "?Get_Scenario_Number@SaveVersionInfo@@": 6656912,
+    "?Set_Unknown_String@SaveVersionInfo@@": 6656928,
+    "?Get_Unknown_String@SaveVersionInfo@@": 6656976,
+    "?Set_Player_Name@SaveVersionInfo@@": 6656992,
+    "?Get_Player_Name@SaveVersionInfo@@QBEPBDXZ": 6657024,
+    "?Set_Executable_Name@SaveVersionInfo@@": 6657040,
+    "?Get_Executable_Name@SaveVersionInfo@@": 6657088,
+    "?Set_Start_Time@SaveVersionInfo@@": 6657104,
+    "?Get_Start_Time@SaveVersionInfo@@": 6657136,
+    "?Set_Play_Time@SaveVersionInfo@@": 6657168,
+    "?Get_Play_Time@SaveVersionInfo@@": 6657200,
+    "?Set_Last_Time@SaveVersionInfo@@": 6657232,
+    "?Get_Last_Time@SaveVersionInfo@@": 6657264,
+    "?Set_Game_Type@SaveVersionInfo@@": 6657296,
+    "?Get_Game_Type@SaveVersionInfo@@": 6657312,
+    "?Save@SaveVersionInfo@@": 6657328,
+    "?Read_Stream_String@SaveVersionInfo@@": 6661024,
+    "?Read_Stream_Wide@SaveVersionInfo@@": 6661264,
+    "?Read_Property_String@SaveVersionInfo@@": 6661440,
+    "?Read_Property_Wide@SaveVersionInfo@@": 6661664,
+    "?Read_Stream_Int@SaveVersionInfo@@": 6661888,
+    "?Read_Property_Int@SaveVersionInfo@@": 6662080,
+    "?Write_Stream_String@SaveVersionInfo@@": 6662288,
+    "?Write_Stream_Wide@SaveVersionInfo@@": 6662608,
+    "?Write_Property_String@SaveVersionInfo@@": 6662864,
+    "?Write_Property_Wide@SaveVersionInfo@@": 6663152,
+    "?Write_Stream_Int@SaveVersionInfo@@": 6663392,
+    "?Write_Property_Int@SaveVersionInfo@@": 6663632,
+    "?Read_Stream_Time@SaveVersionInfo@@": 6663872,
+    "?Read_Property_Time@SaveVersionInfo@@": 6664064,
+    "?Write_Stream_Time@SaveVersionInfo@@": 6664288,
+    "?Write_Property_Time@SaveVersionInfo@@": 6664528,
     "?Checked@?$UnknownComPtr@UIStream@@$1?unknown_uuid_IStream@@3UGUID@@B@@QBEPAUIStream@@XZ": 6664832,
     "?Release_Held@?$UnknownComPtr@UIPropertySetStorage@@$1?unknown_uuid_IPropertySetStorage@@3UGUID@@B@@QAEXXZ": 6664864,
     "?Release_Held@?$UnknownComPtr@UIStream@@$1?unknown_uuid_IStream@@3UGUID@@B@@QAEXXZ": 6664880,
@@ -13061,14 +13061,42 @@
     "_?empty@?1??Version_Name_007131d0@@YIPBDXZ@4_NA": 8362264,
     "?Release_Held@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEXXZ": 4979648,
     "?Query_From@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEJABQAVFootClass@@@Z": 4979744,
-    "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984
+    "?_AddRef@?$UnknownComPtr@UIPiggyback@@$1?unknown_uuid_IPiggyback_7cfc30@@3UGUID@@B@@QBEXXZ": 6941984,
+    "?ID@?$DynamicVectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4378064,
+    "?ID@?$VectorClass@VCell@@@@UAEHABVCell@@@Z": 4378592,
+    "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
+    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4379344,
+    "?ID@?$VectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4642992,
+    "?ID@?$DynamicVectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4643376,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4989632,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4990016,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039776,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5040560,
+    "?ID@?$VectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207200,
+    "?ID@?$DynamicVectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207568,
+    "?ID@?$VectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208016,
+    "?ID@?$DynamicVectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208384,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210704,
+    "?ID@?$VectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5681840,
+    "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5682304,
+    "?ID@?$VectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683136,
+    "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683696,
+    "?ID@?$VectorClass@U?$TRect@H@@@@UAEHABU?$TRect@H@@@Z": 5826240,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990080,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990448,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
+    "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6998848,
+    "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6999296,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
+    "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z": 7518288
   },
   "regions": [
     {
       "entry": 6656688,
       "method": "006592b0",
-      "symbol": "?Set_unknown_04@SavegameInformation@@QAEXH@Z",
-      "symbol_prefix": "?Set_unknown_04@SavegameInformation@@",
+      "symbol": "?Set_Version@SaveVersionInfo@@QAEXH@Z",
+      "symbol_prefix": "?Set_Version@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13081,20 +13109,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "c527e3808437af2a5e839f2a88b1a2d17d6a25569e476174e1625a3ab7988b3d",
       "relocations": [],
-      "source_sha256": "58e062d06a49b05fb8356d7687abedb0927c55a0f289350372bcc90423d29e86",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_unknown_04_006592b0.cpp",
+      "source_sha256": "5d67db762760a829c7659c7012f92f909ee4464cbc2dc6f95e606a6a1ccb8ec5",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Version_006592b0.cpp",
       "population": "population-4432",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_unknown_04_006592b0",
+      "semantic_name": "SaveVersionInfo_Set_Version_006592b0",
       "source_order": 237374
     },
     {
       "entry": 6656720,
       "method": "006592d0",
-      "symbol": "?Set_unknown_00@SavegameInformation@@QAEXH@Z",
-      "symbol_prefix": "?Set_unknown_00@SavegameInformation@@",
+      "symbol": "?Set_Internal_Version@SaveVersionInfo@@QAEXH@Z",
+      "symbol_prefix": "?Set_Internal_Version@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13107,20 +13135,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "7ce004fe0e443a484e98e623372d63bc34598348dc179cef07512d7bf63c98b3",
       "relocations": [],
-      "source_sha256": "369bffd69338e15273d24f984e0173097b76d22ceed381cbeb4caa1155270172",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_unknown_00_006592d0.cpp",
+      "source_sha256": "86d18f363fdb0c63b85fec642c48f29cf015dc17a967f5d4b8bce40869491be5",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Internal_Version_006592d0.cpp",
       "population": "population-4432",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_unknown_00_006592d0",
+      "semantic_name": "SaveVersionInfo_Set_Internal_Version_006592d0",
       "source_order": 237376
     },
     {
       "entry": 6656736,
       "method": "006592e0",
-      "symbol": "?Get_unknown_00@SavegameInformation@@QBEHXZ",
-      "symbol_prefix": "?Get_unknown_00@SavegameInformation@@",
+      "symbol": "?Get_Internal_Version@SaveVersionInfo@@QBEHXZ",
+      "symbol_prefix": "?Get_Internal_Version@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13133,20 +13161,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "bd7cd4955fa02479f8816b459860e3b85fb4e9b430490e1c6dcc6c553603eb63",
       "relocations": [],
-      "source_sha256": "a2564846bd0afdbf45398cb45d47c8a038bf18d7bc930a7dd1357560c5d5cec3",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_unknown_00_006592e0.cpp",
+      "source_sha256": "c5e0adbea78dacddfabadbc4a17d28d85d3db7d9797d87b1c454a4db612a7231",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Internal_Version_006592e0.cpp",
       "population": "population-4432",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_unknown_00_006592e0",
+      "semantic_name": "SaveVersionInfo_Get_Internal_Version_006592e0",
       "source_order": 237377
     },
     {
       "entry": 6656784,
       "method": "00659310",
-      "symbol": "?Get_Description@SavegameInformation@@QBEPBGXZ",
-      "symbol_prefix": "?Get_Description@SavegameInformation@@",
+      "symbol": "?Get_Scenario_Description@SaveVersionInfo@@QBEPBGXZ",
+      "symbol_prefix": "?Get_Scenario_Description@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13159,20 +13187,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "02cc2c529d228796f8cc41f91f96b398423342b8ff72e994d35a86675b477d0f",
       "relocations": [],
-      "source_sha256": "a6f8d7a65253155a49386a1e306257e27e16dde6d2ada456384e8c9df5c19f77",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_Description_00659310.cpp",
+      "source_sha256": "5fec8b58827c89c6cf08cced0d44c026287f29e6e6aa506da63b014e735a37fc",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Scenario_Description_00659310.cpp",
       "population": "population-4432",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_Description_00659310",
+      "semantic_name": "SaveVersionInfo_Get_Scenario_Description_00659310",
       "source_order": 237379
     },
     {
       "entry": 6656848,
       "method": "00659350",
-      "symbol": "?Get_Player_Name@SavegameInformation@@QBEPBGXZ",
-      "symbol_prefix": "?Get_Player_Name@SavegameInformation@@",
+      "symbol": "?Get_Player_House@SaveVersionInfo@@QBEPBGXZ",
+      "symbol_prefix": "?Get_Player_House@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13185,20 +13213,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "e52bbc97754f3faaf80b2744e30dc88b80c68968978ac2bcb055d32c8de25a38",
       "relocations": [],
-      "source_sha256": "a6460502a1e8138ffd42ea26c43ab64d1616abb2375567d89ec81a65b004632e",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_Player_Name_00659350.cpp",
+      "source_sha256": "6af11ced41e2c57b872fc543f22eec1de9a82dab2c5f38a6b36a04ff512b1149",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Player_House_00659350.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_Player_Name_00659350",
+      "semantic_name": "SaveVersionInfo_Get_Player_House_00659350",
       "source_order": 237381
     },
     {
       "entry": 6656864,
       "method": "00659360",
-      "symbol": "?Set_unknown_188@SavegameInformation@@QAEXH@Z",
-      "symbol_prefix": "?Set_unknown_188@SavegameInformation@@",
+      "symbol": "?Set_Campaign_Number@SaveVersionInfo@@QAEXH@Z",
+      "symbol_prefix": "?Set_Campaign_Number@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13211,20 +13239,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "0f2687bb4e4dcce000e6cd92577554799c9b6d6d4a623e48f42cb92b8631d208",
       "relocations": [],
-      "source_sha256": "8977c3dd1e6c1f2ff8547ceb20a6c942b3563f075ad2b55766b68525a9edf50f",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_unknown_188_00659360.cpp",
+      "source_sha256": "af687b7dc557a2dd98bd55d4a3eedb5c257d1de32d8d39def107f9c5f69a8d5f",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Campaign_Number_00659360.cpp",
       "population": "population-4432",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_unknown_188_00659360",
+      "semantic_name": "SaveVersionInfo_Set_Campaign_Number_00659360",
       "source_order": 237382
     },
     {
       "entry": 6656880,
       "method": "00659370",
-      "symbol": "?Get_unknown_188@SavegameInformation@@QBEHXZ",
-      "symbol_prefix": "?Get_unknown_188@SavegameInformation@@",
+      "symbol": "?Get_Campaign_Number@SaveVersionInfo@@QBEHXZ",
+      "symbol_prefix": "?Get_Campaign_Number@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13237,20 +13265,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "702e87959899459578f66443833ca3478917167f8437d9839866cdebb6fcbfda",
       "relocations": [],
-      "source_sha256": "1a22c0f34187bc1261ce62c35bff7cc524c2cfabc3ed52697492df01fae676f6",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_unknown_188_00659370.cpp",
+      "source_sha256": "e1fd2aee33a09b7be951fc04bbba0d7491a5a1317d1c8b43b4e86d136a282fbf",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Campaign_Number_00659370.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_unknown_188_00659370",
+      "semantic_name": "SaveVersionInfo_Get_Campaign_Number_00659370",
       "source_order": 237383
     },
     {
       "entry": 6656896,
       "method": "00659380",
-      "symbol": "?Set_unknown_18c@SavegameInformation@@QAEXH@Z",
-      "symbol_prefix": "?Set_unknown_18c@SavegameInformation@@",
+      "symbol": "?Set_Scenario_Number@SaveVersionInfo@@QAEXH@Z",
+      "symbol_prefix": "?Set_Scenario_Number@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13263,20 +13291,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "ed2402bf7a35b153a21938e512324773faca6b51982bab9902d9e0827cec7f02",
       "relocations": [],
-      "source_sha256": "83909d8e4421c07f5c75c5e4f94cfa719d50885f2d438665fe3cbd0bb4898262",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_unknown_18c_00659380.cpp",
+      "source_sha256": "2ae6a8069ebea613252633b86cfbc6190943bb9c76d75cc5c71bd1afdb9d8c78",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Scenario_Number_00659380.cpp",
       "population": "population-4432",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_unknown_18c_00659380",
+      "semantic_name": "SaveVersionInfo_Set_Scenario_Number_00659380",
       "source_order": 237384
     },
     {
       "entry": 6656912,
       "method": "00659390",
-      "symbol": "?Get_unknown_18c@SavegameInformation@@QBEHXZ",
-      "symbol_prefix": "?Get_unknown_18c@SavegameInformation@@",
+      "symbol": "?Get_Scenario_Number@SaveVersionInfo@@QBEHXZ",
+      "symbol_prefix": "?Get_Scenario_Number@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13289,20 +13317,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "1a4764f54a2a4e295f3ddb28a823b47f1d09c07a0f24c627688a3a478b374af0",
       "relocations": [],
-      "source_sha256": "7cb7fb7c017120facddb0010644d99cd2bf87f7f80dc07dc5eea89c9d95ccac4",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_unknown_18c_00659390.cpp",
+      "source_sha256": "48fe9fadf9d90bf0c2200d5abcd9b55a71a8f647ca668d9bb5e6e54bf9870a63",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Scenario_Number_00659390.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_unknown_18c_00659390",
+      "semantic_name": "SaveVersionInfo_Get_Scenario_Number_00659390",
       "source_order": 237385
     },
     {
       "entry": 6657104,
       "method": "00659450",
-      "symbol": "?Set_Start_Time@SavegameInformation@@QAEXABUFILETIME@@@Z",
-      "symbol_prefix": "?Set_Start_Time@SavegameInformation@@",
+      "symbol": "?Set_Start_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+      "symbol_prefix": "?Set_Start_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13315,20 +13343,20 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "86b163b465af562e141e87a49cde526eee21f62783a634eed1580fb76af4fbae",
       "relocations": [],
-      "source_sha256": "828297b15421b8f06b886157a4f2a01b6ed8792c3578709e74529d8e06d8fc9d",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_Start_Time_00659450.cpp",
+      "source_sha256": "45f6312a989da3ef7398fe3733e9d34b4876b6e703e1d480b3f105d390fa2629",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Start_Time_00659450.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_Start_Time_00659450",
+      "semantic_name": "SaveVersionInfo_Set_Start_Time_00659450",
       "source_order": 237392
     },
     {
       "entry": 6657168,
       "method": "00659490",
-      "symbol": "?Set_Save_Time@SavegameInformation@@QAEXABUFILETIME@@@Z",
-      "symbol_prefix": "?Set_Save_Time@SavegameInformation@@",
+      "symbol": "?Set_Play_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+      "symbol_prefix": "?Set_Play_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13341,20 +13369,20 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "b6430c35d4f8cff321b1fd8c03860f946ba9a70ae1a20818915e902a5b5306d7",
       "relocations": [],
-      "source_sha256": "7abf01fd02d0a4ff682d3f87ef24f1710012a16296a25f022944d5edef885d69",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_Save_Time_00659490.cpp",
+      "source_sha256": "1a09b8ba5b41c65670cf2f3f14324fd81e2f135ece51a63fec776e7734d45f01",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Play_Time_00659490.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_Save_Time_00659490",
+      "semantic_name": "SaveVersionInfo_Set_Play_Time_00659490",
       "source_order": 237394
     },
     {
       "entry": 6657232,
       "method": "006594d0",
-      "symbol": "?Set_Play_Time@SavegameInformation@@QAEXABUFILETIME@@@Z",
-      "symbol_prefix": "?Set_Play_Time@SavegameInformation@@",
+      "symbol": "?Set_Last_Time@SaveVersionInfo@@QAEXABUFILETIME@@@Z",
+      "symbol_prefix": "?Set_Last_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13367,20 +13395,20 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "688bb61313557e168203da25c6efe363d81c23eb66b0f6f8ccdf202a67362953",
       "relocations": [],
-      "source_sha256": "cfc5cc07314ae41bee3bfb57d3e455ec267d2013e671a55e20bf923e0bf1b909",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_Play_Time_006594d0.cpp",
+      "source_sha256": "2cb6a9bab6541e47433e926a9b744121c1e357d9b4d38ed86bd2b58f7a72c6d6",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Last_Time_006594d0.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_Play_Time_006594d0",
+      "semantic_name": "SaveVersionInfo_Set_Last_Time_006594d0",
       "source_order": 237396
     },
     {
       "entry": 6657296,
       "method": "00659510",
-      "symbol": "?Set_Game_Type@SavegameInformation@@QAEXH@Z",
-      "symbol_prefix": "?Set_Game_Type@SavegameInformation@@",
+      "symbol": "?Set_Game_Type@SaveVersionInfo@@QAEXH@Z",
+      "symbol_prefix": "?Set_Game_Type@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13393,20 +13421,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "dfa7bdc0548109a86a218ec5928caf8b07690900f8fb505e985bdfa82582222f",
       "relocations": [],
-      "source_sha256": "882aa6eaae013bc3a8b40f454511887338e56b3df9a70a4b724fd49e9386c5e0",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_Game_Type_00659510.cpp",
+      "source_sha256": "8f9eb8818975ce649e00463977d97e0131fbba560169237183d04c60f8e97405",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Game_Type_00659510.cpp",
       "population": "population-4432",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_Game_Type_00659510",
+      "semantic_name": "SaveVersionInfo_Set_Game_Type_00659510",
       "source_order": 237398
     },
     {
       "entry": 6657312,
       "method": "00659520",
-      "symbol": "?Get_Game_Type@SavegameInformation@@QBEHXZ",
-      "symbol_prefix": "?Get_Game_Type@SavegameInformation@@",
+      "symbol": "?Get_Game_Type@SaveVersionInfo@@QBEHXZ",
+      "symbol_prefix": "?Get_Game_Type@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13419,20 +13447,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "852979ebcd18f442572baf8ca4ca9ff682b24f54f0e6e81905399b14ab143e81",
       "relocations": [],
-      "source_sha256": "b764ba0d175045786bbd82b78b589693a8887efd4631f83d85d7bbb769588a54",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_Game_Type_00659520.cpp",
+      "source_sha256": "d40300685ba88b97f03c1158351e526208a8bdcd1bc5cc0de764337414f6e596",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Game_Type_00659520.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_Game_Type_00659520",
+      "semantic_name": "SaveVersionInfo_Get_Game_Type_00659520",
       "source_order": 237399
     },
     {
       "entry": 6656752,
       "method": "006592f0",
-      "symbol": "?Set_Description@SavegameInformation@@QAEXPBG@Z",
-      "symbol_prefix": "?Set_Description@SavegameInformation@@",
+      "symbol": "?Set_Scenario_Description@SaveVersionInfo@@QAEXPBG@Z",
+      "symbol_prefix": "?Set_Scenario_Description@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13454,20 +13482,20 @@
           "resolved": 1221401
         }
       ],
-      "source_sha256": "523edb3704e245a054baa5a99d900b782a51a92560d2d975eb252c02a82e0643",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_Description_006592f0.cpp",
+      "source_sha256": "40524f4b36bf0db73b4a6d1ad0efbce839d9710f5794588893468262397b817f",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Scenario_Description_006592f0.cpp",
       "population": "population-4432",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_Description_006592f0",
+      "semantic_name": "SaveVersionInfo_Set_Scenario_Description_006592f0",
       "source_order": 237378
     },
     {
       "entry": 6656800,
       "method": "00659320",
-      "symbol": "?Set_Player_Name@SavegameInformation@@QAEXPBG@Z",
-      "symbol_prefix": "?Set_Player_Name@SavegameInformation@@",
+      "symbol": "?Set_Player_House@SaveVersionInfo@@QAEXPBG@Z",
+      "symbol_prefix": "?Set_Player_House@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13489,20 +13517,20 @@
           "resolved": 1221350
         }
       ],
-      "source_sha256": "54330110a3413b10f994b82f4bab4932084a814ac6be994391c197553942a40e",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_Player_Name_00659320.cpp",
+      "source_sha256": "b580065a289b24ec7a6522cb9273c23daff6171c8e8642950a4b489aa449072e",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Player_House_00659320.cpp",
       "population": "population-4432",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_Player_Name_00659320",
+      "semantic_name": "SaveVersionInfo_Set_Player_House_00659320",
       "source_order": 237380
     },
     {
       "entry": 6657040,
       "method": "00659410",
-      "symbol": "?Set_unknown_2d4@SavegameInformation@@QAEXPBD@Z",
-      "symbol_prefix": "?Set_unknown_2d4@SavegameInformation@@",
+      "symbol": "?Set_Executable_Name@SaveVersionInfo@@QAEXPBD@Z",
+      "symbol_prefix": "?Set_Executable_Name@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13524,13 +13552,13 @@
           "resolved": 1216419
         }
       ],
-      "source_sha256": "a2d651522e4e0bf56df34580ce84ebebef8b68f65b958158fd63953c79a3ba52",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_unknown_2d4_00659410.cpp",
+      "source_sha256": "9c1e00b725ae5a5ac5291b6ed4542b8ade36392ee8874f4dbc49c3b4adb65c94",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Executable_Name_00659410.cpp",
       "population": "population-4432",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_unknown_2d4_00659410",
+      "semantic_name": "SaveVersionInfo_Set_Executable_Name_00659410",
       "source_order": 237390
     },
     {
@@ -13559,7 +13587,7 @@
           "resolved": 1287854
         }
       ],
-      "source_sha256": "11d10351e1523a38b40374ef726d19878910dd77e6f7c82613ff90ef60ed67d8",
+      "source_sha256": "a1136c9a418422e63b5e1ffbc108c75202698f9cf634ed61b5d7979435288336",
       "source": "src/recovered/0065b280.cpp",
       "population": "population-4432",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -13570,8 +13598,8 @@
     {
       "entry": 6656704,
       "method": "006592c0",
-      "symbol": "?Get_unknown_04@SavegameInformation@@QBEHXZ",
-      "symbol_prefix": "?Get_unknown_04@SavegameInformation@@",
+      "symbol": "?Get_Version@SaveVersionInfo@@QBEHXZ",
+      "symbol_prefix": "?Get_Version@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13584,20 +13612,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "edffa6a9ad2a86d361d0a1c1371cd7428d9deb7c52ce700d1eff366e73ec882d",
       "relocations": [],
-      "source_sha256": "0b99accadf84158742b8c1b8eb32bc8bc3707bc4f2fe288a50b8c1a4b6836a49",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_unknown_04_006592c0.cpp",
+      "source_sha256": "925436d2b3e2ee785da911e25318fa13dcc8d17979040ebeb490a1c5a09ba8ba",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Version_006592c0.cpp",
       "population": "population-4432",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_unknown_04_006592c0",
+      "semantic_name": "SaveVersionInfo_Get_Version_006592c0",
       "source_order": 237375
     },
     {
       "entry": 6656928,
       "method": "006593a0",
-      "symbol": "?Set_unknown_190@SavegameInformation@@QAEXPBD@Z",
-      "symbol_prefix": "?Set_unknown_190@SavegameInformation@@",
+      "symbol": "?Set_Unknown_String@SaveVersionInfo@@QAEXPBD@Z",
+      "symbol_prefix": "?Set_Unknown_String@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13619,20 +13647,20 @@
           "resolved": 1216531
         }
       ],
-      "source_sha256": "38ce7c39cf080697ebc4e1ba05e55fe1cf1a311a7d9fa76cbadfb10b94ed2ffc",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_unknown_190_006593a0.cpp",
+      "source_sha256": "a51c92de577bd214dad1373b59dcf93b7fa964838c8a8763791011844ed6f88b",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Unknown_String_006593a0.cpp",
       "population": "population-4432",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_unknown_190_006593a0",
+      "semantic_name": "SaveVersionInfo_Set_Unknown_String_006593a0",
       "source_order": 237386
     },
     {
       "entry": 6656976,
       "method": "006593d0",
-      "symbol": "?Get_unknown_190@SavegameInformation@@QBEPBDXZ",
-      "symbol_prefix": "?Get_unknown_190@SavegameInformation@@",
+      "symbol": "?Get_Unknown_String@SaveVersionInfo@@QBEPBDXZ",
+      "symbol_prefix": "?Get_Unknown_String@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13645,20 +13673,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "829dd03f672baf8869a66067d56172677215765c96e04ad502f75c8006b9c61d",
       "relocations": [],
-      "source_sha256": "e6db23ff86a19047923644ad7f550903e21870ac405886927ec08f4ade122c3a",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_unknown_190_006593d0.cpp",
+      "source_sha256": "b300260c00209e84fb0fb129516a01f537fb93a90dfce780035f531f013140c9",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Unknown_String_006593d0.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_unknown_190_006593d0",
+      "semantic_name": "SaveVersionInfo_Get_Unknown_String_006593d0",
       "source_order": 237387
     },
     {
       "entry": 6656992,
       "method": "006593e0",
-      "symbol": "?Set_unknown_294@SavegameInformation@@QAEXPBD@Z",
-      "symbol_prefix": "?Set_unknown_294@SavegameInformation@@",
+      "symbol": "?Set_Player_Name@SaveVersionInfo@@QAEXPBD@Z",
+      "symbol_prefix": "?Set_Player_Name@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13680,20 +13708,20 @@
           "resolved": 1216470
         }
       ],
-      "source_sha256": "d1e509faa5b3a32b67023caf03326e6e7e24902780f81f498a695c29f53ca9d7",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Set_unknown_294_006593e0.cpp",
+      "source_sha256": "1593a91eeb77590120d81287bde497907d8edb4daa42a649549be8504a2f0eca",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Set_Player_Name_006593e0.cpp",
       "population": "population-4432",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Set_unknown_294_006593e0",
+      "semantic_name": "SaveVersionInfo_Set_Player_Name_006593e0",
       "source_order": 237388
     },
     {
       "entry": 6657088,
       "method": "00659440",
-      "symbol": "?Get_unknown_2d4@SavegameInformation@@QBEPBDXZ",
-      "symbol_prefix": "?Get_unknown_2d4@SavegameInformation@@",
+      "symbol": "?Get_Executable_Name@SaveVersionInfo@@QBEPBDXZ",
+      "symbol_prefix": "?Get_Executable_Name@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13706,20 +13734,20 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "081d9c7b1bcafeade526abf9342ead6ebae1fcfd24ef17d6e5f763b2ac1a4fde",
       "relocations": [],
-      "source_sha256": "0a23c8f6a1636f7f3ba22d62e2ec7b019db0249d26d2644e8d6d0498e4c57984",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_unknown_2d4_00659440.cpp",
+      "source_sha256": "ff4ad41f8641ee70bd1891d2ddc1209f11abda18110c76b433c129693ab69c2c",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Executable_Name_00659440.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_unknown_2d4_00659440",
+      "semantic_name": "SaveVersionInfo_Get_Executable_Name_00659440",
       "source_order": 237391
     },
     {
       "entry": 6657136,
       "method": "00659470",
-      "symbol": "?Get_Start_Time@SavegameInformation@@QBEXAAUFILETIME@@@Z",
-      "symbol_prefix": "?Get_Start_Time@SavegameInformation@@",
+      "symbol": "?Get_Start_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z",
+      "symbol_prefix": "?Get_Start_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13732,20 +13760,20 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "af56c909102dbb127916cb84c862a4cba6cd71d82a26b406e2d9c069d6673eda",
       "relocations": [],
-      "source_sha256": "64949ef03c58ef5e7704e9722ed6d9c8d52a74bc40ffb8e9ff03bebc946cd0a4",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_Start_Time_00659470.cpp",
+      "source_sha256": "4d9c594c6519510128c0c9af23173620cd4859d5318de91e3fc2f9e7b040e936",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Start_Time_00659470.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_Start_Time_00659470",
+      "semantic_name": "SaveVersionInfo_Get_Start_Time_00659470",
       "source_order": 237393
     },
     {
       "entry": 6657200,
       "method": "006594b0",
-      "symbol": "?Get_Save_Time@SavegameInformation@@QBEXAAUFILETIME@@@Z",
-      "symbol_prefix": "?Get_Save_Time@SavegameInformation@@",
+      "symbol": "?Get_Play_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z",
+      "symbol_prefix": "?Get_Play_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13758,20 +13786,20 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "f3369f12051d2beae3f350d5fa4b86c54e1095bed0ec38d1d92d6fad3736ee08",
       "relocations": [],
-      "source_sha256": "f20589c303b43ac8f4c39bc2f7da08242d2920c2810c020f243e35c77ed448a9",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_Save_Time_006594b0.cpp",
+      "source_sha256": "6fa37133a8d31776e1c3bc059fa20c577912418282f270e891f00e2bbfa05ecd",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Play_Time_006594b0.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_Save_Time_006594b0",
+      "semantic_name": "SaveVersionInfo_Get_Play_Time_006594b0",
       "source_order": 237395
     },
     {
       "entry": 6657264,
       "method": "006594f0",
-      "symbol": "?Get_Play_Time@SavegameInformation@@QBEXAAUFILETIME@@@Z",
-      "symbol_prefix": "?Get_Play_Time@SavegameInformation@@",
+      "symbol": "?Get_Last_Time@SaveVersionInfo@@QBEXAAUFILETIME@@@Z",
+      "symbol_prefix": "?Get_Last_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13784,13 +13812,13 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "a8f116d280ce802e705aa25796dfffdac27bdfd1be3686789d4591c915fdb2ba",
       "relocations": [],
-      "source_sha256": "850bbd3f3b9c9f9b6285c75441933a9b6a57a225e1fb9ad6d67ee443c9cd6a71",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_Play_Time_006594f0.cpp",
+      "source_sha256": "0cfba480951da917a37e787edd106c7ae399c48c396ea79e25f144590931415b",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Last_Time_006594f0.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_Play_Time_006594f0",
+      "semantic_name": "SaveVersionInfo_Get_Last_Time_006594f0",
       "source_order": 237397
     },
     {
@@ -13810,7 +13838,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "2d8680bfffcf74534c3ad8b2508de5c0eaf9cd2fbe557725e7d4d6e4d2abbbf1",
       "relocations": [],
-      "source_sha256": "3a701b5ddecffa71230e7999416b9ef79c7965b5e622d714b36030b0d8f627fe",
+      "source_sha256": "904d53c61197f8656231c6b347ff7db8f35fdcfb4818b9b5845c546c4f356e1c",
       "source": "src/recovered/unowned/unknown_release_member_0065b2a0.cpp",
       "population": "population-4432",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -13861,7 +13889,7 @@
           "resolved": 8330260
         }
       ],
-      "source_sha256": "547b46a4b1beb44db3d97e41c13cc2d12e172495000ef221d86b40ed141d6e8d",
+      "source_sha256": "327308ffbcf13f8dc2b8d4e484ce5ac43278ad96321a40ed3989b4f5f3ba4dd8",
       "source": "src/recovered/unowned/unknown_lookup_pair_0065b250.cpp",
       "population": "population-4432",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -13886,7 +13914,7 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "2d8680bfffcf74534c3ad8b2508de5c0eaf9cd2fbe557725e7d4d6e4d2abbbf1",
       "relocations": [],
-      "source_sha256": "ea48a2b1df973b63e923bfb612a79677c822897f896be5ad6268a16c1c48a97f",
+      "source_sha256": "59b825347bb4115d7cabec49b0bf7b65ea305bc6b0f836dc2ddef91a61a151b7",
       "source": "src/recovered/unowned/unknown_release_member_0065b2b0.cpp",
       "population": "population-4432",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -13897,8 +13925,8 @@
     {
       "entry": 6656576,
       "method": "00659240",
-      "symbol": "??0SavegameInformation@@QAE@XZ",
-      "symbol_prefix": "??0SavegameInformation@@QAE@XZ",
+      "symbol": "??0SaveVersionInfo@@QAE@XZ",
+      "symbol_prefix": "??0SaveVersionInfo@@QAE@XZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13911,20 +13939,20 @@
       "full_extent_bytes": 112,
       "full_extent_sha256": "73322e3db69222ac465bdcb1ef1a5b635f2c8887ab25cd55c4838cae46857fcf",
       "relocations": [],
-      "source_sha256": "26807c72163a38f104b0993375d13ba4a83cdb5671fc9696f50a98bc49c80810",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_ctor_00659240.cpp",
+      "source_sha256": "10b8dbb897a2b0ec506c916f49823516cad51edf0e643bfaa43cb5758f20917f",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_ctor_00659240.cpp",
       "population": "population-4432",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_ctor_00659240",
+      "semantic_name": "SaveVersionInfo_ctor_00659240",
       "source_order": 237373
     },
     {
       "entry": 6657328,
       "method": "00659530",
-      "symbol": "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z",
-      "symbol_prefix": "?Save@SavegameInformation@@",
+      "symbol": "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+      "symbol_prefix": "?Save@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -13948,7 +13976,7 @@
         {
           "offset": 71,
           "kind": 20,
-          "symbol": "?Write_Property_Wide@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBG@Z",
+          "symbol": "?Write_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBG@Z",
           "target": 6663152,
           "addend": 0,
           "resolved": 5749
@@ -13956,7 +13984,7 @@
         {
           "offset": 125,
           "kind": 20,
-          "symbol": "?Write_Property_Wide@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBG@Z",
+          "symbol": "?Write_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBG@Z",
           "target": 6663152,
           "addend": 0,
           "resolved": 5695
@@ -13964,7 +13992,7 @@
         {
           "offset": 176,
           "kind": 20,
-          "symbol": "?Write_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HH@Z",
+          "symbol": "?Write_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HH@Z",
           "target": 6663632,
           "addend": 0,
           "resolved": 6124
@@ -13972,7 +14000,7 @@
         {
           "offset": 226,
           "kind": 20,
-          "symbol": "?Write_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HH@Z",
+          "symbol": "?Write_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HH@Z",
           "target": 6663632,
           "addend": 0,
           "resolved": 6074
@@ -13980,7 +14008,7 @@
         {
           "offset": 280,
           "kind": 20,
-          "symbol": "?Write_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
+          "symbol": "?Write_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
           "target": 6664528,
           "addend": 0,
           "resolved": 6916
@@ -13988,7 +14016,7 @@
         {
           "offset": 334,
           "kind": 20,
-          "symbol": "?Write_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
+          "symbol": "?Write_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
           "target": 6664528,
           "addend": 0,
           "resolved": 6862
@@ -13996,7 +14024,7 @@
         {
           "offset": 388,
           "kind": 20,
-          "symbol": "?Write_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
+          "symbol": "?Write_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
           "target": 6664528,
           "addend": 0,
           "resolved": 6808
@@ -14004,7 +14032,7 @@
         {
           "offset": 442,
           "kind": 20,
-          "symbol": "?Write_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBD@Z",
+          "symbol": "?Write_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBD@Z",
           "target": 6662864,
           "addend": 0,
           "resolved": 5090
@@ -14012,7 +14040,7 @@
         {
           "offset": 496,
           "kind": 20,
-          "symbol": "?Write_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBD@Z",
+          "symbol": "?Write_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBD@Z",
           "target": 6662864,
           "addend": 0,
           "resolved": 5036
@@ -14020,7 +14048,7 @@
         {
           "offset": 540,
           "kind": 20,
-          "symbol": "?Write_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBD@Z",
+          "symbol": "?Write_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBD@Z",
           "target": 6662864,
           "addend": 0,
           "resolved": 4992
@@ -14028,7 +14056,7 @@
         {
           "offset": 594,
           "kind": 20,
-          "symbol": "?Write_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HH@Z",
+          "symbol": "?Write_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HH@Z",
           "target": 6663632,
           "addend": 0,
           "resolved": 5706
@@ -14036,7 +14064,7 @@
         {
           "offset": 648,
           "kind": 20,
-          "symbol": "?Write_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HH@Z",
+          "symbol": "?Write_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HH@Z",
           "target": 6663632,
           "addend": 0,
           "resolved": 5652
@@ -14044,7 +14072,7 @@
         {
           "offset": 702,
           "kind": 20,
-          "symbol": "?Write_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HH@Z",
+          "symbol": "?Write_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HH@Z",
           "target": 6663632,
           "addend": 0,
           "resolved": 5598
@@ -14052,7 +14080,7 @@
         {
           "offset": 749,
           "kind": 20,
-          "symbol": "?Write_Stream_Wide@SavegameInformation@@QAEJPAUIStorage@@HPBG@Z",
+          "symbol": "?Write_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPBG@Z",
           "target": 6662608,
           "addend": 0,
           "resolved": 4527
@@ -14060,7 +14088,7 @@
         {
           "offset": 799,
           "kind": 20,
-          "symbol": "?Write_Stream_Wide@SavegameInformation@@QAEJPAUIStorage@@HPBG@Z",
+          "symbol": "?Write_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPBG@Z",
           "target": 6662608,
           "addend": 0,
           "resolved": 4477
@@ -14068,7 +14096,7 @@
         {
           "offset": 846,
           "kind": 20,
-          "symbol": "?Write_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HH@Z",
+          "symbol": "?Write_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HH@Z",
           "target": 6663392,
           "addend": 0,
           "resolved": 5214
@@ -14076,7 +14104,7 @@
         {
           "offset": 892,
           "kind": 20,
-          "symbol": "?Write_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HH@Z",
+          "symbol": "?Write_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HH@Z",
           "target": 6663392,
           "addend": 0,
           "resolved": 5168
@@ -14084,7 +14112,7 @@
         {
           "offset": 942,
           "kind": 20,
-          "symbol": "?Write_Stream_Time@SavegameInformation@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
+          "symbol": "?Write_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
           "target": 6664288,
           "addend": 0,
           "resolved": 6014
@@ -14092,7 +14120,7 @@
         {
           "offset": 992,
           "kind": 20,
-          "symbol": "?Write_Stream_Time@SavegameInformation@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
+          "symbol": "?Write_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
           "target": 6664288,
           "addend": 0,
           "resolved": 5964
@@ -14100,7 +14128,7 @@
         {
           "offset": 1042,
           "kind": 20,
-          "symbol": "?Write_Stream_Time@SavegameInformation@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
+          "symbol": "?Write_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
           "target": 6664288,
           "addend": 0,
           "resolved": 5914
@@ -14108,7 +14136,7 @@
         {
           "offset": 1092,
           "kind": 20,
-          "symbol": "?Write_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPBD@Z",
+          "symbol": "?Write_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPBD@Z",
           "target": 6662288,
           "addend": 0,
           "resolved": 3864
@@ -14116,7 +14144,7 @@
         {
           "offset": 1142,
           "kind": 20,
-          "symbol": "?Write_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPBD@Z",
+          "symbol": "?Write_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPBD@Z",
           "target": 6662288,
           "addend": 0,
           "resolved": 3814
@@ -14124,7 +14152,7 @@
         {
           "offset": 1182,
           "kind": 20,
-          "symbol": "?Write_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPBD@Z",
+          "symbol": "?Write_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPBD@Z",
           "target": 6662288,
           "addend": 0,
           "resolved": 3774
@@ -14132,7 +14160,7 @@
         {
           "offset": 1228,
           "kind": 20,
-          "symbol": "?Write_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HH@Z",
+          "symbol": "?Write_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HH@Z",
           "target": 6663392,
           "addend": 0,
           "resolved": 4832
@@ -14140,7 +14168,7 @@
         {
           "offset": 1274,
           "kind": 20,
-          "symbol": "?Write_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HH@Z",
+          "symbol": "?Write_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HH@Z",
           "target": 6663392,
           "addend": 0,
           "resolved": 4786
@@ -14148,26 +14176,26 @@
         {
           "offset": 1320,
           "kind": 20,
-          "symbol": "?Write_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HH@Z",
+          "symbol": "?Write_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HH@Z",
           "target": 6663392,
           "addend": 0,
           "resolved": 4740
         }
       ],
-      "source_sha256": "ae4f73e4b113a457865f3f843f64012b08f2c849934a7576ea2d928da703f38a",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Save_00659530.cpp",
+      "source_sha256": "54305568653d205ca04f55721536079e7c770394ed2ab4270ae76f91bedfeba9",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Save_00659530.cpp",
       "population": "population-4432",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Save_00659530",
+      "semantic_name": "SaveVersionInfo_Save_00659530",
       "source_order": 237400
     },
     {
       "entry": 6661024,
       "method": "0065a3a0",
-      "symbol": "?Read_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPAD@Z",
-      "symbol_prefix": "?Read_Stream_String@SavegameInformation@@",
+      "symbol": "?Read_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPAD@Z",
+      "symbol_prefix": "?Read_Stream_String@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14221,7 +14249,7 @@
           "resolved": 7971388
         }
       ],
-      "source_sha256": "bd84dad5e408deb0a6972843a3def7119a332e42dc448371070ceb9833478f9d",
+      "source_sha256": "5ec678f220d68c23828b6764bf11676ef467a2555ad78682271cc6fde16b9cda",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Read_Stream_String_0065a3a0.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -14233,8 +14261,8 @@
     {
       "entry": 6661264,
       "method": "0065a490",
-      "symbol": "?Read_Stream_Wide@SavegameInformation@@QAEJPAUIStorage@@HPAG@Z",
-      "symbol_prefix": "?Read_Stream_Wide@SavegameInformation@@",
+      "symbol": "?Read_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPAG@Z",
+      "symbol_prefix": "?Read_Stream_Wide@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14280,7 +14308,7 @@
           "resolved": 1291317
         }
       ],
-      "source_sha256": "e1a4b63ea92496dcc3f3753dafed7935f1761bcb4cc3ecade8cf6f4bef6cfe3d",
+      "source_sha256": "a03fe246a2e65c0432b55cc266f0382bd15c8c482a4c491cad3a3a559812026c",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Read_Stream_Wide_0065a490.cpp",
       "population": "population-4432",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -14292,8 +14320,8 @@
     {
       "entry": 6661440,
       "method": "0065a540",
-      "symbol": "?Read_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAD@Z",
-      "symbol_prefix": "?Read_Property_String@SavegameInformation@@",
+      "symbol": "?Read_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAD@Z",
+      "symbol_prefix": "?Read_Property_String@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14331,7 +14359,7 @@
           "resolved": 7971388
         }
       ],
-      "source_sha256": "5a4804d0006f4459eeaa1664161d01526e56e100cf1049546ae6a370ae3b7458",
+      "source_sha256": "0de532b4fa0da0b0c8c51e8227b86f896a194edfd4cb14d35b1741e3d998ceca",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Read_Property_String_0065a540.cpp",
       "population": "population-4432",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -14343,8 +14371,8 @@
     {
       "entry": 6661664,
       "method": "0065a620",
-      "symbol": "?Read_Property_Wide@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAG@Z",
-      "symbol_prefix": "?Read_Property_Wide@SavegameInformation@@",
+      "symbol": "?Read_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAG@Z",
+      "symbol_prefix": "?Read_Property_Wide@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14382,7 +14410,7 @@
           "resolved": 1216326
         }
       ],
-      "source_sha256": "c8f528b4e969fbddaed33f07aaa7b1156a2ecedae9522921e0e51edb7a9794fe",
+      "source_sha256": "6e59f2f2cb0b4f13ba97eee5bf181d5448c974dd95330888f02011dfc27c7a45",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Read_Property_Wide_0065a620.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -14394,8 +14422,8 @@
     {
       "entry": 6661888,
       "method": "0065a700",
-      "symbol": "?Read_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HPAH@Z",
-      "symbol_prefix": "?Read_Stream_Int@SavegameInformation@@",
+      "symbol": "?Read_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HPAH@Z",
+      "symbol_prefix": "?Read_Stream_Int@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14441,7 +14469,7 @@
           "resolved": 1290696
         }
       ],
-      "source_sha256": "2cd1ea95ab0ffabab4ecae27def4ddffc9d86e483ff91445225c2be7125a2f48",
+      "source_sha256": "6a910d14b5a031b53a76600878cab289c958c44b975af10d9bc3387cef61a236",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Read_Stream_Int_0065a700.cpp",
       "population": "population-4432",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -14453,8 +14481,8 @@
     {
       "entry": 6662080,
       "method": "0065a7c0",
-      "symbol": "?Read_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAH@Z",
-      "symbol_prefix": "?Read_Property_Int@SavegameInformation@@",
+      "symbol": "?Read_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAH@Z",
+      "symbol_prefix": "?Read_Property_Int@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14484,7 +14512,7 @@
           "resolved": 1290511
         }
       ],
-      "source_sha256": "01a53c342ced05ec672c5bc2d4650a6079adfe5889241e007d86ac272fbb37d2",
+      "source_sha256": "3fbab2cc8448fdcd7407259fa186531d29d5f029d6c896960a0428d3bc31abc6",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Read_Property_Int_0065a7c0.cpp",
       "population": "population-4432",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -14496,8 +14524,8 @@
     {
       "entry": 6663392,
       "method": "0065ace0",
-      "symbol": "?Write_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HH@Z",
-      "symbol_prefix": "?Write_Stream_Int@SavegameInformation@@",
+      "symbol": "?Write_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HH@Z",
+      "symbol_prefix": "?Write_Stream_Int@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14551,7 +14579,7 @@
           "resolved": 1289138
         }
       ],
-      "source_sha256": "4a872a3780a4a5c27085b36c3bf6f9e68a19a7c531df756c30a301269c04c4f0",
+      "source_sha256": "2d7f58a652d1cbfa2c4b528a967c6b5d7c79ed9203236f34f2031e3e280097a0",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Write_Stream_Int_0065ace0.cpp",
       "population": "population-4432",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14563,8 +14591,8 @@
     {
       "entry": 6663632,
       "method": "0065add0",
-      "symbol": "?Write_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HH@Z",
-      "symbol_prefix": "?Write_Property_Int@SavegameInformation@@",
+      "symbol": "?Write_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HH@Z",
+      "symbol_prefix": "?Write_Property_Int@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14602,7 +14630,7 @@
           "resolved": 1288909
         }
       ],
-      "source_sha256": "f7339900f48057832591bfa76f37c77c8732286a46d6890067a79f69648cbf78",
+      "source_sha256": "f17fbe68ef1ad0e51eea72575814f7bdc84a9347681db5bd1c65c4c3637d4302",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Write_Property_Int_0065add0.cpp",
       "population": "population-4432",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -14614,8 +14642,8 @@
     {
       "entry": 6663872,
       "method": "0065aec0",
-      "symbol": "?Read_Stream_Time@SavegameInformation@@QAEJPAUIStorage@@HPAUFILETIME@@@Z",
-      "symbol_prefix": "?Read_Stream_Time@SavegameInformation@@",
+      "symbol": "?Read_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPAUFILETIME@@@Z",
+      "symbol_prefix": "?Read_Stream_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14661,7 +14689,7 @@
           "resolved": 1288705
         }
       ],
-      "source_sha256": "f78f1c7c35a036c07480fd922ca5027d54f3d0272ee06ffd66e127edaa9cbbfc",
+      "source_sha256": "d96abb7b3f25a17bd876e21c09fb3559af8a77cdf5b58ba3eef720ef0540eaf4",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Read_Stream_Time_0065aec0.cpp",
       "population": "population-4432",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -14673,8 +14701,8 @@
     {
       "entry": 6664064,
       "method": "0065af80",
-      "symbol": "?Read_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
-      "symbol_prefix": "?Read_Property_Time@SavegameInformation@@",
+      "symbol": "?Read_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
+      "symbol_prefix": "?Read_Property_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14704,7 +14732,7 @@
           "resolved": 1288520
         }
       ],
-      "source_sha256": "c3eb9b9da5afccace1a33fbe2eca1fc598e8b31e0e52818682ce1ebce5490775",
+      "source_sha256": "9b4534f90fb0c333d856fe9ee3ed529f94564f741862efcc9543eadd0f27cd4c",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Read_Property_Time_0065af80.cpp",
       "population": "population-4432",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14716,8 +14744,8 @@
     {
       "entry": 6664288,
       "method": "0065b060",
-      "symbol": "?Write_Stream_Time@SavegameInformation@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
-      "symbol_prefix": "?Write_Stream_Time@SavegameInformation@@",
+      "symbol": "?Write_Stream_Time@SaveVersionInfo@@QAEJPAUIStorage@@HPBUFILETIME@@@Z",
+      "symbol_prefix": "?Write_Stream_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14771,7 +14799,7 @@
           "resolved": 1288242
         }
       ],
-      "source_sha256": "25902880840b4f701fa23ec09aec18eb85373e39c0e3cee2abe7a718634d7ae7",
+      "source_sha256": "57cb19df1ed15259ba678a3453985aa8c2aaf23d98656c35895dc41aeb74a06c",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Write_Stream_Time_0065b060.cpp",
       "population": "population-4432",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -14783,8 +14811,8 @@
     {
       "entry": 6664528,
       "method": "0065b150",
-      "symbol": "?Write_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
-      "symbol_prefix": "?Write_Property_Time@SavegameInformation@@",
+      "symbol": "?Write_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBUFILETIME@@@Z",
+      "symbol_prefix": "?Write_Property_Time@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14822,7 +14850,7 @@
           "resolved": 1288000
         }
       ],
-      "source_sha256": "990cdae9d868eb194f61d83ed831b9431a709187072100f1872ec12463ca9037",
+      "source_sha256": "a76bc5d45a2773b787a1f49330018003f69254ae0ea6b2e4e1ec886d11fc0607",
       "source": "src/recovered/classes/SaveLoad/SaveLoad_Write_Property_Time_0065b150.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -14834,8 +14862,8 @@
     {
       "entry": 6662288,
       "method": "0065a890",
-      "symbol": "?Write_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPBD@Z",
-      "symbol_prefix": "?Write_Stream_String@SavegameInformation@@",
+      "symbol": "?Write_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPBD@Z",
+      "symbol_prefix": "?Write_Stream_String@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14905,8 +14933,8 @@
           "resolved": 1290171
         }
       ],
-      "source_sha256": "eb4f79e93cb7039041457a8c18b168cf2e790b94df95e52af0b31ce8360c8071",
-      "source": "src/recovered/classes/SavegameInformation/SaveLoad_Write_Stream_String_0065a890.cpp",
+      "source_sha256": "3c84586f214d6d4e0dc63219fa2ed68b7940b2130b01facaad0b4841471e0b08",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveLoad_Write_Stream_String_0065a890.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -14917,8 +14945,8 @@
     {
       "entry": 6662608,
       "method": "0065a9d0",
-      "symbol": "?Write_Stream_Wide@SavegameInformation@@QAEJPAUIStorage@@HPBG@Z",
-      "symbol_prefix": "?Write_Stream_Wide@SavegameInformation@@",
+      "symbol": "?Write_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPBG@Z",
+      "symbol_prefix": "?Write_Stream_Wide@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -14980,8 +15008,8 @@
           "resolved": 1289904
         }
       ],
-      "source_sha256": "155e002b90c5e07771a315186848380490bdabec864d0230972b796ae326353a",
-      "source": "src/recovered/classes/SavegameInformation/SaveLoad_Write_Stream_Wide_0065a9d0.cpp",
+      "source_sha256": "9d95c65d20a17006af35dcbedc070dff75acbf4c56ce626c0e651c4f9f0a7deb",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveLoad_Write_Stream_Wide_0065a9d0.cpp",
       "population": "population-4432",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -14992,8 +15020,8 @@
     {
       "entry": 6662864,
       "method": "0065aad0",
-      "symbol": "?Write_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBD@Z",
-      "symbol_prefix": "?Write_Property_String@SavegameInformation@@",
+      "symbol": "?Write_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBD@Z",
+      "symbol_prefix": "?Write_Property_String@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -15039,8 +15067,8 @@
           "resolved": 1289631
         }
       ],
-      "source_sha256": "3929cdc6c04ab4a0550312fa8cecfbab6098915bd421fb83b8b2cb6417d32d98",
-      "source": "src/recovered/classes/SavegameInformation/SaveLoad_Write_Property_String_0065aad0.cpp",
+      "source_sha256": "e302c72862ba260e7a931e562ad624b30afa3b39c2b3da08dd33de90fc64ccbd",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveLoad_Write_Property_String_0065aad0.cpp",
       "population": "population-4432",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15051,8 +15079,8 @@
     {
       "entry": 6663152,
       "method": "0065abf0",
-      "symbol": "?Write_Property_Wide@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPBG@Z",
-      "symbol_prefix": "?Write_Property_Wide@SavegameInformation@@",
+      "symbol": "?Write_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPBG@Z",
+      "symbol_prefix": "?Write_Property_Wide@SaveVersionInfo@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -15090,8 +15118,8 @@
           "resolved": 1289389
         }
       ],
-      "source_sha256": "f6d654ba7145228ff67bb62f858c48f8db0387b0ff3490b8c4e4dcade89986d7",
-      "source": "src/recovered/classes/SavegameInformation/SaveLoad_Write_Property_Wide_0065abf0.cpp",
+      "source_sha256": "c8ccf8a37aff8249c47f3d0888eb919d75696c56acd7521e8ff12ec6e4f4062f",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveLoad_Write_Property_Wide_0065abf0.cpp",
       "population": "population-4432",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -15102,8 +15130,8 @@
     {
       "entry": 6658704,
       "method": "00659a90",
-      "symbol": "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z",
-      "symbol_prefix": "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z",
+      "symbol": "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
+      "symbol_prefix": "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -15127,7 +15155,7 @@
         {
           "offset": 91,
           "kind": 20,
-          "symbol": "?Read_Property_Wide@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAG@Z",
+          "symbol": "?Read_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAG@Z",
           "target": 6661664,
           "addend": 0,
           "resolved": 2865
@@ -15143,7 +15171,7 @@
         {
           "offset": 141,
           "kind": 20,
-          "symbol": "?Read_Property_Wide@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAG@Z",
+          "symbol": "?Read_Property_Wide@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAG@Z",
           "target": 6661664,
           "addend": 0,
           "resolved": 2815
@@ -15159,7 +15187,7 @@
         {
           "offset": 221,
           "kind": 20,
-          "symbol": "?Read_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAH@Z",
+          "symbol": "?Read_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAH@Z",
           "target": 6662080,
           "addend": 0,
           "resolved": 3151
@@ -15167,7 +15195,7 @@
         {
           "offset": 275,
           "kind": 20,
-          "symbol": "?Read_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAH@Z",
+          "symbol": "?Read_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAH@Z",
           "target": 6662080,
           "addend": 0,
           "resolved": 3097
@@ -15175,7 +15203,7 @@
         {
           "offset": 335,
           "kind": 20,
-          "symbol": "?Read_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
+          "symbol": "?Read_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
           "target": 6664064,
           "addend": 0,
           "resolved": 5021
@@ -15183,7 +15211,7 @@
         {
           "offset": 395,
           "kind": 20,
-          "symbol": "?Read_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
+          "symbol": "?Read_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
           "target": 6664064,
           "addend": 0,
           "resolved": 4961
@@ -15191,7 +15219,7 @@
         {
           "offset": 455,
           "kind": 20,
-          "symbol": "?Read_Property_Time@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
+          "symbol": "?Read_Property_Time@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAUFILETIME@@@Z",
           "target": 6664064,
           "addend": 0,
           "resolved": 4901
@@ -15199,7 +15227,7 @@
         {
           "offset": 513,
           "kind": 20,
-          "symbol": "?Read_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAD@Z",
+          "symbol": "?Read_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAD@Z",
           "target": 6661440,
           "addend": 0,
           "resolved": 2219
@@ -15207,7 +15235,7 @@
         {
           "offset": 610,
           "kind": 20,
-          "symbol": "?Read_Property_String@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAD@Z",
+          "symbol": "?Read_Property_String@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAD@Z",
           "target": 6661440,
           "addend": 0,
           "resolved": 2122
@@ -15215,7 +15243,7 @@
         {
           "offset": 709,
           "kind": 20,
-          "symbol": "?Read_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAH@Z",
+          "symbol": "?Read_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAH@Z",
           "target": 6662080,
           "addend": 0,
           "resolved": 2663
@@ -15223,7 +15251,7 @@
         {
           "offset": 769,
           "kind": 20,
-          "symbol": "?Read_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAH@Z",
+          "symbol": "?Read_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAH@Z",
           "target": 6662080,
           "addend": 0,
           "resolved": 2603
@@ -15231,7 +15259,7 @@
         {
           "offset": 829,
           "kind": 20,
-          "symbol": "?Read_Property_Int@SavegameInformation@@QAEJPAUIPropertySetStorage@@HPAH@Z",
+          "symbol": "?Read_Property_Int@SaveVersionInfo@@QAEJPAUIPropertySetStorage@@HPAH@Z",
           "target": 6662080,
           "addend": 0,
           "resolved": 2543
@@ -15239,7 +15267,7 @@
         {
           "offset": 890,
           "kind": 20,
-          "symbol": "?Read_Stream_Wide@SavegameInformation@@QAEJPAUIStorage@@HPAG@Z",
+          "symbol": "?Read_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPAG@Z",
           "target": 6661264,
           "addend": 0,
           "resolved": 1666
@@ -15255,7 +15283,7 @@
         {
           "offset": 967,
           "kind": 20,
-          "symbol": "?Read_Stream_Wide@SavegameInformation@@QAEJPAUIStorage@@HPAG@Z",
+          "symbol": "?Read_Stream_Wide@SaveVersionInfo@@QAEJPAUIStorage@@HPAG@Z",
           "target": 6661264,
           "addend": 0,
           "resolved": 1589
@@ -15479,7 +15507,7 @@
         {
           "offset": 1801,
           "kind": 20,
-          "symbol": "?Read_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPAD@Z",
+          "symbol": "?Read_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPAD@Z",
           "target": 6661024,
           "addend": 0,
           "resolved": 515
@@ -15487,7 +15515,7 @@
         {
           "offset": 1894,
           "kind": 20,
-          "symbol": "?Read_Stream_String@SavegameInformation@@QAEJPAUIStorage@@HPAD@Z",
+          "symbol": "?Read_Stream_String@SaveVersionInfo@@QAEJPAUIStorage@@HPAD@Z",
           "target": 6661024,
           "addend": 0,
           "resolved": 422
@@ -15567,7 +15595,7 @@
         {
           "offset": 2256,
           "kind": 20,
-          "symbol": "?Read_Stream_Int@SavegameInformation@@QAEJPAUIStorage@@HPAH@Z",
+          "symbol": "?Read_Stream_Int@SaveVersionInfo@@QAEJPAUIStorage@@HPAH@Z",
           "target": 6661888,
           "addend": 0,
           "resolved": 924
@@ -15581,20 +15609,20 @@
           "resolved": 3885
         }
       ],
-      "source_sha256": "5db4fc238f92fa89a96a3938fce1cb2de42892987533b9714f38df973dd59cae",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Load_00659a90.cpp",
+      "source_sha256": "4958f273e36b41436a68872d81a3fca786989dd35c5c5dcfcda432b7de34940b",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Load_00659a90.cpp",
       "population": "population-4432",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Load_00659a90",
+      "semantic_name": "SaveVersionInfo_Load_00659a90",
       "source_order": 237401
     },
     {
       "entry": 6657024,
       "method": "00659400",
-      "symbol": "?Get_unknown_294@SavegameInformation@@QBEPBDXZ",
-      "symbol_prefix": "?Get_unknown_294@SavegameInformation@@QBEPBDXZ",
+      "symbol": "?Get_Player_Name@SaveVersionInfo@@QBEPBDXZ",
+      "symbol_prefix": "?Get_Player_Name@SaveVersionInfo@@QBEPBDXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -15607,13 +15635,13 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "d66a3e6f5bd97ab2499ad668339e177e2af516b740b6f77e49d9f937f6908e42",
       "relocations": [],
-      "source_sha256": "f80aab107d9a2eb99db0f0e7540b5028e5f4f71268b949ac1fad7c67a9f7b44c",
-      "source": "src/recovered/classes/SavegameInformation/SavegameInformation_Get_unknown_294_00659400.cpp",
+      "source_sha256": "96c88f6a3e71c3a6f3d46c37e89e1a9cb2259fd036acf5f474f45bf753efb846",
+      "source": "src/recovered/classes/SaveVersionInfo/SaveVersionInfo_Get_Player_Name_00659400.cpp",
       "population": "population-4432",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SavegameInformation_Get_unknown_294_00659400",
+      "semantic_name": "SaveVersionInfo_Get_Player_Name_00659400",
       "source_order": 237389
     }
   ]

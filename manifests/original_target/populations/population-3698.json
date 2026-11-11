@@ -4,8 +4,8 @@
     "id": "population-3698",
     "inventory_sha256": "4cc6fbbae277de2aa5f54bc8335844228867de8d5c647826102563b21f7282cf",
     "gaps_sha256": "c1a5b0a01c67f73a667a0934832e35e24f65b9332cee30a2b1637e5383e37462",
-    "historical_population_sha256": "5b848ab46b8bb7e1daf291cd2f366727d9704990ca0bd9fc99065e4a6554e5f8",
-    "historical_acceptance_sha256": "4bd5aa2226da72030bfc23a41ca548d1ee6c4a02f8e07d4b4513e4b8c273984c"
+    "historical_population_sha256": "b5106725cdfa2eb38687758d68c8e854450f0c5a490c5e55aeb13fbfccbf1c4f",
+    "historical_acceptance_sha256": "869da7ac9ccc138baff08b316bcb617ac6428bb2838d4b0afef08361835a321b"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -5236,9 +5236,9 @@
     "?Set_Defaults@UnknownIDSource@@QAEXXZ": 6666288,
     "?Init@SpecialClass@@QAEXXZ": 6861600,
     "?Toggle_Display_Mode_0065c480@@YIX_N@Z": 6669440,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "?Game_CRC@@YI?AVWWCRCEngine@@XZ": 6638736,
     "?Compute_CRC@UnknownIDSource@@QBEXAAVWWCRCEngine@@@Z": 6696448,
     "?Do_Restart_0065e440@@YIXXZ": 6677568,

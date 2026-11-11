@@ -4,8 +4,8 @@
     "id": "population-3046",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "2d5b6fec3d39e72ca937c00a3978a19cf0fab5b932425bcffd2fc60e950646dc",
-    "historical_acceptance_sha256": "36e2ef262e8ef08c3cc049dd60c37fe668a81f8934f1f8f8025f166625ba3f3b"
+    "historical_population_sha256": "dd14e81f4da9560a969068033026a8db1906288d92b168add4a08e1cec1b2cf7",
+    "historical_acceptance_sha256": "c078679125a5d3a5420f014b1de57f7f878746b062ab0a5e2d57cf5c36e0db5e"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2295,7 +2295,7 @@
     "__imp__lstrcatA@8": 7971120,
     "__imp__RegCreateKeyExA@36": 7970840,
     "__imp__RegSetValueExA@24": 7970836,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
     "__imp__RegQueryInfoKeyA@48": 7970816,
     "__imp__RegEnumKeyExA@32": 7970844,
     "__imp__SetupComm@12": 7971176,

@@ -4,8 +4,8 @@
     "id": "population-3557",
     "inventory_sha256": "752a261389b056dfed654cc4a4fac90a3d2b678f8a512208296e3e146cb786d6",
     "gaps_sha256": "e92f0c6628efceee9aafa03e62dcf9e684cecbc02fa332ae065e6348040e27d1",
-    "historical_population_sha256": "b14b37137ac5bbe95b384a7dbadbea58ff4473f446727219578d61ffe2ed3147",
-    "historical_acceptance_sha256": "e983e2b664a801dbab599766878e64f23b944c37e0c5ea79e8e53e8f673f53b5"
+    "historical_population_sha256": "5658a1c33782e34d3f64039f4f711484c5c603d4de566be2712e0b45488a704a",
+    "historical_acceptance_sha256": "039e9c6b7b2938a028b1f9a5782dac95a6c10ff88de2f1331e3bd301dd1e080a"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -7033,9 +7033,9 @@
     "?unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z": 5411920,
     "_?list@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "?unknown_slot30@UnitTypeClass@@UBE?AUCoordStruct@@XZ": 7383728,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "?Game_CRC@@YI?AVWWCRCEngine@@XZ": 6638736,
     "?Compute_CRC@UnknownIDSource@@QBEXAAVWWCRCEngine@@@Z": 6696448,
     "?Do_Restart_0065e440@@YIXXZ": 6677568,
@@ -10490,7 +10490,7 @@
     "??_7?$DynamicVectorClass@PAVRadSiteClass@@@@6B@": 8031076,
     "??_7?$DynamicVectorClass@PAVRadarEventClass@@@@6B@": 8031852,
     "??_7?$DynamicVectorClass@PAUConnectionListStruct@OwnerTalkClass@@@@6B@": 8032236,
-    "?Get_Description@SavegameInformation@@QBEPBGXZ": 6656784,
+    "?Get_Scenario_Description@SaveVersionInfo@@QBEPBGXZ": 6656784,
     "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@": 8027032,
     "??_7?$DynamicVectorClass@UUndoInfoStruct@@@@6B@": 8041740,
     "??_7?$DynamicVectorClass@PAVSpawnManagerClass@@@@6B@": 8042588,

@@ -1,9 +1,9 @@
-// HRESULT SavegameInformation::Read_Property_Time(IPropertySetStorage *storage, int id, FILETIME *time) (0x0065AF80; name hypothesis)
+// HRESULT SaveVersionInfo::Read_Property_Time(IPropertySetStorage *storage, int id, FILETIME *time) (0x0065AF80; name hypothesis)
 // Reads a FILETIME property (VT_FILETIME) of the summary property set.
 #include "shared/savegame_info.hpp"
 #include "shared/com_ptr.hpp"
 
-HRESULT SavegameInformation::Read_Property_Time(IPropertySetStorage *storage, int id, FILETIME *time)
+HRESULT SaveVersionInfo::Read_Property_Time(IPropertySetStorage *storage, int id, FILETIME *time)
 {
     time->dwLowDateTime = 0;
     time->dwHighDateTime = 0;

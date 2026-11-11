@@ -4,8 +4,8 @@
     "id": "population-2704",
     "inventory_sha256": "f16c7c47dcbbacbc90ddca69d2ac7644c8c14a1a75c20182ac97aae659d03dc5",
     "gaps_sha256": "e035fb5d699b2bf6605336a9e1c33698dc5dd5a23622e7c60f887e9d50bdbc4d",
-    "historical_population_sha256": "c0b6248dc4c9f50846f1fe8299078263ca2e18d4d820af6f18bef00933688bf2",
-    "historical_acceptance_sha256": "7253a1660bcaba22c355bb58759c1d57ca15a07c96323cef31b569d07c84811c"
+    "historical_population_sha256": "6b6bab0c20f6caad2ea3c56faa3541584b482170fd4a45fdc51d635a1400ed4c",
+    "historical_acceptance_sha256": "d89f841d0272069aa26ebba3600aee2876aa70062f423a3084e22ed4d2770969"
   },
   "references": {
     "?unknown_hotkeys_832380@@3V?$IndexClass@HPAVCommandClass@@@@A": 8594304,
@@ -1316,7 +1316,7 @@
     "??_7?$VectorClass@PAVVoxelAnimTypeClass@@@@6B@": 8032536,
     "??_7?$VectorClass@PAVSmudgeTypeClass@@@@6B@": 8032568,
     "??_7?$VectorClass@PAVTerrainTypeClass@@@@6B@": 8032600,
-    "?Get_Description@SavegameInformation@@QBEPBGXZ": 6656784,
+    "?Get_Scenario_Description@SaveVersionInfo@@QBEPBGXZ": 6656784,
     "?target@Target_6631a0@@QAEII@Z": 5537904,
     "?Clear@?$DynamicVectorClass@UDiskID@@@@UAEXXZ": 6764496,
     "?ID@?$DynamicVectorClass@UDiskID@@@@UAEHPBUDiskID@@@Z": 6764544,
@@ -3381,9 +3381,9 @@
     "__real@8@3feb8637bd05af6c6800": 8027424,
     "_?list@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "__real@8@3ffd99999a0000000000": 7989832,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "__real@8@bfffc90fdaa22168c000": 8032208,
     "__real@8@40048000000000000000": 8051888,
     "?Release@LocomotionClass@@W3AGKXZ": 4979904,

@@ -1832,6 +1832,20 @@
    "new": "#include \"shared/win32_api.hpp\"\nbool Native_Wait_Pass_Due();   // NATIVE: native/link/native_event_data.cpp\n",
    "why": "Declares the row above's helper (Scout1223).",
    "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Wait_For_Players_00624c10.cpp",
+   "old": "        if (!first_time && !unknown_int_a40d48 && !reconnect_dlg) {\n            Map.Get_Input(input, x, y);\n",
+   "new": "        if (!first_time && !unknown_int_a40d48 && !reconnect_dlg && Native_Wait_Pass_Due()) {   /* NATIVE: only once the frame has stalled, then at most every 33 ms */\n            Map.Get_Input(input, x, y);\n",
+   "why": "Native only: while a network game waits for the other players' frame packets, Wait_For_Players runs input, the tactical AI (edge scrolling) and a render on every pass of its wait loop. On Windows a render took most of a frame; natively the loop spins many times per frame, so edge scrolling ran several times a frame (measured 2.4-3x the single-player rate with Sync_Delay's limit alone, Scout1231). Same rule as Sync_Delay: a pass only once the frame has stalled 100 ms, then at most every 33 ms (native/link/native_event_data.cpp).",
+   "verified": true
+  },
+  {
+   "source": "src/recovered/unowned/Wait_For_Players_00624c10.cpp",
+   "old": "#include \"shared/queue.hpp\"\n",
+   "new": "#include \"shared/queue.hpp\"\nbool Native_Wait_Pass_Due();   // NATIVE: native/link/native_event_data.cpp\n",
+   "why": "Declares the row above's helper (Scout1231).",
+   "verified": true
   }
  ]
 }

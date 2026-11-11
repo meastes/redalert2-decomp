@@ -4,8 +4,8 @@
     "id": "population-4423",
     "inventory_sha256": "a9ad527b4cbb5fd43ae7262065b1362a6ad9c2e0499be6e740db053d9fab8e81",
     "gaps_sha256": "e644196a02f89271f085a570edc3451718a96e3304f002a45457a0a0f2a208b6",
-    "historical_population_sha256": "7f47c35a8de8df2494902a521ab17a2f1deb9088e7415c194f99a61c8418be7f",
-    "historical_acceptance_sha256": "2a216e96b97e31aef833a09311b618526a7f09548df2913bb5ac0ddeb62ee8f3"
+    "historical_population_sha256": "7b9fad1c2f87b0b2aecd40a7ad2be9fc071339a4d8143794234db23c031cc7e3",
+    "historical_acceptance_sha256": "3aed04905d7a060d4207fee792c71e0e65b8f9a35b280adb92cef2921c6541b0"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -5274,9 +5274,9 @@
     "_?list@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "?unknown_slot30@UnitTypeClass@@UBE?AUCoordStruct@@XZ": 7383728,
     "__real@8@3ffd99999a0000000000": 7989832,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "?Game_CRC@@YI?AVWWCRCEngine@@XZ": 6638736,
     "?Compute_CRC@UnknownIDSource@@QBEXAAVWWCRCEngine@@@Z": 6696448,
     "__real@8@bfffc90fdaa22168c000": 8032208,

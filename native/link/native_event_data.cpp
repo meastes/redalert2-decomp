@@ -78,9 +78,12 @@ void *Native_Entry_From_Handle(int handle)
 // Extract_Compressed_Events (draft 0x006282D0) stops at a malformed record and reports the packet
 // here (Scout1223: a stack overrun there ended a two-Mac LAN game). The first eight are logged.
 #include <stdio.h>
+static int g_malformed = 0;
+int Native_Malformed_Count() { return g_malformed; }
 void Native_Malformed(void const *buf, int bufsize, int pos, int type, char const *why)
 {
     static int reported = 0;
+    ++g_malformed;
     if (reported++ >= 8) return;
     fprintf(stderr, "Extract_Compressed_Events: malformed packet (%s) at %d of %d, type 0x%02X:", why, pos, bufsize, type);
     for (int i = 0; i < bufsize && i < 96; ++i) fprintf(stderr, " %02X", ((unsigned char const *)buf)[i]);
@@ -91,10 +94,22 @@ void Native_Malformed(void const *buf, int bufsize, int pos, int type, char cons
 // 33 ms, the time a render took on the original's machines (Scout1223: edge scrolling ran many
 // times a frame natively).
 extern "C" __int64 ra2port_now_ms(void);   // port/src/user32.cpp (steady clock)
+// Scout1231: measured against a skirmish (one input/render pass per game frame, ScrollClass's edge
+// scroll a fixed step per pass), a LAN game still edge-scrolled about three times as fast with the
+// 33 ms limit alone, because a LAN frame here lasts longer than 33 ms (the main loop's pass plus
+// one or two in-wait passes). The in-wait pass is for the wait on a slow peer: it runs only once
+// the frame has stalled (100 ms since the main loop's last frame), then at most every 33 ms, so in
+// normal play a LAN game scrolls at the single-player rate.
+static __int64 g_frame_ms = 0;
+void Native_Note_Frame()
+{
+    g_frame_ms = ra2port_now_ms();
+}
 bool Native_Wait_Pass_Due()
 {
     static __int64 last = 0;
     __int64 now = ra2port_now_ms();
+    if (now - g_frame_ms < 100) return false;
     if (now - last < 33) return false;
     last = now;
     return true;

@@ -1,11 +1,11 @@
-// bool __fastcall Get_Savefile_Info(char const *filename, SavegameInformation &info) (0x00657FA0; name hypothesis)
+// bool __fastcall Get_Savefile_Info(char const *filename, SaveVersionInfo &info) (0x00657FA0; name hypothesis)
 // Opens a saved game's storage and reads its summary.
 #include "shared/com_persist.hpp"
 #include "shared/savegame_info.hpp"
 #include "shared/com_ptr.hpp"
-// @ref ?Load@SavegameInformation@@QAEJPAUIStorage@@@Z=00659a90
+// @ref ?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z=00659a90
 
-bool __fastcall Get_Savefile_Info(char const *filename, SavegameInformation &info)
+bool __fastcall Get_Savefile_Info(char const *filename, SaveVersionInfo &info)
 {
     wchar_t wide[64];
     UnknownComPtr<IStorage, &unknown_uuid_IStorage> storage;

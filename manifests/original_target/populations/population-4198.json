@@ -4,8 +4,8 @@
     "id": "population-4198",
     "inventory_sha256": "306e112bef3fac042712256d4d3afaed4243a54693993cae9c8f97f77228dd0b",
     "gaps_sha256": "811079cfdc960679047d708a2dbb17d3567141f9e2e3120d676e4cfdc0b71d8a",
-    "historical_population_sha256": "6bd7010b85df47b85dc439370a5ecf8637edb183bca66110ea7bca6ed1a64686",
-    "historical_acceptance_sha256": "dbacf7ac272b5cb0c9a6b3e2a10937fbdfff8e90eab6aa09f2806124bc47831f"
+    "historical_population_sha256": "e30bee3bb94c115ac19aa21fdf732f680ca94217a4baa7aa605afa716a7d42b1",
+    "historical_acceptance_sha256": "4626c0d989d13d9297737f268ca9059779a88e54240915a3743a9acf21a092fd"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -3186,7 +3186,7 @@
     "?Unknown_0063C790@@YIXXZ": 6539152,
     "?unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z": 5411920,
     "?unknown_slot30@UnitTypeClass@@UBE?AUCoordStruct@@XZ": 7383728,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
     "?Unknown_005A09E0@@YAXXZ": 5900768,
     "?Unknown_005B7CE0@UnknownSessionA3D29C@@QAEXXZ": 5995744,
     "?unknown_session_a3d55c@@3HA": 10736988,
@@ -5069,7 +5069,7 @@
     "?Load@SmudgeTypeClass@@UAGJPAUIStream@@@Z": 6849296,
     "?Read_INI@TerrainTypeClass@@UAE_NAAVCCINIClass@@@Z": 7231024,
     "?Load@TerrainTypeClass@@UAGJPAUIStream@@@Z": 7231824,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
     "?Load@UnknownIDSource@@QAEXPAUIStream@@@Z": 6688960,
     "?Load@TerrainClass@@UAGJPAUIStream@@@Z": 7226736,
     "??0BitFontClass@@QAE@PBD@Z": 4395072,
@@ -7502,7 +7502,7 @@
     "?Resume_Game_0065c420@@YAXXZ": 6669344,
     "?Set_Defaults@UnknownIDSource@@QAEXXZ": 6666288,
     "?Toggle_Display_Mode_0065c480@@YIX_N@Z": 6669440,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "?Game_CRC@@YI?AVWWCRCEngine@@XZ": 6638736,
     "?Compute_CRC@UnknownIDSource@@QBEXAAVWWCRCEngine@@@Z": 6696448,
     "?Do_Restart_0065e440@@YIXXZ": 6677568,

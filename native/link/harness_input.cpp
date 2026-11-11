@@ -17,6 +17,7 @@
 #include "shared/house.hpp"
 #include "shared/tactical.hpp"
 #include <stdlib.h>
+#include <stdio.h>
 
 class TechnoClass;
 extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.hpp)
@@ -122,6 +123,7 @@ int Resolve(char const *spec, int *x, int *y)
 int const registered = (ra2port_set_point_resolver(Resolve), 0);
 }  // namespace
 
+int Native_Session_Message_Count();   // harness_event_test.cpp
 // Called by the frame seam (harness_skirmish.cpp) after each Main_Loop frame.
 void Native_Harness_Input(int frame)
 {
@@ -133,6 +135,11 @@ void Native_Harness_Input(int frame)
     }
     bool last = frame == ra2port_skirmish_frames();
     if ((!last && (every <= 0 || frame % every != 0)) || unknown_player_a35db4 == 0) return;
+    {
+        // The view position too (Scout1231: scroll-rate measurements; stderr, so RA2.app runs log it).
+        Point2D view = unknown_tactical_83996c ? unknown_tactical_83996c->Unknown_006A67B0() : Point2D(0, 0);
+        fprintf(stderr, "harness-view %d @%d,%d msgs %d\n", frame, view.X, view.Y, Native_Session_Message_Count());
+    }
     static char names[64][24];
     static int named = 0;
     char const *milestone = "harness-input";

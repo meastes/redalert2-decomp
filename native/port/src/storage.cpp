@@ -2,7 +2,7 @@
 // native M15): StgCreateDocfile/StgOpenStorage, IStorage, IStream,
 // IPropertySetStorage/IPropertyStorage and OleSaveToStream/OleLoadFromStream,
 // as far as the game's save code calls them (SaveLoad.cpp Save_Game 0x006554A0,
-// Load_Game 0x00656890, SavegameInformation 0x00659530/0x00659A90; slot
+// Load_Game 0x00656890, SaveVersionInfo 0x00659530/0x00659A90; slot
 // orders as in the Win32 SDK's objidl.h/propidl.h).
 //
 // A storage is one host file in the port's own container format (not the

@@ -1,8 +1,8 @@
-// SavegameInformation: the summary stored with a saved game (a property
+// SaveVersionInfo (TibSun savever.h; mischa85 savever.h): the summary stored with a saved game (a property
 // set read by 0x00659A90 and written by 0x00659530; 0x3F4 bytes, layout from
 // the constructor 0x00659240 and the accessors 0x006592B0-0x00659526).
-// Class and member names are hypotheses (Yuri's Revenge reference names
-// the class SavegameInformation).
+// Member and field names follow TibSun savever.h at the same offsets (mischa85's
+// names.csv agrees at every address); the wide strings and the by-reference times are RA2's.
 #ifndef RA2_SHARED_SAVEGAME_INFO_HPP
 #define RA2_SHARED_SAVEGAME_INFO_HPP
 
@@ -78,7 +78,7 @@ inline wchar_t const *__fastcall Savegame_Stream_Name(int id)
     return 0;
 }
 extern "C" GUID const unknown_fmtid_7afd60;     // 0x007AFD60 (the summary property set)
-extern "C" GUID const IID_IPropertySetStorage;      // 0x007AFD50 (SavegameInformation::Save queries the storage)
+extern "C" GUID const IID_IPropertySetStorage;      // 0x007AFD50 (SaveVersionInfo::Save queries the storage)
 extern "C" GUID const unknown_uuid_IPropertySetStorage;   // (not referenced)
 extern "C" GUID const unknown_uuid_IStorage;    // (not referenced: Get_Savefile_Info's pointer never queries)
 extern "C" GUID const unknown_uuid_IStream;     // (not referenced: the pointers below never query)
@@ -87,70 +87,70 @@ extern "C" GUID const unknown_uuid_IPropertyStorage;
 extern "C" unsigned __cdecl wcslen(wchar_t const *string);
 extern "C" GUID const unknown_uuid_IFullStream;
 
-class SavegameInformation {
+class SaveVersionInfo {
 public:
-    SavegameInformation();                                      // 0x00659240
+    SaveVersionInfo();                                          // 0x00659240
     long Load(IStorage *storage);                               // 0x00659A90 (HRESULT; the summary property set)
     long Save(IStorage *storage);                               // 0x00659530 (HRESULT; properties, then streams)
 
     // Summary values as streams of the storage or as properties of its
     // summary property set (ids: unknown_savegame_streams_7f1c10).
-    HRESULT Read_Stream_String(IStorage *storage, int id, char *buffer);   // 0x0065A3A0
-    HRESULT Read_Stream_Wide(IStorage *storage, int id, wchar_t *buffer);   // 0x0065A490
-    HRESULT Read_Property_String(IPropertySetStorage *storage, int id, char *buffer);   // 0x0065A540
-    HRESULT Read_Property_Wide(IPropertySetStorage *storage, int id, wchar_t *buffer);   // 0x0065A620
-    HRESULT Read_Stream_Int(IStorage *storage, int id, int *value);   // 0x0065A700
-    HRESULT Read_Property_Int(IPropertySetStorage *storage, int id, int *value);   // 0x0065A7C0
-    HRESULT Read_Stream_Time(IStorage *storage, int id, FILETIME *time);   // 0x0065AEC0
-    HRESULT Read_Property_Time(IPropertySetStorage *storage, int id, FILETIME *time);   // 0x0065AF80
-    HRESULT Write_Stream_String(IStorage *storage, int id, char const *text);   // 0x0065A890
-    HRESULT Write_Stream_Wide(IStorage *storage, int id, wchar_t const *text);   // 0x0065A9D0
-    HRESULT Write_Property_String(IPropertySetStorage *storage, int id, char const *text);   // 0x0065AAD0
-    HRESULT Write_Property_Wide(IPropertySetStorage *storage, int id, wchar_t const *text);   // 0x0065ABF0
-    HRESULT Write_Stream_Int(IStorage *storage, int id, int value);   // 0x0065ACE0
-    HRESULT Write_Property_Int(IPropertySetStorage *storage, int id, int value);   // 0x0065ADD0
-    HRESULT Write_Stream_Time(IStorage *storage, int id, FILETIME const *time);   // 0x0065B060 (hypothesis: by pointer)
-    HRESULT Write_Property_Time(IPropertySetStorage *storage, int id, FILETIME const *time);   // 0x0065B150
+    HRESULT Read_Stream_String(IStorage *storage, int id, char *buffer); // 0x0065A3A0
+    HRESULT Read_Stream_Wide(IStorage *storage, int id, wchar_t *buffer); // 0x0065A490
+    HRESULT Read_Property_String(IPropertySetStorage *storage, int id, char *buffer); // 0x0065A540
+    HRESULT Read_Property_Wide(IPropertySetStorage *storage, int id, wchar_t *buffer); // 0x0065A620
+    HRESULT Read_Stream_Int(IStorage *storage, int id, int *value); // 0x0065A700
+    HRESULT Read_Property_Int(IPropertySetStorage *storage, int id, int *value); // 0x0065A7C0
+    HRESULT Read_Stream_Time(IStorage *storage, int id, FILETIME *time); // 0x0065AEC0
+    HRESULT Read_Property_Time(IPropertySetStorage *storage, int id, FILETIME *time); // 0x0065AF80
+    HRESULT Write_Stream_String(IStorage *storage, int id, char const *text); // 0x0065A890
+    HRESULT Write_Stream_Wide(IStorage *storage, int id, wchar_t const *text); // 0x0065A9D0
+    HRESULT Write_Property_String(IPropertySetStorage *storage, int id, char const *text); // 0x0065AAD0
+    HRESULT Write_Property_Wide(IPropertySetStorage *storage, int id, wchar_t const *text); // 0x0065ABF0
+    HRESULT Write_Stream_Int(IStorage *storage, int id, int value); // 0x0065ACE0
+    HRESULT Write_Property_Int(IPropertySetStorage *storage, int id, int value); // 0x0065ADD0
+    HRESULT Write_Stream_Time(IStorage *storage, int id, FILETIME const *time); // 0x0065B060 (hypothesis: by pointer)
+    HRESULT Write_Property_Time(IPropertySetStorage *storage, int id, FILETIME const *time); // 0x0065B150
 
-    void Set_unknown_04(int value);        // 0x006592B0
-    int Get_unknown_04() const;             // 0x006592C0
-    void Set_unknown_00(int value);        // 0x006592D0
-    int Get_unknown_00() const;             // 0x006592E0
-    void Set_Description(wchar_t const *text);                  // 0x006592F0
-    wchar_t const *Get_Description() const;                     // 0x00659310
-    void Set_Player_Name(wchar_t const *text);                  // 0x00659320
-    wchar_t const *Get_Player_Name() const;                     // 0x00659350
-    void Set_unknown_188(int value);                            // 0x00659360
-    int Get_unknown_188() const;                                // 0x00659370
-    void Set_unknown_18c(int value);                            // 0x00659380
-    int Get_unknown_18c() const;                                // 0x00659390
-    void Set_unknown_190(char const *text);                     // 0x006593A0
-    char const *Get_unknown_190() const;                        // 0x006593D0
-    void Set_unknown_294(char const *text);                     // 0x006593E0
-    char const *Get_unknown_294() const;                        // 0x00659400
-    void Set_unknown_2d4(char const *text);                     // 0x00659410
-    char const *Get_unknown_2d4() const;                        // 0x00659440
+    void Set_Version(int value);                                // 0x006592B0
+    int Get_Version() const;                                    // 0x006592C0
+    void Set_Internal_Version(int value);                       // 0x006592D0
+    int Get_Internal_Version() const;                           // 0x006592E0
+    void Set_Scenario_Description(wchar_t const *text);         // 0x006592F0
+    wchar_t const *Get_Scenario_Description() const;            // 0x00659310
+    void Set_Player_House(wchar_t const *text);                 // 0x00659320
+    wchar_t const *Get_Player_House() const;                    // 0x00659350
+    void Set_Campaign_Number(int value);                        // 0x00659360
+    int Get_Campaign_Number() const;                            // 0x00659370
+    void Set_Scenario_Number(int value);                        // 0x00659380
+    int Get_Scenario_Number() const;                            // 0x00659390
+    void Set_Unknown_String(char const *text);                  // 0x006593A0
+    char const *Get_Unknown_String() const;                     // 0x006593D0
+    void Set_Player_Name(char const *text);                     // 0x006593E0
+    char const *Get_Player_Name() const;                        // 0x00659400
+    void Set_Executable_Name(char const *text);                 // 0x00659410
+    char const *Get_Executable_Name() const;                    // 0x00659440
     void Set_Start_Time(FILETIME const &time);                  // 0x00659450
     void Get_Start_Time(FILETIME &time) const;                  // 0x00659470
-    void Set_Save_Time(FILETIME const &time);                   // 0x00659490
-    void Get_Save_Time(FILETIME &time) const;                   // 0x006594B0
-    void Set_Play_Time(FILETIME const &time);                   // 0x006594D0
-    void Get_Play_Time(FILETIME &time) const;                   // 0x006594F0
+    void Set_Play_Time(FILETIME const &time);                   // 0x00659490
+    void Get_Play_Time(FILETIME &time) const;                   // 0x006594B0
+    void Set_Last_Time(FILETIME const &time);                   // 0x006594D0
+    void Get_Last_Time(FILETIME &time) const;                   // 0x006594F0
     void Set_Game_Type(int type);                               // 0x00659510
     int Get_Game_Type() const;                                  // 0x00659520 (the game mode at 0x00A3D298)
 
-    int unknown_00;                         // +0x000
-    int unknown_04;                         // +0x004
-    wchar_t Description[0x80];              // +0x008
-    wchar_t PlayerName[0x40];               // +0x108
-    int unknown_188;                        // +0x188 (-1)
-    int unknown_18c;                        // +0x18C
-    char unknown_190[0x104];                // +0x190
-    char unknown_294[0x40];                 // +0x294
-    char unknown_2d4[0x104];                // +0x2D4
-    FILETIME StartTime;                     // +0x3D8 (hypothesis)
-    FILETIME SaveTime;                      // +0x3E0 (hypothesis)
-    FILETIME PlayTime;                      // +0x3E8 (hypothesis)
+    int InternalVersion;                    // +0x000
+    int Version;                            // +0x004
+    wchar_t ScenarioDescription[0x80];      // +0x008
+    wchar_t PlayerHouse[0x40];              // +0x108
+    int CampaignNumber;                     // +0x188 (-1)
+    int ScenarioNumber;                     // +0x18C
+    char UnknownString[0x104];              // +0x190
+    char PlayerName[0x40];                  // +0x294
+    char ExecutableName[0x104];             // +0x2D4
+    FILETIME StartTime;                     // +0x3D8
+    FILETIME PlayTime;                      // +0x3E0
+    FILETIME LastSaveTime;                  // +0x3E8
     int GameType;                           // +0x3F0
 };
 
@@ -160,7 +160,7 @@ extern "C" __declspec(dllimport) HRESULT __stdcall StgOpenStorage(wchar_t const 
 
 // The SaveLoad.cpp unit's free functions (names hypotheses).
 HRESULT __fastcall Skip_Objects(IStream *stream);                                  // 0x00654C40
-class SavegameInformation;
-bool __fastcall Get_Savefile_Info(char const *filename, SavegameInformation &info); // 0x00657FA0
+class SaveVersionInfo;
+bool __fastcall Get_Savefile_Info(char const *filename, SaveVersionInfo &info); // 0x00657FA0
 
 #endif

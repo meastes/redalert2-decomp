@@ -1,6 +1,6 @@
 // bool __fastcall Unknown_006554A0(char const *filename, wchar_t const *description, int unknown) (0x006554A0;
 // TibSun saveload.cpp Save_Game)
-// Creates the save file, writes its summary (SavegameInformation 0x00659530), then writes everything
+// Creates the save file, writes its summary (SaveVersionInfo 0x00659530), then writes everything
 // (Put_All 0x006558B0) to its CONTENTS stream through a compressing link stream and commits the file.
 // The DebugString lines (release-build empty inlines, shared/saveload_lists.hpp) are TibSun's up to the
 // content stream; with them the inline budget is the original's (hypothesis: RA2 drops the later
@@ -37,20 +37,20 @@ bool __fastcall Unknown_006554A0(char const *filename, wchar_t const *descriptio
         return false;
     }
 
-    SavegameInformation info;
-    info.Set_unknown_00(unknown_savegame_version_7f1b18);
-    info.Set_Description(description);
-    info.Set_unknown_04(1);
-    info.Set_Player_Name(unknown_player_a35db4->Type->UIName);
-    info.Set_unknown_188(unknown_id_source_a3d290->unknown_224c);
-    info.Set_unknown_18c(unknown_id_source_a3d290->TechLevel);
-    info.Set_unknown_2d4("SUN.EXE");
+    SaveVersionInfo info;
+    info.Set_Internal_Version(unknown_savegame_version_7f1b18);
+    info.Set_Scenario_Description(description);
+    info.Set_Version(1);
+    info.Set_Player_House(unknown_player_a35db4->Type->UIName);
+    info.Set_Campaign_Number(unknown_id_source_a3d290->unknown_224c);
+    info.Set_Scenario_Number(unknown_id_source_a3d290->TechLevel);
+    info.Set_Executable_Name("SUN.EXE");
     info.Set_Game_Type(unknown_game_mode_a3d298);
     FILETIME time;
     CoFileTimeNow(&time);
-    info.Set_Play_Time(time);
+    info.Set_Last_Time(time);
     info.Set_Start_Time(time);
-    info.Set_Save_Time(time);
+    info.Set_Play_Time(time);
     DebugString("Saving version information\n");
     info.Save(storage);
 

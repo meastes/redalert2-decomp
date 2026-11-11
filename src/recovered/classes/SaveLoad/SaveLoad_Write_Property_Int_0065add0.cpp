@@ -1,10 +1,10 @@
-// HRESULT SavegameInformation::Write_Property_Int(IPropertySetStorage *storage, int id, int value) (0x0065ADD0; name hypothesis)
+// HRESULT SaveVersionInfo::Write_Property_Int(IPropertySetStorage *storage, int id, int value) (0x0065ADD0; name hypothesis)
 // Writes a property of the summary property set (creating the set when
 // it cannot be opened).
 #include "shared/savegame_info.hpp"
 #include "shared/com_ptr.hpp"
 
-HRESULT SavegameInformation::Write_Property_Int(IPropertySetStorage *storage, int id, int value)
+HRESULT SaveVersionInfo::Write_Property_Int(IPropertySetStorage *storage, int id, int value)
 {
     UnknownComPtr<IPropertyStorage, &unknown_uuid_IPropertyStorage> property;
     if (FAILED(storage->Open(unknown_fmtid_7afd60, 0x12, &property))) {

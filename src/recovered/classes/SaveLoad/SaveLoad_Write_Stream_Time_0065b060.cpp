@@ -1,9 +1,9 @@
-// HRESULT SavegameInformation::Write_Stream_Time(IStorage *storage, int id, FILETIME const *time) (0x0065B060; name hypothesis)
+// HRESULT SaveVersionInfo::Write_Stream_Time(IStorage *storage, int id, FILETIME const *time) (0x0065B060; name hypothesis)
 // Writes a summary value as its own stream and commits it.
 #include "shared/savegame_info.hpp"
 #include "shared/com_ptr.hpp"
 
-HRESULT SavegameInformation::Write_Stream_Time(IStorage *storage, int id, FILETIME const *time)
+HRESULT SaveVersionInfo::Write_Stream_Time(IStorage *storage, int id, FILETIME const *time)
 {
     UnknownComPtr<IFullStream, &unknown_uuid_IFullStream> stream;
     HRESULT result = storage->CreateStream(Savegame_Stream_Name(id), 0x12, 0, 0, (IStream **)&stream);

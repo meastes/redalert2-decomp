@@ -101,7 +101,7 @@
 | [classes/Matrix3D](../src/recovered/classes/Matrix3D/) | 42 | 5,556 | 42 | 0x0058FDE0–0x00591420 |
 | [classes/InfantryTypeClass](../src/recovered/classes/InfantryTypeClass/) | 27 | 5,453 | 27 | 0x004D3E10–0x0050AF90 |
 | [classes/VocClass](../src/recovered/classes/VocClass/) | 26 | 5,339 | 26 | 0x00713790–0x00714D10 |
-| [classes/SavegameInformation](../src/recovered/classes/SavegameInformation/) | 33 | 5,298 | 33 | 0x00659240–0x0065ABF0 |
+| [classes/SaveVersionInfo](../src/recovered/classes/SaveVersionInfo/) | 33 | 5,298 | 33 | 0x00659240–0x0065ABF0 |
 | [classes/UDPInterfaceClass](../src/recovered/classes/UDPInterfaceClass/) | 24 | 5,289 | 24 | 0x0076C050–0x0076D460 |
 | [classes/FirewallSettings](../src/recovered/classes/FirewallSettings/) | 14 | 5,273 | 14 | 0x005B9E40–0x005BAF50 |
 | [classes/HouseTypeClass](../src/recovered/classes/HouseTypeClass/) | 24 | 5,209 | 24 | 0x004D3890–0x004FB6D0 |

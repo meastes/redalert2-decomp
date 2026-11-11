@@ -4,8 +4,8 @@
     "id": "population-3479",
     "inventory_sha256": "77a448df21360e20e42a6fcc24dfef47525ec671c5d78ea1996f597fc33430f8",
     "gaps_sha256": "3d709b33ffd7880c68b9bf7fe0b8bae3e28003065de7050d5d6bf7d1ed88c7ca",
-    "historical_population_sha256": "96da1aa85293d0e3c5cd8b19bb5b14a2d230548369e5fc0b23ffccb6c6b782df",
-    "historical_acceptance_sha256": "e16e031d0690871a2aa88dd34f3f4378520464360e38861e7976ec2034483077"
+    "historical_population_sha256": "120cf53d2278824a9739f1f954c4c7978997bb282a457f5b881240963aa7174a",
+    "historical_acceptance_sha256": "f05008390c0ebbd65438f776d57a1e347835e12d21676cf8bdd5c735b86045fc"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -1583,8 +1583,8 @@
     "?Load@SmudgeTypeClass@@UAGJPAUIStream@@@Z": 6849296,
     "?Load@TerrainTypeClass@@UAGJPAUIStream@@@Z": 7231824,
     "?Init@SpecialClass@@QAEXXZ": 6861600,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
     "?Init@ProgressScreenClass@@QAEXNDPAUHWND__@@@Z": 6417792,
     "?Load@UnknownIDSource@@QAEXPAUIStream@@@Z": 6688960,
     "?Draw_It@ProgressScreenClass@@QAEXUPoint2D@@@Z": 6422608,

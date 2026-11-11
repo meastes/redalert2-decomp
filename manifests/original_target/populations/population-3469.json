@@ -4,8 +4,8 @@
     "id": "population-3469",
     "inventory_sha256": "1a51853dfd82682b6af93b90293ccba5210b8a951412b468bfb1f1ed14fbc3ab",
     "gaps_sha256": "ee33637ef51c177eeeaef3469ca47f18d9415d26999b1c82ae40077c7c6a6e6c",
-    "historical_population_sha256": "25b001952a9914587f69772815b32b064984484591a49079c65f4e595d9efc22",
-    "historical_acceptance_sha256": "13c45cea525058e6cad3b0c1cb50880e49ed6077859cfb57c800dd99166e0e92"
+    "historical_population_sha256": "65394d3c4ae8b0b188d7f61b84a41dd6ded2790c1341b6289c70432acd696389",
+    "historical_acceptance_sha256": "69d591f6c10cd8e70c699dc49599525e6da4076fb7169bca8c6ea02faaf9705d"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2928,7 +2928,7 @@
     "__imp__lstrcatA@8": 7971120,
     "__imp__RegCreateKeyExA@36": 7970840,
     "__imp__RegSetValueExA@24": 7970836,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
     "__imp__RegQueryInfoKeyA@48": 7970816,
     "__imp__RegEnumKeyExA@32": 7970844,
     "__imp__SetupComm@12": 7971176,
@@ -7417,8 +7417,8 @@
     "??0EventClass@@QAE@HHHHHABVCell@@@Z": 4940784,
     "?Set_Defaults@UnknownIDSource@@QAEXXZ": 6666288,
     "?Toggle_Display_Mode_0065c480@@YIX_N@Z": 6669440,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "?Game_CRC@@YI?AVWWCRCEngine@@XZ": 6638736,
     "?Compute_CRC@UnknownIDSource@@QBEXAAVWWCRCEngine@@@Z": 6696448,
     "?Do_Restart_0065e440@@YIXXZ": 6677568,

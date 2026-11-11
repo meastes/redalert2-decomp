@@ -28,7 +28,7 @@ bool __fastcall Unknown_00656890(char const *filename)
 {
     wchar_t name[64];
     Debug_Printf("\nLOADING GAME [%s]\n", filename);
-    SavegameInformation info;
+    SaveVersionInfo info;
     if (!Get_Savefile_Info(filename, info)) {
         return false;
     }

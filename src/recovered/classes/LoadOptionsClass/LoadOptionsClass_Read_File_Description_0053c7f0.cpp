@@ -4,14 +4,14 @@
 // 0x007F1B18 is flagged NeedsDescription.
 #include "shared/load_dlg.hpp"
 #include "shared/crt_string.hpp"
-// @ref ?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z=00657fa0
-// @ref ??0SavegameInformation@@QAE@XZ=00659240
-// @ref ?Get_unknown_00@SavegameInformation@@QBEHXZ=006592e0
-// @ref ?Get_Description@SavegameInformation@@QBEPBGXZ=00659310
-// @ref ?Get_unknown_18c@SavegameInformation@@QBEHXZ=00659390
-// @ref ?Get_unknown_188@SavegameInformation@@QBEHXZ=00659370
-// @ref ?Get_Game_Type@SavegameInformation@@QBEHXZ=00659520
-// @ref ?Get_Player_Name@SavegameInformation@@QBEPBGXZ=00659350
+// @ref ?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z=00657fa0
+// @ref ??0SaveVersionInfo@@QAE@XZ=00659240
+// @ref ?Get_unknown_00@SaveVersionInfo@@QBEHXZ=006592e0
+// @ref ?Get_Description@SaveVersionInfo@@QBEPBGXZ=00659310
+// @ref ?Get_unknown_18c@SaveVersionInfo@@QBEHXZ=00659390
+// @ref ?Get_unknown_188@SaveVersionInfo@@QBEHXZ=00659370
+// @ref ?Get_Game_Type@SaveVersionInfo@@QBEHXZ=00659520
+// @ref ?Get_Player_Name@SaveVersionInfo@@QBEPBGXZ=00659350
 // @ref ?unknown_savegame_version_7f1b18@@3HA=007f1b18
 // @ref _wcscpy=00783689
 // @ref __stricmp=00781f20
@@ -26,22 +26,22 @@ bool LoadOptionsClass::Read_File_Description(FileEntryClass *entry, WIN32_FIND_D
     if (entry || find) {
         char const *filename = find->cFileName;
         if (_stricmp(filename, "SAVEGAME.NET") != 0) {
-            SavegameInformation info;
+            SaveVersionInfo info;
             bool valid = Get_Savefile_Info(filename, info);
             if (valid) {
-                if (info.Get_unknown_00() != unknown_savegame_version_7f1b18) {
-                    wcscpy(entry->Description, info.Get_Description());
+                if (info.Get_Internal_Version() != unknown_savegame_version_7f1b18) {
+                    wcscpy(entry->Description, info.Get_Scenario_Description());
                     entry->NeedsDescription = true;
                 } else {
-                    wcscpy(entry->Description, info.Get_Description());
+                    wcscpy(entry->Description, info.Get_Scenario_Description());
                     entry->NeedsDescription = false;
                 }
                 entry->HasDescription = valid;
-                entry->unknown_120 = info.Get_unknown_18c();
-                entry->unknown_1a8 = info.Get_unknown_188();
+                entry->unknown_120 = info.Get_Scenario_Number();
+                entry->unknown_1a8 = info.Get_Campaign_Number();
                 entry->unknown_1b8 = info.Get_Game_Type();
                 strcpy(entry->Filename, filename);
-                wcscpy((wchar_t *)entry->unknown_128, info.Get_Player_Name());
+                wcscpy((wchar_t *)entry->unknown_128, info.Get_Player_House());
                 if (strlen(entry->Filename) == 0) {
                     strcpy(entry->Filename, find->cAlternateFileName);
                 }

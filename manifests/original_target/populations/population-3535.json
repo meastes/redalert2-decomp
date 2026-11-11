@@ -4,8 +4,8 @@
     "id": "population-3535",
     "inventory_sha256": "33e2e3b474ca35cc95f363b5183df6a309e72125267c8bd3a96dd58ef6446b53",
     "gaps_sha256": "3e39a793287a62b23966c855f51f4c6333608c78a1925dc3afb459f1b9429eb7",
-    "historical_population_sha256": "728382ff62fa4f6eea04dd30e9a70541c73f76e73c66adb110096b0677db9397",
-    "historical_acceptance_sha256": "da2925d064803e9e53c0878f3643a6078303a3618153d813b47329f77a8d8b72"
+    "historical_population_sha256": "f1d0efebfd3f409d6ba993afb8f8612f8f36a2d03e2faf5ebe8f7b185c31e21f",
+    "historical_acceptance_sha256": "b1bfd3033eb31f22e20996c94434292044838c95bcb10f6ba784e9f1e2261076"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -2597,9 +2597,9 @@
     "__real@8@3feb8637bd05af6c6800": 8027424,
     "_?list@?1??unknown_slot36@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "__real@8@3ffd99999a0000000000": 7989832,
-    "?Get_Savefile_Info@@YI_NPBDAAVSavegameInformation@@@Z": 6651808,
-    "?Load@SavegameInformation@@QAEJPAUIStorage@@@Z": 6658704,
-    "?Save@SavegameInformation@@QAEJPAUIStorage@@@Z": 6657328,
+    "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
+    "?Load@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6658704,
+    "?Save@SaveVersionInfo@@QAEJPAUIStorage@@@Z": 6657328,
     "__real@8@bfffc90fdaa22168c000": 8032208,
     "__real@8@40048000000000000000": 8051888,
     "?Release@LocomotionClass@@W3AGKXZ": 4979904,

@@ -1,9 +1,9 @@
-// HRESULT SavegameInformation::Read_Property_String(IPropertySetStorage *storage, int id, char *buffer) (0x0065A540; name hypothesis)
+// HRESULT SaveVersionInfo::Read_Property_String(IPropertySetStorage *storage, int id, char *buffer) (0x0065A540; name hypothesis)
 // Reads a wide-string property of the summary property set.
 #include "shared/savegame_info.hpp"
 #include "shared/com_ptr.hpp"
 
-HRESULT SavegameInformation::Read_Property_String(IPropertySetStorage *storage, int id, char *buffer)
+HRESULT SaveVersionInfo::Read_Property_String(IPropertySetStorage *storage, int id, char *buffer)
 {
     buffer[0] = 0;
     UnknownComPtr<IPropertyStorage, &unknown_uuid_IPropertyStorage> property;
