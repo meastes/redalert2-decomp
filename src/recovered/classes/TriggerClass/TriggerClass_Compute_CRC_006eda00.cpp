@@ -5,11 +5,11 @@ void TriggerClass::Compute_CRC(WWCRCEngine &crc) const
 {
     AbstractClass::Compute_CRC(crc);
     crc(Class->Fetch_ID());
-    if (Next != 0) {
-        crc(Next->Fetch_ID());
+    if (LinkedTo != 0) {
+        crc(LinkedTo->Fetch_ID());
     }
     crc((char)IsToDelete);
-    crc((char)IsEnabled);
+    crc((char)IsActive);
     crc(Timer.Value());
-    crc((long)Events);
+    crc((long)IsTripped);
 }

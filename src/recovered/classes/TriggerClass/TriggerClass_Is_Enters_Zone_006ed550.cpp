@@ -4,8 +4,8 @@
 
 bool TriggerClass::Is_Enters_Zone() const
 {
-    if (Next != 0) {
-        return Class->Is_Enters_Zone() || Next->Class->Is_Enters_Zone();
+    if (LinkedTo != 0) {
+        return Class->Is_Enters_Zone() || LinkedTo->Class->Is_Enters_Zone();
     }
     return Class->Is_Enters_Zone();
 }

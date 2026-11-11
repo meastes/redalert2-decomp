@@ -1,6 +1,6 @@
 // bool TEventClass::unknown_func_6e6cf0() const (0x006E6CF0)
 // TS's TEventClass::Is_Time_Based: the events that fire only when the caller
-// reports them (TriggerClass::Spring 0x006ED740 marks them).
+// reports them (TriggerClass::Should_Spring 0x006ED740 marks them).
 #include "shared/object.hpp"
 
 bool TEventClass::unknown_func_6e6cf0() const

@@ -4,8 +4,8 @@
 
 bool TriggerClass::Is_Cross_Horizontal() const
 {
-    if (Next != 0) {
-        return Class->Is_Cross_Horizontal() || Next->Is_Cross_Horizontal();
+    if (LinkedTo != 0) {
+        return Class->Is_Cross_Horizontal() || LinkedTo->Is_Cross_Horizontal();
     }
     return Class->Is_Cross_Horizontal();
 }

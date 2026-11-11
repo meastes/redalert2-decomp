@@ -4,7 +4,7 @@
 
 bool TagClass::Is_To_Inherit() const
 {
-    for (TriggerClass *trigger = Trigger; trigger != 0; trigger = trigger->Next) {
+    for (TriggerClass *trigger = Trigger; trigger != 0; trigger = trigger->LinkedTo) {
         if (trigger->Class->IsToInherit) {
             return true;
         }

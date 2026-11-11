@@ -4,11 +4,11 @@
 //
 // Layout (from the constructor 0x006ED220; names are hypotheses):
 //   +0x00  AbstractClass (0x24)
-//   +0x24  TriggerTypeClass *Class, +0x28 TriggerClass *Next (a tag's
+//   +0x24  TriggerTypeClass *Class, +0x28 TriggerClass *LinkedTo (a tag's
 //          chain), +0x2C bool (queued for removal)
 //   +0x30  CDTimerClass<FrameTimerClass> Timer
-//   +0x3C  int Events (one bit per event of the type; set when it fired)
-//   +0x40  bool IsEnabled (true)
+//   +0x3C  int IsTripped (one bit per event of the type; set when it fired)
+//   +0x40  bool IsActive (true)
 //   size 0x44
 // Every trigger is added to Triggers (0x00A40AA0) and the abstract lists
 // 0x00AC0CB0 and 0x00AC0D48.
@@ -48,28 +48,28 @@ public:
     bool Is_Linked_To_Global(int value) const;                          // 0x006ED5D0 (this and next: Is_Linked_To_Global)
     void Reset_Global_Linked_Timed_Events(int value);                   // 0x006ED620 (resets the chain's triggers that answer 0x006EE240)
     void Reset_Local_Linked_Timed_Events(int value);                    // 0x006ED650 (resets the chain's triggers that answer 0x006EE280)
-    void Reset();                                                       // 0x006ED680 (restarts the timed events)
-    void Mark_Event(int index);                                         // 0x006ED930
-    void Clear_Event(int index);                                        // 0x006ED950
-    bool Is_Event_Marked(int index) const;                              // 0x006ED970
+    void Reset_All_Timed_Events();                                      // 0x006ED680 (restarts the timed events)
+    void Flag_Event_Tripped(int index);                                 // 0x006ED930
+    void Flag_Event_Untripped(int index);                               // 0x006ED950
+    bool Is_Event_Tripped(int index) const;                             // 0x006ED970
     void Mark_To_Delete();                                              // 0x006ED990
     bool Is_Marked_To_Delete() const;                                   // 0x006ED9F0
     void Enable();                                                      // 0x006EDB60
     void Disable();                                                     // 0x006EDB70
     static TriggerClass *__fastcall Find_Or_Make(TriggerTypeClass *type);   // 0x006ED8A0
     // Springs on event unless already sprung or disabled; forced skips the event tests (0x006ED740;
-    // TS's TriggerClass::Spring; persistent comes from the tag type, source is passed to the events).
-    bool Spring(int event, ObjectClass *object, bool forced, bool persistent, int source);
+    // TibSun's name; persistent comes from the tag type, source is passed to the events).
+    bool Should_Spring(int event, ObjectClass *object, bool forced, bool persistent, int source);
     // Runs every action of the type for object at cell in the type's house; true when any acted
-    // (0x006ED830; YRpp's FireActions, name hypothesis).
-    bool Fire_Actions(ObjectClass *object, Cell cell);
+    // (0x006ED830; TibSun's name).
+    bool Spring(ObjectClass *object, Cell cell);
 
     TriggerTypeClass *Class;                // +0x24
-    TriggerClass *Next;                     // +0x28
+    TriggerClass *LinkedTo;                 // +0x28
     bool IsToDelete;                        // +0x2C
     CDTimerClass<FrameTimerClass> Timer;    // +0x30
-    int Events;                             // +0x3C
-    bool IsEnabled;                         // +0x40
+    int IsTripped;                          // +0x3C
+    bool IsActive;                          // +0x40
 };
 
 // Every trigger (0x00A40AA0; defined in the globals unit).

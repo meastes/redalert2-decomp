@@ -8,7 +8,7 @@ void TagClass::Detach(AbstractClass *target, bool all)
         Class = 0;
     }
     if ((AbstractClass *)Trigger == target) {
-        Trigger = Trigger->Next;
+        Trigger = Trigger->LinkedTo;
     }
     if (Class == 0) {
         Mark_To_Delete();

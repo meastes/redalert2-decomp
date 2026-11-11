@@ -5,9 +5,9 @@
 
 void TriggerClass::Reset_Local_Linked_Timed_Events(int value)
 {
-    for (TriggerClass *trigger = this; trigger != 0; trigger = trigger->Next) {
+    for (TriggerClass *trigger = this; trigger != 0; trigger = trigger->LinkedTo) {
         if (trigger->Class->Is_Linked_To_Local(value)) {
-            trigger->Reset();
+            trigger->Reset_All_Timed_Events();
         }
     }
 }

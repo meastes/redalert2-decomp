@@ -9,6 +9,6 @@ HRESULT __stdcall TriggerClass::Load(IStream *stream)
     }
     new (this) TriggerClass(NoInitClass());
     SwizzleManager.Swizzle((void **)&Class);
-    SwizzleManager.Swizzle((void **)&Next);
+    SwizzleManager.Swizzle((void **)&LinkedTo);
     return S_OK;
 }

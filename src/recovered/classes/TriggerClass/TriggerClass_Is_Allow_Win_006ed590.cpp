@@ -4,8 +4,8 @@
 
 bool TriggerClass::Is_Allow_Win() const
 {
-    if (Next != 0) {
-        return Class->Is_Allow_Win() || Next->Class->Is_Allow_Win();
+    if (LinkedTo != 0) {
+        return Class->Is_Allow_Win() || LinkedTo->Class->Is_Allow_Win();
     }
     return Class->Is_Allow_Win();
 }

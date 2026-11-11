@@ -6,16 +6,16 @@ bool TagClass::Unlink(TriggerClass *trigger)
 {
     if (trigger != 0) {
         if (Trigger == trigger) {
-            Trigger = trigger->Next;
+            Trigger = trigger->LinkedTo;
             return true;
         }
         TriggerClass *trigptr = Trigger;
         while (trigptr != 0) {
-            if (trigptr->Next == trigger) {
-                trigptr->Next = trigger->Next;
+            if (trigptr->LinkedTo == trigger) {
+                trigptr->LinkedTo = trigger->LinkedTo;
                 return true;
             }
-            trigptr = trigptr->Next;
+            trigptr = trigptr->LinkedTo;
         }
     }
     return false;

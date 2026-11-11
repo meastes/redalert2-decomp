@@ -1,4 +1,4 @@
-// bool TriggerClass::Fire_Actions(ObjectClass *object, Cell cell) (0x006ED830)
+// bool TriggerClass::Spring(ObjectClass *object, Cell cell) (0x006ED830)
 // Unless disabled or already sprung, performs every action of the type in the type's house;
 // true when any of them acted.
 #include "shared/trigger.hpp"
@@ -6,9 +6,9 @@
 #include "shared/taction.hpp"
 // @ref ?Execute@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z=006adae0
 
-bool TriggerClass::Fire_Actions(ObjectClass *object, Cell cell)
+bool TriggerClass::Spring(ObjectClass *object, Cell cell)
 {
-    if (!IsEnabled || IsToDelete) {
+    if (!IsActive || IsToDelete) {
         return false;
     }
     bool acted = false;

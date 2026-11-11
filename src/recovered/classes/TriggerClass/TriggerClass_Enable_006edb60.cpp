@@ -3,6 +3,6 @@
 
 void TriggerClass::Enable()
 {
-    IsEnabled = true;
-    Reset();
+    IsActive = true;
+    Reset_All_Timed_Events();
 }

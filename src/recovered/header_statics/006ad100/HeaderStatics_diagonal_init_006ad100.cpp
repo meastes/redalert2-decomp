@@ -270,7 +270,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A=00a40af8
 // @ref ?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z=006b3dd0
-// @ref ?Fire_Actions@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
+// @ref ?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
 // @ref ?Disable@TriggerClass@@QAEXXZ=006edb70
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
@@ -503,7 +503,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A=00a40af8
 // @ref ?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z=006b3dd0
-// @ref ?Fire_Actions@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
+// @ref ?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
 // @ref ?Disable@TriggerClass@@QAEXXZ=006edb70
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
@@ -736,7 +736,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A=00a40af8
 // @ref ?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z=006b3dd0
-// @ref ?Fire_Actions@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
+// @ref ?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
 // @ref ?Disable@TriggerClass@@QAEXXZ=006edb70
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
@@ -969,7 +969,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A=00a40af8
 // @ref ?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z=006b3dd0
-// @ref ?Fire_Actions@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
+// @ref ?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
 // @ref ?Disable@TriggerClass@@QAEXXZ=006edb70
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
@@ -1201,7 +1201,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A=00a40af8
 // @ref ?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z=006b3dd0
-// @ref ?Fire_Actions@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
+// @ref ?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z=006ed830
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0
 // @ref ?Disable@TriggerClass@@QAEXXZ=006edb70
 // @ref ?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A=00a40aa0

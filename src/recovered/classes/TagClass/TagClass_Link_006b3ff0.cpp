@@ -4,6 +4,6 @@
 
 void TagClass::Link(TriggerClass *trigger)
 {
-    trigger->Next = Trigger;
+    trigger->LinkedTo = Trigger;
     Trigger = trigger;
 }

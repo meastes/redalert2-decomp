@@ -5,7 +5,7 @@
 #include "shared/object.hpp"
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
-// @ref ?Spring@TriggerClass@@QAE_NHPAVObjectClass@@_N1H@Z=006ed740
+// @ref ?Should_Spring@TriggerClass@@QAE_NHPAVObjectClass@@_N1H@Z=006ed740
 
 bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, int source)
 {
@@ -16,11 +16,11 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
         return false;
     }
     IsCurrentlySprung = true;
-    for (TriggerClass *trigger = Trigger; trigger != 0; trigger = trigger->Next) {
-        if (trigger->Spring(event, object, forced, Class->Persistence == 2, source)) {
+    for (TriggerClass *trigger = Trigger; trigger != 0; trigger = trigger->LinkedTo) {
+        if (trigger->Should_Spring(event, object, forced, Class->Persistence == 2, source)) {
             switch (Class->Persistence) {
             case 0:
-                trigger->Fire_Actions(object, cell);
+                trigger->Spring(object, cell);
                 trigger->Mark_To_Delete();
                 sprung = true;
                 remove = true;
@@ -28,7 +28,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
                 break;
             case 1:
                 if (AttachCount == 1) {
-                    trigger->Fire_Actions(object, cell);
+                    trigger->Spring(object, cell);
                     trigger->Mark_To_Delete();
                     remove = true;
                     sprung = true;
@@ -37,7 +37,7 @@ bool TagClass::Spring(int event, ObjectClass *object, Cell cell, bool forced, in
                 }
                 break;
             case 2:
-                trigger->Fire_Actions(object, cell);
+                trigger->Spring(object, cell);
                 sprung = true;
                 break;
             }

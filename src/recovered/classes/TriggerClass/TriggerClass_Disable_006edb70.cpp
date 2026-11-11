@@ -3,5 +3,5 @@
 
 void TriggerClass::Disable()
 {
-    IsEnabled = false;
+    IsActive = false;
 }

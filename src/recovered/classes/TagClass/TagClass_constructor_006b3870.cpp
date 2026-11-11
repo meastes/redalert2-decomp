@@ -19,7 +19,7 @@ TagClass::TagClass(TagTypeClass *type) :
     if (type != 0) {
         for (TriggerTypeClass *trigger = type->FirstTrigger; trigger != 0; trigger = trigger->Next) {
             TriggerClass *made = new TriggerClass(trigger);
-            made->Next = Trigger;
+            made->LinkedTo = Trigger;
             Trigger = made;
         }
     }

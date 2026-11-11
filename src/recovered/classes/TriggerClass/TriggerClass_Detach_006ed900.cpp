@@ -6,7 +6,7 @@ void TriggerClass::Detach(AbstractClass *target, bool all)
     if ((AbstractClass *)Class == target) {
         Class = 0;
     }
-    if ((AbstractClass *)Next == target) {
-        Next = Next->Next;
+    if ((AbstractClass *)LinkedTo == target) {
+        LinkedTo = LinkedTo->LinkedTo;
     }
 }
