@@ -28,7 +28,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
     bool result = FootClass::unknown_slot261(first, second);
     int mission = !House->Is_Human_Player() && !Team && unknown_slot163() ? 11 : 5;
     int landing_altitude = Landing_Altitude();
-    if (unknown_slot29() == 2) goto grounded;
+    if (In_Which_Layer() == 2) goto grounded;
     if (Get_Height_AGL() <= landing_altitude || Type->MissileSpawn) goto grounded;
     if (Cargo.Object) {
         if (!unknown_32c) goto select_destination;
@@ -63,7 +63,7 @@ check_weapon:
             mission = 1;
             goto choose_mission;
         }
-        if (!unknown_slot21() || (unknown_494 && Mission == 7) || Type->Dock.Count() <= 0 ||
+        if (!In_Air() || (unknown_494 && Mission == 7) || Type->Dock.Count() <= 0 ||
             (!unknown_32d && Team)) goto choose_mission;
         {
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
@@ -118,7 +118,7 @@ choose_mission:
         }
     }
     if (In_Radio_Contact()) mission = 7;
-    unknown_slot116(mission, false);
+    QueueMission(mission, false);
     if (unknown_slot122()) Commence();
     return result;
 }

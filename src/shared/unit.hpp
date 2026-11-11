@@ -94,7 +94,7 @@ public:
     virtual ObjectTypeClass *unknown_slot50(bool arg1);                        // slot 50 0x00709BB0
     virtual HouseClass *unknown_slot51(bool arg1);                         // slot 51 0x00709BF0
     virtual bool Limbo();                                     // slot 52 0x007078F0
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);                   // slot 53 0x006FC940
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);                   // slot 53 0x006FC940
     virtual void Record_The_Kill(TechnoClass *techno);                            // slot 55 0x00707ED0
     virtual void Set_Occupy_Bit(CoordStruct const &coord);                             // slot 58 0x00707980
     virtual void Clear_Occupy_Bit(CoordStruct const &coord);                             // slot 59 0x007079E0
@@ -105,8 +105,8 @@ public:
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x006FCA30
     virtual void Scatter(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x007072D0
     virtual void unknown_slot93(int arg1);                            // slot 93 0x006FE610
-    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x006FC1F0
-    virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00703040
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x006FC1F0
+    virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00703040
     virtual bool unknown_slot122();                                   // slot 122 0x00707A40
     virtual int Do_MISSION_ATTACK();                                    // slot 126 0x00707F50
     virtual int Do_MISSION_GUARD();                                    // slot 129 0x00704440

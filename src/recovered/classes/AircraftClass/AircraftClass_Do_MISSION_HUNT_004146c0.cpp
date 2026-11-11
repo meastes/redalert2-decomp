@@ -36,6 +36,6 @@ int AircraftClass::Do_MISSION_HUNT()
             return 1;
         }
     }
-    unknown_slot116(1, false);
+    QueueMission(1, false);
     return 1;
 }

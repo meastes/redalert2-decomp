@@ -95,7 +95,7 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
         if (event != Type) return false;
         if (!object) return false;
         ObjectTypeClass *type = object->unknown_slot50(true);
-        if (type->Kind_Of() != 0x10 || Data == -1 || type->unknown_slot16() != Data) return false;
+        if (type->Kind_Of() != 0x10 || Data == -1 || type->Fetch_Heap_ID() != Data) return false;
         *tripped = true;
         return true;
     } else if (Type == 0x22) {

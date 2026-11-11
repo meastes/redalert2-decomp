@@ -48,7 +48,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
             bool naval = techno_type && techno_type->Naval;
             ObjectClass *pending = unknown_11a0;
             OutList.Add(EventClass(unknown_player_a35db4->ArrayIndex, 0xb, pending->Kind_Of(),
-                unknown_11a4->unknown_slot16(), naval, cell + unknown_1174));
+                unknown_11a4->Fetch_Heap_ID(), naval, cell + unknown_1174));
             pending = unknown_11a0;
             BuildingClass *placed;
             if (!pending) placed = 0;

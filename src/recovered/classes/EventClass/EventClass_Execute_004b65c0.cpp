@@ -262,7 +262,7 @@ void EventClass::Execute()
                 object->Clicked_As_Target(7);
             }
             int mission = techno->unknown_slot268((UnknownSlot268Arg const *)this);
-            techno->unknown_slot116(mission, false);
+            techno->QueueMission(mission, false);
             FootClass *footp;
             if (techno->AbstractFlags.IsFoot) {
                 footp = (FootClass *)techno;
@@ -324,7 +324,7 @@ void EventClass::Execute()
                 techno->SpawnManager->Abandon_Target();
             }
             if (techno->Kind_Of() == 1 && ((UnitClass *)techno)->Type->Harvester && (techno->Mission == 10 || techno->Mission == 12)) {
-                techno->unknown_slot116(5, false);
+                techno->QueueMission(5, false);
                 techno->Commence();
             }
         }
@@ -350,7 +350,7 @@ void EventClass::Execute()
                 techno->unknown_slot149(3);
                 techno->Assign_Destination(0, true);
                 techno->unknown_slot220(0);
-                techno->unknown_slot116(0x10, false);
+                techno->QueueMission(0x10, false);
             }
         }
         break;

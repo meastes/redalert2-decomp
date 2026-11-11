@@ -14,6 +14,6 @@ bool BuildingClass::unknown_slot261(bool opening, bool arg2)
         unknown_443d60(true);
         mission=5;
     }
-    unknown_slot116(mission,false);
+    QueueMission(mission,false);
     return false;
 }

@@ -35,7 +35,7 @@ public:
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // slot 6 0x00636D20
     virtual void Detach(AbstractClass *target, bool all = true);    // slot 10 0x00636BA0
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // slot 13 0x00636BF0
-    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x00636900
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x00636900
 
     virtual bool Limbo();                               // slot 52 0x00636B60
     virtual int unknown_slot149(int message);                   // slot 149 0x00636D90 to the first contact

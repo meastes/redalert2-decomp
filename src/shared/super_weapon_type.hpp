@@ -60,7 +60,7 @@ public:
     virtual int Kind_Of() const;                                // 0x0069F320
     virtual int Size_Of() const;                                // 0x0069F330
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x0069F340
-    virtual int unknown_slot16() const;                         // 0x0069F440 (ArrayIndex)
+    virtual int Fetch_Heap_ID() const;                         // 0x0069F440 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                     // 0x0069F450
     // Slot 27: the Action, whatever the arguments (0x0069F8B0).
     virtual int unknown_slot27(void const *unknown_a, void const *unknown_b) const;

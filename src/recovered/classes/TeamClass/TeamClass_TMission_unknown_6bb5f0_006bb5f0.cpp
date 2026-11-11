@@ -36,7 +36,7 @@ void TeamClass::TMission_unknown_6bb5f0(ScriptMissionClass const &mission, bool 
         if (unknown_func_6bdd80(unit) && (unit->unknown_579 || unit->Kind_Of() == 2) && unit != trans) {
             finished = false;
             if (unit->Get_Mission() != 7) {
-                unit->unknown_slot116(7, false);
+                unit->QueueMission(7, false);
                 unit->unknown_slot220(0);
                 unit->Assign_Destination(trans, true);
                 break;

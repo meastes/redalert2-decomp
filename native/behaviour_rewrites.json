@@ -513,8 +513,8 @@
   },
   {
    "entry": "0x00423E00",
-   "name": "ObjectClass::unknown_slot101(CellClass *, int, int, CellClass *, bool)",
-   "symbol": "__ZN11ObjectClass15unknown_slot101EP9CellClassiiS1_b",
+   "name": "ObjectClass::Can_Enter_Cell(CellClass *, int, int, CellClass *, bool)",
+   "symbol": "__ZN11ObjectClass14Can_Enter_CellEP9CellClassiiS1_b",
    "origin_class": "unmatched (skirmish path)",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2489,7 +2489,7 @@
   },
   {
    "entry": "0x004C2040",
-   "name": "FoggedObjectClass::unknown_slot24",
+   "name": "FoggedObjectClass::Get_Cell",
    "origin_class": "unmatched",
    "plan": "behaviour rewrite",
    "exact": false,
@@ -2753,7 +2753,7 @@
   },
   {
    "entry": "0x006EA9E0",
-   "name": "TiberiumClass::unknown_slot16",
+   "name": "TiberiumClass::Fetch_Heap_ID",
    "symbol": "",
    "origin_class": "unrecovered",
    "plan": "behaviour rewrite",

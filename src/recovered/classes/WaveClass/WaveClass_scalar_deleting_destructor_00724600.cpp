@@ -10,6 +10,6 @@
 // @ref ?Load@WaveClass@@UAGJPAUIStream@@@Z=007221d0
 // @ref ?Save@WaveClass@@UAGJPAUIStream@@H@Z=00722330
 // @ref ?AI@WaveClass@@UAEXXZ=00723220
-// @ref ?unknown_slot53@WaveClass@@UAE_NPBUCoordStruct@@H@Z=00722410
+// @ref ?Unlimbo@WaveClass@@UAE_NPBUCoordStruct@@H@Z=00722410
 // @ref ?unknown_slot67@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z=00722530
 // @ref ??_7?$VectorClass@PAVCellClass@@@@6B@=007a59b8

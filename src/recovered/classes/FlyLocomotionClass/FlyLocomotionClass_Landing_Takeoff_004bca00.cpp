@@ -23,14 +23,14 @@ bool FlyLocomotionClass::unknown_4bca00()
         return false;
     }
     if (LinkedTo->Strength>0 && (unknown_51 || unknown_50)) {
-        int layer=LinkedTo->unknown_slot29();
+        int layer=LinkedTo->In_Which_Layer();
         LinkedTo->Mark(0);
         Map.Remove(LinkedTo);
         if (unknown_51) Process_Landing_004bdfb0();
         if (unknown_50) Process_Take_Off_004bddf0();
-        if (layer!=LinkedTo->unknown_slot29()) {
+        if (layer!=LinkedTo->In_Which_Layer()) {
             bool ok=true;
-            if (LinkedTo->unknown_slot29()==2 && !unknown_50) {
+            if (LinkedTo->In_Which_Layer()==2 && !unknown_50) {
                 if (!LinkedTo->unknown_slot309(&Map[Object_Coord(LinkedTo)])) {
                     unknown_50=true;
                     LinkedTo->unknown_79=false;
@@ -41,7 +41,7 @@ bool FlyLocomotionClass::unknown_4bca00()
                 }
             }
             if (ok) {
-                if (LinkedTo->unknown_slot29()==2) {
+                if (LinkedTo->In_Which_Layer()==2) {
                     LinkedTo->Assign_Destination(0,true);
                     LinkedTo->unknown_slot149(0x18);
                     LinkedTo->unknown_slot263(0,0,0,0);

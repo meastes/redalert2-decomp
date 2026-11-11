@@ -35,11 +35,11 @@
 // @ref ?What_Am_I@SuperClass@@UAGHXZ=0069eca0
 // @ref ?unknown_cell_abd768@@3VCell@@B=00abd768
 // @ref ?unknown_empty_wide_839d4c@@3QBGB=00839d4c
-// @ref ?unknown_slot16@AbstractClass@@UBEHXZ=00410250
-// @ref ?unknown_slot17@AbstractClass@@UBE_NXZ=004101e0
+// @ref ?Fetch_Heap_ID@AbstractClass@@UBEHXZ=00410250
+// @ref ?Is_Inactive@AbstractClass@@UBE_NXZ=004101e0
 // @ref ?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z=00410290
-// @ref ?unknown_slot20@AbstractClass@@UBE_NXZ=004102c0
-// @ref ?unknown_slot21@AbstractClass@@UBE_NXZ=004102d0
+// @ref ?On_Ground@AbstractClass@@UBE_NXZ=004102c0
+// @ref ?In_Air@AbstractClass@@UBE_NXZ=004102d0
 // @ref ?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ=004102e0
 #include "shared/super.hpp"
 

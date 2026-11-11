@@ -24,7 +24,7 @@ bool BulletClass::Is_Forced_To_Explode_00461c10(CoordStruct &coord)
         CoordStruct current = Coord;
         if (current.Z < Target->unknown_slot22().Z && Get_Height_AGL() < 0) return true;
     }
-    if (Type->Level && cell->unknown_slot20()) return true;
-    if (Type->AA && Target != 0 && Target->unknown_slot21() && unknown_5d4c00(Target) < 0x80) return true;
+    if (Type->Level && cell->On_Ground()) return true;
+    if (Type->AA && Target != 0 && Target->In_Air() && unknown_5d4c00(Target) < 0x80) return true;
     return false;
 }

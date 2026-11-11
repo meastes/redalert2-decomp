@@ -29,7 +29,7 @@ inline float Projectile_Launch_Distance(CoordStruct const &source,CoordStruct co
 }
 bool BulletClass::unknown_slot118(CoordStruct const &source, TVelocity3D<double> const &velocity)
 {
-    if (ObjectClass::unknown_slot53(&source, 0)) {
+    if (ObjectClass::Unlimbo(&source, 0)) {
         Velocity = velocity;
         SourceCoords = source;
         LastMapCoords = Coord_Cell(SourceCoords);

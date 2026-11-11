@@ -25,7 +25,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
                 if (Map[unit->Center_Coord()].Cell_Building() == 0 && unit->Get_Mission() != 0x10) {
                     unit->Assign_Destination(0, true);
                     unit->unknown_slot220(0);
-                    unit->unknown_slot116(0x10, false);
+                    unit->QueueMission(0x10, false);
                     finished = false;
                 }
             }
@@ -51,7 +51,7 @@ void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool 
                 Unknown_006B8FB0(unit, -1, false);
                 unit->unknown_slot220(0);
                 unit->Assign_Destination(unit->unknown_1b0, true);
-                unit->unknown_slot116(2, false);
+                unit->QueueMission(2, false);
                 if (unit->unknown_slot122()) {
                     unit->Commence();
                 }

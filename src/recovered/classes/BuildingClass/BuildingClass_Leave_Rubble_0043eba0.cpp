@@ -13,7 +13,7 @@ void BuildingClass::Leave_Rubble_0043eba0()
     void *image;
     int frame;
     if (Type->unknown_func_458e00(&image, &frame)) {
-        Cell const *offset = unknown_slot64(0);
+        Cell const *offset = Occupy_List(0);
         Cell origin = Coord_Cell(unknown_slot42());
         while (!Is_List_End(offset)) {
             Cell position = *offset++ + origin;

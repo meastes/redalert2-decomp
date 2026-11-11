@@ -12,7 +12,7 @@ void HouseClass::unknown_func_4e4ef0()
         UnknownSuperView *super = (UnknownSuperView *)Supers[index];
         if (super->unknown_55 && super->unknown_func_69d390(this == unknown_player_a35db4) &&
             this == unknown_player_a35db4) {
-            int id = super->Type->unknown_slot16();
+            int id = super->Type->Fetch_Heap_ID();
             Map.Unknown_0067C2D0(Unknown_006818D0(0x39, id, 0));
         }
     }

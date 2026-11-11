@@ -51,7 +51,7 @@ public:
     virtual int Kind_Of() const { return 0x15; }                        // 0x005DD260 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(OverlayTypeClass); }    // 0x005DD270 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x005DCD70 slot 13
-    virtual int unknown_slot16() const { return ArrayIndex; }           // 0x005DD280 (inline)
+    virtual int Fetch_Heap_ID() const { return ArrayIndex; }           // 0x005DD280 (inline)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x005DCAA0 slot 25
     virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x005DCD50 (the coordinate unchanged)
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x005DC870 (places an overlay at the cell)

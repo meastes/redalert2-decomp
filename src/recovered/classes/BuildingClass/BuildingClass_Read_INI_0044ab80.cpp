@@ -148,7 +148,7 @@ void __fastcall BuildingClass::Read_INI(CCINIClass &ini)
                 if (b->Strength > b->Type->MaxStrength - 3) b->Strength = b->Type->MaxStrength;
                 b->unknown_70 = b->Strength;
 
-                if (b->unknown_slot53(&CoordStruct(cell), facing)) {
+                if (b->Unlimbo(&CoordStruct(cell), facing)) {
 
                     if (b->unknown_4d4) {
                         static_cast<BuildingLightClass *>(b->unknown_4d4)->Set_Behavior(spotlight);
@@ -174,7 +174,7 @@ void __fastcall BuildingClass::Read_INI(CCINIClass &ini)
                             if (upgrades[i] != -1) {
                                 BuildingTypeClass *utype = BuildingTypes[upgrades[i]];
                                 BuildingClass *u = new BuildingClass(utype, bhptr);
-                                u->unknown_slot53(&CoordStruct(cell), facing);
+                                u->Unlimbo(&CoordStruct(cell), facing);
                             }
                         }
                     }

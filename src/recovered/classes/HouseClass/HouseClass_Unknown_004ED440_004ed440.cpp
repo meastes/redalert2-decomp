@@ -21,7 +21,7 @@ void HouseClass::Unknown_004ED440(TechnoClass *techno, bool sold)
     Map.Unknown_0067C150(techno);
     switch (techno->Kind_Of()) {
     case 6:
-        unknown_5460.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+        unknown_5460.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         if (techno != 0) {
             BuildingClass *building = (BuildingClass *)techno;
             unknown_5668 = true;
@@ -41,13 +41,13 @@ void HouseClass::Unknown_004ED440(TechnoClass *techno, bool sold)
         }
         break;
     case 2:
-        unknown_5490.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+        unknown_5490.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     case 15:
-        unknown_5480.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+        unknown_5480.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     case 1:
-        unknown_5470.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+        unknown_5470.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     }
 }

@@ -11,7 +11,7 @@ bool TActionClass::unknown_hunt_feet_mission_23_of_house(HouseClass *house, Obje
         FootClass *foot = unknown_FootClass_list_00865f38[index];
         if (foot->Get_Mission() == 0x17 && foot->Strength > 0 && foot->unknown_7d && foot->unknown_74
             && !foot->unknown_76 && foot->House == house) {
-            foot->unknown_slot116(5, false);
+            foot->QueueMission(5, false);
         }
     }
     return true;

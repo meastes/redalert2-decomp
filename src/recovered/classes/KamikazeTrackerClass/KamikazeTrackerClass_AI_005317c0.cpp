@@ -21,10 +21,10 @@ void KamikazeTrackerClass::AI()
                 CellClass *here = (CellClass *)missile->Get_Cell_Ptr();
                 CellClass *adjacent = &here->Adjacent_Cell(facing);
                 missile->unknown_slot220(adjacent);
-                missile->unknown_slot116(1, false);
+                missile->QueueMission(1, false);
             } else {
                 missile->unknown_slot220(cell);
-                missile->unknown_slot116(1, false);
+                missile->QueueMission(1, false);
             }
         }
     }

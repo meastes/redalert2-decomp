@@ -20,20 +20,20 @@ void HouseClass::unknown_4ea970(TechnoClass *techno)
             } else {
                 CurBuildings++;
             }
-            int index = techno->Techno_Type_Class()->unknown_slot16();
+            int index = techno->Techno_Type_Class()->Fetch_Heap_ID();
             unknown_5420.Increment(index);
             unknown_1a80.Unknown_0070C490(index);
             break;
         }
         case 2: {
             unknown_238++;
-            int index = techno->Techno_Type_Class()->unknown_slot16();
+            int index = techno->Techno_Type_Class()->Fetch_Heap_ID();
             unknown_5450.Increment(index);
             unknown_268.Unknown_0070C490(index);
             break;
         }
         case 15: {
-            int index = techno->Techno_Type_Class()->unknown_slot16();
+            int index = techno->Techno_Type_Class()->Fetch_Heap_ID();
             unknown_234++;
             unknown_5440.Increment(index);
             unknown_a70.Unknown_0070C490(index);
@@ -41,7 +41,7 @@ void HouseClass::unknown_4ea970(TechnoClass *techno)
         }
         case 1: {
             unknown_228++;
-            int index = techno->Techno_Type_Class()->unknown_slot16();
+            int index = techno->Techno_Type_Class()->Fetch_Heap_ID();
             unknown_5430.Increment(index);
             unknown_1278.Unknown_0070C490(index);
             if (techno->Techno_Type_Class()->Naval && techno->Techno_Type_Class()->Passengers == 0) {

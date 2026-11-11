@@ -40,7 +40,7 @@ int FootClass::Do_MISSION_GUARD()
             if (building != 0) {
                 unknown_slot220(building);
                 unknown_57e = true;
-                unknown_slot116(1, false);
+                QueueMission(1, false);
             } else {
                 unknown_slot258();
             }
@@ -54,7 +54,7 @@ int FootClass::Do_MISSION_GUARD()
     if (this != 0 && Kind_Of() == 15 && !House->Unknown_004F52F0()
         && (((InfantryClass *)this)->Type->C4 || unknown_6d7910(14))
         && Get_Mission() != 17 && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
-        unknown_slot116(17, false);
+        QueueMission(17, false);
     }
     int result = 0;
     if (unknown_244.Value() != 0) {

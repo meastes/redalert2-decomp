@@ -7,7 +7,8 @@
 // Native adaptation (Scout1115): HEAD's planning_mouse.hpp signature (int x, int y) instead of
 // the draft's Point2D; joined to Planning_Left_Up 0x00617680's unit, whose light MouseClass
 // and Map declarations it shares (the draft's own copies dropped). Marked NATIVE.
-// @ref ??_C@_0BN@ELEH@MSG?3PlanningModeInvalidNode?$AA@=007ebeec
+// @ref ?Hit_Marker@PlanningNodeClass@@QBE?AVRect@@XZ=00611360
+// @ref ??_C@_0BN@GEHP@MSG?3PlanningModeInvalidNodeX?$AA@=007ebeec
 // @ref ??_C@_0BL@OMHN@MSG?3PlanningModeNoAircraft?$AA@=007ebed0
 // @ref ??_C@_0BM@JDCL@MSG?3PlanningModeNoBuildings?$AA@=007ebeb4
 // @ref ??_C@_0BL@CGPI@MSG?3PlanningModeNoUnknowns?$AA@=007ebe98
@@ -27,7 +28,7 @@ bool __stdcall Planning_Left_Down_00617340(int x, int y)   // NATIVE: HEAD signa
         PlanningNodeClass *picked = Planning_Pick_Node(point.X, point.Y);
         if (picked != 0) {
             if (Planning_Selection_Node_State(picked) != -1) {
-                Planning_Refuse("MSG:PlanningModeInvalidNode");
+                Planning_Refuse("MSG:PlanningModeInvalidNodeX");   // behaviour fix (codex4 r546): the original key ends in X (0x007EBEEC)
                 return true;
             }
         } else {

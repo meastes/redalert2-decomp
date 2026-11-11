@@ -10,7 +10,7 @@ CoordStruct ParasiteClass::Unknown_00607C30()
     if (unknown_28 == 0) return unknown_geometry_l;
     {
         bool can_exit = false;
-        if (!unknown_28->unknown_slot21()) {
+        if (!unknown_28->In_Air()) {
             if (Owner->Techno_Type_Class()->Naval) {
                 can_exit = true;
             } else if (!(Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->Get_Cell_Ptr())->Cell_Terrain() != 0)) {

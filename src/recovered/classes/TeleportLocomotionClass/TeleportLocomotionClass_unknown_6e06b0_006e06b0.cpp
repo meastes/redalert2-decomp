@@ -52,7 +52,7 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
             }
             CoordStruct old = unknown_28;
             unknown_28 = Map[coord].Closest_Free_Spot(coord, target_here, bridge);
-            if (LinkedTo->unknown_slot101(&Map[Coord_Cell(unknown_28)], -1, -1, 0, true) != 0) {
+            if (LinkedTo->Can_Enter_Cell(&Map[Coord_Cell(unknown_28)], -1, -1, 0, true) != 0) {
                 unknown_28 = unknown_geometry_l;
             }
             Map[old].Center_Coord();    // (the result is unused)
@@ -76,7 +76,7 @@ bool TeleportLocomotionClass::unknown_6e06b0(CoordStruct const &to)
         } else {
             int zone = LinkedTo->Techno_Type_Class()->MovementZone;
             Cell cell = Coord_Cell(to);
-            if (cell != unknown_geometry_k && LinkedTo->unknown_slot101(&Map[cell], -1, -1, 0, true) != 0) {
+            if (cell != unknown_geometry_k && LinkedTo->Can_Enter_Cell(&Map[cell], -1, -1, 0, true) != 0) {
                 int index = Map.Zone(cell, zone, bridge);
                 cell = Map.Nearby_Location(cell, LinkedTo->Techno_Type_Class()->SpeedType, index, zone, bridge,
                     Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);

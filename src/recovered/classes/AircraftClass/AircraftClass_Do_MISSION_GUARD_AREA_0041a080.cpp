@@ -18,7 +18,7 @@ int AircraftClass::Do_MISSION_GUARD_AREA()
         unknown_slot261(0, 1);
     }
     if (unknown_228 != 0) {
-        unknown_slot116(1, false);
+        QueueMission(1, false);
         return 1;
     }
     return FootClass::Do_MISSION_GUARD_AREA();

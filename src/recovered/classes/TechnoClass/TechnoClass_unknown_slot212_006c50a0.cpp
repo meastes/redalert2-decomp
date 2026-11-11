@@ -17,7 +17,7 @@ bool TechnoClass::unknown_slot212(AbstractClass *target, int weapon)
     if (type != 0 && type->unknown_110) {
         coord = ((AbstractClass *)&Map[Coord_Cell(Center_Coord())])->Center_Coord();
     }
-    if (unknown_slot21()) {
+    if (In_Air()) {
         coord.Z = target->Center_Coord().Z;
     }
     return unknown_6c4bb0(&coord, target, type);

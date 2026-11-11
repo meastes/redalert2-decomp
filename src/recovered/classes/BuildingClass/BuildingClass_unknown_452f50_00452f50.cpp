@@ -26,11 +26,11 @@ void BuildingClass::unknown_452f50(int control)
     probe.Y = (short)((unsigned int)(int)probe.Y + (unsigned int)height);
     InfantryClass *occupant = unknown_554[0];
 
-    int entry_result = occupant->unknown_slot101(&Map[probe], -1, -1, 0, 1);
+    int entry_result = occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1);
     while (entry_result != 0) {
         if ((int)probe.Y <= (int)unknown_slot104().Y - 1) goto after_first_edge;
         probe.Y = (short)(probe.Y - 1);
-        entry_result = occupant->unknown_slot101(&Map[probe], -1, -1, 0, 1);
+        entry_result = occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1);
     }
     found = true;
     selected = probe;
@@ -40,7 +40,7 @@ after_first_edge:
     probe.Y = (short)((unsigned int)(int)probe.Y + (unsigned int)height);
     while (!found && (int)probe.X > (int)unknown_slot104().X - 1) {
         probe.X = (short)(probe.X - 1);
-        if (occupant->unknown_slot101(&Map[probe], -1, -1, 0, 1) == 0) {
+        if (occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1) == 0) {
             found = true;
             selected = probe;
         }
@@ -51,7 +51,7 @@ after_first_edge:
     probe.Y = (short)(probe.Y - 1);
     while (!found && (int)probe.X < (int)((unsigned int)(int)unknown_slot104().X + (unsigned int)width)) {
         probe.X = (short)(probe.X + 1);
-        if (occupant->unknown_slot101(&Map[probe], -1, -1, 0, 1) == 0) {
+        if (occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1) == 0) {
             found = true;
             selected = probe;
         }
@@ -62,7 +62,7 @@ after_first_edge:
     probe.Y = (short)(probe.Y - 1);
     while (!found && (int)probe.Y < (int)((unsigned int)(int)unknown_slot104().Y + (unsigned int)height)) {
         probe.Y = (short)(probe.Y + 1);
-        if (occupant->unknown_slot101(&Map[probe], -1, -1, 0, 1) == 0) {
+        if (occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1) == 0) {
             selected = probe;
             found = true;
         }
@@ -76,13 +76,13 @@ after_first_edge:
     unknown_a40774 = (int)((unsigned int)unknown_a40774 + 1u);
     for (int index = (int)((unsigned int)unknown_554.Count() - 1u); index >= 0; --index) {
         InfantryClass *member = unknown_554[index];
-        if (member->unknown_slot53(&destination, 0)) {
+        if (member->Unlimbo(&destination, 0)) {
             member->unknown_slot220(0);
             member->Scatter(Center_Coord(), true, true);
             if ((unsigned char)control != 0) {
                 TeamClass *team = member->Team;
                 if (team) team->Unknown_006B8FB0(member, -1, 0);
-                member->unknown_slot116(15, false);
+                member->QueueMission(15, false);
             }
         } else {
             member->Delete_Me();

@@ -23,7 +23,7 @@ bool MapRegionClass::Place_Neutral_Building_00571db0(Rect const &area)
                 BuildingClass *building=new BuildingClass(BuildingTypes[type],house);
                 int x=cell.MapCoords.X*256+128;
                 int y=cell.MapCoords.Y*256+128;
-                building->unknown_slot53(&CoordStruct(x,y,0),0);
+                building->Unlimbo(&CoordStruct(x,y,0),0);
                 return true;
             }
         }

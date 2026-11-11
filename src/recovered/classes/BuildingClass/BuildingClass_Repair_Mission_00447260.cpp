@@ -44,7 +44,7 @@ int BuildingClass::Do_MISSION_REPAIR()
             }
         case 2: {
                 if (!In_Radio_Contact()) {
-                    unknown_slot116(5, false);
+                    QueueMission(5, false);
                     unknown_44cfd0(7);
 
                 }
@@ -82,7 +82,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                         // Both completed treatment and an empty reply release the patient.
                     case 10:
                         Exit_Object((TechnoClass *)Cargo.Detach_Object());
-                        unknown_slot116(5, false);
+                        QueueMission(5, false);
                         break;
                     case 32:
                         Exit_Object((TechnoClass *)Cargo.Detach_Object());
@@ -114,7 +114,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     if (contact->unknown_118.Is_Dumbass()) contact->unknown_118.Set_Veteran(true);
                     else contact->unknown_118.Set_Elite(true);
                     Exit_Object((TechnoClass *)Cargo.Detach_Object());
-                    unknown_slot116(5, false);
+                    QueueMission(5, false);
                 }
 
                 break;
@@ -131,7 +131,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     unknown_44cfd0(11);
                     unknown_44c920(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
                     unknown_44c920(3, Health_Ratio() <= Rules->unknown_1368, false, 0);
-                    unknown_slot116(5, true);
+                    QueueMission(5, true);
                     return 1;
                 }
                 unknown_5ad = false;
@@ -186,7 +186,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                             unknown_a8 = 1;
                             FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             if (mover->unknown_1b0 && !mover->House->Is_Human_Player()) {
-                                mover->unknown_slot116(2, false);
+                                mover->QueueMission(2, false);
                                 mover->Assign_Destination(mover->unknown_1b0, true);
                                 mover->unknown_6d6e50(0);
                                 unknown_slot149(3);
@@ -196,7 +196,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                             Cell exit = unknown_slot280(Contact_With_Whom());
                             if (unknown_1b0) exit = Building_Repair_Archive_Cell_00447260(*unknown_1b0);
                             if (exit != *(Cell const *)&unknown_84ed10) {
-                                mover->unknown_slot116(2, false);
+                                mover->QueueMission(2, false);
                                 mover->Assign_Destination(&Map[exit], true);
                                 unknown_slot149(3);
                                 mover->unknown_3f8 = 0;
@@ -220,7 +220,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     }
                     if (!unknown_454[12]) {
                         unknown_5ad = true;
-                        unknown_slot116(5, true);
+                        QueueMission(5, true);
                     }
                     return 1;
                 }
@@ -247,7 +247,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                             FootClass *mover = Building_Radio_Foot_004397f0(Contact_With_Whom());
                             mover->Locomotor.Checked()->Power_On();
                             if (mover->unknown_1b0 && !mover->House->Is_Human_Player()) {
-                                mover->unknown_slot116(2, false);
+                                mover->QueueMission(2, false);
                                 mover->Assign_Destination(mover->unknown_1b0, true);
                                 mover->unknown_6d6e50(0);
                                 mover->unknown_3f8 = 0;
@@ -256,7 +256,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                                 Cell exit = unknown_slot280(Contact_With_Whom());
                                 if (unknown_1b0) exit = Building_Repair_Archive_Cell_00447260(*unknown_1b0);
                                 if (exit != *(Cell const *)&unknown_84ed10) {
-                                    mover->unknown_slot116(2, false);
+                                    mover->QueueMission(2, false);
                                     mover->Assign_Destination(&Map[exit], true);
                                     mover->unknown_6d6e50(0);
                                     unknown_slot149(3);
@@ -294,7 +294,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                 if (contact->Get_Mission() != 7 && unknown_slot150(19, contact) == 1) {
                     servicing = true;
                     if (contact->Get_Mission() != 0) {
-                        contact->unknown_slot116(0, false);
+                        contact->QueueMission(0, false);
                     } else {
                         if (unknown_slot150(31, contact) != 1 && unknown_slot150(28, contact) != 1) {
                         release_contact:
@@ -307,7 +307,7 @@ int BuildingClass::Do_MISSION_REPAIR()
             }
         }
         if (servicing) return (int)(Rules->ReloadRate * 900.0);
-        unknown_slot116(5, false);
+        QueueMission(5, false);
         return 3;
     } else return 15;
     return (int)(Control()->unknown_10 * 900.0);

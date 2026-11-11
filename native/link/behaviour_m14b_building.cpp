@@ -23,7 +23,7 @@ int BuildingClass::Do_MISSION_ATTACK()
                 unknown_6d1470();
             }
             if (Get_Mission() != 0x1C) {
-                unknown_slot116(5, false);
+                QueueMission(5, false);
                 Commence();
             }
             return 1;
@@ -58,7 +58,7 @@ int BuildingClass::Do_MISSION_ATTACK()
             if (Get_Mission() == 0x1C) {
                 return 1;
             }
-            unknown_slot116(5, false);
+            QueueMission(5, false);
             Commence();
             break;
         case 2: case 3:                         // FIRE_FACING, FIRE_REARM
@@ -148,7 +148,7 @@ int BuildingClass::Do_MISSION_ATTACK()
         if (!aircraft) {
             unknown_slot220(0);
             unknown_a8 = 0;
-            unknown_slot116(5, false);
+            QueueMission(5, false);
             Commence();
             return 1;
         }

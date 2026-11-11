@@ -36,7 +36,7 @@ int UnitClass::Do_MISSION_GUARD()
             for (int index = 0; index < Type->Dock.Count(); index++) {
                 if (House->unknown_5420.unknown_func_491d10(Type->Dock[index]->ArrayIndex) > 0) {
                     if (!Type->Harvester || !House->unknown_189) {
-                        unknown_slot116(10, false);
+                        QueueMission(10, false);
                         return 1;
                     }
                     break;
@@ -47,12 +47,12 @@ int UnitClass::Do_MISSION_GUARD()
             for (int facing = 0; facing < 8; facing++) {
                 UnknownUnitBuildingView2 *building = (UnknownUnitBuildingView2 *)cell->Adjacent_Cell(facing).Cell_Building();
                 if (building && building->Type->Refinery && building->House == House) {
-                    unknown_slot116(10, false);
+                    QueueMission(10, false);
                     return 1;
                 }
             }
             if (unknown_slot165() == 1.0 && Locomotor.Checked()->Is_Moving()) {
-                unknown_slot116(10, false);
+                QueueMission(10, false);
                 return 1;
             }
         }
@@ -60,13 +60,13 @@ int UnitClass::Do_MISSION_GUARD()
     BuildingTypeClass *building = Type->DeploysInto;
     if (building && Is_Listed(Rules->unknown_7c8, building)
         && House->unknown_13b && !House->Unknown_004F52F0()) {
-        unknown_slot116(16, false);
+        QueueMission(16, false);
         int delay = (int)(Control()->unknown_10 * 900.0);
         return delay + unknown_id_source_a3d290->Random()(0, 2);
     }
     if (Type->Weeder && unknown_5a2) {
         unknown_5a2 = false;
-        unknown_slot116(10, false);
+        QueueMission(10, false);
     }
     return FootClass::Do_MISSION_GUARD();
 }

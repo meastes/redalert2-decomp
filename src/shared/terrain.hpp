@@ -84,7 +84,7 @@ public:
     virtual void AI();                                                  // 0x006E3F10 slot 23
     virtual ObjectTypeClass *Class_Of() const;                          // 0x006E4900 slot 33
     virtual bool Limbo();                                       // 0x006E4120
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);     // 0x006E47D0
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);     // 0x006E47D0
     virtual void Set_Occupy_Bit(CoordStruct const &coord);              // 0x006E38F0 (marks the occupation bits)
     virtual void Clear_Occupy_Bit(CoordStruct const &coord);              // 0x006E3850 (clears them)
     virtual bool Render(Rect *bounds, bool arg2, bool arg3);           // 0x006E4430
@@ -95,7 +95,7 @@ public:
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);   // 0x006E3170
     virtual bool Catch_Fire();                                      // 0x006E3D90
     virtual void Fire_Out();                                      // 0x006E3E90
-    virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // 0x006E3CB0
+    virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // 0x006E3CB0
 
     static void __fastcall Read_INI(CCINIClass &ini);                   // 0x006E4260 ([Terrain] entries)
     static void __fastcall Write_INI(CCINIClass &ini);                  // 0x006E4380

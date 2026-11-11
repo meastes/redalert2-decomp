@@ -63,7 +63,7 @@ void SpawnManagerClass::AI()
             {
                 CoordStruct coord = Owner->unknown_slot43(0);
                 coord.Z += 10;
-                unit->unknown_slot53(&coord, Dir_To_256(Owner->unknown_2e0.Current()));
+                unit->Unlimbo(&coord, Dir_To_256(Owner->unknown_2e0.Current()));
             }
             if (burst) {
                 Owner->unknown_310 = 0;
@@ -78,7 +78,7 @@ void SpawnManagerClass::AI()
                 CellClass &cell = Map[Owner->unknown_slot104()];
                 unit->Assign_Destination(&cell.Adjacent_Cell(0), true);
             }
-            unit->unknown_slot116(2, false);
+            unit->QueueMission(2, false);
             break;
 
         case 1:
@@ -98,12 +98,12 @@ void SpawnManagerClass::AI()
             if (Destination == 0) {
                 unit->Assign_Destination(Owner, true);
                 unit->unknown_slot220(0);
-                unit->unknown_slot116(2, false);
+                unit->QueueMission(2, false);
                 SpawnedNodes[i]->Status = 4;
             } else {
                 CellClass &cell = Map[Owner->unknown_slot104()];
                 unit->Assign_Destination(&cell.Adjacent_Cell(4), true);
-                unit->unknown_slot116(2, false);
+                unit->QueueMission(2, false);
             }
             break;
 
@@ -115,11 +115,11 @@ void SpawnManagerClass::AI()
             if (unit->unknown_254 == 0 || Destination == 0) {
                 unit->Assign_Destination(Owner, true);
                 unit->unknown_slot220(0);
-                unit->unknown_slot116(2, false);
+                unit->QueueMission(2, false);
                 SpawnedNodes[i]->Status = 4;
             } else {
                 SpawnedNodes[i]->Unit->unknown_slot220(Destination);
-                SpawnedNodes[i]->Unit->unknown_slot116(1, false);
+                SpawnedNodes[i]->Unit->QueueMission(1, false);
             }
             break;
 
@@ -131,7 +131,7 @@ void SpawnManagerClass::AI()
             if (unit->unknown_254 > 0 && Destination != 0) {
                 SpawnedNodes[i]->Status = 3;
                 SpawnedNodes[i]->Unit->unknown_slot220(Destination);
-                SpawnedNodes[i]->Unit->unknown_slot116(1, false);
+                SpawnedNodes[i]->Unit->QueueMission(1, false);
             } else if (unit->unknown_slot104() == Owner->unknown_slot104() && CoordStruct(unit->Coord).Z - CoordStruct(Owner->Coord).Z < 20) {
                 unit->Limbo();
                 SpawnedNodes[i]->Status = 6;
@@ -139,7 +139,7 @@ void SpawnManagerClass::AI()
             } else {
                 unit->Assign_Destination(Owner, true);
                 unit->unknown_slot220(0);
-                unit->unknown_slot116(2, false);
+                unit->QueueMission(2, false);
             }
             break;
 
@@ -214,7 +214,7 @@ void SpawnManagerClass::AI()
                 } else {
                     SpawnedNodes[index]->Status = 3;
                     SpawnedNodes[index]->Unit->unknown_slot220(Destination);
-                    SpawnedNodes[index]->Unit->unknown_slot116(1, false);
+                    SpawnedNodes[index]->Unit->QueueMission(1, false);
                 }
             }
         }

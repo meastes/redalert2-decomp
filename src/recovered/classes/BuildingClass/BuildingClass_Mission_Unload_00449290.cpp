@@ -49,7 +49,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
         switch(unknown_a8) {
         case 0: {
             TechnoClass *unit=Contact(0);
-            if(unit) { unit->unknown_slot116(5,false); unit->Commence(); }
+            if(unit) { unit->QueueMission(5,false); unit->Commence(); }
             unknown_2a8.Count_Up(Type->DeployTime);
             unknown_a8=Type->Naval ? 4 : 1;
             unknown_75=true;
@@ -67,7 +67,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
             if(unknown_2a8.Is_Count_Up_Complete()) {
                 FootClass *unit=static_cast<FootClass *>(Contact(0));
                 if(unit) {
-                    unit->unknown_slot116(2,false);
+                    unit->QueueMission(2,false);
                     UnknownComPtr<IPersist,&unknown_uuid_IPersist_7cf208> persist(unit->Locomotor);
                     GUID classid;
                     persist.Checked()->GetClassID(&classid);
@@ -133,6 +133,6 @@ int BuildingClass::Do_MISSION_UNLOAD()
             House->unknown_5668=true;
         }
     }
-    unknown_slot116(5,false);
+    QueueMission(5,false);
     return 1;
 }

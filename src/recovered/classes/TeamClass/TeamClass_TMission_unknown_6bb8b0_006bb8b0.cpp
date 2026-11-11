@@ -31,11 +31,11 @@ void TeamClass::TMission_unknown_6bb8b0(ScriptMissionClass const &mission, bool 
                         unit->Mark(1);
                         unit->Assign_Destination(0, true);
                         unit->unknown_slot220(0);
-                        unit->unknown_slot116(0x10, false);
+                        unit->QueueMission(0x10, false);
                     }
                 }
             } else if ((deployer || infantry) && unit->Get_Mission() != 0x10) {
-                unit->unknown_slot116(0x10, false);
+                unit->QueueMission(0x10, false);
             }
         }
         unit = (FootClass *)unit->unknown_4c8;

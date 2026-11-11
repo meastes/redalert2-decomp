@@ -8,7 +8,7 @@
 void BulletClass::unknown_func_461470()
 {
     Cell cell = Coord_Cell(Target->Center_Coord());
-    if (unknown_a40774 == 0 && !Target->unknown_slot21() && (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y)) {
+    if (unknown_a40774 == 0 && !Target->In_Air() && (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y)) {
         Target = (AbstractClass *)&Map[cell];
         return;
     }

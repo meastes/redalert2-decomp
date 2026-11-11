@@ -63,7 +63,7 @@ void MapGeneratorClass::Generate_Neutral_Buildings()
                     if(!clear)break;
                 }
                 if(clear) {
-                    if(building->unknown_slot53(&CoordStruct(position.X*256+128,position.Y*256+128,0),0))placed=true;
+                    if(building->Unlimbo(&CoordStruct(position.X*256+128,position.Y*256+128,0),0))placed=true;
                 }
                 ++tries;
             }

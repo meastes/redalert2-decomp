@@ -14,7 +14,7 @@ void DisplayClass::Submit(ObjectClass *object)
         if (object->unknown_80 != -1) {
             Remove(object);
         }
-        int layer = object->unknown_slot29();
+        int layer = object->In_Which_Layer();
         if (layer != -1) {
             if (Layer[layer].Submit(object, layer == 2)) {
                 object->unknown_80 = layer;

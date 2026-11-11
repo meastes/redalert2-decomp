@@ -15,7 +15,7 @@ bool TechnoClass::unknown_6d8080()
             Cell cell = unknown_6cf130(unknown_3f8);
             if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
                 Assign_Destination((AbstractClass *)&Map[cell], true);
-                unknown_slot116(2, false);
+                QueueMission(2, false);
                 return true;
             }
         } else {

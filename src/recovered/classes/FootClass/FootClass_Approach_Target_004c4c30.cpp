@@ -119,7 +119,7 @@ void FootClass::unknown_slot304()
             }
         }
     }
-    if ((!unknown_494 || unknown_slot21()) && (!in_range || !unknown_32d || require_deploy_cell)) {
+    if ((!unknown_494 || In_Air()) && (!in_range || !unknown_32d || require_deploy_cell)) {
     if (unknown_478.Count()>0) {
         Assign_Destination(unknown_478[0],false);
         unknown_478.Delete(0);

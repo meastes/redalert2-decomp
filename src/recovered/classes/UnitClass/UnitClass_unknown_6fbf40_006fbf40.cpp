@@ -50,7 +50,7 @@ void UnitClass::unknown_6fbf40()
         direction = unknown_5bc;
     }
     CellClass *destination = &Map[Unit_Adjacent_Cell(position, direction)];
-    if (unknown_slot101(destination, direction, unknown_5d47d0(), &Map[position], 1) == 0) {
+    if (Can_Enter_Cell(destination, direction, unknown_5d47d0(), &Map[position], 1) == 0) {
         Assign_Destination(destination, true);
         return;
     }

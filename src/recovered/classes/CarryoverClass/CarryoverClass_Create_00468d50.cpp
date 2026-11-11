@@ -40,7 +40,7 @@ bool CarryoverClass::Create() const
             unknown_a40774 = 0;
         }
         CoordStruct coord(Position.X * 256 + 128, Position.Y * 256 + 128, 0);
-        techno->unknown_slot53(&coord, 0);
+        techno->Unlimbo(&coord, 0);
         if (RTTI == 15) {
             unknown_a40774 = old;
         }

@@ -28,7 +28,7 @@ bool UnholyAlliance::SpawnBaseUnits(HouseClass *house, int *money)
         }
         Cell cell = Coord_Cell(house->BaseCenter);
         Cell offset = cell + Cell(3, 3);
-        if (i == 0 && unit->unknown_slot53(&CoordStruct(offset.X * 256 + 128, offset.Y * 256 + 128, 0), 0)) {
+        if (i == 0 && unit->Unlimbo(&CoordStruct(offset.X * 256 + 128, offset.Y * 256 + 128, 0), 0)) {
             continue;
         }
         Cell spot = Cell(house->BaseCenter.X / 256, house->BaseCenter.Y / 256);

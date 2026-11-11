@@ -17,7 +17,7 @@ static inline bool Is_List_End(Cell const *offset)
 bool BuildingClass::unknown_449930()
 {
     Cell cell = unknown_slot104();
-    Cell const *offset = unknown_slot64(0);
+    Cell const *offset = Occupy_List(0);
     bool found = false;
     while (!Is_List_End(offset)) {
         Cell position = *offset + cell;

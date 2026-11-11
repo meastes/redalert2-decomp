@@ -54,9 +54,9 @@ public:
     virtual int Kind_Of() const { return 0x29; }                        // 0x0070DF60 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(VoxelAnimClass); }      // 0x0070DF50 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0070DE70 slot 13
-    virtual int unknown_slot29() const;                                 // 0x0070DDA0 (3)
+    virtual int In_Which_Layer() const;                                 // 0x0070DDA0 (3)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x0070DF70 slot 33 (inline)
-    virtual Cell const *unknown_slot64(int arg1) { return 0; }    // 0x0070DF80 (inline)
+    virtual Cell const *Occupy_List(int arg1) { return 0; }    // 0x0070DF80 (inline)
     virtual bool Render(Rect *bounds, bool arg2, bool arg3);    // 0x0070CF70
 #ifdef RA2_VOXEL_DRAW_UNIT
     virtual void unknown_slot67(Point2D const &point, Rect const &window); // 0x0070CFC0

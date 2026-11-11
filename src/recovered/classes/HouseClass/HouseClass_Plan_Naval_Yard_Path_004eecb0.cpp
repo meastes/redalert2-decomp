@@ -64,7 +64,7 @@ void HouseClass::Plan_Naval_Yard_Path_004eecb0(int node)
     Cell spot = unknown_cell_a40f10;
     int moves[2048];
     UnitClass *unit = new UnitClass(UnitTypes[UnitTypeClass::From_Name("HARV")], this);
-    unit->unknown_slot53(&UnknownCoord434820(start.X * 256 + 128, start.Y * 256 + 128, 0), 0);
+    unit->Unlimbo(&UnknownCoord434820(start.X * 256 + 128, start.Y * 256 + 128, 0), 0);
     while (!found && cells.Count() > 0) {
         target = cells[0];
         spot = Map.Nearby_Location(cells[0], 0, zone, 0, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), 0);

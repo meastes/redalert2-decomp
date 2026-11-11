@@ -15,7 +15,7 @@ void FootClass::unknown_slot278()
         }
         CoordStruct coord = Coord;
         if (unknown_slot209(&coord, 1)) {
-            unknown_slot116(1, true);
+            QueueMission(1, true);
             unknown_4c1 = true;
         }
     } else {
@@ -28,7 +28,7 @@ void FootClass::unknown_slot278()
         unknown_228 = 0;
         CoordStruct coord = Coord;
         if (unknown_slot209(&coord, 1)) {
-            unknown_slot116(1, true);
+            QueueMission(1, true);
             unknown_4c1 = true;
         } else {
             unknown_228 = unknown_4bc;

@@ -28,7 +28,7 @@ int AircraftClass::Do_MISSION_ENTER()
         if (unknown_494 != ((CellClass *)Get_Cell_Ptr())->Unknown_004717B0()) {
             unknown_5b4 = Building_Destination(unknown_494);
             unknown_slot149(3);
-            unknown_slot116(2, true);
+            QueueMission(2, true);
             return 1;
         }
     }
@@ -38,7 +38,7 @@ int AircraftClass::Do_MISSION_ENTER()
         if (previous != target && target && target->Kind_Of() == 6)
             unknown_5b4 = Building_Destination(unknown_494);
     }
-    if (!unknown_494 && unknown_slot29() != 2 && unknown_slot149(14) != 1 && !unknown_6d8080()) {
+    if (!unknown_494 && In_Which_Layer() != 2 && unknown_slot149(14) != 1 && !unknown_6d8080()) {
         unknown_slot261(false, true);
         return 1;
     }
@@ -123,9 +123,9 @@ int AircraftClass::Do_MISSION_ENTER()
             } else {
                 Assign_Destination(unknown_4198b0(), true);
             }
-            unknown_slot116(MoveMission, false);
+            QueueMission(MoveMission, false);
         } else {
-            unknown_slot116(GuardMission, false);
+            QueueMission(GuardMission, false);
         }
         return 1;
     }

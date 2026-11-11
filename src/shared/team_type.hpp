@@ -84,7 +84,7 @@ public:
     virtual int Kind_Of() const { return 0x23; }                    // 0x006C0250 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(TeamTypeClass); }   // 0x006C0260 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;               // 0x006BFE70 slot 13
-    virtual int unknown_slot16() const { return ArrayIndex; }       // 0x006C0270 (inline)
+    virtual int Fetch_Heap_ID() const { return ArrayIndex; }       // 0x006C0270 (inline)
     virtual bool Read_INI(CCINIClass &ini);                         // 0x006BF330 slot 25
     virtual bool Write_INI(CCINIClass &ini) const;                  // 0x006BF770 slot 26
 

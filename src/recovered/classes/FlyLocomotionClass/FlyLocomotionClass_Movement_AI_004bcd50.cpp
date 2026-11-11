@@ -114,7 +114,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         }
     } else {
         if (LinkedTo->Strength>0 && LinkedTo->unknown_494!=0 && LinkedTo->Get_Mission()==5 && LinkedTo->MissionQueue==-1 && !unknown_18) {
-            LinkedTo->unknown_slot116(2,false);
+            LinkedTo->QueueMission(2,false);
         }
     }
     if (!Is_Moving()) {

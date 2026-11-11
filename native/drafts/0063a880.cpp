@@ -117,7 +117,7 @@ bool __fastcall Unknown_0063A880(TeamTypeClass *teamtype, int wp)
         coord.X = result.X;
         coord.Y = result.Y;
         unknown_a40774++;
-        int placed = object->unknown_slot53(&coord, 0);
+        int placed = object->Unlimbo(&coord, 0);
         unknown_a40774--;
 
         if (placed) {

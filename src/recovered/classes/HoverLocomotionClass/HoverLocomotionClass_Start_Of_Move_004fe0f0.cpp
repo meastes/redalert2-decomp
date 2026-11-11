@@ -89,7 +89,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
     LinkedTo->unknown_530=CDTimerClass<FrameTimerClass>((int)(Rules->unknown_13c8*900));
     Cell cell=Coord_Cell(LinkedTo->Center_Coord())+AdjacentCell[LinkedTo->Path[0]&7];
     if (Map.Unknown_0055A660(cell,true)) {
-        int ok=LinkedTo->unknown_slot101(&Map[cell],LinkedTo->Path[0],LinkedTo->unknown_5d47d0(),0,true);
+        int ok=LinkedTo->Can_Enter_Cell(&Map[cell],LinkedTo->Path[0],LinkedTo->unknown_5d47d0(),0,true);
         if (ok==6) {
             CellClass *cellptr=&Map[cell];
             TechnoClass *blockage=static_cast<TechnoClass *>(cellptr->Cell_Techno(Point2D(0,0),Object_Coord(LinkedTo).Z>Map.Get_Height_GL(CoordStruct(cell.X*256+128,cell.Y*256+128,0))+3*unknown_geometry_g,0));

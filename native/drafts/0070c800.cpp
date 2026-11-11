@@ -42,7 +42,7 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
     unknown_128 = Class->Duration;
     unknown_VoxelAnimClass_list_008399d0.Add(this);
     if (!Class->IsMeteor) {
-        ObjectClass::unknown_slot53(&coord, 0);
+        ObjectClass::Unlimbo(&coord, 0);
         CoordStruct center = ObjectClass::Center_Coord() + CoordStruct(0, 0, 10);
         int spin_roll = unknown_id_source_a3d290->Random()();
         int z_roll = unknown_id_source_a3d290->Random()();
@@ -69,7 +69,7 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
         int y = coord.Y - unknown_128 * velocity.Y;
         int z = coord.Z - unknown_128 * velocity.Z;
         CoordStruct start(x, y, z);
-        ObjectClass::unknown_slot53(&start, 0);
+        ObjectClass::Unlimbo(&start, 0);
         int spin_roll = unknown_id_source_a3d290->Random()();
         BounceClass::Init(ObjectClass::Center_Coord(), Class->Elasticity, 1.4f, 0, velocity,
             abs(spin_roll) % (int)(Class->MaxAngularVelocity - Class->MinAngularVelocity + 1.0) + Class->MinAngularVelocity);

@@ -74,7 +74,7 @@ bool AStarClass::Plot_Straight_Line(int *moves, int move_count, Cell const &from
                 if (avoid_threats && Map.Cell_Threat(current, house) * avoidance >= 0.01) {
                     threats++;
                 }
-                blocked = foot->unknown_slot101(cellptr, first_dir, height, 0, 1) != 0 || (cellptr->unknown_140 & 0x40000) || threats > 3 || (!fearless && threats > 0);
+                blocked = foot->Can_Enter_Cell(cellptr, first_dir, height, 0, 1) != 0 || (cellptr->unknown_140 & 0x40000) || threats > 3 || (!fearless && threats > 0);
                 count1--;
                 int step_height = cellptr->unknown_11b;
                 if (height - step_height == 4) {
@@ -91,7 +91,7 @@ bool AStarClass::Plot_Straight_Line(int *moves, int move_count, Cell const &from
                 if (avoid_threats && Map.Cell_Threat(current, house) * avoidance >= 0.01) {
                     threats++;
                 }
-                blocked = foot->unknown_slot101(cellptr, second_dir, height, 0, 1) != 0 || (cellptr->unknown_140 & 0x40000) || threats > 3 || (!fearless && threats > 0);
+                blocked = foot->Can_Enter_Cell(cellptr, second_dir, height, 0, 1) != 0 || (cellptr->unknown_140 & 0x40000) || threats > 3 || (!fearless && threats > 0);
                 count2--;
                 int step_height = cellptr->unknown_11b;
                 if (height - step_height == 4) {

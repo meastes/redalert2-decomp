@@ -34,11 +34,11 @@ int RadioClass::unknown_slot151(int message, AbstractClass **param, TechnoClass 
             unknown_slot150(3, RadioLinks[0]);
             free_link = 0;
         }
-        if (to->unknown_slot95(As_Techno(), 2, *param) == 1) {
+        if (to->Receive_Message(As_Techno(), 2, *param) == 1) {
             RadioLinks[free_link] = to;
             return 1;
         }
         return 0xA;
     }
-    return to->unknown_slot95(As_Techno(), message, *param);
+    return to->Receive_Message(As_Techno(), message, *param);
 }

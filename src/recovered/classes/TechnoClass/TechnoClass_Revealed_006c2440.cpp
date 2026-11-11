@@ -28,7 +28,7 @@ bool TechnoClass::Revealed(HouseClass *house)
     }
     if (ObjectClass::Revealed(house)) {
         if (!house->Unknown_004F52F0() && Get_Mission() == 14) {
-            unknown_slot116(15, false);
+            QueueMission(15, false);
         }
         if (house == unknown_player_a35db4) {
             unknown_373 = true;

@@ -69,7 +69,7 @@ int UnitClass::Do_MISSION_HARVEST()
         return 450;
     }
     if (Type->Dock.Count() == 0 && !House->Is_Human_Player()) {
-        unknown_slot116(5, false);
+        QueueMission(5, false);
         return 1;
     }
     bool found = false;
@@ -80,7 +80,7 @@ int UnitClass::Do_MISSION_HARVEST()
         }
     }
     if (!found) {
-        unknown_slot116(5, false);
+        QueueMission(5, false);
         return 1;
     }
     {
@@ -214,14 +214,14 @@ int UnitClass::Do_MISSION_HARVEST()
             }
             break;
         case HEADINGHOME:
-            unknown_slot116(7, false);
+            QueueMission(7, false);
             return 1;
         case GOINGTOIDLE:
             if (unknown_328) {
                 if (House->unknown_5420.unknown_func_491d10(Rules->unknown_778->ArrayIndex) > 0) {
-                    unknown_slot116(0x14, false);
+                    QueueMission(0x14, false);
                 } else {
-                    unknown_slot116(0xf, false);
+                    QueueMission(0xf, false);
                 }
             }
             {
@@ -233,7 +233,7 @@ int UnitClass::Do_MISSION_HARVEST()
                     }
                 }
             }
-            unknown_slot116(5, false);
+            QueueMission(5, false);
             break;
         }
         int delay = (int)(Control()->unknown_10 * 900.0);

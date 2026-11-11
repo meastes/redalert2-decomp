@@ -215,7 +215,7 @@ void InfantryClass::unknown_slot93(int why)
                     return;
                 }
                 Assign_Destination(0,1);
-                unknown_slot116(5,false);
+                QueueMission(5,false);
                 Scatter(unknown_geometry_l,true,true);
                 return;
             }
@@ -251,7 +251,7 @@ void InfantryClass::unknown_slot93(int why)
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,this,Rules->unknown_c74,true);
                 unknown_slot291();
                 Scatter(Adjacent_Cell(CoordStruct(Coord),Dir_To_8(unknown_2e0.Current())),true,true);
-                unknown_slot116(2,false);
+                QueueMission(2,false);
                 if (!unknown_494 || Map_Cell(unknown_494->Center_Coord())->unknown_ec==2) Mark(1);
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);
                 Unknown_0047E2C0(CoordStruct(Coord),Rules->unknown_13a8,static_cast<TechnoClass *>(0),Rules->unknown_c74,true);

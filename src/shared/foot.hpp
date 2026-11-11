@@ -127,11 +127,11 @@ public:
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // slot 6 0x004C9FE0
     virtual void Detach(AbstractClass *target, bool all = true);    // slot 10 0x004C8460
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // slot 13 0x004CA3D0
-    virtual bool unknown_slot21() const;                        // slot 21 0x004CCE70 (ObjectClass's)
+    virtual bool In_Air() const;                        // slot 21 0x004CCE70 (ObjectClass's)
     virtual bool unknown_slot47() { return unknown_5a0; }       // slot 47 (kept copy 0x0041B470)
     virtual Cell unknown_slot178() { return unknown_458; }    // slot 178 (kept copy 0x0041B550)
     virtual void unknown_slot179(Cell cell) { unknown_458 = cell; }   // slot 179 (kept copy 0x0041B560)
-    virtual int unknown_slot29() const;                         // slot 29 0x004CA130 (ILocomotion::Layer)
+    virtual int In_Which_Layer() const;                         // slot 29 0x004CA130 (ILocomotion::Layer)
     virtual void Set_Coord(CoordStruct const &coord);     // slot 103 0x004CA160
     virtual bool unknown_slot154();                             // slot 154 0x004CA6A0
     virtual int unknown_slot177();                              // slot 177 0x004C9A10 (ILocomotion::Z_Gradient)
@@ -160,7 +160,7 @@ public:
     virtual bool Can_Demolish();  // slot 37 0x004C8940
     virtual bool Is_Moving_Onto_Bridge(TechnoClass *techno);  // slot 46 0x004CC4B0
     virtual bool Limbo();  // slot 52 0x004C9BD0
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);  // slot 53 0x004C5E40
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);  // slot 53 0x004C5E40
     virtual void unknown_slot54(bool arg1);  // slot 54 0x004C8220
     virtual void Delete_Me();  // slot 60 0x004CCE40
     virtual void unknown_slot67(Point2D const &point, Rect const &window);  // slot 67 0x004C9BC0
@@ -169,10 +169,10 @@ public:
     virtual void unknown_slot82(int arg1);  // slot 82 0x004CD3F0
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x004C6000
     virtual void unknown_slot93(int arg1);  // slot 93 0x004C7220
-    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);  // slot 95 0x004C7B30
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);  // slot 95 0x004C7B30
     virtual void Sell_Back(int arg1);  // slot 98 0x004C8A40
     virtual void Set_Waypoint_Path(int path, char waypoint);  // slot 99 0x004CB060
-    virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);  // slot 101 0x004C86E0
+    virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);  // slot 101 0x004C86E0
     virtual int unknown_slot102(UnknownCellClass *from, int facing, int *level, bool *ramp, UnknownCellClass *to);  // slot 102 0x004C8730
     virtual int Do_MISSION_CAPTURE();  // slot 127 0x004C41E0
     virtual int Do_MISSION_EATEN();  // slot 128 0x004C4370

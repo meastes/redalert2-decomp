@@ -36,7 +36,7 @@ HRESULT __stdcall TiberiumClass::GetSizeMax(ULARGE_INTEGER *size)
 }
 
 // 0x006EA9E0 TiberiumClass slot 16 (decompile 006ea9e0): the array index.
-int TiberiumClass::unknown_slot16() const
+int TiberiumClass::Fetch_Heap_ID() const
 {
     return ArrayIndex;
 }

@@ -24,7 +24,7 @@ int InfantryClass::Do_MISSION_ATTACK()
             BuildingTypeClass *type = ((BuildingClass *)unknown_228)->Type;
             if (type->CanC4 && !type->InvisibleInGame) {
                 Assign_Destination(unknown_228, true);
-                unknown_slot116(17, false);
+                QueueMission(17, false);
                 return 1;
             }
         }

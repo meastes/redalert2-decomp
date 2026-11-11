@@ -18,7 +18,7 @@
 // @ref ??RRandom2Class@@QAEHXZ=00638840
 // @ref ?Unknown_006A2970@@YIHH@Z=006a2970
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
-// @ref _?$S43@?1??unknown_slot64@ParticleClass@@UAEPBVCell@@H@Z@4EA=00a76520
+// @ref _?$S43@?1??Occupy_List@ParticleClass@@UAEPBVCell@@H@Z@4EA=00a76520
 
 // TibSun Slope_Vector: reflects a vector off the slope of the cell at coord.
 static inline Vector3 Slope_Vector(Vector3 &vector, CoordStruct const &coord, float length)

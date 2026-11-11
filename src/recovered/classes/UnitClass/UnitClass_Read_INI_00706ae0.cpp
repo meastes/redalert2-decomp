@@ -96,13 +96,13 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                     if (token) unit->unknown_379 = atoi(token) != 0;
                     token = strtok(0, ",");
                     if (token) unit->unknown_37a = atoi(token) != 0;
-                    if (unit->unknown_slot53(&coord, direction)) {
+                    if (unit->Unlimbo(&coord, direction)) {
                         UnitTypeClass *type = Unit_Read_Float_Health_00706AE0(*unit, (float)health);
                         if (unit->Strength > type->MaxStrength - 3) unit->Strength = type->MaxStrength;
                         if (unit->Strength == 0) unit->Strength = 1;
                         unit->unknown_70 = unit->Strength;
                         if (unknown_game_mode_a3d298 == 0 || unit->House->Unknown_004F52F0()) {
-                            unit->unknown_slot116(mission, false);
+                            unit->QueueMission(mission, false);
                             if (unit->unknown_slot122()) unit->Commence();
                         } else {
                             unit->unknown_slot261(false, true);

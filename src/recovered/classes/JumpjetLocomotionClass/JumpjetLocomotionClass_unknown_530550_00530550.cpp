@@ -36,7 +36,7 @@ void JumpjetLocomotionClass::unknown_530550()
         }
         return;
     }
-    int result = LinkedTo->unknown_slot101(&cell, -1, -1, 0, 1);
+    int result = LinkedTo->Can_Enter_Cell(&cell, -1, -1, 0, 1);
     int spot = Unknown_004763D0(unknown_3c);
     bool landable;
     if (cell.Is_Spot_Free(spot, (cell.unknown_140 >> 8) & 1) || unknown_88) {

@@ -76,7 +76,7 @@ void UnitClass::unknown_slot93(int reason)
                     Hidden();
                 } else {
                     Assign_Destination(0,true);
-                    unknown_slot116(5,false);
+                    QueueMission(5,false);
                     Scatter(unknown_geometry_l,true,true);
                 }
                 return;
@@ -101,22 +101,22 @@ void UnitClass::unknown_slot93(int reason)
                                 if (!House->Unknown_004F52F0() && building && building->Type->WeaponsFactory) {
                                     Cell where=House->Unknown_004EB270(this);
                                     if (where!=unknown_geometry_k) {
-                                        unknown_slot116(2,false);
+                                        QueueMission(2,false);
                                         Assign_Destination(&Map[where],true);
                                         Commence();
                                         unknown_6d6e50(&Map[where]);
-                                        unknown_slot116(11,false);
+                                        QueueMission(11,false);
                                     } else unknown_6d6e50(0);
                                 } else {
                                     AbstractClass *destination=unknown_1b0;
                                     if (destination && destination!=unknown_494) Assign_Destination(destination,true);
                                     else { unknown_4cd9b0();Scatter(unknown_geometry_l,true,false); }
                                 }
-                            } else unknown_slot116(10,true);
+                            } else QueueMission(10,true);
                         }
                     } else if (response!=10 && (Type->Harvester || Type->Weeder)) {
                         if (unknown_1b0) {
-                            unknown_slot116(10,false);
+                            QueueMission(10,false);
                             Assign_Destination(unknown_1b0,true);
                             unknown_6d6e50(0);
                         } else if (!unknown_494) Scatter(unknown_geometry_l,true,false);
@@ -146,7 +146,7 @@ void UnitClass::unknown_slot93(int reason)
         if (!unknown_494 && Path[0]==-1 && !Type->MobileFire) unknown_244=unknown_slot187(1)/4;
         CellClass *current_cell=&Map[Position_Coord_004f3f40()];
         int land=current_cell->unknown_ec;
-        if (!Locomotor.Checked()->Is_Moving() && unknown_slot101(current_cell,-1,-1,0,1)==7 && (!unknown_79 || !(current_cell->unknown_140&0x100)) && !unknown_325) {
+        if (!Locomotor.Checked()->Is_Moving() && Can_Enter_Cell(current_cell,-1,-1,0,1)==7 && (!unknown_79 || !(current_cell->unknown_140&0x100)) && !unknown_325) {
             if (Mission!=7) {
                 new AnimClass(Select_Damage_Anim(Strength,Rules->unknown_c74,land,&Position_Coord_004f3f40()),Position_Coord_004f3f40(),0,1,0x2600,Unknown_0047FCC0(Position_Coord_004f3f40()));
                 int damage=Strength;

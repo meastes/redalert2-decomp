@@ -57,20 +57,20 @@ Cell FootClass::Unknown_004BB3F0(Cell const &from, Cell const &to, int start, in
         if (dir & 1) {
             for (lp = 0; lp < dist << 1; lp++) {
                 next = Adjacent_Cell(next, (dir + 3) & 7);
-                if (unknown_slot101(&Map[next], (dir + 3) & 7, -1, 0, true) == 0) {
+                if (Can_Enter_Cell(&Map[next], (dir + 3) & 7, -1, 0, true) == 0) {
                     return next;
                 }
             }
         } else {
             for (lp = 0; lp < dist; lp++) {
                 next = Adjacent_Cell(next, (dir + 2) & 7);
-                if (unknown_slot101(&Map[next], (dir + 2) & 7, -1, 0, true) == 0) {
+                if (Can_Enter_Cell(&Map[next], (dir + 2) & 7, -1, 0, true) == 0) {
                     return next;
                 }
             }
             for (lp = 0; lp < dist; lp++) {
                 next = Adjacent_Cell(next, (dir + 4) & 7);
-                if (unknown_slot101(&Map[next], (dir + 4) & 7, -1, 0, true) == 0) {
+                if (Can_Enter_Cell(&Map[next], (dir + 4) & 7, -1, 0, true) == 0) {
                     return next;
                 }
             }

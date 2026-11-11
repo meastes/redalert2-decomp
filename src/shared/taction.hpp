@@ -32,7 +32,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x006B30B0 slot 11
     virtual int Size_Of() const;                                        // 0x006B30A0 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006B2D60 slot 13
-    virtual int unknown_slot16() const;                                 // 0x006B30C0
+    virtual int Fetch_Heap_ID() const;                                 // 0x006B30C0
 
     void Build_INI_Entry(char *buffer) const;                           // 0x006AD640 (appends the action's fields)
     void Read_INI();                                                    // 0x006AD860 (the next strtok fields)

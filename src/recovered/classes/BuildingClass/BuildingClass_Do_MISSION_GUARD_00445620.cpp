@@ -49,7 +49,7 @@ int BuildingClass::Do_MISSION_GUARD()
             if (Type->SuperWeapon == -1) {
 check_occupants:
                 if ((!Type->CanBeOccupied || unknown_554.Count() > 0) && unknown_228 != 0) {
-                    unknown_slot116(1, false);
+                    QueueMission(1, false);
                     Commence();
                     return 1;
                 }
@@ -79,7 +79,7 @@ check_occupants:
                         UnknownVector3 distance = Coord_Difference(Center_Coord(), techno->Center_Coord());
                         if (distance.Length() < 0x40
                             && unknown_slot150(0x13, techno) == 1) {
-                            unknown_slot116(0x14, false);
+                            QueueMission(0x14, false);
                             return 1;
                         }
                     }
@@ -92,7 +92,7 @@ check_occupants:
         break;
     }
     if (Type->UnitReload && In_Radio_Contact() && unknown_slot149(0x1D) != 1 && unknown_slot149(0x13) == 1) {
-        unknown_slot116(0x14, false);
+        QueueMission(0x14, false);
     }
     if (Type->UnitRepair) {
         int delay = (int)(Control()->unknown_10 * 900.0);

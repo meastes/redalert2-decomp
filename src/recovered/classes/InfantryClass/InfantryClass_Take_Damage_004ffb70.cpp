@@ -27,8 +27,8 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
         unknown_slot216(reinterpret_cast<int>(source));
         unknown_slot291();
         unknown_slot210();
-        unknown_slot116(-1,false);
-        unknown_slot116(5,false);
+        QueueMission(-1,false);
+        QueueMission(5,false);
         Commence();
         unknown_6d3040(source);
         bool delete_after_sequence=false;
@@ -102,7 +102,7 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
     }
     if (result!=4) {
         CoordStruct source_position=source ? CoordStruct(source->Coord) : unknown_geometry_l;
-        if (!House->Is_Human_Player() && Type->Engineer && (Get_Mission()==5 || Get_Mission()==11)) unknown_slot116(15,false);
+        if (!House->Is_Human_Player() && Type->Engineer && (Get_Mission()==5 || Get_Mission()==11)) QueueMission(15,false);
         if (source) Scatter(source_position,false,false);
         if (source && unknown_5bc<100) {
             if (Type->Fraidycat) unknown_5bc=300;

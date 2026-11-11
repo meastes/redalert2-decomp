@@ -25,7 +25,7 @@ void AircraftClass::unknown_416420()
             passenger->Techno_Type_Class()->Locomotor);
     }
     passenger->Locomotor.Checked()->Link_To_Object(passenger);
-    if (!passenger->unknown_slot53(&position, 0)) {
+    if (!passenger->Unlimbo(&position, 0)) {
         Cargo.Attach(passenger);
         return;
     }

@@ -73,7 +73,7 @@ void UnitClass::AI()
         for (int index = 0; index < Rules->unknown_7c8.Count(); index++) {
             if (Rules->unknown_7c8[index] == Type->DeploysInto) {
                 if (House->unknown_13b && !House->Is_Human_Player() && unknown_game_mode_a3d298 != 0 && House->unknown_50.Count() == 0 && Mission != 15 && Mission != 16) {
-                    unknown_slot116(15, false);
+                    QueueMission(15, false);
                 }
                 break;
             }
@@ -131,7 +131,7 @@ void UnitClass::AI()
                     CoordStruct position = Coord;
                     unknown_6d6e50(&Map[position]);
                 }
-                unknown_slot116(7, false);
+                QueueMission(7, false);
                 unknown_slot220(0);
                 Assign_Destination(repair_building, true);
             }
@@ -143,7 +143,7 @@ void UnitClass::AI()
                     ObjectClass *contact = Map[CoordStruct(Coord)].Cell_Building();
                     if (In_Radio_Contact()) unknown_slot149(3);
                     Assign_Destination(&Map[unknown_6cf130(contact)], true);
-                    unknown_slot116(2, true);
+                    QueueMission(2, true);
                 }
             }
         }

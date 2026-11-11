@@ -39,11 +39,11 @@
 // @ref ?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A=00a40338
 // @ref ?What_Am_I@AbstractClass@@UAGHXZ=0040ffb0
 // @ref ?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z=00410910
-// @ref ?unknown_slot16@SuperWeaponTypeClass@@UBEHXZ=0069f440
-// @ref ?unknown_slot17@AbstractClass@@UBE_NXZ=004101e0
+// @ref ?Fetch_Heap_ID@SuperWeaponTypeClass@@UBEHXZ=0069f440
+// @ref ?Is_Inactive@AbstractClass@@UBE_NXZ=004101e0
 // @ref ?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z=00410290
-// @ref ?unknown_slot20@AbstractClass@@UBE_NXZ=004102c0
-// @ref ?unknown_slot21@AbstractClass@@UBE_NXZ=004102d0
+// @ref ?On_Ground@AbstractClass@@UBE_NXZ=004102c0
+// @ref ?In_Air@AbstractClass@@UBE_NXZ=004102d0
 // @ref ?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ=004102e0
 // @ref ?unknown_slot24@AbstractTypeClass@@UAEXH@Z=004109a0
 // @ref ?unknown_slot27@SuperWeaponTypeClass@@UBEHPBX0@Z=0069f8b0

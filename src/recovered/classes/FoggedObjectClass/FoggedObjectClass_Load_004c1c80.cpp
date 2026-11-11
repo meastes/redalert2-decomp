@@ -34,7 +34,7 @@ HRESULT __stdcall FoggedObjectClass::Load(IStream *stream)
             DrawRecords.Add(record);
             Swizzle_Pointer(DrawRecords[DrawRecords.Count() - 1].Type);
         }
-        Cell cell = unknown_slot24();
+        Cell cell = Get_Cell();
         Index.Add_Index(unknown_index_key(cell, unknown_30), this);
     }
     return result;

@@ -128,9 +128,9 @@ void SuperClass::Place(Cell const &cell, bool player)
             }
             while (object != 0) {
                 FootClass *foot = (FootClass *)object;
-                if (object->Is_Foot() && !object->unknown_slot21()) {
+                if (object->Is_Foot() && !object->In_Air()) {
                     TechnoTypeClass *ttype = object->Techno_Type_Class();
-                    if (ttype->Organic && !object->Techno_Type_Class()->Teleporter && !object->unknown_slot21()) {
+                    if (ttype->Organic && !object->Techno_Type_Class()->Teleporter && !object->In_Air()) {
                         int damage = object->Techno_Type_Class()->MaxStrength;
                         object->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);
                     } else if (!foot->unknown_slot203() && !foot->unknown_210 && !object->unknown_slot111() && !object->unknown_slot112()) {
@@ -335,7 +335,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                         CoordStruct coord = Cell_Coord(spot);
                         coord.Z = Map.Get_Height_GL(coord);
                         CoordStruct sound = coord;
-                        site->unknown_slot116(0x16, false);
+                        site->QueueMission(0x16, false);
                         site->Commence();
                         House->NukeDest = cell;
                         *(int *)((char *)site + 0x4CC) = Type->Type;   // TODO: BuildingClass +0x4CC (building_class.hpp unknown_4cc; the BuildingClass in scope differs)

@@ -20,7 +20,7 @@ int UnitClass::Do_MISSION_REPAIR()
             unknown_slot261(0, 1);
         }
     } else if (unknown_slot150(2, refinery) == 1) {
-        unknown_slot116(7, false);
+        QueueMission(7, false);
         return 1;
     }
     return (int)(Control()->unknown_10 * 900.0);

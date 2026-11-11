@@ -12,7 +12,7 @@ void ParasiteClass::Unknown_00607980(FootClass *target)
 {
     Unknown_006064C0();
     if (!Can_Infect_006078F0(target)) {
-        if (!Owner->unknown_slot53(&Map[Owner->unknown_454].Center_Coord(), 0)) {
+        if (!Owner->Unlimbo(&Map[Owner->unknown_454].Center_Coord(), 0)) {
             Owner->Delete_Me();
             return;
         }

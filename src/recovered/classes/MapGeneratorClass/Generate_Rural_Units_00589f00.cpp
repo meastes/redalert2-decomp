@@ -32,7 +32,7 @@ void MapGeneratorClass::Generate_Rural_Units(Cell const &origin)
             if(attempts>=60)break;
             Cell position=origin + Cell(Map_Random_Range_005797a0(0,16)-8,Map_Random_Range_005797a0(0,16)-8);
             if(Map.Unknown_0055A660(position,true) && Map[position].OccupierPtr==0) {
-                if(unit->unknown_slot53(&CoordStruct(position.X*256+128,position.Y*256+128,0),Map_Random_Range_005797a0(0,7)*32)) {
+                if(unit->Unlimbo(&CoordStruct(position.X*256+128,position.Y*256+128,0),Map_Random_Range_005797a0(0,7)*32)) {
                     int strength=unit->Techno_Type_Class()->MaxStrength;
                     unit->Strength=strength;
                     unit->unknown_70=strength;

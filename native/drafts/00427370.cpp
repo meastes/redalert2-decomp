@@ -267,7 +267,7 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
             if (!base_level && Is_Visited(0, false, node_index) && (working_node->unknown_04 + 1.009) > RegularBridgeMovementCosts[node_index]) {
                 continue;
             }
-            int move = foot->unknown_slot101(neighbor_cell, face, CurrentCellHeight, *working_from, UseLocomotorEnterCheck);
+            int move = foot->Can_Enter_Cell(neighbor_cell, face, CurrentCellHeight, *working_from, UseLocomotorEnterCheck);
             if (is_train && move < 7) {
                 move = 0;
             }

@@ -12,7 +12,7 @@ BulletClass *InfantryClass::unknown_slot221(AbstractClass *target, int arg2)
     if (result != 0 && !unknown_76 && Type->Fraidycat && unknown_254 == 0) {
         unknown_5bc = 300;
         if (Get_Mission() == 1 || Get_Mission() == 15) {
-            unknown_slot116(5, false);
+            QueueMission(5, false);
         }
     }
     return result;

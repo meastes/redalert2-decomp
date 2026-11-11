@@ -11,7 +11,7 @@ bool TActionClass::unknown_hunt_idle_feet_not_of_house(HouseClass *house, Object
         FootClass *foot = unknown_FootClass_list_00865f38[index];
         if (foot->Get_Mission() == 0 && foot->Strength > 0 && foot->unknown_7d && foot->unknown_74
             && !foot->unknown_76 && house != foot->House) {
-            foot->unknown_slot116(5, false);
+            foot->QueueMission(5, false);
         }
     }
     return true;

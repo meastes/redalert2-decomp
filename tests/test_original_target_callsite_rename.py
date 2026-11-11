@@ -73,6 +73,14 @@ class CallsiteRenameTests(unittest.TestCase):
         self.assertEqual(cr.read_parts(text), [({'TechnoType', 'UnitType'}, [('unknown_slot40', 'CanUseWaypoint'), ('unknown_slot41', 'CanAttackMove')]),
                                                ({'OverlayType'}, [('unknown_slot40', 'Draw_It')])])
 
+    def test_ambiguous_undeclared_name_takes_the_enclosing_members_family(self):
+        rows = ['void Particle::AI()', '{', '    x = unknown_slot116();', '}']
+        self.assertEqual(cr.enclosing_class(rows, 3), 'Particle')
+        parts = [({'Mission'}, [('unknown_slot116', 'QueueMission')]), ({'Particle'}, [('unknown_slot116', 'Shape_Number')])]
+        log = "accepted.cpp(3) : error C2065: 'unknown_slot116' : undeclared identifier\n"
+        fixes, _, other = cr.classify(log, [(1, 'src/a.cpp')], parts, lambda rel: rows)
+        self.assertEqual((fixes, other), ({'src/a.cpp': {3: {('unknown_slot116', 'Shape_Number')}}}, []))
+
     def test_mangling_rules_are_family_limited(self):
         rule = cr.mangling_rules(METHODS, {'Base', 'Leaf'})[0]
         import re

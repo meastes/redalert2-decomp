@@ -12,7 +12,7 @@ inline int AITriggerTypeClass::Owned_Count(HouseClass *house) const
 {
     AbstractTypeClass *type = unknown_d8;
     if (type != 0) {
-        int index = type->unknown_slot16();
+        int index = type->Fetch_Heap_ID();
         int count = 0;
         switch (type->Kind_Of()) {
         case 7:

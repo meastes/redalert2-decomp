@@ -81,7 +81,7 @@ public:
     virtual int Kind_Of() const { return 5; }                           // 0x00426770 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(AnimTypeClass); }       // 0x00426790 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00426300 slot 13
-    virtual int unknown_slot16() const { return ArrayIndex; }           // 0x00426780 (inline)
+    virtual int Fetch_Heap_ID() const { return ArrayIndex; }           // 0x00426780 (inline)
     virtual void unknown_slot24(int theater);                           // 0x004253C0 (theater change)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00425690 slot 25
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const { return false; }   // 0x004267A0 (inline)

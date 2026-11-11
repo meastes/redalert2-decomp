@@ -47,7 +47,7 @@ public:
     virtual void AI();                                          // slot 23 0x00594790
     virtual int Get_Mission();                               // slot 91 0x00594770 current mission
 
-    virtual void unknown_slot116(int mission, bool commence);   // slot 116 0x00594CB0 queue
+    virtual void QueueMission(int mission, bool commence);   // slot 116 0x00594CB0 queue
     virtual bool Commence();                             // slot 117 0x00594C50 commence the queued mission
     virtual void Set_Mission(int mission);                  // slot 118 0x00594710 set
     virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);  // slot 119 0x00594D20 override

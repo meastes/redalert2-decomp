@@ -10,7 +10,7 @@ bool TActionClass::unknown_hunt_technos_of_house_type(HouseClass *house, ObjectC
         TechnoClass *techno = Technos[index];
         if (techno->unknown_1ac == Data.Value && (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17)
             && techno->Strength > 0 && techno->unknown_7d && techno->unknown_74 && !techno->unknown_76) {
-            techno->unknown_slot116(5, false);
+            techno->QueueMission(5, false);
         }
     }
     return true;

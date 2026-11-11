@@ -15,7 +15,7 @@
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
 // @ref ??0RGBClass@@QAE@ABV0@0M@Z=0063cc80
 // @ref ?Set_Coord@ObjectClass@@UAEXABUCoordStruct@@@Z=005d51c0
-// @ref ?unknown_slot53@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
+// @ref ?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
 // @ref _unknown_geometry_l=00a764e8
 // @ref __real@8@00000000000000000000=0079b610
 // @ref __real@8@3feb8637bd05af6c6800=007a7d20
@@ -104,5 +104,5 @@ ParticleClass::ParticleClass(ParticleTypeClass *type, CoordStruct const &coord, 
             Color = RGBClass(Class->StartColor1, Class->StartColor2, (float)Random_Double(0.0, 1.0));
         }
     }
-    ObjectClass::unknown_slot53(&place, 0);
+    ObjectClass::Unlimbo(&place, 0);
 }

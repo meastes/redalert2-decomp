@@ -308,9 +308,9 @@ public:
     virtual int Kind_Of() const { return 8; }                           // 0x00463E90 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(BulletClass); }         // 0x00463E80 slot 12 (inline)
     virtual void AI();                                                  // 0x0045F710 slot 23
-    virtual int unknown_slot29() const;                                 // 0x00461BF0 (layer)
+    virtual int In_Which_Layer() const;                                 // 0x00461BF0 (layer)
     virtual ObjectTypeClass *Class_Of() const { return (ObjectTypeClass *)Type; }   // 0x00463EF0 slot 33 (inline)
-    virtual Cell const *unknown_slot64(int arg1);                 // 0x0045F690
+    virtual Cell const *Occupy_List(int arg1);                 // 0x0045F690
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x004610D0
     virtual bool Mark(int arg1);                              // 0x0045F6F0
     virtual int unknown_slot116();                                      // 0x00461040 (new: shape frame)

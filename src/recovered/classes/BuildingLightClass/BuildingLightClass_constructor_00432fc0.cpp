@@ -7,7 +7,7 @@
 // @ref ??_7BuildingLightClass@@6BIRTTITypeInfo@@@=0079c7c4
 // @ref ??_7BuildingLightClass@@6BINoticeSink@@@=0079c7bc
 // @ref ??_7BuildingLightClass@@6BINoticeSource@@@=0079c7b4
-// @ref ?unknown_slot53@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
+// @ref ?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
 // @ref ?Submit@UnknownList832470@@QAE_NPAVObjectClass@@_N@Z=0053e330
 // @ref ?Set_Behavior@BuildingLightClass@@QAEXH@Z=00434370
 BuildingLightClass::BuildingLightClass(TechnoClass *owner) :
@@ -23,7 +23,7 @@ BuildingLightClass::BuildingLightClass(TechnoClass *owner) :
     BuildingLights.Add(this);
     if (owner != 0) {
         Init_Rotation_Arc(owner);
-        BuildingLightClass::unknown_slot53(&CoordStruct(Coord), 0);
+        BuildingLightClass::Unlimbo(&CoordStruct(Coord), 0);
         Set_Behavior(1);
         unknown_c0 = BuildingLights.ID(this) % 2 != 0;
     }

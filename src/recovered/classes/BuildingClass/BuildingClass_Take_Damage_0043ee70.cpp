@@ -71,7 +71,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
         House->unknown_540c=source->Owning_House()->ArrayIndex;
         unknown_6d3400(source);
     }
-    Cell const *offset=unknown_slot64(0);
+    Cell const *offset=Occupy_List(0);
     DynamicVectorClass<TechnoClass *> contacts;
     for (int index=0;index<RadioLinks.Length();++index) {
         TechnoClass *contact=Contact(index);

@@ -17,7 +17,7 @@ bool __stdcall HoverLocomotionClass::Push(UnknownFacingDir dir)
         int facing=Dir_To_8(dir);
         Cell cell=Hover_Adjacent_Cell_004fea20(LinkedTo->unknown_slot104(),facing);
         FootClass *linked=LinkedTo;
-        if (linked->unknown_slot101(&Map[cell],-1,-1,0,true)==0) {
+        if (linked->Can_Enter_Cell(&Map[cell],-1,-1,0,true)==0) {
             unknown_70=true;
             if (Is_Moving()) {
                 LinkedTo->Path[0]=-1;

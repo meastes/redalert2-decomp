@@ -65,7 +65,7 @@ int TechnoClass::unknown_slot174(AbstractClass *target)
     }
     bool ground = ((CellClass *)object->Get_Cell_Ptr())->unknown_ec == 2
         || ((CellClass *)object->Get_Cell_Ptr())->unknown_ec == 6;
-    if (object->unknown_slot21()) {
+    if (object->In_Air()) {
         ground = false;
     }
     if (!object->unknown_79 && ground) {
@@ -74,7 +74,7 @@ int TechnoClass::unknown_slot174(AbstractClass *target)
             which = 0;
         }
         return which;
-    } else if (secondary->Projectile->AA && object->unknown_slot21()) {
+    } else if (secondary->Projectile->AA && object->In_Air()) {
         return 1;
     }
     return 0;

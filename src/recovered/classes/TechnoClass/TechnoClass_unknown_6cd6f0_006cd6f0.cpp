@@ -8,7 +8,7 @@
 // @ref ?Unknown_0056A8A0@MapClass@@QAEHXZ=0056a8a0
 int TechnoClass::unknown_6cd6f0()
 {
-    if (unknown_slot21()) {
+    if (In_Air()) {
         return 0;
     }
     int increment = Rules->unknown_1480;

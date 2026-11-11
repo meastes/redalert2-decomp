@@ -43,7 +43,7 @@ void HouseClass::Update_Present_Super_Weapons()
                     enabled = false;
                 }
             }
-            int type_id = Supers[s]->Type->unknown_slot16();
+            int type_id = Supers[s]->Type->Fetch_Heap_ID();
             int type_index = Unknown_006818D0(57, type_id, 0);
             if (present && !unknown_13d) {
                 bool const &on = enabled;

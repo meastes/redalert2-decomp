@@ -11,7 +11,7 @@ bool TechnoClass::unknown_615360()
 {
     PlanningTokenClass *token = Planning_Token(this);
     if (token != 0 && token->Nodes.Count() > 0 && (token->unknown_8c == -1 || token->unknown_8c > 0) && !token->unknown_1c) {
-        unknown_slot116(0x1C, true);
+        QueueMission(0x1C, true);
         EventClass event = token->unknown_613330();
         Planning_Store_Event(event);
         token->unknown_1c = true;

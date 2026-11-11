@@ -15,7 +15,7 @@ bool BuildingClass::unknown_44d7d0()
     }
     if (Get_Mission() != 24 || unknown_2a8.Is_Count_Down_Active() || unknown_2a8.Is_Count_Down_Complete()) {
         Set_Mission(-1);
-        unknown_slot116(24, false);
+        QueueMission(24, false);
         Commence();
         return false;
     }

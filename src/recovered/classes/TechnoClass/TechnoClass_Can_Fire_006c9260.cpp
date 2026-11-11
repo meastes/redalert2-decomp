@@ -58,16 +58,16 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
         }
         other=unknown_slot231(which==0)->WeaponType;
         if(other && ((other->unknown_105 && unknown_25c[0]) || (other->unknown_109 && unknown_25c[4]) || (other->unknown_106 && unknown_25c[1]) || (other->unknown_10c && unknown_27c))) goto CANT;
-        if(target->unknown_slot21() && !weapon->Projectile->AA) goto ILLEGAL;
+        if(target->In_Air() && !weapon->Projectile->AA) goto ILLEGAL;
         if(techno) {
             water=(reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_ec==2)
                 || (reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_ec==6);
-            if(techno->unknown_slot21()) water=false;
+            if(techno->In_Air()) water=false;
             if(techno->unknown_79) water=false;
             else if(water && unknown_slot175(static_cast<ObjectClass *>(target))==-1) goto ILLEGAL;
-            if(target->unknown_slot20() && !water && Techno_Type_Class()->LandTargeting==1) return 5;
+            if(target->On_Ground() && !water && Techno_Type_Class()->LandTargeting==1) return 5;
         } else {
-            if(!target->unknown_slot21() && !weapon->Projectile->AG) return 5;
+            if(!target->In_Air() && !weapon->Projectile->AG) return 5;
             if(target->Kind_Of()==0xb && As_Cell(target)->unknown_ec!=2 && As_Cell(target)->unknown_ec!=6 && Techno_Type_Class()->LandTargeting==1) goto ILLEGAL;
         }
         check_rearm=true;
@@ -102,7 +102,7 @@ int TechnoClass::unknown_slot218(AbstractClass *target,int which,bool check_rang
             if(warhead->IvanBomb && techno->unknown_38!=0) return 5;
             if(techno->unknown_325) return 5;
             if(unknown_79!=techno->unknown_79) {
-                if(Get_Cell_Ptr() && (reinterpret_cast<CellClass *>(Get_Cell_Ptr())->unknown_140&0x100) && !unknown_slot21()
+                if(Get_Cell_Ptr() && (reinterpret_cast<CellClass *>(Get_Cell_Ptr())->unknown_140&0x100) && !In_Air()
                     && techno->Get_Cell_Ptr() && (reinterpret_cast<CellClass *>(techno->Get_Cell_Ptr())->unknown_140&0x100)) return 5;
                 int mine=Position_Coord_004f3f40().Z;
                 int theirs=techno->Position_Coord_004f3f40().Z;

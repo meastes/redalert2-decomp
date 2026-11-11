@@ -43,7 +43,7 @@ bool FootClass::unknown_slot261(bool initial,bool resume_waypoint)
             if (Coord_Cell(unknown_1b0->Center_Coord())!=Coord_Cell(Center_Coord())) {
                 AbstractClass *target=unknown_1b0;
                 if (Mission!=11) {
-                    unknown_slot116(2,false);
+                    QueueMission(2,false);
                     unknown_6d6e50(0);
                 }
                 Assign_Destination(target,true);

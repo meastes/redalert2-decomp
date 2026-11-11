@@ -43,7 +43,7 @@ bool __stdcall DropPodLocomotionClass::Process()
         UnknownComPtr<ILocomotion, &unknown_uuid_ILocomotion_7ce600> &locomotor = LinkedTo->Locomotor;
         locomotor.Attach(0);
         End_Piggyback(&locomotor.Pointer);
-        if (!linked->unknown_slot53(&coord, 0)) {
+        if (!linked->Unlimbo(&coord, 0)) {
             Unknown_0047E2C0(coord, 100, LinkedTo, Rules->unknown_c74, true);
             new AnimClass(Select_Damage_Anim(100, Rules->unknown_c74, 0, &coord), coord, 0, 1, 0x2600, Unknown_0047FCC0(coord));
         } else {

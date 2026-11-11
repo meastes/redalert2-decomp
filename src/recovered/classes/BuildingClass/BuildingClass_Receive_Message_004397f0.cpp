@@ -31,12 +31,12 @@ inline TechnoClass *Building_Radio_Infantry_004397f0(RadioClass *sender)
 
 inline CoordStruct Position_Coord_00450950(ObjectClass const &object);
 
-int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&param)
+int BuildingClass::Receive_Message(RadioClass *radio,int message,AbstractClass *&param)
 {
     TechnoClass *sender=static_cast<TechnoClass *>(radio);
     switch (message) {
     case 15:
-        TechnoClass::unknown_slot95(radio,message,param);
+        TechnoClass::Receive_Message(radio,message,param);
         if (!House->Is_Ally(sender)) return 0;
         if (Get_Mission()==18 || Get_Mission()==19 || unknown_42c==0 ||
             (!unknown_a40774 && !Unknown_00636ED0(sender))) return 10;
@@ -69,14 +69,14 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&
         if (Get_Mission()==19) return 10;
         if (Type->UnitRepair || Type->UnitReload || Type->Hospital || Type->Armory) {
             unknown_5ad=true;
-            unknown_slot116(20,false);
-            radio->unknown_slot116(0,false);
+            QueueMission(20,false);
+            radio->QueueMission(0,false);
             return 1;
         }
-        if (Type->DockUnload) { radio->unknown_slot116(16,false); return 1; }
+        if (Type->DockUnload) { radio->QueueMission(16,false); return 1; }
         break;
     case 14: {
-        TechnoClass::unknown_slot95(radio,message,param);
+        TechnoClass::Receive_Message(radio,message,param);
         if (!unknown_530) return 10;
         if (Type->UnitRepair && Is_Radio_Contact(sender) && unknown_slot150(34,sender)==10) return 10;
         if (!Type->Hospital && !Type->Armory) {
@@ -126,32 +126,32 @@ int BuildingClass::unknown_slot95(RadioClass *radio,int message,AbstractClass *&
         }
         return 10;
     case 11:
-        unknown_slot116(20,false);
-        TechnoClass::unknown_slot95(radio,message,param);
+        QueueMission(20,false);
+        TechnoClass::Receive_Message(radio,message,param);
         return 1;
     case 12:
         if (Get_Mission()!=19) {
-            unknown_slot116(5,false);
+            QueueMission(5,false);
             if (Type->ConstructionYard) {
                 unknown_44cfd0(7);
                 unknown_44cfd0(17);
                 unknown_44c920(8,Health_Ratio()<=Rules->unknown_1368,false,0);
             }
         }
-        TechnoClass::unknown_slot95(radio,message,param);
+        TechnoClass::Receive_Message(radio,message,param);
         return 1;
     case 3:
         unknown_443d60(1);
-        TechnoClass::unknown_slot95(radio,message,param);
+        TechnoClass::Receive_Message(radio,message,param);
         return 1;
     case 8:
         if (Type->UnitRepair && Building_Radio_Object_Distance_004397f0(*this,*radio)<384) return 1;
-        TechnoClass::unknown_slot95(radio,message,param);
+        TechnoClass::Receive_Message(radio,message,param);
         if (!Type->WeaponsFactory && !Type->UnitRepair) return 1;
         return 23;
     case 13:
         if (Type->WeaponsFactory) return 1;
         break;
     }
-    return TechnoClass::unknown_slot95(radio,message,param);
+    return TechnoClass::Receive_Message(radio,message,param);
 }

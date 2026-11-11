@@ -181,7 +181,7 @@ void __fastcall Create_Units_00660320(bool official)
 
         if (unknown_flag_a3d2b8) {
             TechnoClass *unit = (TechnoClass *)new UnitClass(house->Unknown_004EF6F0(Rules->BaseUnit), house);
-            if (!unit->unknown_slot53(&CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0), 0) && !Unknown_00660b60(unit, cell, 1)) {
+            if (!unit->Unlimbo(&CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0), 0) && !Unknown_00660b60(unit, cell, 1)) {
                 delete unit;
                 unit = 0;
             }

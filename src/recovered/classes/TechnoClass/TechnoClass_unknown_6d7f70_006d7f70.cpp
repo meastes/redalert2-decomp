@@ -18,12 +18,12 @@ bool TechnoClass::unknown_6d7f70()
             TechnoClass *techno = (TechnoClass *)contact;
             if (unknown_slot150(2, techno) == 1) {
                 if (unknown_slot150(15, techno) == 1) {
-                    unknown_slot116(7, false);
+                    QueueMission(7, false);
                     Assign_Destination(techno, true);
                     unknown_3f8 = 0;
                     return true;
                 }
-                unknown_slot116(-1, false);
+                QueueMission(-1, false);
                 Assign_Destination(0, true);
                 unknown_3f8 = 0;
                 unknown_slot150(3, techno);

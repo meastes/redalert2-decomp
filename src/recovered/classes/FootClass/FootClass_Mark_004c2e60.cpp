@@ -15,7 +15,7 @@ bool FootClass::Mark(int arg1)
         return true;
     }
     if (TechnoClass::Mark(arg1)) {
-        if (unknown_slot29() == 2) {
+        if (In_Which_Layer() == 2) {
             Cell cell = unknown_slot104();
             switch (arg1) {
             case 0:

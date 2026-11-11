@@ -57,14 +57,14 @@ void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
                     if (token) aircraft->unknown_379 = atoi(token) != 0;
                     token = strtok(0, ",");
                     if (token) aircraft->unknown_37a = atoi(token) != 0;
-                    if (aircraft->unknown_slot53(&coord, direction)) {
+                    if (aircraft->Unlimbo(&coord, direction)) {
                         AircraftTypeClass *type = aircraft->Type;
                         aircraft->Strength = (int)((double)health * (1.0 / 256.0) * type->MaxStrength);
                         if (aircraft->Strength > type->MaxStrength - 3) aircraft->Strength = type->MaxStrength;
                         if (aircraft->Strength == 0) aircraft->Strength = 1;
                         aircraft->unknown_70 = aircraft->Strength;
                         if (unknown_game_mode_a3d298 == 0 || aircraft->House->Unknown_004F52F0()) {
-                            aircraft->unknown_slot116(mission, false);
+                            aircraft->QueueMission(mission, false);
                             aircraft->Commence();
                         } else aircraft->unknown_slot261(false, true);
                     } else {

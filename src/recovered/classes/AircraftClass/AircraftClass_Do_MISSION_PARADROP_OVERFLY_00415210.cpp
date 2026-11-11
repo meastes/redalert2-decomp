@@ -22,12 +22,12 @@ int AircraftClass::Do_MISSION_PARADROP_OVERFLY()
             signed char queue_state = unknown_5bb;
             unknown_5ba = false;
             if (queue_state > 0) {
-                unknown_slot116(ParadropApproachMission, false);
+                QueueMission(ParadropApproachMission, false);
                 return 5;
             }
             unknown_slot220(0);
             Assign_Destination(0, true);
-            unknown_slot116(RetreatMission, false);
+            QueueMission(RetreatMission, false);
             return 5;
         } else {
             CoordStruct location = Coord;
@@ -39,6 +39,6 @@ int AircraftClass::Do_MISSION_PARADROP_OVERFLY()
     }
     unknown_slot220(0);
     Assign_Destination(0, true);
-    unknown_slot116(RetreatMission, false);
+    QueueMission(RetreatMission, false);
     return 5;
 }

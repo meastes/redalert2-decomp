@@ -61,8 +61,8 @@ bool UnitClass::unknown_6fdfc0()
             Locomotor.Checked()->Mark_All_Occupation_Bits(0);
             BuildingClass *building = new BuildingClass(Type->DeploysInto, House);
             if (building) {
-                building->unknown_slot116(18, false);
-                if (building->unknown_slot53(&CoordStruct(origin.X * 256 + 128, origin.Y * 256 + 128, 0), 0)) {
+                building->QueueMission(18, false);
+                if (building->Unlimbo(&CoordStruct(origin.X * 256 + 128, origin.Y * 256 + 128, 0), 0)) {
                     unknown_slot149(3);
                     for (int index = 0; index < Technos.Count(); index++) {
                         TechnoClass *techno = Technos[index];

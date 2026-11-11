@@ -46,7 +46,7 @@ void BulletClass::unknown_func_461de0(bool forced)
 {
     ObjectClass *object = 0;
     CoordStruct coord = Coord;
-    if (Target != 0 && Target->unknown_slot21()) {
+    if (Target != 0 && Target->In_Air()) {
         object = (ObjectClass *)Target;
     }
     if (!Type->Inaccurate) {
@@ -63,7 +63,7 @@ void BulletClass::unknown_func_461de0(bool forced)
                     coord = Data.unknown_18;
                 }
             }
-            if (object != 0 && object->unknown_slot29() != 2) {
+            if (object != 0 && object->In_Which_Layer() != 2) {
                 if (unknown_5d4c00(Target) < 0x80) {
                     coord = object->unknown_slot40();
                 }

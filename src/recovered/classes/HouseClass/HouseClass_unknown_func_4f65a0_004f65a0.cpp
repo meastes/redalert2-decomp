@@ -16,7 +16,7 @@ Cell HouseClass::unknown_func_4f65a0()
         TechnoClass *techno=Technos[i];
         if (techno->House==enemy) {
             value=1;
-            if (techno->unknown_slot29()==2 && techno->unknown_7d && !techno->unknown_76) valid=true;
+            if (techno->In_Which_Layer()==2 && techno->unknown_7d && !techno->unknown_76) valid=true;
             else if (unknown_c8==0) {
                 for (int j=0;j<Factories.Count();++j) {
                     FactoryClass *factory=Factories[j];

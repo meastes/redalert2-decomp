@@ -64,7 +64,7 @@ int __fastcall Unknown_00660b60(ObjectClass *object,Cell &center,int distance)
     if(Map.In_Radar(center)) {
         ObjectClass *occupant=Map[center].Cell_Techno(Point2D(0,0),false,0);
         if(!occupant || (occupant->Kind_Of()==15 && object->Kind_Of()==15)) {
-            if(object->unknown_slot53(&UnknownCoord434820(center,Map.Get_Height_GL(UnknownCoord434820(center))),0)) return 1;
+            if(object->Unlimbo(&UnknownCoord434820(center,Map.Get_Height_GL(UnknownCoord434820(center))),0)) return 1;
         }
     }
     int pass;
@@ -85,7 +85,7 @@ int __fastcall Unknown_00660b60(ObjectClass *object,Cell &center,int distance)
                 if(!skip) {
                     occupant=Map[target].Cell_Techno(Point2D(0,0),false,0);
                     if(!occupant || (occupant->Kind_Of()==15 && object->Kind_Of()==15)) {
-                        if(object->unknown_slot53(&UnknownCoord434820(target,Map.Get_Height_GL(UnknownCoord434820(target))),0)) return 1;
+                        if(object->Unlimbo(&UnknownCoord434820(target,Map.Get_Height_GL(UnknownCoord434820(target))),0)) return 1;
                     }
                 }
                 direction=FacingType(direction+1);

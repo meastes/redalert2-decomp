@@ -43,7 +43,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
             unknown_slot149(3);
             if(unknown_372) Speech_Play_Name(deconstruction_eva_unit_sold_007cf9c4,-1,-1);
             contact->Sell_Back(1);
-            unknown_slot116(5,false);
+            QueueMission(5,false);
             return 1;
         }
         if(unknown_5c6) {
@@ -55,7 +55,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
             House->unknown_5669=true;
             Building_Refresh_House_Buildings_0044fa40(House);
             if(unknown_372) Speech_Play_Name(deconstruction_eva_structure_sold_007cf9d4,-1,-1);
-            unknown_slot116(5,false);
+            QueueMission(5,false);
             return 1;
         }
         unknown_5ad=false;
@@ -70,7 +70,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
             if(!unknown_1b0 || !Type->UndeploysInto) {
                 int count=unknown_slot172();
                 bool engineer=false;
-                Cell const *foundation=unknown_slot64(0);
+                Cell const *foundation=Occupy_List(0);
                 Cell const *end=foundation;
                 int cells=0;
                 while(end->X!=32767 || end->Y!=32767) {++cells;++end;}
@@ -85,14 +85,14 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                         Cell cell=unknown_slot104()+foundation[unknown_id_source_a3d290->RandomNumber(0,cells-1)];
                         CoordStruct position=CoordStruct(cell)+CoordStruct(0,36,0);
                         position=Map[position].Closest_Free_Spot(position,false,false);
-                        if(position==unknown_geometry_l || !infantry->unknown_slot53(&position,0)) {
+                        if(position==unknown_geometry_l || !infantry->Unlimbo(&position,0)) {
                             delete infantry;
                         } else {
                             if(infantry->Type->Nominal) infantry->unknown_5c1=true;
                             --unknown_a40774;
                             infantry->Scatter(unknown_geometry_l,true,false);
                             ++unknown_a40774;
-                            infantry->unknown_slot116(2,false);
+                            infantry->QueueMission(2,false);
                         }
                         --unknown_a40774;
                     }
@@ -150,7 +150,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     }
                     Limbo();
                     int deploy_facing=Type->unknown_func_45ec90();
-                    if(unit->unknown_slot53(&place,deploy_facing)) {
+                    if(unit->Unlimbo(&place,deploy_facing)) {
                         unit->Strength=(int)(unit->Class_Of()->MaxStrength*ratio);
                         unit->Strength=unit->Strength>1 ? unit->Strength : 1;
                         unit->unknown_70=unit->Strength;
@@ -160,7 +160,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                         if(Type->Artillary) unit->unknown_2c8.Set_Current(UnknownFacingDir((Dir256)Type->BarrelStartPitch));
                         if(archive) {
                             unit->Assign_Destination(archive,true);
-                            unit->unknown_slot116(2,false);
+                            unit->QueueMission(2,false);
                         }
                         if(unknown_34) {
                             unit->Attach_Tag(unknown_34);

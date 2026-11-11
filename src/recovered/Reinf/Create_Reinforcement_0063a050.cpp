@@ -75,7 +75,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                 placed = true;
             } else if (burrow) {
                 CoordStruct coord = Map[newcell].unknown_475d60() - CoordStruct(0, 0, 400);
-                placed = object->unknown_slot53(&coord, desiredfacing.As_Dir256());
+                placed = object->Unlimbo(&coord, desiredfacing.As_Dir256());
                 if (placed) {
                     object->Set_Coord(object->Position_Coord_004f3f40() + CoordStruct(0, 0, -256 - object->Get_Height()));
                     object->Assign_Destination((AbstractClass *)&Map[newcell], true);
@@ -83,14 +83,14 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                     object->Locomotor.Checked()->Move_To(Cell_Coord(newcell));
                 }
             } else {
-                placed = object->unknown_slot53(&Map[newcell].unknown_475d60(), desiredfacing.As_Dir256());
+                placed = object->Unlimbo(&Map[newcell].unknown_475d60(), desiredfacing.As_Dir256());
             }
 
             if (placed) {
                 okvoice = true;
 
                 if (object->Kind_Of() != 2) {
-                    object->unknown_slot116(5, false);
+                    object->QueueMission(5, false);
                     object->Commence();
                 }
 
@@ -111,7 +111,7 @@ bool __fastcall Create_Reinforcement(TeamTypeClass *teamtype, FootClass *object,
                 FacingType adj;
                 for (adj = FACING_N; adj < FACING_COUNT; adj++) {
                     Cell trycell = Adjacent_Cell(newcell, adj);
-                    if (!Map.In_Radar(trycell) && object->unknown_slot101(&Map[trycell], adj, -1, 0, 1) == 0) {
+                    if (!Map.In_Radar(trycell) && object->Can_Enter_Cell(&Map[trycell], adj, -1, 0, 1) == 0) {
                         newcell = trycell;
                         break;
                     }

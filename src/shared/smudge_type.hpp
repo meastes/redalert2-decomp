@@ -45,7 +45,7 @@ public:
     virtual int Kind_Of() const { return 0x1E; }                        // 0x00688BF0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(SmudgeTypeClass); }     // 0x00688C00 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006882B0 slot 13
-    virtual int unknown_slot16() const { return ArrayIndex; }           // 0x00688C10 (inline)
+    virtual int Fetch_Heap_ID() const { return ArrayIndex; }           // 0x00688C10 (inline)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x006881B0 slot 25
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x00688030 (creates a smudge at the cell)
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x006880A0 (creates a smudge)

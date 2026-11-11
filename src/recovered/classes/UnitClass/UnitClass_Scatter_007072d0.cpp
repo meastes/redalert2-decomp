@@ -96,7 +96,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
                 int dir = (facing + index) & 7;
                 Cell adjacent = center + AdjacentCell[dir & 7];
                 CellClass *next = &Map[adjacent];
-                if (Map.Unknown_0055A660(adjacent, true) && unknown_slot101(next, dir, Unknown_005D47D0(), 0, 1) == 0) {
+                if (Map.Unknown_0055A660(adjacent, true) && Can_Enter_Cell(next, dir, Unknown_005D47D0(), 0, 1) == 0) {
                     if (alt.X == unknown_geometry_k.X) {
                         if (alt.Y == unknown_geometry_k.Y) {
                             alt = adjacent;
@@ -118,7 +118,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
                 dest = alt;
             }
             if (dest != unknown_geometry_k) {
-                unknown_slot116(2, false);
+                QueueMission(2, false);
                 Assign_Destination(&Map[dest], true);
             }
         }

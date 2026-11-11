@@ -16,7 +16,7 @@ IsometricTileClass::IsometricTileClass(int type, Cell const &cell) :
 {
     if (cell != unknown_geometry_k) {
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-        IsometricTileClass::unknown_slot53(&coord, 0);
+        IsometricTileClass::Unlimbo(&coord, 0);
     }
     IsoTiles.Add(this);
 }

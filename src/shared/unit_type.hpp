@@ -62,7 +62,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x0070B5E0 (0x28)
     virtual int Size_Of() const;                                        // 0x0070B5D0
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0070B3E0
-    virtual int unknown_slot16() const;                                 // 0x0070B5F0 (ArrayIndex)
+    virtual int Fetch_Heap_ID() const;                                 // 0x0070B5F0 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0070AB40
     virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x0070B320 (raised to the ground)
     virtual CoordStruct Pixel_Dimensions() const;                         // 0x0070AAB0

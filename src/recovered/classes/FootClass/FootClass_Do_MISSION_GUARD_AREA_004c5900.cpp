@@ -52,7 +52,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
     }
 
     if (Kind_Of() == 1 && ((UnitClass *)this)->Type->Harvester) {
-        unknown_slot116(10, false);
+        QueueMission(10, false);
         Commence();
         return 1 + unknown_id_source_a3d290->Random()(1, 10);
     }
@@ -64,7 +64,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
     InfantryClass *infantry = As_Infantry(this);
     if (!House->Unknown_004F52F0() && infantry != 0 && (infantry->Type->C4 || infantry->unknown_6d7910(14))
         && Get_Mission() != 17 && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
-        unknown_slot116(17, false);
+        QueueMission(17, false);
         return 1;
     }
 
@@ -106,7 +106,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
                 if (candidate != 0) {
                     unknown_slot220(candidate);
                     unknown_57e = true;
-                    unknown_slot116(1, false);
+                    QueueMission(1, false);
                 }
                 break;
             }

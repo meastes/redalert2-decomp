@@ -210,7 +210,7 @@ void MapClass::Set_Map_Dimensions(Rect const *rect, bool reset_cells, int cell_h
         for (i = 0; i < unknown_objects_a40368.Count(); i++) {
             if (unknown_objects_a40368[i]->Kind_Of() != 0x18 || !ra2native_is_gas_system_5484e0(unknown_objects_a40368[i])) {   // NATIVE: Class +0x98, BehavesLike +0x284 == 1
                 Cell cell = ra2native_object_cell_5484e0(unknown_objects_a40368[i]);   // NATIVE: slot 104
-                Cell const *list = unknown_objects_a40368[i]->unknown_slot64(0);
+                Cell const *list = unknown_objects_a40368[i]->Occupy_List(0);
                 while (*list != Cell(0x7FFF, 0x7FFF)) {
                     Cell ncell = cell + *list;
                     if (!In_Radar(ncell)) {

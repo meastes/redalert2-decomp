@@ -7,7 +7,7 @@
 bool FootClass::unknown_slot222(HouseClass *house, int arg2)
 {
     if (TechnoClass::unknown_slot222(house, true)) {
-        if (!unknown_slot21()) {
+        if (!In_Air()) {
             unknown_454 = unknown_slot104();
         }
         return true;

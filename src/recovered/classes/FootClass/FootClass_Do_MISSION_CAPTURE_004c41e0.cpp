@@ -32,7 +32,7 @@ int FootClass::Do_MISSION_CAPTURE()
         && (Kind_Of() != 15 || !((InfantryClass *)this)->Type->Occupier)) {
         unknown_slot220(0);
         Assign_Destination(0, true);
-        unknown_slot116(15, false);
+        QueueMission(15, false);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
     return delay + unknown_id_source_a3d290->Random()(0, 2);

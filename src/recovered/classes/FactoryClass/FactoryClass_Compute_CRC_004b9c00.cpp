@@ -34,7 +34,7 @@ void FactoryClass::Compute_CRC(WWCRCEngine &crc) const
     Debug_Printf(factory_message_007d8038, Frame);
     Debug_Printf(factory_message_007d8018, Queue.Count());
     Debug_Printf(factory_message_007d8004, Object->Kind_Of());
-    Debug_Printf(factory_message_007d7fec, Object->unknown_slot16());
+    Debug_Printf(factory_message_007d7fec, Object->Fetch_Heap_ID());
     Debug_Printf(factory_message_007d7fd8, unknown_6c);
     Debug_Printf(factory_message_007d7fc4, unknown_59);
     Debug_Printf(factory_message_007d7fb4, UnspentCost);

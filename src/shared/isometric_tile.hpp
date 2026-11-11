@@ -40,7 +40,7 @@ public:
     virtual int Size_Of() const { return sizeof(IsometricTileClass); }  // 0x005281E0 slot 12 (inline)
     virtual ObjectTypeClass *Class_Of() const { return (ObjectTypeClass *)Type; }  // 0x00528240 slot 33 (inline)
     virtual bool Limbo();                                 // 0x00528190
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);   // 0x00528160
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);   // 0x00528160
     virtual void unknown_slot67(Point2D const &point, Rect const &window) {}              // 0x00528250 (inline)
     virtual bool Mark(int arg1);                          // 0x00527A80
 

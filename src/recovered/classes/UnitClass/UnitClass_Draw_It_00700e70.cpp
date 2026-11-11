@@ -73,7 +73,7 @@ void UnitClass::unknown_slot67(Point2D const &input, Rect const &window)
             brightness = Map[cell].unknown_10a + 4 * level;
         } else {
             int shade = 0;
-            if ((Map[cell].unknown_140 & 0x10000) && !unknown_slot21()) {
+            if ((Map[cell].unknown_140 & 0x10000) && !In_Air()) {
                 shade = -500;
             }
             brightness = Map[cell].unknown_10a + shade;

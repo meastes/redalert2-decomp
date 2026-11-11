@@ -50,7 +50,7 @@ void BuildingClass::unknown_44dfc0(int dir)
                     }
 
                     building = (BuildingClass *)BuildingTypes[fenceid]->Create_One_Of(Owning_House());
-                    if (!building->unknown_slot53(&CoordStruct(working_cell), Dir_To_256(Facing_Dir(dir & 3)))) {
+                    if (!building->Unlimbo(&CoordStruct(working_cell), Dir_To_256(Facing_Dir(dir & 3)))) {
                         delete building;
                         break;
                     }

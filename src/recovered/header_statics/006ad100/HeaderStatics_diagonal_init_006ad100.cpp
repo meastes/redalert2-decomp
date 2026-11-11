@@ -1385,7 +1385,7 @@ DynamicVectorClass<TActionClass *> unknown_TActionClass_list_00abfd88;
 // @ref ?unknown_sidebar_6822b0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z=006b3060
 // @ref ?Size_Of@TActionClass@@UBEHXZ=006b30a0
 // @ref ?Kind_Of@TActionClass@@UBEHXZ=006b30b0
-// @ref ?unknown_slot16@TActionClass@@UBEHXZ=006b30c0
+// @ref ?Fetch_Heap_ID@TActionClass@@UBEHXZ=006b30c0
 // @ref ??_GTActionClass@@UAEPAXI@Z=006b30d0
 // @ref ??4?$FixedString@$0CA@@@QAE?AV0@ABV0@@Z=006b3230
 // @ref ?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ=006b32c0

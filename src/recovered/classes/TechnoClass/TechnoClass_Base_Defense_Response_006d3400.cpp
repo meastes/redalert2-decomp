@@ -107,10 +107,10 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
             FootClass *member=responders[chosen];
             bool base_defense=member->Team && member->Team->Class->IsBaseDefense;
             if (unknown_id_source_a3d290->Random()(0,99)>=66 || base_defense) {
-                member->unknown_slot116(11,false);
+                member->QueueMission(11,false);
                 member->unknown_1b0=this;
             } else {
-                member->unknown_slot116(21,false);
+                member->QueueMission(21,false);
                 member->unknown_1b0=this;
             }
             member->unknown_slot220(attacker);

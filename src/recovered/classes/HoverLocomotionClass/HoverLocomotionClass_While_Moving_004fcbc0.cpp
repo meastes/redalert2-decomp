@@ -109,7 +109,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
         }
 
         Cell c = unknown_24.As_Cell();
-        int ok = LinkedTo->unknown_slot101(&Map[c], nextface, LinkedTo->unknown_5d47d0(), 0, 1);
+        int ok = LinkedTo->Can_Enter_Cell(&Map[c], nextface, LinkedTo->unknown_5d47d0(), 0, 1);
 
         switch (ok) {
         case 7:

@@ -43,7 +43,7 @@ static bool _Pop_Group_Out_Of_Object(FootClass *group, TechnoClass *object)
             case 2:
                 object->Cargo.Attach((FootClass *)todo);
                 todo->Hidden();
-                object->unknown_slot116(0x10, false);
+                object->QueueMission(0x10, false);
                 ++quantity;
                 break;
 
@@ -119,12 +119,12 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
             dest = Map.Calculated_Cell(source, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
         }
 
-        plane->unknown_slot116(0x1A, false);
+        plane->QueueMission(0x1A, false);
         plane->Assign_Destination(0, true);
         plane->unknown_slot220((AbstractClass *)&Map[origin]);
 
         unknown_a40774++;
-        int placed = plane->unknown_slot53(&UnknownCoord434820(dest, 0), 0);
+        int placed = plane->Unlimbo(&UnknownCoord434820(dest, 0), 0);
         unknown_a40774--;
         if (placed) {
             plane->unknown_5b1 = true;

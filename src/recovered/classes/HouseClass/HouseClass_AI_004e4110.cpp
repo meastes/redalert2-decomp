@@ -181,7 +181,7 @@ void HouseClass::AI()
     for (int super_index=0;super_index<Supers.Count();++super_index) {
         SuperClass *super=Supers[super_index];
         if (super->Is_Present() && super->unknown_69d390(this==unknown_player_a35db4) && this==unknown_player_a35db4) {
-            int type_index=super->Type->unknown_slot16();
+            int type_index=super->Type->Fetch_Heap_ID();
             Map.Unknown_0067C2D0(Unknown_006818D0(0x39,type_index,0));
         }
     }

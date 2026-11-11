@@ -70,7 +70,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
     if (flyctrl) landing_altitude=flyctrl->unknown_slot3();
     CellClass *destination=&Map[unknown_1c];
     if ((unknown_18 && !LinkedTo->Is_Radio_Contact((TechnoClass *)destination->Cell_Building())) ||
-        (!unknown_18 && LinkedTo->unknown_slot101(destination,-1,-1,0,true)!=0)) {
+        (!unknown_18 && LinkedTo->Can_Enter_Cell(destination,-1,-1,0,true)!=0)) {
         Take_Off_004bf0d0();
         Cell const &pos=Cell(Object_Coord(LinkedTo));
         Cell nearby=Map.Nearby_Location(pos,1,-1,9,false,Point2D(1,1),false,false,false,true,Cell(0,0),0);

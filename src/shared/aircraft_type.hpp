@@ -69,7 +69,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x0041C310 (3)
     virtual int Size_Of() const;                                        // 0x0041C320
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0041C110
-    virtual int unknown_slot16() const;                                 // 0x0041C330 (ArrayIndex)
+    virtual int Fetch_Heap_ID() const;                                 // 0x0041C330 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0041BFD0
     virtual CoordStruct Lepton_Dimensions() const;                         // 0x0041BFA0
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const; // 0x0041BF90 (false)

@@ -46,7 +46,7 @@ void ParasiteClass::Unknown_00607440()
         coord = Map[cell].Center_Coord();
     }
     bool can_exit = false;
-    if (cell != unknown_geometry_k && coord != unknown_geometry_l && unknown_28 != 0 && !unknown_28->unknown_slot21()) {
+    if (cell != unknown_geometry_k && coord != unknown_geometry_l && unknown_28 != 0 && !unknown_28->In_Air()) {
         if (Owner->Techno_Type_Class()->Naval) {
             can_exit = true;
         } else if (!(Owner != 0 && Owner->Kind_Of() == 1 && ((CellClass *)unknown_28->Get_Cell_Ptr())->Cell_Terrain() != 0)) {
@@ -54,7 +54,7 @@ void ParasiteClass::Unknown_00607440()
             if (land != 2 && land != 6 && land != 3) can_exit = true;
         }
     }
-    if (can_exit && Owner->unknown_slot53(&coord, Dir_To_256(exit_dir))) {
+    if (can_exit && Owner->Unlimbo(&coord, Dir_To_256(exit_dir))) {
         if (Owner->unknown_381 && Owner->House->Is_Player_Control()) {
             Owner->unknown_381 = false;
             Owner->unknown_slot80();

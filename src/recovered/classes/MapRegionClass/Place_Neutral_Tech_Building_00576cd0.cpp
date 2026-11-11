@@ -36,7 +36,7 @@ void MapRegionClass::Place_Neutral_Tech_Building_00576cd0()
             if(!clear)break;
         }
         if(clear) {
-            if(building->unknown_slot53(&CoordStruct(position.X*256+128,position.Y*256+128,0),0))placed=true;
+            if(building->Unlimbo(&CoordStruct(position.X*256+128,position.Y*256+128,0),0))placed=true;
         }
         ++tries;
     }

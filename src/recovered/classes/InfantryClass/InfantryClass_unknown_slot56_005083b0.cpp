@@ -9,9 +9,9 @@ bool InfantryClass::unknown_slot56(CoordStruct const &coord)
 {
     if (ObjectClass::unknown_slot56(coord)) {
         if (House->Unknown_004F52F0()) {
-            unknown_slot116(5, false);
+            QueueMission(5, false);
         } else {
-            unknown_slot116(15, false);
+            QueueMission(15, false);
         }
         unknown_slot311(33, 1, 0);
         return true;

@@ -7,7 +7,7 @@
 // @ref _unknown_geometry_k=00a73088
 // @ref ??0ObjectClass@@QAE@XZ=005d22e0
 // @ref ?Create_ID@AbstractClass@@UAGXXZ=0040ffd0
-// @ref ?unknown_slot53@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
+// @ref ?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
 // @ref ?unknown_placing_house_7e8a8c@@3HA=007e8a8c
 // @ref ?unknown_OverlayClass_list_00a40c00@@3V?$DynamicVectorClass@PAVOverlayClass@@@@A=00a40c00
 // @ref ??_7OverlayClass@@6BIPersistStream@@@=007a77f4
@@ -23,7 +23,7 @@ OverlayClass::OverlayClass(OverlayTypeClass *type, Cell const &cell, int house) 
     if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
         unknown_placing_house_7e8a8c = house;
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-        ObjectClass::unknown_slot53(&coord, 0);
+        ObjectClass::Unlimbo(&coord, 0);
         unknown_placing_house_7e8a8c = -1;
     }
 }

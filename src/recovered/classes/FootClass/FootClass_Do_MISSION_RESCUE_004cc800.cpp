@@ -56,7 +56,7 @@ int FootClass::Do_MISSION_RESCUE()
     case 1:
         if (unknown_494 == 0) {
             unknown_6d6e50(0);
-            unknown_slot116(11, false);
+            QueueMission(11, false);
             Commence();
         }
         break;

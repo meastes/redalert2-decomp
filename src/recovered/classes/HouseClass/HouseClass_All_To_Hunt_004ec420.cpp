@@ -31,7 +31,7 @@ HRESULT __stdcall HouseClass::All_To_Hunt()
                 if (foot->Team != 0) {
                     foot->Team->unknown_func_6b8fb0(foot, -1, 0);
                 }
-                foot->unknown_slot116(15, false);   // hunt (hypothesis)
+                foot->QueueMission(15, false);   // hunt (hypothesis)
             }
             if (!is_foot && techno->Kind_Of() == 6) {
                 UnknownBuildingView *building = (UnknownBuildingView *)techno;

@@ -32,7 +32,7 @@ void TeamClass::TMission_unknown_6bae60(ScriptMissionClass const &mission, bool 
             }
         }
         if (adjust) {
-            if (leader->unknown_slot101(&Map[cell], -1, -1, 0, 0) != 0) {
+            if (leader->Can_Enter_Cell(&Map[cell], -1, -1, 0, 0) != 0) {
                 cell = Map.Nearby_Location(cell, leader->Techno_Type_Class()->SpeedType, -1, 0, false,
                     Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             }

@@ -44,7 +44,7 @@ public:
     virtual HRESULT __stdcall GetSizeMax(ULARGE_INTEGER *size); // 0x006E9380
     virtual void Detach(AbstractClass *target, bool all);       // 0x006E9420
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x006E90A0 slot 13
-    virtual int unknown_slot16() const;                         // 0x006EA9E0
+    virtual int Fetch_Heap_ID() const;                         // 0x006EA9E0
     virtual bool Read_INI(CCINIClass &ini);                     // 0x006E8D30 slot 25
     virtual int Kind_Of() const;                                // 0x006EA9D0
     virtual int Size_Of() const;                                // 0x006EA9C0

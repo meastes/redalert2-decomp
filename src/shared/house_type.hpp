@@ -62,7 +62,7 @@ public:
     virtual int Kind_Of() const;                                // 0x004FA3E0
     virtual int Size_Of() const;                                // 0x004FA3F0
     virtual void Compute_CRC(WWCRCEngine &crc) const;           // 0x004F9E40
-    virtual int unknown_slot16() const;                         // 0x004FA400 (ArrayIndex)
+    virtual int Fetch_Heap_ID() const;                         // 0x004FA400 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                     // 0x004F9550
 
     FixedString<25> ParentCountry;                  // +0x98

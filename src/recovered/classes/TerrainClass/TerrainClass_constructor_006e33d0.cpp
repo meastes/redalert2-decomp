@@ -27,7 +27,7 @@ TerrainClass::TerrainClass(TerrainTypeClass *type, Cell const &cell) :
     Strength = Class->MaxStrength;
     if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-        if (!TerrainClass::unknown_slot53(&coord, 0)) {
+        if (!TerrainClass::Unlimbo(&coord, 0)) {
             ObjectClass::Delete_Me();
         }
     }

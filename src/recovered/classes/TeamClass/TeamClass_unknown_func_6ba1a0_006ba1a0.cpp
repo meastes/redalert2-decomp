@@ -40,7 +40,7 @@ void TeamClass::unknown_func_6ba1a0()
                 if (unknown_func_6bdd80(unit) && (unit->unknown_579 || unit->Kind_Of() == 2)
                     && unit->Get_Mission() != 0x10 && unit->MissionQueue != 0x10) {
                     int stray = Unknown_006BE6A0();
-                    if (unit->unknown_slot21()) {
+                    if (unit->In_Air()) {
                         stray *= 2;
                     }
                     found = true;
@@ -54,7 +54,7 @@ void TeamClass::unknown_func_6ba1a0()
                             continue;
                         }
                         if (unit->Get_Mission() != 2) {
-                            unit->unknown_slot116(2, false);
+                            unit->QueueMission(2, false);
                             if (unit->unknown_slot122()) {
                                 unit->Commence();
                             }

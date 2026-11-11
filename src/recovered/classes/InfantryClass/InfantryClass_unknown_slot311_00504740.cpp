@@ -39,7 +39,7 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
         }
         unknown_5d0 = on_land;
     }
-    if (unknown_slot21() && !unknown_79 && Type->DoControls[23].Frame > 0 && sequence == 0) {
+    if (In_Air() && !unknown_79 && Type->DoControls[23].Frame > 0 && sequence == 0) {
         sequence = 23;
     } else if (sequence == 3 && unknown_5bc >= 200) {
         sequence = 37;

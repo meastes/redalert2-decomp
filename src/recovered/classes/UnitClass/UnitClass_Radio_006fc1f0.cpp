@@ -11,7 +11,7 @@
 // @ref _unknown_geometry_l=00ad04c0
 
 static inline double Unit_Radio_Used_Size(CargoClass const &cargo) { return (double)cargo.GetTotalSize(); }
-int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&param)
+int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&param)
 {
     TechnoClass *sender = (TechnoClass *)radio;
     switch (message) {
@@ -25,10 +25,10 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
         if (unknown_370) return 10;
         return unknown_574 == -1 ? 1 : 10;
     case 7:
-        FootClass::unknown_slot95(radio, message, param);
+        FootClass::Receive_Message(radio, message, param);
         Assign_Destination(0, true);
         unknown_slot220(0);
-        unknown_slot116(0, false);
+        QueueMission(0, false);
         unknown_4c8c90();
         if (!unknown_370 || !Contact(0)) {
             unknown_slot150(2, sender);
@@ -53,7 +53,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
         }
         return 0;
     case 22:
-        FootClass::unknown_slot95(radio, message, param);
+        FootClass::Receive_Message(radio, message, param);
         if (!unknown_599 && unknown_2e0.Current().Raw != 0x4000) {
             Locomotor.Checked()->Do_Turn(UnknownFacingDir(0x4000));
             return 1;
@@ -104,7 +104,7 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
 
                 if (Unit_Radio_Used_Size(Cargo) + sender->Techno_Type_Class()->Size <= capacity &&
                     !(sender->Techno_Type_Class()->Size > Type->SizeLimit)) {
-                    FootClass::unknown_slot95(radio, message, param);
+                    FootClass::Receive_Message(radio, message, param);
                     if (!Locomotor.Checked()->Is_Moving() && !unknown_599 && !unknown_370 &&
                         unknown_slot150(0x13, sender) == 1) {
                         param = this;
@@ -121,16 +121,16 @@ int UnitClass::unknown_slot95(RadioClass *radio, int message, AbstractClass *&pa
         if ((Type->Harvester || Type->Weeder) && unknown_5b9) {
             unknown_5b9 = false;
             Scatter(unknown_geometry_l, true, false);
-            unknown_slot116(10, false);
+            QueueMission(10, false);
             if (unknown_slot122()) Commence();
         }
         break;
     case 3:
-        if (Get_Mission() == 12) unknown_slot116(5, false);
-        FootClass::unknown_slot95(radio, message, param);
+        if (Get_Mission() == 12) QueueMission(5, false);
+        FootClass::Receive_Message(radio, message, param);
         return 1;
     }
-    return FootClass::unknown_slot95(radio, message, param);
+    return FootClass::Receive_Message(radio, message, param);
 no_transport_room:
     return 10;
 }

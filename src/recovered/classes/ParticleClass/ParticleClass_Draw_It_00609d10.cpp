@@ -42,7 +42,7 @@ void ParticleClass::unknown_slot67(Point2D const &point, Rect const &cliprect)
             ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
             if (shape != 0) {
                 int flags = 0x2800;
-                int shapenum = unknown_slot116();
+                int shapenum = Shape_Number();
                 if (unknown_a40b2c == 2) {
                     if (unknown_11f == 25) {
                         flags = 0x2802;

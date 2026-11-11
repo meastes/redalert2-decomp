@@ -78,7 +78,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
             TechnoClass *object=unknown_tracker_839ea0.Fetch_Next_004134e0();
             while (object) {
                 int value=0;
-                if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->unknown_74 && object->unknown_slot29()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && unknown_6c5570(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
+                if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->unknown_74 && object->In_Which_Layer()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && unknown_6c5570(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
                     if (Techno_Type_Class()->DistributedFire) {
                         unknown_3a8.Add(object);
                         unknown_390.Add(value);

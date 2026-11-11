@@ -19,7 +19,7 @@ bool UnitTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) const
         UnknownFacingDir dir(0);
         *(unsigned *)&dir = (*(unsigned *)&dir & 0xFFFF00FF) | ((unknown_id_source_a3d290->Random()() & 0xFF) << 8);
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-        return unit->unknown_slot53(&coord, Dir_To_256(dir));
+        return unit->Unlimbo(&coord, Dir_To_256(dir));
     }
     return false;
 }

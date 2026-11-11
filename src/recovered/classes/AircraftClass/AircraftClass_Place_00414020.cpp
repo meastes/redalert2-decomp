@@ -3,10 +3,10 @@
 #include "shared/map_view.hpp"
 // @ref ?Unknown_0055A7F0@MapClass@@QAE_NABUCoordStruct@@@Z=0055a7f0
 // @ref ?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z=0055a280
-// @ref ?unknown_slot53@FootClass@@UAE_NPBUCoordStruct@@H@Z=004c5e40
+// @ref ?Unlimbo@FootClass@@UAE_NPBUCoordStruct@@H@Z=004c5e40
 // @ref ?Set_Current@FacingClass@@QAEXABUUnknownFacingDir@@@Z=004b8b10
 // @ref ?Frame@@3HA=00a40d2c
-bool AircraftClass::unknown_slot53(CoordStruct const *coord, int dir)
+bool AircraftClass::Unlimbo(CoordStruct const *coord, int dir)
 {
     CoordStruct placed = *coord;
     if (!Type->MissileSpawn) {
@@ -17,7 +17,7 @@ bool AircraftClass::unknown_slot53(CoordStruct const *coord, int dir)
             placed.Z = Map.Get_Height_GL(*coord) + type->Flight_Level();
         }
     }
-    if (FootClass::unknown_slot53(&placed, dir)) {
+    if (FootClass::Unlimbo(&placed, dir)) {
         if (!(Type->unknown_200 && Type->Landable) ||
             (unknown_slot231(0)->WeaponType && unknown_slot231(0)->WeaponType->unknown_11f))
             unknown_32c = true;

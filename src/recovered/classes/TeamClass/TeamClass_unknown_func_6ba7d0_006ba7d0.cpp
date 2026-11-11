@@ -12,7 +12,7 @@ bool TeamClass::unknown_func_6ba7d0(FootClass *member)
     if (unknown_func_6bdd80(member) && !member->unknown_579) {
         if (member->unknown_5d4c00(unknown_34) > Unknown_006BE6A0()) {
             if (member->unknown_494 == 0) {
-                member->unknown_slot116(2, false);
+                member->QueueMission(2, false);
                 member->unknown_slot220(0);
                 member->Assign_Destination(unknown_34, true);
             }

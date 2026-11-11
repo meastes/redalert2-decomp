@@ -42,7 +42,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x006EEEC0 slot 11
     virtual int Size_Of() const;                                        // 0x006EEED0 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006EED50 slot 13
-    virtual int unknown_slot16() const;                                 // 0x006EEEE0
+    virtual int Fetch_Heap_ID() const;                                 // 0x006EEEE0
     virtual bool Read_INI(CCINIClass &ini);                             // 0x006EE470 slot 25
     virtual bool Write_INI(CCINIClass &ini) const;                      // 0x006EE8C0 slot 26
 

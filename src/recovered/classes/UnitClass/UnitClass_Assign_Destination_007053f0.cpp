@@ -308,7 +308,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
                         } else {
                             Locomotor.Checked()->Stop_Moving();
                             Set_Mission(-1);
-                            unknown_slot116(7,false);
+                            QueueMission(7,false);
                             unknown_598=true;
                             unknown_190=true;
                         }
@@ -444,7 +444,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 
 		if (Contact(0) != b && !b->In_Radio_Contact() && unknown_slot150(2, b) == 1 &&
 			Get_Mission() != 7 && Get_Mission() != 10) {
-			unknown_slot116(7, false);
+			QueueMission(7, false);
 			target = 0;
 		} else {
 			if (target != 0 && target->Kind_Of() == 6 && Contact(0) != target) {

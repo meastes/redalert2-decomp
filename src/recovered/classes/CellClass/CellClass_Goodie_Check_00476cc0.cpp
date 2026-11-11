@@ -289,14 +289,14 @@ crate_money:
                 if (utp != 0) {
                     UnitClass *goodie_unit = (UnitClass *)utp->Create_One_Of(object->House);
                     if (goodie_unit != 0) {
-                        if (goodie_unit->unknown_slot53(&Ground_Coord(), 0)) {
+                        if (goodie_unit->Unlimbo(&Ground_Coord(), 0)) {
                             if (object->House->Is_Player_Control()) {
                                 Voc_Play_At(Rules->CrateUnitSound, Ground_Coord(), 0);
                             }
                             return false;
                         }
                         Cell cell = Map.Nearby_Location(Fetch_CellID(), goodie_unit->Type->SpeedType, -1, 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
-                        if (cell != unknown_cell_850bd8 && goodie_unit->unknown_slot53(&UnknownCellCoord(cell), 0)) {
+                        if (cell != unknown_cell_850bd8 && goodie_unit->Unlimbo(&UnknownCellCoord(cell), 0)) {
                             if (object->House->Is_Player_Control()) {
                                 Voc_Play_At(Rules->CrateUnitSound, Ground_Coord(), 0);
                             }

@@ -14,7 +14,7 @@ void TeamClass::unknown_func_6b79e0(AbstractClass *target)
                 bool target_hit = member->unknown_228 == unknown_3c;
                 bool destination_hit = member->unknown_494 == unknown_3c;
                 if (target_hit || destination_hit) {
-                    member->unknown_slot116(5, false);
+                    member->QueueMission(5, false);
                     if (destination_hit) {
                         member->Assign_Destination(0, true);
                     }

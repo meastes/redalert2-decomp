@@ -546,7 +546,7 @@ void __fastcall Unknown_00529870(int theater, bool from_ccfile)
                         if (ini.Get_String(set_name, entry, "", anim_name, sizeof(anim_name))) {
                             AnimTypeClass *animtype = AnimTypeClass::Find_Or_Make(anim_name);
                             if (animtype != 0) {
-                                tile->unknown_298 = animtype->unknown_slot16();
+                                tile->unknown_298 = animtype->Fetch_Heap_ID();
                                 sprintf(entry, "Tile%02dXOffset", i + 1);
                                 tile->Offset.X = ini.Get_Int(set_name, entry, tile->Offset.X);
                                 sprintf(entry, "Tile%02dYOffset", i + 1);

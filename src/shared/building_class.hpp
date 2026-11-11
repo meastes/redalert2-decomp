@@ -178,7 +178,7 @@ public:
     virtual CoordStruct unknown_slot44(int arg1);                     // slot 44 0x0044A9A0
     virtual int Sort_Y() const;                               // slot 45 0x00445380
     virtual bool Limbo();                                     // slot 52 0x00442060
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);    // slot 53 0x0043D3A0
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);    // slot 53 0x0043D3A0
     virtual void unknown_slot54(bool arg1);                            // slot 54 0x0044A080
     virtual void Set_Occupy_Bit(CoordStruct const &coord);                             // slot 58 0x0044EED0
     virtual void Clear_Occupy_Bit(CoordStruct const &coord);                             // slot 59 0x0044EF30
@@ -194,11 +194,11 @@ public:
     virtual void Clicked_As_Target(int arg1);                            // slot 79 0x00452060
     virtual void unknown_slot82(int arg1);                            // slot 82 0x00452E60
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x0043EE70
-    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x004397F0
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x004397F0
     virtual bool Revealed(HouseClass *house);                   // slot 96 0x00448FE0
     virtual void Repair(int arg1);                            // slot 97 0x00443680
     virtual void Sell_Back(int arg1);                            // slot 98 0x004437A0
-    virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x004453B0
+    virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x004453B0
     virtual bool unknown_slot122();                                   // slot 122 0x0044F3B0
     virtual int Do_MISSION_ATTACK();                                    // slot 126 0x00446920
     virtual int Do_MISSION_CAPTURE();                                    // slot 127 0x00447240

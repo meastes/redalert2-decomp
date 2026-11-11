@@ -104,7 +104,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 } else {
                     Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), Dir_To_8(LinkedTo->unknown_2e0.Current()));
                     if (Map.Unknown_0055A660(cell, true)) {
-                        int ok = LinkedTo->unknown_slot101(&Map[cell], Dir_To_8(LinkedTo->unknown_2e0.Current()), LinkedTo->unknown_5d47d0(), 0, true);
+                        int ok = LinkedTo->Can_Enter_Cell(&Map[cell], Dir_To_8(LinkedTo->unknown_2e0.Current()), LinkedTo->unknown_5d47d0(), 0, true);
                         if (ok == 3) {
                             unknown_67a710(cell);
                         } else if (ok == 6) {
@@ -160,7 +160,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
         Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), LinkedTo->Path[0]);
         if (Map.Unknown_0055A660(cell, true)) {
-            int ok = LinkedTo->unknown_slot101(&Map[cell], LinkedTo->Path[0], LinkedTo->unknown_5d47d0(), 0, true);
+            int ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->Path[0], LinkedTo->unknown_5d47d0(), 0, true);
             if (ok == 3) {
                 unknown_67a710(cell);
             } else if (ok == 6) {
@@ -222,7 +222,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         CellClass *destptr = &Map[destcell];
         bool crushable_dest = false;
         LinkedTo->Mark(0);
-        int cando = LinkedTo->unknown_slot101(destptr, facing, cell_height, 0, true);
+        int cando = LinkedTo->Can_Enter_Cell(destptr, facing, cell_height, 0, true);
         LinkedTo->Mark(1);
 
         if (cando < 7 && LinkedTo->Techno_Type_Class()->IsTrain) {
@@ -421,7 +421,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 if (!LinkedTo->unknown_7d) return false;
                 dest = Adjacent_Coord_SOM(dest, nextface);
                 destcell = (dest).As_Cell();
-                nextcando = LinkedTo->unknown_slot101(&Map[destcell], nextface, height, 0, true);
+                nextcando = LinkedTo->Can_Enter_Cell(&Map[destcell], nextface, height, 0, true);
                 if (nextcando < 7 && LinkedTo->Techno_Type_Class()->IsTrain) {
                     nextcando = 0;
                 } else if ((nextcando == 4 || nextcando == 5) && LinkedTo->Techno_Type_Class()->Crusher && Map[destcell].OverlayIndex == 0) {

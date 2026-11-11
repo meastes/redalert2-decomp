@@ -24,7 +24,7 @@ bool InfantryTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) co
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
         CoordStruct spot = ((UnknownPlacementCellView &)Map[coord]).Closest_Free_Spot(coord);
         if (Is_Valid(spot)) {
-            return infantry->unknown_slot53(&spot, 0x40);
+            return infantry->Unlimbo(&spot, 0x40);
         }
         delete infantry;
     }

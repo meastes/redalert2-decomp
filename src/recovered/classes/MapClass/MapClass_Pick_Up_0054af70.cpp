@@ -18,9 +18,9 @@ void MapClass::Pick_Up(Cell const &cell, ObjectClass *object)
 {
     if (!object) return;
 
-    if (object->Class_Of()->unknown_205 && object->unknown_slot29() == 2) {
+    if (object->Class_Of()->unknown_205 && object->In_Which_Layer() == 2) {
         Cell xlist[32];
-        Copy_Cell_List_00482e10(object->unknown_slot64(0), 32, xlist);
+        Copy_Cell_List_00482e10(object->Occupy_List(0), 32, xlist);
         Cell const *list = xlist;
         while (list->X != 0x7FFF || list->Y != 0x7FFF) {
             Cell newcell = cell + *list;

@@ -65,7 +65,7 @@ bool InfantryClass::unknown_slot261(bool arg1, bool arg2)
         }
     }
     if (Mission != 25 && Mission != 11 && mission != -1) {
-        unknown_slot116(mission, false);
+        QueueMission(mission, false);
     }
     return result;
 }

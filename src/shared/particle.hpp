@@ -135,12 +135,12 @@ public:
     virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x0060A650 slot 6
     virtual int Kind_Of() const { return 0x16; }                        // 0x0060A7C0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(ParticleClass); }       // 0x0060A7B0 slot 12 (inline)
-    virtual int unknown_slot29() const;                                 // 0x0060A5B0 (3)
+    virtual int In_Which_Layer() const;                                 // 0x0060A5B0 (3)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x0060A7D0 slot 33 (inline)
-    virtual Cell const *unknown_slot64(int arg1);                 // 0x0060A550
+    virtual Cell const *Occupy_List(int arg1);                 // 0x0060A550
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x00609D10
     virtual bool Mark(int arg1);                              // 0x0060A530
-    virtual int unknown_slot116();                                      // 0x0060A670 (new)
+    virtual int Shape_Number();                                      // 0x0060A670 (new)
 
     void Gas_Behavior_AI();                     // 0x00608BB0 behaviour 0
     void Railgun_Behavior_AI();                 // 0x00609200 behaviour 4

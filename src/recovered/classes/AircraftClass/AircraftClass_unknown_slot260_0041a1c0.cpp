@@ -13,7 +13,7 @@
 void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
 {
     if (target) {
-        if (target->unknown_slot21()) {
+        if (target->In_Air()) {
             target = 0;
             goto set_destination;
         }
@@ -34,7 +34,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                         } else {
                             target = unknown_4198b0();
                         }
-                        unknown_slot116(next_mission, false);
+                        QueueMission(next_mission, false);
                         if (unknown_slot122()) Commence();
                     }
                     if (building->Type->unknown_1349) {

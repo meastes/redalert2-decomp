@@ -52,7 +52,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                     unknown_a8=1;
                     return 1;
                 }
-                unknown_slot116(5,false);
+                QueueMission(5,false);
                 break;
             }
             case 1:
@@ -71,8 +71,8 @@ int UnitClass::Do_MISSION_UNLOAD()
                         int facing=(start+attempt)&7;
                         Cell near_cell=Adjacent_Cell(unknown_slot104(),(FacingType)facing);
                         Cell far_cell=Adjacent_Cell(near_cell,(FacingType)facing);
-                        bool far_allowed=passenger->unknown_slot101(&Map[far_cell],facing,unknown_5d47d0(),0,1)==0;
-                        bool near_allowed=passenger->unknown_slot101(&Map[near_cell],facing,unknown_5d47d0(),0,1)==0;
+                        bool far_allowed=passenger->Can_Enter_Cell(&Map[far_cell],facing,unknown_5d47d0(),0,1)==0;
+                        bool near_allowed=passenger->Can_Enter_Cell(&Map[near_cell],facing,unknown_5d47d0(),0,1)==0;
                         if (!near_allowed || (!far_allowed && prefer_far)) {
                             if (prefer_far && attempt+1==8) { attempt=0;prefer_far=false; }
                             continue;
@@ -82,10 +82,10 @@ int UnitClass::Do_MISSION_UNLOAD()
                         CoordStruct position=Cell_Coord(near_cell);
                         position=Map.Unknown_0049CB70(position,false);
                         UnknownFacingDir direction((unsigned short)(facing<<13));
-                        placed=passenger->unknown_slot53(&position,Dir_To_256(direction));
+                        placed=passenger->Unlimbo(&position,Dir_To_256(direction));
                         --unknown_a40774;
                         if (placed) {
-                            passenger->unknown_slot116(2,false);
+                            passenger->QueueMission(2,false);
                             if (prefer_far) passenger->Assign_Destination(&Map[far_cell],true);
                             else passenger->Assign_Destination(&Map[near_cell],true);
                             if (Team) Team->unknown_func_6b8cc0(passenger);
@@ -97,7 +97,7 @@ int UnitClass::Do_MISSION_UNLOAD()
             } else unknown_a8=4;
             break;
             case 4:
-            unknown_slot116(5,false);
+            QueueMission(5,false);
             unknown_a4=true;
             break;
         }
@@ -123,8 +123,8 @@ int UnitClass::Do_MISSION_UNLOAD()
                     unknown_6fdfc0();
                     if (unknown_7d) {
                         if (unknown_57c) unknown_a8=2;
-                        else if (!House->Unknown_004F52F0() && unknown_game_mode_a3d298) unknown_slot116(15,false);
-                        else unknown_slot116(5,false);
+                        else if (!House->Unknown_004F52F0() && unknown_game_mode_a3d298) QueueMission(15,false);
+                        else QueueMission(5,false);
                     }
                 } else if (MissionQueue!=-1 && MissionQueue!=16) Commence();
                 break;
@@ -132,7 +132,7 @@ int UnitClass::Do_MISSION_UNLOAD()
             }
         } else {
             if (Type->IsSimpleDeployer) {
-                unknown_slot116(5,false);
+                QueueMission(5,false);
                 Commence();
             }
             return FootClass::Do_MISSION_UNLOAD();
@@ -170,7 +170,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         if (Locomotor.Checked()->Is_Moving()) unknown_slot291();
                         if (unknown_slot122()) Commence();
                     } else {
-                        unknown_slot116(10,false);
+                        QueueMission(10,false);
                         if (unknown_slot122()) { if (In_Radio_Contact()) unknown_slot149(3);Commence(); }
                     }
                 } else {
@@ -183,7 +183,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         if (Locomotor.Checked()->Is_Moving()) unknown_slot291();
                         if (unknown_slot122()) Commence();
                     } else {
-                        unknown_slot116(10,false);
+                        QueueMission(10,false);
                         if (unknown_slot122()) { if (In_Radio_Contact()) unknown_slot149(3);Commence(); }
                     }
                 }
@@ -193,7 +193,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
                 if (!building) {
                     if (In_Radio_Contact()) unknown_slot149(3);
-                    unknown_slot116(10,true);
+                    QueueMission(10,true);
                     int delay=Control()->Normal_Delay();
                     return delay+Random_Pick(0,2);
                 } else {

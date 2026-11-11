@@ -34,7 +34,7 @@
 // @ref ?unknown_speed_a40b18@@3VUnknownSpeedA40B18@@A=00a40b18
 // @ref ?unknown_func_5d4920@ObjectClass@@QAEXH@Z=005d4920
 // @ref ?Set_Height_AGL@ObjectClass@@UAEXH@Z=005d4860
-// @ref ?unknown_slot53@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
+// @ref ?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
 // @ref ?Center_Coord@ObjectClass@@UBE?AUCoordStruct@@XZ=005d4e40
 // @ref __ftol=0077f110
 // @ref ?unknown_player_a35db4@@3PAVHouseClass@@A=00a35db4
@@ -118,7 +118,7 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
         Set_Step(-Fetch_Step());
     }
     if (!Class->Bouncer && !Class->IsMeteor) {
-        ObjectClass::unknown_slot53(&coord, 0);
+        ObjectClass::Unlimbo(&coord, 0);
     } else {
         unknown_174 = true;
         if (Class->IsMeteor) {
@@ -134,10 +134,10 @@ AnimClass::AnimClass(AnimTypeClass const *type, CoordStruct const &coord, int lo
             }
             int height = 70 - abs(unknown_id_source_a3d290->Random()() % 20);
             CoordStruct start((int)(coord.X - height * velocity.X), (int)(coord.Y - height * velocity.Y), (int)(coord.Z - height * velocity.Z));
-            ObjectClass::unknown_slot53(&start, 0);
+            ObjectClass::Unlimbo(&start, 0);
             ((BounceClass *)&unknown_108)->Init(Center_Coord(), Class->Elasticity, 1.4f, 0, velocity, 0);
         } else {
-            ObjectClass::unknown_slot53(&coord, 0);
+            ObjectClass::Unlimbo(&coord, 0);
             CoordStruct position;
             position = Center_Coord() + CoordStruct(0, 0, 10);
             int rand_z = unknown_id_source_a3d290->Random()();

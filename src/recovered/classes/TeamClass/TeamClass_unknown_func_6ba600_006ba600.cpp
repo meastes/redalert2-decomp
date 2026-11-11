@@ -26,12 +26,12 @@ bool TeamClass::unknown_func_6ba600()
             }
             if (Coord_Length(member->Center_Coord() - unknown_38->Center_Coord()) > allowed) {
                 if (member->unknown_494 == 0) {
-                    member->unknown_slot116(2, false);
+                    member->QueueMission(2, false);
                     member->Assign_Destination(unknown_38, true);
                 }
                 lagging = true;
             } else if (member->Get_Mission() != 5) {
-                member->unknown_slot116(5, false);
+                member->QueueMission(5, false);
                 member->Assign_Destination(0, true);
             }
         }

@@ -31,7 +31,7 @@ int FootClass::Do_MISSION_EATEN()
     if (unknown_228 == 0 && !House->Unknown_004F52F0()) {
         unknown_slot220(0);
         Assign_Destination(0, true);
-        unknown_slot116(5, false);
+        QueueMission(5, false);
     }
     int delay = (int)(Control()->unknown_10 * 900.0);
     return delay + unknown_id_source_a3d290->Random()(0, 2);

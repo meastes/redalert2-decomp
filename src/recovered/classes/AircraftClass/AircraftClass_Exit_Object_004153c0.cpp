@@ -16,14 +16,14 @@ int AircraftClass::Exit_Object(TechnoClass *techno)
     int index;
     for (index = 0; index < 8; index++) {
         cell = Adjacent_Cell(unknown_slot104(), unknown_facings_7ce4a8[index]);
-        if (techno->unknown_slot101(&Map[cell], -1, -1, 0, 1) == 0) {
+        if (techno->Can_Enter_Cell(&Map[cell], -1, -1, 0, 1) == 0) {
             break;
         }
     }
     UnknownFacingDir dir = Facing_Dir(unknown_facings_7ce4a8[index]);
     CoordStruct coord = Coord;
-    if (techno->unknown_slot53(&coord, Dir_To_256(dir))) {
-        techno->unknown_slot116(2, false);
+    if (techno->Unlimbo(&coord, Dir_To_256(dir))) {
+        techno->QueueMission(2, false);
         techno->Assign_Destination((AbstractClass *)&Map[cell], true);
         if (unknown_slot150(2, techno) == 1) {
             unknown_slot149(9);

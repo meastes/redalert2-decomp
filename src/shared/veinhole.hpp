@@ -87,7 +87,7 @@ public:
     virtual int Kind_Of() const;                                    // 0x00712700 slot 11
     virtual int Size_Of() const;                                    // 0x00712710 slot 12
     virtual void AI();                                              // 0x00710250 slot 23
-    virtual int unknown_slot29() const;                             // 0x00712720 (-1)
+    virtual int In_Which_Layer() const;                             // 0x00712720 (-1)
     virtual ObjectTypeClass *Class_Of() const;                      // 0x007122F0 slot 33
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // 0x007109C0
 

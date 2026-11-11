@@ -18,19 +18,19 @@ void HouseClass::unknown_4ea800(TechnoClass *techno)
             } else {
                 CurBuildings--;
             }
-            unknown_5420.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+            unknown_5420.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
             break;
         case 2:
             unknown_238--;
-            unknown_5450.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+            unknown_5450.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
             break;
         case 15:
             unknown_234--;
-            unknown_5440.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+            unknown_5440.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
             break;
         case 1:
             unknown_228--;
-            unknown_5430.Decrement(techno->Techno_Type_Class()->unknown_slot16());
+            unknown_5430.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
             if (techno->Techno_Type_Class()->Naval && techno->Techno_Type_Class()->Passengers == 0) {
                 unknown_22c--;
             }

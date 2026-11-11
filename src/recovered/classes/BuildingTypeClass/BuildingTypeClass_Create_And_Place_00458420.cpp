@@ -9,7 +9,7 @@ bool BuildingTypeClass::Create_And_Place(Cell const &cell, HouseClass *house) co
     BuildingClass *building = new BuildingClass(const_cast<BuildingTypeClass *>(this), house);
     if (building != 0) {
         CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
-        return building->unknown_slot53(&coord, 0);
+        return building->Unlimbo(&coord, 0);
     }
     return false;
 }

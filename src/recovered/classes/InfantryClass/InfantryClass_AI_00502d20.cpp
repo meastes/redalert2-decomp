@@ -81,7 +81,7 @@ void InfantryClass::AI()
         }
     }
 scatter_done:
-    if (unknown_slot29() != 2) {
+    if (In_Which_Layer() != 2) {
         Mark(2);
     }
     if (unknown_57d && StageClass::Rate == 0) {

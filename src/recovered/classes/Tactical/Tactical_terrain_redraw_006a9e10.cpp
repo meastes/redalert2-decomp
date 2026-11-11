@@ -25,7 +25,7 @@ void Tactical::Unknown_006A9E10(bool arg1, Rect const &rect1, Rect const &rect2)
     Rect clip = Intersect(rect1, rect2);
     for (int index = DisplayClass::Layer[2].Count() - 1; index >= 0; index--) {
         ObjectClass *object = DisplayClass::Layer[2][index];
-        if (object->Kind_Of() == 0x24 && !object->unknown_slot17()) {
+        if (object->Kind_Of() == 0x24 && !object->Is_Inactive()) {
             TerrainClass *terrain = (TerrainClass *)object;
             if (!terrain->Class->IsAnimated && !terrain->unknown_b5) {
                 Point2D offset(unknown_rect_839630.X, unknown_rect_839630.Y);

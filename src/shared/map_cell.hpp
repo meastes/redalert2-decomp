@@ -29,7 +29,7 @@ public:
     virtual void unknown_slot7();
     virtual ~CellClass();           // slot 8 (0x00470E80 is the destructor proper)
     virtual void unknown_slot9(); virtual void unknown_slot10(); virtual void unknown_slot11(); virtual void unknown_slot12(); virtual void unknown_slot13();
-    virtual void unknown_slot14(); virtual void unknown_slot15(); virtual void unknown_slot16(); virtual void unknown_slot17();
+    virtual void unknown_slot14(); virtual void unknown_slot15(); virtual void Fetch_Heap_ID(); virtual void Is_Inactive();
     virtual CoordStruct Center_Coord() const;   // slot 18 0x0047BA50 (as shared/cell.hpp)
 
     char unknown_04[0x24 - 0x04];

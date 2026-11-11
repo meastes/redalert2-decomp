@@ -46,10 +46,10 @@ public:
     virtual int Kind_Of() const { return 0x2B; }                    // 0x007245F0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(WaveClass); }       // 0x007223E0 slot 12 (inline)
     virtual void AI();                                              // 0x00723220 slot 23
-    virtual int unknown_slot29() const { return 3; }                // 0x007223F0 (inline)
+    virtual int In_Which_Layer() const { return 3; }                // 0x007223F0 (inline)
     virtual ObjectTypeClass *Class_Of() const { return 0; }         // 0x00722400 slot 33 (inline)
     virtual bool Limbo();                                  // 0x007224D0
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);              // 0x00722410
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);              // 0x00722410
     void Brighten_Pixel_007219c0(int x, int offset, int row, unsigned short *pixel); // 0x007219C0
     void Set_Laser_Pixel_00721b00(unsigned short *pixel, int mult) const; // 0x00721B00 (TibSun Set_Laser_Pixel; inlined into 0x00722CB0)
     void Sonic_Add_Cell(Cell const &cell);                              // 0x00722040 (adds a cell to Cells once)

@@ -34,9 +34,9 @@ public:
 // @ref _strncpy=007823d0
 // @ref ?unknown_4444b0@BuildingClass@@QAE_N_N@Z=004444b0
 // @ref _unknown_geometry_l=0084ed30
-bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
+bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
 {
-    bool ok = unknown_slot101(&Map[*coord], -1, -1, 0, true) == 0;
+    bool ok = Can_Enter_Cell(&Map[*coord], -1, -1, 0, true) == 0;
 
     if (ok) {
         if (Type == Rules->unknown_78c) {
@@ -85,9 +85,9 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
     }
 
     if (Type->Wall) {
-        if (unknown_slot101(&Map[*coord], -1, -1, 0, true) == 0) {
+        if (Can_Enter_Cell(&Map[*coord], -1, -1, 0, true) == 0) {
             ObjectClass *o = Type->ToOverlay->Create_One_Of(House);
-            if (o && o->unknown_slot53(coord, 0)) {
+            if (o && o->Unlimbo(coord, 0)) {
                 Map[*coord].unknown_50 = House->ArrayIndex;
                 unknown_slot149(3);
                 Map.Sight_From(*coord, Type->Sight, House, false, false, false, true, false);
@@ -164,7 +164,7 @@ bool BuildingClass::unknown_slot53(CoordStruct const *coord, int dir)
         }
     }
 
-    if (TechnoClass::unknown_slot53(coord, dir)) {
+    if (TechnoClass::Unlimbo(coord, dir)) {
 
         if (Type->CloakGenerator) {
             House->unknown_55e8 = true;

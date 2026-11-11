@@ -39,9 +39,9 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         delete object;
 
         ObjectClass *slope1 = IsoTileTypes[unknown_tileset_a6e038]->Create_One_Of(0);
-        slope1->unknown_slot53(origin, 0);
+        slope1->Unlimbo(origin, 0);
         ObjectClass *slope2 = IsoTileTypes[unknown_tileset_a6e038 + 1]->Create_One_Of(0);
-        slope2->unknown_slot53((Cell)(origin + Cell(3, 0)), 0);
+        slope2->Unlimbo((Cell)(origin + Cell(3, 0)), 0);
 
         Zone_Reset();
 
@@ -119,9 +119,9 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         delete object;
 
         ObjectClass *slope1 = IsoTileTypes[unknown_tileset_a6e038 + 3]->Create_One_Of(0);
-        slope1->unknown_slot53(origin, 0);
+        slope1->Unlimbo(origin, 0);
         ObjectClass *slope2 = IsoTileTypes[unknown_tileset_a6e038 + 2]->Create_One_Of(0);
-        slope2->unknown_slot53((Cell)(origin + Cell(0, 3)), 0);
+        slope2->Unlimbo((Cell)(origin + Cell(0, 3)), 0);
 
         Zone_Reset();
 

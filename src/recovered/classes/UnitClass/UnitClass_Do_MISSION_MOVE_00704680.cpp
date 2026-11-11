@@ -11,7 +11,7 @@ int UnitClass::Do_MISSION_MOVE()
 {
     unknown_5ba = false;
     if (unknown_5c8) {
-        unknown_slot116(5, false);
+        QueueMission(5, false);
         return 1;
     }
     if (!unknown_2a8.Is_Count_Down_Complete()) {

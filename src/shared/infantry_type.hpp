@@ -79,7 +79,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x0050AF60 (0x10)
     virtual int Size_Of() const;                                        // 0x0050AF70
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0050AA20
-    virtual int unknown_slot16() const;                                 // 0x0050AF80 (ArrayIndex)
+    virtual int Fetch_Heap_ID() const;                                 // 0x0050AF80 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x0050A3C0
     virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x0050A9B0 (raised to the ground)
     virtual CoordStruct Lepton_Dimensions() const;                         // 0x0050A940

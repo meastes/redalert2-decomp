@@ -65,7 +65,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                 BuildingClass *builder = tech->Who_Can_Build_Me(false, false);
                 if (builder) {
                     builder->unknown_slot150(2, tech);
-                    if (tech->unknown_slot53(&UnknownCoord434820(location.X * 256 + 128, location.Y * 256 + 128, 0), 0)) {
+                    if (tech->Unlimbo(&UnknownCoord434820(location.X * 256 + 128, location.Y * 256 + 128, 0), 0)) {
                         if (tech->Kind_Of() == 6) {
                             BuildingTypeClass *type = ((BuildingClass *)tech)->Type;
                             if (type->FirestormWall) {

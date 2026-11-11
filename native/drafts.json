@@ -16,11 +16,11 @@
    "origin": "build/class-work/Scout915/sweep/1/00525f60.cpp",
    "author": "Scout915",
    "draft": null,
-   "behaviour_verdict": "cannot tell",
-   "behaviour_checked_by": "codex4 r530",
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "codex4 r545 (r530)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "5c4372a32e2364d8126b9aa10af62e3fa358fe94",
-   "notes": "codex4 r530: no draft text to check (draft null; Scout915 sweep/1/00525f60.cpp and its overlay not mirrored); independent bound 2691 B + 13 NOP."
+   "behaviour_checked_head": "64bd7c3ec8e18e6c97871a3ca77edc5d1f313fc1",
+   "notes": "codex4 r530: no draft text to check (draft null; Scout915 sweep/1/00525f60.cpp and its overlay not mirrored); independent bound 2691 B + 13 NOP. codex4 r545: the origin is a raw seed that is wrong on any initialised manager (calls the address constructor 0x523410 on the manager, 1024-byte short packet storage, wrong member/virtual ABI, void return). codex4 supplies a typed repair (73.15) that needs IPXManagerClass +0x8C split out as char *CurDataBuf in src/shared/ipx_manager.hpp; not carried natively (no native copy, the native build traps here)."
   },
   {
    "entry": "0x5E9410",
@@ -653,11 +653,11 @@
    "origin": "build/class-work/Wave362/best/draw_sonic_7225b0_40.47.cpp",
    "author": "Wave362",
    "draft": null,
-   "behaviour_verdict": "cannot tell",
-   "behaviour_checked_by": "codex4 r519",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r544 (r519)",
    "behaviour_checked_date": "2026-11-11",
-   "behaviour_checked_head": "6406ccdcc41282f5686da121ccf64960456de349",
-   "notes": "codex4 r519: no draft text to check (draft null; Wave362 best/draw_sonic_7225b0_40.47.cpp and its overlay not mirrored); independent bound 1777 B + 15 NOP."
+   "behaviour_checked_head": "64bd7c3ec8e18e6c97871a3ca77edc5d1f313fc1",
+   "notes": "codex4 r519: no draft text to check (draft null; Wave362 best/draw_sonic_7225b0_40.47.cpp and its overlay not mirrored); independent bound 1777 B + 15 NOP. codex4 r544: same behaviour for the origin text after a current-name/declaration rebase (Draw_Sonic_007225b0(Point2D const &, Rect const &), StartCoord); 37.93 raw."
   },
   {
    "entry": "0x773F00",
@@ -1022,10 +1022,10 @@
    "author": "Scout1009",
    "draft": "native/drafts/006d0990.cpp",
    "adapted": true,
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r543",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "036e40916a1f84b6e46f58cb1b22f9305d34406d"
   },
   {
    "entry": "0x6A45A0",
@@ -1145,10 +1145,10 @@
    "origin": "build/class-work/Scout664/w/keep/a6_7689.cpp",
    "author": "Scout660",
    "draft": "native/drafts/00563d80.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r548",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "fdca11e73b6824f0559197ba620322bac52caf05"
   },
   {
    "entry": "0x564290",
@@ -1165,10 +1165,10 @@
    "origin": "build/class-work/Scout664/w/keep/b_4247.cpp",
    "author": "Scout660",
    "draft": "native/drafts/00564290.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r549",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "0ee059823cb8bbe2e19e6a23374bd1707705d29f"
   },
   {
    "entry": "0x603750",
@@ -1494,10 +1494,11 @@
    "author": "Scout779 (Scout923 misses_index row)",
    "draft": "native/drafts/00617340.cpp",
    "adapted": "HEAD signature (int x, int y); the draft's light MouseClass/Map copies dropped (the host unit declares them)",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "codex4 r546",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "f112a7608614f19c551c48e5ecf9da84119d8730",
+   "notes": "codex4 r546: the invalid-node refusal looks up MSG:PlanningModeInvalidNodeX (original string 0x007EBEEC), the draft MSG:PlanningModeInvalidNode (fixed)."
   },
   {
    "entry": "0x4994D0",
@@ -1620,10 +1621,10 @@
    "author": "Scout743/1165/1175",
    "draft": "native/drafts/00614ba0.cpp",
    "adapted": "retired accepted text kept as the native body after the 2026-11-09 Is_At ruling",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r547",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "fdca11e73b6824f0559197ba620322bac52caf05"
   },
   {
    "entry": "0x5919A0",

@@ -41,7 +41,7 @@ bool ObjectClass::unknown_slot56(CoordStruct const &coord)
                     Map.Zone(position, zone, unknown_79), zone, -1, 1);
             }
             if (clear) {
-                if (unknown_slot53(&coord, 0x80)) {
+                if (Unlimbo(&coord, 0x80)) {
                     Set_Coord(coord);
                     AnimClass *anim;
                     if (Kind_Of() == 8) {

@@ -47,7 +47,7 @@ bool InfantryClass::unknown_slot290(CoordStruct &headto)
 {
     CoordStruct old=headto;
     headto=reinterpret_cast<UnknownCellClass &>(Map[headto]).Unknown_004764B0(Move_Coord(headto,Direction_00504bc0(Center_Coord(),headto)+UnknownFacingDir(0x7fff),124),false,reinterpret_cast<CellBridgeFlags_00504bc0 const &>(Map[headto].unknown_140).under_bridge);
-    if (headto==unknown_geometry_l && unknown_slot101(&Map[old],-1,-1,0,1)==0) {
+    if (headto==unknown_geometry_l && Can_Enter_Cell(&Map[old],-1,-1,0,1)==0) {
         headto=reinterpret_cast<UnknownCellClass &>(Map[old]).Unknown_004764B0(Move_Coord(old,Direction_00504bc0(Center_Coord(),headto)+UnknownFacingDir(0x7fff),128),true,reinterpret_cast<CellBridgeFlags_00504bc0 const &>(Map[old].unknown_140).under_bridge);
     }
     if (headto!=unknown_geometry_l && FootClass::unknown_slot290(headto)) {

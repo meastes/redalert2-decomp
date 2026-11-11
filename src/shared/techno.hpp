@@ -382,7 +382,7 @@ public:
     virtual bool unknown_slot48() { return unknown_170; }       // slot 48 kept copy 0x0041B410
     virtual bool unknown_slot49(HouseClass *house) { return unknown_170; }   // slot 49 kept copy 0x0041B420
     virtual bool Limbo();                               // slot 52 0x006C4480
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);             // slot 53 0x006C4610
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);             // slot 53 0x006C4610
     virtual void Record_The_Kill(TechnoClass *techno);                      // slot 55 0x006CED90
     virtual void Do_Shimmer();                              // slot 61 0x006CF3B0
     virtual int Exit_Object(TechnoClass *techno);                       // slot 62 0x006D4880
@@ -397,9 +397,9 @@ public:
     virtual bool In_Range(CoordStruct const &coord, int weapon);  // slot 84 0x006C5240
     virtual int Weapon_Range(int arg1);                       // slot 85 0x006CD810
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6); // slot 86 0x006CDC40
-    virtual int unknown_slot90();                               // slot 90 0x006D3150
+    virtual int Value();                               // slot 90 0x006D3150
     virtual void unknown_slot93(int arg1);                      // slot 93 0x006C2B40
-    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x006C2590
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x006C2590
     virtual bool Revealed(HouseClass *house);             // slot 96 0x006C2440
     virtual bool unknown_slot111();                             // slot 111 0x006D6DF0
     virtual bool unknown_slot112();                             // slot 112 0x006D6E00

@@ -198,7 +198,7 @@ int __fastcall Unknown_0047E2C0(CoordStruct const &coord, int strength, TechnoCl
         distance = groups[j]->Distance;
         if (object->unknown_7d && (object->Kind_Of() != 6 || !((BuildingClass *)object)->Type->InvisibleInGame)) {
             if (!blocked || Is_Protected(object)) {
-                if (object->Kind_Of() == 2 && object->unknown_slot21()) {
+                if (object->Kind_Of() == 2 && object->In_Air()) {
                     distance /= 2;
                 }
                 if (object->Strength > 0 && object->unknown_74 && !object->unknown_76 && distance <= range) {

@@ -119,9 +119,9 @@ public:
     virtual int Kind_Of() const { return 0x18; }                        // 0x0060D010 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(ParticleSystemClass); } // 0x0060D000 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0060CF10 slot 13
-    virtual bool unknown_slot17() const;                                // 0x0060CC70 (ended and empty)
+    virtual bool Is_Inactive() const;                                // 0x0060CC70 (ended and empty)
     virtual void AI();                                                  // 0x0060CB70 slot 23
-    virtual int unknown_slot29() const;                                 // 0x0060CC90 (2)
+    virtual int In_Which_Layer() const;                                 // 0x0060CC90 (2)
     virtual ObjectTypeClass *Class_Of() const { return Class; }         // 0x0060D020 slot 33 (inline)
     virtual void Delete_Me() { unknown_e4 = true; }                // 0x0060CFF0 (inline)
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                    // 0x0060B090

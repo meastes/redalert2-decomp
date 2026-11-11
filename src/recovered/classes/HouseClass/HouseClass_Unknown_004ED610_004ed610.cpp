@@ -14,7 +14,7 @@ void HouseClass::Unknown_004ED610(TechnoClass *techno, bool arg2)
 {
     switch (techno->Kind_Of()) {
     case 6:
-        unknown_5460.Increment(techno->Techno_Type_Class()->unknown_slot16());
+        unknown_5460.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
         if (techno != 0 && techno->Kind_Of() == 6) {
             BuildingClass *building = (BuildingClass *)techno;
             Adjust_Drain(building->unknown_449dd0());
@@ -23,15 +23,15 @@ void HouseClass::Unknown_004ED610(TechnoClass *techno, bool arg2)
         }
         break;
     case 2:
-        unknown_5490.Increment(techno->Techno_Type_Class()->unknown_slot16());
+        unknown_5490.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     case 15:
         if (!((InfantryClass *)techno)->unknown_5c1) {
-            unknown_5480.Increment(techno->Techno_Type_Class()->unknown_slot16());
+            unknown_5480.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
         }
         break;
     case 1:
-        unknown_5470.Increment(techno->Techno_Type_Class()->unknown_slot16());
+        unknown_5470.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     }
 }

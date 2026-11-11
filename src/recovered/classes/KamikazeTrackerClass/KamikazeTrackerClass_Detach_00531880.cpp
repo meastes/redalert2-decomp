@@ -18,7 +18,7 @@ void KamikazeTrackerClass::Detach(AbstractClass *target)
         if (target == node->Cell) {
             CellClass *cell = &Map[Coord_Cell(target->Center_Coord())];
             Nodes[index]->Unit->unknown_slot220(cell);
-            Nodes[index]->Unit->unknown_slot116(1, false);
+            Nodes[index]->Unit->QueueMission(1, false);
             Nodes[index]->Cell = cell;
             return;
         }

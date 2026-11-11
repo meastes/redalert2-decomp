@@ -78,7 +78,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVecto
             int ay = (dim - 1) & adj->MapCoords.Y;
             unsigned short adj_subzone = Cell_Subzone(this, adj->MapCoords, layer);
 
-            if (foot->unknown_slot101(adj, facing, adj->unknown_11b, 0, true) == 0 || mzone_table[adj->unknown_4c] != 1) {
+            if (foot->Can_Enter_Cell(adj, facing, adj->unknown_11b, 0, true) == 0 || mzone_table[adj->unknown_4c] != 1) {
 
                 if (adj_subzone == start_subzone) {
 

@@ -10,7 +10,7 @@ int AircraftClass::Do_MISSION_PARADROP_APPROACH()
 {
     if (unknown_228 == 0) {
         Assign_Destination(0, true);
-        unknown_slot116(4, false);
+        QueueMission(4, false);
         return 3;
     }
     if (unknown_494 == 0) {
@@ -18,7 +18,7 @@ int AircraftClass::Do_MISSION_PARADROP_APPROACH()
         return 3;
     }
     if (Planar_Distance(unknown_228) <= Rules->unknown_468) {
-        unknown_slot116(27, false);
+        QueueMission(27, false);
         unknown_5bb--;
     }
     return 3;

@@ -28,19 +28,19 @@ int FootClass::Do_MISSION_HUNT()
         InfantryClass *infantry = Kind_Of() == 15 ? (InfantryClass *)this : 0;
         if (infantry != 0 && infantry->Type->Engineer && !infantry->Type->C4 && !infantry->unknown_6d7910(14)) {
             Assign_Destination(unknown_228, true);
-            unknown_slot116(8, false);
+            QueueMission(8, false);
             if (unknown_slot122()) {
                 Commence();
             }
         } else if (infantry != 0 && (infantry->Type->C4 || infantry->unknown_6d7910(14)) && unknown_228 != 0 && unknown_228->Kind_Of() == 6) {
             Assign_Destination(unknown_228, true);
-            unknown_slot116(17, false);
+            QueueMission(17, false);
             if (unknown_slot122()) {
                 Commence();
             }
         } else if (infantry != 0 && infantry->Type->VehicleThief) {
             Assign_Destination(unknown_228, true);
-            unknown_slot116(8, false);
+            QueueMission(8, false);
             if (unknown_slot122()) {
                 Commence();
             }
@@ -55,7 +55,7 @@ int FootClass::Do_MISSION_HUNT()
         cell = Coord_Cell(unknown_player_a35db4->BaseCenter);
         if (cell != unknown_geometry_k) {
             Assign_Destination((AbstractClass *)&Map[cell], true);
-            unknown_slot116(2, true);
+            QueueMission(2, true);
         }
     } else {
         unknown_slot258();

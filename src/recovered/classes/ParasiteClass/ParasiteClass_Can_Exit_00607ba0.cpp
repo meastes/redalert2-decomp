@@ -11,7 +11,7 @@ bool ParasiteClass::Can_Exit_00607BA0()
     if (unknown_28 == 0) {
         return false;
     }
-    if (unknown_28->unknown_slot21()) {
+    if (unknown_28->In_Air()) {
         return false;
     }
     if (!Owner->Techno_Type_Class()->Naval) {

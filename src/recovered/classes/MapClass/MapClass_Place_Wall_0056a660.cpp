@@ -34,7 +34,7 @@ void MapClass::Unknown_0056A660(Cell const &cell, HouseClass *house, BuildingTyp
                     Cell place_cell = (Cell)Adjacent_Cell_L(cell, dir);
                     for (int i = 0; i < distance; i++) {
                         ObjectClass *building = type->Create_One_Of(house);
-                        building->unknown_slot53(place_cell, 0);
+                        building->Unlimbo(place_cell, 0);
                         place_cell = (Cell)Adjacent_Cell((Cell)place_cell, dir);
                     }
                 }

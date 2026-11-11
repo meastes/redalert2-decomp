@@ -14,7 +14,7 @@ bool TActionClass::unknown_hunt_technos_with_tag(HouseClass *house, ObjectClass 
         if (techno->Kind_Of() != 6 && techno->unknown_7d && techno->unknown_74 && techno->unknown_34 != 0
             && techno->unknown_34->Is_Trigger_Attached(trigger)) {
             if (techno->Get_Mission() == 0 || techno->Get_Mission() == 0x17) {
-                techno->unknown_slot116(5, false);
+                techno->QueueMission(5, false);
             }
         }
     }

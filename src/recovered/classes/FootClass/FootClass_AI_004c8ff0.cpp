@@ -90,7 +90,7 @@ void FootClass::AI()
         return;
     }
     unknown_59d = false;
-    if (Frame % Rules->unknown_144c == 0 && !Techno_Type_Class()->ImmuneToRadiation && !unknown_slot21()) {
+    if (Frame % Rules->unknown_144c == 0 && !Techno_Type_Class()->ImmuneToRadiation && !In_Air()) {
         Cell cell = Coord_Cell(Center_Coord());
         int amount = Map_Cell_At(cell)->Unknown_0047CE70();
         if (amount > 0) {
@@ -105,7 +105,7 @@ void FootClass::AI()
         && Map.Unknown_0055A740((CellClass *)Get_Cell_Ptr(), 1)) {
         unknown_32d = true;
     }
-    if (Locomotor.Checked()->Is_Moving_Now() && unknown_slot21() && House->Is_Ally(unknown_player_a35db4)
+    if (Locomotor.Checked()->Is_Moving_Now() && In_Air() && House->Is_Ally(unknown_player_a35db4)
         && unknown_54c.Value() == 0) {
         unknown_slot263(0, 0, 0, 0);
         unknown_slot262(0, 0, 0, 0);

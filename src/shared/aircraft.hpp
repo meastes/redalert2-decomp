@@ -117,16 +117,16 @@ public:
     virtual int Kind_Of() const { return 2; }                         // slot 11 0x0041B580 (inline)
     virtual int Size_Of() const { return sizeof(AircraftClass); }     // slot 12 0x0041B570 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                 // slot 13 0x0041AD60
-    virtual bool unknown_slot20() const;                              // slot 20 0x0041B0B0
-    virtual bool unknown_slot21() const;                              // slot 21 0x0041B050
+    virtual bool On_Ground() const;                              // slot 20 0x0041B0B0
+    virtual bool In_Air() const;                              // slot 21 0x0041B050
     virtual void AI();                                                // slot 23 0x004147F0
     virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);         // slot 27 0x00417840
     virtual int unknown_slot28(ObjectClass *object, bool arg2);                 // slot 28 0x004175A0
-    virtual int unknown_slot29() const;                               // slot 29 0x0041A500
+    virtual int In_Which_Layer() const;                               // slot 29 0x0041A500
     virtual bool unknown_slot31();                                    // slot 31 0x0041B040
     virtual ObjectTypeClass *Class_Of() const;                        // slot 33 0x0041B600
     virtual wchar_t const *unknown_slot35();                          // slot 35 0x0041B5D0 (the type's UIName)
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);                   // slot 53 0x00414020
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);                   // slot 53 0x00414020
     virtual int Exit_Object(TechnoClass *techno);                           // slot 62 0x004153C0
     virtual void unknown_slot67(Point2D const &point, Rect const &window);                  // slot 67 0x004141C0
     virtual void Look(bool arg1, bool arg2);                  // slot 70 0x0041A530
@@ -134,9 +134,9 @@ public:
     virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);        // slot 78 0x004174B0
     virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x00415E70
     virtual void Scatter(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x00419CD0
-    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x00418840
-    virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00418E00
-    virtual void unknown_slot116(int mission, bool commence);         // slot 116 0x0041B160
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x00418840
+    virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00418E00
+    virtual void QueueMission(int mission, bool commence);         // slot 116 0x0041B160
     virtual bool Commence();                                   // slot 117 0x0041AFC0
     virtual void Set_Mission(int mission);                        // slot 118 0x0041B120
     virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);   // slot 119 0x0041B1A0

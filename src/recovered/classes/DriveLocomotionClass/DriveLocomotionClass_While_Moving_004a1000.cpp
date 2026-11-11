@@ -287,7 +287,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
                         CoordStruct c = Adjacent_Coord(unknown_40, nextface);
 
-                        switch (LinkedTo->unknown_slot101(&Map[c.As_Cell()], nextface, LinkedTo->unknown_5d47d0(), 0, true)) {
+                        switch (LinkedTo->Can_Enter_Cell(&Map[c.As_Cell()], nextface, LinkedTo->unknown_5d47d0(), 0, true)) {
                             case 0:
                             case 2:
                                 if (LinkedTo->Kind_Of() == 1 && !((UnitClass *)LinkedTo)->Type->Passive) break;

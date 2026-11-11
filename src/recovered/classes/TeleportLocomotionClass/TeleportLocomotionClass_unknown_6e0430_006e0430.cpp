@@ -28,7 +28,7 @@ void TeleportLocomotionClass::unknown_6e0430(CoordStruct coord)
         LinkedTo->unknown_slot210();
         return;
     }
-    if (LinkedTo->unknown_slot101(&Map[Coord_Cell(coord)], -1, -1, 0, true) == 7 || kill) {
+    if (LinkedTo->Can_Enter_Cell(&Map[Coord_Cell(coord)], -1, -1, 0, true) == 7 || kill) {
         if (!Map[Coord_Cell(coord)].unknown_47b7e0() || LinkedTo->Kind_Of() == 15) {
             int damage = LinkedTo->Techno_Type_Class()->MaxStrength;
             LinkedTo->Take_Damage(&damage, 0, Rules->unknown_c74, 0, true, 0);

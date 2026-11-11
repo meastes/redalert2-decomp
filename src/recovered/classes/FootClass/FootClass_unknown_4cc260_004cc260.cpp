@@ -28,7 +28,7 @@ bool FootClass::unknown_4cc260(Cell &cell, int dx, int dy)
         if (Map.Unknown_0054F7C0(here, cell, Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0), 0, 0)) {
             CellClass *map_cell = &Map[cell];
             UnknownCellClass *object = (UnknownCellClass *)map_cell;
-            if (unknown_slot101(map_cell, -1, -1, 0, 1) == 0 && object->unknown_ec == 11 && object->unknown_11e >= 0x30) {
+            if (Can_Enter_Cell(map_cell, -1, -1, 0, 1) == 0 && object->unknown_ec == 11 && object->unknown_11e >= 0x30) {
                 return true;
             }
         }

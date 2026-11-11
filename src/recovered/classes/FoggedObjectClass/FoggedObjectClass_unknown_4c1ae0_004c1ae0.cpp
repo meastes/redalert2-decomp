@@ -12,7 +12,7 @@ void FoggedObjectClass::unknown_4c1ae0()
         FoggedObjectClass *fogged = Array[index];
         if (fogged->unknown_4c1f00() != 0) {
             Cell const *offset = fogged->unknown_4c1f00();
-            Cell base = fogged->unknown_slot24();
+            Cell base = fogged->Get_Cell();
             for (; offset->X != 0x7FFF || offset->Y != 0x7FFF; offset++) {
                 Cell cell = Cell(offset->X + base.X, offset->Y + base.Y);
                 Map[cell].unknown_140 |= 0x400000;

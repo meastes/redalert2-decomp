@@ -193,7 +193,7 @@ plain:
             (((cell->unknown_140&0x800) && (cell->Adjacent_Cell(0).unknown_140&0x100)) ||
              (!(cell->unknown_140&0x800) && (cell->Adjacent_Cell(6).unknown_140&0x100)))) shadow_drawpoint.Y-=60;
         Surface *cache_key;   // the shadow mask surface
-        if (unknown_slot21()) cache_key=0;
+        if (In_Air()) cache_key=0;
         else {
             cache_key=composite_surface;
             if (Type->BalloonHover || Type->SpeedType==1 || Type->SpeedType==2) {

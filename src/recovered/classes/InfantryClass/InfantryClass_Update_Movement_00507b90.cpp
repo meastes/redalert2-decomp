@@ -22,7 +22,7 @@ void InfantryClass::Update_Movement_00507b90()
     }
     if (unknown_494 != 0) {
         Cell target_cell = Coord_Cell(unknown_494->unknown_slot19(this));
-        if (unknown_5c4 && unknown_slot101(Get_Target_Cell_Ptr(), -1, -1, 0, 1) == 7) {
+        if (unknown_5c4 && Can_Enter_Cell(Get_Target_Cell_Ptr(), -1, -1, 0, 1) == 7) {
             goto select_sequence;
         }
         if (!Locomotor.Checked()->Is_Moving() && !unknown_370 && unknown_494 != 0 && unknown_32d) {

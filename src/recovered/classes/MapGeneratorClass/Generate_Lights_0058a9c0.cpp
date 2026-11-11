@@ -81,7 +81,7 @@ void MapGeneratorClass::Generate_Lights()
                             CoordStruct position=Move_Coord(Cell_Center(waypoint),direction,8*256);
                             Cell cell(position);
                             BuildingClass *light=new BuildingClass(BuildingTypes[lightType],owner);
-                            if(!light->unknown_slot53(&CoordStruct(cell.X*256+128,cell.Y*256+128,0),0))delete light;
+                            if(!light->Unlimbo(&CoordStruct(cell.X*256+128,cell.Y*256+128,0),0))delete light;
                         }
                     }
                     --tries;

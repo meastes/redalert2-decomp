@@ -165,7 +165,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             if (LinkedTo->unknown_79 ^ what_cell->IsUnderBridge) {
                 LinkedTo->unknown_57b = true;
             }
-            int can_enter = LinkedTo->unknown_slot101(&Map[what], dir, LinkedTo->Unknown_005D47D0(), 0, true);
+            int can_enter = LinkedTo->Can_Enter_Cell(&Map[what], dir, LinkedTo->Unknown_005D47D0(), 0, true);
             if (((can_enter != 5 && can_enter != 4) || !LinkedTo->Techno_Type_Class()->Crusher || what_cell->OverlayIndex != 0) && can_enter != 0) {
                 LinkedTo->unknown_slot307();
                 if (can_enter == 6) {

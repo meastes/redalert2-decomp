@@ -101,7 +101,7 @@ void BuildingClass::AI()
             }
         }
     }
-    if (Type->SAM && unknown_228 && !unknown_228->unknown_slot21()) {
+    if (Type->SAM && unknown_228 && !unknown_228->In_Air()) {
         unknown_slot220(0);
     }
     Update_Animations_0044BD40();
@@ -204,7 +204,7 @@ void BuildingClass::AI()
     if (unknown_228 && !unknown_slot213(unknown_228)) {
         if (unknown_228->Kind_Of() != 2) {
             unknown_slot220(0);
-        } else if (unknown_228->unknown_slot20()) {
+        } else if (unknown_228->On_Ground()) {
             unknown_slot220(0);
         }
     }

@@ -170,10 +170,10 @@ skip:
     case 0x28: {
         int limit = type->BuildLimit;
         if (type->BuildLimit <= 0) {
-            if (unknown_54b0.unknown_func_491d10(type->unknown_slot16()) >= abs(limit)) return 0;
+            if (unknown_54b0.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
         }
         if (limit <= 0) return 1;
-        if (unknown_5430.unknown_func_491d10(type->unknown_slot16()) < type->BuildLimit) {
+        if (unknown_5430.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
             return 1;
         }
         if (include_in_progress) {
@@ -183,13 +183,13 @@ skip:
     }
     case 0x10: {
         if (type->BuildLimit <= 0) {
-            if (unknown_54c0.unknown_func_491d10(type->unknown_slot16()) >= abs(type->BuildLimit)) return 0;
+            if (unknown_54c0.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(type->BuildLimit)) return 0;
         }
-        int count = unknown_5440.unknown_func_491d10(type->unknown_slot16());
+        int count = unknown_5440.unknown_func_491d10(type->Fetch_Heap_ID());
         if (((InfantryTypeClass const *)type)->VehicleThief) {
             for (int i = 0; i < Units.Count(); i++) {
                 UnitClass *unit = Units[i];
-                if (unit->House == this && unit->unknown_290 == type->unknown_slot16()) {
+                if (unit->House == this && unit->unknown_290 == type->Fetch_Heap_ID()) {
                     count++;
                 }
             }
@@ -208,10 +208,10 @@ skip:
     case 7: {
         int limit = type->BuildLimit;
         if (type->BuildLimit <= 0) {
-            if (unknown_54a0.unknown_func_491d10(type->unknown_slot16()) >= abs(limit)) return 0;
+            if (unknown_54a0.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
         }
         if (limit <= 0) return 1;
-        if (unknown_5420.unknown_func_491d10(type->unknown_slot16()) < type->BuildLimit) {
+        if (unknown_5420.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
             return 1;
         }
         if (include_in_progress) {
@@ -222,10 +222,10 @@ skip:
     case 3: {
         int limit = type->BuildLimit;
         if (type->BuildLimit <= 0) {
-            if (unknown_54d0.unknown_func_491d10(type->unknown_slot16()) >= abs(limit)) return 0;
+            if (unknown_54d0.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
         }
         if (limit <= 0) return 1;
-        if (unknown_5450.unknown_func_491d10(type->unknown_slot16()) < type->BuildLimit) {
+        if (unknown_5450.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
             return 1;
         }
         if (include_in_progress) {

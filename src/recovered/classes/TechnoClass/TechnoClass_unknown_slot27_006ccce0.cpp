@@ -118,11 +118,11 @@ int TechnoClass::unknown_slot27(Cell const *cell, bool arg2, bool arg3)
                 return 1;
             }
             if (Can_Player_Move()) {
-                if (unknown_slot101(&Map[*cell], -1, -1, 0, 1) <= 1 || arg2) {
+                if (Can_Enter_Cell(&Map[*cell], -1, -1, 0, 1) <= 1 || arg2) {
                     return 1;
                 }
                 if (Techno_Type_Class()->unknown_af5
-                    && unknown_slot101(&Map[*cell], -1, -1, 0, 0) <= 1) {
+                    && Can_Enter_Cell(&Map[*cell], -1, -1, 0, 0) <= 1) {
                     return 1;
                 }
             }

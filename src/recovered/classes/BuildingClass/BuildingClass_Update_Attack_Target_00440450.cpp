@@ -17,7 +17,7 @@ void BuildingClass::unknown_slot220(AbstractClass *target)
         TechnoClass::unknown_slot220(0);
         if ((Type->TickTank || Type->Artillary)
             && !House->Is_Human_Player() && !unknown_slot201()) {
-            unknown_slot116(19, false);
+            QueueMission(19, false);
             Commence();
         }
     }

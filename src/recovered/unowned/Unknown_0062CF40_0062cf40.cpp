@@ -100,7 +100,7 @@ void __fastcall Unknown_0062CF40(int index)
         }
         if (target) {
             if (is_object) {
-                id = target->unknown_slot16();
+                id = target->Fetch_Heap_ID();
             } else if (target->Kind_Of() == 11) {
                 id = ((CellClass *)target)->MapCoords.Y << 16 | ((CellClass *)target)->MapCoords.X;
             }
@@ -119,7 +119,7 @@ void __fastcall Unknown_0062CF40(int index)
         }
         if (target) {
             if (is_object) {
-                id = target->unknown_slot16();
+                id = target->Fetch_Heap_ID();
             } else if (target->Kind_Of() == 11) {
                 id = ((CellClass *)target)->MapCoords.Y << 16 | ((CellClass *)target)->MapCoords.X;
             }
@@ -156,7 +156,7 @@ void __fastcall Unknown_0062CF40(int index)
         }
         if (target) {
             if (is_object) {
-                id = target->unknown_slot16();
+                id = target->Fetch_Heap_ID();
             } else if (target->Kind_Of() == 11) {
                 id = ((CellClass *)target)->MapCoords.Y << 16 | ((CellClass *)target)->MapCoords.X;
             }
@@ -175,7 +175,7 @@ void __fastcall Unknown_0062CF40(int index)
         }
         if (target) {
             if (is_object) {
-                id = target->unknown_slot16();
+                id = target->Fetch_Heap_ID();
             } else if (target->Kind_Of() == 11) {
                 id = ((CellClass *)target)->MapCoords.Y << 16 | ((CellClass *)target)->MapCoords.X;
             }
@@ -209,7 +209,7 @@ void __fastcall Unknown_0062CF40(int index)
         }
         if (target) {
             if (is_object) {
-                id = target->unknown_slot16();
+                id = target->Fetch_Heap_ID();
             } else if (target->Kind_Of() == 11) {
                 id = ((CellClass *)target)->MapCoords.Y << 16 | ((CellClass *)target)->MapCoords.X;
             }
@@ -228,7 +228,7 @@ void __fastcall Unknown_0062CF40(int index)
         }
         if (target) {
             if (is_object) {
-                id = target->unknown_slot16();
+                id = target->Fetch_Heap_ID();
             } else if (target->Kind_Of() == 11) {
                 id = ((CellClass *)target)->MapCoords.Y << 16 | ((CellClass *)target)->MapCoords.X;
             }
@@ -263,7 +263,7 @@ void __fastcall Unknown_0062CF40(int index)
         }
         if (target) {
             if (is_object) {
-                id = target->unknown_slot16();
+                id = target->Fetch_Heap_ID();
             } else if (target->Kind_Of() == 11) {
                 id = ((CellClass *)target)->MapCoords.Y << 16 | ((CellClass *)target)->MapCoords.X;
             }
@@ -292,7 +292,7 @@ void __fastcall Unknown_0062CF40(int index)
             obj_layer->Value = Coord_CRC(objp->Coord);
             obj_layer->RTTI = objp->Kind_Of();
             if (objp->Kind_Of() != 0x2B && objp->Kind_Of() != 0x13) {
-                obj_layer->Type = objp->Class_Of()->unknown_slot16();
+                obj_layer->Type = objp->Class_Of()->Fetch_Heap_ID();
                 obj_layer->Name[sizeof(obj_layer->Name) - 1] = 0;
                 strncpy(obj_layer->Name, objp->Class_Of()->ID, sizeof(obj_layer->Name) - 1);
             } else {
@@ -321,7 +321,7 @@ void __fastcall Unknown_0062CF40(int index)
         obj_layer->Value = Coord_CRC(objp->Coord);
         obj_layer->RTTI = objp->Kind_Of();
         if (objp->Kind_Of() != 0x2B && objp->Kind_Of() != 0x13) {
-            obj_layer->Type = objp->Class_Of()->unknown_slot16();
+            obj_layer->Type = objp->Class_Of()->Fetch_Heap_ID();
             obj_layer->Name[sizeof(obj_layer->Name) - 1] = 0;
             strncpy(obj_layer->Name, objp->Class_Of()->ID, sizeof(obj_layer->Name) - 1);
         } else {

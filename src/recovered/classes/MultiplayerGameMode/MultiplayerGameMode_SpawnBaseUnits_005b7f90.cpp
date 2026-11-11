@@ -22,7 +22,7 @@ bool MultiplayerGameMode::SpawnBaseUnits(HouseClass *house, int *money)
         TechnoClass *unit = (TechnoClass *)new UnitClass(type, house);
         if (unit != 0) {
             CoordStruct &center = house->BaseCenter;
-            if (unit->unknown_slot53(&center, 0)) {
+            if (unit->Unlimbo(&center, 0)) {
                 return true;
             }
             Cell cell = Cell(center.X / 256, center.Y / 256);

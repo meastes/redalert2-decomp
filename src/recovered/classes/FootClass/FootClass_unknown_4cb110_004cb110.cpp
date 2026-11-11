@@ -87,7 +87,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             int zone = Map.Zone(cell, Techno_Type_Class()->MovementZone, cell_ptr->Flags >> 8 & 1);
             int adjusted_zone = Map.Zone(adjusted, Techno_Type_Class()->MovementZone, adjusted_cell->Flags >> 8 & 1);
             int dest_zone = Map.Zone(Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0));
-            int entry = unknown_slot101((CellClass *)adjusted_cell, -1, adjusted_cell->unknown_11b + (adjusted_cell->Flags >> 8 & 1) * 4, 0, 1);
+            int entry = Can_Enter_Cell((CellClass *)adjusted_cell, -1, adjusted_cell->unknown_11b + (adjusted_cell->Flags >> 8 & 1) * 4, 0, 1);
 
             int limit = abs(offset.X) > abs(offset.Y) ? abs(offset.X) : abs(offset.Y);
             limit = limit + 3 > 5 ? 5 : limit + 3;

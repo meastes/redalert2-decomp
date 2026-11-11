@@ -201,7 +201,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x004F6B80 slot 11
     virtual int Size_Of() const;                                        // 0x004EE890 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x004ED790 slot 13
-    virtual int unknown_slot16() const;                                 // 0x004F6B90
+    virtual int Fetch_Heap_ID() const;                                 // 0x004F6B90
     virtual void AI();                                                  // 0x004E4110 slot 23
 
     float Cost_Multiplier(TechnoTypeClass const *type);    // 0x004F5960

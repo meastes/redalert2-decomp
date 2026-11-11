@@ -37,14 +37,14 @@ int AircraftClass::Do_MISSION_GUARD()
         if (Team != 0) {
             if (unknown_494 != 0) {
                 unknown_5bc = true;
-                unknown_slot116(2, false);
+                QueueMission(2, false);
             }
             return (int)(Control()->unknown_10 * 900.0);
         }
         if (unknown_slot231(0)->WeaponType == 0) {
             CoordStruct coord = Coord;
             Assign_Destination((AbstractClass *)&Map[coord], true);
-            unknown_slot116(2, false);
+            QueueMission(2, false);
             return 1;
         }
         if (Team == 0) {
@@ -72,7 +72,7 @@ reloading:
         return 1;
     }
     if (unknown_228 != 0) {
-        unknown_slot116(1, false);
+        QueueMission(1, false);
         return 1;
     }
     if (!unknown_slot163()) {
@@ -86,10 +86,10 @@ reloading:
         AbstractClass *target = House->unknown_func_4eb360(coord);
         if (target != 0) {
             unknown_slot220(target);
-            unknown_slot116(1, false);
+            QueueMission(1, false);
         }
     }
-    if (House->Unknown_004F52F0() && !unknown_slot21()) {
+    if (House->Unknown_004F52F0() && !In_Air()) {
         int delay = (int)(Control()->unknown_10 * 900.0);
         return delay + unknown_id_source_a3d290->Random()(0, 2);
     }
@@ -98,7 +98,7 @@ rearm:
     if (!In_Radio_Contact()) {
         TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
         if (dock != 0) {
-            unknown_slot116(7, false);
+            QueueMission(7, false);
             Assign_Destination(dock, true);
             unknown_slot220(0);
             return 1;

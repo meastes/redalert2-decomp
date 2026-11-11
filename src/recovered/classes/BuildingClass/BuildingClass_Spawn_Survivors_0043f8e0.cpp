@@ -37,7 +37,7 @@ CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, boo
 void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
 {
     Cell origin=unknown_slot104();
-    Cell const *offset=unknown_slot64(0);
+    Cell const *offset=Occupy_List(0);
     int odds=2;
     if(unknown_438)odds=1;
     if(unknown_5b3)odds+=6;
@@ -57,7 +57,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
                 ++unknown_a40774;
                 coordinate=CoordStruct(location.X*256+128,location.Y*256+164,0);
                 coordinate=((UnknownPlacementCellView *)&Map[coordinate])->Closest_Free_Spot(coordinate,false,false);
-                if(coordinate==unknown_geometry_l || !survivor->unknown_slot53(&coordinate,0)) {
+                if(coordinate==unknown_geometry_l || !survivor->Unlimbo(&coordinate,0)) {
                     delete survivor;
                 } else {
                     Debug_Printf("Survivor unlimbo OK\n");
@@ -66,12 +66,12 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
                     survivor->Strength=unknown_id_source_a3d290->Random()(5,maximumStrength);
                     survivor->Scatter(unknown_geometry_l,true,false);
                     if(attacker && !House->Is_Ally(attacker)) {
-                        survivor->unknown_slot116(1,false);
+                        survivor->QueueMission(1,false);
                         survivor->unknown_slot220(attacker);
                     } else if(House->Is_Human_Player()) {
-                        survivor->unknown_slot116(2,false);
+                        survivor->QueueMission(2,false);
                     } else {
-                        survivor->unknown_slot116(15,false);
+                        survivor->QueueMission(15,false);
                     }
                 }
                 --unknown_a40774;

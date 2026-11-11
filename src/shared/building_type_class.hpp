@@ -138,7 +138,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x0045ED00 (7)
     virtual int Size_Of() const;                                        // 0x0045ED10
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0045D8F0
-    virtual int unknown_slot16() const;                                 // 0x0045ED20 (ArrayIndex)
+    virtual int Fetch_Heap_ID() const;                                 // 0x0045ED20 (ArrayIndex)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x00459A00
     virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x0045D830 (on the ground)
     virtual int Max_Pips() const;                                 // 0x00458980 Max_Pips

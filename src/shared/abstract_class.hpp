@@ -63,12 +63,12 @@ public:
     virtual HouseClass *Owning_House() const;                                    // 0x00410240 slot 15
     // This object as a techno, or null for other kinds (0x0040DC20).
     TechnoClass *As_Techno();
-    virtual int unknown_slot16() const;                                          // 0x00410250
-    virtual bool unknown_slot17() const;                                         // 0x004101E0 (true)
+    virtual int Fetch_Heap_ID() const;                                          // 0x00410250
+    virtual bool Is_Inactive() const;                                         // 0x004101E0 (true)
     virtual CoordStruct Center_Coord() const;                                    // 0x00410260 slot 18
     virtual CoordStruct unknown_slot19(TechnoClass *techno) const;               // 0x00410290 (Center_Coord)
-    virtual bool unknown_slot20() const;                                         // 0x004102C0 (false)
-    virtual bool unknown_slot21() const;                                         // 0x004102D0 (false)
+    virtual bool On_Ground() const;                                         // 0x004102C0 (false)
+    virtual bool In_Air() const;                                         // 0x004102D0 (false)
     virtual CoordStruct unknown_slot22() const;                                  // 0x004102E0 (Center_Coord)
     virtual void AI();                                                           // 0x00410310 slot 23
 

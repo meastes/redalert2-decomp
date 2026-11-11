@@ -48,7 +48,7 @@ void MapGeneratorClass::Generate_Rural_Buildings(Cell const &origin)
                     }
                     if(clear) {
                         CoordStruct point(position.X*256+128,position.Y*256+128,0);
-                        if(building->unknown_slot53(&point,0)) {
+                        if(building->Unlimbo(&point,0)) {
                             wasPlaced=true;
                             ++placed;
                             names.Delete((int)nameIndex);

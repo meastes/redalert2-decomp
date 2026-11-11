@@ -29,7 +29,7 @@ bool MultiplayerSiege::SpawnBaseUnits(HouseClass *house, int *money)
             TechnoClass *building = (TechnoClass *)new BuildingClass(type, house);
             if (building != 0) {
                 CoordStruct &center = house->BaseCenter;
-                if (!building->unknown_slot53(&center, 0)) {
+                if (!building->Unlimbo(&center, 0)) {
                     Cell cell = Cell(center.X / 256, center.Y / 256);
                     if (!Unknown_00660b60(building, cell, 1)) {
                         delete building;

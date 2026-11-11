@@ -31,7 +31,7 @@ void Process_Deferred_Deletion()
     int index = 0;
     while (index < unknown_objects_ac0cd8.Count()) {
         AbstractClass *obj = unknown_objects_ac0cd8[index];
-        if (obj->unknown_slot17()) {
+        if (obj->Is_Inactive()) {
             while (true) {
                 if (!unknown_objects_ac0cd8.Delete(obj)) {
                     break;

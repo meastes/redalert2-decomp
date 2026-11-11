@@ -40,7 +40,7 @@ void ObjectClass::AI()
     }
     if (!unknown_7a) return;
 
-    int previous_state = unknown_slot29();
+    int previous_state = In_Which_Layer();
     int new_height = (int)((unsigned int)Get_Height() +
                           (unsigned int)unknown_24.unknown_08);
     if (unknown_74) {
@@ -62,7 +62,7 @@ void ObjectClass::AI()
         if (unknown_78) velocity = Object_AI_Clamped_Speed(Rules->ParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((unsigned int)unknown_24.unknown_08 - 1u)));
         else velocity = Object_AI_Clamped_Speed(Rules->NoParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((double)unknown_24.unknown_08 - unknown_falling_decrement_007a7668)));
         unknown_24.unknown_08 = velocity;
-        if (previous_state != unknown_slot29()) Map.Submit(this);
+        if (previous_state != In_Which_Layer()) Map.Submit(this);
         if (!unknown_7a) {
         if (unknown_7c && Strength > 0) {
             int damage = Strength;

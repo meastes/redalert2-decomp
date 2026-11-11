@@ -37,7 +37,7 @@ Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
         if (mzone == 6) mzone = 0;
         else if (mzone == 9 && House->Unknown_0051FC80()) mzone = 7;
 
-        bool moveanywhere = unknown_slot21() || Techno_Type_Class()->unknown_af5 || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet && !House->Unknown_0051FC80()) || Kind_Of() == 2;
+        bool moveanywhere = In_Air() || Techno_Type_Class()->unknown_af5 || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet && !House->Unknown_0051FC80()) || Kind_Of() == 2;
 
         bool ontobridge = Is_Moving_Onto_Bridge(0);
         CoordStruct center = Cell_Coord(cell);

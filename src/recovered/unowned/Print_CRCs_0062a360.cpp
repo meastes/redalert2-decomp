@@ -158,7 +158,7 @@ inline char const *Sync_Target_Name(AbstractClass *target, int &id)
     }
     if (target) {
         if (is_object) {
-            id = target->unknown_slot16();
+            id = target->Fetch_Heap_ID();
         } else if (target->Kind_Of() == 11) {
             id = ((CellClass *)target)->MapCoords.Y << 16 | ((CellClass *)target)->MapCoords.X;
         }
@@ -351,7 +351,7 @@ void __fastcall Print_CRCs(EventClass *event)
                 fprintf(file, "%s\t(Type:%d) ", Name_From_RTTI((RTTIType)objp->Kind_Of()), 0);
             } else {
                 fprintf(file, "%s\t(Type:%d(%s)) ", Name_From_RTTI((RTTIType)objp->Kind_Of()),
-                    objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+                    objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
             }
             HouseClass *owner = objp->Owning_House();
             if (owner) {
@@ -373,23 +373,23 @@ void __fastcall Print_CRCs(EventClass *event)
             Add_CRC(&GameCRC, val);
         fprintf(file, "Object %d: %x ", i, Coord_CRC(objp->Coord));
         if (objp->Kind_Of() == 2) {
-            fprintf(file, "Aircraft  (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Aircraft  (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         } else if (objp->Kind_Of() == 4) {
-            fprintf(file, "Anim      (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Anim      (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         } else if (objp->Kind_Of() == 6) {
-            fprintf(file, "Building  (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Building  (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         } else if (objp->Kind_Of() == 8) {
-            fprintf(file, "Bullet    (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Bullet    (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         } else if (objp->Kind_Of() == 15) {
-            fprintf(file, "Infantry  (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Infantry  (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         } else if (objp->Kind_Of() == 20) {
-            fprintf(file, "Overlay   (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Overlay   (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         } else if (objp->Kind_Of() == 29) {
-            fprintf(file, "Smudge    (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Smudge    (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         } else if (objp->Kind_Of() == 36) {
-            fprintf(file, "Terrain   (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Terrain   (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         } else if (objp->Kind_Of() == 1) {
-            fprintf(file, "Unit      (Type:%d(%s)) ", objp->Class_Of()->unknown_slot16(), (char const *)objp->Class_Of()->ID);
+            fprintf(file, "Unit      (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->ID);
         }
         HouseClass *owner = objp->Owning_House();
         if (owner) {

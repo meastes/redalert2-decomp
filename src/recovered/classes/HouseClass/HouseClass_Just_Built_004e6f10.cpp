@@ -14,22 +14,22 @@ void HouseClass::Just_Built(TechnoClass *techno)
     TechnoTypeClass *type = techno->Techno_Type_Class();
     switch (techno->Kind_Of()) {
     case 1:
-        unknown_1bc = type->unknown_slot16();
-        unknown_54b0.Increment(type->unknown_slot16());
+        unknown_1bc = type->Fetch_Heap_ID();
+        unknown_54b0.Increment(type->Fetch_Heap_ID());
         sound = Rules->CreateUnitSound;
         break;
     case 15:
-        unknown_1b8 = type->unknown_slot16();
-        unknown_54c0.Increment(type->unknown_slot16());
+        unknown_1b8 = type->Fetch_Heap_ID();
+        unknown_54c0.Increment(type->Fetch_Heap_ID());
         sound = Rules->CreateInfantrySound;
         break;
     case 6:
-        unknown_1b4 = type->unknown_slot16();
-        unknown_54a0.Increment(type->unknown_slot16());
+        unknown_1b4 = type->Fetch_Heap_ID();
+        unknown_54a0.Increment(type->Fetch_Heap_ID());
         break;
     case 2:
-        unknown_1c0 = type->unknown_slot16();
-        unknown_54d0.Increment(type->unknown_slot16());
+        unknown_1c0 = type->Fetch_Heap_ID();
+        unknown_54d0.Increment(type->Fetch_Heap_ID());
         sound = Rules->CreateAircraftSound;
         break;
     }

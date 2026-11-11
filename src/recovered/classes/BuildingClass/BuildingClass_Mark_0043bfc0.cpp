@@ -31,7 +31,7 @@ bool BuildingClass::Mark(int mark)
             case 3:
 
                 if (Type->unknown_bf0 != 0) {
-                    if (unknown_slot101(&Map[cell], -1, -1, 0, true) == 0) {
+                    if (Can_Enter_Cell(&Map[cell], -1, -1, 0, true) == 0) {
                         int w = Type->Width();
                         int h = Type->Foundation_Height(false);
                         bool any_created = false;
@@ -59,7 +59,7 @@ bool BuildingClass::Mark(int mark)
                                             }
                                         }
                                         ObjectClass *iptr = Type->unknown_bf0->Create_One_Of(House);
-                                        iptr->unknown_slot53(&CoordStruct(newcell), 0);
+                                        iptr->Unlimbo(&CoordStruct(newcell), 0);
                                         if (House == unknown_player_a35db4) {
                                             Map.Sight_From(CoordStruct(newcell), 1, unknown_player_a35db4, false, false, false, true, false);
                                             Map.Sight_From(CoordStruct(newcell), 1, unknown_player_a35db4, false, false, false, true, true);
@@ -96,7 +96,7 @@ bool BuildingClass::Mark(int mark)
 
                 } else {
                     if (mark != 3) {
-                        if (unknown_slot101(&Map[cell], -1, -1, 0, true) != 0) {
+                        if (Can_Enter_Cell(&Map[cell], -1, -1, 0, true) != 0) {
                             return false;
                         }
                     }

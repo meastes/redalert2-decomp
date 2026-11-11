@@ -92,7 +92,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x0052E680 slot 11
     virtual int Size_Of() const;                                        // 0x0052E690 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x0052E0B0 slot 13
-    virtual int unknown_slot16() const;                                 // 0x0052E6A0 (ArrayIndex)
+    virtual int Fetch_Heap_ID() const;                                 // 0x0052E6A0 (ArrayIndex)
     virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x0052E090
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x0052DFE0
     virtual ObjectClass *Create_One_Of(HouseClass *house) const;       // 0x0052E020

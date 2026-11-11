@@ -36,7 +36,7 @@ WaveClass::WaveClass(CoordStruct const &start, CoordStruct const &end, TechnoCla
     Draw_NonMagnetic_007238b0(start, end);
     Scanlines_168.Spans = 0;
     Direction = Wave_Direction_00721db0(WaveStartMiddle, WaveEndRight);
-    WaveClass::unknown_slot53(&StartCoord, 0);
+    WaveClass::Unlimbo(&StartCoord, 0);
     if (Type > 0 && Type <= 2) {
         WaveProgress = 1.0;
         LaserEC = 160;

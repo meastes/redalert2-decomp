@@ -141,15 +141,15 @@ void BuildingClass::unknown_slot282(bool captured)
         bool placed = false;
         UnitClass *unit = new UnitClass(Type->FreeUnit, House);
         if (unit) {
-            if (!unit->unknown_slot53(&CoordStruct(cell), 0xC0)) {
+            if (!unit->Unlimbo(&CoordStruct(cell), 0xC0)) {
                 Cell nearby_cell = Map.Nearby_Location(Cell(Position_Coord_004f3f40()), 2,
                     Map.Zone(Cell(Position_Coord_004f3f40()), unit->Type->MovementZone, false),
                     unit->Type->MovementZone, false, Point2D(1, 1), true, true, false, false, Cell(0, 0), 0);
-                if (nearby_cell == grand_none_0084ed10 || !unit->unknown_slot53(&CoordStruct(nearby_cell), 0xA0)) {
+                if (nearby_cell == grand_none_0084ed10 || !unit->Unlimbo(&CoordStruct(nearby_cell), 0xA0)) {
                     Cell new_cell = Map.Nearby_Location(Cell(Position_Coord_004f3f40()), 2,
                         Map.Zone(Cell(Position_Coord_004f3f40()), unit->Type->MovementZone, false),
                         unit->Type->MovementZone, false, Point2D(1, 1), false, true, false, false, Cell(0, 0), 0);
-                    if (new_cell == grand_none_0084ed10 || !unit->unknown_slot53(&CoordStruct(new_cell), 0xA0)) {
+                    if (new_cell == grand_none_0084ed10 || !unit->Unlimbo(&CoordStruct(new_cell), 0xA0)) {
                         House->Refund_Money(unit->Type->unknown_slot46(House, true));
                         delete unit;
                     } else {
@@ -162,7 +162,7 @@ void BuildingClass::unknown_slot282(bool captured)
                 placed = true;
             }
             if (placed) {
-                unit->unknown_slot116(10, false);
+                unit->QueueMission(10, false);
                 unit->Commence();
             }
         } else {
@@ -174,8 +174,8 @@ void BuildingClass::unknown_slot282(bool captured)
         AircraftClass *aircraft = new AircraftClass(Rules->PadAircraft[0], House);
         if (aircraft) {
             aircraft->Set_Height_AGL(0);
-            if (aircraft->unknown_slot53(&Center_Coord(), aircraft->Pose_Dir_00417890())) {
-                aircraft->unknown_slot116(5, false);
+            if (aircraft->Unlimbo(&Center_Coord(), aircraft->Pose_Dir_00417890())) {
+                aircraft->QueueMission(5, false);
                 aircraft->unknown_slot150(2, this);
                 unknown_slot150(0x18, aircraft);
             }

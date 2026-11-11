@@ -56,7 +56,7 @@ int UnitClass::unknown_slot182(AbstractClass *object, Cell *cell)
         int value = 0;
         Cell cellnum = Adjacent_Cell(unknown_slot104(), face);
         if (object) {
-            value = (!((ObjectClass *)object)->unknown_slot101(&Map[cellnum], face, unknown_5d47d0(), 0, 1)
+            value = (!((ObjectClass *)object)->Can_Enter_Cell(&Map[cellnum], face, unknown_5d47d0(), 0, 1)
                 || ((ObjectClass *)object)->unknown_slot104() == cellnum) ? 128 : -128;
         } else {
             CellClass *land = &Map[Cell(cellnum)];

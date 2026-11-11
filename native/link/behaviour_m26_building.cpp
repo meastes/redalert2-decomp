@@ -136,7 +136,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             return 6;
         case 4:
             unknown_443d60(1);
-            unknown_slot116(5, false);
+            QueueMission(5, false);
             return 60;
         default:
             break;
@@ -145,7 +145,7 @@ int BuildingClass::Do_MISSION_MISSILE()
 
     if (unknown_4cc != -1) {
         unknown_slot221(&Map[House->NukeDest], 0);
-        unknown_slot116(5, false);
+        QueueMission(5, false);
     }
 
     if (Type->EMPulseCannon) {
@@ -169,14 +169,14 @@ int BuildingClass::Do_MISSION_MISSILE()
         case 3:
             unknown_2c8.Set_Desired(UnknownFacingDir(0x4000));
             unknown_443d60(1);
-            unknown_slot116(5, false);
+            QueueMission(5, false);
             return 60;
         case 2: {
             WeaponTypeClass *weapon = unknown_slot231(0)->WeaponType;
             CellClass *target = &Map[House->EMPDest];
             if (Debug_Map || *(int const *)&House->EMPDest == unknown_84ed10) {
                 unknown_443d60(1);
-                unknown_slot116(5, false);
+                QueueMission(5, false);
                 return 60;
             }
             unknown_2c8.Set_Desired(unknown_slot170(target));
@@ -228,7 +228,7 @@ int BuildingClass::Do_MISSION_MISSILE()
                 bullet->Release();
             }
             unknown_443d60(1);
-            unknown_slot116(5, false);
+            QueueMission(5, false);
             return 60;
         }
         default:

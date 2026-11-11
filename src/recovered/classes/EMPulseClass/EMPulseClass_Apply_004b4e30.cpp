@@ -44,7 +44,7 @@ void EMPulseClass::Apply_004B4E30(TechnoClass *source)
         int radiusSquared = Radius * Radius;
         for (int index=0; index<Aircraft.Count(); ++index) {
             AircraftClass *aircraft=Aircraft[index];
-            if (aircraft->unknown_74 && !aircraft->unknown_76 && !aircraft->unknown_slot21() && aircraft->Strength>0) {
+            if (aircraft->unknown_74 && !aircraft->unknown_76 && !aircraft->In_Air() && aircraft->Strength>0) {
                 UnknownVector3 delta;
                 delta=EMPulse_Offset(aircraft->Center_Coord(),EMPulse_Cell_Center(Position));
                 if (delta.Length() < Radius*256) aircraft->unknown_slot224((int)source);

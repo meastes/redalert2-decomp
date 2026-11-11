@@ -28,10 +28,10 @@ static inline void Object_Placement_Add_Point(Point2D &point, Point2D const &off
     point.Y = (int)((unsigned int)point.Y + (unsigned int)delta.Y);
 }
 
-bool ObjectClass::unknown_slot53(CoordStruct const *coord, int direction)
+bool ObjectClass::Unlimbo(CoordStruct const *coord, int direction)
 {
     if (!unknown_flag_a40958 || !unknown_76 || unknown_74) return false;
-    if (!unknown_a40774 && unknown_slot101(&Map[*coord], -1, -1, 0, 0))
+    if (!unknown_a40774 && Can_Enter_Cell(&Map[*coord], -1, -1, 0, 0))
         return false;
     unknown_76 = false;
     unknown_75 = false;
@@ -41,7 +41,7 @@ bool ObjectClass::unknown_slot53(CoordStruct const *coord, int direction)
     Set_Coord(placed);
     if (Mark(1)) {
         if (unknown_7d) {
-            if (unknown_slot29() != -1) Map.Submit(this);
+            if (In_Which_Layer() != -1) Map.Submit(this);
             if (type) {
                 if (type->unknown_204 &&
                     (Kind_Of() != 0x24 ||

@@ -98,7 +98,7 @@ stop:
     Assign_Destination(0, true);
 queue:
     if (Mission != 25 && Mission != 11 && Mission != 16) {
-        unknown_slot116(mission, false);
+        QueueMission(mission, false);
     }
 done:
     return result;

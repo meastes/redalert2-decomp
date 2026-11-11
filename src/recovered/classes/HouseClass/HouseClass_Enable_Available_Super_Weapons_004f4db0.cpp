@@ -22,7 +22,7 @@ void HouseClass::Enable_Available_Super_Weapons_004f4db0()
                         Supers[super_index]->Grant(false,this==unknown_player_a35db4,Power_Fraction()<1.0);
                         if (this==unknown_player_a35db4) {
                             Map.Unknown_0067C530(31,super_index);
-                            int type_index=Supers[super_index]->Type->unknown_slot16();
+                            int type_index=Supers[super_index]->Type->Fetch_Heap_ID();
                             Map.Unknown_0067C2D0(Unknown_006818D0(57,type_index,0));
                         }
                         break;

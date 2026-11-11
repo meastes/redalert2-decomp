@@ -34,7 +34,7 @@ bool CaptureManagerClass::Capture(TechnoClass *target)
     unknown_24->Assign_Destination(0, true);
     unknown_24->unknown_slot220(0);
     unknown_24->unknown_6d6e50(0);
-    unknown_24->unknown_slot116(5, true);
+    unknown_24->QueueMission(5, true);
     if (unknown_24->unknown_208 != 0 && unknown_24->unknown_208->unknown_28 != 0) {
         unknown_24->unknown_208->unknown_6e2500();
     }

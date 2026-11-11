@@ -29,7 +29,7 @@ int BuildingClass::Do_MISSION_CONSTRUCTION()
             unknown_slot149(3);
             unknown_443d60(1);
             unknown_slot282(false);
-            unknown_slot116(5,false);
+            QueueMission(5,false);
             if(!Type->LaserFence) {
                 UnknownFacingDir direction((unsigned short)((unsigned char)Type->unknown_c64<<8));
                 unknown_2e0.Set_Current(direction);

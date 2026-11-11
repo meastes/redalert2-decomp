@@ -231,10 +231,10 @@ public:
     virtual HRESULT __stdcall Load(IStream *stream);                       // 0x005D4760
     virtual void Detach(AbstractClass *target, bool all = true);           // 0x005D3BD0
     virtual void Compute_CRC(WWCRCEngine &crc) const;                      // 0x005D4B10
-    virtual bool unknown_slot17() const;                                   // 0x005D4F10
+    virtual bool Is_Inactive() const;                                   // 0x005D4F10
     virtual CoordStruct Center_Coord() const;                              // 0x005D4E40
-    virtual bool unknown_slot20() const;                                   // 0x005D53E0
-    virtual bool unknown_slot21() const;                                   // 0x005D5410
+    virtual bool On_Ground() const;                                   // 0x005D53E0
+    virtual bool In_Air() const;                                   // 0x005D5410
     virtual void AI();                                                     // 0x005D27F0
 
     virtual bool unknown_slot24();                                         // slot 24 (+0x60) 0x423d10
@@ -242,7 +242,7 @@ public:
     virtual void *Get_Image_Data();                                        // slot 26 (+0x68) 0x5d27b0
     virtual int unknown_slot27(Cell const *cell, bool arg2, bool arg3);              // slot 27 (+0x6C) 0x5d2bb0
     virtual int unknown_slot28(ObjectClass *object, bool arg2);                        // slot 28 (+0x70) 0x5d2ba0
-    virtual int unknown_slot29() const;                                    // slot 29 (+0x74) 0x5d2bc0
+    virtual int In_Which_Layer() const;                                    // slot 29 (+0x74) 0x5d2bc0
     virtual bool Not_Underground() const;                                   // slot 30 (+0x78) 0x5d5490
     virtual bool unknown_slot31();                                         // slot 31 (+0x7C) 0x423d30
     virtual TechnoTypeClass *Techno_Type_Class();                             // slot 32 (+0x80) 0x5d5440 (the techno type; 0 here)
@@ -266,7 +266,7 @@ public:
     virtual ObjectTypeClass *unknown_slot50(bool arg1);                                  // slot 50 (+0xC8) 0x41b2d0
     virtual HouseClass *unknown_slot51(bool arg1);                                  // slot 51 (+0xCC) 0x41b2e0
     virtual bool Limbo();                                          // slot 52 (+0xD0) 0x5d3700
-    virtual bool unknown_slot53(CoordStruct const *coord, int dir);                        // slot 53 (+0xD4) 0x5d3890
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);                        // slot 53 (+0xD4) 0x5d3890
     virtual void unknown_slot54(bool arg1);                                  // slot 54 (+0xD8) 0x5d3c10
     virtual void Record_The_Kill(TechnoClass *techno);                                 // slot 55 (+0xDC) 0x5d2c50
     virtual bool unknown_slot56(CoordStruct const &coord);                                  // slot 56 (+0xE0) 0x5d4240
@@ -277,7 +277,7 @@ public:
     virtual void Do_Shimmer();                                         // slot 61 (+0xF4) 0x5d2c60
     virtual int Exit_Object(TechnoClass *techno);                                  // slot 62 (+0xF8) 0x5d2c70
     virtual bool Render(Rect *bounds, bool arg2, bool arg3);       // slot 63 (+0xFC) 0x5d34e0 (draws into bounds; hypothesis)
-    virtual Cell const *unknown_slot64(int arg1);                                // slot 64 (+0x100) 0x5d4470
+    virtual Cell const *Occupy_List(int arg1);                                // slot 64 (+0x100) 0x5d4470
     virtual void unknown_slot65(int arg1, int arg2);                       // slot 65 (+0x104) 0x423dc0
     virtual void unknown_slot66(Point2D const &point, Rect const &window);                       // slot 66 (+0x108) 0x423dd0
     virtual void unknown_slot67(Point2D const &point, Rect const &window) {}                     // slot 67 (+0x10C) kept copy 0x595120 (Mission.cpp)
@@ -303,18 +303,18 @@ public:
     virtual void Scatter(CoordStruct const &source, bool forced, bool nokidding);             // slot 87 (+0x15C) 0x5d2cf0
     virtual bool Catch_Fire();                                         // slot 88 (+0x160) 0x5d2d00
     virtual void Fire_Out();                                         // slot 89 (+0x164) 0x5d2d10
-    virtual int unknown_slot90();                                          // slot 90 (+0x168) 0x5d2d20
+    virtual int Value();                                          // slot 90 (+0x168) 0x5d2d20
     virtual int Get_Mission();                                          // slot 91 (+0x16C) 0x5d2d30
     virtual void unknown_slot92(int arg1);                                 // slot 92 (+0x170) 0x41b310
     virtual void unknown_slot93(int arg1);                                 // slot 93 (+0x174) 0x423df0
     virtual BuildingClass *Who_Can_Build_Me(bool in_theory, bool legal);   // slot 94 (+0x178) 0x5d4500 (RA1 name)
-    virtual int unknown_slot95(RadioClass *radio, int message, AbstractClass *&param);              // slot 95 (+0x17C) 0x5d3cb0
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);              // slot 95 (+0x17C) 0x5d3cb0
     virtual bool Revealed(HouseClass *house);                       // slot 96 (+0x180) 0x5d4230
     virtual void Repair(int arg1);                                 // slot 97 (+0x184) 0x5d2d40
     virtual void Sell_Back(int arg1);                                 // slot 98 (+0x188) 0x5d2d50
     virtual void Set_Waypoint_Path(int path, char waypoint);                       // slot 99 (+0x18C) 0x5d53d0
     virtual void Move(int facing);                              // slot 100 (+0x190) 0x5d2d60
-    virtual int unknown_slot101(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5); // slot 101 (+0x194) 0x423e00
+    virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5); // slot 101 (+0x194) 0x423e00
     virtual int unknown_slot102(UnknownCellClass *from, int facing, int *level, bool *ramp, UnknownCellClass *to); // slot 102 (+0x198) 0x423e10
     virtual void Set_Coord(CoordStruct const &coord);                // slot 103 (+0x19C) 0x5d51c0
     virtual Cell unknown_slot104() const;                                 // slot 104 (+0x1A0) 0x41b320

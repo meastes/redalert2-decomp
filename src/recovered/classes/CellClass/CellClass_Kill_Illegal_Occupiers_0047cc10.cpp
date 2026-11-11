@@ -21,7 +21,7 @@ void CellClass::Kill_Illegal_Occupiers()
     ObjectClass *next=0;
     while(object) {
         next=object->unknown_30;
-        if(object->unknown_slot101(this,-1,-1,0,true)==7) {
+        if(object->Can_Enter_Cell(this,-1,-1,0,true)==7) {
             int damage=object->Strength;
             object->Take_Damage(&damage,0,Rules->unknown_c74,0,true,true);
         }
@@ -39,7 +39,7 @@ void CellClass::Kill_Illegal_Occupiers()
                     if(object && is_foot) {
                         FootClass *foot=(FootClass*)object;
                         if(foot->Locomotor.Checked()->Is_Moving_Here(center)
-                            && foot->unknown_slot101(this,-1,-1,0,true)==7) {
+                            && foot->Can_Enter_Cell(this,-1,-1,0,true)==7) {
                             int damage=foot->Strength;
                             foot->Take_Damage(&damage,0,Rules->unknown_c74,0,true,true);
                         }

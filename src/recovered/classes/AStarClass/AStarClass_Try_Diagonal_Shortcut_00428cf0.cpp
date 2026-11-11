@@ -63,7 +63,7 @@ int AStarClass::Try_Diagonal_Shortcut(FootClass *foot, int *facings, int *height
         CellClass *scan_cell_ptr = &Map[scan_cell];
 
         while (!is_blocked && moves_remaining > 0) {
-            is_blocked = foot->unknown_slot101(scan_cell_ptr, diagonal_direction, scan_height, 0, 1) != 0
+            is_blocked = foot->Can_Enter_Cell(scan_cell_ptr, diagonal_direction, scan_height, 0, 1) != 0
             || (scan_cell_ptr->unknown_140 & 0x40000)
             || Map.Cell_Threat(diagonal_start_cell, house) * threat_avoidance >= 1.0;
 

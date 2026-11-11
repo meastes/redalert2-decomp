@@ -34,7 +34,7 @@ int AircraftClass::unknown_415510()
         landing = CoordStruct(sample_x, sample_y, altitude);
         CellClass *map_cell = &Map[landing];
         UnknownCellClass *cell = reinterpret_cast<UnknownCellClass *>(map_cell);
-        if (passenger->unknown_slot101(map_cell, -1, 0, 0, 1) == 0) {
+        if (passenger->Can_Enter_Cell(map_cell, -1, 0, 0, 1) == 0) {
             CoordStruct spot = cell->Unknown_004764B0(landing, 0, false);
             if (spot != unknown_geometry_l) {
                 // The original tests spot.Z, but retains the aircraft altitude.

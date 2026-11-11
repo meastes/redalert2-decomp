@@ -19,7 +19,7 @@ void SidebarClass::Unknown_0067C150(ObjectClass *object)
         return;
     }
     int kind = object->Kind_Of();
-    int id = object->unknown_slot16();
+    int id = object->Fetch_Heap_ID();
     if (Which_Column(kind, id) == unknown_4ed8) {
         if (((UnknownSidebarHouse *)unknown_player_a35db4)->Unknown_004F4F30(type)) {
             Unknown_0067C100();

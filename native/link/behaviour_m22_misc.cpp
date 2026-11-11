@@ -160,7 +160,7 @@ void UnknownIDSource::Set_Waypoint_Location(int waypoint, Cell cell)
 }
 
 // 0x004C2040: the cell the fogged object stands on (its coordinate / 256, signed).
-Cell FoggedObjectClass::unknown_slot24() const
+Cell FoggedObjectClass::Get_Cell() const
 {
     return unknown_coord_cell(Coord);
 }

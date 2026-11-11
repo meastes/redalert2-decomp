@@ -23,7 +23,7 @@ void TunnelLocomotionClass::Process_Tunneling()
  if((Point2D(DestinationCoord.X,DestinationCoord.Y)-Point2D(coord.X,coord.Y)).Length()<20) {
   coord=DestinationCoord;
   coord.Z=-256;
-  if(LinkedTo->unknown_slot101(&Map[CoordStruct(LinkedTo->Coord)],-1,-1,0,true) && Map.Unknown_0055A7F0(CoordStruct(LinkedTo->Coord))) {
+  if(LinkedTo->Can_Enter_Cell(&Map[CoordStruct(LinkedTo->Coord)],-1,-1,0,true) && Map.Unknown_0055A7F0(CoordStruct(LinkedTo->Coord))) {
    Cell cell=LinkedTo->unknown_slot104();
    cell=Map.Nearby_Location(cell,1,Map.Zone(cell,0,false),0,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
    if(cell==unknown_geometry_k) cell=Map.Nearby_Location(LinkedTo->unknown_slot104(),1,-1,6,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);

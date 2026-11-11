@@ -197,7 +197,7 @@ public:
     virtual int Kind_Of() const { return 0x0B; }                        // 0x0047CF80 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(CellClass); }           // 0x0047CF90 slot 12 (inline)
     virtual CoordStruct Center_Coord() const;                           // 0x0047BA50 slot 18
-    virtual bool unknown_slot20() const;                                // 0x0047B9F0
+    virtual bool On_Ground() const;                                // 0x0047B9F0
     virtual CoordStruct unknown_slot22() const;                         // 0x0047BAA0
 
     // Occupants.

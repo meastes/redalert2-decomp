@@ -12,7 +12,7 @@
 
 int TechnoClass::unknown_6c4a70(ObjectClass *other)
 {
-    if (unknown_slot20() && other->unknown_slot20()) {
+    if (On_Ground() && other->On_Ground()) {
         Cell here = Coord_Cell(Center_Coord());
         Cell there = Coord_Cell(other->Center_Coord());
         UnknownCellClass *source = (UnknownCellClass *)&Map[here];

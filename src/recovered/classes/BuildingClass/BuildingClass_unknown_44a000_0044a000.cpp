@@ -14,7 +14,7 @@ void BuildingClass::unknown_44a000(UnknownBuildingFactory *factory)
         unknown_76 = true;
         if (object) {
             if (!object->Techno_Type_Class()->Who_Can_Build_Me(true, false, false, House)) {
-                House->unknown_func_4e64f0(Type->Factory, object->Techno_Type_Class()->unknown_slot16(), 0);
+                House->unknown_func_4e64f0(Type->Factory, object->Techno_Type_Class()->Fetch_Heap_ID(), 0);
             }
         }
         unknown_76 = saved;

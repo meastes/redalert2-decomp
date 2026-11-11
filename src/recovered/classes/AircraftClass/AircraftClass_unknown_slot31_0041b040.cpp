@@ -4,5 +4,5 @@
 
 bool AircraftClass::unknown_slot31()
 {
-    return unknown_slot20();
+    return On_Ground();
 }

@@ -77,7 +77,7 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
             int direction=(facing+index)&7;
             Cell check=Adjacent_Cell(origin,direction);
             CellClass *candidate=&Map[check];
-            if (Map.Unknown_0055A660(check,true) && unknown_slot101(candidate,direction,Unknown_005D47D0(),0,1)==0) {
+            if (Map.Unknown_0055A660(check,true) && Can_Enter_Cell(candidate,direction,Unknown_005D47D0(),0,1)==0) {
                 if (alternate==unknown_geometry_k) alternate=check;
                 if (unknown_geometry_k==Cell(0,0)) {
                     CoordStruct projected=Cell_Coord(check);
@@ -92,7 +92,7 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
         Cell chosen=best;
         if (chosen==unknown_geometry_k) chosen=alternate;
         if (chosen!=unknown_geometry_k) {
-            unknown_slot116(2,false);
+            QueueMission(2,false);
             Assign_Destination(&Map[chosen],true);
         }
     }

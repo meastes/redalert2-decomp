@@ -28,7 +28,7 @@ public:
     virtual int Kind_Of() const;                                        // 0x006E6D80 slot 11
     virtual int Size_Of() const;                                        // 0x006E6D70 slot 12
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006E6BC0 slot 13
-    virtual int unknown_slot16() const;                                 // 0x006E6D90
+    virtual int Fetch_Heap_ID() const;                                 // 0x006E6D90
 
     void Build_INI_Entry(char *buffer) const;                           // 0x006E68B0 (appends "type,kind,value")
     void Read_INI();                                                    // 0x006E6900 (the next strtok fields)

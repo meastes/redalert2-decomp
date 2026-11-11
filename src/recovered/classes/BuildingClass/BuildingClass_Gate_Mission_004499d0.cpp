@@ -68,7 +68,7 @@ int BuildingClass::Do_MISSION_OPEN()
         int delay = (int)(Control()->unknown_10 * 900.0);
         return delay + unknown_id_source_a3d290->Random()(0, 2);
     }
-    unknown_slot116(5, false);
+    QueueMission(5, false);
     return 1;
 }
 

@@ -124,7 +124,7 @@ void InfantryClass::unknown_5025c0()
         CellClass *cell = &Map[Object_Coord(this)];
         ObjectClass *occupier = cell->OccupierPtr;
         // Existing slot101 uses a 32-bit int placeholder for its cell pointer.
-        if (unknown_slot101(cell, -1, 0, 0, 1)) {
+        if (Can_Enter_Cell(cell, -1, 0, 0, 1)) {
             DynamicVectorClass<ObjectClass *> objects;
             for (; occupier != 0; occupier = occupier->unknown_30) {
                 objects.Add(occupier);

@@ -34,7 +34,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
         }
         Cell newcell = Map.Calculated_Cell(source, unknown_geometry_k, unknown_geometry_k, 4, 1, 0);
 
-        obj->unknown_slot116(mission, false);
+        obj->QueueMission(mission, false);
         if (navcom != 0) {
             obj->Assign_Destination(navcom, true);
         }
@@ -43,7 +43,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
         }
 
         unknown_a40774++;
-        int placed = obj->unknown_slot53(&CoordStruct(newcell.X * 256 + 128, newcell.Y * 256 + 128, 0), 0);
+        int placed = obj->Unlimbo(&CoordStruct(newcell.X * 256 + 128, newcell.Y * 256 + 128, 0), 0);
         unknown_a40774--;
         if (placed) {
             if (obj->Kind_Of() == 2 && passenger != -1 && passenger_count) {

@@ -54,7 +54,7 @@ public:
     virtual int Kind_Of() const { return 0x25; }                        // 0x006E5AB0 slot 11 (inline)
     virtual int Size_Of() const { return sizeof(TerrainTypeClass); }    // 0x006E5AC0 slot 12 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x006E58C0 slot 13
-    virtual int unknown_slot16() const { return ArrayIndex; }           // 0x006E5AD0 (inline)
+    virtual int Fetch_Heap_ID() const { return ArrayIndex; }           // 0x006E5AD0 (inline)
     virtual bool Read_INI(CCINIClass &ini);                             // 0x006E5630 slot 25
     virtual CoordStruct Coord_Fixup(CoordStruct const &coord) const; // 0x006E5850 (not below the ground)
     virtual bool Create_And_Place(Cell const &cell, HouseClass *house) const;   // 0x006E5560 (creates a terrain object)

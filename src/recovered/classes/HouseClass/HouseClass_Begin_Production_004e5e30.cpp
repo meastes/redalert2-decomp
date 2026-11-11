@@ -77,7 +77,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
         Debug_Printf("Frame == %d\n",Frame);
         Debug_Printf("fptr->QueuedObjects.Count() == %d\n",factory->Queue.Count());
         Debug_Printf("Object->RTTI == %d\n",factory->Object ? factory->Object->Kind_Of() : -1);
-        Debug_Printf("Object->HeapID == %d\n",factory->Object ? factory->Object->unknown_slot16() : -1);
+        Debug_Printf("Object->HeapID == %d\n",factory->Object ? factory->Object->Fetch_Heap_ID() : -1);
         Debug_Printf("IsSuspended\t= %d\n",factory->unknown_6c);
         delete factory;
         Set_Factory(0,kind,naval,buildcat);

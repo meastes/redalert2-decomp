@@ -12,7 +12,7 @@ typedef VectorCursor<GraphicMenuItem *, DynamicVectorClass<GraphicMenuItem *> > 
 GraphicMenuItem *GraphicMenu::Item_For(int key)
 {
     GraphicMenuCursor cursor(Items);
-    while (cursor && !(*cursor)->unknown_slot1(key)) {
+    while (cursor && !(*cursor)->Is_Input_Key(key)) {
         cursor++;
     }
     return cursor ? *cursor : 0;

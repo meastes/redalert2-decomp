@@ -95,7 +95,7 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                     if (token != 0) {
                         infantry->unknown_37a = atoi(token) != 0;
                     }
-                    if (&Map[coord] == &unknown_dummy_cell_a6f9f8 || !infantry->unknown_slot53(&coord, direction)) {
+                    if (&Map[coord] == &unknown_dummy_cell_a6f9f8 || !infantry->Unlimbo(&coord, direction)) {
                         delete infantry;
                     } else {
                         InfantryTypeClass *type = infantry->Type;
@@ -110,7 +110,7 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                         }
                         infantry->unknown_70 = infantry->Strength;
                         if (unknown_game_mode_a3d298 == 0 || infantry->House->Unknown_004F52F0()) {
-                            infantry->unknown_slot116(mission, false);
+                            infantry->QueueMission(mission, false);
                             infantry->Commence();
                         } else {
                             infantry->unknown_slot261(false, true);

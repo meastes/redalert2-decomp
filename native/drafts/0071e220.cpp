@@ -166,7 +166,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 if (LinkedTo->unknown_79 ^ Map[Adjacent_Coord(Object_Coord(LinkedTo), dir)].IsUnderBridge) {
                     LinkedTo->unknown_57b = true;
                 }
-                int move = LinkedTo->unknown_slot101(&Map[cell], dir, LinkedTo->Unknown_005D47D0(), 0, true);
+                int move = LinkedTo->Can_Enter_Cell(&Map[cell], dir, LinkedTo->Unknown_005D47D0(), 0, true);
                 if (move != 0) {
                     unknown_36 = false;
                     LinkedTo->unknown_slot307();

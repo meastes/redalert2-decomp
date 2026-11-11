@@ -65,7 +65,7 @@ int random = Random_Pick(0, Map.MapLocalSize.Height);
 exitcell.X += random; exitcell.Y += random;
 }
                 ++unknown_a40774;
-                if (aircraft->unknown_slot53(&CoordStruct(exitcell, 0), 0)) {
+                if (aircraft->Unlimbo(&CoordStruct(exitcell, 0), 0)) {
                     AbstractClass *target = unknown_1b0;
                     if (target) {
                         aircraft->Assign_Destination(target, 1);
@@ -89,19 +89,19 @@ exitcell.X += random; exitcell.Y += random;
             ++unknown_a40774;
             if (House->Unknown_0051FC80()) {
                 Cell nearby = aircraft->unknown_6cf130(this);
-                if (aircraft->unknown_slot53(&CoordStruct(nearby, 0), aircraft->Pose_Dir_00417890())) {
+                if (aircraft->Unlimbo(&CoordStruct(nearby, 0), aircraft->Pose_Dir_00417890())) {
                     --unknown_a40774;
                     return 2;
                 }
             } else {
-                if (aircraft->unknown_slot53(&unknown_slot41((intptr_t)aircraft), aircraft->Pose_Dir_00417890())) {
+                if (aircraft->Unlimbo(&unknown_slot41((intptr_t)aircraft), aircraft->Pose_Dir_00417890())) {
                     unknown_slot150(2, aircraft);
                     unknown_slot150(0x18, aircraft);
                     aircraft->Set_Coord(unknown_slot41((intptr_t)aircraft));
                     aircraft->unknown_5b4 = this;
                     if (unknown_1b0 && !aircraft->Type->AirportBound) {
                         aircraft->Assign_Destination(unknown_1b0, 1);
-                        aircraft->unknown_slot116(2, 0);
+                        aircraft->QueueMission(2, 0);
                     }
                     --unknown_a40774;
                     return 2;
@@ -122,7 +122,7 @@ exitcell.X += random; exitcell.Y += random;
         if (!Type->Refinery && !Type->Weeder) {
             if (Type->WeaponsFactory) {
                 if (Type->Naval) {
-                    if (!In_Radio_Contact()) unknown_slot116(0x10, 0);
+                    if (!In_Radio_Contact()) QueueMission(0x10, 0);
                     Cell navalcell = Center_Cell(this);
                     if (unknown_1b0) {
                         Cell target = Center_Cell(unknown_1b0);
@@ -136,10 +136,10 @@ exitcell.X += random; exitcell.Y += random;
  } else {
                         navalcell = Map.Nearby_Location(Center_Cell(this), base->Techno_Type_Class()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
  }
-                    if (!base->unknown_slot53(&Map[navalcell].Center_Coord(), 0x40)) return 0;
+                    if (!base->Unlimbo(&Map[navalcell].Center_Coord(), 0x40)) return 0;
                     if (unknown_1b0) {
                         base->Assign_Destination(unknown_1b0, 1);
-                        base->unknown_slot116(2, 0);
+                        base->QueueMission(2, 0);
                     }
                     base->Mark(0);
                     base->Set_Coord(Map[navalcell].unknown_475d60());
@@ -164,13 +164,13 @@ exitcell.X += random; exitcell.Y += random;
                         return 1;
                     }
                     ++unknown_a40774;
-                    if (base->unknown_slot53(&unknown_slot44(0), 0x40)) {
+                    if (base->Unlimbo(&unknown_slot44(0), 0x40)) {
                         base->Mark(0);
                         base->Set_Coord(unknown_slot44(0));
                         base->Mark(1);
                         unknown_slot150(2, base);
                         unknown_slot150(0x18, base);
-                        unknown_slot116(0x10, 0);
+                        QueueMission(0x10, 0);
                         --unknown_a40774;
                         return 2;
                     }
@@ -213,17 +213,17 @@ exitcell.X += random; exitcell.Y += random;
                     exitcoord = exitcoord + Type->ExitCoord;
                 }
                 ++unknown_a40774;
-                if (base->unknown_slot53(&exitcoord, dir)) {
+                if (base->Unlimbo(&exitcoord, dir)) {
                     FootClass *foot = (FootClass *)base;
                     if (foot->unknown_494) {
                         if (!base->Techno_Type_Class()->JumpJet && !base->Techno_Type_Class()->Teleporter) {
                             if (foot->unknown_494) base->unknown_6d6e50(foot->unknown_494);
-                            base->unknown_slot116(2, 0);
+                            base->QueueMission(2, 0);
                             base->Assign_Destination(&Map[exitcell], 1);
                         }
                     }
                     if (!House->Is_Human_Player() || Type->Hospital) {
-                        base->unknown_slot116(0xB, 0);
+                        base->QueueMission(0xB, 0);
                         Cell dest = House->Unknown_004EB270(foot);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
                             base->unknown_6d6e50(&Map[dest]);
@@ -266,11 +266,11 @@ exitcell.X += random; exitcell.Y += random;
                     exitcoord = exitcoord + Type->ExitCoord;
                 }
                 ++unknown_a40774;
-                if (base->unknown_slot53(&exitcoord, dir)) {
-                    base->unknown_slot116(2, 0);
+                if (base->Unlimbo(&exitcoord, dir)) {
+                    base->QueueMission(2, 0);
                     base->Assign_Destination(&Map[exitcell], 1);
                     if (!House->Is_Human_Player()) {
-                        base->unknown_slot116(0xB, 0);
+                        base->QueueMission(0xB, 0);
                         Cell dest = House->Unknown_004EB270((FootClass *)base);
                         if (dest != unknown_geometry_k && Type->Factory != 0) {
                             base->unknown_6d6e50(&Map[dest]);
@@ -286,9 +286,9 @@ exitcell.X += random; exitcell.Y += random;
             if (base->Kind_Of() == 1) {
                 exitcell = Adjacent_Cell(Cell(Center_Coord()), 5);
                 ++unknown_a40774;
-                if (base->unknown_slot53(&CoordStruct(Adjacent_Cell(exitcell, 4), 0), 0xA0)) {
+                if (base->Unlimbo(&CoordStruct(Adjacent_Cell(exitcell, 4), 0), 0xA0)) {
                     base->unknown_2e0.Set_Current(UnknownFacingDir((unsigned short)0x8000));
-                    base->unknown_slot116(10, 0);
+                    base->QueueMission(10, 0);
                 }
             } else {
                 base->Scatter(unknown_geometry_l, true, false);
@@ -339,7 +339,7 @@ exitcell.X += random; exitcell.Y += random;
                     return 1;
                 }
                 case 0:
-                    if (base->unknown_slot53(&placementcoord, 0)) {
+                    if (base->Unlimbo(&placementcoord, 0)) {
                         if (node && building->Type->ArrayIndex == House->unknown_553c) {
                             House->unknown_553c = -1;
                         }

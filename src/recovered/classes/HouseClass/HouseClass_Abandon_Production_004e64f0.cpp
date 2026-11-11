@@ -22,7 +22,7 @@ int HouseClass::Abandon_Production(int kind, int index, bool naval)
         return 0;
     }
     if (buildcat == 0 && index != -1) {
-        if (factory->Object == 0 || index != factory->Object->Class_Of()->unknown_slot16()) {
+        if (factory->Object == 0 || index != factory->Object->Class_Of()->Fetch_Heap_ID()) {
             return 0;
         }
     }

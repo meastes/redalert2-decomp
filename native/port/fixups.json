@@ -688,14 +688,14 @@
    "verified": false
   },
   {
-   "source": "src/recovered/classes/BuildingClass/BuildingClass_unknown_slot101_004453b0.cpp",
+   "source": "src/recovered/classes/BuildingClass/BuildingClass_Can_Enter_Cell_004453b0.cpp",
    "old": "struct UnknownBuildingCellArg {\n    char unknown_00[0x24];\n",
    "new": "struct UnknownBuildingCellArg {\n#if defined(__LP64__)\n    char unknown_00[0x32];   // NATIVE: CellClass::MapCoords is at +0x32 on arm64 (in AbstractClass's tail padding; static_assert in behaviour_map_dimensions.cpp)\n#else\n    char unknown_00[0x24];\n#endif\n",
    "why": "The cell argument's view places MapCoords at the VC6 +0x24 (after the 0x24-byte AbstractClass); natively CellClass::MapCoords is at +0x32 (clang places it in AbstractClass's tail padding), so the view read garbage cells (the ASan skirmish run placed map buildings through BuildingClass slot 101 at wrong cells). Native only.",
    "verified": false
   },
   {
-   "source": "src/recovered/classes/TerrainClass/TerrainClass_unknown_slot101_006e3cb0.cpp",
+   "source": "src/recovered/classes/TerrainClass/TerrainClass_Can_Enter_Cell_006e3cb0.cpp",
    "old": "struct UnknownTerrainCellArg {\n    char unknown_00[0x24];\n",
    "new": "struct UnknownTerrainCellArg {\n#if defined(__LP64__)\n    char unknown_00[0x32];   // NATIVE: CellClass::MapCoords is at +0x32 on arm64 (in AbstractClass's tail padding; static_assert in behaviour_map_dimensions.cpp)\n#else\n    char unknown_00[0x24];\n#endif\n",
    "why": "The cell argument's view places MapCoords at the VC6 +0x24 (after the 0x24-byte AbstractClass); natively CellClass::MapCoords is at +0x32 (clang places it in AbstractClass's tail padding), so the view read garbage cells (the ASan skirmish run placed map buildings through BuildingClass slot 101 at wrong cells). Native only.",

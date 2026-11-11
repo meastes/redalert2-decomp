@@ -127,7 +127,16 @@ def locate(path, line, starts):
     return path[path.rfind('/src/') + 1:], line
 
 
-def classify(log, starts, parts):
+def enclosing_class(rows, line):
+    """The class of the member definition a 1-based line sits in (the nearest `Class::name(` opening a line above it), or None."""
+    for row in reversed(rows[:line]):
+        m = re.match(r'^[\w\s\*&<>,:]*?\b(\w+)::~?\w+\s*\(', row)
+        if m and not row.rstrip().endswith(';'):
+            return m.group(1)
+    return None
+
+
+def classify(log, starts, parts, rows_of=None):
     """parts [(family, methods)]. fixes {path: {line: {(old, new)}}} (an old name on a class of the part that renames it),
     undo {path: {line: {(new, old)}}} (a new name reported on a class outside its part's family), other [messages]."""
     fixes, undo, other = {}, {}, []
@@ -146,6 +155,9 @@ def classify(log, starts, parts):
         # an unqualified call of an old name inside a family member defined outside the family's class directories
         path, line = locate(m.group('file'), int(m.group('line')), starts)
         news = {n for _, methods in parts for o, n in methods if o == m.group('name')}
+        if len(news) > 1 and rows_of:
+            cls = enclosing_class(rows_of(path), line)
+            news = {n for family, methods in parts for o, n in methods if o == m.group('name') and cls in family}
         if len(news) == 1:
             fixes.setdefault(path, {}).setdefault(line, set()).add((m.group('name'), news.pop()))
         else:
@@ -168,7 +180,10 @@ def source_pass(args):
     cfg = json.loads(args.cfg.read_text())
     name = cfg['name']
     headers = sorted(str(p.relative_to(repo)) for p in (repo / 'src/shared').rglob('*.hpp'))
-    bases = base_map(read(repo / h) for h in headers)
+    # sources define local view classes too (`struct View : public TechnoClass {...}` in one unit): they join the walk and the renames
+    local = [str(p.relative_to(repo)) for p in sorted((repo / 'src/recovered').rglob('*.cpp'))]
+    local = [s for s in local if re.search(CLASS_HEAD, read(repo / s))]
+    bases = base_map(read(repo / h) for h in headers + local)
     parts = [(set(p['family']) if 'family' in p else family_of(p['root'], bases), [tuple(m) for m in p['methods']])
              for p in cfg.get('parts', [cfg])]
     all_methods = [m for _, methods in parts for m in methods]
@@ -180,7 +195,7 @@ def source_pass(args):
         changed.add(rel)
         write(repo / rel, text)
 
-    for h in headers:
+    for h in headers + local:
         t = read(repo / h)
         n = t
         for family, methods in parts:
@@ -233,7 +248,7 @@ def source_pass(args):
             fixes, undo, other = {}, {}, []
             for unit, starts in zip(units, maps):
                 text = unit['log'].read_text(encoding='latin-1', errors='replace') if unit['log'].exists() else ''
-                f, u, o = classify(text, starts, parts)
+                f, u, o = classify(text, starts, parts, lambda rel: read(repo / rel).split('\n'))
                 for k, v in f.items():
                     for line, pairs in v.items():
                         fixes.setdefault(k, {}).setdefault(line, set()).update(pairs)
@@ -367,10 +382,14 @@ def native_pass(args):
         hits = {(m.group('f'), int(m.group('l')), int(m.group('c')), m.group('n'), m.group('k')) for m in CLANG.finditer(text)}
         # an unqualified call inside a family member (drafts define members outside the class files): the old name's only new name
         for m in CLANG_UNDECLARED.finditer(text):
-            news = {n for _, methods in parts for o, n in methods if o == m.group('n')}
-            if len(news) == 1:
-                cls = next(iter(f for f, methods in parts for o, n in methods if o == m.group('n')))
-                hits.add((m.group('f'), int(m.group('l')), int(m.group('c')), m.group('n'), next(iter(cls))))
+            owners = [f for f, methods in parts for o, n in methods if o == m.group('n')]
+            if len(owners) == 1:
+                hits.add((m.group('f'), int(m.group('l')), int(m.group('c')), m.group('n'), next(iter(owners[0]))))
+            elif owners:
+                path = Path(m.group('f')) if os.path.isabs(m.group('f')) else repo / m.group('f')
+                cls = enclosing_class(read(path).split('\n'), int(m.group('l')))
+                if cls and any(cls in f for f in owners):
+                    hits.add((m.group('f'), int(m.group('l')), int(m.group('c')), m.group('n'), cls))
         todo = [h for h in hits if new_for(h[3], h[4])]
         unresolved = [h for h in hits if h not in todo and h[3] in allnames]
         print('native round %d: build exit %d, %d call sites' % (round_, out.returncode, len(todo)), flush=True)

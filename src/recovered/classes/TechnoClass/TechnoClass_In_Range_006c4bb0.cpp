@@ -58,7 +58,7 @@ bool TechnoClass::unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target
         if (range == -512) {
             return true;
         }
-        if (target->unknown_slot21()) {
+        if (target->In_Air()) {
             range += Techno_Type_Class()->AirRangeBonus;
         }
         BulletTypeClass *bullet = weapon->Projectile;

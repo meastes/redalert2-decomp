@@ -36,7 +36,7 @@ void BuildingClass::Sell_Back(int mode)
             break;
         }
         if (sell) {
-            unknown_slot116(0x13, false);
+            QueueMission(0x13, false);
             Commence();
         }
         if (House->Is_Player_Control()) {

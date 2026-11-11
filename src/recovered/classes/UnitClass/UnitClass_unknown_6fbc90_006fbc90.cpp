@@ -14,7 +14,7 @@ void UnitClass::unknown_6fbc90()
     int weapon = unknown_slot174(unknown_228);
     int action = unknown_slot218(unknown_228, weapon, 1);
     if ((action == 0 || action == 2) && unknown_slot284()) {
-        unknown_slot116(16, false);
+        QueueMission(16, false);
         return;
     }
     switch (action) {

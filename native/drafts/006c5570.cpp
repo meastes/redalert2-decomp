@@ -55,7 +55,7 @@ bool TechnoClass::unknown_6c5570(int method,int mask,int range,ObjectClass *obje
         }
     }
     int dist;
-    if(object->unknown_slot21()) {
+    if(object->In_Air()) {
         double x=object->Center_Coord().X-Center_Coord().X;
         double y=object->Center_Coord().Y-Center_Coord().Y;
         dist=(int)Fast_Sqrt(y*y+x*x);

@@ -109,7 +109,7 @@ void TeamClass::unknown_func_6b9610(AbstractClass **center, AbstractClass **clos
             if (closest == 0) {
                 closest = Member;
             }
-            if (closest->unknown_slot101((CellClass *)*center, -1, -1, 0, 1) != 0) {
+            if (closest->Can_Enter_Cell((CellClass *)*center, -1, -1, 0, 1) != 0) {
                 *center = closest;
             }
         }

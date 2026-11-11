@@ -104,7 +104,7 @@ remove_passengers:
             while (Cargo.Object) {
                 FootClass *passenger = unknown_4ccfc0();
                 if (!passenger) break;
-                int move = passenger->unknown_slot101(&Map[CoordStruct(Coord)], -1, -1, 0, 1);
+                int move = passenger->Can_Enter_Cell(&Map[CoordStruct(Coord)], -1, -1, 0, 1);
                 bool can_place = move == 0 || move == 2;
                 ++unknown_a40774;
                 passenger->unknown_79 = unknown_79;
@@ -112,11 +112,11 @@ remove_passengers:
                 animation_position.Z = Get_Cell_Ptr()->Center_Coord().Z;
                 if (!forced && !unknown_7c && can_place) {
                     int facing = Dir_To_256(unknown_2e0.Current());
-                    if (passenger->unknown_slot53(&animation_position, facing)) {
+                    if (passenger->Unlimbo(&animation_position, facing)) {
                         passenger->Scatter(unknown_geometry_l, true, false);
                         if (!House->Unknown_004F52F0()) {
                             if (Team) Team->unknown_func_6b8cc0(passenger);
-                            else passenger->unknown_slot116(15, false);
+                            else passenger->QueueMission(15, false);
                         }
                         if (restore_selection) passenger->unknown_slot80();
                         goto passenger_removed;
@@ -146,11 +146,11 @@ passenger_removed:
             if (crew) {
                 crew->unknown_79 = unknown_79;
                 CoordStruct position = Coord;
-                if (crew->unknown_slot53(&position, 0)) {
+                if (crew->Unlimbo(&position, 0)) {
                     crew->Strength = unknown_id_source_a3d290->Random()(5, crew->Type->MaxStrength / 2);
                     crew->Scatter(unknown_geometry_l, true, false);
-                    if (!House->Unknown_004F52F0()) crew->unknown_slot116(15, false);
-                    else crew->unknown_slot116(5, false);
+                    if (!House->Unknown_004F52F0()) crew->QueueMission(15, false);
+                    else crew->QueueMission(5, false);
                     if (restore_selection) crew->unknown_slot80();
                     if (unknown_34 && unknown_34->Is_To_Inherit()) crew->Attach_Tag(unknown_34);
                 } else {
@@ -183,7 +183,7 @@ drop_crate:
             return result;
         if (unknown_707170(source)) {
             Assign_Destination(source, true);
-            unknown_slot116(2, false);
+            QueueMission(2, false);
             return result;
         }
         if (!(Type->Harvester || Type->Weeder) || unknown_slot166() <= 0 ||
@@ -194,7 +194,7 @@ drop_crate:
             if (dock) break;
         }
         if (dock && !Is_Radio_Contact(dock) && unknown_slot150(2, dock) == 1)
-            unknown_slot116(7, false);
+            QueueMission(7, false);
     }
     return result;
 }

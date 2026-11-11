@@ -14,7 +14,7 @@ void FactoryClass::Start_Next_Queued_004B9D70()
     if (Queue.Count() && !Object && (!Rate || unknown_6c)) {
         TechnoTypeClass *type = Queue[0];
         Queue.Delete(0);
-        int index = type->unknown_slot16();
+        int index = type->Fetch_Heap_ID();
         if (index >= 0) {
             Owner->Begin_Production(type->Kind_Of(), index, type->Naval, true);
         }

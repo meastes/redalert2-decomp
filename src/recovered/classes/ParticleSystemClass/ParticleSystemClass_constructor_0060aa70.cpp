@@ -8,7 +8,7 @@
 // @ref ??0ObjectClass@@QAE@XZ=005d22e0
 // @ref ?Create_ID@AbstractClass@@UAGXXZ=0040ffd0
 // @ref ?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ=0040dc20
-// @ref ?unknown_slot53@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
+// @ref ?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z=005d3890
 // @ref _unknown_geometry_j=00a76588
 // @ref _unknown_geometry_l=00a76560
 // @ref ??_7?$DynamicVectorClass@PAVParticleClass@@@@6B@=007a22a4
@@ -57,7 +57,7 @@ ParticleSystemClass::ParticleSystemClass(ParticleSystemTypeClass *type, CoordStr
         Owner = 0;
         unknown_d0 = target;
     }
-    ObjectClass::unknown_slot53(&place, 0);
+    ObjectClass::Unlimbo(&place, 0);
     if (Owner != 0) {
         CoordStruct center = Coord;
         unknown_9c = center - Owner->Center_Coord();

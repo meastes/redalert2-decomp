@@ -39,7 +39,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
     int close_enough=Team?Team->Unknown_006BE6A0():Rules->unknown_1380;
     int max_distance=0;
     bool train=Techno_Type_Class()->IsTrain;
-    int move=unknown_slot101(&Map[cell],-1,-1,0,true);
+    int move=Can_Enter_Cell(&Map[cell],-1,-1,0,true);
     if(move==6 && distance>close_enough && !train) {
         int zone=unknown_zone_table_7a1200[Techno_Type_Class()->MovementZone];
         bool check=Techno_Type_Class()->unknown_af5 && Map[cell].Can_Burrow_Here();
@@ -96,7 +96,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
                 next_cell=current->Adjacent_Cell((work_path[length]+4)%8).MapCoords;
                 AbstractClass *destination=follower->unknown_494;
                 if(!destination || Coord_Cell(destination->unknown_slot19(0))!=next_cell) {
-                    follower->unknown_slot116(2,false);
+                    follower->QueueMission(2,false);
                     follower->Assign_Destination(&Map[next_cell],true);
                     follower->unknown_4c3000(next_cell,0,0);
                 }
@@ -122,12 +122,12 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         Assign_Destination(0,true);
         unknown_slot220(0);
         if(!House->Unknown_004F52F0()) {
-            unknown_slot116(11,false);
+            QueueMission(11,false);
             if(unknown_game_mode_a3d298!=0) {
                 Cell guard=House->Unknown_004EB270(this);
                 if(guard!=unknown_geometry_k) Assign_Destination(&Map[guard],true);
             }
-        } else unknown_slot116(5,false);
+        } else QueueMission(5,false);
     }
     return false;
 }

@@ -41,7 +41,7 @@ void MapGeneratorClass::Generate_Urban_Buildings(DynamicVectorClass<Cell> &cells
                     }
                     if(clear) {
                         CoordStruct point(position.X*256+128,position.Y*256+128,0);
-                        if(building->unknown_slot53(&point,0)) {
+                        if(building->Unlimbo(&point,0)) {
                             int strength=building->Type->MaxStrength;
                             building->Strength=strength;
                             building->unknown_70=strength;

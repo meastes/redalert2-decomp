@@ -13,8 +13,8 @@ void HouseClass::unknown_func_4e67a0(int index)
         BuildingClass *building = unknown_BuildingClass_list_00a40af8[i];
         if (building != 0 && !building->unknown_76 && building->Strength != 0 && !Is_Ally(building)
                 && Random_Pick(0, 99) < 90) {
-            if (building->unknown_slot90() > value || value == -1) {
-                value = building->unknown_slot90();
+            if (building->Value() > value || value == -1) {
+                value = building->Value();
                 best = building;
             }
         }

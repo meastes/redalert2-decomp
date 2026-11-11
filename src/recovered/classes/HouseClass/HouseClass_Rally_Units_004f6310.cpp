@@ -22,7 +22,7 @@ void HouseClass::Unknown_004F6310()
                 Coord_Cell(BaseCenter)!=unknown_cell_a40f10) {
                 techno->Assign_Destination(&Map[destination],true);
                 techno->unknown_6d6e50(0);
-                techno->unknown_slot116(2,false);
+                techno->QueueMission(2,false);
             }
         }
     }

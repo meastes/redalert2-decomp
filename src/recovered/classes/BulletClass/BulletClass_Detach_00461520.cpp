@@ -28,7 +28,7 @@ inline Cell Cell_Of(AbstractClass *object)
 inline void Retarget(BulletClass *self)
 {
     Cell cell = Cell_Of(self->Target);
-    if (unknown_a40774 == 0 && !self->Target->unknown_slot21() && cell != unknown_geometry_k) {
+    if (unknown_a40774 == 0 && !self->Target->In_Air() && cell != unknown_geometry_k) {
         self->Target = &Map[cell];
     } else {
         self->Target = 0;

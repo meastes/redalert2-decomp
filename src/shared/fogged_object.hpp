@@ -56,7 +56,7 @@ public:
     virtual int Kind_Of() const;                                // 0x004C1F20
     virtual int Size_Of() const;                                // 0x004C1F30
     virtual void Compute_CRC(WWCRCEngine &crc) const;             // 0x004C1F80; body unrecovered
-    virtual Cell unknown_slot24() const;                        // slot 24 (+0x60) 0x004C2040: the cell the object stands on
+    virtual Cell Get_Cell() const;                        // slot 24 (+0x60) 0x004C2040: the cell the object stands on
     // Marks (+0x140 bit 22) the cells of every listed fogged object (0x004C1AE0).
     static void unknown_4c1ae0();
     // The cell holding a coordinate (hypothesis: Westwood's Coord_Cell as a class helper;

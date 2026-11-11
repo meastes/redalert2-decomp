@@ -202,7 +202,7 @@ void __fastcall Unknown_00629290(int start, int count)
                         break;
                     }
                     int spot_zone = Map.Zone(spot, type->MovementZone, spot_ptr->IsUnderBridge);
-                    int enter = object->unknown_slot101(spot_ptr, -1, level, 0, 1);
+                    int enter = object->Can_Enter_Cell(spot_ptr, -1, level, 0, 1);
                     if (spot_zone == zone) {
                         int flags = spot_ptr->unknown_140;
                         if (flags & CELL_FLAG_TAKEN) {
