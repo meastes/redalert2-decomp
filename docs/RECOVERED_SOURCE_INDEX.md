@@ -6,7 +6,7 @@
 
 | Directory under `src/recovered/` | Regions | Body bytes | Descriptive names | Address range |
 | --- | ---: | ---: | ---: | --- |
-| [unowned](../src/recovered/unowned/) | 1436 | 438,856 | 1436 | 0x00401000–0x0077A940 |
+| [unowned](../src/recovered/unowned/) | 1433 | 438,343 | 1433 | 0x00401000–0x0077A940 |
 | [classes/MapClass](../src/recovered/classes/MapClass/) | 216 | 134,732 | 216 | 0x0049ED10–0x0056A9D0 |
 | [classes/BuildingClass](../src/recovered/classes/BuildingClass/) | 204 | 97,604 | 204 | 0x00438A60–0x004D3450 |
 | [classes/TechnoClass](../src/recovered/classes/TechnoClass/) | 234 | 90,625 | 231 | 0x0041B370–0x006D9750 |
@@ -17,8 +17,8 @@
 | [classes/MapGeneratorClass](../src/recovered/classes/MapGeneratorClass/) | 56 | 56,683 | 56 | 0x0056D4C0–0x0058AD90 |
 | [classes/CellClass](../src/recovered/classes/CellClass/) | 134 | 46,843 | 130 | 0x00470680–0x0047CFC0 |
 | [classes/FootClass](../src/recovered/classes/FootClass/) | 125 | 46,400 | 121 | 0x0041B470–0x004CDE10 |
+| (discovery: address-named) | 950 | 40,765 | 188 | 0x004010A0–0x00793976 |
 | [classes/BuildingTypeClass](../src/recovered/classes/BuildingTypeClass/) | 63 | 40,280 | 63 | 0x00454EE0–0x004D3C50 |
-| (discovery: address-named) | 947 | 40,252 | 185 | 0x004010A0–0x00793976 |
 | [classes/Tactical](../src/recovered/classes/Tactical/) | 94 | 34,434 | 92 | 0x006A22D0–0x006AC800 |
 | [classes/InfantryClass](../src/recovered/classes/InfantryClass/) | 92 | 34,203 | 92 | 0x004D3390–0x00509810 |
 | [classes/MapRegionClass](../src/recovered/classes/MapRegionClass/) | 50 | 32,850 | 50 | 0x0056D530–0x0058DA70 |

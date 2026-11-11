@@ -181,7 +181,7 @@
    ]
   ],
   "header_gaps": [
-   "Get_CPU_Rate takes unsigned int * (template: unsigned int &) and Get_CPU_Info keeps its name and pointer parameters (template Get_CPU_Type with references): the getcpu and mpu modules are not converted"
+   "Get_CPU_Info keeps its name and pointer parameters (template Get_CPU_Type with references): the getcpu module is not converted (Get_CPU_Rate takes unsigned int & since the mpu module)"
   ],
   "data_notes": [
    "has_mmx (0xA70BCC) is zero-initialised storage; the ledger proves only the initialised range"
@@ -301,6 +301,27 @@
   "notes": [
    "The unit's rows include its first function, the dynamic initializer of shape_file.hpp's empty rectangle (0x4CEFA0), and the scalar deleting destructors of GadgetClass and LinkClass (0x4CF6A0, 0x4CF710); Is_Enabled (0x4CF160) joined the unit from the seed population-42 in this round",
    "The scalar deleting destructors 0x497320 (Dial8Class vtable) and 0x4A57C0 (ToggleClass vtable) stay seed-shaped rows but now call GadgetClass::~GadgetClass by its real name; they left the seed population-61 (whose unit cannot include gadget.hpp) for a population of their own"
+  ]
+ },
+ "mpu": {
+  "source": "src/recovered/mpu.cpp",
+  "header": "src/shared/cpu_info.hpp",
+  "twin": "mischa85/RedAlert2 src/mpu.cpp (exact target; this file takes its text); TibSun mpu.cpp (the evidenced __asm and the ASM_RDTSC macro); ra2-decomp mpu.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "The module's declarations stay in cpu_info.hpp beside getcpu's (template: mpu.h): the getcpu module is not converted (parked behind Print_CRCs)",
+   "RDTSC is not declared in a header (template mpu.h declares it): a new declaration in cpu_info.hpp is a declaration-count change, not tried this round",
+   "Get_CPU_Rate is __fastcall as this tree declares it (the template declares no convention; mischa85 builds with a fastcall default)"
+  ],
+  "source_gaps": [
+   "TSC_Low and TSC_High are globals, not the archive's file statics: as statics the compiler addresses them through the .bss section symbol, which the audit cannot bind",
+   "The archive's disabled Get_CPU_Clock (#if 0, with the author's __asm) is left out: the attribution check does not evaluate preprocessor conditions"
+  ],
+  "data_notes": [
+   "TSC_Low and TSC_High (0xA7177C-0xA71783) are zero-initialised storage; the module has no initialised data"
+  ],
+  "notes": [
+   "RDTSC and Get_RDTSC_CPU_Speed are evidenced inline assembly rows; ASM_RDTSC is the archive's asm-only macro (TibSun mpu.cpp:134), counted at each invocation (docs/DECISIONS.md amendment 2026-11-11)"
   ]
  }
 }

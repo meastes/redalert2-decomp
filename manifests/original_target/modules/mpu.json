@@ -1,0 +1,70 @@
+{
+ "module": "mpu",
+ "source": "src/recovered/mpu.cpp",
+ "header": "src/shared/cpu_info.hpp",
+ "population": "population-4334",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 2522,
+ "code": [
+  {
+   "symbol": "?Get_CPU_Rate@@YIIAAI@Z",
+   "entry": "005abf20",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?RDTSC@@YAXXZ",
+   "entry": "005abf60",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Get_RDTSC_CPU_Speed@@YAHXZ",
+   "entry": "005abf70",
+   "body_bytes": 450,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 544,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00662d60",
+   "symbol": "?Get_CPU_Rate@@YIIAAI@Z",
+   "target": "005abf20",
+   "function_entry": true
+  },
+  {
+   "site": "0051a880",
+   "symbol": "?Get_RDTSC_CPU_Speed@@YAHXZ",
+   "target": "005abf70",
+   "function_entry": true
+  },
+  {
+   "site": "00593530",
+   "symbol": "?Get_CPU_Rate@@YIIAAI@Z",
+   "target": "005abf20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "__imp__QueryPerformanceCounter@4",
+   "address": "0079a1c8"
+  },
+  {
+   "symbol": "__imp__QueryPerformanceFrequency@4",
+   "address": "0079a1cc"
+  }
+ ]
+}

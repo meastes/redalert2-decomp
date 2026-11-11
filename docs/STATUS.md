@@ -17,7 +17,7 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user's three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) | 14,606 in 7 regions (0.39% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 2,514 (0.07% of .text) |
 | Frozen padding bytes | 142,993 |
-| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 24 module(s): 168 functions, 17,712 code bytes; **1,567 data bytes compiler-emitted and proven at their original addresses** in 36 sections, 396 bytes of vtable/RTTI copies kept elsewhere; 33 header gaps (withheld template details, modules.json header_gaps; no bytes) in 18 module(s); own ledger, no .text credit (b64pipe, b64straw, base64, blowpipe, blwstraw, buff, buffer, category, ccfile, cstraw, facing, gadget, ipxaddr, lzo1x_c, lzo1x_d, milsectmr, pipe, random, rawfile, rle, shapipe, shastraw, straw, version) |
+| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 25 module(s): 171 functions, 18,256 code bytes; **1,567 data bytes compiler-emitted and proven at their original addresses** in 36 sections, 396 bytes of vtable/RTTI copies kept elsewhere; 36 header gaps (withheld template details, modules.json header_gaps; no bytes) in 19 module(s); own ledger, no .text credit (b64pipe, b64straw, base64, blowpipe, blwstraw, buff, buffer, category, ccfile, cstraw, facing, gadget, ipxaddr, lzo1x_c, lzo1x_d, milsectmr, mpu, pipe, random, rawfile, rle, shapipe, shastraw, straw, version) |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,127 in 899 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
@@ -2388,6 +2388,7 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `e2159f4c9` | 2026-11-11 14:32 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `f39386a59` | 2026-11-11 14:53 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `e450f08e6` | 2026-11-11 14:56 -0600 | 17,905 | 3,271,575 | +983 | 21,844 |
+| `1aa381e6b` | 2026-11-11 15:53 -0600 | 17,905 | 3,271,575 | +0 | 0 |
 
 <!-- /generated:status -->
 

@@ -146,12 +146,12 @@ int LCW_Comp(void const *source, void *dest, int datasize)
 // ---------------------------------------------------------------------------
 // The time-stamp counter. Get_CPU_Clock 0x0077F274 (detproc.asm: rdtsc, the
 // high half stored through the reference, the low half returned), RDTSC
-// 0x005ABF60 (TibSun mpu.cpp: rdtsc into TSC_Low/TSC_High) and Get_CPU_Speed
+// 0x005ABF60 (TibSun mpu.cpp: rdtsc into TSC_Low/TSC_High) and Get_RDTSC_CPU_Speed
 // 0x005ABF70 (TibSun mpu.cpp: the TSC rate in MHz, measured against the
 // performance counter). Natively the TSC is a virtual 1 GHz counter (the
 // port's game clock in nanoseconds, the same clock the port's
 // QueryPerformanceCounter reads), so its rate is exactly 1000 MHz:
-// Get_CPU_Speed returns the value the original's measurement converges to
+// Get_RDTSC_CPU_Speed returns the value the original's measurement converges to
 // (its rounding steps leave an exact rate unchanged) without the busy loop.
 // ---------------------------------------------------------------------------
 // The port's game clock (port/src/win32_time.cpp): it stands still while the host
@@ -180,8 +180,8 @@ void RDTSC()
     TSC_High = (unsigned int)(t >> 32);
 }
 
-// Get_CPU_Speed 0x005ABF70 (M25, Scout1202): the original's measurement (TibSun mpu.cpp,
-// src/recovered/unowned/Get_CPU_Speed_005abf70.cpp) with the virtual TSC for its two
+// Get_RDTSC_CPU_Speed 0x005ABF70 (M25, Scout1202): the original's measurement (TibSun mpu.cpp,
+// src/recovered/mpu.cpp) with the virtual TSC for its two
 // rdtsc reads and the port's performance counter (the same nanosecond clock, frequency
 // 10^9): up to 20 samples of 1,000 counter ticks until three agree within 1 MHz, then
 // the rounding to a tenth. NOT EXACT only in the rdtsc source; it returns 1000 here,
@@ -193,7 +193,7 @@ int QueryPerformanceFrequency(int64_t *frequency) { *frequency = 1000000000; ret
 int QueryPerformanceCounter(int64_t *counter) { *counter = (int64_t)virtual_tsc(); return 1; }
 }
 
-int Get_CPU_Speed()
+int Get_RDTSC_CPU_Speed()
 {
     int64_t t0, t1, count_freq;
     unsigned int freq = 0, freq2 = 0, freq3 = 0, total = 0;

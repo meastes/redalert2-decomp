@@ -815,8 +815,8 @@ repeat the last three until `bss_globals.cpp` no longer changes.
    decoder, the four ASM_UnVQ drawers, Brighten_Color/MMX_Brighten_Color in four
    pixel formats, the three Asm_Interpolate copies, Get_CPU_Clock) and for the
    accepted rows whose body is evidenced `__asm` (LCW_Comp, BlitTransXlat<unsigned
-   short>::BlitForward, RDTSC, Get_CPU_Speed). Each is written from the adopted
-   archive text, not exact; the TSC is a virtual 1 GHz counter (Get_CPU_Speed
+   short>::BlitForward, RDTSC, Get_RDTSC_CPU_Speed). Each is written from the adopted
+   archive text, not exact; the TSC is a virtual 1 GHz counter (Get_RDTSC_CPU_Speed
    returns 1000). `native-asm-check` (tests/asm_check.cpp) runs each on synthetic
    inputs against references built from the algorithm (encoders, per-pixel
    formulas, the textbook IMA ADPCM decoder) and compares the ADPCM tables with

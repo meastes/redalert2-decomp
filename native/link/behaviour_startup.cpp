@@ -44,16 +44,17 @@ void __fastcall Unknown_Set_Sink_00613e00(INoticeSink *sink)
     unknown_sink_a76680 = (UnknownPlanningSink *)sink;
 }
 
-// Get_CPU_Rate (0x005ABF20, shared/cpu_info.hpp; the row's seed): the performance counter
-// frequency, low dword returned and high dword stored, both 0 on failure.
-unsigned int __fastcall Get_CPU_Rate(unsigned int *high)
+// Get_CPU_Rate (0x005ABF20, shared/cpu_info.hpp; src/recovered/mpu.cpp, which the native
+// build skips for its evidenced __asm): the performance counter frequency, low dword
+// returned and high dword stored, both 0 on failure.
+unsigned int __fastcall Get_CPU_Rate(unsigned int &high)
 {
     LARGE_INTEGER frequency;
     if (QueryPerformanceFrequency(&frequency)) {
-        *high = frequency.HighPart;
+        high = frequency.HighPart;
         return frequency.LowPart;
     }
-    *high = 0;
+    high = 0;
     return 0;
 }
 

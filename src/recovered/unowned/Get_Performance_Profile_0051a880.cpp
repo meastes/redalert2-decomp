@@ -18,7 +18,7 @@
 // @ref ?unknown_surface_839944@@3PAVSurface@@A=00839944
 // @ref ?Get_CPU_Type@@YAHXZ=004d2a60
 // @ref ?Get_CPU_Type_Name@@YIPBDXZ=004d2b80
-// @ref ?Get_CPU_Speed@@YAHXZ=005abf70
+// @ref ?Get_RDTSC_CPU_Speed@@YAHXZ=005abf70
 // @ref ??_C@_0BM@OCEF@Profile?3?5CPU?3?$CFd?5?$CI?$CFdMhz?5?$CFs?$CJ?6?$AA@=007ddaac
 // @ref ??_C@_0P@ICDP@CPU?3?5?$CFd?5Mhz?5?$CFs?$AA@=007dda9c
 // @ref ??_C@_0BI@FAMN@Profile?3?5RAM?3?$CFd?5?$CI?$CFdMb?$CJ?6?$AA@=007dda84
@@ -43,7 +43,7 @@ int __fastcall Get_Performance_Profile()
         unknown_profile_blit_text_a41408[0] = 0;
 
         int type = Get_CPU_Type();
-        int mhz = Get_CPU_Speed();
+        int mhz = Get_RDTSC_CPU_Speed();
         int cpu = 5;
         switch (type) {
         case -1:

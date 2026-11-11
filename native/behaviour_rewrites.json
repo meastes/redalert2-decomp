@@ -258,19 +258,19 @@
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_asm_lib.cpp",
-   "source": "src/recovered/unowned/RDTSC_005abf60.cpp (evidenced __asm, TibSun mpu.cpp)",
+   "source": "src/recovered/mpu.cpp (evidenced __asm, TibSun mpu.cpp)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "unreferenced natively; defines TSC_Low/TSC_High (0x00A71780/0x00A7177C) itself"
   },
   {
    "entry": "0x005ABF70",
-   "name": "Get_CPU_Speed",
-   "symbol": "__Z13Get_CPU_Speedv",
+   "name": "Get_RDTSC_CPU_Speed",
+   "symbol": "__Z19Get_RDTSC_CPU_Speedv",
    "origin_class": "skipped __asm row",
    "plan": "behaviour rewrite",
    "exact": false,
    "file": "native/link/behaviour_asm_lib.cpp",
-   "source": "src/recovered/unowned/Get_CPU_Speed_005abf70.cpp (evidenced __asm, TibSun mpu.cpp)",
+   "source": "src/recovered/mpu.cpp (evidenced __asm, TibSun mpu.cpp)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "returns 1000 (the virtual TSC rate in MHz) instead of measuring it"
   },

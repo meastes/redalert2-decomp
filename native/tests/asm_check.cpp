@@ -62,7 +62,7 @@ unsigned char PaletteInterpolationTable[256][256];
 }
 int LCW_Comp(void const *source, void *dest, int datasize);
 unsigned int Get_CPU_Clock(unsigned int &high);
-int Get_CPU_Speed();
+int Get_RDTSC_CPU_Speed();
 void RDTSC();
 extern unsigned int TSC_Low, TSC_High;
 // The port's game clock the virtual TSC reads (port/src/win32_time.cpp; the check
@@ -640,13 +640,13 @@ static void test_blit_and_clock()
     CHECK(ok);
     ra2asm_trans_xlat_forward16(dst, src, 0, pal);
 
-    CHECK(Get_CPU_Speed() == 1000);
+    CHECK(Get_RDTSC_CPU_Speed() == 1000);
     unsigned int hi0, hi1;
     unsigned int lo0 = Get_CPU_Clock(hi0);
     usleep(20000);
     unsigned int lo1 = Get_CPU_Clock(hi1);
     uint64_t t0 = (uint64_t)hi0 << 32 | lo0, t1 = (uint64_t)hi1 << 32 | lo1;
-    // 20 ms at Get_CPU_Speed() MHz: at least 20,000,000 ticks, and not wildly more.
+    // 20 ms at Get_RDTSC_CPU_Speed() MHz: at least 20,000,000 ticks, and not wildly more.
     CHECK(t1 - t0 >= 20000000ull && t1 - t0 < 2000000000ull);
     RDTSC();
     uint64_t t2 = (uint64_t)TSC_High << 32 | TSC_Low;

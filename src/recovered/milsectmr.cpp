@@ -38,7 +38,7 @@ MillisecondTimerClass::MillisecondTimerClass(void)
 {
 	unsigned int high = 0;
 	Frequency = 1.0;
-	unsigned int low = Get_CPU_Rate(&high);
+	unsigned int low = Get_CPU_Rate(high);
 
 	if (low == 0 && high == 0) {
 		timeBeginPeriod(PERIOD_RESOLUTION);

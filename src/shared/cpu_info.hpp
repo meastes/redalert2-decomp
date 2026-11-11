@@ -8,18 +8,18 @@
 // (0x004D2A20).
 void __fastcall Get_CPU_Info(int *family, unsigned char *has_cpuid, char *text, unsigned int size);
 
-// The CPU type (-1 unknown, else an index below 9; 0x004D2A60), its name (0x004D2B80) and its
-// clock in MHz (0x005ABF70); names hypotheses.
+// The CPU type (-1 unknown, else an index below 9; 0x004D2A60) and its name (0x004D2B80);
+// names hypotheses. The clock in MHz from the time stamp counter (mpu.cpp, 0x005ABF70).
 int Get_CPU_Type();
 char const *__fastcall Get_CPU_Type_Name();
-int Get_CPU_Speed();
+int Get_RDTSC_CPU_Speed();
 
 // The CPU vendor text (0x008015A5; Get_CPU_Info 0x004D2A20 copies it, the version dialog prints it).
 extern char unknown_cpu_text_8015a5[];
 
 // The performance counter frequency: returns its low dword and stores the
-// high dword in high (0x005ABF20; QueryPerformanceFrequency).
-unsigned int __fastcall Get_CPU_Rate(unsigned int *high);
+// high dword in high (mpu.cpp, 0x005ABF20; QueryPerformanceFrequency).
+unsigned int __fastcall Get_CPU_Rate(unsigned int & high);
 
 // Scenario.cpp's delay scaling constants (0x007A9208 0.8 for a Pentium Pro
 // or later, 0x007A9210 200.0; data of that unit, not shared literals).

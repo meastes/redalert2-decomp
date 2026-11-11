@@ -4,8 +4,8 @@
     "id": "population-3749",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "159ae771a352e9a013cbf94e420574b3350221cdd147ebf25108f702c25255ca",
-    "historical_acceptance_sha256": "c950f9021abedeb6b79ba721ce57fe9bf4ed2abfa64633def9f84bb379622fc1"
+    "historical_population_sha256": "c4a76e3f9a5541e2228c48d38738edd3d1f18ffbfe997d70db685a16b0d82c48",
+    "historical_acceptance_sha256": "d22e455f2abaebfc68382d2b42efd0c30b1eb07569faef912fd3a2310c26429b"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -220,7 +220,7 @@
     "__purecall": 4950368,
     "__imp__timeBeginPeriod@4": 7972140,
     "__imp__timeGetTime@0": 7972132,
-    "?Get_CPU_Rate@@YIIPAI@Z": 5947168,
+    "?Get_CPU_Rate@@YIIAAI@Z": 5947168,
     "?Get_CPU_Info@@YIXPAHPAEPADI@Z": 5057056,
     "?Get_CPU_Clock@@YAKAAK@Z": 7860852,
     "??_C@_0CL@PEMG@MillisecondTimerClass?5low?5?$DN?5?$CFd?0?5@": 8264968,
@@ -451,7 +451,7 @@
     "__imp__GetTickCount@0": 7971020,
     "?Init_Bootstrap_Mixfiles@@YI_NXZ": 5332112,
     "?Get_CPU_Type@@YAHXZ": 5057120,
-    "?Get_CPU_Speed@@YAHXZ": 5947248,
+    "?Get_RDTSC_CPU_Speed@@YAHXZ": 5947248,
     "?Get_CPU_Type_Name@@YIPBDXZ": 5057408,
     "__imp__GlobalMemoryStatus@4": 7971028,
     "__imp__GetVersionExA@4": 7971196,
@@ -753,7 +753,8 @@
     "__except_handler3": 7885524,
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -782,7 +783,7 @@
           "resolved": 7972128
         }
       ],
-      "source_sha256": "9810e6a8aeaebbfedefceb953384ae562a5db760d31f2badc6e322d7ded6e112",
+      "source_sha256": "325be0340fa83cc24f8f5ad73e354a95c779d67a7a51fd6abaf7bef0fcf3b560",
       "source": "src/recovered/milsectmr.cpp",
       "population": "population-3749",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -810,7 +811,7 @@
         {
           "offset": 33,
           "kind": 20,
-          "symbol": "?Get_CPU_Rate@@YIIPAI@Z",
+          "symbol": "?Get_CPU_Rate@@YIIAAI@Z",
           "target": 5947168,
           "addend": 0,
           "resolved": 100811
@@ -856,7 +857,7 @@
           "resolved": 7980328
         }
       ],
-      "source_sha256": "9810e6a8aeaebbfedefceb953384ae562a5db760d31f2badc6e322d7ded6e112",
+      "source_sha256": "325be0340fa83cc24f8f5ad73e354a95c779d67a7a51fd6abaf7bef0fcf3b560",
       "source": "src/recovered/milsectmr.cpp",
       "population": "population-3749",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -946,7 +947,7 @@
           "resolved": 7972132
         }
       ],
-      "source_sha256": "9810e6a8aeaebbfedefceb953384ae562a5db760d31f2badc6e322d7ded6e112",
+      "source_sha256": "325be0340fa83cc24f8f5ad73e354a95c779d67a7a51fd6abaf7bef0fcf3b560",
       "source": "src/recovered/milsectmr.cpp",
       "population": "population-3749",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
