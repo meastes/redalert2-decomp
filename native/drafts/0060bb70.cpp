@@ -124,8 +124,15 @@ void ParticleSystemClass::unknown_func_60bb70()
         }
     }
 
-    unknown_d4 = Class->Slowdown + unknown_d4;
-    if (unknown_d4 > Class->SpawnCutoff) {
+    // NATIVE (Scout1274; codex4 r557): the original adds in the x87 register
+    // (0x0060C01A fld/fadd), stores the sum rounded to float (0x0060C026 fst) and
+    // compares the unrounded register value with SpawnCutoff (0x0060C02C fcomp).
+    // Natively the sum is kept in double (53 bits, as the original's precision) and
+    // the double is compared; the float store rounds as fst does (the game thread's
+    // rounding mode, crt.cpp _controlfp).
+    double sum = (double)Class->Slowdown + (double)unknown_d4;
+    unknown_d4 = (float)sum;
+    if (sum > (double)Class->SpawnCutoff) {
         unknown_e4 = true;
     }
 }

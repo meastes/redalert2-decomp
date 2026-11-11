@@ -8,7 +8,8 @@
 //   hold ~400 ms, then drag     left button held: a selection box
 //   hold ~400 ms on the map, release without moving   right click
 //   hold ~400 ms on the sidebar (a cameo)              right click at once
-//   two-finger tap              right click
+//   two-finger tap              right click (forgiving: a one-finger tap's click waits
+//                               100 ms for a second finger; Scout1274)
 // No SDL here: platform/sdl/host.cpp converts SDL's finger events.
 #pragma once
 #include <stdint.h>
@@ -31,5 +32,9 @@ void finger_up(uint64_t id, float x, float y, uint64_t ms, Output const &out);
 void tick(uint64_t ms, Output const &out);
 // Fingers are down (the host keeps the pointer where the gesture left it).
 bool active();
+// The fingers the gestures hold as down (ids), and dropping one whose lift never came
+// (the host compares them with SDL's own list; Scout1274).
+int finger_list(uint64_t *ids, int max);
+void forget_finger(uint64_t id, uint64_t ms, Output const &out);
 
 }  // namespace touch

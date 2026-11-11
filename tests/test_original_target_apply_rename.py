@@ -77,5 +77,36 @@ class ApplyRenameTests(unittest.TestCase):
             self.assertEqual(prefix_bound_values(table, name), scan)
 
 
+class ApplyModulesTests(unittest.TestCase):
+    def test_module_gathers_regions_of_one_population(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as scratch:
+            draft = Path(scratch) / 'version.cpp'; draft.write_bytes(b'// module\n')
+            rows = [dict(region('population-7', '?A@@YAXXZ', {}, source='src/recovered/a/A_00401000.cpp'),
+                         entry=0x401000, semantic_name='A_00401000', options=['/O2', '/Ob2', '/G5', '/Gy']),
+                    dict(region('population-7', '?B@@YAXXZ', {}, source='src/recovered/a/B_00401010.cpp'),
+                         entry=0x401010, options=['/O2', '/Ob2', '/G5', '/Gy'])]
+            catalog = dict(regions=rows)
+            spec = dict(modules={'src/recovered/version.cpp': dict(draft=str(draft), regions=['00401000', '00401010'])},
+                        options={'population-7': ['/O2', '/Ob2', '/G5', '/Gy', '/GR']})
+            files = {'src/recovered/a/A_00401000.cpp': b'rewritten'}; removed = []
+            affected = apply_rename.apply_modules(catalog, spec, files, removed)
+        self.assertEqual(affected, {'population-7'})
+        self.assertEqual([r['source'] for r in rows], ['src/recovered/version.cpp'] * 2)
+        self.assertNotIn('semantic_name', rows[0])
+        self.assertEqual(sorted(removed), ['src/recovered/a/A_00401000.cpp', 'src/recovered/a/B_00401010.cpp'])
+        self.assertEqual(files, {'src/recovered/version.cpp': b'// module\n'})   # removed files are not rewritten
+        self.assertEqual(rows[1]['options'], ['/O2', '/Ob2', '/G5', '/Gy', '/GR'])
+
+    def test_module_refuses_regions_of_two_populations_and_unknown_options(self):
+        rows = [dict(region('population-7', '?A@@YAXXZ', {}), entry=0x401000),
+                dict(region('population-8', '?B@@YAXXZ', {}), entry=0x401010)]
+        spec = dict(modules={'src/recovered/m.cpp': dict(draft='x', regions=['00401000', '00401010'])})
+        with self.assertRaisesRegex(SystemExit, 'several populations'):
+            apply_rename.apply_modules(dict(regions=rows), spec, {}, [])
+        with self.assertRaisesRegex(SystemExit, 'not a recorded option set'):
+            apply_rename.apply_modules(dict(regions=rows), dict(options={'population-7': ['/Od']}), {}, [])
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -292,12 +292,10 @@ PathStruct *AStarClass::Find_Path_Regular(Cell const &from, Cell const &to, Foot
                 if (temp_node == 0) {
                     temp_node = new_node;
                 } else {
-                    if (new_node->unknown_08 < temp_node->unknown_08) {
-                        Native_Regular_Insert(RegularQueue, *temp_node);
-                        temp_node = new_node;
-                    } else {
-                        Native_Regular_Insert(RegularQueue, *new_node);
-                    }
+                    // The original's INC at 0x00427939 overwrites the score-test ZF.
+                    // With a valid queue count, it always queues the prior temporary.
+                    Native_Regular_Insert(RegularQueue, *temp_node);
+                    temp_node = new_node;
                 }
 
                 if (base_level) {

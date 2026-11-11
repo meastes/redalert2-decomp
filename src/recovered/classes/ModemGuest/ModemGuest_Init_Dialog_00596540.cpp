@@ -55,7 +55,7 @@
 // @ref ??_C@_1BA@FNA@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$AA@=007e1e78
 // @ref ?Find_Combo_Item_Data_00736e10@@YIHPAUHWND__@@HH@Z=00736e10
 // @ref ?Free_Pointers_005a7480@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z=005a7480
-// @ref ?Init_Clipping_00713160@UnknownVersionObject@@QAEXXZ=00713160
+// @ref ?Init_Clipping@UnknownVersionObject@@QAEXXZ=00713160
 // @ref ?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z=005c2da0
 // @ref ?Unknown_006FA0C0@@YIXPAGPBDH@Z=006fa0c0
 // @ref ?Unknown_006FA180@@YIPAGPBD@Z=006fa180
@@ -74,7 +74,7 @@
 // @ref ?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A=00a3fa7c
 // @ref ?unknown_session_a3d298@@3UUnknownSessionState@@A=00a3d298
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
-// @ref ?version_object_00a40c88@@3UUnknownVersionObject@@A=00a40c88
+// @ref ?VerNum@@3UUnknownVersionObject@@A=00a40c88
 // @ref ??_C@_02HAKO@ON?$AA@=007e1f40
 // @ref ??_C@_03CMJG@OFF?$AA@=007e1f3c
 extern char unknown_a3f616;
@@ -214,7 +214,7 @@ void ModemGuest::Init_Dialog_00596540()
         Send_Message(control, 0xF1, unknown_session_a3d298.unknown_a5 == true, 0);
     }
     Debug_Printf("Harvester Truce: %s\n", unknown_session_a3d298.unknown_a5 == true ? "ON" : "OFF");
-    version_object_00a40c88.Init_Clipping_00713160();
+    VerNum.Init_Clipping();
     if (unknown_dialog_preview_a72ce8) {
         delete unknown_dialog_preview_a72ce8;
         unknown_dialog_preview_a72ce8 = 0;

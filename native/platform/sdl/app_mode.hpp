@@ -579,10 +579,8 @@ void game_resolution(double usable_w, double usable_h, double scale, int &w, int
     if (gw < 800) { gh *= 800 / gw; gw = 800; }
     w = ((int)(gw + 0.5)) & ~7;
     h = ((int)(gh + 0.5)) & ~1;
-    // Just wider than 800 at 600 high, the menus (800 wide) leave strips the game never
-    // paints, which showed old surface contents as coloured noise beside the shell
-    // (Scout1249, the Duo's 824x600): 800x600 then, the picture letterboxed by a few points.
-    if (h == 600 && w < 864) w = 800;
+    // Any size: the menu panel is centred above 800x600 (the interface layout's fixup,
+    // Scout1274; before it only 800x600 and 1024x768 laid out whole, Scout1249/r27).
 }
 // Writes ScreenWidth/ScreenHeight into the game's RA2.INI in its write folder
 // (made from the imported ra2.ini the first time), keeping every other line.

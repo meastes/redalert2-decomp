@@ -2385,6 +2385,34 @@
    "new": "{ unsigned int length=strlen(wol_useroptions_b29ad4); if(length!=0) wol_useroptions_b29ad4[length-1]=':'; }   /* NATIVE: the empty-list index wrap (Scout1246) */",
    "why": "The player loop leaves the options text empty when the session player list is empty, and the original then writes ':' at [strlen - 1]: strlen is unsigned 32-bit, so the index is 0xFFFFFFFF and the 32-bit address wraps to the byte before the buffer (0x00A71BDB / 0x00B29AD3), a stray but harmless store. Natively the unsigned index is zero-extended and the store lands 4 GiB past the buffer: the intermittent LAN host fault Build_Game_Options_005bc940+564 (fault address = net2_useroptions + 0xFFFFFFFF, Scout1242 crawl lan-054: the lobby's periodic options send, Net_Join_Dialog 0x005BD070 -> Unknown_005C3810, with the host's list emptied). Natively the stray store before the buffer is skipped; the text is unchanged in every case. Scout1246.",
    "verified": false
+  },
+  {
+   "source": "src/shared/ipx_manager.hpp",
+   "old": "#ifdef RA2_IPX_MANAGER_CUR_DATA_BUF\n",
+   "new": "#if 1   /* NATIVE: CurDataBuf in every unit (one layout) */\n",
+   "why": "The exact build declares IPXManagerClass::CurDataBuf (+0x8C) only in the IPXManagerClass unit (RA2_IPX_MANAGER_CUR_DATA_BUF): one more member declaration elsewhere makes the WinMain unit emit an extra .rdata $T section. Under VC6 both spellings have the same 0x94-byte layout, so the switch changes nothing at run time. Natively the pointer is 8 bytes, so the split and unsplit spellings lay the class out differently; natively every unit uses the split one, so the constructor, the global object 0x00A40978 and Service (draft 0x00525F60, codex4 r545) agree. Scout1257.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Layout_Interface_006f3e70.cpp",
+   "old": "    if (width >= 1024) {\n",
+   "new": "    if (width > 800) {   /* NATIVE: centred above 800, as drawn (Scout1274) */\n",
+   "why": "The interface layout centres the 800x600 menu panel only at 1024 wide or 768 high or more, while the functions that draw it (Unknown_Draw_Interface 0x006F3650, 0x006F3930: clip (w - 800) / 2 + 800 above 800 / 600) and the dialogs (0x005115F0: (w - 800) / 2 above 800) centre it at any size above 800x600. The original only offers 640x480, 800x600 and 1024x768 or more, where both agree. The touch app wants the usable screen's size (the Duo's 944x634): there the panel sat at the right edge, was clipped at the centred border and the dialog's buttons stood 72 pixels left of it, over unpainted noise. Natively the layout centres above 800x600 as the drawing does; at the original's sizes nothing changes. Scout1274.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Layout_Interface_006f3e70.cpp",
+   "old": "    if (height >= 768) {\n",
+   "new": "    if (height > 600) {   /* NATIVE: centred above 600, as drawn (Scout1274) */\n",
+   "why": "The interface layout centres the 800x600 menu panel only at 1024 wide or 768 high or more, while the functions that draw it (Unknown_Draw_Interface 0x006F3650, 0x006F3930: clip (w - 800) / 2 + 800 above 800 / 600) and the dialogs (0x005115F0: (w - 800) / 2 above 800) centre it at any size above 800x600. The original only offers 640x480, 800x600 and 1024x768 or more, where both agree. The touch app wants the usable screen's size (the Duo's 944x634): there the panel sat at the right edge, was clipped at the centred border and the dialog's buttons stood 72 pixels left of it, over unpainted noise. Natively the layout centres above 800x600 as the drawing does; at the original's sizes nothing changes. Scout1274.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/unowned/Unknown_Draw_Interface_Borders_006f34d0.cpp",
+   "old": "    if (unknown_value_8523e0 >= 1024) {\n",
+   "new": "    if (unknown_value_8523e0 > 800 || unknown_rect_ac11c0->Y > 0) {   /* NATIVE: whenever the panel is centred (Scout1274) */\n",
+   "why": "The bands around the centred 800x600 menu panel are blacked out only at 1024 wide or more, where the original's layout centres the panel. With the layout centred above 800x600 natively (Unknown_Layout_Interface_006F3E70 fixups), the bands at the touch app's sizes (the Duo's 944x634) kept old surface contents as coloured noise. Natively they are blacked out whenever the panel is centred (wider than 800, or a top offset: higher than 600); the bands come from the panel rectangles, so at the original's sizes nothing changes. Scout1274.",
+   "verified": false
   }
  ]
 }

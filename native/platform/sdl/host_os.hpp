@@ -79,6 +79,10 @@ bool toolbar_create(void *native_window, ToolbarItem const *items, int count, vo
 void toolbar_set(int index, bool on, const char *title);
 // The usable area moved (window points): the toolbar keeps to its top left.
 void toolbar_place(Rect usable);
+// iOS: the app is active (UIApplication applicationState, read on the main thread),
+// so the host can tell a lifecycle pause whose end SDL never reported (Scout1274).
+// macOS: false (the window focus events are the only report there).
+bool app_active();
 // The device's memory footprint and thermal state, for the log (iOS: phys_footprint,
 // NSProcessInfo.thermalState); empty elsewhere.
 std::string device_report();

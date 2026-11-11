@@ -11,8 +11,8 @@
 // @ref ??_C@_0BF@GBEB@TXT_MUST_SELECT_GAME?$AA@=007e6ca0
 // @ref ??_C@_0BJ@MAAJ@ERROR?3NameIsReservedWord?$AA@=007e6c60
 // @ref ??_C@_0P@FAEG@TXT_NAME_ERROR?$AA@=007e6c90
-// @ref ?Unknown_007131b0@VersionClass@@QAEKXZ=007131b0
-// @ref ?Unknown_007131c0@VersionClass@@QAEKXZ=007131c0
+// @ref ?Min_Version@VersionClass@@QAEKXZ=007131b0
+// @ref ?Max_Version@VersionClass@@QAEKXZ=007131c0
 // @ref ?Unknown_00737af0@@YAHXZ=00737af0
 // @ref ?Value_011c_00672a10@UnknownSessionState@@QAEHXZ=00672a10
 // @ref ?Value_0124_006729f0@UnknownSessionState@@QAEHXZ=006729f0
@@ -63,8 +63,8 @@ int __fastcall Request_To_Join_005bfc40(int game, bool unknown)
     strcpy(packet.unknown_18, unknown_a71bc4);
     packet.Join.unknown_2f = unknown_session_a3d298.Value_0124_006729f0();
     packet.Join.unknown_33 = unknown_session_a3d298.Value_011c_00672a10();
-    packet.Join.unknown_3b = version_object_00a40c88.Unknown_007131b0();
-    packet.Join.unknown_3f = version_object_00a40c88.Unknown_007131c0();
+    packet.Join.unknown_3b = VerNum.Min_Version();
+    packet.Join.unknown_3f = VerNum.Max_Version();
     packet.Join.unknown_43 = unknown_a71e9c;
     packet.Join.unknown_4b = unknown_a71ea0;
     packet.Join.unknown_47 = unknown_a71ea4;

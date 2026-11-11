@@ -4,8 +4,8 @@
     "id": "population-3677",
     "inventory_sha256": "8535431e2c9b37c4adf37b4dcfcb1eb5d0f5a0ebfdc71311641cf304291e7e94",
     "gaps_sha256": "b0a1e5f40995e97d2243b8d9440b83858472ecc0c30f595ece2cb1dd37590608",
-    "historical_population_sha256": "e3186eae7f47e26e777fe5fd223ce39827d07e4162cddb93581616d8a45ec1c4",
-    "historical_acceptance_sha256": "54e024537650e9edecf32308db7420ccdfa19ba5bf2467a4457e6e5e910c260b"
+    "historical_population_sha256": "798a270c41cf3ae4ccc49146e7d0433de41d3c82d86d2c6139f77eec011b06a8",
+    "historical_acceptance_sha256": "83756d6fe38317e9314be17453f9b1d4348e53806ed6901c2e666750d19c1905"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1609,8 +1609,8 @@
     "??_C@_0BL@ENPP@ModemHost?4Dialog?$CIexit?5?$CFs?$CJ?6?$AA@": 8266772,
     "?Select_Multi_Map_0059b090@ModemHost@@QAEXXZ": 5877904,
     "??_GMapPreviewClass@@QAEPAXI@Z": 5884800,
-    "?Clip_Version_00713170@VersionClass@@QAEHKK@Z": 7418224,
-    "?Version_Protocol_00713130@VersionClass@@QAEHH@Z": 7418160,
+    "?Clip_Version@VersionClass@@QAEIII@Z": 7418224,
+    "?Version_Protocol@VersionClass@@QAEHH@Z": 7418160,
     "??_C@_13ECNF@?$AA?5?$AA?$AA@": 8217844,
     "??_C@_06DN@TXT_OK?$AA@": 8239348,
     "??_C@_0BB@BKJO@Received?5packet?6?$AA@": 8265924,
@@ -1636,7 +1636,7 @@
     "?serial_local_player_00a3fb38@@3HA": 10746680,
     "?serial_manager_00a40a28@@3VNullModemClass@@A": 10750504,
     "?unknown_session_a3d2ac@@3HA": 10736300,
-    "?version_object_00a40c88@@3VVersionClass@@A": 10751112,
+    "?VerNum@@3VVersionClass@@A": 10751112,
     "__imp__GetDlgItem@8": 7971996,
     "__imp__SendMessageA@16": 7972000,
     "__imp__SendDlgItemMessageA@20": 7971972,
@@ -1706,7 +1706,7 @@
     "??_C@_0L@NJNM@TXT_PURPLE?$AA@": 8265664,
     "??_C@_0N@GNAA@TXT_SKY_BLUE?$AA@": 8265676,
     "?Find_Combo_Item_Data_00736e10@@YIHPAUHWND__@@HH@Z": 7564816,
-    "?Init_Clipping_00713160@VersionClass@@QAEXXZ": 7418208,
+    "?Init_Clipping@VersionClass@@QAEXXZ": 7418208,
     "__imp__PostMessageA@16": 7971952,
     "??_C@_0BC@FOEB@Received?5message?6?$AA@": 8267380,
     "??_C@_0BF@BAJ@Received?5GO?5message?6?$AA@": 8267356,
@@ -1738,8 +1738,8 @@
     "?unknown_host_shown_7e6dc0@@3_NA": 8285632,
     "??_C@_0CC@HJGN@ModemHost?4SelectRandomMap?$CIenter?$CJ@": 8267080,
     "??_C@_0BN@CALA@Sending?5game?5options?5packet?6?$AA@": 8267196,
-    "?Unknown_007131b0@VersionClass@@QAEKXZ": 7418288,
-    "?Unknown_007131c0@VersionClass@@QAEKXZ": 7418304,
+    "?Min_Version@VersionClass@@QAEIXZ": 7418288,
+    "?Max_Version@VersionClass@@QAEIXZ": 7418304,
     "?Unknown_00737af0@@YAHXZ": 7568112,
     "?unknown_multi_missions_a3d8d8@@3V?$DynamicVectorClass@PAVMultiMission@@@@A": 10737880,
     "?unknown_special_a40920@@3VSpecialClass@@A": 10750240,
@@ -8995,8 +8995,8 @@
     "?unknown_random_aabce0@@3HA": 11189472,
     "?unknown_sync_states_a780d8@@3PAUUnknownSyncState@@A": 10977496,
     "?Unknown_0062DBA0@@YIXHPAVEventClass@@@Z": 6478752,
-    "?Version_Name_007131d0@@YIPBDXZ": 7418320,
-    "?Internal_Version_Name_00712ed0@VersionClass@@QAEPBDXZ": 7417552,
+    "?Version_Name@@YIPBDXZ": 7418320,
+    "?Version_Name@VersionClass@@QAEPADXZ": 7417552,
     "?CRC@@3PAKA": 11230940,
     "__imp__IsWindowVisible@4": 7972056,
     "__imp__GetClassNameA@12": 7972064,
@@ -9784,12 +9784,12 @@
     "??0VersionClass@@QAE@XZ": 7416608,
     "??0UnknownFrameTiming@@QAE@XZ": 6435344,
     "?unknown_timing_aabcf0@@3PAUUnknownFrameTiming@@A": 11189488,
-    "?Version_Number@VersionClass@@QAEKXZ": 7416656,
+    "?Version_Number@VersionClass@@QAEIXZ": 7416656,
     "?Major_Version@VersionClass@@QAEGXZ": 7417168,
     "?Minor_Version@VersionClass@@QAEGXZ": 7417360,
-    "?Read_Text_String@VersionClass@@QAEXXZ": 7418000,
-    "_?empty@?1??Version_Name_007131d0@@YIPBDXZ@4_NA": 8362264,
-    "_?buffer@?1??Version_Name_007131d0@@YIPBDXZ@4PADA": 8361752,
+    "?Read_Text_String@VersionClass@@AAEXXZ": 7418000,
+    "_?empty@?1??Version_Name@@YIPBDXZ@4_NA": 8362264,
+    "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA": 8361752,
     "__iob": 8580240,
     "__real@8@bff8a3d70a3d70a3d800": 8055152,
     "??0PaletteClass@@QAE@ABVRGBClass@@@Z": 6303696,
@@ -10316,7 +10316,57 @@
     "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
     "??_EReferenceCounted@@UAEPAXI@Z": 6526800,
     "??_Erc_ptr_base@@UAEPAXI@Z": 6526336,
-    "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ": 6094256
+    "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ": 6094256,
+    "?Clip_Version@VersionClass@@QAEHKK@Z": 7418224,
+    "?Waiting@VQMovieHandle@@UAEXXZ": 5904544,
+    "?Timing@VQMovieHandle@@UAEHXZ": 5904688,
+    "?Value@ObjectClass@@UAEHXZ": 6106400,
+    "?Get_Height@ObjectClass@@UBEHXZ": 6113280,
+    "?Waiting@BinkMovieHandle@@UAEXXZ": 5905152,
+    "?Timing@BinkMovieHandle@@UAEHXZ": 5905232,
+    "?Render@UnitClass@@UAE_NPAVRect@@_N1@Z": 7336784,
+    "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "?Render@VoxelAnimClass@@UAE_NPAVRect@@_N1@Z": 7393136,
+    "?Value@TechnoClass@@UAEHXZ": 7156048,
+    "?Render@AnimClass@@UAE_NPAVRect@@_N1@Z": 4328992,
+    "?Get_Height@AnimClass@@UBEHXZ": 4337888,
+    "?Render@BuildingClass@@UAE_NPAVRect@@_N1@Z": 4432384,
+    "?Version_Name@WindowsVersionInfo@@QAEPADXZ": 7565120,
+    "?Render@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
+    "?Min_Version@VersionClass@@QAEKXZ": 7418288,
+    "?Max_Version@VersionClass@@QAEKXZ": 7418304,
+    "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@": 7973428,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??_7?$DynamicVectorClass@PAVMapRegionClass@@@@6B@": 8019344,
+    "??_7?$DynamicVectorClass@PAUHWND__@@@@6B@": 8024292,
+    "??_7?$DynamicVectorClass@UAcceleratorTracker@@@@6B@": 8024356,
+    "??_G?$DynamicVectorClass@VHSVClass@@@@UAEPAXI@Z": 6313824,
+    "??_F?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAEXXZ": 6313712,
+    "??_7?$DynamicVectorClass@VHSVClass@@@@6B@": 8026968,
+    "??_E?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6313536,
+    "??_7?$DynamicVectorClass@PBVBuildingTypeClass@@@@6B@": 8007464,
+    "??_7?$DynamicVectorClass@_N@@6B@": 8007556,
+    "??_7?$DynamicVectorClass@PAVtConnInfoStruct@@@@6B@": 8059268,
+    "??_7?$DynamicVectorClass@N@@6B@": 8019884,
+    "??0?$DynamicVectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z": 7489232,
+    "??_7?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@6B@": 8007628,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@6B@": 8056836,
+    "??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
+    "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z": 6312432,
+    "??0?$DynamicVectorClass@PAVPlanningMemberClass@@@@QAE@IPBQAVPlanningMemberClass@@@Z": 6401152,
+    "??0?$DynamicVectorClass@PAVPlanningBranchClass@@@@QAE@IPBQAVPlanningBranchClass@@@Z": 6401936,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??_E?$DynamicVectorClass@VHSVClass@@@@UAEPAXI@Z": 6313824,
+    "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320
   },
   "regions": [
     {
@@ -14977,7 +15027,7 @@
         {
           "offset": 537,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -14985,7 +15035,7 @@
         {
           "offset": 544,
           "kind": 20,
-          "symbol": "?Clip_Version_00713170@VersionClass@@QAEHKK@Z",
+          "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
           "target": 7418224,
           "addend": 0,
           "resolved": 1538236
@@ -15209,7 +15259,7 @@
         {
           "offset": 913,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -15217,7 +15267,7 @@
         {
           "offset": 918,
           "kind": 20,
-          "symbol": "?Version_Protocol_00713130@VersionClass@@QAEHH@Z",
+          "symbol": "?Version_Protocol@VersionClass@@QAEHH@Z",
           "target": 7418160,
           "addend": 0,
           "resolved": 1537798
@@ -15647,7 +15697,7 @@
           "resolved": 5880881
         }
       ],
-      "source_sha256": "24f4dcfa9f8b1660429e52ae8e3d334e7cd4313e5d506c16ac374d2e6dc277dc",
+      "source_sha256": "e91bed6fb75cb25ad1ae398ab32418a5e64d34645cce0ff2b2012611d0ae5242",
       "switch_data_bytes": 51,
       "source": "src/recovered/classes/ModemHost/ModemHost_Process_Messages_0059b690.cpp",
       "population": "population-3677",
@@ -17312,7 +17362,7 @@
         {
           "offset": 2016,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -17320,7 +17370,7 @@
         {
           "offset": 2021,
           "kind": 20,
-          "symbol": "?Init_Clipping_00713160@VersionClass@@QAEXXZ",
+          "symbol": "?Init_Clipping@VersionClass@@QAEXXZ",
           "target": 7418208,
           "addend": 0,
           "resolved": 1544279
@@ -17718,7 +17768,7 @@
           "resolved": 4293314032
         }
       ],
-      "source_sha256": "165faea0c614c7a16e73eb7e29bc24e2c03298028bd9a2a22f82d2783c69b173",
+      "source_sha256": "c2452cccc41a6563624b16ba443e39894e80e894aacae611bd76fdb5bfcc12d2",
       "source": "src/recovered/classes/ModemHost/ModemHost_Init_Dialog_00599920.cpp",
       "population": "population-3677",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -20741,7 +20791,7 @@
         {
           "offset": 102,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -20749,7 +20799,7 @@
         {
           "offset": 114,
           "kind": 20,
-          "symbol": "?Unknown_007131b0@VersionClass@@QAEKXZ",
+          "symbol": "?Min_Version@VersionClass@@QAEIXZ",
           "target": 7418288,
           "addend": 0,
           "resolved": 1537194
@@ -20757,7 +20807,7 @@
         {
           "offset": 119,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -20765,7 +20815,7 @@
         {
           "offset": 128,
           "kind": 20,
-          "symbol": "?Unknown_007131c0@VersionClass@@QAEKXZ",
+          "symbol": "?Max_Version@VersionClass@@QAEIXZ",
           "target": 7418304,
           "addend": 0,
           "resolved": 1537196
@@ -21115,7 +21165,7 @@
           "resolved": 4293473221
         }
       ],
-      "source_sha256": "7aa92cbdbf1455fb2e42a55a76814f04212baff31e3c52a9681025be402db31e",
+      "source_sha256": "5a7a86d78d224326969aa0795b5ccf5c12be398dca18db0bef67a0b45d54bc42",
       "source": "src/recovered/classes/ModemHost/ModemHost_Send_Options_0059bc90.cpp",
       "population": "population-3677",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -21822,7 +21872,7 @@
           "resolved": 5871603
         }
       ],
-      "source_sha256": "52ccb8328393fcd042ef6216b854ac1a8024074820941b4275afb3db7e410196",
+      "source_sha256": "445926a3854415bbd6cc4f4d121c6ac74ebc56d86af5cd6cd8dc99443b2fbe66",
       "switch_data_bytes": 280,
       "source": "src/recovered/classes/ModemHost/ModemHost_Dialog_Proc_00598fa0.cpp",
       "population": "population-3677",

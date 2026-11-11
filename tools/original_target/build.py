@@ -325,7 +325,9 @@ def compile_sources(config, catalog, destination):
         population, options = key[0], key[1]
         directory = destination/('compile-%03d'%index); directory.mkdir()
         source = directory/'accepted.cpp'
-        text = b'\n'.join(source_path(REPOSITORY,r['source']).read_bytes() for r in rows)
+        # A module source holds several of the group's regions: read it once, in source order.
+        unit_sources = list(OrderedDict.fromkeys(r['source'] for r in rows))
+        text = b'\n'.join(source_path(REPOSITORY,s).read_bytes() for s in unit_sources)
         source.write_bytes(text)
         obj = directory/'accepted.obj'
         args = compiler_arguments(options)
@@ -381,31 +383,55 @@ def compile_sources(config, catalog, destination):
     return outputs
 
 
-def transferred_parts(audit, manifest):
-    parts, rows = [], []
+def transferred_parts(audit, manifest, shift=None):
+    """Fixed-address fragments of every accepted row. In a shift build (shift_build.py) the
+    module's rows are left out and every relocation of another row that targets the module
+    is kept symbolic: `shift` is (module symbols {address: name}, module source); the second
+    result is {part index: [(offset, symbol, kind)]} for shift_build.write_container."""
+    parts, rows, relocations = [], [], {}
+    symbols = shift[0] if shift else {}
     for row in sorted(manifest['accepted'],key=lambda r:r['entry']):
+        if shift and row['source'] == shift[1]:
+            continue
         # Use the exact frozen object byte snapshot accepted by the verifier.
         coff = audit.coffs[audit.path(row['object'])]
         symbol, section, start, end = coff.function(row['symbol_prefix'])
         data = bytearray(section['data'][start:end])
+        symbolic = []
         for relocation in row['relocations']:
             struct.pack_into('<I', data, relocation['offset'], relocation['resolved'])
+            if relocation['target'] in symbols and relocation['kind'] in (6, 20):
+                symbolic.append((relocation['offset'], symbols[relocation['target']], relocation['kind']))
         require(sha(data) == row['full_extent_sha256'] and bytes(data) == audit.original(row['entry'],len(data)),
                 'Transfer differs from verified fresh compiler extent')
+        for offset, name, kind in symbolic:
+            # The linker adds the symbol's address to the field (and subtracts the site's end
+            # for REL32): the field keeps only the addend, which is zero for a reference to the
+            # symbol itself.
+            struct.pack_into('<I', data, offset, 0)
+            relocations.setdefault(len(parts), []).append((offset, name, kind))
         parts.append(('.text$%08x'%row['entry'],bytes(data)))
         rows.append(dict(entry=row['entry'], source=row['source'], source_sha256=row['source_sha256'],
                          object_sha256=row['object_sha256'], object=str(audit.path(row['object'])),
                          section_index=symbol['section'], section_start=start, section_end=end,
                          transferred_sha256=sha(data), bytes=len(data)))
-    return parts, rows
+    return (parts, rows, relocations) if shift else (parts, rows)
 
 
-def verify_discard_transfer(audit, transfers, parts, container):
-    """Prove exact placement-only container, with no discarded input interval."""
+def verify_discard_transfer(audit, transfers, parts, container, relocations=None):
+    """Prove exact placement-only container, with no discarded input interval. A shift
+    build's container carries exactly the planned symbolic relocations and their symbols."""
     parsed = Coff(container)
-    require([(s['name'], s['data']) for s in parsed.sections] == parts and
-            not parsed.symbols and not any(s['relocs'] for s in parsed.sections),
+    require([(s['name'], s['data']) for s in parsed.sections] == parts,
             'Transferred container differs from verified placement plan')
+    if relocations is None:
+        require(not parsed.symbols and not any(s['relocs'] for s in parsed.sections),
+                'Transferred container differs from verified placement plan')
+    else:
+        found = {i: [(o, parsed.symbols[s]['name'], k) for o, s, k in sec['relocs']]
+                 for i, sec in enumerate(parsed.sections) if sec['relocs']}
+        require(found == relocations and all(s['section'] == 0 for s in parsed.symbols.values()),
+                'Shift container relocations differ from the plan')
     discarded = getattr(audit, 'discarded_outputs', {})
     receipts = []
     for obj, components in discarded.items():
@@ -431,14 +457,59 @@ def write_coff(parts):
     return struct.pack('<HHIIIHH',0x14c,len(parts),0,offset+len(payload),0,0,0)+b''.join(headers)+payload+strings
 
 
-def integrate(config, audit, manifest, destination, library=None, assembly=None):
+def shift_plan(audit, manifest, destination, name):
+    """What a shift build (shift_build.py) moves: the module's rows, code and data ranges, the
+    symbol each original address answers to, the module object's own undefined symbols with
+    their original addresses, and the fresh object renamed for the link."""
+    import module_ledger, shift_build
+    item = module_ledger.load_modules().get(name)
+    require(item is not None, 'No such module in manifests/original_target/modules.json: ' + name)
+    rows = [r for r in manifest['accepted'] if r['source'] == item['source']]
+    require(rows, 'The module has no accepted rows: ' + item['source'])
+    obj_path = audit.path(rows[0]['object'])
+    require(all(audit.path(r['object']) == obj_path for r in rows), 'Module rows come from several objects')
+    coff = audit.coffs[obj_path]
+    bindings = dict(next(r['references'] for r in audit.catalog['regions'] if r['source'] == item['source']))
+    verification = json.loads((destination/'fresh-verification.json').read_text())
+    bindings.update({n: int(a, 16) for n, a in verification.get('rtti_original_copies', {}).items()})
+    module_code = {r['symbol']: r['entry'] for r in rows}
+    copies, failures = module_ledger.prove_data(coff, bindings, audit.original, module_code)
+    require(not failures, 'Module data not proven: %s' % failures[:3])
+    symbols = {r['entry']: r['symbol'] for r in rows}
+    symbols.update({c['address']: c['names'][0] for c in copies if c['address'] not in symbols})
+    defined = {s['name'] for s in coff.symbols.values() if s['section'] > 0}
+    undefined = sorted({s['name'] for s in coff.symbols.values() if s['section'] == 0 and s['storage'] == 2} - defined)
+    missing = [n for n in undefined if n not in bindings]
+    require(not missing, 'Module references without an original address: %s' % missing[:5])
+    data_ranges = item['ranges']
+    inside = {s['name'] for s in coff.symbols.values()
+              if s['section'] > 0 and s['name'] in bindings and any(a <= bindings[s['name']] < b for a, b in data_ranges)}
+    return dict(name=name, source=item['source'], rows=rows, object=obj_path,
+                code_ranges=[(r['entry'], r['entry'] + r['full_extent_bytes']) for r in rows], data_ranges=data_ranges,
+                symbols=symbols, definitions={n: bindings[n] for n in undefined},
+                renamed_object=shift_build.rename_sections(Path(obj_path).read_bytes(), name),
+                data_copies=copies, pad_bytes=512)
+
+
+def integrate(config, audit, manifest, destination, library=None, assembly=None, shift=None):
     pe = audit.pe; base=pe.OPTIONAL_HEADER.ImageBase; text=pe.sections[0]
     require(text.Name.rstrip(b'\0') == b'.text' and text.VirtualAddress == 0x1000, 'Unexpected text layout')
     scaffold = destination/'scaffold'; scaffold.mkdir()
+    plan = shift_plan(audit, manifest, destination, shift) if shift else None
     for section in pe.sections:
         name=section.Name.rstrip(b'\0').decode()
-        (scaffold/(name+'.bin')).write_bytes(section.get_data()[:min(section.Misc_VirtualSize,section.SizeOfRawData)])
-    parts, receipts = transferred_parts(audit,manifest)
+        data=bytearray(section.get_data()[:min(section.Misc_VirtualSize,section.SizeOfRawData)])
+        if plan:
+            # The module's original data bytes leave the image: nothing may still read them.
+            lo=base+section.VirtualAddress
+            for start,end in plan['data_ranges']:
+                if lo<=start and end<=lo+len(data):
+                    data[start-lo:end-lo]=b'\xcc'*(end-start)
+        (scaffold/(name+'.bin')).write_bytes(bytes(data))
+    if plan:
+        parts, receipts, symbolic = transferred_parts(audit,manifest,(plan['symbols'],plan['source']))
+    else:
+        parts, receipts = transferred_parts(audit,manifest); symbolic=None
     import library_build
     library_parts, library_receipts = library_build.parts(audit, library, manifest['accepted'])
     library_notes = [r for r in library_receipts if 'superseded_by_accepted_source' in r]
@@ -448,21 +519,34 @@ def integrate(config, audit, manifest, destination, library=None, assembly=None)
     library_notes += [r for r in assembly_receipts if 'superseded_by_accepted_source' in r]
     assembly_receipts = [r for r in assembly_receipts if 'entry' in r]
     library_parts = library_parts + assembly_parts
-    parts = sorted(parts + library_parts, key=lambda p: p[0])      # .text$VA names sort by address
-    container = write_coff(parts)
-    discard_receipt = verify_discard_transfer(audit, receipts, parts, container)
+    if symbolic is not None:
+        # Library parts follow the fragments; the relocation plan is keyed by part index.
+        import shift_build
+        order = sorted(range(len(parts) + len(library_parts)), key=lambda i: (parts + library_parts)[i][0])
+        merged = parts + library_parts
+        symbolic = {order.index(i): r for i, r in symbolic.items()}
+        parts = [merged[i] for i in order]
+        container = shift_build.write_container(parts, symbolic)
+    else:
+        parts = sorted(parts + library_parts, key=lambda p: p[0])      # .text$VA names sort by address
+        container = write_coff(parts)
+    discard_receipt = verify_discard_transfer(audit, receipts, parts, container, symbolic)
     (destination/'accepted.obj').write_bytes(container)
     write_json(destination/'discarded-output-receipt.json', discard_receipt)
     cursor=base+text.VirtualAddress; limit=cursor+min(text.Misc_VirtualSize,text.SizeOfRawData)
     asm=['# Explicit unrecovered original-byte scaffold.','.section .text,"xr"']
     text_path=(scaffold/'.text.bin').as_posix()
     placed = [(r['entry'], r['full_extent_bytes']) for r in manifest['accepted']] + [(r['entry'], r['bytes']) for r in library_receipts] + [(r['entry'], r['bytes']) for r in assembly_receipts]
+    filled = set(plan['code_ranges']) if plan else set()
     for entry, extent in sorted(placed):
         row = dict(entry=entry, full_extent_bytes=extent)
         require(cursor<=row['entry'] and row['entry']+row['full_extent_bytes']<=limit,'Extent outside text')
         if cursor<row['entry']:
             asm += ['.section .text$%08x,"xr"'%cursor,
                     '.incbin "%s", %d, %d'%(text_path,cursor-base-text.VirtualAddress,row['entry']-cursor)]
+        if (entry, entry+extent) in filled:
+            # The module's original code addresses hold int3 fill in a shift build.
+            asm += ['.section .text$%08x,"xr"'%entry, '.fill %d,1,0xcc'%extent]
         cursor=row['entry']+row['full_extent_bytes']
     if cursor<limit:
         asm += ['.section .text$%08x,"xr"'%cursor,
@@ -475,6 +559,15 @@ def integrate(config, audit, manifest, destination, library=None, assembly=None)
             asm += ['.zero %d'%(section.Misc_VirtualSize-section.SizeOfRawData)]
     asm += ['.section .text,"xr"','.globl _original_entry',
             '.set _original_entry, .text + %d'%(pe.OPTIONAL_HEADER.AddressOfEntryPoint-text.VirtualAddress)]
+    if plan:
+        import shift_build
+        # Padding ahead of the module's code (LINK sorts .text$y... before .text$z...), and the
+        # module's references out, defined at their original places in the scaffold sections.
+        asm += ['.section .text$y%s,"xr"'%plan['name'], '.fill %d,1,0xcc'%plan['pad_bytes']]
+        spans = [('.rawres' if s.Name.rstrip(b'\0')==b'.rsrc' else s.Name.rstrip(b'\0').decode(),
+                  base+s.VirtualAddress, base+s.VirtualAddress+s.Misc_VirtualSize) for s in pe.sections]
+        asm += shift_build.definition_lines(plan['definitions'], spans)
+        (destination/('module-%s.obj'%plan['name'])).write_bytes(plan['renamed_object'])
     source=destination/'scaffold.s';source.write_text('\n'.join(asm)+'\n')
     assembler=config.get('assembler')
     if not assembler:
@@ -484,10 +577,19 @@ def integrate(config, audit, manifest, destination, library=None, assembly=None)
                library_bytes=sum(r['bytes'] for r in library_receipts),
                assembly_regions=assembly_receipts, assembly_bytes=sum(r['bytes'] for r in assembly_receipts),
                remaining_text_scaffold_bytes=limit-base-text.VirtualAddress-sum(r['bytes'] for r in receipts)-sum(r['bytes'] for r in library_receipts)-sum(r['bytes'] for r in assembly_receipts),
-               assembler=assembler,assembler_sha256=sha(Path(assembler).read_bytes())))
+               assembler=assembler,assembler_sha256=sha(Path(assembler).read_bytes()),
+               **({'shift': dict(module=plan['name'], source=plan['source'], pad_bytes=plan['pad_bytes'],
+                                 code_ranges=[['%08x'%a,'%08x'%b] for a,b in plan['code_ranges']],
+                                 data_ranges=[['%08x'%a,'%08x'%b] for a,b in plan['data_ranges']],
+                                 symbolic_relocations=sum(len(v) for v in symbolic.values()),
+                                 symbolic_sites=sorted({(parts[i][0], n) for i, v in symbolic.items() for _, n, _ in v}),
+                                 definitions={n: '%08x'%a for n, a in plan['definitions'].items()},
+                                 module_object=str(destination/('module-%s.obj'%plan['name'])))} if plan else {})))
     args=['/nologo','/machine:ix86','/subsystem:windows,4.0','/base:0x400000','/entry:original_entry',
           '/fixed','/align:4096','/nodefaultlib','/incremental:no', '/out:'+win(destination/'linked.exe'),
           '/map:'+win(destination/'linked.map'),win(destination/'original.obj'),win(destination/'accepted.obj')]
+    if plan:
+        args.append(win(destination/('module-%s.obj'%plan['name'])))
     line='"'+win(config['linker'])+'" '+' '.join('"'+a+'"' for a in args)
     require((destination/'accepted.obj').read_bytes() == container, 'Placement container changed before link')
     discard_receipt['link_inputs'] = [dict(path=str(destination/name), sha256=sha((destination/name).read_bytes()))
@@ -509,6 +611,29 @@ def pe_structure(pe):
                 sections=[dict(name=s.Name.rstrip(b'\0').decode(),rva=s.VirtualAddress,
                                virtual_size=s.Misc_VirtualSize,raw_offset=s.PointerToRawData,
                                raw_size=s.SizeOfRawData,flags=s.Characteristics) for s in pe.sections])
+
+
+def shift_package(original, linked, destination, name):
+    """A shift build's runnable image and its receipt: not byte-exact by design."""
+    import shift_build
+    runnable = shift_build.patch_for_run(linked, original)
+    (destination/'shifted.exe').write_bytes(runnable)
+    new_pe=pefile.PE(data=linked)
+    placed = {}
+    for line in (destination/'linked.map').read_text(errors='replace').splitlines():
+        fields = line.split()
+        if len(fields) >= 4 and fields[-1] == 'module-%s.obj' % name:
+            placed[fields[1]] = fields[2]
+        elif len(fields) >= 3 and fields[2].startswith(('.text$y%s' % name, '.text$z%s' % name, '.data$z%s' % name,
+                                                         '.rdata$z%s' % name)):
+            placed[fields[2]] = fields[0] + ' ' + fields[1]
+    report=dict(whole_file_exact=False, output_sha256=sha(runnable), output_bytes=len(runnable),
+                raw_linked_sha256=sha(linked), raw_linked_bytes=len(linked), raw_linked_pe_structure=pe_structure(new_pe),
+                shift=dict(module=name, placed=placed),
+                scope='Shift build: the module is linker-placed behind padding and reached through symbols; '
+                      'the image runs but is not the original file and earns nothing.')
+    write_json(destination/'shift-receipt.json',report)
+    return report
 
 
 def package(original, linked, destination):
@@ -564,6 +689,10 @@ def main():
                         help='keep compile-NNN folders (sources, objects, logs) and fresh-accepted.json')
     parser.add_argument('--verify-jobs',type=int,default=None,
                         help='verification processes (default RA2_VERIFY_JOBS or min(4, CPUs))')
+    parser.add_argument('--shift-module',metavar='NAME',default=None,
+                        help='shift build (shift_build.py): link this module of manifests/original_target/modules.json '
+                             'where the linker puts it, behind padding, with every reference through a symbol; '
+                             'writes shifted.exe, not an exact image')
     args=parser.parse_args(); started=time.monotonic()
     marks=[started]
     def phase(name):
@@ -603,8 +732,13 @@ def main():
     fingerprints[catalog_key]=catalog_io.digest(args.manifest,catalog_blobs)
     compiled=compile_sources(config,catalog,destination); phase('compile')
     manifest=audit.verify_fresh(destination,compiled,jobs=args.verify_jobs); phase('verify fresh objects')
-    integrate(config,audit,manifest,destination,library,assembly); phase('integrate and link')
-    original=audit.read(config['executable']);report=package(original,(destination/'linked.exe').read_bytes(),destination); phase('package')
+    integrate(config,audit,manifest,destination,library,assembly,args.shift_module); phase('integrate and link')
+    original=audit.read(config['executable'])
+    if args.shift_module:
+        report=shift_package(original,(destination/'linked.exe').read_bytes(),destination,args.shift_module)
+    else:
+        report=package(original,(destination/'linked.exe').read_bytes(),destination)
+    phase('package')
     # Final input checks; each file is read once.
     # 1. Authored tools, toolchain manifest, catalog and policies: the code and
     #    plan that ran are the ones fingerprinted at build start.

@@ -553,7 +553,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                 continue;
             }
             if (!resend) {
-                unsigned long version = version_object_00a40c88.Clip_Version_00713170(unknown_gpacket_a3f640.Join.unknown_3b, unknown_gpacket_a3f640.Join.unknown_3f);
+                unsigned long version = VerNum.Clip_Version(unknown_gpacket_a3f640.Join.unknown_3b, unknown_gpacket_a3f640.Join.unknown_3f);
                 unknown_version_a3d8d4 = version;
                 if (version == 0) {
                     memset(&packet, 0, sizeof(packet));
@@ -569,7 +569,7 @@ void __fastcall Get_Join_Responses_005c08a0()
                     unknown_ipx_manager_a40978.Send_Global_Message(&packet, sizeof(packet), 1, &unknown_address_a3f80c, 0, 0);
                     continue;
                 }
-                unknown_session_a3d2ac = version_object_00a40c88.Version_Protocol_00713130(version);
+                unknown_session_a3d2ac = VerNum.Version_Protocol(version);
                 who = new NodeNameType;
                 memset(who, 0, sizeof(*who));
                 wcscpy(who->Name, Unknown_006FA180(unknown_gpacket_a3f640.Name));

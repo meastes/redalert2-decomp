@@ -1,0 +1,459 @@
+{
+ "module": "version",
+ "source": "src/recovered/version.cpp",
+ "header": "src/shared/version.hpp",
+ "population": "population-3705",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 2185,
+ "code": [
+  {
+   "symbol": "??0VersionClass@@QAE@XZ",
+   "entry": "00712b20",
+   "body_bytes": 43,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Version_Number@VersionClass@@QAEIXZ",
+   "entry": "00712b50",
+   "body_bytes": 512,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Major_Version@VersionClass@@QAEGXZ",
+   "entry": "00712d50",
+   "body_bytes": 180,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Minor_Version@VersionClass@@QAEGXZ",
+   "entry": "00712e10",
+   "body_bytes": 180,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+   "entry": "00712ed0",
+   "body_bytes": 443,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Read_Text_String@VersionClass@@AAEXXZ",
+   "entry": "00713090",
+   "body_bytes": 146,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Version_Protocol@VersionClass@@QAEHH@Z",
+   "entry": "00713130",
+   "body_bytes": 47,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Init_Clipping@VersionClass@@QAEXXZ",
+   "entry": "00713160",
+   "body_bytes": 12,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
+   "entry": "00713170",
+   "body_bytes": 61,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Min_Version@VersionClass@@QAEIXZ",
+   "entry": "007131b0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Max_Version@VersionClass@@QAEIXZ",
+   "entry": "007131c0",
+   "body_bytes": 6,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Version_Name@@YIPBDXZ",
+   "entry": "007131d0",
+   "body_bytes": 304,
+   "padding_bytes": 0
+  }
+ ],
+ "code_bytes": 2016,
+ "data": [
+  {
+   "symbol": "??_7VersionClass@@6B@",
+   "address": "007a2ab8",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 9
+  },
+  {
+   "symbol": "??_R1A@?0A@A@VersionClass@@8",
+   "address": "007ba060",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 4
+  },
+  {
+   "symbol": "??_R2VersionClass@@8",
+   "address": "007ba078",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 5
+  },
+  {
+   "symbol": "??_R3VersionClass@@8",
+   "address": "007ba080",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 6
+  },
+  {
+   "symbol": "??_R4VersionClass@@6B@",
+   "address": "007ba090",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 8
+  },
+  {
+   "symbol": "??_R0?AVVersionClass@@@8",
+   "address": "007d9b00",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 7
+  },
+  {
+   "symbol": "_VersionProtocol",
+   "address": "007f9700",
+   "bytes": 537,
+   "kind": "table",
+   "section": 2
+  },
+  {
+   "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+   "address": "007f991c",
+   "bytes": 12,
+   "kind": "string",
+   "section": 14
+  },
+  {
+   "symbol": "??_C@_08JHOJ@?$CFd?4?$CF3?43d?$AA@",
+   "address": "007f9928",
+   "bytes": 9,
+   "kind": "string",
+   "section": 21
+  },
+  {
+   "symbol": "??_C@_0CI@PPOP@?2StringFileInfo?2?$CF04d?$CF04d?2Product@",
+   "address": "007f9934",
+   "bytes": 40,
+   "kind": "string",
+   "section": 36
+  },
+  {
+   "symbol": "??_C@_0BJ@KCFH@?2VarFileInfo?2Translation?$AA@",
+   "address": "007f995c",
+   "bytes": 25,
+   "kind": "string",
+   "section": 37
+  }
+ ],
+ "data_ranges": [
+  {
+   "start": "007f9700",
+   "end": "007f9978",
+   "bytes": 632,
+   "proven_bytes": 623,
+   "alignment_bytes": 9,
+   "sections": 5,
+   "complete": true,
+   "gaps": []
+  }
+ ],
+ "data_bytes_proven": 623,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7VersionClass@@6B@",
+   "address": "007a2ab8",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@VersionClass@@8",
+   "address": "007ba060",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2VersionClass@@8",
+   "address": "007ba078",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3VersionClass@@8",
+   "address": "007ba080",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4VersionClass@@6B@",
+   "address": "007ba090",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVVersionClass@@@8",
+   "address": "007d9b00",
+   "bytes": 27,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00491a10",
+   "symbol": "?Version_Number@VersionClass@@QAEIXZ",
+   "target": "00712b50",
+   "function_entry": true
+  },
+  {
+   "site": "00491b70",
+   "symbol": "?Version_Number@VersionClass@@QAEIXZ",
+   "target": "00712b50",
+   "function_entry": true
+  },
+  {
+   "site": "00516c40",
+   "symbol": "?Version_Name@@YIPBDXZ",
+   "target": "007131d0",
+   "function_entry": true
+  },
+  {
+   "site": "00516c40",
+   "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+   "target": "00712ed0",
+   "function_entry": true
+  },
+  {
+   "site": "005171d0",
+   "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+   "target": "00712ed0",
+   "function_entry": true
+  },
+  {
+   "site": "005bfc40",
+   "symbol": "?Min_Version@VersionClass@@QAEIXZ",
+   "target": "007131b0",
+   "function_entry": true
+  },
+  {
+   "site": "005bfc40",
+   "symbol": "?Max_Version@VersionClass@@QAEIXZ",
+   "target": "007131c0",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
+   "target": "00713170",
+   "function_entry": true
+  },
+  {
+   "site": "00597680",
+   "symbol": "?Version_Protocol@VersionClass@@QAEHH@Z",
+   "target": "00713130",
+   "function_entry": true
+  },
+  {
+   "site": "00598330",
+   "symbol": "?Min_Version@VersionClass@@QAEIXZ",
+   "target": "007131b0",
+   "function_entry": true
+  },
+  {
+   "site": "00598330",
+   "symbol": "?Max_Version@VersionClass@@QAEIXZ",
+   "target": "007131c0",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
+   "target": "00713170",
+   "function_entry": true
+  },
+  {
+   "site": "0059b690",
+   "symbol": "?Version_Protocol@VersionClass@@QAEHH@Z",
+   "target": "00713130",
+   "function_entry": true
+  },
+  {
+   "site": "00599920",
+   "symbol": "?Init_Clipping@VersionClass@@QAEXXZ",
+   "target": "00713160",
+   "function_entry": true
+  },
+  {
+   "site": "0062dba0",
+   "symbol": "?Version_Name@@YIPBDXZ",
+   "target": "007131d0",
+   "function_entry": true
+  },
+  {
+   "site": "0062dba0",
+   "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+   "target": "00712ed0",
+   "function_entry": true
+  },
+  {
+   "site": "004b7df0",
+   "symbol": "?Version_Name@@YIPBDXZ",
+   "target": "007131d0",
+   "function_entry": true
+  },
+  {
+   "site": "004b7df0",
+   "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+   "target": "00712ed0",
+   "function_entry": true
+  },
+  {
+   "site": "0059bc90",
+   "symbol": "?Min_Version@VersionClass@@QAEIXZ",
+   "target": "007131b0",
+   "function_entry": true
+  },
+  {
+   "site": "0059bc90",
+   "symbol": "?Max_Version@VersionClass@@QAEIXZ",
+   "target": "007131c0",
+   "function_entry": true
+  },
+  {
+   "site": "004d45f0",
+   "symbol": "??0VersionClass@@QAE@XZ",
+   "target": "00712b20",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Version_Name@@YIPBDXZ",
+   "target": "007131d0",
+   "function_entry": true
+  },
+  {
+   "site": "0062a360",
+   "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+   "target": "00712ed0",
+   "function_entry": true
+  },
+  {
+   "site": "00596540",
+   "symbol": "?Init_Clipping@VersionClass@@QAEXXZ",
+   "target": "00713160",
+   "function_entry": true
+  },
+  {
+   "site": "005bd070",
+   "symbol": "?Version_Number@VersionClass@@QAEIXZ",
+   "target": "00712b50",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
+   "target": "00713170",
+   "function_entry": true
+  },
+  {
+   "site": "005c08a0",
+   "symbol": "?Version_Protocol@VersionClass@@QAEHH@Z",
+   "target": "00713130",
+   "function_entry": true
+  },
+  {
+   "site": "0074a710",
+   "symbol": "?Version_Number@VersionClass@@QAEIXZ",
+   "target": "00712b50",
+   "function_entry": true
+  },
+  {
+   "site": "00698d00",
+   "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+   "target": "00712ed0",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0RawFileClass@@QAE@PBD@Z",
+   "address": "00638b40"
+  },
+  {
+   "symbol": "??1RawFileClass@@UAE@XZ",
+   "address": "00638ac0"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GVersionClass@@UAEPAXI@Z",
+   "address": "004d4980"
+  },
+  {
+   "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+   "address": "00638ca0"
+  },
+  {
+   "symbol": "?ProgramInstance@@3PAXA",
+   "address": "00b26180"
+  },
+  {
+   "symbol": "?Read@RawFileClass@@UAEJPAXJ@Z",
+   "address": "00638d90"
+  },
+  {
+   "symbol": "?VerNum@@3VVersionClass@@A",
+   "address": "00a40c88"
+  },
+  {
+   "symbol": "_GetFileVersionInfoA@16",
+   "address": "00781bea"
+  },
+  {
+   "symbol": "_GetFileVersionInfoSizeA@8",
+   "address": "00781bf0"
+  },
+  {
+   "symbol": "_VerQueryValueA@16",
+   "address": "00781be4"
+  },
+  {
+   "symbol": "__imp__GetModuleFileNameA@12",
+   "address": "0079a198"
+  },
+  {
+   "symbol": "_sprintf",
+   "address": "007820f4"
+  }
+ ]
+}

@@ -11,12 +11,13 @@ original code is still scaffold. Per-batch evidence through A15 is in
 | Measure | Value |
 | --- | ---: |
 | **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,522,216 of 3,769,805 (93.43%)** |
-| Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated; read from the manifest) | 14,606 in 7 regions (0.39% of .text) |
+| Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated, split_declaration; read from the manifest) | 29,093 in 9 regions (0.77% of .text) |
 | Accepted regions | 17,904 |
 | Matched C/C++ body bytes | 3,270,592 (86.76% of .text) |
 | Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user's three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) | 14,606 in 7 regions (0.39% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 2,514 (0.07% of .text) |
 | Frozen padding bytes | 142,984 |
+| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 1 module(s): 12 functions, 2,016 code bytes; **623 data bytes compiler-emitted and proven at their original addresses** in 5 sections, 100 bytes of vtable/RTTI copies kept elsewhere; own ledger, no .text credit (version) |
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,127 in 899 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
@@ -2350,6 +2351,8 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `0ee059823` | 2026-11-11 04:03 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `2c6345eea` | 2026-11-11 04:37 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 | `6eb7f5f04` | 2026-11-11 05:02 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `8f7ead839` | 2026-11-11 06:35 -0600 | 17,904 | 3,270,592 | +0 | 0 |
+| `d4fe8d188` | 2026-11-11 09:43 -0600 | 17,904 | 3,270,592 | +0 | 0 |
 
 <!-- /generated:status -->
 

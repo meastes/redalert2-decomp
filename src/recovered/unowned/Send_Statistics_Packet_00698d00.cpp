@@ -196,7 +196,7 @@ void __fastcall Unknown_00698D00(bool arg)
     stats.Add_Field("SPED", (char)unknown_a40b18);
 
     char version[128];
-    wsprintfA(version, "V%s", version_object_00a40c88.Internal_Version_Name_00712ed0());
+    wsprintfA(version, "V%s", VerNum.Version_Name());
     stats.Add_Field("VERS", (char const *)version);
 
     char path_to_exe[280];

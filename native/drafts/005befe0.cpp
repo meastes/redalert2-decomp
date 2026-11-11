@@ -25,7 +25,7 @@ void *Native_Entry_From_Handle(int handle);   // NATIVE: native/link/native_even
 // @ref ?Unknown_005cbf20@@YIXPAUHWND__@@HHH@Z=005cbf20
 // @ref ?unknown_center_on_owner_737060@@YIXPAUHWND__@@@Z=00737060
 // @ref ?Load_Lobby_Options_005cca30@@YIXPAUHWND__@@PAUUnknownGameOptions@@@Z=005cca30
-// @ref ?Init_Clipping_00713160@UnknownVersionObject@@QAEXXZ=00713160
+// @ref ?Init_Clipping@UnknownVersionObject@@QAEXXZ=00713160
 // @ref ?Select_Scenario_005c7c30@@YI_NH@Z=005c7c30
 // @ref ?Open_Lobby_Dialog_005c6960@@YIHPAUHWND__@@@Z=005c6960
 // @ref ?Is_Host_005c86a0@@YA_NXZ=005c86a0
@@ -224,7 +224,7 @@ long __stdcall Host_Dialog_Proc_005befe0(HWND window, unsigned message, unsigned
         break;
     }
     case 0x497:
-        version_object_00a40c88.Init_Clipping_00713160();
+        VerNum.Init_Clipping();
         srand(unknown_random_839218(1, 0x7FFF));
         Seed = rand();
         unknown_center_on_owner_737060(window);

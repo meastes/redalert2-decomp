@@ -301,7 +301,8 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
                     Select_Color_Combo_4d2480(dialog, color, 8);
                 } else {
                     id = Player_Side_Combo_ID_4d1350(slot);
-                    if (unknown_session_a3d29c == 0 || !unknown_session_a3d29c->unknown_slot1()) {
+                    // NATIVE (Scout1274): the original (0x005C4A13) fills the side combo only when a game mode is set and its slot 1 is false
+                    if (unknown_session_a3d29c != 0 && !unknown_session_a3d29c->unknown_slot1()) {
                         Fill_Side_Combo_4d1560(dialog, id);
                     }
                     SendMessageA(GetDlgItem(dialog, Slot_Control_Id_005c97a0(slot)), 0x4F1, 0, 0);

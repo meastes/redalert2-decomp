@@ -16,7 +16,18 @@ re-verifies exactly the affected translation units:
    "headers": {"src/shared/techno.hpp": "build/class-work/W/shared/techno.hpp"},
    "header_base": "COMMIT the header copies were made from",
    "sources": {"src/recovered/.../X.cpp": "build/class-work/W/d/X.cpp"},
-   "moves": {"src/recovered/.../Old_0076e730.cpp": "src/recovered/.../New_0076e730.cpp"}}
+   "moves": {"src/recovered/.../Old_0076e730.cpp": "src/recovered/.../New_0076e730.cpp"},
+   "modules": {"src/recovered/version.cpp": {"draft": "build/class-work/W/version.cpp",
+                                              "regions": ["00712b20", "00712b50", ...]}},
+   "options": {"population-3705": ["/O2", "/Ob2", "/G5", "/Gy", "/GR"]}}
+
+`modules` gathers accepted regions of one population into one source file
+(the original translation unit's form): the draft becomes the module source,
+every listed region's row points at it (its old file is removed, its
+semantic name dropped), and the population recompiles as one unit like any
+other. `options` sets a population's recorded option set (one of
+canonical.RECORDED_OPTIONS), e.g. /GR for a unit whose emitted RTTI and
+vtable are then compared with the original's.
 
 `mangling_rewrite` rules expand into further renames: every name in the
 catalog and symbols.json they change (the expanded list is in the receipt).
@@ -144,6 +155,40 @@ def planned_files(spec):
         files[new] = files.pop(old, None) or (REPOSITORY / old).read_bytes()
         removed.append(old)
     return files, removed
+
+
+def apply_modules(catalog, spec, files, removed):
+    """Point the listed regions at their module source (see the module docstring);
+    return the affected population ids."""
+    from canonical import RECORDED_OPTIONS
+    affected = set()
+    for module, item in spec.get('modules', {}).items():
+        source_path(REPOSITORY, module)
+        entries = {int(e, 16) for e in item['regions']}
+        rows = [r for r in catalog['regions'] if r['entry'] in entries]
+        if len(rows) != len(entries):
+            raise SystemExit('%s: %d of %d regions are accepted' % (module, len(rows), len(entries)))
+        if len({r['population'] for r in rows}) != 1:
+            raise SystemExit('%s: regions of several populations' % module)
+        files[module] = (REPOSITORY / item['draft']).read_bytes()
+        for row in rows:
+            if row['source'] != module and row['source'] not in removed:
+                removed.append(row['source'])
+            row['source'] = module
+            row.pop('semantic_name', None)
+            affected.add(row['population'])
+    for path in removed:
+        files.pop(path, None)
+    for pid, options in spec.get('options', {}).items():
+        if options not in RECORDED_OPTIONS:
+            raise SystemExit('%s: options %s are not a recorded option set' % (pid, options))
+        rows = [r for r in catalog['regions'] if r['population'] == pid]
+        if not rows:
+            raise SystemExit('%s: no such population' % pid)
+        for row in rows:
+            row['options'] = options
+        affected.add(pid)
+    return affected
 
 
 def rename_catalog(catalog, renames, files, moves):
@@ -319,9 +364,10 @@ def main():
     phase('load')
     files, removed = planned_files(spec)
     moves = spec.get('moves', {})
+    modules = apply_modules(catalog, spec, files, removed)
     sources = {p: d for p, d in files.items() if p.startswith('src/recovered/')}
     headers = sorted(p for p in files if p.startswith('src/shared/'))
-    populations = rename_catalog(catalog, spec['renames'], sources, moves)
+    populations = rename_catalog(catalog, spec['renames'], sources, moves) | modules
     unknown = [p for p in sources if p not in {r['source'] for r in catalog['regions']}]
     if unknown:
         raise SystemExit('changed files are not accepted sources: %s' % unknown[:5])
@@ -370,6 +416,12 @@ def main():
         if misses:
             raise SystemExit('refused, %d regions no longer match (tree restored):\n%s' %
                              (len(misses), json.dumps(misses[:20], indent=1)))
+        # The receipts are fresh now: references into a source-form module must name its symbols.
+        from canonical import validate_modules
+        try:
+            validate_modules(REPOSITORY, catalog)
+        except ValueError as error:
+            raise SystemExit('refused (tree restored): %s' % error)
         drifted = [r['source'] for r in catalog['regions']
                    if r['entry'] in before and json.dumps(r, sort_keys=True) != before[r['entry']]]
         if drifted:

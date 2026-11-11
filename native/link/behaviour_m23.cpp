@@ -54,7 +54,7 @@ bool Native_Multiplayer_Unavailable()
 
 // The Network (LAN) selection: the same box unless RA2_NATIVE_LAN=1 (test runs, Scout1209
 // r7). IPX is carried over UDP (port/src/wsock32.cpp); the LAN code then reaches
-// IPXManagerClass::Service 0x00525F60 and the lobby rows, which are still link-closure traps.
+// IPXManagerClass::Service 0x00525F60 (draft, codex4 r545) and the lobby rows.
 extern "C" char *getenv(char const *name);
 bool Native_LAN_Unavailable()
 {

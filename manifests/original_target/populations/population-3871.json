@@ -4,8 +4,8 @@
     "id": "population-3871",
     "inventory_sha256": "bdbd3e400a977f13929367cd9ef0997340de203137fa2188ffb3ffda5b7638fe",
     "gaps_sha256": "62889a264fdbb33313c42a346e9e3e2a2ce86c1e4792e42f37d5dcf9a42c776e",
-    "historical_population_sha256": "970b381ec3441ec1b2176e8dfa5e25cd6501804387f768f3e866b18f8c5cb609",
-    "historical_acceptance_sha256": "e0924b4570f5930598706e5126f6787c3a9e96e20ee58ab0a6733dcf36f9404e"
+    "historical_population_sha256": "9e29565b948935183b4955a31529498105c98d1e55abdeaef179f9c43f5031f6",
+    "historical_acceptance_sha256": "d05e1f95cd4153e29bb7a0051d25a2f7c3751cd9d14a0d053b98aac1e362cae0"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1805,7 +1805,7 @@
     "___RTtypeid": 7879685,
     "?Adjacent_Coord_With_Height@@YI?AUCoordStruct@@ABU1@H@Z": 4790400,
     "?Draw_It@IonBlastClass@@QAEXXZ": 5381344,
-    "_?empty@?1??Version_Name_007131d0@@YIPBDXZ@4_NA": 8362264,
+    "_?empty@?1??Version_Name@@YIPBDXZ@4_NA": 8362264,
     "__iob": 8580240,
     "__real@8@bff8a3d70a3d70a3d800": 8055152,
     "?Adjust@PaletteClass@@QAEXH@Z": 6303904,
@@ -1911,7 +1911,7 @@
     "??_C@_1BA@FNA@?$AA?$FL?$AA?$CF?$AAs?$AA?$FN?$AA?5?$AA?$CF?$AAs?$AA?$AA@": 8265336,
     "?Find_Combo_Item_Data_00736e10@@YIHPAUHWND__@@HH@Z": 7564816,
     "?Free_Pointers_005a7480@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z": 5928064,
-    "?Init_Clipping_00713160@UnknownVersionObject@@QAEXXZ": 7418208,
+    "?Init_Clipping@UnknownVersionObject@@QAEXXZ": 7418208,
     "?_DrawMessage_005c2da0@@YIXHPBGPAUHWND__@@@Z": 6040992,
     "?Unknown_006FA0C0@@YIXPAGPBDH@Z": 7315648,
     "?Unknown_006FA180@@YIPAGPBD@Z": 7315840,
@@ -1925,7 +1925,7 @@
     "?unknown_map_name_a3d342@@3PAGA": 10736450,
     "?unknown_name_a3d3a0@@3PADA": 10736544,
     "?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A": 10746492,
-    "?version_object_00a40c88@@3UUnknownVersionObject@@A": 10751112,
+    "?VerNum@@3UUnknownVersionObject@@A": 10751112,
     "??_C@_02HAKO@ON?$AA@": 8265536,
     "??_C@_03CMJG@OFF?$AA@": 8265532,
     "??_C@_0BN@COBG@ModemGuest?4ReadDialog?$CIexit?$CJ?6?$AA@": 8265812,
@@ -1938,10 +1938,10 @@
     "?Unknown_005c7570@@YIXPAUHWND__@@@Z": 6059376,
     "?Send_Options_00598330@ModemGuest@@QAEXXZ": 5866288,
     "?serial_local_player_00a3fb38@@3HA": 10746680,
-    "?Clip_Version_00713170@VersionClass@@QAEHKK@Z": 7418224,
-    "?Version_Protocol_00713130@VersionClass@@QAEHH@Z": 7418160,
+    "?Clip_Version@VersionClass@@QAEIII@Z": 7418224,
+    "?Version_Protocol@VersionClass@@QAEHH@Z": 7418160,
     "?unknown_a3fba4@@3HA": 10746788,
-    "?version_object_00a40c88@@3VVersionClass@@A": 10751112,
+    "?VerNum@@3VVersionClass@@A": 10751112,
     "??_C@_06DN@TXT_OK?$AA@": 8239348,
     "??_C@_0BB@BKJO@Received?5packet?6?$AA@": 8265924,
     "??_C@_0BC@PPII@Received?5SignOff?6?$AA@": 8266264,
@@ -1983,8 +1983,8 @@
     "?unknown_special_a40920@@3VSpecialClass@@A": 10750240,
     "??_EWstring@@QAEPAXI@Z": 4239168,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "?Unknown_007131b0@VersionClass@@QAEKXZ": 7418288,
-    "?Unknown_007131c0@VersionClass@@QAEKXZ": 7418304,
+    "?Min_Version@VersionClass@@QAEIXZ": 7418288,
+    "?Max_Version@VersionClass@@QAEIXZ": 7418304,
     "?Unknown_00737af0@@YAHXZ": 7568112,
     "??_C@_0BA@JILO@TXT_SIGNING_OFF?$AA@": 8266388,
     "?Unknown_005B5EE0@@YAXXZ": 5988064,
@@ -8816,7 +8816,7 @@
     "?Show@Selection@WorldDominationTour@@SIXABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z": 7536512,
     "?unknown_modem_host_first_7e2410@@3_NA": 8266768,
     "?Unknown_0068B420@SpecialClass@@QAEXXZ": 6861856,
-    "?Init_Clipping_00713160@VersionClass@@QAEXXZ": 7418208,
+    "?Init_Clipping@VersionClass@@QAEXXZ": 7418208,
     "?Read_INI_Preview@MapPreviewClass@@QAE_NPBD@Z": 6415008,
     "?Search_Registry_Key@@YIPAUHKEY__@@PAU1@PBD1@Z": 5884832,
     "?Random_Map_CRC_005c8420@@YIPADXZ": 6063136,
@@ -9108,8 +9108,8 @@
     "?unknown_random_aabce0@@3HA": 11189472,
     "?unknown_sync_states_a780d8@@3PAUUnknownSyncState@@A": 10977496,
     "?Unknown_0062DBA0@@YIXHPAVEventClass@@@Z": 6478752,
-    "?Version_Name_007131d0@@YIPBDXZ": 7418320,
-    "?Internal_Version_Name_00712ed0@VersionClass@@QAEPBDXZ": 7417552,
+    "?Version_Name@@YIPBDXZ": 7418320,
+    "?Version_Name@VersionClass@@QAEPADXZ": 7417552,
     "?CRC@@3PAKA": 11230940,
     "__imp__IsWindowVisible@4": 7972056,
     "__imp__GetClassNameA@12": 7972064,
@@ -9445,11 +9445,11 @@
     "??0VersionClass@@QAE@XZ": 7416608,
     "??0UnknownFrameTiming@@QAE@XZ": 6435344,
     "?unknown_timing_aabcf0@@3PAUUnknownFrameTiming@@A": 11189488,
-    "?Version_Number@VersionClass@@QAEKXZ": 7416656,
+    "?Version_Number@VersionClass@@QAEIXZ": 7416656,
     "?Major_Version@VersionClass@@QAEGXZ": 7417168,
     "?Minor_Version@VersionClass@@QAEGXZ": 7417360,
-    "?Read_Text_String@VersionClass@@QAEXXZ": 7418000,
-    "_?buffer@?1??Version_Name_007131d0@@YIPBDXZ@4PADA": 8361752,
+    "?Read_Text_String@VersionClass@@AAEXXZ": 7418000,
+    "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA": 8361752,
     "??0PaletteClass@@QAE@ABVRGBClass@@@Z": 6303696,
     "??0PaletteClass@@QAE@PAE@Z": 6303776,
     "??8PaletteClass@@QBE_NABV0@@Z": 6303824,
@@ -10058,7 +10058,26 @@
     "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
     "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
     "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
-    "?Direction@UnknownFacingDir@@QAEAAU1@ABUCoordStruct@@0@Z": 4341488
+    "?Direction@UnknownFacingDir@@QAEAAU1@ABUCoordStruct@@0@Z": 4341488,
+    "?Clip_Version@VersionClass@@QAEHKK@Z": 7418224,
+    "?Waiting@VQMovieHandle@@UAEXXZ": 5904544,
+    "?Timing@VQMovieHandle@@UAEHXZ": 5904688,
+    "?Value@ObjectClass@@UAEHXZ": 6106400,
+    "?Get_Height@ObjectClass@@UBEHXZ": 6113280,
+    "?Waiting@BinkMovieHandle@@UAEXXZ": 5905152,
+    "?Timing@BinkMovieHandle@@UAEHXZ": 5905232,
+    "?Render@UnitClass@@UAE_NPAVRect@@_N1@Z": 7336784,
+    "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "?Render@VoxelAnimClass@@UAE_NPAVRect@@_N1@Z": 7393136,
+    "?Value@TechnoClass@@UAEHXZ": 7156048,
+    "?Render@AnimClass@@UAE_NPAVRect@@_N1@Z": 4328992,
+    "?Get_Height@AnimClass@@UBEHXZ": 4337888,
+    "?Render@BuildingClass@@UAE_NPAVRect@@_N1@Z": 4432384,
+    "?Version_Name@WindowsVersionInfo@@QAEPADXZ": 7565120,
+    "?Render@TerrainClass@@UAE_NPAVRect@@_N1@Z": 7226416,
+    "?Min_Version@VersionClass@@QAEKXZ": 7418288,
+    "?Max_Version@VersionClass@@QAEKXZ": 7418304
   },
   "regions": [
     {
@@ -13049,7 +13068,7 @@
         {
           "offset": 505,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -13057,7 +13076,7 @@
         {
           "offset": 512,
           "kind": 20,
-          "symbol": "?Clip_Version_00713170@VersionClass@@QAEHKK@Z",
+          "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
           "target": 7418224,
           "addend": 0,
           "resolved": 1554668
@@ -13233,7 +13252,7 @@
         {
           "offset": 782,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -13241,7 +13260,7 @@
         {
           "offset": 787,
           "kind": 20,
-          "symbol": "?Version_Protocol_00713130@VersionClass@@QAEHH@Z",
+          "symbol": "?Version_Protocol@VersionClass@@QAEHH@Z",
           "target": 7418160,
           "addend": 0,
           "resolved": 1554329
@@ -14111,7 +14130,7 @@
           "resolved": 5864954
         }
       ],
-      "source_sha256": "1d7109ed9b9b2d317edec012f2869d20cb49ee197071138bf936a3508e3e972f",
+      "source_sha256": "2046c7482992d19ffecb81833af98c4bc5752c5c2d1e0d4c32e34994c9f0c2ba",
       "switch_data_bytes": 49,
       "source": "src/recovered/classes/ModemGuest/ModemGuest_Process_Messages_00597680.cpp",
       "population": "population-3871",
@@ -14792,7 +14811,7 @@
         {
           "offset": 69,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -14800,7 +14819,7 @@
         {
           "offset": 81,
           "kind": 20,
-          "symbol": "?Unknown_007131b0@VersionClass@@QAEKXZ",
+          "symbol": "?Min_Version@VersionClass@@QAEIXZ",
           "target": 7418288,
           "addend": 0,
           "resolved": 1551915
@@ -14808,7 +14827,7 @@
         {
           "offset": 86,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -14816,7 +14835,7 @@
         {
           "offset": 95,
           "kind": 20,
-          "symbol": "?Unknown_007131c0@VersionClass@@QAEKXZ",
+          "symbol": "?Max_Version@VersionClass@@QAEIXZ",
           "target": 7418304,
           "addend": 0,
           "resolved": 1551917
@@ -14870,7 +14889,7 @@
           "resolved": 229888
         }
       ],
-      "source_sha256": "dee23198a8297f47c055d36eec0121459fdaec539452804cddec754c9619157f",
+      "source_sha256": "5dcbcdf7589c4f9f047cb3d3bb99340dc2c74c3265ce59f9c519ab9cc641c385",
       "source": "src/recovered/classes/ModemGuest/ModemGuest_Send_Options_00598330.cpp",
       "population": "population-3871",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -17554,7 +17573,7 @@
         {
           "offset": 1808,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 0,
           "resolved": 10751112
@@ -17562,7 +17581,7 @@
         {
           "offset": 1813,
           "kind": 20,
-          "symbol": "?Init_Clipping_00713160@VersionClass@@QAEXXZ",
+          "symbol": "?Init_Clipping@VersionClass@@QAEXXZ",
           "target": 7418208,
           "addend": 0,
           "resolved": 1557767
@@ -17760,7 +17779,7 @@
           "resolved": 4293327796
         }
       ],
-      "source_sha256": "c392af0d90cac67b0b3ceba1095964e6588e10f2a162df64c44768ff68380d1e",
+      "source_sha256": "e3b0026fb6ee07f9fb95484486701caa1c969496c47ef3141a44e49b3214fc8e",
       "source": "src/recovered/classes/ModemGuest/ModemGuest_Init_Dialog_00596540.cpp",
       "population": "population-3871",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

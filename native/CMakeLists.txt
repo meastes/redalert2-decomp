@@ -82,6 +82,11 @@ target_compile_options(ra2_dialect INTERFACE
   # name in place; README "Writable string literals"). Clang's -fwritable-strings
   # emits every literal, narrow and wide, as its own __DATA,__data object.
   "$<$<COMPILE_LANGUAGE:CXX>:-fwritable-strings>"
+  # The original computes with the x87 rounding toward zero (WinMain's
+  # _controlfp(_RC_CHOP, _MCW_RC); port/src/crt.cpp applies it to the game
+  # thread). -frounding-math keeps clang from assuming round-to-nearest when it
+  # folds or reorders floating-point code (Scout1274).
+  "$<$<COMPILE_LANGUAGE:CXX>:-frounding-math>"
   "$<$<COMPILE_LANGUAGE:CXX>:-Wno-error=address-of-temporary;-Wno-register;-Wno-c++11-narrowing;-w>"
   "$<$<COMPILE_LANGUAGE:CXX>:SHELL:-include ${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp>")
 target_include_directories(ra2_dialect INTERFACE "${RA2_NATIVE_GEN}/overlay")

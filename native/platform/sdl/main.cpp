@@ -235,6 +235,12 @@ int main(int argc, char **argv)
             SDL_GetWindowSize(app_window, &ww, &wh);
             if (!native || !hostos::usable_rect(native, &r)) r = hostos::Rect{0, 0, (double)ww, (double)wh};
             if (r.w < r.h) std::swap(r.w, r.h);     // started upright or folded: the landscape inner screen
+            // Tests (Scout1274): RA2_NATIVE_USABLE_POINTS=<w>x<h> picks the resolution as if that
+            // much were clear (the Duo's 944x634 on a Simulator that reports 594x432).
+            if (const char *v = getenv("RA2_NATIVE_USABLE_POINTS")) {
+                double fw = 0, fh = 0;
+                if (sscanf(v, "%lfx%lf", &fw, &fh) == 2 && fw > 0 && fh > 0) r.w = fw, r.h = fh;
+            }
             int gw = 0, gh = 0;
             app::game_resolution(r.w, r.h, scale, gw, gh);
             fprintf(stderr, "app: usable %.0fx%.0f points (window %dx%d), scale %g\n", r.w, r.h, ww, wh, scale);

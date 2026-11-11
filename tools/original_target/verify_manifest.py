@@ -905,6 +905,12 @@ class Audit:
                 'Accepted inline-assembly ledger flag differs from frozen candidate')
         require(all(row.get(k) == candidate.get(k) for k in ('count_calibrated', 'count_calibrated_note')),
                 'Accepted count-calibration flag differs from frozen candidate')
+        require(all(row.get(k) == candidate.get(k) for k in ('split_declaration', 'split_declaration_note')),
+                'Accepted split-declaration flag differs from frozen candidate')
+        require(row.get('split_declaration') is None and row.get('split_declaration_note') is None or
+                row.get('split_declaration') is True and isinstance(row.get('split_declaration_note'), str) and
+                row['split_declaration_note'].strip() != '',
+                'split_declaration: true needs a non-empty split_declaration_note, and the note needs the flag')
         # Count-calibrated rows (canonical.validate_count_calibrated): the note goes with the flag.
         calibrated, note = row.get('count_calibrated'), row.get('count_calibrated_note')
         require(calibrated is None and note is None or

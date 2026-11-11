@@ -135,8 +135,8 @@ struct UnknownGlobalPacket {
             int unknown_2f;             // +0x2F session 0x006729F0 (+0x124)
             int unknown_33;             // +0x33 session 0x00672A10 (+0x11C)
             char unknown_37[0x3B - 0x37];
-            unsigned long unknown_3b;   // +0x3B version_object_00a40c88 0x007131B0
-            unsigned long unknown_3f;   // +0x3F version_object_00a40c88 0x007131C0
+            unsigned long unknown_3b;   // +0x3B VerNum 0x007131B0
+            unsigned long unknown_3f;   // +0x3F VerNum 0x007131C0
             int unknown_43;             // +0x43 unknown_a71e9c
             int unknown_47;             // +0x47 unknown_a71ea4
             int unknown_4b;             // +0x4B unknown_a71ea0

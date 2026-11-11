@@ -80,7 +80,9 @@ bool SidebarClass::StripClass::Unknown_006802D0()
             }
             for (int i = 0; i < max_visible; i++) {
                 if (Same_Buildable(unshifted[i], Buildables[index])) {   // NATIVE: the overlay's operator==
-                    unshifted[i] = UnknownBuildable30();
+                    // Clear the identity used to retain the first surviving visible icon.
+                    unshifted[i].unknown_00 = 0;
+                    unshifted[i].unknown_04 = 0;
                 }
             }
             if (BuildableCount > 1 && index < BuildableCount - 1) {

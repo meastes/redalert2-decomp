@@ -4,8 +4,8 @@
     "id": "population-3705",
     "inventory_sha256": "2c4f678c172584a8f5e14031ac2ff95ac55d37f2f79253d1d5acb1e4f227428a",
     "gaps_sha256": "989c432a32114f4054f31fbf0eeaac09781ad0cf2f5d242c002140d2715fd0b2",
-    "historical_population_sha256": "9861ac546d6995116884e668c4fbeb19cf1d79a7111ccc738ad9b91daa3a4f27",
-    "historical_acceptance_sha256": "a74708adf7209fc1667e030197cc84d1019530e183063b771cbc1fba724854b3"
+    "historical_population_sha256": "fe58d8f8b24da8d50fadb0009b71c23281cea170aa1f8754fd1ec5631bb49943",
+    "historical_acceptance_sha256": "5e08c4ce1801e2082bbf52548b11732101fdc8b692b0cd9d35df9db73ac42f66"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -134,9 +134,9 @@
     "__real@4@40058000000000000000": 8023672,
     "__real@4@c004f000000000000000": 8029820,
     "__wcsdup": 7958579,
-    "?Unknown_007131b0@VersionClass@@QAEKXZ": 7418288,
-    "?Unknown_007131c0@VersionClass@@QAEKXZ": 7418304,
-    "?Init_Clipping_00713160@VersionClass@@QAEXXZ": 7418208,
+    "?Min_Version@VersionClass@@QAEIXZ": 7418288,
+    "?Max_Version@VersionClass@@QAEIXZ": 7418304,
+    "?Init_Clipping@VersionClass@@QAEXXZ": 7418208,
     "__real@8@4005c7e6666666666800": 8033952,
     "__real@8@c005c800000000000000": 8019912,
     "__real@8@3fe08000000080000000": 8019432,
@@ -224,7 +224,7 @@
     "?Read@RawFileClass@@UAEJPAXJ@Z": 6524304,
     "??1RawFileClass@@UAE@XZ": 6523584,
     "??_C@_0M@CNNK@VERSION?4TXT?$AA@": 8362268,
-    "?version_object_00a40c88@@3VVersionClass@@A": 10751112,
+    "?VerNum@@3VVersionClass@@A": 10751112,
     "??_C@_08JHOJ@?$CFd?4?$CF3?43d?$AA@": 8362280,
     "_VersionProtocol": 8361728,
     "__imp__GetModuleFileNameA@12": 7971224,
@@ -233,18 +233,18 @@
     "_GetFileVersionInfoA@16": 7871466,
     "_VerQueryValueA@16": 7871460,
     "_sprintf": 7872756,
-    "_?buffer@?1??Version_Name_007131d0@@YIPBDXZ@4PADA": 8361752,
-    "_?empty@?1??Version_Name_007131d0@@YIPBDXZ@4_NA": 8362264,
+    "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA": 8361752,
+    "_?empty@?1??Version_Name@@YIPBDXZ@4_NA": 8362264,
     "??_C@_0BJ@KCFH@?2VarFileInfo?2Translation?$AA@": 8362332,
     "??_C@_0CI@PPOP@?2StringFileInfo?2?$CF04d?$CF04d?2Product@": 8362292,
-    "?Version_Number@VersionClass@@QAEKXZ": 7416656,
+    "?Version_Number@VersionClass@@QAEIXZ": 7416656,
     "?Major_Version@VersionClass@@QAEGXZ": 7417168,
     "?Minor_Version@VersionClass@@QAEGXZ": 7417360,
-    "?Internal_Version_Name_00712ed0@VersionClass@@QAEPBDXZ": 7417552,
-    "?Read_Text_String@VersionClass@@QAEXXZ": 7418000,
-    "?Version_Protocol_00713130@VersionClass@@QAEHH@Z": 7418160,
-    "?Clip_Version_00713170@VersionClass@@QAEHKK@Z": 7418224,
-    "?Version_Name_007131d0@@YIPBDXZ": 7418320,
+    "?Version_Name@VersionClass@@QAEPADXZ": 7417552,
+    "?Read_Text_String@VersionClass@@AAEXXZ": 7418000,
+    "?Version_Protocol@VersionClass@@QAEHH@Z": 7418160,
+    "?Clip_Version@VersionClass@@QAEIII@Z": 7418224,
+    "?Version_Name@@YIPBDXZ": 7418320,
     "?get@Leaf_401170@@QAEXXZ": 4198768,
     "?get@Leaf_401940@@QAEIXZ": 4200768,
     "?get@Leaf_402030@@QAEPAXXZ": 4202544,
@@ -7633,19 +7633,91 @@
     "??0PaletteClass@@QAE@PAE@Z": 6303776,
     "??8PaletteClass@@QBE_NABV0@@Z": 6303824,
     "??4AbstractClass@@QAEAAV0@ABV0@@Z": 5679600,
-    "?unknown_slot5@PlanningModeCommandClass@@UBE_NH@Z": 5355952
+    "?unknown_slot5@PlanningModeCommandClass@@UBE_NH@Z": 5355952,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??_GMixFileClass@@UAEPAXI@Z": 5856352,
+    "??_7MixFileClass@@6B@": 8021104,
+    "??1MixFileClass@@UAE@XZ": 5854752,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "??0MixFileClass@@QAE@PBDPBVPKey@@@Z": 5853936,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "__real@8@c0058000000000000000": 8027384,
+    "__real@8@3ffca2f9836e4e441800": 7983464,
+    "__real@8@400196cbe3f9990e9000": 7983456,
+    "__real@8@3ff2d1b71758e2196800": 8013344,
+    "__real@8@40049800000000000000": 8013336,
+    "__real@8@4000e000000000000000": 8013328,
+    "?Print_CRCs@@YIXPAVEventClass@@@Z": 6464352,
+    "__real@8@40039000000000000000": 7979656,
+    "__real@8@3ffe9999999999999800": 7979632,
+    "__real@8@40059600000000000000": 8019760,
+    "__real@4@400c9c3c000000000000": 8027432,
+    "__real@8@3fe2b0000000b0000000": 8020072,
+    "__real@8@3fe3a8000000a8000000": 8019984,
+    "__real@8@4005a000000000000000": 8019976,
+    "__real@8@3ff1d1b71758e2196800": 8019944,
+    "__real@8@3ff6a3d70a3d70a3d800": 8019936,
+    "__real@8@c0008000000000000000": 8019928,
+    "__real@8@bffe8000000000000000": 7981488,
+    "__real@8@4001afeddf4ddd3ba800": 8019824,
+    "__real@8@3ffe860a91c16b9b2800": 8019816,
+    "__real@8@3ffb8f5c28f5c28f6000": 8019808,
+    "__real@8@3fe5b6000000b6000000": 8019800,
+    "__real@8@4000a78d3631c681f800": 8019784,
+    "__real@8@bffda0d97bb4e7870000": 8019776,
+    "__real@4@3ff9a72f050000000000": 8048688,
+    "__deaccel": 8033976,
+    "__sinking_scale": 8033992,
+    "__sinking": 8033984,
+    "__real@8@3ffbba2e8ba2e8ba3000": 7996880,
+    "__real@8@4001e000000000000000": 7996872,
+    "__real@8@3ffc9249249249249000": 7996864,
+    "__real@8@40039800000000000000": 8051880,
+    "__real@4@3ffeb504f30000000000": 8029784,
+    "__real@4@3ffeb504f367f3bcd800": 8029780,
+    "__real@4@bfff8000000000000000": 8029776,
+    "__real@4@40069600000000000000": 7981736,
+    "__real@8@400f8000000000000000": 8017344,
+    "?Delete@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@QAE_NH@Z": 6482432,
+    "__real@8@4003f000000000000000": 8053472,
+    "__real@4@4003f000000000000000": 8030272,
+    "__real@4@40068c00000000000000": 8030200,
+    "__real@4@4005d800000000000000": 8030196,
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
+    "_?sizes@?1??Draw_NonMagnetic_007238b0@WaveClass@@QAEXABUCoordStruct@@0@Z@4PAY03UVector3@@A": 11505992,
+    "__real@4@40018000000000000000": 7980236,
+    "__real@4@4002a000000000000000": 7980232,
+    "__real@4@40008000000000000000": 7980228,
+    "__real@8@400d8000000000000000": 7983264,
+    "__real@8@3fffccccccccccccd000": 8020032,
+    "__real@8@3ffaa3d70a3d70a3d800": 7998288,
+    "__real@8@3ffe947ae147ae147800": 8049000,
+    "__real@8@3fe3c8000000c8000000": 8019992,
+    "__except_handler3": 7885524,
+    "__except_list": 0,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "??_EMixFileClass@@UAEPAXI@Z": 5856352,
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVVersionClass@@@8": 8231680,
+    "??_R0?AVMixFileClass@@@8": 8265192,
+    "??_R0?AVWinModemClass@@@8": 8374768
   },
   "regions": [
     {
       "entry": 7418208,
       "method": "00713160",
-      "symbol": "?Init_Clipping_00713160@VersionClass@@QAEXXZ",
-      "symbol_prefix": "?Init_Clipping_00713160@VersionClass@@QAEXXZ",
+      "symbol": "?Init_Clipping@VersionClass@@QAEXXZ",
+      "symbol_prefix": "?Init_Clipping@VersionClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 12,
       "body_sha256": "82772c4bf34cb289cc2b9f1d1b21e7e2fe266c7d63de4f4204e73d779287d518",
@@ -7653,25 +7725,25 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "44494958a0da33ebbf594fe60a79cfcd95b7410924b40cdf716eaf761d594f51",
       "relocations": [],
-      "source_sha256": "61595034d3cbbc06e0ebefa06fd45ad9d064c491e5945741797d315b398400ec",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Init_Clipping_00713160.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Init_Clipping_00713160",
       "source_order": 163968
     },
     {
       "entry": 7418288,
       "method": "007131b0",
-      "symbol": "?Unknown_007131b0@VersionClass@@QAEKXZ",
-      "symbol_prefix": "?Unknown_007131b0@VersionClass@@QAEKXZ",
+      "symbol": "?Min_Version@VersionClass@@QAEIXZ",
+      "symbol_prefix": "?Min_Version@VersionClass@@QAEIXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 6,
       "body_sha256": "b262f5e01308f835d3757273cce6a09eaebbb1b8fb79610cc3d9e86bb0f16a93",
@@ -7679,25 +7751,25 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "0fb12494d8caa7daac788fb6fcff897e615b575a3e94a83c3b3a22181feee03a",
       "relocations": [],
-      "source_sha256": "83e55a2b2d683415e3f7dfe1b93ff619da200bc1a053666078a7e882d6751b2d",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Min_Version_007131b0.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Min_Version_007131b0",
       "source_order": 163970
     },
     {
       "entry": 7418304,
       "method": "007131c0",
-      "symbol": "?Unknown_007131c0@VersionClass@@QAEKXZ",
-      "symbol_prefix": "?Unknown_007131c0@VersionClass@@QAEKXZ",
+      "symbol": "?Max_Version@VersionClass@@QAEIXZ",
+      "symbol_prefix": "?Max_Version@VersionClass@@QAEIXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 6,
       "body_sha256": "b262f5e01308f835d3757273cce6a09eaebbb1b8fb79610cc3d9e86bb0f16a93",
@@ -7705,25 +7777,25 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "0fb12494d8caa7daac788fb6fcff897e615b575a3e94a83c3b3a22181feee03a",
       "relocations": [],
-      "source_sha256": "9f77bb3d97a43e2e15fa41eab981135811785fde038c868982c4405d3b613b1d",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Max_Version_007131c0.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Max_Version_007131c0",
       "source_order": 163971
     },
     {
       "entry": 7418224,
       "method": "00713170",
-      "symbol": "?Clip_Version_00713170@VersionClass@@QAEHKK@Z",
-      "symbol_prefix": "?Clip_Version_00713170@VersionClass@@QAEHKK@Z",
+      "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
+      "symbol_prefix": "?Clip_Version@VersionClass@@QAEIII@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 61,
       "body_sha256": "efcfed9d7b5251a370004d6052ee423b50b74f1d146ea1d52b16841af10be674",
@@ -7731,13 +7803,12 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "8cfcc25a005943d5e1f960bcb212c1c3dfcacbf6eec8030cdd6d9906900dd8e6",
       "relocations": [],
-      "source_sha256": "2abed2e01687e62f0676c9df201adf0ccedf425f9db8d05e97b6a2eff4d2144e",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Clip_Version_00713170.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Clip_Version_00713170",
       "source_order": 163969
     },
     {
@@ -7749,7 +7820,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 43,
       "body_sha256": "e05f1b7cf7732598ab112779b3973f62e5e5ede500475c4e006a1e1c205e26bc",
@@ -7766,25 +7838,25 @@
           "resolved": 8006332
         }
       ],
-      "source_sha256": "bc9308e3c1ddd28b588dbce6d07ea49dcb9e0da001bcabbd6823eb8ce9eff529",
-      "source": "src/recovered/classes/VersionClass/VersionClass_ctor_00712b20.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_ctor_00712b20",
       "source_order": 163961
     },
     {
       "entry": 7416656,
       "method": "00712b50",
-      "symbol": "?Version_Number@VersionClass@@QAEKXZ",
-      "symbol_prefix": "?Version_Number@VersionClass@@QAEKXZ",
+      "symbol": "?Version_Number@VersionClass@@QAEIXZ",
+      "symbol_prefix": "?Version_Number@VersionClass@@QAEIXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 512,
       "body_sha256": "ccfb72e582c52317d4b9a19d0fc8c5160fb7466bed1076ad68ac416fec75315d",
@@ -7913,13 +7985,12 @@
           "resolved": 4294073791
         }
       ],
-      "source_sha256": "2ad14955ed8fa94a9f45e51fc9e5bf77883f4e85da4f049042cc7ece93102b0e",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Version_Number_00712b50.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Version_Number_00712b50",
       "source_order": 163962
     },
     {
@@ -7931,7 +8002,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 180,
       "body_sha256": "1edfcfa0268fa697cbd2e3105c6ea063e9b36f20721322491f36ed323bdf0aa1",
@@ -7980,13 +8052,12 @@
           "resolved": 4294073579
         }
       ],
-      "source_sha256": "ddba45863dfbbb493c30d0fc903d04d488364b001c0b25ef85adc866a2c504c6",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Major_Version_00712d50.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Major_Version_00712d50",
       "source_order": 163963
     },
     {
@@ -7998,7 +8069,8 @@
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 180,
       "body_sha256": "fc2bda761aa7ef1c65c7aec7cea8f7dab0ea28d6a75475b4b5b55cd04afc6069",
@@ -8047,25 +8119,25 @@
           "resolved": 4294073387
         }
       ],
-      "source_sha256": "cd1364e5f3996d72a491649bbe6a3f9762d7735666f132c06ecfd97c1a249f78",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Minor_Version_00712e10.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Minor_Version_00712e10",
       "source_order": 163964
     },
     {
       "entry": 7417552,
       "method": "00712ed0",
-      "symbol": "?Internal_Version_Name_00712ed0@VersionClass@@QAEPBDXZ",
-      "symbol_prefix": "?Internal_Version_Name_00712ed0@VersionClass@@QAEPBDXZ",
+      "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+      "symbol_prefix": "?Version_Name@VersionClass@@QAEPADXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 443,
       "body_sha256": "e6bcb98a18e4909e3e92dd8428de56795eb91f0f8d3c450263cdcbd278625a65",
@@ -8116,7 +8188,7 @@
         {
           "offset": 198,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 68,
           "resolved": 10751180
@@ -8148,7 +8220,7 @@
         {
           "offset": 240,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 42,
           "resolved": 10751154
@@ -8164,7 +8236,7 @@
         {
           "offset": 254,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 42,
           "resolved": 10751154
@@ -8172,7 +8244,7 @@
         {
           "offset": 265,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 57,
           "resolved": 10751169
@@ -8180,7 +8252,7 @@
         {
           "offset": 276,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 41,
           "resolved": 10751153
@@ -8188,7 +8260,7 @@
         {
           "offset": 284,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 42,
           "resolved": 10751154
@@ -8196,7 +8268,7 @@
         {
           "offset": 298,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 42,
           "resolved": 10751154
@@ -8204,7 +8276,7 @@
         {
           "offset": 304,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 40,
           "resolved": 10751152
@@ -8212,7 +8284,7 @@
         {
           "offset": 318,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 41,
           "resolved": 10751153
@@ -8220,7 +8292,7 @@
         {
           "offset": 329,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 42,
           "resolved": 10751154
@@ -8236,7 +8308,7 @@
         {
           "offset": 343,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 68,
           "resolved": 10751180
@@ -8244,7 +8316,7 @@
         {
           "offset": 350,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 68,
           "resolved": 10751180
@@ -8252,7 +8324,7 @@
         {
           "offset": 355,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 68,
           "resolved": 10751180
@@ -8260,7 +8332,7 @@
         {
           "offset": 369,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 8,
           "resolved": 10751120
@@ -8268,7 +8340,7 @@
         {
           "offset": 377,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 68,
           "resolved": 10751180
@@ -8276,7 +8348,7 @@
         {
           "offset": 390,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 8,
           "resolved": 10751120
@@ -8284,7 +8356,7 @@
         {
           "offset": 396,
           "kind": 6,
-          "symbol": "?version_object_00a40c88@@3VVersionClass@@A",
+          "symbol": "?VerNum@@3VVersionClass@@A",
           "target": 10751112,
           "addend": 68,
           "resolved": 10751180
@@ -8306,25 +8378,25 @@
           "resolved": 454773
         }
       ],
-      "source_sha256": "7af9bf8546eff5e142ac3581c08a7f9b991312543cbc34300997644abe700df7",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Internal_Version_Name_00712ed0.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Internal_Version_Name_00712ed0",
       "source_order": 163965
     },
     {
       "entry": 7418000,
       "method": "00713090",
-      "symbol": "?Read_Text_String@VersionClass@@QAEXXZ",
-      "symbol_prefix": "?Read_Text_String@VersionClass@@QAEXXZ",
+      "symbol": "?Read_Text_String@VersionClass@@AAEXXZ",
+      "symbol_prefix": "?Read_Text_String@VersionClass@@AAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 146,
       "body_sha256": "22fe639b196ad6ed5161f10ddc1e453bdf5490c7bdcf00740bd2ea878431d8ea",
@@ -8381,25 +8453,25 @@
           "resolved": 4294072742
         }
       ],
-      "source_sha256": "6a2b893599c13d48597cc1a4c375991068bc7ac22716980a57bc7a9d296e2ae7",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Read_Text_String_00713090.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Read_Text_String_00713090",
       "source_order": 163966
     },
     {
       "entry": 7418160,
       "method": "00713130",
-      "symbol": "?Version_Protocol_00713130@VersionClass@@QAEHH@Z",
-      "symbol_prefix": "?Version_Protocol_00713130@VersionClass@@QAEHH@Z",
+      "symbol": "?Version_Protocol@VersionClass@@QAEHH@Z",
+      "symbol_prefix": "?Version_Protocol@VersionClass@@QAEHH@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 47,
       "body_sha256": "1d88e84a1f332780d8b676f894189bedd73c5aa11c1a4960b6271be997d0445b",
@@ -8440,25 +8512,25 @@
           "resolved": 8361732
         }
       ],
-      "source_sha256": "b23373f5f266c9d17073b5397bc149c032034d9ee6a281afcc9c99faf3ad71f7",
-      "source": "src/recovered/classes/VersionClass/VersionClass_Version_Protocol_00713130.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VersionClass_Version_Protocol_00713130",
       "source_order": 163967
     },
     {
       "entry": 7418320,
       "method": "007131d0",
-      "symbol": "?Version_Name_007131d0@@YIPBDXZ",
-      "symbol_prefix": "?Version_Name_007131d0@@YIPBDXZ",
+      "symbol": "?Version_Name@@YIPBDXZ",
+      "symbol_prefix": "?Version_Name@@YIPBDXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
-        "/Gy"
+        "/Gy",
+        "/GR"
       ],
       "body_bytes": 304,
       "body_sha256": "3b099b687c2f4bc7292d9c0ca4dbfdcc1d8d50d04aec006f98c788e11c9fda6d",
@@ -8469,7 +8541,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "_?empty@?1??Version_Name_007131d0@@YIPBDXZ@4_NA",
+          "symbol": "_?empty@?1??Version_Name@@YIPBDXZ@4_NA",
           "target": 8362264,
           "addend": 0,
           "resolved": 8362264
@@ -8485,7 +8557,7 @@
         {
           "offset": 42,
           "kind": 6,
-          "symbol": "_?empty@?1??Version_Name_007131d0@@YIPBDXZ@4_NA",
+          "symbol": "_?empty@?1??Version_Name@@YIPBDXZ@4_NA",
           "target": 8362264,
           "addend": 0,
           "resolved": 8362264
@@ -8565,7 +8637,7 @@
         {
           "offset": 251,
           "kind": 6,
-          "symbol": "_?buffer@?1??Version_Name_007131d0@@YIPBDXZ@4PADA",
+          "symbol": "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA",
           "target": 8361752,
           "addend": 0,
           "resolved": 8361752
@@ -8581,7 +8653,7 @@
         {
           "offset": 278,
           "kind": 6,
-          "symbol": "_?buffer@?1??Version_Name_007131d0@@YIPBDXZ@4PADA",
+          "symbol": "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA",
           "target": 8361752,
           "addend": 0,
           "resolved": 8361752
@@ -8589,19 +8661,18 @@
         {
           "offset": 292,
           "kind": 6,
-          "symbol": "_?buffer@?1??Version_Name_007131d0@@YIPBDXZ@4PADA",
+          "symbol": "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA",
           "target": 8361752,
           "addend": 0,
           "resolved": 8361752
         }
       ],
-      "source_sha256": "6cd22a2cf89b901110e378efac43ef7f6f31a63946310649bd6f2c9461c5efad",
-      "source": "src/recovered/classes/VersionClass/Version_Name_007131d0.cpp",
+      "source_sha256": "37cae3b76fd17849c2e544c528ba911dff5234610ae1cb118775de71a6c4ec67",
+      "source": "src/recovered/version.cpp",
       "population": "population-3705",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Version_Name_007131d0",
       "source_order": 163972
     }
   ]

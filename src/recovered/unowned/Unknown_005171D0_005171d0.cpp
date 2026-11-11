@@ -7,13 +7,9 @@
 // @ref ??_C@_0BA@NANB@D?3?2Ra2?2Init?4CPP?$AA@=007db8e4
 // @ref ??_C@_1M@EOJM@?$AA?$CF?$AAs?$AA?5?$AA?$CF?$AAs?$AA?$AA@=007dc0d0
 // @ref ??_C@_0M@FDGB@GUI?3Version?$AA@=007dc0dc
-// @ref ?version_object_00a40c88@@3VVersionClass@@A=00a40c88
-// @ref ?unknown_internal_version_text_712ed0@@YIPBDPAVVersionClass@@@Z=00712ed0
+// @ref ?VerNum@@3VVersionClass@@A=00a40c88
 // @ref ?Unknown_006FA180@@YIPAGPBD@Z=006fa180
 
-class VersionClass;
-extern VersionClass version_object_00a40c88;
-char const *__fastcall unknown_internal_version_text_712ed0(VersionClass *object);    // 0x00712ED0
 
 // The main menu dialog's procedure (pointer only, 0x00516F00's dialog 0xE2): the common handler
 // first; WM_PAINT sends 0x4F0 to item 0x71A; 0x497 shows the version in item 0x71D; the
@@ -31,7 +27,7 @@ int __stdcall Unknown_005171D0(HWND window, UINT message, WPARAM wparam, LPARAM 
         {
             HWND item = GetDlgItem(window, 0x71D);
             swprintf(buffer, L"%s %s", StringTable::Load_String("GUI:Version", 0, "D:\\Ra2\\Init.CPP", 5723),
-                Unknown_006FA180(unknown_internal_version_text_712ed0(&version_object_00a40c88)));
+                Unknown_006FA180(VerNum.Version_Name()));
             SendMessageA(item, 0x4B2, 0, (LPARAM)buffer);
         }
         return 0;

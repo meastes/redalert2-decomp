@@ -36,7 +36,9 @@ def count_calibrated(region):
 
 # Manifest flags that mark an accepted row resting on a judgment call (decision policy, user 2026-11-09):
 # plausible but unprovable source forms. Twin-evidenced categories (evidenced inline asm) are not here.
-JUDGMENT_FLAGS = ('count_calibrated',)
+# split_declaration (review 2026-11-11, docs/DECISIONS.md): a row whose bytes depend on a header keeping a
+# second declaration of a module's class (canonical.validate_split_declaration).
+JUDGMENT_FLAGS = ('count_calibrated', 'split_declaration')
 
 
 def judgment_coverage(catalog):
@@ -256,8 +258,23 @@ def text_bytes(executable):
     return next(s.Misc_VirtualSize for s in pe.sections if s.Characteristics & 0x20)
 
 
+def module_form(repository=REPOSITORY):
+    """Modules in original-translation-unit form (manifests/original_target/modules/*.json, written by
+    module_ledger.py from a kept-intermediates build): functions, code bytes and compiler-emitted data
+    bytes proven at their original addresses. The data line is its own ledger, not .text credit."""
+    maps = sorted((repository / 'manifests/original_target/modules').glob('*.json'))
+    entries = [json.loads(m.read_text()) for m in maps]
+    return dict(modules=len(entries), functions=sum(len(e['code']) for e in entries),
+                code_bytes=sum(e['code_bytes'] for e in entries),
+                data_bytes=sum(e['data_bytes_proven'] for e in entries),
+                data_sections=sum(len(e['data']) - len(e['kept_elsewhere']) for e in entries),
+                kept_elsewhere_bytes=sum(c['bytes'] for e in entries for c in e['kept_elsewhere']),
+                names=[e['module'] for e in entries])
+
+
 def render(catalog, text, rows, funcs=None, lib=None, asm=None):
     now = coverage(catalog)
+    modules = module_form()
     calibrated = calibrated_coverage(catalog)
     judgment = judgment_coverage(catalog)
     scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm'] - (lib['bytes'] if lib else 0) - (asm['bytes'] if asm else 0)
@@ -283,6 +300,12 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None):
              'not C/C++ credit) | {:,} ({:.2f}% of .text) |'.format(now['evidenced_inline_asm'],
                                                             100.0 * now['evidenced_inline_asm'] / text),
              '| Frozen padding bytes | {:,} |'.format(now['padding']),
+             '| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) '
+             '| {:,} module(s): {:,} functions, {:,} code bytes; **{:,} data bytes compiler-emitted and proven at their '
+             'original addresses** in {:,} sections, {:,} bytes of vtable/RTTI copies kept elsewhere; own ledger, no .text '
+             'credit ({}) |'.format(modules['modules'], modules['functions'], modules['code_bytes'], modules['data_bytes'],
+                                     modules['data_sections'], modules['kept_elsewhere_bytes'],
+                                     ', '.join(modules['names']) or 'none'),
              '| C runtime / library bytes (.text >= 0x{:X}; library ledger, not source credit) '
              '| {:,} ({:.2f}% of .text; {:,} matched) |'.format(CRT_START, split['crt'], 100.0 * split['crt'] / text,
                                                               split['crt_matched']),

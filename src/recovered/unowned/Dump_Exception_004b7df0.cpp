@@ -122,9 +122,9 @@ void __fastcall Dump_Exception_004b7df0(_EXCEPTION_POINTERS *information);
 // @ref ?Build_Time_Text@@YIXPADH@Z=00737a60
 // @ref ?Unknown_00737ad0@@YIPADPADH@Z=00737ad0
 // @ref ?Unknown_00737b00@@YIPADPADH@Z=00737b00
-// @ref ?Version_Name_007131d0@@YIPBDXZ=007131d0
-// @ref ?Internal_Version_Name_00712ed0@VersionClass@@QAEPBDXZ=00712ed0
-// @ref ?version_object_00a40c88@@3VVersionClass@@A=00a40c88
+// @ref ?Version_Name@@YIPBDXZ=007131d0
+// @ref ?Version_Name@VersionClass@@QAEPBDXZ=00712ed0
+// @ref ?VerNum@@3VVersionClass@@A=00a40c88
 // @ref __imp__LoadLibraryA@4=0079a210
 // @ref __imp__GetProcAddress@8=0079a240
 // @ref __imp__FreeLibrary@4=0079a214
@@ -265,10 +265,10 @@ void __fastcall Dump_Exception_004b7df0(_EXCEPTION_POINTERS *information)
     }
     Add_Txt(scrap);
 
-    wsprintfA(scrap, "\r\nVersion %s\r\n", Version_Name_007131d0());
+    wsprintfA(scrap, "\r\nVersion %s\r\n", Version_Name());
     Add_Txt(scrap);
 
-    wsprintfA(scrap, "Internal Version %s\r\n", version_object_00a40c88.Internal_Version_Name_00712ed0());
+    wsprintfA(scrap, "Internal Version %s\r\n", VerNum.Version_Name());
     Add_Txt(scrap);
 
     char buildinfo[128];

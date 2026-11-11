@@ -17,10 +17,10 @@
 #include "shared/ww_message_box.hpp"
 #include "shared/id_source.hpp"
 #include "shared/session_state.hpp"
-// @ref ?Clip_Version_00713170@VersionClass@@QAEHKK@Z=00713170
-// @ref ?Version_Protocol_00713130@VersionClass@@QAEHH@Z=00713130
+// @ref ?Clip_Version@VersionClass@@QAEHKK@Z=00713170
+// @ref ?Version_Protocol@VersionClass@@QAEHH@Z=00713130
 // @ref ?unknown_a3fba4@@3HA=00a3fba4
-// @ref ?version_object_00a40c88@@3VVersionClass@@A=00a40c88
+// @ref ?VerNum@@3VVersionClass@@A=00a40c88
 // @ref ??_C@_06DN@TXT_OK?$AA@=007db8f4
 // @ref ??_C@_0BB@BKJO@Received?5packet?6?$AA@=007e20c4
 // @ref ??_C@_0BC@PPII@Received?5SignOff?6?$AA@=007e2218
@@ -97,7 +97,7 @@ bool ModemGuest::Process_Messages_00597680()
         }
         case 0x65: {
             Debug_Printf("Received game options\n");
-            int version = version_object_00a40c88.Clip_Version_00713170(packet.Options.MinVersion, packet.Options.MaxVersion);
+            int version = VerNum.Clip_Version(packet.Options.MinVersion, packet.Options.MaxVersion);
             if (version == 0) {
                 WWMessageBox(L" ").Process(StringTable::Load_String("TXT_DESTGAME_OUTDATED", 0, "D:\\Ra2\\ModemGst.cpp", 0x4B9),
                     StringTable::Load_String("TXT_OK", 0, "D:\\Ra2\\ModemGst.cpp", 0x4B9), 0, 0, 0);
@@ -126,7 +126,7 @@ bool ModemGuest::Process_Messages_00597680()
                 ReceiveTime = TickCount.Time();
                 return true;
             }
-            unknown_session_a3d2ac = version_object_00a40c88.Version_Protocol_00713130(version);
+            unknown_session_a3d2ac = VerNum.Version_Protocol(version);
             unsigned short *host = Unknown_006FA180(packet.Name);
             Set_Host_00597130(host, packet.Options.Color, packet.Options.House);
             if (Receive_Options_00597e50(&packet) == true) {

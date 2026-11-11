@@ -432,7 +432,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
         Unknown_005c9b90(window,0,true); Change_Scenario_Slots_005cb8d0(window,-1,unknown_session_a3d2b4);
         Update_Channel_Player_Limit_00749f20(); Refresh_Slot_Images_005c9ec0(window);
         Unknown_005c3450(window,unknown_session_a3d298.Mode); Unknown_005c34b0(window); Load_Random_Map_Preview_005cc800(window);
-        host_version_a3d8d4=version_object_00a40c88.Version_Number(); SetTimer(window,0x14af8,5000,0);
+        host_version_a3d8d4=VerNum.Version_Number(); SetTimer(window,0x14af8,5000,0);
         Unknown_Fill_Options_Dialog_005c3550(window,1); Refresh_Slot_Settings_005ca000(window,true); SetFocus(GetDlgItem(window,0x540));
         if(unknown_b2ac40) goto host_unhandled;
         WOL::User user;

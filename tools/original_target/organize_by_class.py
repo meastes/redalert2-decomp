@@ -35,10 +35,14 @@ def main():
     catalog_path = catalog_io.locate(REPOSITORY)
     catalog = catalog_io.load(catalog_path)
     owners = ClassOwners(); moved = 0
+    from collections import Counter
+    shared = {s for s, n in Counter(r['source'] for r in catalog['regions']).items() if n > 1}
     for region in catalog['regions']:
         source = Path(region['source'])
         if region.get('semantic_name') or region.get('source_quality_family') == 'hand-written':
             continue    # named, hand-placed sources keep their location
+        if region['source'] in shared:
+            continue    # a module source (one original translation unit) is placed by hand
         in_classes = source.parts[:3] == ('src', 'recovered', 'classes')
         if source.parent != Path('src/recovered') and not in_classes:
             continue

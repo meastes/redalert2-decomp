@@ -64,10 +64,10 @@
 // @ref ??_C@_0N@PCCD@?6Version?5?$CFs?6?$AA@=007ede80
 // @ref ??_C@_0O@ODMA@?$CFs?7?$CIType?3?$CFd?$CJ?5?$AA@=007edb84
 // @ref ??_C@_0P@ICAG@Object?5?$CFd?3?5?$CFx?5?$AA@=007edba8
-// @ref ?Internal_Version_Name_00712ed0@VersionClass@@QAEPBDXZ=00712ed0
+// @ref ?Version_Name@VersionClass@@QAEPBDXZ=00712ed0
 // @ref ?Unknown_00737ad0@@YIPADPADH@Z=00737ad0
 // @ref ?Unknown_00737b00@@YIPADPADH@Z=00737b00
-// @ref ?Version_Name_007131d0@@YIPBDXZ=007131d0
+// @ref ?Version_Name@@YIPBDXZ=007131d0
 // @ref ?unknown_cpu_text_8015a5@@3PADA=008015a5
 // @ref ??_C@_0N@EICA@Owner?3?5None?6?$AA@=007edf38
 // @ref ?CRC@@3PAKA=00ab5edc
@@ -96,8 +96,8 @@ void __fastcall Unknown_0062DBA0(int index, EventClass *event)
     }
 
     fprintf(file, "RA2 Sync\n");
-    fprintf(file, "\nVersion %s\n", Version_Name_007131d0());
-    fprintf(file, "Internal Version %s\n", version_object_00a40c88.Internal_Version_Name_00712ed0());
+    fprintf(file, "\nVersion %s\n", Version_Name());
+    fprintf(file, "Internal Version %s\n", VerNum.Version_Name());
     time[0] = 0;
     Build_Time_Text(time, sizeof(time));
     fprintf(file, "Release Build: %s by %s - %s\r\n", Unknown_00737ad0(machine, sizeof(machine)), Unknown_00737b00(builder, sizeof(builder)), time);

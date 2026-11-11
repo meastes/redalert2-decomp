@@ -199,8 +199,8 @@ void __fastcall Print_CRCs(EventClass *event)
     }
 
     fprintf(file, "RA2 Sync\n");
-    fprintf(file, "\nVersion %s\n", Version_Name_007131d0());
-    fprintf(file, "Internal Version %s\n", version_object_00a40c88.Internal_Version_Name_00712ed0());
+    fprintf(file, "\nVersion %s\n", Version_Name());
+    fprintf(file, "Internal Version %s\n", VerNum.Version_Name());
     time[0] = 0;
     Build_Time_Text(time, sizeof(time));
     fprintf(file, "Release Build: %s by %s - %s\r\n", Unknown_00737ad0(machine, sizeof(machine)), Unknown_00737b00(builder, sizeof(builder)), time);

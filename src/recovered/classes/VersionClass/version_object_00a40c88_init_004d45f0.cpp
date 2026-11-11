@@ -9,6 +9,6 @@
 // @ref ??_EVersionClass@@UAEPAXI@Z=004d4980
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref _atexit=0078298a
-// @ref ?version_object_00a40c88@@3VVersionClass@@A=00a40c88
+// @ref ?VerNum@@3VVersionClass@@A=00a40c88
 
-VersionClass version_object_00a40c88;
+VersionClass VerNum;

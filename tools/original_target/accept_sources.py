@@ -48,7 +48,9 @@ INLINE_ASM_KEYS = ('inline_asm', 'inline_asm_citation')
 # Plan-item keys of a count-calibrated row (canonical.validate_count_calibrated),
 # carried the same way; see carry_count_calibration for re-accepted regions.
 COUNT_CALIBRATED_KEYS = ('count_calibrated', 'count_calibrated_note')
-LEDGER_KEYS = INLINE_ASM_KEYS + COUNT_CALIBRATED_KEYS
+# Plan-item keys of a split-declaration row (canonical.validate_split_declaration), carried the same way.
+SPLIT_DECLARATION_KEYS = ('split_declaration', 'split_declaration_note')
+LEDGER_KEYS = INLINE_ASM_KEYS + COUNT_CALIBRATED_KEYS + SPLIT_DECLARATION_KEYS
 
 
 def carry_count_calibration(plan, existing):
@@ -69,7 +71,29 @@ def carry_count_calibration(plan, existing):
         if not any(key in item for key in COUNT_CALIBRATED_KEYS) and old.get('count_calibrated'):
             item.update({key: old[key] for key in COUNT_CALIBRATED_KEYS if key in old})
             inherited.append(int(item['entry'], 16))
+        if item.get('split_declaration') is False:
+            for key in SPLIT_DECLARATION_KEYS:
+                item.pop(key, None)
+        elif not any(key in item for key in SPLIT_DECLARATION_KEYS) and old.get('split_declaration'):
+            item.update({key: old[key] for key in SPLIT_DECLARATION_KEYS if key in old})
     return inherited
+
+
+def refuse_module_sources(plan, catalog):
+    """A plan carries one file per region. A module source (one original translation unit holding
+    several rows, docs/SOURCE_FORM_TRIAL.md) changes through apply_rename.py: refuse a plan that
+    names one or replaces a row of a population holding one."""
+    from collections import Counter
+    counts = Counter(r['source'] for r in catalog['regions'])
+    shared = {s for s, n in counts.items() if n > 1}
+    populations = {r['population'] for r in catalog['regions'] if r['source'] in shared}
+    entries = {int(i['entry'], 16) for i in plan['sources']}
+    rows = [r for r in catalog['regions'] if r['entry'] in entries]
+    hit = sorted({i['source'] for i in plan['sources'] if i['source'] in shared} |
+                 {r['source'] for r in rows if r['population'] in populations})
+    if hit:
+        raise SystemExit('plan touches a module source or its population (%s): use apply_rename.py '
+                         '(sources/modules), not a per-region plan' % ', '.join(hit))
 
 
 def named_symbols():
@@ -471,6 +495,7 @@ def main():
     sync_headers(catalog); catalog_io.dump(catalog, catalog_path)
     existing = {r['entry']: r for r in catalog['regions']}
     restate_canonical_bounds(plan, existing)
+    refuse_module_sources(plan, catalog)
     for entry in carry_count_calibration(plan, existing):
         print('note: %08x keeps its count_calibrated flag and note' % entry, file=sys.stderr)
     # A replaced region keeps the bindings it was accepted with (its

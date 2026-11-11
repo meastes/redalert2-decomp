@@ -193,6 +193,20 @@ def validate_count_calibrated(row):
     return True
 
 
+def validate_split_declaration(row):
+    """Refuse a malformed split-declaration flag (docs/DECISIONS.md "split declaration": a row
+    whose bytes depend on a header keeping a second declaration of a module's class); return
+    whether the row is flagged. The note names both headers and what flips."""
+    flag, note = row.get('split_declaration'), row.get('split_declaration_note')
+    if flag is None:
+        require(note is None, 'split_declaration_note without split_declaration: true')
+        return False
+    require(flag is True, 'split_declaration must be true (omit both keys on an unflagged row)')
+    require(isinstance(note, str) and note.strip() != '' and note.count('.hpp') >= 2,
+            'split_declaration: true needs a split_declaration_note naming both headers')
+    return True
+
+
 # RA2_SDK_HEADERS migration switch (docs/DECISIONS.md "SDK headers for a unit"):
 # the one pinned system header set (manifests/toolchain.json "sdk_headers") and
 # the only tracked headers that may name it with angle includes, each inside an
@@ -345,7 +359,7 @@ def separate_unit_populations(catalog):
     return {p['id'] for p in catalog.get('populations', []) if p.get('separate_units')}
 
 
-def validate_catalog(repository, catalog):
+def validate_catalog(repository, catalog, modules=True):
     """Validate the catalog against the tree; return {path: bytes} of every
     source and header read (resolved paths), for callers that check the same
     files again."""
@@ -361,15 +375,19 @@ def validate_catalog(repository, catalog):
         require(not inline_asm_blocks(data.decode(errors='replace')), 'Inline assembly (__asm) in a shared header')
     ids = [p['id'] for p in catalog['populations']]
     require(len(ids) == len(set(ids)), 'Duplicate populations')
-    entries, paths, orders = set(), set(), set()
+    entries, paths, orders = set(), {}, set()
     cursor = 0
     for row in sorted(catalog['regions'], key=lambda r: r['entry']):
         va = row['entry']
         require(va >= cursor and row['body_bytes'] > 0 and 0 <= row['padding_bytes'] <= 15,
                 'Overlapping/invalid canonical extent')
         require(row['full_extent_bytes'] == row['body_bytes'] + row['padding_bytes'], 'Extent size differs')
-        require(row['entry'] not in entries and row['source'] not in paths and row['source_order'] not in orders,
+        require(row['entry'] not in entries and row['source_order'] not in orders,
                 'Duplicate canonical entry/source/order')
+        # A module source (one file per original translation unit, several
+        # regions) is shared only by rows of one population: one compile unit.
+        require(paths.setdefault(row['source'], row['population']) == row['population'],
+                'Source shared across populations: ' + row['source'])
         if row.get('semantic_name'):
             require(Path(row['source']).stem == row['semantic_name'] and
                     len(Path(row['source']).parts) > 3 and
@@ -383,12 +401,27 @@ def validate_catalog(repository, catalog):
         validate_includes(data, headers)
         validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
         validate_count_calibrated(row)
-        entries.add(va); paths.add(row['source']); orders.add(row['source_order'])
+        validate_split_declaration(row)
+        entries.add(va); orders.add(row['source_order'])
         cursor = va + row['full_extent_bytes']
     require(bool(entries), 'Empty canonical source catalog')
-    require(paths == {p.relative_to(repository).as_posix() for p in (repository/'src/recovered').rglob('*.cpp')},
+    require(set(paths) == {p.relative_to(repository).as_posix() for p in (repository/'src/recovered').rglob('*.cpp')},
             'Uncatalogued/missing canonical sources')
+    if modules:
+        validate_modules(repository, catalog)
     return read
+
+
+def validate_modules(repository, catalog):
+    """Source-form modules (manifests/original_target/modules.json): every reference into a
+    module names the module's own symbols, and a split class declaration agrees with the
+    module's (module_check.py). The build runs it at its start and end; a batch that is
+    still re-verifying its relocation receipts (apply_rename.py) runs it once they are fresh."""
+    import module_check
+    modules = module_check.load_modules(repository / 'manifests/original_target/modules.json')
+    if modules:
+        problems, _ = module_check.check(catalog, modules, lambda path: (repository / path).read_text(errors='replace'))
+        require(not problems, 'Module agreement: ' + '; '.join(problems[:5]))
 
 
 class CanonicalAudit(Audit):
@@ -400,7 +433,7 @@ class CanonicalAudit(Audit):
     """
     def __init__(self, repository, catalog, config):
         super().__init__(repository, config['executable'])
-        validate_catalog(repository, catalog)
+        validate_catalog(repository, catalog, modules=False)    # the build and the batch run the module check themselves
         self.catalog = catalog
         self.bounds = {}
         self.groups = {}

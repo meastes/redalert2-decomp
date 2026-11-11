@@ -739,18 +739,20 @@ def main():
     unit_texts = OrderedDict()
     bss_by_address = bss_symbols()
     for index, (key, rows) in enumerate(groups(catalog).items()):
-        sources = [r['source'] for r in rows]
+        # A module source (one original translation unit, several rows of the
+        # group: docs/SOURCE_FORM_TRIAL.md) enters the unit once, in source order.
+        sources = list(OrderedDict.fromkeys(r['source'] for r in rows))
         if prefixes is not None and not any(s.startswith(p) for s in sources for p in prefixes):
             continue
         parts = []
-        for r in rows:
+        for source in sources:
             # Fixups first: a fixup may replace an evidenced __asm block with its
             # native meaning (Main_Game's exception-return capture).
-            text = apply_fixups(r['source'], texts[r['source']], fixups, renames, used)
+            text = apply_fixups(source, texts[source], fixups, renames, used)
             if '__asm' in text or '_asm ' in text:
-                report['skipped'].append(dict(source=r['source'], reason='inline assembly: native implementation needed'))
+                report['skipped'].append(dict(source=source, reason='inline assembly: native implementation needed'))
                 continue
-            parts.append('#line 1 "%s"\n%s\n' % ((ROOT / r['source']).as_posix(), port(text)))
+            parts.append('#line 1 "%s"\n%s\n' % ((ROOT / source).as_posix(), port(text)))
             # File statics too (Scout1115): Tactical.CPP's unknown_scale_abe490
             # (0x00ABE490, pixels per lepton of height) is read elsewhere through
             # the extern unknown_abe490; zero there, every object's Z adjust lost

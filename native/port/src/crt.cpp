@@ -7,6 +7,7 @@
 
 #include <ctype.h>
 #include <errno.h>
+#include <fenv.h>
 #include <fcntl.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -464,13 +465,27 @@ FILE *ra2_fopen(const char *name, const char *mode)
     return fopen(path, mode);
 }
 
-// The x87 control word (VC6 CRT _controlfp): kept as a value only. arm64 has
-// no x87; precision/rounding requests (WinMain asks for 64-bit precision,
-// 0x300/0x300) do not change native double arithmetic. Default _CW_DEFAULT.
+// The x87 control word (VC6 CRT _controlfp). The original runs with 53-bit precision
+// (the CRT start-up's _controlfp(_PC_53, _MCW_PC), 0x00786D3F) and, from WinMain on,
+// rounding toward zero: WinMain 0x0068E280 calls _controlfp(0x300, 0x300) at 0x0068E89E,
+// _RC_CHOP under _MCW_RC (not a precision request). Every x87 operation then rounds
+// toward zero (Scout1274: Rules C4Delay 1/900 * 900.0 truncates to 0 there and to 1
+// under round-to-nearest; codex4 r560/r562). Natively the rounding bits are applied to
+// the calling thread's floating-point environment (fesetround; arm64 FPCR.RMode,
+// per thread), so the game thread's double and float arithmetic rounds as the
+// original's does; the game sources are built with -frounding-math so clang does not
+// assume round-to-nearest. 53-bit precision is what doubles have natively; float
+// expressions the original kept unrounded in x87 registers are fixed per site
+// (NATIVE comments citing the original's address). Other threads (audio, host)
+// keep round-to-nearest.
 unsigned int _controlfp(unsigned int value, unsigned int mask)
 {
     static unsigned int word = 0x0009001Fu;
     word = (word & ~mask) | (value & mask);
+    if (mask & 0x300u) {   // _MCW_RC: _RC_NEAR 0, _RC_DOWN 0x100, _RC_UP 0x200, _RC_CHOP 0x300
+        static const int modes[4] = {FE_TONEAREST, FE_DOWNWARD, FE_UPWARD, FE_TOWARDZERO};
+        fesetround(modes[(word >> 8) & 3u]);
+    }
     return word;
 }
 

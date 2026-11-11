@@ -11,16 +11,16 @@
    "last_lane_score": 97.99,
    "draft_found_by": "search",
    "host_source": "src/recovered/classes/IPXManagerClass/IPXManagerClass_unknown_525dc0_00525dc0.cpp",
-   "raw_seed": true,
-   "native": "blocked: typedef redefinition with different types ('unsigned int' vs 'RA2_LONG' )",
-   "origin": "build/class-work/Scout915/sweep/1/00525f60.cpp",
-   "author": "Scout915",
-   "draft": null,
+   "raw_seed": false,
+   "native": "compiles",
+   "origin": "build/class-work/Scout1257/d4/r545/draft.cpp",
+   "author": "codex4",
+   "draft": "native/drafts/00525f60.cpp",
    "behaviour_verdict": "differs",
    "behaviour_checked_by": "codex4 r545 (r530)",
    "behaviour_checked_date": "2026-11-11",
    "behaviour_checked_head": "64bd7c3ec8e18e6c97871a3ca77edc5d1f313fc1",
-   "notes": "codex4 r530: no draft text to check (draft null; Scout915 sweep/1/00525f60.cpp and its overlay not mirrored); independent bound 2691 B + 13 NOP. codex4 r545: the origin is a raw seed that is wrong on any initialised manager (calls the address constructor 0x523410 on the manager, 1024-byte short packet storage, wrong member/virtual ABI, void return). codex4 supplies a typed repair (73.15) that needs IPXManagerClass +0x8C split out as char *CurDataBuf in src/shared/ipx_manager.hpp; not carried natively (no native copy, the native build traps here)."
+   "notes": "codex4 r530: no draft text to check (draft null; Scout915 sweep/1/00525f60.cpp and its overlay not mirrored); independent bound 2691 B + 13 NOP. codex4 r545: the origin is a raw seed that is wrong on any initialised manager (calls the address constructor 0x523410 on the manager, 1024-byte short packet storage, wrong member/virtual ABI, void return). codex4 supplies a typed repair (73.15) that needs IPXManagerClass +0x8C split out as char *CurDataBuf in src/shared/ipx_manager.hpp. Carried natively since codex4 r545 integration (Scout1257): the repair replaces the LAN-only behaviour rewrite (native/link/behaviour_r8_lan.cpp) and the field is switched on per unit (RA2_IPX_MANAGER_CUR_DATA_BUF, IPXManagerClass constructor unit). The verdict is for the raw seed; the repair itself agrees with the original on codex4's 201 caller probes."
   },
   {
    "entry": "0x5E9410",
@@ -1246,10 +1246,11 @@
    "origin": "build/class-work/Sidebar361/w/rc_0.cpp",
    "author": "Sidebar361",
    "draft": "native/drafts/006802d0.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "codex4 r558",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "8f7ead839468473a5e7a15519bb62644f2dc2381",
+   "notes": "codex4 r558: the original clears only the removed icon snapshot id/type (+0x00/+0x04); the draft assigned UnknownBuildable30(), which VC6 leaves indeterminate (fixed; natively value-initialisation zeroed the whole entry)."
   },
   {
    "entry": "0x4718B0",
@@ -1328,10 +1329,11 @@
    "author": "Scout612",
    "draft": "native/drafts/00500aa0.cpp",
    "adapted": "its own unit",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "cannot tell",
+   "behaviour_checked_by": "codex4 r560",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "8f7ead839468473a5e7a15519bb62644f2dc2381",
+   "notes": "codex4 r560: same callbacks in the VC6 caller; C4Delay double(1/900) counts down to 0 in the original and 1 in the portable model (x87 64-bit-significand original vs a 53-bit portable model; shared native FP follow-up with r556/r557/r560/r562)."
   },
   {
    "entry": "0x427370",
@@ -1349,10 +1351,11 @@
    "author": "Scout965 (keep/a0.cpp 78.55; native adaptation Scout1103)",
    "draft": "native/drafts/00427370.cpp",
    "adapted": "its own unit: population macros at the top; the lane's private path_estimator.hpp queue helpers and +0x30/+0x34 names spelled in the file; Map.Cells through link/behaviour_m10_map.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "codex4 r561",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "8f7ead839468473a5e7a15519bb62644f2dc2381",
+   "notes": "codex4 r561: the original INC at 0x00427939 overwrites the score-compare ZF, so with a valid queue count it always queues the prior temporary node; the draft compared scores (fixed to the original rule)."
   },
   {
    "entry": "0x4370E0",
@@ -1390,10 +1393,11 @@
    "author": "Scout1104 (Scout1101 89.52 and Scout1099 74.48 before it)",
    "draft": "native/drafts/0071e220.cpp",
    "adapted": "its own unit: population macros spelled at the top",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "cannot tell",
+   "behaviour_checked_by": "codex4 r562",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "8f7ead839468473a5e7a15519bb62644f2dc2381",
+   "notes": "codex4 r562: same in equal-precision callers; Rules.PathDelay double(1/900) gives 0 retry ticks in the original and 1 in the portable model (x87 64-bit-significand original vs a 53-bit portable model; shared native FP follow-up with r556/r557/r560/r562)."
   },
   {
    "entry": "0x566340",
@@ -1453,10 +1457,11 @@
    "author": "Scout1127 (54.23, shape 93.54; earlier Scout1123 49.78, Scout588/Scout1000 37.95, Scout1005 53.12 text not kept)",
    "draft": "native/drafts/0060bb70.cpp",
    "adapted": "its own unit; text unchanged",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "cannot tell",
+   "behaviour_checked_by": "codex4 r557",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "8f7ead839468473a5e7a15519bb62644f2dc2381",
+   "notes": "codex4 r557: same in the VC6 caller under equal FP precision; a float-precision case (interval 4.0f, slowdown 2^-24) ends the smoke in the original and not in the portable model (x87 64-bit-significand original vs a 53-bit portable model; shared native FP follow-up with r556/r557/r560/r562). Scout1274 (owner ruling, round 4): the SpawnCutoff test uses the unrounded sum as the original (0x0060C01A-0x0060C02C fld/fadd/fst/fcomp): computed and compared in double, stored rounded; with the port applying the original rounding toward zero (crt.cpp _controlfp), the r557 case (4.0f + 2^-24, cutoff 4.0f) now ends the system as the original."
   },
   {
    "entry": "0x4ECA50",
@@ -1474,10 +1479,11 @@
    "author": "Scout705 rz3 (Scout1046 rescore; House204 before)",
    "draft": "native/drafts/004eca50.cpp",
    "adapted": "its own unit; text unchanged",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "cannot tell",
+   "behaviour_checked_by": "codex4 r556",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "6eb7f5f04da51f5c6b5d837933af4592602f0524",
+   "notes": "codex4 r556: same as the original in the VC6 caller under equal FP precision; the native question is precision: BaseCenter(2560,2560,0), radius 768 picks (9,13) in the original, (10,13) in the portable model (x87 64-bit-significand original vs a 53-bit portable model; shared native FP follow-up with r556/r557/r560/r562)."
   },
   {
    "entry": "0x617340",
@@ -1517,10 +1523,10 @@
    "author": "Scout620/Scout1075",
    "draft": "native/drafts/004994d0.cpp",
    "adapted": "RadarClass slot 51 through a link adapter (Native_Radar_Cell_At), unknown_a40d13 spelled Debug_Map; joined to Passes_Shroud_Check 0x00499390's unit",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "codex4 r559",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "8f7ead839468473a5e7a15519bb62644f2dc2381"
   },
   {
    "entry": "0x45F710",
@@ -1702,11 +1708,11 @@
    "origin": "build/class-work/Scout595/w/best_5befe0_95.68.cpp",
    "author": "Scout595",
    "draft": "native/drafts/005befe0.cpp",
-   "notes": "NATIVE edits: includes shared/session_state.hpp; Unknown_005cb8d0 and Unknown_00737060 renamed to their accepted names (Change_Scenario_Slots_005cb8d0, unknown_center_on_owner_737060). Scout1209 r9",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "notes": "NATIVE edits: includes shared/session_state.hpp; Unknown_005cb8d0 and Unknown_00737060 renamed to their accepted names (Change_Scenario_Slots_005cb8d0, unknown_center_on_owner_737060). Scout1209 r9 Scout1274 static review: both jump tables decoded; 0x5BF9B0 pre-call, message returns, command ids (slot combos, cancel, 0x588, chat 0x540, country/colour ids), map choice, 0x497 init, tooltip layout match; native handle edits intended",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "aee5c0b5c"
   },
   {
    "entry": "0x5CBF20",
@@ -1723,10 +1729,11 @@
    "origin": "build/class-work/Netshare247/c/best_5cbf20.cpp",
    "author": "Netshare247",
    "draft": "native/drafts/005cbf20.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "aee5c0b5c",
+   "notes": "Scout1274 static review: the computer-entry and previous-computer blocks are if / else if (0x005CC608 jmp 0x005CC632); the draft ran both, so changing a slot from one AI difficulty to another reset it to -1/-1/-1. Fixed in native/drafts/005cbf20.cpp"
   },
   {
    "entry": "0x5C3FF0",
@@ -1743,11 +1750,11 @@
    "origin": "build/class-work/Netshare385/c/3ff0.cpp",
    "author": "Netshare385",
    "draft": "native/drafts/005c3ff0.cpp",
-   "notes": "NATIVE edit: defined under the callers' name Decode_Pub_Gameopt_005c3ff0. Scout1209 r9",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "notes": "NATIVE edit: defined under the callers' name Decode_Pub_Gameopt_005c3ff0. Scout1209 r9 Scout1274 static review: the L (slot names) non-observer branch fills the side combo only when a game mode is set and its slot 1 is false (0x005C4A13: test ecx; je); the draft tested == 0 ||. Fixed in native/drafts/005c3ff0.cpp. All received option values (map, credits, units, speed, flags, slots, AI table) matched",
+   "behaviour_verdict": "differs",
+   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "aee5c0b5c"
   },
   {
    "entry": "0x6282D0",
@@ -1764,11 +1771,11 @@
    "origin": "build/class-work/Scout1174/keep/extract_ex2_5762.cpp",
    "author": "Scout1174",
    "draft": "native/drafts/006282d0.cpp",
-   "notes": "NATIVE edit (Scout1223 r19): records whose type, length, 0x1F data size or megamission slot/unit count run past the packet or the event stop the decode and are logged with the packet bytes (a stack overrun here aborted a two-Mac LAN game). NATIVE edit (Scout1209 r10): the type 0x1F data address is a 32-bit handle in the field at +0x07 (native/link/native_event_data.cpp) instead of the overlay's Data.Variable.Pointer, so EventClass keeps the original 0x6F-byte layout and wire format. A Fable lane works the exact match; src/ untouched.",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "notes": "NATIVE edit (Scout1223 r19): records whose type, length, 0x1F data size or megamission slot/unit count run past the packet or the event stop the decode and are logged with the packet bytes (a stack overrun here aborted a two-Mac LAN game). NATIVE edit (Scout1209 r10): the type 0x1F data address is a 32-bit handle in the field at +0x07 (native/link/native_event_data.cpp) instead of the overlay's Data.Variable.Pointer, so EventClass keeps the original 0x6F-byte layout and wire format. A Fable lane works the exact match; src/ untouched. Scout1274 static review: same on well-formed packets (size table 48 entries, 0x1F handle/size at +0x07/+0x0B, megamission lists, DoList add, returns); the native bounds checks never trip on valid data; relies on native_units.py making long 32-bit",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "aee5c0b5c"
   },
   {
    "entry": "0x626CB0",
@@ -1785,10 +1792,11 @@
    "origin": "build/class-work/Scout1181/keep/dsb_r2_7578.cpp",
    "author": "Scout1181",
    "draft": "native/drafts/00626cb0.cpp",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "aee5c0b5c",
+   "notes": "Scout1274 static review: body 0x626CB0-0x626F94 (741 B, one RET); loop bound, rectangle, colour thresholds, bar width and draw order match; the original reads Players[i]->ID before the Session.Type test (no effect)"
   },
   {
    "entry": "0x47AD00",
@@ -1805,11 +1813,11 @@
    "origin": "build/class-work/Scout1166/keep/place_veins_7839.cpp",
    "author": "Scout1166",
    "draft": "native/drafts/0047ad00.cpp",
-   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::unknown_func_5dc180) on maps with veins; the lane's overlay names mapped to current src/shared names.",
-   "behaviour_verdict": null,
-   "behaviour_checked_by": null,
-   "behaviour_checked_date": null,
-   "behaviour_checked_head": null
+   "notes": "Scout1209 r16: reachable from Read_Scenario_INI (OverlayClass::unknown_func_5dc180) on maps with veins; the lane's overlay names mapped to current src/shared names. Scout1274 static review: 16 call sites in order, Union argument order, OverlayIndex/OverlayData/+0x11C fields, skip rule and frame branch match (verdicts/0047ad00)",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "Scout1274 (static: capstone disassembly + Ghidra vs draft)",
+   "behaviour_checked_date": "2026-11-11",
+   "behaviour_checked_head": "aee5c0b5c"
   }
  ]
 }

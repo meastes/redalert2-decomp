@@ -153,6 +153,7 @@ std::string device_report() { return ""; }
 bool toolbar_create(void *, ToolbarItem const *, int, void (*)(int)) { return false; }
 void toolbar_set(int, bool, const char *) {}
 void toolbar_place(Rect) {}
+bool app_active() { return false; }
 
 #elif TARGET_OS_IOS
 // ---- iOS -------------------------------------------------------------------
@@ -328,13 +329,17 @@ RA2Toolbar *toolbar = nil;
 const CGFloat kBar = 48, kGap = 8, kItem = 58;
 UIColor *text_colour() { return [UIColor colorWithWhite:0.95 alpha:1]; }
 UIColor *accent_colour() { return [UIColor colorWithRed:0xF5 / 255.0 green:0x9E / 255.0 blue:0x8B / 255.0 alpha:1]; }
-// Dark interactive glass, as duo-vnc's toolbar (a blur before iOS 26).
+// Dark glass, as duo-vnc's toolbar (a blur before iOS 26).
 UIVisualEffectView *glass_view(BOOL capsule)
 {
     UIVisualEffectView *v = [[UIVisualEffectView alloc] initWithEffect:nil];
     if (@available(iOS 26.0, *)) {
         UIGlassEffect *effect = [UIGlassEffect effectWithStyle:UIGlassEffectStyleRegular];
-        effect.interactive = YES;
+        // Not interactive (Scout1274; user report: on the Duo the "…" button sometimes stayed
+        // pressed, grey, and the toolbar did not open): interactive glass tracks touches with
+        // its own recognizer, which can take the touch from the button inside it (no touch up
+        // inside) and leave its pressed look on. The buttons highlight themselves.
+        effect.interactive = NO;
         v.effect = effect;
         v.cornerConfiguration = [UICornerConfiguration capsuleConfiguration];
     } else {
@@ -352,6 +357,7 @@ UIVisualEffectView *glass_view(BOOL capsule)
 - (void)toggleOpen
 {
     self.open = !self.open;
+    fprintf(stderr, "host: toolbar %s\n", self.open ? "opened" : "closed");
     if (self.open) self.pill.hidden = NO;
     [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:0.85 initialSpringVelocity:0 options:0 animations:^{
         self.pill.alpha = self.open ? 1 : 0;
@@ -444,6 +450,11 @@ void toolbar_place(Rect usable)
     CGRect f = toolbar.holder.frame;
     f.origin = CGPointMake(in_view.origin.x + 8, in_view.origin.y + 8);
     toolbar.holder.frame = f;
+}
+
+bool app_active()
+{
+    return UIApplication.sharedApplication.applicationState == UIApplicationStateActive;
 }
 
 bool pick_import_folder(void *native_window, void (*done)(void *, const char *), void *user)

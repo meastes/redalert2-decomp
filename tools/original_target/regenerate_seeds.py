@@ -97,9 +97,14 @@ def main():
     inventories = {}
     changed = kept = 0
     pending = []
+    from collections import Counter
+    shared = {s for s, n in Counter(r['source'] for r in catalog['regions']).items() if n > 1}
     for region in catalog['regions']:
         if region.get('source_quality_family') != 'ghidra-seed-sweep':
             continue
+        if region['source'] in shared:
+            raise SystemExit('%s is a module source (several regions) marked as a seed; a module is never '
+                             'regenerated, clear its source_quality_family' % region['source'])
         path = REPOSITORY / region['source']
         current = path.read_text()
         if not regenerable(current):

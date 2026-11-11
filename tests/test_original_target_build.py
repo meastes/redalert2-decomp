@@ -95,10 +95,16 @@ class CanonicalBuildTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'escapes tree'):
             source_path(self.root,'src/recovered/escape/outside.cpp')
 
-    def test_duplicate_mapping_and_missing_source_refuse(self):
+    def test_module_source_shared_within_one_population_only(self):
+        # A module source (one original translation unit) holds several regions of one population.
         first=self.row();second=dict(first,entry=0x402000,source_order=1)
-        with self.assertRaisesRegex(ValueError,'Duplicate'):
-            validate_catalog(self.root,self.catalog([first,second]))
+        validate_catalog(self.root,self.catalog([first,second]))
+        catalog=self.catalog([first,dict(second,population='q')]);catalog['populations'].append(dict(id='q'))
+        with self.assertRaisesRegex(ValueError,'shared across populations'):
+            validate_catalog(self.root,catalog)
+
+    def test_missing_source_refuses(self):
+        first=self.row()
         self.source.unlink()
         with self.assertRaises(FileNotFoundError):validate_catalog(self.root,self.catalog([first]))
 

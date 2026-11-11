@@ -43,7 +43,7 @@ extern "C" int __cdecl rand();
 // @ref ??_C@_0L@NJNM@TXT_PURPLE?$AA@=007e1fc0
 // @ref ??_C@_0N@GNAA@TXT_SKY_BLUE?$AA@=007e1fcc
 // @ref ?Find_Combo_Item_Data_00736e10@@YIHPAUHWND__@@HH@Z=00736e10
-// @ref ?Init_Clipping_00713160@VersionClass@@QAEXXZ=00713160
+// @ref ?Init_Clipping@VersionClass@@QAEXXZ=00713160
 // @ref __imp__PostMessageA@16=0079a470
 extern unsigned short const unknown_empty_wide_839d4c[];
 
@@ -195,7 +195,7 @@ void ModemHost::Init_Dialog_00599920()
         SendMessageA(control, 0xF1, unknown_session_a3d298.unknown_34 == true, 0);
     }
     Debug_Printf("Crap Engineers: %s\n", unknown_session_a3d298.unknown_34 == true ? "ON" : "OFF");
-    version_object_00a40c88.Init_Clipping_00713160();
+    VerNum.Init_Clipping();
     srand(unknown_random_839218(1, 0x7FFF));
     Seed = rand();
     unknown_special_a40920.unknown_bit_4 = Rules->CaptureTheFlag;

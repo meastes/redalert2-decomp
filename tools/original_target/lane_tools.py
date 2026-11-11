@@ -25,7 +25,8 @@ import sys
 REPOSITORY = Path(__file__).resolve().parents[2]
 DEFAULT_OPTIONS = [['/O2', '/Ob2', '/G5', '/Gy']]
 # Region keys a plan item carries over (accept_sources.LEDGER_KEYS).
-LEDGER_KEYS = ('inline_asm', 'inline_asm_citation', 'count_calibrated', 'count_calibrated_note')
+LEDGER_KEYS = ('inline_asm', 'inline_asm_citation', 'count_calibrated', 'count_calibrated_note',
+               'split_declaration', 'split_declaration_note')
 
 
 def entry_text(value):
@@ -40,6 +41,13 @@ def build_plan(regions, anchor, name, drafts, copy_dir, copy=shutil.copyfile):
         raise SystemExit('no accepted region at %08x' % anchor)
     population = matches[0]['population']
     rows = sorted((r for r in regions if r['population'] == population), key=lambda r: r['source_order'])
+    sources = [r['source'] for r in rows]
+    shared = sorted({s for s in sources if sources.count(s) > 1})
+    if shared:
+        # One file per region is what a plan carries; a module source (several
+        # rows, docs/SOURCE_FORM_TRIAL.md) changes through apply_rename.py.
+        raise SystemExit('%s holds a module source (%s): edit it through apply_rename.py (sources/modules), '
+                         'not a per-region plan' % (population, ', '.join(shared)))
     copy_dir = Path(copy_dir)
     sources = []
     for row in rows:

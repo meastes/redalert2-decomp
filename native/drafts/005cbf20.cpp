@@ -119,8 +119,7 @@ void __fastcall Unknown_005cbf20(HWND dialog, int id, NodeNameType *entry, int u
         unknown_lobby_a3d2dc[slot] = difficulty;
         unknown_lobby_a3d2fc[slot] = -2;
         unknown_lobby_a3d31c[slot] = -2;
-    }
-    if (was_computer) {
+    } else if (was_computer) {   // NATIVE (Scout1274): else-if as in the original (0x005CC608 jmp 0x005CC632); computer to computer keeps the new difficulty
         Unknown_005c9b90(dialog, slot, false);
         unknown_lobby_a3d2dc[slot] = -1;
         unknown_lobby_a3d2fc[slot] = -1;

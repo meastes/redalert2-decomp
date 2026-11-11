@@ -44,9 +44,6 @@ bool __fastcall Start_Joined_Game_005be3b0(int unknown);
 void __fastcall Seat_First_Player_005c8cd0(int slot);
 // @ref ?Seat_First_Player_005c8cd0@@YIXH@Z=005c8cd0
 // @ref ?Unknown_005c3b70@@YIXXZ=005c3b70
-// VersionClass::Version_Number (0x00712B50; declared only in the version unit, as Probe_Launcher_Registry 0x00491B70 does).
-unsigned int __fastcall Unknown_Version_ID_00712b50(VersionClass *object);
-// @ref ?Unknown_Version_ID_00712b50@@YIIPAVVersionClass@@@Z=00712b50
 // The version the session plays against (session +0x63C; Red Alert's Session.PlayingAgainstVersion).
 extern unsigned long unknown_version_a3d8d4;
 // @ref ?unknown_version_a3d8d4@@3KA=00a3d8d4
@@ -268,7 +265,7 @@ bool __fastcall Net_Join_Dialog_005bd070()
                 unknown_session_a3f616 = true;
                 unknown_session_a3f614 = false;
                 unknown_session_a3d2b4 = 0;
-                unknown_version_a3d8d4 = Unknown_Version_ID_00712b50(&version_object_00a40c88);
+                unknown_version_a3d8d4 = VerNum.Version_Number();
                 Select_Scenario_005c7c30(unknown_session_a3d2b4);
                 End_Dialog_007357e0(0, 0);
                 unknown_lobby_result_a71e8c = 0;

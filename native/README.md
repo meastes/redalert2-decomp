@@ -928,10 +928,13 @@ The picture is drawn into the largest landscape rectangle clear of the safe area
 device's reserved regions (`hostos::usable_rect`; the renderer no longer uses SDL's logical
 presentation, the host converts coordinates itself). The in-game resolution (RA2.INI
 [Video], written before the game starts) is that rectangle divided by the scale, at least
-800x600 (the menus share the primary surface: 656x480 cut them off); on the iPhone Duo
-(594x432 points clear in the Simulator) that is 824x600, and a width just over 800 (under
-864) at 600 high becomes 800: the 800-wide menus left strips the game never paints, which
-showed old surface contents as coloured noise (Scout1249).
+800x600 (the menus share the primary surface: 656x480 cut them off), the width a
+multiple of 8 (the Duo: 824x600 in the Simulator, 944x634 on the device). The original
+centres its 800x600 menu panel only at 1024x768 or more, while its drawing and dialogs
+centre above 800x600, so between them the art and the buttons landed apart over unpainted
+noise; three fixups (Unknown_Layout_Interface 0x006F3E70 and the border blackout 0x006F34D0)
+centre and black out the bands above 800x600 natively (Scout1274; r27 had held iOS to 4:3).
+`RA2_NATIVE_USABLE_POINTS=<w>x<h>` (tests) picks the resolution as if that much of the screen were clear.
 The host pause's reasons are combined (`update_pause`): the background (an SDL event
 watch, so it takes effect before the game reads its queue again), the focus lost, a
 folded or upright device (usable area under 480x320 points or portrait; a note is drawn

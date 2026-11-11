@@ -584,11 +584,14 @@ void press_toggle(int i)
 // SDL's finger events: direct touches only (a Mac trackpad's touches are its mouse and
 // wheel). Window-normalised coordinates to points, then to game pixels; scripted fingers
 // (input script tdown/tmove/tup) are in game pixels already.
+bool unreported_finger = false;   // a finger reached the game during a lifecycle pause (resume_unreported_foreground)
 void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
 {
     bool scripted = f.touchID == script_touch;
     if (!scripted && (!touch_ui || SDL_GetTouchDeviceType(f.touchID) != SDL_TOUCH_DEVICE_DIRECT)) return;
     float gx = f.x, gy = f.y;
+    if (!scripted && type == SDL_EVENT_FINGER_DOWN && (in_background || (pause_on_focus_loss && !window_focused)))
+        unreported_finger = true;     // resume_unreported_foreground
     if (!scripted) {
         int ww = 0, wh = 0;
         SDL_GetWindowSize(window, &ww, &wh);
@@ -608,10 +611,83 @@ void finger_event(SDL_TouchFingerEvent const &f, Uint32 type)
         window_to_game(wx, wy, &gx, &gy);
     }
     touch::set_screen(pic_w, pic_h, ra2port_menu_shown() ? 0 : pic_w - 168);
+    // When the finger moved, not when the game read the queue (Scout1274): taps queued during
+    // one long frame (menus pump seldom) were otherwise read at one time, and two separate
+    // quick taps became a two-finger tap. SDL's event timestamps share SDL_GetTicks' clock
+    // (nanoseconds); scripted fingers carry none.
     Uint64 now = SDL_GetTicks();
+    if (f.timestamp && f.timestamp / 1000000 <= now) now = f.timestamp / 1000000;
     if (type == SDL_EVENT_FINGER_DOWN) touch::finger_down(f.fingerID, gx, gy, now, touch_out);
     else if (type == SDL_EVENT_FINGER_MOTION) touch::finger_move(f.fingerID, gx, gy, now, touch_out);
     else touch::finger_up(f.fingerID, gx, gy, now, touch_out);
+}
+
+// A lifecycle pause whose end SDL never reported (Scout1274; user report: on the iPhone
+// Duo the game froze after the glass toolbar was closed). SDL turns the scene's resign
+// active into WILL_ENTER_BACKGROUND and a keyboard focus loss, and only its become active
+// into the foreground and the focus back. The Duo's logs show "host: background" and
+// "focus lost: pause" with touches still reaching the game afterwards and no foreground:
+// the pause held for good. When the app has been active again for half a second, or a
+// finger reaches the game view (only an active app gets those), the host ends both
+// itself, as a foreground would (the game then hears WM_ACTIVATEAPP once more).
+// A finger whose lift never reached the gestures (Scout1274; user report: on the Duo the
+// taps stopped working for good while the game ran on): touch.cpp then waited for it, a
+// two-finger gesture never ended and every later touch was ignored. After the queue is
+// drained SDL's own finger lists are current; a finger the gestures hold that no touch
+// device has listed for 250 ms is forgotten. iOS only (system_toolbar): scripted fingers
+// on the Mac are in no SDL list.
+void forget_lost_fingers()
+{
+    static uint64_t missing_id = 0;
+    static Uint64 missing_since = 0;
+    if (!system_toolbar || !touch::active()) { missing_since = 0; return; }
+    uint64_t held[10];
+    int n = touch::finger_list(held, 10);
+    int devices = 0;
+    SDL_TouchID *ids = SDL_GetTouchDevices(&devices);
+    uint64_t lost = 0;
+    bool found_lost = false;
+    for (int i = 0; i < n && !found_lost; ++i) {
+        bool listed = false;
+        for (int d = 0; d < devices && !listed; ++d) {
+            int count = 0;
+            SDL_Finger **fingers = SDL_GetTouchFingers(ids[d], &count);
+            for (int k = 0; k < count && !listed; ++k) listed = fingers[k]->id == (SDL_FingerID)held[i];
+            SDL_free(fingers);
+        }
+        if (!listed) { lost = held[i]; found_lost = true; }
+    }
+    SDL_free(ids);
+    Uint64 now = SDL_GetTicks();
+    if (!found_lost) { missing_since = 0; return; }
+    if (!missing_since || missing_id != lost) { missing_id = lost; missing_since = now; return; }
+    if (now - missing_since < 250) return;
+    touch::forget_finger(lost, now, touch_out);
+    missing_since = 0;
+}
+
+void resume_unreported_foreground()
+{
+    static Uint64 active_since = 0;
+    bool stuck = in_background || (pause_on_focus_loss && !window_focused);
+    if (!stuck || !touch_ui) { active_since = 0; unreported_finger = false; return; }
+    Uint64 now = SDL_GetTicks();
+    bool active = hostos::app_active();
+    if (!active) active_since = 0;
+    else if (!active_since) active_since = now;
+    if (!unreported_finger && !(active_since && now - active_since >= 500)) return;
+    fprintf(stderr, "host: active again with no foreground from SDL (%s): resume\n", unreported_finger ? "a touch" : "app active");
+    unreported_finger = false;
+    active_since = 0;
+    if (in_background) {
+        in_background = false;
+        layout_dirty = true;
+        update_pause();
+    }
+    if (!window_focused) {
+        window_focused = true;
+        window_focus_ms = now - kFocusSettleMs;
+    }
 }
 
 void pump_events()
@@ -737,6 +813,7 @@ void pump_events()
             break;
         }
     }
+    resume_unreported_foreground();
     if (window_focused != game_active && SDL_GetTicks() - window_focus_ms >= kFocusSettleMs) {
         game_active = window_focused;
         ra2port::post_message(w, 0x001C, game_active ? 1 : 0, 0);   // WM_ACTIVATEAPP
@@ -755,6 +832,7 @@ void pump_events()
     // control's focus or the KEYS toggle; the layout follows rotation, folding and the
     // safe area (Scout1248).
     touch::tick(SDL_GetTicks(), touch_out);
+    forget_lost_fingers();
     touch_moves_due();
     static const bool keep_cursor = getenv("RA2_NATIVE_TOUCH_CURSOR") != nullptr;
     if (touch_ui && !keep_cursor) ra2_native_hide_game_cursor();

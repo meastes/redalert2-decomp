@@ -19,8 +19,8 @@
 #include "shared/special.hpp"
 #include "shared/cc_file_class.hpp"
 // @ref ??_C@_0BN@CALA@Sending?5game?5options?5packet?6?$AA@=007e25bc
-// @ref ?Unknown_007131b0@VersionClass@@QAEKXZ=007131b0
-// @ref ?Unknown_007131c0@VersionClass@@QAEKXZ=007131c0
+// @ref ?Min_Version@VersionClass@@QAEKXZ=007131b0
+// @ref ?Max_Version@VersionClass@@QAEKXZ=007131c0
 // @ref ?Unknown_00737af0@@YAHXZ=00737af0
 // @ref ?serial_local_player_00a3fb38@@3HA=00a3fb38
 // @ref ?serial_manager_00a40a28@@3VNullModemClass@@A=00a40a28
@@ -34,7 +34,7 @@
 // @ref ?unknown_session_a3d298@@3UUnknownSessionState@@A=00a3d298
 // @ref ?unknown_special_a40920@@3VSpecialClass@@A=00a40920
 // @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
-// @ref ?version_object_00a40c88@@3VVersionClass@@A=00a40c88
+// @ref ?VerNum@@3VVersionClass@@A=00a40c88
 extern "C" unsigned short *__cdecl wcscpy(unsigned short *dest, unsigned short const *source);
 extern "C" char *__cdecl strncpy(char *dest, char const *source, unsigned int count);
 
@@ -49,8 +49,8 @@ void ModemHost::Send_Options_0059bc90()
     packet.Options.ArtID = unknown_58;
     packet.Options.INIID = unknown_5c;
     packet.Options.Version = Unknown_00737af0();
-    packet.Options.MinVersion = version_object_00a40c88.Unknown_007131b0();
-    packet.Options.MaxVersion = version_object_00a40c88.Unknown_007131c0();
+    packet.Options.MinVersion = VerNum.Min_Version();
+    packet.Options.MaxVersion = VerNum.Max_Version();
     packet.Options.Seed = Seed;
     packet.Options.Special = unknown_special_a40920;
     packet.Options.GameSpeed = unknown_session_a3d298.GameSpeed_30;

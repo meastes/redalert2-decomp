@@ -469,32 +469,27 @@ int Unknown_00737af0();
 // destructor 0x004D4980 of the inline virtual destructor, which the globals unit at 0x004D2BA0
 // emits with the object's atexit destructor 0x004D4610. Layout from the constructor 0x00712B20
 // (Tiberian Sun's VersionClass).
+// The version unit itself compiles against shared/version.hpp, the class's own header. This
+// declaration stays for the units compiled against lobby.hpp: their instruction scheduling
+// depends on the declaration set this header shows them (replacing it by an include of
+// version.hpp changes Print_CRCs 0x0062A360 and HouseClass::AI_Build_Defense 0x004F1190), so
+// the two declarations keep equal member signatures and this one keeps the flags word.
 class VersionClass {
 public:
     VersionClass();                 // 0x00712B20
     virtual ~VersionClass() {}
     // Resets the version clipping range (0x00713160; Red Alert's Init_Clipping).
-    void Init_Clipping_00713160();
-#ifndef RA2_VERSION_CLASS_MEMBERS
-    unsigned long Version_Number(); // Existing original 00712B50; used by host initialization.
-#endif
+    void Init_Clipping();
+    unsigned int Version_Number(); // Existing original 00712B50; used by host initialization.
     // The version both sides can play for a peer's range: 0 when the peer is too old, -1
     // when this game is (0x00713170; Red Alert's VersionClass::Clip_Version).
-    int Clip_Version_00713170(unsigned long min, unsigned long max);
+    unsigned int Clip_Version(unsigned int minver, unsigned int maxver);
     // The protocol of a version (0x00713130; Red Alert's Version_Protocol).
-    int Version_Protocol_00713130(int version);
-    unsigned long Unknown_007131b0();       // 0x007131B0 the minimum version (0x20000)
-    unsigned long Unknown_007131c0();       // 0x007131C0 the maximum version (0x20000)
+    int Version_Protocol(int version);
+    unsigned int Min_Version();       // 0x007131B0 the minimum version (0x20000)
+    unsigned int Max_Version();       // 0x007131C0 the maximum version (0x20000)
     // The internal version text (0x00712ED0; the sync logs print it).
-    char const *Internal_Version_Name_00712ed0();
-#ifdef RA2_VERSION_CLASS_MEMBERS
-    // The version unit's own members (Tiberian Sun's version.cpp; declared only there, set by the
-    // unit's first source: new lobby.hpp declarations renumber 0x0073FEE0's labels).
-    unsigned long Version_Number();         // 0x00712B50 (Major << 16 | Minor)
-    unsigned short Major_Version();         // 0x00712D50 (1)
-    unsigned short Minor_Version();         // 0x00712E10 (6)
-    void Read_Text_String();                // 0x00713090 (VERSION.TXT into VersionText)
-#endif
+    char *Version_Name();
 
     unsigned long Version;                  // +0x04
     unsigned short MajorVer;                // +0x08
@@ -503,21 +498,14 @@ public:
     char VersionText[16];                   // +0x2A
     unsigned long MinClipVer;               // +0x3C
     unsigned long MaxClipVer;               // +0x40
-#ifdef RA2_VERSION_CLASS_MEMBERS
-    unsigned VersionInit : 1;               // +0x44 bit 0
-    unsigned MajorInit : 1;                 // bit 1
-    unsigned MinorInit : 1;                 // bit 2
-    unsigned TextInit : 1;                  // bit 3
-#else
     // +0x44 flag bits 0-3 (Tiberian Sun's VersionInit, MajorInit, MinorInit and TextInit; the
-    // version unit declares them as bit-fields). A word elsewhere: the bit-fields change the code
+    // version unit declares them as bit-fields). A word here: the bit-fields change the code
     // of Pick_Lobby 0x00744090 and Refresh_Wonline_Players 0x0073FEE0 (label renumbering).
     unsigned long Flags;
-#endif
 };
-extern VersionClass version_object_00a40c88;
+extern VersionClass VerNum;
 // The version text (0x007131D0; the sync logs print it).
-char const *__fastcall Version_Name_007131d0();
+char const *__fastcall Version_Name();
 // Asks the host of a game to let the player join (NET_QUERY_JOIN); refused with a chat message and the
 // SystemError sound without a game, with no name, a reserved name or a closed game (0x005BFC40; Red
 // Alert's Request_To_Join).
