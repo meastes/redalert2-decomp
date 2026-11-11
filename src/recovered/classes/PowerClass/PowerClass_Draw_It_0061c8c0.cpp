@@ -23,13 +23,13 @@
 // @ref ?unknown_int_abcd70@@3HA=00abcd70
 // @ref ?unknown_surface_839948@@3PAVSurface@@A=00839948
 // @ref ?unknown_drawer_8323cc@@3PAVConvertClass@@A=008323cc
-// @ref ?PowerShape@PowerClass@@2PBXB=00a7691c
+// @ref ?PowerPipShape@PowerClass@@2PBXB=00a7691c
 // @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
 
 void PowerClass::Draw_It(bool complete)
 {
-    if ((complete || unknown_1508) && unknown_flag_8373c1) {
-        unknown_1508 = false;
+    if ((complete || IsToRedraw) && unknown_flag_8373c1) {
+        IsToRedraw = false;
         unknown_flag_abcd84 = true;
         bool side = unknown_id_source_a3d290->unknown_2239;
         int shift;
@@ -47,39 +47,39 @@ void PowerClass::Draw_It(bool complete)
         }
         int y = unknown_int_839624 + yoff;
         Rect window = unknown_surface_839948->Get_Rect();
-        int unlit = Unknown_0061C6E0() - unknown_1530 - unknown_152c - unknown_1528;
+        int unlit = Max_Power_Height() - RedPipCount - YellowPipCount - GreenPipCount;
 
         for (int index = 0; index < unlit; index++) {
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerShape, 0,
+            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 0,
                           Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             y += 3;
         }
         int first = 0;
-        if (unknown_1518 > 0 && unknown_1518 % 2 == 0) {
-            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerShape, 4,
+        if (FlashCount > 0 && FlashCount % 2 == 0) {
+            CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 4,
                           Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
             y += 3;
             first = 1;
         }
-        if (unknown_1528 > 0) {
-            for (; first < unknown_1528; first++) {
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerShape, 1,
+        if (GreenPipCount > 0) {
+            for (; first < GreenPipCount; first++) {
+                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 1,
                               Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 y += 3;
             }
             first = 0;
         }
-        if (unknown_152c > 0) {
-            for (; first < unknown_152c; first++) {
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerShape, 2,
+        if (YellowPipCount > 0) {
+            for (; first < YellowPipCount; first++) {
+                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 2,
                               Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 y += 3;
             }
             first = 0;
         }
-        if (unknown_1530 > 0) {
-            for (; first < unknown_1530; first++) {
-                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerShape, 3,
+        if (RedPipCount > 0) {
+            for (; first < RedPipCount; first++) {
+                CC_Draw_Shape(unknown_surface_839948, unknown_drawer_8323cc, (ShapeFileStruct const *)PowerPipShape, 3,
                               Point2D(shift, y), window, 0x400, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
                 y += 3;
             }

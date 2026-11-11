@@ -7,13 +7,13 @@
 void PowerClass::Init_Clear()
 {
     RadarClass::Init_Clear();
-    unknown_1538 = -1;
-    unknown_153c = -1;
-    unknown_150c = CDTimerClass<SystemTimerClass>();
-    unknown_1518 = 0;
-    unknown_151c = CDTimerClass<SystemTimerClass>();
-    unknown_1528 = 0;
-    unknown_152c = 0;
-    unknown_1530 = 0;
-    unknown_1534 = false;
+    RecordedDrain = -1;
+    RecordedPower = -1;
+    FlashTimer = CDTimerClass<SystemTimerClass>();
+    FlashCount = 0;
+    UpdateTimer = CDTimerClass<SystemTimerClass>();
+    GreenPipCount = 0;
+    YellowPipCount = 0;
+    RedPipCount = 0;
+    HasChanged = false;
 }

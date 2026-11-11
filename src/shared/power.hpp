@@ -45,7 +45,7 @@ class PowerClass : public RadarClass {
 public:
     PowerClass();                                       // 0x0061C450
     // Restore-in-place form: only the second timer restarts.
-    PowerClass(NoInitClass const &noinit) : RadarClass(noinit), unknown_150c(noinit) {}
+    PowerClass(NoInitClass const &noinit) : RadarClass(noinit), FlashTimer(noinit) {}
 
     virtual void One_Time();                            // slot 5  0x0061C550
     virtual void Init_Clear();                          // slot 7  0x0061C4D0
@@ -58,42 +58,42 @@ public:
 
     // Number of power bar segments for the bar height (0x0061C6E0; no direct
     // callers, inlined elsewhere).
-    static int Unknown_0061C6E0();
+    static int Max_Power_Height();
     // Segments left unlit for the player's building power (0x0061C5F0).
-    int Unknown_0061C5F0();
+    int Desired_Power_Height();
     // The counters' share of the unlit segments, times 5 (0x0061C690; no
     // direct callers).
-    int Unknown_0061C690();
+    int Update_Delay();
 
     // The three counters' targets (0x0061C700): the unlit segments split by
     // the player's drain (+0x1530), the surplus output up to 100 (+0x152C)
     // and the rest of the surplus (+0x1528), the rounding
     // remainder added to +0x1530. Returns the bar's segment count.
-    int Unknown_0061C700(int &target_1528, int &target_152c, int &target_1530);
+    int Desired_Levels(int &green, int &yellow, int &red);
     // Steps one counter down toward its target: +0x1528 first, then
     // +0x1530, then +0x152C (0x0061CB50).
-    void Unknown_0061CB50();
+    void Remove_Pip();
     // Steps one counter up toward its target: +0x1530 first, then +0x1528,
     // then +0x152C (0x0061CBC0; no direct callers).
-    void Unknown_0061CBC0();
+    void Add_Pip();
     // Restarts the first timer at 3 ticks with 10 on its counter (0x0061C5B0).
-    void Unknown_0061C5B0();
+    void Flash_Power();
 
     // "POWERP.SHP" and whether it was loaded rather than retrieved
     // (0x00A7691C, 0x00A76920).
-    static void const *PowerShape;
-    static bool PowerShapeAllocated;
+    static void const *PowerPipShape;
+    static bool PowerPipShapeAllocated;
 
-    bool unknown_1508;                                  // +0x1508
-    CDTimerClass<SystemTimerClass> unknown_150c;        // +0x150C
-    int unknown_1518;                                   // +0x1518
-    CDTimerClass<SystemTimerClass> unknown_151c;        // +0x151C
-    int unknown_1528;                                   // +0x1528
-    int unknown_152c;                                   // +0x152C
-    int unknown_1530;                                   // +0x1530
-    bool unknown_1534;                                  // +0x1534
-    int unknown_1538;                                   // +0x1538 -1
-    int unknown_153c;                                   // +0x153C -1
+    bool IsToRedraw;                                    // +0x1508
+    CDTimerClass<SystemTimerClass> FlashTimer;          // +0x150C
+    int FlashCount;                                     // +0x1518
+    CDTimerClass<SystemTimerClass> UpdateTimer;         // +0x151C
+    int GreenPipCount;                                  // +0x1528
+    int YellowPipCount;                                 // +0x152C
+    int RedPipCount;                                    // +0x1530
+    bool HasChanged;                                    // +0x1534
+    int RecordedDrain;                                  // +0x1538 -1
+    int RecordedPower;                                  // +0x153C -1
 };
 
 #endif
