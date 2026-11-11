@@ -5,7 +5,7 @@
 // @ref ?unknown_wind_7eb7e4=007eb7e4
 static inline Point2D Smoke_Wind_Offset(int const &direction) { Point2D offset; offset.X = unknown_wind_7eb7e4[0][direction]; offset.Y = unknown_wind_7eb7e4[1][direction]; return offset; }
 #define MIN(a,b) (((b)<(a))?(b):(a))
-void ParticleClass::unknown_func_60a0e0()
+void ParticleClass::Smoke_Motion_AI()
 {
     int frame = Frame;
     CoordStruct next = Coord;

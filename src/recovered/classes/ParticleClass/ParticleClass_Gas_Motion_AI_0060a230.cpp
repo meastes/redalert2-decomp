@@ -5,7 +5,7 @@
 // @ref _unknown_geometry_g=00a76524
 // @ref ?unknown_wind_7eb824=007eb824
 static inline Point2D Wind_Offset(int const &direction, int effect) { Point2D offset; offset.X = unknown_wind_7eb824[0][direction] * effect; offset.Y = unknown_wind_7eb824[1][direction] * effect; return offset; }
-void ParticleClass::unknown_func_60a230()
+void ParticleClass::Gas_Motion_AI()
 {
     CoordStruct next = Coord;
     CoordStruct coord = Coord;

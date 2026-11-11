@@ -148,8 +148,8 @@ public:
     void unknown_func_609540();                 // 0x00609540 behaviour 3
     void Fire_Behavior_AI();                    // 0x00609970 behaviour 2
     void Behavior_AI();                         // 0x00609C90 (behaviour by type, then lifetime)
-    void unknown_func_60a0e0();                 // 0x0060A0E0 movement of behaviour 0
-    void unknown_func_60a230();                 // 0x0060A230 movement of behaviour 1
+    void Smoke_Motion_AI();                     // 0x0060A0E0 movement of behaviour 0
+    void Gas_Motion_AI();                       // 0x0060A230 movement of behaviour 1
     void Fire_Motion_AI();                      // 0x0060A350 movement of behaviour 2 (inlined)
     void Motion_AI();                           // 0x0060A420 movement by behaviour
 

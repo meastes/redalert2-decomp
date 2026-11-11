@@ -4,8 +4,8 @@
     "id": "population-4059",
     "inventory_sha256": "22ae47dedb66f940ef26942102ae70ca56868c1635b2ae43426cd8f80184791f",
     "gaps_sha256": "21041081ce01ff36c69a528d37e4c2ee7caf28254af7d11522ee8fd9eb5c8d8c",
-    "historical_population_sha256": "f80c4cc1a9a01231bea0b9257d9bb5a874e3d4d5057b183fc1a7ec87d1351429",
-    "historical_acceptance_sha256": "24486233b0e62ca2a04246d4a06fa6b94065f0b35b303add83312c4e374668c6"
+    "historical_population_sha256": "88562396bcb14b354ea8879cc2d86c53aaa455c983d97be5553e68dbbcad0f44",
+    "historical_acceptance_sha256": "8c8b83032156165cd5b260afffc3d75bcf0993a7a36569b10f3c9bee78118492"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1638,8 +1638,8 @@
     "?DepthBuffer@@3PAVZBuffer@@A": 8625260,
     "?unknown_wind_7eb7e4": 8304612,
     "?unknown_wind_7eb824": 8304676,
-    "?unknown_func_60a0e0@ParticleClass@@QAEXXZ": 6332640,
-    "?unknown_func_60a230@ParticleClass@@QAEXXZ": 6332976,
+    "?Smoke_Motion_AI@ParticleClass@@QAEXXZ": 6332640,
+    "?Gas_Motion_AI@ParticleClass@@QAEXXZ": 6332976,
     "?Mark@ObjectClass@@UAE_NH@Z": 6111584,
     "_?$S42@?1??unknown_slot64@ParticleClass@@UAEPBVCell@@H@Z@4EA": 10970400,
     "_?$S40@?1??unknown_slot64@ParticleClass@@UAEPBVCell@@H@Z@4EA": 10970400,
@@ -11717,7 +11717,9 @@
     "?Can_Burrow_Here@UnknownLocoCellObject@@QAE_NXZ": 4702720,
     "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
     "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336
   },
   "regions": [
     {
@@ -13608,7 +13610,7 @@
         {
           "offset": 240,
           "kind": 20,
-          "symbol": "?unknown_func_60a230@ParticleClass@@QAEXXZ",
+          "symbol": "?Gas_Motion_AI@ParticleClass@@QAEXXZ",
           "target": 6332976,
           "addend": 0,
           "resolved": 4294966556
@@ -13616,13 +13618,13 @@
         {
           "offset": 252,
           "kind": 20,
-          "symbol": "?unknown_func_60a0e0@ParticleClass@@QAEXXZ",
+          "symbol": "?Smoke_Motion_AI@ParticleClass@@QAEXXZ",
           "target": 6332640,
           "addend": 0,
           "resolved": 4294966208
         }
       ],
-      "source_sha256": "7f619ca892da8dae4267171e1dfa2e4745ea2191233c29f2aee3bbe1fc3b3cd8",
+      "source_sha256": "f066e5926d56ad76575c555d91e5c143beeb2a0ec3e220d9dde7677612e2fea3",
       "source": "src/recovered/classes/ParticleClass/ParticleClass_Motion_AI_0060a420.cpp",
       "population": "population-4059",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -14082,8 +14084,8 @@
     {
       "entry": 6332640,
       "method": "0060a0e0",
-      "symbol": "?unknown_func_60a0e0@ParticleClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_60a0e0@ParticleClass@@QAEXXZ",
+      "symbol": "?Smoke_Motion_AI@ParticleClass@@QAEXXZ",
+      "symbol_prefix": "?Smoke_Motion_AI@ParticleClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14193,8 +14195,8 @@
           "resolved": 4294246514
         }
       ],
-      "source_sha256": "bfcf71ee7faa8a8934220ab64c87aba70c9a8523c62c469afa2c880265bd525d",
-      "source": "src/recovered/classes/ParticleClass/ParticleClass_Smoke_Movement_0060a0e0.cpp",
+      "source_sha256": "c6b287ba512d085ce1c67544dc4143297c231528ca09403c08f20bd27d8658b3",
+      "source": "src/recovered/classes/ParticleClass/ParticleClass_Smoke_Motion_AI_0060a0e0.cpp",
       "population": "population-4059",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -14204,8 +14206,8 @@
     {
       "entry": 6332976,
       "method": "0060a230",
-      "symbol": "?unknown_func_60a230@ParticleClass@@QAEXXZ",
-      "symbol_prefix": "?unknown_func_60a230@ParticleClass@@QAEXXZ",
+      "symbol": "?Gas_Motion_AI@ParticleClass@@QAEXXZ",
+      "symbol_prefix": "?Gas_Motion_AI@ParticleClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -14307,8 +14309,8 @@
           "resolved": 8027960
         }
       ],
-      "source_sha256": "4defaeaafd87630a4a457d314f04cb3def0aab56b3a3b2646295b287a507d247",
-      "source": "src/recovered/classes/ParticleClass/ParticleClass_Gas_Movement_0060a230.cpp",
+      "source_sha256": "9b9ed4a6bddf1135c3b790fad7b33e2a264ba34f0c3e3dd5d82ae74cde0f65d2",
+      "source": "src/recovered/classes/ParticleClass/ParticleClass_Gas_Motion_AI_0060a230.cpp",
       "population": "population-4059",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
