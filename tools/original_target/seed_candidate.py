@@ -3231,6 +3231,12 @@ def earlier_uncontradicted_inventory(entry, inventory, owner=None):
 
 def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
     text = inventory.decompiled(entry)
+    if entry == 0x440520 and entry not in accepted and text is not None:
+        from seed_building_exit import optional_building_exit_seed
+
+        repaired = optional_building_exit_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
     if entry == 0x6faa30 and entry not in accepted and text is not None:
         from seed_unit_tunnel import optional_tunnel_seed
 
