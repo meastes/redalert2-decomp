@@ -1,4 +1,4 @@
-// void ScrollClass::Unknown_0066A290() (0x0066A290)
+// void ScrollClass::Scroll_AI() (0x0066A290)
 #include "shared/scroll.hpp"
 #include "shared/mouse_class.hpp"
 #include "shared/map_view.hpp"
@@ -14,13 +14,13 @@
 // @ref ?Planning_Mouse_Move_00617900@@YG_NHH@Z=00617900
 // @ref ?Down@WWKeyboardClass@@QAE_NH@Z=00532890
 // @ref ?Mouse_Left_Held@DisplayClass@@UAEXABUPoint2D@@@Z=0049c500
-// @ref ?Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z=0066a7a0
-// @ref ?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z=00669650
-// @ref ?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z=00669960
+// @ref ?Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z=0066a7a0
+// @ref ?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z=00669650
+// @ref ?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z=00669960
 // @ref ?unknown_slot46@DisplayClass@@UAEXABVCell@@_NPAVObjectClass@@H1@Z=0049b0f0
 // @ref ?Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z=00669ec0
 
-void ScrollClass::Unknown_0066A290()
+void ScrollClass::Scroll_AI()
 {
     if (unknown_flag_a40d44) {
         return;
@@ -36,7 +36,7 @@ void ScrollClass::Unknown_0066A290()
         if (WWKeyboard->Down(1)) {
             Map.Mouse_Left_Held(xy);
         } else if (WWKeyboard->Down(2)) {
-            Map.Unknown_0066A7A0(xy);
+            Map.Scroll_Coast(xy);
         }
     } else {
         Cell cell;
@@ -44,8 +44,8 @@ void ScrollClass::Unknown_0066A290()
         ObjectClass *object;
         bool arg5;
         bool arg6;
-        if (Unknown_00669650(xy, cell, coord, object, arg5, arg6)) {
-            Map.unknown_slot46(cell, arg6, object, Unknown_00669960(cell, object, true), false);
+        if (Resolve_Point(xy, cell, coord, object, arg5, arg6)) {
+            Map.unknown_slot46(cell, arg6, object, What_Action(cell, object, true), false);
         }
         if (unknown_4f29 && !Debug_Map) {
             Edge_Scroll_00669EC0(xy);

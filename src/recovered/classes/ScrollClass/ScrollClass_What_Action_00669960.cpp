@@ -1,4 +1,4 @@
-// int ScrollClass::Unknown_00669960(Cell const &cell, ObjectClass *object, bool arg3) (0x00669960)
+// int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3) (0x00669960)
 // The action a left click would take on the object or cell under the mouse (TibSun What_Action):
 // the selected object's answer, else the select/beacon/repair/sell/power/waypoint/super/pending modes.
 #include "shared/scroll.hpp"
@@ -39,7 +39,7 @@ inline bool Scroll_Key_Down(int key)
 // @ref ?Next_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@PBV2@@Z=00724f80
 // @ref ?unknown_func_4ed2b0@HouseClass@@QAE_NPAVWaypointClass@@PAHPAD@Z=004ed2b0
 
-int ScrollClass::Unknown_00669960(Cell const &cell, ObjectClass *object, bool arg3)
+int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool arg3)
 {
     int action = 0;
     if (unknown_objects_a40c60.Count()) {

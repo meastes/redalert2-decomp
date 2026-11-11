@@ -110,7 +110,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                                 CoordStruct mouse_coord;
                                 ObjectClass *object = 0;
                                 bool shadow, small;
-                                Map.Unknown_00669650(xy, mouse_cell, mouse_coord, object, shadow, small);
+                                Map.Resolve_Point(xy, mouse_cell, mouse_coord, object, shadow, small);
                                 Map.Unknown_004994D0(mouse_cell);
                             }
                             Map.Set_Cursor_Shape(0);

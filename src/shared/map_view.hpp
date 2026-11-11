@@ -381,10 +381,10 @@ public:
 class ScrollClass : public TabClass {
 public:
 #ifdef MAP_VIEW_DECLARE_WINDOW_PROC
-    void Unknown_0066A400(struct HWND__ *window, unsigned int &message, unsigned int &wparam, long &lparam);
+    void Message_Handler(struct HWND__ *window, unsigned int &message, unsigned int &wparam, long &lparam);
 #endif
     virtual void Abort_Drag_Select();                              // slot 35 0x0066AC20 (aborts a drag select)
-    bool Unknown_00669650(Point2D const &xy, Cell &cell, CoordStruct &coord, ObjectClass *&object, bool &arg5, bool &arg6);   // 0x00669650
+    bool Resolve_Point(Point2D const &xy, Cell &cell, CoordStruct &coord, ObjectClass *&object, bool &arg5, bool &arg6);      // 0x00669650
 };
 #endif
 

@@ -1,4 +1,4 @@
-// void ScrollClass::Unknown_0066A7A0(Point2D const &xy) (0x0066A7A0)
+// void ScrollClass::Scroll_Coast(Point2D const &xy) (0x0066A7A0)
 #include "shared/scroll.hpp"
 #include "shared/mouse_class.hpp"
 #include "shared/map_view.hpp"
@@ -23,11 +23,11 @@
 // @ref __ftol=0077f110
 // @ref __real@8@4002c000000000000000=007a5e18
 // @ref __real@8@3fff8000000000000000=0079a708
-// @ref _?_direction@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA=007f2c0c
-// @ref _?unknown_7f2c10@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA=007f2c10
-// @ref _?_mouse@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA=007f2c30
+// @ref _?_direction@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4HA=007f2c0c
+// @ref _?unknown_7f2c10@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA=007f2c10
+// @ref _?_mouse@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA=007f2c30
 
-void ScrollClass::Unknown_0066A7A0(Point2D const &xy)
+void ScrollClass::Scroll_Coast(Point2D const &xy)
 {
     static int _direction = -1;
     // Unreferenced by the code (0x007F2C10, between the two statics the code uses).

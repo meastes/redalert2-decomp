@@ -1,4 +1,4 @@
-// void ScrollClass::Unknown_0066A400(HWND window, unsigned &message, unsigned &wparam, long &lparam) (0x0066A400)
+// void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam) (0x0066A400)
 #include "shared/scroll.hpp"
 #include "shared/mouse_class.hpp"
 #include "shared/map_view.hpp"
@@ -21,8 +21,8 @@
 // @ref ?Planning_Left_Up_00617680@@YG_NUPoint2D@@@Z=00617680
 // @ref ?Planning_Mouse_Down@@YGXHH@Z=00617860
 // @ref ?Planning_Mouse_Up@@YGXHH@Z=006178a0
-// @ref ?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z=00669650
-// @ref ?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z=00669960
+// @ref ?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z=00669650
+// @ref ?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z=00669960
 // @ref ?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z=0049af80
 // @ref ?Mouse_Left_Press@DisplayClass@@UAEXABUPoint2D@@@Z=0049c490
 // @ref ?unknown_slot46@DisplayClass@@UAEXABVCell@@_NPAVObjectClass@@H1@Z=0049b0f0
@@ -30,7 +30,7 @@
 // @ref ?Mouse_Right_Release@DisplayClass@@UAEXABUPoint2D@@@Z=0049af90
 // @ref ?Abort_Drag_Select@DisplayClass@@UAEXXZ=0049ebf0
 
-void ScrollClass::Unknown_0066A400(HWND window, unsigned &message, unsigned &wparam, long &lparam)
+void ScrollClass::Message_Handler(HWND window, unsigned &message, unsigned &wparam, long &lparam)
 {
     if (!unknown_flag_a40380) {
         return;
@@ -55,7 +55,7 @@ void ScrollClass::Unknown_0066A400(HWND window, unsigned &message, unsigned &wpa
         long position = lparam;
         xy.X = ((short *)&position)[0] - unknown_rect_839630.X;
         xy.Y = ((short *)&position)[1] - unknown_rect_839630.Y;
-        if (!Unknown_00669650(xy, cell, coord, object, arg5, arg6)) {
+        if (!Resolve_Point(xy, cell, coord, object, arg5, arg6)) {
             break;
         }
         if (Planning_Left_Down_00617340(xy.X, xy.Y)) {
@@ -64,7 +64,7 @@ void ScrollClass::Unknown_0066A400(HWND window, unsigned &message, unsigned &wpa
         if (unknown_4f2a) {
             break;
         }
-        Map.unknown_slot46(cell, arg6, object, Unknown_00669960(cell, object, true), false);
+        Map.unknown_slot46(cell, arg6, object, What_Action(cell, object, true), false);
         Map.Mouse_Left_Press(xy);
         SetCapture(MainWindow);
         unknown_4f2a = true;
@@ -80,8 +80,8 @@ void ScrollClass::Unknown_0066A400(HWND window, unsigned &message, unsigned &wpa
         if (!unknown_4f2a) {
             break;
         }
-        Unknown_00669650(xy, cell, coord, object, arg5, arg6);
-        Map.Mouse_Left_Release(coord, cell, object, Unknown_00669960(cell, object, false), false);
+        Resolve_Point(xy, cell, coord, object, arg5, arg6);
+        Map.Mouse_Left_Release(coord, cell, object, What_Action(cell, object, false), false);
         unknown_4f2a = false;
         ReleaseCapture();
         break;
@@ -94,7 +94,7 @@ void ScrollClass::Unknown_0066A400(HWND window, unsigned &message, unsigned &wpa
         if (unknown_4f2a) {
             break;
         }
-        if (!Unknown_00669650(xy, cell, coord, object, arg5, arg6)) {
+        if (!Resolve_Point(xy, cell, coord, object, arg5, arg6)) {
             break;
         }
         Map.Mouse_Right_Press(xy);

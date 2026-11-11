@@ -4,8 +4,8 @@
     "id": "population-4218",
     "inventory_sha256": "900bc24dd5fcf1086e21df5926a9c3985c60491d2de98a969e97ab13fd9bf040",
     "gaps_sha256": "e258909821479693fc18e4797f0c9d45fd12222448d86534807fe4ffe7c25f51",
-    "historical_population_sha256": "4eaed3b6277555e148f721419f8ab4ba84c6d04cab21714136517b13e04b4f92",
-    "historical_acceptance_sha256": "f3e5e02d2526e6fdef03d44ef6c99951fed503b582a7fd1f932710be7ba4b519"
+    "historical_population_sha256": "92885c200ca8af7372b16474289c5c6a647b2e46a6ed671072c0f1aa554b6279",
+    "historical_acceptance_sha256": "7b777ece9d9e39a89482e7306843db0af4a9e5a455ccdb2a5f9fe43d2fc21885"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1936,7 +1936,7 @@
     "?Mouse_Left_Release@DisplayClass@@UAEXABUCoordStruct@@ABVCell@@PAVObjectClass@@H_N@Z": 4832032,
     "?Init_For_House@TabClass@@UAEXXZ": 6949744,
     "?unknown_slot54@TabClass@@UAE_NH@Z": 6950304,
-    "?Unknown_0066A290@ScrollClass@@QAEXXZ": 6726288,
+    "?Scroll_AI@ScrollClass@@QAEXXZ": 6726288,
     "?AI@TabClass@@UAEXAAHABUPoint2D@@@Z": 6950704,
     "?unknown_cell_ab7068@@3VCell@@A": 11235432,
     "?unknown_coord_ab7088@@3UCoordStruct@@A": 11235464,
@@ -1980,9 +1980,9 @@
     "?WWMouse@@3PAVMouse@@A": 8625256,
     "?Planning_Mouse_Move_00617900@@YG_NHH@Z": 6387968,
     "?Down@WWKeyboardClass@@QAE_NH@Z": 5449872,
-    "?Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z": 6727584,
-    "?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z": 6723152,
-    "?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z": 6723936,
+    "?Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z": 6727584,
+    "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z": 6723152,
+    "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z": 6723936,
     "?Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z": 6725312,
     "?unknown_tactical_83996c@@3PAVTactical@@A": 8624492,
     "?unknown_flag_a40380@@3_NA": 10748800,
@@ -2005,9 +2005,9 @@
     "?Get_Scroll_Method@OptionsClass@@QBEHXZ": 6136800,
     "?Unknown_00721DB0@@YIHABUPoint2D@@0@Z": 7478704,
     "?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z": 4823904,
-    "_?_direction@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA": 8334348,
-    "_?unknown_7f2c10@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA": 8334352,
-    "_?_mouse@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA": 8334384,
+    "_?_direction@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4HA": 8334348,
+    "_?unknown_7f2c10@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA": 8334352,
+    "_?_mouse@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA": 8334384,
     "__imp__GetCapture@0": 7971820,
     "?Debug_Printf@@YAXPBDZZ": 4221168,
     "??_C@_0BN@HBAO@Scroll?3?5Abort_Drag_Select?$CI?$CJ?6?$AA@": 8334448,
@@ -2027,11 +2027,11 @@
     "_$E82": 6722960,
     "??0ScrollClass@@QAE@XZ": 6723040,
     "?AI@ScrollClass@@": 6723120,
-    "?Unknown_00669650@ScrollClass@@": 6723152,
-    "?Unknown_00669960@ScrollClass@@": 6723936,
+    "?Resolve_Point@ScrollClass@@": 6723152,
+    "?What_Action@ScrollClass@@": 6723936,
     "?Edge_Scroll_00669EC0@ScrollClass@@": 6725312,
     "?Is_Scrolling@ScrollClass@@": 6726592,
-    "?Unknown_0066A400@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z": 6726656,
+    "?Message_Handler@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z": 6726656,
     "?Mouse_Right_Release@ScrollClass@@": 6728608,
     "?Mouse_Right_Press@ScrollClass@@": 6728672,
     "?Abort_Drag_Select@ScrollClass@@": 6728736,
@@ -12460,7 +12460,28 @@
     "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
     "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
-    "?Play@BinkClass@@QAEXXZ": 4391984
+    "?Play@BinkClass@@QAEXXZ": 4391984,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Search@@3UAStarClass@@A": 8590792,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
   },
   "regions": [
     {
@@ -13089,7 +13110,7 @@
         {
           "offset": 4,
           "kind": 20,
-          "symbol": "?Unknown_0066A290@ScrollClass@@QAEXXZ",
+          "symbol": "?Scroll_AI@ScrollClass@@QAEXXZ",
           "target": 6726288,
           "addend": 0,
           "resolved": 3160
@@ -13103,7 +13124,7 @@
           "resolved": 227559
         }
       ],
-      "source_sha256": "6b253997da5c58d85306a606c0e058d80aadc4ab3a0231887f06224c38a0e5a0",
+      "source_sha256": "deec7d81e15185dc10bdf337c030bda9a40ba17febd54e70aa775f06ad7e3243",
       "source": "src/recovered/classes/ScrollClass/ScrollClass_AI_00669630.cpp",
       "population": "population-4218",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -13696,8 +13717,8 @@
     {
       "entry": 6726288,
       "method": "0066a290",
-      "symbol": "?Unknown_0066A290@ScrollClass@@QAEXXZ",
-      "symbol_prefix": "?Unknown_0066A290@ScrollClass@@QAEXXZ",
+      "symbol": "?Scroll_AI@ScrollClass@@QAEXXZ",
+      "symbol_prefix": "?Scroll_AI@ScrollClass@@QAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -13809,7 +13830,7 @@
         {
           "offset": 163,
           "kind": 20,
-          "symbol": "?Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z",
+          "symbol": "?Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z",
           "target": 6727584,
           "addend": 0,
           "resolved": 1129
@@ -13817,7 +13838,7 @@
         {
           "offset": 205,
           "kind": 20,
-          "symbol": "?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+          "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
           "target": 6723152,
           "addend": 0,
           "resolved": 4294963951
@@ -13825,7 +13846,7 @@
         {
           "offset": 230,
           "kind": 20,
-          "symbol": "?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
+          "symbol": "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
           "target": 6723936,
           "addend": 0,
           "resolved": 4294964710
@@ -13863,20 +13884,20 @@
           "resolved": 4294966029
         }
       ],
-      "source_sha256": "6b391fa1a75f6d289c772fc3afc7fa8fe9b273bd596dd163ae6978ed8accd774",
-      "source": "src/recovered/classes/ScrollClass/ScrollClass_Unknown_0066A290_0066a290.cpp",
+      "source_sha256": "83291f24f170e9c0e7ccc88fdc6fb954d3e30646fd1e9ee3d50e80427298fdee",
+      "source": "src/recovered/classes/ScrollClass/ScrollClass_Scroll_AI_0066a290.cpp",
       "population": "population-4218",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ScrollClass_Unknown_0066A290_0066a290",
+      "semantic_name": "ScrollClass_Scroll_AI_0066a290",
       "source_order": 216048
     },
     {
       "entry": 6726656,
       "method": "0066a400",
-      "symbol": "?Unknown_0066A400@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z",
-      "symbol_prefix": "?Unknown_0066A400@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z",
+      "symbol": "?Message_Handler@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z",
+      "symbol_prefix": "?Message_Handler@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -13980,7 +14001,7 @@
         {
           "offset": 209,
           "kind": 20,
-          "symbol": "?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+          "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
           "target": 6723152,
           "addend": 0,
           "resolved": 4294963579
@@ -13996,7 +14017,7 @@
         {
           "offset": 272,
           "kind": 20,
-          "symbol": "?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
+          "symbol": "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
           "target": 6723936,
           "addend": 0,
           "resolved": 4294964300
@@ -14076,7 +14097,7 @@
         {
           "offset": 447,
           "kind": 20,
-          "symbol": "?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+          "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
           "target": 6723152,
           "addend": 0,
           "resolved": 4294963341
@@ -14084,7 +14105,7 @@
         {
           "offset": 466,
           "kind": 20,
-          "symbol": "?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
+          "symbol": "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
           "target": 6723936,
           "addend": 0,
           "resolved": 4294964106
@@ -14140,7 +14161,7 @@
         {
           "offset": 610,
           "kind": 20,
-          "symbol": "?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+          "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
           "target": 6723152,
           "addend": 0,
           "resolved": 4294963178
@@ -14370,21 +14391,21 @@
           "resolved": 6727528
         }
       ],
-      "source_sha256": "3426e618268a3da575c57bad224cd642c4805e804cc3c2aaa7751683f4b399ef",
+      "source_sha256": "669db4614790de388af05fb4f1a5598dd6ea302323b482f1b9dc0417333e9d7d",
       "switch_data_bytes": 45,
-      "source": "src/recovered/classes/ScrollClass/ScrollClass_Unknown_0066A400_0066a400.cpp",
+      "source": "src/recovered/classes/ScrollClass/ScrollClass_Message_Handler_0066a400.cpp",
       "population": "population-4218",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ScrollClass_Unknown_0066A400_0066a400",
+      "semantic_name": "ScrollClass_Message_Handler_0066a400",
       "source_order": 216050
     },
     {
       "entry": 6727584,
       "method": "0066a7a0",
-      "symbol": "?Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z",
-      "symbol_prefix": "?Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z",
+      "symbol": "?Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z",
+      "symbol_prefix": "?Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -14440,7 +14461,7 @@
         {
           "offset": 249,
           "kind": 6,
-          "symbol": "_?_direction@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA",
+          "symbol": "_?_direction@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4HA",
           "target": 8334348,
           "addend": 0,
           "resolved": 8334348
@@ -14448,7 +14469,7 @@
         {
           "offset": 256,
           "kind": 6,
-          "symbol": "_?_direction@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4HA",
+          "symbol": "_?_direction@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4HA",
           "target": 8334348,
           "addend": 0,
           "resolved": 8334348
@@ -14696,26 +14717,26 @@
         {
           "offset": 1002,
           "kind": 6,
-          "symbol": "_?_mouse@?1??Unknown_0066A7A0@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA",
+          "symbol": "_?_mouse@?1??Scroll_Coast@ScrollClass@@QAEXABUPoint2D@@@Z@4PAHA",
           "target": 8334384,
           "addend": 0,
           "resolved": 8334384
         }
       ],
-      "source_sha256": "de2a6908b8c35658414c1840c40f477ac3819f71077bf5045c6a14cf54ccc34c",
-      "source": "src/recovered/classes/ScrollClass/ScrollClass_Unknown_0066A7A0_0066a7a0.cpp",
+      "source_sha256": "f70e50fd0641d485f7c10e2162f8ac24d8ce587059ff28da117a2f4b35fa732b",
+      "source": "src/recovered/classes/ScrollClass/ScrollClass_Scroll_Coast_0066a7a0.cpp",
       "population": "population-4218",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ScrollClass_Unknown_0066A7A0_0066a7a0",
+      "semantic_name": "ScrollClass_Scroll_Coast_0066a7a0",
       "source_order": 216051
     },
     {
       "entry": 6723936,
       "method": "00669960",
-      "symbol": "?Unknown_00669960@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
-      "symbol_prefix": "?Unknown_00669960@ScrollClass@@",
+      "symbol": "?What_Action@ScrollClass@@QAEHABVCell@@PAVObjectClass@@_N@Z",
+      "symbol_prefix": "?What_Action@ScrollClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -15241,20 +15262,20 @@
           "resolved": 8599172
         }
       ],
-      "source_sha256": "c874872a09057ece2bfae20cf803e8b3d5cf81e4f6cae7e8c5f6758511190d1e",
-      "source": "src/recovered/classes/ScrollClass/ScrollClass_Unknown_00669960_00669960.cpp",
+      "source_sha256": "cb41c8ea79e1588ca91e833a47fb60e9ea41dc6a8227f5016ff158cebfe29da1",
+      "source": "src/recovered/classes/ScrollClass/ScrollClass_What_Action_00669960.cpp",
       "population": "population-4218",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ScrollClass_Unknown_00669960_00669960",
+      "semantic_name": "ScrollClass_What_Action_00669960",
       "source_order": 216045
     },
     {
       "entry": 6723152,
       "method": "00669650",
-      "symbol": "?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
-      "symbol_prefix": "?Unknown_00669650@ScrollClass@@",
+      "symbol": "?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z",
+      "symbol_prefix": "?Resolve_Point@ScrollClass@@",
       "options": [
         "/O2",
         "/Ob2",
@@ -15588,13 +15609,13 @@
           "resolved": 4292946366
         }
       ],
-      "source_sha256": "32f4bd204241a1cdf52fad84fc02b8968172708cad5f6fa34283279a306d0c75",
-      "source": "src/recovered/classes/ScrollClass/ScrollClass_Unknown_00669650_00669650.cpp",
+      "source_sha256": "d252b0db5d71ce6f0f1cb6362743e62bb96e28d3d48c8335a0aac175a398d346",
+      "source": "src/recovered/classes/ScrollClass/ScrollClass_Resolve_Point_00669650.cpp",
       "population": "population-4218",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "ScrollClass_Unknown_00669650_00669650",
+      "semantic_name": "ScrollClass_Resolve_Point_00669650",
       "source_order": 216044
     },
     {

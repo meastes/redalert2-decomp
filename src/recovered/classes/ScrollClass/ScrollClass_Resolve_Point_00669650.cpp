@@ -13,7 +13,7 @@
 // @ref ?Get_Selectable_Object_006aa990@Tactical@@QAEPAVObjectClass@@ABUPoint2D@@@Z=006aa990
 // @ref _unknown_geometry_k=00ab7068
 // @ref _unknown_geometry_l=00ab7088
-bool ScrollClass::Unknown_00669650(Point2D const &xy,Cell &cell,CoordStruct &coord,ObjectClass *&object,bool &fog,bool &shadow)
+bool ScrollClass::Resolve_Point(Point2D const &xy,Cell &cell,CoordStruct &coord,ObjectClass *&object,bool &fog,bool &shadow)
 {
     object=0;
     cell=unknown_geometry_k;

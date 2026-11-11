@@ -27,7 +27,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
             return DefWindowProcA(window, message, wparam, lparam);
         return 0;
     }
-    Map.Unknown_0066A400(window, message, wparam, lparam);
+    Map.Message_Handler(window, message, wparam, lparam);
     if (MainWindow) GetMenu(MainWindow);
     if (IME_Process_Message(window, message, wparam, lparam)) {
         Debug_Printf(ime_processed_007fd18c);
@@ -120,7 +120,7 @@ LRESULT WINAPI Windows_Procedure(HWND window, UINT message, WPARAM wparam, LPARA
 // @ref ?window_mouse_wheel_b263e9@@3_NA=00b263e9
 // @ref ?window_scroll_coasting_8373fc@@3_NA=008373fc
 // @ref ?unknown_redraw_8523dc@@3_NA=008523dc
-// @ref ?Unknown_0066A400@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z=0066a400
+// @ref ?Message_Handler@ScrollClass@@QAEXPAUHWND__@@AAI1AAJ@Z=0066a400
 // @ref ?Unknown_0067D420@SidebarClass@@QAEX_N@Z=0067d420
 // @ref ?unknown_moving_736d80@@YI_NPAUHWND__@@IPAVRect@@@Z=00736d80
 // @ref ?Execute_Command_By_Name@@YIXPBD@Z=00519480

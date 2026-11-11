@@ -9,7 +9,7 @@
 #include "shared/tactical.hpp"
 #include "shared/map_view.hpp"
 // @ref ?Unknown_004994D0@DisplayClass@@QAE?AVCell@@ABV2@@Z=004994d0
-// @ref ?Unknown_00669650@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z=00669650
+// @ref ?Resolve_Point@ScrollClass@@QAE_NABUPoint2D@@AAVCell@@AAUCoordStruct@@AAPAVObjectClass@@AA_N4@Z=00669650
 
 int DisplayClass::TacticalClass::Action(unsigned flags, unsigned &key)
 {
@@ -30,7 +30,7 @@ int DisplayClass::TacticalClass::Action(unsigned flags, unsigned &key)
     CoordStruct coord;
     bool arg5;
     bool arg6;
-    Map.Unknown_00669650(xy, cell, coord, object, arg5, arg6);
+    Map.Resolve_Point(xy, cell, coord, object, arg5, arg6);
     if (cell != Map.unknown_1170) {
         Map.Unknown_004994D0(cell);
     }

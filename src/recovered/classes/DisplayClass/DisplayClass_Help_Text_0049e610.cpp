@@ -45,7 +45,7 @@ wchar_t const *DisplayClass::Help_Text(int id)
     int top = unknown_rect_839630.Y;
     Point2D xy = WWMouse->Get_Mouse_XY();
     Point2D point(xy.X - left, xy.Y - top);
-    Map.Unknown_00669650(point, cell, coord, object, fog, shadow);
+    Map.Resolve_Point(point, cell, coord, object, fog, shadow);
 
     if (unknown_show_cursor_position_a416bc) {
         swprintf(_buffer, L"(%d,%d)", coord.X / 256, coord.Y / 256);
