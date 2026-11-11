@@ -1,13 +1,13 @@
 VoxelLibrary::VoxelLibrary(FileClass *file, int arg2)
 {
-    unknown_00 = false;
-    unknown_04 = 0;
-    unknown_08 = 0;
-    unknown_0c = 0;
-    unknown_10 = 0;
-    unknown_14 = 0;
-    unknown_18 = 0;
+    LoadFailed = false;
+    LayerCount = 0;
+    LayerInfoCount = 0;
+    DataSize = 0;
+    LayerHeaders = 0;
+    LayerInfos = 0;
+    Data = 0;
     if (Read_File(file, arg2) == 0) {
-        unknown_00 = true;
+        LoadFailed = true;
     }
 }

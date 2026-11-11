@@ -39,7 +39,7 @@ void BulletClass::Draw_Voxel_00463a00(UnknownObjectPair const &pair, Matrix3D co
     // Original leaves this uninitialized if sections exist but motion is null;
     // valid caller inputs/precondition remain to be evidenced.
     Matrix3D transformed;
-    for (unsigned section = 0; section < (unsigned)voxel->unknown_04; ++section) {
+    for (unsigned section = 0; section < (unsigned)voxel->LayerCount; ++section) {
         if (motion != 0) {
             Matrix3D section_matrix;
             section_matrix = motion->unknown_transforms[(frame % motion->unknown_frame_count) * motion->unknown_section_count + section];

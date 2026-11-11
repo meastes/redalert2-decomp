@@ -46,7 +46,7 @@ void ObjectTypeClass::unknown_func_5d6730()
     if (voxel.Is_Available()) {
         delete unknown_b0.unknown_00;
         unknown_b0.unknown_00 = new VoxelLibrary(&voxel);
-        if (unknown_b0.unknown_00 == 0 || unknown_b0.unknown_00->unknown_00) {
+        if (unknown_b0.unknown_00 == 0 || unknown_b0.unknown_00->LoadFailed) {
             failed = true;
         }
         _makepath(fullname, 0, 0, unknown_1c8, ".HVA");
@@ -70,7 +70,7 @@ void ObjectTypeClass::unknown_func_5d6730()
             if (voxel.Is_Available()) {
                 delete unknown_b8.unknown_00;
                 unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
-                if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->unknown_00) {
+                if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->LoadFailed) {
                     failed = true;
                 }
                 sprintf(name, "%sW", (char const *)unknown_1c8);
@@ -92,7 +92,7 @@ void ObjectTypeClass::unknown_func_5d6730()
             if (voxel.Is_Available()) {
                 delete unknown_b8.unknown_00;
                 unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
-                if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->unknown_00) {
+                if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->LoadFailed) {
                     failed = true;
                 }
                 sprintf(name, "%sWO", (char const *)unknown_1c8);
@@ -122,7 +122,7 @@ void ObjectTypeClass::unknown_func_5d6730()
         if (voxel.Is_Available()) {
             delete unknown_b8.unknown_00;
             unknown_b8.unknown_00 = new VoxelLibrary(&voxel);
-            if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->unknown_00) {
+            if (unknown_b8.unknown_00 == 0 || unknown_b8.unknown_00->LoadFailed) {
                 failed = true;
             }
             sprintf(name, "%sTUR", (char const *)unknown_1c8);
@@ -154,7 +154,7 @@ void ObjectTypeClass::unknown_func_5d6730()
             if (voxel.Is_Available()) {
                 delete unknown_c0.unknown_00;
                 unknown_c0.unknown_00 = new VoxelLibrary(&voxel);
-                if (unknown_c0.unknown_00 == 0 || unknown_c0.unknown_00->unknown_00) {
+                if (unknown_c0.unknown_00 == 0 || unknown_c0.unknown_00->LoadFailed) {
                     failed = true;
                 }
                 sprintf(name, "%sBARL", (char const *)unknown_1c8);
@@ -194,7 +194,7 @@ void ObjectTypeClass::unknown_func_5d6730()
         }
     } else {
         int size = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a0;
-        for (int index = 0; index < unknown_b0.unknown_00->unknown_04; index++) {
+        for (int index = 0; index < unknown_b0.unknown_00->LayerCount; index++) {
             if (size <= unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a0) {
                 size = unknown_b0.unknown_00->Get_Layer_Info(index, 0)->unknown_a0;
             }

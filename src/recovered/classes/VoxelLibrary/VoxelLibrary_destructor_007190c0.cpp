@@ -1,15 +1,15 @@
 VoxelLibrary::~VoxelLibrary()
 {
-    if (unknown_10 != 0) {
-        operator delete(unknown_10);
+    if (LayerHeaders != 0) {
+        operator delete(LayerHeaders);
     }
-    unknown_10 = 0;
-    if (unknown_14 != 0) {
-        operator delete(unknown_14);
+    LayerHeaders = 0;
+    if (LayerInfos != 0) {
+        operator delete(LayerInfos);
     }
-    unknown_14 = 0;
-    if (unknown_18 != 0) {
-        operator delete(unknown_18);
+    LayerInfos = 0;
+    if (Data != 0) {
+        operator delete(Data);
     }
-    unknown_18 = 0;
+    Data = 0;
 }

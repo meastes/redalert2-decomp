@@ -41,7 +41,7 @@ bool ObjectTypeClass::unknown_func_5d6150(char const *image, int index)
 
     bool voxel_loaded = false;
     unknown_c8[index].unknown_00 = new VoxelLibrary(&voxel);
-    if (unknown_c8[index].unknown_00 != 0 && !unknown_c8[index].unknown_00->unknown_00) {
+    if (unknown_c8[index].unknown_00 != 0 && !unknown_c8[index].unknown_00->LoadFailed) {
         voxel_loaded = true;
     }
 

@@ -32,7 +32,7 @@ SurfaceRegion TechnoClass::Render_Voxel_Object_006d24e0(UnknownObjectPair const 
     UnknownPairSecond *motion=voxel.unknown_04;
     VoxelDrawSystem::Precalculate_Light(voxlib,0,0,base,unknown_voxel_transform_839a70,unknown_voxel_light_839ab0,3.0f);
     VoxelDrawSystem::Reset();
-    for (unsigned layer=0;layer<(unsigned)voxlib->unknown_04;++layer) {
+    for (unsigned layer=0;layer<(unsigned)voxlib->LayerCount;++layer) {
         if (motion) {
             Matrix3D section;
             section=motion->unknown_transforms[((unsigned)frame%motion->unknown_frame_count)*motion->unknown_section_count+layer];

@@ -684,7 +684,7 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
         } else if (Turret) {
             unknown_func_5d72b0();
         }
-        if (unknown_b0.unknown_00 != 0 && !unknown_b0.unknown_00->unknown_00) {
+        if (unknown_b0.unknown_00 != 0 && !unknown_b0.unknown_00->LoadFailed) {
             unknown_330 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a1 * 0.5f + 0.5;
             unknown_338 = unknown_b0.unknown_00->Get_Layer_Info(0, 0)->unknown_a0 * 0.5f;
         }

@@ -32,7 +32,7 @@ inline double Rock_Length(Vector3 const &v)
 }
 void TechnoClass::unknown_slot223(CoordStruct const &coord, float force)
 {
-    if (unknown_slot32()->unknown_b0.unknown_00 && !unknown_slot32()->unknown_b0.unknown_00->unknown_00) {
+    if (unknown_slot32()->unknown_b0.unknown_00 && !unknown_slot32()->unknown_b0.unknown_00->LoadFailed) {
         CoordStruct pos=Coord;
         Vector3 vec1;
         vec1.X=pos.X-coord.X;

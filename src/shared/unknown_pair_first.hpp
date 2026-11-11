@@ -87,13 +87,13 @@ public:
     void Render_Shadow(UnknownVoxelRecord48 *record, Vector3 const *origin);   // 0x00719C10 (draws a shadow)
     void Compute_Bounding_Box();                            // 0x00719F60 (sets the box corners)
 
-    bool unknown_00;                    // +0x00 load failed (hypothesis)
-    int unknown_04;                     // +0x04 section count (hypothesis)
-    unsigned unknown_08;                // +0x08 tailer count (hypothesis)
-    int unknown_0c;                     // +0x0C body size (hypothesis)
-    UnknownVoxelSection *unknown_10;    // +0x10
-    UnknownVoxelTailer *unknown_14;     // +0x14
-    void *unknown_18;                   // +0x18
+    bool LoadFailed;                    // +0x00 load failed
+    int LayerCount;                     // +0x04 section count
+    unsigned LayerInfoCount;            // +0x08 tailer count
+    int DataSize;                       // +0x0C body size
+    UnknownVoxelSection *LayerHeaders;  // +0x10
+    UnknownVoxelTailer *LayerInfos;     // +0x14
+    void *Data;                         // +0x18
 };
 
 #endif

@@ -21,13 +21,13 @@ int VoxelLibrary::Read_File(FileClass *file, int load_palette)
     VxlFileHeader header;
     VxlLayerHeader layer_header;
     file->Read(&header, sizeof(header));
-    unknown_04 = header.LayerCount;
-    unknown_08 = header.LayerInfoCount;
-    unknown_0c = header.DataSize;
-    unknown_10 = new UnknownVoxelSection[unknown_04];
-    unknown_14 = new UnknownVoxelTailer[unknown_08];
-    unknown_18 = new unsigned char[unknown_0c];
-    if (!unknown_10 || !unknown_14 || !unknown_18) {
+    LayerCount = header.LayerCount;
+    LayerInfoCount = header.LayerInfoCount;
+    DataSize = header.DataSize;
+    LayerHeaders = new UnknownVoxelSection[LayerCount];
+    LayerInfos = new UnknownVoxelTailer[LayerInfoCount];
+    Data = new unsigned char[DataSize];
+    if (!LayerHeaders || !LayerInfos || !Data) {
         Clear(); file->Close(); return 0;
     }
     if (load_palette) {
@@ -44,36 +44,36 @@ int VoxelLibrary::Read_File(FileClass *file, int load_palette)
         if (header.PaletteCount>1) file->Seek(768*header.PaletteCount-768,1);
         palette.Calculate_Lookup_Table(0,0);
     } else file->Seek(770*header.PaletteCount,1);
-    for (i=0;i<(unsigned)unknown_04;++i) {
+    for (i=0;i<(unsigned)LayerCount;++i) {
 
         if (file->Read(&layer_header,sizeof(layer_header))!=sizeof(layer_header)) { Clear(); file->Close(); return 0; }
-        unknown_10[i].unknown_00=layer_header.InfoIndex;
-        unknown_10[i].unknown_04=layer_header.Unused1;
-        *(unsigned char *)&unknown_10[i].unknown_08=layer_header.Unused2;
+        LayerHeaders[i].unknown_00=layer_header.InfoIndex;
+        LayerHeaders[i].unknown_04=layer_header.Unused1;
+        *(unsigned char *)&LayerHeaders[i].unknown_08=layer_header.Unused2;
     }
-    if (file->Read(unknown_18,unknown_0c)!=unknown_0c) { Clear(); file->Close(); return 0; }
-    for (i=0;i<unknown_08;++i) {
+    if (file->Read(Data,DataSize)!=DataSize) { Clear(); file->Close(); return 0; }
+    for (i=0;i<LayerInfoCount;++i) {
 
         if (file->Read(&layer_info,sizeof(layer_info))!=sizeof(layer_info)) { Clear(); file->Close(); return 0; }
-        unknown_14[i].unknown_a0=layer_info.XSize;
-        unknown_14[i].unknown_a1=layer_info.YSize;
-        unknown_14[i].unknown_a2=layer_info.ZSize;
-        unknown_14[i].unknown_a3=layer_info.NormalType;
-        unknown_14[i].unknown_0c=layer_info.Scale;
-        *(VxlMatrixData *)unknown_14[i].unknown_10 = (VxlMatrixData &)Matrix3D(layer_info.Transform);
+        LayerInfos[i].unknown_a0=layer_info.XSize;
+        LayerInfos[i].unknown_a1=layer_info.YSize;
+        LayerInfos[i].unknown_a2=layer_info.ZSize;
+        LayerInfos[i].unknown_a3=layer_info.NormalType;
+        LayerInfos[i].unknown_0c=layer_info.Scale;
+        *(VxlMatrixData *)LayerInfos[i].unknown_10 = (VxlMatrixData &)Matrix3D(layer_info.Transform);
         Vector3 min; min.X=layer_info.MinBounds[0]; min.Y=layer_info.MinBounds[1]; min.Z=layer_info.MinBounds[2];
         Vector3 max; max=*(Vector3 const *)layer_info.MaxBounds;
-        unknown_14[i].unknown_40[0]=Vector3(max.X,max.Y,min.Z);
-        unknown_14[i].unknown_40[1]=Vector3(max.X,min.Y,min.Z);
-        unknown_14[i].unknown_40[2]=Vector3(min.X,min.Y,min.Z);
-        unknown_14[i].unknown_40[3]=Vector3(min.X,max.Y,min.Z);
-        unknown_14[i].unknown_40[4]=Vector3(max.X,max.Y,max.Z);
-        unknown_14[i].unknown_40[5]=Vector3(max.X,min.Y,max.Z);
-        unknown_14[i].unknown_40[6]=Vector3(min.X,min.Y,max.Z);
-        unknown_14[i].unknown_40[7]=Vector3(min.X,max.Y,max.Z);
-        unknown_14[i].unknown_00=(int *)((unsigned char *)unknown_18+layer_info.StartOffset);
-        unknown_14[i].unknown_04=(int *)((unsigned char *)unknown_18+layer_info.EndOffset);
-        unknown_14[i].unknown_08=(unsigned char *)unknown_18+layer_info.DataOffset;
+        LayerInfos[i].unknown_40[0]=Vector3(max.X,max.Y,min.Z);
+        LayerInfos[i].unknown_40[1]=Vector3(max.X,min.Y,min.Z);
+        LayerInfos[i].unknown_40[2]=Vector3(min.X,min.Y,min.Z);
+        LayerInfos[i].unknown_40[3]=Vector3(min.X,max.Y,min.Z);
+        LayerInfos[i].unknown_40[4]=Vector3(max.X,max.Y,max.Z);
+        LayerInfos[i].unknown_40[5]=Vector3(max.X,min.Y,max.Z);
+        LayerInfos[i].unknown_40[6]=Vector3(min.X,min.Y,max.Z);
+        LayerInfos[i].unknown_40[7]=Vector3(min.X,max.Y,max.Z);
+        LayerInfos[i].unknown_00=(int *)((unsigned char *)Data+layer_info.StartOffset);
+        LayerInfos[i].unknown_04=(int *)((unsigned char *)Data+layer_info.EndOffset);
+        LayerInfos[i].unknown_08=(unsigned char *)Data+layer_info.DataOffset;
     }
     file->Close(); return 1;
 }

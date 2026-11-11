@@ -2,8 +2,8 @@
 // origin.
 void VoxelLibrary::Compute_Bounding_Box()
 {
-    for (unsigned index = 0; index < unknown_08; index++) {
-        UnknownVoxelTailer *tailer = &unknown_14[index];
+    for (unsigned index = 0; index < LayerInfoCount; index++) {
+        UnknownVoxelTailer *tailer = &LayerInfos[index];
         tailer->unknown_40[0] = Vector3(tailer->unknown_a0 * 0.5f, tailer->unknown_a1 * 0.5f, -tailer->unknown_a2 * 0.5f);
         tailer->unknown_40[1] = Vector3(tailer->unknown_a0 * 0.5f, -tailer->unknown_a1 * 0.5f, -tailer->unknown_a2 * 0.5f);
         tailer->unknown_40[2] = Vector3(-tailer->unknown_a0 * 0.5f, -tailer->unknown_a1 * 0.5f, -tailer->unknown_a2 * 0.5f);

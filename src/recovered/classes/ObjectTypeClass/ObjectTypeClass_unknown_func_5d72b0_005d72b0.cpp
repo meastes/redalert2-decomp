@@ -35,7 +35,7 @@ void ObjectTypeClass::unknown_func_5d72b0()
         if (turret.Is_Available()) {
             delete unknown_b8.unknown_00;
             unknown_b8.unknown_00 = new VoxelLibrary(&turret);
-            if (unknown_b8.unknown_00 != 0 && !unknown_b8.unknown_00->unknown_00) {
+            if (unknown_b8.unknown_00 != 0 && !unknown_b8.unknown_00->LoadFailed) {
                 sprintf(name, "%sTUR", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
@@ -51,7 +51,7 @@ void ObjectTypeClass::unknown_func_5d72b0()
         if (barrel.Is_Available()) {
             delete unknown_c0.unknown_00;
             unknown_c0.unknown_00 = new VoxelLibrary(&barrel);
-            if (unknown_c0.unknown_00 != 0 && !unknown_c0.unknown_00->unknown_00) {
+            if (unknown_c0.unknown_00 != 0 && !unknown_c0.unknown_00->LoadFailed) {
                 sprintf(name, "%sBARL", (char const *)unknown_1c8);
                 _makepath(fullname, 0, 0, name, ".HVA");
                 CCFileClass motion(fullname);
