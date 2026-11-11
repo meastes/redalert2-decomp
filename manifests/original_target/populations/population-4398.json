@@ -4,8 +4,8 @@
     "id": "population-4398",
     "inventory_sha256": "8b535662116274dc5d511e9ba2471fe83d27b887344b8352e7f84c9316eb9a34",
     "gaps_sha256": "f824756eaf9954442945b1b72e7f1d05ac32893c2bdb011c3649c16f40c92d77",
-    "historical_population_sha256": "17a4e4949f6ea8d82b3e293f504e2e626cb57c80152a23618418fdc5f9f580ac",
-    "historical_acceptance_sha256": "38703fdae4eb7141fcbe3bd4a9634c382195989353f5e22e076902cbc8066d68"
+    "historical_population_sha256": "95fbc81f0902937952e0a8fd13836fa3254c938a985c6d5a4464ba6892995f53",
+    "historical_acceptance_sha256": "46c00911eb2e0e21dc85e9de5959e8e804da2318609a5aec5ac8e86a62f37951"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -9664,10 +9664,10 @@
     "?Control@MissionClass@@QBEPAVMissionControlClass@@XZ": 5853392,
     "?Set_Default_Mouse@MouseClass@@UAEXH_N@Z": 5894240,
     "?Revert_Mouse_Shape@MouseClass@@UAEXXZ": 5894272,
-    "?Unknown_Slot7@VQMovieHandle@@UAEXH@Z": 5904656,
-    "?Unknown_Slot9@VQMovieHandle@@UAEHXZ": 5904688,
+    "?SeekToFrame@VQMovieHandle@@UAEXH@Z": 5904656,
+    "?Timing@VQMovieHandle@@UAEHXZ": 5904688,
     "?Set_Position@BinkMovieHandle@@UAEXHH@Z": 5905168,
-    "?Unknown_Slot7@BinkMovieHandle@@UAEXH@Z": 5905216,
+    "?SeekToFrame@BinkMovieHandle@@UAEXH@Z": 5905216,
     "?Unknown_Slot7@MSVQAnim@@UAE_NXZ": 5956720,
     "?Unknown_Slot7@MSBitPrintAnim@@UAE_NXZ": 5956944,
     "?Unknown_Slot7@MSPCXAnim@@UAE_NXZ": 5962736,
@@ -9837,7 +9837,7 @@
     "??_7ToggleClass@@6B@": 7997232,
     "?MainWindow@@3PAUHWND__@@A": 11690968,
     "?Set_Position@VQMovieHandle@@UAEXHH@Z": 5904560,
-    "?Unknown_Slot9@BinkMovieHandle@@UAEHXZ": 5905232,
+    "?Timing@BinkMovieHandle@@UAEHXZ": 5905232,
     "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
     "?Free_Font_Data@BitFontClass@@SIXPAUFontDataType@@@Z": 4395968,
     "?Text_Rect@MSFont@@QAEXPBGAAVRect@@@Z": 5980656,

@@ -432,14 +432,14 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
     case 0x113:                                     // WM_TIMER
         if (wparam == 0x65) {
             if (!extra.movie) return 0;
-            if (extra.movie->Unknown_Slot1()) {
+            if (extra.movie->AdvanceFrame()) {
                 static int traced = 0;
                 if (traced++ < 3 && getenv("RA2_NATIVE_PERF_LOG")) dprintf(2, "perf: t%u static movie frame\n", (unsigned)GetTickCount());
                 InvalidateRect(window, 0, FALSE);
             }
             if (!extra.movie->Is_Finished()) return 0;
             if (record->unknown_5c) {
-                extra.movie->Unknown_Slot7(1);      // loop: back to the first frame
+                extra.movie->SeekToFrame(1);      // loop: back to the first frame
                 return 0;
             }
             Static_Stop_Movie(window, extra);

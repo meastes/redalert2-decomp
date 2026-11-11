@@ -34,7 +34,7 @@ void RadarClass::Play_Movie()
     }
     bool done;
     if (playing && queued_movies_00af8fd8.Count() > 0 && (movie = queued_movies_00af8fd8[0]) != 0) {
-        if (movie->Unknown_Slot1() == true) {
+        if (movie->AdvanceFrame() == true) {
             unknown_1208 = Rect(unknown_11e0, unknown_11e8, unknown_int_7add80, 110);
         }
         done = movie->Is_Finished();

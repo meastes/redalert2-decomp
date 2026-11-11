@@ -22,7 +22,7 @@ void __fastcall Unknown_Queue_Movie_005a0840(char const *name, bool flag)
         MovieHandle *movie = Create_Movie_Handle(name, unknown_surface_839948, 0);
         if (movie != 0) {
             movie->Set_Position(unknown_radar_x_8336cc - 3, unknown_radar_y_8336d0 - 1);
-            movie->Unknown_Slot8((int)Unknown_Movie_Message_005a08f0);
+            movie->InitSubtitles((int)Unknown_Movie_Message_005a08f0);
             movie->unknown_04 = flag;
             queued_movies_00af8fd8.Add(movie);
         }

@@ -22,7 +22,7 @@ void __fastcall Service_Game_IO_00481fb0()
     Audio_Update();
     if (queued_movies_00af8fd8.Count()>0) {
         MovieHandle *movie=queued_movies_00af8fd8[0];
-        if (movie) movie->Unknown_Slot2();
+        if (movie) movie->Waiting();
     }
     if (unknown_game_mode_a3d298==3 || unknown_game_mode_a3d298==4)
         IPX_Call_Back();

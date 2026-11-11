@@ -252,15 +252,15 @@ VQAMovieCompanion *__fastcall unknown_create_companion_69b190(char const *filena
 class MovieHandle {
 public:
     virtual ~MovieHandle();                                // slot 0 (0x005A1BA0)
-    virtual bool Unknown_Slot1() = 0;                      // slot 1 (+0x04) next frame
-    virtual void Unknown_Slot2() = 0;                      // slot 2 (+0x08)
+    virtual bool AdvanceFrame() = 0;                       // slot 1 (+0x04) next frame
+    virtual void Waiting() = 0;                            // slot 2 (+0x08)
     virtual void Pause(bool pause) = 0;                    // slot 3 (+0x0C)
     virtual void Play() = 0;                               // slot 4 (+0x10)
     virtual bool Is_Finished() = 0;                        // slot 5 (+0x14)
     virtual void Set_Position(int x, int y) = 0;          // slot 6 (+0x18)
-    virtual void Unknown_Slot7(int frame) = 0;             // slot 7 (+0x1C) seek to a frame
-    virtual void Unknown_Slot8(int unknown) = 0;           // slot 8 (+0x20)
-    virtual int Unknown_Slot9() = 0;                       // slot 9 (+0x24)
+    virtual void SeekToFrame(int frame) = 0;               // slot 7 (+0x1C) seek to a frame
+    virtual void InitSubtitles(int unknown) = 0;           // slot 8 (+0x20)
+    virtual int Timing() = 0;                              // slot 9 (+0x24)
     virtual void Blit() = 0;                               // slot 10 (+0x28)
 
     // +0x00 vtable
@@ -274,15 +274,15 @@ class VQMovieHandle : public MovieHandle {
 public:
     VQMovieHandle(VQAMovie *movie);                        // 0x005A17B0
     virtual ~VQMovieHandle();                              // 0x005A1A00 (??_G 0x005A1F00)
-    virtual bool Unknown_Slot1();                          // 0x005A1860
-    virtual void Unknown_Slot2();                          // 0x005A18A0
+    virtual bool AdvanceFrame();                           // 0x005A1860
+    virtual void Waiting();                                // 0x005A18A0
     virtual void Pause(bool pause);                        // 0x005A17F0
     virtual void Play();                                   // 0x005A1830
     virtual bool Is_Finished();                            // 0x005A1850
     virtual void Set_Position(int x, int y);              // 0x005A18B0
-    virtual void Unknown_Slot7(int frame);                 // 0x005A1910
-    virtual void Unknown_Slot8(int unknown);               // 0x005A18F0
-    virtual int Unknown_Slot9();                           // 0x005A1930
+    virtual void SeekToFrame(int frame);                   // 0x005A1910
+    virtual void InitSubtitles(int unknown);               // 0x005A18F0
+    virtual int Timing();                                  // 0x005A1930
     virtual void Blit();                                   // 0x005A1940
 
     VQAMovie *Movie;         // +0x10
@@ -293,15 +293,15 @@ class BinkMovieHandle : public MovieHandle {
 public:
     BinkMovieHandle(BinkClass *bink);                      // 0x005A1A80
     virtual ~BinkMovieHandle();                            // 0x005A1B70 (??_G 0x005A1F80)
-    virtual bool Unknown_Slot1();                          // 0x005A1AF0
-    virtual void Unknown_Slot2();                          // 0x005A1B00
+    virtual bool AdvanceFrame();                           // 0x005A1AF0
+    virtual void Waiting();                                // 0x005A1B00
     virtual void Pause(bool pause);                        // 0x005A1AB0
     virtual void Play();                                   // 0x005A1AC0
     virtual bool Is_Finished();                            // 0x005A1AE0
     virtual void Set_Position(int x, int y);              // 0x005A1B10
-    virtual void Unknown_Slot7(int frame);                 // 0x005A1B40
-    virtual void Unknown_Slot8(int unknown);               // 0x005A1B30
-    virtual int Unknown_Slot9();                           // 0x005A1B50
+    virtual void SeekToFrame(int frame);                   // 0x005A1B40
+    virtual void InitSubtitles(int unknown);               // 0x005A1B30
+    virtual int Timing();                                  // 0x005A1B50
     virtual void Blit();                                   // 0x005A1B60
 
     BinkClass *Bink;         // +0x10

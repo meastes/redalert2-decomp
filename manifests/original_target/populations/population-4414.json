@@ -4,8 +4,8 @@
     "id": "population-4414",
     "inventory_sha256": "85447646f57a298137828c1d68c9974a5382b19b354a03e854273947f262caf1",
     "gaps_sha256": "25149f11ea60fd451156aecdeaa58236fd884bb7481f458011be849aea822183",
-    "historical_population_sha256": "89f23f45dd57dc9f623d8c4f07847797eeba60afe3752e55ceee37ba5adbdb65",
-    "historical_acceptance_sha256": "a70354ada52f738c2b5415e2e3de2f1ce7f3d612abaeb233c6e9f499c4600307"
+    "historical_population_sha256": "75799d67ef014a87923f62935ba320a4cbed090b724af22001aa0d8dfefa62bd",
+    "historical_acceptance_sha256": "2860f6ba26ab0152dd08e751c4430bcb5e66ee92caace64e79b674c288b924bf"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -5428,10 +5428,10 @@
     "?Get_Mouse_Start@MouseClass@@QBEHH@Z": 5898016,
     "?unknown_mouse_control_7e2af8@@3PAUMouseStruct@@A": 8268536,
     "?Get_Mouse_Count@MouseClass@@QBEHH@Z": 5898048,
-    "?Unknown_Slot7@VQMovieHandle@@UAEXH@Z": 5904656,
-    "?Unknown_Slot9@VQMovieHandle@@UAEHXZ": 5904688,
+    "?SeekToFrame@VQMovieHandle@@UAEXH@Z": 5904656,
+    "?Timing@VQMovieHandle@@UAEHXZ": 5904688,
     "?Set_Position@BinkMovieHandle@@UAEXHH@Z": 5905168,
-    "?Unknown_Slot7@BinkMovieHandle@@UAEXH@Z": 5905216,
+    "?SeekToFrame@BinkMovieHandle@@UAEXH@Z": 5905216,
     "?get@Leaf_5a2280@@QAEPAXI@Z": 5907072,
     "?unknown_slot12@MultiplayerBattle@@UAE_NXZ": 5907312,
     "?unknown_slot1@MultiplayerGameMode@@UAE_NXZ": 5907328,
@@ -6890,7 +6890,7 @@
     "?MainWindow@@3PAUHWND__@@A": 11690968,
     "?unknown_surface_839950@@3PAVSurface@@A": 8624464,
     "?Set_Position@VQMovieHandle@@UAEXHH@Z": 5904560,
-    "?Unknown_Slot9@BinkMovieHandle@@UAEHXZ": 5905232,
+    "?Timing@BinkMovieHandle@@UAEHXZ": 5905232,
     "?Free_unknown_11cc@BuildingTypeClass@@QAEXXZ": 4581728,
     "?Free_unknown_11a0@BuildingTypeClass@@QAEXXZ": 4581792,
     "?Free_unknown_11a8@BuildingTypeClass@@QAEXXZ": 4581856,
