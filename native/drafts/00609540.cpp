@@ -28,7 +28,7 @@
 extern "C" double const Particle_Color_Step_007a10f8;
 
 // NATIVE (Scout1125 adaptation): the file-local TibSun helpers the lane joined from 0x00608BB0's unit
-// (src/recovered/classes/ParticleClass/ParticleClass_unknown_func_608bb0_00608bb0.cpp, text copied).
+// (src/recovered/classes/ParticleClass/ParticleClass_Gas_Behavior_AI_00608bb0.cpp, text copied).
 
 // TibSun Slope_Vector: reflects a vector off the slope of the cell at coord.
 static inline Vector3 Slope_Vector(Vector3 &vector, CoordStruct const &coord, float length)

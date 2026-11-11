@@ -4,7 +4,7 @@
 extern "C" double const Particle_Color_Step_007a10f8;
 // @ref _Particle_Color_Step_007a10f8=007a10f8
 static inline void Advance_Particle_Position(Vector3 &position, Vector3 const &step) { position.X = step.X + position.X; position.Y = step.Y + position.Y; position.Z = step.Z + position.Z; }
-void ParticleClass::unknown_func_609200()
+void ParticleClass::Railgun_Behavior_AI()
 {
     Vector3 direction(unknown_fc.X, unknown_fc.Y, unknown_fc.Z);
     float speed = Velocity;

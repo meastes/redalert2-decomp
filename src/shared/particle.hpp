@@ -142,8 +142,8 @@ public:
     virtual bool Mark(int arg1);                              // 0x0060A530
     virtual int unknown_slot116();                                      // 0x0060A670 (new)
 
-    void unknown_func_608bb0();                 // 0x00608BB0 behaviour 0
-    void unknown_func_609200();                 // 0x00609200 behaviour 4
+    void Gas_Behavior_AI();                     // 0x00608BB0 behaviour 0
+    void Railgun_Behavior_AI();                 // 0x00609200 behaviour 4
     void Smoke_Behavior_AI();                   // 0x006093A0 behaviour 1
     void unknown_func_609540();                 // 0x00609540 behaviour 3
     void Fire_Behavior_AI();                    // 0x00609970 behaviour 2

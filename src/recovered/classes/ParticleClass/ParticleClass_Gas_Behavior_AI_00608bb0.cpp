@@ -1,4 +1,4 @@
-// void ParticleClass::unknown_func_608bb0() (0x00608BB0)
+// void ParticleClass::Gas_Behavior_AI() (0x00608BB0)
 // Smoke behaviour (TibSun ParticleClass::Gas_Behavior_AI): every other frame the
 // drift jitters within +-5 and the smoke sinks, glancing off the ground, bridge
 // decks and walls; then it damages what shares its cell and advances its state.
@@ -56,7 +56,7 @@ static inline void Limit(int &value, int low, int high)
     }
 }
 
-void ParticleClass::unknown_func_608bb0()
+void ParticleClass::Gas_Behavior_AI()
 {
     if ((Frame & 1) == 0) {
         CoordStruct coord = Coord;
