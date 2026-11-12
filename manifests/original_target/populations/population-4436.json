@@ -4,8 +4,8 @@
     "id": "population-4436",
     "inventory_sha256": "8c502343a335377c2daa19399479a385be44d4e954a6b63315bee285f02863f7",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "3f3b7801a1e7006e66865284ec4ac9d2f14bddecb7f6e81e8c10061db53ab800",
-    "historical_acceptance_sha256": "bcc3c0574a979c57995cbb27cfb944b4c2d50d5e659cd24a58dd7ea267e70d63"
+    "historical_population_sha256": "5938ecbfe9795dff1a6a2cc4de883224aa556915c6d67765e8df561517b64786",
+    "historical_acceptance_sha256": "8fe27fb8827b3d58ca1d2113f725b00657975db1dce90f8def1b983357ad5be5"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -3219,7 +3219,7 @@
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
     "?Drawing_Code@DropPodLocomotionClass@@UAGHXZ": 4875632,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?Layer@FlyLocomotionClass@@UAGHXZ": 4977776,
     "?Is_Ion_Sensitive@FlyLocomotionClass@@UAG_NXZ": 4977952,
@@ -14257,7 +14257,11 @@
     "?Restore@Anim@Voices@WorldDominationTour@@UAEXH@Z": 7547936,
     "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
     "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
-    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624
+    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -17073,7 +17077,7 @@
         {
           "offset": 34,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17089,7 +17093,7 @@
         {
           "offset": 66,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17105,7 +17109,7 @@
         {
           "offset": 89,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17121,7 +17125,7 @@
         {
           "offset": 106,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17137,7 +17141,7 @@
         {
           "offset": 123,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17153,7 +17157,7 @@
         {
           "offset": 140,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17169,7 +17173,7 @@
         {
           "offset": 157,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17185,7 +17189,7 @@
         {
           "offset": 174,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17201,7 +17205,7 @@
         {
           "offset": 191,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17217,7 +17221,7 @@
         {
           "offset": 208,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17233,7 +17237,7 @@
         {
           "offset": 225,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17249,7 +17253,7 @@
         {
           "offset": 242,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17265,7 +17269,7 @@
         {
           "offset": 259,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17281,7 +17285,7 @@
         {
           "offset": 276,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17297,7 +17301,7 @@
         {
           "offset": 293,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17313,7 +17317,7 @@
         {
           "offset": 310,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17329,7 +17333,7 @@
         {
           "offset": 327,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17457,7 +17461,7 @@
         {
           "offset": 509,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17479,7 +17483,7 @@
           "resolved": 4292014479
         }
       ],
-      "source_sha256": "0f1aa373d4be7353a3a0cd470132d01b29ce7d960cbd2dbfd6482613a7c1e06f",
+      "source_sha256": "79ea01d317f1f03b2b6f4d38b181f58700790af1cb263ee81bdb2df2e94a0597",
       "source": "src/recovered/classes/TechnoClass/TechnoClass_Load_006d6850.cpp",
       "population": "population-4436",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

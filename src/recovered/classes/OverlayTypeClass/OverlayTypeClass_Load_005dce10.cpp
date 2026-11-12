@@ -9,7 +9,7 @@
 // @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
 // @ref ?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ=005d7630
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 // @ref ?Theaters@@3PAUTheaterTypeStruct@@A=0079ab68
 // @ref ?Theater_Naming_Convention@ObjectTypeClass@@SIXPADH@Z=005d7bd0
@@ -23,7 +23,7 @@ HRESULT __stdcall OverlayTypeClass::Load(IStream *stream)
         new (this) OverlayTypeClass(NoInitClass());
         Fetch_Voxel_Image();
         Fetch_Normal_Image();
-        SwizzleManager.Swizzle((void **)&CellAnim);
+        Swizzler.Swizzle((void **)&CellAnim);
         if (!DemandLoad) {
             char fullname[512];
             if (unknown_1fc) {

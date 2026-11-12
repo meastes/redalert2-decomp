@@ -200,7 +200,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
 
     Unknown_00535910()->Unknown_00535BF0();
     unknown_session_a3d298.Loading_Progress_00672160(3);
-    SwizzleManager.Reset();
+    Swizzler.Reset();
     delete unknown_tactical_83996c;
     unknown_tactical_83996c = new Tactical;
     unknown_tactical_83996c->Unknown_006A65A0(unknown_rect_839630);
@@ -362,7 +362,7 @@ bool __fastcall Read_Scenario_INI(CCINIClass &ini, bool official)
         Unknown_0065e8c0(ini.Get_Bool("Basic", "Official", false));
     }
     Service_Game_IO_00481fb0();
-    SwizzleManager.Reset();
+    Swizzler.Reset();
     unknown_session_a3d298.Loading_Progress_00672160(96);
     Service_Game_IO_00481fb0();
     Unknown_006ecf10();

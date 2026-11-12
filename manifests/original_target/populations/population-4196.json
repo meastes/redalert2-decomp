@@ -4,8 +4,8 @@
     "id": "population-4196",
     "inventory_sha256": "a1484f8fda819e59b763d1ea0848d12396f09f3a95b70ffc6210734db18a6176",
     "gaps_sha256": "0dc98eabf7c69734f31b42e343880c34c3d8ace1c76f7f6ae14e6e71f2d44102",
-    "historical_population_sha256": "3e8fa907f86253d78e3affe58046997ceaa0d1b5dddf796f2802be5e8be0425f",
-    "historical_acceptance_sha256": "6847aba38074c72fe44528b11ce16141eff0d7adf2ef54f20879e9cd3dd7b68f"
+    "historical_population_sha256": "fb02a1289062c6aa3b0c232dfce221f8d793f5e13d5fba61f7f02f4249a004fb",
+    "historical_acceptance_sha256": "443190788001550fa07b8fd6189341b16577a74ebeea3d9d857c893052f3da49"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2000,7 +2000,7 @@
     "__DAT_0084ed10": 8711440,
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?unknown_application_84c7dc@@3PAUIUnknown@@A": 8701916,
     "?GetSizeMax@HouseTypeClass@@UAGJPATULARGE_INTEGER@@@Z": 5218880,
@@ -12434,7 +12434,21 @@
     "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
     "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
     "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
-    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@": 8033700,
+    "??_7?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033668,
+    "??_7?$DynamicVectorClass@PAVPhoneEntryClass@@@@6B@": 8033636,
+    "??_7?$DynamicVectorClass@PBG@@6B@": 8017684,
+    "??_7?$DynamicVectorClass@PAUButtonFadeEffect@@@@6B@": 7998332,
+    "??_7?$DynamicVectorClass@PAUCrossDissolveEffect@@@@6B@": 7998300,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
   },
   "regions": [
     {
@@ -14344,7 +14358,7 @@
         {
           "offset": 203,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -14360,7 +14374,7 @@
         {
           "offset": 217,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -14376,7 +14390,7 @@
         {
           "offset": 228,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -14390,7 +14404,7 @@
           "resolved": 627955
         }
       ],
-      "source_sha256": "2c16d8b3e63898f23aaefa1dc33d0d2992802bca48d3fa05e04e04dcfebe4aab",
+      "source_sha256": "abc6bcb596f277f8875fbb8150bcc9ab591888038cf0ed58615a939b87e6eccf",
       "source": "src/recovered/classes/ParasiteClass/ParasiteClass_Load_00606540.cpp",
       "population": "population-4196",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

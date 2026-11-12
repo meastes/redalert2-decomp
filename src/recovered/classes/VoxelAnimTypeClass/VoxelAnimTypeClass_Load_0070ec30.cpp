@@ -6,7 +6,7 @@
 // @ref ??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z=005d5a80
 // @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall VoxelAnimTypeClass::Load(IStream *stream)
 {
@@ -15,12 +15,12 @@ HRESULT __stdcall VoxelAnimTypeClass::Load(IStream *stream)
         return result;
     }
     new (this) VoxelAnimTypeClass(NoInitClass());
-    SwizzleManager.Swizzle((void **)&Warhead);
-    SwizzleManager.Swizzle((void **)&BounceAnim);
-    SwizzleManager.Swizzle((void **)&ExpireAnim);
-    SwizzleManager.Swizzle((void **)&TrailerAnim);
-    SwizzleManager.Swizzle((void **)&Spawns);
-    SwizzleManager.Swizzle((void **)&AttachedSystem);
+    Swizzler.Swizzle((void **)&Warhead);
+    Swizzler.Swizzle((void **)&BounceAnim);
+    Swizzler.Swizzle((void **)&ExpireAnim);
+    Swizzler.Swizzle((void **)&TrailerAnim);
+    Swizzler.Swizzle((void **)&Spawns);
+    Swizzler.Swizzle((void **)&AttachedSystem);
     Fetch_Voxel_Image();
     return S_OK;
 }

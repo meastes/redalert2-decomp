@@ -5,7 +5,7 @@
 // @ref ?Load@ObjectClass@@UAGJPAUIStream@@@Z=005d4760
 // @ref ??0ObjectClass@@QAE@ABVNoInitClass@@@Z=005d2500
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ??_7VoxelAnimClass@@6BIPersistStream@@@=007ae428
 // @ref ??_7VoxelAnimClass@@6BIRTTITypeInfo@@@=007ae40c
 // @ref ??_7VoxelAnimClass@@6BINoticeSink@@@=007ae404
@@ -18,9 +18,9 @@ HRESULT __stdcall VoxelAnimClass::Load(IStream *stream)
         new (this) VoxelAnimClass(NoInitClass());
         unknown_fc.Init();
         unknown_110.Init();
-        SwizzleManager.Swizzle((void **)&Class);
-        SwizzleManager.Swizzle((void **)&unknown_f0);
-        SwizzleManager.Swizzle((void **)&unknown_f4);
+        Swizzler.Swizzle((void **)&Class);
+        Swizzler.Swizzle((void **)&unknown_f0);
+        Swizzler.Swizzle((void **)&unknown_f4);
     }
     return result;
 }

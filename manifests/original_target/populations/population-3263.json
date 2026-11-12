@@ -4,8 +4,8 @@
     "id": "population-3263",
     "inventory_sha256": "765cb52b5b1e71fa87481bef8fe7bb20e5def327bd2d972fc01bc00739bd43f8",
     "gaps_sha256": "2a6fa9d50485614614eec75ee53de0c9bf4d03c246731fb5059d3767a0c12cb3",
-    "historical_population_sha256": "2a129a02f6f0d2a4192c70ecf7341d932787c39f003e176403394648d8890b20",
-    "historical_acceptance_sha256": "ac0b7d0d1963719cb2eb85db6fc8b9612b18a51e09d2afaeb4a85028b8dd5e69"
+    "historical_population_sha256": "aa55640cf858d1d326a9543fc9934f6f888ff102528495687f064a3d2e82605b",
+    "historical_acceptance_sha256": "04594f19ba61a0d40266a6ae7e8af02c35396bb5b5cf3d065a1a7b106f9c2c8f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1611,7 +1611,7 @@
     "?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ": 6121264,
     "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ": 6125104,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "??0?$DynamicVectorClass@H@@QAE@IPBH@Z": 4641264,
     "?Add@?$DynamicVectorClass@H@@QAE_NABH@Z": 4641536,
     "?Save@TechnoTypeClass@@UAGJPAUIStream@@H@Z": 7203856,
@@ -9155,7 +9155,18 @@
     "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
     "?Get_Height@AnimFile@@UAEHXZ": 4342688,
     "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
-    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "??RRandomClass@@QAEHXZ": 6522624,
+    "??RRandomClass@@QAEHHH@Z": 6522656,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "??0RandomClass@@QAE@I@Z": 6522608,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -12772,7 +12783,7 @@
         {
           "offset": 371,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12812,7 +12823,7 @@
         {
           "offset": 502,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12834,7 +12845,7 @@
           "resolved": 2585283
         }
       ],
-      "source_sha256": "83bec22c66c90422f9227bd537543c5fd8f1d52bfde55f1c35b1e4abcbb4c321",
+      "source_sha256": "1aa097fcfe2dd5fc8abd1574f0b1cf04d1570ecec551924a9010eb93e29f7304",
       "source": "src/recovered/classes/InfantryTypeClass/InfantryTypeClass_Load_0050ab40.cpp",
       "population": "population-3263",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

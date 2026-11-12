@@ -4,8 +4,8 @@
     "id": "population-3961",
     "inventory_sha256": "7c93e0e0ffb024f6f3938abd1198dbe5cf03632b37dee1109c848a98d75bb596",
     "gaps_sha256": "f56ce2bf65f22675f3be45e88fbe60a530ffa9bebaf5d442b3dc614ebad6c064",
-    "historical_population_sha256": "f52f75443150f4bd1ab0786744887ed27644e38fc81b3923803c1f57756b615f",
-    "historical_acceptance_sha256": "3c18a7e789404560376d6193d804417c7aa2e9f46e12e97d2cda12c6b2107dce"
+    "historical_population_sha256": "6d20f0c88951080a0b6c7cf9930db671dd0aebff537a89b86552f2a3347e85dd",
+    "historical_acceptance_sha256": "ef33bc20513696f10c21e429566d98865fdc2984b852076cbe356af718a0bf0e"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1735,7 +1735,7 @@
     "?Can_Tiberium_Germinate@CellClass@@QAE_NPAVTiberiumClass@@@Z": 4688800,
     "?Load@ObjectClass@@UAGJPAUIStream@@@Z": 6113120,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
     "?Compute_CRC@ObjectClass@@UBEXAAVWWCRCEngine@@@Z": 6114064,
     "??RWWCRCEngine@@QAEXJ@Z": 4800304,
@@ -10639,7 +10639,13 @@
     "__encoder": 7980576,
     "__pad": 7980572,
     "__decoder": 7980580,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??RRandomClass@@QAEHXZ": 6522624,
+    "??RRandomClass@@QAEHHH@Z": 6522656,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
+    "??RWWCRCEngine@@QAEXD@Z": 4799984,
+    "??0RandomClass@@QAE@I@Z": 6522608
   },
   "regions": [
     {
@@ -12177,7 +12183,7 @@
         {
           "offset": 96,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12193,7 +12199,7 @@
         {
           "offset": 113,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12209,7 +12215,7 @@
         {
           "offset": 130,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12223,7 +12229,7 @@
           "resolved": 4294515941
         }
       ],
-      "source_sha256": "04110350dedf783d5aa2756d2c110e790f0317c4a7679d97fe1ea7b723463b99",
+      "source_sha256": "38565243ebe855fb5a171f9f1361bff03582dff8f141b509801aa9fa78f84a50",
       "source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_Load_0070ddb0.cpp",
       "population": "population-3961",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

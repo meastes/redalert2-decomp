@@ -4,8 +4,8 @@
     "id": "population-2710",
     "inventory_sha256": "f8ef961bf7b0693179d081767111dfa06d47b5f94189e7adac7bfe08391131e4",
     "gaps_sha256": "60c1bb11ecba31ce915a4ed1a6e0a4767c21e03d17d6c218d20464bfe63e241e",
-    "historical_population_sha256": "6b729756e6b4406491c13ac45ece4c31ba5038f1876309980077bd17e28fefd6",
-    "historical_acceptance_sha256": "370cd5f1ac545d2c4b6d1d3edc532a06a968258e1e982f8c2d8f00b695f92ada"
+    "historical_population_sha256": "e8865cb3c11b8f4f64c9160b7279fa974a113f4cf5ee77136bd1e612b75910b7",
+    "historical_acceptance_sha256": "1592fcdcbe6993fd84fe444bd871c6ce850884148e760ead020a2d755c5414e8"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -1220,7 +1220,7 @@
     "__DAT_0084ed10": 8711440,
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?GetSizeMax@HouseTypeClass@@UAGJPATULARGE_INTEGER@@@Z": 5218880,
     "?GetClassID@ParasiteClass@@UAGJPAUGUID@@@Z": 6317664,
@@ -5079,7 +5079,113 @@
     "??_ETeamClass@@UAEPAXI@Z": 7071552,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
     "??_EWaveClass@@UAEPAXI@Z": 7489024,
-    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392
+    "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
+    "_unknown_empty_rect": 8594576,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "?GetClassID@EMPulseClass@@UAGJPAUGUID@@@Z": 4936512,
+    "??0HashString@@QAE@XZ": 5116208,
+    "??0InfantryTypeClass@@QAE@PBD@Z": 5282592,
+    "?GetClassID@LightSourceClass@@UAGJPAUGUID@@@Z": 5471072,
+    "?Value@ObjectClass@@UAEHXZ": 6106400,
+    "?ID@?$DynamicVectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4378064,
+    "?ID@?$VectorClass@VCell@@@@UAEHABVCell@@@Z": 4378592,
+    "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
+    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": 4379344,
+    "?ID@?$VectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4642992,
+    "?ID@?$DynamicVectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4643376,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4989632,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4990016,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5039776,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": 5040560,
+    "?ID@?$VectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207200,
+    "?ID@?$DynamicVectorClass@UAngerStruct@@@@UAEHABUAngerStruct@@@Z": 5207568,
+    "?ID@?$VectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208016,
+    "?ID@?$DynamicVectorClass@UScoutStruct@@@@UAEHABUScoutStruct@@@Z": 5208384,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210704,
+    "?ID@?$VectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5681840,
+    "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHABUZoneConnectionClass@@@Z": 5682304,
+    "?ID@?$VectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683136,
+    "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z": 5683696,
+    "?ID@?$VectorClass@U?$TRect@H@@@@UAEHABU?$TRect@H@@@Z": 5826240,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990080,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990448,
+    "_strncpy": 7873488,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
+    "?ID@?$VectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6998848,
+    "?ID@?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEHABUDirtyAreaStruct@@@Z": 6999296,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
+    "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z": 7518288,
+    "??_GXSurface@@UAEPAXI@Z": 4264736,
+    "_sprintf": 7872756,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "?House@PlanningNodeClass@@QBEPAVHouseClass@@XZ": 6361456,
+    "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
+    "??_7XSurface@@6B@": 7974796,
+    "?Fill_Rect@XSurface@@UAE_NABVRect@@H@Z": 7816080,
+    "?Fill_Rect@XSurface@@UAE_NABVRect@@0H@Z": 7816128,
+    "?Fill_Rect@DSurface@@UAE_NABVRect@@H@Z": 4895984,
+    "?Fill_Rect@DSurface@@UAE_NABVRect@@0H@Z": 4896032,
+    "??0InfantryTypeClass@@QAE@ABVNoInitClass@@@Z": 5283168,
+    "??_7InfantryTypeClass@@6BIPersistStream@@@": 8010360,
+    "??_7InfantryTypeClass@@6BIRTTITypeInfo@@@": 8010332,
+    "??_7InfantryTypeClass@@6BINoticeSink@@@": 8010324,
+    "??_7InfantryTypeClass@@6BINoticeSource@@@": 8010316,
+    "??1InfantryTypeClass@@UAE@XZ": 5283248,
+    "??_GInfantryTypeClass@@UAEPAXI@Z": 5287824,
+    "?Read@WinsockInterfaceClass@@UAEHPAXPAH01PAG@Z": 7779744,
+    "?Load@RadarClass@@UAEJPAUIStream@@@Z": 6499312,
+    "?Load@DisplayClass@@UAEJPAUIStream@@@Z": 4843536,
+    "?Save@RadarClass@@UAEJPAUIStream@@@Z": 6499856,
+    "?Save@DisplayClass@@UAEJPAUIStream@@@Z": 4843584,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Place_Tiberium@HouseClass@@QAEXHH@Z": 5132784,
+    "_strncmp": 7878672,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Reset@VeinholeMonsterClass@@SAXXZ": 7408464,
+    "?Value@TechnoClass@@UAEHXZ": 7156048,
+    "??0XSurface@@QAE@HH@Z": 4846640,
+    "?Load@MouseClass@@UAEJPAUIStream@@@Z": 5895472,
+    "?Load@SidebarClass@@UAEJPAUIStream@@@Z": 6824592,
+    "?Save@MouseClass@@UAEJPAUIStream@@@Z": 5897344,
+    "?Save@SidebarClass@@UAEJPAUIStream@@@Z": 6824608,
+    "??0HashString@@QAE@ABV0@@Z": 5116288,
+    "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
+    "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
+    "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
+    "?Addition@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6567920,
+    "?Objects@RulesClass@@QAE_NAAVCCINIClass@@@Z": 6627952,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Place_Tiberium@CellClass@@QAE_NHH@Z": 4703136,
+    "?Draw_It@OverlayTypeClass@@UAEXPBUPoint2D@@PBVRect@@H@Z": 6146272,
+    "?Draw_It@SmudgeTypeClass@@UAEXPBUPoint2D@@PBVRect@@HHPBVCell@@@Z": 6848720,
+    "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AVRect@@XZ": 4673792,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
+    "?Dial@PhoneEdit@@QAE_NXZ": 6347904,
+    "?Save@MouseClass@@QAEJPAUIStream@@@Z": 5897344,
+    "?Load@MouseClass@@QAEJPAUIStream@@@Z": 5895472,
+    "??0HashString@@QAE@PBD@Z": 5116224,
+    "??8HashString@@QBE_NABV0@@Z": 5116400,
+    "??9HashString@@QBE_NABV0@@Z": 5116480,
+    "??0SchemeNode@@QAE@PBDPAV?$DynamicVectorClass@PAVColorScheme@@@@@Z": 6304256,
+    "??1SchemeNode@@QAE@XZ": 6304320,
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_EXSurface@@UAEPAXI@Z": 4264736,
+    "??_7InfantryTypeClass@@6B@": 8010360,
+    "??_EInfantryTypeClass@@UAEPAXI@Z": 5287824
   },
   "regions": [
     {
@@ -5099,13 +5205,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "282214cd1008ceec40efaa436457cf667a7d04af7513edfe7889d3e0bac26043",
       "relocations": [],
-      "source_sha256": "c1e89a66c767719c9fc1ce4ca39f8d2b7bcf19f0835006d76f963c5fed3df9a4",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_AddRef_0069fd90.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_AddRef_0069fd90",
       "source_order": 105071
     },
     {
@@ -5125,13 +5230,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "282214cd1008ceec40efaa436457cf667a7d04af7513edfe7889d3e0bac26043",
       "relocations": [],
-      "source_sha256": "8dd772c65bcc34977cd769c9f6bffc883d00687c1a59192a59cd834be886175c",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Release_0069fda0.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Release_0069fda0",
       "source_order": 105072
     },
     {
@@ -5151,13 +5255,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "3706f3e9375cfc8b7265c1ea659a2b5de8096e66628e83ce47b8bc19c62e12d1",
       "relocations": [],
-      "source_sha256": "f03b49950ac5937d44408bb93992d5d9842c9ce66ce1f23d4bdc267dfc8a71de",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Save_Interface_0069fdb0.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Save_Interface_0069fdb0",
       "source_order": 105073
     },
     {
@@ -5202,13 +5305,12 @@
           "resolved": 924619
         }
       ],
-      "source_sha256": "99c07fb9227a3fd2e34989de1373b350006161988dc3ca05037226103cfc32a9",
-      "source": "src/recovered/classes/VectorClass_SwizzlePointerClass/VectorClass_SwizzlePointerClass_scalar_deleting_destructor_006a0130.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_SwizzlePointerClass_scalar_deleting_destructor_006a0130",
       "source_order": 105075
     },
     {
@@ -5253,13 +5355,12 @@
           "resolved": 924539
         }
       ],
-      "source_sha256": "57f03f94b029181ec39762ed11068cc6509b965c72a73d12614121b48426df56",
-      "source": "src/recovered/classes/DynamicVectorClass_SwizzlePointerClass/DynamicVectorClass_SwizzlePointerClass_scalar_deleting_destructor_006a0180.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_SwizzlePointerClass_scalar_deleting_destructor_006a0180",
       "source_order": 105076
     },
     {
@@ -5279,13 +5380,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "7df4fe6c56fc6943f6b43d1f52d19afd769df7c298aac89666e4414aa434f5ef",
       "relocations": [],
-      "source_sha256": "aa8a2d0a1d983d5b450a2ad1dc6d3d686fd9578f328d005dd5f5ee5754dc32e5",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Get_Save_Size_0069fcf0.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Get_Save_Size_0069fcf0",
       "source_order": 105068
     },
     {
@@ -5305,13 +5405,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "dd0be7c07027e1e821a0778e1e71337d30fe7e1b67ec06e5b4acf9a72b404e73",
       "relocations": [],
-      "source_sha256": "5b82c3baa2a748278a6632089d83b8851211eb650c1f68d926a3041ab86e7f73",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Fetch_Swizzle_ID_0069fd70.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Fetch_Swizzle_ID_0069fd70",
       "source_order": 105070
     },
     {
@@ -5331,13 +5430,12 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "8c8bbd8fad1ba5d328de100ba0ca8e91049c5c2407d20aeadadc6e640c2400ad",
       "relocations": [],
-      "source_sha256": "f6bf08ad793cbbde40672e5332493a0a43dd42c7b4e6ada1eeb8f85feec357d4",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_ptr_compare_func_0069fc00.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_ptr_compare_func_0069fc00",
       "source_order": 105066
     },
     {
@@ -5357,13 +5455,12 @@
       "full_extent_bytes": 16,
       "full_extent_sha256": "ef0c1560865a8fd9fb9cea1975f72dae25ce6980f589efa45c23b70310775eac",
       "relocations": [],
-      "source_sha256": "798cf17158b44d0a3bc212368a2816369fde1c9ee00a4f1f05311ad91fb83365",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Load_Interface_0069fdc0.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Load_Interface_0069fdc0",
       "source_order": 105074
     },
     {
@@ -5386,7 +5483,7 @@
         {
           "offset": 5,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 4,
           "resolved": 11262060
@@ -5402,7 +5499,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 28,
           "resolved": 11262084
@@ -5410,7 +5507,7 @@
         {
           "offset": 25,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 4,
           "resolved": 11262060
@@ -5426,7 +5523,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 24,
           "resolved": 11262080
@@ -5434,7 +5531,7 @@
         {
           "offset": 45,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 20,
           "resolved": 11262076
@@ -5458,7 +5555,7 @@
         {
           "offset": 70,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 28,
           "resolved": 11262084
@@ -5474,7 +5571,7 @@
         {
           "offset": 80,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 44,
           "resolved": 11262100
@@ -5482,7 +5579,7 @@
         {
           "offset": 90,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -5498,7 +5595,7 @@
         {
           "offset": 99,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 24,
           "resolved": 11262080
@@ -5506,7 +5603,7 @@
         {
           "offset": 104,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 48,
           "resolved": 11262104
@@ -5520,13 +5617,12 @@
           "resolved": 929737
         }
       ],
-      "source_sha256": "83b007237e710ecd4bd1d45148b9024b0dfdc52d6f98ab3df9bb7796db0d9ab7",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManager_init_0069f950.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManager_init_0069f950",
       "source_order": 105059
     },
     {
@@ -5549,7 +5645,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -5557,7 +5653,7 @@
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -5581,7 +5677,7 @@
         {
           "offset": 22,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 32,
           "resolved": 11262088
@@ -5589,7 +5685,7 @@
         {
           "offset": 32,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 28,
           "resolved": 11262084
@@ -5605,7 +5701,7 @@
         {
           "offset": 44,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 41,
           "resolved": 11262097
@@ -5621,7 +5717,7 @@
         {
           "offset": 61,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 32,
           "resolved": 11262088
@@ -5629,7 +5725,7 @@
         {
           "offset": 66,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 8,
           "resolved": 11262064
@@ -5637,7 +5733,7 @@
         {
           "offset": 72,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 41,
           "resolved": 11262097
@@ -5645,7 +5741,7 @@
         {
           "offset": 80,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 36,
           "resolved": 11262092
@@ -5653,7 +5749,7 @@
         {
           "offset": 86,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 4,
           "resolved": 11262060
@@ -5669,7 +5765,7 @@
         {
           "offset": 98,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 17,
           "resolved": 11262073
@@ -5685,7 +5781,7 @@
         {
           "offset": 115,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 8,
           "resolved": 11262064
@@ -5693,7 +5789,7 @@
         {
           "offset": 121,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 17,
           "resolved": 11262073
@@ -5701,19 +5797,18 @@
         {
           "offset": 127,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 12,
           "resolved": 11262068
         }
       ],
-      "source_sha256": "4301075599778205300a7f02ce42088c3960bccf110ab48ba470d5ca780b3247",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManager_atexit_destructor_0069f9d0.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManager_atexit_destructor_0069f9d0",
       "source_order": 105060
     },
     {
@@ -5758,13 +5853,12 @@
           "resolved": 8045360
         }
       ],
-      "source_sha256": "16d28eab630d10cbe189ccbc34ea27c040869e96a22e038056dd4307ebd82c18",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_constructor_0069fa60.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_constructor_0069fa60",
       "source_order": 105061
     },
     {
@@ -5833,13 +5927,12 @@
           "resolved": 926268
         }
       ],
-      "source_sha256": "0d4c0481e3692521dfd60ab71e86f094ca8b1994295d593e9e7607ffb52ff273",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_destructor_0069fab0.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_destructor_0069fab0",
       "source_order": 105062
     },
     {
@@ -5868,13 +5961,12 @@
           "resolved": 279
         }
       ],
-      "source_sha256": "1a06ac5d1cd006a5cb4ebffe0000121fa2a229fe2c62b1301e6379a14e8dd405",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Reset_0069fb10.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Reset_0069fb10",
       "source_order": 105063
     },
     {
@@ -5894,13 +5986,12 @@
       "full_extent_bytes": 128,
       "full_extent_sha256": "06cdf7761e3276aab5e91a9209cec1fb84f5be8254b0738aa88c49f8a82f7427",
       "relocations": [],
-      "source_sha256": "f39133a823c6879619b9d11dc23eb5aff34954272edb7b038139cab48dda84d3",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Swizzle_0069fb20.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Swizzle_0069fb20",
       "source_order": 105064
     },
     {
@@ -5920,13 +6011,12 @@
       "full_extent_bytes": 96,
       "full_extent_sha256": "f8702472593bef4cd03580666df59d2ba150893d2018195de73aad830ec59e62",
       "relocations": [],
-      "source_sha256": "65112ca69c72b0e062f049513c699e2926a16b7f7082cb054fa3115129296493",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Here_I_Am_0069fba0.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Here_I_Am_0069fba0",
       "source_order": 105065
     },
     {
@@ -5979,13 +6069,12 @@
           "resolved": 925908
         }
       ],
-      "source_sha256": "4f701b25a0a13df48301fee46e72cae6de9410ae63cd748ceb22c12f300b9fb8",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Process_Tables_0069fc30.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_Process_Tables_0069fc30",
       "source_order": 105067
     },
     {
@@ -6022,13 +6111,12 @@
           "resolved": 8060128
         }
       ],
-      "source_sha256": "77ef8e03aa0120879b80dbcd6a187b78103c4a0d153ccd500220e4444d59c819",
-      "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_QueryInterface_0069fd10.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "SwizzleManagerClass_QueryInterface_0069fd10",
       "source_order": 105069
     },
     {
@@ -6065,13 +6153,12 @@
           "resolved": 925168
         }
       ],
-      "source_sha256": "bb264eea10c769c73ab59d458f76bbb6bb8c7e97109c0513b7eab50d73f10524",
-      "source": "src/recovered/classes/VectorClass_SwizzlePointerClass/VectorClass_SwizzlePointerClass_constructor_006a01d0.cpp",
+      "source_sha256": "1688ce336222fef3c534ea2f7eb8d46176747c632e7373ab7ead1b15671cebbd",
+      "source": "src/recovered/swizzle.cpp",
       "population": "population-2710",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_SwizzlePointerClass_constructor_006a01d0",
       "source_order": 105077
     }
   ]

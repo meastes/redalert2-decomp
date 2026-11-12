@@ -33,7 +33,7 @@ bool __fastcall Unknown_00656890(char const *filename)
         return false;
     }
     unknown_game_mode_a3d298 = info.Get_Game_Type();
-    SwizzleManager.Reset();
+    Swizzler.Reset();
 
     UnknownComPtr<IStorage, &unknown_uuid_IStorage> storage;
     MultiByteToWideChar(0, 0, filename, -1, name, 64);
@@ -56,7 +56,7 @@ bool __fastcall Unknown_00656890(char const *filename)
     Get_All(stream, false);
     DebugString("Unlinking content stream from decompressor\n");
     link.Checked()->Unlink_Stream(0);
-    SwizzleManager.Reset();
+    Swizzler.Reset();
 
     Post_Load_Game_0065d2c0();
     Map.Init_IO();

@@ -4,8 +4,8 @@
     "id": "population-2442",
     "inventory_sha256": "20801cb0bc9a587c46e9c6a694070cd6ae468a361a23646a0698f942647830ea",
     "gaps_sha256": "d44d07204ad4de05886dccc49ebd9ebb0aef64d97cd0dc55a54ae523059ae63e",
-    "historical_population_sha256": "bac291f69c3eec144edd7e94c25d8a8c5da930a31f3295d88571ef2db9161275",
-    "historical_acceptance_sha256": "2bd293324eff051f430c7cf0b1e7e2e1bc1e25f900ecf2c62a977f86c9b691c7"
+    "historical_population_sha256": "3d5cab5dbdda24f3c4965544532bcdcb79c32bfbec8ce20b189b7943ea21c044",
+    "historical_acceptance_sha256": "fa1daca75c9ed66f2895a89705de6b579d4b5b265cd993ab71ed7e0d895810af"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -864,7 +864,7 @@
     "??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z": 6118016,
     "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ": 6125104,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "??_7ParticleTypeClass@@6BIPersistStream@@@": 8029536,
     "??_7ParticleTypeClass@@6BIRTTITypeInfo@@@": 8029508,
     "??_7ParticleTypeClass@@6BINoticeSink@@@": 8029500,
@@ -9328,7 +9328,21 @@
     "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
     "??_EWideString@@QAEPAXI@Z": 6296624,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
-    "??_EMouseClass@@UAEPAXI@Z": 4247904
+    "??_EMouseClass@@UAEPAXI@Z": 4247904,
+    "?Get_Height@Surface@@UAEHXZ": 4264656,
+    "?Can_Enter_Cell@LocomotionClass@@UAGHVCell@@@Z": 5494000,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
+    "?Get_Height@AnimFile@@UAEHXZ": 4342688,
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -11474,7 +11488,7 @@
         {
           "offset": 102,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -11496,7 +11510,7 @@
           "resolved": 4294662518
         }
       ],
-      "source_sha256": "89786640103f42c0de458b5be9c6288b2f6a8e5fa242bd13bdd6cd07f583ad17",
+      "source_sha256": "439895ce325cee5f98c46c8f0134f81008d6519665151bd7db4c4487dfdac5a4",
       "source": "src/recovered/classes/ParticleTypeClass/ParticleTypeClass_Load_00621b90.cpp",
       "population": "population-2442",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

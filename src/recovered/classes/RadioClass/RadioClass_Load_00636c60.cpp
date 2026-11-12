@@ -5,7 +5,7 @@
 #include "shared/techno.hpp"
 // @ref ?Load@ObjectClass@@UAGJPAUIStream@@@Z=005d4760
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall RadioClass::Load(IStream *stream)
 {
@@ -29,7 +29,7 @@ HRESULT __stdcall RadioClass::Load(IStream *stream)
         RadioLinks[index] = link;
     }
     for (int fix = 0; fix < count; fix++) {
-        SwizzleManager.Swizzle((void **)&RadioLinks[fix]);
+        Swizzler.Swizzle((void **)&RadioLinks[fix]);
     }
     return S_OK;
 }

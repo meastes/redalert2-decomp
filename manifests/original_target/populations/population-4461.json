@@ -4,8 +4,8 @@
     "id": "population-4461",
     "inventory_sha256": "6a0aea991343e88e56bf9a8532a40b4ab311c1fd06044b2b25deddfb2e215aea",
     "gaps_sha256": "1014b51efbf8d8242410f02f87237f3b519c2c5f4ddf0e0fc433fb608faa6aeb",
-    "historical_population_sha256": "4ff333dd8effacba62a51b1e9d1c599f3a796820a56f78c0f70dece8d7c37f05",
-    "historical_acceptance_sha256": "31d532ac2ba9ffe79735870d81919ace7e2557cbdc7870ee216e25c6b0da1c44"
+    "historical_population_sha256": "5ed6fccaf883af6cc8854a330520698c8e6bd02d24f327e551949c14a9d0cfcd",
+    "historical_acceptance_sha256": "fd30293ca893ff6d248bce648c611a9735af36415bcc58670aac571f315ea6d5"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -503,7 +503,7 @@
     "?Do_MISSION_GUARD_AREA@FootClass@@UAEHXZ": 5003520,
     "?Load@FootClass@@UAGJPAUIStream@@@Z": 5020944,
     "??0FootClass@@QAE@ABVNoInitClass@@@Z": 4992096,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?Search_For_Node@?$IndexClass@JPAVAbstractClass@@@@ABEPBUNodeElement@1@ABJ@Z": 4307344,
     "?Increase_Table_Size@?$IndexClass@JPAVAbstractClass@@@@QAE_NH@Z": 4307200,
@@ -23317,7 +23317,8 @@
     "?Advance@MSOverlayAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5952592,
     "?Advance@MSShapeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5949520,
     "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ": 7412880,
-    "_CLSID_TiberiumClass": 8003168
+    "_CLSID_TiberiumClass": 8003168,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -26421,7 +26422,7 @@
         {
           "offset": 351,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -26437,7 +26438,7 @@
         {
           "offset": 368,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -26451,7 +26452,7 @@
           "resolved": 4294540679
         }
       ],
-      "source_sha256": "719ebcc08054ff87ae6580806a5a5c3ff23e5d414daa2a49c192556a6e55f6eb",
+      "source_sha256": "01f69e275ec8b4929059016c44fbb5ead54993966250b9110f47765327812a36",
       "source": "src/recovered/classes/UnitClass/UnitClass_Load_00707c20.cpp",
       "population": "population-4461",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

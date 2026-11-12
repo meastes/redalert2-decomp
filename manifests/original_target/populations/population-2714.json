@@ -4,8 +4,8 @@
     "id": "population-2714",
     "inventory_sha256": "e9427ee195f4b7818d59f75e3baeaafd0d3e5bb288d7ac6337a4da82c4139595",
     "gaps_sha256": "8a402390be28360d1c36face73aa8a2a8c584ba0743c9287cdca6e48aa330dbe",
-    "historical_population_sha256": "1b06cfd5a063b4f1728d8fa49440c0e03e86f9118a9f0bbca53f29cb27fddfb3",
-    "historical_acceptance_sha256": "76a4c851ba829a3631da59be0d510be712ea92960a7a4783c1584b412a36b0b8"
+    "historical_population_sha256": "7ba359fc32cf08d8b1ce6f13678425557730717a1aea4491c37343586c88a899",
+    "historical_acceptance_sha256": "b78ef920141d260b313bab8e8f9598e43aacd0618fcd6931805f5f98f798c695"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2617,7 +2617,7 @@
     "_CLSID_SpawnManagerClass": 8003024,
     "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
     "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z": 4603776,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
     "_$E2": 6853792,
     "_$E5": 6853840,
@@ -10724,7 +10724,15 @@
     "?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z": 5593696,
     "?Get_Height@Surface@@UAEHXZ": 4264656,
     "?Get_Height@AnimFile@@UAEHXZ": 4342688,
-    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "??R?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ": 4869408,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "??B?$CDTimerClass@VSystemTimerClass@@@@QBEJXZ": 5104128,
+    "??B?$CDTimerClass@VFrameTimerClass@@@@QBEJXZ": 4538032,
+    "??1?$CDTimerClass@VFrameTimerClass@@@@QAE@XZ": 4248016,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -13057,7 +13065,7 @@
         {
           "offset": 257,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -13073,7 +13081,7 @@
         {
           "offset": 351,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -13089,7 +13097,7 @@
         {
           "offset": 365,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -13105,7 +13113,7 @@
         {
           "offset": 379,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -13121,7 +13129,7 @@
         {
           "offset": 393,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -13135,7 +13143,7 @@
           "resolved": 86462
         }
       ],
-      "source_sha256": "2889e2d8274ea2d07a668f628027fae76d5ee4de3b2488fe06422356a82826c0",
+      "source_sha256": "c2ce6ed6eb2fe91318e72c087042d1b4468dc80f82f9f170cc05f46797f0463f",
       "source": "src/recovered/classes/SpawnManagerClass/SpawnManagerClass_Load_0068a7d0.cpp",
       "population": "population-2714",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

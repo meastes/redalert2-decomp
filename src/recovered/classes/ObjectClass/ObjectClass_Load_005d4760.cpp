@@ -3,7 +3,7 @@
 // @ref ?Load@AbstractClass@@UAGJPAUIStream@@@Z=00410120
 // @ref ?Init@UnknownAudioController@@QAEXXZ=00405bf0
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall ObjectClass::Load(IStream *stream)
 {
@@ -11,10 +11,10 @@ HRESULT __stdcall ObjectClass::Load(IStream *stream)
     if (FAILED(result)) {
         return result;
     }
-    SwizzleManager.Swizzle((void **)&unknown_30);
-    SwizzleManager.Swizzle((void **)&unknown_34);
-    SwizzleManager.Swizzle((void **)&unknown_38);
-    SwizzleManager.Swizzle((void **)&unknown_18);
+    Swizzler.Swizzle((void **)&unknown_30);
+    Swizzler.Swizzle((void **)&unknown_34);
+    Swizzler.Swizzle((void **)&unknown_38);
+    Swizzler.Swizzle((void **)&unknown_18);
     unknown_3c.Init();
     unknown_50.Init();
     unknown_94 = 0;

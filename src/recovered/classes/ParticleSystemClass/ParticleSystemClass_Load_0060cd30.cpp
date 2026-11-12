@@ -6,7 +6,7 @@
 // @ref ??0ObjectClass@@QAE@ABVNoInitClass@@@Z=005d2500
 // @ref ??0?$VectorClass@PAVParticleClass@@@@QAE@IPBQAVParticleClass@@@Z=0060d0a0
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall ParticleSystemClass::Load(IStream *stream)
 {
@@ -15,9 +15,9 @@ HRESULT __stdcall ParticleSystemClass::Load(IStream *stream)
         return result;
     }
     new (this) ParticleSystemClass(NoInitClass());
-    SwizzleManager.Swizzle((void **)&Class);
-    SwizzleManager.Swizzle((void **)&unknown_d0);
-    SwizzleManager.Swizzle((void **)&Owner);
+    Swizzler.Swizzle((void **)&Class);
+    Swizzler.Swizzle((void **)&unknown_d0);
+    Swizzler.Swizzle((void **)&Owner);
 
     int count = 0;
     result = stream->Read(&count, sizeof(count), 0);
@@ -34,7 +34,7 @@ HRESULT __stdcall ParticleSystemClass::Load(IStream *stream)
         Particles.Add(particle);
     }
     for (int index = 0; index < Particles.Count(); index++) {
-        SwizzleManager.Swizzle((void **)&Particles[index]);
+        Swizzler.Swizzle((void **)&Particles[index]);
     }
     return S_OK;
 }

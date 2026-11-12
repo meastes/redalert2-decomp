@@ -8,7 +8,7 @@
 // @ref ?Load@ObjectTypeClass@@UAGJPAUIStream@@@Z=005d7c30
 // @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A=00a3d290
 
 HRESULT __stdcall AnimTypeClass::Load(IStream *stream)
@@ -20,13 +20,13 @@ HRESULT __stdcall AnimTypeClass::Load(IStream *stream)
     new (this) AnimTypeClass(NoInitClass());
     Fetch_Voxel_Image();
     Fetch_Normal_Image();
-    SwizzleManager.Swizzle((void **)&Next);
-    SwizzleManager.Swizzle((void **)&ExpireAnim);
-    SwizzleManager.Swizzle((void **)&TrailerAnim);
-    SwizzleManager.Swizzle((void **)&BounceAnim);
-    SwizzleManager.Swizzle((void **)&Spawns);
-    SwizzleManager.Swizzle((void **)&Warhead);
-    SwizzleManager.Swizzle((void **)&TiberiumSpawnType);
+    Swizzler.Swizzle((void **)&Next);
+    Swizzler.Swizzle((void **)&ExpireAnim);
+    Swizzler.Swizzle((void **)&TrailerAnim);
+    Swizzler.Swizzle((void **)&BounceAnim);
+    Swizzler.Swizzle((void **)&Spawns);
+    Swizzler.Swizzle((void **)&Warhead);
+    Swizzler.Swizzle((void **)&TiberiumSpawnType);
     if (!DemandLoad) {
         if (unknown_1fc) {
             char fullname[512];

@@ -8,7 +8,7 @@ HRESULT __stdcall TEventClass::Load(IStream *stream)
         return result;
     }
     new (this) TEventClass(NoInitClass());
-    SwizzleManager.Swizzle((void **)&Next);
-    SwizzleManager.Swizzle((void **)&unknown_30);
+    Swizzler.Swizzle((void **)&Next);
+    Swizzler.Swizzle((void **)&unknown_30);
     return S_OK;
 }

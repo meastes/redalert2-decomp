@@ -17,7 +17,7 @@ long UnknownTracker839EA0::Load_00413400(IStream *stream)
             if (result<0) return result;
             Bins[i].Add(object);
         }
-        for (j=0;j<count;++j) SwizzleManager.Swizzle(reinterpret_cast<void **>(&Bins[i][j]));
+        for (j=0;j<count;++j) Swizzler.Swizzle(reinterpret_cast<void **>(&Bins[i][j]));
     }
     return 0;
 }

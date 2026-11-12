@@ -6,7 +6,7 @@
 // @ref ?Load@ObjectClass@@UAGJPAUIStream@@@Z=005d4760
 // @ref ??0ObjectClass@@QAE@ABVNoInitClass@@@Z=005d2500
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ?Increase_Table_Size@?$IndexClass@JPAVAbstractClass@@@@QAE_NH@Z=0041b900
 
 HRESULT __stdcall TerrainClass::Load(IStream *stream)

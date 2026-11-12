@@ -40,8 +40,8 @@ HRESULT __stdcall BuildingTypeClass::Load(IStream *stream)
         unknown_bf0 = 0;
         FoundationData = unknown_foundation_cells_84ede8[Foundation];
         FoundationOutside = unknown_foundation_outside_84f848[Foundation];
-        SwizzleManager.Swizzle((void **)&ToOverlay);
-        SwizzleManager.Swizzle((void **)&FreeUnit);
+        Swizzler.Swizzle((void **)&ToOverlay);
+        Swizzler.Swizzle((void **)&FreeUnit);
         unknown_func_459640();
         BuildupData = 0;
         BuildupDataAllocated = false;

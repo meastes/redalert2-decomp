@@ -26,7 +26,7 @@
 // @ref ??0?$DynamicVectorClass@VRGBClass@@@@QAE@IPBVRGBClass@@@Z=00621fa0
 // @ref ?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ=005d7630
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ??_7ParticleTypeClass@@6BIPersistStream@@@=007a8560
 // @ref ??_7ParticleTypeClass@@6BIRTTITypeInfo@@@=007a8544
 // @ref ??_7ParticleTypeClass@@6BINoticeSink@@@=007a853c
@@ -40,7 +40,7 @@ HRESULT __stdcall ParticleTypeClass::Load(IStream *stream)
         return result;
     }
     new (this) ParticleTypeClass(NoInitClass());
-    SwizzleManager.Swizzle((void **)&Warhead);
+    Swizzler.Swizzle((void **)&Warhead);
     int count = 0;
     result = stream->Read(&count, sizeof(count), 0);
     if (FAILED(result)) {

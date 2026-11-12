@@ -4,8 +4,8 @@
     "id": "population-4382",
     "inventory_sha256": "5e09bf3a0f33d259dcdf962fd73840b52de18279c15e186a4b9580bbc8ce1733",
     "gaps_sha256": "23de4e14877f0fa0c7e5836453b7e1167c4a630816489878e5a15c634eaf158d",
-    "historical_population_sha256": "a9aba3769da358975115a5629db6b8b8dedb5bf18beeb42396905a6ec573dbb5",
-    "historical_acceptance_sha256": "2672c51626af8363d769031bb0113f60eb029e2e7d464f57db0ebdf7828f0402"
+    "historical_population_sha256": "a4741cdcae329d8910e33e1bfaad54eae990dd1d1c7a6ccf3818704829bb14bd",
+    "historical_acceptance_sha256": "7ba2d3a0c1fdaf0871e8cae0a60419e9ce1f46d3227ab7147b84296502b1293e"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2288,7 +2288,7 @@
     "__DAT_0084ed10": 8711440,
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?Get_Application@HouseClass@@UAGPAVIApplication@@XZ": 5122768,
     "_IID_IApplication_79c3d0": 7979984,
@@ -15286,7 +15286,11 @@
     "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ": 7412880,
     "_CLSID_TiberiumClass": 8003168,
     "?Waiting@VQMovieHandle@@UAEXXZ": 5904544,
-    "?Waiting@BinkMovieHandle@@UAEXXZ": 5905152
+    "?Waiting@BinkMovieHandle@@UAEXXZ": 5905152,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -22886,7 +22890,7 @@
         {
           "offset": 452,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -22902,7 +22906,7 @@
         {
           "offset": 469,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -22918,7 +22922,7 @@
         {
           "offset": 486,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -22934,7 +22938,7 @@
         {
           "offset": 503,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -22950,7 +22954,7 @@
         {
           "offset": 520,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -22966,7 +22970,7 @@
         {
           "offset": 537,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -22982,7 +22986,7 @@
         {
           "offset": 554,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -22998,7 +23002,7 @@
         {
           "offset": 571,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23014,7 +23018,7 @@
         {
           "offset": 588,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23030,7 +23034,7 @@
         {
           "offset": 605,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23046,7 +23050,7 @@
         {
           "offset": 622,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23062,7 +23066,7 @@
         {
           "offset": 644,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23086,7 +23090,7 @@
         {
           "offset": 1186,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23102,7 +23106,7 @@
         {
           "offset": 1408,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23118,7 +23122,7 @@
         {
           "offset": 2218,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23134,7 +23138,7 @@
         {
           "offset": 2255,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23150,7 +23154,7 @@
         {
           "offset": 2289,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23166,7 +23170,7 @@
         {
           "offset": 2323,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23182,7 +23186,7 @@
         {
           "offset": 2363,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23198,7 +23202,7 @@
         {
           "offset": 2406,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23214,7 +23218,7 @@
         {
           "offset": 2449,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -23244,7 +23248,7 @@
           "resolved": 7972332
         }
       ],
-      "source_sha256": "4d667f11d11b423286be2a85227c7d4c93a35c827fe0c7d480003337b701d4fd",
+      "source_sha256": "33a3c45da034a0a71c0d52b332772e1d4ed61f7b3a74d18f70cf00e404296fd9",
       "source": "src/recovered/classes/HouseClass/HouseClass_Load_004eda60.cpp",
       "population": "population-4382",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",

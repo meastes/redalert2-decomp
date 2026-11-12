@@ -4,8 +4,8 @@
     "id": "population-4342",
     "inventory_sha256": "e44a5103f96f828553c158a703572725dc927b2dc2c936b8543884d4d5f1d707",
     "gaps_sha256": "d6127909d40f3ec17894ccd1b80caa77ad3452e4982d4df473ecaa74ab3790bb",
-    "historical_population_sha256": "5c90e14f6ec3cb5a42ae7270ac6033005738fff4d311dc26806e64de680da4f1",
-    "historical_acceptance_sha256": "ec5e3ad94229a018c07f2f25f9f34adbc6b23c522943674aaf906ca64f718194"
+    "historical_population_sha256": "2a0b394b95c3d298b78877be7f216e780d6778e21ee610183ede79c24a35f4e0",
+    "historical_acceptance_sha256": "9c602d534a607d8183d827f99b0b3687b41cf4b71db91aaae11ab0bb3301c655"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1703,7 +1703,7 @@
     "_CLSID_BuildingLightClass": 8002720,
     "?Load@ObjectClass@@UAGJPAUIStream@@@Z": 6113120,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "??_EBuildingLightClass@@UAEPAXI@Z": 4409424,
     "??_GBuildingLightClass@@UAEPAXI@Z": 4409424,
     "?AI@BuildingLightClass@@UAEXXZ": 4405616,
@@ -10876,7 +10876,11 @@
     "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
     "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
     "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
-    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -11911,7 +11915,7 @@
         {
           "offset": 74,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -11927,7 +11931,7 @@
         {
           "offset": 91,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -11941,7 +11945,7 @@
           "resolved": 2537948
         }
       ],
-      "source_sha256": "ab2c9410311af4a12b7d2b9e64afb4e3b0fd7f3d503b6f1d4f759a497769fb93",
+      "source_sha256": "7d2fae718df1fa67edd42424f9952488e33fb85dec279022cd4f9e6c38aa5692",
       "source": "src/recovered/classes/BuildingLightClass/BuildingLightClass_Load_004340e0.cpp",
       "population": "population-4342",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

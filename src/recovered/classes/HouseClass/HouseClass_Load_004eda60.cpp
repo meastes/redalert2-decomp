@@ -70,20 +70,20 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
         unknown_54c0.Load(stream);
         unknown_54d0.Load(stream);
 
-        SwizzleManager.Swizzle((void **)&Type);
-        SwizzleManager.Swizzle((void **)&unknown_52dc);
-        SwizzleManager.Swizzle((void **)&unknown_52e0);
-        SwizzleManager.Swizzle((void **)&unknown_52d8);
-        SwizzleManager.Swizzle((void **)&unknown_52e4);
-        SwizzleManager.Swizzle((void **)&unknown_52e8);
-        SwizzleManager.Swizzle((void **)&unknown_52ec);
-        SwizzleManager.Swizzle((void **)&unknown_52f0);
-        SwizzleManager.Swizzle((void **)&unknown_52f4);
-        SwizzleManager.Swizzle((void **)&unknown_52f8);
-        SwizzleManager.Swizzle((void **)&unknown_5410);
+        Swizzler.Swizzle((void **)&Type);
+        Swizzler.Swizzle((void **)&unknown_52dc);
+        Swizzler.Swizzle((void **)&unknown_52e0);
+        Swizzler.Swizzle((void **)&unknown_52d8);
+        Swizzler.Swizzle((void **)&unknown_52e4);
+        Swizzler.Swizzle((void **)&unknown_52e8);
+        Swizzler.Swizzle((void **)&unknown_52ec);
+        Swizzler.Swizzle((void **)&unknown_52f0);
+        Swizzler.Swizzle((void **)&unknown_52f4);
+        Swizzler.Swizzle((void **)&unknown_52f8);
+        Swizzler.Swizzle((void **)&unknown_5410);
         int index;
         for (index = 0; index < 12; index++) {
-            SwizzleManager.Swizzle((void **)&WaypointPaths[index]);
+            Swizzler.Swizzle((void **)&WaypointPaths[index]);
         }
         for (index = 0; index < 3; index++) {
             unknown_5560[index].unknown_func_4a6b10();
@@ -107,7 +107,7 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
             }
         }
         for (index = 0; index < AngerNodes.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&AngerNodes[index].House);
+            Swizzler.Swizzle((void **)&AngerNodes[index].House);
         }
         {
             count = 0;
@@ -125,7 +125,7 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
             }
         }
         for (index = 0; index < ScoutNodes.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&ScoutNodes[ScoutNodes.Count() - 1].House);
+            Swizzler.Swizzle((void **)&ScoutNodes[ScoutNodes.Count() - 1].House);
         }
         LOAD_LIST(stream, unknown_50, BuildingClass *);
         LOAD_LIST(stream, Buildings, BuildingClass *);
@@ -134,25 +134,25 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
         LOAD_LIST(stream, unknown_b0, BuildingClass *);
 
         for (index = 0; index < Supers.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&Supers[index]);
+            Swizzler.Swizzle((void **)&Supers[index]);
         }
         for (index = 0; index < unknown_38.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&unknown_38[index]);
+            Swizzler.Swizzle((void **)&unknown_38[index]);
         }
         for (index = 0; index < unknown_50.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&unknown_50[index]);
+            Swizzler.Swizzle((void **)&unknown_50[index]);
         }
         for (index = 0; index < Buildings.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&Buildings[index]);
+            Swizzler.Swizzle((void **)&Buildings[index]);
         }
         for (index = 0; index < unknown_80.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&unknown_80[index]);
+            Swizzler.Swizzle((void **)&unknown_80[index]);
         }
         for (index = 0; index < unknown_98.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&unknown_98[index]);
+            Swizzler.Swizzle((void **)&unknown_98[index]);
         }
         for (index = 0; index < unknown_b0.Count(); index++) {
-            SwizzleManager.Swizzle((void **)&unknown_b0[index]);
+            Swizzler.Swizzle((void **)&unknown_b0[index]);
         }
 
         BOOL present = 0;

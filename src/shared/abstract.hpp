@@ -35,7 +35,7 @@ class TechnoClass;
 
 #include "shared/wwcrc_engine.hpp"
 
-// The save-game pointer fix-up service (SwizzleManager).
+// The save-game pointer fix-up service (Swizzler).
 #include "shared/swizzle.hpp"
 
 // Requests the fix-up of a loaded pointer (an inline wrapper; each use is an
@@ -44,7 +44,7 @@ class TechnoClass;
 template<class T>
 inline HRESULT Swizzle_Pointer(T *&pointer)
 {
-    return SwizzleManager.Swizzle((void **)&pointer);
+    return Swizzler.Swizzle((void **)&pointer);
 }
 
 #include "shared/id_source.hpp"

@@ -5,7 +5,7 @@
 // @ref ??0AbstractClass@@QAE@ABVNoInitClass@@@Z=0040ff60
 // @ref ??0UnknownTimer423F60@@QAE@ABVNoInitClass@@@Z=00423f60
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ??_7TeamClass@@6BIPersistStream@@@=007ac950
 // @ref ??_7TeamClass@@6BIRTTITypeInfo@@@=007ac934
 // @ref ??_7TeamClass@@6BINoticeSink@@@=007ac92c
@@ -18,17 +18,17 @@ HRESULT __stdcall TeamClass::Load(IStream *stream)
     HRESULT result = AbstractClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) TeamClass(NoInitClass());
-        SwizzleManager.Swizzle((void **)&Class);
-        SwizzleManager.Swizzle((void **)&Script);
-        SwizzleManager.Swizzle((void **)&Owner);
-        SwizzleManager.Swizzle((void **)&Tag);
-        SwizzleManager.Swizzle((void **)&Member);
-        SwizzleManager.Swizzle((void **)&unknown_38);
-        SwizzleManager.Swizzle((void **)&unknown_40);
-        SwizzleManager.Swizzle((void **)&unknown_34);
-        SwizzleManager.Swizzle((void **)&unknown_3c);
-        SwizzleManager.Swizzle((void **)&unknown_30);
-        SwizzleManager.Swizzle((void **)&unknown_44);
+        Swizzler.Swizzle((void **)&Class);
+        Swizzler.Swizzle((void **)&Script);
+        Swizzler.Swizzle((void **)&Owner);
+        Swizzler.Swizzle((void **)&Tag);
+        Swizzler.Swizzle((void **)&Member);
+        Swizzler.Swizzle((void **)&unknown_38);
+        Swizzler.Swizzle((void **)&unknown_40);
+        Swizzler.Swizzle((void **)&unknown_34);
+        Swizzler.Swizzle((void **)&unknown_3c);
+        Swizzler.Swizzle((void **)&unknown_30);
+        Swizzler.Swizzle((void **)&unknown_44);
         result = S_OK;
     }
     return result;

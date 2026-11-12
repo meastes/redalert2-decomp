@@ -2,7 +2,7 @@
 #include "shared/techno_index.hpp"
 // @ref ?unknown_cells_428ac0@@YIHXZ=00428ac0
 // @ref ?unknown_veinhole_buffer_ad07a0@@3PAEA=00ad07a0
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ?Here_I_Am@SwizzleManagerClass@@QAGJJPAX@Z=0069fba0
 // @ref ?unknown_object_index_abff58@@3V?$UnknownIndexClass@JPAVObjectClass@@@@A=00abff58
 
@@ -30,7 +30,7 @@ bool __fastcall VeinholeMonsterClass::Load_All(IStream *stream)
             return false;
         }
 
-        SwizzleManager.Here_I_Am(id, monster);
+        Swizzler.Here_I_Am(id, monster);
         if (FAILED(stream->Read(monster, sizeof(VeinholeMonsterClass), 0))) {
             return false;
         }

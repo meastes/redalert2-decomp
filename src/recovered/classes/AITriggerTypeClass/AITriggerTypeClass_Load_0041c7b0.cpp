@@ -4,7 +4,7 @@
 // @ref ?Load@AbstractClass@@UAGJPAUIStream@@@Z=00410120
 // @ref ??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z=004106e0
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall AITriggerTypeClass::Load(IStream *stream)
 {
@@ -13,8 +13,8 @@ HRESULT __stdcall AITriggerTypeClass::Load(IStream *stream)
         return result;
     }
     new (this) AITriggerTypeClass(NoInitClass());
-    SwizzleManager.Swizzle((void **)&unknown_d8);
-    SwizzleManager.Swizzle((void **)&unknown_dc);
-    SwizzleManager.Swizzle((void **)&unknown_e0);
+    Swizzler.Swizzle((void **)&unknown_d8);
+    Swizzler.Swizzle((void **)&unknown_dc);
+    Swizzler.Swizzle((void **)&unknown_e0);
     return S_OK;
 }

@@ -326,7 +326,7 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
                 unknown_supers_a35db8.Add(super);
             }
             for (index = 0; index < count; index++) {
-                SwizzleManager.Swizzle((void **)&unknown_supers_a35db8[index]);
+                Swizzler.Swizzle((void **)&unknown_supers_a35db8[index]);
             }
         }
         if (FAILED(result)) {

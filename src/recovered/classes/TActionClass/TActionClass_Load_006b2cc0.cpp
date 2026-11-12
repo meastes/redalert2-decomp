@@ -8,10 +8,10 @@ HRESULT __stdcall TActionClass::Load(IStream *stream)
         return result;
     }
     new (this) TActionClass(NoInitClass());
-    SwizzleManager.Swizzle((void **)&Next);
-    SwizzleManager.Swizzle((void **)&unknown_30);
-    SwizzleManager.Swizzle((void **)&unknown_4c);
-    SwizzleManager.Swizzle((void **)&unknown_50);
+    Swizzler.Swizzle((void **)&Next);
+    Swizzler.Swizzle((void **)&unknown_30);
+    Swizzler.Swizzle((void **)&unknown_4c);
+    Swizzler.Swizzle((void **)&unknown_50);
     return S_OK;
 }
 

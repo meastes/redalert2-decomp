@@ -2,7 +2,7 @@
 // Reads the object pointers back and registers each for swizzling.
 #include "shared/layer.hpp"
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT LayerClass::Load(IStream *stream)
 {

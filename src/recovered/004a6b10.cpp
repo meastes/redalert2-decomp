@@ -6,7 +6,7 @@
 void Unknown4A6AE0Owner::Swizzle_Types_004A6B10()
 {
     for (int index = 0; index < Count; ++index) {
-        SwizzleManager.Swizzle((void **)&Types[index]);
+        Swizzler.Swizzle((void **)&Types[index]);
     }
 }
 

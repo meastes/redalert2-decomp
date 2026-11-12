@@ -4,8 +4,8 @@
     "id": "population-4260",
     "inventory_sha256": "f86644b9db7412aa0475437fc93dc008f6402ce2e12f5d0ba2faa599333ade5a",
     "gaps_sha256": "58fea66ddbec081c7e9dc97ed9a7f0fdb6e52c0fe76a6a039fb917dad688ab80",
-    "historical_population_sha256": "f589be008a206076b5d5bdc7e61418d9e8b298d85fc203e583bc033700a45de9",
-    "historical_acceptance_sha256": "c678c556de2deabdfde31e26c63eec4c9901523b3217c7b3ba22f246b685b0c0"
+    "historical_population_sha256": "63e8bdebdd16a0815c74344956b6eb7254556a57de4aa80342a94c916dc404b2",
+    "historical_acceptance_sha256": "792623c559faa44d94fc24c820033ae103cc90aaaf68144c825f8fc475a3dbac"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -4435,7 +4435,7 @@
     "?Submit@LayerClass@@UAE_NPAVObjectClass@@_N@Z": 5458080,
     "?Supers@@3V?$DynamicVectorClass@PAVSuperClass@@@@A": 10706216,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Team_Count@HouseClass@@QAEHPAVTeamTypeClass@@@Z": 5191152,
     "?TechnoTypes@@3V?$DynamicVectorClass@PAVTechnoTypeClass@@@@A": 10750648,
     "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
@@ -16084,7 +16084,7 @@
         {
           "offset": 125,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -16100,7 +16100,7 @@
         {
           "offset": 148,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -16116,7 +16116,7 @@
         {
           "offset": 323,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056

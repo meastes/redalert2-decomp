@@ -4,8 +4,8 @@
     "id": "population-4446",
     "inventory_sha256": "5e20ec39298e280d4924dd5aa169c20bcd6929450c094e046d7c53020a73912b",
     "gaps_sha256": "5b85277ac6c6ea5a02570a128783f681b43dee3356c8cf81d51e87847c283d10",
-    "historical_population_sha256": "b1279afb0e327fa485ad7ce1f883ff9455f978ffbd29cc09448d739190ac3400",
-    "historical_acceptance_sha256": "23d550882891bf326122b65c91f0fd74cddbff59e2944ad2a91336e73700f2a9"
+    "historical_population_sha256": "3f7b97a1121d26445d86373147972a8b4c93a3bdf8b6c4d3251d33d973e3bcb7",
+    "historical_acceptance_sha256": "8779b9266035f184f680708a35e7dbbdf1810c3ce9a6459af0391b5e74802641"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1822,7 +1822,7 @@
     "?Refund_Money@HouseClass@@QAEXH@Z": 5133376,
     "?Unknown_004F52F0@HouseClass@@QAE_NXZ": 5198576,
     "?unknown_a40774@@3HA": 10749812,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
     "?Begin_Production@HouseClass@@QAEHHH_N0@Z": 5135920,
@@ -14606,7 +14606,7 @@
         {
           "offset": 274,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -14622,7 +14622,7 @@
         {
           "offset": 295,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -14638,7 +14638,7 @@
         {
           "offset": 309,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056

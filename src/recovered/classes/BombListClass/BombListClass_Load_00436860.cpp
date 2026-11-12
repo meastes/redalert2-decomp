@@ -26,4 +26,4 @@ HRESULT BombListClass::Load(IStream *stream)
 
 // External references checked against complete original body operands.
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868

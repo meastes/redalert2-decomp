@@ -3,7 +3,7 @@
 // object's Size() bytes, keeping the reference count; then fixes up the
 // owner and linked object.
 #include "shared/locomotion.hpp"
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z=0069fba0
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
 
@@ -17,11 +17,11 @@ HRESULT __stdcall LocomotionClass::Load(IStream *stream)
     if (FAILED(result)) {
         return result;
     }
-    SwizzleManager.Here_I_Am(id, this);
+    Swizzler.Here_I_Am(id, this);
     long count = RefCount;
     result = stream->Read(this, Size(), 0);
     RefCount = count;
-    SwizzleManager.Swizzle((void **)&LinkedTo);
-    SwizzleManager.Swizzle((void **)&Owner);
+    Swizzler.Swizzle((void **)&LinkedTo);
+    Swizzler.Swizzle((void **)&Owner);
     return result;
 }

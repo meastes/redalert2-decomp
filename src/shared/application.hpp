@@ -32,6 +32,8 @@ extern "C" GUID const IID_IApplication_79c3d0;   // 0x0079C3D0 (hypothesis)
 extern "C" GUID const unknown_iid_7a2c28;         // 0x007A2C28
 extern char unknown_map_object_8324e0;            // 0x008324E0 (only its address is used)
 
+struct ISwizzle;
+
 class __declspec(novtable) IApplication : public IUnknown {
 public:
     virtual HRESULT __stdcall get_FullName(BSTR *name) = 0;                      // 0x00426D20
@@ -39,7 +41,7 @@ public:
     virtual long __stdcall Quit() = 0;                                           // 0x00426DA0
     virtual HRESULT __stdcall get_ScenarioName(BSTR *name) = 0;                  // 0x00426DB0
     virtual HRESULT __stdcall get_FrameCount(long *frame) = 0;                   // 0x00426E00
-    virtual HRESULT __stdcall get_Swizzle_Interface(void *a, void *b) = 0;       // 0x00426E50
+    virtual HRESULT __stdcall get_Swizzle_Interface(ISwizzle **swizzle) = 0;     // 0x00426E50 (the save-game swizzler)
     virtual HRESULT __stdcall App_Interface(void **object) = 0;                  // 0x00426D00
     virtual HRESULT __stdcall Application_Interface(void **object) = 0;          // 0x00426D80
 };
@@ -54,7 +56,7 @@ public:
     virtual long __stdcall Quit();
     virtual HRESULT __stdcall get_ScenarioName(BSTR *name);
     virtual HRESULT __stdcall get_FrameCount(long *frame);
-    virtual HRESULT __stdcall get_Swizzle_Interface(void *a, void *b);
+    virtual HRESULT __stdcall get_Swizzle_Interface(ISwizzle **swizzle);
     virtual HRESULT __stdcall App_Interface(void **object);
     virtual HRESULT __stdcall Application_Interface(void **object);
 };

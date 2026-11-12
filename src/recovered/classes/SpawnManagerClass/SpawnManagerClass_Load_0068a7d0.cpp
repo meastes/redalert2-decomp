@@ -12,7 +12,7 @@
 // @ref ??0?$CDTimerClass@VFrameTimerClass@@@@QAE@J@Z=00463f80
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ?Frame@@3HA=00a40d2c
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall SpawnManagerClass::Load(IStream *stream)
 {

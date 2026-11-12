@@ -9,7 +9,7 @@
 #include "shared/mix_file_class.hpp"
 // @ref ?Load@ObjectTypeClass@@UAGJPAUIStream@@@Z=005d7c30
 // @ref ?Swizzle@SwizzleManagerClass@@QAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ??0?$TypeList@PAVBuildingTypeClass@@@@QAE@XZ=0058dc70
 // @ref ??0?$TypeList@PAVVoxelAnimTypeClass@@@@QAE@XZ=00652a70
 // @ref ??0?$TypeList@PAVAnimTypeClass@@@@QAE@XZ=00652b50

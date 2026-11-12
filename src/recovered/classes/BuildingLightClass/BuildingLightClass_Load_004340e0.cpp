@@ -4,7 +4,7 @@
 // @ref ?Load@ObjectClass@@UAGJPAUIStream@@@Z=005d4760
 // @ref ??0ObjectClass@@QAE@ABVNoInitClass@@@Z=005d2500
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ??_7BuildingLightClass@@6BIPersistStream@@@=0079c7e0
 // @ref ??_7BuildingLightClass@@6BIRTTITypeInfo@@@=0079c7c4
 // @ref ??_7BuildingLightClass@@6BINoticeSink@@@=0079c7bc
@@ -21,8 +21,8 @@ HRESULT __stdcall BuildingLightClass::Load(IStream *stream)
     HRESULT result = ObjectClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) BuildingLightClass(NoInitClass());
-        SwizzleManager.Swizzle((void **)&Owner);
-        SwizzleManager.Swizzle((void **)&Following);
+        Swizzler.Swizzle((void **)&Owner);
+        Swizzler.Swizzle((void **)&Following);
     }
     return result;
 }

@@ -14,9 +14,9 @@ HRESULT __stdcall SuperClass::Load(IStream *stream)
     if (Anim != 0) {
         unknown_abstracts_ac0bf8.Add(this);
     }
-    SwizzleManager.Swizzle((void **)&Type);
-    SwizzleManager.Swizzle((void **)&House);
-    SwizzleManager.Swizzle((void **)&Anim);
+    Swizzler.Swizzle((void **)&Type);
+    Swizzler.Swizzle((void **)&House);
+    Swizzler.Swizzle((void **)&Anim);
     unknown_0x3C.unknown_4 = 0;
     unknown_0x3C.unknown_8 = 0;
     return S_OK;

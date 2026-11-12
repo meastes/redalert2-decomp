@@ -6,7 +6,7 @@
 // @ref ??0?$VectorClass@VBaseNodeClass@@@@QAE@IPBVBaseNodeClass@@@Z=0042d430
 // @ref ??_7?$DynamicVectorClass@VBaseNodeClass@@@@6B@=0079c5c0
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall BaseClass::Load(IStream *stream)
 {
@@ -52,6 +52,6 @@ HRESULT __stdcall BaseClass::Load(IStream *stream)
         }
         unknown_38.Add(cell);
     }
-    SwizzleManager.Swizzle((void **)&House);
+    Swizzler.Swizzle((void **)&House);
     return 0;
 }

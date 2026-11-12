@@ -13,8 +13,8 @@ HRESULT KamikazeTrackerClass::Load(IStream *stream)
             if (FAILED(result)) {
                 return result;
             }
-            SwizzleManager.Swizzle((void **)&node->Unit);
-            SwizzleManager.Swizzle((void **)&node->Cell);
+            Swizzler.Swizzle((void **)&node->Unit);
+            Swizzler.Swizzle((void **)&node->Cell);
             Nodes.Add(node);
         }
     }

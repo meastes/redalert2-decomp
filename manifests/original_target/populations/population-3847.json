@@ -4,8 +4,8 @@
     "id": "population-3847",
     "inventory_sha256": "aa93fac2aef38800fc10593b69cda4704d857fb70dba8fffbb1468a7d80e1d47",
     "gaps_sha256": "1663e5739c9a7f4906428b66afbdd1fc790e40b86cf35e6a6d0e28e362c4729b",
-    "historical_population_sha256": "13c649717723c49642890e653d56cfbaa124e075d7bfc07b516c472cfed26b10",
-    "historical_acceptance_sha256": "6ba66dc51860b34c4f49ba7a2ccb8bd5c832e53a2c4617401519613361eb2627"
+    "historical_population_sha256": "518ee6dd192bc30a6fb19e01c06fd190b945f05143e2ab386a06b8a582b2a01a",
+    "historical_acceptance_sha256": "67789424549b6c1e91c0f6dd0ea50e1962c2623e0d81fcd5ec68333730b4a695"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2267,7 +2267,7 @@
     "__DAT_0084ed10": 8711440,
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?unknown_application_84c7dc@@3PAUIUnknown@@A": 8701916,
     "?GetSizeMax@HouseTypeClass@@UAGJPATULARGE_INTEGER@@@Z": 5218880,
@@ -10454,7 +10454,16 @@
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
     "?Get_Height@Surface@@UAEHXZ": 4264656,
     "?Get_Height@AnimFile@@UAEHXZ": 4342688,
-    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "?Can_Enter_Cell@LocomotionClass@@UAGHVCell@@@Z": 5494000,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
+    "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -11956,7 +11965,7 @@
         {
           "offset": 86,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -11972,7 +11981,7 @@
         {
           "offset": 100,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -11988,7 +11997,7 @@
         {
           "offset": 114,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12002,7 +12011,7 @@
           "resolved": 2529637
         }
       ],
-      "source_sha256": "e178364ef21bbd256c92726ca55316ee5403f2586b3be12dc516fe03cc8a978b",
+      "source_sha256": "e65aad6d57341a712c3cd2aa113569ad96466a7fb8fe2dacecb62ca9c60940eb",
       "source": "src/recovered/classes/BombClass/BombClass_Load_00436140.cpp",
       "population": "population-3847",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -12612,7 +12621,7 @@
         {
           "offset": 155,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12628,7 +12637,7 @@
         {
           "offset": 332,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12642,7 +12651,7 @@
           "resolved": 2527595
         }
       ],
-      "source_sha256": "93c4767838b05d52154333df50348d2d3139c681fce682fc7dc95f3900c5f914",
+      "source_sha256": "226ce59ddeda9da77baa940104866e55ab5dbdea5be5a2a09a8cbe7b6f82ee98",
       "source": "src/recovered/classes/BombListClass/BombListClass_Load_00436860.cpp",
       "population": "population-3847",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

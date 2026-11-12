@@ -8,7 +8,7 @@ HRESULT __stdcall TagClass::Load(IStream *stream)
         return result;
     }
     new (this) TagClass(NoInitClass());
-    SwizzleManager.Swizzle((void **)&Class);
-    SwizzleManager.Swizzle((void **)&Trigger);
+    Swizzler.Swizzle((void **)&Class);
+    Swizzler.Swizzle((void **)&Trigger);
     return S_OK;
 }

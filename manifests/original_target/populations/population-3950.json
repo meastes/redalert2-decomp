@@ -4,8 +4,8 @@
     "id": "population-3950",
     "inventory_sha256": "0a9b937259fd364926d90a78b4c16d2e134589af8102820f834706042320cd5d",
     "gaps_sha256": "09849b5592cbb4d154752fe487a82028a3ea4c5e491125b1c42a37e7d0561801",
-    "historical_population_sha256": "00d81bf914b865a954d4e1c5319d7fa46f6fcd4d9435725100994f8075f6ce98",
-    "historical_acceptance_sha256": "86ca697f9bb5dc29a5e9511f59a46fec5c1a881c96c1839817ea932870908bb0"
+    "historical_population_sha256": "ee461d5f2a71e1b97520f16154d9de87e04f15d59c3ebe98b2b12af0490a3ab4",
+    "historical_acceptance_sha256": "325cff363bfe9ce3e2ad6efd14dd1bd0345bc9cb9bebb0369b86b8c35fce470a"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1631,7 +1631,7 @@
     "?unknown_surface_839958@@3PAVSurface@@A": 8624472,
     "?Load@ObjectClass@@UAGJPAUIStream@@@Z": 6113120,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Unknown_006A2970@@YIHH@Z": 6957424,
     "?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z": 4845216,
     "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z": 5612160,
@@ -11572,7 +11572,18 @@
     "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
     "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
     "?Can_Enter_Cell@LocomotionClass@@UAGHVCell@@@Z": 5494000,
-    "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152
+    "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
+    "??RRandomClass@@QAEHXZ": 6522624,
+    "??RRandomClass@@QAEHHH@Z": 6522656,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "??0RandomClass@@QAE@I@Z": 6522608,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -13701,7 +13712,7 @@
         {
           "offset": 74,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -13715,7 +13726,7 @@
           "resolved": 802381
         }
       ],
-      "source_sha256": "59e3ef11d731782542374de5d76b0f43ab82c859409984ce2d231998f97679a7",
+      "source_sha256": "d4d126e722040e1e9379d1eae3435d2f8b625e7632552a43669f61ba5fde9591",
       "source": "src/recovered/classes/OverlayClass/OverlayClass_Load_005dbc80.cpp",
       "population": "population-3950",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

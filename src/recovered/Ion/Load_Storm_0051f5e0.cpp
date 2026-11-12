@@ -6,7 +6,7 @@
 #include "shared/com_persist.hpp"
 #include "shared/swizzle.hpp"
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ?StormActive@@3_NA=00a51934
 // @ref ?StormCoords@@3VCell@@A=00a51878
 // @ref ?StormOwner@@3PAVHouseClass@@A=00a51940
@@ -63,7 +63,7 @@ HRESULT __fastcall Load_Storm_0051F5E0(IStream *stream)
     if (FAILED(result)) {
         return result;
     }
-    SwizzleManager.Swizzle((void **)&StormOwner);
+    Swizzler.Swizzle((void **)&StormOwner);
     int count;
     result = stream->Read(&count, sizeof(count), 0);
     if (FAILED(result)) {
@@ -78,7 +78,7 @@ HRESULT __fastcall Load_Storm_0051F5E0(IStream *stream)
         IonStormClass::CloudsManifesting.Add(anim);
     }
     for (i = 0; i < count; i++) {
-        SwizzleManager.Swizzle((void **)&IonStormClass::CloudsManifesting[i]);
+        Swizzler.Swizzle((void **)&IonStormClass::CloudsManifesting[i]);
     }
     result = stream->Read(&count, sizeof(count), 0);
     if (FAILED(result)) {
@@ -93,7 +93,7 @@ HRESULT __fastcall Load_Storm_0051F5E0(IStream *stream)
         IonStormClass::CloudsPresent.Add(anim);
     }
     for (j = 0; j < count; j++) {
-        SwizzleManager.Swizzle((void **)&IonStormClass::CloudsPresent[j]);
+        Swizzler.Swizzle((void **)&IonStormClass::CloudsPresent[j]);
     }
     result = stream->Read(&count, sizeof(count), 0);
     if (FAILED(result)) {
@@ -108,7 +108,7 @@ HRESULT __fastcall Load_Storm_0051F5E0(IStream *stream)
         IonStormClass::BoltsPresent.Add(anim);
     }
     for (k = 0; k < count; k++) {
-        SwizzleManager.Swizzle((void **)&IonStormClass::BoltsPresent[k]);
+        Swizzler.Swizzle((void **)&IonStormClass::BoltsPresent[k]);
     }
     return result;
 }

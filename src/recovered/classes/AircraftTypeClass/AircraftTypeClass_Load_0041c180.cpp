@@ -7,7 +7,7 @@
 // @ref ??_7AircraftTypeClass@@6BIRTTITypeInfo@@@=0079b65c
 // @ref ??_7AircraftTypeClass@@6BINoticeSink@@@=0079b654
 // @ref ??_7AircraftTypeClass@@6BINoticeSource@@@=0079b64c
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
 // @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
 // @ref ?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ=005d7630
@@ -19,7 +19,7 @@ HRESULT __stdcall AircraftTypeClass::Load(IStream *stream)
         return result;
     }
     new (this) AircraftTypeClass(NoInitClass());
-    SwizzleManager.Swizzle((void **)&Trailer);
+    Swizzler.Swizzle((void **)&Trailer);
     Fetch_Voxel_Image();
     Fetch_Normal_Image();
     return S_OK;

@@ -48,7 +48,7 @@
 // @ref ?unknown_loaded_theater_7d88dc@@3HA=007d88dc
 // @ref ??0TabClass@@QAE@ABVNoInitClass@@@Z=0059ff60
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 // @ref ??2@YAPAXI@Z=00782017
 // @ref ??3@YAXPAX@Z=00781d3b
 // @ref ?Unknown_Hash_0054F240@@YIHABI@Z=0054f240

@@ -46,6 +46,6 @@ private:
     DynamicVectorClass<SwizzlePointerClass> UnswizzledPointers;    // +0x04 fields to fix (old address, field)
     DynamicVectorClass<SwizzlePointerClass> SwizzledPointers;      // +0x1C objects (old address, new address)
 };
-extern SwizzleManagerClass SwizzleManager;     // 0x00ABD868
+extern SwizzleManagerClass Swizzler;     // 0x00ABD868
 
 #endif

@@ -6,7 +6,7 @@
 // @ref ??_7AlphaShapeClass@@6BINoticeSink@@@=0079bfb0
 // @ref ??_7AlphaShapeClass@@6BINoticeSource@@@=0079bfa8
 // @ref ?Load@AbstractClass@@UAGJPAUIStream@@@Z=00410120
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall AlphaShapeClass::Load(IStream *stream)
 {

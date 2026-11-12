@@ -6,7 +6,7 @@
 // @ref ??_7NeuronClass@@6BINoticeSource@@@=0079cac4
 // @ref ?Load@AbstractClass@@UAGJPAUIStream@@@Z=00410120
 // @ref ??0AbstractClass@@QAE@ABVNoInitClass@@@Z=0040ff60
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall NeuronClass::Load(IStream *stream)
 {

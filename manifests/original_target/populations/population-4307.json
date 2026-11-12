@@ -4,8 +4,8 @@
     "id": "population-4307",
     "inventory_sha256": "907352a1804d9c8f0cd2bc4e3d5f387a158a3041d8ebd7ae1631df42c764bf49",
     "gaps_sha256": "95ba998a63428c12a8821d5960dec54d41caa78da777bc7e0f16e2856c739749",
-    "historical_population_sha256": "31806941332c9378b0cf88d0734a5b6ab6a8167ca87c1f18c04bf3ec95ed0655",
-    "historical_acceptance_sha256": "19e4e99d665a6d00f30a3ea9ab5f65e172fcefc95072e0a16b85c14664d3e84d"
+    "historical_population_sha256": "f47418fe904e4e24934925a8e59337e3108aa6344114f30b0526e347808d3ce7",
+    "historical_acceptance_sha256": "7322c385fc224c75eb00ed62c9b903752e957f716ba8d0b2aac07061209c2b5a"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2597,7 +2597,7 @@
     "?Remove_Index_004A6A10@Unknown4A6AE0Owner@@QAE_NH@Z": 4876816,
     "?Clear_004A6AE0@Unknown4A6AE0Owner@@QAEXXZ": 4877024,
     "?Swizzle_Types_004A6B10@Unknown4A6AE0Owner@@QAEXXZ": 4877072,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?Get_Type_004A6B40@Unknown4A6AE0Owner@@QAEPAVTechnoTypeClass@@H@Z": 4877120,
     "?Find_Type_Index_004A6B50@Unknown4A6AE0Owner@@SIHPAVTechnoTypeClass@@@Z": 4877136,
@@ -11071,7 +11071,12 @@
     "?Update@ProgressBarClass@@QAE_NN@Z": 4372944,
     "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
     "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
-    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??RRandomClass@@QAEHXZ": 6522624,
+    "??RRandomClass@@QAEHHH@Z": 6522656,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
+    "??0RandomClass@@QAE@I@Z": 6522608
   },
   "regions": [
     {
@@ -11816,7 +11821,7 @@
         {
           "offset": 19,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -11830,7 +11835,7 @@
           "resolved": 2068468
         }
       ],
-      "source_sha256": "a23a24f3a9fde261947e1a5fbee400e40d05d92e9e539c4d1cd30df435164712",
+      "source_sha256": "ec83d2eaa86d3cd8d68d39619d0c7bb6de6aa6eacaf3214679f150783eb05c86",
       "source": "src/recovered/004a6b10.cpp",
       "population": "population-4307",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

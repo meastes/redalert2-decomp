@@ -3,14 +3,14 @@
 #include "shared/radsite.hpp"
 // @ref ?Load@AbstractClass@@UAGJPAUIStream@@@Z=00410120
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall RadSiteClass::Load(IStream *stream)
 {
     HRESULT result = AbstractClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) RadSiteClass(NoInitClass());
-        SwizzleManager.Swizzle((void **)&LightSource);
+        Swizzler.Swizzle((void **)&LightSource);
     }
     return result;
 }

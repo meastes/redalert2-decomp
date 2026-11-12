@@ -1,0 +1,2673 @@
+{
+ "module": "swizzle",
+ "source": "src/recovered/swizzle.cpp",
+ "header": "src/shared/swizzle.hpp",
+ "population": "population-2710",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 1907,
+ "code": [
+  {
+   "symbol": "_$E4",
+   "entry": "0069f950",
+   "body_bytes": 115,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E2",
+   "entry": "0069f9d0",
+   "body_bytes": 133,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "??0SwizzleManagerClass@@QAE@XZ",
+   "entry": "0069fa60",
+   "body_bytes": 79,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "??1SwizzleManagerClass@@QAE@XZ",
+   "entry": "0069fab0",
+   "body_bytes": 94,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Reset@SwizzleManagerClass@@UAGJXZ",
+   "entry": "0069fb10",
+   "body_bytes": 14,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "entry": "0069fb20",
+   "body_bytes": 118,
+   "padding_bytes": 10
+  },
+  {
+   "symbol": "?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z",
+   "entry": "0069fba0",
+   "body_bytes": 89,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?ptr_compare_func@@YAHPBX0@Z",
+   "entry": "0069fc00",
+   "body_bytes": 34,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "?Process_Tables@SwizzleManagerClass@@AAEXXZ",
+   "entry": "0069fc30",
+   "body_bytes": 177,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?Get_Save_Size@SwizzleManagerClass@@UAGJPAH@Z",
+   "entry": "0069fcf0",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?QueryInterface@SwizzleManagerClass@@UAGJABUGUID@@PAPAX@Z",
+   "entry": "0069fd10",
+   "body_bytes": 91,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Fetch_Swizzle_ID@SwizzleManagerClass@@UAGJPAXPAJ@Z",
+   "entry": "0069fd70",
+   "body_bytes": 31,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?AddRef@SwizzleManagerClass@@UAGKXZ",
+   "entry": "0069fd90",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Release@SwizzleManagerClass@@UAGKXZ",
+   "entry": "0069fda0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Save_Interface@SwizzleManagerClass@@UAGJPAUIStream@@PAUIUnknown@@@Z",
+   "entry": "0069fdb0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Load_Interface@SwizzleManagerClass@@UAGJPAUIStream@@PAUGUID@@PAPAX@Z",
+   "entry": "0069fdc0",
+   "body_bytes": 8,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "??_G?$VectorClass@USwizzlePointerClass@@@@UAEPAXI@Z",
+   "entry": "006a0130",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@USwizzlePointerClass@@@@UAEPAXI@Z",
+   "entry": "006a0180",
+   "body_bytes": 73,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??0?$VectorClass@USwizzlePointerClass@@@@QAE@IPBUSwizzlePointerClass@@@Z",
+   "entry": "006a01d0",
+   "body_bytes": 147,
+   "padding_bytes": 13
+  }
+ ],
+ "code_bytes": 1472,
+ "data": [
+  {
+   "symbol": "??_7SwizzleManagerClass@@6B@",
+   "address": "007ac330",
+   "bytes": 40,
+   "kind": "vtable",
+   "section": 5
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "??_7SwizzleManagerClass@@6B@",
+   "address": "007ac330",
+   "bytes": 40,
+   "kind": "vtable"
+  }
+ ],
+ "failures": [
+  {
+   "section": 2,
+   "symbol": "_$S5",
+   "reason": "no original address bound"
+  },
+  {
+   "section": 6,
+   "symbol": "??_7?$DynamicVectorClass@USwizzlePointerClass@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@USwizzlePointerClass@@@@UAEPAXI@Z"
+  },
+  {
+   "section": 9,
+   "symbol": "??_7?$VectorClass@USwizzlePointerClass@@@@6B@",
+   "reason": "relocation target unbound: ??_E?$VectorClass@USwizzlePointerClass@@@@UAEPAXI@Z"
+  }
+ ],
+ "references_in": [
+  {
+   "site": "00426e50",
+   "symbol": "?QueryInterface@SwizzleManagerClass@@UAGJABUGUID@@PAPAX@Z",
+   "target": "0069fd10",
+   "function_entry": true
+  },
+  {
+   "site": "004a6b10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00410120",
+   "symbol": "?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z",
+   "target": "0069fba0",
+   "function_entry": true
+  },
+  {
+   "site": "005d4760",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "005d4760",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "005d4760",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "005d4760",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00426140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00426140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00426140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00426140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00426140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00426140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00426140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0060a5e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0060a5e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ec30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ec30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ec30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ec30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ec30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ec30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0041c180",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0041c7b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0041c7b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0041c7b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00468280",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00468280",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00468280",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00606540",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00606540",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00606540",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00637490",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e2110",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e2110",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e2110",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e2110",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e2110",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e2110",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006b6bf0",
+   "symbol": "?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z",
+   "target": "0069fba0",
+   "function_entry": true
+  },
+  {
+   "site": "006b7060",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006689a0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0069f230",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0069f230",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0069e9f0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0069e9f0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0069e9f0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006b48e0",
+   "symbol": "?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z",
+   "target": "0069fba0",
+   "function_entry": true
+  },
+  {
+   "site": "006b4e20",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006eee10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006eee10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006eee10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006eee10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006b4160",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006b4160",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e6c60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e6c60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006b2cc0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006b2cc0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006b2cc0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006b2cc0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006edad0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006edad0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006bfda0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006bfda0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006bfda0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006bfda0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006baae0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0060cd30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0060cd30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0060cd30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0060cd30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0053d3c0",
+   "symbol": "?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z",
+   "target": "0069fba0",
+   "function_entry": true
+  },
+  {
+   "site": "0053d3c0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0053d3c0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0044ef90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0045dd90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0045dd90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00707c20",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00707c20",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004637b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004637b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004637b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004637b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004637b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004637b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00621b90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0052e1c0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c9d10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0050ab40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0050ab40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00464fb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00464fb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00464fb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004f9f60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004f9f60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004f9f60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00720db0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00720db0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0041ab80",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0041ab80",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ddb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ddb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0070ddb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004340e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004340e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00422c30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00422c30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00422c30",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00687a00",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "005280e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00508570",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00508570",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00508570",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004b9a40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004b9a40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004b9a40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "005dbc80",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00636c60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0059f530",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0059f530",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0059f530",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0059f530",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00733c90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00733c90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00733c90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00733c90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00733c90",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0064e6b0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004eda60",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00436140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00436140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00436140",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Reset@SwizzleManagerClass@@UAGJXZ",
+   "target": "0069fb10",
+   "function_entry": true
+  },
+  {
+   "site": "0065eb40",
+   "symbol": "?Reset@SwizzleManagerClass@@UAGJXZ",
+   "target": "0069fb10",
+   "function_entry": true
+  },
+  {
+   "site": "005dce10",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006610c0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e4570",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0041f060",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00437b00",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00437b00",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00437b00",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0068a7d0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0068a7d0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0068a7d0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0068a7d0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0068a7d0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00534a80",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00531aa0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00531aa0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c1c80",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "004c1c80",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006ac320",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0042c6a0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0051f5e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0051f5e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0051f5e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "0051f5e0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00711e60",
+   "symbol": "?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z",
+   "target": "0069fba0",
+   "function_entry": true
+  },
+  {
+   "site": "00413400",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00657c40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00657c40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00657c40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00657c40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00657c40",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00656b80",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00656890",
+   "symbol": "?Reset@SwizzleManagerClass@@UAGJXZ",
+   "target": "0069fb10",
+   "function_entry": true
+  },
+  {
+   "site": "00656890",
+   "symbol": "?Reset@SwizzleManagerClass@@UAGJXZ",
+   "target": "0069fb10",
+   "function_entry": true
+  },
+  {
+   "site": "006e9160",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006e9160",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00436860",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00436860",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "00478cb0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "006de260",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "007221d0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "007221d0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  },
+  {
+   "site": "007221d0",
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "target": "0069fb20",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "_IID_ISwizzle",
+   "address": "007a2060"
+  },
+  {
+   "symbol": "_IID_IUnknown_7afce0",
+   "address": "007afce0"
+  },
+  {
+   "symbol": "_atexit",
+   "address": "0078298a"
+  },
+  {
+   "symbol": "_qsort",
+   "address": "00781d46"
+  }
+ ]
+}

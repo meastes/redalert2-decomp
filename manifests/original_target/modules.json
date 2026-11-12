@@ -324,5 +324,27 @@
   "data_notes": [
    "The ledger cannot bind the static-initializer table entry _$S3 (the unit's pointer to its empty-rect initializer 0x675000): reported as one refused section"
   ]
+ },
+ "swizzle": {
+  "source": "src/recovered/swizzle.cpp",
+  "header": "src/shared/swizzle.hpp",
+  "twin": "mischa85/RedAlert2 src/swizzle.cpp (exact target; this file takes its text with the accepted bodies); TibSun swizzle.cpp; ra2-decomp swizzle.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "AddRef, Release, Save_Interface and Load_Interface are out-of-line definitions (template: inline in swizzle.h); not tried this round",
+   "IID_ISwizzle (0x7A2060) and the IUnknown IID (stand-in name IID_IUnknown_7afce0) stay declared, not defined in source"
+  ],
+  "source_gaps": [
+   "The function bodies are the accepted ones, not the twin's text"
+  ],
+  "data_notes": [
+   "Swizzler (0xABD868) is zero-initialised storage constructed by the unit's initializer; the unit's initialised data is its vtables, which the ledger reports",
+   "Three sections are refused by the ledger: the initializer-table entry _$S5, and the two SwizzlePointerClass vector vtables, whose ??_E slots (vector deleting destructors) have no original address bound"
+  ],
+  "notes": [
+   "The unit's rows include its initializer and atexit destructor (0x69F950, 0x69F9D0) and the VectorClass/DynamicVectorClass<SwizzlePointerClass> members it emits (0x6A0130-0x6A01D0)",
+   "The global SwizzleManager takes the template's name Swizzler (74 files)",
+   "ApplicationClass::get_Swizzle_Interface (0x426E50), a stand-in leaf row that called QueryInterface through an invented Target class, is now the real member in the app unit (population with the other ApplicationClass rows) with its template signature (ISwizzle **)"
+  ]
  }
 }

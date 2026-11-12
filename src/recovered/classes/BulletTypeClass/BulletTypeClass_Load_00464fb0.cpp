@@ -7,7 +7,7 @@
 // @ref ?Fetch_Voxel_Image@ObjectTypeClass@@QAEXXZ=005d6730
 // @ref ?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ=005d7630
 // @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?SwizzleManager@@3VSwizzleManagerClass@@A=00abd868
+// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall BulletTypeClass::Load(IStream *stream)
 {
@@ -18,8 +18,8 @@ HRESULT __stdcall BulletTypeClass::Load(IStream *stream)
     new (this) BulletTypeClass(NoInitClass());
     Fetch_Voxel_Image();
     Fetch_Normal_Image();
-    SwizzleManager.Swizzle((void **)&Trailer);
-    SwizzleManager.Swizzle((void **)&AirburstWeapon);
-    SwizzleManager.Swizzle((void **)&ShrapnelWeapon);
+    Swizzler.Swizzle((void **)&Trailer);
+    Swizzler.Swizzle((void **)&AirburstWeapon);
+    Swizzler.Swizzle((void **)&ShrapnelWeapon);
     return S_OK;
 }

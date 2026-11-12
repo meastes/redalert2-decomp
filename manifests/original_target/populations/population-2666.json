@@ -4,8 +4,8 @@
     "id": "population-2666",
     "inventory_sha256": "457c223bbe3017670b62056b16b03ea6fdb4b79228becdd97c39b3a0a46ed65e",
     "gaps_sha256": "505127c4cdd739d9f6d1f1e87fd84ffa851f605ec57e351578df12c163260985",
-    "historical_population_sha256": "9362cfae7fac5fd86f3b295f65c849f3832e5a3a4b504ae4a5e46823a5b90b6c",
-    "historical_acceptance_sha256": "3708b3c7c09f695fe4f58835e3a9112ccd3acc9af921020a4c3e4b7079dc2ece"
+    "historical_population_sha256": "5aac53bbaba957a4bbb41d25606b00b2f3d37bdd4d66ddaa0bb47e213f1bd71b",
+    "historical_acceptance_sha256": "6ee4f25a32c5fd92570d8857112090999bb5e9e1cab3458c889eaefee113c4b3"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1380,7 +1380,7 @@
     "?unknown_loaded_theater_7d88dc@@3HA": 8227036,
     "??0TabClass@@QAE@ABVNoInitClass@@@Z": 5898080,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Unknown_Hash_0054F240@@YIHABI@Z": 5567040,
     "?unknown_id_source_a3d290@@3PAVUnknownIDSource@@A": 10736272,
     "__imp__OleLoadFromStream@12": 7972332,
@@ -10831,7 +10831,62 @@
     "?Redraw@BinkClass@@QAEXXZ": 4392992,
     "?Set@ZBuffer@@QAEXPAGHG@Z": 7822592,
     "?Set@ABuffer@@QAEXPAGHG@Z": 4262896,
-    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544
+    "?Cell_Object@UnknownCellObjectMap@@QAEPAVObjectClass@@ABVCell@@ABUPoint2D@@@Z": 4826544,
+    "?Can_Always_Undeploy@BuildingTypeClass@@QBE_NXZ": 4582464,
+    "?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ": 4717808,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4717856,
+    "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z": 4717888,
+    "??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z": 4717904,
+    "?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ": 4718144,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718192,
+    "?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z": 4718256,
+    "?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z": 4718464,
+    "??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_7?$VectorClass@PAUDamageGroup@@@@6B@": 7986524,
+    "??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z": 4718672,
+    "?Can_Enter_Cell@LocomotionClass@@UAGHVCell@@@Z": 5494000,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Restore@MSBinkAnim@@UAEXH@Z": 5954448,
+    "?Restore@MSAnim@@UAEXH@Z": 5962896,
+    "?Restore@Anim@Voices@WorldDominationTour@@UAEXH@Z": 7547936,
+    "?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z": 4717968,
+    "??RRandomClass@@QAEHXZ": 6522624,
+    "??RRandomClass@@QAEHHH@Z": 6522656,
+    "?Mix1@Random3Class@@1PAHA": 8316076,
+    "?Mix2@Random3Class@@1PAHA": 8316156,
+    "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
+    "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
+    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
+    "?Normalize@Quaternion@@QAEXXZ": 6431136,
+    "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
+    "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "?Detach@CargoClass@@QAEXPAVFootClass@@@Z": 4622960,
+    "?Draw_All@VeinholeMonsterClass@@SAXXZ": 7407648,
+    "?Draw_It@VeinholeMonsterClass@@QAEXXZ": 7407744,
+    "?Init@VeinholeMonsterClass@@SIXH@Z": 7407680,
+    "?Reverse@DelayTimerClass@@QAEXXZ": 4811792,
+    "?Difference@FacingClass@@QBE?AUUnknownFacingDir@@XZ": 4951360,
+    "?Reset@AStarClass@@QAEXXZ": 4364944,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
+    "?Clear@AStarClass@@QAEXXZ": 4357776,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176,
+    "?Closest_Color@VoxelPaletteLibrary@@QAEEMMM_N@Z": 7455312,
+    "??0RandomClass@@QAE@I@Z": 6522608,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336,
+    "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
+    "__real@8@3ffefd70a3d70a3d7000": 7986552,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
   },
   "regions": [
     {
@@ -12630,7 +12685,7 @@
         {
           "offset": 354,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12646,7 +12701,7 @@
         {
           "offset": 394,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12662,7 +12717,7 @@
         {
           "offset": 411,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12678,7 +12733,7 @@
         {
           "offset": 428,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -12956,7 +13011,7 @@
           "resolved": 8227036
         }
       ],
-      "source_sha256": "d1f73280e764d3c1d0cda88b587ae41b7fadf4b58735d834097e0f4ed91876fb",
+      "source_sha256": "ee3b1ec3afc2177c6bb6efb317749c605603bfa9c850a94113652a69e865ed86",
       "source": "src/recovered/classes/MouseClass/MouseClass_Load_0059f530.cpp",
       "population": "population-2666",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",

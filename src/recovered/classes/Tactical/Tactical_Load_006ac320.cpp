@@ -15,7 +15,7 @@ HRESULT __stdcall Tactical::Load(IStream *stream)
         new (this) Tactical(NoInitClass());
         unknown_db0 = 0;
         for (int i = 0; i < unknown_e0; i++) {
-            SwizzleManager.Swizzle((void **)&unknown_e4[i]);
+            Swizzler.Swizzle((void **)&unknown_e4[i]);
         }
         Point2D point = unknown_d64;
         int x;

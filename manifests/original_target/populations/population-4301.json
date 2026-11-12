@@ -4,8 +4,8 @@
     "id": "population-4301",
     "inventory_sha256": "e3904bfa22cf989d2d26a0e016aa2ca52c5e3d67a4090506b1b079d75be5f0b8",
     "gaps_sha256": "4f9095dc7124eab2120fdf153a9045bf73f463ee8ba9a29887bab38154c7913f",
-    "historical_population_sha256": "65fdabad7b8645f1c0ead5636e90e2ceb5a3b205d823c2a8a2e63fc7f7da2f11",
-    "historical_acceptance_sha256": "93f236a8df1d3fdd6db1ca6ae8618c9438fb7e32b56d4c645432f0e21e39e4f7"
+    "historical_population_sha256": "f43e4ef1814e0347600082403ffe87abe96bf3572e6c5100afd636b5a08ebf6e",
+    "historical_acceptance_sha256": "c5c81178546093f13c61870f216e3a29c012c09d50321cc34d4081d3d5a0d646"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -3138,7 +3138,7 @@
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
     "?Drawing_Code@DropPodLocomotionClass@@UAGHXZ": 4875632,
-    "?SwizzleManager@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?Layer@FlyLocomotionClass@@UAGHXZ": 4977776,
     "?Is_Ion_Sensitive@FlyLocomotionClass@@UAG_NXZ": 4977952,
@@ -12866,7 +12866,11 @@
     "?Restore@Anim@Voices@WorldDominationTour@@UAEXH@Z": 7547936,
     "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
     "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
-    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624
+    "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -17945,7 +17949,7 @@
         {
           "offset": 351,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17961,7 +17965,7 @@
         {
           "offset": 368,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17977,7 +17981,7 @@
         {
           "offset": 385,
           "kind": 6,
-          "symbol": "?SwizzleManager@@3VSwizzleManagerClass@@A",
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
           "target": 11262056,
           "addend": 0,
           "resolved": 11262056
@@ -17991,7 +17995,7 @@
           "resolved": 1668134
         }
       ],
-      "source_sha256": "d79bdc52de9e336e116d985a8f845a7aab785a2560e2d86df617b25bf3a3dee9",
+      "source_sha256": "874d38c2064f95495f4bd01f65df9a91d752a5713f77af21c88484d43653c57c",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Load_00508570.cpp",
       "population": "population-4301",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
