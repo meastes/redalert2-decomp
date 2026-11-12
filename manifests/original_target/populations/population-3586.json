@@ -4,8 +4,8 @@
     "id": "population-3586",
     "inventory_sha256": "b6593b36063352f951348e3f0d3a8a16a03bb45566606cf50e1b6578ac76f23c",
     "gaps_sha256": "6386c8f430a5e23e59da46f85a30b3fb4b28ac59e537b1ea8c03b75399c82973",
-    "historical_population_sha256": "5a0ac84b59ebd6b2c346b4f2e90a6e35023b26d333a137a45e77b4761c41ceef",
-    "historical_acceptance_sha256": "1be440f25db1cd44bee535f6da71d9ca3f52db521ec56839e817a70c72213bfb"
+    "historical_population_sha256": "eb1498e0758d48ac3308cb974e69623dc74bc1faa65928925455f2bae5f1d33f",
+    "historical_acceptance_sha256": "d89d6c877e238f3b89d5313b4797ba11222d5c70e0893752f33cae929a8c8e2f"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2060,7 +2060,7 @@
     "?Compute_CRC@AbstractTypeClass@@UBEXAAVWWCRCEngine@@@Z": 4262240,
     "??RWWCRCEngine@@QAEXJ@Z": 4800304,
     "??RWWCRCEngine@@QAEX_N@Z": 4800128,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z": 5852592,
     "?unknown_func_6bd990@TeamClass@@QAEXH@Z": 7068048,
     "_$E2": 7071584,
@@ -2986,9 +2986,8 @@
     "?Concatenate@Wstring@@QAE_NABV1@@Z": 7790144,
     "?Concatenate@Wstring@@QAE_NIPBD@Z": 7790000,
     "?Concatenate@Wstring@@QAE_NPBD@Z": 7789824,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
-    "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
     "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
+    "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
     "?Contains_Any@WideString@@QBE_NABV1@@Z": 7804288,
     "?Contains_Any@WideString@@QBE_NPBG@Z": 7804224,
@@ -4040,7 +4039,7 @@
     "?Set_Name@RAMFileClass@@UAEPBDPBD@Z": 6522400,
     "?Set_Name@RawFileClass@@UAEPBDPBD@Z": 6523760,
     "?Set_ROT@FacingClass@@QAEXH@Z": 4951696,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
     "?Set_Size@WideString@@QAEXH@Z": 7799632,
     "?Set_Size@Wstring@@QAEXH@Z": 7792208,
@@ -5585,10 +5584,10 @@
     "?Do_MISSION_UNLOAD@AircraftClass@@UAEHXZ": 4279696,
     "?unknown_slot261@BuildingClass@@UAE_N_N0@Z": 4493488,
     "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "?unknown_slot212@TechnoClass@@UAE_NPAVAbstractClass@@H@Z": 7098528,
     "?unknown_6c4bb0@TechnoClass@@QAE_NPBUCoordStruct@@PAVAbstractClass@@PAVWeaponTypeClass@@@Z": 7097264,
     "?unknown_slot171@TechnoClass@@UAE_NABUCoordStruct@@@Z": 7156448,
@@ -10476,7 +10475,15 @@
     "__pad": 7980572,
     "__decoder": 7980580,
     "?Draw_Overlay_Shadow@CellClass@@QAEXABUPoint2D@@ABVRect@@@Z": 4671536,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "?Get_Height@Surface@@UAEHXZ": 4264656,
+    "?Normalize@Quaternion@@QAEXXZ": 6431136,
+    "?Get_Height@AnimFile@@UAEHXZ": 4342688,
+    "?Incoming@CellClass@@QAEXPBX_N11@Z": 4679968,
+    "?Update_All@VeinholeMonsterClass@@SAXXZ": 7406064,
+    "?Is_Clear_To_Move@CellClass@@QAE_NH_N0HHH0@Z": 4687712,
+    "?Attach_Tag@CellClass@@QAEXPAVTagClass@@@Z": 4695136,
+    "?Read_File@VoxelPaletteLibrary@@QAEHPAVFileClass@@@Z": 7454176
   },
   "regions": [
     {
@@ -14549,7 +14556,7 @@
         {
           "offset": 63,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294405821
@@ -14563,7 +14570,7 @@
           "resolved": 4293741859
         }
       ],
-      "source_sha256": "073df7a6e5452fb8c46788886aea5895f574ec61496422e5a64cd3123586f50c",
+      "source_sha256": "44eeb08240958782341ca525257f22af0d1185b411c942321feee7bf870cc3c1",
       "source": "src/recovered/classes/TeamTypeClass/TeamTypeClass_unknown_func_6c0010_006c0010.cpp",
       "population": "population-3586",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

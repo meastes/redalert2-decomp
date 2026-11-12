@@ -284,7 +284,6 @@ __ZN20UnknownItem_006142f022unknown_cleanup_62e6e0Ev	__Z16Unknown_0062E6E0P10Eve
 __ZN10RadarClass16Unknown_00630840ERK4Rect	__ZN10RadarClass20Set_Local_DimensionsERK4Rect	0x00630840	function	same address, IR signature void (ptr, ptr)
 __ZN10RadarClass20Coord_To_Radar_PixelERK11CoordStructb	__ZN10RadarClass20Coord_To_Radar_PixelERK7Point2Db	0x00631BA0	function	same address, IR signature i64 (ptr, ptr, i1 zeroext)
 __Z16Unknown_006354E0v	__ZN7RadBeam10Update_AllEv	0x006354E0	function	same address, IR signature void ()
-__ZNK10RadioClass17Contact_With_WhomEi	__ZNK10RadioClass8Contact2Ei	0x00636E20	function	same address, IR signature ptr (ptr, i32)
 __Z16Unknown_0063A690P10HouseClassiiiP9CellClassP13AbstractClassii	__Z24Create_Air_ReinforcementP10HouseClassiiiP13AbstractClassS2_ii	0x0063A690	function	same address, IR signature i32 (ptr, i32, i32, i32, ptr, ptr, i32, i32)
 __Z16Unknown_0063B5B0i4Cell	__Z18Submit_Radar_Event14RadarEventType4Cell	0x0063B5B0	function	same address, IR signature zeroext i1 (i32, i64)
 __Z16Unknown_0063C6C0RK4Cell	__Z37RadarEventClass_unknown_remember_cellRK4Cell	0x0063C6C0	function	same address, IR signature void (ptr)

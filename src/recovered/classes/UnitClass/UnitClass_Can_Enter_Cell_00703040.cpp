@@ -128,7 +128,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
                 if (occupant->unknown_slot104()==unknown_588->unknown_28->unknown_slot104()) return 0;
             }
             TechnoClass *contact=occupant->AbstractFlags.IsTechno ? static_cast<TechnoClass*>(occupant) : 0;
-            if (Is_Radio_Contact(contact) && occupant->Kind_Of()==6 && !static_cast<BuildingClass*>(occupant)->Cell_Is_Impassable_Row_00453af0(cell)) {
+            if (ContainsLink(contact) && occupant->Kind_Of()==6 && !static_cast<BuildingClass*>(occupant)->Cell_Is_Impassable_Row_00453af0(cell)) {
                 occupant=occupant->unknown_30;
                 continue;
             }

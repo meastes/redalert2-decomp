@@ -4,7 +4,7 @@
 #include "shared/team.hpp"
 // @ref ?unknown_slot261@FootClass@@UAE_N_N0@Z=004c6f10
 // @ref ?Is_Human_Player@HouseClass@@QAE_NXZ=004f52f0
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?unknown_func_6baa00@TeamClass@@QAE_NXZ=006baa00
 // @ref ?Unknown_006B8FB0@TeamClass@@QAE_NPAVFootClass@@H_N@Z=006b8fb0
 // @ref ?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ=004198b0
@@ -106,7 +106,7 @@ grounded:
 default_mission:
     mission = 5;
 choose_mission:
-    if (!unknown_254 && unknown_slot163() && !In_Radio_Contact()) {
+    if (!unknown_254 && unknown_slot163() && !HasAnyLink()) {
         TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
         if (dock) {
             Assign_Destination(dock, true);
@@ -117,7 +117,7 @@ choose_mission:
             return false;
         }
     }
-    if (In_Radio_Contact()) mission = 7;
+    if (HasAnyLink()) mission = 7;
     QueueMission(mission, false);
     if (unknown_slot122()) Commence();
     return result;

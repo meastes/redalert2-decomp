@@ -17,7 +17,7 @@
 #include "shared/infantry.hpp"
 #include "shared/techno_map.hpp"
 // @ref ?Unknown_004717B0@UnknownCellClass@@QAEPAVBuildingClass@@XZ=004717b0
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
 // @ref ?Receive_Message@TechnoClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z=006c2590
 
@@ -32,7 +32,7 @@ int FootClass::Receive_Message(RadioClass *from, int message, AbstractClass *&pa
         }
         break;
     case 23:
-        if (In_Radio_Contact() && unknown_494 == Contact(0)) {
+        if (HasAnyLink() && unknown_494 == Contact(0)) {
             Assign_Destination(0, true);
         }
         if (Get_Mission() == 0) {

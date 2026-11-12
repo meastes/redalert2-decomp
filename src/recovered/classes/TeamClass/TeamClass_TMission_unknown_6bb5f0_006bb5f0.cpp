@@ -26,7 +26,7 @@ void TeamClass::TMission_unknown_6bb5f0(ScriptMissionClass const &mission, bool 
         StepCompleted = true;
         return;
     }
-    if (trans->In_Radio_Contact()) {
+    if (trans->HasAnyLink()) {
         return;
     }
     bool finished = true;

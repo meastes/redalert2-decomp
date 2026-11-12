@@ -37,7 +37,7 @@ void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
     Cell cell=unknown_slot104();
     if(Get_Mission()==16 && (unknown_2a8.Is_Count_Up_Active() || unknown_2a8.Is_Count_Up_Complete() || unknown_2a8.Is_Count_Down_Complete() || unknown_2a8.Is_Count_Down_Active()) && unknown_370) {
         for(int index=0;index<RadioLinks.Length();index++) {
-            TechnoClass *product=Contact2(index);
+            TechnoClass *product=Contact_With_Whom(index);
             if(product && !product->unknown_76 && product->Kind_Of()!=6) {
                 CoordStruct destination=product->unknown_slot19(0);
                 destination.Z=product->Position_Coord_004f3f40().Z;

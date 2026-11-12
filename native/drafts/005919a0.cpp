@@ -178,7 +178,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         return;
                     }
                     int dist = Distance3(LinkedTo->Center_Coord(), unknown_18);
-                    if (dist < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()
+                    if (dist < Rules->unknown_1380 && !LinkedTo->HasAnyLink()
                         && abs(unknown_18.Z - Object_Coord(LinkedTo).Z) < unknown_geometry_g * 2
                         && Map[Object_Coord(LinkedTo)].unknown_ec != 10) {
                         LinkedTo->unknown_slot306(0.0);

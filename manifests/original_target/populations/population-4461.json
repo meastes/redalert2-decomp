@@ -4,8 +4,8 @@
     "id": "population-4461",
     "inventory_sha256": "6a0aea991343e88e56bf9a8532a40b4ab311c1fd06044b2b25deddfb2e215aea",
     "gaps_sha256": "1014b51efbf8d8242410f02f87237f3b519c2c5f4ddf0e0fc433fb608faa6aeb",
-    "historical_population_sha256": "11e4901475daab1f41c0b074cd2fe288cbeeac37fe5074fdcc4c8c173591bb68",
-    "historical_acceptance_sha256": "126092a4203d7a4fae1bb393212829c2ecddd5a05031b253126aa9ce63623475"
+    "historical_population_sha256": "2388a7e4d1c3f8d9cc432c06279ba26133a26c4d82a463dbfd2794f2815e04d4",
+    "historical_acceptance_sha256": "6e3779b226669ebc2a997016b27395dc84b9ac2ac9d43be46eb0e9e503712947"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -324,7 +324,7 @@
     "?Is_Human_Player@HouseClass@@QAE_NXZ": 5198576,
     "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ": 4811600,
     "?Count_Down@DelayTimerClass@@QAEXN@Z": 4811712,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?Unknown_0054AB00@MapClass@@QAE_NABUCoordStruct@@@Z": 5548800,
     "?unknown_6fb890@UnitClass@@QAEXXZ": 7321744,
     "?unknown_6fbc90@UnitClass@@QAEXXZ": 7322768,
@@ -355,7 +355,7 @@
     "?unknown_707170@UnitClass@@QAE_NPAVTechnoClass@@@Z": 7369072,
     "?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
     "?Is_To_Inherit@TagClass@@QBE_NXZ": 7029232,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?Is_Player_Control@HouseClass@@QAE_NXZ": 5198512,
     "?Is_Ally@HouseClass@@QBE_NPAVTechnoClass@@@Z": 5133696,
     "?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z": 6112304,
@@ -5330,7 +5330,6 @@
     "?unknown_slot150@RadioClass@@UAEHHPAVTechnoClass@@@Z": 6515584,
     "?unknown_radio_param_a40be0@@3PAVAbstractClass@@A": 10750944,
     "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?unknown_RadSiteClass_list_00ab6620@@3V?$DynamicVectorClass@PAVRadSiteClass@@@@A": 11232800,
     "??_7?$DynamicVectorClass@PAVRadSiteClass@@@@6B@": 8031076,
     "?Size_Of@RadSiteClass@@UBEHXZ": 6517856,
@@ -13742,7 +13741,7 @@
     "??0BuildingClass@@QAE@PAVBuildingTypeClass@@PAVHouseClass@@@Z": 4426976,
     "??0TechnoClass@@QAE@PAVHouseClass@@@Z": 7081168,
     "?Init@BuildingClass@@UAEXXZ": 4454464,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?unknown_537560@UnknownBuilding4E8@@QAEXH@Z": 5469536,
     "?Limbo@BuildingClass@@UAE_NXZ": 4464736,
     "?Delete@?$DynamicVectorClass@PAVBuildingClass@@@@QAE_NH@Z": 4541280,
@@ -17549,7 +17548,7 @@
     "?unknown_452be0@BuildingClass@@QAE_NXZ": 4533216,
     "?Building_Storage_Level_00453ab0@@YIHPAVBuildingClass@@@Z": 4537008,
     "?Cell_Is_Impassable_Row_00453af0@BuildingClass@@QAE_NPBVCellClass@@@Z": 4537072,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "??_GRadioClass@@UAEPAXI@Z": 6516624,
     "?Building_Player_Detector_Covers_Cell_00438a60@@YI_NPBVHouseClass@@PBVCellClass@@@Z": 4426336,
     "?Building_Write_All_INI_0044b200@@YIXPAVINIClass@@@Z": 4502016,
@@ -23318,7 +23317,8 @@
     "?Advance@MSShapeAnim@@UAE_NPAVSurface@@PAVRect@@@Z": 5949520,
     "?Clear_Growth@VeinholeMonsterClass@@QAEXXZ": 7412880,
     "_CLSID_TiberiumClass": 8003168,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "?Can_Always_Undeploy@BuildingTypeClass@@QBE_NXZ": 4582464
   },
   "regions": [
     {
@@ -28402,7 +28402,7 @@
         {
           "offset": 540,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294153920
@@ -28432,7 +28432,7 @@
           "resolved": 4293175109
         }
       ],
-      "source_sha256": "e8e0372feb044459241aa09c05c7824356db5c77b65ea3ea074635fd3f123ade",
+      "source_sha256": "56bad799f93201fb278caa076221f02115d32ccca430e5303ea0c10b33d6fe38",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot261_006fd630.cpp",
       "population": "population-4461",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -29446,7 +29446,7 @@
         {
           "offset": 1845,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294162135
@@ -29476,7 +29476,7 @@
           "resolved": 4293183499
         }
       ],
-      "source_sha256": "7cd4c65c0a7224eda91b426802db5db447e8fdd553fb66622abb38e8284eb375",
+      "source_sha256": "9603446f83555dfdc2ad1706812d30a63c92111d7e430edfc19e36be992c404f",
       "source": "src/recovered/classes/UnitClass/UnitClass_AI_006fb100.cpp",
       "population": "population-4461",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -30062,7 +30062,7 @@
         {
           "offset": 1097,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294158547
@@ -30236,7 +30236,7 @@
           "resolved": 7325844
         }
       ],
-      "source_sha256": "c686b2703c4703b041b177702c4fb721a158f0d728f25bf7df295b8389d9a1fc",
+      "source_sha256": "20d712292703f33134c0add20d88123a50f8178dc89db2bf3fd073c5e2ceecaa",
       "switch_data_bytes": 70,
       "source": "src/recovered/classes/UnitClass/UnitClass_Radio_006fc1f0.cpp",
       "population": "population-4461",
@@ -30387,7 +30387,7 @@
         {
           "offset": 49,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294104651
@@ -30425,7 +30425,7 @@
           "resolved": 4294763688
         }
       ],
-      "source_sha256": "46a84a80fe0aa86f72ba62b334d811b1e64b4f078295d438d4fea078089b1f21",
+      "source_sha256": "b942c724daf03bce0e78a49c32ec1f396cd2102fe1a0351108f9e3962b832286",
       "source": "src/recovered/classes/UnitClass/UnitClass_INoticeSink_Unknown_00709890.cpp",
       "population": "population-4461",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -31996,13 +31996,13 @@
         {
           "offset": 2358,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 4294154950
         }
       ],
-      "source_sha256": "7919572dee477bca2083e24be3fbd62b99b09241ce11f34c843eca60555b6a28",
+      "source_sha256": "02844685ef5e9e8edcd1a9b448158fee976e7a1c9bcf33ed745e2c6d26287720",
       "source": "src/recovered/classes/UnitClass/UnitClass_Take_Damage_006fca30.cpp",
       "population": "population-4461",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -32338,7 +32338,7 @@
         {
           "offset": 54,
           "kind": 20,
-          "symbol": "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z",
+          "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
           "target": 6516256,
           "addend": 0,
           "resolved": 4294146566
@@ -32528,7 +32528,7 @@
           "resolved": 7337083
         }
       ],
-      "source_sha256": "506508bba52d0ed6e596a783deb6e84784dcfcff66b05021f5b5ea90ed3d0b15",
+      "source_sha256": "fd085946fc22249b3bf4b5cbf949097bb03b1c8b7e49fe98a78b8011a843c316",
       "switch_data_bytes": 16,
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot312_006ff3e0.cpp",
       "population": "population-4461",
@@ -33282,7 +33282,7 @@
         {
           "offset": 1001,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 4294149171
@@ -33736,7 +33736,7 @@
           "resolved": 4292640481
         }
       ],
-      "source_sha256": "a86fea50f97a534df0a55b4ffdfb2c497bd39cc5cf815e1c045057b15f6c3a79",
+      "source_sha256": "d7f0026a55bf2da787ffe4e8eb4d07e15bc192fa290e9cb3469f4fcd82995208",
       "source": "src/recovered/classes/UnitClass/UnitClass_Per_Cell_Process_006fe610.cpp",
       "population": "population-4461",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -34987,7 +34987,7 @@
         {
           "offset": 1166,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 4294130014
@@ -35241,7 +35241,7 @@
           "resolved": 4292280984
         }
       ],
-      "source_sha256": "33e9496c82c79b473b1501d351acdde439e1e773a535d011366dd5dffc5c559d",
+      "source_sha256": "bb7bb671a10bfb3f1f74c52481b4af7c78d378fe63549662cbbebea7f44c668f",
       "source": "src/recovered/classes/UnitClass/UnitClass_Can_Enter_Cell_00703040.cpp",
       "population": "population-4461",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -35430,7 +35430,7 @@
         {
           "offset": 852,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294127592
@@ -35516,7 +35516,7 @@
           "resolved": 4292809063
         }
       ],
-      "source_sha256": "4229f4bdc630a3bd1c6fa52a0e6d822a5bd619c1c00a2ad64b93ed0192560df9",
+      "source_sha256": "6425c077c2d212ee8e445640cd0867f535300b865d70e1119437e45c67bdb6c2",
       "source": "src/recovered/classes/UnitClass/UnitClass_unknown_slot28_00703bd0.cpp",
       "population": "population-4461",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -35921,7 +35921,7 @@
         {
           "offset": 1587,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294136665
@@ -36033,7 +36033,7 @@
         {
           "offset": 2222,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294136030
@@ -36089,7 +36089,7 @@
         {
           "offset": 2493,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294135759
@@ -36177,7 +36177,7 @@
         {
           "offset": 2661,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294135591
@@ -36543,7 +36543,7 @@
           "resolved": 7346650
         }
       ],
-      "source_sha256": "fb60e45974c70a786749f7fc50195f906e7dc706ce43663284f9ce94ec6608e0",
+      "source_sha256": "ae6d1a89f03a910b71255e6ba508ebadb8c2d10154480c00ddfd61d2cb949946",
       "switch_data_bytes": 20,
       "source": "src/recovered/classes/UnitClass/UnitClass_Do_MISSION_UNLOAD_00701580.cpp",
       "population": "population-4461",
@@ -40002,7 +40002,7 @@
         {
           "offset": 193,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294122075
@@ -40018,7 +40018,7 @@
         {
           "offset": 256,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 4294121788
@@ -40026,7 +40026,7 @@
         {
           "offset": 288,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294121980
@@ -40098,7 +40098,7 @@
         {
           "offset": 649,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294121619
@@ -40122,7 +40122,7 @@
         {
           "offset": 771,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294121497
@@ -40162,7 +40162,7 @@
         {
           "offset": 998,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294121270
@@ -40954,7 +40954,7 @@
         {
           "offset": 4473,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294117795
@@ -41026,7 +41026,7 @@
         {
           "offset": 5011,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294117257
@@ -41136,7 +41136,7 @@
           "resolved": 4292613690
         }
       ],
-      "source_sha256": "20918fccb3718bc9eb4061d14d645f113d074c1ededca9ddf3348a24d3343ac1",
+      "source_sha256": "494ee99c3df509d235800e0d0f73119966cab603a787fcca45071427b7d56b41",
       "source": "src/recovered/classes/UnitClass/UnitClass_Assign_Destination_007053f0.cpp",
       "population": "population-4461",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",

@@ -373,5 +373,26 @@
    "The unit's rows include CDFileClass's scalar deleting destructor 0x401950, kept outside the module's range; the Wstring constructor (0x46FD60) joined the unit from population-02",
    "Find_File takes the template's name Find_First_File"
   ]
+ },
+ "radio": {
+  "source": "src/recovered/radio.cpp",
+  "header": "src/shared/radio.hpp",
+  "twin": "mischa85/RedAlert2 src/radio.cpp (exact target); TibSun radio.cpp; ra2-decomp radio.cpp (YR)",
+  "data": [],
+  "header_gaps": [
+   "Slots 149-151 keep the names unknown_slot149/150/151 (template: three Transmit_Message overloads, declared last slot first): the overload set changes Print_CRCs (4 B) and UnitClass::Draw_It (387 B)",
+   "0x636EA0 and 0x636ED0 keep the names Unknown_00636EA0 and Unknown_00636ED0 (template: the HasFreeLink overload pair): the overload changes Print_CRCs (4 B)",
+   "The message type stays int and the parameter AbstractClass ** / the partner TechnoClass * (template: RadioMessageType, int &, RadioClass *); Contact (0x636E10) and Contact_With_Whom(int) (0x636E20, formerly also declared as Contact2) keep their names (template: the Radio_Link non-const/const pair); Contact_With_Whom stays under the per-unit macro RA2_RADIO_CONTACT_WITH_WHOM"
+  ],
+  "source_gaps": [
+   "The source is the accepted bodies in unit order, not the twin's text"
+  ],
+  "data_notes": [
+   "The radio message argument (0xA40BE0, template RadioClass::LParam) is zero-initialised storage declared in radio.hpp and not defined here; the template's Messages name table is not part of this unit's data in RA2"
+  ],
+  "notes": [
+   "The unit's rows include the header-static initializers 0x636640-0x636810 and the scalar deleting destructor 0x636F90; 0x636EA0 (a stand-in UnknownList row) joined the unit as RadioClass::Unknown_00636EA0",
+   "Renamed to the template: FindLinkIndex, ContainsLink, HasAnyLink, SetLinkCount"
+  ]
  }
 }

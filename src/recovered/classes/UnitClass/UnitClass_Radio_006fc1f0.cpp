@@ -78,7 +78,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
 
             if (Unit_Radio_Used_Size(Cargo) + sender->Techno_Type_Class()->Size <= capacity &&
                 !(sender->Techno_Type_Class()->Size > Type->SizeLimit)) {
-                if (!In_Radio_Contact()) unknown_slot150(2, sender);
+                if (!HasAnyLink()) unknown_slot150(2, sender);
             } else goto no_transport_room;
         }
         if (!unknown_494) {

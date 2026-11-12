@@ -15,7 +15,7 @@
 #include "shared/map_view.hpp"
 // @ref ?Control@MissionClass@@QBEPAVMissionControlClass@@XZ=005950d0
 // @ref __real@8@4008e100000000000000=0079b608
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?unknown_func_4eb360@HouseClass@@QAEPAVAbstractClass@@ABUCoordStruct@@@Z=004eb360
@@ -67,7 +67,7 @@ int AircraftClass::Do_MISSION_GUARD()
         }
     }
 reloading:
-    if (unknown_254 != -1 && unknown_254 < Type->Ammo / 2 && In_Radio_Contact()
+    if (unknown_254 != -1 && unknown_254 < Type->Ammo / 2 && HasAnyLink()
         && Contact(0)->Kind_Of() == 6 && ((BuildingClass *)Contact(0))->Type->unknown_134a) {
         return 1;
     }
@@ -78,7 +78,7 @@ reloading:
     if (!unknown_slot163()) {
         return 0x2D;
     }
-    if (Get_Height_AGL() == 0 && !In_Radio_Contact()) {
+    if (Get_Height_AGL() == 0 && !HasAnyLink()) {
         return 0x2D;
     }
     if (!House->Unknown_004F52F0()) {
@@ -95,7 +95,7 @@ reloading:
     }
     return FootClass::Do_MISSION_GUARD();
 rearm:
-    if (!In_Radio_Contact()) {
+    if (!HasAnyLink()) {
         TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
         if (dock != 0) {
             QueueMission(7, false);

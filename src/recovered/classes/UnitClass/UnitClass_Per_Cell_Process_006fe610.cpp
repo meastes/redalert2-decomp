@@ -67,7 +67,7 @@ void UnitClass::unknown_slot93(int reason)
         }
         if (transport==this) transport=Unknown_0040DC20(transport->unknown_30);
         if (Get_Mission()==7 && transport && transport!=this) {
-            if (unknown_slot104()==transport->unknown_slot104() && Is_Radio_Contact(transport) && transport->Techno_Type_Class()->Passengers>0) {
+            if (unknown_slot104()==transport->unknown_slot104() && ContainsLink(transport) && transport->Techno_Type_Class()->Passengers>0) {
                 if (unknown_slot150(15,transport)==1) {
                     unknown_6d6e50(0);
                     unknown_79=false;

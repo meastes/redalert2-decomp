@@ -32,7 +32,7 @@ extern char const Unit_Ore_Miner_Under_Attack_007F819C[];
 // @ref ?unknown_707170@UnitClass@@QAE_NPAVTechnoClass@@@Z=00707170
 // @ref ?unknown_func_6b8cc0@TeamClass@@QAE_NPAVFootClass@@@Z=006b8cc0
 // @ref ?Is_To_Inherit@TagClass@@QBE_NXZ=006b41f0
-// @ref ?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
+// @ref ?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
 // @ref ?Is_Player_Control@HouseClass@@QAE_NXZ=004f52b0
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?Is_Ally@HouseClass@@QBE_NPAVTechnoClass@@@Z=004e5580
@@ -193,7 +193,7 @@ drop_crate:
             dock = unknown_slot301(Type->Dock[index], 0, 0);
             if (dock) break;
         }
-        if (dock && !Is_Radio_Contact(dock) && unknown_slot150(2, dock) == 1)
+        if (dock && !ContainsLink(dock) && unknown_slot150(2, dock) == 1)
             QueueMission(7, false);
     }
     return result;

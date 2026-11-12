@@ -33,11 +33,10 @@ address	section	extent	symbol	name	msvc	user
 0x007CE2A4	.data	84	_wdt_name_key_007ce2a4	wdt_name_key_007ce2a4	?wdt_name_key_007ce2a4@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007CE610	.data	16	_unknown_uuid_IUnknown_7ce610	unknown_uuid_IUnknown_7ce610	_unknown_uuid_IUnknown_7ce610	src/recovered/header_statics/0053cdd0/HeaderStatics_empty_rect_init_0053cdd0.cpp
 0x007CF730	.data	136	_wol_password_replace_7cf730	wol_password_replace_7cf730	?wol_password_replace_7cf730@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x007D27D4	.data	4	__ZN11CDFileClass10FindHandleE	CDFileClass::FindHandle	?FindHandle@CDFileClass@@2PAXA	src/recovered/00402190.cpp
 0x007D5F38	.data	176	_unknown_uuid_IPersistStream_7d5f38	unknown_uuid_IPersistStream_7d5f38	_unknown_uuid_IPersistStream_7d5f38	src/recovered/header_statics/0053cdd0/HeaderStatics_empty_rect_init_0053cdd0.cpp
 0x007D68F4	.data	20	_test_latency_debug_007d68f4	test_latency_debug_007d68f4	?test_latency_debug_007d68f4@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007D7CEC	.data	4	_channel_command_eol_007d7cec	channel_command_eol_007d7cec	?channel_command_eol_007d7cec@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x007DB4B0	.data	4	_hex_format_7db4b0	hex_format_7db4b0		
+0x007DB4B0	.data	4	_hex_format_7db4b0	hex_format_7db4b0	?hex_format_7db4b0@@3PADA	src/recovered/classes/CNetUtilEventSink/CNetUtilEventSink_OnPing_0075df30.cpp
 0x007DFC48	.data	28	_wol_label_7dfc48	wol_label_7dfc48	?wol_label_7dfc48@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007DFC64	.data	24	_wol_label_7dfc64	wol_label_7dfc64	?wol_label_7dfc64@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007E09C4	.data	4	_unknown_map_generation_callback_7e09c4	unknown_map_generation_callback_7e09c4	?unknown_map_generation_callback_7e09c4@@3P6AXXZA	src/recovered/header_statics/0056d2d0/HeaderStatics_diagonal_init_0056d2d0.cpp
@@ -45,7 +44,6 @@ address	section	extent	symbol	name	msvc	user
 0x007E6CDC	.data	20	_observer_leave_label_007e6cdc	observer_leave_label_007e6cdc	?observer_leave_label_007e6cdc@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007E6F8C	.data	324	_ladder_names_separator_7e6f8c	ladder_names_separator_7e6f8c	?ladder_names_separator_7e6f8c@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007E6F8C	.data	324	_server_name_separator_007e6f8c	server_name_separator_007e6f8c	?server_name_separator_007e6f8c@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x007E8C4C	.data	4	_unknown_spot_light_pixel_7e8c4c	unknown_spot_light_pixel_7e8c4c		
 0x007E8D1C	.data	32	__ZN9OwnerDraw31unknown_dialog_back_name_7e8d1cE	OwnerDraw::unknown_dialog_back_name_7e8d1c	?unknown_dialog_back_name_7e8d1c@OwnerDraw@@3PBDB	src/recovered/header_statics/005de660/HeaderStatics_empty_rect_init_005de660.cpp
 0x007EB1FC	.data	12	_game_normal_image_007eb1fc	game_normal_image_007eb1fc	?game_normal_image_007eb1fc@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007EB218	.data	16	_game_locked_observer_image_007eb218	game_locked_observer_image_007eb218	?game_locked_observer_image_007eb218@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
@@ -64,7 +62,7 @@ address	section	extent	symbol	name	msvc	user
 0x007FD8A4	.data	20	_game_clan_label_007fd8a4	game_clan_label_007fd8a4	?game_clan_label_007fd8a4@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FD8B8	.data	20	_game_counts_format_007fd8b8	game_counts_format_007fd8b8	?game_counts_format_007fd8b8@@3PAGA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FDEA0	.data	36	_user_reply_debug_7fdea0	user_reply_debug_7fdea0	?user_reply_debug_7fdea0@@3PADA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-0x007FE030	.data	52	_port_debug_7fe030	port_debug_7fe030		
+0x007FE030	.data	52	_port_debug_7fe030	port_debug_7fe030	?port_debug_7fe030@@3PADA	src/recovered/classes/CNetUtilEventSink/CNetUtilEventSink_OnPing_0075df30.cpp
 0x007FE1C8	.data	16	_u______hs_007fe1c8	u______hs_007fe1c8	_u______hs_007fe1c8	src/recovered/00479ca0.cpp
 0x007FE2C4	.data	16	_wol_label_7fe2c4	wol_label_7fe2c4	?wol_label_7fe2c4@@3PAGA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 0x007FE9B8	.data	28	_wol_label_7fe9b8	wol_label_7fe9b8	?wol_label_7fe9b8@@3PAGA	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp

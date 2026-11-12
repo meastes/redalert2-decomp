@@ -4,8 +4,8 @@
     "id": "population-4378",
     "inventory_sha256": "b3bd2ecf3efc152c46932e33b18c72b7bcc7a53bf12c2be63e594e123f7a15f4",
     "gaps_sha256": "4a5690b66c405687735ff5bece50400359e5f27481176c79472b35d6d2a919b4",
-    "historical_population_sha256": "44139c9e686409e06f53922ac078bcdb0793d0ca95b9aa79879dfad0b7283d46",
-    "historical_acceptance_sha256": "73eb26d907afe0306a05704706034f86940c4db95c03bddafee443d4507fd3a2"
+    "historical_population_sha256": "9385c16ff3e4fa705fd627e8b59a3ca7f191fe141e23c5ce173f9c49e3af4e63",
+    "historical_acceptance_sha256": "d14282951139faf8e26a22e80abbee67952e67a74887243cb78183377b785bfe"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1713,7 +1713,7 @@
     "?unknown_pips_owned_a72ff1@@3_NA": 10956785,
     "?unknown_pips2_owned_a72ff2@@3_NA": 10956786,
     "?unknown_talkbubl_owned_a72ff3@@3_NA": 10956787,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?Unknown_00636EA0@RadioClass@@QBE_NXZ": 6516384,
     "?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z": 5125728,
     "_sprintf": 7872756,
@@ -3040,9 +3040,8 @@
     "?Concatenate@Wstring@@QAE_NABV1@@Z": 7790144,
     "?Concatenate@Wstring@@QAE_NIPBD@Z": 7790000,
     "?Concatenate@Wstring@@QAE_NPBD@Z": 7789824,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
-    "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
     "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
+    "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
     "?Contains_Any@WideString@@QBE_NABV1@@Z": 7804288,
     "?Contains_Any@WideString@@QBE_NPBG@Z": 7804224,
@@ -4105,7 +4104,7 @@
     "?Set_Name@RAMFileClass@@UAEPBDPBD@Z": 6522400,
     "?Set_Name@RawFileClass@@UAEPBDPBD@Z": 6523760,
     "?Set_ROT@FacingClass@@QAEXH@Z": 4951696,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?Set_Search_Drives@CDFileClass@@SIHPAD@Z": 4652656,
     "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
     "?Set_Size@WideString@@QAEXH@Z": 7799632,
@@ -5575,10 +5574,10 @@
     "?unknown_slot255@UnitClass@@UAEXPAVTechnoClass@@@Z": 7380080,
     "?Do_MISSION_UNLOAD@AircraftClass@@UAEHXZ": 4279696,
     "?unknown_slot261@BuildingClass@@UAE_N_N0@Z": 4493488,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "?unknown_slot212@TechnoClass@@UAE_NPAVAbstractClass@@H@Z": 7098528,
     "?unknown_6c4bb0@TechnoClass@@QAE_NPBUCoordStruct@@PAVAbstractClass@@PAVWeaponTypeClass@@@Z": 7097264,
     "?unknown_slot171@TechnoClass@@UAE_NABUCoordStruct@@@Z": 7156448,
@@ -12274,7 +12273,17 @@
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "?Write_INI@MapPreviewClass@@QAE_NAAVCCINIClass@@@Z": 6413440,
     "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
-    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "?Can_Always_Undeploy@BuildingTypeClass@@QBE_NXZ": 4582464,
+    "?Can_Enter_Cell@LocomotionClass@@UAGHVCell@@@Z": 5494000,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Can_Enter_Cell@TunnelLocomotionClass@@UAGHVCell@@@Z": 7279152,
+    "?Unlimbo@DriveLocomotionClass@@UAGXXZ": 4851136,
+    "?Unlimbo@ShipLocomotionClass@@UAGXXZ": 6776192,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -14169,7 +14178,7 @@
         {
           "offset": 207,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 396925
@@ -14183,7 +14192,7 @@
           "resolved": 396778
         }
       ],
-      "source_sha256": "3f079fe8a2acbd3afd2be7053d1a44038e33878816d6767d87dec902c801d5f1",
+      "source_sha256": "7f0eff7a1dd9a9be8391c9aed67ba738956b09c0772df22e0c27128b40f4ae5a",
       "source": "src/recovered/classes/ObjectTypeClass/ObjectTypeClass_Who_Can_Build_Me_005d5fc0.cpp",
       "population": "population-4378",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",

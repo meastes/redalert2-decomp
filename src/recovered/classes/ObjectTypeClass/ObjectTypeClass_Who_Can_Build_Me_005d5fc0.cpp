@@ -9,7 +9,7 @@
 #include "shared/house.hpp"
 #include "shared/techno.hpp"
 #include "shared/building_type_class.hpp"
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Unknown_00636EA0@RadioClass@@QBE_NXZ=00636ea0
 // @ref ?Can_Build@HouseClass@@QAEHPBVTechnoTypeClass@@_N1@Z=004e3660
 
@@ -38,7 +38,7 @@ BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, boo
         if ((building->Type->unknown_slot28() & ownable) == 0) {
             continue;
         }
-        if (!in_theory && building->In_Radio_Contact() && Kind_Of() == 3) {
+        if (!in_theory && building->HasAnyLink() && Kind_Of() == 3) {
             if (Kind_Of() == 3 && building->Unknown_00636EA0()) {
                 if (building->unknown_32b) {
                     return building;

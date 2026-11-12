@@ -122,7 +122,7 @@ exitcell.X += random; exitcell.Y += random;
         if (!Type->Refinery && !Type->Weeder) {
             if (Type->WeaponsFactory) {
                 if (Type->Naval) {
-                    if (!In_Radio_Contact()) QueueMission(0x10, 0);
+                    if (!HasAnyLink()) QueueMission(0x10, 0);
                     Cell navalcell = Center_Cell(this);
                     if (unknown_1b0) {
                         Cell target = Center_Cell(unknown_1b0);

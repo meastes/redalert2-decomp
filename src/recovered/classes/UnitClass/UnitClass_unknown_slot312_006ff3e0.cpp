@@ -18,7 +18,7 @@ void UnitClass::unknown_slot312(Surface &surface, Point2D point, Rect window, in
         if (unknown_6cf670() && unknown_6cf9d0() == 0) {
             split = true;
         } else {
-            TechnoClass *contact = Contact2(0);
+            TechnoClass *contact = Contact_With_Whom(0);
             if (unknown_494 && contact && contact->Kind_Of() == 6 && ((BuildingClass *)contact)->Type->WeaponsFactory)
                 split = true;
         }

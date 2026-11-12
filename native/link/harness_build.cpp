@@ -27,6 +27,7 @@
 #include "shared/building_type_list.hpp"
 #include "shared/event.hpp"
 #include "shared/queue.hpp"
+#include <stdlib.h>
 
 extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.hpp)
 
@@ -203,7 +204,25 @@ void Native_Harness_Houses(char const *milestone)
 void Native_Harness_Build(int frame, bool army)
 {
     HouseClass *player = unknown_player_a35db4;
-    if (army && frame == 1) step_count = sizeof(steps) / sizeof(steps[0]);
+    // RA2_NATIVE_BUILD_LIST=<ID>[,<ID>...] (Scout1295; test scaffolding): this build order
+    // instead (up to 8 building types, each built and placed in turn), e.g. a campaign
+    // mission's objective building (Soviet 3's Psychic Beacon NAPSYB).
+    static char custom[8][32];
+    static int custom_count = -1;
+    if (custom_count < 0) {
+        custom_count = 0;
+        if (char const *list = getenv("RA2_NATIVE_BUILD_LIST")) {
+            while (*list && custom_count < 8) {
+                int n = 0;
+                while (*list && *list != ',') { if (n < 31) custom[custom_count][n++] = *list; ++list; }
+                custom[custom_count][n] = 0;
+                if (n) ++custom_count;
+                if (*list == ',') ++list;
+            }
+        }
+        if (custom_count) step_count = custom_count;
+    }
+    if (army && frame == 1 && !custom_count) step_count = sizeof(steps) / sizeof(steps[0]);
     if (frame == 100) Houses_Summary("harness-houses-100");
     if (frame == ra2port_skirmish_frames()) Houses_Summary("harness-houses");
     if (player == 0 || step >= step_count || frame < wait_until) return;
@@ -224,7 +243,8 @@ void Native_Harness_Build(int frame, bool army)
         for (int i = 0; i < BuildingTypes.Count() && type_index < 0; ++i) {
             BuildingTypeClass *type = BuildingTypes[i];
             for (int k = 0; k < 2; ++k) {
-                if (Same_Name(type->ID.Buffer, steps[step][k]) && player->Can_Build(type, false, true) > 0) {
+                char const *want = custom_count ? custom[step] : steps[step][k];
+                if (Same_Name(type->ID.Buffer, want) && player->Can_Build(type, false, true) > 0) {
                     type_index = i;
                     break;
                 }

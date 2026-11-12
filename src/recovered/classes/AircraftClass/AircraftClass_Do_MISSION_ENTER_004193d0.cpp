@@ -10,7 +10,7 @@
 // @ref ?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ=004198b0
 // @ref ?Unknown_004717B0@CellClass@@QAEPAVBuildingClass@@XZ=004717b0
 // @ref ?unknown_6d8080@TechnoClass@@QAE_NXZ=006d8080
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
 // @ref ?Detach_Object@CargoClass@@QAEPAVObjectClass@@XZ=004689f0
 // @ref ?Attach@CargoClass@@QAEXPAVFootClass@@@Z=00468960
@@ -54,7 +54,7 @@ int AircraftClass::Do_MISSION_ENTER()
         return 1;
     case 6:
         if (Type->AirportBound && Get_Height_AGL() != 0) unknown_slot149(14);
-        if (!In_Radio_Contact()) {
+        if (!HasAnyLink()) {
             if (!unknown_6d8080()) {
                 if (Locomotor.Checked()->Get_Status() == 1) {
                     unknown_a8 = 7;

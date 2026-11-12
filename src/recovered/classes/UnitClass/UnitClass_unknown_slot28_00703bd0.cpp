@@ -105,7 +105,7 @@ int UnitClass::unknown_slot28(ObjectClass *object, bool arg2)
     if (House->Is_Player_Control() && action == 7) {
         if (object->Kind_Of() == 6) {
             UnknownBuildingView_00703bd0 *building = (UnknownBuildingView_00703bd0 *)object;
-            if (building->Type->UnitRepair && unknown_slot150(0xF, building) == 1 && !building->In_Radio_Contact() && building->Cargo.Object == 0) {
+            if (building->Type->UnitRepair && unknown_slot150(0xF, building) == 1 && !building->HasAnyLink() && building->Cargo.Object == 0) {
                 action = 1;
             }
         }

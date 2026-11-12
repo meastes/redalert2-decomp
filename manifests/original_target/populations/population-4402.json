@@ -4,8 +4,8 @@
     "id": "population-4402",
     "inventory_sha256": "70aa9f2ecd9bbb3c083b271a1e0b57b09bef7c9d0c8ac65ba60d7d7d5d7f7455",
     "gaps_sha256": "9537bed7eae7292861c701d4b04004959446ba22ef69c039cd3f0182d31987e2",
-    "historical_population_sha256": "d95fc21b2e584af71d7562ae24fd107811e13cb6a6795c38863f5cd2f1abc7f2",
-    "historical_acceptance_sha256": "255a910585350a66e34c83987021a0d8ec48f676dc9a0b7d0e072ef641fe846c"
+    "historical_population_sha256": "37ec88b2361f474fc97d02b51ba2fdefa15e88ff915dd78834535949d3e10033",
+    "historical_acceptance_sha256": "4940d257cd96a8bcc5bf16dbbc07a82e2cfb49e844dd4d9775cc3f52a9ca1fa5"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -305,7 +305,7 @@
     "?unknown_func_6b9610@TeamClass@@QAEXPAPAVAbstractClass@@0@Z": 7050768,
     "?Get_Current_Mission@ScriptClass@@QBE?AVScriptMissionClass@@XZ": 6719600,
     "?Is_Recruitable_Mission@MissionClass@@SI_NH@Z": 5852592,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?Is_Human_Player@HouseClass@@QAE_NXZ": 5198576,
     "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A": 10706504,
     "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A": 10748824,
@@ -1882,9 +1882,8 @@
     "?Concatenate@Wstring@@QAE_NABV1@@Z": 7790144,
     "?Concatenate@Wstring@@QAE_NIPBD@Z": 7790000,
     "?Concatenate@Wstring@@QAE_NPBD@Z": 7789824,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
-    "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
     "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
+    "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
     "?Contains_Any@WideString@@QBE_NABV1@@Z": 7804288,
     "?Contains_Any@WideString@@QBE_NPBG@Z": 7804224,
@@ -4012,7 +4011,7 @@
     "?Set_Name@RAMFileClass@@UAEPBDPBD@Z": 6522400,
     "?Set_Name@RawFileClass@@UAEPBDPBD@Z": 6523760,
     "?Set_ROT@FacingClass@@QAEXH@Z": 4951696,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
     "?Set_Size@WideString@@QAEXH@Z": 7799632,
     "?Set_Size@Wstring@@QAEXH@Z": 7792208,
@@ -7039,10 +7038,10 @@
     "?Do_MISSION_UNLOAD@AircraftClass@@UAEHXZ": 4279696,
     "?unknown_slot261@BuildingClass@@UAE_N_N0@Z": 4493488,
     "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "??_GRadioClass@@UAEPAXI@Z": 6516624,
     "?Put@BufferPipe@@UAEHPBXH@Z": 7812912,
     "?Get@BufferStraw@@UAEHPAXH@Z": 7813184,
@@ -16009,7 +16008,7 @@
         {
           "offset": 94,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294435054
@@ -16031,7 +16030,7 @@
           "resolved": 4294638032
         }
       ],
-      "source_sha256": "575294c336a20d72e690e5541613684f802f4bd6890aec89a490e9a708ec61bd",
+      "source_sha256": "cd95c90a328b17d5d6c41cab91a12a3e010d04f7446a30bc4b159654cbbbf474",
       "source": "src/recovered/classes/TeamClass/TeamClass_unknown_func_6b8dc0_006b8dc0.cpp",
       "population": "population-4402",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -21671,7 +21670,7 @@
         {
           "offset": 239,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 4294424621
@@ -21749,7 +21748,7 @@
           "resolved": 112107
         }
       ],
-      "source_sha256": "7437e84fe104fffd7c8feeeead2e12b29715af4641d686102097b153c5ede125",
+      "source_sha256": "a0895cc26eeaf8672ea90766f7c86ff36bb7ff6863fd06a769e4cadeadd0c148",
       "source": "src/recovered/classes/TeamClass/TeamClass_TMission_unknown_6bb5f0_006bb5f0.cpp",
       "population": "population-4402",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

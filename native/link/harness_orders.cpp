@@ -15,7 +15,7 @@
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
 // <frame> hunt; <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
-// <frame> grant <index>; <frame> super <index> enemy [<house>] [units]" (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
+// <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
 // object of that type; Tanya only when named); train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
@@ -35,6 +35,7 @@
 #include "shared/queue.hpp"
 #include "shared/event.hpp"
 #include "shared/infantry_type.hpp"
+#include "shared/unit_type.hpp"
 #include "shared/super.hpp"
 #include "shared/super_weapon_type.hpp"
 #include "shared/laser_draw.hpp"
@@ -145,7 +146,40 @@ int Scripted_Order(char const *command)
                 return 1;
             }
         }
+        // A vehicle (Scout1295): the war factory's cameo click, PRODUCE of UnitTypeClass
+        // (kind 0x28), as harness_army.cpp queues its tanks.
+        for (int i = 0; player && i < UnitTypes.Count(); ++i) {
+            if (Same_Type(UnitTypes[i]->ID.Buffer, word[2])) {
+                OutList.Add(EventClass(player->ArrayIndex, 0x0E, 0x28, i, 0));
+                return 1;
+            }
+        }
         return -1;
+    }
+    if ((Same(word[1], "board", 6) && words >= 4) || (Same(word[1], "unload", 7) && words >= 3)) {
+        // `board <ID> <TRANSPORT>` / `unload <TRANSPORT>` (Scout1295, test scaffolding): the
+        // player's units of type ID enter the first of the player's transports of that type
+        // (mission Enter 7, the transport as the destination, as the click on it queues);
+        // the transports unload (mission 16, the deploy key's order).
+        HouseClass *player = unknown_player_a35db4;
+        bool board = Same(word[1], "board", 6);
+        TechnoClass *transport = 0;
+        for (int i = 0; board && i < Technos.Count() && transport == 0; ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno && techno->House == player && techno->Techno_Type_Class()
+                && Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[3])) transport = techno;
+        }
+        if (board && transport == 0) return -1;
+        int count = 0;
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0 || techno->House != player || techno->Techno_Type_Class() == 0) continue;
+            if (!Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[2])) continue;
+            if (board) Queue_Mission(TargetClass(techno), 7, TargetClass(), TargetClass(transport));
+            else Queue_Mission(TargetClass(techno), 16, TargetClass(), TargetClass());
+            ++count;
+        }
+        return count;
     }
     if (Same(word[1], "super", 6) && (words >= 4 && words <= 6) && Same(word[3], "enemy", 6)) {
         // `super <index> enemy [<house>] [units]` (Scout1187, M23): the cell of an enemy building,

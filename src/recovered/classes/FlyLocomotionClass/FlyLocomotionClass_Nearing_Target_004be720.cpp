@@ -45,7 +45,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
     CoordStruct aim=coord;
     ObjectClass *building=Map[Cell(coord)].Cell_Building();
     if (building!=0 && !LinkedTo->Techno_Type_Class()->HunterSeeker) {
-        if (!LinkedTo->Is_Radio_Contact((TechnoClass *)building)) {
+        if (!LinkedTo->ContainsLink((TechnoClass *)building)) {
             FootClass *self=LinkedTo;
             if (self!=0 && self->Kind_Of()==2) {
                 AbstractClass *dock=((AircraftClass *)self)->Select_Landing_Destination_004185b0(building);

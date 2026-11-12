@@ -7,13 +7,13 @@
 // invalid coordinate. Notice 0x117C for a Crashable type: slot 109 (0) and
 // sequence 0x24. True when handled.
 #include "shared/infantry.hpp"
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Unknown_004CD9B0@FootClass@@QAEXXZ=004cd9b0
 // @ref _unknown_geometry_l=00a410f8
 
 bool InfantryClass::INoticeSink_Unknown(int code, int arg)
 {
-    if ((Type->BalloonHover || Type->JumpJet) && code == 0x117B && In_Radio_Contact()) {
+    if ((Type->BalloonHover || Type->JumpJet) && code == 0x117B && HasAnyLink()) {
         unknown_slot149(8);
         if (unknown_1b0 != 0 && unknown_1b0 != unknown_494) {
             Assign_Destination(unknown_1b0, true);

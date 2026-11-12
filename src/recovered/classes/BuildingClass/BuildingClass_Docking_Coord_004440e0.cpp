@@ -10,7 +10,7 @@
 // TPoint3D<int>::operator+ (RA2_COORD_TPOINT3D).
 #include "shared/building.hpp"
 // @ref ?unknown_slot41@ObjectClass@@UBE?AUCoordStruct@@H@Z=005d54f0
-// @ref ?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z=00636e70
+// @ref ?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z=00636e70
 CoordStruct BuildingClass::unknown_slot41(int dock) const
 {
     if (Type->Weeder) {
@@ -37,7 +37,7 @@ CoordStruct BuildingClass::unknown_slot41(int dock) const
 
         default:
             {
-                int index = Unknown_00636E70((TechnoClass *)dock);
+                int index = FindLinkIndex((TechnoClass *)dock);
                 if (index >= 0 && index < Type->NumberOfDocks) {
                     coord = Center_Coord() + Type->DockingOffsets[index];
                     return coord;

@@ -4,8 +4,8 @@
     "id": "population-4419",
     "inventory_sha256": "ef49f203a8456d9af663cd1a776115a0e22673145d72f7d9dc2a0223d9bec385",
     "gaps_sha256": "361162abe062f779acd1edd6a0b1b84617fbd33c4a06c90d83ba151831048f4d",
-    "historical_population_sha256": "22c20f61ba56195f6c1de2f0dcb664183e4021dd2115157fc4fcc9618f96e9c7",
-    "historical_acceptance_sha256": "ee5635fd94431e7c8bc97cc3148dc0564822e10b602a44178994e3a298700382"
+    "historical_population_sha256": "30e81bd42ebf1154a14e8eb1b55a39845158805c524bd5d36e2e7f07d2fd6fb7",
+    "historical_acceptance_sha256": "c9bbfbccc8ed9224d6d8264a9290655720144230f371f3cdcbf9b531698900fa"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -7475,7 +7475,7 @@
     "?unknown_func_422690@AnimClass@@": 4335248,
     "??_7?$DynamicVectorClass@PAVInfantryClass@@@@6B@": 7983188,
     "?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950576,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A": 10750712,
     "?unknown_object_index_abff58@@3V?$IndexClass@JPAVAbstractClass@@@@A": 11272024,
     "??_7?$VectorClass@PAVInfantryClass@@@@6B@": 7983220,
@@ -7627,7 +7627,7 @@
     "?unknown_slot27@TechnoClass@@": 7130336,
     "?Is_Player_Control@HouseClass@@": 5198512,
     "?Health_Ratio@ObjectClass@@": 6112576,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "?unknown_slot218@TechnoClass@@": 7115360,
     "?Current@FacingClass@@": 4951008,
     "??_C@_0BM@POLG@EVA_PrimaryBuildingSelected?$AA@": 8190116,
@@ -7654,7 +7654,7 @@
     "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
     "?unknown_443d60@BuildingClass@@QAEX_N@Z": 4472160,
     "?unknown_4454b0@BuildingClass@@QAEXXZ": 4478128,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?unknown_443d60@BuildingClass@@QAEXH@Z": 4472160,
     "?Set@FacingClass@@QAE_NABUUnknownFacingDir@@@Z": 4950800,
     "?unknown_flag_a3d340@@3_NA": 10736448,
@@ -8995,7 +8995,6 @@
     "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
     "?Compare_Blocks@MixFileClass@@SAHPBX0@Z": 5853904,
     "?Conquer_Clip_Text_Print@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIIPBH@Z": 4816096,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
     "?Copy_From@DSurface@@UAE_NAAVSurface@@_N1@Z": 4920512,
     "?Copy_From@DSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z": 4894592,
@@ -11052,7 +11051,7 @@
     "?Change@LightSourceClass@@QAEXHHHH_N@Z": 5469568,
     "?Factory_Exit_Message@@3QBDB": 8190364,
     "?Factory_Bib_Message@@3QBDB": 8190320,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?Building_Refresh_House_Buildings_0044fa40@@YIXPAVHouseClass@@@Z": 4520512,
     "?Cell_Occupants_Unknown_Slot238_0044fb10@@YIXPAVCellClass@@@Z": 4520720,
     "?Building_Refund_Upgrades_00452710@@YIXPAVBuildingClass@@@Z": 4531984,
@@ -14360,7 +14359,9 @@
     "__encoder": 7980576,
     "__pad": 7980572,
     "__decoder": 7980580,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "?HasAnyLink@RadioClass@@": 6516496,
+    "?Contact_With_Whom@RadioClass@@": 6516256
   },
   "regions": [
     {
@@ -16149,7 +16150,7 @@
         {
           "offset": 1341,
           "kind": 20,
-          "symbol": "?Set_Radio_Count@RadioClass@@QAEXH@Z",
+          "symbol": "?SetLinkCount@RadioClass@@QAEXH@Z",
           "target": 6516544,
           "addend": 0,
           "resolved": 2088223
@@ -16157,13 +16158,13 @@
         {
           "offset": 1359,
           "kind": 20,
-          "symbol": "?Set_Radio_Count@RadioClass@@QAEXH@Z",
+          "symbol": "?SetLinkCount@RadioClass@@QAEXH@Z",
           "target": 6516544,
           "addend": 0,
           "resolved": 2088205
         }
       ],
-      "source_sha256": "623c7ecbfa8ebd46b3253ad7587e2d3e5d53025b02d06289d6c4a94dc52b6099",
+      "source_sha256": "78514f7aa2a3e3c53d48722dfe3ef0d6a37b5eb949f36e5e5c3e7d4c5cf36693",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_constructor_00438ce0.cpp",
       "population": "population-4419",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -19822,7 +19823,7 @@
         {
           "offset": 608,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2037388
@@ -19908,7 +19909,7 @@
           "resolved": 2043769
         }
       ],
-      "source_sha256": "48a0984a88c2b3238a0927952224a790792751cc4c1fa8dd6ff956c17e73e918",
+      "source_sha256": "0e6a1dfe309f4f39e1d55740ab15a8bf1c8199f0272384c7df7b98a0cbf5b1ee",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Do_MISSION_GUARD_00445620.cpp",
       "population": "population-4419",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -19952,7 +19953,7 @@
         {
           "offset": 84,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2023128
@@ -19968,7 +19969,7 @@
         {
           "offset": 134,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2023078
@@ -19982,7 +19983,7 @@
           "resolved": 705143
         }
       ],
-      "source_sha256": "c86ab96c425c2be77944781557236b06056f827a05398002d73509641683ebb5",
+      "source_sha256": "031e86970cadb3bd5798f43fce7c7bc783e69862c2cf91c056feb0ff2d6c9d90",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Revealed_00448fe0.cpp",
       "population": "population-4419",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -22962,7 +22963,7 @@
         {
           "offset": 98,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2007498
@@ -23160,7 +23161,7 @@
           "resolved": 4509519
         }
       ],
-      "source_sha256": "2f009ef018223e3864c33bdfc1627be4b19f2e7643d441e7c4410d24c7fec0ce",
+      "source_sha256": "b429bc9ab6580f266dd3a2837d1004bec764f7a249609fc2e51146e97944541a",
       "switch_data_bytes": 28,
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Detach_Animation_0044cce0.cpp",
       "population": "population-4419",
@@ -30855,7 +30856,7 @@
         {
           "offset": 1004,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 2085456
@@ -30863,7 +30864,7 @@
         {
           "offset": 1078,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 2085382
@@ -30879,7 +30880,7 @@
         {
           "offset": 1115,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 2085345
@@ -30887,7 +30888,7 @@
         {
           "offset": 1128,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 2085332
@@ -31189,7 +31190,7 @@
           "resolved": 4432289
         }
       ],
-      "source_sha256": "3759c1a14f42fbf64aeed0030ecad6fc59f16b51f74df2de135bc67ca23d6427",
+      "source_sha256": "2b1ea1fe6b6dce872834f289921586b930f906fd72fdfeb3d05dc4af914efbbe",
       "switch_data_bytes": 59,
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Receive_Message_004397f0.cpp",
       "population": "population-4419",
@@ -31219,7 +31220,7 @@
         {
           "offset": 59,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2030705
@@ -31451,7 +31452,7 @@
         {
           "offset": 1067,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2029697
@@ -31787,7 +31788,7 @@
         {
           "offset": 2251,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2028513
@@ -32171,7 +32172,7 @@
         {
           "offset": 3648,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2027116
@@ -32369,7 +32370,7 @@
           "resolved": 3370313
         }
       ],
-      "source_sha256": "2de6d9bd07950fd82336fb944756024ee79aa00a15d5a4f21d70ef8071b4f883",
+      "source_sha256": "07d1f4aebd3936192aa53265a43de2621e28bcbdbf15a97a1e62e581aa421cc7",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Repair_Mission_00447260.cpp",
       "population": "population-4419",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -36039,13 +36040,13 @@
         {
           "offset": 259,
           "kind": 20,
-          "symbol": "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z",
+          "symbol": "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z",
           "target": 6516336,
           "addend": 0,
           "resolved": 2043017
         }
       ],
-      "source_sha256": "448f699fb5a476bba94c209a2ba8746e5f3727ca6f77c613ead31f036dd76146",
+      "source_sha256": "00fc78a38617130a2b6e976c220ec9c51d52f8051329c9bd4a96f98eb47e46a2",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Docking_Coord_004440e0.cpp",
       "population": "population-4419",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -37922,7 +37923,7 @@
         {
           "offset": 184,
           "kind": 20,
-          "symbol": "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z",
+          "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
           "target": 6516256,
           "addend": 0,
           "resolved": 2082692
@@ -38272,7 +38273,7 @@
           "resolved": 2713945
         }
       ],
-      "source_sha256": "9684fcdae34cc9685e4cf7c41a8de487c748761d304b50852bae3113a1b6129c",
+      "source_sha256": "03b5557df24a9a33b1a85708cae7b7fedc8f537ef403619b76b9b8b6822bcc26",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Draw_It_0043a5e0.cpp",
       "population": "population-4419",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
@@ -38333,7 +38334,7 @@
         {
           "offset": 142,
           "kind": 20,
-          "symbol": "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z",
+          "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
           "target": 6516256,
           "addend": 0,
           "resolved": 2081214
@@ -38939,7 +38940,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "7464ac10cae5d610c5c23450f3f7be198e3be8def396c6d3ed68b43da12a0cb1",
+      "source_sha256": "7f9cccc65a26578c3c4453df0e92cd08c5edf7207f92f027edbdf9f1332a9bae",
       "source": "src/recovered/classes/BuildingClass/BuildingClass_Draw_Extras_0043abd0.cpp",
       "population": "population-4419",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

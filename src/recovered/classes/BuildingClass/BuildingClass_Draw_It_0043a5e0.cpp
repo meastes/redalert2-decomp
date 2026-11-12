@@ -9,7 +9,7 @@
 #include "shared/rules.hpp"
 #define SHAPE_FILE_EMPTY_RECT unknown_static_rect
 #include "shared/shape_file.hpp"
-// @ref ?Contact2@RadioClass@@=00636e20
+// @ref ?Contact_With_Whom@RadioClass@@=00636e20
 // @ref ?Unknown_006A2970@@=006a2970
 // @ref ?Coord_To_Pixel_Absolute@Tactical@@QAE?AUPoint2D@@ABU2@@Z=006a2870
 // @ref ?unknown_building_depth_shape_85029c@@=0085029c
@@ -35,7 +35,7 @@ void BuildingClass::unknown_slot67(Point2D const &draw_point, Rect const &bounds
     int z_adjust=Type->NormalZAdjust;
     bool air_product=false;
     if(Get_Mission()==16) {
-        TechnoClass *product=Contact2(0);
+        TechnoClass *product=Contact_With_Whom(0);
         if(product && (product->Techno_Type_Class()->JumpJet || product->Techno_Type_Class()->BalloonHover)) {
             air_product=true;
         }

@@ -11,12 +11,12 @@
 // @ref ?unknown_a40774@@3HA=00a40774
 // @ref ?Get_Current_Mission@ScriptClass@@QBE?AVScriptMissionClass@@XZ=00668870
 // @ref ?Is_Recruitable_Mission@MissionClass@@SI_NH@Z=00594db0
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 
 bool TeamClass::unknown_func_6b8dc0(FootClass *member, int *slot)
 {
     if (this != member->Team && unknown_func_6bdd80(member) && member->House == Owner) {
-        if (!member->In_Radio_Contact() || (member->Kind_Of() == 2 && ((AircraftClass *)member)->Type->AirportBound)) {
+        if (!member->HasAnyLink() || (member->Kind_Of() == 2 && ((AircraftClass *)member)->Type->AirportBound)) {
             if (member->Get_Mission() == -1 || MissionClass::Is_Recruitable_Mission(member->Get_Mission())) {
                 if (member->unknown_379 || Class->Autocreate) {
                     bool aircraft_or_waiting = false;

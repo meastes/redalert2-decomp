@@ -3,7 +3,7 @@
 // and not in radio contact, in no team or in one of a lower priority, in an idle mission when it has one,
 // recruitable by the team type's Autocreate flag (+0x379/+0x37A), and not a unit with a weapon and no
 // +0x254 state (kind 2).
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 #include "shared/team_type.hpp"
 #include "shared/team.hpp"
 #include "shared/foot.hpp"
@@ -14,7 +14,7 @@
 bool TeamTypeClass::unknown_func_6c0010(FootClass *foot, HouseClass *house)
 {
     if ((foot->Team == 0 || this != foot->Team->Class) && foot->Strength > 0 && foot->unknown_7d && !foot->unknown_76
-        && !foot->In_Radio_Contact() && foot->House == house) {
+        && !foot->HasAnyLink() && foot->House == house) {
         if (foot->Get_Mission() != -1) {
             if (!MissionClass::Is_Recruitable_Mission(foot->Get_Mission())) {
                 return false;

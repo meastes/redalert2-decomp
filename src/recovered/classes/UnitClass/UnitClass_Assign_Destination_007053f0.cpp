@@ -101,14 +101,14 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	**	Transport vehicles must tell all passengers that are about to load, that they
 	**	cannot proceed. This is accomplished with a radio message to this effect.
 	*/
-	if (In_Radio_Contact() && Type->Passengers > 0 && Contact(0)->Kind_Of() == 15) {
-		if(target && target->AbstractFlags.IsTechno && !Is_Radio_Contact((TechnoClass *)target)) unknown_slot149(3);
+	if (HasAnyLink() && Type->Passengers > 0 && Contact(0)->Kind_Of() == 15) {
+		if(target && target->AbstractFlags.IsTechno && !ContainsLink((TechnoClass *)target)) unknown_slot149(3);
 	}
 
 	/*
 	 * If tethered to a carryall while sleeping, untether before moving.
 	 */
-	if (target != 0 && In_Radio_Contact() && Get_Mission() == 0 && unknown_370 && Contact(0)->Kind_Of() == 2) {
+	if (target != 0 && HasAnyLink() && Get_Mission() == 0 && unknown_370 && Contact(0)->Kind_Of() == 2) {
 		AircraftClass * a = (AircraftClass *)Contact(0);
 		if (a->Type->Carryall) {
 			a->Assign_Destination(0, true);
@@ -138,7 +138,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		**	either try to establish contact if allowed, or just move close and
 		**	wait until radio contact can be established.
 		*/
-		if (!In_Radio_Contact()) {
+		if (!HasAnyLink()) {
 			TechnoClass *destination_techno=target->As_Techno();
             if(destination_techno && destination_techno->Kind_Of()==1) {
                 unknown_3f8=Unit_Dynamic_Cast<UnitClass,1>(target);
@@ -149,7 +149,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 				**	Determine if the transport is already in radio contact. If so, then just move
 				**	toward the transport and try to establish contact at a later time.
 				*/
-				if (b->In_Radio_Contact()) {
+				if (b->HasAnyLink()) {
 					unknown_6d6e50(target);
 
 					/*
@@ -181,7 +181,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 					**	Determine if the transport is already in radio contact. If so, then just move
 					**	toward the transport and try to establish contact at a later time.
 					*/
-					if (techno->In_Radio_Contact()) {
+					if (techno->HasAnyLink()) {
 						unknown_6d6e50(target);
 					} else {
 						if (unknown_slot150(2, techno) == 1) {
@@ -392,7 +392,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	**	facility is currently not involved with some other unit (radio or unloading).
 	*/
 	if (b != 0 && b->Type->UnitRepair) {
-		if (b->In_Radio_Contact() && b->Contact(0) != this) {
+		if (b->HasAnyLink() && b->Contact(0) != this) {
 			unknown_6d6e50(target);
 		} else {
 
@@ -442,7 +442,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		Kind_Of() == 1 && (Type->Harvester || Type->Weeder) &&
 		Get_Mission() != 16) {
 
-		if (Contact(0) != b && !b->In_Radio_Contact() && unknown_slot150(2, b) == 1 &&
+		if (Contact(0) != b && !b->HasAnyLink() && unknown_slot150(2, b) == 1 &&
 			Get_Mission() != 7 && Get_Mission() != 10) {
 			QueueMission(7, false);
 			target = 0;

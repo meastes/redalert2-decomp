@@ -179,7 +179,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             unknown_71e220(false);
                         } else {
                             int dist = Distance3(LinkedTo->Center_Coord(), unknown_1c);
-                            if (dist < Rules->unknown_1380 && !LinkedTo->In_Radio_Contact()
+                            if (dist < Rules->unknown_1380 && !LinkedTo->HasAnyLink()
                                 && abs(unknown_1c.Z - Object_Coord(LinkedTo).Z) < unknown_geometry_g * 2
                                 && Map[Object_Coord(LinkedTo)].unknown_ec != 10) {
                                 unknown_28 = unknown_geometry_l;

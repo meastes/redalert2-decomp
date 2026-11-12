@@ -791,8 +791,11 @@ LRESULT DispatchMessageA(const MSG *msg)
     // Mouse input goes to the window under the cursor (or the capture), as on
     // Windows: the host posts it to the main window in screen pixels; over a
     // shown dialog's control it is that control's, in its client coordinates
-    // (Scout1119, M14: the menus' owner-draw buttons, lists and combos).
-    if (target == main_hwnd && msg->message >= 0x0200 && msg->message <= 0x0209 && !dialog_windows.empty()) {
+    // (Scout1119, M14: the menus' owner-draw buttons, lists and combos). The wheel
+    // (WM_MOUSEWHEEL) too: over a dialog's list it scrolls that list (Scout1295: the
+    // map list and a touch swipe over it, which the host turns into wheel notches,
+    // reached only the game window, so maps past the first page could not be shown).
+    if (target == main_hwnd && msg->message >= 0x0200 && msg->message <= 0x020A && !dialog_windows.empty()) {
         POINT p = {(LONG)(int16_t)(msg->lParam & 0xFFFF), (LONG)(int16_t)((msg->lParam >> 16) & 0xFFFF)};
         HWND at = capture_hwnd ? capture_hwnd : ra2port_window_at(p, true);
         if (msg->message == 0x0201 && getenv("RA2_NATIVE_MSG_LOG")) {
@@ -1327,7 +1330,9 @@ LRESULT listbox_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
     }
     case 0x020A: {                                                             // WM_MOUSEWHEEL
         int d = (int16_t)((wparam >> 16) & 0xFFFF);
-        w->top += d > 0 ? -1 : 1;
+        int lines = (d < 0 ? -d : d) / 120;                                    // a line per notch (WHEEL_DELTA)
+        if (lines < 1) lines = 1;
+        w->top += d > 0 ? -lines : lines;
         if (w->top > count - 1) w->top = count - 1;
         if (w->top < 0) w->top = 0;
         invalidate(hwnd);

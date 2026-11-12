@@ -78,14 +78,14 @@ int BuildingClass::Receive_Message(RadioClass *radio,int message,AbstractClass *
     case 14: {
         TechnoClass::Receive_Message(radio,message,param);
         if (!unknown_530) return 10;
-        if (Type->UnitRepair && Is_Radio_Contact(sender) && unknown_slot150(34,sender)==10) return 10;
+        if (Type->UnitRepair && ContainsLink(sender) && unknown_slot150(34,sender)==10) return 10;
         if (!Type->Hospital && !Type->Armory) {
-            if (!Is_Radio_Contact(sender) && Unknown_00636ED0(sender)) {
+            if (!ContainsLink(sender) && Unknown_00636ED0(sender)) {
                 unknown_slot150(2,sender);
-                Is_Radio_Contact(sender);
+                ContainsLink(sender);
             }
             bool needs_to_move=false;
-            if (Is_Radio_Contact(sender) && (Type->DockUnload || Type->Weeder)) {
+            if (ContainsLink(sender) && (Type->DockUnload || Type->Weeder)) {
                 FootClass *foot=Building_Radio_Foot_004397f0(radio);
                 CellClass *cell=&Map[unknown_slot41((int)foot)];
                 AbstractClass *destination=foot->unknown_494;

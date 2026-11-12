@@ -2,7 +2,7 @@
 // Clear a detached building animation and restart the appropriate follow-up state.
 #include "shared/building.hpp"
 #include "shared/anim.hpp"
-// @ref ?In_Radio_Contact@RadioClass@@=00636f10
+// @ref ?HasAnyLink@RadioClass@@=00636f10
 // @ref ?unknown_44ca60@BuildingClass@@=0044ca60
 // @ref ?Health_Ratio@ObjectClass@@=005d4540
 void BuildingClass::unknown_44cce0(AbstractClass *object)
@@ -15,7 +15,7 @@ void BuildingClass::unknown_44cce0(AbstractClass *object)
         switch(index) {
         case 10:
             if(Type->UnitRepair) {
-                if(In_Radio_Contact() && Get_Mission()==20) {
+                if(HasAnyLink() && Get_Mission()==20) {
                     unknown_44c920(11,Health_Ratio()<=Rules->unknown_1368,false,0);
                     return;
                 }

@@ -12,7 +12,7 @@
 #include "shared/map_view.hpp"
 // @ref ?unknown_slot261@FootClass@@UAE_N_N0@Z=004c6f10
 // @ref ?unknown_4c8b00@FootClass@@QAEXXZ=004c8b00
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Control@MissionClass@@QBEPAVMissionControlClass@@XZ=005950d0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
 // @ref ?unknown_6d7910@TechnoClass@@QAE_NH@Z=006d7910
@@ -74,7 +74,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
         }
         goto queue;
     }
-    if (In_Radio_Contact()) {
+    if (HasAnyLink()) {
         return result;
     }
     if (Get_Mission() == 10 || MissionQueue == 10) {

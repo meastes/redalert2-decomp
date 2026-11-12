@@ -1,6 +1,6 @@
 // @ref ??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z=00548000
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Process_Landing_004bdfb0@FlyLocomotionClass@@QAE_NXZ=004bdfb0
 // @ref ?Process_Take_Off_004bddf0@FlyLocomotionClass@@QAE_NXZ=004bddf0
@@ -49,7 +49,7 @@ bool FlyLocomotionClass::unknown_4bca00()
                     Map.Unknown_0054A550(Object_Coord(LinkedTo),LinkedTo->unknown_1f4-3,LinkedTo->unknown_1f4+3,0);
                 } else {
                     LinkedTo->unknown_slot149(0x19);
-                    if (LinkedTo->In_Radio_Contact() && LinkedTo->unknown_494 && LinkedTo->unknown_494!=LinkedTo->Contact(0))
+                    if (LinkedTo->HasAnyLink() && LinkedTo->unknown_494 && LinkedTo->unknown_494!=LinkedTo->Contact(0))
                         LinkedTo->unknown_slot149(3);
                 }
             }

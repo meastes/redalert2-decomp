@@ -1,0 +1,2142 @@
+{
+ "module": "radio",
+ "source": "src/recovered/radio.cpp",
+ "header": "src/shared/radio.hpp",
+ "population": "population-4482",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 3261,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00636640",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00636670",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "00636690",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "006366b0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "006366d0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "006366f0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00636710",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00636750",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "00636780",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "006367b0",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "006367e0",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "006367f0",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00636810",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "??0RadioClass@@QAE@XZ",
+   "entry": "00636830",
+   "body_bytes": 138,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??0RadioClass@@QAE@ABVNoInitClass@@@Z",
+   "entry": "006368c0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Receive_Message@RadioClass@@UAEHPAV1@HAAPAVAbstractClass@@@Z",
+   "entry": "00636900",
+   "body_bytes": 329,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_slot151@RadioClass@@UAEHHPAPAVAbstractClass@@PAVTechnoClass@@@Z",
+   "entry": "00636a50",
+   "body_bytes": 261,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Limbo@RadioClass@@UAE_NXZ",
+   "entry": "00636b60",
+   "body_bytes": 29,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?unknown_slot150@RadioClass@@UAEHHPAVTechnoClass@@@Z",
+   "entry": "00636b80",
+   "body_bytes": 26,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z",
+   "entry": "00636ba0",
+   "body_bytes": 75,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Compute_CRC@RadioClass@@UBEXAAVWWCRCEngine@@@Z",
+   "entry": "00636bf0",
+   "body_bytes": 111,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "?Load@RadioClass@@UAGJPAUIStream@@@Z",
+   "entry": "00636c60",
+   "body_bytes": 189,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Save@RadioClass@@UAGJPAUIStream@@H@Z",
+   "entry": "00636d20",
+   "body_bytes": 107,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?unknown_slot149@RadioClass@@UAEHH@Z",
+   "entry": "00636d90",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?SendToEachLink@RadioClass@@UAEXH@Z",
+   "entry": "00636dc0",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "entry": "00636e10",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "entry": "00636e20",
+   "body_bytes": 16,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "entry": "00636e30",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z",
+   "entry": "00636e70",
+   "body_bytes": 46,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "?Unknown_00636EA0@RadioClass@@QBE_NXZ",
+   "entry": "00636ea0",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "entry": "00636ed0",
+   "body_bytes": 56,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "entry": "00636f10",
+   "body_bytes": 37,
+   "padding_bytes": 11
+  },
+  {
+   "symbol": "?SetLinkCount@RadioClass@@QAEXH@Z",
+   "entry": "00636f40",
+   "body_bytes": 68,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??_GRadioClass@@UAEPAXI@Z",
+   "entry": "00636f90",
+   "body_bytes": 152,
+   "padding_bytes": 8
+  }
+ ],
+ "code_bytes": 2544,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVTechnoClass@@@@6B@",
+   "address": "0079a7fc",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 44
+  },
+  {
+   "symbol": "??_7MissionClass@@6BINoticeSource@@@",
+   "address": "007a61d4",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 51
+  },
+  {
+   "symbol": "??_7MissionClass@@6BINoticeSink@@@",
+   "address": "007a61dc",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 52
+  },
+  {
+   "symbol": "??_7MissionClass@@6BIRTTITypeInfo@@@",
+   "address": "007a61e4",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 53
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a88a8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7RadioClass@@6BINoticeSource@@@",
+   "address": "007a88bc",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 40
+  },
+  {
+   "symbol": "??_7RadioClass@@6BINoticeSink@@@",
+   "address": "007a88c4",
+   "bytes": 4,
+   "kind": "vtable",
+   "section": 41
+  },
+  {
+   "symbol": "??_7RadioClass@@6BIRTTITypeInfo@@@",
+   "address": "007a88cc",
+   "bytes": 24,
+   "kind": "vtable",
+   "section": 42
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVTechnoClass@@@@6B@",
+   "address": "0079a7fc",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MissionClass@@6BINoticeSource@@@",
+   "address": "007a61d4",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MissionClass@@6BINoticeSink@@@",
+   "address": "007a61dc",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7MissionClass@@6BIRTTITypeInfo@@@",
+   "address": "007a61e4",
+   "bytes": 24,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a88a8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7RadioClass@@6BINoticeSource@@@",
+   "address": "007a88bc",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7RadioClass@@6BINoticeSink@@@",
+   "address": "007a88c4",
+   "bytes": 4,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7RadioClass@@6BIRTTITypeInfo@@@",
+   "address": "007a88cc",
+   "bytes": 24,
+   "kind": "vtable"
+  }
+ ],
+ "failures": [
+  {
+   "section": 2,
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "section": 43,
+   "symbol": "??_7RadioClass@@6BIPersistStream@@@",
+   "reason": "relocation target unbound: ?unknown_slot24@ObjectClass@@UAE_NXZ"
+  },
+  {
+   "section": 54,
+   "symbol": "??_7MissionClass@@6BIPersistStream@@@",
+   "reason": "relocation target unbound: ?unknown_slot24@ObjectClass@@UAE_NXZ"
+  }
+ ],
+ "references_in": [
+  {
+   "site": "006d6a80",
+   "symbol": "?Save@RadioClass@@UAGJPAUIStream@@H@Z",
+   "target": "00636d20",
+   "function_entry": true
+  },
+  {
+   "site": "006d6850",
+   "symbol": "?Load@RadioClass@@UAGJPAUIStream@@@Z",
+   "target": "00636c60",
+   "function_entry": true
+  },
+  {
+   "site": "0041a080",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "0041adf0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "0041adf0",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "0041adf0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "0041aeb0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "0041aeb0",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "00438ce0",
+   "symbol": "?SetLinkCount@RadioClass@@QAEXH@Z",
+   "target": "00636f40",
+   "function_entry": true
+  },
+  {
+   "site": "00438ce0",
+   "symbol": "?SetLinkCount@RadioClass@@QAEXH@Z",
+   "target": "00636f40",
+   "function_entry": true
+  },
+  {
+   "site": "006ff350",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "004c7b30",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004c7b30",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004c8940",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004c8940",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "004c8940",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "004c8940",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "004c8bb0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004ca2b0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004cc4d0",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "005d5fc0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "005d5fc0",
+   "symbol": "?Unknown_00636EA0@RadioClass@@QBE_NXZ",
+   "target": "00636ea0",
+   "function_entry": true
+  },
+  {
+   "site": "004c7e10",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004cd760",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "00445620",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00445620",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00448fe0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00448fe0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004175a0",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "00419d00",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00419d00",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00419d00",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00419d00",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00419d00",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "006c2590",
+   "symbol": "?Receive_Message@RadioClass@@UAEHPAV1@HAAPAVAbstractClass@@@Z",
+   "target": "00636900",
+   "function_entry": true
+  },
+  {
+   "site": "006c2590",
+   "symbol": "?Receive_Message@RadioClass@@UAEHPAV1@HAAPAVAbstractClass@@@Z",
+   "target": "00636900",
+   "function_entry": true
+  },
+  {
+   "site": "006c4480",
+   "symbol": "?Limbo@RadioClass@@UAE_NXZ",
+   "target": "00636b60",
+   "function_entry": true
+  },
+  {
+   "site": "006d2d10",
+   "symbol": "?Detach@RadioClass@@UAEXPAVAbstractClass@@_N@Z",
+   "target": "00636ba0",
+   "function_entry": true
+  },
+  {
+   "site": "006d6aa0",
+   "symbol": "?Compute_CRC@RadioClass@@UBEXAAVWWCRCEngine@@@Z",
+   "target": "00636bf0",
+   "function_entry": true
+  },
+  {
+   "site": "00707a40",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "00509590",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "006fd630",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "006b8dc0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "006fb100",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "0044cce0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00709ec0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00416420",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "0041a1c0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "0041a1c0",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "0041a1c0",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "0041a1c0",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "0041a1c0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "0041a1c0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fc1f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fc1f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fc1f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fc1f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00416670",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00416670",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00416670",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00417010",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00417010",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "006cd940",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006cd940",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004bf1f0",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "00709890",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004193d0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004193d0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004193d0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006c0010",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "006fca30",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "006ff3e0",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "0052fd50",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004b65c0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00704c00",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "004c8220",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "0044a080",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fe610",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fe610",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "006fe610",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fe610",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fe610",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006fe610",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00418840",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006bb5f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "006c0cd0",
+   "symbol": "??0RadioClass@@QAE@XZ",
+   "target": "00636830",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "004397f0",
+   "symbol": "?Unknown_00636ED0@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636ed0",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00447260",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004bca00",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004bca00",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004bdfb0",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "004bdfb0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004fe8b0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004fe8b0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004fe8b0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "004fe0f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004440e0",
+   "symbol": "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z",
+   "target": "00636e70",
+   "function_entry": true
+  },
+  {
+   "site": "004fbfc0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00445b30",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00449290",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "00449290",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006785c0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "006785c0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004a2670",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004a2670",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "0043a5e0",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "0043abd0",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "00703040",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "00703bd0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00701580",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00501ce0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "00501ce0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "004be720",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "006c89c0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006c1f10",
+   "symbol": "??0RadioClass@@QAE@ABVNoInitClass@@@Z",
+   "target": "006368c0",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+   "target": "00636e30",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+   "target": "00636f10",
+   "function_entry": true
+  },
+  {
+   "site": "007053f0",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "0043ee70",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "0043ee70",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  },
+  {
+   "site": "006cfea0",
+   "symbol": "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e20",
+   "function_entry": true
+  },
+  {
+   "site": "00444660",
+   "symbol": "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z",
+   "target": "00636e10",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0MissionClass@@QAE@XZ",
+   "address": "00594500"
+  },
+  {
+   "symbol": "??0ObjectClass@@QAE@ABVNoInitClass@@@Z",
+   "address": "005d2500"
+  },
+  {
+   "symbol": "??1ObjectClass@@UAE@XZ",
+   "address": "005d2530"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??RWWCRCEngine@@QAEXJ@Z",
+   "address": "00493f30"
+  },
+  {
+   "symbol": "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z",
+   "address": "0040bb70"
+  },
+  {
+   "symbol": "??_GMissionClass@@UAEPAXI@Z",
+   "address": "00595130"
+  },
+  {
+   "symbol": "?AI@MissionClass@@UAEXXZ",
+   "address": "00594790"
+  },
+  {
+   "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+   "address": "004100a0"
+  },
+  {
+   "symbol": "?As_Techno@AbstractClass@@QAEPAVTechnoClass@@XZ",
+   "address": "0040dc20"
+  },
+  {
+   "symbol": "?CanBeSelected@ObjectClass@@UAE_NXZ",
+   "address": "005d54b0"
+  },
+  {
+   "symbol": "?Can_Demolish@ObjectClass@@UAE_NXZ",
+   "address": "005d2c20"
+  },
+  {
+   "symbol": "?Can_Enter_Cell@ObjectClass@@UAEHPAVCellClass@@HH0_N@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Can_Player_Fire@ObjectClass@@UAE_NXZ",
+   "address": "005d2c30"
+  },
+  {
+   "symbol": "?Can_Player_Move@ObjectClass@@UAE_NXZ",
+   "address": "005d2c40"
+  },
+  {
+   "symbol": "?Can_Repair@ObjectClass@@UAE_NXZ",
+   "address": "005d2c10"
+  },
+  {
+   "symbol": "?Catch_Fire@ObjectClass@@UAE_NXZ",
+   "address": "005d2d00"
+  },
+  {
+   "symbol": "?Center_Coord@ObjectClass@@UBE?AUCoordStruct@@XZ",
+   "address": "005d4e40"
+  },
+  {
+   "symbol": "?Class_Of@ObjectClass@@UBEPAVObjectTypeClass@@XZ",
+   "address": null
+  },
+  {
+   "symbol": "?Clear_Occupy_Bit@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d49e0"
+  },
+  {
+   "symbol": "?Clicked_As_Target@ObjectClass@@UAEXH@Z",
+   "address": "005d2cc0"
+  },
+  {
+   "symbol": "?Commence@MissionClass@@UAE_NXZ",
+   "address": "00594c50"
+  },
+  {
+   "symbol": "?Compute_CRC@MissionClass@@UBEXAAVWWCRCEngine@@@Z",
+   "address": "00595040"
+  },
+  {
+   "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+   "address": "0040ffd0"
+  },
+  {
+   "symbol": "?Delete_Me@ObjectClass@@UAEXXZ",
+   "address": "005d4e90"
+  },
+  {
+   "symbol": "?Detach@ObjectClass@@UAEXPAVAbstractClass@@_N@Z",
+   "address": "005d3bd0"
+  },
+  {
+   "symbol": "?Do_MISSION_AMBUSH@MissionClass@@UAEHXZ",
+   "address": "00594590"
+  },
+  {
+   "symbol": "?Do_MISSION_ATTACK@MissionClass@@UAEHXZ",
+   "address": "005945a0"
+  },
+  {
+   "symbol": "?Do_MISSION_CAPTURE@MissionClass@@UAEHXZ",
+   "address": "005945b0"
+  },
+  {
+   "symbol": "?Do_MISSION_CONSTRUCTION@MissionClass@@UAEHXZ",
+   "address": "00594670"
+  },
+  {
+   "symbol": "?Do_MISSION_DECONSTRUCTION@MissionClass@@UAEHXZ",
+   "address": "00594680"
+  },
+  {
+   "symbol": "?Do_MISSION_EATEN@MissionClass@@UAEHXZ",
+   "address": "005945c0"
+  },
+  {
+   "symbol": "?Do_MISSION_ENTER@MissionClass@@UAEHXZ",
+   "address": "00594660"
+  },
+  {
+   "symbol": "?Do_MISSION_GUARD@MissionClass@@UAEHXZ",
+   "address": "005945d0"
+  },
+  {
+   "symbol": "?Do_MISSION_GUARD_AREA@MissionClass@@UAEHXZ",
+   "address": "005945e0"
+  },
+  {
+   "symbol": "?Do_MISSION_HARMLESS@MissionClass@@UAEHXZ",
+   "address": "00594580"
+  },
+  {
+   "symbol": "?Do_MISSION_HARVEST@MissionClass@@UAEHXZ",
+   "address": "005945f0"
+  },
+  {
+   "symbol": "?Do_MISSION_HUNT@MissionClass@@UAEHXZ",
+   "address": "00594600"
+  },
+  {
+   "symbol": "?Do_MISSION_MISSILE@MissionClass@@UAEHXZ",
+   "address": "005946a0"
+  },
+  {
+   "symbol": "?Do_MISSION_MOVE@MissionClass@@UAEHXZ",
+   "address": "00594610"
+  },
+  {
+   "symbol": "?Do_MISSION_OPEN@MissionClass@@UAEHXZ",
+   "address": "005946b0"
+  },
+  {
+   "symbol": "?Do_MISSION_PARADROP_APPROACH@MissionClass@@UAEHXZ",
+   "address": "005946e0"
+  },
+  {
+   "symbol": "?Do_MISSION_PARADROP_OVERFLY@MissionClass@@UAEHXZ",
+   "address": "005946f0"
+  },
+  {
+   "symbol": "?Do_MISSION_PATROL@MissionClass@@UAEHXZ",
+   "address": "005946d0"
+  },
+  {
+   "symbol": "?Do_MISSION_REPAIR@MissionClass@@UAEHXZ",
+   "address": "00594690"
+  },
+  {
+   "symbol": "?Do_MISSION_RESCUE@MissionClass@@UAEHXZ",
+   "address": "005946c0"
+  },
+  {
+   "symbol": "?Do_MISSION_RETREAT@MissionClass@@UAEHXZ",
+   "address": "00594620"
+  },
+  {
+   "symbol": "?Do_MISSION_RETURN@MissionClass@@UAEHXZ",
+   "address": "00594630"
+  },
+  {
+   "symbol": "?Do_MISSION_SLEEP@MissionClass@@UAEHXZ",
+   "address": "00594570"
+  },
+  {
+   "symbol": "?Do_MISSION_STOP@MissionClass@@UAEHXZ",
+   "address": "00594640"
+  },
+  {
+   "symbol": "?Do_MISSION_UNLOAD@MissionClass@@UAEHXZ",
+   "address": "00594650"
+  },
+  {
+   "symbol": "?Do_MISSION_WAIT@MissionClass@@UAEHXZ",
+   "address": "00594700"
+  },
+  {
+   "symbol": "?Do_Shimmer@ObjectClass@@UAEXXZ",
+   "address": "005d2c60"
+  },
+  {
+   "symbol": "?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": "005d4e70"
+  },
+  {
+   "symbol": "?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z",
+   "address": "005d2c70"
+  },
+  {
+   "symbol": "?Fall_From_Height@ObjectClass@@UAEXXZ",
+   "address": "005d2ac0"
+  },
+  {
+   "symbol": "?Fetch_Heap_ID@AbstractClass@@UBEHXZ",
+   "address": "00410250"
+  },
+  {
+   "symbol": "?Fetch_ID@AbstractClass@@UAGJXZ",
+   "address": "0040ffc0"
+  },
+  {
+   "symbol": "?Fire_Out@ObjectClass@@UAEXXZ",
+   "address": "005d2d10"
+  },
+  {
+   "symbol": "?GetSizeMax@AbstractClass@@UAGJPATULARGE_INTEGER@@@Z",
+   "address": "00410180"
+  },
+  {
+   "symbol": "?Get_Cell_Ptr@ObjectClass@@UAEPAVAbstractClass@@XZ",
+   "address": "005d51e0"
+  },
+  {
+   "symbol": "?Get_Height@ObjectClass@@UBEHXZ",
+   "address": "005d4800"
+  },
+  {
+   "symbol": "?Get_Height_AGL@ObjectClass@@UBEHXZ",
+   "address": "005d4810"
+  },
+  {
+   "symbol": "?Get_Image_Data@ObjectClass@@UAEPAXXZ",
+   "address": "005d27b0"
+  },
+  {
+   "symbol": "?Get_Mission@MissionClass@@UAEHXZ",
+   "address": "00594770"
+  },
+  {
+   "symbol": "?Get_Ownable@ObjectClass@@UAEHXZ",
+   "address": "005d2c00"
+  },
+  {
+   "symbol": "?Get_Render_Rect@ObjectClass@@UAE?AVRect@@XZ",
+   "address": "005d31c0"
+  },
+  {
+   "symbol": "?Get_Target_Cell@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "005d5240"
+  },
+  {
+   "symbol": "?Get_Target_Cell_Ptr@ObjectClass@@UBEPAVCellClass@@XZ",
+   "address": "005d5290"
+  },
+  {
+   "symbol": "?Get_Visual_Rect@ObjectClass@@UAE?AVRect@@XZ",
+   "address": "005d3060"
+  },
+  {
+   "symbol": "?Has_Suspended_Mission@MissionClass@@UBE_NXZ",
+   "address": "005950e0"
+  },
+  {
+   "symbol": "?Hidden@ObjectClass@@UAEXXZ",
+   "address": "005d2c80"
+  },
+  {
+   "symbol": "?INoticeSink_Unknown@AbstractClass@@UAE_NHH@Z",
+   "address": "00410320"
+  },
+  {
+   "symbol": "?INoticeSource_Unknown@AbstractClass@@UAGXXZ",
+   "address": "00410330"
+  },
+  {
+   "symbol": "?In_Air@ObjectClass@@UBE_NXZ",
+   "address": "005d5410"
+  },
+  {
+   "symbol": "?In_Range@ObjectClass@@UAE_NABUCoordStruct@@H@Z",
+   "address": "005d2cd0"
+  },
+  {
+   "symbol": "?In_Which_Layer@ObjectClass@@UBEHXZ",
+   "address": "005d2bc0"
+  },
+  {
+   "symbol": "?Init@AbstractClass@@UAEXXZ",
+   "address": "00410210"
+  },
+  {
+   "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
+   "address": "004101f0"
+  },
+  {
+   "symbol": "?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z",
+   "address": "004e5580"
+  },
+  {
+   "symbol": "?Is_Inactive@ObjectClass@@UBE_NXZ",
+   "address": "005d4f10"
+  },
+  {
+   "symbol": "?Is_Moving_Onto_Bridge@ObjectClass@@UAE_NPAVTechnoClass@@@Z",
+   "address": "005d52f0"
+  },
+  {
+   "symbol": "?Limbo@ObjectClass@@UAE_NXZ",
+   "address": "005d3700"
+  },
+  {
+   "symbol": "?Load@ObjectClass@@UAGJPAUIStream@@@Z",
+   "address": "005d4760"
+  },
+  {
+   "symbol": "?Look@ObjectClass@@UAEX_N0@Z",
+   "address": "005d2c90"
+  },
+  {
+   "symbol": "?Mark@ObjectClass@@UAE_NH@Z",
+   "address": "005d4160"
+  },
+  {
+   "symbol": "?Mark_For_Redraw@ObjectClass@@UAEXXZ",
+   "address": "005d36e0"
+  },
+  {
+   "symbol": "?Move@ObjectClass@@UAEXH@Z",
+   "address": "005d2d60"
+  },
+  {
+   "symbol": "?Not_Underground@ObjectClass@@UBE_NXZ",
+   "address": "005d5490"
+  },
+  {
+   "symbol": "?Occupy_List@ObjectClass@@UAEPBVCell@@H@Z",
+   "address": "005d4470"
+  },
+  {
+   "symbol": "?On_Ground@ObjectClass@@UBE_NXZ",
+   "address": "005d53e0"
+  },
+  {
+   "symbol": "?Override_Mission@MissionClass@@UAEXHPAVAbstractClass@@0@Z",
+   "address": "00594d20"
+  },
+  {
+   "symbol": "?Owner@AbstractClass@@UBEHXZ",
+   "address": "00410230"
+  },
+  {
+   "symbol": "?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ",
+   "address": "00410240"
+  },
+  {
+   "symbol": "?QueryInterface@AbstractClass@@UAGJABUGUID@@PAPAX@Z",
+   "address": "00410000"
+  },
+  {
+   "symbol": "?QueueMission@MissionClass@@UAEXH_N@Z",
+   "address": "00594cb0"
+  },
+  {
+   "symbol": "?Receive_Message@ObjectClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
+   "address": "005d3cb0"
+  },
+  {
+   "symbol": "?Record_The_Kill@ObjectClass@@UAEXPAVTechnoClass@@@Z",
+   "address": "005d2c50"
+  },
+  {
+   "symbol": "?Release@AbstractClass@@UAGKXZ",
+   "address": "004100b0"
+  },
+  {
+   "symbol": "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z",
+   "address": "005d34e0"
+  },
+  {
+   "symbol": "?Repair@ObjectClass@@UAEXH@Z",
+   "address": "005d2d40"
+  },
+  {
+   "symbol": "?Restore_Mission@MissionClass@@UAE_NXZ",
+   "address": "00594d80"
+  },
+  {
+   "symbol": "?Revealed@ObjectClass@@UAE_NPAVHouseClass@@@Z",
+   "address": "005d4230"
+  },
+  {
+   "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+   "address": "004100c0"
+  },
+  {
+   "symbol": "?Scatter@ObjectClass@@UAEXABUCoordStruct@@_N1@Z",
+   "address": "005d2cf0"
+  },
+  {
+   "symbol": "?Sell_Back@ObjectClass@@UAEXH@Z",
+   "address": "005d2d50"
+  },
+  {
+   "symbol": "?Set_Coord@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d51c0"
+  },
+  {
+   "symbol": "?Set_Height_AGL@ObjectClass@@UAEXH@Z",
+   "address": "005d4860"
+  },
+  {
+   "symbol": "?Set_Mission@MissionClass@@UAEXH@Z",
+   "address": "00594710"
+  },
+  {
+   "symbol": "?Set_Occupy_Bit@ObjectClass@@UAEXABUCoordStruct@@@Z",
+   "address": "005d4960"
+  },
+  {
+   "symbol": "?Set_Waypoint_Path@ObjectClass@@UAEXHD@Z",
+   "address": "005d53d0"
+  },
+  {
+   "symbol": "?Sort_Y@ObjectClass@@UBEHXZ",
+   "address": "005d5450"
+  },
+  {
+   "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+   "address": "0069fb20"
+  },
+  {
+   "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+   "address": "00abd868"
+  },
+  {
+   "symbol": "?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
+   "address": "005d3d20"
+  },
+  {
+   "symbol": "?Techno_Type_Class@ObjectClass@@UAEPAVTechnoTypeClass@@XZ",
+   "address": "005d5440"
+  },
+  {
+   "symbol": "?Unlimbo@ObjectClass@@UAE_NPBUCoordStruct@@H@Z",
+   "address": "005d3890"
+  },
+  {
+   "symbol": "?Unselect@ObjectClass@@UAEXXZ",
+   "address": "005d2df0"
+  },
+  {
+   "symbol": "?Value@ObjectClass@@UAEHXZ",
+   "address": "005d2d20"
+  },
+  {
+   "symbol": "?Weapon_Range@ObjectClass@@UAEHH@Z",
+   "address": "005d2ce0"
+  },
+  {
+   "symbol": "?What_Am_I@AbstractClass@@UAGHXZ",
+   "address": "0040ffb0"
+  },
+  {
+   "symbol": "?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z",
+   "address": "005d4500"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_radio_param_a40be0@@3PAVAbstractClass@@A",
+   "address": "00a40be0"
+  },
+  {
+   "symbol": "?unknown_slot102@ObjectClass@@UAEHPAVUnknownCellClass@@HPAHPA_N0@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot104@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "0041b320"
+  },
+  {
+   "symbol": "?unknown_slot111@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot112@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot113@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot114@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot115@ObjectClass@@UAEPAVConvertClass@@XZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
+   "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
+   "address": "004102e0"
+  },
+  {
+   "symbol": "?unknown_slot24@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot25@ObjectClass@@UAEH_NH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot27@ObjectClass@@UAEHPBVCell@@_N1@Z",
+   "address": "005d2bb0"
+  },
+  {
+   "symbol": "?unknown_slot28@ObjectClass@@UAEHPAV1@_N@Z",
+   "address": "005d2ba0"
+  },
+  {
+   "symbol": "?unknown_slot31@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot35@ObjectClass@@UAEPBGXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ",
+   "address": "0041b240"
+  },
+  {
+   "symbol": "?unknown_slot41@ObjectClass@@UBE?AUCoordStruct@@H@Z",
+   "address": "005d54f0"
+  },
+  {
+   "symbol": "?unknown_slot42@ObjectClass@@UBE?AUCoordStruct@@XZ",
+   "address": "0041b270"
+  },
+  {
+   "symbol": "?unknown_slot43@ObjectClass@@UAE?AUCoordStruct@@H@Z",
+   "address": "00423d50"
+  },
+  {
+   "symbol": "?unknown_slot44@ObjectClass@@UAE?AUCoordStruct@@H@Z",
+   "address": "0041b2a0"
+  },
+  {
+   "symbol": "?unknown_slot47@ObjectClass@@UAE_NXZ",
+   "address": "00423d90"
+  },
+  {
+   "symbol": "?unknown_slot48@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot49@ObjectClass@@UAE_NPAVHouseClass@@@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot50@ObjectClass@@UAEPAVObjectTypeClass@@_N@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot51@ObjectClass@@UAEPAVHouseClass@@_N@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot54@ObjectClass@@UAEX_N@Z",
+   "address": "005d3c10"
+  },
+  {
+   "symbol": "?unknown_slot56@ObjectClass@@UAE_NABUCoordStruct@@@Z",
+   "address": "005d4240"
+  },
+  {
+   "symbol": "?unknown_slot65@ObjectClass@@UAEXHH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot66@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot74@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot77@ObjectClass@@UAE_NHPBVCell@@0_N@Z",
+   "address": "005d2cb0"
+  },
+  {
+   "symbol": "?unknown_slot78@ObjectClass@@UAE_NHPAV1@_N@Z",
+   "address": "005d2ca0"
+  },
+  {
+   "symbol": "?unknown_slot80@ObjectClass@@UAE_NXZ",
+   "address": "005d2e70"
+  },
+  {
+   "symbol": "?unknown_slot82@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot83@ObjectClass@@UAE_NXZ",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot92@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_slot93@ObjectClass@@UAEXH@Z",
+   "address": null
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "__purecall",
+   "address": "004b8960"
+  }
+ ]
+}

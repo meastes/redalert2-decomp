@@ -16,7 +16,7 @@
 // @ref ?Init@BuildingClass@@UAEXXZ=0043f840
 // @ref ?Init@UnknownAudioController@@QAEXXZ=00405bf0
 // @ref ?Set_Desired@FacingClass@@QAE_NABUUnknownFacingDir@@@Z=004b8a30
-// @ref ?Set_Radio_Count@RadioClass@@QAEXH@Z=00636f40
+// @ref ?SetLinkCount@RadioClass@@QAEXH@Z=00636f40
 // @ref ?unknown_BuildingClass_list_00a40af8@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A=00a40af8
 // @ref ?unknown_abstracts_ac0c80@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A=00ac0c80
 // @ref ?unknown_abstracts_ac0bf8@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A=00ac0bf8
@@ -108,8 +108,8 @@ BuildingClass::BuildingClass(BuildingTypeClass *type, HouseClass *house) :
         if (count < 1) {
             count = 1;
         }
-        Set_Radio_Count(count);
+        SetLinkCount(count);
     } else {
-        Set_Radio_Count(1);
+        SetLinkCount(1);
     }
 }

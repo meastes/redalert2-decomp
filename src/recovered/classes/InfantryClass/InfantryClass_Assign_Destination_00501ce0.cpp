@@ -37,10 +37,10 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
     if (House->Is_Human_Player() && target && unknown_494==target &&
         unknown_5c3 && !Type->Fraidycat && !Type->Cyborg) unknown_slot311(7,false,false);
     if (Get_Mission()==7 || MissionQueue==7) {
-        if (!In_Radio_Contact()) {
+        if (!HasAnyLink()) {
             TechnoClass *transport=target->As_Techno();
             if (transport) {
-                if (transport->In_Radio_Contact()) {
+                if (transport->HasAnyLink()) {
                     if (transport->Kind_Of()==1) {
                         unknown_3f8=(AbstractClass *)As_Unit(target);
                         unknown_6d6e50(0);

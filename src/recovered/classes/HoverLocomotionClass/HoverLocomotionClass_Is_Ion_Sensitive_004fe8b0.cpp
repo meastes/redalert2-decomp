@@ -1,6 +1,6 @@
 // @ref ??AMapClass@@QAEAAVCellClass@@ABUCoordStruct@@@Z=00548000
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Cell_Building@CellClass@@QBEPAVObjectClass@@XZ=004717b0
 #include "shared/hover_locomotion.hpp"
@@ -9,7 +9,7 @@
 #include "shared/cell.hpp"
 bool __stdcall HoverLocomotionClass::Is_Ion_Sensitive()
 {
-    if (LinkedTo->In_Radio_Contact()) {
+    if (LinkedTo->HasAnyLink()) {
         BuildingClass *contact=static_cast<BuildingClass *>(LinkedTo->Contact(0));
         if (contact->Kind_Of()==6) {
             contact=static_cast<BuildingClass *>(LinkedTo->Contact(0));

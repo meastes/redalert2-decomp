@@ -4,7 +4,7 @@
 // @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 // @ref ?Fast_Sqrt@@YAMN@Z=004ba410
 // @ref ?Frame@@3HA=00a40d2c
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Is_Ally@HouseClass@@QBE_NPBVTechnoClass@@@Z=004e5580
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Reduce_Path_Length_004fdfd0@HoverLocomotionClass@@QAE_NXZ=004fdfd0
@@ -94,7 +94,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
             CellClass *cellptr=&Map[cell];
             TechnoClass *blockage=static_cast<TechnoClass *>(cellptr->Cell_Techno(Point2D(0,0),Object_Coord(LinkedTo).Z>Map.Get_Height_GL(CoordStruct(cell.X*256+128,cell.Y*256+128,0))+3*unknown_geometry_g,0));
             if (blockage && LinkedTo->House->Is_Ally(blockage)) {
-                if (Hover_Close_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && !LinkedTo->In_Radio_Contact() && abs(unknown_18.Z-Object_Coord(LinkedTo).Z)<2*unknown_geometry_g && Map[Object_Coord(LinkedTo)].unknown_ec!=10) {
+                if (Hover_Close_Distance_004fe0f0(LinkedTo->Center_Coord(),unknown_18)<Rules->unknown_1380 && !LinkedTo->HasAnyLink() && abs(unknown_18.Z-Object_Coord(LinkedTo).Z)<2*unknown_geometry_g && Map[Object_Coord(LinkedTo)].unknown_ec!=10) {
                     Stop_Moving();
                     LinkedTo->Assign_Destination(0,true);
                     return;

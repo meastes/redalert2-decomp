@@ -4,7 +4,7 @@
 // Class/operation names remain hypotheses; original ordered calls are preserved.
 #include "shared/aircraft.hpp"
 #include "shared/house.hpp"
-// @ref ?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
+// @ref ?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
 // @ref ?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z=004c8030
 // @ref ?unknown_4198b0@AircraftClass@@QAEPAVAbstractClass@@XZ=004198b0
 // @ref ?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z=006d6e50
@@ -19,7 +19,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
         }
         if (target->What_Am_I() == 6 && (Get_Mission() == 7 || MissionQueue == 7)) {
             BuildingClass *building = static_cast<BuildingClass *>(target);
-            if (!In_Radio_Contact()) {
+            if (!HasAnyLink()) {
                 if (!building->Unknown_00636ED0(this)) {
                     unknown_6d6e50(target);
                     if (building->Type->unknown_1365) {
@@ -60,7 +60,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                 if (techno) {
                     if (!techno->Unknown_00636ED0(this)) {
                         unknown_6d6e50(target);
-                    } else if (!techno->Is_Radio_Contact(this)) {
+                    } else if (!techno->ContainsLink(this)) {
                         if (unknown_slot149(14) == 1) return;
                         unknown_slot149(3);
                         if (building->Type->unknown_1349 || building->Type->unknown_134a) {

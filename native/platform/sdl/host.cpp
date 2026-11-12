@@ -487,8 +487,29 @@ void update_pause()
 }
 
 // Touch gestures out (touch.hpp): the same mouse, pan and wheel paths as the mouse's.
+extern "C" int ra2port_menu_shown(void);   // port/src/user32.cpp: a menu dialog is up
 void touch_pan(float dx, float dy, float x, float y)
 {
+    // Over a menu (no game frames run, so the frame's pan never comes) a swipe turns the
+    // wheel of the list under the finger, as a trackpad's two fingers do: 40 pixels a
+    // line, the list following the finger (Scout1295: Customize Battle's map list could
+    // not show the maps past its first page on a touch screen).
+    if (ra2port_menu_shown()) {
+        static float menu_wheel = 0;
+        static Uint64 menu_last_ms = 0;
+        Uint64 now = SDL_GetTicks();
+        if (now - menu_last_ms > 250) menu_wheel = 0;
+        menu_last_ms = now;
+        pointer_x = x;
+        pointer_y = y;
+        menu_wheel += dy;
+        HWND w = ra2port::main_window();
+        for (; menu_wheel >= 40 || menu_wheel <= -40; menu_wheel += menu_wheel > 0 ? -40 : 40) {
+            int delta = menu_wheel > 0 ? -120 : 120;
+            ra2port::post_message(w, 0x020A, (WPARAM)((delta & 0xFFFF) << 16), mouse_lparam(x, y));
+        }
+        return;
+    }
     if (pan_last_ms && SDL_GetTicks() - pan_last_ms > 250) pan_dx = pan_dy = pan_wheel = 0;
     pointer_x = x;
     pointer_y = y;

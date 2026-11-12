@@ -88,7 +88,8 @@ house gets its start units (MCV, tanks, infantry) and is not defeated. The
 tactical view draws the map tiles under the shroud, the start units (voxel
 vehicles, infantry), trees and cliffs around the base, and the sidebar credits
 count up (Scout1098; best with `'#5'`, MP14T2.MAP).
-`--skirmish-order=<kind>[@<frame>]` (`link/harness_orders.cpp`, test scaffolding)
+`--skirmish-order=<kind>[@<frame>]` (`link/harness_orders.cpp`, test scaffolding;
+`RA2_NATIVE_BUILD_LIST=<ID>[,<ID>...]` replaces the build order of `build`, Scout1295)
 queues the orders a player's click would, as MEGAMISSION events
 (Queue_Mission 0x006233A0), for the human player's start units at that frame
 (default 10): `move` (infantry and vehicles 6 cells east), `deploy` (the MCV
@@ -913,7 +914,8 @@ without the picker. The game's writes (RA2.INI, saved games) go to
 case-sensitive container volume, also in the write folder.
 **Touch, layout and lifecycle (Scout1248).** Touches make their own gestures
 (`platform/sdl/touch.cpp`; SDL's mouse-from-touch is off): a tap is a left click; a
-swipe over the map pans it (`ra2_native_scroll_map`), over the sidebar it turns the
+swipe over the map pans it (`ra2_native_scroll_map`), over a menu's list it scrolls the list
+(a wheel notch per 40 pixels, routed to the list under the finger as a mouse wheel is: Scout1295), over the sidebar it turns the
 wheel; holding about 400 ms and then dragging draws a selection box (the drag's moves
 wait until the game has seen the button held); holding and releasing on the map, holding
 on a sidebar cameo, and a two-finger tap are right clicks. A touch never leaves the

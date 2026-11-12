@@ -4,8 +4,8 @@
     "id": "population-4301",
     "inventory_sha256": "e3904bfa22cf989d2d26a0e016aa2ca52c5e3d67a4090506b1b079d75be5f0b8",
     "gaps_sha256": "4f9095dc7124eab2120fdf153a9045bf73f463ee8ba9a29887bab38154c7913f",
-    "historical_population_sha256": "c91eeab7580370681aa1c7a041534c56be7a710922a5d951610ae3e7df6a9440",
-    "historical_acceptance_sha256": "82d0acf437184e18edf31e45841cc0f182d7faff27ac78f37a504d5d54fa0357"
+    "historical_population_sha256": "a2feb130e9145e54812e1fcd9fd09b226ecf32bf24b89e61cb960c6f8b3a2ed2",
+    "historical_acceptance_sha256": "66887d8f41ad84d097a97aecb8bf45f059357913e6dae2d21e6164215b5d33fe"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2166,7 +2166,7 @@
     "?unknown_slot150@RadioClass@@UAEHHPAVTechnoClass@@@Z": 6515584,
     "?unknown_radio_param_a40be0@@3PAVAbstractClass@@A": 10750944,
     "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
+    "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?Size_Of@RadSiteClass@@UBEHXZ": 6517856,
     "?Compute_CRC@RadSiteClass@@UBEXAAVWWCRCEngine@@@Z": 6517872,
     "?Kind_Of@RadSiteClass@@UBEHXZ": 6517888,
@@ -5060,7 +5060,7 @@
     "?unknown_slot183@AircraftClass@@UAE?AUUnknownFacingDir@@XZ": 4299952,
     "?Scatter@AircraftClass@@UAEXABUCoordStruct@@_N1@Z": 4299984,
     "?Do_MISSION_GUARD_AREA@AircraftClass@@UAEHXZ": 4300928,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?Do_MISSION_GUARD_AREA@FootClass@@UAEHXZ": 5003520,
     "?unknown_slot218@AircraftClass@@UAEHPAVAbstractClass@@H_N@Z": 4301088,
     "?unknown_slot218@TechnoClass@@UAEHPAVAbstractClass@@H_N@Z": 7115360,
@@ -5072,7 +5072,6 @@
     "?Compute_CRC@FootClass@@UBEXAAVWWCRCEngine@@@Z": 5022672,
     "?Detach@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4304304,
     "?Detach@FootClass@@UAEXPAVAbstractClass@@_N@Z": 5014624,
-    "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?Landing_Direction@AircraftClass@@UAGHXZ": 4304560,
     "?unknown_slot282@AircraftClass@@UAE_NXZ": 4304848,
     "?In_Air@AircraftClass@@UBE_NXZ": 4304976,
@@ -5397,7 +5396,7 @@
     "??_7BuildingClass@@6BINoticeSource@@@": 7981968,
     "??0TechnoClass@@QAE@PAVHouseClass@@@Z": 7081168,
     "?Init@BuildingClass@@UAEXXZ": 4454464,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?Deactivate@LightSourceClass@@QAEX_N@Z": 5469536,
     "?Limbo@BuildingClass@@UAE_NXZ": 4464736,
     "?Delete@?$DynamicVectorClass@PAVBuildingClass@@@@QAE_NH@Z": 4541280,
@@ -6547,12 +6546,12 @@
     "?unknown_453900@BuildingClass@@QAE?AVMatrix3D@@XZ": 4536576,
     "__real@8@bffcc90fdaa22168c000": 7983248,
     "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
     "?unknown_452be0@BuildingClass@@QAE_NXZ": 4533216,
     "?Cell_Is_Impassable_Row_00453af0@BuildingClass@@QAE_NPBVCellClass@@@Z": 4537072,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "??_GRadioClass@@UAEPAXI@Z": 6516624,
     "?Building_Write_All_INI_0044b200@@YIXPAVINIClass@@@Z": 4502016,
     "?Write_Structure_INI_0044b250@BuildingClass@@QAEXAAVINIClass@@@Z": 4502096,
@@ -17305,7 +17304,7 @@
         {
           "offset": 49,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 1235275
@@ -17327,7 +17326,7 @@
           "resolved": 10752248
         }
       ],
-      "source_sha256": "d1b8c264423e849a0ecf1cbe67ef8582c062b5c69e16f1f5af9c5a86bd3c5ed3",
+      "source_sha256": "784180eb03797427e4d923348d9e6e6253b543b6870948041b3e22f2eb60c1d8",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_INoticeSink_Unknown_00509590.cpp",
       "population": "population-4301",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -23160,7 +23159,7 @@
         {
           "offset": 499,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 1265721
@@ -23176,7 +23175,7 @@
         {
           "offset": 531,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 1265689
@@ -23430,7 +23429,7 @@
           "resolved": 4294728650
         }
       ],
-      "source_sha256": "e86561389cce66bfff9e75aa3700a078965439e368bab31c2273e50284b8c070",
+      "source_sha256": "6636e6e2098128fbf032489de830696b6a0a7d9a7e2dfd6419264ef3ea1e09f3",
       "source": "src/recovered/classes/InfantryClass/InfantryClass_Assign_Destination_00501ce0.cpp",
       "population": "population-4301",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

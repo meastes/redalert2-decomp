@@ -4,7 +4,7 @@
 // no radio contact; with a target, queue mission 1; else FootClass's.
 #include "shared/aircraft.hpp"
 // @ref ?Do_MISSION_GUARD_AREA@FootClass@@UAEHXZ=004c5900
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 
 int AircraftClass::Do_MISSION_GUARD_AREA()
 {
@@ -14,7 +14,7 @@ int AircraftClass::Do_MISSION_GUARD_AREA()
         }
         return 1;
     }
-    if (unknown_254 == 0 && unknown_slot163() && !In_Radio_Contact()) {
+    if (unknown_254 == 0 && unknown_slot163() && !HasAnyLink()) {
         unknown_slot261(0, 1);
     }
     if (unknown_228 != 0) {

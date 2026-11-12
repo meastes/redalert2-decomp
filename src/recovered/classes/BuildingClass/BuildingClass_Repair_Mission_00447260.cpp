@@ -43,7 +43,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                 break;
             }
         case 2: {
-                if (!In_Radio_Contact()) {
+                if (!HasAnyLink()) {
                     QueueMission(5, false);
                     unknown_44cfd0(7);
 
@@ -126,7 +126,7 @@ int BuildingClass::Do_MISSION_REPAIR()
 
         switch (unknown_a8) {
         case 0: {
-                if (!In_Radio_Contact()) {
+                if (!HasAnyLink()) {
                     unknown_44cfd0(8);
                     unknown_44cfd0(11);
                     unknown_44c920(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
@@ -151,7 +151,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                 break;
             }
         case 2: {
-                if (!In_Radio_Contact()) {
+                if (!HasAnyLink()) {
                     unknown_44cfd0(8);
                     unknown_44cfd0(11);
                     unknown_44c920(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
@@ -211,7 +211,7 @@ int BuildingClass::Do_MISSION_REPAIR()
 
             }
         case 1: {
-                if (!In_Radio_Contact()) {
+                if (!HasAnyLink()) {
                     if (unknown_454[8] || unknown_454[11]) {
                         unknown_44c920(12, Health_Ratio() <= Rules->unknown_1368, false, 0);
                         unknown_44c920(3, Health_Ratio() <= Rules->unknown_1368, false, 0);

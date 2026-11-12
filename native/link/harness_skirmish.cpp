@@ -417,9 +417,11 @@ bool Native_Main_Loop_Seam()
         // end of the game as Main_Loop saw it (Scout1125, M15): the player won,
         // lost, restarted or aborted (Main_Loop_End 0x0053F840 then runs
         // Do_Win/Do_Lose: the score screen) or the game is no longer active.
-        if (frames_done % 1000 == 0 && frames_done <= 60000) {
+        // Past 60,000 frames (a soak) the names' buffers are reused: the progress log
+        // copies each name, so later milestones keep coming (Scout1295).
+        if (frames_done % 1000 == 0) {
             static char names[60][16];
-            char *name = names[frames_done / 1000 - 1];
+            char *name = names[(frames_done / 1000 - 1) % 60];
             name[0] = 0;
             Append(name, "frames-", sizeof names[0]);
             Append_Int(name, frames_done / 1000, sizeof names[0]);

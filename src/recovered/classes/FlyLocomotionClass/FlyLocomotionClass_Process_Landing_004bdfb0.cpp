@@ -8,7 +8,7 @@
 // @ref ?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A=008661e0
 // @ref ?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z=00636e10
 // @ref ?From_Name@AnimTypeClass@@SIHPBD@Z=00425640
-// @ref ?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
+// @ref ?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z=00636e30
 // @ref ?Map@@3VMouseClass@@A=008324e0
 // @ref ?Release_Held@?$UnknownComPtr@UUnknownFlyInterface@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEXXZ=004bfbc0
 // @ref ?Rules@@3PAVRulesClass@@A=00839848
@@ -69,7 +69,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
     UnknownFlyPtr flyctrl(LinkedTo);
     if (flyctrl) landing_altitude=flyctrl->unknown_slot3();
     CellClass *destination=&Map[unknown_1c];
-    if ((unknown_18 && !LinkedTo->Is_Radio_Contact((TechnoClass *)destination->Cell_Building())) ||
+    if ((unknown_18 && !LinkedTo->ContainsLink((TechnoClass *)destination->Cell_Building())) ||
         (!unknown_18 && LinkedTo->Can_Enter_Cell(destination,-1,-1,0,true)!=0)) {
         Take_Off_004bf0d0();
         Cell const &pos=Cell(Object_Coord(LinkedTo));

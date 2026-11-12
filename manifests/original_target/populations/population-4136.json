@@ -4,8 +4,8 @@
     "id": "population-4136",
     "inventory_sha256": "13cf0ffeec18693fc2cf1b8401ea36f0290b5b722628721d64b8b2a819fa88db",
     "gaps_sha256": "ef726fa32fef57074fb033a40e10b26da6c1a3d19675814c79e01f2466d8b4d5",
-    "historical_population_sha256": "18610a80f6ac96c4200f5cb7ee3f48565e5a6e87c96ae742aaee54e66d22c975",
-    "historical_acceptance_sha256": "e088c87f0d951be2c1562866e8bb4626f8c41736e5b419c87687a62401087e19"
+    "historical_population_sha256": "be0f5755c098d535299cb601eade293afd28c6d6717a1da02d710fb0997f9183",
+    "historical_acceptance_sha256": "2afbba4e7969a09049d491bdedfdf02b56f8d499c766b625607b62ccc3b44f5f"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -2422,7 +2422,7 @@
     "?unknown_slot150@RadioClass@@UAEHHPAVTechnoClass@@@Z": 6515584,
     "?unknown_radio_param_a40be0@@3PAVAbstractClass@@A": 10750944,
     "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
+    "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "??_7?$DynamicVectorClass@PAVRadSiteClass@@@@6B@": 8031076,
     "?Size_Of@RadSiteClass@@UBEHXZ": 6517856,
     "?Compute_CRC@RadSiteClass@@UBEXAAVWWCRCEngine@@@Z": 6517872,
@@ -5460,7 +5460,7 @@
     "?unknown_slot183@AircraftClass@@UAE?AUUnknownFacingDir@@XZ": 4299952,
     "?Scatter@AircraftClass@@UAEXABUCoordStruct@@_N1@Z": 4299984,
     "?Do_MISSION_GUARD_AREA@AircraftClass@@UAEHXZ": 4300928,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?Do_MISSION_GUARD_AREA@FootClass@@UAEHXZ": 5003520,
     "?unknown_slot218@AircraftClass@@UAEHPAVAbstractClass@@H_N@Z": 4301088,
     "?unknown_slot218@TechnoClass@@UAEHPAVAbstractClass@@H_N@Z": 7115360,
@@ -5472,7 +5472,6 @@
     "?Compute_CRC@FootClass@@UBEXAAVWWCRCEngine@@@Z": 5022672,
     "?Detach@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4304304,
     "?Detach@FootClass@@UAEXPAVAbstractClass@@_N@Z": 5014624,
-    "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?Landing_Direction@AircraftClass@@UAGHXZ": 4304560,
     "?unknown_slot282@AircraftClass@@UAE_NXZ": 4304848,
     "?In_Air@AircraftClass@@UBE_NXZ": 4304976,
@@ -5824,7 +5823,7 @@
     "??0BuildingClass@@QAE@PAVBuildingTypeClass@@PAVHouseClass@@@Z": 4426976,
     "??0TechnoClass@@QAE@PAVHouseClass@@@Z": 7081168,
     "?Init@BuildingClass@@UAEXXZ": 4454464,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?Limbo@BuildingClass@@UAE_NXZ": 4464736,
     "?Delete@?$DynamicVectorClass@PAVBuildingClass@@@@QAE_NH@Z": 4541280,
     "?unknown_44cfd0@BuildingClass@@QAEXH@Z": 4509648,
@@ -7040,11 +7039,11 @@
     "?unknown_slot261@BuildingClass@@UAE_N_N0@Z": 4493488,
     "__real@8@bffcc90fdaa22168c000": 7983248,
     "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
     "?Cell_Is_Impassable_Row_00453af0@BuildingClass@@QAE_NPBVCellClass@@@Z": 4537072,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "??_GRadioClass@@UAEPAXI@Z": 6516624,
     "?Put@BufferPipe@@UAEHPBXH@Z": 7812912,
     "?Get@BufferStraw@@UAEHPAXH@Z": 7813184,
@@ -12316,7 +12315,8 @@
     "??_7?$DynamicVectorClass@PAUDamageGroup@@@@6B@": 7986568,
     "__real@8@bff6b6db6db6db6db800": 8026880,
     "??_E?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718512,
-    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592
+    "??_E?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z": 4718592,
+    "?Can_Always_Undeploy@BuildingTypeClass@@QBE_NXZ": 4582464
   },
   "regions": [
     {
@@ -15818,7 +15818,7 @@
         {
           "offset": 126,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 1504094
@@ -15928,7 +15928,7 @@
           "resolved": 5012556
         }
       ],
-      "source_sha256": "0d5a9eed414ade681a50d31082375988e94ed2cf000e3d3ed6c3a34a29b7fea7",
+      "source_sha256": "3084d9d398f836df712b413df5f45deb8b0f00edcf6d9ddd380f97058410e2cd",
       "switch_data_bytes": 47,
       "source": "src/recovered/classes/FootClass/FootClass_Receive_Message_004c7b30.cpp",
       "population": "population-4136",
@@ -16084,7 +16084,7 @@
         {
           "offset": 31,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 1500589
@@ -16138,7 +16138,7 @@
           "resolved": 1090030
         }
       ],
-      "source_sha256": "779747d318ddd3a8e22c3d1f7e689b33161870d51e6e1919f178356280e656b9",
+      "source_sha256": "a6a2a40d32de2fcde7e4b94990d8af4f08d7dd6ccc53f48cfc282e4a7f9ca455",
       "source": "src/recovered/classes/FootClass/FootClass_Can_Demolish_004c8940.cpp",
       "population": "population-4136",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

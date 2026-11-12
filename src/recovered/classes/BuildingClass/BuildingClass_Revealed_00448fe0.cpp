@@ -8,7 +8,7 @@
 #include "shared/building.hpp"
 #include "shared/house.hpp"
 // @ref ?Revealed@TechnoClass@@UAE_NPAVHouseClass@@@Z=006c2440
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Unknown_004F52F0@HouseClass@@QAE_NXZ=004f52f0
 // @ref _unknown_a40774=00a40774
 
@@ -20,9 +20,9 @@ bool BuildingClass::Revealed(HouseClass *house)
             House->unknown_18d = true;
         }
         House->unknown_144 = true;
-        if (!In_Radio_Contact() && House->Unknown_004F52F0() && Get_Mission() != 0x12 && MissionQueue != 0x12) {
+        if (!HasAnyLink() && House->Unknown_004F52F0() && Get_Mission() != 0x12 && MissionQueue != 0x12) {
             unknown_slot282(false);
-        } else if (!In_Radio_Contact() && !House->Unknown_004F52F0() && house == House && Get_Mission() != 0x12) {
+        } else if (!HasAnyLink() && !House->Unknown_004F52F0() && house == House && Get_Mission() != 0x12) {
             unknown_slot282(false);
         }
         return true;

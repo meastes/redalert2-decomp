@@ -26,7 +26,7 @@
 // @ref ?Length@UnknownVector3@@QBEHXZ=0041b780
 // @ref ?unknown_443d60@BuildingClass@@QAEX_N@Z=00443d60
 // @ref ?unknown_4454b0@BuildingClass@@QAEXXZ=004454b0
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 
 // The difference of two coordinates (an inline helper).
 inline UnknownVector3 Coord_Difference(CoordStruct const &a, CoordStruct const &b)
@@ -91,7 +91,7 @@ check_occupants:
         }
         break;
     }
-    if (Type->UnitReload && In_Radio_Contact() && unknown_slot149(0x1D) != 1 && unknown_slot149(0x13) == 1) {
+    if (Type->UnitReload && HasAnyLink() && unknown_slot149(0x1D) != 1 && unknown_slot149(0x13) == 1) {
         QueueMission(0x14, false);
     }
     if (Type->UnitRepair) {

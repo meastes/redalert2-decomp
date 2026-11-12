@@ -4,8 +4,8 @@
     "id": "population-4304",
     "inventory_sha256": "8846afd6e81536f62a87eb1fd08d96e34907c9e41725b51187f53f93ac94a7d5",
     "gaps_sha256": "a5ae73248cbf6ad2c48cea37f365397a261dba8cc7ddee79b3bd82d572300466",
-    "historical_population_sha256": "ca90104b8f5e08243cb6efbd87dda67593bf945e4e10bf30c5272cf37942f004",
-    "historical_acceptance_sha256": "bcdaf1fb39494f1475d2047b2b9b85e23bf526aed04891c97de319d4d066167f"
+    "historical_population_sha256": "75a75faf423569f01c86e882d78300f8c933735d19b6bdc9be3d89ad7630f02f",
+    "historical_acceptance_sha256": "438ebd772436083bef2c79fff466c8a06aed2ddecaed64843b11475e24cff535"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1679,7 +1679,7 @@
     "??8?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QBE_NH@Z": 4979600,
     "?Select_Landing_Destination_004185b0@AircraftClass@@QAEPAVAbstractClass@@PAV2@@Z": 4294064,
     "?Contact@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516240,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?Process_Landing_004bdfb0@FlyLocomotionClass@@QAE_NXZ": 4972464,
     "?Process_Take_Off_004bddf0@FlyLocomotionClass@@QAE_NXZ": 4972016,
     "?Remove@DisplayClass@@QAEXPAVObjectClass@@@Z": 4823696,
@@ -1708,7 +1708,7 @@
     "?AdjacentCell@@3QBVCell@@B": 8723056,
     "?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A": 8806880,
     "?From_Name@AnimTypeClass@@SIHPBD@Z": 4347456,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?Rules@@3PAVRulesClass@@A": 8624200,
     "?Take_Off_004bf0d0@FlyLocomotionClass@@QAEXXZ": 4976848,
     "?Nearby_Location@MapClass@@QAE?AVCell@@ABV2@HHH_NUPoint2D@@11110H@Z": 5571296,
@@ -2902,7 +2902,6 @@
     "?Concatenate@Wstring@@QAE_NABV1@@Z": 7790144,
     "?Concatenate@Wstring@@QAE_NIPBD@Z": 7790000,
     "?Concatenate@Wstring@@QAE_NPBD@Z": 7789824,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?Contact_With_Whom@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
     "?Contains_Any@WideString@@QBE_NABV1@@Z": 7804288,
@@ -4081,7 +4080,7 @@
     "?Set_Name@RAMFileClass@@UAEPBDPBD@Z": 6522400,
     "?Set_Name@RawFileClass@@UAEPBDPBD@Z": 6523760,
     "?Set_ROT@FacingClass@@QAEXH@Z": 4951696,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
     "?Set_Size@WideString@@QAEXH@Z": 7799632,
     "?Set_Size@Wstring@@QAEXH@Z": 7792208,
@@ -5779,7 +5778,7 @@
     "?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z": 4301248,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "??_GRadioClass@@UAEPAXI@Z": 6516624,
     "?Put@BufferPipe@@UAEHPBXH@Z": 7812912,
     "?Get@BufferStraw@@UAEHPAXH@Z": 7813184,
@@ -12299,7 +12298,11 @@
     "?Restore@MSOverlayAnim@@UAEXH@Z": 5953600,
     "?Restore@MSVQAnim@@UAEXH@Z": 5956496,
     "?Restore@MSPCXAnim@@UAEXH@Z": 5962624,
-    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936
+    "?Is_Techno@AbstractClass@@QBE_NXZ": 7309936,
+    "__encoder": 7980576,
+    "__pad": 7980572,
+    "__decoder": 7980580,
+    "__real@8@bff6b6db6db6db6db800": 8026880
   },
   "regions": [
     {
@@ -14149,13 +14152,13 @@
         {
           "offset": 86,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 1539046
         }
       ],
-      "source_sha256": "33394c0f307e28efdc96fe43667d464271088fd520ff734932d0d27622287a5a",
+      "source_sha256": "7a892d865f3c5f8f33530deab89bdccd2dd1665f17863e503f4c1474e84d5797",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_unknown_4bf1f0_004bf1f0.cpp",
       "population": "population-4304",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -14797,7 +14800,7 @@
         {
           "offset": 517,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 1549063
@@ -14827,7 +14830,7 @@
           "resolved": 4294823417
         }
       ],
-      "source_sha256": "f03a54e58c8496ecade7a7f32868648e65b98a18d1d1062bdd48f9cdfe922f1b",
+      "source_sha256": "8412e23027b882eb9f951d002c02af1216983571a1c893c0c107ea557ff3c4cc",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Landing_Takeoff_004bca00.cpp",
       "population": "population-4304",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -15253,7 +15256,7 @@
         {
           "offset": 365,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 1543439
@@ -15659,7 +15662,7 @@
           "resolved": 8805888
         }
       ],
-      "source_sha256": "57de173b69fcdaeee7014a391115c45355fb6158a0f77c0a4704f867a16b61ea",
+      "source_sha256": "f8839671cc90d0e3d24df024136882881db15d5c8eef35562db32bd9df4771cf",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Process_Landing_004bdfb0.cpp",
       "population": "population-4304",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -16991,7 +16994,7 @@
         {
           "offset": 238,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 1541662
@@ -17269,7 +17272,7 @@
           "resolved": 693864
         }
       ],
-      "source_sha256": "4e86954ea7eed2fc2bb3b375e584d6c97103fd7556579a1bf2cac0f7efa75626",
+      "source_sha256": "6fe89f42f929dbcbbd643303fd531ebb4173a54b3f48b68f2ae6f6457fdf6a1e",
       "source": "src/recovered/classes/FlyLocomotionClass/FlyLocomotionClass_Nearing_Target_004be720.cpp",
       "population": "population-4304",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

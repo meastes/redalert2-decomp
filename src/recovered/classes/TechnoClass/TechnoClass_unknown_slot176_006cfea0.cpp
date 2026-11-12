@@ -44,7 +44,7 @@ int TechnoClass::unknown_slot176()
     UnitClass *unit = (UnitClass *)this;
     if (unit->Kind_Of() == 1) {
         if (unit->unknown_370) {
-            BuildingClass *building = (BuildingClass *)unit->Contact2(0);
+            BuildingClass *building = (BuildingClass *)unit->Contact_With_Whom(0);
             if (building->Kind_Of() == 6 && building->Get_Mission() == 16) {
                 return zadjust2 - 3;
             }

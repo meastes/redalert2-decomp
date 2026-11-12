@@ -18,7 +18,7 @@ BuildingClass *__fastcall Unknown_00450F90(HouseClass *house, UnitClass *unit);
 // @ref ?Is_Human_Player@HouseClass@@QAE_NXZ=004f52f0
 // @ref ?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ=00496b50
 // @ref ?Count_Down@DelayTimerClass@@QAEXN@Z=00496bc0
-// @ref ?In_Radio_Contact@RadioClass@@QBE_NXZ=00636f10
+// @ref ?HasAnyLink@RadioClass@@QBE_NXZ=00636f10
 // @ref ?Unknown_0054AB00@MapClass@@QAE_NABUCoordStruct@@@Z=0054ab00
 // @ref ?unknown_6fb890@UnitClass@@QAEXXZ=006fb890
 // @ref ?unknown_6fbc90@UnitClass@@QAEXXZ=006fbc90
@@ -141,7 +141,7 @@ void UnitClass::AI()
             if (refinery && refinery->Type->Refinery) {
                 if (unknown_slot104() == Unit_AI_Refinery_Exit_Cell(refinery->unknown_slot104())) {
                     ObjectClass *contact = Map[CoordStruct(Coord)].Cell_Building();
-                    if (In_Radio_Contact()) unknown_slot149(3);
+                    if (HasAnyLink()) unknown_slot149(3);
                     Assign_Destination(&Map[unknown_6cf130(contact)], true);
                     QueueMission(2, true);
                 }

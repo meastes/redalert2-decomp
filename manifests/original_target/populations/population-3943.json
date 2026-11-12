@@ -4,8 +4,8 @@
     "id": "population-3943",
     "inventory_sha256": "fa25448e4455e604b027056d8f46436c1b25fbcc1f3c1b7ee08d722896aece56",
     "gaps_sha256": "57480b68f1ddfbf7ad69c897684c743a762962f4de40560ebfbc5a7768a78971",
-    "historical_population_sha256": "8cfcb441b1c20786ce1430c3ac00bdc496a8e30fe7d23c33e0c218a46f0c8721",
-    "historical_acceptance_sha256": "42c87cc68c9646465ae1ad2d6f3320b42adf3b25d844c180cda40873f397fd88"
+    "historical_population_sha256": "9a839dc923ba48a95bfd5f7d27f523f006a13445e2198d9882eeb49a1aa14eb6",
+    "historical_acceptance_sha256": "16efdb80caa7640c17cccaf56f2462b245aa37f132a2e1f5320b4641b551cd80"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -1676,7 +1676,7 @@
     "_unknown_aircraft_move_log_7ce664": 8185444,
     "?unknown_slot261@FootClass@@UAE_N_N0@Z": 5009168,
     "?Is_Human_Player@HouseClass@@QAE_NXZ": 5198576,
-    "?In_Radio_Contact@RadioClass@@QBE_NXZ": 6516496,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?unknown_func_6baa00@TeamClass@@QAE_NXZ": 7055872,
     "?unknown_slot78@FootClass@@UAE_NHPAVObjectClass@@_N@Z": 5005728,
     "?unknown_slot77@FootClass@@UAE_NHPBVCell@@0_N@Z": 5007856,
@@ -1710,7 +1710,7 @@
     "?Do_MISSION_GUARD_AREA@FootClass@@UAEHXZ": 5003520,
     "?unknown_slot218@TechnoClass@@UAEHPAVAbstractClass@@H_N@Z": 7115360,
     "?Direction_To@ObjectClass@@QBE?AUUnknownFacingDir@@PBVAbstractClass@@@Z": 6104880,
-    "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
+    "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z": 6516272,
     "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z": 5013552,
     "?unknown_6d6e50@TechnoClass@@QAEXPAVAbstractClass@@@Z": 7171664,
     "?Unknown_0051FC80@HouseClass@@QAE_NXZ": 5373056,
@@ -3117,7 +3117,6 @@
     "?Concatenate@Wstring@@QAE_NABV1@@Z": 7790144,
     "?Concatenate@Wstring@@QAE_NIPBD@Z": 7790000,
     "?Concatenate@Wstring@@QAE_NPBD@Z": 7789824,
-    "?Contact2@RadioClass@@QBEPAVTechnoClass@@H@Z": 6516256,
     "?Contains_Any@UnknownWideString_00771540@@QBE_NPBG@Z": 7804224,
     "?Contains_Any@WideString@@QBE_NABV1@@Z": 7804288,
     "?Contains_Any@WideString@@QBE_NPBG@Z": 7804224,
@@ -4275,7 +4274,7 @@
     "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
     "?Set_Name@RAMFileClass@@UAEPBDPBD@Z": 6522400,
     "?Set_Name@RawFileClass@@UAEPBDPBD@Z": 6523760,
-    "?Set_Radio_Count@RadioClass@@QAEXH@Z": 6516544,
+    "?SetLinkCount@RadioClass@@QAEXH@Z": 6516544,
     "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
     "?Set_Size@WideString@@QAEXH@Z": 7799632,
     "?Set_Size@Wstring@@QAEXH@Z": 7792208,
@@ -7539,7 +7538,7 @@
     "?Is_Busy_Sequence_00509710@InfantryClass@@QBE_NH@Z": 5281552,
     "?unknown_slot220@BuildingClass@@UAEXPAVAbstractClass@@@Z": 4457552,
     "?unknown_slot183@BuildingClass@@UAE?AUUnknownFacingDir@@XZ": 4493792,
-    "?Unknown_00636E70@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
+    "?FindLinkIndex@RadioClass@@QBEHPAVTechnoClass@@@Z": 6516336,
     "??_GRadioClass@@UAEPAXI@Z": 6516624,
     "?Put@BufferPipe@@UAEHPBXH@Z": 7812912,
     "?Get@BufferStraw@@UAEHPAXH@Z": 7813184,
@@ -13985,7 +13984,7 @@
         {
           "offset": 93,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2215471
@@ -13999,7 +13998,7 @@
           "resolved": 702438
         }
       ],
-      "source_sha256": "988af61a154a3049720132bd81b88e4359b0f5a357e0eabb8b3570fb56146e60",
+      "source_sha256": "005f7eec29f8fd51a611b4cd3bfd387cdfcfd07b2a2d80e4a652a9355ed0e53b",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Do_MISSION_GUARD_AREA_0041a080.cpp",
       "population": "population-3943",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -14365,7 +14364,7 @@
         {
           "offset": 39,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2212085
@@ -14381,13 +14380,13 @@
         {
           "offset": 122,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2212002
         }
       ],
-      "source_sha256": "435606bee83926755c2777b91af64701158f00c377a55c17c8e4fd16b8b1f112",
+      "source_sha256": "4551d7ce7aac6a92be723db890441a3ee2ebc95c36f70a24a956e853884f0a4f",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Landing_Altitude_0041adf0.cpp",
       "population": "population-3943",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -14416,7 +14415,7 @@
         {
           "offset": 15,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2211917
@@ -14446,7 +14445,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "bce9357ff4f8cc64bd8f323c72aad4761e9e67887525cc9a84d31c03a7623201",
+      "source_sha256": "c03a56ba754b08b7333243ffa80872c29d584db6e91420bf9e0f0ec1cf8f78da",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Landing_Direction_0041aeb0.cpp",
       "population": "population-3943",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -15246,7 +15245,7 @@
         {
           "offset": 331,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2216129
@@ -15278,7 +15277,7 @@
         {
           "offset": 512,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2215948
@@ -15286,7 +15285,7 @@
         {
           "offset": 687,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2215773
@@ -15364,7 +15363,7 @@
           "resolved": 697840
         }
       ],
-      "source_sha256": "0fb9cc8ec77f78bece3853848b8bb094543c52f69696c1faf86c03c8ce1e6887",
+      "source_sha256": "c14f213e95733f9714dba94a4bab13c7f54e9196e43dd48bc91242295b812672",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Do_MISSION_GUARD_00419d00.cpp",
       "population": "population-3943",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -17961,7 +17960,7 @@
         {
           "offset": 105,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2215139
@@ -18041,7 +18040,7 @@
         {
           "offset": 499,
           "kind": 20,
-          "symbol": "?Is_Radio_Contact@RadioClass@@QBE_NPAVTechnoClass@@@Z",
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPAVTechnoClass@@@Z",
           "target": 6516272,
           "addend": 0,
           "resolved": 2214521
@@ -18111,7 +18110,7 @@
           "resolved": 711479
         }
       ],
-      "source_sha256": "eddfafe5228c46daaef4e360176323b427f59f351b8dd9a8fa6207ebea5bf978",
+      "source_sha256": "cc251470dfbe6729808abf2286dc09ae0e1f8428c4264541cc707ed1d717ebaf",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_unknown_slot260_0041a1c0.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -19025,7 +19024,7 @@
         {
           "offset": 1015,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2226949
@@ -19033,13 +19032,13 @@
         {
           "offset": 1087,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2226877
         }
       ],
-      "source_sha256": "6b49c927e103a055a000f93b0f3ce7d2a96fa6a6566c4c26ad5a2502f5be6b14",
+      "source_sha256": "8f86149f1c8d773c3e75d84bf83d13067c204bad9fc57c31bd1795f1ba5782dc",
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Select_Mission_00417010.cpp",
       "population": "population-3943",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -19240,7 +19239,7 @@
         {
           "offset": 397,
           "kind": 20,
-          "symbol": "?In_Radio_Contact@RadioClass@@QBE_NXZ",
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
           "target": 6516496,
           "addend": 0,
           "resolved": 2218415
@@ -19398,7 +19397,7 @@
           "resolved": 4298329
         }
       ],
-      "source_sha256": "b69bb1956313825f82159ea9f6452af0501ff2d8a030c4bc9d31064706c63785",
+      "source_sha256": "7416803bc4e791dc3d6eee17ba8fb13bd34487a4bd3924a9e6e04df8cc56c521",
       "switch_data_bytes": 32,
       "source": "src/recovered/classes/AircraftClass/AircraftClass_Do_MISSION_ENTER_004193d0.cpp",
       "population": "population-3943",

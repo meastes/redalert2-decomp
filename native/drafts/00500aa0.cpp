@@ -266,7 +266,7 @@ void InfantryClass::unknown_slot93(int why)
                 if ((cell->unknown_128.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,true);
             } else if ((cell->unknown_124.Composite & 0x1c)==0x1c) cell->Unknown_00476920(&unknown_geometry_l,true,true,false);
         }
-        if (MissionQueue==-1 && !unknown_494 && !unknown_228 && !In_Radio_Contact()) unknown_slot261(false,true);
+        if (MissionQueue==-1 && !unknown_494 && !unknown_228 && !HasAnyLink()) unknown_slot261(false,true);
         Commence();
         unknown_slot263(false,false,false,0);
         unknown_slot262(false,false,false,0);
