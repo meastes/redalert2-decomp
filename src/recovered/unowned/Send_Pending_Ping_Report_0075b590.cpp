@@ -4,7 +4,7 @@
 // @ref ?ping_report_pending_8000c0@@3PADA=008000c0
 // @ref ?ping_report_removed_80009c@@3PADA=0080009c
 // @ref ?ping_report_average_800088@@3PADA=00800088
-// @ref ?ping_report_terminator_7d27e4@@3PADA=007d27e4
+// @ref ??_C@_01FAJB@?$DL?$AA@=007d27e4
 // @ref ?ping_report_separator_7ce9c0@@3PADA=007ce9c0
 // @ref ?ping_report_error_80006c@@3PADA=0080006c
 // @ref ?ping_report_sent_800054@@3PADA=00800054
@@ -20,7 +20,6 @@ extern char ping_report_average_800088[];
 extern char ping_report_error_80006c[];
 extern char ping_report_sent_800054[];
 extern char ping_report_separator_7ce9c0[];
-extern char ping_report_terminator_7d27e4[];
 void __fastcall Send_Pending_Ping_Report_0075b590()
 {
     int sent=0;
@@ -43,7 +42,7 @@ void __fastcall Send_Pending_Ping_Report_0075b590()
                 unknown_ladder_client_a72d00->Get_Average_Ping(user.unknown_18,&average);
                 if(average!=-1) {
                     Debug_Printf(ping_report_average_800088,name.Get(),average);
-                    packet += name+Wstring(ping_report_separator_7ce9c0)+Wstring_From_Integer(average)+Wstring(ping_report_terminator_7d27e4);
+                    packet += name+Wstring(ping_report_separator_7ce9c0)+Wstring_From_Integer(average)+Wstring(";");
                     ++sent;
                 } else Debug_Printf(ping_report_error_80006c,name.Get());
             }

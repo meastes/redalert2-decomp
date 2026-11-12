@@ -17,7 +17,7 @@
 | [classes/MapGeneratorClass](../src/recovered/classes/MapGeneratorClass/) | 56 | 56,683 | 56 | 0x0056D4C0–0x0058AD90 |
 | [classes/CellClass](../src/recovered/classes/CellClass/) | 134 | 46,843 | 130 | 0x00470680–0x0047CFC0 |
 | [classes/FootClass](../src/recovered/classes/FootClass/) | 125 | 46,400 | 121 | 0x0041B470–0x004CDE10 |
-| (discovery: address-named) | 982 | 42,888 | 220 | 0x004010A0–0x00793976 |
+| (discovery: address-named) | 998 | 44,674 | 236 | 0x004010A0–0x00793976 |
 | [classes/BuildingTypeClass](../src/recovered/classes/BuildingTypeClass/) | 63 | 40,280 | 63 | 0x00454EE0–0x004D3C50 |
 | [classes/Tactical](../src/recovered/classes/Tactical/) | 94 | 34,434 | 92 | 0x006A22D0–0x006AC800 |
 | [classes/InfantryClass](../src/recovered/classes/InfantryClass/) | 92 | 34,203 | 92 | 0x004D3390–0x00509810 |
@@ -229,7 +229,6 @@
 | [classes/MSFont](../src/recovered/classes/MSFont/) | 10 | 1,858 | 10 | 0x005B3F20–0x005B4670 |
 | [classes/MSShapeAnim](../src/recovered/classes/MSShapeAnim/) | 10 | 1,852 | 9 | 0x005AC6A0–0x005AFCC0 |
 | [classes/GraphicMenuImageItem](../src/recovered/classes/GraphicMenuImageItem/) | 8 | 1,801 | 7 | 0x004DF810–0x004DFF10 |
-| [classes/CDFileClass](../src/recovered/classes/CDFileClass/) | 17 | 1,797 | 16 | 0x00401950–0x0051AD10 |
 | [classes/DynamicVectorClass_AbstractClass_ptr](../src/recovered/classes/DynamicVectorClass_AbstractClass_ptr/) | 29 | 1,790 | 28 | 0x00454B20–0x006ECB50 |
 | [classes/WorldDominationTour__Territory](../src/recovered/classes/WorldDominationTour__Territory/) | 11 | 1,776 | 11 | 0x00730B80–0x00731290 |
 | [classes/LightConvertClass](../src/recovered/classes/LightConvertClass/) | 4 | 1,772 | 3 | 0x00538860–0x00538F30 |
@@ -1418,6 +1417,7 @@
 | [classes/UnknownComPtr_IFlyControl](../src/recovered/classes/UnknownComPtr_IFlyControl/) | 1 | 13 | 1 | 0x004BFBC0–0x004BFBC0 |
 | [classes/UnknownComPtr_IPiggyback](../src/recovered/classes/UnknownComPtr_IPiggyback/) | 1 | 13 | 1 | 0x00509860–0x00509860 |
 | [classes/exception](../src/recovered/classes/exception/) | 1 | 13 | 0 | 0x0078B1E7–0x0078B1E7 |
+| [classes/CDFileClass](../src/recovered/classes/CDFileClass/) | 1 | 11 | 1 | 0x0051AD10–0x0051AD10 |
 | [classes/MovieHandle](../src/recovered/classes/MovieHandle/) | 1 | 7 | 1 | 0x005A1BA0–0x005A1BA0 |
 | [classes/GadgetClass](../src/recovered/classes/GadgetClass/) | 2 | 6 | 2 | 0x00483560–0x0049ECD0 |
 | [classes/RawFileClass](../src/recovered/classes/RawFileClass/) | 1 | 4 | 0 | 0x00401940–0x00401940 |

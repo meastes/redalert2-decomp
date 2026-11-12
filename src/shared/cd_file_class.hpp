@@ -41,8 +41,8 @@ public:
     static void __fastcall Clear_Search_Drives();                // 0x00470100
     static void __fastcall Refresh_Search_Drives();              // 0x0046FE20
     static int __fastcall Is_Disk_Inserted(int drive);           // 0x0046FDB0
-    static bool __fastcall Find_File(char *filename);            // 0x004702B0
-    // The next file matching Find_File's pattern into filename, and the end of the search
+    static bool __fastcall Find_First_File(char *filename);      // 0x004702B0
+    // The next file matching Find_First_File's pattern into filename, and the end of the search
     // (names hypotheses).
     static bool __fastcall Find_Next_File(char *filename);       // 0x00470400
     static void Find_Close();                                    // 0x00470470
@@ -53,7 +53,7 @@ public:
     static int CurrentCDDrive;     // 0x0085089C drive index (0 = A:) of the CD, 0 when none
     static int LastCDDrive;        // 0x008508A0 previous CurrentCDDrive
     static char RawPath[];         // 0x008508A4 every path list given to Set_Search_Drives
-    static void *FindHandle;       // 0x007D27D4 Find_File's FindFirstFile handle (INVALID when idle)
+    static void *FindHandle;       // 0x007D27D4 Find_First_File's FindFirstFile handle (INVALID when idle)
 };
 
 // Waits up to timeout for a disk in the CD drive and returns its index

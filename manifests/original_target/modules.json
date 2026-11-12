@@ -346,5 +346,32 @@
    "The global SwizzleManager takes the template's name Swizzler (74 files)",
    "ApplicationClass::get_Swizzle_Interface (0x426E50), a stand-in leaf row that called QueryInterface through an invented Target class, is now the real member in the app unit (population with the other ApplicationClass rows) with its template signature (ISwizzle **)"
   ]
+ },
+ "cdfile": {
+  "source": "src/recovered/cdfile.cpp",
+  "header": "src/shared/cd_file_class.hpp",
+  "twin": "mischa85/RedAlert2 src/cdfile.cpp (exact target; this file takes its text with the accepted bodies); TibSun cdfile.cpp; ra2-decomp cdfile.cpp (YR)",
+  "data": [
+   [
+    "007d27d4",
+    "007d27e8"
+   ]
+  ],
+  "header_gaps": [
+   "The Wstring constructor is declared only under the per-unit macro CD_FILE_DECLARE_WSTRING_CTOR (the module and one header-statics unit define it); declaring it unconditionally not tried this round",
+   "Is_Disk_Inserted is a static member (template: the free function Is_Disk_Inserted) and the find handle is the static member FindHandle (template: the global FindFileHandle); Find_Close is cdecl (template: fastcall)",
+   "The search-drive record is CDSearchDrive (template: the nested SearchDriveType)"
+  ],
+  "source_gaps": [
+   "The function bodies are the accepted ones, not the twin's text; the template's disabled Set_Search_Drives (#if 0) is left out"
+  ],
+  "data_notes": [
+   "First, CurrentCDDrive, LastCDDrive and RawPath (0x850898-0x850AA3) are zero-initialised storage",
+   "The ledger refuses CDFileClass's vtable section (its RawFileClass::File_Name slot has no original address bound), as for rawfile; the ';' literal at 0x7D27E4 is also the one Send_Pending_Ping_Report uses (folded literal; that unit now writes \";\" instead of a stand-in global)"
+  ],
+  "notes": [
+   "The unit's rows include CDFileClass's scalar deleting destructor 0x401950, kept outside the module's range; the Wstring constructor (0x46FD60) joined the unit from population-02",
+   "Find_File takes the template's name Find_First_File"
+  ]
  }
 }

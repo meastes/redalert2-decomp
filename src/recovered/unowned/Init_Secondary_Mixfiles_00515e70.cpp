@@ -64,7 +64,7 @@ bool __fastcall Init_Secondary_Mixfiles()
     char name[260];
     if (CD::IsLocal == true) {
         strcpy(name, "MAPS*.MIX");
-        if (CDFileClass::Find_File(name) == true) {
+        if (CDFileClass::Find_First_File(name) == true) {
             Unknown_00496460(" %s", name);
             MapsMix = new MixFileClass(name, &FastKey);
             while (CDFileClass::Find_Next_File(name) == true) {
@@ -111,7 +111,7 @@ bool __fastcall Init_Secondary_Mixfiles()
         if (RawFileClass("MIXFILES\\MOVIES01.MIX").Is_Available()) {
             strcpy(name, "MIXFILES\\MOVIES*.MIX");
         }
-        if (CDFileClass::Find_File(name) == true) {
+        if (CDFileClass::Find_First_File(name) == true) {
             Unknown_00496460(" %s", name);
             MoviesMix = new MixFileClass(name, &FastKey);
             while (CDFileClass::Find_Next_File(name) == true) {

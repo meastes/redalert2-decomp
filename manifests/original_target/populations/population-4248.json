@@ -4,8 +4,8 @@
     "id": "population-4248",
     "inventory_sha256": "756ed369d2d6372466a6e95d150f1c4dbabe49f7d504b7801b76e4360a95fb52",
     "gaps_sha256": "7141d33b1d4a10fec7c68601749a101c0e291bf8c5f048c84a3f9f0d37258256",
-    "historical_population_sha256": "34d87c746694ec5c37bb735512f1fec995ae971f42533b19686f56a79cd2a974",
-    "historical_acceptance_sha256": "ef4e83c7db2d96334e47683db795105c2e08c6899fac58508dc4ca107c1f8f3c"
+    "historical_population_sha256": "d5796b61efb3e2d51250d85875229fc17b4083ada9f6620eff17ca19753770d0",
+    "historical_acceptance_sha256": "a5033c937a107ea0b6a5910fd988051c2deaa1aa5d7fc93c9e2e7e9dc64e34fa"
   },
   "references": {
     "?OnServerTime@CChatEventSink@@UAGJJJ@Z": 7756112,
@@ -3382,7 +3382,7 @@
     "?Get_CD_Index@@YIHHH@Z": 4817888,
     "?Add_Search_Drive@CDFileClass@@SIXPAD@Z": 4653200,
     "?Clear_Search_Drives@CDFileClass@@SIXXZ": 4653312,
-    "?Find_File@CDFileClass@@SI_NPAD@Z": 4653744,
+    "?Find_First_File@CDFileClass@@SI_NPAD@Z": 4653744,
     "?FindHandle@CDFileClass@@2PAXA": 8202196,
     "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": 4324848,
     "?Prep_For_Blit@@YI_NAAVSurface@@AAVRect@@01AA_NAAPAX3@Z": 7820128,
@@ -15206,7 +15206,8 @@
     "?Goodie_Check@CellClass@@QAE_NPAVObjectClass@@@Z": 4680896,
     "?Speed@?$TVelocity2D@N@@QBENXZ": 4306768,
     "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "??_C@_01FAJB@?$DL?$AA@": 8202212
   },
   "regions": [
     {
@@ -71872,7 +71873,7 @@
         {
           "offset": 533,
           "kind": 6,
-          "symbol": "?ping_report_terminator_7d27e4@@3PADA",
+          "symbol": "??_C@_01FAJB@?$DL?$AA@",
           "target": 8202212,
           "addend": 0,
           "resolved": 8202212
@@ -72142,7 +72143,7 @@
           "resolved": 73960
         }
       ],
-      "source_sha256": "4eb92ef3aa96899ddcdc01c93294b5dba18c79503180987ce192af065fa279ec",
+      "source_sha256": "2b37dff51c498b65eefb15054be1a01d9f604b7fcc8bcdb9a16c62c7d15324b1",
       "source": "src/recovered/unowned/Send_Pending_Ping_Report_0075b590.cpp",
       "population": "population-4248",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

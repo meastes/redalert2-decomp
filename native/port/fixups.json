@@ -1020,31 +1020,31 @@
    "verified": true
   },
   {
-   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Process_Tables_0069fc30.cpp",
+   "source": "src/recovered/swizzle.cpp",
    "old": "                if (uptr->ID > sptr->ID) {\n                    do {\n                        sptr++;\n                        scount--;\n                    } while (uptr->ID > sptr->ID);\n                }\n                if (uptr->ID != sptr->ID) {\n                    volatile int zero = 0;\n                    zero = 1 / zero;\n                }",
    "new": "                // native: bounded walk; an unmatched field is reported (the original faults on 1 / 0 here,\n                // which arm64 integer division does not: the loop spun).\n                while (scount > 1 && uptr->ID > sptr->ID) {\n                    sptr++;\n                    scount--;\n                }\n                if (uptr->ID != sptr->ID) {\n                    ra2port_swizzle_unmatched(uptr->ID, uptr->Pointer, &SwizzledPointers[0], SwizzledPointers.Count());\n                    *(void **)uptr->Pointer = 0;\n                    uptr++;\n                    ucount--;\n                }",
    "why": "Diagnostic and bound (Scout1133, M16): the original faults on its deliberate 1 / 0 when a loaded pointer's object never called Here_I_Am; arm64 integer division returns 0 without a trap, so the native loop spun for ever (M15's load hang), and the do/while walk had no end check. Natively the walk stops at the last object, each unmatched field is printed (ID, field, nearest registered objects and their vtables) and, after the table, the run faults as the original (RA2_NATIVE_SWIZZLE_CONTINUE=1 nulls them and goes on, diagnostics only)."
   },
   {
-   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Process_Tables_0069fc30.cpp",
+   "source": "src/recovered/swizzle.cpp",
    "old": "        UnswizzledPointers.Clear();\n        SwizzledPointers.Clear();\n    }",
    "new": "        UnswizzledPointers.Clear();\n        SwizzledPointers.Clear();\n        ra2port_swizzle_done();\n    }",
    "why": "Diagnostic and bound (Scout1133, M16): the original faults on its deliberate 1 / 0 when a loaded pointer's object never called Here_I_Am; arm64 integer division returns 0 without a trap, so the native loop spun for ever (M15's load hang), and the do/while walk had no end check. Natively the walk stops at the last object, each unmatched field is printed (ID, field, nearest registered objects and their vtables) and, after the table, the run faults as the original (RA2_NATIVE_SWIZZLE_CONTINUE=1 nulls them and goes on, diagnostics only)."
   },
   {
-   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Process_Tables_0069fc30.cpp",
+   "source": "src/recovered/swizzle.cpp",
    "old": "#include \"shared/swizzle.hpp\"\n",
    "new": "#include \"shared/swizzle.hpp\"\n\nextern \"C\" void ra2port_swizzle_unmatched(intptr_t id, void *field, void const *swizzled, int count);   // native diagnostics\nextern \"C\" void ra2port_swizzle_done(void);\n",
    "why": "Diagnostic and bound (Scout1133, M16): the original faults on its deliberate 1 / 0 when a loaded pointer's object never called Here_I_Am; arm64 integer division returns 0 without a trap, so the native loop spun for ever (M15's load hang), and the do/while walk had no end check. Natively the walk stops at the last object, each unmatched field is printed (ID, field, nearest registered objects and their vtables) and, after the table, the run faults as the original (RA2_NATIVE_SWIZZLE_CONTINUE=1 nulls them and goes on, diagnostics only)."
   },
   {
-   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Swizzle_0069fb20.cpp",
+   "source": "src/recovered/swizzle.cpp",
    "old": "    *pointer = 0;\n    return S_OK;",
    "new": "    ra2port_swizzle_note(pointer, __builtin_return_address(0));   // native diagnostics\n    *pointer = 0;\n    return S_OK;",
    "why": "Diagnostic (Scout1133, M16): with RA2_NATIVE_SWIZZLE_TRACE=1 each recorded field remembers its caller (the Load that asked), which Process_Tables' unmatched report prints. No behaviour change."
   },
   {
-   "source": "src/recovered/classes/SwizzleManagerClass/SwizzleManagerClass_Swizzle_0069fb20.cpp",
+   "source": "src/recovered/swizzle.cpp",
    "old": "#include \"shared/swizzle.hpp\"\n",
    "new": "#include \"shared/swizzle.hpp\"\n\nextern \"C\" void ra2port_swizzle_note(void *field, void *caller);   // native diagnostics\n",
    "why": "Diagnostic (Scout1133, M16): with RA2_NATIVE_SWIZZLE_TRACE=1 each recorded field remembers its caller (the Load that asked), which Process_Tables' unmatched report prints. No behaviour change."
@@ -1444,8 +1444,8 @@
   },
   {
    "source": "src/recovered/classes/ObjectClass/ObjectClass_Load_005d4760.cpp",
-   "old": "    SwizzleManager.Swizzle((void **)&unknown_18);\n",
-   "new": "#if defined(__LP64__)\n    // NATIVE: unknown_18 is a 4-byte int here (a 4-byte pointer field in the original, which\n    // swizzles it); Swizzle reads and patches 8 bytes, unknown_18 and RefCount. A null field\n    // needs no remap (the swizzle manager ignores null ids), so it is skipped.\n    if (unknown_18 != 0) SwizzleManager.Swizzle((void **)&unknown_18);\n#else\n    SwizzleManager.Swizzle((void **)&unknown_18);\n#endif\n",
+   "old": "    Swizzler.Swizzle((void **)&unknown_18);\n",
+   "new": "#if defined(__LP64__)\n    // NATIVE: unknown_18 is a 4-byte int here (a 4-byte pointer field in the original, which\n    // swizzles it); Swizzle reads and patches 8 bytes, unknown_18 and RefCount. A null field\n    // needs no remap (the swizzle manager ignores null ids), so it is skipped.\n    if (unknown_18 != 0) Swizzler.Swizzle((void **)&unknown_18);\n#else\n    Swizzler.Swizzle((void **)&unknown_18);\n#endif\n",
    "why": "ObjectClass::Load (0x005D4760) swizzles AbstractClass +0x18 as a pointer. Natively the field is a 4-byte int followed by RefCount, so Swizzle read the pair as one 8-byte id: a save holding a bullet with outstanding COM references (unknown_18 0, RefCount 2) failed to load ('swizzle: unmatched id 0x200000000 ... BulletClass +0x28', then abort; Scout1208 soak f26 saved at frame 15000). The original's Swizzle of a null pointer does nothing, so skipping the call for 0 keeps its behaviour; no recovered code stores a non-zero value there (constructor 0x0040FF10 and operator= 0x0056A9F0 only). Making the field pointer-sized was not taken: clang reuses AbstractClass's tail padding, so it would shift every derived class's arm64 layout.",
    "verified": true
   },
